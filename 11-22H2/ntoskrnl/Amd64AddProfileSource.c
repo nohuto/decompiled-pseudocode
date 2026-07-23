@@ -95,10 +95,13 @@ __int64 __fastcall Amd64AddProfileSource(__int64 a1, _DWORD *a2)
     if ( a2 )
       *a2 = *(_DWORD *)v15;
     KxReleaseSpinLock((volatile signed __int64 *)&HalpProfileSourceDescriptorListLock);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v18 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v18 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -127,10 +130,10 @@ __int64 __fastcall Amd64AddProfileSource(__int64 a1, _DWORD *a2)
     }
     KxReleaseSpinLock((volatile signed __int64 *)&HalpProfileSourceDescriptorListLock);
     v27 = (unsigned int)KiIrqlFlags;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v28 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v28 <= 0xFu && (unsigned __int8)v18 <= 0xFu && v28 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v28 <= 0xFu && (unsigned __int8)v18 <= 0xFu && v28 >= 2u )
       {
         v29 = KeGetCurrentPrcb();
         v27 = (unsigned int)(v18 + 1);

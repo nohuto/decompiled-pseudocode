@@ -73,7 +73,11 @@ char __fastcall PopPowerRequestHandleRequestUpdate(__int64 a1, int a2, char a3)
             v16[0] = 0LL;
             v16[1] = -1LL;
             *((_DWORD *)v5 + 3) = v11 | 8;
-            LOBYTE(v8) = KeSetTimer2((__int64)&PopPowerRequestDebounceTimer, -50000000LL, 0LL, (__int64)v16);
+            LOBYTE(v8) = KeSetTimer2(
+                           (__int64)&PopPowerRequestDebounceTimer,
+                           (LARGE_INTEGER)-50000000LL,
+                           0LL,
+                           (__int64)v16);
             break;
           }
         }

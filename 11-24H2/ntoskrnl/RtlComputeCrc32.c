@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlComputeCrc32 @ 0x140460AE0
+ * XREFs of RtlComputeCrc32 @ 0x140455F70
  * Callers:
- *     PoClearTransitionMarker @ 0x140748F9C (PoClearTransitionMarker.c)
- *     SmKmStoreFileWriteHeader @ 0x14079B5E8 (SmKmStoreFileWriteHeader.c)
- *     PopUpdateBsdPowerTransitionReferenceTime @ 0x140A8F530 (PopUpdateBsdPowerTransitionReferenceTime.c)
+ *     PoClearTransitionMarker @ 0x1407472C8 (PoClearTransitionMarker.c)
+ *     SmKmStoreFileWriteHeader @ 0x14079B6F8 (SmKmStoreFileWriteHeader.c)
+ *     PopUpdateBsdPowerTransitionReferenceTime @ 0x140A8BBC8 (PopUpdateBsdPowerTransitionReferenceTime.c)
  * Callees:
- *     crc32 @ 0x140460AF8 (crc32.c)
+ *     crc32 @ 0x140455F88 (crc32.c)
  */
 
-__int64 __fastcall RtlComputeCrc32(__int64 a1, __int64 a2, __int64 a3)
+ULONG32 __cdecl RtlComputeCrc32(ULONG32 PartialCrc, PVOID Buffer, ULONG Length)
 {
-  return crc32(a1, a2, a3);
+  return crc32(PartialCrc, Buffer, Length);
 }

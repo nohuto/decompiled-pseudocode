@@ -13,11 +13,11 @@
  *     MiCompareSlabEntry @ 0x1402DB604 (MiCompareSlabEntry.c)
  */
 
-__int64 __fastcall MiInsertSlabEntry(__int64 a1, __int64 a2, unsigned __int64 a3)
+__int64 __fastcall MiInsertSlabEntry(__int64 a1, __int64 a2, __int64 a3)
 {
   KIRQL v6; // r14
-  unsigned __int64 v7; // rbx
-  bool v8; // r8
+  signed __int64 v7; // rbx
+  BOOLEAN v8; // r8
   int v9; // ebp
   unsigned __int64 v10; // rax
   __int64 v11; // rcx
@@ -70,7 +70,7 @@ LABEL_10:
       v7 = v10;
     }
   }
-  RtlRbInsertNodeEx((unsigned __int64 *)a2, v7, v8, a3);
+  RtlRbInsertNodeEx((PRTL_RB_TREE)a2, (PRTL_BALANCED_NODE)v7, v8, (PRTL_BALANCED_NODE)a3);
   v11 = *(_QWORD *)(a2 + 24);
   if ( !v11 || (v12 = *(_DWORD *)(a3 + 132), *(_DWORD *)(v11 + 132) > v12) && v12 )
     *(_QWORD *)(a2 + 24) = a3;

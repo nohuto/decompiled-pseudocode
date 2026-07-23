@@ -1,10 +1,10 @@
 /*
- * XREFs of MiCheckVerifierFunctionsCfgState @ 0x140A43EF8
+ * XREFs of MiCheckVerifierFunctionsCfgState @ 0x140A441A8
  * Callers:
- *     MiReapplyImportOptimizationForDriverVerifier @ 0x1406408E8 (MiReapplyImportOptimizationForDriverVerifier.c)
+ *     MiReapplyImportOptimizationForDriverVerifier @ 0x140640E38 (MiReapplyImportOptimizationForDriverVerifier.c)
  * Callees:
  *     MiLookupDataTableEntry @ 0x1402136A0 (MiLookupDataTableEntry.c)
- *     CfgAddressToBitState @ 0x14065667C (CfgAddressToBitState.c)
+ *     CfgAddressToBitState @ 0x140656BCC (CfgAddressToBitState.c)
  */
 
 __int64 __fastcall MiCheckVerifierFunctionsCfgState(__int64 a1, unsigned int a2)

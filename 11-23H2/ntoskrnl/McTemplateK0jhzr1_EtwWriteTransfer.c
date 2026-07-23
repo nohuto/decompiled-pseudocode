@@ -1,10 +1,10 @@
 /*
- * XREFs of McTemplateK0jhzr1_EtwWriteTransfer @ 0x1403D0F7C
+ * XREFs of McTemplateK0jhzr1_EtwWriteTransfer @ 0x1403D115C
  * Callers:
- *     IopMountVolume @ 0x1407014E8 (IopMountVolume.c)
+ *     IopMountVolume @ 0x1407016F8 (IopMountVolume.c)
  * Callees:
- *     McGenEventWrite_EtwWriteTransfer @ 0x1403C42C0 (McGenEventWrite_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1403C44A0 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall McTemplateK0jhzr1_EtwWriteTransfer(

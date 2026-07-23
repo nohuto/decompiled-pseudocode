@@ -1,50 +1,50 @@
 /*
  * XREFs of RtlpInitEnvironmentBlock @ 0x18004AFB8
  * Callers:
- *     LdrpInitializeProcess @ 0x1800D1EC0 (LdrpInitializeProcess.c)
+ *     LdrpInitializeProcess @ 0x1800D1E80 (LdrpInitializeProcess.c)
  * Callees:
  *     RtlpWow64ThunkEnvironment32To64 @ 0x18004B06C (RtlpWow64ThunkEnvironment32To64.c)
  *     RtlCreateEnvironmentEx @ 0x18004B220 (RtlCreateEnvironmentEx.c)
  *     RtlpAllocateEnvBlock @ 0x18004BDBC (RtlpAllocateEnvBlock.c)
  *     RtlpGetBlockSizeEx @ 0x18004BDE8 (RtlpGetBlockSizeEx.c)
- *     memmove @ 0x1800A44C0 (memmove.c)
- *     memset @ 0x1800A4780 (memset.c)
+ *     memmove @ 0x1800A4480 (memmove.c)
+ *     memset @ 0x1800A4740 (memset.c)
  */
 
-__int64 RtlpInitEnvironmentBlock()
+NTSTATUS RtlpInitEnvironmentBlock()
 {
   _RTL_USER_PROCESS_PARAMETERS *ProcessParameters; // rbx
-  void *Environment; // rbp
+  void *v1; // rbp
   size_t BlockSize; // rdi
   void *EnvBlock; // rax
-  void *v4; // rsi
-  __int64 result; // rax
-  void *v6; // [rsp+30h] [rbp+8h]
+  PVOID v4; // rsi
+  NTSTATUS result; // eax
+  PVOID Environment; // [rsp+30h] [rbp+8h] BYREF
 
   ProcessParameters = NtCurrentPeb()->ProcessParameters;
-  Environment = ProcessParameters->Environment;
-  if ( Environment )
+  v1 = ProcessParameters->Environment;
+  if ( v1 )
   {
     BlockSize = RtlpGetBlockSizeEx(ProcessParameters->Environment, 1LL);
     EnvBlock = (void *)RtlpAllocateEnvBlock(BlockSize);
     v4 = EnvBlock;
     if ( !EnvBlock )
-      return 3221225626LL;
-    memmove(EnvBlock, Environment, BlockSize);
+      return -1073741670;
+    memmove(EnvBlock, v1, BlockSize);
     goto LABEL_4;
   }
   BlockSize = 4LL;
-  result = RtlCreateEnvironmentEx(0LL);
-  if ( (int)result >= 0 )
+  result = RtlCreateEnvironmentEx(0LL, &Environment, 4u);
+  if ( result >= 0 )
   {
-    v4 = v6;
+    v4 = Environment;
 LABEL_4:
     ++ProcessParameters->EnvironmentVersion;
     ProcessParameters->Environment = v4;
     ProcessParameters->EnvironmentSize = BlockSize;
     memset(&RtlpEnvironLookupTable, 0, 0x468uLL);
     RtlpWow64ThunkEnvironment32To64();
-    return 0LL;
+    return 0;
   }
   return result;
 }

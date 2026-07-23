@@ -37,7 +37,7 @@ ULONG_PTR __fastcall MiAllocatePagedPoolPages(int a1, unsigned __int64 a2)
   int v3; // r14d
   unsigned __int64 v4; // rdi
   unsigned int v5; // ecx
-  union _SLIST_HEADER *v6; // rcx
+  _SLIST_HEADER *v6; // rcx
   PSLIST_ENTRY v7; // rax
   ULONG_PTR result; // rax
   unsigned __int64 v9; // rbx

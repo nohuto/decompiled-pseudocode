@@ -6,12 +6,12 @@
  *     ZwUpdateWnfStateData @ 0x1401C39D0 (ZwUpdateWnfStateData.c)
  */
 
-__int64 HvlWnfUpdateStartupState()
+NTSTATUS HvlWnfUpdateStartupState()
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
   result = HvlpFlags;
   if ( (HvlpFlags & 2) != 0 )
-    return ZwUpdateWnfStateData(&WNF_HVL_CPU_MGMT_PARTITION, 0LL, 0LL);
+    return ZwUpdateWnfStateData(&WNF_HVL_CPU_MGMT_PARTITION, 0LL, 0, 0LL, 0LL, 0, 0);
   return result;
 }

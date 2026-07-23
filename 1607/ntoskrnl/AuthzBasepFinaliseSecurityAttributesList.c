@@ -1,11 +1,11 @@
 /*
- * XREFs of AuthzBasepFinaliseSecurityAttributesList @ 0x14000F090
+ * XREFs of AuthzBasepFinaliseSecurityAttributesList @ 0x14000EC10
  * Callers:
- *     AuthzBasepDuplicateSecurityAttributes @ 0x14000ED90 (AuthzBasepDuplicateSecurityAttributes.c)
- *     AuthzBasepSetSecurityAttributesToken @ 0x14007C264 (AuthzBasepSetSecurityAttributesToken.c)
+ *     AuthzBasepDuplicateSecurityAttributes @ 0x14000E910 (AuthzBasepDuplicateSecurityAttributes.c)
+ *     AuthzBasepSetSecurityAttributesToken @ 0x14007C2E4 (AuthzBasepSetSecurityAttributesToken.c)
  * Callees:
- *     AuthzBasepCommitSecurityAttributeChanges @ 0x14000F0F0 (AuthzBasepCommitSecurityAttributeChanges.c)
- *     AuthzBasepRollbackSecurityAttributeChanges @ 0x14023436C (AuthzBasepRollbackSecurityAttributeChanges.c)
+ *     AuthzBasepCommitSecurityAttributeChanges @ 0x14000EC70 (AuthzBasepCommitSecurityAttributeChanges.c)
+ *     AuthzBasepRollbackSecurityAttributeChanges @ 0x140234198 (AuthzBasepRollbackSecurityAttributeChanges.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  */
 

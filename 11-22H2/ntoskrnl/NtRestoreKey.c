@@ -23,14 +23,15 @@
  *     CmpReleaseShutdownRundown @ 0x140AF6470 (CmpReleaseShutdownRundown.c)
  */
 
-__int64 __fastcall NtRestoreKey(int a1, HANDLE a2, unsigned int a3)
+NTSTATUS __cdecl NtRestoreKey(HANDLE KeyHandle, HANDLE FileHandle, ULONG Flags)
 {
+  int v3; // r15d
   char v6; // r12
   struct _KTHREAD *CurrentThread; // rcx
   KPROCESSOR_MODE PreviousMode; // si
   __int64 v9; // rdx
   __int64 v10; // r8
-  signed int v11; // ebx
+  int v11; // ebx
   PVOID v12; // rdx
   __int64 v13; // rcx
   int v14; // r8d
@@ -54,6 +55,7 @@ __int64 __fastcall NtRestoreKey(int a1, HANDLE a2, unsigned int a3)
   Object = 0LL;
   Handle = 0LL;
   v26[1] = v26;
+  v3 = (int)KeyHandle;
   v26[0] = v26;
   v27 = 0LL;
   v6 = 0;
@@ -80,24 +82,24 @@ LABEL_27:
     }
     if ( PreviousMode == 1 )
     {
-      v16 = IoConvertFileHandleToKernelHandle(a2, 1, 1, 0, &Handle);
+      v16 = IoConvertFileHandleToKernelHandle(FileHandle, 1, 1, 0, &Handle);
       v17 = Handle;
       v11 = v16;
       if ( v16 < 0 )
       {
 LABEL_24:
-        if ( v17 && v17 != a2 )
+        if ( v17 && v17 != FileHandle )
           ZwClose(v17);
         goto LABEL_27;
       }
     }
     else
     {
-      v17 = a2;
-      Handle = a2;
+      v17 = FileHandle;
+      Handle = FileHandle;
     }
     LOBYTE(v15) = PreviousMode;
-    v18 = CmObReferenceObjectByHandle(a1, 0, v14, v15, (__int64)&Object, 0LL);
+    v18 = CmObReferenceObjectByHandle(v3, 0, v14, v15, (__int64)&Object, 0LL);
     v12 = Object;
     v11 = v18;
     if ( v18 < 0 )
@@ -121,7 +123,7 @@ LABEL_22:
     {
       *(_QWORD *)&v28 = v20;
       *((_QWORD *)&v28 + 1) = v21;
-      LODWORD(v29) = a3;
+      LODWORD(v29) = Flags;
       v22 = CmpCallCallBacksEx(0x29u, &v28, 0LL, 1, 0x2Au, 0LL, (__int64)v26);
       v11 = v22;
       if ( v22 < 0 )
@@ -137,7 +139,7 @@ LABEL_21:
       v6 = 1;
     }
     CmpAttachToRegistryProcess(v31);
-    v11 = CmRestoreKey(v20, (ULONG_PTR)v21, a3);
+    v11 = CmRestoreKey(v20, (ULONG_PTR)v21, Flags);
     CmpDetachFromRegistryProcess(v31);
     if ( v6 )
       v11 = CmPostCallbackNotificationEx(42, (__int64)v20, v11, (__int64)&v28, 0LL, v26);
@@ -146,5 +148,5 @@ LABEL_21:
   v11 = -1073741431;
 LABEL_28:
   CmCleanupThreadInfo((__int64 *)&v27);
-  return (unsigned int)v11;
+  return v11;
 }

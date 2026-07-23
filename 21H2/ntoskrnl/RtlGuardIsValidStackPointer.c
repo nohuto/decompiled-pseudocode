@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlGuardIsValidStackPointer @ 0x140648730
+ * XREFs of RtlGuardIsValidStackPointer @ 0x14063D520
  * Callers:
- *     KiContinuePreviousModeUser @ 0x140276A00 (KiContinuePreviousModeUser.c)
- *     KeVerifyContextRecord @ 0x14027748C (KeVerifyContextRecord.c)
+ *     KiContinuePreviousModeUser @ 0x1402649A0 (KiContinuePreviousModeUser.c)
+ *     KeVerifyContextRecord @ 0x14026542C (KeVerifyContextRecord.c)
  * Callees:
  *     <none>
  */

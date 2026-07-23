@@ -3,7 +3,7 @@
  * Callers:
  *     RtlpHpHeapCreate @ 0x18000821C (RtlpHpHeapCreate.c)
  * Callees:
- *     memset @ 0x1800A4780 (memset.c)
+ *     memset @ 0x1800A4740 (memset.c)
  */
 
 _OWORD *__fastcall RtlpHpSegContextInitialize(

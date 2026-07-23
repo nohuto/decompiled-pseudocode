@@ -1,18 +1,18 @@
 /*
- * XREFs of AlpcpProbeForWriteMessageHeader @ 0x1408F5AA0
+ * XREFs of AlpcpProbeForWriteMessageHeader @ 0x140925A30
  * Callers:
- *     NtReplyWaitReceivePortEx @ 0x1407BFF70 (NtReplyWaitReceivePortEx.c)
- *     NtReplyWaitReplyPort @ 0x1407C0130 (NtReplyWaitReplyPort.c)
- *     AlpcpProcessConnectionRequest @ 0x1408E7654 (AlpcpProcessConnectionRequest.c)
- *     AlpcpReceiveMessage @ 0x1408F806C (AlpcpReceiveMessage.c)
- *     AlpcpReceiveLegacyMessage @ 0x140ACBE7C (AlpcpReceiveLegacyMessage.c)
- *     NtRequestWaitReplyPort @ 0x140B0DA40 (NtRequestWaitReplyPort.c)
+ *     NtReplyWaitReceivePortEx @ 0x1407C2FD0 (NtReplyWaitReceivePortEx.c)
+ *     NtReplyWaitReplyPort @ 0x1407C3190 (NtReplyWaitReplyPort.c)
+ *     AlpcpProcessConnectionRequest @ 0x1408EDC14 (AlpcpProcessConnectionRequest.c)
+ *     AlpcpReceiveMessage @ 0x140927FFC (AlpcpReceiveMessage.c)
+ *     AlpcpReceiveLegacyMessage @ 0x140ACE0BC (AlpcpReceiveLegacyMessage.c)
+ *     NtRequestWaitReplyPort @ 0x140B0F190 (NtRequestWaitReplyPort.c)
  * Callees:
- *     RtlReadUCharFromUser @ 0x14077F51C (RtlReadUCharFromUser.c)
- *     RtlWriteUCharToUser @ 0x14077F710 (RtlWriteUCharToUser.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408F29F0 (ExRaiseDatatypeMisalignment.c)
- *     ProbeForWrite @ 0x1408F5D00 (ProbeForWrite.c)
- *     ExRaiseAccessViolation @ 0x1408F5DA0 (ExRaiseAccessViolation.c)
+ *     RtlReadUCharFromUser @ 0x14078201C (RtlReadUCharFromUser.c)
+ *     RtlWriteUCharToUser @ 0x140782210 (RtlWriteUCharToUser.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408F8FB0 (ExRaiseDatatypeMisalignment.c)
+ *     ProbeForWrite @ 0x140925C90 (ProbeForWrite.c)
+ *     ExRaiseAccessViolation @ 0x140925D30 (ExRaiseAccessViolation.c)
  */
 
 void __fastcall AlpcpProbeForWriteMessageHeader(unsigned __int64 a1, int a2)

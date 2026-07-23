@@ -1,13 +1,13 @@
 /*
- * XREFs of MiWakeWaitersForAweCacheAttributeChange @ 0x14064C3E8
+ * XREFs of MiWakeWaitersForAweCacheAttributeChange @ 0x14064C938
  * Callers:
- *     MiIncrementAweMapCount @ 0x14064AAD0 (MiIncrementAweMapCount.c)
+ *     MiIncrementAweMapCount @ 0x14064B020 (MiIncrementAweMapCount.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14028A930 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiLockPageInline @ 0x1402EF680 (MiLockPageInline.c)
- *     KeSignalGate @ 0x14035D33C (KeSignalGate.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14028ABC0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiLockPageInline @ 0x1402EF910 (MiLockPageInline.c)
+ *     KeSignalGate @ 0x14035D4DC (KeSignalGate.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiWakeWaitersForAweCacheAttributeChange(__int64 a1, __int64 a2)
@@ -51,10 +51,10 @@ __int64 __fastcall MiWakeWaitersForAweCacheAttributeChange(__int64 a1, __int64 a
   ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(a1 + 48));
   result = 0x7FFFFFFFFFFFFFFFLL;
   _InterlockedAnd64((volatile signed __int64 *)(a2 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
       && (unsigned __int8)result <= 0xFu
       && (unsigned __int8)v6 <= 0xFu
       && (unsigned __int8)result >= 2u )

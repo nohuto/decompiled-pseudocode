@@ -1,20 +1,20 @@
 /*
- * XREFs of MiPageChainCount @ 0x14047AB90
+ * XREFs of MiPageChainCount @ 0x140474500
  * Callers:
- *     MiCreateUserPhysicalViewCharges @ 0x140770E70 (MiCreateUserPhysicalViewCharges.c)
- *     MiCreateHardwareEnclave @ 0x1408760F0 (MiCreateHardwareEnclave.c)
- *     MiAllocateFastAwePages @ 0x1408776E8 (MiAllocateFastAwePages.c)
- *     MiAllocateUserPhysicalPagesPrepare @ 0x140877FB8 (MiAllocateUserPhysicalPagesPrepare.c)
- *     MiCreateAweInfoBitMap @ 0x140878888 (MiCreateAweInfoBitMap.c)
- *     MiCreateUserPhysicalView @ 0x140878ADC (MiCreateUserPhysicalView.c)
- *     MiDeleteAweInfoPages @ 0x140878ECC (MiDeleteAweInfoPages.c)
- *     MiProtectAwePrepare @ 0x140879020 (MiProtectAwePrepare.c)
- *     NtFreeUserPhysicalPages @ 0x1408793E0 (NtFreeUserPhysicalPages.c)
- *     NtMapUserPhysicalPagesScatter @ 0x140879900 (NtMapUserPhysicalPagesScatter.c)
- *     MiDeleteSparseRange @ 0x14087A3B4 (MiDeleteSparseRange.c)
- *     MiFreeReadListPages @ 0x140A525E0 (MiFreeReadListPages.c)
- *     NtMapUserPhysicalPages @ 0x140B39FC0 (NtMapUserPhysicalPages.c)
- *     MiGetAweVadPageSize @ 0x140B4ACB4 (MiGetAweVadPageSize.c)
+ *     MiCreateUserPhysicalViewCharges @ 0x140773E70 (MiCreateUserPhysicalViewCharges.c)
+ *     MiCreateHardwareEnclave @ 0x14087C4D4 (MiCreateHardwareEnclave.c)
+ *     MiAllocateFastAwePages @ 0x14087DAC8 (MiAllocateFastAwePages.c)
+ *     MiAllocateUserPhysicalPagesPrepare @ 0x14087E398 (MiAllocateUserPhysicalPagesPrepare.c)
+ *     MiCreateAweInfoBitMap @ 0x14087EC68 (MiCreateAweInfoBitMap.c)
+ *     MiCreateUserPhysicalView @ 0x14087EEBC (MiCreateUserPhysicalView.c)
+ *     MiDeleteAweInfoPages @ 0x14087F2AC (MiDeleteAweInfoPages.c)
+ *     MiProtectAwePrepare @ 0x14087F400 (MiProtectAwePrepare.c)
+ *     NtFreeUserPhysicalPages @ 0x14087F7C0 (NtFreeUserPhysicalPages.c)
+ *     NtMapUserPhysicalPagesScatter @ 0x14087FCE0 (NtMapUserPhysicalPagesScatter.c)
+ *     MiDeleteSparseRange @ 0x1408807B0 (MiDeleteSparseRange.c)
+ *     MiFreeReadListPages @ 0x140A5B8D0 (MiFreeReadListPages.c)
+ *     NtMapUserPhysicalPages @ 0x140B3C1D0 (NtMapUserPhysicalPages.c)
+ *     MiGetAweVadPageSize @ 0x140B4CA44 (MiGetAweVadPageSize.c)
  * Callees:
  *     <none>
  */

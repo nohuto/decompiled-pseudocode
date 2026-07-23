@@ -1,16 +1,16 @@
 /*
- * XREFs of MxCopyPage @ 0x1409BFDC8
+ * XREFs of MxCopyPage @ 0x1409C0DC8
  * Callers:
  *     MiCreateSystemPageTable @ 0x140026730 (MiCreateSystemPageTable.c)
  * Callees:
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MiMakeValidPte @ 0x14003D7F0 (MiMakeValidPte.c)
- *     KeFlushSingleTb @ 0x1400ECDF4 (KeFlushSingleTb.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     KeCopyPage @ 0x1401C09D0 (KeCopyPage.c)
- *     MxGetPhase0Mapping @ 0x1409C07B0 (MxGetPhase0Mapping.c)
+ *     KeFlushSingleTb @ 0x1400ECE74 (KeFlushSingleTb.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     KeCopyPage @ 0x1401C0B30 (KeCopyPage.c)
+ *     MxGetPhase0Mapping @ 0x1409C17B0 (MxGetPhase0Mapping.c)
  */
 
 __int64 __fastcall MxCopyPage(ULONG_PTR BugCheckParameter2, __int64 a2)
@@ -38,7 +38,7 @@ __int64 __fastcall MxCopyPage(ULONG_PTR BugCheckParameter2, __int64 a2)
     if ( (unsigned int)MiPteHasShadow() )
     {
       v9 = 1;
-      if ( HIBYTE(word_14043A1AC) )
+      if ( HIBYTE(word_14043B26C) )
         goto LABEL_3;
       v13 = (v7 & 1) == 0;
     }
@@ -63,7 +63,7 @@ LABEL_3:
     if ( (unsigned int)MiPteHasShadow() )
     {
       v11 = 1;
-      if ( HIBYTE(word_14043A1AC) )
+      if ( HIBYTE(word_14043B26C) )
         goto LABEL_6;
       v14 = (v10 & 1) == 0;
     }

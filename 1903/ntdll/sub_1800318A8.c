@@ -12,83 +12,83 @@
  *     sub_18010EB1C @ 0x18010EB1C (sub_18010EB1C.c)
  */
 
-signed __int64 __fastcall sub_1800318A8(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+int __fastcall sub_1800318A8(__int64 a1, _RTL_SRWLOCK *a2, __int64 a3, __int64 a4)
 {
-  __int64 v4; // rdi
+  _RTL_SRWLOCK *v4; // rdi
   int v6; // r10d
-  __int64 *v7; // rbx
+  _RTL_SRWLOCK **v7; // rbx
   __int64 v8; // r9
-  __int64 v9; // rsi
-  __int64 **v10; // rax
+  _RTL_SRWLOCK *v9; // rsi
+  _RTL_SRWLOCK **Ptr; // rax
   int v11; // eax
-  __int64 v12; // r8
+  int v12; // r8d
   __int64 *ThreadPoolData; // rax
   __int64 v14; // rax
-  signed __int64 result; // rax
-  __int64 v16; // rdx
+  signed __int64 v15; // rax
+  int v16; // edx
   signed __int64 v17; // rtt
-  signed __int64 v18; // [rsp+30h] [rbp+8h]
+  signed __int64 v19; // [rsp+30h] [rbp+8h]
 
   v4 = a2;
   if ( !a2 )
   {
     if ( a4 && (*(_BYTE *)(a4 + 56) & 2) != 0 )
-      v4 = qword_180166458;
+      v4 = (_RTL_SRWLOCK *)qword_180166458;
     else
-      v4 = qword_180166470;
+      v4 = (_RTL_SRWLOCK *)qword_180166470;
   }
   sub_180031A38(v4, *(unsigned int *)(a1 + 8));
-  v7 = (__int64 *)(a1 + 16);
-  v9 = *(_QWORD *)(v4 + 8LL * v6 + 16) + 24 * v8;
-  RtlAcquireSRWLockExclusive(v9 + 16);
-  v10 = *(__int64 ***)(v9 + 8);
-  if ( *v10 != (__int64 *)v9 )
+  v7 = (_RTL_SRWLOCK **)(a1 + 16);
+  v9 = (_RTL_SRWLOCK *)((char *)v4[v6 + 2].Ptr + 24 * v8);
+  RtlAcquireSRWLockExclusive(v9 + 2);
+  Ptr = (_RTL_SRWLOCK **)v9[1].Ptr;
+  if ( *Ptr != v9 )
     __fastfail(3u);
   *v7 = v9;
-  v7[1] = (__int64)v10;
-  *v10 = v7;
-  *(_QWORD *)(v9 + 8) = v7;
-  RtlReleaseSRWLockExclusive(v9 + 16);
-  if ( !v4 || (v11 = *(_DWORD *)(v4 + 440)) == 0 )
+  v7[1] = (_RTL_SRWLOCK *)Ptr;
+  *Ptr = (_RTL_SRWLOCK *)v7;
+  v9[1].Ptr = v7;
+  RtlReleaseSRWLockExclusive(v9 + 2);
+  if ( !v4 || (v11 = (int)v4[55].Ptr) == 0 )
     v11 = MEMORY[0x7FFE03C0];
-  if ( *(_DWORD *)(v4 + 424) != v11 )
+  if ( LODWORD(v4[53].Ptr) != v11 )
   {
-    RtlAcquireSRWLockExclusive(v4 + 72);
+    RtlAcquireSRWLockExclusive(v4 + 9);
     sub_18010EB1C(v4);
-    RtlReleaseSRWLockExclusive(v4 + 72);
+    RtlReleaseSRWLockExclusive(v4 + 9);
   }
-  v12 = 0LL;
+  v12 = 0;
   ThreadPoolData = (__int64 *)NtCurrentTeb()->ThreadPoolData;
   if ( ThreadPoolData )
   {
     v14 = *ThreadPoolData;
-    if ( *(_QWORD *)(v14 + 48) == v4 && *(_DWORD *)(v14 + 128) == 3 )
+    if ( *(_RTL_SRWLOCK **)(v14 + 48) == v4 && *(_DWORD *)(v14 + 128) == 3 )
     {
       *(_DWORD *)(v14 + 128) = 4;
-      v12 = 1LL;
+      v12 = 1;
     }
   }
-  _m_prefetchw((const void *)(v4 + 8));
-  result = *(_QWORD *)(v4 + 8);
-  LODWORD(v18) = result;
+  _m_prefetchw(&v4[1]);
+  v15 = (signed __int64)v4[1].Ptr;
+  LODWORD(v19) = v15;
   do
   {
-    if ( (v18 & 0xFFFF0000) != 0 || (_DWORD)v12 )
+    if ( (v19 & 0xFFFF0000) != 0 || v12 )
     {
-      v16 = 0LL;
+      v16 = 0;
     }
     else
     {
-      LODWORD(v18) = (unsigned __int16)v18 | ((v18 & 0xFFFF0000) + 0x10000);
-      v16 = 1LL;
+      LODWORD(v19) = (unsigned __int16)v19 | ((v19 & 0xFFFF0000) + 0x10000);
+      v16 = 1;
     }
-    v17 = result;
-    HIDWORD(v18) = HIDWORD(result) + 1;
-    result = _InterlockedCompareExchange64((volatile signed __int64 *)(v4 + 8), v18, result);
-    LODWORD(v18) = result;
+    v17 = v15;
+    HIDWORD(v19) = HIDWORD(v15) + 1;
+    v15 = _InterlockedCompareExchange64((volatile signed __int64 *)&v4[1], v19, v15);
+    LODWORD(v19) = v15;
   }
-  while ( v17 != result );
-  if ( (_DWORD)v16 )
-    return ZwReleaseWorkerFactoryWorker(*(_QWORD *)(v4 + 56), v16, v12, 4294901760LL);
-  return result;
+  while ( v17 != v15 );
+  if ( v16 )
+    LODWORD(v15) = ZwReleaseWorkerFactoryWorker(v4[7].Ptr);
+  return v15;
 }

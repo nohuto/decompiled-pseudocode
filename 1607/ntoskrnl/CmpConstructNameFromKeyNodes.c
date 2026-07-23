@@ -1,18 +1,18 @@
 /*
- * XREFs of CmpConstructNameFromKeyNodes @ 0x14002D790
+ * XREFs of CmpConstructNameFromKeyNodes @ 0x14002D310
  * Callers:
- *     CmpConstructNameWithStatus @ 0x140437710 (CmpConstructNameWithStatus.c)
+ *     CmpConstructNameWithStatus @ 0x1404365E0 (CmpConstructNameWithStatus.c)
  * Callees:
- *     CmpKeyFullNameLength @ 0x140092970 (CmpKeyFullNameLength.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     CmpKeyFullNameLength @ 0x140092170 (CmpKeyFullNameLength.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     CmpCleanupKcbStack @ 0x140404934 (CmpCleanupKcbStack.c)
- *     CmpInitializeKcbStack @ 0x140404944 (CmpInitializeKcbStack.c)
- *     CmpStartKcbStack @ 0x1404050C0 (CmpStartKcbStack.c)
- *     CmpGetKcbAtLayerHeight @ 0x1404400C0 (CmpGetKcbAtLayerHeight.c)
- *     CmpCopyCompressedName @ 0x1404400E0 (CmpCopyCompressedName.c)
- *     CmpPopulateKcbStack @ 0x140440110 (CmpPopulateKcbStack.c)
+ *     CmpCleanupKcbStack @ 0x1404037F4 (CmpCleanupKcbStack.c)
+ *     CmpInitializeKcbStack @ 0x140403804 (CmpInitializeKcbStack.c)
+ *     CmpStartKcbStack @ 0x140403F80 (CmpStartKcbStack.c)
+ *     CmpGetKcbAtLayerHeight @ 0x14043EF90 (CmpGetKcbAtLayerHeight.c)
+ *     CmpCopyCompressedName @ 0x14043EFB0 (CmpCopyCompressedName.c)
+ *     CmpPopulateKcbStack @ 0x14043EFE0 (CmpPopulateKcbStack.c)
  */
 
 __int64 __fastcall CmpConstructNameFromKeyNodes(__int64 a1, _QWORD *a2)

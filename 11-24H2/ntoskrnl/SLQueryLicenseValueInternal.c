@@ -1,27 +1,27 @@
 /*
- * XREFs of SLQueryLicenseValueInternal @ 0x1407B99EC
+ * XREFs of SLQueryLicenseValueInternal @ 0x1407B9E3C
  * Callers:
- *     NtQueryLicenseValue @ 0x140977CA0 (NtQueryLicenseValue.c)
- *     ntoskrnl_27 @ 0x140977FD0 (ntoskrnl_27.c)
+ *     NtQueryLicenseValue @ 0x1409604B0 (NtQueryLicenseValue.c)
+ *     ntoskrnl_27 @ 0x1409607E0 (ntoskrnl_27.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExfReleasePushLockShared @ 0x14025DE00 (ExfReleasePushLockShared.c)
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockSharedEx @ 0x14034050C (ExfAcquirePushLockSharedEx.c)
- *     ExpQueryLicenseValueFromBlobHelper @ 0x1404AFA20 (ExpQueryLicenseValueFromBlobHelper.c)
- *     _wcsicmp @ 0x1404FE3B0 (_wcsicmp.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     memcmp @ 0x1406BFF10 (memcmp.c)
- *     sub_1407B8DA4 @ 0x1407B8DA4 (sub_1407B8DA4.c)
- *     SLGetSubscriptionPfn @ 0x1407B9708 (SLGetSubscriptionPfn.c)
- *     RtlEqualUnicodeString @ 0x140927050 (RtlEqualUnicodeString.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExfReleasePushLockShared @ 0x14028E410 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockSharedEx @ 0x14031F9EC (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     ExpQueryLicenseValueFromBlobHelper @ 0x1404AA410 (ExpQueryLicenseValueFromBlobHelper.c)
+ *     _wcsicmp @ 0x1404FBC70 (_wcsicmp.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     memcmp @ 0x1406C0E10 (memcmp.c)
+ *     sub_1407B91F4 @ 0x1407B91F4 (sub_1407B91F4.c)
+ *     SLGetSubscriptionPfn @ 0x1407B9B58 (SLGetSubscriptionPfn.c)
+ *     RtlEqualUnicodeString @ 0x140929190 (RtlEqualUnicodeString.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SLQueryLicenseValueInternal(
@@ -29,7 +29,7 @@ __int64 __fastcall SLQueryLicenseValueInternal(
         const UNICODE_STRING *a2,
         __int64 a3,
         __int64 a4,
-        unsigned int a5,
+        int a5,
         __int64 a6)
 {
   const UNICODE_STRING *v6; // r15
@@ -44,7 +44,7 @@ __int64 __fastcall SLQueryLicenseValueInternal(
   __int64 v15; // r11
   __int64 v16; // rax
   struct _KTHREAD *CurrentThread; // rax
-  _QWORD *v18; // rdi
+  char *v18; // rdi
   bool v19; // zf
   __int64 v20; // r13
   int LicenseValueFromBlobHelper; // edi
@@ -55,8 +55,8 @@ __int64 __fastcall SLQueryLicenseValueInternal(
   int v27; // eax
   char v28; // al
   struct _KTHREAD *v29; // rax
-  _QWORD *v30; // rax
-  _QWORD *v31; // r15
+  char *v30; // rax
+  char *v31; // r15
   __int64 v32; // r12
   int v33; // r15d
   unsigned int k; // ebx
@@ -110,14 +110,14 @@ __int64 __fastcall SLQueryLicenseValueInternal(
         {
           LOBYTE(v53) = 1;
           *((_QWORD *)&v53 + 1) = a2;
-          v47 = sub_1407B8DA4(a1);
+          v47 = sub_1407B91F4(a1);
           v49 = 0LL;
           v8 = 1;
           v43 = 1;
           for ( i = 0; i < 0xE; ++i )
           {
             v10 = (unsigned __int16)**((_WORD **)&v53 + 1);
-            v11 = *((unsigned __int16 *)&off_140B3ACD0 + 20 * i + 4);
+            v11 = *((unsigned __int16 *)&off_140B3CA80 + 20 * i + 4);
             if ( (_WORD)v10 == (_WORD)v11 )
             {
               v12 = v10 >> 1;
@@ -137,11 +137,11 @@ __int64 __fastcall SLQueryLicenseValueInternal(
                 v43 = v8;
                 v6 = v51;
               }
-              if ( !memcmp(Buf1, *(&off_140B3ACD0 + 5 * i), v11) )
+              if ( !memcmp(Buf1, *(&off_140B3CA80 + 5 * i), v11) )
               {
-                v16 = (__int64)*(&off_140B3ACD0 + 5 * i + 2);
+                v16 = (__int64)*(&off_140B3CA80 + 5 * i + 2);
                 v49 = v16;
-                LOBYTE(v7) = *((_BYTE *)&off_140B3ACD0 + 40 * i + 32);
+                LOBYTE(v7) = *((_BYTE *)&off_140B3CA80 + 40 * i + 32);
                 goto LABEL_18;
               }
               v8 = v43;
@@ -160,13 +160,13 @@ LABEL_18:
             {
               CurrentThread = KeGetCurrentThread();
               --CurrentThread->KernelApcDisable;
-              v18 = KeAbPreAcquire(a1 + 46840, 0LL);
+              v18 = (char *)KeAbPreAcquire(a1 + 46840, 0LL);
               if ( _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 46840), 17LL, 0LL) )
                 ExfAcquirePushLockSharedEx((signed __int64 *)(a1 + 46840), 0, v18, a1 + 46840);
               if ( v18 )
-                *((_BYTE *)v18 + 10) = 1;
+                v18[10] = 1;
             }
-            guard_dispatch_icall_no_overrides(a1, v46, v45, a5);
+            guard_dispatch_icall_no_overrides(a1, v46);
             v19 = (_BYTE)v7 == 0;
             v20 = a1;
             if ( !v19 )
@@ -186,14 +186,14 @@ LABEL_18:
             goto LABEL_30;
           LicenseValueFromBlobHelper = ExpQueryLicenseValueFromBlobHelper(
                                          v20,
-                                         (__int64)&qword_140B3B738,
+                                         (__int64)&qword_140B3D4F0,
                                          0LL,
                                          (__int64)&v44,
                                          4,
                                          (__int64)&v48);
-          if ( !qword_140FD7388 || !v44 || RtlEqualUnicodeString(v6, &String2, 0) )
+          if ( !qword_140FD8398 || !v44 || RtlEqualUnicodeString(v6, &String2, 0) )
             goto LABEL_52;
-          Pool2 = (wchar_t *)ExAllocatePool2(0x100uLL);
+          Pool2 = (wchar_t *)ExAllocatePool2(0x100uLL, (unsigned int)v6->Length + 2, 0x20534C53u);
           v7 = Pool2;
           v41 = Pool2;
           if ( !Pool2 )
@@ -224,7 +224,7 @@ LABEL_18:
           {
             SLGetSubscriptionPfn(a1, &P);
             v26 = a6;
-            v27 = guard_dispatch_icall_no_overrides(P, 0LL, 0LL, 0LL);
+            v27 = guard_dispatch_icall_no_overrides(P, 0LL);
             if ( (int)(v27 + 0x80000000) < 0 || v27 == -1073741789 )
             {
               LicenseValueFromBlobHelper = v27;
@@ -239,12 +239,12 @@ LABEL_54:
                 {
                   v29 = KeGetCurrentThread();
                   --v29->KernelApcDisable;
-                  v30 = KeAbPreAcquire(v20 + 46840, 0LL);
+                  v30 = (char *)KeAbPreAcquire(v20 + 46840, 0LL);
                   v31 = v30;
                   if ( _interlockedbittestandset64((volatile signed __int32 *)(v20 + 46840), 0LL) )
-                    ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(v20 + 46840), (__int64)v30, v20 + 46840);
+                    ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(v20 + 46840), v30, v20 + 46840);
                   if ( v31 )
-                    *((_BYTE *)v31 + 10) = 1;
+                    v31[10] = 1;
                   *(_BYTE *)(v20 + 46992) = 1;
                   if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)(v20 + 46840), 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
                     ExfTryToWakePushLock((volatile signed __int64 *)(v20 + 46840));
@@ -257,7 +257,7 @@ LABEL_54:
               for ( k = 0; k < 0xE; ++k )
               {
                 v35 = (unsigned __int16)**((_WORD **)&v53 + 1);
-                v36 = *((unsigned __int16 *)&off_140B3ACD0 + 20 * k + 4);
+                v36 = *((unsigned __int16 *)&off_140B3CA80 + 20 * k + 4);
                 if ( (_WORD)v35 == (_WORD)v36 )
                 {
                   v37 = v35 >> 1;
@@ -276,9 +276,9 @@ LABEL_54:
                     while ( v40 );
                     v32 = 0LL;
                   }
-                  if ( !memcmp(Buf1, *(&off_140B3ACD0 + 5 * k), v36) )
+                  if ( !memcmp(Buf1, *(&off_140B3CA80 + 5 * k), v36) )
                   {
-                    v32 = (__int64)*(&off_140B3ACD0 + 5 * k + 3);
+                    v32 = (__int64)*(&off_140B3CA80 + 5 * k + 3);
                     break;
                   }
                 }
@@ -292,7 +292,7 @@ LABEL_54:
                  || LicenseValueFromBlobHelper == -1073741772
                  || LicenseValueFromBlobHelper == -1073741275) )
               {
-                guard_dispatch_icall_no_overrides(a1, v46, v45, a5);
+                guard_dispatch_icall_no_overrides(a1, v46);
               }
 LABEL_30:
               v7 = (wchar_t *)v41;

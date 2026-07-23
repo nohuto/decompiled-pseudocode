@@ -1,17 +1,17 @@
 /*
- * XREFs of SshpSetCollectionActive @ 0x1404A2B28
+ * XREFs of SshpSetCollectionActive @ 0x14049C548
  * Callers:
- *     PdcPoSleepStudyHelperSetPhaseActive @ 0x140B036E0 (PdcPoSleepStudyHelperSetPhaseActive.c)
- *     SshpPowerSettingCallback @ 0x140B1F180 (SshpPowerSettingCallback.c)
- *     SshInitialize @ 0x140CD7428 (SshInitialize.c)
+ *     PdcPoSleepStudyHelperSetPhaseActive @ 0x140B052F0 (PdcPoSleepStudyHelperSetPhaseActive.c)
+ *     SshpPowerSettingCallback @ 0x140B21200 (SshpPowerSettingCallback.c)
+ *     SshInitialize @ 0x140CDD7A8 (SshInitialize.c)
  * Callees:
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     SshpStopBlockerAccounting @ 0x1404A2C30 (SshpStopBlockerAccounting.c)
- *     CmpVolumeManagerLockContextListExclusive @ 0x140905BD0 (CmpVolumeManagerLockContextListExclusive.c)
- *     SshpTracingWriteCollectionStateChange @ 0x140B00804 (SshpTracingWriteCollectionStateChange.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     SshpStopBlockerAccounting @ 0x14049C650 (SshpStopBlockerAccounting.c)
+ *     CmpVolumeManagerLockContextListExclusive @ 0x140A2E304 (CmpVolumeManagerLockContextListExclusive.c)
+ *     SshpTracingWriteCollectionStateChange @ 0x140B02534 (SshpTracingWriteCollectionStateChange.c)
  */
 
 void __fastcall SshpSetCollectionActive(struct _KTHREAD *a1, unsigned __int8 a2)

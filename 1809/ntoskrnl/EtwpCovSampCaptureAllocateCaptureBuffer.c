@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpCovSampCaptureAllocateCaptureBuffer @ 0x1408C3A50
+ * XREFs of EtwpCovSampCaptureAllocateCaptureBuffer @ 0x1408C4D10
  * Callers:
  *     <none>
  * Callees:
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
  */
 
 _QWORD *__fastcall EtwpCovSampCaptureAllocateCaptureBuffer(__int64 a1, __int64 a2)

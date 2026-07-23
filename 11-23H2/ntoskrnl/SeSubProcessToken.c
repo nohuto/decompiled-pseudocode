@@ -1,34 +1,34 @@
 /*
- * XREFs of SeSubProcessToken @ 0x1406B71F8
+ * XREFs of SeSubProcessToken @ 0x1406B722C
  * Callers:
- *     PspInitializeProcessSecurity @ 0x1406B64F0 (PspInitializeProcessSecurity.c)
+ *     PspInitializeProcessSecurity @ 0x1406B66A0 (PspInitializeProcessSecurity.c)
  * Callees:
- *     SepSetTrustLevelForProcessToken @ 0x140224B24 (SepSetTrustLevelForProcessToken.c)
- *     SepSetTokenBnoIsolation @ 0x140224BA8 (SepSetTokenBnoIsolation.c)
- *     SepMandatorySubProcessToken @ 0x140225BB0 (SepMandatorySubProcessToken.c)
- *     SepDesktopAppxSubProcessToken @ 0x140225D3C (SepDesktopAppxSubProcessToken.c)
- *     SeTokenGetNoChildProcessRestricted @ 0x1402265DC (SeTokenGetNoChildProcessRestricted.c)
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     SepDeleteAccessState @ 0x140232270 (SepDeleteAccessState.c)
- *     SepCreateAccessStateFromSubjectContext @ 0x140232B40 (SepCreateAccessStateFromSubjectContext.c)
- *     ObFastDereferenceObject @ 0x140297C80 (ObFastDereferenceObject.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     SeTokenIsNoChildProcessRestrictionEnforced @ 0x1405B91F8 (SeTokenIsNoChildProcessRestrictionEnforced.c)
- *     SepSetTokenAllApplicationPackagesPolicy @ 0x1405B93F0 (SepSetTokenAllApplicationPackagesPolicy.c)
- *     SepSetProcessUniqueAttribute @ 0x1406B7620 (SepSetProcessUniqueAttribute.c)
- *     SepSetTokenSessionById @ 0x1406B7AE0 (SepSetTokenSessionById.c)
- *     SeCreateAccessState @ 0x1406C2E60 (SeCreateAccessState.c)
- *     PsReferenceEffectiveToken @ 0x14071D6EC (PsReferenceEffectiveToken.c)
- *     SepFinalizeTokenAcls @ 0x14071DDE0 (SepFinalizeTokenAcls.c)
- *     SepDuplicateToken @ 0x140729B80 (SepDuplicateToken.c)
- *     ObInsertObjectEx @ 0x1407359D0 (ObInsertObjectEx.c)
- *     SeReleaseSubjectContext @ 0x140737BC0 (SeReleaseSubjectContext.c)
- *     SepAddTokenOriginClaim @ 0x1407E3654 (SepAddTokenOriginClaim.c)
- *     SepDereferenceLowBoxNumberEntry @ 0x1407EF1CC (SepDereferenceLowBoxNumberEntry.c)
- *     SepSetTokenLowboxNumber @ 0x1407F474C (SepSetTokenLowboxNumber.c)
- *     EtwTimLogProhibitChildProcessCreation @ 0x1409E9A08 (EtwTimLogProhibitChildProcessCreation.c)
+ *     SepSetTrustLevelForProcessToken @ 0x140224C2C (SepSetTrustLevelForProcessToken.c)
+ *     SepSetTokenBnoIsolation @ 0x140224CB0 (SepSetTokenBnoIsolation.c)
+ *     SepMandatorySubProcessToken @ 0x140225CC0 (SepMandatorySubProcessToken.c)
+ *     SepDesktopAppxSubProcessToken @ 0x140225E4C (SepDesktopAppxSubProcessToken.c)
+ *     SeTokenGetNoChildProcessRestricted @ 0x1402266EC (SeTokenGetNoChildProcessRestricted.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     SepDeleteAccessState @ 0x140232340 (SepDeleteAccessState.c)
+ *     SepCreateAccessStateFromSubjectContext @ 0x140232C10 (SepCreateAccessStateFromSubjectContext.c)
+ *     ObFastDereferenceObject @ 0x140297F10 (ObFastDereferenceObject.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     SeTokenIsNoChildProcessRestrictionEnforced @ 0x1405B9768 (SeTokenIsNoChildProcessRestrictionEnforced.c)
+ *     SepSetTokenAllApplicationPackagesPolicy @ 0x1405B9960 (SepSetTokenAllApplicationPackagesPolicy.c)
+ *     SepSetProcessUniqueAttribute @ 0x1406B7654 (SepSetProcessUniqueAttribute.c)
+ *     SepSetTokenSessionById @ 0x1406B7B10 (SepSetTokenSessionById.c)
+ *     SeCreateAccessState @ 0x1406C2E90 (SeCreateAccessState.c)
+ *     PsReferenceEffectiveToken @ 0x14071D8EC (PsReferenceEffectiveToken.c)
+ *     SepFinalizeTokenAcls @ 0x14071DFE0 (SepFinalizeTokenAcls.c)
+ *     SepDuplicateToken @ 0x140729D80 (SepDuplicateToken.c)
+ *     ObInsertObjectEx @ 0x140735BC0 (ObInsertObjectEx.c)
+ *     SeReleaseSubjectContext @ 0x140737DB0 (SeReleaseSubjectContext.c)
+ *     SepAddTokenOriginClaim @ 0x1407E3924 (SepAddTokenOriginClaim.c)
+ *     SepDereferenceLowBoxNumberEntry @ 0x1407EF49C (SepDereferenceLowBoxNumberEntry.c)
+ *     SepSetTokenLowboxNumber @ 0x1407F4A1C (SepSetTokenLowboxNumber.c)
+ *     EtwTimLogProhibitChildProcessCreation @ 0x1409E9C98 (EtwTimLogProhibitChildProcessCreation.c)
  */
 
 __int64 __fastcall SeSubProcessToken(
@@ -197,7 +197,7 @@ LABEL_58:
   inserted = SepSetTokenBnoIsolation((__int64)Object, 0, 0LL, 0, 0LL);
   if ( inserted < 0 )
     goto LABEL_57;
-  inserted = SepDesktopAppxSubProcessToken((__int64)Object, a1, *(_DWORD *)(a6 + 4), &v36, v37);
+  inserted = SepDesktopAppxSubProcessToken(Object, a1, *(_DWORD *)(a6 + 4), &v36, v37);
   if ( inserted < 0 )
     goto LABEL_57;
   inserted = SepMandatorySubProcessToken((_DWORD *)(v16 & -(__int64)((a4 & 2) != 0)), (__int64)Object, a1, &v40);

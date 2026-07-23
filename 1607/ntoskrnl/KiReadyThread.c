@@ -1,13 +1,13 @@
 /*
- * XREFs of KiReadyThread @ 0x14005FBEC
+ * XREFs of KiReadyThread @ 0x14005F76C
  * Callers:
- *     KeInsertPriQueue @ 0x14005F700 (KeInsertPriQueue.c)
- *     KiReadyOutSwappedThreads @ 0x140091140 (KiReadyOutSwappedThreads.c)
+ *     KeInsertPriQueue @ 0x14005F280 (KeInsertPriQueue.c)
+ *     KiReadyOutSwappedThreads @ 0x1400908A0 (KiReadyOutSwappedThreads.c)
  * Callees:
- *     KeSetEvent @ 0x1400562D0 (KeSetEvent.c)
- *     KiDeferredReadyThread @ 0x140056AC0 (KiDeferredReadyThread.c)
- *     KiRequestProcessInSwap @ 0x1400CECA0 (KiRequestProcessInSwap.c)
- *     KiAcquireKobjectLockSafe @ 0x1400EE7C0 (KiAcquireKobjectLockSafe.c)
+ *     KeSetEvent @ 0x140055E50 (KeSetEvent.c)
+ *     KiDeferredReadyThread @ 0x140056640 (KiDeferredReadyThread.c)
+ *     KiRequestProcessInSwap @ 0x1400CCB40 (KiRequestProcessInSwap.c)
+ *     KiAcquireKobjectLockSafe @ 0x1400EC640 (KiAcquireKobjectLockSafe.c)
  */
 
 int __fastcall KiReadyThread(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

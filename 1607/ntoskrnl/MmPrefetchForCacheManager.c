@@ -1,18 +1,18 @@
 /*
- * XREFs of MmPrefetchForCacheManager @ 0x14042C5DC
+ * XREFs of MmPrefetchForCacheManager @ 0x14042B4AC
  * Callers:
- *     CcFetchDataForRead @ 0x140032F50 (CcFetchDataForRead.c)
- *     CcAsyncReadPrefetch @ 0x14006E060 (CcAsyncReadPrefetch.c)
- *     CcPerformReadAhead @ 0x140072334 (CcPerformReadAhead.c)
+ *     CcFetchDataForRead @ 0x140032AD0 (CcFetchDataForRead.c)
+ *     CcAsyncReadPrefetch @ 0x14006DBE0 (CcAsyncReadPrefetch.c)
+ *     CcPerformReadAhead @ 0x140071EB4 (CcPerformReadAhead.c)
  * Callees:
- *     KiLeaveGuardedRegionUnsafe @ 0x140013B70 (KiLeaveGuardedRegionUnsafe.c)
- *     MiReturnCcAccessLog @ 0x1400CE7C4 (MiReturnCcAccessLog.c)
- *     MiPfPutPagesInTransition @ 0x1400E5100 (MiPfPutPagesInTransition.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1400136F0 (KiLeaveGuardedRegionUnsafe.c)
+ *     MiReturnCcAccessLog @ 0x1400CC664 (MiReturnCcAccessLog.c)
+ *     MiPfPutPagesInTransition @ 0x1400E2FA0 (MiPfPutPagesInTransition.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     MiReleaseReadListResources @ 0x14042C750 (MiReleaseReadListResources.c)
- *     MiPfExecuteReadList @ 0x14042C854 (MiPfExecuteReadList.c)
- *     MiPfPrepareSequentialReadList @ 0x1404302F0 (MiPfPrepareSequentialReadList.c)
- *     MiGetCcAccessLog @ 0x1404999A0 (MiGetCcAccessLog.c)
+ *     MiReleaseReadListResources @ 0x14042B620 (MiReleaseReadListResources.c)
+ *     MiPfExecuteReadList @ 0x14042B724 (MiPfExecuteReadList.c)
+ *     MiPfPrepareSequentialReadList @ 0x14042F1C0 (MiPfPrepareSequentialReadList.c)
+ *     MiGetCcAccessLog @ 0x14049A430 (MiGetCcAccessLog.c)
  */
 
 __int64 __fastcall MmPrefetchForCacheManager(
@@ -43,7 +43,7 @@ __int64 __fastcall MmPrefetchForCacheManager(
     return 0LL;
   v12 = a5;
   CcAccessLog = 0LL;
-  if ( a5 >= dword_1403271B0 && dword_140327188 )
+  if ( a5 >= dword_1403271F0 && dword_1403271C8 )
     CcAccessLog = MiGetCcAccessLog(a1, a4 >> 12);
   if ( (int)MiPfPrepareSequentialReadList(CcAccessLog, v11, a2, a4, a4, v12, -1, (__int64)&P) < 0 || (v14 = P) == 0LL )
   {

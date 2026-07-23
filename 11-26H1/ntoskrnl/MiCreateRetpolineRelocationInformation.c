@@ -1,13 +1,13 @@
 /*
- * XREFs of MiCreateRetpolineRelocationInformation @ 0x140AAA2B4
+ * XREFs of MiCreateRetpolineRelocationInformation @ 0x140AA7894
  * Callers:
- *     MiCaptureBootDriverRetpolineInfo @ 0x14086D520 (MiCaptureBootDriverRetpolineInfo.c)
- *     MiParseImageLoadConfig @ 0x1409CC9F0 (MiParseImageLoadConfig.c)
+ *     MiCaptureBootDriverRetpolineInfo @ 0x1408738F0 (MiCaptureBootDriverRetpolineInfo.c)
+ *     MiParseImageLoadConfig @ 0x14099D9D0 (MiParseImageLoadConfig.c)
  * Callees:
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     MmGetCurrentProcessorColor @ 0x14044ADC0 (MmGetCurrentProcessorColor.c)
- *     RtlCreateRetpolineRelocationInformation @ 0x1404732EC (RtlCreateRetpolineRelocationInformation.c)
- *     MiFreeRetpolineRelocationInformation @ 0x140AAA524 (MiFreeRetpolineRelocationInformation.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     MmGetCurrentProcessorColor @ 0x140442EF0 (MmGetCurrentProcessorColor.c)
+ *     RtlCreateRetpolineRelocationInformation @ 0x14046CA6C (RtlCreateRetpolineRelocationInformation.c)
+ *     MiFreeRetpolineRelocationInformation @ 0x140AA7B04 (MiFreeRetpolineRelocationInformation.c)
  */
 
 __int64 __fastcall MiCreateRetpolineRelocationInformation(__int64 a1, int a2, unsigned int a3, _QWORD *a4)
@@ -55,7 +55,7 @@ LABEL_8:
   PoolMm[1] = *(_DWORD *)a1;
   *PoolMm = a2;
   PoolMm[12] = ((a3 + 4095) & 0xFFFFF000)
-             + ((LODWORD(stru_140E36558.QuantumTarget) + 4095 + HIDWORD(stru_140E36558.SListFaultAddress)) & 0xFFFFF000);
+             + ((LODWORD(stru_140E366D8.QuantumTarget) + 4095 + HIDWORD(stru_140E366D8.SListFaultAddress)) & 0xFFFFF000);
   RetpolineRelocationInformation = 0;
   *a4 = PoolMm;
   return (unsigned int)RetpolineRelocationInformation;

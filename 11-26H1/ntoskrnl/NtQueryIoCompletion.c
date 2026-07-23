@@ -1,53 +1,58 @@
 /*
- * XREFs of NtQueryIoCompletion @ 0x140796F10
+ * XREFs of NtQueryIoCompletion @ 0x140799A40
  * Callers:
- *     DifNtQueryIoCompletionWrapper @ 0x140683FC0 (DifNtQueryIoCompletionWrapper.c)
+ *     DifNtQueryIoCompletionWrapper @ 0x140687BA0 (DifNtQueryIoCompletionWrapper.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     RtlReadULongFromUser @ 0x14077F590 (RtlReadULongFromUser.c)
- *     RtlWriteULongToUser @ 0x14077F7A0 (RtlWriteULongToUser.c)
- *     ProbeForWrite @ 0x1408F5D00 (ProbeForWrite.c)
- *     ObReferenceObjectByHandle @ 0x1408F9550 (ObReferenceObjectByHandle.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     RtlReadULongFromUser @ 0x140782090 (RtlReadULongFromUser.c)
+ *     RtlWriteULongToUser @ 0x1407822A0 (RtlWriteULongToUser.c)
+ *     ProbeForWrite @ 0x140925C90 (ProbeForWrite.c)
+ *     ObReferenceObjectByHandle @ 0x1409294E0 (ObReferenceObjectByHandle.c)
  */
 
-__int64 __fastcall NtQueryIoCompletion(HANDLE Handle, int a2, int *a3, int a4, unsigned int *a5)
+NTSTATUS __cdecl NtQueryIoCompletion(
+        HANDLE IoCompletionHandle,
+        IO_COMPLETION_INFORMATION_CLASS IoCompletionInformationClass,
+        PVOID IoCompletionInformation,
+        ULONG IoCompletionInformationLength,
+        PULONG ReturnLength)
 {
   KPROCESSOR_MODE PreviousMode; // di
-  unsigned int *v9; // rbx
+  PULONG v9; // rbx
   int ULongFromUser; // eax
-  NTSTATUS v11; // esi
+  int v11; // esi
   int v12; // r14d
   PVOID Object; // [rsp+40h] [rbp-28h] BYREF
 
-  if ( a2 )
-    return 3221225475LL;
-  if ( a4 != 4 )
-    return 3221225476LL;
+  if ( IoCompletionInformationClass )
+    return -1073741821;
+  if ( IoCompletionInformationLength != 4 )
+    return -1073741820;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
   {
-    ProbeForWrite(a3, 4uLL, 4u);
-    v9 = a5;
-    if ( a5 )
+    ProbeForWrite(IoCompletionInformation, 4uLL, 4u);
+    v9 = ReturnLength;
+    if ( ReturnLength )
     {
-      ULongFromUser = RtlReadULongFromUser(a5);
-      RtlWriteULongToUser(a5, ULongFromUser);
+      ULongFromUser = RtlReadULongFromUser(ReturnLength);
+      RtlWriteULongToUser(ReturnLength, ULongFromUser);
     }
   }
   else
   {
-    v9 = a5;
+    v9 = ReturnLength;
   }
   Object = 0LL;
-  v11 = ObReferenceObjectByHandle(Handle, 1u, IoCompletionObjectType, PreviousMode, &Object, 0LL);
+  v11 = ObReferenceObjectByHandle(IoCompletionHandle, 1u, IoCompletionObjectType, PreviousMode, &Object, 0LL);
   if ( v11 >= 0 )
   {
     v12 = *((_DWORD *)Object + 1);
     ObfDereferenceObject(Object);
     if ( PreviousMode )
-      RtlWriteULongToUser(a3, v12);
+      RtlWriteULongToUser(IoCompletionInformation, v12);
     else
-      *a3 = v12;
+      *(_DWORD *)IoCompletionInformation = v12;
     if ( v9 )
     {
       if ( PreviousMode )
@@ -56,5 +61,5 @@ __int64 __fastcall NtQueryIoCompletion(HANDLE Handle, int a2, int *a3, int a4, u
         *v9 = 4;
     }
   }
-  return (unsigned int)v11;
+  return v11;
 }

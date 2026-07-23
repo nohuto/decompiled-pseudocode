@@ -1,12 +1,12 @@
 /*
- * XREFs of KeFirstGroupAffinityEx @ 0x14012E230
+ * XREFs of KeFirstGroupAffinityEx @ 0x14012E300
  * Callers:
- *     KeStartThread @ 0x1400D39B4 (KeStartThread.c)
- *     KeSetAffinityProcess @ 0x1401904B4 (KeSetAffinityProcess.c)
- *     NtSetInformationJobObject @ 0x140600B10 (NtSetInformationJobObject.c)
- *     PspAllocateProcess @ 0x14064BCB8 (PspAllocateProcess.c)
- *     PpmRegisterPerfStates @ 0x14074E4BC (PpmRegisterPerfStates.c)
- *     PpmIdleInitializeConcurrency @ 0x14074FD04 (PpmIdleInitializeConcurrency.c)
+ *     KeStartThread @ 0x1400D3A34 (KeStartThread.c)
+ *     KeSetAffinityProcess @ 0x1401905F4 (KeSetAffinityProcess.c)
+ *     NtSetInformationJobObject @ 0x140601B10 (NtSetInformationJobObject.c)
+ *     PspAllocateProcess @ 0x14064CE78 (PspAllocateProcess.c)
+ *     PpmRegisterPerfStates @ 0x14074F6AC (PpmRegisterPerfStates.c)
+ *     PpmIdleInitializeConcurrency @ 0x140750EF4 (PpmIdleInitializeConcurrency.c)
  * Callees:
  *     <none>
  */

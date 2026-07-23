@@ -1,12 +1,12 @@
 /*
- * XREFs of SbpUpdateCache @ 0x180063EC0
+ * XREFs of SbpUpdateCache @ 0x180084310
  * Callers:
- *     SbSelectProcedure @ 0x1800631F0 (SbSelectProcedure.c)
+ *     SbSelectProcedure @ 0x180083640 (SbSelectProcedure.c)
  * Callees:
- *     RtlReleaseSRWLockShared @ 0x18002D9F0 (RtlReleaseSRWLockShared.c)
- *     RtlAcquireSRWLockShared @ 0x18004C610 (RtlAcquireSRWLockShared.c)
- *     SbGetCurrentSwitchContext @ 0x180064460 (SbGetCurrentSwitchContext.c)
- *     SbpResolveBasedOnName @ 0x180064918 (SbpResolveBasedOnName.c)
+ *     RtlReleaseSRWLockShared @ 0x180018AF0 (RtlReleaseSRWLockShared.c)
+ *     RtlAcquireSRWLockShared @ 0x180036B90 (RtlAcquireSRWLockShared.c)
+ *     SbGetCurrentSwitchContext @ 0x1800848B0 (SbGetCurrentSwitchContext.c)
+ *     SbpResolveBasedOnName @ 0x180084D68 (SbpResolveBasedOnName.c)
  */
 
 __int64 __fastcall SbpUpdateCache(__int64 a1, __int64 a2, __int64 a3, int a4)

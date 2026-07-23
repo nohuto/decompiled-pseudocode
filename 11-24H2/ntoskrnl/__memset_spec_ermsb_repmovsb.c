@@ -1,7 +1,7 @@
 /*
- * XREFs of __memset_spec_ermsb_repmovsb @ 0x1406C0A80
+ * XREFs of __memset_spec_ermsb_repmovsb @ 0x1406C1980
  * Callers:
- *     __memset_spec_ermsb @ 0x1406C0940 (__memset_spec_ermsb.c)
+ *     __memset_spec_ermsb @ 0x1406C1840 (__memset_spec_ermsb.c)
  * Callees:
  *     <none>
  */

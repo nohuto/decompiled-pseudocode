@@ -1,12 +1,12 @@
 /*
- * XREFs of TtmiLogTerminalStateMachine @ 0x14067C92C
+ * XREFs of TtmiLogTerminalStateMachine @ 0x14067CA10
  * Callers:
- *     TtmpUpdateTerminalState @ 0x14067837C (TtmpUpdateTerminalState.c)
+ *     TtmpUpdateTerminalState @ 0x140678460 (TtmpUpdateTerminalState.c)
  * Callees:
- *     _TlgWrite @ 0x14000A598 (_TlgWrite.c)
- *     MmGetSessionIdEx @ 0x140024FEC (MmGetSessionIdEx.c)
- *     _TlgKeywordOn @ 0x140088D98 (_TlgKeywordOn.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     _TlgWrite @ 0x14000A118 (_TlgWrite.c)
+ *     MmGetSessionIdEx @ 0x140024B6C (MmGetSessionIdEx.c)
+ *     _TlgKeywordOn @ 0x14010CF88 (_TlgKeywordOn.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 char __fastcall TtmiLogTerminalStateMachine(int a1, int *a2, int *a3)
@@ -115,7 +115,7 @@ char __fastcall TtmiLogTerminalStateMachine(int a1, int *a2, int *a3)
       v51 = 4LL;
       v53 = 8LL;
       v55 = 8LL;
-      LOBYTE(v3) = TlgWrite(&stru_1407478B0, &unk_14027D93B, 0LL, 0LL, 0x12u, &pData);
+      LOBYTE(v3) = TlgWrite(&stru_1407478B0, &unk_14027DA3B, 0LL, 0LL, 0x12u, &pData);
     }
   }
   return (char)v3;

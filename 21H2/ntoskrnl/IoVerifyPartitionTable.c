@@ -1,13 +1,13 @@
 /*
- * XREFs of IoVerifyPartitionTable @ 0x14088E060
+ * XREFs of IoVerifyPartitionTable @ 0x14088E1C0
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     ??0SC_DISK@@QEAA@XZ @ 0x1405C69D4 (--0SC_DISK@@QEAA@XZ.c)
- *     ??1SC_DISK@@UEAA@XZ @ 0x1405C6AE4 (--1SC_DISK@@UEAA@XZ.c)
- *     ?VerifyPartitionTable@SC_DISK@@QEAAJE@Z @ 0x1405C7248 (-VerifyPartitionTable@SC_DISK@@QEAAJE@Z.c)
- *     ?Initialize@NT_DISK@@QEAAJPEAU_DEVICE_OBJECT@@@Z @ 0x14088D908 (-Initialize@NT_DISK@@QEAAJPEAU_DEVICE_OBJECT@@@Z.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     ??0SC_DISK@@QEAA@XZ @ 0x1405C6C04 (--0SC_DISK@@QEAA@XZ.c)
+ *     ??1SC_DISK@@UEAA@XZ @ 0x1405C6D14 (--1SC_DISK@@UEAA@XZ.c)
+ *     ?VerifyPartitionTable@SC_DISK@@QEAAJE@Z @ 0x1405C7478 (-VerifyPartitionTable@SC_DISK@@QEAAJE@Z.c)
+ *     ?Initialize@NT_DISK@@QEAAJPEAU_DEVICE_OBJECT@@@Z @ 0x14088DA68 (-Initialize@NT_DISK@@QEAAJPEAU_DEVICE_OBJECT@@@Z.c)
  */
 
 NTSTATUS __stdcall IoVerifyPartitionTable(PDEVICE_OBJECT DeviceObject, BOOLEAN FixErrors)

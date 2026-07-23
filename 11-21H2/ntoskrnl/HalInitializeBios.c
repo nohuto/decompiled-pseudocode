@@ -1,16 +1,16 @@
 /*
  * XREFs of HalInitializeBios @ 0x1403D0150
  * Callers:
- *     KiInitializeBootStructures @ 0x140A57680 (KiInitializeBootStructures.c)
- *     InitBootProcessor @ 0x140AFB264 (InitBootProcessor.c)
+ *     sub_140A57680 @ 0x140A57680 (sub_140A57680.c)
+ *     sub_140AFB264 @ 0x140AFB264 (sub_140AFB264.c)
  * Callees:
  *     MmMapIoSpaceEx @ 0x140215340 (MmMapIoSpaceEx.c)
- *     MmUnmapIoSpace @ 0x140215660 (MmUnmapIoSpace.c)
+ *     MmUnmapVideoDisplay @ 0x140215660 (MmUnmapVideoDisplay.c)
  *     MmUnmapLockedPages @ 0x1402BB4E0 (MmUnmapLockedPages.c)
  *     MmMapLockedPagesSpecifyCache @ 0x140308CD0 (MmMapLockedPagesSpecifyCache.c)
- *     x86BiosTranslateAddress @ 0x1403A3520 (x86BiosTranslateAddress.c)
- *     HalpMmAllocCtxAlloc @ 0x1403B1F04 (HalpMmAllocCtxAlloc.c)
- *     x86BiosInitializeBiosEx @ 0x1403D0428 (x86BiosInitializeBiosEx.c)
+ *     sub_1403A3520 @ 0x1403A3520 (sub_1403A3520.c)
+ *     sub_1403B1F04 @ 0x1403B1F04 (sub_1403B1F04.c)
+ *     sub_1403D0428 @ 0x1403D0428 (sub_1403D0428.c)
  *     _strupr @ 0x1403E03F0 (_strupr.c)
  *     strstr @ 0x1403E0C40 (strstr.c)
  *     memmove @ 0x140435B40 (memmove.c)
@@ -138,35 +138,35 @@ void __fastcall HalInitializeBios(int a1, _QWORD *a2)
         }
       }
 LABEL_15:
-      HalpIoMemoryBase = MmMapLockedPagesSpecifyCache(v7, 0, MmCached, 0LL, 0, 0x40000020u);
-      if ( HalpIoMemoryBase )
+      qword_140C4E340 = MmMapLockedPagesSpecifyCache(v7, 0, MmCached, 0LL, 0, 0x40000020u);
+      if ( qword_140C4E340 )
       {
         v16 = (char *)MmMapIoSpaceEx(655360LL, 0x20000LL, 0x204u);
         if ( v16 )
         {
-          v17 = HalpMmAllocCtxAlloc(v15, 0x2000LL);
+          v17 = sub_1403B1F04(v15, 0x2000LL);
           if ( v17 )
           {
-            HalpFrameBufferBase = (__int64)(v16 - 655360);
-            x86BiosInitializeBiosEx(v18, HalpIoMemoryBase, v16 - 655360, v17);
+            qword_140C4E348 = (__int64)(v16 - 655360);
+            sub_1403D0428(v18, qword_140C4E340, v16 - 655360, v17);
             v19 = (void *)MmMapIoSpaceEx(0LL, 2048LL, 4u);
             if ( v19 )
             {
-              v20 = x86BiosTranslateAddress(0, 0);
+              v20 = sub_1403A3520(0, 0);
               memmove(v20, v19, 0x800uLL);
-              MmUnmapIoSpace(v19, 0x800uLL);
-              HalpVideoBiosPresent = 1;
-              qword_140C01C38 = (__int64)HalpBiosDisplayReset;
+              MmUnmapVideoDisplay(v19, 0x800uLL);
+              byte_140C54940 = 1;
+              qword_140C01C38 = (__int64)sub_140503540;
               goto LABEL_20;
             }
           }
-          MmUnmapIoSpace(v16, 0x20000uLL);
-          HalpFrameBufferBase = 0LL;
+          MmUnmapVideoDisplay(v16, 0x20000uLL);
+          qword_140C4E348 = 0LL;
         }
-        if ( HalpIoMemoryBase )
+        if ( qword_140C4E340 )
         {
-          MmUnmapLockedPages(HalpIoMemoryBase, v7);
-          HalpIoMemoryBase = 0LL;
+          MmUnmapLockedPages(qword_140C4E340, v7);
+          qword_140C4E340 = 0LL;
         }
       }
 LABEL_20:
@@ -175,12 +175,12 @@ LABEL_20:
     }
     if ( (*(_BYTE *)(a2[30] + 2656LL) & 4) == 0 )
     {
-      HalpIoMemoryBase = 0LL;
-      HalpFrameBufferBase = 0LL;
-      qword_140C01C38 = (__int64)HalpBiosDisplayReset;
-      HalpVideoBiosPresent = 1;
-      x86BiosInitializeBiosEx(v3, 0LL, 0LL, 0x20000LL);
-      v12 = x86BiosTranslateAddress(0, 0);
+      qword_140C4E340 = 0LL;
+      qword_140C4E348 = 0LL;
+      qword_140C01C38 = (__int64)sub_140503540;
+      byte_140C54940 = 1;
+      sub_1403D0428(v3, 0LL, 0LL, 0x20000LL);
+      v12 = sub_1403A3520(0, 0);
       memmove(v12, 0LL, 0x800uLL);
     }
   }

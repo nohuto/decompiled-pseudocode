@@ -1,13 +1,13 @@
 /*
- * XREFs of MiCreatePageTablesForPhysicalRange @ 0x1401EFE1C
+ * XREFs of MiCreatePageTablesForPhysicalRange @ 0x1401EFC48
  * Callers:
- *     MiInsertPrivateVad @ 0x1400965F0 (MiInsertPrivateVad.c)
+ *     MiInsertPrivateVad @ 0x140095DF0 (MiInsertPrivateVad.c)
  * Callees:
- *     MiMakeSystemAddressValid @ 0x140015DAC (MiMakeSystemAddressValid.c)
- *     MiLockPageAtDpcInline @ 0x14002EB30 (MiLockPageAtDpcInline.c)
- *     MiIncreaseUsedPtesCount @ 0x1400374B0 (MiIncreaseUsedPtesCount.c)
- *     MiGetUsedPtesHandle @ 0x1401EF7E0 (MiGetUsedPtesHandle.c)
- *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F2550 (MI_GET_PAGE_FRAME_FROM_PTE.c)
+ *     MiMakeSystemAddressValid @ 0x14001592C (MiMakeSystemAddressValid.c)
+ *     MiLockPageAtDpcInline @ 0x14002E6B0 (MiLockPageAtDpcInline.c)
+ *     MiIncreaseUsedPtesCount @ 0x140037030 (MiIncreaseUsedPtesCount.c)
+ *     MiGetUsedPtesHandle @ 0x1401EF60C (MiGetUsedPtesHandle.c)
+ *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F237C (MI_GET_PAGE_FRAME_FROM_PTE.c)
  */
 
 __int64 __fastcall MiCreatePageTablesForPhysicalRange(__int64 a1, KIRQL a2)

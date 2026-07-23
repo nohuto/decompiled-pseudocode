@@ -1,14 +1,14 @@
 /*
- * XREFs of MiFlushCacheForAttributeChange @ 0x14024FAF0
+ * XREFs of MiFlushCacheForAttributeChange @ 0x140251450
  * Callers:
- *     MiChangePageAttributeBatch @ 0x140368E1C (MiChangePageAttributeBatch.c)
- *     MiFlushCacheRange @ 0x14070D474 (MiFlushCacheRange.c)
- *     MiInitializeCacheFlushing @ 0x140CFF38C (MiInitializeCacheFlushing.c)
+ *     MiChangePageAttributeBatch @ 0x14036ABBC (MiChangePageAttributeBatch.c)
+ *     MiFlushCacheRange @ 0x140712124 (MiFlushCacheRange.c)
+ *     MiInitializeCacheFlushing @ 0x140D0572C (MiInitializeCacheFlushing.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x14021C3F0 (KeQueryPerformanceCounter.c)
- *     KeInvalidateAllCaches @ 0x14024FCE0 (KeInvalidateAllCaches.c)
- *     MiFlushEntireTbDueToAttributeChange @ 0x14024FD8C (MiFlushEntireTbDueToAttributeChange.c)
- *     MiMapPageInHyperSpaceWorker @ 0x140287EE0 (MiMapPageInHyperSpaceWorker.c)
+ *     KeQueryPerformanceCounter @ 0x14021DD80 (KeQueryPerformanceCounter.c)
+ *     KeInvalidateAllCaches @ 0x140251640 (KeInvalidateAllCaches.c)
+ *     MiFlushEntireTbDueToAttributeChange @ 0x1402516EC (MiFlushEntireTbDueToAttributeChange.c)
+ *     MiMapPageInHyperSpaceWorker @ 0x140287440 (MiMapPageInHyperSpaceWorker.c)
  */
 
 _UNKNOWN **__fastcall MiFlushCacheForAttributeChange(__int64 a1, __int64 a2, int a3, _QWORD *a4)

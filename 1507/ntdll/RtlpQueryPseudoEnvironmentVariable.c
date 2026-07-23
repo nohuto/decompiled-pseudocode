@@ -20,11 +20,11 @@ NTSTATUS __fastcall RtlpQueryPseudoEnvironmentVariable(int a1, _WORD *a2, unsign
   unsigned __int64 v10; // rax
   __int64 v11; // rbx
   _RTL_USER_PROCESS_PARAMETERS *ProcessParameters; // rbx
-  int CharInUnicodeString; // eax
+  NTSTATUS CharInUnicodeString; // eax
   unsigned __int64 Length; // rax
   char v15; // [rsp+40h] [rbp-C8h]
   NTSTATUS v16; // [rsp+44h] [rbp-C4h]
-  unsigned __int16 v17; // [rsp+48h] [rbp-C0h] BYREF
+  USHORT NonInclusivePrefixLength; // [rsp+48h] [rbp-C0h] BYREF
   __int64 v18; // [rsp+50h] [rbp-B8h] BYREF
   _CURDIR *p_CurrentDirectory; // [rsp+58h] [rbp-B0h]
   _BYTE v20[16]; // [rsp+60h] [rbp-A8h] BYREF
@@ -36,7 +36,7 @@ NTSTATUS __fastcall RtlpQueryPseudoEnvironmentVariable(int a1, _WORD *a2, unsign
   if ( !a1 )
   {
     p_CurrentDirectory = &NtCurrentPeb()->ProcessParameters->CurrentDirectory;
-    RtlEnterCriticalSection((__int64)NtCurrentPeb()->FastPebLock);
+    RtlEnterCriticalSection(NtCurrentPeb()->FastPebLock);
     v15 = 1;
     Buffer = p_CurrentDirectory->DosPath.Buffer;
     Length = p_CurrentDirectory->DosPath.Length;
@@ -49,14 +49,14 @@ LABEL_19:
   {
     ProcessParameters = NtCurrentPeb()->ProcessParameters;
     CharInUnicodeString = RtlFindCharInUnicodeString(
-                            1,
-                            (__int16 *)&ProcessParameters->ImagePathName,
-                            (__int64)&RtlDosPathSeperatorsString,
-                            &v17);
+                            1u,
+                            &ProcessParameters->ImagePathName,
+                            &RtlDosPathSeperatorsString,
+                            &NonInclusivePrefixLength);
     Buffer = ProcessParameters->ImagePathName.Buffer;
     if ( CharInUnicodeString >= 0 )
     {
-      v10 = (v17 >> 1) + 1;
+      v10 = (NonInclusivePrefixLength >> 1) + 1;
       goto LABEL_7;
     }
     Length = ProcessParameters->ImagePathName.Length;
@@ -102,7 +102,7 @@ LABEL_10:
     result = -1073741789;
     goto LABEL_10;
   }
-  result = NtQuerySystemInformation((SYSTEM_INFORMATION_CLASS)90, v20, 0x20u, 0LL);
+  result = NtQuerySystemInformation(SystemBootEnvironmentInformation, v20, 0x20u, 0LL);
   v16 = result;
   if ( result >= 0 )
   {
@@ -121,7 +121,7 @@ LABEL_10:
 LABEL_23:
   if ( v15 )
   {
-    RtlLeaveCriticalSection((__int64)NtCurrentPeb()->FastPebLock);
+    RtlLeaveCriticalSection(NtCurrentPeb()->FastPebLock);
     return v16;
   }
   return result;

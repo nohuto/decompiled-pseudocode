@@ -9,7 +9,7 @@
  *     memcmp @ 0x180168C50 (memcmp.c)
  */
 
-char __fastcall RtlpCompareAces(unsigned __int8 *a1, unsigned __int8 *a2, __int64 a3, __int64 a4)
+char __fastcall RtlpCompareAces(unsigned __int8 *a1, unsigned __int8 *a2, void *a3, void *a4)
 {
   __int64 v4; // r11
   char result; // al
@@ -50,10 +50,10 @@ char __fastcall RtlpCompareAces(unsigned __int8 *a1, unsigned __int8 *a2, __int6
         v13 = *((_DWORD *)a1 + 4);
         if ( v13 )
         {
-          if ( v13 == 1 && a4 && (unsigned __int8)RtlEqualSid(a2 + 8, a4) )
+          if ( v13 == 1 && a4 && RtlEqualSid(a2 + 8, a4) )
             return 1;
         }
-        else if ( a3 && (unsigned __int8)RtlEqualSid(a2 + 8, a3) )
+        else if ( a3 && RtlEqualSid(a2 + 8, a3) )
         {
           return 1;
         }

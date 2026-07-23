@@ -1,22 +1,22 @@
 /*
- * XREFs of FsRtlpWaitOnIrp @ 0x1400B42DC
+ * XREFs of FsRtlpWaitOnIrp @ 0x1400B215C
  * Callers:
- *     FsRtlpOplockBreakByCacheFlags @ 0x1400785F4 (FsRtlpOplockBreakByCacheFlags.c)
- *     FsRtlpOplockBreakToII @ 0x14007B78C (FsRtlpOplockBreakToII.c)
- *     FsRtlpOplockBreakToNone @ 0x1400B563C (FsRtlpOplockBreakToNone.c)
- *     FsRtlpOplockBreakNotify @ 0x14061E7D8 (FsRtlpOplockBreakNotify.c)
+ *     FsRtlpOplockBreakByCacheFlags @ 0x140078674 (FsRtlpOplockBreakByCacheFlags.c)
+ *     FsRtlpOplockBreakToII @ 0x14007B80C (FsRtlpOplockBreakToII.c)
+ *     FsRtlpOplockBreakToNone @ 0x1400B3464 (FsRtlpOplockBreakToNone.c)
+ *     FsRtlpOplockBreakNotify @ 0x14061E88C (FsRtlpOplockBreakNotify.c)
  * Callees:
- *     KeReleaseGuardedMutex @ 0x14000CA40 (KeReleaseGuardedMutex.c)
- *     ExAcquireFastMutex @ 0x14002D0A0 (ExAcquireFastMutex.c)
- *     KeWaitForSingleObject @ 0x14005C880 (KeWaitForSingleObject.c)
- *     IoAcquireCancelSpinLock @ 0x140078440 (IoAcquireCancelSpinLock.c)
- *     IoCancelIrp @ 0x1400A2054 (IoCancelIrp.c)
- *     FsRtlpRemoveAndCompleteWaitingIrp @ 0x1400A26C4 (FsRtlpRemoveAndCompleteWaitingIrp.c)
- *     KeReleaseQueuedSpinLock @ 0x1400E8DA0 (KeReleaseQueuedSpinLock.c)
- *     ExReleaseFastMutexUnsafe @ 0x1400F0700 (ExReleaseFastMutexUnsafe.c)
- *     FsRtlpCancelWaitingIrp @ 0x1401B97D0 (FsRtlpCancelWaitingIrp.c)
+ *     KeReleaseGuardedMutex @ 0x14000C5C0 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x14002CC20 (ExAcquireFastMutex.c)
+ *     KeWaitForSingleObject @ 0x14005C400 (KeWaitForSingleObject.c)
+ *     IoAcquireCancelSpinLock @ 0x1400784C0 (IoAcquireCancelSpinLock.c)
+ *     IoCancelIrp @ 0x1400A097C (IoCancelIrp.c)
+ *     FsRtlpRemoveAndCompleteWaitingIrp @ 0x1400A0FEC (FsRtlpRemoveAndCompleteWaitingIrp.c)
+ *     KeReleaseQueuedSpinLock @ 0x1400E6C40 (KeReleaseQueuedSpinLock.c)
+ *     ExReleaseFastMutexUnsafe @ 0x1400EE580 (ExReleaseFastMutexUnsafe.c)
+ *     FsRtlpCancelWaitingIrp @ 0x1401B9524 (FsRtlpCancelWaitingIrp.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     FsRtlCancellableWaitForSingleObject @ 0x1404986BC (FsRtlCancellableWaitForSingleObject.c)
+ *     FsRtlCancellableWaitForSingleObject @ 0x14049914C (FsRtlCancellableWaitForSingleObject.c)
  */
 
 __int64 __fastcall FsRtlpWaitOnIrp(

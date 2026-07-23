@@ -28,10 +28,10 @@ void __fastcall SeSetLearningModeObjectInformation(__int64 a1)
   _DWORD *v3; // rax
   int v4; // edi
   void *v5; // rcx
-  struct _OBJECT_NAME_INFORMATION *Pool2; // rax
-  struct _OBJECT_NAME_INFORMATION *v7; // rdi
+  _OBJECT_NAME_INFORMATION *Pool2; // rax
+  _OBJECT_NAME_INFORMATION *v7; // rdi
   NTSTATUS v8; // eax
-  struct _OBJECT_NAME_INFORMATION *v9; // rax
+  _OBJECT_NAME_INFORMATION *v9; // rax
   size_t v10; // r14
   wchar_t *v11; // rax
   wchar_t *v12; // rsi
@@ -70,7 +70,7 @@ void __fastcall SeSetLearningModeObjectInformation(__int64 a1)
       Object = 0LL;
       if ( ObReferenceObjectByHandle(v5, 0, 0LL, KeGetCurrentThread()->PreviousMode, &Object, 0LL) < 0 )
         goto LABEL_20;
-      Pool2 = (struct _OBJECT_NAME_INFORMATION *)ExAllocatePool2(256LL, 528LL, 1330799955LL);
+      Pool2 = (_OBJECT_NAME_INFORMATION *)ExAllocatePool2(256LL, 528LL, 1330799955LL);
       v7 = Pool2;
       if ( Pool2 )
       {
@@ -78,7 +78,7 @@ void __fastcall SeSetLearningModeObjectInformation(__int64 a1)
         if ( v8 != -1073741820 )
           goto LABEL_12;
         ExFreePoolWithTag(v7, 0);
-        v9 = (struct _OBJECT_NAME_INFORMATION *)ExAllocatePool2(256LL, ReturnLength, 1330799955LL);
+        v9 = (_OBJECT_NAME_INFORMATION *)ExAllocatePool2(256LL, ReturnLength, 1330799955LL);
         v7 = v9;
         if ( v9 )
         {

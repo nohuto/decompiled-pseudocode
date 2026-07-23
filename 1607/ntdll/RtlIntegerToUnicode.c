@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlIntegerToUnicode @ 0x180014BB0
+ * XREFs of RtlIntegerToUnicode @ 0x180014BA0
  * Callers:
- *     RtlpMuiRegTryToAppendLangId @ 0x180014890 (RtlpMuiRegTryToAppendLangId.c)
- *     RtlConvertSidToUnicodeString @ 0x1800149E0 (RtlConvertSidToUnicodeString.c)
- *     RtlGetFileMUIPath @ 0x180069AA0 (RtlGetFileMUIPath.c)
+ *     RtlpMuiRegTryToAppendLangId @ 0x180014880 (RtlpMuiRegTryToAppendLangId.c)
+ *     RtlConvertSidToUnicodeString @ 0x1800149D0 (RtlConvertSidToUnicodeString.c)
+ *     RtlGetFileMUIPath @ 0x180069A90 (RtlGetFileMUIPath.c)
  * Callees:
- *     __security_check_cookie @ 0x180096C40 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x180096C30 (__security_check_cookie.c)
  *     memmove @ 0x1800AC980 (memmove.c)
  */
 

@@ -1,16 +1,16 @@
 /*
- * XREFs of KiFastReadyThread @ 0x1403385A4
+ * XREFs of KiFastReadyThread @ 0x1402DE4A8
  * Callers:
- *     KeReadyThread @ 0x140338E58 (KeReadyThread.c)
- *     KeSwapProcessOrStack @ 0x1405C4890 (KeSwapProcessOrStack.c)
+ *     KeReadyThread @ 0x1402DDFE8 (KeReadyThread.c)
+ *     KeSwapProcessOrStack @ 0x1405C1EB0 (KeSwapProcessOrStack.c)
  * Callees:
- *     HvlNotifyLongSpinWait @ 0x140293260 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140293290 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     KiCheckForThreadDispatch @ 0x14031D21C (KiCheckForThreadDispatch.c)
- *     EtwTraceReadyThread @ 0x1403207B0 (EtwTraceReadyThread.c)
- *     KiEnterDeferredReadyState @ 0x140337910 (KiEnterDeferredReadyState.c)
- *     KiDeferredReadyThread @ 0x1403386A0 (KiDeferredReadyThread.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     HvlNotifyLongSpinWait @ 0x1402A2E60 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402A2E90 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     KiCheckForThreadDispatch @ 0x1402C5DAC (KiCheckForThreadDispatch.c)
+ *     EtwTraceReadyThread @ 0x1402C9340 (EtwTraceReadyThread.c)
+ *     KiEnterDeferredReadyState @ 0x1402DFA30 (KiEnterDeferredReadyState.c)
+ *     KiDeferredReadyThread @ 0x1402DFBE0 (KiDeferredReadyThread.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 char __fastcall KiFastReadyThread(__int64 a1)

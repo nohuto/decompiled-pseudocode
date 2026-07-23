@@ -1,18 +1,18 @@
 /*
- * XREFs of MiCloneReserveVadCommit @ 0x14010CB38
+ * XREFs of MiCloneReserveVadCommit @ 0x14010A8B8
  * Callers:
- *     MiAllocateChildVads @ 0x140527B80 (MiAllocateChildVads.c)
+ *     MiAllocateChildVads @ 0x14050ABE0 (MiAllocateChildVads.c)
  * Callees:
- *     UNLOCK_PAGE_TABLE_COMMITMENT @ 0x140029D40 (UNLOCK_PAGE_TABLE_COMMITMENT.c)
- *     LOCK_PAGE_TABLE_COMMITMENT @ 0x14002BF50 (LOCK_PAGE_TABLE_COMMITMENT.c)
- *     MiUnlockWorkingSetExclusive @ 0x14002E930 (MiUnlockWorkingSetExclusive.c)
- *     MiGetSharedVm @ 0x14002EA30 (MiGetSharedVm.c)
- *     ExAcquireSpinLockExclusive @ 0x14002EB90 (ExAcquireSpinLockExclusive.c)
- *     MiGetNextPageTable @ 0x1400438F0 (MiGetNextPageTable.c)
- *     KiStackAttachProcess @ 0x1400CD1F0 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x1400CE820 (KiUnstackDetachProcess.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     MiCommitPageTablesForVad @ 0x140430A30 (MiCommitPageTablesForVad.c)
+ *     UNLOCK_PAGE_TABLE_COMMITMENT @ 0x1400298C0 (UNLOCK_PAGE_TABLE_COMMITMENT.c)
+ *     LOCK_PAGE_TABLE_COMMITMENT @ 0x14002BAD0 (LOCK_PAGE_TABLE_COMMITMENT.c)
+ *     MiUnlockWorkingSetExclusive @ 0x14002E4B0 (MiUnlockWorkingSetExclusive.c)
+ *     MiGetSharedVm @ 0x14002E5B0 (MiGetSharedVm.c)
+ *     ExAcquireSpinLockExclusive @ 0x14002E710 (ExAcquireSpinLockExclusive.c)
+ *     MiGetNextPageTable @ 0x140043470 (MiGetNextPageTable.c)
+ *     KiStackAttachProcess @ 0x1400CB090 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x1400CC6C0 (KiUnstackDetachProcess.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     MiCommitPageTablesForVad @ 0x14042F900 (MiCommitPageTablesForVad.c)
  */
 
 __int64 __fastcall MiCloneReserveVadCommit(__int64 a1, ULONG_PTR a2)

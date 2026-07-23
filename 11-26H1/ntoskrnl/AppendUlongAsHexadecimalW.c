@@ -1,7 +1,7 @@
 /*
- * XREFs of AppendUlongAsHexadecimalW @ 0x14064C848
+ * XREFs of AppendUlongAsHexadecimalW @ 0x140650428
  * Callers:
- *     CarInitializeTelemetryData @ 0x140649C90 (CarInitializeTelemetryData.c)
+ *     CarInitializeTelemetryData @ 0x14064D870 (CarInitializeTelemetryData.c)
  * Callees:
  *     <none>
  */

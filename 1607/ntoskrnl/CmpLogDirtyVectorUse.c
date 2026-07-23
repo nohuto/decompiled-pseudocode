@@ -1,8 +1,8 @@
 /*
- * XREFs of CmpLogDirtyVectorUse @ 0x1404819CC
+ * XREFs of CmpLogDirtyVectorUse @ 0x140480720
  * Callers:
- *     HvpGenerateLogEntry @ 0x1404812F0 (HvpGenerateLogEntry.c)
- *     HvpMarkDirty @ 0x1405137E0 (HvpMarkDirty.c)
+ *     HvpGenerateLogEntry @ 0x140480044 (HvpGenerateLogEntry.c)
+ *     HvpMarkDirty @ 0x1404F6BD0 (HvpMarkDirty.c)
  * Callees:
  *     <none>
  */

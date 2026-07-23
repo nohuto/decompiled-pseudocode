@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpEnableSecondaryInterrupt @ 0x1408654E4
+ * XREFs of HalpEnableSecondaryInterrupt @ 0x140865644
  * Callers:
- *     HalEnableInterrupt @ 0x140377B30 (HalEnableInterrupt.c)
+ *     HalEnableInterrupt @ 0x140377680 (HalEnableInterrupt.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     HalpCheckInterruptType @ 0x1404D097C (HalpCheckInterruptType.c)
- *     HalpFindSecondaryIcEntry @ 0x1404D0C58 (HalpFindSecondaryIcEntry.c)
- *     HalpReleaseSecondaryIcEntryShared @ 0x1404D14C4 (HalpReleaseSecondaryIcEntryShared.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     HalpCheckInterruptType @ 0x1404D0BBC (HalpCheckInterruptType.c)
+ *     HalpFindSecondaryIcEntry @ 0x1404D0E98 (HalpFindSecondaryIcEntry.c)
+ *     HalpReleaseSecondaryIcEntryShared @ 0x1404D1704 (HalpReleaseSecondaryIcEntryShared.c)
  */
 
 __int64 __fastcall HalpEnableSecondaryInterrupt(_DWORD *a1)

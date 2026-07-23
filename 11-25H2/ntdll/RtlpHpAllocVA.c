@@ -13,69 +13,72 @@
  *     RtlHeapZero @ 0x180168590 (RtlHeapZero.c)
  */
 
-__int64 __fastcall RtlpHpAllocVA(__int64 *a1, __m128i **a2, __int64 a3, unsigned int a4, unsigned int a5, __m128i *a6)
+__int64 __fastcall RtlpHpAllocVA(PVOID *a1, __m128i **a2, __int64 a3, unsigned int a4, ULONG a5, __m128i *RegionSize)
 {
   __m128i v10; // xmm1
   __int64 v11; // r10
   __m128i *v12; // r8
-  int v13; // eax
-  __m128i *v14; // r8
-  int v15; // ebx
-  __int64 v17; // rcx
-  _DWORD v18[3]; // [rsp+50h] [rbp-28h] BYREF
-  int v19; // [rsp+5Ch] [rbp-1Ch]
-  unsigned __int64 v20; // [rsp+60h] [rbp-18h]
+  __int64 v13; // xmm0_8
+  int v14; // eax
+  __m128i *v15; // r8
+  int v16; // ebx
+  __int64 v18; // rcx
+  int v19; // [rsp+28h] [rbp-50h]
+  _DWORD v20[3]; // [rsp+50h] [rbp-28h] BYREF
+  int v21; // [rsp+5Ch] [rbp-1Ch]
+  __int64 v22; // [rsp+60h] [rbp-18h]
 
-  v19 = 0;
-  v10 = *a6;
-  v11 = a6->m128i_i64[0];
-  if ( HIBYTE(a6->m128i_u32[0]) )
-    v18[0] = BYTE3(a6->m128i_i64[0]) - 1;
+  v21 = 0;
+  v10 = *RegionSize;
+  v11 = RegionSize->m128i_i64[0];
+  if ( HIBYTE(RegionSize->m128i_u32[0]) )
+    v20[0] = BYTE3(RegionSize->m128i_i64[0]) - 1;
   else
-    v18[0] = -1;
-  v18[2] = BYTE2(v11);
-  v18[1] = BYTE1(v11);
+    v20[0] = -1;
+  v20[2] = BYTE2(v11);
+  v20[1] = BYTE1(v11);
   if ( (v11 & 8) != 0 )
-    v19 = 1;
+    v21 = 1;
   v12 = *a2;
-  v20 = _mm_srli_si128(v10, 8).m128i_u64[0];
-  v13 = (_DWORD)v12 - 1;
+  v13 = _mm_srli_si128(v10, 8).m128i_u64[0];
+  v22 = v13;
+  v14 = (_DWORD)v12 - 1;
   if ( a4 == 0x2000 )
   {
-    a6 = (__m128i *)((char *)v12 - (v13 & 0xFFFFF) + 0xFFFFF);
-    v17 = RtlpHpVaMgrCtxAlloc(&unk_1801D09C8, &a6, a3, v18);
-    if ( v17 )
+    RegionSize = (__m128i *)((char *)v12 - (v14 & 0xFFFFF) + 0xFFFFF);
+    v18 = RtlpHpVaMgrCtxAlloc(&unk_1801D09C8, &RegionSize, a3, v20);
+    if ( v18 )
     {
-      *a2 = a6;
-      *a1 = v17;
+      *a2 = RegionSize;
+      *a1 = (PVOID)v18;
       goto LABEL_9;
     }
-    v15 = -1073741670;
+    v16 = -1073741670;
   }
   else
   {
-    v14 = (__m128i *)((char *)v12 - (v13 & 0xFFF) + 4095);
-    a6 = v14;
+    v15 = (__m128i *)((char *)v12 - (v14 & 0xFFF) + 4095);
+    RegionSize = v15;
     if ( (unsigned __int8)(_mm_cvtsi128_si32(_mm_srli_si128(v10, 1)) - 2) > 2u )
     {
-      v15 = RtlpHpEnvAllocVA((_DWORD)a1, (unsigned int)&a6, a3, a4, a5);
-      if ( v15 < 0 )
+      v16 = RtlpHpEnvAllocVA(a1, (PSIZE_T)&RegionSize, a5, v19, BYTE1(v11), v13);
+      if ( v16 < 0 )
         goto LABEL_10;
       goto LABEL_8;
     }
-    v15 = RtlpHpVaMgrCtxCommit(&unk_1801D09C8, *a1, v14, a5);
-    if ( v15 >= 0 )
+    v16 = RtlpHpVaMgrCtxCommit(&unk_1801D09C8, *a1, v15, a5);
+    if ( v16 >= 0 )
     {
       if ( (a4 & 0x40000000) != 0 )
-        RtlHeapZero(*a1, a6);
+        RtlHeapZero(*a1, RegionSize);
 LABEL_8:
-      *a2 = a6;
+      *a2 = RegionSize;
 LABEL_9:
-      v15 = 0;
+      v16 = 0;
     }
   }
 LABEL_10:
   if ( (RtlpHpHeapFeatures & 8) != 0 )
-    RtlpHpTlLogVAChange(a4, *a2, *a1, (unsigned int)v15);
-  return (unsigned int)v15;
+    RtlpHpTlLogVAChange(a4, *a2, *a1, (unsigned int)v16);
+  return (unsigned int)v16;
 }

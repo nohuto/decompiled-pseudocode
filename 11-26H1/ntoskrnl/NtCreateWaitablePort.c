@@ -1,20 +1,29 @@
 /*
- * XREFs of NtCreateWaitablePort @ 0x1407BFB90
+ * XREFs of NtCreateWaitablePort @ 0x1407C2BF0
  * Callers:
- *     DifNtCreateWaitablePortWrapper @ 0x140675170 (DifNtCreateWaitablePortWrapper.c)
+ *     DifNtCreateWaitablePortWrapper @ 0x140678D50 (DifNtCreateWaitablePortWrapper.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     AlpcpCreateConnectionPort @ 0x140AE7730 (AlpcpCreateConnectionPort.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     AlpcpCreateConnectionPort @ 0x140AE55B0 (AlpcpCreateConnectionPort.c)
  */
 
-__int64 __fastcall NtCreateWaitablePort(__int64 a1, __int64 a2)
+NTSTATUS __cdecl NtCreateWaitablePort(
+        PHANDLE PortHandle,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        ULONG MaxConnectionInfoLength,
+        ULONG MaxMessageLength,
+        ULONG MaxPoolUsage)
 {
   struct _KTHREAD *CurrentThread; // rax
-  unsigned int ConnectionPort; // ebx
+  NTSTATUS ConnectionPort; // ebx
+  char v8; // [rsp+20h] [rbp-18h]
+  char v9; // [rsp+28h] [rbp-10h]
 
   CurrentThread = KeGetCurrentThread();
+  v9 = 1;
+  v8 = 1;
   --CurrentThread->KernelApcDisable;
-  ConnectionPort = AlpcpCreateConnectionPort(a1, a2, 0LL);
+  ConnectionPort = AlpcpCreateConnectionPort(PortHandle, ObjectAttributes, 0LL, MaxMessageLength, v8, v9);
   KeLeaveCriticalRegion();
   return ConnectionPort;
 }

@@ -1,15 +1,15 @@
 /*
- * XREFs of KiStartPrcbThread @ 0x1405B7FCC
+ * XREFs of KiStartPrcbThread @ 0x1405B55AC
  * Callers:
- *     KiCompleteBootProcessorContextInitialization @ 0x1405B65C0 (KiCompleteBootProcessorContextInitialization.c)
- *     KiStartPrcbThreads @ 0x1405B75D8 (KiStartPrcbThreads.c)
- *     KiStartIdleThread @ 0x1405C3210 (KiStartIdleThread.c)
+ *     KiCompleteBootProcessorContextInitialization @ 0x1405B3888 (KiCompleteBootProcessorContextInitialization.c)
+ *     KiStartPrcbThreads @ 0x1405B4938 (KiStartPrcbThreads.c)
+ *     KiStartIdleThread @ 0x1405C07E0 (KiStartIdleThread.c)
  * Callees:
- *     KeAddProcessorAffinityEx @ 0x140257130 (KeAddProcessorAffinityEx.c)
- *     ?KiCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z @ 0x1403B1720 (-KiCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z.c)
- *     KeStartThread @ 0x1403B3660 (KeStartThread.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     KeAddProcessorAffinityEx @ 0x140287740 (KeAddProcessorAffinityEx.c)
+ *     ?KiCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z @ 0x14039FF30 (-KiCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z.c)
+ *     KeStartThread @ 0x1403A1E70 (KeStartThread.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 _QWORD *__fastcall KiStartPrcbThread(__int64 a1, __int64 a2)
@@ -48,12 +48,12 @@ _QWORD *__fastcall KiStartPrcbThread(__int64 a1, __int64 a2)
   *(_DWORD *)(a1 + 536) = v8;
   *(_BYTE *)(a1 + 195) = 63;
   v9 = (_QWORD *)(a1 + 1400);
-  result = (_QWORD *)qword_140FCF278;
-  if ( *(_UNKNOWN **)qword_140FCF278 != &unk_140FCF270 )
+  result = (_QWORD *)qword_140FD0278;
+  if ( *(_UNKNOWN **)qword_140FD0278 != &unk_140FD0270 )
     __fastfail(3u);
-  *v9 = &unk_140FCF270;
+  *v9 = &unk_140FD0270;
   v9[1] = result;
   *result = v9;
-  qword_140FCF278 = (__int64)v9;
+  qword_140FD0278 = (__int64)v9;
   return result;
 }

@@ -16,7 +16,7 @@ _OWORD *__fastcall RTL_BINARY_ARRAY<RTLP_FLS_SLOT,8,4>::ChunkAllocate(__int64 a1
 
   v3 = a2;
   v4 = 1 << (a2 + 4);
-  Heap = (_OWORD *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, 8 * v4 + 8);
+  Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, 8 * v4 + 8);
   v6 = Heap;
   if ( Heap )
   {

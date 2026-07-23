@@ -1,73 +1,73 @@
 /*
- * XREFs of SmStoreResize @ 0x140697294
+ * XREFs of SmStoreResize @ 0x140697378
  * Callers:
- *     SmcStoreResize @ 0x14069AAD8 (SmcStoreResize.c)
+ *     SmcStoreResize @ 0x14069ABBC (SmcStoreResize.c)
  * Callees:
- *     ZwSetSystemInformation @ 0x14015CF60 (ZwSetSystemInformation.c)
- *     SmStorePhysicalRequestIssue @ 0x140697148 (SmStorePhysicalRequestIssue.c)
+ *     ZwSetSystemInformation @ 0x14015D4D0 (ZwSetSystemInformation.c)
+ *     SmStorePhysicalRequestIssue @ 0x14069722C (SmStorePhysicalRequestIssue.c)
  */
 
 /*
- * Hex-Rays decompilation failed for SmStoreResize @ 0x140697294
- * Reason: Hex-Rays returned no pseudocode for 0x140697294
+ * Hex-Rays decompilation failed for SmStoreResize @ 0x140697378
+ * Reason: Hex-Rays returned no pseudocode for 0x140697378
  * Fallback: raw IDA disassembly follows.
  *
- * 0000000140697294: mov     [rsp-8+arg_0], rbx
- * 0000000140697299: push    rbp
- * 000000014069729A: mov     rbp, rsp
- * 000000014069729D: sub     rsp, 60h
- * 00000001406972A1: xor     eax, eax
- * 00000001406972A3: mov     [rbp+var_20], r8
- * 00000001406972A7: mov     [rbp+SystemInformation], rax
- * 00000001406972AB: mov     r10d, ecx
- * 00000001406972AE: mov     [rbp+var_8], rax
- * 00000001406972B2: mov     rbx, r9
- * 00000001406972B5: lea     rax, [rbp+var_30]
- * 00000001406972B9: mov     dword ptr [rbp+SystemInformation], 1
- * 00000001406972C0: mov     [rbp+var_10], rax
- * 00000001406972C4: mov     r9d, 18h
- * 00000001406972CA: xor     eax, eax
- * 00000001406972CC: mov     dword ptr [rbp+SystemInformation+4], 11h
- * 00000001406972D3: mov     [rbp+var_30], rax
- * 00000001406972D7: mov     ecx, eax
- * 00000001406972D9: mov     [rbp+var_28], rax
- * 00000001406972DD: and     ecx, 0FFFFFF06h
- * 00000001406972E3: or      ecx, 6
- * 00000001406972E6: mov     dword ptr [rbp+var_8], r9d
- * 00000001406972EA: cmp     [rbp+arg_20], eax
- * 00000001406972ED: mov     dword ptr [rbp+var_30+4], edx
- * 00000001406972F0: setnz   al
- * 00000001406972F3: shl     eax, 8
- * 00000001406972F6: xor     eax, ecx
- * 00000001406972F8: and     eax, 100h
- * 00000001406972FD: xor     ecx, eax
- * 00000001406972FF: mov     eax, [rbx]
- * 0000000140697301: mov     dword ptr [rbp+var_30], ecx
- * 0000000140697304: mov     dword ptr [rbp+var_28], eax
- * 0000000140697307: test    r10d, r10d
- * 000000014069730A: jnz     short loc_140697331
- * 000000014069730C: mov     rcx, cs:DeviceObject; DeviceObject
- * 0000000140697313: lea     rax, [rbp+arg_10]
- * 0000000140697317: mov     [rsp+60h+var_38], rax; __int64
- * 000000014069731C: lea     r8, [rbp+var_30]
- * 0000000140697320: mov     edx, 2281CCh
- * 0000000140697325: mov     [rsp+60h+var_40], r9d; int
- * 000000014069732A: call    SmStorePhysicalRequestIssue
- * 000000014069732F: jmp     short loc_140697347
- * 0000000140697331: cmp     r10d, 1
- * 0000000140697335: jnz     short loc_140697350
- * 0000000140697337: mov     r8d, r9d; SystemInformationLength
- * 000000014069733A: lea     rdx, [rbp+SystemInformation]; SystemInformation
- * 000000014069733E: lea     ecx, [r10+6Ch]; SystemInformationClass
- * 0000000140697342: call    ZwSetSystemInformation
- * 0000000140697347: mov     ecx, eax
- * 0000000140697349: mov     eax, dword ptr [rbp+var_28]
- * 000000014069734C: mov     [rbx], eax
- * 000000014069734E: jmp     short loc_140697355
- * 0000000140697350: mov     ecx, 0C000000Dh
- * 0000000140697355: mov     eax, ecx
- * 0000000140697357: mov     rbx, [rsp+60h+arg_0]
- * 000000014069735C: add     rsp, 60h
- * 0000000140697360: pop     rbp
- * 0000000140697361: retn
+ * 0000000140697378: mov     [rsp-8+arg_0], rbx
+ * 000000014069737D: push    rbp
+ * 000000014069737E: mov     rbp, rsp
+ * 0000000140697381: sub     rsp, 60h
+ * 0000000140697385: xor     eax, eax
+ * 0000000140697387: mov     [rbp+var_20], r8
+ * 000000014069738B: mov     [rbp+SystemInformation], rax
+ * 000000014069738F: mov     r10d, ecx
+ * 0000000140697392: mov     [rbp+var_8], rax
+ * 0000000140697396: mov     rbx, r9
+ * 0000000140697399: lea     rax, [rbp+var_30]
+ * 000000014069739D: mov     dword ptr [rbp+SystemInformation], 1
+ * 00000001406973A4: mov     [rbp+var_10], rax
+ * 00000001406973A8: mov     r9d, 18h
+ * 00000001406973AE: xor     eax, eax
+ * 00000001406973B0: mov     dword ptr [rbp+SystemInformation+4], 11h
+ * 00000001406973B7: mov     [rbp+var_30], rax
+ * 00000001406973BB: mov     ecx, eax
+ * 00000001406973BD: mov     [rbp+var_28], rax
+ * 00000001406973C1: and     ecx, 0FFFFFF06h
+ * 00000001406973C7: or      ecx, 6
+ * 00000001406973CA: mov     dword ptr [rbp+var_8], r9d
+ * 00000001406973CE: cmp     [rbp+arg_20], eax
+ * 00000001406973D1: mov     dword ptr [rbp+var_30+4], edx
+ * 00000001406973D4: setnz   al
+ * 00000001406973D7: shl     eax, 8
+ * 00000001406973DA: xor     eax, ecx
+ * 00000001406973DC: and     eax, 100h
+ * 00000001406973E1: xor     ecx, eax
+ * 00000001406973E3: mov     eax, [rbx]
+ * 00000001406973E5: mov     dword ptr [rbp+var_30], ecx
+ * 00000001406973E8: mov     dword ptr [rbp+var_28], eax
+ * 00000001406973EB: test    r10d, r10d
+ * 00000001406973EE: jnz     short loc_140697415
+ * 00000001406973F0: mov     rcx, cs:DeviceObject; DeviceObject
+ * 00000001406973F7: lea     rax, [rbp+arg_10]
+ * 00000001406973FB: mov     [rsp+60h+var_38], rax; __int64
+ * 0000000140697400: lea     r8, [rbp+var_30]
+ * 0000000140697404: mov     edx, 2281CCh
+ * 0000000140697409: mov     [rsp+60h+var_40], r9d; int
+ * 000000014069740E: call    SmStorePhysicalRequestIssue
+ * 0000000140697413: jmp     short loc_14069742B
+ * 0000000140697415: cmp     r10d, 1
+ * 0000000140697419: jnz     short loc_140697434
+ * 000000014069741B: mov     r8d, r9d; SystemInformationLength
+ * 000000014069741E: lea     rdx, [rbp+SystemInformation]; SystemInformation
+ * 0000000140697422: lea     ecx, [r10+6Ch]; SystemInformationClass
+ * 0000000140697426: call    ZwSetSystemInformation
+ * 000000014069742B: mov     ecx, eax
+ * 000000014069742D: mov     eax, dword ptr [rbp+var_28]
+ * 0000000140697430: mov     [rbx], eax
+ * 0000000140697432: jmp     short loc_140697439
+ * 0000000140697434: mov     ecx, 0C000000Dh
+ * 0000000140697439: mov     eax, ecx
+ * 000000014069743B: mov     rbx, [rsp+60h+arg_0]
+ * 0000000140697440: add     rsp, 60h
+ * 0000000140697444: pop     rbp
+ * 0000000140697445: retn
  */

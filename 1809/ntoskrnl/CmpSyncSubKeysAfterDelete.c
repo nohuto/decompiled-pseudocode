@@ -1,14 +1,14 @@
 /*
- * XREFs of CmpSyncSubKeysAfterDelete @ 0x1407FE948
+ * XREFs of CmpSyncSubKeysAfterDelete @ 0x1407FFB48
  * Callers:
- *     CmpCopySyncTree2 @ 0x1407FCC04 (CmpCopySyncTree2.c)
+ *     CmpCopySyncTree2 @ 0x1407FDE04 (CmpCopySyncTree2.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     CmpFreeKeyByCell @ 0x1405AD6F8 (CmpFreeKeyByCell.c)
- *     CmpFindSubKeyByNumber @ 0x1406B2C88 (CmpFindSubKeyByNumber.c)
- *     CmpFindSubKeyByNameWithStatus @ 0x14073D0FC (CmpFindSubKeyByNameWithStatus.c)
- *     CmpInitializeKeyNameString @ 0x1407FD7EC (CmpInitializeKeyNameString.c)
- *     CmpDeleteTree @ 0x140803498 (CmpDeleteTree.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     CmpFreeKeyByCell @ 0x1405AE6F8 (CmpFreeKeyByCell.c)
+ *     CmpFindSubKeyByNumber @ 0x1406B3F28 (CmpFindSubKeyByNumber.c)
+ *     CmpFindSubKeyByNameWithStatus @ 0x14073E2EC (CmpFindSubKeyByNameWithStatus.c)
+ *     CmpInitializeKeyNameString @ 0x1407FE9EC (CmpInitializeKeyNameString.c)
+ *     CmpDeleteTree @ 0x140804698 (CmpDeleteTree.c)
  */
 
 bool __fastcall CmpSyncSubKeysAfterDelete(__int64 a1, __int64 a2, ULONG_PTR a3, _DWORD *a4, _WORD *a5)

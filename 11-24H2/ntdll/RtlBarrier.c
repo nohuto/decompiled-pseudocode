@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlBarrier @ 0x18013DEB0
+ * XREFs of RtlBarrier @ 0x18013C0A0
  * Callers:
  *     <none>
  * Callees:
@@ -7,7 +7,7 @@
  */
 
 // attributes: thunk
-__int64 RtlBarrier()
+BOOLEAN __cdecl RtlBarrier(PRTL_BARRIER Barrier, ULONG Flags)
 {
-  return RtlPosixBarrier();
+  return RtlPosixBarrier(Barrier, Flags);
 }

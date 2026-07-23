@@ -5,7 +5,7 @@
  * Callees:
  *     MiSessionLookupImage @ 0x14020AB68 (MiSessionLookupImage.c)
  *     MiCountSystemImageCommitment @ 0x14020ABB4 (MiCountSystemImageCommitment.c)
- *     MiReturnCommit @ 0x1402DC250 (MiReturnCommit.c)
+ *     MiReturnCommit @ 0x1402DC4E0 (MiReturnCommit.c)
  */
 
 __int64 __fastcall MiSessionUpdateImageCharges(__int64 a1)

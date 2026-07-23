@@ -1,13 +1,13 @@
 /*
- * XREFs of VfTargetEtwUnregister @ 0x140ACB764
+ * XREFs of VfTargetEtwUnregister @ 0x140ACB754
  * Callers:
- *     VerifierEtwUnregister @ 0x140AE4080 (VerifierEtwUnregister.c)
+ *     VerifierEtwUnregister @ 0x140AE4070 (VerifierEtwUnregister.c)
  * Callees:
  *     VfAvlLookupTreeNode @ 0x140209FDC (VfAvlLookupTreeNode.c)
  *     VfAvlCleanupLockContext @ 0x14020A34C (VfAvlCleanupLockContext.c)
- *     VfAvlInitializeLockContext @ 0x1404664A8 (VfAvlInitializeLockContext.c)
+ *     VfAvlInitializeLockContext @ 0x1404668A8 (VfAvlInitializeLockContext.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
- *     VerifierBugCheckIfAppropriate @ 0x140ACD2B4 (VerifierBugCheckIfAppropriate.c)
+ *     VerifierBugCheckIfAppropriate @ 0x140ACD2A4 (VerifierBugCheckIfAppropriate.c)
  */
 
 void __fastcall VfTargetEtwUnregister(__int64 a1)

@@ -1,23 +1,23 @@
 /*
- * XREFs of KiSetSystemAffinityThread @ 0x14037C620
+ * XREFs of KiSetSystemAffinityThread @ 0x14037E3D0
  * Callers:
- *     KeSetSystemGroupAffinityThread @ 0x14037A1C0 (KeSetSystemGroupAffinityThread.c)
- *     HalpTimerStallExecutionProcessor @ 0x14037BA20 (HalpTimerStallExecutionProcessor.c)
- *     KeStallExecutionProcessor @ 0x14037BEF0 (KeStallExecutionProcessor.c)
- *     KeRevertToUserGroupAffinityThread @ 0x14037C490 (KeRevertToUserGroupAffinityThread.c)
- *     KeRevertToUserMultipleGroupAffinityThread @ 0x140507754 (KeRevertToUserMultipleGroupAffinityThread.c)
- *     KeSetSystemMultipleGroupAffinityThread @ 0x14050FB94 (KeSetSystemMultipleGroupAffinityThread.c)
+ *     KeSetSystemGroupAffinityThread @ 0x14037BF70 (KeSetSystemGroupAffinityThread.c)
+ *     HalpTimerStallExecutionProcessor @ 0x14037D7D0 (HalpTimerStallExecutionProcessor.c)
+ *     KeStallExecutionProcessor @ 0x14037DCA0 (KeStallExecutionProcessor.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x14037E240 (KeRevertToUserGroupAffinityThread.c)
+ *     KeRevertToUserMultipleGroupAffinityThread @ 0x140501124 (KeRevertToUserMultipleGroupAffinityThread.c)
+ *     KeSetSystemMultipleGroupAffinityThread @ 0x140509604 (KeSetSystemMultipleGroupAffinityThread.c)
  * Callees:
- *     KiComputeThreadAffinity @ 0x140229B90 (KiComputeThreadAffinity.c)
- *     KiUpdateNodeAffinitizedFlag @ 0x14022A330 (KiUpdateNodeAffinitizedFlag.c)
- *     KiRescheduleThreadAfterAffinityChange @ 0x14022B26C (KiRescheduleThreadAfterAffinityChange.c)
- *     ?RtlpCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z @ 0x1402518B0 (-RtlpCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z.c)
- *     KiAcquirePrcbLocksForIsolationUnit @ 0x1402BBDD0 (KiAcquirePrcbLocksForIsolationUnit.c)
- *     KiCheckPrcbAffinityEx @ 0x1402BDFC0 (KiCheckPrcbAffinityEx.c)
- *     KeFindNextProcessorIndexEx @ 0x14045EADC (KeFindNextProcessorIndexEx.c)
- *     EtwTraceIdealProcessor @ 0x1404E78D8 (EtwTraceIdealProcessor.c)
- *     EtwTraceThreadAffinity @ 0x14050D0F8 (EtwTraceThreadAffinity.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     KiComputeThreadAffinity @ 0x14022B520 (KiComputeThreadAffinity.c)
+ *     KiUpdateNodeAffinitizedFlag @ 0x14022BCC0 (KiUpdateNodeAffinitizedFlag.c)
+ *     KiRescheduleThreadAfterAffinityChange @ 0x14022CBFC (KiRescheduleThreadAfterAffinityChange.c)
+ *     ?RtlpCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z @ 0x140253210 (-RtlpCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z.c)
+ *     KeFindNextProcessorIndexEx @ 0x14025F64C (KeFindNextProcessorIndexEx.c)
+ *     KiAcquirePrcbLocksForIsolationUnit @ 0x140306A90 (KiAcquirePrcbLocksForIsolationUnit.c)
+ *     KiCheckPrcbAffinityEx @ 0x140308C80 (KiCheckPrcbAffinityEx.c)
+ *     EtwTraceIdealProcessor @ 0x1404E0C98 (EtwTraceIdealProcessor.c)
+ *     EtwTraceThreadAffinity @ 0x140506B68 (EtwTraceThreadAffinity.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 void __fastcall KiSetSystemAffinityThread(
@@ -84,12 +84,12 @@ LABEL_2:
       if ( v31 )
       {
         _BitScanReverse64(&v31, v31);
-        LODWORD(v6) = *((_DWORD *)&KiSupervisorXStateFeaturesLock.WaitBlock[2].Thread->Header.Lock
+        LODWORD(v6) = *((_DWORD *)&KiSupervisorXStateFeaturesLock.SchedulerApc.ApcListEntry.Flink->Flink
                       + (unsigned int)(((_DWORD)v29 << 6) + v31));
       }
       else
       {
-        LODWORD(v6) = KeFindNextProcessorIndexEx(a3, v27);
+        LODWORD(v6) = KeFindNextProcessorIndexEx((__int64)a3, v27);
       }
       v13 = KiProcessorBlock[(unsigned int)v6];
     }
@@ -103,7 +103,7 @@ LABEL_2:
     if ( *(_WORD *)(v24 + 136) == epi16 && (*(_QWORD *)(v24 + 128) & v32.m128i_i64[0]) != 0 )
       v26 = *(_QWORD *)(v24 + 128) & v32.m128i_i64[0];
     _BitScanReverse64(&v26, v26);
-    v6 = *((unsigned int *)&KiSupervisorXStateFeaturesLock.WaitBlock[2].Thread->Header.Lock + 64 * epi16 + (int)v26);
+    v6 = *((unsigned int *)&KiSupervisorXStateFeaturesLock.SchedulerApc.ApcListEntry.Flink[16 * epi16].Flink + (int)v26);
     goto LABEL_2;
   }
 LABEL_3:
@@ -166,6 +166,6 @@ LABEL_8:
     LOBYTE(v20) = (*(_DWORD *)(a1 + 116) & 8) != 0;
     EtwTraceThreadAffinity(a1, *(unsigned __int16 *)(a1 + 584), v20, 0, *v14, 1334);
   }
-  if ( (xmmword_140FBFC10 & 0x8000000) != 0 )
+  if ( (xmmword_140FC0C10 & 0x8000000) != 0 )
     EtwTraceIdealProcessor(a1, 1350LL, v36, v19);
 }

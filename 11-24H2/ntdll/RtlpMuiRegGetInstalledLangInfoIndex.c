@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpMuiRegGetInstalledLangInfoIndex @ 0x1800EED6C
+ * XREFs of RtlpMuiRegGetInstalledLangInfoIndex @ 0x1800E9F4C
  * Callers:
- *     LdrpConvertLangFallbackListToMultiSz @ 0x180037FF0 (LdrpConvertLangFallbackListToMultiSz.c)
- *     _RtlpMuiRegValidateLIPLanguage @ 0x18014B024 (_RtlpMuiRegValidateLIPLanguage.c)
- *     _RtlpMuiRegValidatePartialLanguage @ 0x18014B25C (_RtlpMuiRegValidatePartialLanguage.c)
+ *     LdrpConvertLangFallbackListToMultiSz @ 0x180018270 (LdrpConvertLangFallbackListToMultiSz.c)
+ *     _RtlpMuiRegValidateLIPLanguage @ 0x1801493D4 (_RtlpMuiRegValidateLIPLanguage.c)
+ *     _RtlpMuiRegValidatePartialLanguage @ 0x18014960C (_RtlpMuiRegValidatePartialLanguage.c)
  * Callees:
  *     <none>
  */

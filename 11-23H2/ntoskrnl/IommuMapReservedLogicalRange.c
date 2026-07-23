@@ -1,11 +1,11 @@
 /*
- * XREFs of IommuMapReservedLogicalRange @ 0x140526290
+ * XREFs of IommuMapReservedLogicalRange @ 0x1405267E0
  * Callers:
  *     <none>
  * Callees:
- *     HalpIommuDomainMapLogical @ 0x140517D2C (HalpIommuDomainMapLogical.c)
- *     HalpIommuDomainMapLogicalRange @ 0x140517D84 (HalpIommuDomainMapLogicalRange.c)
- *     IommupProcessPhysicalAddress @ 0x140526C08 (IommupProcessPhysicalAddress.c)
+ *     HalpIommuDomainMapLogical @ 0x14051827C (HalpIommuDomainMapLogical.c)
+ *     HalpIommuDomainMapLogicalRange @ 0x1405182D4 (HalpIommuDomainMapLogicalRange.c)
+ *     IommupProcessPhysicalAddress @ 0x140527158 (IommupProcessPhysicalAddress.c)
  */
 
 __int64 __fastcall IommuMapReservedLogicalRange(__int64 a1, __int64 a2, unsigned int a3, int a4, _QWORD *a5)

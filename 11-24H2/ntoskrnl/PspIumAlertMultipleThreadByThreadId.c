@@ -1,11 +1,11 @@
 /*
- * XREFs of PspIumAlertMultipleThreadByThreadId @ 0x1405E6164
+ * XREFs of PspIumAlertMultipleThreadByThreadId @ 0x1405E3764
  * Callers:
- *     PsDispatchIumService @ 0x14048D020 (PsDispatchIumService.c)
+ *     PsDispatchIumService @ 0x1404E66B4 (PsDispatchIumService.c)
  * Callees:
- *     KeAlertMultipleThreadByThreadId @ 0x1405B7AE8 (KeAlertMultipleThreadByThreadId.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     KeAlertMultipleThreadByThreadId @ 0x1405B50C0 (KeAlertMultipleThreadByThreadId.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall PspIumAlertMultipleThreadByThreadId(__int64 a1)

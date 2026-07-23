@@ -1163,7 +1163,7 @@ void __fastcall KeAbPostRelease(ULONG_PTR BugCheckParameter2)
 {
   struct _KTHREAD *CurrentThread; // rdi
   int v3; // esi
-  __int64 v4; // rdx
+  unsigned int v4; // edx
   unsigned int v5; // r9d
   bool v6; // zf
   __int64 v7; // rcx
@@ -1184,11 +1184,11 @@ void __fastcall KeAbPostRelease(ULONG_PTR BugCheckParameter2)
     || (Process = CurrentThread->ApcState.Process, (v15 = Process[1].ActiveProcessors.Bitmap[2]) == 0)
     || Process == PsInitialSystemProcess )
   {
-    v4 = 0xFFFFFFFFLL;
+    v4 = -1;
   }
   else
   {
-    v4 = *(unsigned int *)(v15 + 8);
+    v4 = *(_DWORD *)(v15 + 8);
   }
   if ( KeGetCurrentIrql() <= 1u )
   {
@@ -1208,7 +1208,7 @@ void __fastcall KeAbPostRelease(ULONG_PTR BugCheckParameter2)
     if ( (v9[26] & 1) != 0
       && (*((_DWORD *)v9 + 8) & 1) == 0
       && (*((_QWORD *)v9 + 4) & 0x7FFFFFFFFFFFFFFCLL) == (BugCheckParameter2 & 0x7FFFFFFFFFFFFFFCLL)
-      && *((_DWORD *)v9 + 10) == (_DWORD)v4 )
+      && *((_DWORD *)v9 + 10) == v4 )
     {
       v9[26] &= ~1u;
       if ( *((_QWORD *)v9 + 4) )
@@ -1222,7 +1222,7 @@ void __fastcall KeAbPostRelease(ULONG_PTR BugCheckParameter2)
   {
 LABEL_21:
     if ( (*((_DWORD *)&CurrentThread->0 + 1) & 0x8000) == 0 )
-      KeBugCheckEx(0x162u, (ULONG_PTR)CurrentThread, BugCheckParameter2, (unsigned int)v4, 0LL);
+      KeBugCheckEx(0x162u, (ULONG_PTR)CurrentThread, BugCheckParameter2, v4, 0LL);
     if ( !v3 )
       return;
     v13 = CurrentThread->SpecialApcDisable + 1;
@@ -1235,7 +1235,7 @@ LABEL_25:
   }
   v9[32] |= 2u;
   if ( *((__int64 *)v9 + 4) < 0 )
-    KiAbEntryRemoveFromTree((char *)CurrentThread->LockEntries + v7, v4, BugCheckParameter2);
+    KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)((char *)&CurrentThread->LockEntries[0].TreeNode + v7));
   v10 = *((_WORD *)v9 + 44);
   if ( v10 )
   {

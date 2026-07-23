@@ -1,28 +1,28 @@
 /*
- * XREFs of RtlFreeAnsiString @ 0x1800B4B90
+ * XREFs of RtlFreeAnsiString @ 0x180081430
  * Callers:
- *     RtlFormatCurrentUserKeyPath @ 0x1800389C0 (RtlFormatCurrentUserKeyPath.c)
- *     RtlGetImageFileMachines @ 0x1800594E0 (RtlGetImageFileMachines.c)
- *     LdrpInitializeProcess @ 0x180066D74 (LdrpInitializeProcess.c)
- *     LdrpLogEtwDllSearchResults @ 0x180076294 (LdrpLogEtwDllSearchResults.c)
- *     RtlpCreateIFEOKeyFilterKey @ 0x18008B48C (RtlpCreateIFEOKeyFilterKey.c)
- *     EtwpUpdateUmLogger @ 0x18008CAC4 (EtwpUpdateUmLogger.c)
- *     EtwpInitLoggerContext @ 0x18008D330 (EtwpInitLoggerContext.c)
- *     EtwpFlushUmLogger @ 0x18008E070 (EtwpFlushUmLogger.c)
- *     EtwpFreeLoggerContext @ 0x18008EA0C (EtwpFreeLoggerContext.c)
- *     LdrResSearchResource @ 0x1800983B0 (LdrResSearchResource.c)
- *     RtlIsNameInUnUpcasedExpression @ 0x1800ADA30 (RtlIsNameInUnUpcasedExpression.c)
- *     RtlIsNameInExpression @ 0x1800AEF60 (RtlIsNameInExpression.c)
- *     RtlpGetTokenNamedObjectPath @ 0x1800B3330 (RtlpGetTokenNamedObjectPath.c)
- *     RtlpGetPolicyValueForSystemCapability @ 0x1800B3A90 (RtlpGetPolicyValueForSystemCapability.c)
- *     EtwpAddLogHeaderToLogFile @ 0x1800B3D70 (EtwpAddLogHeaderToLogFile.c)
- *     RtlpTpIoDllLoaded @ 0x1800BF9D8 (RtlpTpIoDllLoaded.c)
- *     LdrpQuerySxSMUIFile @ 0x1800D11A0 (LdrpQuerySxSMUIFile.c)
- *     sxsisol_FreeUnicodeStringBufferAroundUnicodeStrings_Success @ 0x1800F278C (sxsisol_FreeUnicodeStringBufferAroundUnicodeStrings_Success.c)
- *     LdrpCheckAppDirType @ 0x1801180BC (LdrpCheckAppDirType.c)
- *     RtlpConstructCrossVmObjectPath @ 0x18014375C (RtlpConstructCrossVmObjectPath.c)
+ *     RtlFormatCurrentUserKeyPath @ 0x180018C40 (RtlFormatCurrentUserKeyPath.c)
+ *     LdrResSearchResource @ 0x18002D200 (LdrResSearchResource.c)
+ *     RtlGetImageFileMachines @ 0x18006F0C0 (RtlGetImageFileMachines.c)
+ *     RtlIsNameInExpression @ 0x18007B800 (RtlIsNameInExpression.c)
+ *     RtlpGetTokenNamedObjectPath @ 0x18007FBD0 (RtlpGetTokenNamedObjectPath.c)
+ *     RtlpGetPolicyValueForSystemCapability @ 0x180080330 (RtlpGetPolicyValueForSystemCapability.c)
+ *     EtwpAddLogHeaderToLogFile @ 0x180080610 (EtwpAddLogHeaderToLogFile.c)
+ *     LdrpLogEtwDllSearchResults @ 0x180092B74 (LdrpLogEtwDllSearchResults.c)
+ *     LdrpQuerySxSMUIFile @ 0x18009A09C (LdrpQuerySxSMUIFile.c)
+ *     RtlpCreateIFEOKeyFilterKey @ 0x1800A6F4C (RtlpCreateIFEOKeyFilterKey.c)
+ *     EtwpUpdateUmLogger @ 0x1800A8584 (EtwpUpdateUmLogger.c)
+ *     EtwpInitLoggerContext @ 0x1800A8DF0 (EtwpInitLoggerContext.c)
+ *     EtwpFlushUmLogger @ 0x1800A9B30 (EtwpFlushUmLogger.c)
+ *     EtwpFreeLoggerContext @ 0x1800AA48C (EtwpFreeLoggerContext.c)
+ *     LdrpInitializeProcess @ 0x1800AEF54 (LdrpInitializeProcess.c)
+ *     RtlpTpIoDllLoaded @ 0x1800B7798 (RtlpTpIoDllLoaded.c)
+ *     sxsisol_FreeUnicodeStringBufferAroundUnicodeStrings_Success @ 0x1800ED07C (sxsisol_FreeUnicodeStringBufferAroundUnicodeStrings_Success.c)
+ *     RtlIsNameInUnUpcasedExpression @ 0x18010F900 (RtlIsNameInUnUpcasedExpression.c)
+ *     LdrpCheckAppDirType @ 0x180113030 (LdrpCheckAppDirType.c)
+ *     RtlpConstructCrossVmObjectPath @ 0x180141B0C (RtlpConstructCrossVmObjectPath.c)
  * Callees:
- *     RtlpSysVolFree @ 0x180001470 (RtlpSysVolFree.c)
+ *     RtlpSysVolFree @ 0x180005870 (RtlpSysVolFree.c)
  */
 
 void __stdcall RtlFreeAnsiString(PUNICODE_STRING UnicodeString)
@@ -32,7 +32,7 @@ void __stdcall RtlFreeAnsiString(PUNICODE_STRING UnicodeString)
   Buffer = UnicodeString->Buffer;
   if ( Buffer )
   {
-    RtlpSysVolFree((__int64)Buffer);
+    RtlpSysVolFree(Buffer);
     *UnicodeString = 0LL;
   }
 }

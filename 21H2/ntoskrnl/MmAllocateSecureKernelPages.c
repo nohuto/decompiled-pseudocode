@@ -1,21 +1,21 @@
 /*
- * XREFs of MmAllocateSecureKernelPages @ 0x1405533D4
+ * XREFs of MmAllocateSecureKernelPages @ 0x140553614
  * Callers:
- *     PspIumAllocatePartitionState @ 0x1405836F4 (PspIumAllocatePartitionState.c)
- *     PspIumAllocatePhysicalPages @ 0x140583854 (PspIumAllocatePhysicalPages.c)
+ *     PspIumAllocatePartitionState @ 0x140583924 (PspIumAllocatePartitionState.c)
+ *     PspIumAllocatePhysicalPages @ 0x140583A84 (PspIumAllocatePhysicalPages.c)
  * Callees:
- *     MiMakeProtectionMask @ 0x14021AA20 (MiMakeProtectionMask.c)
- *     MiAllocatePool @ 0x14025AD70 (MiAllocatePool.c)
- *     PsDereferencePartition @ 0x1402ABFDC (PsDereferencePartition.c)
- *     MmAllocatePartitionNodePagesForMdlEx @ 0x1402E32F0 (MmAllocatePartitionNodePagesForMdlEx.c)
- *     MiInitializeMdlPfn @ 0x1402E37C4 (MiInitializeMdlPfn.c)
- *     MiPartitionObjectToPartition @ 0x1402E5F80 (MiPartitionObjectToPartition.c)
- *     MiGetSlabPage @ 0x1402E803C (MiGetSlabPage.c)
- *     MiLockPageInline @ 0x1402FFE30 (MiLockPageInline.c)
- *     MiReplenishSlabAllocator @ 0x140392814 (MiReplenishSlabAllocator.c)
+ *     PsDereferencePartition @ 0x140274588 (PsDereferencePartition.c)
+ *     MiAllocatePool @ 0x14027C2E0 (MiAllocatePool.c)
+ *     MmAllocatePartitionNodePagesForMdlEx @ 0x140294640 (MmAllocatePartitionNodePagesForMdlEx.c)
+ *     MiInitializeMdlPfn @ 0x140294B14 (MiInitializeMdlPfn.c)
+ *     MiPartitionObjectToPartition @ 0x1402972D0 (MiPartitionObjectToPartition.c)
+ *     MiGetSlabPage @ 0x14029938C (MiGetSlabPage.c)
+ *     MiMakeProtectionMask @ 0x1402BF320 (MiMakeProtectionMask.c)
+ *     MiLockPageInline @ 0x14030AB80 (MiLockPageInline.c)
+ *     MiReplenishSlabAllocator @ 0x140392964 (MiReplenishSlabAllocator.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     MmFreeSecureKernelPages @ 0x140553704 (MmFreeSecureKernelPages.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     MmFreeSecureKernelPages @ 0x140553944 (MmFreeSecureKernelPages.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 ULONG_PTR *__fastcall MmAllocateSecureKernelPages(ULONG_PTR **a1, __int64 a2, unsigned int a3, int a4, _DWORD *a5)

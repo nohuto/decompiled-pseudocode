@@ -1,5 +1,5 @@
 /*
- * XREFs of EtwCreateTraceInstanceId @ 0x1801251B0
+ * XREFs of EtwCreateTraceInstanceId @ 0x180125180
  * Callers:
  *     <none>
  * Callees:
@@ -22,7 +22,7 @@ __int64 __fastcall EtwCreateTraceInstanceId(__int64 a1, __int64 a2)
   }
   else
   {
-    RtlSetLastWin32Error(0x57u);
+    RtlSetLastWin32Error(87);
     return 87LL;
   }
 }

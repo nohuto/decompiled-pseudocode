@@ -1,9 +1,9 @@
 /*
- * XREFs of KdpGetStateChange @ 0x140C163C0
+ * XREFs of KdpGetStateChange @ 0x140C1C3C0
  * Callers:
- *     KdpSendWaitContinue @ 0x140C17038 (KdpSendWaitContinue.c)
+ *     KdpSendWaitContinue @ 0x140C1D038 (KdpSendWaitContinue.c)
  * Callees:
- *     KeQueryActiveProcessorCountEx @ 0x140211EA0 (KeQueryActiveProcessorCountEx.c)
+ *     KeQueryActiveProcessorCountEx @ 0x140211F80 (KeQueryActiveProcessorCountEx.c)
  */
 
 void __fastcall KdpGetStateChange(__int64 a1, __int64 a2)

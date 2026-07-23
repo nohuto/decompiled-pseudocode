@@ -1,26 +1,26 @@
 /*
- * XREFs of DifNtNotifyChangeSessionWrapper @ 0x14067C820
+ * XREFs of DifNtNotifyChangeSessionWrapper @ 0x140680400
  * Callers:
  *     <none>
  * Callees:
- *     DifGetReturnAddressForWrappers @ 0x140260EA4 (DifGetReturnAddressForWrappers.c)
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     DifGetAPIThunkContextById @ 0x1404C17A4 (DifGetAPIThunkContextById.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     NtNotifyChangeSession @ 0x140B4CFC0 (NtNotifyChangeSession.c)
+ *     DifGetReturnAddressForWrappers @ 0x14026040C (DifGetReturnAddressForWrappers.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     DifGetAPIThunkContextById @ 0x1404BAFF4 (DifGetAPIThunkContextById.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     NtNotifyChangeSession @ 0x140B4ED50 (NtNotifyChangeSession.c)
  */
 
 __int64 __fastcall DifNtNotifyChangeSessionWrapper(
         void *a1,
-        int a2,
-        __int64 a3,
-        int a4,
-        int a5,
-        int a6,
-        void *Src,
-        int a8)
+        ULONG a2,
+        LARGE_INTEGER *a3,
+        IO_SESSION_EVENT a4,
+        IO_SESSION_STATE NewState,
+        IO_SESSION_STATE PreviousState,
+        PVOID Payload,
+        ULONG PayloadSize)
 {
   __int128 *APIThunkContextById; // rax
   __int64 v12; // rdx
@@ -33,13 +33,13 @@ __int64 __fastcall DifNtNotifyChangeSessionWrapper(
   BOOLEAN v19; // di
   __int128 *j; // rbx
   PVOID v22; // [rsp+48h] [rbp-39h] BYREF
-  int v23; // [rsp+50h] [rbp-31h]
-  void *v24; // [rsp+58h] [rbp-29h]
-  int v25; // [rsp+60h] [rbp-21h]
-  int v26; // [rsp+64h] [rbp-1Dh]
-  int v27; // [rsp+68h] [rbp-19h]
-  __int64 v28; // [rsp+70h] [rbp-11h]
-  int v29; // [rsp+78h] [rbp-9h]
+  ULONG v23; // [rsp+50h] [rbp-31h]
+  PVOID v24; // [rsp+58h] [rbp-29h]
+  IO_SESSION_STATE v25; // [rsp+60h] [rbp-21h]
+  IO_SESSION_STATE v26; // [rsp+64h] [rbp-1Dh]
+  IO_SESSION_EVENT v27; // [rsp+68h] [rbp-19h]
+  LARGE_INTEGER *v28; // [rsp+70h] [rbp-11h]
+  ULONG v29; // [rsp+78h] [rbp-9h]
   void *v30; // [rsp+80h] [rbp-1h]
   unsigned int v31; // [rsp+88h] [rbp+7h]
   void *retaddr; // [rsp+C0h] [rbp+3Fh]
@@ -64,10 +64,10 @@ __int64 __fastcall DifNtNotifyChangeSessionWrapper(
 LABEL_7:
   v16 = 0;
   v30 = a1;
-  v26 = a5;
-  v25 = a6;
-  v24 = Src;
-  v23 = a8;
+  v26 = NewState;
+  v25 = PreviousState;
+  v24 = Payload;
+  v23 = PayloadSize;
   v29 = a2;
   v28 = a3;
   v27 = a4;
@@ -83,7 +83,7 @@ LABEL_7:
       ExReleaseRundownProtection_0(&DifRebootlessRundown);
   }
 LABEL_17:
-  v31 = NtNotifyChangeSession(a1, a5, a6, Src, a8);
+  v31 = NtNotifyChangeSession(a1, a2, a3, a4, NewState, PreviousState, Payload, PayloadSize);
   if ( v13 )
   {
     if ( (v19 = 0, !VfDifRunningWithoutReboot) && (VfOptionFlags & 0x800) == 0

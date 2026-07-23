@@ -1,8 +1,8 @@
 /*
- * XREFs of MiGetNodeHugeRangeCounts @ 0x1404F9BA4
+ * XREFs of MiGetNodeHugeRangeCounts @ 0x1404F7484
  * Callers:
- *     MmFillEtwHugeIoSpaceInformation @ 0x14066905C (MmFillEtwHugeIoSpaceInformation.c)
- *     MmManagePartitionMemoryInformation @ 0x1409344F4 (MmManagePartitionMemoryInformation.c)
+ *     MmFillEtwHugeIoSpaceInformation @ 0x14066A234 (MmFillEtwHugeIoSpaceInformation.c)
+ *     MmManagePartitionMemoryInformation @ 0x1408F7014 (MmManagePartitionMemoryInformation.c)
  * Callees:
  *     <none>
  */

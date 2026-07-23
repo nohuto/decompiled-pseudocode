@@ -3,10 +3,10 @@
  * Callers:
  *     MiGetPageForHeader @ 0x14021A4D4 (MiGetPageForHeader.c)
  * Callees:
- *     MiGetPage @ 0x14026D360 (MiGetPage.c)
- *     MiLockPageInline @ 0x1402EF680 (MiLockPageInline.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiWaitForFreePage @ 0x140653A48 (MiWaitForFreePage.c)
+ *     MiGetPage @ 0x14026D5F0 (MiGetPage.c)
+ *     MiLockPageInline @ 0x1402EF910 (MiLockPageInline.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     MiWaitForFreePage @ 0x140653F98 (MiWaitForFreePage.c)
  */
 
 __int64 __fastcall MiGetSystemPage(__int64 a1, __int64 a2)
@@ -32,10 +32,13 @@ __int64 __fastcall MiGetSystemPage(__int64 a1, __int64 a2)
   v6 = (unsigned __int8)MiLockPageInline(v5);
   *(_QWORD *)(v5 + 24) &= 0xC000000000000000uLL;
   _InterlockedAnd64((volatile signed __int64 *)(v5 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v6 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v6 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v10 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v6 + 1));

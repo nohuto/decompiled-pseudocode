@@ -1,13 +1,13 @@
 /*
- * XREFs of VmpFreeMemoryRanges @ 0x1409DD1AC
+ * XREFs of VmpFreeMemoryRanges @ 0x1409DD3AC
  * Callers:
- *     VmpInsertMemoryRange @ 0x1405F938C (VmpInsertMemoryRange.c)
- *     VmpMergeMemoryRanges @ 0x1405F9FC4 (VmpMergeMemoryRanges.c)
- *     VmpRemoveMemoryRange @ 0x1405FACF4 (VmpRemoveMemoryRange.c)
- *     VmpSplitMemoryRange @ 0x1405FB0B0 (VmpSplitMemoryRange.c)
- *     VmCreateMemoryRange @ 0x1409DC4E0 (VmCreateMemoryRange.c)
- *     VmFreePreallocationForRangeCreate @ 0x1409DC770 (VmFreePreallocationForRangeCreate.c)
- *     VmpAllocateMemoryRanges @ 0x1409DCFB4 (VmpAllocateMemoryRanges.c)
+ *     VmpInsertMemoryRange @ 0x1405F98FC (VmpInsertMemoryRange.c)
+ *     VmpMergeMemoryRanges @ 0x1405FA534 (VmpMergeMemoryRanges.c)
+ *     VmpRemoveMemoryRange @ 0x1405FB264 (VmpRemoveMemoryRange.c)
+ *     VmpSplitMemoryRange @ 0x1405FB620 (VmpSplitMemoryRange.c)
+ *     VmCreateMemoryRange @ 0x1409DC6E0 (VmCreateMemoryRange.c)
+ *     VmFreePreallocationForRangeCreate @ 0x1409DC970 (VmFreePreallocationForRangeCreate.c)
+ *     VmpAllocateMemoryRanges @ 0x1409DD1B4 (VmpAllocateMemoryRanges.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */

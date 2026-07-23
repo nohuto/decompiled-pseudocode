@@ -1,9 +1,9 @@
 /*
- * XREFs of DrvDbGetDriverPackageSignerName @ 0x1406E1844
+ * XREFs of DrvDbGetDriverPackageSignerName @ 0x1406E197C
  * Callers:
- *     DrvDbSetDriverPackageMappedProperty @ 0x1406E2CD4 (DrvDbSetDriverPackageMappedProperty.c)
+ *     DrvDbSetDriverPackageMappedProperty @ 0x1406E2E0C (DrvDbSetDriverPackageMappedProperty.c)
  * Callees:
- *     DrvDbGetRegValueMappedProperty @ 0x140503FAC (DrvDbGetRegValueMappedProperty.c)
+ *     DrvDbGetRegValueMappedProperty @ 0x1404E6F3C (DrvDbGetRegValueMappedProperty.c)
  */
 
 __int64 __fastcall DrvDbGetDriverPackageSignerName(
@@ -26,7 +26,7 @@ __int64 __fastcall DrvDbGetDriverPackageSignerName(
 
   v15 = a2;
   v6 = a6;
-  v8 = &off_140257DE0;
+  v8 = &off_140257DD0;
   *a6 = 0;
   v9 = 0LL;
   while ( 1 )
@@ -45,7 +45,7 @@ __int64 __fastcall DrvDbGetDriverPackageSignerName(
     if ( (unsigned int)v9 >= 0x1A )
       return 3221225701LL;
   }
-  v13 = &off_140257DE0 + 5 * v9;
+  v13 = &off_140257DD0 + 5 * v9;
   if ( !v13 )
     return 3221225701LL;
   result = DrvDbGetRegValueMappedProperty((__int64)&v15, a3, (__int64)v13, &v14, a4, 2 * a5, &v15);

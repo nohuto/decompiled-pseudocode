@@ -1,9 +1,9 @@
 /*
- * XREFs of WdipSemEnableAllProviders @ 0x140821870
+ * XREFs of WdipSemEnableAllProviders @ 0x140827A80
  * Callers:
- *     WdipSemLoadScenarioTable @ 0x140820244 (WdipSemLoadScenarioTable.c)
+ *     WdipSemLoadScenarioTable @ 0x140826454 (WdipSemLoadScenarioTable.c)
  * Callees:
- *     WdipSemEnableDisableTrace @ 0x140AD9B30 (WdipSemEnableDisableTrace.c)
+ *     WdipSemEnableDisableTrace @ 0x140AD65E0 (WdipSemEnableDisableTrace.c)
  */
 
 void WdipSemEnableAllProviders()
@@ -17,17 +17,15 @@ void WdipSemEnableAllProviders()
   __int64 v6; // rax
 
   v0 = 0LL;
-  v1 = _InterlockedExchange((_DWORD *)&stru_140F066E8.SListFaultAddress + 1, SHIDWORD(stru_140F066E8.SListFaultAddress));
-  v2 = _InterlockedExchange(
-         (volatile __int32 *)&stru_140F066E8.SListFaultAddress,
-         (__int32)stru_140F066E8.SListFaultAddress);
-  if ( dword_140F060A0 )
+  v1 = _InterlockedExchange((volatile __int32 *)&stru_140F06A28.QuantumTarget, stru_140F06A28.QuantumTarget);
+  v2 = _InterlockedExchange((_DWORD *)&stru_140F06A28.QuantumTarget + 1, SHIDWORD(stru_140F06A28.QuantumTarget));
+  if ( dword_140F06A20 )
   {
     v3 = *(_QWORD *)WDI_SEM_PROVIDER.Data4;
     v4 = *(_QWORD *)&WDI_SEM_PROVIDER.Data1;
     do
     {
-      v5 = *((_QWORD *)&stru_140F03F40.WaitBlock[0].Object + v0);
+      v5 = *((_QWORD *)&stru_140F049E8.StackBase + v0);
       v6 = *(_QWORD *)v5 - v4;
       if ( *(_QWORD *)v5 == v4 )
         v6 = *(_QWORD *)(v5 + 8) - v3;
@@ -35,7 +33,7 @@ void WdipSemEnableAllProviders()
       {
         if ( (int)WdipSemEnableDisableTrace(
                     v1,
-                    *((_QWORD *)&stru_140F03F40.WaitBlock[0].Object + v0),
+                    *((_QWORD *)&stru_140F049E8.StackBase + v0),
                     *(_BYTE *)(v5 + 16),
                     *(_QWORD *)(v5 + 24),
                     *(_DWORD *)(v5 + 32),
@@ -73,6 +71,6 @@ void WdipSemEnableAllProviders()
       }
       v0 = (unsigned int)(v0 + 1);
     }
-    while ( (unsigned int)v0 < dword_140F060A0 );
+    while ( (unsigned int)v0 < dword_140F06A20 );
   }
 }

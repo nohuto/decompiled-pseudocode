@@ -1,12 +1,12 @@
 /*
- * XREFs of MiScrubNodeHugeRanges @ 0x14070C740
+ * XREFs of MiScrubNodeHugeRanges @ 0x1407113F0
  * Callers:
- *     MiScrubMemoryWorker @ 0x14087DE40 (MiScrubMemoryWorker.c)
+ *     MiScrubMemoryWorker @ 0x140884240 (MiScrubMemoryWorker.c)
  * Callees:
- *     MiScrubInterrupted @ 0x1404CA4F8 (MiScrubInterrupted.c)
- *     MiScrubLargePage @ 0x14070C4BC (MiScrubLargePage.c)
- *     MiGetNodeHugeScrubRanges @ 0x140867BA0 (MiGetNodeHugeScrubRanges.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     MiScrubInterrupted @ 0x1404C3F28 (MiScrubInterrupted.c)
+ *     MiScrubLargePage @ 0x14071116C (MiScrubLargePage.c)
+ *     MiGetNodeHugeScrubRanges @ 0x14086DF80 (MiGetNodeHugeScrubRanges.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiScrubNodeHugeRanges(__int64 a1)

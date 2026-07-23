@@ -1,12 +1,12 @@
 /*
- * XREFs of KeIntSteerAssignCpuSetForGsiv @ 0x1401DA544
+ * XREFs of KeIntSteerAssignCpuSetForGsiv @ 0x1401DA370
  * Callers:
- *     NtSetSystemInformation @ 0x1403E9F6C (NtSetSystemInformation.c)
+ *     NtSetSystemInformation @ 0x1403EB59C (NtSetSystemInformation.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x1400E9A70 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1400EFE30 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiIntSteerAssignCpuSet @ 0x1401DA5E8 (KiIntSteerAssignCpuSet.c)
- *     KiIntSteerClearCpuSetAssignment @ 0x1401DA640 (KiIntSteerClearCpuSetAssignment.c)
+ *     KeReleaseSpinLock @ 0x1400EB600 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1400EDCB0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiIntSteerAssignCpuSet @ 0x1401DA414 (KiIntSteerAssignCpuSet.c)
+ *     KiIntSteerClearCpuSetAssignment @ 0x1401DA46C (KiIntSteerClearCpuSetAssignment.c)
  */
 
 __int64 __fastcall KeIntSteerAssignCpuSetForGsiv(int a1, unsigned __int16 a2, __int64 a3)

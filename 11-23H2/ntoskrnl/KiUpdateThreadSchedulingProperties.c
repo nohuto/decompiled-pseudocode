@@ -4,9 +4,9 @@
  *     KiSetThreadSchedulingGroup @ 0x140204900 (KiSetThreadSchedulingGroup.c)
  *     KiRemoveThreadFromSchedulingGroup @ 0x140204C14 (KiRemoveThreadFromSchedulingGroup.c)
  * Callees:
- *     KiUpdateSharedReadyQueueAffinityThread @ 0x1402BE06C (KiUpdateSharedReadyQueueAffinityThread.c)
- *     KiIsThreadRankNonZero @ 0x140308FE0 (KiIsThreadRankNonZero.c)
- *     KiSetSchedulerAssistPriority @ 0x1404104A0 (KiSetSchedulerAssistPriority.c)
+ *     KiUpdateSharedReadyQueueAffinityThread @ 0x1402BE2FC (KiUpdateSharedReadyQueueAffinityThread.c)
+ *     KiIsThreadRankNonZero @ 0x140309270 (KiIsThreadRankNonZero.c)
+ *     KiSetSchedulerAssistPriority @ 0x140410704 (KiSetSchedulerAssistPriority.c)
  */
 
 char KiUpdateThreadSchedulingProperties(__int64 a1, __int64 a2, __int64 a3, ...)

@@ -1,21 +1,21 @@
 /*
- * XREFs of CmpRebuildKcbCacheFromNode @ 0x1408E0760
+ * XREFs of CmpRebuildKcbCacheFromNode @ 0x1408E6D20
  * Callers:
- *     CmDeleteLayeredKey @ 0x140446A10 (CmDeleteLayeredKey.c)
- *     CmpCreateTombstone @ 0x1406E2950 (CmpCreateTombstone.c)
- *     CmpFullPromoteHiveRootFromKcbStack @ 0x14086071C (CmpFullPromoteHiveRootFromKcbStack.c)
- *     CmpPromoteSingleKeyFromParentKcbAndChildKeyNode @ 0x1408609F8 (CmpPromoteSingleKeyFromParentKcbAndChildKeyNode.c)
- *     CmpRebuildKcbCache @ 0x1408BCBD8 (CmpRebuildKcbCache.c)
- *     CmpDoParseKey @ 0x1408CBC90 (CmpDoParseKey.c)
- *     CmpCreateChild @ 0x1408DF4A0 (CmpCreateChild.c)
- *     CmpPromoteSingleKeyFromKcbStacks @ 0x1409859F4 (CmpPromoteSingleKeyFromKcbStacks.c)
+ *     CmDeleteLayeredKey @ 0x14043F510 (CmDeleteLayeredKey.c)
+ *     CmpCreateTombstone @ 0x1406E6C30 (CmpCreateTombstone.c)
+ *     CmpFullPromoteHiveRootFromKcbStack @ 0x140866A0C (CmpFullPromoteHiveRootFromKcbStack.c)
+ *     CmpPromoteSingleKeyFromParentKcbAndChildKeyNode @ 0x140866CE8 (CmpPromoteSingleKeyFromParentKcbAndChildKeyNode.c)
+ *     CmpRebuildKcbCache @ 0x1408C31A8 (CmpRebuildKcbCache.c)
+ *     CmpDoParseKey @ 0x1408D2240 (CmpDoParseKey.c)
+ *     CmpCreateChild @ 0x1408E5A60 (CmpCreateChild.c)
+ *     CmpPromoteSingleKeyFromKcbStacks @ 0x1409479F4 (CmpPromoteSingleKeyFromKcbStacks.c)
  * Callees:
- *     CmpFindSecurityCellCacheIndex @ 0x140472390 (CmpFindSecurityCellCacheIndex.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     CmpCleanUpKcbCachedSymlink @ 0x1408C20B4 (CmpCleanUpKcbCachedSymlink.c)
- *     CmpCleanUpSubKeyInfo @ 0x1408E08B8 (CmpCleanUpSubKeyInfo.c)
- *     CmLockHiveSecurityShared @ 0x140C58B30 (CmLockHiveSecurityShared.c)
- *     CmUnlockHiveSecurity @ 0x140C58BA8 (CmUnlockHiveSecurity.c)
+ *     CmpFindSecurityCellCacheIndex @ 0x14046BB10 (CmpFindSecurityCellCacheIndex.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     CmpCleanUpKcbCachedSymlink @ 0x1408C8684 (CmpCleanUpKcbCachedSymlink.c)
+ *     CmpCleanUpSubKeyInfo @ 0x1408E6E78 (CmpCleanUpSubKeyInfo.c)
+ *     CmLockHiveSecurityShared @ 0x140C5EB30 (CmLockHiveSecurityShared.c)
+ *     CmUnlockHiveSecurity @ 0x140C5EBA8 (CmUnlockHiveSecurity.c)
  */
 
 __int64 __fastcall CmpRebuildKcbCacheFromNode(ULONG_PTR BugCheckParameter3, __int64 a2, __int64 a3, char a4)

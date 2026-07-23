@@ -10,9 +10,17 @@
  *     <none>
  */
 
-__int64 __fastcall ZwAlpcSendWaitReceivePort(__int64 a1, __int64 a2, __int64 a3)
+NTSTATUS __cdecl ZwAlpcSendWaitReceivePort(
+        HANDLE PortHandle,
+        ULONG Flags,
+        PPORT_MESSAGE SendMessageA,
+        PALPC_MESSAGE_ATTRIBUTES SendMessageAttributes,
+        PPORT_MESSAGE ReceiveMessage,
+        PSIZE_T BufferLength,
+        PALPC_MESSAGE_ATTRIBUTES ReceiveMessageAttributes,
+        PLARGE_INTEGER Timeout)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2, a3);
+  return KiServiceInternal(PortHandle);
 }

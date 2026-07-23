@@ -1,8 +1,8 @@
 /*
- * XREFs of MiFinishVadDeletion @ 0x140067770
+ * XREFs of MiFinishVadDeletion @ 0x140067760
  * Callers:
  *     MiDeletePartialVad @ 0x140025850 (MiDeletePartialVad.c)
- *     MiDeleteVad @ 0x140065E10 (MiDeleteVad.c)
+ *     MiDeleteVad @ 0x140065E00 (MiDeleteVad.c)
  * Callees:
  *     KiAbEntryRemoveFromTree @ 0x140004530 (KiAbEntryRemoveFromTree.c)
  *     KiCheckForKernelApcDelivery @ 0x140005A50 (KiCheckForKernelApcDelivery.c)
@@ -14,23 +14,23 @@
  *     KiAbThreadRemoveBoosts @ 0x14004EFD0 (KiAbThreadRemoveBoosts.c)
  *     MmGetSessionIdEx @ 0x14004F060 (MmGetSessionIdEx.c)
  *     KeLeaveCriticalRegionThread @ 0x140051600 (KeLeaveCriticalRegionThread.c)
- *     MiLockWorkingSetShared @ 0x140076050 (MiLockWorkingSetShared.c)
- *     MiUnlockVad @ 0x1400784B0 (MiUnlockVad.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
- *     KeSignalGate @ 0x1401276B0 (KeSignalGate.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     HvlNotifyLongSpinWait @ 0x1402713D0 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140298330 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     MiDeleteDeferredCloneDescriptors @ 0x1402C9868 (MiDeleteDeferredCloneDescriptors.c)
- *     MiUnlockAndDereferenceNestedVad @ 0x1402CB114 (MiUnlockAndDereferenceNestedVad.c)
- *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14031C0B4 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
- *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14031C278 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     MiRemoveVadCharges @ 0x1405EC820 (MiRemoveVadCharges.c)
- *     MiReturnVadQuota @ 0x1405ECB00 (MiReturnVadQuota.c)
- *     MiDeleteImageHotPatchState @ 0x140854CDC (MiDeleteImageHotPatchState.c)
+ *     MiLockWorkingSetShared @ 0x140076040 (MiLockWorkingSetShared.c)
+ *     MiUnlockVad @ 0x1400784A0 (MiUnlockVad.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     KeSetEvent @ 0x1400C2A40 (KeSetEvent.c)
+ *     KeSignalGate @ 0x140127780 (KeSignalGate.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     HvlNotifyLongSpinWait @ 0x1402715C0 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140298520 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     MiDeleteDeferredCloneDescriptors @ 0x1402C9A58 (MiDeleteDeferredCloneDescriptors.c)
+ *     MiUnlockAndDereferenceNestedVad @ 0x1402CB304 (MiUnlockAndDereferenceNestedVad.c)
+ *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14031C2A4 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14031C468 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     MiRemoveVadCharges @ 0x1405ED820 (MiRemoveVadCharges.c)
+ *     MiReturnVadQuota @ 0x1405EDB00 (MiReturnVadQuota.c)
+ *     MiDeleteImageHotPatchState @ 0x140855F3C (MiDeleteImageHotPatchState.c)
  */
 
 int __fastcall MiFinishVadDeletion(unsigned int *P, __int64 a2, unsigned __int64 a3, int a4, __int64 a5)
@@ -200,7 +200,7 @@ LABEL_99:
   {
     v26->CrossThreadReleasableAndBusyByte |= 2u;
     if ( (__int64)v26->LockState.LockState < 0 )
-      KiAbEntryRemoveFromTree((__int64)&v18->LockEntries[v25], SessionId);
+      KiAbEntryRemoveFromTree(&v18->LockEntries[v25].TreeNode, SessionId);
     v76 = 0;
     v76 = v26->BoostBitmap.AllFields & 0x1FFFF;
     v26->BoostBitmap.AllFields &= 0xFFFE0000;
@@ -226,12 +226,12 @@ LABEL_99:
     v30 = (__int64 *)(P + 14);
     v31 = 0LL;
     v71 = 0LL;
-    v32 = &dword_14043B700;
+    v32 = &dword_14043C7C0;
     v33 = KeGetCurrentThread()->ApcState.Process;
     Flink = (char)v33[2].Header.WaitListHead.Flink;
     v35 = (__int64)&v33[1].IdealNode[12];
     if ( (Flink & 7) == 2 )
-      v36 = &dword_14043B700;
+      v36 = &dword_14043C7C0;
     else
       v36 = (LONG *)(v35 + 192);
     CurrentIrql = KeGetCurrentIrql();
@@ -459,7 +459,7 @@ LABEL_113:
     {
       v57->CrossThreadReleasableAndBusyByte |= 2u;
       if ( (__int64)v57->LockState.LockState < 0 )
-        KiAbEntryRemoveFromTree((__int64)&v51->LockEntries[v56], v53);
+        KiAbEntryRemoveFromTree(&v51->LockEntries[v56].TreeNode, v53);
       v77 = 0;
       v77 = v57->BoostBitmap.AllFields & 0x1FFFF;
       v57->BoostBitmap.AllFields &= 0xFFFE0000;

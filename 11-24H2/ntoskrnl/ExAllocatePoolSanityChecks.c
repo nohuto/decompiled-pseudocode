@@ -1,9 +1,9 @@
 /*
- * XREFs of ExAllocatePoolSanityChecks @ 0x140BA42F4
+ * XREFs of ExAllocatePoolSanityChecks @ 0x140BA62F4
  * Callers:
- *     VfHandlePoolAlloc @ 0x140BA8AA0 (VfHandlePoolAlloc.c)
+ *     VfHandlePoolAlloc @ 0x140BAAAA0 (VfHandlePoolAlloc.c)
  * Callees:
- *     CarReportRuleViolationFromNt @ 0x140B8D914 (CarReportRuleViolationFromNt.c)
+ *     CarReportRuleViolationFromNt @ 0x140B8F914 (CarReportRuleViolationFromNt.c)
  */
 
 __int64 __fastcall ExAllocatePoolSanityChecks(int a1, ULONG_PTR a2, _DWORD *a3, __int64 a4)

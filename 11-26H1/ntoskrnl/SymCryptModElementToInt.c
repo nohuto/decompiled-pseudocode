@@ -1,14 +1,14 @@
 /*
- * XREFs of SymCryptModElementToInt @ 0x14055C734
+ * XREFs of SymCryptModElementToInt @ 0x14055EC1C
  * Callers:
- *     SymCryptRsakeyCalculatePrimesFromPrivateExponent @ 0x1405598D8 (SymCryptRsakeyCalculatePrimesFromPrivateExponent.c)
- *     SymCryptEckeySetValue @ 0x14055B8D0 (SymCryptEckeySetValue.c)
- *     SymCryptEcDsaVerify @ 0x14055D084 (SymCryptEcDsaVerify.c)
- *     SymCryptRsaCoreDecCrt @ 0x14055E3DC (SymCryptRsaCoreDecCrt.c)
- *     SymCryptCrtSolve @ 0x140562634 (SymCryptCrtSolve.c)
- *     SymCryptEcpointGenericSetRandom @ 0x140563630 (SymCryptEcpointGenericSetRandom.c)
+ *     SymCryptRsakeyCalculatePrimesFromPrivateExponent @ 0x14055BD68 (SymCryptRsakeyCalculatePrimesFromPrivateExponent.c)
+ *     SymCryptEckeySetValue @ 0x14055DDB4 (SymCryptEckeySetValue.c)
+ *     SymCryptEcDsaVerify @ 0x14055F56C (SymCryptEcDsaVerify.c)
+ *     SymCryptRsaCoreDecCrt @ 0x140560900 (SymCryptRsaCoreDecCrt.c)
+ *     SymCryptCrtSolve @ 0x140564B44 (SymCryptCrtSolve.c)
+ *     SymCryptEcpointGenericSetRandom @ 0x140565A20 (SymCryptEcpointGenericSetRandom.c)
  * Callees:
- *     SymCryptFdefModElementToIntGeneric @ 0x14056F810 (SymCryptFdefModElementToIntGeneric.c)
+ *     SymCryptFdefModElementToIntGeneric @ 0x14056E9F0 (SymCryptFdefModElementToIntGeneric.c)
  */
 
 __int64 __fastcall SymCryptModElementToInt(_DWORD *a1, __int64 a2, int a3, __int64 a4, __int64 a5)

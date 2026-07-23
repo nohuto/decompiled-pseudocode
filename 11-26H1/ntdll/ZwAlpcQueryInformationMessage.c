@@ -1,16 +1,22 @@
 /*
- * XREFs of ZwAlpcQueryInformationMessage @ 0x1801600B0
+ * XREFs of ZwAlpcQueryInformationMessage @ 0x18015FFB0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 ZwAlpcQueryInformationMessage()
+NTSTATUS __cdecl ZwAlpcQueryInformationMessage(
+        HANDLE PortHandle,
+        PPORT_MESSAGE PortMessage,
+        ALPC_MESSAGE_INFORMATION_CLASS MessageInformationClass,
+        PVOID MessageInformation,
+        ULONG Length,
+        PULONG ReturnLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 140LL;
+  result = 140;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

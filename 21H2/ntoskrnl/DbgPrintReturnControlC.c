@@ -1,9 +1,9 @@
 /*
- * XREFs of DbgPrintReturnControlC @ 0x140585520
+ * XREFs of DbgPrintReturnControlC @ 0x140585750
  * Callers:
  *     <none>
  * Callees:
- *     vDbgPrintExWithPrefixInternal @ 0x1402841E0 (vDbgPrintExWithPrefixInternal.c)
+ *     vDbgPrintExWithPrefixInternal @ 0x140272800 (vDbgPrintExWithPrefixInternal.c)
  */
 
 ULONG DbgPrintReturnControlC(PCCH Format, ...)

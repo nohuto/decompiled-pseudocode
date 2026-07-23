@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpCleanupDiscardReplacePost @ 0x140A1F810
+ * XREFs of CmpCleanupDiscardReplacePost @ 0x140A1FAC0
  * Callers:
- *     CmpCleanupDiscardReplaceContext @ 0x140710780 (CmpCleanupDiscardReplaceContext.c)
+ *     CmpCleanupDiscardReplaceContext @ 0x140710990 (CmpCleanupDiscardReplaceContext.c)
  * Callees:
- *     CmpDereferenceKeyControlBlockWithLock @ 0x14073E4A8 (CmpDereferenceKeyControlBlockWithLock.c)
+ *     CmpDereferenceKeyControlBlockWithLock @ 0x14073E698 (CmpDereferenceKeyControlBlockWithLock.c)
  */
 
 _BOOL8 __fastcall CmpCleanupDiscardReplacePost(ULONG_PTR a1, __int64 a2, __int64 a3)

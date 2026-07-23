@@ -1,10 +1,10 @@
 /*
- * XREFs of KiApplyProcessorErrata @ 0x1401D74D8
+ * XREFs of KiApplyProcessorErrata @ 0x1401D7304
  * Callers:
- *     KiRestoreFeatureBits @ 0x140114230 (KiRestoreFeatureBits.c)
+ *     KiRestoreFeatureBits @ 0x1401147A0 (KiRestoreFeatureBits.c)
  *     KiSetFeatureBits @ 0x1403D57C8 (KiSetFeatureBits.c)
  * Callees:
- *     HviIsAnyHypervisorPresent @ 0x14013123C (HviIsAnyHypervisorPresent.c)
+ *     HviIsAnyHypervisorPresent @ 0x1401317AC (HviIsAnyHypervisorPresent.c)
  */
 
 void __fastcall KiApplyProcessorErrata(_BYTE *a1)

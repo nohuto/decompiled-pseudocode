@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpTscInitialize @ 0x1405994A0
+ * XREFs of HalpTscInitialize @ 0x14059BC20
  * Callers:
  *     <none>
  * Callees:
- *     HalUpdateTimerCapabilities @ 0x140598090 (HalUpdateTimerCapabilities.c)
- *     HalpTscGetAttributes @ 0x1405992E4 (HalpTscGetAttributes.c)
+ *     HalUpdateTimerCapabilities @ 0x14059A810 (HalUpdateTimerCapabilities.c)
+ *     HalpTscGetAttributes @ 0x14059BA64 (HalpTscGetAttributes.c)
  */
 
 __int64 __fastcall HalpTscInitialize(__int64 a1)
@@ -30,15 +30,15 @@ __int64 __fastcall HalpTscInitialize(__int64 a1)
     v3 = 0;
     v4 = 0;
   }
-  if ( v3 != LOBYTE(IommuInterfaceStateChangeCallbackPushLock.Teb) && !v3 )
+  if ( v3 != BYTE1(IommuInterfaceStateChangeCallbackPushLock.Teb) && !v3 )
   {
     v2 = 0x2000;
-    LOBYTE(IommuInterfaceStateChangeCallbackPushLock.Teb) = 0;
+    BYTE1(IommuInterfaceStateChangeCallbackPushLock.Teb) = 0;
   }
-  if ( v4 != BYTE1(IommuInterfaceStateChangeCallbackPushLock.Queue) && !v4 )
+  if ( v4 != LOBYTE(IommuInterfaceStateChangeCallbackPushLock.Teb) && !v4 )
   {
     v2 |= 0x4000u;
-    BYTE1(IommuInterfaceStateChangeCallbackPushLock.Queue) = 0;
+    LOBYTE(IommuInterfaceStateChangeCallbackPushLock.Teb) = 0;
   }
   return HalUpdateTimerCapabilities(a1, v2, 0);
 }

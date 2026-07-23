@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpSetWakeAlarm @ 0x14050B078
+ * XREFs of HalpSetWakeAlarm @ 0x14050B5C8
  * Callers:
- *     HalpCheckWakeupTimeAndAdjust @ 0x14051C384 (HalpCheckWakeupTimeAndAdjust.c)
- *     HaliSetWakeAlarm @ 0x140A96500 (HaliSetWakeAlarm.c)
+ *     HalpCheckWakeupTimeAndAdjust @ 0x14051C8D4 (HalpCheckWakeupTimeAndAdjust.c)
+ *     HaliSetWakeAlarm @ 0x140A96370 (HaliSetWakeAlarm.c)
  * Callees:
- *     HalpAcquireCmosSpinLockAndWait @ 0x14033BBD8 (HalpAcquireCmosSpinLockAndWait.c)
+ *     HalpAcquireCmosSpinLockAndWait @ 0x14033BE68 (HalpAcquireCmosSpinLockAndWait.c)
  */
 
 __int64 __fastcall HalpSetWakeAlarm(__int64 a1, unsigned __int8 *a2)

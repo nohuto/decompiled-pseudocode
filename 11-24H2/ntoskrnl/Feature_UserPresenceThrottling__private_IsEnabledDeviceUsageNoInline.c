@@ -1,10 +1,10 @@
 /*
- * XREFs of Feature_UserPresenceThrottling__private_IsEnabledDeviceUsageNoInline @ 0x14029AB60
+ * XREFs of Feature_UserPresenceThrottling__private_IsEnabledDeviceUsageNoInline @ 0x1402A9650
  * Callers:
- *     KiComputeThreadQos @ 0x14029A450 (KiComputeThreadQos.c)
- *     PspSetProcessPpmPolicy @ 0x140ACB960 (PspSetProcessPpmPolicy.c)
+ *     KiComputeThreadQos @ 0x1402A8F40 (KiComputeThreadQos.c)
+ *     PspSetProcessPpmPolicy @ 0x140AC95E0 (PspSetProcessPpmPolicy.c)
  * Callees:
- *     Feature_UserPresenceThrottling__private_IsEnabledFallback @ 0x1404FB53C (Feature_UserPresenceThrottling__private_IsEnabledFallback.c)
+ *     Feature_UserPresenceThrottling__private_IsEnabledFallback @ 0x1404F8E00 (Feature_UserPresenceThrottling__private_IsEnabledFallback.c)
  */
 
 __int64 Feature_UserPresenceThrottling__private_IsEnabledDeviceUsageNoInline()

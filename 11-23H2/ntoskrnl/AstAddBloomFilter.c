@@ -1,9 +1,9 @@
 /*
- * XREFs of AstAddBloomFilter @ 0x1407AE0C4
+ * XREFs of AstAddBloomFilter @ 0x1407AE2B4
  * Callers:
- *     IopXxxControlFile @ 0x1406E54E0 (IopXxxControlFile.c)
+ *     IopXxxControlFile @ 0x1406E5510 (IopXxxControlFile.c)
  * Callees:
- *     AstGetHashedBitNumbers @ 0x1407AE1E0 (AstGetHashedBitNumbers.c)
+ *     AstGetHashedBitNumbers @ 0x1407AE3D0 (AstGetHashedBitNumbers.c)
  */
 
 int __fastcall AstAddBloomFilter(__int64 a1, __int64 a2, unsigned int a3)

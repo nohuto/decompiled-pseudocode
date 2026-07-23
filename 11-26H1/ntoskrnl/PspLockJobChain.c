@@ -1,16 +1,16 @@
 /*
- * XREFs of PspLockJobChain @ 0x140AAEBB4
+ * XREFs of PspLockJobChain @ 0x140AAC814
  * Callers:
- *     NtSetInformationJobObject @ 0x1407F4C70 (NtSetInformationJobObject.c)
- *     PspSetUILimitJobObject @ 0x1407F9E58 (PspSetUILimitJobObject.c)
- *     PspImplicitAssignProcessToJob @ 0x140984FA8 (PspImplicitAssignProcessToJob.c)
- *     PspChargeJobWakeCounter @ 0x140AAE650 (PspChargeJobWakeCounter.c)
- *     PspGetCpuAndMemoryPartitionImplicit @ 0x140AAE944 (PspGetCpuAndMemoryPartitionImplicit.c)
- *     PspLockJobsAndProcessExclusive @ 0x140AAEA78 (PspLockJobsAndProcessExclusive.c)
+ *     NtSetInformationJobObject @ 0x1407FA7D0 (NtSetInformationJobObject.c)
+ *     PspSetUILimitJobObject @ 0x1407FF958 (PspSetUILimitJobObject.c)
+ *     PspImplicitAssignProcessToJob @ 0x140946FB8 (PspImplicitAssignProcessToJob.c)
+ *     PspChargeJobWakeCounter @ 0x140AAC2B0 (PspChargeJobWakeCounter.c)
+ *     PspGetCpuAndMemoryPartitionImplicit @ 0x140AAC5A4 (PspGetCpuAndMemoryPartitionImplicit.c)
+ *     PspLockJobsAndProcessExclusive @ 0x140AAC6D8 (PspLockJobsAndProcessExclusive.c)
  * Callees:
- *     ExAcquireFastResourceExclusive @ 0x140275660 (ExAcquireFastResourceExclusive.c)
- *     PspLockJobAssignment @ 0x140AAECA4 (PspLockJobAssignment.c)
- *     PspUnlockJobAssignment @ 0x140AAED18 (PspUnlockJobAssignment.c)
+ *     ExAcquireFastResourceExclusive @ 0x140274BD0 (ExAcquireFastResourceExclusive.c)
+ *     PspLockJobAssignment @ 0x140AAC904 (PspLockJobAssignment.c)
+ *     PspUnlockJobAssignment @ 0x140AAC978 (PspUnlockJobAssignment.c)
  */
 
 char __fastcall PspLockJobChain(__int64 a1, __int64 a2, char a3)

@@ -1,40 +1,40 @@
 /*
- * XREFs of SepAdtCopyToLsaSharedMemory @ 0x14092582C
+ * XREFs of SepAdtCopyToLsaSharedMemory @ 0x14092598C
  * Callers:
- *     SepRmDispatchDataToLsa @ 0x1402C1C08 (SepRmDispatchDataToLsa.c)
+ *     SepRmDispatchDataToLsa @ 0x1402400A8 (SepRmDispatchDataToLsa.c)
  * Callees:
- *     ZwAllocateVirtualMemory @ 0x1403FA6A0 (ZwAllocateVirtualMemory.c)
- *     ZwFreeVirtualMemory @ 0x1403FA760 (ZwFreeVirtualMemory.c)
- *     ZwWriteVirtualMemory @ 0x1403FAAE0 (ZwWriteVirtualMemory.c)
+ *     ZwAllocateVirtualMemory @ 0x1403FA880 (ZwAllocateVirtualMemory.c)
+ *     ZwFreeVirtualMemory @ 0x1403FA940 (ZwFreeVirtualMemory.c)
+ *     ZwWriteVirtualMemory @ 0x1403FACC0 (ZwWriteVirtualMemory.c)
  */
 
-__int64 __fastcall SepAdtCopyToLsaSharedMemory(HANDLE ProcessHandle, __int64 a2, unsigned int a3, PVOID *a4)
+__int64 __fastcall SepAdtCopyToLsaSharedMemory(HANDLE ProcessHandle, PVOID Buffer, SIZE_T BufferSize, PVOID *a4)
 {
   __int64 v5; // rdi
-  int v7; // ebx
+  NTSTATUS v8; // ebx
   PVOID BaseAddress; // [rsp+30h] [rbp-20h] BYREF
   ULONG_PTR RegionSize; // [rsp+38h] [rbp-18h] BYREF
-  __int64 v11; // [rsp+40h] [rbp-10h]
+  ULONG_PTR NumberOfBytesWritten[2]; // [rsp+40h] [rbp-10h] BYREF
 
   BaseAddress = 0LL;
-  v11 = 0LL;
-  v5 = a3;
-  RegionSize = a3;
-  v7 = ZwAllocateVirtualMemory(ProcessHandle, &BaseAddress, 0LL, &RegionSize, 0x1000u, 4u);
-  if ( v7 >= 0 )
+  NumberOfBytesWritten[0] = 0LL;
+  v5 = (unsigned int)BufferSize;
+  RegionSize = (unsigned int)BufferSize;
+  v8 = ZwAllocateVirtualMemory(ProcessHandle, &BaseAddress, 0LL, &RegionSize, 0x1000u, 4u);
+  if ( v8 >= 0 )
   {
-    v7 = ZwWriteVirtualMemory((__int64)ProcessHandle, (__int64)BaseAddress);
-    if ( v7 >= 0 )
+    v8 = ZwWriteVirtualMemory(ProcessHandle, BaseAddress, Buffer, (unsigned int)v5, NumberOfBytesWritten);
+    if ( v8 >= 0 )
     {
-      if ( v5 == v11 )
+      if ( v5 == NumberOfBytesWritten[0] )
       {
         *a4 = BaseAddress;
-        return (unsigned int)v7;
+        return (unsigned int)v8;
       }
-      v7 = -1073741823;
+      v8 = -1073741823;
     }
     RegionSize = 0LL;
     ZwFreeVirtualMemory(ProcessHandle, &BaseAddress, &RegionSize, 0x8000u);
   }
-  return (unsigned int)v7;
+  return (unsigned int)v8;
 }

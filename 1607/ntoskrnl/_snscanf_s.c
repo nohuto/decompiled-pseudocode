@@ -1,10 +1,10 @@
 /*
- * XREFs of _snscanf_s @ 0x140152144
+ * XREFs of _snscanf_s @ 0x140152704
  * Callers:
  *     <none>
  * Callees:
- *     xHalFreeMessageTarget @ 0x140130D64 (xHalFreeMessageTarget.c)
- *     _sinput_s @ 0x14015554C (_sinput_s.c)
+ *     xHalFreeMessageTarget @ 0x1401312D4 (xHalFreeMessageTarget.c)
+ *     _sinput_s @ 0x140155ABC (_sinput_s.c)
  */
 
 int snscanf_s(const char *Src, size_t MaxCount, const char *Format, ...)

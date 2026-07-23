@@ -1,9 +1,9 @@
 /*
- * XREFs of KeEnterKernelDebugger @ 0x140569370
+ * XREFs of KeEnterKernelDebugger @ 0x140569A30
  * Callers:
  *     <none>
  * Callees:
- *     KiBugCheckDebugBreak @ 0x140569760 (KiBugCheckDebugBreak.c)
+ *     KiBugCheckDebugBreak @ 0x140569E20 (KiBugCheckDebugBreak.c)
  *     KdInitSystem @ 0x140AB1040 (KdInitSystem.c)
  */
 
@@ -17,7 +17,7 @@ __int64 KeEnterKernelDebugger()
   _disable();
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(0xFuLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 15 )

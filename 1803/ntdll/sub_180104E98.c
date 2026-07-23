@@ -10,60 +10,52 @@
  *     sub_180104E98 @ 0x180104E98 (sub_180104E98.c)
  */
 
-__int64 __fastcall sub_180104E98(__int64 a1, unsigned __int64 a2, unsigned __int64 *a3, __int64 a4)
+void __fastcall sub_180104E98(__int64 a1, unsigned int a2)
 {
-  unsigned int v4; // edi
-  int v5; // esi
-  __int64 v7; // rcx
-  __int64 v8; // r9
-  __int64 result; // rax
-  unsigned __int64 v10; // rdx
-  unsigned __int64 *v11; // r8
-  __int64 v12; // r9
-  __int64 v13; // rbp
-  volatile signed __int64 *v14; // rcx
-  __int64 v15; // rsi
-  int v16; // [rsp+38h] [rbp+10h]
+  int v3; // esi
+  __int64 v5; // rcx
+  __int64 v6; // rbp
+  _RTL_SRWLOCK *v7; // rcx
+  __int64 v8; // rsi
+  int v9; // [rsp+38h] [rbp+10h]
 
-  v4 = a2;
-  v5 = a2 & 1;
-  v16 = v5;
+  v3 = a2 & 1;
+  v9 = v3;
   if ( (a2 & 1) == 0 )
-    RtlAcquireSRWLockExclusive(a1 + 16, a2, a3, a4);
-  sub_180104E2C(a1, (_QWORD *)(a1 + 24), (unsigned __int64 *)v4, a4);
-  result = sub_180104E2C(v7, (_QWORD *)(a1 + 40), (unsigned __int64 *)v4, v8);
+    RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 16));
+  sub_180104E2C(a1, (_RTL_SRWLOCK **)(a1 + 24), a2);
+  sub_180104E2C(v5, (_RTL_SRWLOCK **)(a1 + 40), a2);
   if ( (*(_BYTE *)a1 & 1) != 0 )
   {
-    v13 = *(unsigned __int8 *)(a1 + 2);
-    v14 = (volatile signed __int64 *)(a1 + 80);
-    if ( v5 )
+    v6 = *(unsigned __int8 *)(a1 + 2);
+    v7 = (_RTL_SRWLOCK *)(a1 + 80);
+    if ( v3 )
     {
-      if ( (v4 & 2) != 0 )
-        *v14 = 1LL;
-      result = RtlReleaseSRWLockExclusive(v14);
+      if ( (a2 & 2) != 0 )
+        v7->Ptr = (PVOID)1;
+      RtlReleaseSRWLockExclusive(v7);
     }
     else
     {
-      result = RtlAcquireSRWLockExclusive((unsigned __int64)v14, v10, v11, v12);
+      RtlAcquireSRWLockExclusive(v7);
     }
-    if ( (_DWORD)v13 )
+    if ( (_DWORD)v6 )
     {
-      v15 = 0LL;
+      v8 = 0LL;
       do
       {
-        result = sub_180104E98(*(_QWORD *)(v15 + *(_QWORD *)(a1 + 96)), v4);
-        v15 += 8LL;
-        --v13;
+        sub_180104E98(*(_QWORD *)(v8 + *(_QWORD *)(a1 + 96)), a2);
+        v8 += 8LL;
+        --v6;
       }
-      while ( v13 );
-      v5 = v16;
+      while ( v6 );
+      v3 = v9;
     }
   }
-  if ( v5 )
+  if ( v3 )
   {
-    if ( (v4 & 2) != 0 )
+    if ( (a2 & 2) != 0 )
       *(_QWORD *)(a1 + 16) = 1LL;
-    return RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a1 + 16));
+    RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 16));
   }
-  return result;
 }

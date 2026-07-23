@@ -1,27 +1,27 @@
 /*
- * XREFs of MiPrefetchControlArea @ 0x1409572D4
+ * XREFs of MiPrefetchControlArea @ 0x14093AC84
  * Callers:
- *     MiWalkEntireImage @ 0x1402E85C0 (MiWalkEntireImage.c)
- *     MiSetPagesModified @ 0x140492C90 (MiSetPagesModified.c)
- *     MiLoadSectionIntoVsmEnclave @ 0x1408DA8E0 (MiLoadSectionIntoVsmEnclave.c)
- *     MiValidateSectionCreate @ 0x140957B50 (MiValidateSectionCreate.c)
+ *     MiWalkEntireImage @ 0x140349C00 (MiWalkEntireImage.c)
+ *     MiSetPagesModified @ 0x1403DA5EC (MiSetPagesModified.c)
+ *     MiValidateSectionCreate @ 0x14093C5D8 (MiValidateSectionCreate.c)
+ *     MiLoadSectionIntoVsmEnclave @ 0x140A2A370 (MiLoadSectionIntoVsmEnclave.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x1402595A0 (KeLeaveCriticalRegionThread.c)
- *     KeAbPostReleaseEx @ 0x14025CCE0 (KeAbPostReleaseEx.c)
- *     MiPfCompletePrefetchIos @ 0x1402A9824 (MiPfCompletePrefetchIos.c)
- *     MiDereferenceInPageAutoBoostLock @ 0x1402AA708 (MiDereferenceInPageAutoBoostLock.c)
- *     MiGetInPageAutoBoostLock @ 0x1402ABE68 (MiGetInPageAutoBoostLock.c)
- *     MiPfPutPagesInTransition @ 0x1402E692C (MiPfPutPagesInTransition.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     MiReleaseReadListResources @ 0x140956000 (MiReleaseReadListResources.c)
- *     MiPfPrepareSequentialReadList @ 0x140956378 (MiPfPrepareSequentialReadList.c)
- *     MiPfExecuteReadList @ 0x140956C3C (MiPfExecuteReadList.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     MiGetInPageAutoBoostLock @ 0x1402770DC (MiGetInPageAutoBoostLock.c)
+ *     KeLeaveCriticalRegionThread @ 0x140289BB0 (KeLeaveCriticalRegionThread.c)
+ *     KeAbPostReleaseEx @ 0x14028D2F0 (KeAbPostReleaseEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     MiPfPutPagesInTransition @ 0x140347F6C (MiPfPutPagesInTransition.c)
+ *     MiPfCompletePrefetchIos @ 0x140351AD0 (MiPfCompletePrefetchIos.c)
+ *     MiDereferenceInPageAutoBoostLock @ 0x1403529B8 (MiDereferenceInPageAutoBoostLock.c)
+ *     MiReleaseReadListResources @ 0x1409399B0 (MiReleaseReadListResources.c)
+ *     MiPfPrepareSequentialReadList @ 0x140939D28 (MiPfPrepareSequentialReadList.c)
+ *     MiPfExecuteReadList @ 0x14093A5EC (MiPfExecuteReadList.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiPrefetchControlArea(
         __int64 a1,
-        signed __int64 a2,
+        __int64 a2,
         unsigned __int64 a3,
         unsigned int a4,
         int a5,

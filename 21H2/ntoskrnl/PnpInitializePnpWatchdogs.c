@@ -1,12 +1,12 @@
 /*
- * XREFs of PnpInitializePnpWatchdogs @ 0x140A53858
+ * XREFs of PnpInitializePnpWatchdogs @ 0x140A54858
  * Callers:
- *     IopInitializePlugPlayServices @ 0x140A52280 (IopInitializePlugPlayServices.c)
+ *     IopInitializePlugPlayServices @ 0x140A53280 (IopInitializePlugPlayServices.c)
  * Callees:
- *     PnpGetRegistryDword @ 0x1403B738C (PnpGetRegistryDword.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     PnpQueryWatchdogTimeoutConfiguration @ 0x140A538F4 (PnpQueryWatchdogTimeoutConfiguration.c)
- *     PnpOpenCCSPnpRegKey @ 0x140A53958 (PnpOpenCCSPnpRegKey.c)
+ *     PnpGetRegistryDword @ 0x1403B74FC (PnpGetRegistryDword.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     PnpQueryWatchdogTimeoutConfiguration @ 0x140A548F4 (PnpQueryWatchdogTimeoutConfiguration.c)
+ *     PnpOpenCCSPnpRegKey @ 0x140A54958 (PnpOpenCCSPnpRegKey.c)
  */
 
 NTSTATUS PnpInitializePnpWatchdogs()

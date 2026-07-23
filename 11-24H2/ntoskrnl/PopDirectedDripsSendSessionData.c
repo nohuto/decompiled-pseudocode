@@ -1,9 +1,9 @@
 /*
- * XREFs of PopDirectedDripsSendSessionData @ 0x140A69608
+ * XREFs of PopDirectedDripsSendSessionData @ 0x140A629B8
  * Callers:
- *     PopDirectedDripsNotify @ 0x140A69400 (PopDirectedDripsNotify.c)
+ *     PopDirectedDripsNotify @ 0x140A627B0 (PopDirectedDripsNotify.c)
  * Callees:
- *     PopDirectedDripsDiagNotifySessionStop @ 0x140A6967C (PopDirectedDripsDiagNotifySessionStop.c)
+ *     PopDirectedDripsDiagNotifySessionStop @ 0x140A62A2C (PopDirectedDripsDiagNotifySessionStop.c)
  */
 
 __int64 PopDirectedDripsSendSessionData()
@@ -26,8 +26,8 @@ __int64 PopDirectedDripsSendSessionData()
                          HandleAttributes);
   }
   while ( v1 != HandleAttributes );
-  v2 = dword_140F0DD50 & 1;
-  if ( (dword_140F0DD50 & 2) != 0 )
+  v2 = dword_140F0DFF0 & 1;
+  if ( (dword_140F0DFF0 & 2) != 0 )
     v2 = (unsigned int)v2 | 2;
   v3 = (HandleAttributes >> 12) & 1;
   v4 = (HandleAttributes >> 10) & 1 | 2;

@@ -3,13 +3,13 @@
  * Callers:
  *     HdlspDispatch @ 0x140AE9EB0 (HdlspDispatch.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     wcscmp @ 0x1403DB950 (wcscmp.c)
- *     ZwQuerySystemInformation @ 0x14041B420 (ZwQuerySystemInformation.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     wcscmp @ 0x1403DBB30 (wcscmp.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     ZwQuerySystemInformation @ 0x14041B7B0 (ZwQuerySystemInformation.c)
+ *     memmove @ 0x140435B00 (memmove.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
@@ -37,13 +37,13 @@ void __fastcall HdlspAddLogEntry(_WORD *Src)
   _DWORD *SchedulerAssist; // r8
   int v21; // eax
   bool v22; // zf
-  __int128 v23; // [rsp+20h] [rbp-68h] BYREF
+  __int128 SystemInformation; // [rsp+20h] [rbp-68h] BYREF
   __int128 v24; // [rsp+30h] [rbp-58h]
   __int128 v25; // [rsp+40h] [rbp-48h]
 
   v2 = -1LL;
   v3 = 0LL;
-  v23 = 0LL;
+  SystemInformation = 0LL;
   v24 = 0LL;
   v25 = 0LL;
   do
@@ -52,9 +52,9 @@ void __fastcall HdlspAddLogEntry(_WORD *Src)
   v4 = 2 * v2 + 2;
   if ( KeGetCurrentIrql() < 2u )
   {
-    if ( (int)ZwQuerySystemInformation(3LL, (__int64)&v23) < 0 )
+    if ( ZwQuerySystemInformation(SystemTimeOfDayInformation, &SystemInformation, 0x30u, 0LL) < 0 )
     {
-      v23 = 0LL;
+      SystemInformation = 0LL;
       v24 = 0LL;
       v25 = 0LL;
     }
@@ -85,7 +85,7 @@ void __fastcall HdlspAddLogEntry(_WORD *Src)
     }
     v14 = 56LL * v11;
     v15 = v8[2];
-    *(_OWORD *)(v14 + v15) = v23;
+    *(_OWORD *)(v14 + v15) = SystemInformation;
     *(_OWORD *)(v14 + v15 + 16) = v24;
     *(_OWORD *)(v14 + v15 + 32) = v25;
     v16 = v8[2];
@@ -97,10 +97,10 @@ void __fastcall HdlspAddLogEntry(_WORD *Src)
     if ( v7 != 0xFF )
     {
       KxReleaseSpinLock((volatile signed __int64 *)HeadlessGlobals);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v7 <= 0xFu && CurrentIrql >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v7 <= 0xFu && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;

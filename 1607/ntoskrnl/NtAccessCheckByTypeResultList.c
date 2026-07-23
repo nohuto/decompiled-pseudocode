@@ -1,9 +1,9 @@
 /*
- * XREFs of NtAccessCheckByTypeResultList @ 0x140219864
+ * XREFs of NtAccessCheckByTypeResultList @ 0x140219690
  * Callers:
  *     <none>
  * Callees:
- *     SeAccessCheckByType @ 0x14005FEF0 (SeAccessCheckByType.c)
+ *     SeAccessCheckByType @ 0x14005FA70 (SeAccessCheckByType.c)
  */
 
 NTSTATUS __stdcall NtAccessCheckByTypeResultList(

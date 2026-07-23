@@ -1,11 +1,11 @@
 /*
- * XREFs of SshpTracingWriteBlockerStateChange @ 0x1402567B4
+ * XREFs of SshpTracingWriteBlockerStateChange @ 0x140258144
  * Callers:
- *     SshpSetBlockerActive @ 0x1402566E4 (SshpSetBlockerActive.c)
+ *     SshpSetBlockerActive @ 0x140258074 (SshpSetBlockerActive.c)
  * Callees:
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     EtwpLevelKeywordEnabled @ 0x140255F60 (EtwpLevelKeywordEnabled.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     EtwpLevelKeywordEnabled @ 0x1402578F0 (EtwpLevelKeywordEnabled.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 char __fastcall SshpTracingWriteBlockerStateChange(__int64 a1, char a2)

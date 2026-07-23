@@ -1,11 +1,11 @@
 /*
- * XREFs of PopPlTraceLogPowerPlane @ 0x1405A1A40
+ * XREFs of PopPlTraceLogPowerPlane @ 0x1405A1F30
  * Callers:
- *     PopPlRegisterPowerPlane @ 0x1405A1894 (PopPlRegisterPowerPlane.c)
- *     PopDiagTraceControlCallback @ 0x1408629E0 (PopDiagTraceControlCallback.c)
+ *     PopPlRegisterPowerPlane @ 0x1405A1D84 (PopPlRegisterPowerPlane.c)
+ *     PopDiagTraceControlCallback @ 0x140862C20 (PopDiagTraceControlCallback.c)
  * Callees:
- *     _tlgWriteEx_EtwWriteEx @ 0x140367F70 (_tlgWriteEx_EtwWriteEx.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x140368110 (_tlgWriteEx_EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 int __fastcall PopPlTraceLogPowerPlane(unsigned __int16 *a1, __int64 a2, __int64 a3)
@@ -74,7 +74,7 @@ int __fastcall PopPlTraceLogPowerPlane(unsigned __int16 *a1, __int64 a2, __int64
     v32 = 4LL;
     LODWORD(v3) = tlgWriteEx_EtwWriteEx(
                     (__int64)&dword_140C03950,
-                    (unsigned __int8 *)&word_1400320DE,
+                    (unsigned __int8 *)&word_1400321C6,
                     a3,
                     1u,
                     v15,
@@ -114,7 +114,7 @@ int __fastcall PopPlTraceLogPowerPlane(unsigned __int16 *a1, __int64 a2, __int64
         v40 = 32LL;
         tlgWriteEx_EtwWriteEx(
           (__int64)&dword_140C03950,
-          (unsigned __int8 *)&dword_14003213C,
+          (unsigned __int8 *)&dword_140032224,
           a3,
           1u,
           v15,
@@ -163,7 +163,7 @@ int __fastcall PopPlTraceLogPowerPlane(unsigned __int16 *a1, __int64 a2, __int64
               v36 = 2LL;
               LODWORD(v3) = tlgWriteEx_EtwWriteEx(
                               (__int64)&dword_140C03950,
-                              (unsigned __int8 *)&byte_140032051,
+                              (unsigned __int8 *)&byte_140032139,
                               a3,
                               1u,
                               v15,

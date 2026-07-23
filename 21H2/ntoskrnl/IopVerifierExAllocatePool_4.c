@@ -1,11 +1,11 @@
 /*
- * XREFs of IopVerifierExAllocatePool_4 @ 0x14050A474
+ * XREFs of IopVerifierExAllocatePool_4 @ 0x14050A6B4
  * Callers:
- *     IopErrorLogThread @ 0x140755770 (IopErrorLogThread.c)
- *     IopErrorLogQueueRequest @ 0x140899874 (IopErrorLogQueueRequest.c)
+ *     IopErrorLogThread @ 0x140755930 (IopErrorLogThread.c)
+ *     IopErrorLogQueueRequest @ 0x1408999D4 (IopErrorLogQueueRequest.c)
  * Callees:
- *     ExAllocatePoolWithTagPriority @ 0x14033C0E0 (ExAllocatePoolWithTagPriority.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     ExAllocatePoolWithTagPriority @ 0x140346E30 (ExAllocatePoolWithTagPriority.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 PVOID __fastcall IopVerifierExAllocatePool_4(POOL_TYPE a1, SIZE_T a2)

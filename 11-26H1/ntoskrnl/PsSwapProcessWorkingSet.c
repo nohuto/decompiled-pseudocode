@@ -1,19 +1,19 @@
 /*
- * XREFs of PsSwapProcessWorkingSet @ 0x1407F0C88
+ * XREFs of PsSwapProcessWorkingSet @ 0x1407F67E8
  * Callers:
- *     MmProcessWorkingSetControl @ 0x140AE9A8C (MmProcessWorkingSetControl.c)
+ *     MmProcessWorkingSetControl @ 0x140AEC57C (MmProcessWorkingSetControl.c)
  * Callees:
- *     PspLockProcessShared @ 0x140276700 (PspLockProcessShared.c)
- *     ExAcquireFastResourceShared @ 0x140276AE0 (ExAcquireFastResourceShared.c)
- *     ExfReleasePushLockShared @ 0x140278BD0 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402BA1B0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExInitializeFastOwnerEntry @ 0x14043D670 (ExInitializeFastOwnerEntry.c)
- *     ExReleaseFastResourceShared @ 0x140485E00 (ExReleaseFastResourceShared.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     PspComputeExecutionState @ 0x140A8FE0C (PspComputeExecutionState.c)
- *     PspChangeProcessExecutionState @ 0x140ADE6AC (PspChangeProcessExecutionState.c)
- *     PspRequestProcessExecutionState @ 0x140AF9C6C (PspRequestProcessExecutionState.c)
+ *     PspLockProcessShared @ 0x140275C70 (PspLockProcessShared.c)
+ *     ExAcquireFastResourceShared @ 0x140276050 (ExAcquireFastResourceShared.c)
+ *     ExfReleasePushLockShared @ 0x140278140 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140304E70 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExInitializeFastOwnerEntry @ 0x14042FF20 (ExInitializeFastOwnerEntry.c)
+ *     ExReleaseFastResourceShared @ 0x14047F770 (ExReleaseFastResourceShared.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     PspComputeExecutionState @ 0x140A94964 (PspComputeExecutionState.c)
+ *     PspChangeProcessExecutionState @ 0x140ADB89C (PspChangeProcessExecutionState.c)
+ *     PspRequestProcessExecutionState @ 0x140AFC0F8 (PspRequestProcessExecutionState.c)
  */
 
 __int64 __fastcall PsSwapProcessWorkingSet(PEPROCESS Process, char a2)

@@ -1,11 +1,11 @@
 /*
- * XREFs of EmonCompleteInitializeProfiling @ 0x140BED1A0
+ * XREFs of EmonCompleteInitializeProfiling @ 0x140BF31A0
  * Callers:
  *     <none>
  * Callees:
- *     HalpQueryMaximumRegisteredProcessorCount @ 0x14057CE5C (HalpQueryMaximumRegisteredProcessorCount.c)
- *     KeAllocateProcessorProfileStructures @ 0x1405E4550 (KeAllocateProcessorProfileStructures.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     HalpQueryMaximumRegisteredProcessorCount @ 0x14057F37C (HalpQueryMaximumRegisteredProcessorCount.c)
+ *     KeAllocateProcessorProfileStructures @ 0x1405E6EC0 (KeAllocateProcessorProfileStructures.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 void __fastcall EmonCompleteInitializeProfiling(__int64 a1, __int64 a2)
@@ -27,7 +27,7 @@ void __fastcall EmonCompleteInitializeProfiling(__int64 a1, __int64 a2)
   unsigned int PebsBufferBase; // ecx
   _PROCESSOR_PROFILE_CONTROL_AREA *v17; // [rsp+30h] [rbp+8h] BYREF
 
-  if ( IommuInterfaceStateChangeCallbackPushLock.PriorityFloorCounts[25] )
+  if ( IommuInterfaceStateChangeCallbackPushLock.PriorityFloorCounts[24] )
   {
     LODWORD(a2) = KeGetPcr()->Prcb.Number;
     v2 = (unsigned int)a2;
@@ -53,16 +53,16 @@ void __fastcall EmonCompleteInitializeProfiling(__int64 a1, __int64 a2)
                                                   + 160 * v2),
           (int)KeAllocateProcessorProfileStructures(0, 0LL, &v17, 0) >= 0) )
     {
-      if ( LODWORD(IommuInterfaceStateChangeCallbackPushLock.ReadOperationCount) )
-        v7 = LODWORD(IommuInterfaceStateChangeCallbackPushLock.ReadOperationCount)
+      if ( LODWORD(IommuInterfaceStateChangeCallbackPushLock.InGlobalForegroundList) )
+        v7 = LODWORD(IommuInterfaceStateChangeCallbackPushLock.InGlobalForegroundList)
            * (0x1000u
-            / LODWORD(IommuInterfaceStateChangeCallbackPushLock.ReadOperationCount));
+            / LODWORD(IommuInterfaceStateChangeCallbackPushLock.InGlobalForegroundList));
       v9 = v4;
       v10 = v6;
       v11 = v17;
       v12 = 8 * v10;
       v13 = 8 * v9;
-      if ( IommuInterfaceStateChangeCallbackPushLock.PriorityFloorCounts[24] )
+      if ( IommuInterfaceStateChangeCallbackPushLock.PriorityFloorCounts[25] )
       {
         v14 = v17->PebsDsSaveArea.As32Bit.PebsGpCounterReset[0];
         v17->PebsDsSaveArea.As32Bit.PebsGpCounterReset[1] = v14;
@@ -86,7 +86,7 @@ void __fastcall EmonCompleteInitializeProfiling(__int64 a1, __int64 a2)
     }
     else
     {
-      IommuInterfaceStateChangeCallbackPushLock.PriorityFloorCounts[25] = 0;
+      IommuInterfaceStateChangeCallbackPushLock.PriorityFloorCounts[24] = 0;
     }
   }
 }

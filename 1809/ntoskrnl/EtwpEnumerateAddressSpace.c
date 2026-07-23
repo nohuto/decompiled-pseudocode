@@ -1,22 +1,22 @@
 /*
- * XREFs of EtwpEnumerateAddressSpace @ 0x1405F5E18
+ * XREFs of EtwpEnumerateAddressSpace @ 0x1405F6E18
  * Callers:
- *     EtwTraceProcess @ 0x14066C528 (EtwTraceProcess.c)
- *     EtwpProcessEnumCallback @ 0x140726520 (EtwpProcessEnumCallback.c)
+ *     EtwTraceProcess @ 0x14066D6E8 (EtwTraceProcess.c)
+ *     EtwpProcessEnumCallback @ 0x1407277C0 (EtwpProcessEnumCallback.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     EtwpTraceImageUnload @ 0x140089324 (EtwpTraceImageUnload.c)
- *     EtwpLogKernelEvent @ 0x1400C71D0 (EtwpLogKernelEvent.c)
- *     KeAreAllApcsDisabled @ 0x1400CAA90 (KeAreAllApcsDisabled.c)
- *     EtwTraceKernelEvent @ 0x1400F3710 (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     MmEnumerateAddressSpaceAndReferenceImages @ 0x1405DD340 (MmEnumerateAddressSpaceAndReferenceImages.c)
- *     ObQueryNameStringMode @ 0x140660F50 (ObQueryNameStringMode.c)
- *     EtwpTraceImageRundown @ 0x1407407FC (EtwpTraceImageRundown.c)
+ *     EtwpTraceImageUnload @ 0x140089314 (EtwpTraceImageUnload.c)
+ *     EtwpLogKernelEvent @ 0x1400C7110 (EtwpLogKernelEvent.c)
+ *     KeAreAllApcsDisabled @ 0x1400CAB70 (KeAreAllApcsDisabled.c)
+ *     EtwTraceKernelEvent @ 0x1400F3790 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     MmEnumerateAddressSpaceAndReferenceImages @ 0x1405DE340 (MmEnumerateAddressSpaceAndReferenceImages.c)
+ *     ObQueryNameStringMode @ 0x140662110 (ObQueryNameStringMode.c)
+ *     EtwpTraceImageRundown @ 0x1407419EC (EtwpTraceImageRundown.c)
  */
 
 void __fastcall EtwpEnumerateAddressSpace(ULONG_PTR a1, __int64 a2, int *a3)

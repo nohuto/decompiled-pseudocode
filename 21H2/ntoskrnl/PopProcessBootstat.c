@@ -1,33 +1,33 @@
 /*
- * XREFs of PopProcessBootstat @ 0x140A39280
+ * XREFs of PopProcessBootstat @ 0x140A3A280
  * Callers:
- *     PoInitSystem @ 0x140A3F948 (PoInitSystem.c)
+ *     PoInitSystem @ 0x140A40948 (PoInitSystem.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     PopTraceBootError @ 0x140573478 (PopTraceBootError.c)
- *     RtlGetSystemBootStatus @ 0x140790580 (RtlGetSystemBootStatus.c)
- *     RtlSetSystemBootStatus @ 0x140790690 (RtlSetSystemBootStatus.c)
- *     PopCheckShutdownMarker @ 0x140A392E4 (PopCheckShutdownMarker.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     PopTraceBootError @ 0x1405736B8 (PopTraceBootError.c)
+ *     RtlGetSystemBootStatus @ 0x140791B30 (RtlGetSystemBootStatus.c)
+ *     RtlSetSystemBootStatus @ 0x140791C40 (RtlSetSystemBootStatus.c)
+ *     PopCheckShutdownMarker @ 0x140A3A2E4 (PopCheckShutdownMarker.c)
  */
 
-__int64 PopProcessBootstat()
+int PopProcessBootstat()
 {
-  __int64 result; // rax
-  __int128 v1; // [rsp+20h] [rbp-28h] BYREF
+  int result; // eax
+  __int128 DataBuffer; // [rsp+20h] [rbp-28h] BYREF
   int v2; // [rsp+30h] [rbp-18h]
 
   PopCheckShutdownMarker();
   v2 = 0;
-  v1 = 0LL;
-  result = RtlGetSystemBootStatus(13, (__int64)&v1, 20, 0LL);
-  if ( (int)result >= 0 )
+  DataBuffer = 0LL;
+  result = RtlGetSystemBootStatus(RtlBsdItemErrorInfo, &DataBuffer, 0x14u, 0LL);
+  if ( result >= 0 )
   {
-    if ( HIDWORD(v1) )
+    if ( HIDWORD(DataBuffer) )
     {
       PopTraceBootError();
       v2 = 0;
-      v1 = 0LL;
-      return RtlSetSystemBootStatus(13, (__int64)&v1, 20, 0LL);
+      DataBuffer = 0LL;
+      return RtlSetSystemBootStatus(RtlBsdItemErrorInfo, &DataBuffer, 0x14u, 0LL);
     }
   }
   return result;

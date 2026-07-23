@@ -1,11 +1,11 @@
 /*
- * XREFs of VerifierMmCreateMdl @ 0x1409E66F0
+ * XREFs of VerifierMmCreateMdl @ 0x1409E76F0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     VfFaultsInjectResourceFailure @ 0x1409DC82C (VfFaultsInjectResourceFailure.c)
- *     VfAllocPoolNotification @ 0x1409DFFB4 (VfAllocPoolNotification.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     VfFaultsInjectResourceFailure @ 0x1409DD82C (VfFaultsInjectResourceFailure.c)
+ *     VfAllocPoolNotification @ 0x1409E0FB4 (VfAllocPoolNotification.c)
  */
 
 __int64 __fastcall VerifierMmCreateMdl(__int64 a1, __int64 a2, __int64 a3)

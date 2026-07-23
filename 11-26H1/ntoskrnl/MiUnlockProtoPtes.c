@@ -1,5 +1,5 @@
 /*
- * XREFs of MiUnlockProtoPtes @ 0x140488580
+ * XREFs of MiUnlockProtoPtes @ 0x1404820C0
  * Callers:
  *     <none>
  * Callees:
@@ -21,12 +21,12 @@ __int64 __fastcall MiUnlockProtoPtes(__int64 a1, __int64 a2, __int64 a3)
   for ( i = (unsigned __int64 *)(*(_QWORD *)a1 + 8 * a2); v3; --v3 )
   {
     v6 = *i;
-    if ( (*i & 1) == 0 && qword_140E2D740 )
+    if ( (*i & 1) == 0 && qword_140E2D8C0 )
     {
       if ( (v6 & 0x10) != 0 )
         v6 &= ~0x10uLL;
       else
-        v6 &= qword_140E2D748;
+        v6 &= qword_140E2D8C8;
     }
     v7 = 48 * ((v6 >> 12) & 0xFFFFFFFFFFLL) - 0x220000000000LL;
     if ( *(int *)(a1 + 128) >= 0 )

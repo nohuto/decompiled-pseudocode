@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpDmaAllocateAndPremapLa @ 0x1404B6D70
+ * XREFs of HalpDmaAllocateAndPremapLa @ 0x1404B6FB0
  * Callers:
- *     HalpAllocateDmaResourcesInternal @ 0x1404CA5DC (HalpAllocateDmaResourcesInternal.c)
+ *     HalpAllocateDmaResourcesInternal @ 0x1404CA81C (HalpAllocateDmaResourcesInternal.c)
  * Callees:
- *     HalpDmaUseEmergencyLogicalAddressResources @ 0x1404B85A8 (HalpDmaUseEmergencyLogicalAddressResources.c)
- *     HalpDomainLaAllocate @ 0x1404C4D14 (HalpDomainLaAllocate.c)
- *     HalpDomainLaDelete @ 0x1404C4DF4 (HalpDomainLaDelete.c)
- *     HalpIommuDomainMapLogicalRange @ 0x1404C92D4 (HalpIommuDomainMapLogicalRange.c)
+ *     HalpDmaUseEmergencyLogicalAddressResources @ 0x1404B87E8 (HalpDmaUseEmergencyLogicalAddressResources.c)
+ *     HalpDomainLaAllocate @ 0x1404C4F54 (HalpDomainLaAllocate.c)
+ *     HalpDomainLaDelete @ 0x1404C5034 (HalpDomainLaDelete.c)
+ *     HalpIommuDomainMapLogicalRange @ 0x1404C9514 (HalpIommuDomainMapLogicalRange.c)
  */
 
 __int64 __fastcall HalpDmaAllocateAndPremapLa(__int64 a1, int a2, int a3, __int64 *a4)

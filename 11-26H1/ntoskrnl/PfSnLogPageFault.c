@@ -1,19 +1,19 @@
 /*
- * XREFs of PfSnLogPageFault @ 0x140374EF0
+ * XREFs of PfSnLogPageFault @ 0x140376CA0
  * Callers:
- *     MiProtoFaultLog @ 0x140457240 (MiProtoFaultLog.c)
- *     MiMakeModifiedSystemCachePteValid @ 0x14048BB40 (MiMakeModifiedSystemCachePteValid.c)
- *     MiLogRelocationRva @ 0x1409CC718 (MiLogRelocationRva.c)
- *     MiNotifyPfCheckCachedPages @ 0x140A84860 (MiNotifyPfCheckCachedPages.c)
+ *     MiProtoFaultLog @ 0x14044EAB0 (MiProtoFaultLog.c)
+ *     MiMakeModifiedSystemCachePteValid @ 0x140485680 (MiMakeModifiedSystemCachePteValid.c)
+ *     MiLogRelocationRva @ 0x14099D6F8 (MiLogRelocationRva.c)
+ *     MiNotifyPfCheckCachedPages @ 0x140A89BE0 (MiNotifyPfCheckCachedPages.c)
  * Callees:
- *     PfSnLogPageFaultCommon @ 0x140265B50 (PfSnLogPageFaultCommon.c)
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     PsGetIoPriorityThread @ 0x1403750A0 (PsGetIoPriorityThread.c)
- *     ExAcquireRundownProtectionEx @ 0x140375100 (ExAcquireRundownProtectionEx.c)
- *     ExpReleaseRundownProtection @ 0x140463F50 (ExpReleaseRundownProtection.c)
+ *     PfSnLogPageFaultCommon @ 0x1402650C0 (PfSnLogPageFaultCommon.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PsGetIoPriorityThread @ 0x140376E50 (PsGetIoPriorityThread.c)
+ *     ExAcquireRundownProtectionEx @ 0x140376EB0 (ExAcquireRundownProtectionEx.c)
+ *     ExpReleaseRundownProtection @ 0x14045CF10 (ExpReleaseRundownProtection.c)
  */
 
 void __fastcall PfSnLogPageFault(__int64 a1, unsigned __int64 a2, __int64 a3, __int64 a4)
@@ -76,11 +76,11 @@ void __fastcall PfSnLogPageFault(__int64 a1, unsigned __int64 a2, __int64 a3, __
         goto LABEL_12;
       }
       v14 = 1;
-      v15 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)&stru_140E66FF0.StateSaveArea);
+      v15 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)&stru_140E67200.StateSaveArea);
       v16 = (struct _EX_RUNDOWN_REF *)(*(_QWORD *)&Process[2].Header.Lock & 0xFFFFFFFFFFFFFFF0uLL);
       if ( v16 )
         v14 = ExAcquireRundownProtection_0(v16 + 45);
-      KeReleaseSpinLock((PKSPIN_LOCK)&stru_140E66FF0.StateSaveArea, v15);
+      KeReleaseSpinLock((PKSPIN_LOCK)&stru_140E67200.StateSaveArea, v15);
       v12 = 0LL;
       if ( v14 )
         v12 = (unsigned __int64)v16;

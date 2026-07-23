@@ -1,10 +1,10 @@
 /*
- * XREFs of MiCheckMdlSlabFragmentation @ 0x140495450
+ * XREFs of MiCheckMdlSlabFragmentation @ 0x14048FD10
  * Callers:
- *     MiFreeUnusedSlabPages @ 0x1402D398C (MiFreeUnusedSlabPages.c)
- *     MiDemoteSlabEntriesDpc @ 0x140442780 (MiDemoteSlabEntriesDpc.c)
+ *     MiFreeUnusedSlabPages @ 0x140354C04 (MiFreeUnusedSlabPages.c)
+ *     MiDemoteSlabEntriesDpc @ 0x14043B750 (MiDemoteSlabEntriesDpc.c)
  * Callees:
- *     MiGetSlabCurrentTime @ 0x14048ED80 (MiGetSlabCurrentTime.c)
+ *     MiGetSlabCurrentTime @ 0x140263454 (MiGetSlabCurrentTime.c)
  */
 
 __int64 __fastcall MiCheckMdlSlabFragmentation(__int64 a1, int a2)

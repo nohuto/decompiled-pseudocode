@@ -1,18 +1,18 @@
 /*
- * XREFs of MiUnlockIoPfnTree @ 0x140336454
+ * XREFs of MiUnlockIoPfnTree @ 0x1403366E4
  * Callers:
- *     MiDereferenceIoPages @ 0x1403360F4 (MiDereferenceIoPages.c)
- *     MiReferenceIoPages @ 0x140336500 (MiReferenceIoPages.c)
- *     MiLookupIoPageNode @ 0x1403B0938 (MiLookupIoPageNode.c)
- *     MiDeleteStaleCacheMaps @ 0x14062D9D0 (MiDeleteStaleCacheMaps.c)
- *     MiIsProbeActive @ 0x14062E1F8 (MiIsProbeActive.c)
- *     MiMakeIoRangePermanent @ 0x14062E45C (MiMakeIoRangePermanent.c)
- *     MiMarkHugeRangeIoPfnDeleted @ 0x14062E75C (MiMarkHugeRangeIoPfnDeleted.c)
- *     MiMarkHugeRangeTransition @ 0x14062E8DC (MiMarkHugeRangeTransition.c)
+ *     MiDereferenceIoPages @ 0x140336384 (MiDereferenceIoPages.c)
+ *     MiReferenceIoPages @ 0x140336790 (MiReferenceIoPages.c)
+ *     MiLookupIoPageNode @ 0x1403B0B18 (MiLookupIoPageNode.c)
+ *     MiDeleteStaleCacheMaps @ 0x14062DF20 (MiDeleteStaleCacheMaps.c)
+ *     MiIsProbeActive @ 0x14062E748 (MiIsProbeActive.c)
+ *     MiMakeIoRangePermanent @ 0x14062E9AC (MiMakeIoRangePermanent.c)
+ *     MiMarkHugeRangeIoPfnDeleted @ 0x14062ECAC (MiMarkHugeRangeIoPfnDeleted.c)
+ *     MiMarkHugeRangeTransition @ 0x14062EE2C (MiMarkHugeRangeTransition.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7C00 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7E90 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void __fastcall MiUnlockIoPfnTree(unsigned __int8 a1, char a2)
@@ -49,10 +49,13 @@ void __fastcall MiUnlockIoPfnTree(unsigned __int8 a1, char a2)
   }
   if ( (a2 & 4) == 0 )
   {
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v2 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v2 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;

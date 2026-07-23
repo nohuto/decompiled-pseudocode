@@ -1,9 +1,9 @@
 /*
- * XREFs of HsaGrowPasidTable @ 0x140530400
+ * XREFs of HsaGrowPasidTable @ 0x140530950
  * Callers:
  *     <none>
  * Callees:
- *     MmGetPhysicalAddress @ 0x14028BEE0 (MmGetPhysicalAddress.c)
+ *     MmGetPhysicalAddress @ 0x14028C170 (MmGetPhysicalAddress.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 

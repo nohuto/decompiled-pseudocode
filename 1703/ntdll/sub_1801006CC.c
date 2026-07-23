@@ -8,16 +8,16 @@
  *     sub_1800588D4 @ 0x1800588D4 (sub_1800588D4.c)
  */
 
-__int64 __fastcall sub_1801006CC(__int64 a1, unsigned __int64 a2, char a3)
+void __fastcall sub_1801006CC(_RTL_SRWLOCK *a1, unsigned __int64 a2, char a3)
 {
   int v6; // eax
 
   if ( (_WORD)a2 )
     v6 = 0;
   else
-    v6 = sub_1800588D4((__int64)&qword_180159600, a2 >> 16, 1uLL);
+    v6 = sub_1800588D4(&stru_180159600, a2 >> 16, 1uLL);
   if ( v6 )
-    return sub_180008F44(a1, a2, a3);
+    sub_180008F44(a1, a2, a3);
   else
-    return sub_18001F560(a1, a2);
+    sub_18001F560((__int64)a1, a2);
 }

@@ -9,61 +9,61 @@
  *     __security_check_cookie @ 0x180084090 (__security_check_cookie.c)
  */
 
-__int64 __fastcall RtlpComputeDllPathWithOptions(__int16 a1, char *a2, __int64 a3, __int64 a4)
+__int64 __fastcall RtlpComputeDllPathWithOptions(__int16 a1, __int64 a2)
 {
-  __int64 v5; // rbx
-  __int64 v7; // rax
-  __int64 v8; // rbx
+  __int64 v3; // rbx
+  __int64 v5; // rax
+  __int64 v6; // rbx
+  __int64 v8; // rax
+  __int64 v9; // rax
   __int64 v10; // rax
-  __int64 v11; // rax
-  __int64 v12; // rax
-  bool v13; // zf
-  _DWORD v14[10]; // [rsp+20h] [rbp-38h] BYREF
+  bool v11; // zf
+  _DWORD v12[10]; // [rsp+20h] [rbp-38h] BYREF
 
-  LODWORD(v5) = 0;
-  RtlAcquireSRWLockShared(&LdrpDllDirectoryLock, a2, a3, a4);
+  LODWORD(v3) = 0;
+  RtlAcquireSRWLockShared(&LdrpDllDirectoryLock);
   if ( (a1 & 0x100) != 0 )
   {
-    v14[0] = 5;
-    LODWORD(v5) = 1;
+    v12[0] = 5;
+    LODWORD(v3) = 1;
   }
   if ( (a1 & 0x200) != 0 )
   {
-    v11 = (unsigned int)v5;
-    LODWORD(v5) = v5 + 1;
-    v14[v11] = 1;
+    v9 = (unsigned int)v3;
+    LODWORD(v3) = v3 + 1;
+    v12[v9] = 1;
   }
   if ( (a1 & 0x400) != 0 )
   {
-    v12 = (unsigned int)v5;
-    v5 = (unsigned int)(v5 + 1);
-    v13 = (_WORD)LdrpDllDirectory == 0;
-    v14[v12] = 6;
-    if ( !v13 )
+    v10 = (unsigned int)v3;
+    v3 = (unsigned int)(v3 + 1);
+    v11 = LdrpDllDirectory.Length == 0;
+    v12[v10] = 6;
+    if ( !v11 )
     {
-      v14[v5] = 0;
-      LODWORD(v5) = v5 + 1;
+      v12[v3] = 0;
+      LODWORD(v3) = v3 + 1;
     }
   }
   if ( (a1 & 0x800) != 0 )
   {
-    v7 = (unsigned int)v5;
-    LODWORD(v5) = v5 + 1;
-    v14[v7] = 7;
+    v5 = (unsigned int)v3;
+    LODWORD(v3) = v3 + 1;
+    v12[v5] = 7;
   }
   if ( LdrpAppPackagesPath.Buffer )
   {
-    v10 = (unsigned int)v5;
-    LODWORD(v5) = v5 + 1;
-    v14[v10] = 8;
+    v8 = (unsigned int)v3;
+    LODWORD(v3) = v3 + 1;
+    v12[v8] = 8;
   }
-  v8 = RtlpComputePath(v14, (unsigned int)v5, a2);
+  v6 = RtlpComputePath(v12, (unsigned int)v3, a2);
   RtlReleaseSRWLockShared(&LdrpDllDirectoryLock);
-  if ( v8 )
+  if ( v6 )
   {
-    *(_BYTE *)(v8 + 100) = 1;
+    *(_BYTE *)(v6 + 100) = 1;
     if ( !LdrpAppPackagesPath.Buffer )
-      *(_QWORD *)(v8 + 88) = 0LL;
+      *(_QWORD *)(v6 + 88) = 0LL;
   }
-  return v8;
+  return v6;
 }

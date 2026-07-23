@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpGetFileSize @ 0x140480680
+ * XREFs of CmpGetFileSize @ 0x14047F3D4
  * Callers:
- *     CmpInitializeActualFileSizes @ 0x14048057C (CmpInitializeActualFileSizes.c)
- *     CmpLoadHiveThread @ 0x14054D5A8 (CmpLoadHiveThread.c)
+ *     CmpInitializeActualFileSizes @ 0x14047F2D0 (CmpInitializeActualFileSizes.c)
+ *     CmpLoadHiveThread @ 0x14054D948 (CmpLoadHiveThread.c)
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     ZwQueryInformationFile @ 0x140159EA0 (ZwQueryInformationFile.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     ZwQueryInformationFile @ 0x14015A410 (ZwQueryInformationFile.c)
  */
 
 NTSTATUS __fastcall CmpGetFileSize(void *a1, _QWORD *a2)

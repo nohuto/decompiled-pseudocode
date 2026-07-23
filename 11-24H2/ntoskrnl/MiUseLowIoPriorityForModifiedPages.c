@@ -1,11 +1,11 @@
 /*
- * XREFs of MiUseLowIoPriorityForModifiedPages @ 0x1402D1508
+ * XREFs of MiUseLowIoPriorityForModifiedPages @ 0x1402F5124
  * Callers:
- *     MiModifiedPageWriter @ 0x1402CF990 (MiModifiedPageWriter.c)
- *     MiStoreUpdateMemoryConditions @ 0x1402D10D4 (MiStoreUpdateMemoryConditions.c)
- *     MiAdjustModifiedPageLoad @ 0x1402D2864 (MiAdjustModifiedPageLoad.c)
+ *     MiStoreUpdateMemoryConditions @ 0x1402F4DDC (MiStoreUpdateMemoryConditions.c)
+ *     MiAdjustModifiedPageLoad @ 0x140353ADC (MiAdjustModifiedPageLoad.c)
+ *     MiModifiedPageWriter @ 0x14046F7B0 (MiModifiedPageWriter.c)
  * Callees:
- *     MiGetAvailablePagesBelowPriority @ 0x1402D15D0 (MiGetAvailablePagesBelowPriority.c)
+ *     MiGetAvailablePagesBelowPriority @ 0x1402F51E0 (MiGetAvailablePagesBelowPriority.c)
  */
 
 _BOOL8 __fastcall MiUseLowIoPriorityForModifiedPages(__int64 a1)

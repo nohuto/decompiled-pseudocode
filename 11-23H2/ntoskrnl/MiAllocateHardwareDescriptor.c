@@ -1,11 +1,11 @@
 /*
- * XREFs of MiAllocateHardwareDescriptor @ 0x1406548E8
+ * XREFs of MiAllocateHardwareDescriptor @ 0x140654E38
  * Callers:
- *     MiZeroEngineMemory @ 0x1402D1280 (MiZeroEngineMemory.c)
+ *     MiZeroEngineMemory @ 0x1402D1510 (MiZeroEngineMemory.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 *__fastcall MiAllocateHardwareDescriptor(_QWORD *a1)
@@ -54,10 +54,13 @@ __int64 *__fastcall MiAllocateHardwareDescriptor(_QWORD *a1)
   }
 LABEL_4:
   ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(a1[25] + 23160LL));
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v5 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v5 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

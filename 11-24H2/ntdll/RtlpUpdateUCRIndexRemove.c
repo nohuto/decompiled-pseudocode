@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpUpdateUCRIndexRemove @ 0x1800A0D40
+ * XREFs of RtlpUpdateUCRIndexRemove @ 0x1800E31C4
  * Callers:
- *     RtlpRemoveUCRBlock @ 0x1800A0C98 (RtlpRemoveUCRBlock.c)
+ *     RtlpRemoveUCRBlock @ 0x1800E311C (RtlpRemoveUCRBlock.c)
  * Callees:
  *     <none>
  */

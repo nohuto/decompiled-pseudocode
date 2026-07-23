@@ -1,26 +1,32 @@
 /*
- * XREFs of NtQuerySystemInformationEx @ 0x180161D10
+ * XREFs of NtQuerySystemInformationEx @ 0x180161C10
  * Callers:
- *     RtlpFcUpdateLocalConfiguration @ 0x1800137F4 (RtlpFcUpdateLocalConfiguration.c)
- *     TppPoolUpdateNodeRelation @ 0x18002A708 (TppPoolUpdateNodeRelation.c)
- *     RtlWow64GetProcessMachines @ 0x180034FB0 (RtlWow64GetProcessMachines.c)
- *     RtlGetVersion @ 0x1800638F0 (RtlGetVersion.c)
- *     RtlQueryProcessDebugInformation @ 0x18008F550 (RtlQueryProcessDebugInformation.c)
- *     RtlpQueryProcessMachine @ 0x180090A84 (RtlpQueryProcessMachine.c)
- *     RtlpQueryPseudoEnvironmentVariable @ 0x18009D6F8 (RtlpQueryPseudoEnvironmentVariable.c)
- *     TppQueryMaximumGroupCount @ 0x1800CB518 (TppQueryMaximumGroupCount.c)
- *     RtlpFcQueryFeatureConfigurationFromKernel @ 0x1800E40C0 (RtlpFcQueryFeatureConfigurationFromKernel.c)
- *     RtlWow64IsWowGuestMachineSupported @ 0x1800E8E40 (RtlWow64IsWowGuestMachineSupported.c)
- *     RtlpHpEnvQueryProcessorCount @ 0x1800F85C4 (RtlpHpEnvQueryProcessorCount.c)
+ *     TppPoolUpdateNodeRelation @ 0x180015808 (TppPoolUpdateNodeRelation.c)
+ *     RtlWow64GetProcessMachines @ 0x180020110 (RtlWow64GetProcessMachines.c)
+ *     RtlpFcUpdateLocalConfiguration @ 0x18005EF24 (RtlpFcUpdateLocalConfiguration.c)
+ *     RtlQueryProcessDebugInformation @ 0x1800742B0 (RtlQueryProcessDebugInformation.c)
+ *     RtlpQueryProcessMachine @ 0x1800757E4 (RtlpQueryProcessMachine.c)
+ *     RtlGetVersion @ 0x180083D40 (RtlGetVersion.c)
+ *     RtlpQueryPseudoEnvironmentVariable @ 0x18009C828 (RtlpQueryPseudoEnvironmentVariable.c)
+ *     TppQueryMaximumGroupCount @ 0x1800C8C88 (TppQueryMaximumGroupCount.c)
+ *     RtlWow64IsWowGuestMachineSupported @ 0x1800E8050 (RtlWow64IsWowGuestMachineSupported.c)
+ *     RtlpFcQueryFeatureConfigurationFromKernel @ 0x1800ECDC0 (RtlpFcQueryFeatureConfigurationFromKernel.c)
+ *     RtlpHpEnvQueryProcessorCount @ 0x1800F7D94 (RtlpHpEnvQueryProcessorCount.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall NtQuerySystemInformationEx()
+NTSTATUS __cdecl NtQuerySystemInformationEx(
+        SYSTEM_INFORMATION_CLASS SystemInformationClass,
+        PVOID InputBuffer,
+        ULONG InputBufferLength,
+        PVOID SystemInformation,
+        ULONG SystemInformationLength,
+        PULONG ReturnLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 367LL;
+  result = 367;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

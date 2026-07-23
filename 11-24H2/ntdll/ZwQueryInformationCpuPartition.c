@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwQueryInformationCpuPartition @ 0x180164700
+ * XREFs of ZwQueryInformationCpuPartition @ 0x180162AC0
  * Callers:
  *     <none>
  * Callees:

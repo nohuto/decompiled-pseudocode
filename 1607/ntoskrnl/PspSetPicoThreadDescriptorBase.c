@@ -1,5 +1,5 @@
 /*
- * XREFs of PspSetPicoThreadDescriptorBase @ 0x14020FBBC
+ * XREFs of PspSetPicoThreadDescriptorBase @ 0x14020F9E8
  * Callers:
  *     <none>
  * Callees:

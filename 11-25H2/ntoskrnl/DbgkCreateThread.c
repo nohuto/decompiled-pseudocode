@@ -29,12 +29,12 @@ char __fastcall DbgkCreateThread(__int64 a1)
   char v4; // r12
   __int16 v5; // ax
   char v6; // al
-  unsigned __int64 v7; // rax
+  PIMAGE_NT_HEADERS v7; // rax
   int i; // esi
   __int64 v9; // r15
-  unsigned __int64 v10; // rax
+  PIMAGE_NT_HEADERS v10; // rax
   ULONG_PTR v11; // r13
-  unsigned __int64 v12; // rax
+  PIMAGE_NT_HEADERS v12; // rax
   char v14; // [rsp+20h] [rbp-1A8h]
   PVOID Object; // [rsp+28h] [rbp-1A0h] BYREF
   int v16; // [rsp+30h] [rbp-198h]
@@ -51,9 +51,9 @@ char __fastcall DbgkCreateThread(__int64 a1)
   int v27; // [rsp+B8h] [rbp-110h]
   HANDLE Handle; // [rsp+C8h] [rbp-100h]
   __int64 v29; // [rsp+D0h] [rbp-F8h]
-  int v30; // [rsp+D8h] [rbp-F0h]
-  int v31; // [rsp+DCh] [rbp-ECh]
-  __int64 v32; // [rsp+E8h] [rbp-E0h]
+  unsigned int PointerToSymbolTable; // [rsp+D8h] [rbp-F0h]
+  unsigned int NumberOfSymbols; // [rsp+DCh] [rbp-ECh]
+  unsigned __int64 v32; // [rsp+E8h] [rbp-E0h]
 
   v18 = a1;
   memset_0(&v25, 0, 0x110uLL);
@@ -82,9 +82,9 @@ char __fastcall DbgkCreateThread(__int64 a1)
       BYTE8(v19) = 3;
       *(_QWORD *)&v20 = *(_QWORD *)(v2 + 688);
       *(_QWORD *)&v21 = 0LL;
-      v7 = RtlImageNtHeader(v20);
+      v7 = RtlImageNtHeader((PVOID)v20);
       if ( v7 )
-        *(_QWORD *)&v21 = *(unsigned int *)(v7 + 80);
+        *(_QWORD *)&v21 = v7->OptionalHeader.SizeOfImage;
       DWORD2(v20) = 0;
       DWORD2(v21) = 0;
       PsReferenceProcessFilePointer(v2, &Object);
@@ -108,9 +108,9 @@ char __fastcall DbgkCreateThread(__int64 a1)
             DWORD2(v19) = 3;
             *(_QWORD *)&v20 = *(_QWORD *)(v9 + 24);
             *(_QWORD *)&v21 = 0LL;
-            v10 = RtlImageNtHeader(*(_QWORD *)(v9 + 24));
+            v10 = RtlImageNtHeader(*(PVOID *)(v9 + 24));
             if ( v10 )
-              *(_QWORD *)&v21 = *(unsigned int *)(v10 + 80);
+              *(_QWORD *)&v21 = v10->OptionalHeader.SizeOfImage;
             DWORD2(v20) = 0;
             DWORD2(v21) = 0;
             v11 = PspReferenceSystemDll(*(_QWORD *)(v9 - 8));
@@ -144,17 +144,17 @@ char __fastcall DbgkCreateThread(__int64 a1)
       Handle = (HANDLE)DbgkpSectionToFileHandle(*(_QWORD *)(v2 + 680));
       v29 = *(_QWORD *)(v2 + 688);
       v32 = 0LL;
-      v30 = 0;
-      v31 = 0;
-      v12 = RtlImageNtHeader(*(_QWORD *)(v2 + 688));
+      PointerToSymbolTable = 0;
+      NumberOfSymbols = 0;
+      v12 = RtlImageNtHeader(*(PVOID *)(v2 + 688));
       if ( v12 )
       {
         if ( v14 )
-          v32 = (unsigned int)(*(_DWORD *)(v12 + 40) + *(_DWORD *)(v12 + 52));
+          v32 = v12->OptionalHeader.AddressOfEntryPoint + HIDWORD(v12->OptionalHeader.ImageBase);
         else
-          v32 = *(_QWORD *)(v12 + 48) + *(unsigned int *)(v12 + 40);
-        v30 = *(_DWORD *)(v12 + 12);
-        v31 = *(_DWORD *)(v12 + 16);
+          v32 = v12->OptionalHeader.ImageBase + v12->OptionalHeader.AddressOfEntryPoint;
+        PointerToSymbolTable = v12->FileHeader.PointerToSymbolTable;
+        NumberOfSymbols = v12->FileHeader.NumberOfSymbols;
       }
       v25 = 6291512;
       v26 = 8;

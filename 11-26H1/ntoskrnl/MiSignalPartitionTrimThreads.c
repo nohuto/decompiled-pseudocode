@@ -1,12 +1,12 @@
 /*
- * XREFs of MiSignalPartitionTrimThreads @ 0x1402A7450
+ * XREFs of MiSignalPartitionTrimThreads @ 0x1402A6860
  * Callers:
- *     MiPartitionPeriodicTick @ 0x1402A703C (MiPartitionPeriodicTick.c)
+ *     MiPartitionPeriodicTick @ 0x1402A6458 (MiPartitionPeriodicTick.c)
  * Callees:
- *     MiComputeSystemTrimCriteria @ 0x1402A65A8 (MiComputeSystemTrimCriteria.c)
- *     MiUpdatePartitionMemoryUsage @ 0x1402A6CA0 (MiUpdatePartitionMemoryUsage.c)
- *     MiComputeAgingNeed @ 0x1402A91DC (MiComputeAgingNeed.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
+ *     MiComputeSystemTrimCriteria @ 0x1402A59C4 (MiComputeSystemTrimCriteria.c)
+ *     MiUpdatePartitionMemoryUsage @ 0x1402A60BC (MiUpdatePartitionMemoryUsage.c)
+ *     MiComputeAgingNeed @ 0x1402A85EC (MiComputeAgingNeed.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
  */
 
 char __fastcall MiSignalPartitionTrimThreads(__int64 a1)

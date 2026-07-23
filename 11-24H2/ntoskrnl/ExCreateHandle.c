@@ -1,9 +1,9 @@
 /*
- * XREFs of ExCreateHandle @ 0x140A264F4
+ * XREFs of ExCreateHandle @ 0x140A1AF74
  * Callers:
- *     PsAssignThreadId @ 0x14046A77C (PsAssignThreadId.c)
+ *     PsAssignThreadId @ 0x140463114 (PsAssignThreadId.c)
  * Callees:
- *     ExCreateHandleEx @ 0x14084CE30 (ExCreateHandleEx.c)
+ *     ExCreateHandleEx @ 0x1408490F0 (ExCreateHandleEx.c)
  */
 
 __int64 __fastcall ExCreateHandle(unsigned int *a1, __int64 a2)

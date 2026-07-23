@@ -1,16 +1,16 @@
 /*
  * XREFs of PopSessionWinlogonNotification @ 0x1403E2A1C
  * Callers:
- *     NtPowerInformation @ 0x14051E834 (NtPowerInformation.c)
+ *     NtPowerInformation @ 0x14050189C (NtPowerInformation.c)
  * Callees:
- *     PopPrintEx @ 0x140081AE0 (PopPrintEx.c)
+ *     PopPrintEx @ 0x140084C64 (PopPrintEx.c)
  *     PopGetLockConsoleTimeoutUnsafe @ 0x1403E2B18 (PopGetLockConsoleTimeoutUnsafe.c)
- *     PopSetPowerSettingValueAcDc @ 0x1403F5BE4 (PopSetPowerSettingValueAcDc.c)
- *     PopAcquireAdaptiveLock @ 0x1404EF160 (PopAcquireAdaptiveLock.c)
- *     PopReleaseAdaptiveLock @ 0x1404EFF44 (PopReleaseAdaptiveLock.c)
- *     PopDiagTraceSessionStates @ 0x1404F06D0 (PopDiagTraceSessionStates.c)
- *     PopUpdateTimeouts @ 0x14052E3B0 (PopUpdateTimeouts.c)
- *     PopLazySensorActiveInput @ 0x140674B58 (PopLazySensorActiveInput.c)
+ *     PopSetPowerSettingValueAcDc @ 0x1403F4AA8 (PopSetPowerSettingValueAcDc.c)
+ *     PopAcquireAdaptiveLock @ 0x1404D1254 (PopAcquireAdaptiveLock.c)
+ *     PopReleaseAdaptiveLock @ 0x1404D2038 (PopReleaseAdaptiveLock.c)
+ *     PopDiagTraceSessionStates @ 0x1404D27C4 (PopDiagTraceSessionStates.c)
+ *     PopUpdateTimeouts @ 0x14052E8F0 (PopUpdateTimeouts.c)
+ *     PopLazySensorActiveInput @ 0x140674C3C (PopLazySensorActiveInput.c)
  */
 
 ULONG __fastcall PopSessionWinlogonNotification(unsigned int a1, __int64 a2)
@@ -45,23 +45,23 @@ ULONG __fastcall PopSessionWinlogonNotification(unsigned int a1, __int64 a2)
     PopAcquireAdaptiveLock(0LL);
     if ( v2 )
     {
-      byte_1403023D4 = 1;
+      byte_1403023F4 = 1;
       LockConsoleTimeoutUnsafe = PopGetLockConsoleTimeoutUnsafe();
       LODWORD(v11) = LockConsoleTimeoutUnsafe;
-      if ( LockConsoleTimeoutUnsafe && !byte_1403023D5 )
+      if ( LockConsoleTimeoutUnsafe && !byte_1403023F5 )
       {
-        byte_1403023D6 = 1;
+        byte_1403023F6 = 1;
         HIDWORD(PopLazyContext) = LockConsoleTimeoutUnsafe;
-        BYTE1(qword_140302410) = 1;
+        BYTE1(qword_140302430) = 1;
         PopUpdateTimeouts(a1, &v11, 0LL);
       }
     }
     else
     {
-      byte_1403023D4 = 0;
-      if ( byte_1403023D6 )
+      byte_1403023F4 = 0;
+      if ( byte_1403023F6 )
       {
-        byte_1403023D6 = 0;
+        byte_1403023F6 = 0;
         PopLazySensorActiveInput(a1);
       }
     }

@@ -6,7 +6,7 @@
  *     _RtlDeregisterWaitEx@8 @ 0x4B2A8010 (_RtlDeregisterWaitEx@8.c)
  */
 
-int __stdcall RtlDeregisterWait(int a1)
+NTSTATUS __cdecl RtlDeregisterWait(HANDLE WaitHandle)
 {
-  return RtlDeregisterWaitEx(a1, 0);
+  return RtlDeregisterWaitEx(WaitHandle, 0);
 }

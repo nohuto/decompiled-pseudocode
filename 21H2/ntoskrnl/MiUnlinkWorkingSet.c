@@ -1,13 +1,13 @@
 /*
- * XREFs of MiUnlinkWorkingSet @ 0x14029736C
+ * XREFs of MiUnlinkWorkingSet @ 0x14027444C
  * Callers:
- *     MiUnlinkSessionWorkingSet @ 0x140389D48 (MiUnlinkSessionWorkingSet.c)
- *     MiDeletePartitionResources @ 0x140561918 (MiDeletePartitionResources.c)
- *     MmDeleteProcessAddressSpace @ 0x140682D54 (MmDeleteProcessAddressSpace.c)
+ *     MiUnlinkSessionWorkingSet @ 0x140389E98 (MiUnlinkSessionWorkingSet.c)
+ *     MiDeletePartitionResources @ 0x140561B58 (MiDeletePartitionResources.c)
+ *     MmDeleteProcessAddressSpace @ 0x14067C848 (MmDeleteProcessAddressSpace.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     KeWaitForGate @ 0x140299F74 (KeWaitForGate.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KeWaitForGate @ 0x14022A4E4 (KeWaitForGate.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402D3660 (KeAcquireInStackQueuedSpinLock.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
@@ -69,7 +69,7 @@ unsigned __int64 __fastcall MiUnlinkWorkingSet(__int64 a1, struct _KLOCK_QUEUE_H
       }
     }
     __writecr8(OldIrql);
-    KeWaitForGate(v18, 18LL);
+    KeWaitForGate((__int64)v18, 0x12u);
     KeAcquireInStackQueuedSpinLock(&SpinLock, p_LockHandle);
   }
   v5 = (_QWORD *)(a1 + 24);

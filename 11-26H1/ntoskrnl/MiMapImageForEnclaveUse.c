@@ -1,19 +1,19 @@
 /*
- * XREFs of MiMapImageForEnclaveUse @ 0x140B5ED58
+ * XREFs of MiMapImageForEnclaveUse @ 0x140B61ED8
  * Callers:
- *     MiLoadSectionIntoVsmEnclave @ 0x140876988 (MiLoadSectionIntoVsmEnclave.c)
- *     MiInitializeVsmEnclave @ 0x140AB7638 (MiInitializeVsmEnclave.c)
+ *     MiLoadSectionIntoVsmEnclave @ 0x14087CD6C (MiLoadSectionIntoVsmEnclave.c)
+ *     MiInitializeVsmEnclave @ 0x140AB8C78 (MiInitializeVsmEnclave.c)
  * Callees:
- *     KiUnstackDetachProcess @ 0x1402307C0 (KiUnstackDetachProcess.c)
- *     KiStackAttachProcess @ 0x140247880 (KiStackAttachProcess.c)
- *     MiDereferenceControlAreaFile @ 0x1402649C0 (MiDereferenceControlAreaFile.c)
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     MiSectionControlArea @ 0x14038A9B0 (MiSectionControlArea.c)
- *     MiReferenceControlAreaFile @ 0x140448EB0 (MiReferenceControlAreaFile.c)
- *     MmMapViewOfSectionEx @ 0x1404BCA5C (MmMapViewOfSectionEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1408FA680 (ObpReferenceObjectByHandleWithTag.c)
- *     MiValidateSectionCreate @ 0x1409CB8F4 (MiValidateSectionCreate.c)
+ *     KiUnstackDetachProcess @ 0x140232120 (KiUnstackDetachProcess.c)
+ *     KiStackAttachProcess @ 0x1402491E0 (KiStackAttachProcess.c)
+ *     MiDereferenceControlAreaFile @ 0x140263F30 (MiDereferenceControlAreaFile.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     MiSectionControlArea @ 0x14038C760 (MiSectionControlArea.c)
+ *     MiReferenceControlAreaFile @ 0x1404419A0 (MiReferenceControlAreaFile.c)
+ *     MmMapViewOfSectionEx @ 0x1404B623C (MmMapViewOfSectionEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x14092A610 (ObpReferenceObjectByHandleWithTag.c)
+ *     MiValidateSectionCreate @ 0x14099C8D4 (MiValidateSectionCreate.c)
  */
 
 __int64 __fastcall MiMapImageForEnclaveUse(ULONG_PTR a1, __int64 a2, char a3, __int64 a4, __int64 *a5)
@@ -36,15 +36,7 @@ __int64 __fastcall MiMapImageForEnclaveUse(ULONG_PTR a1, __int64 a2, char a3, __
   v16 = 0LL;
   v15 = 0LL;
   v17 = 0LL;
-  result = ObpReferenceObjectByHandleWithTag(
-             a1,
-             4LL,
-             (POBJECT_TYPE *)MmSectionObjectType,
-             a3,
-             0x6D566D4Du,
-             &Object,
-             0LL,
-             0LL);
+  result = ObpReferenceObjectByHandleWithTag(a1, 4, (__int64)MmSectionObjectType, a3, 0x6D566D4Du, &Object, 0LL, 0LL);
   if ( (int)result >= 0 )
   {
     v8 = Object;

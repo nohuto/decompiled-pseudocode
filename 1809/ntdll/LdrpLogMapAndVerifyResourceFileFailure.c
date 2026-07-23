@@ -6,7 +6,7 @@
  *     RtlRunOnceExecuteOnce @ 0x1800213E0 (RtlRunOnceExecuteOnce.c)
  *     _TlgKeywordOn @ 0x18004B5F0 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x18004D1E8 (_TlgWrite.c)
- *     __security_check_cookie @ 0x18008FEC0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x18008FED0 (__security_check_cookie.c)
  */
 
 char __fastcall LdrpLogMapAndVerifyResourceFileFailure(
@@ -16,7 +16,7 @@ char __fastcall LdrpLogMapAndVerifyResourceFileFailure(
         int a4,
         unsigned __int16 *a5)
 {
-  int v9; // eax
+  NTSTATUS v9; // eax
   const GUID *v10; // r8
   const GUID *v11; // r9
   char v13; // [rsp+38h] [rbp-61h] BYREF
@@ -39,8 +39,8 @@ char __fastcall LdrpLogMapAndVerifyResourceFileFailure(
   _DWORD v30[2]; // [rsp+D0h] [rbp+37h] BYREF
 
   v9 = RtlRunOnceExecuteOnce(
-         &qword_180166100,
-         (unsigned int (__fastcall *)(volatile signed __int64 *, __int64, unsigned __int64 *))LdrpResReportResourceAccessInternalInitOnce,
+         &stru_180166100,
+         (PRTL_RUN_ONCE_INIT_FN)LdrpResReportResourceAccessInternalInitOnce,
          0LL,
          0LL);
   if ( v9 >= 0 && dword_18015F520 > 5u )
@@ -67,7 +67,7 @@ char __fastcall LdrpLogMapAndVerifyResourceFileFailure(
       v26 = 4LL;
       v28 = 2LL;
       v30[1] = (_DWORD)v11;
-      LOBYTE(v9) = TlgWrite((TraceLoggingHProvider)&dword_18015F520, &unk_18012C531, v10, v11, 9u, &pData);
+      LOBYTE(v9) = TlgWrite((TraceLoggingHProvider)&dword_18015F520, &unk_18012C5C1, v10, v11, 9u, &pData);
     }
   }
   return v9;

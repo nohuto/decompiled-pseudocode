@@ -1,5 +1,5 @@
 /*
- * XREFs of ObCreateObjectType @ 0x14055203C
+ * XREFs of ObCreateObjectType @ 0x14055257C
  * Callers:
  *     WmipInitializeSecurity @ 0x14079C7B4 (WmipInitializeSecurity.c)
  *     PspInitializeSiloStructures @ 0x14079DE5C (PspInitializeSiloStructures.c)
@@ -25,7 +25,7 @@
  *     PopPowerRequestInit @ 0x1407BA2C4 (PopPowerRequestInit.c)
  *     ExpWorkerFactoryInitialization @ 0x1407BB3A4 (ExpWorkerFactoryInitialization.c)
  * Callees:
- *     ObCreateObjectTypeEx @ 0x140552054 (ObCreateObjectTypeEx.c)
+ *     ObCreateObjectTypeEx @ 0x140552594 (ObCreateObjectTypeEx.c)
  */
 
 __int64 __fastcall ObCreateObjectType(const UNICODE_STRING *a1, __int64 a2, __int64 a3, __int64 a4)

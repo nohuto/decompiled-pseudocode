@@ -1,12 +1,12 @@
 /*
- * XREFs of CcMapAndRead @ 0x1400338E0
+ * XREFs of CcMapAndRead @ 0x140033460
  * Callers:
- *     CcPinFileData @ 0x140031DE0 (CcPinFileData.c)
- *     CcPrepareMdlWrite @ 0x1400B161C (CcPrepareMdlWrite.c)
- *     CcMapData @ 0x1404475F0 (CcMapData.c)
+ *     CcPinFileData @ 0x140031960 (CcPinFileData.c)
+ *     CcPrepareMdlWrite @ 0x1400AF55C (CcPrepareMdlWrite.c)
+ *     CcMapData @ 0x1404464C0 (CcMapData.c)
  * Callees:
- *     MmCheckCachedPageStates @ 0x140033AB0 (MmCheckCachedPageStates.c)
- *     RtlRaiseStatus @ 0x1400F6738 (RtlRaiseStatus.c)
+ *     MmCheckCachedPageStates @ 0x140033630 (MmCheckCachedPageStates.c)
+ *     RtlRaiseStatus @ 0x1400F4588 (RtlRaiseStatus.c)
  */
 
 __int64 __fastcall CcMapAndRead(unsigned int a1, int a2, char a3, __int64 a4)

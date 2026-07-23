@@ -37,5 +37,5 @@ void __fastcall ST_STORE<SM_TRAITS>::StCleanup(__int64 a1)
     ExFreePoolWithTag(v6, 0);
   StEtaCleanup(a1 + 2456);
   SmCrEncCleanup(a1 + 2544);
-  ST_STORE<SM_TRAITS>::StDrainReadContextList((union _SLIST_HEADER *)a1);
+  ST_STORE<SM_TRAITS>::StDrainReadContextList((_SLIST_HEADER *)a1);
 }

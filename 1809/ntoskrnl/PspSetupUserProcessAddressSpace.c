@@ -1,23 +1,23 @@
 /*
- * XREFs of PspSetupUserProcessAddressSpace @ 0x140677F6C
+ * XREFs of PspSetupUserProcessAddressSpace @ 0x14067912C
  * Callers:
- *     PspAllocateProcess @ 0x14064BCB8 (PspAllocateProcess.c)
+ *     PspAllocateProcess @ 0x14064CE78 (PspAllocateProcess.c)
  * Callees:
  *     KiStackAttachProcess @ 0x140016DB0 (KiStackAttachProcess.c)
  *     KiUnstackDetachProcess @ 0x140017190 (KiUnstackDetachProcess.c)
  *     PsGetProcessServerSilo @ 0x14004D260 (PsGetProcessServerSilo.c)
- *     PsGetServerSiloGlobals @ 0x14009238C (PsGetServerSiloGlobals.c)
- *     PspWow64SetupUserProcessAddressSpace @ 0x1400F29B4 (PspWow64SetupUserProcessAddressSpace.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ZwAllocateVirtualMemory @ 0x1401B8490 (ZwAllocateVirtualMemory.c)
- *     PspWritePebAffinityInfo @ 0x14066CE10 (PspWritePebAffinityInfo.c)
- *     PspPrepareSystemDllInitBlock @ 0x1406781A4 (PspPrepareSystemDllInitBlock.c)
- *     PsWow64GetProcessNtdllType @ 0x1406783F4 (PsWow64GetProcessNtdllType.c)
- *     PspMapSiloSharedDataView @ 0x14067840C (PspMapSiloSharedDataView.c)
- *     MmMapApiSetView @ 0x140678444 (MmMapApiSetView.c)
- *     PspCopyAndFixupParameters @ 0x140678C24 (PspCopyAndFixupParameters.c)
- *     PspLocateInPEManifest @ 0x14068B1E8 (PspLocateInPEManifest.c)
- *     PspGetStandardHandleList @ 0x1406CD1F0 (PspGetStandardHandleList.c)
+ *     PsGetServerSiloGlobals @ 0x1400922CC (PsGetServerSiloGlobals.c)
+ *     PspWow64SetupUserProcessAddressSpace @ 0x1400F2A34 (PspWow64SetupUserProcessAddressSpace.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ZwAllocateVirtualMemory @ 0x1401B85F0 (ZwAllocateVirtualMemory.c)
+ *     PspWritePebAffinityInfo @ 0x14066DFD0 (PspWritePebAffinityInfo.c)
+ *     PspPrepareSystemDllInitBlock @ 0x140679364 (PspPrepareSystemDllInitBlock.c)
+ *     PsWow64GetProcessNtdllType @ 0x1406795B4 (PsWow64GetProcessNtdllType.c)
+ *     PspMapSiloSharedDataView @ 0x1406795CC (PspMapSiloSharedDataView.c)
+ *     MmMapApiSetView @ 0x140679604 (MmMapApiSetView.c)
+ *     PspCopyAndFixupParameters @ 0x140679DE4 (PspCopyAndFixupParameters.c)
+ *     PspLocateInPEManifest @ 0x14068C3A8 (PspLocateInPEManifest.c)
+ *     PspGetStandardHandleList @ 0x1406CE490 (PspGetStandardHandleList.c)
  */
 
 __int64 __fastcall PspSetupUserProcessAddressSpace(__int64 a1, _KPROCESS *a2, __int64 a3, __int64 a4)

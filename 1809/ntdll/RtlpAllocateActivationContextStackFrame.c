@@ -5,7 +5,7 @@
  * Callees:
  *     RtlRaiseException @ 0x1800087D0 (RtlRaiseException.c)
  *     RtlAllocateHeap @ 0x18000F2A0 (RtlAllocateHeap.c)
- *     __security_check_cookie @ 0x18008FEC0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x18008FED0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall RtlpAllocateActivationContextStackFrame(__int64 a1, __int64 a2, __int64 *a3)
@@ -67,7 +67,7 @@ __int64 __fastcall RtlpAllocateActivationContextStackFrame(__int64 a1, __int64 a
 LABEL_19:
       v6 = (_QWORD *)*v6;
     }
-    Heap = (_DWORD *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, 3104LL);
+    Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, 0xC20uLL);
     if ( Heap )
     {
       *Heap = 1953721414;

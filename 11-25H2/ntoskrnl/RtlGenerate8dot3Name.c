@@ -228,7 +228,7 @@ LABEL_39:
       v7->NameBuffer[v56] = v57;
     }
     v7->NameLength += 4;
-    v7->ChecksumInserted = 1;
+    v7->CheckSumInserted = 1;
   }
   if ( (_DWORD)v11 == -1 )
   {
@@ -309,7 +309,7 @@ LABEL_46:
   v23 = v60;
   v24 = v7->LastIndexValue + 1;
   v7->LastIndexValue = v24;
-  if ( v24 > 4 && !v7->ChecksumInserted )
+  if ( v24 > 4 && !v7->CheckSumInserted )
   {
     v42 = RtlComputeLfnChecksum(Name);
     v7->Checksum = v42;
@@ -333,7 +333,7 @@ LABEL_46:
     v7->LastIndexValue = 1;
     v7->NameLength = 6 - v43;
     v24 = 1;
-    v7->ChecksumInserted = 1;
+    v7->CheckSumInserted = 1;
   }
   v25 = 1;
   do

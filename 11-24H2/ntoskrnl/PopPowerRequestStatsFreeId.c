@@ -1,10 +1,10 @@
 /*
- * XREFs of PopPowerRequestStatsFreeId @ 0x140A24BAC
+ * XREFs of PopPowerRequestStatsFreeId @ 0x140A18B9C
  * Callers:
- *     PopPowerRequestStatsCreate @ 0x140A24B3C (PopPowerRequestStatsCreate.c)
- *     PopPowerRequestStatsGetIdForRequest @ 0x140A24BE4 (PopPowerRequestStatsGetIdForRequest.c)
+ *     PopPowerRequestStatsCreate @ 0x140A18B2C (PopPowerRequestStatsCreate.c)
+ *     PopPowerRequestStatsGetIdForRequest @ 0x140A18BD4 (PopPowerRequestStatsGetIdForRequest.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PopPowerRequestStatsFreeId(PVOID *P)

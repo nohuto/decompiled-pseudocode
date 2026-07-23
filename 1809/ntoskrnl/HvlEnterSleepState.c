@@ -1,13 +1,13 @@
 /*
- * XREFs of HvlEnterSleepState @ 0x140273CF0
+ * XREFs of HvlEnterSleepState @ 0x140273EE0
  * Callers:
  *     <none>
  * Callees:
- *     HvcallpNoHypervisorPresent @ 0x14013E6A0 (HvcallpNoHypervisorPresent.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     VslTerminateSecureServices @ 0x1401B3EF0 (VslTerminateSecureServices.c)
- *     HvlpAcquireHypercallPage @ 0x140271864 (HvlpAcquireHypercallPage.c)
- *     HvlpReleaseHypercallPage @ 0x140272384 (HvlpReleaseHypercallPage.c)
+ *     HvcallpNoHypervisorPresent @ 0x14013E7A0 (HvcallpNoHypervisorPresent.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     VslTerminateSecureServices @ 0x1401B3D90 (VslTerminateSecureServices.c)
+ *     HvlpAcquireHypercallPage @ 0x140271A54 (HvlpAcquireHypercallPage.c)
+ *     HvlpReleaseHypercallPage @ 0x140272574 (HvlpReleaseHypercallPage.c)
  */
 
 __int64 __fastcall HvlEnterSleepState(unsigned int a1)

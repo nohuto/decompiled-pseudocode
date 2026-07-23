@@ -30,10 +30,10 @@ __int64 __fastcall PoFxCompleteDevicePowerNotRequired(ULONG_PTR BugCheckParamete
     if ( *(_DWORD *)(BugCheckParameter2 + 36) == 2 )
       PopFxQueueWorkOrder(BugCheckParameter2 + 304, BugCheckParameter2);
     result = KxReleaseSpinLock((volatile signed __int64 *)(BugCheckParameter2 + 360));
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       result = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
         && (unsigned __int8)result <= 0xFu
         && (unsigned __int8)v5 <= 0xFu
         && (unsigned __int8)result >= 2u )

@@ -161,7 +161,7 @@ __int64 __fastcall EtwpCoverageSamplerQuery(ULONG_PTR BugCheckParameter2, __int6
   wchar_t *v134; // [rsp+F8h] [rbp-E0h]
   __int64 *v135; // [rsp+100h] [rbp-D8h]
   __int64 v136; // [rsp+108h] [rbp-D0h]
-  struct _SLIST_ENTRY v137; // [rsp+110h] [rbp-C8h] BYREF
+  _SLIST_ENTRY v137; // [rsp+110h] [rbp-C8h] BYREF
   __int64 v138; // [rsp+120h] [rbp-B8h]
   __int64 v139; // [rsp+128h] [rbp-B0h]
   __int128 v140; // [rsp+130h] [rbp-A8h]

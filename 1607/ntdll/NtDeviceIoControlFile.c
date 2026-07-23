@@ -1,7 +1,7 @@
 /*
  * XREFs of NtDeviceIoControlFile @ 0x1800A6500
  * Callers:
- *     RtlQueryVolumeDiskSpeedPolicy @ 0x18008B810 (RtlQueryVolumeDiskSpeedPolicy.c)
+ *     RtlQueryVolumeDiskSpeedPolicy @ 0x18008B800 (RtlQueryVolumeDiskSpeedPolicy.c)
  * Callees:
  *     <none>
  */

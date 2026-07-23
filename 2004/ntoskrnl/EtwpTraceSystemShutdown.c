@@ -14,19 +14,19 @@ char EtwpTraceSystemShutdown()
 {
   char result; // al
   int v1; // [rsp+30h] [rbp-29h] BYREF
-  __int64 v2; // [rsp+38h] [rbp-21h] BYREF
-  __int64 v3; // [rsp+40h] [rbp-19h] BYREF
+  LARGE_INTEGER v2; // [rsp+38h] [rbp-21h] BYREF
+  LARGE_INTEGER v3; // [rsp+40h] [rbp-19h] BYREF
   struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+48h] [rbp-11h] BYREF
   struct _EVENT_DATA_DESCRIPTOR v5; // [rsp+60h] [rbp+7h] BYREF
   int *v6; // [rsp+80h] [rbp+27h]
   int v7; // [rsp+88h] [rbp+2Fh]
   int v8; // [rsp+8Ch] [rbp+33h]
-  __int64 *v9; // [rsp+90h] [rbp+37h]
+  LARGE_INTEGER *v9; // [rsp+90h] [rbp+37h]
   int v10; // [rsp+98h] [rbp+3Fh]
   int v11; // [rsp+9Ch] [rbp+43h]
 
-  v2 = 0LL;
-  result = KeQuerySystemTimePrecise(&v2);
+  v2.QuadPart = 0LL;
+  result = KeQuerySystemTimePrecise(&v2).LowPart;
   if ( (unsigned int)dword_140C02BB0 > 5 )
   {
     result = tlgKeywordOn((__int64)&dword_140C02BB0, 0x400000000000LL);

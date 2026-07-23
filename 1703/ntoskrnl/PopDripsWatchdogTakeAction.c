@@ -145,7 +145,7 @@ LABEL_12:
     {
       if ( (unsigned int)VfIsVerifierEnabled()
         || (SystemInformation = 8LL,
-            ZwQuerySystemInformation(MaxSystemInfoClass|SystemProcessInformation, &SystemInformation, 8u, ReturnLength) >= 0)
+            ZwQuerySystemInformation(SystemCodeIntegrityInformation, &SystemInformation, 8u, ReturnLength) >= 0)
         && (SystemInformation & 0x200000000LL) != 0 )
       {
         if ( v8 && (a2 & 0x20) != 0 )

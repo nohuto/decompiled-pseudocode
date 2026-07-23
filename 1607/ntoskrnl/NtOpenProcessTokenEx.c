@@ -1,17 +1,17 @@
 /*
- * XREFs of NtOpenProcessTokenEx @ 0x140420240
+ * XREFs of NtOpenProcessTokenEx @ 0x14041F100
  * Callers:
- *     NtOpenProcessToken @ 0x1404D23CC (NtOpenProcessToken.c)
- *     RtlpSysVolTakeOwnership @ 0x140688D98 (RtlpSysVolTakeOwnership.c)
+ *     NtOpenProcessToken @ 0x1404B5E6C (NtOpenProcessToken.c)
+ *     RtlpSysVolTakeOwnership @ 0x140688E7C (RtlpSysVolTakeOwnership.c)
  * Callees:
- *     ObFastReferenceObject @ 0x14000F760 (ObFastReferenceObject.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     ObfDereferenceObjectWithTag @ 0x14006ACD0 (ObfDereferenceObjectWithTag.c)
- *     PspUnlockProcessShared @ 0x1400C9C44 (PspUnlockProcessShared.c)
- *     PspLockProcessShared @ 0x1400C9C88 (PspLockProcessShared.c)
- *     ObFastReferenceObjectLocked @ 0x1400D1534 (ObFastReferenceObjectLocked.c)
- *     ObOpenObjectByPointer @ 0x1404203C0 (ObOpenObjectByPointer.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x140450D80 (ObpReferenceObjectByHandleWithTag.c)
+ *     ObFastReferenceObject @ 0x14000F2E0 (ObFastReferenceObject.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     ObfDereferenceObjectWithTag @ 0x14006A850 (ObfDereferenceObjectWithTag.c)
+ *     PspUnlockProcessShared @ 0x1400C7AE4 (PspUnlockProcessShared.c)
+ *     PspLockProcessShared @ 0x1400C7B28 (PspLockProcessShared.c)
+ *     ObFastReferenceObjectLocked @ 0x1400CF3D4 (ObFastReferenceObjectLocked.c)
+ *     ObOpenObjectByPointer @ 0x14041F280 (ObOpenObjectByPointer.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x14044FC50 (ObpReferenceObjectByHandleWithTag.c)
  */
 
 NTSTATUS __stdcall NtOpenProcessTokenEx(

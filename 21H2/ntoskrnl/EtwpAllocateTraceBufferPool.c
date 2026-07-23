@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpAllocateTraceBufferPool @ 0x1406DF4A0
+ * XREFs of EtwpAllocateTraceBufferPool @ 0x1406B6780
  * Callers:
- *     EtwpStartLogger @ 0x1406DE1A0 (EtwpStartLogger.c)
+ *     EtwpStartLogger @ 0x1406B5480 (EtwpStartLogger.c)
  * Callees:
- *     EtwpQueryUsedProcessorCount @ 0x140265E58 (EtwpQueryUsedProcessorCount.c)
- *     EtwpAllocateFreeBuffers @ 0x1402ED308 (EtwpAllocateFreeBuffers.c)
- *     EtwpGetSystemMaximumBufferCount @ 0x1406DF408 (EtwpGetSystemMaximumBufferCount.c)
+ *     EtwpQueryUsedProcessorCount @ 0x140253DF8 (EtwpQueryUsedProcessorCount.c)
+ *     EtwpAllocateFreeBuffers @ 0x14029E658 (EtwpAllocateFreeBuffers.c)
+ *     EtwpGetSystemMaximumBufferCount @ 0x1406B66E8 (EtwpGetSystemMaximumBufferCount.c)
  */
 
 __int64 __fastcall EtwpAllocateTraceBufferPool(unsigned int *a1)

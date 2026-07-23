@@ -1,18 +1,18 @@
 /*
- * XREFs of MiTradeTransitionPage @ 0x14011812C
+ * XREFs of MiTradeTransitionPage @ 0x14011819C
  * Callers:
- *     MiTradePage @ 0x14009C0F0 (MiTradePage.c)
+ *     MiTradePage @ 0x14009C030 (MiTradePage.c)
  * Callees:
  *     MiLockPageInline @ 0x14002CE40 (MiLockPageInline.c)
  *     MiIsPfnFromSlabAllocation @ 0x14003120C (MiIsPfnFromSlabAllocation.c)
  *     MiGetPage @ 0x140049D50 (MiGetPage.c)
- *     MiSetOriginalPtePfnFromFreeList @ 0x140097EA0 (MiSetOriginalPtePfnFromFreeList.c)
- *     MiIsPfnFileOnly @ 0x14009CA20 (MiIsPfnFileOnly.c)
- *     MiPageToNode @ 0x14009D010 (MiPageToNode.c)
- *     MiReleaseFreshPage @ 0x1400E1004 (MiReleaseFreshPage.c)
- *     MiCanPageMove @ 0x1401183F4 (MiCanPageMove.c)
- *     MiReplaceTransitionPage @ 0x14011846C (MiReplaceTransitionPage.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiSetOriginalPtePfnFromFreeList @ 0x140097DE0 (MiSetOriginalPtePfnFromFreeList.c)
+ *     MiIsPfnFileOnly @ 0x14009C960 (MiIsPfnFileOnly.c)
+ *     MiPageToNode @ 0x14009CF50 (MiPageToNode.c)
+ *     MiReleaseFreshPage @ 0x1400E1084 (MiReleaseFreshPage.c)
+ *     MiCanPageMove @ 0x140118464 (MiCanPageMove.c)
+ *     MiReplaceTransitionPage @ 0x1401184DC (MiReplaceTransitionPage.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiTradeTransitionPage(__int64 a1, unsigned __int8 a2, __int64 a3, int a4, int a5, __int64 *a6)
@@ -53,7 +53,7 @@ LABEL_3:
     __writecr8(a2);
     return 0LL;
   }
-  v10 = *(_QWORD *)(qword_14043A748 + 8 * ((*(_QWORD *)(a1 + 40) >> 40) & 0x3FFLL));
+  v10 = *(_QWORD *)(qword_14043B808 + 8 * ((*(_QWORD *)(a1 + 40) >> 40) & 0x3FFLL));
   _InterlockedAnd64((volatile signed __int64 *)(a1 + 24), 0x7FFFFFFFFFFFFFFFuLL);
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && KeGetCurrentIrql() >= 2u && a2 < 2u )
   {
@@ -68,14 +68,14 @@ LABEL_3:
     v12 = (*(_QWORD *)(a1 + 40) >> 36) & 3LL;
     v13 = MiPageToNode((a1 + 0x58000000000LL) / 48, 0);
     v14 = 128;
-    v15 = (v13 << byte_14043A049) | dword_14043A088 & v11 | ((_DWORD)v12 << byte_14043A04A);
+    v15 = (v13 << byte_14043B109) | dword_14043B148 & v11 | ((_DWORD)v12 << byte_14043B10A);
     if ( (a5 & 0x3000000) != 0 )
       v14 = 65664;
   }
   else
   {
     v14 = 48;
-    v15 = dword_14043A088 & v11 | a4 & ~dword_14043A088;
+    v15 = dword_14043B148 & v11 | a4 & ~dword_14043B148;
   }
   Page = MiGetPage(v10, v15, v14);
   v17 = Page;
@@ -112,7 +112,7 @@ LABEL_29:
   v21 = 0;
   if ( IsPfnFromSlabAllocation
     || *(_WORD *)(a1 + 32)
-    || v10 != *(_QWORD *)(qword_14043A748 + 8 * ((*(_QWORD *)(a1 + 40) >> 40) & 0x3FFLL))
+    || v10 != *(_QWORD *)(qword_14043B808 + 8 * ((*(_QWORD *)(a1 + 40) >> 40) & 0x3FFLL))
     || !(unsigned int)MiCanPageMove(a1) )
   {
     goto LABEL_29;

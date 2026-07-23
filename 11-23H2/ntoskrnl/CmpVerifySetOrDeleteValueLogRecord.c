@@ -1,7 +1,7 @@
 /*
- * XREFs of CmpVerifySetOrDeleteValueLogRecord @ 0x140A1F3B0
+ * XREFs of CmpVerifySetOrDeleteValueLogRecord @ 0x140A1F660
  * Callers:
- *     CmpVerifyLogRecord @ 0x140A1F284 (CmpVerifyLogRecord.c)
+ *     CmpVerifyLogRecord @ 0x140A1F534 (CmpVerifyLogRecord.c)
  * Callees:
  *     <none>
  */

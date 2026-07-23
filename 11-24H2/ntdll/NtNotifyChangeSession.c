@@ -1,16 +1,24 @@
 /*
- * XREFs of NtNotifyChangeSession @ 0x180164120
+ * XREFs of NtNotifyChangeSession @ 0x1801624E0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 NtNotifyChangeSession()
+NTSTATUS __cdecl NtNotifyChangeSession(
+        HANDLE SessionHandle,
+        ULONG ChangeSequenceNumber,
+        PLARGE_INTEGER ChangeTimeStamp,
+        IO_SESSION_EVENT Event,
+        IO_SESSION_STATE NewState,
+        IO_SESSION_STATE PreviousState,
+        PVOID Payload,
+        ULONG PayloadSize)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 293LL;
+  result = 293;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

@@ -1,9 +1,9 @@
 /*
- * XREFs of ?SmStGetStoreStats@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@W4_ST_STATS_LEVEL@@PEAU_ST_STATS@@PEAK@Z @ 0x1400032B8
+ * XREFs of ?SmStGetStoreStats@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@W4_ST_STATS_LEVEL@@PEAU_ST_STATS@@PEAK@Z @ 0x14000342C
  * Callers:
- *     ?SmStGetDataInUseKb@?$SMKM_STORE@USM_TRAITS@@@@SAKPEAU1@@Z @ 0x140003240 (-SmStGetDataInUseKb@-$SMKM_STORE@USM_TRAITS@@@@SAKPEAU1@@Z.c)
- *     SmpProcessQueryStoreStats @ 0x140135264 (SmpProcessQueryStoreStats.c)
- *     SmProcessCompressionInfoRequest @ 0x1403E4338 (SmProcessCompressionInfoRequest.c)
+ *     ?SmStGetDataInUseKb@?$SMKM_STORE@USM_TRAITS@@@@SAKPEAU1@@Z @ 0x1400033B4 (-SmStGetDataInUseKb@-$SMKM_STORE@USM_TRAITS@@@@SAKPEAU1@@Z.c)
+ *     SmpProcessQueryStoreStats @ 0x1401357D4 (SmpProcessQueryStoreStats.c)
+ *     SmProcessCompressionInfoRequest @ 0x1403E5964 (SmProcessCompressionInfoRequest.c)
  * Callees:
  *     <none>
  */

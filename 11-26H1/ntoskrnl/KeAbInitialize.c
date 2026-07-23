@@ -1,10 +1,10 @@
 /*
- * XREFs of KeAbInitialize @ 0x1405F73D0
+ * XREFs of KeAbInitialize @ 0x1405F9D90
  * Callers:
- *     KiInitSystem @ 0x140CC9D74 (KiInitSystem.c)
+ *     KiInitSystem @ 0x140CCFE5C (KiInitSystem.c)
  * Callees:
- *     Feature_ScalableAutoBoost__private_IsEnabledDeviceUsageNoInline @ 0x1405F734C (Feature_ScalableAutoBoost__private_IsEnabledDeviceUsageNoInline.c)
- *     KeAbInitializeDpc @ 0x1405F7460 (KeAbInitializeDpc.c)
+ *     Feature_ScalableAutoBoost__private_IsEnabledDeviceUsageNoInline @ 0x1405F9D0C (Feature_ScalableAutoBoost__private_IsEnabledDeviceUsageNoInline.c)
+ *     KeAbInitializeDpc @ 0x1405F9E20 (KeAbInitializeDpc.c)
  */
 
 __int64 KeAbInitialize()
@@ -18,7 +18,7 @@ __int64 KeAbInitialize()
   IsEnabledDeviceUsageNoInline = Feature_ScalableAutoBoost__private_IsEnabledDeviceUsageNoInline();
   v1 = 1024LL;
   KiAbpGlobalState = (IsEnabledDeviceUsageNoInline != 0) | KiAbpGlobalState & 0xFFFFFFFE;
-  v2 = &unk_140E162C0;
+  v2 = &unk_140E16400;
   if ( (KiAbpGlobalState & 1) != 0 )
   {
     do

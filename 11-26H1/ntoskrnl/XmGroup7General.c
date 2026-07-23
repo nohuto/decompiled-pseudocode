@@ -1,11 +1,11 @@
 /*
- * XREFs of XmGroup7General @ 0x1405AC2D0
+ * XREFs of XmGroup7General @ 0x1405AEAE0
  * Callers:
  *     <none>
  * Callees:
- *     XmEvaluateAddressSpecifier @ 0x1404A8658 (XmEvaluateAddressSpecifier.c)
- *     XmSetDestinationValue @ 0x1404A8950 (XmSetDestinationValue.c)
- *     longjmp @ 0x140533940 (longjmp.c)
+ *     XmEvaluateAddressSpecifier @ 0x1404A1CE8 (XmEvaluateAddressSpecifier.c)
+ *     XmSetDestinationValue @ 0x1404A1FE0 (XmSetDestinationValue.c)
+ *     longjmp @ 0x140535DC0 (longjmp.c)
  */
 
 __int64 __fastcall XmGroup7General(__int64 a1)

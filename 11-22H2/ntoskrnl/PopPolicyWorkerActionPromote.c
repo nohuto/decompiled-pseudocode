@@ -10,45 +10,54 @@
  *     PopAcquirePolicyLock @ 0x140A87BE4 (PopAcquirePolicyLock.c)
  */
 
-__int64 __fastcall PopPolicyWorkerActionPromote(int a1)
-{
-  __int64 v1; // rdx
-  __int64 v2; // rcx
-  __int64 v3; // r8
-  char v4; // bl
-  int v5; // ecx
-
-  PopAcquirePolicyLock(a1);
-  qword_140C3CFE0 = (__int64)KeGetCurrentThread();
-  if ( (_BYTE)PopAction )
-  {
-    v4 = PopAction;
-    if ( !byte_140C3CE21 )
-    {
-      if ( (PopAction & 2) == 0 )
-        goto LABEL_11;
-      PopSetPowerActionState(1);
-      v5 = 2;
-      goto LABEL_10;
-    }
-    if ( byte_140C3CE21 != 2 )
-      goto LABEL_11;
-    if ( (int)PopIssueActionRequest(1, qword_140C3CE24, HIDWORD(qword_140C3CE24), dword_140C3CE2C) >= 0 )
-    {
-      LOBYTE(PopAction) = ~v4 & PopAction;
-      goto LABEL_11;
-    }
-    if ( byte_140C3CE21 != 2 )
-    {
-      v5 = 1;
-LABEL_10:
-      PopGetPolicyWorker(v5);
-    }
-  }
-LABEL_11:
-  qword_140C3CFE0 = 0LL;
-  PopReleasePolicyLock(v2, v1, v3);
-  if ( KeGetCurrentThread()->WaitBlock[3].SpareLong )
-    __fastfail(0x20u);
-  return 0LL;
-}
+/*
+ * Hex-Rays decompilation failed for PopPolicyWorkerActionPromote @ 0x14098A3D0
+ * Reason: Hex-Rays returned no pseudocode for 0x14098A3D0
+ * Fallback: raw IDA disassembly follows.
+ *
+ * 000000014098A3D0: push    rbx
+ * 000000014098A3D2: sub     rsp, 20h
+ * 000000014098A3D6: call    PopAcquirePolicyLock
+ * 000000014098A3DB: mov     rax, gs:188h
+ * 000000014098A3E4: mov     cs:qword_140C3CFE0, rax
+ * 000000014098A3EB: movzx   eax, cs:PopAction
+ * 000000014098A3F2: test    al, al
+ * 000000014098A3F4: jz      short loc_14098A455
+ * 000000014098A3F6: mov     ebx, eax
+ * 000000014098A3F8: mov     al, cs:byte_140C3CE21
+ * 000000014098A3FE: test    al, al
+ * 000000014098A400: jz      short loc_14098A43F
+ * 000000014098A402: cmp     al, 2
+ * 000000014098A404: jnz     short loc_14098A455
+ * 000000014098A406: mov     r9d, cs:dword_140C3CE2C
+ * 000000014098A40D: mov     cl, 1
+ * 000000014098A40F: mov     r8d, dword ptr cs:qword_140C3CE24+4
+ * 000000014098A416: mov     edx, dword ptr cs:qword_140C3CE24
+ * 000000014098A41C: call    PopIssueActionRequest
+ * 000000014098A421: test    eax, eax
+ * 000000014098A423: js      short loc_14098A42F
+ * 000000014098A425: not     bl
+ * 000000014098A427: and     cs:PopAction, bl
+ * 000000014098A42D: jmp     short loc_14098A455
+ * 000000014098A42F: cmp     cs:byte_140C3CE21, 2
+ * 000000014098A436: jz      short loc_14098A455
+ * 000000014098A438: mov     ecx, 1
+ * 000000014098A43D: jmp     short loc_14098A450
+ * 000000014098A43F: test    bl, 2
+ * 000000014098A442: jz      short loc_14098A455
+ * 000000014098A444: mov     cl, 1
+ * 000000014098A446: call    PopSetPowerActionState
+ * 000000014098A44B: mov     ecx, 2
+ * 000000014098A450: call    PopGetPolicyWorker
+ * 000000014098A455: and     cs:qword_140C3CFE0, 0
+ * 000000014098A45D: call    PopReleasePolicyLock
+ * 000000014098A462: mov     rax, gs:188h
+ * 000000014098A46B: cmp     dword ptr [rax+1E4h], 0
+ * 000000014098A472: jz      short loc_14098A47B
+ * 000000014098A474: mov     ecx, 20h ; ' '
+ * 000000014098A479: int     29h; Win8: RtlFailFast(ecx)
+ * 000000014098A47B: xor     eax, eax
+ * 000000014098A47D: add     rsp, 20h
+ * 000000014098A481: pop     rbx
+ * 000000014098A482: retn
+ */

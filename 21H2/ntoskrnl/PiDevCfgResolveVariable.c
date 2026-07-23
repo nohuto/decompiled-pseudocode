@@ -1,30 +1,30 @@
 /*
- * XREFs of PiDevCfgResolveVariable @ 0x14077B570
+ * XREFs of PiDevCfgResolveVariable @ 0x14077B730
  * Callers:
- *     PiDevCfgQueryResolveValue @ 0x14050E4A4 (PiDevCfgQueryResolveValue.c)
- *     PiDevCfgConfigureDeviceInterfaces @ 0x1407679A4 (PiDevCfgConfigureDeviceInterfaces.c)
- *     PiDevCfgCopyDeviceKey @ 0x140769E0C (PiDevCfgCopyDeviceKey.c)
- *     PiDevCfgResolveVariableExpression @ 0x1408A8110 (PiDevCfgResolveVariableExpression.c)
- *     PiDevCfgResolveVariableFormatString @ 0x1408A9380 (PiDevCfgResolveVariableFormatString.c)
- *     PiDevCfgResolveVariableKeyHandle @ 0x1408A9A8C (PiDevCfgResolveVariableKeyHandle.c)
- *     PiDevCfgResolveVariableKeyValue @ 0x1408AA260 (PiDevCfgResolveVariableKeyValue.c)
- *     PiDevCfgResolveVariableSwitchCase @ 0x1408AA440 (PiDevCfgResolveVariableSwitchCase.c)
+ *     PiDevCfgQueryResolveValue @ 0x14050E6E4 (PiDevCfgQueryResolveValue.c)
+ *     PiDevCfgConfigureDeviceInterfaces @ 0x140767B64 (PiDevCfgConfigureDeviceInterfaces.c)
+ *     PiDevCfgCopyDeviceKey @ 0x140769FCC (PiDevCfgCopyDeviceKey.c)
+ *     PiDevCfgResolveVariableExpression @ 0x1408A8270 (PiDevCfgResolveVariableExpression.c)
+ *     PiDevCfgResolveVariableFormatString @ 0x1408A94E0 (PiDevCfgResolveVariableFormatString.c)
+ *     PiDevCfgResolveVariableKeyHandle @ 0x1408A9BEC (PiDevCfgResolveVariableKeyHandle.c)
+ *     PiDevCfgResolveVariableKeyValue @ 0x1408AA3C0 (PiDevCfgResolveVariableKeyValue.c)
+ *     PiDevCfgResolveVariableSwitchCase @ 0x1408AA5A0 (PiDevCfgResolveVariableSwitchCase.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     PnpValidateRegistryString @ 0x14036EF3C (PnpValidateRegistryString.c)
- *     PnpStringToDwordValue @ 0x14038189C (PnpStringToDwordValue.c)
- *     _wcsicmp @ 0x1403D20D0 (_wcsicmp.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     ZwOpenKey @ 0x1403FA5E0 (ZwOpenKey.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     RtlEqualUnicodeString @ 0x140601410 (RtlEqualUnicodeString.c)
- *     RtlHashUnicodeString @ 0x140636CA0 (RtlHashUnicodeString.c)
- *     RtlCreateUnicodeString @ 0x1406748C0 (RtlCreateUnicodeString.c)
- *     IopGetRegistryValue @ 0x140742A98 (IopGetRegistryValue.c)
- *     PiDevCfgResolveVariableConstant @ 0x1408A8040 (PiDevCfgResolveVariableConstant.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     PnpValidateRegistryString @ 0x14036F0EC (PnpValidateRegistryString.c)
+ *     PnpStringToDwordValue @ 0x1403813EC (PnpStringToDwordValue.c)
+ *     _wcsicmp @ 0x1403D2240 (_wcsicmp.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403FA7C0 (ZwOpenKey.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     RtlHashUnicodeString @ 0x14062BAB0 (RtlHashUnicodeString.c)
+ *     RtlCreateUnicodeString @ 0x140669AF0 (RtlCreateUnicodeString.c)
+ *     RtlEqualUnicodeString @ 0x1406F0B70 (RtlEqualUnicodeString.c)
+ *     IopGetRegistryValue @ 0x140742C58 (IopGetRegistryValue.c)
+ *     PiDevCfgResolveVariableConstant @ 0x1408A81A0 (PiDevCfgResolveVariableConstant.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PiDevCfgResolveVariable(__int64 a1, const WCHAR *a2, _QWORD *a3)
@@ -117,7 +117,7 @@ __int64 __fastcall PiDevCfgResolveVariable(__int64 a1, const WCHAR *a2, _QWORD *
   v4 = v13;
   if ( v13 >= 0 )
   {
-    RegistryValue = IopGetRegistryValue(KeyHandle, (const WCHAR *)&dword_14098BEE4, 0, &P);
+    RegistryValue = IopGetRegistryValue(KeyHandle, (const WCHAR *)&dword_14098C0C4, 0, &P);
     v5 = (unsigned int *)P;
     v4 = RegistryValue;
     if ( RegistryValue < 0 )
@@ -127,7 +127,7 @@ __int64 __fastcall PiDevCfgResolveVariable(__int64 a1, const WCHAR *a2, _QWORD *
       v4 = -1073741823;
       goto LABEL_29;
     }
-    v15 = (const wchar_t **)&off_1409859C0;
+    v15 = (const wchar_t **)&off_140985BA0;
     v16 = (const wchar_t *)((char *)v5 + v5[2]);
     HashValue = v16;
     v17 = 0;
@@ -139,7 +139,7 @@ __int64 __fastcall PiDevCfgResolveVariable(__int64 a1, const WCHAR *a2, _QWORD *
       if ( v17 >= 8 )
         goto LABEL_11;
     }
-    v6 = (__int64 (__fastcall *)(__int64, HANDLE, _OWORD *))*(&funcs_14077B7D6 + 2 * v17);
+    v6 = (__int64 (__fastcall *)(__int64, HANDLE, _OWORD *))*(&funcs_14077B996 + 2 * v17);
     if ( !v6 )
     {
 LABEL_11:
@@ -238,7 +238,7 @@ LABEL_29:
   if ( v13 == -1073741772 )
   {
     v4 = 0;
-    v18 = (const wchar_t **)&off_140985410;
+    v18 = (const wchar_t **)&off_1409855F0;
     v19 = 0LL;
     while ( wcsicmp(*v18, a2) )
     {
@@ -247,7 +247,7 @@ LABEL_29:
       if ( (unsigned int)v19 >= 4 )
         goto LABEL_16;
     }
-    v25 = &(&off_140985410)[3 * v19];
+    v25 = &(&off_1409855F0)[3 * v19];
     if ( v25 )
     {
       v7 = *((_DWORD *)v25 + 4);

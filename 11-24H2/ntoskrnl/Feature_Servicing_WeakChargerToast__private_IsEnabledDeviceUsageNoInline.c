@@ -1,10 +1,10 @@
 /*
- * XREFs of Feature_Servicing_WeakChargerToast__private_IsEnabledDeviceUsageNoInline @ 0x1405D7CFC
+ * XREFs of Feature_Servicing_WeakChargerToast__private_IsEnabledDeviceUsageNoInline @ 0x1405D5270
  * Callers:
- *     PopBatteryWorker @ 0x140AC7D70 (PopBatteryWorker.c)
- *     PopBatteryInit @ 0x140C31AC0 (PopBatteryInit.c)
+ *     PopBatteryWorker @ 0x140AC5DB0 (PopBatteryWorker.c)
+ *     PopBatteryInit @ 0x140C33BE0 (PopBatteryInit.c)
  * Callees:
- *     Feature_Servicing_WeakChargerToast__private_IsEnabledFallback @ 0x1405D7D34 (Feature_Servicing_WeakChargerToast__private_IsEnabledFallback.c)
+ *     Feature_Servicing_WeakChargerToast__private_IsEnabledFallback @ 0x1405D52A8 (Feature_Servicing_WeakChargerToast__private_IsEnabledFallback.c)
  */
 
 __int64 Feature_Servicing_WeakChargerToast__private_IsEnabledDeviceUsageNoInline()

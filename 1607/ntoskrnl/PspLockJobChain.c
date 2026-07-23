@@ -1,11 +1,11 @@
 /*
- * XREFs of PspLockJobChain @ 0x140469EEC
+ * XREFs of PspLockJobChain @ 0x140468DBC
  * Callers:
- *     NtSetInformationJobObject @ 0x140464BD8 (NtSetInformationJobObject.c)
- *     PspLockJobsAndProcessExclusive @ 0x1404F2A94 (PspLockJobsAndProcessExclusive.c)
- *     PspImplicitAssignProcessToJob @ 0x1404F3670 (PspImplicitAssignProcessToJob.c)
+ *     NtSetInformationJobObject @ 0x140463AA8 (NtSetInformationJobObject.c)
+ *     PspLockJobsAndProcessExclusive @ 0x1404D5A20 (PspLockJobsAndProcessExclusive.c)
+ *     PspImplicitAssignProcessToJob @ 0x1404D65FC (PspImplicitAssignProcessToJob.c)
  * Callees:
- *     ExAcquireResourceExclusiveLite @ 0x140068160 (ExAcquireResourceExclusiveLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140067CE0 (ExAcquireResourceExclusiveLite.c)
  */
 
 BOOLEAN __fastcall PspLockJobChain(__int64 a1, __int64 a2)

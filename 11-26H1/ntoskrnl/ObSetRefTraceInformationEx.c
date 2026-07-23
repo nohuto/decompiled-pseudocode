@@ -1,15 +1,15 @@
 /*
- * XREFs of ObSetRefTraceInformationEx @ 0x1407C45C8
+ * XREFs of ObSetRefTraceInformationEx @ 0x1407C7628
  * Callers:
- *     NtSetSystemInformation @ 0x140833840 (NtSetSystemInformation.c)
+ *     NtSetSystemInformation @ 0x140839A80 (NtSetSystemInformation.c)
  * Callees:
- *     ObpTraceAllocateMemory @ 0x14052F738 (ObpTraceAllocateMemory.c)
- *     ObpTraceFreeMemory @ 0x140530A70 (ObpTraceFreeMemory.c)
- *     RtlCopyFromUser @ 0x140533E38 (RtlCopyFromUser.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     ObpStartRuntimeStackTraceEx @ 0x1407C53D4 (ObpStartRuntimeStackTraceEx.c)
- *     ObpStopRuntimeStackTrace @ 0x1407C5588 (ObpStopRuntimeStackTrace.c)
- *     SeSinglePrivilegeCheck @ 0x140932280 (SeSinglePrivilegeCheck.c)
+ *     ObpTraceAllocateMemory @ 0x140531C58 (ObpTraceAllocateMemory.c)
+ *     ObpTraceFreeMemory @ 0x140532F70 (ObpTraceFreeMemory.c)
+ *     RtlCopyFromUser @ 0x1405362B8 (RtlCopyFromUser.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     ObpStartRuntimeStackTraceEx @ 0x1407C8434 (ObpStartRuntimeStackTraceEx.c)
+ *     ObpStopRuntimeStackTrace @ 0x1407C85E8 (ObpStopRuntimeStackTrace.c)
+ *     SeSinglePrivilegeCheck @ 0x14090DE50 (SeSinglePrivilegeCheck.c)
  */
 
 __int64 __fastcall ObSetRefTraceInformationEx(void *Src, unsigned int a2)

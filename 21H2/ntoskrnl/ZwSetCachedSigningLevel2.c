@@ -1,14 +1,14 @@
 /*
- * XREFs of ZwSetCachedSigningLevel2 @ 0x1403FD520
+ * XREFs of ZwSetCachedSigningLevel2 @ 0x1403FD700
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwSetCachedSigningLevel2(__int64 a1, __int64 a2)
+__int64 __fastcall ZwSetCachedSigningLevel2(__int64 a1)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(a1);
 }

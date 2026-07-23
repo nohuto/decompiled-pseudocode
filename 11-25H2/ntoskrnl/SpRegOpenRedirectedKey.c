@@ -14,38 +14,52 @@
 
 __int64 __fastcall SpRegOpenRedirectedKey(__int64 a1, __int64 a2, _QWORD *a3)
 {
-  void *Pool2; // rdi
-  int PersistedStateLocation; // eax
+  WCHAR *TargetPath; // rdi
+  NTSTATUS PersistedStateLocation; // eax
   int v6; // ebx
-  int v7; // ebx
+  ULONG BufferLengthIn; // ebx
   UNICODE_STRING *p_DestinationString; // rcx
   HANDLE v9; // rcx
   UNICODE_STRING DestinationString; // [rsp+40h] [rbp-10h] BYREF
   HANDLE v12; // [rsp+70h] [rbp+20h] BYREF
-  int v13; // [rsp+78h] [rbp+28h] BYREF
+  ULONG BufferLengthOut; // [rsp+78h] [rbp+28h] BYREF
   int v14; // [rsp+7Ch] [rbp+2Ch]
 
   v14 = HIDWORD(a2);
   v12 = 0LL;
-  Pool2 = 0LL;
-  v13 = 0;
+  TargetPath = 0LL;
+  BufferLengthOut = 0;
   DestinationString = 0LL;
-  PersistedStateLocation = RtlGetPersistedStateLocation(off_140FD75F8, 0LL, 0, (__int64)&v13);
+  PersistedStateLocation = RtlGetPersistedStateLocation(
+                             off_140FD75F8,
+                             L"TargetNtPath",
+                             0LL,
+                             LocationTypeRegistry,
+                             0LL,
+                             0,
+                             &BufferLengthOut);
   v6 = PersistedStateLocation;
   if ( PersistedStateLocation == -2147483643 )
   {
-    v7 = v13;
-    Pool2 = (void *)ExAllocatePool2(0x100uLL);
-    if ( !Pool2 )
+    BufferLengthIn = BufferLengthOut;
+    TargetPath = (WCHAR *)ExAllocatePool2(0x100uLL);
+    if ( !TargetPath )
       return (unsigned int)-1073741801;
-    v6 = RtlGetPersistedStateLocation(off_140FD75F8, Pool2, v7, (__int64)&v13);
+    v6 = RtlGetPersistedStateLocation(
+           off_140FD75F8,
+           L"TargetNtPath",
+           0LL,
+           LocationTypeRegistry,
+           TargetPath,
+           BufferLengthIn,
+           &BufferLengthOut);
     if ( v6 < 0 )
     {
 LABEL_15:
-      ExFreePoolWithTag(Pool2, 0x20534C53u);
+      ExFreePoolWithTag(TargetPath, 0x20534C53u);
       return (unsigned int)v6;
     }
-    RtlInitUnicodeString(&DestinationString, (PCWSTR)Pool2);
+    RtlInitUnicodeString(&DestinationString, TargetPath);
     p_DestinationString = &DestinationString;
   }
   else
@@ -70,7 +84,7 @@ LABEL_11:
 LABEL_12:
   if ( v9 )
     ZwClose(v9);
-  if ( Pool2 )
+  if ( TargetPath )
     goto LABEL_15;
   return (unsigned int)v6;
 }

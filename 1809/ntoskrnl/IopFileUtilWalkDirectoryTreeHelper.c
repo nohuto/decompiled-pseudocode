@@ -1,21 +1,21 @@
 /*
- * XREFs of IopFileUtilWalkDirectoryTreeHelper @ 0x140706068
+ * XREFs of IopFileUtilWalkDirectoryTreeHelper @ 0x140707308
  * Callers:
- *     IopFileUtilWalkDirectoryTreeBottomUp @ 0x140705ED0 (IopFileUtilWalkDirectoryTreeBottomUp.c)
- *     IopFileUtilWalkDirectoryTreeTopDown @ 0x1409F62C4 (IopFileUtilWalkDirectoryTreeTopDown.c)
+ *     IopFileUtilWalkDirectoryTreeBottomUp @ 0x140707170 (IopFileUtilWalkDirectoryTreeBottomUp.c)
+ *     IopFileUtilWalkDirectoryTreeTopDown @ 0x1409F72C4 (IopFileUtilWalkDirectoryTreeTopDown.c)
  * Callees:
  *     RtlAppendUnicodeToString @ 0x140015E00 (RtlAppendUnicodeToString.c)
- *     RtlCopyUnicodeString @ 0x1400B9890 (RtlCopyUnicodeString.c)
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     RtlAppendUnicodeStringToString @ 0x1400F51D0 (RtlAppendUnicodeStringToString.c)
- *     _wcsicmp @ 0x140195930 (_wcsicmp.c)
- *     ZwWaitForSingleObject @ 0x1401B8210 (ZwWaitForSingleObject.c)
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     ZwOpenFile @ 0x1401B87F0 (ZwOpenFile.c)
- *     ZwQueryDirectoryFile @ 0x1401B8830 (ZwQueryDirectoryFile.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     RtlCopyUnicodeString @ 0x1400B97D0 (RtlCopyUnicodeString.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     RtlAppendUnicodeStringToString @ 0x1400F5250 (RtlAppendUnicodeStringToString.c)
+ *     _wcsicmp @ 0x140195A70 (_wcsicmp.c)
+ *     ZwWaitForSingleObject @ 0x1401B8370 (ZwWaitForSingleObject.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     ZwOpenFile @ 0x1401B8950 (ZwOpenFile.c)
+ *     ZwQueryDirectoryFile @ 0x1401B8990 (ZwQueryDirectoryFile.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IopFileUtilWalkDirectoryTreeHelper(

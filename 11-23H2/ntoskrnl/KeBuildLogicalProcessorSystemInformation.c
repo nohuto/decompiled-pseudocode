@@ -1,10 +1,10 @@
 /*
- * XREFs of KeBuildLogicalProcessorSystemInformation @ 0x1407C47B4
+ * XREFs of KeBuildLogicalProcessorSystemInformation @ 0x1407C4A84
  * Callers:
- *     ExpQuerySystemInformation @ 0x140726850 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x140726A50 (ExpQuerySystemInformation.c)
  * Callees:
- *     KeFindFirstSetLeftGroupAffinity @ 0x140355730 (KeFindFirstSetLeftGroupAffinity.c)
- *     KiGetSubNodeForGroup @ 0x140355760 (KiGetSubNodeForGroup.c)
+ *     KeFindFirstSetLeftGroupAffinity @ 0x1403558D0 (KeFindFirstSetLeftGroupAffinity.c)
+ *     KiGetSubNodeForGroup @ 0x140355900 (KiGetSubNodeForGroup.c)
  */
 
 __int64 __fastcall KeBuildLogicalProcessorSystemInformation(

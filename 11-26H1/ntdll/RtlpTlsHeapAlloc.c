@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlpTlsHeapAlloc @ 0x180093918
+ * XREFs of RtlpTlsHeapAlloc @ 0x1800BCC00
  * Callers:
- *     RtlTlsSetValue @ 0x180093850 (RtlTlsSetValue.c)
- *     RtlTlsAlloc @ 0x1800939E0 (RtlTlsAlloc.c)
+ *     RtlTlsAlloc @ 0x180072BB0 (RtlTlsAlloc.c)
+ *     RtlTlsSetValue @ 0x1800BCB60 (RtlTlsSetValue.c)
  * Callees:
  *     <none>
  */

@@ -1,19 +1,19 @@
 /*
- * XREFs of SepReadAndInsertCaps @ 0x1407952E0
+ * XREFs of SepReadAndInsertCaps @ 0x1407953F0
  * Callers:
- *     SepBuildCapPolicyTable @ 0x1406096BC (SepBuildCapPolicyTable.c)
+ *     SepBuildCapPolicyTable @ 0x140607C74 (SepBuildCapPolicyTable.c)
  * Callees:
- *     RtlInsertEntryHashTable @ 0x140430180 (RtlInsertEntryHashTable.c)
- *     RtlStringCchPrintfW @ 0x140476998 (RtlStringCchPrintfW.c)
- *     SepRmCapPoolExpand @ 0x1406098B4 (SepRmCapPoolExpand.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwQueryKey @ 0x1406A66D0 (ZwQueryKey.c)
- *     ZwEnumerateKey @ 0x1406A6A50 (ZwEnumerateKey.c)
- *     SepReadSingleCap @ 0x140795D64 (SepReadSingleCap.c)
- *     SepRegOpenKey @ 0x140A2FB74 (SepRegOpenKey.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlInsertEntryHashTable @ 0x140421C30 (RtlInsertEntryHashTable.c)
+ *     RtlStringCchPrintfW @ 0x140472F38 (RtlStringCchPrintfW.c)
+ *     SepRmCapPoolExpand @ 0x140607E6C (SepRmCapPoolExpand.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwQueryKey @ 0x1406A7670 (ZwQueryKey.c)
+ *     ZwEnumerateKey @ 0x1406A79F0 (ZwEnumerateKey.c)
+ *     SepReadSingleCap @ 0x140795E74 (SepReadSingleCap.c)
+ *     SepRegOpenKey @ 0x140A245B4 (SepRegOpenKey.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SepReadAndInsertCaps(HANDLE KeyHandle, int a2, __int64 a3)
@@ -48,7 +48,7 @@ __int64 __fastcall SepReadAndInsertCaps(HANDLE KeyHandle, int a2, __int64 a3)
   v8 = 0LL;
   Length = 0;
   v23 = v5;
-  Pool2 = (unsigned int *)ExAllocatePool2(0x100uLL);
+  Pool2 = (unsigned int *)ExAllocatePool2(0x100uLL, (unsigned int)(a2 + 50), 0x70536553u);
   if ( !Pool2 )
     goto LABEL_2;
   v11 = ZwQueryKey(KeyHandle, KeyFullInformation, Pool2, v3, &Length);
@@ -62,7 +62,7 @@ LABEL_29:
         ExFreePoolWithTag(v8, 0x70536553u);
       goto LABEL_31;
     }
-    Pool2 = (unsigned int *)SepRmCapPoolExpand(Pool2);
+    Pool2 = (unsigned int *)SepRmCapPoolExpand(Pool2, Length);
     if ( !Pool2 )
     {
 LABEL_2:
@@ -89,7 +89,7 @@ LABEL_31:
     {
       if ( v13 != -2147483643 && v13 != -1073741789 )
         goto LABEL_29;
-      Pool2 = (unsigned int *)SepRmCapPoolExpand(Pool2);
+      Pool2 = (unsigned int *)SepRmCapPoolExpand(Pool2, Length);
       if ( !Pool2 )
         goto LABEL_2;
       v3 = Length;
@@ -115,7 +115,7 @@ LABEL_31:
     {
       if ( v14 != -2147483643 && v14 != -1073741789 )
         goto LABEL_29;
-      Pool2 = (unsigned int *)SepRmCapPoolExpand(Pool2);
+      Pool2 = (unsigned int *)SepRmCapPoolExpand(Pool2, Length);
       if ( !Pool2 )
         goto LABEL_2;
       v3 = Length;

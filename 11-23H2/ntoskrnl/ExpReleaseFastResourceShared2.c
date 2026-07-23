@@ -1,16 +1,16 @@
 /*
- * XREFs of ExpReleaseFastResourceShared2 @ 0x14041657C
+ * XREFs of ExpReleaseFastResourceShared2 @ 0x140416910
  * Callers:
- *     ExReleaseFastResource2 @ 0x1404140CC (ExReleaseFastResource2.c)
- *     ExReleaseFastResourceShared2 @ 0x140414434 (ExReleaseFastResourceShared2.c)
+ *     ExReleaseFastResource2 @ 0x140414460 (ExReleaseFastResource2.c)
+ *     ExReleaseFastResourceShared2 @ 0x1404147C8 (ExReleaseFastResourceShared2.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14029CBD0 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
- *     KeAbPostReleaseEx @ 0x1402BD4F0 (KeAbPostReleaseEx.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x14031A650 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     ExpCommitWakeFastResource @ 0x1404152F8 (ExpCommitWakeFastResource.c)
- *     ExpPrepareToWakeFastResourceShared @ 0x140415ED0 (ExpPrepareToWakeFastResourceShared.c)
- *     ExpRemoveEntryListAndClear2 @ 0x14041676C (ExpRemoveEntryListAndClear2.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14029CE60 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     KeAbPostReleaseEx @ 0x1402BD780 (KeAbPostReleaseEx.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x14031A8E0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     ExpCommitWakeFastResource @ 0x14041568C (ExpCommitWakeFastResource.c)
+ *     ExpPrepareToWakeFastResourceShared @ 0x140416264 (ExpPrepareToWakeFastResourceShared.c)
+ *     ExpRemoveEntryListAndClear2 @ 0x140416B00 (ExpRemoveEntryListAndClear2.c)
  */
 
 __int64 __fastcall ExpReleaseFastResourceShared2(KSPIN_LOCK *BugCheckParameter2, __int64 a2)
@@ -73,7 +73,7 @@ __int64 __fastcall ExpReleaseFastResourceShared2(KSPIN_LOCK *BugCheckParameter2,
           }
           while ( v11 != v10 );
           if ( (v10 & 0x200000) != 0 )
-            KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+            KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
         }
         _enable();
         *(_QWORD *)(a2 + 24) = 0LL;
@@ -82,7 +82,7 @@ __int64 __fastcall ExpReleaseFastResourceShared2(KSPIN_LOCK *BugCheckParameter2,
     }
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(2uLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       v13 = KeGetCurrentPrcb()->SchedulerAssist;
       LODWORD(v14) = 4;
@@ -96,10 +96,10 @@ __int64 __fastcall ExpReleaseFastResourceShared2(KSPIN_LOCK *BugCheckParameter2,
     ExpCommitWakeFastResource(&v26, v15, v16, v24);
     ExpRemoveEntryListAndClear2(a2);
     *(_QWORD *)(a2 + 24) = 0LL;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v17 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v17 <= 0xFu && CurrentIrql <= 0xFu && v17 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v17 <= 0xFu && CurrentIrql <= 0xFu && v17 >= 2u )
       {
         v18 = KeGetCurrentPrcb();
         v19 = v18->SchedulerAssist;
@@ -107,7 +107,7 @@ __int64 __fastcall ExpReleaseFastResourceShared2(KSPIN_LOCK *BugCheckParameter2,
         v21 = (v20 & v19[5]) == 0;
         v19[5] &= v20;
         if ( v21 )
-          KiRemoveSystemWorkPriorityKick(v18);
+          KiRemoveSystemWorkPriorityKick((__int64)v18);
       }
     }
     __writecr8(CurrentIrql);

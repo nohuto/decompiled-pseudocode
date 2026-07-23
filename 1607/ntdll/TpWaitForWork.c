@@ -1,20 +1,17 @@
 /*
- * XREFs of TpWaitForWork @ 0x180082090
+ * XREFs of TpWaitForWork @ 0x180082080
  * Callers:
- *     LdrpDetectDetour @ 0x180073564 (LdrpDetectDetour.c)
+ *     LdrpDetectDetour @ 0x180073554 (LdrpDetectDetour.c)
  * Callees:
- *     TppWorkWait @ 0x18003B878 (TppWorkWait.c)
- *     TppWorkpValidateWork @ 0x18003BCF0 (TppWorkpValidateWork.c)
+ *     TppWorkWait @ 0x18003B868 (TppWorkWait.c)
+ *     TppWorkpValidateWork @ 0x18003BCE0 (TppWorkpValidateWork.c)
  */
 
-__int64 __fastcall TpWaitForWork(_PEB_LDR_DATA *a1, int a2)
+void __cdecl TpWaitForWork(PTP_WORK Work, LOGICAL CancelPendingCallbacks)
 {
-  __int64 result; // rax
-  __int64 v5; // r8
-  __int64 v6; // r9
+  __int64 v4; // r8
+  __int64 v5; // r9
 
-  result = TppWorkpValidateWork(a1, 0LL, 0LL);
-  if ( (_DWORD)result )
-    return TppWorkWait(a1, a2, v5, v6);
-  return result;
+  if ( (unsigned int)TppWorkpValidateWork((_PEB_LDR_DATA *)Work, 0LL, 0LL) )
+    TppWorkWait(Work, CancelPendingCallbacks, v4, v5);
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of DbgkpTriageDumpSnapData @ 0x14057EF30
+ * XREFs of DbgkpTriageDumpSnapData @ 0x14057C3C0
  * Callers:
  *     <none>
  * Callees:
- *     RtlULongSub @ 0x140497418 (RtlULongSub.c)
- *     DbgkpTriageDumpCheckPresentHashTable @ 0x14057EEB0 (DbgkpTriageDumpCheckPresentHashTable.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
+ *     RtlULongSub @ 0x140491DA8 (RtlULongSub.c)
+ *     DbgkpTriageDumpCheckPresentHashTable @ 0x14057C340 (DbgkpTriageDumpCheckPresentHashTable.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
  */
 
 __int64 __fastcall DbgkpTriageDumpSnapData(__int64 a1, _QWORD *a2, unsigned int a3, int a4, _QWORD *a5, _QWORD *a6)

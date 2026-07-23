@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpValidAttribute @ 0x1409BBA64
+ * XREFs of RtlpValidAttribute @ 0x1409BBC64
  * Callers:
- *     RtlpValidAttributeInfo @ 0x1409BBB80 (RtlpValidAttributeInfo.c)
+ *     RtlpValidAttributeInfo @ 0x1409BBD80 (RtlpValidAttributeInfo.c)
  * Callees:
- *     RtlStringCchLengthW @ 0x14022C640 (RtlStringCchLengthW.c)
+ *     RtlStringCchLengthW @ 0x14022C750 (RtlStringCchLengthW.c)
  */
 
 char __fastcall RtlpValidAttribute(__int64 a1)

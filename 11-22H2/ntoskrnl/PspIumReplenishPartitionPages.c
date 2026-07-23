@@ -35,7 +35,7 @@ bool __fastcall PspIumReplenishPartitionPages(__int64 a1, unsigned int a2)
   v2 = *(_QWORD *)(a1 + 160);
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     v7 = 4;
@@ -47,10 +47,10 @@ bool __fastcall PspIumReplenishPartitionPages(__int64 a1, unsigned int a2)
   {
     if ( *(_DWORD *)(a1 + 4) >= a2 )
     {
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v8 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v8 <= 0xFu && CurrentIrql <= 0xFu && v8 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v8 <= 0xFu && CurrentIrql <= 0xFu && v8 >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           v10 = CurrentPrcb->SchedulerAssist;
@@ -91,10 +91,10 @@ bool __fastcall PspIumReplenishPartitionPages(__int64 a1, unsigned int a2)
     _interlockedbittestandreset((volatile signed __int32 *)a1, 0);
   }
   ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(a1 + 88));
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v18 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v18 <= 0xFu && CurrentIrql <= 0xFu && v18 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v18 <= 0xFu && CurrentIrql <= 0xFu && v18 >= 2u )
     {
       v19 = KeGetCurrentPrcb();
       v20 = v19->SchedulerAssist;

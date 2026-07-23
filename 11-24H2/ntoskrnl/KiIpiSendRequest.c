@@ -1,27 +1,27 @@
 /*
- * XREFs of KiIpiSendRequest @ 0x1402928D0
+ * XREFs of KiIpiSendRequest @ 0x1402A24D0
  * Callers:
- *     MiFlushTbList @ 0x140291730 (MiFlushTbList.c)
- *     KiIpiSendRequestEx @ 0x140292F80 (KiIpiSendRequestEx.c)
- *     KeInvalidateAllCaches @ 0x1403AEA80 (KeInvalidateAllCaches.c)
- *     KeFlushProcessWriteBuffers @ 0x1403AFA9C (KeFlushProcessWriteBuffers.c)
- *     KxFlushEntireTb @ 0x1403B07A4 (KxFlushEntireTb.c)
- *     KxFlushNonGlobalTb @ 0x1403B0E50 (KxFlushNonGlobalTb.c)
- *     KiUpdateSpeculationControl @ 0x1403EA960 (KiUpdateSpeculationControl.c)
- *     KeQueryTotalCycleTimeThread @ 0x1403EBDD0 (KeQueryTotalCycleTimeThread.c)
- *     KiIpiSendPacket @ 0x1404656E8 (KiIpiSendPacket.c)
- *     KeIpiGenericCall @ 0x1404677F0 (KeIpiGenericCall.c)
- *     KeInvalidateRangeAllCaches @ 0x14047A650 (KeInvalidateRangeAllCaches.c)
+ *     MiFlushTbList @ 0x1402A1330 (MiFlushTbList.c)
+ *     KiIpiSendRequestEx @ 0x1402A2B80 (KiIpiSendRequestEx.c)
+ *     KeInvalidateAllCaches @ 0x14039D290 (KeInvalidateAllCaches.c)
+ *     KeFlushProcessWriteBuffers @ 0x14039E2AC (KeFlushProcessWriteBuffers.c)
+ *     KxFlushEntireTb @ 0x14039EFB4 (KxFlushEntireTb.c)
+ *     KxFlushNonGlobalTb @ 0x14039F660 (KxFlushNonGlobalTb.c)
+ *     KiUpdateSpeculationControl @ 0x1403DEE10 (KiUpdateSpeculationControl.c)
+ *     KeQueryTotalCycleTimeThread @ 0x1403E03C0 (KeQueryTotalCycleTimeThread.c)
+ *     KiIpiSendPacket @ 0x14045D668 (KiIpiSendPacket.c)
+ *     KeIpiGenericCall @ 0x14045F290 (KeIpiGenericCall.c)
+ *     KeInvalidateRangeAllCaches @ 0x140475CD0 (KeInvalidateRangeAllCaches.c)
  * Callees:
- *     HalpInterruptSendIpi @ 0x14031FDE0 (HalpInterruptSendIpi.c)
- *     ?KiSubtractAffinityEx@@YAKPEAU_KAFFINITY_EX@@00G@Z @ 0x140354CF8 (-KiSubtractAffinityEx@@YAKPEAU_KAFFINITY_EX@@00G@Z.c)
- *     KeIsEmptyAffinityEx @ 0x1403B55D0 (KeIsEmptyAffinityEx.c)
- *     EtwGetKernelTraceTimestamp @ 0x1403C00A0 (EtwGetKernelTraceTimestamp.c)
- *     KiIpiEnlightenedGuestPriorityKick @ 0x14044C950 (KiIpiEnlightenedGuestPriorityKick.c)
- *     PerfInfoLogIpiSend @ 0x1404ADB60 (PerfInfoLogIpiSend.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     ?KiSubtractAffinityEx@@YAKPEAU_KAFFINITY_EX@@00G@Z @ 0x1402B2A28 (-KiSubtractAffinityEx@@YAKPEAU_KAFFINITY_EX@@00G@Z.c)
+ *     HalpInterruptSendIpi @ 0x1402C8970 (HalpInterruptSendIpi.c)
+ *     KeIsEmptyAffinityEx @ 0x140371960 (KeIsEmptyAffinityEx.c)
+ *     EtwGetKernelTraceTimestamp @ 0x1403AEC60 (EtwGetKernelTraceTimestamp.c)
+ *     KiIpiEnlightenedGuestPriorityKick @ 0x140443850 (KiIpiEnlightenedGuestPriorityKick.c)
+ *     PerfInfoLogIpiSend @ 0x1404A8470 (PerfInfoLogIpiSend.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall KiIpiSendRequest(__int64 a1, int a2, char *a3, _OWORD *a4, __int64 a5)
@@ -255,7 +255,7 @@ LABEL_15:
         _BitScanForward64(&v32, v28);
         v66 = v32;
         *((_QWORD *)&v67 + 1) = v28 & ~(1LL << v32);
-        v33 = *((unsigned int *)qword_140F21E78 + 64 * v30 + (unsigned int)(unsigned __int8)v32);
+        v33 = *((unsigned int *)qword_140F22998 + 64 * v30 + (unsigned int)(unsigned __int8)v32);
         v34 = KiProcessorBlock[v33];
         _m_prefetchw((const void *)(v34 + 39616));
         v35 = (signed __int64 *)(v34 + ((v63 + 827LL) << 6));

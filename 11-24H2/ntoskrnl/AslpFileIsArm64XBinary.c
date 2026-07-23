@@ -1,13 +1,13 @@
 /*
- * XREFs of AslpFileIsArm64XBinary @ 0x14080F1D8
+ * XREFs of AslpFileIsArm64XBinary @ 0x14080F918
  * Callers:
- *     AslFileAllocAndGetAttributes @ 0x14080C45C (AslFileAllocAndGetAttributes.c)
+ *     AslFileAllocAndGetAttributes @ 0x14080CB9C (AslFileAllocAndGetAttributes.c)
  * Callees:
- *     strncmp @ 0x1406BFB20 (strncmp.c)
- *     AslFileMappingGetFileKindDetail @ 0x1408092FC (AslFileMappingGetFileKindDetail.c)
- *     AslpFileGetImageNtHeader @ 0x14080DFA4 (AslpFileGetImageNtHeader.c)
- *     AslpImageRvaToVa @ 0x14080FE44 (AslpImageRvaToVa.c)
- *     AslLogCallPrintf @ 0x1409601DC (AslLogCallPrintf.c)
+ *     strncmp @ 0x1406C0A20 (strncmp.c)
+ *     AslFileMappingGetFileKindDetail @ 0x140809A3C (AslFileMappingGetFileKindDetail.c)
+ *     AslpFileGetImageNtHeader @ 0x14080E6E4 (AslpFileGetImageNtHeader.c)
+ *     AslpImageRvaToVa @ 0x140810584 (AslpImageRvaToVa.c)
+ *     AslLogCallPrintf @ 0x140947C9C (AslLogCallPrintf.c)
  */
 
 __int64 __fastcall AslpFileIsArm64XBinary(bool *a1, __int64 a2)

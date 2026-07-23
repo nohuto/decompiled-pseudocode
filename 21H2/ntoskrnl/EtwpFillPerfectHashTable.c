@@ -1,7 +1,7 @@
 /*
- * XREFs of EtwpFillPerfectHashTable @ 0x1407B8444
+ * XREFs of EtwpFillPerfectHashTable @ 0x1407B8964
  * Callers:
- *     EtwpCreatePerfectHashFunction @ 0x1407B8230 (EtwpCreatePerfectHashFunction.c)
+ *     EtwpCreatePerfectHashFunction @ 0x1407B8750 (EtwpCreatePerfectHashFunction.c)
  * Callees:
  *     <none>
  */

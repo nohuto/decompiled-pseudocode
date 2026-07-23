@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpAcpiInitDiscard @ 0x140A63B68
+ * XREFs of HalpAcpiInitDiscard @ 0x140A64B68
  * Callers:
- *     HalpAcpiInitSystem @ 0x1409A03F0 (HalpAcpiInitSystem.c)
+ *     HalpAcpiInitSystem @ 0x1409A1320 (HalpAcpiInitSystem.c)
  * Callees:
- *     HalpSetupAcpiPhase0 @ 0x140A63D20 (HalpSetupAcpiPhase0.c)
+ *     HalpSetupAcpiPhase0 @ 0x140A64D20 (HalpSetupAcpiPhase0.c)
  */
 
 __int64 HalpAcpiInitDiscard()

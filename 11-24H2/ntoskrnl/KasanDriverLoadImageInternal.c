@@ -1,21 +1,21 @@
 /*
- * XREFs of KasanDriverLoadImageInternal @ 0x1404B7B70
+ * XREFs of KasanDriverLoadImageInternal @ 0x1404B24C0
  * Callers:
- *     KasanDriverLoadImage @ 0x1404B7B50 (KasanDriverLoadImage.c)
- *     KasanInitializeLoadedModules @ 0x140C26B00 (KasanInitializeLoadedModules.c)
- *     MiInitializeLoadedModuleList @ 0x140C5B318 (MiInitializeLoadedModuleList.c)
+ *     KasanDriverLoadImage @ 0x1404B24A0 (KasanDriverLoadImage.c)
+ *     KasanInitializeLoadedModules @ 0x140C28B50 (KasanInitializeLoadedModules.c)
+ *     MiInitializeLoadedModuleList @ 0x140C5D4A8 (MiInitializeLoadedModuleList.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     RtlRbInsertNodeEx @ 0x1402BDA80 (RtlRbInsertNodeEx.c)
- *     KasanTrackAddress @ 0x140459A10 (KasanTrackAddress.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     KasanUnloadInfoCompare @ 0x1405A9DC0 (KasanUnloadInfoCompare.c)
- *     KasaniSendTelemetryDriver @ 0x1405AAD40 (KasaniSendTelemetryDriver.c)
- *     strncmp @ 0x1406BFB20 (strncmp.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     RtlRbInsertNodeEx @ 0x1403651C0 (RtlRbInsertNodeEx.c)
+ *     KasanTrackAddress @ 0x14044E740 (KasanTrackAddress.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     KasanUnloadInfoCompare @ 0x1405A6D30 (KasanUnloadInfoCompare.c)
+ *     KasaniSendTelemetryDriver @ 0x1405A7CB0 (KasaniSendTelemetryDriver.c)
+ *     strncmp @ 0x1406C0A20 (strncmp.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall KasanDriverLoadImageInternal(__int64 a1, int a2)
@@ -33,33 +33,34 @@ __int64 __fastcall KasanDriverLoadImageInternal(__int64 a1, int a2)
   unsigned __int64 v13; // r14
   unsigned __int64 v14; // rdx
   unsigned __int64 v15; // rcx
+  unsigned __int64 v17; // rax
   __int64 Pool2; // rax
-  void *v18; // r13
-  unsigned __int64 v19; // r12
+  _RTL_BALANCED_NODE *v19; // r13
+  unsigned __int64 v20; // r12
   __int64 *j; // rbx
-  int v21; // edx
-  unsigned int v22; // edi
-  unsigned __int64 v23; // rcx
-  ULONG_PTR v24; // rdi
-  ULONG_PTR v25; // r9
-  _BYTE *v26; // rsi
-  unsigned __int64 v27; // r15
-  size_t v28; // r15
-  unsigned __int64 v29; // rbp
-  ULONG_PTR *v30; // r15
-  ULONG_PTR v31; // rbx
-  ULONG_PTR v32; // r9
-  _BYTE *v33; // rdi
-  KIRQL v34; // al
-  _BOOL8 v35; // r8
-  unsigned __int64 v36; // rcx
-  KIRQL v37; // di
-  int v38; // ebx
-  unsigned __int64 v39; // rsi
-  unsigned __int64 v40; // rax
-  ULONG_PTR *v41; // [rsp+30h] [rbp-58h]
-  int v44; // [rsp+A0h] [rbp+18h]
-  __int64 *v45; // [rsp+A8h] [rbp+20h]
+  int v22; // edx
+  unsigned int v23; // edi
+  unsigned __int64 v24; // rcx
+  ULONG_PTR v25; // rdi
+  ULONG_PTR v26; // r9
+  _BYTE *v27; // rsi
+  unsigned __int64 v28; // r15
+  size_t v29; // r15
+  unsigned __int64 v30; // rbp
+  ULONG_PTR *v31; // r15
+  ULONG_PTR v32; // rbx
+  ULONG_PTR v33; // r9
+  _BYTE *v34; // rdi
+  KIRQL v35; // al
+  __int64 v36; // r8
+  unsigned __int64 Root; // rcx
+  KIRQL v38; // di
+  int v39; // ebx
+  unsigned __int64 v40; // rsi
+  unsigned __int64 v41; // rax
+  ULONG_PTR *v42; // [rsp+30h] [rbp-58h]
+  int v45; // [rsp+A0h] [rbp+18h]
+  __int64 *v46; // [rsp+A8h] [rbp+20h]
 
   v2 = *(_QWORD *)(a1 + 48);
   v4 = v2 + *(unsigned int *)(a1 + 152);
@@ -88,12 +89,12 @@ __int64 __fastcall KasanDriverLoadImageInternal(__int64 a1, int a2)
   v10 = v2 + *(unsigned int *)(v7 + 12);
   if ( !v10 )
     return 0LL;
-  if ( !byte_140FCDC28 || v9 < 0x40 || (v9 & 0x3F) != 0 || *(_DWORD *)v10 != 2 )
+  if ( !byte_140FCECA8 || v9 < 0x40 || (v9 & 0x3F) != 0 || *(_DWORD *)v10 != 2 )
     return 3221225473LL;
-  **(_QWORD **)(v10 + 8) = qword_140FC42D0;
+  **(_QWORD **)(v10 + 8) = qword_140FC52D8;
   if ( a2 )
     return 0LL;
-  v41 = (ULONG_PTR *)(v10 + 64);
+  v42 = (ULONG_PTR *)(v10 + 64);
   v11 = 0LL;
   v12 = (unsigned __int64 *)(v10 + 72);
   v13 = (v9 - 64) >> 6;
@@ -114,149 +115,150 @@ __int64 __fastcall KasanDriverLoadImageInternal(__int64 a1, int a2)
     ++v11;
     v12 += 8;
   }
-  if ( !is_mul_ok(v13, 0x10uLL) || 16 * v13 + 40 < 16 * v13 )
+  v17 = 16 * v13;
+  if ( !is_mul_ok(v13, 0x10uLL) || v17 + 40 < v17 )
     return 3221225621LL;
-  Pool2 = ExAllocatePool2(0x40uLL);
-  v18 = (void *)Pool2;
+  Pool2 = ExAllocatePool2(0x40uLL, v17 + 40, 0x6E55614Bu);
+  v19 = (_RTL_BALANCED_NODE *)Pool2;
   if ( !Pool2 )
     return 3221225626LL;
   *(_QWORD *)(Pool2 + 24) = a1;
   *(_QWORD *)(Pool2 + 32) = v13;
-  v19 = 0LL;
-  v45 = (__int64 *)(Pool2 + 48);
+  v20 = 0LL;
+  v46 = (__int64 *)(Pool2 + 48);
   for ( j = (__int64 *)(v10 + 80); ; j += 8 )
   {
-    if ( v19 >= v13 )
+    if ( v20 >= v13 )
     {
-      v34 = KeAcquireSpinLockRaiseToDpc(&KasanDriverUnloadInfosLock);
-      v36 = KasanDriverUnloadInfos;
-      v37 = v34;
-      if ( (qword_140E66298 & 1) != 0 )
+      v35 = KeAcquireSpinLockRaiseToDpc(&KasanDriverUnloadInfosLock);
+      Root = (unsigned __int64)KasanDriverUnloadInfos.Root;
+      v38 = v35;
+      if ( (*(_BYTE *)&KasanDriverUnloadInfos.0 & 1) != 0 )
       {
-        if ( !KasanDriverUnloadInfos )
+        if ( !KasanDriverUnloadInfos.Root )
         {
-          LOBYTE(v35) = 0;
-          v39 = 0LL;
+          LOBYTE(v36) = 0;
+          v40 = 0LL;
           goto LABEL_86;
         }
-        v36 = (unsigned __int64)&KasanDriverUnloadInfos ^ KasanDriverUnloadInfos;
+        Root = (unsigned __int64)&KasanDriverUnloadInfos ^ (unsigned __int64)KasanDriverUnloadInfos.Root;
       }
-      LOBYTE(v35) = 0;
-      v38 = qword_140E66298 & 1;
-      v39 = v36;
-      if ( !v36 )
+      LOBYTE(v36) = 0;
+      v39 = *(_BYTE *)&KasanDriverUnloadInfos.0 & 1;
+      v40 = Root;
+      if ( !Root )
         goto LABEL_86;
       while ( 1 )
       {
-        if ( (int)KasanUnloadInfoCompare(v2, v39, v35) < 0 )
+        if ( (int)KasanUnloadInfoCompare(v2, v40, v36) < 0 )
         {
-          v40 = *(_QWORD *)v39;
-          if ( v38 )
+          v41 = *(_QWORD *)v40;
+          if ( v39 )
           {
-            if ( !v40 )
+            if ( !v41 )
               goto LABEL_85;
-            v40 ^= v39;
+            v41 ^= v40;
           }
-          if ( !v40 )
+          if ( !v41 )
           {
 LABEL_85:
-            LOBYTE(v35) = 0;
+            LOBYTE(v36) = 0;
 LABEL_86:
-            RtlRbInsertNodeEx(&KasanDriverUnloadInfos, v39, v35, (unsigned __int64)v18);
-            if ( byte_140FCDC2B )
+            RtlRbInsertNodeEx(&KasanDriverUnloadInfos, (PRTL_BALANCED_NODE)v40, v36, v19);
+            if ( byte_140FCECAB )
               KasaniSendTelemetryDriver(a1);
-            KeReleaseSpinLock(&KasanDriverUnloadInfosLock, v37);
+            KeReleaseSpinLock(&KasanDriverUnloadInfosLock, v38);
             return 0LL;
           }
         }
         else
         {
-          v40 = *(_QWORD *)(v39 + 8);
-          if ( v38 )
+          v41 = *(_QWORD *)(v40 + 8);
+          if ( v39 )
           {
-            if ( !v40 )
+            if ( !v41 )
               goto LABEL_78;
-            v40 ^= v39;
+            v41 ^= v40;
           }
-          if ( !v40 )
+          if ( !v41 )
           {
 LABEL_78:
-            LOBYTE(v35) = 1;
+            LOBYTE(v36) = 1;
             goto LABEL_86;
           }
         }
-        v39 = v40;
+        v40 = v41;
       }
     }
-    v44 = KasanTrackAddress(*(j - 2), *j, 0LL);
-    v22 = v44;
-    if ( v44 < 0 )
+    v45 = KasanTrackAddress(*(j - 2), *j, 0LL);
+    v23 = v45;
+    if ( v45 < 0 )
       break;
-    v23 = *j;
-    v24 = *(j - 1);
-    v25 = *(j - 2);
-    if ( byte_140FCDC28 )
+    v24 = *j;
+    v25 = *(j - 1);
+    v26 = *(j - 2);
+    if ( byte_140FCECA8 )
     {
-      if ( v25 < 0xFFFF800000000000uLL )
-        KeBugCheckEx(0x1F1u, 2uLL, 1uLL, v25, 0LL);
-      if ( (v25 & 7) != 0 )
-        KeBugCheckEx(0x1F1u, 2uLL, 2uLL, v25, 8uLL);
-      if ( v24 > v23 )
-        KeBugCheckEx(0x1F1u, 2uLL, 3uLL, v24, *j);
-      if ( v25 + v23 < v25 )
+      if ( v26 < 0xFFFF800000000000uLL )
+        KeBugCheckEx(0x1F1u, 2uLL, 1uLL, v26, 0LL);
+      if ( (v26 & 7) != 0 )
+        KeBugCheckEx(0x1F1u, 2uLL, 2uLL, v26, 8uLL);
+      if ( v25 > v24 )
         KeBugCheckEx(0x1F1u, 2uLL, 3uLL, v25, *j);
-      v26 = (_BYTE *)(KasaniShadow + ((v25 + 0x800000000000LL) >> 3));
-      v27 = v23 + (((_BYTE)v24 - 1) & 7) - (unsigned __int64)(((_BYTE)v23 - 1) & 7) - v24;
-      if ( v24 >> 3 )
+      if ( v26 + v24 < v26 )
+        KeBugCheckEx(0x1F1u, 2uLL, 3uLL, v26, *j);
+      v27 = (_BYTE *)(KasaniShadow + ((v26 + 0x800000000000LL) >> 3));
+      v28 = v24 + (((_BYTE)v25 - 1) & 7) - (unsigned __int64)(((_BYTE)v24 - 1) & 7) - v25;
+      if ( v25 >> 3 )
       {
-        memset_0((void *)(KasaniShadow + ((v25 + 0x800000000000LL) >> 3)), 0, v24 >> 3);
-        v26 += v24 >> 3;
+        memset_0((void *)(KasaniShadow + ((v26 + 0x800000000000LL) >> 3)), 0, v25 >> 3);
+        v27 += v25 >> 3;
       }
-      if ( (v24 & 7) != 0 )
-        *v26++ = v24 & 7;
-      v28 = v27 >> 3;
-      if ( v28 )
+      if ( (v25 & 7) != 0 )
+        *v27++ = v25 & 7;
+      v29 = v28 >> 3;
+      if ( v29 )
       {
-        LOBYTE(v21) = -124;
-        memset_0(v26, v21, v28);
+        LOBYTE(v22) = -124;
+        memset_0(v27, v22, v29);
       }
     }
-    ++v19;
-    *(v45 - 1) = *(j - 2);
-    *v45 = *j;
-    v45 += 2;
+    ++v20;
+    *(v46 - 1) = *(j - 2);
+    *v46 = *j;
+    v46 += 2;
   }
-  v29 = 0LL;
-  if ( v19 )
+  v30 = 0LL;
+  if ( v20 )
   {
-    v30 = v41;
+    v31 = v42;
     do
     {
-      v31 = v30[2];
-      v32 = *v30;
-      if ( byte_140FCDC28 )
+      v32 = v31[2];
+      v33 = *v31;
+      if ( byte_140FCECA8 )
       {
-        if ( v32 < 0xFFFF800000000000uLL )
-          KeBugCheckEx(0x1F1u, 2uLL, 1uLL, v32, 0LL);
-        if ( (v32 & 7) != 0 )
-          KeBugCheckEx(0x1F1u, 2uLL, 2uLL, v32, 8uLL);
-        if ( v32 + v31 < v32 )
-          KeBugCheckEx(0x1F1u, 2uLL, 3uLL, v32, v30[2]);
-        v33 = (_BYTE *)(KasaniShadow + ((v32 + 0x800000000000LL) >> 3));
-        if ( v31 >> 3 )
+        if ( v33 < 0xFFFF800000000000uLL )
+          KeBugCheckEx(0x1F1u, 2uLL, 1uLL, v33, 0LL);
+        if ( (v33 & 7) != 0 )
+          KeBugCheckEx(0x1F1u, 2uLL, 2uLL, v33, 8uLL);
+        if ( v33 + v32 < v33 )
+          KeBugCheckEx(0x1F1u, 2uLL, 3uLL, v33, v31[2]);
+        v34 = (_BYTE *)(KasaniShadow + ((v33 + 0x800000000000LL) >> 3));
+        if ( v32 >> 3 )
         {
-          memset_0((void *)(KasaniShadow + ((v32 + 0x800000000000LL) >> 3)), 0, v31 >> 3);
-          v33 += v31 >> 3;
+          memset_0((void *)(KasaniShadow + ((v33 + 0x800000000000LL) >> 3)), 0, v32 >> 3);
+          v34 += v32 >> 3;
         }
-        if ( (v31 & 7) != 0 )
-          *v33 = v31 & 7;
+        if ( (v32 & 7) != 0 )
+          *v34 = v32 & 7;
       }
-      ++v29;
-      v30 += 8;
+      ++v30;
+      v31 += 8;
     }
-    while ( v29 < v19 );
-    v22 = v44;
+    while ( v30 < v20 );
+    v23 = v45;
   }
-  ExFreePoolWithTag(v18, 0);
-  return v22;
+  ExFreePoolWithTag(v19, 0);
+  return v23;
 }

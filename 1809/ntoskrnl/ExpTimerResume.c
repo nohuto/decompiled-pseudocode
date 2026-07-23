@@ -1,9 +1,9 @@
 /*
- * XREFs of ExpTimerResume @ 0x1401317AC
+ * XREFs of ExpTimerResume @ 0x14013187C
  * Callers:
- *     PspProcessUnbindVirtualizedTimers @ 0x1400902C0 (PspProcessUnbindVirtualizedTimers.c)
- *     PspSetProcessFreezeStateCallback @ 0x140131650 (PspSetProcessFreezeStateCallback.c)
- *     ExWakeTimersResume @ 0x140142A40 (ExWakeTimersResume.c)
+ *     PspProcessUnbindVirtualizedTimers @ 0x140090200 (PspProcessUnbindVirtualizedTimers.c)
+ *     PspSetProcessFreezeStateCallback @ 0x140131720 (PspSetProcessFreezeStateCallback.c)
+ *     ExWakeTimersResume @ 0x140142B40 (ExWakeTimersResume.c)
  * Callees:
  *     KeSetCoalescableTimer @ 0x14001CDE0 (KeSetCoalescableTimer.c)
  */

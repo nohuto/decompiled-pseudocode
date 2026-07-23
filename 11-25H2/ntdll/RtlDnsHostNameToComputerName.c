@@ -12,27 +12,30 @@
  *     __security_check_cookie @ 0x180166F50 (__security_check_cookie.c)
  */
 
-__int64 __fastcall RtlDnsHostNameToComputerName(__int64 a1, __m128i *a2, char a3)
+NTSTATUS __cdecl RtlDnsHostNameToComputerName(
+        PUNICODE_STRING ComputerNameString,
+        PUNICODE_STRING DnsHostNameString,
+        BOOLEAN AllocateComputerNameString)
 {
-  unsigned int v3; // ebx
-  char v4; // si
-  __int64 v5; // r14
+  NTSTATUS v3; // ebx
+  BOOLEAN v4; // si
+  _UNICODE_STRING *v5; // r14
   unsigned int v6; // ecx
-  __m128i v7; // xmm0
+  _UNICODE_STRING v7; // xmm0
   unsigned __int16 v8; // dx
   unsigned int v9; // edi
   __int64 v10; // r8
   __int64 v11; // r9
-  __int64 result; // rax
-  __int16 v13; // r10
+  NTSTATUS result; // eax
+  unsigned __int16 v13; // r10
   int v14; // eax
-  unsigned __int16 *v15; // rsi
+  wchar_t *Buffer; // rsi
   int v16; // r11d
-  __int64 v17; // r12
-  _BYTE *v18; // r10
-  __int64 v19; // r14
+  unsigned __int16 *MultiByteTable; // r12
+  CHAR *v18; // r10
+  _WORD *WideCharTable; // r14
   __int64 v20; // r13
-  __int64 v21; // r15
+  unsigned __int16 *DBCSOffsets; // r15
   __int64 v22; // rax
   unsigned __int16 v23; // dx
   unsigned __int64 v24; // rax
@@ -42,70 +45,70 @@ __int64 __fastcall RtlDnsHostNameToComputerName(__int64 a1, __m128i *a2, char a3
   __int16 v28; // dx
   unsigned int v29; // eax
   signed __int32 v30[8]; // [rsp+0h] [rbp-69h] BYREF
-  char v31; // [rsp+40h] [rbp-29h]
+  BOOLEAN v31; // [rsp+40h] [rbp-29h]
   int v32; // [rsp+44h] [rbp-25h] BYREF
-  __m128i v33; // [rsp+48h] [rbp-21h] BYREF
-  __int128 v34; // [rsp+58h] [rbp-11h] BYREF
-  __int64 v35; // [rsp+68h] [rbp-1h]
-  _BYTE v36[16]; // [rsp+70h] [rbp+7h] BYREF
+  _UNICODE_STRING v33; // [rsp+48h] [rbp-21h] BYREF
+  _STRING SourceString; // [rsp+58h] [rbp-11h] BYREF
+  PUNICODE_STRING v35; // [rsp+68h] [rbp-1h]
+  CHAR UTF8StringDestination[16]; // [rsp+70h] [rbp+7h] BYREF
 
   v3 = 0;
-  v31 = a3;
-  v35 = a1;
-  v4 = a3;
+  v31 = AllocateComputerNameString;
+  v35 = ComputerNameString;
+  v4 = AllocateComputerNameString;
   v32 = 0;
-  v34 = 0LL;
-  v5 = a1;
+  SourceString = 0LL;
+  v5 = ComputerNameString;
   v6 = 0;
-  v7 = *a2;
-  v8 = _mm_cvtsi128_si32(*a2);
+  v7 = *DnsHostNameString;
+  v8 = _mm_cvtsi128_si32(*(__m128i *)DnsHostNameString);
   v33 = v7;
   while ( v6 < v8 >> 1 )
   {
-    if ( *(_WORD *)(v7.m128i_i64[1] + 2LL * v6) == 46 )
+    if ( v7.Buffer[v6] == 46 )
     {
       v8 = 2 * v6;
-      v33.m128i_i16[0] = 2 * v6;
+      v33.Length = 2 * v6;
       break;
     }
     ++v6;
   }
   if ( v8 < 2u )
-    return 3221225762LL;
+    return -1073741534;
   v9 = v8 >> 1;
   if ( RtlpIsUtf8Process() )
   {
-    result = UpcaseUnicodeToUTF8NHelper(v36, 15, &v32, v11, v9);
+    result = UpcaseUnicodeToUTF8NHelper(UTF8StringDestination, 0xFu, &v32, v11, v9);
   }
   else
   {
     _InterlockedOr(v30, 0);
-    if ( word_1801CEFDC )
+    if ( CodePageTable.DBCSCodePage )
     {
-      v15 = (unsigned __int16 *)v33.m128i_i64[1];
+      Buffer = v33.Buffer;
       v16 = 15;
-      v17 = qword_1801CEFB0;
-      v18 = v36;
-      v19 = qword_1801CEFB8;
+      MultiByteTable = GlobalRtlNlsState.MultiByteTable;
+      v18 = UTF8StringDestination;
+      WideCharTable = GlobalRtlNlsState.WideCharTable;
       v20 = qword_1801CF020;
       if ( v9 )
       {
-        v21 = qword_1801CEFC8;
+        DBCSOffsets = GlobalRtlNlsState.DBCSOffsets;
         do
         {
           if ( !v16 )
             break;
-          v22 = *v15;
-          v15 = (unsigned __int16 *)((char *)v15 + v10);
-          v23 = *(_WORD *)(v19 + 2 * v22);
+          v22 = *Buffer;
+          Buffer = (wchar_t *)((char *)Buffer + v10);
+          v23 = WideCharTable[v22];
           v24 = (unsigned __int64)v23 >> 8;
           if ( *(_WORD *)(v20 + 2 * v24) )
-            v25 = *(_WORD *)(v21 + 2 * ((unsigned __int8)v23 + (unsigned __int64)*(unsigned __int16 *)(v20 + 2 * v24)));
+            v25 = DBCSOffsets[(unsigned __int8)v23 + (unsigned __int64)*(unsigned __int16 *)(v20 + 2 * v24)];
           else
-            v25 = *(_WORD *)(v17 + 2LL * (unsigned __int8)v23);
+            v25 = MultiByteTable[(unsigned __int8)v23];
           v26 = NLS_UPCASE(qword_1801CF038, v25);
           v10 = 2LL;
-          v28 = *(_WORD *)(v19 + 2 * v26);
+          v28 = WideCharTable[v26];
           if ( HIBYTE(v28) )
           {
             v29 = v27--;
@@ -122,29 +125,29 @@ __int64 __fastcall RtlDnsHostNameToComputerName(__int64 a1, __m128i *a2, char a3
       }
       v4 = v31;
       v5 = v35;
-      v13 = (_WORD)v18 - (unsigned __int16)v36;
+      v13 = (_WORD)v18 - (unsigned __int16)UTF8StringDestination;
       goto LABEL_11;
     }
     result = UpcaseUnicodeToSingleByteNHelper(
-               (unsigned int)v36,
+               (unsigned int)UTF8StringDestination,
                15,
                (unsigned int)&v32,
-               v33.m128i_i32[2],
+               v33.Buffer,
                v9,
-               qword_1801CEFF8,
-               qword_1801CEFF0);
+               (__int64)CodePageTable.WideCharTable,
+               (__int64)CodePageTable.MultiByteTable);
   }
-  if ( (int)result < 0 && (_DWORD)result != -2147483643 )
+  if ( result < 0 && result != -2147483643 )
     return result;
   v13 = v32;
 LABEL_11:
-  LOWORD(v34) = v13;
-  *((_QWORD *)&v34 + 1) = v36;
-  WORD1(v34) = 16;
-  if ( !(unsigned __int8)RtlpDidUnicodeToOemWork(&v34, &v33) )
-    return 3221225762LL;
-  v14 = RtlOemStringToUnicodeString(v5, (unsigned __int16 *)&v34, v4);
+  SourceString.Length = v13;
+  SourceString.Buffer = UTF8StringDestination;
+  SourceString.MaximumLength = 16;
+  if ( !(unsigned __int8)RtlpDidUnicodeToOemWork(&SourceString, &v33) )
+    return -1073741534;
+  v14 = RtlOemStringToUnicodeString(v5, &SourceString, v4);
   if ( v14 < 0 )
-    return (unsigned int)v14;
+    return v14;
   return v3;
 }

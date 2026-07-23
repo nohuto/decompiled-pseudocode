@@ -1,31 +1,31 @@
 /*
- * XREFs of MmAllocateIndependentPages @ 0x1404E6034
+ * XREFs of MmAllocateIndependentPages @ 0x1404C8A68
  * Callers:
- *     KeAllocateInterrupt @ 0x14012CF1C (KeAllocateInterrupt.c)
- *     HvlStartBootLogicalProcessors @ 0x140139734 (HvlStartBootLogicalProcessors.c)
- *     HvlpInitializeHvCrashdump @ 0x1401C08E8 (HvlpInitializeHvCrashdump.c)
+ *     KeAllocateInterrupt @ 0x14012D48C (KeAllocateInterrupt.c)
+ *     HvlStartBootLogicalProcessors @ 0x140139CA4 (HvlStartBootLogicalProcessors.c)
+ *     HvlpInitializeHvCrashdump @ 0x1401C07CC (HvlpInitializeHvCrashdump.c)
  *     KiInitializePrcbContext @ 0x1403D3AC4 (KiInitializePrcbContext.c)
- *     MmAllocateIsrStack @ 0x14054E204 (MmAllocateIsrStack.c)
- *     HvlInitializeProcessor @ 0x14054E4D8 (HvlInitializeProcessor.c)
- *     ExCreatePoolTagTable @ 0x14054E9A0 (ExCreatePoolTagTable.c)
- *     HvlpPreallocatePageListResources @ 0x140620624 (HvlpPreallocatePageListResources.c)
- *     IopLiveDumpAllocAndInitResources @ 0x1406266AC (IopLiveDumpAllocAndInitResources.c)
- *     IopLiveDumpAllocateDumpBuffers @ 0x140626C5C (IopLiveDumpAllocateDumpBuffers.c)
- *     KiStartDynamicProcessor @ 0x14064F040 (KiStartDynamicProcessor.c)
+ *     MmAllocateIsrStack @ 0x14054E5A4 (MmAllocateIsrStack.c)
+ *     HvlInitializeProcessor @ 0x14054E878 (HvlInitializeProcessor.c)
+ *     ExCreatePoolTagTable @ 0x14054ED40 (ExCreatePoolTagTable.c)
+ *     HvlpPreallocatePageListResources @ 0x1406206D8 (HvlpPreallocatePageListResources.c)
+ *     IopLiveDumpAllocAndInitResources @ 0x140626760 (IopLiveDumpAllocAndInitResources.c)
+ *     IopLiveDumpAllocateDumpBuffers @ 0x140626D10 (IopLiveDumpAllocateDumpBuffers.c)
+ *     KiStartDynamicProcessor @ 0x14064F124 (KiStartDynamicProcessor.c)
  *     KeStartAllProcessors @ 0x140792860 (KeStartAllProcessors.c)
  *     InitializePool @ 0x1407B4330 (InitializePool.c)
  *     InitializePagedPool @ 0x1407B47A0 (InitializePagedPool.c)
  * Callees:
- *     MiMakeValidKernelPte @ 0x140034D10 (MiMakeValidKernelPte.c)
- *     MiGetPage @ 0x14003DA50 (MiGetPage.c)
- *     MiReleasePtes @ 0x1400516D0 (MiReleasePtes.c)
- *     MiReservePtes @ 0x1400DDB50 (MiReservePtes.c)
- *     MiInitializePageColorBase @ 0x1400E60A0 (MiInitializePageColorBase.c)
- *     MiInitializePfn @ 0x1400E7280 (MiInitializePfn.c)
- *     MiObtainNonPagedPoolCharges @ 0x140102084 (MiObtainNonPagedPoolCharges.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
- *     MiWaitForFreePage @ 0x1401F41DC (MiWaitForFreePage.c)
+ *     MiMakeValidKernelPte @ 0x140034890 (MiMakeValidKernelPte.c)
+ *     MiGetPage @ 0x14003D5D0 (MiGetPage.c)
+ *     MiReleasePtes @ 0x140051250 (MiReleasePtes.c)
+ *     MiReservePtes @ 0x1400DB9F0 (MiReservePtes.c)
+ *     MiInitializePageColorBase @ 0x1400E3F40 (MiInitializePageColorBase.c)
+ *     MiInitializePfn @ 0x1400E5120 (MiInitializePfn.c)
+ *     MiObtainNonPagedPoolCharges @ 0x1400FFE04 (MiObtainNonPagedPoolCharges.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
+ *     MiWaitForFreePage @ 0x1401F4008 (MiWaitForFreePage.c)
  */
 
 __int64 __fastcall MmAllocateIndependentPages(unsigned __int64 a1, int a2, unsigned __int64 a3)
@@ -45,12 +45,12 @@ __int64 __fastcall MmAllocateIndependentPages(unsigned __int64 a1, int a2, unsig
   __int64 v17; // [rsp+60h] [rbp+8h]
 
   v4 = ((a1 & 0xFFF) != 0) + (a1 >> 12);
-  v5 = MiReservePtes((__int64)&qword_140327870, (unsigned int)v4, a3);
+  v5 = MiReservePtes((__int64)&qword_1403278B0, (unsigned int)v4, a3);
   if ( !v5 )
     return 0LL;
   if ( !(unsigned int)MiObtainNonPagedPoolCharges(v4) )
   {
-    MiReleasePtes((__int64)&qword_140327870, v5, v4);
+    MiReleasePtes((__int64)&qword_1403278B0, v5, v4);
     return 0LL;
   }
   v17 = (__int64)(v5 << 25) >> 16;

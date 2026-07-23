@@ -9,8 +9,8 @@
 
 __int64 __fastcall sub_180004634(__int64 a1, unsigned int *a2)
 {
-  __int64 Heap; // rax
-  signed __int64 v5; // r8
+  PVOID Heap; // rax
+  void *v5; // r8
   _QWORD *v6; // rcx
   __int64 v7; // rax
   unsigned int v8; // r8d
@@ -18,11 +18,11 @@ __int64 __fastcall sub_180004634(__int64 a1, unsigned int *a2)
 
   if ( !qword_180163518 )
   {
-    Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8LL, 1024LL);
+    Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, 0x400uLL);
     v5 = Heap;
     if ( !Heap )
       return 1450LL;
-    v6 = (_QWORD *)Heap;
+    v6 = Heap;
     v7 = 64LL;
     do
     {
@@ -31,8 +31,8 @@ __int64 __fastcall sub_180004634(__int64 a1, unsigned int *a2)
       --v7;
     }
     while ( v7 );
-    if ( _InterlockedCompareExchange64(&qword_180163518, v5, 0LL) )
-      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, v5);
+    if ( _InterlockedCompareExchange64(&qword_180163518, (signed __int64)v5, 0LL) )
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v5);
   }
   v8 = (*(_DWORD *)(a1 + 64) & 0x20000) != 0 ? 64 : 8;
   for ( i = (*(_DWORD *)(a1 + 64) & 0x20000) != 0 ? 8 : 0; i < v8; ++i )

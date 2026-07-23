@@ -1,19 +1,19 @@
 /*
- * XREFs of PopReadPagesFromHiberFile @ 0x140775074
+ * XREFs of PopReadPagesFromHiberFile @ 0x140778074
  * Callers:
- *     PopReadResumeContext @ 0x140B6109C (PopReadResumeContext.c)
- *     PopPowerInformationInternal @ 0x140B6F6FC (PopPowerInformationInternal.c)
+ *     PopReadResumeContext @ 0x140B6413C (PopReadResumeContext.c)
+ *     PopPowerInformationInternal @ 0x140B73EF0 (PopPowerInformationInternal.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     IoFreeMdl @ 0x14039F190 (IoFreeMdl.c)
- *     MmProbeAndLockPagesEx @ 0x14039FAC0 (MmProbeAndLockPagesEx.c)
- *     IoAllocateMdl @ 0x14040BA40 (IoAllocateMdl.c)
- *     MmUnlockPages @ 0x140410C10 (MmUnlockPages.c)
- *     KeInitializeEvent @ 0x140466F30 (KeInitializeEvent.c)
- *     IoPageRead @ 0x1404F8B80 (IoPageRead.c)
- *     RtlLongLongAdd @ 0x14053230C (RtlLongLongAdd.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     IoFreeMdl @ 0x1403A0EF0 (IoFreeMdl.c)
+ *     MmProbeAndLockPagesEx @ 0x1403A1820 (MmProbeAndLockPagesEx.c)
+ *     IoAllocateMdl @ 0x1404046D0 (IoAllocateMdl.c)
+ *     MmUnlockPages @ 0x140410330 (MmUnlockPages.c)
+ *     KeInitializeEvent @ 0x140460680 (KeInitializeEvent.c)
+ *     IoPageRead @ 0x1404F2190 (IoPageRead.c)
+ *     RtlLongLongAdd @ 0x1405347AC (RtlLongLongAdd.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PopReadPagesFromHiberFile(unsigned int a1, unsigned int a2, PVOID *a3)
@@ -32,10 +32,10 @@ __int64 __fastcall PopReadPagesFromHiberFile(unsigned int a1, unsigned int a2, P
   v14 = 0LL;
   memset(&Event, 0, sizeof(Event));
   IoStatusBlock = 0LL;
-  if ( !stru_140F10828.WaitBlockFill5[32]
-    || (char *)FileHandle - 1 > (char *)0xFFFFFFFFFFFFFFFDLL
+  if ( !LOBYTE(PpmIdlePolicyLock.Padding[2])
+    || (char *)PopHiberInfo - 1 > (char *)0xFFFFFFFFFFFFFFFDLL
     || (unsigned __int64)&FileObject[-1].FileObjectExtension + 7 > 0xFFFFFFFFFFFFFFFDuLL
-    || qword_140F0FD70 < 0x1000 )
+    || qword_140F108F0 < 0x1000 )
   {
     Status = -1073741637;
 LABEL_23:

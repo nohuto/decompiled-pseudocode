@@ -1,20 +1,20 @@
 /*
- * XREFs of MiIdentifyPfnWrapper @ 0x140307340
+ * XREFs of MiIdentifyPfnWrapper @ 0x140311220
  * Callers:
- *     MiQueryLeafPte @ 0x1403E30B0 (MiQueryLeafPte.c)
- *     MiLogAllocateWsleEvent @ 0x1404B1C68 (MiLogAllocateWsleEvent.c)
- *     MiScrubLargeMappedPage @ 0x14068D548 (MiScrubLargeMappedPage.c)
- *     MmIdentifyPhysicalMemory @ 0x1407EBB48 (MmIdentifyPhysicalMemory.c)
- *     MiScrubProcessLargePage @ 0x1407FDB40 (MiScrubProcessLargePage.c)
- *     MmRelocatePfnList @ 0x140932988 (MmRelocatePfnList.c)
- *     MmQueryPfnList @ 0x140933910 (MmQueryPfnList.c)
+ *     MiQueryLeafPte @ 0x1403C9790 (MiQueryLeafPte.c)
+ *     MiLogAllocateWsleEvent @ 0x1404AC4F8 (MiLogAllocateWsleEvent.c)
+ *     MiScrubLargeMappedPage @ 0x14068E678 (MiScrubLargeMappedPage.c)
+ *     MmIdentifyPhysicalMemory @ 0x1407EC118 (MmIdentifyPhysicalMemory.c)
+ *     MiScrubProcessLargePage @ 0x1407FE2B0 (MiScrubProcessLargePage.c)
+ *     MmQueryPfnList @ 0x1408F6430 (MmQueryPfnList.c)
+ *     MmRelocatePfnList @ 0x1408F754C (MmRelocatePfnList.c)
  * Callees:
- *     MiIsDecayPfn @ 0x14022EFD0 (MiIsDecayPfn.c)
- *     HvlNotifyLongSpinWait @ 0x140293260 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140293290 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     MiIdentifyPfn @ 0x140307510 (MiIdentifyPfn.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     HvlNotifyLongSpinWait @ 0x1402A2E60 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402A2E90 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     MiIsDecayPfn @ 0x1403028E0 (MiIsDecayPfn.c)
+ *     MiIdentifyPfn @ 0x1403113F0 (MiIdentifyPfn.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall MiIdentifyPfnWrapper(__int64 a1, _QWORD *a2)
@@ -27,7 +27,7 @@ __int64 __fastcall MiIdentifyPfnWrapper(__int64 a1, _QWORD *a2)
   __int64 result; // rax
 
   v4 = 0xAAAAAAAAAAAAAAABuLL * ((a1 + 0x220000000000LL) >> 4);
-  if ( v4 > qword_140E2DBE0 && (v4 < qword_140E35B00 || v4 >= qword_140E35B00 + 2048) )
+  if ( v4 > qword_140E2DD20 && (v4 < qword_140E35C40 || v4 >= qword_140E35C40 + 2048) )
   {
 LABEL_19:
     *a2 = 0LL;

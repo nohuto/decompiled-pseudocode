@@ -12,28 +12,28 @@
  *     _RtlpHpMetadataFree@12 @ 0x4B379479 (_RtlpHpMetadataFree@12.c)
  */
 
-int __fastcall RtlpHpStackTraceAllocAdd(int a1, int a2, int a3)
+int __fastcall RtlpHpStackTraceAllocAdd(_RTL_SRWLOCK *a1, int a2, int a3)
 {
   _DWORD *v5; // eax
   int v6; // esi
-  unsigned int v7; // ebx
-  unsigned int v8; // edi
+  _RTL_SRWLOCK *v7; // ebx
+  unsigned int Value; // edi
   unsigned int v9; // esi
   unsigned int *v10; // edx
   char i; // cl
   unsigned int v12; // ecx
   bool v13; // zf
-  int v14; // edx
+  unsigned int v14; // edx
   _DWORD *v15; // ecx
   unsigned int v16; // edx
   unsigned int v17; // ecx
   int v18; // ecx
   int v19; // edx
-  int v20; // ecx
+  unsigned int v20; // ecx
   _DWORD *v21; // edi
-  volatile signed __int32 *v23; // [esp+Ch] [ebp-28h]
-  _DWORD *v24; // [esp+10h] [ebp-24h]
-  int j; // [esp+14h] [ebp-20h]
+  _RTL_SRWLOCK *SRWLock; // [esp+Ch] [ebp-28h]
+  unsigned int *v24; // [esp+10h] [ebp-24h]
+  unsigned int j; // [esp+14h] [ebp-20h]
   int v26; // [esp+18h] [ebp-1Ch]
   _DWORD *v28; // [esp+20h] [ebp-14h]
   _DWORD *v29; // [esp+24h] [ebp-10h]
@@ -47,14 +47,14 @@ int __fastcall RtlpHpStackTraceAllocAdd(int a1, int a2, int a3)
     return 0;
   v5[2] = a3;
   v5[1] = a2;
-  v23 = (volatile signed __int32 *)(a1 + 4);
-  RtlAcquireSRWLockExclusive((volatile signed __int32 *)(a1 + 4));
+  SRWLock = a1 + 1;
+  RtlAcquireSRWLockExclusive(a1 + 1);
   v6 = 1;
-  *(_DWORD *)a1 = NtCurrentTeb()->ClientId.UniqueThread;
-  v7 = a1 + 8;
-  v24 = (_DWORD *)v7;
-  v8 = *(_DWORD *)(v7 + 4);
-  if ( *(_DWORD *)v7 < 2 * (v8 >> 5) || RtlULongLongToUInt((int *)&v31, 2 * (v8 >> 5), 0) < 0 )
+  a1->0 = ($64EDA4DD838E80CF9A7DD220E06F3FD2)NtCurrentTeb()->ClientId.UniqueThread;
+  v7 = a1 + 2;
+  v24 = (unsigned int *)v7;
+  Value = v7[1].Value;
+  if ( v7->Value < 2 * (Value >> 5) || RtlULongLongToUInt((int *)&v31, 2 * (Value >> 5), 0) < 0 )
     goto LABEL_24;
   v9 = v31;
   if ( v31 < 4 )
@@ -78,18 +78,18 @@ int __fastcall RtlpHpStackTraceAllocAdd(int a1, int a2, int a3)
       do
       {
         ++v32;
-        *v10++ = v7 | 1;
+        *v10++ = (unsigned int)v7 | 1;
       }
       while ( v32 < v12 );
     }
-    v13 = (*(_DWORD *)(v7 + 4) & 0xFFFFFFE0) == 0;
-    v26 = -1 << (*(_DWORD *)(v7 + 4) & 0x1F);
+    v13 = (v7[1].Value & 0xFFFFFFE0) == 0;
+    v26 = -1 << (v7[1].Value & 0x1F);
     v32 = 0;
     if ( !v13 )
     {
       do
       {
-        v14 = *(_DWORD *)(v7 + 8);
+        v14 = v7[2].Value;
         for ( j = v14; ; v14 = j )
         {
           v15 = *(_DWORD **)(v14 + 4 * v32);
@@ -108,41 +108,41 @@ int __fastcall RtlpHpStackTraceAllocAdd(int a1, int a2, int a3)
           *(_DWORD *)(v17 + 4 * v16) = v29;
         }
         ++v32;
-        v7 = (unsigned int)v24;
+        v7 = (_RTL_SRWLOCK *)v24;
       }
       while ( v32 < v24[1] >> 5 );
     }
-    v18 = *(_DWORD *)(v7 + 8);
-    v8 = (32 * v9) | *(_DWORD *)(v7 + 4) & 0x1F;
-    *(_DWORD *)(v7 + 8) = v31;
-    *(_DWORD *)(v7 + 4) = v8;
+    v18 = v7[2].Value;
+    Value = (32 * v9) | v7[1].Value & 0x1F;
+    v7[2].Value = v31;
+    v7[1].Value = Value;
     if ( v18 )
     {
       RtlpHpStackDbFreeRoutine(v18, 0);
-      v8 = *(_DWORD *)(a1 + 12);
+      Value = a1[3].Value;
     }
     goto LABEL_23;
   }
-  v8 = *(_DWORD *)(v7 + 4);
-  if ( v8 >= 0x20 )
+  Value = v7[1].Value;
+  if ( Value >= 0x20 )
   {
 LABEL_23:
     v6 = 1;
 LABEL_24:
-    v30 = v28[1] & (-1 << (v8 & 0x1F));
-    v19 = (HIBYTE(v30) + 37 * (BYTE2(v30) + 37 * (BYTE1(v30) + 37 * ((unsigned __int8)v30 + 11623883)))) & ((v8 >> 5) - 1);
-    v20 = *(_DWORD *)(v7 + 8);
+    v30 = v28[1] & (-1 << (Value & 0x1F));
+    v19 = (HIBYTE(v30) + 37 * (BYTE2(v30) + 37 * (BYTE1(v30) + 37 * ((unsigned __int8)v30 + 11623883)))) & ((Value >> 5) - 1);
+    v20 = v7[2].Value;
     *v28 = *(_DWORD *)(v20 + 4 * v19);
     *(_DWORD *)(v20 + 4 * v19) = v28;
-    ++*(_DWORD *)v7;
+    ++v7->Value;
     v21 = 0;
     goto LABEL_25;
   }
   v21 = v28;
   v6 = 0;
 LABEL_25:
-  *(_DWORD *)a1 = 0;
-  RtlReleaseSRWLockExclusive(v23);
+  a1->Value = 0;
+  RtlReleaseSRWLockExclusive(SRWLock);
   if ( v21 )
     RtlpHpMetadataFree(RtlpHpEnvHandle, dword_4B3A446C);
   return v6;

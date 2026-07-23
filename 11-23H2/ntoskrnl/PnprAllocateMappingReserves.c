@@ -1,10 +1,10 @@
 /*
- * XREFs of PnprAllocateMappingReserves @ 0x1409658E4
+ * XREFs of PnprAllocateMappingReserves @ 0x140965AE4
  * Callers:
- *     PnpReplacePartitionUnit @ 0x140964AF0 (PnpReplacePartitionUnit.c)
+ *     PnpReplacePartitionUnit @ 0x140964CF0 (PnpReplacePartitionUnit.c)
  * Callees:
- *     PnprFreeMappingReserve @ 0x140965DEC (PnprFreeMappingReserve.c)
- *     PnprInitializeMappingReserve @ 0x140966274 (PnprInitializeMappingReserve.c)
+ *     PnprFreeMappingReserve @ 0x140965FEC (PnprFreeMappingReserve.c)
+ *     PnprInitializeMappingReserve @ 0x140966474 (PnprInitializeMappingReserve.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

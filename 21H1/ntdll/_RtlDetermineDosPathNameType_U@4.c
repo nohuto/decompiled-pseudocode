@@ -9,32 +9,32 @@
  *     <none>
  */
 
-int __stdcall RtlDetermineDosPathNameType_U(__int16 *a1)
+RTL_PATH_TYPE __cdecl RtlDetermineDosPathNameType_U(PCWSTR DosFileName)
 {
-  __int16 v1; // cx
-  __int16 v2; // ax
-  __int16 v4; // cx
+  WCHAR v1; // cx
+  WCHAR v2; // ax
+  WCHAR v4; // cx
   int v5; // ecx
-  __int16 v6; // cx
+  WCHAR v6; // cx
 
-  v1 = *a1;
-  if ( *a1 != 92 && v1 != 47 )
+  v1 = *DosFileName;
+  if ( *DosFileName != 92 && v1 != 47 )
   {
-    if ( !v1 || a1[1] != 58 )
+    if ( !v1 || DosFileName[1] != 58 )
       return 5;
-    v2 = a1[2];
+    v2 = DosFileName[2];
     if ( v2 == 92 || v2 == 47 )
       return 2;
     else
       return 3;
   }
-  v4 = a1[1];
+  v4 = DosFileName[1];
   if ( v4 != 92 && v4 != 47 )
     return 4;
-  v5 = (unsigned __int16)a1[2];
+  v5 = *((unsigned __int16 *)DosFileName + 2);
   if ( v5 != 46 && v5 != 63 )
     return 1;
-  v6 = a1[3];
+  v6 = DosFileName[3];
   if ( v6 == 92 || v6 == 47 )
     return 6;
   return v6 != 0 ? 1 : 7;

@@ -1,11 +1,11 @@
 /*
- * XREFs of VfSettingsApplyMiscellaneousChecks @ 0x140B9B220
+ * XREFs of VfSettingsApplyMiscellaneousChecks @ 0x140B9D220
  * Callers:
- *     VfSettingsCheckForChanges @ 0x140B9B260 (VfSettingsCheckForChanges.c)
- *     VfMiscPluginEntry @ 0x140B9E670 (VfMiscPluginEntry.c)
+ *     VfSettingsCheckForChanges @ 0x140B9D260 (VfSettingsCheckForChanges.c)
+ *     VfMiscPluginEntry @ 0x140BA0670 (VfMiscPluginEntry.c)
  * Callees:
- *     ExClearPoolFlags @ 0x140653E60 (ExClearPoolFlags.c)
- *     ExSetPoolFlags @ 0x140654824 (ExSetPoolFlags.c)
+ *     ExClearPoolFlags @ 0x1406525C0 (ExClearPoolFlags.c)
+ *     ExSetPoolFlags @ 0x140652F24 (ExSetPoolFlags.c)
  */
 
 void VfSettingsApplyMiscellaneousChecks()

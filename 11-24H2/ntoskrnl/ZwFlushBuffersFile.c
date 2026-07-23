@@ -1,14 +1,14 @@
 /*
- * XREFs of ZwFlushBuffersFile @ 0x1406A6D70
+ * XREFs of ZwFlushBuffersFile @ 0x1406A7D10
  * Callers:
- *     CmpDoFileFlush @ 0x140490EF0 (CmpDoFileFlush.c)
- *     DifZwFlushBuffersFileWrapper @ 0x14063FEF0 (DifZwFlushBuffersFileWrapper.c)
- *     PopCreateHiberFile @ 0x140751D30 (PopCreateHiberFile.c)
- *     CmReplaceKey @ 0x1407DA2E8 (CmReplaceKey.c)
- *     CmpWriteOffsetArrayToFile @ 0x1407DC93C (CmpWriteOffsetArrayToFile.c)
- *     RtlpGetSetBootStatusData @ 0x140A3FA14 (RtlpGetSetBootStatusData.c)
- *     SshpSessionManagerFlushControlEventBufferWorker @ 0x140A5F4A0 (SshpSessionManagerFlushControlEventBufferWorker.c)
- *     PopFlushVolumeWorker @ 0x140B6BC10 (PopFlushVolumeWorker.c)
+ *     CmpDoFileFlush @ 0x14048BB7C (CmpDoFileFlush.c)
+ *     DifZwFlushBuffersFileWrapper @ 0x14063E4B0 (DifZwFlushBuffersFileWrapper.c)
+ *     PopCreateHiberFile @ 0x140750050 (PopCreateHiberFile.c)
+ *     CmReplaceKey @ 0x1407DA838 (CmReplaceKey.c)
+ *     CmpWriteOffsetArrayToFile @ 0x1407DCE8C (CmpWriteOffsetArrayToFile.c)
+ *     RtlpGetSetBootStatusData @ 0x140A352C4 (RtlpGetSetBootStatusData.c)
+ *     SshpSessionManagerFlushControlEventBufferWorker @ 0x140A579F0 (SshpSessionManagerFlushControlEventBufferWorker.c)
+ *     PopFlushVolumeWorker @ 0x140B6D040 (PopFlushVolumeWorker.c)
  * Callees:
  *     <none>
  */
@@ -17,5 +17,5 @@ NTSTATUS __stdcall ZwFlushBuffersFile(HANDLE FileHandle, PIO_STATUS_BLOCK IoStat
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(FileHandle, IoStatusBlock);
+  return KiServiceInternal(FileHandle);
 }

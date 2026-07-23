@@ -1,11 +1,11 @@
 /*
- * XREFs of PiDevCfgCopyVariableData @ 0x14095D9AC
+ * XREFs of PiDevCfgCopyVariableData @ 0x14095DBAC
  * Callers:
- *     PiDevCfgResolveVariableExpression @ 0x140960150 (PiDevCfgResolveVariableExpression.c)
- *     PiDevCfgResolveVariableSwitchCase @ 0x140962460 (PiDevCfgResolveVariableSwitchCase.c)
+ *     PiDevCfgResolveVariableExpression @ 0x140960350 (PiDevCfgResolveVariableExpression.c)
+ *     PiDevCfgResolveVariableSwitchCase @ 0x140962660 (PiDevCfgResolveVariableSwitchCase.c)
  * Callees:
- *     memmove @ 0x140435700 (memmove.c)
- *     _SysCtxRegOpenKey @ 0x1406CED20 (_SysCtxRegOpenKey.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     _SysCtxRegOpenKey @ 0x1406CED50 (_SysCtxRegOpenKey.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 

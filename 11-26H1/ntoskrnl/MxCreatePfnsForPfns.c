@@ -1,14 +1,14 @@
 /*
- * XREFs of MxCreatePfnsForPfns @ 0x140CF6108
+ * XREFs of MxCreatePfnsForPfns @ 0x140CFC488
  * Callers:
- *     MxCreateSparsePfnDatabase @ 0x140CF64E4 (MxCreateSparsePfnDatabase.c)
- *     MxMapFreePageNode @ 0x140CF7CF4 (MxMapFreePageNode.c)
+ *     MxCreateSparsePfnDatabase @ 0x140CFC864 (MxCreateSparsePfnDatabase.c)
+ *     MxMapFreePageNode @ 0x140CFE074 (MxMapFreePageNode.c)
  * Callees:
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     MxCreatePfnsForConsumedRegions @ 0x140CF5F9C (MxCreatePfnsForConsumedRegions.c)
- *     MxEmptyDepletedList @ 0x140CF677C (MxEmptyDepletedList.c)
- *     MxExtractUnusedRegions @ 0x140CF6818 (MxExtractUnusedRegions.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     MxCreatePfnsForConsumedRegions @ 0x140CFC31C (MxCreatePfnsForConsumedRegions.c)
+ *     MxEmptyDepletedList @ 0x140CFCAFC (MxEmptyDepletedList.c)
+ *     MxExtractUnusedRegions @ 0x140CFCB98 (MxExtractUnusedRegions.c)
  */
 
 __int64 MxCreatePfnsForPfns()
@@ -26,7 +26,7 @@ __int64 MxCreatePfnsForPfns()
     v0 = (unsigned __int16)KeNumberNodes;
   while ( 2 )
   {
-    v1 = qword_14101EC20;
+    v1 = qword_14101FC20;
     for ( i = 0; i < v0; ++i )
     {
       v3 = &MxBootState[250 * i];
@@ -40,7 +40,7 @@ __int64 MxCreatePfnsForPfns()
       }
       return 0LL;
     }
-    if ( v1 != qword_14101EC20 )
+    if ( v1 != qword_14101FC20 )
       continue;
     break;
   }

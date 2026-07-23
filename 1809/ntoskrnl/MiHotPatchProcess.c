@@ -1,18 +1,18 @@
 /*
- * XREFs of MiHotPatchProcess @ 0x140855604
+ * XREFs of MiHotPatchProcess @ 0x140856864
  * Callers:
- *     MiHotPatchAllProcesses @ 0x140855288 (MiHotPatchAllProcesses.c)
+ *     MiHotPatchAllProcesses @ 0x1408564E8 (MiHotPatchAllProcesses.c)
  * Callees:
  *     MiUnlockVadShared @ 0x14001AF48 (MiUnlockVadShared.c)
  *     ExReleaseRundownProtection_0 @ 0x14004D2F0 (ExReleaseRundownProtection_0.c)
  *     ExAcquireRundownProtection_0 @ 0x14004D320 (ExAcquireRundownProtection_0.c)
  *     UNLOCK_ADDRESS_SPACE_SHARED @ 0x1400531B0 (UNLOCK_ADDRESS_SPACE_SHARED.c)
- *     LOCK_ADDRESS_SPACE_SHARED @ 0x140075460 (LOCK_ADDRESS_SPACE_SHARED.c)
- *     MiUnlockAndDereferenceVadShared @ 0x1400754A0 (MiUnlockAndDereferenceVadShared.c)
- *     MiVadDeleted @ 0x140075560 (MiVadDeleted.c)
- *     MiLockVadShared @ 0x140075570 (MiLockVadShared.c)
- *     MiReferenceVad @ 0x1400755A0 (MiReferenceVad.c)
- *     MiHotPatchImage @ 0x140855330 (MiHotPatchImage.c)
+ *     LOCK_ADDRESS_SPACE_SHARED @ 0x140075450 (LOCK_ADDRESS_SPACE_SHARED.c)
+ *     MiUnlockAndDereferenceVadShared @ 0x140075490 (MiUnlockAndDereferenceVadShared.c)
+ *     MiVadDeleted @ 0x140075550 (MiVadDeleted.c)
+ *     MiLockVadShared @ 0x140075560 (MiLockVadShared.c)
+ *     MiReferenceVad @ 0x140075590 (MiReferenceVad.c)
+ *     MiHotPatchImage @ 0x140856590 (MiHotPatchImage.c)
  */
 
 __int64 __fastcall MiHotPatchProcess(struct _EX_RUNDOWN_REF *a1, int a2, int a3)
@@ -63,7 +63,7 @@ LABEL_4:
         MiReferenceVad(i);
         MiUnlockVadShared((__int64)CurrentThread, i);
         UNLOCK_ADDRESS_SPACE_SHARED((__int64)CurrentThread, (__int64)a1);
-        MiHotPatchImage(v17, v16, i, a2, a3, v15, 0);
+        MiHotPatchImage(v17, v16, (_RTL_BALANCED_NODE *)i, a2, a3, v15, 0);
         LOCK_ADDRESS_SPACE_SHARED((__int64)CurrentThread, (__int64)a1);
         MiLockVadShared((__int64)CurrentThread, i);
         v18 = MiVadDeleted(i);

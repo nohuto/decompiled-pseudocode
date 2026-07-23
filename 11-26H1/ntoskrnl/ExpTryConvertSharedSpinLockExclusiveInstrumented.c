@@ -1,12 +1,12 @@
 /*
- * XREFs of ExpTryConvertSharedSpinLockExclusiveInstrumented @ 0x14029B710
+ * XREFs of ExpTryConvertSharedSpinLockExclusiveInstrumented @ 0x14029AC70
  * Callers:
- *     ExpAddTagForBigPages @ 0x14029B070 (ExpAddTagForBigPages.c)
- *     ExTryConvertSharedSpinLockExclusive @ 0x14029B680 (ExTryConvertSharedSpinLockExclusive.c)
+ *     ExpAddTagForBigPages @ 0x14029A5D0 (ExpAddTagForBigPages.c)
+ *     ExTryConvertSharedSpinLockExclusive @ 0x14029ABE0 (ExTryConvertSharedSpinLockExclusive.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     PerfLogSpinLockRelease @ 0x1403ED4B8 (PerfLogSpinLockRelease.c)
- *     PerfLogSpinLockAcquire @ 0x1404DA444 (PerfLogSpinLockAcquire.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     PerfLogSpinLockAcquire @ 0x1404D3B24 (PerfLogSpinLockAcquire.c)
+ *     PerfLogSpinLockRelease @ 0x1404F8178 (PerfLogSpinLockRelease.c)
  */
 
 __int64 __fastcall ExpTryConvertSharedSpinLockExclusiveInstrumented(volatile signed __int32 *a1, __int64 a2)
@@ -25,7 +25,7 @@ __int64 __fastcall ExpTryConvertSharedSpinLockExclusiveInstrumented(volatile sig
   v3 = 0;
   v13 = 0;
   v6 = 0;
-  if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+  if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
   {
     v7 = 0;
     InterruptCount = 0;

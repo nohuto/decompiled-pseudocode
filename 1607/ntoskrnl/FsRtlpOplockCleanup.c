@@ -1,22 +1,22 @@
 /*
- * XREFs of FsRtlpOplockCleanup @ 0x14007AA74
+ * XREFs of FsRtlpOplockCleanup @ 0x14007AAF4
  * Callers:
- *     FsRtlCheckOplockEx @ 0x14007A080 (FsRtlCheckOplockEx.c)
+ *     FsRtlCheckOplockEx @ 0x14007A100 (FsRtlCheckOplockEx.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14006ACD0 (ObfDereferenceObjectWithTag.c)
- *     FsRtlpRemoveAndBreakRHIrp @ 0x1400777A4 (FsRtlpRemoveAndBreakRHIrp.c)
- *     FsRtlpComputeShareableOplockState @ 0x1400781F0 (FsRtlpComputeShareableOplockState.c)
- *     IoAcquireCancelSpinLock @ 0x140078440 (IoAcquireCancelSpinLock.c)
- *     FsRtlpOplockDequeueRH @ 0x140078498 (FsRtlpOplockDequeueRH.c)
- *     IoGetOplockFullFoExt @ 0x14007AF5C (IoGetOplockFullFoExt.c)
- *     FsRtlpClearOwner @ 0x14007B688 (FsRtlpClearOwner.c)
- *     FsRtlpModifyThreadPriorities @ 0x14007B6C8 (FsRtlpModifyThreadPriorities.c)
- *     FsRtlpReleaseIrpsWaitingForRH @ 0x1400A258C (FsRtlpReleaseIrpsWaitingForRH.c)
- *     FsRtlpRemoveAndCompleteWaitingIrp @ 0x1400A26C4 (FsRtlpRemoveAndCompleteWaitingIrp.c)
- *     FsRtlpRemoveAndCompleteReadOnlyIrp @ 0x1400ACA8C (FsRtlpRemoveAndCompleteReadOnlyIrp.c)
- *     KeReleaseQueuedSpinLock @ 0x1400E8DA0 (KeReleaseQueuedSpinLock.c)
- *     EvaluateCurrentState @ 0x1401B8354 (EvaluateCurrentState.c)
- *     FsRtlpRemoveAndCompleteRHIrp @ 0x1401B9B20 (FsRtlpRemoveAndCompleteRHIrp.c)
+ *     ObfDereferenceObjectWithTag @ 0x14006A850 (ObfDereferenceObjectWithTag.c)
+ *     FsRtlpRemoveAndBreakRHIrp @ 0x140077824 (FsRtlpRemoveAndBreakRHIrp.c)
+ *     FsRtlpComputeShareableOplockState @ 0x140078270 (FsRtlpComputeShareableOplockState.c)
+ *     IoAcquireCancelSpinLock @ 0x1400784C0 (IoAcquireCancelSpinLock.c)
+ *     FsRtlpOplockDequeueRH @ 0x140078518 (FsRtlpOplockDequeueRH.c)
+ *     IoGetOplockFullFoExt @ 0x14007AFDC (IoGetOplockFullFoExt.c)
+ *     FsRtlpClearOwner @ 0x14007B708 (FsRtlpClearOwner.c)
+ *     FsRtlpModifyThreadPriorities @ 0x14007B748 (FsRtlpModifyThreadPriorities.c)
+ *     FsRtlpReleaseIrpsWaitingForRH @ 0x1400A0EB4 (FsRtlpReleaseIrpsWaitingForRH.c)
+ *     FsRtlpRemoveAndCompleteWaitingIrp @ 0x1400A0FEC (FsRtlpRemoveAndCompleteWaitingIrp.c)
+ *     FsRtlpRemoveAndCompleteReadOnlyIrp @ 0x1400AAFF4 (FsRtlpRemoveAndCompleteReadOnlyIrp.c)
+ *     KeReleaseQueuedSpinLock @ 0x1400E6C40 (KeReleaseQueuedSpinLock.c)
+ *     EvaluateCurrentState @ 0x1401B8EC0 (EvaluateCurrentState.c)
+ *     FsRtlpRemoveAndCompleteRHIrp @ 0x1401B9874 (FsRtlpRemoveAndCompleteRHIrp.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  */
 

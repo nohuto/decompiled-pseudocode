@@ -1,13 +1,13 @@
 /*
- * XREFs of HvlpAttachRootSvmDevice @ 0x1401BE798
+ * XREFs of HvlpAttachRootSvmDevice @ 0x1401BE67C
  * Callers:
- *     HvlSvmAttachPasidSpace @ 0x1401BDF34 (HvlSvmAttachPasidSpace.c)
+ *     HvlSvmAttachPasidSpace @ 0x1401BDE18 (HvlSvmAttachPasidSpace.c)
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     HvcallpExtendedFastHypercall @ 0x1401685A0 (HvcallpExtendedFastHypercall.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     HvlpDepositPages @ 0x1401BB624 (HvlpDepositPages.c)
- *     HvlpHvToNtStatus @ 0x1401BFFC0 (HvlpHvToNtStatus.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     HvcallpExtendedFastHypercall @ 0x140168B10 (HvcallpExtendedFastHypercall.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     HvlpDepositPages @ 0x1401BB508 (HvlpDepositPages.c)
+ *     HvlpHvToNtStatus @ 0x1401BFEA4 (HvlpHvToNtStatus.c)
  */
 
 __int64 __fastcall HvlpAttachRootSvmDevice(unsigned int a1, int a2)

@@ -1,20 +1,20 @@
 /*
- * XREFs of PipInitializeCoreDriversByGroup @ 0x1409CA988
+ * XREFs of PipInitializeCoreDriversByGroup @ 0x1409CB988
  * Callers:
- *     PipInitializeCoreDriversAndElam @ 0x1409CA89C (PipInitializeCoreDriversAndElam.c)
+ *     PipInitializeCoreDriversAndElam @ 0x1409CB89C (PipInitializeCoreDriversAndElam.c)
  * Callees:
- *     PnpUnlockDeviceActionQueue @ 0x140135390 (PnpUnlockDeviceActionQueue.c)
- *     PnpLockDeviceActionQueue @ 0x140135434 (PnpLockDeviceActionQueue.c)
- *     PnpRequestDeviceAction @ 0x14015F004 (PnpRequestDeviceAction.c)
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     IopGetDriverNameFromKeyNode @ 0x140680340 (IopGetDriverNameFromKeyNode.c)
- *     IopOpenRegistryKeyEx @ 0x14073C474 (IopOpenRegistryKeyEx.c)
- *     PnpWaitForEmptyDeviceEventQueue @ 0x14073C4B4 (PnpWaitForEmptyDeviceEventQueue.c)
- *     PnpWaitForEmptyDeviceActionQueue @ 0x14073C4E0 (PnpWaitForEmptyDeviceActionQueue.c)
- *     PipApplyFunctionToServiceInstances @ 0x140754EF4 (PipApplyFunctionToServiceInstances.c)
- *     HdlspKernelAddLogEntry @ 0x14094C904 (HdlspKernelAddLogEntry.c)
- *     PnpInitializeBootStartDriver @ 0x1409CB918 (PnpInitializeBootStartDriver.c)
+ *     PnpUnlockDeviceActionQueue @ 0x140135460 (PnpUnlockDeviceActionQueue.c)
+ *     PnpLockDeviceActionQueue @ 0x140135504 (PnpLockDeviceActionQueue.c)
+ *     PnpRequestDeviceAction @ 0x14015F104 (PnpRequestDeviceAction.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     IopGetDriverNameFromKeyNode @ 0x140681500 (IopGetDriverNameFromKeyNode.c)
+ *     IopOpenRegistryKeyEx @ 0x14073D664 (IopOpenRegistryKeyEx.c)
+ *     PnpWaitForEmptyDeviceEventQueue @ 0x14073D6A4 (PnpWaitForEmptyDeviceEventQueue.c)
+ *     PnpWaitForEmptyDeviceActionQueue @ 0x14073D6D0 (PnpWaitForEmptyDeviceActionQueue.c)
+ *     PipApplyFunctionToServiceInstances @ 0x1407560E4 (PipApplyFunctionToServiceInstances.c)
+ *     HdlspKernelAddLogEntry @ 0x14094D904 (HdlspKernelAddLogEntry.c)
+ *     PnpInitializeBootStartDriver @ 0x1409CC918 (PnpInitializeBootStartDriver.c)
  */
 
 void __fastcall PipInitializeCoreDriversByGroup(int a1, __int64 a2)

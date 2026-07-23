@@ -1,10 +1,10 @@
 /*
- * XREFs of VerifierExAcquireSharedWaitForExclusiveNoReboot @ 0x1409E1DE0
+ * XREFs of VerifierExAcquireSharedWaitForExclusiveNoReboot @ 0x1409E2DE0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     ViResourceAcquireSanityChecks @ 0x1409E25D0 (ViResourceAcquireSanityChecks.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     ViResourceAcquireSanityChecks @ 0x1409E35D0 (ViResourceAcquireSanityChecks.c)
  */
 
 __int64 __fastcall VerifierExAcquireSharedWaitForExclusiveNoReboot(ULONG_PTR a1, char a2)

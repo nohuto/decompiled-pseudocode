@@ -1,12 +1,12 @@
 /*
- * XREFs of MiLogOutswappedProcessCommitRelease @ 0x14066A078
+ * XREFs of MiLogOutswappedProcessCommitRelease @ 0x14066B248
  * Callers:
- *     MiReleaseOutSwappedProcessCommit @ 0x14042D608 (MiReleaseOutSwappedProcessCommit.c)
+ *     MiReleaseOutSwappedProcessCommit @ 0x140424B70 (MiReleaseOutSwappedProcessCommit.c)
  * Callees:
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     _tlgCreate1Sz_char @ 0x1404397B4 (_tlgCreate1Sz_char.c)
- *     _tlgWriteEx_EtwWriteEx @ 0x1404A083C (_tlgWriteEx_EtwWriteEx.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     _tlgCreate1Sz_char @ 0x14042C374 (_tlgCreate1Sz_char.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x14049AEBC (_tlgWriteEx_EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 void MiLogOutswappedProcessCommitRelease()
@@ -34,9 +34,9 @@ void MiLogOutswappedProcessCommitRelease()
   int v20; // [rsp+B8h] [rbp+3Fh]
   int v21; // [rsp+BCh] [rbp+43h]
 
-  if ( *(_QWORD *)&qword_140E37518
-    && **(_DWORD **)&qword_140E37518 > 5u
-    && tlgKeywordOn(*(__int64 *)&qword_140E37518, 4LL) )
+  if ( *(_QWORD *)&qword_140E37658
+    && **(_DWORD **)&qword_140E37658 > 5u
+    && tlgKeywordOn(*(__int64 *)&qword_140E37658, 4LL) )
   {
     tlgCreate1Sz_char((__int64)v12, (const CHAR *)(v0 + 824));
     v2 = *(_DWORD *)(v1 + 464);
@@ -52,6 +52,6 @@ void MiLogOutswappedProcessCommitRelease()
     v14 = 4;
     v9 = v3;
     v10 = v4;
-    tlgWriteEx_EtwWriteEx(v5, (unsigned __int8 *)&unk_140056028, v4, 1u, v6, v7, 6u, &v11);
+    tlgWriteEx_EtwWriteEx(v5, (unsigned __int8 *)&unk_140056C80, v4, 1u, v6, v7, 6u, &v11);
   }
 }

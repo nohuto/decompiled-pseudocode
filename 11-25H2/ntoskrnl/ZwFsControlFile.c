@@ -31,5 +31,5 @@ NTSTATUS __stdcall ZwFsControlFile(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(FileHandle, Event);
+  return KiServiceInternal(FileHandle);
 }

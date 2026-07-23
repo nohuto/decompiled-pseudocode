@@ -1,18 +1,18 @@
 /*
- * XREFs of RtlHpHeapManagerInitialize @ 0x14039DD3C
+ * XREFs of RtlHpHeapManagerInitialize @ 0x14039DE8C
  * Callers:
- *     ExInitializeSessionHeapManager @ 0x14039D5C4 (ExInitializeSessionHeapManager.c)
- *     RtlHpKInitializeHeapManager @ 0x1403C3DE8 (RtlHpKInitializeHeapManager.c)
+ *     ExInitializeSessionHeapManager @ 0x14039D714 (ExInitializeSessionHeapManager.c)
+ *     RtlHpKInitializeHeapManager @ 0x1403C4218 (RtlHpKInitializeHeapManager.c)
  * Callees:
- *     memset @ 0x140414200 (memset.c)
- *     CmSiRWLockInitialize @ 0x140795710 (CmSiRWLockInitialize.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     CmSiRWLockInitialize @ 0x140795910 (CmSiRWLockInitialize.c)
  */
 
-void __fastcall RtlHpHeapManagerInitialize(union _RTL_RUN_ONCE *a1, union _RTL_RUN_ONCE *a2)
+void __fastcall RtlHpHeapManagerInitialize(_RTL_RUN_ONCE *a1, _RTL_RUN_ONCE *a2)
 {
   __int64 v4; // rax
-  union _RTL_RUN_ONCE *v5; // rdi
-  union _RTL_RUN_ONCE *v6; // rbx
+  _RTL_RUN_ONCE *v5; // rdi
+  _RTL_RUN_ONCE *v6; // rbx
   __int64 v7; // rdi
 
   memset(a1, 0, 0x38D0uLL);

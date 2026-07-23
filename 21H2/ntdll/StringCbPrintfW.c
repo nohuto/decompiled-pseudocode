@@ -4,7 +4,7 @@
  *     LdrpReportError @ 0x18003F2B4 (LdrpReportError.c)
  *     EtwpGenerateFileName @ 0x18004C468 (EtwpGenerateFileName.c)
  *     RtlpGetVolumeHandle @ 0x18008BA5C (RtlpGetVolumeHandle.c)
- *     RtlpQueryDiskSpacePolicy @ 0x180118270 (RtlpQueryDiskSpacePolicy.c)
+ *     RtlpQueryDiskSpacePolicy @ 0x180118210 (RtlpQueryDiskSpacePolicy.c)
  * Callees:
  *     _vsnwprintf @ 0x18008E270 (_vsnwprintf.c)
  */

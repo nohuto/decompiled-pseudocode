@@ -1,16 +1,16 @@
 /*
- * XREFs of PiCMGetDeviceInterfaceList @ 0x140999BB0
+ * XREFs of PiCMGetDeviceInterfaceList @ 0x14095A610
  * Callers:
- *     PiCMHandleIoctl @ 0x140997F20 (PiCMHandleIoctl.c)
+ *     PiCMHandleIoctl @ 0x140958980 (PiCMHandleIoctl.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x14045D040 (RtlInitUnicodeStringEx.c)
- *     McTemplateK0d_EtwWriteTransfer @ 0x14049E8D0 (McTemplateK0d_EtwWriteTransfer.c)
- *     McTemplateK0jzt_EtwWriteTransfer @ 0x14049EAFC (McTemplateK0jzt_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     PiCMReturnBufferResultData @ 0x1409993B0 (PiCMReturnBufferResultData.c)
- *     IopGetDeviceInterfaces @ 0x14099F270 (IopGetDeviceInterfaces.c)
- *     PiCMCaptureInterfaceListInputData @ 0x140AB1EA4 (PiCMCaptureInterfaceListInputData.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeStringEx @ 0x140456BE0 (RtlInitUnicodeStringEx.c)
+ *     McTemplateK0d_EtwWriteTransfer @ 0x140498420 (McTemplateK0d_EtwWriteTransfer.c)
+ *     McTemplateK0jzt_EtwWriteTransfer @ 0x14049864C (McTemplateK0jzt_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     PiCMReturnBufferResultData @ 0x140959E10 (PiCMReturnBufferResultData.c)
+ *     IopGetDeviceInterfaces @ 0x14095FCD0 (IopGetDeviceInterfaces.c)
+ *     PiCMCaptureInterfaceListInputData @ 0x140B73060 (PiCMCaptureInterfaceListInputData.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiCMGetDeviceInterfaceList(void *a1, __int64 a2, char *a3, unsigned int a4, int a5, _DWORD *a6)
@@ -48,7 +48,7 @@ __int64 __fastcall PiCMGetDeviceInterfaceList(void *a1, __int64 a2, char *a3, un
     goto LABEL_15;
   v14 = BYTE6(v24);
   v15 = SourceString[1];
-  if ( (byte_140EF3DCB & 4) != 0 )
+  if ( (byte_140EF412B & 4) != 0 )
     McTemplateK0jzt_EtwWriteTransfer(v11, v10, v13, (__int64)&v24 + 8, SourceString[1], BYTE6(v24) & 1);
   if ( !a3 || a4 < 0x14 || (DWORD1(v24) & 0xFFFE0000) != 0 || WORD2(v24) )
   {
@@ -86,7 +86,7 @@ LABEL_13:
 LABEL_15:
   if ( SourceString[1] && KeGetCurrentThread()->PreviousMode )
     ExFreePoolWithTag((PVOID)SourceString[1], 0);
-  if ( (byte_140EF3DCB & 4) != 0 )
+  if ( (byte_140EF412B & 4) != 0 )
     McTemplateK0d_EtwWriteTransfer(v11, (__int64)KMPnPEvt_CfgMgr_DeviceInterfaceList_Stop, v13, v12);
   return (unsigned int)v12;
 }

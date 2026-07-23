@@ -1,8 +1,8 @@
 /*
- * XREFs of PopPepGetReadyActivityType @ 0x1400C2B14
+ * XREFs of PopPepGetReadyActivityType @ 0x1400C09A4
  * Callers:
- *     PopPepWork @ 0x1400C1DA4 (PopPepWork.c)
- *     PopPepComponentGetWork @ 0x1400C245C (PopPepComponentGetWork.c)
+ *     PopPepWork @ 0x1400BFC34 (PopPepWork.c)
+ *     PopPepComponentGetWork @ 0x1400C02EC (PopPepComponentGetWork.c)
  * Callees:
  *     <none>
  */

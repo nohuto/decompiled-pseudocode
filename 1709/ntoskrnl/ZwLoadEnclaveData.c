@@ -6,9 +6,18 @@
  *     <none>
  */
 
-__int64 __fastcall ZwLoadEnclaveData(__int64 a1, __int64 a2, __int64 a3)
+NTSTATUS __cdecl ZwLoadEnclaveData(
+        HANDLE ProcessHandle,
+        PVOID BaseAddress,
+        PVOID Buffer,
+        SIZE_T BufferSize,
+        ULONG Protect,
+        PVOID PageInformation,
+        ULONG PageInformationLength,
+        PSIZE_T NumberOfBytesWritten,
+        PULONG EnclaveError)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2, a3);
+  return KiServiceInternal(ProcessHandle);
 }

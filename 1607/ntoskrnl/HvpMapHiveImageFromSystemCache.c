@@ -1,20 +1,20 @@
 /*
- * XREFs of HvpMapHiveImageFromSystemCache @ 0x1401B72D8
+ * XREFs of HvpMapHiveImageFromSystemCache @ 0x1401B71BC
  * Callers:
- *     HvLoadHive @ 0x14047ECF8 (HvLoadHive.c)
+ *     HvLoadHive @ 0x14047DA4C (HvLoadHive.c)
  * Callees:
- *     memmove @ 0x140171280 (memmove.c)
- *     HvpViewMapAcquireLockShared @ 0x1401B67C0 (HvpViewMapAcquireLockShared.c)
- *     HvpViewMapReleaseLockShared @ 0x1401B6AF8 (HvpViewMapReleaseLockShared.c)
- *     HvpInitMap @ 0x1404E3088 (HvpInitMap.c)
- *     HvpPointMapEntriesToBuffer @ 0x140513AF8 (HvpPointMapEntriesToBuffer.c)
- *     HvpProtectBin @ 0x140513DE0 (HvpProtectBin.c)
- *     HvpAllocateBin @ 0x140513E48 (HvpAllocateBin.c)
- *     HvpValidateLoadedBin @ 0x140513FA8 (HvpValidateLoadedBin.c)
- *     HvpFreeBin @ 0x14051450C (HvpFreeBin.c)
- *     HvpViewMapAddressForFileOffset @ 0x140581884 (HvpViewMapAddressForFileOffset.c)
- *     HvpViewMapContiguousBytesAfterFileOffset @ 0x1405818BC (HvpViewMapContiguousBytesAfterFileOffset.c)
- *     HvViewMapAddressForFileOffset @ 0x14060FA68 (HvViewMapAddressForFileOffset.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     HvpViewMapAcquireLockShared @ 0x1401B66A4 (HvpViewMapAcquireLockShared.c)
+ *     HvpViewMapReleaseLockShared @ 0x1401B69DC (HvpViewMapReleaseLockShared.c)
+ *     HvpInitMap @ 0x1404C5FEC (HvpInitMap.c)
+ *     HvpPointMapEntriesToBuffer @ 0x1404F6EE8 (HvpPointMapEntriesToBuffer.c)
+ *     HvpProtectBin @ 0x1404F71D0 (HvpProtectBin.c)
+ *     HvpAllocateBin @ 0x1404F7238 (HvpAllocateBin.c)
+ *     HvpValidateLoadedBin @ 0x1404F7398 (HvpValidateLoadedBin.c)
+ *     HvpFreeBin @ 0x1404F78FC (HvpFreeBin.c)
+ *     HvpViewMapAddressForFileOffset @ 0x140581D34 (HvpViewMapAddressForFileOffset.c)
+ *     HvpViewMapContiguousBytesAfterFileOffset @ 0x140581D6C (HvpViewMapContiguousBytesAfterFileOffset.c)
+ *     HvViewMapAddressForFileOffset @ 0x14060FB1C (HvViewMapAddressForFileOffset.c)
  */
 
 __int64 __fastcall HvpMapHiveImageFromSystemCache(ULONG_PTR BugCheckParameter2, __int64 a2, unsigned int a3)

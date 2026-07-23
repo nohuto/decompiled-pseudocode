@@ -1,12 +1,12 @@
 /*
- * XREFs of PnprAddProcessorResources @ 0x140834520
+ * XREFs of PnprAddProcessorResources @ 0x140835780
  * Callers:
- *     PnprAddDeviceResources @ 0x1408342B0 (PnprAddDeviceResources.c)
+ *     PnprAddDeviceResources @ 0x140835510 (PnprAddDeviceResources.c)
  * Callees:
- *     KeGetProcessorNumberFromIndex @ 0x1400897F0 (KeGetProcessorNumberFromIndex.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     KeGetProcessorNumberFromIndex @ 0x1400897E0 (KeGetProcessorNumberFromIndex.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PnprAddProcessorResources(__int64 a1, ULONG a2, int a3, _DWORD **a4)

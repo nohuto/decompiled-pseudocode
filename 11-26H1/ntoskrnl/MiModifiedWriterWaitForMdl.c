@@ -1,11 +1,11 @@
 /*
- * XREFs of MiModifiedWriterWaitForMdl @ 0x140406350
+ * XREFs of MiModifiedWriterWaitForMdl @ 0x1403FF444
  * Callers:
- *     MiModifiedWriterShouldWrite @ 0x1404066FC (MiModifiedWriterShouldWrite.c)
+ *     MiModifiedWriterShouldWrite @ 0x1403FF7EC (MiModifiedWriterShouldWrite.c)
  * Callees:
- *     KiCheckForKernelApcDelivery @ 0x14027DB80 (KiCheckForKernelApcDelivery.c)
- *     KeWaitForMultipleObjects @ 0x140396440 (KeWaitForMultipleObjects.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     KiCheckForKernelApcDelivery @ 0x14027D0F0 (KiCheckForKernelApcDelivery.c)
+ *     KeWaitForMultipleObjects @ 0x1403981C0 (KeWaitForMultipleObjects.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall MiModifiedWriterWaitForMdl(_BYTE *a1, __int64 a2)
@@ -25,7 +25,7 @@ __int64 __fastcall MiModifiedWriterWaitForMdl(_BYTE *a1, __int64 a2)
   Object[3] = a1 + 824;
   Object[4] = a1 + 1152;
   Object[5] = a1 + 1336;
-  if ( v3 && ($7A85BAF4F1FA08634C1C4A3E45B775B3 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+  if ( v3 && ($241382875694CED3D471BC5892DE3337 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
     KiCheckForKernelApcDelivery((__int64)a1, a2);
   v5 = KeWaitForMultipleObjects(6u, Object, WaitAny, WrPageOut, 0, 0, 0LL, &WaitBlockArray);
   --CurrentThread->SpecialApcDisable;

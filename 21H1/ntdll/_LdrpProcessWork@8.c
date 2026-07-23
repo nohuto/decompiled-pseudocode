@@ -30,7 +30,7 @@ int __fastcall LdrpProcessWork(int a1, char a2)
   int result; // eax
   int v6; // edi
   char v7; // al
-  void *v8; // [esp+1Ch] [ebp-2Ch] BYREF
+  PVOID OldFsRedirectionLevel; // [esp+1Ch] [ebp-2Ch] BYREF
   int v9; // [esp+20h] [ebp-28h]
   int v10; // [esp+24h] [ebp-24h]
   char v11; // [esp+28h] [ebp-20h]
@@ -38,7 +38,7 @@ int __fastcall LdrpProcessWork(int a1, char a2)
   CPPEH_RECORD ms_exc; // [esp+30h] [ebp-18h]
 
   v11 = a2;
-  v12 = RtlWow64EnableFsRedirectionEx(0, &v8) >= 0;
+  v12 = RtlWow64EnableFsRedirectionEx(0, &OldFsRedirectionLevel) >= 0;
   v4 = **(_DWORD **)(a1 + 24);
   ms_exc.registration.TryLevel = 0;
   result = 1;
@@ -90,7 +90,7 @@ int __fastcall LdrpProcessWork(int a1, char a2)
     {
       LdrpLogError(0, a1);
       LdrpLogDeprecatedDllEtwEvent(a1);
-      LdrpLogLoadFailureEtwEvent(53, LoadFailure, 0);
+      LdrpLogLoadFailureEtwEvent(53, &LoadFailure, 0);
       result = *(_DWORD *)(a1 + 32);
       if ( (*(_BYTE *)(result + 52) & 0x20) != 0 )
         result = LdrpReportError(-1073741515);
@@ -104,13 +104,13 @@ int __fastcall LdrpProcessWork(int a1, char a2)
 LABEL_6:
   ms_exc.registration.TryLevel = -2;
   if ( v12 )
-    result = RtlWow64EnableFsRedirectionEx(v8, &v8);
+    result = RtlWow64EnableFsRedirectionEx(OldFsRedirectionLevel, &OldFsRedirectionLevel);
   if ( !v11 )
   {
-    RtlEnterCriticalSection((int)&LdrpWorkQueueLock);
+    RtlEnterCriticalSection(&LdrpWorkQueueLock);
     if ( --LdrpWorkInProgress != 1 || (int *)LdrpWorkQueue != &LdrpWorkQueue )
       LOBYTE(v10) = 0;
-    result = RtlLeaveCriticalSection((int)&LdrpWorkQueueLock);
+    result = RtlLeaveCriticalSection(&LdrpWorkQueueLock);
     if ( (_BYTE)v10 )
       return NtSetEvent(LdrpWorkCompleteEvent, 0);
   }

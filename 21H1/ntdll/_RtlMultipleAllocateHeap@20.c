@@ -6,22 +6,24 @@
  *     _RtlAllocateHeap@12 @ 0x4B2C5D40 (_RtlAllocateHeap@12.c)
  */
 
-int __stdcall RtlMultipleAllocateHeap(int a1, int a2, int a3, unsigned int a4, int a5)
+ULONG __cdecl RtlMultipleAllocateHeap(PVOID HeapHandle, ULONG Flags, SIZE_T Size, ULONG Count, PVOID *Array)
 {
-  int v5; // esi
-  int Heap; // eax
+  ULONG v5; // esi
+  PVOID Heap; // eax
+  SIZE_T v8; // [esp-4h] [ebp-Ch]
 
   v5 = 0;
-  if ( !a4 )
-    return a4;
+  if ( !HIDWORD(Size) )
+    return HIDWORD(Size);
   while ( 1 )
   {
-    Heap = RtlAllocateHeap(a1, a2, a3);
-    *(_DWORD *)(a5 + 4 * v5) = Heap;
+    LODWORD(v8) = Size;
+    Heap = RtlAllocateHeap(HeapHandle, Flags, v8);
+    *(_DWORD *)(Count + 4 * v5) = Heap;
     if ( !Heap )
       break;
-    if ( ++v5 >= a4 )
-      return a4;
+    if ( ++v5 >= HIDWORD(Size) )
+      return HIDWORD(Size);
   }
   return v5;
 }

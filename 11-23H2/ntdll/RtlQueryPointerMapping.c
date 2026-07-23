@@ -7,34 +7,34 @@
  *     RtlAcquireSRWLockShared @ 0x180026DB0 (RtlAcquireSRWLockShared.c)
  */
 
-__int64 __fastcall RtlQueryPointerMapping(__int64 a1, _QWORD *a2, unsigned __int64 a3, unsigned __int64 a4)
+__int64 __fastcall RtlQueryPointerMapping(__int64 a1, _QWORD *a2)
 {
-  unsigned __int64 v6; // rbx
-  unsigned __int64 v7; // rax
+  unsigned __int64 Root; // rbx
+  unsigned __int64 v5; // rax
 
-  RtlAcquireSRWLockShared(&RtlpPtrTreeLock, (unsigned __int64)a2, a3, a4);
-  v6 = RtlpPtrTree;
-  if ( (qword_180184888 & 1) != 0 && RtlpPtrTree )
-    v6 = (unsigned __int64)&RtlpPtrTree ^ RtlpPtrTree;
-  while ( v6 )
+  RtlAcquireSRWLockShared(&RtlpPtrTreeLock);
+  Root = (unsigned __int64)RtlpPtrTree.Root;
+  if ( (*(_BYTE *)&RtlpPtrTree.0 & 1) != 0 && RtlpPtrTree.Root )
+    Root = (unsigned __int64)&RtlpPtrTree ^ (unsigned __int64)RtlpPtrTree.Root;
+  while ( Root )
   {
-    if ( a1 - *(_QWORD *)(v6 + 24) >= 0 )
+    if ( a1 - *(_QWORD *)(Root + 24) >= 0 )
     {
-      if ( a1 - *(_QWORD *)(v6 + 24) <= 0 )
+      if ( a1 - *(_QWORD *)(Root + 24) <= 0 )
         break;
-      v7 = *(_QWORD *)(v6 + 8);
+      v5 = *(_QWORD *)(Root + 8);
     }
     else
     {
-      v7 = *(_QWORD *)v6;
+      v5 = *(_QWORD *)Root;
     }
-    if ( (qword_180184888 & 1) != 0 && v7 )
-      v6 ^= v7;
+    if ( (*(_BYTE *)&RtlpPtrTree.0 & 1) != 0 && v5 )
+      Root ^= v5;
     else
-      v6 = v7;
+      Root = v5;
   }
-  if ( v6 )
-    *a2 = *(_QWORD *)(v6 + 32);
+  if ( Root )
+    *a2 = *(_QWORD *)(Root + 32);
   RtlReleaseSRWLockShared(&RtlpPtrTreeLock);
-  return v6 == 0 ? 0xC0000225 : 0;
+  return Root == 0 ? 0xC0000225 : 0;
 }

@@ -64,7 +64,7 @@ __int64 __fastcall KiExpandKernelStackAndCalloutOnStackSegment(
   __int64 v45; // rcx
   _BOOL8 v46; // rsi
   __int64 v47; // r15
-  union _SLIST_HEADER *v48; // rbp
+  _SLIST_HEADER *v48; // rbp
   __int64 v49; // rbx
   unsigned __int8 v50; // r14
   bool v51; // zf

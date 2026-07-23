@@ -1,9 +1,9 @@
 /*
- * XREFs of VerifierIoRegisterDeviceInterface @ 0x140ACF200
+ * XREFs of VerifierIoRegisterDeviceInterface @ 0x140ACF1F0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 __int64 VerifierIoRegisterDeviceInterface()

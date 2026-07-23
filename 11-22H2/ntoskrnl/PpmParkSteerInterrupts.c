@@ -77,7 +77,7 @@ char PpmParkSteerInterrupts()
         LODWORD(v26[0]) = 2097153;
         memset((char *)v26 + 4, 0, 0x104uLL);
         KiCopyAffinityEx((__int64)v26, 0x20u, (unsigned __int16 *)&KeActiveProcessors);
-        KeIntSteerSnapPerf(v0, &v18, &v16, (__int64 *)&v17);
+        KeIntSteerSnapPerf(v0, &v18, &v16, (LARGE_INTEGER *)&v17);
         v24[0] = 2097153;
         memset(&v24[1], 0, 0x104uLL);
         KiComplementAffinityEx(v24, 32LL, PpmPerfCoreParkingMask);

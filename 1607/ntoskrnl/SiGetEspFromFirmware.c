@@ -1,24 +1,24 @@
 /*
- * XREFs of SiGetEspFromFirmware @ 0x1406D67C8
+ * XREFs of SiGetEspFromFirmware @ 0x1406D6900
  * Callers:
- *     SiGetEfiSystemDevice @ 0x1406D646C (SiGetEfiSystemDevice.c)
+ *     SiGetEfiSystemDevice @ 0x1406D65A4 (SiGetEfiSystemDevice.c)
  * Callees:
- *     ZwEnumerateBootEntries @ 0x14015B6C0 (ZwEnumerateBootEntries.c)
- *     ZwQueryBootEntryOrder @ 0x14015C240 (ZwQueryBootEntryOrder.c)
- *     ZwTranslateFilePath @ 0x14015D280 (ZwTranslateFilePath.c)
- *     memmove @ 0x140171280 (memmove.c)
+ *     ZwEnumerateBootEntries @ 0x14015BC30 (ZwEnumerateBootEntries.c)
+ *     ZwQueryBootEntryOrder @ 0x14015C7B0 (ZwQueryBootEntryOrder.c)
+ *     ZwTranslateFilePath @ 0x14015D7F0 (ZwTranslateFilePath.c)
+ *     memmove @ 0x140171780 (memmove.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     BiReleasePrivilege @ 0x14053BD20 (BiReleasePrivilege.c)
- *     BiAcquirePrivilege @ 0x14053BD6C (BiAcquirePrivilege.c)
+ *     BiReleasePrivilege @ 0x14053C260 (BiReleasePrivilege.c)
+ *     BiAcquirePrivilege @ 0x14053C2AC (BiAcquirePrivilege.c)
  */
 
-__int64 __fastcall SiGetEspFromFirmware(void *a1, ULONG a2)
+NTSTATUS __fastcall SiGetEspFromFirmware(void *a1, ULONG a2)
 {
   unsigned int *v3; // rdi
   ULONG *v4; // r14
-  struct _FILE_PATH *v5; // rsi
-  __int64 result; // rax
+  _FILE_PATH *v5; // rsi
+  NTSTATUS result; // eax
   NTSTATUS v7; // ebx
   ULONG *v8; // rax
   unsigned int *PoolWithTag; // rax
@@ -28,9 +28,9 @@ __int64 __fastcall SiGetEspFromFirmware(void *a1, ULONG a2)
   ULONG v13; // r9d
   __int64 v14; // rax
   __int64 v15; // r15
-  struct _FILE_PATH *v16; // r15
-  struct _FILE_PATH *v17; // rax
-  CHAR *FilePath; // rdx
+  _FILE_PATH *v16; // r15
+  _FILE_PATH *v17; // rax
+  UCHAR *FilePath; // rdx
   __int64 v19; // rax
   ULONG v20; // ecx
   ULONG BufferLength; // [rsp+68h] [rbp+48h] BYREF
@@ -43,7 +43,7 @@ __int64 __fastcall SiGetEspFromFirmware(void *a1, ULONG a2)
   v4 = 0LL;
   v5 = 0LL;
   result = BiAcquirePrivilege(0x16u, (__int64)&v23);
-  if ( (int)result < 0 )
+  if ( result < 0 )
     return result;
   v7 = ZwQueryBootEntryOrder(0LL, &Count);
   if ( v7 != -1073741789 )
@@ -97,11 +97,11 @@ LABEL_19:
           }
           v15 = (unsigned int)v11[5];
           BufferLength = 0;
-          v16 = (struct _FILE_PATH *)((char *)v11 + v15);
+          v16 = (_FILE_PATH *)((char *)v11 + v15);
           v7 = ZwTranslateFilePath(v16, 3u, 0LL, (ULONG)&BufferLength);
           if ( v7 != -1073741789 )
             goto LABEL_25;
-          v17 = (struct _FILE_PATH *)ExAllocatePoolWithTag(PagedPool, BufferLength, 0x4B505953u);
+          v17 = (_FILE_PATH *)ExAllocatePoolWithTag(PagedPool, BufferLength, 0x4B505953u);
           v5 = v17;
           if ( v17 )
           {
@@ -147,5 +147,5 @@ LABEL_25:
     ExFreePoolWithTag(v4, 0);
   if ( v5 )
     ExFreePoolWithTag(v5, 0);
-  return (unsigned int)v7;
+  return v7;
 }

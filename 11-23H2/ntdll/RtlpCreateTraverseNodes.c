@@ -8,12 +8,12 @@
  *     RtlAllocateHeap @ 0x18003CB80 (RtlAllocateHeap.c)
  */
 
-__int64 __fastcall RtlpCreateTraverseNodes(__int64 *a1)
+__int64 __fastcall RtlpCreateTraverseNodes(_QWORD *a1)
 {
   unsigned int v1; // ebx
-  __int64 v3; // rax
-  unsigned int v4; // r9d
-  __int64 Heap; // rax
+  SIZE_T v3; // rax
+  ULONG v4; // r9d
+  PVOID Heap; // rax
 
   v1 = 0;
   if ( a1 )

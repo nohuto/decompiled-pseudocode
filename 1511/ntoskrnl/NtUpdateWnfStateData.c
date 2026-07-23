@@ -21,19 +21,19 @@
  *     ExpWnfCheckCrossScopeAccess @ 0x1404BF3D0 (ExpWnfCheckCrossScopeAccess.c)
  */
 
-__int64 __fastcall NtUpdateWnfStateData(
-        __int64 a1,
-        __int64 a2,
-        unsigned int a3,
-        __int128 *a4,
-        __int64 a5,
-        unsigned int a6,
-        int a7)
+NTSTATUS __cdecl NtUpdateWnfStateData(
+        PCWNF_STATE_NAME StateName,
+        const void *Buffer,
+        ULONG Length,
+        PCWNF_TYPE_ID TypeId,
+        const void *ExplicitScope,
+        WNF_CHANGE_STAMP MatchingChangeStamp,
+        LOGICAL CheckStamp)
 {
   struct _KTHREAD *CurrentThread; // rax
   char PreviousMode; // r14
   __int64 v9; // rsi
-  int NameInstance; // edi
+  NTSTATUS NameInstance; // edi
   struct _KTHREAD *v11; // r8
   __int128 *v12; // r9
   __int64 v13; // r10
@@ -43,22 +43,22 @@ __int64 __fastcall NtUpdateWnfStateData(
   unsigned __int64 v17; // rbx
   int v18; // r13d
   int v19; // eax
-  unsigned int v20; // ebx
+  ULONG v20; // ebx
   PVOID v22; // r15
   int Sid; // [rsp+20h] [rbp-D8h]
   int v24; // [rsp+38h] [rbp-C0h]
   struct _EX_RUNDOWN_REF *v26; // [rsp+40h] [rbp-B8h] BYREF
   PVOID P; // [rsp+48h] [rbp-B0h] BYREF
   unsigned __int64 v28; // [rsp+50h] [rbp-A8h] BYREF
-  __int128 *v29; // [rsp+58h] [rbp-A0h]
+  PCWNF_TYPE_ID v29; // [rsp+58h] [rbp-A0h]
   int v30; // [rsp+60h] [rbp-98h]
   int v31[2]; // [rsp+68h] [rbp-90h] BYREF
   PSID v32[2]; // [rsp+70h] [rbp-88h] BYREF
-  __int64 v33; // [rsp+80h] [rbp-78h]
+  const void *v33; // [rsp+80h] [rbp-78h]
   _QWORD v34[3]; // [rsp+88h] [rbp-70h] BYREF
   __int128 v35; // [rsp+A0h] [rbp-58h] BYREF
 
-  v33 = a2;
+  v33 = Buffer;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
@@ -68,8 +68,8 @@ __int64 __fastcall NtUpdateWnfStateData(
   LODWORD(v9) = 0;
   v34[0] = 0LL;
   v34[1] = 0LL;
-  v29 = a4;
-  NameInstance = ExpCaptureWnfStateName(a1, &v28);
+  v29 = TypeId;
+  NameInstance = ExpCaptureWnfStateName(StateName, &v28);
   if ( NameInstance >= 0 )
   {
     v30 = (v28 >> 4) & 3;
@@ -84,17 +84,17 @@ __int64 __fastcall NtUpdateWnfStateData(
         if ( (unsigned __int64)v12 >= MmUserProbeAddress )
           v12 = (__int128 *)MmUserProbeAddress;
         v35 = *v12;
-        v29 = &v35;
+        v29 = (PCWNF_TYPE_ID)&v35;
       }
     }
     LOBYTE(v11) = PreviousMode;
-    NameInstance = ExpWnfCaptureScopeInstanceId((unsigned int)v9, a5, v11, v32, v34);
+    NameInstance = ExpWnfCaptureScopeInstanceId((unsigned int)v9, ExplicitScope, v11, v32, v34);
     if ( NameInstance >= 0 )
     {
       if ( PreviousMode )
       {
         v15 = 0;
-        if ( a5 )
+        if ( ExplicitScope )
         {
           NameInstance = ExpWnfCheckCrossScopeAccess(v28);
           if ( NameInstance < 0 )
@@ -132,7 +132,7 @@ __int64 __fastcall NtUpdateWnfStateData(
       {
         if ( v19 < 0 )
           goto LABEL_25;
-        v20 = a3;
+        v20 = Length;
         NameInstance = ExpWnfValidatePubSubPreconditions(2u, v15);
         if ( NameInstance < 0 )
           goto LABEL_25;
@@ -152,9 +152,9 @@ __int64 __fastcall NtUpdateWnfStateData(
         P = 0LL;
         if ( NameInstance < 0 )
           goto LABEL_25;
-        v20 = a3;
+        v20 = Length;
       }
-      NameInstance = ExpWnfWriteStateData(v26, v33, v20, a6, a7);
+      NameInstance = ExpWnfWriteStateData(v26, v33, v20, MatchingChangeStamp, CheckStamp);
       if ( NameInstance >= 0 )
       {
         ExpWnfNotifyNameSubscribers(v26, 1LL, 1LL, PreviousMode != 0);
@@ -172,5 +172,5 @@ LABEL_25:
   LOBYTE(v11) = PreviousMode;
   ExpWnfReleaseCapturedScopeInstanceId((unsigned int)v9, v34, v11);
   KeLeaveCriticalRegion();
-  return (unsigned int)NameInstance;
+  return NameInstance;
 }

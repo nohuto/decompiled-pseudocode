@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlpCoalesceFreeBlocks @ 0x1405EB39C
+ * XREFs of RtlpCoalesceFreeBlocks @ 0x1405E890C
  * Callers:
- *     RtlpDeCommitFreeBlock @ 0x1405EBFC0 (RtlpDeCommitFreeBlock.c)
- *     RtlpExtendHeap @ 0x1405EC560 (RtlpExtendHeap.c)
- *     RtlpFreeHeap @ 0x1405ECA10 (RtlpFreeHeap.c)
+ *     RtlpDeCommitFreeBlock @ 0x1405E953C (RtlpDeCommitFreeBlock.c)
+ *     RtlpExtendHeap @ 0x1405E9AF4 (RtlpExtendHeap.c)
+ *     RtlpFreeHeap @ 0x1405E9FB0 (RtlpFreeHeap.c)
  * Callees:
- *     RtlpLogHeapFailure @ 0x1402B2E04 (RtlpLogHeapFailure.c)
- *     DbgPrint @ 0x1402CB260 (DbgPrint.c)
- *     RtlpAnalyzeHeapFailure @ 0x1405F2C1C (RtlpAnalyzeHeapFailure.c)
- *     RtlpHeapRemoveListEntry @ 0x1405F3810 (RtlpHeapRemoveListEntry.c)
- *     RtlCompareMemoryUlong @ 0x1406B3A10 (RtlCompareMemoryUlong.c)
+ *     DbgPrint @ 0x140274290 (DbgPrint.c)
+ *     RtlpLogHeapFailure @ 0x14035B9C4 (RtlpLogHeapFailure.c)
+ *     RtlpAnalyzeHeapFailure @ 0x1405F025C (RtlpAnalyzeHeapFailure.c)
+ *     RtlpHeapRemoveListEntry @ 0x1405F0E50 (RtlpHeapRemoveListEntry.c)
+ *     RtlCompareMemoryUlong @ 0x1406B49B0 (RtlCompareMemoryUlong.c)
  */
 
 __int64 __fastcall RtlpCoalesceFreeBlocks(ULONG_PTR a1, __int64 a2, _QWORD *a3)

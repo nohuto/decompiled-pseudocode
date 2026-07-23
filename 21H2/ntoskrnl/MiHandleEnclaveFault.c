@@ -1,15 +1,15 @@
 /*
- * XREFs of MiHandleEnclaveFault @ 0x1408D1D08
+ * XREFs of MiHandleEnclaveFault @ 0x1408D1E68
  * Callers:
- *     MmAccessFault @ 0x14020D090 (MmAccessFault.c)
+ *     MmAccessFault @ 0x1402B1990 (MmAccessFault.c)
  * Callees:
- *     MiObtainReferencedVadEx @ 0x14021B2A0 (MiObtainReferencedVadEx.c)
- *     MiUnlockAndDereferenceVadShared @ 0x14025B250 (MiUnlockAndDereferenceVadShared.c)
+ *     MiUnlockAndDereferenceVadShared @ 0x14027C7C0 (MiUnlockAndDereferenceVadShared.c)
+ *     MiObtainReferencedVadEx @ 0x1402BFBA0 (MiObtainReferencedVadEx.c)
  */
 
 __int64 __fastcall MiHandleEnclaveFault(unsigned __int64 a1)
 {
-  volatile signed __int32 *v1; // rax
+  __int64 v1; // rax
   unsigned int v2; // ebx
   int v4; // [rsp+38h] [rbp+10h] BYREF
 
@@ -17,8 +17,12 @@ __int64 __fastcall MiHandleEnclaveFault(unsigned __int64 a1)
   v2 = -1073741819;
   if ( v1 )
   {
-    if ( (v1[12] & 0x3100000) == 0x2100000 && (v1[16] & 1) != 0 && (v1[18] & 1) != 0 )
+    if ( (*(_DWORD *)(v1 + 48) & 0x3100000) == 0x2100000
+      && (*(_DWORD *)(v1 + 64) & 1) != 0
+      && (*(_BYTE *)(v1 + 72) & 1) != 0 )
+    {
       v2 = -1073740638;
+    }
     MiUnlockAndDereferenceVadShared((char *)v1);
   }
   return v2;

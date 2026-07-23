@@ -1,23 +1,23 @@
 /*
- * XREFs of CmpDereferenceSecurityNode @ 0x140297450
+ * XREFs of CmpDereferenceSecurityNode @ 0x1402976E0
  * Callers:
  *     CmpUndoDeleteKeyForTransEx @ 0x140680518 (CmpUndoDeleteKeyForTransEx.c)
- *     CmpFreeSecurityDescriptor @ 0x14070BFD0 (CmpFreeSecurityDescriptor.c)
- *     CmpTransMgrFreeVolatileData @ 0x140768F14 (CmpTransMgrFreeVolatileData.c)
- *     CmRenameKey @ 0x140A143AC (CmRenameKey.c)
- *     CmpCopySaclToVirtualKey @ 0x140A1B38C (CmpCopySaclToVirtualKey.c)
- *     CmpSyncKeyValues @ 0x140A22DD4 (CmpSyncKeyValues.c)
- *     CmpLightWeightCleanupSetSecDescUoW @ 0x140A27F58 (CmpLightWeightCleanupSetSecDescUoW.c)
- *     CmpLightWeightCommitSetSecDescUoW @ 0x140A286F0 (CmpLightWeightCommitSetSecDescUoW.c)
+ *     CmpFreeSecurityDescriptor @ 0x14070C1E0 (CmpFreeSecurityDescriptor.c)
+ *     CmpTransMgrFreeVolatileData @ 0x140769104 (CmpTransMgrFreeVolatileData.c)
+ *     CmRenameKey @ 0x140A1465C (CmRenameKey.c)
+ *     CmpCopySaclToVirtualKey @ 0x140A1B63C (CmpCopySaclToVirtualKey.c)
+ *     CmpSyncKeyValues @ 0x140A23084 (CmpSyncKeyValues.c)
+ *     CmpLightWeightCleanupSetSecDescUoW @ 0x140A28208 (CmpLightWeightCleanupSetSecDescUoW.c)
+ *     CmpLightWeightCommitSetSecDescUoW @ 0x140A289A0 (CmpLightWeightCommitSetSecDescUoW.c)
  * Callees:
- *     CmpRemoveSecurityCellList @ 0x140361EEC (CmpRemoveSecurityCellList.c)
- *     CmpKeySecurityDecrementReferenceCount @ 0x140419960 (CmpKeySecurityDecrementReferenceCount.c)
- *     HvpGetCellPaged @ 0x1406E0150 (HvpGetCellPaged.c)
- *     HvpReleaseCellPaged @ 0x1406E0260 (HvpReleaseCellPaged.c)
- *     HvpGetCellContextReinitialize @ 0x1406E029C (HvpGetCellContextReinitialize.c)
- *     HvFreeCell @ 0x14070ABE0 (HvFreeCell.c)
- *     HvpReleaseCellFlat @ 0x1407D9470 (HvpReleaseCellFlat.c)
- *     HvpGetCellFlat @ 0x1407FD9F0 (HvpGetCellFlat.c)
+ *     CmpRemoveSecurityCellList @ 0x14036208C (CmpRemoveSecurityCellList.c)
+ *     CmpKeySecurityDecrementReferenceCount @ 0x140419CF0 (CmpKeySecurityDecrementReferenceCount.c)
+ *     HvpGetCellPaged @ 0x1406E0180 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x1406E0290 (HvpReleaseCellPaged.c)
+ *     HvpGetCellContextReinitialize @ 0x1406E02CC (HvpGetCellContextReinitialize.c)
+ *     HvFreeCell @ 0x14070ADF0 (HvFreeCell.c)
+ *     HvpReleaseCellFlat @ 0x1407D9740 (HvpReleaseCellFlat.c)
+ *     HvpGetCellFlat @ 0x1407FDCC0 (HvpGetCellFlat.c)
  */
 
 __int64 __fastcall CmpDereferenceSecurityNode(ULONG_PTR BugCheckParameter3, ULONG_PTR BugCheckParameter4)

@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlpHpLfhSubsegmentReformatCheck @ 0x1800E00E0
+ * XREFs of RtlpHpLfhSubsegmentReformatCheck @ 0x1800DB1E0
  * Callers:
- *     RtlpHpLfhOwnerRunMaintenance @ 0x18004D870 (RtlpHpLfhOwnerRunMaintenance.c)
- *     RtlpHpLfhSubsegmentReformatAsMulti @ 0x18004E800 (RtlpHpLfhSubsegmentReformatAsMulti.c)
- *     RtlpHpLfhSubsegmentReformatAsSingle @ 0x1800DFFC4 (RtlpHpLfhSubsegmentReformatAsSingle.c)
+ *     RtlpHpLfhOwnerRunMaintenance @ 0x180063450 (RtlpHpLfhOwnerRunMaintenance.c)
+ *     RtlpHpLfhSubsegmentReformatAsMulti @ 0x1800643E0 (RtlpHpLfhSubsegmentReformatAsMulti.c)
+ *     RtlpHpLfhSubsegmentReformatAsSingle @ 0x1800DB0C4 (RtlpHpLfhSubsegmentReformatAsSingle.c)
  * Callees:
- *     RtlAcquireSRWLockShared @ 0x180010220 (RtlAcquireSRWLockShared.c)
- *     RtlReleaseSRWLockShared @ 0x180010280 (RtlReleaseSRWLockShared.c)
- *     RtlpHpLfhSubsegmentConstructCommitState @ 0x18004E980 (RtlpHpLfhSubsegmentConstructCommitState.c)
- *     __security_check_cookie @ 0x1801659C0 (__security_check_cookie.c)
- *     memset$thunk$772440563353939046 @ 0x180172030 (memset$thunk$772440563353939046.c)
+ *     RtlAcquireSRWLockShared @ 0x18003CC20 (RtlAcquireSRWLockShared.c)
+ *     RtlReleaseSRWLockShared @ 0x18003CC80 (RtlReleaseSRWLockShared.c)
+ *     RtlpHpLfhSubsegmentConstructCommitState @ 0x180064560 (RtlpHpLfhSubsegmentConstructCommitState.c)
+ *     __security_check_cookie @ 0x180163D80 (__security_check_cookie.c)
+ *     memset$thunk$772440563353939046 @ 0x180171030 (memset$thunk$772440563353939046.c)
  */
 
 __int64 __fastcall RtlpHpLfhSubsegmentReformatCheck(__int64 a1, unsigned __int64 a2, _DWORD *a3, _DWORD *a4)
@@ -55,7 +55,7 @@ __int64 __fastcall RtlpHpLfhSubsegmentReformatCheck(__int64 a1, unsigned __int64
     LODWORD(v16) = 0;
     v17 = (__int16 *)(a2 + 8LL * *(unsigned __int8 *)(a2 + 24));
     v18 = &v17[*(unsigned __int8 *)(a2 + 39)];
-    RtlAcquireSRWLockShared((volatile signed __int64 *)(a2 + 56));
+    RtlAcquireSRWLockShared((PRTL_SRWLOCK)(a2 + 56));
     if ( v17 < v18 )
     {
       v19 = v23;
@@ -80,7 +80,7 @@ __int64 __fastcall RtlpHpLfhSubsegmentReformatCheck(__int64 a1, unsigned __int64
       }
       while ( v17 < v18 );
     }
-    RtlReleaseSRWLockShared((volatile signed __int64 *)(a2 + 56));
+    RtlReleaseSRWLockShared((PRTL_SRWLOCK)(a2 + 56));
     if ( v17 < v18 )
     {
       return 0LL;

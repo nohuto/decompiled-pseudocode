@@ -1,15 +1,20 @@
 /*
- * XREFs of ZwQuerySystemEnvironmentValueEx @ 0x14041DAC0
+ * XREFs of ZwQuerySystemEnvironmentValueEx @ 0x14041DE50
  * Callers:
- *     SepRmVerifyLsaProtectionLevel @ 0x14082BC84 (SepRmVerifyLsaProtectionLevel.c)
- *     BiDeleteEfiVariable @ 0x140A5E390 (BiDeleteEfiVariable.c)
+ *     SepRmVerifyLsaProtectionLevel @ 0x14082BF84 (SepRmVerifyLsaProtectionLevel.c)
+ *     BiDeleteEfiVariable @ 0x140A5E640 (BiDeleteEfiVariable.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwQuerySystemEnvironmentValueEx(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwQuerySystemEnvironmentValueEx(
+        PUNICODE_STRING VariableName,
+        PCGUID VendorGuid,
+        PVOID Value,
+        PULONG ValueLength,
+        PULONG Attributes)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(VariableName);
 }

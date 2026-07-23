@@ -1,20 +1,20 @@
 /*
- * XREFs of NtFreeVirtualMemory @ 0x140433DC0
+ * XREFs of NtFreeVirtualMemory @ 0x140432C90
  * Callers:
- *     RtlpInitializeStackTraceDatabase @ 0x140687A58 (RtlpInitializeStackTraceDatabase.c)
+ *     RtlpInitializeStackTraceDatabase @ 0x140687B3C (RtlpInitializeStackTraceDatabase.c)
  * Callees:
- *     MiFreeVadRange @ 0x1400272B4 (MiFreeVadRange.c)
- *     MiUnlockAndDereferenceVad @ 0x14002BDA0 (MiUnlockAndDereferenceVad.c)
- *     UNLOCK_ADDRESS_SPACE @ 0x14002CFD0 (UNLOCK_ADDRESS_SPACE.c)
- *     MiObtainReferencedVad @ 0x14003E320 (MiObtainReferencedVad.c)
- *     ObfDereferenceObjectWithTag @ 0x14006ACD0 (ObfDereferenceObjectWithTag.c)
- *     KiStackAttachProcess @ 0x1400CD1F0 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x1400CE820 (KiUnstackDetachProcess.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     MiCheckSecuredVad @ 0x14040C3EC (MiCheckSecuredVad.c)
- *     ObReferenceObjectByHandleWithTag @ 0x140425420 (ObReferenceObjectByHandleWithTag.c)
- *     MiDecommitRegion @ 0x140430190 (MiDecommitRegion.c)
- *     PerfInfoLogVirtualFree @ 0x1406A3098 (PerfInfoLogVirtualFree.c)
+ *     MiFreeVadRange @ 0x140026E34 (MiFreeVadRange.c)
+ *     MiUnlockAndDereferenceVad @ 0x14002B920 (MiUnlockAndDereferenceVad.c)
+ *     UNLOCK_ADDRESS_SPACE @ 0x14002CB50 (UNLOCK_ADDRESS_SPACE.c)
+ *     MiObtainReferencedVad @ 0x14003DEA0 (MiObtainReferencedVad.c)
+ *     ObfDereferenceObjectWithTag @ 0x14006A850 (ObfDereferenceObjectWithTag.c)
+ *     KiStackAttachProcess @ 0x1400CB090 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x1400CC6C0 (KiUnstackDetachProcess.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     MiCheckSecuredVad @ 0x14040B2AC (MiCheckSecuredVad.c)
+ *     ObReferenceObjectByHandleWithTag @ 0x1404242E0 (ObReferenceObjectByHandleWithTag.c)
+ *     MiDecommitRegion @ 0x14042F060 (MiDecommitRegion.c)
+ *     PerfInfoLogVirtualFree @ 0x1406A31D0 (PerfInfoLogVirtualFree.c)
  */
 
 NTSTATUS __stdcall NtFreeVirtualMemory(HANDLE ProcessHandle, PVOID *BaseAddress, PSIZE_T RegionSize, ULONG FreeType)

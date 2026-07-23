@@ -1,12 +1,12 @@
 /*
- * XREFs of AlpcpLogWaitForReply @ 0x14077A1B0
+ * XREFs of AlpcpLogWaitForReply @ 0x14077D0E0
  * Callers:
- *     AlpcpDispatchReplyToWaitingThread @ 0x1409BEFC0 (AlpcpDispatchReplyToWaitingThread.c)
- *     AlpcpCompleteDispatchMessage @ 0x1409BF938 (AlpcpCompleteDispatchMessage.c)
- *     AlpcpSendLegacySynchronousRequest @ 0x140A4992C (AlpcpSendLegacySynchronousRequest.c)
+ *     AlpcpDispatchReplyToWaitingThread @ 0x14098FFA0 (AlpcpDispatchReplyToWaitingThread.c)
+ *     AlpcpCompleteDispatchMessage @ 0x140990918 (AlpcpCompleteDispatchMessage.c)
+ *     AlpcpSendLegacySynchronousRequest @ 0x140A52C1C (AlpcpSendLegacySynchronousRequest.c)
  * Callees:
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     AlpcpInvokeLogCallbacks @ 0x140B485BC (AlpcpInvokeLogCallbacks.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     AlpcpInvokeLogCallbacks @ 0x140B4A34C (AlpcpInvokeLogCallbacks.c)
  */
 
 __int64 __fastcall AlpcpLogWaitForReply(__int64 a1)

@@ -1,9 +1,9 @@
 /*
- * XREFs of IoGetIoPriorityHint @ 0x1400EBCB0
+ * XREFs of IoGetIoPriorityHint @ 0x1400E9B20
  * Callers:
- *     IoRetrievePriorityInfo @ 0x1400EB870 (IoRetrievePriorityInfo.c)
- *     IopCallDriverReference @ 0x1400EBA7C (IopCallDriverReference.c)
- *     IopSynchronousServiceTail @ 0x1404457B0 (IopSynchronousServiceTail.c)
+ *     IoRetrievePriorityInfo @ 0x1400E96E0 (IoRetrievePriorityInfo.c)
+ *     IopCallDriverReference @ 0x1400E98EC (IopCallDriverReference.c)
+ *     IopSynchronousServiceTail @ 0x140444680 (IopSynchronousServiceTail.c)
  * Callees:
  *     <none>
  */

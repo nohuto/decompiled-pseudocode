@@ -1,26 +1,26 @@
 /*
- * XREFs of CmEnumerateValueFromLayeredKey @ 0x1409806EC
+ * XREFs of CmEnumerateValueFromLayeredKey @ 0x1409426FC
  * Callers:
- *     NtEnumerateValueKey @ 0x14097F290 (NtEnumerateValueKey.c)
+ *     NtEnumerateValueKey @ 0x1409412A0 (NtEnumerateValueKey.c)
  * Callees:
- *     CmSiFreeMemory @ 0x140495010 (CmSiFreeMemory.c)
- *     CmpValueEnumStackEntryInitialize @ 0x1404CEA00 (CmpValueEnumStackEntryInitialize.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     HvpGetCellFlat @ 0x14085EB00 (HvpGetCellFlat.c)
- *     CmpUnlockKcbStack @ 0x1408BC3E0 (CmpUnlockKcbStack.c)
- *     CmpStartKcbStackForTopLayerKcb @ 0x1408BC470 (CmpStartKcbStackForTopLayerKcb.c)
- *     CmpGetKeyNodeForKcb @ 0x1408D4900 (CmpGetKeyNodeForKcb.c)
- *     HvpReleaseCellFlat @ 0x1408D51E0 (HvpReleaseCellFlat.c)
- *     HvpReleaseCellPaged @ 0x1408D73B0 (HvpReleaseCellPaged.c)
- *     HvpGetCellPaged @ 0x1408D7410 (HvpGetCellPaged.c)
- *     HvpGetCellContextInitialize @ 0x1408D9320 (HvpGetCellContextInitialize.c)
- *     CmpQueryKeyValueData @ 0x14097FE40 (CmpQueryKeyValueData.c)
- *     CmpValueEnumStackAdvance @ 0x140980AAC (CmpValueEnumStackAdvance.c)
- *     CmpValueEnumStackCleanup @ 0x140981258 (CmpValueEnumStackCleanup.c)
- *     CmpLockKcbStackShared @ 0x140984C50 (CmpLockKcbStackShared.c)
- *     CmpValueEnumStackStartFromKcbStack @ 0x140AF9D60 (CmpValueEnumStackStartFromKcbStack.c)
- *     CmpIsKeyDeletedForKeyBody @ 0x140C58750 (CmpIsKeyDeletedForKeyBody.c)
+ *     CmSiFreeMemory @ 0x14048EB60 (CmSiFreeMemory.c)
+ *     CmpValueEnumStackEntryInitialize @ 0x1404C8430 (CmpValueEnumStackEntryInitialize.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     HvpGetCellFlat @ 0x140864DF0 (HvpGetCellFlat.c)
+ *     CmpUnlockKcbStack @ 0x1408C29B0 (CmpUnlockKcbStack.c)
+ *     CmpStartKcbStackForTopLayerKcb @ 0x1408C2A40 (CmpStartKcbStackForTopLayerKcb.c)
+ *     CmpGetKeyNodeForKcb @ 0x1408DAEC0 (CmpGetKeyNodeForKcb.c)
+ *     HvpReleaseCellFlat @ 0x1408DB7A0 (HvpReleaseCellFlat.c)
+ *     HvpReleaseCellPaged @ 0x1408DD970 (HvpReleaseCellPaged.c)
+ *     HvpGetCellPaged @ 0x1408DD9D0 (HvpGetCellPaged.c)
+ *     HvpGetCellContextInitialize @ 0x1408DF8E0 (HvpGetCellContextInitialize.c)
+ *     CmpQueryKeyValueData @ 0x140941E50 (CmpQueryKeyValueData.c)
+ *     CmpValueEnumStackAdvance @ 0x140942ABC (CmpValueEnumStackAdvance.c)
+ *     CmpValueEnumStackCleanup @ 0x140943268 (CmpValueEnumStackCleanup.c)
+ *     CmpLockKcbStackShared @ 0x140946C60 (CmpLockKcbStackShared.c)
+ *     CmpValueEnumStackStartFromKcbStack @ 0x140AFC1F0 (CmpValueEnumStackStartFromKcbStack.c)
+ *     CmpIsKeyDeletedForKeyBody @ 0x140C5E750 (CmpIsKeyDeletedForKeyBody.c)
  */
 
 __int64 __fastcall CmEnumerateValueFromLayeredKey(

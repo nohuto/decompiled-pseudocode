@@ -1,46 +1,46 @@
 /*
- * XREFs of RtlpImageDirectoryEntryToData32 @ 0x1800316C4
+ * XREFs of RtlpImageDirectoryEntryToData32 @ 0x1800316B4
  * Callers:
- *     RtlpImageDirectoryEntryToDataEx @ 0x1800318FC (RtlpImageDirectoryEntryToDataEx.c)
- *     RtlImageDirectoryEntryToData @ 0x180031B00 (RtlImageDirectoryEntryToData.c)
- *     LdrpGetProcedureAddress @ 0x180032370 (LdrpGetProcedureAddress.c)
- *     LdrpSnapModule @ 0x180033FA0 (LdrpSnapModule.c)
- *     RtlpxLookupFunctionTable @ 0x1800362F0 (RtlpxLookupFunctionTable.c)
+ *     RtlpImageDirectoryEntryToDataEx @ 0x1800318EC (RtlpImageDirectoryEntryToDataEx.c)
+ *     RtlImageDirectoryEntryToData @ 0x180031AF0 (RtlImageDirectoryEntryToData.c)
+ *     LdrpGetProcedureAddress @ 0x180032360 (LdrpGetProcedureAddress.c)
+ *     LdrpSnapModule @ 0x180033F90 (LdrpSnapModule.c)
+ *     RtlpxLookupFunctionTable @ 0x1800362E0 (RtlpxLookupFunctionTable.c)
  * Callees:
- *     RtlSectionTableFromVirtualAddress @ 0x180031680 (RtlSectionTableFromVirtualAddress.c)
+ *     RtlSectionTableFromVirtualAddress @ 0x180031670 (RtlSectionTableFromVirtualAddress.c)
  */
 
 __int64 __fastcall RtlpImageDirectoryEntryToData32(
         __int64 a1,
-        __int64 a2,
+        void *a2,
         unsigned __int16 a3,
         _DWORD *a4,
-        __int64 a5,
+        PIMAGE_NT_HEADERS NtHeaders,
         _QWORD *a6)
 {
   __int64 v7; // rax
   __int64 v8; // r8
-  __int64 v9; // rax
+  PIMAGE_SECTION_HEADER v9; // rax
   __int64 v10; // r8
   __int64 v11; // r11
 
-  if ( (unsigned int)a3 >= *(_DWORD *)(a5 + 116) )
+  if ( (unsigned int)a3 >= HIDWORD(NtHeaders->OptionalHeader.SizeOfHeapReserve) )
     return 3221225485LL;
   v7 = a3;
-  v8 = *(unsigned int *)(a5 + 8LL * a3 + 120);
+  v8 = *((unsigned int *)&NtHeaders->OptionalHeader.SizeOfHeapCommit + 2 * a3);
   if ( !(_DWORD)v8 )
     return 3221225474LL;
-  *a4 = *(_DWORD *)(a5 + 8 * v7 + 124);
-  if ( (_BYTE)a2 || (unsigned int)v8 < *(_DWORD *)(a5 + 84) )
+  *a4 = *((_DWORD *)&NtHeaders->OptionalHeader.SizeOfHeapCommit + 2 * v7 + 1);
+  if ( (_BYTE)a2 || (unsigned int)v8 < NtHeaders->OptionalHeader.SizeOfHeaders )
   {
     *a6 = a1 + v8;
     return 0LL;
   }
   else
   {
-    v9 = RtlSectionTableFromVirtualAddress(a5, a2, v8);
+    v9 = RtlSectionTableFromVirtualAddress(NtHeaders, a2, v8);
     if ( v9 )
-      v11 = v10 + a1 + *(unsigned int *)(v9 + 20) - (unsigned __int64)*(unsigned int *)(v9 + 12);
+      v11 = v10 + a1 + v9->PointerToRawData - (unsigned __int64)v9->VirtualAddress;
     *a6 = v11;
     return v11 == 0 ? 0xC000000D : 0;
   }

@@ -1,19 +1,19 @@
 /*
- * XREFs of IopLiveDumpAllocateExtraBuffers @ 0x1405989DC
+ * XREFs of IopLiveDumpAllocateExtraBuffers @ 0x14059595C
  * Callers:
- *     IopLiveDumpAllocAndInitResources @ 0x1405982F0 (IopLiveDumpAllocAndInitResources.c)
+ *     IopLiveDumpAllocAndInitResources @ 0x140595270 (IopLiveDumpAllocAndInitResources.c)
  * Callees:
- *     IopLiveDumpDiscardVirtualAddressRange @ 0x140262A88 (IopLiveDumpDiscardVirtualAddressRange.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     IopLiveDumpIsUnderMemoryPressure @ 0x14049ACB4 (IopLiveDumpIsUnderMemoryPressure.c)
- *     IopLiveDumpGetMillisecondCounter @ 0x14049B5E4 (IopLiveDumpGetMillisecondCounter.c)
- *     IopLiveDumpIsTracingEnabled @ 0x1404FA9A4 (IopLiveDumpIsTracingEnabled.c)
- *     HvlPrepareLivedumpDescriptor @ 0x14058A494 (HvlPrepareLivedumpDescriptor.c)
- *     IopLiveDumpTrace @ 0x1405A3070 (IopLiveDumpTrace.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     MmAllocateIndependentPages @ 0x140A88F50 (MmAllocateIndependentPages.c)
+ *     IopLiveDumpDiscardVirtualAddressRange @ 0x14029293C (IopLiveDumpDiscardVirtualAddressRange.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     IopLiveDumpIsUnderMemoryPressure @ 0x1404956A4 (IopLiveDumpIsUnderMemoryPressure.c)
+ *     IopLiveDumpGetMillisecondCounter @ 0x140495FD4 (IopLiveDumpGetMillisecondCounter.c)
+ *     IopLiveDumpIsTracingEnabled @ 0x1404F8284 (IopLiveDumpIsTracingEnabled.c)
+ *     HvlPrepareLivedumpDescriptor @ 0x140587784 (HvlPrepareLivedumpDescriptor.c)
+ *     IopLiveDumpTrace @ 0x14059FFB0 (IopLiveDumpTrace.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     MmAllocateIndependentPages @ 0x140A85350 (MmAllocateIndependentPages.c)
  */
 
 __int64 __fastcall IopLiveDumpAllocateExtraBuffers(__int64 a1)
@@ -119,7 +119,7 @@ __int64 __fastcall IopLiveDumpAllocateExtraBuffers(__int64 a1)
         v33 = 4LL;
         tlgWriteTransfer_EtwWriteTransfer(
           (__int64)&dword_140E06E80,
-          (unsigned __int8 *)&word_140045E7E,
+          (unsigned __int8 *)byte_140045EC0,
           (const GUID *)(a1 + 968),
           (const GUID *)(a1 + 952),
           5u,

@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlpHpSegWalk @ 0x180074638
+ * XREFs of RtlpHpSegWalk @ 0x180094C1C
  * Callers:
- *     RtlpHpHeapWalk @ 0x1800744FC (RtlpHpHeapWalk.c)
+ *     RtlpHpHeapWalk @ 0x180094AEC (RtlpHpHeapWalk.c)
  * Callees:
- *     RtlpHpSegReportSegment @ 0x180074D48 (RtlpHpSegReportSegment.c)
- *     RtlpHpLfhSubsegmentWalk @ 0x1800BEC08 (RtlpHpLfhSubsegmentWalk.c)
- *     RtlpHpSegReportBusyBlock @ 0x1800E237C (RtlpHpSegReportBusyBlock.c)
- *     RtlpHpVsSubsegmentWalk @ 0x1801108C8 (RtlpHpVsSubsegmentWalk.c)
- *     RtlpHpSegReportPageRange @ 0x18011D3B4 (RtlpHpSegReportPageRange.c)
- *     RtlpHpPgSubsegmentWalk @ 0x180158644 (RtlpHpPgSubsegmentWalk.c)
+ *     RtlpHpSegReportSegment @ 0x180095938 (RtlpHpSegReportSegment.c)
+ *     RtlpHpLfhSubsegmentWalk @ 0x1800BC668 (RtlpHpLfhSubsegmentWalk.c)
+ *     RtlpHpSegReportBusyBlock @ 0x1800E0BDC (RtlpHpSegReportBusyBlock.c)
+ *     RtlpHpVsSubsegmentWalk @ 0x180110458 (RtlpHpVsSubsegmentWalk.c)
+ *     RtlpHpSegReportPageRange @ 0x18011D164 (RtlpHpSegReportPageRange.c)
+ *     RtlpHpPgSubsegmentWalk @ 0x180158514 (RtlpHpPgSubsegmentWalk.c)
  */
 
 __int64 __fastcall RtlpHpSegWalk(__int64 *a1, __int64 a2, char a3)

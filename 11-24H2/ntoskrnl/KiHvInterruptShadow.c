@@ -1,5 +1,5 @@
 /*
- * XREFs of KiHvInterruptShadow @ 0x140BBBFC0
+ * XREFs of KiHvInterruptShadow @ 0x140BBDFC0
  * Callers:
  *     <none>
  * Callees:

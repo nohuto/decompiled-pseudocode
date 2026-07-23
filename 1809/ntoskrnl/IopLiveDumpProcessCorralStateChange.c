@@ -1,13 +1,13 @@
 /*
- * XREFs of IopLiveDumpProcessCorralStateChange @ 0x140579558
+ * XREFs of IopLiveDumpProcessCorralStateChange @ 0x14057A558
  * Callers:
- *     IopLiveDumpCorralDpc @ 0x140578690 (IopLiveDumpCorralDpc.c)
- *     IopLiveDumpInitiateCorralStateChange @ 0x140578D24 (IopLiveDumpInitiateCorralStateChange.c)
+ *     IopLiveDumpCorralDpc @ 0x140579690 (IopLiveDumpCorralDpc.c)
+ *     IopLiveDumpInitiateCorralStateChange @ 0x140579D24 (IopLiveDumpInitiateCorralStateChange.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     KeResumeClockTimerSafe @ 0x14028E904 (KeResumeClockTimerSafe.c)
- *     KeSuspendClockTimerSafe @ 0x14028E9A0 (KeSuspendClockTimerSafe.c)
- *     IopLiveDumpBufferDumpData @ 0x140577FC0 (IopLiveDumpBufferDumpData.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     KeResumeClockTimerSafe @ 0x14028EAF4 (KeResumeClockTimerSafe.c)
+ *     KeSuspendClockTimerSafe @ 0x14028EB90 (KeSuspendClockTimerSafe.c)
+ *     IopLiveDumpBufferDumpData @ 0x140578FC0 (IopLiveDumpBufferDumpData.c)
  */
 
 void __fastcall IopLiveDumpProcessCorralStateChange(__int64 a1, __int64 a2, __int64 a3)

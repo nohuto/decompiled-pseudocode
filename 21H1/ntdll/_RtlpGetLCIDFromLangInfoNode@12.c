@@ -11,10 +11,10 @@ int __stdcall RtlpGetLCIDFromLangInfoNode(int a1, int a2, _WORD *a3)
 {
   __int16 v3; // cx
   __int16 v5; // ax
-  UNICODE_STRING DestinationString; // [esp+4h] [ebp-Ch] BYREF
-  int v7; // [esp+Ch] [ebp-4h] BYREF
+  _UNICODE_STRING DestinationString; // [esp+4h] [ebp-Ch] BYREF
+  DWORD Lcid; // [esp+Ch] [ebp-4h] BYREF
 
-  v7 = 0;
+  Lcid = 0;
   if ( !a1 || !a2 || !a3 )
     return -1073741811;
   v3 = *(_WORD *)(a2 + 4);
@@ -31,8 +31,8 @@ int __stdcall RtlpGetLCIDFromLangInfoNode(int a1, int a2, _WORD *a3)
         &DestinationString,
         (PCWSTR)(*(_DWORD *)(*(_DWORD *)(a1 + 24) + 16)
                + 2 * *(__int16 *)(*(_DWORD *)(*(_DWORD *)(a1 + 24) + 12) + 2 * v5)));
-      if ( (unsigned __int8)RtlCultureNameToLCID(&DestinationString, &v7) )
-        *a3 = v7;
+      if ( RtlCultureNameToLCID(&DestinationString, &Lcid) )
+        *a3 = Lcid;
     }
   }
   return 0;

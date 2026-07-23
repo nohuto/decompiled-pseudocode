@@ -46,7 +46,7 @@ ACL *PopCreateHiberFileSecurityDescriptor()
       v1 = v5;
       if ( v5 )
       {
-        if ( RtlCreateAcl(v5, v4, 2u) >= 0 && (int)RtlpAddKnownAce((__int64)v1, 2u, 0, 0x10000, Src, 0) >= 0 )
+        if ( RtlCreateAcl(v5, v4, 2u) >= 0 && (int)RtlpAddKnownAce(v1, 2u, 0, 0x10000, Src, 0) >= 0 )
         {
           IdentifierAuthority = 0LL;
           RtlGetAce(v1, 0, (PVOID *)&IdentifierAuthority);

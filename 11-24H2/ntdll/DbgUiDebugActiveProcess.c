@@ -1,23 +1,23 @@
 /*
- * XREFs of DbgUiDebugActiveProcess @ 0x1801329F0
+ * XREFs of DbgUiDebugActiveProcess @ 0x180130C20
  * Callers:
  *     <none>
  * Callees:
- *     DbgUiIssueRemoteBreakin @ 0x180132A70 (DbgUiIssueRemoteBreakin.c)
- *     DbgUiStopDebugging @ 0x180132C40 (DbgUiStopDebugging.c)
- *     NtDebugActiveProcess @ 0x180163740 (NtDebugActiveProcess.c)
+ *     DbgUiIssueRemoteBreakin @ 0x180130CA0 (DbgUiIssueRemoteBreakin.c)
+ *     DbgUiStopDebugging @ 0x180130E70 (DbgUiStopDebugging.c)
+ *     NtDebugActiveProcess @ 0x180161B00 (NtDebugActiveProcess.c)
  */
 
-__int64 __fastcall DbgUiDebugActiveProcess(HANDLE ProcessHandle)
+NTSTATUS __cdecl DbgUiDebugActiveProcess(HANDLE Process)
 {
   int active; // ebx
 
-  active = NtDebugActiveProcess(ProcessHandle, NtCurrentTeb()->DbgSsReserved[1]);
+  active = NtDebugActiveProcess(Process, NtCurrentTeb()->DbgSsReserved[1]);
   if ( active >= 0 )
   {
-    active = DbgUiIssueRemoteBreakin(ProcessHandle);
+    active = DbgUiIssueRemoteBreakin(Process);
     if ( active < 0 )
-      DbgUiStopDebugging(ProcessHandle);
+      DbgUiStopDebugging(Process);
   }
-  return (unsigned int)active;
+  return active;
 }

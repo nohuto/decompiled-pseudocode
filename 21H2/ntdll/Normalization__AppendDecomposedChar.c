@@ -1,5 +1,5 @@
 /*
- * XREFs of Normalization__AppendDecomposedChar @ 0x1800FFDBC
+ * XREFs of Normalization__AppendDecomposedChar @ 0x1800FFD7C
  * Callers:
  *     Normalization__NormalizeCharacter @ 0x180080D8C (Normalization__NormalizeCharacter.c)
  * Callees:

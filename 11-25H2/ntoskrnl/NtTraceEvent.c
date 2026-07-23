@@ -35,18 +35,17 @@
  *     ObpDeregisterObject @ 0x1409CF758 (ObpDeregisterObject.c)
  */
 
-__int64 __fastcall NtTraceEvent(__int128 *a1, __int64 a2, unsigned int a3, __int64 a4)
+NTSTATUS __cdecl NtTraceEvent(HANDLE TraceHandle, ULONG Flags, ULONG FieldSize, PVOID Fields)
 {
-  unsigned int v6; // r15d
-  unsigned int v7; // eax
+  ULONG v7; // eax
   int v8; // r12d
   int v9; // edi
-  __int64 v10; // r14
-  NTSTATUS v11; // esi
+  char *v10; // r14
+  int v11; // esi
   _WORD *v12; // rsi
   __int64 v13; // r13
   __int64 v14; // r8
-  unsigned int v15; // r15d
+  ULONG v15; // r15d
   __int64 v16; // rax
   __int64 v17; // rcx
   int v18; // edx
@@ -73,7 +72,7 @@ __int64 __fastcall NtTraceEvent(__int128 *a1, __int64 a2, unsigned int a3, __int
   signed __int64 v40; // rax
   signed __int64 v41; // rdx
   signed __int64 v42; // rtt
-  unsigned int v43; // r15d
+  ULONG v43; // r15d
   signed __int64 v44; // rcx
   signed __int64 i; // rax
   unsigned __int16 v46; // r10
@@ -83,7 +82,7 @@ __int64 __fastcall NtTraceEvent(__int128 *a1, __int64 a2, unsigned int a3, __int
   __int64 *v50; // rax
   int v51; // r9d
   __int64 *v52; // rsi
-  KPROCESSOR_MODE v53; // r15
+  char v53; // r15
   __int64 v54; // rax
   int v55; // r9d
   int v56; // ecx
@@ -97,9 +96,9 @@ __int64 __fastcall NtTraceEvent(__int128 *a1, __int64 a2, unsigned int a3, __int
   char v64; // [rsp+81h] [rbp-147h]
   unsigned __int8 v65; // [rsp+82h] [rbp-146h] BYREF
   char v66; // [rsp+83h] [rbp-145h]
-  unsigned int v67; // [rsp+84h] [rbp-144h]
-  __int64 v68; // [rsp+88h] [rbp-140h]
-  int v69; // [rsp+90h] [rbp-138h]
+  NTSTATUS v67; // [rsp+84h] [rbp-144h]
+  unsigned int *v68; // [rsp+88h] [rbp-140h]
+  unsigned int v69; // [rsp+90h] [rbp-138h]
   int v70; // [rsp+94h] [rbp-134h]
   char PreviousMode; // [rsp+99h] [rbp-12Fh]
   char v72; // [rsp+9Ah] [rbp-12Eh]
@@ -118,49 +117,48 @@ __int64 __fastcall NtTraceEvent(__int128 *a1, __int64 a2, unsigned int a3, __int
   __int64 v85; // [rsp+F0h] [rbp-D8h]
   int v86; // [rsp+100h] [rbp-C8h]
   int v87; // [rsp+104h] [rbp-C4h]
-  __int64 v88; // [rsp+108h] [rbp-C0h]
-  __int64 v89; // [rsp+120h] [rbp-A8h]
+  char *v88; // [rsp+108h] [rbp-C0h]
+  char *v89; // [rsp+120h] [rbp-A8h]
   struct _KTHREAD *CurrentThread; // [rsp+128h] [rbp-A0h]
   __int64 v91; // [rsp+130h] [rbp-98h]
   __int64 v92; // [rsp+138h] [rbp-90h]
   __int64 v93; // [rsp+140h] [rbp-88h]
-  __int128 *v94; // [rsp+148h] [rbp-80h] BYREF
-  unsigned int v95; // [rsp+150h] [rbp-78h]
+  char *v94; // [rsp+148h] [rbp-80h] BYREF
+  ULONG v95; // [rsp+150h] [rbp-78h]
   int v96; // [rsp+154h] [rbp-74h]
   __int128 v97; // [rsp+158h] [rbp-70h] BYREF
   __int128 v98; // [rsp+168h] [rbp-60h] BYREF
   __int128 v99; // [rsp+178h] [rbp-50h]
 
-  v6 = a2;
-  v7 = a2 & 0xFF00;
+  v7 = Flags & 0xFF00;
   if ( v7 == 768 )
   {
     CurrentThread = KeGetCurrentThread();
     PreviousMode = CurrentThread->PreviousMode;
-    if ( PreviousMode && (a4 & 3) != 0 )
+    if ( PreviousMode && ((unsigned __int8)Fields & 3) != 0 )
       ExRaiseDatatypeMisalignment();
-    v77 = *(_QWORD *)(a4 + 88);
+    v77 = *((_QWORD *)Fields + 11);
     v91 = v77;
-    v70 = *(_DWORD *)(a4 + 84);
+    v70 = *((_DWORD *)Fields + 21);
     v86 = v70;
-    v8 = *(unsigned __int16 *)(a4 + 82);
-    v92 = *(unsigned __int16 *)(a4 + 82);
-    LODWORD(v68) = *(_DWORD *)(a4 + 112);
-    v87 = v68;
-    v79 = *(_QWORD *)(a4 + 48);
+    v8 = *((unsigned __int16 *)Fields + 41);
+    v92 = *((unsigned __int16 *)Fields + 41);
+    LODWORD(v68) = *((_DWORD *)Fields + 28);
+    v87 = (int)v68;
+    v79 = *((_QWORD *)Fields + 6);
     v93 = v79;
-    v64 = *(_BYTE *)(a4 + 44);
+    v64 = *((_BYTE *)Fields + 44);
     v72 = v64;
     v9 = 0;
     v10 = 0LL;
     v88 = 0LL;
-    if ( *(_BYTE *)(a4 + 80) )
+    if ( *((_BYTE *)Fields + 80) )
     {
-      v10 = a4 + 96;
-      v88 = a4 + 96;
+      v10 = (char *)Fields + 96;
+      v88 = (char *)Fields + 96;
     }
     Object = 0LL;
-    v11 = ObReferenceObjectByHandle(a1, 0x800u, EtwpRegistrationObjectType, 1, &Object, 0LL);
+    v11 = ObReferenceObjectByHandle(TraceHandle, 0x800u, EtwpRegistrationObjectType, 1, &Object, 0LL);
     v67 = v11;
     if ( v11 >= 0 )
     {
@@ -169,7 +167,7 @@ __int64 __fastcall NtTraceEvent(__int128 *a1, __int64 a2, unsigned int a3, __int
       v13 = *((_QWORD *)Object + 4);
       v14 = *((_QWORD *)Object + 5);
       v85 = v14;
-      v15 = v6 >> 31;
+      v15 = Flags >> 31;
       v98 = 0LL;
       v99 = 0LL;
       v16 = *((_QWORD *)Object + 13);
@@ -185,9 +183,9 @@ __int64 __fastcall NtTraceEvent(__int128 *a1, __int64 a2, unsigned int a3, __int
                 v18,
                 (unsigned __int16)v15,
                 v8,
-                v68,
-                a4,
-                v10,
+                (_DWORD)v68,
+                (__int64)Fields,
+                (__int64)v10,
                 v64,
                 v79,
                 v70,
@@ -207,9 +205,9 @@ __int64 __fastcall NtTraceEvent(__int128 *a1, __int64 a2, unsigned int a3, __int
                 v19,
                 (unsigned __int16)v15,
                 v8,
-                v68,
-                a4,
-                v10,
+                (_DWORD)v68,
+                (__int64)Fields,
+                (__int64)v10,
                 v64,
                 v79,
                 v70,
@@ -230,9 +228,9 @@ __int64 __fastcall NtTraceEvent(__int128 *a1, __int64 a2, unsigned int a3, __int
                   v61,
                   (unsigned __int16)v15,
                   0,
-                  v68,
-                  a4,
-                  v10,
+                  (_DWORD)v68,
+                  (__int64)Fields,
+                  (__int64)v10,
                   v64,
                   v79,
                   v70,
@@ -249,9 +247,9 @@ __int64 __fastcall NtTraceEvent(__int128 *a1, __int64 a2, unsigned int a3, __int
                   v62,
                   (unsigned __int16)v15,
                   0,
-                  v68,
-                  a4,
-                  v10,
+                  (_DWORD)v68,
+                  (__int64)Fields,
+                  (__int64)v10,
                   v64,
                   v79,
                   v70,
@@ -314,45 +312,45 @@ __int64 __fastcall NtTraceEvent(__int128 *a1, __int64 a2, unsigned int a3, __int
       }
       return v67;
     }
-    return (unsigned int)v11;
+    return v11;
   }
   if ( v7 == 512 )
   {
-    v94 = a1;
+    v94 = (char *)TraceHandle;
     v76 = 0LL;
-    if ( a3 == 40 )
+    if ( FieldSize == 40 )
     {
       if ( KeGetCurrentThread()->PreviousMode == 1 )
       {
-        v68 = a4;
-        if ( (a4 & 3) != 0 )
+        v68 = (unsigned int *)Fields;
+        if ( ((unsigned __int8)Fields & 3) != 0 )
           ExRaiseDatatypeMisalignment();
-        v69 = *(_DWORD *)(v68 + 24);
-        if ( (int)a2 < 0 )
+        v69 = v68[6];
+        if ( (Flags & 0x80000000) != 0 )
         {
-          LODWORD(v76) = *(_DWORD *)(v68 + 32);
+          LODWORD(v76) = v68[8];
           v69 |= 0x80u;
         }
         else
         {
-          v76 = *(_QWORD *)(v68 + 32);
+          v76 = *((_QWORD *)v68 + 4);
         }
-        v25 = *(unsigned int *)(v68 + 28);
+        v25 = v68[7];
         v81 = v25;
         if ( (unsigned int)v25 <= 0x10000 )
         {
           if ( (_DWORD)v25 && (v76 + v25 < v76 || v76 + v25 > 0x7FFFFFFF0000LL) )
             LODWORD(v25) = v81;
           HIDWORD(v94) = v25;
-          return EtwpTraceMessageVa((_DWORD)v94, v69 | 0x40u, (int)v68 + 8, *(unsigned __int16 *)(v68 + 4), v76, 1);
+          return EtwpTraceMessageVa((_DWORD)v94, v69 | 0x40, (int)v68 + 8, *((unsigned __int16 *)v68 + 2), v76, 1);
         }
         v11 = -1073741811;
         v67 = -1073741811;
-        return (unsigned int)v11;
+        return v11;
       }
-      return 3221225659LL;
+      return -1073741637;
     }
-    return 3221225485LL;
+    return -1073741811;
   }
   if ( v7 <= 0x600 )
   {
@@ -364,46 +362,45 @@ __int64 __fastcall NtTraceEvent(__int128 *a1, __int64 a2, unsigned int a3, __int
         v48 = v46;
         if ( v46 == 0xFFFF || !v46 )
           v48 = *(unsigned __int8 *)(v47 + 4232);
-        if ( v48 < *(_DWORD *)(v47 + 16)
-          && (v53 = KeGetCurrentThread()->PreviousMode, v54 = EtwpOpenLogger(v48, v47, v53, &v65), v56 = v54, v54) )
+        if ( v48 >= *(_DWORD *)(v47 + 16) )
+          return -1073741816;
+        v53 = KeGetCurrentThread()->PreviousMode;
+        v54 = EtwpOpenLogger(v48, v47, v53, &v65);
+        v56 = v54;
+        if ( !v54 )
+          return -1073741816;
+        if ( (*(_DWORD *)(v54 + 12) & 0x2000000) != 0 )
         {
-          if ( (*(_DWORD *)(v54 + 12) & 0x2000000) != 0 )
-          {
-            v57 = v47 + 32LL * *(unsigned __int8 *)(v54 + 818) + 4284;
-            if ( v57 && (*(_DWORD *)(v57 + 4) & 0x28) != 0 )
-              LOBYTE(v55) = 1;
-            else
-              v55 = 0;
-            v11 = EtwpSetMark(v56, a4, a3, v55, v53);
-          }
+          v57 = v47 + 32LL * *(unsigned __int8 *)(v54 + 818) + 4284;
+          if ( v57 && (*(_DWORD *)(v57 + 4) & 0x28) != 0 )
+            LOBYTE(v55) = 1;
           else
-          {
-            v11 = -1073741811;
-          }
-          EtwpCloseLogger(v48, v47, v65);
+            v55 = 0;
+          v11 = EtwpSetMark(v56, (int)Fields, FieldSize, v55, v53);
         }
         else
         {
-          return (unsigned int)-1073741816;
+          v11 = -1073741811;
         }
-        return (unsigned int)v11;
+        EtwpCloseLogger(v48, v47, v65);
+        return v11;
       case 0x400u:
-        v27 = *(_QWORD *)(PsGetCurrentServerSiloGlobals(a1, a2) + 832);
+        v27 = *(_QWORD *)(PsGetCurrentServerSiloGlobals(TraceHandle, Flags) + 832);
         v28 = 0;
         if ( v26 != 0xFFFF )
           v28 = v26;
         if ( v28 < *(_DWORD *)(v27 + 16) )
         {
-          if ( a3 > 0xFFDF )
-            return 3221225621LL;
+          if ( FieldSize > 0xFFDF )
+            return -1073741675;
           if ( KeGetCurrentThread()->PreviousMode == 1 )
           {
-            if ( (a4 & 3) != 0 )
+            if ( ((unsigned __int8)Fields & 3) != 0 )
               ExRaiseDatatypeMisalignment();
-            v89 = a4 + 32;
-            v73 = *(_WORD *)(a4 + 6);
-            v94 = (__int128 *)(a4 + 32);
-            v95 = a3;
+            v89 = (char *)Fields + 32;
+            v73 = *((_WORD *)Fields + 3);
+            v94 = (char *)Fields + 32;
+            v95 = FieldSize;
             v96 = 0;
             EtwpLogSystemEventUnsafe(
               v27,
@@ -412,77 +409,77 @@ __int64 __fastcall NtTraceEvent(__int128 *a1, __int64 a2, unsigned int a3, __int
               v28,
               1,
               v73,
-              v6 & 0xC00F00FF | 0x3100,
+              Flags & 0xC00F00FF | 0x3100,
               1);
             return 0;
           }
-          return 3221225659LL;
+          return -1073741637;
         }
-        return 3221225485LL;
+        return -1073741811;
       case 0x100u:
-        return (unsigned int)EtwTraceEvent(
-                               (_DWORD)a1,
-                               a4,
-                               48,
-                               (((int)a2 >> 31) & 0xFFF60000) - 1072431104,
-                               KeGetCurrentThread()->PreviousMode);
+        return EtwTraceEvent(
+                 (_DWORD)TraceHandle,
+                 (_DWORD)Fields,
+                 48,
+                 (((int)Flags >> 31) & 0xFFF60000) - 1072431104,
+                 KeGetCurrentThread()->PreviousMode);
       case 0x500u:
-        v30 = *(_QWORD *)(PsGetCurrentServerSiloGlobals(a1, KeGetCurrentThread()[1].CycleTime) + 832);
+        v30 = *(_QWORD *)(PsGetCurrentServerSiloGlobals(TraceHandle, KeGetCurrentThread()[1].CycleTime) + 832);
         if ( *(_DWORD *)(v30 + 4072) == v31 )
         {
-          if ( (a4 & 3) != 0 )
+          if ( ((unsigned __int8)Fields & 3) != 0 )
             ExRaiseDatatypeMisalignment();
-          return (unsigned int)EtwpWriteUserEvent(
-                                 (int)v30 + 24,
-                                 *(unsigned __int8 *)(v30 + 4064),
-                                 0,
-                                 0,
-                                 *(_DWORD *)(v29 + 112),
-                                 a4,
-                                 0LL,
-                                 *(_BYTE *)(a4 + 44),
-                                 *(_QWORD *)(a4 + 48),
-                                 *(_DWORD *)(v29 + 84),
-                                 *(_QWORD *)(v29 + 88),
-                                 0LL,
-                                 0LL,
-                                 0,
-                                 0LL,
-                                 0LL);
+          return EtwpWriteUserEvent(
+                   (int)v30 + 24,
+                   *(unsigned __int8 *)(v30 + 4064),
+                   0,
+                   0,
+                   *(_DWORD *)(v29 + 112),
+                   (__int64)Fields,
+                   0LL,
+                   *((_BYTE *)Fields + 44),
+                   *((_QWORD *)Fields + 6),
+                   *(_DWORD *)(v29 + 84),
+                   *(_QWORD *)(v29 + 88),
+                   0LL,
+                   0LL,
+                   0,
+                   0LL,
+                   0LL);
         }
-        return 3221225506LL;
+        return -1073741790;
     }
-    return (unsigned int)-1073741811;
+    return -1073741811;
   }
   if ( v7 != 1792 )
   {
     if ( v7 == 2048 )
-      return (unsigned int)EtwTraceEvent(
-                             (_DWORD)a1,
-                             a4,
-                             72,
-                             (((int)a2 >> 31) & 0xFFF60000) - 1072365568,
-                             KeGetCurrentThread()->PreviousMode);
+      return EtwTraceEvent(
+               (_DWORD)TraceHandle,
+               (_DWORD)Fields,
+               72,
+               (((int)Flags >> 31) & 0xFFF60000) - 1072365568,
+               KeGetCurrentThread()->PreviousMode);
     if ( v7 == 2304 )
     {
-      if ( (_DWORD)a2 == 2304 && a3 && a4 )
-        return (unsigned int)EtwTraceRaw(a1, a4, a3, (unsigned __int8)KeGetCurrentThread()->PreviousMode);
-      return 3221225485LL;
+      if ( Flags == 2304 && FieldSize && Fields )
+        return EtwTraceRaw(TraceHandle, Fields, FieldSize, (unsigned __int8)KeGetCurrentThread()->PreviousMode);
+      return -1073741811;
     }
-    return (unsigned int)-1073741811;
+    return -1073741811;
   }
-  if ( !a1 )
-    return 3221225485LL;
-  if ( (a4 & 3) != 0 )
+  if ( !TraceHandle )
+    return -1073741811;
+  if ( ((unsigned __int8)Fields & 3) != 0 )
     ExRaiseDatatypeMisalignment();
-  if ( ((unsigned __int8)a1 & 3) != 0 )
+  if ( ((unsigned __int8)TraceHandle & 3) != 0 )
     ExRaiseDatatypeMisalignment();
-  v83 = *(_QWORD *)(a4 + 88);
-  v74 = *(_DWORD *)(a4 + 84);
-  v75 = *(_DWORD *)(a4 + 112);
-  v84 = *(_QWORD *)(a4 + 48);
-  v66 = *(_BYTE *)(a4 + 44);
-  v97 = *a1;
+  v83 = *((_QWORD *)Fields + 11);
+  v74 = *((_DWORD *)Fields + 21);
+  v75 = *((_DWORD *)Fields + 28);
+  v84 = *((_QWORD *)Fields + 6);
+  v66 = *((_BYTE *)Fields + 44);
+  v97 = *(_OWORD *)TraceHandle;
   v32 = ((__int64 (*)(void))PsGetCurrentServerSiloGlobals)();
   GuidEntryByGuid = EtwpFindGuidEntryByGuid(*(_QWORD *)(v32 + 832), &v97, 0LL);
   v34 = (_QWORD *)GuidEntryByGuid;
@@ -517,14 +514,14 @@ __int64 __fastcall NtTraceEvent(__int128 *a1, __int64 a2, unsigned int a3, __int
           ExfReleasePushLock(v34 + 51);
         KeAbPostRelease((ULONG_PTR)(v34 + 51));
         KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-        v43 = v6 >> 31;
+        v43 = Flags >> 31;
         v11 = EtwpWriteUserEvent(
                 (_DWORD)v34,
                 v63,
                 (unsigned __int16)v43,
                 0,
                 v75,
-                a4,
+                (__int64)Fields,
                 0LL,
                 v66,
                 v84,
@@ -566,7 +563,7 @@ __int64 __fastcall NtTraceEvent(__int128 *a1, __int64 a2, unsigned int a3, __int
                   (unsigned __int16)v43,
                   0,
                   v75,
-                  a4,
+                  (__int64)Fields,
                   0LL,
                   v66,
                   v84,
@@ -580,9 +577,9 @@ __int64 __fastcall NtTraceEvent(__int128 *a1, __int64 a2, unsigned int a3, __int
         }
       }
       EtwpUnreferenceGuidEntry(v34);
-      return (unsigned int)v11;
+      return v11;
     }
     EtwpUnreferenceGuidEntry((PVOID)GuidEntryByGuid);
   }
-  return 3221226242LL;
+  return -1073741054;
 }

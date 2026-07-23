@@ -40,9 +40,9 @@
 
 void __stdcall RtlFreeUnicodeString(PUNICODE_STRING UnicodeString)
 {
-  wchar_t *Buffer; // rcx
+  _OBJECT_BOUNDARY_DESCRIPTOR *Buffer; // rcx
 
-  Buffer = UnicodeString->Buffer;
+  Buffer = (_OBJECT_BOUNDARY_DESCRIPTOR *)UnicodeString->Buffer;
   if ( Buffer )
   {
     RtlDeleteBoundaryDescriptor(Buffer);

@@ -1,18 +1,18 @@
 /*
- * XREFs of MmQueryCommitReleaseState @ 0x1404C804C
+ * XREFs of MmQueryCommitReleaseState @ 0x1404C1D8C
  * Callers:
- *     NtQueryInformationProcess @ 0x140A4A1F0 (NtQueryInformationProcess.c)
+ *     NtQueryInformationProcess @ 0x140A534E0 (NtQueryInformationProcess.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     MiAttachThreadDone @ 0x1402C66F0 (MiAttachThreadDone.c)
- *     KeForceDetachProcess @ 0x1402C6C30 (KeForceDetachProcess.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiUnlockWorkingSetShared @ 0x1402EB6C0 (MiUnlockWorkingSetShared.c)
- *     MiLockWorkingSetShared @ 0x1402EDD60 (MiLockWorkingSetShared.c)
- *     KeForceAttachProcess @ 0x14045D2E0 (KeForceAttachProcess.c)
- *     MiPrepareAttachThread @ 0x140474DE0 (MiPrepareAttachThread.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiUnlockWorkingSetShared @ 0x1402CD700 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x1402CFDE0 (MiLockWorkingSetShared.c)
+ *     MiAttachThreadDone @ 0x140311390 (MiAttachThreadDone.c)
+ *     KeForceDetachProcess @ 0x1403118D0 (KeForceDetachProcess.c)
+ *     KeForceAttachProcess @ 0x140456CE0 (KeForceAttachProcess.c)
+ *     MiPrepareAttachThread @ 0x14046E560 (MiPrepareAttachThread.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 char __fastcall MmQueryCommitReleaseState(__int64 a1, _DWORD *a2, _QWORD *a3, _QWORD *a4, _QWORD *a5)
@@ -51,9 +51,9 @@ char __fastcall MmQueryCommitReleaseState(__int64 a1, _DWORD *a2, _QWORD *a3, _Q
   memset(v30, 0, sizeof(v30));
   if ( v7 == 1 )
   {
-    v8 = (__int64 *)&unk_140E37820;
-    v9 = (__int64 *)&unk_140E37810;
-    v10 = (__int64 *)&unk_140E37808;
+    v8 = (__int64 *)&unk_140E379A0;
+    v9 = (__int64 *)&unk_140E37990;
+    v10 = (__int64 *)&unk_140E37988;
   }
   else
   {
@@ -67,7 +67,7 @@ char __fastcall MmQueryCommitReleaseState(__int64 a1, _DWORD *a2, _QWORD *a3, _Q
   v14 = 0LL;
   v15 = 0LL;
   HIBYTE(v24) = HIBYTE(v11);
-  if ( dword_140FBE260 == 1 )
+  if ( dword_140FBF260 == 1 )
   {
     v16 = HIBYTE(v11);
     v13 = 0LL;
@@ -76,7 +76,7 @@ char __fastcall MmQueryCommitReleaseState(__int64 a1, _DWORD *a2, _QWORD *a3, _Q
   {
     if ( (HIBYTE(v11) & 0x30) == 0x20 )
     {
-      v17 = (volatile LONG *)(*(_QWORD *)(stru_140E2EB88.ThreadLock + 8LL * *(unsigned __int16 *)(a1 + 1198)) + 21384LL);
+      v17 = (volatile LONG *)(*(_QWORD *)(stru_140E2ED08.ThreadLock + 8LL * *(unsigned __int16 *)(a1 + 1198)) + 21384LL);
       ExAcquireSpinLockExclusive(v17);
       v25 = MiPrepareAttachThread(a1, v6, 1);
       if ( v18 == 17 )

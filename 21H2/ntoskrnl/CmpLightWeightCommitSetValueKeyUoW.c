@@ -1,76 +1,76 @@
 /*
- * XREFs of CmpLightWeightCommitSetValueKeyUoW @ 0x1406A40E8
+ * XREFs of CmpLightWeightCommitSetValueKeyUoW @ 0x1405E1BB8
  * Callers:
- *     CmpProcessLightWeightUOW @ 0x1406A3E64 (CmpProcessLightWeightUOW.c)
+ *     CmpProcessLightWeightUOW @ 0x1405E1934 (CmpProcessLightWeightUOW.c)
  * Callees:
- *     CmpFreeTransientPoolWithTag @ 0x140206FA8 (CmpFreeTransientPoolWithTag.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     CmpCleanUpKcbCachedSymlink @ 0x1405EE830 (CmpCleanUpKcbCachedSymlink.c)
- *     CmpFreeValue @ 0x14066B438 (CmpFreeValue.c)
- *     CmpLightWeightCleanupSetValueKeyUoW @ 0x1406A4210 (CmpLightWeightCleanupSetValueKeyUoW.c)
+ *     CmpFreeTransientPoolWithTag @ 0x1402483A4 (CmpFreeTransientPoolWithTag.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     CmpLightWeightCleanupSetValueKeyUoW @ 0x1405E1CE0 (CmpLightWeightCleanupSetValueKeyUoW.c)
+ *     CmpFreeValue @ 0x140660258 (CmpFreeValue.c)
+ *     CmpCleanUpKcbCachedSymlink @ 0x1406DDF90 (CmpCleanUpKcbCachedSymlink.c)
  */
 
-__int64 __fastcall CmpLightWeightCommitSetValueKeyUoW(__int64 *a1, _QWORD *a2)
+__int64 __fastcall CmpLightWeightCommitSetValueKeyUoW(_QWORD *a1, _QWORD *a2, __int64 a3)
 {
-  __int64 v3; // rbp
-  __int64 v4; // rax
-  ULONG_PTR v6; // rsi
-  __int64 v7; // rdi
-  __int64 v8; // rax
-  unsigned int v9; // ecx
-  unsigned int v10; // eax
-  unsigned int *v11; // rcx
-  ULONG_PTR v12; // rdx
-  __int64 v13; // rax
-  __int64 v14; // r8
-  int v15; // r9d
-  int v17; // [rsp+40h] [rbp+8h] BYREF
-  int v18; // [rsp+44h] [rbp+Ch]
+  __int64 v4; // rbp
+  __int64 v6; // rax
+  ULONG_PTR v8; // rsi
+  __int64 v9; // rdi
+  __int64 v10; // rax
+  unsigned int v11; // ecx
+  unsigned int v12; // eax
+  unsigned int *v13; // rcx
+  ULONG_PTR v14; // rdx
+  __int64 v15; // rax
+  __int64 v16; // r8
+  int v17; // r9d
+  int v19; // [rsp+40h] [rbp+8h] BYREF
+  int v20; // [rsp+44h] [rbp+Ch]
 
-  v17 = -1;
-  v3 = a1[13];
-  v18 = 0;
-  v4 = a1[6];
-  v6 = *(_QWORD *)(v4 + 32);
-  v7 = (*(__int64 (__fastcall **)(ULONG_PTR, _QWORD, int *))(v6 + 8))(v6, *(unsigned int *)(v4 + 40), &v17);
-  v8 = a1[14];
-  v9 = *(unsigned __int16 *)(v8 + 8);
-  if ( *(_DWORD *)(v7 + 60) < v9 )
+  v19 = -1;
+  v4 = a1[13];
+  v20 = 0;
+  v6 = a1[6];
+  v8 = *(_QWORD *)(v6 + 32);
+  v9 = (*(__int64 (__fastcall **)(ULONG_PTR, _QWORD, int *))(v8 + 8))(v8, *(unsigned int *)(v6 + 40), &v19);
+  v10 = a1[14];
+  v11 = *(unsigned __int16 *)(v10 + 8);
+  if ( *(_DWORD *)(v9 + 60) < v11 )
   {
-    *(_DWORD *)(v7 + 60) = v9;
-    *(_WORD *)(a1[6] + 178) = *(_WORD *)(a1[14] + 8);
-    v8 = a1[14];
+    *(_DWORD *)(v9 + 60) = v11;
+    *(_WORD *)(a1[6] + 178LL) = *(_WORD *)(a1[14] + 8LL);
+    v10 = a1[14];
   }
-  v10 = *(_DWORD *)(v8 + 12);
-  if ( *(_DWORD *)(v7 + 64) < v10 )
+  v12 = *(_DWORD *)(v10 + 12);
+  if ( *(_DWORD *)(v9 + 64) < v12 )
   {
-    *(_DWORD *)(v7 + 64) = v10;
-    *(_DWORD *)(a1[6] + 180) = *(_DWORD *)(a1[14] + 12);
+    *(_DWORD *)(v9 + 64) = v12;
+    *(_DWORD *)(a1[6] + 180LL) = *(_DWORD *)(a1[14] + 12LL);
   }
-  *(_QWORD *)(v7 + 4) = *a2;
-  *(_QWORD *)(a1[6] + 168) = *a2;
-  ++*(_QWORD *)(a1[6] + 304);
-  v11 = (unsigned int *)a1[14];
-  v12 = v11[1];
-  if ( (_DWORD)v12 != -1 )
+  *(_QWORD *)(v9 + 4) = *a2;
+  *(_QWORD *)(a1[6] + 168LL) = *a2;
+  ++*(_QWORD *)(a1[6] + 304LL);
+  v13 = (unsigned int *)a1[14];
+  v14 = v13[1];
+  if ( (_DWORD)v14 != -1 )
   {
-    CmpFreeValue(v6, v12);
-    v11 = (unsigned int *)a1[14];
+    CmpFreeValue(v8, v14);
+    v13 = (unsigned int *)a1[14];
   }
-  CmpFreeTransientPoolWithTag(v11, 0x77554D43u);
+  CmpFreeTransientPoolWithTag(v13, 0x77554D43u);
   a1[14] = 0LL;
-  if ( *(_DWORD *)v3 == 1 )
+  if ( *(_DWORD *)v4 == 1 )
   {
-    v13 = *(_QWORD *)(v7 + 36);
-    *(_QWORD *)(v7 + 36) = *(_QWORD *)(v3 + 4);
-    *(_QWORD *)(v3 + 4) = v13;
-    CmpCleanUpKcbCachedSymlink(a1[6]);
-    v14 = a1[6];
-    v15 = *(_DWORD *)(v7 + 40);
-    *(_DWORD *)(v14 + 96) = *(_DWORD *)(v7 + 36);
-    *(_DWORD *)(v14 + 100) = v15;
+    v15 = *(_QWORD *)(v9 + 36);
+    *(_QWORD *)(v9 + 36) = *(_QWORD *)(v4 + 4);
+    *(_QWORD *)(v4 + 4) = v15;
+    CmpCleanUpKcbCachedSymlink(a1[6], a3);
+    v16 = a1[6];
+    v17 = *(_DWORD *)(v9 + 40);
+    *(_DWORD *)(v16 + 96) = *(_DWORD *)(v9 + 36);
+    *(_DWORD *)(v16 + 100) = v17;
   }
-  CmpLightWeightCleanupSetValueKeyUoW(v6, v3);
+  CmpLightWeightCleanupSetValueKeyUoW(v8, v4);
   a1[13] = 0LL;
-  return (*(__int64 (__fastcall **)(ULONG_PTR, int *))(v6 + 16))(v6, &v17);
+  return (*(__int64 (__fastcall **)(ULONG_PTR, int *))(v8 + 16))(v8, &v19);
 }

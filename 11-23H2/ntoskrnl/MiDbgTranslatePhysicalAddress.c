@@ -1,16 +1,16 @@
 /*
- * XREFs of MiDbgTranslatePhysicalAddress @ 0x140643EF8
+ * XREFs of MiDbgTranslatePhysicalAddress @ 0x140644448
  * Callers:
- *     MiDbgCopyMemory @ 0x1402E5E58 (MiDbgCopyMemory.c)
+ *     MiDbgCopyMemory @ 0x1402E60E8 (MiDbgCopyMemory.c)
  * Callees:
  *     MiMakeProtectionPfnCompatible @ 0x140217E64 (MiMakeProtectionPfnCompatible.c)
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     MiMakeValidPte @ 0x1402CF2B0 (MiMakeValidPte.c)
- *     KeFlushSingleTb @ 0x1402EB0C4 (KeFlushSingleTb.c)
- *     KeFlushSingleCurrentTb @ 0x14038CC20 (KeFlushSingleCurrentTb.c)
- *     MiFreezeIoPfnNode @ 0x14062E108 (MiFreezeIoPfnNode.c)
- *     MiCheckPhysicalAddressRange @ 0x1406439BC (MiCheckPhysicalAddressRange.c)
- *     MiDbgUnTranslatePhysicalAddress @ 0x140644260 (MiDbgUnTranslatePhysicalAddress.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     MiMakeValidPte @ 0x1402CF540 (MiMakeValidPte.c)
+ *     KeFlushSingleTb @ 0x1402EB354 (KeFlushSingleTb.c)
+ *     KeFlushSingleCurrentTb @ 0x14038CE00 (KeFlushSingleCurrentTb.c)
+ *     MiFreezeIoPfnNode @ 0x14062E658 (MiFreezeIoPfnNode.c)
+ *     MiCheckPhysicalAddressRange @ 0x140643F0C (MiCheckPhysicalAddressRange.c)
+ *     MiDbgUnTranslatePhysicalAddress @ 0x1406447B0 (MiDbgUnTranslatePhysicalAddress.c)
  */
 
 unsigned __int64 __fastcall MiDbgTranslatePhysicalAddress(unsigned __int64 a1, unsigned __int8 a2, __int64 a3)
@@ -63,7 +63,7 @@ unsigned __int64 __fastcall MiDbgTranslatePhysicalAddress(unsigned __int64 a1, u
   {
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(2uLL);
-    if ( KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & (unsigned __int8)v9) != 0 && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & (unsigned __int8)v9) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
       if ( CurrentIrql == 2 )

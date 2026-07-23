@@ -1,13 +1,13 @@
 /*
- * XREFs of KiAddProcessorToGroupSchedulingDatabase @ 0x140B5AD94
+ * XREFs of KiAddProcessorToGroupSchedulingDatabase @ 0x140B5CE04
  * Callers:
- *     KiStartDynamicProcessor @ 0x14073B478 (KiStartDynamicProcessor.c)
+ *     KiStartDynamicProcessor @ 0x1407393A8 (KiStartDynamicProcessor.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140275CD0 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x1402D8540 (KeAcquireInStackQueuedSpinLock.c)
- *     KeYieldProcessorEx @ 0x1403F9C60 (KeYieldProcessorEx.c)
- *     ?KiAddProcessorToGroupSchedulingList@@YAXPEAU_KPRCB@@PEAU_LIST_ENTRY@@K@Z @ 0x1405C7364 (-KiAddProcessorToGroupSchedulingList@@YAXPEAU_KPRCB@@PEAU_LIST_ENTRY@@K@Z.c)
- *     ?KiInitializeProcessorGroupSchedulingData@@YAXPEAU_KPRCB@@@Z @ 0x1405C7600 (-KiInitializeProcessorGroupSchedulingData@@YAXPEAU_KPRCB@@@Z.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x14022B260 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1403597C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeYieldProcessorEx @ 0x1403EFB70 (KeYieldProcessorEx.c)
+ *     ?KiAddProcessorToGroupSchedulingList@@YAXPEAU_KPRCB@@PEAU_LIST_ENTRY@@K@Z @ 0x1405C4A94 (-KiAddProcessorToGroupSchedulingList@@YAXPEAU_KPRCB@@PEAU_LIST_ENTRY@@K@Z.c)
+ *     ?KiInitializeProcessorGroupSchedulingData@@YAXPEAU_KPRCB@@@Z @ 0x1405C4D30 (-KiInitializeProcessorGroupSchedulingData@@YAXPEAU_KPRCB@@@Z.c)
  */
 
 void __fastcall KiAddProcessorToGroupSchedulingDatabase(struct _KPRCB *a1)

@@ -1,17 +1,17 @@
 /*
- * XREFs of MiEmptyThisWorkingSet @ 0x1405009C4
+ * XREFs of MiEmptyThisWorkingSet @ 0x1404FA1B4
  * Callers:
- *     MiTrimAllSystemPagableMemory @ 0x140457728 (MiTrimAllSystemPagableMemory.c)
+ *     MiTrimAllSystemPagableMemory @ 0x14044EF98 (MiTrimAllSystemPagableMemory.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     MiAttachThreadDone @ 0x1402C66F0 (MiAttachThreadDone.c)
- *     KeForceDetachProcess @ 0x1402C6C30 (KeForceDetachProcess.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiEmptyWorkingSetInitiate @ 0x1403BC020 (MiEmptyWorkingSetInitiate.c)
- *     MiAttachWorkingSet @ 0x140471654 (MiAttachWorkingSet.c)
- *     MiPrepareAttachThread @ 0x140474DE0 (MiPrepareAttachThread.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiAttachThreadDone @ 0x140311390 (MiAttachThreadDone.c)
+ *     KeForceDetachProcess @ 0x1403118D0 (KeForceDetachProcess.c)
+ *     MiEmptyWorkingSetInitiate @ 0x1403C5E90 (MiEmptyWorkingSetInitiate.c)
+ *     MiAttachWorkingSet @ 0x14046ADD4 (MiAttachWorkingSet.c)
+ *     MiPrepareAttachThread @ 0x14046E560 (MiPrepareAttachThread.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall MiEmptyThisWorkingSet(__int64 a1)
@@ -26,7 +26,7 @@ __int64 __fastcall MiEmptyThisWorkingSet(__int64 a1)
   v2 = 0;
   v3 = *(unsigned __int16 *)(a1 + 174);
   memset(v8, 0, sizeof(v8));
-  v4 = (volatile LONG *)(*(_QWORD *)(stru_140E2EB88.ThreadLock + 8 * v3) + 21384LL);
+  v4 = (volatile LONG *)(*(_QWORD *)(stru_140E2ED08.ThreadLock + 8 * v3) + 21384LL);
   v5 = ExAcquireSpinLockExclusive(v4);
   if ( *(_QWORD *)(a1 + 152) > 1uLL )
   {

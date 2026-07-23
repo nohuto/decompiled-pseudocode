@@ -87,13 +87,13 @@ __int64 __fastcall EtwpRegisterKMProvider(
   v51 = a2;
   v47 = a5;
   *a7 = 0LL;
-  v11 = *(_QWORD *)a2 - SecurityProviderGuid;
-  v10 = *(_QWORD *)a2 == (_QWORD)SecurityProviderGuid;
+  v11 = *(_QWORD *)a2 - *(_QWORD *)&SecurityProviderGuid.Data1;
+  v10 = *(_QWORD *)a2 == *(_QWORD *)&SecurityProviderGuid.Data1;
   P = 0LL;
   v48 = 0LL;
   memset(v50, 0, sizeof(v50));
   if ( v10 )
-    v11 = *(_QWORD *)(a2 + 8) - *((_QWORD *)&SecurityProviderGuid + 1);
+    v11 = *(_QWORD *)(a2 + 8) - *(_QWORD *)SecurityProviderGuid.Data4;
   if ( !v11 )
     return 3221225506LL;
   if ( !a4 && a5 || a3 != 3 && (a3 != 2 || !a4) )

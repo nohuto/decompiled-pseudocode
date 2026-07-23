@@ -1,53 +1,53 @@
 /*
- * XREFs of RtlRunOnceExecuteOnce @ 0x18006EED0
+ * XREFs of RtlRunOnceExecuteOnce @ 0x18008F320
  * Callers:
- *     RtlpHpMetadataAlloc @ 0x180043620 (RtlpHpMetadataAlloc.c)
- *     RtlpHpStackTraceHeapGetContext @ 0x18006F9E8 (RtlpHpStackTraceHeapGetContext.c)
- *     LdrpLogEtwHotPatchStatus @ 0x18006FB5C (LdrpLogEtwHotPatchStatus.c)
- *     LdrpLogVerifyAlternateResourceModuleWithServiceChecksumFailure @ 0x1800707C0 (LdrpLogVerifyAlternateResourceModuleWithServiceChecksumFailure.c)
- *     LdrpLogMapAndVerifyResourceFileFailure @ 0x180070918 (LdrpLogMapAndVerifyResourceFileFailure.c)
- *     LdrpLogVsmEnclaveLdrInitializeEnclaveTelemetry @ 0x180070AA4 (LdrpLogVsmEnclaveLdrInitializeEnclaveTelemetry.c)
- *     RtlpHpStackTraceAddStack @ 0x1800C0100 (RtlpHpStackTraceAddStack.c)
- *     RtlSetHeapInformation @ 0x180111030 (RtlSetHeapInformation.c)
- *     LdrpLogVsmEnclaveLdrCreateEnclaveTelemetry @ 0x18011272C (LdrpLogVsmEnclaveLdrCreateEnclaveTelemetry.c)
- *     RtlpFtQueryConfiguration @ 0x180147C7C (RtlpFtQueryConfiguration.c)
- *     UcOnUnexpectedCodePath @ 0x180157830 (UcOnUnexpectedCodePath.c)
- *     RtlpQueryDiskSpeedPolicy @ 0x18015AD30 (RtlpQueryDiskSpeedPolicy.c)
- *     LdrpCgLogFailure @ 0x18015CE90 (LdrpCgLogFailure.c)
- *     LdrpLogImportRedirectionTelemetry @ 0x18015D73C (LdrpLogImportRedirectionTelemetry.c)
- *     LdrpLogIntegrityContinuityTelemetry @ 0x18015D848 (LdrpLogIntegrityContinuityTelemetry.c)
- *     LdrpLogVsmEnclaveLdrDeleteEnclaveTelemetry @ 0x18015DB44 (LdrpLogVsmEnclaveLdrDeleteEnclaveTelemetry.c)
- *     LdrpLogVsmEnclaveLdrLoadEnclaveModuleTelemetry @ 0x18015DC1C (LdrpLogVsmEnclaveLdrLoadEnclaveModuleTelemetry.c)
+ *     RtlpHpMetadataAlloc @ 0x18002DB90 (RtlpHpMetadataAlloc.c)
+ *     RtlpHpStackTraceHeapGetContext @ 0x18008FE38 (RtlpHpStackTraceHeapGetContext.c)
+ *     LdrpLogEtwHotPatchStatus @ 0x18008FFAC (LdrpLogEtwHotPatchStatus.c)
+ *     LdrpLogVerifyAlternateResourceModuleWithServiceChecksumFailure @ 0x180090C10 (LdrpLogVerifyAlternateResourceModuleWithServiceChecksumFailure.c)
+ *     LdrpLogMapAndVerifyResourceFileFailure @ 0x180090D68 (LdrpLogMapAndVerifyResourceFileFailure.c)
+ *     LdrpLogVsmEnclaveLdrInitializeEnclaveTelemetry @ 0x180090EF4 (LdrpLogVsmEnclaveLdrInitializeEnclaveTelemetry.c)
+ *     RtlpHpStackTraceAddStack @ 0x1800BD890 (RtlpHpStackTraceAddStack.c)
+ *     RtlSetHeapInformation @ 0x180110BC0 (RtlSetHeapInformation.c)
+ *     LdrpLogVsmEnclaveLdrCreateEnclaveTelemetry @ 0x1801121DC (LdrpLogVsmEnclaveLdrCreateEnclaveTelemetry.c)
+ *     RtlpFtQueryConfiguration @ 0x180147B2C (RtlpFtQueryConfiguration.c)
+ *     UcOnUnexpectedCodePath @ 0x180157700 (UcOnUnexpectedCodePath.c)
+ *     RtlpQueryDiskSpeedPolicy @ 0x18015AC00 (RtlpQueryDiskSpeedPolicy.c)
+ *     LdrpCgLogFailure @ 0x18015CD50 (LdrpCgLogFailure.c)
+ *     LdrpLogImportRedirectionTelemetry @ 0x18015D5FC (LdrpLogImportRedirectionTelemetry.c)
+ *     LdrpLogIntegrityContinuityTelemetry @ 0x18015D708 (LdrpLogIntegrityContinuityTelemetry.c)
+ *     LdrpLogVsmEnclaveLdrDeleteEnclaveTelemetry @ 0x18015DA04 (LdrpLogVsmEnclaveLdrDeleteEnclaveTelemetry.c)
+ *     LdrpLogVsmEnclaveLdrLoadEnclaveModuleTelemetry @ 0x18015DADC (LdrpLogVsmEnclaveLdrLoadEnclaveModuleTelemetry.c)
  * Callees:
- *     RtlRunOnceComplete @ 0x18006EFF0 (RtlRunOnceComplete.c)
- *     RtlReportCriticalFailure @ 0x18006F0F8 (RtlReportCriticalFailure.c)
- *     RtlpRunOnceWaitForInit @ 0x180070048 (RtlpRunOnceWaitForInit.c)
- *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180170020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ *     RtlRunOnceComplete @ 0x18008F440 (RtlRunOnceComplete.c)
+ *     RtlReportCriticalFailure @ 0x18008F548 (RtlReportCriticalFailure.c)
+ *     RtlpRunOnceWaitForInit @ 0x180090498 (RtlpRunOnceWaitForInit.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x18016F020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
  */
 
-__int64 __fastcall RtlRunOnceExecuteOnce(
-        volatile signed __int64 *a1,
-        unsigned int (__fastcall *a2)(volatile signed __int64 *, __int64, unsigned __int64 *),
-        __int64 a3,
-        unsigned __int64 *a4)
+NTSTATUS __cdecl RtlRunOnceExecuteOnce(
+        PRTL_RUN_ONCE RunOnce,
+        PRTL_RUN_ONCE_INIT_FN InitFn,
+        PVOID Parameter,
+        PVOID *Context)
 {
-  signed __int64 v4; // rax
+  unsigned __int64 Value; // rax
   char v6; // cl
-  signed __int64 v10; // rcx
-  signed __int64 v11; // rcx
-  unsigned int v12; // esi
-  unsigned __int64 v13; // r8
+  unsigned __int64 v10; // rcx
+  unsigned __int64 v11; // rcx
+  NTSTATUS v12; // esi
+  PVOID v13; // r8
   int v14; // ebx
   char v16[24]; // [rsp+20h] [rbp-18h] BYREF
 
-  v4 = *a1;
-  v6 = *a1;
+  Value = RunOnce->Value;
+  v6 = RunOnce->Value;
   v16[0] = 0;
   if ( (v6 & 3) == 2 )
   {
 LABEL_9:
-    if ( a4 )
-      *a4 = v4 & 0xFFFFFFFFFFFFFFFCuLL;
+    if ( Context )
+      *Context = (PVOID)(Value & 0xFFFFFFFFFFFFFFFCuLL);
     return 0;
   }
   else
@@ -56,8 +56,8 @@ LABEL_9:
     {
       while ( 1 )
       {
-        v10 = v4 & 3;
-        if ( (v4 & 3) == 0 )
+        v10 = Value & 3;
+        if ( (Value & 3) == 0 )
           break;
         if ( v10 != 1 )
         {
@@ -66,31 +66,31 @@ LABEL_9:
           v14 = -1073741584;
           goto LABEL_16;
         }
-        v4 = RtlpRunOnceWaitForInit(v4, a1);
+        Value = RtlpRunOnceWaitForInit(Value, RunOnce);
       }
-      v11 = v4;
-      v4 = _InterlockedCompareExchange64(a1, 1LL, v4);
+      v11 = Value;
+      Value = _InterlockedCompareExchange64((volatile signed __int64 *)RunOnce, 1LL, Value);
     }
-    while ( v4 != v11 );
-    if ( a2(a1, a3, a4) )
+    while ( Value != v11 );
+    if ( ((unsigned int (__fastcall *)(PRTL_RUN_ONCE, PVOID, PVOID *))InitFn)(RunOnce, Parameter, Context) )
     {
       v12 = 0;
       v13 = 0LL;
-      if ( a4 )
-        v13 = *a4;
-      v14 = RtlRunOnceComplete(a1, 0LL, v13);
+      if ( Context )
+        v13 = *Context;
+      v14 = RtlRunOnceComplete(RunOnce, 0, v13);
       if ( v14 < 0 )
       {
         v16[0] = 1;
 LABEL_16:
         RtlReportCriticalFailure((unsigned int)v14, v16, 1LL);
-        return (unsigned int)v14;
+        return v14;
       }
     }
     else
     {
       v12 = -1073741823;
-      v14 = RtlRunOnceComplete(a1, 4LL, 0LL);
+      v14 = RtlRunOnceComplete(RunOnce, 4u, 0LL);
       if ( v14 < 0 )
       {
         v16[0] = 2;

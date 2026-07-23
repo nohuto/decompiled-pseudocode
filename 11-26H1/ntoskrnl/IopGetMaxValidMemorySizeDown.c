@@ -1,10 +1,10 @@
 /*
- * XREFs of IopGetMaxValidMemorySizeDown @ 0x1405C9834
+ * XREFs of IopGetMaxValidMemorySizeDown @ 0x1405CC104
  * Callers:
- *     IopAddRunTimeTriageDataBlocks @ 0x1405C884C (IopAddRunTimeTriageDataBlocks.c)
- *     IopMarkPagesForRunTimeTriageDataBlocks @ 0x1405D5EA0 (IopMarkPagesForRunTimeTriageDataBlocks.c)
+ *     IopAddRunTimeTriageDataBlocks @ 0x1405CB11C (IopAddRunTimeTriageDataBlocks.c)
+ *     IopMarkPagesForRunTimeTriageDataBlocks @ 0x1405D8690 (IopMarkPagesForRunTimeTriageDataBlocks.c)
  * Callees:
- *     MmIsAddressValidEx @ 0x14034DFD0 (MmIsAddressValidEx.c)
+ *     MmIsAddressValidEx @ 0x140350050 (MmIsAddressValidEx.c)
  */
 
 __int64 __fastcall IopGetMaxValidMemorySizeDown(__int64 a1)

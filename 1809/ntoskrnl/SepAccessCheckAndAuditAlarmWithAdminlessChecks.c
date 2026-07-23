@@ -1,7 +1,7 @@
 /*
- * XREFs of SepAccessCheckAndAuditAlarmWithAdminlessChecks @ 0x1405BA530
+ * XREFs of SepAccessCheckAndAuditAlarmWithAdminlessChecks @ 0x1405BB530
  * Callers:
- *     SepAccessCheckAndAuditAlarm @ 0x1405BA46C (SepAccessCheckAndAuditAlarm.c)
+ *     SepAccessCheckAndAuditAlarm @ 0x1405BB46C (SepAccessCheckAndAuditAlarm.c)
  * Callees:
  *     SepFreeResourceInfo @ 0x14001311C (SepFreeResourceInfo.c)
  *     SepTokenIsOwner @ 0x1400131F0 (SepTokenIsOwner.c)
@@ -18,46 +18,46 @@
  *     SepMandatoryIntegrityCheck @ 0x140052270 (SepMandatoryIntegrityCheck.c)
  *     SepFilterCheck @ 0x140052760 (SepFilterCheck.c)
  *     SepAccessCheck @ 0x1400528F0 (SepAccessCheck.c)
- *     AuthzBasepEvaluateAceCondition @ 0x1400A6300 (AuthzBasepEvaluateAceCondition.c)
- *     SepLocateTokenTrustLevel @ 0x1400A9004 (SepLocateTokenTrustLevel.c)
- *     SeCaptureObjectTypeList @ 0x1400AA6C4 (SeCaptureObjectTypeList.c)
- *     SepTrustLevelCheck @ 0x1400AA8D8 (SepTrustLevelCheck.c)
- *     SePrivilegePolicyCheck @ 0x1400AA9D8 (SePrivilegePolicyCheck.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     SeLogAccessFailure @ 0x140118F00 (SeLogAccessFailure.c)
- *     AuthzBasepInitializeResourceClaimsFromSacl @ 0x1401214FC (AuthzBasepInitializeResourceClaimsFromSacl.c)
- *     SepLpacCausedAccessFailure @ 0x1401347DC (SepLpacCausedAccessFailure.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     SeFreeCapturedObjectTypeList @ 0x1402B04FC (SeFreeCapturedObjectTypeList.c)
- *     SepBuildCapeSecurityDescriptor @ 0x1402FE95C (SepBuildCapeSecurityDescriptor.c)
- *     SepCopyObjectTypeList @ 0x1402FE9FC (SepCopyObjectTypeList.c)
- *     SepGetScopedPolicySid @ 0x1402FEAB4 (SepGetScopedPolicySid.c)
- *     SepLogLpacAccessFailure @ 0x1402FEC00 (SepLogLpacAccessFailure.c)
- *     SepMergeObjectTypeListAccesses @ 0x1402FED14 (SepMergeObjectTypeListAccesses.c)
- *     SepRmDereferenceCapTable @ 0x1402FED44 (SepRmDereferenceCapTable.c)
- *     SepExamineGlobalSaclEx @ 0x1402FFCC8 (SepExamineGlobalSaclEx.c)
- *     SepRmReferenceFindCap @ 0x140300B60 (SepRmReferenceFindCap.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     SepProbeAndCaptureString_U @ 0x1405BB684 (SepProbeAndCaptureString_U.c)
- *     SepAdtAuditObjectAccessWithContext @ 0x1405BB7A8 (SepAdtAuditObjectAccessWithContext.c)
- *     SepAdtPrivilegeObjectAuditAlarm @ 0x1405BB8D8 (SepAdtPrivilegeObjectAuditAlarm.c)
- *     SepAdtAuditThisEventWithContext @ 0x1405BBA50 (SepAdtAuditThisEventWithContext.c)
- *     SeCheckAuditPrivilege @ 0x1405BBB28 (SeCheckAuditPrivilege.c)
- *     SeReleaseSubjectContext @ 0x1405E1240 (SeReleaseSubjectContext.c)
- *     SeUnlockSubjectContext @ 0x1405E62C0 (SeUnlockSubjectContext.c)
- *     SeLockSubjectContext @ 0x1405E6300 (SeLockSubjectContext.c)
- *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
- *     SeReleaseSid @ 0x1406112AC (SeReleaseSid.c)
- *     SeCaptureSid @ 0x1406112D4 (SeCaptureSid.c)
- *     ProbeForWrite @ 0x140629A60 (ProbeForWrite.c)
- *     SeCaptureSecurityDescriptor @ 0x140630CC0 (SeCaptureSecurityDescriptor.c)
- *     SeReleaseSecurityDescriptor @ 0x140631850 (SeReleaseSecurityDescriptor.c)
- *     SeCaptureSubjectContext @ 0x140631A80 (SeCaptureSubjectContext.c)
- *     SepAdtOpenObjectAuditAlarm @ 0x14089E6DC (SepAdtOpenObjectAuditAlarm.c)
- *     SepExamineSaclEx @ 0x1408A0FC0 (SepExamineSaclEx.c)
- *     SepAuditFailed @ 0x1408A4780 (SepAuditFailed.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
+ *     AuthzBasepEvaluateAceCondition @ 0x1400A6240 (AuthzBasepEvaluateAceCondition.c)
+ *     SepLocateTokenTrustLevel @ 0x1400A8F44 (SepLocateTokenTrustLevel.c)
+ *     SeCaptureObjectTypeList @ 0x1400AA604 (SeCaptureObjectTypeList.c)
+ *     SepTrustLevelCheck @ 0x1400AA818 (SepTrustLevelCheck.c)
+ *     SePrivilegePolicyCheck @ 0x1400AA918 (SePrivilegePolicyCheck.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     SeLogAccessFailure @ 0x140118F70 (SeLogAccessFailure.c)
+ *     AuthzBasepInitializeResourceClaimsFromSacl @ 0x1401215CC (AuthzBasepInitializeResourceClaimsFromSacl.c)
+ *     SepLpacCausedAccessFailure @ 0x1401348AC (SepLpacCausedAccessFailure.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     SeFreeCapturedObjectTypeList @ 0x1402B06EC (SeFreeCapturedObjectTypeList.c)
+ *     SepBuildCapeSecurityDescriptor @ 0x1402FEB4C (SepBuildCapeSecurityDescriptor.c)
+ *     SepCopyObjectTypeList @ 0x1402FEBEC (SepCopyObjectTypeList.c)
+ *     SepGetScopedPolicySid @ 0x1402FECA4 (SepGetScopedPolicySid.c)
+ *     SepLogLpacAccessFailure @ 0x1402FEDF0 (SepLogLpacAccessFailure.c)
+ *     SepMergeObjectTypeListAccesses @ 0x1402FEF04 (SepMergeObjectTypeListAccesses.c)
+ *     SepRmDereferenceCapTable @ 0x1402FEF34 (SepRmDereferenceCapTable.c)
+ *     SepExamineGlobalSaclEx @ 0x1402FFEB8 (SepExamineGlobalSaclEx.c)
+ *     SepRmReferenceFindCap @ 0x140300D50 (SepRmReferenceFindCap.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     SepProbeAndCaptureString_U @ 0x1405BC684 (SepProbeAndCaptureString_U.c)
+ *     SepAdtAuditObjectAccessWithContext @ 0x1405BC7A8 (SepAdtAuditObjectAccessWithContext.c)
+ *     SepAdtPrivilegeObjectAuditAlarm @ 0x1405BC8D8 (SepAdtPrivilegeObjectAuditAlarm.c)
+ *     SepAdtAuditThisEventWithContext @ 0x1405BCA50 (SepAdtAuditThisEventWithContext.c)
+ *     SeCheckAuditPrivilege @ 0x1405BCB28 (SeCheckAuditPrivilege.c)
+ *     SeReleaseSubjectContext @ 0x1405E2240 (SeReleaseSubjectContext.c)
+ *     SeUnlockSubjectContext @ 0x1405E72C0 (SeUnlockSubjectContext.c)
+ *     SeLockSubjectContext @ 0x1405E7300 (SeLockSubjectContext.c)
+ *     ObReferenceObjectByHandle @ 0x1405E9350 (ObReferenceObjectByHandle.c)
+ *     SeReleaseSid @ 0x1406122AC (SeReleaseSid.c)
+ *     SeCaptureSid @ 0x1406122D4 (SeCaptureSid.c)
+ *     ProbeForWrite @ 0x14062AA80 (ProbeForWrite.c)
+ *     SeCaptureSecurityDescriptor @ 0x140631CE0 (SeCaptureSecurityDescriptor.c)
+ *     SeReleaseSecurityDescriptor @ 0x140632870 (SeReleaseSecurityDescriptor.c)
+ *     SeCaptureSubjectContext @ 0x140632AA0 (SeCaptureSubjectContext.c)
+ *     SepAdtOpenObjectAuditAlarm @ 0x14089F93C (SepAdtOpenObjectAuditAlarm.c)
+ *     SepExamineSaclEx @ 0x1408A2220 (SepExamineSaclEx.c)
+ *     SepAuditFailed @ 0x1408A59E0 (SepAuditFailed.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D7880 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall SepAccessCheckAndAuditAlarmWithAdminlessChecks(
@@ -133,7 +133,7 @@ __int64 __fastcall SepAccessCheckAndAuditAlarmWithAdminlessChecks(
   __int64 v71; // r8
   __int16 v73; // ax
   __int64 v74; // rax
-  __int64 v75; // rcx
+  ACL *v75; // rcx
   int v76; // eax
   unsigned int v77; // eax
   unsigned int v78; // eax
@@ -151,9 +151,9 @@ __int64 __fastcall SepAccessCheckAndAuditAlarmWithAdminlessChecks(
   __int16 v90; // dx
   __int64 v91; // rax
   ACL *v92; // rax
-  unsigned __int8 *ScopedPolicySid; // rax
+  _BYTE *ScopedPolicySid; // rax
   int Cap; // eax
-  struct _RTL_DYNAMIC_HASH_TABLE_ENTRY *v95; // rdx
+  _RTL_DYNAMIC_HASH_TABLE_ENTRY *v95; // rdx
   char *v96; // r10
   unsigned int v97; // r13d
   char *v98; // r8
@@ -659,13 +659,13 @@ LABEL_224:
     v208 = v92;
     if ( v92 )
     {
-      ScopedPolicySid = SepGetScopedPolicySid((__int64)v92);
+      ScopedPolicySid = SepGetScopedPolicySid(v92);
       if ( ScopedPolicySid )
       {
         Cap = SepRmReferenceFindCap(ScopedPolicySid, &v211);
         v95 = v211;
         if ( Cap < 0 )
-          v95 = (struct _RTL_DYNAMIC_HASH_TABLE_ENTRY *)SepRmDefaultCap;
+          v95 = (_RTL_DYNAMIC_HASH_TABLE_ENTRY *)SepRmDefaultCap;
         v211 = v95;
         v26 = 0;
         v173 = 0;
@@ -688,11 +688,11 @@ LABEL_59:
     && ((v73 = *((_WORD *)v29 + 1), (v73 & 4) == 0)
       ? (v75 = 0LL)
       : v73 >= 0
-      ? (v75 = *((_QWORD *)v29 + 4))
+      ? (v75 = (ACL *)*((_QWORD *)v29 + 4))
       : (v74 = v29[4], !(_DWORD)v74)
       ? (v75 = 0LL)
-      : (v75 = (__int64)v29 + v74),
-        !(unsigned __int8)RtlOwnerAcesPresent(v75)) )
+      : (v75 = (ACL *)((char *)v29 + v74)),
+        !RtlOwnerAcesPresent(v75)) )
   {
     if ( (v38 & 0x2000000) != 0 )
     {

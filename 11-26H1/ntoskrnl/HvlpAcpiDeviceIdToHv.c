@@ -1,10 +1,10 @@
 /*
- * XREFs of HvlpAcpiDeviceIdToHv @ 0x1405BE724
+ * XREFs of HvlpAcpiDeviceIdToHv @ 0x1405C0F94
  * Callers:
- *     HvlGetDeviceCapabilities @ 0x1405BC9B0 (HvlGetDeviceCapabilities.c)
- *     HvlRegisterDeviceId @ 0x1405BDD50 (HvlRegisterDeviceId.c)
+ *     HvlGetDeviceCapabilities @ 0x1405BF220 (HvlGetDeviceCapabilities.c)
+ *     HvlRegisterDeviceId @ 0x1405C05C0 (HvlRegisterDeviceId.c)
  * Callees:
- *     strncpy_s @ 0x14053C7D0 (strncpy_s.c)
+ *     strncpy_s @ 0x14053EC50 (strncpy_s.c)
  */
 
 errno_t __fastcall HvlpAcpiDeviceIdToHv(__int64 a1, _QWORD *a2, char *a3, unsigned int a4)

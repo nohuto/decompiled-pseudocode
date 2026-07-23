@@ -28,7 +28,7 @@ __int64 __fastcall SepReadAndInsertCaps(HANDLE KeyHandle, int a2, __int64 a3)
   NTSTATUS v11; // eax
   NTSTATUS v12; // eax
   int SingleCap; // eax
-  struct _RTL_DYNAMIC_HASH_TABLE *v14; // r10
+  _RTL_DYNAMIC_HASH_TABLE *v14; // r10
   ULONG_PTR v15; // r8
   ULONG Length; // [rsp+30h] [rbp-D0h] BYREF
   HANDLE KeyHandlea; // [rsp+38h] [rbp-C8h] BYREF

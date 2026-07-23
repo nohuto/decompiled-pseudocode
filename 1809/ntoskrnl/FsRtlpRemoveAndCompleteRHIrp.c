@@ -1,23 +1,23 @@
 /*
- * XREFs of FsRtlpRemoveAndCompleteRHIrp @ 0x1401B3934
+ * XREFs of FsRtlpRemoveAndCompleteRHIrp @ 0x1401B37D4
  * Callers:
  *     FsRtlpOplockCleanup @ 0x14001794C (FsRtlpOplockCleanup.c)
  *     FsRtlpRequestShareableOplock @ 0x140017E60 (FsRtlpRequestShareableOplock.c)
  *     FsRtlpOplockBreakByCacheFlags @ 0x140018CB0 (FsRtlpOplockBreakByCacheFlags.c)
- *     FsRtlUninitializeOplock @ 0x14011B4A0 (FsRtlUninitializeOplock.c)
- *     FsRtlpCancelOplockRHIrp @ 0x14013318C (FsRtlpCancelOplockRHIrp.c)
- *     FsRtlpRequestExclusiveOplock @ 0x14015E10C (FsRtlpRequestExclusiveOplock.c)
+ *     FsRtlUninitializeOplock @ 0x14011B510 (FsRtlUninitializeOplock.c)
+ *     FsRtlpCancelOplockRHIrp @ 0x14013325C (FsRtlpCancelOplockRHIrp.c)
+ *     FsRtlpRequestExclusiveOplock @ 0x14015E20C (FsRtlpRequestExclusiveOplock.c)
  * Callees:
  *     FsRtlpOplockDequeueRH @ 0x140017D48 (FsRtlpOplockDequeueRH.c)
  *     IoReleaseCancelSpinLock @ 0x140017DC0 (IoReleaseCancelSpinLock.c)
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     IofCompleteRequest @ 0x1400C10C0 (IofCompleteRequest.c)
- *     FsRtlpModifyThreadPriorities @ 0x140107DA0 (FsRtlpModifyThreadPriorities.c)
- *     IoAcquireCancelSpinLock @ 0x140111D70 (IoAcquireCancelSpinLock.c)
- *     FsRtlpClearOwner @ 0x14012173C (FsRtlpClearOwner.c)
- *     FsRtlpOplockSendModernAppTermination @ 0x140134D00 (FsRtlpOplockSendModernAppTermination.c)
- *     FsRtlpOplockEnqueueRH @ 0x140136B54 (FsRtlpOplockEnqueueRH.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     IofCompleteRequest @ 0x1400C1000 (IofCompleteRequest.c)
+ *     FsRtlpModifyThreadPriorities @ 0x140107E20 (FsRtlpModifyThreadPriorities.c)
+ *     IoAcquireCancelSpinLock @ 0x140111DE0 (IoAcquireCancelSpinLock.c)
+ *     FsRtlpClearOwner @ 0x14012180C (FsRtlpClearOwner.c)
+ *     FsRtlpOplockSendModernAppTermination @ 0x140134DD0 (FsRtlpOplockSendModernAppTermination.c)
+ *     FsRtlpOplockEnqueueRH @ 0x140136C54 (FsRtlpOplockEnqueueRH.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 char __fastcall FsRtlpRemoveAndCompleteRHIrp(

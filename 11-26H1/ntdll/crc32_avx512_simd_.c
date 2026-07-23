@@ -1,7 +1,7 @@
 /*
- * XREFs of crc32_avx512_simd_ @ 0x180104FDC
+ * XREFs of crc32_avx512_simd_ @ 0x18010435C
  * Callers:
- *     crc32_z @ 0x180104CA4 (crc32_z.c)
+ *     crc32_z @ 0x180104024 (crc32_z.c)
  * Callees:
  *     <none>
  */
@@ -17,7 +17,7 @@ __int64 __fastcall crc32_avx512_simd_(__int64 _RCX, __int64 a2, int _R8D, double
   __asm { vmovdqu32 zmm1, zmmword ptr [rcx] }
   __asm { vmovdqu32 zmm6, zmmword ptr [rcx+40h] }
   v6 = a2 - 256;
-  __asm { vmovdqu32 zmm12, zmmword ptr cs:byte_1801839C0 }
+  __asm { vmovdqu32 zmm12, zmmword ptr cs:byte_1801828C0 }
   __asm { vmovdqu32 zmm13, zmmword ptr [rcx+80h] }
   __asm { vmovdqu32 zmm14, zmmword ptr [rcx+0C0h] }
   _RCX = _RCX + 256;
@@ -65,7 +65,7 @@ __int64 __fastcall crc32_avx512_simd_(__int64 _RCX, __int64 a2, int _R8D, double
   }
   __asm
   {
-    vmovdqu32 zmm5, zmmword ptr cs:byte_180183940
+    vmovdqu32 zmm5, zmmword ptr cs:byte_180182840
     vpclmulqdq zmm0, zmm7, zmm5, 11h
     vpxord  zmm1, zmm0, zmm6
     vpclmulqdq zmm2, zmm7, zmm5, 0
@@ -99,7 +99,7 @@ __int64 __fastcall crc32_avx512_simd_(__int64 _RCX, __int64 a2, int _R8D, double
   }
   __asm
   {
-    vmovdqa xmm4, cs:xmmword_180183990
+    vmovdqa xmm4, cs:xmmword_180182890
     vmovdqa xmm2, xmm3
     vpclmulqdq xmm2, xmm2, xmm4, 11h
     vmovdqa xmm0, xmm3
@@ -120,7 +120,7 @@ __int64 __fastcall crc32_avx512_simd_(__int64 _RCX, __int64 a2, int _R8D, double
     vextracti32x4 xmm0, zmm3, 3
     vmovdqa xmm3, cs:__xmm@00000000ffffffff00000000ffffffff
     vxorps  xmm2, xmm2, xmm0
-    vmovq   xmm0, cs:qword_180183900
+    vmovq   xmm0, cs:qword_180182800
     vmovdqa xmm1, xmm2
     vpclmulqdq xmm1, xmm1, xmm4, 10h
     vpsrldq xmm2, xmm2, 8
@@ -132,9 +132,9 @@ __int64 __fastcall crc32_avx512_simd_(__int64 _RCX, __int64 a2, int _R8D, double
     vxorps  xmm2, xmm2, xmm1
     vmovdqa xmm1, xmm2
     vandps  xmm1, xmm1, xmm3
-    vpclmulqdq xmm1, xmm1, cs:xmmword_180183980, 10h
+    vpclmulqdq xmm1, xmm1, cs:xmmword_180182880, 10h
     vandps  xmm1, xmm1, xmm3
-    vpclmulqdq xmm1, xmm1, cs:xmmword_180183980, 0
+    vpclmulqdq xmm1, xmm1, cs:xmmword_180182880, 0
     vxorps  xmm1, xmm1, xmm2
     vpextrd rax, xmm1, 1
     vzeroupper

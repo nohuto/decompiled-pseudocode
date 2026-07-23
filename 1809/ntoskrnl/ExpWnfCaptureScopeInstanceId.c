@@ -1,14 +1,14 @@
 /*
- * XREFs of ExpWnfCaptureScopeInstanceId @ 0x14060FE20
+ * XREFs of ExpWnfCaptureScopeInstanceId @ 0x140610E20
  * Callers:
- *     NtUpdateWnfStateData @ 0x14060EBB0 (NtUpdateWnfStateData.c)
- *     NtQueryWnfStateData @ 0x14060F3C0 (NtQueryWnfStateData.c)
- *     NtQueryWnfStateNameInformation @ 0x1406B4ED0 (NtQueryWnfStateNameInformation.c)
- *     NtDeleteWnfStateData @ 0x14075E520 (NtDeleteWnfStateData.c)
+ *     NtUpdateWnfStateData @ 0x14060FBB0 (NtUpdateWnfStateData.c)
+ *     NtQueryWnfStateData @ 0x1406103C0 (NtQueryWnfStateData.c)
+ *     NtQueryWnfStateNameInformation @ 0x1406B6170 (NtQueryWnfStateNameInformation.c)
+ *     NtDeleteWnfStateData @ 0x14075F710 (NtDeleteWnfStateData.c)
  * Callees:
- *     MmGetSessionById @ 0x14007E4E0 (MmGetSessionById.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1405E8390 (ObpReferenceObjectByHandleWithTag.c)
- *     SeCaptureSid @ 0x1406112D4 (SeCaptureSid.c)
+ *     MmGetSessionById @ 0x14007E4D0 (MmGetSessionById.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x1405E9390 (ObpReferenceObjectByHandleWithTag.c)
+ *     SeCaptureSid @ 0x1406122D4 (SeCaptureSid.c)
  */
 
 __int64 __fastcall ExpWnfCaptureScopeInstanceId(int a1, _DWORD *a2, char a3, __int64 *a4, __int64 a5)

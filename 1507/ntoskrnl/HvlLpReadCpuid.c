@@ -30,11 +30,11 @@ __int64 __fastcall HvlLpReadCpuid(int a1, int a2, _DWORD *a3, _DWORD *a4, _DWORD
   _SLIST_ENTRY *v25; // [rsp+28h] [rbp-B0h]
   PSLIST_ENTRY v26; // [rsp+30h] [rbp-A8h]
   PSLIST_ENTRY ListEntry; // [rsp+38h] [rbp-A0h]
-  union _SLIST_HEADER *v28; // [rsp+50h] [rbp-88h]
-  struct _SLIST_ENTRY *v29; // [rsp+58h] [rbp-80h]
+  _SLIST_HEADER *v28; // [rsp+50h] [rbp-88h]
+  _SLIST_ENTRY *v29; // [rsp+58h] [rbp-80h]
   _SLIST_ENTRY *v30; // [rsp+60h] [rbp-78h]
-  union _SLIST_HEADER *v31; // [rsp+70h] [rbp-68h]
-  struct _SLIST_ENTRY *v32; // [rsp+78h] [rbp-60h]
+  _SLIST_HEADER *v31; // [rsp+70h] [rbp-68h]
+  _SLIST_ENTRY *v32; // [rsp+78h] [rbp-60h]
   _SLIST_ENTRY *v33; // [rsp+80h] [rbp-58h]
   __int16 v34; // [rsp+D0h] [rbp-8h]
 
@@ -47,7 +47,7 @@ __int64 __fastcall HvlLpReadCpuid(int a1, int a2, _DWORD *a3, _DWORD *a4, _DWORD
     if ( v10 )
     {
       Next = v10[1].Next;
-      v28 = (union _SLIST_HEADER *)CurrentPrcb;
+      v28 = (_SLIST_HEADER *)CurrentPrcb;
       v11 = BYTE4(CurrentPrcb);
       v24 = 1;
       ListEntry = v10;
@@ -81,7 +81,7 @@ LABEL_7:
     v13 = (char *)v16;
     if ( v16 )
     {
-      v31 = (union _SLIST_HEADER *)v15;
+      v31 = (_SLIST_HEADER *)v15;
       v6 = 1;
       v17 = BYTE4(v15);
       v12 = (char)v31;

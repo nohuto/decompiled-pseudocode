@@ -1,9 +1,9 @@
 /*
- * XREFs of AdtpEtwBuildString @ 0x14083D140
+ * XREFs of AdtpEtwBuildString @ 0x14083D440
  * Callers:
- *     AdtpPackageParameters @ 0x140399604 (AdtpPackageParameters.c)
+ *     AdtpPackageParameters @ 0x1403997E4 (AdtpPackageParameters.c)
  * Callees:
- *     memmove @ 0x140435700 (memmove.c)
+ *     memmove @ 0x140435B00 (memmove.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 

@@ -20,11 +20,11 @@ int __fastcall EtwpDemuxUmTraceHandle(int a1, _DWORD *a2)
   int v3; // edx
   int v4; // ebx
   int v5; // eax
-  int v6; // eax
-  int v8; // [esp+Ch] [ebp-10h] BYREF
+  NTSTATUS v6; // eax
+  ULONG ReturnLength; // [esp+Ch] [ebp-10h] BYREF
   _DWORD *v9; // [esp+10h] [ebp-Ch]
   int v10; // [esp+14h] [ebp-8h]
-  __int16 v11; // [esp+18h] [ebp-4h] BYREF
+  __int16 OutputBuffer; // [esp+18h] [ebp-4h] BYREF
 
   v9 = a2;
   v2 = 0;
@@ -39,12 +39,12 @@ int __fastcall EtwpDemuxUmTraceHandle(int a1, _DWORD *a2)
     v5 = *(unsigned __int16 *)(v4 + 384);
     if ( !(_WORD)v5 )
     {
-      v6 = ZwTraceControl(40, v4 + 380, 4, (int)&v11, 2, (int)&v8);
+      v6 = ZwTraceControl(EtwQuerySessionDemuxObject, (PVOID)(v4 + 380), 4u, &OutputBuffer, 2u, &ReturnLength);
       v3 = v10;
-      if ( v6 || v8 != 2 )
+      if ( v6 || ReturnLength != 2 )
         goto LABEL_9;
-      LOWORD(v5) = v11;
-      *(_WORD *)(v4 + 384) = v11;
+      LOWORD(v5) = OutputBuffer;
+      *(_WORD *)(v4 + 384) = OutputBuffer;
       v5 = (unsigned __int16)v5;
     }
     if ( v5 == v3 )

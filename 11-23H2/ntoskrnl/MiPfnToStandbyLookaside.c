@@ -1,16 +1,16 @@
 /*
- * XREFs of MiPfnToStandbyLookaside @ 0x1402DDEF0
+ * XREFs of MiPfnToStandbyLookaside @ 0x1402DE180
  * Callers:
- *     MiSharedInsertPfnChainInList @ 0x1402DDB70 (MiSharedInsertPfnChainInList.c)
- *     MiReplaceStandbyLookaside @ 0x140330C08 (MiReplaceStandbyLookaside.c)
- *     MiRebuildStandbyLookasideList @ 0x140330D9C (MiRebuildStandbyLookasideList.c)
- *     MiUnlinkNumaStandbyPage @ 0x1403316AC (MiUnlinkNumaStandbyPage.c)
- *     MiExclusiveInsertPfnChainInList @ 0x14033C178 (MiExclusiveInsertPfnChainInList.c)
- *     MiInsertNumaStandbyPage @ 0x1406507B0 (MiInsertNumaStandbyPage.c)
+ *     MiSharedInsertPfnChainInList @ 0x1402DDE00 (MiSharedInsertPfnChainInList.c)
+ *     MiReplaceStandbyLookaside @ 0x140330E98 (MiReplaceStandbyLookaside.c)
+ *     MiRebuildStandbyLookasideList @ 0x14033102C (MiRebuildStandbyLookasideList.c)
+ *     MiUnlinkNumaStandbyPage @ 0x14033193C (MiUnlinkNumaStandbyPage.c)
+ *     MiExclusiveInsertPfnChainInList @ 0x14033C408 (MiExclusiveInsertPfnChainInList.c)
+ *     MiInsertNumaStandbyPage @ 0x140650D00 (MiInsertNumaStandbyPage.c)
  * Callees:
- *     MiSearchNumaNodeTable @ 0x14026EAD0 (MiSearchNumaNodeTable.c)
- *     MiGetPfnPriority @ 0x1402DF258 (MiGetPfnPriority.c)
- *     MiPageToChannel @ 0x140375870 (MiPageToChannel.c)
+ *     MiSearchNumaNodeTable @ 0x14026ED60 (MiSearchNumaNodeTable.c)
+ *     MiGetPfnPriority @ 0x1402DF4E8 (MiGetPfnPriority.c)
+ *     MiPageToChannel @ 0x140375A10 (MiPageToChannel.c)
  */
 
 __int64 __fastcall MiPfnToStandbyLookaside(__int64 a1, __int64 a2, __int64 *a3)

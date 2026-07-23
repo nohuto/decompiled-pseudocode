@@ -1,5 +1,5 @@
 /*
- * XREFs of PopClosePowerRequestObject @ 0x1405882C0
+ * XREFs of PopClosePowerRequestObject @ 0x1405892C0
  * Callers:
  *     <none>
  * Callees:

@@ -1,23 +1,23 @@
 /*
- * XREFs of PspProcessDynamicEHContinuationTargets @ 0x140B66514
+ * XREFs of PspProcessDynamicEHContinuationTargets @ 0x140B694A0
  * Callers:
- *     NtSetInformationProcess @ 0x140B72B10 (NtSetInformationProcess.c)
+ *     NtSetInformationProcess @ 0x140B781E0 (NtSetInformationProcess.c)
  * Callees:
- *     KiUnstackDetachProcess @ 0x1402307C0 (KiUnstackDetachProcess.c)
- *     KiStackAttachProcess @ 0x140247880 (KiStackAttachProcess.c)
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     MmIsUserAddress @ 0x14044E7C0 (MmIsUserAddress.c)
- *     MmIsBelowLowestUserAddress @ 0x140483720 (MmIsBelowLowestUserAddress.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     RtlAddDynamicEHContinuationTarget @ 0x1408095A8 (RtlAddDynamicEHContinuationTarget.c)
- *     RtlRemoveDynamicEHContinuationTarget @ 0x14080971C (RtlRemoveDynamicEHContinuationTarget.c)
+ *     KiUnstackDetachProcess @ 0x140232120 (KiUnstackDetachProcess.c)
+ *     KiStackAttachProcess @ 0x1402491E0 (KiStackAttachProcess.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     MmIsUserAddress @ 0x1404468F0 (MmIsUserAddress.c)
+ *     MmIsBelowLowestUserAddress @ 0x14047D050 (MmIsBelowLowestUserAddress.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     RtlAddDynamicEHContinuationTarget @ 0x14080F038 (RtlAddDynamicEHContinuationTarget.c)
+ *     RtlRemoveDynamicEHContinuationTarget @ 0x14080F1AC (RtlRemoveDynamicEHContinuationTarget.c)
  */
 
 __int64 __fastcall PspProcessDynamicEHContinuationTargets(

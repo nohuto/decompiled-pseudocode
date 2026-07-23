@@ -1,12 +1,12 @@
 /*
- * XREFs of IommupFreeSystemContext @ 0x140523AC4
+ * XREFs of IommupFreeSystemContext @ 0x140524014
  * Callers:
- *     IommuFreeLibraryContext @ 0x140522EB8 (IommuFreeLibraryContext.c)
+ *     IommuFreeLibraryContext @ 0x140523408 (IommuFreeLibraryContext.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     HalpMmAllocCtxFree @ 0x1403A56C0 (HalpMmAllocCtxFree.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     HalpMmAllocCtxFree @ 0x1403A58A0 (HalpMmAllocCtxFree.c)
  */
 
 void __fastcall IommupFreeSystemContext(__int64 a1)

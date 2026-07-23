@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpInterruptBuildGlobalStartupStub @ 0x14057C69C
+ * XREFs of HalpInterruptBuildGlobalStartupStub @ 0x14057EBCC
  * Callers:
- *     HalpInterruptInitSystem @ 0x140BEB450 (HalpInterruptInitSystem.c)
+ *     HalpInterruptInitSystem @ 0x140BF1450 (HalpInterruptInitSystem.c)
  * Callees:
- *     MmGetPhysicalAddress @ 0x14024D8F0 (MmGetPhysicalAddress.c)
- *     MmAllocateContiguousNodeMemory @ 0x14034A0F0 (MmAllocateContiguousNodeMemory.c)
- *     HalpHvVpStartEnabled @ 0x140585F74 (HalpHvVpStartEnabled.c)
- *     HalpInterruptBuildStartupStub @ 0x140592E3C (HalpInterruptBuildStartupStub.c)
- *     HalpMmBuildTiledMemoryMap @ 0x140BEC874 (HalpMmBuildTiledMemoryMap.c)
+ *     MmGetPhysicalAddress @ 0x14024F250 (MmGetPhysicalAddress.c)
+ *     MmAllocateContiguousNodeMemory @ 0x14034C170 (MmAllocateContiguousNodeMemory.c)
+ *     HalpHvVpStartEnabled @ 0x140588494 (HalpHvVpStartEnabled.c)
+ *     HalpInterruptBuildStartupStub @ 0x1405955BC (HalpInterruptBuildStartupStub.c)
+ *     HalpMmBuildTiledMemoryMap @ 0x140BF2874 (HalpMmBuildTiledMemoryMap.c)
  */
 
 __int64 HalpInterruptBuildGlobalStartupStub()
@@ -18,17 +18,17 @@ __int64 HalpInterruptBuildGlobalStartupStub()
   v0 = 0;
   if ( (unsigned __int8)HalpHvVpStartEnabled() && HalpHvSleepEnlightenedCpuManager || HalpPrebootMode )
   {
-    if ( !*(_QWORD *)&HalpDeviceBlockUnblockPushLock.PriorityFloorCounts[8] )
+    if ( !HalpDeviceBlockUnblockPushLock.SchedulerSharedSystemSlot )
     {
       if ( !HalpHvCpuManager && HalpInterruptBlockedProcessors )
         return (unsigned int)-1073741801;
       ContiguousNodeMemory = (void *)MmAllocateContiguousNodeMemory(4096LL, 0, -1, 0, 4, 0x80000000);
-      if ( (*(_QWORD *)&HalpDeviceBlockUnblockPushLock.PriorityFloorCounts[8] = ContiguousNodeMemory) == 0LL )
+      if ( (HalpDeviceBlockUnblockPushLock.SchedulerSharedSystemSlot = ContiguousNodeMemory) == 0LL )
         return (unsigned int)-1073741801;
-      *(PHYSICAL_ADDRESS *)HalpDeviceBlockUnblockPushLock.PriorityFloorCounts = MmGetPhysicalAddress(ContiguousNodeMemory);
+      *(PHYSICAL_ADDRESS *)&HalpDeviceBlockUnblockPushLock.AbWaitEntryCount = MmGetPhysicalAddress(ContiguousNodeMemory);
     }
 LABEL_12:
-    HalpInterruptGlobalStartupBlock = *(PVOID *)&HalpDeviceBlockUnblockPushLock.PriorityFloorCounts[8];
+    HalpInterruptGlobalStartupBlock = HalpDeviceBlockUnblockPushLock.SchedulerSharedSystemSlot;
     HalpInterruptBuildStartupStub();
     return (unsigned int)v0;
   }

@@ -1,24 +1,24 @@
 /*
- * XREFs of SepInternalQuerySecurityAttributesTokenEx @ 0x14024E760
+ * XREFs of SepInternalQuerySecurityAttributesTokenEx @ 0x1402F2FB0
  * Callers:
- *     SeQuerySecurityAttributesTokenAccessInformation @ 0x140250340 (SeQuerySecurityAttributesTokenAccessInformation.c)
- *     SeQuerySecurityAttributesToken @ 0x140600F90 (SeQuerySecurityAttributesToken.c)
- *     NtQuerySecurityAttributesToken @ 0x1406011C0 (NtQuerySecurityAttributesToken.c)
- *     NtQueryInformationToken @ 0x140657DF0 (NtQueryInformationToken.c)
+ *     SeQuerySecurityAttributesTokenAccessInformation @ 0x1402F4B50 (SeQuerySecurityAttributesTokenAccessInformation.c)
+ *     NtQueryInformationToken @ 0x14064CC10 (NtQueryInformationToken.c)
+ *     SeQuerySecurityAttributesToken @ 0x1406F06F0 (SeQuerySecurityAttributesToken.c)
+ *     NtQuerySecurityAttributesToken @ 0x1406F0920 (NtQuerySecurityAttributesToken.c)
  * Callees:
- *     ExAcquireSpinLockShared @ 0x14021CD80 (ExAcquireSpinLockShared.c)
- *     AuthzBasepQuerySecurityAttributesToken @ 0x14024E800 (AuthzBasepQuerySecurityAttributesToken.c)
- *     AuthzBasepFindSecurityAttribute @ 0x14024EBF0 (AuthzBasepFindSecurityAttribute.c)
- *     SepGetSingletonEntryFromIndexNumber @ 0x140251564 (SepGetSingletonEntryFromIndexNumber.c)
- *     SepPotentialGlobalTableAttribute @ 0x14027F2A4 (SepPotentialGlobalTableAttribute.c)
- *     AuthzBasepAllocateSecurityAttributesList @ 0x1402B2BDC (AuthzBasepAllocateSecurityAttributesList.c)
- *     AuthzBasepFreeSecurityAttributesList @ 0x1402F5290 (AuthzBasepFreeSecurityAttributesList.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14031C800 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     AuthzBasepDuplicateSecurityAttributes @ 0x1403560E0 (AuthzBasepDuplicateSecurityAttributes.c)
+ *     AuthzBasepAllocateSecurityAttributesList @ 0x140230D8C (AuthzBasepAllocateSecurityAttributesList.c)
+ *     SepPotentialGlobalTableAttribute @ 0x140241AF4 (SepPotentialGlobalTableAttribute.c)
+ *     ExAcquireSpinLockShared @ 0x1402C1680 (ExAcquireSpinLockShared.c)
+ *     AuthzBasepQuerySecurityAttributesToken @ 0x1402F3050 (AuthzBasepQuerySecurityAttributesToken.c)
+ *     AuthzBasepFindSecurityAttribute @ 0x1402F3440 (AuthzBasepFindSecurityAttribute.c)
+ *     SepGetSingletonEntryFromIndexNumber @ 0x1402F5D74 (SepGetSingletonEntryFromIndexNumber.c)
+ *     AuthzBasepFreeSecurityAttributesList @ 0x1402FFFE0 (AuthzBasepFreeSecurityAttributesList.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x140327550 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     AuthzBasepDuplicateSecurityAttributes @ 0x140360E30 (AuthzBasepDuplicateSecurityAttributes.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     SepGetProcUniqueLuidAndIndexFromTokenEx @ 0x1405977E0 (SepGetProcUniqueLuidAndIndexFromTokenEx.c)
- *     SepInternalFillNoAttribs @ 0x140597890 (SepInternalFillNoAttribs.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     SepGetProcUniqueLuidAndIndexFromTokenEx @ 0x140597A10 (SepGetProcUniqueLuidAndIndexFromTokenEx.c)
+ *     SepInternalFillNoAttribs @ 0x140597AC0 (SepInternalFillNoAttribs.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SepInternalQuerySecurityAttributesTokenEx(
@@ -37,7 +37,7 @@ __int64 __fastcall SepInternalQuerySecurityAttributesTokenEx(
   volatile LONG *SingletonEntryFromIndexNumber; // rax
   volatile LONG *v16; // r14
   unsigned __int64 v17; // r15
-  __int64 SecurityAttributesList; // rax
+  _QWORD *SecurityAttributesList; // rax
   int SecurityAttributesToken; // edi
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
@@ -60,7 +60,7 @@ __int64 __fastcall SepInternalQuerySecurityAttributesTokenEx(
   v14 = 0;
   if ( a4 )
   {
-    while ( (unsigned __int8)SepPotentialGlobalTableAttribute((PCUNICODE_STRING)(a3 + 16LL * v14))
+    while ( SepPotentialGlobalTableAttribute((PCUNICODE_STRING)(a3 + 16LL * v14))
          && !AuthzBasepFindSecurityAttribute(*(_QWORD *)(a1 + 776), a3 + 16LL * v14) )
     {
       if ( ++v14 >= a4 )
@@ -79,7 +79,7 @@ LABEL_10:
   if ( *((_QWORD *)v16 + 2) )
   {
     SecurityAttributesList = AuthzBasepAllocateSecurityAttributesList();
-    v8 = (void *)SecurityAttributesList;
+    v8 = SecurityAttributesList;
     SecurityAttributesToken = SecurityAttributesList
                             ? AuthzBasepDuplicateSecurityAttributes(*((_QWORD *)v16 + 2), SecurityAttributesList, 0LL)
                             : -1073741801;

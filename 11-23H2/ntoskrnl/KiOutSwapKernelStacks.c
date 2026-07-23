@@ -1,15 +1,15 @@
 /*
  * XREFs of KiOutSwapKernelStacks @ 0x140222854
  * Callers:
- *     KeSwapProcessOrStack @ 0x1403954B0 (KeSwapProcessOrStack.c)
+ *     KeSwapProcessOrStack @ 0x140395690 (KeSwapProcessOrStack.c)
  * Callees:
  *     KeQueryActiveProcessorCountEx @ 0x140222050 (KeQueryActiveProcessorCountEx.c)
  *     KiWaitForContextSwap @ 0x140222CB8 (KiWaitForContextSwap.c)
  *     KiDecrementProcessStackCount @ 0x140222CF4 (KiDecrementProcessStackCount.c)
  *     MmOutPageKernelStack @ 0x140222E50 (MmOutPageKernelStack.c)
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 ULONG KiOutSwapKernelStacks()
@@ -47,7 +47,7 @@ ULONG KiOutSwapKernelStacks()
   v2 = MEMORY[0xFFFFF78000000320] - KiStackProtectTime;
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     LODWORD(v15) = 4;
@@ -99,10 +99,10 @@ LABEL_36:
     *(_QWORD *)(v6 + 712) = 0LL;
   }
   _InterlockedAnd64((volatile signed __int64 *)(v1 + 32464), 0LL);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v17 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v17 <= 0xFu && CurrentIrql <= 0xFu && v17 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v17 <= 0xFu && CurrentIrql <= 0xFu && v17 >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v19 = CurrentPrcb->SchedulerAssist;

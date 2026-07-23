@@ -1,16 +1,16 @@
 /*
- * XREFs of ExpAcquirePrmInterface @ 0x1407BF2A8
+ * XREFs of ExpAcquirePrmInterface @ 0x1407BF6F8
  * Callers:
- *     ExpPrmNotifyInterfaceChange @ 0x1407BF3E0 (ExpPrmNotifyInterfaceChange.c)
- *     ExpPrmTargetDeviceChangeCallback @ 0x1407BF4D0 (ExpPrmTargetDeviceChangeCallback.c)
+ *     ExpPrmNotifyInterfaceChange @ 0x1407BF830 (ExpPrmNotifyInterfaceChange.c)
+ *     ExpPrmTargetDeviceChangeCallback @ 0x1407BF920 (ExpPrmTargetDeviceChangeCallback.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     RtlUnicodeStringCopy @ 0x1403E4550 (RtlUnicodeStringCopy.c)
- *     ExpQueryPrmInterface @ 0x1407BF618 (ExpQueryPrmInterface.c)
- *     RtlFreeAnsiString @ 0x1408A4990 (RtlFreeAnsiString.c)
- *     IoGetDeviceObjectPointer @ 0x140967A30 (IoGetDeviceObjectPointer.c)
- *     IoRegisterPlugPlayNotification @ 0x1409ED860 (IoRegisterPlugPlayNotification.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     RtlUnicodeStringCopy @ 0x1403D20F0 (RtlUnicodeStringCopy.c)
+ *     ExpQueryPrmInterface @ 0x1407BFA68 (ExpQueryPrmInterface.c)
+ *     RtlFreeAnsiString @ 0x1408B69C0 (RtlFreeAnsiString.c)
+ *     IoGetDeviceObjectPointer @ 0x1409504C0 (IoGetDeviceObjectPointer.c)
+ *     IoRegisterPlugPlayNotification @ 0x1409EB2A0 (IoRegisterPlugPlayNotification.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall ExpAcquirePrmInterface(UNICODE_STRING *SourceString, char a2, void *a3)
@@ -31,7 +31,7 @@ __int64 __fastcall ExpAcquirePrmInterface(UNICODE_STRING *SourceString, char a2,
     if ( a2 )
     {
       v9 = SourceString->Length + 2;
-      UnicodeString.Buffer = (wchar_t *)ExAllocatePool2(0x40uLL);
+      UnicodeString.Buffer = (wchar_t *)ExAllocatePool2(0x40uLL, v9, 0x496D7250u);
       if ( !UnicodeString.Buffer )
       {
         PrmInterface = -1073741670;

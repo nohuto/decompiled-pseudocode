@@ -1,11 +1,11 @@
 /*
- * XREFs of __ft_process_marker_get_handle @ 0x1801480F0
+ * XREFs of __ft_process_marker_get_handle @ 0x180147FA0
  * Callers:
- *     RtlGetFeatureToggleConfiguration @ 0x1801479C0 (RtlGetFeatureToggleConfiguration.c)
+ *     RtlGetFeatureToggleConfiguration @ 0x180147870 (RtlGetFeatureToggleConfiguration.c)
  * Callees:
- *     sprintf_s @ 0x180133C60 (sprintf_s.c)
- *     __security_check_cookie @ 0x180162C90 (__security_check_cookie.c)
- *     memset$thunk$772440563353939046 @ 0x180170030 (memset$thunk$772440563353939046.c)
+ *     sprintf_s @ 0x1801339D0 (sprintf_s.c)
+ *     __security_check_cookie @ 0x180162B90 (__security_check_cookie.c)
+ *     memset$thunk$772440563353939046 @ 0x18016F030 (memset$thunk$772440563353939046.c)
  */
 
 __int64 __fastcall _ft_process_marker_get_handle(int a1)

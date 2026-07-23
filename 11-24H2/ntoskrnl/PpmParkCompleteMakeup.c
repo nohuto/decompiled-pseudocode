@@ -1,9 +1,9 @@
 /*
- * XREFs of PpmParkCompleteMakeup @ 0x1404EE1A4
+ * XREFs of PpmParkCompleteMakeup @ 0x1404E593C
  * Callers:
- *     PpmCheckMakeupSkippedChecks @ 0x14029FB90 (PpmCheckMakeupSkippedChecks.c)
+ *     PpmCheckMakeupSkippedChecks @ 0x1402ADF00 (PpmCheckMakeupSkippedChecks.c)
  * Callees:
- *     memmove @ 0x1406BFC40 (memmove.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
  */
 
 __int64 PpmParkCompleteMakeup()
@@ -21,7 +21,7 @@ __int64 PpmParkCompleteMakeup()
 
   for ( i = 0; i < (unsigned int)PpmParkNumNodes; result = i )
   {
-    v1 = PpmParkNodes + 1288LL * i;
+    v1 = PpmParkNodes + 1296LL * i;
     v2 = *(const void **)(v1 + 1112);
     v3 = *(void **)(v1 + 1120);
     v4 = (unsigned int)(8 * *(_DWORD *)(v1 + 1160));
@@ -31,7 +31,7 @@ __int64 PpmParkCompleteMakeup()
     {
       for ( j = 0; j < *(_BYTE *)(v1 + 12); ++j )
       {
-        v6 = *(_QWORD *)(v1 + 1280) + 640LL * j;
+        v6 = *(_QWORD *)(v1 + 1288) + 640LL * j;
         v7 = *(_DWORD *)(v6 + 624);
         v8 = *(const void **)(v6 + 576);
         *(_QWORD *)(v6 + 608) = *(_QWORD *)(v6 + 600);

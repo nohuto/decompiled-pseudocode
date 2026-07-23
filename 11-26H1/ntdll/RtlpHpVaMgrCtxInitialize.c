@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpHpVaMgrCtxInitialize @ 0x180089C28
+ * XREFs of RtlpHpVaMgrCtxInitialize @ 0x1800D0F68
  * Callers:
- *     RtlHpHeapManagerInitialize @ 0x180089AEC (RtlHpHeapManagerInitialize.c)
+ *     RtlHpHeapManagerInitialize @ 0x1800D0E2C (RtlHpHeapManagerInitialize.c)
  * Callees:
- *     RtlCSparseBitmapInitialize @ 0x180089B80 (RtlCSparseBitmapInitialize.c)
- *     memset$thunk$772440563353939046 @ 0x180170030 (memset$thunk$772440563353939046.c)
+ *     RtlCSparseBitmapInitialize @ 0x1800D0EC0 (RtlCSparseBitmapInitialize.c)
+ *     memset$thunk$772440563353939046 @ 0x18016F030 (memset$thunk$772440563353939046.c)
  */
 
 __int64 __fastcall RtlpHpVaMgrCtxInitialize(_QWORD *a1)

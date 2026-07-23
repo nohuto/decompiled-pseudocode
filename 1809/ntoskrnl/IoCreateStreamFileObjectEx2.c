@@ -1,23 +1,23 @@
 /*
- * XREFs of IoCreateStreamFileObjectEx2 @ 0x1405A35A0
+ * XREFs of IoCreateStreamFileObjectEx2 @ 0x1405A45A0
  * Callers:
- *     IoCreateStreamFileObjectLite @ 0x1405A3560 (IoCreateStreamFileObjectLite.c)
- *     IoCreateStreamFileObjectEx @ 0x140702460 (IoCreateStreamFileObjectEx.c)
- *     IoCreateStreamFileObject @ 0x1407057E0 (IoCreateStreamFileObject.c)
+ *     IoCreateStreamFileObjectLite @ 0x1405A4560 (IoCreateStreamFileObjectLite.c)
+ *     IoCreateStreamFileObjectEx @ 0x140703700 (IoCreateStreamFileObjectEx.c)
+ *     IoCreateStreamFileObject @ 0x140706A80 (IoCreateStreamFileObject.c)
  * Callees:
  *     IopIncrementVpbRefCount @ 0x14000ED50 (IopIncrementVpbRefCount.c)
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     IopGetSetSpecificExtension @ 0x14008D07C (IopGetSetSpecificExtension.c)
- *     IopIncrementDeviceObjectRefCount @ 0x1400B8840 (IopIncrementDeviceObjectRefCount.c)
- *     IopDecrementDeviceObjectRef @ 0x1400B8C20 (IopDecrementDeviceObjectRef.c)
- *     KeInitializeEvent @ 0x1400B8E70 (KeInitializeEvent.c)
- *     RtlRaiseStatus @ 0x140128E90 (RtlRaiseStatus.c)
- *     RtlpInterlockedPushEntrySList @ 0x1401C5410 (RtlpInterlockedPushEntrySList.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ObCreateObjectEx @ 0x1405E05E0 (ObCreateObjectEx.c)
- *     ObCloseHandle @ 0x1405F5700 (ObCloseHandle.c)
- *     ObInsertObjectEx @ 0x14062D080 (ObInsertObjectEx.c)
+ *     IopGetSetSpecificExtension @ 0x14008CFBC (IopGetSetSpecificExtension.c)
+ *     IopIncrementDeviceObjectRefCount @ 0x1400B8780 (IopIncrementDeviceObjectRefCount.c)
+ *     IopDecrementDeviceObjectRef @ 0x1400B8B60 (IopDecrementDeviceObjectRef.c)
+ *     KeInitializeEvent @ 0x1400B8DB0 (KeInitializeEvent.c)
+ *     RtlRaiseStatus @ 0x140128F60 (RtlRaiseStatus.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1401C5570 (RtlpInterlockedPushEntrySList.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ObCreateObjectEx @ 0x1405E15E0 (ObCreateObjectEx.c)
+ *     ObCloseHandle @ 0x1405F6700 (ObCloseHandle.c)
+ *     ObInsertObjectEx @ 0x14062E0A0 (ObInsertObjectEx.c)
  */
 
 __int64 __fastcall IoCreateStreamFileObjectEx2(__int64 a1, __int64 a2, __int64 a3, _QWORD *a4, HANDLE *a5)
@@ -28,7 +28,7 @@ __int64 __fastcall IoCreateStreamFileObjectEx2(__int64 a1, __int64 a2, __int64 a
   NTSTATUS SetSpecificExtension; // r12d
   char *v11; // rdi
   struct _KPRCB *CurrentPrcb; // r8
-  struct _SLIST_ENTRY *v13; // rdx
+  _SLIST_ENTRY *v13; // rdx
   _GENERAL_LOOKASIDE *P; // rcx
   __int64 v15; // r9
   PVOID v16; // rdi
@@ -102,7 +102,7 @@ LABEL_8:
   if ( v6 )
   {
     CurrentPrcb = KeGetCurrentPrcb();
-    v13 = (struct _SLIST_ENTRY *)*((_QWORD *)v11 - 2);
+    v13 = (_SLIST_ENTRY *)*((_QWORD *)v11 - 2);
     P = CurrentPrcb->PPLookasideList[4].P;
     ++P->TotalFrees;
     if ( LOWORD(P->ListHead.Alignment) < P->Depth
@@ -116,7 +116,7 @@ LABEL_8:
     else
     {
       ++P->FreeMisses;
-      ((void (__fastcall *)(struct _SLIST_ENTRY *))P->FreeEx)(v13);
+      ((void (__fastcall *)(_SLIST_ENTRY *))P->FreeEx)(v13);
     }
     *((_QWORD *)v11 - 2) = 0LL;
 LABEL_13:

@@ -1,18 +1,18 @@
 /*
- * XREFs of CmpAddValueToListEx @ 0x1405AD8B0
+ * XREFs of CmpAddValueToListEx @ 0x1405AE8B0
  * Callers:
- *     CmpSetValueKeyNew @ 0x1405ACBBC (CmpSetValueKeyNew.c)
- *     CmSetValueKey @ 0x1405CBE28 (CmSetValueKey.c)
- *     CmpLightWeightPrepareSetValueKeyUoW @ 0x1406950E4 (CmpLightWeightPrepareSetValueKeyUoW.c)
- *     CmpCopyKeyPartial @ 0x1406FF8C0 (CmpCopyKeyPartial.c)
- *     CmpSetValueKeyTombstone @ 0x1407F0580 (CmpSetValueKeyTombstone.c)
- *     CmpMergeKeyValues @ 0x1407FDAE0 (CmpMergeKeyValues.c)
- *     CmpSyncKeyValues @ 0x1407FE4DC (CmpSyncKeyValues.c)
- *     CmpFullPromoteSingleKeyFromKeyNodeStacks @ 0x140804E80 (CmpFullPromoteSingleKeyFromKeyNodeStacks.c)
+ *     CmpSetValueKeyNew @ 0x1405ADBBC (CmpSetValueKeyNew.c)
+ *     CmSetValueKey @ 0x1405CCE28 (CmSetValueKey.c)
+ *     CmpLightWeightPrepareSetValueKeyUoW @ 0x1406962A4 (CmpLightWeightPrepareSetValueKeyUoW.c)
+ *     CmpCopyKeyPartial @ 0x140700B60 (CmpCopyKeyPartial.c)
+ *     CmpSetValueKeyTombstone @ 0x1407F1780 (CmpSetValueKeyTombstone.c)
+ *     CmpMergeKeyValues @ 0x1407FECE0 (CmpMergeKeyValues.c)
+ *     CmpSyncKeyValues @ 0x1407FF6DC (CmpSyncKeyValues.c)
+ *     CmpFullPromoteSingleKeyFromKeyNodeStacks @ 0x140806080 (CmpFullPromoteSingleKeyFromKeyNodeStacks.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     HvReallocateCell @ 0x1405AD9CC (HvReallocateCell.c)
- *     HvAllocateCell @ 0x1405FBE54 (HvAllocateCell.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     HvReallocateCell @ 0x1405AE9CC (HvReallocateCell.c)
+ *     HvAllocateCell @ 0x1405FCE54 (HvAllocateCell.c)
  */
 
 __int64 __fastcall CmpAddValueToListEx(ULONG_PTR a1, int a2, unsigned int a3, int a4, unsigned int *a5, int a6)

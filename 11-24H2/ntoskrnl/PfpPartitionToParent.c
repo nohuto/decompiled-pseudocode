@@ -1,16 +1,16 @@
 /*
- * XREFs of PfpPartitionToParent @ 0x1404BCA40
+ * XREFs of PfpPartitionToParent @ 0x1404B7BB0
  * Callers:
- *     MiStopPageAccessor @ 0x14026ADB0 (MiStopPageAccessor.c)
- *     PfpLogScenarioEventCallback @ 0x140745B10 (PfpLogScenarioEventCallback.c)
- *     PfTStart @ 0x140746B0C (PfTStart.c)
- *     PfpFlushBuffers @ 0x14094F8D0 (PfpFlushBuffers.c)
- *     CmFcManagerRegisterFeatureConfigurationChangeNotification @ 0x140AA1C4C (CmFcManagerRegisterFeatureConfigurationChangeNotification.c)
- *     PfpLogEventRequest @ 0x140AA86F4 (PfpLogEventRequest.c)
- *     PfpPowerActionSleepSystemPhaseCallback @ 0x140B5AE30 (PfpPowerActionSleepSystemPhaseCallback.c)
- *     PfpPowerActionStartScenarioTracingCallback @ 0x140B5AEA0 (PfpPowerActionStartScenarioTracingCallback.c)
- *     PfTAccessTracingStart @ 0x140B5B5B0 (PfTAccessTracingStart.c)
- *     PfTSetTracingPriority @ 0x140B5B62C (PfTSetTracingPriority.c)
+ *     MiStopPageAccessor @ 0x140220340 (MiStopPageAccessor.c)
+ *     PfpLogScenarioEventCallback @ 0x140743E00 (PfpLogScenarioEventCallback.c)
+ *     PfTStart @ 0x140744DFC (PfTStart.c)
+ *     PfpFlushBuffers @ 0x140971DE0 (PfpFlushBuffers.c)
+ *     CmFcManagerRegisterFeatureConfigurationChangeNotification @ 0x140A9CFDC (CmFcManagerRegisterFeatureConfigurationChangeNotification.c)
+ *     PfpLogEventRequest @ 0x140AA3778 (PfpLogEventRequest.c)
+ *     PfpPowerActionSleepSystemPhaseCallback @ 0x140B5CEA0 (PfpPowerActionSleepSystemPhaseCallback.c)
+ *     PfpPowerActionStartScenarioTracingCallback @ 0x140B5CF10 (PfpPowerActionStartScenarioTracingCallback.c)
+ *     PfTAccessTracingStart @ 0x140B5D620 (PfTAccessTracingStart.c)
+ *     PfTSetTracingPriority @ 0x140B5D69C (PfTSetTracingPriority.c)
  * Callees:
  *     <none>
  */

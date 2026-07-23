@@ -1,14 +1,14 @@
 /*
- * XREFs of MiReferenceExistingControlArea @ 0x1404A4A50
+ * XREFs of MiReferenceExistingControlArea @ 0x14049E0E0
  * Callers:
- *     MiCreateImageOrDataSection @ 0x1409BAFEC (MiCreateImageOrDataSection.c)
+ *     MiCreateImageOrDataSection @ 0x14098BFCC (MiCreateImageOrDataSection.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     MiReleaseControlAreaWaiters @ 0x1402733E0 (MiReleaseControlAreaWaiters.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiReferenceActiveControlArea @ 0x14030BC64 (MiReferenceActiveControlArea.c)
- *     MiLockSectionControlArea @ 0x14044FAD0 (MiLockSectionControlArea.c)
- *     MiValidateControlAreaPartition @ 0x140497EB4 (MiValidateControlAreaPartition.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     MiReleaseControlAreaWaiters @ 0x140272950 (MiReleaseControlAreaWaiters.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiReferenceActiveControlArea @ 0x1402EDCE4 (MiReferenceActiveControlArea.c)
+ *     MiLockSectionControlArea @ 0x140447C00 (MiLockSectionControlArea.c)
+ *     MiValidateControlAreaPartition @ 0x140491A04 (MiValidateControlAreaPartition.c)
  */
 
 __int64 __fastcall MiReferenceExistingControlArea(__int64 a1)

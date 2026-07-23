@@ -52,7 +52,7 @@ __int64 __fastcall RtlInitializeHeapManager(__int64 a1)
   }
   if ( (RtlpHpLfhPerfFlags & 0x40) != 0 )
   {
-    RtlpHpGCInterval = -10000000LL;
+    RtlpHpGCInterval.QuadPart = -10000000LL;
     RtlpHpOverrideGCInterval(a1);
   }
   RtlpHpInitializePerfPolicies(v10);
@@ -76,7 +76,7 @@ __int64 __fastcall RtlInitializeHeapManager(__int64 a1)
   v4->NumberOfHeaps = 0;
   RtlpDisableBreakOnFailureCookie = v8 != 0 ? v7 : 0;
   v4->ProcessHeaps = (void **)&RtlpProcessHeapsListBuffer;
-  RtlInitializeCriticalSectionEx((__int64)&RtlpProcessHeapsListLock, 0, 0x10000000);
+  RtlInitializeCriticalSectionEx(&RtlpProcessHeapsListLock, 0, 0x10000000u);
   RtlpHeapKey = RtlpHeapGenerateRandomValue64();
   if ( (RtlGetSuiteMask() & 0x10000) != 0 )
   {

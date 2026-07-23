@@ -1,14 +1,14 @@
 /*
- * XREFs of PoIssueCoalescingNotification @ 0x140435CBC
+ * XREFs of PoIssueCoalescingNotification @ 0x1404247C8
  * Callers:
- *     CmpIssueNewDirtyCallback @ 0x140AF8000 (CmpIssueNewDirtyCallback.c)
- *     PopCoalescingCallbackWorker @ 0x140B14140 (PopCoalescingCallbackWorker.c)
+ *     CmpIssueNewDirtyCallback @ 0x140AFA6A0 (CmpIssueNewDirtyCallback.c)
+ *     PopCoalescingCallbackWorker @ 0x140B16240 (PopCoalescingCallbackWorker.c)
  * Callees:
- *     ExReferenceCallBackBlock @ 0x14029BA90 (ExReferenceCallBackBlock.c)
- *     ExDereferenceCallBackBlock @ 0x140435D80 (ExDereferenceCallBackBlock.c)
- *     PopAcquireRwLockShared @ 0x140436298 (PopAcquireRwLockShared.c)
- *     PopReleaseRwLock @ 0x14043630C (PopReleaseRwLock.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     PopReleaseRwLock @ 0x14021B1A8 (PopReleaseRwLock.c)
+ *     ExReferenceCallBackBlock @ 0x14029AFF0 (ExReferenceCallBackBlock.c)
+ *     ExDereferenceCallBackBlock @ 0x140424890 (ExDereferenceCallBackBlock.c)
+ *     PopAcquireRwLockShared @ 0x140424A28 (PopAcquireRwLockShared.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall PoIssueCoalescingNotification(__int64 a1, int a2)
@@ -27,7 +27,7 @@ __int64 __fastcall PoIssueCoalescingNotification(__int64 a1, int a2)
   v8 = 0;
   v10 = 0LL;
   v6 = *(_BYTE *)(a1 + 32);
-  PopAcquireRwLockShared(&stru_140F11D08.AffinityVersion);
+  PopAcquireRwLockShared(&PopCoalRegistrationListLock);
   for ( i = (signed __int64 *)PopCoalRegistrationList;
         i != (signed __int64 *)&PopCoalRegistrationList;
         i = (signed __int64 *)*i )
@@ -40,5 +40,5 @@ __int64 __fastcall PoIssueCoalescingNotification(__int64 a1, int a2)
       ExDereferenceCallBackBlock(i + 2);
     }
   }
-  return PopReleaseRwLock((struct _KTHREAD *)&stru_140F11D08.AffinityVersion);
+  return PopReleaseRwLock((struct _KTHREAD *)&PopCoalRegistrationListLock);
 }

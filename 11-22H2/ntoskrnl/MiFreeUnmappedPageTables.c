@@ -34,10 +34,10 @@ __int64 __fastcall MiFreeUnmappedPageTables(__int64 a1, _QWORD *a2)
         ++a2[1];
       result = 0x7FFFFFFFFFFFFFFFLL;
       _InterlockedAnd64((volatile signed __int64 *)(v5 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         result = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
           && (unsigned __int8)result <= 0xFu
           && (unsigned __int8)v7 <= 0xFu
           && (unsigned __int8)result >= 2u )

@@ -3,8 +3,8 @@
  * Callers:
  *     RtlDnsHostNameToComputerName @ 0x180062020 (RtlDnsHostNameToComputerName.c)
  *     RtlUpcaseUnicodeStringToOemString @ 0x180062370 (RtlUpcaseUnicodeStringToOemString.c)
- *     RtlUnicodeStringToCountedOemString @ 0x1800EB3B0 (RtlUnicodeStringToCountedOemString.c)
- *     RtlUpcaseUnicodeStringToCountedOemString @ 0x1800EB5F0 (RtlUpcaseUnicodeStringToCountedOemString.c)
+ *     RtlUnicodeStringToCountedOemString @ 0x1800EB370 (RtlUnicodeStringToCountedOemString.c)
+ *     RtlUpcaseUnicodeStringToCountedOemString @ 0x1800EB5B0 (RtlUpcaseUnicodeStringToCountedOemString.c)
  * Callees:
  *     RtlpIsUtf8Process @ 0x1800627AC (RtlpIsUtf8Process.c)
  */

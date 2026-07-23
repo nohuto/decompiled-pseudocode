@@ -1,19 +1,19 @@
 /*
  * XREFs of IoRaiseInformationalHardError @ 0x140557960
  * Callers:
- *     MiCauseOverCommitPopup @ 0x1405B301C (MiCauseOverCommitPopup.c)
- *     DifIoRaiseInformationalHardErrorWrapper @ 0x1406102C0 (DifIoRaiseInformationalHardErrorWrapper.c)
+ *     sub_1405B301C @ 0x1405B301C (sub_1405B301C.c)
+ *     sub_1406102C0 @ 0x1406102C0 (sub_1406102C0.c)
  *     FsRtlLogCcFlushError @ 0x14092D830 (FsRtlLogCcFlushError.c)
- *     PopTransitionSystemPowerStateEx @ 0x140A494E8 (PopTransitionSystemPowerStateEx.c)
+ *     sub_140A494E8 @ 0x140A494E8 (sub_140A494E8.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
+ *     KeReleaseSpinLockFromDpcLevel @ 0x14021D070 (KeReleaseSpinLockFromDpcLevel.c)
  *     KeAcquireSpinLockRaiseToDpc @ 0x1402AD540 (KeAcquireSpinLockRaiseToDpc.c)
  *     KeInsertQueueApc @ 0x1402ED9E0 (KeInsertQueueApc.c)
  *     KeInitializeApc @ 0x1402F47B0 (KeInitializeApc.c)
  *     ExQueueWorkItem @ 0x140345FC0 (ExQueueWorkItem.c)
- *     KeReleaseSemaphoreEx @ 0x14035AD70 (KeReleaseSemaphoreEx.c)
+ *     sub_14035AD70 @ 0x14035AD70 (sub_14035AD70.c)
  *     memcmp @ 0x1403E1D90 (memcmp.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     sub_140418E4C @ 0x140418E4C (sub_140418E4C.c)
  *     memmove @ 0x140435B40 (memmove.c)
  *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
@@ -26,7 +26,7 @@ BOOLEAN __stdcall IoRaiseInformationalHardError(NTSTATUS ErrorStatus, PUNICODE_S
   void *v9; // rax
   __int64 v10; // rdi
   unsigned __int64 v11; // rdi
-  _DWORD *v12; // r9
+  __int64 v12; // r9
   const void *v13; // rcx
   __int64 v14; // rsi
   int v15; // ebp
@@ -34,23 +34,23 @@ BOOLEAN __stdcall IoRaiseInformationalHardError(NTSTATUS ErrorStatus, PUNICODE_S
   _QWORD *v17; // rax
   unsigned __int8 v18; // al
   struct _KPRCB *v19; // r9
-  _DWORD *v20; // r8
+  __int64 v20; // r8
   int v21; // eax
   bool v22; // zf
   void *v23; // rcx
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r11
-  _DWORD *SchedulerAssist; // r9
+  __int64 v26; // r9
   int v27; // edx
 
-  if ( !IopInitSystemCompletedEnoughForReInitRoutines )
+  if ( !byte_140C4E910 )
     return 0;
   if ( Thread )
   {
-    if ( (*(_DWORD *)(&Thread[1].SwapListEntry + 1) & 0x10) != 0 )
+    if ( (*((_DWORD *)Thread + 344) & 0x10) != 0 )
       return 0;
   }
-  else if ( (*(_DWORD *)(&KeGetCurrentThread()[1].SwapListEntry + 1) & 0x10) != 0 )
+  else if ( (*((_DWORD *)KeGetCurrentThread() + 344) & 0x10) != 0 )
   {
     return 0;
   }
@@ -86,11 +86,11 @@ LABEL_47:
   {
     v11 = KeAcquireSpinLockRaiseToDpc(&qword_140C472B0);
     if ( SystemArgument1.Header.SignalState < 25
-      && (!IopCurrentHardError
-       || *((_DWORD *)v8 + 4) != *(_DWORD *)(IopCurrentHardError + 16)
-       || ((v13 = (const void *)v8[4]) != 0LL || *(_QWORD *)(IopCurrentHardError + 32))
-       && (*((_WORD *)v8 + 12) != *(_WORD *)(IopCurrentHardError + 24)
-        || memcmp(v13, *(const void **)(IopCurrentHardError + 32), *((unsigned __int16 *)v8 + 12)))) )
+      && (!qword_140C46D78
+       || *((_DWORD *)v8 + 4) != *(_DWORD *)(qword_140C46D78 + 16)
+       || ((v13 = (const void *)v8[4]) != 0LL || *(_QWORD *)(qword_140C46D78 + 32))
+       && (*((_WORD *)v8 + 12) != *(_WORD *)(qword_140C46D78 + 24)
+        || memcmp(v13, *(const void **)(qword_140C46D78 + 32), *((unsigned __int16 *)v8 + 12)))) )
     {
       v14 = qword_140C472A0;
       if ( (__int64 *)qword_140C472A0 == &qword_140C472A0 )
@@ -103,27 +103,27 @@ LABEL_35:
         v8[1] = v17;
         *v17 = v8;
         qword_140C472A8 = (__int64)v8;
-        KeReleaseSemaphoreEx(&SystemArgument1.Header.Lock, 0LL, 1LL, v12, 0);
+        sub_14035AD70(&SystemArgument1.Header.Lock, 0LL, 1LL, v12, 0);
         if ( !byte_140C472D8 )
         {
           byte_140C472D8 = 1;
-          ExQueueWorkItem(&IopHardError, DelayedWorkQueue);
+          ExQueueWorkItem(&stru_140C47280, DelayedWorkQueue);
         }
-        KxReleaseSpinLock(&qword_140C472B0);
-        if ( KiIrqlFlags )
+        KeReleaseSpinLockFromDpcLevel(&qword_140C472B0);
+        if ( dword_140D06B08 )
         {
-          if ( (KiIrqlFlags & 1) != 0 )
+          if ( (dword_140D06B08 & 1) != 0 )
           {
             CurrentIrql = KeGetCurrentIrql();
             if ( CurrentIrql <= 0xFu && (unsigned __int8)v11 <= 0xFu && CurrentIrql >= 2u )
             {
               CurrentPrcb = KeGetCurrentPrcb();
-              SchedulerAssist = CurrentPrcb->SchedulerAssist;
+              v26 = *((_QWORD *)CurrentPrcb + 4375);
               v27 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v11 + 1));
-              v22 = (v27 & SchedulerAssist[5]) == 0;
-              SchedulerAssist[5] &= v27;
+              v22 = (v27 & *(_DWORD *)(v26 + 20)) == 0;
+              *(_DWORD *)(v26 + 20) &= v27;
               if ( v22 )
-                KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+                sub_140418E4C((__int64)CurrentPrcb);
             }
           }
         }
@@ -149,21 +149,21 @@ LABEL_35:
           goto LABEL_35;
       }
     }
-    KxReleaseSpinLock(&qword_140C472B0);
-    if ( KiIrqlFlags )
+    KeReleaseSpinLockFromDpcLevel(&qword_140C472B0);
+    if ( dword_140D06B08 )
     {
-      if ( (KiIrqlFlags & 1) != 0 )
+      if ( (dword_140D06B08 & 1) != 0 )
       {
         v18 = KeGetCurrentIrql();
         if ( v18 <= 0xFu && (unsigned __int8)v11 <= 0xFu && v18 >= 2u )
         {
           v19 = KeGetCurrentPrcb();
-          v20 = v19->SchedulerAssist;
+          v20 = *((_QWORD *)v19 + 4375);
           v21 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v11 + 1));
-          v22 = (v21 & v20[5]) == 0;
-          v20[5] &= v21;
+          v22 = (v21 & *(_DWORD *)(v20 + 20)) == 0;
+          *(_DWORD *)(v20 + 20) &= v21;
           if ( v22 )
-            KiRemoveSystemWorkPriorityKick((__int64)v19);
+            sub_140418E4C((__int64)v19);
         }
       }
     }
@@ -180,15 +180,7 @@ LABEL_45:
     goto LABEL_47;
   }
   _InterlockedIncrement(&dword_140C472DC);
-  KeInitializeApc(
-    v10,
-    (__int64)Thread,
-    0,
-    (__int64)SC_ENV::Free,
-    0LL,
-    (__int64)IopRaiseInformationalHardError,
-    0,
-    (__int64)v8);
+  KeInitializeApc(v10, (__int64)Thread, 0, (__int64)sub_1406D9550, 0LL, (__int64)sub_140934E20, 0, (__int64)v8);
   KeInsertQueueApc(v10, 0LL, 0LL, 0);
   return 1;
 }

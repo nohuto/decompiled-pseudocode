@@ -1,12 +1,12 @@
 /*
- * XREFs of SeSetVirtualizationToken @ 0x1409C97EC
+ * XREFs of SeSetVirtualizationToken @ 0x1409C99EC
  * Callers:
- *     NtSetInformationProcess @ 0x140774540 (NtSetInformationProcess.c)
- *     NtSetInformationToken @ 0x1407EF480 (NtSetInformationToken.c)
+ *     NtSetInformationProcess @ 0x140774730 (NtSetInformationProcess.c)
+ *     NtSetInformationToken @ 0x1407EF750 (NtSetInformationToken.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402390E0 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x14023D410 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402391B0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14023D4E0 (ExReleaseResourceLite.c)
  */
 
 _QWORD *__fastcall SeSetVirtualizationToken(__int64 a1, int a2)

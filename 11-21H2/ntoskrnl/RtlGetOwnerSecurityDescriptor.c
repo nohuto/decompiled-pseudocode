@@ -1,14 +1,14 @@
 /*
  * XREFs of RtlGetOwnerSecurityDescriptor @ 0x140679440
  * Callers:
- *     LocalConvertSDToStringSD_Rev1 @ 0x140676314 (LocalConvertSDToStringSD_Rev1.c)
- *     PspAllocateAndQueryNotificationChannel @ 0x140678C4C (PspAllocateAndQueryNotificationChannel.c)
- *     CmpCheckKeyOwnerForPca @ 0x1406793E4 (CmpCheckKeyOwnerForPca.c)
- *     IopGetSecurityDescriptorInformation @ 0x1406796E8 (IopGetSecurityDescriptorInformation.c)
- *     CmpCheckExeOwnerForPca @ 0x1406B4F98 (CmpCheckExeOwnerForPca.c)
- *     PipChangeDeviceObjectFromRegistryProperties @ 0x1406BCE90 (PipChangeDeviceObjectFromRegistryProperties.c)
- *     RtlpSysVolCheckOwnerAndSecurity @ 0x1407F8298 (RtlpSysVolCheckOwnerAndSecurity.c)
- *     CmpCopySaclToVirtualKey @ 0x14091822C (CmpCopySaclToVirtualKey.c)
+ *     sub_140676314 @ 0x140676314 (sub_140676314.c)
+ *     sub_140678C4C @ 0x140678C4C (sub_140678C4C.c)
+ *     sub_1406793E4 @ 0x1406793E4 (sub_1406793E4.c)
+ *     sub_1406796E8 @ 0x1406796E8 (sub_1406796E8.c)
+ *     sub_1406B4F98 @ 0x1406B4F98 (sub_1406B4F98.c)
+ *     sub_1406BCE90 @ 0x1406BCE90 (sub_1406BCE90.c)
+ *     sub_1407F8298 @ 0x1407F8298 (sub_1407F8298.c)
+ *     sub_14091822C @ 0x14091822C (sub_14091822C.c)
  *     RtlReplaceSidInSd @ 0x1409B92B0 (RtlReplaceSidInSd.c)
  * Callees:
  *     <none>

@@ -14,40 +14,44 @@ int __fastcall EtwpQueryPartitionRegistryInformationUm(_DWORD *a1, _DWORD *a2, _
 {
   int result; // eax
   _DWORD *v6; // edi
-  _WORD v7[2]; // [esp+Ch] [ebp-BCh] BYREF
-  _BYTE *v8; // [esp+10h] [ebp-B8h]
-  _WORD v9[2]; // [esp+14h] [ebp-B4h] BYREF
-  _BYTE *v10; // [esp+18h] [ebp-B0h]
-  _DWORD *v11; // [esp+1Ch] [ebp-ACh]
-  _BYTE v12[80]; // [esp+20h] [ebp-A8h] BYREF
-  _BYTE v13[84]; // [esp+70h] [ebp-58h] BYREF
+  size_t v7; // [esp-4h] [ebp-CCh]
+  size_t v8; // [esp-4h] [ebp-CCh]
+  _WORD v9[2]; // [esp+Ch] [ebp-BCh] BYREF
+  _BYTE *v10; // [esp+10h] [ebp-B8h]
+  _WORD v11[2]; // [esp+14h] [ebp-B4h] BYREF
+  _BYTE *v12; // [esp+18h] [ebp-B0h]
+  _DWORD *v13; // [esp+1Ch] [ebp-ACh]
+  _BYTE v14[80]; // [esp+20h] [ebp-A8h] BYREF
+  _BYTE v15[84]; // [esp+70h] [ebp-58h] BYREF
 
   *a2 = 0;
-  v11 = a2;
-  memset(v13, 0, 0x4Cu);
-  memset(v12, 0, 0x4Cu);
-  v10 = v13;
-  v9[1] = 76;
-  v9[0] = 76;
-  result = EtwpQueryRegString(L"\\Registry\\Machine\\System\\CurrentControlSet\\Control", L"ContainerId", v13, 38);
+  v13 = a2;
+  LODWORD(v7) = 76;
+  memset(v15, 0, v7);
+  LODWORD(v8) = 76;
+  memset(v14, 0, v8);
+  v12 = v15;
+  v11[1] = 76;
+  v11[0] = 76;
+  result = EtwpQueryRegString(L"\\Registry\\Machine\\System\\CurrentControlSet\\Control", L"ContainerId", v15, 0x26u);
   if ( !result || result == -1073741772 )
   {
-    v8 = v12;
-    v7[1] = 76;
-    v7[0] = 76;
+    v10 = v14;
+    v9[1] = 76;
+    v9[0] = 76;
     result = EtwpQueryRegString(
                L"\\Registry\\Machine\\System\\CurrentControlSet\\Control",
                L"ContainerCorrelationId",
-               v12,
-               38);
+               v14,
+               0x26u);
     if ( !result || result == -1073741772 )
     {
-      result = EtwpGetRegDwordValue(v11);
+      result = EtwpGetRegDwordValue(v13);
       if ( !result || result == -1073741772 )
       {
         *a3 = 0;
         a3[1] = 0;
-        if ( StringToGuidNoBrackets(v9, a1) )
+        if ( StringToGuidNoBrackets(v11, a1) )
         {
           *a1 = NullGuid[0];
           v6 = a1 + 1;
@@ -55,7 +59,7 @@ int __fastcall EtwpQueryPartitionRegistryInformationUm(_DWORD *a1, _DWORD *a2, _
           *v6 = NullGuid[2];
           v6[1] = NullGuid[3];
         }
-        result = StringToGuidNoBrackets(v7, a4);
+        result = StringToGuidNoBrackets(v9, a4);
         if ( result )
         {
           result = 0;

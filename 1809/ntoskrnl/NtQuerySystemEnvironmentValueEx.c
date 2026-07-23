@@ -1,20 +1,20 @@
 /*
- * XREFs of NtQuerySystemEnvironmentValueEx @ 0x1406CAD00
+ * XREFs of NtQuerySystemEnvironmentValueEx @ 0x1406CBFA0
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     SeSinglePrivilegeCheck @ 0x140612160 (SeSinglePrivilegeCheck.c)
- *     ProbeForWrite @ 0x140629A60 (ProbeForWrite.c)
- *     PsIsProcessAppContainer @ 0x1406B81E8 (PsIsProcessAppContainer.c)
- *     ExGetFirmwareEnvironmentVariable @ 0x1406CADA0 (ExGetFirmwareEnvironmentVariable.c)
- *     ExpFirmwareAccessAppContainerCheck @ 0x1408D0A10 (ExpFirmwareAccessAppContainerCheck.c)
- *     ExpGetFirmwareEnvironmentVariable @ 0x1408D0DA8 (ExpGetFirmwareEnvironmentVariable.c)
- *     ExpUmdfSidCheck @ 0x1408D32D0 (ExpUmdfSidCheck.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     SeSinglePrivilegeCheck @ 0x140613160 (SeSinglePrivilegeCheck.c)
+ *     ProbeForWrite @ 0x14062AA80 (ProbeForWrite.c)
+ *     PsIsProcessAppContainer @ 0x1406B9488 (PsIsProcessAppContainer.c)
+ *     ExGetFirmwareEnvironmentVariable @ 0x1406CC040 (ExGetFirmwareEnvironmentVariable.c)
+ *     ExpFirmwareAccessAppContainerCheck @ 0x1408D1CD0 (ExpFirmwareAccessAppContainerCheck.c)
+ *     ExpGetFirmwareEnvironmentVariable @ 0x1408D2068 (ExpGetFirmwareEnvironmentVariable.c)
+ *     ExpUmdfSidCheck @ 0x1408D4590 (ExpUmdfSidCheck.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D7880 (ExRaiseDatatypeMisalignment.c)
  */
 
 NTSTATUS __stdcall NtQuerySystemEnvironmentValueEx(
@@ -48,7 +48,7 @@ NTSTATUS __stdcall NtQuerySystemEnvironmentValueEx(
              (_DWORD)Value,
              (_DWORD)ReturnLength,
              (__int64)Attributes);
-  if ( dword_140409D90 != 2 )
+  if ( dword_14040ADF0 != 2 )
     return -1073741822;
   if ( ((unsigned __int8)VariableName & 3) != 0 )
     ExRaiseDatatypeMisalignment();

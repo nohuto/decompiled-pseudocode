@@ -1,12 +1,12 @@
 /*
- * XREFs of MiInitializeKernelScp @ 0x140CFAB28
+ * XREFs of MiInitializeKernelScp @ 0x140D00EA8
  * Callers:
- *     MiInitSystem @ 0x140CF15C4 (MiInitSystem.c)
+ *     MiInitSystem @ 0x140CF7944 (MiInitSystem.c)
  * Callees:
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     RtlCreateKernelScpFunctionTable @ 0x140622F2C (RtlCreateKernelScpFunctionTable.c)
- *     MiInitializeRetpoline @ 0x140CFABB8 (MiInitializeRetpoline.c)
- *     MiLockKernelScpSection @ 0x140CFAD28 (MiLockKernelScpSection.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     RtlCreateKernelScpFunctionTable @ 0x140625F7C (RtlCreateKernelScpFunctionTable.c)
+ *     MiInitializeRetpoline @ 0x140D00F38 (MiInitializeRetpoline.c)
+ *     MiLockKernelScpSection @ 0x140D010A8 (MiLockKernelScpSection.c)
  */
 
 __int64 MiInitializeKernelScp()
@@ -26,15 +26,15 @@ __int64 MiInitializeKernelScp()
   }
   KernelScpFunctionTable = RtlCreateKernelScpFunctionTable(
                              (unsigned int)v0,
-                             *(_DWORD **)&stru_140E2D150.WaitBlockFill11[64],
-                             *(_DWORD *)&stru_140E2D150.WaitBlockFill11[76] << 12);
+                             *(_DWORD **)&stru_140E2D2D0.WaitBlockFill11[64],
+                             *(_DWORD *)&stru_140E2D2D0.WaitBlockFill11[76] << 12);
   if ( KernelScpFunctionTable < 0 )
   {
     BugCheckParameter4 = 167LL;
     goto LABEL_9;
   }
-  KernelScpFunctionTable = *(_DWORD *)&stru_140E2D150.WaitBlockFill11[88];
-  if ( *(int *)&stru_140E2D150.WaitBlockFill11[88] >= 0 )
+  KernelScpFunctionTable = *(_DWORD *)&stru_140E2D2D0.WaitBlockFill11[88];
+  if ( *(int *)&stru_140E2D2D0.WaitBlockFill11[88] >= 0 )
   {
     KernelScpFunctionTable = MiInitializeRetpoline(&v4);
     BugCheckParameter4 = v4;

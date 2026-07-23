@@ -1,14 +1,14 @@
 /*
- * XREFs of IopAllocateLegacyBootResources @ 0x140CC53B8
+ * XREFs of IopAllocateLegacyBootResources @ 0x140CCB498
  * Callers:
- *     PipProcessStartPhase2 @ 0x140B0AC1C (PipProcessStartPhase2.c)
- *     IopInitializeBootDrivers @ 0x140CBF2A4 (IopInitializeBootDrivers.c)
+ *     PipProcessStartPhase2 @ 0x140B0C368 (PipProcessStartPhase2.c)
+ *     IopInitializeBootDrivers @ 0x140CC5374 (IopInitializeBootDrivers.c)
  * Callees:
- *     IopAllocateBootResources @ 0x1407A5F00 (IopAllocateBootResources.c)
- *     IopCombineCmResourceList @ 0x1407A6210 (IopCombineCmResourceList.c)
- *     IopCreateCmResourceList @ 0x1407A62C4 (IopCreateCmResourceList.c)
- *     PipSetDevNodeFlags @ 0x14090DD60 (PipSetDevNodeFlags.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     IopAllocateBootResources @ 0x1407A8AB0 (IopAllocateBootResources.c)
+ *     IopCombineCmResourceList @ 0x1407A8DC0 (IopCombineCmResourceList.c)
+ *     IopCreateCmResourceList @ 0x1407A8E74 (IopCreateCmResourceList.c)
+ *     PipSetDevNodeFlags @ 0x1409AFE90 (PipSetDevNodeFlags.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IopAllocateLegacyBootResources(__int64 a1, int a2)

@@ -45,7 +45,7 @@ __int64 __fastcall KiOutSwapProcesses(signed __int64 *a1)
     a1 = (signed __int64 *)*a1;
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(2uLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
       if ( CurrentIrql == 2 )
@@ -62,10 +62,10 @@ __int64 __fastcall KiOutSwapProcesses(signed __int64 *a1)
     {
       _InterlockedXor(&v3->Pcb.StackCount.Value, v7 ^ 5);
       _InterlockedAnd(&v3->Pcb.Header.Lock, 0xFFFFFF7F);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v21 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v21 <= 0xFu && CurrentIrql <= 0xFu && v21 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v21 <= 0xFu && CurrentIrql <= 0xFu && v21 >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           v23 = CurrentPrcb->SchedulerAssist;
@@ -81,7 +81,7 @@ __int64 __fastcall KiOutSwapProcesses(signed __int64 *a1)
       v8 = 0;
       v9 = KeGetCurrentIrql();
       __writecr8(2uLL);
-      if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v9 <= 0xFu )
+      if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v9 <= 0xFu )
       {
         v14 = KeGetCurrentPrcb()->SchedulerAssist;
         if ( v9 == 2 )
@@ -119,10 +119,10 @@ __int64 __fastcall KiOutSwapProcesses(signed __int64 *a1)
         _InterlockedAnd((volatile signed __int32 *)&KiSwapEvent, 0xFFFFFF7F);
       }
       result = (unsigned int)KiIrqlFlags;
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v25 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v25 <= 0xFu && CurrentIrql <= 0xFu && v25 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v25 <= 0xFu && CurrentIrql <= 0xFu && v25 >= 2u )
         {
           v26 = KeGetCurrentPrcb();
           v27 = v26->SchedulerAssist;

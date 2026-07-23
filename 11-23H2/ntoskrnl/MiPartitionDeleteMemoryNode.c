@@ -1,15 +1,15 @@
 /*
- * XREFs of MiPartitionDeleteMemoryNode @ 0x14065B18C
+ * XREFs of MiPartitionDeleteMemoryNode @ 0x14065B6DC
  * Callers:
- *     MiInsertPartitionPages @ 0x14065A480 (MiInsertPartitionPages.c)
- *     MiRemovePhysicalMemory @ 0x140A2CC4C (MiRemovePhysicalMemory.c)
+ *     MiInsertPartitionPages @ 0x14065A9D0 (MiInsertPartitionPages.c)
+ *     MiRemovePhysicalMemory @ 0x140A2CEFC (MiRemovePhysicalMemory.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     RtlAvlRemoveNode @ 0x14028AF50 (RtlAvlRemoveNode.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiDeletePartitionPageNode @ 0x1406593C8 (MiDeletePartitionPageNode.c)
- *     MiMakePartitionMemoryBlock @ 0x140A45090 (MiMakePartitionMemoryBlock.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     RtlAvlRemoveNode @ 0x14028B1E0 (RtlAvlRemoveNode.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     MiDeletePartitionPageNode @ 0x140659918 (MiDeletePartitionPageNode.c)
+ *     MiMakePartitionMemoryBlock @ 0x140A45340 (MiMakePartitionMemoryBlock.c)
  */
 
 void __fastcall MiPartitionDeleteMemoryNode(__int64 a1, __int64 a2, __int64 a3)
@@ -55,10 +55,13 @@ void __fastcall MiPartitionDeleteMemoryNode(__int64 a1, __int64 a2, __int64 a3)
     *(_QWORD *)(a1 + 17040) -= a3;
     *(_BYTE *)(a1 + 12) = 1;
     ExReleaseSpinLockExclusiveFromDpcLevel(v6);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v9 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v9 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;

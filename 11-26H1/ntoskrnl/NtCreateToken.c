@@ -1,25 +1,42 @@
 /*
- * XREFs of NtCreateToken @ 0x140814940
+ * XREFs of NtCreateToken @ 0x14081AA30
  * Callers:
- *     DifNtCreateTokenWrapper @ 0x1406747F0 (DifNtCreateTokenWrapper.c)
+ *     DifNtCreateTokenWrapper @ 0x1406783D0 (DifNtCreateTokenWrapper.c)
  * Callees:
- *     NtCreateTokenEx @ 0x140A44080 (NtCreateTokenEx.c)
+ *     NtCreateTokenEx @ 0x1409E2210 (NtCreateTokenEx.c)
  */
 
-__int64 __fastcall NtCreateToken(
-        int a1,
-        int a2,
-        int a3,
-        int a4,
-        void *a5,
-        __int64 a6,
-        __int64 a7,
-        __int64 a8,
-        __int64 a9,
-        __int64 a10,
-        __int64 a11,
-        __int64 a12,
-        __int64 a13)
+NTSTATUS __cdecl NtCreateToken(
+        PHANDLE TokenHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        TOKEN_TYPE Type,
+        PLUID AuthenticationId,
+        PLARGE_INTEGER ExpirationTime,
+        PTOKEN_USER User,
+        PTOKEN_GROUPS Groups,
+        PTOKEN_PRIVILEGES Privileges,
+        PTOKEN_OWNER Owner,
+        PTOKEN_PRIMARY_GROUP PrimaryGroup,
+        PTOKEN_DEFAULT_DACL DefaultDacl,
+        PTOKEN_SOURCE Source)
 {
-  return NtCreateTokenEx(a1, a2, a3, a4, a5, a6, a7, a8, a9, 0LL, 0LL, 0LL, 0LL, a10, a11, a12, a13);
+  return NtCreateTokenEx(
+           TokenHandle,
+           DesiredAccess,
+           ObjectAttributes,
+           Type,
+           AuthenticationId,
+           ExpirationTime,
+           User,
+           Groups,
+           Privileges,
+           0LL,
+           0LL,
+           0LL,
+           0LL,
+           Owner,
+           PrimaryGroup,
+           DefaultDacl,
+           Source);
 }

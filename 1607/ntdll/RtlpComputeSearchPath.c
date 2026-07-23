@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpComputeSearchPath @ 0x180009110
+ * XREFs of RtlpComputeSearchPath @ 0x180009100
  * Callers:
  *     <none>
  * Callees:
- *     RtlpLookupCurDirSetting @ 0x1800093F0 (RtlpLookupCurDirSetting.c)
- *     RtlpComputePath @ 0x18000CD84 (RtlpComputePath.c)
+ *     RtlpLookupCurDirSetting @ 0x1800093E0 (RtlpLookupCurDirSetting.c)
+ *     RtlpComputePath @ 0x18000CD74 (RtlpComputePath.c)
  */
 
 __int64 RtlpComputeSearchPath()
@@ -25,7 +25,7 @@ __int64 RtlpComputeSearchPath()
     {
       v0 = dword_180153354;
       if ( !dword_180153354 )
-        v0 = RtlpLookupCurDirSetting(L"*,", 0LL, &dword_180153354);
+        v0 = RtlpLookupCurDirSetting((PUNICODE_STRING)&stru_1801080C0);
     }
   }
   result = RtlpComputePath((char *)&unk_18010C030 + 16 * v0, 4LL, 0LL, 0LL);

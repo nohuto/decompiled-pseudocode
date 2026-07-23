@@ -1,18 +1,18 @@
 /*
- * XREFs of MiLockVadShared @ 0x14027E8D0
+ * XREFs of MiLockVadShared @ 0x14027DE40
  * Callers:
- *     MiObtainReferencedVadEx @ 0x1402D0160 (MiObtainReferencedVadEx.c)
- *     MiUserFault @ 0x1403A3140 (MiUserFault.c)
- *     MiReturnLockedVadOrNextVa @ 0x14044E7E0 (MiReturnLockedVadOrNextVa.c)
- *     MiCleanCfg @ 0x1404C4044 (MiCleanCfg.c)
- *     MiHotPatchProcess @ 0x140870248 (MiHotPatchProcess.c)
- *     NtAreMappedFilesTheSame @ 0x140961230 (NtAreMappedFilesTheSame.c)
- *     MmIsFileMapped @ 0x1409706E8 (MmIsFileMapped.c)
- *     MmEnumerateAddressSpaceAndReferenceImages @ 0x140A7CF90 (MmEnumerateAddressSpaceAndReferenceImages.c)
- *     MiFinishPlaceholderVadReplacement @ 0x140B05F14 (MiFinishPlaceholderVadReplacement.c)
+ *     MiObtainReferencedVadEx @ 0x1402B1F20 (MiObtainReferencedVadEx.c)
+ *     MiUserFault @ 0x1403A4EA0 (MiUserFault.c)
+ *     MiReturnLockedVadOrNextVa @ 0x140446910 (MiReturnLockedVadOrNextVa.c)
+ *     MiCleanCfg @ 0x1404BD924 (MiCleanCfg.c)
+ *     MiHotPatchProcess @ 0x1408765A8 (MiHotPatchProcess.c)
+ *     MmIsFileMapped @ 0x1409BCA98 (MmIsFileMapped.c)
+ *     NtAreMappedFilesTheSame @ 0x140A06AE0 (NtAreMappedFilesTheSame.c)
+ *     MmEnumerateAddressSpaceAndReferenceImages @ 0x140A82E00 (MmEnumerateAddressSpaceAndReferenceImages.c)
+ *     MiFinishPlaceholderVadReplacement @ 0x140B08044 (MiFinishPlaceholderVadReplacement.c)
  * Callees:
- *     ExfAcquirePushLockSharedEx @ 0x140277CC0 (ExfAcquirePushLockSharedEx.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockSharedEx @ 0x140277230 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
  */
 
 int __fastcall MiLockVadShared(__int64 a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)

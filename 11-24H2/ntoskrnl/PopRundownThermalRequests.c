@@ -1,12 +1,12 @@
 /*
- * XREFs of PopRundownThermalRequests @ 0x140A38850
+ * XREFs of PopRundownThermalRequests @ 0x140A2D910
  * Callers:
- *     PopDiagTraceControlCallback @ 0x140A37E50 (PopDiagTraceControlCallback.c)
+ *     PopDiagTraceControlCallback @ 0x140A2CF10 (PopDiagTraceControlCallback.c)
  * Callees:
- *     PopReleaseRwLock @ 0x1403B5EC8 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x1404283D4 (PopAcquireRwLockExclusive.c)
- *     PopDiagTraceCoolingExtension @ 0x140A38BFC (PopDiagTraceCoolingExtension.c)
- *     PopDiagTraceThermalRequest @ 0x140A73644 (PopDiagTraceThermalRequest.c)
+ *     PopReleaseRwLock @ 0x1402AE8FC (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14041C564 (PopAcquireRwLockExclusive.c)
+ *     PopDiagTraceCoolingExtension @ 0x140A2DCBC (PopDiagTraceCoolingExtension.c)
+ *     PopDiagTraceThermalRequest @ 0x140A6CC64 (PopDiagTraceThermalRequest.c)
  */
 
 __int64 PopRundownThermalRequests()
@@ -14,7 +14,7 @@ __int64 PopRundownThermalRequests()
   __int64 i; // rbx
   __int64 *j; // rdi
 
-  PopAcquireRwLockExclusive(&PopCoolingExtensionLock);
+  PopAcquireRwLockExclusive((unsigned __int64 *)&PopCoolingExtensionLock);
   for ( i = PopCoolingExtensionList; (__int64 *)i != &PopCoolingExtensionList; i = *(_QWORD *)i )
   {
     if ( *(_BYTE *)(i + 64) )
@@ -29,5 +29,5 @@ __int64 PopRundownThermalRequests()
       PopReleaseRwLock((signed __int64 *)(i + 32));
     }
   }
-  return PopReleaseRwLock((signed __int64 *)&PopCoolingExtensionLock);
+  return PopReleaseRwLock(&PopCoolingExtensionLock);
 }

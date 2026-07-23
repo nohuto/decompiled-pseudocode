@@ -1,11 +1,11 @@
 /*
- * XREFs of SepInitializeCodeIntegrity @ 0x14080FD8C
+ * XREFs of SepInitializeCodeIntegrity @ 0x14081581C
  * Callers:
- *     SepInitializationPhase1 @ 0x140810284 (SepInitializationPhase1.c)
+ *     SepInitializationPhase1 @ 0x140815D14 (SepInitializationPhase1.c)
  * Callees:
- *     strstr @ 0x140535B20 (strstr.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     strstr @ 0x140537FA0 (strstr.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 SepInitializeCodeIntegrity()
@@ -24,9 +24,9 @@ __int64 SepInitializeCodeIntegrity()
   v7 = 0LL;
   v0 = 6;
   v8 = 0LL;
-  memset_0((void *)&SepRmCapTableLock.AbCompletedIoBoostCount, 0, 0xFCuLL);
-  SepRmCapTableLock.PriorityFloorSummary = 264;
-  SepRmCapTableLock.IptSaveArea = (void *)167772178;
+  memset_0((char *)&SepRmCapTableLock.InGlobalForegroundList + 4, 0, 0x104uLL);
+  LODWORD(SepRmCapTableLock.InGlobalForegroundList) = 272;
+  SepRmCapTableLock.KcsanThread = 167772178LL;
   if ( KeLoaderBlock_0 )
   {
     v1 = *(_QWORD *)(KeLoaderBlock_0 + 240);
@@ -47,7 +47,7 @@ __int64 SepInitializeCodeIntegrity()
           ++v5;
         while ( aMintcbignorekd[v5] );
         if ( (v4 == v3 || *(v4 - 1) == 32) && (v4[(unsigned int)v5] & 0xDF) == 0 )
-          HIDWORD(RtlpBootStatHandleLock.AffinityVersion) |= 1u;
+          HIDWORD(RtlpBootStatHandleLock.Affinity) |= 1u;
       }
     }
     *(_QWORD *)&v7 = KeLoaderBlock_0 + 80;
@@ -56,5 +56,5 @@ __int64 SepInitializeCodeIntegrity()
     *((_QWORD *)&v8 + 1) = KeLoaderBlock_0 + 96;
     v9 = KeLoaderBlock_0 + 48;
   }
-  return CiInitialize(v0, &v7, 5LL, &SepRmCapTableLock.PriorityFloorSummary, SeCiPrivateApis);
+  return CiInitialize(v0, &v7, 5LL, &SepRmCapTableLock.InGlobalForegroundList, SeCiPrivateApis);
 }

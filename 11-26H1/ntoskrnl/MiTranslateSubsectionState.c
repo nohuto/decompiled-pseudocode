@@ -1,9 +1,9 @@
 /*
- * XREFs of MiTranslateSubsectionState @ 0x140515000
+ * XREFs of MiTranslateSubsectionState @ 0x14050EA70
  * Callers:
- *     MiPrepareToFlushSubsection @ 0x1404EBD20 (MiPrepareToFlushSubsection.c)
- *     MiDeleteCachedSubsection @ 0x1405108F0 (MiDeleteCachedSubsection.c)
- *     MiEntireSubsectionIsPurged @ 0x140529CA0 (MiEntireSubsectionIsPurged.c)
+ *     MiPrepareToFlushSubsection @ 0x1404E5300 (MiPrepareToFlushSubsection.c)
+ *     MiDeleteCachedSubsection @ 0x14050A360 (MiDeleteCachedSubsection.c)
+ *     MiEntireSubsectionIsPurged @ 0x14052C1C0 (MiEntireSubsectionIsPurged.c)
  * Callees:
  *     <none>
  */

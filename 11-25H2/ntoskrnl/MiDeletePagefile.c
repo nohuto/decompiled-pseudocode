@@ -48,7 +48,7 @@ void __fastcall MiDeletePagefile(char *P, int a2)
   v7 = *((_QWORD *)P + 23);
   if ( v7 )
     MiReleasePageHash(v7, *((_DWORD *)P + 1));
-  MiFreePageFileHashPfns((union _SLIST_HEADER *)P);
+  MiFreePageFileHashPfns((_SLIST_HEADER *)P);
   if ( _bittest16((const signed __int16 *)P + 86, 8u) )
     MiUpdatePageFileList((__int64)P, 0);
   if ( _bittest16((const signed __int16 *)P + 86, 0xBu) )

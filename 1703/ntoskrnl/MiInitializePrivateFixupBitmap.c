@@ -7,7 +7,7 @@
  *     RtlClearAllBits @ 0x14006E050 (RtlClearAllBits.c)
  */
 
-__int64 __fastcall MiInitializePrivateFixupBitmap(struct _RTL_BITMAP *a1, _QWORD **a2)
+__int64 __fastcall MiInitializePrivateFixupBitmap(_RTL_BITMAP *a1, _QWORD **a2)
 {
   __int64 v4; // rsi
   unsigned int v5; // r8d

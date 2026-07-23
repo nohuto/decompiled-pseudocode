@@ -1,11 +1,11 @@
 /*
- * XREFs of MiQueuePinDriverAddressLog @ 0x1403A4254
+ * XREFs of MiQueuePinDriverAddressLog @ 0x1403A43A4
  * Callers:
- *     MiGetPhysicalAddress @ 0x1402A8734 (MiGetPhysicalAddress.c)
- *     MmBuildMdlForNonPagedPool @ 0x1402D6A20 (MmBuildMdlForNonPagedPool.c)
+ *     MiGetPhysicalAddress @ 0x140226874 (MiGetPhysicalAddress.c)
+ *     MmBuildMdlForNonPagedPool @ 0x140287D70 (MmBuildMdlForNonPagedPool.c)
  * Callees:
- *     RtlInterlockedSetClearRun @ 0x140268460 (RtlInterlockedSetClearRun.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x14032DEC0 (MI_READ_PTE_LOCK_FREE.c)
+ *     RtlInterlockedSetClearRun @ 0x140256400 (RtlInterlockedSetClearRun.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140338C10 (MI_READ_PTE_LOCK_FREE.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
@@ -17,9 +17,9 @@ void __fastcall MiQueuePinDriverAddressLog(__int64 a1, unsigned __int64 a2, unsi
   unsigned int v7; // esi
   unsigned int v8; // edi
   unsigned int v9; // r8d
-  int v10; // edx
+  unsigned int v10; // edx
   int v11; // r9d
-  __int64 v12; // r10
+  char *v12; // r10
   unsigned int v13; // r11d
   unsigned int v14; // ecx
   __int64 *v15; // rsi
@@ -32,7 +32,7 @@ void __fastcall MiQueuePinDriverAddressLog(__int64 a1, unsigned __int64 a2, unsi
   unsigned __int64 v22; // rax
   int v23; // edi
   _DWORD *SchedulerAssist; // r9
-  int v25; // edx
+  unsigned int SizeOfBitMap; // edx
   char *v26; // rdx
   struct _KPRCB *CurrentPrcb; // r9
   _DWORD *v28; // r8
@@ -61,15 +61,15 @@ void __fastcall MiQueuePinDriverAddressLog(__int64 a1, unsigned __int64 a2, unsi
     }
   }
   v7 = -1;
-  if ( (word_140C2A232 & 1) == 0 )
+  if ( (word_140C2A272 & 1) == 0 )
     goto LABEL_63;
   do
   {
     v8 = v7 + 1;
-    v9 = v8 < dword_140C2A0C0 ? v8 : 0;
-    v10 = dword_140C2A0C0 - 1;
-    v11 = (qword_140C2A0C8 & 4) != 0 ? 0x20 : 0;
-    v12 = qword_140C2A0C8 - ((qword_140C2A0C8 & 4) != 0 ? 4 : 0);
+    v9 = v8 < stru_140C2A100.SizeOfBitMap ? v8 : 0;
+    v10 = stru_140C2A100.SizeOfBitMap - 1;
+    v11 = ((__int64)stru_140C2A100.Buffer & 4) != 0LL ? 0x20 : 0;
+    v12 = (char *)stru_140C2A100.Buffer - (((__int64)stru_140C2A100.Buffer & 4) != 0LL ? 4 : 0);
     while ( 1 )
     {
       v33 = 0;
@@ -81,20 +81,20 @@ void __fastcall MiQueuePinDriverAddressLog(__int64 a1, unsigned __int64 a2, unsi
 LABEL_47:
       if ( !v9 )
         goto LABEL_17;
-      v25 = v8 + 1;
-      if ( v8 + 1 > dword_140C2A0C0 )
-        v25 = dword_140C2A0C0;
-      v10 = v25 - 1;
+      SizeOfBitMap = v8 + 1;
+      if ( v8 + 1 > stru_140C2A100.SizeOfBitMap )
+        SizeOfBitMap = stru_140C2A100.SizeOfBitMap;
+      v10 = SizeOfBitMap - 1;
       v9 = 0;
     }
-    v15 = (__int64 *)(v12 + 8 * ((unsigned __int64)v14 >> 6));
+    v15 = (__int64 *)&v12[8 * ((unsigned __int64)v14 >> 6)];
     for ( i = ((1LL << (v14 & 0x3F)) - 1) | *v15; i == -1; i = *v15 )
     {
-      if ( (unsigned __int64)++v15 > v12 + 8 * ((unsigned __int64)v13 >> 6) )
+      if ( ++v15 > (__int64 *)&v12[8 * ((unsigned __int64)v13 >> 6)] )
         goto LABEL_40;
     }
     _BitScanForward64((unsigned __int64 *)&i, ~i);
-    v7 = i + ((unsigned int)(((__int64)v15 - v12) >> 3) << 6);
+    v7 = i + ((unsigned int)(((char *)v15 - v12) >> 3) << 6);
     v33 = i;
     if ( v7 > v13 )
     {
@@ -108,13 +108,13 @@ LABEL_40:
 LABEL_17:
     ;
   }
-  while ( v7 != -1 && !(unsigned int)RtlInterlockedSetClearRun((__int64)&dword_140C2A0C0, v7, 1u) );
+  while ( v7 != -1 && !(unsigned int)RtlInterlockedSetClearRun((__int64)&stru_140C2A100, v7, 1u) );
   if ( v7 >= 0x800 )
   {
 LABEL_63:
-    v26 = (char *)&unk_140C2A1D8;
+    v26 = (char *)&unk_140C2A218;
     if ( !(_BYTE)KdDebuggerEnabled )
-      v26 = (char *)&unk_140C2A1D0;
+      v26 = (char *)&unk_140C2A210;
     _InterlockedAdd((volatile signed __int32 *)&v26[32 * v4 + (CurrentIrql > 2u ? 0x10 : 0)], 1u);
     goto LABEL_37;
   }

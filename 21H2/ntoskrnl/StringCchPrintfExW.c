@@ -1,12 +1,12 @@
 /*
- * XREFs of StringCchPrintfExW @ 0x1405C37E0
+ * XREFs of StringCchPrintfExW @ 0x1405C3A10
  * Callers:
- *     AdtpBuildAccessReasonAuditStringInternal @ 0x1405C28F4 (AdtpBuildAccessReasonAuditStringInternal.c)
- *     AdtpBuildStagingReasonAuditStringInternal @ 0x1405C3354 (AdtpBuildStagingReasonAuditStringInternal.c)
+ *     AdtpBuildAccessReasonAuditStringInternal @ 0x1405C2B24 (AdtpBuildAccessReasonAuditStringInternal.c)
+ *     AdtpBuildStagingReasonAuditStringInternal @ 0x1405C3584 (AdtpBuildStagingReasonAuditStringInternal.c)
  * Callees:
- *     memset @ 0x140414200 (memset.c)
- *     StringExHandleOtherFlagsW @ 0x14050C398 (StringExHandleOtherFlagsW.c)
- *     StringVPrintfWorkerW @ 0x1405C39A8 (StringVPrintfWorkerW.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     StringExHandleOtherFlagsW @ 0x14050C5D8 (StringExHandleOtherFlagsW.c)
+ *     StringVPrintfWorkerW @ 0x1405C3BD8 (StringVPrintfWorkerW.c)
  */
 
 HRESULT StringCchPrintfExW(
@@ -52,7 +52,7 @@ HRESULT StringCchPrintfExW(
     v11 = cchDest;
     if ( (dwFlags & 0x100) != 0 )
     {
-      v12 = &word_14001BE00;
+      v12 = &word_14001BEB0;
       if ( pszFormat )
         v12 = pszFormat;
     }

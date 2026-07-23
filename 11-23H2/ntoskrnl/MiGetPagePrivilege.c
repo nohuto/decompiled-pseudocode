@@ -1,31 +1,31 @@
 /*
- * XREFs of MiGetPagePrivilege @ 0x140282D60
+ * XREFs of MiGetPagePrivilege @ 0x140282FF0
  * Callers:
  *     MiMarkPfnVerified @ 0x140219BD0 (MiMarkPfnVerified.c)
- *     MiCompleteProtoPteFault @ 0x140268BE0 (MiCompleteProtoPteFault.c)
- *     MiAllocateWsle @ 0x14026B7D0 (MiAllocateWsle.c)
- *     MiInsertPageInList @ 0x14026EC00 (MiInsertPageInList.c)
- *     MiFlushSectionInternal @ 0x140275750 (MiFlushSectionInternal.c)
- *     MiRevertValidPte @ 0x140278A80 (MiRevertValidPte.c)
- *     MiPageMightBeZero @ 0x140281800 (MiPageMightBeZero.c)
- *     MiCombineCandidate @ 0x140281FB0 (MiCombineCandidate.c)
- *     MiLockCode @ 0x140282330 (MiLockCode.c)
- *     MiCopyPage @ 0x140283E10 (MiCopyPage.c)
- *     MiSetSystemCodeProtection @ 0x140284310 (MiSetSystemCodeProtection.c)
- *     MiInsertPageInFreeOrZeroedList @ 0x1402D3670 (MiInsertPageInFreeOrZeroedList.c)
- *     MiActivePageTradeable @ 0x1402EB6B0 (MiActivePageTradeable.c)
- *     MiClearPfnImageVerified @ 0x1403353B8 (MiClearPfnImageVerified.c)
- *     MiDeletePerSessionProtos @ 0x14033EBC4 (MiDeletePerSessionProtos.c)
- *     MiReferencePageForModifiedWrite @ 0x140349DE8 (MiReferencePageForModifiedWrite.c)
- *     MiDbgWriteCheck @ 0x14038CA24 (MiDbgWriteCheck.c)
- *     MiStealPage @ 0x1403BC3DC (MiStealPage.c)
- *     MiProtectDriverSectionPte @ 0x14061A4A0 (MiProtectDriverSectionPte.c)
- *     MiShouldUseExtendedStandby @ 0x140651D40 (MiShouldUseExtendedStandby.c)
- *     MmChangeImageProtection @ 0x140723E40 (MmChangeImageProtection.c)
+ *     MiCompleteProtoPteFault @ 0x140268E70 (MiCompleteProtoPteFault.c)
+ *     MiAllocateWsle @ 0x14026BA60 (MiAllocateWsle.c)
+ *     MiInsertPageInList @ 0x14026EE90 (MiInsertPageInList.c)
+ *     MiFlushSectionInternal @ 0x1402759E0 (MiFlushSectionInternal.c)
+ *     MiRevertValidPte @ 0x140278D10 (MiRevertValidPte.c)
+ *     MiPageMightBeZero @ 0x140281A90 (MiPageMightBeZero.c)
+ *     MiCombineCandidate @ 0x140282240 (MiCombineCandidate.c)
+ *     MiLockCode @ 0x1402825C0 (MiLockCode.c)
+ *     MiCopyPage @ 0x1402840A0 (MiCopyPage.c)
+ *     MiSetSystemCodeProtection @ 0x1402845A0 (MiSetSystemCodeProtection.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x1402D3900 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiActivePageTradeable @ 0x1402EB940 (MiActivePageTradeable.c)
+ *     MiClearPfnImageVerified @ 0x140335648 (MiClearPfnImageVerified.c)
+ *     MiDeletePerSessionProtos @ 0x14033EE54 (MiDeletePerSessionProtos.c)
+ *     MiReferencePageForModifiedWrite @ 0x140349F80 (MiReferencePageForModifiedWrite.c)
+ *     MiDbgWriteCheck @ 0x14038CC04 (MiDbgWriteCheck.c)
+ *     MiStealPage @ 0x1403BC5BC (MiStealPage.c)
+ *     MiProtectDriverSectionPte @ 0x14061A9F0 (MiProtectDriverSectionPte.c)
+ *     MiShouldUseExtendedStandby @ 0x140652290 (MiShouldUseExtendedStandby.c)
+ *     MmChangeImageProtection @ 0x140724040 (MmChangeImageProtection.c)
  * Callees:
  *     MiGetTopLevelPfn @ 0x140215FA0 (MiGetTopLevelPfn.c)
- *     MiLockPageInline @ 0x1402EF680 (MiLockPageInline.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiLockPageInline @ 0x1402EF910 (MiLockPageInline.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiGetPagePrivilege(ULONG_PTR BugCheckParameter2, int a2, unsigned __int64 *a3)
@@ -89,10 +89,10 @@ __int64 __fastcall MiGetPagePrivilege(ULONG_PTR BugCheckParameter2, int a2, unsi
           if ( !a2 )
           {
             _InterlockedAnd64((volatile signed __int64 *)(BugCheckParameter2 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-            if ( KiIrqlFlags )
+            if ( (_DWORD)KiIrqlFlags )
             {
               CurrentIrql = KeGetCurrentIrql();
-              if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v19 <= 0xFu && CurrentIrql >= 2u )
+              if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v19 <= 0xFu && CurrentIrql >= 2u )
               {
                 CurrentPrcb = KeGetCurrentPrcb();
                 SchedulerAssist = CurrentPrcb->SchedulerAssist;

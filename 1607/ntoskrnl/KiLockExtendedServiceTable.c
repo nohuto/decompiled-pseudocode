@@ -1,16 +1,16 @@
 /*
- * XREFs of KiLockExtendedServiceTable @ 0x140156918
+ * XREFs of KiLockExtendedServiceTable @ 0x140156E88
  * Callers:
- *     KiLockServiceTable @ 0x14012DA94 (KiLockServiceTable.c)
+ *     KiLockServiceTable @ 0x14012E004 (KiLockServiceTable.c)
  * Callees:
- *     MmIsSessionAddress @ 0x140013C40 (MmIsSessionAddress.c)
- *     RtlImageNtHeader @ 0x140014238 (RtlImageNtHeader.c)
- *     MmGetSessionIdEx @ 0x140024FEC (MmGetSessionIdEx.c)
- *     RtlCaptureImageExceptionValues @ 0x140084CD8 (RtlCaptureImageExceptionValues.c)
- *     RtlLookupFunctionTable @ 0x1400B5AC0 (RtlLookupFunctionTable.c)
- *     RtlpConvertFunctionEntry @ 0x140140D44 (RtlpConvertFunctionEntry.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     MmIsSessionAddress @ 0x1400137C0 (MmIsSessionAddress.c)
+ *     RtlImageNtHeader @ 0x140013DB8 (RtlImageNtHeader.c)
+ *     MmGetSessionIdEx @ 0x140024B6C (MmGetSessionIdEx.c)
+ *     RtlCaptureImageExceptionValues @ 0x140082E38 (RtlCaptureImageExceptionValues.c)
+ *     RtlLookupFunctionTable @ 0x1400B38E8 (RtlLookupFunctionTable.c)
+ *     RtlpConvertFunctionEntry @ 0x1401412B4 (RtlpConvertFunctionEntry.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     memset @ 0x140171AC0 (memset.c)
  */
 
 __int64 __fastcall KiLockExtendedServiceTable(

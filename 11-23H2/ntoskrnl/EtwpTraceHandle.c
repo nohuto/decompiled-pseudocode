@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwpTraceHandle @ 0x1409E6B8C
+ * XREFs of EtwpTraceHandle @ 0x1409E6E1C
  * Callers:
- *     ObpCreateHandle @ 0x1406E4510 (ObpCreateHandle.c)
- *     ObpCloseHandle @ 0x1406E7680 (ObpCloseHandle.c)
- *     ObCloseHandleTableEntry @ 0x14073FDC4 (ObCloseHandleTableEntry.c)
+ *     ObpCreateHandle @ 0x1406E4540 (ObpCreateHandle.c)
+ *     ObpCloseHandle @ 0x1406E76B0 (ObpCloseHandle.c)
+ *     ObCloseHandleTableEntry @ 0x14073FFB4 (ObCloseHandleTableEntry.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     ExCheckSingleFilter @ 0x14046B15E (ExCheckSingleFilter.c)
- *     EtwpTraceKernelEventWithFilter @ 0x1405FE508 (EtwpTraceKernelEventWithFilter.c)
- *     ObQueryNameStringMode @ 0x14075B7F4 (ObQueryNameStringMode.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     ExCheckSingleFilter @ 0x14046B55E (ExCheckSingleFilter.c)
+ *     EtwpTraceKernelEventWithFilter @ 0x1405FEA78 (EtwpTraceKernelEventWithFilter.c)
+ *     ObQueryNameStringMode @ 0x14075B9E4 (ObQueryNameStringMode.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

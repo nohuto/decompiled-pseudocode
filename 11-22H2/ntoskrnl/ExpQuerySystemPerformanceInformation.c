@@ -241,7 +241,7 @@ void *__fastcall ExpQuerySystemPerformanceInformation(unsigned int a1, void *a2,
   if ( v52 > v51 )
     LODWORD(v52) = v51;
   LODWORD(Src[20]) = v52;
-  Src[0] = (unsigned int)KeMaximumIncrement * (unsigned __int64)(unsigned int)PsQueryRuntimeProcess(PsIdleProcess, &v75);
+  Src[0] = KeMaximumIncrement * (unsigned __int64)(unsigned int)PsQueryRuntimeProcess(PsIdleProcess, &v75);
   ExQueryPoolUsage(
     (int)&Src[14],
     (int)&Src[14] + 4,

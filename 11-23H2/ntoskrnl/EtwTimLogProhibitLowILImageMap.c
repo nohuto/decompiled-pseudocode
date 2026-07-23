@@ -1,15 +1,15 @@
 /*
- * XREFs of EtwTimLogProhibitLowILImageMap @ 0x1409E9F94
+ * XREFs of EtwTimLogProhibitLowILImageMap @ 0x1409EA224
  * Callers:
- *     MiAllowImageMap @ 0x1406AF6A4 (MiAllowImageMap.c)
+ *     MiAllowImageMap @ 0x1406AF6D4 (MiAllowImageMap.c)
  * Callees:
  *     _tlgKeywordOn @ 0x140212E64 (_tlgKeywordOn.c)
- *     EtwWrite @ 0x1402578A0 (EtwWrite.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     EtwpTiFillProcessIdentity @ 0x140303F54 (EtwpTiFillProcessIdentity.c)
- *     EtwpTiFillThreadIdentity @ 0x1403041F8 (EtwpTiFillThreadIdentity.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     EtwpQueryProcessCommandLine @ 0x140754BE8 (EtwpQueryProcessCommandLine.c)
+ *     EtwWrite @ 0x140257960 (EtwWrite.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6DB4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     EtwpTiFillProcessIdentity @ 0x1403041E4 (EtwpTiFillProcessIdentity.c)
+ *     EtwpTiFillThreadIdentity @ 0x140304488 (EtwpTiFillThreadIdentity.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     EtwpQueryProcessCommandLine @ 0x140754DD8 (EtwpQueryProcessCommandLine.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
@@ -139,7 +139,7 @@ void __fastcall EtwTimLogProhibitLowILImageMap(int a1, __int64 a2, unsigned __in
     v22 = &MITIGATION_ENFORCE_PROHIBIT_LOWIL_IMAGE_MAP;
   EtwWrite(EtwSecurityMitigationsRegHandle, v22, 0LL, v19 + 2, &UserData);
   v23 = (void *)*((_QWORD *)&v29 + 1);
-  if ( (unsigned int)dword_140C04320 > 5 && tlgKeywordOn((__int64)&dword_140C04320, 0x400000000000LL) )
+  if ( (unsigned int)dword_140C066C0 > 5 && tlgKeywordOn((__int64)&dword_140C066C0, 0x400000000000LL) )
   {
     v27 = a1;
     v32 = &v27;
@@ -163,8 +163,8 @@ void __fastcall EtwTimLogProhibitLowILImageMap(int a1, __int64 a2, unsigned __in
     v45 = 2LL;
     v47[1] = 0;
     tlgWriteTransfer_EtwWriteTransfer(
-      (__int64)&dword_140C04320,
-      (unsigned __int8 *)&dword_1400359CC + 2,
+      (__int64)&dword_140C066C0,
+      (unsigned __int8 *)byte_14003584B,
       0LL,
       0LL,
       0xAu,

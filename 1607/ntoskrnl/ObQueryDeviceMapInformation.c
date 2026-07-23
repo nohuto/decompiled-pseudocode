@@ -1,18 +1,18 @@
 /*
- * XREFs of ObQueryDeviceMapInformation @ 0x140422220
+ * XREFs of ObQueryDeviceMapInformation @ 0x1404210E0
  * Callers:
- *     NtQueryInformationProcess @ 0x140422590 (NtQueryInformationProcess.c)
+ *     NtQueryInformationProcess @ 0x140421450 (NtQueryInformationProcess.c)
  * Callees:
- *     PsGetProcessServerSilo @ 0x1400136A0 (PsGetProcessServerSilo.c)
- *     KiLeaveGuardedRegionUnsafe @ 0x140013B70 (KiLeaveGuardedRegionUnsafe.c)
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     PsGetServerSiloGlobals @ 0x1400766B0 (PsGetServerSiloGlobals.c)
- *     PsGetCurrentServerSiloGlobals @ 0x14008C610 (PsGetCurrentServerSiloGlobals.c)
- *     ExfAcquirePushLockSharedEx @ 0x1400C8280 (ExfAcquirePushLockSharedEx.c)
- *     ExfReleasePushLock @ 0x1400C8620 (ExfReleasePushLock.c)
- *     ObpReferenceDeviceMap @ 0x140421DE0 (ObpReferenceDeviceMap.c)
- *     ObfDereferenceDeviceMap @ 0x140422458 (ObfDereferenceDeviceMap.c)
+ *     PsGetProcessServerSilo @ 0x140013220 (PsGetProcessServerSilo.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1400136F0 (KiLeaveGuardedRegionUnsafe.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     PsGetServerSiloGlobals @ 0x140076730 (PsGetServerSiloGlobals.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x14008BD70 (PsGetCurrentServerSiloGlobals.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1400C6120 (ExfAcquirePushLockSharedEx.c)
+ *     ExfReleasePushLock @ 0x1400C64C0 (ExfReleasePushLock.c)
+ *     ObpReferenceDeviceMap @ 0x140420CA0 (ObpReferenceDeviceMap.c)
+ *     ObfDereferenceDeviceMap @ 0x140421318 (ObfDereferenceDeviceMap.c)
  */
 
 __int64 __fastcall ObQueryDeviceMapInformation(_KPROCESS *a1, __int64 a2, int a3)

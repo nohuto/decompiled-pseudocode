@@ -1,15 +1,15 @@
 /*
- * XREFs of HvlCollectLivedump @ 0x14027783C
+ * XREFs of HvlCollectLivedump @ 0x140277A2C
  * Callers:
- *     IopLiveDumpEndMirroringCallback @ 0x140578890 (IopLiveDumpEndMirroringCallback.c)
+ *     IopLiveDumpEndMirroringCallback @ 0x140579890 (IopLiveDumpEndMirroringCallback.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140129CB0 (VslpEnterIumSecureMode.c)
- *     HvcallpNoHypervisorPresent @ 0x14013E6A0 (HvcallpNoHypervisorPresent.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     HvlpAcquireHypercallPage @ 0x140271864 (HvlpAcquireHypercallPage.c)
- *     HvlpReleaseHypercallPage @ 0x140272384 (HvlpReleaseHypercallPage.c)
+ *     VslpEnterIumSecureMode @ 0x140129D80 (VslpEnterIumSecureMode.c)
+ *     HvcallpNoHypervisorPresent @ 0x14013E7A0 (HvcallpNoHypervisorPresent.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     HvlpAcquireHypercallPage @ 0x140271A54 (HvlpAcquireHypercallPage.c)
+ *     HvlpReleaseHypercallPage @ 0x140272574 (HvlpReleaseHypercallPage.c)
  */
 
 NTSTATUS __fastcall HvlCollectLivedump(__int64 a1, __int64 a2, _QWORD *a3, __int64 a4)
@@ -27,7 +27,7 @@ NTSTATUS __fastcall HvlCollectLivedump(__int64 a1, __int64 a2, _QWORD *a3, __int
   _BYTE v17[32]; // [rsp+D0h] [rbp-98h] BYREF
   _BYTE v18[64]; // [rsp+F0h] [rbp-78h] BYREF
 
-  if ( (HvlpRootFlags & 2) == 0 || !qword_140437508 )
+  if ( (HvlpRootFlags & 2) == 0 || !qword_1404385C8 )
     return -1073741637;
   if ( VslVsmEnabled )
   {
@@ -61,11 +61,11 @@ NTSTATUS __fastcall HvlCollectLivedump(__int64 a1, __int64 a2, _QWORD *a3, __int
     if ( v11 >= 0 )
     {
       v12 = *(void **)(a4 + 32);
-      v13 = dword_140437518 << 12;
+      v13 = dword_1404385D8 << 12;
       if ( v12 == *(void **)a4 && *(_DWORD *)(a4 + 8) >= v13 )
-        memmove(v12, qword_140437508, v13);
+        memmove(v12, qword_1404385C8, v13);
       else
-        *(_QWORD *)(a4 + 32) = qword_140437508;
+        *(_QWORD *)(a4 + 32) = qword_1404385C8;
       *(_DWORD *)(a4 + 40) = v13;
       *(_OWORD *)(a4 + 16) = HvlCrashdumpGuid;
     }

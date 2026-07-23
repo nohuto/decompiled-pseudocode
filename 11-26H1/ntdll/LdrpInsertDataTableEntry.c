@@ -1,11 +1,11 @@
 /*
- * XREFs of LdrpInsertDataTableEntry @ 0x180117FB0
+ * XREFs of LdrpInsertDataTableEntry @ 0x180117D60
  * Callers:
- *     LdrpMapDllWithSectionHandle @ 0x180084430 (LdrpMapDllWithSectionHandle.c)
- *     LdrpInitializeProcess @ 0x1800CF8B8 (LdrpInitializeProcess.c)
- *     LdrpInitializeNtdllDataTableEntry @ 0x180118DB0 (LdrpInitializeNtdllDataTableEntry.c)
+ *     LdrpMapDllWithSectionHandle @ 0x18007B7D0 (LdrpMapDllWithSectionHandle.c)
+ *     LdrpInitializeProcess @ 0x1800CD028 (LdrpInitializeProcess.c)
+ *     LdrpInitializeNtdllDataTableEntry @ 0x180118B60 (LdrpInitializeNtdllDataTableEntry.c)
  * Callees:
- *     LdrpHashUnicodeString @ 0x1800825C0 (LdrpHashUnicodeString.c)
+ *     LdrpHashUnicodeString @ 0x180079960 (LdrpHashUnicodeString.c)
  */
 
 __int64 __fastcall LdrpInsertDataTableEntry(__int64 a1)
@@ -44,21 +44,21 @@ __int64 __fastcall LdrpInsertDataTableEntry(__int64 a1)
     *((_QWORD *)v5 + 1) = v4;
     if ( !v7 )
     {
-      v8 = (__int64 *)qword_1801CB898;
-      if ( *(__int64 **)qword_1801CB898 == &qword_1801CB890 )
+      v8 = (__int64 *)qword_1801CA8D8;
+      if ( *(__int64 **)qword_1801CA8D8 == &qword_1801CA8D0 )
       {
-        *(_QWORD *)a1 = &qword_1801CB890;
+        *(_QWORD *)a1 = &qword_1801CA8D0;
         v9 = (_QWORD *)(a1 + 16);
         *(_QWORD *)(a1 + 8) = v8;
         *v8 = a1;
-        v10 = (_QWORD *)qword_1801CB8A8;
-        qword_1801CB898 = a1;
-        if ( *(__int64 **)qword_1801CB8A8 == &qword_1801CB8A0 )
+        v10 = (_QWORD *)qword_1801CA8E8;
+        qword_1801CA8D8 = a1;
+        if ( *(__int64 **)qword_1801CA8E8 == &qword_1801CA8E0 )
         {
-          *v9 = &qword_1801CB8A0;
+          *v9 = &qword_1801CA8E0;
           *(_QWORD *)(a1 + 24) = v10;
           *v10 = v9;
-          qword_1801CB8A8 = a1 + 16;
+          qword_1801CA8E8 = a1 + 16;
           result = *(_DWORD *)(a1 + 104) | 0x40u;
           *(_DWORD *)(a1 + 104) = result;
           return result;
@@ -67,21 +67,21 @@ __int64 __fastcall LdrpInsertDataTableEntry(__int64 a1)
 LABEL_13:
       __fastfail(3u);
     }
-    v11 = qword_1801CB890;
-    if ( *(__int64 **)(qword_1801CB890 + 8) != &qword_1801CB890 )
+    v11 = qword_1801CA8D0;
+    if ( *(__int64 **)(qword_1801CA8D0 + 8) != &qword_1801CA8D0 )
       goto LABEL_13;
-    *(_QWORD *)a1 = qword_1801CB890;
-    *(_QWORD *)(a1 + 8) = &qword_1801CB890;
+    *(_QWORD *)a1 = qword_1801CA8D0;
+    *(_QWORD *)(a1 + 8) = &qword_1801CA8D0;
     v12 = (_QWORD *)(a1 + 16);
     *(_QWORD *)(v11 + 8) = a1;
-    v13 = qword_1801CB8A0;
-    qword_1801CB890 = a1;
-    if ( *(__int64 **)(qword_1801CB8A0 + 8) != &qword_1801CB8A0 )
+    v13 = qword_1801CA8E0;
+    qword_1801CA8D0 = a1;
+    if ( *(__int64 **)(qword_1801CA8E0 + 8) != &qword_1801CA8E0 )
       goto LABEL_13;
-    *v12 = qword_1801CB8A0;
-    *(_QWORD *)(a1 + 24) = &qword_1801CB8A0;
+    *v12 = qword_1801CA8E0;
+    *(_QWORD *)(a1 + 24) = &qword_1801CA8E0;
     *(_QWORD *)(v13 + 8) = v12;
-    qword_1801CB8A0 = a1 + 16;
+    qword_1801CA8E0 = a1 + 16;
     result = *(_DWORD *)(a1 + 104) | 0x40u;
     *(_DWORD *)(a1 + 104) = result;
   }

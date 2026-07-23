@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpHpQueryVA @ 0x1403504C0
+ * XREFs of RtlpHpQueryVA @ 0x140352540
  * Callers:
- *     ExFreeHeapPages @ 0x140346358 (ExFreeHeapPages.c)
- *     RtlpHpSegMgrRelease @ 0x14034E480 (RtlpHpSegMgrRelease.c)
+ *     ExFreeHeapPages @ 0x1403483D8 (ExFreeHeapPages.c)
+ *     RtlpHpSegMgrRelease @ 0x140350500 (RtlpHpSegMgrRelease.c)
  * Callees:
- *     RtlCSparseBitmapFindBitSetCapped @ 0x140350720 (RtlCSparseBitmapFindBitSetCapped.c)
- *     RtlpLogHeapFailure @ 0x140521C9C (RtlpLogHeapFailure.c)
+ *     RtlCSparseBitmapFindBitSetCapped @ 0x1403527A0 (RtlCSparseBitmapFindBitSetCapped.c)
+ *     RtlpLogHeapFailure @ 0x140524308 (RtlpLogHeapFailure.c)
  */
 
 __int64 __fastcall RtlpHpQueryVA(__int64 a1, __int64 a2, char **a3, int *a4)
@@ -19,12 +19,12 @@ __int64 __fastcall RtlpHpQueryVA(__int64 a1, __int64 a2, char **a3, int *a4)
   int v12; // ecx
 
   v5 = a1;
-  v6 = (a1 - (unsigned __int64)ExpUuidLock.TrapFrame) >> 20;
+  v6 = (a1 - (unsigned __int64)ExpUuidLock.ApcState.ApcListHead[0].Flink) >> 20;
   if ( RtlCSparseBitmapFindBitSetCapped(
-         &ExpUuidLock.ApcStateFill[16],
-         8 * (v6 << ExpUuidLock.ApcStateFill[8]),
-         8 * (1LL << ExpUuidLock.ApcStateFill[8])) == -1
-    || (v8 = (char *)ExpUuidLock.ApcState.ApcListHead[1].Blink + (v6 << ExpUuidLock.ApcStateFill[8])) == 0LL )
+         &ExpUuidLock.ApcStateFill[24],
+         8 * (v6 << ExpUuidLock.ApcStateFill[16]),
+         8 * (1LL << ExpUuidLock.ApcStateFill[16])) == -1
+    || (v8 = (char *)ExpUuidLock.ApcState.Process + (v6 << ExpUuidLock.ApcStateFill[16])) == 0LL )
   {
     RtlpLogHeapFailure(22, v5, 0, 0, 0LL, 0LL);
     v12 = 0;

@@ -1,10 +1,10 @@
 /*
- * XREFs of TtmpOpenTerminalHandle @ 0x1407EC790
+ * XREFs of TtmpOpenTerminalHandle @ 0x1407F22F0
  * Callers:
  *     <none>
  * Callees:
- *     PsGetProcessId @ 0x140466BE0 (PsGetProcessId.c)
- *     TtmiLogTerminalHandleOpened @ 0x1407EB284 (TtmiLogTerminalHandleOpened.c)
+ *     PsGetProcessId @ 0x140460330 (PsGetProcessId.c)
+ *     TtmiLogTerminalHandleOpened @ 0x1407F0DE4 (TtmiLogTerminalHandleOpened.c)
  */
 
 __int64 __fastcall TtmpOpenTerminalHandle(__int64 a1, char a2, struct _KPROCESS *a3)

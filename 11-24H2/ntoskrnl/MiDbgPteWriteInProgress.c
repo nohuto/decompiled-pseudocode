@@ -1,11 +1,11 @@
 /*
- * XREFs of MiDbgPteWriteInProgress @ 0x14067EFB8
+ * XREFs of MiDbgPteWriteInProgress @ 0x1406801B8
  * Callers:
- *     MiDbgCopyMemory @ 0x14067E4A8 (MiDbgCopyMemory.c)
+ *     MiDbgCopyMemory @ 0x14067F6A8 (MiDbgCopyMemory.c)
  * Callees:
- *     KeGetPrcb @ 0x140352980 (KeGetPrcb.c)
- *     KeEnumerateNextProcessor @ 0x14040D4F0 (KeEnumerateNextProcessor.c)
- *     MiDbgTranslatePhysicalAddress @ 0x14067F1F0 (MiDbgTranslatePhysicalAddress.c)
+ *     KeGetPrcb @ 0x1402B0A10 (KeGetPrcb.c)
+ *     KeEnumerateNextProcessor @ 0x140405740 (KeEnumerateNextProcessor.c)
+ *     MiDbgTranslatePhysicalAddress @ 0x1406803F0 (MiDbgTranslatePhysicalAddress.c)
  */
 
 __int64 __fastcall MiDbgPteWriteInProgress(unsigned __int64 a1, unsigned int a2, __int64 a3)

@@ -62,7 +62,7 @@ LABEL_6:
                  PrivilegeCount,
                  (_DWORD *)((unsigned __int64)PrivilegesToDelete->Privileges & -(__int64)(PrivilegesToDelete != 0LL)),
                  v8,
-                 Groups,
+                 &Groups->Sid,
                  0,
                  &DmaAdapter);
     if ( inserted >= 0 )
@@ -70,7 +70,7 @@ LABEL_6:
       inserted = ObInsertObjectEx(DmaAdapter, 0LL, 0, 0, 0, 0LL, 0LL);
       if ( inserted >= 0 )
       {
-        SepAppendAceToTokenObjectAcl((__int64)DmaAdapter, 8, SeAliasAdminsSid);
+        SepAppendAceToTokenObjectAcl((__int64)DmaAdapter, 8u, SeAliasAdminsSid);
         *v6 = DmaAdapter;
       }
     }

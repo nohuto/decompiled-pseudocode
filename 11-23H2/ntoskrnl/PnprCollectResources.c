@@ -1,9 +1,9 @@
 /*
- * XREFs of PnprCollectResources @ 0x140965A6C
+ * XREFs of PnprCollectResources @ 0x140965C6C
  * Callers:
- *     PnpReplacePartitionUnit @ 0x140964AF0 (PnpReplacePartitionUnit.c)
+ *     PnpReplacePartitionUnit @ 0x140964CF0 (PnpReplacePartitionUnit.c)
  * Callees:
- *     PipForAllChildDeviceNodes @ 0x1407CD180 (PipForAllChildDeviceNodes.c)
+ *     PipForAllChildDeviceNodes @ 0x1407CD450 (PipForAllChildDeviceNodes.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

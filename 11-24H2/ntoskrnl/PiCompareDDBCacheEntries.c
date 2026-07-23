@@ -1,9 +1,9 @@
 /*
- * XREFs of PiCompareDDBCacheEntries @ 0x1408894D0
+ * XREFs of PiCompareDDBCacheEntries @ 0x14088D380
  * Callers:
  *     <none>
  * Callees:
- *     RtlCompareUnicodeStrings @ 0x140888920 (RtlCompareUnicodeStrings.c)
+ *     RtlCompareUnicodeStrings @ 0x14088C7D0 (RtlCompareUnicodeStrings.c)
  */
 
 __int64 __fastcall PiCompareDDBCacheEntries(__int64 a1, __int64 a2, __int64 a3)

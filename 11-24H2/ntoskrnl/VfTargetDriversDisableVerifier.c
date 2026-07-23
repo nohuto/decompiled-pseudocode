@@ -1,14 +1,14 @@
 /*
- * XREFs of VfTargetDriversDisableVerifier @ 0x140B8B2DC
+ * XREFs of VfTargetDriversDisableVerifier @ 0x140B8D2DC
  * Callers:
- *     VfSuspectApplyDifVolatileVerification @ 0x140B9A568 (VfSuspectApplyDifVolatileVerification.c)
- *     VfSuspectRemoveDifVolatileVerification @ 0x140B9B138 (VfSuspectRemoveDifVolatileVerification.c)
+ *     VfSuspectApplyDifVolatileVerification @ 0x140B9C568 (VfSuspectApplyDifVolatileVerification.c)
+ *     VfSuspectRemoveDifVolatileVerification @ 0x140B9D138 (VfSuspectRemoveDifVolatileVerification.c)
  * Callees:
- *     VfAvlLookupTreeNode @ 0x1403F1074 (VfAvlLookupTreeNode.c)
- *     VfAvlCleanupLockContext @ 0x1403F142C (VfAvlCleanupLockContext.c)
- *     VfAvlInitializeLockContext @ 0x14049C0D8 (VfAvlInitializeLockContext.c)
- *     ViTargetDriversFreeVerifiedData @ 0x140611344 (ViTargetDriversFreeVerifiedData.c)
- *     DifRemovePerDriverDataForPlugins @ 0x140617AE0 (DifRemovePerDriverDataForPlugins.c)
+ *     VfAvlLookupTreeNode @ 0x1403E4D94 (VfAvlLookupTreeNode.c)
+ *     VfAvlCleanupLockContext @ 0x1403E514C (VfAvlCleanupLockContext.c)
+ *     VfAvlInitializeLockContext @ 0x140496D08 (VfAvlInitializeLockContext.c)
+ *     ViTargetDriversFreeVerifiedData @ 0x14060F904 (ViTargetDriversFreeVerifiedData.c)
+ *     DifRemovePerDriverDataForPlugins @ 0x1406160A0 (DifRemovePerDriverDataForPlugins.c)
  */
 
 __int64 VfTargetDriversDisableVerifier()
@@ -39,7 +39,7 @@ __int64 VfTargetDriversDisableVerifier()
         DifRemovePerDriverDataForPlugins((_QWORD **)(v6 + 96));
         ViTargetDriversFreeVerifiedData((void *)v5[8]);
         v5[8] = 0LL;
-        --dword_140F045C0;
+        --dword_140F047A0;
       }
     }
     return VfAvlCleanupLockContext((__int64)&v7, v4);

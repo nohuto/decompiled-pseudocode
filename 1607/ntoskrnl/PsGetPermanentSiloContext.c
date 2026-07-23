@@ -1,20 +1,20 @@
 /*
- * XREFs of PsGetPermanentSiloContext @ 0x140091EE0
+ * XREFs of PsGetPermanentSiloContext @ 0x140091640
  * Callers:
- *     OBP_GET_SILO_ROOT_DIRECTORY_FROM_SILO @ 0x140091EB0 (OBP_GET_SILO_ROOT_DIRECTORY_FROM_SILO.c)
- *     ObpLookupObjectName @ 0x14044F450 (ObpLookupObjectName.c)
- *     VrpShouldOperateOnCall @ 0x140464780 (VrpShouldOperateOnCall.c)
- *     VRegEnabledInJob @ 0x1404E9244 (VRegEnabledInJob.c)
- *     CmLockKeyForWrite @ 0x140574BC8 (CmLockKeyForWrite.c)
- *     ObInitServerSilo @ 0x140579FFC (ObInitServerSilo.c)
- *     CmpTerminateServerSiloCallback @ 0x1405FF3F0 (CmpTerminateServerSiloCallback.c)
- *     VrpHandleIoctlCreateMultipleNamespaceNodes @ 0x1406130D8 (VrpHandleIoctlCreateMultipleNamespaceNodes.c)
- *     VrpHandleIoctlCreateNamespaceNode @ 0x14061338C (VrpHandleIoctlCreateNamespaceNode.c)
- *     VrpHandleIoctlGetComRootKey @ 0x140613584 (VrpHandleIoctlGetComRootKey.c)
- *     VrpHandleIoctlLoadDifferencingHive @ 0x1406139F8 (VrpHandleIoctlLoadDifferencingHive.c)
- *     VrpHandleIoctlModifyFlags @ 0x140613E80 (VrpHandleIoctlModifyFlags.c)
- *     VrpHandleIoctlUnloadDynamicallyLoadedHives @ 0x14061418C (VrpHandleIoctlUnloadDynamicallyLoadedHives.c)
- *     ObGetSiloRootDirectoryPath @ 0x1406E6284 (ObGetSiloRootDirectoryPath.c)
+ *     OBP_GET_SILO_ROOT_DIRECTORY_FROM_SILO @ 0x140091610 (OBP_GET_SILO_ROOT_DIRECTORY_FROM_SILO.c)
+ *     ObpLookupObjectName @ 0x14044E320 (ObpLookupObjectName.c)
+ *     VrpShouldOperateOnCall @ 0x140463650 (VrpShouldOperateOnCall.c)
+ *     VRegEnabledInJob @ 0x1404CB334 (VRegEnabledInJob.c)
+ *     CmLockKeyForWrite @ 0x140575108 (CmLockKeyForWrite.c)
+ *     ObInitServerSilo @ 0x14057A53C (ObInitServerSilo.c)
+ *     CmpTerminateServerSiloCallback @ 0x1405FF4A4 (CmpTerminateServerSiloCallback.c)
+ *     VrpHandleIoctlCreateMultipleNamespaceNodes @ 0x14061318C (VrpHandleIoctlCreateMultipleNamespaceNodes.c)
+ *     VrpHandleIoctlCreateNamespaceNode @ 0x140613440 (VrpHandleIoctlCreateNamespaceNode.c)
+ *     VrpHandleIoctlGetComRootKey @ 0x140613638 (VrpHandleIoctlGetComRootKey.c)
+ *     VrpHandleIoctlLoadDifferencingHive @ 0x140613AAC (VrpHandleIoctlLoadDifferencingHive.c)
+ *     VrpHandleIoctlModifyFlags @ 0x140613F34 (VrpHandleIoctlModifyFlags.c)
+ *     VrpHandleIoctlUnloadDynamicallyLoadedHives @ 0x140614240 (VrpHandleIoctlUnloadDynamicallyLoadedHives.c)
+ *     ObGetSiloRootDirectoryPath @ 0x1406E63BC (ObGetSiloRootDirectoryPath.c)
  * Callees:
  *     <none>
  */

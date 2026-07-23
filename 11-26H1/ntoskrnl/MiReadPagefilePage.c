@@ -1,26 +1,26 @@
 /*
- * XREFs of MiReadPagefilePage @ 0x1406E4AA0
+ * XREFs of MiReadPagefilePage @ 0x1406E9750
  * Callers:
- *     MiMakeOutswappedPageResident @ 0x14040BF9C (MiMakeOutswappedPageResident.c)
+ *     MiMakeOutswappedPageResident @ 0x1404296E4 (MiMakeOutswappedPageResident.c)
  * Callees:
- *     KeDelayExecutionThread @ 0x140244840 (KeDelayExecutionThread.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     IoPageReadEx @ 0x14026BD90 (IoPageReadEx.c)
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MmUnmapLockedPages @ 0x140281690 (MmUnmapLockedPages.c)
- *     MiSetPageTablePfnBuddy @ 0x1402A4AE0 (MiSetPageTablePfnBuddy.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     MiValidatePagefilePageHash @ 0x14038CF80 (MiValidatePagefilePageHash.c)
- *     SmPageRead @ 0x14038EEDC (SmPageRead.c)
- *     MiInitializeInPageSupport @ 0x140397270 (MiInitializeInPageSupport.c)
- *     MiIsRetryIoStatus @ 0x14046DB90 (MiIsRetryIoStatus.c)
- *     MiStoreFaultComplete @ 0x140494AA8 (MiStoreFaultComplete.c)
- *     MiReadFromMemoryPagefile @ 0x1405030C8 (MiReadFromMemoryPagefile.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     MiFlushAllFilesystemPages @ 0x140531F5C (MiFlushAllFilesystemPages.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     KeDelayExecutionThread @ 0x1402461A0 (KeDelayExecutionThread.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     IoPageReadEx @ 0x14026B300 (IoPageReadEx.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MmUnmapLockedPages @ 0x140280C00 (MmUnmapLockedPages.c)
+ *     MiSetPageTablePfnBuddy @ 0x1402A4030 (MiSetPageTablePfnBuddy.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     MiValidatePagefilePageHash @ 0x14038ED2C (MiValidatePagefilePageHash.c)
+ *     SmPageRead @ 0x140390C8C (SmPageRead.c)
+ *     MiInitializeInPageSupport @ 0x140398FF0 (MiInitializeInPageSupport.c)
+ *     MiIsRetryIoStatus @ 0x140467310 (MiIsRetryIoStatus.c)
+ *     MiStoreFaultComplete @ 0x14048E5F8 (MiStoreFaultComplete.c)
+ *     MiReadFromMemoryPagefile @ 0x1404FC998 (MiReadFromMemoryPagefile.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     MiFlushAllFilesystemPages @ 0x1405343FC (MiFlushAllFilesystemPages.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall MiReadPagefilePage(__int64 a1, __int64 a2)
@@ -69,7 +69,7 @@ __int64 __fastcall MiReadPagefilePage(__int64 a1, __int64 a2)
   v7 = v5 & 0xFFF;
   while ( 1 )
   {
-    v8 = *(_QWORD *)(stru_140E2EB88.ThreadLock + 8 * ((*(_QWORD *)(v4 + 40) >> 43) & 0x3FFLL));
+    v8 = *(_QWORD *)(stru_140E2ED08.ThreadLock + 8 * ((*(_QWORD *)(v4 + 40) >> 43) & 0x3FFLL));
     MiInitializeInPageSupport(BugCheckParameter2, 0, 0LL);
     v9 = *(_QWORD *)(v4 + 16);
     if ( (v9 & 8) != 0 )
@@ -89,8 +89,8 @@ __int64 __fastcall MiReadPagefilePage(__int64 a1, __int64 a2)
     v13 = v11 >> 12;
     if ( (v11 & 8) != 0 )
     {
-      if ( qword_140E2D740 && (v11 & 0x10) == 0 )
-        v11 &= qword_140E2D748;
+      if ( qword_140E2D8C0 && (v11 & 0x10) == 0 )
+        v11 &= qword_140E2D8C8;
       v14 = HIDWORD(v11);
     }
     else

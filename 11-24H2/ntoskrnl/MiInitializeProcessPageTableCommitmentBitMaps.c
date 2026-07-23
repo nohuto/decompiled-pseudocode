@@ -1,7 +1,7 @@
 /*
- * XREFs of MiInitializeProcessPageTableCommitmentBitMaps @ 0x14048A590
+ * XREFs of MiInitializeProcessPageTableCommitmentBitMaps @ 0x1404853B8
  * Callers:
- *     MmInitializeProcessAddressSpace @ 0x1408F8590 (MmInitializeProcessAddressSpace.c)
+ *     MmInitializeProcessAddressSpace @ 0x14091A9E8 (MmInitializeProcessAddressSpace.c)
  * Callees:
  *     <none>
  */
@@ -23,7 +23,7 @@ __int64 __fastcall MiInitializeProcessPageTableCommitmentBitMaps(__int64 a1)
   v4 = v1 + 166;
   do
   {
-    v5 = qword_140E2F2A8[v3] + qword_140E2F288;
+    v5 = qword_140E2F3E8[v3] + qword_140E2F3C8;
     v3 = (unsigned int)(v3 + 1);
     v2 <<= 9;
     *v4 = v2;

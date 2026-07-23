@@ -1,13 +1,13 @@
 /*
- * XREFs of PpmEventTraceCoordinatedIdleStates @ 0x140877EC8
+ * XREFs of PpmEventTraceCoordinatedIdleStates @ 0x140879128
  * Callers:
- *     PpmEventTraceControlCallback @ 0x140764270 (PpmEventTraceControlCallback.c)
+ *     PpmEventTraceControlCallback @ 0x140765460 (PpmEventTraceControlCallback.c)
  * Callees:
  *     EtwEventEnabled @ 0x14005B2D0 (EtwEventEnabled.c)
- *     EtwWrite @ 0x1400CAD20 (EtwWrite.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     EtwWrite @ 0x1400CAE00 (EtwWrite.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 void PpmEventTraceCoordinatedIdleStates()

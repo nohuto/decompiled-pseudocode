@@ -1,29 +1,38 @@
 /*
- * XREFs of RtlFlushSecureMemoryCache @ 0x180017520
+ * XREFs of RtlFlushSecureMemoryCache @ 0x180002600
  * Callers:
- *     RtlpDecommitBlock @ 0x180017150 (RtlpDecommitBlock.c)
- *     RtlComputeImportTableHash @ 0x180121A80 (RtlComputeImportTableHash.c)
+ *     RtlpDecommitBlock @ 0x180002230 (RtlpDecommitBlock.c)
+ *     RtlComputeImportTableHash @ 0x180121820 (RtlComputeImportTableHash.c)
  * Callees:
- *     RtlpCallSecureMemoryCallbacks @ 0x18007F2F0 (RtlpCallSecureMemoryCallbacks.c)
- *     ZwQueryVirtualMemory @ 0x18015F3A0 (ZwQueryVirtualMemory.c)
+ *     RtlpCallSecureMemoryCallbacks @ 0x18006D630 (RtlpCallSecureMemoryCallbacks.c)
+ *     ZwQueryVirtualMemory @ 0x18015F2A0 (ZwQueryVirtualMemory.c)
  */
 
-char __fastcall RtlFlushSecureMemoryCache(__int64 a1, __int64 a2)
+BOOLEAN __cdecl RtlFlushSecureMemoryCache(PVOID MemoryCache, SIZE_T MemoryLength)
 {
-  __int128 v4; // [rsp+30h] [rbp-38h] BYREF
+  __int128 MemoryInformation; // [rsp+30h] [rbp-38h] BYREF
   __int128 v5; // [rsp+40h] [rbp-28h]
   __int128 v6; // [rsp+50h] [rbp-18h]
 
-  v4 = 0LL;
+  MemoryInformation = 0LL;
   v5 = 0LL;
   v6 = 0LL;
-  if ( RtlpSecMemListHead == (_UNKNOWN *)&RtlpSecMemListHead )
+  if ( RtlpSecMemListHead == &RtlpSecMemListHead )
     return 0;
-  if ( !a2 )
+  if ( !MemoryLength )
   {
-    if ( (int)ZwQueryVirtualMemory(-1LL, a1, 3LL, &v4, 48LL, 0LL) < 0 || HIDWORD(v4) == 0x10000 )
+    if ( ZwQueryVirtualMemory(
+           (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+           MemoryCache,
+           MemoryRegionInformation,
+           &MemoryInformation,
+           0x30uLL,
+           0LL) < 0
+      || HIDWORD(MemoryInformation) == 0x10000 )
+    {
       return 0;
-    a2 = v5;
+    }
+    MemoryLength = v5;
   }
-  return RtlpCallSecureMemoryCallbacks(a1, a2);
+  return RtlpCallSecureMemoryCallbacks(MemoryCache, MemoryLength);
 }

@@ -1,60 +1,60 @@
 /*
- * XREFs of TpAllocCleanupGroup @ 0x180069DA0
+ * XREFs of TpAllocCleanupGroup @ 0x180086490
  * Callers:
  *     <none>
  * Callees:
- *     RtlAllocateHeap @ 0x180011260 (RtlAllocateHeap.c)
- *     RtlFreeHeap @ 0x1800269F0 (RtlFreeHeap.c)
- *     TppRaiseInvalidParameter @ 0x18006B7F4 (TppRaiseInvalidParameter.c)
+ *     RtlAllocateHeap @ 0x18003DC60 (RtlAllocateHeap.c)
+ *     RtlFreeHeap @ 0x1800533F0 (RtlFreeHeap.c)
+ *     TppRaiseInvalidParameter @ 0x1800880D4 (TppRaiseInvalidParameter.c)
  */
 
-__int64 __fastcall TpAllocCleanupGroup(__int64 *a1)
+NTSTATUS __cdecl TpAllocCleanupGroup(PTP_CLEANUP_GROUP *CleanupGroupReturn)
 {
-  __int64 Heap; // rax
-  __int64 v3; // rcx
+  _QWORD *Heap; // rax
+  _QWORD *v3; // rcx
   _QWORD *v4; // rax
-  __int64 result; // rax
-  unsigned int v6; // [rsp+20h] [rbp-18h]
-  unsigned __int64 v7; // [rsp+40h] [rbp+8h]
+  NTSTATUS result; // eax
+  NTSTATUS v6; // [rsp+20h] [rbp-18h]
+  PVOID BaseAddress; // [rsp+40h] [rbp+8h]
 
-  if ( !a1 || NtCurrentPeb()->Ldr->ShutdownInProgress )
+  if ( !CleanupGroupReturn || NtCurrentPeb()->Ldr->ShutdownInProgress )
   {
-    TppRaiseInvalidParameter(a1);
-    return 3221225485LL;
+    TppRaiseInvalidParameter(CleanupGroupReturn);
+    return -1073741811;
   }
   else
   {
-    *a1 = 0LL;
-    Heap = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, TppHeapTag | 8u, 0x50uLL);
+    *CleanupGroupReturn = 0LL;
+    Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, TppHeapTag | 8, 0x50uLL);
     v3 = Heap;
-    v7 = Heap;
+    BaseAddress = Heap;
     if ( Heap )
     {
       *(_DWORD *)Heap = 1;
-      *(_DWORD *)(Heap + 4) = 0;
-      *(_QWORD *)(Heap + 8) = 0LL;
-      *(_QWORD *)(Heap + 56) = 0LL;
-      v4 = (_QWORD *)(Heap + 16);
+      *((_DWORD *)Heap + 1) = 0;
+      Heap[1] = 0LL;
+      Heap[7] = 0LL;
+      v4 = Heap + 2;
       v4[1] = v4;
       *v4 = v4;
-      *(_QWORD *)(v3 + 72) = v3 + 64;
-      *(_QWORD *)(v3 + 64) = v3 + 64;
-      result = 0LL;
-      *(_OWORD *)(v3 + 32) = 0LL;
-      *(_QWORD *)(v3 + 48) = 0LL;
+      v3[9] = v3 + 8;
+      v3[8] = v3 + 8;
+      result = 0;
+      *((_OWORD *)v3 + 2) = 0LL;
+      v3[6] = 0LL;
       v6 = 0;
-      *a1 = v3;
+      *CleanupGroupReturn = (PTP_CLEANUP_GROUP)v3;
     }
     else
     {
-      result = 3221225495LL;
+      result = -1073741801;
       v6 = -1073741801;
     }
-    if ( (int)result < 0 )
+    if ( result < 0 )
     {
       if ( v3 )
       {
-        RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, TppHeapTag, v7);
+        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, TppHeapTag, BaseAddress);
         return v6;
       }
     }

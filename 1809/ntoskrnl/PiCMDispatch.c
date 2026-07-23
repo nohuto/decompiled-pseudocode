@@ -1,9 +1,9 @@
 /*
- * XREFs of PiCMDispatch @ 0x1406C1CE0
+ * XREFs of PiCMDispatch @ 0x1406C2F80
  * Callers:
  *     <none>
  * Callees:
- *     IofCompleteRequest @ 0x1400C10C0 (IofCompleteRequest.c)
+ *     IofCompleteRequest @ 0x1400C1000 (IofCompleteRequest.c)
  */
 
 __int64 __fastcall PiCMDispatch(__int64 a1, __int64 a2)

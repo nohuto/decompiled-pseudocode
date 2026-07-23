@@ -1,20 +1,20 @@
 /*
- * XREFs of PfpVolumeOpenAndVerify @ 0x1406C5DFC
+ * XREFs of PfpVolumeOpenAndVerify @ 0x1406746EC
  * Callers:
- *     PfpPrefetchRequestPerform @ 0x1406C5978 (PfpPrefetchRequestPerform.c)
+ *     PfpPrefetchRequestPerform @ 0x140674268 (PfpPrefetchRequestPerform.c)
  * Callees:
- *     PfVolumeSupportedForPrefetch @ 0x1402D4054 (PfVolumeSupportedForPrefetch.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     NtCreateFile @ 0x14060B430 (NtCreateFile.c)
- *     NtQueryVolumeInformationFile @ 0x1406508C0 (NtQueryVolumeInformationFile.c)
- *     PfpOpenHandleCreate @ 0x1406C94F8 (PfpOpenHandleCreate.c)
- *     PfpOpenHandleClose @ 0x1406C9690 (PfpOpenHandleClose.c)
- *     NtClose @ 0x1406F0980 (NtClose.c)
- *     NtGetDevicePowerState @ 0x1408F0370 (NtGetDevicePowerState.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     PfVolumeSupportedForPrefetch @ 0x140272D2C (PfVolumeSupportedForPrefetch.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     NtQueryVolumeInformationFile @ 0x1406456E0 (NtQueryVolumeInformationFile.c)
+ *     PfpOpenHandleCreate @ 0x140677DE8 (PfpOpenHandleCreate.c)
+ *     PfpOpenHandleClose @ 0x140677F80 (PfpOpenHandleClose.c)
+ *     NtCreateFile @ 0x14069AEE0 (NtCreateFile.c)
+ *     NtClose @ 0x140707D60 (NtClose.c)
+ *     NtGetDevicePowerState @ 0x1408F04D0 (NtGetDevicePowerState.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PfpVolumeOpenAndVerify(__int64 a1, _OWORD *a2, __int64 a3)
@@ -28,7 +28,7 @@ __int64 __fastcall PfpVolumeOpenAndVerify(__int64 a1, _OWORD *a2, __int64 a3)
   __int128 v12; // xmm0
   __int128 v13; // xmm1
   HANDLE FileHandle; // [rsp+60h] [rbp-A0h] BYREF
-  unsigned int v16; // [rsp+68h] [rbp-98h] BYREF
+  _DEVICE_POWER_STATE State; // [rsp+68h] [rbp-98h] BYREF
   __int64 v17; // [rsp+70h] [rbp-90h] BYREF
   PVOID P; // [rsp+78h] [rbp-88h]
   _WORD v19[2]; // [rsp+80h] [rbp-80h] BYREF
@@ -55,7 +55,7 @@ __int64 __fastcall PfpVolumeOpenAndVerify(__int64 a1, _OWORD *a2, __int64 a3)
   *(_QWORD *)&ObjectAttributes.Attributes = 576LL;
   IoStatusBlock = 0LL;
   v17 = 0LL;
-  v16 = 0;
+  State = PowerDeviceUnspecified;
   memset(&v22, 0, 24);
   v22.m256i_i64[3] = 0x200000000LL;
   memset(&v24, 0, 24);
@@ -87,10 +87,10 @@ __int64 __fastcall PfpVolumeOpenAndVerify(__int64 a1, _OWORD *a2, __int64 a3)
       }
       if ( (*(_DWORD *)(a3 + 12) & 1) == 0 )
         goto LABEL_7;
-      DevicePowerState = NtGetDevicePowerState(FileHandle, &v16);
+      DevicePowerState = NtGetDevicePowerState(FileHandle, &State);
       if ( DevicePowerState < 0 )
         goto LABEL_16;
-      if ( v16 > 1 )
+      if ( (unsigned int)State > PowerDeviceD0 )
       {
         DevicePowerState = -2147483633;
       }

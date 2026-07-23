@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpTiTestBloomFilter @ 0x140258C94
+ * XREFs of EtwpTiTestBloomFilter @ 0x14025A474
  * Callers:
- *     EtwpTiAsyncVadQueryEventWrite @ 0x140258B94 (EtwpTiAsyncVadQueryEventWrite.c)
+ *     EtwpTiAsyncVadQueryEventWrite @ 0x14025A374 (EtwpTiAsyncVadQueryEventWrite.c)
  * Callees:
- *     EtwpTiGetHashedBitNumbers @ 0x140258F34 (EtwpTiGetHashedBitNumbers.c)
+ *     EtwpTiGetHashedBitNumbers @ 0x14025A714 (EtwpTiGetHashedBitNumbers.c)
  */
 
 char __fastcall EtwpTiTestBloomFilter(__int64 a1, __int64 a2)
@@ -16,9 +16,9 @@ char __fastcall EtwpTiTestBloomFilter(__int64 a1, __int64 a2)
   v5 = 0;
   EtwpTiGetHashedBitNumbers(&v4, a2, a2);
   v2 = 1;
-  if ( ((*(char *)(((unsigned __int64)(unsigned int)v4 >> 3) + *(_QWORD *)&ExpSysDbgLock.ResourceIndex) >> (v4 & 7)) & 1) == 0
-    || ((*(char *)(((unsigned __int64)HIDWORD(v4) >> 3) + *(_QWORD *)&ExpSysDbgLock.ResourceIndex) >> (BYTE4(v4) & 7)) & 1) == 0
-    || ((*(char *)(((unsigned __int64)v5 >> 3) + *(_QWORD *)&ExpSysDbgLock.ResourceIndex) >> (v5 & 7)) & 1) == 0 )
+  if ( ((*(char *)(((unsigned __int64)(unsigned int)v4 >> 3) + ExpSysDbgLock.Padding[0]) >> (v4 & 7)) & 1) == 0
+    || ((*(char *)(((unsigned __int64)HIDWORD(v4) >> 3) + ExpSysDbgLock.Padding[0]) >> (BYTE4(v4) & 7)) & 1) == 0
+    || ((*(char *)(((unsigned __int64)v5 >> 3) + ExpSysDbgLock.Padding[0]) >> (v5 & 7)) & 1) == 0 )
   {
     return 0;
   }

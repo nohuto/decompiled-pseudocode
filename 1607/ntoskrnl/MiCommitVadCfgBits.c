@@ -1,17 +1,17 @@
 /*
- * XREFs of MiCommitVadCfgBits @ 0x140429850
+ * XREFs of MiCommitVadCfgBits @ 0x140428720
  * Callers:
- *     MiMapViewOfImageSection @ 0x140429AC0 (MiMapViewOfImageSection.c)
- *     MiAllocateVirtualMemory @ 0x140430E80 (MiAllocateVirtualMemory.c)
- *     MiProtectVirtualMemory @ 0x140433470 (MiProtectVirtualMemory.c)
- *     MiMapViewOfDataSection @ 0x1404354C0 (MiMapViewOfDataSection.c)
- *     MiCfgInitializeProcess @ 0x14046CF1C (MiCfgInitializeProcess.c)
- *     MiMapViewOfPhysicalSection @ 0x140572C40 (MiMapViewOfPhysicalSection.c)
+ *     MiMapViewOfImageSection @ 0x140428990 (MiMapViewOfImageSection.c)
+ *     MiAllocateVirtualMemory @ 0x14042FD50 (MiAllocateVirtualMemory.c)
+ *     MiProtectVirtualMemory @ 0x140432340 (MiProtectVirtualMemory.c)
+ *     MiMapViewOfDataSection @ 0x140434390 (MiMapViewOfDataSection.c)
+ *     MiCfgInitializeProcess @ 0x14046BDEC (MiCfgInitializeProcess.c)
+ *     MiMapViewOfPhysicalSection @ 0x140573180 (MiMapViewOfPhysicalSection.c)
  * Callees:
- *     MiIsProcessCfgEnabled @ 0x140014304 (MiIsProcessCfgEnabled.c)
- *     MiMarkProcessCfgBits @ 0x140429A14 (MiMarkProcessCfgBits.c)
- *     MiSelectCfgBitMap @ 0x140429A6C (MiSelectCfgBitMap.c)
- *     MiMarkPrivateOpenCfgBits @ 0x1404F444C (MiMarkPrivateOpenCfgBits.c)
+ *     MiIsProcessCfgEnabled @ 0x140013E84 (MiIsProcessCfgEnabled.c)
+ *     MiMarkProcessCfgBits @ 0x1404288E4 (MiMarkProcessCfgBits.c)
+ *     MiSelectCfgBitMap @ 0x14042893C (MiSelectCfgBitMap.c)
+ *     MiMarkPrivateOpenCfgBits @ 0x1404D73D8 (MiMarkPrivateOpenCfgBits.c)
  */
 
 __int64 __fastcall MiCommitVadCfgBits(__int64 a1, __int64 a2, __int64 a3)
@@ -53,10 +53,10 @@ __int64 __fastcall MiCommitVadCfgBits(__int64 a1, __int64 a2, __int64 a3)
   result = MiMarkProcessCfgBits(v14, v13, v15, v9, v10, v12, a3);
   if ( Process[1].ActiveProcessors.Bitmap[7] && (int)result >= 0 )
   {
-    v17 = qword_140327F90 + 276840664;
-    if ( v12 != qword_140327F90 + 276840664 )
+    v17 = qword_140327FD0 + 276840664;
+    if ( v12 != qword_140327FD0 + 276840664 )
       return MiMarkPrivateOpenCfgBits(v17, v9, v10, 0LL);
-    v17 = qword_140327F90 + 276840688;
+    v17 = qword_140327FD0 + 276840688;
     if ( v9 <= 0x100000000LL )
     {
       if ( v10 > 0x100000000LL )

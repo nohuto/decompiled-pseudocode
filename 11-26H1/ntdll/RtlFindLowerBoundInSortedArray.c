@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlFindLowerBoundInSortedArray @ 0x18016F5B0
+ * XREFs of RtlFindLowerBoundInSortedArray @ 0x18016E5B0
  * Callers:
- *     RtlpFcHasEffectiveStateInGovernedFeatureInfoTable @ 0x18016F1FC (RtlpFcHasEffectiveStateInGovernedFeatureInfoTable.c)
- *     RtlpFcQueryFeatureConfigurationFromBuffers @ 0x18016F36C (RtlpFcQueryFeatureConfigurationFromBuffers.c)
- *     RtlpFcGetFeatureHasSubscriptionsFromBuffer @ 0x18016F488 (RtlpFcGetFeatureHasSubscriptionsFromBuffer.c)
+ *     RtlpFcHasEffectiveStateInGovernedFeatureInfoTable @ 0x18016E1FC (RtlpFcHasEffectiveStateInGovernedFeatureInfoTable.c)
+ *     RtlpFcQueryFeatureConfigurationFromBuffers @ 0x18016E36C (RtlpFcQueryFeatureConfigurationFromBuffers.c)
+ *     RtlpFcGetFeatureHasSubscriptionsFromBuffer @ 0x18016E488 (RtlpFcGetFeatureHasSubscriptionsFromBuffer.c)
  * Callees:
- *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180170020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x18016F020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
  */
 
 unsigned __int64 __fastcall RtlFindLowerBoundInSortedArray(

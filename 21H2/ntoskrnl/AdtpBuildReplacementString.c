@@ -1,13 +1,13 @@
 /*
- * XREFs of AdtpBuildReplacementString @ 0x14096E970
+ * XREFs of AdtpBuildReplacementString @ 0x14096EB50
  * Callers:
- *     SeAdtRegistryValueChangedAuditAlarm @ 0x14091D34C (SeAdtRegistryValueChangedAuditAlarm.c)
- *     AdtpBuildRegistryValueString @ 0x14096D5D0 (AdtpBuildRegistryValueString.c)
+ *     SeAdtRegistryValueChangedAuditAlarm @ 0x14091D4AC (SeAdtRegistryValueChangedAuditAlarm.c)
+ *     AdtpBuildRegistryValueString @ 0x14096D7B0 (AdtpBuildRegistryValueString.c)
  * Callees:
- *     RtlAppendUnicodeToString @ 0x140265A40 (RtlAppendUnicodeToString.c)
- *     RtlAppendUnicodeStringToString @ 0x14027F0B0 (RtlAppendUnicodeStringToString.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     RtlIntegerToUnicodeString @ 0x14062C070 (RtlIntegerToUnicodeString.c)
+ *     RtlAppendUnicodeToString @ 0x1402539E0 (RtlAppendUnicodeToString.c)
+ *     RtlAppendUnicodeStringToString @ 0x14026D4E0 (RtlAppendUnicodeStringToString.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     RtlIntegerToUnicodeString @ 0x14060F3A0 (RtlIntegerToUnicodeString.c)
  */
 
 __int64 __fastcall AdtpBuildReplacementString(ULONG a1, UNICODE_STRING *a2)

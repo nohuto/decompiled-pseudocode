@@ -1,14 +1,14 @@
 /*
  * XREFs of bsearch_s @ 0x1403E1950
  * Callers:
- *     RtlGuardRestoreContext @ 0x140294C30 (RtlGuardRestoreContext.c)
- *     I_MinCryptIsCertificateHashRevokedV2 @ 0x14041ADA8 (I_MinCryptIsCertificateHashRevokedV2.c)
- *     RtlGuardCheckLongJumpTarget @ 0x1405EEC28 (RtlGuardCheckLongJumpTarget.c)
- *     RtlVerifyUserUnwindTarget @ 0x1409BFF78 (RtlVerifyUserUnwindTarget.c)
+ *     sub_140294C30 @ 0x140294C30 (sub_140294C30.c)
+ *     sub_14041ADA8 @ 0x14041ADA8 (sub_14041ADA8.c)
+ *     sub_1405EEC28 @ 0x1405EEC28 (sub_1405EEC28.c)
+ *     sub_1409BFF78 @ 0x1409BFF78 (sub_1409BFF78.c)
  *     SeQuerySecureBootPlatformManifest @ 0x1409CDBD0 (SeQuerySecureBootPlatformManifest.c)
  * Callees:
- *     xHalTimerWatchdogStop @ 0x1403A7020 (xHalTimerWatchdogStop.c)
- *     _guard_check_icall @ 0x14042A590 (_guard_check_icall.c)
+ *     __misaligned_access @ 0x1403A7020 (__misaligned_access.c)
+ *     sub_14042A590 @ 0x14042A590 (sub_14042A590.c)
  */
 
 void *__cdecl bsearch_s(
@@ -32,6 +32,7 @@ void *__cdecl bsearch_s(
   v9 = (char *)Base;
   if ( (Base || !NumOfElements) && SizeOfElements && PtFuncCompare )
   {
+    sub_14042A590(PtFuncCompare);
     while ( v9 <= v8 )
     {
       v11 = v7 >> 1;
@@ -64,7 +65,7 @@ void *__cdecl bsearch_s(
   }
   else
   {
-    xHalTimerWatchdogStop();
+    _misaligned_access();
   }
   return 0LL;
 }

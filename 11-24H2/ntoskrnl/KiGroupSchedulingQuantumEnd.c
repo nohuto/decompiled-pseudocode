@@ -1,29 +1,29 @@
 /*
- * XREFs of KiGroupSchedulingQuantumEnd @ 0x14030AEFC
+ * XREFs of KiGroupSchedulingQuantumEnd @ 0x1402D9F5C
  * Callers:
- *     KiQuantumEnd @ 0x140293C70 (KiQuantumEnd.c)
+ *     KiQuantumEnd @ 0x1402A3870 (KiQuantumEnd.c)
  * Callees:
- *     KiStartRescheduleContext @ 0x140254D50 (KiStartRescheduleContext.c)
- *     KiAcquirePrcbLocksForIsolationUnit @ 0x140293190 (KiAcquirePrcbLocksForIsolationUnit.c)
- *     ?KiCompleteRescheduleContextEntry@@YAXPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KPRCB@@PEAU_KTHREAD@@PEAU_KTHREAD_SCHEDULE_REASON_DATA@@@Z @ 0x1402979F0 (-KiCompleteRescheduleContextEntry@@YAXPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KPRCB@@PEAU_KTHREAD.c)
- *     KiSearchForNewThreadsForRescheduleContext @ 0x1402986C0 (KiSearchForNewThreadsForRescheduleContext.c)
- *     KiReadyDeferredReadyList @ 0x140299320 (KiReadyDeferredReadyList.c)
- *     KiCommitRescheduleContext @ 0x140299450 (KiCommitRescheduleContext.c)
- *     KiShouldPreemptionBeDeferred @ 0x140299C60 (KiShouldPreemptionBeDeferred.c)
- *     KiIsThreadConstrainedBySchedulingGroup @ 0x14029ABF0 (KiIsThreadConstrainedBySchedulingGroup.c)
- *     KiCheckForMaxOverQuotaScb @ 0x14029AC10 (KiCheckForMaxOverQuotaScb.c)
- *     KiGroupSchedulingGenerationEnd @ 0x14030B428 (KiGroupSchedulingGenerationEnd.c)
- *     KiInsertDeferredPreemptionApc @ 0x14030C908 (KiInsertDeferredPreemptionApc.c)
- *     ?KiComputeGroupSchedulingRank@@YAXPEAU_KSCHEDULING_GROUP@@PEAU_KPRCB@@PEAT_KISOLATION_UNIT_LOCK_HANDLE@@PEAU_KSCB@@@Z @ 0x14030C9D4 (-KiComputeGroupSchedulingRank@@YAXPEAU_KSCHEDULING_GROUP@@PEAU_KPRCB@@PEAT_KISOLATION_UNIT_LOCK_.c)
- *     ?KiRemoveSchedulingGroupQueue@@YAXPEAU_KPRCB@@PEAU_KSCB@@E@Z @ 0x14030E6D0 (-KiRemoveSchedulingGroupQueue@@YAXPEAU_KPRCB@@PEAU_KSCB@@E@Z.c)
- *     KiFlushSoftwareInterruptBatch @ 0x14031FCD0 (KiFlushSoftwareInterruptBatch.c)
- *     KiReleasePrcbLocksForIsolationUnit @ 0x140339330 (KiReleasePrcbLocksForIsolationUnit.c)
- *     ?KiFindRescheduleContextEntryForPrcb@@YAPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KI_RESCHEDULE_CONTEXT@@PEAU_KPRCB@@@Z @ 0x1403CA100 (-KiFindRescheduleContextEntryForPrcb@@YAPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KI_RESCHEDULE_CON.c)
- *     ?KiAdjustRescheduleContextEntryForThreadRemoval@@YAXPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KTHREAD@@EE@Z @ 0x1403CBFC0 (-KiAdjustRescheduleContextEntryForThreadRemoval@@YAXPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KTHRE.c)
- *     ?KiRecomputeGroupSchedulingRank@@YAXPEAU_KSCHEDULING_GROUP@@PEAU_KSCB@@PEAU_KPRCB@@@Z @ 0x14044F938 (-KiRecomputeGroupSchedulingRank@@YAXPEAU_KSCHEDULING_GROUP@@PEAU_KSCB@@PEAU_KPRCB@@@Z.c)
- *     ?KiCheckMaxOverQuotaTransition@@YAEPEAU_KSCB@@PEAU_KSCHEDULING_GROUP@@@Z @ 0x1404513FC (-KiCheckMaxOverQuotaTransition@@YAEPEAU_KSCB@@PEAU_KSCHEDULING_GROUP@@@Z.c)
- *     KiProcessScbTracingList @ 0x1404540D4 (KiProcessScbTracingList.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     KiStartRescheduleContext @ 0x140285360 (KiStartRescheduleContext.c)
+ *     KiAcquirePrcbLocksForIsolationUnit @ 0x1402A2D90 (KiAcquirePrcbLocksForIsolationUnit.c)
+ *     ?KiFindRescheduleContextEntryForPrcb@@YAPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KI_RESCHEDULE_CONTEXT@@PEAU_KPRCB@@@Z @ 0x1402A6730 (-KiFindRescheduleContextEntryForPrcb@@YAPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KI_RESCHEDULE_CON.c)
+ *     KiSearchForNewThreadsForRescheduleContext @ 0x1402A71B0 (KiSearchForNewThreadsForRescheduleContext.c)
+ *     KiReadyDeferredReadyList @ 0x1402A7E10 (KiReadyDeferredReadyList.c)
+ *     KiCommitRescheduleContext @ 0x1402A7F40 (KiCommitRescheduleContext.c)
+ *     KiShouldPreemptionBeDeferred @ 0x1402A8750 (KiShouldPreemptionBeDeferred.c)
+ *     KiIsThreadConstrainedBySchedulingGroup @ 0x1402A96E0 (KiIsThreadConstrainedBySchedulingGroup.c)
+ *     KiCheckForMaxOverQuotaScb @ 0x1402A9700 (KiCheckForMaxOverQuotaScb.c)
+ *     KiFlushSoftwareInterruptBatch @ 0x1402C8860 (KiFlushSoftwareInterruptBatch.c)
+ *     ?KiRecomputeGroupSchedulingRank@@YAXPEAU_KSCHEDULING_GROUP@@PEAU_KSCB@@PEAU_KPRCB@@@Z @ 0x1402D8368 (-KiRecomputeGroupSchedulingRank@@YAXPEAU_KSCHEDULING_GROUP@@PEAU_KSCB@@PEAU_KPRCB@@@Z.c)
+ *     ?KiCheckMaxOverQuotaTransition@@YAEPEAU_KSCB@@PEAU_KSCHEDULING_GROUP@@@Z @ 0x1402D8768 (-KiCheckMaxOverQuotaTransition@@YAEPEAU_KSCB@@PEAU_KSCHEDULING_GROUP@@@Z.c)
+ *     ?KiRemoveSchedulingGroupQueue@@YAXPEAU_KPRCB@@PEAU_KSCB@@E@Z @ 0x1402D89A8 (-KiRemoveSchedulingGroupQueue@@YAXPEAU_KPRCB@@PEAU_KSCB@@E@Z.c)
+ *     KiGroupSchedulingGenerationEnd @ 0x1402DA488 (KiGroupSchedulingGenerationEnd.c)
+ *     KiInsertDeferredPreemptionApc @ 0x1402DB968 (KiInsertDeferredPreemptionApc.c)
+ *     ?KiComputeGroupSchedulingRank@@YAXPEAU_KSCHEDULING_GROUP@@PEAU_KPRCB@@PEAT_KISOLATION_UNIT_LOCK_HANDLE@@PEAU_KSCB@@@Z @ 0x1402DBA34 (-KiComputeGroupSchedulingRank@@YAXPEAU_KSCHEDULING_GROUP@@PEAU_KPRCB@@PEAT_KISOLATION_UNIT_LOCK_.c)
+ *     ?KiCompleteRescheduleContextEntry@@YAXPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KPRCB@@PEAU_KTHREAD@@PEAU_KTHREAD_SCHEDULE_REASON_DATA@@@Z @ 0x1402E1220 (-KiCompleteRescheduleContextEntry@@YAXPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KPRCB@@PEAU_KTHREAD.c)
+ *     KiReleasePrcbLocksForIsolationUnit @ 0x140318810 (KiReleasePrcbLocksForIsolationUnit.c)
+ *     ?KiAdjustRescheduleContextEntryForThreadRemoval@@YAXPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KTHREAD@@EE@Z @ 0x1403BC7F0 (-KiAdjustRescheduleContextEntryForThreadRemoval@@YAXPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KTHRE.c)
+ *     KiProcessScbTracingList @ 0x140449184 (KiProcessScbTracingList.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 unsigned __int8 __fastcall KiGroupSchedulingQuantumEnd(struct _KPRCB *a1, unsigned __int64 *a2, __int64 a3, char a4)
@@ -73,7 +73,7 @@ unsigned __int8 __fastcall KiGroupSchedulingQuantumEnd(struct _KPRCB *a1, unsign
   v39 = 0;
   v7 = MEMORY[0xFFFFF78000000320];
   v41 = 0LL;
-  result = (unsigned __int8)KiAcquirePrcbLocksForIsolationUnit((__int64)a1, 1, a2);
+  result = (unsigned __int8)KiAcquirePrcbLocksForIsolationUnit((__int64)a1, 1LL, a2);
   if ( v7 > a1->GenerationTarget )
     return KiGroupSchedulingGenerationEnd(a1);
   v9 = *(struct _KSCHEDULING_GROUP **)(a3 + 104);
@@ -113,7 +113,7 @@ unsigned __int8 __fastcall KiGroupSchedulingQuantumEnd(struct _KPRCB *a1, unsign
             v39 = 1;
         }
 LABEL_12:
-        if ( (WORD2(xmmword_140FC5B10) & 0x4000) != 0 )
+        if ( (WORD2(xmmword_140FC6B50) & 0x4000) != 0 )
         {
           v26 = v10->PrcbLockFlags;
           if ( ((v26 >> 1) & 1) != ((_WORD)v17 != 0) || v10->Rank != Rank )
@@ -236,7 +236,7 @@ LABEL_56:
                 while ( (unsigned int)v38 < StaticRescheduleContext->ProcessorCount );
                 v18 = a3;
               }
-              KiFlushSoftwareInterruptBatch(&a1->DeferredDispatchInterrupts);
+              KiFlushSoftwareInterruptBatch((char *)&a1->DeferredDispatchInterrupts);
             }
             if ( v41 )
               KiProcessScbTracingList(a1, &v41);
@@ -244,7 +244,7 @@ LABEL_56:
               KiReadyDeferredReadyList((__int64)a1, &v42);
             if ( v22 )
               KiInsertDeferredPreemptionApc(a1, v18, 0LL);
-            return (unsigned __int8)KiAcquirePrcbLocksForIsolationUnit((__int64)a1, 1, a2);
+            return (unsigned __int8)KiAcquirePrcbLocksForIsolationUnit((__int64)a1, 1LL, a2);
           }
           return result;
         }
@@ -255,7 +255,7 @@ LABEL_56:
         if ( KiCheckMaxOverQuotaTransition(v10, v9) )
         {
           if ( (*(_BYTE *)&v10->0 & 1) != 0 )
-            KiRemoveSchedulingGroupQueue(a1, v10, 1u);
+            KiRemoveSchedulingGroupQueue(a1, v10, 1);
         }
         else
         {

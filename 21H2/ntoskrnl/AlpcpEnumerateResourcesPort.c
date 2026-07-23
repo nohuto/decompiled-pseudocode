@@ -1,16 +1,16 @@
 /*
- * XREFs of AlpcpEnumerateResourcesPort @ 0x140662158
+ * XREFs of AlpcpEnumerateResourcesPort @ 0x140656F78
  * Callers:
- *     AlpcpLocateSectionView @ 0x14066209C (AlpcpLocateSectionView.c)
- *     NtAlpcDeleteSectionView @ 0x14069D2B0 (NtAlpcDeleteSectionView.c)
+ *     NtAlpcDeleteSectionView @ 0x1405FC380 (NtAlpcDeleteSectionView.c)
+ *     AlpcpLocateSectionView @ 0x140656EBC (AlpcpLocateSectionView.c)
  * Callees:
- *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
- *     AlpcpViewSearchCallbackFunction @ 0x14069B290 (AlpcpViewSearchCallbackFunction.c)
+ *     ExfReleasePushLockShared @ 0x1402FC1C0 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x1403558A0 (ExAcquirePushLockSharedEx.c)
+ *     AlpcpViewSearchCallbackFunction @ 0x1405FA450 (AlpcpViewSearchCallbackFunction.c)
  */
 
-__int64 __fastcall AlpcpEnumerateResourcesPort(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall AlpcpEnumerateResourcesPort(__int64 a1, __int64 a2, __int64 a3, _QWORD *a4)
 {
   signed __int64 *v4; // rdi
   __int64 **v5; // r14
@@ -25,7 +25,7 @@ __int64 __fastcall AlpcpEnumerateResourcesPort(__int64 a1, __int64 a2, __int64 a
   {
     if ( *((_BYTE *)i + 17) == 6 )
     {
-      v7 = AlpcpViewSearchCallbackFunction(i + 6, a4);
+      v7 = AlpcpViewSearchCallbackFunction((ULONG_PTR)(i + 6), a4);
       if ( v7 < 0 )
         break;
     }

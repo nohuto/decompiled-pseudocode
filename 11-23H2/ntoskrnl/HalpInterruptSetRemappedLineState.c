@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpInterruptSetRemappedLineState @ 0x140504760
+ * XREFs of HalpInterruptSetRemappedLineState @ 0x140504CB0
  * Callers:
- *     HalpTimerInitializeHypervisorTimer @ 0x1403B6700 (HalpTimerInitializeHypervisorTimer.c)
+ *     HalpTimerInitializeHypervisorTimer @ 0x1403B68E0 (HalpTimerInitializeHypervisorTimer.c)
  * Callees:
- *     HalpInterruptLookupController @ 0x14031FEE0 (HalpInterruptLookupController.c)
- *     HalpInterruptSetRemappedLineStateInternal @ 0x14037C5A8 (HalpInterruptSetRemappedLineStateInternal.c)
- *     HalpInterruptSetProblemEx @ 0x14051AA08 (HalpInterruptSetProblemEx.c)
+ *     HalpInterruptLookupController @ 0x140320170 (HalpInterruptLookupController.c)
+ *     HalpInterruptSetRemappedLineStateInternal @ 0x14037C748 (HalpInterruptSetRemappedLineStateInternal.c)
+ *     HalpInterruptSetProblemEx @ 0x14051AF58 (HalpInterruptSetProblemEx.c)
  */
 
 __int64 __fastcall HalpInterruptSetRemappedLineState(int *a1)

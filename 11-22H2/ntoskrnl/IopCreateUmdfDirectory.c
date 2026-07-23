@@ -22,28 +22,21 @@ __int64 IopCreateUmdfDirectory()
   ULONG v1; // eax
   _DWORD *Pool2; // rax
   _DWORD *v3; // rdi
-  int Acl; // ebx
+  NTSTATUS Acl; // ebx
   ULONG v5; // ebx
   ACL *v6; // rax
   ACL *v7; // rsi
   UNICODE_STRING DestinationString; // [rsp+20h] [rbp-29h] BYREF
   _OWORD SecurityDescriptor[2]; // [rsp+30h] [rbp-19h] BYREF
   __int64 v11; // [rsp+50h] [rbp+7h]
-  int v12; // [rsp+58h] [rbp+Fh]
-  int v13; // [rsp+5Ch] [rbp+13h]
-  __int64 v14; // [rsp+60h] [rbp+17h]
-  UNICODE_STRING *p_DestinationString; // [rsp+68h] [rbp+1Fh]
-  int v16; // [rsp+70h] [rbp+27h]
-  int v17; // [rsp+74h] [rbp+2Bh]
-  _OWORD *v18; // [rsp+78h] [rbp+2Fh]
-  __int64 v19; // [rsp+80h] [rbp+37h]
-  struct _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+B0h] [rbp+67h] BYREF
-  HANDLE Handle; // [rsp+B8h] [rbp+6Fh] BYREF
+  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+58h] [rbp+Fh] BYREF
+  _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+B0h] [rbp+67h] BYREF
+  HANDLE DirectoryHandle; // [rsp+B8h] [rbp+6Fh] BYREF
 
   *(_WORD *)&IdentifierAuthority.Value[4] = 1280;
-  Handle = 0LL;
-  v17 = 0;
-  v13 = 0;
+  DirectoryHandle = 0LL;
+  *(&ObjectAttributes.Attributes + 1) = 0;
+  *(&ObjectAttributes.Length + 1) = 0;
   v11 = 0LL;
   *(_DWORD *)IdentifierAuthority.Value = 0;
   memset(SecurityDescriptor, 0, sizeof(SecurityDescriptor));
@@ -84,15 +77,15 @@ __int64 IopCreateUmdfDirectory()
                 if ( Acl >= 0 )
                 {
                   RtlInitUnicodeString(&DestinationString, L"\\UMDFCommunicationPorts");
-                  v14 = 0LL;
-                  v19 = 0LL;
-                  p_DestinationString = &DestinationString;
-                  v12 = 48;
-                  v18 = SecurityDescriptor;
-                  v16 = 528;
-                  Acl = NtCreateDirectoryObject((__int64)&Handle);
+                  ObjectAttributes.RootDirectory = 0LL;
+                  ObjectAttributes.SecurityQualityOfService = 0LL;
+                  ObjectAttributes.ObjectName = &DestinationString;
+                  ObjectAttributes.Length = 48;
+                  ObjectAttributes.SecurityDescriptor = SecurityDescriptor;
+                  ObjectAttributes.Attributes = 528;
+                  Acl = NtCreateDirectoryObject(&DirectoryHandle, 0xF000Fu, &ObjectAttributes);
                   if ( Acl >= 0 )
-                    ObCloseHandle(Handle, 0);
+                    ObCloseHandle(DirectoryHandle, 0);
                 }
               }
             }

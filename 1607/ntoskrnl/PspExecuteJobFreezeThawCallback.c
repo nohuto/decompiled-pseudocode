@@ -1,10 +1,10 @@
 /*
- * XREFs of PspExecuteJobFreezeThawCallback @ 0x14006C6A8
+ * XREFs of PspExecuteJobFreezeThawCallback @ 0x14006C228
  * Callers:
  *     <none>
  * Callees:
- *     PspGetNextJobProcess @ 0x14045816C (PspGetNextJobProcess.c)
- *     PspChangeProcessExecutionState @ 0x140469960 (PspChangeProcessExecutionState.c)
+ *     PspGetNextJobProcess @ 0x14045703C (PspGetNextJobProcess.c)
+ *     PspChangeProcessExecutionState @ 0x140468830 (PspChangeProcessExecutionState.c)
  */
 
 __int64 __fastcall PspExecuteJobFreezeThawCallback(__int64 a1, int *a2)

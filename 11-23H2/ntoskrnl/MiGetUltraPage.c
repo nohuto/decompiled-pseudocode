@@ -1,12 +1,12 @@
 /*
- * XREFs of MiGetUltraPage @ 0x1402EC570
+ * XREFs of MiGetUltraPage @ 0x1402EC800
  * Callers:
- *     MiCreateUltraThreadContextHelper @ 0x1402EC46C (MiCreateUltraThreadContextHelper.c)
- *     MiReplenishUltraPageTables @ 0x140661B7C (MiReplenishUltraPageTables.c)
+ *     MiCreateUltraThreadContextHelper @ 0x1402EC6FC (MiCreateUltraThreadContextHelper.c)
+ *     MiReplenishUltraPageTables @ 0x1406620CC (MiReplenishUltraPageTables.c)
  * Callees:
- *     MiGetSlabPage @ 0x14023BD70 (MiGetSlabPage.c)
- *     MiGetPage @ 0x14026D360 (MiGetPage.c)
- *     MiSetOriginalPtePfnFromFreeList @ 0x1402859D4 (MiSetOriginalPtePfnFromFreeList.c)
+ *     MiGetSlabPage @ 0x14023BE40 (MiGetSlabPage.c)
+ *     MiGetPage @ 0x14026D5F0 (MiGetPage.c)
+ *     MiSetOriginalPtePfnFromFreeList @ 0x140285C64 (MiSetOriginalPtePfnFromFreeList.c)
  */
 
 __int64 __fastcall MiGetUltraPage(__int64 a1, int a2)

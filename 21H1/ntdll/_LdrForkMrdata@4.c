@@ -12,7 +12,7 @@ void __thiscall LdrForkMrdata(void *this)
   if ( this )
   {
     if ( this == (void *)1 )
-      LdrpMrdataLock = 1;
+      LdrpMrdataLock.0 = ($64EDA4DD838E80CF9A7DD220E06F3FD2)1;
     else
       RtlReleaseSRWLockExclusive(&LdrpMrdataLock);
   }

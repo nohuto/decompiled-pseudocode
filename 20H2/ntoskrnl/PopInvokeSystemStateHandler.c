@@ -57,7 +57,7 @@ __int64 __fastcall PopInvokeSystemStateHandler(int a1, __int64 a2)
   _DWORD *v26; // r8
   int v27; // eax
   LARGE_INTEGER v28; // [rsp+30h] [rbp-D0h] BYREF
-  struct _GROUP_AFFINITY Affinity; // [rsp+38h] [rbp-C8h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+38h] [rbp-C8h] BYREF
   LARGE_INTEGER v30; // [rsp+48h] [rbp-B8h] BYREF
   struct _KDPC Dpc; // [rsp+50h] [rbp-B0h] BYREF
   _QWORD DeferredContext[10]; // [rsp+90h] [rbp-70h] BYREF
@@ -66,7 +66,7 @@ __int64 __fastcall PopInvokeSystemStateHandler(int a1, __int64 a2)
   int v35; // [rsp+ECh] [rbp-14h]
   _QWORD v36[2]; // [rsp+F0h] [rbp-10h] BYREF
   _QWORD v37[2]; // [rsp+100h] [rbp+0h] BYREF
-  struct _SLIST_ENTRY v38[9]; // [rsp+110h] [rbp+10h] BYREF
+  _SLIST_ENTRY v38[9]; // [rsp+110h] [rbp+10h] BYREF
   __int128 v39; // [rsp+1A0h] [rbp+A0h] BYREF
   __int64 v40; // [rsp+1B0h] [rbp+B0h]
 

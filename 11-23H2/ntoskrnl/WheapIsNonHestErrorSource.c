@@ -1,8 +1,8 @@
 /*
- * XREFs of WheapIsNonHestErrorSource @ 0x140380B90
+ * XREFs of WheapIsNonHestErrorSource @ 0x140380D30
  * Callers:
- *     WheaAddErrorSource @ 0x14081EB20 (WheaAddErrorSource.c)
- *     WheaRemoveErrorSource @ 0x140A078C0 (WheaRemoveErrorSource.c)
+ *     WheaAddErrorSource @ 0x14081EDF0 (WheaAddErrorSource.c)
+ *     WheaRemoveErrorSource @ 0x140A07B50 (WheaRemoveErrorSource.c)
  * Callees:
  *     <none>
  */

@@ -1,13 +1,13 @@
 /*
- * XREFs of MiRestrictRangeToNode @ 0x140375714
+ * XREFs of MiRestrictRangeToNode @ 0x1403758B4
  * Callers:
- *     MiDescribePageRun @ 0x14037548C (MiDescribePageRun.c)
- *     MiInitializeDynamicPfns @ 0x14061AEF8 (MiInitializeDynamicPfns.c)
- *     MiAddPartitionHugeRange @ 0x14061F204 (MiAddPartitionHugeRange.c)
- *     MiHotRemoveHugeRange @ 0x1406200D4 (MiHotRemoveHugeRange.c)
- *     MiSetHugeRangePartitionId @ 0x140622808 (MiSetHugeRangePartitionId.c)
- *     MiUpdatePartitionChildPageCounts @ 0x14065BD04 (MiUpdatePartitionChildPageCounts.c)
- *     MiAddPhysicalMemoryChunks @ 0x140A2BE8C (MiAddPhysicalMemoryChunks.c)
+ *     MiDescribePageRun @ 0x14037562C (MiDescribePageRun.c)
+ *     MiInitializeDynamicPfns @ 0x14061B448 (MiInitializeDynamicPfns.c)
+ *     MiAddPartitionHugeRange @ 0x14061F754 (MiAddPartitionHugeRange.c)
+ *     MiHotRemoveHugeRange @ 0x140620624 (MiHotRemoveHugeRange.c)
+ *     MiSetHugeRangePartitionId @ 0x140622D58 (MiSetHugeRangePartitionId.c)
+ *     MiUpdatePartitionChildPageCounts @ 0x14065C254 (MiUpdatePartitionChildPageCounts.c)
+ *     MiAddPhysicalMemoryChunks @ 0x140A2C13C (MiAddPhysicalMemoryChunks.c)
  *     MiCreateDescriptorPfns @ 0x140B42404 (MiCreateDescriptorPfns.c)
  *     MxCreateFreePfns @ 0x140B426A0 (MxCreateFreePfns.c)
  *     MxInitializeFreeNodeDescriptors @ 0x140B42B78 (MxInitializeFreeNodeDescriptors.c)
@@ -15,8 +15,8 @@
  *     MxComputeFreeNodeDescriptorRequirements @ 0x140B43494 (MxComputeFreeNodeDescriptorRequirements.c)
  *     MiRemoveLargeFreeLoaderDescriptors @ 0x140B6CE0C (MiRemoveLargeFreeLoaderDescriptors.c)
  * Callees:
- *     MiSearchNumaNodeTable @ 0x14026EAD0 (MiSearchNumaNodeTable.c)
- *     MiSearchChannelTable @ 0x140645750 (MiSearchChannelTable.c)
+ *     MiSearchNumaNodeTable @ 0x14026ED60 (MiSearchNumaNodeTable.c)
+ *     MiSearchChannelTable @ 0x140645CA0 (MiSearchChannelTable.c)
  */
 
 ULONG_PTR __fastcall MiRestrictRangeToNode(ULONG_PTR BugCheckParameter2, ULONG_PTR a2)

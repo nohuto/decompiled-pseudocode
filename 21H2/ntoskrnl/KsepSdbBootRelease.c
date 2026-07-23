@@ -1,11 +1,11 @@
 /*
- * XREFs of KsepSdbBootRelease @ 0x1407BCD08
+ * XREFs of KsepSdbBootRelease @ 0x1407BD498
  * Callers:
- *     KseShimDatabaseBootRelease @ 0x1407BCC60 (KseShimDatabaseBootRelease.c)
- *     KseShimDatabaseBootInitialize @ 0x140A72134 (KseShimDatabaseBootInitialize.c)
+ *     KseShimDatabaseBootRelease @ 0x1407BD3F0 (KseShimDatabaseBootRelease.c)
+ *     KseShimDatabaseBootInitialize @ 0x140A73134 (KseShimDatabaseBootInitialize.c)
  * Callees:
- *     KsepPoolFreePaged @ 0x140371724 (KsepPoolFreePaged.c)
- *     SdbReleaseDatabase @ 0x140755FC8 (SdbReleaseDatabase.c)
+ *     KsepPoolFreePaged @ 0x140371274 (KsepPoolFreePaged.c)
+ *     SdbReleaseDatabase @ 0x140756188 (SdbReleaseDatabase.c)
  */
 
 void __fastcall KsepSdbBootRelease(__int64 *a1)

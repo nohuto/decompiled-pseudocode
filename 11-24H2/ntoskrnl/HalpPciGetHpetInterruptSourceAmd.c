@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpPciGetHpetInterruptSourceAmd @ 0x140C1532C
+ * XREFs of HalpPciGetHpetInterruptSourceAmd @ 0x140C1732C
  * Callers:
- *     HalpPciGetHpetInterruptSource @ 0x140C15260 (HalpPciGetHpetInterruptSource.c)
+ *     HalpPciGetHpetInterruptSource @ 0x140C17260 (HalpPciGetHpetInterruptSource.c)
  * Callees:
  *     <none>
  */

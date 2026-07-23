@@ -1,13 +1,13 @@
 /*
- * XREFs of IoOpenDeviceRegistryKey @ 0x1406A50A0
+ * XREFs of IoOpenDeviceRegistryKey @ 0x140602CD0
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
- *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
- *     _CmOpenDeviceRegKey @ 0x140641B70 (_CmOpenDeviceRegKey.c)
- *     IopApplyMutableTagToRegistryKey @ 0x1406A51CC (IopApplyMutableTagToRegistryKey.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseResourceLite @ 0x140356140 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1403568F0 (ExAcquireResourceExclusiveLite.c)
+ *     IopApplyMutableTagToRegistryKey @ 0x140602DFC (IopApplyMutableTagToRegistryKey.c)
+ *     _CmOpenDeviceRegKey @ 0x140636980 (_CmOpenDeviceRegKey.c)
  */
 
 NTSTATUS __stdcall IoOpenDeviceRegistryKey(
@@ -22,6 +22,9 @@ NTSTATUS __stdcall IoOpenDeviceRegistryKey(
   struct _KTHREAD *CurrentThread; // rax
   int v11; // r8d
   NTSTATUS v12; // ebx
+  __int64 v13; // rdx
+  __int64 v14; // r8
+  __int64 v15; // r9
 
   v6 = DevInstKeyType;
   if ( !DeviceObject )
@@ -45,7 +48,7 @@ LABEL_7:
   if ( (v6 & 4) == 0 )
     v11 = v9;
   v12 = CmOpenDeviceRegKey(
-          *(__int64 *)&PiPnpRtlCtx,
+          PiPnpRtlCtx,
           *((_QWORD *)DeviceObject->DeviceObjectExtension->DeviceNode + 6),
           v11,
           0,
@@ -59,6 +62,6 @@ LABEL_7:
       IopApplyMutableTagToRegistryKey(*DeviceRegKey);
   }
   ExReleaseResourceLite(&PnpRegistryDeviceResource);
-  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v13, v14, v15);
   return v12;
 }

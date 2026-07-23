@@ -20,10 +20,10 @@ __int64 PsConvertToGuiThread()
   int Flink; // r14d
   __int64 v3; // rdx
   __int64 v4; // rcx
-  union _RTL_RUN_ONCE *Win32Callouts; // rax
+  _RTL_RUN_ONCE *Win32Callouts; // rax
   int v6; // edi
   int v7; // r14d
-  union _RTL_RUN_ONCE *v8; // rax
+  _RTL_RUN_ONCE *v8; // rax
   int v9; // r9d
   _QWORD v11[3]; // [rsp+40h] [rbp-40h] BYREF
   int v12; // [rsp+58h] [rbp-28h]

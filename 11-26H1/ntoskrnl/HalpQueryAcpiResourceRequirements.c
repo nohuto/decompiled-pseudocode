@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpQueryAcpiResourceRequirements @ 0x140785BB4
+ * XREFs of HalpQueryAcpiResourceRequirements @ 0x1407886E4
  * Callers:
- *     HalpQueryResources @ 0x140782258 (HalpQueryResources.c)
- *     HalpDispatchPnp @ 0x140B1A790 (HalpDispatchPnp.c)
+ *     HalpQueryResources @ 0x140784D58 (HalpQueryResources.c)
+ *     HalpDispatchPnp @ 0x140B1CA40 (HalpDispatchPnp.c)
  * Callees:
- *     HalpInterruptModel @ 0x140427BB0 (HalpInterruptModel.c)
- *     HalQueryMaximumProcessorCount @ 0x1404FB520 (HalQueryMaximumProcessorCount.c)
- *     HalpInterruptGetIrtInfo @ 0x1407815A8 (HalpInterruptGetIrtInfo.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     HalpInterruptModel @ 0x140434CC0 (HalpInterruptModel.c)
+ *     HalQueryMaximumProcessorCount @ 0x1404362A0 (HalQueryMaximumProcessorCount.c)
+ *     HalpInterruptGetIrtInfo @ 0x1407840A8 (HalpInterruptGetIrtInfo.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall HalpQueryAcpiResourceRequirements(_QWORD *a1)

@@ -1,9 +1,9 @@
 /*
- * XREFs of HalAllocateCommonBufferWithBoundsDmaThin @ 0x1405512E0
+ * XREFs of HalAllocateCommonBufferWithBoundsDmaThin @ 0x14054EC20
  * Callers:
  *     <none>
  * Callees:
- *     HalpAllocateCommonBufferDmaThin @ 0x140410E18 (HalpAllocateCommonBufferDmaThin.c)
+ *     HalpAllocateCommonBufferDmaThin @ 0x1403962A4 (HalpAllocateCommonBufferDmaThin.c)
  */
 
 __int64 __fastcall HalAllocateCommonBufferWithBoundsDmaThin(
@@ -17,12 +17,12 @@ __int64 __fastcall HalAllocateCommonBufferWithBoundsDmaThin(
         PHYSICAL_ADDRESS *a8)
 {
   PHYSICAL_ADDRESS *v8; // rdi
-  PHYSICAL_ADDRESS *v9; // rcx
+  ULONG_PTR v9; // rcx
   __int64 v10; // rbx
   __int64 v12; // [rsp+60h] [rbp+8h] BYREF
 
   v8 = a8;
-  v9 = *(PHYSICAL_ADDRESS **)(a1 + 512);
+  v9 = *(_QWORD *)(a1 + 512);
   v10 = 0LL;
   v12 = 0LL;
   if ( (int)HalpAllocateCommonBufferDmaThin(v9, a2, a3, a4, a5, a6, a7, a8, &v12) >= 0 )

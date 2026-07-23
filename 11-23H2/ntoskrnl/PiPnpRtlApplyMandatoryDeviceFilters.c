@@ -1,12 +1,12 @@
 /*
- * XREFs of PiPnpRtlApplyMandatoryDeviceFilters @ 0x140740830
+ * XREFs of PiPnpRtlApplyMandatoryDeviceFilters @ 0x140740A20
  * Callers:
- *     PiPnpRtlApplyMandatoryDeviceInterfaceFilters @ 0x1406C9768 (PiPnpRtlApplyMandatoryDeviceInterfaceFilters.c)
- *     PiPnpRtlApplyMandatoryFilters @ 0x140741438 (PiPnpRtlApplyMandatoryFilters.c)
- *     PiPnpRtlApplyMandatoryDeviceContainerFiltersCallback @ 0x1407E91C0 (PiPnpRtlApplyMandatoryDeviceContainerFiltersCallback.c)
+ *     PiPnpRtlApplyMandatoryDeviceInterfaceFilters @ 0x1406C9798 (PiPnpRtlApplyMandatoryDeviceInterfaceFilters.c)
+ *     PiPnpRtlApplyMandatoryFilters @ 0x140741628 (PiPnpRtlApplyMandatoryFilters.c)
+ *     PiPnpRtlApplyMandatoryDeviceContainerFiltersCallback @ 0x1407E9490 (PiPnpRtlApplyMandatoryDeviceContainerFiltersCallback.c)
  * Callees:
- *     PiPnpRtlIsDeviceEnumerableForUser @ 0x14074071C (PiPnpRtlIsDeviceEnumerableForUser.c)
- *     PiPnpRtlIsDeviceValidForSession @ 0x1407408A0 (PiPnpRtlIsDeviceValidForSession.c)
+ *     PiPnpRtlIsDeviceEnumerableForUser @ 0x14074090C (PiPnpRtlIsDeviceEnumerableForUser.c)
+ *     PiPnpRtlIsDeviceValidForSession @ 0x140740A90 (PiPnpRtlIsDeviceValidForSession.c)
  */
 
 __int64 __fastcall PiPnpRtlApplyMandatoryDeviceFilters(

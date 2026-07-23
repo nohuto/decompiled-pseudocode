@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpHvUnmapDeviceMsiRange @ 0x140C0D29C
+ * XREFs of HalpHvUnmapDeviceMsiRange @ 0x140C134AC
  * Callers:
- *     HalpInterruptUnmap @ 0x140781218 (HalpInterruptUnmap.c)
+ *     HalpInterruptUnmap @ 0x140783D18 (HalpInterruptUnmap.c)
  * Callees:
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     HalpHvBuildDeviceId @ 0x140BE942C (HalpHvBuildDeviceId.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     HalpHvBuildDeviceId @ 0x140BEF42C (HalpHvBuildDeviceId.c)
  */
 
 __int64 __fastcall HalpHvUnmapDeviceMsiRange(unsigned int a1, unsigned int a2, int *a3, char a4, __int64 a5)

@@ -1,28 +1,28 @@
 /*
- * XREFs of AlpcpStartInitialization @ 0x140940834
+ * XREFs of AlpcpStartInitialization @ 0x140894E74
  * Callers:
- *     NtAlpcCreateSecurityContext @ 0x140894C50 (NtAlpcCreateSecurityContext.c)
- *     AlpcpCreateSecurityContext @ 0x1408963D8 (AlpcpCreateSecurityContext.c)
- *     AlpcpCreateSection @ 0x14093EF54 (AlpcpCreateSection.c)
- *     AlpcpCreateReserve @ 0x14093F62C (AlpcpCreateReserve.c)
+ *     AlpcpCreateSection @ 0x140893594 (AlpcpCreateSection.c)
+ *     AlpcpCreateReserve @ 0x140893C6C (AlpcpCreateReserve.c)
+ *     NtAlpcCreateSecurityContext @ 0x14089D0F0 (NtAlpcCreateSecurityContext.c)
+ *     AlpcpCreateSecurityContext @ 0x14089E878 (AlpcpCreateSecurityContext.c)
  * Callees:
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
  */
 
-__int64 __fastcall AlpcpStartInitialization(__int64 a1)
+char *__fastcall AlpcpStartInitialization(__int64 a1)
 {
   unsigned __int64 *v1; // rdi
-  __int64 result; // rax
-  __int64 v4; // rbx
+  char *result; // rax
+  char *v4; // rbx
 
   v1 = (unsigned __int64 *)(a1 - 16);
-  result = (__int64)KeAbPreAcquire(a1 - 16, 0LL);
+  result = (char *)KeAbPreAcquire(a1 - 16, 0LL);
   v4 = result;
   if ( _interlockedbittestandset64((volatile signed __int32 *)v1, 0LL) )
-    result = ExfAcquirePushLockExclusiveEx(v1, result, (__int64)v1);
+    result = (char *)ExfAcquirePushLockExclusiveEx(v1, result, (__int64)v1);
   if ( v4 )
-    *(_BYTE *)(v4 + 10) = 1;
+    v4[10] = 1;
   *(_BYTE *)(a1 - 32) |= 4u;
   return result;
 }

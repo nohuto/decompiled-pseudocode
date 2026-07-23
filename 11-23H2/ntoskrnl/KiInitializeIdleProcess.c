@@ -3,11 +3,11 @@
  * Callers:
  *     KiInitSystem @ 0x140B5E764 (KiInitSystem.c)
  * Callees:
- *     KeInitializeIdealProcessorAssignmentBlock @ 0x140224688 (KeInitializeIdealProcessorAssignmentBlock.c)
- *     KeAddProcessorAffinityEx @ 0x1402573A0 (KeAddProcessorAffinityEx.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     KeInitializeProcess @ 0x1406B66E8 (KeInitializeProcess.c)
+ *     KeInitializeIdealProcessorAssignmentBlock @ 0x140224790 (KeInitializeIdealProcessorAssignmentBlock.c)
+ *     KeAddProcessorAffinityEx @ 0x140257460 (KeAddProcessorAffinityEx.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     KeInitializeProcess @ 0x1406B6898 (KeInitializeProcess.c)
  */
 
 __int64 __fastcall KiInitializeIdleProcess(__int64 a1)

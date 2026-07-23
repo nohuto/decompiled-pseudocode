@@ -20,7 +20,7 @@ __int64 __fastcall IopPnPDispatch(PDEVICE_OBJECT DeviceObject, IRP *a2)
 {
   struct _IO_STACK_LOCATION *CurrentStackLocation; // r13
   _QWORD *v3; // r12
-  wchar_t *Information; // rsi
+  WCHAR *Information; // rsi
   unsigned int MinorFunction; // r8d
   unsigned int v8; // r8d
   unsigned int v9; // r8d
@@ -41,13 +41,13 @@ __int64 __fastcall IopPnPDispatch(PDEVICE_OBJECT DeviceObject, IRP *a2)
   ULONG v25; // ecx
   ULONG v26; // ecx
   __int64 v27; // rdx
-  wchar_t *Src; // rdi
-  wchar_t *v29; // rcx
-  int v30; // r9d
-  wchar_t *v31; // r8
-  wchar_t v32; // dx
+  WCHAR *Src; // rdi
+  WCHAR *v29; // rcx
+  ULONG v30; // r9d
+  WCHAR *v31; // r8
+  WCHAR v32; // dx
   __int64 Pool2; // rax
-  wchar_t *v34; // rbx
+  WCHAR *v34; // rbx
   LARGE_INTEGER v35; // rdx
   void *v36; // rax
   unsigned int v37; // r8d
@@ -58,25 +58,25 @@ __int64 __fastcall IopPnPDispatch(PDEVICE_OBJECT DeviceObject, IRP *a2)
   _DWORD *DeviceNode; // rcx
   ULONG v43; // ecx
   wchar_t *v44; // rax
-  wchar_t *v45; // rax
+  WCHAR *v45; // rax
   int v46; // r8d
   _WORD *v47; // rdx
-  wchar_t v48; // cx
+  WCHAR v48; // cx
   char *v49; // rdx
-  wchar_t v50; // cx
+  WCHAR v50; // cx
   signed __int64 v51; // rdx
   _QWORD *v52; // rbx
   __int64 v53; // rdx
   int v54; // edx
   char v55; // r8
   void *v56[2]; // [rsp+40h] [rbp-10h] BYREF
-  __int64 v57; // [rsp+98h] [rbp+48h] BYREF
+  ULONG v57; // [rsp+98h] [rbp+48h] BYREF
   int v58; // [rsp+A0h] [rbp+50h] BYREF
   int v59; // [rsp+A8h] [rbp+58h] BYREF
 
   CurrentStackLocation = a2->Tail.Overlay.CurrentStackLocation;
   v3 = 0LL;
-  LODWORD(v57) = 0;
+  v57 = 0;
   v58 = 0;
   v59 = 0;
   Information = 0LL;
@@ -94,7 +94,7 @@ __int64 __fastcall IopPnPDispatch(PDEVICE_OBJECT DeviceObject, IRP *a2)
       if ( CurrentStackLocation->Parameters.Read.Length != 4 )
         goto LABEL_14;
       Pool2 = ExAllocatePool2(256LL, 16LL, 1684303952LL);
-      v34 = (wchar_t *)Pool2;
+      v34 = (WCHAR *)Pool2;
       if ( !Pool2 )
         goto LABEL_86;
       *(_QWORD *)(Pool2 + 8) = DeviceObject;
@@ -224,7 +224,7 @@ LABEL_69:
     v11[1].DesiredAccess = _mm_cvtsi128_si32(si128);
     if ( *v12 == -1 )
     {
-      LODWORD(v57) = 4;
+      v57 = 4;
       if ( (int)CmGetDeviceRegProp(
                   *(__int64 *)&PiPnpRtlCtx,
                   v10[6],
@@ -235,7 +235,7 @@ LABEL_69:
                   (__int64)&v57,
                   0) >= 0
         && v58 == 4
-        && (_DWORD)v57 == 4 )
+        && v57 == 4 )
       {
         *v12 = v59;
       }
@@ -252,7 +252,7 @@ LABEL_123:
     if ( RootDevices == -1073741772 )
       goto LABEL_10;
 LABEL_59:
-    Information = (wchar_t *)v56[0];
+    Information = (WCHAR *)v56[0];
     goto LABEL_15;
   }
   v17 = v16 - 1;
@@ -271,13 +271,13 @@ LABEL_59:
       v52 = DeviceObject->DeviceObjectExtension->DeviceNode;
     else
       v52 = 0LL;
-    PiGetDeviceRegProperty(v52[6], 7LL, 1, 14, 0LL, (int *)&v57);
-    if ( (_DWORD)v57 )
+    PiGetDeviceRegProperty(v52[6], 7LL, 1, 14, 0LL, &v57);
+    if ( v57 )
     {
-      Information = (wchar_t *)ExAllocatePool2(256LL, (unsigned int)v57, 1684303952LL);
+      Information = (WCHAR *)ExAllocatePool2(256LL, v57, 1684303952LL);
       if ( Information )
       {
-        RootDevices = PiGetDeviceRegProperty(v52[6], v53, 1, 14, Information, (int *)&v57);
+        RootDevices = PiGetDeviceRegProperty(v52[6], v53, 1, 14, Information, &v57);
         if ( RootDevices < 0 )
         {
           if ( RootDevices == -1073741275 )
@@ -299,7 +299,7 @@ LABEL_80:
     if ( v19 == 3 )
       goto LABEL_10;
 LABEL_14:
-    Information = (wchar_t *)a2->IoStatus.Information;
+    Information = (WCHAR *)a2->IoStatus.Information;
     RootDevices = a2->IoStatus.Status;
     goto LABEL_15;
   }
@@ -327,10 +327,10 @@ LABEL_14:
                       7,
                       (unsigned int)(CurrentStackLocation->Parameters.Read.Length != 1) + 2,
                       0LL,
-                      (int *)&v57);
+                      &v57);
       if ( RootDevices != -1073741789 )
         goto LABEL_51;
-      Src = (wchar_t *)ExAllocatePool2(256LL, (unsigned int)v57, 1684303952LL);
+      Src = (WCHAR *)ExAllocatePool2(256LL, v57, 1684303952LL);
       if ( Src )
       {
         RootDevices = PiGetDeviceRegProperty(
@@ -339,13 +339,13 @@ LABEL_14:
                         7,
                         (unsigned int)(CurrentStackLocation->Parameters.Read.Length != 1) + 2,
                         Src,
-                        (int *)&v57);
+                        &v57);
         v29 = Src;
         if ( RootDevices >= 0 )
         {
           v30 = v57;
           v31 = 0LL;
-          if ( Src < (wchar_t *)((char *)Src + ((unsigned int)v57 & 0xFFFFFFFE)) )
+          if ( Src < (WCHAR *)((char *)Src + (v57 & 0xFFFFFFFE)) )
           {
             do
             {
@@ -366,7 +366,7 @@ LABEL_14:
               }
               ++v29;
             }
-            while ( v29 < (wchar_t *)((char *)Src + (v30 & 0xFFFFFFFE)) );
+            while ( v29 < (WCHAR *)((char *)Src + (v30 & 0xFFFFFFFE)) );
           }
           Information = Src;
           goto LABEL_15;
@@ -386,7 +386,7 @@ LABEL_86:
     {
       if ( v43 != 2 )
       {
-        Information = (wchar_t *)a2->IoStatus.Information;
+        Information = (WCHAR *)a2->IoStatus.Information;
         goto LABEL_15;
       }
       v44 = (wchar_t *)ExAllocatePool2(256LL, 78LL, 1684303952LL);
@@ -400,7 +400,7 @@ LABEL_86:
       goto LABEL_86;
     }
   }
-  v45 = (wchar_t *)ExAllocatePool2(256LL, *((unsigned __int16 *)v3 + 20), 1684303952LL);
+  v45 = (WCHAR *)ExAllocatePool2(256LL, *((unsigned __int16 *)v3 + 20), 1684303952LL);
   if ( !v45 )
     goto LABEL_86;
   v46 = 0;
@@ -426,7 +426,7 @@ LABEL_86:
         do
         {
           *v45++ = v50;
-          v50 = *(wchar_t *)((char *)v45 + v51);
+          v50 = *(WCHAR *)((char *)v45 + v51);
         }
         while ( v50 );
       }

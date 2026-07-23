@@ -1,7 +1,7 @@
 /*
- * XREFs of KeIsExecutingDpc @ 0x1402AC720
+ * XREFs of KeIsExecutingDpc @ 0x14022A320
  * Callers:
- *     KiDeliverApc @ 0x14024A750 (KiDeliverApc.c)
+ *     KiDeliverApc @ 0x1402EEFA0 (KiDeliverApc.c)
  * Callees:
  *     <none>
  */

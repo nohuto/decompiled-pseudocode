@@ -13,7 +13,7 @@
  *     sub_1800FF834 @ 0x1800FF834 (sub_1800FF834.c)
  */
 
-__int64 __fastcall sub_180020D20(__int64 a1, __int64 a2, unsigned int a3)
+NTSTATUS __fastcall sub_180020D20(volatile signed __int64 *BaseAddress, __int64 a2, unsigned int a3)
 {
   unsigned __int64 v4; // rdi
   __int64 v7; // rax
@@ -27,22 +27,22 @@ __int64 __fastcall sub_180020D20(__int64 a1, __int64 a2, unsigned int a3)
   int v15; // edi
   unsigned int v16; // esi
   bool v17; // zf
-  int v18; // r14d
-  __int64 result; // rax
+  ULONG Protect; // r14d
+  NTSTATUS result; // eax
   char *v20; // rdx
   unsigned __int64 v21; // rcx
   char v22; // al
   char v23; // al
-  _DWORD *HotpatchInformation; // rcx
-  __int64 v25; // rcx
-  __int64 v26[4]; // [rsp+30h] [rbp-58h] BYREF
+  PSILO_USER_SHARED_DATA SharedData; // rcx
+  __int64 UserModeGlobalLogger; // rcx
+  PVOID MemoryInformation[4]; // [rsp+30h] [rbp-58h] BYREF
   int v27; // [rsp+54h] [rbp-34h]
-  __int64 v28; // [rsp+90h] [rbp+8h] BYREF
-  unsigned __int64 v29; // [rsp+98h] [rbp+10h] BYREF
+  ULONG_PTR RegionSize; // [rsp+90h] [rbp+8h] BYREF
+  PVOID BaseAddressa; // [rsp+98h] [rbp+10h] BYREF
   int v30; // [rsp+A0h] [rbp+18h]
 
   v4 = a2 & 0xFFFFFFFFFFF00000uLL;
-  v7 = sub_180020EF0(a1, a2);
+  v7 = sub_180020EF0(BaseAddress, a2);
   v8 = a3;
   v9 = 0LL;
   v10 = v7;
@@ -52,7 +52,7 @@ __int64 __fastcall sub_180020D20(__int64 a1, __int64 a2, unsigned int a3)
   v14 = v13 + 32 * (v8 >> 12);
   v15 = 0;
   if ( v13 == v14 )
-    return 0LL;
+    return 0;
   do
   {
     if ( (*(_BYTE *)(v13 + 24) & 2) == 0 )
@@ -67,30 +67,41 @@ __int64 __fastcall sub_180020D20(__int64 a1, __int64 a2, unsigned int a3)
   while ( v13 != v14 );
   v16 = v12 ? ((__int64)(v9 - v12) >> 5) + 1 : v30;
   if ( !v15 )
-    return 0LL;
-  v29 = (v12 & 0xFFFFFFFFFFF00000uLL) + ((unsigned int)((__int64)(v12 - (v12 & 0xFFFFFFFFFFF00000uLL)) >> 5) << 12);
-  v17 = *(_DWORD *)(a1 + 16) == -571548178;
-  v28 = v16 << 12;
+    return 0;
+  BaseAddressa = (PVOID)((v12 & 0xFFFFFFFFFFF00000uLL)
+                       + ((unsigned int)((__int64)(v12 - (v12 & 0xFFFFFFFFFFF00000uLL)) >> 5) << 12));
+  v17 = *((_DWORD *)BaseAddress + 4) == -571548178;
+  RegionSize = v16 << 12;
   if ( v17 )
   {
-    if ( (*(_DWORD *)(a1 + 20) & 0x40000000) == 0 )
+    if ( (*((_DWORD *)BaseAddress + 5) & 0x40000000) == 0 )
       goto LABEL_12;
   }
-  else if ( (*(_DWORD *)(a1 + 112) & 0x40000) == 0 )
+  else if ( (BaseAddress[14] & 0x40000) == 0 )
   {
     goto LABEL_12;
   }
-  v18 = 64;
-  if ( (int)ZwQueryVirtualMemory(-1LL, a1, 0LL, v26, 48LL, 0LL) >= 0 && (v27 & 0x60) != 0 && v26[0] == a1 )
+  Protect = 64;
+  if ( ZwQueryVirtualMemory(
+         (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+         (PVOID)BaseAddress,
+         MemoryBasicInformation,
+         MemoryInformation,
+         0x30uLL,
+         0LL) >= 0
+    && (v27 & 0x60) != 0
+    && MemoryInformation[0] == BaseAddress )
+  {
     goto LABEL_13;
-  sub_1800A4DFC(0, a1, 1, v27, 0LL, 0LL);
+  }
+  sub_1800A4DFC(0, (_DWORD)BaseAddress, 1, v27, 0LL, 0LL);
 LABEL_12:
-  v18 = 4;
+  Protect = 4;
 LABEL_13:
-  result = ZwAllocateVirtualMemory(-1LL, &v29, 0LL, &v28, 4096, v18);
-  if ( (int)result < 0 )
+  result = ZwAllocateVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddressa, 0LL, &RegionSize, 0x1000u, Protect);
+  if ( result < 0 )
     return result;
-  _InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 8), v15);
+  _InterlockedExchangeAdd64(BaseAddress + 1, v15);
   if ( v12 < v12 + 32LL * v16 )
   {
     v20 = (char *)(v12 + 24);
@@ -109,15 +120,15 @@ LABEL_13:
     while ( v21 );
   }
   *(_BYTE *)(v10 + 26) = ~(v15 + ~*(_BYTE *)(v10 + 26));
-  HotpatchInformation = NtCurrentPeb()->HotpatchInformation;
-  if ( HotpatchInformation && *HotpatchInformation )
-    v25 = (__int64)NtCurrentPeb()->HotpatchInformation + 550;
+  SharedData = NtCurrentPeb()->SharedData;
+  if ( SharedData && SharedData->ServiceSessionId )
+    UserModeGlobalLogger = (__int64)NtCurrentPeb()->SharedData->UserModeGlobalLogger;
   else
-    v25 = 2147353472LL;
-  if ( *(_BYTE *)v25 )
+    UserModeGlobalLogger = 2147353472LL;
+  if ( *(_BYTE *)UserModeGlobalLogger )
   {
     if ( (NtCurrentPeb()->TracingFlags & 1) != 0 )
-      sub_1800FF834(a1, v29, v28, 10LL);
+      sub_1800FF834(BaseAddress, BaseAddressa, RegionSize, 10LL);
   }
-  return 0LL;
+  return 0;
 }

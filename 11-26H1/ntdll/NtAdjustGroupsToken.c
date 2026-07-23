@@ -1,16 +1,22 @@
 /*
- * XREFs of NtAdjustGroupsToken @ 0x18015FCB0
+ * XREFs of NtAdjustGroupsToken @ 0x18015FBB0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 NtAdjustGroupsToken()
+NTSTATUS __cdecl NtAdjustGroupsToken(
+        HANDLE TokenHandle,
+        BOOLEAN ResetToDefault,
+        PTOKEN_GROUPS NewState,
+        ULONG BufferLength,
+        PTOKEN_GROUPS PreviousState,
+        PULONG ReturnLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 108LL;
+  result = 108;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

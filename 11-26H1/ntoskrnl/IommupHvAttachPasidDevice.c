@@ -1,16 +1,16 @@
 /*
- * XREFs of IommupHvAttachPasidDevice @ 0x14059D89C
+ * XREFs of IommupHvAttachPasidDevice @ 0x1405A001C
  * Callers:
- *     IommupDeviceEnablePasidTaggedDma @ 0x14078268C (IommupDeviceEnablePasidTaggedDma.c)
+ *     IommupDeviceEnablePasidTaggedDma @ 0x14078518C (IommupDeviceEnablePasidTaggedDma.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     ?KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z @ 0x140444460 (-KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z.c)
- *     IommupHvSetUpDomainConfig @ 0x14059E92C (IommupHvSetUpDomainConfig.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     ?KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z @ 0x14043CF70 (-KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z.c)
+ *     IommupHvSetUpDomainConfig @ 0x1405A110C (IommupHvSetUpDomainConfig.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall IommupHvAttachPasidDevice(__int64 a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
@@ -46,18 +46,18 @@ __int64 __fastcall IommupHvAttachPasidDevice(__int64 a1, __int64 a2, __int64 a3,
   v25 = 0;
   if ( *(_BYTE *)(a1 + 265) )
   {
-    if ( !BYTE4(IommuInterfaceStateChangeCallbackPushLock.StackLimit) )
+    if ( !BYTE2(IommuInterfaceStateChangeCallbackPushLock.StackLimit) )
     {
-      v7 = (AutoBoost *)KeAbPreAcquire((__int64)&IommuInterfaceStateChangeCallbackPushLock.ThreadLock, 0LL, 0LL, a4);
+      v7 = (AutoBoost *)KeAbPreAcquire((__int64)&IommuInterfaceStateChangeCallbackPushLock.StackBase, 0LL, 0LL, a4);
       v9 = _interlockedbittestandset64(
-             (volatile signed __int32 *)&IommuInterfaceStateChangeCallbackPushLock.ThreadLock,
+             (volatile signed __int32 *)&IommuInterfaceStateChangeCallbackPushLock.StackBase,
              0LL);
       v10 = v7;
       if ( v9 )
         ExfAcquirePushLockExclusiveEx(
-          &IommuInterfaceStateChangeCallbackPushLock.ThreadLock,
+          (unsigned __int64 *)&IommuInterfaceStateChangeCallbackPushLock.StackBase,
           v7,
-          (__int64)&IommuInterfaceStateChangeCallbackPushLock.ThreadLock);
+          (__int64)&IommuInterfaceStateChangeCallbackPushLock.StackBase);
       if ( v10 )
       {
         if ( (KiAbpGlobalState & 1) != 0 )
@@ -70,17 +70,17 @@ __int64 __fastcall IommupHvAttachPasidDevice(__int64 a1, __int64 a2, __int64 a3,
           *((_BYTE *)v10 + 10) = 1;
         }
       }
-      if ( !BYTE4(IommuInterfaceStateChangeCallbackPushLock.StackLimit) )
+      if ( !BYTE2(IommuInterfaceStateChangeCallbackPushLock.StackLimit) )
       {
         v4 = guard_dispatch_icall_no_overrides(0LL, LODWORD(IommuInterfaceStateChangeCallbackPushLock.KernelStack));
         if ( v4 >= 0 )
-          BYTE4(IommuInterfaceStateChangeCallbackPushLock.StackLimit) = 1;
+          BYTE2(IommuInterfaceStateChangeCallbackPushLock.StackLimit) = 1;
       }
       if ( (_InterlockedExchangeAdd64(
-              (volatile signed __int64 *)&IommuInterfaceStateChangeCallbackPushLock.ThreadLock,
+              (volatile signed __int64 *)&IommuInterfaceStateChangeCallbackPushLock.StackBase,
               0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-        ExfTryToWakePushLock((volatile signed __int64 *)&IommuInterfaceStateChangeCallbackPushLock.ThreadLock);
-      KeAbPostRelease((unsigned __int64)&IommuInterfaceStateChangeCallbackPushLock.ThreadLock);
+        ExfTryToWakePushLock((volatile signed __int64 *)&IommuInterfaceStateChangeCallbackPushLock.StackBase);
+      KeAbPostRelease((unsigned __int64)&IommuInterfaceStateChangeCallbackPushLock.StackBase);
       if ( v4 < 0 )
         goto LABEL_44;
     }
@@ -102,19 +102,19 @@ __int64 __fastcall IommupHvAttachPasidDevice(__int64 a1, __int64 a2, __int64 a3,
   }
   else
   {
-    LODWORD(v20) = IommuInterfaceStateChangeCallbackPushLock.StackBase;
-    if ( !BYTE1(IommuInterfaceStateChangeCallbackPushLock.StackLimit) )
+    LODWORD(v20) = IommuInterfaceStateChangeCallbackPushLock.CycleTime;
+    if ( !LOBYTE(IommuInterfaceStateChangeCallbackPushLock.ThreadLock) )
     {
-      v12 = (AutoBoost *)KeAbPreAcquire((__int64)&IommuInterfaceStateChangeCallbackPushLock.ThreadLock, 0LL, 0LL, a4);
+      v12 = (AutoBoost *)KeAbPreAcquire((__int64)&IommuInterfaceStateChangeCallbackPushLock.StackBase, 0LL, 0LL, a4);
       v9 = _interlockedbittestandset64(
-             (volatile signed __int32 *)&IommuInterfaceStateChangeCallbackPushLock.ThreadLock,
+             (volatile signed __int32 *)&IommuInterfaceStateChangeCallbackPushLock.StackBase,
              0LL);
       v14 = v12;
       if ( v9 )
         ExfAcquirePushLockExclusiveEx(
-          &IommuInterfaceStateChangeCallbackPushLock.ThreadLock,
+          (unsigned __int64 *)&IommuInterfaceStateChangeCallbackPushLock.StackBase,
           v12,
-          (__int64)&IommuInterfaceStateChangeCallbackPushLock.ThreadLock);
+          (__int64)&IommuInterfaceStateChangeCallbackPushLock.StackBase);
       if ( v14 )
       {
         if ( (KiAbpGlobalState & 1) != 0 )
@@ -138,13 +138,13 @@ __int64 __fastcall IommupHvAttachPasidDevice(__int64 a1, __int64 a2, __int64 a3,
         if ( v4 < 0 || (v4 = guard_dispatch_icall_no_overrides(&v20, &v21), v4 < 0) )
           guard_dispatch_icall_no_overrides(&v20, v15);
         else
-          BYTE1(IommuInterfaceStateChangeCallbackPushLock.StackLimit) = 1;
+          LOBYTE(IommuInterfaceStateChangeCallbackPushLock.ThreadLock) = 1;
       }
       if ( (_InterlockedExchangeAdd64(
-              (volatile signed __int64 *)&IommuInterfaceStateChangeCallbackPushLock.ThreadLock,
+              (volatile signed __int64 *)&IommuInterfaceStateChangeCallbackPushLock.StackBase,
               0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-        ExfTryToWakePushLock((volatile signed __int64 *)&IommuInterfaceStateChangeCallbackPushLock.ThreadLock);
-      KeAbPostRelease((unsigned __int64)&IommuInterfaceStateChangeCallbackPushLock.ThreadLock);
+        ExfTryToWakePushLock((volatile signed __int64 *)&IommuInterfaceStateChangeCallbackPushLock.StackBase);
+      KeAbPostRelease((unsigned __int64)&IommuInterfaceStateChangeCallbackPushLock.StackBase);
       if ( v4 < 0 )
         goto LABEL_44;
     }

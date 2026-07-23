@@ -1,14 +1,14 @@
 /*
- * XREFs of IoUnregisterPriorityCallback @ 0x1401C9328
+ * XREFs of IoUnregisterPriorityCallback @ 0x1401C91C8
  * Callers:
- *     IopDeleteDriver @ 0x140545C94 (IopDeleteDriver.c)
+ *     IopDeleteDriver @ 0x1405461D4 (IopDeleteDriver.c)
  * Callees:
- *     ExDereferenceCallBackBlock @ 0x140013F40 (ExDereferenceCallBackBlock.c)
- *     ExReferenceCallBackBlock @ 0x140013F80 (ExReferenceCallBackBlock.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExCompareExchangeCallBack @ 0x140136688 (ExCompareExchangeCallBack.c)
- *     PspQueueApcSpecialApc @ 0x1403E5244 (PspQueueApcSpecialApc.c)
- *     ExWaitForCallBacks @ 0x1406AFC00 (ExWaitForCallBacks.c)
+ *     ExDereferenceCallBackBlock @ 0x140013AC0 (ExDereferenceCallBackBlock.c)
+ *     ExReferenceCallBackBlock @ 0x140013B00 (ExReferenceCallBackBlock.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExCompareExchangeCallBack @ 0x140136BF8 (ExCompareExchangeCallBack.c)
+ *     PspQueueApcSpecialApc @ 0x1403E6870 (PspQueueApcSpecialApc.c)
+ *     ExWaitForCallBacks @ 0x1406AFD38 (ExWaitForCallBacks.c)
  */
 
 void __fastcall IoUnregisterPriorityCallback(__int64 a1)

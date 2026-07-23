@@ -28,7 +28,7 @@ void __fastcall SC_DEVICE::SaveStorageProperty(
       case StorageMiniportProperty:
         v6 = 120LL;
         break;
-      case StorageDeviceFaultDomainProperty:
+      case StorageAdapterCryptoProperty|StorageDeviceIdProperty:
         v6 = 104LL;
         break;
       default:

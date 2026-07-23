@@ -1,17 +1,17 @@
 /*
- * XREFs of PopDetectSimulatedHeteroProcessors @ 0x14074FDE4
+ * XREFs of PopDetectSimulatedHeteroProcessors @ 0x140750FD4
  * Callers:
- *     PopInitializeHeteroProcessors @ 0x14074F434 (PopInitializeHeteroProcessors.c)
+ *     PopInitializeHeteroProcessors @ 0x140750624 (PopInitializeHeteroProcessors.c)
  * Callees:
- *     KeQueryActiveProcessorCountEx @ 0x1400A7920 (KeQueryActiveProcessorCountEx.c)
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     ZwOpenKey @ 0x1401B83D0 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x1401B8470 (ZwQueryValueKey.c)
- *     ZwEnumerateKey @ 0x1401B87D0 (ZwEnumerateKey.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     RtlUnicodeStringToInteger @ 0x140695950 (RtlUnicodeStringToInteger.c)
+ *     KeQueryActiveProcessorCountEx @ 0x1400A7860 (KeQueryActiveProcessorCountEx.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     ZwOpenKey @ 0x1401B8530 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1401B85D0 (ZwQueryValueKey.c)
+ *     ZwEnumerateKey @ 0x1401B8930 (ZwEnumerateKey.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     RtlUnicodeStringToInteger @ 0x140696B10 (RtlUnicodeStringToInteger.c)
  */
 
 char __fastcall PopDetectSimulatedHeteroProcessors(__int64 a1)

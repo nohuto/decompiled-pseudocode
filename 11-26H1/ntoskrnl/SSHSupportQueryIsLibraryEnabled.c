@@ -1,7 +1,7 @@
 /*
- * XREFs of SSHSupportQueryIsLibraryEnabled @ 0x14050477C
+ * XREFs of SSHSupportQueryIsLibraryEnabled @ 0x1404FE0C0
  * Callers:
- *     PopPowerInformationInternal @ 0x140B6F6FC (PopPowerInformationInternal.c)
+ *     PopPowerInformationInternal @ 0x140B73EF0 (PopPowerInformationInternal.c)
  * Callees:
  *     <none>
  */

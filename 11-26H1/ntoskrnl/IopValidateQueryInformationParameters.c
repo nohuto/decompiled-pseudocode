@@ -1,15 +1,15 @@
 /*
- * XREFs of IopValidateQueryInformationParameters @ 0x1409B55BC
+ * XREFs of IopValidateQueryInformationParameters @ 0x14098667C
  * Callers:
- *     IoQueryInformationByName @ 0x1409B46E0 (IoQueryInformationByName.c)
- *     NtQueryInformationFile @ 0x1409B4B00 (NtQueryInformationFile.c)
+ *     IoQueryInformationByName @ 0x1409857A0 (IoQueryInformationByName.c)
+ *     NtQueryInformationFile @ 0x140985BC0 (NtQueryInformationFile.c)
  * Callees:
- *     RtlReadUCharFromUser @ 0x14077F51C (RtlReadUCharFromUser.c)
- *     RtlReadULongFromUser @ 0x14077F590 (RtlReadULongFromUser.c)
- *     RtlWriteUCharToUser @ 0x14077F710 (RtlWriteUCharToUser.c)
- *     RtlWriteULongToUser @ 0x14077F7A0 (RtlWriteULongToUser.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408F29F0 (ExRaiseDatatypeMisalignment.c)
- *     ExRaiseAccessViolation @ 0x1408F5DA0 (ExRaiseAccessViolation.c)
+ *     RtlReadUCharFromUser @ 0x14078201C (RtlReadUCharFromUser.c)
+ *     RtlReadULongFromUser @ 0x140782090 (RtlReadULongFromUser.c)
+ *     RtlWriteUCharToUser @ 0x140782210 (RtlWriteUCharToUser.c)
+ *     RtlWriteULongToUser @ 0x1407822A0 (RtlWriteULongToUser.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408F8FB0 (ExRaiseDatatypeMisalignment.c)
+ *     ExRaiseAccessViolation @ 0x140925D30 (ExRaiseAccessViolation.c)
  */
 
 __int64 __fastcall IopValidateQueryInformationParameters(

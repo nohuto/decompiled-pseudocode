@@ -11,54 +11,62 @@
  *     __SEH_prolog4 @ 0x4B307AC4 (__SEH_prolog4.c)
  */
 
-int __stdcall RtlOemStringToUnicodeString(unsigned __int16 *a1, unsigned __int16 *a2, char a3)
+NTSTATUS __cdecl RtlOemStringToUnicodeString(
+        PUNICODE_STRING DestinationString,
+        POEM_STRING SourceString,
+        BOOLEAN AllocateDestinationString)
 {
   unsigned int v3; // eax
   unsigned int v4; // ecx
-  int result; // eax
+  NTSTATUS result; // eax
   int v6; // edi
-  int StringRoutine; // eax
-  unsigned int v8; // [esp+14h] [ebp-20h] BYREF
-  int v9; // [esp+18h] [ebp-1Ch]
+  wchar_t *StringRoutine; // eax
+  ULONG BytesInUnicodeString; // [esp+14h] [ebp-20h] BYREF
+  NTSTATUS v9; // [esp+18h] [ebp-1Ch]
   CPPEH_RECORD ms_exc; // [esp+1Ch] [ebp-18h]
 
-  v3 = RtlxOemStringToUnicodeSize(a2);
+  v3 = RtlxOemStringToUnicodeSize(SourceString);
   if ( v3 > 0xFFFE )
     return -1073741584;
-  *a1 = v3 - 2;
-  if ( a3 )
+  DestinationString->Length = v3 - 2;
+  if ( AllocateDestinationString )
   {
-    a1[1] = v3;
-    StringRoutine = NtdllpAllocateStringRoutine(v3);
-    *((_DWORD *)a1 + 1) = StringRoutine;
+    DestinationString->MaximumLength = v3;
+    StringRoutine = (wchar_t *)NtdllpAllocateStringRoutine(v3);
+    DestinationString->Buffer = StringRoutine;
     if ( !StringRoutine )
       return -1073741801;
   }
   else
   {
     v4 = (unsigned __int16)(v3 - 2) + 2;
-    if ( v4 > a1[1] || v4 < 2 )
+    if ( v4 > DestinationString->MaximumLength || v4 < 2 )
       return -2147483643;
   }
   v9 = 0;
   ms_exc.registration.TryLevel = 0;
-  result = RtlOemToUnicodeN(*((_DWORD *)a1 + 1), *a1, &v8, *((_DWORD *)a2 + 1), *a2);
+  result = RtlOemToUnicodeN(
+             (PWSTR)DestinationString->Buffer,
+             DestinationString->Length,
+             &BytesInUnicodeString,
+             SourceString->Buffer,
+             SourceString->Length);
   v6 = result;
   v9 = result;
   if ( result >= 0 )
   {
-    result = *((_DWORD *)a1 + 1);
-    *(_WORD *)(result + 2 * (v8 >> 1)) = 0;
+    result = (NTSTATUS)DestinationString->Buffer;
+    *(_WORD *)(result + 2 * (BytesInUnicodeString >> 1)) = 0;
     v6 = 0;
     v9 = 0;
   }
   ms_exc.registration.TryLevel = -2;
   if ( v6 < 0 )
   {
-    if ( a3 )
+    if ( AllocateDestinationString )
     {
-      RtlDeleteBoundaryDescriptor(*((_DWORD *)a1 + 1));
-      *((_DWORD *)a1 + 1) = 0;
+      RtlDeleteBoundaryDescriptor((POBJECT_BOUNDARY_DESCRIPTOR)DestinationString->Buffer);
+      DestinationString->Buffer = 0;
       return v6;
     }
   }

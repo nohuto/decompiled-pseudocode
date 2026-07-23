@@ -8,9 +8,7 @@
 
 NTSTATUS __stdcall ZwUnloadKeyEx(POBJECT_ATTRIBUTES TargetKey, HANDLE Event)
 {
-  __int64 v2; // r8
-
   _disable();
   __readeflags();
-  return KiServiceInternal(TargetKey, Event, v2);
+  return KiServiceInternal(TargetKey);
 }

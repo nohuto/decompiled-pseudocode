@@ -1,13 +1,13 @@
 /*
- * XREFs of MiEmptyKernelStackCache @ 0x1402BB684
+ * XREFs of MiEmptyKernelStackCache @ 0x1402BB874
  * Callers:
- *     MiFindContiguousPages @ 0x14009A110 (MiFindContiguousPages.c)
- *     MiScrubNode @ 0x1402CF6C8 (MiScrubNode.c)
- *     MmRelocatePfnList @ 0x14085F308 (MmRelocatePfnList.c)
+ *     MiFindContiguousPages @ 0x14009A050 (MiFindContiguousPages.c)
+ *     MiScrubNode @ 0x1402CF8B8 (MiScrubNode.c)
+ *     MmRelocatePfnList @ 0x140860568 (MmRelocatePfnList.c)
  * Callees:
- *     MiDeleteCachedKernelStack @ 0x1400A5E70 (MiDeleteCachedKernelStack.c)
- *     KeGetPrcb @ 0x1400A62C4 (KeGetPrcb.c)
- *     RtlpInterlockedPopEntrySList @ 0x1401C53D0 (RtlpInterlockedPopEntrySList.c)
+ *     MiDeleteCachedKernelStack @ 0x1400A5DB0 (MiDeleteCachedKernelStack.c)
+ *     KeGetPrcb @ 0x1400A6204 (KeGetPrcb.c)
+ *     RtlpInterlockedPopEntrySList @ 0x1401C5530 (RtlpInterlockedPopEntrySList.c)
  */
 
 unsigned __int64 MiEmptyKernelStackCache()
@@ -41,7 +41,7 @@ unsigned __int64 MiEmptyKernelStackCache()
       v5 = 25LL * j;
       do
       {
-        v6 = qword_14043A058;
+        v6 = qword_14043B118;
         while ( 1 )
         {
           v7 = RtlpInterlockedPopEntrySList(&v6[v5 + 7]);

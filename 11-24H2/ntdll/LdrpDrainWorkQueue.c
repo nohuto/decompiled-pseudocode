@@ -1,27 +1,27 @@
 /*
- * XREFs of LdrpDrainWorkQueue @ 0x180003E20
+ * XREFs of LdrpDrainWorkQueue @ 0x1800AB680
  * Callers:
- *     LdrEnumerateLoadedModules @ 0x180001F90 (LdrEnumerateLoadedModules.c)
- *     RtlExitUserProcess @ 0x180004320 (RtlExitUserProcess.c)
- *     LdrShutdownThread @ 0x1800045E0 (LdrShutdownThread.c)
- *     LdrGetProcedureAddressForCaller @ 0x180004FF0 (LdrGetProcedureAddressForCaller.c)
- *     LdrpFindLoadedDll @ 0x18000A400 (LdrpFindLoadedDll.c)
- *     LdrpLoadDllInternal @ 0x18000B460 (LdrpLoadDllInternal.c)
- *     LdrpInitializeThread @ 0x180012810 (LdrpInitializeThread.c)
- *     LdrpFastpthReloadedDll @ 0x180019870 (LdrpFastpthReloadedDll.c)
- *     RtlQueryInformationActivationContext @ 0x18001ABD0 (RtlQueryInformationActivationContext.c)
- *     LdrUnloadDll @ 0x18001B6B0 (LdrUnloadDll.c)
- *     LdrInitShimEngineDynamic @ 0x180064C50 (LdrInitShimEngineDynamic.c)
- *     LdrpInitializeProcess @ 0x180066D74 (LdrpInitializeProcess.c)
- *     LdrpInitializeImportRedirection @ 0x1800FA988 (LdrpInitializeImportRedirection.c)
- *     RtlCloneUserProcess @ 0x18015F270 (RtlCloneUserProcess.c)
- *     RtlPrepareForProcessCloning @ 0x18015F730 (RtlPrepareForProcessCloning.c)
+ *     LdrGetProcedureAddressForCaller @ 0x1800319F0 (LdrGetProcedureAddressForCaller.c)
+ *     LdrpFindLoadedDll @ 0x180036E00 (LdrpFindLoadedDll.c)
+ *     LdrpLoadDllInternal @ 0x180037E60 (LdrpLoadDllInternal.c)
+ *     LdrpInitializeThread @ 0x18003F210 (LdrpInitializeThread.c)
+ *     LdrpFastpthReloadedDll @ 0x180046270 (LdrpFastpthReloadedDll.c)
+ *     RtlQueryInformationActivationContext @ 0x1800475D0 (RtlQueryInformationActivationContext.c)
+ *     LdrUnloadDll @ 0x1800480B0 (LdrUnloadDll.c)
+ *     LdrEnumerateLoadedModules @ 0x1800AAC50 (LdrEnumerateLoadedModules.c)
+ *     RtlExitUserProcess @ 0x1800AAE10 (RtlExitUserProcess.c)
+ *     LdrShutdownThread @ 0x1800AB0D0 (LdrShutdownThread.c)
+ *     LdrInitShimEngineDynamic @ 0x1800ACB80 (LdrInitShimEngineDynamic.c)
+ *     LdrpInitializeProcess @ 0x1800AEF54 (LdrpInitializeProcess.c)
+ *     LdrpInitializeImportRedirection @ 0x1800F56E8 (LdrpInitializeImportRedirection.c)
+ *     RtlCloneUserProcess @ 0x18015D630 (RtlCloneUserProcess.c)
+ *     RtlPrepareForProcessCloning @ 0x18015DAF0 (RtlPrepareForProcessCloning.c)
  * Callees:
- *     RtlEnterCriticalSection @ 0x1800148F0 (RtlEnterCriticalSection.c)
- *     RtlLeaveCriticalSection @ 0x1800149F0 (RtlLeaveCriticalSection.c)
- *     LdrpProcessWork @ 0x180021E60 (LdrpProcessWork.c)
- *     LdrpUpdateStatistics @ 0x180022B6C (LdrpUpdateStatistics.c)
- *     NtWaitForSingleObject @ 0x180161D10 (NtWaitForSingleObject.c)
+ *     RtlEnterCriticalSection @ 0x1800412F0 (RtlEnterCriticalSection.c)
+ *     RtlLeaveCriticalSection @ 0x1800413F0 (RtlLeaveCriticalSection.c)
+ *     LdrpProcessWork @ 0x18004E860 (LdrpProcessWork.c)
+ *     LdrpUpdateStatistics @ 0x18004F56C (LdrpUpdateStatistics.c)
+ *     NtWaitForSingleObject @ 0x1801600D0 (NtWaitForSingleObject.c)
  */
 
 struct _TEB *__fastcall LdrpDrainWorkQueue(int a1)
@@ -35,7 +35,7 @@ struct _TEB *__fastcall LdrpDrainWorkQueue(int a1)
   __int64 v8; // rax
   __int64 v9; // rax
 
-  v1 = (HANDLE)LdrpWorkCompleteEvent;
+  v1 = LdrpWorkCompleteEvent;
   v2 = 0;
   if ( !a1 )
     v1 = LdrpLoadCompleteEvent;
@@ -75,7 +75,7 @@ LABEL_16:
       if ( &LdrpWorkQueue == v5 )
         NtWaitForSingleObject(v1, 0, 0LL);
       else
-        LdrpProcessWork((_BYTE)v5 - 64);
+        LdrpProcessWork((__int64)(v5 - 8), v4);
     }
     if ( LdrpWorkInProgress != a1 )
       goto LABEL_16;
@@ -88,10 +88,10 @@ LABEL_9:
     v8 = LdrpRetryQueue;
     *(_QWORD *)(LdrpRetryQueue + 8) = &LdrpWorkQueue;
     LdrpWorkQueue = v8;
-    v9 = qword_1801D2688;
-    *(_QWORD *)qword_1801D2688 = &LdrpWorkQueue;
-    qword_1801D26D8 = v9;
-    qword_1801D2688 = (__int64)&LdrpRetryQueue;
+    v9 = qword_1801D1678;
+    *(_QWORD *)qword_1801D1678 = &LdrpWorkQueue;
+    qword_1801D16D8 = v9;
+    qword_1801D1678 = (__int64)&LdrpRetryQueue;
     LdrpRetryQueue = (__int64)&LdrpRetryQueue;
     LdrpRetryingModuleIndex = 0LL;
     RtlLeaveCriticalSection(&LdrpWorkQueueLock);

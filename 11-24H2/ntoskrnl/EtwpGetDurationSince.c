@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpGetDurationSince @ 0x1404114E0
+ * XREFs of EtwpGetDurationSince @ 0x14039623C
  * Callers:
- *     EtwTraceContAllocationEvent @ 0x14041138C (EtwTraceContAllocationEvent.c)
- *     EtwTraceMdlAllocationEvent @ 0x1404124A0 (EtwTraceMdlAllocationEvent.c)
+ *     EtwTraceMdlAllocationEvent @ 0x1403948E0 (EtwTraceMdlAllocationEvent.c)
+ *     EtwTraceContAllocationEvent @ 0x1403960E8 (EtwTraceContAllocationEvent.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x14034FA10 (KeQueryPerformanceCounter.c)
+ *     KeQueryPerformanceCounter @ 0x14036DEF0 (KeQueryPerformanceCounter.c)
  */
 
 unsigned __int64 __fastcall EtwpGetDurationSince(__int64 a1)

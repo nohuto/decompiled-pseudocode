@@ -28,7 +28,7 @@ void __fastcall MiClearNonPagedPtes(__int64 a1, __int64 a2, int a3)
   volatile signed __int32 *v13; // rbx
   bool v14; // zf
   char v15; // al
-  union _SLIST_HEADER *v16; // rbx
+  _SLIST_HEADER *v16; // rbx
   unsigned __int64 v17; // rax
   unsigned __int64 v18; // [rsp+20h] [rbp-E0h] BYREF
   unsigned __int64 *v19; // [rsp+28h] [rbp-D8h]

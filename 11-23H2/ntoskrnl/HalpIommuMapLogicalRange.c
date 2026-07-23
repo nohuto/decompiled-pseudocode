@@ -1,19 +1,19 @@
 /*
- * XREFs of HalpIommuMapLogicalRange @ 0x14037D7D8
+ * XREFs of HalpIommuMapLogicalRange @ 0x14037D978
  * Callers:
- *     HalpIommuDomainMapIdentityRange @ 0x140517BE4 (HalpIommuDomainMapIdentityRange.c)
- *     HalpIommuDomainMapLogicalRange @ 0x140517D84 (HalpIommuDomainMapLogicalRange.c)
+ *     HalpIommuDomainMapIdentityRange @ 0x140518134 (HalpIommuDomainMapIdentityRange.c)
+ *     HalpIommuDomainMapLogicalRange @ 0x1405182D4 (HalpIommuDomainMapLogicalRange.c)
  *     HalpIommuConstructReservedPageTable @ 0x140A8A50C (HalpIommuConstructReservedPageTable.c)
  * Callees:
  *     KeInvalidateRangeAllCachesNoIpi @ 0x14021AE20 (KeInvalidateRangeAllCachesNoIpi.c)
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     MmGetPhysicalAddress @ 0x14028BEE0 (MmGetPhysicalAddress.c)
- *     HalpIommuAllocateAndZeroPageTable @ 0x14037E008 (HalpIommuAllocateAndZeroPageTable.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     HalpIommuUnmapLogicalRange @ 0x1405273F0 (HalpIommuUnmapLogicalRange.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     MmGetPhysicalAddress @ 0x14028C170 (MmGetPhysicalAddress.c)
+ *     HalpIommuAllocateAndZeroPageTable @ 0x14037E1A8 (HalpIommuAllocateAndZeroPageTable.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     HalpIommuUnmapLogicalRange @ 0x140527940 (HalpIommuUnmapLogicalRange.c)
  */
 
 __int64 __fastcall HalpIommuMapLogicalRange(
@@ -188,10 +188,13 @@ LABEL_13:
   {
 LABEL_11:
     KxReleaseSpinLock((volatile signed __int64 *)(a2 + 8));
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v21 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v21 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -222,10 +225,10 @@ LABEL_11:
     goto LABEL_11;
   }
   KxReleaseSpinLock(v53);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v40 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v40 <= 0xFu && (unsigned __int8)v21 <= 0xFu && v40 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v40 <= 0xFu && (unsigned __int8)v21 <= 0xFu && v40 >= 2u )
     {
       v41 = KeGetCurrentPrcb();
       v42 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v21 + 1));

@@ -1,10 +1,10 @@
 /*
- * XREFs of MiLogPartitionState @ 0x14046FD24
+ * XREFs of MiLogPartitionState @ 0x1402F3958
  * Callers:
- *     MiProcessWorkingSets @ 0x140378690 (MiProcessWorkingSets.c)
+ *     MiProcessWorkingSets @ 0x1402F2D10 (MiProcessWorkingSets.c)
  * Callees:
- *     _tlgWriteEx_EtwWriteEx @ 0x1404A083C (_tlgWriteEx_EtwWriteEx.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x14049AEBC (_tlgWriteEx_EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 char __fastcall MiLogPartitionState(__int16 *a1)
@@ -44,7 +44,7 @@ char __fastcall MiLogPartitionState(__int16 *a1)
   _UNKNOWN *retaddr; // [rsp+3D0h] [rbp+2C8h] BYREF
 
   v1 = &retaddr;
-  if ( *(_QWORD *)&qword_140E37518 )
+  if ( *(_QWORD *)&qword_140E37658 )
   {
     LODWORD(v1) = *((_DWORD *)a1 + 4630);
     v16 = (unsigned __int16)v1;
@@ -74,11 +74,11 @@ char __fastcall MiLogPartitionState(__int16 *a1)
     v10 = *((_QWORD *)a1 + 496);
     v11 = *((_QWORD *)a1 + 512);
     v12 = *((_QWORD *)a1 + 2452);
-    if ( **(_DWORD **)&qword_140E37518 > 5u )
+    if ( **(_DWORD **)&qword_140E37658 > 5u )
     {
-      if ( (*(_DWORD *)(*(_QWORD *)&qword_140E37518 + 16LL) & 0x800LL) == 0
+      if ( (*(_DWORD *)(*(_QWORD *)&qword_140E37658 + 16LL) & 0x800LL) == 0
         || (LOBYTE(v1) = 1,
-            (*(_QWORD *)(*(_QWORD *)&qword_140E37518 + 24LL) & 0x800LL) != *(_QWORD *)(*(_QWORD *)&qword_140E37518 + 24LL)) )
+            (*(_QWORD *)(*(_QWORD *)&qword_140E37658 + 24LL) & 0x800LL) != *(_QWORD *)(*(_QWORD *)&qword_140E37658 + 24LL)) )
       {
         LOBYTE(v1) = 0;
       }
@@ -126,8 +126,8 @@ char __fastcall MiLogPartitionState(__int16 *a1)
         v29[29] = 2LL;
         v31 = 0;
         LOBYTE(v1) = tlgWriteEx_EtwWriteEx(
-                       qword_140E37518,
-                       (int)&byte_1400566BB,
+                       qword_140E37658,
+                       (int)&dword_1400573B4,
                        (int)a1,
                        1,
                        v14,

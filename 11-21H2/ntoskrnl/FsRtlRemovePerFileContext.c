@@ -5,7 +5,7 @@
  * Callees:
  *     ExAcquireAutoExpandPushLockExclusive @ 0x1402A3C30 (ExAcquireAutoExpandPushLockExclusive.c)
  *     ExReleaseAutoExpandPushLockExclusive @ 0x1402AC890 (ExReleaseAutoExpandPushLockExclusive.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
+ *     sub_1402F9540 @ 0x1402F9540 (sub_1402F9540.c)
  */
 
 PFSRTL_PER_FILE_CONTEXT __stdcall FsRtlRemovePerFileContext(
@@ -30,7 +30,7 @@ PFSRTL_PER_FILE_CONTEXT __stdcall FsRtlRemovePerFileContext(
   if ( *v7 == (struct _FSRTL_PER_FILE_CONTEXT *)v7 )
     return 0LL;
   CurrentThread = KeGetCurrentThread();
-  --CurrentThread->KernelApcDisable;
+  --*((_WORD *)CurrentThread + 242);
   ExAcquireAutoExpandPushLockExclusive(v5, 0LL);
   Flink = *v7;
   v10 = 0LL;
@@ -69,6 +69,6 @@ LABEL_6:
     }
   }
   ExReleaseAutoExpandPushLockExclusive(v6, 0LL);
-  KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+  sub_1402F9540((__int64)KeGetCurrentThread());
   return v10;
 }

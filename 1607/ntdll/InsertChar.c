@@ -1,7 +1,7 @@
 /*
  * XREFs of InsertChar @ 0x180002740
  * Callers:
- *     punycode_decode @ 0x180056858 (punycode_decode.c)
+ *     punycode_decode @ 0x180056848 (punycode_decode.c)
  * Callees:
  *     <none>
  */

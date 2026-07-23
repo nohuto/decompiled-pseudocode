@@ -1,24 +1,24 @@
 /*
- * XREFs of ExpGetSystemFirmwareTableInformation @ 0x1406B8000
+ * XREFs of ExpGetSystemFirmwareTableInformation @ 0x1406B92A0
  * Callers:
- *     ExpQuerySystemInformation @ 0x140626390 (ExpQuerySystemInformation.c)
- *     ExpGetSystemFlushInformation @ 0x1406B7EC8 (ExpGetSystemFlushInformation.c)
- *     ExpGetSystemPlatformBinary @ 0x14075FBEC (ExpGetSystemPlatformBinary.c)
- *     ExGetSystemFirmwareTable @ 0x140760730 (ExGetSystemFirmwareTable.c)
- *     ExEnumerateSystemFirmwareTables @ 0x1408CB250 (ExEnumerateSystemFirmwareTables.c)
+ *     ExpQuerySystemInformation @ 0x1406273B0 (ExpQuerySystemInformation.c)
+ *     ExpGetSystemFlushInformation @ 0x1406B9168 (ExpGetSystemFlushInformation.c)
+ *     ExpGetSystemPlatformBinary @ 0x140760DDC (ExpGetSystemPlatformBinary.c)
+ *     ExGetSystemFirmwareTable @ 0x140761920 (ExGetSystemFirmwareTable.c)
+ *     ExEnumerateSystemFirmwareTables @ 0x1408CC510 (ExEnumerateSystemFirmwareTables.c)
  * Callees:
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceSharedLite @ 0x140050860 (ExAcquireResourceSharedLite.c)
- *     ExAllocatePoolWithQuotaTag @ 0x1400B7670 (ExAllocatePoolWithQuotaTag.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     PsIsProcessAppContainer @ 0x1406B81E8 (PsIsProcessAppContainer.c)
- *     ExpFirmwareAccessAppContainerCheck @ 0x1408D0A10 (ExpFirmwareAccessAppContainerCheck.c)
+ *     ExAllocatePoolWithQuotaTag @ 0x1400B75B0 (ExAllocatePoolWithQuotaTag.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     PsIsProcessAppContainer @ 0x1406B9488 (PsIsProcessAppContainer.c)
+ *     ExpFirmwareAccessAppContainerCheck @ 0x1408D1CD0 (ExpFirmwareAccessAppContainerCheck.c)
  */
 
 __int64 __fastcall ExpGetSystemFirmwareTableInformation(char *Src, char a2, unsigned int a3, _DWORD *a4)
@@ -113,13 +113,13 @@ LABEL_8:
   else
   {
     v7 = -1073741790;
-    if ( stru_140400AB0.LevelPlus1 > 5 && TlgKeywordOn(&stru_140400AB0, 0x200000000000uLL) )
+    if ( stru_140401AB0.LevelPlus1 > 5 && TlgKeywordOn(&stru_140401AB0, 0x200000000000uLL) )
     {
       v19 = *v8;
       v22 = &v19;
       v23 = 4;
       v24 = 0;
-      TlgWrite(&stru_140400AB0, &unk_140373E9B, 0LL, 0LL, 3u, &pData);
+      TlgWrite(&stru_140401AB0, &unk_140374E2B, 0LL, 0LL, 3u, &pData);
     }
   }
 LABEL_14:

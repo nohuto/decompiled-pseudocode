@@ -23,20 +23,21 @@
  *     CmpDetachFromRegistryProcess @ 0x140BA9A10 (CmpDetachFromRegistryProcess.c)
  */
 
-__int64 __fastcall NtRestoreKey(int a1, void *a2, unsigned int a3)
+NTSTATUS __cdecl NtRestoreKey(HANDLE KeyHandle, HANDLE FileHandle, ULONG Flags)
 {
+  int v3; // esi
   char v6; // r12
   struct _KTHREAD *CurrentThread; // rcx
   KPROCESSOR_MODE PreviousMode; // r14
   __int64 v9; // rdx
   __int64 v10; // r8
   __int64 v11; // r9
-  int v12; // ebx
+  NTSTATUS v12; // ebx
   __int64 v13; // rcx
   __int64 v14; // rdx
   int v15; // r8d
   int v16; // r9d
-  void *v17; // rdi
+  HANDLE v17; // rdi
   int v18; // eax
   _QWORD *v19; // rsi
   struct _KTHREAD *v20; // rax
@@ -54,6 +55,7 @@ __int64 __fastcall NtRestoreKey(int a1, void *a2, unsigned int a3)
   Object = 0LL;
   Handle = 0LL;
   v26[1] = v26;
+  v3 = (int)KeyHandle;
   v26[0] = v26;
   v27 = 0LL;
   v6 = 0;
@@ -82,22 +84,22 @@ LABEL_28:
     {
       LOBYTE(v14) = 1;
       v17 = 0LL;
-      v12 = IoConvertFileHandleToKernelHandle(a2, v14, 1LL);
+      v12 = IoConvertFileHandleToKernelHandle(FileHandle, v14, 1LL);
       if ( v12 < 0 )
       {
 LABEL_25:
-        if ( v17 && v17 != a2 )
+        if ( v17 && v17 != FileHandle )
           ZwClose(v17);
         goto LABEL_28;
       }
     }
     else
     {
-      v17 = a2;
-      Handle = a2;
+      v17 = FileHandle;
+      Handle = FileHandle;
     }
     LOBYTE(v16) = PreviousMode;
-    v18 = CmObReferenceObjectByHandle(a1, 0, v15, v16, (__int64)&Object, 0LL);
+    v18 = CmObReferenceObjectByHandle(v3, 0, v15, v16, (__int64)&Object, 0LL);
     v19 = Object;
     v12 = v18;
     if ( v18 < 0 )
@@ -122,7 +124,7 @@ LABEL_23:
       *(_QWORD *)&v28 = v19;
       *((_QWORD *)&v28 + 1) = Handle;
       LOBYTE(v21) = 1;
-      LODWORD(v29) = a3;
+      LODWORD(v29) = Flags;
       v22 = CmpCallCallBacksEx(41, (unsigned int)&v28, 0, v21, 42, 0LL, (__int64)v26);
       if ( v22 < 0 )
       {
@@ -136,7 +138,7 @@ LABEL_22:
       v6 = 1;
     }
     CmpAttachToRegistryProcess(&ApcState);
-    v12 = CmRestoreKey(v19, (ULONG_PTR)Handle, a3, PreviousMode);
+    v12 = CmRestoreKey(v19, (ULONG_PTR)Handle, Flags, PreviousMode);
     CmpDetachFromRegistryProcess(&ApcState);
     if ( v6 )
       v12 = CmPostCallbackNotificationEx(42, (_DWORD)v19, v12, (unsigned int)&v28, 0LL, (__int64)v26);
@@ -145,5 +147,5 @@ LABEL_22:
   v12 = -1073741431;
 LABEL_29:
   CmCleanupThreadInfo((_KAFFINITY_EX **)&v27);
-  return (unsigned int)v12;
+  return v12;
 }

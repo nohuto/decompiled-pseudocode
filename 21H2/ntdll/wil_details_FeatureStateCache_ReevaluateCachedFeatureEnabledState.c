@@ -5,7 +5,7 @@
  *     wil_details_IsEnabledFallback @ 0x18009C434 (wil_details_IsEnabledFallback.c)
  * Callees:
  *     wil_details_GetCurrentFeatureEnabledState @ 0x18009C2B8 (wil_details_GetCurrentFeatureEnabledState.c)
- *     _guard_dispatch_icall_nop @ 0x1800A1160 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800A1120 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall wil_details_FeatureStateCache_ReevaluateCachedFeatureEnabledState(

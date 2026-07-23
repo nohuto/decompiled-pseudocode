@@ -1,18 +1,18 @@
 /*
- * XREFs of ZwFsControlFile @ 0x1406A6B30
+ * XREFs of ZwFsControlFile @ 0x1406A7AD0
  * Callers:
- *     MiTrimUnusedPageFileRegionsWorker @ 0x140403D20 (MiTrimUnusedPageFileRegionsWorker.c)
- *     DifZwFsControlFileWrapper @ 0x140640670 (DifZwFsControlFileWrapper.c)
- *     FsRtlpRegisterProviderWithMUP @ 0x14070ACD4 (FsRtlpRegisterProviderWithMUP.c)
- *     PfpQueryFileExtentsRequest @ 0x140745C48 (PfpQueryFileExtentsRequest.c)
- *     PopClearHiberFileSignature @ 0x140751C50 (PopClearHiberFileSignature.c)
- *     PopCreateHiberFile @ 0x140751D30 (PopCreateHiberFile.c)
- *     SmKmStoreFileGetExtents @ 0x14079AF50 (SmKmStoreFileGetExtents.c)
- *     CmpHiveCacheAcknowledgeOplockBreak @ 0x1407E51FC (CmpHiveCacheAcknowledgeOplockBreak.c)
- *     CmpRequestOplockOnHiveFile @ 0x1407E5D88 (CmpRequestOplockOnHiveFile.c)
- *     CmpOpenHiveFile @ 0x14092FE64 (CmpOpenHiveFile.c)
- *     RtlUnlockBootStatusData @ 0x140A3F7A0 (RtlUnlockBootStatusData.c)
- *     PopSanityCheckHiberFile @ 0x140A78484 (PopSanityCheckHiberFile.c)
+ *     MiTrimUnusedPageFileRegionsWorker @ 0x1403C5F70 (MiTrimUnusedPageFileRegionsWorker.c)
+ *     DifZwFsControlFileWrapper @ 0x14063EC30 (DifZwFsControlFileWrapper.c)
+ *     FsRtlpRegisterProviderWithMUP @ 0x140708894 (FsRtlpRegisterProviderWithMUP.c)
+ *     PfpQueryFileExtentsRequest @ 0x140743F38 (PfpQueryFileExtentsRequest.c)
+ *     PopClearHiberFileSignature @ 0x14074FF70 (PopClearHiberFileSignature.c)
+ *     PopCreateHiberFile @ 0x140750050 (PopCreateHiberFile.c)
+ *     SmKmStoreFileGetExtents @ 0x14079B060 (SmKmStoreFileGetExtents.c)
+ *     CmpHiveCacheAcknowledgeOplockBreak @ 0x1407E57CC (CmpHiveCacheAcknowledgeOplockBreak.c)
+ *     CmpRequestOplockOnHiveFile @ 0x1407E6358 (CmpRequestOplockOnHiveFile.c)
+ *     CmpOpenHiveFile @ 0x140931FA4 (CmpOpenHiveFile.c)
+ *     RtlUnlockBootStatusData @ 0x140A35050 (RtlUnlockBootStatusData.c)
+ *     PopSanityCheckHiberFile @ 0x140A72784 (PopSanityCheckHiberFile.c)
  * Callees:
  *     <none>
  */
@@ -31,5 +31,5 @@ NTSTATUS __stdcall ZwFsControlFile(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(FileHandle, Event);
+  return KiServiceInternal(FileHandle);
 }

@@ -1,13 +1,13 @@
 /*
- * XREFs of ExpRemoveGeneralLookaside @ 0x1403585E4
+ * XREFs of ExpRemoveGeneralLookaside @ 0x140358784
  * Callers:
- *     ExDeletePagedLookasideList @ 0x1403584E0 (ExDeletePagedLookasideList.c)
- *     ExDeleteLookasideListEx @ 0x140358560 (ExDeleteLookasideListEx.c)
- *     ExDeleteNPagedLookasideList @ 0x1403C6CD0 (ExDeleteNPagedLookasideList.c)
+ *     ExDeletePagedLookasideList @ 0x140358680 (ExDeletePagedLookasideList.c)
+ *     ExDeleteLookasideListEx @ 0x140358700 (ExDeleteLookasideListEx.c)
+ *     ExDeleteNPagedLookasideList @ 0x1403C6EB0 (ExDeleteNPagedLookasideList.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 PVOID __fastcall ExpRemoveGeneralLookaside(KSPIN_LOCK *a1, __int64 a2)
@@ -32,10 +32,13 @@ PVOID __fastcall ExpRemoveGeneralLookaside(KSPIN_LOCK *a1, __int64 a2)
   *v7 = v6;
   v6[1] = (__int64)v7;
   KxReleaseSpinLock((volatile signed __int64 *)a1);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v5 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v5 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

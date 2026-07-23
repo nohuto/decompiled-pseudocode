@@ -6,11 +6,16 @@
  *     <none>
  */
 
-__int64 ZwManagePartition()
+NTSTATUS __cdecl ZwManagePartition(
+        HANDLE TargetHandle,
+        HANDLE SourceHandle,
+        PARTITION_INFORMATION_CLASS PartitionInformationClass,
+        PVOID PartitionInformation,
+        ULONG PartitionInformationLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 255LL;
+  result = 255;
   __asm { syscall; Low latency system call }
   return result;
 }

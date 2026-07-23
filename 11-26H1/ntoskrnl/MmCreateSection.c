@@ -1,20 +1,20 @@
 /*
- * XREFs of MmCreateSection @ 0x1409B8FA0
+ * XREFs of MmCreateSection @ 0x140989F80
  * Callers:
- *     DifMmCreateSectionWrapper @ 0x140666700 (DifMmCreateSectionWrapper.c)
- *     EtwpCoverageEnsureContext @ 0x140775C70 (EtwpCoverageEnsureContext.c)
- *     NtCreateIoRing @ 0x140798AC0 (NtCreateIoRing.c)
- *     PspApiSetCopyToSystemSpace @ 0x1407EE848 (PspApiSetCopyToSystemSpace.c)
- *     PspSiloInitializeUserSharedData @ 0x1407EF83C (PspSiloInitializeUserSharedData.c)
- *     PspSchedulerSharedDataRegionCreate @ 0x1409B7374 (PspSchedulerSharedDataRegionCreate.c)
- *     MiInitializeCfg @ 0x140CFDF40 (MiInitializeCfg.c)
- *     MiInitializeApiSets @ 0x140D001B0 (MiInitializeApiSets.c)
+ *     DifMmCreateSectionWrapper @ 0x14066A2E0 (DifMmCreateSectionWrapper.c)
+ *     EtwpCoverageEnsureContext @ 0x140778B18 (EtwpCoverageEnsureContext.c)
+ *     NtCreateIoRing @ 0x14079B5F0 (NtCreateIoRing.c)
+ *     PspApiSetCopyToSystemSpace @ 0x1407F43A8 (PspApiSetCopyToSystemSpace.c)
+ *     PspSiloInitializeUserSharedData @ 0x1407F539C (PspSiloInitializeUserSharedData.c)
+ *     PspSchedulerSharedDataRegionCreate @ 0x140988354 (PspSchedulerSharedDataRegionCreate.c)
+ *     MiInitializeCfg @ 0x140D042E8 (MiInitializeCfg.c)
+ *     MiInitializeApiSets @ 0x140D06550 (MiInitializeApiSets.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     PsReferencePrimaryTokenWithTag @ 0x140279DC0 (PsReferencePrimaryTokenWithTag.c)
- *     PsGetSessionIdEx @ 0x14030B820 (PsGetSessionIdEx.c)
- *     MiCreateSection @ 0x1409BA4D4 (MiCreateSection.c)
- *     MiCaptureSectionCreateExtendedParameters @ 0x1409BAA7C (MiCaptureSectionCreateExtendedParameters.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     PsReferencePrimaryTokenWithTag @ 0x140279330 (PsReferencePrimaryTokenWithTag.c)
+ *     PsGetSessionIdEx @ 0x1402ED8A0 (PsGetSessionIdEx.c)
+ *     MiCreateSection @ 0x14098B4B4 (MiCreateSection.c)
+ *     MiCaptureSectionCreateExtendedParameters @ 0x14098BA5C (MiCaptureSectionCreateExtendedParameters.c)
  */
 
 __int64 __fastcall MmCreateSection(

@@ -1,21 +1,21 @@
 /*
- * XREFs of ?SmStStart@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_SMST_PARAMETERS@@@Z @ 0x140449680
+ * XREFs of ?SmStStart@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_SMST_PARAMETERS@@@Z @ 0x140376D70
  * Callers:
- *     SmProcessCreateRequest @ 0x140A42DD4 (SmProcessCreateRequest.c)
+ *     SmProcessCreateRequest @ 0x140A38664 (SmProcessCreateRequest.c)
  * Callees:
- *     SmAcquireReleaseCharges @ 0x140210CF0 (SmAcquireReleaseCharges.c)
- *     SmFpCleanup @ 0x14037E384 (SmFpCleanup.c)
- *     SmKmStoreHelperInitialize @ 0x140449C0C (SmKmStoreHelperInitialize.c)
- *     SmKmStoreHelperStart @ 0x140449C70 (SmKmStoreHelperStart.c)
- *     ?StStart@?$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_CREATE_PARAMS@@@Z @ 0x140449D18 (-StStart@-$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_CREATE_PARAMS@@@Z.c)
- *     ?SmStWorkerThreadStartThread@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAXP6AX1@ZPEAPEAU_ETHREAD@@@Z @ 0x14044A168 (-SmStWorkerThreadStartThread@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAXP6AX1@ZPEAPEAU_ETHREAD@@@Z.c)
- *     SmGetIdealProcessorFromNumaNode @ 0x14044A2A8 (SmGetIdealProcessorFromNumaNode.c)
- *     SmFpPreAllocate @ 0x1404C3258 (SmFpPreAllocate.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     SmKmFileInfoInit @ 0x1406FBAC0 (SmKmFileInfoInit.c)
- *     SmKmFileInfoDuplicate @ 0x140AB181C (SmKmFileInfoDuplicate.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     SmAcquireReleaseCharges @ 0x14033A050 (SmAcquireReleaseCharges.c)
+ *     SmGetIdealProcessorFromNumaNode @ 0x140376530 (SmGetIdealProcessorFromNumaNode.c)
+ *     ?SmStWorkerThreadStartThread@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAXP6AX1@ZPEAPEAU_ETHREAD@@@Z @ 0x1403766A4 (-SmStWorkerThreadStartThread@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAXP6AX1@ZPEAPEAU_ETHREAD@@@Z.c)
+ *     ?StStart@?$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_CREATE_PARAMS@@@Z @ 0x1403767E4 (-StStart@-$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_CREATE_PARAMS@@@Z.c)
+ *     SmKmStoreHelperStart @ 0x140376CC8 (SmKmStoreHelperStart.c)
+ *     SmKmStoreHelperInitialize @ 0x1403772FC (SmKmStoreHelperInitialize.c)
+ *     SmFpCleanup @ 0x1403780A4 (SmFpCleanup.c)
+ *     SmFpPreAllocate @ 0x1404BE790 (SmFpPreAllocate.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     SmKmFileInfoInit @ 0x1406F9700 (SmKmFileInfoInit.c)
+ *     SmKmFileInfoDuplicate @ 0x140AAC78C (SmKmFileInfoDuplicate.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall SMKM_STORE<SM_TRAITS>::SmStStart(__int64 a1, unsigned int **a2)
@@ -37,7 +37,7 @@ __int64 __fastcall SMKM_STORE<SM_TRAITS>::SmStStart(__int64 a1, unsigned int **a
   void *Pool2; // rax
   unsigned int v20; // eax
   unsigned int v21; // edi
-  unsigned int v22; // ebx
+  ULONG_PTR v22; // rbx
   void *v23; // rax
   __int128 v24; // xmm0
   int v25; // eax
@@ -150,21 +150,21 @@ __int64 __fastcall SMKM_STORE<SM_TRAITS>::SmStStart(__int64 a1, unsigned int **a
   {
     p_IdealProcessorFromNumaNode = 0LL;
   }
-  v7 = SmKmStoreHelperStart(a1 + 7040, a2[6], p_IdealProcessorFromNumaNode);
+  v7 = SmKmStoreHelperStart((PVOID *)(a1 + 7040), (__int64)a2[6], (__int64)p_IdealProcessorFromNumaNode);
   if ( v7 >= 0 )
   {
-    v7 = SmKmStoreHelperStart(a1 + 7184, a2[6], p_IdealProcessorFromNumaNode);
+    v7 = SmKmStoreHelperStart((PVOID *)(a1 + 7184), (__int64)a2[6], (__int64)p_IdealProcessorFromNumaNode);
     if ( v7 >= 0 )
     {
       if ( (*(_BYTE *)(a1 + 6837) & 8) != 0 )
         *(_QWORD *)(a1 + 7160) = *(_QWORD *)(a1 + 7576) + 2856LL;
       *(_QWORD *)(a1 + 7312) = *(_QWORD *)(a1 + 7576) + 2880LL;
-      Pool2 = (void *)ExAllocatePool2(0x40uLL);
+      Pool2 = (void *)ExAllocatePool2(0x40uLL, 0x50uLL, 0x6C526D73u);
       *(_QWORD *)(a1 + 7032) = Pool2;
       if ( !Pool2 )
         return (unsigned int)-1073741670;
       memset_0(Pool2, 0, 0x50uLL);
-      if ( !(unsigned int)SmAcquireReleaseCharges(*(_QWORD *)(a1 + 7576), *(unsigned int *)(a1 + 7016), 1, 0) )
+      if ( !(unsigned int)SmAcquireReleaseCharges(*(_QWORD *)(a1 + 7576), *(unsigned int *)(a1 + 7016), 1, 0LL) )
         return (unsigned int)-1073741670;
       *(_BYTE *)(a1 + 6837) |= 0x10u;
 LABEL_31:
@@ -172,11 +172,11 @@ LABEL_31:
       *(_DWORD *)(a1 + 7020) = v20;
       v21 = 0;
       v22 = 8 * v20;
-      v23 = (void *)ExAllocatePool2(0x40uLL);
+      v23 = (void *)ExAllocatePool2(0x40uLL, v22, 0x67526D73u);
       if ( v23 )
       {
         *(_QWORD *)(a1 + 7024) = v23;
-        memset_0(v23, 0, v22);
+        memset_0(v23, 0, (unsigned int)v22);
         if ( (*(_BYTE *)(a1 + 6837) & 4) != 0 )
         {
 LABEL_33:
@@ -194,16 +194,16 @@ LABEL_33:
           v32 = a2[1];
           v33 = *((_DWORD *)a2 + 4);
           LODWORD(v29) = v29 & 0xFFFFF7FF | (v33 == 0 ? 0x800 : 0);
-          v7 = ST_STORE<SM_TRAITS>::StStart(a1, &v29);
+          v7 = ST_STORE<SM_TRAITS>::StStart(a1, (int *)&v29);
           if ( v7 >= 0 )
           {
             if ( (*(_BYTE *)(a1 + 6837) & 4) == 0 )
               goto LABEL_37;
             started = SMKM_STORE<SM_TRAITS>::SmStWorkerThreadStartThread(
                         a1,
-                        a2[6],
-                        SMKM_STORE<SM_TRAITS>::SmStReadThread,
-                        a1 + 7328);
+                        (__int64)a2[6],
+                        (__int64)SMKM_STORE<SM_TRAITS>::SmStReadThread,
+                        (PVOID *)(a1 + 7328));
             v7 = 0;
             if ( started < 0 )
               v7 = started;
@@ -212,9 +212,9 @@ LABEL_33:
 LABEL_37:
               v7 = SMKM_STORE<SM_TRAITS>::SmStWorkerThreadStartThread(
                      a1,
-                     a2[6],
-                     SMKM_STORE<SM_TRAITS>::SmStWorkerThread,
-                     a1 + 7008);
+                     (__int64)a2[6],
+                     (__int64)SMKM_STORE<SM_TRAITS>::SmStWorkerThread,
+                     (PVOID *)(a1 + 7008));
               if ( v7 >= 0 )
                 return 0;
             }

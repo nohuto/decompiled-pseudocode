@@ -30,24 +30,25 @@ int __fastcall RtlpHpReAllocateHeap(int a1, int a2, int a3, unsigned int a4, _DW
   unsigned int v16; // eax
   unsigned int v17; // eax
   int v18; // eax
-  int v20[3]; // [esp+10h] [ebp-28h] BYREF
-  unsigned int v21; // [esp+1Ch] [ebp-1Ch]
-  unsigned int v22; // [esp+20h] [ebp-18h]
-  int v23; // [esp+24h] [ebp-14h]
-  unsigned int v24; // [esp+28h] [ebp-10h]
-  int v25; // [esp+2Ch] [ebp-Ch]
-  int v26; // [esp+30h] [ebp-8h]
+  size_t v20; // [esp-4h] [ebp-3Ch]
+  int v21[3]; // [esp+10h] [ebp-28h] BYREF
+  unsigned int v22; // [esp+1Ch] [ebp-1Ch]
+  unsigned int v23; // [esp+20h] [ebp-18h]
+  int v24; // [esp+24h] [ebp-14h]
+  unsigned int v25; // [esp+28h] [ebp-10h]
+  int v26; // [esp+2Ch] [ebp-Ch]
+  int v27; // [esp+30h] [ebp-8h]
 
   v7 = (a2 | *(_DWORD *)(a1 + 12)) & 0x93000F0B;
   if ( a4 > 0x7FFFFFFF || !RtlpHpCheckAllocationSizeLimit(a4, a1, a1 + 24) )
     return 0;
   v8 = a3;
-  v23 = a3;
-  if ( !RtlpHpReallocComputeSizes(a4, v7, v20) || v22 < a4 )
+  v24 = a3;
+  if ( !RtlpHpReallocComputeSizes(a4, v7, v21) || v23 < a4 )
     return -1;
-  v9 = v20[0];
+  v9 = v21[0];
   v10 = 0;
-  v24 = v20[0];
+  v25 = v21[0];
   if ( a6 )
   {
     v10 = RtlpHpExtrasGet(a1, a3, v7, a5);
@@ -56,16 +57,16 @@ int __fastcall RtlpHpReAllocateHeap(int a1, int a2, int a3, unsigned int a4, _DW
     else
       v11 = *(_WORD *)v10;
     *a6 = v11;
-    v9 = v24;
+    v9 = v25;
   }
   else if ( a5 )
   {
-    *a5 = v20[0];
+    *a5 = v21[0];
   }
   if ( v9 == a4 )
     goto LABEL_42;
   v12 = 0;
-  v25 = 0;
+  v26 = 0;
   if ( (v7 & 0x1000000) == 0 )
   {
     if ( *(_DWORD *)(a1 + 16) )
@@ -73,7 +74,7 @@ int __fastcall RtlpHpReAllocateHeap(int a1, int a2, int a3, unsigned int a4, _DW
       if ( (v10 || (v10 = RtlpHpExtrasGet(a1, a3, v7, 0)) != 0) && v10 != -1 )
       {
         v12 = *(_BYTE *)(v10 + 2) & 0xF;
-        v25 = v12;
+        v26 = v12;
         if ( v12 )
         {
           if ( RtlpCallInterceptRoutine(v12, a1, a3, 5, v10 + 8) < 0 )
@@ -82,7 +83,7 @@ int __fastcall RtlpHpReAllocateHeap(int a1, int a2, int a3, unsigned int a4, _DW
       }
     }
   }
-  v26 = v7 & 0x12000001 | 0x1000000;
+  v27 = v7 & 0x12000001 | 0x1000000;
   if ( (_WORD)a3 )
   {
     v14 = 0;
@@ -93,37 +94,38 @@ int __fastcall RtlpHpReAllocateHeap(int a1, int a2, int a3, unsigned int a4, _DW
     if ( !v13 )
     {
 LABEL_27:
-      v15 = RtlpHpLargeReAlloc(a3, v20);
+      v15 = RtlpHpLargeReAlloc(a3, v21);
       goto LABEL_29;
     }
     v14 = v13 - 1;
   }
   if ( v14 == 2 )
     goto LABEL_27;
-  v15 = RtlpHpSegReAlloc(a3, v20);
+  v15 = RtlpHpSegReAlloc(a3, v21);
 LABEL_29:
   v8 = v15;
-  if ( v25 )
+  if ( v26 )
   {
     if ( !v15 || v15 == -1 )
     {
-      v15 = v23;
-      v26 = v23;
+      v15 = v24;
+      v27 = v24;
     }
     else
     {
-      v26 = v15;
+      v27 = v15;
     }
     v16 = RtlpHpExtrasGet(a1, v15, v7, 0);
-    RtlpCallInterceptRoutine(v25, a1, v26, 6, v16 + 8);
+    RtlpCallInterceptRoutine(v26, a1, v27, 6, v16 + 8);
   }
   if ( v8 && v8 != -1 )
   {
-    v17 = v21;
-    if ( (v7 & 2) != 0 && v21 > v24 )
+    v17 = v22;
+    if ( (v7 & 2) != 0 && v22 > v25 )
     {
-      memset((void *)(v24 + v8), 0, v21 - v24);
-      v17 = v21;
+      LODWORD(v20) = v22 - v25;
+      memset((void *)(v25 + v8), 0, v20);
+      v17 = v22;
     }
     if ( (v7 & 0x10000000) != 0 )
     {
@@ -136,7 +138,7 @@ LABEL_42:
     else
       v18 = 2147353472;
     if ( *(_BYTE *)v18 && (NtCurrentPeb()->TracingFlags & 1) != 0 && v8 )
-      RtlpLogHeapReallocateEvent(a1, v8, v23, v20[0], v21, 3);
+      RtlpLogHeapReallocateEvent(a1, v8, v24, v21[0], v22, 3);
   }
   return v8;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of CmRmIsKcbStackVisible @ 0x140A33120
+ * XREFs of CmRmIsKcbStackVisible @ 0x140A4E080
  * Callers:
- *     CmpDoParseKey @ 0x1408CBC90 (CmpDoParseKey.c)
+ *     CmpDoParseKey @ 0x1408D2240 (CmpDoParseKey.c)
  * Callees:
- *     CmpTransUowIsEqual @ 0x140776F48 (CmpTransUowIsEqual.c)
+ *     CmpTransUowIsEqual @ 0x140779DF0 (CmpTransUowIsEqual.c)
  */
 
 char __fastcall CmRmIsKcbStackVisible(__int64 a1, __int64 a2)

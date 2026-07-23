@@ -1,9 +1,9 @@
 /*
- * XREFs of MmGetPageFileInformation @ 0x1404CC9F4
+ * XREFs of MmGetPageFileInformation @ 0x1404B2420
  * Callers:
- *     ExpQuerySystemInformation @ 0x140415620 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x1404144E0 (ExpQuerySystemInformation.c)
  * Callees:
- *     memmove @ 0x140171280 (memmove.c)
+ *     memmove @ 0x140171780 (memmove.c)
  */
 
 __int64 __fastcall MmGetPageFileInformation(__int64 a1, unsigned int a2, int a3, unsigned int *a4)

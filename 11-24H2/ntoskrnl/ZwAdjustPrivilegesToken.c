@@ -1,17 +1,23 @@
 /*
- * XREFs of ZwAdjustPrivilegesToken @ 0x1406A6C30
+ * XREFs of ZwAdjustPrivilegesToken @ 0x1406A7BD0
  * Callers:
- *     DifZwAdjustPrivilegesTokenWrapper @ 0x14063B6E0 (DifZwAdjustPrivilegesTokenWrapper.c)
- *     BiAdjustPrivilege @ 0x1409C0D40 (BiAdjustPrivilege.c)
- *     RtlAcquirePrivilege @ 0x1409C1C84 (RtlAcquirePrivilege.c)
- *     RtlReleasePrivilege @ 0x140A5134C (RtlReleasePrivilege.c)
+ *     DifZwAdjustPrivilegesTokenWrapper @ 0x140639CA0 (DifZwAdjustPrivilegesTokenWrapper.c)
+ *     BiAdjustPrivilege @ 0x1409A7390 (BiAdjustPrivilege.c)
+ *     RtlAcquirePrivilege @ 0x1409A82D4 (RtlAcquirePrivilege.c)
+ *     RtlReleasePrivilege @ 0x140A4850C (RtlReleasePrivilege.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwAdjustPrivilegesToken(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwAdjustPrivilegesToken(
+        HANDLE TokenHandle,
+        BOOLEAN DisableAllPrivileges,
+        PTOKEN_PRIVILEGES NewState,
+        ULONG BufferLength,
+        PTOKEN_PRIVILEGES PreviousState,
+        PULONG ReturnLength)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(TokenHandle);
 }

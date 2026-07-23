@@ -1,15 +1,15 @@
 /*
- * XREFs of MmRelocatePfnList @ 0x1406646F8
+ * XREFs of MmRelocatePfnList @ 0x1406647DC
  * Callers:
- *     PfpPfnPrioRequest @ 0x14041B450 (PfpPfnPrioRequest.c)
+ *     PfpPfnPrioRequest @ 0x14041A310 (PfpPfnPrioRequest.c)
  * Callees:
  *     MiEmptyKernelStackCache @ 0x14000196C (MiEmptyKernelStackCache.c)
- *     MiIsPfn @ 0x14000FBA0 (MiIsPfn.c)
- *     MiIdentifyPfnWrapper @ 0x14000FBF0 (MiIdentifyPfnWrapper.c)
- *     MiPfnsWorthTrying @ 0x140104C30 (MiPfnsWorthTrying.c)
- *     MiClaimPhysicalRun @ 0x1401063DC (MiClaimPhysicalRun.c)
- *     MiReleasePteCopyList @ 0x140107034 (MiReleasePteCopyList.c)
- *     MiCreatePteCopyList @ 0x140107178 (MiCreatePteCopyList.c)
+ *     MiIsPfn @ 0x14000F720 (MiIsPfn.c)
+ *     MiIdentifyPfnWrapper @ 0x14000F770 (MiIdentifyPfnWrapper.c)
+ *     MiPfnsWorthTrying @ 0x1401029B0 (MiPfnsWorthTrying.c)
+ *     MiClaimPhysicalRun @ 0x14010415C (MiClaimPhysicalRun.c)
+ *     MiReleasePteCopyList @ 0x140104DB4 (MiReleasePteCopyList.c)
+ *     MiCreatePteCopyList @ 0x140104EF8 (MiCreatePteCopyList.c)
  */
 
 __int64 __fastcall MmRelocatePfnList(unsigned __int64 a1, _QWORD *a2, unsigned int a3, unsigned int a4)
@@ -29,7 +29,7 @@ __int64 __fastcall MmRelocatePfnList(unsigned __int64 a1, _QWORD *a2, unsigned i
     return 3221225712LL;
   if ( a4 >= MmNumberOfChannels )
     return 3221225713LL;
-  v7 = (a3 << byte_1403269C9) | (a4 << byte_1403269D8);
+  v7 = (a3 << byte_140326A09) | (a4 << byte_140326A18);
   MiCreatePteCopyList(a1, 0x100uLL, (unsigned __int64)v15);
   v8 = &a2[3 * a1];
   while ( a2 < v8 )

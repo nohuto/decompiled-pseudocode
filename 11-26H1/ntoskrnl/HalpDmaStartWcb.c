@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpDmaStartWcb @ 0x140440F08
+ * XREFs of HalpDmaStartWcb @ 0x140439A18
  * Callers:
- *     HalPutScatterGatherListV3 @ 0x14043ED84 (HalPutScatterGatherListV3.c)
- *     HalpAllocateAdapterChannel @ 0x140440D84 (HalpAllocateAdapterChannel.c)
+ *     HalPutScatterGatherListV3 @ 0x140437894 (HalPutScatterGatherListV3.c)
+ *     HalpAllocateAdapterChannel @ 0x140439894 (HalpAllocateAdapterChannel.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
  */
 
 char __fastcall HalpDmaStartWcb(__int64 a1, _QWORD *a2, char a3)

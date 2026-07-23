@@ -1,13 +1,13 @@
 /*
- * XREFs of PfSnNameRemoveAll @ 0x1409E9800
+ * XREFs of PfSnNameRemoveAll @ 0x1409D2C20
  * Callers:
- *     PfFileInfoNotify @ 0x1402B8A80 (PfFileInfoNotify.c)
+ *     PfFileInfoNotify @ 0x140303740 (PfFileInfoNotify.c)
  * Callees:
- *     PfSnNameRemove @ 0x14024AE20 (PfSnNameRemove.c)
- *     PfSnTraceGetLogEntry @ 0x1402662D0 (PfSnTraceGetLogEntry.c)
- *     PfSnActiveTraceGetNext @ 0x1402F1D80 (PfSnActiveTraceGetNext.c)
- *     PfSnGetNLLogEntry @ 0x1409E98AC (PfSnGetNLLogEntry.c)
- *     PfSnFailProcessTrace @ 0x1409E9C58 (PfSnFailProcessTrace.c)
+ *     PfSnNameRemove @ 0x14024C780 (PfSnNameRemove.c)
+ *     PfSnTraceGetLogEntry @ 0x140265840 (PfSnTraceGetLogEntry.c)
+ *     PfSnActiveTraceGetNext @ 0x1402D3E00 (PfSnActiveTraceGetNext.c)
+ *     PfSnGetNLLogEntry @ 0x1409D2CCC (PfSnGetNLLogEntry.c)
+ *     PfSnFailProcessTrace @ 0x1409D3078 (PfSnFailProcessTrace.c)
  */
 
 unsigned __int64 *__fastcall PfSnNameRemoveAll(__int64 a1, __int64 a2)
@@ -26,7 +26,7 @@ unsigned __int64 *__fastcall PfSnNameRemoveAll(__int64 a1, __int64 a2)
     v8 = (__int64)result;
     if ( !result )
       break;
-    if ( (unsigned int)PfSnNameRemove((__int64)result, *(_QWORD *)(a1 + 16)) )
+    if ( (unsigned int)PfSnNameRemove((__int64)result, *(_RTL_BALANCED_NODE **)(a1 + 16)) )
     {
       v9 = 0LL;
       if ( (int)PfSnTraceGetLogEntry(v8, 4u, &v9) < 0 )

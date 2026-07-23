@@ -1,11 +1,11 @@
 /*
- * XREFs of HvcallFastExtended @ 0x14023203C
+ * XREFs of HvcallFastExtended @ 0x140231E68
  * Callers:
- *     HvlpReadPerfRegister @ 0x1401BBCE4 (HvlpReadPerfRegister.c)
- *     HvlpGetVpRegisterSelfFast @ 0x14023CDE0 (HvlpGetVpRegisterSelfFast.c)
+ *     HvlpReadPerfRegister @ 0x1401BBBC8 (HvlpReadPerfRegister.c)
+ *     HvlpGetVpRegisterSelfFast @ 0x14023CCC4 (HvlpGetVpRegisterSelfFast.c)
  * Callees:
- *     HvcallpExtendedFastHypercall @ 0x1401685A0 (HvcallpExtendedFastHypercall.c)
- *     HvcallpExtendedFastHypercallWithOutput @ 0x140168600 (HvcallpExtendedFastHypercallWithOutput.c)
+ *     HvcallpExtendedFastHypercall @ 0x140168B10 (HvcallpExtendedFastHypercall.c)
+ *     HvcallpExtendedFastHypercallWithOutput @ 0x140168B70 (HvcallpExtendedFastHypercallWithOutput.c)
  */
 
 __int64 __fastcall HvcallFastExtended(__int64 a1, _QWORD *a2, __int64 a3, __int64 a4, unsigned int a5)

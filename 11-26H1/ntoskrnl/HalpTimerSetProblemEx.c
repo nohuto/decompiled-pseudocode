@@ -1,19 +1,19 @@
 /*
- * XREFs of HalpTimerSetProblemEx @ 0x1404FEB94
+ * XREFs of HalpTimerSetProblemEx @ 0x1404F8144
  * Callers:
- *     HalpSetTimer @ 0x1402086B0 (HalpSetTimer.c)
- *     HalpTimerClockArm @ 0x140208950 (HalpTimerClockArm.c)
- *     HalpInitializePnTimers @ 0x140576BD4 (HalpInitializePnTimers.c)
- *     HalpInitializeTimers @ 0x140576C98 (HalpInitializeTimers.c)
- *     HalpTimerInitialize @ 0x1405778D8 (HalpTimerInitialize.c)
- *     HalpTimerInitializeEarlyStallSource @ 0x14057797C (HalpTimerInitializeEarlyStallSource.c)
- *     HalpTimerReinitializeThisProcessor @ 0x140577CC0 (HalpTimerReinitializeThisProcessor.c)
- *     HalpTimerSelectRoles @ 0x140577E78 (HalpTimerSelectRoles.c)
- *     HalpTimerClockInitialize @ 0x140581160 (HalpTimerClockInitialize.c)
- *     HalpTimerInitializeClock @ 0x14058144C (HalpTimerInitializeClock.c)
- *     HalpTimerConfigureInterrupt @ 0x1405819FC (HalpTimerConfigureInterrupt.c)
- *     HalpTimerRestartProfileInterrupt @ 0x1405845EC (HalpTimerRestartProfileInterrupt.c)
- *     HalUpdateTimerCapabilities @ 0x140598090 (HalUpdateTimerCapabilities.c)
+ *     HalpSetTimer @ 0x140208790 (HalpSetTimer.c)
+ *     HalpTimerClockArm @ 0x140208A30 (HalpTimerClockArm.c)
+ *     HalpInitializePnTimers @ 0x140579104 (HalpInitializePnTimers.c)
+ *     HalpInitializeTimers @ 0x1405791C8 (HalpInitializeTimers.c)
+ *     HalpTimerInitialize @ 0x140579E08 (HalpTimerInitialize.c)
+ *     HalpTimerInitializeEarlyStallSource @ 0x140579EAC (HalpTimerInitializeEarlyStallSource.c)
+ *     HalpTimerReinitializeThisProcessor @ 0x14057A1F0 (HalpTimerReinitializeThisProcessor.c)
+ *     HalpTimerSelectRoles @ 0x14057A3A8 (HalpTimerSelectRoles.c)
+ *     HalpTimerClockInitialize @ 0x140583680 (HalpTimerClockInitialize.c)
+ *     HalpTimerInitializeClock @ 0x14058396C (HalpTimerInitializeClock.c)
+ *     HalpTimerConfigureInterrupt @ 0x140583F1C (HalpTimerConfigureInterrupt.c)
+ *     HalpTimerRestartProfileInterrupt @ 0x140586B0C (HalpTimerRestartProfileInterrupt.c)
+ *     HalUpdateTimerCapabilities @ 0x14059A810 (HalUpdateTimerCapabilities.c)
  * Callees:
  *     <none>
  */

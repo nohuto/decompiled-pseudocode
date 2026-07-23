@@ -1,7 +1,7 @@
 /*
- * XREFs of MiWriteEntirePageHashEntry @ 0x14048F464
+ * XREFs of MiWriteEntirePageHashEntry @ 0x140488EA4
  * Callers:
- *     MiUpdatePageFileBlockOwner @ 0x14030D080 (MiUpdatePageFileBlockOwner.c)
+ *     MiUpdatePageFileBlockOwner @ 0x1402EF100 (MiUpdatePageFileBlockOwner.c)
  * Callees:
  *     <none>
  */
@@ -12,7 +12,7 @@ __int64 __fastcall MiWriteEntirePageHashEntry(__int64 a1, unsigned int *a2)
 
   result = *a2;
   *(_DWORD *)a1 = result;
-  if ( dword_140E35F50 )
+  if ( dword_140E360D0 )
   {
     *(_QWORD *)(a1 + 8) = *((_QWORD *)a2 + 1);
     result = a2[1];

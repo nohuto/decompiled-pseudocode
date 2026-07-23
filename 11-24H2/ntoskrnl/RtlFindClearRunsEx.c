@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlFindClearRunsEx @ 0x1404A3BA4
+ * XREFs of RtlFindClearRunsEx @ 0x14026B664
  * Callers:
- *     RtlpHpFixedVsAllocate @ 0x1404A3AC0 (RtlpHpFixedVsAllocate.c)
+ *     RtlpHpFixedVsAllocate @ 0x14026C140 (RtlpHpFixedVsAllocate.c)
  * Callees:
  *     <none>
  */
@@ -52,7 +52,7 @@ __int64 __fastcall RtlFindClearRunsEx(_QWORD *a1, __int64 a2)
       break;
     v11 = *v6;
     if ( v9 == v4 - 1 && v3 )
-      v11 |= byte_140012BB8[v3];
+      v11 |= byte_140012870[v3];
     if ( !v11 )
     {
       LODWORD(v7) = v7 + 8;
@@ -84,7 +84,7 @@ __int64 __fastcall RtlFindClearRunsEx(_QWORD *a1, __int64 a2)
     }
 LABEL_17:
     v7 = *((unsigned __int8 *)RtlpBitsClearHigh + v11);
-    v17 = *((_BYTE *)qword_140012BC0 - v7) | byte_14002B770[v12] | v11;
+    v17 = *((_BYTE *)&qword_140012878 - v7) | byte_14002BBD0[v12] | v11;
     while ( 1 )
     {
       v18 = v5;
@@ -98,7 +98,7 @@ LABEL_17:
       }
       v20 = *v19;
       v21 = 0;
-      for ( k = byte_14002B770[v20]; ((unsigned __int8)k & v17) != 0; k *= 2 )
+      for ( k = byte_14002BBD0[v20]; ((unsigned __int8)k & v17) != 0; k *= 2 )
         ++v21;
       ++v5;
       if ( v18 )

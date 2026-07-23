@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpComputeLogFillLevel @ 0x14070820C
+ * XREFs of CmpComputeLogFillLevel @ 0x14070841C
  * Callers:
- *     CmpTransWriteLog @ 0x140708070 (CmpTransWriteLog.c)
+ *     CmpTransWriteLog @ 0x140708280 (CmpTransWriteLog.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

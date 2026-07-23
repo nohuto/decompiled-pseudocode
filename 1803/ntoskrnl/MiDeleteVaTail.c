@@ -29,7 +29,7 @@ __int64 __fastcall MiDeleteVaTail(_QWORD *a1)
   int *v4; // rdi
   __int64 v5; // r14
   unsigned __int64 v6; // rbx
-  struct _SLIST_ENTRY *v7; // rcx
+  _SLIST_ENTRY *v7; // rcx
   __int64 v9; // rcx
   __int64 v10; // rdi
   char v11; // cl
@@ -314,7 +314,7 @@ LABEL_2:
       MiReplicatePteChange(v6, v10);
     *v1 = 0LL;
   }
-  v7 = (struct _SLIST_ENTRY *)v1[5];
+  v7 = (_SLIST_ENTRY *)v1[5];
   if ( v7 )
   {
     MiDecayPfnFullyInitialized(v7);

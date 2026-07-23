@@ -1,7 +1,7 @@
 /*
- * XREFs of KiFindBiasedProcessorIndex @ 0x140518D6C
+ * XREFs of KiFindBiasedProcessorIndex @ 0x140518FAC
  * Callers:
- *     KiHeteroChooseTargetProcessor @ 0x14051F500 (KiHeteroChooseTargetProcessor.c)
+ *     KiHeteroChooseTargetProcessor @ 0x14051F740 (KiHeteroChooseTargetProcessor.c)
  * Callees:
  *     <none>
  */

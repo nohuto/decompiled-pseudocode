@@ -1,11 +1,11 @@
 /*
- * XREFs of CmGetVisibleSubkeyCount @ 0x1407106E8
+ * XREFs of CmGetVisibleSubkeyCount @ 0x1407108F8
  * Callers:
- *     CmpQueryKeyDataFromCache @ 0x1406D4FB0 (CmpQueryKeyDataFromCache.c)
- *     CmpQueryKeyDataFromNode @ 0x1406DAA50 (CmpQueryKeyDataFromNode.c)
- *     CmDeleteKey @ 0x14070FFEC (CmDeleteKey.c)
+ *     CmpQueryKeyDataFromCache @ 0x1406D4FE0 (CmpQueryKeyDataFromCache.c)
+ *     CmpQueryKeyDataFromNode @ 0x1406DAA80 (CmpQueryKeyDataFromNode.c)
+ *     CmDeleteKey @ 0x1407101FC (CmDeleteKey.c)
  * Callees:
- *     CmEqualTrans @ 0x1407691C0 (CmEqualTrans.c)
+ *     CmEqualTrans @ 0x1407693B0 (CmEqualTrans.c)
  *     CmListGetNextElement @ 0x140AF56A8 (CmListGetNextElement.c)
  */
 

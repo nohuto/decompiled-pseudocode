@@ -1,14 +1,14 @@
 /*
- * XREFs of ExtEnvCriticalFailure @ 0x14052DC00
+ * XREFs of ExtEnvCriticalFailure @ 0x140530120
  * Callers:
- *     HalpVpptUpdatePhysicalTimer @ 0x140426F38 (HalpVpptUpdatePhysicalTimer.c)
- *     HsaUpdateRemappingTableEntry @ 0x140504080 (HsaUpdateRemappingTableEntry.c)
- *     HsaGetDeviceAperture @ 0x14052DBAC (HsaGetDeviceAperture.c)
- *     HalpVpptInitializePhysicalTimer @ 0x1405832A4 (HalpVpptInitializePhysicalTimer.c)
- *     IvtFreeDomain @ 0x1405A6550 (IvtFreeDomain.c)
- *     HsaFreeRemappingTableEntry @ 0x1405A9970 (HsaFreeRemappingTableEntry.c)
+ *     HalpVpptUpdatePhysicalTimer @ 0x140434048 (HalpVpptUpdatePhysicalTimer.c)
+ *     HsaUpdateRemappingTableEntry @ 0x1404FD950 (HsaUpdateRemappingTableEntry.c)
+ *     HsaGetDeviceAperture @ 0x1405300CC (HsaGetDeviceAperture.c)
+ *     HalpVpptInitializePhysicalTimer @ 0x1405857C4 (HalpVpptInitializePhysicalTimer.c)
+ *     IvtFreeDomain @ 0x1405A8D60 (IvtFreeDomain.c)
+ *     HsaFreeRemappingTableEntry @ 0x1405AC180 (HsaFreeRemappingTableEntry.c)
  * Callees:
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 void __fastcall __noreturn ExtEnvCriticalFailure(

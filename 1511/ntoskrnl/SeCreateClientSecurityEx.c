@@ -15,10 +15,10 @@
 
 __int64 __fastcall SeCreateClientSecurityEx(struct _KTHREAD *a1, __int64 a2, char a3, __int64 a4)
 {
-  __int64 *v8; // rsi
+  PSID *v8; // rsi
   NTSTATUS ClientSecurity; // edi
-  __int64 *v11; // rcx
-  __int64 *CurrentServerSilo; // rbx
+  PSID *v11; // rcx
+  PSID *CurrentServerSilo; // rbx
   unsigned __int8 v13; // [rsp+60h] [rbp-20h] BYREF
   char v14; // [rsp+61h] [rbp-1Fh] BYREF
   char v15; // [rsp+62h] [rbp-1Eh] BYREF
@@ -28,7 +28,7 @@ __int64 __fastcall SeCreateClientSecurityEx(struct _KTHREAD *a1, __int64 a2, cha
 
   v18 = 0LL;
   v13 = 0;
-  v8 = (__int64 *)PsReferenceEffectiveToken((__int64)a1, &v17, (bool *)&v15, (int *)&v16, &v14);
+  v8 = (PSID *)PsReferenceEffectiveToken((__int64)a1, &v17, (bool *)&v15, (int *)&v16, &v14);
   SepReconcileTrustSidWithProcessProtection(v8[138], &v14, &v13, &v18);
   ClientSecurity = SepCreateClientSecurityEx((__int64)v8, a2, a3, v17, v15, v16, 1, a1, v13, v18, a4);
   if ( ClientSecurity < 0 || !*(_BYTE *)(a4 + 8) )
@@ -40,7 +40,7 @@ LABEL_6:
   }
   if ( a1->Process == PsInitialSystemProcess )
   {
-    CurrentServerSilo = PsGetCurrentServerSilo();
+    CurrentServerSilo = (PSID *)PsGetCurrentServerSilo();
     if ( !PsIsHostSilo((__int64)CurrentServerSilo) )
     {
       ClientSecurity = SepUpdateSiloInClientSecurity(a4, CurrentServerSilo);

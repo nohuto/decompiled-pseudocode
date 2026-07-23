@@ -281,7 +281,7 @@ LABEL_67:
   ContiguousPages = v31;
 LABEL_72:
   if ( v30 && stru_140E2FC68.Header.SignalState && ((unsigned __int8)MiFlags & 0x30u) >= 0x20 )
-    ZwUpdateWnfStateData(&WNF_MM_BAD_MEMORY_PENDING_REMOVAL, 0LL, 0LL, 0LL, 0LL, 0, 0);
+    ZwUpdateWnfStateData(&WNF_MM_BAD_MEMORY_PENDING_REMOVAL, 0LL, 0, 0LL, 0LL, 0, 0);
   *v34 = (v33 + v4 - v5) << 12;
   if ( v33 == 1 )
     return v7;

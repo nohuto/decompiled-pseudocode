@@ -1,16 +1,16 @@
 /*
- * XREFs of ExpWnfGetPermanentDataStore @ 0x1407E4040
+ * XREFs of ExpWnfGetPermanentDataStore @ 0x1407E4310
  * Callers:
- *     ExpWnfCreateNameInstance @ 0x1407117F4 (ExpWnfCreateNameInstance.c)
- *     ExpWnfDeletePermanentStateData @ 0x140A072EC (ExpWnfDeletePermanentStateData.c)
+ *     ExpWnfCreateNameInstance @ 0x140711A04 (ExpWnfCreateNameInstance.c)
+ *     ExpWnfDeletePermanentStateData @ 0x140A0757C (ExpWnfDeletePermanentStateData.c)
  * Callees:
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     ExpWnfGetPermanentDataStoreHandleByScopeId @ 0x140854B2C (ExpWnfGetPermanentDataStoreHandleByScopeId.c)
- *     ExpWnfDestroyPermanentDataStore @ 0x140A0751C (ExpWnfDestroyPermanentDataStore.c)
+ *     KeAbPreAcquire @ 0x140230FD0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402FD0A0 (ExfAcquirePushLockExclusiveEx.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     ExpWnfGetPermanentDataStoreHandleByScopeId @ 0x140854E2C (ExpWnfGetPermanentDataStoreHandleByScopeId.c)
+ *     ExpWnfDestroyPermanentDataStore @ 0x140A077AC (ExpWnfDestroyPermanentDataStore.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

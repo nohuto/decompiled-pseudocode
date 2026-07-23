@@ -1,25 +1,25 @@
 /*
- * XREFs of MiScrubLargeMappedPage @ 0x1402CF238
+ * XREFs of MiScrubLargeMappedPage @ 0x1402CF428
  * Callers:
- *     MiScrubProcessLargePages @ 0x1402CFB3C (MiScrubProcessLargePages.c)
+ *     MiScrubProcessLargePages @ 0x1402CFD2C (MiScrubProcessLargePages.c)
  * Callees:
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  *     MiUnlockWorkingSetShared @ 0x140046970 (MiUnlockWorkingSetShared.c)
- *     MiLockLowestValidPageTable @ 0x14006C5A0 (MiLockLowestValidPageTable.c)
- *     MiFlushTbList @ 0x1400740C0 (MiFlushTbList.c)
- *     MiLockWorkingSetShared @ 0x140076050 (MiLockWorkingSetShared.c)
- *     MiPageTableLockIsContended @ 0x140096404 (MiPageTableLockIsContended.c)
- *     MiWorkingSetIsContended @ 0x1400992A0 (MiWorkingSetIsContended.c)
- *     MiInsertTbFlushEntry @ 0x1400B3AF0 (MiInsertTbFlushEntry.c)
- *     KeShouldYieldProcessor @ 0x1400F9CE0 (KeShouldYieldProcessor.c)
- *     MiUnlockPageTableInternal @ 0x140104A90 (MiUnlockPageTableInternal.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     MiRewritePteWithLockBit @ 0x1402BF67C (MiRewritePteWithLockBit.c)
- *     MiMakePageBad @ 0x1402CF128 (MiMakePageBad.c)
- *     MiScrubPage @ 0x1402CF950 (MiScrubPage.c)
+ *     MiLockLowestValidPageTable @ 0x14006C590 (MiLockLowestValidPageTable.c)
+ *     MiFlushTbList @ 0x1400740B0 (MiFlushTbList.c)
+ *     MiLockWorkingSetShared @ 0x140076040 (MiLockWorkingSetShared.c)
+ *     MiPageTableLockIsContended @ 0x140096344 (MiPageTableLockIsContended.c)
+ *     MiWorkingSetIsContended @ 0x1400991E0 (MiWorkingSetIsContended.c)
+ *     MiInsertTbFlushEntry @ 0x1400B3A30 (MiInsertTbFlushEntry.c)
+ *     KeShouldYieldProcessor @ 0x1400F9D60 (KeShouldYieldProcessor.c)
+ *     MiUnlockPageTableInternal @ 0x140104B10 (MiUnlockPageTableInternal.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     MiRewritePteWithLockBit @ 0x1402BF86C (MiRewritePteWithLockBit.c)
+ *     MiMakePageBad @ 0x1402CF318 (MiMakePageBad.c)
+ *     MiScrubPage @ 0x1402CFB40 (MiScrubPage.c)
  */
 
 __int64 __fastcall MiScrubLargeMappedPage(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -151,7 +151,7 @@ __int64 __fastcall MiScrubLargeMappedPage(__int64 a1, __int64 a2, __int64 a3, __
       if ( (unsigned int)MiPteHasShadow() )
       {
         v27 = 1;
-        if ( !HIBYTE(word_14043A1AC) )
+        if ( !HIBYTE(word_14043B26C) )
           goto LABEL_27;
       }
       else if ( (KeGetCurrentThread()->ApcState.Process[2].ActiveProcessors.Bitmap[0] & 0x100000000000LL) != 0 )

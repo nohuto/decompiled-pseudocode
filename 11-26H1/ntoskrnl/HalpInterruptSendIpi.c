@@ -1,45 +1,45 @@
 /*
- * XREFs of HalpInterruptSendIpi @ 0x140230DF0
+ * XREFs of HalpInterruptSendIpi @ 0x140232750
  * Callers:
- *     KiStartThreadCycleAccumulationContextSwap @ 0x140209460 (KiStartThreadCycleAccumulationContextSwap.c)
- *     KiSignalThreadForApc @ 0x14020B1E0 (KiSignalThreadForApc.c)
- *     HalRequestSoftwareInterrupt @ 0x14021E010 (HalRequestSoftwareInterrupt.c)
- *     KiUpdateRunTime @ 0x14021F420 (KiUpdateRunTime.c)
- *     KiQueueReadyThread @ 0x140223650 (KiQueueReadyThread.c)
- *     KiUpdateThreadHgsFeedback @ 0x140226C00 (KiUpdateThreadHgsFeedback.c)
- *     KiUnstackDetachProcess @ 0x1402307C0 (KiUnstackDetachProcess.c)
- *     HalSendSoftwareInterrupt @ 0x140230DB0 (HalSendSoftwareInterrupt.c)
- *     KiProcessThreadWaitList @ 0x14023BDB0 (KiProcessThreadWaitList.c)
- *     KiSearchForNewThreadsOnTarget @ 0x1402404D0 (KiSearchForNewThreadsOnTarget.c)
- *     KiFlushSoftwareInterruptBatch @ 0x1402436D0 (KiFlushSoftwareInterruptBatch.c)
- *     KiFastExitThreadWait @ 0x140244040 (KiFastExitThreadWait.c)
- *     KeDelayExecutionThread @ 0x140244840 (KeDelayExecutionThread.c)
- *     KiExitThreadWait @ 0x140245780 (KiExitThreadWait.c)
- *     KiExitDispatcher @ 0x140246C20 (KiExitDispatcher.c)
- *     KiDetachProcess @ 0x140246EA0 (KiDetachProcess.c)
- *     KiCheckForKernelApcDelivery @ 0x14027DB80 (KiCheckForKernelApcDelivery.c)
- *     MiUnlockStealVm @ 0x140294D10 (MiUnlockStealVm.c)
- *     KiInsertQueueDpc @ 0x1402BD330 (KiInsertQueueDpc.c)
- *     KeUpdateThreadTag @ 0x1402C4800 (KeUpdateThreadTag.c)
- *     KeForceDetachProcess @ 0x1402C6C30 (KeForceDetachProcess.c)
- *     KeUnstackDetachProcess @ 0x1402C7110 (KeUnstackDetachProcess.c)
- *     KiRequestSoftwareInterrupt @ 0x1402C7D20 (KiRequestSoftwareInterrupt.c)
- *     KiReadyDeferredReadyList @ 0x14032F930 (KiReadyDeferredReadyList.c)
- *     KiSendClockInterruptToTargetProcessor @ 0x1403793EC (KiSendClockInterruptToTargetProcessor.c)
- *     KiProcessDeferredReadyList @ 0x14037C920 (KiProcessDeferredReadyList.c)
- *     KiCheckForThreadDispatch @ 0x14037CA70 (KiCheckForThreadDispatch.c)
- *     KiSendSoftwareInterruptAffinity @ 0x1403C9B60 (KiSendSoftwareInterruptAffinity.c)
- *     HalRequestIpiSpecifyVector @ 0x1403EC570 (HalRequestIpiSpecifyVector.c)
- *     KiSendSoftwareInterrupt @ 0x140446190 (KiSendSoftwareInterrupt.c)
- *     KiRequestTimer2Expiration @ 0x14044F494 (KiRequestTimer2Expiration.c)
- *     KiSynchronizeIdleIsolationDomainExit @ 0x1404933E8 (KiSynchronizeIdleIsolationDomainExit.c)
- *     HalRequestDeferredRecoveryServiceInterrupt @ 0x14057EF10 (HalRequestDeferredRecoveryServiceInterrupt.c)
+ *     KiStartThreadCycleAccumulationContextSwap @ 0x140209540 (KiStartThreadCycleAccumulationContextSwap.c)
+ *     KiSignalThreadForApc @ 0x14020B2C0 (KiSignalThreadForApc.c)
+ *     HalRequestSoftwareInterrupt @ 0x14021F9A0 (HalRequestSoftwareInterrupt.c)
+ *     KiUpdateRunTime @ 0x140220DB0 (KiUpdateRunTime.c)
+ *     KiQueueReadyThread @ 0x140224FE0 (KiQueueReadyThread.c)
+ *     KiUpdateThreadHgsFeedback @ 0x140228590 (KiUpdateThreadHgsFeedback.c)
+ *     KiUnstackDetachProcess @ 0x140232120 (KiUnstackDetachProcess.c)
+ *     HalSendSoftwareInterrupt @ 0x140232710 (HalSendSoftwareInterrupt.c)
+ *     KiProcessThreadWaitList @ 0x14023D710 (KiProcessThreadWaitList.c)
+ *     KiSearchForNewThreadsOnTarget @ 0x140241E30 (KiSearchForNewThreadsOnTarget.c)
+ *     KiFlushSoftwareInterruptBatch @ 0x140245030 (KiFlushSoftwareInterruptBatch.c)
+ *     KiFastExitThreadWait @ 0x1402459A0 (KiFastExitThreadWait.c)
+ *     KeDelayExecutionThread @ 0x1402461A0 (KeDelayExecutionThread.c)
+ *     KiExitThreadWait @ 0x1402470E0 (KiExitThreadWait.c)
+ *     KiExitDispatcher @ 0x140248580 (KiExitDispatcher.c)
+ *     KiDetachProcess @ 0x140248800 (KiDetachProcess.c)
+ *     KiCheckForKernelApcDelivery @ 0x14027D0F0 (KiCheckForKernelApcDelivery.c)
+ *     MiUnlockStealVm @ 0x140294270 (MiUnlockStealVm.c)
+ *     HalRequestIpiSpecifyVector @ 0x1402F95B0 (HalRequestIpiSpecifyVector.c)
+ *     KiInsertQueueDpc @ 0x140307FF0 (KiInsertQueueDpc.c)
+ *     KeUpdateThreadTag @ 0x14030F4C0 (KeUpdateThreadTag.c)
+ *     KeForceDetachProcess @ 0x1403118D0 (KeForceDetachProcess.c)
+ *     KeUnstackDetachProcess @ 0x140311DB0 (KeUnstackDetachProcess.c)
+ *     KiRequestSoftwareInterrupt @ 0x1403129C0 (KiRequestSoftwareInterrupt.c)
+ *     KiReadyDeferredReadyList @ 0x140331960 (KiReadyDeferredReadyList.c)
+ *     KiSendClockInterruptToTargetProcessor @ 0x14037B19C (KiSendClockInterruptToTargetProcessor.c)
+ *     KiProcessDeferredReadyList @ 0x14037E6D0 (KiProcessDeferredReadyList.c)
+ *     KiCheckForThreadDispatch @ 0x14037E820 (KiCheckForThreadDispatch.c)
+ *     KiSendSoftwareInterruptAffinity @ 0x1403D3A10 (KiSendSoftwareInterruptAffinity.c)
+ *     KiSendSoftwareInterrupt @ 0x14043EC90 (KiSendSoftwareInterrupt.c)
+ *     KiRequestTimer2Expiration @ 0x1404475C4 (KiRequestTimer2Expiration.c)
+ *     KiSynchronizeIdleIsolationDomainExit @ 0x14048C980 (KiSynchronizeIdleIsolationDomainExit.c)
+ *     HalRequestDeferredRecoveryServiceInterrupt @ 0x140581430 (HalRequestDeferredRecoveryServiceInterrupt.c)
  * Callees:
- *     HalpDisableInterrupts @ 0x1402C7D00 (HalpDisableInterrupts.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     HalpDisableInterrupts @ 0x1403129A0 (HalpDisableInterrupts.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall HalpInterruptSendIpi(unsigned int *a1, unsigned int a2)
@@ -123,7 +123,7 @@ __int64 __fastcall HalpInterruptSendIpi(unsigned int *a1, unsigned int a2)
   v8 = &v71;
   v67 = 0;
   v66 = 0LL;
-  LOBYTE(v6) = qword_140FBB290 && (unsigned __int8)guard_dispatch_icall_no_overrides(v5, v4, v6);
+  LOBYTE(v6) = qword_140FBB630 && (unsigned __int8)guard_dispatch_icall_no_overrides(v5, v4, v6);
   v9 = *a1;
   switch ( (int)v9 )
   {
@@ -159,14 +159,14 @@ LABEL_118:
       memset_0(v72, 0, 0x100uLL);
       v46 = WORD1(v71);
       v47 = WORD1(v71);
-      if ( *(_WORD *)&stru_140FC01F0.WaitRegister.Flags <= WORD1(v71) )
-        v47 = *(_WORD *)&stru_140FC01F0.WaitRegister.Flags;
+      if ( *(_WORD *)&stru_140FC11F0.WaitRegister.Flags <= WORD1(v71) )
+        v47 = *(_WORD *)&stru_140FC11F0.WaitRegister.Flags;
       LOWORD(v71) = v47;
       v48 = 0;
       HIDWORD(v71) = 0;
       if ( v47 )
       {
-        memmove(v72, (char *)&stru_140FC01F0.116 + 4, 8LL * v47);
+        memmove(v72, (char *)&stru_140FC11F0.116 + 4, 8LL * v47);
         do
           ++v48;
         while ( v48 < v47 );
@@ -192,14 +192,14 @@ LABEL_118:
       memset_0(v72, 0, 0x100uLL);
       v50 = WORD1(v71);
       v51 = WORD1(v71);
-      if ( *(_WORD *)&stru_140FC01F0.WaitRegister.Flags <= WORD1(v71) )
-        v51 = *(_WORD *)&stru_140FC01F0.WaitRegister.Flags;
+      if ( *(_WORD *)&stru_140FC11F0.WaitRegister.Flags <= WORD1(v71) )
+        v51 = *(_WORD *)&stru_140FC11F0.WaitRegister.Flags;
       LOWORD(v71) = v51;
       v52 = 0;
       HIDWORD(v71) = 0;
       if ( v51 )
       {
-        memmove(v72, (char *)&stru_140FC01F0.116 + 4, 8LL * v51);
+        memmove(v72, (char *)&stru_140FC11F0.116 + 4, 8LL * v51);
         do
           ++v52;
         while ( v52 < v51 );
@@ -214,7 +214,7 @@ LABEL_118:
         }
         while ( v52 < WORD1(v71) );
       }
-      v54 = *(_DWORD *)(*(_QWORD *)&KiSupervisorXStateFeaturesLock.WaitBlockFill11[112] + 4LL * KeGetPcr()->Prcb.Number);
+      v54 = *((_DWORD *)&KiSupervisorXStateFeaturesLock.SchedulerApc.Thread->Header.Lock + KeGetPcr()->Prcb.Number);
       v55 = v54 >> 6;
       if ( (unsigned __int16)v71 > (unsigned int)v55 )
         v72[v55] &= ~(1LL << (v54 & 0x3F));
@@ -227,7 +227,7 @@ LABEL_118:
       }
       v71 = 2097153LL;
       memset_0(v72, 0, 0x100uLL);
-      v13 = *(_DWORD *)(*(_QWORD *)&KiSupervisorXStateFeaturesLock.WaitBlockFill11[112] + 4LL * KeGetPcr()->Prcb.Number);
+      v13 = *((_DWORD *)&KiSupervisorXStateFeaturesLock.SchedulerApc.Thread->Header.Lock + KeGetPcr()->Prcb.Number);
       v14 = v13 & 0x3F;
       v15 = v13 >> 6;
       if ( (unsigned __int16)v71 > (unsigned int)v15 )
@@ -242,8 +242,8 @@ LABEL_118:
       {
         v71 = 2097153LL;
         memset_0(v72, 0, 0x100uLL);
-        v14 = *(_DWORD *)(*(_QWORD *)&KiSupervisorXStateFeaturesLock.WaitBlockFill11[112] + 4 * v11) & 0x3F;
-        v15 = *(_DWORD *)(*(_QWORD *)&KiSupervisorXStateFeaturesLock.WaitBlockFill11[112] + 4 * v11) >> 6;
+        v14 = *(&KiSupervisorXStateFeaturesLock.SchedulerApc.Thread->Header.LockNV + v11) & 0x3F;
+        v15 = (unsigned int)*(&KiSupervisorXStateFeaturesLock.SchedulerApc.Thread->Header.LockNV + v11) >> 6;
         if ( (unsigned __int16)v71 <= (unsigned int)v15 )
         {
           if ( WORD1(v71) <= (unsigned int)v15 )
@@ -252,7 +252,7 @@ LABEL_16:
             memset_0(&v73, 0, 0x108uLL);
             v63 = 0;
             v62 = 0LL;
-            if ( qword_140FBB0E8 )
+            if ( qword_140FBB488 )
             {
               return (unsigned int)guard_dispatch_icall_no_overrides(v8, a2, v18);
             }
@@ -276,7 +276,7 @@ LABEL_16:
                 do
                 {
                   v23 = v22++;
-                  v76[v23] = qword_140FBCC88[v23] & v8[v23 + 1];
+                  v76[v23] = qword_140FBD028[v23] & v8[v23 + 1];
                   v20 = v73;
                 }
                 while ( v22 < v73 );
@@ -365,8 +365,7 @@ LABEL_12:
                               }
                               else
                               {
-                                v30 = *((unsigned int *)&KiSupervisorXStateFeaturesLock.WaitBlock[2].Thread->Header.Lock
-                                      + 64 * v28
+                                v30 = *((unsigned int *)&KiSupervisorXStateFeaturesLock.SchedulerApc.ApcListEntry.Flink[16 * v28].Flink
                                       + (unsigned __int8)v21);
                                 if ( !(_DWORD)v30 )
                                   v30 = 0xFFFFFFFFLL;
@@ -414,8 +413,7 @@ LABEL_12:
                 {
                   _BitScanForward64(&v40, v19);
                   v19 &= ~(1LL << v40);
-                  v41 = *((unsigned int *)&KiSupervisorXStateFeaturesLock.WaitBlock[2].Thread->Header.Lock
-                        + 64 * v39
+                  v41 = *((unsigned int *)&KiSupervisorXStateFeaturesLock.SchedulerApc.ApcListEntry.Flink[16 * v39].Flink
                         + (unsigned __int8)v40);
                   v21 = 3 * v41;
                   if ( *(_DWORD *)(HalpInterruptTargets + 24 * v41) == 5 )
@@ -456,8 +454,7 @@ LABEL_56:
                   }
                   _BitScanForward64(&v35, v33);
                   v33 &= ~(1LL << v35);
-                  v36 = *((unsigned int *)&KiSupervisorXStateFeaturesLock.WaitBlock[2].Thread->Header.Lock
-                        + 64 * (unsigned __int16)v34
+                  v36 = *((unsigned int *)&KiSupervisorXStateFeaturesLock.SchedulerApc.ApcListEntry.Flink[16 * (unsigned __int16)v34].Flink
                         + (unsigned __int8)v35);
                   LODWORD(v62) = 4;
                   DWORD2(v62) = *(_DWORD *)(HalpInterruptTargets + 24 * v36 + 8);

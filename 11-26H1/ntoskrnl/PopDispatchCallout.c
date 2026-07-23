@@ -1,9 +1,9 @@
 /*
- * XREFs of PopDispatchCallout @ 0x140B47520
+ * XREFs of PopDispatchCallout @ 0x140B49550
  * Callers:
  *     <none>
  * Callees:
- *     PopEventCalloutDispatch @ 0x1404EA9D8 (PopEventCalloutDispatch.c)
+ *     PopEventCalloutDispatch @ 0x1404E3D88 (PopEventCalloutDispatch.c)
  */
 
 struct _KTHREAD *__fastcall PopDispatchCallout(int a1)

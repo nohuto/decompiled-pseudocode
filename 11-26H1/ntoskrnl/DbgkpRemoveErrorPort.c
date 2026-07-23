@@ -1,19 +1,19 @@
 /*
- * XREFs of DbgkpRemoveErrorPort @ 0x140B3A9A0
+ * XREFs of DbgkpRemoveErrorPort @ 0x140AF6254
  * Callers:
- *     DbgkpSendErrorMessage @ 0x140954DF4 (DbgkpSendErrorMessage.c)
- *     DbgkFlushErrorPort @ 0x140A43A48 (DbgkFlushErrorPort.c)
+ *     DbgkFlushErrorPort @ 0x140AF614C (DbgkFlushErrorPort.c)
+ *     DbgkpSendErrorMessage @ 0x140B5CE74 (DbgkpSendErrorMessage.c)
  * Callees:
- *     PsGetServerSiloGlobals @ 0x140216B70 (PsGetServerSiloGlobals.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KeLeaveCriticalRegionThread @ 0x1402B8A60 (KeLeaveCriticalRegionThread.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     KeResetEvent @ 0x140395BB0 (KeResetEvent.c)
- *     HalSystemVectorDispatchEntry @ 0x1404BD660 (HalSystemVectorDispatchEntry.c)
- *     DbgkpDereferenceErrorPort @ 0x140532ABC (DbgkpDereferenceErrorPort.c)
+ *     PsGetServerSiloGlobals @ 0x140216EA0 (PsGetServerSiloGlobals.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeLeaveCriticalRegionThread @ 0x140303720 (KeLeaveCriticalRegionThread.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     KeResetEvent @ 0x140397930 (KeResetEvent.c)
+ *     HalSystemVectorDispatchEntry @ 0x1404B6E40 (HalSystemVectorDispatchEntry.c)
+ *     DbgkpDereferenceErrorPort @ 0x140534F5C (DbgkpDereferenceErrorPort.c)
  */
 
 void __fastcall DbgkpRemoveErrorPort(
@@ -27,8 +27,6 @@ void __fastcall DbgkpRemoveErrorPort(
   void *v9; // rdx
   AutoBoost *v10; // rsi
   __int64 v11; // rax
-  __int64 v12; // rdx
-  __int64 v13; // r8
 
   if ( !_interlockedbittestandset(a3 + 1, 0) )
   {
@@ -57,7 +55,7 @@ void __fastcall DbgkpRemoveErrorPort(
     if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)a2, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
       ExfTryToWakePushLock((volatile signed __int64 *)a2);
     KeAbPostRelease(a2);
-    KeLeaveCriticalRegionThread(a1, v12, v13);
+    KeLeaveCriticalRegionThread(a1);
     if ( v7 )
     {
       DbgkpDereferenceErrorPort(a3);

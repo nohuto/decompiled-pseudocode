@@ -1,14 +1,14 @@
 /*
- * XREFs of KseShimDatabaseBootRelease @ 0x140843AC4
+ * XREFs of KseShimDatabaseBootRelease @ 0x140843DC4
  * Callers:
- *     PnpCompleteSystemStartProcess @ 0x1403A0E28 (PnpCompleteSystemStartProcess.c)
+ *     PnpCompleteSystemStartProcess @ 0x1403A1008 (PnpCompleteSystemStartProcess.c)
  *     KseShimDatabaseClose @ 0x140694D78 (KseShimDatabaseClose.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     KsepSdbBootRelease @ 0x140843B74 (KsepSdbBootRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x140231550 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     KsepSdbBootRelease @ 0x140843E74 (KsepSdbBootRelease.c)
  */
 
 void KseShimDatabaseBootRelease()
@@ -25,7 +25,7 @@ void KseShimDatabaseBootRelease()
     if ( !KsepShimDbRefCount || (--KsepShimDbRefCount, v1 == 1) )
     {
       KsepSdbBootRelease(&KsepShimDb);
-      KsepSdbBootRelease(&unk_140C40C38);
+      KsepSdbBootRelease(&unk_140C40BF8);
       KsepShimDbHandle = 0LL;
       KsepShimDbDuringBoot = 0;
     }

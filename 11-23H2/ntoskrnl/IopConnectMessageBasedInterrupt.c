@@ -1,14 +1,14 @@
 /*
- * XREFs of IopConnectMessageBasedInterrupt @ 0x140852828
+ * XREFs of IopConnectMessageBasedInterrupt @ 0x140852B28
  * Callers:
- *     IoConnectInterruptEx @ 0x14078EE70 (IoConnectInterruptEx.c)
+ *     IoConnectInterruptEx @ 0x14078F060 (IoConnectInterruptEx.c)
  * Callees:
- *     HalGetMessageRoutingInfo @ 0x140320220 (HalGetMessageRoutingInfo.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     IoDisconnectInterrupt @ 0x14078E1D0 (IoDisconnectInterrupt.c)
- *     IopConnectInterrupt @ 0x14078E760 (IopConnectInterrupt.c)
- *     IopGetInterruptConnectionData @ 0x14078F190 (IopGetInterruptConnectionData.c)
+ *     HalGetMessageRoutingInfo @ 0x1403204B0 (HalGetMessageRoutingInfo.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     IoDisconnectInterrupt @ 0x14078E3C0 (IoDisconnectInterrupt.c)
+ *     IopConnectInterrupt @ 0x14078E950 (IopConnectInterrupt.c)
+ *     IopGetInterruptConnectionData @ 0x14078F380 (IopGetInterruptConnectionData.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

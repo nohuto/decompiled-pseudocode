@@ -1,9 +1,9 @@
 /*
- * XREFs of LOCK_CM_RM_LIST @ 0x14071680C
+ * XREFs of LOCK_CM_RM_LIST @ 0x1406C4E5C
  * Callers:
- *     CmpInitCmRM @ 0x140716078 (CmpInitCmRM.c)
+ *     CmpInitCmRM @ 0x1406C46C8 (CmpInitCmRM.c)
  * Callees:
- *     ExAcquireFastMutexUnsafe @ 0x1402067E0 (ExAcquireFastMutexUnsafe.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1402AB110 (ExAcquireFastMutexUnsafe.c)
  */
 
 void LOCK_CM_RM_LIST()

@@ -10,25 +10,34 @@
  *     sub_1800F75C0 @ 0x1800F75C0 (sub_1800F75C0.c)
  */
 
-__int64 __fastcall sub_1800F7614(__int64 **a1, int a2)
+__int64 __fastcall sub_1800F7614(_QWORD *a1, int a2)
 {
-  __int64 *Heap; // rbx
+  PVOID Heap; // rbx
   int Event; // edi
 
   *a1 = 0LL;
-  Heap = (__int64 *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, 24LL);
+  Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, 0x18uLL);
   if ( Heap )
   {
-    *Heap = 0LL;
-    Heap[1] = 0LL;
-    Heap[2] = 0LL;
-    Event = ZwCreateEvent();
+    *(_QWORD *)Heap = 0LL;
+    *((_QWORD *)Heap + 1) = 0LL;
+    *((_QWORD *)Heap + 2) = 0LL;
+    Event = ZwCreateEvent((PHANDLE)Heap + 2, 0x1F0003u, 0LL, NotificationEvent, 0);
     if ( Event < 0
-      || (Event = TpAllocWork((struct _PEB_LDR_DATA *)Heap, (__int64)sub_1800F7730, (__int64)Heap, 0LL), Event < 0)
-      || (Event = sub_1800496F4(Heap + 1, 0x41840B3EA3BCB875LL, a2, (int)sub_1800F7710, (__int64)Heap, 0LL, 0, 4, 17),
+      || (Event = TpAllocWork((PTP_WORK *)Heap, sub_1800F7730, Heap, 0LL), Event < 0)
+      || (Event = sub_1800496F4(
+                    (PVOID *)Heap + 1,
+                    0x41840B3EA3BCB875LL,
+                    a2,
+                    (int)sub_1800F7710,
+                    (__int64)Heap,
+                    0LL,
+                    0,
+                    4,
+                    17),
           Event < 0) )
     {
-      sub_1800F75C0(Heap);
+      sub_1800F75C0((__int64)Heap);
     }
     else
     {

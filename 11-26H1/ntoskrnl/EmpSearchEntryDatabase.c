@@ -1,11 +1,11 @@
 /*
- * XREFs of EmpSearchEntryDatabase @ 0x1405B4E7C
+ * XREFs of EmpSearchEntryDatabase @ 0x1405B768C
  * Callers:
- *     EmProviderRegisterEntry @ 0x14078D240 (EmProviderRegisterEntry.c)
- *     EmpProviderRegister @ 0x140B58860 (EmpProviderRegister.c)
- *     EmpParseCallbacks @ 0x140CB600C (EmpParseCallbacks.c)
- *     EmpParseEntryTypes @ 0x140CB625C (EmpParseEntryTypes.c)
- *     EmpParseRules @ 0x140CB6F84 (EmpParseRules.c)
+ *     EmProviderRegisterEntry @ 0x14078FD70 (EmProviderRegisterEntry.c)
+ *     EmpProviderRegister @ 0x140B5B680 (EmpProviderRegister.c)
+ *     EmpParseCallbacks @ 0x140CBC04C (EmpParseCallbacks.c)
+ *     EmpParseEntryTypes @ 0x140CBC29C (EmpParseEntryTypes.c)
+ *     EmpParseRules @ 0x140CBCFC8 (EmpParseRules.c)
  * Callees:
  *     <none>
  */
@@ -16,7 +16,7 @@ _QWORD *__fastcall EmpSearchEntryDatabase(_QWORD *a1)
   _QWORD *v2; // r8
   __int64 v3; // r9
 
-  for ( i = *(_QWORD **)&EmpParseLock.CurrentRunTime; ; i = (_QWORD *)*i )
+  for ( i = EmpParseLock.SListFaultAddress; ; i = (_QWORD *)*i )
   {
     v2 = 0LL;
     if ( !i )

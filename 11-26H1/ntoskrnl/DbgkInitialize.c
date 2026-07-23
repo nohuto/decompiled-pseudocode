@@ -1,13 +1,13 @@
 /*
- * XREFs of DbgkInitialize @ 0x140CB5B80
+ * XREFs of DbgkInitialize @ 0x140CBBBC0
  * Callers:
- *     InitBootProcessor @ 0x140CAA7CC (InitBootProcessor.c)
- *     Phase1InitializationDiscard @ 0x140CABD00 (Phase1InitializationDiscard.c)
+ *     InitBootProcessor @ 0x140CB07CC (InitBootProcessor.c)
+ *     Phase1InitializationDiscard @ 0x140CB1D40 (Phase1InitializationDiscard.c)
  * Callees:
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     DbgkpInitializePhase1SiloState @ 0x14078A5C8 (DbgkpInitializePhase1SiloState.c)
- *     DbgkpGetServerSiloState @ 0x140B1CE9C (DbgkpGetServerSiloState.c)
- *     DbgkpInitializePhase0 @ 0x140CB5C08 (DbgkpInitializePhase0.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     DbgkpInitializePhase1SiloState @ 0x14078D0F8 (DbgkpInitializePhase1SiloState.c)
+ *     DbgkpGetServerSiloState @ 0x140B1F0AC (DbgkpGetServerSiloState.c)
+ *     DbgkpInitializePhase0 @ 0x140CBBC48 (DbgkpInitializePhase0.c)
  */
 
 __int64 DbgkInitialize()
@@ -23,9 +23,8 @@ __int64 DbgkInitialize()
   result = DbgkpInitializePhase1SiloState((__int64)ServerSiloState);
   if ( (int)result >= 0 && !DbgkpWerInitialized )
   {
-    EmpParseLock.ReadyTime = 0;
-    LODWORD(EmpParseLock.FirstArgument) = 2;
-    EmpParseLock.SystemCallNumber = 600;
+    LODWORD(EmpParseLock.TrapFrame) = 0;
+    EmpParseLock.FirstArgument = (void *)0x200000258LL;
     DbgkpWerInitialized = 1;
   }
   return result;

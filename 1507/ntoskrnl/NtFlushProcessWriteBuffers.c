@@ -6,8 +6,8 @@
  *     KeFlushProcessWriteBuffers @ 0x14003FE30 (KeFlushProcessWriteBuffers.c)
  */
 
-__int64 NtFlushProcessWriteBuffers()
+NTSTATUS NtFlushProcessWriteBuffers(void)
 {
   KeFlushProcessWriteBuffers(0);
-  return 0LL;
+  return 0;
 }

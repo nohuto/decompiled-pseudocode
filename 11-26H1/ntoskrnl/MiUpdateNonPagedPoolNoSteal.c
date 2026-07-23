@@ -1,13 +1,13 @@
 /*
- * XREFs of MiUpdateNonPagedPoolNoSteal @ 0x14024E3BC
+ * XREFs of MiUpdateNonPagedPoolNoSteal @ 0x14024FD1C
  * Callers:
- *     MiGetVirtualAddressState @ 0x14024D274 (MiGetVirtualAddressState.c)
- *     MiGetContainingPageTable @ 0x1402D9BF0 (MiGetContainingPageTable.c)
- *     MiDecrementCloneBlock @ 0x14036A250 (MiDecrementCloneBlock.c)
+ *     MiGetVirtualAddressState @ 0x14024EBD4 (MiGetVirtualAddressState.c)
+ *     MiGetContainingPageTable @ 0x1402BB9B0 (MiGetContainingPageTable.c)
+ *     MiDecrementCloneBlock @ 0x14036BFF0 (MiDecrementCloneBlock.c)
  * Callees:
- *     RtlCSparseBitmapBitmaskRead @ 0x14024E83C (RtlCSparseBitmapBitmaskRead.c)
- *     RtlpHpSegSetNotifyOnEmpty @ 0x14024E8BC (RtlpHpSegSetNotifyOnEmpty.c)
- *     MiLogNoStealNonPagedPool @ 0x14024F538 (MiLogNoStealNonPagedPool.c)
+ *     RtlCSparseBitmapBitmaskRead @ 0x14025019C (RtlCSparseBitmapBitmaskRead.c)
+ *     RtlpHpSegSetNotifyOnEmpty @ 0x14025021C (RtlpHpSegSetNotifyOnEmpty.c)
+ *     MiLogNoStealNonPagedPool @ 0x140250E98 (MiLogNoStealNonPagedPool.c)
  */
 
 __int64 __fastcall MiUpdateNonPagedPoolNoSteal(unsigned __int64 a1, unsigned int a2)
@@ -39,13 +39,11 @@ __int64 __fastcall MiUpdateNonPagedPoolNoSteal(unsigned __int64 a1, unsigned int
     {
       if ( !a2 )
       {
-        _InterlockedDecrement64(&qword_140E2C740);
+        _InterlockedDecrement64(&qword_140E2C8C0);
         return result;
       }
-      _InterlockedIncrement64(&qword_140E2C740);
-      result = RtlCSparseBitmapBitmaskRead(
-                 &ExpUuidLock.ThreadLock,
-                 2 * ((a1 - (unsigned __int64)ExpUuidLock.StackBase) >> 20));
+      _InterlockedIncrement64(&qword_140E2C8C0);
+      result = RtlCSparseBitmapBitmaskRead(&ExpUuidLock.CycleTime, 2 * ((a1 - ExpUuidLock.ThreadLock) >> 20));
       if ( result )
       {
         result = (unsigned int)(result - 1);
@@ -59,9 +57,7 @@ __int64 __fastcall MiUpdateNonPagedPoolNoSteal(unsigned __int64 a1, unsigned int
           if ( v7 != 320 )
           {
             v12 = 0LL;
-            result = RtlCSparseBitmapBitmaskRead(
-                       &ExpUuidLock.ThreadLock,
-                       2 * ((a1 - (unsigned __int64)ExpUuidLock.StackBase) >> 20));
+            result = RtlCSparseBitmapBitmaskRead(&ExpUuidLock.CycleTime, 2 * ((a1 - ExpUuidLock.ThreadLock) >> 20));
             if ( result )
             {
               result = (unsigned int)(result - 1);
@@ -74,11 +70,11 @@ __int64 __fastcall MiUpdateNonPagedPoolNoSteal(unsigned __int64 a1, unsigned int
                 else
 LABEL_16:
                   v10 = 0LL;
-                if ( stru_140E36558.FirstArgument
-                  && *(_DWORD *)stru_140E36558.FirstArgument
-                  && (*((_QWORD *)stru_140E36558.FirstArgument + 2) & 0x400000008000LL) != 0 )
+                if ( stru_140E366D8.FirstArgument
+                  && *(_DWORD *)stru_140E366D8.FirstArgument
+                  && (*((_QWORD *)stru_140E366D8.FirstArgument + 2) & 0x400000008000LL) != 0 )
                 {
-                  v11 = *((_QWORD *)stru_140E36558.FirstArgument + 3);
+                  v11 = *((_QWORD *)stru_140E366D8.FirstArgument + 3);
                   result = v11 & 0x400000008000LL;
                   if ( (v11 & 0x400000008000LL) == v11 )
                     return MiLogNoStealNonPagedPool(v11, a1, v10, v9);

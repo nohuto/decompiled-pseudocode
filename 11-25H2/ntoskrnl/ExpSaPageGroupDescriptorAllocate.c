@@ -38,15 +38,15 @@ char *__fastcall ExpSaPageGroupDescriptorAllocate(__int64 a1, char a2)
   USHORT v16; // si
   void *Pool3; // rbx
   char v18; // si
-  struct _GROUP_AFFINITY *p_PreviousAffinity; // rdx
+  _GROUP_AFFINITY *p_PreviousAffinity; // rdx
   __int64 v20; // rbx
   unsigned int v21; // eax
   unsigned int v22; // ecx
   ULONG MaximumProcessorCount; // [rsp+34h] [rbp-4Ch]
   unsigned int v25; // [rsp+38h] [rbp-48h]
-  struct _GROUP_AFFINITY Affinity; // [rsp+40h] [rbp-40h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+40h] [rbp-40h] BYREF
   __int128 v27; // [rsp+50h] [rbp-30h]
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+60h] [rbp-20h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+60h] [rbp-20h] BYREF
 
   Affinity = 0LL;
   v4 = 0;

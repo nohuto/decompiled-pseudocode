@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwTraceThreadSchedulingGroup @ 0x1406C507C
+ * XREFs of EtwTraceThreadSchedulingGroup @ 0x1406C8CBC
  * Callers:
  *     KeStartThread @ 0x140201AAC (KeStartThread.c)
- *     KiSetThreadSchedulingGroup @ 0x140203774 (KiSetThreadSchedulingGroup.c)
+ *     KiSetThreadSchedulingGroup @ 0x140203854 (KiSetThreadSchedulingGroup.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x1402DAC90 (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwTraceKernelEvent @ 0x1402BCA50 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall EtwTraceThreadSchedulingGroup(__int64 a1, __int64 a2, __int64 a3)

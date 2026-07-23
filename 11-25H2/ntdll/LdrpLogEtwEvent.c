@@ -31,26 +31,22 @@
  *     memset$thunk$772440563353939046 @ 0x180174030 (memset$thunk$772440563353939046.c)
  */
 
-_BYTE *__fastcall LdrpLogEtwEvent(__int16 a1, __int64 a2, char a3, char a4, unsigned __int16 *a5, unsigned __int16 *a6)
+int __fastcall LdrpLogEtwEvent(__int16 a1, __int64 a2, char a3, char a4, unsigned __int16 *a5, unsigned __int16 *a6)
 {
   size_t v7; // rbp
   _BYTE *v8; // rdi
   unsigned int v9; // ebx
-  __int64 v10; // rdx
-  __int64 v11; // rcx
-  __int64 v12; // r8
-  __int64 v13; // r9
-  __int64 v14; // rcx
-  _BYTE *result; // rax
-  int v18; // [rsp+24h] [rbp-284h] BYREF
-  __int16 v19; // [rsp+28h] [rbp-280h]
-  _BYTE v20[576]; // [rsp+30h] [rbp-278h] BYREF
+  __int64 v10; // rcx
+  _BYTE *Heap; // rax
+  int v15; // [rsp+24h] [rbp-284h] BYREF
+  __int16 v16; // [rsp+28h] [rbp-280h]
+  _BYTE Fields[576]; // [rsp+30h] [rbp-278h] BYREF
 
   v7 = 576LL;
-  v19 = a1;
-  memset_thunk_772440563353939046(v20, 0, 0x240uLL);
-  v18 = 0;
-  v8 = v20;
+  v16 = a1;
+  memset_thunk_772440563353939046(Fields, 0, 0x240uLL);
+  v15 = 0;
+  v8 = Fields;
   v9 = 0;
   if ( a5 )
   {
@@ -58,12 +54,12 @@ _BYTE *__fastcall LdrpLogEtwEvent(__int16 a1, __int64 a2, char a3, char a4, unsi
     if ( a6 )
       v9 += *a6 + 2;
   }
-  if ( v9 <= 0x214 || (result = (_BYTE *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap), (v8 = result) != 0LL) )
+  if ( v9 <= 0x214 || (Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, v9 + 42), (v8 = Heap) != 0LL) )
   {
     if ( v9 + 42 > 0x240 )
       v7 = v9 + 42;
     memset_thunk_772440563353939046(v8, 0, v7);
-    *((_WORD *)v8 + 3) = v19;
+    *((_WORD *)v8 + 3) = v16;
     if ( a2 != -1 )
     {
       v8[40] = a3;
@@ -71,19 +67,19 @@ _BYTE *__fastcall LdrpLogEtwEvent(__int16 a1, __int64 a2, char a3, char a4, unsi
       *((_QWORD *)v8 + 4) = a2;
       if ( v9 )
       {
-        LdrpEventAddUnicodeString(a5, v8 + 42, v9, &v18);
+        LdrpEventAddUnicodeString(a5, v8 + 42, v9, &v15);
         if ( a6 )
-          LdrpEventAddUnicodeString(a6, &v8[v18 + 42], v9 - v18, &v18);
+          LdrpEventAddUnicodeString(a6, &v8[v15 + 42], v9 - v15, &v15);
       }
     }
-    if ( (unsigned int)RtlGetCurrentServiceSessionId(v11, v10, v12, v13) )
-      v14 = (__int64)NtCurrentPeb()->SharedData + 554;
+    if ( RtlGetCurrentServiceSessionId() )
+      v10 = (__int64)NtCurrentPeb()->SharedData + 554;
     else
-      v14 = 2147353476LL;
-    NtTraceEvent(*(unsigned __int8 *)v14, 1026LL, v9 + 10, v8);
-    result = v20;
-    if ( v20 != v8 )
-      return (_BYTE *)RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, v8);
+      v10 = 2147353476LL;
+    NtTraceEvent((HANDLE)*(unsigned __int8 *)v10, 0x402u, v9 + 10, v8);
+    Heap = Fields;
+    if ( Fields != v8 )
+      LODWORD(Heap) = RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v8);
   }
-  return result;
+  return (int)Heap;
 }

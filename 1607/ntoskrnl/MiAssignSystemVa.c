@@ -3,9 +3,9 @@
  * Callers:
  *     MiAssignTopLevelRanges @ 0x1407AACF4 (MiAssignTopLevelRanges.c)
  * Callees:
- *     RtlClearBits @ 0x14002D6E0 (RtlClearBits.c)
- *     RtlFindClearBitsAndSet @ 0x14007CB08 (RtlFindClearBitsAndSet.c)
- *     ExGenRandom @ 0x1400F0494 (ExGenRandom.c)
+ *     RtlClearBits @ 0x14002D260 (RtlClearBits.c)
+ *     RtlFindClearBitsAndSet @ 0x14007CB88 (RtlFindClearBitsAndSet.c)
+ *     ExGenRandom @ 0x1400EE314 (ExGenRandom.c)
  */
 
 __int64 __fastcall MiAssignSystemVa(ULONG NumberToFind, unsigned int a2)
@@ -15,17 +15,17 @@ __int64 __fastcall MiAssignSystemVa(ULONG NumberToFind, unsigned int a2)
   unsigned __int8 v6; // al
   ULONG ClearBitsAndSet; // eax
   __int64 v8; // rsi
-  struct _RTL_BITMAP BitMapHeader; // [rsp+20h] [rbp-18h] BYREF
+  _RTL_BITMAP BitMapHeader; // [rsp+20h] [rbp-18h] BYREF
 
   BitMapHeader.SizeOfBitMap = 256;
-  BitMapHeader.Buffer = (unsigned int *)&unk_140326CB0;
+  BitMapHeader.Buffer = (unsigned int *)&unk_140326CF0;
   if ( NumberToFind <= 2 )
   {
     v6 = ExGenRandom(1);
     v5 = 8;
     goto LABEL_5;
   }
-  v4 = dword_140326CD0;
+  v4 = dword_140326D10;
   v5 = 16;
   while ( 1 )
   {
@@ -35,7 +35,7 @@ __int64 __fastcall MiAssignSystemVa(ULONG NumberToFind, unsigned int a2)
       break;
     if ( ClearBitsAndSet == v4 || !v5 )
     {
-      dword_140326CD0 = (unsigned __int8)(NumberToFind + ClearBitsAndSet + (unsigned int)ExGenRandom(1) % a2);
+      dword_140326D10 = (unsigned __int8)(NumberToFind + ClearBitsAndSet + (unsigned int)ExGenRandom(1) % a2);
       return (v8 - 256) << 39;
     }
     --v5;

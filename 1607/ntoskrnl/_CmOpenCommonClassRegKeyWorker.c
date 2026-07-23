@@ -1,18 +1,18 @@
 /*
- * XREFs of _CmOpenCommonClassRegKeyWorker @ 0x1404F7BE8
+ * XREFs of _CmOpenCommonClassRegKeyWorker @ 0x1404DAB74
  * Callers:
- *     _CmOpenCommonClassRegKey @ 0x1404F7AA0 (_CmOpenCommonClassRegKey.c)
+ *     _CmOpenCommonClassRegKey @ 0x1404DAA2C (_CmOpenCommonClassRegKey.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x1400C39C0 (RtlInitUnicodeStringEx.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
+ *     RtlInitUnicodeStringEx @ 0x1400C1850 (RtlInitUnicodeStringEx.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     _CmGetCommonClassRegKeyPath @ 0x1404F7D8C (_CmGetCommonClassRegKeyPath.c)
- *     _PnpCtxRegCreateTree @ 0x1404FA7B8 (_PnpCtxRegCreateTree.c)
- *     _SysCtxRegOpenKey @ 0x1404FDB8C (_SysCtxRegOpenKey.c)
- *     _PnpCtxGetCachedContextBaseKey @ 0x1404FDCC4 (_PnpCtxGetCachedContextBaseKey.c)
- *     RtlPrefixUnicodeString @ 0x1404FDFD0 (RtlPrefixUnicodeString.c)
- *     _PnpCtxRegOpenCurrentUserKey @ 0x1406D710C (_PnpCtxRegOpenCurrentUserKey.c)
+ *     _CmGetCommonClassRegKeyPath @ 0x1404DAD18 (_CmGetCommonClassRegKeyPath.c)
+ *     _PnpCtxRegCreateTree @ 0x1404DD744 (_PnpCtxRegCreateTree.c)
+ *     _SysCtxRegOpenKey @ 0x1404E0B1C (_SysCtxRegOpenKey.c)
+ *     _PnpCtxGetCachedContextBaseKey @ 0x1404E0C54 (_PnpCtxGetCachedContextBaseKey.c)
+ *     RtlPrefixUnicodeString @ 0x1404E0F60 (RtlPrefixUnicodeString.c)
+ *     _PnpCtxRegOpenCurrentUserKey @ 0x1406D7244 (_PnpCtxRegOpenCurrentUserKey.c)
  */
 
 __int64 __fastcall CmOpenCommonClassRegKeyWorker(

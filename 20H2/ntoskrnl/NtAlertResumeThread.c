@@ -8,7 +8,7 @@
  *     ObReferenceObjectByHandleWithTag @ 0x140611880 (ObReferenceObjectByHandleWithTag.c)
  */
 
-NTSTATUS __fastcall NtAlertResumeThread(HANDLE Handle, _DWORD *a2)
+NTSTATUS __cdecl NtAlertResumeThread(HANDLE ThreadHandle, PULONG PreviousSuspendCount)
 {
   KPROCESSOR_MODE PreviousMode; // bl
   __int64 v5; // rcx
@@ -16,20 +16,20 @@ NTSTATUS __fastcall NtAlertResumeThread(HANDLE Handle, _DWORD *a2)
   __int64 v7; // rdx
   __int64 v8; // r8
   _DWORD *v9; // r9
-  int v10; // esi
+  ULONG v10; // esi
   PVOID Object; // [rsp+70h] [rbp+18h] BYREF
 
   Object = 0LL;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
-  if ( PreviousMode && a2 )
+  if ( PreviousMode && PreviousSuspendCount )
   {
     v5 = 0x7FFFFFFF0000LL;
-    if ( (unsigned __int64)a2 < 0x7FFFFFFF0000LL )
-      v5 = (__int64)a2;
+    if ( (unsigned __int64)PreviousSuspendCount < 0x7FFFFFFF0000LL )
+      v5 = (__int64)PreviousSuspendCount;
     *(_DWORD *)v5 = *(_DWORD *)v5;
   }
   result = ObReferenceObjectByHandleWithTag(
-             Handle,
+             ThreadHandle,
              2u,
              (POBJECT_TYPE)PsThreadType,
              PreviousMode,
@@ -47,8 +47,8 @@ NTSTATUS __fastcall NtAlertResumeThread(HANDLE Handle, _DWORD *a2)
     {
       v10 = KeAlertResumeThread((__int64)Object, v7, v8, v9);
       ObfDereferenceObjectWithTag(Object, 0x75537350u);
-      if ( a2 )
-        *a2 = v10;
+      if ( PreviousSuspendCount )
+        *PreviousSuspendCount = v10;
       return 0;
     }
   }

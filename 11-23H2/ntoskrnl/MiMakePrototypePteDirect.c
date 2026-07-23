@@ -1,8 +1,8 @@
 /*
  * XREFs of MiMakePrototypePteDirect @ 0x140213CE0
  * Callers:
- *     MiAddMappedPtes @ 0x1406AD7A0 (MiAddMappedPtes.c)
- *     MiMapPatchTable @ 0x140A3A260 (MiMapPatchTable.c)
+ *     MiAddMappedPtes @ 0x1406AD7D0 (MiAddMappedPtes.c)
+ *     MiMapPatchTable @ 0x140A3A510 (MiMapPatchTable.c)
  * Callees:
  *     <none>
  */

@@ -1,10 +1,10 @@
 /*
- * XREFs of swscanf_s @ 0x18009B7D0
+ * XREFs of swscanf_s @ 0x18009B7E0
  * Callers:
  *     <none>
  * Callees:
- *     _invalid_parameter @ 0x18008FDE8 (_invalid_parameter.c)
- *     _swinput_s @ 0x18009E3F4 (_swinput_s.c)
+ *     _invalid_parameter @ 0x18008FDF8 (_invalid_parameter.c)
+ *     _swinput_s @ 0x18009E404 (_swinput_s.c)
  */
 
 int swscanf_s(const wchar_t *const Buffer, const wchar_t *const Format, ...)

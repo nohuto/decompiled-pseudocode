@@ -12,8 +12,8 @@
 void DbgkpInitializePhase0()
 {
   __int64 v0; // rbx
-  union _RTL_RUN_ONCE *v1; // rcx
-  union _RTL_RUN_ONCE *v2; // rcx
+  _RTL_RUN_ONCE *v1; // rcx
+  _RTL_RUN_ONCE *v2; // rcx
   __int128 v3; // [rsp+20h] [rbp-49h]
   UNICODE_STRING DestinationString; // [rsp+30h] [rbp-39h] BYREF
   _QWORD v5[16]; // [rsp+40h] [rbp-29h] BYREF

@@ -1,19 +1,19 @@
 /*
- * XREFs of SepInsertOrReferenceSharedSidEntries @ 0x140695D78
+ * XREFs of SepInsertOrReferenceSharedSidEntries @ 0x140695E5C
  * Callers:
- *     SepSetTokenCapabilities @ 0x140478A4C (SepSetTokenCapabilities.c)
+ *     SepSetTokenCapabilities @ 0x14047791C (SepSetTokenCapabilities.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KeLeaveCriticalRegion @ 0x140069D00 (KeLeaveCriticalRegion.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     RtlInsertEntryHashTable @ 0x14007CFAC (RtlInsertEntryHashTable.c)
- *     RtlRemoveEntryHashTable @ 0x14009211C (RtlRemoveEntryHashTable.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KeLeaveCriticalRegion @ 0x140069880 (KeLeaveCriticalRegion.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     RtlInsertEntryHashTable @ 0x14007D02C (RtlInsertEntryHashTable.c)
+ *     RtlRemoveEntryHashTable @ 0x14009187C (RtlRemoveEntryHashTable.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     RtlCopySid @ 0x14041268C (RtlCopySid.c)
- *     SepFindSharedSidEntry @ 0x140695CF0 (SepFindSharedSidEntry.c)
+ *     RtlCopySid @ 0x14041154C (RtlCopySid.c)
+ *     SepFindSharedSidEntry @ 0x140695DD4 (SepFindSharedSidEntry.c)
  */
 
 __int64 __fastcall SepInsertOrReferenceSharedSidEntries(PSID *a1, char *a2, unsigned int a3)
@@ -29,8 +29,8 @@ __int64 __fastcall SepInsertOrReferenceSharedSidEntries(PSID *a1, char *a2, unsi
   PRTL_DYNAMIC_HASH_TABLE_ENTRY SharedSidEntry; // rax
   struct _LIST_ENTRY *Blink; // rax
   unsigned int v16; // r13d
-  struct _RTL_DYNAMIC_HASH_TABLE_ENTRY *PoolWithTag; // rax
-  struct _RTL_DYNAMIC_HASH_TABLE_ENTRY *v18; // rbp
+  _RTL_DYNAMIC_HASH_TABLE_ENTRY *PoolWithTag; // rax
+  _RTL_DYNAMIC_HASH_TABLE_ENTRY *v18; // rbp
   __int64 v19; // rax
   ULONG_PTR v20; // r8
   PRTL_DYNAMIC_HASH_TABLE_ENTRY v21; // rdi
@@ -66,7 +66,7 @@ __int64 __fastcall SepInsertOrReferenceSharedSidEntries(PSID *a1, char *a2, unsi
       goto LABEL_16;
     }
     v16 = ((4 * *((unsigned __int8 *)*a1 + 1) + 51) & 0xFFFFFFFC) + 4 * *((unsigned __int8 *)*a1 + 1) + 48;
-    PoolWithTag = (struct _RTL_DYNAMIC_HASH_TABLE_ENTRY *)ExAllocatePoolWithTag(PagedPool, v16, 0x73536553u);
+    PoolWithTag = (_RTL_DYNAMIC_HASH_TABLE_ENTRY *)ExAllocatePoolWithTag(PagedPool, v16, 0x73536553u);
     v18 = PoolWithTag;
     if ( !PoolWithTag )
       break;

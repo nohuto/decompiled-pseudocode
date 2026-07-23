@@ -1,19 +1,19 @@
 /*
- * XREFs of SleepstudyHelperBuildBlocker @ 0x1406B78F0
+ * XREFs of SleepstudyHelperBuildBlocker @ 0x140616E00
  * Callers:
- *     SleepstudyHelper_RegisterComponentEx @ 0x1408FB460 (SleepstudyHelper_RegisterComponentEx.c)
- *     SleepstudyHelper_RegisterPdoWithParentGuid @ 0x1408FB530 (SleepstudyHelper_RegisterPdoWithParentGuid.c)
- *     SleepstudyHelper_RegisterPdoWithParentHandle @ 0x1408FB5F0 (SleepstudyHelper_RegisterPdoWithParentHandle.c)
- *     SleepstudyHelper_RegisterPdoWithParentPdo @ 0x1408FB6E0 (SleepstudyHelper_RegisterPdoWithParentPdo.c)
+ *     SleepstudyHelper_RegisterComponentEx @ 0x1408FB5C0 (SleepstudyHelper_RegisterComponentEx.c)
+ *     SleepstudyHelper_RegisterPdoWithParentGuid @ 0x1408FB690 (SleepstudyHelper_RegisterPdoWithParentGuid.c)
+ *     SleepstudyHelper_RegisterPdoWithParentHandle @ 0x1408FB750 (SleepstudyHelper_RegisterPdoWithParentHandle.c)
+ *     SleepstudyHelper_RegisterPdoWithParentPdo @ 0x1408FB840 (SleepstudyHelper_RegisterPdoWithParentPdo.c)
  * Callees:
- *     CmpFreeTransientPoolWithTag @ 0x140206FA8 (CmpFreeTransientPoolWithTag.c)
- *     SSHSupportReleasePushLockExclusive @ 0x1402C98E8 (SSHSupportReleasePushLockExclusive.c)
- *     SSHSupportAllocateNonPaged @ 0x1402C9AC4 (SSHSupportAllocateNonPaged.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     memset @ 0x140414200 (memset.c)
- *     SSHSupportQueryInterruptTime @ 0x140580D2C (SSHSupportQueryInterruptTime.c)
- *     SleepstudyHelperDestroyBlockerBuilder @ 0x1406B7AB0 (SleepstudyHelperDestroyBlockerBuilder.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     SSHSupportReleasePushLockExclusive @ 0x1402481C8 (SSHSupportReleasePushLockExclusive.c)
+ *     CmpFreeTransientPoolWithTag @ 0x1402483A4 (CmpFreeTransientPoolWithTag.c)
+ *     SSHSupportAllocateNonPaged @ 0x1402483BC (SSHSupportAllocateNonPaged.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     SSHSupportQueryInterruptTime @ 0x140580F6C (SSHSupportQueryInterruptTime.c)
+ *     SleepstudyHelperDestroyBlockerBuilder @ 0x140616FC0 (SleepstudyHelperDestroyBlockerBuilder.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall SleepstudyHelperBuildBlocker(ULONG_PTR *a1, _QWORD *a2)

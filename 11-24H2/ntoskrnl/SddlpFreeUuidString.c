@@ -1,9 +1,9 @@
 /*
- * XREFs of SddlpFreeUuidString @ 0x140796BD8
+ * XREFs of SddlpFreeUuidString @ 0x140796CE8
  * Callers:
- *     LocalConvertAclToString @ 0x140860920 (LocalConvertAclToString.c)
+ *     LocalConvertAclToString @ 0x140864F2C (LocalConvertAclToString.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall SddlpFreeUuidString(void **a1)

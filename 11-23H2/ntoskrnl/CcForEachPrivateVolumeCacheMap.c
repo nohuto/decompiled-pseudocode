@@ -1,17 +1,17 @@
 /*
- * XREFs of CcForEachPrivateVolumeCacheMap @ 0x1403D0E70
+ * XREFs of CcForEachPrivateVolumeCacheMap @ 0x1403D1050
  * Callers:
- *     CcForEachPartition @ 0x140310DCC (CcForEachPartition.c)
- *     CcNotifyWriteBehindInternal @ 0x140536A9C (CcNotifyWriteBehindInternal.c)
- *     CcExitPartition @ 0x1405393E8 (CcExitPartition.c)
- *     CcPartitionTelemetryCallback @ 0x140880710 (CcPartitionTelemetryCallback.c)
+ *     CcForEachPartition @ 0x14031105C (CcForEachPartition.c)
+ *     CcNotifyWriteBehindInternal @ 0x140536FEC (CcNotifyWriteBehindInternal.c)
+ *     CcExitPartition @ 0x140539938 (CcExitPartition.c)
+ *     CcPartitionTelemetryCallback @ 0x140880950 (CcPartitionTelemetryCallback.c)
  * Callees:
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
- *     CcDecrementPrivateVolumeUseCount @ 0x14029A5DC (CcDecrementPrivateVolumeUseCount.c)
- *     CcPostPVCMForDeleteToPartition @ 0x1403C4410 (CcPostPVCMForDeleteToPartition.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402610F0 (KeAcquireInStackQueuedSpinLock.c)
+ *     CcDecrementPrivateVolumeUseCount @ 0x14029A86C (CcDecrementPrivateVolumeUseCount.c)
+ *     CcPostPVCMForDeleteToPartition @ 0x1403C45F0 (CcPostPVCMForDeleteToPartition.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 char __fastcall CcForEachPrivateVolumeCacheMap(
@@ -58,10 +58,13 @@ char __fastcall CcForEachPrivateVolumeCacheMap(
     ++*((_DWORD *)v5 - 143);
     KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
     OldIrql = LockHandle.OldIrql;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && LockHandle.OldIrql <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -100,10 +103,10 @@ char __fastcall CcForEachPrivateVolumeCacheMap(
   while ( v4 );
   KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
   v10 = LockHandle.OldIrql;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v21 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v21 <= 0xFu && LockHandle.OldIrql <= 0xFu && v21 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v21 <= 0xFu && LockHandle.OldIrql <= 0xFu && v21 >= 2u )
     {
       v22 = KeGetCurrentPrcb();
       v23 = v22->SchedulerAssist;

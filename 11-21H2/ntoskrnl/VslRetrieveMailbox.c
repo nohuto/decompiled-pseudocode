@@ -3,9 +3,9 @@
  * Callers:
  *     <none>
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140358A20 (VslpEnterIumSecureMode.c)
- *     VslpUnlockPagesForTransfer @ 0x1403A0EB4 (VslpUnlockPagesForTransfer.c)
- *     VslpLockPagesForTransfer @ 0x1403A0F08 (VslpLockPagesForTransfer.c)
+ *     sub_140358A20 @ 0x140358A20 (sub_140358A20.c)
+ *     sub_1403A0EB4 @ 0x1403A0EB4 (sub_1403A0EB4.c)
+ *     sub_1403A0F08 @ 0x1403A0F08 (sub_1403A0F08.c)
  *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
  *     memset @ 0x140435E00 (memset.c)
  */
@@ -24,7 +24,7 @@ __int64 __fastcall VslRetrieveMailbox(__int64 a1, _QWORD *a2, unsigned __int8 a3
   memset(v12, 0, 0x48uLL);
   if ( !*a2 && !a2[1] || (unsigned __int64)(*(_QWORD *)a5 - 1LL) > 0x1F9FFF )
     return 3221225485LL;
-  result = VslpLockPagesForTransfer((__int64)v12, a4, *a5, 2, 0);
+  result = sub_1403A0F08((__int64)v12, a4, *a5, 2, 0);
   if ( (int)result >= 0 )
   {
     v10 = *(_OWORD *)a2;
@@ -33,8 +33,8 @@ __int64 __fastcall VslRetrieveMailbox(__int64 a1, _QWORD *a2, unsigned __int8 a3
     *(_OWORD *)&v13[3] = v10;
     v13[5] = a1;
     LODWORD(v13[6]) = v6;
-    v11 = VslpEnterIumSecureMode(2u, 20, 0, (__int64)v13);
-    VslpUnlockPagesForTransfer(v12);
+    v11 = sub_140358A20(2u, 20, 0, (__int64)v13);
+    sub_1403A0EB4(v12);
     if ( (int)(v11 + 0x80000000) < 0 || v11 == -1073741789 )
       *(_QWORD *)a5 = v13[8];
     return v11;

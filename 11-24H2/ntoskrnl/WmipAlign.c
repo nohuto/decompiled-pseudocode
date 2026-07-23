@@ -1,8 +1,8 @@
 /*
- * XREFs of WmipAlign @ 0x140467F3C
+ * XREFs of WmipAlign @ 0x1404608EC
  * Callers:
- *     WmipDereferenceEvent @ 0x1409C9CE0 (WmipDereferenceEvent.c)
- *     WmipIncludeStaticNames @ 0x1409CB50C (WmipIncludeStaticNames.c)
+ *     WmipIncludeStaticNames @ 0x1409B1C2C (WmipIncludeStaticNames.c)
+ *     WmipDereferenceEvent @ 0x140AB08D8 (WmipDereferenceEvent.c)
  * Callees:
  *     <none>
  */

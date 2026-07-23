@@ -1,15 +1,15 @@
 /*
- * XREFs of VfSuspectDriversGetVerifierInformation @ 0x140937524
+ * XREFs of VfSuspectDriversGetVerifierInformation @ 0x140938524
  * Callers:
- *     VfGetVerifierInformation @ 0x14094A8E4 (VfGetVerifierInformation.c)
+ *     VfGetVerifierInformation @ 0x14094B8E4 (VfGetVerifierInformation.c)
  * Callees:
  *     KeReleaseMutex @ 0x140006340 (KeReleaseMutex.c)
- *     VfAvlCleanupLockContext @ 0x1400F5688 (VfAvlCleanupLockContext.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     VfAvlInitializeLockContext @ 0x14030B5B4 (VfAvlInitializeLockContext.c)
- *     VfDriverLock @ 0x1409216E0 (VfDriverLock.c)
- *     VfTargetDriversGetZeroCounters @ 0x140934A38 (VfTargetDriversGetZeroCounters.c)
- *     VfAvlEnumerateNodes @ 0x14093E0D8 (VfAvlEnumerateNodes.c)
+ *     VfAvlCleanupLockContext @ 0x1400F5708 (VfAvlCleanupLockContext.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     VfAvlInitializeLockContext @ 0x14030B7A4 (VfAvlInitializeLockContext.c)
+ *     VfDriverLock @ 0x1409226E0 (VfDriverLock.c)
+ *     VfTargetDriversGetZeroCounters @ 0x140935A38 (VfTargetDriversGetZeroCounters.c)
+ *     VfAvlEnumerateNodes @ 0x14093F0D8 (VfAvlEnumerateNodes.c)
  */
 
 __int64 __fastcall VfSuspectDriversGetVerifierInformation(
@@ -66,18 +66,18 @@ __int64 __fastcall VfSuspectDriversGetVerifierInformation(
       }
       while ( v13 );
       *(_DWORD *)(v6 + 16) = ViVerifyAllDrivers;
-      *(_DWORD *)(v6 + 40) = dword_14041A984;
-      *(_DWORD *)(v6 + 44) = dword_14041A988;
-      *(_DWORD *)(v6 + 92) = dword_14041A9B8;
-      *(_DWORD *)(v6 + 48) = dword_14041A98C;
-      *(_DWORD *)(v6 + 52) = dword_14041A990;
-      *(_DWORD *)(v6 + 56) = dword_14041A994;
-      *(_DWORD *)(v6 + 60) = dword_14041A998;
-      *(_DWORD *)(v6 + 64) = dword_14041A99C;
-      *(_DWORD *)(v6 + 68) = dword_14041A9A0;
-      *(_DWORD *)(v6 + 72) = dword_14041A9A4;
-      *(_DWORD *)(v6 + 76) = dword_14041A9A8;
-      *(_DWORD *)(v6 + 80) = dword_14041A9AC;
+      *(_DWORD *)(v6 + 40) = dword_14041BA64;
+      *(_DWORD *)(v6 + 44) = dword_14041BA68;
+      *(_DWORD *)(v6 + 92) = dword_14041BA98;
+      *(_DWORD *)(v6 + 48) = dword_14041BA6C;
+      *(_DWORD *)(v6 + 52) = dword_14041BA70;
+      *(_DWORD *)(v6 + 56) = dword_14041BA74;
+      *(_DWORD *)(v6 + 60) = dword_14041BA78;
+      *(_DWORD *)(v6 + 64) = dword_14041BA7C;
+      *(_DWORD *)(v6 + 68) = dword_14041BA80;
+      *(_DWORD *)(v6 + 72) = dword_14041BA84;
+      *(_DWORD *)(v6 + 76) = dword_14041BA88;
+      *(_DWORD *)(v6 + 80) = dword_14041BA8C;
       *(_DWORD *)(v6 + 84) = *((_DWORD *)v10 + 4);
       *(_DWORD *)(v6 + 88) = *((_DWORD *)v10 + 5);
       VfTargetDriversGetZeroCounters((_QWORD *)v6, a5);

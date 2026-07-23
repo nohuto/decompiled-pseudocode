@@ -8,86 +8,86 @@
  *     RtlValidAcl @ 0x18005FD10 (RtlValidAcl.c)
  */
 
-char __fastcall RtlValidSecurityDescriptor(__int64 a1)
+BOOLEAN __cdecl RtlValidSecurityDescriptor(PSECURITY_DESCRIPTOR SecurityDescriptor)
 {
   __int64 v2; // rax
-  _BYTE *v3; // rcx
+  char *v3; // rcx
   unsigned int *v4; // rdi
   __int64 v5; // rax
-  _BYTE *v6; // rcx
+  char *v6; // rcx
   __int16 v7; // ax
   __int64 v8; // rax
-  __int64 v9; // rcx
+  ACL *v9; // rcx
   __int16 v10; // ax
   __int64 v11; // rax
-  __int64 v12; // rcx
-  char result; // al
+  ACL *v12; // rcx
+  BOOLEAN result; // al
 
-  if ( *(_BYTE *)a1 != 1 )
+  if ( *(_BYTE *)SecurityDescriptor != 1 )
     return 0;
-  if ( *(__int16 *)(a1 + 2) >= 0 )
+  if ( *((__int16 *)SecurityDescriptor + 1) >= 0 )
   {
-    v4 = (unsigned int *)(a1 + 8);
-    v3 = *(_BYTE **)(a1 + 8);
+    v4 = (unsigned int *)((char *)SecurityDescriptor + 8);
+    v3 = (char *)*((_QWORD *)SecurityDescriptor + 1);
   }
   else
   {
-    v2 = *(unsigned int *)(a1 + 4);
+    v2 = *((unsigned int *)SecurityDescriptor + 1);
     if ( !(_DWORD)v2 )
     {
-      v4 = (unsigned int *)(a1 + 8);
+      v4 = (unsigned int *)((char *)SecurityDescriptor + 8);
       goto LABEL_7;
     }
-    v3 = (_BYTE *)(v2 + a1);
-    v4 = (unsigned int *)(a1 + 8);
+    v3 = (char *)SecurityDescriptor + v2;
+    v4 = (unsigned int *)((char *)SecurityDescriptor + 8);
   }
   if ( v3 && !RtlValidSid(v3) )
     return 0;
 LABEL_7:
-  if ( *(__int16 *)(a1 + 2) >= 0 )
+  if ( *((__int16 *)SecurityDescriptor + 1) >= 0 )
   {
-    v6 = *(_BYTE **)(a1 + 16);
+    v6 = (char *)*((_QWORD *)SecurityDescriptor + 2);
   }
   else
   {
     v5 = *v4;
     if ( !(_DWORD)v5 )
       goto LABEL_12;
-    v6 = (_BYTE *)(a1 + v5);
+    v6 = (char *)SecurityDescriptor + v5;
   }
   if ( v6 && !RtlValidSid(v6) )
     return 0;
 LABEL_12:
-  v7 = *(_WORD *)(a1 + 2);
+  v7 = *((_WORD *)SecurityDescriptor + 1);
   if ( (v7 & 4) == 0 )
     goto LABEL_17;
   if ( v7 >= 0 )
   {
-    v9 = *(_QWORD *)(a1 + 32);
+    v9 = (ACL *)*((_QWORD *)SecurityDescriptor + 4);
   }
   else
   {
-    v8 = *(unsigned int *)(a1 + 16);
+    v8 = *((unsigned int *)SecurityDescriptor + 4);
     if ( !(_DWORD)v8 )
       goto LABEL_17;
-    v9 = a1 + v8;
+    v9 = (ACL *)((char *)SecurityDescriptor + v8);
   }
   if ( !v9 || (result = RtlValidAcl(v9)) != 0 )
   {
 LABEL_17:
-    v10 = *(_WORD *)(a1 + 2);
+    v10 = *((_WORD *)SecurityDescriptor + 1);
     if ( (v10 & 0x10) != 0 )
     {
       if ( v10 >= 0 )
       {
-        v12 = *(_QWORD *)(a1 + 24);
+        v12 = (ACL *)*((_QWORD *)SecurityDescriptor + 3);
       }
       else
       {
-        v11 = *(unsigned int *)(a1 + 12);
+        v11 = *((unsigned int *)SecurityDescriptor + 3);
         if ( !(_DWORD)v11 )
           return 1;
-        v12 = a1 + v11;
+        v12 = (ACL *)((char *)SecurityDescriptor + v11);
       }
       if ( v12 )
       {

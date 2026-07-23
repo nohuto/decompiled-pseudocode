@@ -8,9 +8,12 @@
  *     <none>
  */
 
-__int64 __fastcall ZwAlpcCreatePort(__int64 a1, __int64 a2, __int64 a3)
+NTSTATUS __cdecl ZwAlpcCreatePort(
+        PHANDLE PortHandle,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        PALPC_PORT_ATTRIBUTES PortAttributes)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2, a3);
+  return KiServiceInternal(PortHandle);
 }

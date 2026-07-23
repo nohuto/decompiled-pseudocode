@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpBlkDivideErrorFault @ 0x140BDBA00
+ * XREFs of HalpBlkDivideErrorFault @ 0x140BDDA00
  * Callers:
  *     <none>
  * Callees:
- *     HalpBlkFatalErrorHalt @ 0x140BDB900 (HalpBlkFatalErrorHalt.c)
+ *     HalpBlkFatalErrorHalt @ 0x140BDD900 (HalpBlkFatalErrorHalt.c)
  */
 
 void __fastcall __noreturn HalpBlkDivideErrorFault(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

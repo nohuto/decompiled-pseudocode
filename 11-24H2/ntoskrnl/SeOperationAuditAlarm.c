@@ -1,22 +1,22 @@
 /*
- * XREFs of SeOperationAuditAlarm @ 0x1408F0A50
+ * XREFs of SeOperationAuditAlarm @ 0x140862250
  * Callers:
- *     ObpAuditObjectAccess @ 0x140989024 (ObpAuditObjectAccess.c)
+ *     ObpAuditObjectAccess @ 0x140863834 (ObpAuditObjectAccess.c)
  * Callees:
- *     SepAdtLogAuditRecord @ 0x140348E4C (SepAdtLogAuditRecord.c)
- *     PsGetCurrentThreadProcess @ 0x1404709D0 (PsGetCurrentThreadProcess.c)
- *     SepCheckAndCopySelfRelativeSD @ 0x1404AC0F8 (SepCheckAndCopySelfRelativeSD.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     SeReleaseSubjectContext @ 0x14084D7E0 (SeReleaseSubjectContext.c)
- *     SeCaptureSubjectContext @ 0x14084D8F0 (SeCaptureSubjectContext.c)
- *     SepAuditFailed @ 0x140850F60 (SepAuditFailed.c)
- *     PsGetAllocatedFullProcessImageNameEx @ 0x1408EF560 (PsGetAllocatedFullProcessImageNameEx.c)
- *     ObNormalizeHandleValue @ 0x1408F0680 (ObNormalizeHandleValue.c)
- *     SepSecurityDescriptorStrictLength @ 0x1408F06B8 (SepSecurityDescriptorStrictLength.c)
- *     SepAdtClassifyObjectIntoSubCategory @ 0x1408F1A40 (SepAdtClassifyObjectIntoSubCategory.c)
- *     SepQueryNameString @ 0x1408F2B48 (SepQueryNameString.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     SepAdtLogAuditRecord @ 0x1403C288C (SepAdtLogAuditRecord.c)
+ *     PsGetCurrentThreadProcess @ 0x14046B080 (PsGetCurrentThreadProcess.c)
+ *     SepCheckAndCopySelfRelativeSD @ 0x1404A65E4 (SepCheckAndCopySelfRelativeSD.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     SeReleaseSubjectContext @ 0x140849AA0 (SeReleaseSubjectContext.c)
+ *     SeCaptureSubjectContext @ 0x140849BB0 (SeCaptureSubjectContext.c)
+ *     SepAuditFailed @ 0x14084D220 (SepAuditFailed.c)
+ *     PsGetAllocatedFullProcessImageNameEx @ 0x140860D60 (PsGetAllocatedFullProcessImageNameEx.c)
+ *     ObNormalizeHandleValue @ 0x140861E80 (ObNormalizeHandleValue.c)
+ *     SepSecurityDescriptorStrictLength @ 0x140861EB8 (SepSecurityDescriptorStrictLength.c)
+ *     SepAdtClassifyObjectIntoSubCategory @ 0x140863240 (SepAdtClassifyObjectIntoSubCategory.c)
+ *     SepQueryNameString @ 0x140914194 (SepQueryNameString.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall SeOperationAuditAlarm(
@@ -33,149 +33,143 @@ void __fastcall SeOperationAuditAlarm(
   int v12; // esi
   _KPROCESS *CurrentThreadProcess; // rax
   struct _LIST_ENTRY *Flink; // r13
-  __int64 v15; // r8
-  __int64 v16; // r9
   signed int AllocatedFullProcessImageName; // edi
   _QWORD *ClientToken; // r8
   _QWORD *PrimaryToken; // r9
-  _QWORD **v20; // rax
-  __int64 v21; // rdx
-  __int64 v22; // rax
-  __int64 v23; // r14
-  unsigned __int16 *v24; // rdx
-  unsigned __int64 v25; // rax
-  int v26; // r11d
-  int v27; // r9d
-  unsigned __int16 *v28; // rdx
-  int v29; // r10d
-  int v30; // ecx
+  _QWORD **v18; // rax
+  __int64 v19; // rdx
+  __int64 v20; // rax
+  __int64 v21; // r14
+  unsigned __int16 *v22; // rdx
+  unsigned __int64 v23; // rax
+  int v24; // r11d
+  int v25; // r9d
+  unsigned __int16 *v26; // rdx
+  int v27; // r10d
+  int v28; // ecx
+  int v29; // eax
+  __int64 v30; // rcx
   int v31; // eax
-  __int64 v32; // rcx
-  int v33; // eax
-  _BYTE v34[4]; // [rsp+20h] [rbp-E0h] BYREF
-  ULONG v35; // [rsp+24h] [rbp-DCh] BYREF
-  PVOID v36; // [rsp+28h] [rbp-D8h] BYREF
-  PVOID v37; // [rsp+30h] [rbp-D0h] BYREF
-  PVOID v38; // [rsp+38h] [rbp-C8h] BYREF
+  _BYTE v32[4]; // [rsp+20h] [rbp-E0h] BYREF
+  ULONG v33; // [rsp+24h] [rbp-DCh] BYREF
+  PVOID v34; // [rsp+28h] [rbp-D8h] BYREF
+  PVOID v35; // [rsp+30h] [rbp-D0h] BYREF
+  PVOID v36; // [rsp+38h] [rbp-C8h] BYREF
   struct _SECURITY_SUBJECT_CONTEXT SubjectContext; // [rsp+40h] [rbp-C0h] BYREF
   _DWORD Src[2]; // [rsp+60h] [rbp-A0h] BYREF
-  unsigned int v41; // [rsp+68h] [rbp-98h]
-  __int16 v42; // [rsp+70h] [rbp-90h]
-  __int16 v43; // [rsp+72h] [rbp-8Eh]
-  _DWORD v44[258]; // [rsp+78h] [rbp-88h]
+  unsigned int v39; // [rsp+68h] [rbp-98h]
+  __int16 v40; // [rsp+70h] [rbp-90h]
+  __int16 v41; // [rsp+72h] [rbp-8Eh]
+  _DWORD v42[258]; // [rsp+78h] [rbp-88h]
 
   v7 = P;
-  v36 = P;
+  v34 = P;
   memset_0(Src, 0, 0x418uLL);
-  v37 = 0LL;
+  v35 = 0LL;
   LOBYTE(v11) = 1;
-  v38 = 0LL;
-  v35 = 0;
-  v34[0] = 0;
+  v36 = 0LL;
+  v33 = 0;
+  v32[0] = 0;
   memset(&SubjectContext, 0, sizeof(SubjectContext));
   v12 = (unsigned __int16)SepAdtClassifyObjectIntoSubCategory(a2, a4, v11, 0LL);
   CurrentThreadProcess = PsGetCurrentThreadProcess();
   Flink = CurrentThreadProcess[1].Header.WaitListHead.Flink;
-  AllocatedFullProcessImageName = PsGetAllocatedFullProcessImageNameEx(
-                                    (__int64)CurrentThreadProcess,
-                                    (__int64 *)&v37,
-                                    v15,
-                                    v16);
+  AllocatedFullProcessImageName = PsGetAllocatedFullProcessImageNameEx((__int64)CurrentThreadProcess, (__int64 *)&v35);
   if ( AllocatedFullProcessImageName < 0 )
   {
 LABEL_16:
     SepAuditFailed(AllocatedFullProcessImageName);
     goto LABEL_12;
   }
-  v41 = 0;
+  v39 = 0;
   Src[0] = 3;
-  v43 = 8;
-  v42 = v12;
+  v41 = 8;
+  v40 = v12;
   Src[1] = 4663;
   SeCaptureSubjectContext(&SubjectContext);
   ClientToken = SubjectContext.ClientToken;
   PrimaryToken = SubjectContext.PrimaryToken;
-  v20 = (_QWORD **)SubjectContext.PrimaryToken;
+  v18 = (_QWORD **)SubjectContext.PrimaryToken;
   if ( SubjectContext.ClientToken )
-    v20 = (_QWORD **)SubjectContext.ClientToken;
-  v21 = *v20[19];
-  v44[8 * v41] = 4;
-  v44[8 * v41 + 1] = 4 * *(unsigned __int8 *)(v21 + 1) + 8;
-  *(_QWORD *)&v44[8 * v41++ + 6] = v21;
-  v44[8 * v41] = 1;
-  v44[8 * v41 + 1] = 32;
-  *(_QWORD *)&v44[8 * v41++ + 6] = &SeSubsystemName;
-  v44[8 * v41] = 5;
-  v44[8 * v41 + 1] = 8;
+    v18 = (_QWORD **)SubjectContext.ClientToken;
+  v19 = *v18[19];
+  v42[8 * v39] = 4;
+  v42[8 * v39 + 1] = 4 * *(unsigned __int8 *)(v19 + 1) + 8;
+  *(_QWORD *)&v42[8 * v39++ + 6] = v19;
+  v42[8 * v39] = 1;
+  v42[8 * v39 + 1] = 32;
+  *(_QWORD *)&v42[8 * v39++ + 6] = &SeSubsystemName;
+  v42[8 * v39] = 5;
+  v42[8 * v39 + 1] = 8;
   if ( ClientToken )
-    v22 = ClientToken[3];
+    v20 = ClientToken[3];
   else
-    v22 = PrimaryToken[3];
-  *(_QWORD *)&v44[8 * v41++ + 2] = v22;
-  v44[8 * v41] = 1;
-  v44[8 * v41 + 1] = 32;
-  *(_QWORD *)&v44[8 * v41++ + 6] = &SeSubsystemName;
-  v44[8 * v41] = 1;
-  v44[8 * v41 + 1] = *a4 + 16;
-  *(_QWORD *)&v44[8 * v41 + 6] = a4;
-  v23 = v41++;
-  SepQueryNameString(a2, &v38);
-  v24 = (unsigned __int16 *)v38;
-  if ( v38 )
+    v20 = PrimaryToken[3];
+  *(_QWORD *)&v42[8 * v39++ + 2] = v20;
+  v42[8 * v39] = 1;
+  v42[8 * v39 + 1] = 32;
+  *(_QWORD *)&v42[8 * v39++ + 6] = &SeSubsystemName;
+  v42[8 * v39] = 1;
+  v42[8 * v39 + 1] = *a4 + 16;
+  *(_QWORD *)&v42[8 * v39 + 6] = a4;
+  v21 = v39++;
+  SepQueryNameString(a2, &v36);
+  v22 = (unsigned __int16 *)v36;
+  if ( v36 )
   {
     if ( (_WORD)v12 == 117 || (_WORD)v12 == 129 )
-      v44[8 * v41] = 2;
+      v42[8 * v39] = 2;
     else
-      v44[8 * v41] = 1;
-    v44[8 * v41 + 1] = *v24 + 16;
-    *(_QWORD *)&v44[8 * v41 + 6] = v24;
+      v42[8 * v39] = 1;
+    v42[8 * v39 + 1] = *v22 + 16;
+    *(_QWORD *)&v42[8 * v39 + 6] = v22;
   }
-  v44[8 * ++v41] = 11;
-  v44[8 * v41 + 1] = 8;
-  v25 = ObNormalizeHandleValue(a3);
-  *(_QWORD *)&v44[8 * v41++ + 2] = v25;
-  v44[8 * v41] = 7;
-  v44[8 * v41 + 1] = v27 - 7;
-  *(_QWORD *)&v44[8 * v41 + 2] = a5;
-  *(_QWORD *)&v44[8 * v41++ + 4] = v23;
-  v44[8 * v41] = 10;
-  v44[8 * v41 + 1] = v27 - 7;
-  *(_QWORD *)&v44[8 * v41 + 2] = a5;
-  v28 = (unsigned __int16 *)v37;
-  v44[8 * ++v41] = v27;
-  v44[8 * v41 + 1] = v29;
-  *(_QWORD *)&v44[8 * v41++ + 2] = Flink;
-  v44[8 * v41] = 2;
-  v44[8 * v41 + 1] = *v28 + 16;
-  *(_QWORD *)&v44[8 * v41 + 6] = v28;
-  v30 = ++v41;
-  if ( (v12 == v26 || v12 - v26 == 12) && P )
+  v42[8 * ++v39] = 11;
+  v42[8 * v39 + 1] = 8;
+  v23 = ObNormalizeHandleValue(a3);
+  *(_QWORD *)&v42[8 * v39++ + 2] = v23;
+  v42[8 * v39] = 7;
+  v42[8 * v39 + 1] = v25 - 7;
+  *(_QWORD *)&v42[8 * v39 + 2] = a5;
+  *(_QWORD *)&v42[8 * v39++ + 4] = v21;
+  v42[8 * v39] = 10;
+  v42[8 * v39 + 1] = v25 - 7;
+  *(_QWORD *)&v42[8 * v39 + 2] = a5;
+  v26 = (unsigned __int16 *)v35;
+  v42[8 * ++v39] = v25;
+  v42[8 * v39 + 1] = v27;
+  *(_QWORD *)&v42[8 * v39++ + 2] = Flink;
+  v42[8 * v39] = 2;
+  v42[8 * v39 + 1] = *v26 + 16;
+  *(_QWORD *)&v42[8 * v39 + 6] = v26;
+  v28 = ++v39;
+  if ( (v12 == v24 || v12 - v24 == 12) && P )
   {
-    v31 = SepCheckAndCopySelfRelativeSD((__int16 *)P, &v36, &v35, v34);
-    v7 = v36;
-    AllocatedFullProcessImageName = v31;
-    if ( v31 < 0 )
+    v29 = SepCheckAndCopySelfRelativeSD((__int16 *)P, &v34, &v33, v32);
+    v7 = v34;
+    AllocatedFullProcessImageName = v29;
+    if ( v29 < 0 )
       goto LABEL_10;
-    v32 = (__int64)v36;
-    v44[8 * v41] = 31;
-    v33 = SepSecurityDescriptorStrictLength(v32);
-    v44[8 * v41 + 1] = v33;
-    *(_QWORD *)&v44[8 * v41 + 6] = v7;
-    *(_QWORD *)&v44[8 * v41 + 2] = 32LL;
-    *(_QWORD *)&v44[8 * v41 + 4] = 0LL;
-    v30 = v41;
+    v30 = (__int64)v34;
+    v42[8 * v39] = 31;
+    v31 = SepSecurityDescriptorStrictLength(v30);
+    v42[8 * v39 + 1] = v31;
+    *(_QWORD *)&v42[8 * v39 + 6] = v7;
+    *(_QWORD *)&v42[8 * v39 + 2] = 32LL;
+    *(_QWORD *)&v42[8 * v39 + 4] = 0LL;
+    v28 = v39;
   }
-  v41 = v30 + 1;
+  v39 = v28 + 1;
   SepAdtLogAuditRecord(Src);
   SeReleaseSubjectContext(&SubjectContext);
 LABEL_10:
-  if ( v34[0] && v7 )
+  if ( v32[0] && v7 )
     ExFreePoolWithTag(v7, 0);
   if ( AllocatedFullProcessImageName < 0 )
     goto LABEL_16;
 LABEL_12:
-  if ( v37 )
-    ExFreePoolWithTag(v37, 0);
-  if ( v38 )
-    ExFreePoolWithTag(v38, 0);
+  if ( v35 )
+    ExFreePoolWithTag(v35, 0);
+  if ( v36 )
+    ExFreePoolWithTag(v36, 0);
 }

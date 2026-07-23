@@ -1,8 +1,8 @@
 /*
- * XREFs of VmpVaRangeCheckPinnedGpaRanges @ 0x14064B89C
+ * XREFs of VmpVaRangeCheckPinnedGpaRanges @ 0x140649E5C
  * Callers:
- *     VmpSplitMemoryRange @ 0x1403AB5D4 (VmpSplitMemoryRange.c)
- *     VmpDereferencePinInProgress @ 0x14064A7B4 (VmpDereferencePinInProgress.c)
+ *     VmpSplitMemoryRange @ 0x140399CE8 (VmpSplitMemoryRange.c)
+ *     VmpDereferencePinInProgress @ 0x140648D74 (VmpDereferencePinInProgress.c)
  * Callees:
  *     <none>
  */

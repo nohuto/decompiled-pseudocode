@@ -3,7 +3,7 @@
  * Callers:
  *     KiAttachProcess @ 0x140016BD0 (KiAttachProcess.c)
  *     KiUnstackDetachProcess @ 0x140017190 (KiUnstackDetachProcess.c)
- *     KiDetachProcess @ 0x1400B9CA0 (KiDetachProcess.c)
+ *     KiDetachProcess @ 0x1400B9BE0 (KiDetachProcess.c)
  * Callees:
  *     <none>
  */

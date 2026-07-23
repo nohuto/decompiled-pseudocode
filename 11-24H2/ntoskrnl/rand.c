@@ -1,5 +1,5 @@
 /*
- * XREFs of rand @ 0x1404FF520
+ * XREFs of rand @ 0x1404FCDE0
  * Callers:
  *     <none>
  * Callees:

@@ -1,9 +1,9 @@
 /*
- * XREFs of SepInitializeSharedSidMap @ 0x14054CF48
+ * XREFs of SepInitializeSharedSidMap @ 0x14054D488
  * Callers:
  *     SepVariableInitialization @ 0x14078FC70 (SepVariableInitialization.c)
  * Callees:
- *     RtlCreateHashTable @ 0x1400A955C (RtlCreateHashTable.c)
+ *     RtlCreateHashTable @ 0x1400A7ADC (RtlCreateHashTable.c)
  */
 
 __int64 SepInitializeSharedSidMap()

@@ -1,17 +1,17 @@
 /*
- * XREFs of VfDriverEnableVerifierForAll @ 0x140B8A3B4
+ * XREFs of VfDriverEnableVerifierForAll @ 0x140B8C3B4
  * Callers:
- *     VfAddVerifierEntry @ 0x140B9C32C (VfAddVerifierEntry.c)
+ *     VfAddVerifierEntry @ 0x140B9E32C (VfAddVerifierEntry.c)
  * Callees:
- *     KeReleaseMutex @ 0x1403379B0 (KeReleaseMutex.c)
- *     RtlImageNtHeaderEx @ 0x14041E7E0 (RtlImageNtHeaderEx.c)
- *     MmReleaseLoadLock @ 0x1404C9960 (MmReleaseLoadLock.c)
- *     MmAcquireLoadLock @ 0x1404D2990 (MmAcquireLoadLock.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
- *     VfUtilIsProtectedDriver @ 0x140B834AC (VfUtilIsProtectedDriver.c)
- *     VfDriverEnableVerifier @ 0x140B8A250 (VfDriverEnableVerifier.c)
- *     VfDriverLock @ 0x140B8A4B4 (VfDriverLock.c)
- *     VfSuspectDriversAllocateEntryEx @ 0x140B9A73C (VfSuspectDriversAllocateEntryEx.c)
+ *     KeReleaseMutex @ 0x1402DEA60 (KeReleaseMutex.c)
+ *     RtlImageNtHeaderEx @ 0x140414520 (RtlImageNtHeaderEx.c)
+ *     MmReleaseLoadLock @ 0x1404C2E10 (MmReleaseLoadLock.c)
+ *     MmAcquireLoadLock @ 0x1404CBB50 (MmAcquireLoadLock.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
+ *     VfUtilIsProtectedDriver @ 0x140B854AC (VfUtilIsProtectedDriver.c)
+ *     VfDriverEnableVerifier @ 0x140B8C250 (VfDriverEnableVerifier.c)
+ *     VfDriverLock @ 0x140B8C4B4 (VfDriverLock.c)
+ *     VfSuspectDriversAllocateEntryEx @ 0x140B9C73C (VfSuspectDriversAllocateEntryEx.c)
  */
 
 __int64 VfDriverEnableVerifierForAll()
@@ -22,16 +22,16 @@ __int64 VfDriverEnableVerifierForAll()
   __int64 Entry; // rax
   void *v4; // rsi
   int v6; // [rsp+40h] [rbp+8h] BYREF
-  __int64 v7; // [rsp+48h] [rbp+10h] BYREF
+  PIMAGE_NT_HEADERS OutHeaders; // [rsp+48h] [rbp+10h] BYREF
 
-  v7 = 0LL;
+  OutHeaders = 0LL;
   v0 = 0;
   v6 = 0;
   VfDriverLock();
   Lock = MmAcquireLoadLock();
   for ( i = *(PVOID **)PsLoadedModuleList; i != &PsLoadedModuleList; i = (PVOID *)*i )
   {
-    if ( !(unsigned int)VfUtilIsProtectedDriver() && (int)RtlImageNtHeaderEx(1, (unsigned __int64)i[6], 0LL, &v7) >= 0 )
+    if ( !(unsigned int)VfUtilIsProtectedDriver() && RtlImageNtHeaderEx(1u, i[6], 0LL, &OutHeaders) >= 0 )
     {
       Entry = VfSuspectDriversAllocateEntryEx(i);
       v4 = (void *)Entry;

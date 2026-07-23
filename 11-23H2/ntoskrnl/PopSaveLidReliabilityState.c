@@ -1,12 +1,12 @@
 /*
- * XREFs of PopSaveLidReliabilityState @ 0x14098AB68
+ * XREFs of PopSaveLidReliabilityState @ 0x14098AD68
  * Callers:
- *     PopTransitionSystemPowerStateEx @ 0x140AA90F0 (PopTransitionSystemPowerStateEx.c)
+ *     PopTransitionSystemPowerStateEx @ 0x140AA8F60 (PopTransitionSystemPowerStateEx.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ZwSetValueKey @ 0x14041B960 (ZwSetValueKey.c)
- *     PopOpenPersistedRegistryKey @ 0x14082228C (PopOpenPersistedRegistryKey.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ZwSetValueKey @ 0x14041BCF0 (ZwSetValueKey.c)
+ *     PopOpenPersistedRegistryKey @ 0x14082258C (PopOpenPersistedRegistryKey.c)
  */
 
 NTSTATUS __fastcall PopSaveLidReliabilityState(__int64 a1)

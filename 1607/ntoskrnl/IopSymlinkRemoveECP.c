@@ -1,9 +1,9 @@
 /*
- * XREFs of IopSymlinkRemoveECP @ 0x140079FB4
+ * XREFs of IopSymlinkRemoveECP @ 0x14007A034
  * Callers:
- *     IopParseDevice @ 0x1404408F0 (IopParseDevice.c)
- *     IopSymlinkUpdateECP @ 0x140540BD0 (IopSymlinkUpdateECP.c)
- *     IopGraftName @ 0x140541028 (IopGraftName.c)
+ *     IopParseDevice @ 0x14043F7C0 (IopParseDevice.c)
+ *     IopSymlinkUpdateECP @ 0x140541110 (IopSymlinkUpdateECP.c)
+ *     IopGraftName @ 0x140541568 (IopGraftName.c)
  * Callees:
  *     <none>
  */

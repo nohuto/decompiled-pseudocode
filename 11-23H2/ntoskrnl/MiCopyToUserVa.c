@@ -1,22 +1,22 @@
 /*
  * XREFs of MiCopyToUserVa @ 0x14021CBDC
  * Callers:
- *     MiCopyToCfgBitMap @ 0x1406B1380 (MiCopyToCfgBitMap.c)
+ *     MiCopyToCfgBitMap @ 0x1406B13B0 (MiCopyToCfgBitMap.c)
  * Callees:
  *     MiLockPageAndSetDirty @ 0x140217514 (MiLockPageAndSetDirty.c)
  *     MiMapPageInHyperSpaceWorker @ 0x14021ACA0 (MiMapPageInHyperSpaceWorker.c)
  *     MiUnmapPageInHyperSpaceWorker @ 0x14021AE84 (MiUnmapPageInHyperSpaceWorker.c)
- *     MiUnlockWorkingSetShared @ 0x14023C500 (MiUnlockWorkingSetShared.c)
- *     MiCopyOnWrite @ 0x14026FDA0 (MiCopyOnWrite.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1402712F0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiMakeSystemAddressValid @ 0x140277430 (MiMakeSystemAddressValid.c)
- *     MiLockWorkingSetShared @ 0x140283C90 (MiLockWorkingSetShared.c)
- *     MiLocateCloneAddress @ 0x140294598 (MiLocateCloneAddress.c)
- *     MiUnlockPageTableInternal @ 0x1403195C0 (MiUnlockPageTableInternal.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     MiCopyOnWriteCheckConditions @ 0x140666E20 (MiCopyOnWriteCheckConditions.c)
- *     MiChargeFullProcessCommitment @ 0x1406F7800 (MiChargeFullProcessCommitment.c)
- *     MiReturnFullProcessCommitment @ 0x140764E54 (MiReturnFullProcessCommitment.c)
+ *     MiUnlockWorkingSetShared @ 0x14023C5D0 (MiUnlockWorkingSetShared.c)
+ *     MiCopyOnWrite @ 0x140270030 (MiCopyOnWrite.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140271580 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiMakeSystemAddressValid @ 0x1402776C0 (MiMakeSystemAddressValid.c)
+ *     MiLockWorkingSetShared @ 0x140283F20 (MiLockWorkingSetShared.c)
+ *     MiLocateCloneAddress @ 0x140294828 (MiLocateCloneAddress.c)
+ *     MiUnlockPageTableInternal @ 0x140319850 (MiUnlockPageTableInternal.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     MiCopyOnWriteCheckConditions @ 0x140667370 (MiCopyOnWriteCheckConditions.c)
+ *     MiChargeFullProcessCommitment @ 0x1406F7A10 (MiChargeFullProcessCommitment.c)
+ *     MiReturnFullProcessCommitment @ 0x140765044 (MiReturnFullProcessCommitment.c)
  */
 
 __int64 __fastcall MiCopyToUserVa(ULONG_PTR a1, __int64 a2, const void *a3, size_t a4)

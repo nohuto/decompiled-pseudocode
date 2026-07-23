@@ -1,12 +1,12 @@
 /*
- * XREFs of HvpAdjustBitmap @ 0x140A8277C
+ * XREFs of HvpAdjustBitmap @ 0x140A885EC
  * Callers:
- *     HvpAdjustHiveFreeDisplay @ 0x140A82700 (HvpAdjustHiveFreeDisplay.c)
+ *     HvpAdjustHiveFreeDisplay @ 0x140A88570 (HvpAdjustHiveFreeDisplay.c)
  * Callees:
- *     RtlClearBits @ 0x1403591A0 (RtlClearBits.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     RtlClearBits @ 0x14035AF40 (RtlClearBits.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall HvpAdjustBitmap(__int64 a1, unsigned int a2, __int64 a3)

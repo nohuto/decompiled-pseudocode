@@ -27,9 +27,8 @@
  *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x1405B5CCC (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
  */
 
-__int64 __fastcall RtlpHpVsChunkSplit(__int64 a1, __int64 a2, __int64 a3, __int64 a4, char a5, _QWORD *a6)
+__int64 __fastcall RtlpHpVsChunkSplit(__int64 a1, __int64 a2, __int64 a3, unsigned int a4, char a5, _QWORD *a6)
 {
-  unsigned int v7; // esi
   unsigned int v9; // r15d
   __int64 v11; // rbx
   unsigned int v12; // r11d
@@ -71,8 +70,8 @@ __int64 __fastcall RtlpHpVsChunkSplit(__int64 a1, __int64 a2, __int64 a3, __int6
   unsigned __int64 v48; // r9
   unsigned __int64 v49; // rax
   __int64 v50; // rcx
-  unsigned __int8 v51; // al
-  __int64 v52; // rax
+  BOOLEAN v51; // al
+  unsigned __int64 v52; // rax
   __int64 v54; // rax
   unsigned __int64 v55; // r15
   unsigned __int64 v56; // rdx
@@ -93,37 +92,35 @@ __int64 __fastcall RtlpHpVsChunkSplit(__int64 a1, __int64 a2, __int64 a3, __int6
   unsigned __int64 v71; // rcx
   unsigned int SessionId; // r11d
   ULONG_PTR v73; // r10
-  __int64 v74; // rdx
-  __int64 v75; // r8
-  bool v76; // zf
-  __int64 v77; // rcx
-  int v78; // eax
-  __int64 v79; // rcx
-  __int64 v80; // rdx
+  unsigned int v74; // edx
+  bool v75; // zf
+  __int64 v76; // rcx
+  int v77; // eax
+  __int64 v78; // rcx
+  __int64 v79; // rdx
   struct _KTHREAD *CurrentThread; // rax
-  int v82; // eax
-  unsigned __int8 v83; // al
-  struct _KPRCB *v84; // r10
-  _DWORD *v85; // r9
-  int v86; // eax
-  int v87; // [rsp+34h] [rbp-44h]
+  int v81; // eax
+  unsigned __int8 v82; // al
+  struct _KPRCB *v83; // r10
+  _DWORD *v84; // r9
+  int v85; // eax
+  int v86; // [rsp+34h] [rbp-44h]
   ULONG_PTR BugCheckParameter1; // [rsp+40h] [rbp-38h]
   struct _KTHREAD *BugCheckParameter1a; // [rsp+40h] [rbp-38h]
-  unsigned __int64 v90; // [rsp+48h] [rbp-30h]
-  __int64 v91; // [rsp+50h] [rbp-28h]
-  unsigned __int8 v92; // [rsp+68h] [rbp-10h]
+  unsigned __int64 v89; // [rsp+48h] [rbp-30h]
+  __int64 v90; // [rsp+50h] [rbp-28h]
+  unsigned __int8 v91; // [rsp+68h] [rbp-10h]
   void *retaddr; // [rsp+B8h] [rbp+40h]
-  __int64 v94; // [rsp+C0h] [rbp+48h]
-  unsigned int v95; // [rsp+C0h] [rbp+48h]
-  unsigned __int64 v96; // [rsp+C8h] [rbp+50h]
-  int v97; // [rsp+C8h] [rbp+50h]
-  unsigned int v98; // [rsp+D0h] [rbp+58h]
-  unsigned int v99; // [rsp+D8h] [rbp+60h]
-  unsigned __int8 v100; // [rsp+D8h] [rbp+60h]
+  __int64 v93; // [rsp+C0h] [rbp+48h]
+  unsigned int v94; // [rsp+C0h] [rbp+48h]
+  unsigned __int64 v95; // [rsp+C8h] [rbp+50h]
+  int v96; // [rsp+C8h] [rbp+50h]
+  unsigned int v97; // [rsp+D0h] [rbp+58h]
+  unsigned int v98; // [rsp+D8h] [rbp+60h]
+  unsigned __int8 v99; // [rsp+D8h] [rbp+60h]
 
-  v7 = a4;
   v9 = WORD1(RtlpHpHeapGlobals) ^ WORD1(a3) ^ *(unsigned __int16 *)(a3 + 2);
-  RtlRbRemoveNode(a1 + 16, a3 + 8, a3, a4);
+  RtlRbRemoveNode((PRTL_RB_TREE)(a1 + 16), (PRTL_BALANCED_NODE)(a3 + 8));
   v11 = 0LL;
   v12 = a3 - a2;
   v13 = (a3 - a2 + 4127) & 0xFFFFF000;
@@ -142,35 +139,35 @@ __int64 __fastcall RtlpHpVsChunkSplit(__int64 a1, __int64 a2, __int64 a3, __int6
                                                            * (((unsigned int)a3 ^ (unsigned int)RtlpHpHeapGlobals ^ *(_DWORD *)a3) >> 16))
                                         + 4095) >> 12)
                         - (unsigned __int16)(a3 ^ RtlpHpHeapGlobals ^ *(_WORD *)a3);
-  v15 = v9 - v7;
+  v15 = v9 - a4;
   if ( v15 && (*(_DWORD *)(a1 + 176) & 1) != 0 )
   {
-    v16 = (((a3 + 16LL * v7 + 4095) & 0xFFFFFFFFFFFFF000uLL) - (a3 + 16LL * v7)) >> 4;
+    v16 = (((a3 + 16LL * a4 + 4095) & 0xFFFFFFFFFFFFF000uLL) - (a3 + 16LL * a4)) >> 4;
     v17 = 16 * v16;
     if ( (unsigned int)(16 * v16) < 0x20 )
     {
-      v7 += v16;
+      a4 += v16;
       v15 -= v16;
     }
     else if ( (v17 & 0xFFFFFFC0) == 0 && v17 != 32 )
     {
-      ++v7;
+      ++a4;
       --v15;
     }
   }
   if ( 16 * v15 < 0x20 )
-    v7 += v15;
+    a4 += v15;
   v18 = 0;
   if ( 16 * v15 >= 0x20 )
     v18 = v15;
-  v98 = v18;
-  v19 = 16 * v7 + 32;
+  v97 = v18;
+  v19 = 16 * a4 + 32;
   *(_BYTE *)(a3 + 6) = BYTE6(a3) ^ BYTE6(RtlpHpHeapGlobals) ^ 1;
   SchedulerAssist = (unsigned __int8)(RtlpHpHeapGlobals ^ (v12 >> 12) ^ a3);
   *(_DWORD *)(a3 + 8) = SchedulerAssist;
   v21 = v18;
   if ( !v18 )
-    v19 = 16 * v7;
+    v19 = 16 * a4;
   v22 = 0xF0F0F0F0F0F0F0FLL;
   v23 = (0xFFFFFFFFFFFFFFFFuLL >> (63 - (unsigned __int8)((v12 - 1 + v19) >> 12))) & (-1LL << (v12 >> 12));
   v24 = (v23 ^ *(_QWORD *)(a2 + 16)) & v23;
@@ -185,15 +182,15 @@ __int64 __fastcall RtlpHpVsChunkSplit(__int64 a1, __int64 a2, __int64 a3, __int6
     }
     v55 = a2 + 24;
     _BitScanForward64(&v56, v24);
-    v90 = (0x101010101010101LL
+    v89 = (0x101010101010101LL
          * ((((v24 - ((v24 >> 1) & 0x5555555555555555LL)) & 0x3333333333333333LL)
            + (((v24 - ((v24 >> 1) & 0x5555555555555555LL)) >> 2) & 0x3333333333333333LL)
            + ((((v24 - ((v24 >> 1) & 0x5555555555555555LL)) & 0x3333333333333333LL)
              + (((v24 - ((v24 >> 1) & 0x5555555555555555LL)) >> 2) & 0x3333333333333333LL)) >> 4)) & 0xF0F0F0F0F0F0F0FLL)) >> 56;
     _BitScanReverse64(&v57, v24);
     v58 = a2 + (unsigned int)((_DWORD)v56 << 12);
-    v87 = v57 - v56 + 1;
-    BugCheckParameter1 = ((1LL << v87) - 1) << v56;
+    v86 = v57 - v56 + 1;
+    BugCheckParameter1 = ((1LL << v86) - 1) << v56;
     if ( *(_DWORD *)(a1 + 8) )
     {
       CurrentIrql = KeGetCurrentIrql();
@@ -211,23 +208,23 @@ __int64 __fastcall RtlpHpVsChunkSplit(__int64 a1, __int64 a2, __int64 a3, __int6
         ExpAcquireSpinLockExclusive(v60, CurrentIrql, v22, SchedulerAssist);
       v61 = CurrentIrql;
       v55 = a2 + 24;
-      v92 = v61;
+      v91 = v61;
     }
     else
     {
       CurrentThread = KeGetCurrentThread();
-      v92 = 0;
+      v91 = 0;
       --CurrentThread->SpecialApcDisable;
       ExAcquirePushLockExclusiveEx(a2 + 24, 0LL);
     }
     v62 = ((__int64 (__fastcall *)(__int64, __int64, _QWORD))(a1 ^ RtlpHpHeapGlobals ^ *(_QWORD *)(a1 + 152)))(
             a1 ^ *(_QWORD *)(a1 + 128),
             v58,
-            (unsigned int)(v87 << 12));
+            (unsigned int)(v86 << 12));
     if ( v62 >= 0 )
     {
       *(_QWORD *)(a2 + 16) |= BugCheckParameter1;
-      _InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 48), v90);
+      _InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 48), v89);
       v62 = 0;
     }
     if ( *(_DWORD *)(a1 + 8) )
@@ -242,30 +239,30 @@ __int64 __fastcall RtlpHpVsChunkSplit(__int64 a1, __int64 a2, __int64 a3, __int6
       {
         if ( CurrentPrcb->NestingLevel <= 1u )
         {
-          v82 = v64[6] - 1;
-          v64[6] = v82;
-          if ( !v82 )
+          v81 = v64[6] - 1;
+          v64[6] = v81;
+          if ( !v81 )
             KiRemoveSystemWorkPriorityKick(CurrentPrcb);
         }
       }
-      if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && (v83 = KeGetCurrentIrql(), v83 <= 0xFu) )
+      if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && (v82 = KeGetCurrentIrql(), v82 <= 0xFu) )
       {
-        v65 = v92;
-        if ( v92 <= 0xFu && v83 >= 2u )
+        v65 = v91;
+        if ( v91 <= 0xFu && v82 >= 2u )
         {
-          v84 = KeGetCurrentPrcb();
-          v85 = v84->SchedulerAssist;
-          v65 = v92;
-          v86 = ~(unsigned __int16)(-1LL << (v92 + 1));
-          v76 = (v86 & v85[5]) == 0;
-          v85[5] &= v86;
-          if ( v76 )
-            KiRemoveSystemWorkPriorityKick(v84);
+          v83 = KeGetCurrentPrcb();
+          v84 = v83->SchedulerAssist;
+          v65 = v91;
+          v85 = ~(unsigned __int16)(-1LL << (v91 + 1));
+          v75 = (v85 & v84[5]) == 0;
+          v84[5] &= v85;
+          if ( v75 )
+            KiRemoveSystemWorkPriorityKick(v83);
         }
       }
       else
       {
-        v65 = v92;
+        v65 = v91;
       }
       __writecr8(v65);
     }
@@ -280,32 +277,31 @@ __int64 __fastcall RtlpHpVsChunkSplit(__int64 a1, __int64 a2, __int64 a3, __int6
         SessionId = -1;
       v73 = (ULONG_PTR)BugCheckParameter1a;
       --BugCheckParameter1a->SpecialApcDisable;
-      v100 = ++BugCheckParameter1a->AbAllocationRegionCount;
-      LODWORD(v74) = (*(char *)(v73 + 792) | *(char *)(v73 + 870)) ^ 0x3F;
-      v75 = v55 & 0x7FFFFFFFFFFFFFFCLL;
-      v76 = !_BitScanReverse((unsigned int *)&v77, v74);
-      if ( v76 )
+      v99 = ++BugCheckParameter1a->AbAllocationRegionCount;
+      v74 = (*(char *)(v73 + 792) | *(char *)(v73 + 870)) ^ 0x3F;
+      v75 = !_BitScanReverse((unsigned int *)&v76, v74);
+      if ( v75 )
         goto LABEL_124;
       while ( 1 )
       {
-        v78 = ~(1 << v77);
-        v79 = (__int64)&BugCheckParameter1a->LockEntries[v77];
-        v74 = v78 & (unsigned int)v74;
-        v91 = v79;
-        if ( (*(_BYTE *)(v79 + 26) & 1) != 0
-          && (*(_DWORD *)(v79 + 32) & 1) == 0
-          && (*(_QWORD *)(v79 + 32) & 0x7FFFFFFFFFFFFFFCLL) == v75
-          && *(_DWORD *)(v79 + 40) == SessionId )
+        v77 = ~(1 << v76);
+        v78 = (__int64)&BugCheckParameter1a->LockEntries[v76];
+        v74 &= v77;
+        v90 = v78;
+        if ( (*(_BYTE *)(v78 + 26) & 1) != 0
+          && (*(_DWORD *)(v78 + 32) & 1) == 0
+          && (*(_QWORD *)(v78 + 32) & 0x7FFFFFFFFFFFFFFCLL) == (v55 & 0x7FFFFFFFFFFFFFFCLL)
+          && *(_DWORD *)(v78 + 40) == SessionId )
         {
-          *(_BYTE *)(v79 + 26) &= ~1u;
-          if ( *(_QWORD *)(v79 + 32) )
+          *(_BYTE *)(v78 + 26) &= ~1u;
+          if ( *(_QWORD *)(v78 + 32) )
             break;
         }
-        v76 = !_BitScanReverse((unsigned int *)&v77, v74);
-        if ( v76 )
+        v75 = !_BitScanReverse((unsigned int *)&v76, v74);
+        if ( v75 )
           goto LABEL_124;
       }
-      if ( !v79 )
+      if ( !v78 )
       {
 LABEL_124:
         if ( (*((_DWORD *)&BugCheckParameter1a->0 + 1) & 0x10000) == 0 )
@@ -313,53 +309,53 @@ LABEL_124:
       }
       else
       {
-        *(_BYTE *)(v79 + 32) |= 2u;
-        if ( *(__int64 *)(v79 + 32) < 0 )
+        *(_BYTE *)(v78 + 32) |= 2u;
+        if ( *(__int64 *)(v78 + 32) < 0 )
         {
-          KiAbEntryRemoveFromTree(v79, v74, v75);
-          v79 = v91;
+          KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v78);
+          v78 = v90;
           v73 = (ULONG_PTR)BugCheckParameter1a;
         }
-        *(_DWORD *)(v79 + 88) &= 0xFFFE0000;
-        *(_BYTE *)(v79 + 25) &= ~1u;
-        *(_QWORD *)(v79 + 32) = 0LL;
-        v80 = (v79 - *(_QWORD *)(v73 + 800)) / 96;
-        if ( v100 == 1 )
-          *(_BYTE *)(v73 + 792) |= 1 << v80;
+        *(_DWORD *)(v78 + 88) &= 0xFFFE0000;
+        *(_BYTE *)(v78 + 25) &= ~1u;
+        *(_QWORD *)(v78 + 32) = 0LL;
+        v79 = (v78 - *(_QWORD *)(v73 + 800)) / 96;
+        if ( v99 == 1 )
+          *(_BYTE *)(v73 + 792) |= 1 << v79;
         else
-          _InterlockedOr8((volatile signed __int8 *)(v73 + 870), 1 << v80);
+          _InterlockedOr8((volatile signed __int8 *)(v73 + 870), 1 << v79);
       }
       --*(_BYTE *)(v73 + 794);
       KiAbThreadRemoveBoosts(v73);
-      v76 = BugCheckParameter1a->SpecialApcDisable++ == -1;
-      if ( v76
+      v75 = BugCheckParameter1a->SpecialApcDisable++ == -1;
+      if ( v75
         && ($C459BD0D405E8E46662177FB3D0A143F *)BugCheckParameter1a->ApcState.ApcListHead[0].Flink != &BugCheckParameter1a->152 )
       {
         KiCheckForKernelApcDelivery((__int64)BugCheckParameter1a);
       }
       KiLeaveGuardedRegionUnsafe(KeGetCurrentThread());
     }
-    v21 = v98;
+    v21 = v97;
     if ( v62 < 0 )
     {
-      v21 = v98 + v7;
-      v7 = 0;
+      v21 = v97 + a4;
+      a4 = 0;
     }
     if ( (a5 & 1) == 0 )
       RtlpHpAcquireQueuedLockExclusive((volatile LONG *)a1, *(_DWORD *)(a1 + 8), a6);
     *(_DWORD *)(a3 + 8) &= ~0x200u;
   }
-  *(_WORD *)(a3 + 2) = WORD1(RtlpHpHeapGlobals) ^ v7 ^ WORD1(a3);
+  *(_WORD *)(a3 + 2) = WORD1(RtlpHpHeapGlobals) ^ a4 ^ WORD1(a3);
   if ( v21 )
   {
-    v25 = 16LL * v7 + a3;
-    if ( v7 )
-      v26 = (unsigned __int16)v7;
+    v25 = 16LL * a4 + a3;
+    if ( a4 )
+      v26 = (unsigned __int16)a4;
     else
       v26 = (unsigned __int16)(WORD2(RtlpHpHeapGlobals) ^ WORD2(v25) ^ HIDWORD(*(_QWORD *)v25));
-    HIDWORD(v94) = v26 & 0xFF00FFFF | 0x10000;
-    LODWORD(v94) = v21 << 16;
-    *(_QWORD *)v25 = v94 ^ RtlpHpHeapGlobals ^ v25;
+    HIDWORD(v93) = v26 & 0xFF00FFFF | 0x10000;
+    LODWORD(v93) = v21 << 16;
+    *(_QWORD *)v25 = v93 ^ RtlpHpHeapGlobals ^ v25;
     v27 = v25 + 16LL * v21;
     *(_DWORD *)(v25 + 8) = (unsigned __int8)(RtlpHpHeapGlobals ^ v25 ^ ((unsigned int)(v25 - a2) >> 12));
     if ( v27 < a2 + 16 * ((unsigned __int64)*(unsigned __int16 *)(a2 + 32) + 3) )
@@ -367,21 +363,21 @@ LABEL_124:
     for ( i = 0; ; i = v30 )
     {
       v29 = a2 + 48;
-      v99 = i;
+      v98 = i;
       v30 = ((unsigned int)RtlpHpHeapGlobals ^ (unsigned int)v25 ^ *(_DWORD *)v25) >> 16;
-      v95 = v30;
+      v94 = v30;
       v31 = (unsigned __int16)(((unsigned __int64)RtlpHpHeapGlobals ^ v25 ^ *(_QWORD *)v25) >> 32);
       *(_BYTE *)(v25 + 6) = BYTE6(RtlpHpHeapGlobals) ^ BYTE6(v25);
       if ( v31 )
       {
-        v96 = v25 - 16LL * v31;
-        v32 = RtlpHpHeapGlobals ^ *(_QWORD *)v96 ^ v96;
+        v95 = v25 - 16LL * v31;
+        v32 = RtlpHpHeapGlobals ^ *(_QWORD *)v95 ^ v95;
         if ( (v32 & 0xFF000000000000LL) == 0 )
         {
           RtlpHpVsFreeChunkRemove(a1, a2, v25 - 16LL * v31, v29);
-          v25 = v96;
+          v25 = v95;
           v29 = a2 + 48;
-          i = v99;
+          i = v98;
           v30 += WORD1(v32);
         }
       }
@@ -395,7 +391,7 @@ LABEL_124:
           RtlpHpVsFreeChunkRemove(a1, a2, v34, v29);
           v33 = *(_WORD *)(a2 + 32);
           v29 = a2 + 48;
-          i = v99;
+          i = v98;
           v30 += WORD1(v35);
         }
       }
@@ -411,12 +407,12 @@ LABEL_124:
             RtlpHpVsFreeChunkRemove(a1, a2, v34, v29);
             v36 = *(_WORD *)(a2 + 32);
             v29 = a2 + 48;
-            i = v99;
+            i = v98;
             v30 += WORD1(v37);
           }
         }
       }
-      if ( v95 != v30 )
+      if ( v94 != v30 )
       {
         v34 = v25 + 16LL * v30;
         *(_WORD *)(v25 + 2) = WORD1(RtlpHpHeapGlobals) ^ v30 ^ WORD1(v25);
@@ -430,7 +426,7 @@ LABEL_124:
       if ( v30 == v36 )
       {
         RtlpHpVsSubsegmentCleanup(a1, a2, v34, v29);
-        return v7;
+        return a4;
       }
       if ( v30 <= i )
         break;
@@ -456,7 +452,7 @@ LABEL_124:
              + (((v41 - ((v41 >> 1) & 0x5555555555555555LL)) >> 2) & 0x3333333333333333LL)
              + ((((v41 - ((v41 >> 1) & 0x5555555555555555LL)) & 0x3333333333333333LL)
                + (((v41 - ((v41 >> 1) & 0x5555555555555555LL)) >> 2) & 0x3333333333333333LL)) >> 4)) & 0xF0F0F0F0F0F0F0FLL)) >> 56;
-      v97 = v70;
+      v96 = v70;
       if ( *(__int16 *)(a2 + 34) < 0 )
         break;
       if ( (*(_DWORD *)(a1 + 176) & 2) == 0 )
@@ -472,7 +468,7 @@ LABEL_124:
       if ( (a5 & 1) == 0 )
       {
         RtlpHpReleaseQueuedLockExclusive(*(_DWORD *)(a1 + 8), (__int64)a6);
-        LODWORD(v70) = v97;
+        LODWORD(v70) = v96;
       }
       RtlpHpVsSubsegmentCommitPages(a1, a2, v41, v70, 0);
       if ( (a5 & 1) == 0 )
@@ -577,7 +573,7 @@ LABEL_50:
         v11 = v52;
       }
     }
-    RtlRbInsertNodeEx(a1 + 16, v11, v51, v25 + 8);
+    RtlRbInsertNodeEx((PRTL_RB_TREE)(a1 + 16), (PRTL_BALANCED_NODE)v11, v51, (PRTL_BALANCED_NODE)(v25 + 8));
   }
-  return v7;
+  return a4;
 }

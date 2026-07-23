@@ -1,13 +1,13 @@
 /*
- * XREFs of ExpFreeOwnerEntry @ 0x140260B60
+ * XREFs of ExpFreeOwnerEntry @ 0x140260DF0
  * Callers:
- *     ExReleaseResourceForThreadLite @ 0x14025FD60 (ExReleaseResourceForThreadLite.c)
- *     ExpReleaseResourceForThreadLite @ 0x140260600 (ExpReleaseResourceForThreadLite.c)
+ *     ExReleaseResourceForThreadLite @ 0x14025FFF0 (ExReleaseResourceForThreadLite.c)
+ *     ExpReleaseResourceForThreadLite @ 0x140260890 (ExpReleaseResourceForThreadLite.c)
  * Callees:
  *     ObpDeferObjectDeletion @ 0x14020B930 (ObpDeferObjectDeletion.c)
- *     PsBoostThreadIoEx @ 0x14022FF50 (PsBoostThreadIoEx.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     ObpPushStackInfo @ 0x140582BD8 (ObpPushStackInfo.c)
+ *     PsBoostThreadIoEx @ 0x140230040 (PsBoostThreadIoEx.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     ObpPushStackInfo @ 0x1405830C8 (ObpPushStackInfo.c)
  */
 
 __int64 __fastcall ExpFreeOwnerEntry(__int64 a1)

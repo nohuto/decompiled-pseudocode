@@ -1,11 +1,11 @@
 /*
- * XREFs of MiReserveFaultPte @ 0x14053AADC
+ * XREFs of MiReserveFaultPte @ 0x14053AD1C
  * Callers:
- *     MiValidateImagePfn @ 0x14069BD04 (MiValidateImagePfn.c)
+ *     MiValidateImagePfn @ 0x1405FAEC4 (MiValidateImagePfn.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
- *     RtlFindClearBitsAndSet @ 0x140251160 (RtlFindClearBitsAndSet.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402D3660 (KeAcquireInStackQueuedSpinLock.c)
+ *     RtlFindClearBitsAndSet @ 0x1402F5970 (RtlFindClearBitsAndSet.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
@@ -18,14 +18,14 @@ __int64 MiReserveFaultPte()
   _DWORD *SchedulerAssist; // r9
   int v5; // eax
   bool v6; // zf
-  RTL_BITMAP BitMapHeader; // [rsp+20h] [rbp-38h] BYREF
+  _RTL_BITMAP BitMapHeader; // [rsp+20h] [rbp-38h] BYREF
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+30h] [rbp-28h] BYREF
 
   *(&BitMapHeader.SizeOfBitMap + 1) = 0;
   BitMapHeader.SizeOfBitMap = 16;
   memset(&LockHandle, 0, sizeof(LockHandle));
-  BitMapHeader.Buffer = (unsigned int *)&dword_140C4ED48;
-  KeAcquireInStackQueuedSpinLock(&qword_140C4ED40, &LockHandle);
+  BitMapHeader.Buffer = (unsigned int *)&dword_140C4ED88;
+  KeAcquireInStackQueuedSpinLock(&qword_140C4ED80, &LockHandle);
   ClearBitsAndSet = RtlFindClearBitsAndSet(&BitMapHeader, 1u, 0);
   KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
   OldIrql = LockHandle.OldIrql;
@@ -50,5 +50,5 @@ __int64 MiReserveFaultPte()
   if ( (_DWORD)ClearBitsAndSet == -1 )
     return 0LL;
   else
-    return qword_140C4ED38 + 8 * ClearBitsAndSet;
+    return qword_140C4ED78 + 8 * ClearBitsAndSet;
 }

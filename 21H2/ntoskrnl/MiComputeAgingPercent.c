@@ -1,9 +1,9 @@
 /*
- * XREFs of MiComputeAgingPercent @ 0x1402717D8
+ * XREFs of MiComputeAgingPercent @ 0x14025F778
  * Callers:
- *     MiProcessWorkingSets @ 0x140207BA0 (MiProcessWorkingSets.c)
+ *     MiProcessWorkingSets @ 0x1402AC4A0 (MiProcessWorkingSets.c)
  * Callees:
- *     MiGetAvailablePagesBelowPriority @ 0x14027191C (MiGetAvailablePagesBelowPriority.c)
+ *     MiGetAvailablePagesBelowPriority @ 0x14025F8BC (MiGetAvailablePagesBelowPriority.c)
  */
 
 unsigned __int64 __fastcall MiComputeAgingPercent(__int64 a1)

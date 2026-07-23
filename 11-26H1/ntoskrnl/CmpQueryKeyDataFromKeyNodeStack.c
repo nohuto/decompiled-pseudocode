@@ -1,22 +1,22 @@
 /*
- * XREFs of CmpQueryKeyDataFromKeyNodeStack @ 0x1404925D8
+ * XREFs of CmpQueryKeyDataFromKeyNodeStack @ 0x14048C128
  * Callers:
- *     CmQueryLayeredKey @ 0x1404922D0 (CmQueryLayeredKey.c)
- *     CmpEnumerateLayeredKey @ 0x140982A88 (CmpEnumerateLayeredKey.c)
+ *     CmQueryLayeredKey @ 0x14048BE20 (CmQueryLayeredKey.c)
+ *     CmpEnumerateLayeredKey @ 0x140944A98 (CmpEnumerateLayeredKey.c)
  * Callees:
- *     CmpGetValueCountForKeyNodeStack @ 0x140492AB0 (CmpGetValueCountForKeyNodeStack.c)
- *     HvpGetCellFlat @ 0x14085EB00 (HvpGetCellFlat.c)
- *     CmpPopulateKeyNodeInformation @ 0x1408C1BE4 (CmpPopulateKeyNodeInformation.c)
- *     HvpReleaseCellFlat @ 0x1408D51E0 (HvpReleaseCellFlat.c)
- *     HvpReleaseCellPaged @ 0x1408D73B0 (HvpReleaseCellPaged.c)
- *     HvpGetCellPaged @ 0x1408D7410 (HvpGetCellPaged.c)
- *     HvpGetCellContextInitialize @ 0x1408D9320 (HvpGetCellContextInitialize.c)
- *     CmpKeyNodeStackGetEntryAtLayerHeight @ 0x140982388 (CmpKeyNodeStackGetEntryAtLayerHeight.c)
- *     CmpGetEffectiveKeyNodeSemantics @ 0x140982540 (CmpGetEffectiveKeyNodeSemantics.c)
- *     CmpPopulateKeyBasicInformation @ 0x140A23820 (CmpPopulateKeyBasicInformation.c)
- *     CmpPopulateKeyFullInformation @ 0x140AB4C54 (CmpPopulateKeyFullInformation.c)
- *     CmpGetSubKeyCountForKeyNodeStack @ 0x140AE49F4 (CmpGetSubKeyCountForKeyNodeStack.c)
- *     CmpPopulateKeyCachedInformation @ 0x140B0A04C (CmpPopulateKeyCachedInformation.c)
+ *     CmpGetValueCountForKeyNodeStack @ 0x14048C600 (CmpGetValueCountForKeyNodeStack.c)
+ *     HvpGetCellFlat @ 0x140864DF0 (HvpGetCellFlat.c)
+ *     CmpPopulateKeyNodeInformation @ 0x1408C81B4 (CmpPopulateKeyNodeInformation.c)
+ *     HvpReleaseCellFlat @ 0x1408DB7A0 (HvpReleaseCellFlat.c)
+ *     HvpReleaseCellPaged @ 0x1408DD970 (HvpReleaseCellPaged.c)
+ *     HvpGetCellPaged @ 0x1408DD9D0 (HvpGetCellPaged.c)
+ *     HvpGetCellContextInitialize @ 0x1408DF8E0 (HvpGetCellContextInitialize.c)
+ *     CmpKeyNodeStackGetEntryAtLayerHeight @ 0x140944398 (CmpKeyNodeStackGetEntryAtLayerHeight.c)
+ *     CmpGetEffectiveKeyNodeSemantics @ 0x140944550 (CmpGetEffectiveKeyNodeSemantics.c)
+ *     CmpPopulateKeyBasicInformation @ 0x140A36330 (CmpPopulateKeyBasicInformation.c)
+ *     CmpPopulateKeyFullInformation @ 0x140AB5FF4 (CmpPopulateKeyFullInformation.c)
+ *     CmpGetSubKeyCountForKeyNodeStack @ 0x140AE2504 (CmpGetSubKeyCountForKeyNodeStack.c)
+ *     CmpPopulateKeyCachedInformation @ 0x140B0BE0C (CmpPopulateKeyCachedInformation.c)
  */
 
 __int64 __fastcall CmpQueryKeyDataFromKeyNodeStack(__int16 *a1, int a2, __int64 a3, unsigned int a4, __int64 a5)

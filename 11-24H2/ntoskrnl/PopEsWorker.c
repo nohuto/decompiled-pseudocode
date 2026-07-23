@@ -1,15 +1,15 @@
 /*
- * XREFs of PopEsWorker @ 0x140AC95F0
+ * XREFs of PopEsWorker @ 0x140AC7510
  * Callers:
  *     <none>
  * Callees:
- *     PopReleaseRwLock @ 0x1403B5EC8 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x1404283D4 (PopAcquireRwLockExclusive.c)
- *     PopEsUpdateState @ 0x1404ECC9C (PopEsUpdateState.c)
- *     PopEsPublishStateV2 @ 0x14075D588 (PopEsPublishStateV2.c)
- *     PopEsUpdateSetting @ 0x14075D7C8 (PopEsUpdateSetting.c)
- *     ExSubscribeWnfStateChange @ 0x140A19320 (ExSubscribeWnfStateChange.c)
- *     PopEsStartTelemetry @ 0x140AADAD0 (PopEsStartTelemetry.c)
+ *     PopReleaseRwLock @ 0x1402AE8FC (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14041C564 (PopAcquireRwLockExclusive.c)
+ *     PopEsUpdateState @ 0x1404E43DC (PopEsUpdateState.c)
+ *     PopEsPublishStateV2 @ 0x14075C528 (PopEsPublishStateV2.c)
+ *     PopEsUpdateSetting @ 0x14075C768 (PopEsUpdateSetting.c)
+ *     ExSubscribeWnfStateChange @ 0x140A12490 (ExSubscribeWnfStateChange.c)
+ *     PopEsStartTelemetry @ 0x140AA8B50 (PopEsStartTelemetry.c)
  */
 
 __int64 PopEsWorker()
@@ -62,22 +62,22 @@ __int64 PopEsWorker()
       {
         if ( v10 != 2 )
           continue;
-        PopAcquireRwLockExclusive(&PopEsLock);
+        PopAcquireRwLockExclusive((unsigned __int64 *)&PopEsLock);
       }
       else
       {
-        PopAcquireRwLockExclusive(&PopEsLock);
+        PopAcquireRwLockExclusive((unsigned __int64 *)&PopEsLock);
         PopEsUpdateSetting();
       }
       PopEsUpdateState(v0);
-      result = PopReleaseRwLock((signed __int64 *)&PopEsLock);
+      result = PopReleaseRwLock(&PopEsLock);
     }
     else
     {
       PopEsPublishStateV2(1);
-      PopAcquireRwLockExclusive(&PopEsLock);
+      PopAcquireRwLockExclusive((unsigned __int64 *)&PopEsLock);
       PopEsStartTelemetry();
-      PopReleaseRwLock((signed __int64 *)&PopEsLock);
+      PopReleaseRwLock(&PopEsLock);
       ExSubscribeWnfStateChange((__int64)&PopEsWnfSubscriptionOverride, (__int64)&WNF_PO_ENERGY_SAVER_OVERRIDE);
       ExSubscribeWnfStateChange((__int64)&PopEsWnfSubscriptionGroupPolicy, (__int64)&WNF_GPOL_SYSTEM_CHANGES);
       result = ExSubscribeWnfStateChange(

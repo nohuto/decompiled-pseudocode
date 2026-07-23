@@ -1,24 +1,24 @@
 /*
- * XREFs of CcSetFileSizesEx @ 0x14007CFC0
+ * XREFs of CcSetFileSizesEx @ 0x14007CFB0
  * Callers:
- *     CcSetFileSizes @ 0x14013B510 (CcSetFileSizes.c)
+ *     CcSetFileSizes @ 0x14013B610 (CcSetFileSizes.c)
  * Callees:
  *     KeReleaseInStackQueuedSpinLock @ 0x14001F500 (KeReleaseInStackQueuedSpinLock.c)
  *     MmFlushSection @ 0x14001FFD8 (MmFlushSection.c)
- *     CcUnmapVacbArray @ 0x1400798E0 (CcUnmapVacbArray.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     CcDecrementOpenCount @ 0x1400ACFA0 (CcDecrementOpenCount.c)
- *     CcGetPartition @ 0x1400AD030 (CcGetPartition.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     CcPurgeAndClearCacheSection @ 0x1400E78F8 (CcPurgeAndClearCacheSection.c)
- *     CcPurgeCacheSection @ 0x1400E7AA0 (CcPurgeCacheSection.c)
- *     CcDeleteMbcb @ 0x140125988 (CcDeleteMbcb.c)
- *     RtlRaiseStatus @ 0x140128E90 (RtlRaiseStatus.c)
- *     CcExtendVacbArray @ 0x14012C9C4 (CcExtendVacbArray.c)
- *     FsRtlIsNtstatusExpected @ 0x14012F250 (FsRtlIsNtstatusExpected.c)
- *     CcDeleteBcbs @ 0x14016049C (CcDeleteBcbs.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     MmExtendSection @ 0x14061C8CC (MmExtendSection.c)
+ *     CcUnmapVacbArray @ 0x1400798D0 (CcUnmapVacbArray.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14007DE80 (KeAcquireInStackQueuedSpinLock.c)
+ *     CcDecrementOpenCount @ 0x1400ACEE0 (CcDecrementOpenCount.c)
+ *     CcGetPartition @ 0x1400ACF70 (CcGetPartition.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     CcPurgeAndClearCacheSection @ 0x1400E7978 (CcPurgeAndClearCacheSection.c)
+ *     CcPurgeCacheSection @ 0x1400E7B20 (CcPurgeCacheSection.c)
+ *     CcDeleteMbcb @ 0x140125A58 (CcDeleteMbcb.c)
+ *     RtlRaiseStatus @ 0x140128F60 (RtlRaiseStatus.c)
+ *     CcExtendVacbArray @ 0x14012CA94 (CcExtendVacbArray.c)
+ *     FsRtlIsNtstatusExpected @ 0x14012F320 (FsRtlIsNtstatusExpected.c)
+ *     CcDeleteBcbs @ 0x14016059C (CcDeleteBcbs.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     MmExtendSection @ 0x14061D8CC (MmExtendSection.c)
  */
 
 NTSTATUS __stdcall CcSetFileSizesEx(PFILE_OBJECT FileObject, PCC_FILE_SIZES FileSizes)

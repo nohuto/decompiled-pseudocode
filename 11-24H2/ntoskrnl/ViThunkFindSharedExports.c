@@ -1,7 +1,7 @@
 /*
- * XREFs of ViThunkFindSharedExports @ 0x140B977F8
+ * XREFs of ViThunkFindSharedExports @ 0x140B997F8
  * Callers:
- *     ViThunkFindAllSharedExports @ 0x140B9756C (ViThunkFindAllSharedExports.c)
+ *     ViThunkFindAllSharedExports @ 0x140B9956C (ViThunkFindAllSharedExports.c)
  * Callees:
  *     <none>
  */

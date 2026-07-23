@@ -1,14 +1,14 @@
 /*
- * XREFs of CMFRegisterEventTime @ 0x140843BB0
+ * XREFs of CMFRegisterEventTime @ 0x140849040
  * Callers:
- *     NtMapCMFModule @ 0x1408446A0 (NtMapCMFModule.c)
+ *     NtMapCMFModule @ 0x140849B30 (NtMapCMFModule.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwQueryValueKey @ 0x1407236D0 (ZwQueryValueKey.c)
- *     ZwCreateKey @ 0x140723790 (ZwCreateKey.c)
- *     ZwSetValueKey @ 0x140723FF0 (ZwSetValueKey.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwQueryValueKey @ 0x1407282A0 (ZwQueryValueKey.c)
+ *     ZwCreateKey @ 0x140728360 (ZwCreateKey.c)
+ *     ZwSetValueKey @ 0x140728BC0 (ZwSetValueKey.c)
  */
 
 NTSTATUS __fastcall CMFRegisterEventTime(unsigned __int16 a1)

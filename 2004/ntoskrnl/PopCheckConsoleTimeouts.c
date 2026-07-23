@@ -18,7 +18,7 @@ char PopCheckConsoleTimeouts()
   __int64 v3; // rdi
   unsigned __int64 v4; // r8
 
-  PopPrintEx(3LL, (__int64)"PopAdaptive: >>>>> Policy parameters change\n");
+  PopPrintEx(3u, (__int64)"PopAdaptive: >>>>> Policy parameters change\n");
   v0 = PopConsoleContext;
   DisplayTimeout = PopGetDisplayTimeout(PopConsoleContext);
   v2 = PopInputTimeout;
@@ -34,7 +34,7 @@ char PopCheckConsoleTimeouts()
     {
       BYTE9(PopConsoleContext) = 0;
     }
-    PopPrintEx(3LL, (__int64)"PopAdaptive: Input timeout: %u->%u\n", DWORD1(PopConsoleContext), PopInputTimeout);
+    PopPrintEx(3u, (__int64)"PopAdaptive: Input timeout: %u->%u\n", DWORD1(PopConsoleContext), PopInputTimeout);
     DWORD1(PopConsoleContext) = v2;
     LOBYTE(DisplayTimeout) = PopDiagTraceInputTimeout(v2, BYTE9(PopConsoleContext), BYTE8(PopConsoleContext));
     DWORD2(PopLazyContext) = v2;
@@ -54,7 +54,7 @@ LABEL_8:
   }
   if ( (_DWORD)v3 != HIDWORD(PopConsoleContext) )
   {
-    PopPrintEx(3LL, (__int64)"PopAdaptive: Display timeout: %u->%u\n", HIDWORD(PopConsoleContext), v3);
+    PopPrintEx(3u, (__int64)"PopAdaptive: Display timeout: %u->%u\n", HIDWORD(PopConsoleContext), v3);
     HIDWORD(PopConsoleContext) = v3;
     LOBYTE(DisplayTimeout) = PopDiagTraceDisplayTimeout(
                                v3,

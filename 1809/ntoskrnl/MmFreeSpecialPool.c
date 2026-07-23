@@ -1,7 +1,7 @@
 /*
- * XREFs of MmFreeSpecialPool @ 0x1402AD178
+ * XREFs of MmFreeSpecialPool @ 0x1402AD368
  * Callers:
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  * Callees:
  *     MiReturnResidentAvailable @ 0x140022D18 (MiReturnResidentAvailable.c)
  *     MiGetAnyMultiplexedVm @ 0x140028884 (MiGetAnyMultiplexedVm.c)
@@ -9,23 +9,23 @@
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MiSwizzleInvalidPte @ 0x14003D7C0 (MiSwizzleInvalidPte.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
- *     MiReturnCommit @ 0x140065D40 (MiReturnCommit.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     MiFlushTbList @ 0x1400740C0 (MiFlushTbList.c)
- *     MiDeleteSystemPagableVm @ 0x140079F10 (MiDeleteSystemPagableVm.c)
- *     MiDecrementShareCount @ 0x140081EA0 (MiDecrementShareCount.c)
- *     MiInsertTbFlushEntry @ 0x1400B3AF0 (MiInsertTbFlushEntry.c)
- *     MiGetSessionVm @ 0x1400E945C (MiGetSessionVm.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     MiCheckSpecialPoolSlop @ 0x1402AC17C (MiCheckSpecialPoolSlop.c)
- *     MiRemoveSpecialPoolRange @ 0x1402AC8D0 (MiRemoveSpecialPoolRange.c)
- *     VerifierFreeTrackedPool @ 0x1402BA41C (VerifierFreeTrackedPool.c)
+ *     MiReturnCommit @ 0x140065D30 (MiReturnCommit.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     MiFlushTbList @ 0x1400740B0 (MiFlushTbList.c)
+ *     MiDeleteSystemPagableVm @ 0x140079F00 (MiDeleteSystemPagableVm.c)
+ *     MiDecrementShareCount @ 0x140081E90 (MiDecrementShareCount.c)
+ *     MiInsertTbFlushEntry @ 0x1400B3A30 (MiInsertTbFlushEntry.c)
+ *     MiGetSessionVm @ 0x1400E94DC (MiGetSessionVm.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     MiCheckSpecialPoolSlop @ 0x1402AC36C (MiCheckSpecialPoolSlop.c)
+ *     MiRemoveSpecialPoolRange @ 0x1402ACAC0 (MiRemoveSpecialPoolRange.c)
+ *     VerifierFreeTrackedPool @ 0x1402BA60C (VerifierFreeTrackedPool.c)
  */
 
 void __fastcall MmFreeSpecialPool(ULONG_PTR BugCheckParameter1)
@@ -91,11 +91,11 @@ void __fastcall MmFreeSpecialPool(ULONG_PTR BugCheckParameter1)
   v7 = (*v4 & 0x8000) != 0;
   if ( CurrentIrql > (unsigned __int8)(2 - ((*v4 & 0x8000) != 0)) )
     KeBugCheckEx(0xC1u, CurrentIrql, 1uLL, BugCheckParameter1, 0x31uLL);
-  SpinLock = &qword_14043AF00;
+  SpinLock = &qword_14043BFC0;
   v8 = v6;
   if ( (v6 & 0x2000) != 0 )
   {
-    SpinLock = (PKSPIN_LOCK)qword_14043B8C8;
+    SpinLock = (PKSPIN_LOCK)qword_14043C988;
     v8 = v6;
   }
   v9 = v7 | 0x20;
@@ -149,7 +149,7 @@ void __fastcall MmFreeSpecialPool(ULONG_PTR BugCheckParameter1)
     BugCheckParameter2 = ((unsigned __int64)MI_READ_PTE_LOCK_FREE((unsigned __int64)&v43) >> 12) & 0xFFFFFFFFFLL;
     v17 = 48 * BugCheckParameter2 - 0x58000000000LL;
     v18 = 48 * (*(_QWORD *)(v17 + 40) & 0xFFFFFFFFFLL);
-    _InterlockedDecrement64(&qword_140438B08);
+    _InterlockedDecrement64(&qword_140439BC8);
     v19 = v18 - 0x58000000000LL;
     v43 = MiSwizzleInvalidPte(-268435456LL);
     if ( MiPteInShadowRange((unsigned __int64)v2) )
@@ -157,7 +157,7 @@ void __fastcall MmFreeSpecialPool(ULONG_PTR BugCheckParameter1)
       if ( (unsigned int)MiPteHasShadow() )
       {
         v21 = 1;
-        if ( HIBYTE(word_14043A1AC) == (_BYTE)v22 )
+        if ( HIBYTE(word_14043B26C) == (_BYTE)v22 )
         {
 LABEL_34:
           if ( (v23 & 1) != 0 )
@@ -177,7 +177,7 @@ LABEL_34:
     v47 = v22;
     v49 = v22;
     v50 = v22;
-    v46 = &qword_14043AF00 != SpinLock ? 2 : 0;
+    v46 = &qword_14043BFC0 != SpinLock ? 2 : 0;
     MiInsertTbFlushEntry((__int64)&v46, v3, 1LL, 0);
     MiFlushTbList(&v46, v25, v26, v27);
     v28 = MiLockPageInline(v17);
@@ -220,17 +220,17 @@ LABEL_34:
   else
     SessionVm = (__int64)MiGetAnyMultiplexedVm(2);
   v35 = ((BugCheckParameter1 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
-  v33 = *(ULONG_PTR **)(qword_14043A748 + 8LL * *(unsigned __int16 *)(SessionVm + 174));
+  v33 = *(ULONG_PTR **)(qword_14043B808 + 8LL * *(unsigned __int16 *)(SessionVm + 174));
   MiDeleteSystemPagableVm(SessionVm, 0LL, v35, 1LL, 1, v45);
   if ( v45[1] )
     v45[3] -= v45[1];
   v36 = MI_READ_PTE_LOCK_FREE((unsigned __int64)v2);
-  if ( qword_14043A0C0 )
+  if ( qword_14043B180 )
   {
     if ( (v36 & 0x10) != 0 )
       v36 &= ~0x10u;
     else
-      v36 &= ~(_DWORD)qword_14043A0C0;
+      v36 &= ~(_DWORD)qword_14043B180;
   }
   v43 = MiSwizzleInvalidPte(*(_QWORD *)&v36 | 0xFFFFFFFFF0000000uLL);
   if ( MiPteInShadowRange((unsigned __int64)v2) )
@@ -238,7 +238,7 @@ LABEL_34:
     if ( (unsigned int)MiPteHasShadow() )
     {
       v38 = 1;
-      if ( !HIBYTE(word_14043A1AC) )
+      if ( !HIBYTE(word_14043B26C) )
       {
 LABEL_65:
         if ( (v39 & 1) != 0 )
@@ -255,10 +255,10 @@ LABEL_65:
     MiWritePteShadow((__int64)v2, v37);
   v24 = SpinLock;
 LABEL_70:
-  if ( _InterlockedExchangeAdd64(&qword_14043B028, 0xFFFFFFFFFFFFFFFFuLL) == 1 )
-    _InterlockedDecrement(&dword_14043AED0);
+  if ( _InterlockedExchangeAdd64(&qword_14043C0E8, 0xFFFFFFFFFFFFFFFFuLL) == 1 )
+    _InterlockedDecrement(&dword_14043BF90);
   MiRemoveSpecialPoolRange(v24, v9, v2);
-  if ( v24 != &qword_14043AF00 )
+  if ( v24 != &qword_14043BFC0 )
     _InterlockedDecrement64((volatile signed __int64 *)v24 + 7);
   if ( v45[0] )
   {

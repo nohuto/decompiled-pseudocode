@@ -1,7 +1,7 @@
 /*
- * XREFs of PipSmBiosFindStruct @ 0x140C22308
+ * XREFs of PipSmBiosFindStruct @ 0x140C24348
  * Callers:
- *     PipInitComputerIds @ 0x140C63B74 (PipInitComputerIds.c)
+ *     PipInitComputerIds @ 0x140C65CF0 (PipInitComputerIds.c)
  * Callees:
  *     <none>
  */

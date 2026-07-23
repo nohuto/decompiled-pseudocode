@@ -1,16 +1,16 @@
 /*
- * XREFs of PipMigrateCleanServiceCallback @ 0x140A90380
+ * XREFs of PipMigrateCleanServiceCallback @ 0x140A91380
  * Callers:
  *     <none>
  * Callees:
- *     _PnpCtxRegCloseKey @ 0x14063B8A4 (_PnpCtxRegCloseKey.c)
- *     _PnpCtxRegOpenKey @ 0x14064081C (_PnpCtxRegOpenKey.c)
- *     _PnpCtxRegQueryValue @ 0x1406BADC4 (_PnpCtxRegQueryValue.c)
- *     _PnpCtxRegQueryInfoKey @ 0x1406C484C (_PnpCtxRegQueryInfoKey.c)
- *     _PnpCtxRegDeleteTree @ 0x1407AC128 (_PnpCtxRegDeleteTree.c)
- *     _PnpCtxRegEnumKey @ 0x1407C3C44 (_PnpCtxRegEnumKey.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     _PnpCtxRegQueryValue @ 0x14061A094 (_PnpCtxRegQueryValue.c)
+ *     _PnpCtxRegCloseKey @ 0x1406306B4 (_PnpCtxRegCloseKey.c)
+ *     _PnpCtxRegOpenKey @ 0x14063562C (_PnpCtxRegOpenKey.c)
+ *     _PnpCtxRegQueryInfoKey @ 0x14067313C (_PnpCtxRegQueryInfoKey.c)
+ *     _PnpCtxRegDeleteTree @ 0x1407AC328 (_PnpCtxRegDeleteTree.c)
+ *     _PnpCtxRegEnumKey @ 0x1407C4164 (_PnpCtxRegEnumKey.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PipMigrateCleanServiceCallback(__int64 a1, int a2, int a3)
@@ -21,7 +21,7 @@ __int64 __fastcall PipMigrateCleanServiceCallback(__int64 a1, int a2, int a3)
   ULONG v7; // edi
   ULONG i; // r8d
   unsigned int v10; // [rsp+40h] [rbp-20h] BYREF
-  unsigned int v11; // [rsp+44h] [rbp-1Ch] BYREF
+  int v11; // [rsp+44h] [rbp-1Ch] BYREF
   int v12; // [rsp+48h] [rbp-18h] BYREF
   int v13; // [rsp+4Ch] [rbp-14h] BYREF
   unsigned int v14; // [rsp+50h] [rbp-10h] BYREF
@@ -36,7 +36,9 @@ __int64 __fastcall PipMigrateCleanServiceCallback(__int64 a1, int a2, int a3)
   if ( (int)PnpCtxRegOpenKey(a1, a2, a3, 0, 983103, (__int64)&v15) >= 0 )
   {
     v11 = 4;
-    if ( (int)PnpCtxRegQueryValue(v5, v15, L"Clean", &v10, &v12, &v11) >= 0 && v10 == 4 && v11 == 4 )
+    if ( (int)PnpCtxRegQueryValue(v5, v15, (__int64)L"Clean", (__int64)&v10, (__int64)&v12, (__int64)&v11) >= 0
+      && v10 == 4
+      && v11 == 4 )
     {
       if ( v12 )
       {

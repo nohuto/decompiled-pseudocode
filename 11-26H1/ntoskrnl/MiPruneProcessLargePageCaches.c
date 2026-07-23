@@ -1,15 +1,15 @@
 /*
- * XREFs of MiPruneProcessLargePageCaches @ 0x1402A8FB4
+ * XREFs of MiPruneProcessLargePageCaches @ 0x1402A83C4
  * Callers:
- *     MiPartitionPeriodicTick @ 0x1402A703C (MiPartitionPeriodicTick.c)
- *     MiTrimAllWorkingSets @ 0x140466450 (MiTrimAllWorkingSets.c)
- *     MiWorkingSetManager @ 0x1404BE000 (MiWorkingSetManager.c)
- *     MiDeleteProcessLargePageCache @ 0x1404D05EC (MiDeleteProcessLargePageCache.c)
+ *     MiPartitionPeriodicTick @ 0x1402A6458 (MiPartitionPeriodicTick.c)
+ *     MiTrimAllWorkingSets @ 0x14045F5B0 (MiTrimAllWorkingSets.c)
+ *     MiWorkingSetManager @ 0x1404B7850 (MiWorkingSetManager.c)
+ *     MiDeleteProcessLargePageCache @ 0x1404CA01C (MiDeleteProcessLargePageCache.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiFreeProcessLargePageCache @ 0x140711EB0 (MiFreeProcessLargePageCache.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiFreeProcessLargePageCache @ 0x140716BA8 (MiFreeProcessLargePageCache.c)
  */
 
 void __fastcall MiPruneProcessLargePageCaches(__int64 a1, int a2)

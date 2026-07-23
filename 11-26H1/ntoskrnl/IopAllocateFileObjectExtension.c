@@ -1,16 +1,16 @@
 /*
- * XREFs of IopAllocateFileObjectExtension @ 0x140449920
+ * XREFs of IopAllocateFileObjectExtension @ 0x14021B6F0
  * Callers:
- *     NtSetInformationFile @ 0x14026A2F0 (NtSetInformationFile.c)
- *     IoSetIoPriorityHintIntoFileObject @ 0x1404490A0 (IoSetIoPriorityHintIntoFileObject.c)
- *     IoSetShadowFileInformation @ 0x1404490F0 (IoSetShadowFileInformation.c)
- *     FsRtlInsertPerFileObjectContext @ 0x140449480 (FsRtlInsertPerFileObjectContext.c)
- *     IopSetFileMemoryPartitionInformation @ 0x140777A08 (IopSetFileMemoryPartitionInformation.c)
- *     IopSetFileObjectIosbRange @ 0x140795690 (IopSetFileObjectIosbRange.c)
- *     IopSymlinkPropagateToExtensionIfNeeded @ 0x1409035A0 (IopSymlinkPropagateToExtensionIfNeeded.c)
+ *     FsRtlInsertPerFileObjectContext @ 0x14021ADC0 (FsRtlInsertPerFileObjectContext.c)
+ *     NtSetInformationFile @ 0x140269860 (NtSetInformationFile.c)
+ *     IoSetShadowFileInformation @ 0x1404BD4C0 (IoSetShadowFileInformation.c)
+ *     IoSetIoPriorityHintIntoFileObject @ 0x1404EF870 (IoSetIoPriorityHintIntoFileObject.c)
+ *     IopSetFileMemoryPartitionInformation @ 0x14077A8A8 (IopSetFileMemoryPartitionInformation.c)
+ *     IopSetFileObjectIosbRange @ 0x1407981C0 (IopSetFileObjectIosbRange.c)
+ *     IopSymlinkPropagateToExtensionIfNeeded @ 0x140933530 (IopSymlinkPropagateToExtensionIfNeeded.c)
  * Callees:
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IopAllocateFileObjectExtension(__int64 a1, __int64 **a2, char a3)
@@ -23,7 +23,7 @@ __int64 __fastcall IopAllocateFileObjectExtension(__int64 a1, __int64 **a2, char
   v3 = *(__int64 **)(a1 + 208);
   if ( v3 )
   {
-    if ( v3 == qword_140019060 )
+    if ( v3 == qword_1400137E0 )
     {
       return 3221225626LL;
     }
@@ -39,7 +39,7 @@ __int64 __fastcall IopAllocateFileObjectExtension(__int64 a1, __int64 **a2, char
     Pool2 = (__int64 *)ExAllocatePool2(0x40uLL);
     if ( !Pool2 )
     {
-      v10 = qword_140019060;
+      v10 = qword_1400137E0;
       v8 = -1073741670;
       if ( !a3 )
         v10 = 0LL;
@@ -47,7 +47,7 @@ __int64 __fastcall IopAllocateFileObjectExtension(__int64 a1, __int64 **a2, char
     }
     if ( _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 208), (signed __int64)Pool2, 0LL) )
     {
-      if ( Pool2 && Pool2 != qword_140019060 )
+      if ( Pool2 && Pool2 != qword_1400137E0 )
         ExFreePoolWithTag(Pool2, 0);
       Pool2 = *(__int64 **)(a1 + 208);
     }

@@ -1,15 +1,15 @@
 /*
- * XREFs of PipChangeDeviceObjectFromRegistryProperties @ 0x1409946EC
+ * XREFs of PipChangeDeviceObjectFromRegistryProperties @ 0x14097F72C
  * Callers:
- *     PipCallDriverAddDevice @ 0x1409C6228 (PipCallDriverAddDevice.c)
+ *     PipCallDriverAddDevice @ 0x140980ED0 (PipCallDriverAddDevice.c)
  * Callees:
- *     RtlGetDaclSecurityDescriptor @ 0x140454080 (RtlGetDaclSecurityDescriptor.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ObSetSecurityObjectByPointer @ 0x1408587B0 (ObSetSecurityObjectByPointer.c)
- *     PipGetRegistryDwordWithFallback @ 0x140994A6C (PipGetRegistryDwordWithFallback.c)
- *     PipGetRegistrySecurityWithFallback @ 0x140994B48 (PipGetRegistrySecurityWithFallback.c)
- *     IopCreateDefaultDeviceSecurityDescriptor @ 0x1409A33EC (IopCreateDefaultDeviceSecurityDescriptor.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlGetDaclSecurityDescriptor @ 0x140449130 (RtlGetDaclSecurityDescriptor.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ObSetSecurityObjectByPointer @ 0x140854A90 (ObSetSecurityObjectByPointer.c)
+ *     IopCreateDefaultDeviceSecurityDescriptor @ 0x1408ABD7C (IopCreateDefaultDeviceSecurityDescriptor.c)
+ *     PipGetRegistryDwordWithFallback @ 0x14097FAAC (PipGetRegistryDwordWithFallback.c)
+ *     PipGetRegistrySecurityWithFallback @ 0x14097FB88 (PipGetRegistrySecurityWithFallback.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PipChangeDeviceObjectFromRegistryProperties(__int64 a1, int a2, ACL *a3, __int64 a4, char a5)
@@ -28,17 +28,17 @@ __int64 __fastcall PipChangeDeviceObjectFromRegistryProperties(__int64 a1, int a
   __int64 v18; // rdx
   int v19; // r15d
   __int64 v20; // rcx
-  ULONG v21; // r14d
+  DWORD v21; // r14d
   __int64 v22; // rdx
-  unsigned int v23; // r15d
+  int v23; // r15d
   __int64 RegistrySecurityWithFallback; // rax
   unsigned int v25; // r12d
-  unsigned __int64 v26; // rdi
+  char **v26; // rdi
   __int16 v27; // cx
   __int64 v28; // rax
-  __int64 v29; // rax
+  char *v29; // rax
   __int64 v30; // rax
-  __int64 v31; // rax
+  char *v31; // rax
   int DaclSecurityDescriptor; // esi
   __int64 i; // rax
   __int64 v34; // rdx
@@ -46,7 +46,7 @@ __int64 __fastcall PipChangeDeviceObjectFromRegistryProperties(__int64 a1, int a
   BOOLEAN DaclPresent; // [rsp+41h] [rbp-60h] BYREF
   char v38; // [rsp+42h] [rbp-5Fh]
   char v39; // [rsp+43h] [rbp-5Eh]
-  ULONG v40; // [rsp+44h] [rbp-5Dh] BYREF
+  DWORD v40; // [rsp+44h] [rbp-5Dh] BYREF
   BOOLEAN DaclDefaulted[4]; // [rsp+48h] [rbp-59h] BYREF
   int v42; // [rsp+4Ch] [rbp-55h] BYREF
   unsigned int v43; // [rsp+50h] [rbp-51h] BYREF
@@ -112,14 +112,14 @@ LABEL_6:
                                    v14 != 0 ? (unsigned int)Dacl : 0,
                                    v47 & -(__int64)(v14 != 0));
   v25 = v43;
-  v26 = RegistrySecurityWithFallback;
+  v26 = (char **)RegistrySecurityWithFallback;
   if ( !RegistrySecurityWithFallback )
   {
     if ( !v38 )
       goto LABEL_26;
     v49 = 0LL;
     memset(v48, 0, sizeof(v48));
-    v26 = IopCreateDefaultDeviceSecurityDescriptor(v43, v23, 0LL, v48, &P, &v44, &v40);
+    v26 = (char **)IopCreateDefaultDeviceSecurityDescriptor(v43, v23, 0, v48, (ACL **)&P, (__int64)&v44, &v40);
     if ( !v26 )
     {
       v11 = v44;
@@ -134,19 +134,19 @@ LABEL_6:
   {
     DaclSecurityDescriptor = -1073741736;
 LABEL_45:
-    ExFreePoolWithTag((PVOID)v26, 0);
+    ExFreePoolWithTag(v26, 0);
     goto LABEL_38;
   }
   v27 = *(_WORD *)(RegistrySecurityWithFallback + 2);
   if ( v27 >= 0 )
   {
-    v29 = *(_QWORD *)(RegistrySecurityWithFallback + 8);
+    v29 = *(char **)(RegistrySecurityWithFallback + 8);
   }
   else
   {
     v28 = *(unsigned int *)(RegistrySecurityWithFallback + 4);
     if ( (_DWORD)v28 )
-      v29 = v26 + v28;
+      v29 = (char *)v26 + v28;
     else
       v29 = 0LL;
   }
@@ -154,14 +154,14 @@ LABEL_45:
     v21 = 1;
   if ( v27 >= 0 )
   {
-    v31 = *(_QWORD *)(v26 + 16);
+    v31 = v26[2];
   }
   else
   {
-    v30 = *(unsigned int *)(v26 + 8);
+    v30 = *((unsigned int *)v26 + 2);
     if ( !(_DWORD)v30 )
       goto LABEL_18;
-    v31 = v26 + v30;
+    v31 = (char *)v26 + v30;
   }
   if ( v31 )
     v21 |= 2u;
@@ -169,7 +169,7 @@ LABEL_18:
   DaclPresent = (v27 & 0x10) != 0;
   if ( (v27 & 0x10) != 0 )
     v21 |= 8u;
-  DaclSecurityDescriptor = RtlGetDaclSecurityDescriptor((PSECURITY_DESCRIPTOR)v26, &DaclPresent, &Dacl, DaclDefaulted);
+  DaclSecurityDescriptor = RtlGetDaclSecurityDescriptor(v26, &DaclPresent, &Dacl, DaclDefaulted);
   if ( DaclSecurityDescriptor < 0 )
     goto LABEL_45;
   if ( DaclPresent )
@@ -185,7 +185,7 @@ LABEL_26:
     *(_DWORD *)(i + 52) |= v23;
   DaclSecurityDescriptor = 0;
   if ( v26 )
-    DaclSecurityDescriptor = ObSetSecurityObjectByPointer(v8, v21, v26);
+    DaclSecurityDescriptor = ObSetSecurityObjectByPointer(v8, v21, (unsigned __int64)v26);
   v34 = v8 + 312;
   do
   {

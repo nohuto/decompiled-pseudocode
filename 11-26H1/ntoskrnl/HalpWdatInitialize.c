@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpWdatInitialize @ 0x1405978A0
+ * XREFs of HalpWdatInitialize @ 0x14059A020
  * Callers:
  *     <none>
  * Callees:
- *     HalpWdatInitializeWdat @ 0x14059791C (HalpWdatInitializeWdat.c)
- *     HalpWdatInitializeWdrt @ 0x1405979B0 (HalpWdatInitializeWdrt.c)
- *     HalSocGetAcpiTable @ 0x140598054 (HalSocGetAcpiTable.c)
+ *     HalpWdatInitializeWdat @ 0x14059A09C (HalpWdatInitializeWdat.c)
+ *     HalpWdatInitializeWdrt @ 0x14059A130 (HalpWdatInitializeWdrt.c)
+ *     HalSocGetAcpiTable @ 0x14059A7D4 (HalSocGetAcpiTable.c)
  */
 
 __int64 __fastcall HalpWdatInitialize(__int64 a1)

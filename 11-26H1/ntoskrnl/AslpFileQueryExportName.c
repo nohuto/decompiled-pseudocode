@@ -1,20 +1,20 @@
 /*
- * XREFs of AslpFileQueryExportName @ 0x14088EF6C
+ * XREFs of AslpFileQueryExportName @ 0x140895368
  * Callers:
- *     AslpFileGetExportName @ 0x14088CEC4 (AslpFileGetExportName.c)
+ *     AslpFileGetExportName @ 0x1408932C0 (AslpFileGetExportName.c)
  * Callees:
- *     MmIsUserAddress @ 0x14044E7C0 (MmIsUserAddress.c)
- *     RtlStringCchCopyA @ 0x14048D1D8 (RtlStringCchCopyA.c)
- *     RtlCopyFromUser @ 0x140533E38 (RtlCopyFromUser.c)
- *     AslpMemorySpanCheckBounds @ 0x140714EC4 (AslpMemorySpanCheckBounds.c)
- *     RtlCopyToUserFromUser @ 0x14077F2E8 (RtlCopyToUserFromUser.c)
- *     RtlReadULongFromUser @ 0x14077F590 (RtlReadULongFromUser.c)
- *     RtlReadUShortFromUser @ 0x14077F5CC (RtlReadUShortFromUser.c)
- *     RtlStringLengthFromUser @ 0x14077F668 (RtlStringLengthFromUser.c)
- *     RtlWriteUCharToUser @ 0x14077F710 (RtlWriteUCharToUser.c)
- *     AslpFileGetImageNtHeader @ 0x14088D430 (AslpFileGetImageNtHeader.c)
- *     AslpImageRvaToVa @ 0x14088F60C (AslpImageRvaToVa.c)
- *     AslLogCallPrintf @ 0x1409E8884 (AslLogCallPrintf.c)
+ *     MmIsUserAddress @ 0x1404468F0 (MmIsUserAddress.c)
+ *     RtlStringCchCopyA @ 0x140486D18 (RtlStringCchCopyA.c)
+ *     RtlCopyFromUser @ 0x1405362B8 (RtlCopyFromUser.c)
+ *     AslpMemorySpanCheckBounds @ 0x140719BB4 (AslpMemorySpanCheckBounds.c)
+ *     RtlCopyToUserFromUser @ 0x140781DE8 (RtlCopyToUserFromUser.c)
+ *     RtlReadULongFromUser @ 0x140782090 (RtlReadULongFromUser.c)
+ *     RtlReadUShortFromUser @ 0x1407820CC (RtlReadUShortFromUser.c)
+ *     RtlStringLengthFromUser @ 0x140782168 (RtlStringLengthFromUser.c)
+ *     RtlWriteUCharToUser @ 0x140782210 (RtlWriteUCharToUser.c)
+ *     AslpFileGetImageNtHeader @ 0x14089382C (AslpFileGetImageNtHeader.c)
+ *     AslpImageRvaToVa @ 0x140895A08 (AslpImageRvaToVa.c)
+ *     AslLogCallPrintf @ 0x1409D5294 (AslLogCallPrintf.c)
  */
 
 __int64 __fastcall AslpFileQueryExportName(char *a1, __int64 a2)

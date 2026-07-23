@@ -1,17 +1,17 @@
 /*
- * XREFs of MiRemoveViewsFromSectionWithPfn @ 0x1400DED84
+ * XREFs of MiRemoveViewsFromSectionWithPfn @ 0x1400DEE04
  * Callers:
- *     MiDereferenceDataSubsections @ 0x1402C49F8 (MiDereferenceDataSubsections.c)
- *     MiPfPrepareReadList @ 0x1405DFDE0 (MiPfPrepareReadList.c)
- *     MiPfPrepareSequentialReadList @ 0x1405EBA20 (MiPfPrepareSequentialReadList.c)
- *     MiMapViewOfDataSection @ 0x1405F0BB0 (MiMapViewOfDataSection.c)
- *     MiReleaseReadListResources @ 0x1406628D0 (MiReleaseReadListResources.c)
+ *     MiDereferenceDataSubsections @ 0x1402C4BE8 (MiDereferenceDataSubsections.c)
+ *     MiPfPrepareReadList @ 0x1405E0DE0 (MiPfPrepareReadList.c)
+ *     MiPfPrepareSequentialReadList @ 0x1405ECA20 (MiPfPrepareSequentialReadList.c)
+ *     MiMapViewOfDataSection @ 0x1405F1BB0 (MiMapViewOfDataSection.c)
+ *     MiReleaseReadListResources @ 0x140663A90 (MiReleaseReadListResources.c)
  * Callees:
- *     MiRemoveViewsFromSection @ 0x140079370 (MiRemoveViewsFromSection.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     MiReturnCrossPartitionSectionCharges @ 0x1402C4CB4 (MiReturnCrossPartitionSectionCharges.c)
+ *     MiRemoveViewsFromSection @ 0x140079360 (MiRemoveViewsFromSection.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC420 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC5A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiReturnCrossPartitionSectionCharges @ 0x1402C4EA4 (MiReturnCrossPartitionSectionCharges.c)
  */
 
 __int64 __fastcall MiRemoveViewsFromSectionWithPfn(__int64 *BugCheckParameter2, unsigned __int64 a2, unsigned int a3)
@@ -38,7 +38,7 @@ __int64 __fastcall MiRemoveViewsFromSectionWithPfn(__int64 *BugCheckParameter2, 
   __writecr8(v8);
   if ( v9 )
     return MiReturnCrossPartitionSectionCharges(
-             *(_QWORD *)(qword_14043A748 + 8LL * (*(_WORD *)(v3 + 60) & 0x3FF)),
+             *(_QWORD *)(qword_14043B808 + 8LL * (*(_WORD *)(v3 + 60) & 0x3FF)),
              v7,
              v9);
   return result;

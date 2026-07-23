@@ -28,7 +28,7 @@ __int64 __fastcall RtlInitializeHeapManager(__int64 a1)
   struct _PEB *v8; // rdi
   void (*v9)(void); // rax
   int v10; // eax
-  char NtProductType; // bl
+  BOOLEAN v11; // bl
   int v12; // eax
   int v13; // eax
   int v14; // ecx
@@ -36,9 +36,8 @@ __int64 __fastcall RtlInitializeHeapManager(__int64 a1)
   __int64 v16; // rdx
   __int64 v17; // rcx
   __int64 v18; // r8
-  __int64 v19; // rcx
-  int v21; // [rsp+38h] [rbp+10h] BYREF
-  int v22; // [rsp+40h] [rbp+18h] BYREF
+  _NT_PRODUCT_TYPE NtProductType; // [rsp+38h] [rbp+10h] BYREF
+  int v21; // [rsp+40h] [rbp+18h] BYREF
 
   memset(&RtlpHpHeapGlobals, 0, 0x38uLL);
   RtlpHpHeapGlobals = RtlpHeapGenerateRandomValue64(v3, v2, v4);
@@ -59,17 +58,17 @@ __int64 __fastcall RtlInitializeHeapManager(__int64 a1)
   v10 = RtlpHpLfhPerfFlags;
   if ( (RtlpHpLfhPerfFlags & 0x40) != 0 )
   {
-    RtlpHpGCInterval = -10000000LL;
+    RtlpHpGCInterval.QuadPart = -10000000LL;
     RtlpHpOverrideGCInterval(a1);
     v10 = RtlpHpLfhPerfFlags;
   }
   RtlpHpLfhPerfFlags = v10 | 0x9C;
-  NtProductType = RtlGetNtProductType(&v21);
-  v12 = RtlQueryResourcePolicy(0, 0, &v22, 4LL);
-  if ( NtProductType && v21 != 1 || v12 >= 0 && v22 > 10 )
+  v11 = RtlGetNtProductType(&NtProductType);
+  v12 = RtlQueryResourcePolicy(0, 0, &v21, 4LL);
+  if ( v11 && NtProductType != NtProductWinNt || v12 >= 0 && v21 > 10 )
   {
     RtlpHpLfhPerfFlags |= 0x63u;
-    RtlpHpGCInterval = -10000000LL;
+    RtlpHpGCInterval.QuadPart = -10000000LL;
   }
   if ( (RtlpLowFragHeapGlobalFlags & 8) != 0 )
     RtlpHpHeapFeatures &= ~1u;
@@ -91,9 +90,9 @@ __int64 __fastcall RtlInitializeHeapManager(__int64 a1)
   v8->NumberOfHeaps = 0;
   RtlpDisableBreakOnFailureCookie = v15 != 0 ? v14 : 0;
   v8->ProcessHeaps = (void **)&RtlpProcessHeapsListBuffer;
-  RtlInitializeCriticalSectionEx((__int64)&RtlpProcessHeapsListLock, 0, 0x10000000);
+  RtlInitializeCriticalSectionEx(&RtlpProcessHeapsListLock, 0, 0x10000000u);
   RtlpHeapKey = RtlpHeapGenerateRandomValue64(v17, v16, v18);
-  if ( (RtlGetSuiteMask(v19) & 0x10000) != 0 )
+  if ( (RtlGetSuiteMask() & 0x10000) != 0 )
   {
     RtlpLowFragHeapGlobalFlags |= 4u;
     RtlpLargestLfhBlock = 1024LL;

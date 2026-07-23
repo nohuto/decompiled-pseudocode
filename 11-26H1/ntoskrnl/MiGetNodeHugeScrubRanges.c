@@ -1,10 +1,10 @@
 /*
- * XREFs of MiGetNodeHugeScrubRanges @ 0x140867BA0
+ * XREFs of MiGetNodeHugeScrubRanges @ 0x14086DF80
  * Callers:
- *     MiScrubNodeHugeRanges @ 0x14070C740 (MiScrubNodeHugeRanges.c)
+ *     MiScrubNodeHugeRanges @ 0x1407113F0 (MiScrubNodeHugeRanges.c)
  * Callees:
- *     MiWalkAllHugeRanges @ 0x140532B50 (MiWalkAllHugeRanges.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     MiWalkAllHugeRanges @ 0x140534FF0 (MiWalkAllHugeRanges.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 PVOID __fastcall MiGetNodeHugeScrubRanges(__int16 a1, int a2, _QWORD *a3)
@@ -20,7 +20,7 @@ PVOID __fastcall MiGetNodeHugeScrubRanges(__int16 a1, int a2, _QWORD *a3)
   __int64 v12; // [rsp+78h] [rbp-8h]
 
   result = 0LL;
-  v4 = *(_QWORD *)((char *)&stru_140E2EB88.116 + 4) == 0LL;
+  v4 = *(_QWORD *)((char *)&stru_140E2ED08.116 + 4) == 0LL;
   v9 = 0LL;
   v12 = 0LL;
   v10 = 0LL;

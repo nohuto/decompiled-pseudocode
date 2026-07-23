@@ -1,10 +1,10 @@
 /*
- * XREFs of MiGetPageWalkLocks @ 0x140362E18
+ * XREFs of MiGetPageWalkLocks @ 0x140364BB8
  * Callers:
- *     MiDeleteVaDirect @ 0x140361EF0 (MiDeleteVaDirect.c)
+ *     MiDeleteVaDirect @ 0x140363C90 (MiDeleteVaDirect.c)
  * Callees:
- *     MiLockWorkingSetExclusive @ 0x14027E5A0 (MiLockWorkingSetExclusive.c)
- *     MiLockWorkingSetShared @ 0x1402EDD60 (MiLockWorkingSetShared.c)
+ *     MiLockWorkingSetExclusive @ 0x14027DB10 (MiLockWorkingSetExclusive.c)
+ *     MiLockWorkingSetShared @ 0x1402CFDE0 (MiLockWorkingSetShared.c)
  */
 
 __int64 __fastcall MiGetPageWalkLocks(__int64 a1, __int64 a2, __int64 a3)

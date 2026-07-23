@@ -16,33 +16,25 @@ NTSTATUS __fastcall HvlCollectLivedump(__int64 a1, __int64 a2, _QWORD *a3, __int
 {
   NTSTATUS result; // eax
   _QWORD *v8; // rbx
-  _QWORD *v9; // rax
-  __int64 v10; // r8
-  __int64 v11; // rdx
-  _QWORD *v12; // r14
-  __int64 v13; // r9
-  __int16 v14; // ax
-  int v15; // esi
-  void *v16; // rcx
-  unsigned int v17; // ebx
-  __int128 v18; // [rsp+20h] [rbp-E0h] BYREF
-  __int128 v19; // [rsp+30h] [rbp-D0h]
-  __int128 v20; // [rsp+40h] [rbp-C0h] BYREF
-  __int128 v21; // [rsp+50h] [rbp-B0h]
-  _BYTE v22[112]; // [rsp+60h] [rbp-A0h] BYREF
-  _BYTE v23[32]; // [rsp+D0h] [rbp-30h] BYREF
-  _BYTE v24[64]; // [rsp+F0h] [rbp-10h] BYREF
+  _QWORD *v9; // r14
+  __int16 v10; // ax
+  int v11; // esi
+  void *v12; // rcx
+  unsigned int v13; // ebx
+  _OWORD v14[2]; // [rsp+20h] [rbp-E0h] BYREF
+  _OWORD v15[2]; // [rsp+40h] [rbp-C0h] BYREF
+  _BYTE v16[112]; // [rsp+60h] [rbp-A0h] BYREF
+  _BYTE v17[32]; // [rsp+D0h] [rbp-30h] BYREF
+  _BYTE v18[64]; // [rsp+F0h] [rbp-10h] BYREF
 
-  v20 = 0LL;
-  v21 = 0LL;
-  v18 = 0LL;
-  v19 = 0LL;
+  memset(v15, 0, sizeof(v15));
+  memset(v14, 0, sizeof(v14));
   if ( (HvlpRootFlags & 2) == 0 || !qword_140C47528 )
     return -1073741637;
   if ( VslVsmEnabled )
   {
-    memset(v22, 0, 0x68uLL);
-    result = VslpEnterIumSecureMode(2u, 251, 0, (__int64)v22);
+    memset(v16, 0, 0x68uLL);
+    result = VslpEnterIumSecureMode(2u, 251, 0, (__int64)v16);
     if ( result >= 0 )
     {
       *(_OWORD *)(a4 + 16) = HvlSkCrashdumpGuid;
@@ -51,38 +43,35 @@ NTSTATUS __fastcall HvlCollectLivedump(__int64 a1, __int64 a2, _QWORD *a3, __int
   }
   else
   {
-    v8 = HvlpAcquireHypercallPage((PHYSICAL_ADDRESS *)&v20, 1, (__int64)v24, 32LL);
-    v9 = HvlpAcquireHypercallPage((PHYSICAL_ADDRESS *)&v18, 2, (__int64)v23, 16LL);
-    v10 = *((_QWORD *)&v19 + 1);
-    v11 = *((_QWORD *)&v21 + 1);
-    v12 = v9;
+    v8 = HvlpAcquireHypercallPage((PHYSICAL_ADDRESS *)v15, 1, (__int64)v18, 32LL);
+    v9 = HvlpAcquireHypercallPage((PHYSICAL_ADDRESS *)v14, 2, (__int64)v17, 16LL);
     *v8 = 0LL;
     *(_OWORD *)(v8 + 1) = *(_OWORD *)a2;
     v8[3] = *(_QWORD *)(a2 + 16);
-    v14 = HvcallInitiateHypercall(142, v11, v10, v13);
-    if ( !v14 || v14 == 51 )
+    v10 = HvcallInitiateHypercall(142);
+    if ( !v10 || v10 == 51 )
     {
-      *a3 = *v12;
-      v15 = 0;
+      *a3 = *v9;
+      v11 = 0;
     }
     else
     {
-      v15 = -1073741823;
+      v11 = -1073741823;
     }
-    HvlpReleaseHypercallPage((__int64)&v18);
-    HvlpReleaseHypercallPage((__int64)&v20);
-    if ( v15 >= 0 )
+    HvlpReleaseHypercallPage((__int64)v14);
+    HvlpReleaseHypercallPage((__int64)v15);
+    if ( v11 >= 0 )
     {
-      v16 = *(void **)(a4 + 32);
-      v17 = dword_140C47538 << 12;
-      if ( v16 == *(void **)a4 && *(_DWORD *)(a4 + 8) >= v17 )
-        memmove(v16, qword_140C47528, v17);
+      v12 = *(void **)(a4 + 32);
+      v13 = dword_140C47538 << 12;
+      if ( v12 == *(void **)a4 && *(_DWORD *)(a4 + 8) >= v13 )
+        memmove(v12, qword_140C47528, v13);
       else
         *(_QWORD *)(a4 + 32) = qword_140C47528;
-      *(_DWORD *)(a4 + 40) = v17;
+      *(_DWORD *)(a4 + 40) = v13;
       *(_OWORD *)(a4 + 16) = HvlCrashdumpGuid;
     }
-    return v15;
+    return v11;
   }
   return result;
 }

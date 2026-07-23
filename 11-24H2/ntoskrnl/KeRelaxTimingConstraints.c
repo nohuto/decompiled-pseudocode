@@ -1,11 +1,11 @@
 /*
- * XREFs of KeRelaxTimingConstraints @ 0x1405B492C
+ * XREFs of KeRelaxTimingConstraints @ 0x1405B18B0
  * Callers:
- *     KiDeferDpcWatchdogViolation @ 0x14044787C (KiDeferDpcWatchdogViolation.c)
- *     KdEnableDebugger @ 0x1405AFA40 (KdEnableDebugger.c)
- *     KeInitSystem @ 0x140C60CE0 (KeInitSystem.c)
+ *     KiDeferDpcWatchdogViolation @ 0x14043FF9C (KiDeferDpcWatchdogViolation.c)
+ *     KdEnableDebugger @ 0x1405AC9B0 (KdEnableDebugger.c)
+ *     KeInitSystem @ 0x140C62E30 (KeInitSystem.c)
  * Callees:
- *     KiResetGlobalDpcWatchdogProfiler @ 0x1404F9918 (KiResetGlobalDpcWatchdogProfiler.c)
+ *     KiResetGlobalDpcWatchdogProfiler @ 0x1404F71F8 (KiResetGlobalDpcWatchdogProfiler.c)
  */
 
 bool __fastcall KeRelaxTimingConstraints(int a1)

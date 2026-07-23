@@ -45,7 +45,7 @@ void __fastcall PiUEventBroadcastEventWorker(PVOID P)
           }
           else
           {
-            PiUEventBroadcastHardwareProfilesChangedEvent(*((_DWORD *)v3 + 6), (__int64)(v3 + 28));
+            PiUEventBroadcastHardwareProfilesChangedEvent(*((_DWORD *)v3 + 6), v3 + 28);
           }
         }
         else

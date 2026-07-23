@@ -1,23 +1,23 @@
 /*
- * XREFs of ExReleaseFastResourceShared @ 0x140485E00
+ * XREFs of ExReleaseFastResourceShared @ 0x14047F770
  * Callers:
- *     DifExReleaseFastResourceSharedWrapper @ 0x140654270 (DifExReleaseFastResourceSharedWrapper.c)
- *     PspQueryJobHierarchyAccountingInformation @ 0x140772FF8 (PspQueryJobHierarchyAccountingInformation.c)
- *     PsSwapProcessWorkingSet @ 0x1407F0C88 (PsSwapProcessWorkingSet.c)
- *     PspQueryJobHierarchyProcessIdList @ 0x140958B14 (PspQueryJobHierarchyProcessIdList.c)
- *     PspEnumJobsAndProcessesInJobHierarchy @ 0x14095A350 (PspEnumJobsAndProcessesInJobHierarchy.c)
- *     PspCallJobHierarchyCallbacks @ 0x14095A5C8 (PspCallJobHierarchyCallbacks.c)
- *     PspGetNextChildJob @ 0x14095A784 (PspGetNextChildJob.c)
- *     PspValidateJobAffinityState @ 0x140985390 (PspValidateJobAffinityState.c)
- *     PspInsertThread @ 0x140A026D0 (PspInsertThread.c)
- *     NtSetInformationThread @ 0x140A833F0 (NtSetInformationThread.c)
- *     PspUnlockJobShared @ 0x140AAD180 (PspUnlockJobShared.c)
- *     PspSetProcessAffinitySafe @ 0x140AFC7BC (PspSetProcessAffinitySafe.c)
- *     PspSetProcessPriorityClass @ 0x140B10240 (PspSetProcessPriorityClass.c)
+ *     DifExReleaseFastResourceSharedWrapper @ 0x140657E50 (DifExReleaseFastResourceSharedWrapper.c)
+ *     PspQueryJobHierarchyAccountingInformation @ 0x140775FF8 (PspQueryJobHierarchyAccountingInformation.c)
+ *     PsSwapProcessWorkingSet @ 0x1407F67E8 (PsSwapProcessWorkingSet.c)
+ *     PspValidateJobAffinityState @ 0x140947398 (PspValidateJobAffinityState.c)
+ *     NtSetInformationThread @ 0x14094C4F0 (NtSetInformationThread.c)
+ *     PspEnumJobsAndProcessesInJobHierarchy @ 0x1409FFC10 (PspEnumJobsAndProcessesInJobHierarchy.c)
+ *     PspCallJobHierarchyCallbacks @ 0x1409FFE88 (PspCallJobHierarchyCallbacks.c)
+ *     PspGetNextChildJob @ 0x140A00044 (PspGetNextChildJob.c)
+ *     PspInsertThread @ 0x140A7B188 (PspInsertThread.c)
+ *     PspUnlockJobShared @ 0x140AAB240 (PspUnlockJobShared.c)
+ *     PspQueryJobHierarchyProcessIdList @ 0x140AD2220 (PspQueryJobHierarchyProcessIdList.c)
+ *     PspSetProcessAffinitySafe @ 0x140AFE330 (PspSetProcessAffinitySafe.c)
+ *     PspSetProcessPriorityClass @ 0x140B11C80 (PspSetProcessPriorityClass.c)
  * Callees:
- *     ExpReleaseFastResourceExclusive @ 0x1402707E0 (ExpReleaseFastResourceExclusive.c)
- *     ExpReleaseFastResourceShared @ 0x1402729A0 (ExpReleaseFastResourceShared.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     ExpReleaseFastResourceExclusive @ 0x14026FD50 (ExpReleaseFastResourceExclusive.c)
+ *     ExpReleaseFastResourceShared @ 0x140271F10 (ExpReleaseFastResourceShared.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 void __fastcall ExReleaseFastResourceShared(ULONG_PTR BugCheckParameter2, ULONG_PTR a2, __int64 a3, __int64 a4)

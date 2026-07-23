@@ -1,9 +1,9 @@
 /*
- * XREFs of MiNonPagedPoolToNode @ 0x1402CCB04
+ * XREFs of MiNonPagedPoolToNode @ 0x14024B164
  * Callers:
- *     MiMakeSystemRangeAvailable @ 0x1402FD514 (MiMakeSystemRangeAvailable.c)
+ *     MiMakeSystemRangeAvailable @ 0x140308264 (MiMakeSystemRangeAvailable.c)
  * Callees:
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiNonPagedPoolToNode(ULONG_PTR BugCheckParameter2)

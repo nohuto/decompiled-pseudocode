@@ -1,16 +1,16 @@
 /*
- * XREFs of PpmEventTracePreVetoAccounting @ 0x14059BEA0
+ * XREFs of PpmEventTracePreVetoAccounting @ 0x14059C390
  * Callers:
- *     PpmEventPlatformVetoRundown @ 0x14059B114 (PpmEventPlatformVetoRundown.c)
- *     PpmEventProcessorVetoRundown @ 0x14059B430 (PpmEventProcessorVetoRundown.c)
+ *     PpmEventPlatformVetoRundown @ 0x14059B604 (PpmEventPlatformVetoRundown.c)
+ *     PpmEventProcessorVetoRundown @ 0x14059B920 (PpmEventProcessorVetoRundown.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     EtwWriteEx @ 0x1402581E0 (EtwWriteEx.c)
- *     EtwEventEnabled @ 0x140258420 (EtwEventEnabled.c)
- *     RtlGetInterruptTimePrecise @ 0x1402C42E0 (RtlGetInterruptTimePrecise.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     EtwWriteEx @ 0x1402582A0 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x1402584E0 (EtwEventEnabled.c)
+ *     RtlGetInterruptTimePrecise @ 0x1402C4570 (RtlGetInterruptTimePrecise.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
@@ -23,7 +23,7 @@ void __fastcall PpmEventTracePreVetoAccounting(
   unsigned int v6; // ebx
   _DWORD *Pool2; // rdi
   unsigned __int64 v8; // r14
-  __int64 InterruptTimePrecise; // rax
+  LARGE_INTEGER InterruptTimePrecise; // rax
   __int64 v10; // rcx
   __int64 v11; // r8
   __int64 v12; // r9
@@ -37,7 +37,7 @@ void __fastcall PpmEventTracePreVetoAccounting(
   bool v20; // zf
   struct _EVENT_DATA_DESCRIPTOR v21; // xmm0
   int v22; // [rsp+40h] [rbp-19h] BYREF
-  LARGE_INTEGER v23; // [rsp+48h] [rbp-11h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+48h] [rbp-11h] BYREF
   struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+50h] [rbp-9h] BYREF
   int *v25; // [rsp+60h] [rbp+7h]
   int v26; // [rsp+68h] [rbp+Fh]
@@ -46,7 +46,7 @@ void __fastcall PpmEventTracePreVetoAccounting(
   int v29; // [rsp+78h] [rbp+1Fh]
   int v30; // [rsp+7Ch] [rbp+23h]
 
-  v23.QuadPart = 0LL;
+  PerformanceCounter.QuadPart = 0LL;
   if ( PpmEtwRegistered )
   {
     if ( EtwEventEnabled(PpmEtwHandle, EventDescriptor) )
@@ -60,7 +60,7 @@ void __fastcall PpmEventTracePreVetoAccounting(
           if ( Pool2 )
           {
             v8 = KeAcquireSpinLockRaiseToDpc(&PpmIdleVetoLock);
-            InterruptTimePrecise = RtlGetInterruptTimePrecise(&v23);
+            InterruptTimePrecise = RtlGetInterruptTimePrecise(&PerformanceCounter);
             v10 = 0LL;
             v22 = 0;
             v11 = 0LL;
@@ -76,7 +76,7 @@ void __fastcall PpmEventTracePreVetoAccounting(
                 *(_QWORD *)&Pool2[5 * v22 + 3] = *(_QWORD *)(v11 + v13 + 40);
                 v15 = *(_QWORD *)(v11 + v13 + 32);
                 if ( v15 )
-                  *(_QWORD *)&Pool2[5 * v22 + 3] += InterruptTimePrecise - v15;
+                  *(_QWORD *)&Pool2[5 * v22 + 3] += InterruptTimePrecise.QuadPart - v15;
                 v10 = (unsigned int)++v22;
               }
               v11 += 64LL;
@@ -84,10 +84,13 @@ void __fastcall PpmEventTracePreVetoAccounting(
             }
             while ( v12 );
             KxReleaseSpinLock((volatile signed __int64 *)&PpmIdleVetoLock);
-            if ( KiIrqlFlags )
+            if ( (_DWORD)KiIrqlFlags )
             {
               CurrentIrql = KeGetCurrentIrql();
-              if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v8 <= 0xFu && CurrentIrql >= 2u )
+              if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+                && CurrentIrql <= 0xFu
+                && (unsigned __int8)v8 <= 0xFu
+                && CurrentIrql >= 2u )
               {
                 CurrentPrcb = KeGetCurrentPrcb();
                 SchedulerAssist = CurrentPrcb->SchedulerAssist;

@@ -6,11 +6,15 @@
  *     <none>
  */
 
-__int64 ZwAlpcCreateResourceReserve()
+NTSTATUS __cdecl ZwAlpcCreateResourceReserve(
+        HANDLE PortHandle,
+        ULONG Flags,
+        SIZE_T MessageSize,
+        PALPC_HANDLE ResourceId)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 121LL;
+  result = 121;
   __asm { syscall; Low latency system call }
   return result;
 }

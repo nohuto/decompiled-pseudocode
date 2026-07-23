@@ -1,22 +1,22 @@
 /*
- * XREFs of RtlIsApiSetImplemented @ 0x1407D4060
+ * XREFs of RtlIsApiSetImplemented @ 0x1407D4330
  * Callers:
  *     <none>
  * Callees:
- *     RtlInitAnsiString @ 0x1402F6C50 (RtlInitAnsiString.c)
- *     ApiSetQuerySchemaInfo @ 0x14035F1D4 (ApiSetQuerySchemaInfo.c)
- *     RtlFreeUnicodeString @ 0x14076F3D0 (RtlFreeUnicodeString.c)
- *     RtlAnsiStringToUnicodeString @ 0x140773C00 (RtlAnsiStringToUnicodeString.c)
- *     PsQueryCurrentApiSetSchema @ 0x1407D410C (PsQueryCurrentApiSetSchema.c)
+ *     RtlInitAnsiString @ 0x1402F6EE0 (RtlInitAnsiString.c)
+ *     ApiSetQuerySchemaInfo @ 0x14035F374 (ApiSetQuerySchemaInfo.c)
+ *     RtlFreeUnicodeString @ 0x14076F5C0 (RtlFreeUnicodeString.c)
+ *     RtlAnsiStringToUnicodeString @ 0x140773DF0 (RtlAnsiStringToUnicodeString.c)
+ *     PsQueryCurrentApiSetSchema @ 0x1407D43DC (PsQueryCurrentApiSetSchema.c)
  */
 
-__int64 __fastcall RtlIsApiSetImplemented(PCSZ SourceString)
+NTSTATUS __cdecl RtlIsApiSetImplemented(PCSTR ApiSetName)
 {
   char v1; // si
   bool v2; // di
-  NTSTATUS v3; // ebx
+  int v3; // ebx
   __int64 CurrentApiSetSchema; // rax
-  NTSTATUS v5; // eax
+  int v5; // eax
   UNICODE_STRING UnicodeString; // [rsp+20h] [rbp-20h] BYREF
   STRING DestinationString; // [rsp+30h] [rbp-10h] BYREF
   char v9; // [rsp+68h] [rbp+28h] BYREF
@@ -27,7 +27,7 @@ __int64 __fastcall RtlIsApiSetImplemented(PCSZ SourceString)
   v9 = 0;
   v10 = 0;
   DestinationString = 0LL;
-  RtlInitAnsiString(&DestinationString, SourceString);
+  RtlInitAnsiString(&DestinationString, ApiSetName);
   UnicodeString = 0LL;
   v3 = RtlAnsiStringToUnicodeString(&UnicodeString, &DestinationString, 1u);
   if ( v3 >= 0 )
@@ -41,6 +41,6 @@ __int64 __fastcall RtlIsApiSetImplemented(PCSZ SourceString)
   if ( UnicodeString.Buffer )
     RtlFreeUnicodeString(&UnicodeString);
   if ( v3 >= 0 && (!v1 || !v2) )
-    return (unsigned int)-1073741275;
-  return (unsigned int)v3;
+    return -1073741275;
+  return v3;
 }

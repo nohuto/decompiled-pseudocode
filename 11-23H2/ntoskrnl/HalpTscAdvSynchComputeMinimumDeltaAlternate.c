@@ -1,8 +1,8 @@
 /*
- * XREFs of HalpTscAdvSynchComputeMinimumDeltaAlternate @ 0x14038DA48
+ * XREFs of HalpTscAdvSynchComputeMinimumDeltaAlternate @ 0x14038DC28
  * Callers:
- *     HalpTscAdvSynchCalculateRemoteDelta @ 0x14038D86C (HalpTscAdvSynchCalculateRemoteDelta.c)
- *     HalpTscAdvSynchTarget @ 0x14038D954 (HalpTscAdvSynchTarget.c)
+ *     HalpTscAdvSynchCalculateRemoteDelta @ 0x14038DA4C (HalpTscAdvSynchCalculateRemoteDelta.c)
+ *     HalpTscAdvSynchTarget @ 0x14038DB34 (HalpTscAdvSynchTarget.c)
  * Callees:
  *     <none>
  */

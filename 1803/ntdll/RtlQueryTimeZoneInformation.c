@@ -6,7 +6,7 @@
  *     <none>
  */
 
-__int64 __fastcall RtlQueryTimeZoneInformation(void *a1)
+NTSTATUS __cdecl RtlQueryTimeZoneInformation(PRTL_TIME_ZONE_INFORMATION TimeZoneInformation)
 {
-  return sub_180009E4C(a1, 0xACuLL);
+  return sub_180009E4C(TimeZoneInformation, 0xACuLL);
 }

@@ -1,14 +1,14 @@
 /*
- * XREFs of PopPowerSourceChangeCallback @ 0x1403846F0
+ * XREFs of PopPowerSourceChangeCallback @ 0x1403848D0
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     TtmIsEnabled @ 0x1407A6090 (TtmIsEnabled.c)
- *     PopGetSessionId @ 0x14082288C (PopGetSessionId.c)
- *     PopBroadcastSessionInfo @ 0x140824F14 (PopBroadcastSessionInfo.c)
- *     PopPowerAggregatorForceSessionSwitch @ 0x140993844 (PopPowerAggregatorForceSessionSwitch.c)
- *     TtmNotifySessionDisplayBurst @ 0x1409A4324 (TtmNotifySessionDisplayBurst.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     TtmIsEnabled @ 0x1407A6280 (TtmIsEnabled.c)
+ *     PopGetSessionId @ 0x140822B8C (PopGetSessionId.c)
+ *     PopBroadcastSessionInfo @ 0x140825214 (PopBroadcastSessionInfo.c)
+ *     PopPowerAggregatorForceSessionSwitch @ 0x140993A44 (PopPowerAggregatorForceSessionSwitch.c)
+ *     TtmNotifySessionDisplayBurst @ 0x1409A4524 (TtmNotifySessionDisplayBurst.c)
  *     PopReleasePolicyLock @ 0x140A87BA4 (PopReleasePolicyLock.c)
  *     PopAcquirePolicyLock @ 0x140A87BE4 (PopAcquirePolicyLock.c)
  */

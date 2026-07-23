@@ -32,11 +32,11 @@
 
 void __fastcall MiProbeAndLockPages(__int64 a1, char a2, signed __int32 a3)
 {
-  int v6; // eax
+  NTSTATUS v6; // eax
   int v7; // eax
-  int v8; // eax
+  NTSTATUS v8; // eax
   char *v9; // rbx
-  int v10; // edi
+  NTSTATUS v10; // edi
   int v11; // edx
   unsigned __int64 v12; // r8
   int v13; // eax
@@ -56,7 +56,7 @@ void __fastcall MiProbeAndLockPages(__int64 a1, char a2, signed __int32 a3)
          a3,
          1);
   if ( v6 < 0 )
-    RtlRaiseStatus((unsigned int)v6);
+    RtlRaiseStatus(v6);
   v7 = MiProbeAndLockPacket((__int64)v17);
   v8 = MiProbeAndLockComplete((__int64)v17, v7);
   v9 = (char *)v17[16];
@@ -75,5 +75,5 @@ void __fastcall MiProbeAndLockPages(__int64 a1, char a2, signed __int32 a3)
     MiUnlockAndDereferenceVad(v9);
   }
   if ( v10 < 0 )
-    RtlRaiseStatus((unsigned int)v10);
+    RtlRaiseStatus(v10);
 }

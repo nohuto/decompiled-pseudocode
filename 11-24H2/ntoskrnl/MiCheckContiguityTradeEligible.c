@@ -1,11 +1,11 @@
 /*
- * XREFs of MiCheckContiguityTradeEligible @ 0x140680D3C
+ * XREFs of MiCheckContiguityTradeEligible @ 0x140681EE8
  * Callers:
- *     MiQueryVaPhysicalContiguity @ 0x140680DC0 (MiQueryVaPhysicalContiguity.c)
- *     MiMakeVaRangePhysicallyContiguous @ 0x14068CDFC (MiMakeVaRangePhysicallyContiguous.c)
+ *     MiQueryVaPhysicalContiguity @ 0x140681F6C (MiQueryVaPhysicalContiguity.c)
+ *     MiMakeVaRangePhysicallyContiguous @ 0x14068DF2C (MiMakeVaRangePhysicallyContiguous.c)
  * Callees:
- *     MiGetPfnSlabType @ 0x14022D610 (MiGetPfnSlabType.c)
- *     MiActivePageClaimCandidate @ 0x140306540 (MiActivePageClaimCandidate.c)
+ *     MiGetPfnSlabType @ 0x140300F20 (MiGetPfnSlabType.c)
+ *     MiActivePageClaimCandidate @ 0x140310420 (MiActivePageClaimCandidate.c)
  */
 
 _BOOL8 __fastcall MiCheckContiguityTradeEligible(unsigned __int64 a1)
@@ -19,7 +19,7 @@ _BOOL8 __fastcall MiCheckContiguityTradeEligible(unsigned __int64 a1)
   {
     v1 = (*(_QWORD *)(a1 + 40) >> 43) & 0x3FF;
     v4 = 0;
-    return MiActivePageClaimCandidate(*((_QWORD *)qword_140E2FF88 + v1), a1, 0, 0, 0, &v4) == 0;
+    return MiActivePageClaimCandidate(*((_QWORD *)qword_140E300C8 + v1), a1, 0, 0, 0, &v4) == 0;
   }
   else
   {

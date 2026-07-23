@@ -1,12 +1,12 @@
 /*
- * XREFs of ExpWorkerFactoryDeferredThreadCreation @ 0x1404D2EC8
+ * XREFs of ExpWorkerFactoryDeferredThreadCreation @ 0x1404CC738
  * Callers:
- *     ExpWorkerFactoryManagerThread @ 0x1406D33B0 (ExpWorkerFactoryManagerThread.c)
+ *     ExpWorkerFactoryManagerThread @ 0x1406D73E0 (ExpWorkerFactoryManagerThread.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x1402B4730 (KeAcquireInStackQueuedSpinLock.c)
- *     ExpWorkerFactoryCheckCreate @ 0x1402C2B40 (ExpWorkerFactoryCheckCreate.c)
- *     RtlpInterlockedFlushSList @ 0x140730D10 (RtlpInterlockedFlushSList.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402FF400 (KeAcquireInStackQueuedSpinLock.c)
+ *     ExpWorkerFactoryCheckCreate @ 0x14030D800 (ExpWorkerFactoryCheckCreate.c)
+ *     RtlpInterlockedFlushSList @ 0x1407358E0 (RtlpInterlockedFlushSList.c)
  */
 
 LONG_PTR ExpWorkerFactoryDeferredThreadCreation()
@@ -18,7 +18,7 @@ LONG_PTR ExpWorkerFactoryDeferredThreadCreation()
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
 
   memset(&LockHandle, 0, sizeof(LockHandle));
-  *(_DWORD *)&WheapConfigTableLock.SavedApcStateFill[40] = 0;
+  *(_DWORD *)&WheapConfigTableLock.SchedulerApcFill5[56] = 0;
   result = (LONG_PTR)RtlpInterlockedFlushSList(&ExpWorkerFactoryThreadCreationList);
   v1 = (_QWORD *)result;
   if ( result )

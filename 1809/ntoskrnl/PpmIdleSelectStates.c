@@ -1,25 +1,25 @@
 /*
- * XREFs of PpmIdleSelectStates @ 0x140180090
+ * XREFs of PpmIdleSelectStates @ 0x1401801D0
  * Callers:
  *     PoIdle @ 0x14005D6B0 (PoIdle.c)
  * Callees:
- *     KeAddProcessorAffinityEx @ 0x140063A40 (KeAddProcessorAffinityEx.c)
- *     PoCopyDeepIdleMask @ 0x1400DC870 (PoCopyDeepIdleMask.c)
- *     KeSubtractAffinityEx @ 0x1400ED840 (KeSubtractAffinityEx.c)
- *     EtwTraceKernelEvent @ 0x1400F3710 (EtwTraceKernelEvent.c)
- *     PpmIdleUpdateSelectionStatistics @ 0x1401803C0 (PpmIdleUpdateSelectionStatistics.c)
- *     PpmComputeIdleDurationHint @ 0x1401803DC (PpmComputeIdleDurationHint.c)
- *     PpmEstimateIdleDuration @ 0x140180480 (PpmEstimateIdleDuration.c)
- *     PpmIdleEvaluateConstraints @ 0x140180694 (PpmIdleEvaluateConstraints.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     PpmCheckPreConditionsForDeepSleep @ 0x1402D3C8C (PpmCheckPreConditionsForDeepSleep.c)
- *     PpmIdleCheckCoordinatedStateEligibility @ 0x1402D4694 (PpmIdleCheckCoordinatedStateEligibility.c)
- *     PpmIdleCheckProcessorStateEligibility @ 0x1402D48D8 (PpmIdleCheckProcessorStateEligibility.c)
- *     PpmIdleRollbackCoordinatedSelection @ 0x1402D5064 (PpmIdleRollbackCoordinatedSelection.c)
- *     PpmIdleSetSynchronizationState @ 0x1402D5160 (PpmIdleSetSynchronizationState.c)
- *     PpmUnlockProcessors @ 0x1402D5F90 (PpmUnlockProcessors.c)
+ *     KeAddProcessorAffinityEx @ 0x140063A30 (KeAddProcessorAffinityEx.c)
+ *     PoCopyDeepIdleMask @ 0x1400DC8F0 (PoCopyDeepIdleMask.c)
+ *     KeSubtractAffinityEx @ 0x1400ED8C0 (KeSubtractAffinityEx.c)
+ *     EtwTraceKernelEvent @ 0x1400F3790 (EtwTraceKernelEvent.c)
+ *     PpmIdleUpdateSelectionStatistics @ 0x140180500 (PpmIdleUpdateSelectionStatistics.c)
+ *     PpmComputeIdleDurationHint @ 0x14018051C (PpmComputeIdleDurationHint.c)
+ *     PpmEstimateIdleDuration @ 0x1401805C0 (PpmEstimateIdleDuration.c)
+ *     PpmIdleEvaluateConstraints @ 0x1401807D4 (PpmIdleEvaluateConstraints.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     PpmCheckPreConditionsForDeepSleep @ 0x1402D3E7C (PpmCheckPreConditionsForDeepSleep.c)
+ *     PpmIdleCheckCoordinatedStateEligibility @ 0x1402D4884 (PpmIdleCheckCoordinatedStateEligibility.c)
+ *     PpmIdleCheckProcessorStateEligibility @ 0x1402D4AC8 (PpmIdleCheckProcessorStateEligibility.c)
+ *     PpmIdleRollbackCoordinatedSelection @ 0x1402D5254 (PpmIdleRollbackCoordinatedSelection.c)
+ *     PpmIdleSetSynchronizationState @ 0x1402D5350 (PpmIdleSetSynchronizationState.c)
+ *     PpmUnlockProcessors @ 0x1402D6180 (PpmUnlockProcessors.c)
  */
 
 _QWORD *__fastcall PpmIdleSelectStates(

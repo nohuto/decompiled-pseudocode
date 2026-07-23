@@ -1,17 +1,17 @@
 /*
- * XREFs of LdrpQueryValueKey @ 0x140784180
+ * XREFs of LdrpQueryValueKey @ 0x1407840B0
  * Callers:
- *     RtlpMuiRegAddAlternateCodePage @ 0x1406A2170 (RtlpMuiRegAddAlternateCodePage.c)
- *     _RtlpMuiRegLoadInstalledFromKey @ 0x1406A26DC (_RtlpMuiRegLoadInstalledFromKey.c)
- *     RtlpLoadInstallLanguageFallback @ 0x14082B418 (RtlpLoadInstallLanguageFallback.c)
- *     RtlpLoadPolicyLanguageSpec @ 0x14082B734 (RtlpLoadPolicyLanguageSpec.c)
- *     _RtlpMuiRegInitLIPLanguage @ 0x14082DA78 (_RtlpMuiRegInitLIPLanguage.c)
- *     _RtlpMuiRegPopulateBaseLanguages @ 0x14082DDEC (_RtlpMuiRegPopulateBaseLanguages.c)
+ *     RtlpMuiRegAddAlternateCodePage @ 0x1406A31C0 (RtlpMuiRegAddAlternateCodePage.c)
+ *     _RtlpMuiRegLoadInstalledFromKey @ 0x1406A372C (_RtlpMuiRegLoadInstalledFromKey.c)
+ *     RtlpLoadInstallLanguageFallback @ 0x14082BC48 (RtlpLoadInstallLanguageFallback.c)
+ *     RtlpLoadPolicyLanguageSpec @ 0x14082BF64 (RtlpLoadPolicyLanguageSpec.c)
+ *     _RtlpMuiRegInitLIPLanguage @ 0x14082E2A8 (_RtlpMuiRegInitLIPLanguage.c)
+ *     _RtlpMuiRegPopulateBaseLanguages @ 0x14082E61C (_RtlpMuiRegPopulateBaseLanguages.c)
  * Callees:
- *     ZwQueryValueKey @ 0x1406A66F0 (ZwQueryValueKey.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ZwQueryValueKey @ 0x1406A7690 (ZwQueryValueKey.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall LdrpQueryValueKey(HANDLE KeyHandle, PUNICODE_STRING ValueName, _DWORD *a3, void *a4, ULONG *a5)
@@ -43,7 +43,7 @@ __int64 __fastcall LdrpQueryValueKey(HANDLE KeyHandle, PUNICODE_STRING ValueName
   if ( Length )
   {
 LABEL_8:
-    Pool2 = (_DWORD *)ExAllocatePool2(0x100uLL);
+    Pool2 = (_DWORD *)ExAllocatePool2(0x100uLL, Length, 0x72746C6Du);
     if ( !Pool2 )
       return (unsigned int)-1073741670;
     v15 = ZwQueryValueKey(KeyHandle, ValueName, KeyValuePartialInformation, Pool2, Length, &ResultLength);

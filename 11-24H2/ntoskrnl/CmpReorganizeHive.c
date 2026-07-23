@@ -1,33 +1,33 @@
 /*
- * XREFs of CmpReorganizeHive @ 0x1409310B0
+ * XREFs of CmpReorganizeHive @ 0x1409331F0
  * Callers:
- *     CmpCreateHive @ 0x14092F538 (CmpCreateHive.c)
+ *     CmpCreateHive @ 0x140931678 (CmpCreateHive.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     CmpAllocatePool @ 0x1403E1834 (CmpAllocatePool.c)
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     CmSiFreeMemory @ 0x14046B8D0 (CmSiFreeMemory.c)
- *     CmSiQuerySystemTime @ 0x1404B338C (CmSiQuerySystemTime.c)
- *     ExIsSoftBoot @ 0x1404F9880 (ExIsSoftBoot.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     CmpLogReorganizeEvent @ 0x1407D22C4 (CmpLogReorganizeEvent.c)
- *     CmpUpdateReorganizeRegistryValues @ 0x1407DA8F4 (CmpUpdateReorganizeRegistryValues.c)
- *     CmpCreateEmptyHiveClone @ 0x1407DE510 (CmpCreateEmptyHiveClone.c)
- *     CmpSwapHiveStorage @ 0x1407DE77C (CmpSwapHiveStorage.c)
- *     CmpCopySyncTree @ 0x1407E1E30 (CmpCopySyncTree.c)
- *     HvUnlockHiveFlusherShared @ 0x14086A604 (HvUnlockHiveFlusherShared.c)
- *     HvLockHiveFlusherShared @ 0x14087DD28 (HvLockHiveFlusherShared.c)
- *     CmpCopyKeyPartial @ 0x140880F10 (CmpCopyKeyPartial.c)
- *     HvLockHiveWriter @ 0x140882A38 (HvLockHiveWriter.c)
- *     HvUnlockHiveWriter @ 0x140882E28 (HvUnlockHiveWriter.c)
- *     CmpClearKeyAccessBits @ 0x1409312E0 (CmpClearKeyAccessBits.c)
- *     HvMarkBaseBlockDirty @ 0x140931488 (HvMarkBaseBlockDirty.c)
- *     CmpDestroyHive @ 0x14097C14C (CmpDestroyHive.c)
- *     CmCheckRegistry @ 0x140AE33E0 (CmCheckRegistry.c)
- *     CmpAcquireShutdownRundown @ 0x140BB9400 (CmpAcquireShutdownRundown.c)
- *     CmpReleaseShutdownRundown @ 0x140BB9880 (CmpReleaseShutdownRundown.c)
- *     CmpLockRegistry @ 0x140BB9E60 (CmpLockRegistry.c)
- *     CmpUnlockRegistry @ 0x140BB9F50 (CmpUnlockRegistry.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     CmpAllocatePool @ 0x1403C9EA4 (CmpAllocatePool.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     CmSiFreeMemory @ 0x140464550 (CmSiFreeMemory.c)
+ *     CmSiQuerySystemTime @ 0x1404ADBFC (CmSiQuerySystemTime.c)
+ *     ExIsSoftBoot @ 0x1404F7160 (ExIsSoftBoot.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     CmpLogReorganizeEvent @ 0x1407D27B4 (CmpLogReorganizeEvent.c)
+ *     CmpUpdateReorganizeRegistryValues @ 0x1407DAE44 (CmpUpdateReorganizeRegistryValues.c)
+ *     CmpCreateEmptyHiveClone @ 0x1407DEA60 (CmpCreateEmptyHiveClone.c)
+ *     CmpSwapHiveStorage @ 0x1407DECCC (CmpSwapHiveStorage.c)
+ *     CmpCopySyncTree @ 0x1407E2380 (CmpCopySyncTree.c)
+ *     HvUnlockHiveFlusherShared @ 0x14086E934 (HvUnlockHiveFlusherShared.c)
+ *     HvLockHiveFlusherShared @ 0x140881BD8 (HvLockHiveFlusherShared.c)
+ *     CmpCopyKeyPartial @ 0x140884DC0 (CmpCopyKeyPartial.c)
+ *     HvLockHiveWriter @ 0x1408868E8 (HvLockHiveWriter.c)
+ *     HvUnlockHiveWriter @ 0x140886CD8 (HvUnlockHiveWriter.c)
+ *     CmpClearKeyAccessBits @ 0x140933420 (CmpClearKeyAccessBits.c)
+ *     HvMarkBaseBlockDirty @ 0x1409335C8 (HvMarkBaseBlockDirty.c)
+ *     CmpDestroyHive @ 0x14096495C (CmpDestroyHive.c)
+ *     CmCheckRegistry @ 0x140AE4CC0 (CmCheckRegistry.c)
+ *     CmpAcquireShutdownRundown @ 0x140BBB400 (CmpAcquireShutdownRundown.c)
+ *     CmpReleaseShutdownRundown @ 0x140BBB880 (CmpReleaseShutdownRundown.c)
+ *     CmpLockRegistry @ 0x140BBBE60 (CmpLockRegistry.c)
+ *     CmpUnlockRegistry @ 0x140BBBF50 (CmpUnlockRegistry.c)
  */
 
 __int64 __fastcall CmpReorganizeHive(ULONG_PTR BugCheckParameter3, unsigned __int16 *a2, __int64 a3, __int64 a4)
@@ -127,7 +127,7 @@ __int64 __fastcall CmpReorganizeHive(ULONG_PTR BugCheckParameter3, unsigned __in
   {
     v15 = -1073741431;
 LABEL_59:
-    if ( (unsigned int)dword_140E09EE8 > 5 && tlgKeywordOn((__int64)&dword_140E09EE8, 0x400000000000LL) )
+    if ( (unsigned int)dword_140E09F58 > 5 && tlgKeywordOn((__int64)&dword_140E09F58, 0x400000000000LL) )
     {
       LODWORD(BugCheckParameter3a) = v15;
       p_BugCheckParameter3a = &BugCheckParameter3a;
@@ -136,8 +136,8 @@ LABEL_59:
       v43 = 0x1000000LL;
       v49 = 8LL;
       tlgWriteTransfer_EtwWriteTransfer(
-        (__int64)&dword_140E09EE8,
-        (unsigned __int8 *)&word_1400552A6,
+        (__int64)&dword_140E09F58,
+        (unsigned __int8 *)&dword_140056124,
         0LL,
         0LL,
         4u,
@@ -226,7 +226,7 @@ LABEL_10:
               0);
       if ( v15 >= 0 )
       {
-        Pool = CmpAllocatePool(0x100uLL);
+        Pool = CmpAllocatePool(0x100uLL, 0x1B0uLL, 0x33394D43u);
         if ( Pool )
         {
           v15 = CmCheckRegistry(v20);
@@ -239,7 +239,7 @@ LABEL_10:
               v30 = *(_DWORD *)(v20 + 280);
               v31 = *(_DWORD *)(BugCheckParameter3 + 280);
               CmpSwapHiveStorage(BugCheckParameter3, v20);
-              if ( (unsigned int)dword_140E09EE8 > 5 && tlgKeywordOn((__int64)&dword_140E09EE8, 0x400000000000LL) )
+              if ( (unsigned int)dword_140E09F58 > 5 && tlgKeywordOn((__int64)&dword_140E09F58, 0x400000000000LL) )
               {
                 v33 = *(_QWORD *)(*(_QWORD *)(BugCheckParameter3 + 64) + 168LL);
                 p_BugCheckParameter3a = (ULONG_PTR *)&v42;
@@ -255,8 +255,8 @@ LABEL_10:
                 v43 = 0x1000000LL;
                 v53 = 8LL;
                 tlgWriteTransfer_EtwWriteTransfer(
-                  (__int64)&dword_140E09EE8,
-                  (unsigned __int8 *)byte_140055455,
+                  (__int64)&dword_140E09F58,
+                  (unsigned __int8 *)&word_1400560CE,
                   0LL,
                   0LL,
                   6u,
@@ -287,7 +287,7 @@ LABEL_10:
             }
             else
             {
-              if ( (unsigned int)dword_140E09EE8 > 5 && tlgKeywordOn((__int64)&dword_140E09EE8, 0x400000000000LL) )
+              if ( (unsigned int)dword_140E09F58 > 5 && tlgKeywordOn((__int64)&dword_140E09F58, 0x400000000000LL) )
               {
                 LODWORD(BugCheckParameter3a) = v27;
                 p_BugCheckParameter3a = &BugCheckParameter3a;
@@ -299,8 +299,8 @@ LABEL_10:
                 v42 = 0x1000000LL;
                 v51 = 8LL;
                 tlgWriteTransfer_EtwWriteTransfer(
-                  (__int64)&dword_140E09EE8,
-                  (unsigned __int8 *)byte_1400554AB,
+                  (__int64)&dword_140E09F58,
+                  (unsigned __int8 *)&word_140056066,
                   0LL,
                   0LL,
                   5u,
@@ -319,7 +319,7 @@ LABEL_10:
           }
           else
           {
-            if ( (unsigned int)dword_140E09EE8 > 5 && tlgKeywordOn((__int64)&dword_140E09EE8, 0x400000000000LL) )
+            if ( (unsigned int)dword_140E09F58 > 5 && tlgKeywordOn((__int64)&dword_140E09F58, 0x400000000000LL) )
             {
               LODWORD(BugCheckParameter3a) = v15;
               v55 = &BugCheckParameter3a;
@@ -355,8 +355,8 @@ LABEL_10:
               v42 = 0x1000000LL;
               v79 = 8LL;
               tlgWriteTransfer_EtwWriteTransfer(
-                (__int64)&dword_140E09EE8,
-                (unsigned __int8 *)byte_1400552E8,
+                (__int64)&dword_140E09F58,
+                (unsigned __int8 *)&dword_140055CA8 + 2,
                 0LL,
                 0LL,
                 0xDu,

@@ -13,49 +13,38 @@
 __int64 __fastcall HvlSvmGetDeviceCapabilities(int a1, __int64 a2)
 {
   _QWORD *v4; // rbx
-  _QWORD *v5; // rax
-  __int64 v6; // r8
-  _DWORD *v7; // r14
-  __int64 v8; // rdx
-  __int64 v9; // r9
-  unsigned __int16 v10; // bx
-  int v11; // ecx
-  int v12; // eax
-  __int128 v14; // [rsp+28h] [rbp-49h] BYREF
-  __int128 v15; // [rsp+38h] [rbp-39h]
-  __int128 v16; // [rsp+48h] [rbp-29h] BYREF
-  __int128 v17; // [rsp+58h] [rbp-19h]
-  _BYTE v18[32]; // [rsp+68h] [rbp-9h] BYREF
-  _BYTE v19[32]; // [rsp+88h] [rbp+17h] BYREF
+  _DWORD *v5; // r14
+  unsigned __int16 v6; // bx
+  int v7; // ecx
+  int v8; // eax
+  _OWORD v10[2]; // [rsp+28h] [rbp-49h] BYREF
+  _OWORD v11[2]; // [rsp+48h] [rbp-29h] BYREF
+  _BYTE v12[32]; // [rsp+68h] [rbp-9h] BYREF
+  _BYTE v13[32]; // [rsp+88h] [rbp+17h] BYREF
 
   *(_QWORD *)a2 = 0LL;
   *(_DWORD *)(a2 + 8) = 0;
-  v16 = 0LL;
-  v17 = 0LL;
-  v14 = 0LL;
-  v15 = 0LL;
-  v4 = HvlpAcquireHypercallPage((PHYSICAL_ADDRESS *)&v16, 1, (__int64)v18, 16LL);
-  v5 = HvlpAcquireHypercallPage((PHYSICAL_ADDRESS *)&v14, 2, (__int64)v19, 16LL);
-  v6 = *((_QWORD *)&v15 + 1);
-  v7 = v5;
-  v8 = *((_QWORD *)&v17 + 1);
+  memset(v11, 0, sizeof(v11));
+  memset(v10, 0, sizeof(v10));
+  v4 = HvlpAcquireHypercallPage((PHYSICAL_ADDRESS *)v11, 1, (__int64)v12, 16LL);
+  v5 = HvlpAcquireHypercallPage((PHYSICAL_ADDRESS *)v10, 2, (__int64)v13, 16LL);
   *v4 = 0x4000000000000000LL;
   *((_WORD *)v4 + 1) = HIWORD(a1);
   v4[1] = 0LL;
   *(_WORD *)v4 = a1;
-  v10 = HvcallInitiateHypercall(170, v8, v6, v9);
-  if ( !v10 )
+  v6 = HvcallInitiateHypercall(170);
+  if ( !v6 )
   {
-    *(_DWORD *)a2 ^= (*v7 ^ *(_DWORD *)a2) & 1;
-    v11 = *(_DWORD *)a2 ^ ((unsigned __int8)*(_DWORD *)a2 ^ (unsigned __int8)*v7) & 2;
-    *(_DWORD *)a2 = v11;
-    v12 = v11 ^ (*v7 ^ v11) & 4;
-    *(_DWORD *)a2 = v12;
-    *(_DWORD *)a2 = *v7 ^ (*v7 ^ v12) & 0x7FFFFFFF;
-    *(_DWORD *)(a2 + 4) = v7[1];
-    *(_DWORD *)(a2 + 8) = v7[2];
+    *(_DWORD *)a2 ^= (*v5 ^ *(_DWORD *)a2) & 1;
+    v7 = *(_DWORD *)a2 ^ ((unsigned __int8)*(_DWORD *)a2 ^ (unsigned __int8)*v5) & 2;
+    *(_DWORD *)a2 = v7;
+    v8 = v7 ^ (*v5 ^ v7) & 4;
+    *(_DWORD *)a2 = v8;
+    *(_DWORD *)a2 = *v5 ^ (*v5 ^ v8) & 0x7FFFFFFF;
+    *(_DWORD *)(a2 + 4) = v5[1];
+    *(_DWORD *)(a2 + 8) = v5[2];
   }
-  HvlpReleaseHypercallPage((__int64)&v14);
-  HvlpReleaseHypercallPage((__int64)&v16);
-  return HvlpHvToNtStatus(v10);
+  HvlpReleaseHypercallPage((__int64)v10);
+  HvlpReleaseHypercallPage((__int64)v11);
+  return HvlpHvToNtStatus(v6);
 }

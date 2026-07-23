@@ -1,7 +1,7 @@
 /*
- * XREFs of HvpAllocateLogBuffers @ 0x140291500
+ * XREFs of HvpAllocateLogBuffers @ 0x140291790
  * Callers:
- *     HvpGenerateLogEntry @ 0x140705758 (HvpGenerateLogEntry.c)
+ *     HvpGenerateLogEntry @ 0x140705968 (HvpGenerateLogEntry.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)

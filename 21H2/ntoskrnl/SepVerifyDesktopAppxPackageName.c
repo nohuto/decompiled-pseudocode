@@ -3,17 +3,17 @@
  * Callers:
  *     SepVerifyDesktopAppxImage @ 0x1402013A4 (SepVerifyDesktopAppxImage.c)
  * Callees:
- *     AuthzBasepEvaluateAceCondition @ 0x14024DC80 (AuthzBasepEvaluateAceCondition.c)
- *     SeSecurityAttributePresent @ 0x14024EAC0 (SeSecurityAttributePresent.c)
- *     AuthzBasepSetSecurityAttributesToken @ 0x1402508E0 (AuthzBasepSetSecurityAttributesToken.c)
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     AuthzBasepAllocateSecurityAttributesList @ 0x1402B2BDC (AuthzBasepAllocateSecurityAttributesList.c)
- *     AuthzBasepFreeSecurityAttributesList @ 0x1402F5290 (AuthzBasepFreeSecurityAttributesList.c)
- *     RtlFindAceByType @ 0x140352210 (RtlFindAceByType.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     SeQuerySecurityAttributesToken @ 0x140600F90 (SeQuerySecurityAttributesToken.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     AuthzBasepAllocateSecurityAttributesList @ 0x140230D8C (AuthzBasepAllocateSecurityAttributesList.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     AuthzBasepEvaluateAceCondition @ 0x1402F24D0 (AuthzBasepEvaluateAceCondition.c)
+ *     SeSecurityAttributePresent @ 0x1402F3310 (SeSecurityAttributePresent.c)
+ *     AuthzBasepSetSecurityAttributesToken @ 0x1402F50F0 (AuthzBasepSetSecurityAttributesToken.c)
+ *     AuthzBasepFreeSecurityAttributesList @ 0x1402FFFE0 (AuthzBasepFreeSecurityAttributesList.c)
+ *     RtlFindAceByType @ 0x14035CF60 (RtlFindAceByType.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     SeQuerySecurityAttributesToken @ 0x1406F06F0 (SeQuerySecurityAttributesToken.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall SepVerifyDesktopAppxPackageName(__int64 a1, __int64 a2, _BYTE *a3)
@@ -24,9 +24,9 @@ __int64 __fastcall SepVerifyDesktopAppxPackageName(__int64 a1, __int64 a2, _BYTE
   __int64 v9; // rsi
   __int16 v10; // ax
   __int64 v11; // rax
-  __int64 v12; // rcx
-  __int64 AceByType; // rax
-  __int64 v14; // r14
+  ACL *v12; // rcx
+  unsigned __int8 *AceByType; // rax
+  unsigned __int8 *v14; // r14
   int v16; // ebx
   SIZE_T NumberOfBytes; // [rsp+60h] [rbp-A0h] BYREF
   int v18; // [rsp+68h] [rbp-98h] BYREF
@@ -86,17 +86,17 @@ __int64 __fastcall SepVerifyDesktopAppxPackageName(__int64 a1, __int64 a2, _BYTE
       goto LABEL_27;
     if ( v10 >= 0 )
     {
-      v12 = *(_QWORD *)(a2 + 32);
+      v12 = *(ACL **)(a2 + 32);
       goto LABEL_11;
     }
     v11 = *(unsigned int *)(a2 + 16);
     if ( (_DWORD)v11 )
-      v12 = a2 + v11;
+      v12 = (ACL *)(a2 + v11);
     else
 LABEL_27:
       v12 = 0LL;
 LABEL_11:
-    AceByType = RtlFindAceByType(v12, 9LL, (char *)&NumberOfBytes + 4);
+    AceByType = (unsigned __int8 *)RtlFindAceByType(v12, 9u, (PULONG)&NumberOfBytes + 1);
     v14 = AceByType;
     if ( AceByType )
     {
@@ -108,11 +108,8 @@ LABEL_11:
                                   0LL,
                                   0LL,
                                   0LL,
-                                  AceByType + 4 * (unsigned int)*(unsigned __int8 *)(AceByType + 9) + 8 + 8LL,
-                                  *(unsigned __int16 *)(AceByType + 2)
-                                - (4 * (unsigned int)*(unsigned __int8 *)(AceByType + 9)
-                                 + 8)
-                                - 8,
+                                  (__int64)&AceByType[4 * AceByType[9] + 16],
+                                  *((unsigned __int16 *)AceByType + 1) - (4 * (unsigned int)AceByType[9] + 8) - 8,
                                   0,
                                   0,
                                   (__int64)&v18);

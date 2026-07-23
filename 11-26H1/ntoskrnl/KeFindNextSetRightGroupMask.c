@@ -1,8 +1,8 @@
 /*
- * XREFs of KeFindNextSetRightGroupMask @ 0x1404C1FA8
+ * XREFs of KeFindNextSetRightGroupMask @ 0x1404BB7F8
  * Callers:
- *     KeSelectGroupFromNode @ 0x1405EEA5C (KeSelectGroupFromNode.c)
- *     KiSelectGroupFromNodeForAffinity @ 0x1405EFE88 (KiSelectGroupFromNodeForAffinity.c)
+ *     KeSelectGroupFromNode @ 0x1405F13CC (KeSelectGroupFromNode.c)
+ *     KiSelectGroupFromNodeForAffinity @ 0x1405F27F8 (KiSelectGroupFromNodeForAffinity.c)
  * Callees:
  *     <none>
  */

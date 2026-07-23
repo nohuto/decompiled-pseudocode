@@ -1,14 +1,14 @@
 /*
- * XREFs of CmpVERemoveHiveFromSIDMappingTable @ 0x140580888
+ * XREFs of CmpVERemoveHiveFromSIDMappingTable @ 0x140581888
  * Callers:
- *     CmpCompleteUnloadKey @ 0x1405AF61C (CmpCompleteUnloadKey.c)
- *     CmShutdownSystem @ 0x1407EC8B4 (CmShutdownSystem.c)
- *     CmpDestroyHive @ 0x1407F6778 (CmpDestroyHive.c)
+ *     CmpCompleteUnloadKey @ 0x1405B061C (CmpCompleteUnloadKey.c)
+ *     CmShutdownSystem @ 0x1407EDAB4 (CmShutdownSystem.c)
+ *     CmpDestroyHive @ 0x1407F7978 (CmpDestroyHive.c)
  * Callees:
  *     KeAcquireGuardedMutex @ 0x140005320 (KeAcquireGuardedMutex.c)
  *     KeReleaseGuardedMutex @ 0x140014E30 (KeReleaseGuardedMutex.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 void __fastcall CmpVERemoveHiveFromSIDMappingTable(__int64 a1)

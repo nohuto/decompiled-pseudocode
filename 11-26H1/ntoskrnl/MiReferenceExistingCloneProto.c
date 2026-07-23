@@ -1,11 +1,11 @@
 /*
- * XREFs of MiReferenceExistingCloneProto @ 0x14036AC14
+ * XREFs of MiReferenceExistingCloneProto @ 0x14036C9B4
  * Callers:
- *     MiHandleForkValidProtoPte @ 0x14030B310 (MiHandleForkValidProtoPte.c)
- *     MiHandleForkProtoPte @ 0x14030EB98 (MiHandleForkProtoPte.c)
+ *     MiHandleForkValidProtoPte @ 0x1402ED390 (MiHandleForkValidProtoPte.c)
+ *     MiHandleForkProtoPte @ 0x1402F0C18 (MiHandleForkProtoPte.c)
  * Callees:
- *     MiReferenceCloneProto @ 0x14036A5A8 (MiReferenceCloneProto.c)
- *     MiLocateCloneAddress @ 0x14036BA4C (MiLocateCloneAddress.c)
+ *     MiReferenceCloneProto @ 0x14036C348 (MiReferenceCloneProto.c)
+ *     MiLocateCloneAddress @ 0x14036D7EC (MiLocateCloneAddress.c)
  */
 
 __int64 __fastcall MiReferenceExistingCloneProto(__int64 a1, __int64 a2, char a3, _QWORD *a4, __int64 *a5)

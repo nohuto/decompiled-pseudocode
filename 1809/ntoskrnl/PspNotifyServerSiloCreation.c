@@ -1,16 +1,16 @@
 /*
- * XREFs of PspNotifyServerSiloCreation @ 0x14088BD64
+ * XREFs of PspNotifyServerSiloCreation @ 0x14088CFC4
  * Callers:
- *     PspInitializeServerSiloDeferred @ 0x140887440 (PspInitializeServerSiloDeferred.c)
+ *     PspInitializeServerSiloDeferred @ 0x1408886A0 (PspInitializeServerSiloDeferred.c)
  * Callees:
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     PspGetServerSiloStatePointer @ 0x1402E9680 (PspGetServerSiloStatePointer.c)
- *     PspInvokeCreateCallback @ 0x140755894 (PspInvokeCreateCallback.c)
- *     PspGetNextMonitor @ 0x14088BC34 (PspGetNextMonitor.c)
- *     EtwTraceJobServerSiloStateChange @ 0x1408B773C (EtwTraceJobServerSiloStateChange.c)
+ *     ExfReleasePushLockShared @ 0x1400913F0 (ExfReleasePushLockShared.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     PspGetServerSiloStatePointer @ 0x1402E9870 (PspGetServerSiloStatePointer.c)
+ *     PspInvokeCreateCallback @ 0x140756A84 (PspInvokeCreateCallback.c)
+ *     PspGetNextMonitor @ 0x14088CE94 (PspGetNextMonitor.c)
+ *     EtwTraceJobServerSiloStateChange @ 0x1408B89FC (EtwTraceJobServerSiloStateChange.c)
  */
 
 __int64 __fastcall PspNotifyServerSiloCreation(__int64 a1)

@@ -10,41 +10,38 @@
  *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall EtwpFindDebugId(unsigned __int64 a1, SIZE_T a2, char a3, void **a4, _DWORD *a5)
+__int64 __fastcall EtwpFindDebugId(char *a1, SIZE_T a2, char a3, void **a4, _DWORD *a5)
 {
   char v5; // di
   SIZE_T v6; // r14
-  unsigned int v8; // esi
-  unsigned __int64 v9; // rbx
-  unsigned int v10; // r12d
+  ULONG v8; // esi
+  char *v9; // rbx
+  ULONG v10; // r12d
   SIZE_T v12; // rcx
   SIZE_T v13; // rbx
-  _DWORD *v14; // r14
+  char *v14; // r14
   PVOID PoolWithTag; // rax
   void **v16; // rcx
-  unsigned __int64 v17; // [rsp+20h] [rbp-88h] BYREF
-  unsigned int v18; // [rsp+28h] [rbp-80h]
+  ULONG Size[2]; // [rsp+20h] [rbp-88h] BYREF
+  ULONG v18; // [rsp+28h] [rbp-80h]
   unsigned __int64 v19; // [rsp+30h] [rbp-78h] BYREF
   unsigned __int64 v20; // [rsp+38h] [rbp-70h] BYREF
-  unsigned __int64 v21; // [rsp+40h] [rbp-68h]
+  char *v21; // [rsp+40h] [rbp-68h]
   __int128 v22; // [rsp+48h] [rbp-60h]
   SIZE_T NumberOfBytes; // [rsp+58h] [rbp-50h]
   int v24; // [rsp+60h] [rbp-48h]
-  SIZE_T v25; // [rsp+B8h] [rbp+10h]
 
-  v25 = a2;
   v5 = a3;
   v6 = a2;
   v8 = 0;
   v19 = 0LL;
   v20 = 0LL;
-  LODWORD(v17) = 0;
-  LOBYTE(a2) = 1;
-  v9 = RtlImageDirectoryEntryToData(a1, a2, 6, (int)&v17);
+  Size[0] = 0;
+  v9 = (char *)RtlImageDirectoryEntryToData(a1, 1u, 6u, Size);
   v21 = v9;
-  if ( !v9 || (unsigned int)v17 < 0x1C )
+  if ( !v9 || Size[0] < 0x1C )
     return 3221225485LL;
-  v10 = (unsigned int)v17 / 0x1C;
+  v10 = Size[0] / 0x1C;
   v18 = 0;
   while ( 1 )
   {
@@ -52,14 +49,14 @@ __int64 __fastcall EtwpFindDebugId(unsigned __int64 a1, SIZE_T a2, char a3, void
       return 3221226021LL;
     if ( v9 < a1 )
       return 3221225485LL;
-    v17 = v9 + 28;
-    if ( v9 + 28 > a1 + v6 )
+    *(_QWORD *)Size = v9 + 28;
+    if ( v9 + 28 > &a1[v6] )
       return 3221225485LL;
-    if ( v5 && !EtwpIsValidImageAddress(v9, 28LL, &v19) )
+    if ( v5 && !EtwpIsValidImageAddress((__int64)v9, 28LL, &v19) )
       return 3221227779LL;
     v22 = *(_OWORD *)v9;
-    NumberOfBytes = *(_QWORD *)(v9 + 16);
-    v24 = *(_DWORD *)(v9 + 24);
+    NumberOfBytes = *((_QWORD *)v9 + 2);
+    v24 = *((_DWORD *)v9 + 6);
     v12 = HIDWORD(NumberOfBytes);
     if ( HIDWORD(NumberOfBytes) > v6 )
       return 3221225485LL;
@@ -69,17 +66,17 @@ __int64 __fastcall EtwpFindDebugId(unsigned __int64 a1, SIZE_T a2, char a3, void
     if ( HIDWORD(v22) == 2 )
       break;
 LABEL_26:
-    v9 = v17;
-    v21 = v17;
+    v9 = *(char **)Size;
+    v21 = *(char **)Size;
     v18 = ++v8;
     v5 = a3;
   }
-  v14 = (_DWORD *)(v12 + a1);
-  if ( a3 && !EtwpIsValidImageAddress(v12 + a1, (unsigned int)NumberOfBytes, &v20) )
+  v14 = &a1[v12];
+  if ( a3 && !EtwpIsValidImageAddress((__int64)&a1[v12], (unsigned int)NumberOfBytes, &v20) )
     return 3221227779LL;
-  if ( *v14 != 1396986706 )
+  if ( *(_DWORD *)v14 != 1396986706 )
   {
-    v6 = v25;
+    v6 = a2;
     goto LABEL_26;
   }
   if ( (unsigned int)v13 < 0x1C )

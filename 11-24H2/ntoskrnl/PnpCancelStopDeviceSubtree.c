@@ -1,11 +1,11 @@
 /*
- * XREFs of PnpCancelStopDeviceSubtree @ 0x140734E88
+ * XREFs of PnpCancelStopDeviceSubtree @ 0x140732DB8
  * Callers:
- *     PnpCancelStopDeviceSubtree @ 0x140734E88 (PnpCancelStopDeviceSubtree.c)
- *     PnpRebalance @ 0x1407352B8 (PnpRebalance.c)
+ *     PnpCancelStopDeviceSubtree @ 0x140732DB8 (PnpCancelStopDeviceSubtree.c)
+ *     PnpRebalance @ 0x1407331E8 (PnpRebalance.c)
  * Callees:
- *     PnpCancelStopDeviceNode @ 0x140734DF8 (PnpCancelStopDeviceNode.c)
- *     PnpCancelStopDeviceSubtree @ 0x140734E88 (PnpCancelStopDeviceSubtree.c)
+ *     PnpCancelStopDeviceNode @ 0x140732D28 (PnpCancelStopDeviceNode.c)
+ *     PnpCancelStopDeviceSubtree @ 0x140732DB8 (PnpCancelStopDeviceSubtree.c)
  */
 
 void __fastcall PnpCancelStopDeviceSubtree(ULONG_PTR a1)

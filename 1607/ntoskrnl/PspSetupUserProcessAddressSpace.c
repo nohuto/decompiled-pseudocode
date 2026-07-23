@@ -1,22 +1,22 @@
 /*
- * XREFs of PspSetupUserProcessAddressSpace @ 0x14051A604
+ * XREFs of PspSetupUserProcessAddressSpace @ 0x1404FD9F4
  * Callers:
- *     PspAllocateProcess @ 0x14046F030 (PspAllocateProcess.c)
+ *     PspAllocateProcess @ 0x14046DF00 (PspAllocateProcess.c)
  * Callees:
- *     PsGetProcessServerSilo @ 0x1400136A0 (PsGetProcessServerSilo.c)
- *     PsGetServerSiloGlobals @ 0x1400766B0 (PsGetServerSiloGlobals.c)
- *     KiStackAttachProcess @ 0x1400CD1F0 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x1400CE820 (KiUnstackDetachProcess.c)
- *     PspWow64SetupUserProcessAddressSpace @ 0x1400F72E8 (PspWow64SetupUserProcessAddressSpace.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     ZwAllocateVirtualMemory @ 0x140159F80 (ZwAllocateVirtualMemory.c)
- *     MmMapApiSetView @ 0x14046BD4C (MmMapApiSetView.c)
- *     PspGetStandardHandleList @ 0x1404EB698 (PspGetStandardHandleList.c)
- *     PspPrepareSystemDllInitBlock @ 0x14051A834 (PspPrepareSystemDllInitBlock.c)
- *     PsWow64GetProcessMachine @ 0x14051AA00 (PsWow64GetProcessMachine.c)
- *     PspWritePebAffinityInfo @ 0x14051ACD0 (PspWritePebAffinityInfo.c)
- *     PspCopyAndFixupParameters @ 0x14051AE08 (PspCopyAndFixupParameters.c)
- *     PspLocateInPEManifest @ 0x14051B07C (PspLocateInPEManifest.c)
+ *     PsGetProcessServerSilo @ 0x140013220 (PsGetProcessServerSilo.c)
+ *     PsGetServerSiloGlobals @ 0x140076730 (PsGetServerSiloGlobals.c)
+ *     KiStackAttachProcess @ 0x1400CB090 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x1400CC6C0 (KiUnstackDetachProcess.c)
+ *     PspWow64SetupUserProcessAddressSpace @ 0x1400F5128 (PspWow64SetupUserProcessAddressSpace.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     ZwAllocateVirtualMemory @ 0x14015A4F0 (ZwAllocateVirtualMemory.c)
+ *     MmMapApiSetView @ 0x14046AC1C (MmMapApiSetView.c)
+ *     PspGetStandardHandleList @ 0x1404CD720 (PspGetStandardHandleList.c)
+ *     PspPrepareSystemDllInitBlock @ 0x1404FDC24 (PspPrepareSystemDllInitBlock.c)
+ *     PsWow64GetProcessMachine @ 0x1404FDDF0 (PsWow64GetProcessMachine.c)
+ *     PspWritePebAffinityInfo @ 0x1404FE0C0 (PspWritePebAffinityInfo.c)
+ *     PspCopyAndFixupParameters @ 0x1404FE1F8 (PspCopyAndFixupParameters.c)
+ *     PspLocateInPEManifest @ 0x1404FE46C (PspLocateInPEManifest.c)
  */
 
 __int64 __fastcall PspSetupUserProcessAddressSpace(__int64 a1, _KPROCESS *a2, struct _KTHREAD *a3, __int64 a4)

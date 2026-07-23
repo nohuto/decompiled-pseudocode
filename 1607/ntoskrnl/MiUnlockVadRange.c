@@ -1,15 +1,15 @@
 /*
- * XREFs of MiUnlockVadRange @ 0x1404F37E8
+ * XREFs of MiUnlockVadRange @ 0x1404D6774
  * Callers:
- *     MmAssignProcessToJob @ 0x1400B934C (MmAssignProcessToJob.c)
- *     NtUnlockVirtualMemory @ 0x1400BA2E0 (NtUnlockVirtualMemory.c)
- *     NtLockVirtualMemory @ 0x1400BAEC8 (NtLockVirtualMemory.c)
- *     MiCloneProcessAddressSpace @ 0x1405278F8 (MiCloneProcessAddressSpace.c)
+ *     MmAssignProcessToJob @ 0x1400B71DC (MmAssignProcessToJob.c)
+ *     NtUnlockVirtualMemory @ 0x1400B8170 (NtUnlockVirtualMemory.c)
+ *     NtLockVirtualMemory @ 0x1400B8D58 (NtLockVirtualMemory.c)
+ *     MiCloneProcessAddressSpace @ 0x14050A958 (MiCloneProcessAddressSpace.c)
  * Callees:
- *     MiUnlockVad @ 0x1400144A0 (MiUnlockVad.c)
- *     MiLocateAddress @ 0x14001F090 (MiLocateAddress.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
+ *     MiUnlockVad @ 0x140014020 (MiUnlockVad.c)
+ *     MiLocateAddress @ 0x14001EC10 (MiLocateAddress.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
  */
 
 __int64 __fastcall MiUnlockVadRange(__int64 a1, unsigned __int64 a2, __int64 a3)

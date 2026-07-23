@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpGetDisplayBiosInformation @ 0x14053C0B0
+ * XREFs of HalpGetDisplayBiosInformation @ 0x140539990
  * Callers:
- *     HaliQuerySystemInformation @ 0x140B6B760 (HaliQuerySystemInformation.c)
+ *     HaliQuerySystemInformation @ 0x140B6CB90 (HaliQuerySystemInformation.c)
  * Callees:
  *     <none>
  */

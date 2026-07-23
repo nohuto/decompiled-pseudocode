@@ -22,7 +22,7 @@ __int64 __fastcall FsRtlpHeatRegisterVolume(__int64 a1, const GUID *a2, unsigned
   __int128 v12; // xmm0
   __int64 *v13; // rcx
   __int64 v14; // rdx
-  __int64 v16; // [rsp+20h] [rbp-28h]
+  void *ExplicitScope; // [rsp+20h] [rbp-28h]
 
   ExAcquireResourceExclusiveLite(&stru_140F8D9D0, 1u);
   for ( i = (PVOID *)FsRtlTieringHeatData; i != &FsRtlTieringHeatData; i = (PVOID *)*i )
@@ -84,10 +84,10 @@ LABEL_22:
   {
     if ( (Microsoft_Windows_Storage_Tiering_IoHeatEnableBits & 1) != 0 )
     {
-      LODWORD(v16) = *a3;
-      McTemplateK0jq_EtwWriteTransfer(MS_StorageTiering_Provider_Context, v14, a2, a1, v16);
+      LODWORD(ExplicitScope) = *a3;
+      McTemplateK0jq_EtwWriteTransfer(MS_StorageTiering_Provider_Context, v14, a2, a1, (__int64)ExplicitScope);
     }
-    ZwUpdateWnfStateData((__int64)&WNF_FSRL_TIERED_VOLUME_DETECTED, 0LL);
+    ZwUpdateWnfStateData(&WNF_FSRL_TIERED_VOLUME_DETECTED, 0LL, 0, 0LL, 0LL, 0, 0);
   }
   return (unsigned int)v9;
 }

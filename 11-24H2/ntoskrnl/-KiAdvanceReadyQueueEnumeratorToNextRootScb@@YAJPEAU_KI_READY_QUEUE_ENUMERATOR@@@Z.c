@@ -1,7 +1,7 @@
 /*
- * XREFs of ?KiAdvanceReadyQueueEnumeratorToNextRootScb@@YAJPEAU_KI_READY_QUEUE_ENUMERATOR@@@Z @ 0x14030E52C
+ * XREFs of ?KiAdvanceReadyQueueEnumeratorToNextRootScb@@YAJPEAU_KI_READY_QUEUE_ENUMERATOR@@@Z @ 0x1402D9CCC
  * Callers:
- *     ?KiAdvanceReadyQueueEnumeratorToNextScb@@YAJPEAU_KI_READY_QUEUE_ENUMERATOR@@@Z @ 0x14030E400 (-KiAdvanceReadyQueueEnumeratorToNextScb@@YAJPEAU_KI_READY_QUEUE_ENUMERATOR@@@Z.c)
+ *     ?KiAdvanceReadyQueueEnumeratorToNextScb@@YAJPEAU_KI_READY_QUEUE_ENUMERATOR@@@Z @ 0x1402D9BA0 (-KiAdvanceReadyQueueEnumeratorToNextScb@@YAJPEAU_KI_READY_QUEUE_ENUMERATOR@@@Z.c)
  * Callees:
  *     <none>
  */

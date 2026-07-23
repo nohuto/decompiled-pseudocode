@@ -20,13 +20,13 @@
  *     PspLogAuditTerminateRemoteProcessEvent @ 0x140A6C5E4 (PspLogAuditTerminateRemoteProcessEvent.c)
  */
 
-__int64 __fastcall NtTerminateProcess(ULONG_PTR a1, unsigned int a2)
+NTSTATUS __cdecl NtTerminateProcess(HANDLE ProcessHandle, NTSTATUS ExitStatus)
 {
   struct _KTHREAD *CurrentThread; // rsi
   unsigned int v3; // r14d
   __int64 v5; // rdi
   char PreviousMode; // r15
-  __int64 result; // rax
+  NTSTATUS result; // eax
   struct _KPROCESS *v8; // rbx
   unsigned int Flink; // r13d
   unsigned int v10; // r14d
@@ -47,10 +47,10 @@ __int64 __fastcall NtTerminateProcess(ULONG_PTR a1, unsigned int a2)
   Process = 0LL;
   v5 = (__int64)CurrentThread->ApcState.Process;
   PreviousMode = CurrentThread->PreviousMode;
-  if ( a1 )
+  if ( ProcessHandle )
   {
     result = ObpReferenceObjectByHandleWithTag(
-               a1,
+               (ULONG_PTR)ProcessHandle,
                1,
                (__int64)PsProcessType,
                PreviousMode,
@@ -58,7 +58,7 @@ __int64 __fastcall NtTerminateProcess(ULONG_PTR a1, unsigned int a2)
                &Process,
                0LL,
                0LL);
-    if ( (int)result < 0 )
+    if ( result < 0 )
       return result;
     if ( !PreviousMode )
       v3 = (*(_BYTE *)(v5 + 368) & 1) == 0;
@@ -67,7 +67,7 @@ __int64 __fastcall NtTerminateProcess(ULONG_PTR a1, unsigned int a2)
     ProcessStartKey = PsGetProcessStartKey((__int64)Process);
     TimeQuadPart = PsGetProcessCreateTimeQuadPart(v8);
     --CurrentThread->KernelApcDisable;
-    v10 = PspTerminateProcess(&v8->Header.Lock, (struct _EX_RUNDOWN_REF *)CurrentThread, a2, v3);
+    v10 = PspTerminateProcess(&v8->Header.Lock, (struct _EX_RUNDOWN_REF *)CurrentThread, ExitStatus, v3);
     ObfDereferenceObjectWithTag(v8, 0x65547350u);
     if ( v8 == (struct _KPROCESS *)v5 )
     {
@@ -76,7 +76,7 @@ __int64 __fastcall NtTerminateProcess(ULONG_PTR a1, unsigned int a2)
         _InterlockedOr((volatile signed __int32 *)&CurrentThread[1].SwapListEntry + 2, 1u);
         KeForceResumeThread((__int64)CurrentThread);
         KiLeaveCriticalRegionUnsafe((__int64)CurrentThread, v16, v17, v18);
-        PspExitThread(a2);
+        PspExitThread(ExitStatus);
         __debugbreak();
       }
     }
@@ -88,7 +88,7 @@ __int64 __fastcall NtTerminateProcess(ULONG_PTR a1, unsigned int a2)
   else
   {
     if ( PreviousMode != 1 && (*(_BYTE *)(v5 + 368) & 1) == 0 || (*(_DWORD *)(v5 + 1532) & 1) != 0 )
-      return 3221225659LL;
+      return -1073741637;
     PspLockProcessExclusive((__int64)CurrentThread->ApcState.Process, (__int64)CurrentThread);
     _m_prefetchw((const void *)(v5 + 500));
     v14 = *(_DWORD *)(v5 + 500);
@@ -101,16 +101,16 @@ __int64 __fastcall NtTerminateProcess(ULONG_PTR a1, unsigned int a2)
     if ( (v14 & 0x40000008) != 0 )
     {
       PspUnlockProcessExclusive(v5, (__int64)CurrentThread);
-      PspTerminateThreadByPointer((ULONG_PTR)CurrentThread, a2, 1);
-      return 0LL;
+      PspTerminateThreadByPointer((ULONG_PTR)CurrentThread, ExitStatus, 1);
+      return 0;
     }
     *((_DWORD *)&CurrentThread[1].SwapListEntry + 3) |= 0x40u;
     if ( *(_DWORD *)(v5 + 1364) == 259 )
-      *(_DWORD *)(v5 + 1364) = a2;
+      *(_DWORD *)(v5 + 1364) = ExitStatus;
     if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)(v5 + 456), 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
       ExfTryToWakePushLock((volatile signed __int64 *)(v5 + 456));
     KeAbPostRelease(v5 + 456);
-    v10 = PspTerminateAllThreads((PVOID)v5, (struct _EX_RUNDOWN_REF *)CurrentThread, a2, 0);
+    v10 = PspTerminateAllThreads((PVOID)v5, (struct _EX_RUNDOWN_REF *)CurrentThread, ExitStatus, 0);
   }
   KiLeaveCriticalRegionUnsafe((__int64)CurrentThread, v11, v12, v13);
   return v10;

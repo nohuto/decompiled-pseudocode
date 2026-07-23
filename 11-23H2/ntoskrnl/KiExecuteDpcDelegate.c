@@ -1,12 +1,12 @@
 /*
- * XREFs of KiExecuteDpcDelegate @ 0x140391510
+ * XREFs of KiExecuteDpcDelegate @ 0x1403916F0
  * Callers:
  *     <none>
  * Callees:
- *     KiSwapThread @ 0x14023F3F0 (KiSwapThread.c)
- *     KiRetireDpcList @ 0x1402459F0 (KiRetireDpcList.c)
- *     KeAttachProcess @ 0x140364370 (KeAttachProcess.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiSwapThread @ 0x14023F4C0 (KiSwapThread.c)
+ *     KiRetireDpcList @ 0x140245AC0 (KiRetireDpcList.c)
+ *     KeAttachProcess @ 0x140364510 (KeAttachProcess.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void __noreturn KiExecuteDpcDelegate()
@@ -45,6 +45,6 @@ void __noreturn KiExecuteDpcDelegate()
     }
     _enable();
     CurrentThread->WaitIrql = 2;
-    KiSwapThread((ULONG_PTR)CurrentThread, (__int64)CurrentPrcb, 0LL, v2);
+    KiSwapThread((ULONG_PTR)CurrentThread, (ULONG_PTR)CurrentPrcb, 0LL, v2);
   }
 }

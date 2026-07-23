@@ -1,10 +1,10 @@
 /*
- * XREFs of KiSwInterruptDispatch @ 0x14015734C
+ * XREFs of KiSwInterruptDispatch @ 0x1401578BC
  * Callers:
- *     KiSwInterrupt @ 0x140162D50 (KiSwInterrupt.c)
+ *     KiSwInterrupt @ 0x1401632C0 (KiSwInterrupt.c)
  * Callees:
- *     KiGetTrapFrameMode @ 0x1400ADD18 (KiGetTrapFrameMode.c)
- *     KiReadKernelDr7 @ 0x1401D210C (KiReadKernelDr7.c)
+ *     KiGetTrapFrameMode @ 0x1400AC280 (KiGetTrapFrameMode.c)
+ *     KiReadKernelDr7 @ 0x1401D1F38 (KiReadKernelDr7.c)
  *     SdbpCheckDll @ 0x1402534D0 (SdbpCheckDll.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */
@@ -151,7 +151,7 @@ char __fastcall KiSwInterruptDispatch(__int64 a1)
   {
     PoolWithTag[3] = PoolWithTag;
     v8 = (char *)(PoolWithTag + 4);
-    PoolWithTag[2] = sub_140158168;
+    PoolWithTag[2] = sub_1401586D8;
     v9 = (_OWORD *)v2;
     *v7 = 0LL;
     v10 = v7 + 4;
@@ -703,7 +703,7 @@ LABEL_160:
       CurrentThread[1].InitialStack = 0LL;
       CurrentThread[1].ApcState.ApcListHead[1].Flink = 0LL;
       SdbpCheckDll(265, v84, v83, (_DWORD)v82, v85, *((_QWORD *)v8 + 40), (__int64)DpcStack);
-      JUMPOUT(0x140157ECALL);
+      JUMPOUT(0x14015843ALL);
     }
     v108 = *((_DWORD *)v8 + 49);
     v109 = *((_DWORD *)v8 + 371);

@@ -1,12 +1,12 @@
 /*
- * XREFs of NtAlertThreadByThreadId @ 0x1409A5CB0
+ * XREFs of NtAlertThreadByThreadId @ 0x1409892D0
  * Callers:
  *     <none>
  * Callees:
- *     NtAlertThreadByThreadIdEx @ 0x1409A5CD0 (NtAlertThreadByThreadIdEx.c)
+ *     NtAlertThreadByThreadIdEx @ 0x1409892F0 (NtAlertThreadByThreadIdEx.c)
  */
 
-__int64 __fastcall NtAlertThreadByThreadId(__int64 a1)
+NTSTATUS __cdecl NtAlertThreadByThreadId(HANDLE ThreadId)
 {
-  return NtAlertThreadByThreadIdEx(a1, 0LL);
+  return NtAlertThreadByThreadIdEx(ThreadId, 0LL);
 }

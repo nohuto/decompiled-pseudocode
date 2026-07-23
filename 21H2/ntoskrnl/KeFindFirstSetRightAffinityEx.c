@@ -1,9 +1,9 @@
 /*
- * XREFs of KeFindFirstSetRightAffinityEx @ 0x140513590
+ * XREFs of KeFindFirstSetRightAffinityEx @ 0x1405137D0
  * Callers:
- *     KeResumeClockTimerFromIdle @ 0x140224BE0 (KeResumeClockTimerFromIdle.c)
- *     PpmParkSteerInterrupts @ 0x140228E60 (PpmParkSteerInterrupts.c)
- *     PpmCheckContinueExecution @ 0x14022B780 (PpmCheckContinueExecution.c)
+ *     KeResumeClockTimerFromIdle @ 0x1402C94E0 (KeResumeClockTimerFromIdle.c)
+ *     PpmParkSteerInterrupts @ 0x1402CD760 (PpmParkSteerInterrupts.c)
+ *     PpmCheckContinueExecution @ 0x1402D0030 (PpmCheckContinueExecution.c)
  * Callees:
  *     <none>
  */

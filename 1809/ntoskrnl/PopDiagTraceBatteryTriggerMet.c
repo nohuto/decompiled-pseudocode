@@ -1,13 +1,13 @@
 /*
- * XREFs of PopDiagTraceBatteryTriggerMet @ 0x140870B48
+ * XREFs of PopDiagTraceBatteryTriggerMet @ 0x140871DA8
  * Callers:
- *     PopBatteryApplyCompositeState @ 0x14071A148 (PopBatteryApplyCompositeState.c)
+ *     PopBatteryApplyCompositeState @ 0x14071B3E8 (PopBatteryApplyCompositeState.c)
  * Callees:
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
  *     EtwEventEnabled @ 0x14005B2D0 (EtwEventEnabled.c)
- *     EtwWrite @ 0x1400CAD20 (EtwWrite.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     EtwWrite @ 0x1400CAE00 (EtwWrite.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 char __fastcall PopDiagTraceBatteryTriggerMet(__int64 a1, __int64 a2, int *a3)
@@ -109,20 +109,20 @@ char __fastcall PopDiagTraceBatteryTriggerMet(__int64 a1, __int64 a2, int *a3)
     v7 = *(_DWORD *)(a2 + 4);
     v8 = *(_DWORD *)(a2 + 16);
     v9 = *(_DWORD *)(a2 + 20);
-    v10 = dword_140417914;
-    v11 = unk_140417940 & 1;
-    v26 = dword_140417A90;
-    v12 = byte_140417A20 != 0;
-    v27 = dword_140417914;
+    v10 = dword_1404189B4;
+    v11 = unk_1404189E0 & 1;
+    v26 = dword_140418B30;
+    v12 = byte_140418AC0 != 0;
+    v27 = dword_1404189B4;
     v22 = v5;
     v13 = *(_BYTE *)a2 == 0;
     v28 = v5;
     v14 = !v13;
     v29 = v4;
-    LOBYTE(v3) = -45 * (dword_140417A90 - 12);
+    LOBYTE(v3) = -45 * (dword_140418B30 - 12);
     v30 = v11;
     v31 = v12;
-    v15 = (dword_140417A90 + 500) / 0x3E8u;
+    v15 = (dword_140418B30 + 500) / 0x3E8u;
     v32 = v14;
     v23 = v6;
     v33 = v6;
@@ -216,7 +216,7 @@ char __fastcall PopDiagTraceBatteryTriggerMet(__int64 a1, __int64 a2, int *a3)
         v85 = 4LL;
         v87 = 4LL;
         v89 = 4LL;
-        LOBYTE(v3) = TlgWrite(&pCallbackContext, &unk_14036FD2F, 0LL, 0LL, 0xEu, &pData);
+        LOBYTE(v3) = TlgWrite(&pCallbackContext, &unk_140370963, 0LL, 0LL, 0xEu, &pData);
       }
     }
   }

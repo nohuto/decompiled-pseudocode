@@ -1,13 +1,13 @@
 /*
- * XREFs of KxEnableOptionalXStateFeatures @ 0x1405B8D14
+ * XREFs of KxEnableOptionalXStateFeatures @ 0x1405B6354
  * Callers:
- *     KiEnableOptionalXStateFeatures @ 0x1403FBF98 (KiEnableOptionalXStateFeatures.c)
- *     KeEnableOptionalXStateFeaturesApc @ 0x1405B8740 (KeEnableOptionalXStateFeaturesApc.c)
+ *     KiEnableOptionalXStateFeatures @ 0x1403F5AF8 (KiEnableOptionalXStateFeatures.c)
+ *     KeEnableOptionalXStateFeaturesApc @ 0x1405B5D80 (KeEnableOptionalXStateFeaturesApc.c)
  * Callees:
- *     KeCopyXfdMaskToTeb @ 0x14049BDE8 (KeCopyXfdMaskToTeb.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     KeCopyXfdMaskToTeb @ 0x140496918 (KeCopyXfdMaskToTeb.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall KxEnableOptionalXStateFeatures(__int64 a1, __int64 a2, void *a3, char *a4)
@@ -17,6 +17,8 @@ __int64 __fastcall KxEnableOptionalXStateFeatures(__int64 a1, __int64 a2, void *
   size_t v11; // r8
   char v12; // al
   __int64 v13; // rsi
+  unsigned __int64 v14; // rax
+  __int64 v15; // rdx
 
   if ( *(_QWORD *)(*(_QWORD *)(a1 + 544) + 784LL) )
     return 3221225659LL;
@@ -43,11 +45,13 @@ __int64 __fastcall KxEnableOptionalXStateFeatures(__int64 a1, __int64 a2, void *
     *(_QWORD *)(a1 + 592) |= a2;
     v13 = ~a2;
     *(_QWORD *)(a1 + 1064) &= v13;
-    __writemsr(0x1C4u, v13 & __readmsr(0x1C4u));
+    v14 = v13 & __readmsr(0x1C4u);
+    v15 = HIDWORD(v14);
+    __writemsr(0x1C4u, v14);
     if ( KiIrqlFlags )
       KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), CurrentIrql);
     __writecr8(CurrentIrql);
-    KeCopyXfdMaskToTeb((_QWORD *)a1);
+    KeCopyXfdMaskToTeb((_QWORD *)a1, v15, (__int64)a3, (__int64)a4);
   }
   else
   {

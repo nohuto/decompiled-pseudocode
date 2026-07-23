@@ -12,10 +12,10 @@
  *     RtlAcquireSRWLockExclusive @ 0x1800290A0 (RtlAcquireSRWLockExclusive.c)
  */
 
-char __fastcall RtlpLockAtomTable(_DWORD *a1, unsigned __int64 a2, unsigned __int64 a3, unsigned __int64 a4)
+char __fastcall RtlpLockAtomTable(__int64 a1)
 {
-  if ( !a1 || *a1 != 1836020801 )
+  if ( !a1 || *(_DWORD *)a1 != 1836020801 )
     return 0;
-  RtlAcquireSRWLockExclusive((unsigned __int64)(a1 + 2), a2, a3, a4);
+  RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 8));
   return 1;
 }

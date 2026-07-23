@@ -75,7 +75,7 @@ __int64 __fastcall KeInsertPriQueue(__int64 a1, __int64 *a2, int a3, int a4, int
   CurrentIrql = KeGetCurrentIrql();
   v56 = CurrentIrql;
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && (unsigned __int8)CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && (unsigned __int8)CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( (_BYTE)CurrentIrql == 2 )
@@ -326,6 +326,6 @@ LABEL_34:
     v36 = 3;
   else
     v36 = 0;
-  KiExitDispatcher((__int64)CurrentPrcb, v36, (struct _PROCESSOR_NUMBER)1, 0, v56);
+  KiExitDispatcher((__int64)CurrentPrcb, v36, (_PROCESSOR_NUMBER)1, 0, v56);
   return v8;
 }

@@ -10,11 +10,18 @@
  *     <none>
  */
 
-__int64 ZwUpdateWnfStateData()
+NTSTATUS __cdecl ZwUpdateWnfStateData(
+        PCWNF_STATE_NAME StateName,
+        const void *Buffer,
+        ULONG Length,
+        PCWNF_TYPE_ID TypeId,
+        const void *ExplicitScope,
+        WNF_CHANGE_STAMP MatchingChangeStamp,
+        LOGICAL CheckStamp)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 474LL;
+  result = 474;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

@@ -1,9 +1,9 @@
 /*
- * XREFs of FsRtlNotifyFilterReportChangeLite @ 0x1407909C0
+ * XREFs of FsRtlNotifyFilterReportChangeLite @ 0x1407934F0
  * Callers:
  *     <none>
  * Callees:
- *     FsRtlNotifyFilterReportChangeLiteEx @ 0x140A85820 (FsRtlNotifyFilterReportChangeLiteEx.c)
+ *     FsRtlNotifyFilterReportChangeLiteEx @ 0x140A8A420 (FsRtlNotifyFilterReportChangeLiteEx.c)
  */
 
 __int64 __fastcall FsRtlNotifyFilterReportChangeLite(

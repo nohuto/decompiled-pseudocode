@@ -8,12 +8,12 @@
  *     memset @ 0x1800ABDC0 (memset.c)
  */
 
-unsigned int *__fastcall CsrAllocateCaptureBuffer(unsigned int a1, unsigned int a2)
+_DWORD *__fastcall CsrAllocateCaptureBuffer(unsigned int a1, unsigned int a2)
 {
   __int64 v2; // rbx
   unsigned int v3; // esi
-  unsigned int *Heap; // rax
-  unsigned int *v5; // rdi
+  _DWORD *Heap; // rax
+  _DWORD *v5; // rdi
   size_t v6; // rbx
 
   v2 = a1;
@@ -28,7 +28,7 @@ unsigned int *__fastcall CsrAllocateCaptureBuffer(unsigned int a1, unsigned int 
   if ( a1 + 1 >= (2147483612 - a2 - 8 * a1) / 3 )
     return 0LL;
   v3 = (11 * a1 + a2 + 35) & 0xFFFFFFFC;
-  Heap = (unsigned int *)RtlAllocateHeap(qword_18015BA90, (unsigned int)dword_18015BA98, v3);
+  Heap = RtlAllocateHeap(qword_18015BA90, Flags, v3);
   v5 = Heap;
   if ( !Heap )
     return 0LL;

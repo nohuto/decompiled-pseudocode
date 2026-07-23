@@ -1,32 +1,32 @@
 /*
- * XREFs of NtDebugActiveProcess @ 0x1409E8220
+ * XREFs of NtDebugActiveProcess @ 0x1409E31E0
  * Callers:
  *     <none>
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x140245670 (ExReleaseRundownProtection_0.c)
- *     VslpEnterIumSecureMode @ 0x140265D90 (VslpEnterIumSecureMode.c)
- *     ExAcquireRundownProtection @ 0x1402792A0 (ExAcquireRundownProtection.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ObReferenceObjectByHandle @ 0x14084AF40 (ObReferenceObjectByHandle.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x14084B7E0 (ObpReferenceObjectByHandleWithTag.c)
- *     PsTestProtectedProcessIncompatibility @ 0x1409E85CC (PsTestProtectedProcessIncompatibility.c)
- *     DbgkpSetProcessDebugObject @ 0x1409E8B88 (DbgkpSetProcessDebugObject.c)
- *     DbgkpPostFakeProcessCreateMessages @ 0x1409E8EA0 (DbgkpPostFakeProcessCreateMessages.c)
+ *     ExReleaseRundownProtection_0 @ 0x14020DE50 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x14022E830 (ExAcquireRundownProtection_0.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     VslpEnterIumSecureMode @ 0x1403AADB0 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ObReferenceObjectByHandle @ 0x140847200 (ObReferenceObjectByHandle.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x140847AA0 (ObpReferenceObjectByHandleWithTag.c)
+ *     PsTestProtectedProcessIncompatibility @ 0x1409E358C (PsTestProtectedProcessIncompatibility.c)
+ *     DbgkpSetProcessDebugObject @ 0x1409E3B48 (DbgkpSetProcessDebugObject.c)
+ *     DbgkpPostFakeProcessCreateMessages @ 0x1409E3E60 (DbgkpPostFakeProcessCreateMessages.c)
  */
 
-__int64 __fastcall NtDebugActiveProcess(ULONG_PTR a1, void *a2)
+NTSTATUS __cdecl NtDebugActiveProcess(HANDLE ProcessHandle, HANDLE DebugObjectHandle)
 {
   char PreviousMode; // r14
-  __int64 result; // rax
+  NTSTATUS result; // eax
   __int64 v5; // rcx
   struct _KTHREAD *CurrentThread; // rax
   struct _EX_RUNDOWN_REF *v7; // rbx
   _KPROCESS *Process; // rsi
   unsigned __int64 Count; // rdi
-  int v10; // edi
+  NTSTATUS v10; // edi
   BOOLEAN v11; // al
   struct _KEVENT *v12; // rsi
   __int16 v13; // ax
@@ -40,7 +40,7 @@ __int64 __fastcall NtDebugActiveProcess(ULONG_PTR a1, void *a2)
   Object[0] = 0LL;
   Object[1] = 0LL;
   result = ObpReferenceObjectByHandleWithTag(
-             a1,
+             (ULONG_PTR)ProcessHandle,
              2048,
              (__int64)PsProcessType,
              PreviousMode,
@@ -48,7 +48,7 @@ __int64 __fastcall NtDebugActiveProcess(ULONG_PTR a1, void *a2)
              Object,
              0LL,
              0LL);
-  if ( (int)result >= 0 )
+  if ( result >= 0 )
   {
     CurrentThread = KeGetCurrentThread();
     v7 = (struct _EX_RUNDOWN_REF *)Object[0];
@@ -71,7 +71,7 @@ __int64 __fastcall NtDebugActiveProcess(ULONG_PTR a1, void *a2)
           || (memset_0(v16, 0, 0x68uLL),
               v17 = Count,
               v18 = 1LL,
-              v10 = VslpEnterIumSecureMode(2u, 12LL, 0, (__int64)v16),
+              v10 = VslpEnterIumSecureMode(2u, 0xCu, 0, (__int64)v16),
               v10 >= 0) )
         {
           if ( !Process[1].ReadyTime
@@ -79,10 +79,10 @@ __int64 __fastcall NtDebugActiveProcess(ULONG_PTR a1, void *a2)
             || v7[98].Count && ((v14 = WORD2(v7[221].Ptr), v14 == 332) || v14 == 452) )
           {
             Object[0] = 0LL;
-            v10 = ObReferenceObjectByHandle(a2, 2u, DbgkDebugObjectType, PreviousMode, Object, 0LL);
+            v10 = ObReferenceObjectByHandle(DebugObjectHandle, 2u, DbgkDebugObjectType, PreviousMode, Object, 0LL);
             if ( v10 >= 0 )
             {
-              v11 = ExAcquireRundownProtection(v7 + 61);
+              v11 = ExAcquireRundownProtection_0(v7 + 61);
               v12 = (struct _KEVENT *)Object[0];
               if ( v11 )
               {
@@ -105,7 +105,7 @@ __int64 __fastcall NtDebugActiveProcess(ULONG_PTR a1, void *a2)
       }
     }
     ObfDereferenceObjectWithTag(v7, 0x4F676244u);
-    return (unsigned int)v10;
+    return v10;
   }
   return result;
 }

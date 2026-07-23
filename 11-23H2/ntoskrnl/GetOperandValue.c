@@ -1,24 +1,24 @@
 /*
- * XREFs of GetOperandValue @ 0x1409D35CC
+ * XREFs of GetOperandValue @ 0x1409D37CC
  * Callers:
- *     GetOperandValue @ 0x1409D35CC (GetOperandValue.c)
- *     LocalGetConditionForString @ 0x1409D4914 (LocalGetConditionForString.c)
+ *     GetOperandValue @ 0x1409D37CC (GetOperandValue.c)
+ *     LocalGetConditionForString @ 0x1409D4B14 (LocalGetConditionForString.c)
  * Callees:
- *     RtlLengthSid @ 0x140227A40 (RtlLengthSid.c)
- *     _wcsnicmp @ 0x1403D9B90 (_wcsnicmp.c)
- *     wcstoxq @ 0x1403DC0BC (wcstoxq.c)
- *     memmove @ 0x140435700 (memmove.c)
+ *     RtlLengthSid @ 0x140227B50 (RtlLengthSid.c)
+ *     _wcsnicmp @ 0x1403D9D70 (_wcsnicmp.c)
+ *     wcstoxq @ 0x1403DC29C (wcstoxq.c)
+ *     memmove @ 0x140435B00 (memmove.c)
  *     SddlpAlloc @ 0x14069DF28 (SddlpAlloc.c)
  *     LocalGetSidForString @ 0x14069E1D0 (LocalGetSidForString.c)
- *     SddlpReAlloc @ 0x1409D29E0 (SddlpReAlloc.c)
- *     FreeOperandValue @ 0x1409D30B8 (FreeOperandValue.c)
- *     GetAttributeName @ 0x1409D30F4 (GetAttributeName.c)
- *     GetBinaryOperandLen @ 0x1409D334C (GetBinaryOperandLen.c)
- *     GetDigitFromChar @ 0x1409D3438 (GetDigitFromChar.c)
- *     GetNextNoneWhiteSpace @ 0x1409D3550 (GetNextNoneWhiteSpace.c)
- *     GetOperandValue @ 0x1409D35CC (GetOperandValue.c)
- *     GetStringOperandValue @ 0x1409D4628 (GetStringOperandValue.c)
- *     IsValueSizeFixed @ 0x1409D48C4 (IsValueSizeFixed.c)
+ *     SddlpReAlloc @ 0x1409D2BE0 (SddlpReAlloc.c)
+ *     FreeOperandValue @ 0x1409D32B8 (FreeOperandValue.c)
+ *     GetAttributeName @ 0x1409D32F4 (GetAttributeName.c)
+ *     GetBinaryOperandLen @ 0x1409D354C (GetBinaryOperandLen.c)
+ *     GetDigitFromChar @ 0x1409D3638 (GetDigitFromChar.c)
+ *     GetNextNoneWhiteSpace @ 0x1409D3750 (GetNextNoneWhiteSpace.c)
+ *     GetOperandValue @ 0x1409D37CC (GetOperandValue.c)
+ *     GetStringOperandValue @ 0x1409D4828 (GetStringOperandValue.c)
+ *     IsValueSizeFixed @ 0x1409D4AC4 (IsValueSizeFixed.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

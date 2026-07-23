@@ -17,7 +17,8 @@ __int64 __fastcall RtlUnlockHeapManagerForCloning(unsigned int a1)
   __int64 v6; // rsi
   int v7; // r15d
   _DWORD *v8; // rcx
-  int v10; // [rsp+58h] [rbp-50h]
+  char MemoryInformation[32]; // [rsp+38h] [rbp-70h] BYREF
+  int v11; // [rsp+58h] [rbp-50h]
 
   v2 = NtCurrentPeb();
   if ( a1 )
@@ -30,8 +31,14 @@ __int64 __fastcall RtlUnlockHeapManagerForCloning(unsigned int a1)
     v7 = 0;
     while ( (unsigned int)v6 < *p_NumberOfHeaps )
     {
-      ZwQueryVirtualMemory();
-      if ( v10 == 4096 && ((v8 = ProcessHeaps[v6], v8[38] == -285217025) || v8[4] == -571548178) )
+      ZwQueryVirtualMemory(
+        (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+        ProcessHeaps[v6],
+        MemoryBasicInformation,
+        MemoryInformation,
+        0x30uLL,
+        0LL);
+      if ( v11 == 4096 && ((v8 = ProcessHeaps[v6], v8[38] == -285217025) || v8[4] == -571548178) )
         ProcessHeaps[v7++] = v8;
       else
         --v5;

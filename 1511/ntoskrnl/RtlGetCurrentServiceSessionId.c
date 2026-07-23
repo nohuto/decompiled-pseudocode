@@ -6,7 +6,7 @@
  *     PsGetServerSiloGlobals @ 0x140102754 (PsGetServerSiloGlobals.c)
  */
 
-__int64 RtlGetCurrentServiceSessionId()
+ULONG RtlGetCurrentServiceSessionId(void)
 {
-  return *(unsigned int *)PsGetServerSiloGlobals((_QWORD *)0xFFFFFFFFFFFFFFFFLL);
+  return *(_DWORD *)PsGetServerSiloGlobals((_QWORD *)0xFFFFFFFFFFFFFFFFLL);
 }

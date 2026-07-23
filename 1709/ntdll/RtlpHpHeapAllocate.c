@@ -11,88 +11,86 @@
  *     RtlpHpTlLogVAChange @ 0x180106054 (RtlpHpTlLogVAChange.c)
  */
 
-__int64 __fastcall RtlpHpHeapAllocate(int a1, unsigned int a2)
+PVOID __fastcall RtlpHpHeapAllocate(int a1, unsigned int a2)
 {
   __int64 v2; // rax
-  int v4; // ebx
-  int v5; // edi
-  __int64 v6; // rdx
+  ULONG Protect; // ebx
+  NTSTATUS v5; // edi
+  NTSTATUS v6; // ebx
   __int64 v7; // rcx
-  int v8; // ebx
-  __int64 v9; // rcx
-  __int64 result; // rax
-  __int64 v11; // [rsp+30h] [rbp-20h] BYREF
-  __int64 v12; // [rsp+38h] [rbp-18h] BYREF
-  unsigned __int64 v13; // [rsp+40h] [rbp-10h] BYREF
-  unsigned __int64 v14; // [rsp+48h] [rbp-8h] BYREF
-  __int64 v15; // [rsp+80h] [rbp+30h] BYREF
-  unsigned __int64 v16; // [rsp+88h] [rbp+38h] BYREF
+  PVOID result; // rax
+  ULONG_PTR v9; // [rsp+30h] [rbp-20h] BYREF
+  PVOID BaseAddress; // [rsp+38h] [rbp-18h] BYREF
+  ULONG_PTR RegionSize; // [rsp+40h] [rbp-10h] BYREF
+  ULONG_PTR v12; // [rsp+48h] [rbp-8h] BYREF
+  PVOID v13; // [rsp+80h] [rbp+30h] BYREF
+  ULONG_PTR v14; // [rsp+88h] [rbp+38h] BYREF
 
-  v11 = 0LL;
+  v9 = 0LL;
   v2 = 64LL;
-  v12 = 0LL;
+  BaseAddress = 0LL;
   if ( a2 <= 0x40 )
     v2 = a2;
-  v16 = 129 * (((v2 + 7) & 0xFFFFFFFFFFFFFFF8uLL) + 72 * v2) + 15144;
-  v11 = (RtlpHeapGenerateRandomValue64() & 0x1F) << 16;
-  v13 = v16 + v11;
-  if ( v16 + v11 < v16 )
+  v14 = 129 * (((v2 + 7) & 0xFFFFFFFFFFFFFFF8uLL) + 72 * v2) + 15144;
+  v9 = (RtlpHeapGenerateRandomValue64() & 0x1F) << 16;
+  RegionSize = v14 + v9;
+  if ( v14 + v9 < v14 )
   {
-    v11 = 0LL;
-    v13 = v16;
+    v9 = 0LL;
+    RegionSize = v14;
   }
-  v4 = (a1 & 0x40000000) != 0 ? 64 : 4;
-  v5 = ZwAllocateVirtualMemory(-1LL, &v12, 0LL, &v13, 0x2000, v4);
+  Protect = (a1 & 0x40000000) != 0 ? 64 : 4;
+  v5 = ZwAllocateVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, 0LL, &RegionSize, 0x2000u, Protect);
   if ( (RtlpHpHeapFeatures & 8) != 0 )
-    RtlpHpTlLogVAChange(0x2000LL, v13, v12);
+    RtlpHpTlLogVAChange(0x2000LL, RegionSize, BaseAddress);
   if ( v5 < 0 )
   {
     result = 0LL;
-    v15 = 0LL;
+    v13 = 0LL;
     goto LABEL_19;
   }
-  v15 = v12;
-  v16 = v13;
-  if ( v11 )
+  v13 = BaseAddress;
+  v14 = RegionSize;
+  if ( v9 )
   {
-    ZwFreeVirtualMemory(-1LL, &v12, &v11, 0x8000LL);
+    ZwFreeVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, &v9, 0x8000u);
     if ( (RtlpHpHeapFeatures & 8) != 0 )
-      RtlpHpTlLogVAChange(0x8000LL, v11, v12);
-    v16 = v13 - v11;
-    v15 = v11 + v12;
+      RtlpHpTlLogVAChange(0x8000LL, v9, BaseAddress);
+    v14 = RegionSize - v9;
+    v13 = (char *)BaseAddress + v9;
   }
-  v14 = 1728LL;
-  v8 = ZwAllocateVirtualMemory(-1LL, &v15, 0LL, &v14, 4096, v4);
+  v12 = 1728LL;
+  v6 = ZwAllocateVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &v13, 0LL, &v12, 0x1000u, Protect);
   if ( (RtlpHpHeapFeatures & 8) != 0 )
-    RtlpHpTlLogVAChange(4096LL, v14, v15);
-  if ( v8 >= 0 )
+    RtlpHpTlLogVAChange(4096LL, v12, v13);
+  if ( v6 >= 0 )
   {
-    if ( (unsigned int)RtlGetCurrentServiceSessionId(v7, v6) )
-      v9 = (__int64)NtCurrentPeb()->SharedData + 550;
+    if ( RtlGetCurrentServiceSessionId() )
+      v7 = (__int64)NtCurrentPeb()->SharedData + 550;
     else
-      v9 = 2147353472LL;
-    if ( *(_BYTE *)v9 && (NtCurrentPeb()->TracingFlags & 1) != 0 )
-      RtlpLogHeapCommit(v15, v15, v14, 11LL);
-    _InterlockedExchangeAdd64((volatile signed __int64 *)(v15 + 24), v16 >> 12);
-    _InterlockedExchangeAdd64((volatile signed __int64 *)(v15 + 32), v14 >> 12);
-    *(_QWORD *)(v15 + 336) = v15 + 1728;
-    *(_QWORD *)(v15 + 344) = v15 + v14;
+      v7 = 2147353472LL;
+    if ( *(_BYTE *)v7 && (NtCurrentPeb()->TracingFlags & 1) != 0 )
+      RtlpLogHeapCommit(v13, v13, v12, 11LL);
+    _InterlockedExchangeAdd64((volatile signed __int64 *)v13 + 3, v14 >> 12);
+    _InterlockedExchangeAdd64((volatile signed __int64 *)v13 + 4, v12 >> 12);
+    *((_QWORD *)v13 + 42) = (char *)v13 + 1728;
+    *((_QWORD *)v13 + 43) = (char *)v13 + v12;
     v5 = 0;
-    *(_QWORD *)(v15 + 352) = v15 + v16;
-    result = v15;
+    *((_QWORD *)v13 + 44) = (char *)v13 + v14;
+    result = v13;
 LABEL_19:
     if ( v5 >= 0 )
       return result;
     goto LABEL_26;
   }
-  result = v15;
+  result = v13;
 LABEL_26:
   if ( result )
   {
-    v16 = 0LL;
-    ZwFreeVirtualMemory(-1LL, &v15, &v16, 0x8000LL);
+    v14 = 0LL;
+    ZwFreeVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &v13, &v14, 0x8000u);
     if ( (RtlpHpHeapFeatures & 8) != 0 )
-      RtlpHpTlLogVAChange(0x8000LL, v16, v15);
+      RtlpHpTlLogVAChange(0x8000LL, v14, v13);
     return 0LL;
   }
   return result;

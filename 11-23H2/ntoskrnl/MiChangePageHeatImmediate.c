@@ -1,18 +1,18 @@
 /*
- * XREFs of MiChangePageHeatImmediate @ 0x140653DEC
+ * XREFs of MiChangePageHeatImmediate @ 0x14065433C
  * Callers:
- *     MiZeroPage @ 0x1402D09F0 (MiZeroPage.c)
- *     MiCoalesceFreePages @ 0x1402D4970 (MiCoalesceFreePages.c)
- *     MiFreeLargePageMemory @ 0x1402E7498 (MiFreeLargePageMemory.c)
- *     MiCoalesceFreeLargePages @ 0x140332DC0 (MiCoalesceFreeLargePages.c)
- *     MiLargeFreePageToMdl @ 0x1403D7744 (MiLargeFreePageToMdl.c)
- *     MiZeroPageMakeHot @ 0x140655C0C (MiZeroPageMakeHot.c)
+ *     MiZeroPage @ 0x1402D0C80 (MiZeroPage.c)
+ *     MiCoalesceFreePages @ 0x1402D4C00 (MiCoalesceFreePages.c)
+ *     MiFreeLargePageMemory @ 0x1402E7728 (MiFreeLargePageMemory.c)
+ *     MiCoalesceFreeLargePages @ 0x140333050 (MiCoalesceFreeLargePages.c)
+ *     MiLargeFreePageToMdl @ 0x1403D7924 (MiLargeFreePageToMdl.c)
+ *     MiZeroPageMakeHot @ 0x14065615C (MiZeroPageMakeHot.c)
  * Callees:
- *     MiColdPageSizeSupported @ 0x140347930 (MiColdPageSizeSupported.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     MiAddPageToHeatRanges @ 0x140653CF4 (MiAddPageToHeatRanges.c)
- *     MiNotifyPageHeat @ 0x1406545FC (MiNotifyPageHeat.c)
+ *     MiColdPageSizeSupported @ 0x140347BC0 (MiColdPageSizeSupported.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     MiAddPageToHeatRanges @ 0x140654244 (MiAddPageToHeatRanges.c)
+ *     MiNotifyPageHeat @ 0x140654B4C (MiNotifyPageHeat.c)
  */
 
 __int64 __fastcall MiChangePageHeatImmediate(__int64 a1, unsigned int a2, int a3)

@@ -1,35 +1,35 @@
 /*
- * XREFs of KiInitializeBootStructures @ 0x140BF5890
+ * XREFs of KiInitializeBootStructures @ 0x140BFB890
  * Callers:
- *     KiSystemStartup @ 0x140BE9640 (KiSystemStartup.c)
+ *     KiSystemStartup @ 0x140BEF640 (KiSystemStartup.c)
  * Callees:
- *     KeAddProcessorAffinityEx @ 0x140246720 (KeAddProcessorAffinityEx.c)
- *     KiDetectTsx @ 0x14052B7F8 (KiDetectTsx.c)
- *     KiSaveInitialProcessorControlState @ 0x140533BE0 (KiSaveInitialProcessorControlState.c)
- *     strstr @ 0x140535B20 (strstr.c)
- *     atoi @ 0x140535D60 (atoi.c)
- *     ExInitializeBootStructures @ 0x140576458 (ExInitializeBootStructures.c)
- *     HalInitializeProcessor @ 0x140578450 (HalInitializeProcessor.c)
- *     HalInitializeBios @ 0x1405784A0 (HalInitializeBios.c)
- *     KiInitializeGlobalState @ 0x1405EB47C (KiInitializeGlobalState.c)
- *     KiConfigureInitialNodes @ 0x1405EF678 (KiConfigureInitialNodes.c)
- *     KiDetermineImportOptimizationEnablement @ 0x1405F201C (KiDetermineImportOptimizationEnablement.c)
- *     KiDetermineRetpolineEnablement @ 0x1405F2064 (KiDetermineRetpolineEnablement.c)
- *     KiGetProcessorSignature @ 0x1405F6C6C (KiGetProcessorSignature.c)
- *     KiSetProcessorSignature @ 0x1405F6C84 (KiSetProcessorSignature.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     KiInitPrcb @ 0x140BF3C24 (KiInitPrcb.c)
- *     KiInitializeIdt @ 0x140BF5F9C (KiInitializeIdt.c)
- *     KiSetFeatureBits @ 0x140BF74E8 (KiSetFeatureBits.c)
- *     KiEnableKvaShadowing @ 0x140BF8180 (KiEnableKvaShadowing.c)
- *     ExInitializeSystemLookasideList @ 0x140C0D4C0 (ExInitializeSystemLookasideList.c)
- *     MmInitSystem @ 0x140C7FD84 (MmInitSystem.c)
- *     InitializeBuildStrings @ 0x140CAB79C (InitializeBuildStrings.c)
- *     HvlEnableVsmCalls @ 0x140CB972C (HvlEnableVsmCalls.c)
- *     InbvDriverInitialize @ 0x140CBA030 (InbvDriverInitialize.c)
- *     KiInitializeNxSupportDiscard @ 0x140CCB288 (KiInitializeNxSupportDiscard.c)
- *     ExRngInitializeSystem @ 0x140CE6E20 (ExRngInitializeSystem.c)
- *     CmInitBootFeatureConfigurations @ 0x140CE8874 (CmInitBootFeatureConfigurations.c)
+ *     KeAddProcessorAffinityEx @ 0x140248080 (KeAddProcessorAffinityEx.c)
+ *     KiDetectTsx @ 0x14052DD18 (KiDetectTsx.c)
+ *     KiSaveInitialProcessorControlState @ 0x140536060 (KiSaveInitialProcessorControlState.c)
+ *     strstr @ 0x140537FA0 (strstr.c)
+ *     atoi @ 0x1405381E0 (atoi.c)
+ *     ExInitializeBootStructures @ 0x140578908 (ExInitializeBootStructures.c)
+ *     HalInitializeProcessor @ 0x14057A980 (HalInitializeProcessor.c)
+ *     HalInitializeBios @ 0x14057A9D0 (HalInitializeBios.c)
+ *     KiInitializeGlobalState @ 0x1405EDDEC (KiInitializeGlobalState.c)
+ *     KiConfigureInitialNodes @ 0x1405F1FE8 (KiConfigureInitialNodes.c)
+ *     KiDetermineImportOptimizationEnablement @ 0x1405F49DC (KiDetermineImportOptimizationEnablement.c)
+ *     KiDetermineRetpolineEnablement @ 0x1405F4A24 (KiDetermineRetpolineEnablement.c)
+ *     KiGetProcessorSignature @ 0x1405F962C (KiGetProcessorSignature.c)
+ *     KiSetProcessorSignature @ 0x1405F9644 (KiSetProcessorSignature.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     KiInitPrcb @ 0x140BF9C24 (KiInitPrcb.c)
+ *     KiInitializeIdt @ 0x140BFBF9C (KiInitializeIdt.c)
+ *     KiSetFeatureBits @ 0x140BFD4E8 (KiSetFeatureBits.c)
+ *     KiEnableKvaShadowing @ 0x140BFE180 (KiEnableKvaShadowing.c)
+ *     ExInitializeSystemLookasideList @ 0x140C136D0 (ExInitializeSystemLookasideList.c)
+ *     MmInitSystem @ 0x140C85D84 (MmInitSystem.c)
+ *     InitializeBuildStrings @ 0x140CB17DC (InitializeBuildStrings.c)
+ *     HvlEnableVsmCalls @ 0x140CBF76C (HvlEnableVsmCalls.c)
+ *     InbvDriverInitialize @ 0x140CC0070 (InbvDriverInitialize.c)
+ *     KiInitializeNxSupportDiscard @ 0x140CD1368 (KiInitializeNxSupportDiscard.c)
+ *     ExRngInitializeSystem @ 0x140CED1C0 (ExRngInitializeSystem.c)
+ *     CmInitBootFeatureConfigurations @ 0x140CEEC14 (CmInitBootFeatureConfigurations.c)
  */
 
 __int64 __fastcall KiInitializeBootStructures(__int64 a1)
@@ -83,8 +83,8 @@ __int64 __fastcall KiInitializeBootStructures(__int64 a1)
     v11 = *(unsigned int *)(a1 + 160);
     KiFeatureSettings = *(_DWORD *)(v10 + 3492);
     KiFeatureSimulations = (*(_DWORD *)(v10 + 132) >> 21) & 0x3F;
-    *v2 = (_KPROCESS *)&unk_140FC8F40;
-    *v5 = (_KTHREAD *)&unk_140FCA140;
+    *v2 = (_KPROCESS *)&unk_140FC9F40;
+    *v5 = (_KTHREAD *)&unk_140FCB140;
     LODWORD(KeKernelStackSize) = v11;
     v12 = *(_DWORD *)(*(_QWORD *)(a1 + 240) + 3860LL);
     KeKernelLargeStackCommit = v11;
@@ -209,8 +209,8 @@ __int64 __fastcall KiInitializeBootStructures(__int64 a1)
   if ( !CurrentPrcb->Number )
   {
     v29 = KiDebugTrapIndex;
-    *(_QWORD *)&SshpBlockerCollections.PriorityFloorCounts[8] = KiDebugTraps;
-    *(_QWORD *)&SshpBlockerCollections.PriorityFloorCounts[16] = 64LL;
+    SshpBlockerCollections.IoSelfBoostsEntry.Next = (struct _SINGLE_LIST_ENTRY *)KiDebugTraps;
+    *(_QWORD *)SshpBlockerCollections.PriorityFloorCounts = 64LL;
     KiDebugTraps[KiDebugTrapIndex] = v28;
     KiDebugTraps[++v29] = v27;
     KiDebugTrapIndex = v29 + 1;
@@ -226,19 +226,19 @@ __int64 __fastcall KiInitializeBootStructures(__int64 a1)
   v31 = KeGetCurrentPrcb();
   if ( !v31->Number )
   {
-    ExSaPageGroupDescriptorArrayLock.WpsFeedback = (_KTHREAD_WPS_FEEDBACK *)&ExSaPageGroupDescriptorArrayLock.ExtendedFeatureDisableMask;
-    ExSaPageGroupDescriptorArrayLock.ExtendedFeatureDisableMask = (unsigned __int64)&ExSaPageGroupDescriptorArrayLock.ExtendedFeatureDisableMask;
-    ExInitializeSystemLookasideList((unsigned int)&stru_140E28440.ReadOperationCount, 512, 1264, 1717723987, 32);
+    ExSaPageGroupDescriptorArrayLock.IptSaveArea = &ExSaPageGroupDescriptorArrayLock.SystemAffinityTokenListHead;
+    ExSaPageGroupDescriptorArrayLock.SystemAffinityTokenListHead.Next = &ExSaPageGroupDescriptorArrayLock.SystemAffinityTokenListHead;
+    ExInitializeSystemLookasideList((unsigned int)&stru_140E285C0.ReadOperationCount, 512, 1264, 1717723987, 32);
   }
-  v31->PPLookasideList[8].L = (_GENERAL_LOOKASIDE *)&stru_140E28440.ReadOperationCount;
-  v31->PPLookasideList[8].P = (_GENERAL_LOOKASIDE *)&stru_140E28440.ReadOperationCount;
+  v31->PPLookasideList[8].L = (_GENERAL_LOOKASIDE *)&stru_140E285C0.ReadOperationCount;
+  v31->PPLookasideList[8].P = (_GENERAL_LOOKASIDE *)&stru_140E285C0.ReadOperationCount;
   if ( !(_DWORD)Number )
   {
     LODWORD(KeNumberProcessors_0) = 1;
     KeNumberProcessorsGroup0 = 1;
-    *(_QWORD *)&stru_140FC01F0.WaitRegister.Flags = 2097153LL;
-    memset_0((char *)&stru_140FC01F0.116 + 4, 0, 0x100uLL);
-    KeAddProcessorAffinityEx((unsigned __int16 *)&stru_140FC01F0.WaitRegister.Flags, 0);
+    *(_QWORD *)&stru_140FC11F0.WaitRegister.Flags = 2097153LL;
+    memset_0((char *)&stru_140FC11F0.116 + 4, 0, 0x100uLL);
+    KeAddProcessorAffinityEx((unsigned __int16 *)&stru_140FC11F0.WaitRegister.Flags, 0);
   }
   return KiSaveInitialProcessorControlState((__int64)&CurrentPrcb->ProcessorState);
 }

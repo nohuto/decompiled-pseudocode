@@ -1,17 +1,17 @@
 /*
- * XREFs of PpmCompareAndApplyPolicySettings @ 0x140A4706C
+ * XREFs of PpmCompareAndApplyPolicySettings @ 0x140A3CFDC
  * Callers:
- *     PpmProfileAcDcUpdate @ 0x140A46B88 (PpmProfileAcDcUpdate.c)
- *     PpmApplyProfile @ 0x140A46E88 (PpmApplyProfile.c)
+ *     PpmProfileAcDcUpdate @ 0x140A3CAF8 (PpmProfileAcDcUpdate.c)
+ *     PpmApplyProfile @ 0x140A3CDF8 (PpmApplyProfile.c)
  * Callees:
- *     PpmReleaseLock @ 0x1402A1504 (PpmReleaseLock.c)
- *     PopReleaseRwLock @ 0x1403B5EC8 (PopReleaseRwLock.c)
- *     Feature_DisableUserPresenceQosByPolicy__private_IsEnabledDeviceUsageNoInline @ 0x1405D28DC (Feature_DisableUserPresenceQosByPolicy__private_IsEnabledDeviceUsageNoInline.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     RtlCompareMemory @ 0x1406B3990 (RtlCompareMemory.c)
- *     PpmGetPolicyAction @ 0x140A74530 (PpmGetPolicyAction.c)
- *     PpmReapplyIdlePolicy @ 0x140A97940 (PpmReapplyIdlePolicy.c)
- *     PpmReapplyPerfPolicy @ 0x140AC77C4 (PpmReapplyPerfPolicy.c)
+ *     PpmReleaseLock @ 0x1402AE140 (PpmReleaseLock.c)
+ *     PopReleaseRwLock @ 0x1402AE8FC (PopReleaseRwLock.c)
+ *     Feature_DisableUserPresenceQosByPolicy__private_IsEnabledDeviceUsageNoInline @ 0x1405CFFFC (Feature_DisableUserPresenceQosByPolicy__private_IsEnabledDeviceUsageNoInline.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     RtlCompareMemory @ 0x1406B4930 (RtlCompareMemory.c)
+ *     PpmGetPolicyAction @ 0x140A6E858 (PpmGetPolicyAction.c)
+ *     PpmReapplyIdlePolicy @ 0x140A94190 (PpmReapplyIdlePolicy.c)
+ *     PpmReapplyPerfPolicy @ 0x140AC5250 (PpmReapplyPerfPolicy.c)
  */
 
 LONG __fastcall PpmCompareAndApplyPolicySettings(const __m128i *a1, __int64 a2, __int64 a3, char a4)

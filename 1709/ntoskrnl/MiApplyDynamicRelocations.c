@@ -10,11 +10,12 @@
  *     MiCaptureDynamicRelocationTableRva @ 0x1405BF3F8 (MiCaptureDynamicRelocationTableRva.c)
  */
 
-NTSTATUS __fastcall MiApplyDynamicRelocations(char *BaseAddress, ULONGLONG Size, __int64 a3, __int64 a4)
+NTSTATUS __fastcall MiApplyDynamicRelocations(char *BaseAddress, __int64 Size, __int64 a3, __int64 a4)
 {
+  __int64 v5; // rsi
   unsigned int v6; // ebp
   NTSTATUS v8; // eax
-  struct _IMAGE_NT_HEADERS64 *v9; // r8
+  _IMAGE_NT_HEADERS64 *v9; // r8
   __int64 v10; // r9
   unsigned int *v11; // rcx
   NTSTATUS result; // eax
@@ -28,6 +29,7 @@ NTSTATUS __fastcall MiApplyDynamicRelocations(char *BaseAddress, ULONGLONG Size,
   __int64 v20; // [rsp+60h] [rbp-88h]
   __int64 v21; // [rsp+68h] [rbp-80h]
 
+  v5 = a3;
   v6 = Size;
   if ( (MiFlags & 0x200000) != 0 )
   {
@@ -38,7 +40,9 @@ NTSTATUS __fastcall MiApplyDynamicRelocations(char *BaseAddress, ULONGLONG Size,
   }
   else
   {
-    v8 = RtlpImageDirectoryEntryToDataEx((unsigned __int64)BaseAddress, 1, 0xAu, (int)&v16, &v17);
+    LOWORD(a3) = 10;
+    LOBYTE(Size) = 1;
+    v8 = RtlpImageDirectoryEntryToDataEx((unsigned __int64)BaseAddress, Size, a3, (__int64)&v16, &v17);
     v11 = (unsigned int *)v17;
     if ( v8 < 0 )
       v11 = 0LL;
@@ -52,7 +56,7 @@ NTSTATUS __fastcall MiApplyDynamicRelocations(char *BaseAddress, ULONGLONG Size,
       }
       else
       {
-        return LdrApplyDynamicRelocations((__int64)BaseAddress, &BaseAddress[(unsigned int)v16], v13, v14, v15, a3, a4);
+        return LdrApplyDynamicRelocations((__int64)BaseAddress, &BaseAddress[(unsigned int)v16], v13, v14, v15, v5, a4);
       }
     }
     else

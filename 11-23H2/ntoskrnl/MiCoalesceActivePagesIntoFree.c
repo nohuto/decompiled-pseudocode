@@ -1,14 +1,14 @@
 /*
- * XREFs of MiCoalesceActivePagesIntoFree @ 0x14065D4EC
+ * XREFs of MiCoalesceActivePagesIntoFree @ 0x14065DA3C
  * Callers:
- *     MiFreeContiguousLargePageRun @ 0x140649DB8 (MiFreeContiguousLargePageRun.c)
- *     MiFreeLargeProcessPagesToCache @ 0x140668644 (MiFreeLargeProcessPagesToCache.c)
+ *     MiFreeContiguousLargePageRun @ 0x14064A308 (MiFreeContiguousLargePageRun.c)
+ *     MiFreeLargeProcessPagesToCache @ 0x140668B94 (MiFreeLargeProcessPagesToCache.c)
  * Callees:
- *     MiSearchNumaNodeTable @ 0x14026EAD0 (MiSearchNumaNodeTable.c)
- *     MiLargePagePromote @ 0x1402D77D0 (MiLargePagePromote.c)
- *     MiGetPfnPageSizeIndex @ 0x1402E88E0 (MiGetPfnPageSizeIndex.c)
- *     MiLockPageInline @ 0x1402EF680 (MiLockPageInline.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiSearchNumaNodeTable @ 0x14026ED60 (MiSearchNumaNodeTable.c)
+ *     MiLargePagePromote @ 0x1402D7A60 (MiLargePagePromote.c)
+ *     MiGetPfnPageSizeIndex @ 0x1402E8B70 (MiGetPfnPageSizeIndex.c)
+ *     MiLockPageInline @ 0x1402EF910 (MiLockPageInline.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiCoalesceActivePagesIntoFree(__int64 a1, __int64 a2, unsigned int a3)
@@ -93,10 +93,10 @@ LABEL_9:
     if ( i == v16 )
       break;
   }
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v11 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v11 <= 0xFu && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

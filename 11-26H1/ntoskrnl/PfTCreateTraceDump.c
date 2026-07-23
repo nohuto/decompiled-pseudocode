@@ -1,13 +1,13 @@
 /*
- * XREFs of PfTCreateTraceDump @ 0x140A069E0
+ * XREFs of PfTCreateTraceDump @ 0x1409F21D0
  * Callers:
- *     PfTGenerateTrace @ 0x140A06960 (PfTGenerateTrace.c)
+ *     PfTGenerateTrace @ 0x1409F2150 (PfTGenerateTrace.c)
  * Callees:
- *     memmove @ 0x14073D480 (memmove.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     PfTFreeBufferList @ 0x140A071E4 (PfTFreeBufferList.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     PfTFreeBufferList @ 0x1409F29D4 (PfTFreeBufferList.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PfTCreateTraceDump(_QWORD *a1, __int64 *a2)

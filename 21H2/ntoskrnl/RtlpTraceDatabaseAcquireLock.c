@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlpTraceDatabaseAcquireLock @ 0x14058EC40
+ * XREFs of RtlpTraceDatabaseAcquireLock @ 0x14058EE70
  * Callers:
- *     RtlTraceDatabaseAdd @ 0x14058E860 (RtlTraceDatabaseAdd.c)
- *     RtlTraceDatabaseEnumerate @ 0x14058EA80 (RtlTraceDatabaseEnumerate.c)
- *     RtlTraceDatabaseFind @ 0x14058EB50 (RtlTraceDatabaseFind.c)
- *     RtlTraceDatabaseLock @ 0x14058EBC0 (RtlTraceDatabaseLock.c)
- *     RtlTraceDatabaseValidate @ 0x14058EC00 (RtlTraceDatabaseValidate.c)
+ *     RtlTraceDatabaseAdd @ 0x14058EA90 (RtlTraceDatabaseAdd.c)
+ *     RtlTraceDatabaseEnumerate @ 0x14058ECB0 (RtlTraceDatabaseEnumerate.c)
+ *     RtlTraceDatabaseFind @ 0x14058ED80 (RtlTraceDatabaseFind.c)
+ *     RtlTraceDatabaseLock @ 0x14058EDF0 (RtlTraceDatabaseLock.c)
+ *     RtlTraceDatabaseValidate @ 0x14058EE30 (RtlTraceDatabaseValidate.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x14034A080 (ExAcquireFastMutex.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ExAcquireFastMutex @ 0x140354DD0 (ExAcquireFastMutex.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
  */
 
 char __fastcall RtlpTraceDatabaseAcquireLock(__int64 a1)

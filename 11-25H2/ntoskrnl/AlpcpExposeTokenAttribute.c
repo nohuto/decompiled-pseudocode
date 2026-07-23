@@ -31,7 +31,7 @@ char __fastcall AlpcpExposeTokenAttribute(__int64 a1, __int64 a2, _QWORD *a3, _D
   struct _KTHREAD *CurrentThread; // rax
   PEPROCESS *v13; // r13
   PEPROCESS Process; // rcx
-  __int64 *v15; // rax
+  PSID *v15; // rax
   PVOID v16; // rdi
   char v17; // di
   struct _KTHREAD *v18; // rax
@@ -146,7 +146,7 @@ LABEL_17:
     }
     KeAbPostRelease((ULONG_PTR)v20);
     KeLeaveCriticalRegionThread((__int64)v31);
-    v15 = (__int64 *)v26;
+    v15 = (PSID *)v26;
     if ( v26 )
     {
       LODWORD(v28) = 2;
@@ -155,7 +155,7 @@ LABEL_17:
     }
     Process = v29;
   }
-  v15 = (__int64 *)PsReferencePrimaryTokenWithTag((__int64)Process, 0x63436553u);
+  v15 = (PSID *)PsReferencePrimaryTokenWithTag((__int64)Process, 0x63436553u);
   v26 = v15;
   LODWORD(v28) = 1;
   v40 = BYTE2(v29[3].ActiveGroupsMask.Masks[1]);

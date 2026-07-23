@@ -9,14 +9,14 @@
  *     memmove @ 0x1406B4940 (memmove.c)
  */
 
-__int64 __fastcall RtlRemovePropertyStore(void *Key, _QWORD *a2)
+NTSTATUS __cdecl RtlRemovePropertyStore(ULONG_PTR Key, PULONG_PTR Context)
 {
   char v4; // al
   __int64 v5; // r8
   void *v6; // rdx
-  unsigned int v7; // edi
+  NTSTATUS v7; // edi
   char v8; // si
-  _QWORD *v9; // rax
+  unsigned __int64 *v9; // rax
   unsigned int v10; // ebx
 
   v4 = RtlpAcquirePropStoreLockExclusive(&RtlpPropStoreLock);
@@ -24,15 +24,15 @@ __int64 __fastcall RtlRemovePropertyStore(void *Key, _QWORD *a2)
   v7 = 0;
   v8 = v4;
   if ( RtlpPropStoreEntries
-    && (v9 = bsearch(
-               Key,
-               RtlpPropStoreEntries,
-               (unsigned int)RtlpPropStoreEntriesActiveCount,
-               0x18uLL,
-               RtlpComparePropertyEntry)) != 0LL )
+    && (v9 = (unsigned __int64 *)bsearch(
+                                   (const void *)Key,
+                                   RtlpPropStoreEntries,
+                                   (unsigned int)RtlpPropStoreEntriesActiveCount,
+                                   0x18uLL,
+                                   RtlpComparePropertyEntry)) != 0LL )
   {
     v10 = RtlpPropStoreEntriesActiveCount;
-    *a2 = v9[2];
+    *Context = v9[2];
     memmove(v9, v9 + 3, 24 * (v10 - 0xAAAAAAAAAAAAAAABuLL * (((char *)v9 - (_BYTE *)RtlpPropStoreEntries) >> 3)) - 24);
     LODWORD(RtlpPropStoreEntriesActiveCount) = v10 - 1;
   }

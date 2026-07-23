@@ -48,7 +48,10 @@ ULONG_PTR __fastcall KiStopProfileTarget(__int64 *Argument)
   v27 = 0;
   CurrentIrql = KeGetCurrentIrql();
   __writecr8((unsigned __int8)KiProfileIrql);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)(v2 - 2) <= 0xDu )
+  if ( (_DWORD)KiIrqlFlags
+    && ((unsigned __int8)KiIrqlFlags & 1) != 0
+    && CurrentIrql <= 0xFu
+    && (unsigned __int8)(v2 - 2) <= 0xDu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == v2 )
@@ -114,10 +117,10 @@ LABEL_28:
     _mm_pause();
   if ( (unsigned int)KeCheckProcessorAffinityEx((unsigned __int16 *)Argument + 8, KeGetCurrentPrcb()->Number) )
     ((void (__fastcall *)(_QWORD, _QWORD))HalpProfileInterface[2])((unsigned int)*(__int16 *)(v1 + 608), 0LL);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v17 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v17 <= 0xFu && CurrentIrql <= 0xFu && v17 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v17 <= 0xFu && CurrentIrql <= 0xFu && v17 >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v19 = CurrentPrcb->SchedulerAssist;

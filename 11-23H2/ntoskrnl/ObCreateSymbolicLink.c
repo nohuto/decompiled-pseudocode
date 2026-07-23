@@ -1,18 +1,18 @@
 /*
- * XREFs of ObCreateSymbolicLink @ 0x1407F3368
+ * XREFs of ObCreateSymbolicLink @ 0x1407F3638
  * Callers:
- *     NtCreateSymbolicLinkObject @ 0x1407F3050 (NtCreateSymbolicLinkObject.c)
- *     MiCreateMemoryEvent @ 0x14081BEC4 (MiCreateMemoryEvent.c)
- *     IoCreateSymbolicLink2 @ 0x14086FCA0 (IoCreateSymbolicLink2.c)
+ *     NtCreateSymbolicLinkObject @ 0x1407F3320 (NtCreateSymbolicLinkObject.c)
+ *     MiCreateMemoryEvent @ 0x14081C194 (MiCreateMemoryEvent.c)
+ *     IoCreateSymbolicLink2 @ 0x14086FEE0 (IoCreateSymbolicLink2.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     EtwWrite @ 0x1402578A0 (EtwWrite.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     ObCreateObjectEx @ 0x1407308B0 (ObCreateObjectEx.c)
- *     ObInsertObjectEx @ 0x1407359D0 (ObInsertObjectEx.c)
- *     ObpGetIntegrityLevel @ 0x1407F36F4 (ObpGetIntegrityLevel.c)
- *     RtlIsSandboxedToken @ 0x1407F3790 (RtlIsSandboxedToken.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     EtwWrite @ 0x140257960 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     ObCreateObjectEx @ 0x140730AA0 (ObCreateObjectEx.c)
+ *     ObInsertObjectEx @ 0x140735BC0 (ObInsertObjectEx.c)
+ *     ObpGetIntegrityLevel @ 0x1407F39C4 (ObpGetIntegrityLevel.c)
+ *     RtlIsSandboxedToken @ 0x1407F3A60 (RtlIsSandboxedToken.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 

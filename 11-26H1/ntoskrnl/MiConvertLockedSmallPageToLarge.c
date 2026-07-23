@@ -1,12 +1,12 @@
 /*
- * XREFs of MiConvertLockedSmallPageToLarge @ 0x1403C5CF0
+ * XREFs of MiConvertLockedSmallPageToLarge @ 0x1403CFBF0
  * Callers:
- *     MiConvertSmallPageRangeToLarge @ 0x1403C5A90 (MiConvertSmallPageRangeToLarge.c)
- *     MiDeleteClusterPage @ 0x1403C6268 (MiDeleteClusterPage.c)
+ *     MiConvertSmallPageRangeToLarge @ 0x1403CF990 (MiConvertSmallPageRangeToLarge.c)
+ *     MiDeleteClusterPage @ 0x1403D0168 (MiDeleteClusterPage.c)
  * Callees:
- *     HvlNotifyLongSpinWait @ 0x1402BBF00 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402BC760 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     MiCanPfnOriginalPteBeLost @ 0x140408680 (MiCanPfnOriginalPteBeLost.c)
+ *     HvlNotifyLongSpinWait @ 0x140306BC0 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140307420 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     MiCanPfnOriginalPteBeLost @ 0x140401770 (MiCanPfnOriginalPteBeLost.c)
  */
 
 char __fastcall MiConvertLockedSmallPageToLarge(__int64 a1, __int64 a2, char a3, int a4)

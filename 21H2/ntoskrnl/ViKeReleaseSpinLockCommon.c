@@ -1,13 +1,13 @@
 /*
- * XREFs of ViKeReleaseSpinLockCommon @ 0x1409DC360
+ * XREFs of ViKeReleaseSpinLockCommon @ 0x1409DD360
  * Callers:
- *     VerifierKeReleaseSpinLock @ 0x1409DB3D0 (VerifierKeReleaseSpinLock.c)
- *     VerifierPortKeReleaseSpinLock @ 0x1409DB550 (VerifierPortKeReleaseSpinLock.c)
- *     VerifierPortKeReleaseSpinLockNoXdv @ 0x1409DBC50 (VerifierPortKeReleaseSpinLockNoXdv.c)
+ *     VerifierKeReleaseSpinLock @ 0x1409DC3D0 (VerifierKeReleaseSpinLock.c)
+ *     VerifierPortKeReleaseSpinLock @ 0x1409DC550 (VerifierPortKeReleaseSpinLock.c)
+ *     VerifierPortKeReleaseSpinLockNoXdv @ 0x1409DCC50 (VerifierPortKeReleaseSpinLockNoXdv.c)
  * Callees:
- *     VfUtilCheckKernelAddress @ 0x1409C658C (VfUtilCheckKernelAddress.c)
- *     VerifierBugCheckIfAppropriate @ 0x1409D0D54 (VerifierBugCheckIfAppropriate.c)
- *     ViKeLowerIrqlSanityChecks @ 0x1409DC138 (ViKeLowerIrqlSanityChecks.c)
+ *     VfUtilCheckKernelAddress @ 0x1409C758C (VfUtilCheckKernelAddress.c)
+ *     VerifierBugCheckIfAppropriate @ 0x1409D1D54 (VerifierBugCheckIfAppropriate.c)
+ *     ViKeLowerIrqlSanityChecks @ 0x1409DD138 (ViKeLowerIrqlSanityChecks.c)
  */
 
 char *__fastcall ViKeReleaseSpinLockCommon(ULONG_PTR BugCheckParameter3, unsigned __int8 a2)

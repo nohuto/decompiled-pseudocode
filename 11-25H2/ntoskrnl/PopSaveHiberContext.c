@@ -59,8 +59,8 @@ __int64 __fastcall PopSaveHiberContext(ULONG_PTR BugCheckParameter3)
   unsigned int v12; // r8d
   _DWORD *v13; // rcx
   _DWORD *v14; // rdx
-  RTL_BITMAP *v15; // rax
-  __int64 v16; // rcx
+  _RTL_BITMAP *v15; // rax
+  _IMAGE_NT_HEADERS64 *v16; // rcx
   __int64 v17; // rdx
   unsigned __int64 v18; // rbx
   ULONG_PTR v19; // rdi
@@ -261,11 +261,11 @@ LABEL_28:
     }
     while ( v12 < *(_DWORD *)(BugCheckParameter3 + 64) >> 5 );
   }
-  v15 = (RTL_BITMAP *)(BugCheckParameter3 + 48);
+  v15 = (_RTL_BITMAP *)(BugCheckParameter3 + 48);
   if ( !byte_140F0ADA1 )
   {
-    RtlCopyBitMap((unsigned int *)(BugCheckParameter3 + 64), BugCheckParameter3 + 48, 0);
-    v15 = (RTL_BITMAP *)(BugCheckParameter3 + 64);
+    RtlCopyBitMap((PRTL_BITMAP)(BugCheckParameter3 + 64), (PRTL_BITMAP)(BugCheckParameter3 + 48), 0);
+    v15 = (_RTL_BITMAP *)(BugCheckParameter3 + 64);
   }
   RtlSetAllBits(v15);
   *(_DWORD *)(BugCheckParameter3 + 200) = 8;

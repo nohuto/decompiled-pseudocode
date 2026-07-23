@@ -1,9 +1,9 @@
 /*
- * XREFs of ExEnterCriticalRegionAndAcquireResourceExclusive @ 0x1400680D0
+ * XREFs of ExEnterCriticalRegionAndAcquireResourceExclusive @ 0x140067C50
  * Callers:
  *     <none>
  * Callees:
- *     ExAcquireResourceExclusiveLite @ 0x140068160 (ExAcquireResourceExclusiveLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140067CE0 (ExAcquireResourceExclusiveLite.c)
  */
 
 PVOID __stdcall ExEnterCriticalRegionAndAcquireResourceExclusive(PERESOURCE Resource)

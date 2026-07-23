@@ -1,18 +1,18 @@
 /*
- * XREFs of PnpBootDeviceWait @ 0x140374B4C
+ * XREFs of PnpBootDeviceWait @ 0x140374CEC
  * Callers:
  *     VhdInitialize @ 0x140B3BDDC (VhdInitialize.c)
  *     IopInitializeBootDrivers @ 0x140B3CEB4 (IopInitializeBootDrivers.c)
  *     CimfsInitialize @ 0x140B74594 (CimfsInitialize.c)
  * Callees:
- *     KeDelayExecutionThread @ 0x140246810 (KeDelayExecutionThread.c)
- *     HeadlessKernelAddLogEntry @ 0x1403225EC (HeadlessKernelAddLogEntry.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     KeDelayExecutionThread @ 0x1402468E0 (KeDelayExecutionThread.c)
+ *     HeadlessKernelAddLogEntry @ 0x14032287C (HeadlessKernelAddLogEntry.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  *     IopGetRegistryValue @ 0x14068CE78 (IopGetRegistryValue.c)
- *     RtlFreeUnicodeString @ 0x14076F3D0 (RtlFreeUnicodeString.c)
- *     IopOpenRegistryKeyEx @ 0x140811070 (IopOpenRegistryKeyEx.c)
+ *     RtlFreeUnicodeString @ 0x14076F5C0 (RtlFreeUnicodeString.c)
+ *     IopOpenRegistryKeyEx @ 0x140811340 (IopOpenRegistryKeyEx.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

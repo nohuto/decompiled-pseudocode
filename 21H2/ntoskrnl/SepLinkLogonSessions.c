@@ -1,29 +1,29 @@
 /*
- * XREFs of SepLinkLogonSessions @ 0x1402D2FE4
+ * XREFs of SepLinkLogonSessions @ 0x1402438E4
  * Callers:
- *     NtSetInformationToken @ 0x1406749A0 (NtSetInformationToken.c)
+ *     NtSetInformationToken @ 0x140694530 (NtSetInformationToken.c)
  * Callees:
- *     SepDeReferenceLogonSessionDirect @ 0x14027F814 (SepDeReferenceLogonSessionDirect.c)
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
- *     SepReferenceLogonSession @ 0x1405DC7C4 (SepReferenceLogonSession.c)
- *     SeSinglePrivilegeCheck @ 0x140627640 (SeSinglePrivilegeCheck.c)
- *     SepStopReferencingLogonSession @ 0x1406774A0 (SepStopReferencingLogonSession.c)
- *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
- *     SepDuplicateToken @ 0x140703E00 (SepDuplicateToken.c)
- *     SepRemoveTokenLogonSession @ 0x140923BD0 (SepRemoveTokenLogonSession.c)
+ *     SepDeReferenceLogonSessionDirect @ 0x140243B50 (SepDeReferenceLogonSessionDirect.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
+ *     SepStopReferencingLogonSession @ 0x140612358 (SepStopReferencingLogonSession.c)
+ *     SeSinglePrivilegeCheck @ 0x140693750 (SeSinglePrivilegeCheck.c)
+ *     SepReferenceLogonSession @ 0x1406CBF44 (SepReferenceLogonSession.c)
+ *     ObReferenceObjectByHandle @ 0x140707FA0 (ObReferenceObjectByHandle.c)
+ *     SepDuplicateToken @ 0x14071B1E0 (SepDuplicateToken.c)
+ *     SepRemoveTokenLogonSession @ 0x140923D30 (SepRemoveTokenLogonSession.c)
  */
 
 __int64 __fastcall SepLinkLogonSessions(__int64 a1, void *a2, KPROCESSOR_MODE a3)
 {
   PVOID v5; // rdi
-  _QWORD *v6; // r14
+  __int64 v6; // r14
   NTSTATUS v8; // eax
   int v9; // ebx
   __int64 v10; // rcx
   __int64 v11; // rax
   PVOID v13; // [rsp+40h] [rbp-19h] BYREF
   PVOID Object; // [rsp+48h] [rbp-11h] BYREF
-  _QWORD *v15; // [rsp+50h] [rbp-9h] BYREF
+  __int64 v15; // [rsp+50h] [rbp-9h] BYREF
   __int128 v16; // [rsp+58h] [rbp-1h] BYREF
   __int128 v17; // [rsp+68h] [rbp+Fh]
   __int128 v18; // [rsp+78h] [rbp+1Fh]

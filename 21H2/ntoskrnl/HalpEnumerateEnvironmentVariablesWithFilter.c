@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpEnumerateEnvironmentVariablesWithFilter @ 0x1404BBF20
+ * XREFs of HalpEnumerateEnvironmentVariablesWithFilter @ 0x1404BC160
  * Callers:
- *     HalEnumerateEnvironmentVariablesEx @ 0x1404BBAF0 (HalEnumerateEnvironmentVariablesEx.c)
+ *     HalEnumerateEnvironmentVariablesEx @ 0x1404BBD30 (HalEnumerateEnvironmentVariablesEx.c)
  * Callees:
- *     KeRevertToUserGroupAffinityThread @ 0x1402EB390 (KeRevertToUserGroupAffinityThread.c)
- *     KeSetSystemGroupAffinityThread @ 0x1402EB4F0 (KeSetSystemGroupAffinityThread.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     HalpEfiStartRuntimeCode @ 0x1404C3FA8 (HalpEfiStartRuntimeCode.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x14029C6E0 (KeRevertToUserGroupAffinityThread.c)
+ *     KeSetSystemGroupAffinityThread @ 0x14029C840 (KeSetSystemGroupAffinityThread.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     HalpEfiStartRuntimeCode @ 0x1404C41E8 (HalpEfiStartRuntimeCode.c)
  */
 
 __int64 __fastcall HalpEnumerateEnvironmentVariablesWithFilter(
@@ -40,12 +40,12 @@ __int64 __fastcall HalpEnumerateEnvironmentVariablesWithFilter(
   size_t Size; // [rsp+48h] [rbp-B8h] BYREF
   int v26; // [rsp+50h] [rbp-B0h]
   int v27; // [rsp+54h] [rbp-ACh]
-  struct _GROUP_AFFINITY Affinity; // [rsp+58h] [rbp-A8h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+58h] [rbp-A8h] BYREF
   unsigned __int8 (__fastcall *v29)(__int128 *, _WORD *, _QWORD); // [rsp+68h] [rbp-98h]
   unsigned __int64 v30; // [rsp+70h] [rbp-90h]
   _DWORD *v31; // [rsp+78h] [rbp-88h]
   __int128 v32; // [rsp+80h] [rbp-80h] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+90h] [rbp-70h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+90h] [rbp-70h] BYREF
   _WORD Src[256]; // [rsp+A0h] [rbp-60h] BYREF
 
   v29 = a2;

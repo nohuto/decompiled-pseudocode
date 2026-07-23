@@ -1,12 +1,12 @@
 /*
- * XREFs of NtLoadDriver @ 0x140780800
+ * XREFs of NtLoadDriver @ 0x1407809C0
  * Callers:
  *     <none>
  * Callees:
- *     IopLoadDriverImage @ 0x140399E78 (IopLoadDriverImage.c)
+ *     IopLoadDriverImage @ 0x140399FC8 (IopLoadDriverImage.c)
  */
 
-__int64 __fastcall NtLoadDriver(_OWORD *a1)
+NTSTATUS __cdecl NtLoadDriver(PUNICODE_STRING DriverServiceName)
 {
-  return IopLoadDriverImage(a1);
+  return IopLoadDriverImage(DriverServiceName);
 }

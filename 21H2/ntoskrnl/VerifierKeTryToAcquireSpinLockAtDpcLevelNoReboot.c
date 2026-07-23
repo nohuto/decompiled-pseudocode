@@ -1,9 +1,9 @@
 /*
- * XREFs of VerifierKeTryToAcquireSpinLockAtDpcLevelNoReboot @ 0x1409DB8C0
+ * XREFs of VerifierKeTryToAcquireSpinLockAtDpcLevelNoReboot @ 0x1409DC8C0
  * Callers:
  *     <none>
  * Callees:
- *     ViKeTryToAcquireSpinLockAtDpcLevelCommon @ 0x1409DC3D0 (ViKeTryToAcquireSpinLockAtDpcLevelCommon.c)
+ *     ViKeTryToAcquireSpinLockAtDpcLevelCommon @ 0x1409DD3D0 (ViKeTryToAcquireSpinLockAtDpcLevelCommon.c)
  */
 
 __int64 __fastcall VerifierKeTryToAcquireSpinLockAtDpcLevelNoReboot(ULONG_PTR a1)

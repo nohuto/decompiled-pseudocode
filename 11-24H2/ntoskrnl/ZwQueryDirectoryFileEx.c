@@ -1,14 +1,24 @@
 /*
- * XREFs of ZwQueryDirectoryFileEx @ 0x1406A8DB0
+ * XREFs of ZwQueryDirectoryFileEx @ 0x1406A9D50
  * Callers:
- *     DifZwQueryDirectoryFileExWrapper @ 0x1406443B0 (DifZwQueryDirectoryFileExWrapper.c)
+ *     DifZwQueryDirectoryFileExWrapper @ 0x140642970 (DifZwQueryDirectoryFileExWrapper.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwQueryDirectoryFileEx(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwQueryDirectoryFileEx(
+        HANDLE FileHandle,
+        HANDLE Event,
+        PIO_APC_ROUTINE ApcRoutine,
+        PVOID ApcContext,
+        PIO_STATUS_BLOCK IoStatusBlock,
+        PVOID FileInformation,
+        ULONG Length,
+        FILE_INFORMATION_CLASS FileInformationClass,
+        ULONG QueryFlags,
+        PUNICODE_STRING FileName)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(FileHandle);
 }

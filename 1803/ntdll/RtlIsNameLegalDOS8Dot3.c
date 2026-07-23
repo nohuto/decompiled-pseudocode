@@ -12,10 +12,10 @@ BOOLEAN __stdcall RtlIsNameLegalDOS8Dot3(PUNICODE_STRING Name, POEM_STRING OemNa
   char v4; // si
   BOOLEAN v5; // bp
   POEM_STRING v7; // rbx
-  char *v8; // rcx
+  PCHAR v8; // rcx
   unsigned int Length; // r9d
   unsigned int v10; // edx
-  char *Buffer; // r10
+  PCHAR Buffer; // r10
   unsigned __int8 v12; // r8
   int v13; // eax
   int v14; // [rsp+20h] [rbp-58h] BYREF
@@ -34,7 +34,7 @@ BOOLEAN __stdcall RtlIsNameLegalDOS8Dot3(PUNICODE_STRING Name, POEM_STRING OemNa
   v7 = (POEM_STRING)&v14;
   if ( OemName )
     v7 = OemName;
-  if ( (int)RtlUpcaseUnicodeStringToCountedOemString(&v7->Length, (unsigned __int16 **)Name, 0) < 0 )
+  if ( RtlUpcaseUnicodeStringToCountedOemString(v7, Name, 0) < 0 )
     return 0;
   if ( v7->Length != 1 || *v7->Buffer != 46 )
   {

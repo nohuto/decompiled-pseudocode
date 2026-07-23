@@ -1,19 +1,19 @@
 /*
- * XREFs of BgpGxDrawRectangle @ 0x14016EE30
+ * XREFs of BgpGxDrawRectangle @ 0x14016EF30
  * Callers:
- *     BgpTxtDisplayCharacter @ 0x140179F14 (BgpTxtDisplayCharacter.c)
- *     BgpClearScreen @ 0x140327714 (BgpClearScreen.c)
- *     BgpFwDisplayBugCheckScreen @ 0x140328B0C (BgpFwDisplayBugCheckScreen.c)
- *     AnFwpFadeAnimationTimer @ 0x14094F440 (AnFwpFadeAnimationTimer.c)
- *     BgpGxDrawBitmapImage @ 0x140954520 (BgpGxDrawBitmapImage.c)
- *     BgpTxtClearRegion @ 0x140954570 (BgpTxtClearRegion.c)
- *     BgpTxtDisplayString @ 0x1409545A0 (BgpTxtDisplayString.c)
+ *     BgpTxtDisplayCharacter @ 0x14017A014 (BgpTxtDisplayCharacter.c)
+ *     BgpClearScreen @ 0x140327904 (BgpClearScreen.c)
+ *     BgpFwDisplayBugCheckScreen @ 0x140328CFC (BgpFwDisplayBugCheckScreen.c)
+ *     AnFwpFadeAnimationTimer @ 0x140950440 (AnFwpFadeAnimationTimer.c)
+ *     BgpGxDrawBitmapImage @ 0x140955520 (BgpGxDrawBitmapImage.c)
+ *     BgpTxtClearRegion @ 0x140955570 (BgpTxtClearRegion.c)
+ *     BgpTxtDisplayString @ 0x1409555A0 (BgpTxtDisplayString.c)
  * Callees:
- *     GxpWriteFrameBufferPixels @ 0x14016EEB8 (GxpWriteFrameBufferPixels.c)
- *     BgpGetBitsPerPixel @ 0x14016F1E0 (BgpGetBitsPerPixel.c)
- *     BgpGxConvertRectangleEx @ 0x14016F3C8 (BgpGxConvertRectangleEx.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     BgpGxRectangleDestroy @ 0x14094F21C (BgpGxRectangleDestroy.c)
+ *     GxpWriteFrameBufferPixels @ 0x14016EFB8 (GxpWriteFrameBufferPixels.c)
+ *     BgpGetBitsPerPixel @ 0x14016F2E0 (BgpGetBitsPerPixel.c)
+ *     BgpGxConvertRectangleEx @ 0x14016F4C8 (BgpGxConvertRectangleEx.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     BgpGxRectangleDestroy @ 0x14095021C (BgpGxRectangleDestroy.c)
  */
 
 __int64 __fastcall BgpGxDrawRectangle(__int64 a1, __int64 a2)
@@ -34,7 +34,7 @@ __int64 __fastcall BgpGxDrawRectangle(__int64 a1, __int64 a2)
   v6 = 0LL;
   if ( *((_DWORD *)v5 + 2) != BitsPerPixel )
   {
-    if ( (dword_140405AD0 & 0xC00) != 0 )
+    if ( (dword_140406AD0 & 0xC00) != 0 )
     {
       v9 = 1LL;
       v10 = v11;

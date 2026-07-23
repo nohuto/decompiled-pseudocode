@@ -3,7 +3,7 @@
  * Callers:
  *     KdpSendWaitContinue @ 0x140AB07C8 (KdpSendWaitContinue.c)
  * Callees:
- *     MmIsSessionAddress @ 0x1402BC7E0 (MmIsSessionAddress.c)
+ *     MmIsSessionAddress @ 0x1402BCA70 (MmIsSessionAddress.c)
  */
 
 __int64 __fastcall KdpQueryMemory(__int64 a1)

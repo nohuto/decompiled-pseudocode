@@ -6,7 +6,7 @@
  *     <none>
  */
 
-__int64 *RtlGetFunctionTableListHead()
+PLIST_ENTRY RtlGetFunctionTableListHead(void)
 {
-  return &qword_18016B298;
+  return (PLIST_ENTRY)&qword_18016B298;
 }

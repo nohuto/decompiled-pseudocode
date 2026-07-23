@@ -6,9 +6,9 @@
  *     <none>
  */
 
-__int64 __fastcall RtlTimeToTimeFields(__int64 *a1, _WORD *a2)
+void __cdecl RtlTimeToTimeFields(PLARGE_INTEGER Time, PTIME_FIELDS TimeFields)
 {
-  __int64 v3; // rcx
+  LONGLONG QuadPart; // rcx
   signed __int64 v5; // rcx
   unsigned __int128 v6; // rax
   __int64 v7; // r8
@@ -19,13 +19,12 @@ __int64 __fastcall RtlTimeToTimeFields(__int64 *a1, _WORD *a2)
   __int64 v12; // rbx
   __int16 v13; // ax
   unsigned int v14; // r9d
-  __int64 result; // rax
 
-  v3 = *a1;
-  if ( v3 < 0 )
-    v3 = -v3;
-  v5 = v3 / 0x2710uLL;
-  if ( *a1 < 0 )
+  QuadPart = Time->QuadPart;
+  if ( QuadPart < 0 )
+    QuadPart = -QuadPart;
+  v5 = QuadPart / 0x2710uLL;
+  if ( Time->QuadPart < 0 )
     v5 = -v5;
   if ( v5 < 0 )
     v6 = (unsigned __int64)-v5 * (unsigned __int128)0xC6D750EBFA67B90EuLL;
@@ -35,7 +34,7 @@ __int64 __fastcall RtlTimeToTimeFields(__int64 *a1, _WORD *a2)
   if ( v5 < 0 )
     LODWORD(v7) = -(int)v7;
   v8 = v5 - 86400000 * v7;
-  a2[7] = ((int)v7 + 1) % 7u;
+  TimeFields->Weekday = ((int)v7 + 1) % 7u;
   v9 = (100 * ((-36524 * ((100 * ((unsigned int)v7 % 0x23AB1) + 75) / 0x37BB49) + (unsigned int)v7 % 0x23AB1) % 0x5B5)
       + 75)
      / 0x8EAD
@@ -54,14 +53,12 @@ __int64 __fastcall RtlTimeToTimeFields(__int64 *a1, _WORD *a2)
     LOWORD(v12) = byte_180120A50[v11];
     v13 = word_180120A18[byte_180120A50[v11]];
   }
-  a2[1] = v12 + 1;
-  a2[2] = v9 / 0x64 + v7 + -365 * v9 - v9 / 0x190 - (v9 >> 2) - v13 + 1;
+  TimeFields->Month = v12 + 1;
+  TimeFields->Day = v9 / 0x64 + v7 + -365 * v9 - v9 / 0x190 - (v9 >> 2) - v13 + 1;
   v14 = v8 / 0x3E8 / 0x3C;
-  *a2 = v9 + 1601;
-  a2[3] = v14 / 0x3C;
-  a2[4] = v14 % 0x3C;
-  result = 1000LL;
-  a2[5] = v8 / 0x3E8 % 0x3C;
-  a2[6] = v8 % 0x3E8;
-  return result;
+  TimeFields->Year = v9 + 1601;
+  TimeFields->Hour = v14 / 0x3C;
+  TimeFields->Minute = v14 % 0x3C;
+  TimeFields->Second = v8 / 0x3E8 % 0x3C;
+  TimeFields->Milliseconds = v8 % 0x3E8;
 }

@@ -9,21 +9,21 @@
  *     RtlpHpStackDbInitialize @ 0x1800FFDC8 (RtlpHpStackDbInitialize.c)
  */
 
-__int64 __fastcall RtlpHpStackTraceEnable(__int64 a1, unsigned __int64 a2, unsigned __int64 *a3, __int64 a4)
+__int64 RtlpHpStackTraceEnable()
 {
-  unsigned int v4; // ebx
+  unsigned int v0; // ebx
 
-  RtlAcquireSRWLockExclusive((unsigned __int64)&RtlpHpStackTrackingContext, a2, a3, a4);
+  RtlAcquireSRWLockExclusive(&RtlpHpStackTrackingContext);
   if ( (dword_180160378 & 1) != 0 )
   {
-    v4 = 1;
+    v0 = 1;
   }
   else
   {
-    v4 = RtlpHpStackDbInitialize();
-    if ( v4 )
+    v0 = RtlpHpStackDbInitialize();
+    if ( v0 )
       dword_180160378 |= 1u;
   }
   RtlReleaseSRWLockExclusive(&RtlpHpStackTrackingContext);
-  return v4;
+  return v0;
 }

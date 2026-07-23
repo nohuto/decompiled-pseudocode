@@ -1,26 +1,26 @@
 /*
- * XREFs of MiFindNonPagedPoolPages @ 0x1400E7060
+ * XREFs of MiFindNonPagedPoolPages @ 0x1400E4F00
  * Callers:
- *     ExpAllocateBigPool @ 0x140011AD0 (ExpAllocateBigPool.c)
- *     MiAllocatePoolPages @ 0x14009DBEC (MiAllocatePoolPages.c)
+ *     ExpAllocateBigPool @ 0x140011650 (ExpAllocateBigPool.c)
+ *     MiAllocatePoolPages @ 0x14009D3EC (MiAllocatePoolPages.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140012750 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14001BD40 (KeAcquireInStackQueuedSpinLock.c)
- *     MiChangePageAttribute @ 0x14001D088 (MiChangePageAttribute.c)
- *     MiLockPageInline @ 0x140022E70 (MiLockPageInline.c)
- *     MiGetPage @ 0x14003DA50 (MiGetPage.c)
- *     MiReturnPhysicalPoolPages @ 0x140098380 (MiReturnPhysicalPoolPages.c)
- *     MiReturnNonPagedPoolCharges @ 0x140098570 (MiReturnNonPagedPoolCharges.c)
- *     MiInitializePageColorBase @ 0x1400E60A0 (MiInitializePageColorBase.c)
- *     MiSetPfnTbFlushStamp @ 0x1400E7490 (MiSetPfnTbFlushStamp.c)
- *     MiRetryNonPagedAllocation @ 0x1400E7E98 (MiRetryNonPagedAllocation.c)
- *     MiObtainNonPagedPoolCharges @ 0x140102084 (MiObtainNonPagedPoolCharges.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x1400122D0 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14001B8C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     MiChangePageAttribute @ 0x14001CC08 (MiChangePageAttribute.c)
+ *     MiLockPageInline @ 0x1400229F0 (MiLockPageInline.c)
+ *     MiGetPage @ 0x14003D5D0 (MiGetPage.c)
+ *     MiReturnPhysicalPoolPages @ 0x140097B80 (MiReturnPhysicalPoolPages.c)
+ *     MiReturnNonPagedPoolCharges @ 0x140097D70 (MiReturnNonPagedPoolCharges.c)
+ *     MiInitializePageColorBase @ 0x1400E3F40 (MiInitializePageColorBase.c)
+ *     MiSetPfnTbFlushStamp @ 0x1400E5330 (MiSetPfnTbFlushStamp.c)
+ *     MiRetryNonPagedAllocation @ 0x1400E5D38 (MiRetryNonPagedAllocation.c)
+ *     MiObtainNonPagedPoolCharges @ 0x1400FFE04 (MiObtainNonPagedPoolCharges.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall MiFindNonPagedPoolPages(unsigned int a1, unsigned __int64 a2)
 {
-  union _SLIST_HEADER *v4; // rbx
+  _SLIST_HEADER *v4; // rbx
   __int64 v5; // rbp
   __int64 v6; // r14
   _WORD *v7; // rsi
@@ -42,7 +42,7 @@ __int64 __fastcall MiFindNonPagedPoolPages(unsigned int a1, unsigned __int64 a2)
   unsigned __int64 v24; // [rsp+60h] [rbp-48h]
 
   memset(v23, 0, sizeof(v23));
-  v4 = &qword_1403269B0[26 * a1];
+  v4 = &qword_1403269F0[26 * a1];
   v5 = 0LL;
   v6 = 0LL;
   v24 = 0LL;
@@ -89,7 +89,7 @@ __int64 __fastcall MiFindNonPagedPoolPages(unsigned int a1, unsigned __int64 a2)
   {
     if ( a2 > 1 )
     {
-      if ( (*((_DWORD *)&KeGetCurrentThread()[1].SwapListEntry + 3) & 2) != 0 && a2 + 160 >= qword_140324E80 )
+      if ( (*((_DWORD *)&KeGetCurrentThread()[1].SwapListEntry + 3) & 2) != 0 && a2 + 160 >= qword_140324EC0 )
         goto LABEL_29;
       v7 = v19;
     }
@@ -114,7 +114,7 @@ LABEL_12:
     if ( !a2 )
       return v5;
   }
-  ++dword_14032649C;
+  ++dword_1403264DC;
 LABEL_29:
   if ( v5 )
   {

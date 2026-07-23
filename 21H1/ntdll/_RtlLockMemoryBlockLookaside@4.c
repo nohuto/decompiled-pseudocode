@@ -10,34 +10,34 @@
  *     _RtlpRegisterLockedMemoryBlockLookaside@0 @ 0x4B34D67B (_RtlpRegisterLockedMemoryBlockLookaside@0.c)
  */
 
-int __stdcall RtlLockMemoryBlockLookaside(int a1)
+NTSTATUS __cdecl RtlLockMemoryBlockLookaside(PVOID MemoryBlockLookaside)
 {
   int locked; // edi
 
   locked = 0;
-  RtlAcquireSRWLockExclusive((volatile signed __int32 *)a1);
-  if ( *(_DWORD *)(a1 + 24) )
+  RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)MemoryBlockLookaside);
+  if ( *((_DWORD *)MemoryBlockLookaside + 6) )
     goto LABEL_8;
-  locked = RtlLockMemoryZone(*(_DWORD *)(a1 + 4));
+  locked = RtlLockMemoryZone(*((PVOID *)MemoryBlockLookaside + 1));
   if ( locked >= 0 )
   {
-    locked = RtlLockMemoryZone(*(_DWORD *)(a1 + 8));
+    locked = RtlLockMemoryZone(*((PVOID *)MemoryBlockLookaside + 2));
     if ( locked < 0 )
     {
-      RtlUnlockMemoryZone(*(_DWORD *)(a1 + 4));
+      RtlUnlockMemoryZone(*((PVOID *)MemoryBlockLookaside + 1));
       goto LABEL_9;
     }
     locked = RtlpRegisterLockedMemoryBlockLookaside();
     if ( locked < 0 )
     {
-      RtlUnlockMemoryZone(*(_DWORD *)(a1 + 4));
-      RtlUnlockMemoryZone(*(_DWORD *)(a1 + 8));
+      RtlUnlockMemoryZone(*((PVOID *)MemoryBlockLookaside + 1));
+      RtlUnlockMemoryZone(*((PVOID *)MemoryBlockLookaside + 2));
       goto LABEL_9;
     }
 LABEL_8:
-    ++*(_DWORD *)(a1 + 24);
+    ++*((_DWORD *)MemoryBlockLookaside + 6);
   }
 LABEL_9:
-  RtlReleaseSRWLockExclusive((volatile signed __int32 *)a1);
+  RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)MemoryBlockLookaside);
   return locked;
 }

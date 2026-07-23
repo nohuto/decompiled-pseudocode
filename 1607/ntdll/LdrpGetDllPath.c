@@ -1,27 +1,27 @@
 /*
- * XREFs of LdrpGetDllPath @ 0x18000C808
+ * XREFs of LdrpGetDllPath @ 0x18000C7F8
  * Callers:
- *     LdrGetDllPath @ 0x18000C7E0 (LdrGetDllPath.c)
- *     LdrpComputeLazyDllPath @ 0x18000D37C (LdrpComputeLazyDllPath.c)
+ *     LdrGetDllPath @ 0x18000C7D0 (LdrGetDllPath.c)
+ *     LdrpComputeLazyDllPath @ 0x18000D36C (LdrpComputeLazyDllPath.c)
  * Callees:
- *     LdrpLogRelativePathWithAlteredSearchError @ 0x180009290 (LdrpLogRelativePathWithAlteredSearchError.c)
- *     RtlDetermineDosPathNameType_U @ 0x1800095E0 (RtlDetermineDosPathNameType_U.c)
- *     LdrpLogDllStateEx2 @ 0x18000CA78 (LdrpLogDllStateEx2.c)
- *     RtlpGetCachedPath @ 0x18000CAF0 (RtlpGetCachedPath.c)
+ *     LdrpLogRelativePathWithAlteredSearchError @ 0x180009280 (LdrpLogRelativePathWithAlteredSearchError.c)
+ *     RtlDetermineDosPathNameType_U @ 0x1800095D0 (RtlDetermineDosPathNameType_U.c)
+ *     LdrpLogDllStateEx2 @ 0x18000CA68 (LdrpLogDllStateEx2.c)
+ *     RtlpGetCachedPath @ 0x18000CAE0 (RtlpGetCachedPath.c)
  */
 
-__int64 __fastcall LdrpGetDllPath(WCHAR *a1, int a2, _QWORD *a3, _QWORD *a4, _DWORD *a5, _OWORD *a6, _QWORD *a7)
+__int64 __fastcall LdrpGetDllPath(__int64 a1, int a2, _QWORD *a3, _QWORD *a4, _DWORD *a5, _OWORD *a6, _QWORD *a7)
 {
   bool v7; // bp
   char v8; // si
   unsigned int v9; // ebx
   char v11; // di
-  WCHAR *v12; // r13
+  __int64 v12; // r13
   __int64 CachedPath; // rax
   __int64 v14; // rdx
   __int64 v16; // rax
   __int64 v17; // rax
-  int v18; // eax
+  RTL_PATH_TYPE v18; // eax
 
   v7 = (a2 & 0x2000) != 0;
   v8 = 0;
@@ -49,9 +49,11 @@ LABEL_4:
   v12 = 0LL;
   if ( (v9 & 0x100) != 0 || v11 )
   {
-    v18 = RtlDetermineDosPathNameType_U(a1);
+    v18 = RtlDetermineDosPathNameType_U((PCWSTR)a1);
     if ( (unsigned int)(v18 - 1) > 1
-      && (v18 != 6 || a1[2] != 63 || (unsigned int)RtlDetermineDosPathNameType_U(a1 + 4) != 2) )
+      && (v18 != RtlPathTypeLocalDevice
+       || *(_WORD *)(a1 + 4) != 63
+       || RtlDetermineDosPathNameType_U((PCWSTR)(a1 + 8)) != RtlPathTypeDriveAbsolute) )
     {
       v8 = 1;
     }
@@ -60,7 +62,7 @@ LABEL_4:
     {
       if ( v11 )
       {
-        LdrpLogRelativePathWithAlteredSearchError(a1);
+        LdrpLogRelativePathWithAlteredSearchError((LPCWSTR)a1);
         if ( (LdrpPolicyBits & 0x40) != 0 )
         {
           v11 = 0;

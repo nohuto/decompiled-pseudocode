@@ -1,12 +1,12 @@
 /*
- * XREFs of DbgUiGetThreadDebugObject @ 0x1801392D0
+ * XREFs of DbgUiGetThreadDebugObject @ 0x180139040
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-void *DbgUiGetThreadDebugObject()
+HANDLE DbgUiGetThreadDebugObject(void)
 {
   return NtCurrentTeb()->DbgSsReserved[1];
 }

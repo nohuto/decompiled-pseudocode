@@ -3,11 +3,11 @@
  * Callers:
  *     PipHardwareConfigInit @ 0x140B6C43C (PipHardwareConfigInit.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     _PnpCtxRegOpenKey @ 0x1408127C0 (_PnpCtxRegOpenKey.c)
- *     _PnpCtxRegEnumKey @ 0x1408127FC (_PnpCtxRegEnumKey.c)
- *     _PnpCtxRegQueryValue @ 0x1408776DC (_PnpCtxRegQueryValue.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     _PnpCtxRegOpenKey @ 0x140812A90 (_PnpCtxRegOpenKey.c)
+ *     _PnpCtxRegEnumKey @ 0x140812ACC (_PnpCtxRegEnumKey.c)
+ *     _PnpCtxRegQueryValue @ 0x14087791C (_PnpCtxRegQueryValue.c)
  */
 
 char __fastcall PipHardwareConfigExists(void *a1, int a2)

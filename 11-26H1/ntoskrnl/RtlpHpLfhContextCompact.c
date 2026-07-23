@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpHpLfhContextCompact @ 0x140347628
+ * XREFs of RtlpHpLfhContextCompact @ 0x1403496A8
  * Callers:
- *     RtlpHpHeapCompact @ 0x1403473E4 (RtlpHpHeapCompact.c)
+ *     RtlpHpHeapCompact @ 0x140349464 (RtlpHpHeapCompact.c)
  * Callees:
- *     RtlpHpLfhHeatMapQuery @ 0x140347720 (RtlpHpLfhHeatMapQuery.c)
- *     RtlpHpLfhOwnerCompact @ 0x140347910 (RtlpHpLfhOwnerCompact.c)
- *     RtlpHpEnvCompactionSchedule @ 0x14034D650 (RtlpHpEnvCompactionSchedule.c)
- *     RtlpHpLfhPrivateSlotsCompact @ 0x140639C2C (RtlpHpLfhPrivateSlotsCompact.c)
+ *     RtlpHpLfhHeatMapQuery @ 0x1403497A0 (RtlpHpLfhHeatMapQuery.c)
+ *     RtlpHpLfhOwnerCompact @ 0x140349990 (RtlpHpLfhOwnerCompact.c)
+ *     RtlpHpEnvCompactionSchedule @ 0x14034F6D0 (RtlpHpEnvCompactionSchedule.c)
+ *     RtlpHpLfhPrivateSlotsCompact @ 0x14063CC3C (RtlpHpLfhPrivateSlotsCompact.c)
  */
 
 void __fastcall RtlpHpLfhContextCompact(__int64 *a1, __int64 a2, __int64 a3, __int64 a4)
@@ -15,7 +15,7 @@ void __fastcall RtlpHpLfhContextCompact(__int64 *a1, __int64 a2, __int64 a3, __i
   __int64 *v6; // r14
   __int64 v7; // r15
   __int64 v8; // rsi
-  unsigned int SystemCallNumber; // eax
+  int StackBase_high; // eax
   __int64 v10; // rbx
 
   if ( *((_DWORD *)a1 + 21) )
@@ -51,10 +51,10 @@ void __fastcall RtlpHpLfhContextCompact(__int64 *a1, __int64 a2, __int64 a3, __i
     if ( v5 )
     {
       if ( BYTE1(**(_QWORD **)(*a1 + 56)) == 1 )
-        SystemCallNumber = *(_DWORD *)&ExSaPageGroupDescriptorArrayLock.Tag;
+        StackBase_high = HIDWORD(ExSaPageGroupDescriptorArrayLock.StackBase);
       else
-        SystemCallNumber = ExSaPageGroupDescriptorArrayLock.SystemCallNumber;
-      if ( !SystemCallNumber )
+        StackBase_high = ExSaPageGroupDescriptorArrayLock.ThreadLock;
+      if ( !StackBase_high )
         RtlpHpEnvCompactionSchedule(*(_QWORD *)(*a1 + 56), a2, a3, a4);
     }
   }

@@ -1,12 +1,12 @@
 /*
- * XREFs of HsaGetDeviceAperture @ 0x1404E3784
+ * XREFs of HsaGetDeviceAperture @ 0x1404E39C4
  * Callers:
- *     HsaAllocateRemappingTableEntry @ 0x1404E20C0 (HsaAllocateRemappingTableEntry.c)
- *     HsaFreeRemappingTableEntry @ 0x1404E3590 (HsaFreeRemappingTableEntry.c)
- *     HsaUpdateRemappingDestination @ 0x1404E4710 (HsaUpdateRemappingDestination.c)
- *     HsaUpdateRemappingTableEntry @ 0x1404E48C0 (HsaUpdateRemappingTableEntry.c)
+ *     HsaAllocateRemappingTableEntry @ 0x1404E2300 (HsaAllocateRemappingTableEntry.c)
+ *     HsaFreeRemappingTableEntry @ 0x1404E37D0 (HsaFreeRemappingTableEntry.c)
+ *     HsaUpdateRemappingDestination @ 0x1404E4950 (HsaUpdateRemappingDestination.c)
+ *     HsaUpdateRemappingTableEntry @ 0x1404E4B00 (HsaUpdateRemappingTableEntry.c)
  * Callees:
- *     ExtEnvCriticalFailure @ 0x1404D539C (ExtEnvCriticalFailure.c)
+ *     ExtEnvCriticalFailure @ 0x1404D55DC (ExtEnvCriticalFailure.c)
  */
 
 __int64 __fastcall HsaGetDeviceAperture(__int64 a1)

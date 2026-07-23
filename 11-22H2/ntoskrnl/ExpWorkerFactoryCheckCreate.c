@@ -83,7 +83,7 @@ __int64 __fastcall ExpWorkerFactoryCheckCreate(PSLIST_ENTRY ListEntry, PKLOCK_QU
     *(_QWORD *)&v47 = 0LL;
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(2uLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
       if ( CurrentIrql == 2 )
@@ -111,10 +111,10 @@ __int64 __fastcall ExpWorkerFactoryCheckCreate(PSLIST_ENTRY ListEntry, PKLOCK_QU
     {
       result = KxReleaseQueuedSpinLock((volatile signed __int64 **)v4);
       OldIrql = v4->OldIrql;
-      if ( !KiIrqlFlags )
+      if ( !(_DWORD)KiIrqlFlags )
         goto LABEL_14;
       result = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) == 0 || (unsigned __int8)result > 0xFu || (unsigned __int8)OldIrql > 0xFu )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) == 0 || (unsigned __int8)result > 0xFu || (unsigned __int8)OldIrql > 0xFu )
         goto LABEL_14;
       v30 = (unsigned __int8)result < 2u;
       goto LABEL_77;
@@ -152,10 +152,10 @@ __int64 __fastcall ExpWorkerFactoryCheckCreate(PSLIST_ENTRY ListEntry, PKLOCK_QU
 LABEL_13:
     result = (unsigned int)KiIrqlFlags;
     OldIrql = v4->OldIrql;
-    if ( !KiIrqlFlags )
+    if ( !(_DWORD)KiIrqlFlags )
       goto LABEL_14;
     v44 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) == 0 )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) == 0 )
       goto LABEL_14;
     if ( v44 > 0xFu )
       goto LABEL_14;
@@ -196,10 +196,10 @@ LABEL_59:
       KxReleaseQueuedSpinLock((volatile signed __int64 **)v4);
       result = (unsigned int)KiIrqlFlags;
       OldIrql = v4->OldIrql;
-      if ( !KiIrqlFlags )
+      if ( !(_DWORD)KiIrqlFlags )
         goto LABEL_14;
       v43 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) == 0 || v43 > 0xFu || (unsigned __int8)OldIrql > 0xFu )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) == 0 || v43 > 0xFu || (unsigned __int8)OldIrql > 0xFu )
         goto LABEL_14;
       v30 = v43 < 2u;
 LABEL_77:
@@ -273,10 +273,10 @@ LABEL_27:
   *v18 = v20 & 0xFFFFCE0F;
   KxReleaseQueuedSpinLock((volatile signed __int64 **)v4);
   v21 = v4->OldIrql;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v35 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v35 <= 0xFu && (unsigned __int8)v21 <= 0xFu && v35 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v35 <= 0xFu && (unsigned __int8)v21 <= 0xFu && v35 >= 2u )
     {
       v36 = KeGetCurrentPrcb();
       v37 = v36->SchedulerAssist;
@@ -308,10 +308,10 @@ LABEL_47:
       }
       KxReleaseQueuedSpinLock((volatile signed __int64 **)v4);
       v27 = v4->OldIrql;
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v39 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v39 <= 0xFu && (unsigned __int8)v27 <= 0xFu && v39 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v39 <= 0xFu && (unsigned __int8)v27 <= 0xFu && v39 >= 2u )
         {
           v40 = KeGetCurrentPrcb();
           v41 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v27 + 1));

@@ -1,43 +1,43 @@
 /*
- * XREFs of VfCheckImageCompliance @ 0x1409C791C
+ * XREFs of VfCheckImageCompliance @ 0x1409C891C
  * Callers:
- *     VfSuspectDriversLoadCallback @ 0x1409D9B98 (VfSuspectDriversLoadCallback.c)
+ *     VfSuspectDriversLoadCallback @ 0x1409DAB98 (VfSuspectDriversLoadCallback.c)
  * Callees:
- *     RtlImageNtHeader @ 0x14031C950 (RtlImageNtHeader.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     _stricmp @ 0x1403D1DD0 (_stricmp.c)
- *     VfReportIssueWithOptions @ 0x1405A1DF4 (VfReportIssueWithOptions.c)
- *     ViCiPreprocessOptions @ 0x1409C7E50 (ViCiPreprocessOptions.c)
- *     ViTargetIncrementCounter @ 0x1409D750C (ViTargetIncrementCounter.c)
+ *     RtlImageNtHeader @ 0x1403276A0 (RtlImageNtHeader.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     _stricmp @ 0x1403D1F40 (_stricmp.c)
+ *     VfReportIssueWithOptions @ 0x1405A2024 (VfReportIssueWithOptions.c)
+ *     ViCiPreprocessOptions @ 0x1409C8E50 (ViCiPreprocessOptions.c)
+ *     ViTargetIncrementCounter @ 0x1409D850C (ViTargetIncrementCounter.c)
  */
 
 void __fastcall VfCheckImageCompliance(__int64 a1)
 {
   int v2; // r13d
-  __int64 v3; // rax
-  __int64 v4; // rdi
+  PIMAGE_NT_HEADERS v3; // rax
+  PIMAGE_NT_HEADERS v4; // rdi
   ULONG_PTR v5; // rsi
-  unsigned int *v6; // r14
+  _IMAGE_DATA_DIRECTORY *v6; // r14
   unsigned int v7; // r12d
   unsigned int v8; // ecx
-  __int16 v9; // ax
-  int v10; // eax
+  unsigned __int16 Magic; // ax
+  int SectionAlignment; // eax
   char Str1[8]; // [rsp+30h] [rbp-20h] BYREF
   char v12; // [rsp+38h] [rbp-18h]
 
   v2 = 1;
   if ( (MmVerifierData & 0x2000000) != 0 )
   {
-    v3 = RtlImageNtHeader(*(_QWORD *)(a1 + 48));
+    v3 = RtlImageNtHeader(*(PVOID *)(a1 + 48));
     v4 = v3;
     if ( v3 )
     {
-      v5 = *(unsigned __int16 *)(v3 + 20) + v3 + 24;
-      v6 = (unsigned int *)(v3 + 232);
-      if ( !*(_DWORD *)(v3 + 232) || !*(_DWORD *)(v3 + 236) )
+      v5 = (ULONG_PTR)&v3->OptionalHeader + v3->FileHeader.SizeOfOptionalHeader;
+      v6 = &v3->OptionalHeader.DataDirectory[12];
+      if ( !v3->OptionalHeader.DataDirectory[12].VirtualAddress || !v3->OptionalHeader.DataDirectory[12].Size )
         v2 = 0;
       v7 = 0;
-      if ( *(_WORD *)(v3 + 6) )
+      if ( v3->FileHeader.NumberOfSections )
       {
         do
         {
@@ -57,54 +57,56 @@ void __fastcall VfCheckImageCompliance(__int64 a1)
               VfReportIssueWithOptions(0xC4u, 0x2003uLL, a1 + 88, v5, (ULONG_PTR)Str1, Response);
               if ( (MmVerifierData & 0x1000) != 0 )
                 ViTargetIncrementCounter(*(_QWORD *)(a1 + 56), 284LL);
-              _InterlockedIncrement(&dword_140C2A8FC);
+              _InterlockedIncrement(&dword_140C2A93C);
             }
           }
           if ( v2 )
           {
             v8 = *(_DWORD *)(v5 + 12);
-            if ( v8 <= *v6 && *(_DWORD *)(v5 + 8) + v8 > *v6 && (*(_DWORD *)(v5 + 36) & 0x20000000) != 0 )
+            if ( v8 <= v6->VirtualAddress
+              && *(_DWORD *)(v5 + 8) + v8 > v6->VirtualAddress
+              && (*(_DWORD *)(v5 + 36) & 0x20000000) != 0 )
             {
               *(_QWORD *)Str1 = *(_QWORD *)v5;
               v12 = 0;
               ViCiPreprocessOptions(
-                byte_140C12E5C,
+                byte_140C12E40,
                 "The image %wZ contains an IAT, 0x%p in executable section (name %s).",
                 8197LL,
                 a1 + 88,
                 v6,
                 Str1);
-              VfReportIssueWithOptions(0xC4u, 0x2005uLL, a1 + 88, (ULONG_PTR)v6, (ULONG_PTR)Str1, byte_140C12E5C);
+              VfReportIssueWithOptions(0xC4u, 0x2005uLL, a1 + 88, (ULONG_PTR)v6, (ULONG_PTR)Str1, byte_140C12E40);
               if ( (MmVerifierData & 0x1000) != 0 )
                 ViTargetIncrementCounter(*(_QWORD *)(a1 + 56), 292LL);
-              _InterlockedIncrement(&dword_140C2A904);
+              _InterlockedIncrement(&dword_140C2A944);
             }
           }
-          v9 = *(_WORD *)(v4 + 24);
-          if ( v9 == 267 || v9 == 523 )
-            v10 = *(_DWORD *)(v4 + 56);
+          Magic = v4->OptionalHeader.Magic;
+          if ( Magic == 267 || Magic == 523 )
+            SectionAlignment = v4->OptionalHeader.SectionAlignment;
           else
-            v10 = 4096;
-          if ( !v10 || (v10 & 0xFFF) != 0 )
+            SectionAlignment = 4096;
+          if ( !SectionAlignment || (SectionAlignment & 0xFFF) != 0 )
           {
             *(_QWORD *)Str1 = *(_QWORD *)v5;
             v12 = 0;
             ViCiPreprocessOptions(
-              byte_140C12E64,
+              byte_140C12E3C,
               "The image %wZ contains section 0x%p that is not page aligned (name %s).",
               8196LL,
               a1 + 88,
               v5,
               Str1);
-            VfReportIssueWithOptions(0xC4u, 0x2004uLL, a1 + 88, v5, (ULONG_PTR)Str1, byte_140C12E64);
+            VfReportIssueWithOptions(0xC4u, 0x2004uLL, a1 + 88, v5, (ULONG_PTR)Str1, byte_140C12E3C);
             if ( (MmVerifierData & 0x1000) != 0 )
               ViTargetIncrementCounter(*(_QWORD *)(a1 + 56), 288LL);
-            _InterlockedIncrement(&dword_140C2A900);
+            _InterlockedIncrement(&dword_140C2A940);
           }
           v5 += 40LL;
           ++v7;
         }
-        while ( v7 < *(unsigned __int16 *)(v4 + 6) );
+        while ( v7 < v4->FileHeader.NumberOfSections );
       }
     }
   }

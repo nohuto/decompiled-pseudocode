@@ -1,12 +1,12 @@
 /*
- * XREFs of PpmEventTraceCoreParkingSelectionEx @ 0x1405DE820
+ * XREFs of PpmEventTraceCoreParkingSelectionEx @ 0x1405DB6A0
  * Callers:
- *     PpmParkComputeUnparkMaskEx @ 0x1405E2544 (PpmParkComputeUnparkMaskEx.c)
+ *     PpmParkComputeUnparkMaskEx @ 0x1405DFACC (PpmParkComputeUnparkMaskEx.c)
  * Callees:
- *     EtwWriteEx @ 0x140259680 (EtwWriteEx.c)
- *     EtwEventEnabled @ 0x1402A1BD0 (EtwEventEnabled.c)
- *     PpmEventAddAffinityMaskAsSubset @ 0x1405DD440 (PpmEventAddAffinityMaskAsSubset.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x140289C90 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x1402D1300 (EtwEventEnabled.c)
+ *     PpmEventAddAffinityMaskAsSubset @ 0x1405DA2C0 (PpmEventAddAffinityMaskAsSubset.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 BOOLEAN __fastcall PpmEventTraceCoreParkingSelectionEx(

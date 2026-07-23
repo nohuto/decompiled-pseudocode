@@ -1,22 +1,22 @@
 /*
- * XREFs of HvlPerformEndOfInterrupt @ 0x14047A2D0
+ * XREFs of HvlPerformEndOfInterrupt @ 0x140475A40
  * Callers:
- *     HvlDummyInterruptCallback @ 0x1405827B0 (HvlDummyInterruptCallback.c)
+ *     HvlDummyInterruptCallback @ 0x14057FB30 (HvlDummyInterruptCallback.c)
  * Callees:
- *     KiRemoveSystemWorkPriorityKick @ 0x14025E408 (KiRemoveSystemWorkPriorityKick.c)
- *     HalpInterruptPerformDirectedEndOfInterrupt @ 0x140543FC8 (HalpInterruptPerformDirectedEndOfInterrupt.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14028EA18 (KiRemoveSystemWorkPriorityKick.c)
+ *     HalpInterruptPerformDirectedEndOfInterrupt @ 0x140541918 (HalpInterruptPerformDirectedEndOfInterrupt.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
-__int64 __fastcall HvlPerformEndOfInterrupt(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall HvlPerformEndOfInterrupt(__int64 a1, __int64 a2)
 {
   __int64 result; // rax
   struct _KPRCB *CurrentPrcb; // rcx
   _DWORD *SchedulerAssist; // r8
-  int v7; // ett
+  int v5; // ett
 
   _disable();
-  result = guard_dispatch_icall_no_overrides(a1, a2, a3, a4);
+  result = guard_dispatch_icall_no_overrides(a1, a2);
   if ( HalpInterruptDirectedEoiModeEnabled )
     result = HalpInterruptPerformDirectedEndOfInterrupt(0LL);
   CurrentPrcb = KeGetCurrentPrcb();
@@ -27,10 +27,10 @@ __int64 __fastcall HvlPerformEndOfInterrupt(__int64 a1, __int64 a2, __int64 a3, 
     LODWORD(result) = *SchedulerAssist;
     do
     {
-      v7 = result;
+      v5 = result;
       result = (unsigned int)_InterlockedCompareExchange(SchedulerAssist, result & 0xFFDFFFFF, result);
     }
-    while ( v7 != (_DWORD)result );
+    while ( v5 != (_DWORD)result );
     if ( (result & 0x200000) != 0 )
       result = KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
   }

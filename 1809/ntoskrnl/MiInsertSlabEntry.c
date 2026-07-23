@@ -1,25 +1,25 @@
 /*
- * XREFs of MiInsertSlabEntry @ 0x1402C2AA4
+ * XREFs of MiInsertSlabEntry @ 0x1402C2C94
  * Callers:
- *     MiReplenishSlabAllocator @ 0x1402C2CB4 (MiReplenishSlabAllocator.c)
- *     MiCreateSlabEntriesFromLoaderSlab @ 0x1409F745C (MiCreateSlabEntriesFromLoaderSlab.c)
- *     MmUpdateSlabRangeProtection @ 0x1409F75B8 (MmUpdateSlabRangeProtection.c)
+ *     MiReplenishSlabAllocator @ 0x1402C2EA4 (MiReplenishSlabAllocator.c)
+ *     MiCreateSlabEntriesFromLoaderSlab @ 0x1409F845C (MiCreateSlabEntriesFromLoaderSlab.c)
+ *     MmUpdateSlabRangeProtection @ 0x1409F85B8 (MmUpdateSlabRangeProtection.c)
  * Callees:
- *     KiQueryUnbiasedInterruptTime @ 0x14008CF10 (KiQueryUnbiasedInterruptTime.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     RtlRbInsertNodeEx @ 0x1400BD6B0 (RtlRbInsertNodeEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     MiCompareSlabEntry @ 0x1402C1F64 (MiCompareSlabEntry.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x14008CE50 (KiQueryUnbiasedInterruptTime.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC420 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC5A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     RtlRbInsertNodeEx @ 0x1400BD5F0 (RtlRbInsertNodeEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiCompareSlabEntry @ 0x1402C2154 (MiCompareSlabEntry.c)
  */
 
-__int64 __fastcall MiInsertSlabEntry(__int64 a1, unsigned __int64 a2, __int64 a3)
+__int64 __fastcall MiInsertSlabEntry(__int64 a1, __int64 a2, __int64 a3)
 {
   KIRQL v6; // al
   __int64 v7; // rdx
   KIRQL v8; // r14
-  unsigned __int64 v9; // rbx
-  bool v10; // r8
+  signed __int64 v9; // rbx
+  BOOLEAN v10; // r8
   int v11; // ebp
   unsigned __int64 v12; // rax
   __int64 v13; // rcx
@@ -74,7 +74,7 @@ LABEL_10:
       v9 = v12;
     }
   }
-  RtlRbInsertNodeEx(a2, v9, v10, (_QWORD *)a3);
+  RtlRbInsertNodeEx((PRTL_RB_TREE)a2, (PRTL_BALANCED_NODE)v9, v10, (PRTL_BALANCED_NODE)a3);
   v13 = *(_QWORD *)(a2 + 24);
   if ( !v13 || (v14 = *(_DWORD *)(a3 + 120), *(_DWORD *)(v13 + 120) > v14) && v14 )
     *(_QWORD *)(a2 + 24) = a3;

@@ -158,7 +158,7 @@ LABEL_56:
     v22 = v21 | v20;
 LABEL_58:
     *Terminator = S;
-    Addr->S_un.S_addr = _byteswap_ulong(v22);
+    *(_DWORD *)Addr = _byteswap_ulong(v22);
     return 0;
   }
   if ( v19 == 1 && v28 <= 0xFF && v29 <= 0xFF && v30 <= 0xFF && v31 <= 0xFF )

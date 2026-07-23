@@ -1,27 +1,25 @@
 /*
- * XREFs of DbgkpSuspendProcess @ 0x140953D38
+ * XREFs of DbgkpSuspendProcess @ 0x1409CF678
  * Callers:
- *     PsDispatchIumService @ 0x14040C830 (PsDispatchIumService.c)
- *     DbgkpSendApiMessage @ 0x1409534DC (DbgkpSendApiMessage.c)
- *     DbgkForwardException @ 0x1409535F0 (DbgkForwardException.c)
- *     DbgkpSendErrorMessage @ 0x140954DF4 (DbgkpSendErrorMessage.c)
- *     DbgkpSendApiMessageLpc @ 0x1409552D4 (DbgkpSendApiMessageLpc.c)
- *     DbgkExitThread @ 0x14095559C (DbgkExitThread.c)
+ *     PsDispatchIumService @ 0x140518438 (PsDispatchIumService.c)
+ *     DbgkpSendApiMessage @ 0x1409CEE1C (DbgkpSendApiMessage.c)
+ *     DbgkForwardException @ 0x1409CEF30 (DbgkForwardException.c)
+ *     DbgkpSendApiMessageLpc @ 0x140ACD5FC (DbgkpSendApiMessageLpc.c)
+ *     DbgkExitThread @ 0x140B3C484 (DbgkExitThread.c)
+ *     DbgkpSendErrorMessage @ 0x140B5CE74 (DbgkpSendErrorMessage.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x1402B8A60 (KeLeaveCriticalRegionThread.c)
- *     PsFreezeProcess @ 0x14077B540 (PsFreezeProcess.c)
+ *     KeLeaveCriticalRegionThread @ 0x140303720 (KeLeaveCriticalRegionThread.c)
+ *     PsFreezeProcess @ 0x14077E180 (PsFreezeProcess.c)
  */
 
 char __fastcall DbgkpSuspendProcess(__int64 a1)
 {
   struct _KTHREAD *CurrentThread; // rbx
-  __int64 v2; // rdx
-  __int64 v3; // r8
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   if ( PsFreezeProcess(a1, 0) )
     return 1;
-  KeLeaveCriticalRegionThread((__int64)CurrentThread, v2, v3);
+  KeLeaveCriticalRegionThread((__int64)CurrentThread);
   return 0;
 }

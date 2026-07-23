@@ -1,29 +1,29 @@
 /*
- * XREFs of PopCheckAndHandleThermalConditions @ 0x14049EC88
+ * XREFs of PopCheckAndHandleThermalConditions @ 0x140499AC0
  * Callers:
- *     PopThermalWorker @ 0x140A40A30 (PopThermalWorker.c)
+ *     PopThermalWorker @ 0x140A36310 (PopThermalWorker.c)
  * Callees:
- *     IoGetDeviceAttachmentBaseRefWithTag @ 0x1402D4B68 (IoGetDeviceAttachmentBaseRefWithTag.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     PopReleaseRwLock @ 0x1403B5EC8 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x1404283D4 (PopAcquireRwLockExclusive.c)
- *     PopQueueWorkItem @ 0x140497478 (PopQueueWorkItem.c)
- *     PopThermalWriteShutdownToRegistry @ 0x1404C1BBC (PopThermalWriteShutdownToRegistry.c)
- *     PopThermalStandbyEndTracking @ 0x1404C7D4C (PopThermalStandbyEndTracking.c)
- *     PopThermalStandbyNotify @ 0x1405D3D30 (PopThermalStandbyNotify.c)
- *     PopDiagTraceThermalStateChange @ 0x1405D5728 (PopDiagTraceThermalStateChange.c)
- *     PopTraceCr3Mitigated @ 0x1405D5F5C (PopTraceCr3Mitigated.c)
- *     PopTraceCr3Tripped @ 0x1405D5FF8 (PopTraceCr3Tripped.c)
- *     PopTraceZoneCr3Mitigated @ 0x1405D68B0 (PopTraceZoneCr3Mitigated.c)
- *     PopTraceZoneCr3Tripped @ 0x1405D69D8 (PopTraceZoneCr3Tripped.c)
- *     PopUpdateOverThrottledCount @ 0x140754B64 (PopUpdateOverThrottledCount.c)
- *     PopDiagTraceZoneCriticalTripPointExceeded @ 0x14075839C (PopDiagTraceZoneCriticalTripPointExceeded.c)
- *     PopDiagTraceZoneS4TripPointExceeded @ 0x140758490 (PopDiagTraceZoneS4TripPointExceeded.c)
- *     PopSqmThermalCriticalShutdown @ 0x140765A20 (PopSqmThermalCriticalShutdown.c)
- *     PopSqmThermalHibernate @ 0x140765A44 (PopSqmThermalHibernate.c)
- *     PopIsHibernateSupported @ 0x140A8BE18 (PopIsHibernateSupported.c)
- *     PopAcquirePolicyLock @ 0x140B67CB0 (PopAcquirePolicyLock.c)
- *     PopReleasePolicyLock @ 0x140B67D00 (PopReleasePolicyLock.c)
+ *     PopReleaseRwLock @ 0x1402AE8FC (PopReleaseRwLock.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     IoGetDeviceAttachmentBaseRefWithTag @ 0x140355DE8 (IoGetDeviceAttachmentBaseRefWithTag.c)
+ *     PopAcquireRwLockExclusive @ 0x14041C564 (PopAcquireRwLockExclusive.c)
+ *     PopQueueWorkItem @ 0x140491E08 (PopQueueWorkItem.c)
+ *     PopThermalWriteShutdownToRegistry @ 0x1404BD1AC (PopThermalWriteShutdownToRegistry.c)
+ *     PopThermalStandbyEndTracking @ 0x1404C11AC (PopThermalStandbyEndTracking.c)
+ *     PopThermalStandbyNotify @ 0x1405D14B0 (PopThermalStandbyNotify.c)
+ *     PopDiagTraceThermalStateChange @ 0x1405D2D3C (PopDiagTraceThermalStateChange.c)
+ *     PopTraceCr3Mitigated @ 0x1405D3570 (PopTraceCr3Mitigated.c)
+ *     PopTraceCr3Tripped @ 0x1405D360C (PopTraceCr3Tripped.c)
+ *     PopTraceZoneCr3Mitigated @ 0x1405D3EC4 (PopTraceZoneCr3Mitigated.c)
+ *     PopTraceZoneCr3Tripped @ 0x1405D3FEC (PopTraceZoneCr3Tripped.c)
+ *     PopUpdateOverThrottledCount @ 0x140752E84 (PopUpdateOverThrottledCount.c)
+ *     PopDiagTraceZoneCriticalTripPointExceeded @ 0x14075681C (PopDiagTraceZoneCriticalTripPointExceeded.c)
+ *     PopDiagTraceZoneS4TripPointExceeded @ 0x140756910 (PopDiagTraceZoneS4TripPointExceeded.c)
+ *     PopSqmThermalCriticalShutdown @ 0x1407653F0 (PopSqmThermalCriticalShutdown.c)
+ *     PopSqmThermalHibernate @ 0x140765414 (PopSqmThermalHibernate.c)
+ *     PopIsHibernateSupported @ 0x140A88308 (PopIsHibernateSupported.c)
+ *     PopAcquirePolicyLock @ 0x140B69DF0 (PopAcquirePolicyLock.c)
+ *     PopReleasePolicyLock @ 0x140B69E40 (PopReleasePolicyLock.c)
  */
 
 __int64 __fastcall PopCheckAndHandleThermalConditions(__int64 a1)
@@ -83,12 +83,12 @@ __int64 __fastcall PopCheckAndHandleThermalConditions(__int64 a1)
   if ( v9 )
     ObfDereferenceObjectWithTag(v9, 0x6D546F50u);
 LABEL_20:
-  PopAcquireRwLockExclusive(&PopThermalStateTransitionContext);
+  PopAcquireRwLockExclusive((unsigned __int64 *)&PopThermalStateTransitionContext);
   if ( v4 )
-    byte_140F0AB31 = 1;
+    byte_140F0AF71 = 1;
   if ( v3 )
-    byte_140F0AB33 = 1;
-  PopReleaseRwLock((signed __int64 *)&PopThermalStateTransitionContext);
+    byte_140F0AF73 = 1;
+  PopReleaseRwLock(&PopThermalStateTransitionContext);
   PopQueueWorkItem((__int64)&PopThermalStateTransitionWorkItem, DelayedWorkQueue);
 LABEL_4:
   v5 = *(_BYTE *)(a1 + 224) != 0;
@@ -104,25 +104,25 @@ LABEL_4:
       *(_QWORD *)(a1 + 48),
       *(unsigned __int8 *)(a1 + 211),
       POP_ETW_EVENT_THERMAL_ZONE_THERMAL_STANDBY_UPDATE);
-    PopAcquireRwLockExclusive(&PopSystemThermalInfo);
+    PopAcquireRwLockExclusive((unsigned __int64 *)&PopSystemThermalInfo);
     v12 = *(_BYTE *)(a1 + 211);
     *(_BYTE *)(a1 + 72) = v12;
     if ( v12 )
     {
-      if ( ++dword_140F0AD14 == 1 )
+      if ( ++dword_140F0AF94 == 1 )
       {
-        byte_140F0AD1C = 1;
-        ++dword_140F0AD18;
+        byte_140F0AF9C = 1;
+        ++dword_140F0AF98;
         PopTraceCr3Tripped();
       }
-      PopTraceZoneCr3Tripped((unsigned int)dword_140F0AD18, a1);
+      PopTraceZoneCr3Tripped((unsigned int)dword_140F0AF98, a1);
     }
     else
     {
-      PopTraceZoneCr3Mitigated((unsigned int)dword_140F0AD18, a1);
-      --dword_140F0AD14;
+      PopTraceZoneCr3Mitigated((unsigned int)dword_140F0AF98, a1);
+      --dword_140F0AF94;
     }
-    if ( dword_140F0AD14 )
+    if ( dword_140F0AF94 )
     {
       v14 = 1;
     }
@@ -130,21 +130,21 @@ LABEL_4:
     {
       v14 = 0;
       PopThermalStandbyEndTracking(0LL);
-      PopTraceCr3Mitigated((unsigned int)dword_140F0AD18);
-      if ( HIBYTE(word_140F0AD10) )
+      PopTraceCr3Mitigated((unsigned int)dword_140F0AF98);
+      if ( HIBYTE(word_140F0AF90) )
       {
         PopThermalStandbyNotify(0LL);
-        HIBYTE(word_140F0AD10) = 0;
-        return PopReleaseRwLock((signed __int64 *)&PopSystemThermalInfo);
+        HIBYTE(word_140F0AF90) = 0;
+        return PopReleaseRwLock(&PopSystemThermalInfo);
       }
     }
-    if ( !v4 && v14 && (_BYTE)word_140F0AD10 && !HIBYTE(word_140F0AD10) )
+    if ( !v4 && v14 && (_BYTE)word_140F0AF90 && !HIBYTE(word_140F0AF90) )
     {
       LOBYTE(v13) = 1;
       PopThermalStandbyNotify(v13);
-      word_140F0AD10 = 256;
+      word_140F0AF90 = 256;
     }
-    return PopReleaseRwLock((signed __int64 *)&PopSystemThermalInfo);
+    return PopReleaseRwLock(&PopSystemThermalInfo);
   }
   return result;
 }

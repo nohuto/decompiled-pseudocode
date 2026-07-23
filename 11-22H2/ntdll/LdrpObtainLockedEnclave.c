@@ -20,7 +20,7 @@ __int64 *__fastcall LdrpObtainLockedEnclave(unsigned __int64 a1, char a2)
 
   for ( i = 0LL; ; LdrpDereferenceEnclave(i) )
   {
-    RtlEnterCriticalSection((__int64)&LdrpEnclaveListLock);
+    RtlEnterCriticalSection(&LdrpEnclaveListLock);
     v5 = (__int64 *)LdrpEnclaveList;
     while ( v5 != &LdrpEnclaveList )
     {
@@ -42,10 +42,10 @@ __int64 *__fastcall LdrpObtainLockedEnclave(unsigned __int64 a1, char a2)
     RtlLeaveCriticalSection(&LdrpEnclaveListLock);
     if ( !i )
       return 0LL;
-    RtlEnterCriticalSection((__int64)(i + 2));
+    RtlEnterCriticalSection((PRTL_CRITICAL_SECTION)(i + 2));
     if ( i[9] )
       break;
-    RtlLeaveCriticalSection(i + 2);
+    RtlLeaveCriticalSection((PRTL_CRITICAL_SECTION)(i + 2));
   }
   return i;
 }

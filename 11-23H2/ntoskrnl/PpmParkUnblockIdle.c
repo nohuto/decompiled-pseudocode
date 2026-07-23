@@ -1,14 +1,14 @@
 /*
- * XREFs of PpmParkUnblockIdle @ 0x140356C10
+ * XREFs of PpmParkUnblockIdle @ 0x140356DB0
  * Callers:
  *     <none>
  * Callees:
- *     PpmPerfQueueAction @ 0x140252078 (PpmPerfQueueAction.c)
- *     KeEnumerateNextProcessor @ 0x1402572B0 (KeEnumerateNextProcessor.c)
- *     KeGetPrcb @ 0x140257330 (KeGetPrcb.c)
- *     KeCountSetBitsAffinityEx @ 0x1402C01C0 (KeCountSetBitsAffinityEx.c)
- *     KeRemoveProcessorAffinityEx @ 0x1402C02B0 (KeRemoveProcessorAffinityEx.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     PpmPerfQueueAction @ 0x140252138 (PpmPerfQueueAction.c)
+ *     KeEnumerateNextProcessor @ 0x140257370 (KeEnumerateNextProcessor.c)
+ *     KeGetPrcb @ 0x1402573F0 (KeGetPrcb.c)
+ *     KeCountSetBitsAffinityEx @ 0x1402C0450 (KeCountSetBitsAffinityEx.c)
+ *     KeRemoveProcessorAffinityEx @ 0x1402C0540 (KeRemoveProcessorAffinityEx.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 char PpmParkUnblockIdle()
@@ -30,7 +30,7 @@ char PpmParkUnblockIdle()
   v10 = 0;
   if ( PpmIsParkingEnabled )
   {
-    v6 = qword_140C0D908;
+    v6 = qword_140C0D7F8;
     v5 = (unsigned __int16 *)&PpmPerfNewUnparkedMask;
     v7 = 0;
     while ( !(unsigned int)KeEnumerateNextProcessor(&v10, &v5) )
@@ -45,7 +45,7 @@ char PpmParkUnblockIdle()
     if ( v3 )
     {
       PpmCheckCount = v3;
-      v6 = qword_140C0D908;
+      v6 = qword_140C0D7F8;
       v7 = 0;
       v5 = (unsigned __int16 *)&PpmPerfNewUnparkedMask;
       while ( !(unsigned int)KeEnumerateNextProcessor(&v10, &v5) )
@@ -54,7 +54,7 @@ char PpmParkUnblockIdle()
         PpmPerfQueueAction(v4, 5);
       }
       PpmPerfNewUnparkedMask = 2097153;
-      memset(&unk_140C0D904, 0, 0x104uLL);
+      memset(&unk_140C0D7F4, 0, 0x104uLL);
       return 0;
     }
   }

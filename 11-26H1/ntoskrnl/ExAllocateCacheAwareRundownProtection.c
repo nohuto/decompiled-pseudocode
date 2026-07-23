@@ -1,15 +1,15 @@
 /*
- * XREFs of ExAllocateCacheAwareRundownProtection @ 0x140A362F0
+ * XREFs of ExAllocateCacheAwareRundownProtection @ 0x14091B070
  * Callers:
- *     DifExAllocateCacheAwareRundownProtectionWrapper @ 0x14064F520 (DifExAllocateCacheAwareRundownProtectionWrapper.c)
- *     PfpPartitionAllocateState @ 0x1407C7064 (PfpPartitionAllocateState.c)
- *     EtwpPreInitializeSiloState @ 0x140826E00 (EtwpPreInitializeSiloState.c)
- *     MmCreatePartition @ 0x140869D7C (MmCreatePartition.c)
- *     RawInitializeVcb @ 0x140A36190 (RawInitializeVcb.c)
+ *     DifExAllocateCacheAwareRundownProtectionWrapper @ 0x140653100 (DifExAllocateCacheAwareRundownProtectionWrapper.c)
+ *     PfpPartitionAllocateState @ 0x1407CA0C4 (PfpPartitionAllocateState.c)
+ *     EtwpPreInitializeSiloState @ 0x14082D040 (EtwpPreInitializeSiloState.c)
+ *     MmCreatePartition @ 0x14087015C (MmCreatePartition.c)
+ *     RawInitializeVcb @ 0x14091AF1C (RawInitializeVcb.c)
  * Callees:
- *     KeGetRecommendedSharedDataAlignment @ 0x1404C5B80 (KeGetRecommendedSharedDataAlignment.c)
- *     ExAllocatePoolWithTag @ 0x140C10340 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KeGetRecommendedSharedDataAlignment @ 0x1404BF530 (KeGetRecommendedSharedDataAlignment.c)
+ *     ExAllocatePoolWithTag @ 0x140C16340 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 PEX_RUNDOWN_REF_CACHE_AWARE __stdcall ExAllocateCacheAwareRundownProtection(POOL_TYPE PoolType, ULONG PoolTag)

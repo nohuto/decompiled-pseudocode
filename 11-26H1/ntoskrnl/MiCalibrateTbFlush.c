@@ -1,16 +1,16 @@
 /*
- * XREFs of MiCalibrateTbFlush @ 0x14070DF04
+ * XREFs of MiCalibrateTbFlush @ 0x140712BB4
  * Callers:
- *     MiInitializeTbFlush @ 0x140CFF6B4 (MiInitializeTbFlush.c)
+ *     MiInitializeTbFlush @ 0x140D05A54 (MiInitializeTbFlush.c)
  * Callees:
- *     MiIssueFlushTbEntire @ 0x140250040 (MiIssueFlushTbEntire.c)
- *     MiFlushTbList @ 0x140329040 (MiFlushTbList.c)
- *     MiInsertTbFlushEntry @ 0x14035E7E0 (MiInsertTbFlushEntry.c)
- *     MiInitializeTbFlushList @ 0x140360920 (MiInitializeTbFlushList.c)
- *     MiGetAnyMultiplexedVm @ 0x140457870 (MiGetAnyMultiplexedVm.c)
- *     qsort @ 0x140536F00 (qsort.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     MiIssueFlushTbEntire @ 0x1402519A0 (MiIssueFlushTbEntire.c)
+ *     MiFlushTbList @ 0x14032B070 (MiFlushTbList.c)
+ *     MiInsertTbFlushEntry @ 0x140360580 (MiInsertTbFlushEntry.c)
+ *     MiInitializeTbFlushList @ 0x1403626C0 (MiInitializeTbFlushList.c)
+ *     MiGetAnyMultiplexedVm @ 0x14044F0E0 (MiGetAnyMultiplexedVm.c)
+ *     qsort @ 0x140539380 (qsort.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 unsigned __int64 __fastcall MiCalibrateTbFlush(unsigned __int64 a1, unsigned int a2, int a3, _QWORD *a4)

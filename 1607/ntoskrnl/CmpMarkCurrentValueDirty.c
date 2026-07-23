@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpMarkCurrentValueDirty @ 0x14054DF74
+ * XREFs of CmpMarkCurrentValueDirty @ 0x14054E314
  * Callers:
- *     CmpLoadHiveThread @ 0x14054D5A8 (CmpLoadHiveThread.c)
+ *     CmpLoadHiveThread @ 0x14054D948 (CmpLoadHiveThread.c)
  * Callees:
- *     CmpFindValueByName @ 0x140402A28 (CmpFindValueByName.c)
- *     CmpFindSubKeyByNameWithStatus @ 0x1405120D0 (CmpFindSubKeyByNameWithStatus.c)
- *     HvpMarkCellDirty @ 0x1405136F0 (HvpMarkCellDirty.c)
+ *     CmpFindValueByName @ 0x1404018E8 (CmpFindValueByName.c)
+ *     CmpFindSubKeyByNameWithStatus @ 0x1404F54C0 (CmpFindSubKeyByNameWithStatus.c)
+ *     HvpMarkCellDirty @ 0x1404F6AE0 (HvpMarkCellDirty.c)
  */
 
 char __fastcall CmpMarkCurrentValueDirty(ULONG_PTR BugCheckParameter2, __int64 a2)

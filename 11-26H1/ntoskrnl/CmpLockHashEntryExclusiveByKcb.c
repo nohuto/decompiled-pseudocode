@@ -1,15 +1,15 @@
 /*
- * XREFs of CmpLockHashEntryExclusiveByKcb @ 0x1408BC550
+ * XREFs of CmpLockHashEntryExclusiveByKcb @ 0x1408C2B20
  * Callers:
- *     CmDeleteLayeredKey @ 0x140446A10 (CmDeleteLayeredKey.c)
- *     CmpDrainDelayDerefContext @ 0x140446E30 (CmpDrainDelayDerefContext.c)
- *     CmpRemoveHiveFromNamespace @ 0x1404CC980 (CmpRemoveHiveFromNamespace.c)
- *     CmDeleteKey @ 0x1408BAD90 (CmDeleteKey.c)
+ *     CmDeleteLayeredKey @ 0x14043F510 (CmDeleteLayeredKey.c)
+ *     CmpDrainDelayDerefContext @ 0x14043F920 (CmpDrainDelayDerefContext.c)
+ *     CmpRemoveHiveFromNamespace @ 0x1404C6120 (CmpRemoveHiveFromNamespace.c)
+ *     CmDeleteKey @ 0x1408C1360 (CmDeleteKey.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall CmpLockHashEntryExclusiveByKcb(

@@ -12,44 +12,44 @@
  *     RtlFailFast2 @ 0x1800A2120 (RtlFailFast2.c)
  */
 
-__int64 __fastcall RtlGuardCheckExceptionHandler(unsigned __int64 a1, char a2, char *a3)
+__int64 __fastcall RtlGuardCheckExceptionHandler(unsigned __int64 BaseAddress, char a2, char *a3)
 {
   char v6; // bl
-  unsigned __int64 v7; // r8
-  unsigned __int64 v8; // r9
-  unsigned __int64 v9; // rbp
+  int v7; // eax
+  char *v8; // r8
+  char *v9; // r9
+  PVOID v10; // rbp
   _DWORD *Config; // rax
-  const void **v11; // rdx
-  rsize_t v12; // r8
-  unsigned int v13; // eax
-  __int128 v15; // [rsp+30h] [rbp-38h] BYREF
+  const void **v12; // rdx
+  rsize_t v13; // r8
+  unsigned int v14; // eax
+  PVOID BaseOfImage[2]; // [rsp+30h] [rbp-38h] BYREF
   int Key; // [rsp+88h] [rbp+20h] BYREF
 
   if ( (unsigned int)Feature_Servicing_EHCONT_Checks_28208890__private_IsEnabled()
-    && (unsigned int)LdrControlFlowGuardEnforced() )
+    && (LOBYTE(v7) = LdrControlFlowGuardEnforced(), v7) )
   {
     v6 = 0;
-    if ( a1 < *((_QWORD *)&xmmword_18017F510 + 1)
-      || a1 >= *((_QWORD *)&xmmword_18017F510 + 1) + (unsigned __int64)(unsigned int)qword_18017F520 )
+    if ( BaseAddress < *((_QWORD *)&xmmword_18017F510 + 1)
+      || BaseAddress >= *((_QWORD *)&xmmword_18017F510 + 1) + (unsigned __int64)(unsigned int)qword_18017F520 )
     {
-      RtlpxLookupFunctionTable(a1, (signed __int64)&v15, v7, v8);
+      RtlpxLookupFunctionTable(BaseAddress, (signed __int64)BaseOfImage, v8, v9);
     }
     else
     {
-      v15 = xmmword_18017F510;
+      *(_OWORD *)BaseOfImage = xmmword_18017F510;
     }
-    v9 = *((_QWORD *)&v15 + 1);
-    if ( *((_QWORD *)&v15 + 1)
-      && (Config = LdrImageDirectoryEntryToLoadConfig(*((unsigned __int64 *)&v15 + 1)),
-          (v11 = (const void **)Config) != 0LL)
+    v10 = BaseOfImage[1];
+    if ( BaseOfImage[1]
+      && (Config = LdrImageDirectoryEntryToLoadConfig(BaseOfImage[1]), (v12 = (const void **)Config) != 0LL)
       && *Config >= 0x118u
       && (Config[36] & 0x400000) != 0
-      && *((_QWORD *)Config + 33) > v9
-      && ((Key = a1 - v9, v12 = *((_QWORD *)Config + 34), v13 = (Config[36] >> 28) + 4, !v12)
-       || !bsearch_s(&Key, v11[33], v12, v13, RtlpTargetCompare, 0LL)) )
+      && *((_QWORD *)Config + 33) > (unsigned __int64)v10
+      && ((Key = BaseAddress - (_DWORD)v10, v13 = *((_QWORD *)Config + 34), v14 = (Config[36] >> 28) + 4, !v13)
+       || !bsearch_s(&Key, v12[33], v13, v14, RtlpTargetCompare, 0LL)) )
     {
       if ( !a2 )
-        RtlFailFast2(38LL, a1);
+        RtlFailFast2(38LL, BaseAddress);
     }
     else
     {

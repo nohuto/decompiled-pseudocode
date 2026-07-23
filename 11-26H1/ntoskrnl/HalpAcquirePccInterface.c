@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpAcquirePccInterface @ 0x140787144
+ * XREFs of HalpAcquirePccInterface @ 0x140789C74
  * Callers:
- *     HaliInitializePlatformDebugTriggers @ 0x1405A25B0 (HaliInitializePlatformDebugTriggers.c)
- *     HalpStartPccCommand @ 0x140787504 (HalpStartPccCommand.c)
+ *     HaliInitializePlatformDebugTriggers @ 0x1405A4DC0 (HaliInitializePlatformDebugTriggers.c)
+ *     HalpStartPccCommand @ 0x14078A034 (HalpStartPccCommand.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwOpenFile @ 0x140723A50 (ZwOpenFile.c)
- *     HalpQueryPccInterface @ 0x1407873C4 (HalpQueryPccInterface.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1408FA680 (ObpReferenceObjectByHandleWithTag.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwOpenFile @ 0x140728620 (ZwOpenFile.c)
+ *     HalpQueryPccInterface @ 0x140789EF4 (HalpQueryPccInterface.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x14092A610 (ObpReferenceObjectByHandleWithTag.c)
  */
 
 __int64 __fastcall HalpAcquirePccInterface(unsigned __int8 a1, UNICODE_STRING *a2, void *a3)

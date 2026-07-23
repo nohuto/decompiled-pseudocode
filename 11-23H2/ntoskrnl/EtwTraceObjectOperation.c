@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwTraceObjectOperation @ 0x1405FD014
+ * XREFs of EtwTraceObjectOperation @ 0x1405FD584
  * Callers:
- *     ObpPushStackInfo @ 0x140582BD8 (ObpPushStackInfo.c)
+ *     ObpPushStackInfo @ 0x1405830C8 (ObpPushStackInfo.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     ExCheckSingleFilter @ 0x14046B15E (ExCheckSingleFilter.c)
- *     EtwpTraceKernelEventWithFilter @ 0x1405FE508 (EtwpTraceKernelEventWithFilter.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     ExCheckSingleFilter @ 0x14046B55E (ExCheckSingleFilter.c)
+ *     EtwpTraceKernelEventWithFilter @ 0x1405FEA78 (EtwpTraceKernelEventWithFilter.c)
  */
 
 __int64 __fastcall EtwTraceObjectOperation(unsigned __int16 a1, __int64 a2, int a3, int a4)
@@ -47,7 +47,7 @@ __int64 __fastcall EtwTraceObjectOperation(unsigned __int16 a1, __int64 a2, int 
         {
           result = 5 * v12;
           v14 = 0;
-          v15 = (_WORD *)(0x140000000LL + 20 * v12 + 12787200);
+          v15 = (_WORD *)(0x140000000LL + 20 * v12 + 12787072);
           if ( *v15 )
           {
             while ( 1 )

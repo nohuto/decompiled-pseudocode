@@ -1,9 +1,9 @@
 /*
- * XREFs of PipCheckValidNewDependencyEdge @ 0x140823D64
+ * XREFs of PipCheckValidNewDependencyEdge @ 0x140824F64
  * Callers:
- *     PipAddDependencyEdgeBetweenNodes @ 0x1402878C4 (PipAddDependencyEdgeBetweenNodes.c)
+ *     PipAddDependencyEdgeBetweenNodes @ 0x140287AB4 (PipAddDependencyEdgeBetweenNodes.c)
  * Callees:
- *     PiListEntryToDependencyEdge @ 0x1402878B0 (PiListEntryToDependencyEdge.c)
+ *     PiListEntryToDependencyEdge @ 0x140287AA0 (PiListEntryToDependencyEdge.c)
  */
 
 char __fastcall PipCheckValidNewDependencyEdge(__int64 a1, __int64 a2)

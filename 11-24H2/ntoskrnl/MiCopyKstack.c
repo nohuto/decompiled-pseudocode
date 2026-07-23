@@ -1,13 +1,13 @@
 /*
- * XREFs of MiCopyKstack @ 0x140675158
+ * XREFs of MiCopyKstack @ 0x140676328
  * Callers:
- *     MiSwapStackPage @ 0x1404303C4 (MiSwapStackPage.c)
- *     MiStackCopyHighLevel @ 0x140675304 (MiStackCopyHighLevel.c)
+ *     MiSwapStackPage @ 0x140421D74 (MiSwapStackPage.c)
+ *     MiStackCopyHighLevel @ 0x1406764D4 (MiStackCopyHighLevel.c)
  * Callees:
- *     MiFlushSingleTbEntry @ 0x14022A7E0 (MiFlushSingleTbEntry.c)
- *     MiCheckLinearProtectedPteAccessedBit @ 0x140232A20 (MiCheckLinearProtectedPteAccessedBit.c)
- *     MiSetPfnIdentity @ 0x1403A00D0 (MiSetPfnIdentity.c)
- *     KeCopyPage @ 0x1406B3410 (KeCopyPage.c)
+ *     MiCheckLinearProtectedPteAccessedBit @ 0x140203550 (MiCheckLinearProtectedPteAccessedBit.c)
+ *     MiSetPfnIdentity @ 0x140216B00 (MiSetPfnIdentity.c)
+ *     MiFlushSingleTbEntry @ 0x1402FDA50 (MiFlushSingleTbEntry.c)
+ *     KeCopyPage @ 0x1406B43B0 (KeCopyPage.c)
  */
 
 __int64 __fastcall MiCopyKstack(__int64 a1, __int64 a2, __int64 a3, int a4)
@@ -28,7 +28,7 @@ __int64 __fastcall MiCopyKstack(__int64 a1, __int64 a2, __int64 a3, int a4)
     MiFlushSingleTbEntry((__int64)(v7 << 25) >> 16, 2, 1);
     v9 = (v6 << 12) & 0xFFFFFFFFFF000LL ^ (v8 & 0xFFF0000000000FDFuLL | 0x20);
     if ( _bittest64(&MiFlags, 0x24u) && (v9 & 0x20) == 0 && v7 >= 0xFFFFF6C000000000uLL )
-      MiCheckLinearProtectedPteAccessedBit(v7, v9, 128);
+      MiCheckLinearProtectedPteAccessedBit(v7, v9, 128LL);
     *(_QWORD *)v7 = v9;
   }
   v11 = *(_DWORD *)(a2 + 32);

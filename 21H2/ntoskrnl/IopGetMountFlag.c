@@ -1,13 +1,13 @@
 /*
- * XREFs of IopGetMountFlag @ 0x14027C2D0
+ * XREFs of IopGetMountFlag @ 0x14026A270
  * Callers:
- *     NtQueryVolumeInformationFile @ 0x1406508C0 (NtQueryVolumeInformationFile.c)
+ *     NtQueryVolumeInformationFile @ 0x1406456E0 (NtQueryVolumeInformationFile.c)
  * Callees:
- *     KxWaitForLockOwnerShip @ 0x14022EEA0 (KxWaitForLockOwnerShip.c)
- *     KxWaitForLockChainValid @ 0x140287190 (KxWaitForLockChainValid.c)
+ *     KxWaitForLockChainValid @ 0x140204330 (KxWaitForLockChainValid.c)
+ *     KxWaitForLockOwnerShip @ 0x1402D36F0 (KxWaitForLockOwnerShip.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x1405163CC (KiAcquireQueuedSpinLockInstrumented.c)
- *     KiReleaseQueuedSpinLockInstrumented @ 0x14051648C (KiReleaseQueuedSpinLockInstrumented.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x14051660C (KiAcquireQueuedSpinLockInstrumented.c)
+ *     KiReleaseQueuedSpinLockInstrumented @ 0x1405166CC (KiReleaseQueuedSpinLockInstrumented.c)
  */
 
 __int64 __fastcall IopGetMountFlag(__int64 a1)
@@ -18,20 +18,19 @@ __int64 __fastcall IopGetMountFlag(__int64 a1)
   volatile __int64 *v5; // rsi
   struct _KPRCB *CurrentPrcb; // rcx
   _DWORD *v7; // rdx
-  _QWORD *v8; // rdx
-  __int64 v9; // rax
-  volatile signed __int64 **v10; // rbx
-  __int64 v11; // rax
-  struct _KPRCB *v12; // rcx
-  _DWORD *v13; // rdx
+  __int64 v8; // rax
+  volatile signed __int64 **v9; // rbx
+  __int64 v10; // rax
+  struct _KPRCB *v11; // rcx
+  _DWORD *v12; // rdx
   _DWORD *SchedulerAssist; // r9
+  int v15; // eax
   int v16; // eax
-  int v17; // eax
-  unsigned __int8 v18; // al
-  struct _KPRCB *v19; // rax
-  _DWORD *v20; // r9
-  int v21; // edx
-  bool v22; // zf
+  unsigned __int8 v17; // al
+  struct _KPRCB *v18; // rax
+  _DWORD *v19; // r9
+  int v20; // edx
+  bool v21; // zf
   void *retaddr; // [rsp+38h] [rbp+0h]
 
   v2 = 0;
@@ -50,9 +49,9 @@ __int64 __fastcall IopGetMountFlag(__int64 a1)
   {
     if ( CurrentPrcb->NestingLevel <= 1u )
     {
-      v16 = v7[6];
-      v7[6] = v16 + 1;
-      if ( v16 == -1 )
+      v15 = v7[6];
+      v7[6] = v15 + 1;
+      if ( v15 == -1 )
         KiRemoveSystemWorkPriorityKick(CurrentPrcb);
     }
   }
@@ -60,59 +59,57 @@ __int64 __fastcall IopGetMountFlag(__int64 a1)
   {
     KiAcquireQueuedSpinLockInstrumented(v4, v5);
   }
-  else
+  else if ( _InterlockedExchange64(v5, (__int64)v4) )
   {
-    v8 = (_QWORD *)_InterlockedExchange64(v5, (__int64)v4);
-    if ( v8 )
-      KxWaitForLockOwnerShip((__int64)v4, v8);
+    KxWaitForLockOwnerShip(v4);
   }
-  v9 = *(_QWORD *)(a1 + 56);
-  if ( v9 && (*(_BYTE *)(v9 + 4) & 1) != 0 )
+  v8 = *(_QWORD *)(a1 + 56);
+  if ( v8 && (*(_BYTE *)(v8 + 4) & 1) != 0 )
     v2 = 1;
-  v10 = (volatile signed __int64 **)((char *)KeGetPcr()->NtTib.ArbitraryUserPointer + 144);
+  v9 = (volatile signed __int64 **)((char *)KeGetPcr()->NtTib.ArbitraryUserPointer + 144);
   if ( (BYTE6(PerfGlobalGroupMask) & 1) != 0 )
   {
-    KiReleaseQueuedSpinLockInstrumented(v10, retaddr);
+    KiReleaseQueuedSpinLockInstrumented(v9, retaddr);
     goto LABEL_12;
   }
-  _m_prefetchw(v10);
-  v11 = (__int64)*v10;
-  if ( *v10 )
+  _m_prefetchw(v9);
+  v10 = (__int64)*v9;
+  if ( *v9 )
     goto LABEL_16;
-  if ( v10 != (volatile signed __int64 **)_InterlockedCompareExchange64(v10[1], 0LL, (signed __int64)v10) )
+  if ( v9 != (volatile signed __int64 **)_InterlockedCompareExchange64(v9[1], 0LL, (signed __int64)v9) )
   {
-    v11 = KxWaitForLockChainValid(v10);
+    v10 = KxWaitForLockChainValid((__int64 *)v9);
 LABEL_16:
-    *v10 = 0LL;
-    _InterlockedXor64((volatile signed __int64 *)(v11 + 8), 1uLL);
+    *v9 = 0LL;
+    _InterlockedXor64((volatile signed __int64 *)(v10 + 8), 1uLL);
   }
 LABEL_12:
-  v12 = KeGetCurrentPrcb();
-  v13 = v12->SchedulerAssist;
-  if ( v13 )
+  v11 = KeGetCurrentPrcb();
+  v12 = v11->SchedulerAssist;
+  if ( v12 )
   {
-    if ( v12->NestingLevel <= 1u )
+    if ( v11->NestingLevel <= 1u )
     {
-      v17 = v13[6] - 1;
-      v13[6] = v17;
-      if ( !v17 )
-        KiRemoveSystemWorkPriorityKick(v12);
+      v16 = v12[6] - 1;
+      v12[6] = v16;
+      if ( !v16 )
+        KiRemoveSystemWorkPriorityKick(v11);
     }
   }
   if ( KiIrqlFlags )
   {
     if ( (KiIrqlFlags & 1) != 0 )
     {
-      v18 = KeGetCurrentIrql();
-      if ( v18 <= 0xFu && CurrentIrql <= 0xFu && v18 >= 2u )
+      v17 = KeGetCurrentIrql();
+      if ( v17 <= 0xFu && CurrentIrql <= 0xFu && v17 >= 2u )
       {
-        v19 = KeGetCurrentPrcb();
-        v20 = v19->SchedulerAssist;
-        v21 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-        v22 = (v21 & v20[5]) == 0;
-        v20[5] &= v21;
-        if ( v22 )
-          KiRemoveSystemWorkPriorityKick(v19);
+        v18 = KeGetCurrentPrcb();
+        v19 = v18->SchedulerAssist;
+        v20 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+        v21 = (v20 & v19[5]) == 0;
+        v19[5] &= v20;
+        if ( v21 )
+          KiRemoveSystemWorkPriorityKick(v18);
       }
     }
   }

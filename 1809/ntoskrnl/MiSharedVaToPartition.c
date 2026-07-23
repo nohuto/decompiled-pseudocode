@@ -1,16 +1,16 @@
 /*
- * XREFs of MiSharedVaToPartition @ 0x1401097AC
+ * XREFs of MiSharedVaToPartition @ 0x14010982C
  * Callers:
- *     MiActOnPte @ 0x14009410C (MiActOnPte.c)
- *     MiCreateSharedZeroPages @ 0x1401091C0 (MiCreateSharedZeroPages.c)
- *     MiResolvePageFileFault @ 0x140154B44 (MiResolvePageFileFault.c)
+ *     MiActOnPte @ 0x14009404C (MiActOnPte.c)
+ *     MiCreateSharedZeroPages @ 0x140109240 (MiCreateSharedZeroPages.c)
+ *     MiResolvePageFileFault @ 0x140154C44 (MiResolvePageFileFault.c)
  * Callees:
  *     MiIsPrototypePteVadLookup @ 0x14002D250 (MiIsPrototypePteVadLookup.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
- *     MiLocateAddress @ 0x140087860 (MiLocateAddress.c)
- *     MiLocateCloneAddress @ 0x140094788 (MiLocateCloneAddress.c)
- *     MiSessionLookupImage @ 0x14009DBC8 (MiSessionLookupImage.c)
- *     MI_PROTO_FORMAT_COMBINED @ 0x140128C90 (MI_PROTO_FORMAT_COMBINED.c)
+ *     MiLocateAddress @ 0x140087850 (MiLocateAddress.c)
+ *     MiLocateCloneAddress @ 0x1400946C8 (MiLocateCloneAddress.c)
+ *     MiSessionLookupImage @ 0x14009DB08 (MiSessionLookupImage.c)
+ *     MI_PROTO_FORMAT_COMBINED @ 0x140128D60 (MI_PROTO_FORMAT_COMBINED.c)
  */
 
 ULONG_PTR *__fastcall MiSharedVaToPartition(__int64 a1, unsigned __int64 a2, unsigned __int64 a3)
@@ -34,7 +34,7 @@ ULONG_PTR *__fastcall MiSharedVaToPartition(__int64 a1, unsigned __int64 a2, uns
   unsigned __int64 v22; // r8
   _QWORD *v23; // rax
 
-  if ( !byte_14043A75C )
+  if ( !byte_14043B81C )
     return &MiSystemPartition;
   v6 = MI_READ_PTE_LOCK_FREE(((a2 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL);
   v11 = v6;
@@ -45,7 +45,7 @@ ULONG_PTR *__fastcall MiSharedVaToPartition(__int64 a1, unsigned __int64 a2, uns
     v17 = *(_BYTE *)(a1 + 184) & 7;
     if ( v17 == 4 )
     {
-      v18 = &unk_140438F40;
+      v18 = &unk_14043A000;
     }
     else
     {
@@ -111,6 +111,6 @@ ULONG_PTR *__fastcall MiSharedVaToPartition(__int64 a1, unsigned __int64 a2, uns
   }
 LABEL_29:
   if ( *v16 )
-    return *(ULONG_PTR **)(qword_14043A748 + 8LL * (*(_WORD *)(*v16 + 60LL) & 0x3FF));
+    return *(ULONG_PTR **)(qword_14043B808 + 8LL * (*(_WORD *)(*v16 + 60LL) & 0x3FF));
   return (ULONG_PTR *)v9;
 }

@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlpHpPgContextFree @ 0x14063A300
+ * XREFs of RtlpHpPgContextFree @ 0x14063D310
  * Callers:
- *     RtlpHpSegFreeInternal @ 0x140352AC8 (RtlpHpSegFreeInternal.c)
+ *     RtlpHpSegFreeInternal @ 0x140354B48 (RtlpHpSegFreeInternal.c)
  * Callees:
- *     RtlCaptureStackBackTrace @ 0x140261920 (RtlCaptureStackBackTrace.c)
- *     RtlpLogHeapFailure @ 0x140521C9C (RtlpLogHeapFailure.c)
- *     RtlpHpEnvProtectVA @ 0x14063905C (RtlpHpEnvProtectVA.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     RtlCaptureStackBackTrace @ 0x140260E90 (RtlCaptureStackBackTrace.c)
+ *     RtlpLogHeapFailure @ 0x140524308 (RtlpLogHeapFailure.c)
+ *     RtlpHpEnvProtectVA @ 0x14063C06C (RtlpHpEnvProtectVA.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall RtlpHpPgContextFree(_QWORD *a1, PVOID *a2, __int64 a3, struct _KLOCK_ENTRIES *a4)

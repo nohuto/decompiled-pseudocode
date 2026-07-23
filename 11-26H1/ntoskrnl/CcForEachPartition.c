@@ -1,18 +1,18 @@
 /*
- * XREFs of CcForEachPartition @ 0x140258154
+ * XREFs of CcForEachPartition @ 0x140259934
  * Callers:
- *     MiFlushAllFilesystemPages @ 0x140531F5C (MiFlushAllFilesystemPages.c)
- *     CcNotifyWriteBehind @ 0x1405B0D40 (CcNotifyWriteBehind.c)
- *     CcWaitForCurrentLazyWriterActivity @ 0x1405B15A0 (CcWaitForCurrentLazyWriterActivity.c)
- *     CcTelemetryPeriodicTimerCallback @ 0x140B0FC90 (CcTelemetryPeriodicTimerCallback.c)
+ *     MiFlushAllFilesystemPages @ 0x1405343FC (MiFlushAllFilesystemPages.c)
+ *     CcNotifyWriteBehind @ 0x1405B3550 (CcNotifyWriteBehind.c)
+ *     CcWaitForCurrentLazyWriterActivity @ 0x1405B3DB0 (CcWaitForCurrentLazyWriterActivity.c)
+ *     CcTelemetryPeriodicTimerCallback @ 0x140B114C0 (CcTelemetryPeriodicTimerCallback.c)
  * Callees:
- *     PsGetNextPartitionUnsafe @ 0x14025839C (PsGetNextPartitionUnsafe.c)
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     CcDereferencePartition @ 0x1403843F0 (CcDereferencePartition.c)
- *     CcForEachPrivateVolumeCacheMap @ 0x1403E0938 (CcForEachPrivateVolumeCacheMap.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     PsGetNextPartitionUnsafe @ 0x140259B7C (PsGetNextPartitionUnsafe.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     CcDereferencePartition @ 0x1403861A0 (CcDereferencePartition.c)
+ *     CcForEachPrivateVolumeCacheMap @ 0x1403E3B28 (CcForEachPrivateVolumeCacheMap.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 LONG_PTR __fastcall CcForEachPartition(__int64 a1, __int64 a2, char a3, char a4)
@@ -38,7 +38,7 @@ LONG_PTR __fastcall CcForEachPartition(__int64 a1, __int64 a2, char a3, char a4)
     v12 = (_QWORD *)result;
     if ( !result )
       break;
-    v13 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)&EmpParseLock.ReadOperationCount);
+    v13 = KeAcquireSpinLockRaiseToDpc(&EmpParseLock.InGlobalUpdateVpThreadPriorityList);
     v14 = v12[1];
     v15 = v13;
     if ( v14 )
@@ -70,7 +70,7 @@ LABEL_6:
         v5 = 1;
       }
     }
-    KeReleaseSpinLock((PKSPIN_LOCK)&EmpParseLock.ReadOperationCount, v15);
+    KeReleaseSpinLock(&EmpParseLock.InGlobalUpdateVpThreadPriorityList, v15);
     if ( v5 )
     {
       v16 = CcEnablePerVolumeLazyWriter && !a4

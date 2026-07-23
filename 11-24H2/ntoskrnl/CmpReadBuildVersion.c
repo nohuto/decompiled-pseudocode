@@ -1,16 +1,16 @@
 /*
- * XREFs of CmpReadBuildVersion @ 0x1407D5314
+ * XREFs of CmpReadBuildVersion @ 0x1407D5804
  * Callers:
- *     CmpRecordShutdownStopTime @ 0x1407D553C (CmpRecordShutdownStopTime.c)
+ *     CmpRecordShutdownStopTime @ 0x1407D5A2C (CmpRecordShutdownStopTime.c)
  * Callees:
- *     CmpAllocatePool @ 0x1403E1834 (CmpAllocatePool.c)
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     CmSiFreeMemory @ 0x14046B8D0 (CmSiFreeMemory.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwOpenKey @ 0x1406A6650 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x1406A66F0 (ZwQueryValueKey.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
+ *     CmpAllocatePool @ 0x1403C9EA4 (CmpAllocatePool.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     CmSiFreeMemory @ 0x140464550 (CmSiFreeMemory.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwOpenKey @ 0x1406A75F0 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1406A7690 (ZwQueryValueKey.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
  */
 
 __int64 __fastcall CmpReadBuildVersion(struct _PRIVILEGE_SET **a1, ULONG *a2, _DWORD *a3)
@@ -49,7 +49,7 @@ __int64 __fastcall CmpReadBuildVersion(struct _PRIVILEGE_SET **a1, ULONG *a2, _D
     v8 = ZwQueryValueKey(KeyHandle, &DestinationString, KeyValuePartialInformation, 0LL, 0, (PULONG)&ResultLength);
     if ( v8 == -1073741789 )
     {
-      Pool = (struct _PRIVILEGE_SET *)CmpAllocatePool(0x100uLL);
+      Pool = (struct _PRIVILEGE_SET *)CmpAllocatePool(0x100uLL, (unsigned int)ResultLength, 0x30384D43u);
       if ( !Pool )
       {
 LABEL_4:
@@ -65,7 +65,7 @@ LABEL_4:
              (PULONG)&ResultLength + 1);
       if ( v8 >= 0 )
       {
-        v9 = (struct _PRIVILEGE_SET *)CmpAllocatePool(0x100uLL);
+        v9 = (struct _PRIVILEGE_SET *)CmpAllocatePool(0x100uLL, Pool->Privilege[0].Luid.LowPart, 0x30384D43u);
         v6 = v9;
         if ( !v9 )
           goto LABEL_4;

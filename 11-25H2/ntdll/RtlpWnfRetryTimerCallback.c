@@ -13,52 +13,52 @@
  *     RtlpGetFirstWnfNameSubscription @ 0x180116D24 (RtlpGetFirstWnfNameSubscription.c)
  */
 
-__int64 RtlpWnfRetryTimerCallback()
+void __fastcall RtlpWnfRetryTimerCallback(PTP_CALLBACK_INSTANCE a1, PVOID a2, PTP_TIMER a3)
 {
-  __int64 v0; // rcx
-  __int64 v1; // rdi
-  unsigned __int64 v2; // rsi
-  __int64 v3; // rcx
-  __int64 i; // rax
-  __int64 v5; // rbx
-  volatile signed __int64 *v6; // rbp
-  __int64 v7; // r9
-  _DWORD v9[10]; // [rsp+20h] [rbp-28h] BYREF
-  int v10; // [rsp+68h] [rbp+20h] BYREF
+  _RTL_SRWLOCK *v3; // rcx
+  _WNF_STATE_NAME *Value; // rdi
+  unsigned __int64 v5; // rsi
+  __int64 v6; // rcx
+  _RTL_SRWLOCK *i; // rax
+  _RTL_SRWLOCK *v8; // rbx
+  _RTL_SRWLOCK *v9; // rbp
+  _DWORD v10[10]; // [rsp+20h] [rbp-28h] BYREF
+  int v11; // [rsp+68h] [rbp+20h] BYREF
 
-  v10 = 0;
-  v9[0] = 0;
-  RtlAcquireSRWLockShared((volatile signed __int64 *)(qword_1801D0200 + 8));
-  v0 = qword_1801D0200;
+  v11 = 0;
+  v10[0] = 0;
+  RtlAcquireSRWLockShared((PRTL_SRWLOCK)(qword_1801D0200 + 8));
+  v3 = (_RTL_SRWLOCK *)qword_1801D0200;
   *(_QWORD *)(qword_1801D0200 + 80) = 0LL;
-  RtlReleaseSRWLockShared((volatile signed __int64 *)(v0 + 8));
+  RtlReleaseSRWLockShared(v3 + 1);
   while ( 1 )
   {
-    v1 = 0LL;
-    v2 = MEMORY[0x7FFE0008] - RtlpFreezeTimeBias - MEMORY[0x7FFE03B0] + 500000;
-    RtlAcquireSRWLockShared((volatile signed __int64 *)(qword_1801D0200 + 8));
-    for ( i = RtlpGetFirstWnfNameSubscription(v3); ; i = RtlpGetNextWnfNameSubscription(v5) )
+    Value = 0LL;
+    v5 = MEMORY[0x7FFE0008] - RtlpFreezeTimeBias - MEMORY[0x7FFE03B0] + 500000;
+    RtlAcquireSRWLockShared((PRTL_SRWLOCK)(qword_1801D0200 + 8));
+    for ( i = (_RTL_SRWLOCK *)RtlpGetFirstWnfNameSubscription(v6); ; i = (_RTL_SRWLOCK *)RtlpGetNextWnfNameSubscription(v8) )
     {
-      v5 = i;
+      v8 = i;
       if ( !i )
         break;
-      v6 = (volatile signed __int64 *)(i + 64);
-      RtlAcquireSRWLockExclusive((volatile signed __int32 *)(i + 64));
-      if ( *(_DWORD *)(v5 + 124) == 2 && v2 >= *(_QWORD *)(v5 + 136) )
+      v9 = i + 8;
+      RtlAcquireSRWLockExclusive(i + 8);
+      if ( HIDWORD(v8[15].Ptr) == 2 && v5 >= v8[17].Value )
       {
-        v1 = *(_QWORD *)(v5 + 128);
-        *(_QWORD *)(v5 + 128) = 0LL;
-        *(_DWORD *)(v5 + 124) = 0;
-        RtlReleaseSRWLockExclusive(v6);
+        Value = (_WNF_STATE_NAME *)v8[16].Value;
+        v8[16].Value = 0LL;
+        HIDWORD(v8[15].Ptr) = 0;
+        RtlReleaseSRWLockExclusive(v9);
         break;
       }
-      RtlReleaseSRWLockExclusive(v6);
+      RtlReleaseSRWLockExclusive(v9);
     }
-    RtlReleaseSRWLockShared((volatile signed __int64 *)(qword_1801D0200 + 8));
-    if ( !v1 )
-      return RtlpWnfCalculateAndSetNextTimer();
-    RtlpWnfProcessCurrentDescriptor(v1, 1, &v10, v9);
-    if ( v10 )
-      RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v1, v7);
+    RtlReleaseSRWLockShared((PRTL_SRWLOCK)(qword_1801D0200 + 8));
+    if ( !Value )
+      break;
+    RtlpWnfProcessCurrentDescriptor(Value, 1, &v11, v10);
+    if ( v11 )
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Value);
   }
+  RtlpWnfCalculateAndSetNextTimer();
 }

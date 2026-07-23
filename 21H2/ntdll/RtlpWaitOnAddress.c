@@ -6,7 +6,7 @@
  *     RtlUnsubscribeWnfNotificationWaitForCompletion @ 0x180063B70 (RtlUnsubscribeWnfNotificationWaitForCompletion.c)
  *     RtlWaitOnAddress @ 0x180064950 (RtlWaitOnAddress.c)
  *     RtlpWaitOnCriticalSection @ 0x180064970 (RtlpWaitOnCriticalSection.c)
- *     RtlPosixBarrier @ 0x1800ED9D8 (RtlPosixBarrier.c)
+ *     RtlPosixBarrier @ 0x1800ED998 (RtlPosixBarrier.c)
  * Callees:
  *     RtlpAddWaitBlockToWaitList @ 0x180064CA4 (RtlpAddWaitBlockToWaitList.c)
  *     RtlpWaitOnAddressWithTimeout @ 0x180064D1C (RtlpWaitOnAddressWithTimeout.c)

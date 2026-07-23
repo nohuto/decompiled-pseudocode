@@ -1,14 +1,14 @@
 /*
- * XREFs of PiDqQueryRelease @ 0x14048C588
+ * XREFs of PiDqQueryRelease @ 0x14048CAEC
  * Callers:
- *     PiDqDispatch @ 0x14048B160 (PiDqDispatch.c)
- *     PiDqObjectManagerServiceActionQueue @ 0x14048B654 (PiDqObjectManagerServiceActionQueue.c)
- *     PiDqObjectManagerUnregisterQuery @ 0x14048CAD8 (PiDqObjectManagerUnregisterQuery.c)
+ *     PiDqDispatch @ 0x14048B6C4 (PiDqDispatch.c)
+ *     PiDqObjectManagerServiceActionQueue @ 0x14048BBB8 (PiDqObjectManagerServiceActionQueue.c)
+ *     PiDqObjectManagerUnregisterQuery @ 0x14048D0EC (PiDqObjectManagerUnregisterQuery.c)
  * Callees:
- *     Template_p @ 0x1401CE864 (Template_p.c)
+ *     Template_p @ 0x1401CE5F8 (Template_p.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     SeReleaseSubjectContext @ 0x14041F9B0 (SeReleaseSubjectContext.c)
- *     PiDqQueryFreeActiveData @ 0x14048CA74 (PiDqQueryFreeActiveData.c)
+ *     SeReleaseSubjectContext @ 0x14041E870 (SeReleaseSubjectContext.c)
+ *     PiDqQueryFreeActiveData @ 0x14048D088 (PiDqQueryFreeActiveData.c)
  */
 
 void __fastcall PiDqQueryRelease(__int64 a1)

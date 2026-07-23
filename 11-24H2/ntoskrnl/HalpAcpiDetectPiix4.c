@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpAcpiDetectPiix4 @ 0x140C0F300
+ * XREFs of HalpAcpiDetectPiix4 @ 0x140C11300
  * Callers:
- *     HalpAcpiInitSystem @ 0x140B4D110 (HalpAcpiInitSystem.c)
+ *     HalpAcpiInitSystem @ 0x140B4F150 (HalpAcpiInitSystem.c)
  * Callees:
- *     HalpMmAllocCtxAlloc @ 0x14024BD68 (HalpMmAllocCtxAlloc.c)
- *     ExQueueWorkItem @ 0x140325850 (ExQueueWorkItem.c)
+ *     HalpMmAllocCtxAlloc @ 0x14027C378 (HalpMmAllocCtxAlloc.c)
+ *     ExQueueWorkItem @ 0x1402CE3E0 (ExQueueWorkItem.c)
  */
 
 __int64 __fastcall HalpAcpiDetectPiix4(__int64 a1)

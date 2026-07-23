@@ -1,10 +1,10 @@
 /*
- * XREFs of MiLocateIndirectHash @ 0x14004BB10
+ * XREFs of MiLocateIndirectHash @ 0x14004B690
  * Callers:
- *     MiUpdateWsle @ 0x14003C790 (MiUpdateWsle.c)
- *     MiTryLocateWsle @ 0x140046B90 (MiTryLocateWsle.c)
- *     MiSwapWslEntries @ 0x140049E70 (MiSwapWslEntries.c)
- *     MiReplaceWsleHash @ 0x1400FF144 (MiReplaceWsleHash.c)
+ *     MiUpdateWsle @ 0x14003C310 (MiUpdateWsle.c)
+ *     MiTryLocateWsle @ 0x140046710 (MiTryLocateWsle.c)
+ *     MiSwapWslEntries @ 0x1400499F0 (MiSwapWslEntries.c)
+ *     MiReplaceWsleHash @ 0x1400FCEC4 (MiReplaceWsleHash.c)
  * Callees:
  *     <none>
  */

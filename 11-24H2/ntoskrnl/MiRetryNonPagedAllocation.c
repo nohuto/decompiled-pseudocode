@@ -1,14 +1,14 @@
 /*
- * XREFs of MiRetryNonPagedAllocation @ 0x140481470
+ * XREFs of MiRetryNonPagedAllocation @ 0x14047C730
  * Callers:
- *     MiGetPoolPages @ 0x1402E9F58 (MiGetPoolPages.c)
+ *     MiGetPoolPages @ 0x14034B598 (MiGetPoolPages.c)
  * Callees:
- *     KeAreInterruptsEnabled @ 0x140257E20 (KeAreInterruptsEnabled.c)
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     KeResetEvent @ 0x14028EEC0 (KeResetEvent.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     MiSufficientAvailablePages @ 0x1402AA420 (MiSufficientAvailablePages.c)
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
+ *     KeAreInterruptsEnabled @ 0x140288430 (KeAreInterruptsEnabled.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     KeResetEvent @ 0x14029EAC0 (KeResetEvent.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     MiSufficientAvailablePages @ 0x1403526D0 (MiSufficientAvailablePages.c)
  */
 
 __int64 __fastcall MiRetryNonPagedAllocation(int a1)
@@ -28,40 +28,40 @@ __int64 __fastcall MiRetryNonPagedAllocation(int a1)
   if ( (unsigned int)MiSufficientAvailablePages((__int64)&MiSystemPartition, 0xA0uLL) )
     return 1LL;
   Timeout = (LARGE_INTEGER *)&Mi30Milliseconds;
-  for ( i = 1; ; i = KeWaitForSingleObject(&stru_140E3CB68, WrFreePage, 0, 0, Timeout) )
+  for ( i = 1; ; i = KeWaitForSingleObject(&stru_140E3CCA8, WrFreePage, 0, 0, Timeout) )
   {
-    v6 = ExAcquireSpinLockExclusive(dword_140E3CB40);
+    v6 = ExAcquireSpinLockExclusive(dword_140E3CC80);
     if ( (unsigned int)MiSufficientAvailablePages((__int64)&MiSystemPartition, 0xA0uLL) )
       break;
     if ( i == 1 )
     {
-      if ( byte_140E2CA5C )
+      if ( byte_140E2CB9C )
       {
-        if ( dword_140E2CA58 == dword_140E3CB80 )
+        if ( dword_140E2CB98 == dword_140E3CCC0 )
           goto LABEL_22;
-        byte_140E2CA5C = 0;
+        byte_140E2CB9C = 0;
       }
     }
     else
     {
       if ( i == 258 )
       {
-        if ( !byte_140E2CA5C )
+        if ( !byte_140E2CB9C )
         {
-          dword_140E2CA58 = dword_140E3CB80;
-          byte_140E2CA5C = 1;
+          dword_140E2CB98 = dword_140E3CCC0;
+          byte_140E2CB9C = 1;
         }
         goto LABEL_22;
       }
       Timeout = (LARGE_INTEGER *)&Mi10Milliseconds;
     }
-    KeResetEvent(&stru_140E3CB68);
-    MiReleaseSpinLockExclusive(dword_140E3CB40, v6);
+    KeResetEvent(&stru_140E3CCA8);
+    MiReleaseSpinLockExclusive(dword_140E3CC80, v6);
   }
-  if ( byte_140E2CA5C )
-    byte_140E2CA5C = 0;
+  if ( byte_140E2CB9C )
+    byte_140E2CB9C = 0;
   v3 = 1;
 LABEL_22:
-  MiReleaseSpinLockExclusive(dword_140E3CB40, v6);
+  MiReleaseSpinLockExclusive(dword_140E3CC80, v6);
   return v3;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of ExpPartitionCreatePoolDelayed @ 0x140955DD8
+ * XREFs of ExpPartitionCreatePoolDelayed @ 0x140955FA8
  * Callers:
- *     ExpWorkQueueManagerThread @ 0x1407AF840 (ExpWorkQueueManagerThread.c)
+ *     ExpWorkQueueManagerThread @ 0x1407AF9E0 (ExpWorkQueueManagerThread.c)
  * Callees:
- *     ExpPartitionCreatePoolInternal @ 0x1407C25B0 (ExpPartitionCreatePoolInternal.c)
+ *     ExpPartitionCreatePoolInternal @ 0x1407C2AD0 (ExpPartitionCreatePoolInternal.c)
  */
 
 __int64 __fastcall ExpPartitionCreatePoolDelayed(__int64 a1, __int64 a2, int a3)

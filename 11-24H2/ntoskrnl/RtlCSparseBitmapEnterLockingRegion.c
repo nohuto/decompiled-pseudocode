@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlCSparseBitmapEnterLockingRegion @ 0x14045D26C
+ * XREFs of RtlCSparseBitmapEnterLockingRegion @ 0x140452338
  * Callers:
- *     RtlpCSparseBitmapPageDecommit @ 0x14045CD70 (RtlpCSparseBitmapPageDecommit.c)
+ *     RtlpCSparseBitmapPageDecommit @ 0x140451E3C (RtlpCSparseBitmapPageDecommit.c)
  * Callees:
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 unsigned __int8 *__fastcall RtlCSparseBitmapEnterLockingRegion(unsigned __int8 *a1, __int64 a2)

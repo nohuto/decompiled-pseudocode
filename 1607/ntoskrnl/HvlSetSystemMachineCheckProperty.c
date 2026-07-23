@@ -1,11 +1,11 @@
 /*
- * XREFs of HvlSetSystemMachineCheckProperty @ 0x1401BDD60
+ * XREFs of HvlSetSystemMachineCheckProperty @ 0x1401BDC44
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     HvlpAcquireHypercallPage @ 0x1401BB294 (HvlpAcquireHypercallPage.c)
- *     HvlpReleaseHypercallPage @ 0x1401BBD4C (HvlpReleaseHypercallPage.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     HvlpAcquireHypercallPage @ 0x1401BB178 (HvlpAcquireHypercallPage.c)
+ *     HvlpReleaseHypercallPage @ 0x1401BBC30 (HvlpReleaseHypercallPage.c)
  */
 
 __int64 __fastcall HvlSetSystemMachineCheckProperty(_QWORD *a1)

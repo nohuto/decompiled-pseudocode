@@ -4,7 +4,7 @@
  *     Phase1InitializationDiscard @ 0x140B4FFBC (Phase1InitializationDiscard.c)
  *     InitBootProcessor @ 0x140B52774 (InitBootProcessor.c)
  * Callees:
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  *     ExpInitSystemPhase1 @ 0x140B49FE4 (ExpInitSystemPhase1.c)
  *     ExpInitSystemPhase0 @ 0x140B54AE0 (ExpInitSystemPhase0.c)
  *     ExpStringCheck @ 0x140B55144 (ExpStringCheck.c)

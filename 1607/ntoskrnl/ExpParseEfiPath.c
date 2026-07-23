@@ -1,9 +1,9 @@
 /*
- * XREFs of ExpParseEfiPath @ 0x1406B1174
+ * XREFs of ExpParseEfiPath @ 0x1406B12AC
  * Callers:
- *     ExpTranslateEfiPath @ 0x1406B278C (ExpTranslateEfiPath.c)
+ *     ExpTranslateEfiPath @ 0x1406B28C4 (ExpTranslateEfiPath.c)
  * Callees:
- *     memmove @ 0x140171280 (memmove.c)
+ *     memmove @ 0x140171780 (memmove.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */

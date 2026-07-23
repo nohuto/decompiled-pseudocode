@@ -9,9 +9,9 @@
  *     RtlpGetTokenNamedObjectPath @ 0x18004AB60 (RtlpGetTokenNamedObjectPath.c)
  *     RtlpGetPolicyValueForSystemCapability @ 0x18004B6A4 (RtlpGetPolicyValueForSystemCapability.c)
  *     RtlpGetRegistryHandle @ 0x180053FCC (RtlpGetRegistryHandle.c)
- *     LdrpCodeAuthzInitialize @ 0x18007FC08 (LdrpCodeAuthzInitialize.c)
- *     LdrpInitializePerUserWindowsDirectory @ 0x180085AC4 (LdrpInitializePerUserWindowsDirectory.c)
- *     LdrpLoadWow64 @ 0x1800869A0 (LdrpLoadWow64.c)
+ *     LdrpCodeAuthzInitialize @ 0x18007FC18 (LdrpCodeAuthzInitialize.c)
+ *     LdrpInitializePerUserWindowsDirectory @ 0x180085AD4 (LdrpInitializePerUserWindowsDirectory.c)
+ *     LdrpLoadWow64 @ 0x1800869B0 (LdrpLoadWow64.c)
  *     LdrpInitializeProcess @ 0x1800D3FB4 (LdrpInitializeProcess.c)
  *     AVrfOpenCurrentUserImageFileOptionsKey @ 0x1800DB828 (AVrfOpenCurrentUserImageFileOptionsKey.c)
  *     AVrfpLoadAndInitializeProvider @ 0x1800DC17C (AVrfpLoadAndInitializeProvider.c)
@@ -21,24 +21,24 @@
  *     memmove @ 0x1800A6DC0 (memmove.c)
  */
 
-__int64 __fastcall RtlAppendUnicodeStringToString(unsigned __int16 *a1, __int16 *a2)
+NTSTATUS __cdecl RtlAppendUnicodeStringToString(PUNICODE_STRING Destination, PCUNICODE_STRING Source)
 {
-  unsigned __int16 v2; // si
+  unsigned __int16 Length; // si
   unsigned __int64 v4; // rcx
-  void *v5; // r14
+  wchar_t *v5; // r14
 
-  v2 = *a2;
-  if ( !*a2 )
-    return 0LL;
-  v4 = *a1;
-  if ( (unsigned int)v4 + v2 <= a1[1] )
+  Length = Source->Length;
+  if ( !Source->Length )
+    return 0;
+  v4 = Destination->Length;
+  if ( (unsigned int)v4 + Length <= Destination->MaximumLength )
   {
-    v5 = (void *)(*((_QWORD *)a1 + 1) + 2 * (v4 >> 1));
-    memmove(v5, *((const void **)a2 + 1), v2);
-    *a1 += v2;
-    if ( (unsigned int)*a1 + 1 < a1[1] )
-      *((_WORD *)v5 + ((unsigned __int64)v2 >> 1)) = 0;
-    return 0LL;
+    v5 = &Destination->Buffer[v4 >> 1];
+    memmove(v5, Source->Buffer, Length);
+    Destination->Length += Length;
+    if ( (unsigned int)Destination->Length + 1 < Destination->MaximumLength )
+      v5[(unsigned __int64)Length >> 1] = 0;
+    return 0;
   }
-  return 3221225507LL;
+  return -1073741789;
 }

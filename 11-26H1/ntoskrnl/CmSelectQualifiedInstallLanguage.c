@@ -1,25 +1,25 @@
 /*
- * XREFs of CmSelectQualifiedInstallLanguage @ 0x140CEBDA4
+ * XREFs of CmSelectQualifiedInstallLanguage @ 0x140CF20A8
  * Callers:
- *     CmpGetSystemControlValues @ 0x140CEC3D8 (CmpGetSystemControlValues.c)
+ *     CmpGetSystemControlValues @ 0x140CF26DC (CmpGetSystemControlValues.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     DownLevelLangIDToLanguageName @ 0x1404EF488 (DownLevelLangIDToLanguageName.c)
- *     __report_rangecheckfailure @ 0x140522044 (__report_rangecheckfailure.c)
- *     _wcsicmp @ 0x140536570 (_wcsicmp.c)
- *     DownLevelLanguageNameToLangID @ 0x1406D8E14 (DownLevelLanguageNameToLangID.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     HvpGetCellFlat @ 0x14085EB00 (HvpGetCellFlat.c)
- *     CmpWalkPath @ 0x140860270 (CmpWalkPath.c)
- *     CmpValueToData @ 0x140860380 (CmpValueToData.c)
- *     CmpCopyCompressedName @ 0x1408C1D10 (CmpCopyCompressedName.c)
- *     HvpReleaseCellFlat @ 0x1408D51E0 (HvpReleaseCellFlat.c)
- *     HvpReleaseCellPaged @ 0x1408D73B0 (HvpReleaseCellPaged.c)
- *     HvpGetCellPaged @ 0x1408D7410 (HvpGetCellPaged.c)
- *     CmpFindSubKeyByNumber @ 0x1408DEDA0 (CmpFindSubKeyByNumber.c)
- *     CmpFindValueByName @ 0x140AB231C (CmpFindValueByName.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     DownLevelLangIDToLanguageName @ 0x1404E8A68 (DownLevelLangIDToLanguageName.c)
+ *     __report_rangecheckfailure @ 0x1405246B0 (__report_rangecheckfailure.c)
+ *     _wcsicmp @ 0x1405389F0 (_wcsicmp.c)
+ *     DownLevelLanguageNameToLangID @ 0x1406DCFA4 (DownLevelLanguageNameToLangID.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     HvpGetCellFlat @ 0x140864DF0 (HvpGetCellFlat.c)
+ *     CmpWalkPath @ 0x140866560 (CmpWalkPath.c)
+ *     CmpValueToData @ 0x140866670 (CmpValueToData.c)
+ *     CmpCopyCompressedName @ 0x1408C82E0 (CmpCopyCompressedName.c)
+ *     HvpReleaseCellFlat @ 0x1408DB7A0 (HvpReleaseCellFlat.c)
+ *     HvpReleaseCellPaged @ 0x1408DD970 (HvpReleaseCellPaged.c)
+ *     HvpGetCellPaged @ 0x1408DD9D0 (HvpGetCellPaged.c)
+ *     CmpFindSubKeyByNumber @ 0x1408E5360 (CmpFindSubKeyByNumber.c)
+ *     CmpFindValueByName @ 0x140AAFFF0 (CmpFindValueByName.c)
  */
 
 __int64 __fastcall CmSelectQualifiedInstallLanguage(__int64 a1, unsigned int a2, _DWORD *a3, int a4)
@@ -110,7 +110,7 @@ __int64 __fastcall CmSelectQualifiedInstallLanguage(__int64 a1, unsigned int a2,
   v9 = CmpWalkPath((ULONG_PTR)&CmControlHive, a2, L"MUI\\Settings");
   if ( v9 != -1 )
   {
-    v10 = (byte_140FFE59C & 1) != 0
+    v10 = (byte_140FFF59C & 1) != 0
         ? HvpGetCellFlat((__int64)&CmControlHive, v9, v35)
         : HvpGetCellPaged((ULONG_PTR)&CmControlHive, v9);
     v11 = v10;
@@ -121,7 +121,7 @@ __int64 __fastcall CmSelectQualifiedInstallLanguage(__int64 a1, unsigned int a2,
       v13 = ValueByName;
       if ( ValueByName != -1 )
       {
-        v14 = (byte_140FFE59C & 1) != 0
+        v14 = (byte_140FFF59C & 1) != 0
             ? HvpGetCellFlat((__int64)&CmControlHive, ValueByName, v38)
             : HvpGetCellPaged((ULONG_PTR)&CmControlHive, ValueByName);
         if ( v14 )
@@ -136,19 +136,19 @@ __int64 __fastcall CmSelectQualifiedInstallLanguage(__int64 a1, unsigned int a2,
                 memmove(v48, v15, (unsigned int)Size);
                 PsMachineUILanguageId = DownLevelLanguageNameToLangID(v48, 0);
               }
-              if ( (byte_140FFE59C & 1) != 0 )
+              if ( (byte_140FFF59C & 1) != 0 )
                 HvpReleaseCellFlat((__int64)&CmControlHive, (__int64)&v43);
               else
                 HvpReleaseCellPaged((__int64)&CmControlHive, (unsigned int *)&v43);
             }
           }
-          if ( (byte_140FFE59C & 1) != 0 )
+          if ( (byte_140FFF59C & 1) != 0 )
             HvpReleaseCellFlat((__int64)&CmControlHive, (__int64)v38);
           else
             HvpReleaseCellPaged((__int64)&CmControlHive, v38);
         }
       }
-      if ( (byte_140FFE59C & 1) != 0 )
+      if ( (byte_140FFF59C & 1) != 0 )
         HvpReleaseCellFlat((__int64)&CmControlHive, (__int64)v35);
       else
         HvpReleaseCellPaged((__int64)&CmControlHive, v35);
@@ -157,7 +157,7 @@ __int64 __fastcall CmSelectQualifiedInstallLanguage(__int64 a1, unsigned int a2,
   v16 = CmpWalkPath((ULONG_PTR)&CmControlHive, a2, L"MUI\\UILanguages");
   if ( v16 == -1 )
     return v8;
-  v17 = (byte_140FFE59C & 1) != 0
+  v17 = (byte_140FFF59C & 1) != 0
       ? HvpGetCellFlat((__int64)&CmControlHive, v16, v41)
       : HvpGetCellPaged((ULONG_PTR)&CmControlHive, v16);
   v18 = (_DWORD *)v17;
@@ -171,7 +171,7 @@ __int64 __fastcall CmSelectQualifiedInstallLanguage(__int64 a1, unsigned int a2,
     v35[0] = v20;
     if ( v42 == -1 )
       break;
-    if ( (byte_140FFE59C & 1) != 0 )
+    if ( (byte_140FFF59C & 1) != 0 )
       CellFlat = HvpGetCellFlat((__int64)&CmControlHive, v42, v37);
     else
       CellFlat = HvpGetCellPaged((ULONG_PTR)&CmControlHive, v42);
@@ -184,7 +184,7 @@ __int64 __fastcall CmSelectQualifiedInstallLanguage(__int64 a1, unsigned int a2,
       v25 = v24;
       if ( v24 == -1 )
         goto LABEL_80;
-      v26 = (byte_140FFE59C & 1) != 0
+      v26 = (byte_140FFF59C & 1) != 0
           ? HvpGetCellFlat((__int64)&CmControlHive, v24, v38)
           : HvpGetCellPaged((ULONG_PTR)&CmControlHive, v24);
       if ( !v26 )
@@ -195,12 +195,12 @@ __int64 __fastcall CmSelectQualifiedInstallLanguage(__int64 a1, unsigned int a2,
         HIDWORD(Size) = v27;
         if ( (v27 & 3) != 0 && (v27 & 0x10) != 0 )
           v23 = 1;
-        if ( (byte_140FFE59C & 1) != 0 )
+        if ( (byte_140FFF59C & 1) != 0 )
           HvpReleaseCellFlat((__int64)&CmControlHive, (__int64)&v44);
         else
           HvpReleaseCellPaged((__int64)&CmControlHive, (unsigned int *)&v44);
       }
-      if ( (byte_140FFE59C & 1) != 0 )
+      if ( (byte_140FFF59C & 1) != 0 )
         HvpReleaseCellFlat((__int64)&CmControlHive, (__int64)v38);
       else
         HvpReleaseCellPaged((__int64)&CmControlHive, v38);
@@ -216,7 +216,7 @@ __int64 __fastcall CmSelectQualifiedInstallLanguage(__int64 a1, unsigned int a2,
           goto LABEL_62;
         }
 LABEL_80:
-        if ( (byte_140FFE59C & 1) != 0 )
+        if ( (byte_140FFF59C & 1) != 0 )
           HvpReleaseCellFlat((__int64)&CmControlHive, (__int64)v37);
         else
           HvpReleaseCellPaged((__int64)&CmControlHive, v37);
@@ -230,7 +230,7 @@ LABEL_80:
           goto LABEL_80;
         memmove(Str2, (const void *)(v22 + 76), *(unsigned __int16 *)(v22 + 72));
 LABEL_62:
-        if ( (byte_140FFE59C & 1) != 0 )
+        if ( (byte_140FFF59C & 1) != 0 )
           HvpReleaseCellFlat((__int64)&CmControlHive, (__int64)v37);
         else
           HvpReleaseCellPaged((__int64)&CmControlHive, v37);
@@ -270,7 +270,7 @@ LABEL_62:
       }
     }
   }
-  if ( (byte_140FFE59C & 1) != 0 )
+  if ( (byte_140FFF59C & 1) != 0 )
     HvpReleaseCellFlat((__int64)&CmControlHive, (__int64)v41);
   else
     HvpReleaseCellPaged((__int64)&CmControlHive, v41);

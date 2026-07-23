@@ -209,7 +209,7 @@ LABEL_113:
         v18 = KeGetCurrentThread();
         --v18->KernelApcDisable;
         v19 = FileObject;
-        v20 = KeAbPreAcquire((ULONG_PTR)&FileObject->Lock, 0LL, 0LL);
+        v20 = KeAbPreAcquire((ULONG_PTR)&FileObject->Lock, 0LL, 0);
         v63 = 0;
         if ( _InterlockedExchange((volatile __int32 *)&v19->Busy, 1) )
         {

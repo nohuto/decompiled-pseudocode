@@ -1,16 +1,16 @@
 /*
- * XREFs of CmpFreeAllMemory @ 0x1405FCA7C
+ * XREFs of CmpFreeAllMemory @ 0x1405FCB30
  * Callers:
- *     CmShutdownSystem @ 0x1405FC64C (CmShutdownSystem.c)
+ *     CmShutdownSystem @ 0x1405FC700 (CmShutdownSystem.c)
  * Callees:
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     CmpGetNextActiveHive @ 0x1403FB6D0 (CmpGetNextActiveHive.c)
- *     CmpDereferenceHive @ 0x1403FCA50 (CmpDereferenceHive.c)
- *     CmpRunDownDelayDerefKCBEngine @ 0x14049B1B4 (CmpRunDownDelayDerefKCBEngine.c)
- *     CmpDestroySecurityCache @ 0x14049FDD4 (CmpDestroySecurityCache.c)
- *     HvFreeHive @ 0x1405142C4 (HvFreeHive.c)
- *     CmpDumpKeyBodyList @ 0x1405FF578 (CmpDumpKeyBodyList.c)
+ *     CmpRunDownDelayDerefKCBEngine @ 0x1403E40D4 (CmpRunDownDelayDerefKCBEngine.c)
+ *     CmpGetNextActiveHive @ 0x1403FA590 (CmpGetNextActiveHive.c)
+ *     CmpDereferenceHive @ 0x1403FB910 (CmpDereferenceHive.c)
+ *     HvFreeHive @ 0x1404F76B4 (HvFreeHive.c)
+ *     CmpDestroySecurityCache @ 0x1405181E0 (CmpDestroySecurityCache.c)
+ *     CmpDumpKeyBodyList @ 0x1405FF62C (CmpDumpKeyBodyList.c)
  */
 
 void CmpFreeAllMemory()

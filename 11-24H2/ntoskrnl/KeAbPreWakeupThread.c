@@ -1,15 +1,15 @@
 /*
- * XREFs of KeAbPreWakeupThread @ 0x1403D8DF0
+ * XREFs of KeAbPreWakeupThread @ 0x1402DFF50
  * Callers:
- *     ExReleaseFastMutexUnsafe @ 0x14031CF70 (ExReleaseFastMutexUnsafe.c)
- *     IopReleaseFileObjectLock @ 0x14031D520 (IopReleaseFileObjectLock.c)
- *     FsRtlReleaseHeaderMutex @ 0x14031E170 (FsRtlReleaseHeaderMutex.c)
- *     KeReleaseGuardedMutex @ 0x14031E470 (KeReleaseGuardedMutex.c)
- *     KeReleaseMutantEx @ 0x1403379F0 (KeReleaseMutantEx.c)
- *     KiAlertSingleThreadByThreadId @ 0x140337FDC (KiAlertSingleThreadByThreadId.c)
- *     KeSetEventBoostPriorityEx @ 0x1403D8BE8 (KeSetEventBoostPriorityEx.c)
+ *     ExReleaseFastMutexUnsafe @ 0x1402C5B00 (ExReleaseFastMutexUnsafe.c)
+ *     IopReleaseFileObjectLock @ 0x1402C60B0 (IopReleaseFileObjectLock.c)
+ *     FsRtlReleaseHeaderMutex @ 0x1402C6D00 (FsRtlReleaseHeaderMutex.c)
+ *     KeReleaseGuardedMutex @ 0x1402C7000 (KeReleaseGuardedMutex.c)
+ *     KiAlertSingleThreadByThreadId @ 0x1402DE880 (KiAlertSingleThreadByThreadId.c)
+ *     KeReleaseMutantEx @ 0x1402DEAA0 (KeReleaseMutantEx.c)
+ *     KeSetEventBoostPriorityEx @ 0x1402E0738 (KeSetEventBoostPriorityEx.c)
  * Callees:
- *     KiAbConvertWaiterToOwnerEntry @ 0x140323370 (KiAbConvertWaiterToOwnerEntry.c)
+ *     KiAbConvertWaiterToOwnerEntry @ 0x1402CBF00 (KiAbConvertWaiterToOwnerEntry.c)
  */
 
 void __fastcall KeAbPreWakeupThread(ULONG_PTR a1, __int64 a2)
@@ -76,5 +76,5 @@ void __fastcall KeAbPreWakeupThread(ULONG_PTR a1, __int64 a2)
   v5 = 0LL;
 LABEL_16:
   if ( v5 )
-    KiAbConvertWaiterToOwnerEntry(a1, v5, 1);
+    KiAbConvertWaiterToOwnerEntry(a1, v5, 1LL, v2);
 }

@@ -1,14 +1,14 @@
 /*
- * XREFs of AslRegistryGetString @ 0x1408883F4
+ * XREFs of AslRegistryGetString @ 0x14088E7F0
  * Callers:
- *     SdbpGetMergeRedirectPathInternal @ 0x140881504 (SdbpGetMergeRedirectPathInternal.c)
+ *     SdbpGetMergeRedirectPathInternal @ 0x140887904 (SdbpGetMergeRedirectPathInternal.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     ZwQueryValueKey @ 0x1407236D0 (ZwQueryValueKey.c)
- *     AslStringDuplicate @ 0x1409E3DCC (AslStringDuplicate.c)
- *     AslAlloc @ 0x1409E4C90 (AslAlloc.c)
- *     AslFree @ 0x1409E6BD8 (AslFree.c)
- *     AslLogCallPrintf @ 0x1409E8884 (AslLogCallPrintf.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     ZwQueryValueKey @ 0x1407282A0 (ZwQueryValueKey.c)
+ *     AslLogCallPrintf @ 0x1409D5294 (AslLogCallPrintf.c)
+ *     AslFree @ 0x1409D6144 (AslFree.c)
+ *     AslAlloc @ 0x1409D8260 (AslAlloc.c)
+ *     AslStringDuplicate @ 0x1409D8BA8 (AslStringDuplicate.c)
  */
 
 __int64 __fastcall AslRegistryGetString(_QWORD *a1, void *a2, const WCHAR *a3)

@@ -12,7 +12,7 @@
 char __thiscall LdrpLogImportRedirectionTelemetry(int this)
 {
   struct _PEB *v1; // eax
-  _BYTE v4[32]; // [esp+10h] [ebp-68h] BYREF
+  _EVENT_DATA_DESCRIPTOR UserData; // [esp+10h] [ebp-68h] BYREF
   _DWORD *v5; // [esp+30h] [ebp-48h]
   int v6; // [esp+34h] [ebp-44h]
   int v7; // [esp+38h] [ebp-40h]
@@ -26,8 +26,8 @@ char __thiscall LdrpLogImportRedirectionTelemetry(int this)
   if ( v1->ProcessHeap )
   {
     LOBYTE(v1) = RtlRunOnceExecuteOnce(
-                   (int)&LibLoaderTelemetryInitRunOnce,
-                   (int (__stdcall *)(int, int, int))LibLoaderTelemetryInitOnce,
+                   &LibLoaderTelemetryInitRunOnce,
+                   (PRTL_RUN_ONCE_INIT_FN)LibLoaderTelemetryInitOnce,
                    0,
                    0);
     if ( (unsigned int)dword_4B3A32F0 > 5 )
@@ -51,7 +51,7 @@ char __thiscall LdrpLogImportRedirectionTelemetry(int this)
         v11[5] = 0;
         v11[7] = 0;
         v12[1] = 0;
-        LOBYTE(v1) = _tlgWriteTransfer_EtwEventWriteTransfer(2, 2, 6, v4);
+        LOBYTE(v1) = _tlgWriteTransfer_EtwEventWriteTransfer(2, 2, 6u, &UserData);
       }
     }
   }

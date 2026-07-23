@@ -9,39 +9,39 @@
  *     RtlFreeHeap @ 0x180027690 (RtlFreeHeap.c)
  */
 
-__int64 __fastcall RtlRemovePointerMapping(__int64 a1, _QWORD *a2, unsigned __int64 a3, unsigned __int64 a4)
+__int64 __fastcall RtlRemovePointerMapping(__int64 a1, _QWORD *a2)
 {
-  __int64 v6; // rbx
-  __int64 v7; // rax
+  unsigned __int64 Root; // rbx
+  unsigned __int64 v5; // rax
 
-  RtlAcquireSRWLockExclusive((unsigned __int64)&RtlpPtrTreeLock, (unsigned __int64)a2, a3, a4);
-  v6 = RtlpPtrTree;
-  if ( (qword_180177EC0 & 1) != 0 && RtlpPtrTree )
-    v6 = (unsigned __int64)&RtlpPtrTree ^ RtlpPtrTree;
-  while ( v6 )
+  RtlAcquireSRWLockExclusive(&RtlpPtrTreeLock);
+  Root = (unsigned __int64)RtlpPtrTree.Root;
+  if ( (*(_BYTE *)&RtlpPtrTree.0 & 1) != 0 && RtlpPtrTree.Root )
+    Root = (unsigned __int64)&RtlpPtrTree ^ (unsigned __int64)RtlpPtrTree.Root;
+  while ( Root )
   {
-    if ( a1 - *(_QWORD *)(v6 + 24) >= 0 )
+    if ( a1 - *(_QWORD *)(Root + 24) >= 0 )
     {
-      if ( a1 - *(_QWORD *)(v6 + 24) <= 0 )
+      if ( a1 - *(_QWORD *)(Root + 24) <= 0 )
       {
-        RtlRbRemoveNode((unsigned __int64 *)&RtlpPtrTree, v6);
+        RtlRbRemoveNode(&RtlpPtrTree, (PRTL_BALANCED_NODE)Root);
         break;
       }
-      v7 = *(_QWORD *)(v6 + 8);
+      v5 = *(_QWORD *)(Root + 8);
     }
     else
     {
-      v7 = *(_QWORD *)v6;
+      v5 = *(_QWORD *)Root;
     }
-    if ( (qword_180177EC0 & 1) != 0 && v7 )
-      v6 ^= v7;
+    if ( (*(_BYTE *)&RtlpPtrTree.0 & 1) != 0 && v5 )
+      Root ^= v5;
     else
-      v6 = v7;
+      Root = v5;
   }
   RtlReleaseSRWLockExclusive(&RtlpPtrTreeLock);
-  if ( !v6 )
+  if ( !Root )
     return 3221226021LL;
-  *a2 = *(_QWORD *)(v6 + 32);
-  RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v6);
+  *a2 = *(_QWORD *)(Root + 32);
+  RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, (PVOID)Root);
   return 0LL;
 }

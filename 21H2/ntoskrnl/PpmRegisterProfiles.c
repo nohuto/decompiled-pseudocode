@@ -1,20 +1,20 @@
 /*
- * XREFs of PpmRegisterProfiles @ 0x1407C5768
+ * XREFs of PpmRegisterProfiles @ 0x1407C5C88
  * Callers:
- *     PdcPoPpmRegisterProfiles @ 0x1407C5750 (PdcPoPpmRegisterProfiles.c)
+ *     PdcPoPpmRegisterProfiles @ 0x1407C5C70 (PdcPoPpmRegisterProfiles.c)
  * Callees:
- *     PpmReleaseLock @ 0x14022AB00 (PpmReleaseLock.c)
- *     RtlULongLongMult @ 0x14024ED98 (RtlULongLongMult.c)
- *     RtlStringCchLengthW @ 0x140264E74 (RtlStringCchLengthW.c)
- *     RtlStringCbLengthW @ 0x140265368 (RtlStringCbLengthW.c)
- *     PopReleaseRwLock @ 0x14027C284 (PopReleaseRwLock.c)
- *     PpmAcquireLock @ 0x140281A74 (PpmAcquireLock.c)
- *     PopAcquireRwLockExclusive @ 0x140281AD4 (PopAcquireRwLockExclusive.c)
- *     RtlStringCchCopyW @ 0x1403716A0 (RtlStringCchCopyW.c)
- *     PpmResetProfileSettings @ 0x1403C89E4 (PpmResetProfileSettings.c)
- *     memset @ 0x140414200 (memset.c)
- *     PpmEventTraceProfiles @ 0x1407C5974 (PpmEventTraceProfiles.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     RtlStringCbLengthW @ 0x14024789C (RtlStringCbLengthW.c)
+ *     RtlStringCchLengthW @ 0x140252F04 (RtlStringCchLengthW.c)
+ *     PopReleaseRwLock @ 0x14026A224 (PopReleaseRwLock.c)
+ *     PpmAcquireLock @ 0x14026FCB4 (PpmAcquireLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14026FD14 (PopAcquireRwLockExclusive.c)
+ *     PpmReleaseLock @ 0x1402CF3B0 (PpmReleaseLock.c)
+ *     RtlULongLongMult @ 0x1402F35E8 (RtlULongLongMult.c)
+ *     RtlStringCchCopyW @ 0x1403711F0 (RtlStringCchCopyW.c)
+ *     PpmResetProfileSettings @ 0x1403C8B84 (PpmResetProfileSettings.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     PpmEventTraceProfiles @ 0x1407C5E94 (PpmEventTraceProfiles.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PpmRegisterProfiles(unsigned __int8 a1, __int64 a2)

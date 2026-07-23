@@ -24,7 +24,7 @@ char __fastcall sub_1800FD708(
 {
   __int64 v7; // r15
   __int16 v8; // r14
-  __int64 v11; // r13
+  WCHAR *v11; // r13
   bool v12; // zf
   char v13; // bl
   unsigned __int16 *v14; // rdi
@@ -35,13 +35,13 @@ char __fastcall sub_1800FD708(
   __int64 *v19; // rdi
   __int64 v20; // r8
   const WCHAR *v21; // rdx
-  wchar_t *v22; // rax
+  WCHAR *v22; // rax
   __int64 v23; // r8
   const wchar_t *v24; // rdx
   __int64 v25; // r8
-  UNICODE_STRING DestinationString; // [rsp+30h] [rbp-10h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+30h] [rbp-10h] BYREF
   __int16 v28; // [rsp+88h] [rbp+48h] BYREF
-  int v29; // [rsp+98h] [rbp+58h] BYREF
+  DWORD Lcid; // [rsp+98h] [rbp+58h] BYREF
 
   v7 = 0LL;
   v8 = a3;
@@ -91,9 +91,9 @@ LABEL_3:
         if ( v21 )
         {
           RtlInitUnicodeString(&DestinationString, v21);
-          if ( RtlCultureNameToLCID(&DestinationString.Length, &v29) )
+          if ( RtlCultureNameToLCID(&DestinationString, &Lcid) )
           {
-            v12 = v8 == (__int16)v29;
+            v12 = v8 == (__int16)Lcid;
             goto LABEL_3;
           }
         }
@@ -101,13 +101,13 @@ LABEL_3:
     }
     else if ( a2 == 3 && a4 == 1 )
     {
-      v22 = (wchar_t *)sub_180016554(a1, 0x55u);
-      v11 = (__int64)v22;
+      v22 = (WCHAR *)sub_180016554(a1, 0x55u);
+      v11 = v22;
       if ( v22 )
       {
         DestinationString.Buffer = v22;
         *(_DWORD *)&DestinationString.Length = 11141120;
-        if ( RtlLCIDToCultureName((__int16)a5, (__int64)&DestinationString) )
+        if ( RtlLCIDToCultureName((__int16)a5, &DestinationString) )
         {
           v23 = *(_QWORD *)(a1 + 32);
           if ( v23 && v8 >= 0 && v8 < (int)*(unsigned __int16 *)(v23 + 6) )
@@ -123,7 +123,7 @@ LABEL_47:
     v13 = 0;
 LABEL_48:
     if ( v11 )
-      RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v11);
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v11);
     v11 = 0LL;
     v7 = 0LL;
     goto LABEL_22;
@@ -138,7 +138,7 @@ LABEL_48:
     goto LABEL_47;
   v18 = (unsigned __int16)a3;
   LOBYTE(a3) = a2;
-  v11 = *(_QWORD *)(v17 + 16) + 28LL * (__int16)a5;
+  v11 = (WCHAR *)(*(_QWORD *)(v17 + 16) + 28LL * (__int16)a5);
   v13 = sub_1800FE558(a1, v11, a3, v18);
   if ( v13 && v11 && v14 )
     *v14 = v16;
@@ -151,7 +151,7 @@ LABEL_22:
     {
       if ( v11 )
       {
-        *a6 = v11;
+        *a6 = (__int64)v11;
       }
       else if ( v7 )
       {

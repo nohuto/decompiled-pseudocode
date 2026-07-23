@@ -7,13 +7,13 @@
  *     RtlpDeCommitFreeBlock @ 0x18001E2D8 (RtlpDeCommitFreeBlock.c)
  *     RtlpFreeHeap @ 0x180025C00 (RtlpFreeHeap.c)
  *     RtlpAllocateHeap @ 0x18002D160 (RtlpAllocateHeap.c)
- *     RtlpCoalesceHeap @ 0x1800F369C (RtlpCoalesceHeap.c)
+ *     RtlpCoalesceHeap @ 0x1800F365C (RtlpCoalesceHeap.c)
  * Callees:
  *     RtlpHeapAddListEntry @ 0x18001E1AC (RtlpHeapAddListEntry.c)
  *     RtlpFindEntry @ 0x18001E25C (RtlpFindEntry.c)
  *     DbgPrint @ 0x180051AC0 (DbgPrint.c)
- *     RtlpHeapHandleError @ 0x180108280 (RtlpHeapHandleError.c)
- *     RtlpLogHeapFailure @ 0x18010E1BC (RtlpLogHeapFailure.c)
+ *     RtlpHeapHandleError @ 0x180108240 (RtlpHeapHandleError.c)
+ *     RtlpLogHeapFailure @ 0x18010E17C (RtlpLogHeapFailure.c)
  */
 
 void __fastcall RtlpInsertFreeBlock(__int64 a1, __int64 a2, unsigned __int64 a3)

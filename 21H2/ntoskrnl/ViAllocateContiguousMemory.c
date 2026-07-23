@@ -1,12 +1,12 @@
 /*
- * XREFs of ViAllocateContiguousMemory @ 0x1409CD3AC
+ * XREFs of ViAllocateContiguousMemory @ 0x1409CE3AC
  * Callers:
- *     ViHookDmaAdapter @ 0x1409CEE8C (ViHookDmaAdapter.c)
+ *     ViHookDmaAdapter @ 0x1409CFE8C (ViHookDmaAdapter.c)
  * Callees:
- *     MmAllocateContiguousNodeMemory @ 0x140294EA0 (MmAllocateContiguousNodeMemory.c)
- *     RtlSetBits @ 0x140358F70 (RtlSetBits.c)
- *     RtlClearAllBits @ 0x140362270 (RtlClearAllBits.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     MmAllocateContiguousNodeMemory @ 0x140216B60 (MmAllocateContiguousNodeMemory.c)
+ *     RtlClearAllBits @ 0x1402F70D0 (RtlClearAllBits.c)
+ *     RtlSetBits @ 0x140363CC0 (RtlSetBits.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall ViAllocateContiguousMemory(__int64 a1)

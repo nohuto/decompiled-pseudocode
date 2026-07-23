@@ -1,7 +1,7 @@
 /*
- * XREFs of PpvDmaInit @ 0x140C21134
+ * XREFs of PpvDmaInit @ 0x140C27144
  * Callers:
- *     VfDmaPluginEntry @ 0x1406476A0 (VfDmaPluginEntry.c)
+ *     VfDmaPluginEntry @ 0x14064B280 (VfDmaPluginEntry.c)
  * Callees:
  *     <none>
  */

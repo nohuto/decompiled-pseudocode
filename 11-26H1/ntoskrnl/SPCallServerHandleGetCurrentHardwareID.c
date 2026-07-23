@@ -1,13 +1,13 @@
 /*
- * XREFs of SPCallServerHandleGetCurrentHardwareID @ 0x1404D9AE0
+ * XREFs of SPCallServerHandleGetCurrentHardwareID @ 0x1404D31C0
  * Callers:
- *     SPCall2ServerInternal @ 0x140A1AE00 (SPCall2ServerInternal.c)
+ *     SPCall2ServerInternal @ 0x140A24430 (SPCall2ServerInternal.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SPCallServerHandleGetCurrentHardwareID(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -119,7 +119,7 @@ __int64 __fastcall SPCallServerHandleGetCurrentHardwareID(__int64 a1, __int64 a2
   {
     v22 = 1;
   }
-  if ( ExpPlatformBinaryLock.IoSelfBoostsEntry.Next )
+  if ( *(_QWORD *)&ExpPlatformBinaryLock.PriorityFloorCounts[8] )
   {
     v52 = 0LL;
     if ( !v22 )

@@ -1,128 +1,128 @@
 /*
- * XREFs of DifDeregisterPlugin @ 0x1406186B8
+ * XREFs of DifDeregisterPlugin @ 0x140616C78
  * Callers:
- *     VfVolatileClearDifRuleClass @ 0x1406148D0 (VfVolatileClearDifRuleClass.c)
- *     DifRegisterPlugin @ 0x140618BD0 (DifRegisterPlugin.c)
+ *     VfVolatileClearDifRuleClass @ 0x140612E90 (VfVolatileClearDifRuleClass.c)
+ *     DifRegisterPlugin @ 0x140617190 (DifRegisterPlugin.c)
  * Callees:
- *     ViUnbindDifThunk @ 0x140611178 (ViUnbindDifThunk.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ViUnbindDifThunk @ 0x14060F738 (ViUnbindDifThunk.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
-void __fastcall DifDeregisterPlugin(_DWORD *a1, __int64 a2, __int64 a3, __int64 a4)
+void __fastcall DifDeregisterPlugin(_DWORD *a1)
 {
-  __int64 v4; // rbp
-  __int64 v5; // rdx
-  int v6; // eax
-  __int64 *v7; // rdi
-  __int64 *v8; // r14
-  _QWORD *v9; // r15
-  _QWORD *v10; // rbx
-  _QWORD *v11; // rax
-  _QWORD *v12; // rdx
-  _QWORD *v13; // rsi
-  _QWORD *v14; // rbx
-  _QWORD *v15; // rax
-  _QWORD *v16; // rdx
-  __int64 *v17; // rax
-  __int64 **v18; // rcx
-  int v19; // edx
-  int v20; // edx
-  _QWORD *v21; // rbx
-  void *v22; // rcx
+  __int64 v1; // rbp
+  __int64 v2; // rdx
+  int v3; // eax
+  __int64 *v4; // rdi
+  __int64 *v5; // r14
+  _QWORD *v6; // r15
+  _QWORD *v7; // rbx
+  _QWORD *v8; // rax
+  _QWORD *v9; // rdx
+  _QWORD *v10; // rsi
+  _QWORD *v11; // rbx
+  _QWORD *v12; // rax
+  _QWORD *v13; // rdx
+  __int64 *v14; // rax
+  __int64 **v15; // rcx
+  int v16; // edx
+  int v17; // edx
+  _QWORD *v18; // rbx
+  void *v19; // rcx
 
   if ( (unsigned int)a1 < 0x40 )
   {
-    v4 = (unsigned int)a1;
-    v5 = (unsigned __int8)a1 & 0x1F;
-    v6 = *((_DWORD *)&VfRuleClasses + ((unsigned __int64)(unsigned int)a1 >> 5));
-    if ( _bittest(&v6, v5) )
+    v1 = (unsigned int)a1;
+    v2 = (unsigned __int8)a1 & 0x1F;
+    v3 = *((_DWORD *)&VfRuleClasses + ((unsigned __int64)(unsigned int)a1 >> 5));
+    if ( _bittest(&v3, v2) )
     {
-      v7 = (__int64 *)DifAPIThunkContextHead;
-      while ( v7 != &DifAPIThunkContextHead )
+      v4 = (__int64 *)DifAPIThunkContextHead;
+      while ( v4 != &DifAPIThunkContextHead )
       {
-        v8 = v7 - 2;
-        v9 = v7 + 2;
-        v10 = (_QWORD *)*v9;
-        while ( v10 != v9 )
+        v5 = v4 - 2;
+        v6 = v4 + 2;
+        v7 = (_QWORD *)*v6;
+        while ( v7 != v6 )
         {
-          a1 = v10 - 2;
-          v11 = v10;
-          v10 = (_QWORD *)*v10;
-          if ( *a1 == (_DWORD)v4 )
+          a1 = v7 - 2;
+          v8 = v7;
+          v7 = (_QWORD *)*v7;
+          if ( *a1 == (_DWORD)v1 )
           {
-            if ( (_QWORD *)v10[1] != v11 )
+            if ( (_QWORD *)v7[1] != v8 )
               goto LABEL_35;
-            v12 = (_QWORD *)v11[1];
-            if ( (_QWORD *)*v12 != v11 )
+            v9 = (_QWORD *)v8[1];
+            if ( (_QWORD *)*v9 != v8 )
               goto LABEL_35;
-            *v12 = v10;
-            v10[1] = v12;
-            *v11 = 0LL;
-            v11[1] = 0LL;
+            *v9 = v7;
+            v7[1] = v9;
+            *v8 = 0LL;
+            v8[1] = 0LL;
             ExFreePoolWithTag(a1, 0x4E666944u);
           }
         }
-        v13 = v8 + 6;
-        v14 = (_QWORD *)v8[6];
-        while ( v14 != v13 )
+        v10 = v5 + 6;
+        v11 = (_QWORD *)v5[6];
+        while ( v11 != v10 )
         {
-          a1 = v14 - 2;
-          v15 = v14;
-          v14 = (_QWORD *)*v14;
-          if ( *a1 == (_DWORD)v4 )
+          a1 = v11 - 2;
+          v12 = v11;
+          v11 = (_QWORD *)*v11;
+          if ( *a1 == (_DWORD)v1 )
           {
-            if ( (_QWORD *)v14[1] != v15 )
+            if ( (_QWORD *)v11[1] != v12 )
               goto LABEL_35;
-            v16 = (_QWORD *)v15[1];
-            if ( (_QWORD *)*v16 != v15 )
+            v13 = (_QWORD *)v12[1];
+            if ( (_QWORD *)*v13 != v12 )
               goto LABEL_35;
-            *v16 = v14;
-            v14[1] = v16;
-            *v15 = 0LL;
-            v15[1] = 0LL;
+            *v13 = v11;
+            v11[1] = v13;
+            *v12 = 0LL;
+            v12[1] = 0LL;
             ExFreePoolWithTag(a1, 0x4E666944u);
           }
         }
-        v17 = v7;
-        v7 = (__int64 *)*v7;
-        if ( (_QWORD *)*v9 == v9 && (_QWORD *)*v13 == v13 )
+        v14 = v4;
+        v4 = (__int64 *)*v4;
+        if ( (_QWORD *)*v6 == v6 && (_QWORD *)*v10 == v10 )
         {
-          if ( (__int64 *)v7[1] != v17 || (v18 = (__int64 **)v17[1], *v18 != v17) )
+          if ( (__int64 *)v4[1] != v14 || (v15 = (__int64 **)v14[1], *v15 != v14) )
 LABEL_35:
             __fastfail(3u);
-          *v18 = v7;
-          v7[1] = (__int64)v18;
-          *v17 = 0LL;
-          v17[1] = 0LL;
-          if ( !ViUnbindDifThunk((__int64)&VfDifThunks, *((_DWORD *)v8 + 2))
-            && !ViUnbindDifThunk((__int64)&VfPoolThunks, v19) )
+          *v15 = v4;
+          v4[1] = (__int64)v15;
+          *v14 = 0LL;
+          v14[1] = 0LL;
+          if ( !ViUnbindDifThunk((__int64)&VfDifThunks, *((_DWORD *)v5 + 2))
+            && !ViUnbindDifThunk((__int64)&VfPoolThunks, v16) )
           {
-            ViUnbindDifThunk((__int64)&VfRegularThunks, v20);
+            ViUnbindDifThunk((__int64)&VfRegularThunks, v17);
           }
-          if ( *v8 )
+          if ( *v5 )
           {
-            ExFreePoolWithTag((PVOID)*v8, 0x4E666944u);
-            *v8 = 0LL;
+            ExFreePoolWithTag((PVOID)*v5, 0x4E666944u);
+            *v5 = 0LL;
           }
-          ExFreePoolWithTag(v8, 0x4E666944u);
+          ExFreePoolWithTag(v5, 0x4E666944u);
         }
       }
-      v21 = (_QWORD *)DifPluginSettings[v4];
-      if ( v21 )
+      v18 = (_QWORD *)DifPluginSettings[v1];
+      if ( v18 )
       {
-        if ( v21[1] )
-          guard_dispatch_icall_no_overrides(a1, v5, a3, a4);
-        v22 = (void *)v21[3];
-        if ( v22 )
+        if ( v18[1] )
+          guard_dispatch_icall_no_overrides(a1, v2);
+        v19 = (void *)v18[3];
+        if ( v19 )
         {
-          ExFreePoolWithTag(v22, 0x4E666944u);
-          v21[3] = 0LL;
+          ExFreePoolWithTag(v19, 0x4E666944u);
+          v18[3] = 0LL;
         }
-        ExFreePoolWithTag(v21, 0x4E666944u);
-        DifPluginSettings[v4] = 0LL;
+        ExFreePoolWithTag(v18, 0x4E666944u);
+        DifPluginSettings[v1] = 0LL;
       }
-      DifPluginStates[v4] = 0;
+      DifPluginStates[v1] = 0;
     }
   }
 }

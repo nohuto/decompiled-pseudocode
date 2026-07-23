@@ -93,10 +93,13 @@ LABEL_6:
 LABEL_30:
       KxReleaseQueuedSpinLock((volatile signed __int64 **)&WaitBlockArray_8);
       OldIrql = WaitBlockArray_8.OldIrql;
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && WaitBlockArray_8.OldIrql <= 0xFu && CurrentIrql >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+          && CurrentIrql <= 0xFu
+          && WaitBlockArray_8.OldIrql <= 0xFu
+          && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -114,10 +117,10 @@ LABEL_30:
       CcSetLazyWriteScanQueuedInternal(v9, v4, 1);
       KxReleaseQueuedSpinLock((volatile signed __int64 **)&WaitBlockArray_8);
       v10 = WaitBlockArray_8.OldIrql;
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v24 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v24 <= 0xFu && WaitBlockArray_8.OldIrql <= 0xFu && v24 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v24 <= 0xFu && WaitBlockArray_8.OldIrql <= 0xFu && v24 >= 2u )
         {
           v25 = KeGetCurrentPrcb();
           v26 = v25->SchedulerAssist;

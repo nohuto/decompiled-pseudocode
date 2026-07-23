@@ -1,11 +1,11 @@
 /*
- * XREFs of ExpSvmReferenceAsid @ 0x1406598A0
+ * XREFs of ExpSvmReferenceAsid @ 0x140657F40
  * Callers:
  *     <none>
  * Callees:
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     ExpAcquireSvmAgentsLock @ 0x1406589FC (ExpAcquireSvmAgentsLock.c)
- *     ExpReleaseSvmAgentsLock @ 0x140658FF4 (ExpReleaseSvmAgentsLock.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     ExpAcquireSvmAgentsLock @ 0x14065709C (ExpAcquireSvmAgentsLock.c)
+ *     ExpReleaseSvmAgentsLock @ 0x140657694 (ExpReleaseSvmAgentsLock.c)
  */
 
 __int64 __fastcall ExpSvmReferenceAsid(ULONG_PTR BugCheckParameter1)
@@ -25,19 +25,19 @@ __int64 __fastcall ExpSvmReferenceAsid(ULONG_PTR BugCheckParameter1)
   v1 = (unsigned int)BugCheckParameter1;
   memset(&v12, 0, sizeof(v12));
   v2 = ExpAcquireSvmAgentsLock(&v12);
-  v3 = qword_140EFA450;
+  v3 = qword_140EFA6D0;
   v4 = 0LL;
   v5 = v2;
-  if ( (unsigned int)v1 >= (unsigned int)dword_140EFA444 )
+  if ( (unsigned int)v1 >= (unsigned int)dword_140EFA6C4 )
   {
     BugCheckParameter4 = 0LL;
 LABEL_10:
-    if ( (unsigned int)v1 < (unsigned int)dword_140EFA444 )
-      v4 = *((_QWORD *)qword_140EFA450 + 3 * v1);
-    KeBugCheckEx(0x158u, v1, (unsigned int)dword_140EFA444, v4, BugCheckParameter4);
+    if ( (unsigned int)v1 < (unsigned int)dword_140EFA6C4 )
+      v4 = *((_QWORD *)qword_140EFA6D0 + 3 * v1);
+    KeBugCheckEx(0x158u, v1, (unsigned int)dword_140EFA6C4, v4, BugCheckParameter4);
   }
-  v6 = *((_QWORD *)qword_140EFA450 + 3 * v1);
-  v7 = (char *)qword_140EFA450 + 24 * v1;
+  v6 = *((_QWORD *)qword_140EFA6D0 + 3 * v1);
+  v7 = (char *)qword_140EFA6D0 + 24 * v1;
   if ( !v6 || (v8 = *((_QWORD *)v7 + 1), v8 < 0) )
   {
     BugCheckParameter4 = *((_QWORD *)v7 + 1);

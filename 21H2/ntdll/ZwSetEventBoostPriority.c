@@ -1,16 +1,16 @@
 /*
- * XREFs of ZwSetEventBoostPriority @ 0x18009DBE0
+ * XREFs of ZwSetEventBoostPriority @ 0x18009DBA0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 ZwSetEventBoostPriority()
+NTSTATUS __cdecl ZwSetEventBoostPriority(HANDLE EventHandle)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 45LL;
+  result = 45;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

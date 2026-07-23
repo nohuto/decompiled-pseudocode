@@ -14,7 +14,7 @@ BOOLEAN __fastcall I_MinAsn1AdjustFileTime(__int64 *a1, __int16 a2, char a3)
   BOOLEAN result; // al
   __int64 v8; // rcx
   LONGLONG v9; // rcx
-  TIME_FIELDS TimeFields; // [rsp+20h] [rbp-10h] BYREF
+  _TIME_FIELDS TimeFields; // [rsp+20h] [rbp-10h] BYREF
   LARGE_INTEGER Time; // [rsp+58h] [rbp+28h] BYREF
 
   Time.QuadPart = 0LL;

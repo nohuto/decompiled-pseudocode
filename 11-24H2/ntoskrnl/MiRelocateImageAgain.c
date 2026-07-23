@@ -1,102 +1,96 @@
 /*
- * XREFs of MiRelocateImageAgain @ 0x1408F642C
+ * XREFs of MiRelocateImageAgain @ 0x140AEAE48
  * Callers:
- *     MiValidateExistingImage @ 0x140943A54 (MiValidateExistingImage.c)
+ *     MiValidateExistingImage @ 0x14098DCCC (MiValidateExistingImage.c)
  * Callees:
- *     MiReleasePtes @ 0x14028DDA0 (MiReleasePtes.c)
- *     MiReservePtes @ 0x14028FF10 (MiReservePtes.c)
- *     PsGetSessionIdEx @ 0x1403025D0 (PsGetSessionIdEx.c)
- *     MI_LOCK_RELOCATIONS_EXCLUSIVE @ 0x14045B1E0 (MI_LOCK_RELOCATIONS_EXCLUSIVE.c)
- *     MI_UNLOCK_RELOCATIONS_EXCLUSIVE @ 0x140460630 (MI_UNLOCK_RELOCATIONS_EXCLUSIVE.c)
- *     MiGetControlAreaLoadConfig @ 0x140464454 (MiGetControlAreaLoadConfig.c)
- *     MiImageUnused @ 0x14046EEF4 (MiImageUnused.c)
- *     MiReturnImageBase @ 0x1408F6610 (MiReturnImageBase.c)
- *     MiSelectImageBase @ 0x1408F67EC (MiSelectImageBase.c)
- *     MiUpdateImageSystemWideBitmaps @ 0x1408F6B88 (MiUpdateImageSystemWideBitmaps.c)
- *     MiSwitchBaseAddress @ 0x1408F6D04 (MiSwitchBaseAddress.c)
- *     SeSetImageBaseAddress @ 0x1408F7330 (SeSetImageBaseAddress.c)
+ *     MiReleasePtes @ 0x14029D9A0 (MiReleasePtes.c)
+ *     MiReservePtes @ 0x14029FB10 (MiReservePtes.c)
+ *     PsGetSessionIdEx @ 0x14030CBE0 (PsGetSessionIdEx.c)
+ *     MI_LOCK_RELOCATIONS_EXCLUSIVE @ 0x1404505E0 (MI_LOCK_RELOCATIONS_EXCLUSIVE.c)
+ *     MI_UNLOCK_RELOCATIONS_EXCLUSIVE @ 0x140455510 (MI_UNLOCK_RELOCATIONS_EXCLUSIVE.c)
+ *     MiGetControlAreaLoadConfig @ 0x14045AB84 (MiGetControlAreaLoadConfig.c)
+ *     MiImageUnused @ 0x140469604 (MiImageUnused.c)
+ *     MiUpdateImageSystemWideBitmaps @ 0x140974650 (MiUpdateImageSystemWideBitmaps.c)
+ *     MiReturnImageBase @ 0x1409D83E0 (MiReturnImageBase.c)
+ *     MiSwitchBaseAddress @ 0x140A45C38 (MiSwitchBaseAddress.c)
+ *     SeSetImageBaseAddress @ 0x140A8DA70 (SeSetImageBaseAddress.c)
+ *     MiSelectImageBase @ 0x140AEB020 (MiSelectImageBase.c)
  */
 
-__int64 __fastcall MiRelocateImageAgain(__int64 a1, int a2)
+__int64 __fastcall MiRelocateImageAgain(__int64 a1, int a2, int a3)
 {
-  __int64 v2; // rsi
-  unsigned __int64 v4; // rsi
-  __int64 v6; // r15
-  __int64 v7; // rbp
-  _QWORD *v8; // r14
+  __int64 v3; // rbp
+  unsigned __int64 v5; // rbp
+  __int64 v8; // r15
+  __int64 v10; // r13
+  __int64 v11; // rdx
+  _QWORD *v12; // r14
   int updated; // edi
-  __int64 v10; // rdx
-  __int64 v12; // r13
-  __int64 ControlAreaLoadConfig; // rax
-  __int64 v14; // rbp
-  unsigned int SessionId; // eax
-  __int64 v16; // [rsp+30h] [rbp-58h] BYREF
-  __int128 v17; // [rsp+38h] [rbp-50h]
+  __int64 v14; // rsi
+  struct _KTHREAD *CurrentThread; // [rsp+30h] [rbp-58h]
+  __int64 v16; // [rsp+38h] [rbp-50h] BYREF
+  __int128 v17; // [rsp+40h] [rbp-48h]
   __int64 v18; // [rsp+90h] [rbp+8h] BYREF
-  struct _KTHREAD *CurrentThread; // [rsp+A0h] [rbp+18h]
+  __int64 v19; // [rsp+A8h] [rbp+20h]
 
-  v2 = *(_QWORD *)(a1 + 96);
+  v3 = *(_QWORD *)(a1 + 96);
   v18 = 0LL;
-  v4 = v2 & 0xFFFFFFFFFFFFFFF8uLL;
-  v6 = *(_QWORD *)(v4 + 32);
-  if ( !v6 )
+  v5 = v3 & 0xFFFFFFFFFFFFFFF8uLL;
+  v8 = *(_QWORD *)(v5 + 32);
+  if ( !v8 )
     return 0LL;
+  v10 = *(_QWORD *)a1;
+  v11 = *(_QWORD *)(v5 + 32);
   v16 = -1LL;
-  v7 = *(_QWORD *)a1;
-  v17 = 0LL;
-  v8 = 0LL;
+  v12 = 0LL;
   CurrentThread = KeGetCurrentThread();
   updated = 0;
-  MI_LOCK_RELOCATIONS_EXCLUSIVE((__int64)CurrentThread, v6);
+  v17 = 0LL;
+  MI_LOCK_RELOCATIONS_EXCLUSIVE((__int64)CurrentThread, v11);
   if ( (*(_DWORD *)(a1 + 92) & 0x400000) == 0 )
   {
-    v12 = *(_QWORD *)(v7 + 32);
-    v8 = (_QWORD *)MiReservePtes((__int64)&qword_140E37568, 1u);
-    if ( !v8 )
+    v19 = *(_QWORD *)(v10 + 32);
+    v12 = (_QWORD *)MiReservePtes((__int64)&qword_140E376A8, 1u);
+    if ( !v12 )
     {
       *(_DWORD *)(a1 + 92) |= 0x400000u;
-      goto LABEL_3;
+      goto LABEL_17;
     }
-    updated = MiSelectImageBase(v7, v6, a2, 0, (__int64)&v18);
-    if ( updated >= 0 )
+    updated = MiSelectImageBase(v10, v8, a2, a3 != 0 ? 2 : 0, (__int64)&v18);
+    if ( updated < 0 )
+      goto LABEL_17;
+    *(_DWORD *)(a1 + 92) |= 0x400000u;
+    MiGetControlAreaLoadConfig(a1);
+    v14 = v18;
+    updated = MiUpdateImageSystemWideBitmaps(a1);
+    if ( updated < 0 )
     {
-      *(_DWORD *)(a1 + 92) |= 0x400000u;
-      ControlAreaLoadConfig = MiGetControlAreaLoadConfig(a1);
-      v14 = v18;
-      updated = MiUpdateImageSystemWideBitmaps(a1, v18, ControlAreaLoadConfig);
-      if ( updated >= 0 )
-      {
-        if ( v14 == v12 )
-        {
-LABEL_11:
-          updated = 0;
-          goto LABEL_3;
-        }
-        if ( (MiFlags & 0x2000) == 0
-          || (*(_DWORD *)(a1 + 92) & 0xC0000) == 0
-          || (v14 = v18, updated = SeSetImageBaseAddress(*(_QWORD *)(v4 + 40) & 0xFFFFFFFFFFFFFFF8uLL, v18),
-                         updated >= 0) )
-        {
-          if ( a2 )
-          {
-            SessionId = -1;
-          }
-          else
-          {
-            SessionId = PsGetSessionIdEx((__int64)KeGetCurrentThread()->ApcState.Process);
-            v14 = v18;
-          }
-          MiSwitchBaseAddress(a1, v14, v8, SessionId);
-          goto LABEL_11;
-        }
-      }
+LABEL_8:
       MiImageUnused(a1, 0, (__int64)&v16);
+      goto LABEL_17;
     }
+    if ( v14 != v19 )
+    {
+      if ( (MiFlags & 0x2000) != 0 && (*(_DWORD *)(a1 + 92) & 0xC0000) != 0 )
+      {
+        v14 = v18;
+        updated = SeSetImageBaseAddress(*(_QWORD *)(v5 + 40) & 0xFFFFFFFFFFFFFFF8uLL, v18);
+        if ( updated < 0 )
+          goto LABEL_8;
+      }
+      if ( !a2 )
+      {
+        PsGetSessionIdEx((__int64)KeGetCurrentThread()->ApcState.Process);
+        v14 = v18;
+      }
+      MiSwitchBaseAddress((_QWORD *)a1, v14, (__int64)v12);
+    }
+    updated = 0;
   }
-LABEL_3:
-  MI_UNLOCK_RELOCATIONS_EXCLUSIVE((__int64)CurrentThread, v6);
-  if ( v8 )
-    MiReleasePtes((__int64)&qword_140E37568, v8, 1u);
-  MiReturnImageBase(&v16, v10);
+LABEL_17:
+  MI_UNLOCK_RELOCATIONS_EXCLUSIVE((__int64)CurrentThread, v8);
+  if ( v12 )
+    MiReleasePtes((__int64)&qword_140E376A8, v12, 1u);
+  MiReturnImageBase((__int64)&v16);
   return (unsigned int)updated;
 }

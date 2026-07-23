@@ -12,31 +12,31 @@
  *     ZwProtectVirtualMemory @ 0x1800A5D00 (ZwProtectVirtualMemory.c)
  */
 
-__int64 __fastcall sub_180039F38(__int64 a1, unsigned __int16 *a2, __int64 a3)
+NTSTATUS __fastcall sub_180039F38(__int64 a1, unsigned __int16 *a2, __int64 a3)
 {
   int v6; // r10d
   int v7; // eax
   int v8; // r9d
   int v9; // edi
-  int v10; // eax
+  NTSTATUS v10; // eax
   __int64 v11; // r8
   __int64 v12; // rdx
   unsigned int v13; // ecx
-  __int64 v14; // rdx
+  ULONG_PTR v14; // rdx
   __int64 (**v15)(void); // rsi
   unsigned __int64 v16; // rcx
-  __int64 result; // rax
+  NTSTATUS result; // eax
   __int64 (__fastcall **v18)(); // rdi
   unsigned __int64 v19; // rcx
   int v20; // edi
-  __int64 v21; // [rsp+30h] [rbp-20h] BYREF
-  __int64 v22; // [rsp+38h] [rbp-18h] BYREF
+  ULONG_PTR RegionSize; // [rsp+30h] [rbp-20h] BYREF
+  PVOID BaseAddress; // [rsp+38h] [rbp-18h] BYREF
   __int64 v23; // [rsp+40h] [rbp-10h] BYREF
-  unsigned int v24; // [rsp+A0h] [rbp+50h] BYREF
-  int v25; // [rsp+A8h] [rbp+58h] BYREF
+  ULONG NewProtect; // [rsp+A0h] [rbp+50h] BYREF
+  DWORD v25; // [rsp+A8h] [rbp+58h] BYREF
 
   if ( !a3 || *(_DWORD *)a3 < 0x94u )
-    return 0LL;
+    return 0;
   v6 = 32512;
   v7 = 32512;
   v8 = dword_180158674 & 4;
@@ -59,7 +59,7 @@ __int64 __fastcall sub_180039F38(__int64 a1, unsigned __int16 *a2, __int64 a3)
     *(_DWORD *)(a1 + 104) |= 0x8000u;
     if ( (*(_DWORD *)(a3 + 144) & 0x2000) != 0 )
     {
-      v10 = sub_180032C0C(*(_QWORD *)(a1 + 48), 1, 0xDu, &v25, &v23);
+      v10 = sub_180032C0C(*(_QWORD *)(a1 + 48), 1, 0xDu, &v25, (char **)&v23);
       v11 = v23;
       if ( v10 < 0 )
         v11 = 0LL;
@@ -76,39 +76,39 @@ __int64 __fastcall sub_180039F38(__int64 a1, unsigned __int16 *a2, __int64 a3)
             if ( v13 >= a2[3] )
               goto LABEL_18;
           }
-          v22 = *(_QWORD *)(a1 + 48) + *(unsigned int *)(v12 + 12);
-          v21 = *(unsigned int *)(v12 + 8);
+          BaseAddress = (PVOID)(*(_QWORD *)(a1 + 48) + *(unsigned int *)(v12 + 12));
+          RegionSize = *(unsigned int *)(v12 + 8);
           sub_18007A01C();
-          ZwProtectVirtualMemory(-1LL, &v22, &v21, 2LL, &v24);
+          ZwProtectVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, &RegionSize, 2u, &NewProtect);
         }
       }
     }
   }
 LABEL_18:
-  v14 = qword_18016B370;
-  if ( !qword_18016B370 )
-    return 0LL;
+  v14 = LdrSystemDllInitBlock.MitigationOptionsMap.Map[2];
+  if ( !LdrSystemDllInitBlock.MitigationOptionsMap.Map[2] )
+    return 0;
   if ( (*(_DWORD *)(a3 + 144) & 0x100) == 0 || (a2[47] & 0x4000) == 0 )
   {
     sub_180089798(a1, a2);
-    v14 = qword_18016B370;
+    v14 = LdrSystemDllInitBlock.MitigationOptionsMap.Map[2];
   }
   if ( !v14 || (*(_DWORD *)(a3 + 144) & 0x100) == 0 || (a2[47] & 0x4000) == 0 )
-    return 0LL;
+    return 0;
   v15 = *(__int64 (***)(void))(a3 + 112);
   if ( v15
     && (v16 = *(_QWORD *)(a1 + 48), (unsigned __int64)v15 >= v16)
     && (unsigned __int64)v15 < *(unsigned int *)(a1 + 64) + v16 - 8
     && *v15 )
   {
-    v22 = *(_QWORD *)(a3 + 112);
-    v21 = 8LL;
-    result = ZwProtectVirtualMemory(-1LL, &v22, &v21, 4LL, &v24);
-    if ( (int)result < 0 )
+    BaseAddress = *(PVOID *)(a3 + 112);
+    RegionSize = 8LL;
+    result = ZwProtectVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, &RegionSize, 4u, &NewProtect);
+    if ( result < 0 )
       return result;
     *v15 = sub_180030138() && (*(_DWORD *)(a3 + 144) & 0x4000) != 0 ? sub_180096200 : sub_1800961B0;
-    result = ZwProtectVirtualMemory(-1LL, &v22, &v21, v24, &v24);
-    if ( (int)result < 0 )
+    result = ZwProtectVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, &RegionSize, NewProtect, &NewProtect);
+    if ( result < 0 )
       return result;
   }
   else
@@ -124,23 +124,23 @@ LABEL_18:
     v18 = 0LL;
     goto LABEL_39;
   }
-  v22 = *(_QWORD *)(a3 + 120);
-  v21 = 8LL;
-  result = ZwProtectVirtualMemory(-1LL, &v22, &v21, 4LL, &v24);
-  if ( (int)result >= 0 )
+  BaseAddress = *(PVOID *)(a3 + 120);
+  RegionSize = 8LL;
+  result = ZwProtectVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, &RegionSize, 4u, &NewProtect);
+  if ( result >= 0 )
   {
     *v18 = sub_180030138() && (*(_DWORD *)(a3 + 144) & 0x4000) != 0 ? sub_1800962A0 : sub_180096250;
-    result = ZwProtectVirtualMemory(-1LL, &v22, &v21, v24, &v24);
-    if ( (int)result >= 0 )
+    result = ZwProtectVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, &RegionSize, NewProtect, &NewProtect);
+    if ( result >= 0 )
     {
 LABEL_39:
       if ( !v15
         || *v15 != sub_1800961B0 && *v15 != sub_180096200
         || v18 && *v18 != sub_180096250 && *v18 != sub_1800962A0 )
       {
-        return 3221225534LL;
+        return -1073741762;
       }
-      return 0LL;
+      return 0;
     }
   }
   return result;

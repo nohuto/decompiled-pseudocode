@@ -54,10 +54,10 @@ char __fastcall CcCoalescingCallBackHelper(__int64 a1, __int64 a2, int *a3)
     }
     KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
     OldIrql = LockHandle.OldIrql;
-    if ( !KiIrqlFlags )
+    if ( !(_DWORD)KiIrqlFlags )
       goto LABEL_30;
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) == 0 )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) == 0 )
       goto LABEL_30;
     if ( CurrentIrql > 0xFu )
       goto LABEL_30;
@@ -94,10 +94,10 @@ char __fastcall CcCoalescingCallBackHelper(__int64 a1, __int64 a2, int *a3)
 LABEL_7:
     KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
     OldIrql = LockHandle.OldIrql;
-    if ( !KiIrqlFlags )
+    if ( !(_DWORD)KiIrqlFlags )
       goto LABEL_30;
     v11 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) == 0 )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) == 0 )
       goto LABEL_30;
     if ( v11 > 0xFu )
       goto LABEL_30;

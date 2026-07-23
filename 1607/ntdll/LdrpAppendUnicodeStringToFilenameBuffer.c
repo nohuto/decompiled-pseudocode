@@ -1,13 +1,13 @@
 /*
- * XREFs of LdrpAppendUnicodeStringToFilenameBuffer @ 0x180018C78
+ * XREFs of LdrpAppendUnicodeStringToFilenameBuffer @ 0x180018C68
  * Callers:
- *     LdrpPreprocessDllName @ 0x180015890 (LdrpPreprocessDllName.c)
- *     LdrpLoadDependentModule @ 0x180016680 (LdrpLoadDependentModule.c)
- *     LdrpBuildSystem32FileName @ 0x180018C08 (LdrpBuildSystem32FileName.c)
+ *     LdrpPreprocessDllName @ 0x180015880 (LdrpPreprocessDllName.c)
+ *     LdrpLoadDependentModule @ 0x180016670 (LdrpLoadDependentModule.c)
+ *     LdrpBuildSystem32FileName @ 0x180018BF8 (LdrpBuildSystem32FileName.c)
  * Callees:
- *     NtdllpAllocateStringRoutine @ 0x180018BE8 (NtdllpAllocateStringRoutine.c)
+ *     NtdllpAllocateStringRoutine @ 0x180018BD8 (NtdllpAllocateStringRoutine.c)
  *     memmove @ 0x1800AC980 (memmove.c)
- *     NtdllpReallocateStringRoutine @ 0x1800D2B04 (NtdllpReallocateStringRoutine.c)
+ *     NtdllpReallocateStringRoutine @ 0x1800D2BC4 (NtdllpReallocateStringRoutine.c)
  */
 
 __int64 __fastcall LdrpAppendUnicodeStringToFilenameBuffer(unsigned __int16 *a1, unsigned __int16 *a2)
@@ -16,7 +16,7 @@ __int64 __fastcall LdrpAppendUnicodeStringToFilenameBuffer(unsigned __int16 *a1,
   unsigned int v5; // esi
   unsigned int v7; // esi
   __int64 v8; // rdi
-  void *StringRoutine; // rax
+  PVOID StringRoutine; // rax
 
   v4 = 0;
   if ( *a2 )
@@ -38,7 +38,7 @@ LABEL_3:
       v7 = 65534;
     if ( *((unsigned __int16 **)a1 + 1) == a1 + 8 )
     {
-      StringRoutine = (void *)NtdllpAllocateStringRoutine(v7);
+      StringRoutine = NtdllpAllocateStringRoutine(v7);
       v8 = (__int64)StringRoutine;
       if ( !StringRoutine )
         return (unsigned int)-1073741801;

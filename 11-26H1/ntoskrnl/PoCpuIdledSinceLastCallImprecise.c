@@ -1,5 +1,5 @@
 /*
- * XREFs of PoCpuIdledSinceLastCallImprecise @ 0x140485030
+ * XREFs of PoCpuIdledSinceLastCallImprecise @ 0x14047E9A0
  * Callers:
  *     <none>
  * Callees:

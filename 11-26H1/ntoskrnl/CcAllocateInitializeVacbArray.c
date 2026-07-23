@@ -1,12 +1,12 @@
 /*
- * XREFs of CcAllocateInitializeVacbArray @ 0x1404D943C
+ * XREFs of CcAllocateInitializeVacbArray @ 0x1404D2B1C
  * Callers:
- *     CcGetVirtualAddress @ 0x1402E0F50 (CcGetVirtualAddress.c)
- *     CcInitializePartitionVacbs @ 0x1405B2EE8 (CcInitializePartitionVacbs.c)
+ *     CcGetVirtualAddress @ 0x1402C2D60 (CcGetVirtualAddress.c)
+ *     CcInitializePartitionVacbs @ 0x1405B56F8 (CcInitializePartitionVacbs.c)
  * Callees:
- *     KeAcquireQueuedSpinLock @ 0x1402B4690 (KeAcquireQueuedSpinLock.c)
- *     KeReleaseQueuedSpinLock @ 0x1402E2650 (KeReleaseQueuedSpinLock.c)
- *     ExAllocatePoolWithTag @ 0x140C10340 (ExAllocatePoolWithTag.c)
+ *     KeReleaseQueuedSpinLock @ 0x1402C4710 (KeReleaseQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x1402FF360 (KeAcquireQueuedSpinLock.c)
+ *     ExAllocatePoolWithTag @ 0x140C16340 (ExAllocatePoolWithTag.c)
  */
 
 char *CcAllocateInitializeVacbArray()
@@ -19,9 +19,9 @@ char *CcAllocateInitializeVacbArray()
   KIRQL v6; // al
 
   v0 = KeAcquireQueuedSpinLock(4uLL);
-  if ( LODWORD(EmpParseLock.MutantListHead.Blink) < 0x500 )
+  if ( *(_DWORD *)&EmpParseLock.PriorityFloorCounts[24] < 0x500u )
   {
-    ++LODWORD(EmpParseLock.MutantListHead.Blink);
+    ++*(_DWORD *)&EmpParseLock.PriorityFloorCounts[24];
     KeReleaseQueuedSpinLock(4uLL, v0);
     PoolWithTag = (char *)ExAllocatePoolWithTag((POOL_TYPE)1536, 0x20000uLL, 0x61566343u);
     v3 = PoolWithTag;
@@ -40,7 +40,7 @@ char *CcAllocateInitializeVacbArray()
     else
     {
       v6 = KeAcquireQueuedSpinLock(4uLL);
-      --LODWORD(EmpParseLock.MutantListHead.Blink);
+      --*(_DWORD *)&EmpParseLock.PriorityFloorCounts[24];
       KeReleaseQueuedSpinLock(4uLL, v6);
     }
     return v3;

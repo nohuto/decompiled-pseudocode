@@ -1,21 +1,21 @@
 /*
- * XREFs of KsepGetShimsForDriver @ 0x140959F74
+ * XREFs of KsepGetShimsForDriver @ 0x140941A34
  * Callers:
- *     KseDriverLoadImage @ 0x140959DBC (KseDriverLoadImage.c)
+ *     KseDriverLoadImage @ 0x14094187C (KseDriverLoadImage.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     KsepDebugPrint @ 0x1402CA2D8 (KsepDebugPrint.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     KsepLogInfo @ 0x14048E6C8 (KsepLogInfo.c)
- *     KsepPoolAllocatePaged @ 0x1404A03F0 (KsepPoolAllocatePaged.c)
- *     KsepResolveApplicableShimsForDriver @ 0x14073F888 (KsepResolveApplicableShimsForDriver.c)
- *     KsepDbFreeDriverShims @ 0x140959C50 (KsepDbFreeDriverShims.c)
- *     KsepIsModuleShimmed @ 0x14095A46C (KsepIsModuleShimmed.c)
- *     KsepEngineGetShimsFromRegistry @ 0x14095A578 (KsepEngineGetShimsFromRegistry.c)
- *     KsepDbGetDriverShims @ 0x14095B0A8 (KsepDbGetDriverShims.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     KsepLogInfo @ 0x140488AF8 (KsepLogInfo.c)
+ *     KsepPoolAllocatePaged @ 0x14049AA70 (KsepPoolAllocatePaged.c)
+ *     KsepDebugPrint @ 0x1404CC7D8 (KsepDebugPrint.c)
+ *     KsepResolveApplicableShimsForDriver @ 0x14073D7B8 (KsepResolveApplicableShimsForDriver.c)
+ *     KsepDbFreeDriverShims @ 0x140941710 (KsepDbFreeDriverShims.c)
+ *     KsepIsModuleShimmed @ 0x140941F2C (KsepIsModuleShimmed.c)
+ *     KsepEngineGetShimsFromRegistry @ 0x140942038 (KsepEngineGetShimsFromRegistry.c)
+ *     KsepDbGetDriverShims @ 0x140942B68 (KsepDbGetDriverShims.c)
  */
 
 __int64 __fastcall KsepGetShimsForDriver(__int64 a1, int a2, __int64 a3, int a4, _QWORD *a5, _DWORD *a6)
@@ -29,8 +29,8 @@ __int64 __fastcall KsepGetShimsForDriver(__int64 a1, int a2, __int64 a3, int a4,
   _QWORD *v16; // rsi
   __int64 v17; // rax
   struct _KTHREAD *CurrentThread; // rax
-  _QWORD *v19; // rax
-  _QWORD *v20; // r14
+  char *v19; // rax
+  char *v20; // r14
   _QWORD *v21; // rax
   unsigned int v22; // [rsp+30h] [rbp-20h] BYREF
   _QWORD *v23; // [rsp+38h] [rbp-18h] BYREF
@@ -63,22 +63,22 @@ __int64 __fastcall KsepGetShimsForDriver(__int64 a1, int a2, __int64 a3, int a4,
         Paged[2] = a3;
         CurrentThread = KeGetCurrentThread();
         --CurrentThread->KernelApcDisable;
-        v19 = KeAbPreAcquire((__int64)&qword_140E66B10, 0LL);
+        v19 = (char *)KeAbPreAcquire((__int64)&qword_140E66C40, 0LL);
         v20 = v19;
-        if ( _interlockedbittestandset64((volatile signed __int32 *)&qword_140E66B10, 0LL) )
-          ExfAcquirePushLockExclusiveEx(&qword_140E66B10, (__int64)v19, (__int64)&qword_140E66B10);
+        if ( _interlockedbittestandset64((volatile signed __int32 *)&qword_140E66C40, 0LL) )
+          ExfAcquirePushLockExclusiveEx(&qword_140E66C40, v19, (__int64)&qword_140E66C40);
         if ( v20 )
-          *((_BYTE *)v20 + 10) = 1;
-        v21 = (_QWORD *)qword_140E66B08;
-        if ( *(_UNKNOWN **)qword_140E66B08 != &unk_140E66B00 )
+          v20[10] = 1;
+        v21 = (_QWORD *)qword_140E66C38;
+        if ( *(_UNKNOWN **)qword_140E66C38 != &unk_140E66C30 )
           __fastfail(3u);
-        *v16 = &unk_140E66B00;
+        *v16 = &unk_140E66C30;
         v16[1] = v21;
         *v21 = v16;
-        qword_140E66B08 = (__int64)v16;
-        if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140E66B10, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-          ExfTryToWakePushLock((volatile signed __int64 *)&qword_140E66B10);
-        KeAbPostRelease((ULONG_PTR)&qword_140E66B10);
+        qword_140E66C38 = (__int64)v16;
+        if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140E66C40, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+          ExfTryToWakePushLock((volatile signed __int64 *)&qword_140E66C40);
+        KeAbPostRelease((ULONG_PTR)&qword_140E66C40);
         KeLeaveCriticalRegion();
 LABEL_5:
         *a5 = v23;

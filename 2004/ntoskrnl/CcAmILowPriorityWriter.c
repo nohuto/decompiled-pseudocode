@@ -66,7 +66,7 @@ bool __fastcall CcAmILowPriorityWriter(_QWORD *a1, __int64 a2, __int64 a3, _DWOR
         {
           *(_BYTE *)(v13 + 32) |= 2u;
           if ( *(__int64 *)(v13 + 32) < 0 )
-            KiAbEntryRemoveFromTree(v13);
+            KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v13);
           v14 = *(_DWORD *)(v13 + 88) & 0x1FFFF;
           v15 = *(_DWORD *)(v13 + 88) & 0xFFFE0000;
           *(_BYTE *)(v13 + 25) &= ~1u;

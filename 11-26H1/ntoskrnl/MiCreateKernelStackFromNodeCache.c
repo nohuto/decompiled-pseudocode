@@ -1,23 +1,23 @@
 /*
- * XREFs of MiCreateKernelStackFromNodeCache @ 0x1403D11D4
+ * XREFs of MiCreateKernelStackFromNodeCache @ 0x1403D41A0
  * Callers:
- *     MmCreateKernelStack @ 0x1403D0D34 (MmCreateKernelStack.c)
+ *     MmCreateKernelStack @ 0x1403D3D00 (MmCreateKernelStack.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiSetPfnKernelStack @ 0x1402A06C0 (MiSetPfnKernelStack.c)
- *     MiUpdateKernelShadowStackOwnerData @ 0x140340B48 (MiUpdateKernelShadowStackOwnerData.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     FirstEntrySList @ 0x140730C80 (FirstEntrySList.c)
- *     RtlpInterlockedPopEntrySList @ 0x140730C90 (RtlpInterlockedPopEntrySList.c)
- *     RtlpInterlockedPushEntrySList @ 0x140730CD0 (RtlpInterlockedPushEntrySList.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiSetPfnKernelStack @ 0x14029FC10 (MiSetPfnKernelStack.c)
+ *     MiUpdateKernelShadowStackOwnerData @ 0x140342BC8 (MiUpdateKernelShadowStackOwnerData.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     FirstEntrySList @ 0x140735850 (FirstEntrySList.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140735860 (RtlpInterlockedPopEntrySList.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1407358A0 (RtlpInterlockedPushEntrySList.c)
  */
 
 unsigned __int64 __fastcall MiCreateKernelStackFromNodeCache(__int64 a1, unsigned int a2)
 {
   int v4; // esi
-  union _SLIST_HEADER *v5; // r13
+  _SLIST_HEADER *v5; // r13
   int v6; // ebp
   __int64 v7; // r15
   __int64 v8; // r12
@@ -43,7 +43,7 @@ unsigned __int64 __fastcall MiCreateKernelStackFromNodeCache(__int64 a1, unsigne
       return 0LL;
     v4 = 1;
   }
-  v5 = *(union _SLIST_HEADER **)a1;
+  v5 = *(_SLIST_HEADER **)a1;
   v6 = *(_DWORD *)(a1 + 60);
   v7 = *(_QWORD *)(*(_QWORD *)a1 + 16LL) + 56320LL * a2;
   while ( 1 )
@@ -69,8 +69,8 @@ unsigned __int64 __fastcall MiCreateKernelStackFromNodeCache(__int64 a1, unsigne
   else
   {
     Next = (ULONG_PTR)v11[-1].Next;
-    if ( Next != (qword_140E34BA0 ^ (unsigned __int64)&v11[-255]) )
-      KeBugCheckEx(0x1Au, 0x3470uLL, (ULONG_PTR)&v11[-255], Next, qword_140E34BA0 ^ (unsigned __int64)&v11[-255]);
+    if ( Next != (qword_140E34D20 ^ (unsigned __int64)&v11[-255]) )
+      KeBugCheckEx(0x1Au, 0x3470uLL, (ULONG_PTR)&v11[-255], Next, qword_140E34D20 ^ (unsigned __int64)&v11[-255]);
     v13 = 0xFFFFF68000000000uLL;
     v14 = (((unsigned __int64)&v11[-255] >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
     v15 = (__int64)((v14 << 25) + 0x10000000) >> 16;

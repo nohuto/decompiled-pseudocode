@@ -1,10 +1,10 @@
 /*
- * XREFs of ExEnableRaiseUMExceptionOnInvalidHandleClose @ 0x140A52E88
+ * XREFs of ExEnableRaiseUMExceptionOnInvalidHandleClose @ 0x1408EB4BC
  * Callers:
- *     NtSetInformationProcess @ 0x140947500 (NtSetInformationProcess.c)
+ *     NtSetInformationProcess @ 0x1408EBA70 (NtSetInformationProcess.c)
  * Callees:
- *     ExpLockHandleTableExclusive @ 0x1404527A8 (ExpLockHandleTableExclusive.c)
- *     ExpUnlockHandleTableExclusive @ 0x140458444 (ExpUnlockHandleTableExclusive.c)
+ *     ExpLockHandleTableExclusive @ 0x140447858 (ExpLockHandleTableExclusive.c)
+ *     ExpUnlockHandleTableExclusive @ 0x14044D754 (ExpUnlockHandleTableExclusive.c)
  */
 
 __int64 __fastcall ExEnableRaiseUMExceptionOnInvalidHandleClose(__int64 a1, int a2)

@@ -1,5 +1,5 @@
 /*
- * XREFs of VerifierExInterlockedRemoveHeadList @ 0x14070C428
+ * XREFs of VerifierExInterlockedRemoveHeadList @ 0x14070C458
  * Callers:
  *     <none>
  * Callees:

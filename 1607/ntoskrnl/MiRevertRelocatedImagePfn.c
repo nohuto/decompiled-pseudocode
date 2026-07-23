@@ -1,11 +1,11 @@
 /*
- * XREFs of MiRevertRelocatedImagePfn @ 0x140526A98
+ * XREFs of MiRevertRelocatedImagePfn @ 0x140509AF8
  * Callers:
- *     MiValidateImagePfn @ 0x14052685C (MiValidateImagePfn.c)
+ *     MiValidateImagePfn @ 0x1405098BC (MiValidateImagePfn.c)
  * Callees:
- *     KeCopyPage @ 0x140161F20 (KeCopyPage.c)
+ *     KeCopyPage @ 0x140162490 (KeCopyPage.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     MiPerformFixups @ 0x140526B60 (MiPerformFixups.c)
+ *     MiPerformFixups @ 0x140509BC0 (MiPerformFixups.c)
  */
 
 __int64 __fastcall MiRevertRelocatedImagePfn(__int64 a1, ULONG_PTR a2, unsigned int a3)

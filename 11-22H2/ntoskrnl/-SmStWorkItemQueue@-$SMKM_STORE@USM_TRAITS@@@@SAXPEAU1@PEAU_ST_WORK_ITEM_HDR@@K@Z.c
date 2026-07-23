@@ -50,17 +50,20 @@ void __fastcall SMKM_STORE<SM_TRAITS>::SmStWorkItemQueue(__int64 a1, __int64 a2,
   v4 = *(_DWORD *)a2 & 7;
   if ( v4 == 2 && (*(_BYTE *)(a1 + 6021) & 4) != 0 )
   {
-    if ( !(unsigned int)SMKM_STORE<SM_TRAITS>::SmStDirectRead((union _SLIST_HEADER *)a1, (__int128 *)a2) )
+    if ( !(unsigned int)SMKM_STORE<SM_TRAITS>::SmStDirectRead((_SLIST_HEADER *)a1, (__int128 *)a2) )
     {
       v7 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(a1 + 6560));
       *(_QWORD *)a2 = ((**(_QWORD **)(a1 + 6552) & 0xFFFFFFFFFFFFFFF8uLL) + 8) | *(_DWORD *)a2 & 7;
       **(_QWORD **)(a1 + 6552) = a2 | **(_DWORD **)(a1 + 6552) & 7;
       *(_QWORD *)(a1 + 6552) = a2;
       KxReleaseSpinLock((volatile signed __int64 *)(a1 + 6560));
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v7 <= 0xFu && CurrentIrql >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+          && CurrentIrql <= 0xFu
+          && (unsigned __int8)v7 <= 0xFu
+          && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -136,10 +139,10 @@ LABEL_22:
     *(_QWORD *)(a1 + 6120) += *(_QWORD *)(i + 8);
   }
   KxReleaseSpinLock((volatile signed __int64 *)(a1 + 6040));
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v23 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v23 <= 0xFu && (unsigned __int8)v17 <= 0xFu && v23 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v23 <= 0xFu && (unsigned __int8)v17 <= 0xFu && v23 >= 2u )
     {
       v24 = KeGetCurrentPrcb();
       v25 = v24->SchedulerAssist;

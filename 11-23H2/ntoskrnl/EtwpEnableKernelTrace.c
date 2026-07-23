@@ -1,20 +1,20 @@
 /*
- * XREFs of EtwpEnableKernelTrace @ 0x1407D5090
+ * XREFs of EtwpEnableKernelTrace @ 0x1407D5360
  * Callers:
- *     EtwpUpdateGlobalGroupMasks @ 0x1407D4E7C (EtwpUpdateGlobalGroupMasks.c)
+ *     EtwpUpdateGlobalGroupMasks @ 0x1407D514C (EtwpUpdateGlobalGroupMasks.c)
  *     EtwpFixBootLoggers @ 0x140B6801C (EtwpFixBootLoggers.c)
  * Callees:
- *     KeSetTimer2 @ 0x140250150 (KeSetTimer2.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     IoPerfInit @ 0x140558ED8 (IoPerfInit.c)
- *     KeStartProfile @ 0x140573EDC (KeStartProfile.c)
- *     DbgSetDebugPrintCallback @ 0x1405A77E0 (DbgSetDebugPrintCallback.c)
- *     EtwpDisableKernelTrace @ 0x1407D5404 (EtwpDisableKernelTrace.c)
- *     EtwpUpdateFileInfoDriverState @ 0x1407D5670 (EtwpUpdateFileInfoDriverState.c)
- *     AlpcRegisterLogRoutine @ 0x14097A028 (AlpcRegisterLogRoutine.c)
- *     ObEnableEtwReferenceTrace @ 0x14097C50C (ObEnableEtwReferenceTrace.c)
- *     WmiSetNetworkNotify @ 0x1409E183C (WmiSetNetworkNotify.c)
- *     EtwpTimeProfileStart @ 0x1409E6B48 (EtwpTimeProfileStart.c)
+ *     KeSetTimer2 @ 0x140250220 (KeSetTimer2.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     IoPerfInit @ 0x140559598 (IoPerfInit.c)
+ *     KeStartProfile @ 0x14057441C (KeStartProfile.c)
+ *     DbgSetDebugPrintCallback @ 0x1405A7D50 (DbgSetDebugPrintCallback.c)
+ *     EtwpDisableKernelTrace @ 0x1407D56D4 (EtwpDisableKernelTrace.c)
+ *     EtwpUpdateFileInfoDriverState @ 0x1407D5940 (EtwpUpdateFileInfoDriverState.c)
+ *     AlpcRegisterLogRoutine @ 0x14097A228 (AlpcRegisterLogRoutine.c)
+ *     ObEnableEtwReferenceTrace @ 0x14097C70C (ObEnableEtwReferenceTrace.c)
+ *     WmiSetNetworkNotify @ 0x1409E1ACC (WmiSetNetworkNotify.c)
+ *     EtwpTimeProfileStart @ 0x1409E6DD8 (EtwpTimeProfileStart.c)
  */
 
 __int64 __fastcall EtwpEnableKernelTrace(_DWORD *a1, _DWORD *a2, __int64 a3, unsigned int a4)
@@ -256,7 +256,7 @@ LABEL_50:
     if ( (*v8 & 0x400) != 0 )
     {
       for ( i = 0; i < EtwpPmcProfile; ++i )
-        KeStartProfile((ULONG_PTR)qword_140C32218 + 616 * i);
+        KeStartProfile((ULONG_PTR)qword_140C32468 + 616 * i);
       DWORD1(v27) = v9 | 0x400;
     }
     if ( (*(_DWORD *)v12 & 0x80u) != 0 )

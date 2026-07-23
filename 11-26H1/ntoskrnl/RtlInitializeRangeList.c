@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlInitializeRangeList @ 0x1408006E0
+ * XREFs of RtlInitializeRangeList @ 0x140806180
  * Callers:
  *     <none>
  * Callees:

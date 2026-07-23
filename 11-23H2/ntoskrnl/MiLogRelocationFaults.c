@@ -3,8 +3,8 @@
  * Callers:
  *     MiRelocateImage @ 0x1406A9460 (MiRelocateImage.c)
  * Callees:
- *     MiReferenceControlAreaFile @ 0x1402A23D4 (MiReferenceControlAreaFile.c)
- *     MiDereferenceControlAreaFile @ 0x1402A24E0 (MiDereferenceControlAreaFile.c)
+ *     MiReferenceControlAreaFile @ 0x1402A2664 (MiReferenceControlAreaFile.c)
+ *     MiDereferenceControlAreaFile @ 0x1402A2770 (MiDereferenceControlAreaFile.c)
  *     MiLogRelocationRva @ 0x1406ABDA0 (MiLogRelocationRva.c)
  */
 

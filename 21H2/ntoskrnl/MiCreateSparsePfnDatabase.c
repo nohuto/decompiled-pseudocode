@@ -1,9 +1,9 @@
 /*
- * XREFs of MiCreateSparsePfnDatabase @ 0x140A44718
+ * XREFs of MiCreateSparsePfnDatabase @ 0x140A45718
  * Callers:
- *     MiCreatePfnDatabase @ 0x140A436BC (MiCreatePfnDatabase.c)
+ *     MiCreatePfnDatabase @ 0x140A446BC (MiCreatePfnDatabase.c)
  * Callees:
- *     MxMapPfnRange @ 0x140A448EC (MxMapPfnRange.c)
+ *     MxMapPfnRange @ 0x140A458EC (MxMapPfnRange.c)
  */
 
 __int64 __fastcall MiCreateSparsePfnDatabase(__int64 a1)
@@ -69,7 +69,7 @@ LABEL_16:
   if ( v5 == -1LL || (unsigned int)MxMapPfnRange(v5) )
   {
 LABEL_19:
-    if ( (qword_140C4E9A0 == 0x1000000000LL || (unsigned int)MxMapPfnRange(qword_140C4E9A0))
+    if ( (qword_140C4E9E0 == 0x1000000000LL || (unsigned int)MxMapPfnRange(qword_140C4E9E0))
       && (unsigned int)MxMapPfnRange(0x1000000000uLL) )
     {
       return 1LL;

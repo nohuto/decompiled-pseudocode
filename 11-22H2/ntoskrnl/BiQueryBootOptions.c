@@ -12,48 +12,48 @@
  *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
  */
 
-__int64 __fastcall BiQueryBootOptions(_QWORD *a1, unsigned int *a2)
+__int64 __fastcall BiQueryBootOptions(_BOOT_OPTIONS **a1, ULONG *a2)
 {
-  void *v2; // rdi
-  int BootOptions; // ebx
-  __int64 Pool2; // rax
-  unsigned int v8; // [rsp+40h] [rbp+8h] BYREF
+  _BOOT_OPTIONS *v2; // rdi
+  NTSTATUS v5; // ebx
+  _BOOT_OPTIONS *Pool2; // rax
+  ULONG BootOptionsLength; // [rsp+40h] [rbp+8h] BYREF
   __int64 v9; // [rsp+48h] [rbp+10h] BYREF
 
   *a1 = 0LL;
   v2 = 0LL;
   *a2 = 0;
   v9 = 0LL;
-  v8 = 0;
-  BootOptions = BiAcquirePrivilege(22LL, &v9);
-  if ( BootOptions >= 0 )
+  BootOptionsLength = 0;
+  v5 = BiAcquirePrivilege(22LL, &v9);
+  if ( v5 >= 0 )
   {
-    BootOptions = ZwQueryBootOptions(0LL, (__int64)&v8);
-    if ( BootOptions != -1073741789 )
+    v5 = ZwQueryBootOptions(0LL, &BootOptionsLength);
+    if ( v5 != -1073741789 )
       goto LABEL_9;
-    Pool2 = ExAllocatePool2(258LL, v8, 1262764866LL);
-    v2 = (void *)Pool2;
+    Pool2 = (_BOOT_OPTIONS *)ExAllocatePool2(258LL, BootOptionsLength, 1262764866LL);
+    v2 = Pool2;
     if ( !Pool2 )
     {
-      BootOptions = -1073741670;
+      v5 = -1073741670;
       goto LABEL_6;
     }
-    BootOptions = ZwQueryBootOptions(Pool2, (__int64)&v8);
-    if ( BootOptions < 0 )
+    v5 = ZwQueryBootOptions(Pool2, &BootOptionsLength);
+    if ( v5 < 0 )
     {
 LABEL_9:
-      BiLogMessage(4LL, L"Failed to query boot options. Status: %x", (unsigned int)BootOptions);
-      if ( BootOptions < 0 )
+      BiLogMessage(4LL, L"Failed to query boot options. Status: %x", (unsigned int)v5);
+      if ( v5 < 0 )
       {
         if ( v2 )
           ExFreePoolWithTag(v2, 0x4B444342u);
         goto LABEL_6;
       }
     }
-    *a2 = v8;
+    *a2 = BootOptionsLength;
     *a1 = v2;
 LABEL_6:
     BiReleasePrivilege(&v9);
   }
-  return (unsigned int)BootOptions;
+  return (unsigned int)v5;
 }

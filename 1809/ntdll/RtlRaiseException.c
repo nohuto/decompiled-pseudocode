@@ -11,12 +11,12 @@
  *     RtlpAllocateActivationContextStackFrame @ 0x180033948 (RtlpAllocateActivationContextStackFrame.c)
  *     vDbgPrintExWithPrefixInternal @ 0x18004F348 (vDbgPrintExWithPrefixInternal.c)
  *     TpCheckTerminateWorker @ 0x18005A950 (TpCheckTerminateWorker.c)
- *     RtlDeactivateActivationContext @ 0x1800766F0 (RtlDeactivateActivationContext.c)
- *     RtlpFreeActivationContextStackFrame @ 0x1800767F8 (RtlpFreeActivationContextStackFrame.c)
- *     RtlpTpImpersonate @ 0x1800891A0 (RtlpTpImpersonate.c)
- *     PssNtValidateDescriptor @ 0x1800898A0 (PssNtValidateDescriptor.c)
- *     RaiseException @ 0x180098410 (RaiseException.c)
- *     KiRaiseUserExceptionDispatcher @ 0x1800A40E0 (KiRaiseUserExceptionDispatcher.c)
+ *     RtlDeactivateActivationContext @ 0x180076700 (RtlDeactivateActivationContext.c)
+ *     RtlpFreeActivationContextStackFrame @ 0x180076808 (RtlpFreeActivationContextStackFrame.c)
+ *     RtlpTpImpersonate @ 0x1800891B0 (RtlpTpImpersonate.c)
+ *     PssNtValidateDescriptor @ 0x1800898B0 (PssNtValidateDescriptor.c)
+ *     RaiseException @ 0x180098420 (RaiseException.c)
+ *     KiRaiseUserExceptionDispatcher @ 0x1800A4100 (KiRaiseUserExceptionDispatcher.c)
  *     RtlpPossibleDeadlock @ 0x1800E9A20 (RtlpPossibleDeadlock.c)
  *     RtlpAllocateHeapRaiseException @ 0x1800F5B88 (RtlpAllocateHeapRaiseException.c)
  *     RtlReportFatalFailure @ 0x1800FB4C0 (RtlReportFatalFailure.c)
@@ -31,21 +31,21 @@
  *     RtlInitializeExtendedContext2 @ 0x180008450 (RtlInitializeExtendedContext2.c)
  *     RtlpValidateContextFlags @ 0x180008730 (RtlpValidateContextFlags.c)
  *     RtlpGetEntireXStateAreaLength @ 0x1800087A4 (RtlpGetEntireXStateAreaLength.c)
- *     __security_check_cookie @ 0x18008FEC0 (__security_check_cookie.c)
- *     RtlpUnwindEpilogue @ 0x18009F434 (RtlpUnwindEpilogue.c)
- *     RtlpUnwindOpSlots @ 0x18009F658 (RtlpUnwindOpSlots.c)
- *     RtlRaiseStatus @ 0x18009F6A0 (RtlRaiseStatus.c)
- *     ZwRaiseException @ 0x1800A2EB0 (ZwRaiseException.c)
- *     RtlpCaptureContext2 @ 0x1800A43D0 (RtlpCaptureContext2.c)
- *     RtlRestoreContext @ 0x1800A4540 (RtlRestoreContext.c)
- *     RtlpGuardSynchronizeRestorePc @ 0x1800A4A40 (RtlpGuardSynchronizeRestorePc.c)
- *     _alloca_probe @ 0x1800A5210 (_alloca_probe.c)
+ *     __security_check_cookie @ 0x18008FED0 (__security_check_cookie.c)
+ *     RtlpUnwindEpilogue @ 0x18009F448 (RtlpUnwindEpilogue.c)
+ *     RtlpUnwindOpSlots @ 0x18009F66C (RtlpUnwindOpSlots.c)
+ *     RtlRaiseStatus @ 0x18009F6C0 (RtlRaiseStatus.c)
+ *     ZwRaiseException @ 0x1800A2ED0 (ZwRaiseException.c)
+ *     RtlpCaptureContext2 @ 0x1800A43F0 (RtlpCaptureContext2.c)
+ *     RtlRestoreContext @ 0x1800A4560 (RtlRestoreContext.c)
+ *     RtlpGuardSynchronizeRestorePc @ 0x1800A4A60 (RtlpGuardSynchronizeRestorePc.c)
+ *     _alloca_probe @ 0x1800A5230 (_alloca_probe.c)
  */
 
 void __stdcall RtlRaiseException(PEXCEPTION_RECORD ExceptionRecord)
 {
-  unsigned __int64 v1; // rdi
-  int v2; // esi
+  ULONG64 v1; // rdi
+  ULONG v2; // esi
   __int64 v3; // r10
   __int64 v4; // r11
   int v5; // eax
@@ -54,12 +54,12 @@ void __stdcall RtlRaiseException(PEXCEPTION_RECORD ExceptionRecord)
   unsigned __int64 v8; // rcx
   void *v9; // rsp
   void *v10; // rsp
-  unsigned int v11; // edi
+  NTSTATUS v11; // edi
   DWORD64 v12; // rsi
-  PRUNTIME_FUNCTION v13; // rax
+  _CONTEXT_EX *v13; // rax
   unsigned __int64 v14; // rdx
-  unsigned int *p_BeginAddress; // r11
-  __int64 UnwindInfoAddress; // r14
+  PCONTEXT_EX v15; // r11
+  __int64 Offset; // r14
   unsigned __int64 v17; // r12
   char *v18; // r14
   char v19; // r10
@@ -71,7 +71,7 @@ void __stdcall RtlRaiseException(PEXCEPTION_RECORD ExceptionRecord)
   __int64 v25; // r15
   char v26; // cl
   char *v27; // r8
-  _DWORD *v28; // rax
+  PCONTEXT_EX v28; // rax
   unsigned int v29; // r13d
   unsigned int v30; // r15d
   _BYTE *v31; // r14
@@ -80,55 +80,55 @@ void __stdcall RtlRaiseException(PEXCEPTION_RECORD ExceptionRecord)
   unsigned __int8 v34; // cl
   __int64 v35; // r9
   unsigned int v36; // ecx
-  struct _EXCEPTION_RECORD *v37; // rdi
-  __int64 v38; // r8
-  struct _EXCEPTION_RECORD *v39; // rcx
+  PEXCEPTION_RECORD v37; // rdi
+  EXCEPTION_RECORD *v38; // rcx
+  unsigned int v39; // ecx
   unsigned int v40; // ecx
   unsigned int v41; // ecx
-  unsigned int v42; // ecx
-  DWORD64 v43; // rax
-  int v44; // edx
-  unsigned int v45; // r12d
-  unsigned __int8 v46; // cl
-  int v47; // eax
-  __int64 v48; // rax
-  int v49; // eax
-  unsigned __int64 v50; // rcx
-  unsigned __int64 v51; // rdi
+  DWORD64 v42; // rax
+  int v43; // edx
+  unsigned int v44; // r12d
+  unsigned __int8 v45; // cl
+  int v46; // eax
+  __int64 v47; // rax
+  int v48; // eax
+  unsigned __int64 v49; // rcx
+  unsigned __int64 v50; // rdi
+  char v51; // al
   char v52; // al
-  char v53; // al
-  int v54; // eax
-  char v55; // cl
-  unsigned int v56; // ecx
+  int v53; // eax
+  char v54; // cl
+  unsigned int v55; // ecx
   __int64 ExtendedFeature2; // rax
-  __int16 v58; // cx
-  unsigned int v59; // r10d
-  unsigned int v60; // ecx
-  unsigned int v61; // r9d
-  unsigned int v62; // r8d
-  unsigned __int16 v63; // cx
+  __int16 v57; // cx
+  unsigned int v58; // r10d
+  ULONG v59; // ecx
+  unsigned int v60; // r9d
+  unsigned int v61; // r8d
+  unsigned __int16 v62; // cx
+  unsigned int v63; // ecx
   unsigned int v64; // ecx
-  unsigned int v65; // ecx
-  __int64 v66; // rcx
+  __int64 v65; // rcx
+  __int64 v66; // rax
   __int64 v67; // rax
-  __int64 v68; // rax
-  unsigned int v69; // r9d
+  unsigned int v68; // r9d
+  __int64 v69; // rax
   __int64 v70; // rax
-  __int64 v71; // rax
-  _DWORD *v72; // rax
-  unsigned int v73; // ecx
-  DWORD64 *v74; // rax
-  __int64 v75; // r15
-  __int64 v76; // rcx
-  bool v77; // cf
-  bool v78; // zf
-  char v79; // al
-  _QWORD *v80; // r8
+  _DWORD *v71; // rax
+  unsigned int v72; // ecx
+  DWORD64 *v73; // rax
+  __int64 v74; // r15
+  __int64 v75; // rcx
+  bool v76; // cf
+  bool v77; // zf
+  char v78; // al
+  _QWORD *v79; // r8
+  BOOLEAN v80; // r8
   int v81[2]; // [rsp+40h] [rbp+0h] BYREF
   DWORD64 v82; // [rsp+48h] [rbp+8h]
   unsigned __int64 ImageBase; // [rsp+50h] [rbp+10h] BYREF
-  PRUNTIME_FUNCTION v84; // [rsp+58h] [rbp+18h] BYREF
-  struct _EXCEPTION_RECORD *ExceptionRecorda; // [rsp+60h] [rbp+20h]
+  PCONTEXT_EX ContextEx; // [rsp+58h] [rbp+18h] BYREF
+  PEXCEPTION_RECORD ExceptionRecorda; // [rsp+60h] [rbp+20h]
   struct _UNWIND_HISTORY_TABLE HistoryTable; // [rsp+70h] [rbp+30h] BYREF
 
   v1 = 0LL;
@@ -164,23 +164,23 @@ void __stdcall RtlRaiseException(PEXCEPTION_RECORD ExceptionRecord)
   v8 = v7 & 0xFFFFFFFFFFFFFFF0uLL;
   v9 = alloca(v8);
   v10 = alloca(v8);
-  v11 = RtlInitializeExtendedContext2((__int64)v81, v2, &v84, v1);
+  v11 = RtlInitializeExtendedContext2((PCONTEXT)v81, v2, &ContextEx, v1);
   RtlpCaptureContext2(v81);
   v12 = HistoryTable.Entry[11].ImageBase;
   HistoryTable.Count = 0;
   HistoryTable.LowAddress = -1LL;
   HistoryTable.HighAddress = 0LL;
   *(_DWORD *)&HistoryTable.LocalHint = 0x1000000;
-  v13 = RtlLookupFunctionEntry(HistoryTable.Entry[11].ImageBase, &ImageBase, &HistoryTable);
-  v84 = v13;
-  p_BeginAddress = &v13->BeginAddress;
+  v13 = (_CONTEXT_EX *)RtlLookupFunctionEntry(HistoryTable.Entry[11].ImageBase, &ImageBase, &HistoryTable);
+  ContextEx = v13;
+  v15 = v13;
   if ( !v13 )
 LABEL_167:
     RtlRaiseStatus(v11);
-  UnwindInfoAddress = v13->UnwindInfoAddress;
+  Offset = (unsigned int)v13->Legacy.Offset;
   v17 = ImageBase;
   v81[0] = 0;
-  v18 = (char *)(ImageBase + UnwindInfoAddress);
+  v18 = (char *)(ImageBase + Offset);
   v19 = *v18;
   v20 = *v18 & 7;
   if ( v20 < 2 )
@@ -192,16 +192,16 @@ LABEL_167:
     {
       while ( (*v23 & 0x20) != 0 )
       {
-        v69 = (unsigned __int8)*v22;
+        v68 = (unsigned __int8)*v22;
         ++v21;
         v14 = *v22 & 1;
         if ( v21 > 0x20 )
 LABEL_161:
-          RtlRaiseStatus(3221225727LL);
-        v70 = v69 + 1;
+          RtlRaiseStatus(-1073741569);
+        v69 = v68 + 1;
         if ( !(_DWORD)v14 )
-          v70 = v69;
-        v23 = (_BYTE *)(ImageBase + *(unsigned int *)&v23[2 * v70 + 12]);
+          v69 = v68;
+        v23 = (_BYTE *)(ImageBase + *(unsigned int *)&v23[2 * v69 + 12]);
         v22 = v23 + 2;
         if ( v23[2] )
           goto LABEL_16;
@@ -213,35 +213,35 @@ LABEL_16:
   v24 = v12 - ImageBase;
   if ( (v18[3] & 0xF) == 0 )
     goto LABEL_17;
-  v45 = v24 - *p_BeginAddress;
-  if ( v45 >= (unsigned __int8)v18[1] || (v19 & 0x20) != 0 )
+  v44 = v24 - v15->All.Offset;
+  if ( v44 >= (unsigned __int8)v18[1] || (v19 & 0x20) != 0 )
   {
-    v46 = v18[3];
-    v47 = v46;
+    v45 = v18[3];
+    v46 = v45;
     v17 = ImageBase;
 LABEL_58:
-    v82 = *(&HistoryTable.Entry[3].ImageBase + (v46 & 0xF)) - (v47 & 0xFFFFFFF0);
+    v82 = *(&HistoryTable.Entry[3].ImageBase + (v45 & 0xF)) - (v46 & 0xFFFFFFF0);
     goto LABEL_18;
   }
-  v75 = 0LL;
+  v74 = 0LL;
   if ( v18[2] )
   {
     do
     {
-      v76 = *(unsigned __int16 *)&v18[2 * v75 + 4];
-      if ( (BYTE1(v76) & 0xF) == 3 )
+      v75 = *(unsigned __int16 *)&v18[2 * v74 + 4];
+      if ( (BYTE1(v75) & 0xF) == 3 )
         break;
-      v75 = (unsigned int)RtlpUnwindOpSlots(v76, v14) + (unsigned int)v75;
+      v74 = (unsigned int)RtlpUnwindOpSlots(v75, v14) + (unsigned int)v74;
     }
-    while ( (unsigned int)v75 < (unsigned __int8)v18[2] );
-    p_BeginAddress = &v84->BeginAddress;
+    while ( (unsigned int)v74 < (unsigned __int8)v18[2] );
+    v15 = ContextEx;
   }
-  v77 = v45 < (unsigned __int8)v18[2 * v75 + 4];
+  v76 = v44 < (unsigned __int8)v18[2 * v74 + 4];
   v17 = ImageBase;
-  if ( !v77 )
+  if ( !v76 )
   {
-    v47 = (unsigned __int8)v18[3];
-    v46 = v18[3];
+    v46 = (unsigned __int8)v18[3];
+    v45 = v18[3];
     goto LABEL_58;
   }
 LABEL_17:
@@ -254,65 +254,65 @@ LABEL_18:
   {
     if ( !v18[2] )
       goto LABEL_31;
-    v58 = HIBYTE(*((_WORD *)v18 + 2));
-    if ( (v58 & 0xF) != 6 )
+    v57 = HIBYTE(*((_WORD *)v18 + 2));
+    if ( (v57 & 0xF) != 6 )
       goto LABEL_31;
-    v59 = (unsigned __int8)v18[4];
-    if ( (v58 & 0x10) != 0 )
+    v58 = (unsigned __int8)v18[4];
+    if ( (v57 & 0x10) != 0 )
     {
-      v60 = p_BeginAddress[1] - v59;
-      LOBYTE(v14) = v24 - v60 < v59;
+      v59 = v15->All.Length - v58;
+      LOBYTE(v14) = v24 - v59 < v58;
     }
     else
     {
-      v60 = 0;
+      v59 = 0;
     }
     if ( !(_DWORD)v14 )
     {
-      v61 = (unsigned __int8)v18[2];
-      v62 = 1;
-      if ( v61 <= 1 )
+      v60 = (unsigned __int8)v18[2];
+      v61 = 1;
+      if ( v60 <= 1 )
         goto LABEL_31;
       while ( 1 )
       {
-        v63 = *(_WORD *)&v18[2 * v62 + 4];
-        if ( (HIBYTE(v63) & 0xF) != 6 )
+        v62 = *(_WORD *)&v18[2 * v61 + 4];
+        if ( (HIBYTE(v62) & 0xF) != 6 )
           goto LABEL_31;
-        v14 = (unsigned __int8)v63 + (v63 >> 12 << 8);
+        v14 = (unsigned __int8)v62 + (v62 >> 12 << 8);
         if ( !(_DWORD)v14 )
           goto LABEL_31;
-        v60 = p_BeginAddress[1] - v14;
-        if ( v24 - v60 < v59 )
+        v59 = v15->All.Length - v14;
+        if ( v24 - v59 < v58 )
           break;
-        if ( ++v62 >= v61 )
+        if ( ++v61 >= v60 )
           goto LABEL_31;
       }
     }
-    RtlpUnwindEpilogue(v17, v14, v24 - v60, (_DWORD)p_BeginAddress, (__int64)v81, 0LL, 0LL, 0LL);
+    RtlpUnwindEpilogue(v17, v14, v24 - v59, (_DWORD)v15, (__int64)v81, 0LL, 0LL, 0LL);
     goto LABEL_43;
   }
   v25 = 0LL;
   v14 = v12;
   if ( *(_BYTE *)v12 == 72 )
   {
-    v53 = *(_BYTE *)(v12 + 1);
-    if ( v53 == -125 && *(_BYTE *)(v12 + 2) == 0xC4 )
+    v52 = *(_BYTE *)(v12 + 1);
+    if ( v52 == -125 && *(_BYTE *)(v12 + 2) == 0xC4 )
       goto LABEL_113;
-    if ( v53 == -127 && *(_BYTE *)(v12 + 2) == 0xC4 )
+    if ( v52 == -127 && *(_BYTE *)(v12 + 2) == 0xC4 )
       goto LABEL_81;
   }
   if ( (*(_BYTE *)v12 & 0xFE) == 0x48 && *(_BYTE *)(v12 + 1) == 0x8D )
   {
-    v54 = *(_BYTE *)(v12 + 2) & 7;
-    v25 = v54 | (8 * (*(_BYTE *)v12 & 1u));
-    if ( v54 | (8 * (*(_BYTE *)v12 & 1)) )
+    v53 = *(_BYTE *)(v12 + 2) & 7;
+    v25 = v53 | (8 * (*(_BYTE *)v12 & 1u));
+    if ( v53 | (8 * (*(_BYTE *)v12 & 1)) )
     {
       if ( (_DWORD)v25 == (v18[3] & 0xF) )
       {
-        v55 = *(_BYTE *)(v12 + 2) & 0xF8;
-        if ( v55 != 96 )
+        v54 = *(_BYTE *)(v12 + 2) & 0xF8;
+        if ( v54 != 96 )
         {
-          if ( v55 != -96 )
+          if ( v54 != -96 )
             goto LABEL_22;
 LABEL_81:
           v14 = v12 + 7;
@@ -329,14 +329,14 @@ LABEL_22:
     v26 = *(_BYTE *)v14;
     if ( (*(_BYTE *)v14 & 0xF8) != 0x58 )
       break;
-    v48 = 1LL;
+    v47 = 1LL;
 LABEL_121:
-    v14 += v48;
+    v14 += v47;
   }
   v27 = (char *)(v14 + 1);
   if ( (v26 & 0xF0) == 0x40 && (*v27 & 0xF8) == 0x58 )
   {
-    v48 = 2LL;
+    v47 = 2LL;
     goto LABEL_121;
   }
   if ( v26 == -14 )
@@ -349,8 +349,8 @@ LABEL_121:
 LABEL_71:
     if ( (*(_BYTE *)v12 & 0xF8) != 0x48 )
       goto LABEL_75;
-    v52 = *(_BYTE *)(v12 + 1);
-    switch ( v52 )
+    v51 = *(_BYTE *)(v12 + 1);
+    switch ( v51 )
     {
       case -125:
         HistoryTable.Entry[5].ImageBase += *(char *)(v12 + 3);
@@ -361,14 +361,14 @@ LABEL_74:
         HistoryTable.Entry[5].ImageBase += *(unsigned __int8 *)(v12 + 3) | (unsigned __int64)((*(unsigned __int8 *)(v12 + 4) | (*(unsigned __int16 *)(v12 + 5) << 8)) << 8);
         break;
       case -115:
-        v79 = *(_BYTE *)(v12 + 2) & 0xF8;
-        if ( v79 == 96 )
+        v78 = *(_BYTE *)(v12 + 2) & 0xF8;
+        if ( v78 == 96 )
         {
           HistoryTable.Entry[5].ImageBase = *(&HistoryTable.Entry[3].ImageBase + v25);
           HistoryTable.Entry[5].ImageBase += *(char *)(v12 + 3);
           goto LABEL_74;
         }
-        if ( v79 != -96 )
+        if ( v78 != -96 )
         {
           while ( 1 )
           {
@@ -376,7 +376,7 @@ LABEL_75:
             if ( (*(_BYTE *)v12 & 0xF8) == 0x58 )
             {
               *(&HistoryTable.Entry[3].ImageBase + (*(_BYTE *)v12 & 7)) = *(_QWORD *)HistoryTable.Entry[5].ImageBase;
-              v71 = 1LL;
+              v70 = 1LL;
             }
             else
             {
@@ -388,10 +388,10 @@ LABEL_75:
                 goto LABEL_43;
               }
               *(&HistoryTable.Entry[3].ImageBase + (*(_BYTE *)(v12 + 1) & 7 | (8LL * (*(_BYTE *)v12 & 1)))) = *(_QWORD *)HistoryTable.Entry[5].ImageBase;
-              v71 = 2LL;
+              v70 = 2LL;
             }
             HistoryTable.Entry[5].ImageBase += 8LL;
-            v12 += v71;
+            v12 += v70;
           }
         }
         HistoryTable.Entry[5].ImageBase = *(&HistoryTable.Entry[3].ImageBase + v25)
@@ -413,42 +413,42 @@ LABEL_75:
     }
     if ( (v26 & 0xF8) == 0x48 && *(_BYTE *)(v14 + 1) == 0xFF )
     {
-      v78 = (*(_BYTE *)(v14 + 2) & 0x38) == 32;
+      v77 = (*(_BYTE *)(v14 + 2) & 0x38) == 32;
       goto LABEL_70;
     }
   }
   else
   {
     if ( v26 == -21 )
-      v49 = *(char *)(v14 + 1) + 2;
+      v48 = *(char *)(v14 + 1) + 2;
     else
-      v49 = *(_DWORD *)(v14 + 1) + 5;
-    v50 = *p_BeginAddress;
-    v51 = v14 - v17 + v49;
-    if ( v51 < v50 || v51 >= p_BeginAddress[1] )
+      v48 = *(_DWORD *)(v14 + 1) + 5;
+    v49 = (unsigned int)v15->All.Offset;
+    v50 = v14 - v17 + v48;
+    if ( v50 < v49 || v50 >= v15->All.Length )
     {
-      v72 = RtlpSameFunction((__int64)p_BeginAddress, v17, v14 + v49);
-      if ( !v72 )
+      v71 = RtlpSameFunction((__int64)v15, v17, (void *)(v14 + v48));
+      if ( !v71 )
         goto LABEL_71;
-      v78 = v51 == *v72;
+      v77 = v50 == *v71;
     }
     else
     {
-      if ( v51 != v50 )
+      if ( v50 != v49 )
         goto LABEL_31;
-      v78 = (*v18 & 0x20) == 0;
+      v77 = (*v18 & 0x20) == 0;
     }
 LABEL_70:
-    if ( v78 )
+    if ( v77 )
       goto LABEL_71;
   }
 LABEL_31:
-  v28 = &v84->BeginAddress;
+  v28 = ContextEx;
   v29 = 0;
   while ( 2 )
   {
-    v30 = v12 - ImageBase - *v28;
-    v31 = (_BYTE *)(ImageBase + (unsigned int)v28[2]);
+    v30 = v12 - ImageBase - v28->All.Offset;
+    v31 = (_BYTE *)(ImageBase + (unsigned int)v28->Legacy.Offset);
     v32 = 0LL;
     v33 = 0;
     v34 = v31[2];
@@ -466,31 +466,31 @@ LABEL_31:
           v36 = v31[2 * v32 + 5] & 0xF;
           if ( v36 > 5 )
           {
-            v56 = v36 - 6;
-            if ( !v56 )
+            v55 = v36 - 6;
+            if ( !v55 )
             {
               LODWORD(v32) = v32 + 1;
               goto LABEL_38;
             }
-            v64 = v56 - 1;
-            if ( !v64 )
+            v63 = v55 - 1;
+            if ( !v63 )
             {
               LODWORD(v32) = v32 + 2;
               goto LABEL_38;
             }
-            v65 = v64 - 1;
-            if ( v65 )
+            v64 = v63 - 1;
+            if ( v64 )
             {
-              v73 = v65 - 1;
-              if ( v73 )
+              v72 = v64 - 1;
+              if ( v72 )
               {
-                if ( v73 != 1 )
+                if ( v72 != 1 )
                   goto LABEL_161;
                 v33 = 1;
-                v74 = (DWORD64 *)(HistoryTable.Entry[5].ImageBase + 8);
+                v73 = (DWORD64 *)(HistoryTable.Entry[5].ImageBase + 8);
                 if ( !(_DWORD)v35 )
-                  v74 = (DWORD64 *)HistoryTable.Entry[5].ImageBase;
-                HistoryTable.Entry[11].ImageBase = *v74;
+                  v73 = (DWORD64 *)HistoryTable.Entry[5].ImageBase;
+                HistoryTable.Entry[11].ImageBase = *v73;
                 HistoryTable.Entry[5].ImageBase = *(_QWORD *)(((_DWORD)v35 != 0 ? 8 : 0)
                                                             + HistoryTable.Entry[5].ImageBase
                                                             + 24);
@@ -498,27 +498,27 @@ LABEL_31:
               }
               v32 = (unsigned int)(v32 + 2);
               v14 = (unsigned __int64)*(unsigned __int16 *)&v31[2 * v32 + 4] << 16;
-              v80 = (_QWORD *)(v14 + v82 + *(unsigned __int16 *)&v31[2 * (unsigned int)(v32 - 1) + 4]);
-              v66 = 4LL * (unsigned int)v35;
-              *(_QWORD *)&v81[v66 + 104] = *v80;
-              v67 = v80[1];
+              v79 = (_QWORD *)(v14 + v82 + *(unsigned __int16 *)&v31[2 * (unsigned int)(v32 - 1) + 4]);
+              v65 = 4LL * (unsigned int)v35;
+              *(_QWORD *)&v81[v65 + 104] = *v79;
+              v66 = v79[1];
             }
             else
             {
               v32 = (unsigned int)(v32 + 1);
               v14 = v82 + 16LL * *(unsigned __int16 *)&v31[2 * v32 + 4];
-              v66 = 4LL * (unsigned int)v35;
-              *(_QWORD *)&v81[v66 + 104] = *(_QWORD *)v14;
-              v67 = *(_QWORD *)(v14 + 8);
+              v65 = 4LL * (unsigned int)v35;
+              *(_QWORD *)&v81[v65 + 104] = *(_QWORD *)v14;
+              v66 = *(_QWORD *)(v14 + 8);
             }
-            *(_QWORD *)&v81[v66 + 106] = v67;
+            *(_QWORD *)&v81[v65 + 106] = v66;
             goto LABEL_38;
           }
           if ( v36 == 5 )
           {
             v32 = (unsigned int)(v32 + 2);
             v14 = *(unsigned __int16 *)&v31[2 * (unsigned int)(v32 - 1) + 4];
-            v43 = *(_QWORD *)(v14 + ((unsigned __int64)*(unsigned __int16 *)&v31[2 * v32 + 4] << 16) + v82);
+            v42 = *(_QWORD *)(v14 + ((unsigned __int64)*(unsigned __int16 *)&v31[2 * v32 + 4] << 16) + v82);
             goto LABEL_51;
           }
           if ( (v31[2 * v32 + 5] & 0xF) == 0 )
@@ -527,22 +527,22 @@ LABEL_31:
             HistoryTable.Entry[5].ImageBase += 8LL;
             goto LABEL_38;
           }
-          v40 = v36 - 1;
-          if ( v40 )
+          v39 = v36 - 1;
+          if ( v39 )
           {
-            v41 = v40 - 1;
-            if ( v41 )
+            v40 = v39 - 1;
+            if ( v40 )
             {
-              v42 = v41 - 1;
-              if ( v42 )
+              v41 = v40 - 1;
+              if ( v41 )
               {
-                if ( v42 != 1 )
+                if ( v41 != 1 )
                   goto LABEL_161;
                 v14 = v82;
                 LODWORD(v32) = v32 + 1;
-                v43 = *(_QWORD *)(v82 + 8LL * *(unsigned __int16 *)&v31[2 * (unsigned int)v32 + 4]);
+                v42 = *(_QWORD *)(v82 + 8LL * *(unsigned __int16 *)&v31[2 * (unsigned int)v32 + 4]);
 LABEL_51:
-                *(&HistoryTable.Entry[3].ImageBase + v35) = v43;
+                *(&HistoryTable.Entry[3].ImageBase + v35) = v42;
               }
               else
               {
@@ -558,15 +558,15 @@ LABEL_51:
           else
           {
             v32 = (unsigned int)(v32 + 1);
-            v44 = *(unsigned __int16 *)&v31[2 * v32 + 4];
+            v43 = *(unsigned __int16 *)&v31[2 * v32 + 4];
             if ( (_DWORD)v35 )
             {
               v32 = (unsigned int)(v32 + 1);
-              v14 = (*(unsigned __int16 *)&v31[2 * v32 + 4] << 16) + v44;
+              v14 = (*(unsigned __int16 *)&v31[2 * v32 + 4] << 16) + v43;
             }
             else
             {
-              v14 = (unsigned int)(8 * v44);
+              v14 = (unsigned int)(8 * v43);
             }
             HistoryTable.Entry[5].ImageBase += (unsigned int)v14;
           }
@@ -581,11 +581,11 @@ LABEL_38:
     }
     if ( (*v31 & 0x20) != 0 )
     {
-      v68 = (unsigned int)v34 + 1;
+      v67 = (unsigned int)v34 + 1;
       if ( (v34 & 1) == 0 )
-        v68 = v34;
+        v67 = v34;
       ++v29;
-      v28 = &v31[2 * v68 + 4];
+      v28 = (PCONTEXT_EX)&v31[2 * v67 + 4];
       if ( v29 > 0x20 )
         goto LABEL_161;
       continue;
@@ -610,18 +610,18 @@ LABEL_43:
   v37 = ExceptionRecorda;
   ExceptionRecorda->ExceptionAddress = (void *)HistoryTable.Entry[11].ImageBase;
   RtlpGuardSynchronizeRestorePc(HistoryTable.Entry[11].ImageBase);
-  v39 = v37;
+  v38 = v37;
   if ( NtCurrentPeb()->BeingDebugged )
   {
-    LOBYTE(v38) = 1;
+    v80 = 1;
     goto LABEL_166;
   }
-  if ( !(unsigned __int8)RtlDispatchException((__int64)v37, (__int64)v81) )
+  if ( !RtlDispatchException(v37, (PCONTEXT)v81) )
   {
-    v38 = 0LL;
-    v39 = v37;
+    v80 = 0;
+    v38 = v37;
 LABEL_166:
-    v11 = ZwRaiseException(v39, v81, v38);
+    v11 = ZwRaiseException(v38, (PCONTEXT)v81, v80);
     goto LABEL_167;
   }
   RtlRestoreContext((PCONTEXT)v81, v37);

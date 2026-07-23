@@ -1,9 +1,9 @@
 /*
- * XREFs of MiInitializeVadSecuring @ 0x140A92310
+ * XREFs of MiInitializeVadSecuring @ 0x140A93310
  * Callers:
- *     MiInitSystem @ 0x140A53E5C (MiInitSystem.c)
+ *     MiInitSystem @ 0x140A54E5C (MiInitSystem.c)
  * Callees:
- *     MiGenerateSecureCookie @ 0x1407D3268 (MiGenerateSecureCookie.c)
+ *     MiGenerateSecureCookie @ 0x1407D33D8 (MiGenerateSecureCookie.c)
  */
 
 __int64 MiInitializeVadSecuring()
@@ -11,6 +11,6 @@ __int64 MiInitializeVadSecuring()
   __int64 result; // rax
 
   result = MiGenerateSecureCookie();
-  qword_140C4DE50 = result;
+  qword_140C4DE90 = result;
   return result;
 }

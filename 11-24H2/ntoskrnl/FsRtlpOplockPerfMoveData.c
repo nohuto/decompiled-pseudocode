@@ -1,8 +1,8 @@
 /*
- * XREFs of FsRtlpOplockPerfMoveData @ 0x14070BCE0
+ * XREFs of FsRtlpOplockPerfMoveData @ 0x140709874
  * Callers:
- *     FsRtlpAcknowledgeOplockBreakByCacheFlags @ 0x1404E0638 (FsRtlpAcknowledgeOplockBreakByCacheFlags.c)
- *     FsRtlpGrantAnyOplockFromExclusive @ 0x140580DB0 (FsRtlpGrantAnyOplockFromExclusive.c)
+ *     FsRtlpAcknowledgeOplockBreakByCacheFlags @ 0x1404D9C50 (FsRtlpAcknowledgeOplockBreakByCacheFlags.c)
+ *     FsRtlpGrantAnyOplockFromExclusive @ 0x14057E1D0 (FsRtlpGrantAnyOplockFromExclusive.c)
  * Callees:
  *     <none>
  */

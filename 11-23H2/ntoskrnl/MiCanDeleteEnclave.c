@@ -1,15 +1,15 @@
 /*
- * XREFs of MiCanDeleteEnclave @ 0x140647148
+ * XREFs of MiCanDeleteEnclave @ 0x140647698
  * Callers:
- *     MiFreeVadRange @ 0x140309BA0 (MiFreeVadRange.c)
+ *     MiFreeVadRange @ 0x140309E30 (MiFreeVadRange.c)
  * Callees:
- *     MiUnlockVad @ 0x140289CA0 (MiUnlockVad.c)
- *     MiLockVad @ 0x14029C7D0 (MiLockVad.c)
- *     PsDereferenceVsmEnclave @ 0x1408A5CC4 (PsDereferenceVsmEnclave.c)
- *     PsIsVsmEnclaveTerminated @ 0x1409B770C (PsIsVsmEnclaveTerminated.c)
- *     PsReferenceVsmEnclave @ 0x1409B77A0 (PsReferenceVsmEnclave.c)
- *     PsRundownVsmEnclave @ 0x1409B77C4 (PsRundownVsmEnclave.c)
- *     MiFreeEnclaveModules @ 0x140A3DE28 (MiFreeEnclaveModules.c)
+ *     MiUnlockVad @ 0x140289F30 (MiUnlockVad.c)
+ *     MiLockVad @ 0x14029CA60 (MiLockVad.c)
+ *     PsDereferenceVsmEnclave @ 0x1408A5F14 (PsDereferenceVsmEnclave.c)
+ *     PsIsVsmEnclaveTerminated @ 0x1409B790C (PsIsVsmEnclaveTerminated.c)
+ *     PsReferenceVsmEnclave @ 0x1409B79A0 (PsReferenceVsmEnclave.c)
+ *     PsRundownVsmEnclave @ 0x1409B79C4 (PsRundownVsmEnclave.c)
+ *     MiFreeEnclaveModules @ 0x140A3E0D8 (MiFreeEnclaveModules.c)
  */
 
 __int64 __fastcall MiCanDeleteEnclave(__int64 a1)

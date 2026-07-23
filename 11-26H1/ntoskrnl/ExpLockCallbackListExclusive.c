@@ -1,11 +1,11 @@
 /*
- * XREFs of ExpLockCallbackListExclusive @ 0x14050528C
+ * XREFs of ExpLockCallbackListExclusive @ 0x1404FEBCC
  * Callers:
- *     ExpDeleteCallback @ 0x14083A830 (ExpDeleteCallback.c)
- *     ExCreateCallback @ 0x140AFB990 (ExCreateCallback.c)
+ *     ExpDeleteCallback @ 0x140840A70 (ExpDeleteCallback.c)
+ *     ExCreateCallback @ 0x140AFD610 (ExCreateCallback.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
  */
 
 unsigned __int64 __fastcall ExpLockCallbackListExclusive(__int64 a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
@@ -14,13 +14,13 @@ unsigned __int64 __fastcall ExpLockCallbackListExclusive(__int64 a1, __int64 a2,
   unsigned __int64 v5; // rbx
 
   --*(_WORD *)(a1 + 486);
-  result = KeAbPreAcquire((__int64)&stru_140EFEF90, 0LL, 0LL, a4);
+  result = KeAbPreAcquire((__int64)&stru_140EFF2C0, 0LL, 0LL, a4);
   v5 = result;
-  if ( _interlockedbittestandset64((volatile signed __int32 *)&stru_140EFEF90, 0LL) )
+  if ( _interlockedbittestandset64((volatile signed __int32 *)&stru_140EFF2C0, 0LL) )
     result = ExfAcquirePushLockExclusiveEx(
-               (unsigned __int64 *)&stru_140EFEF90,
+               (unsigned __int64 *)&stru_140EFF2C0,
                (AutoBoost *)result,
-               (__int64)&stru_140EFEF90);
+               (__int64)&stru_140EFF2C0);
   if ( v5 )
   {
     result = KiAbpGlobalState;

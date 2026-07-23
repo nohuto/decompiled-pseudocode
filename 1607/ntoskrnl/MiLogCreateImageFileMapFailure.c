@@ -1,12 +1,12 @@
 /*
- * XREFs of MiLogCreateImageFileMapFailure @ 0x140659144
+ * XREFs of MiLogCreateImageFileMapFailure @ 0x140659228
  * Callers:
- *     MiCreateImageFileMap @ 0x1405229BC (MiCreateImageFileMap.c)
+ *     MiCreateImageFileMap @ 0x140505A1C (MiCreateImageFileMap.c)
  * Callees:
- *     _TlgKeywordOn @ 0x140088D98 (_TlgKeywordOn.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     _TlgCreateSz @ 0x1401CDF00 (_TlgCreateSz.c)
- *     _TlgWriteEx @ 0x1401E12FC (_TlgWriteEx.c)
+ *     _TlgKeywordOn @ 0x14010CF88 (_TlgKeywordOn.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     _TlgCreateSz @ 0x1401CDD4C (_TlgCreateSz.c)
+ *     _TlgWriteEx @ 0x1401E1128 (_TlgWriteEx.c)
  */
 
 void MiLogCreateImageFileMapFailure()
@@ -16,9 +16,9 @@ void MiLogCreateImageFileMapFailure()
   TraceLoggingHProvider v2; // r10
   EVENT_DATA_DESCRIPTOR v3; // [rsp+60h] [rbp+0h] BYREF
 
-  if ( hProvider && hProvider->LevelPlus1 > 5 )
+  if ( qword_1403277E0 && qword_1403277E0->LevelPlus1 > 5 )
   {
-    if ( TlgKeywordOn(hProvider, 0x400000000000uLL) )
+    if ( TlgKeywordOn(qword_1403277E0, 0x400000000000uLL) )
     {
       TlgCreateSz(
         (PEVENT_DATA_DESCRIPTOR)(((unsigned __int64)&v3 & 0xFFFFFFFFFFFFFFE0uLL) + 32),
@@ -31,7 +31,7 @@ void MiLogCreateImageFileMapFailure()
       *(_DWORD *)(((unsigned __int64)&v3 & 0xFFFFFFFFFFFFFFE0uLL) + 0x4C) = (_DWORD)pActivityId;
       TlgWriteEx(
         v2,
-        &unk_14027C35D,
+        &unk_14027C45D,
         0LL,
         (_DWORD)pActivityId + 1,
         pActivityId,

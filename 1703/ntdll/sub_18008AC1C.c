@@ -7,24 +7,24 @@
  *     RtlAcquireSRWLockExclusive @ 0x180028EC0 (RtlAcquireSRWLockExclusive.c)
  */
 
-char __fastcall sub_18008AC1C(__int64 a1, unsigned __int64 a2)
+char __fastcall sub_18008AC1C(PRTL_SRWLOCK SRWLock, unsigned __int64 a2)
 {
-  _QWORD *i; // r8
+  _RTL_SRWLOCK *i; // r8
   char v5; // bl
 
-  RtlAcquireSRWLockExclusive((volatile signed __int64 *)a1);
-  for ( i = *(_QWORD **)(a1 + 8); ; i = (_QWORD *)*i )
+  RtlAcquireSRWLockExclusive(SRWLock);
+  for ( i = (_RTL_SRWLOCK *)SRWLock[1].Ptr; ; i = (_RTL_SRWLOCK *)i->Ptr )
   {
-    if ( i == (_QWORD *)(a1 + 8) )
+    if ( i == &SRWLock[1] )
     {
       v5 = 0;
       goto LABEL_6;
     }
-    if ( a2 >= (unsigned __int64)i && a2 < (unsigned __int64)(i + 126) )
+    if ( a2 >= (unsigned __int64)i && a2 < (unsigned __int64)&i[126] )
       break;
   }
   v5 = 1;
 LABEL_6:
-  RtlReleaseSRWLockExclusive((volatile signed __int64 *)a1);
+  RtlReleaseSRWLockExclusive(SRWLock);
   return v5;
 }

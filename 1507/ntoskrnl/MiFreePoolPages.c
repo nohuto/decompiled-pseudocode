@@ -18,7 +18,7 @@
  *     MiReturnPhysicalPoolPages @ 0x14010E300 (MiReturnPhysicalPoolPages.c)
  */
 
-__int64 __fastcall MiFreePoolPages(struct _SLIST_ENTRY *BugCheckParameter2, unsigned __int64 a2, int a3)
+__int64 __fastcall MiFreePoolPages(_SLIST_ENTRY *BugCheckParameter2, unsigned __int64 a2, int a3)
 {
   __int64 result; // rax
   unsigned __int64 v5; // rbx

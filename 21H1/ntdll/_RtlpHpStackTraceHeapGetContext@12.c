@@ -9,21 +9,21 @@
  *     _RtlRunOnceBeginInitialize@12 @ 0x4B2B2320 (_RtlRunOnceBeginInitialize@12.c)
  */
 
-int __fastcall RtlpHpStackTraceHeapGetContext(int a1, int a2, _DWORD *a3)
+NTSTATUS __fastcall RtlpHpStackTraceHeapGetContext(_DWORD *a1, int a2, PVOID *a3)
 {
-  volatile signed __int32 *v3; // eax
-  int result; // eax
-  int v5; // [esp+0h] [ebp-4h] BYREF
+  _RTL_RUN_ONCE *v3; // eax
+  NTSTATUS result; // eax
+  PVOID Context; // [esp+0h] [ebp-4h] BYREF
 
-  v5 = a1;
-  v3 = (volatile signed __int32 *)(a1 + (*(_DWORD *)(a1 + 8) == -571548178 ? 84 : 208));
+  Context = a1;
+  v3 = (_RTL_RUN_ONCE *)((char *)a1 + (a1[2] == -571548178 ? 84 : 208));
   if ( a2 )
-    result = RtlRunOnceExecuteOnce((int)v3, (int (__stdcall *)(int, int, int))RtlpHpPerHeapStackTraceInitialize, 0, &v5);
+    result = RtlRunOnceExecuteOnce(v3, (PRTL_RUN_ONCE_INIT_FN)RtlpHpPerHeapStackTraceInitialize, 0, &Context);
   else
-    result = RtlRunOnceBeginInitialize(v3, 1, (unsigned __int32 *)&v5);
+    result = RtlRunOnceBeginInitialize(v3, 1u, &Context);
   if ( result >= 0 )
   {
-    *a3 = v5;
+    *a3 = Context;
     return 0;
   }
   return result;

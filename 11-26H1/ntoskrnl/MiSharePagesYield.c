@@ -1,18 +1,18 @@
 /*
- * XREFs of MiSharePagesYield @ 0x1403070E0
+ * XREFs of MiSharePagesYield @ 0x1402E9160
  * Callers:
- *     MiSharePages @ 0x140306F88 (MiSharePages.c)
+ *     MiSharePages @ 0x1402E9008 (MiSharePages.c)
  * Callees:
- *     KiLeaveCriticalRegionUnsafe @ 0x1402BA1B0 (KiLeaveCriticalRegionUnsafe.c)
- *     MiUnlockPageTableInternal @ 0x1402D13E0 (MiUnlockPageTableInternal.c)
- *     KeShouldYieldProcessor @ 0x1402D49D0 (KeShouldYieldProcessor.c)
- *     MiUnlockWorkingSetShared @ 0x1402EB6C0 (MiUnlockWorkingSetShared.c)
- *     MiPageTableLockIsContended @ 0x140306820 (MiPageTableLockIsContended.c)
- *     MiRelinkDeferredCrcEntries @ 0x1403075B0 (MiRelinkDeferredCrcEntries.c)
- *     MiFreeDeferredCrcPages @ 0x140307800 (MiFreeDeferredCrcPages.c)
- *     MiWorkingSetIsContended @ 0x1403182D0 (MiWorkingSetIsContended.c)
- *     MiFlushTbList @ 0x140329040 (MiFlushTbList.c)
- *     MiReleaseProcessorFlushList @ 0x1403613C0 (MiReleaseProcessorFlushList.c)
+ *     MiUnlockPageTableInternal @ 0x1402B31A0 (MiUnlockPageTableInternal.c)
+ *     KeShouldYieldProcessor @ 0x1402B6790 (KeShouldYieldProcessor.c)
+ *     MiUnlockWorkingSetShared @ 0x1402CD700 (MiUnlockWorkingSetShared.c)
+ *     MiPageTableLockIsContended @ 0x1402E88A0 (MiPageTableLockIsContended.c)
+ *     MiRelinkDeferredCrcEntries @ 0x1402E9630 (MiRelinkDeferredCrcEntries.c)
+ *     MiFreeDeferredCrcPages @ 0x1402E9880 (MiFreeDeferredCrcPages.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140304E70 (KiLeaveCriticalRegionUnsafe.c)
+ *     MiWorkingSetIsContended @ 0x14031A300 (MiWorkingSetIsContended.c)
+ *     MiFlushTbList @ 0x14032B070 (MiFlushTbList.c)
+ *     MiReleaseProcessorFlushList @ 0x140363160 (MiReleaseProcessorFlushList.c)
  */
 
 __int64 __fastcall MiSharePagesYield(__int64 *a1, __int64 a2)
@@ -24,8 +24,7 @@ __int64 __fastcall MiSharePagesYield(__int64 *a1, __int64 a2)
   int v8; // eax
   __int64 v10; // rax
   unsigned __int64 v11; // rdx
-  __int64 v12; // rdx
-  unsigned __int64 v13; // rdx
+  unsigned __int64 v12; // rdx
 
   v2 = a1[1];
   v4 = *a1;
@@ -54,7 +53,7 @@ LABEL_21:
   }
   if ( (v8 & 7) == 0
     && ((unsigned int)MiWorkingSetIsContended(v7)
-     || (v13 = a1[7]) != 0 && (unsigned int)MiPageTableLockIsContended(v7, v13)) )
+     || (v12 = a1[7]) != 0 && (unsigned int)MiPageTableLockIsContended(v7, v12)) )
   {
     *((_DWORD *)a1 + 5) |= 0x10u;
   }
@@ -98,7 +97,7 @@ LABEL_7:
   }
   else
   {
-    KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread(), v12);
+    KiLeaveCriticalRegionUnsafe(KeGetCurrentThread());
     *((_DWORD *)a1 + 5) &= ~2u;
     return 3221225738LL;
   }

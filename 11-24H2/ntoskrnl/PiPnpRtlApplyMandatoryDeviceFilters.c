@@ -1,26 +1,26 @@
 /*
- * XREFs of PiPnpRtlApplyMandatoryDeviceFilters @ 0x1408D1BF0
+ * XREFs of PiPnpRtlApplyMandatoryDeviceFilters @ 0x1408CF5E0
  * Callers:
- *     PiCMValidateDeviceInstance @ 0x1408BE2FC (PiCMValidateDeviceInstance.c)
- *     PiPnpRtlApplyMandatoryDeviceInterfaceFilters @ 0x1408D1730 (PiPnpRtlApplyMandatoryDeviceInterfaceFilters.c)
- *     PiPnpRtlApplyMandatoryFilters @ 0x1408D19E0 (PiPnpRtlApplyMandatoryFilters.c)
- *     PiCMMandatoryFilterCallback @ 0x1408D21F0 (PiCMMandatoryFilterCallback.c)
- *     PiUEventApplyAdditionalFilters @ 0x1408D25A0 (PiUEventApplyAdditionalFilters.c)
- *     PiPnpRtlApplyMandatoryDeviceContainerFiltersCallback @ 0x140A5E7B0 (PiPnpRtlApplyMandatoryDeviceContainerFiltersCallback.c)
+ *     PiCMValidateDeviceInstance @ 0x1408BBC4C (PiCMValidateDeviceInstance.c)
+ *     PiPnpRtlApplyMandatoryDeviceInterfaceFilters @ 0x1408CF120 (PiPnpRtlApplyMandatoryDeviceInterfaceFilters.c)
+ *     PiPnpRtlApplyMandatoryFilters @ 0x1408CF3D0 (PiPnpRtlApplyMandatoryFilters.c)
+ *     PiCMMandatoryFilterCallback @ 0x1408CFBE0 (PiCMMandatoryFilterCallback.c)
+ *     PiUEventApplyAdditionalFilters @ 0x1408CFF90 (PiUEventApplyAdditionalFilters.c)
+ *     PiPnpRtlApplyMandatoryDeviceContainerFiltersCallback @ 0x140A56A20 (PiPnpRtlApplyMandatoryDeviceContainerFiltersCallback.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x1402595A0 (KeLeaveCriticalRegionThread.c)
- *     ExReleaseResourceLite @ 0x14025A450 (ExReleaseResourceLite.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     ExAcquireResourceSharedLite @ 0x140341E80 (ExAcquireResourceSharedLite.c)
- *     PsGetSessionById @ 0x140349430 (PsGetSessionById.c)
- *     PsGetServerSiloServiceSessionId @ 0x1404566C0 (PsGetServerSiloServiceSessionId.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     _PnpGetObjectPropertyWorker @ 0x1408CD660 (_PnpGetObjectPropertyWorker.c)
- *     PiPnpRtlObjectActionCallback @ 0x1408CE6A0 (PiPnpRtlObjectActionCallback.c)
- *     PiAuVerifyAccessToObject @ 0x1409E29D0 (PiAuVerifyAccessToObject.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x140289BB0 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseResourceLite @ 0x14028AA60 (ExReleaseResourceLite.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     ExAcquireResourceSharedLite @ 0x140321360 (ExAcquireResourceSharedLite.c)
+ *     PsGetSessionById @ 0x1403C2E70 (PsGetSessionById.c)
+ *     PsGetServerSiloServiceSessionId @ 0x14044B690 (PsGetServerSiloServiceSessionId.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     _PnpGetObjectPropertyWorker @ 0x1408CB050 (_PnpGetObjectPropertyWorker.c)
+ *     PiPnpRtlObjectActionCallback @ 0x1408CC090 (PiPnpRtlObjectActionCallback.c)
+ *     PiAuVerifyAccessToObject @ 0x1409DCD30 (PiAuVerifyAccessToObject.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiPnpRtlApplyMandatoryDeviceFilters(
@@ -35,7 +35,7 @@ __int64 __fastcall PiPnpRtlApplyMandatoryDeviceFilters(
   unsigned int v10; // r14d
   int v11; // ebx
   unsigned int v12; // eax
-  unsigned int v13; // r14d
+  ULONG_PTR v13; // r14
   void *Pool2; // rdi
   unsigned __int16 *v15; // r13
   _QWORD *v16; // rbx
@@ -112,7 +112,7 @@ LABEL_5:
     if ( v23 == PiPnpRtlObjectActionCallback )
       v24 = PiPnpRtlObjectActionCallback(a1, a2, 1LL, 8, 1, (__int64)&v32);
     else
-      v24 = guard_dispatch_icall_no_overrides(a1, a2, 1LL, 8LL);
+      v24 = guard_dispatch_icall_no_overrides(a1, a2);
     if ( v24 == -1073741822 )
     {
       v23 = 0LL;
@@ -133,14 +133,14 @@ LABEL_59:
       }
     }
   }
-  ObjectPropertyWorker = PnpGetObjectPropertyWorker(a1, a2, 1u, v34, v35, (__int64)v36, v37, v38, v39, v40, v41);
+  ObjectPropertyWorker = PnpGetObjectPropertyWorker(a1, a2, 1, v34, v35, (__int64)v36, v37, v38, v39, v40, v41);
   v11 = ObjectPropertyWorker;
   if ( v23 )
   {
     LODWORD(v32) = ObjectPropertyWorker;
     v28 = v23 == PiPnpRtlObjectActionCallback
         ? PiPnpRtlObjectActionCallback(a1, a2, 1LL, 8, 2, (__int64)&v32)
-        : guard_dispatch_icall_no_overrides(a1, a2, 1LL, 8LL);
+        : guard_dispatch_icall_no_overrides(a1, a2);
     if ( v28 != -1073741822 )
     {
       if ( v28 == -1073741536 )
@@ -179,7 +179,7 @@ LABEL_6:
   v12 = 512;
   v30 = 0;
   v29 = 512;
-  v13 = 0;
+  LODWORD(v13) = 0;
   GenericMapping.GenericRead = 131073;
   Pool2 = 0LL;
   GenericMapping.GenericWrite = 0x20000;
@@ -189,12 +189,12 @@ LABEL_6:
   *a5 = 0;
   while ( 1 )
   {
-    if ( v12 > v13 )
+    if ( v12 > (unsigned int)v13 )
     {
       v13 = v12;
       if ( Pool2 )
         ExFreePoolWithTag(Pool2, 0x47706E50u);
-      Pool2 = (void *)ExAllocatePool2(0x100uLL);
+      Pool2 = (void *)ExAllocatePool2(0x100uLL, v13, 0x47706E50u);
       if ( !Pool2 )
       {
         v11 = -1073741670;
@@ -215,13 +215,13 @@ LABEL_6:
     v35 = 0LL;
     v36 = (const DEVPROPKEY *)&DEVPKEY_Device_EffectiveRestrictedSD;
     v38 = (int *)Pool2;
-    v39 = v13;
+    v39 = (unsigned int)v13;
     if ( v17 )
     {
       if ( v17 == PiPnpRtlObjectActionCallback )
         v18 = PiPnpRtlObjectActionCallback(*(PVOID *)&PiPnpRtlCtx, v15, 1LL, 8, 1, (__int64)&v32);
       else
-        v18 = guard_dispatch_icall_no_overrides(*(_QWORD *)&PiPnpRtlCtx, v15, 1LL, 8LL);
+        v18 = guard_dispatch_icall_no_overrides(*(_QWORD *)&PiPnpRtlCtx, v15);
       if ( v18 == -1073741822 )
       {
         v17 = 0LL;
@@ -237,14 +237,14 @@ LABEL_6:
           goto LABEL_51;
       }
     }
-    v25 = PnpGetObjectPropertyWorker(v16, v15, 1u, v34, v35, (__int64)v36, v37, v38, v39, v40, v41);
+    v25 = PnpGetObjectPropertyWorker(v16, v15, 1, v34, v35, (__int64)v36, v37, v38, v39, v40, v41);
     v11 = v25;
     if ( v17 )
     {
       LODWORD(v32) = v25;
       v26 = v17 == PiPnpRtlObjectActionCallback
           ? PiPnpRtlObjectActionCallback(v31, v15, 1LL, 8, 2, (__int64)&v32)
-          : guard_dispatch_icall_no_overrides(v31, v15, 1LL, 8LL);
+          : guard_dispatch_icall_no_overrides(v31, v15);
       if ( v26 != -1073741822 )
         break;
     }

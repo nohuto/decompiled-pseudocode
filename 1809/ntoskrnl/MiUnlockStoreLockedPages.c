@@ -1,13 +1,13 @@
 /*
- * XREFs of MiUnlockStoreLockedPages @ 0x1401541C0
+ * XREFs of MiUnlockStoreLockedPages @ 0x1401542C0
  * Callers:
- *     SmKmUnlockMdl @ 0x14014B134 (SmKmUnlockMdl.c)
- *     MmStoreProbeAndLockPages @ 0x140153D74 (MmStoreProbeAndLockPages.c)
+ *     SmKmUnlockMdl @ 0x14014B234 (SmKmUnlockMdl.c)
+ *     MmStoreProbeAndLockPages @ 0x140153E74 (MmStoreProbeAndLockPages.c)
  * Callees:
  *     MiWriteCompletePfn @ 0x14001E770 (MiWriteCompletePfn.c)
  *     MiReleasePageFileInfo @ 0x14002A628 (MiReleasePageFileInfo.c)
  *     MiLockPageInline @ 0x14002CE40 (MiLockPageInline.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 int __fastcall MiUnlockStoreLockedPages(__int64 a1)
@@ -44,7 +44,7 @@ int __fastcall MiUnlockStoreLockedPages(__int64 a1)
       v3 = v8;
     v10 = MiWriteCompletePfn(v6, v3);
     if ( v10 )
-      v11 = *(struct _KEVENT **)(qword_14043A748 + 8 * ((*(_QWORD *)(v6 + 40) >> 40) & 0x3FFLL));
+      v11 = *(struct _KEVENT **)(qword_14043B808 + 8 * ((*(_QWORD *)(v6 + 40) >> 40) & 0x3FFLL));
     else
       v11 = 0LL;
     _InterlockedAnd64((volatile signed __int64 *)(v6 + 24), 0x7FFFFFFFFFFFFFFFuLL);

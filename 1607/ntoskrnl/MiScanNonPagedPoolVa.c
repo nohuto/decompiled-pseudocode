@@ -1,15 +1,15 @@
 /*
- * XREFs of MiScanNonPagedPoolVa @ 0x14001AA60
+ * XREFs of MiScanNonPagedPoolVa @ 0x14001A5E0
  * Callers:
- *     MiFindNonPagedPoolVa @ 0x140017DC0 (MiFindNonPagedPoolVa.c)
- *     MiFindContiguousMemoryInPool @ 0x14009B2EC (MiFindContiguousMemoryInPool.c)
- *     MiRemoveFreePoolMemoryFromDump @ 0x1401EC878 (MiRemoveFreePoolMemoryFromDump.c)
- *     MiScrubNonPagedPool @ 0x140659E60 (MiScrubNonPagedPool.c)
+ *     MiFindNonPagedPoolVa @ 0x140017940 (MiFindNonPagedPoolVa.c)
+ *     MiFindContiguousMemoryInPool @ 0x14009AAEC (MiFindContiguousMemoryInPool.c)
+ *     MiRemoveFreePoolMemoryFromDump @ 0x1401EC6A4 (MiRemoveFreePoolMemoryFromDump.c)
+ *     MiScrubNonPagedPool @ 0x140659F44 (MiScrubNonPagedPool.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140012750 (KeReleaseInStackQueuedSpinLock.c)
- *     RtlFindNextForwardRunClearCappedEx @ 0x14001AC80 (RtlFindNextForwardRunClearCappedEx.c)
- *     MiScanLeafNonPagedPool @ 0x14001ADE0 (MiScanLeafNonPagedPool.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14001BD40 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x1400122D0 (KeReleaseInStackQueuedSpinLock.c)
+ *     RtlFindNextForwardRunClearCappedEx @ 0x14001A800 (RtlFindNextForwardRunClearCappedEx.c)
+ *     MiScanLeafNonPagedPool @ 0x14001A960 (MiScanLeafNonPagedPool.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14001B8C0 (KeAcquireInStackQueuedSpinLock.c)
  */
 
 __int64 __fastcall MiScanNonPagedPoolVa(__int64 a1, unsigned int a2, __int64 a3, __int64 a4)
@@ -26,7 +26,7 @@ __int64 __fastcall MiScanNonPagedPoolVa(__int64 a1, unsigned int a2, __int64 a3,
   unsigned __int64 v14; // rbx
   __int64 result; // rax
   unsigned __int64 v16; // [rsp+40h] [rbp-78h] BYREF
-  union _SLIST_HEADER *v17; // [rsp+48h] [rbp-70h]
+  _SLIST_HEADER *v17; // [rsp+48h] [rbp-70h]
   unsigned __int64 *v18; // [rsp+50h] [rbp-68h]
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+58h] [rbp-60h] BYREF
   int v20; // [rsp+C0h] [rbp+8h]
@@ -35,7 +35,7 @@ __int64 __fastcall MiScanNonPagedPoolVa(__int64 a1, unsigned int a2, __int64 a3,
 
   v22 = a3;
   v20 = a1;
-  v17 = &qword_1403269B0[26 * a2];
+  v17 = &qword_1403269F0[26 * a2];
   p_Region = &v17[(int)a3 + 21].Region;
   v23 = p_Region;
   v6 = *(_BYTE *)(a4 + 48) == 1;

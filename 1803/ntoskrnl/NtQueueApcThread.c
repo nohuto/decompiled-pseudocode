@@ -13,5 +13,11 @@ NTSTATUS __stdcall NtQueueApcThread(
         PVOID SystemArgument1,
         PVOID SystemArgument2)
 {
-  return NtQueueApcThreadEx(ThreadHandle, 0LL, ApcRoutine, NormalContext, SystemArgument1, SystemArgument2);
+  return NtQueueApcThreadEx(
+           ThreadHandle,
+           0LL,
+           (PPS_APC_ROUTINE)ApcRoutine,
+           NormalContext,
+           SystemArgument1,
+           SystemArgument2);
 }

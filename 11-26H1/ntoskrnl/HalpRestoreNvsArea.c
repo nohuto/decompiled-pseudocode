@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpRestoreNvsArea @ 0x140528F30
+ * XREFs of HalpRestoreNvsArea @ 0x14052B520
  * Callers:
- *     HalpAcpiPostSleep @ 0x140BECAA0 (HalpAcpiPostSleep.c)
+ *     HalpAcpiPostSleep @ 0x140BF2AA0 (HalpAcpiPostSleep.c)
  * Callees:
- *     RtlCopyDeviceMemory @ 0x14055978C (RtlCopyDeviceMemory.c)
+ *     RtlCopyDeviceMemory @ 0x14055BC1C (RtlCopyDeviceMemory.c)
  */
 
 __int64 HalpRestoreNvsArea()

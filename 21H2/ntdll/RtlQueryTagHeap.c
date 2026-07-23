@@ -1,84 +1,85 @@
 /*
- * XREFs of RtlQueryTagHeap @ 0x1800F2AD0
+ * XREFs of RtlQueryTagHeap @ 0x1800F2A90
  * Callers:
- *     RtlDebugQueryTagHeap @ 0x1800F9884 (RtlDebugQueryTagHeap.c)
- *     TpDbgDumpHeapUsage @ 0x1801122E0 (TpDbgDumpHeapUsage.c)
+ *     RtlDebugQueryTagHeap @ 0x1800F9844 (RtlDebugQueryTagHeap.c)
+ *     TpDbgDumpHeapUsage @ 0x1801122A0 (TpDbgDumpHeapUsage.c)
  * Callees:
  *     RtlLeaveCriticalSection @ 0x18002F230 (RtlLeaveCriticalSection.c)
  *     RtlEnterCriticalSection @ 0x18002FAA0 (RtlEnterCriticalSection.c)
- *     RtlDebugQueryTagHeap @ 0x1800F9884 (RtlDebugQueryTagHeap.c)
+ *     RtlDebugQueryTagHeap @ 0x1800F9844 (RtlDebugQueryTagHeap.c)
  */
 
-void *__fastcall RtlQueryTagHeap(__int64 a1, unsigned int a2, __int64 a3, char a4, __int64 a5)
+PWSTR __cdecl RtlQueryTagHeap(
+        PVOID HeapHandle,
+        ULONG Flags,
+        USHORT TagIndex,
+        BOOLEAN ResetCounters,
+        PRTL_HEAP_TAG_INFO TagInfo)
 {
   int v7; // ecx
-  void *TagHeap; // rdi
-  __int64 v9; // rdx
+  WCHAR *TagHeap; // rdi
+  char v9; // dl
   __int64 v10; // rcx
-  __int64 v11; // rcx
-  char v13; // [rsp+30h] [rbp-28h]
-  unsigned __int16 v14; // [rsp+70h] [rbp+18h]
+  __int64 v11; // rdx
+  __int64 v12; // rcx
+  char v14; // [rsp+30h] [rbp-28h]
 
-  v14 = a3;
-  v13 = 0;
-  if ( *(_DWORD *)(a1 + 16) == -571548178 )
+  v14 = 0;
+  if ( *((_DWORD *)HeapHandle + 4) == -571548178 )
     return 0LL;
-  v7 = *(_DWORD *)(a1 + 116);
+  v7 = *((_DWORD *)HeapHandle + 29);
   if ( (v7 & 0x1000000) != 0 || (NtCurrentPeb()->NtGlobalFlag & 0x800) == 0 )
     return 0LL;
   TagHeap = 0LL;
-  v9 = v7 | a2;
-  if ( (v9 & 0x61000000) != 0 && (v9 & 0x10000000) == 0 )
+  v9 = v7 | Flags;
+  if ( ((v7 | Flags) & 0x61000000) != 0 && ((v7 | Flags) & 0x10000000) == 0 )
   {
-    TagHeap = (void *)RtlDebugQueryTagHeap(a1, v9, (unsigned __int16)a3, a4, a5);
+    TagHeap = (WCHAR *)RtlDebugQueryTagHeap(HeapHandle, TagInfo);
   }
   else
   {
     if ( (v9 & 1) == 0 )
     {
-      RtlEnterCriticalSection(*(_QWORD *)(a1 + 352));
-      v13 = 1;
+      RtlEnterCriticalSection(*((PRTL_CRITICAL_SECTION *)HeapHandle + 44));
+      v14 = 1;
     }
-    if ( v14 < *(_WORD *)(a1 + 224) && (v10 = *(_QWORD *)(a1 + 232)) != 0 )
+    if ( TagIndex < *((_WORD *)HeapHandle + 112) && (v10 = *((_QWORD *)HeapHandle + 29)) != 0 )
     {
-      v9 = 9LL * v14;
-      a3 = a5;
-      if ( a5 )
+      if ( TagInfo )
       {
-        *(_DWORD *)a5 = *(_DWORD *)(v10 + 72LL * v14);
-        *(_DWORD *)(a5 + 4) = *(_DWORD *)(v10 + 72LL * v14 + 4);
-        *(_QWORD *)(a5 + 8) = 16LL * *(_QWORD *)(v10 + 72LL * v14 + 8);
+        TagInfo->NumberOfAllocations = *(_DWORD *)(v10 + 72LL * TagIndex);
+        TagInfo->NumberOfFrees = *(_DWORD *)(v10 + 72LL * TagIndex + 4);
+        TagInfo->BytesAllocated = 16LL * *(_QWORD *)(v10 + 72LL * TagIndex + 8);
       }
-      if ( a4 )
+      if ( ResetCounters )
       {
-        *(_QWORD *)(v10 + 72LL * v14) = 0LL;
-        *(_QWORD *)(v10 + 72LL * v14 + 8) = 0LL;
+        *(_QWORD *)(v10 + 72LL * TagIndex) = 0LL;
+        *(_QWORD *)(v10 + 72LL * TagIndex + 8) = 0LL;
       }
-      TagHeap = (void *)(v10 + 20 + 72LL * v14);
+      TagHeap = (WCHAR *)(v10 + 20 + 72LL * TagIndex);
     }
-    else if ( (v14 & 0x8000u) != 0 && (v14 ^ 0x8000u) < 0x81 )
+    else if ( (TagIndex & 0x8000u) != 0 && (TagIndex ^ 0x8000u) < 0x81 )
     {
-      v9 = *(_QWORD *)(a1 + 328);
-      if ( v9 )
+      v11 = *((_QWORD *)HeapHandle + 41);
+      if ( v11 )
       {
-        v11 = v9 + 16LL * (v14 ^ 0x8000u);
-        v9 = a5;
-        if ( a5 )
+        v12 = v11 + 16LL * (TagIndex ^ 0x8000u);
+        if ( TagInfo )
         {
-          *(_DWORD *)a5 = *(_DWORD *)v11;
-          *(_DWORD *)(a5 + 4) = *(_DWORD *)(v11 + 4);
-          *(_QWORD *)(a5 + 8) = 16LL * *(_QWORD *)(v11 + 8);
+          TagInfo->NumberOfAllocations = *(_DWORD *)v12;
+          TagInfo->NumberOfFrees = *(_DWORD *)(v12 + 4);
+          TagInfo->BytesAllocated = 16LL * *(_QWORD *)(v12 + 8);
         }
-        if ( a4 )
+        if ( ResetCounters )
         {
-          *(_QWORD *)v11 = 0LL;
-          *(_QWORD *)(v11 + 8) = 0LL;
+          *(_QWORD *)v12 = 0LL;
+          *(_QWORD *)(v12 + 8) = 0LL;
         }
-        TagHeap = &unk_180122394;
+        TagHeap = (WCHAR *)&word_180122394;
       }
     }
   }
-  if ( v13 )
-    RtlLeaveCriticalSection(*(_QWORD *)(a1 + 352), v9, a3);
+  if ( v14 )
+    RtlLeaveCriticalSection(*((PRTL_CRITICAL_SECTION *)HeapHandle + 44));
   return TagHeap;
 }

@@ -15,53 +15,53 @@
  *     sub_1800FE9EC @ 0x1800FE9EC (sub_1800FE9EC.c)
  */
 
-char __fastcall RtlUnlockHeap(__int64 a1)
+BOOLEAN __cdecl RtlUnlockHeap(PVOID HeapHandle)
 {
-  __int64 v2; // rcx
-  _DWORD *HotpatchInformation; // rcx
-  __int64 v4; // rcx
+  _RTL_CRITICAL_SECTION *v2; // rcx
+  PSILO_USER_SHARED_DATA SharedData; // rcx
+  __int64 UserModeGlobalLogger; // rcx
 
-  if ( *(_DWORD *)(a1 + 16) == -571548178 )
+  if ( *((_DWORD *)HeapHandle + 4) == -571548178 )
   {
-    if ( (*(_BYTE *)(a1 + 20) & 1) == 0 && (*(_WORD *)(a1 + 62))-- == 1 )
+    if ( (*((_BYTE *)HeapHandle + 20) & 1) == 0 && (*((_WORD *)HeapHandle + 31))-- == 1 )
     {
-      *(_DWORD *)(a1 + 64) = 0;
-      RtlReleaseSRWLockExclusive(a1 + 72);
-      if ( (*(_DWORD *)(a1 + 20) & 1) == 0 )
+      *((_DWORD *)HeapHandle + 16) = 0;
+      RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)HeapHandle + 9);
+      if ( (*((_DWORD *)HeapHandle + 5) & 1) == 0 )
       {
-        RtlReleaseSRWLockExclusive(a1 + 136);
-        if ( (*(_DWORD *)(a1 + 20) & 1) == 0 )
+        RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)HeapHandle + 17);
+        if ( (*((_DWORD *)HeapHandle + 5) & 1) == 0 )
         {
-          RtlReleaseSRWLockExclusive(a1 + 256);
-          if ( (*(_DWORD *)(a1 + 20) & 1) == 0 )
-            RtlReleaseSRWLockExclusive(a1 + 392);
+          RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)HeapHandle + 32);
+          if ( (*((_DWORD *)HeapHandle + 5) & 1) == 0 )
+            RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)HeapHandle + 49);
         }
       }
-      RtlReleaseSRWLockExclusive(a1 + 608);
+      RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)HeapHandle + 76);
     }
   }
   else
   {
-    if ( (*(_DWORD *)(a1 + 116) & 0x1000000) != 0 )
+    if ( (*((_DWORD *)HeapHandle + 29) & 0x1000000) != 0 )
       return ((__int64 (*)(void))qword_180156448)();
-    if ( !(unsigned __int8)sub_18001FC58(a1, "RtlUnlockHeap") )
+    if ( !(unsigned __int8)sub_18001FC58(HeapHandle, "RtlUnlockHeap") )
       return 0;
-    if ( (*(_BYTE *)(a1 + 112) & 1) == 0 )
+    if ( (*((_BYTE *)HeapHandle + 112) & 1) == 0 )
     {
-      v2 = *(_QWORD *)(a1 + 352);
-      --*(_WORD *)(a1 + 384);
+      v2 = (_RTL_CRITICAL_SECTION *)*((_QWORD *)HeapHandle + 44);
+      --*((_WORD *)HeapHandle + 192);
       RtlLeaveCriticalSection(v2);
     }
   }
-  HotpatchInformation = NtCurrentPeb()->HotpatchInformation;
-  if ( HotpatchInformation && *HotpatchInformation )
-    v4 = (__int64)NtCurrentPeb()->HotpatchInformation + 550;
+  SharedData = NtCurrentPeb()->SharedData;
+  if ( SharedData && SharedData->ServiceSessionId )
+    UserModeGlobalLogger = (__int64)NtCurrentPeb()->SharedData->UserModeGlobalLogger;
   else
-    v4 = 2147353472LL;
-  if ( *(_BYTE *)v4 )
+    UserModeGlobalLogger = 2147353472LL;
+  if ( *(_BYTE *)UserModeGlobalLogger )
   {
     if ( (NtCurrentPeb()->TracingFlags & 1) != 0 )
-      sub_1800FE9EC(a1);
+      sub_1800FE9EC(HeapHandle);
   }
   return 1;
 }

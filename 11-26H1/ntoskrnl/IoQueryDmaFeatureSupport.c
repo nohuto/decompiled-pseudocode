@@ -1,5 +1,5 @@
 /*
- * XREFs of IoQueryDmaFeatureSupport @ 0x1407A1990
+ * XREFs of IoQueryDmaFeatureSupport @ 0x1407A44D0
  * Callers:
  *     <none>
  * Callees:

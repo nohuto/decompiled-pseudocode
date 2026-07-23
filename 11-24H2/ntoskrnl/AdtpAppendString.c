@@ -1,13 +1,13 @@
 /*
- * XREFs of AdtpAppendString @ 0x140811000
+ * XREFs of AdtpAppendString @ 0x140811740
  * Callers:
- *     AdtpAppendZString @ 0x1408111B4 (AdtpAppendZString.c)
- *     AdtpBuildObjectTypeStrings @ 0x140AB7ED0 (AdtpBuildObjectTypeStrings.c)
+ *     AdtpAppendZString @ 0x1408118F4 (AdtpAppendZString.c)
+ *     AdtpBuildObjectTypeStrings @ 0x140AB2284 (AdtpBuildObjectTypeStrings.c)
  * Callees:
- *     RtlAppendUnicodeStringToString @ 0x14040BBA0 (RtlAppendUnicodeStringToString.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlAppendUnicodeStringToString @ 0x140404080 (RtlAppendUnicodeStringToString.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall AdtpAppendString(__int64 a1, __int64 a2, UNICODE_STRING *a3, _DWORD *a4)
@@ -67,8 +67,8 @@ __int64 __fastcall AdtpAppendString(__int64 a1, __int64 a2, UNICODE_STRING *a3, 
     if ( (unsigned int)*(unsigned __int16 *)(a1 + 16 * v4 + 2) + 1024 > Length )
       v16 = *(unsigned __int16 *)(a1 + 16 * v4 + 2) + 1024;
     if ( v16 >= 0xFFFE )
-      LOWORD(v16) = -2;
-    Pool2 = (void *)ExAllocatePool2(0x100uLL);
+      v16 = 65534;
+    Pool2 = (void *)ExAllocatePool2(0x100uLL, v16, 0x6B416553u);
     v17 = Pool2;
     if ( !Pool2 )
     {

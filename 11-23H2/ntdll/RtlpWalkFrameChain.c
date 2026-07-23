@@ -19,46 +19,50 @@
 
 __int64 __fastcall RtlpWalkFrameChain(__int64 a1, unsigned int a2, __int64 a3, unsigned int a4)
 {
-  __int64 (__fastcall *v5)(); // r12
+  void (*v5)(void); // r12
   unsigned __int64 v6; // rcx
   unsigned __int64 v7; // rcx
   void *v8; // rsp
   void *v9; // rsp
   unsigned int v10; // edi
   __int64 v11; // r15
-  int VirtualMemory; // eax
+  NTSTATUS VirtualMemory; // eax
   __int64 v13; // rcx
   int v14; // r14d
   _BYTE v16[4]; // [rsp+60h] [rbp+0h] BYREF
   int v17; // [rsp+64h] [rbp+4h]
-  __int64 v18; // [rsp+68h] [rbp+8h] BYREF
+  ULONG ContextLength[2]; // [rsp+68h] [rbp+8h] BYREF
   unsigned int v19; // [rsp+70h] [rbp+10h]
   int v20; // [rsp+74h] [rbp+14h]
   _BYTE v21[8]; // [rsp+78h] [rbp+18h] BYREF
   _BYTE v22[8]; // [rsp+80h] [rbp+20h] BYREF
   __int64 v23; // [rsp+88h] [rbp+28h]
-  __int128 v24; // [rsp+90h] [rbp+30h] BYREF
+  __int128 v24; // [rsp+90h] [rbp+30h]
   __int64 v25; // [rsp+A0h] [rbp+40h]
   _QWORD v26[3]; // [rsp+A8h] [rbp+48h] BYREF
   _BYTE v27[8]; // [rsp+C0h] [rbp+60h] BYREF
   _BYTE v28[16]; // [rsp+C8h] [rbp+68h] BYREF
-  _BYTE v29[32]; // [rsp+D8h] [rbp+78h] BYREF
+  _BYTE MemoryInformation[32]; // [rsp+D8h] [rbp+78h] BYREF
   __int64 v30; // [rsp+F8h] [rbp+98h]
-  __int64 (__fastcall *v31)(); // [rsp+158h] [rbp+F8h]
+  void (*v31)(void); // [rsp+158h] [rbp+F8h]
 
   v19 = a2;
   v23 = a1;
   v5 = RtlRaiseExceptionForReturnAddressHijack;
-  if ( (((unsigned __int64)qword_18019C3B8 >> 60) & 3) != 1 )
+  if ( ((LdrSystemDllInitBlock.MitigationOptionsMap.Map[1] >> 60) & 3) != 1 )
     v5 = 0LL;
-  RtlGetExtendedContextLength2(v5 != 0LL ? 1048651 : 1048587, &v18, v5 != 0LL ? 0x800 : 0);
-  v6 = (unsigned int)v18 + 15LL;
-  if ( v6 <= (unsigned int)v18 )
+  RtlGetExtendedContextLength2(v5 != 0LL ? 1048651 : 1048587, ContextLength, v5 != 0LL ? 0x800 : 0);
+  v6 = ContextLength[0] + 15LL;
+  if ( v6 <= ContextLength[0] )
     v6 = 0xFFFFFFFFFFFFFF0LL;
   v7 = v6 & 0xFFFFFFFFFFFFFFF0uLL;
   v8 = alloca(v7);
   v9 = alloca(v7);
-  RtlInitializeExtendedContext2(v16, v5 != 0LL ? 1048651 : 1048587, &v18, v5 != 0LL ? 0x800 : 0);
+  RtlInitializeExtendedContext2(
+    (PCONTEXT)v16,
+    v5 != 0LL ? 1048651 : 1048587,
+    (PCONTEXT_EX *)ContextLength,
+    v5 != 0LL ? 0x800 : 0);
   RtlpCaptureContext2(v16);
   v16[0] = 0;
   if ( !(unsigned __int8)RtlpGetStackLimits(v21, v22) )
@@ -70,7 +74,7 @@ __int64 __fastcall RtlpWalkFrameChain(__int64 a1, unsigned int a2, __int64 a3, u
   {
     if ( !(unsigned __int8)RtlpIsFrameInBounds(v21, v30, v22) )
       break;
-    v11 = RtlpLookupFunctionEntryForStackWalks(v31, &v24);
+    v11 = RtlpLookupFunctionEntryForStackWalks(v31);
     if ( v11 )
     {
       VirtualMemory = 0;
@@ -79,7 +83,13 @@ __int64 __fastcall RtlpWalkFrameChain(__int64 a1, unsigned int a2, __int64 a3, u
       v14 = DWORD2(v24);
       if ( !*(_WORD *)(v13 + *((_QWORD *)&v24 + 1) + 1) && (*(_BYTE *)(v13 + *((_QWORD *)&v24 + 1)) & 0x20) == 0 )
       {
-        VirtualMemory = ZwQueryVirtualMemory(-1LL, v31, 0LL, v29, 48LL, 0LL);
+        VirtualMemory = ZwQueryVirtualMemory(
+                          (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+                          v31,
+                          MemoryBasicInformation,
+                          MemoryInformation,
+                          0x30uLL,
+                          0LL);
         v17 = VirtualMemory;
         if ( VirtualMemory < 0 )
           return v10;
@@ -115,7 +125,8 @@ __int64 __fastcall RtlpWalkFrameChain(__int64 a1, unsigned int a2, __int64 a3, u
     if ( v17 < 0 )
       break;
     if ( v10 && v5 && v31 == v5 )
-      v31 = *(__int64 (__fastcall **)())(*(_QWORD *)(RtlLocateExtendedFeature2(v18, 11LL, 2147353560LL) + 8) - 8LL);
+      v31 = *(void (**)(void))(*(_QWORD *)(RtlLocateExtendedFeature2(*(_QWORD *)ContextLength, 11LL, 2147353560LL) + 8)
+                             - 8LL);
     if ( !v31 )
       break;
     if ( v10 >= a4 )

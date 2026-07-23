@@ -1,15 +1,15 @@
 /*
- * XREFs of WdipSemWriteSemActionsEvent @ 0x140ADB0D8
+ * XREFs of WdipSemWriteSemActionsEvent @ 0x140AD7B88
  * Callers:
- *     WdipSemEnableScenario @ 0x140AD9304 (WdipSemEnableScenario.c)
- *     WdipSemDisableScenario @ 0x140AD9550 (WdipSemDisableScenario.c)
+ *     WdipSemEnableScenario @ 0x140AD5DB4 (WdipSemEnableScenario.c)
+ *     WdipSemDisableScenario @ 0x140AD6000 (WdipSemDisableScenario.c)
  * Callees:
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     WdipSemFastAllocate @ 0x140ADB300 (WdipSemFastAllocate.c)
- *     WdipSemGetLoggerDroppedEventCount @ 0x140ADB33C (WdipSemGetLoggerDroppedEventCount.c)
- *     WdipSemWriteEvent @ 0x140ADB3D4 (WdipSemWriteEvent.c)
- *     WdipSemFastFree @ 0x140ADB450 (WdipSemFastFree.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     WdipSemFastAllocate @ 0x140AD7DB0 (WdipSemFastAllocate.c)
+ *     WdipSemGetLoggerDroppedEventCount @ 0x140AD7DEC (WdipSemGetLoggerDroppedEventCount.c)
+ *     WdipSemWriteEvent @ 0x140AD7E84 (WdipSemWriteEvent.c)
+ *     WdipSemFastFree @ 0x140AD7F00 (WdipSemFastFree.c)
  */
 
 __int64 __fastcall WdipSemWriteSemActionsEvent(__int64 a1, __int64 a2)
@@ -38,8 +38,8 @@ __int64 __fastcall WdipSemWriteSemActionsEvent(__int64 a1, __int64 a2)
   {
     LoggerDroppedEventCount = WdipSemGetLoggerDroppedEventCount(
                                 (unsigned int)_InterlockedExchange(
-                                                (volatile __int32 *)&stru_140F066E8.SListFaultAddress,
-                                                (__int32)stru_140F066E8.SListFaultAddress),
+                                                (_DWORD *)&stru_140F06A28.QuantumTarget + 1,
+                                                SHIDWORD(stru_140F06A28.QuantumTarget)),
                                 v17);
     if ( LoggerDroppedEventCount >= 0 )
     {

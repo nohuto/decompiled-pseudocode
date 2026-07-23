@@ -1,5 +1,5 @@
 /*
- * XREFs of VerifierIoCreateNotificationEvent @ 0x14070C76C
+ * XREFs of VerifierIoCreateNotificationEvent @ 0x14070C79C
  * Callers:
  *     <none>
  * Callees:

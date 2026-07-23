@@ -1,37 +1,37 @@
 /*
- * XREFs of DbgkLkmdUnregisterCallback @ 0x140707F60
+ * XREFs of DbgkLkmdUnregisterCallback @ 0x140705B20
  * Callers:
  *     <none>
  * Callees:
- *     ExReferenceCallBackBlock @ 0x140279300 (ExReferenceCallBackBlock.c)
- *     ExWaitForRundownProtectionRelease @ 0x1402C6A90 (ExWaitForRundownProtectionRelease.c)
- *     ExCompareExchangeCallBack @ 0x1402C9C50 (ExCompareExchangeCallBack.c)
- *     ExDereferenceCallBackBlock @ 0x1404459D0 (ExDereferenceCallBackBlock.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExReferenceCallBackBlock @ 0x14022E890 (ExReferenceCallBackBlock.c)
+ *     ExWaitForRundownProtectionRelease @ 0x1402BB610 (ExWaitForRundownProtectionRelease.c)
+ *     ExCompareExchangeCallBack @ 0x14040EA64 (ExCompareExchangeCallBack.c)
+ *     ExDereferenceCallBackBlock @ 0x14043DD80 (ExDereferenceCallBackBlock.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall DbgkLkmdUnregisterCallback(__int64 a1)
+__int64 __fastcall DbgkLkmdUnregisterCallback(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   unsigned int i; // edi
-  union _RTL_RUN_ONCE *v3; // rsi
-  struct _EX_RUNDOWN_REF *v4; // rax
-  struct _EX_RUNDOWN_REF *v5; // rbx
+  _RTL_RUN_ONCE *v6; // rsi
+  struct _EX_RUNDOWN_REF *v7; // rax
+  struct _EX_RUNDOWN_REF *v8; // rbx
 
   for ( i = 0; i < 8; ++i )
   {
-    v3 = &stru_140E3EBE0 + 2 * i;
-    v4 = ExReferenceCallBackBlock((signed __int64 *)v3);
-    v5 = v4;
-    if ( v4 )
+    v6 = &RunOnce + 2 * i;
+    v7 = ExReferenceCallBackBlock((signed __int64 *)v6, a2, a3, a4);
+    v8 = v7;
+    if ( v7 )
     {
-      if ( a1 == v4[1].Count && ExCompareExchangeCallBack((signed __int64 *)v3, 0LL, (__int64)v4) )
+      if ( a1 == v7[1].Count && ExCompareExchangeCallBack((signed __int64 *)v6, 0LL, (__int64)v7) )
       {
-        ExDereferenceCallBackBlock((signed __int64 *)v3, v5);
-        ExWaitForRundownProtectionRelease(v5);
-        ExFreePoolWithTag(v5, 0);
+        ExDereferenceCallBackBlock((signed __int64 *)v6, v8);
+        ExWaitForRundownProtectionRelease(v8);
+        ExFreePoolWithTag(v8, 0);
         return 0LL;
       }
-      ExDereferenceCallBackBlock((signed __int64 *)v3, v5);
+      ExDereferenceCallBackBlock((signed __int64 *)v6, v8);
     }
   }
   return 3221226021LL;

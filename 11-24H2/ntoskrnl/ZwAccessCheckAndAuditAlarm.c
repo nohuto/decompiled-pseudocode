@@ -1,14 +1,25 @@
 /*
- * XREFs of ZwAccessCheckAndAuditAlarm @ 0x1406A6930
+ * XREFs of ZwAccessCheckAndAuditAlarm @ 0x1406A78D0
  * Callers:
- *     DifZwAccessCheckAndAuditAlarmWrapper @ 0x14063B1F0 (DifZwAccessCheckAndAuditAlarmWrapper.c)
+ *     DifZwAccessCheckAndAuditAlarmWrapper @ 0x1406397B0 (DifZwAccessCheckAndAuditAlarmWrapper.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwAccessCheckAndAuditAlarm(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwAccessCheckAndAuditAlarm(
+        PUNICODE_STRING SubsystemName,
+        PVOID HandleId,
+        PUNICODE_STRING ObjectTypeName,
+        PUNICODE_STRING ObjectName,
+        PSECURITY_DESCRIPTOR SecurityDescriptor,
+        ACCESS_MASK DesiredAccess,
+        PGENERIC_MAPPING GenericMapping,
+        BOOLEAN ObjectCreation,
+        PACCESS_MASK GrantedAccess,
+        PNTSTATUS AccessStatus,
+        PBOOLEAN GenerateOnClose)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(SubsystemName);
 }

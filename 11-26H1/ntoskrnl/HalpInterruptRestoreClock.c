@@ -1,16 +1,16 @@
 /*
- * XREFs of HalpInterruptRestoreClock @ 0x14057D8C8
+ * XREFs of HalpInterruptRestoreClock @ 0x14057FDE8
  * Callers:
- *     HalpPostSleepMP @ 0x140BECEF0 (HalpPostSleepMP.c)
+ *     HalpPostSleepMP @ 0x140BF2EF0 (HalpPostSleepMP.c)
  * Callees:
- *     HalpInterruptSetLineStateInternal @ 0x14032DC5C (HalpInterruptSetLineStateInternal.c)
- *     HalpInterruptApplyOverrides @ 0x140426138 (HalpInterruptApplyOverrides.c)
- *     HalpInterruptFindLines @ 0x1404265EC (HalpInterruptFindLines.c)
- *     HalpInterruptLookupController @ 0x140426C98 (HalpInterruptLookupController.c)
- *     HalpTimerGetInternalData @ 0x140426EC0 (HalpTimerGetInternalData.c)
- *     HalpInterruptSetProblemEx @ 0x14042A15C (HalpInterruptSetProblemEx.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     HalpInterruptSetLineStateInternal @ 0x14032FC8C (HalpInterruptSetLineStateInternal.c)
+ *     HalpInterruptApplyOverrides @ 0x140433248 (HalpInterruptApplyOverrides.c)
+ *     HalpInterruptFindLines @ 0x1404336FC (HalpInterruptFindLines.c)
+ *     HalpInterruptLookupController @ 0x140433DA8 (HalpInterruptLookupController.c)
+ *     HalpTimerGetInternalData @ 0x140433FD0 (HalpTimerGetInternalData.c)
+ *     HalpInterruptSetProblemEx @ 0x140436244 (HalpInterruptSetProblemEx.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 HalpInterruptRestoreClock()

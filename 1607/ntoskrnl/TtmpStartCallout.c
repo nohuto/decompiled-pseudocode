@@ -1,15 +1,15 @@
 /*
- * XREFs of TtmpStartCallout @ 0x14067764C
+ * XREFs of TtmpStartCallout @ 0x140677730
  * Callers:
- *     TtmiSessionDeviceListWorker @ 0x1406770C8 (TtmiSessionDeviceListWorker.c)
- *     TtmpCallSetBuiltinPanelState @ 0x1406772BC (TtmpCallSetBuiltinPanelState.c)
- *     TtmpCallSetDisplayState @ 0x140677314 (TtmpCallSetDisplayState.c)
- *     TtmpCallSetInputMode @ 0x140677390 (TtmpCallSetInputMode.c)
- *     TtmpUpdatePrimaryDisplayWnf @ 0x1406776F4 (TtmpUpdatePrimaryDisplayWnf.c)
+ *     TtmiSessionDeviceListWorker @ 0x1406771AC (TtmiSessionDeviceListWorker.c)
+ *     TtmpCallSetBuiltinPanelState @ 0x1406773A0 (TtmpCallSetBuiltinPanelState.c)
+ *     TtmpCallSetDisplayState @ 0x1406773F8 (TtmpCallSetDisplayState.c)
+ *     TtmpCallSetInputMode @ 0x140677474 (TtmpCallSetInputMode.c)
+ *     TtmpUpdatePrimaryDisplayWnf @ 0x1406777D8 (TtmpUpdatePrimaryDisplayWnf.c)
  * Callees:
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExReleaseResourceLite @ 0x140068940 (ExReleaseResourceLite.c)
- *     TtmiLogCalloutStart @ 0x14067A3C4 (TtmiLogCalloutStart.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExReleaseResourceLite @ 0x1400684C0 (ExReleaseResourceLite.c)
+ *     TtmiLogCalloutStart @ 0x14067A4A8 (TtmiLogCalloutStart.c)
  */
 
 __int64 __fastcall TtmpStartCallout(__int64 a1, __int64 a2, __int64 a3, unsigned int a4, unsigned int a5)

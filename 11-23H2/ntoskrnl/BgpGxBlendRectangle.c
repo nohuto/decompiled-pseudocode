@@ -1,10 +1,10 @@
 /*
- * XREFs of BgpGxBlendRectangle @ 0x140AF2430
+ * XREFs of BgpGxBlendRectangle @ 0x140AF2440
  * Callers:
- *     BgpTxtDisplayCharacter @ 0x140384F88 (BgpTxtDisplayCharacter.c)
- *     BgpTxtDisplayString @ 0x140AF27A0 (BgpTxtDisplayString.c)
+ *     BgpTxtDisplayCharacter @ 0x140385168 (BgpTxtDisplayCharacter.c)
+ *     BgpTxtDisplayString @ 0x140AF27B0 (BgpTxtDisplayString.c)
  * Callees:
- *     BgpGxBlendColor @ 0x140387C48 (BgpGxBlendColor.c)
+ *     BgpGxBlendColor @ 0x140387E28 (BgpGxBlendColor.c)
  *     BgpGxRectangleDestroy @ 0x140AEDA70 (BgpGxRectangleDestroy.c)
  *     BgpGxRectangleCreate @ 0x140AEDA94 (BgpGxRectangleCreate.c)
  */

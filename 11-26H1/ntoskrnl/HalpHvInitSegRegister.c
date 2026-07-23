@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpHvInitSegRegister @ 0x140592B5C
+ * XREFs of HalpHvInitSegRegister @ 0x1405952DC
  * Callers:
- *     HalpHvStartProcessor @ 0x140592C34 (HalpHvStartProcessor.c)
+ *     HalpHvStartProcessor @ 0x1405953B4 (HalpHvStartProcessor.c)
  * Callees:
  *     <none>
  */

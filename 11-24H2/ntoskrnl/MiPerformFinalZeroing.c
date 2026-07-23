@@ -1,16 +1,16 @@
 /*
- * XREFs of MiPerformFinalZeroing @ 0x1404F8564
+ * XREFs of MiPerformFinalZeroing @ 0x1404F5E44
  * Callers:
- *     MiGetPageChainSmallPageProcess @ 0x1402FBB90 (MiGetPageChainSmallPageProcess.c)
- *     MiGetPageChain @ 0x1402FCDC0 (MiGetPageChain.c)
+ *     MiGetPageChainSmallPageProcess @ 0x140253A70 (MiGetPageChainSmallPageProcess.c)
+ *     MiGetPageChain @ 0x140307540 (MiGetPageChain.c)
  * Callees:
- *     MiZeroPhysicalPage @ 0x14021EC40 (MiZeroPhysicalPage.c)
- *     MiChangePageAttributeBatch @ 0x1402668E4 (MiChangePageAttributeBatch.c)
- *     MiGetPteLink @ 0x140268350 (MiGetPteLink.c)
- *     MiSetPfnTbFlushStamp @ 0x1402FBDB0 (MiSetPfnTbFlushStamp.c)
+ *     MiZeroPhysicalPage @ 0x14024B990 (MiZeroPhysicalPage.c)
+ *     MiSetPfnTbFlushStamp @ 0x140253C90 (MiSetPfnTbFlushStamp.c)
+ *     MiGetPteLink @ 0x1403A7E10 (MiGetPteLink.c)
+ *     MiChangePageAttributeBatch @ 0x1403A8860 (MiChangePageAttributeBatch.c)
  */
 
-void __fastcall MiPerformFinalZeroing(__int64 *a1, unsigned int a2, int a3)
+void __fastcall MiPerformFinalZeroing(unsigned __int64 *a1, int a2, int a3)
 {
   __int64 v3; // r14
   __int64 v6; // rdi

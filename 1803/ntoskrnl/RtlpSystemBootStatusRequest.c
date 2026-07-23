@@ -33,7 +33,7 @@ LABEL_2:
     InputBuffer[2] = a2;
     InputBuffer[1] = a3;
     InputBuffer[0] = a1;
-    return (unsigned int)ZwPowerInformation(SystemPowerStateLogging|0x40, InputBuffer, 0x18u, a4, OutputBufferLength);
+    return (unsigned int)ZwPowerInformation(PowerInformationInternal, InputBuffer, 0x18u, a4, OutputBufferLength);
   }
   return v6;
 }

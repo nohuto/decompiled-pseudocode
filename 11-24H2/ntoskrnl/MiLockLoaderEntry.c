@@ -1,17 +1,17 @@
 /*
- * XREFs of MiLockLoaderEntry @ 0x1402C7520
+ * XREFs of MiLockLoaderEntry @ 0x1402BC0A0
  * Callers:
- *     MiLockLoadedDataTableEntry @ 0x1402C6F3C (MiLockLoadedDataTableEntry.c)
- *     MiEnumerateSystemImages @ 0x1402C7380 (MiEnumerateSystemImages.c)
- *     MiProtectDriverSectionPte @ 0x14066B400 (MiProtectDriverSectionPte.c)
- *     MiBackSystemImageWithPagefile @ 0x1407E7BB4 (MiBackSystemImageWithPagefile.c)
- *     MiSplitDriverPage @ 0x1407E8058 (MiSplitDriverPage.c)
- *     MmFreeDriverInitialization @ 0x140A3D86C (MmFreeDriverInitialization.c)
+ *     MiLockLoadedDataTableEntry @ 0x1402BBABC (MiLockLoadedDataTableEntry.c)
+ *     MiEnumerateSystemImages @ 0x1402BBF00 (MiEnumerateSystemImages.c)
+ *     MiProtectDriverSectionPte @ 0x14066C5D0 (MiProtectDriverSectionPte.c)
+ *     MiBackSystemImageWithPagefile @ 0x1407E8184 (MiBackSystemImageWithPagefile.c)
+ *     MiSplitDriverPage @ 0x1407E8628 (MiSplitDriverPage.c)
+ *     MmFreeDriverInitialization @ 0x140A3317C (MmFreeDriverInitialization.c)
  * Callees:
- *     ExAcquireAutoExpandPushLockExclusive @ 0x14033E4C0 (ExAcquireAutoExpandPushLockExclusive.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockSharedEx @ 0x14034050C (ExfAcquirePushLockSharedEx.c)
+ *     ExAcquireAutoExpandPushLockExclusive @ 0x14031D9A0 (ExAcquireAutoExpandPushLockExclusive.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockSharedEx @ 0x14031F9EC (ExfAcquirePushLockSharedEx.c)
  */
 
 __int64 __fastcall MiLockLoaderEntry(__int64 a1, int a2)

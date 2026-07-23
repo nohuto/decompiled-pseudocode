@@ -1,15 +1,15 @@
 /*
- * XREFs of _PnpCtxOpenMachine @ 0x140AE79B0
+ * XREFs of _PnpCtxOpenMachine @ 0x140AE5860
  * Callers:
- *     PiPnpRtlInit @ 0x1407A7364 (PiPnpRtlInit.c)
- *     PiDevCfgInitDriverDatabaseCallback @ 0x1407A9D18 (PiDevCfgInitDriverDatabaseCallback.c)
- *     PipMigratePnpState @ 0x140CC26A0 (PipMigratePnpState.c)
+ *     PiPnpRtlInit @ 0x1407A9F14 (PiPnpRtlInit.c)
+ *     PiDevCfgInitDriverDatabaseCallback @ 0x1407AC988 (PiDevCfgInitDriverDatabaseCallback.c)
+ *     PipMigratePnpState @ 0x140CC8770 (PipMigratePnpState.c)
  * Callees:
- *     ExInitializeResourceLite @ 0x140260870 (ExInitializeResourceLite.c)
- *     _PnpCtxDestroyNode @ 0x140895CB4 (_PnpCtxDestroyNode.c)
- *     _PnpCtxCreateNode @ 0x140AE7B14 (_PnpCtxCreateNode.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExInitializeResourceLite @ 0x14021A0F0 (ExInitializeResourceLite.c)
+ *     _PnpCtxDestroyNode @ 0x14089C0B4 (_PnpCtxDestroyNode.c)
+ *     _PnpCtxCreateNode @ 0x140AE59C4 (_PnpCtxCreateNode.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PnpCtxOpenMachine(

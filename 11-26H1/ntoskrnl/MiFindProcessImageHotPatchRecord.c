@@ -1,26 +1,26 @@
 /*
- * XREFs of MiFindProcessImageHotPatchRecord @ 0x140A99998
+ * XREFs of MiFindProcessImageHotPatchRecord @ 0x140A9DB18
  * Callers:
- *     MiCreatePatchSectionRequest @ 0x14086F788 (MiCreatePatchSectionRequest.c)
- *     MiGetAllRegisteredPatches @ 0x14086FD1C (MiGetAllRegisteredPatches.c)
- *     MiQuerySingleLoadedPatch @ 0x140A997BC (MiQuerySingleLoadedPatch.c)
+ *     MiCreatePatchSectionRequest @ 0x140875B58 (MiCreatePatchSectionRequest.c)
+ *     MiGetAllRegisteredPatches @ 0x14087607C (MiGetAllRegisteredPatches.c)
+ *     MiQuerySingleLoadedPatch @ 0x140A9D93C (MiQuerySingleLoadedPatch.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     ExfAcquirePushLockSharedEx @ 0x140277CC0 (ExfAcquirePushLockSharedEx.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ExfReleasePushLockShared @ 0x140278BD0 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     PsReferencePrimaryTokenWithTag @ 0x140279DC0 (PsReferencePrimaryTokenWithTag.c)
- *     KiCheckForKernelApcDelivery @ 0x14027DB80 (KiCheckForKernelApcDelivery.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     MiDuplicateUnicodeString @ 0x140867860 (MiDuplicateUnicodeString.c)
- *     MiCompareHotPatchNodes @ 0x14086F6BC (MiCompareHotPatchNodes.c)
- *     MiFindUserSidHotPatchContext @ 0x14086FCAC (MiFindUserSidHotPatchContext.c)
- *     RtlIsPatchMachineApplicable @ 0x1408AB31C (RtlIsPatchMachineApplicable.c)
- *     SeQueryUserSidToken @ 0x14094E160 (SeQueryUserSidToken.c)
- *     MiFindHotPatchRecord @ 0x140ABFFE4 (MiFindHotPatchRecord.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     ExfAcquirePushLockSharedEx @ 0x140277230 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ExfReleasePushLockShared @ 0x140278140 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     PsReferencePrimaryTokenWithTag @ 0x140279330 (PsReferencePrimaryTokenWithTag.c)
+ *     KiCheckForKernelApcDelivery @ 0x14027D0F0 (KiCheckForKernelApcDelivery.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     MiDuplicateUnicodeString @ 0x14086DC40 (MiDuplicateUnicodeString.c)
+ *     MiCompareHotPatchNodes @ 0x140875A8C (MiCompareHotPatchNodes.c)
+ *     MiFindUserSidHotPatchContext @ 0x14087600C (MiFindUserSidHotPatchContext.c)
+ *     RtlIsPatchMachineApplicable @ 0x1408B178C (RtlIsPatchMachineApplicable.c)
+ *     SeQueryUserSidToken @ 0x1409C9AA0 (SeQueryUserSidToken.c)
+ *     MiFindHotPatchRecord @ 0x140AC2084 (MiFindHotPatchRecord.c)
  */
 
 __int64 __fastcall MiFindProcessImageHotPatchRecord(__int64 a1, int a2, int a3, int a4, UNICODE_STRING *a5)
@@ -53,9 +53,9 @@ __int64 __fastcall MiFindProcessImageHotPatchRecord(__int64 a1, int a2, int a3, 
   if ( !a4 )
   {
     --CurrentThread->SpecialApcDisable;
-    v14 = (LegacyAutoBoost *)KeAbPreAcquire((__int64)&stru_140E36558, 0LL, 0LL, v10);
-    if ( _InterlockedCompareExchange64((volatile signed __int64 *)&stru_140E36558, 17LL, 0LL) )
-      ExfAcquirePushLockSharedEx((signed __int64 *)&stru_140E36558.Header.Lock, 0, v14, &stru_140E36558);
+    v14 = (LegacyAutoBoost *)KeAbPreAcquire((__int64)&stru_140E366D8, 0LL, 0LL, v10);
+    if ( _InterlockedCompareExchange64((volatile signed __int64 *)&stru_140E366D8, 17LL, 0LL) )
+      ExfAcquirePushLockSharedEx((signed __int64 *)&stru_140E366D8.Header.Lock, 0, v14, &stru_140E366D8);
     if ( v14 )
     {
       if ( (KiAbpGlobalState & 1) != 0 )
@@ -65,14 +65,14 @@ __int64 __fastcall MiFindProcessImageHotPatchRecord(__int64 a1, int a2, int a3, 
     }
   }
   v15 = *(unsigned __int16 *)(a1 + 1772);
-  if ( !qword_140E36538
+  if ( !qword_140E366B8
     || (v12 = (void *)PsReferencePrimaryTokenWithTag(a1, 0x746C6644u, v9, v10),
         SeQueryUserSidToken((__int64)v12, v31, 0x44u, 0LL),
         (UserSidHotPatchContext = MiFindUserSidHotPatchContext(v31)) == 0LL)
     || (HotPatchRecord = MiFindHotPatchRecord((int)UserSidHotPatchContext + 24, 1, a2, a3, v15, 0LL, (__int64)a5),
         HotPatchRecord == -1073741275) )
   {
-    v16 = xmmword_140E36540;
+    v16 = xmmword_140E366C0;
     v26 = 0LL;
     v27 = a2;
     v28 = a3;
@@ -108,11 +108,11 @@ __int64 __fastcall MiFindProcessImageHotPatchRecord(__int64 a1, int a2, int a3, 
   }
   if ( !a4 )
   {
-    if ( _InterlockedCompareExchange64((volatile signed __int64 *)&stru_140E36558, 0LL, 17LL) != 17 )
-      ExfReleasePushLockShared((signed __int64 *)&stru_140E36558.Header.Lock);
-    KeAbPostRelease((unsigned __int64)&stru_140E36558);
+    if ( _InterlockedCompareExchange64((volatile signed __int64 *)&stru_140E366D8, 0LL, 17LL) != 17 )
+      ExfReleasePushLockShared((signed __int64 *)&stru_140E366D8.Header.Lock);
+    KeAbPostRelease((unsigned __int64)&stru_140E366D8);
     v21 = CurrentThread->SpecialApcDisable++ == -1;
-    if ( v21 && ($7A85BAF4F1FA08634C1C4A3E45B775B3 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+    if ( v21 && ($241382875694CED3D471BC5892DE3337 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
       KiCheckForKernelApcDelivery(v20, v19);
   }
   if ( v12 )

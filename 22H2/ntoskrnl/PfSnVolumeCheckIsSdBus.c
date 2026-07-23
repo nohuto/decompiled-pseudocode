@@ -25,7 +25,7 @@ __int64 __fastcall PfSnVolumeCheckIsSdBus(HANDLE *a1, void *a2)
   v11 = 0LL;
   InputBuffer = 1;
   IoStatusBlock = 0LL;
-  ZwResetEvent((__int64)a2, 0LL);
+  ZwResetEvent(a2, 0LL);
   Status = ZwDeviceIoControlFile(*a1, a2, 0LL, 0LL, &IoStatusBlock, 0x2D1400u, &InputBuffer, 0xCu, &OutputBuffer, 0x20u);
   if ( Status == 259 )
   {

@@ -1,11 +1,11 @@
 /*
- * XREFs of PopHandleSystemIdleReset @ 0x140577624
+ * XREFs of PopHandleSystemIdleReset @ 0x140577864
  * Callers:
- *     PopResetIdleTime @ 0x140283D78 (PopResetIdleTime.c)
+ *     PopResetIdleTime @ 0x14024EAF0 (PopResetIdleTime.c)
  * Callees:
- *     PopCheckForWork @ 0x140281280 (PopCheckForWork.c)
- *     PopGetPolicyWorker @ 0x140281B10 (PopGetPolicyWorker.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     PopCheckForWork @ 0x14026F4C0 (PopCheckForWork.c)
+ *     PopGetPolicyWorker @ 0x14026FD50 (PopGetPolicyWorker.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall PopHandleSystemIdleReset(int a1)

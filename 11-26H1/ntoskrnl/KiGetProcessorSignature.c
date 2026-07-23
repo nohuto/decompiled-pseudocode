@@ -1,10 +1,10 @@
 /*
- * XREFs of KiGetProcessorSignature @ 0x1405F6C6C
+ * XREFs of KiGetProcessorSignature @ 0x1405F962C
  * Callers:
- *     KiInitializeBootStructures @ 0x140BF5890 (KiInitializeBootStructures.c)
- *     KiSetFeatureBits @ 0x140BF74E8 (KiSetFeatureBits.c)
+ *     KiInitializeBootStructures @ 0x140BFB890 (KiInitializeBootStructures.c)
+ *     KiSetFeatureBits @ 0x140BFD4E8 (KiSetFeatureBits.c)
  * Callees:
- *     RtlGetProcessorSignature @ 0x140BFEEB4 (RtlGetProcessorSignature.c)
+ *     RtlGetProcessorSignature @ 0x140C050BC (RtlGetProcessorSignature.c)
  */
 
 __int64 KiGetProcessorSignature()

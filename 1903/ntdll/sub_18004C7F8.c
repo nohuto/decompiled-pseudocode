@@ -36,7 +36,7 @@ __int64 __fastcall sub_18004C7F8(__int64 a1, __int64 a2, __int64 a3)
       if ( !v10 )
         break;
       sub_18004DD48(a1, v10, v9);
-      sub_180036698(a1, v11 + 32LL * *(unsigned __int8 *)(a1 + 10), 1LL);
+      sub_180036698(a1, v11 + 32LL * *(unsigned __int8 *)(a1 + 10), 1);
       sub_18004DD00(a1, v11);
       if ( !--v6 )
         return v5;

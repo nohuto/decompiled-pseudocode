@@ -1,23 +1,23 @@
 /*
- * XREFs of IopIncrementDeviceObjectRefCount @ 0x1403EAEB0
+ * XREFs of IopIncrementDeviceObjectRefCount @ 0x1402F84A0
  * Callers:
- *     IopCompleteUnloadOrDelete @ 0x140437F84 (IopCompleteUnloadOrDelete.c)
- *     PnpMarkDeviceForRemove @ 0x1404FEBC8 (PnpMarkDeviceForRemove.c)
- *     IoRegisterFileSystem @ 0x140796630 (IoRegisterFileSystem.c)
- *     IopDeleteFile @ 0x140A1ECD0 (IopDeleteFile.c)
- *     IoCreateStreamFileObjectEx2 @ 0x140A36470 (IoCreateStreamFileObjectEx2.c)
- *     IopMountVolume @ 0x140B1E87C (IopMountVolume.c)
- *     IopShutdownBaseFileSystems @ 0x140BF150C (IopShutdownBaseFileSystems.c)
+ *     IopCompleteUnloadOrDelete @ 0x140426EA4 (IopCompleteUnloadOrDelete.c)
+ *     PnpMarkDeviceForRemove @ 0x1404F83B0 (PnpMarkDeviceForRemove.c)
+ *     IoRegisterFileSystem @ 0x140799160 (IoRegisterFileSystem.c)
+ *     IoCreateStreamFileObjectEx2 @ 0x14091ABD0 (IoCreateStreamFileObjectEx2.c)
+ *     IopDeleteFile @ 0x140A282F0 (IopDeleteFile.c)
+ *     IopMountVolume @ 0x140B208FC (IopMountVolume.c)
+ *     IopShutdownBaseFileSystems @ 0x140BF750C (IopShutdownBaseFileSystems.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KxWaitForLockOwnerShip @ 0x1402B29C0 (KxWaitForLockOwnerShip.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x1402B4830 (KiAcquireQueuedSpinLockInstrumented.c)
- *     KxWaitForLockChainValid @ 0x1402BA360 (KxWaitForLockChainValid.c)
- *     KiWakeAddressAll @ 0x1402BA5A8 (KiWakeAddressAll.c)
- *     KiReleaseQueuedSpinLockInstrumented @ 0x1403EB6FC (KiReleaseQueuedSpinLockInstrumented.c)
- *     IoAddTriageDumpDataBlock @ 0x14044AB54 (IoAddTriageDumpDataBlock.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiReleaseQueuedSpinLockInstrumented @ 0x1402FA03C (KiReleaseQueuedSpinLockInstrumented.c)
+ *     KxWaitForLockOwnerShip @ 0x1402FD690 (KxWaitForLockOwnerShip.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x1402FF500 (KiAcquireQueuedSpinLockInstrumented.c)
+ *     KxWaitForLockChainValid @ 0x140305020 (KxWaitForLockChainValid.c)
+ *     KiWakeAddressAll @ 0x140305268 (KiWakeAddressAll.c)
+ *     IoAddTriageDumpDataBlock @ 0x140442C84 (IoAddTriageDumpDataBlock.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall IopIncrementDeviceObjectRefCount(ULONG_PTR BugCheckParameter2, __int64 a2, __int64 a3)
@@ -27,12 +27,11 @@ __int64 __fastcall IopIncrementDeviceObjectRefCount(ULONG_PTR BugCheckParameter2
   void *ArbitraryUserPointer; // rax
   __int64 v8; // rcx
   volatile __int64 *v9; // rdx
-  __int64 v10; // rax
-  volatile signed __int64 **v11; // rsi
-  __int64 v12; // rax
-  __int64 v13; // rdx
-  __int64 v14; // rcx
-  signed __int32 v15[8]; // [rsp+0h] [rbp-38h] BYREF
+  volatile signed __int64 **v10; // rsi
+  __int64 v11; // rax
+  __int64 v12; // rdx
+  __int64 v13; // rcx
+  signed __int32 v14[8]; // [rsp+0h] [rbp-38h] BYREF
   void *retaddr; // [rsp+38h] [rbp+0h]
 
   if ( !(_BYTE)a2 )
@@ -52,40 +51,39 @@ __int64 __fastcall IopIncrementDeviceObjectRefCount(ULONG_PTR BugCheckParameter2
   ArbitraryUserPointer = KeGetPcr()->NtTib.ArbitraryUserPointer;
   v8 = (__int64)ArbitraryUserPointer + 160;
   v9 = (volatile __int64 *)*((_QWORD *)ArbitraryUserPointer + 21);
-  if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+  if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
   {
-    v10 = _InterlockedExchange64(v9, v8);
-    if ( v10 )
-      KxWaitForLockOwnerShip(v8, v10, a3);
+    if ( _InterlockedExchange64(v9, v8) )
+      KxWaitForLockOwnerShip(v8);
   }
   else
   {
     KiAcquireQueuedSpinLockInstrumented(v8, v9);
   }
   v4 = ++*(_DWORD *)(BugCheckParameter2 + 4);
-  v11 = (volatile signed __int64 **)((char *)KeGetPcr()->NtTib.ArbitraryUserPointer + 160);
-  if ( (BYTE6(PerfGlobalGroupMask) & 1) != 0 && !LODWORD(stru_140F11D08.WaitStatus) )
+  v10 = (volatile signed __int64 **)((char *)KeGetPcr()->NtTib.ArbitraryUserPointer + 160);
+  if ( (BYTE6(PerfGlobalGroupMask) & 1) != 0 && !PopHibernateInProgress )
   {
-    KiReleaseQueuedSpinLockInstrumented(v11, retaddr);
+    KiReleaseQueuedSpinLockInstrumented(v10, retaddr);
     goto LABEL_18;
   }
-  _m_prefetchw(v11);
-  v12 = (__int64)*v11;
-  if ( *v11 )
+  _m_prefetchw(v10);
+  v11 = (__int64)*v10;
+  if ( *v10 )
   {
 LABEL_16:
-    *v11 = 0LL;
-    v13 = (__int64)v11[1];
-    if ( (((unsigned __int8)v13 ^ (unsigned __int8)_InterlockedExchange64((volatile __int64 *)(v12 + 8), v13)) & 4) != 0 )
+    *v10 = 0LL;
+    v12 = (__int64)v10[1];
+    if ( (((unsigned __int8)v12 ^ (unsigned __int8)_InterlockedExchange64((volatile __int64 *)(v11 + 8), v12)) & 4) != 0 )
     {
-      _InterlockedOr(v15, 0);
-      KiWakeAddressAll();
+      _InterlockedOr(v14, 0);
+      KiWakeAddressAll(v11 + 8, v12, a3);
     }
     goto LABEL_18;
   }
-  if ( v11 != (volatile signed __int64 **)_InterlockedCompareExchange64(v11[1], 0LL, (signed __int64)v11) )
+  if ( v10 != (volatile signed __int64 **)_InterlockedCompareExchange64(v10[1], 0LL, (signed __int64)v10) )
   {
-    v12 = KxWaitForLockChainValid((__int64 *)v11, (__int64)v9, a3);
+    v11 = KxWaitForLockChainValid(v10);
     goto LABEL_16;
   }
 LABEL_18:
@@ -95,10 +93,10 @@ LABEL_18:
 LABEL_3:
   if ( v4 <= 0 )
   {
-    v14 = *(_QWORD *)(BugCheckParameter2 + 8);
-    if ( v14 )
+    v13 = *(_QWORD *)(BugCheckParameter2 + 8);
+    if ( v13 )
     {
-      IoAddTriageDumpDataBlock(v14, (PVOID)0x150);
+      IoAddTriageDumpDataBlock(v13, (PVOID)0x150);
       IoAddTriageDumpDataBlock(
         *(_QWORD *)(*(_QWORD *)(BugCheckParameter2 + 8) + 64LL),
         (PVOID)*(unsigned __int16 *)(*(_QWORD *)(BugCheckParameter2 + 8) + 56LL));

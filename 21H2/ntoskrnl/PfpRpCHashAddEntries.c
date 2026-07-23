@@ -1,15 +1,15 @@
 /*
- * XREFs of PfpRpCHashAddEntries @ 0x1406DCEF4
+ * XREFs of PfpRpCHashAddEntries @ 0x1406B41D4
  * Callers:
- *     PfpRpControlRequestUpdate @ 0x1406DCD5C (PfpRpControlRequestUpdate.c)
+ *     PfpRpControlRequestUpdate @ 0x1406B403C (PfpRpControlRequestUpdate.c)
  * Callees:
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     PfpRpCHashGrow @ 0x1407B1C38 (PfpRpCHashGrow.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     KeLeaveCriticalRegion @ 0x140356100 (KeLeaveCriticalRegion.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     PfpRpCHashGrow @ 0x1407B1DD8 (PfpRpCHashGrow.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PfpRpCHashAddEntries(

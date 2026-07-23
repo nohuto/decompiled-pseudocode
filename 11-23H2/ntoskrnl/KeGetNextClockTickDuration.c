@@ -1,27 +1,27 @@
 /*
- * XREFs of KeGetNextClockTickDuration @ 0x14056F910
+ * XREFs of KeGetNextClockTickDuration @ 0x14056FE50
  * Callers:
- *     HalpTimerClockPowerChange @ 0x140508864 (HalpTimerClockPowerChange.c)
+ *     HalpTimerClockPowerChange @ 0x140508DB4 (HalpTimerClockPowerChange.c)
  * Callees:
- *     RtlGetInterruptTimePrecise @ 0x1402C42E0 (RtlGetInterruptTimePrecise.c)
+ *     RtlGetInterruptTimePrecise @ 0x1402C4570 (RtlGetInterruptTimePrecise.c)
  */
 
 unsigned __int64 KeGetNextClockTickDuration()
 {
   struct _KPRCB *CurrentPrcb; // rdi
   __int64 v1; // rbx
-  unsigned __int64 InterruptTimePrecise; // rcx
+  LARGE_INTEGER InterruptTimePrecise; // rcx
   unsigned __int64 NextTickDueTime; // rax
-  LARGE_INTEGER v5; // [rsp+30h] [rbp+8h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+30h] [rbp+8h] BYREF
 
   CurrentPrcb = KeGetCurrentPrcb();
   v1 = 0LL;
-  InterruptTimePrecise = RtlGetInterruptTimePrecise(&v5);
+  InterruptTimePrecise = RtlGetInterruptTimePrecise(&PerformanceCounter);
   if ( KiClockTimerPerCpuTickScheduling )
     NextTickDueTime = CurrentPrcb->ClockTimerState.NextTickDueTime;
   else
     NextTickDueTime = KiClockTimerNextTickTime;
-  if ( NextTickDueTime > InterruptTimePrecise )
-    return NextTickDueTime - InterruptTimePrecise;
+  if ( NextTickDueTime > InterruptTimePrecise.QuadPart )
+    return NextTickDueTime - InterruptTimePrecise.QuadPart;
   return v1;
 }

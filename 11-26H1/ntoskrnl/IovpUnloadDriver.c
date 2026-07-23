@@ -1,20 +1,20 @@
 /*
- * XREFs of IovpUnloadDriver @ 0x140C2100C
+ * XREFs of IovpUnloadDriver @ 0x140C2701C
  * Callers:
- *     IovUnloadDrivers @ 0x140C20E8C (IovUnloadDrivers.c)
+ *     IovUnloadDrivers @ 0x140C26E9C (IovUnloadDrivers.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     PsReferenceSiloContext @ 0x140277800 (PsReferenceSiloContext.c)
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     ExQueueWorkItem @ 0x140381C70 (ExQueueWorkItem.c)
- *     KeInitializeEvent @ 0x140466F30 (KeInitializeEvent.c)
- *     PsAttachSiloToCurrentThread @ 0x14046CE80 (PsAttachSiloToCurrentThread.c)
- *     PsDetachSiloFromCurrentThread @ 0x140476400 (PsDetachSiloFromCurrentThread.c)
- *     HalSystemVectorDispatchEntry @ 0x1404BD660 (HalSystemVectorDispatchEntry.c)
- *     IopCheckUnloadDriver @ 0x1404F3900 (IopCheckUnloadDriver.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ObMakeTemporaryObject @ 0x140B01A40 (ObMakeTemporaryObject.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     PsReferenceSiloContext @ 0x140276D70 (PsReferenceSiloContext.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     ExQueueWorkItem @ 0x140383A20 (ExQueueWorkItem.c)
+ *     KeInitializeEvent @ 0x140460680 (KeInitializeEvent.c)
+ *     PsAttachSiloToCurrentThread @ 0x140466600 (PsAttachSiloToCurrentThread.c)
+ *     PsDetachSiloFromCurrentThread @ 0x14046FB80 (PsDetachSiloFromCurrentThread.c)
+ *     HalSystemVectorDispatchEntry @ 0x1404B6E40 (HalSystemVectorDispatchEntry.c)
+ *     IopCheckUnloadDriver @ 0x1404ECEE0 (IopCheckUnloadDriver.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ObMakeTemporaryObject @ 0x140B03770 (ObMakeTemporaryObject.c)
  */
 
 __int64 __fastcall IovpUnloadDriver(_QWORD *Object)

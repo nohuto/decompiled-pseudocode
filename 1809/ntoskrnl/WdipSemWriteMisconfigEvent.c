@@ -1,10 +1,10 @@
 /*
- * XREFs of WdipSemWriteMisconfigEvent @ 0x1408B1674
+ * XREFs of WdipSemWriteMisconfigEvent @ 0x1408B28D4
  * Callers:
- *     WdipSemLoadScenarioTable @ 0x140743DB8 (WdipSemLoadScenarioTable.c)
+ *     WdipSemLoadScenarioTable @ 0x140744FA8 (WdipSemLoadScenarioTable.c)
  * Callees:
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     WdipSemWriteEvent @ 0x140716B94 (WdipSemWriteEvent.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     WdipSemWriteEvent @ 0x140717E34 (WdipSemWriteEvent.c)
  */
 
 NTSTATUS __fastcall WdipSemWriteMisconfigEvent(ULONGLONG a1, __int16 a2, int a3)

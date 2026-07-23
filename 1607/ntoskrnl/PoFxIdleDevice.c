@@ -1,23 +1,23 @@
 /*
- * XREFs of PoFxIdleDevice @ 0x14000842C
+ * XREFs of PoFxIdleDevice @ 0x140007FA0
  * Callers:
- *     PopFxIdleDevicesFromSx @ 0x140124E84 (PopFxIdleDevicesFromSx.c)
- *     PopFxSetDeviceAccountingCsPlatformState @ 0x140203BC0 (PopFxSetDeviceAccountingCsPlatformState.c)
- *     PopPepInitializeVetoMasks @ 0x1402065A8 (PopPepInitializeVetoMasks.c)
- *     PopPepResetDeviceAccountingLevel @ 0x140206E00 (PopPepResetDeviceAccountingLevel.c)
- *     PiProcessQueryDeviceState @ 0x1403F13A8 (PiProcessQueryDeviceState.c)
- *     PipEnumerateDevice @ 0x1403F1CBC (PipEnumerateDevice.c)
- *     PnpDeviceCompletionProcessCompletedRequest @ 0x1403F2B90 (PnpDeviceCompletionProcessCompletedRequest.c)
- *     PipProcessDevNodeTree @ 0x1403F41E0 (PipProcessDevNodeTree.c)
- *     PnpDeleteLockedDeviceNodes @ 0x1404C55B8 (PnpDeleteLockedDeviceNodes.c)
- *     PnpDeleteLockedDeviceNode @ 0x1404C58C8 (PnpDeleteLockedDeviceNode.c)
- *     PnpCancelStopDeviceNode @ 0x14062FF20 (PnpCancelStopDeviceNode.c)
- *     PiProcessResourceRequirementsChanged @ 0x1406498B8 (PiProcessResourceRequirementsChanged.c)
- *     PipProcessRestartPhase2 @ 0x14064DF9C (PipProcessRestartPhase2.c)
+ *     PopFxIdleDevicesFromSx @ 0x1401253F4 (PopFxIdleDevicesFromSx.c)
+ *     PopFxSetDeviceAccountingCsPlatformState @ 0x1402039EC (PopFxSetDeviceAccountingCsPlatformState.c)
+ *     PopPepInitializeVetoMasks @ 0x1402063D4 (PopPepInitializeVetoMasks.c)
+ *     PopPepResetDeviceAccountingLevel @ 0x140206C2C (PopPepResetDeviceAccountingLevel.c)
+ *     PiProcessQueryDeviceState @ 0x1403F026C (PiProcessQueryDeviceState.c)
+ *     PipEnumerateDevice @ 0x1403F0B80 (PipEnumerateDevice.c)
+ *     PnpDeviceCompletionProcessCompletedRequest @ 0x1403F1A54 (PnpDeviceCompletionProcessCompletedRequest.c)
+ *     PipProcessDevNodeTree @ 0x1403F30A4 (PipProcessDevNodeTree.c)
+ *     PnpDeleteLockedDeviceNodes @ 0x1404859EC (PnpDeleteLockedDeviceNodes.c)
+ *     PnpDeleteLockedDeviceNode @ 0x140485CFC (PnpDeleteLockedDeviceNode.c)
+ *     PnpCancelStopDeviceNode @ 0x14062FFD4 (PnpCancelStopDeviceNode.c)
+ *     PiProcessResourceRequirementsChanged @ 0x14064999C (PiProcessResourceRequirementsChanged.c)
+ *     PipProcessRestartPhase2 @ 0x14064E080 (PipProcessRestartPhase2.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14002E9A0 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14002EB90 (ExAcquireSpinLockExclusive.c)
- *     PopFxIdleComponent @ 0x1400C1B10 (PopFxIdleComponent.c)
+ *     ExReleaseSpinLockExclusive @ 0x14002E520 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14002E710 (ExAcquireSpinLockExclusive.c)
+ *     PopFxIdleComponent @ 0x1400BF9A0 (PopFxIdleComponent.c)
  */
 
 void __fastcall PoFxIdleDevice(__int64 a1)

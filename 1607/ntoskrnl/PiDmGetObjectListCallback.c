@@ -1,9 +1,9 @@
 /*
- * XREFs of PiDmGetObjectListCallback @ 0x140500C10
+ * XREFs of PiDmGetObjectListCallback @ 0x1404E3BA0
  * Callers:
  *     <none>
  * Callees:
- *     RtlStringCchCopyExW @ 0x1400C34A8 (RtlStringCchCopyExW.c)
+ *     RtlStringCchCopyExW @ 0x1400C1338 (RtlStringCchCopyExW.c)
  */
 
 __int64 __fastcall PiDmGetObjectListCallback(__int64 a1, __int64 a2, _BYTE *a3)

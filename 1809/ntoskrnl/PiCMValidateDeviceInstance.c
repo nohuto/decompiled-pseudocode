@@ -1,19 +1,19 @@
 /*
- * XREFs of PiCMValidateDeviceInstance @ 0x14059F414
+ * XREFs of PiCMValidateDeviceInstance @ 0x1405A0414
  * Callers:
- *     PiCMHandleIoctl @ 0x1405974F0 (PiCMHandleIoctl.c)
+ *     PiCMHandleIoctl @ 0x1405984F0 (PiCMHandleIoctl.c)
  * Callees:
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     PiPnpRtlApplyMandatoryFilters @ 0x140595FCC (PiPnpRtlApplyMandatoryFilters.c)
- *     _PnpOpenObjectRegKey @ 0x140597118 (_PnpOpenObjectRegKey.c)
- *     PiCMReleaseObjectInputData @ 0x14059D6AC (PiCMReleaseObjectInputData.c)
- *     PiCMCaptureObjectInputData @ 0x14059D6DC (PiCMCaptureObjectInputData.c)
- *     _CmGetDeviceStatus @ 0x14059E508 (_CmGetDeviceStatus.c)
- *     PiCMReturnBasicResultData @ 0x14059F60C (PiCMReturnBasicResultData.c)
- *     _RegRtlQueryValue @ 0x1405C79A8 (_RegRtlQueryValue.c)
- *     SeReleaseSubjectContext @ 0x1405E1240 (SeReleaseSubjectContext.c)
- *     SeCaptureSubjectContext @ 0x140631A80 (SeCaptureSubjectContext.c)
- *     PiAuDoesClientHaveAccess @ 0x1406FF78C (PiAuDoesClientHaveAccess.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     PiPnpRtlApplyMandatoryFilters @ 0x140596FCC (PiPnpRtlApplyMandatoryFilters.c)
+ *     _PnpOpenObjectRegKey @ 0x140598118 (_PnpOpenObjectRegKey.c)
+ *     PiCMReleaseObjectInputData @ 0x14059E6AC (PiCMReleaseObjectInputData.c)
+ *     PiCMCaptureObjectInputData @ 0x14059E6DC (PiCMCaptureObjectInputData.c)
+ *     _CmGetDeviceStatus @ 0x14059F508 (_CmGetDeviceStatus.c)
+ *     PiCMReturnBasicResultData @ 0x1405A060C (PiCMReturnBasicResultData.c)
+ *     _RegRtlQueryValue @ 0x1405C89A8 (_RegRtlQueryValue.c)
+ *     SeReleaseSubjectContext @ 0x1405E2240 (SeReleaseSubjectContext.c)
+ *     SeCaptureSubjectContext @ 0x140632AA0 (SeCaptureSubjectContext.c)
+ *     PiAuDoesClientHaveAccess @ 0x140700A2C (PiAuDoesClientHaveAccess.c)
  */
 
 __int64 __fastcall PiCMValidateDeviceInstance(

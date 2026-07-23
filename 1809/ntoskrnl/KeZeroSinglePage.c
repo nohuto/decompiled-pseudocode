@@ -1,10 +1,10 @@
 /*
- * XREFs of KeZeroSinglePage @ 0x1401C08F0
+ * XREFs of KeZeroSinglePage @ 0x1401C0A50
  * Callers:
- *     MiZeroCfgSystemWideBitmapWorker @ 0x140080940 (MiZeroCfgSystemWideBitmapWorker.c)
- *     MiValidateSectionCreate @ 0x140652E10 (MiValidateSectionCreate.c)
- *     ViGrowPoolAllocation @ 0x140925A34 (ViGrowPoolAllocation.c)
- *     MxMarkActiveDriverBits @ 0x1409B8D60 (MxMarkActiveDriverBits.c)
+ *     MiZeroCfgSystemWideBitmapWorker @ 0x140080930 (MiZeroCfgSystemWideBitmapWorker.c)
+ *     MiValidateSectionCreate @ 0x140653FD0 (MiValidateSectionCreate.c)
+ *     ViGrowPoolAllocation @ 0x140926A34 (ViGrowPoolAllocation.c)
+ *     MxMarkActiveDriverBits @ 0x1409B9D60 (MxMarkActiveDriverBits.c)
  * Callees:
  *     <none>
  */

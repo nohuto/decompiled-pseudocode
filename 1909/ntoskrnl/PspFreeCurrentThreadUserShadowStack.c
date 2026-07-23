@@ -19,7 +19,7 @@ NTSTATUS PspFreeCurrentThreadUserShadowStack()
   result = ZwQueryVirtualMemory(
              (HANDLE)0xFFFFFFFFFFFFFFFFLL,
              (PVOID)__readmsr(0x6A7u),
-             MemoryBasicVlmInformation,
+             MemoryRegionInformation,
              MemoryInformation,
              0x28uLL,
              0LL);

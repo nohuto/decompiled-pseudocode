@@ -1,18 +1,18 @@
 /*
- * XREFs of PiDrvDbCreateNode @ 0x140811CDC
+ * XREFs of PiDrvDbCreateNode @ 0x140811FAC
  * Callers:
- *     PiDrvDbRegisterNode @ 0x14081173C (PiDrvDbRegisterNode.c)
+ *     PiDrvDbRegisterNode @ 0x140811A0C (PiDrvDbRegisterNode.c)
  * Callees:
  *     ExInitializeResourceLite @ 0x140207480 (ExInitializeResourceLite.c)
- *     RtlAppendUnicodeToString @ 0x14022A860 (RtlAppendUnicodeToString.c)
- *     KeInitializeTimerEx @ 0x1402BE660 (KeInitializeTimerEx.c)
- *     KeInitializeDpc @ 0x1402BF9A0 (KeInitializeDpc.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ZwCreateEvent @ 0x14041B660 (ZwCreateEvent.c)
- *     _SysCtxRegOpenKey @ 0x1406CED20 (_SysCtxRegOpenKey.c)
- *     ExpAllocateStringRoutine @ 0x1407C6F90 (ExpAllocateStringRoutine.c)
- *     RtlCreateUnicodeString @ 0x1407FB060 (RtlCreateUnicodeString.c)
- *     PiDrvDbDestroyNode @ 0x14096FE2C (PiDrvDbDestroyNode.c)
+ *     RtlAppendUnicodeToString @ 0x14022A970 (RtlAppendUnicodeToString.c)
+ *     KeInitializeTimerEx @ 0x1402BE8F0 (KeInitializeTimerEx.c)
+ *     KeInitializeDpc @ 0x1402BFC30 (KeInitializeDpc.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ZwCreateEvent @ 0x14041B9F0 (ZwCreateEvent.c)
+ *     _SysCtxRegOpenKey @ 0x1406CED50 (_SysCtxRegOpenKey.c)
+ *     ExpAllocateStringRoutine @ 0x1407C7260 (ExpAllocateStringRoutine.c)
+ *     RtlCreateUnicodeString @ 0x1407FB330 (RtlCreateUnicodeString.c)
+ *     PiDrvDbDestroyNode @ 0x14097002C (PiDrvDbDestroyNode.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 

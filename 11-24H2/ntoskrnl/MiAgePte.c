@@ -1,14 +1,14 @@
 /*
- * XREFs of MiAgePte @ 0x14022F8D0
+ * XREFs of MiAgePte @ 0x140303CD0
  * Callers:
- *     MiWalkPageTablesRecursively @ 0x1402DC430 (MiWalkPageTablesRecursively.c)
+ *     MiWalkPageTablesRecursively @ 0x14023DD10 (MiWalkPageTablesRecursively.c)
  * Callees:
- *     MiGetPagePrivilege @ 0x14021CE30 (MiGetPagePrivilege.c)
- *     MiAgePteWorker @ 0x14022FCA0 (MiAgePteWorker.c)
- *     MiAcquirePrcbAgeTrimLists @ 0x140231E18 (MiAcquirePrcbAgeTrimLists.c)
- *     MiComputeAgingAmount @ 0x140235450 (MiComputeAgingAmount.c)
- *     MiIsPageTableLocked @ 0x1403FAAB4 (MiIsPageTableLocked.c)
- *     MiDemoteCombinedPte @ 0x1403FABBC (MiDemoteCombinedPte.c)
+ *     MiComputeAgingAmount @ 0x14020F5E0 (MiComputeAgingAmount.c)
+ *     MiGetPagePrivilege @ 0x140249B80 (MiGetPagePrivilege.c)
+ *     MiIsPageTableLocked @ 0x140295EE4 (MiIsPageTableLocked.c)
+ *     MiDemoteCombinedPte @ 0x140296374 (MiDemoteCombinedPte.c)
+ *     MiAcquirePrcbAgeTrimLists @ 0x140303A64 (MiAcquirePrcbAgeTrimLists.c)
+ *     MiAgePteWorker @ 0x1403040A0 (MiAgePteWorker.c)
  */
 
 __int64 __fastcall MiAgePte(__int64 a1, __int64 a2, int a3)
@@ -100,8 +100,7 @@ __int64 __fastcall MiAgePte(__int64 a1, __int64 a2, int a3)
   *(_QWORD *)(v15 + v8) = v14;
   ++*((_QWORD *)v3 + 5);
   if ( !a3
-    || (v13[3] & 0x3FFFFFFFFFFFFFFFLL) == 1
-    && !(unsigned int)MiIsPageTableLocked(v5, ((v9 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL) )
+    || (v13[3] & 0x3FFFFFFFFFFFFFFFLL) == 1 && !MiIsPageTableLocked(v5, ((v9 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL) )
   {
     if ( (v13[5] & 0x10000000000LL) == 0
       && v13[1] > 0
@@ -120,7 +119,7 @@ __int64 __fastcall MiAgePte(__int64 a1, __int64 a2, int a3)
         {
 LABEL_30:
           if ( *((_QWORD *)v3 + 9) == 1LL )
-            MiAcquirePrcbAgeTrimLists(v5, v3 + 14);
+            MiAcquirePrcbAgeTrimLists(v5, (__int64 **)v3 + 7);
           v22 = (_DWORD *)*((_QWORD *)v3 + 9);
           *(_QWORD *)&v22[2 * (*v22)++ + 2] = v9 & 0xFFFFFFFFFFFFF000uLL;
           goto LABEL_16;

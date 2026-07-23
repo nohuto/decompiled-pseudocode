@@ -1,14 +1,14 @@
 /*
- * XREFs of PspInitPhase2 @ 0x1409D5F0C
+ * XREFs of PspInitPhase2 @ 0x1409D6F0C
  * Callers:
- *     Phase1InitializationIoReady @ 0x1409C4788 (Phase1InitializationIoReady.c)
- *     PsInitSystem @ 0x1409C4944 (PsInitSystem.c)
+ *     Phase1InitializationIoReady @ 0x1409C5788 (Phase1InitializationIoReady.c)
+ *     PsInitSystem @ 0x1409C5944 (PsInitSystem.c)
  * Callees:
- *     RtlGetSystemTimePrecise @ 0x14008A510 (RtlGetSystemTimePrecise.c)
- *     KiQueryUnbiasedInterruptTime @ 0x14008CF10 (KiQueryUnbiasedInterruptTime.c)
- *     RtlRandom @ 0x1406C8B50 (RtlRandom.c)
- *     PspInitializeProtectedProcessParameters @ 0x1407562F8 (PspInitializeProtectedProcessParameters.c)
- *     PspInitializeSystemDlls @ 0x1409D6048 (PspInitializeSystemDlls.c)
+ *     RtlGetSystemTimePrecise @ 0x14008A500 (RtlGetSystemTimePrecise.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x14008CE50 (KiQueryUnbiasedInterruptTime.c)
+ *     RtlRandom @ 0x1406C9DF0 (RtlRandom.c)
+ *     PspInitializeProtectedProcessParameters @ 0x1407574E8 (PspInitializeProtectedProcessParameters.c)
+ *     PspInitializeSystemDlls @ 0x1409D7048 (PspInitializeSystemDlls.c)
  */
 
 bool PspInitPhase2()
@@ -21,7 +21,7 @@ bool PspInitPhase2()
   ULONG Seed; // [rsp+30h] [rbp+8h] BYREF
 
   v0 = PsInitialSystemProcess;
-  v0[1].ThreadListHead.Flink = (struct _LIST_ENTRY *)RtlGetSystemTimePrecise();
+  v0[1].ThreadListHead.Flink = (struct _LIST_ENTRY *)RtlGetSystemTimePrecise().QuadPart;
   PsInitialSystemProcess[2].ActiveProcessors.Bitmap[17] = MEMORY[0xFFFFF78000000008];
   UnbiasedInterruptTime = KiQueryUnbiasedInterruptTime();
   v2 = PsIdleProcess;

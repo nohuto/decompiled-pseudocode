@@ -1,15 +1,15 @@
 /*
- * XREFs of KiConvertDynamicHeteroPolicy @ 0x14051F1A0
+ * XREFs of KiConvertDynamicHeteroPolicy @ 0x14051F3E0
  * Callers:
- *     KeClockInterruptNotify @ 0x140221640 (KeClockInterruptNotify.c)
- *     KiCheckPreferredHeteroProcessor @ 0x140258C00 (KiCheckPreferredHeteroProcessor.c)
- *     KiFindReadyThread @ 0x1402EA5D0 (KiFindReadyThread.c)
- *     KiSelectReadyThread @ 0x140347900 (KiSelectReadyThread.c)
- *     KiHeteroChooseTargetProcessor @ 0x14051F500 (KiHeteroChooseTargetProcessor.c)
- *     KiSetHeteroPolicyThread @ 0x140520364 (KiSetHeteroPolicyThread.c)
+ *     KiCheckPreferredHeteroProcessor @ 0x14027A170 (KiCheckPreferredHeteroProcessor.c)
+ *     KiFindReadyThread @ 0x14029B920 (KiFindReadyThread.c)
+ *     KeClockInterruptNotify @ 0x1402C5F40 (KeClockInterruptNotify.c)
+ *     KiSelectReadyThread @ 0x140352650 (KiSelectReadyThread.c)
+ *     KiHeteroChooseTargetProcessor @ 0x14051F740 (KiHeteroChooseTargetProcessor.c)
+ *     KiSetHeteroPolicyThread @ 0x1405205A4 (KiSetHeteroPolicyThread.c)
  * Callees:
- *     KeSetThreadBamQosLevel @ 0x14051E5A0 (KeSetThreadBamQosLevel.c)
- *     KiGetHeteroThreadQos @ 0x14051F328 (KiGetHeteroThreadQos.c)
+ *     KeSetThreadBamQosLevel @ 0x14051E7E0 (KeSetThreadBamQosLevel.c)
+ *     KiGetHeteroThreadQos @ 0x14051F568 (KiGetHeteroThreadQos.c)
  */
 
 __int64 __fastcall KiConvertDynamicHeteroPolicy(__int64 a1, __int64 a2, __int64 a3)

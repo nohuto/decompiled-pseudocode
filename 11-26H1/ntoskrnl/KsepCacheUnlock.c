@@ -1,16 +1,16 @@
 /*
- * XREFs of KsepCacheUnlock @ 0x1409E5030
+ * XREFs of KsepCacheUnlock @ 0x1409D8054
  * Callers:
- *     KsepDbCacheInsertDevice @ 0x1407BC81C (KsepDbCacheInsertDevice.c)
- *     KseLookupHardwareId @ 0x1407BE31C (KseLookupHardwareId.c)
- *     KseAddHardwareId @ 0x1409E4D00 (KseAddHardwareId.c)
- *     KseResetDeviceCache @ 0x1409E4E40 (KseResetDeviceCache.c)
- *     KsepDbCacheQueryDevice @ 0x1409E4E84 (KsepDbCacheQueryDevice.c)
- *     KseQueryDeviceDataList @ 0x140B2C3B0 (KseQueryDeviceDataList.c)
+ *     KsepDbCacheInsertDevice @ 0x1407BF87C (KsepDbCacheInsertDevice.c)
+ *     KseLookupHardwareId @ 0x1407C137C (KseLookupHardwareId.c)
+ *     KsepDbCacheQueryDevice @ 0x1409D7EA8 (KsepDbCacheQueryDevice.c)
+ *     KseResetDeviceCache @ 0x1409D808C (KseResetDeviceCache.c)
+ *     KseAddHardwareId @ 0x1409D80D0 (KseAddHardwareId.c)
+ *     KseQueryDeviceDataList @ 0x140B2E430 (KseQueryDeviceDataList.c)
  * Callees:
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
  */
 
 void __fastcall KsepCacheUnlock(struct _KTHREAD *a1)

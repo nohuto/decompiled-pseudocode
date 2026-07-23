@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlpHpFixedHeapCreate @ 0x14037B558
+ * XREFs of RtlpHpFixedHeapCreate @ 0x14037B0A8
  * Callers:
- *     RtlCreateHeap @ 0x140768B60 (RtlCreateHeap.c)
+ *     RtlCreateHeap @ 0x140768D20 (RtlCreateHeap.c)
  * Callees:
- *     RtlSetBitsEx @ 0x140316A00 (RtlSetBitsEx.c)
- *     RtlpHpVsContextInitialize @ 0x14037B70C (RtlpHpVsContextInitialize.c)
- *     ZwQueryVirtualMemory @ 0x1403FA800 (ZwQueryVirtualMemory.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     memset @ 0x140414200 (memset.c)
+ *     RtlSetBitsEx @ 0x140321750 (RtlSetBitsEx.c)
+ *     RtlpHpVsContextInitialize @ 0x14037B25C (RtlpHpVsContextInitialize.c)
+ *     ZwQueryVirtualMemory @ 0x1403FA9E0 (ZwQueryVirtualMemory.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414300 (memset.c)
  */
 
 unsigned __int64 __fastcall RtlpHpFixedHeapCreate(
@@ -62,7 +62,7 @@ unsigned __int64 __fastcall RtlpHpFixedHeapCreate(
     if ( ZwQueryVirtualMemory(
            (HANDLE)0xFFFFFFFFFFFFFFFFLL,
            BaseAddress,
-           (MEMORY_INFORMATION_CLASS)3,
+           MemoryRegionInformation,
            &MemoryInformation,
            0x30uLL,
            0LL) < 0 )

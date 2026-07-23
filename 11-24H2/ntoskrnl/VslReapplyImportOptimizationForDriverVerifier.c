@@ -1,13 +1,13 @@
 /*
- * XREFs of VslReapplyImportOptimizationForDriverVerifier @ 0x1407108B8
+ * XREFs of VslReapplyImportOptimizationForDriverVerifier @ 0x14070E448
  * Callers:
- *     MiReapplyImportOptimizationForDriverVerifier @ 0x14067C118 (MiReapplyImportOptimizationForDriverVerifier.c)
+ *     MiReapplyImportOptimizationForDriverVerifier @ 0x14067D2F8 (MiReapplyImportOptimizationForDriverVerifier.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140265D90 (VslpEnterIumSecureMode.c)
- *     VslpLockPagesForTransfer @ 0x140266DCC (VslpLockPagesForTransfer.c)
- *     VslpUnlockPagesForTransfer @ 0x140267E9C (VslpUnlockPagesForTransfer.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     VslpLockPagesForTransfer @ 0x14025E3AC (VslpLockPagesForTransfer.c)
+ *     VslpUnlockPagesForTransfer @ 0x14025F47C (VslpUnlockPagesForTransfer.c)
+ *     VslpEnterIumSecureMode @ 0x1403AADB0 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall VslReapplyImportOptimizationForDriverVerifier(__int64 a1, struct _MDL *a2, int a3)
@@ -30,7 +30,7 @@ __int64 __fastcall VslReapplyImportOptimizationForDriverVerifier(__int64 a1, str
     v10 = *(_QWORD *)(a1 + 48);
     v11 = v8[0];
     v12 = v8[7];
-    v7 = VslpEnterIumSecureMode(2u, 226LL, 0, (__int64)v9);
+    v7 = VslpEnterIumSecureMode(2u, 0xE2u, 0, (__int64)v9);
     VslpUnlockPagesForTransfer(v8);
     return v7;
   }

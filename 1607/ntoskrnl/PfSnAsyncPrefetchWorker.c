@@ -1,26 +1,26 @@
 /*
- * XREFs of PfSnAsyncPrefetchWorker @ 0x1404F4AF8
+ * XREFs of PfSnAsyncPrefetchWorker @ 0x1404D7A84
  * Callers:
  *     <none>
  * Callees:
- *     MmGetAvailablePagesBelowPriority @ 0x1400C0E80 (MmGetAvailablePagesBelowPriority.c)
- *     KiStackAttachProcess @ 0x1400CD1F0 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x1400CE820 (KiUnstackDetachProcess.c)
- *     MmGetDefaultPagePriority @ 0x1400D3D18 (MmGetDefaultPagePriority.c)
- *     ExReleaseRundownProtection @ 0x1400D3F00 (ExReleaseRundownProtection.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     MmGetAvailablePagesBelowPriority @ 0x1400BED10 (MmGetAvailablePagesBelowPriority.c)
+ *     KiStackAttachProcess @ 0x1400CB090 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x1400CC6C0 (KiUnstackDetachProcess.c)
+ *     MmGetDefaultPagePriority @ 0x1400D1BB8 (MmGetDefaultPagePriority.c)
+ *     ExReleaseRundownProtection @ 0x1400D1DA0 (ExReleaseRundownProtection.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     PfSnPreallocatePrefetchHeader @ 0x1404D34F4 (PfSnPreallocatePrefetchHeader.c)
- *     PfSnPowerBoost @ 0x1404EAFC8 (PfSnPowerBoost.c)
- *     PfpPrefetchSharedInitialize @ 0x1404F48B4 (PfpPrefetchSharedInitialize.c)
- *     PfpPrefetchSharedStart @ 0x1404F48F8 (PfpPrefetchSharedStart.c)
- *     PfSnLogAsyncWorker @ 0x1404F4DC8 (PfSnLogAsyncWorker.c)
- *     PfSnAsyncContextCleanup @ 0x1404F4E40 (PfSnAsyncContextCleanup.c)
- *     PfSnOpenVolumesForPrefetch @ 0x1404F4E8C (PfSnOpenVolumesForPrefetch.c)
- *     PfSnAsyncPrefetchStep @ 0x140506DA0 (PfSnAsyncPrefetchStep.c)
- *     PfSnCleanupPrefetchHeader @ 0x14050A4E0 (PfSnCleanupPrefetchHeader.c)
+ *     PfSnPreallocatePrefetchHeader @ 0x1404B6F94 (PfSnPreallocatePrefetchHeader.c)
+ *     PfSnPowerBoost @ 0x1404CCFEC (PfSnPowerBoost.c)
+ *     PfpPrefetchSharedInitialize @ 0x1404D7840 (PfpPrefetchSharedInitialize.c)
+ *     PfpPrefetchSharedStart @ 0x1404D7884 (PfpPrefetchSharedStart.c)
+ *     PfSnLogAsyncWorker @ 0x1404D7D54 (PfSnLogAsyncWorker.c)
+ *     PfSnAsyncContextCleanup @ 0x1404D7DCC (PfSnAsyncContextCleanup.c)
+ *     PfSnOpenVolumesForPrefetch @ 0x1404D7E18 (PfSnOpenVolumesForPrefetch.c)
+ *     PfSnAsyncPrefetchStep @ 0x1404E9D30 (PfSnAsyncPrefetchStep.c)
+ *     PfSnCleanupPrefetchHeader @ 0x1404ED470 (PfSnCleanupPrefetchHeader.c)
  */
 
 void __fastcall PfSnAsyncPrefetchWorker(PVOID P)
@@ -92,7 +92,7 @@ void __fastcall PfSnAsyncPrefetchWorker(PVOID P)
             v10 = v14[0] | 1;
             v14[0] |= 1u;
           }
-          if ( (dword_140328530 & 4) != 0 )
+          if ( (dword_140328570 & 4) != 0 )
           {
             v11 = 0;
             v10 &= ~2u;
@@ -131,7 +131,7 @@ LABEL_21:
     *(_DWORD *)(v13 + 480) = v15[15];
   }
   PfSnCleanupPrefetchHeader(v15);
-  _InterlockedDecrement(&dword_140328730);
+  _InterlockedDecrement(&dword_140328770);
   if ( v4 )
     PfSnPowerBoost((PEX_RUNDOWN_REF)P + 5, 0);
   KiUnstackDetachProcess((struct _KTHREAD *)v16, 0);

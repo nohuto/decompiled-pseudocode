@@ -1,10 +1,10 @@
 /*
- * XREFs of PiPdcActivate @ 0x1409EDEC0
+ * XREFs of PiPdcActivate @ 0x1409EB900
  * Callers:
- *     IopProcessInvalidateBusRelationsRequest @ 0x1409EDC68 (IopProcessInvalidateBusRelationsRequest.c)
- *     PnpActivatePdcForDeviceEvent @ 0x1409EDD5C (PnpActivatePdcForDeviceEvent.c)
+ *     IopProcessInvalidateBusRelationsRequest @ 0x1409EB6A8 (IopProcessInvalidateBusRelationsRequest.c)
+ *     PnpActivatePdcForDeviceEvent @ 0x1409EB79C (PnpActivatePdcForDeviceEvent.c)
  * Callees:
- *     Pdcv2ActivationClientActivate @ 0x1409EDF3C (Pdcv2ActivationClientActivate.c)
+ *     Pdcv2ActivationClientActivate @ 0x1409EB97C (Pdcv2ActivationClientActivate.c)
  */
 
 __int64 __fastcall PiPdcActivate(const wchar_t *a1, __int64 a2, __int64 a3, int a4)

@@ -1,18 +1,18 @@
 /*
- * XREFs of PpmParkDistributeUtilityEx @ 0x1405E337C
+ * XREFs of PpmParkDistributeUtilityEx @ 0x1405E0904
  * Callers:
- *     PpmParkDistributeAllUtility @ 0x1404EE3F0 (PpmParkDistributeAllUtility.c)
- *     PpmHeteroDistributeUtilityEx @ 0x1405E07D4 (PpmHeteroDistributeUtilityEx.c)
+ *     PpmParkDistributeAllUtility @ 0x1404E5B80 (PpmParkDistributeAllUtility.c)
+ *     PpmHeteroDistributeUtilityEx @ 0x1405DDDF4 (PpmHeteroDistributeUtilityEx.c)
  * Callees:
- *     KeAddProcessorAffinityEx @ 0x140257130 (KeAddProcessorAffinityEx.c)
- *     KeGetPrcb @ 0x140352980 (KeGetPrcb.c)
- *     KeXorAffinityEx2 @ 0x140354F38 (KeXorAffinityEx2.c)
- *     KeRemoveProcessorAffinityEx @ 0x1403CA140 (KeRemoveProcessorAffinityEx.c)
- *     KeEnumerateNextProcessor @ 0x14040D4F0 (KeEnumerateNextProcessor.c)
- *     PpmHeteroUtilityToNormalizedUtility @ 0x140423814 (PpmHeteroUtilityToNormalizedUtility.c)
- *     PpmHeteroNormalizedUtilityToUtility @ 0x1404541B4 (PpmHeteroNormalizedUtilityToUtility.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     KeAddProcessorAffinityEx @ 0x140287740 (KeAddProcessorAffinityEx.c)
+ *     KeGetPrcb @ 0x1402B0A10 (KeGetPrcb.c)
+ *     KeXorAffinityEx2 @ 0x1402B2C68 (KeXorAffinityEx2.c)
+ *     KeRemoveProcessorAffinityEx @ 0x1403A4D10 (KeRemoveProcessorAffinityEx.c)
+ *     KeEnumerateNextProcessor @ 0x140405740 (KeEnumerateNextProcessor.c)
+ *     PpmHeteroUtilityToNormalizedUtility @ 0x1404176C4 (PpmHeteroUtilityToNormalizedUtility.c)
+ *     PpmHeteroNormalizedUtilityToUtility @ 0x140449264 (PpmHeteroNormalizedUtilityToUtility.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall PpmParkDistributeUtilityEx(

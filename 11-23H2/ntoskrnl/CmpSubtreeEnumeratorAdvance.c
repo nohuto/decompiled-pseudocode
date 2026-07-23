@@ -1,20 +1,20 @@
 /*
- * XREFs of CmpSubtreeEnumeratorAdvance @ 0x140A20398
+ * XREFs of CmpSubtreeEnumeratorAdvance @ 0x140A20648
  * Callers:
- *     CmRenameKey @ 0x140A143AC (CmRenameKey.c)
- *     CmpDoAccessCheckOnLayeredSubtree @ 0x140A1B6D8 (CmpDoAccessCheckOnLayeredSubtree.c)
- *     CmpPromoteSubtree @ 0x140A26BB0 (CmpPromoteSubtree.c)
+ *     CmRenameKey @ 0x140A1465C (CmRenameKey.c)
+ *     CmpDoAccessCheckOnLayeredSubtree @ 0x140A1B988 (CmpDoAccessCheckOnLayeredSubtree.c)
+ *     CmpPromoteSubtree @ 0x140A26E60 (CmpPromoteSubtree.c)
  * Callees:
- *     CmpGetKcbAtLayerHeight @ 0x1406D57A0 (CmpGetKcbAtLayerHeight.c)
- *     CmpPopulateKcbStack @ 0x1406D7D60 (CmpPopulateKcbStack.c)
- *     CmpHashUnicodeComponent @ 0x140708CE0 (CmpHashUnicodeComponent.c)
- *     CmpHashCompressedComponent @ 0x140769474 (CmpHashCompressedComponent.c)
- *     CmpFindKcbInHashEntryByName @ 0x1407C461C (CmpFindKcbInHashEntryByName.c)
- *     CmpKeyNodeStackGetEntryAtLayerHeight @ 0x1407D1D10 (CmpKeyNodeStackGetEntryAtLayerHeight.c)
- *     CmpFindKcbInHashEntryByCompressedName @ 0x140A17380 (CmpFindKcbInHashEntryByCompressedName.c)
- *     CmpKeyEnumStackAdvance @ 0x140A23698 (CmpKeyEnumStackAdvance.c)
- *     CmpKeyEnumStackBeginEnumerationForKeyNodeStack @ 0x140A238B4 (CmpKeyEnumStackBeginEnumerationForKeyNodeStack.c)
- *     CmpKeyEnumStackReset @ 0x140A241DC (CmpKeyEnumStackReset.c)
+ *     CmpGetKcbAtLayerHeight @ 0x1406D57D0 (CmpGetKcbAtLayerHeight.c)
+ *     CmpPopulateKcbStack @ 0x1406D7D90 (CmpPopulateKcbStack.c)
+ *     CmpHashUnicodeComponent @ 0x140708EF0 (CmpHashUnicodeComponent.c)
+ *     CmpHashCompressedComponent @ 0x140769664 (CmpHashCompressedComponent.c)
+ *     CmpFindKcbInHashEntryByName @ 0x1407C48EC (CmpFindKcbInHashEntryByName.c)
+ *     CmpKeyNodeStackGetEntryAtLayerHeight @ 0x1407D1FE0 (CmpKeyNodeStackGetEntryAtLayerHeight.c)
+ *     CmpFindKcbInHashEntryByCompressedName @ 0x140A17630 (CmpFindKcbInHashEntryByCompressedName.c)
+ *     CmpKeyEnumStackAdvance @ 0x140A23948 (CmpKeyEnumStackAdvance.c)
+ *     CmpKeyEnumStackBeginEnumerationForKeyNodeStack @ 0x140A23B64 (CmpKeyEnumStackBeginEnumerationForKeyNodeStack.c)
+ *     CmpKeyEnumStackReset @ 0x140A2448C (CmpKeyEnumStackReset.c)
  */
 
 __int64 __fastcall CmpSubtreeEnumeratorAdvance(__int64 a1)

@@ -1,22 +1,22 @@
 /*
- * XREFs of MmAllocateNonChargedSecurePages @ 0x1404170E8
+ * XREFs of MmAllocateNonChargedSecurePages @ 0x14040B6F8
  * Callers:
- *     PspIumReplenishPartitionPages @ 0x140416E68 (PspIumReplenishPartitionPages.c)
- *     PspIumAllocatePartitionState @ 0x14061621C (PspIumAllocatePartitionState.c)
+ *     PspIumReplenishPartitionPages @ 0x14040B478 (PspIumReplenishPartitionPages.c)
+ *     PspIumAllocatePartitionState @ 0x14061920C (PspIumAllocatePartitionState.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiGetPage @ 0x1402866A0 (MiGetPage.c)
- *     MiUpdatePageFileHighInPte @ 0x14028C010 (MiUpdatePageFileHighInPte.c)
- *     MiReleaseNonPagedResources @ 0x14028C070 (MiReleaseNonPagedResources.c)
- *     MiAcquireNonPagedResources @ 0x1402F4A50 (MiAcquireNonPagedResources.c)
- *     MiIsPfnFromChargedSlabAllocation @ 0x140309350 (MiIsPfnFromChargedSlabAllocation.c)
- *     MiGetSlabPage @ 0x14033A284 (MiGetSlabPage.c)
- *     MiInitializeMdlPfn @ 0x14033BC60 (MiInitializeMdlPfn.c)
- *     MiPartitionObjectToPartition @ 0x1403486D4 (MiPartitionObjectToPartition.c)
- *     MiInitializePageColorBase @ 0x14036FE20 (MiInitializePageColorBase.c)
- *     PsDereferencePartition @ 0x140381940 (PsDereferencePartition.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiGetPage @ 0x140285C00 (MiGetPage.c)
+ *     MiUpdatePageFileHighInPte @ 0x14028B570 (MiUpdatePageFileHighInPte.c)
+ *     MiReleaseNonPagedResources @ 0x14028B5D0 (MiReleaseNonPagedResources.c)
+ *     MiAcquireNonPagedResources @ 0x1402D6AD0 (MiAcquireNonPagedResources.c)
+ *     MiIsPfnFromChargedSlabAllocation @ 0x1402EB3D0 (MiIsPfnFromChargedSlabAllocation.c)
+ *     MiGetSlabPage @ 0x14033C304 (MiGetSlabPage.c)
+ *     MiInitializeMdlPfn @ 0x14033DCE0 (MiInitializeMdlPfn.c)
+ *     MiPartitionObjectToPartition @ 0x14034A754 (MiPartitionObjectToPartition.c)
+ *     MiInitializePageColorBase @ 0x140371BD0 (MiInitializePageColorBase.c)
+ *     PsDereferencePartition @ 0x1403836F0 (PsDereferencePartition.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 void __fastcall MmAllocateNonChargedSecurePages(ULONG **a1, int a2, unsigned int *a3, __int64 *a4)

@@ -1,13 +1,13 @@
 /*
- * XREFs of MiCreateFreePfns @ 0x140A43D50
+ * XREFs of MiCreateFreePfns @ 0x140A44D50
  * Callers:
- *     MiSwitchToPfns @ 0x140A43AD8 (MiSwitchToPfns.c)
+ *     MiSwitchToPfns @ 0x140A44AD8 (MiSwitchToPfns.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     qsort @ 0x1403D2AC0 (qsort.c)
- *     memset @ 0x140414200 (memset.c)
- *     MxReleaseFreeDescriptor @ 0x140A43A14 (MxReleaseFreeDescriptor.c)
- *     MxCreateFreePfns @ 0x140A43ECC (MxCreateFreePfns.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     qsort @ 0x1403D2C30 (qsort.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     MxReleaseFreeDescriptor @ 0x140A44A14 (MxReleaseFreeDescriptor.c)
+ *     MxCreateFreePfns @ 0x140A44ECC (MxCreateFreePfns.c)
  */
 
 void __fastcall MiCreateFreePfns(__int128 *a1)

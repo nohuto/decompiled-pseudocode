@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpStartKeyNodeStack @ 0x14072A1E8
+ * XREFs of CmpStartKeyNodeStack @ 0x14072A698
  * Callers:
- *     CmSaveKey @ 0x140728BCC (CmSaveKey.c)
- *     CmpSubtreeEnumeratorStart @ 0x14072A08C (CmpSubtreeEnumeratorStart.c)
- *     CmpKeyEnumStackStart @ 0x14072A18C (CmpKeyEnumStackStart.c)
- *     CmpStartKeyNodeStackFromKcbStack @ 0x1408766AC (CmpStartKeyNodeStackFromKcbStack.c)
+ *     CmSaveKey @ 0x14072907C (CmSaveKey.c)
+ *     CmpSubtreeEnumeratorStart @ 0x14072A53C (CmpSubtreeEnumeratorStart.c)
+ *     CmpKeyEnumStackStart @ 0x14072A63C (CmpKeyEnumStackStart.c)
+ *     CmpStartKeyNodeStackFromKcbStack @ 0x14087680C (CmpStartKeyNodeStackFromKcbStack.c)
  * Callees:
- *     CmpAllocateTransientPoolWithTag @ 0x140206F90 (CmpAllocateTransientPoolWithTag.c)
+ *     CmpAllocateTransientPoolWithTag @ 0x14023EDD0 (CmpAllocateTransientPoolWithTag.c)
  */
 
 __int64 __fastcall CmpStartKeyNodeStack(__int64 a1, __int16 a2, __int64 a3, struct _LOOKASIDE_LIST_EX *a4)

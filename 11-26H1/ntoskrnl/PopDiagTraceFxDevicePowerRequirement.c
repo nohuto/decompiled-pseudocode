@@ -1,15 +1,15 @@
 /*
- * XREFs of PopDiagTraceFxDevicePowerRequirement @ 0x140219E80
+ * XREFs of PopDiagTraceFxDevicePowerRequirement @ 0x14021B810
  * Callers:
- *     PopFxProcessWork @ 0x1403AEEC0 (PopFxProcessWork.c)
- *     PopFxDeliverDevicePowerRequired @ 0x1403B3CC4 (PopFxDeliverDevicePowerRequired.c)
- *     PopFxIdleTimeoutDpcRoutine @ 0x1404D4C60 (PopFxIdleTimeoutDpcRoutine.c)
- *     PopFxUpdateDeviceIdleTimer @ 0x1404D62C4 (PopFxUpdateDeviceIdleTimer.c)
+ *     PopFxProcessWork @ 0x1403B8BD0 (PopFxProcessWork.c)
+ *     PopFxDeliverDevicePowerRequired @ 0x1403BDBD0 (PopFxDeliverDevicePowerRequired.c)
+ *     PopFxIdleTimeoutDpcRoutine @ 0x1404CE4D0 (PopFxIdleTimeoutDpcRoutine.c)
+ *     PopFxUpdateDeviceIdleTimer @ 0x1404CFA94 (PopFxUpdateDeviceIdleTimer.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     PopFxAddLogEntry @ 0x14021A640 (PopFxAddLogEntry.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     PopFxAddLogEntry @ 0x14021BFD0 (PopFxAddLogEntry.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void __fastcall PopDiagTraceFxDevicePowerRequirement(__int64 a1, char a2, unsigned __int8 a3)
@@ -52,16 +52,16 @@ void __fastcall PopDiagTraceFxDevicePowerRequirement(__int64 a1, char a2, unsign
     v4 = (const EVENT_DESCRIPTOR *)POP_ETW_EVENT_DEVICE_POWER_REQUIREMENT_TO_DEVICE;
     PopFxAddLogEntry(a1, 0LL, 5LL, a3);
   }
-  if ( byte_140E67628 )
+  if ( PopDiagHandleRegistered )
   {
-    if ( EtwEventEnabled(*(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16], v4) )
+    if ( EtwEventEnabled(PopDiagHandle, v4) )
     {
       UserData.Ptr = (ULONGLONG)&v9;
       v8 = v3;
       v11 = &v8;
       *(_QWORD *)&UserData.Size = 8LL;
       v12 = 4LL;
-      EtwWriteEx(*(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16], v4, 0LL, 1u, 0LL, 0LL, 2u, &UserData);
+      EtwWriteEx(PopDiagHandle, v4, 0LL, 1u, 0LL, 0LL, 2u, &UserData);
     }
   }
 }

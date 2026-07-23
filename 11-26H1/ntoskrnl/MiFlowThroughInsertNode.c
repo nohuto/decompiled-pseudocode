@@ -1,12 +1,12 @@
 /*
- * XREFs of MiFlowThroughInsertNode @ 0x140373F80
+ * XREFs of MiFlowThroughInsertNode @ 0x140375D30
  * Callers:
- *     MiFinishMdlForMappedFileFault @ 0x14036E910 (MiFinishMdlForMappedFileFault.c)
- *     MiInitializePageFileInPageSupport @ 0x1403741B8 (MiInitializePageFileInPageSupport.c)
+ *     MiFinishMdlForMappedFileFault @ 0x1403706B0 (MiFinishMdlForMappedFileFault.c)
+ *     MiInitializePageFileInPageSupport @ 0x140375F68 (MiInitializePageFileInPageSupport.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402DED10 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     RtlRbInsertNodeEx @ 0x1403774B0 (RtlRbInsertNodeEx.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402C0B20 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     RtlRbInsertNodeEx @ 0x140379260 (RtlRbInsertNodeEx.c)
  */
 
 void __fastcall MiFlowThroughInsertNode(__int64 a1, _QWORD *a2)
@@ -16,15 +16,16 @@ void __fastcall MiFlowThroughInsertNode(__int64 a1, _QWORD *a2)
   __int64 v5; // rbp
   _QWORD *v6; // rcx
   __int64 v7; // r14
-  unsigned __int64 v8; // r8
-  char v9; // bl
-  unsigned __int64 v10; // rdx
-  unsigned __int64 v11; // r9
-  unsigned __int64 v12; // rax
-  unsigned __int64 v13; // r8
+  BOOLEAN v8; // bl
+  unsigned __int64 v9; // rdx
+  BOOLEAN v10; // r8
+  unsigned __int64 v11; // r8
+  unsigned __int64 v12; // r9
+  unsigned __int64 v13; // rax
   unsigned __int64 v14; // rdx
-  unsigned __int64 v15; // r11
-  unsigned __int64 v16; // rax
+  unsigned __int64 v15; // r8
+  unsigned __int64 v16; // r11
+  unsigned __int64 v17; // rax
 
   v3 = *(_DWORD *)(a1 + 188);
   *(_DWORD *)(a1 + 188) = v3 | 0x40;
@@ -42,53 +43,53 @@ void __fastcall MiFlowThroughInsertNode(__int64 a1, _QWORD *a2)
   {
     v7 = *(_QWORD *)(a1 + 192);
     ExAcquireSpinLockExclusiveAtDpcLevel((PEX_SPIN_LOCK)(v7 + 200));
-    v9 = 0;
-    v10 = *(_QWORD *)(v7 + 208);
-    if ( (*(_BYTE *)(v7 + 216) & 1) != 0 && v10 )
-      v10 ^= v7 + 208;
-    LOBYTE(v8) = 0;
-    if ( v10 )
+    v8 = 0;
+    v9 = *(_QWORD *)(v7 + 208);
+    if ( (*(_BYTE *)(v7 + 216) & 1) != 0 && v9 )
+      v9 ^= v7 + 208;
+    v10 = 0;
+    if ( v9 )
     {
-      v8 = *(_QWORD *)(a1 + 96) + *(unsigned int *)(a1 + 184);
+      v11 = *(_QWORD *)(a1 + 96) + *(unsigned int *)(a1 + 184);
       while ( 1 )
       {
-        v11 = *(_QWORD *)(v10 - 104) + *(unsigned int *)(v10 - 16);
-        if ( v8 > v11 || v8 >= v11 && a1 + 200 > v10 )
+        v12 = *(_QWORD *)(v9 - 104) + *(unsigned int *)(v9 - 16);
+        if ( v11 > v12 || v11 >= v12 && a1 + 200 > v9 )
         {
-          v12 = *(_QWORD *)v10;
+          v13 = *(_QWORD *)v9;
           if ( (*(_BYTE *)(v7 + 216) & 1) != 0 )
           {
-            if ( !v12 )
+            if ( !v13 )
               goto LABEL_48;
-            v12 ^= v10;
+            v13 ^= v9;
           }
-          if ( !v12 )
+          if ( !v13 )
           {
 LABEL_48:
-            LOBYTE(v8) = 0;
+            v10 = 0;
             break;
           }
         }
         else
         {
-          v12 = *(_QWORD *)(v10 + 8);
+          v13 = *(_QWORD *)(v9 + 8);
           if ( (*(_BYTE *)(v7 + 216) & 1) != 0 )
           {
-            if ( !v12 )
+            if ( !v13 )
               goto LABEL_16;
-            v12 ^= v10;
+            v13 ^= v9;
           }
-          if ( !v12 )
+          if ( !v13 )
           {
 LABEL_16:
-            LOBYTE(v8) = 1;
+            v10 = 1;
             break;
           }
         }
-        v10 = v12;
+        v9 = v13;
       }
     }
-    RtlRbInsertNodeEx(v7 + 208, v10, v8, a1 + 200);
+    RtlRbInsertNodeEx((PRTL_RB_TREE)(v7 + 208), (PRTL_BALANCED_NODE)v9, v10, (PRTL_BALANCED_NODE)(a1 + 200));
     if ( *(_QWORD *)(v5 + 216) == -1LL )
     {
       v14 = *(_QWORD *)(v7 + 208);
@@ -101,43 +102,42 @@ LABEL_16:
       }
       if ( v14 )
       {
-        v13 = *(_QWORD *)(v5 + 96) + *(unsigned int *)(v5 + 184);
+        v15 = *(_QWORD *)(v5 + 96) + *(unsigned int *)(v5 + 184);
         while ( 1 )
         {
-          v15 = *(_QWORD *)(v14 - 104) + *(unsigned int *)(v14 - 16);
-          if ( v13 > v15 || v13 >= v15 && v5 + 200 > v14 )
+          v16 = *(_QWORD *)(v14 - 104) + *(unsigned int *)(v14 - 16);
+          if ( v15 > v16 || v15 >= v16 && v5 + 200 > v14 )
           {
-            v16 = *(_QWORD *)v14;
+            v17 = *(_QWORD *)v14;
             if ( (*(_BYTE *)(v7 + 216) & 1) != 0 )
             {
-              if ( !v16 )
+              if ( !v17 )
                 break;
-              v16 ^= v14;
+              v17 ^= v14;
             }
-            if ( !v16 )
+            if ( !v17 )
               break;
           }
           else
           {
-            v16 = *(_QWORD *)(v14 + 8);
+            v17 = *(_QWORD *)(v14 + 8);
             if ( (*(_BYTE *)(v7 + 216) & 1) != 0 )
             {
-              if ( !v16 )
+              if ( !v17 )
                 goto LABEL_30;
-              v16 ^= v14;
+              v17 ^= v14;
             }
-            if ( !v16 )
+            if ( !v17 )
             {
 LABEL_30:
-              v9 = 1;
+              v8 = 1;
               break;
             }
           }
-          v14 = v16;
+          v14 = v17;
         }
       }
-      LOBYTE(v13) = v9;
-      RtlRbInsertNodeEx(v7 + 208, v14, v13, v5 + 200);
+      RtlRbInsertNodeEx((PRTL_RB_TREE)(v7 + 208), (PRTL_BALANCED_NODE)v14, v8, (PRTL_BALANCED_NODE)(v5 + 200));
     }
     ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v7 + 200));
   }

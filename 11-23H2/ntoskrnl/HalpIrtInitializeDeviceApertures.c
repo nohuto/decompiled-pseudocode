@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpIrtInitializeDeviceApertures @ 0x1409349E4
+ * XREFs of HalpIrtInitializeDeviceApertures @ 0x140934BE4
  * Callers:
- *     HalpInitializeInterruptRemappingBspLate @ 0x14085DE88 (HalpInitializeInterruptRemappingBspLate.c)
+ *     HalpInitializeInterruptRemappingBspLate @ 0x14085E0C8 (HalpInitializeInterruptRemappingBspLate.c)
  * Callees:
- *     HalpIrtAllocateDeviceAperture @ 0x1409346A0 (HalpIrtAllocateDeviceAperture.c)
+ *     HalpIrtAllocateDeviceAperture @ 0x1409348A0 (HalpIrtAllocateDeviceAperture.c)
  */
 
 __int64 HalpIrtInitializeDeviceApertures()

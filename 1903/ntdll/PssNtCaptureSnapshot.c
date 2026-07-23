@@ -16,184 +16,196 @@
  *     sub_180112808 @ 0x180112808 (sub_180112808.c)
  */
 
-__int64 __fastcall PssNtCaptureSnapshot(void **a1, __int64 a2, unsigned int a3, unsigned int a4)
+NTSTATUS __cdecl PssNtCaptureSnapshot(
+        PHANDLE SnapshotHandle,
+        HANDLE ProcessHandle,
+        ULONG CaptureFlags,
+        ULONG ThreadContextFlags)
 {
-  __int64 v5; // r13
-  __int64 result; // rax
-  int v8; // r15d
+  HANDLE v5; // r13
+  NTSTATUS result; // eax
+  ULONG v8; // r15d
   __int64 v9; // rbx
-  int v10; // esi
-  void *v11; // rcx
+  ULONG v10; // esi
+  HANDLE v11; // rcx
   int v12; // r12d
-  int Process; // r12d
-  int v14; // r15d
-  int v15; // [rsp+28h] [rbp-59h]
-  int v16; // [rsp+30h] [rbp-51h]
-  _DWORD *v17; // [rsp+58h] [rbp-29h]
+  int v13; // r12d
+  ULONG i; // eax
+  int v15; // r13d
+  NTSTATUS v16; // r15d
+  PVOID BaseAddress; // [rsp+58h] [rbp-29h] BYREF
   __int64 v18; // [rsp+60h] [rbp-21h] BYREF
   __int64 v19; // [rsp+68h] [rbp-19h] BYREF
   __int64 v20; // [rsp+70h] [rbp-11h] BYREF
   __int64 v21; // [rsp+78h] [rbp-9h] BYREF
   __int64 v22; // [rsp+80h] [rbp-1h] BYREF
   __int64 v23; // [rsp+88h] [rbp+7h] BYREF
-  _QWORD v24[9]; // [rsp+90h] [rbp+Fh] BYREF
+  __int64 v24; // [rsp+90h] [rbp+Fh] BYREF
+  ULONG_PTR RegionSize; // [rsp+98h] [rbp+17h] BYREF
+  HANDLE ProcessHandlea; // [rsp+A0h] [rbp+1Fh] BYREF
 
-  v5 = a2;
-  if ( (a3 & 0x3FFC000) != 0 )
-    return 3221225485LL;
-  v8 = a3 & 0x1C000000;
-  if ( (a3 & 0x1C000000) == 0x4000000 )
-    return 3221225520LL;
+  v5 = ProcessHandle;
+  if ( (CaptureFlags & 0x3FFC000) != 0 )
+    return -1073741811;
+  v8 = CaptureFlags & 0x1C000000;
+  if ( (CaptureFlags & 0x1C000000) == 0x4000000 )
+    return -1073741776;
   v9 = 0LL;
   v21 = 0LL;
-  v24[0] = 0LL;
+  v24 = 0LL;
   v20 = 0LL;
   v23 = 0LL;
-  v10 = a3 & 0x40000000;
-  if ( (a3 & 0x40000000) != 0 )
+  v10 = CaptureFlags & 0x40000000;
+  if ( (CaptureFlags & 0x40000000) != 0 )
   {
     v9 = MEMORY[0x7FFE0300];
-    sub_180110FD0(v24, &v23);
+    sub_180110FD0(&v24, &v23);
   }
-  v11 = *a1;
+  v11 = *SnapshotHandle;
   v12 = 0;
-  v17 = *a1;
-  if ( !*a1 )
+  BaseAddress = v11;
+  if ( !v11 )
   {
-    v16 = 4;
-    v15 = 4096;
-    v24[1] = 1144LL;
-    result = ZwAllocateVirtualMemory();
-    if ( (int)result < 0 )
+    RegionSize = 1144LL;
+    result = ZwAllocateVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, 0LL, &RegionSize, 0x1000u, 4u);
+    if ( result < 0 )
       return result;
-    v11 = 0LL;
+    v11 = BaseAddress;
     v12 = 1;
-    *a1 = 0LL;
+    *SnapshotHandle = BaseAddress;
   }
   memset(v11, 0, 0x478uLL);
-  *v17 = 1146311504;
-  v17[1] = v12;
-  v17[2] = a3;
-  Process = sub_18011138C(v17, v5, a3);
-  if ( Process < 0 )
+  *(_DWORD *)BaseAddress = 1146311504;
+  *((_DWORD *)BaseAddress + 1) = v12;
+  *((_DWORD *)BaseAddress + 2) = CaptureFlags;
+  v13 = sub_18011138C(BaseAddress, v5, CaptureFlags);
+  if ( v13 < 0 )
     goto LABEL_11;
-  if ( (a3 & 2) != 0 )
+  if ( (CaptureFlags & 2) != 0 )
   {
     if ( v10 )
       sub_180110FD0(&v21, &v20);
     v22 = 2147352576LL;
-    Process = sub_180111530(v17, v5, a3, &v22, v15, v16);
-    if ( Process < 0 )
+    v13 = sub_180111530(BaseAddress, v5, CaptureFlags, &v22);
+    if ( v13 < 0 )
       goto LABEL_11;
     if ( v10 )
     {
       sub_180110FD0(&v19, &v18);
-      *((_QWORD *)v17 + 135) = v18 - v20;
-      *((_QWORD *)v17 + 136) = 1000000 * (v19 - v21) / v9;
+      *((_QWORD *)BaseAddress + 135) = v18 - v20;
+      *((_QWORD *)BaseAddress + 136) = 1000000 * (v19 - v21) / v9;
     }
   }
-  if ( (a3 & 0x800) != 0 )
+  if ( (CaptureFlags & 0x800) != 0 )
   {
     if ( v10 )
       sub_180110FD0(&v21, &v20);
-    Process = sub_1801118C0(v17, v5, a3);
-    if ( Process >= 0 )
+    v13 = sub_1801118C0(BaseAddress, v5, CaptureFlags);
+    if ( v13 >= 0 )
     {
       if ( v10 )
       {
         sub_180110FD0(&v19, &v18);
-        *((_QWORD *)v17 + 133) = v18 - v20;
-        *((_QWORD *)v17 + 134) = 1000000 * (v19 - v21) / v9;
+        *((_QWORD *)BaseAddress + 133) = v18 - v20;
+        *((_QWORD *)BaseAddress + 134) = 1000000 * (v19 - v21) / v9;
       }
       goto LABEL_24;
     }
 LABEL_11:
-    PssNtFreeSnapshot(v17);
-    *a1 = 0LL;
-    return (unsigned int)Process;
+    PssNtFreeSnapshot(BaseAddress);
+    *SnapshotHandle = 0LL;
+    return v13;
   }
 LABEL_24:
-  if ( (a3 & 1) == 0 )
-    goto LABEL_37;
+  if ( (CaptureFlags & 1) == 0 )
+    goto LABEL_43;
   if ( v10 )
     sub_180110FD0(&v21, &v20);
-  do
+  for ( i = ((int)CaptureFlags >> 31) & 0x1000; ; i = ((int)CaptureFlags >> 31) & 0x1000 )
   {
-    while ( 1 )
+    v15 = v8 & 0x8000000;
+    LODWORD(v22) = v8 & 0x10000000;
+    if ( (v8 & 0x10000000) != 0 )
     {
-      LODWORD(v22) = v8 & 0x10000000;
-      Process = ZwCreateProcessEx();
-      if ( Process >= 0 )
-        goto LABEL_33;
+      i |= 0x400u;
+    }
+    else if ( v15 )
+    {
+      i |= 1u;
+    }
+    v13 = ZwCreateProcessEx(&ProcessHandlea, 0x2000000u, 0LL, ProcessHandle, i, 0LL, 0LL, 0LL, 0);
+    if ( v13 < 0 )
+    {
       if ( (v8 & 0x4000000) == 0 )
         goto LABEL_11;
-      if ( !(_DWORD)v22 )
-        break;
-      v8 &= ~0x10000000u;
+      if ( (_DWORD)v22 )
+      {
+        v8 &= ~0x10000000u;
+        continue;
+      }
+      if ( !v15 )
+        goto LABEL_11;
+      v8 &= ~0x8000000u;
+      v13 = -1073741267;
     }
-    if ( (v8 & 0x8000000) == 0 )
-      goto LABEL_11;
-    v8 &= ~0x8000000u;
-    Process = -1073741267;
-LABEL_33:
-    ;
+    if ( v13 != -1073741267 )
+      break;
   }
-  while ( Process == -1073741267 );
-  *((_QWORD *)v17 + 110) = MEMORY[0x7FFE0014];
-  *((_QWORD *)v17 + 109) = v24[2];
+  *((_QWORD *)BaseAddress + 110) = MEMORY[0x7FFE0014];
+  *((_QWORD *)BaseAddress + 109) = ProcessHandlea;
   if ( v10 )
   {
     sub_180110FD0(&v19, &v18);
-    *((_QWORD *)v17 + 131) = v18 - v20;
-    *((_QWORD *)v17 + 132) = 1000000 * (v19 - v21) / v9;
+    *((_QWORD *)BaseAddress + 131) = v18 - v20;
+    *((_QWORD *)BaseAddress + 132) = 1000000 * (v19 - v21) / v9;
   }
-  v5 = a2;
-LABEL_37:
-  if ( (a3 & 4) != 0 )
+  v5 = ProcessHandle;
+LABEL_43:
+  if ( (CaptureFlags & 4) != 0 )
   {
     if ( v10 )
       sub_180110FD0(&v21, &v20);
-    v14 = sub_180111DA4(v17, v5, a3);
-    if ( v14 < 0 )
+    v16 = sub_180111DA4(BaseAddress, v5, CaptureFlags);
+    if ( v16 < 0 )
     {
-LABEL_41:
-      PssNtFreeSnapshot(v17);
-      *a1 = 0LL;
-      return (unsigned int)v14;
+LABEL_47:
+      PssNtFreeSnapshot(BaseAddress);
+      *SnapshotHandle = 0LL;
+      return v16;
     }
     if ( v10 )
     {
       sub_180110FD0(&v19, &v18);
-      *((_QWORD *)v17 + 137) = v18 - v20;
-      *((_QWORD *)v17 + 138) = 1000000 * (v19 - v21) / v9;
+      *((_QWORD *)BaseAddress + 137) = v18 - v20;
+      *((_QWORD *)BaseAddress + 138) = 1000000 * (v19 - v21) / v9;
     }
   }
-  if ( (a3 & 0x80u) == 0 )
+  if ( (CaptureFlags & 0x80u) == 0 )
   {
-LABEL_50:
+LABEL_56:
     if ( v10 )
     {
       sub_180110FD0(&v19, &v18);
-      *((_QWORD *)v17 + 129) = v18 - v23;
-      *((_QWORD *)v17 + 130) = 1000000 * (v19 - v24[0]) / v9;
+      *((_QWORD *)BaseAddress + 129) = v18 - v23;
+      *((_QWORD *)BaseAddress + 130) = 1000000 * (v19 - v24) / v9;
     }
   }
   else
   {
     if ( v10 )
       sub_180110FD0(&v21, &v20);
-    v14 = sub_180112808(v17, v5, a3, a4);
-    if ( v14 < 0 )
-      goto LABEL_41;
+    v16 = sub_180112808(BaseAddress, v5, CaptureFlags, ThreadContextFlags);
+    if ( v16 < 0 )
+      goto LABEL_47;
     if ( v10 )
     {
       sub_180110FD0(&v19, &v18);
-      *((_QWORD *)v17 + 139) = v18 - v20;
-      *((_QWORD *)v17 + 140) = 1000000 * (v19 - v21) / v9;
-      goto LABEL_50;
+      *((_QWORD *)BaseAddress + 139) = v18 - v20;
+      *((_QWORD *)BaseAddress + 140) = 1000000 * (v19 - v21) / v9;
+      goto LABEL_56;
     }
   }
-  if ( (a3 & 0x2000) != 0 )
-    sub_180111230(v17, v5);
-  return 0LL;
+  if ( (CaptureFlags & 0x2000) != 0 )
+    sub_180111230(BaseAddress, v5);
+  return 0;
 }

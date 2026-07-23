@@ -1,50 +1,53 @@
 /*
- * XREFs of RtlSidHashInitialize @ 0x140355DE0
+ * XREFs of RtlSidHashInitialize @ 0x140360B30
  * Callers:
- *     SepCreateTokenEx @ 0x140201AA0 (SepCreateTokenEx.c)
- *     SepTokenFromAccessInformation @ 0x1402665D4 (SepTokenFromAccessInformation.c)
- *     CmpBuildAdminInformation @ 0x1405D9BE0 (CmpBuildAdminInformation.c)
- *     SepFilterToken @ 0x1405DB0FC (SepFilterToken.c)
- *     SepCopyTokenAccessInformation @ 0x1405DBD68 (SepCopyTokenAccessInformation.c)
- *     SepCreateClaimAttributes @ 0x1405DC724 (SepCreateClaimAttributes.c)
- *     SepSetTokenCapabilities @ 0x1405DD33C (SepSetTokenCapabilities.c)
- *     SepDuplicateToken @ 0x140703E00 (SepDuplicateToken.c)
- *     SepDuplicateClaimAttributes @ 0x140925070 (SepDuplicateClaimAttributes.c)
+ *     SepTokenFromAccessInformation @ 0x140254574 (SepTokenFromAccessInformation.c)
+ *     SepCreateTokenEx @ 0x1402A6428 (SepCreateTokenEx.c)
+ *     CmpBuildAdminInformation @ 0x1405EA960 (CmpBuildAdminInformation.c)
+ *     SepFilterToken @ 0x1406CA87C (SepFilterToken.c)
+ *     SepCopyTokenAccessInformation @ 0x1406CB4E8 (SepCopyTokenAccessInformation.c)
+ *     SepCreateClaimAttributes @ 0x1406CBEA4 (SepCreateClaimAttributes.c)
+ *     SepSetTokenCapabilities @ 0x1406CCA98 (SepSetTokenCapabilities.c)
+ *     SepDuplicateToken @ 0x14071B1E0 (SepDuplicateToken.c)
+ *     SepDuplicateClaimAttributes @ 0x1409251D0 (SepDuplicateClaimAttributes.c)
  * Callees:
- *     memset @ 0x140414200 (memset.c)
+ *     memset @ 0x140414300 (memset.c)
  */
 
-__int64 __fastcall RtlSidHashInitialize(__int64 *a1, unsigned int a2, _QWORD *a3)
+NTSTATUS __cdecl RtlSidHashInitialize(
+        PSID_AND_ATTRIBUTES SidAttr,
+        ULONG SidCount,
+        PSID_AND_ATTRIBUTES_HASH SidAttrHash)
 {
   __int64 v6; // rax
   __int64 v7; // r9
-  __int64 v8; // rdx
+  _BYTE *Sid; // rdx
   unsigned int v9; // r8d
   __int64 v10; // rcx
 
-  if ( !a3 )
-    return 3221225485LL;
-  memset(a3, 0, 0x110uLL);
-  if ( a1 && a2 )
+  if ( !SidAttrHash )
+    return -1073741811;
+  memset(SidAttrHash, 0, sizeof(_SID_AND_ATTRIBUTES_HASH));
+  if ( SidAttr && SidCount )
   {
-    a3[1] = a1;
-    *(_DWORD *)a3 = a2;
-    if ( a2 > 0x40 )
-      a2 = 64;
+    SidAttrHash->SidAttr = SidAttr;
+    SidAttrHash->SidCount = SidCount;
+    if ( SidCount > 0x40 )
+      SidCount = 64;
     v6 = 1LL;
-    v7 = a2;
+    v7 = SidCount;
     do
     {
-      v8 = *a1;
-      a1 += 2;
-      v9 = *(unsigned __int8 *)(v8 + 4LL * *(unsigned __int8 *)(v8 + 1) + 4);
-      v10 = *(_BYTE *)(v8 + 4LL * *(unsigned __int8 *)(v8 + 1) + 4) & 0xF;
-      a3[v10 + 2] |= v6;
-      a3[((unsigned __int64)v9 >> 4) + 18] |= v6;
+      Sid = SidAttr->Sid;
+      ++SidAttr;
+      v9 = (unsigned __int8)Sid[4 * (unsigned __int8)Sid[1] + 4];
+      v10 = Sid[4 * (unsigned __int8)Sid[1] + 4] & 0xF;
+      SidAttrHash->Hash[v10] |= v6;
+      SidAttrHash->Hash[((unsigned __int64)v9 >> 4) + 16] |= v6;
       v6 = __ROL8__(v6, 1);
       --v7;
     }
     while ( v7 );
   }
-  return 0LL;
+  return 0;
 }

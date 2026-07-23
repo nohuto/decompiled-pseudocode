@@ -8,7 +8,7 @@
  *     RtlpRegisterStackTrace @ 0x1801021EC (RtlpRegisterStackTrace.c)
  */
 
-__int64 __fastcall RtlpStackTraceDatabaseLogPrefix(__int64 a1, __int64 a2, unsigned int a3, signed __int64 *a4)
+__int64 __fastcall RtlpStackTraceDatabaseLogPrefix(__int64 a1, __int64 a2, unsigned int a3, _QWORD *a4)
 {
   USHORT v5; // ax
   ULONG BackTraceHash[4]; // [rsp+20h] [rbp-128h] BYREF

@@ -1,9 +1,9 @@
 /*
- * XREFs of Pdcv2EventWrite_ACTIVATION_CLIENT_RENEW_ACTIVATION @ 0x140607DA0
+ * XREFs of Pdcv2EventWrite_ACTIVATION_CLIENT_RENEW_ACTIVATION @ 0x1406053A8
  * Callers:
- *     Pdcv2ActivationClientRenewActivation @ 0x14078DB14 (Pdcv2ActivationClientRenewActivation.c)
+ *     Pdcv2ActivationClientRenewActivation @ 0x14078DA44 (Pdcv2ActivationClientRenewActivation.c)
  * Callees:
- *     McTemplateU0qqzr1qzr3qqqxqqqpqzr13q_EtwWriteTransfer @ 0x1406078BC (McTemplateU0qqzr1qzr3qqqxqqqpqzr13q_EtwWriteTransfer.c)
+ *     McTemplateU0qqzr1qzr3qqqxqqqpqzr13q_EtwWriteTransfer @ 0x140604EC4 (McTemplateU0qqzr1qzr3qqqxqqqpqzr13q_EtwWriteTransfer.c)
  */
 
 NTSTATUS __fastcall Pdcv2EventWrite_ACTIVATION_CLIENT_RENEW_ACTIVATION(
@@ -60,7 +60,7 @@ NTSTATUS __fastcall Pdcv2EventWrite_ACTIVATION_CLIENT_RENEW_ACTIVATION(
           * (unsigned __int128)(unsigned __int64)(MEMORY[0xFFFFF78000000320] << 8)) >> 64)
         - *(_QWORD *)(a1 + 40);
   }
-  if ( (byte_140F04ABA & 0x40) != 0 )
+  if ( (byte_140F04D62 & 0x40) != 0 )
   {
     v17 = -1LL;
     do

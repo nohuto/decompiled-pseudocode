@@ -39,7 +39,7 @@ NTSTATUS __stdcall FsRtlValidateReparsePointBuffer(ULONG BufferLength, PREPARSE_
       return -1073741192;
 LABEL_15:
     if ( ReparseTag >= 0
-      && !*(_DWORD *)&ReparseBuffer->SymbolicLinkReparseBuffer.SubstituteNameOffset
+      && !ReparseBuffer->AppExecLinkReparseBuffer.StringCount
       && !ReparseBuffer->SymbolicLinkReparseBuffer.PrintNameOffset
       && !ReparseBuffer->SymbolicLinkReparseBuffer.PrintNameLength
       && !*((_BYTE *)&ReparseBuffer->GenericReparseBuffer + 8)

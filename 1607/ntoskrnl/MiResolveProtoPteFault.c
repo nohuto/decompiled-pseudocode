@@ -1,35 +1,35 @@
 /*
- * XREFs of MiResolveProtoPteFault @ 0x140041360
+ * XREFs of MiResolveProtoPteFault @ 0x140040EE0
  * Callers:
- *     MiDispatchFault @ 0x1400403C0 (MiDispatchFault.c)
+ *     MiDispatchFault @ 0x14003FF40 (MiDispatchFault.c)
  * Callees:
- *     MiLocateAddress @ 0x14001F090 (MiLocateAddress.c)
- *     MiPfnReferenceCountIsZero @ 0x14002448C (MiPfnReferenceCountIsZero.c)
- *     KeYieldProcessorEx @ 0x14002ECB0 (KeYieldProcessorEx.c)
- *     MiResolveTransitionFault @ 0x140035F90 (MiResolveTransitionFault.c)
- *     MiCompleteProtoPteFault @ 0x140039AF0 (MiCompleteProtoPteFault.c)
- *     MiResolveDemandZeroFault @ 0x14003AA90 (MiResolveDemandZeroFault.c)
- *     MiUnlockProtoPoolPage @ 0x14004C4E0 (MiUnlockProtoPoolPage.c)
- *     MiRemoveLockedPageCharge @ 0x14004D1E0 (MiRemoveLockedPageCharge.c)
- *     MiReturnCommit @ 0x14004E500 (MiReturnCommit.c)
- *     MiIsPfnFileOnly @ 0x14004E980 (MiIsPfnFileOnly.c)
- *     MiAllowGuardFault @ 0x1400A53D8 (MiAllowGuardFault.c)
- *     MiGetPfnPriority @ 0x1400E67A4 (MiGetPfnPriority.c)
- *     MiResolveMappedFileFault @ 0x1400E68A0 (MiResolveMappedFileFault.c)
- *     MiResolvePageFileFault @ 0x140121360 (MiResolvePageFileFault.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
- *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F2550 (MI_GET_PAGE_FRAME_FROM_PTE.c)
- *     MI_GET_PAGE_FRAME_FROM_TRANSITION_PTE @ 0x1401F2570 (MI_GET_PAGE_FRAME_FROM_TRANSITION_PTE.c)
- *     MI_GET_PROTECTION_FROM_SOFT_PROTOTYPE_PTE @ 0x1401F25B8 (MI_GET_PROTECTION_FROM_SOFT_PROTOTYPE_PTE.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiGetPrototypePteDirect @ 0x1401F26B0 (MiGetPrototypePteDirect.c)
- *     MiInvalidPteConforms @ 0x1401F26C4 (MiInvalidPteConforms.c)
- *     MiIsPrototypePteVadLookup @ 0x1401F2708 (MiIsPrototypePteVadLookup.c)
- *     MiMakeDemandZeroPte @ 0x1401F2734 (MiMakeDemandZeroPte.c)
- *     MiReverseSwizzleInvalidPte @ 0x1401F2934 (MiReverseSwizzleInvalidPte.c)
- *     MiMakeImagePageOk @ 0x1401F6F38 (MiMakeImagePageOk.c)
+ *     MiLocateAddress @ 0x14001EC10 (MiLocateAddress.c)
+ *     MiPfnReferenceCountIsZero @ 0x14002400C (MiPfnReferenceCountIsZero.c)
+ *     KeYieldProcessorEx @ 0x14002E830 (KeYieldProcessorEx.c)
+ *     MiResolveTransitionFault @ 0x140035B10 (MiResolveTransitionFault.c)
+ *     MiCompleteProtoPteFault @ 0x140039670 (MiCompleteProtoPteFault.c)
+ *     MiResolveDemandZeroFault @ 0x14003A610 (MiResolveDemandZeroFault.c)
+ *     MiUnlockProtoPoolPage @ 0x14004C060 (MiUnlockProtoPoolPage.c)
+ *     MiRemoveLockedPageCharge @ 0x14004CD60 (MiRemoveLockedPageCharge.c)
+ *     MiReturnCommit @ 0x14004E080 (MiReturnCommit.c)
+ *     MiIsPfnFileOnly @ 0x14004E500 (MiIsPfnFileOnly.c)
+ *     MiAllowGuardFault @ 0x1400A3950 (MiAllowGuardFault.c)
+ *     MiGetPfnPriority @ 0x1400E4644 (MiGetPfnPriority.c)
+ *     MiResolveMappedFileFault @ 0x1400E4740 (MiResolveMappedFileFault.c)
+ *     MiResolvePageFileFault @ 0x1401218D0 (MiResolvePageFileFault.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
+ *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F237C (MI_GET_PAGE_FRAME_FROM_PTE.c)
+ *     MI_GET_PAGE_FRAME_FROM_TRANSITION_PTE @ 0x1401F239C (MI_GET_PAGE_FRAME_FROM_TRANSITION_PTE.c)
+ *     MI_GET_PROTECTION_FROM_SOFT_PROTOTYPE_PTE @ 0x1401F23E4 (MI_GET_PROTECTION_FROM_SOFT_PROTOTYPE_PTE.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
+ *     MiGetPrototypePteDirect @ 0x1401F24DC (MiGetPrototypePteDirect.c)
+ *     MiInvalidPteConforms @ 0x1401F24F0 (MiInvalidPteConforms.c)
+ *     MiIsPrototypePteVadLookup @ 0x1401F2534 (MiIsPrototypePteVadLookup.c)
+ *     MiMakeDemandZeroPte @ 0x1401F2560 (MiMakeDemandZeroPte.c)
+ *     MiReverseSwizzleInvalidPte @ 0x1401F2760 (MiReverseSwizzleInvalidPte.c)
+ *     MiMakeImagePageOk @ 0x1401F6D64 (MiMakeImagePageOk.c)
  */
 
 __int64 MiResolveProtoPteFault(__int64 a1, unsigned __int64 a2, __int64 *a3, __int64 a4, char a5, ...)
@@ -155,7 +155,7 @@ __int64 MiResolveProtoPteFault(__int64 a1, unsigned __int64 a2, __int64 *a3, __i
     {
       v14 = MI_GET_PAGE_FRAME_FROM_TRANSITION_PTE(&v88);
 LABEL_10:
-      if ( v14 <= qword_140326A90 && (!MmPhysicalMemoryBlock || (*(_QWORD *)(v15 + 48 * v14) & v16) != 0) )
+      if ( v14 <= qword_140326AD0 && (!MmPhysicalMemoryBlock || (*(_QWORD *)(v15 + 48 * v14) & v16) != 0) )
       {
         v17 = 48 * v14 - 0x58000000000LL;
         LODWORD(v93) = 0;
@@ -535,7 +535,7 @@ LABEL_65:
     if ( v43 == 1023 )
       v44 = MiSystemPartition;
     else
-      v44 = *(int **)(qword_140326FF8 + 8LL * v43);
+      v44 = *(int **)(qword_140327038 + 8LL * v43);
     if ( v42 == 1 )
       MiReturnCommit(v44, 1LL);
     if ( v44 != MiSystemPartition )
@@ -578,7 +578,7 @@ LABEL_90:
         v39 = (int)CachedResidentAvailable - 192 + 1LL;
       }
     }
-    _InterlockedExchangeAdd64(&qword_140324EC0, v39);
+    _InterlockedExchangeAdd64(&qword_140324F00, v39);
     goto LABEL_95;
   }
 LABEL_97:

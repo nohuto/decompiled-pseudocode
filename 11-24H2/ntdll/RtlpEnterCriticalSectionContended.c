@@ -1,24 +1,24 @@
 /*
- * XREFs of RtlpEnterCriticalSectionContended @ 0x180013580
+ * XREFs of RtlpEnterCriticalSectionContended @ 0x18003FF80
  * Callers:
- *     RtlEnterCriticalSection @ 0x1800148F0 (RtlEnterCriticalSection.c)
+ *     RtlEnterCriticalSection @ 0x1800412F0 (RtlEnterCriticalSection.c)
  * Callees:
- *     RtlpAcquireSRWLockExclusiveContended @ 0x18004A470 (RtlpAcquireSRWLockExclusiveContended.c)
- *     RtlReleaseSRWLockExclusive @ 0x1800567B0 (RtlReleaseSRWLockExclusive.c)
- *     RtlpWaitOnCriticalSection @ 0x18009A7A0 (RtlpWaitOnCriticalSection.c)
+ *     RtlpWaitOnCriticalSection @ 0x18002F5F0 (RtlpWaitOnCriticalSection.c)
+ *     RtlpAcquireSRWLockExclusiveContended @ 0x180060050 (RtlpAcquireSRWLockExclusiveContended.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18006C390 (RtlReleaseSRWLockExclusive.c)
  */
 
-__int64 __fastcall RtlpEnterCriticalSectionContended(volatile signed __int32 *a1)
+__int64 __fastcall RtlpEnterCriticalSectionContended(_RTL_CRITICAL_SECTION *a1)
 {
-  __int64 v1; // rdx
-  volatile signed __int32 *v2; // r14
+  unsigned __int64 SpinCount; // rdx
+  _RTL_CRITICAL_SECTION *v2; // r14
   unsigned __int64 v3; // rdi
   char v4; // bp
   char v5; // si
-  signed __int32 v6; // eax
-  volatile signed __int32 *v7; // r9
+  signed __int32 LockCount; // eax
+  volatile signed __int32 *p_LockCount; // r9
   int v8; // r11d
-  __int64 v9; // r8
+  unsigned int v9; // r8d
   unsigned int v10; // ebx
   unsigned __int64 v11; // r12
   unsigned __int64 v12; // r15
@@ -27,35 +27,37 @@ __int64 __fastcall RtlpEnterCriticalSectionContended(volatile signed __int32 *a1
   int v15; // edx
   unsigned int v16; // r14d
   signed __int32 v17; // eax
-  __int64 v18; // rdx
+  int v18; // edx
   char v19; // bl
-  unsigned __int32 v20; // ecx
+  signed __int32 v20; // ecx
   unsigned int v21; // ecx
   unsigned __int64 v22; // rcx
   unsigned __int64 v23; // rax
-  unsigned int v24; // ebx
+  int v24; // ebx
   unsigned __int64 v25; // rax
   unsigned int v26; // eax
   unsigned int j; // ecx
-  __int64 v28; // rbx
+  unsigned __int64 v28; // rbx
   struct _TEB *v29; // rax
   char *SchedulerSharedDataSlot; // r8
   __int64 i; // rdx
   char *v32; // rcx
-  __int64 v34; // rax
+  __int64 p_ProcessLocksList; // rax
   __int64 *v35; // rcx
   bool v37; // [rsp+88h] [rbp+10h]
 
-  v1 = *((_QWORD *)a1 + 4);
+  SpinCount = a1->SpinCount;
   v2 = a1;
-  if ( (v1 & 0x4000000) != 0 && *(_QWORD *)a1 != -1LL && !*(_QWORD *)(*(_QWORD *)a1 + 16LL) )
+  if ( (SpinCount & 0x4000000) != 0
+    && a1->DebugInfo != (_RTL_CRITICAL_SECTION_DEBUG *)-1LL
+    && !a1->DebugInfo->ProcessLocksList.Flink )
   {
-    if ( (v1 & 0x2000000) != 0 && (v1 & 0xFFFFFF) == 0 )
-      v1 |= 0x7D0uLL;
-    v28 = (unsigned int)v1 & 0xFF000000;
+    if ( (SpinCount & 0x2000000) != 0 && (SpinCount & 0xFFFFFF) == 0 )
+      SpinCount |= 0x7D0uLL;
+    v28 = (unsigned int)SpinCount & 0xFF000000;
     v29 = NtCurrentTeb();
     if ( NtCurrentPeb()->NumberOfProcessors != 1 )
-      v28 = v1;
+      v28 = SpinCount;
     SchedulerSharedDataSlot = (char *)v29->SchedulerSharedDataSlot;
     if ( SchedulerSharedDataSlot )
     {
@@ -72,17 +74,17 @@ __int64 __fastcall RtlpEnterCriticalSectionContended(volatile signed __int32 *a1
     }
     if ( _interlockedbittestandset64((volatile signed __int32 *)&RtlCriticalSectionLock, 0LL) )
       RtlpAcquireSRWLockExclusiveContended(&RtlCriticalSectionLock);
-    v34 = *(_QWORD *)v2 + 16LL;
-    if ( !*(_QWORD *)v34 )
+    p_ProcessLocksList = (__int64)&v2->DebugInfo->ProcessLocksList;
+    if ( !*(_QWORD *)p_ProcessLocksList )
     {
-      *((_QWORD *)v2 + 4) = v28;
-      v35 = (__int64 *)off_1801CC8D8;
-      if ( *off_1801CC8D8 != (_UNKNOWN *)&RtlCriticalSectionList )
+      v2->SpinCount = v28;
+      v35 = (__int64 *)off_1801CB8D8;
+      if ( *off_1801CB8D8 != (_UNKNOWN *)&RtlCriticalSectionList )
         __fastfail(3u);
-      *(_QWORD *)v34 = &RtlCriticalSectionList;
-      *(_QWORD *)(v34 + 8) = v35;
-      *v35 = v34;
-      off_1801CC8D8 = (_UNKNOWN **)v34;
+      *(_QWORD *)p_ProcessLocksList = &RtlCriticalSectionList;
+      *(_QWORD *)(p_ProcessLocksList + 8) = v35;
+      *v35 = p_ProcessLocksList;
+      off_1801CB8D8 = (_UNKNOWN **)p_ProcessLocksList;
     }
     RtlReleaseSRWLockExclusive(&RtlCriticalSectionLock);
   }
@@ -90,40 +92,40 @@ __int64 __fastcall RtlpEnterCriticalSectionContended(volatile signed __int32 *a1
   v37 = 0;
   if ( MEMORY[0x7FFE036A] > 1u )
   {
-    v3 = *((_QWORD *)v2 + 4) & 0xFFFFFFLL;
-    v37 = (*((_QWORD *)v2 + 4) & 0x2000000LL) != 0;
+    v3 = v2->SpinCount & 0xFFFFFF;
+    v37 = (v2->SpinCount & 0x2000000) != 0;
   }
   v4 = 0;
   v5 = 0;
 LABEL_5:
-  v6 = *((_DWORD *)v2 + 2);
-  v7 = v2 + 2;
+  LockCount = v2->LockCount;
+  p_LockCount = &v2->LockCount;
   v8 = 3;
   if ( !v4 )
     v8 = 1;
-  if ( (v6 & 1) != 0 )
+  if ( (LockCount & 1) != 0 )
   {
-    v9 = 0LL;
-    if ( v6 == _InterlockedCompareExchange(v7, v6 ^ v8, v6) )
+    v9 = 0;
+    if ( LockCount == _InterlockedCompareExchange(p_LockCount, LockCount ^ v8, LockCount) )
       goto LABEL_16;
   }
   else
   {
-    v9 = 0LL;
+    v9 = 0;
   }
   v10 = 10 * v3;
   if ( MEMORY[0x7FFE036A] <= 1u )
     goto LABEL_23;
-  if ( v2 == (volatile signed __int32 *)-8LL || !MEMORY[0x7FFE0297] )
+  if ( v2 == (_RTL_CRITICAL_SECTION *)-8LL || !MEMORY[0x7FFE0297] )
   {
     v15 = 0;
     v16 = v10 / MEMORY[0x7FFE02D6];
     while ( 1 )
     {
-      if ( (*v7 & 1) != 0 )
+      if ( (*p_LockCount & 1) != 0 )
       {
-        v17 = *v7;
-        if ( v17 == _InterlockedCompareExchange(v7, v17 ^ v8, v17) )
+        v17 = *p_LockCount;
+        if ( v17 == _InterlockedCompareExchange(p_LockCount, v17 ^ v8, v17) )
           goto LABEL_15;
       }
       if ( v15 == v16 )
@@ -137,10 +139,10 @@ LABEL_5:
   while ( 1 )
   {
     __asm { monitorx rax, rcx, rdx }
-    if ( (*v7 & 1) != 0 )
+    if ( (*p_LockCount & 1) != 0 )
     {
-      v13 = *v7;
-      if ( v13 == _InterlockedCompareExchange(v7, v13 ^ v8, v13) )
+      v13 = *p_LockCount;
+      if ( v13 == _InterlockedCompareExchange(p_LockCount, v13 ^ v8, v13) )
         break;
     }
     v22 = v11;
@@ -151,8 +153,8 @@ LABEL_5:
       while ( 1 )
       {
 LABEL_23:
-        _m_prefetchw((const void *)v7);
-        v18 = *(unsigned int *)v7;
+        _m_prefetchw((const void *)p_LockCount);
+        v18 = *p_LockCount;
         if ( v4 )
         {
           if ( (v18 & 2) != 0 )
@@ -180,17 +182,17 @@ LABEL_23:
           if ( (((_BYTE)v18 - 4) & 2) == 0 )
             v20 = v18 - 6;
         }
-        if ( v20 == (_DWORD)v18 )
+        if ( v20 == v18 )
         {
 LABEL_29:
           v2 = a1;
-          RtlpWaitOnCriticalSection(a1, v18, v9);
+          RtlpWaitOnCriticalSection(a1, v18);
           v5 = 1;
           if ( v37 && v3 > 0x64 )
             --v3;
           goto LABEL_5;
         }
-        if ( (_DWORD)v18 == _InterlockedCompareExchange(v7, v20, v18) )
+        if ( v18 == _InterlockedCompareExchange(p_LockCount, v20, v18) )
         {
           if ( v19 )
             goto LABEL_15;
@@ -199,9 +201,9 @@ LABEL_29:
           goto LABEL_29;
         }
         v24 = v9;
-        if ( (_DWORD)v9 )
+        if ( v9 )
         {
-          if ( (unsigned int)v9 < 0x1FFF )
+          if ( v9 < 0x1FFF )
             v24 = 2 * v9;
         }
         else
@@ -216,7 +218,7 @@ LABEL_29:
         for ( j = 0; j < v26; ++j )
           _mm_pause();
 LABEL_52:
-        v7 = a1 + 2;
+        p_LockCount = &a1->LockCount;
       }
     }
     __asm { mwaitx  rax, rcx, rbx }
@@ -228,13 +230,13 @@ LABEL_16:
   {
     if ( !v5 && v3 < 0x7D0 )
       LODWORD(v3) = v3 + 1;
-    v21 = (*((_DWORD *)v2 + 8) ^ (v3 ^ *((_DWORD *)v2 + 8)) & 0xFFFFFF) & 0xFF000000;
+    v21 = (LODWORD(v2->SpinCount) ^ (v3 ^ LODWORD(v2->SpinCount)) & 0xFFFFFF) & 0xFF000000;
     if ( NtCurrentPeb()->NumberOfProcessors != 1 )
-      v21 = *((_DWORD *)v2 + 8) ^ (v3 ^ *((_DWORD *)v2 + 8)) & 0xFFFFFF;
-    *((_QWORD *)v2 + 4) = v21;
+      v21 = LODWORD(v2->SpinCount) ^ (v3 ^ LODWORD(v2->SpinCount)) & 0xFFFFFF;
+    v2->SpinCount = v21;
   }
   result = 0LL;
-  *((_QWORD *)v2 + 2) = NtCurrentTeb()->ClientId.UniqueThread;
-  *((_DWORD *)v2 + 3) = 1;
+  v2->OwningThread = NtCurrentTeb()->ClientId.UniqueThread;
+  v2->RecursionCount = 1;
   return result;
 }

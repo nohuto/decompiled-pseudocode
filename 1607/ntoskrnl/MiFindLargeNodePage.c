@@ -1,16 +1,16 @@
 /*
- * XREFs of MiFindLargeNodePage @ 0x1401E3320
+ * XREFs of MiFindLargeNodePage @ 0x1401E314C
  * Callers:
- *     MiFindContiguousPages @ 0x1401044A0 (MiFindContiguousPages.c)
- *     MiAllocatePartitionPhysicalPages @ 0x1401F0FD8 (MiAllocatePartitionPhysicalPages.c)
+ *     MiFindContiguousPages @ 0x140102220 (MiFindContiguousPages.c)
+ *     MiAllocatePartitionPhysicalPages @ 0x1401F0E04 (MiAllocatePartitionPhysicalPages.c)
  * Callees:
- *     MiSetPfnOwnedAndActive @ 0x14001B640 (MiSetPfnOwnedAndActive.c)
- *     MiFreeZeroPageSizeIndex @ 0x14001BB40 (MiFreeZeroPageSizeIndex.c)
- *     MiUpdateLargePageBitMap @ 0x140022BE0 (MiUpdateLargePageBitMap.c)
- *     MiLockPageInline @ 0x140022E70 (MiLockPageInline.c)
- *     MiReplenishFromNodeLargePages @ 0x14008A4D0 (MiReplenishFromNodeLargePages.c)
- *     MiSetOriginalPtePfnFromFreeList @ 0x1401F2FB8 (MiSetOriginalPtePfnFromFreeList.c)
- *     MiGetLargePageDemoteAsNeeded @ 0x1401FD350 (MiGetLargePageDemoteAsNeeded.c)
+ *     MiSetPfnOwnedAndActive @ 0x14001B1C0 (MiSetPfnOwnedAndActive.c)
+ *     MiFreeZeroPageSizeIndex @ 0x14001B6C0 (MiFreeZeroPageSizeIndex.c)
+ *     MiUpdateLargePageBitMap @ 0x140022760 (MiUpdateLargePageBitMap.c)
+ *     MiLockPageInline @ 0x1400229F0 (MiLockPageInline.c)
+ *     MiReplenishFromNodeLargePages @ 0x140089BD0 (MiReplenishFromNodeLargePages.c)
+ *     MiSetOriginalPtePfnFromFreeList @ 0x1401F2DE4 (MiSetOriginalPtePfnFromFreeList.c)
+ *     MiGetLargePageDemoteAsNeeded @ 0x1401FD17C (MiGetLargePageDemoteAsNeeded.c)
  */
 
 unsigned __int64 __fastcall MiFindLargeNodePage(__int64 a1, unsigned int a2, unsigned int *a3, int a4, char a5)
@@ -41,7 +41,7 @@ unsigned __int64 __fastcall MiFindLargeNodePage(__int64 a1, unsigned int a2, uns
   if ( a2 >= (unsigned __int16)KeNumberNodes )
   {
     v5 = *(_DWORD *)(KiProcessorBlock[KeGetCurrentThread()->IdealProcessor] + 23524);
-    v10 = (unsigned __int16 *)((char *)qword_1403269A8 + 2 * v5 * (unsigned __int16)KeNumberNodes);
+    v10 = (unsigned __int16 *)((char *)qword_1403269E8 + 2 * v5 * (unsigned __int16)KeNumberNodes);
     v25 = (__int64)&v10[(unsigned __int16)KeNumberNodes];
   }
   else

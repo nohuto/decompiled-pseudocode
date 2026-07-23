@@ -8,8 +8,8 @@
  *     LdrpCallInitRoutine @ 0x1800199BC (LdrpCallInitRoutine.c)
  *     LdrpCallTlsInitializers @ 0x180019A78 (LdrpCallTlsInitializers.c)
  *     LdrpRecordUnloadEvent @ 0x18006BB54 (LdrpRecordUnloadEvent.c)
- *     LdrpLogDbgPrint @ 0x1800CDC88 (LdrpLogDbgPrint.c)
- *     RtlReportException @ 0x1800DCAA0 (RtlReportException.c)
+ *     LdrpLogDbgPrint @ 0x1800CDC48 (LdrpLogDbgPrint.c)
+ *     RtlReportException @ 0x1800DCA60 (RtlReportException.c)
  */
 
 void __fastcall LdrpProcessDetachNode(_QWORD **a1)

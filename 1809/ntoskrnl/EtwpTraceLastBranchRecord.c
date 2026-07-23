@@ -1,18 +1,18 @@
 /*
- * XREFs of EtwpTraceLastBranchRecord @ 0x140317E58
+ * XREFs of EtwpTraceLastBranchRecord @ 0x140318048
  * Callers:
- *     EtwpLogKernelEvent @ 0x1400C71D0 (EtwpLogKernelEvent.c)
- *     EtwpLogSystemEventUnsafe @ 0x14017C6F8 (EtwpLogSystemEventUnsafe.c)
- *     EtwpLogContextSwapEvent @ 0x14017CA10 (EtwpLogContextSwapEvent.c)
+ *     EtwpLogKernelEvent @ 0x1400C7110 (EtwpLogKernelEvent.c)
+ *     EtwpLogSystemEventUnsafe @ 0x14017C82C (EtwpLogSystemEventUnsafe.c)
+ *     EtwpLogContextSwapEvent @ 0x14017CB50 (EtwpLogContextSwapEvent.c)
  * Callees:
- *     EtwpLogKernelEvent @ 0x1400C71D0 (EtwpLogKernelEvent.c)
- *     KeQueryCurrentStackInformation @ 0x1400CAB50 (KeQueryCurrentStackInformation.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KeGetCurrentStackPointer @ 0x1401BC2A0 (KeGetCurrentStackPointer.c)
- *     RtlpInterlockedPopEntrySList @ 0x1401C53D0 (RtlpInterlockedPopEntrySList.c)
- *     RtlpInterlockedPushEntrySList @ 0x1401C5410 (RtlpInterlockedPushEntrySList.c)
- *     _alloca_probe @ 0x1401C5DC0 (_alloca_probe.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     EtwpLogKernelEvent @ 0x1400C7110 (EtwpLogKernelEvent.c)
+ *     KeQueryCurrentStackInformation @ 0x1400CAC30 (KeQueryCurrentStackInformation.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KeGetCurrentStackPointer @ 0x1401BC400 (KeGetCurrentStackPointer.c)
+ *     RtlpInterlockedPopEntrySList @ 0x1401C5530 (RtlpInterlockedPopEntrySList.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1401C5570 (RtlpInterlockedPushEntrySList.c)
+ *     _alloca_probe @ 0x1401C5F20 (_alloca_probe.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
  */
 
 void __fastcall EtwpTraceLastBranchRecord(__int64 a1, __int64 *a2, _KTHREAD *a3, int a4)
@@ -70,7 +70,7 @@ void __fastcall EtwpTraceLastBranchRecord(__int64 a1, __int64 *a2, _KTHREAD *a3,
           v10 = 1;
           v13 = &v21;
         }
-        if ( ((int (__fastcall *)(_QWORD, unsigned int *, int *))off_1403FE6C8[0])((unsigned int)v11, v13, &v22) >= 0
+        if ( ((int (__fastcall *)(_QWORD, unsigned int *, int *))off_1403FF6C8[0])((unsigned int)v11, v13, &v22) >= 0
           && v22 )
         {
           v16 = *(_QWORD *)(a1 + 1080);

@@ -1,23 +1,23 @@
 /*
- * XREFs of CmpDereferenceHive @ 0x1408443C0
+ * XREFs of CmpDereferenceHive @ 0x140840680
  * Callers:
- *     CmpDoFlushAll @ 0x14024528C (CmpDoFlushAll.c)
- *     CmpPerformCompleteKcbCacheLookup @ 0x140844830 (CmpPerformCompleteKcbCacheLookup.c)
- *     CmpDereferenceKeyControlBlock @ 0x140845CD0 (CmpDereferenceKeyControlBlock.c)
- *     CmpUnlockHashEntryByIndex @ 0x140870A20 (CmpUnlockHashEntryByIndex.c)
- *     CmpDereferenceKeyControlBlockWithLock @ 0x14087DE20 (CmpDereferenceKeyControlBlockWithLock.c)
- *     CmpUnblockTwoHiveWrites @ 0x14090A9D0 (CmpUnblockTwoHiveWrites.c)
- *     CmpBlockTwoHiveWrites @ 0x14090AFE4 (CmpBlockTwoHiveWrites.c)
- *     CmpVEExecuteRealStoreParseLogic @ 0x14090B474 (CmpVEExecuteRealStoreParseLogic.c)
- *     CmLoadAppKey @ 0x14092DB9C (CmLoadAppKey.c)
- *     CmpDestroyHive @ 0x14097C14C (CmpDestroyHive.c)
- *     CmpLateUnloadHiveWorker @ 0x14097C4F0 (CmpLateUnloadHiveWorker.c)
- *     CmpUnlockDeletedHashEntryByKcb @ 0x14097CA14 (CmpUnlockDeletedHashEntryByKcb.c)
- *     CmpBlockHiveWrites @ 0x140A2BEB0 (CmpBlockHiveWrites.c)
- *     CmpUnblockHiveWrites @ 0x140A496EC (CmpUnblockHiveWrites.c)
- *     CmpQuitNextHive @ 0x140A5EBA0 (CmpQuitNextHive.c)
+ *     CmpDoFlushAll @ 0x14020DA6C (CmpDoFlushAll.c)
+ *     CmpPerformCompleteKcbCacheLookup @ 0x140840AF0 (CmpPerformCompleteKcbCacheLookup.c)
+ *     CmpDereferenceKeyControlBlock @ 0x140841F90 (CmpDereferenceKeyControlBlock.c)
+ *     CmpUnlockHashEntryByIndex @ 0x140874D50 (CmpUnlockHashEntryByIndex.c)
+ *     CmpDereferenceKeyControlBlockWithLock @ 0x140881CD0 (CmpDereferenceKeyControlBlockWithLock.c)
+ *     CmpUnblockTwoHiveWrites @ 0x1408E20F0 (CmpUnblockTwoHiveWrites.c)
+ *     CmpBlockTwoHiveWrites @ 0x1408E2704 (CmpBlockTwoHiveWrites.c)
+ *     CmpVEExecuteRealStoreParseLogic @ 0x1408E2B94 (CmpVEExecuteRealStoreParseLogic.c)
+ *     CmLoadAppKey @ 0x14092FCDC (CmLoadAppKey.c)
+ *     CmpDestroyHive @ 0x14096495C (CmpDestroyHive.c)
+ *     CmpLateUnloadHiveWorker @ 0x140964D00 (CmpLateUnloadHiveWorker.c)
+ *     CmpUnlockDeletedHashEntryByKcb @ 0x140965224 (CmpUnlockDeletedHashEntryByKcb.c)
+ *     CmpBlockHiveWrites @ 0x140A1FD70 (CmpBlockHiveWrites.c)
+ *     CmpUnblockHiveWrites @ 0x140A4040C (CmpUnblockHiveWrites.c)
+ *     CmpQuitNextHive @ 0x140A56D90 (CmpQuitNextHive.c)
  * Callees:
- *     CmpDeleteHive @ 0x14084475C (CmpDeleteHive.c)
+ *     CmpDeleteHive @ 0x140840A1C (CmpDeleteHive.c)
  */
 
 __int64 __fastcall CmpDereferenceHive(volatile signed __int32 *a1)

@@ -1,13 +1,13 @@
 /*
- * XREFs of MiComputeFaultCluster @ 0x14028DF24
+ * XREFs of MiComputeFaultCluster @ 0x14020B0C4
  * Callers:
- *     MiResolvePageFileFault @ 0x14028AF68 (MiResolvePageFileFault.c)
- *     MiResolveMappedFileFault @ 0x140319480 (MiResolveMappedFileFault.c)
+ *     MiResolvePageFileFault @ 0x140208108 (MiResolvePageFileFault.c)
+ *     MiResolveMappedFileFault @ 0x1403241D0 (MiResolveMappedFileFault.c)
  * Callees:
- *     MiGetPagingFileOffset @ 0x1402712A0 (MiGetPagingFileOffset.c)
- *     MiIsPteInStore @ 0x14028BE40 (MiIsPteInStore.c)
- *     MiAdvanceFaultList @ 0x14028E148 (MiAdvanceFaultList.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x14032DEC0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiIsPteInStore @ 0x140208FE0 (MiIsPteInStore.c)
+ *     MiAdvanceFaultList @ 0x14020B2E8 (MiAdvanceFaultList.c)
+ *     MiGetPagingFileOffset @ 0x14025F240 (MiGetPagingFileOffset.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140338C10 (MI_READ_PTE_LOCK_FREE.c)
  */
 
 __int64 __fastcall MiComputeFaultCluster(__int64 a1, _QWORD *a2, __int64 a3, int a4)
@@ -27,28 +27,30 @@ __int64 __fastcall MiComputeFaultCluster(__int64 a1, _QWORD *a2, __int64 a3, int
   __int64 v18; // rax
   unsigned __int64 v19; // r11
   __int64 v20; // rax
-  unsigned __int16 v21; // bx
-  __int64 v22; // rax
-  __int64 v23; // [rsp+20h] [rbp-58h] BYREF
-  unsigned __int64 v24; // [rsp+28h] [rbp-50h]
-  __int64 v25; // [rsp+30h] [rbp-48h]
-  __int64 v26; // [rsp+38h] [rbp-40h]
-  int v28; // [rsp+88h] [rbp+10h]
+  __int64 v21; // rdx
+  __int64 v22; // r8
+  unsigned __int16 v23; // bx
+  __int64 v24; // rax
+  __int64 v25; // [rsp+20h] [rbp-58h] BYREF
+  unsigned __int64 v26; // [rsp+28h] [rbp-50h]
+  __int64 v27; // [rsp+30h] [rbp-48h]
+  __int64 v28; // [rsp+38h] [rbp-40h]
+  int v30; // [rsp+88h] [rbp+10h]
 
   v4 = a2[4];
   v5 = a2[1];
   v6 = 2LL * a2[3];
   v7 = a2[2];
-  v25 = a2[3];
+  v27 = a2[3];
   v10 = *(_QWORD *)(v5 + 8 * v6) + (v4 << 12);
-  v26 = v4;
-  v24 = v7;
+  v28 = v4;
+  v26 = v7;
   MiAdvanceFaultList(a2);
   v12 = a2[3];
   v13 = 1LL;
   if ( v12 < v7 )
   {
-    v28 = 0;
+    v30 = 0;
     v15 = ((v10 >> 9) & 0x7FFFFFFFF8LL) - 0x97FFFFFFFF8LL;
     v16 = 256LL;
     if ( a4 && *(unsigned int *)(a1 + 1164) < 0x100uLL )
@@ -64,7 +66,7 @@ __int64 __fastcall MiComputeFaultCluster(__int64 a1, _QWORD *a2, __int64 a3, int
       if ( v18 | ((unsigned __int64)*(unsigned __int8 *)(a3 + 34) << 31) )
       {
         a3 = 0LL;
-        v28 = 1;
+        v30 = 1;
       }
     }
     if ( v16 > 1 )
@@ -73,23 +75,23 @@ __int64 __fastcall MiComputeFaultCluster(__int64 a1, _QWORD *a2, __int64 a3, int
       {
         if ( !a3 )
         {
-          if ( (v15 & 0xFFF) == 0 || (v20 = MI_READ_PTE_LOCK_FREE(v15), v23 = v20, v21 = v20, (v20 & 1) != 0) )
+          if ( (v15 & 0xFFF) == 0 || (v20 = MI_READ_PTE_LOCK_FREE(v15), v25 = v20, v23 = v20, (v20 & 1) != 0) )
           {
 LABEL_14:
-            v11 = v25;
-            v4 = v26;
+            v11 = v27;
+            v4 = v28;
             break;
           }
-          v22 = v20 & 0x400;
-          if ( v28 )
+          v24 = v20 & 0x400;
+          if ( v30 )
           {
-            if ( !v22 )
+            if ( !v24 )
               goto LABEL_14;
           }
-          else if ( v22
-                 || (v21 & 0x800) != 0
-                 || !(unsigned int)MiGetPagingFileOffset((__int64)&v23)
-                 || a4 != (unsigned int)MiIsPteInStore(a1, v21) )
+          else if ( v24
+                 || (v23 & 0x800) != 0
+                 || !(unsigned int)MiGetPagingFileOffset(&v25, v21, v22)
+                 || a4 != (unsigned int)MiIsPteInStore(a1, v23) )
           {
             goto LABEL_14;
           }
@@ -100,7 +102,7 @@ LABEL_14:
           ++v13;
           MiAdvanceFaultList(a2);
           v12 = a2[3];
-          if ( v12 != v24 )
+          if ( v12 != v26 )
           {
             v10 = v19;
             if ( v13 < v16 )

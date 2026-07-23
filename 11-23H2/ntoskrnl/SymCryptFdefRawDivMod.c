@@ -1,18 +1,18 @@
 /*
- * XREFs of SymCryptFdefRawDivMod @ 0x1404038A8
+ * XREFs of SymCryptFdefRawDivMod @ 0x140403A88
  * Callers:
- *     SymCryptFdefIntDivMod @ 0x140403228 (SymCryptFdefIntDivMod.c)
- *     SymCryptFdefIntToModElement @ 0x140403E64 (SymCryptFdefIntToModElement.c)
- *     SymCryptFdefModElementSetValueGeneric @ 0x140404324 (SymCryptFdefModElementSetValueGeneric.c)
- *     SymCryptFdefModMulGeneric @ 0x1404049E0 (SymCryptFdefModMulGeneric.c)
- *     SymCryptFdefModSquareGeneric @ 0x140404F90 (SymCryptFdefModSquareGeneric.c)
- *     SymCryptFdefModulusInitMontgomeryInternal @ 0x140405370 (SymCryptFdefModulusInitMontgomeryInternal.c)
+ *     SymCryptFdefIntDivMod @ 0x140403408 (SymCryptFdefIntDivMod.c)
+ *     SymCryptFdefIntToModElement @ 0x140404044 (SymCryptFdefIntToModElement.c)
+ *     SymCryptFdefModElementSetValueGeneric @ 0x140404504 (SymCryptFdefModElementSetValueGeneric.c)
+ *     SymCryptFdefModMulGeneric @ 0x140404BC0 (SymCryptFdefModMulGeneric.c)
+ *     SymCryptFdefModSquareGeneric @ 0x140405170 (SymCryptFdefModSquareGeneric.c)
+ *     SymCryptFdefModulusInitMontgomeryInternal @ 0x140405550 (SymCryptFdefModulusInitMontgomeryInternal.c)
  * Callees:
- *     xHalTimerWatchdogStop @ 0x14036E3C0 (xHalTimerWatchdogStop.c)
- *     SymCryptWipe @ 0x1403F6508 (SymCryptWipe.c)
- *     SymCryptFdefRawMaskedAddSubdigit @ 0x140403B5C (SymCryptFdefRawMaskedAddSubdigit.c)
- *     SymCryptFdefRawMultSubUint32 @ 0x140403C0C (SymCryptFdefRawMultSubUint32.c)
- *     memmove @ 0x140435700 (memmove.c)
+ *     xHalTimerWatchdogStop @ 0x14036E560 (xHalTimerWatchdogStop.c)
+ *     SymCryptWipe @ 0x1403F66E8 (SymCryptWipe.c)
+ *     SymCryptFdefRawMaskedAddSubdigit @ 0x140403D3C (SymCryptFdefRawMaskedAddSubdigit.c)
+ *     SymCryptFdefRawMultSubUint32 @ 0x140403DEC (SymCryptFdefRawMultSubUint32.c)
+ *     memmove @ 0x140435B00 (memmove.c)
  */
 
 void __fastcall SymCryptFdefRawDivMod(void *Src, int a2, _DWORD *a3, __int64 a4, void *a5, _DWORD *a6)

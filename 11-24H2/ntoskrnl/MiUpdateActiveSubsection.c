@@ -1,14 +1,14 @@
 /*
- * XREFs of MiUpdateActiveSubsection @ 0x140678F84
+ * XREFs of MiUpdateActiveSubsection @ 0x14067A164
  * Callers:
- *     MmExtendSection @ 0x140946018 (MmExtendSection.c)
+ *     MmExtendSection @ 0x14098A134 (MmExtendSection.c)
  * Callees:
- *     MiReferenceSubsection @ 0x14020F750 (MiReferenceSubsection.c)
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     MiDecrementSubsections @ 0x1403719B0 (MiDecrementSubsections.c)
- *     MiReturnCrossPartitionSectionCharges @ 0x1404B8B54 (MiReturnCrossPartitionSectionCharges.c)
- *     MiAllocateFileExtents @ 0x140AA5B84 (MiAllocateFileExtents.c)
+ *     MiDecrementSubsections @ 0x140259D70 (MiDecrementSubsections.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     MiReferenceSubsection @ 0x140338AB0 (MiReferenceSubsection.c)
+ *     MiReturnCrossPartitionSectionCharges @ 0x1404B34A4 (MiReturnCrossPartitionSectionCharges.c)
+ *     MiAllocateFileExtents @ 0x140AA0BF4 (MiAllocateFileExtents.c)
  */
 
 __int64 __fastcall MiUpdateActiveSubsection(_QWORD *BugCheckParameter2)
@@ -34,7 +34,7 @@ __int64 __fastcall MiUpdateActiveSubsection(_QWORD *BugCheckParameter2)
   {
     if ( !*(_QWORD *)(v3 + 8) || (*(_DWORD *)(v3 + 52) & 0x40000000) == 0 )
       goto LABEL_9;
-    if ( (int)MiReferenceSubsection((__int64 *)v3, 0) < 2 )
+    if ( (int)MiReferenceSubsection(v3, 0) < 2 )
     {
       MiReleaseSpinLockExclusive(v6, v7);
       return 0LL;
@@ -60,7 +60,7 @@ LABEL_9:
   if ( v5 )
   {
     LOBYTE(v2) = *(_QWORD *)(v1 + 64) != 0LL;
-    MiReturnCrossPartitionSectionCharges(*((_QWORD *)qword_140E2FF88 + (*(_WORD *)(v1 + 60) & 0x3FF)), v2, v5);
+    MiReturnCrossPartitionSectionCharges(*((_QWORD *)qword_140E300C8 + (*(_WORD *)(v1 + 60) & 0x3FF)), v2, v5);
   }
   return (unsigned int)FileExtents;
 }

@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlpHpVsChunkSize @ 0x1800190EC
+ * XREFs of RtlpHpVsChunkSize @ 0x1800041CC
  * Callers:
- *     RtlpHpExtrasGet @ 0x1800192E0 (RtlpHpExtrasGet.c)
- *     RtlpHpTagFreeHeap @ 0x1800195A0 (RtlpHpTagFreeHeap.c)
- *     RtlpHpSizeHeap @ 0x18001A0F0 (RtlpHpSizeHeap.c)
- *     RtlSizeHeap @ 0x18001A7D0 (RtlSizeHeap.c)
- *     RtlpHpTagReAllocateHeap @ 0x1800B13D0 (RtlpHpTagReAllocateHeap.c)
- *     RtlpHpReallocComputeSizes @ 0x1800B1670 (RtlpHpReallocComputeSizes.c)
- *     RtlpHpVsSubsegmentWalk @ 0x1801108C8 (RtlpHpVsSubsegmentWalk.c)
- *     RtlpHpSegReportPageRange @ 0x18011D3B4 (RtlpHpSegReportPageRange.c)
+ *     RtlpHpExtrasGet @ 0x1800043C0 (RtlpHpExtrasGet.c)
+ *     RtlpHpTagFreeHeap @ 0x180004680 (RtlpHpTagFreeHeap.c)
+ *     RtlpHpSizeHeap @ 0x1800051D0 (RtlpHpSizeHeap.c)
+ *     RtlSizeHeap @ 0x1800058B0 (RtlSizeHeap.c)
+ *     RtlpHpTagReAllocateHeap @ 0x180080F40 (RtlpHpTagReAllocateHeap.c)
+ *     RtlpHpReallocComputeSizes @ 0x1800811E0 (RtlpHpReallocComputeSizes.c)
+ *     RtlpHpVsSubsegmentWalk @ 0x180110458 (RtlpHpVsSubsegmentWalk.c)
+ *     RtlpHpSegReportPageRange @ 0x18011D164 (RtlpHpSegReportPageRange.c)
  * Callees:
  *     <none>
  */

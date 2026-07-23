@@ -1,14 +1,14 @@
 /*
- * XREFs of MiZeroPageMakeHot @ 0x14070EEF0
+ * XREFs of MiZeroPageMakeHot @ 0x140713BF0
  * Callers:
- *     MiInitializeBackgroundZeroingContext @ 0x14045D464 (MiInitializeBackgroundZeroingContext.c)
+ *     MiInitializeBackgroundZeroingContext @ 0x140456E64 (MiInitializeBackgroundZeroingContext.c)
  * Callees:
- *     MiGetPfnPageSizeIndexUnsynchronized @ 0x1402F0BC0 (MiGetPfnPageSizeIndexUnsynchronized.c)
- *     MiIssuePageHeatList @ 0x1402F383C (MiIssuePageHeatList.c)
- *     MiInitializePageHeatList @ 0x14046BE50 (MiInitializePageHeatList.c)
- *     MiSetZeroPageThreadPriority @ 0x14047D034 (MiSetZeroPageThreadPriority.c)
- *     MiAddPageToHeatList @ 0x140491430 (MiAddPageToHeatList.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     MiGetPfnPageSizeIndexUnsynchronized @ 0x1402D2C40 (MiGetPfnPageSizeIndexUnsynchronized.c)
+ *     MiIssuePageHeatList @ 0x1402D58BC (MiIssuePageHeatList.c)
+ *     MiInitializePageHeatList @ 0x1404655D0 (MiInitializePageHeatList.c)
+ *     MiSetZeroPageThreadPriority @ 0x1404769A4 (MiSetZeroPageThreadPriority.c)
+ *     MiAddPageToHeatList @ 0x14048AF80 (MiAddPageToHeatList.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void __fastcall MiZeroPageMakeHot(__int64 a1)

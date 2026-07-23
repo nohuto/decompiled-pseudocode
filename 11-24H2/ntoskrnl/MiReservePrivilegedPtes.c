@@ -1,9 +1,9 @@
 /*
- * XREFs of MiReservePrivilegedPtes @ 0x140A5E748
+ * XREFs of MiReservePrivilegedPtes @ 0x140A55814
  * Callers:
- *     MiGetSystemAddressForImage @ 0x140A5E524 (MiGetSystemAddressForImage.c)
+ *     MiGetSystemAddressForImage @ 0x140A5536C (MiGetSystemAddressForImage.c)
  * Callees:
- *     KeReservePrivilegedPages @ 0x1404B4380 (KeReservePrivilegedPages.c)
+ *     KeReservePrivilegedPages @ 0x1404AEBCC (KeReservePrivilegedPages.c)
  */
 
 __int64 MiReservePrivilegedPtes()

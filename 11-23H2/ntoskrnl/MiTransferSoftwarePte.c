@@ -1,23 +1,23 @@
 /*
- * XREFs of MiTransferSoftwarePte @ 0x1402857D0
+ * XREFs of MiTransferSoftwarePte @ 0x140285A60
  * Callers:
  *     MiOutSwapWorkingSetPte @ 0x140215660 (MiOutSwapWorkingSetPte.c)
- *     MiDecommitPages @ 0x14027F7D0 (MiDecommitPages.c)
- *     MiFindFreePageFileSpace @ 0x1402946D4 (MiFindFreePageFileSpace.c)
- *     MiDeletePteList @ 0x1402D2450 (MiDeletePteList.c)
- *     MiDetermineModifiedPageListHead @ 0x1402D91F0 (MiDetermineModifiedPageListHead.c)
- *     MiWriteComplete @ 0x1402F4320 (MiWriteComplete.c)
- *     MiRestoreTransitionPte @ 0x1403351BC (MiRestoreTransitionPte.c)
- *     MiRewriteTrimPteAsDemandZero @ 0x140346C04 (MiRewriteTrimPteAsDemandZero.c)
- *     MiZeroCfgSystemWideBitmapWorker @ 0x140348168 (MiZeroCfgSystemWideBitmapWorker.c)
- *     MiMoveModifiedPagesToCompressList @ 0x1403966B4 (MiMoveModifiedPagesToCompressList.c)
- *     MiStoreWriteModifiedPages @ 0x14046DAAA (MiStoreWriteModifiedPages.c)
- *     MiGatherPagefilePages @ 0x14063A144 (MiGatherPagefilePages.c)
- *     MiTrimUnusedPageFileRegionsWorker @ 0x14063B6F0 (MiTrimUnusedPageFileRegionsWorker.c)
- *     MiBuildForkPte @ 0x140662200 (MiBuildForkPte.c)
+ *     MiDecommitPages @ 0x14027FA60 (MiDecommitPages.c)
+ *     MiFindFreePageFileSpace @ 0x140294964 (MiFindFreePageFileSpace.c)
+ *     MiDeletePteList @ 0x1402D26E0 (MiDeletePteList.c)
+ *     MiDetermineModifiedPageListHead @ 0x1402D9480 (MiDetermineModifiedPageListHead.c)
+ *     MiWriteComplete @ 0x1402F45B0 (MiWriteComplete.c)
+ *     MiRestoreTransitionPte @ 0x14033544C (MiRestoreTransitionPte.c)
+ *     MiRewriteTrimPteAsDemandZero @ 0x140346E94 (MiRewriteTrimPteAsDemandZero.c)
+ *     MiZeroCfgSystemWideBitmapWorker @ 0x1403483F8 (MiZeroCfgSystemWideBitmapWorker.c)
+ *     MiMoveModifiedPagesToCompressList @ 0x140396894 (MiMoveModifiedPagesToCompressList.c)
+ *     MiStoreWriteModifiedPages @ 0x14046DEAA (MiStoreWriteModifiedPages.c)
+ *     MiGatherPagefilePages @ 0x14063A694 (MiGatherPagefilePages.c)
+ *     MiTrimUnusedPageFileRegionsWorker @ 0x14063BC40 (MiTrimUnusedPageFileRegionsWorker.c)
+ *     MiBuildForkPte @ 0x140662750 (MiBuildForkPte.c)
  * Callees:
- *     MiUpdatePageFileHighInPte @ 0x14028563C (MiUpdatePageFileHighInPte.c)
- *     MiSwizzleInvalidPte @ 0x1402857A0 (MiSwizzleInvalidPte.c)
+ *     MiUpdatePageFileHighInPte @ 0x1402858CC (MiUpdatePageFileHighInPte.c)
+ *     MiSwizzleInvalidPte @ 0x140285A30 (MiSwizzleInvalidPte.c)
  */
 
 unsigned __int64 __fastcall MiTransferSoftwarePte(__int64 a1, __int64 a2, unsigned int a3, char a4)

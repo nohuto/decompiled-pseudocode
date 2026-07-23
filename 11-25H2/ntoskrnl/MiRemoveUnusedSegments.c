@@ -41,7 +41,7 @@ void __fastcall MiRemoveUnusedSegments(__int64 a1, __int64 a2)
     if ( (_QWORD *)*v5 != v5 )
       MiDeleteEmptySubsections(a1);
     if ( *(_WORD *)(a1 + 2384) )
-      MiFreeClonePool((union _SLIST_HEADER *)a1);
+      MiFreeClonePool((_SLIST_HEADER *)a1);
     v10 = *(_QWORD *)(v4 + 8);
     if ( v10 )
     {

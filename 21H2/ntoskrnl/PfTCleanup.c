@@ -1,23 +1,23 @@
 /*
- * XREFs of PfTCleanup @ 0x1408E03BC
+ * XREFs of PfTCleanup @ 0x1408E051C
  * Callers:
- *     PfSetSuperfetchInformation @ 0x1406DBD54 (PfSetSuperfetchInformation.c)
- *     PfTStart @ 0x1407BFA40 (PfTStart.c)
- *     PfpParametersPropagate @ 0x1408E0AD4 (PfpParametersPropagate.c)
+ *     PfSetSuperfetchInformation @ 0x1406B3034 (PfSetSuperfetchInformation.c)
+ *     PfTStart @ 0x1407BFF5C (PfTStart.c)
+ *     PfpParametersPropagate @ 0x1408E0C34 (PfpParametersPropagate.c)
  * Callees:
- *     KeReleaseGuardedMutex @ 0x140265CD0 (KeReleaseGuardedMutex.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     PfFbBufferListInsertInFree @ 0x1402D4690 (PfFbBufferListInsertInFree.c)
- *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
- *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
- *     ExAcquireFastMutex @ 0x14034A080 (ExAcquireFastMutex.c)
- *     RtlpInterlockedFlushSList @ 0x1404079B0 (RtlpInterlockedFlushSList.c)
- *     PfFbBufferListShutdown @ 0x140564F2C (PfFbBufferListShutdown.c)
- *     PfTTraceListFree @ 0x1406CDB44 (PfTTraceListFree.c)
- *     PfTCleanupBuffers @ 0x1408E056C (PfTCleanupBuffers.c)
- *     PfTTraceListTrim @ 0x1408E05FC (PfTTraceListTrim.c)
- *     PfFbBufferListCleanup @ 0x1408E0DFC (PfFbBufferListCleanup.c)
- *     PfTAccessTracingCleanup @ 0x14099A9FC (PfTAccessTracingCleanup.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     KeReleaseGuardedMutex @ 0x140253C70 (KeReleaseGuardedMutex.c)
+ *     PfFbBufferListInsertInFree @ 0x140273370 (PfFbBufferListInsertInFree.c)
+ *     KeSetEvent @ 0x14034E2F0 (KeSetEvent.c)
+ *     KeWaitForSingleObject @ 0x1403504C0 (KeWaitForSingleObject.c)
+ *     ExAcquireFastMutex @ 0x140354DD0 (ExAcquireFastMutex.c)
+ *     RtlpInterlockedFlushSList @ 0x140407B90 (RtlpInterlockedFlushSList.c)
+ *     PfFbBufferListShutdown @ 0x14056516C (PfFbBufferListShutdown.c)
+ *     PfTTraceListFree @ 0x14067C7D4 (PfTTraceListFree.c)
+ *     PfTCleanupBuffers @ 0x1408E06CC (PfTCleanupBuffers.c)
+ *     PfTTraceListTrim @ 0x1408E075C (PfTTraceListTrim.c)
+ *     PfFbBufferListCleanup @ 0x1408E0F5C (PfFbBufferListCleanup.c)
+ *     PfTAccessTracingCleanup @ 0x14099B9FC (PfTAccessTracingCleanup.c)
  */
 
 void __fastcall PfTCleanup(__int64 a1, __int64 a2)
@@ -64,8 +64,8 @@ void __fastcall PfTCleanup(__int64 a1, __int64 a2)
     HalPutDmaAdapter(*(PADAPTER_OBJECT *)(a1 + 104));
     *(_QWORD *)(a1 + 104) = 0LL;
   }
-  PfTCleanupBuffers(&unk_140C4FBD8);
-  PfTCleanupBuffers(&unk_140C4FC00);
+  PfTCleanupBuffers(&unk_140C4FC18);
+  PfTCleanupBuffers(&unk_140C4FC40);
   PfFbBufferListCleanup(a1 + 224);
   PfFbBufferListCleanup(a1 + 352);
   v7 = *(struct _DMA_ADAPTER **)(a1 + 616);

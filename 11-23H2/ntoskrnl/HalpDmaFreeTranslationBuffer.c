@@ -3,7 +3,7 @@
  * Callers:
  *     HalpDmaInitializeMasterAdapter @ 0x140B6072C (HalpDmaInitializeMasterAdapter.c)
  * Callees:
- *     HalpMmAllocCtxFree @ 0x1403A56C0 (HalpMmAllocCtxFree.c)
+ *     HalpMmAllocCtxFree @ 0x1403A58A0 (HalpMmAllocCtxFree.c)
  */
 
 __int64 __fastcall HalpDmaFreeTranslationBuffer(__int64 a1)

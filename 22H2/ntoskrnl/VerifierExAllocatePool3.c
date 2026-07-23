@@ -40,6 +40,6 @@ PVOID __fastcall VerifierExAllocatePool3(__int64 a1, SIZE_T a2, ULONG a3, __int6
   else
     result = VeAllocatePoolWithTagPriority(v12, a2, a3, HighPoolPriority, retaddr);
   if ( !result && (a1 & 0x20) != 0 )
-    RtlRaiseStatus(0xC000009A);
+    RtlRaiseStatus(-1073741670);
   return result;
 }

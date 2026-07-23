@@ -1,18 +1,18 @@
 /*
- * XREFs of CcPostWorkQueueAsyncRead @ 0x1400E00D8
+ * XREFs of CcPostWorkQueueAsyncRead @ 0x1400E0158
  * Callers:
- *     CcAsyncCopyRead @ 0x1400DFEC0 (CcAsyncCopyRead.c)
- *     CcAsyncReadWorker @ 0x1401403B0 (CcAsyncReadWorker.c)
+ *     CcAsyncCopyRead @ 0x1400DFF40 (CcAsyncCopyRead.c)
+ *     CcAsyncReadWorker @ 0x1401404B0 (CcAsyncReadWorker.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     ExReleasePushLockEx @ 0x14004F160 (ExReleasePushLockEx.c)
- *     CcFreeWorkQueueEntry @ 0x14007EDF0 (CcFreeWorkQueueEntry.c)
- *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
- *     ExQueueWorkItemToPartition @ 0x1400D2EEC (ExQueueWorkItemToPartition.c)
- *     CcCompleteAsyncRead @ 0x1400DF334 (CcCompleteAsyncRead.c)
- *     CcShouldSpinAsyncReadWorkerThread @ 0x1400E02DC (CcShouldSpinAsyncReadWorkerThread.c)
- *     CcPerfLogWorkItemEnqueue @ 0x140187B58 (CcPerfLogWorkItemEnqueue.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
+ *     CcFreeWorkQueueEntry @ 0x14007EDE0 (CcFreeWorkQueueEntry.c)
+ *     KeSetEvent @ 0x1400C2A40 (KeSetEvent.c)
+ *     ExQueueWorkItemToPartition @ 0x1400D2F6C (ExQueueWorkItemToPartition.c)
+ *     CcCompleteAsyncRead @ 0x1400DF3B4 (CcCompleteAsyncRead.c)
+ *     CcShouldSpinAsyncReadWorkerThread @ 0x1400E035C (CcShouldSpinAsyncReadWorkerThread.c)
+ *     CcPerfLogWorkItemEnqueue @ 0x140187C98 (CcPerfLogWorkItemEnqueue.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
  */
 
 char __fastcall CcPostWorkQueueAsyncRead(PSLIST_ENTRY ListEntry, __int64 a2)
@@ -35,7 +35,7 @@ char __fastcall CcPostWorkQueueAsyncRead(PSLIST_ENTRY ListEntry, __int64 a2)
   v2 = 0;
   Next = ListEntry[8].Next;
   Next_high = HIDWORD(ListEntry[7].Next);
-  if ( (xmmword_140541350 & 0x20000) != 0 )
+  if ( (xmmword_140542350 & 0x20000) != 0 )
     CcPerfLogWorkItemEnqueue(a2, ListEntry, 0LL, 0LL);
   if ( *((_BYTE *)&ListEntry[7].Next + 8) != 5 )
   {

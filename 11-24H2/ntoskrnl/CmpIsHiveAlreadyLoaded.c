@@ -1,14 +1,14 @@
 /*
- * XREFs of CmpIsHiveAlreadyLoaded @ 0x1407DA6B4
+ * XREFs of CmpIsHiveAlreadyLoaded @ 0x1407DAC04
  * Callers:
- *     CmpResolveHiveLoadConflict @ 0x140A86DC4 (CmpResolveHiveLoadConflict.c)
+ *     CmpResolveHiveLoadConflict @ 0x140A8189C (CmpResolveHiveLoadConflict.c)
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x140245670 (ExReleaseRundownProtection_0.c)
- *     CmpUnfreezeHive @ 0x1407DA898 (CmpUnfreezeHive.c)
- *     CmpConstructName @ 0x1408763E0 (CmpConstructName.c)
- *     CmpGetNextActiveHive @ 0x14090B0EC (CmpGetNextActiveHive.c)
- *     CmpIsThisSameFile @ 0x14092E898 (CmpIsThisSameFile.c)
- *     CmpIsKeyDeletedForKeyBody @ 0x140BB9480 (CmpIsKeyDeletedForKeyBody.c)
+ *     ExReleaseRundownProtection_0 @ 0x14020DE50 (ExReleaseRundownProtection_0.c)
+ *     CmpUnfreezeHive @ 0x1407DADE8 (CmpUnfreezeHive.c)
+ *     CmpConstructName @ 0x14087A710 (CmpConstructName.c)
+ *     CmpGetNextActiveHive @ 0x1408E280C (CmpGetNextActiveHive.c)
+ *     CmpIsThisSameFile @ 0x1409309D8 (CmpIsThisSameFile.c)
+ *     CmpIsKeyDeletedForKeyBody @ 0x140BBB480 (CmpIsKeyDeletedForKeyBody.c)
  */
 
 bool __fastcall CmpIsHiveAlreadyLoaded(__int64 a1, __int64 a2, char a3, __int64 a4, __int64 *a5)

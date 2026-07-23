@@ -25,7 +25,7 @@
  *     ExFreePoolWithTag @ 0x140B62CD0 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall NtSetUuidSeed(__int64 a1)
+NTSTATUS __cdecl NtSetUuidSeed(PCHAR Seed)
 {
   void *Pool2; // rax
   void *v3; // r15
@@ -46,7 +46,7 @@ __int64 __fastcall NtSetUuidSeed(__int64 a1)
   __int64 v19; // r8
   __int64 v20; // r9
   NTSTATUS AccessStatus; // [rsp+54h] [rbp-B4h] BYREF
-  struct _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+58h] [rbp-B0h] BYREF
+  _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+58h] [rbp-B0h] BYREF
   int v25; // [rsp+64h] [rbp-A4h]
   __int16 v26; // [rsp+68h] [rbp-A0h]
   ULONG v27; // [rsp+6Ch] [rbp-9Ch]
@@ -130,8 +130,8 @@ __int64 __fastcall NtSetUuidSeed(__int64 a1)
           &GrantedAccess,
           &AccessStatus) )
     RtlRaiseStatus(-1073741790);
-  v25 = *(_DWORD *)a1;
-  v26 = *(_WORD *)(a1 + 4);
+  v25 = *(_DWORD *)Seed;
+  v26 = *((_WORD *)Seed + 2);
   AccessStatus = 0;
   if ( P )
     ExFreePoolWithTag(P, 0);
@@ -156,5 +156,5 @@ __int64 __fastcall NtSetUuidSeed(__int64 a1)
     KiLeaveCriticalRegionUnsafe((__int64)CurrentThread, v18, v19, v20);
   }
   SeReleaseSubjectContext(&SubjectSecurityContext);
-  return (unsigned int)AccessStatus;
+  return AccessStatus;
 }

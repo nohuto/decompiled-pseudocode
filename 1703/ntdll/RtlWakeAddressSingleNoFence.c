@@ -6,7 +6,7 @@
  *     <none>
  */
 
-signed __int64 __fastcall RtlWakeAddressSingleNoFence(unsigned __int64 a1)
+int __fastcall RtlWakeAddressSingleNoFence(unsigned __int64 a1)
 {
   return sub_18000A978(a1, 0);
 }

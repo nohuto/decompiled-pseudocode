@@ -1,17 +1,17 @@
 /*
- * XREFs of ExpAddFastOwnerEntryToThreadList2 @ 0x140415270
+ * XREFs of ExpAddFastOwnerEntryToThreadList2 @ 0x140415604
  * Callers:
- *     ExAcquireFastResourceWithFlags @ 0x140412180 (ExAcquireFastResourceWithFlags.c)
- *     ExAcquireFastResourceExclusive2 @ 0x1404129E0 (ExAcquireFastResourceExclusive2.c)
- *     ExAcquireFastResourceShared2 @ 0x140412CA0 (ExAcquireFastResourceShared2.c)
- *     ExAcquireFastResourceSharedStarveExclusive2 @ 0x140412FDC (ExAcquireFastResourceSharedStarveExclusive2.c)
- *     ExDisownFastResource2 @ 0x14041351C (ExDisownFastResource2.c)
- *     ExInitializeFastResourceAcquired2 @ 0x1404138B4 (ExInitializeFastResourceAcquired2.c)
- *     ExpAcquireFastResourceExclusiveSlow @ 0x14041478C (ExpAcquireFastResourceExclusiveSlow.c)
- *     ExpAcquireFastResourceSharedSlow @ 0x140414B10 (ExpAcquireFastResourceSharedSlow.c)
- *     ExpConvertFastResourceExclusiveToShared2 @ 0x14041532C (ExpConvertFastResourceExclusiveToShared2.c)
- *     ExpConvertSharedToExclusiveImmediately @ 0x1404154A8 (ExpConvertSharedToExclusiveImmediately.c)
- *     ExpMoveSharedFastResourceOwnershipWithFlags @ 0x140415A7C (ExpMoveSharedFastResourceOwnershipWithFlags.c)
+ *     ExAcquireFastResourceWithFlags @ 0x1404124C0 (ExAcquireFastResourceWithFlags.c)
+ *     ExAcquireFastResourceExclusive2 @ 0x140412D74 (ExAcquireFastResourceExclusive2.c)
+ *     ExAcquireFastResourceShared2 @ 0x140413034 (ExAcquireFastResourceShared2.c)
+ *     ExAcquireFastResourceSharedStarveExclusive2 @ 0x140413370 (ExAcquireFastResourceSharedStarveExclusive2.c)
+ *     ExDisownFastResource2 @ 0x1404138B0 (ExDisownFastResource2.c)
+ *     ExInitializeFastResourceAcquired2 @ 0x140413C48 (ExInitializeFastResourceAcquired2.c)
+ *     ExpAcquireFastResourceExclusiveSlow @ 0x140414B20 (ExpAcquireFastResourceExclusiveSlow.c)
+ *     ExpAcquireFastResourceSharedSlow @ 0x140414EA4 (ExpAcquireFastResourceSharedSlow.c)
+ *     ExpConvertFastResourceExclusiveToShared2 @ 0x1404156C0 (ExpConvertFastResourceExclusiveToShared2.c)
+ *     ExpConvertSharedToExclusiveImmediately @ 0x14041583C (ExpConvertSharedToExclusiveImmediately.c)
+ *     ExpMoveSharedFastResourceOwnershipWithFlags @ 0x140415E10 (ExpMoveSharedFastResourceOwnershipWithFlags.c)
  * Callees:
  *     <none>
  */

@@ -11,13 +11,13 @@
  *     _RtlReleaseSRWLockExclusive@4 @ 0x4B2C2480 (_RtlReleaseSRWLockExclusive@4.c)
  */
 
-signed __int32 __thiscall RtlpCSparseBitmapUnlock(_DWORD *this)
+void __thiscall RtlpCSparseBitmapUnlock(_DWORD *this)
 {
-  volatile signed __int32 *v2; // [esp-8h] [ebp-8h]
+  _RTL_SRWLOCK *v1; // [esp-8h] [ebp-8h]
 
-  v2 = (volatile signed __int32 *)(this[2] + 12);
+  v1 = (_RTL_SRWLOCK *)(this[2] + 12);
   if ( *this == 1 )
-    return RtlReleaseSRWLockExclusive(v2);
+    RtlReleaseSRWLockExclusive(v1);
   else
-    return RtlReleaseSRWLockShared(v2);
+    RtlReleaseSRWLockShared(v1);
 }

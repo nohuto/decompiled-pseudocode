@@ -10,18 +10,19 @@
  *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-__int64 __fastcall MiWakeWaitersForAweCacheAttributeChange(__int64 a1, __int64 a2)
+void __fastcall MiWakeWaitersForAweCacheAttributeChange(__int64 a1, __int64 a2)
 {
   _QWORD **v3; // r14
   _QWORD *v5; // rdi
   unsigned __int64 v6; // rbp
   _QWORD *v7; // rcx
   _QWORD *v8; // rax
-  __int64 result; // rax
+  unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  bool v12; // zf
-  _QWORD *v13; // rbx
+  int v12; // eax
+  bool v13; // zf
+  _QWORD *v14; // rbx
 
   v3 = (_QWORD **)(a1 + 56);
   v5 = 0LL;
@@ -49,23 +50,22 @@ __int64 __fastcall MiWakeWaitersForAweCacheAttributeChange(__int64 a1, __int64 a
     while ( v8 );
   }
   ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(a1 + 48));
-  result = 0x7FFFFFFFFFFFFFFFLL;
   _InterlockedAnd64((volatile signed __int64 *)(a2 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
-    result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
-      && (unsigned __int8)result <= 0xFu
+    CurrentIrql = KeGetCurrentIrql();
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
       && (unsigned __int8)v6 <= 0xFu
-      && (unsigned __int8)result >= 2u )
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v6 + 1));
-      v12 = ((unsigned int)result & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= result;
-      if ( v12 )
-        result = KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      v12 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v6 + 1));
+      v13 = (v12 & SchedulerAssist[5]) == 0;
+      SchedulerAssist[5] &= v12;
+      if ( v13 )
+        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
     }
   }
   __writecr8(v6);
@@ -73,11 +73,10 @@ __int64 __fastcall MiWakeWaitersForAweCacheAttributeChange(__int64 a1, __int64 a
   {
     do
     {
-      v13 = (_QWORD *)*v5;
-      result = KeSignalGate((__int64)(v5 + 2), 1u);
-      v5 = v13;
+      v14 = (_QWORD *)*v5;
+      KeSignalGate((__int64)(v5 + 2), 1u);
+      v5 = v14;
     }
-    while ( v13 );
+    while ( v14 );
   }
-  return result;
 }

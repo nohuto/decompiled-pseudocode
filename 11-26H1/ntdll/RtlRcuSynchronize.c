@@ -1,45 +1,44 @@
 /*
- * XREFs of RtlRcuSynchronize @ 0x180149A40
+ * XREFs of RtlRcuSynchronize @ 0x1801498F0
  * Callers:
  *     <none>
  * Callees:
- *     RtlpWaitOnAddress @ 0x18007B580 (RtlpWaitOnAddress.c)
- *     RtlAcquireReleaseSRWLockExclusive @ 0x18008E480 (RtlAcquireReleaseSRWLockExclusive.c)
- *     RtlpRcuCurrentThreadData @ 0x180149B1C (RtlpRcuCurrentThreadData.c)
+ *     RtlpWaitOnAddress @ 0x180069DA0 (RtlpWaitOnAddress.c)
+ *     RtlAcquireReleaseSRWLockExclusive @ 0x1800E6D70 (RtlAcquireReleaseSRWLockExclusive.c)
+ *     RtlpRcuCurrentThreadData @ 0x1801499CC (RtlpRcuCurrentThreadData.c)
  */
 
-signed __int64 __fastcall RtlRcuSynchronize(__int64 a1)
+signed __int64 __fastcall RtlRcuSynchronize(_RTL_SRWLOCK *a1)
 {
   _QWORD *v2; // rax
-  __int64 v3; // rdx
-  signed __int64 v4; // rcx
-  signed __int64 v5; // rsi
-  __int64 i; // rdi
-  __int64 v7; // rax
-  __int64 v9; // [rsp+48h] [rbp+10h] BYREF
+  signed __int64 Value; // rcx
+  signed __int64 v4; // rsi
+  unsigned __int64 i; // rdi
+  __int64 v6; // rax
+  __int64 v8; // [rsp+48h] [rbp+10h] BYREF
 
   v2 = (_QWORD *)RtlpRcuCurrentThreadData(a1, 0LL);
   if ( v2 && *v2 )
     __fastfail(0x38u);
-  _m_prefetchw((const void *)(a1 + 16));
+  _m_prefetchw(&a1[2]);
   do
   {
-    _m_prefetchw((const void *)(a1 + 16));
-    v4 = *(_QWORD *)(a1 + 16);
-    v5 = (v4 & 0xFFFFFFFFFFFFFFFEuLL) + 2;
+    _m_prefetchw(&a1[2]);
+    Value = a1[2].Value;
+    v4 = (Value & 0xFFFFFFFFFFFFFFFEuLL) + 2;
   }
-  while ( v4 != _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 16), v5, v4) );
-  RtlAcquireReleaseSRWLockExclusive((volatile signed __int64 *)(a1 + 120), v3);
-  for ( i = *(_QWORD *)(a1 + 32); i; i = *(_QWORD *)(i + 24) )
+  while ( Value != _InterlockedCompareExchange64((volatile signed __int64 *)&a1[2], v4, Value) );
+  RtlAcquireReleaseSRWLockExclusive(a1 + 15);
+  for ( i = a1[4].Value; i; i = *(_QWORD *)(i + 24) )
   {
     while ( 1 )
     {
-      v7 = *(_QWORD *)(i + 16);
-      v9 = v7;
-      if ( (v7 & 1) != 0 || v7 - v5 > -1 )
+      v6 = *(_QWORD *)(i + 16);
+      v8 = v6;
+      if ( (v6 & 1) != 0 || v6 - v4 > -1 )
         break;
-      RtlpWaitOnAddress(i + 16, &v9, 8LL, 0LL, RtlpWaitOnAddressSpinCycleCount, 0LL);
+      RtlpWaitOnAddress(i + 16, &v8, 8LL, 0LL, RtlpWaitOnAddressSpinCycleCount, 0LL);
     }
   }
-  return _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 16), v5 | 1, v5);
+  return _InterlockedCompareExchange64((volatile signed __int64 *)&a1[2], v4 | 1, v4);
 }

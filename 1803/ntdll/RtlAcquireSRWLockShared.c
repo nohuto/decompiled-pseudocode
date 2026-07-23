@@ -39,7 +39,7 @@
  *     RtlPrepareForProcessCloning @ 0x1800D1BD0 (RtlPrepareForProcessCloning.c)
  *     RtlQueryProcessLockInformation @ 0x1800D2B90 (RtlQueryProcessLockInformation.c)
  *     sub_1800D8AD0 @ 0x1800D8AD0 (sub_1800D8AD0.c)
- *     sub_1800D8F60 @ 0x1800D8F60 (sub_1800D8F60.c)
+ *     Callback @ 0x1800D8F60 (Callback.c)
  *     sub_1800DB794 @ 0x1800DB794 (sub_1800DB794.c)
  *     RtlBarrier_0 @ 0x1800E65E0 (RtlBarrier_0.c)
  *     sub_1800FCA5C @ 0x1800FCA5C (sub_1800FCA5C.c)
@@ -56,63 +56,64 @@
  *     ZwWaitForAlertByThreadId @ 0x18009E3B0 (ZwWaitForAlertByThreadId.c)
  */
 
-signed __int64 __fastcall RtlAcquireSRWLockShared(volatile signed __int64 *a1, char *a2, __int64 a3, __int64 a4)
+void __cdecl RtlAcquireSRWLockShared(PRTL_SRWLOCK SRWLock)
 {
+  char *v1; // rdx
+  __int64 v2; // r8
+  __int64 v3; // r9
   __int64 UniqueThread; // rcx
-  signed __int64 result; // rax
-  unsigned __int64 v7; // rbx
-  __int64 v8; // rsi
-  signed __int64 v9; // rcx
-  bool v10; // zf
-  signed __int64 v11; // rax
-  unsigned __int64 v13; // [rsp+20h] [rbp-38h] BYREF
-  unsigned __int64 *v14; // [rsp+28h] [rbp-30h]
-  __int64 v15; // [rsp+30h] [rbp-28h]
-  __int64 v16; // [rsp+38h] [rbp-20h]
-  int v17; // [rsp+40h] [rbp-18h]
-  signed __int32 v18[5]; // [rsp+44h] [rbp-14h] BYREF
-  int v19; // [rsp+60h] [rbp+8h] BYREF
+  unsigned __int64 Ptr; // rbx
+  __int64 v7; // rsi
+  signed __int64 v8; // rcx
+  bool v9; // zf
+  signed __int64 v10; // rax
+  unsigned __int64 v12; // [rsp+20h] [rbp-38h] BYREF
+  unsigned __int64 *v13; // [rsp+28h] [rbp-30h]
+  __int64 v14; // [rsp+30h] [rbp-28h]
+  __int64 v15; // [rsp+38h] [rbp-20h]
+  int v16; // [rsp+40h] [rbp-18h]
+  signed __int32 v17[5]; // [rsp+44h] [rbp-14h] BYREF
+  int v18; // [rsp+60h] [rbp+8h] BYREF
 
-  v19 = 0;
+  v18 = 0;
   UniqueThread = 17LL;
-  result = _InterlockedCompareExchange64(a1, 17LL, 0LL);
-  v7 = result;
-  if ( result )
+  Ptr = _InterlockedCompareExchange64((volatile signed __int64 *)SRWLock, 17LL, 0LL);
+  if ( Ptr )
   {
     while ( 1 )
     {
-      v8 = (v7 >> 1) & 1;
-      if ( (v7 & 1) != 0 && (v8 || (v7 & 0xFFFFFFFFFFFFFFF0uLL) == 0) )
+      v7 = (Ptr >> 1) & 1;
+      if ( (Ptr & 1) != 0 && (v7 || (Ptr & 0xFFFFFFFFFFFFFFF0uLL) == 0) )
       {
-        if ( (unsigned __int8)sub_1800286DC(UniqueThread, a2, a3, a4, v13) )
-          ZwTerminateProcess(-1LL, 3221225547LL);
+        if ( (unsigned __int8)sub_1800286DC(UniqueThread, v1, v2, v3, v12) )
+          ZwTerminateProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, -1073741749);
         UniqueThread = (__int64)NtCurrentTeb()->ClientId.UniqueThread;
-        v16 = UniqueThread;
+        v15 = UniqueThread;
         LOBYTE(UniqueThread) = 0;
-        v18[0] = 2;
-        v15 = 0LL;
-        if ( v8 )
+        v17[0] = 2;
+        v14 = 0LL;
+        if ( v7 )
         {
-          v14 = 0LL;
-          v17 = -1;
-          UniqueThread = (unsigned __int8)v7;
-          v13 = v7 & 0xFFFFFFFFFFFFFFF0uLL;
-          a2 = (char *)((unsigned __int64)&v13 | v7 & 8 | 7);
-          LOBYTE(UniqueThread) = (v7 & 4) == 0;
+          v13 = 0LL;
+          v16 = -1;
+          UniqueThread = (unsigned __int8)Ptr;
+          v12 = Ptr & 0xFFFFFFFFFFFFFFF0uLL;
+          v1 = (char *)((unsigned __int64)&v12 | Ptr & 8 | 7);
+          LOBYTE(UniqueThread) = (Ptr & 4) == 0;
         }
         else
         {
-          v17 = -2;
-          v14 = &v13;
-          a2 = (char *)&v13 + 3;
+          v16 = -2;
+          v13 = &v12;
+          v1 = (char *)&v12 + 3;
         }
-        v11 = _InterlockedCompareExchange64(a1, (signed __int64)a2, v7);
-        v10 = v7 == v11;
-        v7 = v11;
-        if ( !v10 )
+        v10 = _InterlockedCompareExchange64((volatile signed __int64 *)SRWLock, (signed __int64)v1, Ptr);
+        v9 = Ptr == v10;
+        Ptr = v10;
+        if ( !v9 )
           goto LABEL_23;
         if ( (_BYTE)UniqueThread )
-          sub_180070A54(a1);
+          sub_180070A54(SRWLock);
         if ( MEMORY[0x7FFE036A] > 1u )
         {
           UniqueThread = (unsigned int)dword_18015ADA0;
@@ -120,36 +121,34 @@ signed __int64 __fastcall RtlAcquireSRWLockShared(volatile signed __int64 *a1, c
           {
             do
             {
-              if ( (v18[0] & 2) == 0 )
+              if ( (v17[0] & 2) == 0 )
                 break;
               _mm_pause();
-              v10 = (_DWORD)UniqueThread == 1;
+              v9 = (_DWORD)UniqueThread == 1;
               UniqueThread = (unsigned int)(UniqueThread - 1);
             }
-            while ( !v10 );
+            while ( !v9 );
           }
         }
-        if ( _interlockedbittestandreset(v18, 1u) )
+        if ( _interlockedbittestandreset(v17, 1u) )
         {
           do
-            ZwWaitForAlertByThreadId(a1, 0LL);
-          while ( (v18[0] & 4) == 0 );
+            ZwWaitForAlertByThreadId(SRWLock, 0LL);
+          while ( (v17[0] & 4) == 0 );
         }
       }
       else
       {
-        v9 = (v7 | 1) + 16;
-        if ( v8 )
-          v9 = v7 | 1;
-        result = _InterlockedCompareExchange64(a1, v9, v7);
-        if ( v7 == result )
-          return result;
+        v8 = (Ptr | 1) + 16;
+        if ( v7 )
+          v8 = Ptr | 1;
+        if ( Ptr == _InterlockedCompareExchange64((volatile signed __int64 *)SRWLock, v8, Ptr) )
+          return;
 LABEL_23:
-        sub_1800289C0(&v19);
-        _m_prefetchw((const void *)a1);
-        v7 = *a1;
+        sub_1800289C0(&v18);
+        _m_prefetchw(SRWLock);
+        Ptr = (unsigned __int64)SRWLock->Ptr;
       }
     }
   }
-  return result;
 }

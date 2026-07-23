@@ -1,14 +1,14 @@
 /*
- * XREFs of MiAbandonPrivatePfn @ 0x14030B84C
+ * XREFs of MiAbandonPrivatePfn @ 0x1402ED8CC
  * Callers:
- *     MiCombineInitialFinish @ 0x14030A2B4 (MiCombineInitialFinish.c)
+ *     MiCombineInitialFinish @ 0x1402EC334 (MiCombineInitialFinish.c)
  * Callees:
- *     MiGetSubsectionFromPte @ 0x1402836C0 (MiGetSubsectionFromPte.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402DED10 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiCanPfnOriginalPteBeLost @ 0x140408680 (MiCanPfnOriginalPteBeLost.c)
- *     MI_IS_PTE_IN_WS_SWAP_SET @ 0x140472790 (MI_IS_PTE_IN_WS_SWAP_SET.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     MiGetSubsectionFromPte @ 0x140282C30 (MiGetSubsectionFromPte.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402C0B20 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiCanPfnOriginalPteBeLost @ 0x140401770 (MiCanPfnOriginalPteBeLost.c)
+ *     MI_IS_PTE_IN_WS_SWAP_SET @ 0x14046BF10 (MI_IS_PTE_IN_WS_SWAP_SET.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiAbandonPrivatePfn(ULONG_PTR BugCheckParameter2, int a2)
@@ -38,8 +38,8 @@ __int64 __fastcall MiAbandonPrivatePfn(ULONG_PTR BugCheckParameter2, int a2)
     v10 = *(_QWORD *)(BugCheckParameter2 + 16);
     if ( (v10 & 1) == 0 )
     {
-      if ( qword_140E2D740 && (v10 & 0x10) == 0 )
-        LOWORD(v10) = qword_140E2D748 & v10;
+      if ( qword_140E2D8C0 && (v10 & 0x10) == 0 )
+        LOWORD(v10) = qword_140E2D8C8 & v10;
       if ( (v10 & 0x400) == 0 && (v10 & 0x800) == 0 && (v10 & 8) == 0 )
       {
         v11 = *(_DWORD *)(BugCheckParameter2 + 32);
@@ -90,7 +90,7 @@ __int64 __fastcall MiAbandonPrivatePfn(ULONG_PTR BugCheckParameter2, int a2)
   {
     if ( a2
       || (unsigned int)MI_IS_PTE_IN_WS_SWAP_SET(
-                         *(_QWORD *)(stru_140E2EB88.ThreadLock
+                         *(_QWORD *)(stru_140E2ED08.ThreadLock
                                    + 8 * ((*(_QWORD *)(BugCheckParameter2 + 40) >> 43) & 0x3FFLL)),
                          BugCheckParameter2 + 16) )
     {
@@ -150,8 +150,8 @@ LABEL_48:
   }
   if ( (v18 & 0x80000) != 0
     && (unsigned int)MiCanPfnOriginalPteBeLost(BugCheckParameter2)
-    && (*(_BYTE *)v5 & 8) != 0
-    && (v18 & 0x100000) == 0 )
+    && (v18 & 0x100000) == 0
+    && (*(_BYTE *)v5 & 8) != 0 )
   {
     *(_QWORD *)(BugCheckParameter2 + 16) &= ~8uLL;
   }

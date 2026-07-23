@@ -1,11 +1,11 @@
 /*
- * XREFs of NtDuplicateObject @ 0x1405D09B0
+ * XREFs of NtDuplicateObject @ 0x1405D19B0
  * Callers:
  *     <none>
  * Callees:
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     ObDuplicateObject @ 0x1405D0B70 (ObDuplicateObject.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1405E8390 (ObpReferenceObjectByHandleWithTag.c)
+ *     ObDuplicateObject @ 0x1405D1B70 (ObDuplicateObject.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x1405E9390 (ObpReferenceObjectByHandleWithTag.c)
  */
 
 NTSTATUS __stdcall NtDuplicateObject(

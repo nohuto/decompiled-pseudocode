@@ -1,14 +1,14 @@
 /*
- * XREFs of ExSetTimer @ 0x1400F9D24
+ * XREFs of ExSetTimer @ 0x1400F7AB0
  * Callers:
- *     EnableFlushTimer @ 0x1400FAE98 (EnableFlushTimer.c)
- *     WdipTimeoutCheckRoutine @ 0x14051C244 (WdipTimeoutCheckRoutine.c)
+ *     EnableFlushTimer @ 0x1400F8C24 (EnableFlushTimer.c)
+ *     WdipTimeoutCheckRoutine @ 0x1404FF634 (WdipTimeoutCheckRoutine.c)
  *     sub_140778D9C @ 0x140778D9C (sub_140778D9C.c)
  * Callees:
- *     KeSetTimer2 @ 0x1400EB320 (KeSetTimer2.c)
- *     ExpTimerSetParametersAreValid @ 0x1400EE7AC (ExpTimerSetParametersAreValid.c)
- *     ExpCheckForFreedEnhancedTimer @ 0x1400F9DA0 (ExpCheckForFreedEnhancedTimer.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
+ *     KeSetTimer2 @ 0x1400E9190 (KeSetTimer2.c)
+ *     ExpTimerSetParametersAreValid @ 0x1400EC62C (ExpTimerSetParametersAreValid.c)
+ *     ExpCheckForFreedEnhancedTimer @ 0x1400F7B2C (ExpCheckForFreedEnhancedTimer.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
  */
 
 _BOOL8 __fastcall ExSetTimer(ULONG_PTR BugCheckParameter1, __int64 a2, __int64 a3, __int64 a4)

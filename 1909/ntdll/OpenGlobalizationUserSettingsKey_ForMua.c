@@ -15,30 +15,32 @@
  *     OpenGlobalizationUserSettingsKey_ForSingleUserModel @ 0x1801160B8 (OpenGlobalizationUserSettingsKey_ForSingleUserModel.c)
  */
 
-__int64 __fastcall OpenGlobalizationUserSettingsKey_ForMua(unsigned int a1, __int64 a2, __int64 a3, _DWORD *a4)
+__int64 __fastcall OpenGlobalizationUserSettingsKey_ForMua(
+        ACCESS_MASK DesiredAccess,
+        __int64 a2,
+        HANDLE *a3,
+        _DWORD *a4)
 {
   __int64 v5; // rdi
   int v8; // r14d
   __int64 *Heap; // rsi
-  int InformationToken; // ebx
+  NTSTATUS InformationToken; // ebx
   unsigned __int8 v11; // al
-  __int16 v12; // bx
-  __int64 v13; // rdi
-  HANDLE Handle; // [rsp+38h] [rbp-29h]
-  _QWORD v16[2]; // [rsp+40h] [rbp-21h] BYREF
-  UNICODE_STRING UnicodeString; // [rsp+50h] [rbp-11h] BYREF
-  int v18; // [rsp+60h] [rbp-1h]
-  __int64 v19; // [rsp+68h] [rbp+7h]
-  _QWORD *v20; // [rsp+70h] [rbp+Fh]
-  int v21; // [rsp+78h] [rbp+17h]
-  __int128 v22; // [rsp+80h] [rbp+1Fh]
+  unsigned __int16 v12; // bx
+  wchar_t *v13; // rdi
+  HANDLE KeyHandle; // [rsp+38h] [rbp-29h] BYREF
+  _UNICODE_STRING Destination; // [rsp+40h] [rbp-21h] BYREF
+  _UNICODE_STRING UnicodeString; // [rsp+50h] [rbp-11h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+60h] [rbp-1h] BYREF
+  __int64 ReturnLength; // [rsp+D0h] [rbp+6Fh] BYREF
 
+  ReturnLength = a2;
   v5 = 0LL;
   v8 = 0;
-  Heap = (__int64 *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, 84LL);
+  Heap = (__int64 *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, 0x54uLL);
   if ( Heap )
   {
-    InformationToken = ZwQueryInformationToken();
+    InformationToken = ZwQueryInformationToken((HANDLE)0xFFFFFFFFFFFFFFFALL, 1u, Heap, 0x54u, (PULONG)&ReturnLength);
     if ( InformationToken < 0 )
       goto LABEL_25;
     v5 = *Heap;
@@ -62,41 +64,41 @@ __int64 __fastcall OpenGlobalizationUserSettingsKey_ForMua(unsigned int a1, __in
       if ( InformationToken >= 0 )
       {
         v12 = UnicodeString.Length + 62;
-        v13 = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, (unsigned __int16)(UnicodeString.Length + 62));
+        v13 = (wchar_t *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, (unsigned __int16)(UnicodeString.Length + 62));
         if ( v13 )
         {
-          v16[1] = v13;
-          v16[0] = 0LL;
-          WORD1(v16[0]) = v12;
-          InformationToken = RtlAppendUnicodeToString((unsigned __int16 *)v16, L"\\Registry\\User\\");
+          Destination.Buffer = v13;
+          *(_QWORD *)&Destination.Length = 0LL;
+          Destination.MaximumLength = v12;
+          InformationToken = RtlAppendUnicodeToString(&Destination, L"\\Registry\\User\\");
           if ( InformationToken >= 0 )
           {
-            InformationToken = RtlAppendUnicodeStringToString((unsigned __int16 *)v16, (__int16 *)&UnicodeString);
+            InformationToken = RtlAppendUnicodeStringToString(&Destination, &UnicodeString);
             if ( InformationToken >= 0 )
             {
-              InformationToken = RtlAppendUnicodeToString((unsigned __int16 *)v16, L"\\International");
+              InformationToken = RtlAppendUnicodeToString(&Destination, L"\\International");
               if ( InformationToken >= 0 )
               {
-                v19 = 0LL;
-                v20 = v16;
-                v18 = 48;
-                v21 = 576;
-                v22 = 0LL;
-                if ( (int)ZwOpenKey() < 0 )
+                ObjectAttributes.RootDirectory = 0LL;
+                ObjectAttributes.ObjectName = &Destination;
+                ObjectAttributes.Length = 48;
+                ObjectAttributes.Attributes = 576;
+                *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+                if ( ZwOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes) < 0 )
                 {
                   v8 = 1;
                   *a4 = 1;
                 }
                 else
                 {
-                  ZwClose(Handle);
+                  ZwClose(KeyHandle);
                   *a4 = 2;
-                  InformationToken = ZwOpenKey();
+                  InformationToken = ZwOpenKey(a3, DesiredAccess, &ObjectAttributes);
                 }
               }
             }
           }
-          RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v13);
+          RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v13);
         }
         else
         {
@@ -106,10 +108,10 @@ __int64 __fastcall OpenGlobalizationUserSettingsKey_ForMua(unsigned int a1, __in
       }
     }
     if ( v8 )
-      InformationToken = OpenGlobalizationUserSettingsKey_ForSingleUserModel(a1, a3);
+      InformationToken = OpenGlobalizationUserSettingsKey_ForSingleUserModel(DesiredAccess, a3);
   }
 LABEL_25:
   if ( Heap )
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (__int64)Heap);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Heap);
   return (unsigned int)InformationToken;
 }

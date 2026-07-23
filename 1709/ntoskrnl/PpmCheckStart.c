@@ -26,7 +26,7 @@ BOOLEAN __fastcall PpmCheckStart(int a1)
   int v9; // edx
   int v10; // [rsp+40h] [rbp-68h] BYREF
   __int64 v11; // [rsp+48h] [rbp-60h] BYREF
-  _BYTE v12[8]; // [rsp+50h] [rbp-58h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+50h] [rbp-58h] BYREF
   struct _EVENT_DATA_DESCRIPTOR v13; // [rsp+58h] [rbp-50h] BYREF
   struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+68h] [rbp-40h] BYREF
   __int64 *v15; // [rsp+78h] [rbp-30h]
@@ -36,7 +36,7 @@ BOOLEAN __fastcall PpmCheckStart(int a1)
 
   v1 = a1;
   PpmCheckCurrentPipelineId = a1;
-  PpmCheckTime = RtlGetInterruptTimePrecise(v12);
+  PpmCheckTime = RtlGetInterruptTimePrecise(&PerformanceCounter).QuadPart;
   v11 = PpmCheckLastExecutionTime;
   v10 = v1;
   if ( PpmEtwRegistered )

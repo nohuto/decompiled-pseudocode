@@ -1,12 +1,12 @@
 /*
- * XREFs of KiIntersectFeaturesWithPolicy @ 0x140A90724
+ * XREFs of KiIntersectFeaturesWithPolicy @ 0x140A905A4
  * Callers:
- *     KiInitializeXSave @ 0x140A8FF30 (KiInitializeXSave.c)
+ *     KiInitializeXSave @ 0x140A8FDB0 (KiInitializeXSave.c)
  * Callees:
- *     KiGetProcessorInformation @ 0x14039C104 (KiGetProcessorInformation.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     KiIsXSaveFeatureAllowed @ 0x140A90870 (KiIsXSaveFeatureAllowed.c)
- *     KiLoadPolicyFromImage @ 0x140A90900 (KiLoadPolicyFromImage.c)
+ *     KiGetProcessorInformation @ 0x14039C2E4 (KiGetProcessorInformation.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiIsXSaveFeatureAllowed @ 0x140A906F0 (KiIsXSaveFeatureAllowed.c)
+ *     KiLoadPolicyFromImage @ 0x140A90780 (KiLoadPolicyFromImage.c)
  */
 
 __int64 __fastcall KiIntersectFeaturesWithPolicy(__int64 a1, __int64 *a2)

@@ -62,7 +62,7 @@ NTSTATUS __stdcall SeQueryInformationToken(
   unsigned int v14; // r15d
   bool v15; // bl
   unsigned int i; // r14d
-  char IsElevatedRid; // al
+  BOOLEAN IsElevatedRid; // al
   struct _KTHREAD *v18; // rax
   UCHAR v19; // cl
   ULONG v20; // r14d
@@ -70,8 +70,8 @@ NTSTATUS __stdcall SeQueryInformationToken(
   int v22; // edx
   struct _KTHREAD *CurrentThread; // rax
   ULONG v24; // r15d
-  struct _SID_AND_ATTRIBUTES *PoolWithTag; // rax
-  struct _SID_AND_ATTRIBUTES *v26; // r14
+  _SID_AND_ATTRIBUTES *PoolWithTag; // rax
+  _SID_AND_ATTRIBUTES *v26; // r14
   char *v27; // rax
   char *v28; // rbx
   struct _KTHREAD *v29; // rax
@@ -90,7 +90,7 @@ NTSTATUS __stdcall SeQueryInformationToken(
   __int64 v42; // rax
   char *v43; // rax
   ULONG v44; // ecx
-  struct _SID_AND_ATTRIBUTES *v45; // rdx
+  _SID_AND_ATTRIBUTES *v45; // rdx
   struct _KTHREAD *v46; // rax
   unsigned int v47; // r14d
   char *v48; // rax
@@ -230,7 +230,7 @@ LABEL_2:
         --CurrentThread->KernelApcDisable;
         ExAcquireResourceSharedLite(*((PERESOURCE *)Token + 6), 1u);
         v24 = 4 * *(unsigned __int8 *)(**((_QWORD **)Token + 19) + 1LL) + 24;
-        PoolWithTag = (struct _SID_AND_ATTRIBUTES *)ExAllocatePoolWithTag(PagedPool, v24, 0x20206553u);
+        PoolWithTag = (_SID_AND_ATTRIBUTES *)ExAllocatePoolWithTag(PagedPool, v24, 0x20206553u);
         v26 = PoolWithTag;
         if ( !PoolWithTag )
           goto LABEL_61;
@@ -273,7 +273,7 @@ LABEL_2:
         if ( !v56 )
           goto LABEL_61;
         *(_DWORD *)v56 = *((_DWORD *)Token + 31) - 1;
-        v45 = (struct _SID_AND_ATTRIBUTES *)(*((_QWORD *)Token + 19) + 16LL);
+        v45 = (_SID_AND_ATTRIBUTES *)(*((_QWORD *)Token + 19) + 16LL);
         v44 = *((_DWORD *)Token + 31) - 1;
         SidArea = &v56[16 * *((_DWORD *)Token + 31) - 32 + 24];
         goto LABEL_49;
@@ -502,7 +502,7 @@ LABEL_2:
         {
           if ( v15 )
             break;
-          IsElevatedRid = RtlIsElevatedRid(*((_QWORD *)Token + 19) + 16LL * i++);
+          IsElevatedRid = RtlIsElevatedRid((PSID_AND_ATTRIBUTES)(*((_QWORD *)Token + 19) + 16LL * i++));
         }
         ExReleaseResourceLite(*((PERESOURCE *)Token + 6));
         KeLeaveCriticalRegion();
@@ -513,7 +513,7 @@ LABEL_2:
       case TokenVirtualizationAllowed:
       case TokenUIAccess:
       case TokenIsAppContainer:
-      case TokenIsRestricted|TokenGroups:
+      case TokenPrivateNameSpace:
         goto LABEL_2;
       case TokenAccessInformation:
         v82 = KeGetCurrentThread();
@@ -596,7 +596,7 @@ LABEL_2:
         *(_DWORD *)v43 = *((_DWORD *)Token + 200);
         v44 = *((_DWORD *)Token + 200);
         SidArea = &v43[16 * v44 + 24];
-        v45 = (struct _SID_AND_ATTRIBUTES *)*((_QWORD *)Token + 99);
+        v45 = (_SID_AND_ATTRIBUTES *)*((_QWORD *)Token + 99);
 LABEL_49:
         RtlCopySidAndAttributesArray(
           v44,
@@ -723,7 +723,7 @@ LABEL_49:
             &RemainingSidArea,
             (PULONG)&RemainingSidArea);
         goto LABEL_33;
-      case MaxTokenInfoClass:
+      case TokenProcessTrustLevel:
         v111 = KeGetCurrentThread();
         --v111->KernelApcDisable;
         ExAcquireResourceSharedLite(*((PERESOURCE *)Token + 6), 1u);
@@ -748,7 +748,7 @@ LABEL_39:
           *(_QWORD *)v28 = v33;
         }
         goto LABEL_33;
-      case TokenIsRestricted|TokenOwner:
+      case TokenBnoIsolation:
         v115 = KeGetCurrentThread();
         --v115->KernelApcDisable;
         ExAcquireResourceSharedLite(*((PERESOURCE *)Token + 6), 1u);

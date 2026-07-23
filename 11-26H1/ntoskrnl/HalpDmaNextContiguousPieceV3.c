@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpDmaNextContiguousPieceV3 @ 0x14043FE38
+ * XREFs of HalpDmaNextContiguousPieceV3 @ 0x140438948
  * Callers:
- *     HalpAllocateAdapterCallbackV2 @ 0x14035AEF0 (HalpAllocateAdapterCallbackV2.c)
- *     HalPutScatterGatherListV2 @ 0x14035B580 (HalPutScatterGatherListV2.c)
- *     HalpDmaNextContiguousPiece @ 0x14035BB44 (HalpDmaNextContiguousPiece.c)
- *     IopMapTransfer @ 0x14035C290 (IopMapTransfer.c)
- *     IoFlushAdapterBuffersV2 @ 0x14035C710 (IoFlushAdapterBuffersV2.c)
- *     IoMapTransferInternal @ 0x14043F90C (IoMapTransferInternal.c)
+ *     HalpAllocateAdapterCallbackV2 @ 0x14035CC90 (HalpAllocateAdapterCallbackV2.c)
+ *     HalPutScatterGatherListV2 @ 0x14035D320 (HalPutScatterGatherListV2.c)
+ *     HalpDmaNextContiguousPiece @ 0x14035D8E4 (HalpDmaNextContiguousPiece.c)
+ *     IopMapTransfer @ 0x14035E030 (IopMapTransfer.c)
+ *     IoFlushAdapterBuffersV2 @ 0x14035E4B0 (IoFlushAdapterBuffersV2.c)
+ *     IoMapTransferInternal @ 0x14043841C (IoMapTransferInternal.c)
  * Callees:
- *     HalpDmaGetAdapterCacheAlignment @ 0x140440B80 (HalpDmaGetAdapterCacheAlignment.c)
+ *     HalpDmaGetAdapterCacheAlignment @ 0x140439690 (HalpDmaGetAdapterCacheAlignment.c)
  */
 
 __int64 __fastcall HalpDmaNextContiguousPieceV3(

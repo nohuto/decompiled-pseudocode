@@ -14,5 +14,5 @@
 
 _BOOL8 __fastcall RtlpHpMetadataFree(unsigned __int64 a1)
 {
-  return RtlpHpFreeHeap((_DWORD *)RtlpHpMetadataHeap, a1, 0x1000000, 0LL, 0LL);
+  return RtlpHpFreeHeap(RtlpHpMetadataHeap, a1, 0x1000000, 0LL, 0LL);
 }

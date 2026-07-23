@@ -1,15 +1,15 @@
 /*
- * XREFs of SmGetRegistrationInfo @ 0x14057B73C
+ * XREFs of SmGetRegistrationInfo @ 0x14057BBE8
  * Callers:
- *     SmProcessRegistrationRequest @ 0x14057B694 (SmProcessRegistrationRequest.c)
+ *     SmProcessRegistrationRequest @ 0x14057BB40 (SmProcessRegistrationRequest.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KeLeaveCriticalRegion @ 0x140069D00 (KeLeaveCriticalRegion.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
- *     SmRegistrationInfoFill @ 0x14057B810 (SmRegistrationInfoFill.c)
- *     SmRegistrationCtxStart @ 0x14057EFC0 (SmRegistrationCtxStart.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KeLeaveCriticalRegion @ 0x140069880 (KeLeaveCriticalRegion.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
+ *     SmRegistrationInfoFill @ 0x14057BCBC (SmRegistrationInfoFill.c)
+ *     SmRegistrationCtxStart @ 0x14057F46C (SmRegistrationCtxStart.c)
  */
 
 __int64 __fastcall SmGetRegistrationInfo(char a1, __int64 a2)

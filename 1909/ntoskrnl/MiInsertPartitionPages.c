@@ -209,7 +209,7 @@ __int64 __fastcall MiInsertPartitionPages(__int64 a1, __int64 a2, __int64 a3, un
             {
               *(_BYTE *)(v22 + 32) |= 2u;
               if ( *(__int64 *)(v22 + 32) < 0 )
-                KiAbEntryRemoveFromTree(v22);
+                KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v22);
               v81 = *(_DWORD *)(v22 + 88) & 0x1FFFF;
               *(_DWORD *)(v22 + 88) &= 0xFFFE0000;
               *(_BYTE *)(v22 + 25) &= ~1u;
@@ -450,7 +450,7 @@ LABEL_109:
   }
   v59->CrossThreadReleasableAndBusyByte |= 2u;
   if ( (__int64)v59->LockState.LockState < 0 )
-    KiAbEntryRemoveFromTree((__int64)&v53->LockEntries[v58]);
+    KiAbEntryRemoveFromTree(&v53->LockEntries[v58].TreeNode);
   v72 = v59->BoostBitmap.AllFields & 0x1FFFF;
   v59->BoostBitmap.AllFields &= 0xFFFE0000;
   v59->ThreadLocalFlags &= ~1u;

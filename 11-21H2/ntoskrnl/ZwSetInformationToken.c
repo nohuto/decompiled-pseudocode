@@ -15,5 +15,5 @@ NTSTATUS __stdcall ZwSetInformationToken(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(TokenHandle, *(_QWORD *)&TokenInformationClass);
+  return sub_140433F80(TokenHandle, *(_QWORD *)&TokenInformationClass);
 }

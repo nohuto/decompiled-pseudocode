@@ -33,16 +33,16 @@ __int64 __fastcall ExpWnfSubscribeNameInstance(
 {
   unsigned __int64 v11; // r12
   unsigned int v12; // edi
-  __int64 v15; // r14
+  PRTL_BALANCED_NODE v15; // r14
   int updated; // r14d
   struct _EX_RUNDOWN_REF *PoolWithTag; // rax
   struct _EX_RUNDOWN_REF *v18; // rsi
   signed __int64 v19; // r12
   unsigned __int64 *v20; // r14
-  __int64 v21; // rax
-  __int64 v22; // r15
+  _RTL_BALANCED_NODE *v21; // rax
+  _RTL_BALANCED_NODE *v22; // r15
   volatile signed __int64 *v23; // r15
-  __int64 v24; // rax
+  PRTL_BALANCED_NODE v24; // rax
   signed __int8 v25; // cf
   struct _EX_RUNDOWN_REF *v26; // rcx
   unsigned __int64 v27; // rax
@@ -56,7 +56,7 @@ __int64 __fastcall ExpWnfSubscribeNameInstance(
   int v36; // [rsp+54h] [rbp-1Ch] BYREF
   struct _EX_RUNDOWN_REF *v37; // [rsp+58h] [rbp-18h] BYREF
   unsigned __int64 v38; // [rsp+60h] [rbp-10h]
-  __int64 v39; // [rsp+68h] [rbp-8h]
+  _RTL_BALANCED_NODE *v39; // [rsp+68h] [rbp-8h]
 
   v11 = a2[2].ActiveProcessors.Bitmap[2];
   v12 = 0;
@@ -70,7 +70,7 @@ __int64 __fastcall ExpWnfSubscribeNameInstance(
     if ( _InterlockedCompareExchange64((volatile signed __int64 *)(v11 + 80), 17LL, 0LL) )
       ExfAcquirePushLockSharedEx((unsigned __int64 *)(v11 + 80), v15, v11 + 80);
     if ( v15 )
-      *(_BYTE *)(v15 + 26) |= 1u;
+      BYTE2(v15[1].Left) |= 1u;
     updated = ExpWnfUpdateSubscription(a1, v11, a3, a4, a6, (__int64)&v37, (__int64)&v35, (__int64)&v36, (__int64)a8);
     if ( _InterlockedCompareExchange64((volatile signed __int64 *)(v11 + 80), 0LL, 17LL) != 17 )
       ExfReleasePushLockShared((signed __int64 *)(v11 + 80));
@@ -113,7 +113,7 @@ __int64 __fastcall ExpWnfSubscribeNameInstance(
   if ( _interlockedbittestandset64((volatile signed __int32 *)v20, 0LL) )
     ExfAcquirePushLockExclusiveEx(v20, v21, (ULONG_PTR)v20);
   if ( v22 )
-    *(_BYTE *)(v22 + 26) |= 1u;
+    BYTE2(v22[1].Left) |= 1u;
   v23 = (volatile signed __int64 *)(a1 + 112);
   v24 = KeAbPreAcquire(a1 + 112, 0LL, 0);
   v25 = _interlockedbittestandset64((volatile signed __int32 *)(a1 + 112), 0LL);
@@ -124,7 +124,7 @@ __int64 __fastcall ExpWnfSubscribeNameInstance(
     v24 = v39;
   }
   if ( v24 )
-    *(_BYTE *)(v24 + 26) |= 1u;
+    BYTE2(v24[1].Left) |= 1u;
   if ( *(_QWORD *)(a1 + 48) )
   {
     if ( a7 != 1

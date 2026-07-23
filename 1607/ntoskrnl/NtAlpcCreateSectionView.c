@@ -1,53 +1,50 @@
 /*
- * XREFs of NtAlpcCreateSectionView @ 0x140409A7C
+ * XREFs of NtAlpcCreateSectionView @ 0x14040893C
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140069D00 (KeLeaveCriticalRegion.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     AlpcpCreateSectionView @ 0x140409C78 (AlpcpCreateSectionView.c)
- *     AlpcReferenceBlobByHandle @ 0x14040BC58 (AlpcReferenceBlobByHandle.c)
- *     AlpcpDeleteView @ 0x14040BD7C (AlpcpDeleteView.c)
- *     AlpcpDereferenceBlobEx @ 0x14040C274 (AlpcpDereferenceBlobEx.c)
- *     ObReferenceObjectByHandle @ 0x140450D40 (ObReferenceObjectByHandle.c)
- *     ExRaiseDatatypeMisalignment @ 0x1406B6058 (ExRaiseDatatypeMisalignment.c)
+ *     KeLeaveCriticalRegion @ 0x140069880 (KeLeaveCriticalRegion.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     AlpcpCreateSectionView @ 0x140408B38 (AlpcpCreateSectionView.c)
+ *     AlpcReferenceBlobByHandle @ 0x14040AB18 (AlpcReferenceBlobByHandle.c)
+ *     AlpcpDeleteView @ 0x14040AC3C (AlpcpDeleteView.c)
+ *     AlpcpDereferenceBlobEx @ 0x14040B134 (AlpcpDereferenceBlobEx.c)
+ *     ObReferenceObjectByHandle @ 0x14044FC10 (ObReferenceObjectByHandle.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1406B6190 (ExRaiseDatatypeMisalignment.c)
  */
 
-__int64 __fastcall NtAlpcCreateSectionView(HANDLE Handle, int a2, unsigned __int64 a3)
+NTSTATUS __cdecl NtAlpcCreateSectionView(HANDLE PortHandle, ULONG Flags, PALPC_DATA_VIEW_ATTR ViewAttributes)
 {
   struct _KTHREAD *CurrentThread; // rax
   __int64 v6; // rcx
-  NTSTATUS SectionView; // ebx
+  int SectionView; // ebx
   PVOID v8; // r15
   void *v9; // r14
   ULONG_PTR v10; // rdi
   PVOID Object[2]; // [rsp+30h] [rbp-48h] BYREF
-  __int128 v13; // [rsp+40h] [rbp-38h]
-  __int128 v14; // [rsp+50h] [rbp-28h]
+  _ALPC_DATA_VIEW_ATTR v13; // [rsp+40h] [rbp-38h]
   ULONG_PTR BugCheckParameter2; // [rsp+98h] [rbp+20h] BYREF
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  if ( a2 )
+  if ( Flags )
     goto LABEL_19;
   if ( KeGetCurrentThread()->PreviousMode )
   {
-    if ( (a3 & 3) != 0 )
+    if ( ((unsigned __int8)ViewAttributes & 3) != 0 )
       ExRaiseDatatypeMisalignment();
-    v6 = a3;
-    if ( a3 >= 0x7FFFFFFF0000LL )
+    v6 = (__int64)ViewAttributes;
+    if ( (unsigned __int64)ViewAttributes >= 0x7FFFFFFF0000LL )
       v6 = 0x7FFFFFFF0000LL;
     *(_BYTE *)v6 = *(_BYTE *)v6;
     *(_BYTE *)(v6 + 31) = *(_BYTE *)(v6 + 31);
-    v13 = *(_OWORD *)a3;
-    v14 = *(_OWORD *)(a3 + 16);
+    v13 = *ViewAttributes;
   }
   else
   {
-    v13 = *(_OWORD *)a3;
-    v14 = *(_OWORD *)(a3 + 16);
+    v13 = *ViewAttributes;
   }
-  if ( (_DWORD)v13 || !*((_QWORD *)&v14 + 1) || (_QWORD)v14 )
+  if ( v13.Flags || !v13.ViewSize || v13.ViewBase )
   {
 LABEL_19:
     SectionView = -1073741811;
@@ -55,7 +52,7 @@ LABEL_19:
   else
   {
     SectionView = ObReferenceObjectByHandle(
-                    Handle,
+                    PortHandle,
                     1u,
                     AlpcPortObjectType,
                     KeGetCurrentThread()->PreviousMode,
@@ -64,7 +61,7 @@ LABEL_19:
     if ( SectionView >= 0 )
     {
       v8 = Object[0];
-      v9 = (void *)AlpcReferenceBlobByHandle(*((_QWORD *)Object[0] + 2) + 40LL, *((_QWORD *)&v13 + 1), &AlpcSectionType);
+      v9 = (void *)AlpcReferenceBlobByHandle(*((_QWORD *)Object[0] + 2) + 40LL, v13.SectionHandle, &AlpcSectionType);
       Object[1] = v9;
       if ( v9 )
       {
@@ -72,8 +69,8 @@ LABEL_19:
         if ( SectionView >= 0 )
         {
           v10 = BugCheckParameter2;
-          *(_QWORD *)(a3 + 16) = *(_QWORD *)(BugCheckParameter2 + 40);
-          *(_QWORD *)(a3 + 24) = *(_QWORD *)(v10 + 48);
+          ViewAttributes->ViewBase = *(PVOID *)(BugCheckParameter2 + 40);
+          ViewAttributes->ViewSize = *(_QWORD *)(v10 + 48);
           AlpcpDereferenceBlobEx(v10);
         }
         AlpcpDereferenceBlobEx((ULONG_PTR)v9);
@@ -86,5 +83,5 @@ LABEL_19:
     }
   }
   KeLeaveCriticalRegion();
-  return (unsigned int)SectionView;
+  return SectionView;
 }

@@ -1,16 +1,16 @@
 /*
- * XREFs of MiProtectAweRegion @ 0x140701F34
+ * XREFs of MiProtectAweRegion @ 0x140706C04
  * Callers:
- *     MmProtectVirtualMemory @ 0x14095E5D8 (MmProtectVirtualMemory.c)
+ *     MmProtectVirtualMemory @ 0x140A03E98 (MmProtectVirtualMemory.c)
  * Callees:
- *     MiLockWorkingSetShared @ 0x1402EDD60 (MiLockWorkingSetShared.c)
- *     MiLockLowestValidPageTableEx @ 0x140300610 (MiLockLowestValidPageTableEx.c)
- *     MiPteHasShadow @ 0x1403011E0 (MiPteHasShadow.c)
- *     MiProtectAweTransitionPte @ 0x140702154 (MiProtectAweTransitionPte.c)
- *     MiProtectAweUnlock @ 0x140702224 (MiProtectAweUnlock.c)
- *     MiProtectAweValidPte @ 0x140702298 (MiProtectAweValidPte.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     MiProtectAwePrepare @ 0x140879020 (MiProtectAwePrepare.c)
+ *     MiLockWorkingSetShared @ 0x1402CFDE0 (MiLockWorkingSetShared.c)
+ *     MiLockLowestValidPageTableEx @ 0x1402E2690 (MiLockLowestValidPageTableEx.c)
+ *     MiPteHasShadow @ 0x1402E3260 (MiPteHasShadow.c)
+ *     MiProtectAweTransitionPte @ 0x140706E24 (MiProtectAweTransitionPte.c)
+ *     MiProtectAweUnlock @ 0x140706EF4 (MiProtectAweUnlock.c)
+ *     MiProtectAweValidPte @ 0x140706F68 (MiProtectAweValidPte.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     MiProtectAwePrepare @ 0x14087F400 (MiProtectAwePrepare.c)
  */
 
 __int64 __fastcall MiProtectAweRegion(__int64 a1, __int64 a2, int a3, _DWORD *a4)

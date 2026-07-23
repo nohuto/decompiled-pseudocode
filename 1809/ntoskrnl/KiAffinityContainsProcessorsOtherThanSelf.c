@@ -1,11 +1,11 @@
 /*
- * XREFs of KiAffinityContainsProcessorsOtherThanSelf @ 0x1400EDBC4
+ * XREFs of KiAffinityContainsProcessorsOtherThanSelf @ 0x1400EDC44
  * Callers:
- *     MiFlushTbList @ 0x1400740C0 (MiFlushTbList.c)
- *     KeFlushTb @ 0x1400755B0 (KeFlushTb.c)
- *     KeFlushMultipleRangeTb @ 0x140075BB0 (KeFlushMultipleRangeTb.c)
- *     KiIpiSendRequestEx @ 0x1400ED160 (KiIpiSendRequestEx.c)
- *     KiPreprocessFlushTb @ 0x1400EDB30 (KiPreprocessFlushTb.c)
+ *     MiFlushTbList @ 0x1400740B0 (MiFlushTbList.c)
+ *     KeFlushTb @ 0x1400755A0 (KeFlushTb.c)
+ *     KeFlushMultipleRangeTb @ 0x140075BA0 (KeFlushMultipleRangeTb.c)
+ *     KiIpiSendRequestEx @ 0x1400ED1E0 (KiIpiSendRequestEx.c)
+ *     KiPreprocessFlushTb @ 0x1400EDBB0 (KiPreprocessFlushTb.c)
  * Callees:
  *     <none>
  */

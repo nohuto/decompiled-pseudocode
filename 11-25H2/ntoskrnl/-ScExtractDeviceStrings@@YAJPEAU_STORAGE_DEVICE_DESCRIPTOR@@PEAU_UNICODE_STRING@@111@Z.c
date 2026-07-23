@@ -16,7 +16,7 @@ __int64 __fastcall ScExtractDeviceStrings(
 {
   struct _UNICODE_STRING **v5; // rsi
   unsigned int *v6; // rdi
-  ULONG Size; // r15d
+  DWORD Size; // r15d
   unsigned int v8; // ebx
   unsigned int v10; // r15d
   __int64 v11; // rbp

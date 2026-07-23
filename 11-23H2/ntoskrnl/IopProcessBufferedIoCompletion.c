@@ -1,12 +1,12 @@
 /*
- * XREFs of IopProcessBufferedIoCompletion @ 0x1402AC2A0
+ * XREFs of IopProcessBufferedIoCompletion @ 0x1402AC530
  * Callers:
- *     IopCopyCompleteReadRequest @ 0x14028C5D0 (IopCopyCompleteReadRequest.c)
- *     IopCompleteRequest @ 0x1402AB480 (IopCompleteRequest.c)
- *     IopIoRingCompleteIrp @ 0x1405594DC (IopIoRingCompleteIrp.c)
+ *     IopCopyCompleteReadRequest @ 0x14028C860 (IopCopyCompleteReadRequest.c)
+ *     IopCompleteRequest @ 0x1402AB710 (IopCompleteRequest.c)
+ *     IopIoRingCompleteIrp @ 0x140559B9C (IopIoRingCompleteIrp.c)
  * Callees:
- *     memmove @ 0x140435700 (memmove.c)
- *     IopExceptionFilter @ 0x1405554E8 (IopExceptionFilter.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     IopExceptionFilter @ 0x140555BA8 (IopExceptionFilter.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

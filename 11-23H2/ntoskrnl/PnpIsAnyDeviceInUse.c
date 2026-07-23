@@ -1,8 +1,8 @@
 /*
- * XREFs of PnpIsAnyDeviceInUse @ 0x1403D43F8
+ * XREFs of PnpIsAnyDeviceInUse @ 0x1403D45D8
  * Callers:
- *     IopCompleteUnloadOrDelete @ 0x140305300 (IopCompleteUnloadOrDelete.c)
- *     PnpIsChainDereferenced @ 0x1403D42E0 (PnpIsChainDereferenced.c)
+ *     IopCompleteUnloadOrDelete @ 0x140305590 (IopCompleteUnloadOrDelete.c)
+ *     PnpIsChainDereferenced @ 0x1403D44C0 (PnpIsChainDereferenced.c)
  * Callees:
  *     <none>
  */

@@ -1,5 +1,5 @@
 /*
- * XREFs of xHalDpGetInterruptReplayState @ 0x140A99A20
+ * XREFs of xHalDpGetInterruptReplayState @ 0x140A99890
  * Callers:
  *     <none>
  * Callees:

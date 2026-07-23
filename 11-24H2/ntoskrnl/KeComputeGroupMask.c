@@ -1,9 +1,9 @@
 /*
- * XREFs of KeComputeGroupMask @ 0x140498D64
+ * XREFs of KeComputeGroupMask @ 0x1404936EC
  * Callers:
- *     KeStartThread @ 0x1403B3660 (KeStartThread.c)
- *     KeQueryCpuPartitionAffinity @ 0x1405BFB24 (KeQueryCpuPartitionAffinity.c)
- *     KiExtendProcessAffinity @ 0x1405C90F8 (KiExtendProcessAffinity.c)
+ *     KeStartThread @ 0x1403A1E70 (KeStartThread.c)
+ *     KeQueryCpuPartitionAffinity @ 0x1405BD154 (KeQueryCpuPartitionAffinity.c)
+ *     KiExtendProcessAffinity @ 0x1405C6828 (KiExtendProcessAffinity.c)
  * Callees:
  *     <none>
  */

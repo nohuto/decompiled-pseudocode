@@ -1,14 +1,14 @@
 /*
- * XREFs of ZwLoadKey @ 0x1403FC4A0
+ * XREFs of ZwLoadKey @ 0x1403FC680
  * Callers:
- *     BiLoadHive @ 0x140785A48 (BiLoadHive.c)
+ *     BiLoadHive @ 0x140785C08 (BiLoadHive.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwLoadKey(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwLoadKey(POBJECT_ATTRIBUTES TargetKey, POBJECT_ATTRIBUTES SourceFile)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(TargetKey);
 }

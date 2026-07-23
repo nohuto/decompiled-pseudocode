@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpCoverageEnsureStringBuffer @ 0x14075B438
+ * XREFs of EtwpCoverageEnsureStringBuffer @ 0x14075C628
  * Callers:
- *     EtwpCoverageRecord @ 0x1406B41DC (EtwpCoverageRecord.c)
- *     EtwpCoverageEnsureContext @ 0x14075B044 (EtwpCoverageEnsureContext.c)
+ *     EtwpCoverageRecord @ 0x1406B547C (EtwpCoverageRecord.c)
+ *     EtwpCoverageEnsureContext @ 0x14075C234 (EtwpCoverageEnsureContext.c)
  * Callees:
- *     EtwpCoverageInitializeStringBuffer @ 0x14013BAD4 (EtwpCoverageInitializeStringBuffer.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
+ *     EtwpCoverageInitializeStringBuffer @ 0x14013BBD4 (EtwpCoverageInitializeStringBuffer.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpCoverageEnsureStringBuffer(__int64 a1)

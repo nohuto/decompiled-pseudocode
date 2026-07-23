@@ -1,23 +1,23 @@
 /*
- * XREFs of TtmNotifyDeviceArrival @ 0x140546A1C
+ * XREFs of TtmNotifyDeviceArrival @ 0x140546F5C
  * Callers:
  *     <none>
  * Callees:
- *     _TlgWrite @ 0x14000A598 (_TlgWrite.c)
- *     MmGetSessionIdEx @ 0x140024FEC (MmGetSessionIdEx.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExReleaseResourceLite @ 0x140068940 (ExReleaseResourceLite.c)
- *     RtlStringCchCopyW @ 0x140084F38 (RtlStringCchCopyW.c)
- *     _TlgKeywordOn @ 0x140088D98 (_TlgKeywordOn.c)
- *     RtlStringCchLengthW @ 0x1400C4760 (RtlStringCchLengthW.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     _TlgWrite @ 0x14000A118 (_TlgWrite.c)
+ *     MmGetSessionIdEx @ 0x140024B6C (MmGetSessionIdEx.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExReleaseResourceLite @ 0x1400684C0 (ExReleaseResourceLite.c)
+ *     RtlStringCchLengthW @ 0x1400C2600 (RtlStringCchLengthW.c)
+ *     RtlStringCchCopyW @ 0x14010B1EC (RtlStringCchCopyW.c)
+ *     _TlgKeywordOn @ 0x14010CF88 (_TlgKeywordOn.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     TtmiAcquireCurrentSession @ 0x140546B38 (TtmiAcquireCurrentSession.c)
- *     TtmiLogError @ 0x140546BCC (TtmiLogError.c)
- *     TtmpFindDeviceByToken @ 0x14067740C (TtmpFindDeviceByToken.c)
- *     TtmiScheduleSessionWorker @ 0x140678D08 (TtmiScheduleSessionWorker.c)
+ *     TtmiAcquireCurrentSession @ 0x140547078 (TtmiAcquireCurrentSession.c)
+ *     TtmiLogError @ 0x14054710C (TtmiLogError.c)
+ *     TtmpFindDeviceByToken @ 0x1406774F0 (TtmpFindDeviceByToken.c)
+ *     TtmiScheduleSessionWorker @ 0x140678DEC (TtmiScheduleSessionWorker.c)
  */
 
 __int64 __fastcall TtmNotifyDeviceArrival(unsigned int a1, __int64 a2, _QWORD *a3, int a4, __int64 a5)
@@ -184,7 +184,7 @@ LABEL_12:
     v41 = 4LL;
     v43 = 4LL;
     v45 = 4LL;
-    TlgWrite(&stru_1407478B0, &unk_14027DA78, 0LL, 0LL, 8u, &pData);
+    TlgWrite(&stru_1407478B0, &unk_14027DB78, 0LL, 0LL, 8u, &pData);
   }
   return (unsigned int)v10;
 }

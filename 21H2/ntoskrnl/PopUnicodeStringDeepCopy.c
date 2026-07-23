@@ -1,14 +1,14 @@
 /*
- * XREFs of PopUnicodeStringDeepCopy @ 0x1406C1BA0
+ * XREFs of PopUnicodeStringDeepCopy @ 0x140671F50
  * Callers:
- *     PoGetRequester @ 0x140283794 (PoGetRequester.c)
- *     PopAvlFindOrMakeStatsForPowerRequest @ 0x14062B9E4 (PopAvlFindOrMakeStatsForPowerRequest.c)
- *     PopAvlGetPowerRequestKey @ 0x14062BAEC (PopAvlGetPowerRequestKey.c)
- *     PopAvlFindOrMakeStatsForScenarioType @ 0x140772520 (PopAvlFindOrMakeStatsForScenarioType.c)
+ *     PoGetRequester @ 0x1402719A4 (PoGetRequester.c)
+ *     PopAvlFindOrMakeStatsForPowerRequest @ 0x1406705BC (PopAvlFindOrMakeStatsForPowerRequest.c)
+ *     PopAvlGetPowerRequestKey @ 0x1406706C4 (PopAvlGetPowerRequestKey.c)
+ *     PopAvlFindOrMakeStatsForScenarioType @ 0x1407726E0 (PopAvlFindOrMakeStatsForScenarioType.c)
  * Callees:
- *     RtlUnicodeStringCopy @ 0x140206CD0 (RtlUnicodeStringCopy.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     RtlUnicodeStringCopy @ 0x1402AB600 (RtlUnicodeStringCopy.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 NTSTATUS __fastcall PopUnicodeStringDeepCopy(

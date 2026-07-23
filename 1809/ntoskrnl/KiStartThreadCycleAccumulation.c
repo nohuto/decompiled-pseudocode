@@ -1,17 +1,17 @@
 /*
- * XREFs of KiStartThreadCycleAccumulation @ 0x1400D1E70
+ * XREFs of KiStartThreadCycleAccumulation @ 0x1400D1EF0
  * Callers:
  *     KeDelayExecutionThread @ 0x14004DA20 (KeDelayExecutionThread.c)
  *     KiSwapThread @ 0x140056210 (KiSwapThread.c)
- *     KeSetPriorityThread @ 0x1400CD870 (KeSetPriorityThread.c)
- *     KiIdleSchedule @ 0x1400D1C50 (KiIdleSchedule.c)
- *     KiUpdateTotalCyclesCurrentThread @ 0x1400D1D3C (KiUpdateTotalCyclesCurrentThread.c)
- *     KeQueryTotalCycleTimeThread @ 0x1400D1D80 (KeQueryTotalCycleTimeThread.c)
- *     KiGroupSchedulingGenerationEnd @ 0x1400D30AC (KiGroupSchedulingGenerationEnd.c)
- *     KeUpdateThreadTag @ 0x14013E7F0 (KeUpdateThreadTag.c)
+ *     KeSetPriorityThread @ 0x1400CD8F0 (KeSetPriorityThread.c)
+ *     KiIdleSchedule @ 0x1400D1CD0 (KiIdleSchedule.c)
+ *     KiUpdateTotalCyclesCurrentThread @ 0x1400D1DBC (KiUpdateTotalCyclesCurrentThread.c)
+ *     KeQueryTotalCycleTimeThread @ 0x1400D1E00 (KeQueryTotalCycleTimeThread.c)
+ *     KiGroupSchedulingGenerationEnd @ 0x1400D312C (KiGroupSchedulingGenerationEnd.c)
+ *     KeUpdateThreadTag @ 0x14013E8F0 (KeUpdateThreadTag.c)
  * Callees:
- *     KiBeginCounterAccumulation @ 0x140295E0C (KiBeginCounterAccumulation.c)
- *     KiSetVpThreadSystemWork @ 0x140299760 (KiSetVpThreadSystemWork.c)
+ *     KiBeginCounterAccumulation @ 0x140295FFC (KiBeginCounterAccumulation.c)
+ *     KiSetVpThreadSystemWork @ 0x140299950 (KiSetVpThreadSystemWork.c)
  */
 
 __int64 __fastcall KiStartThreadCycleAccumulation(__int64 a1, __int64 a2, char a3)

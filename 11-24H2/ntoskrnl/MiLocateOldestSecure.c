@@ -1,10 +1,10 @@
 /*
- * XREFs of MiLocateOldestSecure @ 0x1404F1BA4
+ * XREFs of MiLocateOldestSecure @ 0x1404EF644
  * Callers:
- *     MiUnmapLockedPagesInUserSpace @ 0x140A61744 (MiUnmapLockedPagesInUserSpace.c)
+ *     MiUnmapLockedPagesInUserSpace @ 0x140A59F24 (MiUnmapLockedPagesInUserSpace.c)
  * Callees:
- *     MiLockVadCore @ 0x1403FD500 (MiLockVadCore.c)
- *     MiUnlockVadCore @ 0x140429670 (MiUnlockVadCore.c)
+ *     MiLockVadCore @ 0x1403DAE20 (MiLockVadCore.c)
+ *     MiUnlockVadCore @ 0x14041D7C0 (MiUnlockVadCore.c)
  */
 
 _QWORD *__fastcall MiLocateOldestSecure(__int64 a1)

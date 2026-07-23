@@ -1,11 +1,11 @@
 /*
- * XREFs of _RtlMuiRegAddLIPParent @ 0x1408A96A8
+ * XREFs of _RtlMuiRegAddLIPParent @ 0x1408AFB18
  * Callers:
- *     _RtlpMuiRegInitLIPLanguage @ 0x140B2DDF0 (_RtlpMuiRegInitLIPLanguage.c)
+ *     _RtlpMuiRegInitLIPLanguage @ 0x140B2FE70 (_RtlpMuiRegInitLIPLanguage.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     RtlCultureNameToLCID @ 0x140779FB0 (RtlCultureNameToLCID.c)
- *     RtlpMuiRegGetOrAddString @ 0x1408A8BCC (RtlpMuiRegGetOrAddString.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     RtlCultureNameToLCID @ 0x14077CEE0 (RtlCultureNameToLCID.c)
+ *     RtlpMuiRegGetOrAddString @ 0x1408AF03C (RtlpMuiRegGetOrAddString.c)
  */
 
 __int64 __fastcall RtlMuiRegAddLIPParent(__int64 a1, __int64 a2, unsigned int a3, WCHAR *a4)
@@ -20,18 +20,18 @@ __int64 __fastcall RtlMuiRegAddLIPParent(__int64 a1, __int64 a2, unsigned int a3
   _WORD *v14; // r8
   int v15; // ecx
   __int16 v16; // ax
-  int v18; // [rsp+20h] [rbp-38h] BYREF
+  DWORD Lcid; // [rsp+20h] [rbp-38h] BYREF
   UNICODE_STRING DestinationString; // [rsp+28h] [rbp-30h] BYREF
   __int16 v20; // [rsp+60h] [rbp+8h] BYREF
 
   v4 = a3;
-  v18 = 0;
+  Lcid = 0;
   v20 = -1;
   DestinationString = 0LL;
   if ( !a1 || !a2 || a3 >= 4 || !a4 || !*a4 )
     return 3221225485LL;
   RtlInitUnicodeString(&DestinationString, a4);
-  if ( RtlCultureNameToLCID(&DestinationString.Length, &v18) )
+  if ( RtlCultureNameToLCID(&DestinationString, &Lcid) )
   {
     LOBYTE(v8) = 1;
     v9 = RtlpMuiRegGetOrAddString(a1, a4, v8, &v20);
@@ -42,16 +42,16 @@ __int64 __fastcall RtlMuiRegAddLIPParent(__int64 a1, __int64 a2, unsigned int a3
       {
         v11 = *(_QWORD *)(a1 + 24);
         v12 = 0;
-        v13 = v18;
+        v13 = Lcid;
         v14 = *(_WORD **)(v11 + 16);
         v15 = *(unsigned __int16 *)(v11 + 6);
         while ( v12 < v15 )
         {
           if ( (*v14 & 0x3024) == 0x20 )
           {
-            if ( (((unsigned __int16)v18 - 4096) & 0xFFFFFBFF) != 0 )
+            if ( (((unsigned __int16)Lcid - 4096) & 0xFFFFFBFF) != 0 )
             {
-              if ( v14[2] == (_WORD)v18 )
+              if ( v14[2] == (_WORD)Lcid )
               {
                 v16 = v14[3];
                 if ( v16 >= 0 && v16 != v20 )
@@ -74,7 +74,7 @@ LABEL_16:
           ++v12;
           v14 += 14;
         }
-        if ( (_WORD)v18 )
+        if ( (_WORD)Lcid )
         {
           *(_WORD *)(a2 + 8) = *(_WORD *)(a2 + 8) & ~(3 << (2 * v4)) | (1 << (2 * v4));
           *(_WORD *)(a2 + 2 * v4 + 12) = v13;

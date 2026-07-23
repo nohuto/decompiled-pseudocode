@@ -1,11 +1,11 @@
 /*
- * XREFs of _CmSetDeviceMappedPropertyFromRegProp @ 0x14073A964
+ * XREFs of _CmSetDeviceMappedPropertyFromRegProp @ 0x14073AB24
  * Callers:
- *     _CmSetDeviceMappedProperty @ 0x14073A544 (_CmSetDeviceMappedProperty.c)
+ *     _CmSetDeviceMappedProperty @ 0x14073A704 (_CmSetDeviceMappedProperty.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     _PnpStringFromGuid @ 0x140638420 (_PnpStringFromGuid.c)
- *     _CmSetDeviceRegProp @ 0x140744010 (_CmSetDeviceRegProp.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     _PnpStringFromGuid @ 0x14062D230 (_PnpStringFromGuid.c)
+ *     _CmSetDeviceRegProp @ 0x1407441D0 (_CmSetDeviceRegProp.c)
  */
 
 NTSTATUS __fastcall CmSetDeviceMappedPropertyFromRegProp(

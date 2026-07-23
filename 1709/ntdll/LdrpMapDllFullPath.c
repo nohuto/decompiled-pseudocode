@@ -22,7 +22,7 @@ __int64 __fastcall LdrpMapDllFullPath(__int64 a1)
   int v5; // ebx
   int v6; // eax
   __int64 v8; // [rsp+30h] [rbp-D0h] BYREF
-  UNICODE_STRING v9; // [rsp+40h] [rbp-C0h] BYREF
+  _UNICODE_STRING v9; // [rsp+40h] [rbp-C0h] BYREF
   _WORD v10[128]; // [rsp+50h] [rbp-B0h] BYREF
 
   v1 = *(_QWORD *)(a1 + 56);
@@ -31,13 +31,18 @@ __int64 __fastcall LdrpMapDllFullPath(__int64 a1)
   v8 = 0LL;
   *(_DWORD *)&v9.Length = 0x1000000;
   v10[0] = 0;
-  v4 = LdrpResolveDllName(a1, (unsigned int)&v9, (int)v1 + 88, (int)v1 + 72, v2);
+  v4 = LdrpResolveDllName(a1, &v9, v1 + 88, v1 + 72, v2);
   v5 = v4;
   if ( !*(_QWORD *)(a1 + 168)
     && (v5 = LdrpAppCompatRedirect(a1, (int)v1 + 72, (int)v1 + 88, (unsigned int)&v9, v4), v5 >= 0)
     && (v6 = LdrpHashUnicodeString(v1 + 88),
         *(_DWORD *)(v1 + 264) = v6,
-        LdrpFindExistingModule(v1 + 88, v1 + 72, *(_DWORD *)(a1 + 32), v6, (__int64)&v8),
+        LdrpFindExistingModule(
+          (PUNICODE_STRING)(v1 + 88),
+          (PUNICODE_STRING)(v1 + 72),
+          *(_DWORD *)(a1 + 32),
+          v6,
+          (__int64)&v8),
         v8) )
   {
     LdrpLoadContextReplaceModule(a1, v8);

@@ -1,11 +1,11 @@
 /*
- * XREFs of HvUnCOWReconciledPages @ 0x140465CE8
+ * XREFs of HvUnCOWReconciledPages @ 0x14045EE58
  * Callers:
- *     CmpFlushHive @ 0x1408B321C (CmpFlushHive.c)
+ *     CmpFlushHive @ 0x1408B97F0 (CmpFlushHive.c)
  * Callees:
- *     RtlMergeBitMaps @ 0x140465FF0 (RtlMergeBitMaps.c)
- *     HvpViewMapUnCOWAndSealRange @ 0x1408B8844 (HvpViewMapUnCOWAndSealRange.c)
- *     HvpViewMapGetStorageLength @ 0x140B09E84 (HvpViewMapGetStorageLength.c)
+ *     RtlMergeBitMaps @ 0x14045F150 (RtlMergeBitMaps.c)
+ *     HvpViewMapUnCOWAndSealRange @ 0x1408BEE14 (HvpViewMapUnCOWAndSealRange.c)
+ *     HvpViewMapGetStorageLength @ 0x140B0BC44 (HvpViewMapGetStorageLength.c)
  */
 
 void __fastcall HvUnCOWReconciledPages(__int64 a1)
@@ -18,7 +18,7 @@ void __fastcall HvUnCOWReconciledPages(__int64 a1)
   struct _KTHREAD *v7; // rcx
   unsigned int v8; // r8d
   _DWORD *v9; // r10
-  unsigned int v10; // ebx
+  unsigned int v10; // edi
   _DWORD *v11; // rdx
   int v12; // r9d
   _DWORD *v13; // rax
@@ -28,9 +28,9 @@ void __fastcall HvUnCOWReconciledPages(__int64 a1)
   unsigned int v17; // esi
   unsigned __int64 i; // rax
   unsigned int *v19; // rax
-  unsigned int v20; // ebx
+  unsigned int v20; // edi
   __int64 v21; // rbp
-  unsigned int StorageLength; // edi
+  unsigned int StorageLength; // ebx
   unsigned int v23; // eax
   __int64 v24; // rdx
   unsigned int v25; // r9d
@@ -44,7 +44,7 @@ void __fastcall HvUnCOWReconciledPages(__int64 a1)
   __int64 v33; // rcx
   unsigned __int64 k; // rax
   unsigned int *v35; // rax
-  unsigned int v36; // ebx
+  unsigned int v36; // edi
   __int64 v37; // r8
 
   if ( (*(_DWORD *)(a1 + 160) & 0x20000) != 0 )
@@ -112,7 +112,6 @@ LABEL_48:
             _BitScanForward64(&i, i);
             goto LABEL_21;
           }
-          v10 += 32;
           v19 = v11 + 1;
           if ( (unsigned __int64)(v11 + 1) > v14 )
             break;
@@ -188,7 +187,6 @@ LABEL_49:
           _BitScanForward64(&k, k);
           goto LABEL_39;
         }
-        v10 += 32;
         v35 = v29 + 1;
         if ( (unsigned __int64)(v29 + 1) > v28 )
           break;

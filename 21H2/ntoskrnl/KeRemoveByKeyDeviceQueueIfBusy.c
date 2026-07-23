@@ -1,10 +1,10 @@
 /*
- * XREFs of KeRemoveByKeyDeviceQueueIfBusy @ 0x14051AAF0
+ * XREFs of KeRemoveByKeyDeviceQueueIfBusy @ 0x14051AD30
  * Callers:
  *     <none>
  * Callees:
- *     KeAcquireInStackQueuedSpinLockForDpc @ 0x140516650 (KeAcquireInStackQueuedSpinLockForDpc.c)
- *     KeReleaseInStackQueuedSpinLockForDpc @ 0x1405166E0 (KeReleaseInStackQueuedSpinLockForDpc.c)
+ *     KeAcquireInStackQueuedSpinLockForDpc @ 0x140516890 (KeAcquireInStackQueuedSpinLockForDpc.c)
+ *     KeReleaseInStackQueuedSpinLockForDpc @ 0x140516920 (KeReleaseInStackQueuedSpinLockForDpc.c)
  */
 
 PKDEVICE_QUEUE_ENTRY __stdcall KeRemoveByKeyDeviceQueueIfBusy(PKDEVICE_QUEUE DeviceQueue, ULONG SortKey)

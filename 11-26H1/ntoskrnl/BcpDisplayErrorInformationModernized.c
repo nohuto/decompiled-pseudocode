@@ -1,16 +1,16 @@
 /*
- * XREFs of BcpDisplayErrorInformationModernized @ 0x1407171A0
+ * XREFs of BcpDisplayErrorInformationModernized @ 0x14071BE90
  * Callers:
- *     BgpFwDisplayBugCheckScreenModernized @ 0x14071840C (BgpFwDisplayBugCheckScreenModernized.c)
+ *     BgpFwDisplayBugCheckScreenModernized @ 0x14071D0FC (BgpFwDisplayBugCheckScreenModernized.c)
  * Callees:
- *     RtlAppendUnicodeToString @ 0x140432EB0 (RtlAppendUnicodeToString.c)
- *     RtlAppendUnicodeStringToString @ 0x140432F70 (RtlAppendUnicodeStringToString.c)
- *     BcpConvertBugDataToString @ 0x1407165A0 (BcpConvertBugDataToString.c)
- *     BcpDisplayCriticalString @ 0x14071681C (BcpDisplayCriticalString.c)
- *     BcpDisplayCriticalStringCentered @ 0x140716B84 (BcpDisplayCriticalStringCentered.c)
- *     BcpSanitizeDriverName @ 0x140717D68 (BcpSanitizeDriverName.c)
- *     BcpSetCursorPosition @ 0x140717E1C (BcpSetCursorPosition.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     RtlAppendUnicodeToString @ 0x14041FEE0 (RtlAppendUnicodeToString.c)
+ *     RtlAppendUnicodeStringToString @ 0x14041FFA0 (RtlAppendUnicodeStringToString.c)
+ *     BcpConvertBugDataToString @ 0x14071B290 (BcpConvertBugDataToString.c)
+ *     BcpDisplayCriticalString @ 0x14071B50C (BcpDisplayCriticalString.c)
+ *     BcpDisplayCriticalStringCentered @ 0x14071B874 (BcpDisplayCriticalStringCentered.c)
+ *     BcpSanitizeDriverName @ 0x14071CA58 (BcpSanitizeDriverName.c)
+ *     BcpSetCursorPosition @ 0x14071CB0C (BcpSetCursorPosition.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall BcpDisplayErrorInformationModernized(
@@ -40,7 +40,7 @@ __int64 __fastcall BcpDisplayErrorInformationModernized(
   struct _LIST_ENTRY *Flink; // [rsp+20h] [rbp-E0h]
   int v28; // [rsp+28h] [rbp-D8h] BYREF
   UNICODE_STRING Destination; // [rsp+30h] [rbp-D0h] BYREF
-  int v30; // [rsp+40h] [rbp-C0h]
+  int Blink; // [rsp+40h] [rbp-C0h]
   UNICODE_STRING v31; // [rsp+48h] [rbp-B8h] BYREF
   _DWORD v32[4]; // [rsp+58h] [rbp-A8h] BYREF
   UNICODE_STRING v33; // [rsp+68h] [rbp-98h] BYREF
@@ -52,18 +52,18 @@ __int64 __fastcall BcpDisplayErrorInformationModernized(
   v6 = a5;
   v35 = a5;
   v31 = 0LL;
-  Flink = WheapPfaLock.SchedulerApc.ApcListEntry.Flink;
+  Flink = WheapPfaLock.ThreadListEntry.Flink;
   *(_QWORD *)&v32[1] = 0LL;
   *(_QWORD *)&Destination.Length = 0x4000000LL;
   *(_DWORD *)(&v33.MaximumLength + 1) = 0;
   *(_DWORD *)(&Source.MaximumLength + 1) = 0;
-  v11 = (int *)((char *)&unk_140E0F020 + 84 * a1);
-  v30 = *(_DWORD *)&WheapPfaLock.SchedulerApcFill5[24];
-  v28 = *(_DWORD *)&WheapPfaLock.SchedulerApcFill5[24];
+  v11 = (int *)((char *)&unk_140E0F0A0 + 84 * a1);
+  Blink = (int)WheapPfaLock.ThreadListEntry.Blink;
+  v28 = (int)WheapPfaLock.ThreadListEntry.Blink;
   Source.MaximumLength = 18;
   Source.Buffer = v36;
-  Destination.Buffer = (wchar_t *)stru_140E3E928.WaitBlock[0].WaitListEntry.Flink;
-  if ( RtlAppendUnicodeStringToString(&Destination, (PCUNICODE_STRING)&stru_140E3E928.WaitStatus) >= 0
+  Destination.Buffer = (wchar_t *)stru_140E3EAA8.WaitBlock[0].WaitListEntry.Flink;
+  if ( RtlAppendUnicodeStringToString(&Destination, (PCUNICODE_STRING)&stru_140E3EAA8.WaitStatus) >= 0
     && RtlAppendUnicodeToString(&Destination, L" ") >= 0
     && RtlAppendUnicodeStringToString(&Destination, a5 + 1) >= 0 )
   {
@@ -95,9 +95,9 @@ LABEL_15:
         || (*(_DWORD *)&v33.Length = 0x800000,
             v33.Buffer = (wchar_t *)&v37,
             BcpSanitizeDriverName(a4, &v33),
-            v31.MaximumLength = *(_WORD *)&stru_140E3E928.WaitBlockFill11[32],
-            v31.Buffer = (wchar_t *)stru_140E3E928.WaitBlock[0].Thread,
-            RtlAppendUnicodeStringToString(&v31, (PCUNICODE_STRING)&stru_140E3E928.ApcStateFill[32]) >= 0)
+            v31.MaximumLength = *(_WORD *)&stru_140E3EAA8.WaitBlockFill11[32],
+            v31.Buffer = (wchar_t *)stru_140E3EAA8.WaitBlock[0].Thread,
+            RtlAppendUnicodeStringToString(&v31, (PCUNICODE_STRING)&stru_140E3EAA8.ApcStateFill[32]) >= 0)
         && RtlAppendUnicodeToString(&v31, L" ") >= 0
         && RtlAppendUnicodeStringToString(&v31, &v33) >= 0 )
       {
@@ -106,20 +106,20 @@ LABEL_15:
         BcpDisplayCriticalStringCentered(&Destination.Length, v17, v12, a1);
         if ( a4 )
         {
-          BcpSetCursorPosition((unsigned int)Flink, *(unsigned int *)&WheapPfaLock.SchedulerApcFill5[24], 0LL);
+          BcpSetCursorPosition((unsigned int)Flink, LODWORD(WheapPfaLock.ThreadListEntry.Blink), 0LL);
           BcpDisplayCriticalStringCentered(&v31.Length, v11[1], v18, a1);
         }
-        v19 = (unsigned int)(v30 + v11[5] + v11[7] - *(_DWORD *)&WheapPfaLock.SchedulerApcFill5[24]);
+        v19 = (unsigned int)(Blink + v11[5] + v11[7] - LODWORD(WheapPfaLock.ThreadListEntry.Blink));
         *(_DWORD *)&gLoadedDiffHivesLock.WaitBlockFill11[80] &= ~0x1000000u;
         BcpSetCursorPosition((unsigned int)Flink, v19, 0LL);
         BcpDisplayCriticalStringCentered(&Destination.Length, v11[1], v20, a1);
         if ( a4 )
         {
-          BcpSetCursorPosition((unsigned int)Flink, *(unsigned int *)&WheapPfaLock.SchedulerApcFill5[24], 0LL);
+          BcpSetCursorPosition((unsigned int)Flink, LODWORD(WheapPfaLock.ThreadListEntry.Blink), 0LL);
           BcpDisplayCriticalStringCentered(&v31.Length, v11[1], v21, a1);
         }
-        Flink = WheapPfaLock.SchedulerApc.ApcListEntry.Flink;
-        v28 = *(_DWORD *)&WheapPfaLock.SchedulerApcFill5[24];
+        Flink = WheapPfaLock.ThreadListEntry.Flink;
+        v28 = (int)WheapPfaLock.ThreadListEntry.Blink;
         memset(v32, 0, 12);
         BcpSetCursorPosition(0LL, 0LL, &v32[2]);
         v22 = 0LL;
@@ -127,10 +127,10 @@ LABEL_15:
         do
         {
           BcpConvertBugDataToString(*a3, (__int64)&v6[v22 + 2]);
-          if ( WheapPfaLock.SchedulerApcFill3[40] || (a6 & 8) != 0 && a2 == 317 )
+          if ( WheapPfaLock.AbWaitEntryCount || (a6 & 8) != 0 && a2 == 317 )
           {
             BcpDisplayCriticalString(&v6[v22 + 2].Length, *v11, v25, a1);
-            BcpSetCursorPosition(0LL, *(unsigned int *)&WheapPfaLock.SchedulerApcFill5[24], 0LL);
+            BcpSetCursorPosition(0LL, LODWORD(WheapPfaLock.ThreadListEntry.Blink), 0LL);
           }
           v6 = v35;
           ++v22;

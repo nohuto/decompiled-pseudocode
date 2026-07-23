@@ -1,15 +1,15 @@
 /*
- * XREFs of PpmEventHgsHardwareTable @ 0x14059A2EC
+ * XREFs of PpmEventHgsHardwareTable @ 0x14059A7DC
  * Callers:
- *     PpmHeteroUpdateHgsConfiguration @ 0x140393334 (PpmHeteroUpdateHgsConfiguration.c)
- *     PpmEventTraceControlCallback @ 0x140864C90 (PpmEventTraceControlCallback.c)
+ *     PpmHeteroUpdateHgsConfiguration @ 0x140393514 (PpmHeteroUpdateHgsConfiguration.c)
+ *     PpmEventTraceControlCallback @ 0x140864ED0 (PpmEventTraceControlCallback.c)
  * Callees:
- *     KeEnumerateNextProcessor @ 0x1402572B0 (KeEnumerateNextProcessor.c)
- *     KeGetPrcb @ 0x140257330 (KeGetPrcb.c)
- *     EtwWrite @ 0x1402578A0 (EtwWrite.c)
- *     EtwEventEnabled @ 0x140258420 (EtwEventEnabled.c)
- *     KeQueryMaximumProcessorCountEx @ 0x14033AFA0 (KeQueryMaximumProcessorCountEx.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     KeEnumerateNextProcessor @ 0x140257370 (KeEnumerateNextProcessor.c)
+ *     KeGetPrcb @ 0x1402573F0 (KeGetPrcb.c)
+ *     EtwWrite @ 0x140257960 (EtwWrite.c)
+ *     EtwEventEnabled @ 0x1402584E0 (EtwEventEnabled.c)
+ *     KeQueryMaximumProcessorCountEx @ 0x14033B230 (KeQueryMaximumProcessorCountEx.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
@@ -68,7 +68,7 @@ void __fastcall PpmEventHgsHardwareTable(char a1)
         p_MaximumProcessorCount = &MaximumProcessorCount;
         v25 = &v13;
         v27 = &v15;
-        v18[1] = (unsigned __int16 *)qword_140C0BE68[0];
+        v18[1] = (unsigned __int16 *)qword_140C0BE78[0];
         v18[0] = (unsigned __int16 *)&PpmCheckRegistered;
         v16 = (unsigned __int8)PpmHeteroHgsThreadEnabled;
         *(_QWORD *)&UserData.Size = 4LL;

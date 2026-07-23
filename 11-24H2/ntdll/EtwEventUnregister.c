@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwEventUnregister @ 0x1800F7C20
+ * XREFs of EtwEventUnregister @ 0x1800F2790
  * Callers:
- *     LdrpAppxEtwGenericIntegrityFailure @ 0x180131698 (LdrpAppxEtwGenericIntegrityFailure.c)
- *     LdrpAppxEtwIntegrityFailure @ 0x180131740 (LdrpAppxEtwIntegrityFailure.c)
+ *     LdrpAppxEtwGenericIntegrityFailure @ 0x18012F8C8 (LdrpAppxEtwGenericIntegrityFailure.c)
+ *     LdrpAppxEtwIntegrityFailure @ 0x18012F970 (LdrpAppxEtwIntegrityFailure.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall EtwEventUnregister(__int64 a1)
+ULONG __cdecl EtwEventUnregister(REGHANDLE RegHandle)
 {
-  return EtwNotificationUnregister(a1, 0LL);
+  return EtwNotificationUnregister(RegHandle, 0LL);
 }

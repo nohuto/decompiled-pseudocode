@@ -1,11 +1,11 @@
 /*
- * XREFs of MiDeleteNonPagedPoolTail @ 0x140123F50
+ * XREFs of MiDeleteNonPagedPoolTail @ 0x140124020
  * Callers:
  *     <none>
  * Callees:
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     MiFlushTbList @ 0x1400740C0 (MiFlushTbList.c)
- *     MiReduceShareCount @ 0x140123FDC (MiReduceShareCount.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     MiFlushTbList @ 0x1400740B0 (MiFlushTbList.c)
+ *     MiReduceShareCount @ 0x1401240AC (MiReduceShareCount.c)
  */
 
 __int64 __fastcall MiDeleteNonPagedPoolTail(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

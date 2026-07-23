@@ -6,47 +6,51 @@
  *     RtlFirstFreeAce @ 0x180049B80 (RtlFirstFreeAce.c)
  */
 
-__int64 __fastcall RtlQueryInformationAcl(unsigned __int8 *a1, _DWORD *a2, unsigned int a3, int a4)
+NTSTATUS __cdecl RtlQueryInformationAcl(
+        PACL Acl,
+        PVOID AclInformation,
+        ULONG AclInformationLength,
+        ACL_INFORMATION_CLASS AclInformationClass)
 {
-  int v6; // r9d
-  __int64 v7; // rcx
+  __int32 v6; // r9d
+  PVOID v7; // rcx
   int v8; // ecx
-  __int64 v10; // [rsp+30h] [rbp+8h] BYREF
+  PVOID FirstFree; // [rsp+30h] [rbp+8h] BYREF
 
-  if ( (unsigned __int8)(*a1 - 2) <= 2u )
+  if ( (unsigned __int8)(Acl->AclRevision - 2) <= 2u )
   {
-    v6 = a4 - 1;
+    v6 = AclInformationClass - 1;
     if ( v6 )
     {
       if ( v6 != 1 )
-        return 3221225475LL;
-      if ( a3 >= 0xC )
+        return -1073741821;
+      if ( AclInformationLength >= 0xC )
       {
-        if ( RtlFirstFreeAce((__int64)a1, &v10) )
+        if ( RtlFirstFreeAce(Acl, &FirstFree) )
         {
-          v7 = v10;
-          *a2 = *((unsigned __int16 *)a1 + 2);
+          v7 = FirstFree;
+          *(_DWORD *)AclInformation = Acl->AceCount;
           if ( v7 )
           {
-            v8 = v7 - (_DWORD)a1;
-            a2[1] = v8;
-            a2[2] = *((unsigned __int16 *)a1 + 1) - v8;
+            v8 = (_DWORD)v7 - (_DWORD)Acl;
+            *((_DWORD *)AclInformation + 1) = v8;
+            *((_DWORD *)AclInformation + 2) = Acl->AclSize - v8;
           }
           else
           {
-            *(_QWORD *)(a2 + 1) = *((unsigned __int16 *)a1 + 1);
+            *(_QWORD *)((char *)AclInformation + 4) = Acl->AclSize;
           }
-          return 0LL;
+          return 0;
         }
-        return 3221225485LL;
+        return -1073741811;
       }
     }
-    else if ( a3 >= 4 )
+    else if ( AclInformationLength >= 4 )
     {
-      *a2 = *a1;
-      return 0LL;
+      *(_DWORD *)AclInformation = Acl->AclRevision;
+      return 0;
     }
-    return 3221225507LL;
+    return -1073741789;
   }
-  return 3221225485LL;
+  return -1073741811;
 }

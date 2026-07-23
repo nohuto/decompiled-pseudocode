@@ -15,13 +15,13 @@ int __fastcall RtlpGenerateInheritAcl(
         int a5,
         int a6,
         int a7,
-        int a8,
+        PGENERIC_MAPPING GenericMapping,
         int a9,
         int a10,
         int a11,
         char a12,
         _DWORD *a13,
-        int a14,
+        PACL Acl,
         _BYTE *a15)
 {
   int v16; // ebx
@@ -30,9 +30,9 @@ int __fastcall RtlpGenerateInheritAcl(
   unsigned int v19; // esi
   int result; // eax
   int v21; // [esp+Ch] [ebp-14h]
-  unsigned int v22; // [esp+10h] [ebp-10h] BYREF
+  int v22; // [esp+10h] [ebp-10h] BYREF
   unsigned int v23; // [esp+14h] [ebp-Ch]
-  unsigned int v24; // [esp+18h] [ebp-8h] BYREF
+  int v24; // [esp+18h] [ebp-8h] BYREF
   _BYTE v25[2]; // [esp+1Dh] [ebp-3h] BYREF
   char v26; // [esp+1Fh] [ebp-1h]
 
@@ -53,7 +53,7 @@ int __fastcall RtlpGenerateInheritAcl(
       {
         if ( a11 == 3 )
         {
-          if ( RtlFindAceByType(a14, 17, 0) )
+          if ( RtlFindAceByType(Acl, 0x11u, 0) )
           {
 LABEL_14:
             if ( !v26 )
@@ -64,7 +64,19 @@ LABEL_21:
             return result;
           }
 LABEL_4:
-          result = RtlpGenerateInheritedAce(a3, a4, a5, a6, a7, a8, a9, a10, &v24, a14, &v22, v25);
+          result = RtlpGenerateInheritedAce(
+                     a3,
+                     a4,
+                     a5,
+                     a6,
+                     a7,
+                     GenericMapping,
+                     a9,
+                     a10,
+                     (int)&v24,
+                     Acl,
+                     (int)&v22,
+                     (int)v25);
           if ( result == -1073741789 )
           {
             v26 = 1;

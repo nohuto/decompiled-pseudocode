@@ -6,25 +6,25 @@
  *     _RtlReleaseSRWLockExclusive@4 @ 0x4B2C2480 (_RtlReleaseSRWLockExclusive@4.c)
  */
 
-signed __int32 __fastcall RtlpHpSegMgrCommitComplete(
+void __fastcall RtlpHpSegMgrCommitComplete(
         int a1,
         volatile signed __int16 *a2,
         int a3,
         int a4,
-        volatile signed __int32 *a5,
+        PRTL_SRWLOCK SRWLock,
         int a6)
 {
   signed __int16 i; // cx
-  signed __int32 result; // eax
+  __int16 v8; // ax
   signed __int16 v9; // dx
+  signed __int16 v10; // ax
 
-  for ( i = *a2; ; i = result )
+  for ( i = *a2; ; i = v10 )
   {
-    result = i & 0x4000;
     if ( (i & 0x4000) != 0 )
     {
-      result = a4 && a3 > 0 ? 0x8000 : 0;
-      v9 = result | i & 0x3FFF;
+      v8 = a4 && a3 > 0 ? 0x8000 : 0;
+      v9 = v8 | i & 0x3FFF;
     }
     else
     {
@@ -40,13 +40,12 @@ signed __int32 __fastcall RtlpHpSegMgrCommitComplete(
     }
     if ( v9 == i )
       break;
-    result = (unsigned __int16)_InterlockedCompareExchange16(a2, v9, i);
-    if ( (_WORD)result == i )
+    v10 = _InterlockedCompareExchange16(a2, v9, i);
+    if ( v10 == i )
     {
       if ( (i & 0x4000) != 0 )
-        return RtlReleaseSRWLockExclusive(a5);
-      return result;
+        RtlReleaseSRWLockExclusive(SRWLock);
+      return;
     }
   }
-  return result;
 }

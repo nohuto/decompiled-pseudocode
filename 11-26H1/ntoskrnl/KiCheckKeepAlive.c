@@ -1,11 +1,11 @@
 /*
- * XREFs of KiCheckKeepAlive @ 0x1403EF0E4
+ * XREFs of KiCheckKeepAlive @ 0x140453C14
  * Callers:
- *     KeAccumulateTicks @ 0x14021F980 (KeAccumulateTicks.c)
+ *     KeAccumulateTicks @ 0x140221310 (KeAccumulateTicks.c)
  * Callees:
- *     KeAddProcessorAffinityEx @ 0x140246720 (KeAddProcessorAffinityEx.c)
- *     KeRemoveProcessorAffinityEx @ 0x1403EF310 (KeRemoveProcessorAffinityEx.c)
- *     KeCheckProcessorAffinityEx @ 0x14042D260 (KeCheckProcessorAffinityEx.c)
+ *     KeAddProcessorAffinityEx @ 0x140248080 (KeAddProcessorAffinityEx.c)
+ *     KeCheckProcessorAffinityEx @ 0x140421930 (KeCheckProcessorAffinityEx.c)
+ *     KeRemoveProcessorAffinityEx @ 0x140453E40 (KeRemoveProcessorAffinityEx.c)
  */
 
 char __fastcall KiCheckKeepAlive(__int64 a1)
@@ -19,13 +19,13 @@ char __fastcall KiCheckKeepAlive(__int64 a1)
 
   v1 = *(unsigned int *)(a1 + 36);
   v2 = 0;
-  v4 = *(_DWORD *)(*(_QWORD *)&KiSupervisorXStateFeaturesLock.WaitBlockFill11[112] + 4 * v1);
+  v4 = *((_DWORD *)&KiSupervisorXStateFeaturesLock.SchedulerApc.Thread->Header.Lock + v1);
   if ( !KiClockTimerPerCpuTickScheduling )
   {
     v7 = v4 >> 6;
     if ( (unsigned int)v7 >= KiClockCheckPending[0] || ((*(_QWORD *)&KiClockCheckPending[4 * v7 + 4] >> v4) & 1) == 0 )
       return v2;
-    if ( !(unsigned int)KeCheckProcessorAffinityEx(KiClockCheckReady, (unsigned int)v1) )
+    if ( !(unsigned int)KeCheckProcessorAffinityEx(KiClockCheckReady, v1) )
     {
 LABEL_11:
       KeAddProcessorAffinityEx(KiClockCheckReady, v1);

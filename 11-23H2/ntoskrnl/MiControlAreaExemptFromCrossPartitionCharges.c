@@ -2,8 +2,8 @@
  * XREFs of MiControlAreaExemptFromCrossPartitionCharges @ 0x140214D6C
  * Callers:
  *     MiControlAreaRequiresCharge @ 0x140214CC4 (MiControlAreaRequiresCharge.c)
- *     MiIncrementSubsectionViewCount @ 0x1402891F0 (MiIncrementSubsectionViewCount.c)
- *     MiDecrementSubsectionViewCount @ 0x14029FAD0 (MiDecrementSubsectionViewCount.c)
+ *     MiIncrementSubsectionViewCount @ 0x140289480 (MiIncrementSubsectionViewCount.c)
+ *     MiDecrementSubsectionViewCount @ 0x14029FD60 (MiDecrementSubsectionViewCount.c)
  * Callees:
  *     <none>
  */

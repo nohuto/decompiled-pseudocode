@@ -8,13 +8,10 @@
  *     RtlAcquireSRWLockExclusive @ 0x180028090 (RtlAcquireSRWLockExclusive.c)
  */
 
-signed __int64 __fastcall sub_180077048(__int64 a1, unsigned __int64 a2, unsigned __int64 *a3, __int64 a4)
+void __fastcall sub_180077048(__int64 a1, int a2)
 {
-  int v4; // edi
-
-  v4 = a2;
-  RtlAcquireSRWLockExclusive(a1 + 16, a2, a3, a4);
-  if ( (*(_BYTE *)(a1 + 8) & 8) == 0 && (!v4 || v4 == 258) )
-    TpSetWaitEx(*(_QWORD *)(a1 + 48), *(_QWORD *)(a1 + 56), *(_QWORD **)(a1 + 72), 0LL);
-  return RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a1 + 16));
+  RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 16));
+  if ( (*(_BYTE *)(a1 + 8) & 8) == 0 && (!a2 || a2 == 258) )
+    TpSetWaitEx(*(PTP_WAIT *)(a1 + 48), *(HANDLE *)(a1 + 56), *(PLARGE_INTEGER *)(a1 + 72), 0LL);
+  RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 16));
 }

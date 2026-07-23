@@ -10,7 +10,7 @@
 
 void __fastcall RtlpAllocateHeapRaiseException(unsigned __int64 a1)
 {
-  struct _EXCEPTION_RECORD ExceptionRecord; // [rsp+20h] [rbp-B8h] BYREF
+  EXCEPTION_RECORD ExceptionRecord; // [rsp+20h] [rbp-B8h] BYREF
 
   memset(&ExceptionRecord, 0, sizeof(ExceptionRecord));
   ExceptionRecord.ExceptionRecord = 0LL;

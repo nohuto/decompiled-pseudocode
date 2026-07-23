@@ -12,7 +12,7 @@
  *     _RtlpWaitOnAddressRemoveWaitBlock@8 @ 0x4B2DF916 (_RtlpWaitOnAddressRemoveWaitBlock@8.c)
  */
 
-int __fastcall RtlpWaitOnAddress(volatile signed __int64 *a1, int a2, unsigned int a3, int a4, int a5)
+int __fastcall RtlpWaitOnAddress(volatile signed __int64 *a1, int a2, unsigned int a3, PLARGE_INTEGER Timeout, int a5)
 {
   struct _TEB *v7; // ecx
   bool v8; // zf
@@ -52,7 +52,7 @@ LABEL_10:
         break;
     }
     if ( v8 )
-      return RtlpWaitOnAddressWithTimeout(a4, a5);
+      return RtlpWaitOnAddressWithTimeout(Timeout, a5);
     goto LABEL_10;
   }
   return -1073741811;

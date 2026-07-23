@@ -8,14 +8,14 @@
 
 __int64 __fastcall RtlInitializeNtUserPfn(_OWORD *a1, __int64 a2, _OWORD *a3, __int64 a4, __int64 a5, __int64 a6)
 {
-  __int64 v6; // rbp
+  ULONG_PTR v6; // rbp
   __int64 v9; // rsi
   __int128 v10; // xmm0
   _OWORD *v11; // rdi
   __int128 v12; // xmm1
   _OWORD *v13; // rbx
 
-  v6 = qword_18016B370;
+  v6 = LdrSystemDllInitBlock.MitigationOptionsMap.Map[2];
   v9 = *(_QWORD *)_guard_check_icall_fptr;
   if ( byte_18016B1C8 || a2 != 184 || a4 != 184 || a6 != 88 )
     return 3221225485LL;
@@ -56,7 +56,7 @@ __int64 __fastcall RtlInitializeNtUserPfn(_OWORD *a1, __int64 a2, _OWORD *a3, __
   off_18016B1C0 = *(void (__fastcall __noreturn **)())(a5 + 80);
   byte_18016B1C8 = 1;
   sub_18001DEA8(1);
-  if ( v6 != qword_18016B370 || v9 != *(_QWORD *)_guard_check_icall_fptr )
+  if ( v6 != LdrSystemDllInitBlock.MitigationOptionsMap.Map[2] || v9 != *(_QWORD *)_guard_check_icall_fptr )
     __fastfail(0x13u);
   return 0LL;
 }

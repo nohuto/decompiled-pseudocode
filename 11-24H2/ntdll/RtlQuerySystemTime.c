@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlQuerySystemTime @ 0x1800EE150
+ * XREFs of RtlQuerySystemTime @ 0x1800E9330
  * Callers:
- *     ZwQuerySystemTime @ 0x1801627D0 (ZwQuerySystemTime.c)
+ *     ZwQuerySystemTime @ 0x180160B90 (ZwQuerySystemTime.c)
  * Callees:
  *     <none>
  */

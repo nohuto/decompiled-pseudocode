@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpTraceSavePersistedLoggerStop @ 0x1407B0540
+ * XREFs of EtwpTraceSavePersistedLoggerStop @ 0x1407B0990
  * Callers:
- *     EtwpSavePersistedLogger @ 0x1407AFE60 (EtwpSavePersistedLogger.c)
+ *     EtwpSavePersistedLogger @ 0x1407B02B0 (EtwpSavePersistedLogger.c)
  * Callees:
- *     EtwEventEnabled @ 0x1402A1BD0 (EtwEventEnabled.c)
- *     EtwWrite @ 0x14041C1B0 (EtwWrite.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x1402D1300 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x14040FFB0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 BOOLEAN __fastcall EtwpTraceSavePersistedLoggerStop(unsigned __int16 *a1, int a2, int a3, int a4, char a5, int a6)
@@ -14,7 +14,7 @@ BOOLEAN __fastcall EtwpTraceSavePersistedLoggerStop(unsigned __int16 *a1, int a2
   BOOLEAN result; // al
   ULONGLONG v9; // rax
   struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+38h] [rbp-49h] BYREF
-  __int64 *v11; // [rsp+48h] [rbp-39h]
+  int *v11; // [rsp+48h] [rbp-39h]
   int v12; // [rsp+50h] [rbp-31h]
   int v13; // [rsp+54h] [rbp-2Dh]
   int *v14; // [rsp+58h] [rbp-29h]

@@ -11,39 +11,39 @@
  *     memset @ 0x1800A16C0 (memset.c)
  */
 
-__int64 sub_1800569F0()
+__int64 __fastcall sub_1800569F0(PRTL_RUN_ONCE a1, PVOID a2, PVOID *a3)
 {
-  void *Heap; // rax
-  unsigned __int64 v1; // rbx
+  char *Heap; // rax
+  char *v4; // rbx
 
-  Heap = (void *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, 96LL);
-  v1 = (unsigned __int64)Heap;
+  Heap = (char *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, 0x60uLL);
+  v4 = Heap;
   if ( Heap )
   {
     memset(Heap, 0, 0x60uLL);
-    *(_DWORD *)v1 = 6293777;
-    if ( (int)TpAllocTimer(v1 + 80, sub_1800D8F60, 0LL, 0LL) >= 0 )
+    *(_DWORD *)v4 = 6293777;
+    if ( TpAllocTimer((PTP_TIMER *)v4 + 10, Callback, 0LL, 0LL) >= 0 )
     {
-      *(_QWORD *)(v1 + 88) = 0LL;
-      *(_QWORD *)(v1 + 24) = v1 + 16;
-      *(_QWORD *)(v1 + 16) = v1 + 16;
-      *(_QWORD *)(v1 + 8) = 0LL;
-      *(_QWORD *)(v1 + 40) = v1 + 32;
-      *(_QWORD *)(v1 + 32) = v1 + 32;
-      *(_QWORD *)(v1 + 48) = 0LL;
-      *(_DWORD *)(v1 + 60) = 500;
-      *(_DWORD *)(v1 + 64) = 1000;
-      *(_DWORD *)(v1 + 68) = 3600000;
-      *(_DWORD *)(v1 + 72) = 10;
-      *(_DWORD *)(v1 + 56) = 1;
+      *((_QWORD *)v4 + 11) = 0LL;
+      *((_QWORD *)v4 + 3) = v4 + 16;
+      *((_QWORD *)v4 + 2) = v4 + 16;
+      *((_QWORD *)v4 + 1) = 0LL;
+      *((_QWORD *)v4 + 5) = v4 + 32;
+      *((_QWORD *)v4 + 4) = v4 + 32;
+      *((_QWORD *)v4 + 6) = 0LL;
+      *((_DWORD *)v4 + 15) = 500;
+      *((_DWORD *)v4 + 16) = 1000;
+      *((_DWORD *)v4 + 17) = 3600000;
+      *((_DWORD *)v4 + 18) = 10;
+      *((_DWORD *)v4 + 14) = 1;
       if ( (int)sub_180056AC0() >= 0 )
       {
-        qword_18015D058 = v1;
+        qword_18015D058 = (__int64)v4;
         return 1LL;
       }
-      TpReleaseTimer(*(_QWORD *)(v1 + 80));
+      TpReleaseTimer(*((PTP_TIMER *)v4 + 10));
     }
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v1);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v4);
   }
   return 0LL;
 }

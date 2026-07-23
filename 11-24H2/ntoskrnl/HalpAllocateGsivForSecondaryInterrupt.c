@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpAllocateGsivForSecondaryInterrupt @ 0x1405558A0
+ * XREFs of HalpAllocateGsivForSecondaryInterrupt @ 0x1405531E0
  * Callers:
  *     <none>
  * Callees:
- *     KeInitializeSecondaryInterruptServices @ 0x14073C590 (KeInitializeSecondaryInterruptServices.c)
+ *     KeInitializeSecondaryInterruptServices @ 0x14073A4C0 (KeInitializeSecondaryInterruptServices.c)
  */
 
 __int64 __fastcall HalpAllocateGsivForSecondaryInterrupt(__int64 a1, __int64 a2, _DWORD *a3)

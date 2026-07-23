@@ -1,20 +1,20 @@
 /*
- * XREFs of CmpRecheckHiveVolumePolicy @ 0x140362080
+ * XREFs of CmpRecheckHiveVolumePolicy @ 0x1402F73C0
  * Callers:
- *     CmpLoadKeyCommon @ 0x14036195C (CmpLoadKeyCommon.c)
- *     CmpCreateHive @ 0x14071E618 (CmpCreateHive.c)
- *     CmpFinishSystemHivesLoad @ 0x1407A72B0 (CmpFinishSystemHivesLoad.c)
- *     CmpHandlePageFileOpenNotification @ 0x1407C8D38 (CmpHandlePageFileOpenNotification.c)
+ *     CmpLoadKeyCommon @ 0x14026D10C (CmpLoadKeyCommon.c)
+ *     CmpCreateHive @ 0x1406F756C (CmpCreateHive.c)
+ *     CmpFinishSystemHivesLoad @ 0x1407A74B0 (CmpFinishSystemHivesLoad.c)
+ *     CmpHandlePageFileOpenNotification @ 0x1407C9058 (CmpHandlePageFileOpenNotification.c)
  * Callees:
- *     CmpArmLazyWriter @ 0x140358040 (CmpArmLazyWriter.c)
- *     CmpAdjustFileCFSafety @ 0x1403F057C (CmpAdjustFileCFSafety.c)
- *     HvUnlockHiveFilePages @ 0x1406C2F24 (HvUnlockHiveFilePages.c)
- *     CmpUnlockRegistry @ 0x1406F5ED0 (CmpUnlockRegistry.c)
- *     CmpLockRegistry @ 0x1406F5F10 (CmpLockRegistry.c)
- *     HvViewMapContainsLockedPages @ 0x14071CA30 (HvViewMapContainsLockedPages.c)
- *     HvUnlockHiveFlusherExclusive @ 0x14071E188 (HvUnlockHiveFlusherExclusive.c)
- *     HvLockHiveFlusherExclusive @ 0x14071E1C0 (HvLockHiveFlusherExclusive.c)
- *     CmpVolumeContextMustHiveFilePagesBeKeptLocal @ 0x14071E1DC (CmpVolumeContextMustHiveFilePagesBeKeptLocal.c)
+ *     CmpArmLazyWriter @ 0x140362D90 (CmpArmLazyWriter.c)
+ *     CmpAdjustFileCFSafety @ 0x1403F06EC (CmpAdjustFileCFSafety.c)
+ *     HvUnlockHiveFilePages @ 0x140621BD4 (HvUnlockHiveFilePages.c)
+ *     HvViewMapContainsLockedPages @ 0x1406644E8 (HvViewMapContainsLockedPages.c)
+ *     HvUnlockHiveFlusherExclusive @ 0x1406F97EC (HvUnlockHiveFlusherExclusive.c)
+ *     HvLockHiveFlusherExclusive @ 0x1406F9824 (HvLockHiveFlusherExclusive.c)
+ *     CmpVolumeContextMustHiveFilePagesBeKeptLocal @ 0x1406F9840 (CmpVolumeContextMustHiveFilePagesBeKeptLocal.c)
+ *     CmpUnlockRegistry @ 0x14070D2B0 (CmpUnlockRegistry.c)
+ *     CmpLockRegistry @ 0x14070D2F0 (CmpLockRegistry.c)
  */
 
 __int64 __fastcall CmpRecheckHiveVolumePolicy(__int64 a1)
@@ -32,7 +32,7 @@ __int64 __fastcall CmpRecheckHiveVolumePolicy(__int64 a1)
       || (v2 = *(_DWORD *)(a1 + 4152), (v2 & 0x20) != 0) )
     {
       if ( (unsigned __int8)HvViewMapContainsLockedPages(a1 + 216) )
-        CmpArmLazyWriter(2, 0LL, 0);
+        CmpArmLazyWriter(2LL, 0LL, 0LL);
     }
     else if ( (*(_DWORD *)(a1 + 160) & 0x8000) == 0 )
     {

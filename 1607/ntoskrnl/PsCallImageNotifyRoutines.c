@@ -1,15 +1,15 @@
 /*
- * XREFs of PsCallImageNotifyRoutines @ 0x140429240
+ * XREFs of PsCallImageNotifyRoutines @ 0x140428110
  * Callers:
- *     MiMapViewOfImageSection @ 0x140429AC0 (MiMapViewOfImageSection.c)
- *     DbgkCreateThread @ 0x140459228 (DbgkCreateThread.c)
- *     MiDriverLoadSucceeded @ 0x140484174 (MiDriverLoadSucceeded.c)
+ *     MiMapViewOfImageSection @ 0x140428990 (MiMapViewOfImageSection.c)
+ *     DbgkCreateThread @ 0x1404580F8 (DbgkCreateThread.c)
+ *     MiDriverLoadSucceeded @ 0x140482EC8 (MiDriverLoadSucceeded.c)
  * Callees:
- *     ExDereferenceCallBackBlock @ 0x140013F40 (ExDereferenceCallBackBlock.c)
- *     ExReferenceCallBackBlock @ 0x140013F80 (ExReferenceCallBackBlock.c)
- *     ExGetCallBackBlockRoutine @ 0x140014034 (ExGetCallBackBlockRoutine.c)
- *     KeLeaveCriticalRegionThread @ 0x14006A0A0 (KeLeaveCriticalRegionThread.c)
- *     PerfLogImageLoad @ 0x1404296DC (PerfLogImageLoad.c)
+ *     ExDereferenceCallBackBlock @ 0x140013AC0 (ExDereferenceCallBackBlock.c)
+ *     ExReferenceCallBackBlock @ 0x140013B00 (ExReferenceCallBackBlock.c)
+ *     ExGetCallBackBlockRoutine @ 0x140013BB4 (ExGetCallBackBlockRoutine.c)
+ *     KeLeaveCriticalRegionThread @ 0x140069C20 (KeLeaveCriticalRegionThread.c)
+ *     PerfLogImageLoad @ 0x1404285AC (PerfLogImageLoad.c)
  */
 
 __int64 __fastcall PsCallImageNotifyRoutines(_BYTE *a1, __int64 a2, __int64 a3, __int64 a4)
@@ -18,7 +18,7 @@ __int64 __fastcall PsCallImageNotifyRoutines(_BYTE *a1, __int64 a2, __int64 a3, 
   int v9; // eax
   int *v10; // r14
   __int64 v11; // rdi
-  union _RTL_RUN_ONCE *v12; // rbx
+  _RTL_RUN_ONCE *v12; // rbx
   struct _EX_RUNDOWN_REF *v13; // rax
   struct _EX_RUNDOWN_REF *v14; // rsi
   void (__fastcall *v16)(_BYTE *, __int64, int *); // rax

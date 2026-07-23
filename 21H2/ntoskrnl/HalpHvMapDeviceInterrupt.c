@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpHvMapDeviceInterrupt @ 0x1409A7168
+ * XREFs of HalpHvMapDeviceInterrupt @ 0x1409A8098
  * Callers:
- *     HalpInterruptRemap @ 0x1403785E0 (HalpInterruptRemap.c)
- *     HalpInterruptEnableNmi @ 0x1403A376C (HalpInterruptEnableNmi.c)
- *     HalpInterruptRemapFixedLines @ 0x1403CDB6C (HalpInterruptRemapFixedLines.c)
+ *     HalpInterruptRemap @ 0x140378130 (HalpInterruptRemap.c)
+ *     HalpInterruptEnableNmi @ 0x1403A38BC (HalpInterruptEnableNmi.c)
+ *     HalpInterruptRemapFixedLines @ 0x1403CDCDC (HalpInterruptRemapFixedLines.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall HalpHvMapDeviceInterrupt(char a1, __int64 a2, __int64 a3, __int64 a4)
@@ -48,7 +48,7 @@ __int64 __fastcall HalpHvMapDeviceInterrupt(char a1, __int64 a2, __int64 a3, __i
   }
   DWORD2(v13) = 1;
   DWORD1(v13) = *(_DWORD *)(a3 + 8) == 0;
-  result = ((__int64 (__fastcall *)(unsigned __int64, __int128 *, __int64, __int128 *))qword_140C4A1A8)(
+  result = ((__int64 (__fastcall *)(unsigned __int64, __int128 *, __int64, __int128 *))qword_140C4A1E8)(
              v11,
              &v13,
              a4,

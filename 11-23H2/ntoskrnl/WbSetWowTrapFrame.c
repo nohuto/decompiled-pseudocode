@@ -1,14 +1,14 @@
 /*
- * XREFs of WbSetWowTrapFrame @ 0x140A4DC40
+ * XREFs of WbSetWowTrapFrame @ 0x140A4DEF0
  * Callers:
- *     WbSetTrapFrame @ 0x140763048 (WbSetTrapFrame.c)
+ *     WbSetTrapFrame @ 0x140763238 (WbSetTrapFrame.c)
  * Callees:
- *     KiCheckForKernelApcDelivery @ 0x14030F820 (KiCheckForKernelApcDelivery.c)
- *     PspWow64GetContextThread @ 0x1407A018C (PspWow64GetContextThread.c)
- *     PspWow64SetContextThread @ 0x1407A0458 (PspWow64SetContextThread.c)
+ *     KiCheckForKernelApcDelivery @ 0x14030FAB0 (KiCheckForKernelApcDelivery.c)
+ *     PspWow64GetContextThread @ 0x1407A037C (PspWow64GetContextThread.c)
+ *     PspWow64SetContextThread @ 0x1407A0648 (PspWow64SetContextThread.c)
  */
 
-__int64 __fastcall WbSetWowTrapFrame(int *a1, int *a2)
+__int64 __fastcall WbSetWowTrapFrame(ULONG *a1, ULONG *a2)
 {
   _KPROCESS *Process; // rcx
   __int16 v5; // si
@@ -58,7 +58,7 @@ LABEL_7:
       a1[26] = *a2;
       a1[29] = a2[4];
     }
-    ContextThread = PspWow64SetContextThread(KeGetCurrentThread(), (unsigned int *)a1 + 12, v6, 0);
+    ContextThread = PspWow64SetContextThread(KeGetCurrentThread(), a1 + 12, v6, 0);
   }
   v10 = KeGetCurrentThread();
   v11 = v10->SpecialApcDisable++ == -1;

@@ -1,46 +1,66 @@
 /*
- * XREFs of NtQuerySystemInformation @ 0x140650EF0
+ * XREFs of NtQuerySystemInformation @ 0x140645D10
  * Callers:
- *     HalpTimerConfigureQpcBypass @ 0x1403CDDAC (HalpTimerConfigureQpcBypass.c)
- *     AlpcpInitSystem @ 0x1407CE04C (AlpcpInitSystem.c)
+ *     HalpTimerConfigureQpcBypass @ 0x1403CDF1C (HalpTimerConfigureQpcBypass.c)
+ *     AlpcpInitSystem @ 0x1407CE1BC (AlpcpInitSystem.c)
  * Callees:
- *     ExpQuerySystemInformation @ 0x140651070 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x140645E90 (ExpQuerySystemInformation.c)
  */
 
-__int64 __fastcall NtQuerySystemInformation(__int64 a1)
+NTSTATUS __cdecl NtQuerySystemInformation(
+        SYSTEM_INFORMATION_CLASS SystemInformationClass,
+        PVOID SystemInformation,
+        ULONG SystemInformationLength,
+        PULONG ReturnLength)
 {
   __int16 *p_Group; // r10
+  __int64 v6; // r8
   __int16 Group; // [rsp+40h] [rbp+8h] BYREF
 
   p_Group = 0LL;
   Group = 0;
-  if ( (int)a1 < 74 || (int)a1 >= 83 )
+  if ( SystemInformationClass < SystemWow64SharedInformationObsolete
+    || SystemInformationClass >= SystemProcessorIdleCycleTimeInformation )
   {
-    switch ( (int)a1 )
+    switch ( SystemInformationClass )
     {
-      case 8:
-      case 23:
-      case 42:
-      case 61:
-      case 83:
-      case 100:
-      case 108:
-      case 141:
+      case SystemProcessorPerformanceInformation:
+      case SystemInterruptInformation:
+      case SystemProcessorIdleInformation:
+      case SystemProcessorPowerInformation:
+      case SystemProcessorIdleCycleTimeInformation:
+      case SystemProcessorPerformanceDistribution:
+      case SystemProcessorCycleTimeInformation:
+      case SystemProcessorPerformanceInformationEx:
         Group = KeGetCurrentPrcb()->Group;
-        goto LABEL_7;
-      case 73:
-LABEL_7:
+        goto LABEL_8;
+      case SystemLogicalProcessorInformation:
+LABEL_8:
         p_Group = &Group;
-        return ExpQuerySystemInformation(a1, p_Group);
-      case 107:
-      case 121:
-      case 180:
-      case 210:
-      case 211:
-        return 3221225475LL;
+        v6 = 2LL;
+        return ExpQuerySystemInformation(
+                 SystemInformationClass,
+                 p_Group,
+                 v6,
+                 SystemInformation,
+                 SystemInformationLength,
+                 ReturnLength);
+      case SystemLogicalProcessorAndGroupInformation:
+      case SystemNodeDistanceInformation:
+      case SystemInterruptSteeringInformation:
+      case SystemFeatureConfigurationInformation:
+      case SystemFeatureConfigurationSectionInformation:
+        return -1073741821;
       default:
-        return ExpQuerySystemInformation(a1, p_Group);
+        break;
     }
   }
-  return ExpQuerySystemInformation(a1, p_Group);
+  v6 = 0LL;
+  return ExpQuerySystemInformation(
+           SystemInformationClass,
+           p_Group,
+           v6,
+           SystemInformation,
+           SystemInformationLength,
+           ReturnLength);
 }

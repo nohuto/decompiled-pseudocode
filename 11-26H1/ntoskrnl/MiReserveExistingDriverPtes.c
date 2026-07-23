@@ -1,13 +1,13 @@
 /*
- * XREFs of MiReserveExistingDriverPtes @ 0x140B0A384
+ * XREFs of MiReserveExistingDriverPtes @ 0x140B0C144
  * Callers:
- *     MiReserveDriverPtes @ 0x140B0A2B4 (MiReserveDriverPtes.c)
+ *     MiReserveDriverPtes @ 0x140B0C074 (MiReserveDriverPtes.c)
  * Callees:
- *     MiMakeZeroedPageTables @ 0x1402A50D4 (MiMakeZeroedPageTables.c)
- *     RtlFindClearBits @ 0x140358780 (RtlFindClearBits.c)
- *     RtlSetBits @ 0x140358D10 (RtlSetBits.c)
- *     MiGetPteAddress @ 0x1404468C0 (MiGetPteAddress.c)
- *     RtlAreBitsSet @ 0x140476320 (RtlAreBitsSet.c)
+ *     MiMakeZeroedPageTables @ 0x1402A4624 (MiMakeZeroedPageTables.c)
+ *     RtlFindClearBits @ 0x14035A520 (RtlFindClearBits.c)
+ *     RtlSetBits @ 0x14035AAB0 (RtlSetBits.c)
+ *     MiGetPteAddress @ 0x14043F3C0 (MiGetPteAddress.c)
+ *     RtlAreBitsSet @ 0x14046FAA0 (RtlAreBitsSet.c)
  */
 
 unsigned __int64 __fastcall MiReserveExistingDriverPtes(ULONG NumberToFind)
@@ -24,9 +24,9 @@ unsigned __int64 __fastcall MiReserveExistingDriverPtes(ULONG NumberToFind)
   __int64 v11; // rdx
   ULONG v12; // r15d
 
-  SystemArgument1 = (char *)stru_140E2D150.SchedulerApc.SystemArgument1;
+  SystemArgument1 = (char *)stru_140E2D2D0.SchedulerApc.SystemArgument1;
   ClearBits = -1;
-  if ( !stru_140E2D150.SchedulerApc.SystemArgument1 )
+  if ( !stru_140E2D2D0.SchedulerApc.SystemArgument1 )
     return 0LL;
   do
   {

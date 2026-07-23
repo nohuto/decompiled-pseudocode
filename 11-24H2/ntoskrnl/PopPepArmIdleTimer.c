@@ -1,13 +1,13 @@
 /*
- * XREFs of PopPepArmIdleTimer @ 0x1403785FC
+ * XREFs of PopPepArmIdleTimer @ 0x1402E6CD8
  * Callers:
- *     PopPepGetComponentPreferedIdleState @ 0x140316D90 (PopPepGetComponentPreferedIdleState.c)
- *     PopPepIdleTimeoutRoutine @ 0x140452AB0 (PopPepIdleTimeoutRoutine.c)
- *     PopPepIdleTimeoutDpcRoutine @ 0x14049A7E0 (PopPepIdleTimeoutDpcRoutine.c)
+ *     PopPepGetComponentPreferedIdleState @ 0x1402BF940 (PopPepGetComponentPreferedIdleState.c)
+ *     PopPepIdleTimeoutDpcRoutine @ 0x140314F70 (PopPepIdleTimeoutDpcRoutine.c)
+ *     PopPepIdleTimeoutRoutine @ 0x140447B60 (PopPepIdleTimeoutRoutine.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     KeSetCoalescableTimer @ 0x140334000 (KeSetCoalescableTimer.c)
- *     ExReleaseSpinLockExclusive @ 0x140379ED0 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     KeSetCoalescableTimer @ 0x1402BE6B0 (KeSetCoalescableTimer.c)
+ *     ExReleaseSpinLockExclusive @ 0x1402E6E40 (ExReleaseSpinLockExclusive.c)
  */
 
 void __fastcall PopPepArmIdleTimer(char a1)

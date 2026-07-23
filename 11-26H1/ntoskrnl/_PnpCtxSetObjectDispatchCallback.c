@@ -1,7 +1,7 @@
 /*
- * XREFs of _PnpCtxSetObjectDispatchCallback @ 0x1408961F4
+ * XREFs of _PnpCtxSetObjectDispatchCallback @ 0x14089C5F4
  * Callers:
- *     DrvDbOpenContext @ 0x14089F29C (DrvDbOpenContext.c)
+ *     DrvDbOpenContext @ 0x1408A569C (DrvDbOpenContext.c)
  * Callees:
  *     <none>
  */

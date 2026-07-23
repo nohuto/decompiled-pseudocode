@@ -1,14 +1,14 @@
 /*
- * XREFs of MinCryptParseRevocationList @ 0x1408A1C0C
+ * XREFs of MinCryptParseRevocationList @ 0x1408A801C
  * Callers:
- *     MinCrypK_ParseRevocationList @ 0x14071CA68 (MinCrypK_ParseRevocationList.c)
+ *     MinCrypK_ParseRevocationList @ 0x1407216F8 (MinCrypK_ParseRevocationList.c)
  * Callees:
- *     MinCryptHashMemory @ 0x14071C940 (MinCryptHashMemory.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     MinAsn1ParseSingleExtensionValue @ 0x1408A36E0 (MinAsn1ParseSingleExtensionValue.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     MinCryptHashMemory @ 0x1407215D0 (MinCryptHashMemory.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     MinAsn1ParseSingleExtensionValue @ 0x1408A9AF0 (MinAsn1ParseSingleExtensionValue.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MinCryptParseRevocationList(__int64 a1, int a2, _QWORD *a3)
@@ -32,12 +32,12 @@ __int64 __fastcall MinCryptParseRevocationList(__int64 a1, int a2, _QWORD *a3)
   LOBYTE(v15) = 0;
   v14 = 0LL;
   v4 = 0LL;
-  if ( (int)MinAsn1ParseSingleExtensionValue(&qword_140BD9A88, a1, &v15, &Size) >= 0
+  if ( (int)MinAsn1ParseSingleExtensionValue(&qword_140BE0938, a1, &v15, &Size) >= 0
     && (_BYTE)v15
     && (_DWORD)Size == 2
     && **((_WORD **)&Size + 1) == 0x8664 )
   {
-    if ( (int)MinAsn1ParseSingleExtensionValue(&qword_140BD9A78, a1, &v15, &Size) >= 0
+    if ( (int)MinAsn1ParseSingleExtensionValue(&qword_140BE0928, a1, &v15, &Size) >= 0
       && (_BYTE)v15
       && (_DWORD)Size == 4
       && !**((_DWORD **)&Size + 1) )
@@ -47,8 +47,8 @@ __int64 __fastcall MinCryptParseRevocationList(__int64 a1, int a2, _QWORD *a3)
         v7 = 0LL;
         for ( j = 0LL; (unsigned int)j < 0xD; j = (unsigned int)(j + 1) )
         {
-          LODWORD(v14) = *((_DWORD *)&off_140BDC260 + 4 * (unsigned int)j + 2);
-          *((_QWORD *)&v14 + 1) = *(&off_140BDC260 + 2 * (unsigned int)j);
+          LODWORD(v14) = *((_DWORD *)&off_140BE3110 + 4 * (unsigned int)j + 2);
+          *((_QWORD *)&v14 + 1) = *(&off_140BE3110 + 2 * (unsigned int)j);
           if ( (int)MinAsn1ParseSingleExtensionValue(&v14, a1, &v15, &Size) < 0 )
             goto LABEL_15;
           if ( (_BYTE)v15 )

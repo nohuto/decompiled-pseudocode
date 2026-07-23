@@ -4,16 +4,16 @@
  *     PopIssueNextState @ 0x1403CC868 (PopIssueNextState.c)
  *     PopInvokeStateHandlerTargetProcessor @ 0x1403CC8A4 (PopInvokeStateHandlerTargetProcessor.c)
  * Callees:
- *     KeRestoreExtendedAndSupervisorState @ 0x140082C94 (KeRestoreExtendedAndSupervisorState.c)
- *     KeSaveExtendedAndSupervisorState @ 0x140082EC0 (KeSaveExtendedAndSupervisorState.c)
- *     KiLoadDirectoryTableBase @ 0x1400981E0 (KiLoadDirectoryTableBase.c)
- *     KeSuspendClockTimer @ 0x140113424 (KeSuspendClockTimer.c)
- *     KeRestoreProcessorSpecificFeatures @ 0x1401141D4 (KeRestoreProcessorSpecificFeatures.c)
- *     KeResumeClockTimer @ 0x14011432C (KeResumeClockTimer.c)
- *     PpmResetPerfEngineForProcessor @ 0x1401143F8 (PpmResetPerfEngineForProcessor.c)
- *     HvlNotifyLongSpinWait @ 0x1401BAE68 (HvlNotifyLongSpinWait.c)
- *     KdPowerTransition @ 0x1401D1768 (KdPowerTransition.c)
- *     KeFlushCurrentTbImmediately @ 0x1401D60A0 (KeFlushCurrentTbImmediately.c)
+ *     KeRestoreExtendedAndSupervisorState @ 0x140083914 (KeRestoreExtendedAndSupervisorState.c)
+ *     KeSaveExtendedAndSupervisorState @ 0x140083B40 (KeSaveExtendedAndSupervisorState.c)
+ *     KiLoadDirectoryTableBase @ 0x1400979E0 (KiLoadDirectoryTableBase.c)
+ *     KeSuspendClockTimer @ 0x140113994 (KeSuspendClockTimer.c)
+ *     KeRestoreProcessorSpecificFeatures @ 0x140114744 (KeRestoreProcessorSpecificFeatures.c)
+ *     KeResumeClockTimer @ 0x14011489C (KeResumeClockTimer.c)
+ *     PpmResetPerfEngineForProcessor @ 0x140114968 (PpmResetPerfEngineForProcessor.c)
+ *     HvlNotifyLongSpinWait @ 0x1401BAD4C (HvlNotifyLongSpinWait.c)
+ *     KdPowerTransition @ 0x1401D1594 (KdPowerTransition.c)
+ *     KeFlushCurrentTbImmediately @ 0x1401D5ECC (KeFlushCurrentTbImmediately.c)
  *     PopRestoreHiberContext @ 0x1403CDA38 (PopRestoreHiberContext.c)
  */
 
@@ -93,7 +93,7 @@ __int64 __fastcall PopHandleNextState(__int64 a1, __int64 a2)
           if ( !CurrentPrcb->Number )
           {
             result = __rdtsc();
-            qword_140303998 = result;
+            qword_1403038D8 = result;
           }
         }
       }

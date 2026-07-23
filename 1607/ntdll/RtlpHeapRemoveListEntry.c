@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlpHeapRemoveListEntry @ 0x1800289EC
+ * XREFs of RtlpHeapRemoveListEntry @ 0x1800289DC
  * Callers:
- *     RtlpAllocateHeap @ 0x180025060 (RtlpAllocateHeap.c)
- *     RtlpFindAndCommitPages @ 0x180028400 (RtlpFindAndCommitPages.c)
- *     RtlpFreeHeap @ 0x180049370 (RtlpFreeHeap.c)
- *     RtlpCreateSplitBlock @ 0x18004BF00 (RtlpCreateSplitBlock.c)
- *     RtlpPopulateListIndex @ 0x18004CB3C (RtlpPopulateListIndex.c)
- *     RtlpUpdateUCRIndexRemove @ 0x180084A2C (RtlpUpdateUCRIndexRemove.c)
- *     RtlpCoalesceHeap @ 0x180090B44 (RtlpCoalesceHeap.c)
- *     RtlZeroHeap @ 0x1800EBC50 (RtlZeroHeap.c)
+ *     RtlpAllocateHeap @ 0x180025050 (RtlpAllocateHeap.c)
+ *     RtlpFindAndCommitPages @ 0x1800283F0 (RtlpFindAndCommitPages.c)
+ *     RtlpFreeHeap @ 0x180049360 (RtlpFreeHeap.c)
+ *     RtlpCreateSplitBlock @ 0x18004BEF0 (RtlpCreateSplitBlock.c)
+ *     RtlpPopulateListIndex @ 0x18004CB2C (RtlpPopulateListIndex.c)
+ *     RtlpUpdateUCRIndexRemove @ 0x180084A1C (RtlpUpdateUCRIndexRemove.c)
+ *     RtlpCoalesceHeap @ 0x180090B34 (RtlpCoalesceHeap.c)
+ *     RtlZeroHeap @ 0x1800EBD10 (RtlZeroHeap.c)
  *     RtlpValidateHeapSegment @ 0x1800FB6A0 (RtlpValidateHeapSegment.c)
  * Callees:
  *     RtlpLogHeapFailure @ 0x1800A5E64 (RtlpLogHeapFailure.c)

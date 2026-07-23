@@ -1,15 +1,15 @@
 /*
- * XREFs of PpmCheckComputeMultiClassHeteroResponse @ 0x1405968A8
+ * XREFs of PpmCheckComputeMultiClassHeteroResponse @ 0x140596D98
  * Callers:
- *     PpmCheckComputeHeteroResponse @ 0x140596470 (PpmCheckComputeHeteroResponse.c)
+ *     PpmCheckComputeHeteroResponse @ 0x140596960 (PpmCheckComputeHeteroResponse.c)
  * Callees:
- *     PpmParkCalculateUnparkCount @ 0x140357E50 (PpmParkCalculateUnparkCount.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     PpmHeteroComputeCoreParkingUtilities @ 0x140596CC8 (PpmHeteroComputeCoreParkingUtilities.c)
- *     PpmHeteroComputeMultiClassUnparkCount @ 0x140596E90 (PpmHeteroComputeMultiClassUnparkCount.c)
- *     PpmHeteroComputeUnparkCount @ 0x140597160 (PpmHeteroComputeUnparkCount.c)
- *     PpmEventTraceHeteroResponse @ 0x14059B8EC (PpmEventTraceHeteroResponse.c)
- *     PpmEventTraceMultiClassHeteroResponseUpdate @ 0x14059BD98 (PpmEventTraceMultiClassHeteroResponseUpdate.c)
+ *     PpmParkCalculateUnparkCount @ 0x140357FF0 (PpmParkCalculateUnparkCount.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     PpmHeteroComputeCoreParkingUtilities @ 0x1405971B8 (PpmHeteroComputeCoreParkingUtilities.c)
+ *     PpmHeteroComputeMultiClassUnparkCount @ 0x140597380 (PpmHeteroComputeMultiClassUnparkCount.c)
+ *     PpmHeteroComputeUnparkCount @ 0x140597650 (PpmHeteroComputeUnparkCount.c)
+ *     PpmEventTraceHeteroResponse @ 0x14059BDDC (PpmEventTraceHeteroResponse.c)
+ *     PpmEventTraceMultiClassHeteroResponseUpdate @ 0x14059C288 (PpmEventTraceMultiClassHeteroResponseUpdate.c)
  */
 
 char PpmCheckComputeMultiClassHeteroResponse()
@@ -72,7 +72,7 @@ char PpmCheckComputeMultiClassHeteroResponse()
   v47 = 0LL;
   v49 = 0LL;
   v1 = 0;
-  v2 = &PpmCurrentProfile[55 * dword_140C3D86C + 5];
+  v2 = &PpmCurrentProfile[55 * dword_140C3D96C + 5];
   v48 = 0LL;
   v50 = v2;
   if ( PpmParkNumNodes )

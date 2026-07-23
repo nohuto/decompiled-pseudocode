@@ -55,7 +55,7 @@ unsigned __int64 __fastcall IopTimerDispatch(__int64 a1, __int64 a2, __int64 a3,
       {
         if ( v5 )
         {
-          EtwGetKernelTraceTimestamp(v16, (char *)0x40800000);
+          EtwGetKernelTraceTimestamp(v16, 0x40800000u);
           ((void (__fastcall *)(struct _LIST_ENTRY *, struct _LIST_ENTRY *))i[1].Flink)(i[2].Flink, i[1].Blink);
           EtwTraceTimedEvent(3910, 0x40800000u, (__int64)&i[1], 8, 4196866, (__int64)v16);
         }

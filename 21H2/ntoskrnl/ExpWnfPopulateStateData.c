@@ -1,16 +1,16 @@
 /*
- * XREFs of ExpWnfPopulateStateData @ 0x140610B5C
+ * XREFs of ExpWnfPopulateStateData @ 0x1406A060C
  * Callers:
- *     ExpWnfCreateNameInstance @ 0x14060DA34 (ExpWnfCreateNameInstance.c)
+ *     ExpWnfCreateNameInstance @ 0x14069D4E4 (ExpWnfCreateNameInstance.c)
  * Callees:
- *     ExReleaseExtensionTable @ 0x14029F2DC (ExReleaseExtensionTable.c)
- *     ExGetExtensionTable @ 0x14029F2F8 (ExGetExtensionTable.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     ZwQueryValueKey @ 0x1403FA680 (ZwQueryValueKey.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     ExpWnfComposeValueName @ 0x14062C4F0 (ExpWnfComposeValueName.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     ExReleaseExtensionTable @ 0x14021C83C (ExReleaseExtensionTable.c)
+ *     ExGetExtensionTable @ 0x14021C858 (ExGetExtensionTable.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     ZwQueryValueKey @ 0x1403FA860 (ZwQueryValueKey.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     ExpWnfComposeValueName @ 0x140663680 (ExpWnfComposeValueName.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall ExpWnfPopulateStateData(__int64 a1)

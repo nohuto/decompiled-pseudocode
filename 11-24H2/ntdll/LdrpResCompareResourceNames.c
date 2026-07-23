@@ -1,11 +1,11 @@
 /*
- * XREFs of LdrpResCompareResourceNames @ 0x18007B770
+ * XREFs of LdrpResCompareResourceNames @ 0x180097BB0
  * Callers:
- *     LdrpResSearchResourceInsideDirectory @ 0x18007A580 (LdrpResSearchResourceInsideDirectory.c)
+ *     LdrpResSearchResourceInsideDirectory @ 0x1800969C0 (LdrpResSearchResourceInsideDirectory.c)
  * Callees:
- *     LdrpResReadFile @ 0x1800D2270 (LdrpResReadFile.c)
- *     wcsncmp @ 0x180127960 (wcsncmp.c)
- *     __security_check_cookie @ 0x1801659C0 (__security_check_cookie.c)
+ *     LdrpResReadFile @ 0x180098460 (LdrpResReadFile.c)
+ *     wcsncmp @ 0x180125B90 (wcsncmp.c)
+ *     __security_check_cookie @ 0x180163D80 (__security_check_cookie.c)
  */
 
 __int64 __fastcall LdrpResCompareResourceNames(

@@ -1,24 +1,24 @@
 /*
- * XREFs of MiInsertPageFileInList @ 0x140834090
+ * XREFs of MiInsertPageFileInList @ 0x140834390
  * Callers:
- *     MmStoreRegister @ 0x140832E04 (MmStoreRegister.c)
- *     MiCreatePagingFile @ 0x1408330DC (MiCreatePagingFile.c)
- *     MiCreateSpecialPurposeMemoryPageFile @ 0x140A4715C (MiCreateSpecialPurposeMemoryPageFile.c)
+ *     MmStoreRegister @ 0x140833104 (MmStoreRegister.c)
+ *     MiCreatePagingFile @ 0x1408333DC (MiCreatePagingFile.c)
+ *     MiCreateSpecialPurposeMemoryPageFile @ 0x140A4740C (MiCreateSpecialPurposeMemoryPageFile.c)
  * Callees:
  *     MiNumberWsSwapPagefiles @ 0x14021D8C0 (MiNumberWsSwapPagefiles.c)
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
- *     KeWaitForSingleObject @ 0x140243CE0 (KeWaitForSingleObject.c)
- *     MiMakePartitionActive @ 0x140292600 (MiMakePartitionActive.c)
- *     MiUpdateReserveClusterInfo @ 0x140295428 (MiUpdateReserveClusterInfo.c)
- *     KeInitializeEvent @ 0x1402AF870 (KeInitializeEvent.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F820 (KiCheckForKernelApcDelivery.c)
- *     MiUpdatePageFileList @ 0x140395E00 (MiUpdatePageFileList.c)
- *     MiIncreaseCommitLimits @ 0x140396064 (MiIncreaseCommitLimits.c)
- *     PsCreateSystemThreadEx @ 0x140772600 (PsCreateSystemThreadEx.c)
+ *     KeAbPreAcquire @ 0x140230FD0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
+ *     KeWaitForSingleObject @ 0x140243DB0 (KeWaitForSingleObject.c)
+ *     MiMakePartitionActive @ 0x140292890 (MiMakePartitionActive.c)
+ *     MiUpdateReserveClusterInfo @ 0x1402956B8 (MiUpdateReserveClusterInfo.c)
+ *     KeInitializeEvent @ 0x1402AFB00 (KeInitializeEvent.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402FD0A0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KiCheckForKernelApcDelivery @ 0x14030FAB0 (KiCheckForKernelApcDelivery.c)
+ *     MiUpdatePageFileList @ 0x140395FE0 (MiUpdatePageFileList.c)
+ *     MiIncreaseCommitLimits @ 0x140396244 (MiIncreaseCommitLimits.c)
+ *     PsCreateSystemThreadEx @ 0x1407727F0 (PsCreateSystemThreadEx.c)
  */
 
 __int64 __fastcall MiInsertPageFileInList(__int64 a1)

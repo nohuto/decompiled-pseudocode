@@ -4,7 +4,7 @@
  *     SbSelectProcedure @ 0x180027CD0 (SbSelectProcedure.c)
  * Callees:
  *     RtlGetVersion @ 0x180028110 (RtlGetVersion.c)
- *     __security_check_cookie @ 0x18008FEC0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x18008FED0 (__security_check_cookie.c)
  *     memset @ 0x1800A7100 (memset.c)
  *     SbpResolveBasedOnName @ 0x180111948 (SbpResolveBasedOnName.c)
  */
@@ -30,10 +30,10 @@ __int64 __fastcall SbpUpdateCacheWithCurrentImpl(__int64 a1, __int64 a2)
   unsigned int v21; // esi
   _DWORD *v22; // rcx
   __int64 v23; // rdi
-  _DWORD v24[72]; // [rsp+20h] [rbp-168h] BYREF
+  _OSVERSIONINFOEXW VersionInformation; // [rsp+20h] [rbp-168h] BYREF
 
-  memset(v24, 0, 0x11CuLL);
-  if ( (int)RtlGetVersion(v24) < 0 )
+  memset(&VersionInformation, 0, sizeof(VersionInformation));
+  if ( RtlGetVersion(&VersionInformation) < 0 )
     return 0LL;
   v4 = &unk_180118156;
   v5 = 0LL;
@@ -41,12 +41,12 @@ __int64 __fastcall SbpUpdateCacheWithCurrentImpl(__int64 a1, __int64 a2)
   while ( 1 )
   {
     v7 = *(v4 - 1);
-    v8 = LOWORD(v24[1]) < v7;
-    if ( LOWORD(v24[1]) <= v7 )
+    v8 = LOWORD(VersionInformation.dwMajorVersion) < v7;
+    if ( LOWORD(VersionInformation.dwMajorVersion) <= v7 )
     {
-      if ( LOWORD(v24[1]) != v7 )
+      if ( LOWORD(VersionInformation.dwMajorVersion) != v7 )
         goto LABEL_37;
-      if ( LOWORD(v24[2]) < *v4 )
+      if ( LOWORD(VersionInformation.dwMinorVersion) < *v4 )
         break;
     }
     v6 = v5;
@@ -56,9 +56,9 @@ LABEL_5:
     if ( v5 >= 5 )
       goto LABEL_6;
   }
-  v8 = LOWORD(v24[1]) < v7;
+  v8 = LOWORD(VersionInformation.dwMajorVersion) < v7;
 LABEL_37:
-  if ( !v8 && (LOWORD(v24[1]) != v7 || LOWORD(v24[2]) >= *v4) )
+  if ( !v8 && (LOWORD(VersionInformation.dwMajorVersion) != v7 || LOWORD(VersionInformation.dwMinorVersion) >= *v4) )
     goto LABEL_5;
 LABEL_6:
   if ( v6 == -1 )

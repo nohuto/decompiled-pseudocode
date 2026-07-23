@@ -1,10 +1,10 @@
 /*
- * XREFs of PspSelectNodeForProcessNoRestrictions @ 0x1407F2E5C
+ * XREFs of PspSelectNodeForProcessNoRestrictions @ 0x1407F89BC
  * Callers:
- *     PspSelectNodeForProcess @ 0x1407F2DF0 (PspSelectNodeForProcess.c)
+ *     PspSelectNodeForProcess @ 0x1407F8950 (PspSelectNodeForProcess.c)
  * Callees:
  *     RtlRandomEx @ 0x140200BE0 (RtlRandomEx.c)
- *     KeIsEmptyGroupMask @ 0x14040B460 (KeIsEmptyGroupMask.c)
+ *     KeIsEmptyGroupMask @ 0x140404550 (KeIsEmptyGroupMask.c)
  */
 
 __int64 PspSelectNodeForProcessNoRestrictions()

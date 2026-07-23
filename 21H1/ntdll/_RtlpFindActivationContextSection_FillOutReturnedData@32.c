@@ -12,7 +12,7 @@
 int __fastcall RtlpFindActivationContextSection_FillOutReturnedData(
         char a1,
         _DWORD *a2,
-        int a3,
+        PACTIVATION_CONTEXT ActivationContext,
         int a4,
         int a5,
         int a6,
@@ -22,13 +22,14 @@ int __fastcall RtlpFindActivationContextSection_FillOutReturnedData(
   int v10; // edx
   int result; // eax
   int v12; // ecx
-  unsigned int v13; // eax
-  _DWORD *v14; // ecx
-  unsigned int *v15; // edi
-  unsigned int v16; // edx
+  int v13; // ecx
+  unsigned int v14; // eax
+  _DWORD *v15; // ecx
+  unsigned int *v16; // edi
   unsigned int v17; // edx
-  unsigned int v18; // [esp+10h] [ebp-8h] BYREF
-  int v19; // [esp+14h] [ebp-4h] BYREF
+  unsigned int v18; // edx
+  int v19; // [esp+10h] [ebp-8h] BYREF
+  int v20; // [esp+14h] [ebp-4h] BYREF
 
   v10 = a4;
   if ( !a4 || !a5 )
@@ -44,44 +45,45 @@ int __fastcall RtlpFindActivationContextSection_FillOutReturnedData(
   a2[7] = a8;
   if ( (a1 & 1) != 0 )
   {
-    RtlAddRefActivationContext(a3);
+    RtlAddRefActivationContext(ActivationContext);
     v10 = a4;
-    a2[8] = a3;
+    a2[8] = ActivationContext;
   }
   if ( (a1 & 2) != 0 )
     a2[10] = *(_DWORD *)(v10 + 20) & 3;
   if ( (a1 & 4) == 0 )
     return 0;
-  result = RtlpGetActivationContextData(v10, &v19);
+  result = RtlpGetActivationContextData(v10, &v20);
   if ( result >= 0 )
   {
-    if ( !v19 )
+    if ( !v20 )
       return -1073741595;
-    a2[11] = v19 + *(_DWORD *)(24 * a2[9] + *(_DWORD *)(*(_DWORD *)(v19 + 24) + v19 + 12) + v19 + 16);
-    result = RtlpLocateActivationContextSection(1, &v19, &v18);
+    v12 = v20;
+    a2[11] = v20 + *(_DWORD *)(24 * a2[9] + *(_DWORD *)(*(_DWORD *)(v20 + 24) + v20 + 12) + v20 + 16);
+    result = RtlpLocateActivationContextSection(v12, 1, (int)&v20, (int)&v19);
     if ( result >= 0 )
     {
-      v12 = v19;
-      v13 = v18;
-      a2[12] = v19;
-      a2[13] = v13;
-      if ( !v12 || !v13 )
+      v13 = v20;
+      v14 = v19;
+      a2[12] = v20;
+      a2[13] = v14;
+      if ( !v13 || !v14 )
         return 0;
-      v14 = (_DWORD *)(v13 + v12);
-      v15 = v14 + 1;
-      if ( v14 + 1 <= (_DWORD *)((char *)v14 + v13) && v14 + 2 <= (_DWORD *)((char *)v14 + v13) && *v14 == 1682469715 )
+      v15 = (_DWORD *)(v14 + v13);
+      v16 = v15 + 1;
+      if ( v15 + 1 <= (_DWORD *)((char *)v15 + v14) && v15 + 2 <= (_DWORD *)((char *)v15 + v14) && *v15 == 1682469715 )
       {
-        v16 = *v15;
-        if ( *v15 <= v13 && v13 >= 0x2C && v16 >= 0x2C )
+        v17 = *v16;
+        if ( *v16 <= v14 && v14 >= 0x2C && v17 >= 0x2C )
         {
-          v17 = (unsigned int)v14 + v16;
-          if ( (unsigned int)v15 <= v17
-            && (unsigned int)(v14 + 2) <= v17
-            && (unsigned int)(v14 + 10) <= v17
-            && (unsigned int)(v14 + 11) <= v17 )
+          v18 = (unsigned int)v15 + v17;
+          if ( (unsigned int)v16 <= v18
+            && (unsigned int)(v15 + 2) <= v18
+            && (unsigned int)(v15 + 10) <= v18
+            && (unsigned int)(v15 + 11) <= v18 )
           {
-            a2[14] = (char *)v14 + v14[9];
-            a2[15] = v14[10];
+            a2[14] = (char *)v15 + v15[9];
+            a2[15] = v15[10];
             return 0;
           }
         }

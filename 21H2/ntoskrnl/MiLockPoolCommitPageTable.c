@@ -1,15 +1,15 @@
 /*
- * XREFs of MiLockPoolCommitPageTable @ 0x14030B3D0
+ * XREFs of MiLockPoolCommitPageTable @ 0x140316120
  * Callers:
- *     MiCommitPoolMemory @ 0x14030B22C (MiCommitPoolMemory.c)
- *     MiFillPoolCommitPageTable @ 0x14030B9E0 (MiFillPoolCommitPageTable.c)
+ *     MiCommitPoolMemory @ 0x140315F7C (MiCommitPoolMemory.c)
+ *     MiFillPoolCommitPageTable @ 0x140316730 (MiFillPoolCommitPageTable.c)
  * Callees:
- *     MiFastLockLeafPageTable @ 0x14020E6D0 (MiFastLockLeafPageTable.c)
- *     MiUnlockPageTableInternal @ 0x1402855F0 (MiUnlockPageTableInternal.c)
- *     MiLockLowestValidPageTable @ 0x1403055C0 (MiLockLowestValidPageTable.c)
- *     MiFillPteHierarchy @ 0x14030C470 (MiFillPteHierarchy.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x14032DEC0 (MI_READ_PTE_LOCK_FREE.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     MiUnlockPageTableInternal @ 0x140202790 (MiUnlockPageTableInternal.c)
+ *     MiFastLockLeafPageTable @ 0x1402B2FD0 (MiFastLockLeafPageTable.c)
+ *     MiLockLowestValidPageTable @ 0x140310310 (MiLockLowestValidPageTable.c)
+ *     MiFillPteHierarchy @ 0x1403171C0 (MiFillPteHierarchy.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140338C10 (MI_READ_PTE_LOCK_FREE.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiLockPoolCommitPageTable(__int64 a1, unsigned __int64 a2)

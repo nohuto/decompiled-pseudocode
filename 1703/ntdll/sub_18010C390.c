@@ -15,14 +15,14 @@
  *     ZwClose @ 0x1800A54E0 (ZwClose.c)
  */
 
-__int64 __fastcall sub_18010C390(int a1)
+__int64 __fastcall sub_18010C390(void *a1)
 {
-  NTSTATUS v1; // eax
-  ULONG v3; // eax
+  int v1; // eax
+  LONG v3; // eax
 
-  if ( a1 != -12 && a1 != -11 && a1 != -10 && (a1 & 0x10000003) != 3LL )
+  if ( (_DWORD)a1 != -12 && (_DWORD)a1 != -11 && (_DWORD)a1 != -10 && ((unsigned int)a1 & 0x10000003) != 3LL )
   {
-    v1 = ZwClose();
+    v1 = ZwClose(a1);
     if ( v1 >= 0 )
       return 1LL;
     v3 = RtlNtStatusToDosError(v1);

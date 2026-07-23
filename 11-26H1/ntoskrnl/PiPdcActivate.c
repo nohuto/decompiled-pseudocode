@@ -1,8 +1,8 @@
 /*
- * XREFs of PiPdcActivate @ 0x1409DC5CC
+ * XREFs of PiPdcActivate @ 0x140A1987C
  * Callers:
- *     PnpActivatePdcForDeviceEvent @ 0x1409DCA60 (PnpActivatePdcForDeviceEvent.c)
- *     IopProcessInvalidateBusRelationsRequest @ 0x140B39A10 (IopProcessInvalidateBusRelationsRequest.c)
+ *     PnpActivatePdcForDeviceEvent @ 0x140A19D10 (PnpActivatePdcForDeviceEvent.c)
+ *     IopProcessInvalidateBusRelationsRequest @ 0x140B3BC20 (IopProcessInvalidateBusRelationsRequest.c)
  * Callees:
  *     <none>
  */

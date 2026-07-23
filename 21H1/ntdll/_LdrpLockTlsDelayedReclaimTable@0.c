@@ -9,11 +9,11 @@
 
 void __stdcall LdrpLockTlsDelayedReclaimTable()
 {
-  volatile signed __int32 *v0; // esi
+  _RTL_SRWLOCK *v0; // esi
   int v1; // edi
 
   RtlAcquireSRWLockShared(&LdrpTlsLock);
-  v0 = dword_4B3A6724;
+  v0 = &stru_4B3A6724;
   v1 = 16;
   do
   {

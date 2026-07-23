@@ -1,8 +1,8 @@
 /*
  * XREFs of RtlpHpLfhContextLockUnlock @ 0x1800FCC54
  * Callers:
- *     RtlLockHeapManagerForCloning @ 0x1800E9040 (RtlLockHeapManagerForCloning.c)
- *     RtlpUnlockHeapManagerForCloning @ 0x1800EAC68 (RtlpUnlockHeapManagerForCloning.c)
+ *     RtlLockHeapManagerForCloning @ 0x1800E9100 (RtlLockHeapManagerForCloning.c)
+ *     RtlpUnlockHeapManagerForCloning @ 0x1800EAD28 (RtlpUnlockHeapManagerForCloning.c)
  * Callees:
  *     RtlpHpLfhOwnerLockUnlock @ 0x1800FCD18 (RtlpHpLfhOwnerLockUnlock.c)
  */

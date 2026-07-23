@@ -1,12 +1,12 @@
 /*
- * XREFs of AlpcpQuerySidMessage @ 0x140714B3C
+ * XREFs of AlpcpQuerySidMessage @ 0x140714D4C
  * Callers:
- *     NtAlpcQueryInformationMessage @ 0x14071AA10 (NtAlpcQueryInformationMessage.c)
+ *     NtAlpcQueryInformationMessage @ 0x14071AC10 (NtAlpcQueryInformationMessage.c)
  * Callees:
- *     memset @ 0x140435A00 (memset.c)
- *     AlpcpGetEffectiveTokenMessage @ 0x140714BEC (AlpcpGetEffectiveTokenMessage.c)
- *     AlpcpQuerySidToken @ 0x140714CA8 (AlpcpQuerySidToken.c)
- *     SeDeleteClientSecurity @ 0x14071D180 (SeDeleteClientSecurity.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     AlpcpGetEffectiveTokenMessage @ 0x140714DFC (AlpcpGetEffectiveTokenMessage.c)
+ *     AlpcpQuerySidToken @ 0x140714EB8 (AlpcpQuerySidToken.c)
+ *     SeDeleteClientSecurity @ 0x14071D380 (SeDeleteClientSecurity.c)
  */
 
 __int64 __fastcall AlpcpQuerySidMessage(int a1, int a2, __int64 a3, unsigned int a4, __int64 a5)

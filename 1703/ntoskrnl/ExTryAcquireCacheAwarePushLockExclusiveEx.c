@@ -25,7 +25,7 @@ char __fastcall ExTryAcquireCacheAwarePushLockExclusiveEx(
   if ( (BugCheckParameter1 & 2) != 0 )
     v5 = 0LL;
   else
-    v5 = (_KLOCK_ENTRY *)KeAbPreAcquire((ULONG_PTR)BugCheckParameter2, 0LL, 1LL);
+    v5 = (_KLOCK_ENTRY *)KeAbPreAcquire((ULONG_PTR)BugCheckParameter2, 0LL, 1);
   if ( (unsigned __int64)BugCheckParameter2 >= v3 )
   {
 LABEL_9:

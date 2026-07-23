@@ -1,12 +1,12 @@
 /*
- * XREFs of MiLockColorHeadHugeAtDpc @ 0x1404FAC14
+ * XREFs of MiLockColorHeadHugeAtDpc @ 0x1404F84F4
  * Callers:
- *     MiInsertHugeRangeInList @ 0x1404F0CC0 (MiInsertHugeRangeInList.c)
- *     MiGetPerfectColorHeadHugeRange @ 0x140670378 (MiGetPerfectColorHeadHugeRange.c)
- *     MiHugePurgeZeroList @ 0x140670894 (MiHugePurgeZeroList.c)
- *     MiLockHugeRangeColorHeadAtDpc @ 0x140670DC4 (MiLockHugeRangeColorHeadAtDpc.c)
+ *     MiInsertHugeRangeInList @ 0x1404EE760 (MiInsertHugeRangeInList.c)
+ *     MiGetPerfectColorHeadHugeRange @ 0x140671548 (MiGetPerfectColorHeadHugeRange.c)
+ *     MiHugePurgeZeroList @ 0x140671A64 (MiHugePurgeZeroList.c)
+ *     MiLockHugeRangeColorHeadAtDpc @ 0x140671F94 (MiLockHugeRangeColorHeadAtDpc.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x1403F9C60 (KeYieldProcessorEx.c)
+ *     KeYieldProcessorEx @ 0x1403EFB70 (KeYieldProcessorEx.c)
  */
 
 __int64 __fastcall MiLockColorHeadHugeAtDpc(volatile signed __int32 *a1)

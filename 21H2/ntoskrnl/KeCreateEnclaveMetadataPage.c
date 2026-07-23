@@ -1,10 +1,10 @@
 /*
- * XREFs of KeCreateEnclaveMetadataPage @ 0x1405152EC
+ * XREFs of KeCreateEnclaveMetadataPage @ 0x14051552C
  * Callers:
- *     MiDecommitHardwareEnclavePages @ 0x140549A28 (MiDecommitHardwareEnclavePages.c)
- *     MiInitializeEnclaveMetadataPage @ 0x140A92754 (MiInitializeEnclaveMetadataPage.c)
+ *     MiDecommitHardwareEnclavePages @ 0x140549C68 (MiDecommitHardwareEnclavePages.c)
+ *     MiInitializeEnclaveMetadataPage @ 0x140A93754 (MiInitializeEnclaveMetadataPage.c)
  * Callees:
- *     KiEncls @ 0x1403FF060 (KiEncls.c)
+ *     KiEncls @ 0x1403FF240 (KiEncls.c)
  */
 
 __int64 KeCreateEnclaveMetadataPage()

@@ -1,26 +1,26 @@
 /*
- * XREFs of RtlCapabilityCheckForSingleSessionSku @ 0x140803F90
+ * XREFs of RtlCapabilityCheckForSingleSessionSku @ 0x140809A30
  * Callers:
- *     PopPowerInformationInternal @ 0x140B6F6FC (PopPowerInformationInternal.c)
+ *     PopPowerInformationInternal @ 0x140B73EF0 (PopPowerInformationInternal.c)
  * Callees:
- *     RtlCapabilityCheck @ 0x140A91900 (RtlCapabilityCheck.c)
- *     RtlIsMultiSessionSku @ 0x140A91D70 (RtlIsMultiSessionSku.c)
+ *     RtlCapabilityCheck @ 0x140A96450 (RtlCapabilityCheck.c)
+ *     RtlIsMultiSessionSku @ 0x140A968C0 (RtlIsMultiSessionSku.c)
  */
 
 __int64 __fastcall RtlCapabilityCheckForSingleSessionSku(
-        HANDLE ExistingTokenHandle,
-        PCUNICODE_STRING String2,
-        _BYTE *a3)
+        HANDLE TokenHandle,
+        PUNICODE_STRING CapabilityName,
+        PBOOLEAN HasCapability)
 {
   unsigned int v3; // ebx
 
   v3 = 0;
-  if ( a3 )
+  if ( HasCapability )
   {
-    if ( (unsigned __int8)RtlIsMultiSessionSku() )
-      *a3 = 0;
+    if ( RtlIsMultiSessionSku() )
+      *HasCapability = 0;
     else
-      return (unsigned int)RtlCapabilityCheck(ExistingTokenHandle, String2);
+      return (unsigned int)RtlCapabilityCheck(TokenHandle, CapabilityName, HasCapability);
   }
   else
   {

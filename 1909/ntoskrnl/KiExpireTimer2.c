@@ -23,7 +23,7 @@
  *     EtwTraceEnqueueWork @ 0x14032D4A8 (EtwTraceEnqueueWork.c)
  */
 
-__int64 __fastcall KiExpireTimer2(unsigned __int64 a1, __int64 a2, unsigned __int64 a3, _DWORD *a4)
+__int64 __fastcall KiExpireTimer2(unsigned __int64 a1, __int64 a2, LARGE_INTEGER a3, _DWORD *a4)
 {
   char v4; // si
   __int64 v6; // r12
@@ -65,7 +65,7 @@ __int64 __fastcall KiExpireTimer2(unsigned __int64 a1, __int64 a2, unsigned __in
   __int64 v43; // rdx
   unsigned __int64 v44; // r8
   unsigned __int64 v45; // rcx
-  __int64 InterruptTimePrecise; // rax
+  LARGE_INTEGER InterruptTimePrecise; // rax
   unsigned __int64 v47; // rax
   __int64 v48; // rdx
   __int64 v49; // rcx
@@ -95,7 +95,7 @@ __int64 __fastcall KiExpireTimer2(unsigned __int64 a1, __int64 a2, unsigned __in
   ULONG_PTR BugCheckParameter3; // [rsp+48h] [rbp-61h]
   __int64 v74; // [rsp+50h] [rbp-59h]
   _DWORD *v75; // [rsp+58h] [rbp-51h]
-  LARGE_INTEGER v76; // [rsp+60h] [rbp-49h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+60h] [rbp-49h] BYREF
   __int64 v77; // [rsp+68h] [rbp-41h] BYREF
   __int64 v78; // [rsp+70h] [rbp-39h]
   __int64 v79; // [rsp+78h] [rbp-31h]
@@ -139,12 +139,12 @@ __int64 __fastcall KiExpireTimer2(unsigned __int64 a1, __int64 a2, unsigned __in
   {
     if ( (*(_BYTE *)(a1 + 129) & 4) != 0 )
     {
-      InterruptTimePrecise = RtlGetInterruptTimePrecise(&v76);
+      InterruptTimePrecise = RtlGetInterruptTimePrecise(&PerformanceCounter);
       v10 = *(_QWORD *)(a1 + 88);
       a3 = InterruptTimePrecise;
     }
-    v25 = v10 + a3;
-    if ( v10 + a3 < a3 || v25 == -1 )
+    v25 = v10 + a3.QuadPart;
+    if ( (unsigned __int64)(v10 + a3.QuadPart) < a3.QuadPart || v25 == -1 )
     {
       v25 = -2LL;
       v4 = 1;
@@ -155,8 +155,8 @@ __int64 __fastcall KiExpireTimer2(unsigned __int64 a1, __int64 a2, unsigned __in
       v43 = v26 - *(_QWORD *)(a1 + 72);
       if ( v43 )
       {
-        v44 = v43 + a3;
-        if ( v43 + a3 < a3 || v44 == -1LL )
+        v44 = v43 + a3.QuadPart;
+        if ( (unsigned __int64)(v43 + a3.QuadPart) < a3.QuadPart || v44 == -1LL )
           v44 = -2LL;
         v45 = v44 + v10;
         if ( v45 < v44 || v45 == -1LL )

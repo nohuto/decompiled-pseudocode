@@ -1,10 +1,10 @@
 /*
- * XREFs of VerifierMmFreeContiguousMemory @ 0x140C3F5C0
+ * XREFs of VerifierMmFreeContiguousMemory @ 0x140C455D0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     VfTargetFreeContiguousMemory @ 0x140C29374 (VfTargetFreeContiguousMemory.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     VfTargetFreeContiguousMemory @ 0x140C2F384 (VfTargetFreeContiguousMemory.c)
  */
 
 __int64 __fastcall VerifierMmFreeContiguousMemory(__int64 a1)

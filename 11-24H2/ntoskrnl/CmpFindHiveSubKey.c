@@ -1,14 +1,14 @@
 /*
- * XREFs of CmpFindHiveSubKey @ 0x140C4B8A8
+ * XREFs of CmpFindHiveSubKey @ 0x140C4DA44
  * Callers:
- *     CmpFindStateSepKeysRedirectionMapNode @ 0x140C4BA64 (CmpFindStateSepKeysRedirectionMapNode.c)
- *     CmpGetKnownHivePathNode @ 0x140C4BD6C (CmpGetKnownHivePathNode.c)
+ *     CmpFindStateSepKeysRedirectionMapNode @ 0x140C4DC00 (CmpFindStateSepKeysRedirectionMapNode.c)
+ *     CmpGetKnownHivePathNode @ 0x140C4DF08 (CmpGetKnownHivePathNode.c)
  * Callees:
- *     CmpGetNextName @ 0x1407E1018 (CmpGetNextName.c)
- *     CmpWalkUnicodeStringPath @ 0x1407E3394 (CmpWalkUnicodeStringPath.c)
- *     HvpGetCellFlat @ 0x140874470 (HvpGetCellFlat.c)
- *     HvpGetCellPaged @ 0x1408744C0 (HvpGetCellPaged.c)
- *     RtlEqualUnicodeString @ 0x140927050 (RtlEqualUnicodeString.c)
+ *     CmpGetNextName @ 0x1407E1568 (CmpGetNextName.c)
+ *     CmpWalkUnicodeStringPath @ 0x1407E38E4 (CmpWalkUnicodeStringPath.c)
+ *     HvpGetCellFlat @ 0x1408787A0 (HvpGetCellFlat.c)
+ *     HvpGetCellPaged @ 0x1408787F0 (HvpGetCellPaged.c)
+ *     RtlEqualUnicodeString @ 0x140929190 (RtlEqualUnicodeString.c)
  */
 
 bool __fastcall CmpFindHiveSubKey(ULONG_PTR BugCheckParameter3, unsigned int a2, __int128 *a3, __int64 *a4, _DWORD *a5)

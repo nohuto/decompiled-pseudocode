@@ -1,14 +1,14 @@
 /*
- * XREFs of PnpWatchdogBugcheck @ 0x140560714
+ * XREFs of PnpWatchdogBugcheck @ 0x140560DD4
  * Callers:
- *     PnpWatchdogSecondChanceCallback @ 0x140560EB0 (PnpWatchdogSecondChanceCallback.c)
+ *     PnpWatchdogSecondChanceCallback @ 0x140561570 (PnpWatchdogSecondChanceCallback.c)
  * Callees:
- *     IoAddTriageDumpDataBlock @ 0x1403882BC (IoAddTriageDumpDataBlock.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     memset @ 0x140435A00 (memset.c)
- *     PnpInitializeTriageBlock @ 0x140560640 (PnpInitializeTriageBlock.c)
- *     PnpWatchdogExtractTriageInformation @ 0x140560D9C (PnpWatchdogExtractTriageInformation.c)
+ *     IoAddTriageDumpDataBlock @ 0x14038849C (IoAddTriageDumpDataBlock.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     PnpInitializeTriageBlock @ 0x140560D00 (PnpInitializeTriageBlock.c)
+ *     PnpWatchdogExtractTriageInformation @ 0x14056145C (PnpWatchdogExtractTriageInformation.c)
  */
 
 void __fastcall __noreturn PnpWatchdogBugcheck(__int64 a1)

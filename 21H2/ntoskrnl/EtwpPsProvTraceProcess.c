@@ -1,24 +1,24 @@
 /*
- * XREFs of EtwpPsProvTraceProcess @ 0x140602CDC
+ * XREFs of EtwpPsProvTraceProcess @ 0x1406F2410
  * Callers:
- *     EtwpWriteProcessEvent @ 0x140602B04 (EtwpWriteProcessEvent.c)
- *     EtwpPsProvProcessEnumCallback @ 0x14093EB60 (EtwpPsProvProcessEnumCallback.c)
+ *     EtwpWriteProcessEvent @ 0x1406F2264 (EtwpWriteProcessEvent.c)
+ *     EtwpPsProvProcessEnumCallback @ 0x14093ED30 (EtwpPsProvProcessEnumCallback.c)
  * Callees:
- *     SeQueryTokenIntegrity @ 0x140252378 (SeQueryTokenIntegrity.c)
- *     MmGetSessionId @ 0x140253550 (MmGetSessionId.c)
- *     EtwWrite @ 0x14025DC90 (EtwWrite.c)
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     ObFastDereferenceObject @ 0x14027C610 (ObFastDereferenceObject.c)
- *     RtlStringCchPrintfW @ 0x14027F140 (RtlStringCchPrintfW.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
- *     PsQueryStatisticsProcess @ 0x140618CC0 (PsQueryStatisticsProcess.c)
- *     PsLookupProcessByProcessId @ 0x140625880 (PsLookupProcessByProcessId.c)
- *     SeQueryInformationToken @ 0x140656BD0 (SeQueryInformationToken.c)
- *     ObGetProcessHandleCount @ 0x1406B471C (ObGetProcessHandleCount.c)
- *     PsReferencePrimaryToken @ 0x140706D00 (PsReferencePrimaryToken.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     ObFastDereferenceObject @ 0x14026A5B0 (ObFastDereferenceObject.c)
+ *     RtlStringCchPrintfW @ 0x14026D570 (RtlStringCchPrintfW.c)
+ *     EtwWrite @ 0x14027F7C0 (EtwWrite.c)
+ *     SeQueryTokenIntegrity @ 0x140285230 (SeQueryTokenIntegrity.c)
+ *     MmGetSessionId @ 0x1402863C0 (MmGetSessionId.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     ObGetProcessHandleCount @ 0x1406138EC (ObGetProcessHandleCount.c)
+ *     SeQueryInformationToken @ 0x14064B9F0 (SeQueryInformationToken.c)
+ *     PsQueryStatisticsProcess @ 0x140682920 (PsQueryStatisticsProcess.c)
+ *     PsLookupProcessByProcessId @ 0x14068F4F0 (PsLookupProcessByProcessId.c)
+ *     PsReferencePrimaryToken @ 0x14071E0E0 (PsReferencePrimaryToken.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 unsigned int __fastcall EtwpPsProvTraceProcess(PEPROCESS Process, char a2, unsigned int *a3, int *a4, __int16 a5)
@@ -62,7 +62,7 @@ unsigned int __fastcall EtwpPsProvTraceProcess(PEPROCESS Process, char a2, unsig
   unsigned __int64 v45; // [rsp+98h] [rbp-70h] BYREF
   PVOID TokenInformation; // [rsp+A0h] [rbp-68h] BYREF
   PVOID P; // [rsp+A8h] [rbp-60h] BYREF
-  struct _SID_AND_ATTRIBUTES IntegritySA; // [rsp+B0h] [rbp-58h] BYREF
+  _SID_AND_ATTRIBUTES IntegritySA; // [rsp+B0h] [rbp-58h] BYREF
   UNICODE_STRING DestinationString; // [rsp+C0h] [rbp-48h] BYREF
   _QWORD v50[14]; // [rsp+D8h] [rbp-30h] BYREF
   struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+148h] [rbp+40h] BYREF
@@ -136,7 +136,7 @@ LABEL_3:
         if ( a5 != 770 )
           return EtwWrite(EtwpPsProvRegHandle, v10, 0LL, v11, &UserData);
         v42 = 0LL;
-        PsQueryStatisticsProcess(Process, v50);
+        PsQueryStatisticsProcess((__int64)Process, v50);
         v57 = 8LL;
         v56 = &Process[1].EndPadding[2];
         v59 = 4LL;
@@ -162,7 +162,7 @@ LABEL_3:
           ExFreePoolWithTag(v42, 0);
         v61 = 4LL;
         p_SessionId = &v28;
-        ProcessHandleCount = ObGetProcessHandleCount(Process, 0LL);
+        ProcessHandleCount = ObGetProcessHandleCount((struct _EX_RUNDOWN_REF *)Process, 0LL);
         v63 = 4LL;
         p_ProcessHandleCount = &ProcessHandleCount;
         v39 = Process[1].ActiveProcessors.Bitmap[19];

@@ -1,19 +1,19 @@
 /*
- * XREFs of BgpGxDrawRectangle @ 0x14038524C
+ * XREFs of BgpGxDrawRectangle @ 0x14038542C
  * Callers:
- *     BgpTxtDisplayCharacter @ 0x140384F88 (BgpTxtDisplayCharacter.c)
- *     BgpClearScreen @ 0x140671AF0 (BgpClearScreen.c)
- *     BgpFwDisplayBugCheckScreen @ 0x1406730C4 (BgpFwDisplayBugCheckScreen.c)
+ *     BgpTxtDisplayCharacter @ 0x140385168 (BgpTxtDisplayCharacter.c)
+ *     BgpClearScreen @ 0x140672040 (BgpClearScreen.c)
+ *     BgpFwDisplayBugCheckScreen @ 0x140673614 (BgpFwDisplayBugCheckScreen.c)
  *     AnFwpFadeAnimationTimer @ 0x140AED110 (AnFwpFadeAnimationTimer.c)
- *     BgpGxDrawBitmapImage @ 0x140AF2720 (BgpGxDrawBitmapImage.c)
- *     BgpTxtClearRegion @ 0x140AF2770 (BgpTxtClearRegion.c)
- *     BgpTxtDisplayString @ 0x140AF27A0 (BgpTxtDisplayString.c)
+ *     BgpGxDrawBitmapImage @ 0x140AF2730 (BgpGxDrawBitmapImage.c)
+ *     BgpTxtClearRegion @ 0x140AF2780 (BgpTxtClearRegion.c)
+ *     BgpTxtDisplayString @ 0x140AF27B0 (BgpTxtDisplayString.c)
  * Callees:
- *     GxpWriteFrameBufferPixels @ 0x1403852DC (GxpWriteFrameBufferPixels.c)
- *     BgpGetBitsPerPixel @ 0x140385500 (BgpGetBitsPerPixel.c)
- *     BgpGxConvertRectangleEx @ 0x140385A9C (BgpGxConvertRectangleEx.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     GxpWriteFrameBufferPixels @ 0x1403854BC (GxpWriteFrameBufferPixels.c)
+ *     BgpGetBitsPerPixel @ 0x1403856E0 (BgpGetBitsPerPixel.c)
+ *     BgpGxConvertRectangleEx @ 0x140385C7C (BgpGxConvertRectangleEx.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
  *     BgpGxRectangleDestroy @ 0x140AEDA70 (BgpGxRectangleDestroy.c)
  */
 

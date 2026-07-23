@@ -1,21 +1,21 @@
 /*
- * XREFs of PspChargeProcessWakeCounter @ 0x1407383D0
+ * XREFs of PspChargeProcessWakeCounter @ 0x1407385C0
  * Callers:
- *     PsReleaseProcessWakeCounter @ 0x140715700 (PsReleaseProcessWakeCounter.c)
- *     PsChargeProcessWakeCounter @ 0x14077F020 (PsChargeProcessWakeCounter.c)
- *     PspAdjustKeepAliveCountProcess @ 0x1409AE8C0 (PspAdjustKeepAliveCountProcess.c)
+ *     PsReleaseProcessWakeCounter @ 0x140715900 (PsReleaseProcessWakeCounter.c)
+ *     PsChargeProcessWakeCounter @ 0x14077F210 (PsChargeProcessWakeCounter.c)
+ *     PspAdjustKeepAliveCountProcess @ 0x1409AEAC0 (PspAdjustKeepAliveCountProcess.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ObDereferenceObjectDeferDeleteWithTag @ 0x1402A8CE0 (ObDereferenceObjectDeferDeleteWithTag.c)
- *     ObfReferenceObjectWithTag @ 0x1402B68C0 (ObfReferenceObjectWithTag.c)
- *     ExfReleasePushLockShared @ 0x1402BD860 (ExfReleasePushLockShared.c)
- *     ZwUpdateWnfStateData @ 0x14041E920 (ZwUpdateWnfStateData.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockSharedEx @ 0x140230E80 (ExAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ObDereferenceObjectDeferDeleteWithTag @ 0x1402A8F70 (ObDereferenceObjectDeferDeleteWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x1402B6B50 (ObfReferenceObjectWithTag.c)
+ *     ExfReleasePushLockShared @ 0x1402BDAF0 (ExfReleasePushLockShared.c)
+ *     ZwUpdateWnfStateData @ 0x14041ECB0 (ZwUpdateWnfStateData.c)
  *     PspIsProcessInJob @ 0x14069EECC (PspIsProcessInJob.c)
  *     PspChargeJobWakeCounter @ 0x1406A3A44 (PspChargeJobWakeCounter.c)
- *     EtwTraceWakeCounter @ 0x1409E5E5C (EtwTraceWakeCounter.c)
- *     EtwTraceWakeEvent @ 0x1409E5F18 (EtwTraceWakeEvent.c)
+ *     EtwTraceWakeCounter @ 0x1409E60EC (EtwTraceWakeCounter.c)
+ *     EtwTraceWakeEvent @ 0x1409E61A8 (EtwTraceWakeEvent.c)
  */
 
 unsigned __int64 __fastcall PspChargeProcessWakeCounter(
@@ -171,7 +171,7 @@ LABEL_40:
   KeLeaveCriticalRegionThread((__int64)CurrentThread);
   if ( v9 )
   {
-    ZwUpdateWnfStateData(Object + 2464, 0LL);
+    ZwUpdateWnfStateData((PCWNF_STATE_NAME)(Object + 2464), 0LL, 0, 0LL, 0LL, 0, 0);
     v27 = a3;
     if ( (xmmword_140D1EAD0 & 0x400) != 0 && v7 == 1 )
       EtwTraceWakeEvent(Object, a3);

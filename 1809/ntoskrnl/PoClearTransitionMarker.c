@@ -1,20 +1,20 @@
 /*
- * XREFs of PoClearTransitionMarker @ 0x140744FC0
+ * XREFs of PoClearTransitionMarker @ 0x1407461B0
  * Callers:
- *     CmCompleteRegistryInitialization @ 0x1407455B4 (CmCompleteRegistryInitialization.c)
+ *     CmCompleteRegistryInitialization @ 0x1407467A4 (CmCompleteRegistryInitialization.c)
  * Callees:
  *     PopAcquireRwLockExclusive @ 0x140003970 (PopAcquireRwLockExclusive.c)
  *     PopReleaseRwLock @ 0x140005EC4 (PopReleaseRwLock.c)
- *     RtlComputeCrc32 @ 0x14015B510 (RtlComputeCrc32.c)
- *     ExIsSoftBoot @ 0x1401863B0 (ExIsSoftBoot.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     RtlUnlockBootStatusData @ 0x140718BA0 (RtlUnlockBootStatusData.c)
- *     RtlLockBootStatusData @ 0x140718C80 (RtlLockBootStatusData.c)
- *     RtlpSystemBootStatusRequest @ 0x14071C4D4 (RtlpSystemBootStatusRequest.c)
- *     PopRecordLongPowerButtonPressDetected @ 0x140745148 (PopRecordLongPowerButtonPressDetected.c)
- *     RtlInitializeBootStatusDataBlackBox @ 0x140745214 (RtlInitializeBootStatusDataBlackBox.c)
+ *     RtlComputeCrc32 @ 0x14015B610 (RtlComputeCrc32.c)
+ *     ExIsSoftBoot @ 0x1401864F0 (ExIsSoftBoot.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     RtlUnlockBootStatusData @ 0x140719E40 (RtlUnlockBootStatusData.c)
+ *     RtlLockBootStatusData @ 0x140719F20 (RtlLockBootStatusData.c)
+ *     RtlpSystemBootStatusRequest @ 0x14071D774 (RtlpSystemBootStatusRequest.c)
+ *     PopRecordLongPowerButtonPressDetected @ 0x140746338 (PopRecordLongPowerButtonPressDetected.c)
+ *     RtlInitializeBootStatusDataBlackBox @ 0x140746404 (RtlInitializeBootStatusDataBlackBox.c)
  */
 
 __int64 PoClearTransitionMarker()
@@ -61,7 +61,7 @@ __int64 PoClearTransitionMarker()
   *(_WORD *)((char *)&PopBsdPowerTransitionExtension + 1) = BYTE1(PopBsdPowerTransitionExtension) & 0xF3;
   *((_DWORD *)&Buffer + 3) = MEMORY[0xFFFFF780000002C4];
   BYTE11(PopBsdPowerTransition) |= 0xC0u;
-  dword_1404101AC = BYTE11(PopBsdPowerTransition) >> 6;
+  dword_14041124C = BYTE11(PopBsdPowerTransition) >> 6;
   *(_QWORD *)&Buffer = MEMORY[0xFFFFF78000000014];
   v1 = RtlComputeCrc32(0, &Buffer, 8u);
   BYTE14(PopBsdPowerTransition) &= ~0x10u;
@@ -70,6 +70,6 @@ __int64 PoClearTransitionMarker()
   PopReleaseRwLock((ULONG_PTR)&PopBsdUpdateLock);
   result = PopRecordLongPowerButtonPressDetected(0LL);
   if ( (_BYTE)PopAcpiPdttSupportEnabled )
-    return ((__int64 (*)(void))qword_1403FE730)();
+    return ((__int64 (*)(void))qword_1403FF730)();
   return result;
 }

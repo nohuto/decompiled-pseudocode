@@ -1,11 +1,11 @@
 /*
- * XREFs of VF_FIND_DEVICE_INFORMATION_AND_REMOVE @ 0x1409298A0
+ * XREFs of VF_FIND_DEVICE_INFORMATION_AND_REMOVE @ 0x14092A8A0
  * Callers:
- *     VfIoDeleteDevice @ 0x140934128 (VfIoDeleteDevice.c)
+ *     VfIoDeleteDevice @ 0x140935128 (VfIoDeleteDevice.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1400630D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14008CE80 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 struct _LIST_ENTRY *__fastcall VF_FIND_DEVICE_INFORMATION_AND_REMOVE(struct _LIST_ENTRY *a1)
@@ -13,7 +13,7 @@ struct _LIST_ENTRY *__fastcall VF_FIND_DEVICE_INFORMATION_AND_REMOVE(struct _LIS
   struct _LIST_ENTRY *v2; // rdi
   KIRQL v3; // bl
   struct _LIST_ENTRY *Flink; // rax
-  struct _LIST_ENTRY *v5; // rcx
+  _LIST_ENTRY *v5; // rcx
   struct _KPRCB *CurrentPrcb; // rcx
   struct _LIST_ENTRY *Blink; // rdx
 

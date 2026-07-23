@@ -1,11 +1,11 @@
 /*
- * XREFs of MiDereferenceControlAreaProbe @ 0x140026784
+ * XREFs of MiDereferenceControlAreaProbe @ 0x140026304
  * Callers:
- *     MiWaitForInPageComplete @ 0x1400251B0 (MiWaitForInPageComplete.c)
- *     MmUnlockPages @ 0x140051A80 (MmUnlockPages.c)
- *     MiPrivateFixup @ 0x14010B3F0 (MiPrivateFixup.c)
- *     MiMakeImagePageOk @ 0x1401F6F38 (MiMakeImagePageOk.c)
- *     MiSegmentDelete @ 0x1404B81E4 (MiSegmentDelete.c)
+ *     MiWaitForInPageComplete @ 0x140024D30 (MiWaitForInPageComplete.c)
+ *     MmUnlockPages @ 0x140051600 (MmUnlockPages.c)
+ *     MiPrivateFixup @ 0x140109170 (MiPrivateFixup.c)
+ *     MiMakeImagePageOk @ 0x1401F6D64 (MiMakeImagePageOk.c)
+ *     MiSegmentDelete @ 0x1404A25C4 (MiSegmentDelete.c)
  * Callees:
  *     <none>
  */

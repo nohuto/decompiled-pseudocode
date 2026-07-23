@@ -1,18 +1,18 @@
 /*
- * XREFs of RtlStringCchCopyA @ 0x1402C8734
+ * XREFs of RtlStringCchCopyA @ 0x140246F94
  * Callers:
- *     EtwpCoverageAddToStringBuffer @ 0x1402C86E8 (EtwpCoverageAddToStringBuffer.c)
- *     EtwpCoverageRecordAtHighIrql @ 0x1405A69F4 (EtwpCoverageRecordAtHighIrql.c)
- *     WheaHwErrorReportSetSectionNameDeviceDriver @ 0x1405BBEF0 (WheaHwErrorReportSetSectionNameDeviceDriver.c)
- *     WheaReportFatalHwErrorDeviceDriverEx @ 0x1405BC090 (WheaReportFatalHwErrorDeviceDriverEx.c)
- *     WheaReportHwErrorDeviceDriverEx @ 0x1405BC1B0 (WheaReportHwErrorDeviceDriverEx.c)
- *     WheapInitErrorReportDeviceDriver @ 0x1405BC480 (WheapInitErrorReportDeviceDriver.c)
- *     WheapCreateRecordFromGenericErrorData @ 0x1405BCCF0 (WheapCreateRecordFromGenericErrorData.c)
+ *     EtwpCoverageAddToStringBuffer @ 0x140246F48 (EtwpCoverageAddToStringBuffer.c)
+ *     EtwpCoverageRecordAtHighIrql @ 0x1405A6C24 (EtwpCoverageRecordAtHighIrql.c)
+ *     WheaHwErrorReportSetSectionNameDeviceDriver @ 0x1405BC120 (WheaHwErrorReportSetSectionNameDeviceDriver.c)
+ *     WheaReportFatalHwErrorDeviceDriverEx @ 0x1405BC2C0 (WheaReportFatalHwErrorDeviceDriverEx.c)
+ *     WheaReportHwErrorDeviceDriverEx @ 0x1405BC3E0 (WheaReportHwErrorDeviceDriverEx.c)
+ *     WheapInitErrorReportDeviceDriver @ 0x1405BC6B0 (WheapInitErrorReportDeviceDriver.c)
+ *     WheapCreateRecordFromGenericErrorData @ 0x1405BCF20 (WheapCreateRecordFromGenericErrorData.c)
  *     AslpFileQueryExportName_Vb @ 0x1405D226C (AslpFileQueryExportName_Vb.c)
- *     WheaRemoveErrorSourceDeviceDriver @ 0x14095D110 (WheaRemoveErrorSourceDeviceDriver.c)
- *     HalpInitGenericErrorSourceEntry @ 0x1409A76E0 (HalpInitGenericErrorSourceEntry.c)
- *     HalpInitGenericErrorSourceEntryV2 @ 0x1409A7978 (HalpInitGenericErrorSourceEntryV2.c)
- *     EmpParseStrings @ 0x140A4689C (EmpParseStrings.c)
+ *     WheaRemoveErrorSourceDeviceDriver @ 0x14095D2F0 (WheaRemoveErrorSourceDeviceDriver.c)
+ *     HalpInitGenericErrorSourceEntry @ 0x1409A8610 (HalpInitGenericErrorSourceEntry.c)
+ *     HalpInitGenericErrorSourceEntryV2 @ 0x1409A88A8 (HalpInitGenericErrorSourceEntryV2.c)
+ *     EmpParseStrings @ 0x140A4789C (EmpParseStrings.c)
  * Callees:
  *     <none>
  */

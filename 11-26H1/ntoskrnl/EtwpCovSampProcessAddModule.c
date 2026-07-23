@@ -1,20 +1,20 @@
 /*
- * XREFs of EtwpCovSampProcessAddModule @ 0x1409420B4
+ * XREFs of EtwpCovSampProcessAddModule @ 0x140A351C4
  * Callers:
- *     EtwpCovSampImageNotify @ 0x140940E70 (EtwpCovSampImageNotify.c)
+ *     EtwpCovSampImageNotify @ 0x140A33F80 (EtwpCovSampImageNotify.c)
  * Callees:
- *     PsReferenceSiloContext @ 0x140277800 (PsReferenceSiloContext.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     EtwpCovSampProcessRemoveModule @ 0x140940CCC (EtwpCovSampProcessRemoveModule.c)
- *     EtwpCovSampModuleReference @ 0x140942504 (EtwpCovSampModuleReference.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     PsReferenceSiloContext @ 0x140276D70 (PsReferenceSiloContext.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     EtwpCovSampProcessRemoveModule @ 0x140A33DDC (EtwpCovSampProcessRemoveModule.c)
+ *     EtwpCovSampModuleReference @ 0x140A35614 (EtwpCovSampModuleReference.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpCovSampProcessAddModule(__int64 a1, void **a2, __int64 a3, struct _KLOCK_ENTRIES *a4)

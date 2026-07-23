@@ -1,12 +1,12 @@
 /*
- * XREFs of WheapProcessEfiBadMemoryPage @ 0x1406D48FC
+ * XREFs of WheapProcessEfiBadMemoryPage @ 0x1406D897C
  * Callers:
- *     WheapCheckForAndReportErrorsFromPreviousSession @ 0x1406D4708 (WheapCheckForAndReportErrorsFromPreviousSession.c)
+ *     WheapCheckForAndReportErrorsFromPreviousSession @ 0x1406D8788 (WheapCheckForAndReportErrorsFromPreviousSession.c)
  * Callees:
- *     HalSetEnvironmentVariableEx @ 0x140471AF0 (HalSetEnvironmentVariableEx.c)
- *     HalGetEnvironmentVariableEx @ 0x140471D30 (HalGetEnvironmentVariableEx.c)
- *     WheaPersistBadPageToBcd @ 0x1406D5E6C (WheaPersistBadPageToBcd.c)
- *     WheaPersistBadPageToRegistry @ 0x1406D6028 (WheaPersistBadPageToRegistry.c)
+ *     HalSetEnvironmentVariableEx @ 0x14046B270 (HalSetEnvironmentVariableEx.c)
+ *     HalGetEnvironmentVariableEx @ 0x14046B4B0 (HalGetEnvironmentVariableEx.c)
+ *     WheaPersistBadPageToBcd @ 0x1406D9F4C (WheaPersistBadPageToBcd.c)
+ *     WheaPersistBadPageToRegistry @ 0x1406DA108 (WheaPersistBadPageToRegistry.c)
  */
 
 __int64 WheapProcessEfiBadMemoryPage()

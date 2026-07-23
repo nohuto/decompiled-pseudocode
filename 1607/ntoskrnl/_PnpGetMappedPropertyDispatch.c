@@ -1,10 +1,10 @@
 /*
- * XREFs of _PnpGetMappedPropertyDispatch @ 0x1404FF720
+ * XREFs of _PnpGetMappedPropertyDispatch @ 0x1404E26B0
  * Callers:
- *     _PnpGetObjectPropertyWorker @ 0x1404FF58C (_PnpGetObjectPropertyWorker.c)
+ *     _PnpGetObjectPropertyWorker @ 0x1404E251C (_PnpGetObjectPropertyWorker.c)
  * Callees:
- *     memset @ 0x1401715C0 (memset.c)
- *     _PnpCtxGetObjectDispatchCallback @ 0x1404FF7F0 (_PnpCtxGetObjectDispatchCallback.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     _PnpCtxGetObjectDispatchCallback @ 0x1404E2780 (_PnpCtxGetObjectDispatchCallback.c)
  */
 
 __int64 __fastcall PnpGetMappedPropertyDispatch(

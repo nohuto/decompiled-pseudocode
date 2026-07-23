@@ -83,10 +83,13 @@ LABEL_25:
   v16 = v9 & (v13 >> 1);
   *(_DWORD *)(BugCheckParameter3 + 1180) = v15;
   KxReleaseSpinLock((volatile signed __int64 *)(BugCheckParameter3 + 1152));
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v8 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v8 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v17 = -1LL << ((unsigned __int8)v8 + 1);

@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpExtEnvMarkHiberRegions @ 0x14051F728
+ * XREFs of HalpExtEnvMarkHiberRegions @ 0x14051FC78
  * Callers:
- *     HaliLocateHiberRanges @ 0x140A95CA0 (HaliLocateHiberRanges.c)
+ *     HaliLocateHiberRanges @ 0x140A95B10 (HaliLocateHiberRanges.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     PoSetHiberRange @ 0x14058E8A0 (PoSetHiberRange.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     PoSetHiberRange @ 0x14058ED90 (PoSetHiberRange.c)
  */
 
 __int64 __fastcall HalpExtEnvMarkHiberRegions(PVOID MemoryMap)
@@ -31,10 +31,10 @@ __int64 __fastcall HalpExtEnvMarkHiberRegions(PVOID MemoryMap)
       PoSetHiberRange(0LL, 0x10000u, *(PVOID *)(j + 16), *(_QWORD *)(j + 40), 0x496C6148u);
   }
   result = KxReleaseSpinLock((volatile signed __int64 *)&ExtEnvAllocationLock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
       && (unsigned __int8)result <= 0xFu
       && (unsigned __int8)v2 <= 0xFu
       && (unsigned __int8)result >= 2u )
@@ -45,7 +45,7 @@ __int64 __fastcall HalpExtEnvMarkHiberRegions(PVOID MemoryMap)
       v8 = ((unsigned int)result & SchedulerAssist[5]) == 0;
       SchedulerAssist[5] &= result;
       if ( v8 )
-        result = KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        result = KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
     }
   }
   __writecr8(v2);

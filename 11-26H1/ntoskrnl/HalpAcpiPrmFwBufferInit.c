@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpAcpiPrmFwBufferInit @ 0x140CADB94
+ * XREFs of HalpAcpiPrmFwBufferInit @ 0x140CB3BD4
  * Callers:
- *     HalpAcpiInitSystem @ 0x140BEB270 (HalpAcpiInitSystem.c)
+ *     HalpAcpiInitSystem @ 0x140BF1270 (HalpAcpiInitSystem.c)
  * Callees:
  *     <none>
  */

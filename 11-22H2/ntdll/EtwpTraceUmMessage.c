@@ -91,7 +91,7 @@ __int64 __fastcall EtwpTraceUmMessage(unsigned __int16 a1, char a2, signed __int
             v8,
             v13,
             v36->CurrentIdealProcessor.Reserved,
-            (unsigned __int64 *)((unsigned __int64)&v30 & -(__int64)(v10 != 0)),
+            (LARGE_INTEGER *)((unsigned __int64)&v30 & -(__int64)(v10 != 0)),
             &v31);
     v35 = v16;
     v17 = 0;

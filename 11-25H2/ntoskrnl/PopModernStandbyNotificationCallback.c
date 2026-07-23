@@ -22,10 +22,10 @@ __int64 __fastcall PopModernStandbyNotificationCallback(
   int v11; // r12d
   int v12; // eax
   bool v13; // di
-  int v15; // [rsp+40h] [rbp-38h] BYREF
+  int Buffer; // [rsp+40h] [rbp-38h] BYREF
 
   v4 = 0;
-  v15 = 0;
+  Buffer = 0;
   v6 = 0;
   updated = 0;
   LOBYTE(v10) = -1;
@@ -78,10 +78,10 @@ LABEL_25:
     v13 = --v12 < dword_140F06EB0;
   if ( v13 )
   {
-    v15 = 0;
+    Buffer = 0;
     dword_140F06EB0 = v12;
-    BYTE1(v15) = v12;
-    updated = ZwUpdateWnfStateData((__int64)&WNF_PO_MODERN_STANDBY_STATE_NOTIFICATION, (__int64)&v15);
+    BYTE1(Buffer) = v12;
+    updated = ZwUpdateWnfStateData(&WNF_PO_MODERN_STANDBY_STATE_NOTIFICATION, &Buffer, 4u, 0LL, 0LL, 0, 0);
   }
   v4 = v13;
 LABEL_32:

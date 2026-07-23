@@ -1,7 +1,7 @@
 /*
- * XREFs of IopUpdateReadTransferCount @ 0x140458640
+ * XREFs of IopUpdateReadTransferCount @ 0x14044FEB0
  * Callers:
- *     IopReadFile @ 0x1408F856C (IopReadFile.c)
+ *     IopReadFile @ 0x1409284FC (IopReadFile.c)
  * Callees:
  *     <none>
  */
@@ -12,9 +12,7 @@ __int64 __fastcall IopUpdateReadTransferCount(unsigned int a1, _KPROCESS *a2)
   __int64 result; // rax
 
   CurrentThread = KeGetCurrentThread();
-  if ( ((__int64)IopSessionNotificationLock.SuspendEvent.Header.WaitListHead.Blink & 2) != 0
-    && a2
-    && a2 == CurrentThread->Process )
+  if ( (IopPerfIoTrackingLock.QuantumTarget & 2) != 0 && a2 && a2 == CurrentThread->Process )
   {
     result = a1;
     CurrentThread->ReadTransferCount += a1;

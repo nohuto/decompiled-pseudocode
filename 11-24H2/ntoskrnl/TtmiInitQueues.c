@@ -1,13 +1,13 @@
 /*
- * XREFs of TtmiInitQueues @ 0x140770908
+ * XREFs of TtmiInitQueues @ 0x140770B28
  * Callers:
- *     TtmInit @ 0x140769B20 (TtmInit.c)
+ *     TtmInit @ 0x140769D40 (TtmInit.c)
  * Callees:
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     TtmIsEnabled @ 0x1409BBDE8 (TtmIsEnabled.c)
- *     ObCreateObjectTypeEx @ 0x140A9DB20 (ObCreateObjectTypeEx.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     TtmIsEnabled @ 0x1409A2438 (TtmIsEnabled.c)
+ *     ObCreateObjectTypeEx @ 0x140A99090 (ObCreateObjectTypeEx.c)
  */
 
 __int64 TtmiInitQueues()

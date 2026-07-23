@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlpHpVsDelayFreeContextInitialize @ 0x18009FE04
+ * XREFs of RtlpHpVsDelayFreeContextInitialize @ 0x18009FE24
  * Callers:
  *     RtlpHpVsContextInitialize @ 0x180064324 (RtlpHpVsContextInitialize.c)
  * Callees:

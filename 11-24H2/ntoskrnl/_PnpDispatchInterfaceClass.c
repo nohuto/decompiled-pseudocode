@@ -1,19 +1,19 @@
 /*
- * XREFs of _PnpDispatchInterfaceClass @ 0x1408BBDB0
+ * XREFs of _PnpDispatchInterfaceClass @ 0x1408B9700
  * Callers:
  *     <none>
  * Callees:
- *     _PnpMapCmStatusToDispatchStatus @ 0x14044D63C (_PnpMapCmStatusToDispatchStatus.c)
- *     _CmDeleteInterfaceClass @ 0x140818DC0 (_CmDeleteInterfaceClass.c)
- *     _CmGetMatchingCommonClassList @ 0x14081B800 (_CmGetMatchingCommonClassList.c)
- *     _CmGetInterfaceClassMappedPropertyFromComposite @ 0x14081F244 (_CmGetInterfaceClassMappedPropertyFromComposite.c)
- *     _CmGetInterfaceClassMappedPropertyKeys @ 0x14081F34C (_CmGetInterfaceClassMappedPropertyKeys.c)
- *     _CmGetInterfaceClassMappedPropertyLocales @ 0x14081F54C (_CmGetInterfaceClassMappedPropertyLocales.c)
- *     _CmSetInterfaceClassMappedProperty @ 0x14081FBDC (_CmSetInterfaceClassMappedProperty.c)
- *     _CmValidateInstallerClassName @ 0x1408B7B50 (_CmValidateInstallerClassName.c)
- *     _CmGetInterfaceClassMappedPropertyFromRegValue @ 0x1408BC098 (_CmGetInterfaceClassMappedPropertyFromRegValue.c)
- *     _CmCreateInterfaceClass @ 0x1409D3DF8 (_CmCreateInterfaceClass.c)
- *     _CmOpenInterfaceClassRegKey @ 0x140A26518 (_CmOpenInterfaceClassRegKey.c)
+ *     _PnpMapCmStatusToDispatchStatus @ 0x14044453C (_PnpMapCmStatusToDispatchStatus.c)
+ *     _CmDeleteInterfaceClass @ 0x140819500 (_CmDeleteInterfaceClass.c)
+ *     _CmGetMatchingCommonClassList @ 0x14081BF40 (_CmGetMatchingCommonClassList.c)
+ *     _CmGetInterfaceClassMappedPropertyFromComposite @ 0x14081F984 (_CmGetInterfaceClassMappedPropertyFromComposite.c)
+ *     _CmGetInterfaceClassMappedPropertyKeys @ 0x14081FA8C (_CmGetInterfaceClassMappedPropertyKeys.c)
+ *     _CmGetInterfaceClassMappedPropertyLocales @ 0x14081FC8C (_CmGetInterfaceClassMappedPropertyLocales.c)
+ *     _CmSetInterfaceClassMappedProperty @ 0x14082031C (_CmSetInterfaceClassMappedProperty.c)
+ *     _CmValidateInstallerClassName @ 0x1408B54C0 (_CmValidateInstallerClassName.c)
+ *     _CmGetInterfaceClassMappedPropertyFromRegValue @ 0x1408B99E8 (_CmGetInterfaceClassMappedPropertyFromRegValue.c)
+ *     _CmCreateInterfaceClass @ 0x1409C3C28 (_CmCreateInterfaceClass.c)
+ *     _CmOpenInterfaceClassRegKey @ 0x140A1AF98 (_CmOpenInterfaceClassRegKey.c)
  */
 
 __int64 __fastcall PnpDispatchInterfaceClass(__int64 a1, const WCHAR *a2, __int64 a3, int a4, __int64 a5)
@@ -102,7 +102,7 @@ LABEL_20:
     }
     InterfaceClass = CmGetMatchingCommonClassList(
                        a1,
-                       4u,
+                       4,
                        (__int64)v5,
                        (__int64)v8,
                        *(_QWORD *)(a5 + 16),

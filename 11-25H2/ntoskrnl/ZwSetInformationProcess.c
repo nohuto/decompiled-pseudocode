@@ -10,9 +10,13 @@
  *     <none>
  */
 
-__int64 __fastcall ZwSetInformationProcess(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwSetInformationProcess(
+        HANDLE ProcessHandle,
+        PROCESSINFOCLASS ProcessInformationClass,
+        PVOID ProcessInformation,
+        ULONG ProcessInformationLength)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(ProcessHandle);
 }

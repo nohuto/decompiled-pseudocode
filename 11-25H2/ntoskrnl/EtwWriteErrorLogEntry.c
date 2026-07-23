@@ -50,7 +50,7 @@ __int64 __fastcall EtwWriteErrorLogEntry(
   __int16 v38; // [rsp+9Ch] [rbp-7Ch] BYREF
   unsigned int v39; // [rsp+A0h] [rbp-78h] BYREF
   _QWORD v40[5]; // [rsp+A8h] [rbp-70h] BYREF
-  __int128 v41; // [rsp+D0h] [rbp-48h]
+  GUID v41; // [rsp+D0h] [rbp-48h]
   int v42; // [rsp+128h] [rbp+10h]
   char v43; // [rsp+12Ch] [rbp+14h]
   __int16 v44; // [rsp+12Eh] [rbp+16h]

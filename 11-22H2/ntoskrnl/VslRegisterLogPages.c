@@ -38,7 +38,7 @@ __int64 VslRegisterLogPages()
   {
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(2uLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
       v4 = 4;
@@ -49,10 +49,10 @@ __int64 VslRegisterLogPages()
     v12[1] = v11[0];
     v12[2] = v11[7];
     v5 = VslpEnterIumSecureMode(2u, 252, 0, (__int64)v12);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v6 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v6 <= 0xFu && CurrentIrql <= 0xFu && v6 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v6 <= 0xFu && CurrentIrql <= 0xFu && v6 >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         v8 = CurrentPrcb->SchedulerAssist;

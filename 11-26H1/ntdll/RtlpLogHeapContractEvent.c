@@ -1,24 +1,24 @@
 /*
- * XREFs of RtlpLogHeapContractEvent @ 0x180072390
+ * XREFs of RtlpLogHeapContractEvent @ 0x180095098
  * Callers:
- *     RtlpDecommitBlock @ 0x180017150 (RtlpDecommitBlock.c)
- *     RtlpFreeHeap @ 0x1800233D0 (RtlpFreeHeap.c)
- *     RtlpDeCommitFreeBlock @ 0x180025C70 (RtlpDeCommitFreeBlock.c)
+ *     RtlpDecommitBlock @ 0x180002230 (RtlpDecommitBlock.c)
+ *     RtlpFreeHeap @ 0x18000E4A0 (RtlpFreeHeap.c)
+ *     RtlpDeCommitFreeBlock @ 0x180010D40 (RtlpDeCommitFreeBlock.c)
  * Callees:
- *     RtlpEstimateAllocatedSize @ 0x1800724E8 (RtlpEstimateAllocatedSize.c)
- *     NtTraceEvent @ 0x18015FAF0 (NtTraceEvent.c)
- *     __security_check_cookie @ 0x180162C90 (__security_check_cookie.c)
- *     memset$thunk$772440563353939046 @ 0x180170030 (memset$thunk$772440563353939046.c)
+ *     RtlpEstimateAllocatedSize @ 0x1800951F0 (RtlpEstimateAllocatedSize.c)
+ *     NtTraceEvent @ 0x18015F9F0 (NtTraceEvent.c)
+ *     __security_check_cookie @ 0x180162B90 (__security_check_cookie.c)
+ *     memset$thunk$772440563353939046 @ 0x18016F030 (memset$thunk$772440563353939046.c)
  */
 
-__int64 __fastcall RtlpLogHeapContractEvent(
+NTSTATUS __fastcall RtlpLogHeapContractEvent(
         __int64 a1,
         __int64 a2,
         __int64 a3,
         __int64 a4,
         char a5,
         __int64 a6,
-        __int64 a7)
+        HANDLE TraceHandle)
 {
   __int64 v11; // r8
   __int64 v12; // rdx
@@ -29,7 +29,7 @@ __int64 __fastcall RtlpLogHeapContractEvent(
   __int64 v17; // rax
   __int64 v18; // rcx
   int v20; // eax
-  _BYTE v21[6]; // [rsp+20h] [rbp-61h] BYREF
+  _BYTE Fields[6]; // [rsp+20h] [rbp-61h] BYREF
   __int16 v22; // [rsp+26h] [rbp-5Bh]
   __int64 v23; // [rsp+40h] [rbp-41h]
   __int64 v24; // [rsp+48h] [rbp-39h]
@@ -40,7 +40,7 @@ __int64 __fastcall RtlpLogHeapContractEvent(
   int v29; // [rsp+70h] [rbp-11h]
   __int64 v30; // [rsp+74h] [rbp-Dh]
 
-  memset_thunk_772440563353939046(v21, 0, 0x5CuLL);
+  memset_thunk_772440563353939046(Fields, 0, 0x5CuLL);
   v23 = a1;
   v28 = 0LL;
   v29 = 0;
@@ -78,5 +78,5 @@ __int64 __fastcall RtlpLogHeapContractEvent(
   v28 = v16 + v11;
   v27 = v18 + v16 - *(_QWORD *)(a1 + 664) - v14;
   v22 = 4138;
-  return NtTraceEvent(a7, 1027LL, 60LL, v21);
+  return NtTraceEvent(TraceHandle, 0x403u, 0x3Cu, Fields);
 }

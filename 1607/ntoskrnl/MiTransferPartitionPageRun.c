@@ -1,20 +1,20 @@
 /*
- * XREFs of MiTransferPartitionPageRun @ 0x1401F2058
+ * XREFs of MiTransferPartitionPageRun @ 0x1401F1E84
  * Callers:
- *     MiActOnPartitionNodePages @ 0x1401F07A4 (MiActOnPartitionNodePages.c)
+ *     MiActOnPartitionNodePages @ 0x1401F05D0 (MiActOnPartitionNodePages.c)
  * Callees:
- *     MiFreeZeroPageSizeIndex @ 0x14001BB40 (MiFreeZeroPageSizeIndex.c)
- *     MiLockPageInline @ 0x140022E70 (MiLockPageInline.c)
- *     ExReleaseSpinLockExclusive @ 0x14002E9A0 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14002EB90 (ExAcquireSpinLockExclusive.c)
- *     MiUnlinkPageFromList @ 0x140065A40 (MiUnlinkPageFromList.c)
- *     MiUnlinkFreeOrZeroedPage @ 0x140066D00 (MiUnlinkFreeOrZeroedPage.c)
- *     MiInsertPageInFreeOrZeroedList @ 0x1400671C0 (MiInsertPageInFreeOrZeroedList.c)
- *     MiInsertPageInList @ 0x1400695D0 (MiInsertPageInList.c)
- *     KeShouldYieldProcessor @ 0x1400956C0 (KeShouldYieldProcessor.c)
- *     MiRelinkStandbyPage @ 0x1400BE514 (MiRelinkStandbyPage.c)
- *     MiUnlinkPageFromBadList @ 0x1401F3054 (MiUnlinkPageFromBadList.c)
- *     MiMoveLargeFreePage @ 0x1401FBB54 (MiMoveLargeFreePage.c)
+ *     MiFreeZeroPageSizeIndex @ 0x14001B6C0 (MiFreeZeroPageSizeIndex.c)
+ *     MiLockPageInline @ 0x1400229F0 (MiLockPageInline.c)
+ *     ExReleaseSpinLockExclusive @ 0x14002E520 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14002E710 (ExAcquireSpinLockExclusive.c)
+ *     MiUnlinkPageFromList @ 0x1400655C0 (MiUnlinkPageFromList.c)
+ *     MiUnlinkFreeOrZeroedPage @ 0x140066880 (MiUnlinkFreeOrZeroedPage.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x140066D40 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiInsertPageInList @ 0x140069150 (MiInsertPageInList.c)
+ *     KeShouldYieldProcessor @ 0x140094EC0 (KeShouldYieldProcessor.c)
+ *     MiRelinkStandbyPage @ 0x1400BC3A4 (MiRelinkStandbyPage.c)
+ *     MiUnlinkPageFromBadList @ 0x1401F2E80 (MiUnlinkPageFromBadList.c)
+ *     MiMoveLargeFreePage @ 0x1401FB980 (MiMoveLargeFreePage.c)
  */
 
 __int64 __fastcall MiTransferPartitionPageRun(

@@ -1,24 +1,24 @@
 /*
- * XREFs of IoSetIoCompletionEx @ 0x14031C620
+ * XREFs of IoSetIoCompletionEx @ 0x1402C51B0
  * Callers:
- *     IopXxxControlFile @ 0x1408C1970 (IopXxxControlFile.c)
- *     PspNotificationPacketCallback @ 0x1408EA490 (PspNotificationPacketCallback.c)
- *     PspSendReliableJobNotification @ 0x1408F0174 (PspSendReliableJobNotification.c)
- *     NtSetIoCompletionEx @ 0x1409A6B70 (NtSetIoCompletionEx.c)
- *     NtLockFile @ 0x1409D2BE0 (NtLockFile.c)
- *     NtSetIoCompletion @ 0x1409D6870 (NtSetIoCompletion.c)
- *     IoSetIoCompletion @ 0x1409F4980 (IoSetIoCompletion.c)
+ *     PspNotificationPacketCallback @ 0x14085BCC0 (PspNotificationPacketCallback.c)
+ *     PspSendReliableJobNotification @ 0x140861974 (PspSendReliableJobNotification.c)
+ *     IopXxxControlFile @ 0x1408BF330 (IopXxxControlFile.c)
+ *     NtSetIoCompletionEx @ 0x14098FD60 (NtSetIoCompletionEx.c)
+ *     NtLockFile @ 0x1409C2A10 (NtLockFile.c)
+ *     NtSetIoCompletion @ 0x1409C66A0 (NtSetIoCompletion.c)
+ *     IoSetIoCompletion @ 0x1409E8CE0 (IoSetIoCompletion.c)
  * Callees:
- *     HvlNotifyLongSpinWait @ 0x140293260 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140293290 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     KiRemovePrcbWaitEntry @ 0x14031CEA0 (KiRemovePrcbWaitEntry.c)
- *     KiAcquireKobjectLockSafe @ 0x14031E740 (KiAcquireKobjectLockSafe.c)
- *     KiExitDispatcher @ 0x14031E7A0 (KiExitDispatcher.c)
- *     KiWakeOtherQueueWaiters @ 0x1403BE270 (KiWakeOtherQueueWaiters.c)
- *     KeIsThreadRunning @ 0x1403BE4C8 (KeIsThreadRunning.c)
- *     EtwTraceEnqueueWork @ 0x1403BE4F4 (EtwTraceEnqueueWork.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     IopAllocateMiniCompletionPacket @ 0x1409D54A0 (IopAllocateMiniCompletionPacket.c)
+ *     HvlNotifyLongSpinWait @ 0x1402A2E60 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402A2E90 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     KiRemovePrcbWaitEntry @ 0x1402C5A30 (KiRemovePrcbWaitEntry.c)
+ *     KiAcquireKobjectLockSafe @ 0x1402C72D0 (KiAcquireKobjectLockSafe.c)
+ *     KiExitDispatcher @ 0x1402C7330 (KiExitDispatcher.c)
+ *     KiWakeOtherQueueWaiters @ 0x1403ACF00 (KiWakeOtherQueueWaiters.c)
+ *     KeIsThreadRunning @ 0x1403AD158 (KeIsThreadRunning.c)
+ *     EtwTraceEnqueueWork @ 0x1403AD184 (EtwTraceEnqueueWork.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     IopAllocateMiniCompletionPacket @ 0x1409C52D0 (IopAllocateMiniCompletionPacket.c)
  */
 
 __int64 __fastcall IoSetIoCompletionEx(

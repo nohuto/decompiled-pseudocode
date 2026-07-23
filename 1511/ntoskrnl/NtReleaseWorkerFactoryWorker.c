@@ -20,7 +20,7 @@
  *     IopAllocateMiniCompletionPacket @ 0x14044EFEC (IopAllocateMiniCompletionPacket.c)
  */
 
-NTSTATUS __fastcall NtReleaseWorkerFactoryWorker(void *a1)
+NTSTATUS __cdecl NtReleaseWorkerFactoryWorker(HANDLE WorkerFactoryHandle)
 {
   NTSTATUS result; // eax
   __int64 v2; // r8
@@ -63,12 +63,12 @@ NTSTATUS __fastcall NtReleaseWorkerFactoryWorker(void *a1)
   volatile signed __int64 *v39; // [rsp+58h] [rbp+Fh]
   unsigned __int8 v40; // [rsp+60h] [rbp+17h]
   void *retaddr; // [rsp+A8h] [rbp+5Fh]
-  int v42; // [rsp+B8h] [rbp+6Fh]
+  NTSTATUS v42; // [rsp+B8h] [rbp+6Fh]
   int v43; // [rsp+C0h] [rbp+77h] BYREF
   int v44; // [rsp+C8h] [rbp+7Fh] BYREF
 
   result = ObReferenceObjectByHandle(
-             a1,
+             WorkerFactoryHandle,
              1u,
              ExpWorkerFactoryObjectType,
              KeGetCurrentThread()->PreviousMode,

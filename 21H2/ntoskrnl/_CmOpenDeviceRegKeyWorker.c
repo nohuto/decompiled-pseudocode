@@ -1,20 +1,20 @@
 /*
- * XREFs of _CmOpenDeviceRegKeyWorker @ 0x140641CB0
+ * XREFs of _CmOpenDeviceRegKeyWorker @ 0x140636AC0
  * Callers:
- *     _CmOpenDeviceRegKey @ 0x140641B70 (_CmOpenDeviceRegKey.c)
+ *     _CmOpenDeviceRegKey @ 0x140636980 (_CmOpenDeviceRegKey.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x140265AF0 (RtlInitUnicodeStringEx.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     RtlPrefixUnicodeString @ 0x1405EDBE0 (RtlPrefixUnicodeString.c)
- *     _PnpCtxRegCreateTree @ 0x14063E278 (_PnpCtxRegCreateTree.c)
- *     _CmOpenDeviceRegKey @ 0x140641B70 (_CmOpenDeviceRegKey.c)
- *     _CmGetDeviceRegKeyPath @ 0x1406420EC (_CmGetDeviceRegKeyPath.c)
- *     _SysCtxRegOpenKey @ 0x1406426AC (_SysCtxRegOpenKey.c)
- *     _PnpCtxGetCachedContextBaseKey @ 0x140642808 (_PnpCtxGetCachedContextBaseKey.c)
- *     _SysCtxRegOpenCurrentUserKey @ 0x14072D458 (_SysCtxRegOpenCurrentUserKey.c)
- *     _CmGetDeviceRegKeySecurityDescriptor @ 0x14076EB70 (_CmGetDeviceRegKeySecurityDescriptor.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     RtlInitUnicodeStringEx @ 0x140253A90 (RtlInitUnicodeStringEx.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     _PnpCtxRegCreateTree @ 0x140633088 (_PnpCtxRegCreateTree.c)
+ *     _CmOpenDeviceRegKey @ 0x140636980 (_CmOpenDeviceRegKey.c)
+ *     _CmGetDeviceRegKeyPath @ 0x140636EFC (_CmGetDeviceRegKeyPath.c)
+ *     _SysCtxRegOpenKey @ 0x1406374BC (_SysCtxRegOpenKey.c)
+ *     _PnpCtxGetCachedContextBaseKey @ 0x140637618 (_PnpCtxGetCachedContextBaseKey.c)
+ *     RtlPrefixUnicodeString @ 0x1406DD340 (RtlPrefixUnicodeString.c)
+ *     _SysCtxRegOpenCurrentUserKey @ 0x14072D908 (_SysCtxRegOpenCurrentUserKey.c)
+ *     _CmGetDeviceRegKeySecurityDescriptor @ 0x14076ED30 (_CmGetDeviceRegKeySecurityDescriptor.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall CmOpenDeviceRegKeyWorker(
@@ -50,9 +50,9 @@ __int64 __fastcall CmOpenDeviceRegKeyWorker(
   HANDLE v32; // [rsp+58h] [rbp-28h] BYREF
   HANDLE Handle; // [rsp+60h] [rbp-20h] BYREF
   UNICODE_STRING DestinationString; // [rsp+68h] [rbp-18h] BYREF
-  unsigned int v36; // [rsp+D0h] [rbp+50h] BYREF
+  __int64 v36; // [rsp+D0h] [rbp+50h] BYREF
 
-  v36 = 0;
+  LODWORD(v36) = 0;
   v32 = 0LL;
   v11 = a2;
   v31 = 0LL;
@@ -77,7 +77,7 @@ __int64 __fastcall CmOpenDeviceRegKeyWorker(
           break;
         ExFreePoolWithTag(PoolWithTag, 0);
         PoolWithTag = 0LL;
-        v15 = 2LL * v36;
+        v15 = 2LL * (unsigned int)v36;
         if ( v15 > 0xFFFFFFFF )
         {
           DeviceRegKeyPath = -1073741675;

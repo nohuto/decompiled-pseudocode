@@ -1,16 +1,16 @@
 /*
  * XREFs of KiProcessNMI @ 0x14020EA60
  * Callers:
- *     KxNmiInterrupt @ 0x14042CA00 (KxNmiInterrupt.c)
+ *     KxNmiInterrupt @ 0x14042CE00 (KxNmiInterrupt.c)
  * Callees:
  *     KxTryToAcquireSpinLock @ 0x14020D8E4 (KxTryToAcquireSpinLock.c)
  *     KiCheckForFreezeExecution @ 0x14020EA10 (KiCheckForFreezeExecution.c)
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeInterlockedClearProcessorAffinityEx @ 0x1403418E0 (KeInterlockedClearProcessorAffinityEx.c)
- *     KeInterlockedSetProcessorAffinityEx @ 0x140348BA0 (KeInterlockedSetProcessorAffinityEx.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     KiFlushCurrentRsb @ 0x140435500 (KiFlushCurrentRsb.c)
- *     HalHandleNMI @ 0x1405062D0 (HalHandleNMI.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeInterlockedClearProcessorAffinityEx @ 0x140341B70 (KeInterlockedClearProcessorAffinityEx.c)
+ *     KeInterlockedSetProcessorAffinityEx @ 0x140348E30 (KeInterlockedSetProcessorAffinityEx.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     KiFlushCurrentRsb @ 0x140435900 (KiFlushCurrentRsb.c)
+ *     HalHandleNMI @ 0x140506820 (HalHandleNMI.c)
  */
 
 /*
@@ -41,7 +41,7 @@
  * 000000014020EAA8: call    KiCheckForFreezeExecution
  * 000000014020EAAD: xor     r15d, r15d
  * 000000014020EAB0: test    al, al
- * 000000014020EAB2: jz      loc_1404734D0
+ * 000000014020EAB2: jz      loc_1404738D0
  * 000000014020EAB8: mov     rbx, [rsp+38h+arg_0]
  * 000000014020EABD: mov     rbp, [rsp+38h+arg_8]
  * 000000014020EAC2: mov     rsi, [rsp+38h+arg_10]
@@ -53,53 +53,53 @@
  * 000000014020EAD6: retn
  * 000000014020EAD8: call    KiFlushCurrentRsb
  * 000000014020EADD: jmp     short loc_14020EA9F
- * 00000001404734D0: mov     rax, gs:20h
- * 00000001404734D9: lea     rcx, KiNmiInProgress; "  "
- * 00000001404734E0: mov     esi, [rax+24h]
- * 00000001404734E3: mov     edx, esi
- * 00000001404734E5: call    KeInterlockedSetProcessorAffinityEx
- * 00000001404734EA: test    eax, eax
- * 00000001404734EC: jnz     loc_14020EAB8
- * 00000001404734F2: mov     rax, cs:off_140C01D88
- * 00000001404734F9: mov     r12d, 1
- * 00000001404734FF: mov     ecx, r12d
- * 0000000140473502: call    _guard_dispatch_icall
- * 0000000140473507: mov     rbx, cs:KiNmiCallbackListHead
- * 000000014047350E: mov     dil, r15b
- * 0000000140473511: test    rbx, rbx
- * 0000000140473514: jz      short loc_140473536
- * 0000000140473516: mov     rax, [rbx+8]
- * 000000014047351A: mov     dl, dil
- * 000000014047351D: mov     rcx, [rbx+10h]
- * 0000000140473521: call    _guard_dispatch_icall
- * 0000000140473526: mov     rbx, [rbx]
- * 0000000140473529: or      dil, al
- * 000000014047352C: test    rbx, rbx
- * 000000014047352F: jnz     short loc_140473516
- * 0000000140473531: test    dil, dil
- * 0000000140473534: jnz     short loc_140473570
- * 0000000140473536: lea     rcx, KiNMILock
- * 000000014047353D: call    KxTryToAcquireSpinLock
- * 0000000140473542: test    al, al
- * 0000000140473544: jz      short loc_140473584
- * 0000000140473546: xor     eax, eax
- * 0000000140473548: lock cmpxchg cs:KiBugCheckActive, r12d
- * 0000000140473551: xor     ecx, ecx
- * 0000000140473553: call    HalHandleNMI
- * 0000000140473558: mov     eax, r12d
- * 000000014047355B: lock cmpxchg cs:KiBugCheckActive, r15d
- * 0000000140473564: lea     rcx, KiNMILock
- * 000000014047356B: call    KxReleaseSpinLock
- * 0000000140473570: mov     edx, esi
- * 0000000140473572: lea     rcx, KiNmiInProgress; "  "
- * 0000000140473579: call    KeInterlockedClearProcessorAffinityEx
- * 000000014047357E: nop
- * 000000014047357F: jmp     loc_14020EAB8
- * 0000000140473584: mov     rdx, rbp
- * 0000000140473587: mov     rcx, r14
- * 000000014047358A: call    KiCheckForFreezeExecution
- * 000000014047358F: mov     rax, cs:KiNMILock
- * 0000000140473596: test    rax, rax
- * 0000000140473599: jnz     short loc_140473584
- * 000000014047359B: jmp     short loc_140473536
+ * 00000001404738D0: mov     rax, gs:20h
+ * 00000001404738D9: lea     rcx, KiNmiInProgress; "  "
+ * 00000001404738E0: mov     esi, [rax+24h]
+ * 00000001404738E3: mov     edx, esi
+ * 00000001404738E5: call    KeInterlockedSetProcessorAffinityEx
+ * 00000001404738EA: test    eax, eax
+ * 00000001404738EC: jnz     loc_14020EAB8
+ * 00000001404738F2: mov     rax, cs:off_140C01D88
+ * 00000001404738F9: mov     r12d, 1
+ * 00000001404738FF: mov     ecx, r12d
+ * 0000000140473902: call    _guard_dispatch_icall
+ * 0000000140473907: mov     rbx, cs:KiNmiCallbackListHead
+ * 000000014047390E: mov     dil, r15b
+ * 0000000140473911: test    rbx, rbx
+ * 0000000140473914: jz      short loc_140473936
+ * 0000000140473916: mov     rax, [rbx+8]
+ * 000000014047391A: mov     dl, dil
+ * 000000014047391D: mov     rcx, [rbx+10h]
+ * 0000000140473921: call    _guard_dispatch_icall
+ * 0000000140473926: mov     rbx, [rbx]
+ * 0000000140473929: or      dil, al
+ * 000000014047392C: test    rbx, rbx
+ * 000000014047392F: jnz     short loc_140473916
+ * 0000000140473931: test    dil, dil
+ * 0000000140473934: jnz     short loc_140473970
+ * 0000000140473936: lea     rcx, KiNMILock
+ * 000000014047393D: call    KxTryToAcquireSpinLock
+ * 0000000140473942: test    al, al
+ * 0000000140473944: jz      short loc_140473984
+ * 0000000140473946: xor     eax, eax
+ * 0000000140473948: lock cmpxchg cs:KiBugCheckActive, r12d
+ * 0000000140473951: xor     ecx, ecx
+ * 0000000140473953: call    HalHandleNMI
+ * 0000000140473958: mov     eax, r12d
+ * 000000014047395B: lock cmpxchg cs:KiBugCheckActive, r15d
+ * 0000000140473964: lea     rcx, KiNMILock
+ * 000000014047396B: call    KxReleaseSpinLock
+ * 0000000140473970: mov     edx, esi
+ * 0000000140473972: lea     rcx, KiNmiInProgress; "  "
+ * 0000000140473979: call    KeInterlockedClearProcessorAffinityEx
+ * 000000014047397E: nop
+ * 000000014047397F: jmp     loc_14020EAB8
+ * 0000000140473984: mov     rdx, rbp
+ * 0000000140473987: mov     rcx, r14
+ * 000000014047398A: call    KiCheckForFreezeExecution
+ * 000000014047398F: mov     rax, cs:KiNMILock
+ * 0000000140473996: test    rax, rax
+ * 0000000140473999: jnz     short loc_140473984
+ * 000000014047399B: jmp     short loc_140473936
  */

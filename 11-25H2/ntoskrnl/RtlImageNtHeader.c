@@ -48,20 +48,21 @@
  *     <none>
  */
 
-unsigned __int64 __fastcall RtlImageNtHeader(unsigned __int64 a1)
+PIMAGE_NT_HEADERS __cdecl RtlImageNtHeader(PVOID BaseOfImage)
 {
-  __int64 v1; // r8
+  _IMAGE_NT_HEADERS64 *v1; // r8
   _DWORD *v2; // rax
 
   v1 = 0LL;
-  if ( a1 - 1 <= 0xFFFFFFFFFFFFFFFDuLL && *(_WORD *)a1 == 23117 )
+  if ( (char *)BaseOfImage - 1 <= (char *)0xFFFFFFFFFFFFFFFDLL && *(_WORD *)BaseOfImage == 23117 )
   {
-    v2 = (_DWORD *)(a1 + *(unsigned int *)(a1 + 60));
-    if ( (unsigned __int64)v2 >= a1
-      && (a1 > 0x7FFFFFFEFFFFLL || (_DWORD *)((char *)v2 + 263) >= v2 && (unsigned __int64)v2 + 263 <= 0x7FFFFFFEFFFFLL)
+    v2 = (char *)BaseOfImage + *((unsigned int *)BaseOfImage + 15);
+    if ( v2 >= BaseOfImage
+      && ((unsigned __int64)BaseOfImage > 0x7FFFFFFEFFFFLL
+       || (_DWORD *)((char *)v2 + 263) >= v2 && (unsigned __int64)v2 + 263 <= 0x7FFFFFFEFFFFLL)
       && *v2 == 17744 )
     {
-      return a1 + *(unsigned int *)(a1 + 60);
+      return (PIMAGE_NT_HEADERS)((char *)BaseOfImage + *((unsigned int *)BaseOfImage + 15));
     }
   }
   return v1;

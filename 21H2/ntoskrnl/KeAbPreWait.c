@@ -1,26 +1,26 @@
 /*
- * XREFs of KeAbPreWait @ 0x1402F30C0
+ * XREFs of KeAbPreWait @ 0x1402FDE10
  * Callers:
- *     KeWaitForMultipleObjects @ 0x14024BB90 (KeWaitForMultipleObjects.c)
- *     MiWaitForCollidedFaultComplete @ 0x14028C1F0 (MiWaitForCollidedFaultComplete.c)
- *     KiWaitForAllObjects @ 0x14029A090 (KiWaitForAllObjects.c)
- *     MiLockControlAreaSectionExtend @ 0x1402A12EC (MiLockControlAreaSectionExtend.c)
- *     ExpAcquireFastMutexContended @ 0x1402F2BC0 (ExpAcquireFastMutexContended.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402F2C90 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfAcquirePushLockSharedEx @ 0x1402F2EC0 (ExfAcquirePushLockSharedEx.c)
- *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
- *     MiReferenceControlArea @ 0x140356824 (MiReferenceControlArea.c)
- *     ExAcquireFastResourceExclusive @ 0x14038ECD0 (ExAcquireFastResourceExclusive.c)
- *     ExAcquireFastResourceSharedStarveExclusive @ 0x14038F0B0 (ExAcquireFastResourceSharedStarveExclusive.c)
- *     ExAcquireFastResourceShared @ 0x14038F380 (ExAcquireFastResourceShared.c)
- *     MiChangingSubsectionProtos @ 0x14053F918 (MiChangingSubsectionProtos.c)
- *     MiWaitForExtentDeletions @ 0x1405426E0 (MiWaitForExtentDeletions.c)
- *     IopWaitAndAcquireFileObjectLock @ 0x1406E7BB8 (IopWaitAndAcquireFileObjectLock.c)
- *     CmpWaitOnHiveWriteQueue @ 0x14087263C (CmpWaitOnHiveWriteQueue.c)
- *     VrpWaitForDiffHiveEntryTransitionOwnerToLeave @ 0x140884240 (VrpWaitForDiffHiveEntryTransitionOwnerToLeave.c)
- *     PfpPrefetchSharedConflictNotifyStart @ 0x1408DFC60 (PfpPrefetchSharedConflictNotifyStart.c)
+ *     MiWaitForCollidedFaultComplete @ 0x140209390 (MiWaitForCollidedFaultComplete.c)
+ *     MiLockControlAreaSectionExtend @ 0x14021E86C (MiLockControlAreaSectionExtend.c)
+ *     KiWaitForAllObjects @ 0x14022A600 (KiWaitForAllObjects.c)
+ *     KeWaitForMultipleObjects @ 0x1402F03E0 (KeWaitForMultipleObjects.c)
+ *     ExpAcquireFastMutexContended @ 0x1402FD910 (ExpAcquireFastMutexContended.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402FD9E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1402FDC10 (ExfAcquirePushLockSharedEx.c)
+ *     KeWaitForSingleObject @ 0x1403504C0 (KeWaitForSingleObject.c)
+ *     MiReferenceControlArea @ 0x140361574 (MiReferenceControlArea.c)
+ *     ExAcquireFastResourceExclusive @ 0x14038EE20 (ExAcquireFastResourceExclusive.c)
+ *     ExAcquireFastResourceSharedStarveExclusive @ 0x14038F200 (ExAcquireFastResourceSharedStarveExclusive.c)
+ *     ExAcquireFastResourceShared @ 0x14038F4D0 (ExAcquireFastResourceShared.c)
+ *     MiChangingSubsectionProtos @ 0x14053FB58 (MiChangingSubsectionProtos.c)
+ *     MiWaitForExtentDeletions @ 0x140542920 (MiWaitForExtentDeletions.c)
+ *     IopWaitAndAcquireFileObjectLock @ 0x1406FEF98 (IopWaitAndAcquireFileObjectLock.c)
+ *     CmpWaitOnHiveWriteQueue @ 0x14087279C (CmpWaitOnHiveWriteQueue.c)
+ *     VrpWaitForDiffHiveEntryTransitionOwnerToLeave @ 0x1408843A0 (VrpWaitForDiffHiveEntryTransitionOwnerToLeave.c)
+ *     PfpPrefetchSharedConflictNotifyStart @ 0x1408DFDC0 (PfpPrefetchSharedConflictNotifyStart.c)
  * Callees:
- *     KiAbEntryRemoveFromTree @ 0x14028F490 (KiAbEntryRemoveFromTree.c)
+ *     KiAbEntryRemoveFromTree @ 0x14020C630 (KiAbEntryRemoveFromTree.c)
  */
 
 char __fastcall KeAbPreWait(__int64 a1)
@@ -29,7 +29,7 @@ char __fastcall KeAbPreWait(__int64 a1)
 
   *(_BYTE *)(a1 + 32) |= 2u;
   if ( *(__int64 *)(a1 + 32) < 0 )
-    KiAbEntryRemoveFromTree(a1);
+    KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)a1);
   *(_BYTE *)(a1 + 25) |= 1u;
   result = *(_BYTE *)(a1 + 32) & 0xFD;
   *(_BYTE *)(a1 + 32) = result;

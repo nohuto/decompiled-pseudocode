@@ -15,16 +15,16 @@ __int64 __fastcall sub_1800F2694(__int64 a1, char a2, char a3, __int64 a4)
   int v7; // ebx
   int v8; // r8d
   int v9; // r9d
-  __int64 v11; // [rsp+30h] [rbp-18h] BYREF
+  PVOID BaseAddress; // [rsp+30h] [rbp-18h] BYREF
   __int64 v12; // [rsp+38h] [rbp-10h] BYREF
 
-  v7 = sub_1800F2B6C(a1, &v11, &v12);
+  v7 = sub_1800F2B6C(a1, &BaseAddress, &v12);
   if ( v7 >= 0 )
   {
     LOBYTE(v9) = a3;
     LOBYTE(v8) = a2;
-    v7 = sub_1800F2708(v11, v12, v8, v9, a4);
-    ZwUnmapViewOfSection();
+    v7 = sub_1800F2708((_DWORD)BaseAddress, v12, v8, v9, a4);
+    ZwUnmapViewOfSection((HANDLE)0xFFFFFFFFFFFFFFFFLL, BaseAddress);
   }
   return (unsigned int)v7;
 }

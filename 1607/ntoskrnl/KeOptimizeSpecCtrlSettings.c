@@ -1,20 +1,20 @@
 /*
- * XREFs of KeOptimizeSpecCtrlSettings @ 0x1401D90FC
+ * XREFs of KeOptimizeSpecCtrlSettings @ 0x1401D8F28
  * Callers:
- *     KiDynamicProcessorInitialization @ 0x1401D1F44 (KiDynamicProcessorInitialization.c)
+ *     KiDynamicProcessorInitialization @ 0x1401D1D70 (KiDynamicProcessorInitialization.c)
  * Callees:
- *     HvlIsCoreSharingPossible @ 0x1401BAB14 (HvlIsCoreSharingPossible.c)
- *     KiAddSpecCtrlSsbdBit @ 0x1401D9720 (KiAddSpecCtrlSsbdBit.c)
- *     KiDetectAmdNonArchSsbdSupport @ 0x1401D9730 (KiDetectAmdNonArchSsbdSupport.c)
- *     KiIsBranchConfusionMitigationDesired @ 0x1401D9BEC (KiIsBranchConfusionMitigationDesired.c)
- *     KiIsBranchConfusionMitigationSupported @ 0x1401D9C20 (KiIsBranchConfusionMitigationSupported.c)
- *     KiIsBranchConfusionPresent @ 0x1401D9C44 (KiIsBranchConfusionPresent.c)
- *     KiIsSrsoMitigationDesired @ 0x1401D9D44 (KiIsSrsoMitigationDesired.c)
- *     KiIsTsaMitigationDesired @ 0x1401D9DC4 (KiIsTsaMitigationDesired.c)
- *     KiIsTsaMitigationSupported @ 0x1401D9DD8 (KiIsTsaMitigationSupported.c)
- *     KiIsTsaPresent @ 0x1401D9E54 (KiIsTsaPresent.c)
- *     KiSetVirtualMitigationControl @ 0x1401D9EB8 (KiSetVirtualMitigationControl.c)
- *     KiUpdateSpeculationControl @ 0x1401DA084 (KiUpdateSpeculationControl.c)
+ *     HvlIsCoreSharingPossible @ 0x1401BA9F8 (HvlIsCoreSharingPossible.c)
+ *     KiAddSpecCtrlSsbdBit @ 0x1401D954C (KiAddSpecCtrlSsbdBit.c)
+ *     KiDetectAmdNonArchSsbdSupport @ 0x1401D955C (KiDetectAmdNonArchSsbdSupport.c)
+ *     KiIsBranchConfusionMitigationDesired @ 0x1401D9A18 (KiIsBranchConfusionMitigationDesired.c)
+ *     KiIsBranchConfusionMitigationSupported @ 0x1401D9A4C (KiIsBranchConfusionMitigationSupported.c)
+ *     KiIsBranchConfusionPresent @ 0x1401D9A70 (KiIsBranchConfusionPresent.c)
+ *     KiIsSrsoMitigationDesired @ 0x1401D9B70 (KiIsSrsoMitigationDesired.c)
+ *     KiIsTsaMitigationDesired @ 0x1401D9BF0 (KiIsTsaMitigationDesired.c)
+ *     KiIsTsaMitigationSupported @ 0x1401D9C04 (KiIsTsaMitigationSupported.c)
+ *     KiIsTsaPresent @ 0x1401D9C80 (KiIsTsaPresent.c)
+ *     KiSetVirtualMitigationControl @ 0x1401D9CE4 (KiSetVirtualMitigationControl.c)
+ *     KiUpdateSpeculationControl @ 0x1401D9EB0 (KiUpdateSpeculationControl.c)
  */
 
 ULONG_PTR __fastcall KeOptimizeSpecCtrlSettings(ULONG_PTR Argument)

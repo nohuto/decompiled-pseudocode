@@ -1,11 +1,11 @@
 /*
- * XREFs of SymCryptSha512AppendBlocks_ull @ 0x1405258FC
+ * XREFs of SymCryptSha512AppendBlocks_ull @ 0x140523214
  * Callers:
- *     SymCryptSha512Append @ 0x140525820 (SymCryptSha512Append.c)
- *     SymCryptSha512Result @ 0x140526E18 (SymCryptSha512Result.c)
+ *     SymCryptSha512Append @ 0x140523138 (SymCryptSha512Append.c)
+ *     SymCryptSha512Result @ 0x140524730 (SymCryptSha512Result.c)
  * Callees:
- *     SymCryptWipe @ 0x14051DC34 (SymCryptWipe.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     SymCryptWipe @ 0x14051B504 (SymCryptWipe.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 __int64 __fastcall SymCryptSha512AppendBlocks_ull(__int64 *a1, __int64 a2, unsigned __int64 a3, unsigned __int64 *a4)
@@ -288,8 +288,8 @@ __int64 __fastcall SymCryptSha512AppendBlocks_ull(__int64 *a1, __int64 a2, unsig
       v114 = v64;
       v66 = v65 + v51;
       v67 = v133;
-      v68 = qword_14001FCD0;
-      v112 = qword_14001FCD0;
+      v68 = qword_140020050;
+      v112 = qword_140020050;
       v69 = __ROR8__(v63 ^ __ROR8__(v63, 6) ^ __ROR8__(v63, 11), 28) + (v59 & v56 | v63 & (v59 | v56)) + v65;
       do
       {

@@ -1,14 +1,22 @@
 /*
- * XREFs of ZwAccessCheck @ 0x1406A6410
+ * XREFs of ZwAccessCheck @ 0x1406A73B0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 ZwAccessCheck()
+NTSTATUS __cdecl ZwAccessCheck(
+        PSECURITY_DESCRIPTOR SecurityDescriptor,
+        HANDLE ClientToken,
+        ACCESS_MASK DesiredAccess,
+        PGENERIC_MAPPING GenericMapping,
+        PPRIVILEGE_SET PrivilegeSet,
+        PULONG PrivilegeSetLength,
+        PACCESS_MASK GrantedAccess,
+        PNTSTATUS AccessStatus)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal();
+  return KiServiceInternal(SecurityDescriptor, ClientToken, DesiredAccess, GenericMapping);
 }

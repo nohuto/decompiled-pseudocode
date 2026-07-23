@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpInterruptGenerateMessage @ 0x140378448
+ * XREFs of HalpInterruptGenerateMessage @ 0x140377F98
  * Callers:
- *     HalpPopulateMsiMessages @ 0x1403783A4 (HalpPopulateMsiMessages.c)
- *     HalpIommuConfigureInterrupt @ 0x1404CBC80 (HalpIommuConfigureInterrupt.c)
+ *     HalpPopulateMsiMessages @ 0x140377EF4 (HalpPopulateMsiMessages.c)
+ *     HalpIommuConfigureInterrupt @ 0x1404CBEC0 (HalpIommuConfigureInterrupt.c)
  * Callees:
- *     HalGetProcessorIdByNtNumber @ 0x140377550 (HalGetProcessorIdByNtNumber.c)
- *     HalpInterruptDestinationToTarget @ 0x140378D30 (HalpInterruptDestinationToTarget.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     HalGetProcessorIdByNtNumber @ 0x1403770A0 (HalGetProcessorIdByNtNumber.c)
+ *     HalpInterruptDestinationToTarget @ 0x140378880 (HalpInterruptDestinationToTarget.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall HalpInterruptGenerateMessage(int *a1, __int64 a2, _QWORD *a3, _QWORD *a4)

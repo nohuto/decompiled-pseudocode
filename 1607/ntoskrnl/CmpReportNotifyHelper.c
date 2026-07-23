@@ -1,14 +1,14 @@
 /*
- * XREFs of CmpReportNotifyHelper @ 0x140514960
+ * XREFs of CmpReportNotifyHelper @ 0x1404F7D50
  * Callers:
- *     CmpReportNotify @ 0x140514840 (CmpReportNotify.c)
+ *     CmpReportNotify @ 0x1404F7C30 (CmpReportNotify.c)
  * Callees:
- *     ExAcquireFastMutexUnsafe @ 0x1400F05A0 (ExAcquireFastMutexUnsafe.c)
- *     ExReleaseFastMutexUnsafe @ 0x1400F0700 (ExReleaseFastMutexUnsafe.c)
- *     CmpTransIsTransActive @ 0x1401B517C (CmpTransIsTransActive.c)
- *     CmpNotifyTriggerCheck @ 0x1403FDC9C (CmpNotifyTriggerCheck.c)
- *     CmpPostNotify @ 0x14049A9D4 (CmpPostNotify.c)
- *     CmpDelayedDerefKeys @ 0x140514B2C (CmpDelayedDerefKeys.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1400EE420 (ExAcquireFastMutexUnsafe.c)
+ *     ExReleaseFastMutexUnsafe @ 0x1400EE580 (ExReleaseFastMutexUnsafe.c)
+ *     CmpTransIsTransActive @ 0x1401B5060 (CmpTransIsTransActive.c)
+ *     CmpPostNotify @ 0x1403E38F4 (CmpPostNotify.c)
+ *     CmpNotifyTriggerCheck @ 0x1403FCB5C (CmpNotifyTriggerCheck.c)
+ *     CmpDelayedDerefKeys @ 0x1404F7F1C (CmpDelayedDerefKeys.c)
  */
 
 __int64 __fastcall CmpReportNotifyHelper(

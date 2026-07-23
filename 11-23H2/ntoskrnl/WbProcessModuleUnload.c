@@ -1,11 +1,11 @@
 /*
- * XREFs of WbProcessModuleUnload @ 0x1407E04BC
+ * XREFs of WbProcessModuleUnload @ 0x1407E078C
  * Callers:
- *     WbDispatchOperation @ 0x140763418 (WbDispatchOperation.c)
+ *     WbDispatchOperation @ 0x140763608 (WbDispatchOperation.c)
  * Callees:
- *     WbAlloc @ 0x140763988 (WbAlloc.c)
- *     WbInPlaceEncryptionUnloadModule @ 0x1407E05A0 (WbInPlaceEncryptionUnloadModule.c)
- *     WbHeapExecutionUnloadModule @ 0x1407E06B8 (WbHeapExecutionUnloadModule.c)
+ *     WbAlloc @ 0x140763B78 (WbAlloc.c)
+ *     WbInPlaceEncryptionUnloadModule @ 0x1407E0870 (WbInPlaceEncryptionUnloadModule.c)
+ *     WbHeapExecutionUnloadModule @ 0x1407E0988 (WbHeapExecutionUnloadModule.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

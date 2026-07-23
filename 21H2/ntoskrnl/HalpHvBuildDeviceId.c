@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpHvBuildDeviceId @ 0x1409A70C8
+ * XREFs of HalpHvBuildDeviceId @ 0x1409A7FF8
  * Callers:
- *     HalpTimerInitializeHypervisorTimer @ 0x1403A8104 (HalpTimerInitializeHypervisorTimer.c)
- *     HalpHvMapDeviceMsiRange @ 0x1409A7248 (HalpHvMapDeviceMsiRange.c)
- *     HalpHvUnmapDeviceMsiRange @ 0x1409A73A0 (HalpHvUnmapDeviceMsiRange.c)
+ *     HalpTimerInitializeHypervisorTimer @ 0x1403A8E94 (HalpTimerInitializeHypervisorTimer.c)
+ *     HalpHvMapDeviceMsiRange @ 0x1409A8178 (HalpHvMapDeviceMsiRange.c)
+ *     HalpHvUnmapDeviceMsiRange @ 0x1409A82D0 (HalpHvUnmapDeviceMsiRange.c)
  * Callees:
  *     <none>
  */

@@ -17,7 +17,7 @@ void IopInitializeInMemoryDumpData()
 {
   __int64 v0; // rsi
   char v1; // r14
-  int v2; // eax
+  NTSTATUS v2; // eax
   unsigned int i; // edi
   void *ContiguousNodeMemory; // rax
   __int64 v5; // rax
@@ -25,7 +25,7 @@ void IopInitializeInMemoryDumpData()
   unsigned __int64 v7; // rax
   unsigned __int64 v8; // rax
   int v9; // eax
-  _BYTE v10[8]; // [rsp+30h] [rbp-40h] BYREF
+  _BYTE Data[8]; // [rsp+30h] [rbp-40h] BYREF
   __int128 v11; // [rsp+38h] [rbp-38h]
   __int64 v12; // [rsp+48h] [rbp-28h]
   _DWORD v13[4]; // [rsp+50h] [rbp-20h] BYREF
@@ -34,7 +34,7 @@ void IopInitializeInMemoryDumpData()
   v13[1] = 1295123289;
   v13[2] = -198680387;
   v13[3] = 1266192359;
-  v10[0] = 0;
+  Data[0] = 0;
   *(_QWORD *)&v11 = 0x302E4594353594B3LL;
   v0 = 2LL;
   *((_QWORD *)&v11 + 1) = 0xB50211F197DACBD4uLL;
@@ -44,7 +44,7 @@ void IopInitializeInMemoryDumpData()
     dword_140E65BF4 = 0;
     LODWORD(qword_140E65BE0) = 0;
     v1 = 0;
-    v2 = ZwFilterBootOption(1LL, 270532611LL, 637534368LL, v10, 1);
+    v2 = ZwFilterBootOption(FilterBootOptionOperationSetElement, 0x10200003u, 0x260000A0u, Data, 1u);
     if ( v2 >= 0 || v2 == -2143092730 && (_BYTE)KdDebuggerEnabled )
       v1 = 1;
     qword_140E65BD8 = 9144LL;

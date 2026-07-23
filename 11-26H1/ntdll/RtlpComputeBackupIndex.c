@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpComputeBackupIndex @ 0x1800A5F44
+ * XREFs of RtlpComputeBackupIndex @ 0x1800A5074
  * Callers:
- *     RtlGetFullPathName_Ustr @ 0x180047AE0 (RtlGetFullPathName_Ustr.c)
+ *     RtlGetFullPathName_Ustr @ 0x180032060 (RtlGetFullPathName_Ustr.c)
  * Callees:
- *     RtlDetermineDosPathNameType_Ustr @ 0x1800A6E20 (RtlDetermineDosPathNameType_Ustr.c)
+ *     RtlDetermineDosPathNameType_Ustr @ 0x1800A5F50 (RtlDetermineDosPathNameType_Ustr.c)
  */
 
 __int64 __fastcall RtlpComputeBackupIndex(__int64 a1)

@@ -1,17 +1,17 @@
 /*
- * XREFs of IopCleanupFileObjectIosbRange @ 0x1407944C0
+ * XREFs of IopCleanupFileObjectIosbRange @ 0x140796FF0
  * Callers:
- *     IopCleanupProcessResources @ 0x140A1F2D0 (IopCleanupProcessResources.c)
+ *     IopCleanupProcessResources @ 0x140A288F0 (IopCleanupProcessResources.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     ExAcquireFastMutex @ 0x140278070 (ExAcquireFastMutex.c)
- *     KeReleaseGuardedMutex @ 0x140278D40 (KeReleaseGuardedMutex.c)
- *     MmUnmapLockedPages @ 0x140281690 (MmUnmapLockedPages.c)
- *     IoFreeMdl @ 0x14039F190 (IoFreeMdl.c)
- *     RtlDeleteElementGenericTableAvl @ 0x1403B8A60 (RtlDeleteElementGenericTableAvl.c)
- *     MmUnlockPages @ 0x140410C10 (MmUnlockPages.c)
- *     RtlLookupElementGenericTableAvl @ 0x14042F140 (RtlLookupElementGenericTableAvl.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     ExAcquireFastMutex @ 0x1402775E0 (ExAcquireFastMutex.c)
+ *     KeReleaseGuardedMutex @ 0x1402782B0 (KeReleaseGuardedMutex.c)
+ *     MmUnmapLockedPages @ 0x140280C00 (MmUnmapLockedPages.c)
+ *     IoFreeMdl @ 0x1403A0EF0 (IoFreeMdl.c)
+ *     RtlDeleteElementGenericTableAvl @ 0x1403C2960 (RtlDeleteElementGenericTableAvl.c)
+ *     MmUnlockPages @ 0x140410330 (MmUnlockPages.c)
+ *     RtlLookupElementGenericTableAvl @ 0x14041C050 (RtlLookupElementGenericTableAvl.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall IopCleanupFileObjectIosbRange(__int64 a1)
@@ -29,8 +29,8 @@ void __fastcall IopCleanupFileObjectIosbRange(__int64 a1)
   v2 = 0LL;
   ObfDereferenceObjectWithTag(Buffer[0], 0x70436F49u);
   *(_QWORD *)(a1 + 32) = 0LL;
-  ExAcquireFastMutex(&IoStatusBlockRangeTableLock);
-  v3 = RtlLookupElementGenericTableAvl(&IoStatusBlockRangeTable, Buffer);
+  ExAcquireFastMutex((PKGUARDED_MUTEX)&IopPerfIoTrackingLock.Spare35[1]);
+  v3 = RtlLookupElementGenericTableAvl((PRTL_AVL_TABLE)IopPerfIoTrackingLock.TracingPrivate, Buffer);
   for ( i = (char *)v3[1]; ; i = (char *)*((_QWORD *)i + 5) )
   {
     v5 = (PMDL *)(i + 24);
@@ -57,7 +57,7 @@ void __fastcall IopCleanupFileObjectIosbRange(__int64 a1)
       v3[1] = v7;
     ExFreePoolWithTag(i, 0);
     if ( !v3[1] )
-      RtlDeleteElementGenericTableAvl(&IoStatusBlockRangeTable, Buffer);
+      RtlDeleteElementGenericTableAvl((PRTL_AVL_TABLE)IopPerfIoTrackingLock.TracingPrivate, Buffer);
   }
-  KeReleaseGuardedMutex(&IoStatusBlockRangeTableLock);
+  KeReleaseGuardedMutex((PKGUARDED_MUTEX)&IopPerfIoTrackingLock.Spare35[1]);
 }

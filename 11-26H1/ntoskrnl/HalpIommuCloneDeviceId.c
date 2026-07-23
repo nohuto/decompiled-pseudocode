@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpIommuCloneDeviceId @ 0x14051A548
+ * XREFs of HalpIommuCloneDeviceId @ 0x140513FB8
  * Callers:
- *     HalpIommuCreateDevice @ 0x14051AC18 (HalpIommuCreateDevice.c)
- *     HalpIommuCreateIncreaseAliasTrack @ 0x14058D3D4 (HalpIommuCreateIncreaseAliasTrack.c)
+ *     HalpIommuCreateDevice @ 0x140514688 (HalpIommuCreateDevice.c)
+ *     HalpIommuCreateIncreaseAliasTrack @ 0x14058FB54 (HalpIommuCreateIncreaseAliasTrack.c)
  * Callees:
- *     HalpMmAllocCtxAlloc @ 0x140357FFC (HalpMmAllocCtxAlloc.c)
- *     HalpMmAllocCtxFree @ 0x140359004 (HalpMmAllocCtxFree.c)
- *     IidCloneDeviceId @ 0x140B49980 (IidCloneDeviceId.c)
- *     IidGetDeviceIdBufferSize @ 0x140B5C8BC (IidGetDeviceIdBufferSize.c)
+ *     HalpMmAllocCtxAlloc @ 0x140359D9C (HalpMmAllocCtxAlloc.c)
+ *     HalpMmAllocCtxFree @ 0x14035ADA4 (HalpMmAllocCtxFree.c)
+ *     IidCloneDeviceId @ 0x140B4B710 (IidCloneDeviceId.c)
+ *     IidGetDeviceIdBufferSize @ 0x140B5F7DC (IidGetDeviceIdBufferSize.c)
  */
 
 __int64 __fastcall HalpIommuCloneDeviceId(void *Src, __int64 *a2)

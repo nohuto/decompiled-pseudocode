@@ -1,10 +1,10 @@
 /*
- * XREFs of ?InitializePartitionCache@SC_DISK@@QEAAJXZ @ 0x140675A04
+ * XREFs of ?InitializePartitionCache@SC_DISK@@QEAAJXZ @ 0x140675F54
  * Callers:
- *     ?Initialize@NT_DISK@@QEAAJPEAU_DEVICE_OBJECT@@@Z @ 0x140940438 (-Initialize@NT_DISK@@QEAAJPEAU_DEVICE_OBJECT@@@Z.c)
+ *     ?Initialize@NT_DISK@@QEAAJPEAU_DEVICE_OBJECT@@@Z @ 0x140940638 (-Initialize@NT_DISK@@QEAAJPEAU_DEVICE_OBJECT@@@Z.c)
  * Callees:
- *     ?ResetPartitionCache@SC_DISK@@QEAAJXZ @ 0x140675BD0 (-ResetPartitionCache@SC_DISK@@QEAAJXZ.c)
- *     ?Allocate@SC_ENV@@SAPEAX_KKE@Z @ 0x140940300 (-Allocate@SC_ENV@@SAPEAX_KKE@Z.c)
+ *     ?ResetPartitionCache@SC_DISK@@QEAAJXZ @ 0x140676120 (-ResetPartitionCache@SC_DISK@@QEAAJXZ.c)
+ *     ?Allocate@SC_ENV@@SAPEAX_KKE@Z @ 0x140940500 (-Allocate@SC_ENV@@SAPEAX_KKE@Z.c)
  */
 
 __int64 __fastcall SC_DISK::InitializePartitionCache(SC_DISK *this, unsigned int a2, unsigned __int8 a3)

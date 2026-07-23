@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpOptimizeConditionVariableWaitList @ 0x180062D98
+ * XREFs of RtlpOptimizeConditionVariableWaitList @ 0x180062D88
  * Callers:
- *     RtlSleepConditionVariableSRW @ 0x180062960 (RtlSleepConditionVariableSRW.c)
- *     RtlSleepConditionVariableCS @ 0x180062AF0 (RtlSleepConditionVariableCS.c)
+ *     RtlSleepConditionVariableSRW @ 0x180062950 (RtlSleepConditionVariableSRW.c)
+ *     RtlSleepConditionVariableCS @ 0x180062AE0 (RtlSleepConditionVariableCS.c)
  * Callees:
- *     RtlpWakeConditionVariable @ 0x180062F64 (RtlpWakeConditionVariable.c)
+ *     RtlpWakeConditionVariable @ 0x180062F54 (RtlpWakeConditionVariable.c)
  */
 
 __int64 __fastcall RtlpOptimizeConditionVariableWaitList(volatile signed __int64 *a1, signed __int64 a2)

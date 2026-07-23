@@ -20,11 +20,11 @@ BOOLEAN __stdcall SeTokenIsAdmin(PACCESS_TOKEN Token)
   if ( (*((_DWORD *)Token + 50) & 0x4000) != 0 || *((_DWORD *)Token + 48) == 2 && *((int *)Token + 49) < 2 )
     return 0;
   v2 = SeAliasAdminsSid;
-  v3 = SepSidInToken((__int64)Token, 0LL, (__int64)SeAliasAdminsSid, 0LL, 0);
+  v3 = SepSidInToken((__int64)Token, 0LL, (__int64)SeAliasAdminsSid, 0LL, 0, 0, 0);
   if ( v3 )
   {
     if ( SeTokenIsRestricted(Token) )
-      return SepSidInToken((__int64)Token, 0LL, (__int64)v2, 0LL, 1);
+      return SepSidInToken((__int64)Token, 0LL, (__int64)v2, 0LL, 1, 0, 0);
   }
   return v3;
 }

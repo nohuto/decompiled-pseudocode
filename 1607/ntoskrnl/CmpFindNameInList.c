@@ -1,14 +1,14 @@
 /*
- * XREFs of CmpFindNameInList @ 0x140402A54
+ * XREFs of CmpFindNameInList @ 0x140401914
  * Callers:
- *     CmQueryMultipleValueKey @ 0x140402254 (CmQueryMultipleValueKey.c)
- *     CmpFindValueByName @ 0x140402A28 (CmpFindValueByName.c)
- *     CmpLightWeightPrepareSetValueKeyUoW @ 0x14053B080 (CmpLightWeightPrepareSetValueKeyUoW.c)
- *     CmEnumerateValueKeyFromMergedView @ 0x1405FF9F4 (CmEnumerateValueKeyFromMergedView.c)
- *     CmpMergeKeyValues @ 0x140608F88 (CmpMergeKeyValues.c)
- *     CmpLightWeightPrepareDeleteValueKeyUoW @ 0x14060F08C (CmpLightWeightPrepareDeleteValueKeyUoW.c)
+ *     CmQueryMultipleValueKey @ 0x140401114 (CmQueryMultipleValueKey.c)
+ *     CmpFindValueByName @ 0x1404018E8 (CmpFindValueByName.c)
+ *     CmpLightWeightPrepareSetValueKeyUoW @ 0x14053B5C0 (CmpLightWeightPrepareSetValueKeyUoW.c)
+ *     CmEnumerateValueKeyFromMergedView @ 0x1405FFAA8 (CmEnumerateValueKeyFromMergedView.c)
+ *     CmpMergeKeyValues @ 0x14060903C (CmpMergeKeyValues.c)
+ *     CmpLightWeightPrepareDeleteValueKeyUoW @ 0x14060F140 (CmpLightWeightPrepareDeleteValueKeyUoW.c)
  * Callees:
- *     CmpFindNameInListWithStatus @ 0x140402B1C (CmpFindNameInListWithStatus.c)
+ *     CmpFindNameInListWithStatus @ 0x1404019DC (CmpFindNameInListWithStatus.c)
  */
 
 _BOOL8 __fastcall CmpFindNameInList(int a1, int a2, int a3, int a4, __int64 a5, __int64 a6)

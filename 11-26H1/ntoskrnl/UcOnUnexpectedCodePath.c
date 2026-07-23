@@ -1,22 +1,22 @@
 /*
- * XREFs of UcOnUnexpectedCodePath @ 0x140712950
+ * XREFs of UcOnUnexpectedCodePath @ 0x140717648
  * Callers:
- *     RtlLogUnexpectedCodepath @ 0x14061F570 (RtlLogUnexpectedCodepath.c)
+ *     RtlLogUnexpectedCodepath @ 0x1406225C0 (RtlLogUnexpectedCodepath.c)
  * Callees:
- *     KeInsertQueueApc @ 0x14020AD90 (KeInsertQueueApc.c)
- *     RtlCaptureStackBackTrace @ 0x140261920 (RtlCaptureStackBackTrace.c)
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     UcpFindOrCreateTelemetryRecord @ 0x140712BE8 (UcpFindOrCreateTelemetryRecord.c)
- *     UcpLogEventGenerateDump @ 0x140712D40 (UcpLogEventGenerateDump.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KeInsertQueueApc @ 0x14020AE70 (KeInsertQueueApc.c)
+ *     RtlCaptureStackBackTrace @ 0x140260E90 (RtlCaptureStackBackTrace.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     UcpFindOrCreateTelemetryRecord @ 0x1407178E0 (UcpFindOrCreateTelemetryRecord.c)
+ *     UcpLogEventGenerateDump @ 0x140717A38 (UcpLogEventGenerateDump.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall UcOnUnexpectedCodePath(int *a1)
 {
   unsigned int v1; // ebx
-  struct _LIST_ENTRY *CurrentThread; // rdi
+  struct _KTHREAD *CurrentThread; // rdi
   KIRQL v5; // al
   KIRQL v6; // bp
   __int64 v7; // rax
@@ -32,15 +32,15 @@ __int64 __fastcall UcOnUnexpectedCodePath(int *a1)
 
   v1 = 0;
   v15 = 0;
-  CurrentThread = (struct _LIST_ENTRY *)KeGetCurrentThread();
+  CurrentThread = KeGetCurrentThread();
   v11 = retaddr;
   v12 = *a1;
   v13 = a1[1];
   v14 = a1[2];
-  if ( WheapPfaLock.WaitBlock[0].WaitListEntry.Flink && CurrentThread == WheapPfaLock.WaitBlock[0].WaitListEntry.Flink )
+  if ( WheapPfaLock.WaitBlock[1].SparePtr && CurrentThread == WheapPfaLock.WaitBlock[1].SparePtr )
     return 3221225485LL;
   v5 = KeAcquireSpinLockRaiseToDpc(&UcSpinLock);
-  WheapPfaLock.WaitBlock[0].WaitListEntry.Flink = CurrentThread;
+  WheapPfaLock.WaitBlock[1].SparePtr = CurrentThread;
   v6 = v5;
   v7 = UcpFindOrCreateTelemetryRecord(&v11);
   v8 = v7;
@@ -48,11 +48,11 @@ __int64 __fastcall UcOnUnexpectedCodePath(int *a1)
   {
     ++*(_DWORD *)(v7 + 16);
     ++*(_DWORD *)(v7 + 20);
-    v9 = MEMORY[0xFFFFF78000000320] * (unsigned int)KeMaximumIncrement / 10000LL;
+    v9 = MEMORY[0xFFFFF78000000320] * KeMaximumIncrement / 10000LL;
     if ( (unsigned __int64)(v9 - *(_QWORD *)(v7 + 8)) > 0xEA60 )
     {
       *(_QWORD *)(v7 + 8) = v9;
-      WheapPfaLock.WaitBlock[0].WaitListEntry.Flink = 0LL;
+      WheapPfaLock.WaitBlock[1].SparePtr = 0LL;
       KeReleaseSpinLock(&UcSpinLock, v6);
       if ( KeGetCurrentIrql() )
       {
@@ -94,7 +94,7 @@ __int64 __fastcall UcOnUnexpectedCodePath(int *a1)
   {
     v1 = -1073741801;
   }
-  WheapPfaLock.WaitBlock[0].WaitListEntry.Flink = 0LL;
+  WheapPfaLock.WaitBlock[1].SparePtr = 0LL;
   KeReleaseSpinLock(&UcSpinLock, v6);
   return v1;
 }

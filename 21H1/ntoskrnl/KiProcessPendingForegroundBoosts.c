@@ -78,7 +78,7 @@ void __fastcall KiProcessPendingForegroundBoosts(
   if ( v12 )
   {
     *((_QWORD *)&v25 + 1) = -1LL;
-    KeSetTimer2((__int64)&KiForegroundState, -150000LL * (KiForegroundBoostTicks - v5), 0LL, &v25);
+    KeSetTimer2((__int64)&KiForegroundState, -150000LL * (KiForegroundBoostTicks - v5), 0LL, (__int64)&v25);
   }
   while ( v4 )
   {

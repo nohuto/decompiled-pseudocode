@@ -27,7 +27,7 @@ __int64 __fastcall KeQueryBasePriorityThread(__int64 a1)
   v1 = *(_QWORD *)(a1 + 544);
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     LODWORD(v8) = 4;
@@ -49,10 +49,10 @@ __int64 __fastcall KeQueryBasePriorityThread(__int64 a1)
     v5 = 16 * *(char *)(a1 + 645);
   *(_QWORD *)(a1 + 64) = 0LL;
   ExReleaseSpinLockSharedFromDpcLevel(v4);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v9 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v9 <= 0xFu && CurrentIrql <= 0xFu && v9 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v9 <= 0xFu && CurrentIrql <= 0xFu && v9 >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v11 = CurrentPrcb->SchedulerAssist;

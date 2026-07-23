@@ -81,14 +81,18 @@
  *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
  */
 
-__int64 __fastcall NtSetInformationJobObject(ULONG_PTR BugCheckParameter1, int a2, void *a3, unsigned int a4)
+NTSTATUS __cdecl NtSetInformationJobObject(
+        HANDLE JobHandle,
+        JOBOBJECTINFOCLASS JobObjectInformationClass,
+        PVOID JobObjectInformation,
+        ULONG JobObjectInformationLength)
 {
   size_t v4; // r14
   __int64 v5; // r13
   unsigned int v7; // ecx
   bool v8; // zf
   __m128i *v9; // rdi
-  __int64 result; // rax
+  NTSTATUS result; // eax
   __int64 v11; // rbx
   __int64 v12; // rdx
   int v13; // esi
@@ -116,7 +120,7 @@ __int64 __fastcall NtSetInformationJobObject(ULONG_PTR BugCheckParameter1, int a
   char v35; // al
   int v36; // ecx
   __int64 v37; // rcx
-  int v38; // edi
+  JOBOBJECTINFOCLASS v38; // edi
   struct _SECURITY_SUBJECT_CONTEXT *Pool2; // rdi
   ULONG v40; // edx
   struct _SECURITY_SUBJECT_CONTEXT *v41; // rcx
@@ -211,7 +215,7 @@ __int64 __fastcall NtSetInformationJobObject(ULONG_PTR BugCheckParameter1, int a
   signed __int32 v130[8]; // [rsp+0h] [rbp-D08h] BYREF
   KPROCESSOR_MODE PreviousMode; // [rsp+40h] [rbp-CC8h]
   PRKEVENT Event; // [rsp+48h] [rbp-CC0h] BYREF
-  int v133; // [rsp+50h] [rbp-CB8h]
+  JOBOBJECTINFOCLASS v133; // [rsp+50h] [rbp-CB8h]
   int v134; // [rsp+58h] [rbp-CB0h]
   __int16 v135; // [rsp+5Ch] [rbp-CACh] BYREF
   KPROCESSOR_MODE v136; // [rsp+5Eh] [rbp-CAAh]
@@ -250,7 +254,7 @@ __int64 __fastcall NtSetInformationJobObject(ULONG_PTR BugCheckParameter1, int a
   __int64 v169; // [rsp+168h] [rbp-BA0h]
   unsigned __int8 *v170; // [rsp+170h] [rbp-B98h]
   unsigned int v171; // [rsp+178h] [rbp-B90h]
-  ULONG_PTR BugCheckParameter1a[2]; // [rsp+180h] [rbp-B88h]
+  ULONG_PTR BugCheckParameter1[2]; // [rsp+180h] [rbp-B88h]
   PVOID v173[2]; // [rsp+190h] [rbp-B78h]
   __int128 v174; // [rsp+1A0h] [rbp-B68h] BYREF
   __int128 v175; // [rsp+1B0h] [rbp-B58h]
@@ -280,14 +284,14 @@ __int64 __fastcall NtSetInformationJobObject(ULONG_PTR BugCheckParameter1, int a
   _QWORD v199[20]; // [rsp+3F0h] [rbp-918h] BYREF
   _QWORD v200[262]; // [rsp+490h] [rbp-878h] BYREF
 
-  v4 = a4;
-  Size[0] = a4;
-  v5 = a2;
-  v150 = BugCheckParameter1;
-  v133 = a2;
-  Src = a3;
+  v4 = JobObjectInformationLength;
+  Size[0] = JobObjectInformationLength;
+  v5 = JobObjectInformationClass;
+  v150 = (__int64)JobHandle;
+  v133 = JobObjectInformationClass;
+  Src = JobObjectInformation;
   memset(&v200[1], 0, 0x100uLL);
-  *(_OWORD *)BugCheckParameter1a = 0LL;
+  *(_OWORD *)BugCheckParameter1 = 0LL;
   v169 = 0LL;
   v168 = 0LL;
   v160 = 0LL;
@@ -326,19 +330,19 @@ __int64 __fastcall NtSetInformationJobObject(ULONG_PTR BugCheckParameter1, int a
   v165 = 0LL;
   *(_OWORD *)v173 = 0LL;
   if ( (unsigned int)(v5 - 1) > 0x30 )
-    return 3221225475LL;
+    return -1073741821;
   switch ( (_DWORD)v5 )
   {
     case 9:
       if ( (_DWORD)v4 == 144 || (_DWORD)v4 == 152 )
         goto LABEL_14;
-      return 3221225476LL;
+      return -1073741820;
     case 0xC:
       v8 = (((_DWORD)v4 - 48) & 0xFFFFFFF7) == 0;
 LABEL_13:
       if ( v8 )
         goto LABEL_14;
-      return 3221225476LL;
+      return -1073741820;
     case 0x1F:
       if ( (_DWORD)v4 == 48 || (_DWORD)v4 == 96 )
         goto LABEL_14;
@@ -347,7 +351,7 @@ LABEL_13:
   }
   v7 = dword_140A7ADDC[v5];
   if ( (_DWORD)v4 != v7 && ((_DWORD)v5 != 11 && (_DWORD)v5 != 14 || (unsigned int)v4 < v7) )
-    return 3221225476LL;
+    return -1073741820;
 LABEL_14:
   Thread = KeGetCurrentThread();
   PreviousMode = Thread->PreviousMode;
@@ -367,11 +371,11 @@ LABEL_14:
   {
     v9 = (__m128i *)Src;
   }
-  if ( !BugCheckParameter1 )
-    return 3221225480LL;
+  if ( !JobHandle )
+    return -1073741816;
   v11 = 2LL;
-  result = ObpReferenceObjectByHandleWithTag(BugCheckParameter1, 0x79517350u, (__int64)&Event, 0LL, 0LL);
-  if ( (int)result >= 0 )
+  result = ObpReferenceObjectByHandleWithTag((ULONG_PTR)JobHandle, 0x79517350u, (__int64)&Event, 0LL, 0LL);
+  if ( result >= 0 )
   {
     v13 = 0;
     v134 = 0;
@@ -994,8 +998,8 @@ LABEL_351:
               goto LABEL_495;
             }
             v143 = 0LL;
-            *(__m128i *)BugCheckParameter1a = *v9;
-            if ( !BugCheckParameter1a[1] )
+            *(__m128i *)BugCheckParameter1 = *v9;
+            if ( !BugCheckParameter1[1] )
             {
               v20 = Event;
               ExAcquireResourceExclusiveLite((PERESOURCE)&Event[2].Header.WaitListHead, 1u);
@@ -1009,7 +1013,7 @@ LABEL_351:
                 ObfDereferenceObjectWithTag(v21, 0x624A7350u);
               goto LABEL_495;
             }
-            v13 = ObpReferenceObjectByHandleWithTag(BugCheckParameter1a[1], 0x624A7350u, (__int64)&Object, 0LL, 0LL);
+            v13 = ObpReferenceObjectByHandleWithTag(BugCheckParameter1[1], 0x624A7350u, (__int64)&Object, 0LL, 0LL);
             v20 = Event;
             if ( v13 >= 0 )
             {
@@ -1048,7 +1052,7 @@ LABEL_351:
                   MiniCompletionPacket = 0LL;
                 }
                 ExAcquirePushLockExclusiveEx((ULONG_PTR)&v20[52], 0LL);
-                v20[23].Header.WaitListHead.Flink = (struct _LIST_ENTRY *)BugCheckParameter1a[0];
+                v20[23].Header.WaitListHead.Flink = (struct _LIST_ENTRY *)BugCheckParameter1[0];
                 *(_QWORD *)&v20[23].Header.Lock = Object;
                 v20[23].Header.WaitListHead.Blink = 0LL;
                 PspUnlockJobMemoryLimitsExclusive(v20, 0LL, 0LL);
@@ -1481,7 +1485,7 @@ LABEL_495:
               EtwTraceJobSetQuery((_DWORD)v20, v5, 0, 0, v13, 1831);
           }
           ObfDereferenceObjectWithTag(v20, 0x79517350u);
-          return (unsigned int)v13;
+          return v13;
         }
         goto LABEL_347;
       }

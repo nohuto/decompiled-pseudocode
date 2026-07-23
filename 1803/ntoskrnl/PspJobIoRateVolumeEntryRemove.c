@@ -9,60 +9,60 @@
  *     MiLockTrackerCompare @ 0x140253D40 (MiLockTrackerCompare.c)
  */
 
-unsigned __int64 __fastcall PspJobIoRateVolumeEntryRemove(__int64 a1, unsigned __int64 a2)
+__int64 __fastcall PspJobIoRateVolumeEntryRemove(__int64 a1, unsigned __int64 a2)
 {
   volatile LONG *v2; // rbp
-  __int64 v4; // r14
-  unsigned __int64 v5; // rdi
+  _RTL_RB_TREE *v4; // r14
+  __int64 v5; // rdi
   KIRQL v6; // al
-  unsigned __int64 v7; // rbx
+  __int64 Root; // rbx
   KIRQL v8; // r15
-  unsigned __int64 v9; // rax
+  _RTL_BALANCED_NODE *Min; // rax
   int v10; // esi
   int v11; // eax
-  unsigned __int64 v12; // rax
+  __int64 v12; // rax
 
   v2 = (volatile LONG *)(a1 + 1440);
-  v4 = a1 + 1448;
+  v4 = (_RTL_RB_TREE *)(a1 + 1448);
   v5 = 0LL;
   v6 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(a1 + 1440));
-  v7 = *(_QWORD *)v4;
+  Root = (__int64)v4->Root;
   v8 = v6;
-  v9 = *(_QWORD *)(v4 + 8);
-  if ( (v9 & 1) != 0 )
+  Min = v4->Min;
+  if ( ((unsigned __int8)Min & 1) != 0 )
   {
-    if ( v7 )
-      v7 ^= v4;
+    if ( Root )
+      Root ^= (unsigned __int64)v4;
     else
-      v7 = 0LL;
+      Root = 0LL;
   }
-  v10 = v9 & 1;
-  if ( v7 )
+  v10 = (unsigned __int8)Min & 1;
+  if ( Root )
   {
     do
     {
-      v11 = MiLockTrackerCompare(a2, v7);
+      v11 = MiLockTrackerCompare(a2, Root);
       if ( v11 >= 0 )
       {
         if ( v11 <= 0 )
           break;
-        v12 = *(_QWORD *)(v7 + 8);
+        v12 = *(_QWORD *)(Root + 8);
       }
       else
       {
-        v12 = *(_QWORD *)v7;
+        v12 = *(_QWORD *)Root;
       }
       if ( v10 && v12 )
-        v7 ^= v12;
+        Root ^= v12;
       else
-        v7 = v12;
+        Root = v12;
     }
-    while ( v7 );
-    if ( v7 )
+    while ( Root );
+    if ( Root )
     {
-      RtlRbRemoveNode(v4, v7);
-      *(_QWORD *)(v7 + 16) = -1LL;
-      v5 = v7;
+      RtlRbRemoveNode(v4, (PRTL_BALANCED_NODE)Root);
+      *(_QWORD *)(Root + 16) = -1LL;
+      v5 = Root;
     }
   }
   ExReleaseSpinLockExclusiveFromDpcLevel(v2);

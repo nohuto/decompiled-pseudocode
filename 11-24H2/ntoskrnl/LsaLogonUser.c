@@ -1,11 +1,11 @@
 /*
- * XREFs of LsaLogonUser @ 0x14078F450
+ * XREFs of LsaLogonUser @ 0x14078F420
  * Callers:
  *     <none>
  * Callees:
- *     ExGetExtensionTable @ 0x1403AA530 (ExGetExtensionTable.c)
- *     ExReleaseExtensionTable @ 0x14044FE80 (ExReleaseExtensionTable.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     ExGetExtensionTable @ 0x140398F94 (ExGetExtensionTable.c)
+ *     ExReleaseExtensionTable @ 0x1404450F0 (ExReleaseExtensionTable.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 NTSTATUS __stdcall LsaLogonUser(
@@ -24,13 +24,13 @@ NTSTATUS __stdcall LsaLogonUser(
         PQUOTA_LIMITS Quotas,
         PNTSTATUS SubStatus)
 {
-  NTSTATUS v18; // ebx
+  NTSTATUS v16; // ebx
 
-  v18 = -1073741822;
+  v16 = -1073741822;
   if ( ExGetExtensionTable((struct _EX_RUNDOWN_REF *)SepAuthExtensionHost) )
   {
-    v18 = guard_dispatch_icall_no_overrides(LsaHandle, OriginName, (unsigned int)LogonType, AuthenticationPackage);
+    v16 = guard_dispatch_icall_no_overrides(LsaHandle, OriginName);
     ExReleaseExtensionTable((struct _EX_RUNDOWN_REF *)SepAuthExtensionHost);
   }
-  return v18;
+  return v16;
 }

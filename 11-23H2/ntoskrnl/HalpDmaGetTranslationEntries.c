@@ -1,15 +1,15 @@
 /*
- * XREFs of HalpDmaGetTranslationEntries @ 0x14039C4FC
+ * XREFs of HalpDmaGetTranslationEntries @ 0x14039C6DC
  * Callers:
- *     HalpDmaCommitContiguousMapBuffers @ 0x14039C28C (HalpDmaCommitContiguousMapBuffers.c)
- *     HalpDmaAllocateMapRegisters @ 0x14045BF9E (HalpDmaAllocateMapRegisters.c)
- *     HalpDmaCommitScatterMapBuffers @ 0x140510A44 (HalpDmaCommitScatterMapBuffers.c)
+ *     HalpDmaCommitContiguousMapBuffers @ 0x14039C46C (HalpDmaCommitContiguousMapBuffers.c)
+ *     HalpDmaAllocateMapRegisters @ 0x14045C39E (HalpDmaAllocateMapRegisters.c)
+ *     HalpDmaCommitScatterMapBuffers @ 0x140510F94 (HalpDmaCommitScatterMapBuffers.c)
  * Callees:
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
- *     memset @ 0x140435A00 (memset.c)
- *     HalpDmaAllocateNewTranslationBuffer @ 0x1405107E8 (HalpDmaAllocateNewTranslationBuffer.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402610F0 (KeAcquireInStackQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     HalpDmaAllocateNewTranslationBuffer @ 0x140510D38 (HalpDmaAllocateNewTranslationBuffer.c)
  */
 
 __int64 __fastcall HalpDmaGetTranslationEntries(__int64 a1, int a2, unsigned int a3)
@@ -84,10 +84,13 @@ LABEL_3:
     {
       KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
       OldIrql = LockHandle.OldIrql;
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+          && CurrentIrql <= 0xFu
+          && LockHandle.OldIrql <= 0xFu
+          && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -149,10 +152,10 @@ LABEL_7:
     *(_QWORD *)(v17 + 8) = 0LL;
     KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
     OldIrql = LockHandle.OldIrql;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v27 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v27 <= 0xFu && LockHandle.OldIrql <= 0xFu && v27 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v27 <= 0xFu && LockHandle.OldIrql <= 0xFu && v27 >= 2u )
       {
         v28 = KeGetCurrentPrcb();
         v29 = v28->SchedulerAssist;

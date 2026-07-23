@@ -1,84 +1,87 @@
 /*
- * XREFs of IopBuildFullDriverPath @ 0x1409C8E18
+ * XREFs of IopBuildFullDriverPath @ 0x1409B78C8
  * Callers:
- *     PpCheckInDriverDatabase @ 0x1409C7E2C (PpCheckInDriverDatabase.c)
- *     PiNormalizeDeviceText @ 0x1409C8004 (PiNormalizeDeviceText.c)
- *     IopLoadDriver @ 0x1409C90C0 (IopLoadDriver.c)
+ *     IopLoadDriver @ 0x1409B6EEC (IopLoadDriver.c)
+ *     PiNormalizeDeviceText @ 0x1409B8420 (PiNormalizeDeviceText.c)
+ *     PpCheckInDriverDatabase @ 0x1409B89D4 (PpCheckInDriverDatabase.c)
  * Callees:
- *     RtlAppendUnicodeStringToString @ 0x14040BBA0 (RtlAppendUnicodeStringToString.c)
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     RtlPrefixUnicodeString @ 0x14086E3C0 (RtlPrefixUnicodeString.c)
- *     IopQueryRegistryKeySystemPath @ 0x1409C8568 (IopQueryRegistryKeySystemPath.c)
- *     IopGetRegistryValue @ 0x1409CAD5C (IopGetRegistryValue.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePool @ 0x140B72CB0 (ExFreePool.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlAppendUnicodeStringToString @ 0x140404080 (RtlAppendUnicodeStringToString.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     RtlPrefixUnicodeString @ 0x1408726F0 (RtlPrefixUnicodeString.c)
+ *     IopGetRegistryValue @ 0x1409B5F9C (IopGetRegistryValue.c)
+ *     IopQueryRegistryKeySystemPath @ 0x1409B81B0 (IopQueryRegistryKeySystemPath.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePool @ 0x140B74850 (ExFreePool.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IopBuildFullDriverPath(UNICODE_STRING *a1, void *a2, UNICODE_STRING *a3)
 {
   NTSTATUS appended; // ebx
-  __int64 v7; // r14
-  unsigned __int16 v8; // bx
-  UNICODE_STRING v9; // xmm6
-  unsigned int v10; // edx
+  NTSTATUS RegistryValue; // eax
+  PVOID v8; // rsi
+  unsigned int v9; // eax
+  wchar_t *v10; // r14
+  unsigned __int16 v11; // bx
+  UNICODE_STRING v12; // xmm6
+  unsigned int v13; // edx
   __int64 Pool2; // rax
   UNICODE_STRING String2; // [rsp+28h] [rbp-39h] BYREF
   UNICODE_STRING Source; // [rsp+38h] [rbp-29h] BYREF
   UNICODE_STRING DestinationString; // [rsp+48h] [rbp-19h] BYREF
   UNICODE_STRING String1; // [rsp+58h] [rbp-9h] BYREF
-  UNICODE_STRING v17; // [rsp+68h] [rbp+7h]
-  UNICODE_STRING v18; // [rsp+78h] [rbp+17h] BYREF
-  UNICODE_STRING v19; // [rsp+88h] [rbp+27h] BYREF
+  UNICODE_STRING v20; // [rsp+68h] [rbp+7h]
+  UNICODE_STRING v21; // [rsp+78h] [rbp+17h] BYREF
+  UNICODE_STRING v22; // [rsp+88h] [rbp+27h] BYREF
+  PVOID P; // [rsp+E0h] [rbp+7Fh] BYREF
 
   *(_QWORD *)&String1.Length = 1703960LL;
-  *(_QWORD *)&v17.Length = 2359330LL;
+  *(_QWORD *)&v20.Length = 2359330LL;
   String1.Buffer = (wchar_t *)L"\\SystemRoot\\";
-  v17.Buffer = L"System32\\Drivers\\";
+  v20.Buffer = L"System32\\Drivers\\";
   DestinationString = 0LL;
   Source = 0LL;
-  v18 = 0LL;
+  v21 = 0LL;
   String2 = 0LL;
-  v19 = 0LL;
+  v22 = 0LL;
   RtlInitUnicodeString(a3, 0LL);
   RtlInitUnicodeString(&DestinationString, 0LL);
   RtlInitUnicodeString(&Source, 0LL);
-  RtlInitUnicodeString(&v18, 0LL);
+  RtlInitUnicodeString(&v21, 0LL);
   RtlInitUnicodeString(&String2, 0LL);
-  RtlInitUnicodeString(&v19, 0LL);
+  RtlInitUnicodeString(&v22, 0LL);
+  P = 0LL;
   appended = IopQueryRegistryKeySystemPath(a2, &DestinationString);
   if ( appended < 0 )
-    goto LABEL_16;
-  if ( (int)IopGetRegistryValue(a2) < 0 || MEMORY[0xC] < 2u )
+    goto LABEL_18;
+  RegistryValue = IopGetRegistryValue(a2, L"ImagePath", 256, &P);
+  v8 = P;
+  if ( RegistryValue < 0 || (v9 = *((_DWORD *)P + 3), v9 < 2) )
   {
     String2 = *a1;
-    v9 = String2;
+    v12 = String2;
     Source = DestinationString;
-    v18 = v17;
-    RtlInitUnicodeString(&v19, L".SYS");
-    v8 = _mm_cvtsi128_si32((__m128i)v9);
+    v21 = v20;
+    RtlInitUnicodeString(&v22, L".SYS");
+    v11 = _mm_cvtsi128_si32((__m128i)v12);
   }
   else
   {
-    if ( MEMORY[0xC] > 0xFFFFu )
-    {
-LABEL_21:
-      appended = -2147483643;
-      goto LABEL_16;
-    }
-    v7 = MEMORY[8];
-    String2.MaximumLength = MEMORY[0xC];
-    v8 = MEMORY[0xC] - 2;
-    String2.Buffer = (wchar_t *)MEMORY[8];
-    String2.Length = MEMORY[0xC] - 2;
-    if ( *(_WORD *)MEMORY[8] == 92 )
+    if ( v9 > 0xFFFF )
+      goto LABEL_23;
+    v10 = (wchar_t *)((char *)P + *((unsigned int *)P + 2));
+    String2.MaximumLength = *((_DWORD *)P + 3);
+    v11 = v9 - 2;
+    String2.Buffer = v10;
+    String2.Length = v9 - 2;
+    if ( *v10 == 92 )
     {
       if ( RtlPrefixUnicodeString(&String1, &String2, 1u) )
       {
-        v8 -= 24;
+        v11 -= 24;
         Source = DestinationString;
-        String2.Length = v8;
-        String2.Buffer = (wchar_t *)(v7 + 24);
+        String2.Length = v11;
+        String2.Buffer = v10 + 12;
       }
       else
       {
@@ -90,36 +93,43 @@ LABEL_21:
       Source = DestinationString;
     }
   }
-  v10 = Source.Length + 2 + v18.Length + v19.Length + v8;
-  if ( v10 > 0xFFFF )
-    goto LABEL_21;
-  a3->MaximumLength = v10;
-  a3->Length = 0;
-  Pool2 = ExAllocatePool2(0x100uLL);
-  a3->Buffer = (wchar_t *)Pool2;
-  if ( Pool2 )
+  v13 = Source.Length + 2 + v21.Length + v22.Length + v11;
+  if ( v13 <= 0xFFFF )
   {
-    appended = RtlAppendUnicodeStringToString(a3, &Source);
-    if ( appended >= 0 )
+    a3->MaximumLength = v13;
+    a3->Length = 0;
+    Pool2 = ExAllocatePool2(0x100uLL, (unsigned __int16)v13, 0x20206F49u);
+    a3->Buffer = (wchar_t *)Pool2;
+    if ( Pool2 )
     {
-      appended = RtlAppendUnicodeStringToString(a3, &v18);
+      appended = RtlAppendUnicodeStringToString(a3, &Source);
       if ( appended >= 0 )
       {
-        appended = RtlAppendUnicodeStringToString(a3, &String2);
+        appended = RtlAppendUnicodeStringToString(a3, &v21);
         if ( appended >= 0 )
         {
-          appended = RtlAppendUnicodeStringToString(a3, &v19);
+          appended = RtlAppendUnicodeStringToString(a3, &String2);
           if ( appended >= 0 )
-            a3->Buffer[(unsigned __int64)a3->Length >> 1] = 0;
+          {
+            appended = RtlAppendUnicodeStringToString(a3, &v22);
+            if ( appended >= 0 )
+              a3->Buffer[(unsigned __int64)a3->Length >> 1] = 0;
+          }
         }
       }
     }
+    else
+    {
+      appended = -1073741670;
+    }
+    goto LABEL_16;
   }
-  else
-  {
-    appended = -1073741670;
-  }
+LABEL_23:
+  appended = -2147483643;
 LABEL_16:
+  if ( v8 )
+    ExFreePoolWithTag(v8, 0);
+LABEL_18:
   if ( DestinationString.Buffer )
     ExFreePool(DestinationString.Buffer);
   return (unsigned int)appended;

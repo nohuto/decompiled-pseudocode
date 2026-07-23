@@ -51,12 +51,9 @@ void __fastcall EtwpInitialize(int a1)
   int v10; // eax
   __int64 v11; // rdx
   __int64 v12; // rcx
-  __int64 v13; // rdx
-  __int64 v14; // rcx
-  __int64 v15; // r8
   UNICODE_STRING DestinationString; // [rsp+40h] [rbp-48h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+50h] [rbp-38h] BYREF
-  char v18; // [rsp+98h] [rbp+10h] BYREF
+  char v15; // [rsp+98h] [rbp+10h] BYREF
 
   v1 = KeNumberProcessors_0;
   if ( a1 )
@@ -111,7 +108,7 @@ void __fastcall EtwpInitialize(int a1)
     if ( !ExRegisterCallback((PCALLBACK_OBJECT)ExCbPowerState, (PCALLBACK_FUNCTION)EtwpPowerStateCallback, 0LL) )
       KeBugCheck(0x11Du);
     EtwpLoggerSaveEvent = 0LL;
-    if ( (int)KsrGetFirmwareInformation(&v18) >= 0 )
+    if ( (int)KsrGetFirmwareInformation(&v15) >= 0 )
     {
       RtlInitUnicodeString(&DestinationString, L"\\Callback\\SoftRestart");
       ObjectAttributes.Length = 48;
@@ -169,7 +166,7 @@ void __fastcall EtwpInitialize(int a1)
     EtwRegister(&MS_Windows_Security_Adminless_Provider, 0LL, 0LL, &EtwAdminlessProvRegHandle);
     EtwRegister(&SecurityMitigationsProviderGuid, 0LL, 0LL, &EtwSecurityMitigationsRegHandle);
     EtwpInitialized = 1;
-    ZwUpdateWnfStateData((__int64)&WNF_ETW_SUBSYSTEM_INITIALIZED, 0LL, 0LL);
-    EtwpTraceSystemInitialization(v14, v13, v15);
+    ZwUpdateWnfStateData(&WNF_ETW_SUBSYSTEM_INITIALIZED, 0LL, 0, 0LL, 0LL, 0, 0);
+    EtwpTraceSystemInitialization();
   }
 }

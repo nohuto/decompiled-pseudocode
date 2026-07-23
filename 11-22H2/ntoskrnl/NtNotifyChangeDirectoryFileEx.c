@@ -23,213 +23,204 @@
  *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
  */
 
-__int64 NtNotifyChangeDirectoryFileEx(void *a1, void *a2, ...)
+NTSTATUS __cdecl NtNotifyChangeDirectoryFileEx(
+        HANDLE FileHandle,
+        HANDLE Event,
+        PIO_APC_ROUTINE ApcRoutine,
+        PVOID ApcContext,
+        PIO_STATUS_BLOCK IoStatusBlock,
+        PVOID Buffer,
+        ULONG Length,
+        ULONG CompletionFilter,
+        BOOLEAN WatchTree,
+        DIRECTORY_NOTIFY_INFORMATION_CLASS DirectoryNotifyInformationClass)
 {
-  PVOID v4; // r14
+  PVOID v12; // r14
   KPROCESSOR_MODE PreviousMode; // r13
-  __int64 v6; // rcx
-  ULONG v7; // r12d
-  __int64 result; // rax
-  PFILE_OBJECT v9; // rbx
+  __int64 v14; // rcx
+  ULONG v15; // r12d
+  NTSTATUS result; // eax
+  PFILE_OBJECT v17; // rbx
   ULONG *p_Flags; // rsi
-  char v11; // di
+  char v19; // di
   PDEVICE_OBJECT RelatedDeviceObject; // r15
-  __int64 v13; // r8
-  __int64 v14; // rdx
+  __int64 v21; // r8
+  __int64 v22; // rdx
   __int64 Irp; // rax
-  IRP *v16; // rdi
-  __int64 v17; // rsi
-  int v18; // ecx
+  IRP *v24; // rdi
+  __int64 v25; // rsi
+  DIRECTORY_NOTIFY_INFORMATION_CLASS v26; // ecx
   ULONG Flags; // eax
-  char v20; // al
-  int v21; // edi
-  char v22; // di
-  struct _KTHREAD *v23; // rax
-  PFILE_OBJECT v24; // rbx
-  __int64 v25; // rax
+  char v28; // al
+  NTSTATUS v29; // edi
+  char v30; // di
+  struct _KTHREAD *v31; // rax
+  PFILE_OBJECT v32; // rbx
+  __int64 v33; // rax
   __int64 Pool2; // rax
   PMDL Mdl; // rcx
-  __int64 v28; // r8
-  __int64 v29; // [rsp+40h] [rbp-58h] BYREF
+  __int64 v36; // r8
+  __int64 v37; // [rsp+40h] [rbp-58h] BYREF
   PFILE_OBJECT FileObject; // [rsp+48h] [rbp-50h] BYREF
-  PVOID v31; // [rsp+50h] [rbp-48h]
+  PVOID v39; // [rsp+50h] [rbp-48h]
   PVOID Object; // [rsp+58h] [rbp-40h] BYREF
   struct _KTHREAD *CurrentThread; // [rsp+60h] [rbp-38h]
-  __int64 v34; // [rsp+B0h] [rbp+18h] BYREF
-  va_list va; // [rsp+B0h] [rbp+18h]
-  __int64 v36; // [rsp+B8h] [rbp+20h]
-  unsigned int *v37; // [rsp+C0h] [rbp+28h] BYREF
-  va_list va1; // [rsp+C0h] [rbp+28h]
-  volatile void *Address; // [rsp+C8h] [rbp+30h]
-  SIZE_T Length; // [rsp+D0h] [rbp+38h]
-  __int64 v41; // [rsp+D8h] [rbp+40h]
-  __int64 v42; // [rsp+E0h] [rbp+48h]
-  __int64 v43; // [rsp+E8h] [rbp+50h]
-  va_list va2; // [rsp+F0h] [rbp+58h] BYREF
+  PIO_APC_ROUTINE v42; // [rsp+B0h] [rbp+18h] BYREF
+  PVOID v43; // [rsp+B8h] [rbp+20h]
 
-  va_start(va2, a2);
-  va_start(va1, a2);
-  va_start(va, a2);
-  v34 = va_arg(va1, _QWORD);
-  v36 = va_arg(va1, _QWORD);
-  va_copy(va2, va1);
-  v37 = va_arg(va2, unsigned int *);
-  Address = va_arg(va2, volatile void *);
-  Length = va_arg(va2, _QWORD);
-  v41 = va_arg(va2, _QWORD);
-  v42 = va_arg(va2, _QWORD);
-  v43 = va_arg(va2, _QWORD);
+  v43 = ApcContext;
+  v42 = ApcRoutine;
   FileObject = 0LL;
-  v4 = 0LL;
-  v31 = 0LL;
+  v12 = 0LL;
+  v39 = 0LL;
   CurrentThread = KeGetCurrentThread();
   PreviousMode = CurrentThread->PreviousMode;
   if ( PreviousMode )
   {
-    v6 = (__int64)v37;
-    if ( (unsigned __int64)v37 >= 0x7FFFFFFF0000LL )
-      v6 = 0x7FFFFFFF0000LL;
-    *(_DWORD *)v6 = *(_DWORD *)v6;
-    v7 = Length;
-    if ( (_DWORD)Length )
-      ProbeForWrite(Address, (unsigned int)Length, 4u);
-    if ( (v41 & 0xFFFFF000) != 0 || !(_DWORD)v41 )
-      return 3221225485LL;
+    v14 = (__int64)IoStatusBlock;
+    if ( (unsigned __int64)IoStatusBlock >= 0x7FFFFFFF0000LL )
+      v14 = 0x7FFFFFFF0000LL;
+    *(_DWORD *)v14 = *(_DWORD *)v14;
+    v15 = Length;
+    if ( Length )
+      ProbeForWrite(Buffer, Length, 4u);
+    if ( (CompletionFilter & 0xFFFFF000) != 0 || !CompletionFilter )
+      return -1073741811;
   }
   else
   {
-    v7 = Length;
+    v15 = Length;
   }
-  result = IopReferenceFileObject(a1, 1u, PreviousMode, (PVOID *)&FileObject, 0LL);
-  if ( (int)result >= 0 )
+  result = IopReferenceFileObject(FileHandle, 1u, PreviousMode, (PVOID *)&FileObject, 0LL);
+  if ( result >= 0 )
   {
-    v9 = FileObject;
-    if ( FileObject->CompletionContext && (v34 & 0xFFFFFFFFFFFFFFFEuLL) != 0 )
+    v17 = FileObject;
+    if ( FileObject->CompletionContext && ((unsigned __int64)v42 & 0xFFFFFFFFFFFFFFFEuLL) != 0 )
     {
-      v21 = -1073741811;
+      v29 = -1073741811;
       goto LABEL_41;
     }
-    if ( a2 )
+    if ( Event )
     {
       Object = 0LL;
-      v21 = ObReferenceObjectByHandle(a2, 2u, (POBJECT_TYPE)ExEventObjectType, PreviousMode, &Object, 0LL);
-      v4 = Object;
-      v31 = Object;
-      if ( v21 < 0 )
+      v29 = ObReferenceObjectByHandle(Event, 2u, (POBJECT_TYPE)ExEventObjectType, PreviousMode, &Object, 0LL);
+      v12 = Object;
+      v39 = Object;
+      if ( v29 < 0 )
         goto LABEL_41;
       KeResetEvent((PRKEVENT)Object);
     }
-    p_Flags = &v9->Flags;
-    if ( (v9->Flags & 2) == 0 )
+    p_Flags = &v17->Flags;
+    if ( (v17->Flags & 2) == 0 )
     {
-      v11 = 0;
-      LOBYTE(v29) = 0;
+      v19 = 0;
+      LOBYTE(v37) = 0;
       if ( PreviousMode )
-        IopMarkApcRoutineIfAsynchronousIo32((unsigned int **)va1, (__int64 *)va, 0);
+        IopMarkApcRoutineIfAsynchronousIo32((unsigned int **)&IoStatusBlock, (__int64 *)&v42, 0);
 LABEL_15:
       if ( (*p_Flags & 0x4000000) == 0 )
-        KeResetEvent(&v9->Event);
-      RelatedDeviceObject = IoGetRelatedDeviceObject(v9);
-      LOBYTE(v13) = v11 ^ 1;
-      LOBYTE(v14) = RelatedDeviceObject->StackSize;
-      Irp = IopAllocateIrpExReturn((__int64)RelatedDeviceObject, v14, v13);
-      v16 = (IRP *)Irp;
+        KeResetEvent(&v17->Event);
+      RelatedDeviceObject = IoGetRelatedDeviceObject(v17);
+      LOBYTE(v21) = v19 ^ 1;
+      LOBYTE(v22) = RelatedDeviceObject->StackSize;
+      Irp = IopAllocateIrpExReturn((__int64)RelatedDeviceObject, v22, v21);
+      v24 = (IRP *)Irp;
       Object = (PVOID)Irp;
       if ( Irp )
       {
-        *(_QWORD *)(Irp + 192) = v9;
+        *(_QWORD *)(Irp + 192) = v17;
         *(_QWORD *)(Irp + 152) = CurrentThread;
         *(_BYTE *)(Irp + 64) = PreviousMode;
-        *(_QWORD *)(Irp + 80) = v4;
-        *(_QWORD *)(Irp + 72) = v37;
-        *(_QWORD *)(Irp + 88) = v34;
-        *(_QWORD *)(Irp + 96) = v36;
-        v17 = *(_QWORD *)(Irp + 184);
-        *(_BYTE *)(v17 - 72) = 12;
-        v18 = v43;
-        *(_BYTE *)(v17 - 71) = ((_DWORD)v43 != 1) + 2;
-        *(_QWORD *)(v17 - 24) = v9;
-        if ( !v7 )
+        *(_QWORD *)(Irp + 80) = v12;
+        *(_QWORD *)(Irp + 72) = IoStatusBlock;
+        *(_QWORD *)(Irp + 88) = v42;
+        *(_QWORD *)(Irp + 96) = v43;
+        v25 = *(_QWORD *)(Irp + 184);
+        *(_BYTE *)(v25 - 72) = 12;
+        v26 = DirectoryNotifyInformationClass;
+        *(_BYTE *)(v25 - 71) = (DirectoryNotifyInformationClass != DirectoryNotifyInformation) + 2;
+        *(_QWORD *)(v25 - 24) = v17;
+        if ( !v15 )
         {
 LABEL_22:
-          *(_DWORD *)(v17 - 64) = v7;
-          *(_DWORD *)(v17 - 56) = v41;
-          if ( *(_BYTE *)(v17 - 71) == 3 )
-            *(_DWORD *)(v17 - 48) = v18;
-          *(_BYTE *)(v17 - 70) = 0;
-          v20 = *(_BYTE *)(v17 - 70);
-          if ( (_BYTE)v42 )
-            v20 = 1;
-          *(_BYTE *)(v17 - 70) = v20;
-          return IopSynchronousServiceTail(RelatedDeviceObject, (__int64)v16, v9, 0, PreviousMode, v29, 2u);
+          *(_DWORD *)(v25 - 64) = v15;
+          *(_DWORD *)(v25 - 56) = CompletionFilter;
+          if ( *(_BYTE *)(v25 - 71) == 3 )
+            *(_DWORD *)(v25 - 48) = v26;
+          *(_BYTE *)(v25 - 70) = 0;
+          v28 = *(_BYTE *)(v25 - 70);
+          if ( WatchTree )
+            v28 = 1;
+          *(_BYTE *)(v25 - 70) = v28;
+          return IopSynchronousServiceTail(RelatedDeviceObject, (__int64)v24, v17, 0, PreviousMode, v37, 2u);
         }
         Flags = RelatedDeviceObject->Flags;
         if ( (Flags & 4) == 0 )
         {
           if ( (Flags & 0x10) != 0 )
           {
-            Mdl = IoAllocateMdl((PVOID)Address, v7, 0, 1u, v16);
+            Mdl = IoAllocateMdl(Buffer, v15, 0, 1u, v24);
             if ( !Mdl )
               RtlRaiseStatus(-1073741670);
             IopProbeAndLockPages_2(
               (__int64)Mdl,
               PreviousMode,
-              v28,
+              v36,
               (__int64)RelatedDeviceObject,
-              *(unsigned __int8 *)(v17 - 72));
-            v18 = v43;
+              *(unsigned __int8 *)(v25 - 72));
+            v26 = DirectoryNotifyInformationClass;
             goto LABEL_22;
           }
           goto LABEL_21;
         }
-        Pool2 = ExAllocatePool2(65LL, v7, 1112764233LL);
-        v16->AssociatedIrp.MasterIrp = (struct _IRP *)Pool2;
+        Pool2 = ExAllocatePool2(65LL, v15, 1112764233LL);
+        v24->AssociatedIrp.MasterIrp = (struct _IRP *)Pool2;
         if ( Pool2 )
         {
-          v16->Flags = 112;
-          v18 = v43;
+          v24->Flags = 112;
+          v26 = DirectoryNotifyInformationClass;
 LABEL_21:
-          v16->UserBuffer = (PVOID)Address;
+          v24->UserBuffer = Buffer;
           goto LABEL_22;
         }
-        IopExceptionCleanupEx(v9, v16, v4, 0LL, (v9->Flags & 2) != 0);
+        IopExceptionCleanupEx(v17, v24, v12, 0LL, (v17->Flags & 2) != 0);
       }
       else
       {
-        IopAllocateIrpCleanup(v9, v4);
+        IopAllocateIrpCleanup(v17, v12);
       }
-      return 3221225626LL;
+      return -1073741670;
     }
-    v22 = (v9->Flags & 4) != 0;
-    v23 = KeGetCurrentThread();
-    --v23->KernelApcDisable;
-    v24 = FileObject;
-    v25 = KeAbPreAcquire((__int64)&FileObject->Lock, 0LL);
-    LOBYTE(v29) = 0;
-    if ( _InterlockedExchange((volatile __int32 *)&v24->Busy, 1) )
+    v30 = (v17->Flags & 4) != 0;
+    v31 = KeGetCurrentThread();
+    --v31->KernelApcDisable;
+    v32 = FileObject;
+    v33 = KeAbPreAcquire((__int64)&FileObject->Lock, 0LL);
+    LOBYTE(v37) = 0;
+    if ( _InterlockedExchange((volatile __int32 *)&v32->Busy, 1) )
     {
-      v9 = FileObject;
-      v21 = IopWaitAndAcquireFileObjectLock((volatile signed __int32 *)&FileObject->Type, PreviousMode, v22, v25, &v29);
+      v17 = FileObject;
+      v29 = IopWaitAndAcquireFileObjectLock((volatile signed __int32 *)&FileObject->Type, PreviousMode, v30, v33, &v37);
     }
     else
     {
-      if ( v25 )
-        *(_BYTE *)(v25 + 18) = 1;
-      v9 = FileObject;
+      if ( v33 )
+        *(_BYTE *)(v33 + 18) = 1;
+      v17 = FileObject;
       ObfReferenceObject(FileObject);
-      v21 = 0;
+      v29 = 0;
     }
-    if ( !(_BYTE)v29 )
+    if ( !(_BYTE)v37 )
     {
-      v11 = 1;
-      LOBYTE(v29) = 1;
+      v19 = 1;
+      LOBYTE(v37) = 1;
       goto LABEL_15;
     }
-    if ( v4 )
-      ObfDereferenceObject(v4);
+    if ( v12 )
+      ObfDereferenceObject(v12);
 LABEL_41:
-    ObfDereferenceObject(v9);
-    return (unsigned int)v21;
+    ObfDereferenceObject(v17);
+    return v29;
   }
   return result;
 }

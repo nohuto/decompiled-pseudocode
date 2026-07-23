@@ -1,18 +1,19 @@
 /*
- * XREFs of ObpAllocateObject @ 0x14089B290
+ * XREFs of ObpAllocateObject @ 0x1408A3930
  * Callers:
- *     EtwpRegisterUMProvider @ 0x14083C6F0 (EtwpRegisterUMProvider.c)
- *     NtCreateSemaphore @ 0x14083DDC0 (NtCreateSemaphore.c)
- *     CmpCreateKeyBody @ 0x14083E100 (CmpCreateKeyBody.c)
- *     NtCreateMutant @ 0x14083E8C0 (NtCreateMutant.c)
- *     NtCreateEvent @ 0x140856FC0 (NtCreateEvent.c)
- *     IopAllocRealFileObject @ 0x14089A9B0 (IopAllocRealFileObject.c)
- *     ObCreateObjectEx @ 0x14089C4F0 (ObCreateObjectEx.c)
- *     ObCreateObject @ 0x14098A240 (ObCreateObject.c)
- *     ObCreateObjectTypeEx @ 0x140A9DB20 (ObCreateObjectTypeEx.c)
+ *     EtwpRegisterUMProvider @ 0x140838D50 (EtwpRegisterUMProvider.c)
+ *     NtCreateSemaphore @ 0x14083A3C0 (NtCreateSemaphore.c)
+ *     CmpCreateKeyBody @ 0x14083A700 (CmpCreateKeyBody.c)
+ *     NtCreateMutant @ 0x14083AEC0 (NtCreateMutant.c)
+ *     NtCreateWaitCompletionPacket @ 0x14083B1F0 (NtCreateWaitCompletionPacket.c)
+ *     NtCreateEvent @ 0x1408532A0 (NtCreateEvent.c)
+ *     IopAllocRealFileObject @ 0x1408A3050 (IopAllocRealFileObject.c)
+ *     ObCreateObjectEx @ 0x1408A4B90 (ObCreateObjectEx.c)
+ *     ObCreateObject @ 0x140973930 (ObCreateObject.c)
+ *     ObCreateObjectTypeEx @ 0x140A99090 (ObCreateObjectTypeEx.c)
  * Callees:
- *     SeAuditHeaderRequired @ 0x14041D940 (SeAuditHeaderRequired.c)
- *     ExAllocatePoolWithTag @ 0x140B72010 (ExAllocatePoolWithTag.c)
+ *     SeAuditHeaderRequired @ 0x140411D10 (SeAuditHeaderRequired.c)
+ *     ExAllocatePoolWithTag @ 0x140B74010 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall ObpAllocateObject(_DWORD *a1, char a2, __int64 a3, _WORD *a4, int a5, _QWORD *a6, _BYTE *a7)

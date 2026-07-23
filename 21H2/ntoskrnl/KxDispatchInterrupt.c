@@ -1,15 +1,15 @@
 /*
- * XREFs of KxDispatchInterrupt @ 0x1404065E0
+ * XREFs of KxDispatchInterrupt @ 0x1404067C0
  * Callers:
- *     KiDispatchInterrupt @ 0x140406550 (KiDispatchInterrupt.c)
+ *     KiDispatchInterrupt @ 0x140406730 (KiDispatchInterrupt.c)
  * Callees:
- *     KiEndThreadAccountingPeriod @ 0x140231380 (KiEndThreadAccountingPeriod.c)
- *     KiQueueReadyThread @ 0x1402593B0 (KiQueueReadyThread.c)
- *     KiAbProcessContextSwitch @ 0x140347C50 (KiAbProcessContextSwitch.c)
- *     KiSetVpThreadSpinLockCount @ 0x14034B590 (KiSetVpThreadSpinLockCount.c)
- *     HvlNotifyLongSpinWait @ 0x140390140 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140390F20 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     SwapContext @ 0x1404067C0 (SwapContext.c)
+ *     KiQueueReadyThread @ 0x14027A920 (KiQueueReadyThread.c)
+ *     KiEndThreadAccountingPeriod @ 0x1402D5BD0 (KiEndThreadAccountingPeriod.c)
+ *     KiAbProcessContextSwitch @ 0x1403529A0 (KiAbProcessContextSwitch.c)
+ *     KiSetVpThreadSpinLockCount @ 0x1403562E0 (KiSetVpThreadSpinLockCount.c)
+ *     HvlNotifyLongSpinWait @ 0x140390290 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140391070 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     SwapContext @ 0x1404069A0 (SwapContext.c)
  */
 
 __int64 KxDispatchInterrupt()
@@ -21,8 +21,7 @@ __int64 KxDispatchInterrupt()
   unsigned __int64 v4; // rdx
   int v5; // ecx
   __int64 v6; // r8
-  __int64 v7; // r9
-  unsigned int v8; // esi
+  unsigned int v7; // esi
   _KTHREAD *NextThread; // rsi
 
   CurrentPrcb = KeGetCurrentPrcb();
@@ -45,14 +44,14 @@ __int64 KxDispatchInterrupt()
   KiSetVpThreadSpinLockCount((__int64)CurrentPrcb, 1);
   if ( _interlockedbittestandset64((volatile signed __int32 *)&CurrentPrcb->PrcbLock, 0LL) )
   {
-    v8 = 0;
+    v7 = 0;
     do
     {
-      if ( (++v8 & HvlLongSpinCountMask) == 0
+      if ( (++v7 & HvlLongSpinCountMask) == 0
         && (HvlEnlightenments & 0x40) != 0
         && KiCheckVpBackingLongSpinWaitHypercall() )
       {
-        HvlNotifyLongSpinWait(v8);
+        HvlNotifyLongSpinWait(v7);
       }
       _mm_pause();
     }
@@ -64,7 +63,7 @@ __int64 KxDispatchInterrupt()
   CurrentPrcb->CurrentThread = NextThread;
   NextThread->WaitBlockFill6[68] = 2;
   *(_BYTE *)(CurrentThread + 643) = 31;
-  KiQueueReadyThread((__int64)CurrentPrcb, CurrentThread, v6, v7);
+  KiQueueReadyThread(CurrentPrcb, CurrentThread, v6);
   if ( (_BYTE)KeSmapEnabled )
     __asm { stac }
   return SwapContext(1LL);

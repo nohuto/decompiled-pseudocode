@@ -12,18 +12,18 @@
 __int64 __fastcall HvlPrepareForSecureHibernate(_OWORD *a1)
 {
   char v2; // si
-  union _SLIST_HEADER *CurrentPrcb; // rbx
+  _SLIST_HEADER *CurrentPrcb; // rbx
   void *HypercallCachedPages; // rax
   __int64 v5; // rbp
-  struct _SLIST_ENTRY *v6; // r14
+  _SLIST_ENTRY *v6; // r14
   char v7; // di
   __int16 v8; // ax
   NTSTATUS v9; // eax
   __int64 v10; // rcx
   unsigned int v11; // r15d
   struct _KPRCB *v12; // rax
-  union _SLIST_HEADER *v14; // [rsp+28h] [rbp-B0h]
-  struct _SLIST_ENTRY *v15; // [rsp+30h] [rbp-A8h]
+  _SLIST_HEADER *v14; // [rsp+28h] [rbp-B0h]
+  _SLIST_ENTRY *v15; // [rsp+30h] [rbp-A8h]
   __int64 v16; // [rsp+38h] [rbp-A0h]
   unsigned __int8 v17[8]; // [rsp+40h] [rbp-98h] BYREF
   __int64 v18; // [rsp+48h] [rbp-90h]
@@ -31,14 +31,14 @@ __int64 __fastcall HvlPrepareForSecureHibernate(_OWORD *a1)
 
   if ( (HvlpFlags & 0x10) != 0 )
   {
-    CurrentPrcb = (union _SLIST_HEADER *)KeGetCurrentPrcb();
+    CurrentPrcb = (_SLIST_HEADER *)KeGetCurrentPrcb();
     HypercallCachedPages = RtlpInterlockedPopEntrySList(CurrentPrcb + 1535);
     if ( HypercallCachedPages )
     {
       v5 = *((_QWORD *)HypercallCachedPages + 2);
       v2 = 1;
       v14 = CurrentPrcb;
-      v6 = (struct _SLIST_ENTRY *)HypercallCachedPages;
+      v6 = (_SLIST_ENTRY *)HypercallCachedPages;
       v7 = BYTE4(CurrentPrcb);
       goto LABEL_7;
     }

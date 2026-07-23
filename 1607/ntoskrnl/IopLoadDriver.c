@@ -1,55 +1,55 @@
 /*
- * XREFs of IopLoadDriver @ 0x14049E388
+ * XREFs of IopLoadDriver @ 0x140516794
  * Callers:
- *     IopLoadUnloadDriver @ 0x1404E663C (IopLoadUnloadDriver.c)
- *     PipCallDriverAddDeviceQueryRoutine @ 0x140538A14 (PipCallDriverAddDeviceQueryRoutine.c)
+ *     IopLoadUnloadDriver @ 0x1404C8FAC (IopLoadUnloadDriver.c)
+ *     PipCallDriverAddDeviceQueryRoutine @ 0x140538F54 (PipCallDriverAddDeviceQueryRoutine.c)
  *     IopInitializeSystemDrivers @ 0x14079AE5C (IopInitializeSystemDrivers.c)
  * Callees:
- *     PnpDiagnosticTraceObject @ 0x1400084E8 (PnpDiagnosticTraceObject.c)
- *     RtlImageNtHeader @ 0x140014238 (RtlImageNtHeader.c)
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     ExAcquireResourceExclusiveLite @ 0x140068160 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x140068940 (ExReleaseResourceLite.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     ExAllocatePoolWithTagPriority @ 0x14007E210 (ExAllocatePoolWithTagPriority.c)
- *     DbgPrint @ 0x140081B44 (DbgPrint.c)
- *     HeadlessKernelAddLogEntry @ 0x140087534 (HeadlessKernelAddLogEntry.c)
- *     PnpDiagnosticTraceDriverFullInfo @ 0x1400B0B80 (PnpDiagnosticTraceDriverFullInfo.c)
- *     PnpDiagnosticTraceObjectWithStatus @ 0x1400B1388 (PnpDiagnosticTraceObjectWithStatus.c)
- *     RtlAppendUnicodeToString @ 0x1400C3920 (RtlAppendUnicodeToString.c)
- *     IopResurrectDriver @ 0x1401318D0 (IopResurrectDriver.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     PnpDiagnosticTraceObject @ 0x14000805C (PnpDiagnosticTraceObject.c)
+ *     RtlImageNtHeader @ 0x140013DB8 (RtlImageNtHeader.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140067CE0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x1400684C0 (ExReleaseResourceLite.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     ExAllocatePoolWithTagPriority @ 0x14007E290 (ExAllocatePoolWithTagPriority.c)
+ *     DbgPrint @ 0x140084CC8 (DbgPrint.c)
+ *     PnpDiagnosticTraceDriverFullInfo @ 0x1400AEBF0 (PnpDiagnosticTraceDriverFullInfo.c)
+ *     PnpDiagnosticTraceObjectWithStatus @ 0x1400AF2C8 (PnpDiagnosticTraceObjectWithStatus.c)
+ *     RtlAppendUnicodeToString @ 0x1400C17B0 (RtlAppendUnicodeToString.c)
+ *     HeadlessKernelAddLogEntry @ 0x14010B72C (HeadlessKernelAddLogEntry.c)
+ *     IopResurrectDriver @ 0x140131E40 (IopResurrectDriver.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     NtQueryKey @ 0x14043B2A0 (NtQueryKey.c)
- *     NtQueryValueKey @ 0x14043B880 (NtQueryValueKey.c)
- *     ObReferenceObjectByHandle @ 0x140450D40 (ObReferenceObjectByHandle.c)
- *     ObOpenObjectByName @ 0x140464694 (ObOpenObjectByName.c)
- *     ObInsertObject @ 0x140471424 (ObInsertObject.c)
- *     ObCreateObject @ 0x14047181C (ObCreateObject.c)
- *     MiFreeDriverInitialization @ 0x14047D508 (MiFreeDriverInitialization.c)
- *     MmLoadSystemImage @ 0x140482B2C (MmLoadSystemImage.c)
- *     PnpPrepareDriverLoading @ 0x14049D6CC (PnpPrepareDriverLoading.c)
- *     IopBuildFullDriverPath @ 0x14049DA9C (IopBuildFullDriverPath.c)
- *     IopGetDriverNameFromKeyNode @ 0x14049F27C (IopGetDriverNameFromKeyNode.c)
- *     IopGetRegistryValue @ 0x14049F430 (IopGetRegistryValue.c)
- *     NtQueryObject @ 0x1404A4B90 (NtQueryObject.c)
- *     KseShimDriverIoCallbacks @ 0x1404E5818 (KseShimDriverIoCallbacks.c)
- *     ObMakeTemporaryObject @ 0x1404EB310 (ObMakeTemporaryObject.c)
- *     IopReadyDeviceObjects @ 0x1404EEF68 (IopReadyDeviceObjects.c)
- *     PnpIsLegacyDriver @ 0x1404EF700 (PnpIsLegacyDriver.c)
- *     IopBootLog @ 0x1404EFE0C (IopBootLog.c)
- *     ObCloseHandle @ 0x14050C73C (ObCloseHandle.c)
- *     PnpDriverStarted @ 0x14053859C (PnpDriverStarted.c)
- *     MmUnloadSystemImage @ 0x140545D68 (MmUnloadSystemImage.c)
- *     PnpDriverLoadingFailed @ 0x14057F858 (PnpDriverLoadingFailed.c)
- *     IopCheckIfNotNativeDriver @ 0x1406210F4 (IopCheckIfNotNativeDriver.c)
- *     IopLogBlockedDriverEvent @ 0x14062200C (IopLogBlockedDriverEvent.c)
- *     IopSafebootDriverLoad @ 0x14062238C (IopSafebootDriverLoad.c)
+ *     NtQueryKey @ 0x14043A170 (NtQueryKey.c)
+ *     NtQueryValueKey @ 0x14043A750 (NtQueryValueKey.c)
+ *     ObReferenceObjectByHandle @ 0x14044FC10 (ObReferenceObjectByHandle.c)
+ *     ObOpenObjectByName @ 0x140463564 (ObOpenObjectByName.c)
+ *     ObInsertObject @ 0x1404702F4 (ObInsertObject.c)
+ *     ObCreateObject @ 0x1404706EC (ObCreateObject.c)
+ *     MiFreeDriverInitialization @ 0x14047C25C (MiFreeDriverInitialization.c)
+ *     MmLoadSystemImage @ 0x140481880 (MmLoadSystemImage.c)
+ *     ObMakeTemporaryObject @ 0x1404CD494 (ObMakeTemporaryObject.c)
+ *     IopReadyDeviceObjects @ 0x1404D1030 (IopReadyDeviceObjects.c)
+ *     PnpIsLegacyDriver @ 0x1404D17C4 (PnpIsLegacyDriver.c)
+ *     IopBootLog @ 0x1404D1E28 (IopBootLog.c)
+ *     ObCloseHandle @ 0x1404EF6CC (ObCloseHandle.c)
+ *     KseShimDriverIoCallbacks @ 0x14051525C (KseShimDriverIoCallbacks.c)
+ *     PnpPrepareDriverLoading @ 0x140515AD8 (PnpPrepareDriverLoading.c)
+ *     IopBuildFullDriverPath @ 0x140515EA8 (IopBuildFullDriverPath.c)
+ *     IopGetDriverNameFromKeyNode @ 0x140517688 (IopGetDriverNameFromKeyNode.c)
+ *     IopGetRegistryValue @ 0x14051783C (IopGetRegistryValue.c)
+ *     NtQueryObject @ 0x14051CF90 (NtQueryObject.c)
+ *     PnpDriverStarted @ 0x140538ADC (PnpDriverStarted.c)
+ *     MmUnloadSystemImage @ 0x1405462A8 (MmUnloadSystemImage.c)
+ *     PnpDriverLoadingFailed @ 0x14057FD04 (PnpDriverLoadingFailed.c)
+ *     IopCheckIfNotNativeDriver @ 0x1406211A8 (IopCheckIfNotNativeDriver.c)
+ *     IopLogBlockedDriverEvent @ 0x1406220C0 (IopLogBlockedDriverEvent.c)
+ *     IopSafebootDriverLoad @ 0x140622440 (IopSafebootDriverLoad.c)
  *     VfXdvDriverCaptureIoCallbacks @ 0x1406FE128 (VfXdvDriverCaptureIoCallbacks.c)
  */
 
@@ -196,7 +196,7 @@ __int64 __fastcall IopLoadDriver(HANDLE KeyHandle, char a2, unsigned __int8 a3, 
           {
             if ( !(unsigned __int8)IopSafebootDriverLoad(&Destination) )
             {
-              IopBootLog(&Destination);
+              IopBootLog(&Destination, 0);
               DbgPrint("SAFEBOOT: skipping device = %wZ(%wZ)\n", &Destination, &DestinationString);
               HeadlessKernelAddLogEntry();
               ObCloseHandle(KeyHandle, 0);
@@ -248,7 +248,7 @@ LABEL_68:
             if ( DriverNameFromKeyNode < 0 )
             {
               ExReleaseResourceLite(&IopDriverLoadResource);
-              IopBootLog(&Destination);
+              IopBootLog(&Destination, 0);
               if ( DriverNameFromKeyNode == -1073741772 )
                 DriverNameFromKeyNode = -1073740914;
               goto LABEL_48;
@@ -305,7 +305,7 @@ LABEL_68:
               ExReleaseResourceLite(&IopDriverLoadResource);
               if ( DriverNameFromKeyNode < 0 )
               {
-                IopBootLog(&Destination);
+                IopBootLog(&Destination, 0);
 LABEL_92:
                 v7 = (unsigned __int16 *)P;
                 goto LABEL_48;
@@ -377,7 +377,7 @@ LABEL_92:
                   if ( DriverNameFromKeyNode >= 0 )
                   {
                     VfXdvDriverCaptureIoCallbacks(v23);
-                    KseShimDriverIoCallbacks(v23, v29, &Destination);
+                    KseShimDriverIoCallbacks((__int64 *)v23, v29, (const void **)&Destination);
                   }
                   PnpDiagnosticTraceObjectWithStatus(&KMPnPEvt_DriverInit_Stop, v26, DriverNameFromKeyNode);
                   v30 = 28LL;
@@ -396,7 +396,7 @@ LABEL_92:
                   ExFreePoolWithTag(v26, 0);
                   if ( DriverNameFromKeyNode >= 0 )
                   {
-                    if ( !(unsigned int)PnpIsLegacyDriver(v23) )
+                    if ( !(unsigned int)PnpIsLegacyDriver((__int64)v23) )
                     {
                       DriverNameFromKeyNode = PnpDriverStarted(v32, KeyHandle, &v39);
                       if ( DriverNameFromKeyNode >= 0 )
@@ -405,15 +405,15 @@ LABEL_92:
                       {
                         *((_DWORD *)v23 + 4) |= 1u;
                         (*((void (__fastcall **)(char *))v23 + 13))(v23);
-                        IopBootLog(&Destination);
+                        IopBootLog(&Destination, 0);
                       }
                     }
                     if ( DriverNameFromKeyNode >= 0 )
                     {
 LABEL_46:
-                      IopBootLog(&Destination);
+                      IopBootLog(&Destination, 1);
                       MiFreeDriverInitialization(*((_QWORD *)v23 + 5));
-                      IopReadyDeviceObjects(v23);
+                      IopReadyDeviceObjects((__int64)v23);
 LABEL_47:
                       v7 = (unsigned __int16 *)P;
                       goto LABEL_48;
@@ -438,7 +438,7 @@ LABEL_47:
           MmUnloadSystemImage(BugCheckParameter2);
         }
         ExReleaseResourceLite(&IopDriverLoadResource);
-        IopBootLog(&Destination);
+        IopBootLog(&Destination, 0);
         goto LABEL_48;
       }
     }

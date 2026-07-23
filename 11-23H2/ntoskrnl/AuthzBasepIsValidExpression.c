@@ -1,9 +1,9 @@
 /*
- * XREFs of AuthzBasepIsValidExpression @ 0x14022BAD4
+ * XREFs of AuthzBasepIsValidExpression @ 0x14022BBE4
  * Callers:
- *     AuthzBasepEvaluateAceCondition @ 0x14022BF40 (AuthzBasepEvaluateAceCondition.c)
+ *     AuthzBasepEvaluateAceCondition @ 0x14022C050 (AuthzBasepEvaluateAceCondition.c)
  * Callees:
- *     AuthzBasepSupportSetOperation @ 0x14022BC18 (AuthzBasepSupportSetOperation.c)
+ *     AuthzBasepSupportSetOperation @ 0x14022BD28 (AuthzBasepSupportSetOperation.c)
  */
 
 bool __fastcall AuthzBasepIsValidExpression(__int64 a1, __int64 a2, int a3, _BYTE *a4)

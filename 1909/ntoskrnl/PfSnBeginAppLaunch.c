@@ -33,10 +33,10 @@ __int64 __fastcall PfSnBeginAppLaunch(__int64 a1, __int128 *a2, int a3)
   int v17; // [rsp+40h] [rbp-C0h] BYREF
   void *v18; // [rsp+48h] [rbp-B8h] BYREF
   int v19; // [rsp+50h] [rbp-B0h] BYREF
-  __int64 v20; // [rsp+58h] [rbp-A8h] BYREF
+  ULONG_PTR v20; // [rsp+58h] [rbp-A8h] BYREF
   __int128 v21; // [rsp+60h] [rbp-A0h] BYREF
   wchar_t SubStr[32]; // [rsp+70h] [rbp-90h] BYREF
-  unsigned __int8 v23[256]; // [rsp+B0h] [rbp-50h] BYREF
+  WCHAR v23[128]; // [rsp+B0h] [rbp-50h] BYREF
 
   v18 = 0LL;
   v17 = 0;

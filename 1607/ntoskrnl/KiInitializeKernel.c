@@ -3,21 +3,21 @@
  * Callers:
  *     KiSystemStartup @ 0x1403C8010 (KiSystemStartup.c)
  * Callees:
- *     PsGetCurrentProcess @ 0x140014680 (PsGetCurrentProcess.c)
- *     KeCountSetBitsAffinityEx @ 0x1400C8A70 (KeCountSetBitsAffinityEx.c)
- *     KeAddProcessorAffinityEx @ 0x1400D3F88 (KeAddProcessorAffinityEx.c)
- *     KeCompactServiceTable @ 0x14012DA2C (KeCompactServiceTable.c)
- *     KiConfigureInitialNodes @ 0x140139328 (KiConfigureInitialNodes.c)
- *     KeGetXSaveFeatureFlags @ 0x140139B10 (KeGetXSaveFeatureFlags.c)
- *     HvlEnlightenProcessor @ 0x140139B58 (HvlEnlightenProcessor.c)
- *     HviGetHypervisorFeatures @ 0x14014AF24 (HviGetHypervisorFeatures.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     KeBugCheck @ 0x14015D4F0 (KeBugCheck.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     KiSetUserTbFlushPending @ 0x14015E8F0 (KiSetUserTbFlushPending.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     KiFatalFilter @ 0x1401D2BB8 (KiFatalFilter.c)
- *     KiDetectBpbMsr @ 0x1401D980C (KiDetectBpbMsr.c)
+ *     PsGetCurrentProcess @ 0x140014200 (PsGetCurrentProcess.c)
+ *     KeCountSetBitsAffinityEx @ 0x1400C6910 (KeCountSetBitsAffinityEx.c)
+ *     KeAddProcessorAffinityEx @ 0x1400D1E28 (KeAddProcessorAffinityEx.c)
+ *     KeCompactServiceTable @ 0x14012DF9C (KeCompactServiceTable.c)
+ *     KiConfigureInitialNodes @ 0x140139898 (KiConfigureInitialNodes.c)
+ *     KeGetXSaveFeatureFlags @ 0x14013A080 (KeGetXSaveFeatureFlags.c)
+ *     HvlEnlightenProcessor @ 0x14013A0C8 (HvlEnlightenProcessor.c)
+ *     HviGetHypervisorFeatures @ 0x14014B494 (HviGetHypervisorFeatures.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     KeBugCheck @ 0x14015DA60 (KeBugCheck.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     KiSetUserTbFlushPending @ 0x14015EE60 (KiSetUserTbFlushPending.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     KiFatalFilter @ 0x1401D29E4 (KiFatalFilter.c)
+ *     KiDetectBpbMsr @ 0x1401D9638 (KiDetectBpbMsr.c)
  *     KiDetectFpuLeakage @ 0x1403C8280 (KiDetectFpuLeakage.c)
  *     KiSetPageAttributesTable @ 0x1403D2A1C (KiSetPageAttributesTable.c)
  *     KiEnableXSave @ 0x1403D2C80 (KiEnableXSave.c)
@@ -27,8 +27,8 @@
  *     PoInitializePrcb @ 0x1403D4A9C (PoInitializePrcb.c)
  *     KiSetCacheInformation @ 0x1403D4B68 (KiSetCacheInformation.c)
  *     KiCheckMicrocode @ 0x1403DD0B8 (KiCheckMicrocode.c)
- *     KeInitializeProcess @ 0x14046EE78 (KeInitializeProcess.c)
- *     HvlPhase0Initialize @ 0x14057D5D4 (HvlPhase0Initialize.c)
+ *     KeInitializeProcess @ 0x14046DD48 (KeInitializeProcess.c)
+ *     HvlPhase0Initialize @ 0x14057DA80 (HvlPhase0Initialize.c)
  *     InitBootProcessor @ 0x1407937C4 (InitBootProcessor.c)
  *     KiInitSystem @ 0x1407B29AC (KiInitSystem.c)
  */
@@ -295,7 +295,7 @@ __int64 __fastcall KiInitializeKernel(__int64 a1, __int64 a2, __int64 a3, ULONG_
     __writecr8(1uLL);
     KiFreezeExecutionLock = 0LL;
     KiInitSystem();
-    qword_14030E288 = (__int64)&KiProcessListHead;
+    qword_14030E2C8 = (__int64)&KiProcessListHead;
     KiProcessListHead = (__int64)&KiProcessListHead;
     v33 = (unsigned int)KiProcessorIndexToNumberMappingTable[0] >> 6;
     v34 = KiProcessorIndexToNumberMappingTable[0] & 0x3F;

@@ -6,10 +6,10 @@
  *     KeInsertByKeyDeviceQueue @ 0x14045A4A0 (KeInsertByKeyDeviceQueue.c)
  *     KeRemoveByKeyDeviceQueue @ 0x140570810 (KeRemoveByKeyDeviceQueue.c)
  *     KeRemoveByKeyDeviceQueueIfBusy @ 0x1405708F0 (KeRemoveByKeyDeviceQueueIfBusy.c)
- *     DifKeReleaseInStackQueuedSpinLockForDpcWrapper @ 0x140614550 (DifKeReleaseInStackQueuedSpinLockForDpcWrapper.c)
+ *     sub_140614550 @ 0x140614550 (sub_140614550.c)
  * Callees:
  *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140282BA0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     sub_140418E4C @ 0x140418E4C (sub_140418E4C.c)
  */
 
 void __stdcall KeReleaseInStackQueuedSpinLockForDpc(PKLOCK_QUEUE_HANDLE LockHandle)
@@ -17,28 +17,28 @@ void __stdcall KeReleaseInStackQueuedSpinLockForDpc(PKLOCK_QUEUE_HANDLE LockHand
   unsigned __int64 OldIrql; // rbx
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
-  _DWORD *SchedulerAssist; // r9
+  __int64 v5; // r9
   int v6; // eax
   bool v7; // zf
 
-  if ( (KeGetCurrentPrcb()->DpcRequestSummary & 0x10000) != 0 )
+  if ( (*((_DWORD *)KeGetCurrentPrcb() + 3311) & 0x10000) != 0 )
   {
     KeReleaseInStackQueuedSpinLockFromDpcLevel(LockHandle);
     OldIrql = LockHandle->OldIrql;
-    if ( KiIrqlFlags )
+    if ( dword_140D06B08 )
     {
-      if ( (KiIrqlFlags & 1) != 0 )
+      if ( (dword_140D06B08 & 1) != 0 )
       {
         CurrentIrql = KeGetCurrentIrql();
         if ( CurrentIrql <= 0xFu && (unsigned __int8)OldIrql <= 0xFu && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
-          SchedulerAssist = CurrentPrcb->SchedulerAssist;
+          v5 = *((_QWORD *)CurrentPrcb + 4375);
           v6 = ~(unsigned __int16)(-1LL << ((unsigned __int8)OldIrql + 1));
-          v7 = (v6 & SchedulerAssist[5]) == 0;
-          SchedulerAssist[5] &= v6;
+          v7 = (v6 & *(_DWORD *)(v5 + 20)) == 0;
+          *(_DWORD *)(v5 + 20) &= v6;
           if ( v7 )
-            KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+            sub_140418E4C(CurrentPrcb);
         }
       }
     }

@@ -18,8 +18,8 @@ char __fastcall FsRtlPrivateInsertSharedLock(__int64 a1, _RTL_SPLAY_LINKS *a2)
   PRTL_SPLAY_LINKS *v4; // rbp
   __int64 v5; // rcx
   __int64 FirstOverlappingSharedNode; // rax
-  RTL_SPLAY_LINKS *v7; // rbx
-  RTL_SPLAY_LINKS *v8; // rax
+  _RTL_SPLAY_LINKS *v7; // rbx
+  _RTL_SPLAY_LINKS *v8; // rax
   PRTL_SPLAY_LINKS v9; // rcx
   _RTL_SPLAY_LINKS *v10; // rax
   _RTL_SPLAY_LINKS **v11; // r14
@@ -30,7 +30,7 @@ char __fastcall FsRtlPrivateInsertSharedLock(__int64 a1, _RTL_SPLAY_LINKS *a2)
   PRTL_SPLAY_LINKS v16; // rdi
   _RTL_SPLAY_LINKS *Parent; // rdx
   PRTL_SPLAY_LINKS v18; // rax
-  RTL_SPLAY_LINKS *v19; // rsi
+  _RTL_SPLAY_LINKS *v19; // rsi
   char v21; // [rsp+60h] [rbp+8h] BYREF
   _RTL_SPLAY_LINKS *v22; // [rsp+68h] [rbp+10h] BYREF
 
@@ -45,7 +45,7 @@ char __fastcall FsRtlPrivateInsertSharedLock(__int64 a1, _RTL_SPLAY_LINKS *a2)
                                  (int)a2 + 48,
                                  (unsigned int)&v22,
                                  (__int64)&v21);
-  v7 = (RTL_SPLAY_LINKS *)FirstOverlappingSharedNode;
+  v7 = (_RTL_SPLAY_LINKS *)FirstOverlappingSharedNode;
   if ( FirstOverlappingSharedNode )
   {
     v11 = (_RTL_SPLAY_LINKS **)(FirstOverlappingSharedNode - 24);
@@ -107,7 +107,7 @@ char __fastcall FsRtlPrivateInsertSharedLock(__int64 a1, _RTL_SPLAY_LINKS *a2)
   }
   else
   {
-    v8 = (RTL_SPLAY_LINKS *)ExAllocateFromNPagedLookasideList(&FsRtlLockTreeNodeLookasideList);
+    v8 = (_RTL_SPLAY_LINKS *)ExAllocateFromNPagedLookasideList(&FsRtlLockTreeNodeLookasideList);
     if ( !v8 )
       return (char)v8;
     v9 = v8 + 1;

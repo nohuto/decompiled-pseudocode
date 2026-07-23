@@ -17,11 +17,11 @@ __int64 __fastcall sub_18003715C(
         __int64 a5,
         __int64 a6,
         __int64 a7,
-        __int64 a8,
+        PGENERIC_MAPPING GenericMapping,
         __int64 a9,
         int a10,
         unsigned int *a11,
-        __int64 a12,
+        PACL Acl,
         unsigned int *a13,
         _BYTE *a14)
 {
@@ -55,7 +55,7 @@ __int64 __fastcall sub_18003715C(
     if ( (v22 & 4) == 0 && ((v22 & 1) != 0 || (v22 & 2) != 0) )
       v26 = 1;
   }
-  if ( !(unsigned __int8)RtlFirstFreeAce(a12, &v27[7]) )
+  if ( !RtlFirstFreeAce(Acl, (PVOID *)&v27[7]) )
     return 3221225597LL;
   v19 = *(_BYTE **)&v27[7];
   if ( !*(_QWORD *)&v27[7] )
@@ -76,22 +76,22 @@ __int64 __fastcall sub_18003715C(
                            a5,
                            a6,
                            a7,
-                           a8,
+                           GenericMapping,
                            a9,
                            a10,
                            (__int64)&v27[7],
                            (__int64)&v27[3],
-                           a12,
+                           (__int64)Acl,
                            (__int64)a14,
                            (__int64)&v27[1],
                            (__int64)v27) )
     return 3221225597LL;
   v18 = v27[0];
   v17 = *(_DWORD *)&v27[3];
-  if ( !v27[0] && *(_DWORD *)&v27[3] && v19 && (unsigned __int8)sub_180044080(a12, v19) )
+  if ( !v27[0] && *(_DWORD *)&v27[3] && v19 && (unsigned __int8)sub_180044080(Acl, v19) )
   {
     v16 = v17;
-    --*(_WORD *)(a12 + 4);
+    --Acl->AceCount;
     v17 = 0;
   }
   else
@@ -124,7 +124,7 @@ LABEL_8:
   v15 += *((unsigned __int16 *)Src + 1);
   if ( v15 <= 0xFFFF )
   {
-    if ( *((unsigned __int16 *)Src + 1) > a12 + *(unsigned __int16 *)(a12 + 2) - (_QWORD)v19 )
+    if ( *((unsigned __int16 *)Src + 1) > (__int64)Acl + Acl->AclSize - (_QWORD)v19 )
     {
       v18 = 1;
     }
@@ -132,13 +132,13 @@ LABEL_8:
     {
       memmove(v19, Src, *((unsigned __int16 *)Src + 1));
       v19[1] |= 8u;
-      ++*(_WORD *)(a12 + 4);
+      ++Acl->AceCount;
       if ( a3 )
       {
         v19[1] |= 0x10u;
-        if ( (unsigned __int8)sub_180044080(a12, v19) )
+        if ( (unsigned __int8)sub_180044080(Acl, v19) )
         {
-          --*(_WORD *)(a12 + 4);
+          --Acl->AceCount;
           v25 = *((unsigned __int16 *)Src + 1);
           v15 -= v25;
           if ( v16 <= v25 )

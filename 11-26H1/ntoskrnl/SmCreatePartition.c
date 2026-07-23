@@ -1,24 +1,24 @@
 /*
- * XREFs of SmCreatePartition @ 0x140AB0DEC
+ * XREFs of SmCreatePartition @ 0x140AAEDD0
  * Callers:
- *     MiMakePartitionActive @ 0x1404A9C80 (MiMakePartitionActive.c)
- *     PspSetJobMemoryPartition @ 0x1407F96B4 (PspSetJobMemoryPartition.c)
- *     SmProcessConfigRequest @ 0x1408195C0 (SmProcessConfigRequest.c)
- *     SmInitSystem @ 0x140C7F2E8 (SmInitSystem.c)
+ *     MiMakePartitionActive @ 0x1404A3310 (MiMakePartitionActive.c)
+ *     PspSetJobMemoryPartition @ 0x1407FF1B4 (PspSetJobMemoryPartition.c)
+ *     SmProcessConfigRequest @ 0x14081F7D0 (SmProcessConfigRequest.c)
+ *     SmInitSystem @ 0x140C852E8 (SmInitSystem.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     SmAllocEx @ 0x1403F5140 (SmAllocEx.c)
- *     CmSiFreeMemory @ 0x140495010 (CmSiFreeMemory.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     SmPartitionCleanup @ 0x140818F90 (SmPartitionCleanup.c)
- *     SmPartitionInitialize @ 0x140819034 (SmPartitionInitialize.c)
- *     MmManagePartitionMemoryInformation @ 0x140AB9F38 (MmManagePartitionMemoryInformation.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     SmAllocEx @ 0x1403EEAF0 (SmAllocEx.c)
+ *     CmSiFreeMemory @ 0x14048EB60 (CmSiFreeMemory.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     SmPartitionCleanup @ 0x14081F1A0 (SmPartitionCleanup.c)
+ *     SmPartitionInitialize @ 0x14081F244 (SmPartitionInitialize.c)
+ *     MmManagePartitionMemoryInformation @ 0x140ABB3FC (MmManagePartitionMemoryInformation.c)
  */
 
 __int64 __fastcall SmCreatePartition(__int64 a1)
@@ -73,11 +73,11 @@ __int64 __fastcall SmCreatePartition(__int64 a1)
       *(_QWORD *)(v9 + 2336) = PspTlsContext.WaitBlock[2].Thread;
       CurrentThread = KeGetCurrentThread();
       --CurrentThread->KernelApcDisable;
-      v12 = (AutoBoost *)KeAbPreAcquire((__int64)&stru_140E27B08, 0LL, 0LL, v11);
-      v14 = _interlockedbittestandset64(&stru_140E27B08.Header.Lock, 0LL);
+      v12 = (AutoBoost *)KeAbPreAcquire((__int64)&stru_140E27C48, 0LL, 0LL, v11);
+      v14 = _interlockedbittestandset64(&stru_140E27C48.Header.Lock, 0LL);
       v15 = v12;
       if ( v14 )
-        ExfAcquirePushLockExclusiveEx((unsigned __int64 *)&stru_140E27B08, v12, (__int64)&stru_140E27B08);
+        ExfAcquirePushLockExclusiveEx((unsigned __int64 *)&stru_140E27C48, v12, (__int64)&stru_140E27C48);
       if ( v15 )
       {
         if ( (KiAbpGlobalState & 1) != 0 )
@@ -87,20 +87,20 @@ __int64 __fastcall SmCreatePartition(__int64 a1)
       }
       if ( !*(_QWORD *)(a1 + 24) )
       {
-        v16 = (_QWORD *)qword_140E27B00;
+        v16 = (_QWORD *)qword_140E27C40;
         v17 = (_QWORD *)(v9 + 2232);
-        if ( *(__int64 **)qword_140E27B00 != &qword_140E27AF8 )
+        if ( *(__int64 **)qword_140E27C40 != &qword_140E27C38 )
           __fastfail(3u);
-        *v17 = &qword_140E27AF8;
+        *v17 = &qword_140E27C38;
         *(_QWORD *)(v9 + 2240) = v16;
         *v16 = v17;
-        qword_140E27B00 = v9 + 2232;
+        qword_140E27C40 = v9 + 2232;
         *(_QWORD *)(a1 + 24) = v9;
         v9 = 0LL;
       }
-      if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&stru_140E27B08, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-        ExfTryToWakePushLock((volatile signed __int64 *)&stru_140E27B08.Header.Lock);
-      KeAbPostRelease((unsigned __int64)&stru_140E27B08);
+      if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&stru_140E27C48, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+        ExfTryToWakePushLock((volatile signed __int64 *)&stru_140E27C48.Header.Lock);
+      KeAbPostRelease((unsigned __int64)&stru_140E27C48);
       KeLeaveCriticalRegion();
       if ( v9 )
       {

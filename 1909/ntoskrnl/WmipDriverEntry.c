@@ -23,7 +23,7 @@ NTSTATUS __fastcall WmipDriverEntry(PDRIVER_OBJECT DriverObject)
   NTSTATUS result; // eax
   NTSTATUS v4; // ebx
   UNICODE_STRING DeviceName; // [rsp+40h] [rbp-30h] BYREF
-  STRING DestinationString; // [rsp+50h] [rbp-20h] BYREF
+  _STRING DestinationString; // [rsp+50h] [rbp-20h] BYREF
   UNICODE_STRING SymbolicLinkName; // [rsp+60h] [rbp-10h] BYREF
 
   *(_QWORD *)&DeviceName.Length = 0LL;

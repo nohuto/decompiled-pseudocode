@@ -32,7 +32,7 @@ __int64 __fastcall PiOpenDriverRedirectedStateKey(unsigned __int16 *a1, __int64 
   RtlInitUnicodeString(&v12, 0LL);
   if ( a1 && *((_QWORD *)a1 + 1) && *a1 >= 2u && a3 )
   {
-    StateRootPath = PiGetStateRootPath(L"DriverStatePath");
+    StateRootPath = PiGetStateRootPath(L"DriverStatePath", 0LL, LocationTypeRegistry, &DestinationString);
     if ( StateRootPath >= 0 )
     {
       v6 = *a1 + 2;

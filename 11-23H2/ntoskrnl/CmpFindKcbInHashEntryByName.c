@@ -1,13 +1,13 @@
 /*
- * XREFs of CmpFindKcbInHashEntryByName @ 0x1407C461C
+ * XREFs of CmpFindKcbInHashEntryByName @ 0x1407C48EC
  * Callers:
- *     CmpWalkOneLevel @ 0x1406DD820 (CmpWalkOneLevel.c)
- *     CmRenameKey @ 0x140A143AC (CmRenameKey.c)
- *     CmpSubtreeEnumeratorAdvance @ 0x140A20398 (CmpSubtreeEnumeratorAdvance.c)
- *     CmpPartialPromoteSubkeys @ 0x140A263A0 (CmpPartialPromoteSubkeys.c)
+ *     CmpWalkOneLevel @ 0x1406DD850 (CmpWalkOneLevel.c)
+ *     CmRenameKey @ 0x140A1465C (CmRenameKey.c)
+ *     CmpSubtreeEnumeratorAdvance @ 0x140A20648 (CmpSubtreeEnumeratorAdvance.c)
+ *     CmpPartialPromoteSubkeys @ 0x140A26650 (CmpPartialPromoteSubkeys.c)
  * Callees:
  *     CmpCompareUnicodeString @ 0x140690A4C (CmpCompareUnicodeString.c)
- *     CmpCompareCompressedName @ 0x1407C46E4 (CmpCompareCompressedName.c)
+ *     CmpCompareCompressedName @ 0x1407C49B4 (CmpCompareCompressedName.c)
  */
 
 __int64 __fastcall CmpFindKcbInHashEntryByName(__int64 a1, unsigned int a2, __int64 a3, __int64 a4)

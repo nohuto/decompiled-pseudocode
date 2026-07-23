@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpAuditSlicTables @ 0x140C143B4
+ * XREFs of HalpAuditSlicTables @ 0x140C163B4
  * Callers:
- *     HalpAuditAcpiTables @ 0x140C13DF4 (HalpAuditAcpiTables.c)
+ *     HalpAuditAcpiTables @ 0x140C15DF4 (HalpAuditAcpiTables.c)
  * Callees:
- *     RtlCompareMemory @ 0x1406B3990 (RtlCompareMemory.c)
+ *     RtlCompareMemory @ 0x1406B4930 (RtlCompareMemory.c)
  */
 
 __int64 __fastcall HalpAuditSlicTables(__int64 a1)

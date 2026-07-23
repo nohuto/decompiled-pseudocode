@@ -13,30 +13,28 @@
  *     RtlpHeapExceptionFilter @ 0x18010E204 (RtlpHeapExceptionFilter.c)
  */
 
-__int64 __fastcall RtlDebugCreateTagHeap(_DWORD *Src, int a2, __int64 a3, _WORD *a4)
+__int64 __fastcall RtlDebugCreateTagHeap(PRTL_CRITICAL_SECTION *Src, int a2, WCHAR *a3, WCHAR *a4)
 {
   char v8; // si
-  unsigned int TagHeap; // r14d
-  __int64 v10; // rdx
-  __int64 v11; // r8
-  int v12; // edi
+  ULONG TagHeap; // r14d
+  ULONG v10; // edi
 
   v8 = 0;
   TagHeap = 0;
   if ( RtlpCheckHeapSignature(Src, "RtlCreateTagHeap") )
   {
-    v12 = Src[29] | 0x10000000 | a2;
-    if ( (v12 & 1) == 0 )
+    v10 = *((_DWORD *)Src + 29) | 0x10000000 | a2;
+    if ( (v10 & 1) == 0 )
     {
-      RtlEnterCriticalSection(*((_QWORD *)Src + 44));
+      RtlEnterCriticalSection(Src[44]);
       v8 = 1;
-      v12 |= 1u;
+      v10 |= 1u;
     }
-    if ( (unsigned __int8)RtlpValidateHeap(Src, 0LL) )
-      TagHeap = RtlCreateTagHeap(Src, v12, a3, a4);
+    if ( (unsigned __int8)RtlpValidateHeap((_DWORD)Src) )
+      TagHeap = RtlCreateTagHeap(Src, v10, a3, a4);
     RtlpValidateHeapHeaders(Src);
   }
   if ( v8 )
-    RtlLeaveCriticalSection(*((_QWORD *)Src + 44), v10, v11);
+    RtlLeaveCriticalSection(Src[44]);
   return TagHeap;
 }

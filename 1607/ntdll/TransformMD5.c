@@ -1,7 +1,7 @@
 /*
- * XREFs of TransformMD5 @ 0x18006BB80
+ * XREFs of TransformMD5 @ 0x18006BB70
  * Callers:
- *     MD5Update @ 0x18006BA30 (MD5Update.c)
+ *     MD5Update @ 0x18006BA20 (MD5Update.c)
  * Callees:
  *     <none>
  */

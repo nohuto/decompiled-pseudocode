@@ -1,10 +1,10 @@
 /*
- * XREFs of PspUnlockThreadSecurityExclusive @ 0x14020F568
+ * XREFs of PspUnlockThreadSecurityExclusive @ 0x14020F394
  * Callers:
- *     NtSetInformationThread @ 0x14050E5D0 (NtSetInformationThread.c)
+ *     NtSetInformationThread @ 0x1404F1560 (NtSetInformationThread.c)
  * Callees:
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
  */
 
 __int64 __fastcall PspUnlockThreadSecurityExclusive(__int64 a1, __int64 a2)

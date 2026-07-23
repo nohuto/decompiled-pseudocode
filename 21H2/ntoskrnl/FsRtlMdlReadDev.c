@@ -1,16 +1,16 @@
 /*
- * XREFs of FsRtlMdlReadDev @ 0x14088B050
+ * XREFs of FsRtlMdlReadDev @ 0x14088B1B0
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     FsRtlIsNtstatusExpected @ 0x1402C2240 (FsRtlIsNtstatusExpected.c)
- *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x14034BF60 (ExAcquireResourceSharedLite.c)
- *     IoSetTopLevelIrp @ 0x140356C20 (IoSetTopLevelIrp.c)
- *     IoGetTopLevelIrp @ 0x140356C40 (IoGetTopLevelIrp.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     CcMdlRead @ 0x1406D3BB0 (CcMdlRead.c)
+ *     FsRtlIsNtstatusExpected @ 0x1402406E0 (FsRtlIsNtstatusExpected.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseResourceLite @ 0x140356140 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x140356CB0 (ExAcquireResourceSharedLite.c)
+ *     IoSetTopLevelIrp @ 0x140361970 (IoSetTopLevelIrp.c)
+ *     IoGetTopLevelIrp @ 0x140361990 (IoGetTopLevelIrp.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     CcMdlRead @ 0x1406AAE90 (CcMdlRead.c)
  */
 
 BOOLEAN __stdcall FsRtlMdlReadDev(
@@ -29,6 +29,12 @@ BOOLEAN __stdcall FsRtlMdlReadDev(
   __int64 v15; // r9
   char v16; // al
   LONGLONG v17; // rax
+  __int64 v18; // rdx
+  __int64 v19; // r8
+  __int64 v20; // r9
+  __int64 v21; // rdx
+  __int64 v22; // r8
+  __int64 v23; // r9
 
   v8 = Length;
   if ( !IoGetTopLevelIrp() )
@@ -71,7 +77,7 @@ BOOLEAN __stdcall FsRtlMdlReadDev(
               IoStatus->Information = 0LL;
 LABEL_12:
               ExReleaseResourceLite(*((PERESOURCE *)FsContext + 1));
-              KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+              KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v18, v19, v20);
               return 1;
             }
             LODWORD(v8) = v17 - FileOffset->LowPart;
@@ -85,7 +91,7 @@ LABEL_12:
       }
     }
     ExReleaseResourceLite(*((PERESOURCE *)FsContext + 1));
-    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v21, v22, v23);
     __incgsdword(0x8108u);
   }
   return 0;

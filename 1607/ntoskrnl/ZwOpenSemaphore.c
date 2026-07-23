@@ -1,12 +1,11 @@
 /*
- * XREFs of ZwOpenSemaphore @ 0x14015C000
+ * XREFs of ZwOpenSemaphore @ 0x14015C570
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-// local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall ZwOpenSemaphore(
         PHANDLE SemaphoreHandle,
         ACCESS_MASK DesiredAcces,
@@ -14,5 +13,5 @@ NTSTATUS __stdcall ZwOpenSemaphore(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(SemaphoreHandle, *(_QWORD *)&DesiredAcces, ObjectAttributes);
+  return KiServiceInternal(SemaphoreHandle);
 }

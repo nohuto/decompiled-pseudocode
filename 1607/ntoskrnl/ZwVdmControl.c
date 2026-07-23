@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwVdmControl @ 0x14015D3E0
+ * XREFs of ZwVdmControl @ 0x14015D950
  * Callers:
  *     <none>
  * Callees:
@@ -9,9 +9,7 @@
 // local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall ZwVdmControl(ULONG ControlCode, PVOID ControlData)
 {
-  __int64 v2; // r8
-
   _disable();
   __readeflags();
-  return KiServiceInternal(*(_QWORD *)&ControlCode, ControlData, v2);
+  return KiServiceInternal(*(_QWORD *)&ControlCode);
 }

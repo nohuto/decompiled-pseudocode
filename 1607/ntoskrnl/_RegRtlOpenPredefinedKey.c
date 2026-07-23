@@ -1,12 +1,12 @@
 /*
- * XREFs of _RegRtlOpenPredefinedKey @ 0x14057BC28
+ * XREFs of _RegRtlOpenPredefinedKey @ 0x14057C0D4
  * Callers:
- *     _RegRtlCreateKeyTransacted @ 0x1404FA914 (_RegRtlCreateKeyTransacted.c)
- *     _RegRtlOpenKeyTransacted @ 0x1404FDBD4 (_RegRtlOpenKeyTransacted.c)
+ *     _RegRtlCreateKeyTransacted @ 0x1404DD8A0 (_RegRtlCreateKeyTransacted.c)
+ *     _RegRtlOpenKeyTransacted @ 0x1404E0B64 (_RegRtlOpenKeyTransacted.c)
  * Callees:
- *     RtlFormatCurrentUserKeyPath @ 0x1403F7A20 (RtlFormatCurrentUserKeyPath.c)
- *     RtlFreeAnsiString @ 0x140458CF0 (RtlFreeAnsiString.c)
- *     _RegRtlOpenKeyTransacted @ 0x1404FDBD4 (_RegRtlOpenKeyTransacted.c)
+ *     RtlFormatCurrentUserKeyPath @ 0x1403F68E0 (RtlFormatCurrentUserKeyPath.c)
+ *     RtlFreeAnsiString @ 0x140457BC0 (RtlFreeAnsiString.c)
+ *     _RegRtlOpenKeyTransacted @ 0x1404E0B64 (_RegRtlOpenKeyTransacted.c)
  */
 
 __int64 __fastcall RegRtlOpenPredefinedKey(__int64 a1, HANDLE *a2)

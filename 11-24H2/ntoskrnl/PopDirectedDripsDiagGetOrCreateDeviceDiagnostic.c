@@ -1,11 +1,11 @@
 /*
- * XREFs of PopDirectedDripsDiagGetOrCreateDeviceDiagnostic @ 0x1406FB9DC
+ * XREFs of PopDirectedDripsDiagGetOrCreateDeviceDiagnostic @ 0x1406F961C
  * Callers:
- *     PopDirectedDripsDiagBroadcastTreeBegin @ 0x140A7EA5C (PopDirectedDripsDiagBroadcastTreeBegin.c)
- *     PopDirectedDripsDiagTraceMarkDevice @ 0x140A80EAC (PopDirectedDripsDiagTraceMarkDevice.c)
- *     PopDirectedDripsDiagTraceBroadcastVisit @ 0x140AB287C (PopDirectedDripsDiagTraceBroadcastVisit.c)
+ *     PopDirectedDripsDiagBroadcastTreeBegin @ 0x140A7820C (PopDirectedDripsDiagBroadcastTreeBegin.c)
+ *     PopDirectedDripsDiagTraceMarkDevice @ 0x140A7B90C (PopDirectedDripsDiagTraceMarkDevice.c)
+ *     PopDirectedDripsDiagTraceBroadcastVisit @ 0x140AAD7EC (PopDirectedDripsDiagTraceBroadcastVisit.c)
  * Callees:
- *     PopDirectedDripsDiagCreateDeviceDiagnostic @ 0x1407642B4 (PopDirectedDripsDiagCreateDeviceDiagnostic.c)
+ *     PopDirectedDripsDiagCreateDeviceDiagnostic @ 0x140763C84 (PopDirectedDripsDiagCreateDeviceDiagnostic.c)
  */
 
 __int64 __fastcall PopDirectedDripsDiagGetOrCreateDeviceDiagnostic(__int64 a1)

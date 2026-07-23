@@ -1,10 +1,10 @@
 /*
- * XREFs of _PnpGetMappedPropertyLocalesDispatch @ 0x140976860
+ * XREFs of _PnpGetMappedPropertyLocalesDispatch @ 0x140976A40
  * Callers:
- *     _PnpGetObjectPropertyLocalesWorker @ 0x140976D7C (_PnpGetObjectPropertyLocalesWorker.c)
+ *     _PnpGetObjectPropertyLocalesWorker @ 0x140976F5C (_PnpGetObjectPropertyLocalesWorker.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     _PnpCtxGetObjectDispatchCallback @ 0x140637F68 (_PnpCtxGetObjectDispatchCallback.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     _PnpCtxGetObjectDispatchCallback @ 0x14062CD78 (_PnpCtxGetObjectDispatchCallback.c)
  */
 
 __int64 __fastcall PnpGetMappedPropertyLocalesDispatch(

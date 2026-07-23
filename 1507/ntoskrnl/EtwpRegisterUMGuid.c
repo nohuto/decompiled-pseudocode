@@ -49,13 +49,13 @@ __int64 __fastcall EtwpRegisterUMGuid(__int64 a1, unsigned int a2, unsigned int 
   __int64 v27; // [rsp+88h] [rbp+20h] BYREF
 
   v3 = 0LL;
-  v5 = *(_QWORD *)a1 - SecurityProviderGuid;
-  v4 = *(_QWORD *)a1 == (_QWORD)SecurityProviderGuid;
+  v5 = *(_QWORD *)a1 - *(_QWORD *)&SecurityProviderGuid.Data1;
+  v4 = *(_QWORD *)a1 == *(_QWORD *)&SecurityProviderGuid.Data1;
   v7 = *(_DWORD *)(a1 + 16);
   v27 = 0LL;
   Object = 0LL;
   if ( v4 )
-    v5 = *(_QWORD *)(a1 + 8) - *((_QWORD *)&SecurityProviderGuid + 1);
+    v5 = *(_QWORD *)(a1 + 8) - *(_QWORD *)SecurityProviderGuid.Data4;
   if ( !v5 )
     return 3221225506LL;
   GuidEntryByGuid = EtwpFindGuidEntryByGuid(a1, (unsigned int)(v7 - 2) > 1);

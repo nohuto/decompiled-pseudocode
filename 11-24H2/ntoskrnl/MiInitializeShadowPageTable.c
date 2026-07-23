@@ -1,27 +1,27 @@
 /*
- * XREFs of MiInitializeShadowPageTable @ 0x1407F6428
+ * XREFs of MiInitializeShadowPageTable @ 0x1407F6B9C
  * Callers:
- *     MiMakeShadowPageTableRange @ 0x1407F6634 (MiMakeShadowPageTableRange.c)
+ *     MiMakeShadowPageTableRange @ 0x1407F6DA8 (MiMakeShadowPageTableRange.c)
  * Callees:
- *     MI_READ_PTE_LOCK_FREE @ 0x14021A250 (MI_READ_PTE_LOCK_FREE.c)
- *     MiMakeValidPte @ 0x1402383C0 (MiMakeValidPte.c)
- *     MI_IS_PHYSICAL_ADDRESS @ 0x1402637E0 (MI_IS_PHYSICAL_ADDRESS.c)
- *     MiVaToPfnEx @ 0x140264680 (MiVaToPfnEx.c)
- *     MiReadWriteAnyLevelShadowPte @ 0x1402666A8 (MiReadWriteAnyLevelShadowPte.c)
- *     MiInitializePfnForOtherProcess @ 0x140396C84 (MiInitializePfnForOtherProcess.c)
- *     MiGetPteAddress @ 0x140437550 (MiGetPteAddress.c)
- *     MI_IS_PTE_SHADOW_STACK @ 0x140444870 (MI_IS_PTE_SHADOW_STACK.c)
- *     MI_SET_PTE_SHADOW_STACK @ 0x140488B2C (MI_SET_PTE_SHADOW_STACK.c)
- *     MiReplicatePteChange @ 0x1404F761C (MiReplicatePteChange.c)
- *     MiMarkPxeAsShadowed @ 0x14067FDF0 (MiMarkPxeAsShadowed.c)
+ *     MiMakeValidPte @ 0x140212550 (MiMakeValidPte.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140246FA0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x140293050 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     MiVaToPfnEx @ 0x140293EF0 (MiVaToPfnEx.c)
+ *     MiReadWriteAnyLevelShadowPte @ 0x1402EE8E8 (MiReadWriteAnyLevelShadowPte.c)
+ *     MiInitializePfnForOtherProcess @ 0x14038FF2C (MiInitializePfnForOtherProcess.c)
+ *     MiGetPteAddress @ 0x140429FD0 (MiGetPteAddress.c)
+ *     MI_IS_PTE_SHADOW_STACK @ 0x14043CB30 (MI_IS_PTE_SHADOW_STACK.c)
+ *     MI_SET_PTE_SHADOW_STACK @ 0x140483C1C (MI_SET_PTE_SHADOW_STACK.c)
+ *     MiReplicatePteChange @ 0x1404F4EFC (MiReplicatePteChange.c)
+ *     MiMarkPxeAsShadowed @ 0x140680FF0 (MiMarkPxeAsShadowed.c)
  */
 
 void __fastcall MiInitializeShadowPageTable(unsigned __int64 a1, _QWORD *a2, unsigned int a3)
 {
   bool v3; // r15
   unsigned __int64 v6; // rbx
-  __int64 v7; // rdx
-  unsigned __int64 v8; // rbx
+  signed __int64 v7; // rdx
+  ULONG_PTR v8; // rbx
   unsigned __int64 PteAddress; // rax
   int v10; // edx
   __int64 v11; // rax
@@ -31,9 +31,9 @@ void __fastcall MiInitializeShadowPageTable(unsigned __int64 a1, _QWORD *a2, uns
   unsigned __int64 v15; // rax
   unsigned __int64 v16; // rdx
   ULONG_PTR v17; // rbp
-  unsigned __int64 ValidPte; // rax
+  ULONG_PTR ValidPte; // rax
   ULONG_PTR v19; // rax
-  unsigned __int64 v20; // [rsp+68h] [rbp+20h] BYREF
+  ULONG_PTR BugCheckParameter2; // [rsp+68h] [rbp+20h] BYREF
 
   v3 = 0;
   if ( !a3 )
@@ -45,16 +45,16 @@ void __fastcall MiInitializeShadowPageTable(unsigned __int64 a1, _QWORD *a2, uns
       do
         PteAddress = MiGetPteAddress(PteAddress);
       while ( v10 != 1 );
-      v20 = MI_READ_PTE_LOCK_FREE(PteAddress);
+      BugCheckParameter2 = MI_READ_PTE_LOCK_FREE(PteAddress);
       v11 = MiVaToPfnEx(v6);
-      v7 = v20;
+      v7 = BugCheckParameter2;
       v8 = v11;
     }
     else
     {
-      v20 = MI_READ_PTE_LOCK_FREE(a1);
-      v7 = v20;
-      v8 = (v20 >> 12) & 0xFFFFFFFFFFLL;
+      BugCheckParameter2 = MI_READ_PTE_LOCK_FREE(a1);
+      v7 = BugCheckParameter2;
+      v8 = (BugCheckParameter2 >> 12) & 0xFFFFFFFFFFLL;
     }
     if ( (v7 & 0x800) != 0 )
     {
@@ -83,20 +83,20 @@ LABEL_14:
   v17 = -1LL;
 LABEL_16:
   ValidPte = MiMakeValidPte(a1, v8, v14 | (a3 != 0 ? -1744830464 : -1879048192));
-  v20 = ValidPte;
+  BugCheckParameter2 = ValidPte;
   if ( v3 )
   {
-    MI_SET_PTE_SHADOW_STACK((unsigned __int64)&v20);
-    ValidPte = v20;
+    MI_SET_PTE_SHADOW_STACK((ULONG_PTR)&BugCheckParameter2);
+    ValidPte = BugCheckParameter2;
   }
   v19 = ValidPte & 0xFFFFFFFFFFFFFEFFuLL;
-  v20 = v19;
+  BugCheckParameter2 = v19;
   if ( a3 )
   {
     if ( a3 == 3 )
       v17 = PsInitialSystemProcess->DirectoryTableBase >> 12;
-    MiInitializePfnForOtherProcess(v8, a1, v17, 2560);
-    v19 = v20;
+    MiInitializePfnForOtherProcess(v8, a1, v17, 2560LL);
+    v19 = BugCheckParameter2;
   }
   MiReadWriteAnyLevelShadowPte(a1, a3, 1, v19);
   if ( a3 == 3 )

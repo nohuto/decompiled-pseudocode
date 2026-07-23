@@ -1,17 +1,17 @@
 /*
- * XREFs of MiRemoveViewsFromSectionWithPfn @ 0x1402FC9DC
+ * XREFs of MiRemoveViewsFromSectionWithPfn @ 0x14030772C
  * Callers:
- *     MiDereferenceDataSubsections @ 0x140554E28 (MiDereferenceDataSubsections.c)
- *     MiReleaseReadListResources @ 0x1406E8B14 (MiReleaseReadListResources.c)
- *     MiMapViewOfDataSection @ 0x1406EC100 (MiMapViewOfDataSection.c)
- *     MiPfPrepareSequentialReadList @ 0x1406EDDD0 (MiPfPrepareSequentialReadList.c)
- *     MiPfPrepareReadList @ 0x1406EF910 (MiPfPrepareReadList.c)
+ *     MiDereferenceDataSubsections @ 0x140555068 (MiDereferenceDataSubsections.c)
+ *     MiReleaseReadListResources @ 0x1406FFEF4 (MiReleaseReadListResources.c)
+ *     MiMapViewOfDataSection @ 0x1407034E0 (MiMapViewOfDataSection.c)
+ *     MiPfPrepareSequentialReadList @ 0x1407051B0 (MiPfPrepareSequentialReadList.c)
+ *     MiPfPrepareReadList @ 0x140706CF0 (MiPfPrepareReadList.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
- *     MiRemoveViewsFromSection @ 0x140314F78 (MiRemoveViewsFromSection.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusive @ 0x1402C1960 (ExAcquireSpinLockExclusive.c)
+ *     MiRemoveViewsFromSection @ 0x14031FCC8 (MiRemoveViewsFromSection.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140346AD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     MiReturnCrossPartitionSectionCharges @ 0x1405550EC (MiReturnCrossPartitionSectionCharges.c)
+ *     MiReturnCrossPartitionSectionCharges @ 0x14055532C (MiReturnCrossPartitionSectionCharges.c)
  */
 
 __int64 __fastcall MiRemoveViewsFromSectionWithPfn(__int64 *BugCheckParameter2)
@@ -52,7 +52,7 @@ __int64 __fastcall MiRemoveViewsFromSectionWithPfn(__int64 *BugCheckParameter2)
   __writecr8(v4);
   if ( v5 )
     return MiReturnCrossPartitionSectionCharges(
-             *(_QWORD *)(qword_140C4E648 + 8LL * (*(_WORD *)(v1 + 60) & 0x3FF)),
+             *(_QWORD *)(qword_140C4E688 + 8LL * (*(_WORD *)(v1 + 60) & 0x3FF)),
              v3,
              v5);
   return result;

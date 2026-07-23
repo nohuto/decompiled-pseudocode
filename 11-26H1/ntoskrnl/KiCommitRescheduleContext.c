@@ -1,19 +1,19 @@
 /*
- * XREFs of KiCommitRescheduleContext @ 0x14023F070
+ * XREFs of KiCommitRescheduleContext @ 0x1402409D0
  * Callers:
- *     KiHandleDeferredPreemption @ 0x14022E730 (KiHandleDeferredPreemption.c)
- *     KiDeferGroupSchedulingPreemption @ 0x14022FA60 (KiDeferGroupSchedulingPreemption.c)
- *     KiUpdateGlobalCpuSetConfiguration @ 0x140237654 (KiUpdateGlobalCpuSetConfiguration.c)
- *     KiFastExitThreadWait @ 0x140244040 (KiFastExitThreadWait.c)
- *     KeDelayExecutionThread @ 0x140244840 (KeDelayExecutionThread.c)
- *     KiExitThreadWait @ 0x140245780 (KiExitThreadWait.c)
- *     KiSatisfyThreadWait @ 0x140245F80 (KiSatisfyThreadWait.c)
- *     KiAdjustCoreIsolationReasonThread @ 0x1404D3414 (KiAdjustCoreIsolationReasonThread.c)
- *     KiApplyForegroundBoostThread @ 0x140521D48 (KiApplyForegroundBoostThread.c)
- *     KiFinalizeCoreControlBlockAssignment @ 0x1405EB014 (KiFinalizeCoreControlBlockAssignment.c)
- *     KiForceParkDutyCycleDpcCallback @ 0x1405F8980 (KiForceParkDutyCycleDpcCallback.c)
+ *     KiHandleDeferredPreemption @ 0x1402300C0 (KiHandleDeferredPreemption.c)
+ *     KiDeferGroupSchedulingPreemption @ 0x1402313F0 (KiDeferGroupSchedulingPreemption.c)
+ *     KiUpdateGlobalCpuSetConfiguration @ 0x140238FB4 (KiUpdateGlobalCpuSetConfiguration.c)
+ *     KiFastExitThreadWait @ 0x1402459A0 (KiFastExitThreadWait.c)
+ *     KeDelayExecutionThread @ 0x1402461A0 (KeDelayExecutionThread.c)
+ *     KiExitThreadWait @ 0x1402470E0 (KiExitThreadWait.c)
+ *     KiSatisfyThreadWait @ 0x1402478E0 (KiSatisfyThreadWait.c)
+ *     KiAdjustCoreIsolationReasonThread @ 0x1404CCC84 (KiAdjustCoreIsolationReasonThread.c)
+ *     KiApplyForegroundBoostThread @ 0x1405243B4 (KiApplyForegroundBoostThread.c)
+ *     KiFinalizeCoreControlBlockAssignment @ 0x1405ED984 (KiFinalizeCoreControlBlockAssignment.c)
+ *     KiForceParkDutyCycleDpcCallback @ 0x1405FB3A0 (KiForceParkDutyCycleDpcCallback.c)
  * Callees:
- *     ?KiCommitRescheduleContextEntry@@YAEPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KPRCB@@KPEAU_SINGLE_LIST_ENTRY@@@Z @ 0x14023F140 (-KiCommitRescheduleContextEntry@@YAEPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KPRCB@@KPEAU_SINGLE_L.c)
+ *     ?KiCommitRescheduleContextEntry@@YAEPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KPRCB@@KPEAU_SINGLE_LIST_ENTRY@@@Z @ 0x140240AA0 (-KiCommitRescheduleContextEntry@@YAEPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KPRCB@@KPEAU_SINGLE_L.c)
  */
 
 __int64 __fastcall KiCommitRescheduleContext(
@@ -30,7 +30,7 @@ __int64 __fastcall KiCommitRescheduleContext(
 
   v4 = 0;
   v8 = a3 | 2;
-  if ( (WORD2(xmmword_140FBFC10) & 0x400) == 0 )
+  if ( (WORD2(xmmword_140FC0C10) & 0x400) == 0 )
     v8 = a3;
   for ( i = 0LL; (unsigned int)i < *a1; i = (unsigned int)(i + 1) )
     v4 |= KiCommitRescheduleContextEntry(

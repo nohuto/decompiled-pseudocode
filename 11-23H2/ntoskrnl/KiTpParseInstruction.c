@@ -1,7 +1,7 @@
 /*
  * XREFs of KiTpParseInstruction @ 0x140AF4450
  * Callers:
- *     KiTpSetupCompletion @ 0x1409767F8 (KiTpSetupCompletion.c)
+ *     KiTpSetupCompletion @ 0x1409769F8 (KiTpSetupCompletion.c)
  * Callees:
  *     KiTpEmulateInstruction @ 0x140AF3944 (KiTpEmulateInstruction.c)
  *     KiTpParseInstructionPrefix @ 0x140AF447C (KiTpParseInstructionPrefix.c)

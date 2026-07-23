@@ -1,15 +1,15 @@
 /*
- * XREFs of MmGrowKernelStackEx @ 0x1403D1450
+ * XREFs of MmGrowKernelStackEx @ 0x1403D4420
  * Callers:
- *     KiExpandKernelStackAndCalloutSwitchStack @ 0x1402639D0 (KiExpandKernelStackAndCalloutSwitchStack.c)
- *     MmGrowKernelStack @ 0x1406F3800 (MmGrowKernelStack.c)
- *     KxSwitchKernelStackCallout @ 0x140728B00 (KxSwitchKernelStackCallout.c)
+ *     KiExpandKernelStackAndCalloutSwitchStack @ 0x140262F40 (KiExpandKernelStackAndCalloutSwitchStack.c)
+ *     MmGrowKernelStack @ 0x1406F8470 (MmGrowKernelStack.c)
+ *     KxSwitchKernelStackCallout @ 0x14072D6D0 (KxSwitchKernelStackCallout.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     MiAllocateKernelStackPages @ 0x1403D1778 (MiAllocateKernelStackPages.c)
- *     MI_GET_NODE_FROM_VALID_PTE @ 0x1403D1CA0 (MI_GET_NODE_FROM_VALID_PTE.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     MiAllocateKernelStackPages @ 0x1403D4748 (MiAllocateKernelStackPages.c)
+ *     MI_GET_NODE_FROM_VALID_PTE @ 0x1403D4C70 (MI_GET_NODE_FROM_VALID_PTE.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall MmGrowKernelStackEx(__int64 a1, __int64 a2)
@@ -38,7 +38,7 @@ __int64 __fastcall MmGrowKernelStackEx(__int64 a1, __int64 a2)
     return 3221225659LL;
   v6 = 0;
   Blink_high = HIWORD(CurrentThread->Process[2].ProcessListEntry.Blink);
-  v8 = *(_QWORD *)(stru_140E2EB88.ThreadLock + 8 * Blink_high);
+  v8 = *(_QWORD *)(stru_140E2ED08.ThreadLock + 8 * Blink_high);
   CurrentIrql = KeGetCurrentIrql();
   if ( CurrentIrql != 2 )
     __writecr8(2uLL);
@@ -54,7 +54,7 @@ __int64 __fastcall MmGrowKernelStackEx(__int64 a1, __int64 a2)
   {
     if ( v11 < ((*((_QWORD *)CurrentThread->InitialStack + 1) >> 9) & 0x7FFFFFFFF8uLL) - 0x98000000000LL )
     {
-      ++dword_140E34B60;
+      ++dword_140E34CE0;
       v6 = -1073741571;
     }
     else

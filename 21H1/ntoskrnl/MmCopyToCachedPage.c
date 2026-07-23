@@ -70,7 +70,7 @@ __int64 __fastcall MmCopyToCachedPage(
   int v34; // r14d
   int v35; // r15d
   __int64 v36; // rdx
-  struct _SLIST_ENTRY *v37; // rdi
+  _SLIST_ENTRY *v37; // rdi
   _QWORD *v38; // r14
   int v39; // ebx
   __int64 v40; // rcx

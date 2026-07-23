@@ -10,15 +10,15 @@
  *     RtlHashUnicodeString @ 0x18001CCB0 (RtlHashUnicodeString.c)
  */
 
-__int64 __fastcall LdrpHashUnicodeString(unsigned __int16 *a1)
+__int64 __fastcall LdrpHashUnicodeString(_UNICODE_STRING *a1)
 {
   __int64 result; // rax
-  unsigned int v2; // [rsp+38h] [rbp+10h] BYREF
+  ULONG HashValue; // [rsp+38h] [rbp+10h] BYREF
 
-  v2 = 0;
-  RtlHashUnicodeString(a1, 1, 0, (int *)&v2);
-  result = v2;
-  if ( !v2 )
+  HashValue = 0;
+  RtlHashUnicodeString(a1, 1u, 0, &HashValue);
+  result = HashValue;
+  if ( !HashValue )
     return 0x80000000LL;
   return result;
 }

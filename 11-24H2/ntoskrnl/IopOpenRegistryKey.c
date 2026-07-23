@@ -1,23 +1,23 @@
 /*
- * XREFs of IopOpenRegistryKey @ 0x140A77340
+ * XREFs of IopOpenRegistryKey @ 0x140A71460
  * Callers:
- *     IopAllowRemoteDASD @ 0x1404CB370 (IopAllowRemoteDASD.c)
- *     IopInitializeOfflineCrashDump @ 0x140594AD0 (IopInitializeOfflineCrashDump.c)
- *     IopIsBitlockerOn @ 0x140594CE8 (IopIsBitlockerOn.c)
- *     IopReadDumpRegistry @ 0x140594D8C (IopReadDumpRegistry.c)
- *     IoInitializeLiveDump @ 0x140597A4C (IoInitializeLiveDump.c)
- *     IopLiveDumpInitRegistrySettings @ 0x14059B7E4 (IopLiveDumpInitRegistrySettings.c)
- *     SecureDump_ReadRegistry @ 0x1405A2668 (SecureDump_ReadRegistry.c)
- *     IopInitializeDumpPolicySettings @ 0x140711124 (IopInitializeDumpPolicySettings.c)
- *     IopCopyBootLogRegistryToFile @ 0x140711E7C (IopCopyBootLogRegistryToFile.c)
- *     IopSymlinkQueryEnabledClasses @ 0x140715B9C (IopSymlinkQueryEnabledClasses.c)
- *     pIoQueryDeviceDescription @ 0x140715D3C (pIoQueryDeviceDescription.c)
- *     IopBootLog @ 0x140A785F8 (IopBootLog.c)
- *     IopUnloadDriver @ 0x140AA8FB8 (IopUnloadDriver.c)
- *     IopSafebootDriverLoad @ 0x140AB9958 (IopSafebootDriverLoad.c)
+ *     IopAllowRemoteDASD @ 0x1404C4890 (IopAllowRemoteDASD.c)
+ *     IopInitializeOfflineCrashDump @ 0x140591AF4 (IopInitializeOfflineCrashDump.c)
+ *     IopIsBitlockerOn @ 0x140591D0C (IopIsBitlockerOn.c)
+ *     IopReadDumpRegistry @ 0x140591DB0 (IopReadDumpRegistry.c)
+ *     IoInitializeLiveDump @ 0x1405949C8 (IoInitializeLiveDump.c)
+ *     IopLiveDumpInitRegistrySettings @ 0x140598764 (IopLiveDumpInitRegistrySettings.c)
+ *     SecureDump_ReadRegistry @ 0x14059F5A8 (SecureDump_ReadRegistry.c)
+ *     IopInitializeDumpPolicySettings @ 0x14070ECB4 (IopInitializeDumpPolicySettings.c)
+ *     IopCopyBootLogRegistryToFile @ 0x14070FA0C (IopCopyBootLogRegistryToFile.c)
+ *     IopSymlinkQueryEnabledClasses @ 0x14071372C (IopSymlinkQueryEnabledClasses.c)
+ *     pIoQueryDeviceDescription @ 0x1407138CC (pIoQueryDeviceDescription.c)
+ *     IopBootLog @ 0x140A728F8 (IopBootLog.c)
+ *     IopUnloadDriver @ 0x140AA4068 (IopUnloadDriver.c)
+ *     IopSafebootDriverLoad @ 0x140AB4A18 (IopSafebootDriverLoad.c)
  * Callees:
- *     ZwOpenKey @ 0x1406A6650 (ZwOpenKey.c)
- *     ZwCreateKey @ 0x1406A67B0 (ZwCreateKey.c)
+ *     ZwOpenKey @ 0x1406A75F0 (ZwOpenKey.c)
+ *     ZwCreateKey @ 0x1406A7750 (ZwCreateKey.c)
  */
 
 NTSTATUS __fastcall IopOpenRegistryKey(HANDLE *a1, void *a2, UNICODE_STRING *a3, ACCESS_MASK a4, char a5)

@@ -1,30 +1,30 @@
 /*
- * XREFs of MiProcessWorkingSets @ 0x14006CED0
+ * XREFs of MiProcessWorkingSets @ 0x14006CEC0
  * Callers:
- *     MiWorkingSetManager @ 0x1400EF5B4 (MiWorkingSetManager.c)
+ *     MiWorkingSetManager @ 0x1400EF634 (MiWorkingSetManager.c)
  * Callees:
  *     MiLogProcessWorkingSetsStop @ 0x140012974 (MiLogProcessWorkingSetsStop.c)
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     KxWaitForLockChainValid @ 0x140022C50 (KxWaitForLockChainValid.c)
- *     MiTrimOrAgeWorkingSet @ 0x14006D580 (MiTrimOrAgeWorkingSet.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxWaitForLockOwnerShip @ 0x14007DF20 (KxWaitForLockOwnerShip.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
- *     MiComputeSystemTrimCriteria @ 0x1400EEFD8 (MiComputeSystemTrimCriteria.c)
- *     MiReturnWsToExpansionList @ 0x1400F3384 (MiReturnWsToExpansionList.c)
- *     _TlgWriteEx @ 0x1401008B8 (_TlgWriteEx.c)
- *     MiDrainZeroLookasides @ 0x14011ACA0 (MiDrainZeroLookasides.c)
- *     MiComputeAgingPercent @ 0x14011FEA8 (MiComputeAgingPercent.c)
- *     KeSignalGate @ 0x1401276B0 (KeSignalGate.c)
- *     MiInitializeWorkingSetManagerParameters @ 0x140190DFC (MiInitializeWorkingSetManagerParameters.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeRetryOutswapProcess @ 0x14028E644 (KeRetryOutswapProcess.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x140290A00 (KiAcquireQueuedSpinLockInstrumented.c)
- *     KiReleaseQueuedSpinLockInstrumented @ 0x140290AB8 (KiReleaseQueuedSpinLockInstrumented.c)
- *     MiCheckSystemTrimEndCriteria @ 0x1402B2AEC (MiCheckSystemTrimEndCriteria.c)
- *     MiOrderTrimList @ 0x1402B3350 (MiOrderTrimList.c)
+ *     MiTrimOrAgeWorkingSet @ 0x14006D570 (MiTrimOrAgeWorkingSet.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14007DE80 (KeAcquireInStackQueuedSpinLock.c)
+ *     KxWaitForLockOwnerShip @ 0x14007DF10 (KxWaitForLockOwnerShip.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     KeSetEvent @ 0x1400C2A40 (KeSetEvent.c)
+ *     MiComputeSystemTrimCriteria @ 0x1400EF058 (MiComputeSystemTrimCriteria.c)
+ *     MiReturnWsToExpansionList @ 0x1400F3404 (MiReturnWsToExpansionList.c)
+ *     _TlgWriteEx @ 0x140100938 (_TlgWriteEx.c)
+ *     MiDrainZeroLookasides @ 0x14011AD10 (MiDrainZeroLookasides.c)
+ *     MiComputeAgingPercent @ 0x14011FF18 (MiComputeAgingPercent.c)
+ *     KeSignalGate @ 0x140127780 (KeSignalGate.c)
+ *     MiInitializeWorkingSetManagerParameters @ 0x140190F3C (MiInitializeWorkingSetManagerParameters.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeRetryOutswapProcess @ 0x14028E834 (KeRetryOutswapProcess.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x140290BF0 (KiAcquireQueuedSpinLockInstrumented.c)
+ *     KiReleaseQueuedSpinLockInstrumented @ 0x140290CA8 (KiReleaseQueuedSpinLockInstrumented.c)
+ *     MiCheckSystemTrimEndCriteria @ 0x1402B2CDC (MiCheckSystemTrimEndCriteria.c)
+ *     MiOrderTrimList @ 0x1402B3540 (MiOrderTrimList.c)
  */
 
 void __fastcall MiProcessWorkingSets(__int64 a1, __int64 a2)
@@ -169,7 +169,7 @@ void __fastcall MiProcessWorkingSets(__int64 a1, __int64 a2)
     v99 = 8LL;
     v101 = 8LL;
     v103 = 8LL;
-    TlgWriteEx(v39, &unk_14036E038, v38, (ULONG)v39, v63, v64, 0xAu, &pData);
+    TlgWriteEx(v39, &unk_14036EF22, v38, (ULONG)v39, v63, v64, 0xAu, &pData);
   }
   if ( (v6 & 5) != 0 )
     MiDrainZeroLookasides(v5, 0LL, 0LL, 0LL);
@@ -184,7 +184,7 @@ void __fastcall MiProcessWorkingSets(__int64 a1, __int64 a2)
   {
     if ( *(_WORD *)&v4[98].Header.Size > 0xAu )
       *(_WORD *)&v4[98].Header.Size = 10;
-    KeAcquireInStackQueuedSpinLock(&qword_14043AE80, &LockHandle);
+    KeAcquireInStackQueuedSpinLock(&qword_14043BF40, &LockHandle);
     if ( BYTE2(v4[2].Header.SignalState) == 1 )
     {
       v46 = v5 + 879;
@@ -219,7 +219,7 @@ LABEL_89:
   }
   else
   {
-    KeAcquireInStackQueuedSpinLock(&qword_14043AE80, &LockHandle);
+    KeAcquireInStackQueuedSpinLock(&qword_14043BF40, &LockHandle);
   }
   v8 = v71;
   v9 = v5 + 879;
@@ -339,7 +339,7 @@ LABEL_29:
         v10 = MiTrimOrAgeWorkingSet(v14, v8, v75);
         if ( v10 == 1 )
           *(_BYTE *)(v71 + 4) = 2;
-        LockHandle.LockQueue.Lock = &qword_14043AE80;
+        LockHandle.LockQueue.Lock = &qword_14043BF40;
         LockHandle.LockQueue.Next = 0LL;
         CurrentIrql = KeGetCurrentIrql();
         __writecr8(2uLL);
@@ -360,9 +360,9 @@ LABEL_29:
         }
         if ( (BYTE6(PerfGlobalGroupMask) & 0x21) != 0 )
         {
-          KiAcquireQueuedSpinLockInstrumented(&LockHandle, &qword_14043AE80);
+          KiAcquireQueuedSpinLockInstrumented(&LockHandle, &qword_14043BF40);
         }
-        else if ( _InterlockedExchange64((volatile __int64 *)&qword_14043AE80, (__int64)&LockHandle) )
+        else if ( _InterlockedExchange64((volatile __int64 *)&qword_14043BF40, (__int64)&LockHandle) )
         {
           KxWaitForLockOwnerShip(&LockHandle);
         }
@@ -376,8 +376,8 @@ LABEL_38:
           HIBYTE(v66) = BYTE1(v25) & 0xF9;
           *((_WORD *)v14 + 92) = v66;
           v26 = *((unsigned __int16 *)v14 + 87);
-          v27 = *(_QWORD *)(qword_14043A748 + 8 * v26) + 7032LL;
-          v28 = *(__int64 ***)(*(_QWORD *)(qword_14043A748 + 8 * v26) + 7040LL);
+          v27 = *(_QWORD *)(qword_14043B808 + 8 * v26) + 7032LL;
+          v28 = *(__int64 ***)(*(_QWORD *)(qword_14043B808 + 8 * v26) + 7040LL);
           if ( *v28 != (__int64 *)v27 )
             goto LABEL_89;
           *v15 = v27;
@@ -425,7 +425,7 @@ LABEL_38:
         }
         __writecr8(v54);
         KeRetryOutswapProcess(v14 - 160);
-        KeAcquireInStackQueuedSpinLock(&qword_14043AE80, &LockHandle);
+        KeAcquireInStackQueuedSpinLock(&qword_14043BF40, &LockHandle);
         v69 = *((_DWORD *)v14 + 46);
         BYTE1(v69) &= 0xF9u;
         *((_WORD *)v14 + 92) = v69;

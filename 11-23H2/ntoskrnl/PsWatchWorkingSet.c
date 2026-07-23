@@ -1,10 +1,10 @@
 /*
- * XREFs of PsWatchWorkingSet @ 0x1404638C0
+ * XREFs of PsWatchWorkingSet @ 0x140463CC0
  * Callers:
- *     KiPageFault @ 0x14042F900 (KiPageFault.c)
+ *     KiPageFault @ 0x14042FD00 (KiPageFault.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     KeSignalGate @ 0x14035D33C (KeSignalGate.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     KeSignalGate @ 0x14035D4DC (KeSignalGate.c)
  */
 
 signed __int64 __fastcall PsWatchWorkingSet(int a1, __int64 a2, __int64 a3)

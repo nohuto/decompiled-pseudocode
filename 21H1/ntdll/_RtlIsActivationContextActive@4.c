@@ -6,14 +6,14 @@
  *     <none>
  */
 
-char __stdcall RtlIsActivationContextActive(struct _ACTIVATION_CONTEXT *a1)
+BOOLEAN __cdecl RtlIsActivationContextActive(PACTIVATION_CONTEXT ActivationContext)
 {
   _RTL_ACTIVATION_CONTEXT_STACK_FRAME *ActiveFrame; // eax
 
   ActiveFrame = NtCurrentTeb()->ActivationContextStackPointer->ActiveFrame;
   if ( !ActiveFrame )
     return 0;
-  while ( ActiveFrame->ActivationContext != a1 )
+  while ( ActiveFrame->ActivationContext != ActivationContext )
   {
     ActiveFrame = ActiveFrame->Previous;
     if ( !ActiveFrame )

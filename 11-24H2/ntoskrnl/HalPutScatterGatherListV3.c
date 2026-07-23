@@ -1,15 +1,15 @@
 /*
- * XREFs of HalPutScatterGatherListV3 @ 0x140392818
+ * XREFs of HalPutScatterGatherListV3 @ 0x14038C148
  * Callers:
- *     HalPutScatterGatherList @ 0x1403927F0 (HalPutScatterGatherList.c)
+ *     HalPutScatterGatherList @ 0x14038C120 (HalPutScatterGatherList.c)
  * Callees:
- *     IoFreeMdl @ 0x140267750 (IoFreeMdl.c)
- *     MmUnmapLockedPages @ 0x14028D9C0 (MmUnmapLockedPages.c)
- *     HalFlushAdapterBuffersEx @ 0x140392210 (HalFlushAdapterBuffersEx.c)
- *     IoFreeMapRegistersV3 @ 0x140392C60 (IoFreeMapRegistersV3.c)
- *     HalpContinueProcessingWaitQueue @ 0x140392D2C (HalpContinueProcessingWaitQueue.c)
- *     HalpDmaStartWcb @ 0x140392FB8 (HalpDmaStartWcb.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     IoFreeMdl @ 0x14025ED30 (IoFreeMdl.c)
+ *     MmUnmapLockedPages @ 0x14029D5C0 (MmUnmapLockedPages.c)
+ *     HalFlushAdapterBuffersEx @ 0x14038BB40 (HalFlushAdapterBuffersEx.c)
+ *     IoFreeMapRegistersV3 @ 0x14038C590 (IoFreeMapRegistersV3.c)
+ *     HalpContinueProcessingWaitQueue @ 0x14038C65C (HalpContinueProcessingWaitQueue.c)
+ *     HalpDmaStartWcb @ 0x14038C8E8 (HalpDmaStartWcb.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall HalPutScatterGatherListV3(__int64 a1, __int64 a2, __int64 a3)

@@ -1,13 +1,13 @@
 /*
- * XREFs of _CmGetInstallerClassMappedPropertyKeys @ 0x14089BAD4
+ * XREFs of _CmGetInstallerClassMappedPropertyKeys @ 0x1408A1ED4
  * Callers:
- *     _CmDeleteInstallerClassWorker @ 0x14077EB80 (_CmDeleteInstallerClassWorker.c)
- *     _PnpDispatchInstallerClass @ 0x140918340 (_PnpDispatchInstallerClass.c)
+ *     _CmDeleteInstallerClassWorker @ 0x140781680 (_CmDeleteInstallerClassWorker.c)
+ *     _PnpDispatchInstallerClass @ 0x140972DA0 (_PnpDispatchInstallerClass.c)
  * Callees:
- *     _CmGetInstallerClassMappedPropertyFromComposite @ 0x140918784 (_CmGetInstallerClassMappedPropertyFromComposite.c)
- *     _CmGetInstallerClassMappedPropertyFromRegProp @ 0x140918C2C (_CmGetInstallerClassMappedPropertyFromRegProp.c)
- *     _CmGetInstallerClassMappedPropertyFromRegValue @ 0x140919488 (_CmGetInstallerClassMappedPropertyFromRegValue.c)
- *     _CmGetInstallerClassMappedPropertyFromCoInstallers @ 0x140B41B2C (_CmGetInstallerClassMappedPropertyFromCoInstallers.c)
+ *     _CmGetInstallerClassMappedPropertyFromComposite @ 0x1409731E4 (_CmGetInstallerClassMappedPropertyFromComposite.c)
+ *     _CmGetInstallerClassMappedPropertyFromRegProp @ 0x14097368C (_CmGetInstallerClassMappedPropertyFromRegProp.c)
+ *     _CmGetInstallerClassMappedPropertyFromRegValue @ 0x140973EE8 (_CmGetInstallerClassMappedPropertyFromRegValue.c)
+ *     _CmGetInstallerClassMappedPropertyFromCoInstallers @ 0x140B43A1C (_CmGetInstallerClassMappedPropertyFromCoInstallers.c)
  */
 
 __int64 __fastcall CmGetInstallerClassMappedPropertyKeys(
@@ -97,7 +97,7 @@ __int64 __fastcall CmGetInstallerClassMappedPropertyKeys(
   for ( i = 0; i < 0xD; ++i )
   {
     v19 = 32LL * i;
-    v20 = *(__int64 *)((char *)&off_140BDB120 + v19);
+    v20 = *(__int64 *)((char *)&off_140BE1FD0 + v19);
     if ( v20 )
     {
       if ( a4
@@ -105,7 +105,7 @@ __int64 __fastcall CmGetInstallerClassMappedPropertyKeys(
                                                          a1,
                                                          a2,
                                                          a3,
-                                                         (unsigned int)*(DEVPROPKEY **)((char *)&off_140BDB120 + v19),
+                                                         (unsigned int)*(DEVPROPKEY **)((char *)&off_140BE1FD0 + v19),
                                                          (__int64)v35,
                                                          0LL,
                                                          0,
@@ -138,13 +138,13 @@ __int64 __fastcall CmGetInstallerClassMappedPropertyKeys(
   }
   for ( j = 0; j < 4; ++j )
   {
-    v26 = (__int64)*(&off_140BD9820 + 2 * j);
+    v26 = (__int64)*(&off_140BE06D0 + 2 * j);
     if ( a4
       || (InstallerClassMappedPropertyFromComposite = CmGetInstallerClassMappedPropertyFromComposite(
                                                         a1,
                                                         a2,
                                                         a3,
-                                                        (unsigned int)*(&off_140BD9820 + 2 * j),
+                                                        (unsigned int)*(&off_140BE06D0 + 2 * j),
                                                         (__int64)v35,
                                                         0LL,
                                                         0,

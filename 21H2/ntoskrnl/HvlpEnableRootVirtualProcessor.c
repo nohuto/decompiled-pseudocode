@@ -1,10 +1,10 @@
 /*
- * XREFs of HvlpEnableRootVirtualProcessor @ 0x14088E898
+ * XREFs of HvlpEnableRootVirtualProcessor @ 0x14088E9F8
  * Callers:
- *     HvlInitializeProcessor @ 0x14079FD30 (HvlInitializeProcessor.c)
+ *     HvlInitializeProcessor @ 0x14079FF30 (HvlInitializeProcessor.c)
  * Callees:
- *     HvlpGetLpcbByApicId @ 0x1404F2FDC (HvlpGetLpcbByApicId.c)
- *     HvlpCreateRootVirtualProcessor @ 0x14088E76C (HvlpCreateRootVirtualProcessor.c)
+ *     HvlpGetLpcbByApicId @ 0x1404F2F5C (HvlpGetLpcbByApicId.c)
+ *     HvlpCreateRootVirtualProcessor @ 0x14088E8CC (HvlpCreateRootVirtualProcessor.c)
  */
 
 __int64 __fastcall HvlpEnableRootVirtualProcessor(__int64 a1, int a2)
@@ -21,7 +21,7 @@ __int64 __fastcall HvlpEnableRootVirtualProcessor(__int64 a1, int a2)
   if ( (HvlpRootFlags & 0x40) == 0
     || (result = HvlpCreateRootVirtualProcessor((__int64)LpcbByApicId, *(_DWORD *)(a1 + 36)), (int)result >= 0) )
   {
-    v6 = byte_140C125A0;
+    v6 = byte_140C12580;
     *(_QWORD *)(a1 + 33616) = *((_QWORD *)v4 + 4);
     v7 = *(_DWORD *)(a1 + 36);
     v8 = v7 == v4[1];
@@ -29,7 +29,7 @@ __int64 __fastcall HvlpEnableRootVirtualProcessor(__int64 a1, int a2)
     if ( !v8 )
       v6 = 0;
     result = 0LL;
-    byte_140C125A0 = v6;
+    byte_140C12580 = v6;
   }
   return result;
 }

@@ -1,18 +1,20 @@
 /*
- * XREFs of RtlpFreeReadOnlyHeap @ 0x18010B2A0
+ * XREFs of RtlpFreeReadOnlyHeap @ 0x18010B260
  * Callers:
  *     RtlAddGrowableFunctionTable @ 0x180069C10 (RtlAddGrowableFunctionTable.c)
  * Callees:
  *     LdrControlFlowGuardEnforced @ 0x180033520 (LdrControlFlowGuardEnforced.c)
  */
 
-__int64 __fastcall RtlpFreeReadOnlyHeap(__int64 a1)
+LOGICAL __fastcall RtlpFreeReadOnlyHeap(void *a1)
 {
-  void *ProcessHeap; // rcx
+  int v2; // eax
+  PVOID ProcessHeap; // rcx
 
-  if ( (unsigned int)LdrControlFlowGuardEnforced() )
-    ProcessHeap = (void *)LdrpMrdataHeap;
+  LOBYTE(v2) = LdrControlFlowGuardEnforced();
+  if ( v2 )
+    ProcessHeap = LdrpMrdataHeap;
   else
     ProcessHeap = NtCurrentPeb()->ProcessHeap;
-  return RtlFreeHeap((__int64)ProcessHeap, 0, a1);
+  return RtlFreeHeap(ProcessHeap, 0, a1);
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of McTemplateK0zzjzzzdd @ 0x14015D254
+ * XREFs of McTemplateK0zzjzzzdd @ 0x14015D354
  * Callers:
- *     PiDevCfgLogDeviceStarted @ 0x1406F3698 (PiDevCfgLogDeviceStarted.c)
+ *     PiDevCfgLogDeviceStarted @ 0x1406F4938 (PiDevCfgLogDeviceStarted.c)
  * Callees:
- *     McGenEventWrite @ 0x14015D6C0 (McGenEventWrite.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     McGenEventWrite @ 0x14015D7C0 (McGenEventWrite.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 ULONG __fastcall McTemplateK0zzjzzzdd(

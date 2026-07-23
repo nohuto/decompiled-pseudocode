@@ -1,9 +1,9 @@
 /*
- * XREFs of ExInterlockedAddUlong @ 0x140132C04
+ * XREFs of ExInterlockedAddUlong @ 0x140133174
  * Callers:
  *     <none>
  * Callees:
- *     ExpAcquireSpinLockDisabled @ 0x1400A7BD4 (ExpAcquireSpinLockDisabled.c)
+ *     ExpAcquireSpinLockDisabled @ 0x1400A614C (ExpAcquireSpinLockDisabled.c)
  */
 
 ULONG __stdcall ExInterlockedAddUlong(PULONG Addend, ULONG Increment, PKSPIN_LOCK Lock)

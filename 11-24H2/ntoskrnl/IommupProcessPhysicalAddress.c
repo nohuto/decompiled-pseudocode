@@ -1,9 +1,9 @@
 /*
- * XREFs of IommupProcessPhysicalAddress @ 0x140474728
+ * XREFs of IommupProcessPhysicalAddress @ 0x140470534
  * Callers:
- *     IommuMapReservedLogicalRange @ 0x140566B20 (IommuMapReservedLogicalRange.c)
+ *     IommuMapReservedLogicalRange @ 0x140564820 (IommuMapReservedLogicalRange.c)
  * Callees:
- *     IommupValidateMdl @ 0x140567674 (IommupValidateMdl.c)
+ *     IommupValidateMdl @ 0x140565100 (IommupValidateMdl.c)
  */
 
 __int64 __fastcall IommupProcessPhysicalAddress(__int64 a1, _QWORD *a2, _BYTE *a3, _QWORD *a4, _QWORD *a5)

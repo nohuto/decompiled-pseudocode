@@ -17,13 +17,13 @@
  *     RtlCreateAcl @ 0x1406D9330 (RtlCreateAcl.c)
  */
 
-__int64 __fastcall PspAllocateAndQueryProcessNotificationChannel(__int64 a1, __int64 a2, __int64 a3)
+NTSTATUS __fastcall PspAllocateAndQueryProcessNotificationChannel(__int64 a1, __int64 a2, __int64 a3)
 {
   char v3; // al
   __int64 v4; // rdi
   char v5; // bl
   char v9; // r15
-  __int64 result; // rax
+  NTSTATUS result; // eax
   unsigned int v11; // ecx
   int *v12; // rdx
   int v13; // r8d
@@ -33,7 +33,7 @@ __int64 __fastcall PspAllocateAndQueryProcessNotificationChannel(__int64 a1, __i
   char v17; // [rsp+41h] [rbp-88h]
   _OWORD SecurityDescriptor[2]; // [rsp+48h] [rbp-81h] BYREF
   __int64 v19; // [rsp+68h] [rbp-61h]
-  _QWORD v20[2]; // [rsp+70h] [rbp-59h] BYREF
+  _WNF_STATE_NAME StateName; // [rsp+70h] [rbp-59h] BYREF
   ACL Acl; // [rsp+80h] [rbp-49h] BYREF
 
   v3 = 0;
@@ -44,15 +44,15 @@ __int64 __fastcall PspAllocateAndQueryProcessNotificationChannel(__int64 a1, __i
   v17 = 0;
   memset(SecurityDescriptor, 0, sizeof(SecurityDescriptor));
   v16 = 0;
-  v20[0] = 0LL;
+  StateName = 0LL;
   if ( !*(_QWORD *)(a2 + 2464) )
   {
     RtlCreateAcl(&Acl, 0x58u, 2u);
-    RtlpAddKnownAce((int)&Acl, 2, 0, 1, SeWorldSid, 0);
+    RtlpAddKnownAce(&Acl, SeWorldSid, 0);
     RtlCreateSecurityDescriptor(SecurityDescriptor, 1u);
     RtlSetDaclSecurityDescriptor(SecurityDescriptor, 1u, &Acl, 0);
-    result = ZwCreateWnfStateName((__int64)v20, 3LL);
-    if ( (int)result < 0 )
+    result = ZwCreateWnfStateName(&StateName, WnfTemporaryStateName, WnfDataScopeMachine, 0, 0LL, 0, SecurityDescriptor);
+    if ( result < 0 )
       return result;
     --*(_WORD *)(a1 + 484);
     ExAcquirePushLockExclusiveEx(a2 + 1080, 0LL);
@@ -62,7 +62,7 @@ __int64 __fastcall PspAllocateAndQueryProcessNotificationChannel(__int64 a1, __i
     }
     else
     {
-      *(_QWORD *)v4 = v20[0];
+      *(_WNF_STATE_NAME *)v4 = StateName;
       *(_QWORD *)(a2 + 2500) = *(_QWORD *)(a3 + 36);
       v16 = 1;
     }
@@ -98,8 +98,8 @@ __int64 __fastcall PspAllocateAndQueryProcessNotificationChannel(__int64 a1, __i
   }
   while ( v11 < 7 );
   if ( v9 )
-    ZwUpdateWnfStateData(v4, 0LL);
+    ZwUpdateWnfStateData((PCWNF_STATE_NAME)v4, 0LL, 0, 0LL, 0LL, 0, 0);
   if ( v5 )
-    ZwDeleteWnfStateName((__int64)v20, (__int64)v12);
-  return 0LL;
+    ZwDeleteWnfStateName(&StateName);
+  return 0;
 }

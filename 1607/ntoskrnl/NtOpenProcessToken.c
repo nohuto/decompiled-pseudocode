@@ -1,5 +1,5 @@
 /*
- * XREFs of NtOpenProcessToken @ 0x1404D23CC
+ * XREFs of NtOpenProcessToken @ 0x1404B5E6C
  * Callers:
  *     <none>
  * Callees:

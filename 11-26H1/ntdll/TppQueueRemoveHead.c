@@ -1,21 +1,21 @@
 /*
- * XREFs of TppQueueRemoveHead @ 0x1800CB8F0
+ * XREFs of TppQueueRemoveHead @ 0x1800C9060
  * Callers:
- *     TppWorkerFindTask @ 0x18003D370 (TppWorkerFindTask.c)
- *     TpReleasePool @ 0x1800CB610 (TpReleasePool.c)
+ *     TppWorkerFindTask @ 0x1800278E0 (TppWorkerFindTask.c)
+ *     TpReleasePool @ 0x1800C8D80 (TpReleasePool.c)
  * Callees:
- *     RtlpAcquireSRWLockExclusiveContended @ 0x18002B280 (RtlpAcquireSRWLockExclusiveContended.c)
- *     RtlReleaseSRWLockExclusive @ 0x18003FAA0 (RtlReleaseSRWLockExclusive.c)
+ *     RtlpAcquireSRWLockExclusiveContended @ 0x180016380 (RtlpAcquireSRWLockExclusiveContended.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18002A010 (RtlReleaseSRWLockExclusive.c)
  */
 
-volatile signed __int64 *__fastcall TppQueueRemoveHead(volatile signed __int64 *a1, volatile signed __int64 **a2)
+_RTL_SRWLOCK *__fastcall TppQueueRemoveHead(_RTL_SRWLOCK *a1, _RTL_SRWLOCK **a2)
 {
-  volatile signed __int64 *v2; // rsi
+  _RTL_SRWLOCK *v2; // rsi
   __int64 v3; // rbp
   char *SchedulerSharedDataSlot; // r8
   unsigned int i; // eax
-  volatile signed __int64 *v7; // rbx
-  volatile signed __int64 v8; // rax
+  _RTL_SRWLOCK *Value; // rbx
+  unsigned __int64 v8; // rax
 
   v2 = a1 + 2;
   v3 = 0LL;
@@ -24,7 +24,7 @@ volatile signed __int64 *__fastcall TppQueueRemoveHead(volatile signed __int64 *
   {
     for ( i = 0; i < 8; ++i )
     {
-      a2 = (volatile signed __int64 **)&SchedulerSharedDataSlot[8 * i];
+      a2 = (_RTL_SRWLOCK **)&SchedulerSharedDataSlot[8 * i];
       if ( !*a2 )
       {
         *a2 = v2;
@@ -33,14 +33,14 @@ volatile signed __int64 *__fastcall TppQueueRemoveHead(volatile signed __int64 *
     }
   }
   if ( _interlockedbittestandset64((volatile signed __int32 *)v2, 0LL) )
-    RtlpAcquireSRWLockExclusiveContended(v2, (__int64)a2);
-  v7 = (volatile signed __int64 *)*a1;
-  if ( *(volatile signed __int64 **)(*a1 + 8) != a1 || (v8 = *v7, *(volatile signed __int64 **)(*v7 + 8) != v7) )
+    RtlpAcquireSRWLockExclusiveContended((volatile signed __int64 *)v2, (unsigned __int64)a2);
+  Value = (_RTL_SRWLOCK *)a1->Value;
+  if ( *(_RTL_SRWLOCK **)(a1->Value + 8) != a1 || (v8 = Value->Value, *(_RTL_SRWLOCK **)(Value->Value + 8) != Value) )
     __fastfail(3u);
-  *a1 = v8;
+  a1->Value = v8;
   *(_QWORD *)(v8 + 8) = a1;
   RtlReleaseSRWLockExclusive(v2);
-  if ( v7 != a1 )
-    return v7;
-  return (volatile signed __int64 *)v3;
+  if ( Value != a1 )
+    return Value;
+  return (_RTL_SRWLOCK *)v3;
 }

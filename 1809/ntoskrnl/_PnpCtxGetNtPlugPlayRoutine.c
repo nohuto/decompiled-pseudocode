@@ -1,11 +1,11 @@
 /*
- * XREFs of _PnpCtxGetNtPlugPlayRoutine @ 0x1405C5884
+ * XREFs of _PnpCtxGetNtPlugPlayRoutine @ 0x1405C6884
  * Callers:
- *     _NtPlugPlayGetDeviceStatus @ 0x14059E640 (_NtPlugPlayGetDeviceStatus.c)
- *     _NtPlugPlayGetDeviceInterfaceEnabled @ 0x1405C582C (_NtPlugPlayGetDeviceInterfaceEnabled.c)
- *     _NtPlugPlayGetDeviceProperty @ 0x1406C7C4C (_NtPlugPlayGetDeviceProperty.c)
- *     _NtPlugPlayGetDeviceRelatedDevice @ 0x1406E97C4 (_NtPlugPlayGetDeviceRelatedDevice.c)
- *     _NtPlugPlayGetDeviceRelationsList @ 0x140900200 (_NtPlugPlayGetDeviceRelationsList.c)
+ *     _NtPlugPlayGetDeviceStatus @ 0x14059F640 (_NtPlugPlayGetDeviceStatus.c)
+ *     _NtPlugPlayGetDeviceInterfaceEnabled @ 0x1405C682C (_NtPlugPlayGetDeviceInterfaceEnabled.c)
+ *     _NtPlugPlayGetDeviceProperty @ 0x1406C8EEC (_NtPlugPlayGetDeviceProperty.c)
+ *     _NtPlugPlayGetDeviceRelatedDevice @ 0x1406EAA64 (_NtPlugPlayGetDeviceRelatedDevice.c)
+ *     _NtPlugPlayGetDeviceRelationsList @ 0x1409014C0 (_NtPlugPlayGetDeviceRelationsList.c)
  * Callees:
  *     <none>
  */

@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpDumpOneKeyBody @ 0x1407DAD7C
+ * XREFs of CmpDumpOneKeyBody @ 0x1407DB2CC
  * Callers:
- *     CmpDumpKeyBodyList @ 0x1407DAC40 (CmpDumpKeyBodyList.c)
+ *     CmpDumpKeyBodyList @ 0x1407DB190 (CmpDumpKeyBodyList.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     PsLookupProcessByProcessId @ 0x14094DC80 (PsLookupProcessByProcessId.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     PsLookupProcessByProcessId @ 0x1408F21F0 (PsLookupProcessByProcessId.c)
  */
 
 int __fastcall CmpDumpOneKeyBody(struct _KPROCESS *a1, __int64 a2, const void **a3, __int64 a4)

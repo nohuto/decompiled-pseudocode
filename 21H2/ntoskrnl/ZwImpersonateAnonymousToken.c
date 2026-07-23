@@ -1,14 +1,14 @@
 /*
- * XREFs of ZwImpersonateAnonymousToken @ 0x1403FC340
+ * XREFs of ZwImpersonateAnonymousToken @ 0x1403FC520
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwImpersonateAnonymousToken(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwImpersonateAnonymousToken(HANDLE ThreadHandle)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(ThreadHandle);
 }

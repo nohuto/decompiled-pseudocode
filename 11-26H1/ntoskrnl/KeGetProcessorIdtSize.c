@@ -1,8 +1,8 @@
 /*
- * XREFs of KeGetProcessorIdtSize @ 0x1405EB9D8
+ * XREFs of KeGetProcessorIdtSize @ 0x1405EE348
  * Callers:
- *     IopLiveDumpMarkProcessorData @ 0x1405D0640 (IopLiveDumpMarkProcessorData.c)
- *     IopMarkPagesForProcessorData @ 0x1405D5CAC (IopMarkPagesForProcessorData.c)
+ *     IopLiveDumpMarkProcessorData @ 0x1405D2E50 (IopLiveDumpMarkProcessorData.c)
+ *     IopMarkPagesForProcessorData @ 0x1405D849C (IopMarkPagesForProcessorData.c)
  * Callees:
  *     <none>
  */

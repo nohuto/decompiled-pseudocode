@@ -19,7 +19,7 @@
 char __fastcall EtwpQueueStackWalkApc(__int64 a1, unsigned __int8 a2, unsigned int *a3, char a4, _SLIST_ENTRY **a5)
 {
   char v5; // r13
-  struct _SLIST_ENTRY *v6; // rbp
+  _SLIST_ENTRY *v6; // rbp
   unsigned int v7; // esi
   signed __int8 v12; // cf
   PSLIST_ENTRY v13; // rax

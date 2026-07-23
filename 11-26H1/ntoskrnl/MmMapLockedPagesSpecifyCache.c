@@ -1,92 +1,92 @@
 /*
- * XREFs of MmMapLockedPagesSpecifyCache @ 0x14035D330
+ * XREFs of MmMapLockedPagesSpecifyCache @ 0x14035F0D0
  * Callers:
- *     ?StDmPageAdd@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_WORK_ITEM@1@@Z @ 0x14020BC34 (-StDmPageAdd@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_WORK_ITEM@1@@Z.c)
- *     ?SmIoCtxWorkItemComplete@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAKPEAU_ST_WORK_ITEM_HDR@@PEAU1@PEAU?$SMKM_STORE@USM_TRAITS@@@@J@Z @ 0x14020CDA0 (-SmIoCtxWorkItemComplete@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAKPEAU_ST_WORK_ITEM_HDR@@PEAU1@PEAU-$SM.c)
- *     ?SmIoCtxQueueWork@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU_SM_IO_CONTEXT@1@PEAU1@KPEAU_SM_WORK_ITEM@1@@Z @ 0x140281140 (-SmIoCtxQueueWork@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU_SM_IO_CONTEXT@1@PEAU1@KPEAU_SM_WORK_ITE.c)
- *     MiInitializeImageProtos @ 0x140338604 (MiInitializeImageProtos.c)
- *     HalpAllocateCommonBufferDmaThin @ 0x140348C34 (HalpAllocateCommonBufferDmaThin.c)
- *     BgpFwAllocateMemory @ 0x140355EBC (BgpFwAllocateMemory.c)
- *     HalpDmaSyncMapBuffers @ 0x14035BE40 (HalpDmaSyncMapBuffers.c)
- *     HalpDmaAcquireBufferMappings @ 0x14035C1E8 (HalpDmaAcquireBufferMappings.c)
- *     SmFpAllocate @ 0x14035D180 (SmFpAllocate.c)
- *     SmMapPage @ 0x14035D2D0 (SmMapPage.c)
- *     SmKmStoreHelperCommandProcess @ 0x140382C98 (SmKmStoreHelperCommandProcess.c)
- *     MiValidateEntireInPage @ 0x14038A798 (MiValidateEntireInPage.c)
- *     ?StDmpSinglePageRetrieve@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_STDM_READ_CONTEXT@1@PEAXPEAU_ST_PAGE_LOCATION@1@@Z @ 0x14038F658 (-StDmpSinglePageRetrieve@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_STDM_READ_CONTEXT@1.c)
- *     CcCompleteAsyncRead @ 0x14039E848 (CcCompleteAsyncRead.c)
- *     PspIumFreePhysicalPages @ 0x1403C2C2C (PspIumFreePhysicalPages.c)
- *     MiStoreWriteModifiedPages @ 0x140408D88 (MiStoreWriteModifiedPages.c)
- *     PsDispatchIumService @ 0x14040C830 (PsDispatchIumService.c)
- *     MiGetWorkingSetInfo @ 0x14040F210 (MiGetWorkingSetInfo.c)
- *     HalpDmaCheckMdlAccessibility @ 0x14043F81C (HalpDmaCheckMdlAccessibility.c)
- *     HalpDmaFlushBuffer @ 0x14044011C (HalpDmaFlushBuffer.c)
- *     KeFlushIoBuffers @ 0x140441180 (KeFlushIoBuffers.c)
- *     FsRtlCancelNotify @ 0x1404A3F80 (FsRtlCancelNotify.c)
- *     EtwpAllocateTraceBuffer @ 0x1404BCFC4 (EtwpAllocateTraceBuffer.c)
- *     EtwpAllocatePartitionMemory @ 0x1404BD074 (EtwpAllocatePartitionMemory.c)
- *     HalpAllocateCommonBufferVectorInternal @ 0x1404D18A4 (HalpAllocateCommonBufferVectorInternal.c)
- *     HalpAllocateCommonBufferDmarThin @ 0x1404F1E84 (HalpAllocateCommonBufferDmarThin.c)
- *     MiTransferMemoryPagefileData @ 0x140503118 (MiTransferMemoryPagefileData.c)
- *     MiPersistMdl @ 0x140508064 (MiPersistMdl.c)
- *     CcLockSystemCacheBuffer @ 0x14052625C (CcLockSystemCacheBuffer.c)
- *     HalInitializeBios @ 0x1405784A0 (HalInitializeBios.c)
- *     HalCreateCommonBufferFromMdl @ 0x140589A30 (HalCreateCommonBufferFromMdl.c)
- *     HalpAllocateDomainCommonBufferInternal @ 0x140589FC0 (HalpAllocateDomainCommonBufferInternal.c)
- *     HalCreateCommonBufferFromMdlDmaThin @ 0x14058AFC0 (HalCreateCommonBufferFromMdlDmaThin.c)
- *     HalCreateCommonBufferFromMdlDmarThin @ 0x14058B4B0 (HalCreateCommonBufferFromMdlDmarThin.c)
- *     IopLiveDumpAllocateFromIOSpace @ 0x1405CD3AC (IopLiveDumpAllocateFromIOSpace.c)
- *     IopLiveDumpAllocateFromVMMemoryPartition @ 0x1405CD8A4 (IopLiveDumpAllocateFromVMMemoryPartition.c)
- *     KiOpPatchCode @ 0x1405F8128 (KiOpPatchCode.c)
- *     PspIumAllocatePhysicalPages @ 0x1406163D0 (PspIumAllocatePhysicalPages.c)
- *     PspIumAllocateSecurePool @ 0x1406164F4 (PspIumAllocateSecurePool.c)
- *     SmRecordDecompressionFailureDumpPayload @ 0x14063EFF8 (SmRecordDecompressionFailureDumpPayload.c)
- *     MdlInvariantPostProcessing1 @ 0x140642B44 (MdlInvariantPostProcessing1.c)
- *     MdlInvariantPreProcessing1 @ 0x140642D54 (MdlInvariantPreProcessing1.c)
- *     DifMmMapLockedPagesSpecifyCacheWrapper @ 0x140667720 (DifMmMapLockedPagesSpecifyCacheWrapper.c)
- *     DifMmMapLockedPagesWrapper @ 0x1406678D0 (DifMmMapLockedPagesWrapper.c)
- *     MmMapLockedPages @ 0x1406EADB0 (MmMapLockedPages.c)
- *     MiLockPatchIatForDV @ 0x1406FAF50 (MiLockPatchIatForDV.c)
- *     MiReapplyImportOptimizationForDriverVerifier @ 0x1406FB178 (MiReapplyImportOptimizationForDriverVerifier.c)
- *     IopAllocateAndLockMdl @ 0x1407940EC (IopAllocateAndLockMdl.c)
- *     IopSetFileObjectIosbRange @ 0x140795690 (IopSetFileObjectIosbRange.c)
- *     IoReserveKsrPersistentMemoryEx @ 0x14079CB90 (IoReserveKsrPersistentMemoryEx.c)
- *     PipGetPersistentMemory @ 0x14079D57C (PipGetPersistentMemory.c)
- *     ExInitializeLeapSecondData @ 0x1408356F4 (ExInitializeLeapSecondData.c)
- *     NtStartProfile @ 0x140842840 (NtStartProfile.c)
- *     NtPssCaptureVaSpaceBulk @ 0x140845040 (NtPssCaptureVaSpaceBulk.c)
- *     MiApplyImageHotPatch @ 0x14086E638 (MiApplyImageHotPatch.c)
- *     ExLockUserBuffer @ 0x140907E40 (ExLockUserBuffer.c)
- *     WbMakeUserExecutablePagesKernelWritable @ 0x1409F0C30 (WbMakeUserExecutablePagesKernelWritable.c)
- *     WbMakeUserDataPagesKernelWritable @ 0x1409F0D3C (WbMakeUserDataPagesKernelWritable.c)
- *     MiCopyVmReadBytes @ 0x140A228B0 (MiCopyVmReadBytes.c)
- *     MiCreateMdl @ 0x140A560A8 (MiCreateMdl.c)
- *     FsRtlNotifyFilterReportChangeLiteEx @ 0x140A85820 (FsRtlNotifyFilterReportChangeLiteEx.c)
- *     FsRtlNotifyCompleteIrp @ 0x140A85F54 (FsRtlNotifyCompleteIrp.c)
- *     AlpcpInitializeCompletionList @ 0x140A8CBD8 (AlpcpInitializeCompletionList.c)
- *     MiQueryPtePrepare @ 0x140A90EB4 (MiQueryPtePrepare.c)
- *     MiCopyPagesIntoEnclave @ 0x140AEEB74 (MiCopyPagesIntoEnclave.c)
- *     FsRtlNotifyFilterReportChange @ 0x140AF6420 (FsRtlNotifyFilterReportChange.c)
- *     HalpDmaAllocateScatterMemory @ 0x140B30EDC (HalpDmaAllocateScatterMemory.c)
- *     MiQueryMemoryPhysicalContiguity @ 0x140B64218 (MiQueryMemoryPhysicalContiguity.c)
- *     PopAllocatePages @ 0x140C09D28 (PopAllocatePages.c)
- *     ViAllocateMapRegisterFile @ 0x140C25F78 (ViAllocateMapRegisterFile.c)
- *     ViGetMdlBufferSa @ 0x140C270C4 (ViGetMdlBufferSa.c)
- *     ViMapDoubleBuffer @ 0x140C27768 (ViMapDoubleBuffer.c)
- *     VfFillAllocatePagesForMdl @ 0x140C3FE50 (VfFillAllocatePagesForMdl.c)
- *     ResFwGetContext @ 0x140C50D8C (ResFwGetContext.c)
- *     KiComputeNumaCosts @ 0x140CC93EC (KiComputeNumaCosts.c)
- *     PpmHeteroInitializeIntelWpsSupport @ 0x140CD6EF4 (PpmHeteroInitializeIntelWpsSupport.c)
+ *     ?StDmPageAdd@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_WORK_ITEM@1@@Z @ 0x14020BD14 (-StDmPageAdd@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_WORK_ITEM@1@@Z.c)
+ *     ?SmIoCtxWorkItemComplete@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAKPEAU_ST_WORK_ITEM_HDR@@PEAU1@PEAU?$SMKM_STORE@USM_TRAITS@@@@J@Z @ 0x14020CE80 (-SmIoCtxWorkItemComplete@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAKPEAU_ST_WORK_ITEM_HDR@@PEAU1@PEAU-$SM.c)
+ *     ?SmIoCtxQueueWork@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU_SM_IO_CONTEXT@1@PEAU1@KPEAU_SM_WORK_ITEM@1@@Z @ 0x1402806B0 (-SmIoCtxQueueWork@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU_SM_IO_CONTEXT@1@PEAU1@KPEAU_SM_WORK_ITE.c)
+ *     MiInitializeImageProtos @ 0x14033A684 (MiInitializeImageProtos.c)
+ *     HalpAllocateCommonBufferDmaThin @ 0x14034ACB4 (HalpAllocateCommonBufferDmaThin.c)
+ *     BgpFwAllocateMemory @ 0x140357C64 (BgpFwAllocateMemory.c)
+ *     HalpDmaSyncMapBuffers @ 0x14035DBE0 (HalpDmaSyncMapBuffers.c)
+ *     HalpDmaAcquireBufferMappings @ 0x14035DF88 (HalpDmaAcquireBufferMappings.c)
+ *     SmFpAllocate @ 0x14035EF20 (SmFpAllocate.c)
+ *     SmMapPage @ 0x14035F070 (SmMapPage.c)
+ *     SmKmStoreHelperCommandProcess @ 0x140384A48 (SmKmStoreHelperCommandProcess.c)
+ *     MiValidateEntireInPage @ 0x14038C548 (MiValidateEntireInPage.c)
+ *     ?StDmpSinglePageRetrieve@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_STDM_READ_CONTEXT@1@PEAXPEAU_ST_PAGE_LOCATION@1@@Z @ 0x140391408 (-StDmpSinglePageRetrieve@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_STDM_READ_CONTEXT@1.c)
+ *     CcCompleteAsyncRead @ 0x1403A05A8 (CcCompleteAsyncRead.c)
+ *     PspIumFreePhysicalPages @ 0x1403CCB2C (PspIumFreePhysicalPages.c)
+ *     FsRtlCancelNotify @ 0x1403FB5E0 (FsRtlCancelNotify.c)
+ *     MiStoreWriteModifiedPages @ 0x140401E78 (MiStoreWriteModifiedPages.c)
+ *     MiGetWorkingSetInfo @ 0x14040E930 (MiGetWorkingSetInfo.c)
+ *     HalpDmaCheckMdlAccessibility @ 0x14043832C (HalpDmaCheckMdlAccessibility.c)
+ *     HalpDmaFlushBuffer @ 0x140438C2C (HalpDmaFlushBuffer.c)
+ *     KeFlushIoBuffers @ 0x140439C90 (KeFlushIoBuffers.c)
+ *     EtwpAllocateTraceBuffer @ 0x1404B67A4 (EtwpAllocateTraceBuffer.c)
+ *     EtwpAllocatePartitionMemory @ 0x1404B6854 (EtwpAllocatePartitionMemory.c)
+ *     HalpAllocateCommonBufferVectorInternal @ 0x1404CB450 (HalpAllocateCommonBufferVectorInternal.c)
+ *     HalpAllocateCommonBufferDmarThin @ 0x1404EB464 (HalpAllocateCommonBufferDmarThin.c)
+ *     MiTransferMemoryPagefileData @ 0x1404FC9E8 (MiTransferMemoryPagefileData.c)
+ *     MiPersistMdl @ 0x140501A38 (MiPersistMdl.c)
+ *     PsDispatchIumService @ 0x140518438 (PsDispatchIumService.c)
+ *     CcLockSystemCacheBuffer @ 0x1405288CC (CcLockSystemCacheBuffer.c)
+ *     HalInitializeBios @ 0x14057A9D0 (HalInitializeBios.c)
+ *     HalCreateCommonBufferFromMdl @ 0x14058C160 (HalCreateCommonBufferFromMdl.c)
+ *     HalpAllocateDomainCommonBufferInternal @ 0x14058C6F0 (HalpAllocateDomainCommonBufferInternal.c)
+ *     HalCreateCommonBufferFromMdlDmaThin @ 0x14058D740 (HalCreateCommonBufferFromMdlDmaThin.c)
+ *     HalCreateCommonBufferFromMdlDmarThin @ 0x14058DC30 (HalCreateCommonBufferFromMdlDmarThin.c)
+ *     IopLiveDumpAllocateFromIOSpace @ 0x1405CFBBC (IopLiveDumpAllocateFromIOSpace.c)
+ *     IopLiveDumpAllocateFromVMMemoryPartition @ 0x1405D00B4 (IopLiveDumpAllocateFromVMMemoryPartition.c)
+ *     KiOpPatchCode @ 0x1405FAB48 (KiOpPatchCode.c)
+ *     PspIumAllocatePhysicalPages @ 0x1406193C0 (PspIumAllocatePhysicalPages.c)
+ *     PspIumAllocateSecurePool @ 0x1406194E4 (PspIumAllocateSecurePool.c)
+ *     SmRecordDecompressionFailureDumpPayload @ 0x140642BD8 (SmRecordDecompressionFailureDumpPayload.c)
+ *     MdlInvariantPostProcessing1 @ 0x140646724 (MdlInvariantPostProcessing1.c)
+ *     MdlInvariantPreProcessing1 @ 0x140646934 (MdlInvariantPreProcessing1.c)
+ *     DifMmMapLockedPagesSpecifyCacheWrapper @ 0x14066B300 (DifMmMapLockedPagesSpecifyCacheWrapper.c)
+ *     DifMmMapLockedPagesWrapper @ 0x14066B4B0 (DifMmMapLockedPagesWrapper.c)
+ *     MmMapLockedPages @ 0x1406EFA50 (MmMapLockedPages.c)
+ *     MiLockPatchIatForDV @ 0x1406FFC20 (MiLockPatchIatForDV.c)
+ *     MiReapplyImportOptimizationForDriverVerifier @ 0x1406FFE48 (MiReapplyImportOptimizationForDriverVerifier.c)
+ *     IopAllocateAndLockMdl @ 0x140796C1C (IopAllocateAndLockMdl.c)
+ *     IopSetFileObjectIosbRange @ 0x1407981C0 (IopSetFileObjectIosbRange.c)
+ *     IoReserveKsrPersistentMemoryEx @ 0x14079F6D0 (IoReserveKsrPersistentMemoryEx.c)
+ *     PipGetPersistentMemory @ 0x1407A00BC (PipGetPersistentMemory.c)
+ *     ExInitializeLeapSecondData @ 0x14083B934 (ExInitializeLeapSecondData.c)
+ *     NtStartProfile @ 0x14084B8E0 (NtStartProfile.c)
+ *     NtPssCaptureVaSpaceBulk @ 0x14084BEC0 (NtPssCaptureVaSpaceBulk.c)
+ *     MiApplyImageHotPatch @ 0x140874A08 (MiApplyImageHotPatch.c)
+ *     WbMakeUserExecutablePagesKernelWritable @ 0x1409ED400 (WbMakeUserExecutablePagesKernelWritable.c)
+ *     WbMakeUserDataPagesKernelWritable @ 0x1409ED50C (WbMakeUserDataPagesKernelWritable.c)
+ *     MiCopyVmReadBytes @ 0x140A2BED0 (MiCopyVmReadBytes.c)
+ *     ExLockUserBuffer @ 0x140A2FFA0 (ExLockUserBuffer.c)
+ *     MiCreateMdl @ 0x140A63630 (MiCreateMdl.c)
+ *     FsRtlNotifyFilterReportChangeLiteEx @ 0x140A8A420 (FsRtlNotifyFilterReportChangeLiteEx.c)
+ *     FsRtlNotifyCompleteIrp @ 0x140A8AB54 (FsRtlNotifyCompleteIrp.c)
+ *     AlpcpInitializeCompletionList @ 0x140A918A8 (AlpcpInitializeCompletionList.c)
+ *     MiQueryPtePrepare @ 0x140A95A04 (MiQueryPtePrepare.c)
+ *     MiCopyPagesIntoEnclave @ 0x140AF1B14 (MiCopyPagesIntoEnclave.c)
+ *     FsRtlNotifyFilterReportChange @ 0x140AF8AC0 (FsRtlNotifyFilterReportChange.c)
+ *     HalpDmaAllocateScatterMemory @ 0x140B330DC (HalpDmaAllocateScatterMemory.c)
+ *     MiQueryMemoryPhysicalContiguity @ 0x140B672B8 (MiQueryMemoryPhysicalContiguity.c)
+ *     PopAllocatePages @ 0x140C0FF38 (PopAllocatePages.c)
+ *     ViAllocateMapRegisterFile @ 0x140C2BF88 (ViAllocateMapRegisterFile.c)
+ *     ViGetMdlBufferSa @ 0x140C2D0D4 (ViGetMdlBufferSa.c)
+ *     ViMapDoubleBuffer @ 0x140C2D778 (ViMapDoubleBuffer.c)
+ *     VfFillAllocatePagesForMdl @ 0x140C45E60 (VfFillAllocatePagesForMdl.c)
+ *     ResFwGetContext @ 0x140C56D8C (ResFwGetContext.c)
+ *     KiComputeNumaCosts @ 0x140CCF47C (KiComputeNumaCosts.c)
+ *     PpmHeteroInitializeIntelWpsSupport @ 0x140CDD248 (PpmHeteroInitializeIntelWpsSupport.c)
  * Callees:
- *     MiMappingHasIoReferences @ 0x14024DE74 (MiMappingHasIoReferences.c)
- *     MiReleasePtes @ 0x140281CE0 (MiReleasePtes.c)
- *     RtlRaiseStatus @ 0x1402E84A0 (RtlRaiseStatus.c)
- *     MiReservePtes @ 0x14035DE50 (MiReservePtes.c)
- *     MiFillSystemPtes @ 0x14035F448 (MiFillSystemPtes.c)
- *     MiProtectionToCacheAttribute @ 0x140372270 (MiProtectionToCacheAttribute.c)
- *     MiInsertPteTracker @ 0x1405033CC (MiInsertPteTracker.c)
- *     MiIssueNoPtesBugcheck @ 0x140524C34 (MiIssueNoPtesBugcheck.c)
- *     MiMapLockedPagesInUserSpace @ 0x14095D148 (MiMapLockedPagesInUserSpace.c)
+ *     MiMappingHasIoReferences @ 0x14024F7D4 (MiMappingHasIoReferences.c)
+ *     MiReleasePtes @ 0x140281250 (MiReleasePtes.c)
+ *     RtlRaiseStatus @ 0x1402CA4E0 (RtlRaiseStatus.c)
+ *     MiReservePtes @ 0x14035FBF0 (MiReservePtes.c)
+ *     MiFillSystemPtes @ 0x1403611E8 (MiFillSystemPtes.c)
+ *     MiProtectionToCacheAttribute @ 0x140374020 (MiProtectionToCacheAttribute.c)
+ *     MiInsertPteTracker @ 0x1404FCC9C (MiInsertPteTracker.c)
+ *     MiIssueNoPtesBugcheck @ 0x1405272A4 (MiIssueNoPtesBugcheck.c)
+ *     MiMapLockedPagesInUserSpace @ 0x140A02A08 (MiMapLockedPagesInUserSpace.c)
  */
 
 PVOID __stdcall MmMapLockedPagesSpecifyCache(
@@ -113,7 +113,7 @@ PVOID __stdcall MmMapLockedPagesSpecifyCache(
   unsigned int v20; // edi
   CSHORT MdlFlags; // ax
   unsigned __int64 v23; // r8
-  int locked; // eax
+  NTSTATUS locked; // eax
   unsigned int v25; // eax
   void *v26; // [rsp+80h] [rbp+8h] BYREF
   int v27; // [rsp+90h] [rbp+18h] BYREF
@@ -169,20 +169,20 @@ LABEL_3:
       v23 = 512LL;
       if ( (Priority & 0x3FFFFFFF) != 0x10 )
         v23 = 2048LL;
-      if ( (*(_QWORD *)&stru_140E2D930.Timer.Header.Lock - qword_140E37A08) << 21 < (unsigned __int64)(0x4000000 / ((unsigned int)((Priority & 0x3FFFFFFF) == 16) + 1))
-        && ((struct _LIST_ENTRY *)v23 >= stru_140E36558.Timer.TimerListEntry.Blink
-         || v11 >= &stru_140E36558.Timer.TimerListEntry.Blink[v23 / 0xFFFFFFFFFFFFFFF0uLL])
+      if ( (*(_QWORD *)&stru_140E2DAB0.Timer.Header.Lock - qword_140E37B88) << 21 < (unsigned __int64)(0x4000000 / ((unsigned int)((Priority & 0x3FFFFFFF) == 16) + 1))
+        && ((struct _LIST_ENTRY *)v23 >= stru_140E366D8.Timer.TimerListEntry.Blink
+         || v11 >= &stru_140E366D8.Timer.TimerListEntry.Blink[v23 / 0xFFFFFFFFFFFFFFF0uLL])
         && (*((_DWORD *)&KeGetCurrentThread()[1].SwapListEntry + 3) & 2) == 0
         && (KeGetPcr()->Prcb.DpcRequestSummary & 0x10001) == 0 )
       {
-        _InterlockedIncrement(&stru_140E36558.Timer.Header.LockNV);
+        _InterlockedIncrement(&stru_140E366D8.Timer.Header.LockNV);
         return 0LL;
       }
     }
     v12 = (((unsigned __int16)v8 & 0xFFF) + (unsigned __int64)MemoryDescriptorList->ByteCount + 4095) >> 12;
     if ( MmProtectFreedNonPagedPool )
       v12 = (_DWORD)v11 + 1;
-    v13 = MiReservePtes(&stru_140E36558.WaitBlockList, v12);
+    v13 = MiReservePtes(&stru_140E366D8.WaitBlockList, v12);
     v14 = (unsigned __int64 *)v13;
     if ( !v13 )
     {
@@ -211,7 +211,7 @@ LABEL_3:
     {
       if ( !_bittest16(&MemoryDescriptorList->MdlFlags, 0xDu) && BugCheckOnFailure )
         MiIssueNoPtesBugcheck((unsigned int)v11);
-      MiReleasePtes((__int64)&stru_140E36558.WaitBlockList, v14, v12);
+      MiReleasePtes((__int64)&stru_140E366D8.WaitBlockList, v14, v12);
       return 0LL;
     }
     MemoryDescriptorList->MdlFlags |= 1u;
@@ -220,7 +220,7 @@ LABEL_3:
     v20 = v19 & 1;
     if ( v20 )
       MiMappingHasIoReferences((unsigned __int64)v16);
-    if ( (dword_140FBE20C & 1) != 0 )
+    if ( (dword_140FBF20C & 1) != 0 )
     {
       if ( MmProtectFreedNonPagedPool )
         v20 |= 2u;

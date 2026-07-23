@@ -1,17 +1,17 @@
 /*
- * XREFs of CcCanIWriteStreamEx @ 0x1402CE730
+ * XREFs of CcCanIWriteStreamEx @ 0x14040C5C0
  * Callers:
- *     CcPostDeferredWrites @ 0x1402AAB14 (CcPostDeferredWrites.c)
- *     CcForceWriteThrough @ 0x1402CE010 (CcForceWriteThrough.c)
- *     CcShouldLazyWriteCacheMap @ 0x1402CE5A0 (CcShouldLazyWriteCacheMap.c)
- *     CcNotifyOfMappedWrite @ 0x14036BCAC (CcNotifyOfMappedWrite.c)
- *     CcScheduleReadAheadNuma @ 0x1404992C0 (CcScheduleReadAheadNuma.c)
- *     CcCanIWrite @ 0x1404DBAA0 (CcCanIWrite.c)
+ *     CcPostDeferredWrites @ 0x1402795B0 (CcPostDeferredWrites.c)
+ *     CcNotifyOfMappedWrite @ 0x1402EDA4C (CcNotifyOfMappedWrite.c)
+ *     CcForceWriteThrough @ 0x14040C010 (CcForceWriteThrough.c)
+ *     CcShouldLazyWriteCacheMap @ 0x14040C430 (CcShouldLazyWriteCacheMap.c)
+ *     CcScheduleReadAheadNuma @ 0x140493C50 (CcScheduleReadAheadNuma.c)
+ *     CcCanIWrite @ 0x1404D54C0 (CcCanIWrite.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140275CD0 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x1402D8540 (KeAcquireInStackQueuedSpinLock.c)
- *     MmEnoughMemoryForWrite @ 0x1403157C0 (MmEnoughMemoryForWrite.c)
- *     CcIsFileObjectDirectMapped @ 0x1404DC40C (CcIsFileObjectDirectMapped.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x14022B260 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1403597C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     MmEnoughMemoryForWrite @ 0x140411550 (MmEnoughMemoryForWrite.c)
+ *     CcIsFileObjectDirectMapped @ 0x1404D5E2C (CcIsFileObjectDirectMapped.c)
  */
 
 bool __fastcall CcCanIWriteStreamEx(

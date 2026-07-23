@@ -1,11 +1,11 @@
 /*
- * XREFs of IoGetOplockKeyContextEx @ 0x1403576E0
+ * XREFs of IoGetOplockKeyContextEx @ 0x140362430
  * Callers:
- *     FsRtlpOplockStoreKeyForDeleteOperation @ 0x140354950 (FsRtlpOplockStoreKeyForDeleteOperation.c)
- *     FsRtlpOplockKeysEqual @ 0x140355AE0 (FsRtlpOplockKeysEqual.c)
- *     FsRtlpAttachOplockKey @ 0x140359A7C (FsRtlpAttachOplockKey.c)
+ *     FsRtlpOplockStoreKeyForDeleteOperation @ 0x14035F6A0 (FsRtlpOplockStoreKeyForDeleteOperation.c)
+ *     FsRtlpOplockKeysEqual @ 0x140360830 (FsRtlpOplockKeysEqual.c)
+ *     FsRtlpAttachOplockKey @ 0x1403647CC (FsRtlpAttachOplockKey.c)
  * Callees:
- *     IopGetFileObjectExtension @ 0x1403567E0 (IopGetFileObjectExtension.c)
+ *     IopGetFileObjectExtension @ 0x140361530 (IopGetFileObjectExtension.c)
  */
 
 __int64 __fastcall IoGetOplockKeyContextEx(__int64 a1)

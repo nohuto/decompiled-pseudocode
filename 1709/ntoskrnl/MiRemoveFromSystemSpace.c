@@ -138,7 +138,7 @@ void __fastcall MiRemoveFromSystemSpace(__int64 a1, ULONG_PTR a2, int a3)
         {
           v22->CrossThreadReleasableAndBusyByte |= 2u;
           if ( (__int64)v22->LockState.LockState < 0 )
-            KiAbEntryRemoveFromTree((__int64)&v16->LockEntries[v21]);
+            KiAbEntryRemoveFromTree(&v16->LockEntries[v21].TreeNode);
           v34 = 0;
           v34 = v22->BoostBitmap.AllFields & 0x1FFFF;
           v22->BoostBitmap.AllFields &= 0xFFFE0000;

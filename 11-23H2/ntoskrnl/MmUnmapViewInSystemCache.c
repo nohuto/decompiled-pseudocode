@@ -1,42 +1,42 @@
 /*
- * XREFs of MmUnmapViewInSystemCache @ 0x1402D9FB0
+ * XREFs of MmUnmapViewInSystemCache @ 0x1402DA240
  * Callers:
- *     CcUnmapVacb @ 0x140721E10 (CcUnmapVacb.c)
+ *     CcUnmapVacb @ 0x140722010 (CcUnmapVacb.c)
  * Callees:
  *     MiInitializeTbFlushStamps @ 0x140212A08 (MiInitializeTbFlushStamps.c)
  *     MiGetWsleContents @ 0x140216FB0 (MiGetWsleContents.c)
  *     MiRebuildPageTableLeafAges @ 0x1402188A0 (MiRebuildPageTableLeafAges.c)
- *     MiLockPageTableInternal @ 0x140237700 (MiLockPageTableInternal.c)
- *     MiUnlockWorkingSetShared @ 0x14023C500 (MiUnlockWorkingSetShared.c)
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     MiGetSystemCacheReverseMap @ 0x140262410 (MiGetSystemCacheReverseMap.c)
- *     MiDecrementShareCount @ 0x1402807B0 (MiDecrementShareCount.c)
- *     MiCaptureDirtyBitToPfn @ 0x140283100 (MiCaptureDirtyBitToPfn.c)
- *     MiLockWorkingSetShared @ 0x140283C90 (MiLockWorkingSetShared.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14028A930 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiSectionControlArea @ 0x14029F880 (MiSectionControlArea.c)
- *     MiRemoveViewsFromSection @ 0x14029F8E8 (MiRemoveViewsFromSection.c)
- *     MiCheckControlArea @ 0x14029FBC0 (MiCheckControlArea.c)
- *     MiReleaseSystemCacheView @ 0x1402A0140 (MiReleaseSystemCacheView.c)
- *     MiManageSubsectionView @ 0x1402A0500 (MiManageSubsectionView.c)
- *     MiUnlockWsle @ 0x1402A2700 (MiUnlockWsle.c)
- *     MiRemoveWsleList @ 0x1402A7DD0 (MiRemoveWsleList.c)
- *     MiCanBatchHardFaultPages @ 0x1402CDC60 (MiCanBatchHardFaultPages.c)
- *     MiPfnReferenceCountIsZero @ 0x1402D8FE0 (MiPfnReferenceCountIsZero.c)
- *     MiEnqueuePageList @ 0x1402DAA10 (MiEnqueuePageList.c)
- *     MiInsertPagesInList @ 0x1402DD520 (MiInsertPagesInList.c)
- *     MiGetContainingPageTable @ 0x1402E1270 (MiGetContainingPageTable.c)
- *     MI_WSLE_LOG_ACCESS @ 0x1402E39BC (MI_WSLE_LOG_ACCESS.c)
- *     MI_INTERLOCKED_EXCHANGE_PTE @ 0x1402E5D40 (MI_INTERLOCKED_EXCHANGE_PTE.c)
- *     MiReleaseWriteInProgressCharges @ 0x1402F48D8 (MiReleaseWriteInProgressCharges.c)
- *     MiUnlockPageTableInternal @ 0x1403195C0 (MiUnlockPageTableInternal.c)
- *     MiHardFaultPageRelease @ 0x140334DA8 (MiHardFaultPageRelease.c)
- *     MiCompressTbFlushList @ 0x14033E3D8 (MiCompressTbFlushList.c)
- *     qsort @ 0x1403DA430 (qsort.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     memset @ 0x140435A00 (memset.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiReturnCrossPartitionSectionCharges @ 0x14066B3B4 (MiReturnCrossPartitionSectionCharges.c)
+ *     MiLockPageTableInternal @ 0x1402377D0 (MiLockPageTableInternal.c)
+ *     MiUnlockWorkingSetShared @ 0x14023C5D0 (MiUnlockWorkingSetShared.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     MiGetSystemCacheReverseMap @ 0x1402626A0 (MiGetSystemCacheReverseMap.c)
+ *     MiDecrementShareCount @ 0x140280A40 (MiDecrementShareCount.c)
+ *     MiCaptureDirtyBitToPfn @ 0x140283390 (MiCaptureDirtyBitToPfn.c)
+ *     MiLockWorkingSetShared @ 0x140283F20 (MiLockWorkingSetShared.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14028ABC0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiSectionControlArea @ 0x14029FB10 (MiSectionControlArea.c)
+ *     MiRemoveViewsFromSection @ 0x14029FB78 (MiRemoveViewsFromSection.c)
+ *     MiCheckControlArea @ 0x14029FE50 (MiCheckControlArea.c)
+ *     MiReleaseSystemCacheView @ 0x1402A03D0 (MiReleaseSystemCacheView.c)
+ *     MiManageSubsectionView @ 0x1402A0790 (MiManageSubsectionView.c)
+ *     MiUnlockWsle @ 0x1402A2990 (MiUnlockWsle.c)
+ *     MiRemoveWsleList @ 0x1402A8060 (MiRemoveWsleList.c)
+ *     MiCanBatchHardFaultPages @ 0x1402CDEF0 (MiCanBatchHardFaultPages.c)
+ *     MiPfnReferenceCountIsZero @ 0x1402D9270 (MiPfnReferenceCountIsZero.c)
+ *     MiEnqueuePageList @ 0x1402DACA0 (MiEnqueuePageList.c)
+ *     MiInsertPagesInList @ 0x1402DD7B0 (MiInsertPagesInList.c)
+ *     MiGetContainingPageTable @ 0x1402E1500 (MiGetContainingPageTable.c)
+ *     MI_WSLE_LOG_ACCESS @ 0x1402E3C4C (MI_WSLE_LOG_ACCESS.c)
+ *     MI_INTERLOCKED_EXCHANGE_PTE @ 0x1402E5FD0 (MI_INTERLOCKED_EXCHANGE_PTE.c)
+ *     MiReleaseWriteInProgressCharges @ 0x1402F4B68 (MiReleaseWriteInProgressCharges.c)
+ *     MiUnlockPageTableInternal @ 0x140319850 (MiUnlockPageTableInternal.c)
+ *     MiHardFaultPageRelease @ 0x140335038 (MiHardFaultPageRelease.c)
+ *     MiCompressTbFlushList @ 0x14033E668 (MiCompressTbFlushList.c)
+ *     qsort @ 0x1403DA610 (qsort.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     MiReturnCrossPartitionSectionCharges @ 0x14066B904 (MiReturnCrossPartitionSectionCharges.c)
  */
 
 _QWORD *__fastcall MmUnmapViewInSystemCache(ULONG_PTR BugCheckParameter3, ULONG_PTR BugCheckParameter4, char a3)
@@ -577,7 +577,9 @@ LABEL_173:
   }
 LABEL_35:
   MiInsertPagesInList(v112, 0LL);
-  if ( KiIrqlFlags && (CurrentIrql = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags
+    && (CurrentIrql = KeGetCurrentIrql(), ((unsigned __int8)KiIrqlFlags & 1) != 0)
+    && CurrentIrql <= 0xFu )
   {
     v44 = v92;
     if ( v92 <= 0xFu && CurrentIrql >= 2u )
@@ -603,7 +605,7 @@ LABEL_35:
   __writecr8(2uLL);
   if ( v40 )
   {
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v47 <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v47 <= 0xFu )
     {
       v73 = KeGetCurrentPrcb()->SchedulerAssist;
       if ( v47 == 2 )
@@ -627,7 +629,7 @@ LABEL_35:
   else
   {
     v49 = v47;
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v47 <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v47 <= 0xFu )
     {
       v75 = KeGetCurrentPrcb()->SchedulerAssist;
       if ( v47 == 2 )

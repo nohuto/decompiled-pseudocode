@@ -1,22 +1,22 @@
 /*
- * XREFs of EtwpTiFillProcessIdentity @ 0x140303F54
+ * XREFs of EtwpTiFillProcessIdentity @ 0x1403041E4
  * Callers:
- *     EtwTiLogInsertQueueUserApc @ 0x140363DF4 (EtwTiLogInsertQueueUserApc.c)
+ *     EtwTiLogInsertQueueUserApc @ 0x140363F94 (EtwTiLogInsertQueueUserApc.c)
  *     EtwTiLogMapExecView @ 0x140682E58 (EtwTiLogMapExecView.c)
- *     EtwTiLogAllocExecVm @ 0x14076BB88 (EtwTiLogAllocExecVm.c)
- *     EtwTiLogReadWriteVm @ 0x14076BE3C (EtwTiLogReadWriteVm.c)
- *     EtwTiLogSetContextThread @ 0x1407A2E7C (EtwTiLogSetContextThread.c)
- *     EtwTiLogProtectExecVm @ 0x1408A75EA (EtwTiLogProtectExecVm.c)
- *     EtwTiLogSuspendResumeThread @ 0x1408A78C4 (EtwTiLogSuspendResumeThread.c)
- *     EtwTiLogSuspendResumeProcess @ 0x1409E8CA4 (EtwTiLogSuspendResumeProcess.c)
- *     EtwTimLogBlockNonCetBinaries @ 0x1409E8E0C (EtwTimLogBlockNonCetBinaries.c)
- *     EtwTimLogControlProtectionUserModeReturnMismatch @ 0x1409E91F0 (EtwTimLogControlProtectionUserModeReturnMismatch.c)
- *     EtwTimLogProhibitChildProcessCreation @ 0x1409E9A08 (EtwTimLogProhibitChildProcessCreation.c)
- *     EtwTimLogProhibitLowILImageMap @ 0x1409E9F94 (EtwTimLogProhibitLowILImageMap.c)
- *     EtwTimLogProhibitNonMicrosoftBinaries @ 0x1409EA2A4 (EtwTimLogProhibitNonMicrosoftBinaries.c)
- *     EtwTimLogRedirectionTrustPolicy @ 0x1409EA688 (EtwTimLogRedirectionTrustPolicy.c)
- *     EtwTimLogUserCetSetContextIpValidationFailure @ 0x1409EB1E8 (EtwTimLogUserCetSetContextIpValidationFailure.c)
- *     EtwpTimLogMitigationForProcess @ 0x1409EB76C (EtwpTimLogMitigationForProcess.c)
+ *     EtwTiLogAllocExecVm @ 0x14076BD78 (EtwTiLogAllocExecVm.c)
+ *     EtwTiLogReadWriteVm @ 0x14076C02C (EtwTiLogReadWriteVm.c)
+ *     EtwTiLogSetContextThread @ 0x1407A306C (EtwTiLogSetContextThread.c)
+ *     EtwTiLogProtectExecVm @ 0x1408A783A (EtwTiLogProtectExecVm.c)
+ *     EtwTiLogSuspendResumeThread @ 0x1408A7B14 (EtwTiLogSuspendResumeThread.c)
+ *     EtwTiLogSuspendResumeProcess @ 0x1409E8F34 (EtwTiLogSuspendResumeProcess.c)
+ *     EtwTimLogBlockNonCetBinaries @ 0x1409E909C (EtwTimLogBlockNonCetBinaries.c)
+ *     EtwTimLogControlProtectionUserModeReturnMismatch @ 0x1409E9480 (EtwTimLogControlProtectionUserModeReturnMismatch.c)
+ *     EtwTimLogProhibitChildProcessCreation @ 0x1409E9C98 (EtwTimLogProhibitChildProcessCreation.c)
+ *     EtwTimLogProhibitLowILImageMap @ 0x1409EA224 (EtwTimLogProhibitLowILImageMap.c)
+ *     EtwTimLogProhibitNonMicrosoftBinaries @ 0x1409EA534 (EtwTimLogProhibitNonMicrosoftBinaries.c)
+ *     EtwTimLogRedirectionTrustPolicy @ 0x1409EA918 (EtwTimLogRedirectionTrustPolicy.c)
+ *     EtwTimLogUserCetSetContextIpValidationFailure @ 0x1409EB478 (EtwTimLogUserCetSetContextIpValidationFailure.c)
+ *     EtwpTimLogMitigationForProcess @ 0x1409EB9FC (EtwpTimLogMitigationForProcess.c)
  * Callees:
  *     <none>
  */

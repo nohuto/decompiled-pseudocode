@@ -1,14 +1,14 @@
 /*
- * XREFs of KiScanInterruptObjectList @ 0x140729D60
+ * XREFs of KiScanInterruptObjectList @ 0x14072E930
  * Callers:
- *     KiChainedDispatch @ 0x140729970 (KiChainedDispatch.c)
+ *     KiChainedDispatch @ 0x14072E540 (KiChainedDispatch.c)
  * Callees:
- *     KiStartInterruptCycleAccumulation @ 0x140228150 (KiStartInterruptCycleAccumulation.c)
- *     PerfInfoLogInterrupt @ 0x1402C3980 (PerfInfoLogInterrupt.c)
- *     KiDispatchPassiveInterrupts @ 0x1402C5640 (KiDispatchPassiveInterrupts.c)
- *     EtwGetKernelTraceTimestamp @ 0x14032D2B0 (EtwGetKernelTraceTimestamp.c)
- *     KiCallInterruptServiceRoutine @ 0x14032D7C0 (KiCallInterruptServiceRoutine.c)
- *     KzSetIrqlUnsafe @ 0x1405EBBF0 (KzSetIrqlUnsafe.c)
+ *     KiStartInterruptCycleAccumulation @ 0x140229AE0 (KiStartInterruptCycleAccumulation.c)
+ *     PerfInfoLogInterrupt @ 0x14030E640 (PerfInfoLogInterrupt.c)
+ *     EtwGetKernelTraceTimestamp @ 0x14032F2E0 (EtwGetKernelTraceTimestamp.c)
+ *     KiCallInterruptServiceRoutine @ 0x14032F7F0 (KiCallInterruptServiceRoutine.c)
+ *     KiDispatchPassiveInterrupts @ 0x140516710 (KiDispatchPassiveInterrupts.c)
+ *     KzSetIrqlUnsafe @ 0x1405EE560 (KzSetIrqlUnsafe.c)
  */
 
 void __fastcall KiScanInterruptObjectList()
@@ -62,7 +62,7 @@ void __fastcall KiScanInterruptObjectList()
         v9 = *(unsigned __int8 *)(v8 + 93);
         if ( !(_BYTE)v9 )
         {
-          KiDispatchPassiveInterrupts();
+          KiDispatchPassiveInterrupts(v8);
           *(_BYTE *)(v0 + 243) = 0;
           goto LABEL_20;
         }

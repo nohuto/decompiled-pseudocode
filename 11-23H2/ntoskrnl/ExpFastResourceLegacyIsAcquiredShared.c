@@ -1,11 +1,11 @@
 /*
- * XREFs of ExpFastResourceLegacyIsAcquiredShared @ 0x14060A588
+ * XREFs of ExpFastResourceLegacyIsAcquiredShared @ 0x14060AAD8
  * Callers:
- *     ExIsResourceAcquiredSharedLite @ 0x1402A07F0 (ExIsResourceAcquiredSharedLite.c)
+ *     ExIsResourceAcquiredSharedLite @ 0x1402A0A80 (ExIsResourceAcquiredSharedLite.c)
  * Callees:
- *     ExpFindFastOwnerEntryForThread @ 0x1403CA8F4 (ExpFindFastOwnerEntryForThread.c)
- *     ExpFastResourceLegacyIsAcquiredShared2 @ 0x140415768 (ExpFastResourceLegacyIsAcquiredShared2.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExpFindFastOwnerEntryForThread @ 0x1403CAAD4 (ExpFindFastOwnerEntryForThread.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     ExpFastResourceLegacyIsAcquiredShared2 @ 0x140415AFC (ExpFastResourceLegacyIsAcquiredShared2.c)
  */
 
 __int64 __fastcall ExpFastResourceLegacyIsAcquiredShared(__int64 a1, __int64 a2)
@@ -30,7 +30,7 @@ __int64 __fastcall ExpFastResourceLegacyIsAcquiredShared(__int64 a1, __int64 a2)
   {
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(2uLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
       v6 = 4;
@@ -54,10 +54,10 @@ __int64 __fastcall ExpFastResourceLegacyIsAcquiredShared(__int64 a1, __int64 a2)
     {
       v3 = 0;
     }
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v11 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v11 <= 0xFu && CurrentIrql <= 0xFu && v11 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v11 <= 0xFu && CurrentIrql <= 0xFu && v11 >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         v13 = CurrentPrcb->SchedulerAssist;

@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     SepTokenFromAccessInformation @ 0x1402E1484 (SepTokenFromAccessInformation.c)
+ *     sub_1402E1484 @ 0x1402E1484 (sub_1402E1484.c)
  */
 
 __int64 __fastcall SeTokenFromAccessInformation(__int64 a1, __int64 a2, unsigned int a3, _DWORD *a4)
@@ -15,7 +15,7 @@ __int64 __fastcall SeTokenFromAccessInformation(__int64 a1, __int64 a2, unsigned
   }
   else
   {
-    SepTokenFromAccessInformation(a1, a2);
+    sub_1402E1484(a1, a2);
     return 0LL;
   }
 }

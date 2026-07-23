@@ -1,9 +1,9 @@
 /*
- * XREFs of PiSwDeviceCompareObjects @ 0x140A66FA0
+ * XREFs of PiSwDeviceCompareObjects @ 0x140A5FD80
  * Callers:
  *     <none>
  * Callees:
- *     _wcsicmp @ 0x1404FE3B0 (_wcsicmp.c)
+ *     _wcsicmp @ 0x1404FBC70 (_wcsicmp.c)
  */
 
 __int64 __fastcall PiSwDeviceCompareObjects(__int64 a1, __int64 *a2, __int64 *a3)

@@ -1,11 +1,11 @@
 /*
- * XREFs of ExpWorkQueueInitialize @ 0x1408400A8
+ * XREFs of ExpWorkQueueInitialize @ 0x1408462E8
  * Callers:
- *     ExpWorkQueueInitializeWithMinimumThreads @ 0x140840240 (ExpWorkQueueInitializeWithMinimumThreads.c)
+ *     ExpWorkQueueInitializeWithMinimumThreads @ 0x140846480 (ExpWorkQueueInitializeWithMinimumThreads.c)
  * Callees:
- *     ExpGetNodeSubQueueConcurrencyCount @ 0x1404DFF18 (ExpGetNodeSubQueueConcurrencyCount.c)
- *     KeInitializePriQueue @ 0x1405F960C (KeInitializePriQueue.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     ExpGetNodeSubQueueConcurrencyCount @ 0x1404D95F8 (ExpGetNodeSubQueueConcurrencyCount.c)
+ *     KeInitializePriQueue @ 0x1405FC02C (KeInitializePriQueue.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall ExpWorkQueueInitialize(

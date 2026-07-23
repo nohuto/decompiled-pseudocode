@@ -1,82 +1,80 @@
 /*
- * XREFs of RtlpHpHeapExtendContext @ 0x1800A44D0
+ * XREFs of RtlpHpHeapExtendContext @ 0x1800EEEC0
  * Callers:
- *     RtlpHpSegLfhExtendContext @ 0x1800A5130 (RtlpHpSegLfhExtendContext.c)
+ *     RtlpHpSegLfhExtendContext @ 0x1800D6AA0 (RtlpHpSegLfhExtendContext.c)
  * Callees:
- *     RtlAcquireSRWLockExclusive @ 0x180055AE0 (RtlAcquireSRWLockExclusive.c)
- *     RtlReleaseSRWLockExclusive @ 0x1800567B0 (RtlReleaseSRWLockExclusive.c)
- *     RtlpHpAllocVA @ 0x180092190 (RtlpHpAllocVA.c)
- *     RtlAcquireReleaseSRWLockExclusive @ 0x1800A4630 (RtlAcquireReleaseSRWLockExclusive.c)
- *     RtlpHpMetadataCommit @ 0x1800A4820 (RtlpHpMetadataCommit.c)
+ *     RtlAcquireSRWLockExclusive @ 0x18006B6C0 (RtlAcquireSRWLockExclusive.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18006C390 (RtlReleaseSRWLockExclusive.c)
+ *     RtlpHpAllocVA @ 0x18009CD20 (RtlpHpAllocVA.c)
+ *     RtlAcquireReleaseSRWLockExclusive @ 0x1800EF020 (RtlAcquireReleaseSRWLockExclusive.c)
+ *     RtlpHpMetadataCommit @ 0x1800EF3BC (RtlpHpMetadataCommit.c)
  */
 
-unsigned __int64 __fastcall RtlpHpHeapExtendContext(__m128i *a1, __int64 a2)
+unsigned __int64 __fastcall RtlpHpHeapExtendContext(_RTL_SRWLOCK *a1, __int64 a2)
 {
-  volatile signed __int32 *v2; // rsi
-  volatile signed __int32 **v5; // rdx
-  unsigned __int64 v6; // r8
-  unsigned __int64 v7; // rdi
-  unsigned __int64 v8; // rcx
-  unsigned __int64 v10; // rax
-  unsigned __int64 v11; // rdi
-  unsigned __int64 v12; // rdx
-  __m128i v13; // xmm0
-  unsigned __int64 v14; // rdi
-  bool v15; // zf
-  int v16; // eax
-  __m128i v17; // [rsp+30h] [rbp-38h] BYREF
-  __m128i v18[2]; // [rsp+40h] [rbp-28h] BYREF
-  __int64 v19; // [rsp+70h] [rbp+8h] BYREF
-  __m128i *v20; // [rsp+78h] [rbp+10h] BYREF
+  _RTL_SRWLOCK *v2; // rsi
+  unsigned __int64 Value; // rdi
+  unsigned __int64 v6; // rcx
+  unsigned __int64 v8; // rax
+  unsigned __int64 v9; // rdi
+  unsigned __int64 v10; // rdx
+  __int128 v11; // xmm0
+  unsigned __int64 v12; // rdi
+  bool v13; // zf
+  int v14; // eax
+  __int128 v15; // [rsp+30h] [rbp-38h] BYREF
+  ULONG_PTR RegionSize[2]; // [rsp+40h] [rbp-28h] BYREF
+  PVOID Ptr; // [rsp+70h] [rbp+8h] BYREF
+  __m128i *v18; // [rsp+78h] [rbp+10h] BYREF
 
-  v19 = 0LL;
-  v2 = &a1[14].m128i_i32[2];
-  RtlAcquireReleaseSRWLockExclusive(&a1[14].m128i_u64[1]);
+  Ptr = 0LL;
+  v2 = a1 + 29;
+  RtlAcquireReleaseSRWLockExclusive(a1 + 29);
   while ( 1 )
   {
     while ( 1 )
     {
-      v7 = a1[15].m128i_u64[0];
-      v8 = v7 + a2;
-      if ( v7 + a2 < v7 )
+      Value = a1[30].Value;
+      v6 = Value + a2;
+      if ( Value + a2 < Value )
         return 0LL;
-      if ( v8 > a1[15].m128i_i64[1] )
+      if ( v6 > a1[31].Value )
         break;
-      if ( v7 == _InterlockedCompareExchange64(a1[15].m128i_i64, v8, v7) )
-        return v7;
+      if ( Value == _InterlockedCompareExchange64((volatile signed __int64 *)&a1[30], v6, Value) )
+        return Value;
     }
-    RtlAcquireSRWLockExclusive(v2, v5, v6);
-    v10 = a1[15].m128i_u64[0];
-    v11 = v10 + a2;
-    if ( v10 + a2 < v10 || v11 > a1[16].m128i_i64[0] )
+    RtlAcquireSRWLockExclusive(v2);
+    v8 = a1[30].Value;
+    v9 = v8 + a2;
+    if ( v8 + a2 < v8 || v9 > a1[32].Value )
       break;
-    v12 = a1[15].m128i_u64[1];
-    if ( v11 > v12 )
+    v10 = a1[31].Value;
+    if ( v9 > v10 )
     {
-      v13 = *a1;
-      v19 = a1[15].m128i_i64[1];
-      v14 = (v11 - v12 + 4095) & 0xFFFFFFFFFFFFF000uLL;
-      v15 = (a1[1].m128i_i8[14] & 1) == 0;
-      v20 = (__m128i *)v14;
-      if ( v15 )
+      v11 = *(_OWORD *)&a1->0;
+      Ptr = a1[31].Ptr;
+      v12 = (v9 - v10 + 4095) & 0xFFFFFFFFFFFFF000uLL;
+      v13 = (BYTE6(a1[3].Ptr) & 1) == 0;
+      v18 = (__m128i *)v12;
+      if ( v13 )
       {
-        v18[0] = v13;
-        v16 = RtlpHpAllocVA(&v19, &v20, 0LL, 0x1000u, 4u, v18);
-        v14 = (unsigned __int64)v20;
+        *(_OWORD *)RegionSize = v11;
+        v14 = RtlpHpAllocVA(&Ptr, &v18, 0LL, 0x1000u, 4u, (__m128i *)RegionSize);
+        v12 = (unsigned __int64)v18;
       }
       else
       {
-        v17 = v13;
-        v16 = RtlpHpMetadataCommit((_DWORD)a1, v12, v14, (unsigned int)&v17, 1);
+        v15 = v11;
+        v14 = RtlpHpMetadataCommit((_DWORD)a1, v10, v12, (unsigned int)&v15, 1);
       }
-      if ( v16 < 0 )
+      if ( v14 < 0 )
         break;
-      a1[15].m128i_i64[1] += v14;
-      _InterlockedAdd64(&a1[8].m128i_i64[1], v14 >> 12);
+      a1[31].Value += v12;
+      _InterlockedAdd64((volatile signed __int64 *)&a1[17], v12 >> 12);
     }
-    RtlReleaseSRWLockExclusive((volatile signed __int64 *)v2);
+    RtlReleaseSRWLockExclusive(v2);
   }
-  v7 = 0LL;
-  RtlReleaseSRWLockExclusive((volatile signed __int64 *)v2);
-  return v7;
+  Value = 0LL;
+  RtlReleaseSRWLockExclusive(v2);
+  return Value;
 }

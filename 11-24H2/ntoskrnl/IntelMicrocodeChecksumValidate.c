@@ -1,8 +1,8 @@
 /*
- * XREFs of IntelMicrocodeChecksumValidate @ 0x140664DA0
+ * XREFs of IntelMicrocodeChecksumValidate @ 0x140663690
  * Callers:
- *     GetMicrocodePatchData @ 0x1406642C8 (GetMicrocodePatchData.c)
- *     MicrocodeUpdate @ 0x140664918 (MicrocodeUpdate.c)
+ *     GetMicrocodePatchData @ 0x140662BB8 (GetMicrocodePatchData.c)
+ *     MicrocodeUpdate @ 0x140663208 (MicrocodeUpdate.c)
  * Callees:
  *     <none>
  */

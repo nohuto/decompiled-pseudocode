@@ -9,53 +9,53 @@
  *     _RtlRaiseStatus@4 @ 0x4B308980 (_RtlRaiseStatus@4.c)
  */
 
-void __stdcall RtlConvertSharedToExclusive(int a1)
+void __cdecl RtlConvertSharedToExclusive(PRTL_RESOURCE Resource)
 {
-  volatile signed __int32 *v1; // edx
-  int v2; // edi
-  int v3; // eax
+  LONG *p_NumberOfActive; // edx
+  LONG NumberOfActive; // edi
+  LONG v3; // eax
   int v4; // eax
   int v5; // eax
-  _BYTE v6[4]; // [esp+Ch] [ebp-4h] BYREF
+  LONG PreviousCount; // [esp+Ch] [ebp-4h] BYREF
 
-  v1 = (volatile signed __int32 *)(a1 + 40);
-  v2 = *(_DWORD *)(a1 + 40);
-  if ( v2 >= 0 )
+  p_NumberOfActive = &Resource->NumberOfActive;
+  NumberOfActive = Resource->NumberOfActive;
+  if ( NumberOfActive >= 0 )
   {
-    if ( v2 == 1 && _InterlockedCompareExchange(v1, -1, 1) == 1 )
+    if ( NumberOfActive == 1 && _InterlockedCompareExchange(p_NumberOfActive, -1, 1) == 1 )
     {
-      *(_DWORD *)(a1 + 44) = NtCurrentTeb()->ClientId.UniqueThread;
+      Resource->ExclusiveOwnerThread = NtCurrentTeb()->ClientId.UniqueThread;
       return;
     }
-    if ( *(int *)v1 >= 0 )
+    if ( *p_NumberOfActive >= 0 )
     {
-      if ( _InterlockedDecrement(v1) )
+      if ( _InterlockedDecrement(p_NumberOfActive) )
       {
 LABEL_17:
-        RtlAcquireResourceExclusive(a1, 1);
+        RtlAcquireResourceExclusive(Resource, 1u);
         return;
       }
     }
     else
     {
-      if ( *v1 == -1 )
-        *(_DWORD *)(a1 + 44) = 0;
-      if ( _InterlockedIncrement(v1) )
+      if ( *p_NumberOfActive == -1 )
+        Resource->ExclusiveOwnerThread = 0;
+      if ( _InterlockedIncrement(p_NumberOfActive) )
         goto LABEL_17;
-      if ( *(_DWORD *)(a1 + 28) )
+      if ( Resource->NumberOfWaitingShared )
       {
-        v3 = _InterlockedExchange((volatile __int32 *)(a1 + 28), 0);
+        v3 = _InterlockedExchange((volatile __int32 *)&Resource->NumberOfWaitingShared, 0);
         if ( v3 )
         {
-          v4 = NtReleaseSemaphore(*(_DWORD *)(a1 + 24), v3, (int)v6);
+          v4 = NtReleaseSemaphore(Resource->SharedSemaphore, v3, &PreviousCount);
           if ( v4 < 0 )
             RtlRaiseStatus(v4);
         }
       }
     }
-    if ( RtlpNonNegativeDecrement((volatile signed __int32 *)(a1 + 36)) )
+    if ( RtlpNonNegativeDecrement((volatile signed __int32 *)&Resource->NumberOfWaitingExclusive) )
     {
-      v5 = NtReleaseSemaphore(*(_DWORD *)(a1 + 32), 1, (int)v6);
+      v5 = NtReleaseSemaphore(Resource->ExclusiveSemaphore, 1, &PreviousCount);
       if ( v5 < 0 )
         RtlRaiseStatus(v5);
     }

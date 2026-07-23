@@ -1,20 +1,20 @@
 /*
- * XREFs of KeResumeClockTimerSafe @ 0x14028E904
+ * XREFs of KeResumeClockTimerSafe @ 0x14028EAF4
  * Callers:
- *     IopLiveDumpProcessCorralStateChange @ 0x140579558 (IopLiveDumpProcessCorralStateChange.c)
- *     PnprQuiesceProcessorDpc @ 0x14057A350 (PnprQuiesceProcessorDpc.c)
- *     PnprWakeProcessors @ 0x14057AD5C (PnprWakeProcessors.c)
+ *     IopLiveDumpProcessCorralStateChange @ 0x14057A558 (IopLiveDumpProcessCorralStateChange.c)
+ *     PnprQuiesceProcessorDpc @ 0x14057B350 (PnprQuiesceProcessorDpc.c)
+ *     PnprWakeProcessors @ 0x14057BD5C (PnprWakeProcessors.c)
  * Callees:
- *     KeGetEffectiveIrql @ 0x1400CAAD0 (KeGetEffectiveIrql.c)
- *     KiResumeClockTimer @ 0x1401434CC (KiResumeClockTimer.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeGetEffectiveIrql @ 0x1400CABB0 (KeGetEffectiveIrql.c)
+ *     KiResumeClockTimer @ 0x1401435CC (KiResumeClockTimer.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-__int64 KeResumeClockTimerSafe()
+LONGLONG KeResumeClockTimerSafe()
 {
   unsigned __int8 CurrentIrql; // bl
   struct _KPRCB *CurrentPrcb; // rcx
-  __int64 result; // rax
+  LONGLONG result; // rax
 
   if ( KeGetEffectiveIrql() >= 0xDu )
     return KiResumeClockTimer();

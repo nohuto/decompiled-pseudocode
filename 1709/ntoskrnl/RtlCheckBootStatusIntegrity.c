@@ -8,10 +8,10 @@
  *     ExAllocatePoolWithTag @ 0x1402B3110 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall RtlCheckBootStatusIntegrity(HANDLE FileHandle, bool *a2)
+NTSTATUS __cdecl RtlCheckBootStatusIntegrity(HANDLE FileHandle, PBOOLEAN Verified)
 {
   char v4; // bp
-  NTSTATUS v5; // edi
+  int v5; // edi
   PVOID Buffer; // rsi
   __int64 v7; // rcx
   _BYTE *v8; // rax
@@ -45,24 +45,24 @@ __int64 __fastcall RtlCheckBootStatusIntegrity(HANDLE FileHandle, bool *a2)
               }
               while ( v7 );
             }
-            *a2 = v4 == 0;
+            *Verified = v4 == 0;
           }
           else
           {
-            *a2 = 0;
+            *Verified = 0;
           }
         }
         ExFreePoolWithTag(Buffer, 0);
       }
       else
       {
-        return (unsigned int)-1073741801;
+        return -1073741801;
       }
     }
     else
     {
-      *a2 = 0;
+      *Verified = 0;
     }
   }
-  return (unsigned int)v5;
+  return v5;
 }

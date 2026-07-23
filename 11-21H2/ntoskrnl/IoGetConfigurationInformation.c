@@ -1,11 +1,11 @@
 /*
  * XREFs of IoGetConfigurationInformation @ 0x140811D00
  * Callers:
- *     DifIoGetConfigurationInformationWrapper @ 0x14060EFB0 (DifIoGetConfigurationInformationWrapper.c)
- *     IopCreateArcNamesDisk @ 0x140B0E1A8 (IopCreateArcNamesDisk.c)
- *     IopCreateArcNamesCd @ 0x140B0E310 (IopCreateArcNamesCd.c)
- *     IopGetBootDiskInformation @ 0x140B4F04C (IopGetBootDiskInformation.c)
- *     VhdiInitializeBootDisk @ 0x140B54800 (VhdiInitializeBootDisk.c)
+ *     sub_14060EFB0 @ 0x14060EFB0 (sub_14060EFB0.c)
+ *     sub_140B0E1A8 @ 0x140B0E1A8 (sub_140B0E1A8.c)
+ *     sub_140B0E310 @ 0x140B0E310 (sub_140B0E310.c)
+ *     sub_140B4F04C @ 0x140B4F04C (sub_140B4F04C.c)
+ *     sub_140B54800 @ 0x140B54800 (sub_140B54800.c)
  * Callees:
  *     <none>
  */

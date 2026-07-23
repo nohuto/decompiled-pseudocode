@@ -1,33 +1,33 @@
 /*
- * XREFs of ExpSetDriverEntry @ 0x1406B1E74
+ * XREFs of ExpSetDriverEntry @ 0x1406B1FAC
  * Callers:
- *     NtAddDriverEntry @ 0x1406B346C (NtAddDriverEntry.c)
- *     NtModifyDriverEntry @ 0x1406B4494 (NtModifyDriverEntry.c)
+ *     NtAddDriverEntry @ 0x1406B35A4 (NtAddDriverEntry.c)
+ *     NtModifyDriverEntry @ 0x1406B45CC (NtModifyDriverEntry.c)
  * Callees:
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExAcquireFastMutexUnsafe @ 0x1400F05A0 (ExAcquireFastMutexUnsafe.c)
- *     ExReleaseFastMutexUnsafe @ 0x1400F0700 (ExReleaseFastMutexUnsafe.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     swprintf_s @ 0x140151960 (swprintf_s.c)
- *     ZwTranslateFilePath @ 0x14015D280 (ZwTranslateFilePath.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1400EE420 (ExAcquireFastMutexUnsafe.c)
+ *     ExReleaseFastMutexUnsafe @ 0x1400EE580 (ExReleaseFastMutexUnsafe.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     swprintf_s @ 0x140151F20 (swprintf_s.c)
+ *     ZwTranslateFilePath @ 0x14015D7F0 (ZwTranslateFilePath.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     SeSinglePrivilegeCheck @ 0x140413F70 (SeSinglePrivilegeCheck.c)
- *     IoGetEnvironmentVariableEx @ 0x140628138 (IoGetEnvironmentVariableEx.c)
- *     IoSetEnvironmentVariableEx @ 0x140628264 (IoSetEnvironmentVariableEx.c)
- *     ExpSafeWcslen @ 0x1406B1694 (ExpSafeWcslen.c)
- *     ExpVerifyFilePath @ 0x1406B3290 (ExpVerifyFilePath.c)
- *     ExRaiseDatatypeMisalignment @ 0x1406B6058 (ExRaiseDatatypeMisalignment.c)
+ *     SeSinglePrivilegeCheck @ 0x140412E30 (SeSinglePrivilegeCheck.c)
+ *     IoGetEnvironmentVariableEx @ 0x1406281EC (IoGetEnvironmentVariableEx.c)
+ *     IoSetEnvironmentVariableEx @ 0x140628318 (IoSetEnvironmentVariableEx.c)
+ *     ExpSafeWcslen @ 0x1406B17CC (ExpSafeWcslen.c)
+ *     ExpVerifyFilePath @ 0x1406B33C8 (ExpVerifyFilePath.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1406B6190 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall ExpSetDriverEntry(int a1, unsigned int *a2, unsigned __int64 a3)
 {
   _DWORD *v3; // r12
   unsigned int i; // r14d
-  struct _FILE_PATH *v6; // r15
-  struct _FILE_PATH *v7; // r13
+  _FILE_PATH *v6; // r15
+  _FILE_PATH *v7; // r13
   KPROCESSOR_MODE PreviousMode; // dl
   __int64 v9; // rax
   SIZE_T v10; // rbx
@@ -40,7 +40,7 @@ __int64 __fastcall ExpSetDriverEntry(int a1, unsigned int *a2, unsigned __int64 
   char *v18; // rsi
   int v19; // eax
   __int64 v20; // r8
-  struct _FILE_PATH *v21; // rax
+  _FILE_PATH *v21; // rax
   ULONG Length; // eax
   unsigned int v23; // ebx
   PVOID v24; // rax
@@ -123,7 +123,7 @@ __int64 __fastcall ExpSetDriverEntry(int a1, unsigned int *a2, unsigned __int64 
     if ( v19 == -1 )
       goto LABEL_25;
     Size = 2 * v19 + 2;
-    v6 = (struct _FILE_PATH *)((char *)v15 + v20);
+    v6 = (_FILE_PATH *)((char *)v15 + v20);
     EnvironmentVariable = ExpVerifyFilePath((char *)v15 + v20);
     if ( EnvironmentVariable < 0 )
       goto LABEL_58;
@@ -144,7 +144,7 @@ LABEL_25:
       EnvironmentVariable = ZwTranslateFilePath(v6, 4u, 0LL, (ULONG)&OutputFilePathLength);
       if ( EnvironmentVariable == -1073741789 )
       {
-        v21 = (struct _FILE_PATH *)ExAllocatePoolWithTag(NonPagedPoolNx, OutputFilePathLength, 0x72766E45u);
+        v21 = (_FILE_PATH *)ExAllocatePoolWithTag(NonPagedPoolNx, OutputFilePathLength, 0x72766E45u);
         v7 = v21;
         if ( !v21 )
         {

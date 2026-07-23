@@ -1,8 +1,8 @@
 /*
  * XREFs of FindEmailAt @ 0x1800F04CC
  * Callers:
- *     RtlpNameprepAsciiWorker @ 0x180055E84 (RtlpNameprepAsciiWorker.c)
- *     RtlpValidateAsciiStd3AndLength @ 0x180056110 (RtlpValidateAsciiStd3AndLength.c)
+ *     RtlpNameprepAsciiWorker @ 0x180055E74 (RtlpNameprepAsciiWorker.c)
+ *     RtlpValidateAsciiStd3AndLength @ 0x180056100 (RtlpValidateAsciiStd3AndLength.c)
  * Callees:
  *     <none>
  */

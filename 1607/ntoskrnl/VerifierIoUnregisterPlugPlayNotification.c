@@ -1,5 +1,5 @@
 /*
- * XREFs of VerifierIoUnregisterPlugPlayNotification @ 0x14070C8EC
+ * XREFs of VerifierIoUnregisterPlugPlayNotification @ 0x14070C91C
  * Callers:
  *     <none>
  * Callees:

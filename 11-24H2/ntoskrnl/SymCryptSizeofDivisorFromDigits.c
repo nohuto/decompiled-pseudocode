@@ -1,11 +1,11 @@
 /*
- * XREFs of SymCryptSizeofDivisorFromDigits @ 0x140523FE4
+ * XREFs of SymCryptSizeofDivisorFromDigits @ 0x1405218FC
  * Callers:
- *     SymCryptRsakeySetValueInternal @ 0x140521B70 (SymCryptRsakeySetValueInternal.c)
- *     SymCryptIntExtendedGcd @ 0x140529024 (SymCryptIntExtendedGcd.c)
- *     SymCryptFdefDivisorCreate @ 0x14053702C (SymCryptFdefDivisorCreate.c)
+ *     SymCryptRsakeySetValueInternal @ 0x14051F4C4 (SymCryptRsakeySetValueInternal.c)
+ *     SymCryptIntExtendedGcd @ 0x140526944 (SymCryptIntExtendedGcd.c)
+ *     SymCryptFdefDivisorCreate @ 0x1405314CC (SymCryptFdefDivisorCreate.c)
  * Callees:
- *     SymCryptFdefSizeofDivisorFromDigits @ 0x1405376A8 (SymCryptFdefSizeofDivisorFromDigits.c)
+ *     SymCryptFdefSizeofDivisorFromDigits @ 0x140531B48 (SymCryptFdefSizeofDivisorFromDigits.c)
  */
 
 __int64 SymCryptSizeofDivisorFromDigits()

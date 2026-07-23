@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpAddErrorEntryToPacket @ 0x14058E1EC
+ * XREFs of HalpAddErrorEntryToPacket @ 0x14059096C
  * Callers:
- *     HalpAddMcaExtendedLogToMemoryErrorSection @ 0x14057A898 (HalpAddMcaExtendedLogToMemoryErrorSection.c)
+ *     HalpAddMcaExtendedLogToMemoryErrorSection @ 0x14057CDC8 (HalpAddMcaExtendedLogToMemoryErrorSection.c)
  * Callees:
  *     <none>
  */

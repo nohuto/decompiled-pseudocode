@@ -1,13 +1,13 @@
 /*
- * XREFs of NtAllocateVirtualMemory @ 0x1408DE710
+ * XREFs of NtAllocateVirtualMemory @ 0x1409152C0
  * Callers:
  *     <none>
  * Callees:
- *     PsDereferencePartition @ 0x140275E60 (PsDereferencePartition.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     MiAllocateVirtualMemoryPrepare @ 0x1408DEC10 (MiAllocateVirtualMemoryPrepare.c)
- *     MiAllocateVirtualMemory @ 0x1408DF540 (MiAllocateVirtualMemory.c)
- *     PsReferencePartitionByHandle @ 0x140934434 (PsReferencePartitionByHandle.c)
+ *     PsDereferencePartition @ 0x14022B3F0 (PsDereferencePartition.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     PsReferencePartitionByHandle @ 0x1408F6F54 (PsReferencePartitionByHandle.c)
+ *     MiAllocateVirtualMemoryPrepare @ 0x1409157C0 (MiAllocateVirtualMemoryPrepare.c)
+ *     MiAllocateVirtualMemory @ 0x1409160F0 (MiAllocateVirtualMemory.c)
  */
 
 NTSTATUS __stdcall NtAllocateVirtualMemory(
@@ -26,7 +26,7 @@ NTSTATUS __stdcall NtAllocateVirtualMemory(
   PVOID v13; // r14
   ULONG_PTR v14; // r15
   NTSTATUS VirtualMemoryPrepare; // ebx
-  unsigned __int8 v17; // [rsp+70h] [rbp-128h]
+  char v17; // [rsp+70h] [rbp-128h]
   __int64 v18; // [rsp+78h] [rbp-120h] BYREF
   void *v19; // [rsp+80h] [rbp-118h] BYREF
   PVOID v20; // [rsp+88h] [rbp-110h]
@@ -112,7 +112,7 @@ NTSTATUS __stdcall NtAllocateVirtualMemory(
       }
       else
       {
-        VirtualMemoryPrepare = PsReferencePartitionByHandle(*((_QWORD *)&v24 + 1), 2LL, v17, 1633054029LL, &v18);
+        VirtualMemoryPrepare = PsReferencePartitionByHandle(*((ULONG_PTR *)&v24 + 1), 2, v17, 0x61566D4Du, &v18);
         v9 = v18;
         if ( VirtualMemoryPrepare < 0 )
           goto LABEL_13;
@@ -123,9 +123,9 @@ NTSTATUS __stdcall NtAllocateVirtualMemory(
       VirtualMemoryPrepare = -1073741811;
 LABEL_23:
       if ( (_QWORD)v28 )
-        ++dword_140E301B4;
+        ++dword_140E302F4;
       else
-        ++dword_140E301B0;
+        ++dword_140E302F0;
       goto LABEL_14;
     }
     VirtualMemoryPrepare = MiAllocateVirtualMemory((unsigned int)&v28, v9, 0, 0, (__int64)&v19);

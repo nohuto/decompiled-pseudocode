@@ -1,16 +1,16 @@
 /*
- * XREFs of PopWakeDeviceList @ 0x140427ABC
+ * XREFs of PopWakeDeviceList @ 0x14041BC4C
  * Callers:
- *     PoBroadcastSystemState @ 0x140B64C6C (PoBroadcastSystemState.c)
+ *     PoBroadcastSystemState @ 0x140B66DA4 (PoBroadcastSystemState.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140275CD0 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x1402D8540 (KeAcquireInStackQueuedSpinLock.c)
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     PopIsNotifyForDirectedPowerTransition @ 0x140427F60 (PopIsNotifyForDirectedPowerTransition.c)
- *     PopPushPowerStateTransitionRecordWithCallback @ 0x140428294 (PopPushPowerStateTransitionRecordWithCallback.c)
- *     PopIssueDirectedPowerTransition @ 0x140AB81C4 (PopIssueDirectedPowerTransition.c)
- *     PoDelistPowerStateTransitionBlocker @ 0x140B6A3B4 (PoDelistPowerStateTransitionBlocker.c)
- *     PopNotifyDevice @ 0x140B6F748 (PopNotifyDevice.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x14022B260 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1403597C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     PopIsNotifyForDirectedPowerTransition @ 0x14041C0F0 (PopIsNotifyForDirectedPowerTransition.c)
+ *     PopPushPowerStateTransitionRecordWithCallback @ 0x14041C424 (PopPushPowerStateTransitionRecordWithCallback.c)
+ *     PopIssueDirectedPowerTransition @ 0x140AB2688 (PopIssueDirectedPowerTransition.c)
+ *     PoDelistPowerStateTransitionBlocker @ 0x140B6BAC4 (PoDelistPowerStateTransitionBlocker.c)
+ *     PopNotifyDevice @ 0x140B717B8 (PopNotifyDevice.c)
  */
 
 int __fastcall PopWakeDeviceList(_QWORD *a1, _DWORD *a2)
@@ -83,7 +83,7 @@ int __fastcall PopWakeDeviceList(_QWORD *a1, _DWORD *a2)
     do
     {
       KeWaitForSingleObject(Object, Executive, 0, 0, 0LL);
-      KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)qword_140F0BDF0 + 1, &LockHandle);
+      KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)qword_140F0B910 + 1, &LockHandle);
       v11 = (_QWORD *)*v8;
       if ( *(_QWORD **)(*v8 + 8LL) != v8
         || (v12 = *v11, *(_QWORD **)(*v11 + 8LL) != v11)

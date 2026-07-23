@@ -19,7 +19,7 @@ __int64 __fastcall ResCGetName(__int64 a1, __int16 a2, wchar_t *a3)
   int v4; // esi
   const wchar_t *v7; // r13
   const wchar_t *v8; // r12
-  unsigned __int64 v9; // r15
+  void *v9; // r15
   int v10; // ebx
   const wchar_t *v11; // rax
   const wchar_t *v12; // rax
@@ -27,8 +27,8 @@ __int64 __fastcall ResCGetName(__int64 a1, __int16 a2, wchar_t *a3)
   int v14; // eax
   const wchar_t *v15; // rax
   const unsigned __int16 *v16; // r8
-  __int64 v17; // rax
-  __int64 Heap; // rax
+  PVOID v17; // rax
+  PVOID Heap; // rax
   int v19; // eax
   const wchar_t *v21; // [rsp+28h] [rbp-30h]
 
@@ -113,7 +113,7 @@ LABEL_63:
     {
       if ( v4 != 1024 )
         goto LABEL_67;
-      Heap = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, 520LL);
+      Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, 0x208uLL);
       v9 = Heap;
       if ( !Heap || !(unsigned int)CopyLowerCaseAndSubstitute(a1, Heap) )
         goto LABEL_67;
@@ -138,7 +138,7 @@ LABEL_63:
       v16 = L"%s\\%s*";
       goto LABEL_64;
     }
-    v17 = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, 520LL);
+    v17 = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, 0x208uLL);
     v9 = v17;
     if ( !v17 || !(unsigned int)CopyLowerCaseAndSubstitute(a1, v17) )
       goto LABEL_67;
@@ -222,7 +222,7 @@ LABEL_72:
 LABEL_73:
   a3[259] = 0;
   if ( v9 )
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v9);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v9);
   LOBYTE(v3) = v10 >= 0;
   return v3;
 }

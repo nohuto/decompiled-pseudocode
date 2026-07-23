@@ -1,23 +1,23 @@
 /*
- * XREFs of RtlpEnsureBufferSize @ 0x18008B0C0
+ * XREFs of RtlpEnsureBufferSize @ 0x1800A6B80
  * Callers:
- *     RtlDosApplyFileIsolationRedirection_Ustr @ 0x18005B1C0 (RtlDosApplyFileIsolationRedirection_Ustr.c)
- *     sxsisol_SearchActCtxForDllName @ 0x18005D5B0 (sxsisol_SearchActCtxForDllName.c)
- *     RtlNtPathNameToDosPathName @ 0x18008A780 (RtlNtPathNameToDosPathName.c)
- *     RtlMultiAppendUnicodeStringBuffer @ 0x18008AB50 (RtlMultiAppendUnicodeStringBuffer.c)
- *     sxsisol_ExpandEnvironmentStrings_UEx @ 0x18008B22C (sxsisol_ExpandEnvironmentStrings_UEx.c)
- *     sxsisol_RespectDotLocal @ 0x18010BDCC (sxsisol_RespectDotLocal.c)
+ *     RtlDosApplyFileIsolationRedirection_Ustr @ 0x180070DA0 (RtlDosApplyFileIsolationRedirection_Ustr.c)
+ *     sxsisol_SearchActCtxForDllName @ 0x180073190 (sxsisol_SearchActCtxForDllName.c)
+ *     RtlNtPathNameToDosPathName @ 0x1800A6240 (RtlNtPathNameToDosPathName.c)
+ *     RtlMultiAppendUnicodeStringBuffer @ 0x1800A6610 (RtlMultiAppendUnicodeStringBuffer.c)
+ *     sxsisol_ExpandEnvironmentStrings_UEx @ 0x1800A6CEC (sxsisol_ExpandEnvironmentStrings_UEx.c)
+ *     sxsisol_RespectDotLocal @ 0x18010679C (sxsisol_RespectDotLocal.c)
  * Callees:
- *     RtlpSysVolFree @ 0x180001470 (RtlpSysVolFree.c)
- *     RtlpAllocateAtom @ 0x18000D2C0 (RtlpAllocateAtom.c)
- *     memmove @ 0x180167400 (memmove.c)
+ *     RtlpSysVolFree @ 0x180005870 (RtlpSysVolFree.c)
+ *     RtlpAllocateAtom @ 0x180039CC0 (RtlpAllocateAtom.c)
+ *     memmove @ 0x1801657C0 (memmove.c)
  */
 
-__int64 __fastcall RtlpEnsureBufferSize(int a1, __int64 a2, unsigned __int64 a3)
+__int64 __fastcall RtlpEnsureBufferSize(int a1, __int64 a2, SIZE_T a3)
 {
   char v5; // bp
-  void *Atom; // rax
-  void *v7; // rsi
+  PVOID Atom; // rax
+  PVOID v7; // rsi
   __int64 result; // rax
 
   v5 = a1;
@@ -30,14 +30,14 @@ __int64 __fastcall RtlpEnsureBufferSize(int a1, __int64 a2, unsigned __int64 a3)
     *(_QWORD *)(a2 + 16) = a3;
     return 0LL;
   }
-  Atom = (void *)RtlpAllocateAtom(a3);
+  Atom = RtlpAllocateAtom(a3);
   v7 = Atom;
   if ( !Atom )
     return 3221225495LL;
   if ( (v5 & 1) == 0 )
     memmove(Atom, *(const void **)a2, *(_QWORD *)(a2 + 16));
   if ( *(_QWORD *)a2 != *(_QWORD *)(a2 + 8) )
-    RtlpSysVolFree(*(_QWORD *)a2);
+    RtlpSysVolFree(*(void **)a2);
   *(_QWORD *)a2 = v7;
   result = 0LL;
   *(_QWORD *)(a2 + 16) = a3;

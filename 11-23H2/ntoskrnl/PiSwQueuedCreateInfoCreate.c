@@ -1,14 +1,14 @@
 /*
- * XREFs of PiSwQueuedCreateInfoCreate @ 0x140967A00
+ * XREFs of PiSwQueuedCreateInfoCreate @ 0x140967C00
  * Callers:
- *     PiSwIrpStartCreateWorker @ 0x14081904C (PiSwIrpStartCreateWorker.c)
+ *     PiSwIrpStartCreateWorker @ 0x14081931C (PiSwIrpStartCreateWorker.c)
  * Callees:
- *     PsGetCurrentThreadProcessId @ 0x1402AF8A0 (PsGetCurrentThreadProcessId.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     PnpAllocatePWSTR @ 0x1406CCC3C (PnpAllocatePWSTR.c)
- *     PiSwPnPInfoInit @ 0x1408195D0 (PiSwPnPInfoInit.c)
- *     PnpCopyDevPropertyArray @ 0x140819B60 (PnpCopyDevPropertyArray.c)
- *     PiSwQueuedCreateInfoFree @ 0x140967B10 (PiSwQueuedCreateInfoFree.c)
+ *     PsGetCurrentThreadProcessId @ 0x1402AFB30 (PsGetCurrentThreadProcessId.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     PnpAllocatePWSTR @ 0x1406CCC6C (PnpAllocatePWSTR.c)
+ *     PiSwPnPInfoInit @ 0x1408198A0 (PiSwPnPInfoInit.c)
+ *     PnpCopyDevPropertyArray @ 0x140819E30 (PnpCopyDevPropertyArray.c)
+ *     PiSwQueuedCreateInfoFree @ 0x140967D10 (PiSwQueuedCreateInfoFree.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 

@@ -4,71 +4,71 @@
  *     RtlConvertSharedToExclusive @ 0x18006DDA0 (RtlConvertSharedToExclusive.c)
  * Callees:
  *     RtlpNonNegativeDecrement @ 0x18006DFE4 (RtlpNonNegativeDecrement.c)
- *     RtlRaiseStatus @ 0x18009F6A0 (RtlRaiseStatus.c)
- *     ZwReleaseSemaphore @ 0x1800A0420 (ZwReleaseSemaphore.c)
+ *     RtlRaiseStatus @ 0x18009F6C0 (RtlRaiseStatus.c)
+ *     ZwReleaseSemaphore @ 0x1800A0440 (ZwReleaseSemaphore.c)
  */
 
-__int64 __fastcall RtlReleaseResource(__int64 a1)
+void __cdecl RtlReleaseResource(PRTL_RESOURCE Resource)
 {
-  __int64 result; // rax
-  signed __int32 v3; // edx
+  LONG NumberOfActive; // eax
+  signed int NumberOfWaitingExclusive; // edx
   bool v4; // zf
-  __int64 v5; // rdx
-  int v6; // eax
-  char v7; // [rsp+30h] [rbp+8h] BYREF
+  int v5; // eax
+  LONG v6; // edx
+  int v7; // eax
+  int v8; // eax
+  int v9; // eax
+  LONG PreviousCount; // [rsp+30h] [rbp+8h] BYREF
 
-  result = *(unsigned int *)(a1 + 68);
-  if ( (int)result < 0 )
+  NumberOfActive = Resource->NumberOfActive;
+  if ( NumberOfActive < 0 )
   {
-    if ( (_DWORD)result == -1 )
-      *(_QWORD *)(a1 + 72) = 0LL;
-    if ( !_InterlockedIncrement((volatile signed __int32 *)(a1 + 68)) )
+    if ( NumberOfActive == -1 )
+      Resource->ExclusiveOwnerThread = 0LL;
+    if ( !_InterlockedIncrement(&Resource->NumberOfActive) )
     {
-      if ( *(_DWORD *)(a1 + 48) )
+      if ( Resource->NumberOfWaitingShared )
       {
-        v5 = (unsigned int)_InterlockedExchange((volatile __int32 *)(a1 + 48), 0);
-        if ( (_DWORD)v5 )
+        v6 = _InterlockedExchange((volatile __int32 *)&Resource->NumberOfWaitingShared, 0);
+        if ( v6 )
         {
-          v6 = ZwReleaseSemaphore(*(_QWORD *)(a1 + 40), v5, &v7);
-          if ( v6 < 0 )
-            RtlRaiseStatus((unsigned int)v6);
+          v7 = ZwReleaseSemaphore(Resource->SharedSemaphore, v6, &PreviousCount);
+          if ( v7 < 0 )
+            RtlRaiseStatus(v7);
         }
       }
-      result = RtlpNonNegativeDecrement(a1 + 64);
-      if ( (_DWORD)result )
+      if ( (unsigned int)RtlpNonNegativeDecrement(&Resource->NumberOfWaitingExclusive) )
       {
-        result = ZwReleaseSemaphore(*(_QWORD *)(a1 + 56), 1LL, &v7);
-        if ( (int)result < 0 )
-          RtlRaiseStatus((unsigned int)result);
+        v5 = ZwReleaseSemaphore(Resource->ExclusiveSemaphore, 1, &PreviousCount);
+        if ( v5 < 0 )
+          RtlRaiseStatus(v5);
       }
     }
   }
-  else
+  else if ( _InterlockedExchangeAdd(&Resource->NumberOfActive, 0xFFFFFFFF) == 1 )
   {
-    result = (unsigned int)_InterlockedExchangeAdd((volatile signed __int32 *)(a1 + 68), 0xFFFFFFFF);
-    if ( (_DWORD)result == 1 )
+    NumberOfWaitingExclusive = Resource->NumberOfWaitingExclusive;
+    v4 = NumberOfWaitingExclusive == 0;
+    if ( NumberOfWaitingExclusive > 0 )
     {
-      v3 = *(_DWORD *)(a1 + 64);
-      v4 = v3 == 0;
-      if ( v3 > 0 )
+      do
       {
-        do
-        {
-          result = (unsigned int)_InterlockedCompareExchange((volatile signed __int32 *)(a1 + 64), v3 - 1, v3);
-          if ( v3 == (_DWORD)result )
-            break;
-          v3 = result;
-        }
-        while ( (int)result > 0 );
-        v4 = v3 == 0;
+        v8 = _InterlockedCompareExchange(
+               (volatile signed __int32 *)&Resource->NumberOfWaitingExclusive,
+               NumberOfWaitingExclusive - 1,
+               NumberOfWaitingExclusive);
+        if ( NumberOfWaitingExclusive == v8 )
+          break;
+        NumberOfWaitingExclusive = v8;
       }
-      if ( !v4 )
-      {
-        result = ZwReleaseSemaphore(*(_QWORD *)(a1 + 56), 1LL, &v7);
-        if ( (int)result < 0 )
-          RtlRaiseStatus((unsigned int)result);
-      }
+      while ( v8 > 0 );
+      v4 = NumberOfWaitingExclusive == 0;
+    }
+    if ( !v4 )
+    {
+      v9 = ZwReleaseSemaphore(Resource->ExclusiveSemaphore, 1, &PreviousCount);
+      if ( v9 < 0 )
+        RtlRaiseStatus(v9);
     }
   }
-  return result;
 }

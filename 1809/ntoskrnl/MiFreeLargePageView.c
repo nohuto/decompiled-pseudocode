@@ -1,15 +1,15 @@
 /*
- * XREFs of MiFreeLargePageView @ 0x14085D374
+ * XREFs of MiFreeLargePageView @ 0x14085E5D4
  * Callers:
- *     MiReserveUserMemory @ 0x1405F1600 (MiReserveUserMemory.c)
- *     MiMapViewOfImageSection @ 0x1405F3660 (MiMapViewOfImageSection.c)
- *     MiDeletePartialCloneVads @ 0x14085E4C8 (MiDeletePartialCloneVads.c)
+ *     MiReserveUserMemory @ 0x1405F2600 (MiReserveUserMemory.c)
+ *     MiMapViewOfImageSection @ 0x1405F4660 (MiMapViewOfImageSection.c)
+ *     MiDeletePartialCloneVads @ 0x14085F728 (MiDeletePartialCloneVads.c)
  * Callees:
  *     UNLOCK_ADDRESS_SPACE_SHARED @ 0x1400531B0 (UNLOCK_ADDRESS_SPACE_SHARED.c)
- *     MiGetVadWakeList @ 0x140068270 (MiGetVadWakeList.c)
- *     LOCK_ADDRESS_SPACE_SHARED @ 0x140075460 (LOCK_ADDRESS_SPACE_SHARED.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     MiReturnFullProcessCommitment @ 0x1405F2998 (MiReturnFullProcessCommitment.c)
+ *     MiGetVadWakeList @ 0x140068260 (MiGetVadWakeList.c)
+ *     LOCK_ADDRESS_SPACE_SHARED @ 0x140075450 (LOCK_ADDRESS_SPACE_SHARED.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     MiReturnFullProcessCommitment @ 0x1405F3998 (MiReturnFullProcessCommitment.c)
  */
 
 void __fastcall MiFreeLargePageView(__int64 a1, __int64 a2, __int64 a3)

@@ -15,69 +15,70 @@
  *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180174020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
  */
 
-__int64 __fastcall TpSimpleTryPost(__int64 a1, int a2, __int64 a3)
+NTSTATUS __cdecl TpSimpleTryPost(PTP_SIMPLE_CALLBACK Callback, PVOID Context, PTP_CALLBACK_ENVIRON CallbackEnviron)
 {
-  int v6; // edi
-  __int64 Heap; // rax
-  __int64 v8; // r9
-  _QWORD *v9; // rsi
-  int v10; // edi
-  int v12; // [rsp+34h] [rbp-24h]
-  _UNKNOWN *retaddr; // [rsp+58h] [rbp+0h]
-  __int64 v14; // [rsp+70h] [rbp+18h]
+  int v4; // r15d
+  unsigned int Flags; // edi
+  _RTL_SRWLOCK *Heap; // rax
+  _RTL_SRWLOCK *v8; // rsi
+  NTSTATUS v9; // edi
+  int v11; // [rsp+34h] [rbp-24h]
+  unsigned __int64 retaddr; // [rsp+58h] [rbp+0h]
+  _RTL_SRWLOCK *BaseAddress; // [rsp+70h] [rbp+18h]
 
-  if ( a3 )
-    v6 = *(_DWORD *)(a3 + 56);
+  v4 = (int)Context;
+  if ( CallbackEnviron )
+    Flags = CallbackEnviron->u.Flags;
   else
-    v6 = 0;
-  if ( !a1 || (v6 & 0xFFFFFFFC) != 0 || NtCurrentPeb()->Ldr->ShutdownInProgress )
+    Flags = 0;
+  if ( !Callback || (Flags & 0xFFFFFFFC) != 0 || NtCurrentPeb()->Ldr->ShutdownInProgress )
   {
     TppRaiseInvalidParameter();
-    return 3221225485LL;
+    return -1073741811;
   }
   else
   {
-    Heap = RtlAllocateHeap((char *)NtCurrentPeb()->ProcessHeap, (TppHeapTag + 0x200000) | 8u, 0xF0uLL);
-    v9 = (_QWORD *)Heap;
-    v14 = Heap;
+    Heap = (_RTL_SRWLOCK *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, (TppHeapTag + 0x200000) | 8, 0xF0uLL);
+    v8 = Heap;
+    BaseAddress = Heap;
     if ( Heap )
     {
-      *(_QWORD *)(Heap + 176) = retaddr;
-      v10 = TppWorkInitialize(
-              Heap,
-              a2,
-              a3,
-              v6,
-              (__int64)TppSimplepCleanupGroupMemberVFuncs,
-              (__int64)TppSimplepTaskVFuncs);
-      v12 = v10;
-      if ( v10 >= 0 )
+      Heap[22].Value = retaddr;
+      v9 = TppWorkInitialize(
+             (__int64)Heap,
+             v4,
+             (int)CallbackEnviron,
+             Flags,
+             (__int64)TppSimplepCleanupGroupMemberVFuncs,
+             (__int64)&TppSimplepTaskVFuncs);
+      v11 = v9;
+      if ( v9 >= 0 )
       {
-        v10 = 0;
-        v12 = 0;
-        v9[10] = a1;
-        if ( a3 )
-          v9[4] = *(_QWORD *)(a3 + 48);
-        if ( v9[2] )
-          TppCleanupGroupAddMember((__int64)v9);
+        v9 = 0;
+        v11 = 0;
+        v8[10].Value = (unsigned __int64)Callback;
+        if ( CallbackEnviron )
+          v8[4].0 = ($2F38BEDF952D5DA5F266621B11247D04)CallbackEnviron->FinalizationCallback;
+        if ( v8[2].Value )
+          TppCleanupGroupAddMember((__int64)v8);
       }
     }
     else
     {
-      v10 = -1073741801;
-      v12 = -1073741801;
+      v9 = -1073741801;
+      v11 = -1073741801;
     }
-    if ( v10 >= 0 )
+    if ( v9 >= 0 )
       goto LABEL_15;
-    if ( v9 )
+    if ( v8 )
     {
-      RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, TppHeapTag + 0x200000, v14, v8);
-      v9 = 0LL;
-      v10 = v12;
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, TppHeapTag + 0x200000, BaseAddress);
+      v8 = 0LL;
+      v9 = v11;
     }
-    if ( v10 >= 0 )
+    if ( v9 >= 0 )
 LABEL_15:
-      TppWorkPost((__int64)v9);
-    return (unsigned int)v10;
+      TppWorkPost(v8);
+    return v9;
   }
 }

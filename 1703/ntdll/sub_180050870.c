@@ -6,12 +6,12 @@
  *     sub_18004D108 @ 0x18004D108 (sub_18004D108.c)
  */
 
-unsigned __int64 __fastcall sub_180050870(__int64 a1)
+int *__fastcall sub_180050870(__int64 a1)
 {
-  volatile uint64_t EnvironmentVersion; // rbx
+  ULONG_PTR EnvironmentVersion; // rbx
   unsigned int v2; // edx
   _DWORD *v3; // rcx
-  unsigned __int64 result; // rax
+  int *result; // rax
 
   EnvironmentVersion = NtCurrentPeb()->ProcessParameters->EnvironmentVersion;
   if ( a1 )
@@ -27,8 +27,8 @@ unsigned __int64 __fastcall sub_180050870(__int64 a1)
   result = sub_18004D108(v3, v2, 0LL, 0);
   if ( result )
   {
-    *(_QWORD *)(result + 88) = EnvironmentVersion;
-    *(_BYTE *)(result + 100) = 0;
+    *((_QWORD *)result + 11) = EnvironmentVersion;
+    *((_BYTE *)result + 100) = 0;
   }
   return result;
 }

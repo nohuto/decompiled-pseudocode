@@ -1,14 +1,14 @@
 /*
- * XREFs of KsepRegistryQueryValue @ 0x14084934C
+ * XREFs of KsepRegistryQueryValue @ 0x14084A5AC
  * Callers:
- *     KsepDbQueryRegistryDeviceData @ 0x140720B9C (KsepDbQueryRegistryDeviceData.c)
+ *     KsepDbQueryRegistryDeviceData @ 0x140721E3C (KsepDbQueryRegistryDeviceData.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     KsepPoolFreePaged @ 0x1400F4CB4 (KsepPoolFreePaged.c)
- *     KsepPoolAllocatePaged @ 0x1400F4CDC (KsepPoolAllocatePaged.c)
- *     ZwQueryValueKey @ 0x1401B8470 (ZwQueryValueKey.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     RtlAssert @ 0x1402EF860 (RtlAssert.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     KsepPoolFreePaged @ 0x1400F4D34 (KsepPoolFreePaged.c)
+ *     KsepPoolAllocatePaged @ 0x1400F4D5C (KsepPoolAllocatePaged.c)
+ *     ZwQueryValueKey @ 0x1401B85D0 (ZwQueryValueKey.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     RtlAssert @ 0x1402EFA50 (RtlAssert.c)
  */
 
 __int64 __fastcall KsepRegistryQueryValue(

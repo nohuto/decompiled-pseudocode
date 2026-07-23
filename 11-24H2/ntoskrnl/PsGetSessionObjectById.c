@@ -1,19 +1,19 @@
 /*
- * XREFs of PsGetSessionObjectById @ 0x1403493A0
+ * XREFs of PsGetSessionObjectById @ 0x1403C2DE0
  * Callers:
- *     IoGetContainerInformation @ 0x1407152B0 (IoGetContainerInformation.c)
- *     IoRegisterContainerNotification @ 0x140715330 (IoRegisterContainerNotification.c)
- *     SeExchangePrimaryToken @ 0x140792C9C (SeExchangePrimaryToken.c)
- *     SepDuplicateToken @ 0x140856520 (SepDuplicateToken.c)
- *     NtSetInformationObject @ 0x1409FB980 (NtSetInformationObject.c)
- *     SepSetTokenSessionById @ 0x1409FD934 (SepSetTokenSessionById.c)
- *     SeSetSessionIdToken @ 0x140A50448 (SeSetSessionIdToken.c)
+ *     IoGetContainerInformation @ 0x140712E40 (IoGetContainerInformation.c)
+ *     IoRegisterContainerNotification @ 0x140712EC0 (IoRegisterContainerNotification.c)
+ *     SeExchangePrimaryToken @ 0x140792C70 (SeExchangePrimaryToken.c)
+ *     SepDuplicateToken @ 0x1408527E0 (SepDuplicateToken.c)
+ *     NtSetInformationObject @ 0x1409F46C0 (NtSetInformationObject.c)
+ *     SepSetTokenSessionById @ 0x1409F6674 (SepSetTokenSessionById.c)
+ *     SeSetSessionIdToken @ 0x140A471F8 (SeSetSessionIdToken.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     ObfReferenceObjectWithTag @ 0x1403403E0 (ObfReferenceObjectWithTag.c)
- *     PsGetSessionById @ 0x140349430 (PsGetSessionById.c)
- *     PspUnlockProcessListExclusive @ 0x1403494CC (PspUnlockProcessListExclusive.c)
- *     PspLockProcessListExclusive @ 0x140349ACC (PspLockProcessListExclusive.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x14031F8C0 (ObfReferenceObjectWithTag.c)
+ *     PsGetSessionById @ 0x1403C2E70 (PsGetSessionById.c)
+ *     PspUnlockProcessListExclusive @ 0x1403C2F0C (PspUnlockProcessListExclusive.c)
+ *     PspLockProcessListExclusive @ 0x1403C350C (PspLockProcessListExclusive.c)
  */
 
 void *PsGetSessionObjectById()

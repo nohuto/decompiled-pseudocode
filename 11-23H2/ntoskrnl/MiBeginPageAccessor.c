@@ -1,14 +1,14 @@
 /*
- * XREFs of MiBeginPageAccessor @ 0x1402E8034
+ * XREFs of MiBeginPageAccessor @ 0x1402E82C4
  * Callers:
- *     MiGetFreeLargePage @ 0x1402D8720 (MiGetFreeLargePage.c)
- *     MiTryUnlinkNodeLargePages @ 0x1403A0B7C (MiTryUnlinkNodeLargePages.c)
- *     MiGetHugeRangeFromNode @ 0x1403C50E4 (MiGetHugeRangeFromNode.c)
+ *     MiGetFreeLargePage @ 0x1402D89B0 (MiGetFreeLargePage.c)
+ *     MiTryUnlinkNodeLargePages @ 0x1403A0D5C (MiTryUnlinkNodeLargePages.c)
+ *     MiGetHugeRangeFromNode @ 0x1403C52C4 (MiGetHugeRangeFromNode.c)
  * Callees:
- *     RtlAvlInsertNodeEx @ 0x1402880C0 (RtlAvlInsertNodeEx.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14028A930 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiIsFreeZeroPfnCold @ 0x1402E85D0 (MiIsFreeZeroPfnCold.c)
+ *     RtlAvlInsertNodeEx @ 0x140288350 (RtlAvlInsertNodeEx.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14028ABC0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiIsFreeZeroPfnCold @ 0x1402E8860 (MiIsFreeZeroPfnCold.c)
  */
 
 __int64 __fastcall MiBeginPageAccessor(unsigned __int64 a1, __int64 a2, int a3)

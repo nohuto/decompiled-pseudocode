@@ -1,9 +1,9 @@
 /*
- * XREFs of KiIsWinPEBoot @ 0x1401B4840
+ * XREFs of KiIsWinPEBoot @ 0x1401B4980
  * Callers:
- *     KiDetermineRetpolineEnablement @ 0x1401930DC (KiDetermineRetpolineEnablement.c)
+ *     KiDetermineRetpolineEnablement @ 0x14019321C (KiDetermineRetpolineEnablement.c)
  * Callees:
- *     strstr @ 0x140194EC0 (strstr.c)
+ *     strstr @ 0x140195000 (strstr.c)
  */
 
 bool __fastcall KiIsWinPEBoot(__int64 a1)

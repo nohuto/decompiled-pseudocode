@@ -1,19 +1,19 @@
 /*
- * XREFs of InsertEventEntryInLookUpTable @ 0x14009EF40
+ * XREFs of InsertEventEntryInLookUpTable @ 0x140085234
  * Callers:
- *     _TlgWriteAgg @ 0x14009EE88 (_TlgWriteAgg.c)
+ *     _TlgWriteAgg @ 0x14008517C (_TlgWriteAgg.c)
  * Callees:
- *     ExAcquireSpinLockSharedAtDpcLevel @ 0x14001DD60 (ExAcquireSpinLockSharedAtDpcLevel.c)
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     RunningHash @ 0x14009F240 (RunningHash.c)
- *     CreateNewEventEntry @ 0x14009F2F8 (CreateNewEventEntry.c)
- *     DestroyEventEntry @ 0x1400AF218 (DestroyEventEntry.c)
- *     ExfAcquirePushLockSharedEx @ 0x1400C8280 (ExfAcquirePushLockSharedEx.c)
- *     ExfReleasePushLockShared @ 0x1400C8640 (ExfReleasePushLockShared.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1400EA3E0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     EnableFlushTimer @ 0x1400FAE98 (EnableFlushTimer.c)
- *     memcmp @ 0x14014DE90 (memcmp.c)
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x14001D8E0 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     RunningHash @ 0x140085534 (RunningHash.c)
+ *     CreateNewEventEntry @ 0x1400855EC (CreateNewEventEntry.c)
+ *     DestroyEventEntry @ 0x1400AD780 (DestroyEventEntry.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1400C6120 (ExfAcquirePushLockSharedEx.c)
+ *     ExfReleasePushLockShared @ 0x1400C64E0 (ExfReleasePushLockShared.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1400E8250 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     EnableFlushTimer @ 0x1400F8C24 (EnableFlushTimer.c)
+ *     memcmp @ 0x14014E450 (memcmp.c)
  */
 
 __int64 __fastcall InsertEventEntryInLookUpTable(

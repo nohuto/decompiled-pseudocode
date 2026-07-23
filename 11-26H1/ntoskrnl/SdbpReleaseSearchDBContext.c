@@ -1,40 +1,40 @@
 /*
- * XREFs of SdbpReleaseSearchDBContext @ 0x1409E33B8
+ * XREFs of SdbpReleaseSearchDBContext @ 0x140B406B0
  * Callers:
- *     SdbGetDatabaseMatch @ 0x1409E31A8 (SdbGetDatabaseMatch.c)
- *     SdbpCheckKObject @ 0x1409E4A54 (SdbpCheckKObject.c)
+ *     SdbpCheckKObject @ 0x1409D8348 (SdbpCheckKObject.c)
+ *     SdbGetDatabaseMatch @ 0x140A37C6C (SdbGetDatabaseMatch.c)
  * Callees:
- *     SdbpFreeAppAttributes @ 0x140884194 (SdbpFreeAppAttributes.c)
- *     AslHashFree @ 0x14088B068 (AslHashFree.c)
- *     AslFree @ 0x1409E6BD8 (AslFree.c)
+ *     SdbpFreeAppAttributes @ 0x14088A594 (SdbpFreeAppAttributes.c)
+ *     AslHashFree @ 0x140891464 (AslHashFree.c)
+ *     AslFree @ 0x1409D6144 (AslFree.c)
  */
 
 void __fastcall SdbpReleaseSearchDBContext(__int64 a1)
 {
-  __int64 v1; // rdx
+  void *v1; // rdx
   _QWORD *v2; // rbx
-  __int64 v3; // rdx
+  void *v3; // rdx
   _DWORD *v4; // rdi
   __int64 i; // rbp
   __int64 v6; // rsi
   __int64 v7; // rcx
-  __int64 v8; // rdx
-  __int64 v9; // rdx
-  __int64 v10; // rdx
-  __int64 v11; // rdx
+  void *v8; // rdx
+  void *v9; // rdx
+  void *v10; // rdx
+  void *v11; // rdx
   __int64 v12; // rcx
   __int64 v13; // rcx
 
   if ( a1 )
   {
-    v1 = *(_QWORD *)(a1 + 24);
+    v1 = *(void **)(a1 + 24);
     v2 = (_QWORD *)a1;
     if ( v1 )
     {
       AslFree(a1, v1);
       v2[3] = 0LL;
     }
-    v3 = v2[8];
+    v3 = (void *)v2[8];
     if ( v3 )
     {
       AslFree(a1, v3);
@@ -60,7 +60,7 @@ void __fastcall SdbpReleaseSearchDBContext(__int64 a1)
             AslHashFree(a1);
             *(_QWORD *)&v4[v6 + 8] = 0LL;
           }
-          v8 = *(_QWORD *)&v4[v6 + 12];
+          v8 = *(void **)&v4[v6 + 12];
           if ( v8 )
           {
             AslFree(a1, v8);
@@ -72,19 +72,19 @@ void __fastcall SdbpReleaseSearchDBContext(__int64 a1)
       AslFree(a1, v4);
       v2[9] = 0LL;
     }
-    v9 = v2[4];
+    v9 = (void *)v2[4];
     if ( v9 )
     {
       AslFree(a1, v9);
       v2[4] = 0LL;
     }
-    v10 = v2[5];
+    v10 = (void *)v2[5];
     if ( v10 )
     {
       AslFree(a1, v10);
       v2[5] = 0LL;
     }
-    v11 = v2[6];
+    v11 = (void *)v2[6];
     if ( v11 )
     {
       AslFree(a1, v11);

@@ -8,17 +8,28 @@
  *     RtlpIdnToUnicodeWorker @ 0x180047580 (RtlpIdnToUnicodeWorker.c)
  */
 
-__int64 __fastcall RtlIdnToUnicode(unsigned int a1, __int64 a2, unsigned int a3, __int64 a4, __int64 a5)
+NTSTATUS __cdecl RtlIdnToUnicode(
+        ULONG Flags,
+        PCWSTR SourceString,
+        LONG SourceStringLength,
+        PWSTR DestinationString,
+        PLONG DestinationStringLength)
 {
-  __int64 Heap; // rax
-  unsigned __int64 v10; // rdi
-  unsigned int v11; // ebx
+  PVOID Heap; // rax
+  void *v10; // rdi
+  NTSTATUS v11; // ebx
 
-  Heap = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, 1022LL);
+  Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, 0x3FEuLL);
   v10 = Heap;
   if ( !Heap )
-    return 3221225495LL;
-  v11 = RtlpIdnToUnicodeWorker(a1, a2, a3, a4, a5, Heap);
-  RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v10);
+    return -1073741801;
+  v11 = RtlpIdnToUnicodeWorker(
+          Flags,
+          SourceString,
+          (unsigned int)SourceStringLength,
+          DestinationString,
+          DestinationStringLength,
+          Heap);
+  RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v10);
   return v11;
 }

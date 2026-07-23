@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpIommuGetDomainId @ 0x14058BF1C
+ * XREFs of HalpIommuGetDomainId @ 0x14058E69C
  * Callers:
- *     HalpIommuAcquireNewDomain @ 0x14058BAE0 (HalpIommuAcquireNewDomain.c)
- *     IommupDeviceEnablePasidTaggedDma @ 0x14078268C (IommupDeviceEnablePasidTaggedDma.c)
+ *     HalpIommuAcquireNewDomain @ 0x14058E260 (HalpIommuAcquireNewDomain.c)
+ *     IommupDeviceEnablePasidTaggedDma @ 0x14078518C (IommupDeviceEnablePasidTaggedDma.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     RtlFindClearBitsAndSet @ 0x1403586A0 (RtlFindClearBitsAndSet.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     RtlFindClearBitsAndSet @ 0x14035A440 (RtlFindClearBitsAndSet.c)
  */
 
 __int64 __fastcall HalpIommuGetDomainId(__int64 a1, ULONG *a2)

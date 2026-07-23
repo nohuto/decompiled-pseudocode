@@ -1,9 +1,9 @@
 /*
- * XREFs of MiClearContainingMapping @ 0x140484250
+ * XREFs of MiClearContainingMapping @ 0x14047DBC0
  * Callers:
- *     MiDeleteTopLevelPage @ 0x1404840DC (MiDeleteTopLevelPage.c)
+ *     MiDeleteTopLevelPage @ 0x14047DA4C (MiDeleteTopLevelPage.c)
  * Callees:
- *     MiMapPageInHyperSpaceWorker @ 0x140287EE0 (MiMapPageInHyperSpaceWorker.c)
+ *     MiMapPageInHyperSpaceWorker @ 0x140287440 (MiMapPageInHyperSpaceWorker.c)
  */
 
 unsigned __int64 __fastcall MiClearContainingMapping(__int64 a1)

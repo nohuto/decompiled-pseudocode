@@ -12,38 +12,38 @@
  *     memcmp @ 0x14015F370 (memcmp.c)
  */
 
-__int64 __fastcall RtlSidDominates(char *Buf1, char *Buf2, bool *a3)
+NTSTATUS __cdecl RtlSidDominates(PSID Sid1, PSID Sid2, PBOOLEAN Dominates)
 {
   int v4; // r9d
   int v7; // eax
-  bool v8; // al
+  BOOLEAN v8; // al
   unsigned __int8 v10; // al
   unsigned int v11; // edx
   unsigned __int8 v12; // al
 
-  *a3 = 0;
-  v4 = *(_DWORD *)(Buf1 + 2);
+  *Dominates = 0;
+  v4 = *(_DWORD *)((char *)Sid1 + 2);
   if ( !v4 )
-    v4 = *((unsigned __int16 *)Buf1 + 3) - 4096;
+    v4 = *((unsigned __int16 *)Sid1 + 3) - 4096;
   if ( v4 )
-    return 3221225485LL;
-  v7 = *(_DWORD *)(Buf2 + 2);
+    return -1073741811;
+  v7 = *(_DWORD *)((char *)Sid2 + 2);
   if ( !v7 )
-    v7 = *((unsigned __int16 *)Buf2 + 3) - 4096;
+    v7 = *((unsigned __int16 *)Sid2 + 3) - 4096;
   if ( v7 )
-    return 3221225485LL;
+    return -1073741811;
   v8 = 1;
-  if ( *(_WORD *)Buf1 != *(_WORD *)Buf2 || memcmp(Buf1, Buf2, 4 * (unsigned int)(unsigned __int8)Buf1[1] + 8) )
+  if ( *(_WORD *)Sid1 != *(_WORD *)Sid2 || memcmp(Sid1, Sid2, 4 * (unsigned int)*((unsigned __int8 *)Sid1 + 1) + 8) )
   {
-    v10 = Buf1[1];
-    v11 = v10 ? *(_DWORD *)&Buf1[4 * v10 + 4] : 0;
-    v12 = Buf2[1];
+    v10 = *((_BYTE *)Sid1 + 1);
+    v11 = v10 ? *((_DWORD *)Sid1 + (unsigned int)v10 + 1) : 0;
+    v12 = *((_BYTE *)Sid2 + 1);
     if ( v12 )
     {
-      if ( v11 < *(_DWORD *)&Buf2[4 * v12 + 4] )
+      if ( v11 < *((_DWORD *)Sid2 + (unsigned int)v12 + 1) )
         v8 = 0;
     }
   }
-  *a3 = v8;
-  return 0LL;
+  *Dominates = v8;
+  return 0;
 }

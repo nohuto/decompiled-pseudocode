@@ -1,10 +1,10 @@
 /*
- * XREFs of MiPteBinsNeedTrimming @ 0x1402A5EF8
+ * XREFs of MiPteBinsNeedTrimming @ 0x1402A52F0
  * Callers:
- *     MiMakeSystemPtesAppear @ 0x1402A5C9C (MiMakeSystemPtesAppear.c)
- *     MiAdjustPteBins @ 0x1402A5DF8 (MiAdjustPteBins.c)
+ *     MiMakeSystemPtesAppear @ 0x1402A5094 (MiMakeSystemPtesAppear.c)
+ *     MiAdjustPteBins @ 0x1402A51F0 (MiAdjustPteBins.c)
  * Callees:
- *     MiGetNumberOfCachedPtes @ 0x1402A5F54 (MiGetNumberOfCachedPtes.c)
+ *     MiGetNumberOfCachedPtes @ 0x1402A534C (MiGetNumberOfCachedPtes.c)
  */
 
 __int64 __fastcall MiPteBinsNeedTrimming(__int64 a1)

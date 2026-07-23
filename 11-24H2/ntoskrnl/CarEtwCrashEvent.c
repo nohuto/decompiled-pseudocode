@@ -1,13 +1,13 @@
 /*
- * XREFs of CarEtwCrashEvent @ 0x1406157F0
+ * XREFs of CarEtwCrashEvent @ 0x140613DB0
  * Callers:
- *     CarReportUnusualShutdown @ 0x14061750C (CarReportUnusualShutdown.c)
+ *     CarReportUnusualShutdown @ 0x140615ACC (CarReportUnusualShutdown.c)
  * Callees:
- *     _tlgCreate1Sz_wchar_t @ 0x140330A30 (_tlgCreate1Sz_wchar_t.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     _tlgCreate1Sz_char @ 0x1404397B4 (_tlgCreate1Sz_char.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     _tlgCreate1Sz_wchar_t @ 0x1402B92A8 (_tlgCreate1Sz_wchar_t.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     _tlgCreate1Sz_char @ 0x14042C374 (_tlgCreate1Sz_char.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 char CarEtwCrashEvent()
@@ -50,11 +50,11 @@ char CarEtwCrashEvent()
   int v35; // [rsp+F8h] [rbp-8h]
   int v36; // [rsp+FCh] [rbp-4h]
 
-  v0 = dword_140E09000;
-  result = dword_140E09000 && tlgKeywordOn((__int64)&dword_140E09000, 0x800000000000LL);
+  v0 = dword_140E09070;
+  result = dword_140E09070 && tlgKeywordOn((__int64)&dword_140E09070, 0x800000000000LL);
   if ( CarLogInitialized && result && v0 > 5 )
   {
-    result = tlgKeywordOn((__int64)&dword_140E09000, 0x800000000000LL);
+    result = tlgKeywordOn((__int64)&dword_140E09070, 0x800000000000LL);
     if ( result )
     {
       v8 = 0;
@@ -88,8 +88,8 @@ char CarEtwCrashEvent()
       v32 = v6;
       v35 = 8;
       return tlgWriteTransfer_EtwWriteTransfer(
-               (__int64)&dword_140E09000,
-               (unsigned __int8 *)byte_14005167D,
+               (__int64)&dword_140E09070,
+               (unsigned __int8 *)&word_14005234E,
                0LL,
                0LL,
                0xBu,

@@ -1,10 +1,10 @@
 /*
- * XREFs of PopPepWaitForDeviceRelease @ 0x14052DA20
+ * XREFs of PopPepWaitForDeviceRelease @ 0x14052FF40
  * Callers:
- *     PopPepUnregisterDevice @ 0x140B06800 (PopPepUnregisterDevice.c)
+ *     PopPepUnregisterDevice @ 0x140B08930 (PopPepUnregisterDevice.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
  */
 
 void __fastcall PopPepWaitForDeviceRelease(__int64 a1)

@@ -1,12 +1,12 @@
 /*
- * XREFs of MiObtainSystemCharges @ 0x1402E4250
+ * XREFs of MiObtainSystemCharges @ 0x1402E44E0
  * Callers:
- *     MiGetPageTablePages @ 0x1402E40B8 (MiGetPageTablePages.c)
- *     MiGetLargePagesForSystemMapping @ 0x140A322C4 (MiGetLargePagesForSystemMapping.c)
+ *     MiGetPageTablePages @ 0x1402E4348 (MiGetPageTablePages.c)
+ *     MiGetLargePagesForSystemMapping @ 0x140A32574 (MiGetLargePagesForSystemMapping.c)
  * Callees:
- *     MiChargeCommit @ 0x1402764C0 (MiChargeCommit.c)
- *     MiReturnCommit @ 0x1402DC250 (MiReturnCommit.c)
- *     MiChargeResident @ 0x1402E43A8 (MiChargeResident.c)
+ *     MiChargeCommit @ 0x140276750 (MiChargeCommit.c)
+ *     MiReturnCommit @ 0x1402DC4E0 (MiReturnCommit.c)
+ *     MiChargeResident @ 0x1402E4638 (MiChargeResident.c)
  */
 
 __int64 __fastcall MiObtainSystemCharges(unsigned __int64 a1, unsigned __int64 a2, int a3)

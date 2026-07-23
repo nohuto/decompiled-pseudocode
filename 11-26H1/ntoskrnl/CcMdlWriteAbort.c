@@ -1,13 +1,13 @@
 /*
- * XREFs of CcMdlWriteAbort @ 0x1405B1FC0
+ * XREFs of CcMdlWriteAbort @ 0x1405B47D0
  * Callers:
  *     <none>
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x1402B4730 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x1402B98C0 (KeReleaseInStackQueuedSpinLock.c)
- *     CcDecrementOpenCount @ 0x14039E74C (CcDecrementOpenCount.c)
- *     IoFreeMdl @ 0x14039F190 (IoFreeMdl.c)
- *     MmUnlockPages @ 0x140410C10 (MmUnlockPages.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402FF400 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x140304580 (KeReleaseInStackQueuedSpinLock.c)
+ *     CcDecrementOpenCount @ 0x1403A04AC (CcDecrementOpenCount.c)
+ *     IoFreeMdl @ 0x1403A0EF0 (IoFreeMdl.c)
+ *     MmUnlockPages @ 0x140410330 (MmUnlockPages.c)
  */
 
 void __stdcall CcMdlWriteAbort(PFILE_OBJECT FileObject, PMDL MdlChain)

@@ -1,10 +1,10 @@
 /*
- * XREFs of PsAcquireSiloHardReference @ 0x14048F400
+ * XREFs of PsAcquireSiloHardReference @ 0x140488E40
  * Callers:
- *     IopParseDevice @ 0x1409008C0 (IopParseDevice.c)
- *     IopAllocRealFileObject @ 0x1409337E0 (IopAllocRealFileObject.c)
+ *     IopAllocRealFileObject @ 0x14090F390 (IopAllocRealFileObject.c)
+ *     IopParseDevice @ 0x140930850 (IopParseDevice.c)
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x140278B30 (ObfReferenceObjectWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x1402780A0 (ObfReferenceObjectWithTag.c)
  */
 
 __int64 __fastcall PsAcquireSiloHardReference(_DWORD *a1)

@@ -1,10 +1,10 @@
 /*
- * XREFs of FsRtlAllocateExtraCreateParameterList @ 0x1409B7A60
+ * XREFs of FsRtlAllocateExtraCreateParameterList @ 0x1409AF1A0
  * Callers:
  *     <none>
  * Callees:
- *     ExAllocateFromPagedLookasideList @ 0x1403FA0E0 (ExAllocateFromPagedLookasideList.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     ExAllocateFromPagedLookasideList @ 0x1403EFFF0 (ExAllocateFromPagedLookasideList.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 NTSTATUS __stdcall FsRtlAllocateExtraCreateParameterList(FSRTL_ALLOCATE_ECPLIST_FLAGS Flags, PECP_LIST *EcpList)
@@ -15,7 +15,7 @@ NTSTATUS __stdcall FsRtlAllocateExtraCreateParameterList(FSRTL_ALLOCATE_ECPLIST_
   *EcpList = 0LL;
   if ( (Flags & 1) != 0 )
   {
-    Pool2 = (struct _ECP_LIST *)ExAllocatePool2(0x103uLL);
+    Pool2 = (struct _ECP_LIST *)ExAllocatePool2(0x103uLL, 0x18uLL, 0x6C655346u);
     v4 = 2;
   }
   else

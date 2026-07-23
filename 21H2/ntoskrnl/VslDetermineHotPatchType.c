@@ -1,12 +1,12 @@
 /*
- * XREFs of VslDetermineHotPatchType @ 0x14088F5D8
+ * XREFs of VslDetermineHotPatchType @ 0x14088F738
  * Callers:
- *     MiLoadHotPatch @ 0x1408CABD0 (MiLoadHotPatch.c)
- *     MmRegisterHotPatch @ 0x140A9232C (MmRegisterHotPatch.c)
+ *     MiLoadHotPatch @ 0x1408CAD30 (MiLoadHotPatch.c)
+ *     MmRegisterHotPatch @ 0x140A9332C (MmRegisterHotPatch.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140262C90 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
+ *     VslpEnterIumSecureMode @ 0x1402840D0 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
  */
 
 NTSTATUS __fastcall VslDetermineHotPatchType(unsigned int a1, unsigned int a2, int *a3)
@@ -29,11 +29,11 @@ NTSTATUS __fastcall VslDetermineHotPatchType(unsigned int a1, unsigned int a2, i
     *a3 = v8[2];
     if ( (v7 & 1) != 0 )
     {
-      _InterlockedIncrement(&dword_140C473A4);
+      _InterlockedIncrement(&dword_140C47484);
       v7 = *a3;
     }
     if ( (v7 & 2) != 0 )
-      _InterlockedIncrement(&dword_140C473A8);
+      _InterlockedIncrement(&dword_140C47488);
   }
   return result;
 }

@@ -8,22 +8,22 @@
  *     PopUnreferencePowerSetting @ 0x14045705C (PopUnreferencePowerSetting.c)
  */
 
-void __fastcall PopFreeRegistration(_DWORD *a1, __int64 a2, __int64 a3)
+void __fastcall PopFreeRegistration(WNF_STATE_NAME *a1)
 {
-  _DWORD **v4; // rbx
-  __int64 v5; // rsi
+  WNF_STATE_NAME *v2; // rbx
+  __int64 v3; // rsi
 
-  v4 = (_DWORD **)(a1 + 16);
-  v5 = 3LL;
+  v2 = a1 + 8;
+  v3 = 3LL;
   do
   {
-    if ( *v4 )
-      PopUnreferencePowerSetting(*v4);
-    ++v4;
-    --v5;
+    if ( *v2 )
+      PopUnreferencePowerSetting(*v2);
+    ++v2;
+    --v3;
   }
-  while ( v5 );
-  if ( a1[14] || a1[15] )
-    ZwDeleteWnfStateName((__int64)(a1 + 14), a2, a3);
+  while ( v3 );
+  if ( a1[7].Data[0] || a1[7].Data[1] )
+    ZwDeleteWnfStateName(a1 + 7);
   ExFreePoolWithTag(a1, 0x74655350u);
 }

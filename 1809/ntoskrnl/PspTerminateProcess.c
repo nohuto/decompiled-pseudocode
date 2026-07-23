@@ -1,19 +1,19 @@
 /*
- * XREFs of PspTerminateProcess @ 0x14067787C
+ * XREFs of PspTerminateProcess @ 0x140678A3C
  * Callers:
- *     NtTerminateProcess @ 0x14067A810 (NtTerminateProcess.c)
- *     PsTerminateProcess @ 0x1406C98D4 (PsTerminateProcess.c)
- *     PspTerminatePicoProcess @ 0x14088C7C0 (PspTerminatePicoProcess.c)
+ *     NtTerminateProcess @ 0x14067B9D0 (NtTerminateProcess.c)
+ *     PsTerminateProcess @ 0x1406CAB74 (PsTerminateProcess.c)
+ *     PspTerminatePicoProcess @ 0x14088DA20 (PspTerminatePicoProcess.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KeForceResumeProcess @ 0x1400F34BC (KeForceResumeProcess.c)
- *     KeSetProcessSchedulingGroup @ 0x1400F35AC (KeSetProcessSchedulingGroup.c)
- *     EtwTraceProcessTerminate @ 0x1400F36A4 (EtwTraceProcessTerminate.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     PspRundownSingleProcess @ 0x140603A48 (PspRundownSingleProcess.c)
- *     PspTerminateAllThreads @ 0x1406761E4 (PspTerminateAllThreads.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     KeForceResumeProcess @ 0x1400F353C (KeForceResumeProcess.c)
+ *     KeSetProcessSchedulingGroup @ 0x1400F362C (KeSetProcessSchedulingGroup.c)
+ *     EtwTraceProcessTerminate @ 0x1400F3724 (EtwTraceProcessTerminate.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     PspRundownSingleProcess @ 0x140604A48 (PspRundownSingleProcess.c)
+ *     PspTerminateAllThreads @ 0x1406773A4 (PspTerminateAllThreads.c)
  */
 
 __int64 __fastcall PspTerminateProcess(
@@ -57,9 +57,9 @@ LABEL_14:
     v12 = v11;
     goto LABEL_15;
   }
-  if ( *((_QWORD *)&xmmword_14040E2E0 + 1) && (v10 & 8) == 0 )
+  if ( *((_QWORD *)&xmmword_14040F340 + 1) && (v10 & 8) == 0 )
   {
-    v11 = (*((__int64 (__fastcall **)(ULONG_PTR, _QWORD))&xmmword_14040E2E0 + 1))(BugCheckParameter1, a3);
+    v11 = (*((__int64 (__fastcall **)(ULONG_PTR, _QWORD))&xmmword_14040F340 + 1))(BugCheckParameter1, a3);
     goto LABEL_14;
   }
   v12 = 290;

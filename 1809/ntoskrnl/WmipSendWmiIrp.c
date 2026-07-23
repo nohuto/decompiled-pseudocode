@@ -1,18 +1,18 @@
 /*
- * XREFs of WmipSendWmiIrp @ 0x1405FBEA0
+ * XREFs of WmipSendWmiIrp @ 0x1405FCEA0
  * Callers:
- *     WmipQueryAllData @ 0x14059DBCC (WmipQueryAllData.c)
- *     WmipQuerySetExecuteSI @ 0x1405FBF88 (WmipQuerySetExecuteSI.c)
- *     WmipRegisterOrUpdateDS @ 0x1406C9968 (WmipRegisterOrUpdateDS.c)
- *     WmipEnableCollectionForNewGuid @ 0x140707FF4 (WmipEnableCollectionForNewGuid.c)
- *     WmipDisableCollectionForRemovedGuid @ 0x1407085F0 (WmipDisableCollectionForRemovedGuid.c)
- *     WmipSendEnableDisableRequest @ 0x14070A86C (WmipSendEnableDisableRequest.c)
- *     WmipDereferenceEvent @ 0x1408B3398 (WmipDereferenceEvent.c)
- *     WmipProcessLegacyEtwCallback @ 0x1408B4570 (WmipProcessLegacyEtwCallback.c)
+ *     WmipQueryAllData @ 0x14059EBCC (WmipQueryAllData.c)
+ *     WmipQuerySetExecuteSI @ 0x1405FCF88 (WmipQuerySetExecuteSI.c)
+ *     WmipRegisterOrUpdateDS @ 0x1406CAC08 (WmipRegisterOrUpdateDS.c)
+ *     WmipEnableCollectionForNewGuid @ 0x140709294 (WmipEnableCollectionForNewGuid.c)
+ *     WmipDisableCollectionForRemovedGuid @ 0x140709890 (WmipDisableCollectionForRemovedGuid.c)
+ *     WmipSendEnableDisableRequest @ 0x14070BB0C (WmipSendEnableDisableRequest.c)
+ *     WmipDereferenceEvent @ 0x1408B45F8 (WmipDereferenceEvent.c)
+ *     WmipProcessLegacyEtwCallback @ 0x1408B5830 (WmipProcessLegacyEtwCallback.c)
  * Callees:
- *     IoAllocateIrp @ 0x14008E4E0 (IoAllocateIrp.c)
- *     IoFreeIrp @ 0x1400B9670 (IoFreeIrp.c)
- *     WmipForwardWmiIrp @ 0x1405FB974 (WmipForwardWmiIrp.c)
+ *     IoAllocateIrp @ 0x14008E400 (IoAllocateIrp.c)
+ *     IoFreeIrp @ 0x1400B95B0 (IoFreeIrp.c)
+ *     WmipForwardWmiIrp @ 0x1405FC974 (WmipForwardWmiIrp.c)
  */
 
 __int64 __fastcall WmipSendWmiIrp(

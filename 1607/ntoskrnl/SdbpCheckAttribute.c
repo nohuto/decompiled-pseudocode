@@ -1,13 +1,13 @@
 /*
- * XREFs of SdbpCheckAttribute @ 0x1406C4CF8
+ * XREFs of SdbpCheckAttribute @ 0x1406C4E30
  * Callers:
- *     SdbpCheckAllAttributes @ 0x1406C4A30 (SdbpCheckAllAttributes.c)
+ *     SdbpCheckAllAttributes @ 0x1406C4B68 (SdbpCheckAllAttributes.c)
  * Callees:
- *     AslStringPatternMatchW @ 0x140578D34 (AslStringPatternMatchW.c)
- *     SdbpCheckFromVersion @ 0x1406C4ECC (SdbpCheckFromVersion.c)
- *     SdbpCheckUptoVersion @ 0x1406C4F08 (SdbpCheckUptoVersion.c)
- *     SdbpCheckVersion @ 0x1406C4F44 (SdbpCheckVersion.c)
- *     AslLogCallPrintf @ 0x1406C5804 (AslLogCallPrintf.c)
+ *     AslStringPatternMatchW @ 0x140579274 (AslStringPatternMatchW.c)
+ *     SdbpCheckFromVersion @ 0x1406C5004 (SdbpCheckFromVersion.c)
+ *     SdbpCheckUptoVersion @ 0x1406C5040 (SdbpCheckUptoVersion.c)
+ *     SdbpCheckVersion @ 0x1406C507C (SdbpCheckVersion.c)
+ *     AslLogCallPrintf @ 0x1406C593C (AslLogCallPrintf.c)
  */
 
 __int64 __fastcall SdbpCheckAttribute(_DWORD *a1, unsigned __int16 a2, WCHAR *a3, unsigned int a4, __int64 a5)

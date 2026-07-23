@@ -1,11 +1,11 @@
 /*
- * XREFs of PnpSetDeviceInstanceRemovalEvent @ 0x14009F544
+ * XREFs of PnpSetDeviceInstanceRemovalEvent @ 0x1400850B8
  * Callers:
- *     PnpUnlinkDeviceRemovalRelations @ 0x1404C5220 (PnpUnlinkDeviceRemovalRelations.c)
+ *     PnpUnlinkDeviceRemovalRelations @ 0x140485654 (PnpUnlinkDeviceRemovalRelations.c)
  * Callees:
- *     memmove @ 0x140171280 (memmove.c)
- *     PnpInsertEventInQueue @ 0x1403F0BD4 (PnpInsertEventInQueue.c)
- *     PnpCreateDeviceEventEntry @ 0x1403F0D68 (PnpCreateDeviceEventEntry.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     PnpCreateDeviceEventEntry @ 0x140489C28 (PnpCreateDeviceEventEntry.c)
+ *     PnpInsertEventInQueue @ 0x14048AC64 (PnpInsertEventInQueue.c)
  */
 
 __int64 __fastcall PnpSetDeviceInstanceRemovalEvent(__int64 a1)

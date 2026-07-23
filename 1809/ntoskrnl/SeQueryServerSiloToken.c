@@ -1,14 +1,14 @@
 /*
- * XREFs of SeQueryServerSiloToken @ 0x1406C5500
+ * XREFs of SeQueryServerSiloToken @ 0x1406C67A0
  * Callers:
- *     NtCreateUserProcess @ 0x14060A950 (NtCreateUserProcess.c)
- *     SepCreateClientSecurityEx @ 0x140631EC0 (SepCreateClientSecurityEx.c)
- *     SepUpdateSiloInClientSecurity @ 0x1408A18D4 (SepUpdateSiloInClientSecurity.c)
+ *     NtCreateUserProcess @ 0x14060B950 (NtCreateUserProcess.c)
+ *     SepCreateClientSecurityEx @ 0x140632EE0 (SepCreateClientSecurityEx.c)
+ *     SepUpdateSiloInClientSecurity @ 0x1408A2B34 (SepUpdateSiloInClientSecurity.c)
  * Callees:
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceSharedLite @ 0x140050860 (ExAcquireResourceSharedLite.c)
- *     PsGetSiloBySessionId @ 0x140596B48 (PsGetSiloBySessionId.c)
+ *     PsGetSiloBySessionId @ 0x140597B48 (PsGetSiloBySessionId.c)
  */
 
 __int64 __fastcall SeQueryServerSiloToken(__int64 a1, _QWORD *a2)

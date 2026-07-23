@@ -1,7 +1,7 @@
 /*
- * XREFs of PopPepStartDevicePowerOffActivity @ 0x1403B1490
+ * XREFs of PopPepStartDevicePowerOffActivity @ 0x1403BB1A0
  * Callers:
- *     PopPepProcessEvent @ 0x1403AFCF0 (PopPepProcessEvent.c)
+ *     PopPepProcessEvent @ 0x1403B9A00 (PopPepProcessEvent.c)
  * Callees:
  *     <none>
  */

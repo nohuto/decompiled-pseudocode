@@ -1,7 +1,7 @@
 /*
- * XREFs of FsRtlCheckNotifyForDelete @ 0x14093FE90
+ * XREFs of FsRtlCheckNotifyForDelete @ 0x140940090
  * Callers:
- *     FsRtlNotifyFilterChangeDirectory @ 0x140851C60 (FsRtlNotifyFilterChangeDirectory.c)
+ *     FsRtlNotifyFilterChangeDirectory @ 0x140851F60 (FsRtlNotifyFilterChangeDirectory.c)
  * Callees:
  *     FsRtlNotifyCompleteIrpList @ 0x14068A9F0 (FsRtlNotifyCompleteIrpList.c)
  */

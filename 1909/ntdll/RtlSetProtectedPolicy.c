@@ -16,132 +16,140 @@
  *     memmove @ 0x1800A3A80 (memmove.c)
  */
 
-__int64 __fastcall RtlSetProtectedPolicy(_OWORD *Key, __int64 a2, _QWORD *a3)
+NTSTATUS __cdecl RtlSetProtectedPolicy(PGUID PolicyGuid, ULONG_PTR PolicyValue, PULONG_PTR OldPolicyValue)
 {
   char v6; // di
   int v7; // ebx
-  int v8; // ebx
-  void *v9; // rax
-  char *v10; // rbx
-  unsigned int v11; // ebx
-  void *ProcessHeap; // rcx
+  int v8; // eax
+  int v9; // ebx
+  PVOID v10; // rax
+  GUID *v11; // rbx
+  unsigned int v12; // ebx
+  int v13; // eax
+  PVOID ProcessHeap; // rcx
   char *Heap; // rsi
-  void *v14; // rdi
-  __int64 v15; // rcx
-  int v16; // edx
-  void *v18; // rcx
+  PVOID v16; // rdi
+  unsigned __int64 v17; // rcx
+  int v18; // eax
+  int v19; // edx
+  int v21; // eax
+  PVOID v22; // rcx
 
   v6 = 0;
   v7 = LdrEnsureMrdataHeapExists();
   if ( v7 >= 0 )
   {
     RtlAcquireSRWLockExclusive(&RtlpProtectedPoliciesSRWLock);
-    if ( (unsigned int)LdrControlFlowGuardEnforced() )
+    LOBYTE(v8) = LdrControlFlowGuardEnforced();
+    if ( v8 )
     {
       RtlAcquireSRWLockExclusive(&LdrpMrdataLock);
-      v8 = *(_DWORD *)LdrpMrdataHeapUnprotected;
+      v9 = *(_DWORD *)LdrpMrdataHeapUnprotected;
       if ( !*(_DWORD *)LdrpMrdataHeapUnprotected )
-        RtlProtectHeap((_DWORD *)LdrpMrdataHeap, 0);
-      if ( v8 == -1 )
+        RtlProtectHeap(LdrpMrdataHeap, 0);
+      if ( v9 == -1 )
         goto LABEL_43;
-      *(_DWORD *)LdrpMrdataHeapUnprotected = v8 + 1;
+      *(_DWORD *)LdrpMrdataHeapUnprotected = v9 + 1;
       RtlReleaseSRWLockExclusive(&LdrpMrdataLock);
     }
-    v9 = RtlpProtectedPolicies;
+    v10 = RtlpProtectedPolicies;
     if ( RtlpProtectedPolicies )
     {
-      v10 = (char *)bsearch(
-                      Key,
+      v11 = (GUID *)bsearch(
+                      PolicyGuid,
                       RtlpProtectedPolicies,
                       (unsigned int)RtlpProtectedPoliciesActiveCount,
                       0x18uLL,
                       (_CoreCrtNonSecureSearchSortCompareFunction)RtlpCompareProtectedPolicyEntry);
-      v9 = RtlpProtectedPolicies;
+      v10 = RtlpProtectedPolicies;
     }
     else
     {
-      v10 = 0LL;
+      v11 = 0LL;
     }
-    if ( v10 )
+    if ( v11 )
       goto LABEL_22;
-    if ( v9 && (_DWORD)RtlpProtectedPoliciesActiveCount + 1 != RtlpProtectedPoliciesTotalCount )
+    if ( v10 && (_DWORD)RtlpProtectedPoliciesActiveCount + 1 != RtlpProtectedPoliciesTotalCount )
     {
       LdrProtectMrdata(0);
       Heap = (char *)RtlpProtectedPolicies;
 LABEL_21:
-      v10 = &Heap[24 * (unsigned int)RtlpProtectedPoliciesActiveCount];
+      v11 = (GUID *)&Heap[24 * (unsigned int)RtlpProtectedPoliciesActiveCount];
       LODWORD(RtlpProtectedPoliciesActiveCount) = RtlpProtectedPoliciesActiveCount + 1;
-      *(_QWORD *)v10 = 0LL;
-      *((_QWORD *)v10 + 1) = 0LL;
-      *((_QWORD *)v10 + 2) = 0LL;
-      *(_OWORD *)v10 = *Key;
+      *(_QWORD *)&v11->Data1 = 0LL;
+      *(_QWORD *)v11->Data4 = 0LL;
+      *(_QWORD *)&v11[1].Data1 = 0LL;
+      *v11 = *PolicyGuid;
       LdrProtectMrdata(1);
-      v9 = RtlpProtectedPolicies;
+      v10 = RtlpProtectedPolicies;
       v6 = 1;
 LABEL_22:
-      v15 = *((_QWORD *)v10 + 2);
-      *((_QWORD *)v10 + 2) = a2;
-      if ( a3 )
-        *a3 = v15;
+      v17 = *(_QWORD *)&v11[1].Data1;
+      *(_QWORD *)&v11[1].Data1 = PolicyValue;
+      if ( OldPolicyValue )
+        *OldPolicyValue = v17;
       if ( v6 )
         qsort(
-          v9,
+          v10,
           (unsigned int)RtlpProtectedPoliciesActiveCount,
           0x18uLL,
           (_CoreCrtNonSecureSearchSortCompareFunction)RtlpCompareProtectedPolicyEntry);
       v7 = 0;
       goto LABEL_27;
     }
-    v11 = 16;
+    v12 = 16;
     if ( RtlpProtectedPoliciesTotalCount )
-      v11 = 2 * RtlpProtectedPoliciesTotalCount;
-    if ( v11 >= RtlpProtectedPoliciesTotalCount && v11 < 0xAAAAAAA )
+      v12 = 2 * RtlpProtectedPoliciesTotalCount;
+    if ( v12 >= RtlpProtectedPoliciesTotalCount && v12 < 0xAAAAAAA )
     {
-      if ( (unsigned int)LdrControlFlowGuardEnforced() )
+      LOBYTE(v13) = LdrControlFlowGuardEnforced();
+      if ( v13 )
       {
-        if ( 24 * (unsigned __int64)v11 >= 0xFF000 )
+        if ( 24 * (unsigned __int64)v12 >= 0xFF000 )
           goto LABEL_42;
-        ProcessHeap = (void *)LdrpMrdataHeap;
+        ProcessHeap = LdrpMrdataHeap;
       }
       else
       {
         ProcessHeap = NtCurrentPeb()->ProcessHeap;
       }
-      Heap = (char *)RtlAllocateHeap((__int64)ProcessHeap, 0, 24LL * v11);
+      Heap = (char *)RtlAllocateHeap(ProcessHeap, 0, 24LL * v12);
       if ( Heap )
       {
         LdrProtectMrdata(0);
-        v14 = RtlpProtectedPolicies;
+        v16 = RtlpProtectedPolicies;
         if ( RtlpProtectedPolicies )
         {
           memmove(Heap, RtlpProtectedPolicies, 24LL * (unsigned int)RtlpProtectedPoliciesActiveCount);
-          if ( (unsigned int)LdrControlFlowGuardEnforced() )
-            v18 = (void *)LdrpMrdataHeap;
+          LOBYTE(v21) = LdrControlFlowGuardEnforced();
+          if ( v21 )
+            v22 = LdrpMrdataHeap;
           else
-            v18 = NtCurrentPeb()->ProcessHeap;
-          RtlFreeHeap((__int64)v18, 0, (__int64)v14);
+            v22 = NtCurrentPeb()->ProcessHeap;
+          RtlFreeHeap(v22, 0, v16);
         }
         RtlpProtectedPolicies = Heap;
-        RtlpProtectedPoliciesTotalCount = v11;
+        RtlpProtectedPoliciesTotalCount = v12;
         goto LABEL_21;
       }
     }
 LABEL_42:
     v7 = -1073741801;
 LABEL_27:
-    if ( !(unsigned int)LdrControlFlowGuardEnforced() )
+    LOBYTE(v18) = LdrControlFlowGuardEnforced();
+    if ( !v18 )
     {
 LABEL_32:
       RtlReleaseSRWLockExclusive(&RtlpProtectedPoliciesSRWLock);
-      return (unsigned int)v7;
+      return v7;
     }
     RtlAcquireSRWLockExclusive(&LdrpMrdataLock);
-    v16 = *(_DWORD *)LdrpMrdataHeapUnprotected;
+    v19 = *(_DWORD *)LdrpMrdataHeapUnprotected;
     if ( *(_DWORD *)LdrpMrdataHeapUnprotected )
     {
-      *(_DWORD *)LdrpMrdataHeapUnprotected = v16 - 1;
-      if ( v16 == 1 )
-        RtlProtectHeap((_DWORD *)LdrpMrdataHeap, 1);
+      *(_DWORD *)LdrpMrdataHeapUnprotected = v19 - 1;
+      if ( v19 == 1 )
+        RtlProtectHeap(LdrpMrdataHeap, 1u);
       RtlReleaseSRWLockExclusive(&LdrpMrdataLock);
       goto LABEL_32;
     }
@@ -149,5 +157,5 @@ LABEL_43:
     RtlReleaseSRWLockExclusive(&LdrpMrdataLock);
     __fastfail(0xEu);
   }
-  return (unsigned int)v7;
+  return v7;
 }

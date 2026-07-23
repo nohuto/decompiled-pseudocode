@@ -1,10 +1,10 @@
 /*
- * XREFs of VerifierRtlOemStringToCountedUnicodeString @ 0x1409438B0
+ * XREFs of VerifierRtlOemStringToCountedUnicodeString @ 0x1409448B0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     ViRtlReplaceStringBuffer @ 0x140943C5C (ViRtlReplaceStringBuffer.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     ViRtlReplaceStringBuffer @ 0x140944C5C (ViRtlReplaceStringBuffer.c)
  */
 
 __int64 __fastcall VerifierRtlOemStringToCountedUnicodeString(__int64 a1, __int64 a2, char a3)

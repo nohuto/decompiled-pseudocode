@@ -1,9 +1,9 @@
 /*
- * XREFs of ObRetagReferences @ 0x1406B69A0
+ * XREFs of ObRetagReferences @ 0x1406B6B50
  * Callers:
- *     PspAllocateProcess @ 0x1406B442C (PspAllocateProcess.c)
+ *     PspAllocateProcess @ 0x1406B45D8 (PspAllocateProcess.c)
  * Callees:
- *     ObpPushStackInfo @ 0x140582BD8 (ObpPushStackInfo.c)
+ *     ObpPushStackInfo @ 0x1405830C8 (ObpPushStackInfo.c)
  */
 
 void __fastcall ObRetagReferences(__int64 a1, __int64 a2, unsigned int a3)

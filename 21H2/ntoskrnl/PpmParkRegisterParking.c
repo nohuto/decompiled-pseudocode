@@ -1,23 +1,23 @@
 /*
- * XREFs of PpmParkRegisterParking @ 0x1403C1460
+ * XREFs of PpmParkRegisterParking @ 0x1403C1890
  * Callers:
- *     PpmCheckInitProcessors @ 0x1407B9B18 (PpmCheckInitProcessors.c)
+ *     PpmCheckInitProcessors @ 0x1407BA2A8 (PpmCheckInitProcessors.c)
  * Callees:
- *     KeGetPrcb @ 0x140228E30 (KeGetPrcb.c)
- *     KeEnumerateNextProcessor @ 0x140229400 (KeEnumerateNextProcessor.c)
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     PopExecuteOnTargetProcessors @ 0x14027B7DC (PopExecuteOnTargetProcessors.c)
- *     KeQueryNodeActiveAffinity @ 0x1402E2F80 (KeQueryNodeActiveAffinity.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
- *     PpmParkApplyPolicy @ 0x1403C1C84 (PpmParkApplyPolicy.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     PopExecuteOnTargetProcessors @ 0x14026977C (PopExecuteOnTargetProcessors.c)
+ *     KeQueryNodeActiveAffinity @ 0x1402942D0 (KeQueryNodeActiveAffinity.c)
+ *     KeGetPrcb @ 0x1402CD730 (KeGetPrcb.c)
+ *     KeEnumerateNextProcessor @ 0x1402CDD00 (KeEnumerateNextProcessor.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PpmParkApplyPolicy @ 0x1403C20B4 (PpmParkApplyPolicy.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     memset @ 0x140414200 (memset.c)
- *     PpmParkParkingAvailable @ 0x1407BAA10 (PpmParkParkingAvailable.c)
- *     PpmIdleInitializeConcurrency @ 0x1407BAB28 (PpmIdleInitializeConcurrency.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     PpmParkParkingAvailable @ 0x1407BB1A0 (PpmParkParkingAvailable.c)
+ *     PpmIdleInitializeConcurrency @ 0x1407BB2B8 (PpmIdleInitializeConcurrency.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 PpmParkRegisterParking()
@@ -116,7 +116,7 @@ __int64 PpmParkRegisterParking()
   PVOID v92; // [rsp+60h] [rbp-A8h]
   PVOID v93[2]; // [rsp+68h] [rbp-A0h] BYREF
   __int64 Affinity; // [rsp+78h] [rbp-90h]
-  struct _GROUP_AFFINITY Affinity_8; // [rsp+80h] [rbp-88h] BYREF
+  _GROUP_AFFINITY Affinity_8; // [rsp+80h] [rbp-88h] BYREF
   _QWORD v96[22]; // [rsp+98h] [rbp-70h] BYREF
 
   memset(v96, 0, 0xA8uLL);
@@ -210,7 +210,7 @@ __int64 PpmParkRegisterParking()
   if ( PpmParkUseCoreGranularity )
   {
     LODWORD(v10) = 0;
-    v93[1] = (PVOID)qword_140C113E8[0];
+    v93[1] = (PVOID)qword_140C113C8[0];
     v93[0] = PpmCheckRegistered;
     while ( !(unsigned int)KeEnumerateNextProcessor(&v84, (unsigned __int16 **)v93) )
     {

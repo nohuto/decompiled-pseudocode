@@ -1,18 +1,18 @@
 /*
- * XREFs of PnpHardwareConfigCreateBootDriverFlags @ 0x140810608
+ * XREFs of PnpHardwareConfigCreateBootDriverFlags @ 0x1408108D8
  * Callers:
  *     IopMarkBootPartition @ 0x140B39DF0 (IopMarkBootPartition.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     ZwWaitForSingleObject @ 0x14041ADE0 (ZwWaitForSingleObject.c)
- *     ZwDeviceIoControlFile @ 0x14041AE40 (ZwDeviceIoControlFile.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ZwCreateEvent @ 0x14041B660 (ZwCreateEvent.c)
- *     ZwResetEvent @ 0x14041DE00 (ZwResetEvent.c)
- *     _RegRtlQueryValue @ 0x1406CE868 (_RegRtlQueryValue.c)
- *     _SysCtxRegOpenKey @ 0x1406CED20 (_SysCtxRegOpenKey.c)
- *     _RegRtlSetValue @ 0x1407D49D4 (_RegRtlSetValue.c)
- *     PipHardwareConfigOpenKey @ 0x140810A98 (PipHardwareConfigOpenKey.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     ZwWaitForSingleObject @ 0x14041B170 (ZwWaitForSingleObject.c)
+ *     ZwDeviceIoControlFile @ 0x14041B1D0 (ZwDeviceIoControlFile.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ZwCreateEvent @ 0x14041B9F0 (ZwCreateEvent.c)
+ *     ZwResetEvent @ 0x14041E190 (ZwResetEvent.c)
+ *     _RegRtlQueryValue @ 0x1406CE898 (_RegRtlQueryValue.c)
+ *     _SysCtxRegOpenKey @ 0x1406CED50 (_SysCtxRegOpenKey.c)
+ *     _RegRtlSetValue @ 0x1407D4CA4 (_RegRtlSetValue.c)
+ *     PipHardwareConfigOpenKey @ 0x140810D68 (PipHardwareConfigOpenKey.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
@@ -108,7 +108,7 @@ __int64 __fastcall PnpHardwareConfigCreateBootDriverFlags(__int64 a1, void *a2)
             Status = -1073741670;
             goto LABEL_4;
           }
-          ZwResetEvent(*(__int64 *)&v24[1], 0LL);
+          ZwResetEvent(*(HANDLE *)&v24[1], 0LL);
           Status = ZwDeviceIoControlFile(
                      a2,
                      *(HANDLE *)&v24[1],

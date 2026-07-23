@@ -1,32 +1,32 @@
 /*
- * XREFs of MiLoadHotPatch @ 0x140870D5C
+ * XREFs of MiLoadHotPatch @ 0x1408770BC
  * Callers:
- *     NtManageHotPatch @ 0x140A993D0 (NtManageHotPatch.c)
- *     MiApplyRequiredDriverHotPatches @ 0x140B57160 (MiApplyRequiredDriverHotPatches.c)
- *     MmRegisterHotPatches @ 0x140CFBBA4 (MmRegisterHotPatches.c)
+ *     NtManageHotPatch @ 0x140A9D550 (NtManageHotPatch.c)
+ *     MiApplyRequiredDriverHotPatches @ 0x140B5A0B4 (MiApplyRequiredDriverHotPatches.c)
+ *     MmRegisterHotPatches @ 0x140D01F24 (MmRegisterHotPatches.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     MiSectionControlArea @ 0x14038A9B0 (MiSectionControlArea.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     MmReleaseLoadLock @ 0x1404A4B70 (MmReleaseLoadLock.c)
- *     MmAcquireLoadLock @ 0x1404AB9B0 (MmAcquireLoadLock.c)
- *     VslApplyHotPatch @ 0x1405C29F0 (VslApplyHotPatch.c)
- *     VslRegisterSecurePatch @ 0x1405C3AB4 (VslRegisterSecurePatch.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     VslDetermineHotPatchType @ 0x140792150 (VslDetermineHotPatchType.c)
- *     MiAllocateHotPatchRecord @ 0x14086D9B0 (MiAllocateHotPatchRecord.c)
- *     MiAllocateSecureImageActivePatch @ 0x14086DA5C (MiAllocateSecureImageActivePatch.c)
- *     MiApplyHotPatchToDriver @ 0x14086E13C (MiApplyHotPatchToDriver.c)
- *     MiHotPatchAllProcesses @ 0x140870190 (MiHotPatchAllProcesses.c)
- *     MiInsertHotPatchRecord @ 0x1408708FC (MiInsertHotPatchRecord.c)
- *     MiInsertSecureImageActivePatch @ 0x140870BC8 (MiInsertSecureImageActivePatch.c)
- *     MiLogHotPatchOperationStatus @ 0x140871F28 (MiLogHotPatchOperationStatus.c)
- *     MiOpenHotPatchFile @ 0x140873028 (MiOpenHotPatchFile.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1408FA680 (ObpReferenceObjectByHandleWithTag.c)
- *     MiValidateSectionCreate @ 0x1409CB8F4 (MiValidateSectionCreate.c)
- *     ObCloseHandle @ 0x140A00740 (ObCloseHandle.c)
- *     MiGetSectionStrongImageReference @ 0x140B4D7C0 (MiGetSectionStrongImageReference.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     MiSectionControlArea @ 0x14038C760 (MiSectionControlArea.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     MmReleaseLoadLock @ 0x14049E200 (MmReleaseLoadLock.c)
+ *     MmAcquireLoadLock @ 0x1404A5040 (MmAcquireLoadLock.c)
+ *     VslApplyHotPatch @ 0x1405C5260 (VslApplyHotPatch.c)
+ *     VslRegisterSecurePatch @ 0x1405C6324 (VslRegisterSecurePatch.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     VslDetermineHotPatchType @ 0x140794C80 (VslDetermineHotPatchType.c)
+ *     MiAllocateHotPatchRecord @ 0x140873D80 (MiAllocateHotPatchRecord.c)
+ *     MiAllocateSecureImageActivePatch @ 0x140873E2C (MiAllocateSecureImageActivePatch.c)
+ *     MiApplyHotPatchToDriver @ 0x14087450C (MiApplyHotPatchToDriver.c)
+ *     MiHotPatchAllProcesses @ 0x1408764F0 (MiHotPatchAllProcesses.c)
+ *     MiInsertHotPatchRecord @ 0x140876C5C (MiInsertHotPatchRecord.c)
+ *     MiInsertSecureImageActivePatch @ 0x140876F28 (MiInsertSecureImageActivePatch.c)
+ *     MiLogHotPatchOperationStatus @ 0x140878288 (MiLogHotPatchOperationStatus.c)
+ *     MiOpenHotPatchFile @ 0x140879388 (MiOpenHotPatchFile.c)
+ *     ObCloseHandle @ 0x14091D2C0 (ObCloseHandle.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x14092A610 (ObpReferenceObjectByHandleWithTag.c)
+ *     MiValidateSectionCreate @ 0x14099C8D4 (MiValidateSectionCreate.c)
+ *     MiGetSectionStrongImageReference @ 0x140B4F550 (MiGetSectionStrongImageReference.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiLoadHotPatch(const UNICODE_STRING *a1, int a2, int *a3, int *a4)
@@ -129,16 +129,16 @@ LABEL_50:
       v12 = Object;
       SectionStrongImageReference = -1073741670;
 LABEL_51:
-      if ( stru_140E36558.FirstArgument
-        && *(_DWORD *)stru_140E36558.FirstArgument
-        && tlgKeywordOn((__int64)stru_140E36558.FirstArgument, 0x400000000020LL) )
+      if ( stru_140E366D8.FirstArgument
+        && *(_DWORD *)stru_140E366D8.FirstArgument
+        && tlgKeywordOn((__int64)stru_140E366D8.FirstArgument, 0x400000000020LL) )
       {
         MiLogHotPatchOperationStatus(v29, v28, v9, v14, SectionStrongImageReference, 1);
       }
       goto LABEL_55;
     }
     Lock = MmAcquireLoadLock();
-    inserted = MiInsertHotPatchRecord((unsigned __int64 *)&xmmword_140E36540, (__int64)v15, 0LL, v16);
+    inserted = MiInsertHotPatchRecord((unsigned __int64 *)&xmmword_140E366C0, (__int64)v15, 0LL, v16);
     SectionStrongImageReference = inserted;
     if ( inserted < 0 )
       goto LABEL_48;
@@ -217,9 +217,9 @@ LABEL_48:
       v46 = 0LL;
       SectionStrongImageReference = -1073741670;
     }
-    if ( stru_140E36558.FirstArgument
-      && *(_DWORD *)stru_140E36558.FirstArgument
-      && tlgKeywordOn((__int64)stru_140E36558.FirstArgument, 0x400000000020LL) )
+    if ( stru_140E366D8.FirstArgument
+      && *(_DWORD *)stru_140E366D8.FirstArgument
+      && tlgKeywordOn((__int64)stru_140E366D8.FirstArgument, 0x400000000020LL) )
     {
       MiLogHotPatchOperationStatus(v25, v39.m128i_i32[0], v9, (_DWORD)SourceString, SectionStrongImageReference, 2);
     }

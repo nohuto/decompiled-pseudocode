@@ -1,24 +1,24 @@
 /*
- * XREFs of MiReferenceActiveSubsection @ 0x140315D00
+ * XREFs of MiReferenceActiveSubsection @ 0x140320A50
  * Callers:
- *     MiInsertInSystemSpace @ 0x1402FADE0 (MiInsertInSystemSpace.c)
- *     MiAddViewsForSection @ 0x1403155F0 (MiAddViewsForSection.c)
- *     MiSessionInsertImage @ 0x1403A2974 (MiSessionInsertImage.c)
- *     MiUpControlAreaRefs @ 0x14052AB70 (MiUpControlAreaRefs.c)
- *     MiMapViewOfImageSection @ 0x14061CEB0 (MiMapViewOfImageSection.c)
- *     MiMapImageInSystemSpace @ 0x140715730 (MiMapImageInSystemSpace.c)
- *     MmLoadSystemImageEx @ 0x14075BAFC (MmLoadSystemImageEx.c)
- *     MiApplyHotPatchToLoadedDriver @ 0x1408C91F8 (MiApplyHotPatchToLoadedDriver.c)
+ *     MiInsertInSystemSpace @ 0x140305B30 (MiInsertInSystemSpace.c)
+ *     MiAddViewsForSection @ 0x140320340 (MiAddViewsForSection.c)
+ *     MiSessionInsertImage @ 0x1403A2AC4 (MiSessionInsertImage.c)
+ *     MiUpControlAreaRefs @ 0x14052ADB0 (MiUpControlAreaRefs.c)
+ *     MiMapViewOfImageSection @ 0x140686B20 (MiMapViewOfImageSection.c)
+ *     MiMapImageInSystemSpace @ 0x1406C3D80 (MiMapImageInSystemSpace.c)
+ *     MmLoadSystemImageEx @ 0x14075BCBC (MmLoadSystemImageEx.c)
+ *     MiApplyHotPatchToLoadedDriver @ 0x1408C9358 (MiApplyHotPatchToLoadedDriver.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
- *     MiRemoveUnusedSubsection @ 0x1402F8B04 (MiRemoveUnusedSubsection.c)
- *     MiIncrementSubsectionViewCount @ 0x140315DE0 (MiIncrementSubsectionViewCount.c)
- *     MiGetCommittedPages @ 0x140316CD0 (MiGetCommittedPages.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusive @ 0x1402C1960 (ExAcquireSpinLockExclusive.c)
+ *     MiRemoveUnusedSubsection @ 0x140303854 (MiRemoveUnusedSubsection.c)
+ *     MiIncrementSubsectionViewCount @ 0x140320B30 (MiIncrementSubsectionViewCount.c)
+ *     MiGetCommittedPages @ 0x140321A20 (MiGetCommittedPages.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140346AD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     MiComputeCrossPartitionSectionCharges @ 0x140554DE8 (MiComputeCrossPartitionSectionCharges.c)
- *     MiGetSubsectionCharges @ 0x140554EC8 (MiGetSubsectionCharges.c)
- *     MiReturnCrossPartitionSectionCharges @ 0x1405550EC (MiReturnCrossPartitionSectionCharges.c)
+ *     MiComputeCrossPartitionSectionCharges @ 0x140555028 (MiComputeCrossPartitionSectionCharges.c)
+ *     MiGetSubsectionCharges @ 0x140555108 (MiGetSubsectionCharges.c)
+ *     MiReturnCrossPartitionSectionCharges @ 0x14055532C (MiReturnCrossPartitionSectionCharges.c)
  */
 
 __int64 __fastcall MiReferenceActiveSubsection(__int64 *BugCheckParameter2, int a2, KIRQL a3)
@@ -113,7 +113,7 @@ __int64 __fastcall MiReferenceActiveSubsection(__int64 *BugCheckParameter2, int 
         }
         __writecr8(v6);
         MiReturnCrossPartitionSectionCharges(
-          *(_QWORD *)(qword_140C4E648 + 8LL * (*(_WORD *)(v40 + 60) & 0x3FF)),
+          *(_QWORD *)(qword_140C4E688 + 8LL * (*(_WORD *)(v40 + 60) & 0x3FF)),
           v9,
           v43);
         if ( !v5 )
@@ -169,7 +169,7 @@ LABEL_19:
         }
       }
       __writecr8(v6);
-      MiReturnCrossPartitionSectionCharges(*(_QWORD *)(qword_140C4E648 + 8LL * (*(_WORD *)(v3 + 60) & 0x3FF)), v9, v4);
+      MiReturnCrossPartitionSectionCharges(*(_QWORD *)(qword_140C4E688 + 8LL * (*(_WORD *)(v3 + 60) & 0x3FF)), v9, v4);
       if ( !v5 )
         ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(v3 + 72));
       return 3221225773LL;
@@ -237,7 +237,7 @@ LABEL_34:
             }
             __writecr8(v6);
             MiReturnCrossPartitionSectionCharges(
-              *(_QWORD *)(qword_140C4E648 + 8LL * (*(_WORD *)(v3 + 60) & 0x3FF)),
+              *(_QWORD *)(qword_140C4E688 + 8LL * (*(_WORD *)(v3 + 60) & 0x3FF)),
               v9,
               v43);
             if ( !v5 )

@@ -1,14 +1,14 @@
 /*
- * XREFs of PopCaptureTimeOnProcZero @ 0x140566454
+ * XREFs of PopCaptureTimeOnProcZero @ 0x140567454
  * Callers:
- *     PopDiagComputeEarlyHiberStats @ 0x1405663A4 (PopDiagComputeEarlyHiberStats.c)
- *     PopTransitionSystemPowerStateEx @ 0x140566D74 (PopTransitionSystemPowerStateEx.c)
- *     PopDiagTraceHiberStats @ 0x1406DD610 (PopDiagTraceHiberStats.c)
+ *     PopDiagComputeEarlyHiberStats @ 0x1405673A4 (PopDiagComputeEarlyHiberStats.c)
+ *     PopTransitionSystemPowerStateEx @ 0x140567D74 (PopTransitionSystemPowerStateEx.c)
+ *     PopDiagTraceHiberStats @ 0x1406DE8B0 (PopDiagTraceHiberStats.c)
  * Callees:
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
  *     KeInsertQueueDpc @ 0x140062190 (KeInsertQueueDpc.c)
- *     KeInitializeDpc @ 0x1400A56F0 (KeInitializeDpc.c)
- *     KeInitializeEvent @ 0x1400B8E70 (KeInitializeEvent.c)
+ *     KeInitializeDpc @ 0x1400A5630 (KeInitializeDpc.c)
+ *     KeInitializeEvent @ 0x1400B8DB0 (KeInitializeEvent.c)
  */
 
 __int64 PopCaptureTimeOnProcZero()

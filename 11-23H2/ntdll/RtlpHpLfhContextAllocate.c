@@ -4,7 +4,7 @@
  *     RtlpHpAllocateHeapInternal @ 0x180066E14 (RtlpHpAllocateHeapInternal.c)
  * Callees:
  *     RtlpHpLfhBucketUpdateStats @ 0x180066FBC (RtlpHpLfhBucketUpdateStats.c)
- *     RtlpHpLfhBucketAllocate @ 0x180122A44 (RtlpHpLfhBucketAllocate.c)
+ *     RtlpHpLfhBucketAllocate @ 0x180122A14 (RtlpHpLfhBucketAllocate.c)
  */
 
 __int64 __fastcall RtlpHpLfhContextAllocate(__int64 a1, unsigned int a2, unsigned int a3, unsigned int a4)

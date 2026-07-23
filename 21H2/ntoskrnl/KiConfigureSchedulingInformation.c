@@ -1,14 +1,14 @@
 /*
- * XREFs of KiConfigureSchedulingInformation @ 0x14099FD80
+ * XREFs of KiConfigureSchedulingInformation @ 0x1409A0CB0
  * Callers:
- *     KiInitializeDynamicProcessorDpc @ 0x1409AF390 (KiInitializeDynamicProcessorDpc.c)
- *     KiConfigureAllSchedulingInformation @ 0x140A4EA60 (KiConfigureAllSchedulingInformation.c)
+ *     KiInitializeDynamicProcessorDpc @ 0x1409B02C0 (KiInitializeDynamicProcessorDpc.c)
+ *     KiConfigureAllSchedulingInformation @ 0x140A4FA60 (KiConfigureAllSchedulingInformation.c)
  * Callees:
- *     KeEnumerateNextProcessor @ 0x140229400 (KeEnumerateNextProcessor.c)
- *     KiIsThreadRankNonZero @ 0x14024D450 (KiIsThreadRankNonZero.c)
- *     KeQueryNodeActiveAffinity @ 0x1402E2F80 (KeQueryNodeActiveAffinity.c)
- *     KiConfigureCpuSetSchedulingInformation @ 0x1403B66BC (KiConfigureCpuSetSchedulingInformation.c)
- *     KeDoesSystemHaveHeterogeneousCoreTypes @ 0x1403F2A0C (KeDoesSystemHaveHeterogeneousCoreTypes.c)
+ *     KeQueryNodeActiveAffinity @ 0x1402942D0 (KeQueryNodeActiveAffinity.c)
+ *     KeEnumerateNextProcessor @ 0x1402CDD00 (KeEnumerateNextProcessor.c)
+ *     KiIsThreadRankNonZero @ 0x1402F1CA0 (KiIsThreadRankNonZero.c)
+ *     KiConfigureCpuSetSchedulingInformation @ 0x1403B682C (KiConfigureCpuSetSchedulingInformation.c)
+ *     KeDoesSystemHaveHeterogeneousCoreTypes @ 0x1403F2A5C (KeDoesSystemHaveHeterogeneousCoreTypes.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
@@ -48,7 +48,7 @@ __int64 __fastcall KiConfigureSchedulingInformation(__int64 a1, char a2)
   bool v34; // zf
   unsigned int v36; // [rsp+24h] [rbp-44h]
   unsigned int v37; // [rsp+28h] [rbp-40h]
-  struct _GROUP_AFFINITY Affinity; // [rsp+38h] [rbp-30h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+38h] [rbp-30h] BYREF
   unsigned __int16 *v39; // [rsp+48h] [rbp-20h] BYREF
   unsigned __int64 Mask; // [rsp+50h] [rbp-18h]
   unsigned __int16 Group; // [rsp+58h] [rbp-10h]

@@ -1,9 +1,9 @@
 /*
- * XREFs of MiRemoveEnclavePagesFromMirror @ 0x140B63788
+ * XREFs of MiRemoveEnclavePagesFromMirror @ 0x140B65858
  * Callers:
- *     MiMirrorBlackPhase @ 0x140672C9C (MiMirrorBlackPhase.c)
+ *     MiMirrorBlackPhase @ 0x140673E6C (MiMirrorBlackPhase.c)
  * Callees:
- *     MiMirrorOmitPagesFromCopy @ 0x1404293F0 (MiMirrorOmitPagesFromCopy.c)
+ *     MiMirrorOmitPagesFromCopy @ 0x14041D540 (MiMirrorOmitPagesFromCopy.c)
  */
 
 _QWORD *__fastcall MiRemoveEnclavePagesFromMirror(__int64 a1)
@@ -13,7 +13,7 @@ _QWORD *__fastcall MiRemoveEnclavePagesFromMirror(__int64 a1)
   _QWORD *v4; // rcx
   _QWORD *v5; // rcx
 
-  result = (_QWORD *)qword_140E374B8;
+  result = (_QWORD *)qword_140E375F8;
   v3 = 0LL;
   while ( result )
   {

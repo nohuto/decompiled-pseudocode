@@ -1,13 +1,13 @@
 /*
- * XREFs of PsGetSiloBySessionId @ 0x1409BA9A4
+ * XREFs of PsGetSiloBySessionId @ 0x1409A0FF4
  * Callers:
- *     SessionIsInteractive @ 0x14033117C (SessionIsInteractive.c)
- *     EtwWmitraceWorker @ 0x1407AC83C (EtwWmitraceWorker.c)
- *     SeQueryServerSiloToken @ 0x1409BA940 (SeQueryServerSiloToken.c)
- *     PsIsServiceSession @ 0x1409BA9F4 (PsIsServiceSession.c)
+ *     SessionIsInteractive @ 0x1402B9CEC (SessionIsInteractive.c)
+ *     EtwWmitraceWorker @ 0x1407ACD0C (EtwWmitraceWorker.c)
+ *     SeQueryServerSiloToken @ 0x1409A0F90 (SeQueryServerSiloToken.c)
+ *     PsIsServiceSession @ 0x1409A1044 (PsIsServiceSession.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     PsGetSessionById @ 0x140349430 (PsGetSessionById.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     PsGetSessionById @ 0x1403C2E70 (PsGetSessionById.c)
  */
 
 __int64 __fastcall PsGetSiloBySessionId(unsigned int a1, _QWORD *a2)

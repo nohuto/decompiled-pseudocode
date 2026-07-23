@@ -1,10 +1,10 @@
 /*
- * XREFs of ExTryConvertSharedToExclusiveLite @ 0x140656E3C
+ * XREFs of ExTryConvertSharedToExclusiveLite @ 0x14065553C
  * Callers:
- *     CmpTryConvertRegistryExclusive @ 0x1407D87EC (CmpTryConvertRegistryExclusive.c)
+ *     CmpTryConvertRegistryExclusive @ 0x1407D8D3C (CmpTryConvertRegistryExclusive.c)
  * Callees:
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     ExpTryConvertSharedToExclusiveLite @ 0x140656F90 (ExpTryConvertSharedToExclusiveLite.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     ExpTryConvertSharedToExclusiveLite @ 0x140655690 (ExpTryConvertSharedToExclusiveLite.c)
  */
 
 __int64 ExTryConvertSharedToExclusiveLite()

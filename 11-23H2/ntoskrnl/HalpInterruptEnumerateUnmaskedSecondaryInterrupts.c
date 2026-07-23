@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpInterruptEnumerateUnmaskedSecondaryInterrupts @ 0x14051A0D8
+ * XREFs of HalpInterruptEnumerateUnmaskedSecondaryInterrupts @ 0x14051A628
  * Callers:
- *     HalpInterruptEnumerateUnmaskedInterrupts @ 0x140503FE0 (HalpInterruptEnumerateUnmaskedInterrupts.c)
+ *     HalpInterruptEnumerateUnmaskedInterrupts @ 0x140504530 (HalpInterruptEnumerateUnmaskedInterrupts.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     HalpAcquireHighLevelLock @ 0x14037CB78 (HalpAcquireHighLevelLock.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     HalpAcquireHighLevelLock @ 0x14037CD18 (HalpAcquireHighLevelLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall HalpInterruptEnumerateUnmaskedSecondaryInterrupts(
@@ -63,10 +63,10 @@ __int64 __fastcall HalpInterruptEnumerateUnmaskedSecondaryInterrupts(
   }
   while ( v7 );
   KxReleaseSpinLock((volatile signed __int64 *)&SecondaryIcListSpinLock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v20 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v20 <= 0xFu && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -74,7 +74,7 @@ __int64 __fastcall HalpInterruptEnumerateUnmaskedSecondaryInterrupts(
       v19 = (v18 & SchedulerAssist[5]) == 0;
       SchedulerAssist[5] &= v18;
       if ( v19 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
     }
   }
   __writecr8(v20);

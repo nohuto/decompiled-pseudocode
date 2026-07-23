@@ -1,21 +1,21 @@
 /*
- * XREFs of IoRegisterFsRegistrationChangeMountAware @ 0x1407144C0
+ * XREFs of IoRegisterFsRegistrationChangeMountAware @ 0x140712050
  * Callers:
- *     IoRegisterFsRegistrationChange @ 0x1407144A0 (IoRegisterFsRegistrationChange.c)
+ *     IoRegisterFsRegistrationChange @ 0x140712030 (IoRegisterFsRegistrationChange.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x14025A450 (ExReleaseResourceLite.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402769C0 (ExAcquireResourceExclusiveLite.c)
- *     KeResetEvent @ 0x14028EEC0 (KeResetEvent.c)
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     PsReferenceSiloContext @ 0x14033FA90 (PsReferenceSiloContext.c)
- *     IopIsKnownGoodLegacyFsFilter @ 0x1403C5078 (IopIsKnownGoodLegacyFsFilter.c)
- *     IoGetActivityIdThread @ 0x14043F3F0 (IoGetActivityIdThread.c)
- *     IopGetFsRegistrationInProgress @ 0x140596EA8 (IopGetFsRegistrationInProgress.c)
- *     McTemplateK0hzr0_EtwWriteTransfer @ 0x140596F74 (McTemplateK0hzr0_EtwWriteTransfer.c)
- *     FsRtlSetDriverBacking @ 0x14070D080 (FsRtlSetDriverBacking.c)
- *     IopNotifyAlreadyRegisteredFileSystems @ 0x140714FE0 (IopNotifyAlreadyRegisteredFileSystems.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14022BF50 (ExAcquireResourceExclusiveLite.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x14028AA60 (ExReleaseResourceLite.c)
+ *     KeResetEvent @ 0x14029EAC0 (KeResetEvent.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     PsReferenceSiloContext @ 0x14031EF70 (PsReferenceSiloContext.c)
+ *     IopIsKnownGoodLegacyFsFilter @ 0x1403B3C38 (IopIsKnownGoodLegacyFsFilter.c)
+ *     IoGetActivityIdThread @ 0x140435520 (IoGetActivityIdThread.c)
+ *     IopGetFsRegistrationInProgress @ 0x140593E88 (IopGetFsRegistrationInProgress.c)
+ *     McTemplateK0hzr0_EtwWriteTransfer @ 0x140593F54 (McTemplateK0hzr0_EtwWriteTransfer.c)
+ *     FsRtlSetDriverBacking @ 0x14070AC20 (FsRtlSetDriverBacking.c)
+ *     IopNotifyAlreadyRegisteredFileSystems @ 0x140712B70 (IopNotifyAlreadyRegisteredFileSystems.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 NTSTATUS __stdcall IoRegisterFsRegistrationChangeMountAware(
@@ -75,14 +75,14 @@ LABEL_18:
   }
 LABEL_12:
   if ( IopFsNotifyChangeQueueHead != &IopFsNotifyChangeQueueHead
-    && *(PDRIVER_OBJECT *)(qword_140F8C628 + 16) == DriverObject
-    && *(PDRIVER_FS_NOTIFICATION *)(qword_140F8C628 + 24) == DriverNotificationRoutine )
+    && *(PDRIVER_OBJECT *)(qword_140F8C618 + 16) == DriverObject
+    && *(PDRIVER_FS_NOTIFICATION *)(qword_140F8C618 + 24) == DriverNotificationRoutine )
   {
     ExReleaseResourceLite(&IopDatabaseResource);
     v12 = -1073741768;
     goto LABEL_18;
   }
-  Pool2 = (_QWORD *)ExAllocatePool2(0x100uLL);
+  Pool2 = (_QWORD *)ExAllocatePool2(0x100uLL, 0x20uLL, 0x73466F49u);
   if ( !Pool2 )
   {
     ExReleaseResourceLite(&IopDatabaseResource);
@@ -91,13 +91,13 @@ LABEL_12:
   }
   Pool2[2] = DriverObject;
   Pool2[3] = DriverNotificationRoutine;
-  v14 = (_QWORD *)qword_140F8C628;
-  if ( *(PVOID **)qword_140F8C628 != &IopFsNotifyChangeQueueHead )
+  v14 = (_QWORD *)qword_140F8C618;
+  if ( *(PVOID **)qword_140F8C618 != &IopFsNotifyChangeQueueHead )
     __fastfail(3u);
   *Pool2 = &IopFsNotifyChangeQueueHead;
   Pool2[1] = v14;
   *v14 = Pool2;
-  qword_140F8C628 = (__int64)Pool2;
+  qword_140F8C618 = (__int64)Pool2;
   if ( SynchronizeWithMounts == 1 )
   {
     while ( IopMountsInProgress )

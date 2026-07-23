@@ -15,24 +15,31 @@
  *     WerpCreateCrashDataSection @ 0x1800E9054 (WerpCreateCrashDataSection.c)
  *     RtlComputeImportTableHash @ 0x1800EC100 (RtlComputeImportTableHash.c)
  *     LdrpResMapFile @ 0x1800F04FC (LdrpResMapFile.c)
- *     RtlpOpenAndMapCustomCultureFile @ 0x18010B4A8 (RtlpOpenAndMapCustomCultureFile.c)
- *     RtlpHpStackTraceSerializeRemote @ 0x180117C48 (RtlpHpStackTraceSerializeRemote.c)
- *     RtlpHpTagQueryHeapsRemote @ 0x180119984 (RtlpHpTagQueryHeapsRemote.c)
- *     PsspCaptureHandleTrace @ 0x1801296D8 (PsspCaptureHandleTrace.c)
- *     PsspCaptureIptTrace @ 0x1801298CC (PsspCaptureIptTrace.c)
- *     PsspCaptureAuxiliaryPages @ 0x180129BC8 (PsspCaptureAuxiliaryPages.c)
- *     PsspCaptureVaSpaceInformation2 @ 0x18012A054 (PsspCaptureVaSpaceInformation2.c)
- *     PsspCaptureHandleInformation @ 0x18012A744 (PsspCaptureHandleInformation.c)
- *     PsspCaptureThreadInformation @ 0x18012B180 (PsspCaptureThreadInformation.c)
+ *     RtlpOpenAndMapCustomCultureFile @ 0x18010B478 (RtlpOpenAndMapCustomCultureFile.c)
+ *     RtlpHpStackTraceSerializeRemote @ 0x180117C18 (RtlpHpStackTraceSerializeRemote.c)
+ *     RtlpHpTagQueryHeapsRemote @ 0x180119954 (RtlpHpTagQueryHeapsRemote.c)
+ *     PsspCaptureHandleTrace @ 0x1801296A8 (PsspCaptureHandleTrace.c)
+ *     PsspCaptureIptTrace @ 0x18012989C (PsspCaptureIptTrace.c)
+ *     PsspCaptureAuxiliaryPages @ 0x180129B98 (PsspCaptureAuxiliaryPages.c)
+ *     PsspCaptureVaSpaceInformation2 @ 0x18012A024 (PsspCaptureVaSpaceInformation2.c)
+ *     PsspCaptureHandleInformation @ 0x18012A714 (PsspCaptureHandleInformation.c)
+ *     PsspCaptureThreadInformation @ 0x18012B150 (PsspCaptureThreadInformation.c)
  * Callees:
  *     <none>
  */
 
-__int64 NtCreateSection()
+NTSTATUS __cdecl NtCreateSection(
+        PHANDLE SectionHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        PLARGE_INTEGER MaximumSize,
+        ULONG SectionPageProtection,
+        ULONG AllocationAttributes,
+        HANDLE FileHandle)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 74LL;
+  result = 74;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

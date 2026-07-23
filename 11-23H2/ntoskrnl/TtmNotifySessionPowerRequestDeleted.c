@@ -1,13 +1,13 @@
 /*
- * XREFs of TtmNotifySessionPowerRequestDeleted @ 0x1409A4558
+ * XREFs of TtmNotifySessionPowerRequestDeleted @ 0x1409A4758
  * Callers:
- *     PopPowerRequestDelete @ 0x1407A6790 (PopPowerRequestDelete.c)
+ *     PopPowerRequestDelete @ 0x1407A6980 (PopPowerRequestDelete.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x14023D410 (ExReleaseResourceLite.c)
- *     TtmpAcquireSessionById @ 0x1409A4F30 (TtmpAcquireSessionById.c)
- *     TtmiLogError @ 0x1409A8344 (TtmiLogError.c)
- *     TtmiLogSessionPowerRequestDeleted @ 0x1409A9B1C (TtmiLogSessionPowerRequestDeleted.c)
+ *     KeLeaveCriticalRegion @ 0x140231550 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x14023D4E0 (ExReleaseResourceLite.c)
+ *     TtmpAcquireSessionById @ 0x1409A5130 (TtmpAcquireSessionById.c)
+ *     TtmiLogError @ 0x1409A8544 (TtmiLogError.c)
+ *     TtmiLogSessionPowerRequestDeleted @ 0x1409A9D1C (TtmiLogSessionPowerRequestDeleted.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

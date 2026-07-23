@@ -18,7 +18,7 @@ __int64 __fastcall ApiSetResolveToHost_V7(__int64 a1, unsigned __int16 *a2, __in
   unsigned int v12; // eax
   unsigned __int64 v13; // rdx
   __int64 v14; // rax
-  int v15; // r11d
+  unsigned int v15; // r11d
   unsigned __int16 v16; // r9
   char v17; // r8
   unsigned int v18; // eax
@@ -34,11 +34,12 @@ __int64 __fastcall ApiSetResolveToHost_V7(__int64 a1, unsigned __int16 *a2, __in
   unsigned int v28; // eax
   __int64 v29; // rdx
   __int64 v30; // r8
-  unsigned __int16 v32; // [rsp+30h] [rbp-38h] BYREF
-  char v33; // [rsp+78h] [rbp+10h] BYREF
-  char *v34; // [rsp+88h] [rbp+20h]
+  int v32; // [rsp+20h] [rbp-48h]
+  unsigned __int16 v33; // [rsp+30h] [rbp-38h] BYREF
+  char v34; // [rsp+78h] [rbp+10h] BYREF
+  char *v35; // [rsp+88h] [rbp+20h]
 
-  v34 = a4;
+  v35 = a4;
   v5 = (__int64)a5;
   v8 = 0;
   *a5 = 0LL;
@@ -53,12 +54,12 @@ __int64 __fastcall ApiSetResolveToHost_V7(__int64 a1, unsigned __int16 *a2, __in
                               (_DWORD)v10,
                               (unsigned __int16)v9 >> 1,
                               a3,
-                              (unsigned int)&v32,
-                              (__int64)&v33) )
+                              (unsigned int)&v33,
+                              (__int64)&v34) )
       {
-        if ( v33 )
+        if ( v34 )
         {
-          v12 = ApiSetpSearchForSectionIndex_V7(a1, a1 + 40, v10, v32);
+          v12 = ApiSetpSearchForSectionIndex_V7(a1, a1 + 40, v10, v33);
           if ( v12 == -1 )
             goto LABEL_25;
           v13 = a1
@@ -71,7 +72,7 @@ __int64 __fastcall ApiSetResolveToHost_V7(__int64 a1, unsigned __int16 *a2, __in
           v17 = *(_BYTE *)(v13 + 22);
           goto LABEL_19;
         }
-        v18 = ApiSetpSearchForSectionIndex_V7(a1, a1 + 52, v10, v32);
+        v18 = ApiSetpSearchForSectionIndex_V7(a1, a1 + 52, v10, v33);
         if ( v18 != -1 )
         {
           v19 = a1
@@ -81,7 +82,7 @@ __int64 __fastcall ApiSetResolveToHost_V7(__int64 a1, unsigned __int16 *a2, __in
           v17 = *(_BYTE *)(v19 + 19);
           if ( (v17 & 4) == 0 )
             goto LABEL_18;
-          v20 = 2 * v32;
+          v20 = 2 * v33;
           v21 = 0;
           if ( (v9 - v20) >> 1 )
           {
@@ -121,12 +122,8 @@ LABEL_19:
                       {
                         if ( v16 )
                         {
-                          v28 = ApiSetpSearchForHostOverrideIndex_V7(
-                                  a1,
-                                  v15,
-                                  v16,
-                                  *(_QWORD *)(a3 + 8),
-                                  *(_WORD *)a3 >> 1);
+                          LOWORD(v32) = *(_WORD *)a3 >> 1;
+                          v28 = ApiSetpSearchForHostOverrideIndex_V7(a1, v15, v16, *(_QWORD *)(a3 + 8), v32);
                           if ( v28 != -1 )
                           {
                             v29 = *(unsigned __int16 *)(a1 + 6);
@@ -153,6 +150,6 @@ LABEL_19:
     }
   }
 LABEL_25:
-  *v34 = v8;
+  *v35 = v8;
   return 0LL;
 }

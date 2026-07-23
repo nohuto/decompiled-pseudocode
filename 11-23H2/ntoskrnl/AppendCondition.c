@@ -1,9 +1,9 @@
 /*
- * XREFs of AppendCondition @ 0x1409D2C34
+ * XREFs of AppendCondition @ 0x1409D2E34
  * Callers:
- *     LocalGetConditionForString @ 0x1409D4914 (LocalGetConditionForString.c)
+ *     LocalGetConditionForString @ 0x1409D4B14 (LocalGetConditionForString.c)
  * Callees:
- *     memmove @ 0x140435700 (memmove.c)
+ *     memmove @ 0x140435B00 (memmove.c)
  *     SddlpAlloc @ 0x14069DF28 (SddlpAlloc.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */

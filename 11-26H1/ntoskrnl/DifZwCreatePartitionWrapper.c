@@ -1,17 +1,17 @@
 /*
- * XREFs of DifZwCreatePartitionWrapper @ 0x1406A0870
+ * XREFs of DifZwCreatePartitionWrapper @ 0x1406A4450
  * Callers:
  *     <none>
  * Callees:
- *     DifGetReturnAddressForWrappers @ 0x140260EA4 (DifGetReturnAddressForWrappers.c)
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     DifGetAPIThunkContextById @ 0x1404C17A4 (DifGetAPIThunkContextById.c)
- *     ZwCreatePartition @ 0x140724B90 (ZwCreatePartition.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     DifGetReturnAddressForWrappers @ 0x14026040C (DifGetReturnAddressForWrappers.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     DifGetAPIThunkContextById @ 0x1404BAFF4 (DifGetAPIThunkContextById.c)
+ *     ZwCreatePartition @ 0x140729760 (ZwCreatePartition.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
-__int64 __fastcall DifZwCreatePartitionWrapper(__int64 a1, __int64 a2, unsigned int a3, __int64 a4)
+__int64 __fastcall DifZwCreatePartitionWrapper(void *a1, HANDLE *a2, ACCESS_MASK a3, OBJECT_ATTRIBUTES *a4)
 {
   __int128 *APIThunkContextById; // rax
   __int64 v8; // rdx
@@ -61,17 +61,7 @@ __int64 __fastcall DifZwCreatePartitionWrapper(__int64 a1, __int64 a2, unsigned 
         ExReleaseRundownProtection_0(&DifRebootlessRundown);
     }
   }
-  DWORD2(v20) = ZwCreatePartition(
-                  a1,
-                  a2,
-                  a3,
-                  a4,
-                  v18,
-                  *((_QWORD *)&v18 + 1),
-                  v19,
-                  *((_QWORD *)&v19 + 1),
-                  v20,
-                  *((_QWORD *)&v20 + 1));
+  DWORD2(v20) = ZwCreatePartition(a1, a2, a3, a4, v18);
   if ( v9 )
   {
     if ( (v14 = 0, !VfDifRunningWithoutReboot) && (VfOptionFlags & 0x800) == 0

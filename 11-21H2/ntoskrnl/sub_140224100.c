@@ -1,0 +1,112 @@
+/*
+ * XREFs of sub_140224100 @ 0x140224100
+ * Callers:
+ *     sub_140201DF4 @ 0x140201DF4 (sub_140201DF4.c)
+ *     sub_14020E464 @ 0x14020E464 (sub_14020E464.c)
+ *     sub_14020EC24 @ 0x14020EC24 (sub_14020EC24.c)
+ *     sub_1402112F8 @ 0x1402112F8 (sub_1402112F8.c)
+ *     sub_14021162C @ 0x14021162C (sub_14021162C.c)
+ *     sub_140217A2C @ 0x140217A2C (sub_140217A2C.c)
+ *     sub_140217CA0 @ 0x140217CA0 (sub_140217CA0.c)
+ *     sub_14022B5D8 @ 0x14022B5D8 (sub_14022B5D8.c)
+ *     sub_1402334D8 @ 0x1402334D8 (sub_1402334D8.c)
+ *     sub_140234504 @ 0x140234504 (sub_140234504.c)
+ *     sub_140234888 @ 0x140234888 (sub_140234888.c)
+ *     sub_140234B28 @ 0x140234B28 (sub_140234B28.c)
+ *     sub_1402447EC @ 0x1402447EC (sub_1402447EC.c)
+ *     sub_140249930 @ 0x140249930 (sub_140249930.c)
+ *     sub_14024E928 @ 0x14024E928 (sub_14024E928.c)
+ *     KeRemoveQueueApc @ 0x14024EC10 (KeRemoveQueueApc.c)
+ *     sub_140255110 @ 0x140255110 (sub_140255110.c)
+ *     sub_140259330 @ 0x140259330 (sub_140259330.c)
+ *     sub_14025C33C @ 0x14025C33C (sub_14025C33C.c)
+ *     sub_140261ADC @ 0x140261ADC (sub_140261ADC.c)
+ *     KeSetActualBasePriorityThread @ 0x14028FD20 (KeSetActualBasePriorityThread.c)
+ *     sub_14028FFD0 @ 0x14028FFD0 (sub_14028FFD0.c)
+ *     sub_140291EE4 @ 0x140291EE4 (sub_140291EE4.c)
+ *     sub_140294574 @ 0x140294574 (sub_140294574.c)
+ *     sub_1402946B8 @ 0x1402946B8 (sub_1402946B8.c)
+ *     KeTestAlertThread @ 0x140299000 (KeTestAlertThread.c)
+ *     ntoskrnl_6 @ 0x14029B310 (ntoskrnl_6.c)
+ *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
+ *     sub_1402B3140 @ 0x1402B3140 (sub_1402B3140.c)
+ *     sub_1402B5240 @ 0x1402B5240 (sub_1402B5240.c)
+ *     KeRemoveQueueEx @ 0x1402B7FA0 (KeRemoveQueueEx.c)
+ *     KeDelayExecutionThread @ 0x1402B90A0 (KeDelayExecutionThread.c)
+ *     sub_1402B9970 @ 0x1402B9970 (sub_1402B9970.c)
+ *     sub_1402D0930 @ 0x1402D0930 (sub_1402D0930.c)
+ *     sub_1402EB9D0 @ 0x1402EB9D0 (sub_1402EB9D0.c)
+ *     sub_1402EBB58 @ 0x1402EBB58 (sub_1402EBB58.c)
+ *     KeSetBasePriorityThread @ 0x1402EBF30 (KeSetBasePriorityThread.c)
+ *     KeAlertThread @ 0x1402ECB90 (KeAlertThread.c)
+ *     sub_1402ECD10 @ 0x1402ECD10 (sub_1402ECD10.c)
+ *     KeInsertQueueApc @ 0x1402ED9E0 (KeInsertQueueApc.c)
+ *     sub_1402EDFE8 @ 0x1402EDFE8 (sub_1402EDFE8.c)
+ *     sub_1402EE104 @ 0x1402EE104 (sub_1402EE104.c)
+ *     sub_1402EE4D4 @ 0x1402EE4D4 (sub_1402EE4D4.c)
+ *     sub_1402EF444 @ 0x1402EF444 (sub_1402EF444.c)
+ *     sub_1402EF710 @ 0x1402EF710 (sub_1402EF710.c)
+ *     sub_1402EFA40 @ 0x1402EFA40 (sub_1402EFA40.c)
+ *     sub_1402EFF90 @ 0x1402EFF90 (sub_1402EFF90.c)
+ *     sub_1402F00BC @ 0x1402F00BC (sub_1402F00BC.c)
+ *     sub_1402F0604 @ 0x1402F0604 (sub_1402F0604.c)
+ *     KeWaitForMultipleObjects @ 0x1402F13C0 (KeWaitForMultipleObjects.c)
+ *     sub_1402F1DC0 @ 0x1402F1DC0 (sub_1402F1DC0.c)
+ *     sub_1402F5FD0 @ 0x1402F5FD0 (sub_1402F5FD0.c)
+ *     sub_14030D5C0 @ 0x14030D5C0 (sub_14030D5C0.c)
+ *     sub_14030F330 @ 0x14030F330 (sub_14030F330.c)
+ *     sub_14033D110 @ 0x14033D110 (sub_14033D110.c)
+ *     sub_1403405E0 @ 0x1403405E0 (sub_1403405E0.c)
+ *     sub_1403438F0 @ 0x1403438F0 (sub_1403438F0.c)
+ *     KeQueryTotalCycleTimeThread @ 0x140345800 (KeQueryTotalCycleTimeThread.c)
+ *     sub_140346E50 @ 0x140346E50 (sub_140346E50.c)
+ *     sub_1403470F0 @ 0x1403470F0 (sub_1403470F0.c)
+ *     sub_1403597CC @ 0x1403597CC (sub_1403597CC.c)
+ *     sub_14035A424 @ 0x14035A424 (sub_14035A424.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x14035BE00 (KeRevertToUserGroupAffinityThread.c)
+ *     KeSetSystemGroupAffinityThread @ 0x14035BFE0 (KeSetSystemGroupAffinityThread.c)
+ *     sub_14035CE74 @ 0x14035CE74 (sub_14035CE74.c)
+ *     KeUpdateThreadTag @ 0x14035D6A0 (KeUpdateThreadTag.c)
+ *     sub_14035EE9C @ 0x14035EE9C (sub_14035EE9C.c)
+ *     sub_14035EF6C @ 0x14035EF6C (sub_14035EF6C.c)
+ *     sub_14039EE50 @ 0x14039EE50 (sub_14039EE50.c)
+ *     sub_1403D30D0 @ 0x1403D30D0 (sub_1403D30D0.c)
+ *     sub_14056B234 @ 0x14056B234 (sub_14056B234.c)
+ *     sub_14056B410 @ 0x14056B410 (sub_14056B410.c)
+ *     sub_14056B9FC @ 0x14056B9FC (sub_14056B9FC.c)
+ *     sub_140570570 @ 0x140570570 (sub_140570570.c)
+ *     sub_140570750 @ 0x140570750 (sub_140570750.c)
+ *     sub_140572094 @ 0x140572094 (sub_140572094.c)
+ *     sub_1405725CC @ 0x1405725CC (sub_1405725CC.c)
+ *     KeSetSelectedCpuSetsThread @ 0x140572A90 (KeSetSelectedCpuSetsThread.c)
+ *     sub_140573898 @ 0x140573898 (sub_140573898.c)
+ *     sub_140574B54 @ 0x140574B54 (sub_140574B54.c)
+ *     sub_140574FA4 @ 0x140574FA4 (sub_140574FA4.c)
+ *     sub_1405757C0 @ 0x1405757C0 (sub_1405757C0.c)
+ *     sub_140576AA4 @ 0x140576AA4 (sub_140576AA4.c)
+ *     sub_1405777C0 @ 0x1405777C0 (sub_1405777C0.c)
+ *     sub_140577B4C @ 0x140577B4C (sub_140577B4C.c)
+ *     sub_140577D00 @ 0x140577D00 (sub_140577D00.c)
+ *     sub_140578730 @ 0x140578730 (sub_140578730.c)
+ * Callees:
+ *     sub_140418E4C @ 0x140418E4C (sub_140418E4C.c)
+ */
+
+__int64 __fastcall sub_140224100(__int64 a1)
+{
+  struct _KPRCB *CurrentPrcb; // rcx
+  __int64 v2; // rdx
+  __int64 result; // rax
+
+  *(_QWORD *)(a1 + 64) = 0LL;
+  CurrentPrcb = KeGetCurrentPrcb();
+  v2 = *((_QWORD *)CurrentPrcb + 4375);
+  if ( v2 && *((_BYTE *)CurrentPrcb + 32) <= 1u )
+  {
+    result = (unsigned int)(*(_DWORD *)(v2 + 24) - 1);
+    *(_DWORD *)(v2 + 24) = result;
+    if ( !(_DWORD)result )
+      return sub_140418E4C(CurrentPrcb);
+  }
+  return result;
+}

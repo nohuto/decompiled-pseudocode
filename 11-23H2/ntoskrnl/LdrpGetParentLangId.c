@@ -1,13 +1,13 @@
 /*
- * XREFs of LdrpGetParentLangId @ 0x1403C7798
+ * XREFs of LdrpGetParentLangId @ 0x1403C7978
  * Callers:
- *     LdrpSearchResourceSection_U @ 0x140755D10 (LdrpSearchResourceSection_U.c)
- *     LdrResFallbackLangList @ 0x14075A554 (LdrResFallbackLangList.c)
+ *     LdrpSearchResourceSection_U @ 0x140755F00 (LdrpSearchResourceSection_U.c)
+ *     LdrResFallbackLangList @ 0x14075A744 (LdrResFallbackLangList.c)
  * Callees:
- *     DownLevelLangIDToLanguageName @ 0x140371A5C (DownLevelLangIDToLanguageName.c)
- *     DownLevelLanguageNameToLangID @ 0x14038D264 (DownLevelLanguageNameToLangID.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     DownLevelGetParentLanguageName @ 0x1406145F0 (DownLevelGetParentLanguageName.c)
+ *     DownLevelLangIDToLanguageName @ 0x140371BFC (DownLevelLangIDToLanguageName.c)
+ *     DownLevelLanguageNameToLangID @ 0x14038D444 (DownLevelLanguageNameToLangID.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     DownLevelGetParentLanguageName @ 0x140614B40 (DownLevelGetParentLanguageName.c)
  */
 
 __int64 __fastcall LdrpGetParentLangId(__int16 a1, _WORD *a2)

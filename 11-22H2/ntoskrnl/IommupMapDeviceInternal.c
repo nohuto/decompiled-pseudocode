@@ -137,7 +137,7 @@ __int64 __fastcall IommupMapDeviceInternal(KSPIN_LOCK *a1, __int64 *a2, int *a3)
         *v23 = v23;
         CurrentIrql = KeGetCurrentIrql();
         __writecr8(0xFuLL);
-        if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+        if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
         {
           SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
           if ( CurrentIrql == 15 )
@@ -194,10 +194,10 @@ LABEL_37:
             v3 = 0LL;
             KxReleaseSpinLock((volatile signed __int64 *)a1 + 3);
             v22 = (unsigned int)KiIrqlFlags;
-            if ( KiIrqlFlags )
+            if ( (_DWORD)KiIrqlFlags )
             {
               v36 = KeGetCurrentIrql();
-              if ( (KiIrqlFlags & 1) != 0 && v36 <= 0xFu && CurrentIrql <= 0xFu && v36 >= 2u )
+              if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v36 <= 0xFu && CurrentIrql <= 0xFu && v36 >= 2u )
               {
                 CurrentPrcb = KeGetCurrentPrcb();
                 v22 = (unsigned int)CurrentIrql + 1;

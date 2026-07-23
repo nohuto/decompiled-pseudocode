@@ -1,15 +1,15 @@
 /*
- * XREFs of ?VerifyPartitionTable@SC_GPT@@QEAAJE@Z @ 0x1405C824C
+ * XREFs of ?VerifyPartitionTable@SC_GPT@@QEAAJE@Z @ 0x1405C847C
  * Callers:
- *     ?VerifyPartitionTable@SC_DISK@@QEAAJE@Z @ 0x1405C7248 (-VerifyPartitionTable@SC_DISK@@QEAAJE@Z.c)
+ *     ?VerifyPartitionTable@SC_DISK@@QEAAJE@Z @ 0x1405C7478 (-VerifyPartitionTable@SC_DISK@@QEAAJE@Z.c)
  * Callees:
- *     RtlComputeCrc32 @ 0x1402A2690 (RtlComputeCrc32.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     ?WriteSectors@SC_DISK@@QEAAJK_KPEAX@Z @ 0x1405C7368 (-WriteSectors@SC_DISK@@QEAAJK_KPEAX@Z.c)
- *     ?ReadEntries@SC_GPT@@AEAAJPEAVGPT_HEADER@@PEAU_GPT_ENTRY@@@Z @ 0x1405C7D84 (-ReadEntries@SC_GPT@@AEAAJPEAVGPT_HEADER@@PEAU_GPT_ENTRY@@@Z.c)
- *     ?ReadHeader@SC_GPT@@AEAAJKPEAVGPT_HEADER@@@Z @ 0x1405C7E0C (-ReadHeader@SC_GPT@@AEAAJKPEAVGPT_HEADER@@@Z.c)
- *     ?Free@SC_ENV@@SAXPEAX@Z @ 0x1406B7B50 (-Free@SC_ENV@@SAXPEAX@Z.c)
- *     ?Allocate@SC_ENV@@SAPEAX_K@Z @ 0x14088D7D0 (-Allocate@SC_ENV@@SAPEAX_K@Z.c)
+ *     RtlComputeCrc32 @ 0x14021FAD0 (RtlComputeCrc32.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     ?WriteSectors@SC_DISK@@QEAAJK_KPEAX@Z @ 0x1405C7598 (-WriteSectors@SC_DISK@@QEAAJK_KPEAX@Z.c)
+ *     ?ReadEntries@SC_GPT@@AEAAJPEAVGPT_HEADER@@PEAU_GPT_ENTRY@@@Z @ 0x1405C7FB4 (-ReadEntries@SC_GPT@@AEAAJPEAVGPT_HEADER@@PEAU_GPT_ENTRY@@@Z.c)
+ *     ?ReadHeader@SC_GPT@@AEAAJKPEAVGPT_HEADER@@@Z @ 0x1405C803C (-ReadHeader@SC_GPT@@AEAAJKPEAVGPT_HEADER@@@Z.c)
+ *     ?Free@SC_ENV@@SAXPEAX@Z @ 0x140617060 (-Free@SC_ENV@@SAXPEAX@Z.c)
+ *     ?Allocate@SC_ENV@@SAPEAX_K@Z @ 0x14088D930 (-Allocate@SC_ENV@@SAPEAX_K@Z.c)
  */
 
 __int64 __fastcall SC_GPT::VerifyPartitionTable(SC_DISK **this, char a2)
@@ -148,7 +148,7 @@ LABEL_23:
       else
         v27 = v26 + 1;
       *(_QWORD *)(v19 + 72) = v27;
-      *(_DWORD *)(v19 + 16) = RtlComputeCrc32(0, (char *)v19, *(_DWORD *)(v19 + 12));
+      *(_DWORD *)(v19 + 16) = RtlComputeCrc32(0, (PVOID)v19, *(_DWORD *)(v19 + 12));
       if ( v22 )
       {
         v29 = *v17;

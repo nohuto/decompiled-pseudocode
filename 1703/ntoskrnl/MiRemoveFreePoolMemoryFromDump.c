@@ -26,7 +26,7 @@ __int64 __fastcall MiRemoveFreePoolMemoryFromDump(__int64 a1)
   v7 = a1;
   for ( i = 1; v3 < (unsigned __int16)KeNumberNodes; ++v3 )
   {
-    MiScanNonPagedPoolVa((struct _SLIST_ENTRY *)1, v3, 0LL, (__int64)v6);
+    MiScanNonPagedPoolVa((_SLIST_ENTRY *)1, v3, 0LL, (__int64)v6);
     result = (unsigned __int16)KeNumberNodes;
   }
   v4 = (_QWORD *)qword_14036BD20;

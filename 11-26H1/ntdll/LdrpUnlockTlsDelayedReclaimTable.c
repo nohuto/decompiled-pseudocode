@@ -1,53 +1,53 @@
 /*
- * XREFs of LdrpUnlockTlsDelayedReclaimTable @ 0x18015CD9C
+ * XREFs of LdrpUnlockTlsDelayedReclaimTable @ 0x18015CC5C
  * Callers:
- *     RtlCloneUserProcess @ 0x18015C640 (RtlCloneUserProcess.c)
- *     RtlCompleteProcessCloning @ 0x18015C950 (RtlCompleteProcessCloning.c)
- *     RtlPrepareForProcessCloning @ 0x18015CB00 (RtlPrepareForProcessCloning.c)
+ *     RtlCloneUserProcess @ 0x18015C500 (RtlCloneUserProcess.c)
+ *     RtlCompleteProcessCloning @ 0x18015C810 (RtlCompleteProcessCloning.c)
+ *     RtlPrepareForProcessCloning @ 0x18015C9C0 (RtlPrepareForProcessCloning.c)
  * Callees:
- *     RtlReleaseSRWLockExclusive @ 0x18003FAA0 (RtlReleaseSRWLockExclusive.c)
- *     RtlFreeHeap_0 @ 0x18003FD10 (RtlFreeHeap_0.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18002A010 (RtlReleaseSRWLockExclusive.c)
+ *     RtlFreeHeap_0 @ 0x18002A280 (RtlFreeHeap_0.c)
  */
 
-struct _TEB *__fastcall LdrpUnlockTlsDelayedReclaimTable(int a1)
+void __fastcall LdrpUnlockTlsDelayedReclaimTable(int a1)
 {
-  __int64 *v2; // rdi
+  char *v2; // rdi
   int v3; // esi
-  volatile signed __int64 *v4; // rbp
-  __int64 v5; // r8
-  __int64 v6; // rbx
+  _RTL_SRWLOCK *v4; // rbp
+  _QWORD *v5; // r8
+  _QWORD *v6; // rbx
 
-  v2 = (__int64 *)&unk_1801CB540;
+  v2 = (char *)&unk_1801CA590;
   v3 = 15;
-  v4 = (volatile signed __int64 *)&unk_1801CB548;
+  v4 = &stru_1801CA598;
   do
   {
     if ( a1 )
     {
-      v5 = *v2;
-      if ( *v2 )
+      v5 = *(_QWORD **)v2;
+      if ( *(_QWORD *)v2 )
       {
         do
         {
-          v6 = *(_QWORD *)(v5 + 8);
-          RtlFreeHeap_0();
+          v6 = (_QWORD *)v5[1];
+          RtlFreeHeap_0(LdrpTlsHeap, 0, v5);
           v5 = v6;
         }
         while ( v6 );
-        *v2 = 0LL;
+        *(_QWORD *)v2 = 0LL;
       }
-      v2[1] = 1LL;
+      *((_QWORD *)v2 + 1) = 1LL;
     }
     RtlReleaseSRWLockExclusive(v4);
     v4 -= 2;
-    v2 -= 2;
+    v2 -= 16;
     --v3;
   }
   while ( v3 >= 0 );
   if ( a1 )
   {
     LdrpActiveThreadCount = 1;
-    LdrpTlsLock = 17LL;
+    LdrpTlsLock.0 = ($2F38BEDF952D5DA5F266621B11247D04)17LL;
   }
-  return RtlReleaseSRWLockShared(&LdrpTlsLock);
+  RtlReleaseSRWLockShared(&LdrpTlsLock);
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpFlushNotifiesOnAllUnbackedHigherLayerKcbs @ 0x140A1FC48
+ * XREFs of CmpFlushNotifiesOnAllUnbackedHigherLayerKcbs @ 0x140A1FEF8
  * Callers:
- *     CmDeleteLayeredKey @ 0x1406168EC (CmDeleteLayeredKey.c)
+ *     CmDeleteLayeredKey @ 0x140616E3C (CmDeleteLayeredKey.c)
  *     CmpLightWeightCommitRecreateKeyUoW @ 0x140680A38 (CmpLightWeightCommitRecreateKeyUoW.c)
  * Callees:
- *     CmpEnumerateAllHigherLayerKcbs @ 0x140A1FABC (CmpEnumerateAllHigherLayerKcbs.c)
+ *     CmpEnumerateAllHigherLayerKcbs @ 0x140A1FD6C (CmpEnumerateAllHigherLayerKcbs.c)
  */
 
 _UNKNOWN **__fastcall CmpFlushNotifiesOnAllUnbackedHigherLayerKcbs(__int64 a1, __int64 a2, __int64 a3, char a4)

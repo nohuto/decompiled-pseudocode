@@ -1,11 +1,11 @@
 /*
- * XREFs of KiDetermineRetpolineEnablement @ 0x1403CD1B0
+ * XREFs of KiDetermineRetpolineEnablement @ 0x1403CD320
  * Callers:
- *     KiInitializeBootStructures @ 0x14099C160 (KiInitializeBootStructures.c)
+ *     KiInitializeBootStructures @ 0x14099D160 (KiInitializeBootStructures.c)
  * Callees:
- *     KiDetectHardwareSpecControlFeatures @ 0x1403ADD1C (KiDetectHardwareSpecControlFeatures.c)
- *     KiIsPgiKernel @ 0x1403CD258 (KiIsPgiKernel.c)
- *     strstr @ 0x1403D1880 (strstr.c)
+ *     KiDetectHardwareSpecControlFeatures @ 0x1403ADE6C (KiDetectHardwareSpecControlFeatures.c)
+ *     KiIsPgiKernel @ 0x1403CD3C8 (KiIsPgiKernel.c)
+ *     strstr @ 0x1403D19F0 (strstr.c)
  */
 
 char __fastcall KiDetermineRetpolineEnablement(__int64 a1)

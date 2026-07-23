@@ -7,15 +7,18 @@
  *     _RtlCapabilityCheck@12 @ 0x4B2EF210 (_RtlCapabilityCheck@12.c)
  */
 
-int __stdcall RtlCapabilityCheckForSingleSessionSku(int a1, unsigned __int16 *a2, char *a3)
+NTSTATUS __stdcall RtlCapabilityCheckForSingleSessionSku(
+        HANDLE TokenHandle,
+        PUNICODE_STRING CapabilityName,
+        PBOOLEAN HasCapability)
 {
-  int result; // eax
+  NTSTATUS result; // eax
 
-  if ( !a3 )
+  if ( !HasCapability )
     return -1073741811;
   if ( !RtlIsMultiSessionSku() )
-    return RtlCapabilityCheck(a1, a2, a3);
+    return RtlCapabilityCheck(TokenHandle, CapabilityName, HasCapability);
   result = 0;
-  *a3 = 0;
+  *HasCapability = 0;
   return result;
 }

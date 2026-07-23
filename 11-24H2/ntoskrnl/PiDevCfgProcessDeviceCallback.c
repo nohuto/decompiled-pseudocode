@@ -1,22 +1,22 @@
 /*
- * XREFs of PiDevCfgProcessDeviceCallback @ 0x14072A970
+ * XREFs of PiDevCfgProcessDeviceCallback @ 0x140728690
  * Callers:
  *     <none>
  * Callees:
- *     PnpRequestDeviceAction @ 0x14046C968 (PnpRequestDeviceAction.c)
- *     PnpDuplicateUnicodeString @ 0x1404C0414 (PnpDuplicateUnicodeString.c)
- *     PipAreDriversLoaded @ 0x1404E6B3C (PipAreDriversLoaded.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     PiDevCfgCheckDeviceNeedsUpdate @ 0x14072897C (PiDevCfgCheckDeviceNeedsUpdate.c)
- *     _CmGetDeviceRegProp @ 0x1408C5BB0 (_CmGetDeviceRegProp.c)
- *     _CmOpenDeviceRegKey @ 0x1408C6880 (_CmOpenDeviceRegKey.c)
- *     PiDevCfgInitDeviceContext @ 0x140997624 (PiDevCfgInitDeviceContext.c)
- *     PiDevCfgFreeDeviceContext @ 0x140997788 (PiDevCfgFreeDeviceContext.c)
- *     PiDevCfgSetDeviceRegProp @ 0x14099B580 (PiDevCfgSetDeviceRegProp.c)
- *     PnpSetTargetDeviceRemove @ 0x140A8F494 (PnpSetTargetDeviceRemove.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     PnpRequestDeviceAction @ 0x140467508 (PnpRequestDeviceAction.c)
+ *     PnpDuplicateUnicodeString @ 0x1404BBB34 (PnpDuplicateUnicodeString.c)
+ *     PipAreDriversLoaded @ 0x1404DD238 (PipAreDriversLoaded.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     PiDevCfgCheckDeviceNeedsUpdate @ 0x14072650C (PiDevCfgCheckDeviceNeedsUpdate.c)
+ *     _CmGetDeviceRegProp @ 0x1408C35E0 (_CmGetDeviceRegProp.c)
+ *     _CmOpenDeviceRegKey @ 0x1408C42B0 (_CmOpenDeviceRegKey.c)
+ *     PiDevCfgInitDeviceContext @ 0x1409C9D7C (PiDevCfgInitDeviceContext.c)
+ *     PiDevCfgFreeDeviceContext @ 0x1409C9EF4 (PiDevCfgFreeDeviceContext.c)
+ *     PiDevCfgSetDeviceRegProp @ 0x1409CDCF0 (PiDevCfgSetDeviceRegProp.c)
+ *     PnpSetTargetDeviceRemove @ 0x140A8BB2C (PnpSetTargetDeviceRemove.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiDevCfgProcessDeviceCallback(__int64 a1, __int64 a2)
@@ -33,16 +33,16 @@ __int64 __fastcall PiDevCfgProcessDeviceCallback(__int64 a1, __int64 a2)
   _QWORD *v13; // rbx
   _QWORD *v14; // rax
   void *v15; // rcx
-  int v17; // [rsp+40h] [rbp-69h]
-  int v18; // [rsp+48h] [rbp-61h]
-  HANDLE Handle[2]; // [rsp+70h] [rbp-39h] BYREF
-  _BYTE v20[128]; // [rsp+80h] [rbp-29h] BYREF
-  unsigned int v21; // [rsp+110h] [rbp+67h] BYREF
-  int v22; // [rsp+118h] [rbp+6Fh] BYREF
-  int v23; // [rsp+120h] [rbp+77h] BYREF
-  unsigned int v24; // [rsp+128h] [rbp+7Fh] BYREF
+  int v17; // [rsp+40h] [rbp-79h]
+  int v18; // [rsp+48h] [rbp-71h]
+  HANDLE Handle[2]; // [rsp+70h] [rbp-49h] BYREF
+  _BYTE v20[144]; // [rsp+80h] [rbp-39h] BYREF
+  unsigned int v21; // [rsp+120h] [rbp+67h] BYREF
+  int v22; // [rsp+128h] [rbp+6Fh] BYREF
+  int v23; // [rsp+130h] [rbp+77h] BYREF
+  unsigned int v24; // [rsp+138h] [rbp+7Fh] BYREF
 
-  memset_0(v20, 0, 0x48uLL);
+  memset_0(v20, 0, 0x58uLL);
   v23 = 1;
   v4 = (*(_DWORD *)(a1 + 704) & 0x1000) == 0;
   Handle[0] = 0LL;
@@ -98,7 +98,7 @@ __int64 __fastcall PiDevCfgProcessDeviceCallback(__int64 a1, __int64 a2)
           }
           else
           {
-            Pool2 = ExAllocatePool2(0x100uLL);
+            Pool2 = ExAllocatePool2(0x100uLL, 0x20uLL, 0x63647050u);
             v13 = (_QWORD *)Pool2;
             if ( Pool2 )
             {

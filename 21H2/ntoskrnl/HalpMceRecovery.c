@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpMceRecovery @ 0x1404D02A0
+ * XREFs of HalpMceRecovery @ 0x1404D04E0
  * Callers:
  *     <none>
  * Callees:
- *     HalpMceRecoveryNotRequiredAmd @ 0x1404D059C (HalpMceRecoveryNotRequiredAmd.c)
- *     HalpMceRecoveryNotRequiredIntel @ 0x1404D0664 (HalpMceRecoveryNotRequiredIntel.c)
- *     HalpMceRecoveryRequired @ 0x1404D0758 (HalpMceRecoveryRequired.c)
+ *     HalpMceRecoveryNotRequiredAmd @ 0x1404D07DC (HalpMceRecoveryNotRequiredAmd.c)
+ *     HalpMceRecoveryNotRequiredIntel @ 0x1404D08A4 (HalpMceRecoveryNotRequiredIntel.c)
+ *     HalpMceRecoveryRequired @ 0x1404D0998 (HalpMceRecoveryRequired.c)
  */
 
 __int64 __fastcall HalpMceRecovery(__int64 a1, __int64 a2)

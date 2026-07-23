@@ -1,21 +1,21 @@
 /*
- * XREFs of MiStoreGetVadForAddress @ 0x14039788C
+ * XREFs of MiStoreGetVadForAddress @ 0x1402F5754
  * Callers:
- *     MmStoreDecommitVirtualMemory @ 0x140397A6C (MmStoreDecommitVirtualMemory.c)
- *     MmStoreIsVirtualAddressPoisoned @ 0x14068C850 (MmStoreIsVirtualAddressPoisoned.c)
+ *     MmStoreDecommitVirtualMemory @ 0x1402F62C8 (MmStoreDecommitVirtualMemory.c)
+ *     MmStoreIsVirtualAddressPoisoned @ 0x14068D980 (MmStoreIsVirtualAddressPoisoned.c)
  * Callees:
- *     MiUnlockVadTree @ 0x140261370 (MiUnlockVadTree.c)
- *     MiLockVadTree @ 0x1402DEE70 (MiLockVadTree.c)
- *     MiLocateAddress @ 0x1402FC070 (MiLocateAddress.c)
+ *     MiLockVadTree @ 0x140240750 (MiLockVadTree.c)
+ *     MiUnlockVadTree @ 0x140291980 (MiUnlockVadTree.c)
+ *     MiLocateAddress @ 0x140344F70 (MiLocateAddress.c)
  */
 
-struct _LIST_ENTRY *__fastcall MiStoreGetVadForAddress(unsigned __int64 a1, __int64 a2, __int64 a3)
+__int64 __fastcall MiStoreGetVadForAddress(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  struct _LIST_ENTRY *Address; // rbx
-  unsigned __int8 v5; // r11
+  __int64 Address; // rbx
+  unsigned __int8 v6; // r11
 
-  MiLockVadTree(0, a2, a3);
+  MiLockVadTree(0, a2, a3, a4);
   Address = MiLocateAddress(a1);
-  MiUnlockVadTree(0, v5);
+  MiUnlockVadTree(0, v6);
   return Address;
 }

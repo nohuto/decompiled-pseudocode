@@ -1,13 +1,13 @@
 /*
- * XREFs of SdbFindNextTag @ 0x14067CE4C
+ * XREFs of SdbFindNextTag @ 0x14067E00C
  * Callers:
- *     InitOnceScanIndexes @ 0x14067CFC0 (InitOnceScanIndexes.c)
- *     KsepDbGetDriverShims @ 0x14067D8A4 (KsepDbGetDriverShims.c)
- *     KsepDbCacheReadDevice @ 0x140720CDC (KsepDbCacheReadDevice.c)
+ *     InitOnceScanIndexes @ 0x14067E180 (InitOnceScanIndexes.c)
+ *     KsepDbGetDriverShims @ 0x14067EA64 (KsepDbGetDriverShims.c)
+ *     KsepDbCacheReadDevice @ 0x140721F7C (KsepDbCacheReadDevice.c)
  * Callees:
- *     SdbGetTagFromTagID @ 0x1405C82BC (SdbGetTagFromTagID.c)
- *     SdbGetNextChild @ 0x14067D1F4 (SdbGetNextChild.c)
- *     AslLogCallPrintf @ 0x140680C60 (AslLogCallPrintf.c)
+ *     SdbGetTagFromTagID @ 0x1405C92BC (SdbGetTagFromTagID.c)
+ *     SdbGetNextChild @ 0x14067E3B4 (SdbGetNextChild.c)
+ *     AslLogCallPrintf @ 0x140681E20 (AslLogCallPrintf.c)
  */
 
 __int64 __fastcall SdbFindNextTag(__int64 a1, unsigned int a2, unsigned int a3)

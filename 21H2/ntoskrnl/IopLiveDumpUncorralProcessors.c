@@ -1,16 +1,16 @@
 /*
- * XREFs of IopLiveDumpUncorralProcessors @ 0x1409AD5E8
+ * XREFs of IopLiveDumpUncorralProcessors @ 0x1409AE518
  * Callers:
- *     IopLiveDumpCaptureMemoryPages @ 0x1409AB964 (IopLiveDumpCaptureMemoryPages.c)
- *     IopLiveDumpEndMirroringCallback @ 0x1409ABEE0 (IopLiveDumpEndMirroringCallback.c)
- *     IopLiveDumpEstimateMemoryPages @ 0x1409AC28C (IopLiveDumpEstimateMemoryPages.c)
+ *     IopLiveDumpCaptureMemoryPages @ 0x1409AC894 (IopLiveDumpCaptureMemoryPages.c)
+ *     IopLiveDumpEndMirroringCallback @ 0x1409ACE10 (IopLiveDumpEndMirroringCallback.c)
+ *     IopLiveDumpEstimateMemoryPages @ 0x1409AD1BC (IopLiveDumpEstimateMemoryPages.c)
  * Callees:
- *     KeRevertToUserGroupAffinityThread @ 0x1402EB390 (KeRevertToUserGroupAffinityThread.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x14029C6E0 (KeRevertToUserGroupAffinityThread.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     IopLiveDumpTraceSystemQuiesceEnd @ 0x14050A068 (IopLiveDumpTraceSystemQuiesceEnd.c)
- *     IopLiveDumpTraceUncorralProcessorsDuration @ 0x14050A118 (IopLiveDumpTraceUncorralProcessorsDuration.c)
- *     IopLiveDumpUnLockPages @ 0x14050A2DC (IopLiveDumpUnLockPages.c)
- *     IopLiveDumpInitiateCorralStateChange @ 0x1409AC958 (IopLiveDumpInitiateCorralStateChange.c)
+ *     IopLiveDumpTraceSystemQuiesceEnd @ 0x14050A2A4 (IopLiveDumpTraceSystemQuiesceEnd.c)
+ *     IopLiveDumpTraceUncorralProcessorsDuration @ 0x14050A354 (IopLiveDumpTraceUncorralProcessorsDuration.c)
+ *     IopLiveDumpUnLockPages @ 0x14050A518 (IopLiveDumpUnLockPages.c)
+ *     IopLiveDumpInitiateCorralStateChange @ 0x1409AD888 (IopLiveDumpInitiateCorralStateChange.c)
  */
 
 char __fastcall IopLiveDumpUncorralProcessors(__int64 *a1, char a2, __int64 a3, __int64 a4)

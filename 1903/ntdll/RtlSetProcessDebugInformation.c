@@ -15,94 +15,100 @@
  *     sub_1800FAA88 @ 0x1800FAA88 (sub_1800FAA88.c)
  */
 
-__int64 __fastcall RtlSetProcessDebugInformation(HANDLE a1, int a2, __int64 a3)
+NTSTATUS __cdecl RtlSetProcessDebugInformation(HANDLE UniqueProcessId, ULONG Flags, PRTL_DEBUG_INFORMATION Buffer)
 {
   int InformationThread; // ebx
   char v5; // si
-  __int64 result; // rax
-  unsigned __int64 v7; // r8
-  unsigned int *v8; // rax
-  __int64 v9; // rcx
-  __int64 v10; // rdx
-  unsigned int *v11; // r8
-  __int64 v12; // [rsp+30h] [rbp-78h]
-  int v13; // [rsp+60h] [rbp-48h]
-  __int64 v14; // [rsp+B0h] [rbp+8h] BYREF
-  __int64 v15; // [rsp+C0h] [rbp+18h] BYREF
-  __int64 v16; // [rsp+C8h] [rbp+20h]
+  NTSTATUS result; // eax
+  SIZE_T OffsetFree; // r8
+  HANDLE v8; // rdi
+  int v9; // eax
+  void *v10; // rcx
+  PRTL_PROCESS_BACKTRACES BackTraces; // rax
+  __int64 CommittedMemory; // rcx
+  __int64 ReservedMemory; // rdx
+  ULONG *p_NumberOfBackTraceLookups; // r8
+  int v15; // [rsp+30h] [rbp-78h]
+  int ThreadInformation[18]; // [rsp+60h] [rbp-48h] BYREF
+  HANDLE Handle; // [rsp+B0h] [rbp+8h] BYREF
+  HANDLE ThreadHandle; // [rsp+C0h] [rbp+18h] BYREF
+  LARGE_INTEGER Timeout; // [rsp+C8h] [rbp+20h] BYREF
 
-  v16 = -600000000LL;
+  Timeout.QuadPart = -600000000LL;
   InformationThread = 0;
-  *(_DWORD *)(a3 + 64) = a2;
-  v5 = a2;
-  if ( NtCurrentTeb()->ClientId.UniqueProcess == a1 )
+  Buffer->Flags = Flags;
+  v5 = Flags;
+  if ( NtCurrentTeb()->ClientId.UniqueProcess == UniqueProcessId )
   {
-    if ( (a2 & 1) != 0 )
+    if ( (Flags & 1) != 0 )
     {
-      InformationThread = sub_1800DA550(a3);
+      InformationThread = sub_1800DA550(Buffer);
       if ( InformationThread )
-        return (unsigned int)InformationThread;
+        return InformationThread;
     }
     if ( (v5 & 2) == 0 )
-      return (unsigned int)InformationThread;
-    v8 = *(unsigned int **)(a3 + 104);
-    if ( v8 )
+      return InformationThread;
+    BackTraces = Buffer->BackTraces;
+    if ( BackTraces )
     {
-      v9 = *v8;
-      v10 = v8[1];
-      if ( (_DWORD)v9 )
+      CommittedMemory = BackTraces->CommittedMemory;
+      ReservedMemory = BackTraces->ReservedMemory;
+      if ( (_DWORD)CommittedMemory )
       {
-        v11 = v8 + 2;
+        p_NumberOfBackTraceLookups = &BackTraces->NumberOfBackTraceLookups;
       }
       else
       {
-        if ( (unsigned int)v10 < 0x18 )
-          return (unsigned int)-1073741811;
-        v11 = v8 + 2;
-        if ( *((_QWORD *)v8 + 1) || *((_QWORD *)v8 + 2) )
-          return (unsigned int)-1073741811;
+        if ( (unsigned int)ReservedMemory < 0x18 )
+          return -1073741811;
+        p_NumberOfBackTraceLookups = &BackTraces->NumberOfBackTraceLookups;
+        if ( *(_QWORD *)&BackTraces->NumberOfBackTraceLookups || BackTraces->BackTraces[0].SymbolicBackTrace )
+          return -1073741811;
       }
-      return (unsigned int)sub_1800FAA88(v9, v10, v11);
+      return sub_1800FAA88(CommittedMemory, ReservedMemory, p_NumberOfBackTraceLookups);
     }
-    return (unsigned int)-1073741801;
+    return -1073741801;
   }
   else
   {
-    v14 = 0LL;
-    result = sub_1800757D8((_QWORD *)a3, (__int64)a1, 0, &v14);
-    if ( (int)result < 0 )
+    Handle = 0LL;
+    result = sub_1800757D8((__int64)Buffer, UniqueProcessId, 0, &Handle);
+    if ( result < 0 )
       return result;
-    v7 = *(_QWORD *)(a3 + 72);
-    if ( v7 > 0xD0 )
-      memmove((void *)(*(_QWORD *)(a3 + 88) + a3 + 208), (const void *)(a3 + 208), v7 - 208);
+    OffsetFree = Buffer->OffsetFree;
+    if ( OffsetFree > 0xD0 )
+      memmove((char *)&Buffer[1] + Buffer->ViewSize, &Buffer[1], OffsetFree - 208);
     InformationThread = sub_180005760(
-                          v14,
+                          Handle,
                           0LL,
                           7,
                           0,
                           0LL,
                           0LL,
-                          v12,
-                          (__int64)sub_1800D8220,
-                          *(_QWORD *)(a3 + 16),
-                          &v15,
+                          v15,
+                          (PUSER_THREAD_START_ROUTINE)sub_1800D8220,
+                          Buffer->ViewBaseTarget,
+                          &ThreadHandle,
                           0LL);
     if ( InformationThread >= 0 )
     {
-      InformationThread = ZwResumeThread();
-      if ( InformationThread < 0 || (InformationThread = ZwWaitForSingleObject(), InformationThread < 0) )
+      v8 = ThreadHandle;
+      v9 = ZwResumeThread(ThreadHandle, 0LL);
+      InformationThread = v9;
+      v10 = v8;
+      if ( v9 < 0 || (v9 = ZwWaitForSingleObject(v8, 1u, &Timeout), InformationThread = v9, v10 = v8, v9 < 0) )
       {
-        ZwTerminateThread();
+        ZwTerminateThread(v10, v9);
       }
       else
       {
-        InformationThread = ZwQueryInformationThread();
+        InformationThread = ZwQueryInformationThread(v8, ThreadBasicInformation, ThreadInformation, 0x30u, 0LL);
         if ( InformationThread >= 0 )
-          InformationThread = v13;
+          InformationThread = ThreadInformation[0];
       }
-      ZwClose();
+      ZwClose(v8);
     }
-    ZwClose();
+    ZwClose(Handle);
   }
-  return (unsigned int)InformationThread;
+  return InformationThread;
 }

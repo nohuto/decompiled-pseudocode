@@ -10,5 +10,5 @@ NTSTATUS __stdcall ZwMapUserPhysicalPages(PVOID VirtualAddresses, ULONG_PTR Numb
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(VirtualAddresses, NumberOfPages, UserPfnArray);
+  return KiServiceInternal(VirtualAddresses);
 }

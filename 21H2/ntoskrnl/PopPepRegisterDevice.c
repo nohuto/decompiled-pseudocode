@@ -1,16 +1,16 @@
 /*
- * XREFs of PopPepRegisterDevice @ 0x14078ED18
+ * XREFs of PopPepRegisterDevice @ 0x1407B5930
  * Callers:
- *     PopFxRegisterDeviceWithPep @ 0x1403BEF6C (PopFxRegisterDeviceWithPep.c)
+ *     PopFxRegisterDeviceWithPep @ 0x1403BE8CC (PopFxRegisterDeviceWithPep.c)
  * Callees:
- *     PopPepComponentGetResidencyIdleState @ 0x140262644 (PopPepComponentGetResidencyIdleState.c)
- *     KeInitializeEvent @ 0x1403538F0 (KeInitializeEvent.c)
- *     DbgPrintEx @ 0x14037F820 (DbgPrintEx.c)
- *     PopPepInsertDevice @ 0x1403C5ACC (PopPepInsertDevice.c)
- *     PopPepComponentGetLatencyIdleState @ 0x1403CAEFC (PopPepComponentGetLatencyIdleState.c)
- *     memset @ 0x140414200 (memset.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     PopPepComponentGetResidencyIdleState @ 0x140283B14 (PopPepComponentGetResidencyIdleState.c)
+ *     KeInitializeEvent @ 0x14035E640 (KeInitializeEvent.c)
+ *     DbgPrintEx @ 0x14037F370 (DbgPrintEx.c)
+ *     PopPepInsertDevice @ 0x1403BE9B8 (PopPepInsertDevice.c)
+ *     PopPepComponentGetLatencyIdleState @ 0x1403BEC44 (PopPepComponentGetLatencyIdleState.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 char __fastcall PopPepRegisterDevice(__int64 a1, __int64 a2, __int64 a3, int a4, _QWORD *a5)
@@ -114,7 +114,7 @@ char __fastcall PopPepRegisterDevice(__int64 a1, __int64 a2, __int64 a3, int a4,
             ++v21;
             v22 += 136;
           }
-          while ( (__int64)v22 < (__int64)&PiDqQueryConstraintData );
+          while ( (__int64)v22 < (__int64)&EmptyUnicodeString );
           *((_QWORD *)v18 + 2) |= 1uLL;
           v24 = 0;
           v25 = (__int64 *)(a3 + 16);
@@ -140,7 +140,7 @@ char __fastcall PopPepRegisterDevice(__int64 a1, __int64 a2, __int64 a3, int a4,
               ++v30;
               v28 += 136;
             }
-            while ( (__int64)v28 < (__int64)&PiDqQueryConstraintData );
+            while ( (__int64)v28 < (__int64)&EmptyUnicodeString );
             KeInitializeEvent((PRKEVENT)v26, NotificationEvent, 0);
             v32 = v46;
             *((_QWORD *)v26 - 2) = *(_QWORD *)(v27 + 16);

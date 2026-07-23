@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpCheckLexicographicalOrder @ 0x1405F2E10
+ * XREFs of CmpCheckLexicographicalOrder @ 0x1406E2570
  * Callers:
- *     CmpCheckRegistry2 @ 0x1405F0040 (CmpCheckRegistry2.c)
+ *     CmpCheckRegistry2 @ 0x1406DF7A0 (CmpCheckRegistry2.c)
  * Callees:
- *     NLS_UPCASE @ 0x140206AF0 (NLS_UPCASE.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     RtlCompareUnicodeString @ 0x1405EE320 (RtlCompareUnicodeString.c)
- *     CmpCompareCompressedName @ 0x1405EE720 (CmpCompareCompressedName.c)
+ *     NLS_UPCASE @ 0x1402AB420 (NLS_UPCASE.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     RtlCompareUnicodeString @ 0x1406DDA80 (RtlCompareUnicodeString.c)
+ *     CmpCompareCompressedName @ 0x1406DDE80 (CmpCompareCompressedName.c)
  */
 
 __int64 __fastcall CmpCheckLexicographicalOrder(__int64 a1, unsigned int a2, unsigned int a3)

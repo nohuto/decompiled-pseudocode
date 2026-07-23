@@ -1,13 +1,13 @@
 /*
- * XREFs of MiReturnSystemCharges @ 0x1402B9B18
+ * XREFs of MiReturnSystemCharges @ 0x140237D28
  * Callers:
- *     MiDeleteSystemPageTableTail @ 0x1402B9A70 (MiDeleteSystemPageTableTail.c)
- *     MiGetPageTablePages @ 0x1402E59A0 (MiGetPageTablePages.c)
- *     MiCleanupPageTablePages @ 0x1402FD2EC (MiCleanupPageTablePages.c)
- *     MiDeleteSystemPagableVm @ 0x140305A80 (MiDeleteSystemPagableVm.c)
- *     MiDeleteSessionPdes @ 0x14038CAC8 (MiDeleteSessionPdes.c)
- *     MiReturnSplitPageCharges @ 0x1403CED94 (MiReturnSplitPageCharges.c)
- *     MiGetLargePagesForSystemMapping @ 0x1408C8A44 (MiGetLargePagesForSystemMapping.c)
+ *     MiDeleteSystemPageTableTail @ 0x140237C80 (MiDeleteSystemPageTableTail.c)
+ *     MiGetPageTablePages @ 0x140296CF0 (MiGetPageTablePages.c)
+ *     MiCleanupPageTablePages @ 0x14030803C (MiCleanupPageTablePages.c)
+ *     MiDeleteSystemPagableVm @ 0x1403107D0 (MiDeleteSystemPagableVm.c)
+ *     MiDeleteSessionPdes @ 0x14038CC18 (MiDeleteSessionPdes.c)
+ *     MiReturnSplitPageCharges @ 0x1403CEF04 (MiReturnSplitPageCharges.c)
+ *     MiGetLargePagesForSystemMapping @ 0x1408C8BA4 (MiGetLargePagesForSystemMapping.c)
  * Callees:
  *     <none>
  */
@@ -38,9 +38,9 @@ LABEL_15:
   }
   v4 = -(__int64)a2;
   if ( a3 == 4 )
-    _InterlockedExchangeAdd64(&qword_140C4EFD8, v4);
+    _InterlockedExchangeAdd64(&qword_140C4F018, v4);
   else
-    _InterlockedExchangeAdd64(&qword_140C4EFC0, v4);
+    _InterlockedExchangeAdd64(&qword_140C4F000, v4);
 LABEL_6:
   result = (unsigned __int64)&MiSystemPartition;
   if ( (ULONG_PTR *)a1 == &MiSystemPartition )

@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpMmBuildTiledMemoryMap @ 0x140A90D78
+ * XREFs of HalpMmBuildTiledMemoryMap @ 0x140A90BF8
  * Callers:
- *     HalpInterruptBuildGlobalStartupStub @ 0x1403A90E0 (HalpInterruptBuildGlobalStartupStub.c)
+ *     HalpInterruptBuildGlobalStartupStub @ 0x1403A92C0 (HalpInterruptBuildGlobalStartupStub.c)
  * Callees:
- *     MmGetPhysicalAddress @ 0x14028BEE0 (MmGetPhysicalAddress.c)
- *     HalpAllocateCR3Root @ 0x1403A9168 (HalpAllocateCR3Root.c)
- *     memset @ 0x140435A00 (memset.c)
- *     HalpCommitCR3Worker @ 0x140A8FEA4 (HalpCommitCR3Worker.c)
- *     HalpMapCR3Ex @ 0x140A90E10 (HalpMapCR3Ex.c)
+ *     MmGetPhysicalAddress @ 0x14028C170 (MmGetPhysicalAddress.c)
+ *     HalpAllocateCR3Root @ 0x1403A9348 (HalpAllocateCR3Root.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     HalpCommitCR3Worker @ 0x140A8FD24 (HalpCommitCR3Worker.c)
+ *     HalpMapCR3Ex @ 0x140A90C90 (HalpMapCR3Ex.c)
  */
 
 __int64 HalpMmBuildTiledMemoryMap()

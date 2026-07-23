@@ -1,9 +1,9 @@
 /*
- * XREFs of PopCapturePlatformRole @ 0x140B0E868
+ * XREFs of PopCapturePlatformRole @ 0x140B100A0
  * Callers:
- *     NtPowerInformation @ 0x1409DE3E0 (NtPowerInformation.c)
- *     PopConfigureHeteroPolicies @ 0x140A9E35C (PopConfigureHeteroPolicies.c)
- *     PopDripsWatchdogInitialize @ 0x140CD68EC (PopDripsWatchdogInitialize.c)
+ *     NtPowerInformation @ 0x140A1B510 (NtPowerInformation.c)
+ *     PopConfigureHeteroPolicies @ 0x140AA9D88 (PopConfigureHeteroPolicies.c)
+ *     PopDripsWatchdogInitialize @ 0x140CDCC40 (PopDripsWatchdogInitialize.c)
  * Callees:
  *     <none>
  */
@@ -14,14 +14,14 @@ __int64 PopCapturePlatformRole()
   int v1; // ecx
   unsigned __int32 v2; // ecx
 
-  result = *(unsigned int *)&stru_140E66FF0.WaitBlockFill11[88];
+  result = *(unsigned int *)&stru_140E67200.WaitBlockFill11[84];
   v1 = 0;
-  if ( !*(_DWORD *)&stru_140E66FF0.WaitBlockFill11[88] )
+  if ( !*(_DWORD *)&stru_140E67200.WaitBlockFill11[84] )
   {
-    LOBYTE(v1) = dword_140F0FE70 != 0;
+    LOBYTE(v1) = dword_140F10630 != 0;
     v2 = v1 + 1;
     result = (unsigned int)_InterlockedCompareExchange(
-                             (volatile signed __int32 *)&stru_140E66FF0.WaitBlockFill11[88],
+                             (volatile signed __int32 *)&stru_140E67200.WaitBlockFill11[84],
                              v2,
                              0);
     if ( !(_DWORD)result )

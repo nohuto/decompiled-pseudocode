@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpCompareConfigNodeWithSpec @ 0x180002414
+ * XREFs of RtlpCompareConfigNodeWithSpec @ 0x18004DB44
  * Callers:
- *     RtlpTraverseParents @ 0x180003090 (RtlpTraverseParents.c)
+ *     RtlpTraverseParents @ 0x18004E7C0 (RtlpTraverseParents.c)
  * Callees:
  *     <none>
  */

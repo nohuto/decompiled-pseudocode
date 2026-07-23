@@ -7,14 +7,12 @@
  *     RtlStringVPrintfWorkerW_1 @ 0x4B337693 (RtlStringVPrintfWorkerW_1.c)
  */
 
-int RtlStringCbPrintfW(wchar_t *Buffer, unsigned int a2, wchar_t *Format, ...)
+int __cdecl RtlStringCbPrintfW(wchar_t *Buffer, unsigned int a2, int a3, wchar_t Format)
 {
-  int v3; // ecx
-  va_list va; // [esp+14h] [ebp+14h] BYREF
+  int v4; // ecx
 
-  va_start(va, Format);
-  v3 = a2 >> 1 != 0 ? 0 : -1073741811;
+  v4 = a2 >> 1 != 0 ? 0 : -1073741811;
   if ( a2 >> 1 )
-    return RtlStringVPrintfWorkerW_1(Buffer, (int)va, Format, va);
-  return v3;
+    return RtlStringVPrintfWorkerW_1(Buffer, (int)&Format, a3, &Format);
+  return v4;
 }

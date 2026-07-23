@@ -1,17 +1,17 @@
 /*
- * XREFs of IvtFlushTbInternal @ 0x1403BA188
+ * XREFs of IvtFlushTbInternal @ 0x140372B58
  * Callers:
- *     IvtFlushDomainTb @ 0x1403B9810 (IvtFlushDomainTb.c)
- *     IvtAttachDeviceDomainInternal @ 0x14056DA10 (IvtAttachDeviceDomainInternal.c)
- *     IvtFlushTb @ 0x14056E4B0 (IvtFlushTb.c)
- *     IvtInitializeIommu @ 0x140B51B90 (IvtInitializeIommu.c)
+ *     IvtFlushDomainTb @ 0x1403721E0 (IvtFlushDomainTb.c)
+ *     IvtAttachDeviceDomainInternal @ 0x14056AEA0 (IvtAttachDeviceDomainInternal.c)
+ *     IvtFlushTb @ 0x14056B940 (IvtFlushTb.c)
+ *     IvtInitializeIommu @ 0x140B53BE0 (IvtInitializeIommu.c)
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x140245670 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection @ 0x1402792A0 (ExAcquireRundownProtection.c)
- *     IvtIommuWaitCommand @ 0x1403BB7F4 (IvtIommuWaitCommand.c)
- *     IvtIommuSendCommand @ 0x1403BB944 (IvtIommuSendCommand.c)
- *     HalpIommuGetNextFlushDevice @ 0x1404FA164 (HalpIommuGetNextFlushDevice.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     ExReleaseRundownProtection_0 @ 0x14020DE50 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x14022E830 (ExAcquireRundownProtection_0.c)
+ *     IvtIommuWaitCommand @ 0x140374F34 (IvtIommuWaitCommand.c)
+ *     IvtIommuSendCommand @ 0x140375084 (IvtIommuSendCommand.c)
+ *     HalpIommuGetNextFlushDevice @ 0x1404F7A44 (HalpIommuGetNextFlushDevice.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 void __fastcall IvtFlushTbInternal(
@@ -330,7 +330,7 @@ LABEL_74:
       {
         if ( !*v32 )
         {
-          if ( !ExAcquireRundownProtection(v35) )
+          if ( !ExAcquireRundownProtection_0(v35) )
           {
             v13 = a5;
 LABEL_35:

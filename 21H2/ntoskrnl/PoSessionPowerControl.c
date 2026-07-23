@@ -1,13 +1,13 @@
 /*
- * XREFs of PoSessionPowerControl @ 0x1408F53EC
+ * XREFs of PoSessionPowerControl @ 0x1408F554C
  * Callers:
- *     TtmpSessionPowerControl @ 0x1408FFF84 (TtmpSessionPowerControl.c)
+ *     TtmpSessionPowerControl @ 0x1409000E4 (TtmpSessionPowerControl.c)
  * Callees:
- *     PopInvokeWin32Callout @ 0x14067B7C8 (PopInvokeWin32Callout.c)
- *     PopBlockSessionSwitch @ 0x140779D60 (PopBlockSessionSwitch.c)
+ *     PopInvokeWin32Callout @ 0x14066EF08 (PopInvokeWin32Callout.c)
+ *     PopBlockSessionSwitch @ 0x140779F20 (PopBlockSessionSwitch.c)
  */
 
-__int64 __fastcall PoSessionPowerControl(char a1, int a2, int a3)
+ULONG __fastcall PoSessionPowerControl(char a1, int a2, int a3)
 {
   int v6; // [rsp+20h] [rbp-30h] BYREF
   char v7; // [rsp+24h] [rbp-2Ch]
@@ -17,7 +17,7 @@ __int64 __fastcall PoSessionPowerControl(char a1, int a2, int a3)
   __int64 *v11; // [rsp+30h] [rbp-20h]
   __int64 v12; // [rsp+38h] [rbp-18h]
   __int64 v13; // [rsp+40h] [rbp-10h]
-  int v14; // [rsp+70h] [rbp+20h] BYREF
+  ULONG v14; // [rsp+70h] [rbp+20h] BYREF
   int v15; // [rsp+80h] [rbp+30h] BYREF
   __int64 v16; // [rsp+88h] [rbp+38h] BYREF
 
@@ -35,6 +35,6 @@ __int64 __fastcall PoSessionPowerControl(char a1, int a2, int a3)
   v6 = 6;
   v7 = 0;
   v13 = 0LL;
-  PopInvokeWin32Callout(5, (__int64)&v6, 1, &v15);
+  PopInvokeWin32Callout(5u, (__int64)&v6, 1u, &v15);
   return PopBlockSessionSwitch(0, &v14);
 }

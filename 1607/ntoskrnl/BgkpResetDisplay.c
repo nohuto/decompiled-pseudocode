@@ -1,9 +1,9 @@
 /*
- * XREFs of BgkpResetDisplay @ 0x1401C3F28
+ * XREFs of BgkpResetDisplay @ 0x1401C3E0C
  * Callers:
  *     <none>
  * Callees:
- *     memset @ 0x1401715C0 (memset.c)
+ *     memset @ 0x140171AC0 (memset.c)
  */
 
 __int64 __fastcall BgkpResetDisplay(char a1, _BYTE *a2, _QWORD *a3)
@@ -12,7 +12,7 @@ __int64 __fastcall BgkpResetDisplay(char a1, _BYTE *a2, _QWORD *a3)
   __int64 v5; // rcx
 
   *a3 = 0LL;
-  if ( !a1 || dword_1403410F0 == 2 )
+  if ( !a1 || dword_140341130 == 2 )
     return 3221225659LL;
   if ( !qword_1403420A0 )
     return 3221225473LL;

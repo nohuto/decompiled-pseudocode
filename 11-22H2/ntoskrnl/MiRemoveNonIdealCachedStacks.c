@@ -12,10 +12,10 @@
 PSLIST_ENTRY __fastcall MiRemoveNonIdealCachedStacks(PSLIST_HEADER ListHead)
 {
   PSLIST_ENTRY result; // rax
-  struct _SLIST_ENTRY *v3; // rbx
-  struct _SLIST_ENTRY *v4; // rsi
+  _SLIST_ENTRY *v3; // rbx
+  _SLIST_ENTRY *v4; // rsi
   int v5; // [rsp+30h] [rbp+8h] BYREF
-  union _SLIST_HEADER *v6; // [rsp+38h] [rbp+10h] BYREF
+  _SLIST_HEADER *v6; // [rsp+38h] [rbp+10h] BYREF
 
   v6 = 0LL;
   v5 = 0;

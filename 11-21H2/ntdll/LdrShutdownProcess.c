@@ -15,14 +15,14 @@
  *     _guard_xfg_dispatch_icall_nop @ 0x1800AAAD0 (_guard_xfg_dispatch_icall_nop.c)
  */
 
-void LdrShutdownProcess()
+void __noreturn LdrShutdownProcess(void)
 {
   struct _TEB *v0; // rdi
   _PEB *ProcessEnvironmentBlock; // rbx
   _RTL_USER_PROCESS_PARAMETERS *ProcessParameters; // rax
   void *FlsData; // rcx
   char v4; // r14
-  __int64 v5; // rcx
+  REGHANDLE v5; // rcx
   __int64 *v6; // rsi
   __int64 v7; // rbx
   __int64 (__fastcall *v8)(__int64, _QWORD, __int64); // r15

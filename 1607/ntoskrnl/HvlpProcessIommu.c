@@ -1,10 +1,10 @@
 /*
- * XREFs of HvlpProcessIommu @ 0x1401BF944
+ * XREFs of HvlpProcessIommu @ 0x1401BF828
  * Callers:
- *     HvlQueryDmaProtectionInfo @ 0x1406202D4 (HvlQueryDmaProtectionInfo.c)
+ *     HvlQueryDmaProtectionInfo @ 0x140620388 (HvlQueryDmaProtectionInfo.c)
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     ZwQuerySystemInformation @ 0x14015A340 (ZwQuerySystemInformation.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     ZwQuerySystemInformation @ 0x14015A8B0 (ZwQuerySystemInformation.c)
  *     KiGetCpuVendor @ 0x1403D622C (KiGetCpuVendor.c)
  */
 

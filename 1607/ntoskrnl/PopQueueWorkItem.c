@@ -1,16 +1,16 @@
 /*
- * XREFs of PopQueueWorkItem @ 0x14014B25C
+ * XREFs of PopQueueWorkItem @ 0x14014B7CC
  * Callers:
- *     PopThermalTelemetryCallback @ 0x140207240 (PopThermalTelemetryCallback.c)
- *     PopCheckPowerSourceAfterRtcWakeTimerCallback @ 0x14020751C (PopCheckPowerSourceAfterRtcWakeTimerCallback.c)
- *     PopNetEvaluationTimerCallback @ 0x14020B490 (PopNetEvaluationTimerCallback.c)
- *     PopDripsWatchdogTimerCallbackRoutine @ 0x14020D6D4 (PopDripsWatchdogTimerCallbackRoutine.c)
- *     PopNetSetConnectivityConstraint @ 0x14057E94C (PopNetSetConnectivityConstraint.c)
- *     PopNetClearConnectivityConstraint @ 0x1405805C0 (PopNetClearConnectivityConstraint.c)
- *     PdcPoNetworkResiliency @ 0x14066FA60 (PdcPoNetworkResiliency.c)
- *     PopNetCompliantNicUpdate @ 0x140673664 (PopNetCompliantNicUpdate.c)
+ *     PopThermalTelemetryCallback @ 0x14020706C (PopThermalTelemetryCallback.c)
+ *     PopCheckPowerSourceAfterRtcWakeTimerCallback @ 0x140207348 (PopCheckPowerSourceAfterRtcWakeTimerCallback.c)
+ *     PopNetEvaluationTimerCallback @ 0x14020B2BC (PopNetEvaluationTimerCallback.c)
+ *     PopDripsWatchdogTimerCallbackRoutine @ 0x14020D500 (PopDripsWatchdogTimerCallbackRoutine.c)
+ *     PopNetSetConnectivityConstraint @ 0x14057EDF8 (PopNetSetConnectivityConstraint.c)
+ *     PopNetClearConnectivityConstraint @ 0x140580A6C (PopNetClearConnectivityConstraint.c)
+ *     PdcPoNetworkResiliency @ 0x14066FB44 (PdcPoNetworkResiliency.c)
+ *     PopNetCompliantNicUpdate @ 0x140673748 (PopNetCompliantNicUpdate.c)
  * Callees:
- *     ExQueueWorkItem @ 0x14005FE5C (ExQueueWorkItem.c)
+ *     ExQueueWorkItem @ 0x14005F9DC (ExQueueWorkItem.c)
  */
 
 char __fastcall PopQueueWorkItem(__int64 a1)

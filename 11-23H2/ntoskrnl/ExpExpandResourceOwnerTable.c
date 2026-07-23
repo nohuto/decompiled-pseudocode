@@ -1,16 +1,16 @@
 /*
- * XREFs of ExpExpandResourceOwnerTable @ 0x1403416F0
+ * XREFs of ExpExpandResourceOwnerTable @ 0x140341980
  * Callers:
- *     ExpAcquireResourceSharedLite @ 0x14023DDC0 (ExpAcquireResourceSharedLite.c)
- *     ExpFindCurrentThread @ 0x140260200 (ExpFindCurrentThread.c)
- *     ExpFindEmptyEntry @ 0x140341694 (ExpFindEmptyEntry.c)
- *     ExAcquireSharedWaitForExclusive @ 0x1403C8950 (ExAcquireSharedWaitForExclusive.c)
+ *     ExpAcquireResourceSharedLite @ 0x14023DE90 (ExpAcquireResourceSharedLite.c)
+ *     ExpFindCurrentThread @ 0x140260490 (ExpFindCurrentThread.c)
+ *     ExpFindEmptyEntry @ 0x140341924 (ExpFindEmptyEntry.c)
+ *     ExAcquireSharedWaitForExclusive @ 0x1403C8B30 (ExAcquireSharedWaitForExclusive.c)
  * Callees:
- *     KeDelayExecutionThread @ 0x140246810 (KeDelayExecutionThread.c)
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeDelayExecutionThread @ 0x1402468E0 (KeDelayExecutionThread.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402610F0 (KeAcquireInStackQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     memmove @ 0x140435B00 (memmove.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
@@ -59,10 +59,13 @@ void __fastcall ExpExpandResourceOwnerTable(__int64 a1, __int64 a2)
   }
   KxReleaseQueuedSpinLock((volatile signed __int64 **)a2);
   v8 = *(unsigned __int8 *)(a2 + 16);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v8 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v8 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -86,10 +89,10 @@ void __fastcall ExpExpandResourceOwnerTable(__int64 a1, __int64 a2)
       *(_QWORD *)(a1 + 16) = Pool2;
       KxReleaseQueuedSpinLock((volatile signed __int64 **)a2);
       v11 = *(unsigned __int8 *)(a2 + 16);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v18 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v18 <= 0xFu && (unsigned __int8)v11 <= 0xFu && v18 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v18 <= 0xFu && (unsigned __int8)v11 <= 0xFu && v18 >= 2u )
         {
           v19 = KeGetCurrentPrcb();
           v20 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v11 + 1));
@@ -110,10 +113,10 @@ void __fastcall ExpExpandResourceOwnerTable(__int64 a1, __int64 a2)
     {
       KxReleaseQueuedSpinLock((volatile signed __int64 **)a2);
       v12 = *(unsigned __int8 *)(a2 + 16);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v22 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v22 <= 0xFu && (unsigned __int8)v12 <= 0xFu && v22 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v22 <= 0xFu && (unsigned __int8)v12 <= 0xFu && v22 >= 2u )
         {
           v23 = KeGetCurrentPrcb();
           v24 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v12 + 1));

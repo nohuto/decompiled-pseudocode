@@ -1,13 +1,13 @@
 /*
- * XREFs of CcUninitializePartitionVacbs @ 0x1405396FC
+ * XREFs of CcUninitializePartitionVacbs @ 0x140539C4C
  * Callers:
- *     CcDeletePartition @ 0x140538C60 (CcDeletePartition.c)
+ *     CcDeletePartition @ 0x1405391B0 (CcDeletePartition.c)
  * Callees:
- *     KeAcquireQueuedSpinLock @ 0x1402A0760 (KeAcquireQueuedSpinLock.c)
- *     CcSetVacbInFreeList @ 0x1402A0C00 (CcSetVacbInFreeList.c)
- *     KeReleaseQueuedSpinLock @ 0x140302810 (KeReleaseQueuedSpinLock.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     MmFreeSystemCacheReserveView @ 0x140A308C0 (MmFreeSystemCacheReserveView.c)
+ *     KeAcquireQueuedSpinLock @ 0x1402A09F0 (KeAcquireQueuedSpinLock.c)
+ *     CcSetVacbInFreeList @ 0x1402A0E90 (CcSetVacbInFreeList.c)
+ *     KeReleaseQueuedSpinLock @ 0x140302AA0 (KeReleaseQueuedSpinLock.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     MmFreeSystemCacheReserveView @ 0x140A30B70 (MmFreeSystemCacheReserveView.c)
  */
 
 _QWORD *__fastcall CcUninitializePartitionVacbs(__int64 a1)

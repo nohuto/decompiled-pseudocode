@@ -1,17 +1,17 @@
 /*
- * XREFs of SepExamineSaclEx @ 0x14091FD68
+ * XREFs of SepExamineSaclEx @ 0x140A19D34
  * Callers:
- *     SepExamineGlobalSaclEx @ 0x140462D6C (SepExamineGlobalSaclEx.c)
- *     SepAccessCheckAndAuditAlarm @ 0x14091DB90 (SepAccessCheckAndAuditAlarm.c)
+ *     SepExamineGlobalSaclEx @ 0x14045837C (SepExamineGlobalSaclEx.c)
+ *     SepAccessCheckAndAuditAlarm @ 0x140A07A00 (SepAccessCheckAndAuditAlarm.c)
  * Callees:
- *     AuthzBasepEvaluateAceCondition @ 0x1403450F0 (AuthzBasepEvaluateAceCondition.c)
- *     AuthzBasepFreeSecurityAttributesList @ 0x14035C750 (AuthzBasepFreeSecurityAttributesList.c)
- *     SepSidInToken @ 0x1403624E0 (SepSidInToken.c)
- *     AuthzBasepInitializeResourceClaimsFromSacl @ 0x1403642B0 (AuthzBasepInitializeResourceClaimsFromSacl.c)
- *     AuthzBasepObjectInTypeList @ 0x1404AED88 (AuthzBasepObjectInTypeList.c)
- *     memcmp @ 0x1406BFF10 (memcmp.c)
- *     SepSetAuditInfoForObjectType @ 0x1407928F0 (SepSetAuditInfoForObjectType.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     AuthzBasepEvaluateAceCondition @ 0x140323B60 (AuthzBasepEvaluateAceCondition.c)
+ *     AuthzBasepFreeSecurityAttributesList @ 0x1403B95E0 (AuthzBasepFreeSecurityAttributesList.c)
+ *     AuthzBasepInitializeResourceClaimsFromSacl @ 0x1403BADD4 (AuthzBasepInitializeResourceClaimsFromSacl.c)
+ *     SepSidInToken @ 0x1403CB430 (SepSidInToken.c)
+ *     AuthzBasepObjectInTypeList @ 0x1404A9698 (AuthzBasepObjectInTypeList.c)
+ *     memcmp @ 0x1406C0E10 (memcmp.c)
+ *     SepSetAuditInfoForObjectType @ 0x1407928C0 (SepSetAuditInfoForObjectType.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall SepExamineSaclEx(
@@ -49,9 +49,9 @@ void __fastcall SepExamineSaclEx(
   unsigned int v32; // ecx
   _QWORD *v33; // rax
   void *v34; // r9
-  __int64 v35; // rdx
-  __int64 v36; // r8
-  __int64 v37; // r10
+  void *v35; // rdx
+  void *v36; // r8
+  void *v37; // r10
   int *v38; // rdi
   bool v39; // zf
   unsigned int i; // ebx
@@ -222,9 +222,9 @@ LABEL_69:
         if ( v33 )
         {
           v34 = (void *)v33[72];
-          v35 = v33[74];
-          v36 = v33[73];
-          v37 = v33[75];
+          v35 = (void *)v33[74];
+          v36 = (void *)v33[73];
+          v37 = (void *)v33[75];
         }
         else
         {
@@ -243,7 +243,7 @@ LABEL_69:
           v37,
           (_WORD *)((char *)v30 + v31),
           v32 - 8,
-          1,
+          1u,
           0,
           &v52);
         if ( v52 != 1

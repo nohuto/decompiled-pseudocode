@@ -10,13 +10,13 @@
  *     RtlInstallFunctionTableCallback @ 0x18006F2B0 (RtlInstallFunctionTableCallback.c)
  *     RtlAddFunctionTable @ 0x18006F5E0 (RtlAddFunctionTable.c)
  *     LdrpGetShimEngineInterface @ 0x1800707C8 (LdrpGetShimEngineInterface.c)
- *     RtlxRemoveInvertedFunctionTable @ 0x180076C10 (RtlxRemoveInvertedFunctionTable.c)
- *     RtlSetProtectedPolicy @ 0x180083730 (RtlSetProtectedPolicy.c)
- *     RtlpAddVectoredHandler @ 0x180084200 (RtlpAddVectoredHandler.c)
- *     RtlpRemoveVectoredHandler @ 0x180085520 (RtlpRemoveVectoredHandler.c)
- *     LdrpLoadWow64 @ 0x1800869A0 (LdrpLoadWow64.c)
- *     RtlInitializeNtUserPfn @ 0x18008FC10 (RtlInitializeNtUserPfn.c)
- *     RtlResetNtUserPfn @ 0x18008FD30 (RtlResetNtUserPfn.c)
+ *     RtlxRemoveInvertedFunctionTable @ 0x180076C20 (RtlxRemoveInvertedFunctionTable.c)
+ *     RtlSetProtectedPolicy @ 0x180083740 (RtlSetProtectedPolicy.c)
+ *     RtlpAddVectoredHandler @ 0x180084210 (RtlpAddVectoredHandler.c)
+ *     RtlpRemoveVectoredHandler @ 0x180085530 (RtlpRemoveVectoredHandler.c)
+ *     LdrpLoadWow64 @ 0x1800869B0 (LdrpLoadWow64.c)
+ *     RtlInitializeNtUserPfn @ 0x18008FC20 (RtlInitializeNtUserPfn.c)
+ *     RtlResetNtUserPfn @ 0x18008FD40 (RtlResetNtUserPfn.c)
  *     LdrpInitializeExecutionOptions @ 0x1800D30E0 (LdrpInitializeExecutionOptions.c)
  *     LdrpInitializeProcess @ 0x1800D3FB4 (LdrpInitializeProcess.c)
  *     AVrfInitializeVerifier @ 0x1800DACE8 (AVrfInitializeVerifier.c)
@@ -28,33 +28,33 @@
  *     LdrpChangeMrdataProtection @ 0x18006058C (LdrpChangeMrdataProtection.c)
  */
 
-signed __int64 __fastcall LdrProtectMrdata(int a1, unsigned __int64 a2, unsigned __int64 *a3, __int64 a4)
+void __fastcall LdrProtectMrdata(int a1)
 {
-  int v5; // edi
+  int ScpCfgCheckFunction; // edi
 
-  RtlAcquireSRWLockExclusive((unsigned __int64)&LdrpMrdataLock, a2, a3, a4);
-  v5 = LdrpMrdataUnprotected;
+  RtlAcquireSRWLockExclusive(&LdrpMrdataLock);
+  ScpCfgCheckFunction = LdrSystemDllInitBlock.ScpCfgCheckFunction;
   if ( a1 )
   {
-    if ( !LdrpMrdataUnprotected )
+    if ( !LODWORD(LdrSystemDllInitBlock.ScpCfgCheckFunction) )
     {
       RtlReleaseSRWLockExclusive(&LdrpMrdataLock);
       __fastfail(0xEu);
     }
-    --LdrpMrdataUnprotected;
-    if ( v5 == 1 )
+    --LODWORD(LdrSystemDllInitBlock.ScpCfgCheckFunction);
+    if ( ScpCfgCheckFunction == 1 )
       LdrpChangeMrdataProtection(2LL);
   }
   else
   {
-    if ( !LdrpMrdataUnprotected )
+    if ( !LODWORD(LdrSystemDllInitBlock.ScpCfgCheckFunction) )
       LdrpChangeMrdataProtection(4LL);
-    if ( v5 == -1 )
+    if ( ScpCfgCheckFunction == -1 )
     {
       RtlReleaseSRWLockExclusive(&LdrpMrdataLock);
       __fastfail(0xEu);
     }
-    LdrpMrdataUnprotected = v5 + 1;
+    LODWORD(LdrSystemDllInitBlock.ScpCfgCheckFunction) = ScpCfgCheckFunction + 1;
   }
-  return RtlReleaseSRWLockExclusive(&LdrpMrdataLock);
+  RtlReleaseSRWLockExclusive(&LdrpMrdataLock);
 }

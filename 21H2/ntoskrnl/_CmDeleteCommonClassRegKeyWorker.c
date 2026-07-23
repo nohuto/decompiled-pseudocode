@@ -1,23 +1,23 @@
 /*
- * XREFs of _CmDeleteCommonClassRegKeyWorker @ 0x140974E48
+ * XREFs of _CmDeleteCommonClassRegKeyWorker @ 0x140975028
  * Callers:
- *     _CmDeleteCommonClassRegKey @ 0x140974CFC (_CmDeleteCommonClassRegKey.c)
+ *     _CmDeleteCommonClassRegKey @ 0x140974EDC (_CmDeleteCommonClassRegKey.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x140265AF0 (RtlInitUnicodeStringEx.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     RtlPrefixUnicodeString @ 0x1405EDBE0 (RtlPrefixUnicodeString.c)
- *     _PnpCtxGetCachedContextBaseKey @ 0x140642808 (_PnpCtxGetCachedContextBaseKey.c)
- *     _CmGetCommonClassRegKeyPath @ 0x140644FE0 (_CmGetCommonClassRegKeyPath.c)
- *     _SysCtxRegOpenCurrentUserKey @ 0x14072D458 (_SysCtxRegOpenCurrentUserKey.c)
- *     _RegRtlDeleteTreeInternal @ 0x140766974 (_RegRtlDeleteTreeInternal.c)
- *     _RegRtlDeleteKeyTransacted @ 0x140766D58 (_RegRtlDeleteKeyTransacted.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     RtlInitUnicodeStringEx @ 0x140253A90 (RtlInitUnicodeStringEx.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     _PnpCtxGetCachedContextBaseKey @ 0x140637618 (_PnpCtxGetCachedContextBaseKey.c)
+ *     _CmGetCommonClassRegKeyPath @ 0x140639DF0 (_CmGetCommonClassRegKeyPath.c)
+ *     RtlPrefixUnicodeString @ 0x1406DD340 (RtlPrefixUnicodeString.c)
+ *     _SysCtxRegOpenCurrentUserKey @ 0x14072D908 (_SysCtxRegOpenCurrentUserKey.c)
+ *     _RegRtlDeleteTreeInternal @ 0x140766B34 (_RegRtlDeleteTreeInternal.c)
+ *     _RegRtlDeleteKeyTransacted @ 0x140766F18 (_RegRtlDeleteKeyTransacted.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall CmDeleteCommonClassRegKeyWorker(__int64 a1, __int64 a2, __int16 a3, int a4, char a5)
+__int64 __fastcall CmDeleteCommonClassRegKeyWorker(__int64 a1, const WCHAR *a2, __int16 a3, int a4, char a5)
 {
-  __int64 v6; // rbx
+  const WCHAR *v6; // rbx
   int v8; // r12d
   unsigned __int64 v10; // rdi
   wchar_t *pszDest; // r15

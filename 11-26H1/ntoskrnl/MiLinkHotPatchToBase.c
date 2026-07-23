@@ -1,12 +1,12 @@
 /*
- * XREFs of MiLinkHotPatchToBase @ 0x1406FC268
+ * XREFs of MiLinkHotPatchToBase @ 0x140700F38
  * Callers:
- *     MiApplyDriverHotPatch @ 0x14086DAC4 (MiApplyDriverHotPatch.c)
- *     MiCreateBootDriverHotPatchLinkage @ 0x140CFB5EC (MiCreateBootDriverHotPatchLinkage.c)
+ *     MiApplyDriverHotPatch @ 0x140873E94 (MiApplyDriverHotPatch.c)
+ *     MiCreateBootDriverHotPatchLinkage @ 0x140D0196C (MiCreateBootDriverHotPatchLinkage.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     MiUpdatePatchInProgress @ 0x1406FCEB4 (MiUpdatePatchInProgress.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     MiUpdatePatchInProgress @ 0x140701B84 (MiUpdatePatchInProgress.c)
  */
 
 _QWORD *__fastcall MiLinkHotPatchToBase(__int64 a1, __int64 a2, int a3)

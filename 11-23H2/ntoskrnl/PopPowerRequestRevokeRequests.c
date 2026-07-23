@@ -1,15 +1,15 @@
 /*
- * XREFs of PopPowerRequestRevokeRequests @ 0x140583BC4
+ * XREFs of PopPowerRequestRevokeRequests @ 0x1405840B4
  * Callers:
- *     PopPowerRequestHandleExecutionEnablementUpdate @ 0x1408554C4 (PopPowerRequestHandleExecutionEnablementUpdate.c)
- *     PopPowerRequestNotifyTtmSessionUninitialized @ 0x1409817CC (PopPowerRequestNotifyTtmSessionUninitialized.c)
- *     PopPowerRequestRevokeRequestsForSleep @ 0x1409818D0 (PopPowerRequestRevokeRequestsForSleep.c)
+ *     PopPowerRequestHandleExecutionEnablementUpdate @ 0x1408557C4 (PopPowerRequestHandleExecutionEnablementUpdate.c)
+ *     PopPowerRequestNotifyTtmSessionUninitialized @ 0x1409819CC (PopPowerRequestNotifyTtmSessionUninitialized.c)
+ *     PopPowerRequestRevokeRequestsForSleep @ 0x140981AD0 (PopPowerRequestRevokeRequestsForSleep.c)
  * Callees:
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
- *     PopQueueWorkItem @ 0x14032CCE4 (PopQueueWorkItem.c)
- *     PopPowerRequestEvaluatePendingRequestStatus @ 0x14032CD14 (PopPowerRequestEvaluatePendingRequestStatus.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402610F0 (KeAcquireInStackQueuedSpinLock.c)
+ *     PopQueueWorkItem @ 0x14032CF74 (PopQueueWorkItem.c)
+ *     PopPowerRequestEvaluatePendingRequestStatus @ 0x14032CFA4 (PopPowerRequestEvaluatePendingRequestStatus.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall PopPowerRequestRevokeRequests(int a1, char a2)
@@ -49,10 +49,10 @@ LABEL_4:
   }
   result = KxReleaseQueuedSpinLock((volatile signed __int64 **)&v10);
   OldIrql = v10.OldIrql;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
       && (unsigned __int8)result <= 0xFu
       && v10.OldIrql <= 0xFu
       && (unsigned __int8)result >= 2u )

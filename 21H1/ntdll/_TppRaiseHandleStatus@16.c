@@ -10,13 +10,13 @@
 
 void __fastcall __noreturn TppRaiseHandleStatus(unsigned int a1, unsigned int a2, unsigned int a3, int a4)
 {
-  int (__stdcall *v4)(int, int, int, int); // edi
+  void (__stdcall *v4)(PTP_CALLBACK_INSTANCE, _BYTE *, PTP_WAIT, TP_WAIT_RESULT); // edi
   unsigned int v5; // eax
   EXCEPTION_RECORD ExceptionRecord; // [esp+8h] [ebp-58h] BYREF
 
   if ( a3 )
   {
-    v4 = *(int (__stdcall **)(int, int, int, int))(a3 + 48);
+    v4 = *(void (__stdcall **)(PTP_CALLBACK_INSTANCE, _BYTE *, PTP_WAIT, TP_WAIT_RESULT))(a3 + 48);
     ExceptionRecord.NumberParameters = 5;
     if ( v4 == RtlpTpWaitCallback )
       v5 = *(_DWORD *)(*(_DWORD *)(a3 + 52) + 16);

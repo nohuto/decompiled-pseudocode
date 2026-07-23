@@ -1,24 +1,22 @@
 /*
- * XREFs of PopWnfEffectivePowerModeCallback @ 0x140751270
+ * XREFs of PopWnfEffectivePowerModeCallback @ 0x14074F590
  * Callers:
  *     <none>
  * Callees:
- *     PopReleaseRwLock @ 0x1403B5EC8 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x1404283D4 (PopAcquireRwLockExclusive.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     ExQueryWnfStateData @ 0x140A3BB60 (ExQueryWnfStateData.c)
+ *     PopReleaseRwLock @ 0x1402AE8FC (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14041C564 (PopAcquireRwLockExclusive.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     ExQueryWnfStateData @ 0x140A31340 (ExQueryWnfStateData.c)
  */
 
 __int64 __fastcall PopWnfEffectivePowerModeCallback(__int64 a1, _QWORD *a2, __int64 a3, __int64 a4, int a5, __int64 a6)
 {
   __int64 v6; // rdi
   unsigned int v9; // esi
-  __int64 v10; // r8
-  __int64 v11; // r9
-  __int64 v12; // rax
-  unsigned int v13; // ebx
-  _DWORD v15[10]; // [rsp+20h] [rbp-28h] BYREF
-  char v16; // [rsp+68h] [rbp+20h] BYREF
+  __int64 v10; // rax
+  unsigned int v11; // ebx
+  _DWORD v13[10]; // [rsp+20h] [rbp-28h] BYREF
+  char v14; // [rsp+68h] [rbp+20h] BYREF
 
   v6 = a6;
   v9 = 0;
@@ -26,24 +24,24 @@ __int64 __fastcall PopWnfEffectivePowerModeCallback(__int64 a1, _QWORD *a2, __in
   if ( *a2 == WNF_PO_EFFECTIVE_POWER_MODE )
   {
     LODWORD(a6) = 8;
-    v9 = ExQueryWnfStateData(a1, &v16, v15, &a6);
+    v9 = ExQueryWnfStateData(a1, &v14, v13, &a6);
     if ( v9 )
     {
       v9 = 128;
     }
     else
     {
-      v12 = (unsigned int)(*(_DWORD *)v6 - 1);
-      if ( (unsigned int)v12 > 1 )
-        v12 = 0LL;
-      v13 = v15[v12];
-      if ( v13 != *(_DWORD *)(v6 + 16) )
+      v10 = (unsigned int)(*(_DWORD *)v6 - 1);
+      if ( (unsigned int)v10 > 1 )
+        v10 = 0LL;
+      v11 = v13[v10];
+      if ( v11 != *(_DWORD *)(v6 + 16) )
       {
         *(_QWORD *)(v6 + 72) = KeGetCurrentThread();
         if ( *(_QWORD *)(v6 + 56) )
-          guard_dispatch_icall_no_overrides(v13, *(_QWORD *)(v6 + 80), v10, v11);
+          guard_dispatch_icall_no_overrides(v11, *(_QWORD *)(v6 + 80));
         ++*(_DWORD *)(v6 + 64);
-        *(_DWORD *)(v6 + 16) = v13;
+        *(_DWORD *)(v6 + 16) = v11;
         *(_QWORD *)(v6 + 72) = 0LL;
       }
     }

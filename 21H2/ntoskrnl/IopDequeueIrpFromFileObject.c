@@ -1,13 +1,13 @@
 /*
- * XREFs of IopDequeueIrpFromFileObject @ 0x1402E9538
+ * XREFs of IopDequeueIrpFromFileObject @ 0x14029A888
  * Callers:
- *     IopDropIrp @ 0x1402E9444 (IopDropIrp.c)
- *     IopCompleteRequest @ 0x140342B20 (IopCompleteRequest.c)
- *     IopCopyCompleteReadRequest @ 0x1403F1A30 (IopCopyCompleteReadRequest.c)
+ *     IopDropIrp @ 0x14029A794 (IopDropIrp.c)
+ *     IopCompleteRequest @ 0x14034D870 (IopCompleteRequest.c)
+ *     IopCopyCompleteReadRequest @ 0x1403F1900 (IopCopyCompleteReadRequest.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 

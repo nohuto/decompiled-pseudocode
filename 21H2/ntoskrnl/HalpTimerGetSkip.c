@@ -1,5 +1,5 @@
 /*
- * XREFs of HalpTimerGetSkip @ 0x1403F0310
+ * XREFs of HalpTimerGetSkip @ 0x1403F0480
  * Callers:
  *     <none>
  * Callees:

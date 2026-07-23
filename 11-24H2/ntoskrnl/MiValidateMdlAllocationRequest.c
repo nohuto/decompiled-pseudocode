@@ -1,10 +1,10 @@
 /*
- * XREFs of MiValidateMdlAllocationRequest @ 0x140412584
+ * XREFs of MiValidateMdlAllocationRequest @ 0x1403949C4
  * Callers:
- *     MiAllocatePagesForMdl @ 0x14041225C (MiAllocatePagesForMdl.c)
+ *     MiAllocatePagesForMdl @ 0x14039469C (MiAllocatePagesForMdl.c)
  * Callees:
- *     MiInitializeDemandCoalesceContext @ 0x14036EEE0 (MiInitializeDemandCoalesceContext.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     MiInitializeDemandCoalesceContext @ 0x14026AE60 (MiInitializeDemandCoalesceContext.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall MiValidateMdlAllocationRequest(
@@ -56,14 +56,14 @@ __int64 __fastcall MiValidateMdlAllocationRequest(
     *v15 |= 2u;
   v17 = a3 >> 12;
   v18 = a4 >> 12;
-  if ( v18 < qword_140E2DBE0 )
+  if ( v18 < qword_140E2DD20 )
   {
     if ( v18 < *(_QWORD *)(a2 + 18504) )
       goto LABEL_10;
   }
   else
   {
-    v18 = qword_140E2DBE0;
+    v18 = qword_140E2DD20;
   }
   if ( !v17 )
     v14 |= 0x10000u;

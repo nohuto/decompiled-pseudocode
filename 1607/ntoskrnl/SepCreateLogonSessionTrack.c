@@ -1,16 +1,16 @@
 /*
- * XREFs of SepCreateLogonSessionTrack @ 0x1404E69EC
+ * XREFs of SepCreateLogonSessionTrack @ 0x1404C935C
  * Callers:
- *     SepRmCreateLogonSessionWrkr @ 0x1404E69C4 (SepRmCreateLogonSessionWrkr.c)
- *     SeInitServerSilo @ 0x14068CAF4 (SeInitServerSilo.c)
+ *     SepRmCreateLogonSessionWrkr @ 0x1404C9334 (SepRmCreateLogonSessionWrkr.c)
+ *     SeInitServerSilo @ 0x14068CBD8 (SeInitServerSilo.c)
  *     SepRmDbInitialization @ 0x1407B868C (SepRmDbInitialization.c)
  * Callees:
- *     PsGetCurrentServerSilo @ 0x140013620 (PsGetCurrentServerSilo.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExAcquireResourceExclusiveLite @ 0x140068160 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x140068940 (ExReleaseResourceLite.c)
- *     ObfReferenceObjectWithTag @ 0x1400EE4F0 (ObfReferenceObjectWithTag.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     PsGetCurrentServerSilo @ 0x1400131A0 (PsGetCurrentServerSilo.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140067CE0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x1400684C0 (ExReleaseResourceLite.c)
+ *     ObfReferenceObjectWithTag @ 0x1400EC370 (ObfReferenceObjectWithTag.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */

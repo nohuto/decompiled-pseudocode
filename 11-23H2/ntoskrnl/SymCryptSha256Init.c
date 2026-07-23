@@ -1,10 +1,10 @@
 /*
- * XREFs of SymCryptSha256Init @ 0x1403F4EE0
+ * XREFs of SymCryptSha256Init @ 0x1403F50C0
  * Callers:
- *     SymCryptSha256 @ 0x1403F347C (SymCryptSha256.c)
- *     SymCryptParallelSha256Init @ 0x1403F5B34 (SymCryptParallelSha256Init.c)
- *     SymCryptParallelSha256ResultDone @ 0x1403F5DE0 (SymCryptParallelSha256ResultDone.c)
- *     HashpInitHash @ 0x140A7765C (HashpInitHash.c)
+ *     SymCryptSha256 @ 0x1403F365C (SymCryptSha256.c)
+ *     SymCryptParallelSha256Init @ 0x1403F5D14 (SymCryptParallelSha256Init.c)
+ *     SymCryptParallelSha256ResultDone @ 0x1403F5FC0 (SymCryptParallelSha256ResultDone.c)
+ *     HashpInitHash @ 0x140A7790C (HashpInitHash.c)
  * Callees:
  *     <none>
  */

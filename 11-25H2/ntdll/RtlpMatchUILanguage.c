@@ -17,8 +17,8 @@ bool __fastcall RtlpMatchUILanguage(PCWSTR SourceString)
 {
   __int64 v2; // rcx
   unsigned __int64 v3; // rax
-  UNICODE_STRING v5; // [rsp+30h] [rbp-D0h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+40h] [rbp-C0h] BYREF
+  _UNICODE_STRING v5; // [rsp+30h] [rbp-D0h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+40h] [rbp-C0h] BYREF
   WCHAR SourceStringa[88]; // [rsp+50h] [rbp-B0h] BYREF
 
   *(_QWORD *)&v5.Length = 85LL;
@@ -32,10 +32,10 @@ bool __fastcall RtlpMatchUILanguage(PCWSTR SourceString)
   SourceStringa[v3] = 0;
   RtlInitUnicodeString(&DestinationString, SourceString);
   RtlInitUnicodeString(&v5, SourceStringa);
-  return (unsigned int)RtlCompareUnicodeStrings(
-                         DestinationString.Buffer,
-                         (unsigned __int64)DestinationString.Length >> 1,
-                         (_BYTE *)v5.Buffer,
-                         (unsigned __int64)v5.Length >> 1,
-                         1) == 0;
+  return RtlCompareUnicodeStrings(
+           DestinationString.Buffer,
+           (unsigned __int64)DestinationString.Length >> 1,
+           v5.Buffer,
+           (unsigned __int64)v5.Length >> 1,
+           1u) == 0;
 }

@@ -1,7 +1,7 @@
 /*
- * XREFs of CmpRecordParseWalkResult @ 0x140699A64
+ * XREFs of CmpRecordParseWalkResult @ 0x1405F8C24
  * Callers:
- *     CmpDoParseKey @ 0x1406F9170 (CmpDoParseKey.c)
+ *     CmpDoParseKey @ 0x140710550 (CmpDoParseKey.c)
  * Callees:
  *     <none>
  */

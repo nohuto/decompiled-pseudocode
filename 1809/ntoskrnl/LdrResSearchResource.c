@@ -1,20 +1,20 @@
 /*
- * XREFs of LdrResSearchResource @ 0x14068AD30
+ * XREFs of LdrResSearchResource @ 0x14068BEF0
  * Callers:
- *     PspLocateInPEManifest @ 0x14068B1E8 (PspLocateInPEManifest.c)
- *     LdrResFindResource @ 0x14071BF50 (LdrResFindResource.c)
- *     LdrResFindResourceDirectory @ 0x14071E1E0 (LdrResFindResourceDirectory.c)
- *     AslpFileGetVersionBlock @ 0x14071FDCC (AslpFileGetVersionBlock.c)
- *     SeRegisterElamCertResources @ 0x14073C594 (SeRegisterElamCertResources.c)
- *     RtlLoadString @ 0x140891B90 (RtlLoadString.c)
- *     KeHwPolicyLocateResource @ 0x1409D3CB0 (KeHwPolicyLocateResource.c)
+ *     PspLocateInPEManifest @ 0x14068C3A8 (PspLocateInPEManifest.c)
+ *     LdrResFindResource @ 0x14071D1F0 (LdrResFindResource.c)
+ *     LdrResFindResourceDirectory @ 0x14071F480 (LdrResFindResourceDirectory.c)
+ *     AslpFileGetVersionBlock @ 0x14072106C (AslpFileGetVersionBlock.c)
+ *     SeRegisterElamCertResources @ 0x14073D784 (SeRegisterElamCertResources.c)
+ *     RtlLoadString @ 0x140892DF0 (RtlLoadString.c)
+ *     KeHwPolicyLocateResource @ 0x1409D4CB0 (KeHwPolicyLocateResource.c)
  * Callees:
- *     LdrpResSearchResourceMappedFile @ 0x1400FDA0C (LdrpResSearchResourceMappedFile.c)
- *     DownLevelLangIDToLanguageName @ 0x140161030 (DownLevelLangIDToLanguageName.c)
- *     DownLevelLanguageNameToLangID @ 0x140182F00 (DownLevelLanguageNameToLangID.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     LdrpResGetMappingSize @ 0x14068B06C (LdrpResGetMappingSize.c)
+ *     LdrpResSearchResourceMappedFile @ 0x1400FDA8C (LdrpResSearchResourceMappedFile.c)
+ *     DownLevelLangIDToLanguageName @ 0x140161130 (DownLevelLangIDToLanguageName.c)
+ *     DownLevelLanguageNameToLangID @ 0x140183040 (DownLevelLanguageNameToLangID.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     LdrpResGetMappingSize @ 0x14068C22C (LdrpResGetMappingSize.c)
  */
 
 __int64 __fastcall LdrResSearchResource(

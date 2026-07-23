@@ -32,7 +32,7 @@ __int64 __fastcall sub_180060204(__int64 (__fastcall *a1)(_QWORD, _QWORD), __int
   v6 = NtCurrentPeb();
   v13 = 0;
   if ( (a3 & 1) == 0 )
-    RtlEnterCriticalSection((__int64)&unk_18015AAC0);
+    RtlEnterCriticalSection(&stru_18015AAC0);
   for ( i = 0LL; (unsigned int)i < v6->NumberOfHeaps; i = (unsigned int)(i + 1) )
   {
     if ( a1 == sub_180060360 )
@@ -66,6 +66,6 @@ __int64 __fastcall sub_180060204(__int64 (__fastcall *a1)(_QWORD, _QWORD), __int
   }
 LABEL_21:
   if ( (a3 & 1) == 0 )
-    RtlLeaveCriticalSection((__int64)&unk_18015AAC0);
+    RtlLeaveCriticalSection(&stru_18015AAC0);
   return (unsigned int)v13;
 }

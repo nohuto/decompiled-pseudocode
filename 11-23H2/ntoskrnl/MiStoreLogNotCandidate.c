@@ -1,11 +1,11 @@
 /*
- * XREFs of MiStoreLogNotCandidate @ 0x14046D892
+ * XREFs of MiStoreLogNotCandidate @ 0x14046DC92
  * Callers:
- *     MiStoreWriteModifiedPages @ 0x14046DAAA (MiStoreWriteModifiedPages.c)
+ *     MiStoreWriteModifiedPages @ 0x14046DEAA (MiStoreWriteModifiedPages.c)
  * Callees:
  *     _tlgKeywordOn @ 0x140212E64 (_tlgKeywordOn.c)
- *     _tlgWriteEx_EtwWriteEx @ 0x140367F70 (_tlgWriteEx_EtwWriteEx.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x140368110 (_tlgWriteEx_EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 void __fastcall MiStoreLogNotCandidate(int a1)
@@ -38,7 +38,7 @@ void __fastcall MiStoreLogNotCandidate(int a1)
       v11 = 4;
       v14 = 4;
       v8 = v4;
-      tlgWriteEx_EtwWriteEx(v3, (unsigned __int8 *)&byte_140039A01, v1, 1u, v5, v6, 4u, &v9);
+      tlgWriteEx_EtwWriteEx(v3, (unsigned __int8 *)&word_140039BCE, v1, 1u, v5, v6, 4u, &v9);
     }
   }
 }

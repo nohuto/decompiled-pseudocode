@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlAreBitsClear @ 0x1400845FC
+ * XREFs of RtlAreBitsClear @ 0x14008275C
  * Callers:
- *     HvGetHiveLogFileStatus @ 0x140480E08 (HvGetHiveLogFileStatus.c)
- *     CmpLoadHiveThread @ 0x14054D5A8 (CmpLoadHiveThread.c)
- *     HvpDropPagedBins @ 0x14054DD48 (HvpDropPagedBins.c)
- *     CmpMountPreloadedHives @ 0x14055E464 (CmpMountPreloadedHives.c)
+ *     HvGetHiveLogFileStatus @ 0x14047FB5C (HvGetHiveLogFileStatus.c)
+ *     CmpLoadHiveThread @ 0x14054D948 (CmpLoadHiveThread.c)
+ *     HvpDropPagedBins @ 0x14054E0E8 (HvpDropPagedBins.c)
+ *     CmpMountPreloadedHives @ 0x14055E9A4 (CmpMountPreloadedHives.c)
  * Callees:
  *     <none>
  */

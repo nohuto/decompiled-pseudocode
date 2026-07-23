@@ -1,13 +1,13 @@
 /*
- * XREFs of IopFreeResetRemovalContext @ 0x1408A08D0
+ * XREFs of IopFreeResetRemovalContext @ 0x1408A0A30
  * Callers:
- *     IoRequestDeviceRemovalForReset @ 0x1408A05B0 (IoRequestDeviceRemovalForReset.c)
- *     IopDeviceRemovalForResetComplete @ 0x1408A0710 (IopDeviceRemovalForResetComplete.c)
- *     IopRetryDeviceRemovalForReset @ 0x1408A09D0 (IopRetryDeviceRemovalForReset.c)
+ *     IoRequestDeviceRemovalForReset @ 0x1408A0710 (IoRequestDeviceRemovalForReset.c)
+ *     IopDeviceRemovalForResetComplete @ 0x1408A0870 (IopDeviceRemovalForResetComplete.c)
+ *     IopRetryDeviceRemovalForReset @ 0x1408A0B30 (IopRetryDeviceRemovalForReset.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
- *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
+ *     RtlFreeAnsiString @ 0x14063DA40 (RtlFreeAnsiString.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall IopFreeResetRemovalContext(char *P)

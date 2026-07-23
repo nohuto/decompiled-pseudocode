@@ -1,44 +1,45 @@
 /*
- * XREFs of WmipRegisterOrUpdateDS @ 0x1409D06C8
+ * XREFs of WmipRegisterOrUpdateDS @ 0x1409AFF54
  * Callers:
- *     WmipRegisterDevice @ 0x1409D0548 (WmipRegisterDevice.c)
- *     WmipRegistrationWorker @ 0x1409D10C0 (WmipRegistrationWorker.c)
+ *     WmipRegistrationWorker @ 0x1409AFCD0 (WmipRegistrationWorker.c)
+ *     WmipRegisterDevice @ 0x140A49D98 (WmipRegisterDevice.c)
  * Callees:
- *     WmipSendWmiIrp @ 0x1409CD990 (WmipSendWmiIrp.c)
- *     WmipProcessWmiRegInfo @ 0x1409D0800 (WmipProcessWmiRegInfo.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     WmipProcessWmiRegInfo @ 0x1409B008C (WmipProcessWmiRegInfo.c)
+ *     WmipSendWmiIrp @ 0x1409B2964 (WmipSendWmiIrp.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall WmipRegisterOrUpdateDS(__int64 a1, char a2)
 {
   unsigned int v2; // esi
-  int v5; // ebp
+  unsigned int v5; // ebp
   __int64 v6; // rcx
-  int *Pool2; // rdi
+  unsigned int *Pool2; // rdi
   __int64 v8; // r9
   int v9; // eax
   __int64 v10; // rcx
   int v11; // ebx
-  _OWORD v13[2]; // [rsp+30h] [rbp-28h] BYREF
+  _BYTE v13[8]; // [rsp+30h] [rbp-28h] BYREF
+  __int64 v14; // [rsp+38h] [rbp-20h]
 
   v2 = 0;
-  *((_QWORD *)&v13[0] + 1) = 0LL;
+  v14 = 0LL;
   v5 = 0x2000;
   while ( 1 )
   {
-    Pool2 = (int *)ExAllocatePool2(0x40uLL);
+    Pool2 = (unsigned int *)ExAllocatePool2(0x40uLL, v5, 0x44696D57u);
     if ( !Pool2 )
       break;
     LOBYTE(v6) = 11;
-    v9 = WmipSendWmiIrp(v6, *(unsigned int *)(a1 + 56), a2 != 0, v5, (__int64)Pool2, v13);
+    v9 = WmipSendWmiIrp(v6, *(unsigned int *)(a1 + 56), a2 != 0, v5, Pool2, v13);
     v11 = v9;
     if ( v9 < 0 )
     {
       if ( v9 == -1073741789 )
       {
 LABEL_15:
-        v2 = DWORD2(v13[0]);
+        v2 = v14;
 LABEL_16:
         v5 = *Pool2;
         ExFreePoolWithTag(Pool2, 0);
@@ -46,12 +47,12 @@ LABEL_16:
         goto LABEL_6;
       }
       LOBYTE(v10) = 8;
-      v11 = WmipSendWmiIrp(v10, *(unsigned int *)(a1 + 56), a2 != 0, v5, (__int64)Pool2, v13);
+      v11 = WmipSendWmiIrp(v10, *(unsigned int *)(a1 + 56), a2 != 0, v5, Pool2, v13);
     }
     if ( v11 == -1073741789 )
       goto LABEL_15;
-    v2 = DWORD2(v13[0]);
-    if ( *((_QWORD *)&v13[0] + 1) == 4LL )
+    v2 = v14;
+    if ( v14 == 4 )
       goto LABEL_16;
 LABEL_6:
     if ( v11 != -1073741789 )

@@ -13,7 +13,7 @@
 __int64 __fastcall HvpGrowDirtyVectors(__int64 a1, unsigned int a2)
 {
   unsigned int v2; // esi
-  __int64 v3; // r12
+  _RTL_BITMAP *v3; // r12
   ULONG v4; // r15d
   unsigned int v5; // r14d
   unsigned int v7; // ebx
@@ -24,18 +24,18 @@ __int64 __fastcall HvpGrowDirtyVectors(__int64 a1, unsigned int a2)
   __int64 v13; // r15
   __int64 v14; // rcx
   __int64 v15; // rcx
-  RTL_BITMAP BitMapHeader; // [rsp+20h] [rbp-20h] BYREF
-  RTL_BITMAP v17; // [rsp+30h] [rbp-10h] BYREF
+  _RTL_BITMAP Destination; // [rsp+20h] [rbp-20h] BYREF
+  _RTL_BITMAP BitMapHeader; // [rsp+30h] [rbp-10h] BYREF
   ULONG StartingIndex; // [rsp+80h] [rbp+40h]
   ULONG NumberToClear; // [rsp+88h] [rbp+48h]
   unsigned int *v20; // [rsp+90h] [rbp+50h]
 
   v2 = 0;
-  v3 = a1 + 88;
+  v3 = (_RTL_BITMAP *)(a1 + 88);
   v4 = *(_DWORD *)(a1 + 88);
   v5 = a2 >> 9;
+  *(&Destination.SizeOfBitMap + 1) = 0;
   *(&BitMapHeader.SizeOfBitMap + 1) = 0;
-  *(&v17.SizeOfBitMap + 1) = 0;
   v7 = ((a2 >> 12) + 3) & 0xFFFFFFFC;
   StartingIndex = v4;
   if ( *(_DWORD *)(a1 + 108) < v7 )
@@ -47,15 +47,15 @@ __int64 __fastcall HvpGrowDirtyVectors(__int64 a1, unsigned int a2)
       v20 = v12;
       if ( v12 )
       {
-        v17.Buffer = v12;
+        BitMapHeader.Buffer = v12;
+        Destination.SizeOfBitMap = v5;
+        Destination.Buffer = v11;
         BitMapHeader.SizeOfBitMap = v5;
-        BitMapHeader.Buffer = v11;
-        v17.SizeOfBitMap = v5;
         NumberToClear = v5 - v4;
         if ( *(_QWORD *)(a1 + 96) )
         {
-          RtlCopyBitMap((unsigned int *)v3, (__int64)&BitMapHeader, 0);
-          RtlClearBits(&BitMapHeader, v4, NumberToClear);
+          RtlCopyBitMap(v3, &Destination, 0);
+          RtlClearBits(&Destination, v4, NumberToClear);
         }
         else
         {
@@ -64,8 +64,8 @@ __int64 __fastcall HvpGrowDirtyVectors(__int64 a1, unsigned int a2)
         if ( *(_QWORD *)(a1 + 120) )
         {
           v13 = a1 + 112;
-          RtlCopyBitMap((unsigned int *)(a1 + 112), (__int64)&v17, 0);
-          RtlClearBits(&v17, StartingIndex, NumberToClear);
+          RtlCopyBitMap((PRTL_BITMAP)(a1 + 112), &BitMapHeader, 0);
+          RtlClearBits(&BitMapHeader, StartingIndex, NumberToClear);
         }
         else
         {
@@ -78,8 +78,8 @@ __int64 __fastcall HvpGrowDirtyVectors(__int64 a1, unsigned int a2)
         v15 = *(_QWORD *)(a1 + 120);
         if ( v15 )
           (*(void (__fastcall **)(__int64, _QWORD))(a1 + 32))(v15, *(unsigned int *)(a1 + 108));
-        *(_DWORD *)v3 = v5;
-        *(_QWORD *)(v3 + 8) = v11;
+        v3->SizeOfBitMap = v5;
+        v3->Buffer = v11;
         *(_QWORD *)(v13 + 8) = v20;
         *(_DWORD *)v13 = v5;
         *(_DWORD *)(a1 + 108) = v7;
@@ -98,7 +98,7 @@ __int64 __fastcall HvpGrowDirtyVectors(__int64 a1, unsigned int a2)
   else
   {
     v8 = *(_QWORD *)(a1 + 96);
-    *(_DWORD *)v3 = v5;
+    v3->SizeOfBitMap = v5;
     *(_QWORD *)(a1 + 96) = v8;
     RtlClearBits((PRTL_BITMAP)(a1 + 88), v4, v5 - v4);
     v9 = *(_QWORD *)(a1 + 120);

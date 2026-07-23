@@ -1,18 +1,18 @@
 /*
- * XREFs of HalpInterruptRegisterController @ 0x14059AC04
+ * XREFs of HalpInterruptRegisterController @ 0x14059D384
  * Callers:
- *     HalpApicRegisterIoUnit @ 0x1405A1C78 (HalpApicRegisterIoUnit.c)
- *     HalpPicDiscover @ 0x1405A2174 (HalpPicDiscover.c)
+ *     HalpApicRegisterIoUnit @ 0x1405A4488 (HalpApicRegisterIoUnit.c)
+ *     HalpPicDiscover @ 0x1405A4984 (HalpPicDiscover.c)
  * Callees:
- *     RtlCopyUnicodeString @ 0x140419A90 (RtlCopyUnicodeString.c)
- *     HalpInterruptLookupController @ 0x140426C98 (HalpInterruptLookupController.c)
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     HalpMmAllocateMemoryInternal @ 0x14057DCF0 (HalpMmAllocateMemoryInternal.c)
- *     HalpIsPartitionCpuManager @ 0x140585200 (HalpIsPartitionCpuManager.c)
- *     HalpExtBuildResourceIdString @ 0x14058712C (HalpExtBuildResourceIdString.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     RtlCopyUnicodeString @ 0x14040DFC0 (RtlCopyUnicodeString.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     HalpInterruptLookupController @ 0x140433DA8 (HalpInterruptLookupController.c)
+ *     HalpMmAllocateMemoryInternal @ 0x140580210 (HalpMmAllocateMemoryInternal.c)
+ *     HalpIsPartitionCpuManager @ 0x140587720 (HalpIsPartitionCpuManager.c)
+ *     HalpExtBuildResourceIdString @ 0x14058964C (HalpExtBuildResourceIdString.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall HalpInterruptRegisterController(__int64 a1)
@@ -116,7 +116,7 @@ __int64 __fastcall HalpInterruptRegisterController(__int64 a1)
                     SizeInWords,
                     SourceString);
                   RtlInitUnicodeString(&DestinationString, SourceString);
-                  if ( (*(_DWORD *)(a1 + 236) & 0x100) != 0 && HalpIsPartitionCpuManager() && qword_140FBB068 )
+                  if ( (*(_DWORD *)(a1 + 236) & 0x100) != 0 && HalpIsPartitionCpuManager() && qword_140FBB408 )
                     *(_DWORD *)(a1 + 236) ^= 0x100u;
                   Length = DestinationString.Length;
                   v8 = (((*(_DWORD *)(a1 + 224) + 383) & 0xFFFFFFF8) + DestinationString.Length + 9) & 0xFFFFFFF8;
@@ -164,15 +164,15 @@ __int64 __fastcall HalpInterruptRegisterController(__int64 a1)
                     *(_WORD *)(v10 + 352) = 0;
                     *(_WORD *)(v10 + 354) = Length + 2;
                     RtlCopyUnicodeString((PUNICODE_STRING)(v10 + 352), &DestinationString);
-                    v14 = (__int64 *)qword_140FBCD98;
-                    if ( *(ULONG_PTR **)qword_140FBCD98 != &HalpRegisteredInterruptControllers )
+                    v14 = (__int64 *)qword_140FBD138;
+                    if ( *(ULONG_PTR **)qword_140FBD138 != &HalpRegisteredInterruptControllers )
                       __fastfail(3u);
                     ++HalpInterruptControllerCount;
-                    *(_QWORD *)(v10 + 8) = qword_140FBCD98;
+                    *(_QWORD *)(v10 + 8) = qword_140FBD138;
                     *(_QWORD *)v10 = &HalpRegisteredInterruptControllers;
                     *v14 = v10;
                     result = 0LL;
-                    qword_140FBCD98 = v10;
+                    qword_140FBD138 = v10;
                     HalpInterruptRegistrationProblem = 0;
                   }
                   else

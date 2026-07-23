@@ -1,18 +1,23 @@
 /*
  * XREFs of ZwSetInformationProcess @ 0x14041BAE0
  * Callers:
- *     DifZwSetInformationProcessWrapper @ 0x140627690 (DifZwSetInformationProcessWrapper.c)
- *     RtlpWow64CreateUserStack @ 0x1406C9D2C (RtlpWow64CreateUserStack.c)
- *     RtlCreateUserStack @ 0x1407E4A98 (RtlCreateUserStack.c)
- *     CmpInitializeRegistryProcess @ 0x140831BF4 (CmpInitializeRegistryProcess.c)
- *     StartFirstUserProcess @ 0x140B263A0 (StartFirstUserProcess.c)
+ *     sub_140627690 @ 0x140627690 (sub_140627690.c)
+ *     sub_1406C9D2C @ 0x1406C9D2C (sub_1406C9D2C.c)
+ *     sub_1407E4A98 @ 0x1407E4A98 (sub_1407E4A98.c)
+ *     sub_140831BF4 @ 0x140831BF4 (sub_140831BF4.c)
+ *     sub_140B263A0 @ 0x140B263A0 (sub_140B263A0.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwSetInformationProcess(__int64 a1, __int64 a2)
+// local variable allocation has failed, the output may be wrong!
+NTSTATUS __cdecl ZwSetInformationProcess(
+        HANDLE ProcessHandle,
+        PROCESSINFOCLASS ProcessInformationClass,
+        PVOID ProcessInformation,
+        ULONG ProcessInformationLength)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return sub_140433F80(ProcessHandle, *(_QWORD *)&ProcessInformationClass);
 }

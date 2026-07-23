@@ -10,15 +10,15 @@
  *     KiSetClockIntervalToMinimumRequested @ 0x1405700EC (KiSetClockIntervalToMinimumRequested.c)
  */
 
-__int64 __fastcall KiResetClockInterval(unsigned __int64 a1)
+__int64 __fastcall KiResetClockInterval(PRTL_BALANCED_NODE Node)
 {
-  int v2; // edx
+  int Right; // edx
 
-  RtlRbRemoveNode((unsigned __int64 *)&KiClockIntervalRequests, a1);
-  v2 = *(_DWORD *)(a1 + 32);
-  *(_BYTE *)(a1 + 24) = 0;
-  if ( v2 )
-    PoTraceSystemTimerResolutionKernel(0, v2, 1);
+  RtlRbRemoveNode(&KiClockIntervalRequests, Node);
+  Right = (int)Node[1].Right;
+  LOBYTE(Node[1].Children[0]) = 0;
+  if ( Right )
+    PoTraceSystemTimerResolutionKernel(0, Right, 1);
   if ( !KiClockTimerPerCpuTickScheduling )
     return KiSetClockIntervalToMinimumRequested();
   KiSetClockTimerKTimerDeadlines((int)KeGetCurrentPrcb(), 0);

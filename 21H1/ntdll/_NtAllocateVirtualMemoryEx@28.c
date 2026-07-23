@@ -6,7 +6,14 @@
  *     _Wow64SystemServiceCall@0 @ 0x4B308730 (_Wow64SystemServiceCall@0.c)
  */
 
-int __stdcall NtAllocateVirtualMemoryEx(int a1, int a2, int a3, int a4, int a5, int a6, int a7)
+NTSTATUS __cdecl NtAllocateVirtualMemoryEx(
+        HANDLE ProcessHandle,
+        PVOID *BaseAddress,
+        PSIZE_T RegionSize,
+        ULONG AllocationType,
+        ULONG PageProtection,
+        PMEM_EXTENDED_PARAMETER ExtendedParameters,
+        ULONG ExtendedParameterCount)
 {
   return Wow64SystemServiceCall();
 }

@@ -25,7 +25,7 @@ unsigned __int64 __fastcall PopPowerAggregatorRecordIntent(
   int v14; // r12d
   char *v15; // rbx
   unsigned __int64 result; // rax
-  LARGE_INTEGER v17; // [rsp+60h] [rbp+8h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+60h] [rbp+8h] BYREF
 
   v8 = a6;
   v10 = a8;
@@ -39,7 +39,7 @@ unsigned __int64 __fastcall PopPowerAggregatorRecordIntent(
     || *((_DWORD *)v15 + 30) != v10
     || !(unsigned __int8)PopPowerAggregatorAreTargetStatesEqual(v15 + 40, v8)
     || !(unsigned __int8)PopPowerAggregatorAreTargetStatesEqual(v15 + 80, v12)
-    || (result = RtlGetInterruptTimePrecise(&v17) - *((_QWORD *)v15 + 1), result >= 0x2FAF080) )
+    || (result = *(_QWORD *)&RtlGetInterruptTimePrecise(&PerformanceCounter) - *((_QWORD *)v15 + 1), result >= 0x2FAF080) )
   {
     result = PopPowerAggregatorAllocateLogEntry(&PopPowerAggregatorContext, 1LL);
     *(_DWORD *)(result + 24) = a2;

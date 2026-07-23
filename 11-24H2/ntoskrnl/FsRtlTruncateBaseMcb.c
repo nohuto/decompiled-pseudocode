@@ -1,14 +1,14 @@
 /*
- * XREFs of FsRtlTruncateBaseMcb @ 0x1403F9E10
+ * XREFs of FsRtlTruncateBaseMcb @ 0x1403EFD20
  * Callers:
- *     FsRtlTruncateLargeMcb @ 0x1403F9DD0 (FsRtlTruncateLargeMcb.c)
+ *     FsRtlTruncateLargeMcb @ 0x1403EFCE0 (FsRtlTruncateLargeMcb.c)
  * Callees:
- *     ExAllocateFromNPagedLookasideList @ 0x140248B90 (ExAllocateFromNPagedLookasideList.c)
- *     FsRtlFindLargeIndex @ 0x1403F9F20 (FsRtlFindLargeIndex.c)
- *     ExAllocateFromPagedLookasideList @ 0x1403FA0E0 (ExAllocateFromPagedLookasideList.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ExAllocatePoolWithTag @ 0x140B72010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExAllocateFromNPagedLookasideList @ 0x1402E2DD0 (ExAllocateFromNPagedLookasideList.c)
+ *     FsRtlFindLargeIndex @ 0x1403EFE30 (FsRtlFindLargeIndex.c)
+ *     ExAllocateFromPagedLookasideList @ 0x1403EFFF0 (ExAllocateFromPagedLookasideList.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ExAllocatePoolWithTag @ 0x140B74010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __stdcall FsRtlTruncateBaseMcb(PBASE_MCB Mcb, LONGLONG Vbn)
@@ -55,7 +55,7 @@ void __stdcall FsRtlTruncateBaseMcb(PBASE_MCB Mcb, LONGLONG Vbn)
     if ( v7 == 15 )
     {
       if ( Mcb->PoolType == 1 )
-        PoolWithTag = ExAllocateFromPagedLookasideList(&FsRtlFirstPagedMappingLookasideList);
+        PoolWithTag = ExAllocateFromPagedLookasideList((PPAGED_LOOKASIDE_LIST)&FsRtlFirstPagedMappingLookasideList);
       else
         PoolWithTag = ExAllocateFromNPagedLookasideList(&FsRtlFirstNonPagedMappingLookasideList);
     }

@@ -1,11 +1,11 @@
 /*
- * XREFs of KiAltContextProcessMcheckAltReturn @ 0x1405FCB30
+ * XREFs of KiAltContextProcessMcheckAltReturn @ 0x1405FF580
  * Callers:
  *     <none>
  * Callees:
- *     WheaAttemptPhysicalPageOffline @ 0x1408480E0 (WheaAttemptPhysicalPageOffline.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     WheaAttemptPhysicalPageOffline @ 0x14084E3B0 (WheaAttemptPhysicalPageOffline.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall KiAltContextProcessMcheckAltReturn(__int64 a1, __int64 a2)

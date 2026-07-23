@@ -1,16 +1,16 @@
 /*
- * XREFs of ObpGetSilosRootDirectory @ 0x14098098C
+ * XREFs of ObpGetSilosRootDirectory @ 0x140980B6C
  * Callers:
- *     ObCreateSiloRootDirectory @ 0x1409804D0 (ObCreateSiloRootDirectory.c)
+ *     ObCreateSiloRootDirectory @ 0x1409806B0 (ObCreateSiloRootDirectory.c)
  * Callees:
- *     RtlLengthSid @ 0x14027EA70 (RtlLengthSid.c)
- *     ZwCreateDirectoryObject @ 0x1403FB880 (ZwCreateDirectoryObject.c)
- *     RtlCreateSecurityDescriptor @ 0x140603560 (RtlCreateSecurityDescriptor.c)
- *     RtlpAddKnownAce @ 0x14065C460 (RtlpAddKnownAce.c)
- *     RtlSetDaclSecurityDescriptor @ 0x140660500 (RtlSetDaclSecurityDescriptor.c)
- *     RtlCreateAcl @ 0x140660570 (RtlCreateAcl.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     RtlLengthSid @ 0x14026CA10 (RtlLengthSid.c)
+ *     ZwCreateDirectoryObject @ 0x1403FBA60 (ZwCreateDirectoryObject.c)
+ *     RtlpAddKnownAce @ 0x140651280 (RtlpAddKnownAce.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x140655320 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateAcl @ 0x140655390 (RtlCreateAcl.c)
+ *     RtlCreateSecurityDescriptor @ 0x1406F2C90 (RtlCreateSecurityDescriptor.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 NTSTATUS __fastcall ObpGetSilosRootDirectory(PHANDLE DirectoryHandle)
@@ -40,10 +40,10 @@ NTSTATUS __fastcall ObpGetSilosRootDirectory(PHANDLE DirectoryHandle)
       Acl = RtlCreateAcl(PoolWithTag, v4, 2u);
       if ( Acl >= 0 )
       {
-        Acl = RtlpAddKnownAce((__int64)v6, 2u, 0, 131075, (unsigned __int8 *)SeWorldSid, 0);
+        Acl = RtlpAddKnownAce(v6, 2u, 0, 131075, (unsigned __int8 *)SeWorldSid, 0);
         if ( Acl >= 0 )
         {
-          Acl = RtlpAddKnownAce((__int64)v6, 2u, 0, 983055, (unsigned __int8 *)SeLocalSystemSid, 0);
+          Acl = RtlpAddKnownAce(v6, 2u, 0, 983055, (unsigned __int8 *)SeLocalSystemSid, 0);
           if ( Acl >= 0 )
           {
             Acl = RtlSetDaclSecurityDescriptor(SecurityDescriptor, 1u, v6, 0);

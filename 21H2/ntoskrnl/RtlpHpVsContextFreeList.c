@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpHpVsContextFreeList @ 0x14033EA20
+ * XREFs of RtlpHpVsContextFreeList @ 0x140349770
  * Callers:
- *     RtlpHpHeapCompact @ 0x1402C3FF8 (RtlpHpHeapCompact.c)
- *     RtlpHpVsContextFree @ 0x140341800 (RtlpHpVsContextFree.c)
+ *     RtlpHpHeapCompact @ 0x140242578 (RtlpHpHeapCompact.c)
+ *     RtlpHpVsContextFree @ 0x14034C550 (RtlpHpVsContextFree.c)
  * Callees:
- *     RtlpHpAcquireQueuedLockExclusive @ 0x14021D000 (RtlpHpAcquireQueuedLockExclusive.c)
- *     RtlpHpReleaseQueuedLockExclusive @ 0x14033BA80 (RtlpHpReleaseQueuedLockExclusive.c)
- *     RtlpHpVsContextFreeInternal @ 0x14033EAC0 (RtlpHpVsContextFreeInternal.c)
+ *     RtlpHpAcquireQueuedLockExclusive @ 0x1402C1900 (RtlpHpAcquireQueuedLockExclusive.c)
+ *     RtlpHpReleaseQueuedLockExclusive @ 0x1403467D0 (RtlpHpReleaseQueuedLockExclusive.c)
+ *     RtlpHpVsContextFreeInternal @ 0x140349810 (RtlpHpVsContextFreeInternal.c)
  */
 
 __int64 __fastcall RtlpHpVsContextFreeList(__int64 a1, int a2, _QWORD *a3)

@@ -1,21 +1,21 @@
 /*
- * XREFs of CcReferenceSharedCacheMapFileObject @ 0x14039ADF4
+ * XREFs of CcReferenceSharedCacheMapFileObject @ 0x14039CB54
  * Callers:
- *     CcWriteBehindPostProcess @ 0x140384CD4 (CcWriteBehindPostProcess.c)
- *     CcPerfLogWorkItemEnqueue @ 0x140389AC8 (CcPerfLogWorkItemEnqueue.c)
- *     CcUnmapAndPurge @ 0x14039A0C8 (CcUnmapAndPurge.c)
- *     CcFlushCacheOneRange @ 0x14039A180 (CcFlushCacheOneRange.c)
- *     CcGetDirtyPagesHelper @ 0x14039B880 (CcGetDirtyPagesHelper.c)
- *     CcIsFatalWriteError @ 0x14046DAB0 (CcIsFatalWriteError.c)
- *     CcPerfLogFlushCache @ 0x1404A36A8 (CcPerfLogFlushCache.c)
- *     CcUnpinRepinnedBcb @ 0x1404AA000 (CcUnpinRepinnedBcb.c)
- *     CcPerfLogFlushSection @ 0x1404AA1C8 (CcPerfLogFlushSection.c)
- *     CcPurgeAndClearCacheSection @ 0x1404B3978 (CcPurgeAndClearCacheSection.c)
- *     CcUnmapVacb @ 0x140AFAAD0 (CcUnmapVacb.c)
+ *     CcWriteBehindPostProcess @ 0x140386A84 (CcWriteBehindPostProcess.c)
+ *     CcPerfLogWorkItemEnqueue @ 0x14038B878 (CcPerfLogWorkItemEnqueue.c)
+ *     CcUnmapAndPurge @ 0x14039BE28 (CcUnmapAndPurge.c)
+ *     CcFlushCacheOneRange @ 0x14039BEE0 (CcFlushCacheOneRange.c)
+ *     CcGetDirtyPagesHelper @ 0x14039D5E0 (CcGetDirtyPagesHelper.c)
+ *     CcIsFatalWriteError @ 0x140467230 (CcIsFatalWriteError.c)
+ *     CcPerfLogFlushCache @ 0x14049D1B8 (CcPerfLogFlushCache.c)
+ *     CcUnpinRepinnedBcb @ 0x1404A3690 (CcUnpinRepinnedBcb.c)
+ *     CcPerfLogFlushSection @ 0x1404A3858 (CcPerfLogFlushSection.c)
+ *     CcPurgeAndClearCacheSection @ 0x1404ACF44 (CcPurgeAndClearCacheSection.c)
+ *     CcUnmapVacb @ 0x140AFCD38 (CcUnmapVacb.c)
  * Callees:
- *     ObpTraceObjectReferenceIfActive @ 0x140278BB0 (ObpTraceObjectReferenceIfActive.c)
- *     CcSlowReferenceSharedCacheMapFileObject @ 0x14039B7C4 (CcSlowReferenceSharedCacheMapFileObject.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     ObpTraceObjectReferenceIfActive @ 0x140278120 (ObpTraceObjectReferenceIfActive.c)
+ *     CcSlowReferenceSharedCacheMapFileObject @ 0x14039D524 (CcSlowReferenceSharedCacheMapFileObject.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall CcReferenceSharedCacheMapFileObject(__int64 a1)

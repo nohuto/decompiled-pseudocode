@@ -35,7 +35,7 @@ __int64 __fastcall MiScrubNode(__int64 a1)
   __int64 v20; // r8
   char v21; // bl
   unsigned int *v22; // [rsp+60h] [rbp-58h]
-  union _SLIST_HEADER *v23; // [rsp+68h] [rbp-50h]
+  _SLIST_HEADER *v23; // [rsp+68h] [rbp-50h]
   int v24; // [rsp+C0h] [rbp+8h] BYREF
   int v25; // [rsp+C8h] [rbp+10h]
   __int64 v26; // [rsp+D0h] [rbp+18h]
@@ -47,7 +47,7 @@ __int64 __fastcall MiScrubNode(__int64 a1)
   v26 = v2;
   v4 = *(unsigned int **)(v2 + 80);
   result = *(_QWORD *)(v2 + 48);
-  v23 = (union _SLIST_HEADER *)result;
+  v23 = (_SLIST_HEADER *)result;
   v6 = *v4;
   v27 = v6;
   LODWORD(v7) = v6;

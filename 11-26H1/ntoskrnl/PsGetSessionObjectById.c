@@ -1,20 +1,19 @@
 /*
- * XREFs of PsGetSessionObjectById @ 0x140215CF4
+ * XREFs of PsGetSessionObjectById @ 0x140216024
  * Callers:
- *     IoGetContainerInformation @ 0x1407971E0 (IoGetContainerInformation.c)
- *     IoRegisterContainerNotification @ 0x140797260 (IoRegisterContainerNotification.c)
- *     SeExchangePrimaryToken @ 0x140814B78 (SeExchangePrimaryToken.c)
- *     SepDuplicateToken @ 0x14092A5A0 (SepDuplicateToken.c)
- *     NtSetInformationObject @ 0x140970880 (NtSetInformationObject.c)
- *     SeSubProcessToken @ 0x140A2B26C (SeSubProcessToken.c)
- *     SepSetTokenSessionById @ 0x140A82BD4 (SepSetTokenSessionById.c)
- *     SeSetSessionIdToken @ 0x140AE7F2C (SeSetSessionIdToken.c)
+ *     IoGetContainerInformation @ 0x140799D10 (IoGetContainerInformation.c)
+ *     IoRegisterContainerNotification @ 0x140799D90 (IoRegisterContainerNotification.c)
+ *     SeExchangePrimaryToken @ 0x14081AC68 (SeExchangePrimaryToken.c)
+ *     SepDuplicateToken @ 0x1409060B0 (SepDuplicateToken.c)
+ *     NtSetInformationObject @ 0x1409BA9F0 (NtSetInformationObject.c)
+ *     SepSetTokenSessionById @ 0x140A88A44 (SepSetTokenSessionById.c)
+ *     SeSetSessionIdToken @ 0x140AE5DDC (SeSetSessionIdToken.c)
  * Callees:
- *     PsGetSessionById @ 0x140215D80 (PsGetSessionById.c)
- *     PspLockProcessListExclusive @ 0x140215EEC (PspLockProcessListExclusive.c)
- *     PspUnlockProcessListExclusive @ 0x140215F5C (PspUnlockProcessListExclusive.c)
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     ObfReferenceObjectWithTag @ 0x140278B30 (ObfReferenceObjectWithTag.c)
+ *     PsGetSessionById @ 0x1402160B0 (PsGetSessionById.c)
+ *     PspLockProcessListExclusive @ 0x14021621C (PspLockProcessListExclusive.c)
+ *     PspUnlockProcessListExclusive @ 0x14021628C (PspUnlockProcessListExclusive.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x1402780A0 (ObfReferenceObjectWithTag.c)
  */
 
 void *PsGetSessionObjectById()

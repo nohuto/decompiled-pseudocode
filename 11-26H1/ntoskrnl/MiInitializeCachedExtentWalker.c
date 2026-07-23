@@ -1,15 +1,15 @@
 /*
- * XREFs of MiInitializeCachedExtentWalker @ 0x1405044E8
+ * XREFs of MiInitializeCachedExtentWalker @ 0x1404FDCAC
  * Callers:
- *     MiTransferFileExtent @ 0x140504358 (MiTransferFileExtent.c)
- *     MiGetCachedExtentWalkerNextPage @ 0x1406FA1C8 (MiGetCachedExtentWalkerNextPage.c)
+ *     MiTransferFileExtent @ 0x1404FDB1C (MiTransferFileExtent.c)
+ *     MiGetCachedExtentWalkerNextPage @ 0x1406FEE98 (MiGetCachedExtentWalkerNextPage.c)
  * Callees:
- *     ExReleaseSpinLockShared @ 0x14026CEE0 (ExReleaseSpinLockShared.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402DC6D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExAcquireSpinLockShared @ 0x1402EDF10 (ExAcquireSpinLockShared.c)
- *     MiStartingOffset @ 0x14036CEA0 (MiStartingOffset.c)
- *     MiLocateCachedExtent @ 0x140511E14 (MiLocateCachedExtent.c)
- *     MiAllocateFileExtents @ 0x140B5F8D8 (MiAllocateFileExtents.c)
+ *     ExReleaseSpinLockShared @ 0x14026C450 (ExReleaseSpinLockShared.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402BE490 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockShared @ 0x1402CFF90 (ExAcquireSpinLockShared.c)
+ *     MiStartingOffset @ 0x14036EC40 (MiStartingOffset.c)
+ *     MiLocateCachedExtent @ 0x14050B884 (MiLocateCachedExtent.c)
+ *     MiAllocateFileExtents @ 0x140B62A58 (MiAllocateFileExtents.c)
  */
 
 __int64 __fastcall MiInitializeCachedExtentWalker(__int64 a1, struct _KTHREAD *a2, __int64 a3, int a4)

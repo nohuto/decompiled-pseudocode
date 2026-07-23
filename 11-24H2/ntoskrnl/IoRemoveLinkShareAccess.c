@@ -1,9 +1,9 @@
 /*
- * XREFs of IoRemoveLinkShareAccess @ 0x140714800
+ * XREFs of IoRemoveLinkShareAccess @ 0x140712390
  * Callers:
  *     <none>
  * Callees:
- *     IoRemoveLinkShareAccessEx @ 0x1409A2530 (IoRemoveLinkShareAccessEx.c)
+ *     IoRemoveLinkShareAccessEx @ 0x1408AD7C0 (IoRemoveLinkShareAccessEx.c)
  */
 
 __int64 __fastcall IoRemoveLinkShareAccess(__int64 a1, __int64 a2, __int64 a3)

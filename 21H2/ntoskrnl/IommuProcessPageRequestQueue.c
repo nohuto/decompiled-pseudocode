@@ -1,19 +1,19 @@
 /*
- * XREFs of IommuProcessPageRequestQueue @ 0x1404D92A0
+ * XREFs of IommuProcessPageRequestQueue @ 0x1404D94E0
  * Callers:
  *     <none>
  * Callees:
- *     KxAcquireSpinLock @ 0x1402295B0 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x1402CDEB0 (KxAcquireSpinLock.c)
+ *     ExfReleasePushLockShared @ 0x1402FC1C0 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x1403558A0 (ExAcquirePushLockSharedEx.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     _alloca_probe @ 0x1404084A0 (_alloca_probe.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     memmove @ 0x140413F40 (memmove.c)
+ *     _alloca_probe @ 0x140408680 (_alloca_probe.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     memmove @ 0x140414040 (memmove.c)
  */
 
 char __fastcall IommuProcessPageRequestQueue(unsigned int a1)
@@ -289,7 +289,7 @@ char __fastcall IommuProcessPageRequestQueue(unsigned int a1)
           {
             v45 = Src;
             *((_QWORD *)Src + 4) |= 0x4000000000000000uLL;
-            v44 = ((__int64 (__fastcall *)(__int64, void *, _QWORD))qword_140C4A2A0)(1LL, v45, 0LL);
+            v44 = ((__int64 (__fastcall *)(__int64, void *, _QWORD))qword_140C4A2E0)(1LL, v45, 0LL);
           }
           v43 = v44;
         }

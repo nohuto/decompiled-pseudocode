@@ -1,9 +1,9 @@
 /*
- * XREFs of PopPluginQueryCurrentComponentPerfState @ 0x1402047A8
+ * XREFs of PopPluginQueryCurrentComponentPerfState @ 0x1402045D4
  * Callers:
- *     PopFxQueryCurrentComponentPerfState @ 0x14020344C (PopFxQueryCurrentComponentPerfState.c)
+ *     PopFxQueryCurrentComponentPerfState @ 0x140203278 (PopFxQueryCurrentComponentPerfState.c)
  * Callees:
- *     PopFxBugCheck @ 0x1402022F4 (PopFxBugCheck.c)
+ *     PopFxBugCheck @ 0x140202120 (PopFxBugCheck.c)
  */
 
 __int64 __fastcall PopPluginQueryCurrentComponentPerfState(__int64 a1, int a2, int *a3)

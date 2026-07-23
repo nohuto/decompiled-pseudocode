@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpGetChipHacks @ 0x140C13AEC
+ * XREFs of HalpGetChipHacks @ 0x140C15AEC
  * Callers:
- *     HalpPiix4Detect @ 0x140B6AA1C (HalpPiix4Detect.c)
+ *     HalpPiix4Detect @ 0x140B6C308 (HalpPiix4Detect.c)
  * Callees:
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall HalpGetChipHacks(__int16 a1, __int16 a2, unsigned __int8 a3, _DWORD *a4)

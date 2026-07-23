@@ -1,9 +1,9 @@
 /*
- * XREFs of CmGetKCBCacheSecurity @ 0x1408BF680
+ * XREFs of CmGetKCBCacheSecurity @ 0x1408C5C50
  * Callers:
- *     CmpSetSecurityDescriptorInfo @ 0x1408BE6F8 (CmpSetSecurityDescriptorInfo.c)
+ *     CmpSetSecurityDescriptorInfo @ 0x1408C4CC8 (CmpSetSecurityDescriptorInfo.c)
  * Callees:
- *     CmpTransUowIsEqual @ 0x140776F48 (CmpTransUowIsEqual.c)
+ *     CmpTransUowIsEqual @ 0x140779DF0 (CmpTransUowIsEqual.c)
  */
 
 __int64 __fastcall CmGetKCBCacheSecurity(__int64 a1, __int64 a2)

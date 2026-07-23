@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpCoverageSamplerContextSwap @ 0x1405AFCBC
+ * XREFs of EtwpCoverageSamplerContextSwap @ 0x1405AFEEC
  * Callers:
- *     EtwTraceContextSwap @ 0x1403AED40 (EtwTraceContextSwap.c)
+ *     EtwTraceContextSwap @ 0x1403AEEB0 (EtwTraceContextSwap.c)
  * Callees:
- *     EtwpCovSampCaptureSample @ 0x1405AF1D8 (EtwpCovSampCaptureSample.c)
+ *     EtwpCovSampCaptureSample @ 0x1405AF408 (EtwpCovSampCaptureSample.c)
  */
 
 void __fastcall EtwpCoverageSamplerContextSwap(_KTHREAD *a1)

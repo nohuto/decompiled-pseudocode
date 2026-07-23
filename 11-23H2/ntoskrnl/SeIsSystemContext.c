@@ -1,9 +1,9 @@
 /*
- * XREFs of SeIsSystemContext @ 0x1405B916C
+ * XREFs of SeIsSystemContext @ 0x1405B96DC
  * Callers:
- *     SepFilterToken @ 0x1407F1C00 (SepFilterToken.c)
+ *     SepFilterToken @ 0x1407F1ED0 (SepFilterToken.c)
  * Callees:
- *     SeAccessCheck @ 0x140231650 (SeAccessCheck.c)
+ *     SeAccessCheck @ 0x140231720 (SeAccessCheck.c)
  */
 
 __int64 __fastcall SeIsSystemContext(void *a1, _BYTE *a2)

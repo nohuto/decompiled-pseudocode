@@ -5,7 +5,7 @@
  * Callees:
  *     RtlpHpTagContextAllocateTag @ 0x180064ED0 (RtlpHpTagContextAllocateTag.c)
  *     RtlpHpTagContextFindMapping @ 0x1800650DC (RtlpHpTagContextFindMapping.c)
- *     __security_check_cookie @ 0x18008FEC0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x18008FED0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall RtlpHpTagContextGetTag(__int64 a1, unsigned __int64 a2)

@@ -1,8 +1,8 @@
 /*
- * XREFs of CmpIsKeyStackSymlink @ 0x14086E500
+ * XREFs of CmpIsKeyStackSymlink @ 0x140872830
  * Callers:
- *     CmQueryLayeredKey @ 0x140462148 (CmQueryLayeredKey.c)
- *     CmpDoParseKey @ 0x14086E7B0 (CmpDoParseKey.c)
+ *     CmQueryLayeredKey @ 0x140457758 (CmQueryLayeredKey.c)
+ *     CmpDoParseKey @ 0x140872AE0 (CmpDoParseKey.c)
  * Callees:
  *     <none>
  */

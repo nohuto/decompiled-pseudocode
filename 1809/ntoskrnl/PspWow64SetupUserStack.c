@@ -1,12 +1,12 @@
 /*
- * XREFs of PspWow64SetupUserStack @ 0x1406BBBC8
+ * XREFs of PspWow64SetupUserStack @ 0x1406BCE68
  * Callers:
- *     PspAllocateThread @ 0x1405F7E84 (PspAllocateThread.c)
+ *     PspAllocateThread @ 0x1405F8E84 (PspAllocateThread.c)
  * Callees:
  *     KiStackAttachProcess @ 0x140016DB0 (KiStackAttachProcess.c)
  *     KiUnstackDetachProcess @ 0x140017190 (KiUnstackDetachProcess.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     RtlpWow64CreateUserStack @ 0x1406BBC64 (RtlpWow64CreateUserStack.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     RtlpWow64CreateUserStack @ 0x1406BCF04 (RtlpWow64CreateUserStack.c)
  */
 
 __int64 __fastcall PspWow64SetupUserStack(_KPROCESS *a1, __int64 a2, __int64 a3, char *a4, int a5)

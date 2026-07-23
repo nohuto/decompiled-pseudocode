@@ -60,7 +60,7 @@ __int64 __fastcall MiAddViewsForSection(__int64 *BugCheckParameter2, unsigned __
   ULONG_PTR v29; // r9
   unsigned int v30; // edx
   __int64 v31; // rcx
-  __int64 v32; // rcx
+  ULONG_PTR v32; // rcx
   unsigned __int8 v33; // al
   ULONG_PTR v34; // rcx
   unsigned int v35; // esi
@@ -84,7 +84,7 @@ __int64 __fastcall MiAddViewsForSection(__int64 *BugCheckParameter2, unsigned __
   unsigned int v53; // r8d
   unsigned int v54; // edx
   __int64 v55; // rcx
-  __int64 v56; // rcx
+  _KLOCK_ENTRY *v56; // rcx
   unsigned __int8 v57; // bl
   __int64 v58; // rbx
   KIRQL v59; // r15
@@ -109,7 +109,7 @@ __int64 __fastcall MiAddViewsForSection(__int64 *BugCheckParameter2, unsigned __
   int v78; // [rsp+88h] [rbp-70h]
   ULONG_PTR BugCheckParameter2a; // [rsp+90h] [rbp-68h]
   __int64 v80; // [rsp+98h] [rbp-60h]
-  __int64 v81; // [rsp+A0h] [rbp-58h]
+  ULONG_PTR v81; // [rsp+A0h] [rbp-58h]
   void *retaddr; // [rsp+F8h] [rbp+0h]
   int v83; // [rsp+100h] [rbp+8h]
   ULONG_PTR v84; // [rsp+100h] [rbp+8h]
@@ -226,7 +226,7 @@ LABEL_80:
           *(_BYTE *)(v32 + 32) |= 2u;
           if ( *(__int64 *)(v32 + 32) < 0 )
           {
-            KiAbEntryRemoveFromTree(v32);
+            KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v32);
             v32 = v81;
             v27 = BugCheckParameter1;
             v28 = BugCheckParameter2a;
@@ -328,15 +328,15 @@ LABEL_14:
         while ( 1 )
         {
           v54 &= ~(1 << v55);
-          v56 = (__int64)&v40->LockEntries[v55];
-          v71 = v56;
-          if ( (*(_BYTE *)(v56 + 26) & 1) != 0
-            && (*(_DWORD *)(v56 + 32) & 1) == 0
-            && (*(_QWORD *)(v56 + 32) & 0x7FFFFFFFFFFFFFFCLL) == (v85 & 0x7FFFFFFFFFFFFFFCLL)
-            && *(_DWORD *)(v56 + 40) == v53 )
+          v56 = &v40->LockEntries[v55];
+          v71 = (__int64)v56;
+          if ( (v56->AcquiredByte & 1) != 0
+            && (*(_DWORD *)&v56->LockState.0 & 1) == 0
+            && (*(_QWORD *)&v56->LockState.0 & 0x7FFFFFFFFFFFFFFCLL) == (v85 & 0x7FFFFFFFFFFFFFFCLL)
+            && v56->LockState.SessionId == v53 )
           {
-            *(_BYTE *)(v56 + 26) &= ~1u;
-            if ( *(_QWORD *)(v56 + 32) )
+            v56->AcquiredByte &= ~1u;
+            if ( v56->LockState.0 )
               break;
           }
           v19 = !_BitScanReverse((unsigned int *)&v55, v54);
@@ -352,18 +352,18 @@ LABEL_183:
         }
         else
         {
-          *(_BYTE *)(v56 + 32) |= 2u;
-          if ( *(__int64 *)(v56 + 32) < 0 )
+          v56->CrossThreadReleasableAndBusyByte |= 2u;
+          if ( (__int64)v56->LockState.LockState < 0 )
           {
-            KiAbEntryRemoveFromTree(v56);
-            v56 = v71;
+            KiAbEntryRemoveFromTree(&v56->TreeNode);
+            v56 = (_KLOCK_ENTRY *)v71;
             v42 = v85;
           }
-          v69 = *(_DWORD *)(v56 + 88) & 0x1FFFF;
-          *(_DWORD *)(v56 + 88) &= 0xFFFE0000;
-          *(_BYTE *)(v56 + 25) &= ~1u;
-          *(_QWORD *)(v56 + 32) = 0LL;
-          v57 = 1 << ((char)(v56 - (_BYTE)v40 - 32) / 96);
+          v69 = v56->BoostBitmap.AllFields & 0x1FFFF;
+          v56->BoostBitmap.AllFields &= 0xFFFE0000;
+          v56->ThreadLocalFlags &= ~1u;
+          v56->LockState.0 = 0LL;
+          v57 = 1 << ((char)((_BYTE)v56 - (_BYTE)v40 - 32) / 96);
           if ( AbAllocationRegionCount == 1 )
             v40->AbEntrySummary |= v57;
           else
@@ -451,7 +451,7 @@ LABEL_129:
           *(_BYTE *)(v45 + 32) |= 2u;
           if ( *(__int64 *)(v45 + 32) < 0 )
           {
-            KiAbEntryRemoveFromTree(v45);
+            KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v45);
             v45 = v71;
             v42 = v84;
           }
@@ -545,7 +545,7 @@ LABEL_50:
         {
           *(_BYTE *)(v21 + 32) |= 2u;
           if ( *(__int64 *)(v21 + 32) < 0 )
-            KiAbEntryRemoveFromTree(v21);
+            KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v21);
           v68 = *(_DWORD *)(v21 + 88) & 0x1FFFF;
           *(_DWORD *)(v21 + 88) &= 0xFFFE0000;
           *(_BYTE *)(v21 + 25) &= ~1u;

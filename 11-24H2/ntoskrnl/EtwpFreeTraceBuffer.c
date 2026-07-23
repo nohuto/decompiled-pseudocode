@@ -1,16 +1,16 @@
 /*
- * XREFs of EtwpFreeTraceBuffer @ 0x140483510
+ * XREFs of EtwpFreeTraceBuffer @ 0x14047E9DC
  * Callers:
- *     EtwpAdjustSiloTraceBuffers @ 0x14048EBF0 (EtwpAdjustSiloTraceBuffers.c)
- *     EtwpCancelMemoryPreservation @ 0x1407AF70C (EtwpCancelMemoryPreservation.c)
- *     EtwpPreserveLogger @ 0x1407AFA4C (EtwpPreserveLogger.c)
- *     EtwpFreeTraceBufferPool @ 0x1409D7BCC (EtwpFreeTraceBufferPool.c)
+ *     EtwpAdjustSiloTraceBuffers @ 0x140489020 (EtwpAdjustSiloTraceBuffers.c)
+ *     EtwpCancelMemoryPreservation @ 0x1407AFB5C (EtwpCancelMemoryPreservation.c)
+ *     EtwpPreserveLogger @ 0x1407AFE9C (EtwpPreserveLogger.c)
+ *     EtwpFreeTraceBufferPool @ 0x140A4927C (EtwpFreeTraceBufferPool.c)
  * Callees:
- *     MmGetPhysicalAddress @ 0x140263A60 (MmGetPhysicalAddress.c)
- *     MiFreePagesFromMdl @ 0x1403A2330 (MiFreePagesFromMdl.c)
- *     EtwpFreePartitionMemory @ 0x1404835A0 (EtwpFreePartitionMemory.c)
- *     EtwpMdlInit @ 0x1407A8DA0 (EtwpMdlInit.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     MiFreePagesFromMdl @ 0x140218F60 (MiFreePagesFromMdl.c)
+ *     MmGetPhysicalAddress @ 0x1402932D0 (MmGetPhysicalAddress.c)
+ *     EtwpFreePartitionMemory @ 0x14047EA6C (EtwpFreePartitionMemory.c)
+ *     EtwpMdlInit @ 0x1407A8EE0 (EtwpMdlInit.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall EtwpFreeTraceBuffer(__int64 a1, char *a2, __int64 a3)

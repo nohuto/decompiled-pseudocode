@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlpHpLfhSubsegmentCreate @ 0x14051C628
+ * XREFs of RtlpHpLfhSubsegmentCreate @ 0x1405194B4
  * Callers:
- *     RtlpHpLfhSlotAllocateSlow @ 0x140402C90 (RtlpHpLfhSlotAllocateSlow.c)
+ *     RtlpHpLfhSlotAllocateSlow @ 0x1403FBD90 (RtlpHpLfhSlotAllocateSlow.c)
  * Callees:
- *     ExSaDecodeHandle @ 0x1402C15D0 (ExSaDecodeHandle.c)
- *     RtlpHpLfhSubsegmentComputeCommitUnit @ 0x14034B4AC (RtlpHpLfhSubsegmentComputeCommitUnit.c)
- *     RtlpHpLfhSubsegmentInitialize @ 0x14034B4F0 (RtlpHpLfhSubsegmentInitialize.c)
- *     RtlpCalculateSubsegmentSizeIndex @ 0x1404B8C8C (RtlpCalculateSubsegmentSizeIndex.c)
- *     RtlpHpLfhBucketComputeNewSubsegmentBlockCount @ 0x14051C54C (RtlpHpLfhBucketComputeNewSubsegmentBlockCount.c)
- *     RtlpHpLfhThreadDataInitializeSet @ 0x14052769C (RtlpHpLfhThreadDataInitializeSet.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     RtlpHpLfhSubsegmentComputeCommitUnit @ 0x14034D52C (RtlpHpLfhSubsegmentComputeCommitUnit.c)
+ *     RtlpHpLfhSubsegmentInitialize @ 0x14034D570 (RtlpHpLfhSubsegmentInitialize.c)
+ *     RtlpHpEnvTlsGetValue @ 0x14041CE70 (RtlpHpEnvTlsGetValue.c)
+ *     RtlpCalculateSubsegmentSizeIndex @ 0x1404B24BC (RtlpCalculateSubsegmentSizeIndex.c)
+ *     RtlpHpLfhBucketComputeNewSubsegmentBlockCount @ 0x14051913C (RtlpHpLfhBucketComputeNewSubsegmentBlockCount.c)
+ *     RtlpHpLfhThreadDataInitializeSet @ 0x140529D0C (RtlpHpLfhThreadDataInitializeSet.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 unsigned __int64 __fastcall RtlpHpLfhSubsegmentCreate(unsigned int *a1, unsigned __int8 *a2, int a3)
@@ -59,7 +59,7 @@ unsigned __int64 __fastcall RtlpHpLfhSubsegmentCreate(unsigned int *a1, unsigned
       _InterlockedOr(v20, 0);
       _InterlockedAdd64((volatile signed __int64 *)a2 + 8, 1uLL);
       _InterlockedAdd64((volatile signed __int64 *)a2 + 7, *(unsigned __int16 *)(v17 + 34));
-      if ( (*(_DWORD *)(*(_QWORD *)(*(_QWORD *)a1 + 56LL) + 20LL) & 0x80u) != 0 && !*(_QWORD *)ExSaDecodeHandle(a1[21]) )
+      if ( (*(_DWORD *)(*(_QWORD *)(*(_QWORD *)a1 + 56LL) + 20LL) & 0x80u) != 0 && !RtlpHpEnvTlsGetValue(a1[21]) )
         RtlpHpLfhThreadDataInitializeSet(a1);
       return v17;
     }

@@ -1,25 +1,25 @@
 /*
- * XREFs of IoFillTriageDumpBuffer @ 0x14054FED0
+ * XREFs of IoFillTriageDumpBuffer @ 0x140550590
  * Callers:
- *     IopCollectTriageDumpData @ 0x1405522F0 (IopCollectTriageDumpData.c)
- *     IopWriteCapsuleTriageDumpToFirmware @ 0x140553E98 (IopWriteCapsuleTriageDumpToFirmware.c)
- *     DbgkpTriageDumpFillHeaders @ 0x14093C070 (DbgkpTriageDumpFillHeaders.c)
+ *     IopCollectTriageDumpData @ 0x1405529B0 (IopCollectTriageDumpData.c)
+ *     IopWriteCapsuleTriageDumpToFirmware @ 0x140554558 (IopWriteCapsuleTriageDumpToFirmware.c)
+ *     DbgkpTriageDumpFillHeaders @ 0x14093C270 (DbgkpTriageDumpFillHeaders.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExReleaseResourceLite @ 0x14023D410 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x14023D680 (ExAcquireResourceSharedLite.c)
- *     KiIsAddressRangeValid @ 0x14038840C (KiIsAddressRangeValid.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     memset @ 0x140435A00 (memset.c)
- *     IoGetLoadedDriverInfo @ 0x140550704 (IoGetLoadedDriverInfo.c)
- *     IopAddRunTimeTriageDataBlocks @ 0x1405521C8 (IopAddRunTimeTriageDataBlocks.c)
- *     IopFillTriageDumpDataBlocks @ 0x1405530B8 (IopFillTriageDumpDataBlocks.c)
- *     IopGetMaxValidMemorySize @ 0x140553280 (IopGetMaxValidMemorySize.c)
- *     IopSizeTriageDumpDataBlocks @ 0x140553A64 (IopSizeTriageDumpDataBlocks.c)
- *     IopWriteDriverList @ 0x140554074 (IopWriteDriverList.c)
- *     KdCopyDataBlock @ 0x1405670D0 (KdCopyDataBlock.c)
- *     MmWriteTriageInformation @ 0x1406308CC (MmWriteTriageInformation.c)
- *     MmWriteUnloadedDriverInformation @ 0x1406309E8 (MmWriteUnloadedDriverInformation.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseResourceLite @ 0x14023D4E0 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x14023D750 (ExAcquireResourceSharedLite.c)
+ *     KiIsAddressRangeValid @ 0x1403885EC (KiIsAddressRangeValid.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     IoGetLoadedDriverInfo @ 0x140550DC4 (IoGetLoadedDriverInfo.c)
+ *     IopAddRunTimeTriageDataBlocks @ 0x140552888 (IopAddRunTimeTriageDataBlocks.c)
+ *     IopFillTriageDumpDataBlocks @ 0x140553778 (IopFillTriageDumpDataBlocks.c)
+ *     IopGetMaxValidMemorySize @ 0x140553940 (IopGetMaxValidMemorySize.c)
+ *     IopSizeTriageDumpDataBlocks @ 0x140554124 (IopSizeTriageDumpDataBlocks.c)
+ *     IopWriteDriverList @ 0x140554734 (IopWriteDriverList.c)
+ *     KdCopyDataBlock @ 0x140567790 (KdCopyDataBlock.c)
+ *     MmWriteTriageInformation @ 0x140630E1C (MmWriteTriageInformation.c)
+ *     MmWriteUnloadedDriverInformation @ 0x140630F38 (MmWriteUnloadedDriverInformation.c)
  */
 
 __int64 __fastcall IoFillTriageDumpBuffer(

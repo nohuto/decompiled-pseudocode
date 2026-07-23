@@ -1,16 +1,16 @@
 /*
- * XREFs of TtmNotifySessionDisplayRequiredChange @ 0x140678A30
+ * XREFs of TtmNotifySessionDisplayRequiredChange @ 0x140678B14
  * Callers:
- *     PopNotifySessionDisplayRequired @ 0x14052D7EC (PopNotifySessionDisplayRequired.c)
+ *     PopNotifySessionDisplayRequired @ 0x14052DD2C (PopNotifySessionDisplayRequired.c)
  * Callees:
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExReleaseResourceLite @ 0x140068940 (ExReleaseResourceLite.c)
- *     TtmpAcquireSessionById @ 0x140546B74 (TtmpAcquireSessionById.c)
- *     TtmiLogError @ 0x140546BCC (TtmiLogError.c)
- *     TtmiUndimAllTerminals @ 0x140677ED8 (TtmiUndimAllTerminals.c)
- *     TtmiScheduleSessionWorker @ 0x140678D08 (TtmiScheduleSessionWorker.c)
- *     TtmiLogSessionDisplayRequiredDereference @ 0x14067B990 (TtmiLogSessionDisplayRequiredDereference.c)
- *     TtmiLogSessionDisplayRequiredReference @ 0x14067BA50 (TtmiLogSessionDisplayRequiredReference.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExReleaseResourceLite @ 0x1400684C0 (ExReleaseResourceLite.c)
+ *     TtmpAcquireSessionById @ 0x1405470B4 (TtmpAcquireSessionById.c)
+ *     TtmiLogError @ 0x14054710C (TtmiLogError.c)
+ *     TtmiUndimAllTerminals @ 0x140677FBC (TtmiUndimAllTerminals.c)
+ *     TtmiScheduleSessionWorker @ 0x140678DEC (TtmiScheduleSessionWorker.c)
+ *     TtmiLogSessionDisplayRequiredDereference @ 0x14067BA74 (TtmiLogSessionDisplayRequiredDereference.c)
+ *     TtmiLogSessionDisplayRequiredReference @ 0x14067BB34 (TtmiLogSessionDisplayRequiredReference.c)
  */
 
 __int64 __fastcall TtmNotifySessionDisplayRequiredChange(unsigned int a1, char a2)

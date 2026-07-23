@@ -1,18 +1,18 @@
 /*
- * XREFs of PiDrvDbResolveNodeFilePaths @ 0x140811BD8
+ * XREFs of PiDrvDbResolveNodeFilePaths @ 0x140811EA8
  * Callers:
- *     PiDrvDbSetupNodeHive @ 0x140811978 (PiDrvDbSetupNodeHive.c)
+ *     PiDrvDbSetupNodeHive @ 0x140811C48 (PiDrvDbSetupNodeHive.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     CmIsStateSeparationEnabled @ 0x140367778 (CmIsStateSeparationEnabled.c)
- *     RtlUnicodeStringPrintf @ 0x1403C4AEC (RtlUnicodeStringPrintf.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     _SysCtxRegOpenKey @ 0x1406CED20 (_SysCtxRegOpenKey.c)
- *     RtlFreeUnicodeString @ 0x14076F3D0 (RtlFreeUnicodeString.c)
- *     ExpAllocateStringRoutine @ 0x1407C6F90 (ExpAllocateStringRoutine.c)
- *     RtlCreateUnicodeString @ 0x1407FB060 (RtlCreateUnicodeString.c)
- *     PiDrvDbGetNodeSystemRoot @ 0x140812D08 (PiDrvDbGetNodeSystemRoot.c)
- *     PiDrvDbResolveFilePathKeyValues @ 0x140812FA0 (PiDrvDbResolveFilePathKeyValues.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     CmIsStateSeparationEnabled @ 0x140367918 (CmIsStateSeparationEnabled.c)
+ *     RtlUnicodeStringPrintf @ 0x1403C4CCC (RtlUnicodeStringPrintf.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     _SysCtxRegOpenKey @ 0x1406CED50 (_SysCtxRegOpenKey.c)
+ *     RtlFreeUnicodeString @ 0x14076F5C0 (RtlFreeUnicodeString.c)
+ *     ExpAllocateStringRoutine @ 0x1407C7260 (ExpAllocateStringRoutine.c)
+ *     RtlCreateUnicodeString @ 0x1407FB330 (RtlCreateUnicodeString.c)
+ *     PiDrvDbGetNodeSystemRoot @ 0x140812FD8 (PiDrvDbGetNodeSystemRoot.c)
+ *     PiDrvDbResolveFilePathKeyValues @ 0x140813270 (PiDrvDbResolveFilePathKeyValues.c)
  */
 
 __int64 __fastcall PiDrvDbResolveNodeFilePaths(__int64 a1, __int64 a2)

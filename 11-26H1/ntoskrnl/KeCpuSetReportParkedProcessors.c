@@ -1,15 +1,15 @@
 /*
- * XREFs of KeCpuSetReportParkedProcessors @ 0x1403E806C
+ * XREFs of KeCpuSetReportParkedProcessors @ 0x1402F4F4C
  * Callers:
- *     PpmParkReportMask @ 0x1403E6EE0 (PpmParkReportMask.c)
- *     KiModifySystemAllowedCpuSetsWithLock @ 0x1405F4548 (KiModifySystemAllowedCpuSetsWithLock.c)
+ *     PpmParkReportMask @ 0x1402F3DC0 (PpmParkReportMask.c)
+ *     KiModifySystemAllowedCpuSetsWithLock @ 0x1405F6F08 (KiModifySystemAllowedCpuSetsWithLock.c)
  * Callees:
- *     KiUpdateGlobalCpuSetConfiguration @ 0x140237654 (KiUpdateGlobalCpuSetConfiguration.c)
- *     KxReleaseSpinLock @ 0x1402BDEF0 (KxReleaseSpinLock.c)
- *     KxAcquireSpinLock @ 0x14032F2C0 (KxAcquireSpinLock.c)
- *     KiProcessDeferredReadyList @ 0x14037C920 (KiProcessDeferredReadyList.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memmove @ 0x14073D480 (memmove.c)
+ *     KiUpdateGlobalCpuSetConfiguration @ 0x140238FB4 (KiUpdateGlobalCpuSetConfiguration.c)
+ *     KxReleaseSpinLock @ 0x140308BB0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x1403312F0 (KxAcquireSpinLock.c)
+ *     KiProcessDeferredReadyList @ 0x14037E6D0 (KiProcessDeferredReadyList.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memmove @ 0x140742080 (memmove.c)
  */
 
 __int64 __fastcall KeCpuSetReportParkedProcessors(unsigned __int16 *a1)
@@ -19,7 +19,7 @@ __int64 __fastcall KeCpuSetReportParkedProcessors(unsigned __int16 *a1)
   int v4; // eax
   unsigned __int16 v5; // si
   int v6; // edi
-  unsigned __int64 v7; // rbp
+  __int64 v7; // rbp
   __int64 v8; // r10
   __int64 v9; // r10
   unsigned __int64 v10; // r8
@@ -29,32 +29,31 @@ __int64 __fastcall KeCpuSetReportParkedProcessors(unsigned __int16 *a1)
   signed __int64 v14; // rtt
   __int64 v15; // rcx
   __int64 v16; // r8
-  __int64 v17; // r9
-  __int64 v19; // rdx
-  __int64 v20; // r14
-  __int64 v21; // r15
-  __int64 v22; // r8
-  unsigned __int64 v23; // rdx
-  unsigned __int64 v24; // rdx
-  int v25; // edi
-  __int64 v26; // rcx
+  __int64 v18; // rdx
+  __int64 v19; // r14
+  __int64 v20; // r15
+  __int64 v21; // r8
+  __int64 v22; // rdx
+  __int64 v23; // rdx
+  int v24; // edi
+  __int64 v25; // rcx
+  __int64 v26; // r8
   __int64 v27; // r8
-  __int64 v28; // r8
-  unsigned __int64 v29; // r8
-  __int64 v30; // rcx
-  __int64 v31; // r11
-  int v32; // [rsp+20h] [rbp-158h]
-  unsigned int v33; // [rsp+24h] [rbp-154h]
-  struct _SINGLE_LIST_ENTRY v34[33]; // [rsp+38h] [rbp-140h] BYREF
+  unsigned __int64 v28; // r8
+  __int64 v29; // rcx
+  __int64 v30; // r11
+  int v31; // [rsp+20h] [rbp-158h]
+  unsigned int v32; // [rsp+24h] [rbp-154h]
+  _QWORD v33[33]; // [rsp+38h] [rbp-140h] BYREF
 
   v1 = (unsigned __int16)KiActiveGroups;
-  v33 = (unsigned __int16)KiActiveGroups;
+  v32 = (unsigned __int16)KiActiveGroups;
   _m_prefetchw(KiCpuSetAffinities);
   _m_prefetchw(KiCpuSetAffinitiesShadow);
   v3 = 0;
   if ( a1 )
     KxAcquireSpinLock(&KiCpuSetLock);
-  v32 = 0;
+  v31 = 0;
   v4 = 0;
   v5 = 0;
   if ( v1 )
@@ -62,7 +61,7 @@ __int64 __fastcall KeCpuSetReportParkedProcessors(unsigned __int16 *a1)
     v6 = 0;
     while ( 1 )
     {
-      v7 = *(unsigned __int64 *)((char *)&stru_140FC01F0.116 + 8 * v5 + 4);
+      v7 = *(__int64 *)((char *)&stru_140FC11F0.116 + 8 * v5 + 4);
       if ( a1 )
       {
         if ( v5 >= *a1 )
@@ -70,16 +69,16 @@ __int64 __fastcall KeCpuSetReportParkedProcessors(unsigned __int16 *a1)
         else
           v8 = *(_QWORD *)&a1[4 * v5 + 4];
         v9 = v7 ^ v8;
-        v34[v5 + 1].Next = (struct _SINGLE_LIST_ENTRY *)v9;
+        v33[v5 + 1] = v9;
         if ( KiNonParkedCpuSets[v5] == v9 )
           goto LABEL_31;
       }
       else
       {
         v9 = KiNonParkedCpuSets[v5];
-        v34[v5 + 1].Next = (struct _SINGLE_LIST_ENTRY *)v9;
+        v33[v5 + 1] = v9;
       }
-      v32 = 1;
+      v31 = 1;
       v10 = v7 & v9;
       v4 = 1;
       v11 = v7 ^ v7 & v9;
@@ -92,79 +91,79 @@ __int64 __fastcall KeCpuSetReportParkedProcessors(unsigned __int16 *a1)
           *((_QWORD *)KiCpuSetAffinitiesShadow + (unsigned int)((v6 << 6) + v12)) = 1LL << v12;
         }
         while ( v10 );
-        v1 = v33;
+        v1 = v32;
         v4 = 1;
       }
       if ( !v11 )
         goto LABEL_13;
-      v19 = *(_QWORD *)&algn_140FC1998[32 * v5];
-      v20 = v19 & -(__int64)((v19 & v9) != 0 && ((v7 ^ v19) & v9) != 0);
-      v21 = (v7 ^ v19) & -(__int64)((v19 & v9) != 0 && ((v7 ^ v19) & v9) != 0);
-      v22 = KiSystemAllowedCpuSets[2 * v5] ^ v7;
-      v23 = v9 & v22;
-      if ( !v22 || !v23 )
+      v18 = *(_QWORD *)&algn_140FC2998[32 * v5];
+      v19 = v18 & -(__int64)((v18 & v9) != 0 && ((v7 ^ v18) & v9) != 0);
+      v20 = (v7 ^ v18) & -(__int64)((v18 & v9) != 0 && ((v7 ^ v18) & v9) != 0);
+      v21 = KiSystemAllowedCpuSets[2 * v5] ^ v7;
+      v22 = v9 & v21;
+      if ( !v21 || !v22 )
         break;
-      v29 = v11 & v22;
-      v11 ^= v29;
-      if ( v29 )
+      v28 = v11 & v21;
+      v11 ^= v28;
+      if ( v28 )
       {
         do
         {
-          _BitScanForward64((unsigned __int64 *)&v30, v29);
-          v31 = v23;
-          v29 &= ~(1LL << v30);
-          if ( _bittest64(&v20, (unsigned int)v30) )
+          _BitScanForward64((unsigned __int64 *)&v29, v28);
+          v30 = v22;
+          v28 &= ~(1LL << v29);
+          if ( _bittest64(&v19, (unsigned int)v29) )
           {
-            if ( (v23 & v20) != 0 )
-              v31 = v23 & v20;
+            if ( (v22 & v19) != 0 )
+              v30 = v22 & v19;
           }
-          else if ( (v23 & v21) != 0 )
+          else if ( (v22 & v20) != 0 )
           {
-            v31 = v23 & v21;
+            v30 = v22 & v20;
           }
-          *((_QWORD *)KiCpuSetAffinitiesShadow + (unsigned int)((v6 << 6) + v30)) = v31;
+          *((_QWORD *)KiCpuSetAffinitiesShadow + (unsigned int)((v6 << 6) + v29)) = v30;
         }
-        while ( v29 );
-        v1 = v33;
+        while ( v28 );
+        v1 = v32;
       }
       if ( v11 )
         break;
 LABEL_31:
-      v4 = v32;
+      v4 = v31;
 LABEL_13:
       v6 = ++v5;
       if ( v5 >= v1 )
         goto LABEL_14;
     }
-    v24 = v7 & ~v23;
-    if ( (v24 & v9) == 0 )
-      v24 = v7;
-    v25 = v6 << 6;
+    v23 = v7 & ~v22;
+    if ( (v23 & v9) == 0 )
+      v23 = v7;
+    v24 = v6 << 6;
     while ( 1 )
     {
-      _BitScanForward64((unsigned __int64 *)&v26, v11);
-      v27 = v24;
-      v11 &= ~(1LL << v26);
-      if ( _bittest64(&v20, (unsigned int)v26) )
+      _BitScanForward64((unsigned __int64 *)&v25, v11);
+      v26 = v23;
+      v11 &= ~(1LL << v25);
+      if ( _bittest64(&v19, (unsigned int)v25) )
         break;
-      if ( (v9 & v21 & v24) != 0 )
+      if ( (v9 & v20 & v23) != 0 )
       {
-        v28 = v21;
+        v27 = v20;
 LABEL_29:
-        v27 = v24 & v28;
+        v26 = v23 & v27;
       }
 LABEL_30:
-      *((_QWORD *)KiCpuSetAffinitiesShadow + (unsigned int)(v25 + v26)) = v27;
+      *((_QWORD *)KiCpuSetAffinitiesShadow + (unsigned int)(v24 + v25)) = v26;
       if ( !v11 )
         goto LABEL_31;
     }
-    if ( (v9 & v20 & v24) == 0 )
+    if ( (v9 & v19 & v23) == 0 )
       goto LABEL_30;
-    v28 = v20;
+    v27 = v19;
     goto LABEL_29;
   }
 LABEL_14:
-  v34[0].Next = 0LL;
+  v33[0] = 0LL;
   if ( !v4 )
     goto LABEL_21;
   _m_prefetchw(&KiCpuSetSequence);
@@ -184,15 +183,15 @@ LABEL_35:
     do
     {
       v15 = v3++;
-      KiNonParkedCpuSets[v15] = (__int64)v34[v15 + 1].Next;
+      KiNonParkedCpuSets[v15] = v33[v15 + 1];
     }
     while ( v3 < v1 );
   }
   memmove(KiCpuSetAffinities, KiCpuSetAffinitiesShadow, (unsigned int)KiCpuSetAffinitySize);
   ++KiCpuSetSequence;
-  KiUpdateGlobalCpuSetConfiguration(v34);
+  KiUpdateGlobalCpuSetConfiguration(v33);
 LABEL_21:
   KxReleaseSpinLock(&KiCpuSetLock);
   LOBYTE(v16) = 2;
-  return KiProcessDeferredReadyList(KeGetCurrentPrcb(), v34, v16, v17);
+  return KiProcessDeferredReadyList(KeGetCurrentPrcb(), v33, v16);
 }

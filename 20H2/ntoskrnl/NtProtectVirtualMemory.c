@@ -14,10 +14,15 @@
  *     VslDebugProtectSecureProcessMemory @ 0x140891D98 (VslDebugProtectSecureProcessMemory.c)
  */
 
-NTSTATUS __fastcall NtProtectVirtualMemory(void *a1, unsigned __int64 *a2, _QWORD *a3, int a4, _DWORD *a5)
+NTSTATUS __cdecl NtProtectVirtualMemory(
+        HANDLE ProcessHandle,
+        PVOID *BaseAddress,
+        PSIZE_T RegionSize,
+        ULONG NewProtect,
+        PULONG OldProtect)
 {
-  void *v7; // r10
-  unsigned __int64 v8; // r9
+  HANDLE v7; // r10
+  PULONG v8; // r9
   int v9; // esi
   int ProtectionMask; // r13d
   struct _KTHREAD *CurrentThread; // rax
@@ -26,39 +31,39 @@ NTSTATUS __fastcall NtProtectVirtualMemory(void *a1, unsigned __int64 *a2, _QWOR
   __int64 v14; // rdx
   __int64 v15; // rdx
   __int64 v16; // rdx
-  unsigned __int64 v17; // rcx
-  unsigned __int64 v18; // r14
+  PVOID v17; // rcx
+  ULONG_PTR v18; // r14
   NTSTATUS result; // eax
   _BYTE *v20; // rbx
-  int v21; // eax
-  int v22; // edi
+  NTSTATUS v21; // eax
+  NTSTATUS v22; // edi
   char v23; // r8
   unsigned __int8 v24; // [rsp+40h] [rbp-A8h]
   unsigned int v25; // [rsp+44h] [rbp-A4h] BYREF
-  unsigned __int64 v26; // [rsp+48h] [rbp-A0h] BYREF
+  PVOID v26; // [rsp+48h] [rbp-A0h] BYREF
   PVOID Object; // [rsp+50h] [rbp-98h] BYREF
-  __int64 v28; // [rsp+58h] [rbp-90h] BYREF
-  _QWORD *v29; // [rsp+60h] [rbp-88h]
-  _DWORD *v30; // [rsp+68h] [rbp-80h]
+  ULONG_PTR v28; // [rsp+58h] [rbp-90h] BYREF
+  PSIZE_T v29; // [rsp+60h] [rbp-88h]
+  PULONG v30; // [rsp+68h] [rbp-80h]
   struct _KAPC_STATE ApcState; // [rsp+70h] [rbp-78h] BYREF
 
-  v29 = a3;
-  v7 = a1;
-  v8 = (unsigned __int64)a5;
-  v30 = a5;
+  v29 = RegionSize;
+  v7 = ProcessHandle;
+  v8 = OldProtect;
+  v30 = OldProtect;
   memset(&ApcState, 0, sizeof(ApcState));
   v9 = 0;
   Object = 0LL;
   v26 = 0LL;
   v28 = 0LL;
   v25 = 0;
-  if ( a4 == 0x80000000 || a4 == 0x10000000 )
+  if ( NewProtect == 0x80000000 || NewProtect == 0x10000000 )
   {
     LOBYTE(ProtectionMask) = 24;
   }
   else
   {
-    ProtectionMask = MiMakeProtectionMask(a4 & 0xFF807FF);
+    ProtectionMask = MiMakeProtectionMask(NewProtect & 0xFF807FF);
     if ( ProtectionMask == -1 )
       return -1073741755;
   }
@@ -68,34 +73,34 @@ NTSTATUS __fastcall NtProtectVirtualMemory(void *a1, unsigned __int64 *a2, _QWOR
   v24 = PreviousMode;
   if ( PreviousMode )
   {
-    v14 = (__int64)a2;
-    if ( (unsigned __int64)a2 >= 0x7FFFFFFF0000LL )
+    v14 = (__int64)BaseAddress;
+    if ( (unsigned __int64)BaseAddress >= 0x7FFFFFFF0000LL )
       v14 = 0x7FFFFFFF0000LL;
     *(_QWORD *)v14 = *(_QWORD *)v14;
-    v15 = (__int64)a3;
-    if ( (unsigned __int64)a3 >= 0x7FFFFFFF0000LL )
+    v15 = (__int64)RegionSize;
+    if ( (unsigned __int64)RegionSize >= 0x7FFFFFFF0000LL )
       v15 = 0x7FFFFFFF0000LL;
     *(_QWORD *)v15 = *(_QWORD *)v15;
-    v16 = v8;
-    if ( v8 >= 0x7FFFFFFF0000LL )
+    v16 = (__int64)v8;
+    if ( (unsigned __int64)v8 >= 0x7FFFFFFF0000LL )
       v16 = 0x7FFFFFFF0000LL;
     *(_DWORD *)v16 = *(_DWORD *)v16;
-    v17 = *a2;
-    v26 = *a2;
-    v18 = *a3;
-    v28 = *a3;
+    v17 = *BaseAddress;
+    v26 = *BaseAddress;
+    v18 = *RegionSize;
+    v28 = *RegionSize;
     PreviousMode = v24;
   }
   else
   {
-    v18 = *a3;
-    v28 = *a3;
-    v17 = *a2;
-    v26 = *a2;
+    v18 = *RegionSize;
+    v28 = *RegionSize;
+    v17 = *BaseAddress;
+    v26 = *BaseAddress;
   }
-  if ( v17 > 0x7FFFFFFEFFFFLL )
+  if ( (unsigned __int64)v17 > 0x7FFFFFFEFFFFLL )
     return -1073741584;
-  if ( 0x7FFFFFFF0000LL - v17 < v18 || !v18 )
+  if ( 0x7FFFFFFF0000LL - (__int64)v17 < v18 || !v18 )
     return -1073741583;
   result = ObReferenceObjectByHandleWithTag(
              v7,
@@ -119,7 +124,7 @@ NTSTATUS __fastcall NtProtectVirtualMemory(void *a1, unsigned __int64 *a2, _QWOR
               (_DWORD)Process,
               (unsigned int)&v26,
               (unsigned int)&v28,
-              a4,
+              NewProtect,
               (__int64)&v25);
     else
       v21 = MmProtectVirtualMemory(
@@ -127,17 +132,17 @@ NTSTATUS __fastcall NtProtectVirtualMemory(void *a1, unsigned __int64 *a2, _QWOR
               (_DWORD)v20,
               (unsigned int)&v26,
               (unsigned int)&v28,
-              a4,
+              NewProtect,
               (__int64)&v25);
     v22 = v21;
     LODWORD(Object) = v21;
     if ( v9 )
       KeUnstackDetachProcess(&ApcState);
     if ( v22 >= 0 && (((unsigned __int8)MiMakeProtectionMask(v25) | (unsigned __int8)ProtectionMask) & 2) != 0 )
-      EtwTiLogProtectExecVm((_DWORD)v20, v24, v26, v18, a4, v23);
+      EtwTiLogProtectExecVm((_DWORD)v20, v24, (_DWORD)v26, v18, NewProtect, v23);
     ObfDereferenceObjectWithTag(v20, 0x76506D4Du);
     *v29 = v28;
-    *a2 = v26;
+    *BaseAddress = v26;
     *v30 = v25;
     return v22;
   }

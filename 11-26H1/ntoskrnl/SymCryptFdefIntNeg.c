@@ -1,9 +1,9 @@
 /*
- * XREFs of SymCryptFdefIntNeg @ 0x1405688EC
+ * XREFs of SymCryptFdefIntNeg @ 0x140567ACC
  * Callers:
- *     SymCryptIntNeg @ 0x14055C39C (SymCryptIntNeg.c)
+ *     SymCryptIntNeg @ 0x14055E884 (SymCryptIntNeg.c)
  * Callees:
- *     SymCryptFdefRawNeg @ 0x140568FEC (SymCryptFdefRawNeg.c)
+ *     SymCryptFdefRawNeg @ 0x1405681CC (SymCryptFdefRawNeg.c)
  */
 
 __int64 __fastcall SymCryptFdefIntNeg(__int64 a1, __int64 a2)

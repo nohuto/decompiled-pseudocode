@@ -1,18 +1,18 @@
 /*
- * XREFs of IoDuplicateDependency @ 0x14071E100
+ * XREFs of IoDuplicateDependency @ 0x14071BC90
  * Callers:
  *     <none>
  * Callees:
- *     PiListEntryToDependencyEdge @ 0x1404F8618 (PiListEntryToDependencyEdge.c)
- *     PipAddDependencyEdgeBetweenNodes @ 0x1405A4520 (PipAddDependencyEdgeBetweenNodes.c)
- *     PipCreateDependencyNode @ 0x14071E68C (PipCreateDependencyNode.c)
- *     PnpAcquireDependencyRelationsLock @ 0x140A0F188 (PnpAcquireDependencyRelationsLock.c)
- *     PipAddDependentsToRebuildPowerRelationsQueue @ 0x140A0F1D8 (PipAddDependentsToRebuildPowerRelationsQueue.c)
- *     PipProcessRebuildPowerRelationsQueue @ 0x140A0F244 (PipProcessRebuildPowerRelationsQueue.c)
- *     PnpReleaseDependencyRelationsLock @ 0x140A0F814 (PnpReleaseDependencyRelationsLock.c)
- *     PiGetDependentList @ 0x140A0FEBC (PiGetDependentList.c)
- *     PipQueryBindingResolution @ 0x140A6DE00 (PipQueryBindingResolution.c)
- *     PipDereferenceDependencyNode @ 0x140AB54A0 (PipDereferenceDependencyNode.c)
+ *     PiListEntryToDependencyEdge @ 0x1404F5EF8 (PiListEntryToDependencyEdge.c)
+ *     PipAddDependencyEdgeBetweenNodes @ 0x1405A1460 (PipAddDependencyEdgeBetweenNodes.c)
+ *     PipCreateDependencyNode @ 0x14071C21C (PipCreateDependencyNode.c)
+ *     PnpAcquireDependencyRelationsLock @ 0x1409BD598 (PnpAcquireDependencyRelationsLock.c)
+ *     PipAddDependentsToRebuildPowerRelationsQueue @ 0x1409BD5E8 (PipAddDependentsToRebuildPowerRelationsQueue.c)
+ *     PipProcessRebuildPowerRelationsQueue @ 0x1409BD654 (PipProcessRebuildPowerRelationsQueue.c)
+ *     PnpReleaseDependencyRelationsLock @ 0x1409BDC24 (PnpReleaseDependencyRelationsLock.c)
+ *     PiGetDependentList @ 0x1409BE2CC (PiGetDependentList.c)
+ *     PipQueryBindingResolution @ 0x140A67300 (PipQueryBindingResolution.c)
+ *     PipDereferenceDependencyNode @ 0x140AAF930 (PipDereferenceDependencyNode.c)
  */
 
 __int64 __fastcall IoDuplicateDependency(__int64 a1, __int64 a2)

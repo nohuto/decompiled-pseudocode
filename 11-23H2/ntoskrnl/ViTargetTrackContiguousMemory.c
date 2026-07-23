@@ -1,36 +1,36 @@
 /*
- * XREFs of ViTargetTrackContiguousMemory @ 0x140ACBDB0
+ * XREFs of ViTargetTrackContiguousMemory @ 0x140ACBDA0
  * Callers:
- *     VerifierMmAllocateContiguousMemory @ 0x140AE2470 (VerifierMmAllocateContiguousMemory.c)
- *     VerifierMmAllocateContiguousMemorySpecifyCache @ 0x140AE25F0 (VerifierMmAllocateContiguousMemorySpecifyCache.c)
- *     VerifierMmAllocateContiguousMemorySpecifyCacheNode @ 0x140AE2730 (VerifierMmAllocateContiguousMemorySpecifyCacheNode.c)
- *     VerifierMmAllocateContiguousNodeMemory @ 0x140AE2850 (VerifierMmAllocateContiguousNodeMemory.c)
- *     VerifierMmAllocateNonCachedMemory @ 0x140AE2AB0 (VerifierMmAllocateNonCachedMemory.c)
+ *     VerifierMmAllocateContiguousMemory @ 0x140AE2460 (VerifierMmAllocateContiguousMemory.c)
+ *     VerifierMmAllocateContiguousMemorySpecifyCache @ 0x140AE25E0 (VerifierMmAllocateContiguousMemorySpecifyCache.c)
+ *     VerifierMmAllocateContiguousMemorySpecifyCacheNode @ 0x140AE2720 (VerifierMmAllocateContiguousMemorySpecifyCacheNode.c)
+ *     VerifierMmAllocateContiguousNodeMemory @ 0x140AE2840 (VerifierMmAllocateContiguousNodeMemory.c)
+ *     VerifierMmAllocateNonCachedMemory @ 0x140AE2AA0 (VerifierMmAllocateNonCachedMemory.c)
  * Callees:
  *     VfAvlLookupTreeNode @ 0x140209FDC (VfAvlLookupTreeNode.c)
  *     VfAvlCleanupLockContext @ 0x14020A34C (VfAvlCleanupLockContext.c)
  *     VfUtilFreePoolCheckIRQL @ 0x14020A910 (VfUtilFreePoolCheckIRQL.c)
- *     VfAvlInitializeLockContext @ 0x1404664A8 (VfAvlInitializeLockContext.c)
+ *     VfAvlInitializeLockContext @ 0x1404668A8 (VfAvlInitializeLockContext.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
- *     ViTargetUpdateTreeAllowed @ 0x140ACBEC4 (ViTargetUpdateTreeAllowed.c)
+ *     ViTargetUpdateTreeAllowed @ 0x140ACBEB4 (ViTargetUpdateTreeAllowed.c)
  */
 
 void __fastcall ViTargetTrackContiguousMemory(unsigned __int64 a1, _SLIST_ENTRY *a2, __int64 a3)
 {
-  struct _SLIST_ENTRY *Pool2; // rax
-  struct _SLIST_ENTRY *v7; // rbx
+  _SLIST_ENTRY *Pool2; // rax
+  _SLIST_ENTRY *v7; // rbx
   int v8; // edi
   _QWORD *v9; // rax
   __int64 v10; // rcx
   unsigned __int64 v11; // rdx
   __int64 v12; // rcx
-  struct _SLIST_ENTRY **v13; // rax
+  _SLIST_ENTRY **v13; // rax
   __int128 v14; // [rsp+20h] [rbp-18h] BYREF
 
   v14 = 0LL;
   if ( (unsigned int)ViTargetUpdateTreeAllowed(a1, a2, a3) )
   {
-    Pool2 = (struct _SLIST_ENTRY *)ExAllocatePool2(64LL, 0x28uLL, 0x61436656u);
+    Pool2 = (_SLIST_ENTRY *)ExAllocatePool2(64LL, 0x28uLL, 0x61436656u);
     v7 = Pool2;
     if ( Pool2 )
     {
@@ -45,14 +45,14 @@ void __fastcall ViTargetTrackContiguousMemory(unsigned __int64 a1, _SLIST_ENTRY 
         v10 = v9[7];
         if ( v10 )
         {
-          qword_140C37330 += a3;
+          qword_140C370B0 += a3;
           v11 = a3 + *(_QWORD *)(v10 + 248);
           *(_QWORD *)(v10 + 248) = v11;
           if ( *(_QWORD *)(v10 + 256) < v11 )
             *(_QWORD *)(v10 + 256) = v11;
           v12 = v10 + 264;
-          v13 = *(struct _SLIST_ENTRY ***)(v12 + 8);
-          if ( *v13 != (struct _SLIST_ENTRY *)v12 )
+          v13 = *(_SLIST_ENTRY ***)(v12 + 8);
+          if ( *v13 != (_SLIST_ENTRY *)v12 )
             __fastfail(3u);
           v7->Next = (_SLIST_ENTRY *)v12;
           v8 = 1;

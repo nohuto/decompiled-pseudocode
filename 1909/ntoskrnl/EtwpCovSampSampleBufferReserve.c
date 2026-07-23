@@ -24,7 +24,7 @@ __int64 __fastcall EtwpCovSampSampleBufferReserve(__int64 a1, __int16 a2, __int6
   int v14; // eax
   struct _KPRCB *v15; // rcx
   struct _KPRCB *v16; // rcx
-  struct _SLIST_ENTRY *v17; // rax
+  _SLIST_ENTRY *v17; // rax
   struct _KPRCB *CurrentPrcb; // rcx
   struct _KPRCB *v19; // rcx
   unsigned __int8 v21; // [rsp+68h] [rbp+10h]

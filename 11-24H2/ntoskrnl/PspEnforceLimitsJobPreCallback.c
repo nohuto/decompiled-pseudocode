@@ -1,10 +1,10 @@
 /*
- * XREFs of PspEnforceLimitsJobPreCallback @ 0x1408EC1D0
+ * XREFs of PspEnforceLimitsJobPreCallback @ 0x14085DA00
  * Callers:
- *     PspCallJobHierarchyCallbacks @ 0x1408EBFF8 (PspCallJobHierarchyCallbacks.c)
+ *     PspCallJobHierarchyCallbacks @ 0x14085D828 (PspCallJobHierarchyCallbacks.c)
  * Callees:
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     PspQueryRateControlHistory @ 0x1408EC2DC (PspQueryRateControlHistory.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     PspQueryRateControlHistory @ 0x14085DB0C (PspQueryRateControlHistory.c)
  */
 
 __int64 __fastcall PspEnforceLimitsJobPreCallback(__int64 a1, _QWORD *a2)

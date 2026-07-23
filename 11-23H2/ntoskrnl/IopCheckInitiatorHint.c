@@ -1,14 +1,14 @@
 /*
  * XREFs of IopCheckInitiatorHint @ 0x1402118B0
  * Callers:
- *     IopAllocRealFileObject @ 0x14072F300 (IopAllocRealFileObject.c)
+ *     IopAllocRealFileObject @ 0x14072F500 (IopAllocRealFileObject.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     IopGetSetSpecificExtension @ 0x140301568 (IopGetSetSpecificExtension.c)
- *     IopSetFileObjectExtensionFlag @ 0x140302B0C (IopSetFileObjectExtensionFlag.c)
- *     IoGetInitiatorProcess @ 0x14036E630 (IoGetInitiatorProcess.c)
- *     ObReferenceObjectByHandle @ 0x1406E62C0 (ObReferenceObjectByHandle.c)
- *     RtlIsSandboxedToken @ 0x1407F3790 (RtlIsSandboxedToken.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     IopGetSetSpecificExtension @ 0x1403017F8 (IopGetSetSpecificExtension.c)
+ *     IopSetFileObjectExtensionFlag @ 0x140302D9C (IopSetFileObjectExtensionFlag.c)
+ *     IoGetInitiatorProcess @ 0x14036E7D0 (IoGetInitiatorProcess.c)
+ *     ObReferenceObjectByHandle @ 0x1406E62F0 (ObReferenceObjectByHandle.c)
+ *     RtlIsSandboxedToken @ 0x1407F3A60 (RtlIsSandboxedToken.c)
  */
 
 __int64 __fastcall IopCheckInitiatorHint(__int64 a1, __int64 a2)

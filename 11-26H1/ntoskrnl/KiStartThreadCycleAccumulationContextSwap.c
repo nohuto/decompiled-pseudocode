@@ -1,15 +1,15 @@
 /*
- * XREFs of KiStartThreadCycleAccumulationContextSwap @ 0x140209460
+ * XREFs of KiStartThreadCycleAccumulationContextSwap @ 0x140209540
  * Callers:
- *     SwapContext @ 0x14072FFB0 (SwapContext.c)
+ *     SwapContext @ 0x140734B80 (SwapContext.c)
  * Callees:
- *     HalpTimerQueryCounterSafe @ 0x1402085F0 (HalpTimerQueryCounterSafe.c)
- *     HalpTimerScaleCounter @ 0x140208D00 (HalpTimerScaleCounter.c)
- *     KiInsertDeferredPreemptionApc @ 0x14020A058 (KiInsertDeferredPreemptionApc.c)
- *     HalpInterruptSendIpi @ 0x140230DF0 (HalpInterruptSendIpi.c)
- *     HalpDisableInterrupts @ 0x1402C7D00 (HalpDisableInterrupts.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14052FA20 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     HalpTimerQueryCounterSafe @ 0x1402086D0 (HalpTimerQueryCounterSafe.c)
+ *     HalpTimerScaleCounter @ 0x140208DE0 (HalpTimerScaleCounter.c)
+ *     KiInsertDeferredPreemptionApc @ 0x14020A138 (KiInsertDeferredPreemptionApc.c)
+ *     HalpInterruptSendIpi @ 0x140232750 (HalpInterruptSendIpi.c)
+ *     HalpDisableInterrupts @ 0x1403129A0 (HalpDisableInterrupts.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x140531F20 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 void __fastcall KiStartThreadCycleAccumulationContextSwap(__int64 a1, unsigned __int64 a2)
@@ -108,7 +108,7 @@ void __fastcall KiStartThreadCycleAccumulationContextSwap(__int64 a1, unsigned _
           v44 = 0;
           if ( HalpTimerQueryCounterHandlerCount )
           {
-            v56 = &unk_140FBB448;
+            v56 = &unk_140FBB7E8;
             do
             {
               if ( v9 == *v56 )
@@ -194,7 +194,7 @@ void __fastcall KiStartThreadCycleAccumulationContextSwap(__int64 a1, unsigned _
           v43 = 0;
           if ( HalpTimerQueryCounterHandlerCount )
           {
-            v51 = &unk_140FBB448;
+            v51 = &unk_140FBB7E8;
             do
             {
               if ( v9 == *v51 )
@@ -286,9 +286,9 @@ void __fastcall KiStartThreadCycleAccumulationContextSwap(__int64 a1, unsigned _
         v19 = a2 * (unsigned __int128)MEMORY[0xFFFFF78000000360];
       }
       a2 = (unsigned int)((unsigned __int64)((((v18 * (unsigned __int128)MEMORY[0xFFFFF78000000360]) >> 64)
-                                            * *(unsigned __int64 *)&stru_140FC01F0.SavedApcStateFill[40]) >> 64) >> KiMaximumIncrementShiftCount)
+                                            * (unsigned __int64)stru_140FC11F0.SavedApcState.Process) >> 64) >> KiMaximumIncrementShiftCount)
          - (unsigned int)((unsigned __int64)((*((unsigned __int64 *)&v19 + 1)
-                                            * (unsigned __int128)*(unsigned __int64 *)&stru_140FC01F0.SavedApcStateFill[40]) >> 64) >> KiMaximumIncrementShiftCount);
+                                            * (unsigned __int128)(unsigned __int64)stru_140FC11F0.SavedApcState.Process) >> 64) >> KiMaximumIncrementShiftCount);
       if ( (_DWORD)a2 )
       {
         *(_DWORD *)(a1 + 34372) += a2;
@@ -324,7 +324,7 @@ void __fastcall KiStartThreadCycleAccumulationContextSwap(__int64 a1, unsigned _
         v23 = 100;
       }
       v24 = 0LL;
-      v25 = (unsigned __int16 *)(a1 + 35464);
+      v25 = (unsigned __int16 *)(a1 + 35468);
       do
       {
         if ( v23 <= *v25 )

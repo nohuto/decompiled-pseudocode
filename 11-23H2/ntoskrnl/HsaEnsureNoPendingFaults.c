@@ -1,7 +1,7 @@
 /*
- * XREFs of HsaEnsureNoPendingFaults @ 0x14052F6E0
+ * XREFs of HsaEnsureNoPendingFaults @ 0x14052FC30
  * Callers:
- *     HsaSetPasidAddressSpace @ 0x140530C80 (HsaSetPasidAddressSpace.c)
+ *     HsaSetPasidAddressSpace @ 0x1405311D0 (HsaSetPasidAddressSpace.c)
  * Callees:
  *     <none>
  */

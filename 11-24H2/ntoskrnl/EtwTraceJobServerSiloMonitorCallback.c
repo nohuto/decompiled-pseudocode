@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwTraceJobServerSiloMonitorCallback @ 0x14064DA30
+ * XREFs of EtwTraceJobServerSiloMonitorCallback @ 0x14064C040
  * Callers:
- *     PspInvokeCreateCallback @ 0x140779644 (PspInvokeCreateCallback.c)
- *     PspInvokeTerminateCallback @ 0x1407796A8 (PspInvokeTerminateCallback.c)
+ *     PspInvokeCreateCallback @ 0x140779744 (PspInvokeCreateCallback.c)
+ *     PspInvokeTerminateCallback @ 0x1407797A8 (PspInvokeTerminateCallback.c)
  * Callees:
- *     EtwWriteEx @ 0x140259680 (EtwWriteEx.c)
- *     EtwEventEnabled @ 0x1402A1BD0 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     EtwpCopyJobIdSafe @ 0x140A67378 (EtwpCopyJobIdSafe.c)
- *     EtwpCopyJobGuidSafe @ 0x140A6C52C (EtwpCopyJobGuidSafe.c)
+ *     EtwWriteEx @ 0x140289C90 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x1402D1300 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     EtwpCopyJobIdSafe @ 0x140A60158 (EtwpCopyJobIdSafe.c)
+ *     EtwpCopyJobGuidSafe @ 0x140A65A8C (EtwpCopyJobGuidSafe.c)
  */
 
 BOOLEAN __fastcall EtwTraceJobServerSiloMonitorCallback(int a1, __int64 a2, unsigned __int16 *a3, int a4)

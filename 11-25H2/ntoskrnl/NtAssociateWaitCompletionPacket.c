@@ -18,21 +18,21 @@
  *     ObReferenceObjectByHandle @ 0x14084F190 (ObReferenceObjectByHandle.c)
  */
 
-__int64 __fastcall NtAssociateWaitCompletionPacket(
-        void *a1,
-        void *a2,
-        void *a3,
-        __int64 a4,
-        __int64 a5,
-        int a6,
-        __int64 a7,
-        char *a8)
+NTSTATUS __cdecl NtAssociateWaitCompletionPacket(
+        HANDLE WaitCompletionPacketHandle,
+        HANDLE IoCompletionHandle,
+        HANDLE TargetObjectHandle,
+        PVOID KeyContext,
+        PVOID ApcContext,
+        NTSTATUS IoStatus,
+        ULONG_PTR IoStatusInformation,
+        PBOOLEAN AlreadySignaled)
 {
   __int64 v8; // rbx
   char v9; // r14
   PVOID v10; // r13
   PVOID v11; // rsi
-  NTSTATUS v12; // r12d
+  int v12; // r12d
   KSPIN_LOCK *v13; // r15
   __int64 v14; // r9
   __int64 v15; // r8
@@ -43,7 +43,7 @@ __int64 __fastcall NtAssociateWaitCompletionPacket(
   __int64 CurrentIrql; // rax
   __int64 v21; // rdx
   __int16 *v22; // rax
-  char v23; // si
+  BOOLEAN v23; // si
   volatile signed __int64 *v24; // rcx
   _QWORD *v26; // rcx
   PVOID v27; // rax
@@ -57,7 +57,7 @@ __int64 __fastcall NtAssociateWaitCompletionPacket(
   __int64 v35; // [rsp+40h] [rbp-68h]
   unsigned int v36; // [rsp+48h] [rbp-60h]
   PVOID v37; // [rsp+50h] [rbp-58h] BYREF
-  NTSTATUS v38; // [rsp+58h] [rbp-50h]
+  int v38; // [rsp+58h] [rbp-50h]
   PVOID v39; // [rsp+60h] [rbp-48h] BYREF
   void *retaddr; // [rsp+A8h] [rbp+0h]
 
@@ -68,17 +68,23 @@ __int64 __fastcall NtAssociateWaitCompletionPacket(
   v11 = 0LL;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   Object = 0LL;
-  v12 = ObReferenceObjectByHandle(a1, 1u, IopWaitCompletionPacketObjectType, PreviousMode, &Object, 0LL);
+  v12 = ObReferenceObjectByHandle(
+          WaitCompletionPacketHandle,
+          1u,
+          IopWaitCompletionPacketObjectType,
+          PreviousMode,
+          &Object,
+          0LL);
   v13 = (KSPIN_LOCK *)Object;
   if ( v12 < 0 )
     goto LABEL_26;
   v37 = 0LL;
-  v12 = ObReferenceObjectByHandle(a2, 2u, IoCompletionObjectType, PreviousMode, &v37, 0LL);
+  v12 = ObReferenceObjectByHandle(IoCompletionHandle, 2u, IoCompletionObjectType, PreviousMode, &v37, 0LL);
   v10 = v37;
   if ( v12 < 0 )
     goto LABEL_26;
   v39 = 0LL;
-  v12 = ObReferenceObjectByHandle(a3, 0x100000u, 0LL, PreviousMode, &v39, 0LL);
+  v12 = ObReferenceObjectByHandle(TargetObjectHandle, 0x100000u, 0LL, PreviousMode, &v39, 0LL);
   v11 = v39;
   v38 = v12;
   if ( v12 < 0 )
@@ -143,10 +149,10 @@ LABEL_7:
     {
       v26 = Object;
       *((_BYTE *)Object + 104) = 1;
-      v26[6] = a4;
-      v26[7] = a5;
-      *((_DWORD *)v26 + 18) = a6;
-      v26[8] = a7;
+      v26[6] = KeyContext;
+      v26[7] = ApcContext;
+      *((_DWORD *)v26 + 18) = IoStatus;
+      v26[8] = IoStatusInformation;
       v26[10] = v39;
       v27 = v37;
       v26[11] = v37;
@@ -213,16 +219,16 @@ LABEL_7:
         KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), (unsigned __int8)v35);
       __writecr8((unsigned __int8)v8);
       v9 = 0;
-      if ( a8 )
+      if ( AlreadySignaled )
       {
         if ( PreviousMode )
         {
           v30 = 0x7FFFFFFF0000LL;
-          if ( (unsigned __int64)a8 < 0x7FFFFFFF0000LL )
-            v30 = (__int64)a8;
+          if ( (unsigned __int64)AlreadySignaled < 0x7FFFFFFF0000LL )
+            v30 = (__int64)AlreadySignaled;
           *(_BYTE *)v30 = *(_BYTE *)v30;
         }
-        *a8 = v23;
+        *AlreadySignaled = v23;
       }
       v10 = 0LL;
       v11 = 0LL;
@@ -238,5 +244,5 @@ LABEL_26:
     ObfDereferenceObjectWithTag(v11, 0x746C6644u);
   if ( v13 )
     ObfDereferenceObjectWithTag(v13, 0x746C6644u);
-  return (unsigned int)v12;
+  return v12;
 }

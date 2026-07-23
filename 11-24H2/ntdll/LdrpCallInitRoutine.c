@@ -1,22 +1,22 @@
 /*
- * XREFs of LdrpCallInitRoutine @ 0x180012C90
+ * XREFs of LdrpCallInitRoutine @ 0x18003F690
  * Callers:
- *     LdrShutdownProcess @ 0x180002B70 (LdrShutdownProcess.c)
- *     LdrShutdownThread @ 0x1800045E0 (LdrShutdownThread.c)
- *     LdrpInitializeThread @ 0x180012810 (LdrpInitializeThread.c)
- *     LdrpCallTlsInitializers @ 0x180012F30 (LdrpCallTlsInitializers.c)
- *     AVrfpLoadAndInitializeProvider @ 0x180064DAC (AVrfpLoadAndInitializeProvider.c)
- *     LdrpInitializeNode @ 0x18006FB00 (LdrpInitializeNode.c)
- *     LdrpProcessDetachNode @ 0x1800E3114 (LdrpProcessDetachNode.c)
- *     AvrfMiniLoadDll @ 0x180108F94 (AvrfMiniLoadDll.c)
+ *     LdrpInitializeThread @ 0x18003F210 (LdrpInitializeThread.c)
+ *     LdrpCallTlsInitializers @ 0x18003F930 (LdrpCallTlsInitializers.c)
+ *     LdrpInitializeNode @ 0x18008C3E0 (LdrpInitializeNode.c)
+ *     LdrShutdownThread @ 0x1800AB0D0 (LdrShutdownThread.c)
+ *     LdrShutdownProcess @ 0x1800ABBC0 (LdrShutdownProcess.c)
+ *     AVrfpLoadAndInitializeProvider @ 0x1800ACC7C (AVrfpLoadAndInitializeProvider.c)
+ *     LdrpProcessDetachNode @ 0x1800DE6E4 (LdrpProcessDetachNode.c)
+ *     AvrfMiniLoadDll @ 0x180103EC4 (AvrfMiniLoadDll.c)
  * Callees:
- *     RtlGetCurrentServiceSessionId @ 0x180055A20 (RtlGetCurrentServiceSessionId.c)
- *     LdrpLogEtwEvent @ 0x18009B2F0 (LdrpLogEtwEvent.c)
- *     LdrpLogError @ 0x1800FB40C (LdrpLogError.c)
- *     LdrpCallInitRoutineInternal @ 0x18015F968 (LdrpCallInitRoutineInternal.c)
- *     NtTraceEvent @ 0x180162840 (NtTraceEvent.c)
- *     __security_check_cookie @ 0x1801659C0 (__security_check_cookie.c)
- *     memset$thunk$772440563353939046 @ 0x180172030 (memset$thunk$772440563353939046.c)
+ *     LdrpLogEtwEvent @ 0x180030140 (LdrpLogEtwEvent.c)
+ *     RtlGetCurrentServiceSessionId @ 0x18006B600 (RtlGetCurrentServiceSessionId.c)
+ *     LdrpLogError @ 0x1800F633C (LdrpLogError.c)
+ *     LdrpCallInitRoutineInternal @ 0x18015DD28 (LdrpCallInitRoutineInternal.c)
+ *     NtTraceEvent @ 0x180160C00 (NtTraceEvent.c)
+ *     __security_check_cookie @ 0x180163D80 (__security_check_cookie.c)
+ *     memset$thunk$772440563353939046 @ 0x180171030 (memset$thunk$772440563353939046.c)
  */
 
 __int64 __fastcall LdrpCallInitRoutine(__int64 a1, __int64 a2, unsigned int a3, __int64 a4)
@@ -30,13 +30,12 @@ __int64 __fastcall LdrpCallInitRoutine(__int64 a1, __int64 a2, unsigned int a3, 
   __int64 v15; // rcx
   int v16; // eax
   __int64 v17; // rcx
-  int v18; // r9d
-  unsigned __int8 v19; // [rsp+48h] [rbp-298h]
-  _BYTE v20[6]; // [rsp+68h] [rbp-278h] BYREF
-  __int16 v21; // [rsp+6Eh] [rbp-272h]
-  __int64 v22; // [rsp+88h] [rbp-258h]
-  char v23; // [rsp+90h] [rbp-250h]
-  char v24; // [rsp+91h] [rbp-24Fh]
+  unsigned __int8 v18; // [rsp+48h] [rbp-298h]
+  _BYTE Fields[6]; // [rsp+68h] [rbp-278h] BYREF
+  __int16 v20; // [rsp+6Eh] [rbp-272h]
+  __int64 v21; // [rsp+88h] [rbp-258h]
+  char v22; // [rsp+90h] [rbp-250h]
+  char v23; // [rsp+91h] [rbp-24Fh]
 
   SharedData = NtCurrentPeb()->SharedData;
   if ( SharedData && *SharedData )
@@ -64,48 +63,45 @@ __int64 __fastcall LdrpCallInitRoutine(__int64 a1, __int64 a2, unsigned int a3, 
     }
     if ( (*(_BYTE *)v15 & 0x20) != 0 )
     {
-      memset_thunk_772440563353939046(v20, 0, 0x240uLL);
-      v21 = 5283;
+      memset_thunk_772440563353939046(Fields, 0, 0x240uLL);
+      v20 = 5283;
       if ( a2 == -1 )
       {
         v16 = 0;
       }
       else
       {
-        v22 = a2;
+        v21 = a2;
         v16 = 1;
       }
       if ( v16 )
       {
-        v23 = 0;
-        v24 = a3;
+        v22 = 0;
+        v23 = a3;
       }
-      if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+      if ( RtlGetCurrentServiceSessionId() )
         v17 = (__int64)NtCurrentPeb()->SharedData + 554;
       else
         v17 = 2147353476LL;
-      NtTraceEvent(*(unsigned __int8 *)v17, 1026LL, 10LL, v20);
+      NtTraceEvent((HANDLE)*(unsigned __int8 *)v17, 0x402u, 0xAu, Fields);
     }
   }
   else
   {
     v11 = 2147353477LL;
   }
-  v19 = LdrpCallInitRoutineInternal(a1, a2, a3, a4);
+  v18 = LdrpCallInitRoutineInternal(a1, a2, a3, a4);
   v12 = NtCurrentPeb()->SharedData;
   if ( v12 && *v12 )
     v9 = (__int64)NtCurrentPeb()->SharedData + 554;
   if ( *(_BYTE *)v9 && (NtCurrentPeb()->TracingFlags & 4) != 0 )
   {
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+    if ( RtlGetCurrentServiceSessionId() )
       v11 = (__int64)NtCurrentPeb()->SharedData + 555;
     if ( (*(_BYTE *)v11 & 0x20) != 0 )
-    {
-      LOBYTE(v18) = -1;
-      LdrpLogEtwEvent(5270, a2, 255, v18, 0LL, 0LL);
-    }
+      LdrpLogEtwEvent(5270, a2, 255, 255, 0LL, 0LL);
   }
-  if ( !v19 && a3 == 1 )
+  if ( !v18 && a3 == 1 )
     LdrpLogError(3221225794LL, 5270LL, 1LL, 0LL);
-  return v19;
+  return v18;
 }

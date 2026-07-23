@@ -1,23 +1,23 @@
 /*
- * XREFs of MiChangePageAttributeBatch @ 0x1400823F0
+ * XREFs of MiChangePageAttributeBatch @ 0x1400823E0
  * Callers:
  *     MiInitializeMdlBatchPages @ 0x140011478 (MiInitializeMdlBatchPages.c)
  *     MiConvertContiguousPages @ 0x1400117AC (MiConvertContiguousPages.c)
  *     MiGetPageChain @ 0x140049670 (MiGetPageChain.c)
- *     MiZeroAndConvertLargePage @ 0x140118CC8 (MiZeroAndConvertLargePage.c)
- *     MiSwitchToTransition @ 0x1402AF640 (MiSwitchToTransition.c)
- *     MiChangeAwePageAttributes @ 0x1402AFFB4 (MiChangeAwePageAttributes.c)
- *     MiPerformFinalZeroing @ 0x1402BFCFC (MiPerformFinalZeroing.c)
+ *     MiZeroAndConvertLargePage @ 0x140118D38 (MiZeroAndConvertLargePage.c)
+ *     MiSwitchToTransition @ 0x1402AF830 (MiSwitchToTransition.c)
+ *     MiChangeAwePageAttributes @ 0x1402B01A4 (MiChangeAwePageAttributes.c)
+ *     MiPerformFinalZeroing @ 0x1402BFEEC (MiPerformFinalZeroing.c)
  * Callees:
  *     MiLockPageInline @ 0x14002CE40 (MiLockPageInline.c)
  *     MiUnmapPageInHyperSpaceWorker @ 0x14003AB00 (MiUnmapPageInHyperSpaceWorker.c)
- *     MiAbortCombineScan @ 0x140082668 (MiAbortCombineScan.c)
- *     KeInvalidateRangeAllCachesNoIpi @ 0x140082710 (KeInvalidateRangeAllCachesNoIpi.c)
- *     MiMapPageInHyperSpaceWorker @ 0x140082780 (MiMapPageInHyperSpaceWorker.c)
- *     MiFlushEntireTbDueToAttributeChange @ 0x1400EF380 (MiFlushEntireTbDueToAttributeChange.c)
- *     MiFlushHyperSpace @ 0x140175F54 (MiFlushHyperSpace.c)
- *     KeInvalidateAllCaches @ 0x140177050 (KeInvalidateAllCaches.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiAbortCombineScan @ 0x140082658 (MiAbortCombineScan.c)
+ *     KeInvalidateRangeAllCachesNoIpi @ 0x140082700 (KeInvalidateRangeAllCachesNoIpi.c)
+ *     MiMapPageInHyperSpaceWorker @ 0x140082770 (MiMapPageInHyperSpaceWorker.c)
+ *     MiFlushEntireTbDueToAttributeChange @ 0x1400EF400 (MiFlushEntireTbDueToAttributeChange.c)
+ *     MiFlushHyperSpace @ 0x140176054 (MiFlushHyperSpace.c)
+ *     KeInvalidateAllCaches @ 0x140177150 (KeInvalidateAllCaches.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void __fastcall MiChangePageAttributeBatch(__int64 a1, int a2, __int64 a3, __int64 a4)
@@ -75,13 +75,13 @@ LABEL_3:
       ++v7;
     }
     while ( v8 );
-    if ( v9 || (MiFlushEntireTbDueToAttributeChange(a1, v6, a3, a4), v7 < dword_14043A09C) || a2 == 1 )
+    if ( v9 || (MiFlushEntireTbDueToAttributeChange(a1, v6, a3, a4), v7 < dword_14043B15C) || a2 == 1 )
     {
       v11 = 0;
     }
     else
     {
-      ++dword_14043A094;
+      ++dword_14043B154;
       KeInvalidateAllCaches();
       v11 = 1;
       v23 = 1;
@@ -99,7 +99,7 @@ LABEL_3:
         *(_BYTE *)(v13 + 34) = v15;
         if ( !v11 && !v9 && a2 != 1 && (_DWORD)a1 == 1 )
         {
-          ++dword_14043A098;
+          ++dword_14043B158;
           v16 = 3221225472LL;
           if ( a2 == 2 )
             v16 = 3489660930LL;

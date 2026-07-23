@@ -29,43 +29,43 @@ __int64 __fastcall EtwpAddLogHeaderToLogFile(__int64 a1, __int64 a2, int a3, cha
 {
   __int64 v7; // r14
   bool v8; // zf
-  __int64 v9; // r15
+  SIZE_T Length; // r15
   NTSTATUS File; // ebx
   int v11; // r13d
-  __int64 Heap; // rsi
-  unsigned __int64 v13; // rax
+  LARGE_INTEGER *Buffer; // rsi
+  LARGE_INTEGER v13; // rax
   struct _PEB *v14; // rcx
   HANDLE v15; // r14
   __int64 v16; // rcx
   __int64 v17; // rax
   int v18; // ecx
-  __int64 v20; // r13
-  int v21; // r15d
+  __int64 LowPart; // r13
+  int HighPart; // r15d
   NTSTATUS v22; // eax
   size_t v23; // r8
   unsigned int v24; // ecx
   char *v25; // r9
   int v26; // eax
   __int64 v27; // rax
-  int v28; // [rsp+20h] [rbp-E0h]
+  int ReturnLength; // [rsp+20h] [rbp-E0h]
   int v30; // [rsp+58h] [rbp-A8h] BYREF
-  HANDLE Handle; // [rsp+60h] [rbp-A0h] BYREF
+  HANDLE FileHandle; // [rsp+60h] [rbp-A0h] BYREF
   BOOL v32; // [rsp+68h] [rbp-98h]
   _DWORD Size[3]; // [rsp+6Ch] [rbp-94h]
-  __int64 v34; // [rsp+78h] [rbp-88h] BYREF
-  unsigned __int64 v35; // [rsp+80h] [rbp-80h] BYREF
-  __int64 v36; // [rsp+88h] [rbp-78h] BYREF
-  _BYTE v37[16]; // [rsp+90h] [rbp-70h] BYREF
+  LARGE_INTEGER ByteOffset; // [rsp+78h] [rbp-88h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+80h] [rbp-80h] BYREF
+  __int64 FileInformation; // [rsp+88h] [rbp-78h] BYREF
+  _IO_STATUS_BLOCK IoStatusBlock; // [rsp+90h] [rbp-70h] BYREF
   PCWSTR SourceString; // [rsp+A0h] [rbp-60h]
-  _BYTE v39[16]; // [rsp+A8h] [rbp-58h] BYREF
+  char ThreadInformation[16]; // [rsp+A8h] [rbp-58h] BYREF
   int v40; // [rsp+B8h] [rbp-48h]
-  int v41; // [rsp+C0h] [rbp-40h]
+  unsigned int v41; // [rsp+C0h] [rbp-40h]
   int v42; // [rsp+D8h] [rbp-28h] BYREF
   __int64 v43; // [rsp+DCh] [rbp-24h]
   _BYTE v44[20]; // [rsp+E4h] [rbp-1Ch] BYREF
   _QWORD v45[7]; // [rsp+F8h] [rbp-8h] BYREF
   _DWORD SystemInformation[16]; // [rsp+130h] [rbp+30h] BYREF
-  _BYTE v47[20]; // [rsp+170h] [rbp+70h] BYREF
+  char FsInformation[20]; // [rsp+170h] [rbp+70h] BYREF
   int v48; // [rsp+184h] [rbp+84h]
 
   Size[0] = a3;
@@ -79,53 +79,53 @@ __int64 __fastcall EtwpAddLogHeaderToLogFile(__int64 a1, __int64 a2, int a3, cha
   v42 = 0;
   v8 = (*(_BYTE *)(a1 + 332) & 8) == 0;
   v32 = a2 != 0;
-  Handle = 0LL;
+  FileHandle = 0LL;
   if ( !v8 )
     EtwpGenerateFileName(a1 + 184, a1 + 200, a1 + 168);
-  v9 = *(unsigned int *)(a1 + 208);
+  Length = *(unsigned int *)(a1 + 208);
   SourceString = *(PCWSTR *)(a1 + 176);
   if ( a2 )
   {
     v11 = a3 + 72;
 LABEL_10:
-    Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8LL, v9);
-    if ( !Heap )
+    Buffer = (LARGE_INTEGER *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, Length);
+    if ( !Buffer )
       return (unsigned int)-1073741801;
-    File = EtwpCreateFile(SourceString, v28, (__int64)&Handle);
+    File = EtwpCreateFile(SourceString, ReturnLength, (__int64)&FileHandle);
     if ( File < 0 )
     {
-      v15 = Handle;
+      v15 = FileHandle;
     }
     else if ( a4 )
     {
-      v15 = Handle;
-      v34 = 0LL;
-      File = NtReadFile(Handle, 0LL, 0LL, 0LL, v37, Heap, v9, &v34, 0LL);
+      v15 = FileHandle;
+      ByteOffset.QuadPart = 0LL;
+      File = NtReadFile(FileHandle, 0LL, 0LL, 0LL, &IoStatusBlock, Buffer, Length, &ByteOffset, 0LL);
       if ( File >= 0 )
       {
-        if ( (*(_BYTE *)(Heap + 136) & 2) == 0
-          && *(_BYTE *)(Heap + 108) == MEMORY[0x7FFE026C]
-          && *(_BYTE *)(Heap + 109) == MEMORY[0x7FFE0270]
-          && *(_DWORD *)(Heap + 148) == 8 )
+        if ( (Buffer[17].LowPart & 2) == 0
+          && BYTE4(Buffer[13].QuadPart) == MEMORY[0x7FFE026C]
+          && BYTE5(Buffer[13].QuadPart) == MEMORY[0x7FFE0270]
+          && Buffer[18].HighPart == 8 )
         {
-          v20 = *(unsigned int *)(Heap + 104);
-          v21 = *(_DWORD *)(Heap + 140);
-          if ( (unsigned int)(v20 - 1024) <= 0xFFFC00
-            && v21
-            && *(_QWORD *)(Heap + 120)
-            && *(_DWORD *)(Heap + 116) == *(_DWORD *)(a1 + 204) )
+          LowPart = Buffer[13].LowPart;
+          HighPart = Buffer[17].HighPart;
+          if ( (unsigned int)(LowPart - 1024) <= 0xFFFC00
+            && HighPart
+            && Buffer[15].QuadPart
+            && Buffer[14].HighPart == *(_DWORD *)(a1 + 204) )
           {
-            *(_QWORD *)(Heap + 120) = 0LL;
-            v22 = NtWriteFile(v15, 0LL, 0LL, 0LL, v37, Heap, *(_DWORD *)(a1 + 208), &v34, 0LL);
-            *(_DWORD *)(a1 + 400) = v21;
+            Buffer[15].QuadPart = 0LL;
+            v22 = NtWriteFile(v15, 0LL, 0LL, 0LL, &IoStatusBlock, Buffer, *(_DWORD *)(a1 + 208), &ByteOffset, 0LL);
+            *(_DWORD *)(a1 + 400) = HighPart;
             File = v22;
-            *(_DWORD *)(a1 + 344) = v21;
-            *(_DWORD *)(a1 + 208) = v20;
-            *(_QWORD *)(a1 + 360) = v20;
+            *(_DWORD *)(a1 + 344) = HighPart;
+            *(_DWORD *)(a1 + 208) = LowPart;
+            *(_QWORD *)(a1 + 360) = LowPart;
             *(_QWORD *)(a1 + 144) = v15;
-            *(_QWORD *)(a1 + 368) = (unsigned int)(v20 * v21);
+            *(_QWORD *)(a1 + 368) = (unsigned int)(LowPart * HighPart);
 LABEL_33:
-            RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, Heap);
+            RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Buffer);
             return (unsigned int)File;
           }
         }
@@ -134,9 +134,9 @@ LABEL_33:
     }
     else
     {
-      *(_DWORD *)Heap = v9;
-      *(_DWORD *)(Heap + 52) = 262145;
-      *(_DWORD *)(Heap + 48) = (v11 + 7) & 0xFFFFFFF8;
+      Buffer->LowPart = Length;
+      Buffer[6].HighPart = 262145;
+      Buffer[6].LowPart = (v11 + 7) & 0xFFFFFFF8;
       if ( v32 )
       {
         v23 = Size[0];
@@ -169,98 +169,98 @@ LABEL_33:
         else
           v26 = *(_DWORD *)(v7 + 272);
         *(_DWORD *)(a1 + 16) = v26;
-        memmove((void *)(Heap + 72), v25, v23);
+        memmove(&Buffer[9], v25, v23);
       }
       else
       {
-        *(_DWORD *)(Heap + 72) = -1073610752;
-        *(_DWORD *)(Heap + 76) = v11 - 72;
+        Buffer[9].LowPart = -1073610752;
+        Buffer[9].HighPart = v11 - 72;
         if ( *(_DWORD *)(a1 + 16) == 2 )
         {
-          v13 = MEMORY[0x7FFE0014];
+          v13.QuadPart = MEMORY[0x7FFE0014];
         }
         else if ( *(_DWORD *)(a1 + 16) == 3 )
         {
-          v13 = __rdtsc();
+          v13.QuadPart = __rdtsc();
         }
         else
         {
-          v35 = 0LL;
-          RtlQueryPerformanceCounter(&v35);
-          v13 = v35;
+          PerformanceCounter.QuadPart = 0LL;
+          RtlQueryPerformanceCounter(&PerformanceCounter);
+          v13 = PerformanceCounter;
         }
-        *(_QWORD *)(Heap + 88) = v13;
-        *(_DWORD *)(Heap + 84) = v40;
-        *(_DWORD *)(Heap + 80) = v41;
-        *(_DWORD *)(Heap + 96) = *(_QWORD *)&v44[4] / (__int64)SystemInformation[1];
-        *(_DWORD *)(Heap + 100) = *(_QWORD *)&v44[12] / (__int64)SystemInformation[1];
+        Buffer[11] = v13;
+        Buffer[10].HighPart = v40;
+        Buffer[10].LowPart = v41;
+        Buffer[12].LowPart = *(_QWORD *)&v44[4] / (__int64)SystemInformation[1];
+        Buffer[12].HighPart = *(_QWORD *)&v44[12] / (__int64)SystemInformation[1];
         v14 = NtCurrentPeb();
-        *(_BYTE *)(Heap + 108) = v14->OSMajorVersion;
-        *(_BYTE *)(Heap + 109) = v14->OSMinorVersion;
+        BYTE4(Buffer[13].QuadPart) = v14->OSMajorVersion;
+        BYTE5(Buffer[13].QuadPart) = v14->OSMinorVersion;
         if ( (*(_DWORD *)(a1 + 332) & 0x4000000) != 0
           || *(_DWORD *)(a1 + 208) > 0x100000u
           || *(_DWORD *)(a1 + 204) > 0x100u )
         {
-          *(_WORD *)(Heap + 110) = 2;
+          HIWORD(Buffer[13].QuadPart) = 2;
         }
         else
         {
-          *(_WORD *)(Heap + 110) = 1281;
+          HIWORD(Buffer[13].QuadPart) = 1281;
         }
-        *(_DWORD *)(Heap + 112) = v14->OSBuildNumber;
-        *(_DWORD *)(Heap + 376) = *(_DWORD *)(a1 + 16);
-        *(_DWORD *)(Heap + 116) = *(_DWORD *)(a1 + 204);
-        *(_DWORD *)(Heap + 148) = 8;
-        *(_DWORD *)(Heap + 144) = 1;
-        *(_DWORD *)(Heap + 104) = v9;
-        *(_DWORD *)(Heap + 140) = 1;
-        *(_DWORD *)(Heap + 132) = *(_DWORD *)(a1 + 328);
-        *(_DWORD *)(Heap + 136) = *(_DWORD *)(a1 + 332);
-        *(_DWORD *)(Heap + 128) = SystemInformation[1];
-        *(_QWORD *)(Heap + 352) = v45[0] - v45[4];
-        *(_DWORD *)(Heap + 156) = v30;
-        *(_QWORD *)(Heap + 160) = 0LL;
-        *(_QWORD *)(Heap + 168) = 0LL;
-        memmove((void *)(Heap + 384), *(const void **)(a1 + 160), *(unsigned __int16 *)(a1 + 152) + 2LL);
+        Buffer[14].LowPart = v14->OSBuildNumber;
+        Buffer[47].LowPart = *(_DWORD *)(a1 + 16);
+        Buffer[14].HighPart = *(_DWORD *)(a1 + 204);
+        Buffer[18].HighPart = 8;
+        Buffer[18].LowPart = 1;
+        Buffer[13].LowPart = Length;
+        Buffer[17].HighPart = 1;
+        Buffer[16].HighPart = *(_DWORD *)(a1 + 328);
+        Buffer[17].LowPart = *(_DWORD *)(a1 + 332);
+        Buffer[16].LowPart = SystemInformation[1];
+        Buffer[44].QuadPart = v45[0] - v45[4];
+        Buffer[19].HighPart = v30;
+        Buffer[20].QuadPart = 0LL;
+        Buffer[21].QuadPart = 0LL;
+        memmove(&Buffer[48], *(const void **)(a1 + 160), *(unsigned __int16 *)(a1 + 152) + 2LL);
         memmove(
-          (void *)(Heap + *(unsigned __int16 *)(a1 + 152) + 386LL),
+          (char *)&Buffer[48] + *(unsigned __int16 *)(a1 + 152) + 2,
           *(const void **)(a1 + 176),
           *(unsigned __int16 *)(a1 + 168) + 2LL);
-        EtwpGetTimeZoneInformation((void *)(Heap + 176));
-        *(_QWORD *)(Heap + 360) = MEMORY[0x7FFE0300];
-        *(_QWORD *)(Heap + 368) = *(_QWORD *)a1;
-        *(_QWORD *)(Heap + 88) = *(_QWORD *)(a1 + 8);
+        EtwpGetTimeZoneInformation(&Buffer[22]);
+        Buffer[45].QuadPart = MEMORY[0x7FFE0300];
+        Buffer[46] = *(LARGE_INTEGER *)a1;
+        Buffer[11] = *(LARGE_INTEGER *)(a1 + 8);
       }
-      v15 = Handle;
+      v15 = FileHandle;
       if ( (*(_DWORD *)(a1 + 332) & 0x4000000) != 0 )
       {
-        *(_DWORD *)(Heap + 44) = 3;
-        if ( (int)ZwQueryVolumeInformationFile(v15, v37, v47, 24LL, 3) >= 0 )
+        Buffer[5].HighPart = 3;
+        if ( ZwQueryVolumeInformationFile(v15, &IoStatusBlock, FsInformation, 0x18u, FileFsSizeInformation) >= 0 )
         {
-          LODWORD(v9) = ~(v48 - 1) & (*(_DWORD *)(Heap + 48) + v48 - 1);
-          *(_DWORD *)Heap = v9;
+          LODWORD(Length) = ~(v48 - 1) & (Buffer[6].LowPart + v48 - 1);
+          Buffer->LowPart = Length;
         }
       }
-      *(_DWORD *)(Heap + 4) = *(_DWORD *)(Heap + 48);
-      EtwpAddProviderTrackingInfo(a1, Heap, v9);
-      v16 = *(unsigned int *)(Heap + 48);
-      if ( (unsigned int)v16 < (unsigned int)v9 && (unsigned int)v16 > 0x48 )
-        memset((void *)(Heap + v16), 255, (unsigned int)(v9 - v16));
-      File = NtWriteFile(v15, 0LL, 0LL, 0LL, v37, Heap, v9, 0LL, 0LL);
+      Buffer->HighPart = Buffer[6].LowPart;
+      EtwpAddProviderTrackingInfo(a1, (__int64)Buffer, Length);
+      v16 = Buffer[6].LowPart;
+      if ( (unsigned int)v16 < (unsigned int)Length && (unsigned int)v16 > 0x48 )
+        memset((char *)Buffer + v16, 255, (unsigned int)(Length - v16));
+      File = NtWriteFile(v15, 0LL, 0LL, 0LL, &IoStatusBlock, Buffer, Length, 0LL, 0LL);
       if ( File >= 0 )
       {
         if ( (v17 = *(unsigned int *)(a1 + 328), !(_DWORD)v17)
           || (v18 = *(_DWORD *)(a1 + 332), (v18 & 0x20) == 0)
           || ((v18 & 0x2000) == 0 ? (v27 = v17 << 20) : (v27 = v17 << 10),
-              v36 = v27,
-              File = ZwSetInformationFile(v15, v37, &v36, 8LL, 20),
+              FileInformation = v27,
+              File = ZwSetInformationFile(v15, &IoStatusBlock, &FileInformation, 8u, FileEndOfFileInformation),
               File >= 0) )
         {
           *(_QWORD *)(a1 + 144) = v15;
           *(_DWORD *)(a1 + 400) = 1;
           *(_DWORD *)(a1 + 344) = 1;
-          *(_QWORD *)(a1 + 368) = (unsigned int)v9;
-          *(_QWORD *)(a1 + 360) = (unsigned int)v9;
+          *(_QWORD *)(a1 + 368) = (unsigned int)Length;
+          *(_QWORD *)(a1 + 360) = (unsigned int)Length;
           if ( (*(_DWORD *)(a1 + 332) & 0x4000000) != 0 )
           {
             *(_DWORD *)(a1 + 464) = 0;
@@ -278,11 +278,10 @@ LABEL_33:
   File = NtQuerySystemInformation(SystemBasicInformation, SystemInformation, 0x40u, 0LL);
   if ( File >= 0 )
   {
-    File = ZwQueryInformationThread(-2LL, 0LL, v39);
+    File = ZwQueryInformationThread((HANDLE)0xFFFFFFFFFFFFFFFELL, ThreadBasicInformation, ThreadInformation, 0x30u, 0LL);
     if ( File >= 0 )
     {
-      v28 = 0;
-      File = ZwQueryInformationThread(-2LL, 1LL, &v42);
+      File = ZwQueryInformationThread((HANDLE)0xFFFFFFFFFFFFFFFELL, ThreadTimes, &v42, 0x20u, 0LL);
       if ( File >= 0 )
       {
         File = NtQuerySystemInformation(SystemTimeOfDayInformation, v45, 0x30u, 0LL);

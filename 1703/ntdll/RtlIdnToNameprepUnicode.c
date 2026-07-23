@@ -6,7 +6,19 @@
  *     sub_180069CA0 @ 0x180069CA0 (sub_180069CA0.c)
  */
 
-__int64 __fastcall RtlIdnToNameprepUnicode(int a1, wchar_t *a2, __int64 a3, void *a4, int *a5)
+// local variable allocation has failed, the output may be wrong!
+NTSTATUS __cdecl RtlIdnToNameprepUnicode(
+        ULONG Flags,
+        PCWSTR SourceString,
+        LONG SourceStringLength,
+        PWSTR DestinationString,
+        PLONG DestinationStringLength)
 {
-  return sub_180069CA0(a1, a2, a3, a4, a5, 0);
+  return sub_180069CA0(
+           Flags,
+           (WCHAR *)SourceString,
+           *(__int64 *)&SourceStringLength,
+           DestinationString,
+           DestinationStringLength,
+           0);
 }

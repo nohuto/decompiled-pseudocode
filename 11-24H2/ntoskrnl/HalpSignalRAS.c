@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpSignalRAS @ 0x14055483C
+ * XREFs of HalpSignalRAS @ 0x14055217C
  * Callers:
- *     HalpCheckAndReportGhes @ 0x1404A01CC (HalpCheckAndReportGhes.c)
+ *     HalpCheckAndReportGhes @ 0x14049A84C (HalpCheckAndReportGhes.c)
  * Callees:
- *     MmMapIoSpaceEx @ 0x1402E9A50 (MmMapIoSpaceEx.c)
+ *     MmMapIoSpaceEx @ 0x14034B090 (MmMapIoSpaceEx.c)
  */
 
 __int64 __fastcall HalpSignalRAS(__int64 a1)
@@ -20,7 +20,7 @@ __int64 __fastcall HalpSignalRAS(__int64 a1)
   v3 = (_DWORD *)(a1 + 72);
   if ( !v2 )
   {
-    v4 = MmMapIoSpaceEx(*(_QWORD *)(a1 + 184), (unsigned int)*v3, 0x204u);
+    v4 = MmMapIoSpaceEx(*(_QWORD *)(a1 + 184), (unsigned int)*v3, 516LL);
     *(_QWORD *)(a1 + 80) = v4;
     v2 = (_DWORD *)v4;
     if ( !v4 )

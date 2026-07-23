@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     HalpUsbLegacyScanBusForHandoff @ 0x1403937E4 (HalpUsbLegacyScanBusForHandoff.c)
+ *     HalpUsbLegacyScanBusForHandoff @ 0x1403939C4 (HalpUsbLegacyScanBusForHandoff.c)
  *     HalpErrataApplyPerProcessor @ 0x140A8A8C8 (HalpErrataApplyPerProcessor.c)
  *     HalpErrataInitDiscard @ 0x140B35040 (HalpErrataInitDiscard.c)
  *     HalpInitChipHacks @ 0x140B5D968 (HalpInitChipHacks.c)

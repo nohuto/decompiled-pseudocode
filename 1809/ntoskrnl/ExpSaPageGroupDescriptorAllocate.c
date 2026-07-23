@@ -1,7 +1,7 @@
 /*
- * XREFs of ExpSaPageGroupDescriptorAllocate @ 0x140167DA0
+ * XREFs of ExpSaPageGroupDescriptorAllocate @ 0x140167EA0
  * Callers:
- *     ExpSaAllocatorAllocate @ 0x140167808 (ExpSaAllocatorAllocate.c)
+ *     ExpSaAllocatorAllocate @ 0x140167908 (ExpSaAllocatorAllocate.c)
  * Callees:
  *     KiAbEntryRemoveFromTree @ 0x140004530 (KiAbEntryRemoveFromTree.c)
  *     ExfAcquirePushLockExclusiveEx @ 0x140005760 (ExfAcquirePushLockExclusiveEx.c)
@@ -10,17 +10,17 @@
  *     MiGetSystemRegionType @ 0x14004EC30 (MiGetSystemRegionType.c)
  *     KiAbThreadRemoveBoosts @ 0x14004EFD0 (KiAbThreadRemoveBoosts.c)
  *     MmGetSessionIdEx @ 0x14004F060 (MmGetSessionIdEx.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KeQueryMaximumProcessorCountEx @ 0x1400A6A80 (KeQueryMaximumProcessorCountEx.c)
- *     KeSetSystemGroupAffinityThread @ 0x1400D6E90 (KeSetSystemGroupAffinityThread.c)
- *     KeRevertToUserGroupAffinityThread @ 0x1400D8210 (KeRevertToUserGroupAffinityThread.c)
- *     ExpSaBinaryArrayInsert @ 0x14016815C (ExpSaBinaryArrayInsert.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExpSaBinaryArrayRemove @ 0x14031F574 (ExpSaBinaryArrayRemove.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     KeQueryMaximumProcessorCountEx @ 0x1400A69C0 (KeQueryMaximumProcessorCountEx.c)
+ *     KeSetSystemGroupAffinityThread @ 0x1400D6F10 (KeSetSystemGroupAffinityThread.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x1400D8290 (KeRevertToUserGroupAffinityThread.c)
+ *     ExpSaBinaryArrayInsert @ 0x14016825C (ExpSaBinaryArrayInsert.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExpSaBinaryArrayRemove @ 0x14031F764 (ExpSaBinaryArrayRemove.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 char *__fastcall ExpSaPageGroupDescriptorAllocate(__int64 a1, char a2)
@@ -30,9 +30,9 @@ char *__fastcall ExpSaPageGroupDescriptorAllocate(__int64 a1, char a2)
   POOL_TYPE v6; // r14d
   char *result; // rax
   char *v8; // rsi
-  __int64 v9; // rax
+  _RTL_BALANCED_NODE *v9; // rax
   signed __int8 v10; // cf
-  __int64 v11; // rbx
+  _RTL_BALANCED_NODE *v11; // rbx
   int v12; // eax
   unsigned int SessionId; // r15d
   unsigned int v14; // ecx
@@ -90,7 +90,7 @@ char *__fastcall ExpSaPageGroupDescriptorAllocate(__int64 a1, char a2)
     if ( v10 )
       ExfAcquirePushLockExclusiveEx(&ExSaPageGroupDescriptorArrayLock, v9, (ULONG_PTR)&ExSaPageGroupDescriptorArrayLock);
     if ( v11 )
-      *(_BYTE *)(v11 + 26) |= 1u;
+      BYTE2(v11[1].Left) |= 1u;
     v12 = ExpSaBinaryArrayInsert(ExSaPageGroupDescriptorArray, v8);
     SessionId = -1;
     *((_DWORD *)v8 + 8) = v12;
@@ -205,7 +205,7 @@ LABEL_47:
           {
             v29->CrossThreadReleasableAndBusyByte |= 2u;
             if ( (__int64)v29->LockState.LockState < 0 )
-              KiAbEntryRemoveFromTree((__int64)&CurrentThread->LockEntries[v28], v24);
+              KiAbEntryRemoveFromTree(&CurrentThread->LockEntries[v28].TreeNode, v24);
             v39 = 0;
             v39 = v29->BoostBitmap.AllFields & 0x1FFFF;
             v29->BoostBitmap.AllFields &= 0xFFFE0000;

@@ -1,11 +1,11 @@
 /*
- * XREFs of BiSetObjectDescription @ 0x1408024C4
+ * XREFs of BiSetObjectDescription @ 0x140802794
  * Callers:
- *     BiCreateObject @ 0x140803298 (BiCreateObject.c)
+ *     BiCreateObject @ 0x140803568 (BiCreateObject.c)
  * Callees:
- *     BiSetRegistryValue @ 0x140803A1C (BiSetRegistryValue.c)
- *     BiCreateKey @ 0x140803E04 (BiCreateKey.c)
- *     BiCloseKey @ 0x14080525C (BiCloseKey.c)
+ *     BiSetRegistryValue @ 0x140803CEC (BiSetRegistryValue.c)
+ *     BiCreateKey @ 0x1408040D4 (BiCreateKey.c)
+ *     BiCloseKey @ 0x14080552C (BiCloseKey.c)
  */
 
 __int64 __fastcall BiSetObjectDescription(__int64 a1)

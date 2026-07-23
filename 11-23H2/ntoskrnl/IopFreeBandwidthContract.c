@@ -1,18 +1,18 @@
 /*
- * XREFs of IopFreeBandwidthContract @ 0x14095192C
+ * XREFs of IopFreeBandwidthContract @ 0x140951B2C
  * Callers:
- *     IopCloseFile @ 0x140730000 (IopCloseFile.c)
+ *     IopCloseFile @ 0x1407301F0 (IopCloseFile.c)
  * Callees:
- *     IopAllocateIrpMustSucceed @ 0x14022E260 (IopAllocateIrpMustSucceed.c)
- *     IopQueueThreadIrp @ 0x14022ED60 (IopQueueThreadIrp.c)
- *     IofCallDriver @ 0x14022EEF0 (IofCallDriver.c)
- *     IoGetRelatedDeviceObject @ 0x14022F510 (IoGetRelatedDeviceObject.c)
- *     ObfReferenceObject @ 0x140233C40 (ObfReferenceObject.c)
- *     KeWaitForSingleObject @ 0x140243CE0 (KeWaitForSingleObject.c)
- *     KeDelayExecutionThread @ 0x140246810 (KeDelayExecutionThread.c)
- *     KeInitializeEvent @ 0x1402AF870 (KeInitializeEvent.c)
- *     KeResetEvent @ 0x1402AF940 (KeResetEvent.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     IopAllocateIrpMustSucceed @ 0x14022E370 (IopAllocateIrpMustSucceed.c)
+ *     IopQueueThreadIrp @ 0x14022EE70 (IopQueueThreadIrp.c)
+ *     IofCallDriver @ 0x14022F000 (IofCallDriver.c)
+ *     IoGetRelatedDeviceObject @ 0x14022F620 (IoGetRelatedDeviceObject.c)
+ *     ObfReferenceObject @ 0x140233D10 (ObfReferenceObject.c)
+ *     KeWaitForSingleObject @ 0x140243DB0 (KeWaitForSingleObject.c)
+ *     KeDelayExecutionThread @ 0x1402468E0 (KeDelayExecutionThread.c)
+ *     KeInitializeEvent @ 0x1402AFB00 (KeInitializeEvent.c)
+ *     KeResetEvent @ 0x1402AFE30 (KeResetEvent.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall IopFreeBandwidthContract(struct _FILE_OBJECT *Object, _QWORD *a2)

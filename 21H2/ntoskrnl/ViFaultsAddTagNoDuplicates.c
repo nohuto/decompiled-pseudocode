@@ -1,14 +1,14 @@
 /*
- * XREFs of ViFaultsAddTagNoDuplicates @ 0x1409DCE28
+ * XREFs of ViFaultsAddTagNoDuplicates @ 0x1409DDE28
  * Callers:
- *     ViFaultsAddAllTags @ 0x1409DCC28 (ViFaultsAddAllTags.c)
+ *     ViFaultsAddAllTags @ 0x1409DDC28 (ViFaultsAddAllTags.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
- *     ViFaultsIsTagPresentInList @ 0x1409DD370 (ViFaultsIsTagPresentInList.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
+ *     ViFaultsIsTagPresentInList @ 0x1409DE370 (ViFaultsIsTagPresentInList.c)
  */
 
 __int64 __fastcall ViFaultsAddTagNoDuplicates(__int64 a1, unsigned __int64 a2)
@@ -51,14 +51,14 @@ __int64 __fastcall ViFaultsAddTagNoDuplicates(__int64 a1, unsigned __int64 a2)
       }
       else
       {
-        v10 = (_QWORD *)qword_140C1CC28;
+        v10 = (_QWORD *)qword_140C1CE28;
         ViHaveFaultTags = 1;
-        if ( *(PVOID **)qword_140C1CC28 != &ViFaultTagsList )
+        if ( *(PVOID **)qword_140C1CE28 != &ViFaultTagsList )
           __fastfail(3u);
         *v7 = &ViFaultTagsList;
         v7[1] = v10;
         *v10 = v7;
-        qword_140C1CC28 = (__int64)v7;
+        qword_140C1CE28 = (__int64)v7;
       }
       KxReleaseSpinLock(&ViFaultInjectionLock);
       if ( KiIrqlFlags )

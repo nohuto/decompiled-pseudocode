@@ -22,45 +22,41 @@ __int64 __fastcall sub_180054E40(
         __int64 a4,
         __int64 a5,
         void *a6,
-        _QWORD *a7)
+        HANDLE *a7)
 {
   __int64 v9; // rdx
   __int64 v10; // rax
   unsigned __int64 v11; // rcx
-  unsigned __int64 v12; // rsi
-  _BYTE *v13; // rbx
+  SIZE_T v12; // rsi
+  _OBJECT_BOUNDARY_DESCRIPTOR *v13; // rbx
   _WORD *v14; // r15
   const void **v15; // rcx
   unsigned __int16 v16; // r15
-  __int64 v17; // rax
-  int v18; // edi
-  _QWORD *v19; // rcx
+  HANDLE ContainingDirectory; // rax
+  NTSTATUS v18; // edi
+  HANDLE *v19; // rcx
   unsigned __int64 v21; // rax
   __int64 v22; // rcx
-  void *v23; // rax
+  PVOID v23; // rax
   char v24; // [rsp+60h] [rbp-A0h]
-  _QWORD v25[3]; // [rsp+68h] [rbp-98h] BYREF
+  HANDLE FileHandle[3]; // [rsp+68h] [rbp-98h] BYREF
   const void **v26; // [rsp+80h] [rbp-80h]
-  unsigned __int64 v27; // [rsp+88h] [rbp-78h]
-  __int128 v28; // [rsp+90h] [rbp-70h] BYREF
-  _QWORD *v29; // [rsp+A0h] [rbp-60h]
-  __int128 v30; // [rsp+A8h] [rbp-58h] BYREF
-  __int64 v31; // [rsp+B8h] [rbp-48h]
-  int v32; // [rsp+C8h] [rbp-38h] BYREF
-  __int64 v33; // [rsp+D0h] [rbp-30h]
-  __int128 *v34; // [rsp+D8h] [rbp-28h]
-  int v35; // [rsp+E0h] [rbp-20h]
-  __int128 v36; // [rsp+E8h] [rbp-18h]
-  char v37[24]; // [rsp+F8h] [rbp-8h] BYREF
-  _BYTE Src[528]; // [rsp+110h] [rbp+10h] BYREF
+  PVOID BaseAddress; // [rsp+88h] [rbp-78h]
+  _UNICODE_STRING NtFileName; // [rsp+90h] [rbp-70h] BYREF
+  HANDLE *v29; // [rsp+A0h] [rbp-60h]
+  _RTL_RELATIVE_NAME_U RelativeName; // [rsp+A8h] [rbp-58h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+C8h] [rbp-38h] BYREF
+  _IO_STATUS_BLOCK IoStatusBlock; // [rsp+F8h] [rbp-8h] BYREF
+  WCHAR DosFileName[264]; // [rsp+110h] [rbp+10h] BYREF
 
   v26 = (const void **)a3;
   v29 = a7;
-  memset((char *)&v25[1] + 2, 0, 14);
+  memset((char *)&FileHandle[1] + 2, 0, 14);
   v24 = 0;
-  v28 = 0uLL;
-  v27 = 0LL;
-  v25[0] = 0LL;
+  *(_QWORD *)&NtFileName.Length = 0LL;
+  NtFileName.Buffer = 0LL;
+  BaseAddress = 0LL;
+  FileHandle[0] = 0LL;
   if ( a6 )
     *(_QWORD *)a6 = 0LL;
   if ( a7 )
@@ -82,21 +78,21 @@ __int64 __fastcall sub_180054E40(
     if ( v12 > 0xFFFE )
     {
       DbgPrintEx(
-        51LL,
-        0LL,
+        0x33u,
+        0,
         "SXS: Assembly storage resolution failing probe because combined path length does not fit in an UNICODE_STRING.\n");
       v18 = -1073741562;
       goto LABEL_27;
     }
     if ( v12 > 0x208 )
     {
-      v25[2] = sub_180043FE0((unsigned __int16)v12);
-      v13 = (_BYTE *)v25[2];
-      if ( !v25[2] )
+      FileHandle[2] = sub_180043FE0((unsigned __int16)v12);
+      v13 = (_OBJECT_BOUNDARY_DESCRIPTOR *)FileHandle[2];
+      if ( !FileHandle[2] )
       {
         DbgPrintEx(
-          51LL,
-          0LL,
+          0x33u,
+          0,
           "SXS: Assembly storage resolution failing probe because attempt to allocate %u bytes failed.\n",
           (unsigned __int16)v12);
         v18 = -1073741801;
@@ -105,45 +101,41 @@ __int64 __fastcall sub_180054E40(
     }
     else
     {
-      v13 = Src;
-      v25[2] = Src;
+      v13 = (_OBJECT_BOUNDARY_DESCRIPTOR *)DosFileName;
+      FileHandle[2] = DosFileName;
     }
     memmove(v13, *((const void **)a2 + 1), *a2);
-    v14 = &v13[*a2];
+    v14 = (_WORD *)((char *)v13 + *a2);
     if ( v24 )
       *v14++ = 92;
     memmove(v14, v26[1], *(unsigned __int16 *)v26);
     v15 = v26;
     *(_WORD *)((char *)v14 + *(unsigned __int16 *)v26) = 0;
     v16 = *(_WORD *)v15 + (v24 != 0 ? 2 : 0) + *a2;
-    if ( !RtlDosPathNameToRelativeNtPathName_U((int)v13, (int)&v28, 0LL, (__int64)&v30) )
+    if ( !RtlDosPathNameToRelativeNtPathName_U((PCWSTR)v13, &NtFileName, 0LL, &RelativeName) )
     {
-      DbgPrintEx(
-        51LL,
-        0LL,
-        "SXS: Attempt to translate DOS path name \"%S\" to NT format failed\n",
-        (const wchar_t *)v13);
+      DbgPrintEx(0x33u, 0, "SXS: Attempt to translate DOS path name \"%S\" to NT format failed\n", (const wchar_t *)v13);
       v18 = -1073741766;
       goto LABEL_28;
     }
-    v27 = *((_QWORD *)&v28 + 1);
-    if ( (_WORD)v30 )
+    BaseAddress = NtFileName.Buffer;
+    if ( RelativeName.RelativeName.Length )
     {
-      v17 = v31;
-      v28 = v30;
+      ContainingDirectory = RelativeName.ContainingDirectory;
+      NtFileName = RelativeName.RelativeName;
     }
     else
     {
-      v17 = 0LL;
-      v31 = 0LL;
+      ContainingDirectory = 0LL;
+      RelativeName.ContainingDirectory = 0LL;
     }
-    v33 = v17;
-    v34 = &v28;
-    v32 = 48;
-    v35 = 64;
-    v36 = 0LL;
-    v18 = ZwOpenFile(v25, 1048608LL, &v32, v37, 3, 33);
-    RtlReleaseRelativeName(&v30);
+    ObjectAttributes.RootDirectory = ContainingDirectory;
+    ObjectAttributes.ObjectName = &NtFileName;
+    ObjectAttributes.Length = 48;
+    ObjectAttributes.Attributes = 64;
+    *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+    v18 = ZwOpenFile(FileHandle, 0x100020u, &ObjectAttributes, &IoStatusBlock, 3u, 0x21u);
+    RtlReleaseRelativeName(&RelativeName);
     if ( v18 < 0 )
     {
       v21 = (unsigned int)(v18 + 1073741809);
@@ -151,8 +143,8 @@ __int64 __fastcall sub_180054E40(
         v18 = -1072365564;
       else
         DbgPrintEx(
-          51LL,
-          0LL,
+          0x33u,
+          0,
           "SXS: Unable to open assembly directory under storage root \"%S\"; Status = 0x%08lx\n",
           (const wchar_t *)v13,
           v18);
@@ -168,21 +160,21 @@ LABEL_24:
         *(_DWORD *)(*(_QWORD *)(*(_QWORD *)a6 + 8LL) + v16) = 92;
         v19 = v29;
         **(_WORD **)a6 = v16 + 2;
-        *v19 = v25[0];
-        v25[0] = 0LL;
+        *v19 = FileHandle[0];
+        FileHandle[0] = 0LL;
         goto LABEL_25;
       }
-      if ( v13 != Src )
+      if ( v13 != (_OBJECT_BOUNDARY_DESCRIPTOR *)DosFileName )
       {
         *(_QWORD *)(a5 + 8) = v13;
         v13 = 0LL;
-        v25[2] = 0LL;
+        FileHandle[2] = 0LL;
 LABEL_50:
         *(_WORD *)(a5 + 2) = v12;
         *(_QWORD *)a6 = a5;
         goto LABEL_24;
       }
-      v23 = (void *)sub_180043FE0(v12);
+      v23 = sub_180043FE0(v12);
       *(_QWORD *)(a5 + 8) = v23;
       if ( v23 )
       {
@@ -195,8 +187,8 @@ LABEL_50:
   else
   {
     DbgPrintEx(
-      51LL,
-      0LL,
+      0x33u,
+      0,
       "SXS: %s() bad parameters\n"
       "SXS:  Flags:               0x%lx\n"
       "SXS:  Root:                %p\n"
@@ -213,21 +205,21 @@ LABEL_50:
       (const void *)a5,
       a6,
       a7);
-    v13 = (_BYTE *)v25[2];
+    v13 = (_OBJECT_BOUNDARY_DESCRIPTOR *)FileHandle[2];
     v18 = -1073741811;
   }
 LABEL_25:
-  if ( v27 )
+  if ( BaseAddress )
   {
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v27);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, BaseAddress);
 LABEL_27:
-    v13 = (_BYTE *)v25[2];
+    v13 = (_OBJECT_BOUNDARY_DESCRIPTOR *)FileHandle[2];
   }
 LABEL_28:
-  if ( v13 && v13 != Src )
-    RtlDeleteBoundaryDescriptor();
+  if ( v13 && v13 != (_OBJECT_BOUNDARY_DESCRIPTOR *)DosFileName )
+    RtlDeleteBoundaryDescriptor(v13);
 LABEL_31:
-  if ( v25[0] )
-    ZwClose(v25[0]);
+  if ( FileHandle[0] )
+    ZwClose(FileHandle[0]);
   return (unsigned int)v18;
 }

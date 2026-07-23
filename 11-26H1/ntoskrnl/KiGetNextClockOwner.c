@@ -1,15 +1,15 @@
 /*
- * XREFs of KiGetNextClockOwner @ 0x1405EE394
+ * XREFs of KiGetNextClockOwner @ 0x1405F0D04
  * Callers:
- *     KeResumeClockTimerFromIdle @ 0x1405EDA84 (KeResumeClockTimerFromIdle.c)
+ *     KeResumeClockTimerFromIdle @ 0x1405F03F4 (KeResumeClockTimerFromIdle.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     KeFindFirstSetRightGroupAffinity @ 0x1403E9FB0 (KeFindFirstSetRightGroupAffinity.c)
- *     KeInitializeSystemSubNodeEnumerationContext @ 0x1403EDE78 (KeInitializeSystemSubNodeEnumerationContext.c)
- *     KeEnumerateNextSchedulerSubNodeInSystem @ 0x1403EDEC0 (KeEnumerateNextSchedulerSubNodeInSystem.c)
- *     KeCheckProcessorAffinityEx @ 0x14042D260 (KeCheckProcessorAffinityEx.c)
- *     KiHeteroReduceToMaximallyPreferredByClass @ 0x14045BCF0 (KiHeteroReduceToMaximallyPreferredByClass.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     KeFindFirstSetRightGroupAffinity @ 0x1402F6E90 (KeFindFirstSetRightGroupAffinity.c)
+ *     KeCheckProcessorAffinityEx @ 0x140421930 (KeCheckProcessorAffinityEx.c)
+ *     KeInitializeSystemSubNodeEnumerationContext @ 0x1404529A8 (KeInitializeSystemSubNodeEnumerationContext.c)
+ *     KeEnumerateNextSchedulerSubNodeInSystem @ 0x1404529F0 (KeEnumerateNextSchedulerSubNodeInSystem.c)
+ *     KiHeteroReduceToMaximallyPreferredByClass @ 0x140455520 (KiHeteroReduceToMaximallyPreferredByClass.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall KiGetNextClockOwner(__int64 a1)
@@ -50,7 +50,7 @@ __int64 __fastcall KiGetNextClockOwner(__int64 a1)
   FirstSetRightGroupAffinity = -1;
   v13 = 0LL;
   v5 = 0;
-  if ( (unsigned int)KeCheckProcessorAffinityEx((unsigned __int16 *)&KsepShimDbLock.IptSaveArea, v1) )
+  if ( (unsigned int)KeCheckProcessorAffinityEx((unsigned __int16 *)&KsepShimDbLock.KernelShadowStack, v1) )
   {
     LOWORD(v6) = WORD4(v13);
     FirstSetRightGroupAffinity = v1;
@@ -64,10 +64,10 @@ LABEL_18:
     v6 = *(unsigned __int8 *)(a1 + 208);
     v5 = 1;
     WORD4(v13) = *(unsigned __int8 *)(a1 + 208);
-    if ( (unsigned __int16)v6 >= LOWORD(KsepShimDbLock.IptSaveArea) )
+    if ( (unsigned __int16)v6 >= LOWORD(KsepShimDbLock.KernelShadowStack) )
       v8 = 0LL;
     else
-      v8 = *((_QWORD *)&KsepShimDbLock.ResourceIndex + v6);
+      v8 = *((_QWORD *)&KsepShimDbLock.KernelShadowStackInitial + v6);
     v9 = *(_QWORD *)(a1 + 192);
     v7 = *(_QWORD *)(v9 + 128) & v8;
     if ( v7 )
@@ -88,9 +88,9 @@ LABEL_18:
           ++v5;
           WORD4(v13) = *(_WORD *)(v12 + 136);
           LOWORD(v6) = WORD4(v13);
-          v10 = WORD4(v13) >= LOWORD(KsepShimDbLock.IptSaveArea)
+          v10 = WORD4(v13) >= LOWORD(KsepShimDbLock.KernelShadowStack)
               ? 0LL
-              : *((_QWORD *)&KsepShimDbLock.ResourceIndex + WORD4(v13));
+              : *((_QWORD *)&KsepShimDbLock.KernelShadowStackInitial + WORD4(v13));
           v7 = *(_QWORD *)(v12 + 128) & v10;
           if ( v7 )
           {
@@ -108,7 +108,7 @@ LABEL_18:
   }
   FirstSetRightGroupAffinity = *(_DWORD *)(a1 + 36);
 LABEL_20:
-  if ( (unsigned int)dword_140E06F58 > 5 )
+  if ( (unsigned int)dword_140E06F90 > 5 )
   {
     v14 = KiClockTimerOwner;
     v20 = 4LL;
@@ -125,7 +125,7 @@ LABEL_20:
     v26 = 2LL;
     *(_QWORD *)&v13 = v7;
     v28 = 8LL;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E06F58, (unsigned __int8 *)byte_140048F11, 0LL, 0LL, 7u, &v18);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E06F90, (unsigned __int8 *)byte_140049511, 0LL, 0LL, 7u, &v18);
   }
   return FirstSetRightGroupAffinity;
 }

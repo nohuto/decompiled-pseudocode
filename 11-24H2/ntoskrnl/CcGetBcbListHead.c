@@ -1,9 +1,9 @@
 /*
- * XREFs of CcGetBcbListHead @ 0x140273E00
+ * XREFs of CcGetBcbListHead @ 0x140229390
  * Callers:
- *     CcPinFileData @ 0x140272D30 (CcPinFileData.c)
+ *     CcPinFileData @ 0x1402282C0 (CcPinFileData.c)
  * Callees:
- *     CcGetBcbListHeadLargeOffset @ 0x140427130 (CcGetBcbListHeadLargeOffset.c)
+ *     CcGetBcbListHeadLargeOffset @ 0x14041AFB0 (CcGetBcbListHeadLargeOffset.c)
  */
 
 unsigned __int64 __fastcall CcGetBcbListHead(__int64 a1, __int64 a2)

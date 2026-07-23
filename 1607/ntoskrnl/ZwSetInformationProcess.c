@@ -1,14 +1,13 @@
 /*
- * XREFs of ZwSetInformationProcess @ 0x14015A000
+ * XREFs of ZwSetInformationProcess @ 0x14015A570
  * Callers:
- *     RtlpWow64CreateUserStack @ 0x1404D29B8 (RtlpWow64CreateUserStack.c)
- *     RtlCreateUserStack @ 0x14050B698 (RtlCreateUserStack.c)
+ *     RtlpWow64CreateUserStack @ 0x1404B6458 (RtlpWow64CreateUserStack.c)
+ *     RtlCreateUserStack @ 0x1404EE628 (RtlCreateUserStack.c)
  *     StartFirstUserProcess @ 0x1407A263C (StartFirstUserProcess.c)
  * Callees:
  *     <none>
  */
 
-// local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall ZwSetInformationProcess(
         HANDLE ProcessHandle,
         PROCESSINFOCLASS ProcessInformationClass,
@@ -17,5 +16,5 @@ NTSTATUS __stdcall ZwSetInformationProcess(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(ProcessHandle, *(_QWORD *)&ProcessInformationClass, ProcessInformation);
+  return KiServiceInternal(ProcessHandle);
 }

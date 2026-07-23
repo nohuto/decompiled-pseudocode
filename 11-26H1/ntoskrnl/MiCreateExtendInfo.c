@@ -1,16 +1,16 @@
 /*
- * XREFs of MiCreateExtendInfo @ 0x1409C6A2C
+ * XREFs of MiCreateExtendInfo @ 0x140997A0C
  * Callers:
- *     MiInitializeDataVad @ 0x1409C5B30 (MiInitializeDataVad.c)
+ *     MiInitializeDataVad @ 0x140996B10 (MiInitializeDataVad.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     KiCheckForKernelApcDelivery @ 0x14027DB80 (KiCheckForKernelApcDelivery.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     MmGetCurrentProcessorColor @ 0x14044ADC0 (MmGetCurrentProcessorColor.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x14027D0F0 (KiCheckForKernelApcDelivery.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     MmGetCurrentProcessorColor @ 0x140442EF0 (MmGetCurrentProcessorColor.c)
  */
 
 __int64 __fastcall MiCreateExtendInfo(__int64 a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
@@ -24,7 +24,7 @@ __int64 __fastcall MiCreateExtendInfo(__int64 a1, __int64 a2, __int64 a3, struct
   unsigned __int64 v12; // rax
   __int64 v13; // rdx
   bool v14; // zf
-  $7A85BAF4F1FA08634C1C4A3E45B775B3 *v15; // rcx
+  $241382875694CED3D471BC5892DE3337 *v15; // rcx
   int CurrentProcessorColor; // eax
   __int64 PoolMm; // rax
   __int64 v19; // rdx
@@ -59,7 +59,7 @@ LABEL_8:
     if ( v14 )
     {
       v15 = &CurrentThread->152;
-      if ( ($7A85BAF4F1FA08634C1C4A3E45B775B3 *)v15->ApcState.ApcListHead[0].Flink != v15 )
+      if ( ($241382875694CED3D471BC5892DE3337 *)v15->ApcState.ApcListHead[0].Flink != v15 )
         KiCheckForKernelApcDelivery((__int64)v15, v13);
     }
     return v11;
@@ -78,7 +78,7 @@ LABEL_8:
     ExfTryToWakePushLock((volatile signed __int64 *)v5);
   KeAbPostRelease((unsigned __int64)v5);
   v14 = CurrentThread->SpecialApcDisable++ == -1;
-  if ( v14 && ($7A85BAF4F1FA08634C1C4A3E45B775B3 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+  if ( v14 && ($241382875694CED3D471BC5892DE3337 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
     KiCheckForKernelApcDelivery(v20, v19);
   return 0LL;
 }

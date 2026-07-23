@@ -1,16 +1,16 @@
 /*
- * XREFs of PpmClearSimulatedLoad @ 0x140204E3C
+ * XREFs of PpmClearSimulatedLoad @ 0x140204C68
  * Callers:
- *     NtPowerInformation @ 0x14051E834 (NtPowerInformation.c)
+ *     NtPowerInformation @ 0x14050189C (NtPowerInformation.c)
  * Callees:
- *     KeGetProcessorIndexFromNumber @ 0x14000DC90 (KeGetProcessorIndexFromNumber.c)
- *     KeRevertToUserGroupAffinityThread @ 0x1400C9044 (KeRevertToUserGroupAffinityThread.c)
- *     KeSetSystemGroupAffinityThread @ 0x1400CB014 (KeSetSystemGroupAffinityThread.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     KeGetProcessorIndexFromNumber @ 0x14000D810 (KeGetProcessorIndexFromNumber.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x1400C6EE4 (KeRevertToUserGroupAffinityThread.c)
+ *     KeSetSystemGroupAffinityThread @ 0x1400C8EB4 (KeSetSystemGroupAffinityThread.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall PpmClearSimulatedLoad(struct _PROCESSOR_NUMBER *a1)
+__int64 __fastcall PpmClearSimulatedLoad(_PROCESSOR_NUMBER *a1)
 {
   unsigned int v1; // ebx
   ULONG ProcessorIndexFromNumber; // eax

@@ -13,7 +13,7 @@ __int64 __fastcall RtlStdInitializeStackDatabase(__int64 a1, __int64 a2, unsigne
   unsigned __int64 v8; // rdi
   __int64 v9; // rsi
   unsigned __int64 v10; // rcx
-  union _SLIST_HEADER *v11; // rdi
+  _SLIST_HEADER *v11; // rdi
   __int64 v12; // rcx
   __int64 v13; // rdx
   __int64 v14; // rcx
@@ -32,7 +32,7 @@ __int64 __fastcall RtlStdInitializeStackDatabase(__int64 a1, __int64 a2, unsigne
   memset((void *)(a1 + 728), 0, 24 * v7);
   v9 = 32LL;
   v10 = (v8 + 15) & 0xFFFFFFFFFFFFFFF0uLL;
-  v11 = (union _SLIST_HEADER *)(a1 + 208);
+  v11 = (_SLIST_HEADER *)(a1 + 208);
   v12 = a1 + v10;
   *(_QWORD *)(a1 + 160) = v12;
   *(_QWORD *)(a1 + 120) = v12;

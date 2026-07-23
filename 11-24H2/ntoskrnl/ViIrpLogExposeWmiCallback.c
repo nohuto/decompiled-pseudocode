@@ -1,11 +1,11 @@
 /*
- * XREFs of ViIrpLogExposeWmiCallback @ 0x140B9BC50
+ * XREFs of ViIrpLogExposeWmiCallback @ 0x140B9DC50
  * Callers:
  *     <none>
  * Callees:
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     IoCreateDriver @ 0x140AB1C90 (IoCreateDriver.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     IoCreateDriver @ 0x140AACC00 (IoCreateDriver.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall ViIrpLogExposeWmiCallback(PVOID P)
@@ -13,10 +13,10 @@ void __fastcall ViIrpLogExposeWmiCallback(PVOID P)
   UNICODE_STRING DestinationString; // [rsp+20h] [rbp-18h] BYREF
 
   DestinationString = 0LL;
-  RtlInitUnicodeString(&ViDdiWmiMofKey, &word_140BA9A80);
-  RtlInitUnicodeString(&ViDdiWmiMofResourceName, &word_140BA9A80);
+  RtlInitUnicodeString(&ViDdiWmiMofKey, &word_140BABA80);
+  RtlInitUnicodeString(&ViDdiWmiMofResourceName, &word_140BABA80);
   RtlInitUnicodeString(&DestinationString, L"\\DRIVER\\VERIFIER_DDI");
-  IoCreateDriver(&DestinationString, (unsigned __int64)ViDdiDriverEntry);
+  IoCreateDriver(&DestinationString, ViDdiDriverEntry);
   ViIrpLogDdiLock = 2;
   ExFreePoolWithTag(P, 0);
 }

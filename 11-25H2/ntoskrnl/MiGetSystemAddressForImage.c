@@ -35,50 +35,50 @@ unsigned __int64 __fastcall MiGetSystemAddressForImage(__int64 a1, int a2)
   unsigned __int64 v13; // rax
   ULONG_PTR PteAddress; // r15
   int v15; // esi
-  unsigned __int64 v16; // r13
-  unsigned __int64 v17; // rax
-  unsigned __int64 v18; // rcx
+  _DWORD *v16; // r13
+  PIMAGE_NT_HEADERS v17; // rax
+  PIMAGE_NT_HEADERS v18; // rcx
   int v19; // r13d
-  int v20; // edx
-  int v21; // eax
-  int v22; // eax
-  int v23; // edx
-  int v24; // eax
+  unsigned int LoaderFlags; // edx
+  unsigned int VirtualAddress; // eax
+  unsigned int v22; // eax
+  int SizeOfHeapReserve; // edx
+  unsigned int v24; // eax
   int v25; // [rsp+30h] [rbp-118h] BYREF
   int v26; // [rsp+34h] [rbp-114h]
   int v27; // [rsp+38h] [rbp-110h]
   int v28; // [rsp+40h] [rbp-108h]
   __int64 *v29; // [rsp+48h] [rbp-100h]
-  unsigned __int64 v30[10]; // [rsp+50h] [rbp-F8h] BYREF
-  __int64 v31; // [rsp+A0h] [rbp-A8h] BYREF
-  int v32; // [rsp+A8h] [rbp-A0h]
-  int v33; // [rsp+ACh] [rbp-9Ch]
-  int v34; // [rsp+B0h] [rbp-98h]
+  PVOID BaseOfImage[10]; // [rsp+50h] [rbp-F8h] BYREF
+  unsigned __int64 ImageBase; // [rsp+A0h] [rbp-A8h] BYREF
+  unsigned int FileAlignment; // [rsp+A8h] [rbp-A0h]
+  unsigned int SectionAlignment; // [rsp+ACh] [rbp-9Ch]
+  unsigned int SizeOfImage; // [rsp+B0h] [rbp-98h]
   int v35; // [rsp+B4h] [rbp-94h]
-  int v36; // [rsp+B8h] [rbp-90h]
-  int v37; // [rsp+BCh] [rbp-8Ch]
-  __int64 v38; // [rsp+C0h] [rbp-88h]
-  __int64 v39; // [rsp+C8h] [rbp-80h]
-  __int16 v40; // [rsp+D0h] [rbp-78h]
-  __int16 v41; // [rsp+D2h] [rbp-76h]
-  __int16 v42; // [rsp+D4h] [rbp-74h]
-  __int16 v43; // [rsp+D6h] [rbp-72h]
-  __int16 v44; // [rsp+D8h] [rbp-70h]
-  __int16 v45; // [rsp+DAh] [rbp-6Eh]
-  __int16 v46; // [rsp+DCh] [rbp-6Ch]
-  int v47; // [rsp+E0h] [rbp-68h]
-  int v48; // [rsp+E4h] [rbp-64h]
-  int v49; // [rsp+E8h] [rbp-60h]
-  int v50; // [rsp+ECh] [rbp-5Ch]
-  __int64 v51; // [rsp+F0h] [rbp-58h]
-  __int64 v52; // [rsp+F8h] [rbp-50h]
+  unsigned int SizeOfHeaders; // [rsp+B8h] [rbp-90h]
+  unsigned int AddressOfEntryPoint; // [rsp+BCh] [rbp-8Ch]
+  unsigned __int64 SizeOfStackReserve; // [rsp+C0h] [rbp-88h]
+  unsigned __int64 SizeOfStackCommit; // [rsp+C8h] [rbp-80h]
+  unsigned __int16 Magic; // [rsp+D0h] [rbp-78h]
+  unsigned __int16 Subsystem; // [rsp+D2h] [rbp-76h]
+  unsigned __int16 MajorSubsystemVersion; // [rsp+D4h] [rbp-74h]
+  unsigned __int16 MinorSubsystemVersion; // [rsp+D6h] [rbp-72h]
+  unsigned __int16 MajorOperatingSystemVersion; // [rsp+D8h] [rbp-70h]
+  unsigned __int16 MinorOperatingSystemVersion; // [rsp+DAh] [rbp-6Eh]
+  unsigned __int16 DllCharacteristics; // [rsp+DCh] [rbp-6Ch]
+  unsigned int CheckSum; // [rsp+E0h] [rbp-68h]
+  unsigned int SizeOfCode; // [rsp+E4h] [rbp-64h]
+  unsigned int v49; // [rsp+E8h] [rbp-60h]
+  unsigned int Size; // [rsp+ECh] [rbp-5Ch]
+  _IMAGE_DATA_DIRECTORY v51; // [rsp+F0h] [rbp-58h]
+  _IMAGE_DATA_DIRECTORY v52; // [rsp+F8h] [rbp-50h]
   __int64 v53; // [rsp+100h] [rbp-48h]
   __int64 v54; // [rsp+108h] [rbp-40h]
 
   v2 = a2;
   v28 = a2;
-  memset_0(&v31, 0, 0x70uLL);
-  memset_0(v30, 0, sizeof(v30));
+  memset_0(&ImageBase, 0, 0x70uLL);
+  memset_0(BaseOfImage, 0, sizeof(BaseOfImage));
   v4 = (__int64 *)MiSectionControlArea(*(_QWORD *)(a1 + 112));
   v29 = v4;
   v5 = *v4;
@@ -104,74 +104,74 @@ unsigned __int64 __fastcall MiGetSystemAddressForImage(__int64 a1, int a2)
 LABEL_10:
     if ( v9 )
       goto LABEL_11;
-    v15 = MiMapImageInSystemSpace(v4, 3, (__int64)v30);
+    v15 = MiMapImageInSystemSpace(v4, 3, (__int64)BaseOfImage);
     if ( v15 < 0 )
       return 0LL;
-    v16 = v30[0];
+    v16 = BaseOfImage[0];
     v26 = 0;
-    v17 = RtlImageNtHeader(v30[0]);
+    v17 = RtlImageNtHeader(BaseOfImage[0]);
     v18 = v17;
-    v19 = *(_DWORD *)(v16 + 60);
+    v19 = v16[15];
     v26 = v19;
-    v40 = *(_WORD *)(v17 + 24);
-    v32 = *(_DWORD *)(v17 + 60);
-    v33 = *(_DWORD *)(v17 + 56);
-    v34 = *(_DWORD *)(v17 + 80);
-    if ( v40 == 523 )
+    Magic = v17->OptionalHeader.Magic;
+    FileAlignment = v17->OptionalHeader.FileAlignment;
+    SectionAlignment = v17->OptionalHeader.SectionAlignment;
+    SizeOfImage = v17->OptionalHeader.SizeOfImage;
+    if ( Magic == 523 )
     {
-      v20 = *(_DWORD *)(v17 + 128);
-      v35 = v20;
-      v31 = *(_QWORD *)(v17 + 48);
-      v36 = *(_DWORD *)(v17 + 84);
-      v37 = *(_DWORD *)(v17 + 40);
-      v38 = *(_QWORD *)(v17 + 96);
-      v39 = *(_QWORD *)(v17 + 104);
-      v41 = *(_WORD *)(v17 + 92);
-      v42 = *(_WORD *)(v17 + 72);
-      v43 = *(_WORD *)(v17 + 74);
-      v44 = *(_WORD *)(v17 + 64);
-      v45 = *(_WORD *)(v17 + 66);
-      v46 = *(_WORD *)(v17 + 94);
-      v47 = *(_DWORD *)(v17 + 88);
-      v48 = *(_DWORD *)(v17 + 28);
+      LoaderFlags = v17->OptionalHeader.LoaderFlags;
+      v35 = LoaderFlags;
+      ImageBase = v17->OptionalHeader.ImageBase;
+      SizeOfHeaders = v17->OptionalHeader.SizeOfHeaders;
+      AddressOfEntryPoint = v17->OptionalHeader.AddressOfEntryPoint;
+      SizeOfStackReserve = v17->OptionalHeader.SizeOfStackReserve;
+      SizeOfStackCommit = v17->OptionalHeader.SizeOfStackCommit;
+      Subsystem = v17->OptionalHeader.Subsystem;
+      MajorSubsystemVersion = v17->OptionalHeader.MajorSubsystemVersion;
+      MinorSubsystemVersion = v17->OptionalHeader.MinorSubsystemVersion;
+      MajorOperatingSystemVersion = v17->OptionalHeader.MajorOperatingSystemVersion;
+      MinorOperatingSystemVersion = v17->OptionalHeader.MinorOperatingSystemVersion;
+      DllCharacteristics = v17->OptionalHeader.DllCharacteristics;
+      CheckSum = v17->OptionalHeader.CheckSum;
+      SizeOfCode = v17->OptionalHeader.SizeOfCode;
       v54 = 0LL;
-      if ( *(_DWORD *)(v17 + 132) > 6u )
+      if ( v17->OptionalHeader.NumberOfRvaAndSizes > 6 )
       {
-        v21 = *(_DWORD *)(v17 + 184);
-        if ( v21 )
+        VirtualAddress = v17->OptionalHeader.DataDirectory[6].VirtualAddress;
+        if ( VirtualAddress )
         {
-          LODWORD(v54) = v21;
-          HIDWORD(v54) = *(_DWORD *)(v18 + 188);
+          LODWORD(v54) = VirtualAddress;
+          HIDWORD(v54) = v18->OptionalHeader.DataDirectory[6].Size;
         }
       }
-      if ( *(_DWORD *)(v18 + 132) > 0xCu )
+      if ( v18->OptionalHeader.NumberOfRvaAndSizes > 0xC )
       {
-        v49 = *(_DWORD *)(v18 + 232);
-        v50 = *(_DWORD *)(v18 + 236);
+        v49 = v18->OptionalHeader.DataDirectory[12].VirtualAddress;
+        Size = v18->OptionalHeader.DataDirectory[12].Size;
       }
-      if ( *(_DWORD *)(v18 + 132) <= 0xEu )
+      if ( v18->OptionalHeader.NumberOfRvaAndSizes <= 0xE )
       {
         v51 = 0LL;
       }
       else
       {
-        v51 = *(_QWORD *)(v18 + 248);
-        if ( *(_DWORD *)(v18 + 248) && *(_DWORD *)(v18 + 252) )
-          v35 = v20 | 1;
+        v51 = v18->OptionalHeader.DataDirectory[14];
+        if ( v18->OptionalHeader.DataDirectory[14].VirtualAddress && v18->OptionalHeader.DataDirectory[14].Size )
+          v35 = LoaderFlags | 1;
       }
-      if ( *(_DWORD *)(v18 + 132) <= 5u )
+      if ( v18->OptionalHeader.NumberOfRvaAndSizes <= 5 )
         v52 = 0LL;
       else
-        v52 = *(_QWORD *)(v18 + 176);
-      if ( *(_DWORD *)(v18 + 132) > 0xAu )
+        v52 = v18->OptionalHeader.DataDirectory[5];
+      if ( v18->OptionalHeader.NumberOfRvaAndSizes > 0xA )
       {
-        LODWORD(v53) = *(_DWORD *)(v18 + 216);
-        v22 = *(_DWORD *)(v18 + 220);
+        LODWORD(v53) = v18->OptionalHeader.DataDirectory[10].VirtualAddress;
+        v22 = v18->OptionalHeader.DataDirectory[10].Size;
 LABEL_50:
         HIDWORD(v53) = v22;
 LABEL_52:
-        MiUnmapImageInSystemSpace(v30);
-        if ( (int)MiRelocateImage(*v4, (__int64)&v31, v19, 1u, -1LL, 1) < 0 )
+        MiUnmapImageInSystemSpace((unsigned __int64 *)BaseOfImage);
+        if ( (int)MiRelocateImage(*v4, (__int64)&ImageBase, v19, 1u, -1LL, 1) < 0 )
           return 0LL;
         MiImageSuitableForSystem(v4, &v25);
         if ( !v25 && (*((_BYTE *)v4 + 62) & 0xC) == 0 )
@@ -194,54 +194,54 @@ LABEL_11:
     }
     else
     {
-      v23 = *(_DWORD *)(v17 + 112);
-      v35 = v23;
-      v31 = *(unsigned int *)(v17 + 52);
-      v36 = *(_DWORD *)(v17 + 84);
-      v37 = *(_DWORD *)(v17 + 40);
-      v38 = *(unsigned int *)(v17 + 96);
-      v39 = *(unsigned int *)(v17 + 100);
-      v41 = *(_WORD *)(v17 + 92);
-      v42 = *(_WORD *)(v17 + 72);
-      v43 = *(_WORD *)(v17 + 74);
-      v44 = *(_WORD *)(v17 + 64);
-      v45 = *(_WORD *)(v17 + 66);
-      v46 = *(_WORD *)(v17 + 94);
-      v47 = *(_DWORD *)(v17 + 88);
-      v48 = *(_DWORD *)(v17 + 28);
+      SizeOfHeapReserve = v17->OptionalHeader.SizeOfHeapReserve;
+      v35 = SizeOfHeapReserve;
+      ImageBase = HIDWORD(v17->OptionalHeader.ImageBase);
+      SizeOfHeaders = v17->OptionalHeader.SizeOfHeaders;
+      AddressOfEntryPoint = v17->OptionalHeader.AddressOfEntryPoint;
+      SizeOfStackReserve = LODWORD(v17->OptionalHeader.SizeOfStackReserve);
+      SizeOfStackCommit = HIDWORD(v17->OptionalHeader.SizeOfStackReserve);
+      Subsystem = v17->OptionalHeader.Subsystem;
+      MajorSubsystemVersion = v17->OptionalHeader.MajorSubsystemVersion;
+      MinorSubsystemVersion = v17->OptionalHeader.MinorSubsystemVersion;
+      MajorOperatingSystemVersion = v17->OptionalHeader.MajorOperatingSystemVersion;
+      MinorOperatingSystemVersion = v17->OptionalHeader.MinorOperatingSystemVersion;
+      DllCharacteristics = v17->OptionalHeader.DllCharacteristics;
+      CheckSum = v17->OptionalHeader.CheckSum;
+      SizeOfCode = v17->OptionalHeader.SizeOfCode;
       v54 = 0LL;
-      if ( *(_DWORD *)(v17 + 116) > 6u )
+      if ( HIDWORD(v17->OptionalHeader.SizeOfHeapReserve) > 6 )
       {
-        v24 = *(_DWORD *)(v17 + 168);
+        v24 = v17->OptionalHeader.DataDirectory[4].VirtualAddress;
         if ( v24 )
         {
           LODWORD(v54) = v24;
-          HIDWORD(v54) = *(_DWORD *)(v18 + 172);
+          HIDWORD(v54) = v18->OptionalHeader.DataDirectory[4].Size;
         }
       }
-      if ( *(_DWORD *)(v18 + 116) > 0xCu )
+      if ( HIDWORD(v18->OptionalHeader.SizeOfHeapReserve) > 0xC )
       {
-        v49 = *(_DWORD *)(v18 + 216);
-        v50 = *(_DWORD *)(v18 + 220);
+        v49 = v18->OptionalHeader.DataDirectory[10].VirtualAddress;
+        Size = v18->OptionalHeader.DataDirectory[10].Size;
       }
-      if ( *(_DWORD *)(v18 + 116) <= 0xEu )
+      if ( HIDWORD(v18->OptionalHeader.SizeOfHeapReserve) <= 0xE )
       {
         v51 = 0LL;
       }
       else
       {
-        v51 = *(_QWORD *)(v18 + 232);
-        if ( *(_DWORD *)(v18 + 232) && *(_DWORD *)(v18 + 236) )
-          v35 = v23 | 1;
+        v51 = v18->OptionalHeader.DataDirectory[12];
+        if ( v18->OptionalHeader.DataDirectory[12].VirtualAddress && v18->OptionalHeader.DataDirectory[12].Size )
+          v35 = SizeOfHeapReserve | 1;
       }
-      if ( *(_DWORD *)(v18 + 116) <= 5u )
+      if ( HIDWORD(v18->OptionalHeader.SizeOfHeapReserve) <= 5 )
         v52 = 0LL;
       else
-        v52 = *(_QWORD *)(v18 + 160);
-      if ( *(_DWORD *)(v18 + 116) > 0xAu )
+        v52 = v18->OptionalHeader.DataDirectory[3];
+      if ( HIDWORD(v18->OptionalHeader.SizeOfHeapReserve) > 0xA )
       {
-        LODWORD(v53) = *(_DWORD *)(v18 + 200);
-        v22 = *(_DWORD *)(v18 + 204);
+        LODWORD(v53) = v18->OptionalHeader.DataDirectory[8].VirtualAddress;
+        v22 = v18->OptionalHeader.DataDirectory[8].Size;
         goto LABEL_50;
       }
     }

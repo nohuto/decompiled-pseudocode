@@ -1,22 +1,22 @@
 /*
- * XREFs of KeInsertSchedulingGroup @ 0x14030F2B8
+ * XREFs of KeInsertSchedulingGroup @ 0x14045CB04
  * Callers:
- *     PspEstablishDfssHierarchy @ 0x1407777D0 (PspEstablishDfssHierarchy.c)
- *     PspSessionObjectCreate @ 0x14077BDCC (PspSessionObjectCreate.c)
- *     PspEstablishJobHierarchy @ 0x1408E62CC (PspEstablishJobHierarchy.c)
- *     PspAddSchedulingGroupToJobChain @ 0x14098CBAC (PspAddSchedulingGroupToJobChain.c)
+ *     PspEstablishDfssHierarchy @ 0x140777990 (PspEstablishDfssHierarchy.c)
+ *     PspSessionObjectCreate @ 0x14077BC7C (PspSessionObjectCreate.c)
+ *     PspEstablishJobHierarchy @ 0x14091B360 (PspEstablishJobHierarchy.c)
+ *     PspAddSchedulingGroupToJobChain @ 0x1409774CC (PspAddSchedulingGroupToJobChain.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140275CD0 (KeReleaseInStackQueuedSpinLock.c)
- *     HvlNotifyLongSpinWait @ 0x140293260 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140293290 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x1402D8540 (KeAcquireInStackQueuedSpinLock.c)
- *     ?KiUpdateCpuTargetByRate@@YAXPEAU_KSCHEDULING_GROUP@@E@Z @ 0x14030EF28 (-KiUpdateCpuTargetByRate@@YAXPEAU_KSCHEDULING_GROUP@@E@Z.c)
- *     ?KiInitializeScb@@YAXPEAU_KSCB@@PEAU_KSCHEDULING_GROUP@@1K@Z @ 0x14030F690 (-KiInitializeScb@@YAXPEAU_KSCB@@PEAU_KSCHEDULING_GROUP@@1K@Z.c)
- *     ?KiAssignSchedulingGroupWeights@@YAXW4_KSCHEDULING_GROUP_TYPE@@EPEAU_KSCHEDULING_GROUP@@@Z @ 0x140310890 (-KiAssignSchedulingGroupWeights@@YAXW4_KSCHEDULING_GROUP_TYPE@@EPEAU_KSCHEDULING_GROUP@@@Z.c)
- *     ?KiUpdateCpuTargetByWeight@@YAXPEAU_KSCHEDULING_GROUP@@E@Z @ 0x140310BD8 (-KiUpdateCpuTargetByWeight@@YAXPEAU_KSCHEDULING_GROUP@@E@Z.c)
- *     KeQueryPerformanceCounter @ 0x14034FA10 (KeQueryPerformanceCounter.c)
- *     ?KiEnableGroupScheduling@@YAXXZ @ 0x1405C7400 (-KiEnableGroupScheduling@@YAXXZ.c)
- *     EtwTraceSchedulingGroup @ 0x14064DF08 (EtwTraceSchedulingGroup.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x14022B260 (KeReleaseInStackQueuedSpinLock.c)
+ *     HvlNotifyLongSpinWait @ 0x1402A2E60 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402A2E90 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1403597C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeQueryPerformanceCounter @ 0x14036DEF0 (KeQueryPerformanceCounter.c)
+ *     ?KiAssignSchedulingGroupWeights@@YAXW4_KSCHEDULING_GROUP_TYPE@@EPEAU_KSCHEDULING_GROUP@@@Z @ 0x14045C524 (-KiAssignSchedulingGroupWeights@@YAXW4_KSCHEDULING_GROUP_TYPE@@EPEAU_KSCHEDULING_GROUP@@@Z.c)
+ *     ?KiUpdateCpuTargetByWeight@@YAXPEAU_KSCHEDULING_GROUP@@E@Z @ 0x14045C86C (-KiUpdateCpuTargetByWeight@@YAXPEAU_KSCHEDULING_GROUP@@E@Z.c)
+ *     ?KiInitializeScb@@YAXPEAU_KSCB@@PEAU_KSCHEDULING_GROUP@@1K@Z @ 0x14045CEDC (-KiInitializeScb@@YAXPEAU_KSCB@@PEAU_KSCHEDULING_GROUP@@1K@Z.c)
+ *     ?KiUpdateCpuTargetByRate@@YAXPEAU_KSCHEDULING_GROUP@@E@Z @ 0x14045CFB4 (-KiUpdateCpuTargetByRate@@YAXPEAU_KSCHEDULING_GROUP@@E@Z.c)
+ *     ?KiEnableGroupScheduling@@YAXXZ @ 0x1405C4B30 (-KiEnableGroupScheduling@@YAXXZ.c)
+ *     EtwTraceSchedulingGroup @ 0x14064C518 (EtwTraceSchedulingGroup.c)
  */
 
 void __fastcall KeInsertSchedulingGroup(
@@ -26,7 +26,7 @@ void __fastcall KeInsertSchedulingGroup(
 {
   unsigned int v3; // r13d
   LARGE_INTEGER v7; // rdx
-  $FFEC37104EC15BF716717F518F8A426F *v8; // rsi
+  $8E9CF67B5D0B21416A2F2FBA3CE2F883 *v8; // rsi
   unsigned int v9; // ebp
   struct _LIST_ENTRY *p_ChildList; // r15
   struct _LIST_ENTRY *v11; // rax
@@ -163,7 +163,7 @@ LABEL_23:
       if ( !ChildMinRate || (Weight = a2.Weight, a2.Weight < ChildMinRate) )
       {
         a3->ChildMinRate = a2.Weight;
-        KiAssignSchedulingGroupWeights(1LL, 0LL, a3);
+        KiAssignSchedulingGroupWeights(1, 0, (__int64)a3);
         goto LABEL_38;
       }
     }
@@ -232,6 +232,6 @@ LABEL_49:
   }
 LABEL_39:
   KeReleaseInStackQueuedSpinLock(&LockHandle);
-  if ( (WORD2(xmmword_140FC5B10) & 0x4000) != 0 )
+  if ( (WORD2(xmmword_140FC6B50) & 0x4000) != 0 )
     EtwTraceSchedulingGroup(a1, 1378LL);
 }

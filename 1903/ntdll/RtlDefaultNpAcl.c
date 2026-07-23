@@ -14,130 +14,124 @@
  *     ZwQueryInformationToken @ 0x18009CB00 (ZwQueryInformationToken.c)
  */
 
-__int64 __fastcall RtlDefaultNpAcl(__int64 *a1)
+NTSTATUS __cdecl RtlDefaultNpAcl(PACL *Acl)
 {
-  __int64 *v2; // rdi
-  void *ProcessHeap; // rcx
-  __int64 *Heap; // r14
-  int InformationToken; // ebx
+  PVOID v2; // rdi
+  PVOID ProcessHeap; // rcx
+  PVOID Heap; // r14
+  int AppContainerParent; // ebx
   int v6; // edx
-  unsigned int v7; // ebx
-  __int64 v8; // rax
-  __int64 v9; // r8
-  __int64 v10; // rcx
-  __int64 v11; // r8
-  __int64 v12; // rcx
-  __int64 v13; // r8
-  __int64 v14; // rcx
-  __int64 v15; // r8
-  __int64 v16; // rcx
-  int v18; // [rsp+30h] [rbp-40h] BYREF
-  __int16 v19; // [rsp+34h] [rbp-3Ch]
-  int v20; // [rsp+38h] [rbp-38h] BYREF
-  __int16 v21; // [rsp+3Ch] [rbp-34h]
-  int v22; // [rsp+40h] [rbp-30h] BYREF
-  _BYTE v23[4]; // [rsp+44h] [rbp-2Ch] BYREF
-  int v24; // [rsp+48h] [rbp-28h] BYREF
-  __int64 v25; // [rsp+50h] [rbp-20h] BYREF
-  char v26[8]; // [rsp+58h] [rbp-18h] BYREF
-  int v27; // [rsp+60h] [rbp-10h]
-  int v28; // [rsp+64h] [rbp-Ch]
+  ULONG v7; // ebx
+  ACL *v8; // rax
+  ACL *v9; // rcx
+  ACL *v10; // rcx
+  ACL *v11; // rcx
+  ACL *v12; // rcx
+  _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+30h] [rbp-40h] BYREF
+  _SID_IDENTIFIER_AUTHORITY v15; // [rsp+38h] [rbp-38h] BYREF
+  int TokenInformation; // [rsp+40h] [rbp-30h] BYREF
+  ULONG ReturnLength; // [rsp+44h] [rbp-2Ch] BYREF
+  _APPCONTAINER_SID_TYPE AppContainerSidType; // [rsp+48h] [rbp-28h] BYREF
+  PSID AppContainerSidParent; // [rsp+50h] [rbp-20h] BYREF
+  _BYTE Sid[8]; // [rsp+58h] [rbp-18h] BYREF
+  int v21; // [rsp+60h] [rbp-10h]
+  int v22; // [rsp+64h] [rbp-Ch]
 
-  v19 = 1280;
-  *a1 = 0LL;
-  v18 = 0;
+  *(_WORD *)&IdentifierAuthority.Value[4] = 1280;
+  *Acl = 0LL;
+  *(_DWORD *)IdentifierAuthority.Value = 0;
   v2 = 0LL;
-  v20 = 0;
-  v21 = 256;
+  *(_DWORD *)v15.Value = 0;
+  *(_WORD *)&v15.Value[4] = 256;
   ProcessHeap = NtCurrentPeb()->ProcessHeap;
-  v25 = 0LL;
-  v24 = 0;
-  Heap = (__int64 *)RtlAllocateHeap(ProcessHeap, 0LL, 76LL);
+  AppContainerSidParent = 0LL;
+  AppContainerSidType = NotAppContainerSidType;
+  Heap = RtlAllocateHeap(ProcessHeap, 0, 0x4CuLL);
   if ( Heap )
   {
-    InformationToken = ZwQueryInformationToken(-6LL, 4LL, Heap, 76LL, v23);
-    if ( InformationToken < 0 )
+    AppContainerParent = ZwQueryInformationToken((HANDLE)0xFFFFFFFFFFFFFFFALL, 4u, Heap, 0x4Cu, &ReturnLength);
+    if ( AppContainerParent < 0 )
       goto LABEL_19;
-    v22 = 0;
-    if ( (int)ZwQueryInformationToken(-6LL, 29LL, &v22, 4LL, v23) < 0 || !v22 )
+    TokenInformation = 0;
+    if ( ZwQueryInformationToken((HANDLE)0xFFFFFFFFFFFFFFFALL, 0x1Du, &TokenInformation, 4u, &ReturnLength) < 0
+      || !TokenInformation )
+    {
       goto LABEL_5;
-    v2 = (__int64 *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0LL, 76LL);
+    }
+    v2 = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, 0x4CuLL);
     if ( !v2 )
     {
-      InformationToken = -1073741801;
+      AppContainerParent = -1073741801;
       goto LABEL_19;
     }
-    InformationToken = ZwQueryInformationToken(-6LL, 31LL, v2, 76LL, v23);
-    if ( InformationToken >= 0 )
+    AppContainerParent = ZwQueryInformationToken((HANDLE)0xFFFFFFFFFFFFFFFALL, 0x1Fu, v2, 0x4Cu, &ReturnLength);
+    if ( AppContainerParent >= 0 )
     {
-      InformationToken = RtlGetAppContainerSidType(*v2, &v24);
-      if ( InformationToken >= 0 )
+      AppContainerParent = RtlGetAppContainerSidType(*(PSID *)v2, &AppContainerSidType);
+      if ( AppContainerParent >= 0 )
       {
-        if ( v24 != 1 || (InformationToken = RtlGetAppContainerParent(*v2, &v25), InformationToken >= 0) )
+        if ( AppContainerSidType != ChildAppContainerSidType
+          || (AppContainerParent = RtlGetAppContainerParent(*(PSID *)v2, &AppContainerSidParent), AppContainerParent >= 0) )
         {
 LABEL_5:
           v6 = 52;
           if ( v2 )
-            v6 = 4 * *(unsigned __int8 *)(*v2 + 1) + 68;
-          if ( v25 )
-            v6 += 4 * *(unsigned __int8 *)(v25 + 1) + 16;
-          v7 = v6 + 4 * (*(unsigned __int8 *)(*Heap + 1) + 14);
-          v8 = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0LL, v7);
-          *a1 = v8;
+            v6 = 4 * *(unsigned __int8 *)(*(_QWORD *)v2 + 1LL) + 68;
+          if ( AppContainerSidParent )
+            v6 += 4 * *((unsigned __int8 *)AppContainerSidParent + 1) + 16;
+          v7 = v6 + 4 * (*(unsigned __int8 *)(*(_QWORD *)Heap + 1LL) + 14);
+          v8 = (ACL *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, v7);
+          *Acl = v8;
           if ( v8 )
           {
-            RtlCreateAcl(v8, v7, 2LL);
-            LOBYTE(v9) = 1;
-            RtlInitializeSid(v26, &v18, v9);
-            v10 = *a1;
-            v27 = 18;
-            sub_180014974(v10, 2, 0, 0x10000000, (__int64)v26, 0);
-            LOBYTE(v11) = 2;
-            RtlInitializeSid(v26, &v18, v11);
-            v12 = *a1;
-            v27 = 32;
-            v28 = 544;
-            sub_180014974(v12, 2, 0, 0x10000000, (__int64)v26, 0);
+            RtlCreateAcl(v8, v7, 2u);
+            RtlInitializeSid(Sid, &IdentifierAuthority, 1u);
+            v9 = *Acl;
+            v21 = 18;
+            sub_180014974(v9, Sid, 0);
+            RtlInitializeSid(Sid, &IdentifierAuthority, 2u);
+            v10 = *Acl;
+            v21 = 32;
+            v22 = 544;
+            sub_180014974(v10, Sid, 0);
             if ( v2 )
-              sub_180014974(*a1, 2, 0, 0x10000000, *v2, 0);
-            if ( v25 )
-              sub_180014974(*a1, 2, 0, 0x10000000, v25, 0);
-            sub_180014974(*a1, 2, 0, 0x10000000, *Heap, 0);
-            LOBYTE(v13) = 1;
-            RtlInitializeSid(v26, &v20, v13);
-            v14 = *a1;
-            v27 = 0;
-            sub_180014974(v14, 2, 0, 0x80000000, (__int64)v26, 0);
-            LOBYTE(v15) = 1;
-            RtlInitializeSid(v26, &v18, v15);
-            v16 = *a1;
-            v27 = 7;
-            sub_180014974(v16, 2, 0, 0x80000000, (__int64)v26, 0);
-            InformationToken = 0;
+              sub_180014974(*Acl, *(PSID *)v2, 0);
+            if ( AppContainerSidParent )
+              sub_180014974(*Acl, AppContainerSidParent, 0);
+            sub_180014974(*Acl, *(PSID *)Heap, 0);
+            RtlInitializeSid(Sid, &v15, 1u);
+            v11 = *Acl;
+            v21 = 0;
+            sub_180014974(v11, Sid, 0);
+            RtlInitializeSid(Sid, &IdentifierAuthority, 1u);
+            v12 = *Acl;
+            v21 = 7;
+            sub_180014974(v12, Sid, 0);
+            AppContainerParent = 0;
           }
           else
           {
-            InformationToken = -1073741801;
+            AppContainerParent = -1073741801;
           }
         }
       }
     }
     if ( v2 )
-      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, v2);
-    if ( v25 )
-      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, v25);
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v2);
+    if ( AppContainerSidParent )
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, AppContainerSidParent);
 LABEL_19:
-    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, Heap);
-    if ( InformationToken >= 0 )
-      return (unsigned int)InformationToken;
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Heap);
+    if ( AppContainerParent >= 0 )
+      return AppContainerParent;
     goto LABEL_22;
   }
-  InformationToken = -1073741801;
+  AppContainerParent = -1073741801;
 LABEL_22:
-  if ( *a1 )
+  if ( *Acl )
   {
-    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, *a1);
-    *a1 = 0LL;
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, *Acl);
+    *Acl = 0LL;
   }
-  return (unsigned int)InformationToken;
+  return AppContainerParent;
 }

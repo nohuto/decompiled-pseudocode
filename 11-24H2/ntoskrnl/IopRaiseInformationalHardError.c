@@ -1,10 +1,10 @@
 /*
- * XREFs of IopRaiseInformationalHardError @ 0x140A4DF50
+ * XREFs of IopRaiseInformationalHardError @ 0x140A44BD0
  * Callers:
  *     <none>
  * Callees:
- *     ExRaiseHardError @ 0x140A4E2E0 (ExRaiseHardError.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExRaiseHardError @ 0x140A44F60 (ExRaiseHardError.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall IopRaiseInformationalHardError(char *P)
@@ -27,5 +27,5 @@ void __fastcall IopRaiseInformationalHardError(char *P)
   if ( v2 )
     ExFreePoolWithTag(v2, 0);
   ExFreePoolWithTag(P, 0);
-  _InterlockedDecrement(&dword_140F8C9DC);
+  _InterlockedDecrement(&dword_140F8C99C);
 }

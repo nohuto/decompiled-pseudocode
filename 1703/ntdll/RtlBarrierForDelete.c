@@ -6,8 +6,7 @@
  *     <none>
  */
 
-__int64 __fastcall RtlBarrierForDelete(__int64 a1, __int64 a2)
+BOOLEAN __cdecl RtlBarrierForDelete(PRTL_BARRIER Barrier, ULONG Flags)
 {
-  LODWORD(a2) = a2 | 0x10000;
-  return RtlBarrier_0(a1, a2);
+  return RtlBarrier_0(Barrier, Flags | 0x10000);
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of VfMiscMmBuildMdlForNonPagedPool_Entry @ 0x140AE0230
+ * XREFs of VfMiscMmBuildMdlForNonPagedPool_Entry @ 0x140AE0220
  * Callers:
  *     <none>
  * Callees:
- *     MmDeterminePoolType @ 0x140641A34 (MmDeterminePoolType.c)
- *     VerifierBugCheckIfAppropriate @ 0x140ACD2B4 (VerifierBugCheckIfAppropriate.c)
+ *     MmDeterminePoolType @ 0x140641F84 (MmDeterminePoolType.c)
+ *     VerifierBugCheckIfAppropriate @ 0x140ACD2A4 (VerifierBugCheckIfAppropriate.c)
  */
 
 __int64 __fastcall VfMiscMmBuildMdlForNonPagedPool_Entry(__int64 a1)

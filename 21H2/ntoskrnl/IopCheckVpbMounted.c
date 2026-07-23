@@ -1,24 +1,23 @@
 /*
- * XREFs of IopCheckVpbMounted @ 0x140353920
+ * XREFs of IopCheckVpbMounted @ 0x14035E670
  * Callers:
- *     IopParseDevice @ 0x140700F60 (IopParseDevice.c)
+ *     IopParseDevice @ 0x140718340 (IopParseDevice.c)
  * Callees:
- *     KxWaitForLockOwnerShip @ 0x14022EEA0 (KxWaitForLockOwnerShip.c)
- *     KxWaitForLockChainValid @ 0x140287190 (KxWaitForLockChainValid.c)
- *     KeReleaseQueuedSpinLock @ 0x140310BD0 (KeReleaseQueuedSpinLock.c)
- *     KeAcquireQueuedSpinLock @ 0x140310C70 (KeAcquireQueuedSpinLock.c)
- *     IopDecrementDeviceObjectRef @ 0x140353B90 (IopDecrementDeviceObjectRef.c)
- *     IoAddTriageDumpDataBlock @ 0x1403CC828 (IoAddTriageDumpDataBlock.c)
+ *     KxWaitForLockChainValid @ 0x140204330 (KxWaitForLockChainValid.c)
+ *     KxWaitForLockOwnerShip @ 0x1402D36F0 (KxWaitForLockOwnerShip.c)
+ *     KeReleaseQueuedSpinLock @ 0x14031B920 (KeReleaseQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x14031B9C0 (KeAcquireQueuedSpinLock.c)
+ *     IopDecrementDeviceObjectRef @ 0x14035E8E0 (IopDecrementDeviceObjectRef.c)
+ *     IoAddTriageDumpDataBlock @ 0x1403CC998 (IoAddTriageDumpDataBlock.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x1405163CC (KiAcquireQueuedSpinLockInstrumented.c)
- *     KiReleaseQueuedSpinLockInstrumented @ 0x14051648C (KiReleaseQueuedSpinLockInstrumented.c)
- *     IopMountVolume @ 0x1406E5720 (IopMountVolume.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x14051660C (KiAcquireQueuedSpinLockInstrumented.c)
+ *     KiReleaseQueuedSpinLockInstrumented @ 0x1405166CC (KiReleaseQueuedSpinLockInstrumented.c)
+ *     IopMountVolume @ 0x1405DB490 (IopMountVolume.c)
  */
 
-__int64 __fastcall IopCheckVpbMounted(__int64 a1, ULONG_PTR a2, __int64 a3, int *SchedulerAssist)
+__int64 __fastcall IopCheckVpbMounted(__int64 a1, ULONG_PTR a2, __int64 a3, int *a4)
 {
-  int *v4; // r12
   KIRQL CurrentIrql; // si
   char *v7; // rbx
   volatile __int64 *v8; // rdi
@@ -33,27 +32,26 @@ __int64 __fastcall IopCheckVpbMounted(__int64 a1, ULONG_PTR a2, __int64 a3, int 
   __int64 result; // rax
   int v18; // eax
   KIRQL v19; // al
-  int v20; // eax
-  __int64 v21; // rcx
+  _DWORD *SchedulerAssist; // r9
+  int v21; // eax
   __int64 v22; // rcx
-  int v23; // eax
-  unsigned __int8 v24; // al
-  struct _KPRCB *v25; // r9
-  _DWORD *v26; // r8
-  int v27; // eax
-  bool v28; // zf
+  __int64 v23; // rcx
+  int v24; // eax
+  unsigned __int8 v25; // al
+  struct _KPRCB *v26; // r9
+  _DWORD *v27; // r8
+  int v28; // eax
+  bool v29; // zf
   void *retaddr; // [rsp+58h] [rbp+0h]
-  __int64 v30; // [rsp+68h] [rbp+10h] BYREF
+  __int64 v31; // [rsp+68h] [rbp+10h] BYREF
 
-  v4 = SchedulerAssist;
-  v30 = 0LL;
+  v31 = 0LL;
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
-    SchedulerAssist = (int *)KeGetCurrentPrcb()->SchedulerAssist;
-    a3 = (-1 << (CurrentIrql + 1)) & 4 | (unsigned int)SchedulerAssist[5];
-    SchedulerAssist[5] = a3;
+    SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
+    SchedulerAssist[5] |= (-1 << (CurrentIrql + 1)) & 4;
   }
   v7 = (char *)KeGetPcr()->NtTib.ArbitraryUserPointer + 144;
   v8 = (volatile __int64 *)*((_QWORD *)v7 + 1);
@@ -63,9 +61,9 @@ __int64 __fastcall IopCheckVpbMounted(__int64 a1, ULONG_PTR a2, __int64 a3, int 
   {
     if ( CurrentPrcb->NestingLevel <= 1u )
     {
-      v20 = v10[6];
-      v10[6] = v20 + 1;
-      if ( v20 == -1 )
+      v21 = v10[6];
+      v10[6] = v21 + 1;
+      if ( v21 == -1 )
         KiRemoveSystemWorkPriorityKick(CurrentPrcb);
     }
   }
@@ -85,19 +83,19 @@ __int64 __fastcall IopCheckVpbMounted(__int64 a1, ULONG_PTR a2, __int64 a3, int 
 LABEL_7:
     if ( (*(_BYTE *)(v12 + 4) & 2) != 0 )
     {
-      *v4 = -1073741790;
+      *a4 = -1073741790;
       v12 = 0LL;
     }
     else if ( (int)++*(_DWORD *)(v12 + 28) <= 0 )
     {
-      v21 = *(_QWORD *)(v12 + 8);
-      if ( v21 )
+      v22 = *(_QWORD *)(v12 + 8);
+      if ( v22 )
       {
-        IoAddTriageDumpDataBlock(v21, (PVOID)0x150);
-        v22 = *(_QWORD *)(*(_QWORD *)(v12 + 8) + 8LL);
-        if ( v22 )
+        IoAddTriageDumpDataBlock(v22, (PVOID)0x150);
+        v23 = *(_QWORD *)(*(_QWORD *)(v12 + 8) + 8LL);
+        if ( v23 )
         {
-          IoAddTriageDumpDataBlock(v22, (PVOID)0x150);
+          IoAddTriageDumpDataBlock(v23, (PVOID)0x150);
           IoAddTriageDumpDataBlock(
             *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v12 + 8) + 8LL) + 64LL),
             (PVOID)*(unsigned __int16 *)(*(_QWORD *)(*(_QWORD *)(v12 + 8) + 8LL) + 56LL));
@@ -118,7 +116,7 @@ LABEL_7:
       {
         if ( v13 == (volatile signed __int64 **)_InterlockedCompareExchange64(v13[1], 0LL, (signed __int64)v13) )
           goto LABEL_12;
-        v14 = KxWaitForLockChainValid((__int64 *)v13, 0LL, a3, (__int64)SchedulerAssist);
+        v14 = KxWaitForLockChainValid((__int64 *)v13);
       }
       *v13 = 0LL;
       _InterlockedXor64((volatile signed __int64 *)(v14 + 8), 1uLL);
@@ -130,9 +128,9 @@ LABEL_12:
     {
       if ( v15->NestingLevel <= 1u )
       {
-        v23 = v16[6] - 1;
-        v16[6] = v23;
-        if ( !v23 )
+        v24 = v16[6] - 1;
+        v16[6] = v24;
+        if ( !v24 )
           KiRemoveSystemWorkPriorityKick(v15);
       }
     }
@@ -140,16 +138,16 @@ LABEL_12:
     {
       if ( (KiIrqlFlags & 1) != 0 )
       {
-        v24 = KeGetCurrentIrql();
-        if ( v24 <= 0xFu && CurrentIrql <= 0xFu && v24 >= 2u )
+        v25 = KeGetCurrentIrql();
+        if ( v25 <= 0xFu && CurrentIrql <= 0xFu && v25 >= 2u )
         {
-          v25 = KeGetCurrentPrcb();
-          v26 = v25->SchedulerAssist;
-          v27 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-          v28 = (v27 & v26[5]) == 0;
-          v26[5] &= v27;
-          if ( v28 )
-            KiRemoveSystemWorkPriorityKick(v25);
+          v26 = KeGetCurrentPrcb();
+          v27 = v26->SchedulerAssist;
+          v28 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+          v29 = (v28 & v27[5]) == 0;
+          v27[5] &= v28;
+          if ( v29 )
+            KiRemoveSystemWorkPriorityKick(v26);
         }
       }
     }
@@ -161,13 +159,13 @@ LABEL_12:
   while ( 1 )
   {
     KeReleaseQueuedSpinLock(9uLL, CurrentIrql);
-    v30 = 0LL;
-    v18 = IopMountVolume(a2, (__int64)&v30);
-    *v4 = v18;
+    v31 = 0LL;
+    v18 = IopMountVolume(a2, (__int64)&v31);
+    *a4 = v18;
     if ( v18 < 0 || v18 == 192 || v18 == 257 )
       break;
-    result = v30;
-    if ( v30 )
+    result = v31;
+    if ( v31 )
       return result;
     v19 = KeAcquireQueuedSpinLock(9uLL);
     v12 = *(_QWORD *)(a2 + 56);
@@ -177,7 +175,7 @@ LABEL_12:
   }
   IopDecrementDeviceObjectRef(a2);
   result = 0LL;
-  if ( *v4 >= 0 )
-    *v4 = -1073741806;
+  if ( *a4 >= 0 )
+    *a4 = -1073741806;
   return result;
 }

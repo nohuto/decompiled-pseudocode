@@ -20,13 +20,13 @@ __int64 __fastcall DbgUiConvertStateChangeStructureWorker(int *a1, __int64 a2, c
   _OWORD *v12; // rax
   _QWORD *v13; // rdx
   int v15; // edx
-  int InformationThread; // eax
+  NTSTATUS InformationThread; // eax
   __int64 v17; // rcx
   __int16 v18; // di
   __int16 v19; // ax
-  int v20; // eax
+  NTSTATUS v20; // eax
   __int64 v21; // rcx
-  _OWORD v22[2]; // [rsp+30h] [rbp-38h] BYREF
+  _OWORD ThreadInformation[2]; // [rsp+30h] [rbp-38h] BYREF
   __int64 v23; // [rsp+50h] [rbp-18h]
   int v24; // [rsp+58h] [rbp-10h]
 
@@ -35,15 +35,20 @@ __int64 __fastcall DbgUiConvertStateChangeStructureWorker(int *a1, __int64 a2, c
   *(_DWORD *)(a2 + 4) = a1[2];
   *(_DWORD *)(a2 + 8) = a1[4];
   v4 = *a1;
-  memset(v22, 0, sizeof(v22));
+  memset(ThreadInformation, 0, sizeof(ThreadInformation));
   v5 = v4 - 2;
   if ( !v5 )
   {
     *(_DWORD *)a2 = 2;
     *(_QWORD *)(a2 + 16) = *((_QWORD *)a1 + 3);
     *(_QWORD *)(a2 + 32) = *((_QWORD *)a1 + 5);
-    InformationThread = ZwQueryInformationThread(*((_QWORD *)a1 + 3), 0LL, v22);
-    v17 = *((_QWORD *)&v22[0] + 1);
+    InformationThread = ZwQueryInformationThread(
+                          *((HANDLE *)a1 + 3),
+                          ThreadBasicInformation,
+                          ThreadInformation,
+                          0x30u,
+                          0LL);
+    v17 = *((_QWORD *)&ThreadInformation[0] + 1);
     if ( InformationThread < 0 )
       v17 = 0LL;
     *(_QWORD *)(a2 + 24) = v17;
@@ -60,8 +65,8 @@ __int64 __fastcall DbgUiConvertStateChangeStructureWorker(int *a1, __int64 a2, c
     *(_DWORD *)(a2 + 48) = a1[16];
     *(_DWORD *)(a2 + 52) = a1[17];
     *(_QWORD *)(a2 + 64) = *((_QWORD *)a1 + 10);
-    v20 = ZwQueryInformationThread(*((_QWORD *)a1 + 4), 0LL, v22);
-    v21 = *((_QWORD *)&v22[0] + 1);
+    v20 = ZwQueryInformationThread(*((HANDLE *)a1 + 4), ThreadBasicInformation, ThreadInformation, 0x30u, 0LL);
+    v21 = *((_QWORD *)&ThreadInformation[0] + 1);
     *(_QWORD *)(a2 + 72) = 0LL;
     if ( v20 < 0 )
       v21 = 0LL;

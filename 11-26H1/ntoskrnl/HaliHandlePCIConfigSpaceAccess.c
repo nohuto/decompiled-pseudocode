@@ -1,10 +1,10 @@
 /*
- * XREFs of HaliHandlePCIConfigSpaceAccess @ 0x140599B60
+ * XREFs of HaliHandlePCIConfigSpaceAccess @ 0x14059C2E0
  * Callers:
  *     <none>
  * Callees:
- *     HaliPciInterfaceReadConfig @ 0x140439FA0 (HaliPciInterfaceReadConfig.c)
- *     HaliPciInterfaceWriteConfig @ 0x14043A4B0 (HaliPciInterfaceWriteConfig.c)
+ *     HaliPciInterfaceReadConfig @ 0x14042C850 (HaliPciInterfaceReadConfig.c)
+ *     HaliPciInterfaceWriteConfig @ 0x14042CD60 (HaliPciInterfaceWriteConfig.c)
  */
 
 __int64 __fastcall HaliHandlePCIConfigSpaceAccess(char a1, int a2, unsigned int a3, _WORD *a4)
@@ -17,18 +17,18 @@ __int64 __fastcall HaliHandlePCIConfigSpaceAccess(char a1, int a2, unsigned int 
   v4 = 0;
   if ( a2 == 3320 )
   {
-    dword_140E10BA8 = *(_DWORD *)a4;
-    byte_140E10BAC = 1;
+    dword_140E10CD8 = *(_DWORD *)a4;
+    byte_140E10CDC = 1;
   }
-  else if ( (unsigned int)(a2 - 3324) <= 3 && byte_140E10BAC )
+  else if ( (unsigned int)(a2 - 3324) <= 3 && byte_140E10CDC )
   {
     LODWORD(v9) = a3;
-    LODWORD(v8) = a2 + (dword_140E10BA8 & 0xFC) - 3324;
-    v6 = (dword_140E10BA8 & 0x700 | ((unsigned int)dword_140E10BA8 >> 8) & 0xF8) >> 3;
+    LODWORD(v8) = a2 + (dword_140E10CD8 & 0xFC) - 3324;
+    v6 = (dword_140E10CD8 & 0x700 | ((unsigned int)dword_140E10CD8 >> 8) & 0xF8) >> 3;
     if ( a1 )
-      HaliPciInterfaceReadConfig(0LL, BYTE2(dword_140E10BA8), v6, a4, v8, v9);
+      HaliPciInterfaceReadConfig(0LL, BYTE2(dword_140E10CD8), v6, a4, v8, v9);
     else
-      HaliPciInterfaceWriteConfig(0LL, BYTE2(dword_140E10BA8), v6, (__int64)a4, v8, a3);
+      HaliPciInterfaceWriteConfig(0LL, BYTE2(dword_140E10CD8), v6, (__int64)a4, v8, a3);
   }
   else
   {

@@ -1,12 +1,12 @@
 /*
- * XREFs of Normalization__NormalizeCharacter @ 0x180083C50
+ * XREFs of Normalization__NormalizeCharacter @ 0x180083C60
  * Callers:
- *     Normalization__Normalize @ 0x180083B08 (Normalization__Normalize.c)
+ *     Normalization__Normalize @ 0x180083B18 (Normalization__Normalize.c)
  *     Normalization__AppendDecomposedChar @ 0x1800FC584 (Normalization__AppendDecomposedChar.c)
  * Callees:
- *     NormBuffer__AppendEx @ 0x180083DC8 (NormBuffer__AppendEx.c)
- *     NormBuffer__Append @ 0x180083E14 (NormBuffer__Append.c)
- *     IsHangulLV @ 0x18008C2F4 (IsHangulLV.c)
+ *     NormBuffer__AppendEx @ 0x180083DD8 (NormBuffer__AppendEx.c)
+ *     NormBuffer__Append @ 0x180083E24 (NormBuffer__Append.c)
+ *     IsHangulLV @ 0x18008C304 (IsHangulLV.c)
  *     ComposeHangulLV @ 0x1800FBDF4 (ComposeHangulLV.c)
  *     ComposeHangulLVT @ 0x1800FBE24 (ComposeHangulLVT.c)
  *     NormBuffer__GetLastChar @ 0x1800FBF44 (NormBuffer__GetLastChar.c)

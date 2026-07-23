@@ -1,8 +1,8 @@
 /*
- * XREFs of BiConvertElementFormatToValueType @ 0x140713E68
+ * XREFs of BiConvertElementFormatToValueType @ 0x140715108
  * Callers:
- *     BcdSetElementDataWithFlags @ 0x140713370 (BcdSetElementDataWithFlags.c)
- *     BcdGetElementDataWithFlags @ 0x140713550 (BcdGetElementDataWithFlags.c)
+ *     BcdSetElementDataWithFlags @ 0x140714610 (BcdSetElementDataWithFlags.c)
+ *     BcdGetElementDataWithFlags @ 0x1407147F0 (BcdGetElementDataWithFlags.c)
  * Callees:
  *     <none>
  */

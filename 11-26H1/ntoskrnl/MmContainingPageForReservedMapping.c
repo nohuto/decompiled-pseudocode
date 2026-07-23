@@ -1,10 +1,10 @@
 /*
- * XREFs of MmContainingPageForReservedMapping @ 0x140522A50
+ * XREFs of MmContainingPageForReservedMapping @ 0x1405250BC
  * Callers:
- *     PnprCopyReservedMapping @ 0x14050D5C8 (PnprCopyReservedMapping.c)
- *     PnprRecopyMappingReserve @ 0x140522944 (PnprRecopyMappingReserve.c)
+ *     PnprCopyReservedMapping @ 0x140507038 (PnprCopyReservedMapping.c)
+ *     PnprRecopyMappingReserve @ 0x140524FB0 (PnprRecopyMappingReserve.c)
  * Callees:
- *     MiGetContainingPageTable @ 0x1402D9BF0 (MiGetContainingPageTable.c)
+ *     MiGetContainingPageTable @ 0x1402BB9B0 (MiGetContainingPageTable.c)
  */
 
 unsigned __int64 __fastcall MmContainingPageForReservedMapping(unsigned __int64 a1)

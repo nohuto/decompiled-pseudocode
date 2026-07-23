@@ -20,7 +20,7 @@ void __fastcall PopInitializePowerButtonHold(int a1)
   HANDLE KeyHandle; // [rsp+50h] [rbp-B8h] BYREF
   OBJECT_ATTRIBUTES KeyHandle_8; // [rsp+58h] [rbp-B0h] BYREF
   UNICODE_STRING DestinationString; // [rsp+88h] [rbp-80h] BYREF
-  __int64 v6; // [rsp+98h] [rbp-70h] BYREF
+  ULONG BufferLengthOut[4]; // [rsp+98h] [rbp-70h] BYREF
   WCHAR SourceString[264]; // [rsp+A8h] [rbp-60h] BYREF
 
   KeyHandle = 0LL;
@@ -51,7 +51,14 @@ void __fastcall PopInitializePowerButtonHold(int a1)
   {
     if ( RtlIsStateSeparationEnabled() )
     {
-      if ( (int)RtlGetPersistedStateLocation(L"PowerButton", 0LL, 0LL, 0, SourceString, 0x208u, (unsigned int *)&v6) >= 0 )
+      if ( RtlGetPersistedStateLocation(
+             L"PowerButton",
+             0LL,
+             0LL,
+             LocationTypeRegistry,
+             SourceString,
+             0x208u,
+             BufferLengthOut) >= 0 )
       {
         RtlInitUnicodeString(&DestinationString, SourceString);
         KeyHandle_8.Length = 48;

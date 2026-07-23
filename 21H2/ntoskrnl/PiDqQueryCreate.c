@@ -1,12 +1,12 @@
 /*
- * XREFs of PiDqQueryCreate @ 0x14062EE18
+ * XREFs of PiDqQueryCreate @ 0x140623E98
  * Callers:
- *     PiDqDispatch @ 0x14062EBF0 (PiDqDispatch.c)
+ *     PiDqDispatch @ 0x140623C70 (PiDqDispatch.c)
  * Callees:
- *     RtlInitializeGenericTableAvl @ 0x140264400 (RtlInitializeGenericTableAvl.c)
- *     memset @ 0x140414200 (memset.c)
- *     SeCaptureSubjectContext @ 0x140655B30 (SeCaptureSubjectContext.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     RtlInitializeGenericTableAvl @ 0x1402524C0 (RtlInitializeGenericTableAvl.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     SeCaptureSubjectContext @ 0x14064A950 (SeCaptureSubjectContext.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PiDqQueryCreate(char a1, _QWORD *a2)
@@ -28,9 +28,9 @@ __int64 __fastcall PiDqQueryCreate(char a1, _QWORD *a2)
     *((_QWORD *)v6 + 28) = v7;
     RtlInitializeGenericTableAvl(
       (PRTL_AVL_TABLE)(v6 + 72),
-      PiDqCompareAddresses,
-      PiDqAllocateGenericTableEntry,
-      PiDqFreeGenericTableEntry,
+      (PRTL_AVL_COMPARE_ROUTINE)PiDqCompareAddresses,
+      (PRTL_AVL_ALLOCATE_ROUTINE)PiDqAllocateGenericTableEntry,
+      (PRTL_AVL_FREE_ROUTINE)PiDqFreeGenericTableEntry,
       0LL);
     *((_QWORD *)v6 + 25) = v6 + 192;
     *((_QWORD *)v6 + 24) = v6 + 192;

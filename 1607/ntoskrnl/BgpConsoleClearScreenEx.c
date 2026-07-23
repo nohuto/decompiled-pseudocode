@@ -4,7 +4,7 @@
  *     BgpConsoleInitialize @ 0x140728460 (BgpConsoleInitialize.c)
  *     BgpConsoleClearScreen @ 0x14072A334 (BgpConsoleClearScreen.c)
  * Callees:
- *     BgpClearScreen @ 0x1402393E0 (BgpClearScreen.c)
+ *     BgpClearScreen @ 0x1402392C4 (BgpClearScreen.c)
  */
 
 __int64 BgpConsoleClearScreenEx()
@@ -20,16 +20,16 @@ __int64 BgpConsoleClearScreenEx()
   __int64 v8; // rcx
   __int64 v9; // rdx
 
-  v0 = qword_140329968;
-  v1 = *(_DWORD *)(qword_140329968 + 16);
-  *(_DWORD *)(qword_140329968 + 68) = 0;
+  v0 = qword_140329998;
+  v1 = *(_DWORD *)(qword_140329998 + 16);
+  *(_DWORD *)(qword_140329998 + 68) = 0;
   *(_DWORD *)(v0 + 72) = 0;
   v2 = BgpClearScreen(v1);
   if ( v2 >= 0 )
   {
-    v3 = (_DWORD *)qword_140329968;
+    v3 = (_DWORD *)qword_140329998;
     v4 = 0LL;
-    v5 = *(_DWORD *)(qword_140329968 + 4);
+    v5 = *(_DWORD *)(qword_140329998 + 4);
     v6 = 80LL;
     do
     {

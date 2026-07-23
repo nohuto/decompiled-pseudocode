@@ -1,11 +1,11 @@
 /*
- * XREFs of PspMakeSessionVisible @ 0x140AB1FD8
+ * XREFs of PspMakeSessionVisible @ 0x140AACF48
  * Callers:
- *     PsSessionCreate @ 0x1406F73F8 (PsSessionCreate.c)
+ *     PsSessionCreate @ 0x1406F53F8 (PsSessionCreate.c)
  * Callees:
- *     RtlAvlInsertNodeEx @ 0x14025FDD0 (RtlAvlInsertNodeEx.c)
- *     PspUnlockProcessListExclusive @ 0x1403494CC (PspUnlockProcessListExclusive.c)
- *     PspLockProcessListExclusive @ 0x140349ACC (PspLockProcessListExclusive.c)
+ *     RtlAvlInsertNodeEx @ 0x1402903E0 (RtlAvlInsertNodeEx.c)
+ *     PspUnlockProcessListExclusive @ 0x1403C2F0C (PspUnlockProcessListExclusive.c)
+ *     PspLockProcessListExclusive @ 0x1403C350C (PspLockProcessListExclusive.c)
  */
 
 _QWORD *__fastcall PspMakeSessionVisible(__int64 a1)
@@ -20,16 +20,16 @@ _QWORD *__fastcall PspMakeSessionVisible(__int64 a1)
   CurrentThread = KeGetCurrentThread();
   PspLockProcessListExclusive((__int64)CurrentThread);
   *(_DWORD *)(a1 + 4) |= 1u;
-  v3 = (_QWORD *)qword_140F058E8;
+  v3 = (_QWORD *)qword_140F05C28;
   v4 = (_QWORD *)(a1 + 80);
-  if ( *(__int64 **)qword_140F058E8 != &PsActiveSessionHead )
+  if ( *(__int64 **)qword_140F05C28 != &PsActiveSessionHead )
     __fastfail(3u);
   *v4 = &PsActiveSessionHead;
   v5 = 0;
   *(_QWORD *)(a1 + 88) = v3;
   *v3 = v4;
   v6 = (_QWORD *)PspSessionIdNodes;
-  qword_140F058E8 = a1 + 80;
+  qword_140F05C28 = a1 + 80;
   if ( PspSessionIdNodes )
   {
     while ( 1 )

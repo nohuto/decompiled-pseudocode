@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlCopyString @ 0x1404D0E30
+ * XREFs of RtlCopyString @ 0x1404CA860
  * Callers:
  *     <none>
  * Callees:
- *     memmove @ 0x14073D480 (memmove.c)
+ *     memmove @ 0x140742080 (memmove.c)
  */
 
 void __stdcall RtlCopyString(PSTRING DestinationString, const STRING *SourceString)

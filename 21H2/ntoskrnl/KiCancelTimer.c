@@ -1,19 +1,19 @@
 /*
- * XREFs of KiCancelTimer @ 0x1403482D0
+ * XREFs of KiCancelTimer @ 0x140353020
  * Callers:
- *     ExpCancelTimer @ 0x14024A190 (ExpCancelTimer.c)
- *     KiSetTimerEx @ 0x14025FD70 (KiSetTimerEx.c)
- *     KeSetTimerEx @ 0x14025FF30 (KeSetTimerEx.c)
- *     KeCancelTimer @ 0x140260240 (KeCancelTimer.c)
- *     KiSuspendThread @ 0x14027A324 (KiSuspendThread.c)
- *     KeCancelTimerInternal @ 0x1402C7AF0 (KeCancelTimerInternal.c)
- *     KiSwapThread @ 0x1403466D0 (KiSwapThread.c)
+ *     KeCancelTimerInternal @ 0x140246344 (KeCancelTimerInternal.c)
+ *     KiSuspendThread @ 0x1402682C4 (KiSuspendThread.c)
+ *     KiSetTimerEx @ 0x1402814E0 (KiSetTimerEx.c)
+ *     KeSetTimerEx @ 0x1402816A0 (KeSetTimerEx.c)
+ *     KeCancelTimer @ 0x1402819B0 (KeCancelTimer.c)
+ *     ExpCancelTimer @ 0x1402EE9E0 (ExpCancelTimer.c)
+ *     KiSwapThread @ 0x140351420 (KiSwapThread.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
- *     EtwTraceKernelEvent @ 0x1402EAC90 (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     EtwTraceKernelEvent @ 0x14029BFE0 (EtwTraceKernelEvent.c)
+ *     KeYieldProcessorEx @ 0x1402EFAD0 (KeYieldProcessorEx.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     KiTryToAcquireSpinLockInstrumented @ 0x1405169C4 (KiTryToAcquireSpinLockInstrumented.c)
+ *     KiTryToAcquireSpinLockInstrumented @ 0x140516C04 (KiTryToAcquireSpinLockInstrumented.c)
  */
 
 __int64 __fastcall KiCancelTimer(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

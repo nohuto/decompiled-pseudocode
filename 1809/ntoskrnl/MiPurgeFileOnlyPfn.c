@@ -1,17 +1,17 @@
 /*
- * XREFs of MiPurgeFileOnlyPfn @ 0x1402B69A8
+ * XREFs of MiPurgeFileOnlyPfn @ 0x1402B6B98
  * Callers:
- *     MiPurgeBadFileOnlyPages @ 0x1402B6620 (MiPurgeBadFileOnlyPages.c)
+ *     MiPurgeBadFileOnlyPages @ 0x1402B6810 (MiPurgeBadFileOnlyPages.c)
  * Callees:
  *     MiUnlockProtoPoolPage @ 0x14002F1F0 (MiUnlockProtoPoolPage.c)
  *     MiCheckProtoPtePageState @ 0x140030780 (MiCheckProtoPtePageState.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
- *     MiLockLeafPage @ 0x140080ED0 (MiLockLeafPage.c)
- *     MiDeleteTransitionPte @ 0x140095430 (MiDeleteTransitionPte.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     MiChangingSubsectionProtos @ 0x1402B5430 (MiChangingSubsectionProtos.c)
- *     MiPersistPage @ 0x1402B65D0 (MiPersistPage.c)
- *     MiSubsectionProtosCreated @ 0x1402B704C (MiSubsectionProtosCreated.c)
+ *     MiLockLeafPage @ 0x140080EC0 (MiLockLeafPage.c)
+ *     MiDeleteTransitionPte @ 0x140095370 (MiDeleteTransitionPte.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     MiChangingSubsectionProtos @ 0x1402B5620 (MiChangingSubsectionProtos.c)
+ *     MiPersistPage @ 0x1402B67C0 (MiPersistPage.c)
+ *     MiSubsectionProtosCreated @ 0x1402B723C (MiSubsectionProtosCreated.c)
  */
 
 __int64 __fastcall MiPurgeFileOnlyPfn(__int64 a1)
@@ -31,8 +31,8 @@ __int64 __fastcall MiPurgeFileOnlyPfn(__int64 a1)
 
   v1 = 0;
   v2 = *(_QWORD *)(a1 + 16);
-  if ( qword_14043A0C0 && (v2 & 0x10) == 0 )
-    v2 &= ~qword_14043A0C0;
+  if ( qword_14043B180 && (v2 & 0x10) == 0 )
+    v2 &= ~qword_14043B180;
   v3 = *(_QWORD *)(a1 + 8);
   v4 = v2 >> 16;
   v13 = 17;
@@ -48,12 +48,12 @@ __int64 __fastcall MiPurgeFileOnlyPfn(__int64 a1)
       BugCheckParameter4 = v8;
       if ( (v8 & 1) != 0 )
         goto LABEL_7;
-      if ( qword_14043A0C0 )
+      if ( qword_14043B180 )
       {
         if ( (v8 & 0x10) != 0 )
           v8 &= ~0x10uLL;
         else
-          v8 &= ~qword_14043A0C0;
+          v8 &= ~qword_14043B180;
       }
       if ( v7 != 48 * ((v8 >> 12) & 0xFFFFFFFFFLL) - 0x58000000000LL )
         goto LABEL_7;

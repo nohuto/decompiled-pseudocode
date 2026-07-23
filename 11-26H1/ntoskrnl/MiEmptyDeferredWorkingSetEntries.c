@@ -1,14 +1,14 @@
 /*
- * XREFs of MiEmptyDeferredWorkingSetEntries @ 0x1402E5EA0
+ * XREFs of MiEmptyDeferredWorkingSetEntries @ 0x1402C7EE0
  * Callers:
- *     MiCompletePrivateZeroFault @ 0x1402D6770 (MiCompletePrivateZeroFault.c)
- *     MiCompleteProtoPteFault @ 0x1402D8E50 (MiCompleteProtoPteFault.c)
- *     MiMakeSystemCachePtesValid @ 0x1402E5F40 (MiMakeSystemCachePtesValid.c)
- *     MiQueueCoreWorkingSetEntries @ 0x1402EA360 (MiQueueCoreWorkingSetEntries.c)
- *     MiConfirmFaultClusterDescriptor @ 0x1402ECD70 (MiConfirmFaultClusterDescriptor.c)
- *     MiCompleteRestrictedImageFault @ 0x1403744A0 (MiCompleteRestrictedImageFault.c)
+ *     MiCompletePrivateZeroFault @ 0x1402B8530 (MiCompletePrivateZeroFault.c)
+ *     MiCompleteProtoPteFault @ 0x1402BAC10 (MiCompleteProtoPteFault.c)
+ *     MiMakeSystemCachePtesValid @ 0x1402C7F80 (MiMakeSystemCachePtesValid.c)
+ *     MiQueueCoreWorkingSetEntries @ 0x1402CC3A0 (MiQueueCoreWorkingSetEntries.c)
+ *     MiConfirmFaultClusterDescriptor @ 0x1402CEDB0 (MiConfirmFaultClusterDescriptor.c)
+ *     MiCompleteRestrictedImageFault @ 0x140376250 (MiCompleteRestrictedImageFault.c)
  * Callees:
- *     MiAddWorkingSetEntries @ 0x1402EBAC0 (MiAddWorkingSetEntries.c)
+ *     MiAddWorkingSetEntries @ 0x1402CDB00 (MiAddWorkingSetEntries.c)
  */
 
 __int64 __fastcall MiEmptyDeferredWorkingSetEntries(__int64 *a1)

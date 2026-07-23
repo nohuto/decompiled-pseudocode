@@ -6,11 +6,17 @@
  *     <none>
  */
 
-__int64 NtGetCachedSigningLevel()
+NTSTATUS __cdecl NtGetCachedSigningLevel(
+        HANDLE File,
+        PULONG Flags,
+        PSE_SIGNING_LEVEL SigningLevel,
+        PUCHAR Thumbprint,
+        PULONG ThumbprintSize,
+        PULONG ThumbprintAlgorithm)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 246LL;
+  result = 246;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

@@ -1,14 +1,14 @@
 /*
- * XREFs of PiDmListRemoveObject @ 0x140730A50
+ * XREFs of PiDmListRemoveObject @ 0x140730C1C
  * Callers:
- *     PiPnpRtlCmActionCallback @ 0x140635920 (PiPnpRtlCmActionCallback.c)
+ *     PiPnpRtlCmActionCallback @ 0x14062A730 (PiPnpRtlCmActionCallback.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
- *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
- *     PiDmGetObjectManagerForObjectType @ 0x140636D90 (PiDmGetObjectManagerForObjectType.c)
- *     PiDmListRemoveObjectWorker @ 0x140730B1C (PiDmListRemoveObjectWorker.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     ExAcquirePushLockSharedEx @ 0x1403558A0 (ExAcquirePushLockSharedEx.c)
+ *     ExReleasePushLockEx @ 0x140355BE0 (ExReleasePushLockEx.c)
+ *     PiDmGetObjectManagerForObjectType @ 0x14062BBA0 (PiDmGetObjectManagerForObjectType.c)
+ *     PiDmListRemoveObjectWorker @ 0x140730CE8 (PiDmListRemoveObjectWorker.c)
  */
 
 _QWORD *__fastcall PiDmListRemoveObject(unsigned int a1, ULONG_PTR a2, ULONG_PTR a3, __int64 a4)
@@ -17,6 +17,12 @@ _QWORD *__fastcall PiDmListRemoveObject(unsigned int a1, ULONG_PTR a2, ULONG_PTR
   struct _KTHREAD *CurrentThread; // r10
   void *v10; // rbx
   struct _KTHREAD *v11; // r8
+  __int64 v12; // rdx
+  __int64 v13; // r8
+  __int64 v14; // r9
+  __int64 v15; // rdx
+  __int64 v16; // r8
+  __int64 v17; // r9
 
   ObjectManagerForObjectType = PiDmGetObjectManagerForObjectType(*(_DWORD *)(a2 + 28));
   CurrentThread = KeGetCurrentThread();
@@ -28,7 +34,7 @@ _QWORD *__fastcall PiDmListRemoveObject(unsigned int a1, ULONG_PTR a2, ULONG_PTR
   ExAcquirePushLockSharedEx(a3, 0LL);
   PiDmListRemoveObjectWorker(a1, v10, a2, a3, a4);
   ExReleasePushLockEx(a3, 0LL);
-  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v12, v13, v14);
   ExReleasePushLockEx(a2, 0LL);
-  return KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+  return KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v15, v16, v17);
 }

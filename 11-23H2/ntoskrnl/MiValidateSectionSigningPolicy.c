@@ -2,11 +2,11 @@
  * XREFs of MiValidateSectionSigningPolicy @ 0x1406AA5DC
  * Callers:
  *     MiValidateExistingImage @ 0x1406AA324 (MiValidateExistingImage.c)
- *     MiCreateNewSection @ 0x1407464F0 (MiCreateNewSection.c)
+ *     MiCreateNewSection @ 0x1407466E0 (MiCreateNewSection.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  *     MiValidateSectionCreate @ 0x1406ABE8C (MiValidateSectionCreate.c)
- *     EtwTimLogProhibitNonMicrosoftBinaries @ 0x1409EA2A4 (EtwTimLogProhibitNonMicrosoftBinaries.c)
+ *     EtwTimLogProhibitNonMicrosoftBinaries @ 0x1409EA534 (EtwTimLogProhibitNonMicrosoftBinaries.c)
  */
 
 __int64 __fastcall MiValidateSectionSigningPolicy(
@@ -62,11 +62,11 @@ __int64 __fastcall MiValidateSectionSigningPolicy(
         return (unsigned int)v18;
       if ( v18 < 0 )
         return 0;
-      if ( qword_140C379E0 )
+      if ( qword_140C37980 )
       {
         LOBYTE(v16) = a9;
         LOBYTE(v17) = *(_BYTE *)(*(_QWORD *)a3 + 15LL) >> 4;
-        if ( (unsigned int)qword_140C379E0(v17, v16) )
+        if ( (unsigned int)qword_140C37980(v17, v16) )
           return (unsigned int)v18;
       }
       LOBYTE(v19) = a9;

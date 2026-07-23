@@ -1,12 +1,12 @@
 /*
- * XREFs of MmManagePartitionCreateLargePages @ 0x14077E0A0
+ * XREFs of MmManagePartitionCreateLargePages @ 0x1407809E4
  * Callers:
- *     NtManagePartition @ 0x1407FD4C0 (NtManagePartition.c)
+ *     NtManagePartition @ 0x140802EF0 (NtManagePartition.c)
  * Callees:
- *     MiRebuildLargePage @ 0x14028FF24 (MiRebuildLargePage.c)
- *     MiDefragmentAllSlabAllocators @ 0x1404A0AE8 (MiDefragmentAllSlabAllocators.c)
- *     MiGetLargestPageIndex @ 0x1404CCB6C (MiGetLargestPageIndex.c)
- *     SeSinglePrivilegeCheck @ 0x140932280 (SeSinglePrivilegeCheck.c)
+ *     MiRebuildLargePage @ 0x14028F484 (MiRebuildLargePage.c)
+ *     MiDefragmentAllSlabAllocators @ 0x14049A638 (MiDefragmentAllSlabAllocators.c)
+ *     MiGetLargestPageIndex @ 0x1404C630C (MiGetLargestPageIndex.c)
+ *     SeSinglePrivilegeCheck @ 0x14090DE50 (SeSinglePrivilegeCheck.c)
  */
 
 __int64 __fastcall MmManagePartitionCreateLargePages(__int64 *a1, __int64 a2, KPROCESSOR_MODE a3)

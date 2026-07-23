@@ -1,7 +1,7 @@
 /*
- * XREFs of IopDmaOverrideConflict @ 0x140726270
+ * XREFs of IopDmaOverrideConflict @ 0x140726440
  * Callers:
- *     BiLogFileOwnerProcess @ 0x1405C3B80 (BiLogFileOwnerProcess.c)
+ *     BiLogFileOwnerProcess @ 0x1405C3DB0 (BiLogFileOwnerProcess.c)
  * Callees:
  *     <none>
  */

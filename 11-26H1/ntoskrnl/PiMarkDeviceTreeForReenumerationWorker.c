@@ -1,9 +1,9 @@
 /*
- * XREFs of PiMarkDeviceTreeForReenumerationWorker @ 0x14090C7B0
+ * XREFs of PiMarkDeviceTreeForReenumerationWorker @ 0x1409AE8E0
  * Callers:
- *     PiMarkDeviceTreeForReenumeration @ 0x140AC6C40 (PiMarkDeviceTreeForReenumeration.c)
+ *     PiMarkDeviceTreeForReenumeration @ 0x140AC8830 (PiMarkDeviceTreeForReenumeration.c)
  * Callees:
- *     PipSetDevNodeFlags @ 0x14090DD60 (PipSetDevNodeFlags.c)
+ *     PipSetDevNodeFlags @ 0x1409AFE90 (PipSetDevNodeFlags.c)
  */
 
 __int64 __fastcall PiMarkDeviceTreeForReenumerationWorker(__int64 a1)

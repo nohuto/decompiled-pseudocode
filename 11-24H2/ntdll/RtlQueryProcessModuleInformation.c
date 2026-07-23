@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlQueryProcessModuleInformation @ 0x180046274
+ * XREFs of RtlQueryProcessModuleInformation @ 0x18002A204
  * Callers:
- *     RtlQueryProcessDebugInformation @ 0x180044CD0 (RtlQueryProcessDebugInformation.c)
+ *     RtlQueryProcessDebugInformation @ 0x180028C60 (RtlQueryProcessDebugInformation.c)
  * Callees:
- *     RtlpCommitQueryDebugInfo @ 0x180047450 (RtlpCommitQueryDebugInfo.c)
- *     LdrQueryProcessModuleInformationEx2 @ 0x1800AFEE0 (LdrQueryProcessModuleInformationEx2.c)
- *     LdrQueryProcessModuleInformationEx @ 0x1800B0720 (LdrQueryProcessModuleInformationEx.c)
- *     RtlpDeCommitQueryDebugInfo @ 0x18011ECFC (RtlpDeCommitQueryDebugInfo.c)
- *     memset$thunk$772440563353939046 @ 0x180172030 (memset$thunk$772440563353939046.c)
+ *     RtlpCommitQueryDebugInfo @ 0x18002B900 (RtlpCommitQueryDebugInfo.c)
+ *     LdrQueryProcessModuleInformationEx2 @ 0x18007C780 (LdrQueryProcessModuleInformationEx2.c)
+ *     LdrQueryProcessModuleInformationEx @ 0x18007CFC0 (LdrQueryProcessModuleInformationEx.c)
+ *     RtlpDeCommitQueryDebugInfo @ 0x18011CF2C (RtlpDeCommitQueryDebugInfo.c)
+ *     memset$thunk$772440563353939046 @ 0x180171030 (memset$thunk$772440563353939046.c)
  */
 
 __int64 __fastcall RtlQueryProcessModuleInformation(__int64 a1, unsigned int a2, _QWORD *a3)

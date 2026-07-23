@@ -1,13 +1,13 @@
 /*
- * XREFs of MmGetSectionRange @ 0x14084EDA8
+ * XREFs of MmGetSectionRange @ 0x140850008
  * Callers:
- *     PoSetHiberRange @ 0x1401447D0 (PoSetHiberRange.c)
+ *     PoSetHiberRange @ 0x1401448D0 (PoSetHiberRange.c)
  * Callees:
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceSharedLite @ 0x140050860 (ExAcquireResourceSharedLite.c)
  *     KeLeaveCriticalRegionThread @ 0x140051600 (KeLeaveCriticalRegionThread.c)
- *     RtlImageNtHeader @ 0x14009DAE0 (RtlImageNtHeader.c)
- *     MiLookupDataTableEntry @ 0x1400DA590 (MiLookupDataTableEntry.c)
+ *     RtlImageNtHeader @ 0x14009DA20 (RtlImageNtHeader.c)
+ *     MiLookupDataTableEntry @ 0x1400DA610 (MiLookupDataTableEntry.c)
  */
 
 __int64 __fastcall MmGetSectionRange(unsigned __int64 a1, _QWORD *a2, unsigned int *a3)

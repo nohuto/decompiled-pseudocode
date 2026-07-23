@@ -1,26 +1,26 @@
 /*
- * XREFs of LdrpCaptureCriticalThunks @ 0x1800E85C4
+ * XREFs of LdrpCaptureCriticalThunks @ 0x1800E77D4
  * Callers:
- *     LdrpInitializeProcess @ 0x1800CF8B8 (LdrpInitializeProcess.c)
+ *     LdrpInitializeProcess @ 0x1800CD028 (LdrpInitializeProcess.c)
  * Callees:
- *     ZwQueryVirtualMemory @ 0x18015F3A0 (ZwQueryVirtualMemory.c)
- *     __security_check_cookie @ 0x180162C90 (__security_check_cookie.c)
+ *     ZwQueryVirtualMemory @ 0x18015F2A0 (ZwQueryVirtualMemory.c)
+ *     __security_check_cookie @ 0x180162B90 (__security_check_cookie.c)
  */
 
-__int64 LdrpCaptureCriticalThunks()
+int LdrpCaptureCriticalThunks()
 {
   __int64 v0; // r8
   __int64 (__fastcall **v1)(int, int, int, int, ULONG, ULONG); // rdx
   _QWORD *v2; // rcx
   __int64 v3; // rax
   unsigned int v4; // ebx
-  __int64 result; // rax
+  _OWORD *v5; // rax
   _OWORD *v6; // rcx
-  _BYTE v7[80]; // [rsp+30h] [rbp-68h] BYREF
+  _BYTE MemoryInformation[80]; // [rsp+30h] [rbp-68h] BYREF
 
   v0 = 5LL;
   v1 = &LdrpCriticalLoaderFunctions;
-  v2 = v7;
+  v2 = MemoryInformation;
   do
   {
     v3 = (__int64)*v1++;
@@ -30,8 +30,14 @@ __int64 LdrpCaptureCriticalThunks()
   }
   while ( v0 );
   v4 = 0;
-  result = ZwQueryVirtualMemory(-1LL, 0LL, 4LL, v7, 80LL, 0LL);
-  if ( (int)result < 0 )
+  LODWORD(v5) = ZwQueryVirtualMemory(
+                  (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+                  0LL,
+                  MemoryWorkingSetExInformation,
+                  MemoryInformation,
+                  0x50uLL,
+                  0LL);
+  if ( (int)v5 < 0 )
   {
 LABEL_8:
     LdrpDetourExist = 1;
@@ -41,13 +47,13 @@ LABEL_8:
     v6 = &LdrpThunkSignature;
     while ( v4 < 5 )
     {
-      result = *(unsigned int *)&v7[16 * v4 + 8];
-      if ( (result & 0x40000000) == 0 )
+      LODWORD(v5) = *(_DWORD *)&MemoryInformation[16 * v4 + 8];
+      if ( ((unsigned int)v5 & 0x40000000) == 0 )
         goto LABEL_8;
-      result = (__int64)*(&LdrpCriticalLoaderFunctions + v4);
-      *v6++ = *(_OWORD *)result;
+      v5 = *(&LdrpCriticalLoaderFunctions + v4);
+      *v6++ = *v5;
       ++v4;
     }
   }
-  return result;
+  return (int)v5;
 }

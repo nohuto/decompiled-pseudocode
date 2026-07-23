@@ -1,15 +1,15 @@
 /*
- * XREFs of MiComputeSystemTrimCriteria @ 0x1402A65A8
+ * XREFs of MiComputeSystemTrimCriteria @ 0x1402A59C4
  * Callers:
- *     MiSignalPartitionTrimThreads @ 0x1402A7450 (MiSignalPartitionTrimThreads.c)
- *     MiWorkingSetManager @ 0x1404BE000 (MiWorkingSetManager.c)
+ *     MiSignalPartitionTrimThreads @ 0x1402A6860 (MiSignalPartitionTrimThreads.c)
+ *     MiWorkingSetManager @ 0x1404B7850 (MiWorkingSetManager.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiGetAvailablePagesForTrimPass @ 0x1403B9C08 (MiGetAvailablePagesForTrimPass.c)
- *     MiPulseLowAvailableEvent @ 0x1404C73A4 (MiPulseLowAvailableEvent.c)
- *     MiEstimatePass0Candidates @ 0x1404D1C44 (MiEstimatePass0Candidates.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiGetAvailablePagesForTrimPass @ 0x1403C3B08 (MiGetAvailablePagesForTrimPass.c)
+ *     MiPulseLowAvailableEvent @ 0x1404C0C58 (MiPulseLowAvailableEvent.c)
+ *     MiEstimatePass0Candidates @ 0x1404CB7F0 (MiEstimatePass0Candidates.c)
  */
 
 __int64 __fastcall MiComputeSystemTrimCriteria(__int64 a1, __int64 a2)

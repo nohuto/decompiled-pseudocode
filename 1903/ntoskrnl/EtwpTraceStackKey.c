@@ -27,7 +27,7 @@ char __fastcall EtwpTraceStackKey(
   char v7; // di
   unsigned int v8; // r12d
   unsigned __int64 v9; // r8
-  struct _SLIST_ENTRY *v10; // r13
+  _SLIST_ENTRY *v10; // r13
   unsigned int v11; // r11d
   unsigned int v12; // r9d
   __int64 v13; // r10
@@ -48,20 +48,20 @@ char __fastcall EtwpTraceStackKey(
   unsigned __int8 v28; // cl
   __int64 *v29; // rax
   unsigned int v30; // ebx
-  union _SLIST_HEADER *v31; // r14
+  _SLIST_HEADER *v31; // r14
   PSLIST_ENTRY v32; // r15
   PSLIST_ENTRY v33; // rbp
   unsigned int v34; // r12d
   struct _KPRCB *v35; // rcx
-  struct _SLIST_ENTRY *v36; // rbx
+  _SLIST_ENTRY *v36; // rbx
   PSLIST_ENTRY *v37; // rax
   struct _KPRCB *v38; // rcx
   int v40; // [rsp+34h] [rbp-94h]
   unsigned int v41; // [rsp+38h] [rbp-90h]
   unsigned int **v42; // [rsp+40h] [rbp-88h]
   unsigned int ListHead; // [rsp+48h] [rbp-80h]
-  union _SLIST_HEADER *ListHeada; // [rsp+48h] [rbp-80h]
-  struct _SLIST_ENTRY *ListEntry; // [rsp+50h] [rbp-78h]
+  _SLIST_HEADER *ListHeada; // [rsp+48h] [rbp-80h]
+  _SLIST_ENTRY *ListEntry; // [rsp+50h] [rbp-78h]
   KSPIN_LOCK *SpinLock; // [rsp+58h] [rbp-70h]
   PSLIST_ENTRY v47; // [rsp+60h] [rbp-68h] BYREF
   __int64 v48; // [rsp+68h] [rbp-60h]
@@ -181,10 +181,10 @@ LABEL_63:
     while ( v19 != (PSLIST_ENTRY)v17 );
     if ( v16 == 4 )
     {
-      v10 = *(struct _SLIST_ENTRY **)(v17 + 8);
+      v10 = *(_SLIST_ENTRY **)(v17 + 8);
       ListEntry = v10;
       v29 = (__int64 *)*((_QWORD *)&v10->Next + 1);
-      if ( v10->Next != (_SLIST_ENTRY *)v17 || (struct _SLIST_ENTRY *)*v29 != v10 )
+      if ( v10->Next != (_SLIST_ENTRY *)v17 || (_SLIST_ENTRY *)*v29 != v10 )
         goto LABEL_63;
       *(_QWORD *)(v17 + 8) = v29;
       *v29 = v17;
@@ -195,8 +195,8 @@ LABEL_63:
   v30 = 0;
   if ( !v8 )
     goto LABEL_62;
-  v31 = (union _SLIST_HEADER *)(v6 + 2);
-  ListHeada = (union _SLIST_HEADER *)(v6 + 2);
+  v31 = (_SLIST_HEADER *)(v6 + 2);
+  ListHeada = (_SLIST_HEADER *)(v6 + 2);
   v32 = 0LL;
   do
   {

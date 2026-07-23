@@ -10,26 +10,21 @@
  *     sub_18007BA00 @ 0x18007BA00 (sub_18007BA00.c)
  */
 
-signed __int64 __fastcall sub_18005FE60(__int64 a1, unsigned __int64 a2, __int64 a3, __int64 a4)
+void __fastcall sub_18005FE60(__int64 a1, _RTL_SRWLOCK *a2, __int64 a3, char a4)
 {
-  signed __int64 result; // rax
-  char v5; // di
-  __int64 v6; // rbx
+  __int64 v5; // rbx
 
-  result = *(unsigned __int16 *)(a3 + 34);
-  v5 = a4;
-  v6 = a3;
-  if ( *(_WORD *)(a3 + 32) != (_WORD)result )
+  v5 = a3;
+  if ( *(_WORD *)(a3 + 32) != *(_WORD *)(a3 + 34) )
   {
-    RtlAcquireSRWLockExclusive(a2 + 16, a2, (unsigned __int64 *)a3, a4);
-    sub_18007BA00(v6, a2);
-    if ( *(_WORD *)(v6 + 32) == *(_WORD *)(v6 + 34) )
-      *(_QWORD *)(v6 + 16) = 0LL;
+    RtlAcquireSRWLockExclusive(a2 + 2);
+    sub_18007BA00(v5, a2);
+    if ( *(_WORD *)(v5 + 32) == *(_WORD *)(v5 + 34) )
+      *(_QWORD *)(v5 + 16) = 0LL;
     else
-      v6 = sub_180073AFC(a2, v6, 0LL);
-    result = RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a2 + 16));
+      v5 = sub_180073AFC(a2, v5, 0LL);
+    RtlReleaseSRWLockExclusive(a2 + 2);
   }
-  if ( v6 )
-    return sub_18005FECC(a1, v6, a2, 2 * (v5 & 1u));
-  return result;
+  if ( v5 )
+    sub_18005FECC(a1, v5, a2, 2 * (a4 & 1u));
 }

@@ -27,20 +27,21 @@ __int64 __fastcall MiRescanPageFileBitmapPortion(__int64 a1, __int64 a2, int a3,
   __int64 v19; // r14
   __int64 v20; // rax
   unsigned __int64 v21; // rdx
-  int v22; // ecx
-  unsigned __int64 v23; // rax
-  __int64 v24; // r8
+  BOOLEAN v22; // r8
+  int v23; // ecx
+  unsigned __int64 v24; // rax
   __int64 v25; // rax
   __int64 v26; // rdx
-  int v27; // ecx
-  __int64 v28; // rax
+  BOOLEAN v27; // r8
+  int v28; // ecx
   __int64 v29; // rax
-  unsigned int v30; // eax
+  __int64 v30; // rax
+  unsigned int v31; // eax
   __int64 result; // rax
-  unsigned int v32; // edi
-  int v33; // [rsp+30h] [rbp-38h] BYREF
-  __int64 v34; // [rsp+38h] [rbp-30h]
-  int v35; // [rsp+80h] [rbp+18h] BYREF
+  unsigned int v33; // edi
+  int v34; // [rsp+30h] [rbp-38h] BYREF
+  __int64 v35; // [rsp+38h] [rbp-30h]
+  int v36; // [rsp+80h] [rbp+18h] BYREF
 
   v5 = *(_QWORD *)(a2 + 8);
   v6 = a5;
@@ -49,30 +50,30 @@ __int64 __fastcall MiRescanPageFileBitmapPortion(__int64 a1, __int64 a2, int a3,
   v10 = v7;
   v11 = *a5;
   v12 = v5 + 4 * ((unsigned __int64)(unsigned int)(a3 - v7) >> 5);
-  v34 = v12;
-  v33 = v7 + a4;
+  v35 = v12;
+  v34 = v7 + a4;
   while ( 1 )
   {
-    result = RtlFindNextClearRunUlong((unsigned int)&v33, v10, v12, -1, (__int64)&v35);
-    v32 = result;
+    result = RtlFindNextClearRunUlong((unsigned int)&v34, v10, v12, -1, (__int64)&v36);
+    v33 = result;
     if ( !(_DWORD)result )
       break;
     v13 = *(_DWORD *)(v11 + 52);
-    v14 = v35 + v9;
-    v15 = v35 + v32;
-    if ( v32 <= v13 )
+    v14 = v36 + v9;
+    v15 = v36 + v33;
+    if ( v33 <= v13 )
     {
-      v30 = *(_DWORD *)(a1 + 140);
-      if ( v30 <= v32 )
-        v30 = v32;
-      *(_DWORD *)(a1 + 140) = v30;
+      v31 = *(_DWORD *)(a1 + 140);
+      if ( v31 <= v33 )
+        v31 = v33;
+      *(_DWORD *)(a1 + 140) = v31;
     }
     else
     {
       if ( v13 )
       {
-        RtlRbRemoveNode(a1 + 144, v11);
-        RtlRbRemoveNode(a1 + 160, v11 + 24);
+        RtlRbRemoveNode((PRTL_RB_TREE)(a1 + 144), (PRTL_BALANCED_NODE)v11);
+        RtlRbRemoveNode((PRTL_RB_TREE)(a1 + 160), (PRTL_BALANCED_NODE)(v11 + 24));
         v18 = *(_DWORD *)(a1 + 140);
         if ( v18 <= *(_DWORD *)(v11 + 52) )
           v18 = *(_DWORD *)(v11 + 52);
@@ -87,112 +88,111 @@ __int64 __fastcall MiRescanPageFileBitmapPortion(__int64 a1, __int64 a2, int a3,
         *(_QWORD *)(v16 + 8) = v17;
       }
       v19 = a1 + 144;
-      *(_DWORD *)(v11 + 52) = v32;
+      *(_DWORD *)(v11 + 52) = v33;
       *(_DWORD *)(v11 + 48) = v14;
       v20 = *(_QWORD *)(a1 + 152);
       v21 = *(_QWORD *)(a1 + 144);
       if ( (v20 & 1) != 0 && v21 )
         v21 ^= v19;
-      LOBYTE(v12) = 0;
-      v22 = v20 & 1;
+      v22 = 0;
+      v23 = v20 & 1;
       if ( v21 )
       {
         while ( 1 )
         {
-          if ( __PAIR64__(v32, v14) < *(_QWORD *)(v21 + 48) )
+          if ( __PAIR64__(v33, v14) < *(_QWORD *)(v21 + 48) )
           {
-            v23 = *(_QWORD *)v21;
-            if ( v22 )
+            v24 = *(_QWORD *)v21;
+            if ( v23 )
             {
-              if ( !v23 )
+              if ( !v24 )
                 goto LABEL_26;
-              v23 ^= v21;
+              v24 ^= v21;
             }
-            if ( !v23 )
+            if ( !v24 )
             {
 LABEL_26:
-              LOBYTE(v12) = 0;
+              v22 = 0;
               break;
             }
           }
           else
           {
-            v23 = *(_QWORD *)(v21 + 8);
-            if ( v22 )
+            v24 = *(_QWORD *)(v21 + 8);
+            if ( v23 )
             {
-              if ( !v23 )
+              if ( !v24 )
                 goto LABEL_20;
-              v23 ^= v21;
+              v24 ^= v21;
             }
-            if ( !v23 )
+            if ( !v24 )
             {
 LABEL_20:
-              LOBYTE(v12) = 1;
+              v22 = 1;
               break;
             }
           }
-          v21 = v23;
+          v21 = v24;
         }
       }
-      RtlRbInsertNodeEx(a1 + 144, v21, v12, v11);
+      RtlRbInsertNodeEx((PRTL_RB_TREE)(a1 + 144), (PRTL_BALANCED_NODE)v21, v22, (PRTL_BALANCED_NODE)v11);
       v25 = *(_QWORD *)(a1 + 168);
       v26 = *(_QWORD *)(a1 + 160);
       if ( (v25 & 1) != 0 && v26 )
         v26 ^= a1 + 160;
-      LOBYTE(v24) = 0;
-      v27 = v25 & 1;
+      v27 = 0;
+      v28 = v25 & 1;
       if ( v26 )
       {
-        v24 = *(unsigned int *)(v11 + 48);
         while ( 1 )
         {
-          if ( (unsigned int)v24 < *(_DWORD *)(v26 + 24) )
+          if ( *(_DWORD *)(v11 + 48) < *(_DWORD *)(v26 + 24) )
           {
-            v28 = *(_QWORD *)v26;
-            if ( v27 )
+            v29 = *(_QWORD *)v26;
+            if ( v28 )
             {
-              if ( !v28 )
-                goto LABEL_43;
-              v28 ^= v26;
+              if ( !v29 )
+                goto LABEL_42;
+              v29 ^= v26;
             }
-            if ( !v28 )
+            if ( !v29 )
             {
-LABEL_43:
-              LOBYTE(v24) = 0;
+LABEL_42:
+              v27 = 0;
               break;
             }
           }
           else
           {
-            v28 = *(_QWORD *)(v26 + 8);
-            if ( v27 )
+            v29 = *(_QWORD *)(v26 + 8);
+            if ( v28 )
             {
-              if ( !v28 )
-                goto LABEL_37;
-              v28 ^= v26;
+              if ( !v29 )
+                goto LABEL_36;
+              v29 ^= v26;
             }
-            if ( !v28 )
+            if ( !v29 )
             {
-LABEL_37:
-              LOBYTE(v24) = 1;
+LABEL_36:
+              v27 = 1;
               break;
             }
           }
-          v26 = v28;
+          v26 = v29;
         }
       }
-      RtlRbInsertNodeEx(a1 + 160, v26, v24, v11 + 24);
+      RtlRbInsertNodeEx((PRTL_RB_TREE)(a1 + 160), (PRTL_BALANCED_NODE)v26, v27, (PRTL_BALANCED_NODE)(v11 + 24));
       ++*(_DWORD *)(a1 + 128);
       v11 = *(_QWORD *)(a1 + 176);
       if ( v11 == a1 + 176 )
       {
-        v29 = *(_QWORD *)(a1 + 152);
-        if ( (v29 & 1) != 0 )
+        v30 = *(_QWORD *)(a1 + 152);
+        if ( (v30 & 1) != 0 )
         {
-          if ( v29 == 1 )
+          if ( v30 == 1 )
             v11 = 0LL;
           else
-            v11 = v29 ^ (v19 | 1);
+            v11 = v30 ^ (v19 | 1);
         }
         else
         {

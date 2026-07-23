@@ -1,7 +1,7 @@
 /*
  * XREFs of sub_1406B6278 @ 0x1406B6278
  * Callers:
- *     ExHandleSPCall2 @ 0x1406B6054 (ExHandleSPCall2.c)
+ *     sub_1406B6054 @ 0x1406B6054 (sub_1406B6054.c)
  * Callees:
  *     KeExpandKernelStackAndCalloutEx @ 0x1402AA8A0 (KeExpandKernelStackAndCalloutEx.c)
  */

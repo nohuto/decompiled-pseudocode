@@ -22,9 +22,9 @@
  *     CmpWaitOnHiveWriteQueue @ 0x14087268C (CmpWaitOnHiveWriteQueue.c)
  */
 
-__int64 __fastcall NtCompressKey(void *a1)
+NTSTATUS __cdecl NtCompressKey(HANDLE KeyHandle)
 {
-  int v2; // ebx
+  NTSTATUS v2; // ebx
   KPROCESSOR_MODE PreviousMode; // bl
   __int64 v4; // r8
   unsigned int v5; // ebp
@@ -47,8 +47,8 @@ __int64 __fastcall NtCompressKey(void *a1)
     PreviousMode = KeGetCurrentThread()->PreviousMode;
     if ( SeSinglePrivilegeCheck(SeBackupPrivilege, PreviousMode) )
     {
-      v5 = (unsigned __int8)a1 & 3;
-      v2 = CmObReferenceObjectByHandle(a1, 0x20006u, v4, PreviousMode, &DmaAdapter, 0LL);
+      v5 = (unsigned __int8)KeyHandle & 3;
+      v2 = CmObReferenceObjectByHandle(KeyHandle, 0x20006u, v4, PreviousMode, &DmaAdapter, 0LL);
       if ( v2 >= 0 )
       {
         CurrentThread = KeGetCurrentThread();
@@ -100,8 +100,8 @@ __int64 __fastcall NtCompressKey(void *a1)
     }
     else
     {
-      return (unsigned int)-1073741727;
+      return -1073741727;
     }
   }
-  return (unsigned int)v2;
+  return v2;
 }

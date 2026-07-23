@@ -1,12 +1,12 @@
 /*
- * XREFs of DifRtlCheckRegistryKeyWrapper @ 0x1405EAE30
+ * XREFs of DifRtlCheckRegistryKeyWrapper @ 0x1405EB3A0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     DifGetAPIThunkContextById @ 0x1404664BE (DifGetAPIThunkContextById.c)
- *     DifGetReturnAddressForWrappers @ 0x1405F88C4 (DifGetReturnAddressForWrappers.c)
- *     RtlCheckRegistryKey @ 0x1407E53B0 (RtlCheckRegistryKey.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x1404668BE (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F8E34 (DifGetReturnAddressForWrappers.c)
+ *     RtlCheckRegistryKey @ 0x1407E5680 (RtlCheckRegistryKey.c)
  */
 
 NTSTATUS __fastcall DifRtlCheckRegistryKeyWrapper(ULONG RelativeTo, PWSTR Path)

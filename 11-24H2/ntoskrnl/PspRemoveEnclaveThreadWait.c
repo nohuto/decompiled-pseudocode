@@ -1,33 +1,33 @@
 /*
- * XREFs of PspRemoveEnclaveThreadWait @ 0x14077B880
+ * XREFs of PspRemoveEnclaveThreadWait @ 0x14077B730
  * Callers:
- *     PsCallEnclave @ 0x140AD1D10 (PsCallEnclave.c)
+ *     PsCallEnclave @ 0x140AD0080 (PsCallEnclave.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
  */
 
 __int64 __fastcall PspRemoveEnclaveThreadWait(__int64 a1, __int64 *a2, unsigned int a3)
 {
   struct _KTHREAD *CurrentThread; // rax
   unsigned __int64 *v4; // rdi
-  _QWORD *v7; // rax
-  _QWORD *v8; // rbp
+  char *v7; // rax
+  char *v8; // rbp
   __int64 v9; // rax
   __int64 **v10; // rcx
 
   CurrentThread = KeGetCurrentThread();
   v4 = (unsigned __int64 *)(a1 + 112);
   --CurrentThread->KernelApcDisable;
-  v7 = KeAbPreAcquire(a1 + 112, 0LL);
+  v7 = (char *)KeAbPreAcquire(a1 + 112, 0LL);
   v8 = v7;
   if ( _interlockedbittestandset64((volatile signed __int32 *)v4, 0LL) )
-    ExfAcquirePushLockExclusiveEx(v4, (__int64)v7, (__int64)v4);
+    ExfAcquirePushLockExclusiveEx(v4, v7, (__int64)v4);
   if ( v8 )
-    *((_BYTE *)v8 + 10) = 1;
+    v8[10] = 1;
   v9 = *a2;
   if ( *a2 )
   {

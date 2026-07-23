@@ -1,15 +1,15 @@
 /*
- * XREFs of LdrpDynamicShimModule @ 0x180005B7C
+ * XREFs of LdrpDynamicShimModule @ 0x18003257C
  * Callers:
- *     LdrpPrepareModuleForExecution @ 0x180004BA4 (LdrpPrepareModuleForExecution.c)
+ *     LdrpPrepareModuleForExecution @ 0x1800315A4 (LdrpPrepareModuleForExecution.c)
  * Callees:
- *     LdrpGetProcApphelpCheckModule @ 0x18000AC90 (LdrpGetProcApphelpCheckModule.c)
- *     LdrpLogInternal @ 0x180013D80 (LdrpLogInternal.c)
- *     RtlEnterCriticalSection @ 0x1800148F0 (RtlEnterCriticalSection.c)
- *     RtlLeaveCriticalSection @ 0x1800149F0 (RtlLeaveCriticalSection.c)
- *     RtlFreeHeap @ 0x1800269F0 (RtlFreeHeap.c)
- *     LdrpSendShimEngineInitialNotifications @ 0x180065DAC (LdrpSendShimEngineInitialNotifications.c)
- *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180172020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ *     LdrpGetProcApphelpCheckModule @ 0x180037690 (LdrpGetProcApphelpCheckModule.c)
+ *     LdrpLogInternal @ 0x180040780 (LdrpLogInternal.c)
+ *     RtlEnterCriticalSection @ 0x1800412F0 (RtlEnterCriticalSection.c)
+ *     RtlLeaveCriticalSection @ 0x1800413F0 (RtlLeaveCriticalSection.c)
+ *     RtlFreeHeap @ 0x1800533F0 (RtlFreeHeap.c)
+ *     LdrpSendShimEngineInitialNotifications @ 0x1800ADC7C (LdrpSendShimEngineInitialNotifications.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180171020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
  */
 
 __int64 __fastcall LdrpDynamicShimModule(_QWORD *a1)
@@ -24,21 +24,21 @@ __int64 __fastcall LdrpDynamicShimModule(_QWORD *a1)
   __int64 v9; // rdi
   unsigned int (__fastcall *v10)(_WORD *, _QWORD, __int64); // [rsp+68h] [rbp+10h] BYREF
 
-  v1 = dword_1801CD7CC;
+  v1 = dword_1801CC7CC;
   v10 = 0LL;
   v3 = 0;
-  if ( dword_1801CD7CC && g_pShimmedModuleList )
+  if ( dword_1801CC7CC && g_pShimmedModuleList )
   {
-    dword_1801CD7CC = 0;
+    dword_1801CC7CC = 0;
     v5 = LdrpGetProcApphelpCheckModule(&v10);
     v3 = v5;
     if ( v5 < 0 )
     {
       LdrpLogInternal(
-        (int)"minkernel\\ldr\\ldrinit.c",
-        4139,
-        (int)"LdrpDynamicShimModule",
-        0,
+        "minkernel\\ldr\\ldrinit.c",
+        4139LL,
+        "LdrpDynamicShimModule",
+        0LL,
         "Getting ApphelpCheckModule failed with status 0x%08lx\n",
         v5);
       v3 = 0;
@@ -68,11 +68,11 @@ __int64 __fastcall LdrpDynamicShimModule(_QWORD *a1)
 LABEL_3:
   if ( v1 == 1 && g_pShimmedModuleList )
   {
-    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, g_pShimmedModuleList);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, g_pShimmedModuleList);
     g_pShimmedModuleList = 0LL;
     g_pShimmedModuleListLength = 0LL;
   }
   result = v3;
-  dword_1801CD7CC = v1;
+  dword_1801CC7CC = v1;
   return result;
 }

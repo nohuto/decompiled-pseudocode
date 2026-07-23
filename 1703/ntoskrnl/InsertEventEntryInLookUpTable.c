@@ -95,7 +95,7 @@ __int64 __fastcall InsertEventEntryInLookUpTable(
   }
   else
   {
-    v17 = KeAbPreAcquire(v5 + 328);
+    v17 = KeAbPreAcquire(v5 + 328, 0LL);
     if ( _InterlockedCompareExchange64((volatile signed __int64 *)(v5 + 328), 17LL, 0LL) )
       ExfAcquirePushLockSharedEx(v5 + 328, v17, v5 + 328);
     if ( v17 )

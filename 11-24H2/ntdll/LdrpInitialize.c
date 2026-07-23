@@ -1,14 +1,14 @@
 /*
- * XREFs of LdrpInitialize @ 0x1800973E8
+ * XREFs of LdrpInitialize @ 0x18002C238
  * Callers:
- *     LdrInitializeThunk @ 0x1800973C0 (LdrInitializeThunk.c)
+ *     LdrInitializeThunk @ 0x18002C210 (LdrInitializeThunk.c)
  * Callees:
- *     InitSpecialMachineFrames @ 0x180097454 (InitSpecialMachineFrames.c)
- *     InitSecurityCookie @ 0x1800974E8 (InitSecurityCookie.c)
- *     __cpu_features_init @ 0x18012B4AC (__cpu_features_init.c)
+ *     InitSpecialMachineFrames @ 0x18002C2A4 (InitSpecialMachineFrames.c)
+ *     InitSecurityCookie @ 0x18002C338 (InitSecurityCookie.c)
+ *     __cpu_features_init @ 0x1801296DC (__cpu_features_init.c)
  */
 
-struct _TEB *__fastcall LdrpInitialize(__int64 a1, __int64 a2)
+__int64 __fastcall LdrpInitialize(__int64 a1, __int64 a2)
 {
   if ( !SecurityCookieInitialized )
   {

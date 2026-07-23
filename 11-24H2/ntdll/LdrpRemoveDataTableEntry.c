@@ -1,7 +1,7 @@
 /*
- * XREFs of LdrpRemoveDataTableEntry @ 0x1800F10B8
+ * XREFs of LdrpRemoveDataTableEntry @ 0x1800EBD38
  * Callers:
- *     LdrpUnloadNode @ 0x18001CA60 (LdrpUnloadNode.c)
+ *     LdrpUnloadNode @ 0x180049460 (LdrpUnloadNode.c)
  * Callees:
  *     <none>
  */

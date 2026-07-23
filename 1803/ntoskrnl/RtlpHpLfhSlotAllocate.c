@@ -172,7 +172,7 @@ LABEL_40:
           }
           *(_BYTE *)(v24 + 32) |= 2u;
           if ( *(__int64 *)(v24 + 32) < 0 )
-            KiAbEntryRemoveFromTree(v24, SessionId);
+            KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v24, SessionId);
           v53 = 0;
           v53 = *(_DWORD *)(v24 + 88) & 0x1FFFF;
           *(_DWORD *)(v24 + 88) &= 0xFFFE0000;
@@ -269,7 +269,7 @@ LABEL_75:
         }
         *(_BYTE *)(v33 + 32) |= 2u;
         if ( *(__int64 *)(v33 + 32) < 0 )
-          KiAbEntryRemoveFromTree(v33, v30);
+          KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v33, v30);
         v54 = 0;
         v54 = *(_DWORD *)(v33 + 88) & 0x1FFFF;
         *(_DWORD *)(v33 + 88) &= 0xFFFE0000;
@@ -406,7 +406,7 @@ LABEL_105:
             {
               *(_BYTE *)(v47 + 32) |= 2u;
               if ( *(__int64 *)(v47 + 32) < 0 )
-                KiAbEntryRemoveFromTree(v47, v45);
+                KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v47, v45);
               v55 = 0;
               v55 = *(_DWORD *)(v47 + 88) & 0x1FFFF;
               *(_DWORD *)(v47 + 88) &= 0xFFFE0000;

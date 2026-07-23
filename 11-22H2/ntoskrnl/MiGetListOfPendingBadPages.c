@@ -109,10 +109,13 @@ __int64 __fastcall MiGetListOfPendingBadPages(__int64 a1)
           }
         }
         ExReleaseSpinLockSharedFromDpcLevel(&dword_140C67410);
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           CurrentIrql = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v7 <= 0xFu && CurrentIrql >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+            && CurrentIrql <= 0xFu
+            && (unsigned __int8)v7 <= 0xFu
+            && CurrentIrql >= 2u )
           {
             CurrentPrcb = KeGetCurrentPrcb();
             v31 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v7 + 1));
@@ -144,10 +147,10 @@ LABEL_61:
         return 0LL;
       }
       ExReleaseSpinLockSharedFromDpcLevel(&dword_140C67410);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v8 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v8 <= 0xFu && (unsigned __int8)v7 <= 0xFu && v8 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v8 <= 0xFu && (unsigned __int8)v7 <= 0xFu && v8 >= 2u )
         {
           v9 = KeGetCurrentPrcb();
           v10 = v9->SchedulerAssist;
@@ -175,10 +178,10 @@ LABEL_38:
     v14 = ExAcquireSpinLockShared(&dword_140C67410);
     v15 = MiEnumerateBadHugeRangePages(v6, v2, 2);
     ExReleaseSpinLockSharedFromDpcLevel(&dword_140C67410);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v16 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v16 <= 0xFu && (unsigned __int8)v14 <= 0xFu && v16 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v16 <= 0xFu && (unsigned __int8)v14 <= 0xFu && v16 >= 2u )
       {
         v17 = KeGetCurrentPrcb();
         v18 = v17->SchedulerAssist;

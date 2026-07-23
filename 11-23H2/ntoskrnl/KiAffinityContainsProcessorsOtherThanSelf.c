@@ -1,9 +1,9 @@
 /*
- * XREFs of KiAffinityContainsProcessorsOtherThanSelf @ 0x14034EDB0
+ * XREFs of KiAffinityContainsProcessorsOtherThanSelf @ 0x14034EF50
  * Callers:
- *     KiEnterLongDpcProcessing @ 0x140247A00 (KiEnterLongDpcProcessing.c)
- *     KiPreprocessFlushTb @ 0x1402EB29C (KiPreprocessFlushTb.c)
- *     KiIpiSendRequestEx @ 0x1402EB5F0 (KiIpiSendRequestEx.c)
+ *     KiEnterLongDpcProcessing @ 0x140247AD0 (KiEnterLongDpcProcessing.c)
+ *     KiPreprocessFlushTb @ 0x1402EB52C (KiPreprocessFlushTb.c)
+ *     KiIpiSendRequestEx @ 0x1402EB880 (KiIpiSendRequestEx.c)
  * Callees:
  *     <none>
  */

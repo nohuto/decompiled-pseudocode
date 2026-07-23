@@ -1,9 +1,9 @@
 /*
- * XREFs of IoInitializeRemoveLockEx @ 0x1404F4C60
+ * XREFs of IoInitializeRemoveLockEx @ 0x1404EE240
  * Callers:
- *     DifIoInitializeRemoveLockExWrapper @ 0x14065CCD0 (DifIoInitializeRemoveLockExWrapper.c)
- *     PopFxRegisterDeviceWorker @ 0x140B1BA40 (PopFxRegisterDeviceWorker.c)
- *     VfFilterAttach @ 0x140C3BD80 (VfFilterAttach.c)
+ *     DifIoInitializeRemoveLockExWrapper @ 0x1406608B0 (DifIoInitializeRemoveLockExWrapper.c)
+ *     PopFxRegisterDeviceWorker @ 0x140B1DC50 (PopFxRegisterDeviceWorker.c)
+ *     VfFilterAttach @ 0x140C41D90 (VfFilterAttach.c)
  * Callees:
  *     <none>
  */
@@ -37,7 +37,7 @@ LABEL_3:
       Lock[1].Common.IoCount = HighWatermark;
       *(_QWORD *)&Lock[1].Common.RemoveEvent.Header.Lock = 600000000
                                                          * MaxLockedMinutes
-                                                         * (unsigned __int64)(unsigned int)KeMaximumIncrement;
+                                                         * (unsigned __int64)KeMaximumIncrement;
       v5 = 1919970896;
       if ( AllocateTag )
         v5 = AllocateTag;

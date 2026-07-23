@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlUnicodeStringValidateWorker @ 0x18006CB54
+ * XREFs of RtlUnicodeStringValidateWorker @ 0x18006CB44
  * Callers:
- *     RtlUnicodeStringValidateSrcWorker @ 0x18006CAA8 (RtlUnicodeStringValidateSrcWorker.c)
- *     RtlUnicodeStringValidateDestWorker @ 0x18006CAE4 (RtlUnicodeStringValidateDestWorker.c)
+ *     RtlUnicodeStringValidateSrcWorker @ 0x18006CA98 (RtlUnicodeStringValidateSrcWorker.c)
+ *     RtlUnicodeStringValidateDestWorker @ 0x18006CAD4 (RtlUnicodeStringValidateDestWorker.c)
  * Callees:
  *     <none>
  */

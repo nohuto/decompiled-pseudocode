@@ -10,13 +10,13 @@
  *     HvpViewMapMakeViewRangeInvalid @ 0x140734084 (HvpViewMapMakeViewRangeInvalid.c)
  */
 
-struct _PRIVILEGE_SET *__fastcall HvpViewMapShrinkStorage(__int64 a1, int a2)
+struct _PRIVILEGE_SET *__fastcall HvpViewMapShrinkStorage(ULONG_PTR a1, int a2)
 {
   __int64 v2; // r12
   __int64 v3; // r15
   struct _PRIVILEGE_SET *p_Privileges; // rbx
   __int64 v5; // r8
-  __int64 v7; // rdi
+  ULONG_PTR v7; // rdi
   unsigned __int64 v8; // rbx
   unsigned __int64 v9; // rax
   __int64 v10; // rsi
@@ -61,7 +61,7 @@ struct _PRIVILEGE_SET *__fastcall HvpViewMapShrinkStorage(__int64 a1, int a2)
       HvpViewMapMakeViewRangeInvalid(a1, (_QWORD *)v8, v5, v10);
       if ( *(_QWORD *)(v8 + 40) == *(_QWORD *)(v8 + 48) )
       {
-        RtlRbRemoveNode((unsigned __int64 *)v7, v8);
+        RtlRbRemoveNode((PRTL_RB_TREE)v7, (PRTL_BALANCED_NODE)v8);
         Luid = (unsigned __int64 *)Privileges.Privilege[0].Luid;
         if ( **(struct _PRIVILEGE_SET ***)&Privileges.Privilege[0].Luid != &Privileges )
           goto LABEL_22;

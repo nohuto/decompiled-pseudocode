@@ -1,17 +1,17 @@
 /*
- * XREFs of RtlpHpSegFreeInternal @ 0x18001AD38
+ * XREFs of RtlpHpSegFreeInternal @ 0x180005E18
  * Callers:
- *     RtlpHpTagFreeHeap @ 0x1800195A0 (RtlpHpTagFreeHeap.c)
- *     RtlpHpFreeHeap @ 0x180019C00 (RtlpHpFreeHeap.c)
- *     RtlpHpMetadataFree @ 0x180087EE8 (RtlpHpMetadataFree.c)
- *     RtlpHpFreeHeapSlow @ 0x180089330 (RtlpHpFreeHeapSlow.c)
- *     RtlpHpAllocateHeapSlow @ 0x180097E10 (RtlpHpAllocateHeapSlow.c)
- *     RtlpHpReallocMove @ 0x1800B1D30 (RtlpHpReallocMove.c)
+ *     RtlpHpTagFreeHeap @ 0x180004680 (RtlpHpTagFreeHeap.c)
+ *     RtlpHpFreeHeap @ 0x180004CE0 (RtlpHpFreeHeap.c)
+ *     RtlpHpMetadataFree @ 0x18007F268 (RtlpHpMetadataFree.c)
+ *     RtlpHpFreeHeapSlow @ 0x180080730 (RtlpHpFreeHeapSlow.c)
+ *     RtlpHpReallocMove @ 0x1800818A0 (RtlpHpReallocMove.c)
+ *     RtlpHpAllocateHeapSlow @ 0x180096F60 (RtlpHpAllocateHeapSlow.c)
  * Callees:
- *     RtlpHpVsContextFree @ 0x18008E6F0 (RtlpHpVsContextFree.c)
- *     RtlpHpSegPageRangeShrink @ 0x180096F44 (RtlpHpSegPageRangeShrink.c)
- *     RtlpHpPgContextFree @ 0x180101E64 (RtlpHpPgContextFree.c)
- *     RtlpLogHeapFailure @ 0x1801217EC (RtlpLogHeapFailure.c)
+ *     RtlpHpSegPageRangeShrink @ 0x180071824 (RtlpHpSegPageRangeShrink.c)
+ *     RtlpHpVsContextFree @ 0x1800E0118 (RtlpHpVsContextFree.c)
+ *     RtlpHpPgContextFree @ 0x1801015B4 (RtlpHpPgContextFree.c)
+ *     RtlpLogHeapFailure @ 0x180121588 (RtlpLogHeapFailure.c)
  */
 
 __int64 __fastcall RtlpHpSegFreeInternal(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4)

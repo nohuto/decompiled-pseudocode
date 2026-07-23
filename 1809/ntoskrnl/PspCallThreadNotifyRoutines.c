@@ -1,33 +1,33 @@
 /*
- * XREFs of PspCallThreadNotifyRoutines @ 0x1405F4F90
+ * XREFs of PspCallThreadNotifyRoutines @ 0x1405F5F90
  * Callers:
- *     PspExitThread @ 0x1405F75E0 (PspExitThread.c)
- *     PspInitializeThunkContext @ 0x1406207DC (PspInitializeThunkContext.c)
- *     PspInsertThread @ 0x140621450 (PspInsertThread.c)
+ *     PspExitThread @ 0x1405F85E0 (PspExitThread.c)
+ *     PspInitializeThunkContext @ 0x1406217DC (PspInitializeThunkContext.c)
+ *     PspInsertThread @ 0x140622450 (PspInsertThread.c)
  * Callees:
- *     ExDereferenceCallBackBlock @ 0x140088AA0 (ExDereferenceCallBackBlock.c)
- *     ExReferenceCallBackBlock @ 0x140088AF0 (ExReferenceCallBackBlock.c)
- *     ExGetCallBackBlockRoutine @ 0x140088BB0 (ExGetCallBackBlockRoutine.c)
- *     ExGetCallBackBlockContext @ 0x140088F00 (ExGetCallBackBlockContext.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     ExDereferenceCallBackBlock @ 0x140088A90 (ExDereferenceCallBackBlock.c)
+ *     ExReferenceCallBackBlock @ 0x140088AE0 (ExReferenceCallBackBlock.c)
+ *     ExGetCallBackBlockRoutine @ 0x140088BA0 (ExGetCallBackBlockRoutine.c)
+ *     ExGetCallBackBlockContext @ 0x140088EF0 (ExGetCallBackBlockContext.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
  */
 
 void __fastcall PspCallThreadNotifyRoutines(_QWORD *a1, unsigned __int8 a2, char a3)
 {
   bool v5; // r15
-  union _RTL_RUN_ONCE *v6; // rbx
+  _RTL_RUN_ONCE *v6; // rbx
   __int64 v7; // rdi
   struct _EX_RUNDOWN_REF *v8; // rax
   struct _EX_RUNDOWN_REF *v9; // rsi
   char v10; // al
   __int64 v11; // rcx
   void (__fastcall *v12)(_QWORD, _QWORD, _QWORD); // rax
-  union _RTL_RUN_ONCE *v13; // rbx
+  _RTL_RUN_ONCE *v13; // rbx
   __int64 v14; // rdi
   struct _EX_RUNDOWN_REF *v15; // rax
   struct _EX_RUNDOWN_REF *v16; // rsi
   void (__fastcall *v17)(_QWORD, _QWORD, _QWORD); // rax
-  union _RTL_RUN_ONCE *v18; // rbx
+  _RTL_RUN_ONCE *v18; // rbx
   __int64 v19; // rdi
   struct _EX_RUNDOWN_REF *v20; // rax
   struct _EX_RUNDOWN_REF *v21; // rsi

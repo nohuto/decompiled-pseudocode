@@ -1,12 +1,12 @@
 /*
- * XREFs of HvlpInitializeSvmIommuSupport @ 0x140278064
+ * XREFs of HvlpInitializeSvmIommuSupport @ 0x140278254
  * Callers:
- *     HvlPhase2Initialize @ 0x140193304 (HvlPhase2Initialize.c)
+ *     HvlPhase2Initialize @ 0x140193444 (HvlPhase2Initialize.c)
  * Callees:
- *     ExQueueWorkItem @ 0x1400D1A00 (ExQueueWorkItem.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     HvlSvmGetSystemCapabilities @ 0x140275E40 (HvlSvmGetSystemCapabilities.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
+ *     ExQueueWorkItem @ 0x1400D1A80 (ExQueueWorkItem.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     HvlSvmGetSystemCapabilities @ 0x140276030 (HvlSvmGetSystemCapabilities.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
  */
 
 __int64 HvlpInitializeSvmIommuSupport()
@@ -26,12 +26,12 @@ __int64 HvlpInitializeSvmIommuSupport()
   if ( !v7 )
     return 3221225659LL;
   PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 104LL * v7, 0x204C5648u);
-  qword_1404DDA98 = (__int64)PoolWithTag;
+  qword_1404DEB98 = (__int64)PoolWithTag;
   v2 = (__int64)PoolWithTag;
   if ( !PoolWithTag )
     return 3221225626LL;
   memset(PoolWithTag, 0, 104 * v0);
-  dword_1404DDA90 = v0;
+  dword_1404DEB90 = v0;
   v4 = 0;
   if ( (_DWORD)v0 )
   {
@@ -49,9 +49,9 @@ __int64 HvlpInitializeSvmIommuSupport()
       *(_QWORD *)(v5 + 72) = 0LL;
       *(_DWORD *)(v5 + 4) = 3;
       ExQueueWorkItem((PWORK_QUEUE_ITEM)(v5 + 72), HyperCriticalWorkQueue);
-      if ( ++v4 >= dword_1404DDA90 )
+      if ( ++v4 >= dword_1404DEB90 )
         break;
-      v2 = qword_1404DDA98;
+      v2 = qword_1404DEB98;
     }
   }
   return 0LL;

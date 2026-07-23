@@ -6,7 +6,7 @@
  *     _LdrpReleaseLoaderLock@16 @ 0x4B2D26DD (_LdrpReleaseLoaderLock@16.c)
  */
 
-int __thiscall LdrQueryModuleInfoLocalLoaderUnlock(void *this)
+NTSTATUS __thiscall LdrQueryModuleInfoLocalLoaderUnlock(void *this)
 {
   return LdrpReleaseLoaderLock((int)this, 10, 0, (int)this);
 }

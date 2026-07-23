@@ -1,13 +1,13 @@
 /*
- * XREFs of ExGetSystemFirmwareTable @ 0x1407B4100
+ * XREFs of ExGetSystemFirmwareTable @ 0x1407B4550
  * Callers:
- *     IpmiHwpReadSpmiConfiguration @ 0x14069F8BC (IpmiHwpReadSpmiConfiguration.c)
- *     IpmiLibReadSmbiosRecord38 @ 0x14069F974 (IpmiLibReadSmbiosRecord38.c)
+ *     IpmiHwpReadSpmiConfiguration @ 0x1406A09C0 (IpmiHwpReadSpmiConfiguration.c)
+ *     IpmiLibReadSmbiosRecord38 @ 0x1406A0A78 (IpmiLibReadSmbiosRecord38.c)
  * Callees:
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ExpGetSystemFirmwareTableInformation @ 0x14085D348 (ExpGetSystemFirmwareTableInformation.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ExpGetSystemFirmwareTableInformation @ 0x1408590B8 (ExpGetSystemFirmwareTableInformation.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall ExGetSystemFirmwareTable(int a1, int a2, void *a3, int a4, _DWORD *a5)
@@ -18,7 +18,7 @@ __int64 __fastcall ExGetSystemFirmwareTable(int a1, int a2, void *a3, int a4, _D
 
   if ( !a3 && a4 )
     return 3221225485LL;
-  Pool2 = (_DWORD *)ExAllocatePool2(0x100uLL);
+  Pool2 = (_DWORD *)ExAllocatePool2(0x100uLL, (unsigned int)(a4 + 16), 0x54465241u);
   v11 = Pool2;
   if ( Pool2 )
   {

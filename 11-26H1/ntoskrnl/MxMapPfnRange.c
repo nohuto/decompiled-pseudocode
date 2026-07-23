@@ -1,12 +1,12 @@
 /*
- * XREFs of MxMapPfnRange @ 0x140CF7DA8
+ * XREFs of MxMapPfnRange @ 0x140CFE128
  * Callers:
- *     MxCreatePfnsForDescriptor @ 0x140CF60C4 (MxCreatePfnsForDescriptor.c)
- *     MxCreateSparsePfnDatabase @ 0x140CF64E4 (MxCreateSparsePfnDatabase.c)
+ *     MxCreatePfnsForDescriptor @ 0x140CFC444 (MxCreatePfnsForDescriptor.c)
+ *     MxCreateSparsePfnDatabase @ 0x140CFC864 (MxCreateSparsePfnDatabase.c)
  * Callees:
- *     MiPageToNode @ 0x140289710 (MiPageToNode.c)
- *     MiRestrictRangeToNode @ 0x1402CABF0 (MiRestrictRangeToNode.c)
- *     MxMapVa @ 0x140CF7FB0 (MxMapVa.c)
+ *     MiPageToNode @ 0x140288C70 (MiPageToNode.c)
+ *     MiRestrictRangeToNode @ 0x1402AC9B0 (MiRestrictRangeToNode.c)
+ *     MxMapVa @ 0x140CFE330 (MxMapVa.c)
  */
 
 __int64 __fastcall MxMapPfnRange(ULONG_PTR BugCheckParameter2, ULONG_PTR a2, int a3, unsigned int a4)
@@ -54,7 +54,7 @@ __int64 __fastcall MxMapPfnRange(ULONG_PTR BugCheckParameter2, ULONG_PTR a2, int
     v11 = v6;
     if ( v6 == -1LL )
     {
-      v12 = qword_140E2D710 - 1;
+      v12 = qword_140E2D890 - 1;
       v6 = 0LL;
     }
     else

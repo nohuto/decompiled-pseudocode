@@ -10,7 +10,7 @@
  *     PspLogAuditSetContextThreadEvent @ 0x140A6F4E8 (PspLogAuditSetContextThreadEvent.c)
  */
 
-__int64 __fastcall NtSetContextThread(void *a1, int *a2)
+NTSTATUS __cdecl NtSetContextThread(HANDLE ThreadHandle, PCONTEXT ThreadContext)
 {
   struct _KTHREAD *CurrentThread; // rdi
   KPROCESSOR_MODE PreviousMode; // si
@@ -22,7 +22,7 @@ __int64 __fastcall NtSetContextThread(void *a1, int *a2)
   CurrentThread = KeGetCurrentThread();
   Object = 0LL;
   PreviousMode = CurrentThread->PreviousMode;
-  v5 = ObReferenceObjectByHandle(a1, 0x10u, (POBJECT_TYPE)PsThreadType, PreviousMode, &Object, 0LL);
+  v5 = ObReferenceObjectByHandle(ThreadHandle, 0x10u, (POBJECT_TYPE)PsThreadType, PreviousMode, &Object, 0LL);
   if ( v5 >= 0 )
   {
     v6 = IoThreadToProcess(CurrentThread);
@@ -37,10 +37,10 @@ __int64 __fastcall NtSetContextThread(void *a1, int *a2)
     }
     else
     {
-      v5 = PspSetContextThreadInternal(v7, a2, PreviousMode, PreviousMode, 1);
+      v5 = PspSetContextThreadInternal(v7, ThreadContext, PreviousMode, PreviousMode, 1);
     }
     ObfDereferenceObject(v7);
   }
   PspLogAuditSetContextThreadEvent((unsigned int)v5);
-  return (unsigned int)v5;
+  return v5;
 }

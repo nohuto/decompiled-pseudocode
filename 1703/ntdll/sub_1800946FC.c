@@ -19,16 +19,16 @@ char __fastcall sub_1800946FC(
         __int64 a3,
         char a4,
         unsigned __int16 a5,
-        _QWORD *a6,
+        __int64 *a6,
         unsigned __int16 *a7)
 {
   __int64 v7; // r15
   __int16 v8; // r14
-  unsigned __int64 v11; // r13
+  WCHAR *v11; // r13
   bool v12; // zf
   char v13; // bl
   const wchar_t *v14; // rdx
-  _QWORD *v15; // rdi
+  __int64 *v15; // rdi
   __int64 v17; // r8
   unsigned __int16 *v18; // rdi
   __int64 v19; // r8
@@ -36,12 +36,12 @@ char __fastcall sub_1800946FC(
   unsigned __int16 v21; // r15
   __int64 v22; // rdx
   __int64 v23; // r9
-  wchar_t *v24; // rax
+  WCHAR *v24; // rax
   __int64 v25; // r8
   __int64 v26; // rdx
-  UNICODE_STRING DestinationString; // [rsp+30h] [rbp-10h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+30h] [rbp-10h] BYREF
   __int16 v28; // [rsp+88h] [rbp+48h] BYREF
-  int v29; // [rsp+98h] [rbp+58h] BYREF
+  DWORD Lcid; // [rsp+98h] [rbp+58h] BYREF
 
   v7 = 0LL;
   v8 = a3;
@@ -91,9 +91,9 @@ LABEL_3:
         if ( v20 )
         {
           RtlInitUnicodeString(&DestinationString, v20);
-          if ( RtlCultureNameToLCID(&DestinationString.Length, &v29) )
+          if ( RtlCultureNameToLCID(&DestinationString, &Lcid) )
           {
-            v12 = v8 == (__int16)v29;
+            v12 = v8 == (__int16)Lcid;
             goto LABEL_3;
           }
         }
@@ -101,13 +101,13 @@ LABEL_3:
     }
     else if ( a4 == 1 && a2 == 3 )
     {
-      v24 = (wchar_t *)sub_180045488(a1, 0x55u);
-      v11 = (unsigned __int64)v24;
+      v24 = (WCHAR *)sub_180045488(a1, 0x55u);
+      v11 = v24;
       if ( v24 )
       {
         DestinationString.Buffer = v24;
         *(_DWORD *)&DestinationString.Length = 11141120;
-        if ( RtlLCIDToCultureName((__int16)a5, (__int64)&DestinationString) )
+        if ( RtlLCIDToCultureName((__int16)a5, &DestinationString) )
         {
           v25 = *(_QWORD *)(a1 + 32);
           if ( v25 && v8 >= 0 && v8 < (int)*(unsigned __int16 *)(v25 + 6) )
@@ -123,7 +123,7 @@ LABEL_6:
     v13 = 0;
 LABEL_7:
     if ( v11 )
-      RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v11);
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v11);
     v11 = 0LL;
     v7 = 0LL;
     goto LABEL_10;
@@ -138,7 +138,7 @@ LABEL_7:
     goto LABEL_6;
   v23 = (unsigned __int16)a3;
   LOBYTE(a3) = a2;
-  v11 = *(_QWORD *)(v22 + 16) + 28LL * (__int16)a5;
+  v11 = (WCHAR *)(*(_QWORD *)(v22 + 16) + 28LL * (__int16)a5);
   v13 = sub_180094A20(a1, v11, a3, v23);
   if ( v13 && v11 && v18 )
     *v18 = v21;
@@ -151,7 +151,7 @@ LABEL_10:
     {
       if ( v11 )
       {
-        *a6 = v11;
+        *a6 = (__int64)v11;
       }
       else if ( v7 )
       {

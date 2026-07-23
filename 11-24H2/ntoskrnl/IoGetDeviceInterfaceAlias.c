@@ -1,29 +1,29 @@
 /*
- * XREFs of IoGetDeviceInterfaceAlias @ 0x1408B7090
+ * XREFs of IoGetDeviceInterfaceAlias @ 0x1408B4A00
  * Callers:
- *     PiCMGetDeviceInterfaceAlias @ 0x1408B58C0 (PiCMGetDeviceInterfaceAlias.c)
+ *     PiCMGetDeviceInterfaceAlias @ 0x1408B31B0 (PiCMGetDeviceInterfaceAlias.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x14025A450 (ExReleaseResourceLite.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402769C0 (ExAcquireResourceExclusiveLite.c)
- *     RtlInitUnicodeStringEx @ 0x14045AA10 (RtlInitUnicodeStringEx.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     SeReleaseSubjectContext @ 0x14084D7E0 (SeReleaseSubjectContext.c)
- *     SeCaptureSubjectContext @ 0x14084D8F0 (SeCaptureSubjectContext.c)
- *     RtlFreeAnsiString @ 0x1408A4990 (RtlFreeAnsiString.c)
- *     PnpUnicodeStringToWstrFree @ 0x1408B7510 (PnpUnicodeStringToWstrFree.c)
- *     _PnpStringFromGuid @ 0x1408B754C (_PnpStringFromGuid.c)
- *     _CmGetDeviceInterfaceReferenceString @ 0x1408B7618 (_CmGetDeviceInterfaceReferenceString.c)
- *     _CmGetDeviceInterfacePathFormat @ 0x1408B7708 (_CmGetDeviceInterfacePathFormat.c)
- *     _CmGetDeviceInterfaceName @ 0x1408B7B74 (_CmGetDeviceInterfaceName.c)
- *     _CmValidateDeviceInterfaceName @ 0x1408C9D90 (_CmValidateDeviceInterfaceName.c)
- *     _CmOpenDeviceInterfaceRegKey @ 0x1408CB4B4 (_CmOpenDeviceInterfaceRegKey.c)
- *     _PnpGetObjectProperty @ 0x1408CDFD0 (_PnpGetObjectProperty.c)
- *     PiPnpRtlApplyMandatoryFilters @ 0x1408D19E0 (PiPnpRtlApplyMandatoryFilters.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14022BF50 (ExAcquireResourceExclusiveLite.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x14028AA60 (ExReleaseResourceLite.c)
+ *     RtlInitUnicodeStringEx @ 0x14044FE60 (RtlInitUnicodeStringEx.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     SeReleaseSubjectContext @ 0x140849AA0 (SeReleaseSubjectContext.c)
+ *     SeCaptureSubjectContext @ 0x140849BB0 (SeCaptureSubjectContext.c)
+ *     PnpUnicodeStringToWstrFree @ 0x1408B4E80 (PnpUnicodeStringToWstrFree.c)
+ *     _PnpStringFromGuid @ 0x1408B4EBC (_PnpStringFromGuid.c)
+ *     _CmGetDeviceInterfaceReferenceString @ 0x1408B4F88 (_CmGetDeviceInterfaceReferenceString.c)
+ *     _CmGetDeviceInterfacePathFormat @ 0x1408B5078 (_CmGetDeviceInterfacePathFormat.c)
+ *     _CmGetDeviceInterfaceName @ 0x1408B54E4 (_CmGetDeviceInterfaceName.c)
+ *     RtlFreeAnsiString @ 0x1408B69C0 (RtlFreeAnsiString.c)
+ *     _CmValidateDeviceInterfaceName @ 0x1408C77C0 (_CmValidateDeviceInterfaceName.c)
+ *     _CmOpenDeviceInterfaceRegKey @ 0x1408C8EE4 (_CmOpenDeviceInterfaceRegKey.c)
+ *     _PnpGetObjectProperty @ 0x1408CB9C0 (_PnpGetObjectProperty.c)
+ *     PiPnpRtlApplyMandatoryFilters @ 0x1408CF3D0 (PiPnpRtlApplyMandatoryFilters.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __stdcall IoGetDeviceInterfaceAlias(
@@ -93,7 +93,7 @@ LABEL_42:
       && ((_WORD)Length != (_WORD)MaximumLength || Buffer[((unsigned __int64)SymbolicLinkName->Length >> 1) - 1])
       && (Length > MaximumLength - 2 || Buffer[(Length >> 1) - 1] && Buffer[Length >> 1]) )
     {
-      Pool2 = (wchar_t *)ExAllocatePool2(0x100uLL);
+      Pool2 = (wchar_t *)ExAllocatePool2(0x100uLL, Length + 2, 0x75737050u);
       v11 = Pool2;
       if ( !Pool2 )
       {
@@ -128,7 +128,7 @@ LABEL_42:
       CurrentThread = KeGetCurrentThread();
       --CurrentThread->KernelApcDisable;
       ExAcquireResourceExclusiveLite(&PnpRegistryDeviceResource, 1u);
-      v15 = ExAllocatePool2(0x100uLL);
+      v15 = ExAllocatePool2(0x100uLL, 0x190uLL, 0x20207050u);
       v16 = (void *)v15;
       if ( v15 )
       {
@@ -152,7 +152,7 @@ LABEL_42:
           goto LABEL_30;
         }
         v31 = 128;
-        v5 = (void *)ExAllocatePool2(0x100uLL);
+        v5 = (void *)ExAllocatePool2(0x100uLL, 0x100uLL, 0x20207050u);
         if ( !v5 )
           goto LABEL_38;
         ObjectProperty = CmGetDeviceInterfaceReferenceString(v17, v6, v5, 128LL, &v31);
@@ -172,7 +172,7 @@ LABEL_21:
           if ( ObjectProperty >= 0 )
           {
             v31 = 512;
-            v20 = (WCHAR *)ExAllocatePool2(0x100uLL);
+            v20 = (WCHAR *)ExAllocatePool2(0x100uLL, 0x400uLL, 0x20207050u);
             if ( v20 )
             {
               v21 = BYTE1(v30);
@@ -206,7 +206,7 @@ LABEL_26:
               }
               ExFreePoolWithTag(v20, 0);
               v26 = v31;
-              v20 = (WCHAR *)ExAllocatePool2(0x100uLL);
+              v20 = (WCHAR *)ExAllocatePool2(0x100uLL, 2LL * v31, 0x20207050u);
               if ( v20 )
               {
                 LOBYTE(SubjectSecurityContexta) = v21;
@@ -227,7 +227,7 @@ LABEL_30:
           goto LABEL_34;
         }
         ExFreePoolWithTag(v5, 0);
-        v5 = (void *)ExAllocatePool2(0x100uLL);
+        v5 = (void *)ExAllocatePool2(0x100uLL, 2LL * v31, 0x20207050u);
         if ( v5 )
         {
           ObjectProperty = CmGetDeviceInterfaceReferenceString(v25, v6, v5, v31, &v31);

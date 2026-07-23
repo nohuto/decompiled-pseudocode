@@ -30,7 +30,7 @@ __int64 __fastcall PopEndMirroring(ULONG_PTR BugCheckParameter3)
   unsigned int v8; // ebx
   __int64 v10; // rcx
   __int64 v11; // rcx
-  struct _GROUP_AFFINITY Affinity; // [rsp+38h] [rbp-29h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+38h] [rbp-29h] BYREF
   unsigned __int16 *v13[2]; // [rsp+48h] [rbp-19h] BYREF
   __int16 v14; // [rsp+58h] [rbp-9h]
   int v15; // [rsp+5Ah] [rbp-7h]
@@ -104,7 +104,7 @@ LABEL_26:
   HIDWORD(qword_140C50698) = KeNumberProcessors_0;
   LODWORD(qword_140C50698) = 1;
   if ( ((unsigned __int8)&stru_140C506A0 & 0xF) != 0 )
-    RtlRaiseStatus(0x80000002);
+    RtlRaiseStatus(-2147483646);
   stru_140C506A0 = 0LL;
   KeInitializeDpc(&Dpc, (PKDEFERRED_ROUTINE)PopInvokeStateHandlerTargetProcessor, &PopHibernateSystemContext);
   v13[1] = (unsigned __int16 *)qword_140CFC848[0];

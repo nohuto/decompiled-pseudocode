@@ -15,7 +15,7 @@ char *__fastcall sub_180052A9C(__int128 *a1)
   char *v3; // rbx
   __int128 v4; // xmm0
 
-  Heap = (char *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, 176LL);
+  Heap = (char *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, 0xB0uLL);
   v3 = Heap;
   if ( Heap )
   {
@@ -24,7 +24,7 @@ char *__fastcall sub_180052A9C(__int128 *a1)
     *((_QWORD *)v3 + 5) = 0LL;
     *(_OWORD *)(v3 + 24) = v4;
     *((_DWORD *)v3 + 13) = 1;
-    sub_180052B08(v3);
+    sub_180052B08((PRTL_BALANCED_NODE)v3);
   }
   return v3;
 }

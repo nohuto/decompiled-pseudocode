@@ -1,5 +1,5 @@
 /*
- * XREFs of NtWaitForAlertByThreadId @ 0x1800A3BF0
+ * XREFs of NtWaitForAlertByThreadId @ 0x1800A3C10
  * Callers:
  *     RtlpxLookupFunctionTable @ 0x180006E00 (RtlpxLookupFunctionTable.c)
  *     RtlAcquireSRWLockShared @ 0x180009F00 (RtlAcquireSRWLockShared.c)
@@ -10,17 +10,17 @@
  *     RtlSleepConditionVariableCS @ 0x180058C40 (RtlSleepConditionVariableCS.c)
  *     RtlpWaitOnAddressWithTimeout @ 0x18005ED60 (RtlpWaitOnAddressWithTimeout.c)
  *     RtlpWaitOnAddressRemoveWaitBlock @ 0x18005EE98 (RtlpWaitOnAddressRemoveWaitBlock.c)
- *     TppBarrierAdjust @ 0x180073CB8 (TppBarrierAdjust.c)
- *     RtlDeleteTimerQueueEx @ 0x180087090 (RtlDeleteTimerQueueEx.c)
+ *     TppBarrierAdjust @ 0x180073CC8 (TppBarrierAdjust.c)
+ *     RtlDeleteTimerQueueEx @ 0x1800870A0 (RtlDeleteTimerQueueEx.c)
  * Callees:
  *     <none>
  */
 
-__int64 NtWaitForAlertByThreadId()
+NTSTATUS __cdecl NtWaitForAlertByThreadId(PVOID Address, PLARGE_INTEGER Timeout)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 457LL;
+  result = 457;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

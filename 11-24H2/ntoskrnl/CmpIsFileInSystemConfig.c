@@ -1,18 +1,18 @@
 /*
- * XREFs of CmpIsFileInSystemConfig @ 0x1407E1C10
+ * XREFs of CmpIsFileInSystemConfig @ 0x1407E2160
  * Callers:
- *     CmpInitCmRM @ 0x140AE4D94 (CmpInitCmRM.c)
- *     CmpStartRMLog @ 0x140AE5884 (CmpStartRMLog.c)
+ *     CmpInitCmRM @ 0x140AE6674 (CmpInitCmRM.c)
+ *     CmpStartRMLog @ 0x140AE7164 (CmpStartRMLog.c)
  * Callees:
- *     RtlUnicodeStringCat @ 0x1403EA5B0 (RtlUnicodeStringCat.c)
- *     RtlUnicodeStringCatString @ 0x14041C568 (RtlUnicodeStringCatString.c)
- *     RtlUShortAdd @ 0x14046B240 (RtlUShortAdd.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwCreateFile @ 0x1406A6EB0 (ZwCreateFile.c)
- *     RtlPrefixUnicodeString @ 0x14086E3C0 (RtlPrefixUnicodeString.c)
- *     RtlFreeAnsiString @ 0x1408A4990 (RtlFreeAnsiString.c)
- *     CmpQueryNameString @ 0x1409839B4 (CmpQueryNameString.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     RtlUnicodeStringCat @ 0x1403DA240 (RtlUnicodeStringCat.c)
+ *     RtlUnicodeStringCatString @ 0x1404105C0 (RtlUnicodeStringCatString.c)
+ *     RtlUShortAdd @ 0x140463CC0 (RtlUShortAdd.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwCreateFile @ 0x1406A7E50 (ZwCreateFile.c)
+ *     RtlPrefixUnicodeString @ 0x1408726F0 (RtlPrefixUnicodeString.c)
+ *     RtlFreeAnsiString @ 0x1408B69C0 (RtlFreeAnsiString.c)
+ *     CmpQueryNameString @ 0x14096C1C4 (CmpQueryNameString.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall CmpIsFileInSystemConfig(PCUNICODE_STRING String2, BOOLEAN *a2)
@@ -73,7 +73,7 @@ LABEL_13:
     v4 = *(_QWORD *)&pusResult[4];
     goto LABEL_16;
   }
-  *(_QWORD *)&pusResult[4] = ExAllocatePool2(0x100uLL);
+  *(_QWORD *)&pusResult[4] = ExAllocatePool2(0x100uLL, pusResult[1], 0x67727453u);
   v4 = *(_QWORD *)&pusResult[4];
   if ( *(_QWORD *)&pusResult[4] )
   {

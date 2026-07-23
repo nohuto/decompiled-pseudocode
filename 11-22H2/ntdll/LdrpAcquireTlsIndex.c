@@ -10,51 +10,51 @@
  *     memmove @ 0x1800A5980 (memmove.c)
  */
 
-__int64 __fastcall LdrpAcquireTlsIndex(_DWORD *a1, _BYTE *a2)
+__int64 __fastcall LdrpAcquireTlsIndex(ULONG *a1, _BYTE *a2)
 {
-  unsigned __int64 v2; // rbx
-  int ClearBitsAndSet; // eax
-  void *Heap; // rax
-  void *v8; // r14
+  unsigned __int64 SizeOfBitMap; // rbx
+  ULONG ClearBitsAndSet; // eax
+  unsigned int *Heap; // rax
+  unsigned int *v8; // r14
 
-  v2 = (unsigned int)LdrpTlsBitmap;
-  if ( !LdrpTlsBitmap )
+  SizeOfBitMap = LdrpTlsBitmap.SizeOfBitMap;
+  if ( !LdrpTlsBitmap.SizeOfBitMap )
   {
-    LdrpTlsBitmap = 8;
-    Src = &LdrpStaticTlsBitmapVector;
+    LdrpTlsBitmap.SizeOfBitMap = 8;
+    LdrpTlsBitmap.Buffer = (unsigned int *)&LdrpStaticTlsBitmapVector;
     LdrpActualBitmapSize = 1LL;
 LABEL_6:
-    RtlClearBits(&LdrpTlsBitmap, (unsigned int)(v2 + 1), 7LL);
-    *((_BYTE *)Src + (v2 >> 3)) |= 1 << (v2 & 7);
-    *a1 = v2;
+    RtlClearBits(&LdrpTlsBitmap, SizeOfBitMap + 1, 7u);
+    *((_BYTE *)LdrpTlsBitmap.Buffer + (SizeOfBitMap >> 3)) |= 1 << (SizeOfBitMap & 7);
+    *a1 = SizeOfBitMap;
     *a2 = 1;
     return 0LL;
   }
-  ClearBitsAndSet = RtlFindClearBitsAndSet(&LdrpTlsBitmap, 1LL);
+  ClearBitsAndSet = RtlFindClearBitsAndSet(&LdrpTlsBitmap, 1u, 0);
   if ( ClearBitsAndSet != -1 )
   {
     *a1 = ClearBitsAndSet;
     *a2 = 0;
     return 0LL;
   }
-  if ( ((unsigned __int64)(unsigned int)(LdrpTlsBitmap + 8) + 31) >> 5 <= LdrpActualBitmapSize )
+  if ( ((unsigned __int64)(LdrpTlsBitmap.SizeOfBitMap + 8) + 31) >> 5 <= LdrpActualBitmapSize )
   {
-    LdrpTlsBitmap += 8;
+    LdrpTlsBitmap.SizeOfBitMap += 8;
     goto LABEL_6;
   }
-  Heap = (void *)RtlAllocateHeap(
-                   LdrpTlsHeap,
-                   (unsigned int)(NtdllBaseTag + 786432),
-                   4 * (((unsigned __int64)(unsigned int)(v2 + 8) + 31) >> 5));
+  Heap = (unsigned int *)RtlAllocateHeap(
+                           LdrpTlsHeap,
+                           NtdllBaseTag + 786432,
+                           4 * (((unsigned __int64)(unsigned int)(SizeOfBitMap + 8) + 31) >> 5));
   v8 = Heap;
   if ( Heap )
   {
-    LdrpActualBitmapSize = ((unsigned __int64)(unsigned int)(v2 + 8) + 31) >> 5;
-    memmove(Heap, Src, (unsigned __int64)(unsigned int)(v2 + 7) >> 3);
-    if ( Src != &LdrpStaticTlsBitmapVector )
-      RtlFreeHeap(LdrpTlsHeap, 0LL, Src);
-    LdrpTlsBitmap = v2 + 8;
-    Src = v8;
+    LdrpActualBitmapSize = ((unsigned __int64)(unsigned int)(SizeOfBitMap + 8) + 31) >> 5;
+    memmove(Heap, LdrpTlsBitmap.Buffer, (unsigned __int64)(unsigned int)(SizeOfBitMap + 7) >> 3);
+    if ( (_UNKNOWN *)LdrpTlsBitmap.Buffer != &LdrpStaticTlsBitmapVector )
+      RtlFreeHeap(LdrpTlsHeap, 0, LdrpTlsBitmap.Buffer);
+    LdrpTlsBitmap.SizeOfBitMap = SizeOfBitMap + 8;
+    LdrpTlsBitmap.Buffer = v8;
     goto LABEL_6;
   }
   return 3221225495LL;

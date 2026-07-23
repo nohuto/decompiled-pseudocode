@@ -1,12 +1,12 @@
 /*
- * XREFs of IopProcessInvalidateBusRelationsRequest @ 0x1409EDC68
+ * XREFs of IopProcessInvalidateBusRelationsRequest @ 0x1409EB6A8
  * Callers:
- *     IopInvalidateBusRelationsWorker @ 0x1404BE320 (IopInvalidateBusRelationsWorker.c)
+ *     IopInvalidateBusRelationsWorker @ 0x1404B94E0 (IopInvalidateBusRelationsWorker.c)
  * Callees:
- *     PnpRequestDeviceAction @ 0x14046C968 (PnpRequestDeviceAction.c)
- *     IopQueryDeviceHardwareIdForPdcTask @ 0x1409ED7C0 (IopQueryDeviceHardwareIdForPdcTask.c)
- *     PiPdcActivate @ 0x1409EDEC0 (PiPdcActivate.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     PnpRequestDeviceAction @ 0x140467508 (PnpRequestDeviceAction.c)
+ *     IopQueryDeviceHardwareIdForPdcTask @ 0x1409EB200 (IopQueryDeviceHardwareIdForPdcTask.c)
+ *     PiPdcActivate @ 0x1409EB900 (PiPdcActivate.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 struct _DEVOBJ_EXTENSION *__fastcall IopProcessInvalidateBusRelationsRequest(__int64 a1)

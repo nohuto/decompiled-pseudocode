@@ -1,10 +1,10 @@
 /*
- * XREFs of FsRtlReleasePushLock @ 0x1401BA3E4
+ * XREFs of FsRtlReleasePushLock @ 0x1401BA2C8
  * Callers:
- *     FsRtlInsertPerFileContext @ 0x1401BA044 (FsRtlInsertPerFileContext.c)
+ *     FsRtlInsertPerFileContext @ 0x1401B9F28 (FsRtlInsertPerFileContext.c)
  * Callees:
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfReleasePushLock @ 0x1400C8620 (ExfReleasePushLock.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfReleasePushLock @ 0x1400C64C0 (ExfReleasePushLock.c)
  */
 
 __int64 __fastcall FsRtlReleasePushLock(signed __int64 *BugCheckParameter2)

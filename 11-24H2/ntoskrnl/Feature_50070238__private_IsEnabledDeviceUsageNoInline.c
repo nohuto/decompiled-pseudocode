@@ -1,9 +1,9 @@
 /*
- * XREFs of Feature_50070238__private_IsEnabledDeviceUsageNoInline @ 0x14069ABAC
+ * XREFs of Feature_50070238__private_IsEnabledDeviceUsageNoInline @ 0x14069BC2C
  * Callers:
- *     BgpBcInitializeCriticalMode @ 0x140C70D44 (BgpBcInitializeCriticalMode.c)
+ *     BgpBcInitializeCriticalMode @ 0x140C72EA4 (BgpBcInitializeCriticalMode.c)
  * Callees:
- *     Feature_50070238__private_IsEnabledFallback @ 0x14069ABE4 (Feature_50070238__private_IsEnabledFallback.c)
+ *     Feature_50070238__private_IsEnabledFallback @ 0x14069BC64 (Feature_50070238__private_IsEnabledFallback.c)
  */
 
 __int64 Feature_50070238__private_IsEnabledDeviceUsageNoInline()

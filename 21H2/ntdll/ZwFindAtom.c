@@ -1,16 +1,16 @@
 /*
- * XREFs of ZwFindAtom @ 0x18009D8C0
+ * XREFs of ZwFindAtom @ 0x18009D880
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 ZwFindAtom()
+NTSTATUS __cdecl ZwFindAtom(PWSTR AtomName, ULONG Length, PRTL_ATOM Atom)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 20LL;
+  result = 20;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpHpLfhSubsegmentCountAllocatedBlocks @ 0x140459604
+ * XREFs of RtlpHpLfhSubsegmentCountAllocatedBlocks @ 0x1403D81A8
  * Callers:
- *     RtlpHpLfhSubsegmentReformatCheck @ 0x140459494 (RtlpHpLfhSubsegmentReformatCheck.c)
+ *     RtlpHpLfhSubsegmentReformatCheck @ 0x1403D8038 (RtlpHpLfhSubsegmentReformatCheck.c)
  * Callees:
  *     <none>
  */

@@ -1,21 +1,21 @@
 /*
- * XREFs of RtlStringCbLengthW @ 0x14009ED7C
+ * XREFs of RtlStringCbLengthW @ 0x140085E34
  * Callers:
- *     RtlGetAppContainerNamedObjectPath @ 0x14021091C (RtlGetAppContainerNamedObjectPath.c)
- *     AslpFileVerBlockGetValueOffset @ 0x140233B9C (AslpFileVerBlockGetValueOffset.c)
- *     AuthzBasepConvertRelativeToAbsoluteTokenAttribute @ 0x140233C00 (AuthzBasepConvertRelativeToAbsoluteTokenAttribute.c)
- *     PiSwCompleteCreate @ 0x1404C6A1C (PiSwCompleteCreate.c)
- *     PiSwIrpStartCreateWorker @ 0x1404C6CB4 (PiSwIrpStartCreateWorker.c)
- *     NtPowerInformation @ 0x14051E834 (NtPowerInformation.c)
- *     IoReportDetectedDevice @ 0x140554CFC (IoReportDetectedDevice.c)
- *     PpmRegisterProfiles @ 0x1405784E0 (PpmRegisterProfiles.c)
- *     SepSetSystemPaths @ 0x14057A068 (SepSetSystemPaths.c)
- *     PopFxValidateReturnedUnicodeString @ 0x14066D6B4 (PopFxValidateReturnedUnicodeString.c)
- *     RtlpConvertAbsoluteToRelativeSecurityAttribute @ 0x140684BA4 (RtlpConvertAbsoluteToRelativeSecurityAttribute.c)
- *     RtlpValidRelativeAttribute @ 0x1406851F4 (RtlpValidRelativeAttribute.c)
- *     AslpFileVerStringBlockGetValue @ 0x1406C92A4 (AslpFileVerStringBlockGetValue.c)
- *     LocalGetStringForRelativeAttribute @ 0x1406CF418 (LocalGetStringForRelativeAttribute.c)
- *     RtlpMuiRegConfigNodePopulate @ 0x1406E6B70 (RtlpMuiRegConfigNodePopulate.c)
+ *     RtlGetAppContainerNamedObjectPath @ 0x140210748 (RtlGetAppContainerNamedObjectPath.c)
+ *     AslpFileVerBlockGetValueOffset @ 0x1402339C8 (AslpFileVerBlockGetValueOffset.c)
+ *     AuthzBasepConvertRelativeToAbsoluteTokenAttribute @ 0x140233A2C (AuthzBasepConvertRelativeToAbsoluteTokenAttribute.c)
+ *     PiSwCompleteCreate @ 0x140487650 (PiSwCompleteCreate.c)
+ *     PiSwIrpStartCreateWorker @ 0x1404880D0 (PiSwIrpStartCreateWorker.c)
+ *     NtPowerInformation @ 0x14050189C (NtPowerInformation.c)
+ *     IoReportDetectedDevice @ 0x14055523C (IoReportDetectedDevice.c)
+ *     PpmRegisterProfiles @ 0x140578A20 (PpmRegisterProfiles.c)
+ *     SepSetSystemPaths @ 0x14057A5A8 (SepSetSystemPaths.c)
+ *     PopFxValidateReturnedUnicodeString @ 0x14066D798 (PopFxValidateReturnedUnicodeString.c)
+ *     RtlpConvertAbsoluteToRelativeSecurityAttribute @ 0x140684C88 (RtlpConvertAbsoluteToRelativeSecurityAttribute.c)
+ *     RtlpValidRelativeAttribute @ 0x1406852D8 (RtlpValidRelativeAttribute.c)
+ *     AslpFileVerStringBlockGetValue @ 0x1406C93DC (AslpFileVerStringBlockGetValue.c)
+ *     LocalGetStringForRelativeAttribute @ 0x1406CF550 (LocalGetStringForRelativeAttribute.c)
+ *     RtlpMuiRegConfigNodePopulate @ 0x1406E6CA8 (RtlpMuiRegConfigNodePopulate.c)
  * Callees:
  *     <none>
  */

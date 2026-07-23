@@ -12,48 +12,46 @@
  *     memset$thunk$772440563353939046 @ 0x180174030 (memset$thunk$772440563353939046.c)
  */
 
-__int64 __fastcall RtlCreateServiceSid(__int64 a1, __int64 a2, unsigned int *a3)
+NTSTATUS __cdecl RtlCreateServiceSid(PUNICODE_STRING ServiceName, PSID ServiceSid, PULONG ServiceSidLength)
 {
-  __int64 v6; // r8
-  unsigned int v7; // eax
-  __int64 result; // rax
-  __int64 v9; // rdi
-  int v10; // eax
-  __int128 v11; // [rsp+20h] [rbp-C8h] BYREF
-  _BYTE v12[4]; // [rsp+30h] [rbp-B8h] BYREF
-  int v13; // [rsp+34h] [rbp-B4h]
-  _DWORD v14[6]; // [rsp+B0h] [rbp-38h] BYREF
+  ULONG v6; // eax
+  NTSTATUS result; // eax
+  wchar_t *Buffer; // rdi
+  int v9; // eax
+  _UNICODE_STRING DestinationString; // [rsp+20h] [rbp-C8h] BYREF
+  _BYTE v11[4]; // [rsp+30h] [rbp-B8h] BYREF
+  int v12; // [rsp+34h] [rbp-B4h]
+  _DWORD v13[6]; // [rsp+B0h] [rbp-38h] BYREF
 
-  v13 = 0;
-  v11 = 0LL;
-  memset_thunk_772440563353939046(v12, 0, 0x7CuLL);
-  if ( !a1 || !a3 )
-    return 3221225485LL;
-  v7 = *a3;
-  *a3 = 32;
-  if ( v7 < 0x20 )
-    return 3221225507LL;
-  LOBYTE(v6) = 1;
-  result = RtlUpcaseUnicodeString(&v11, a1, v6);
-  if ( (int)result >= 0 )
+  v12 = 0;
+  DestinationString = 0LL;
+  memset_thunk_772440563353939046(v11, 0, 0x7CuLL);
+  if ( !ServiceName || !ServiceSidLength )
+    return -1073741811;
+  v6 = *ServiceSidLength;
+  *ServiceSidLength = 32;
+  if ( v6 < 0x20 )
+    return -1073741789;
+  result = RtlUpcaseUnicodeString(&DestinationString, ServiceName, 1u);
+  if ( result >= 0 )
   {
-    SymCryptSha1Init(v12);
-    v9 = *((_QWORD *)&v11 + 1);
-    SymCryptSha1Append(v12, *((_QWORD *)&v11 + 1), (unsigned __int16)v11);
-    SymCryptSha1Result(v12, v14);
-    if ( v9 )
-      RtlpSysVolFree(v9);
-    *(_WORD *)a2 = 1537;
-    *(_DWORD *)(a2 + 2) = RtlpNtAuthority;
-    *(_WORD *)(a2 + 6) = 1280;
-    v10 = v14[0];
-    *(_DWORD *)(a2 + 8) = 80;
-    *(_DWORD *)(a2 + 12) = v10;
-    *(_DWORD *)(a2 + 16) = v14[1];
-    *(_DWORD *)(a2 + 20) = v14[2];
-    *(_DWORD *)(a2 + 24) = v14[3];
-    *(_DWORD *)(a2 + 28) = v14[4];
-    return 0LL;
+    SymCryptSha1Init(v11);
+    Buffer = DestinationString.Buffer;
+    SymCryptSha1Append(v11, DestinationString.Buffer, DestinationString.Length);
+    SymCryptSha1Result(v11, v13);
+    if ( Buffer )
+      RtlpSysVolFree(Buffer);
+    *(_WORD *)ServiceSid = 1537;
+    *(_DWORD *)((char *)ServiceSid + 2) = RtlpNtAuthority;
+    *((_WORD *)ServiceSid + 3) = 1280;
+    v9 = v13[0];
+    *((_DWORD *)ServiceSid + 2) = 80;
+    *((_DWORD *)ServiceSid + 3) = v9;
+    *((_DWORD *)ServiceSid + 4) = v13[1];
+    *((_DWORD *)ServiceSid + 5) = v13[2];
+    *((_DWORD *)ServiceSid + 6) = v13[3];
+    *((_DWORD *)ServiceSid + 7) = v13[4];
+    return 0;
   }
   return result;
 }

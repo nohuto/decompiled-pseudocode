@@ -10,21 +10,21 @@
 
 unsigned __int64 sub_1800D5DF0()
 {
-  __int64 v0; // rdx
-  __int64 v1; // rax
+  PVOID v0; // rdx
+  PIMAGE_SECTION_HEADER v1; // rax
   __int64 v2; // rdi
-  unsigned __int64 v3; // rbx
+  unsigned __int64 PhysicalAddress; // rbx
   unsigned __int64 result; // rax
-  __int64 v5; // [rsp+30h] [rbp+8h] BYREF
+  PIMAGE_NT_HEADERS OutHeaders; // [rsp+30h] [rbp+8h] BYREF
 
-  RtlImageNtHeaderEx(3, 0x180000000uLL, 0LL, &v5);
-  v1 = RtlImageRvaToSection(v5, v0, (unsigned int)&LdrSystemDllInitBlock - 0x80000000);
+  RtlImageNtHeaderEx(3u, (PVOID)0x180000000LL, 0LL, &OutHeaders);
+  v1 = RtlImageRvaToSection(OutHeaders, v0, (unsigned int)&LdrSystemDllInitBlock - 0x80000000);
   if ( !v1 )
     __fastfail(5u);
-  v2 = 0x180000000LL + *(unsigned int *)(v1 + 12);
-  v3 = *(unsigned int *)(v1 + 8);
-  result = sub_18007234C(v2, v3);
-  qword_18017A280 = v3;
+  v2 = 0x180000000LL + v1->VirtualAddress;
+  PhysicalAddress = v1->Misc.PhysicalAddress;
+  result = sub_18007234C(v2, PhysicalAddress);
+  qword_18017A280 = PhysicalAddress;
   qword_18017A290 = v2;
   return result;
 }

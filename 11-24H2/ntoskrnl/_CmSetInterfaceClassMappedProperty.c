@@ -1,12 +1,12 @@
 /*
- * XREFs of _CmSetInterfaceClassMappedProperty @ 0x14081FBDC
+ * XREFs of _CmSetInterfaceClassMappedProperty @ 0x14082031C
  * Callers:
- *     _CmDeleteInterfaceClassWorker @ 0x140818F18 (_CmDeleteInterfaceClassWorker.c)
- *     _PnpDispatchInterfaceClass @ 0x1408BBDB0 (_PnpDispatchInterfaceClass.c)
+ *     _CmDeleteInterfaceClassWorker @ 0x140819658 (_CmDeleteInterfaceClassWorker.c)
+ *     _PnpDispatchInterfaceClass @ 0x1408B9700 (_PnpDispatchInterfaceClass.c)
  * Callees:
- *     _CmDeleteInterfaceClassMappedPropertyFromRegValue @ 0x14081E3E8 (_CmDeleteInterfaceClassMappedPropertyFromRegValue.c)
- *     _CmSetInterfaceClassMappedPropertyFromRegValue @ 0x14081FD28 (_CmSetInterfaceClassMappedPropertyFromRegValue.c)
- *     _PnpObjectRaisePropertyChangeEvent @ 0x1408B95AC (_PnpObjectRaisePropertyChangeEvent.c)
+ *     _CmDeleteInterfaceClassMappedPropertyFromRegValue @ 0x14081EB28 (_CmDeleteInterfaceClassMappedPropertyFromRegValue.c)
+ *     _CmSetInterfaceClassMappedPropertyFromRegValue @ 0x140820468 (_CmSetInterfaceClassMappedPropertyFromRegValue.c)
+ *     _PnpObjectRaisePropertyChangeEvent @ 0x1408B6F54 (_PnpObjectRaisePropertyChangeEvent.c)
  */
 
 __int64 __fastcall CmSetInterfaceClassMappedProperty(

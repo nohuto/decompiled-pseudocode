@@ -4,9 +4,9 @@
  *     CmpAddDriverToList @ 0x140B5A278 (CmpAddDriverToList.c)
  *     CmpIsLoadType @ 0x140B5AAC0 (CmpIsLoadType.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     CmpCopyCompressedName @ 0x140708CB0 (CmpCopyCompressedName.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     CmpCopyCompressedName @ 0x140708EC0 (CmpCopyCompressedName.c)
  */
 
 _WORD *__fastcall CmpGetNodeName(__int64 a1, __int64 a2, unsigned __int16 *a3)

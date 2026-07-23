@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpLangNameInMultiSzString_Size @ 0x18003E708
+ * XREFs of RtlpLangNameInMultiSzString_Size @ 0x18003E6F8
  * Callers:
- *     RtlpMuiRegTryToAppendLangId @ 0x180014890 (RtlpMuiRegTryToAppendLangId.c)
- *     RtlpMuiRegTryToAppendLanguageName @ 0x180076AF4 (RtlpMuiRegTryToAppendLanguageName.c)
+ *     RtlpMuiRegTryToAppendLangId @ 0x180014880 (RtlpMuiRegTryToAppendLangId.c)
+ *     RtlpMuiRegTryToAppendLanguageName @ 0x180076AE4 (RtlpMuiRegTryToAppendLanguageName.c)
  * Callees:
- *     RtlStringCchLengthW @ 0x180040BCC (RtlStringCchLengthW.c)
- *     _wcsicmp @ 0x180098360 (_wcsicmp.c)
+ *     RtlStringCchLengthW @ 0x180040BBC (RtlStringCchLengthW.c)
+ *     _wcsicmp @ 0x180098350 (_wcsicmp.c)
  */
 
 char __fastcall RtlpLangNameInMultiSzString_Size(wchar_t *String1, wchar_t *String2, unsigned int a3)

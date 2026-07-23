@@ -1,12 +1,12 @@
 /*
- * XREFs of PopPowerRequestCallbackDisplayRequired @ 0x140ABC850
+ * XREFs of PopPowerRequestCallbackDisplayRequired @ 0x140ABE670
  * Callers:
  *     <none>
  * Callees:
- *     PoEnergyContextUpdateComponentPower @ 0x1409505D0 (PoEnergyContextUpdateComponentPower.c)
- *     TtmIsEnabled @ 0x140A3EE84 (TtmIsEnabled.c)
- *     TtmNotifySessionDisplayRequiredChange @ 0x140ABC910 (TtmNotifySessionDisplayRequiredChange.c)
- *     PopInvokeWin32Callout @ 0x140ABCA7C (PopInvokeWin32Callout.c)
+ *     PoEnergyContextUpdateComponentPower @ 0x1409CBF10 (PoEnergyContextUpdateComponentPower.c)
+ *     TtmIsEnabled @ 0x1409FA8A4 (TtmIsEnabled.c)
+ *     TtmNotifySessionDisplayRequiredChange @ 0x140ABE730 (TtmNotifySessionDisplayRequiredChange.c)
+ *     PopInvokeWin32Callout @ 0x140ABE89C (PopInvokeWin32Callout.c)
  */
 
 __int64 __fastcall PopPowerRequestCallbackDisplayRequired(__int64 a1, __int64 a2, char a3)

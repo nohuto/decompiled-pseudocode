@@ -4,7 +4,7 @@
  *     KseInitialize @ 0x140B495CC (KseInitialize.c)
  * Callees:
  *     KsepLogError @ 0x14020A5AC (KsepLogError.c)
- *     KsepDebugPrint @ 0x140580CD4 (KsepDebugPrint.c)
+ *     KsepDebugPrint @ 0x1405811C4 (KsepDebugPrint.c)
  *     KsepMatchInitCpuInfo @ 0x140B6144C (KsepMatchInitCpuInfo.c)
  *     KsepMatchInitAcpiOemInfo @ 0x140B614DC (KsepMatchInitAcpiOemInfo.c)
  *     KsepMatchInitBiosInfo @ 0x140B6162C (KsepMatchInitBiosInfo.c)
@@ -58,8 +58,8 @@ __int64 KsepMatchInitMachineInfo()
     KsepLogError(0LL, (__int64)"KSE: KsepMatchInitBiosInfo failed [0x%08x]\n", v3);
   }
   KsepMatchMachineInfo = (__int64)&xmmword_140C70C68;
-  qword_140C40C88 = (__int64)&xmmword_140C70CA0;
-  qword_140C40C90 = (__int64)&xmmword_140C70CD8;
-  qword_140C40C98 = (__int64)&xmmword_140C70D10;
+  qword_140C40C48 = (__int64)&xmmword_140C70CA0;
+  qword_140C40C50 = (__int64)&xmmword_140C70CD8;
+  qword_140C40C58 = (__int64)&xmmword_140C70D10;
   return 0LL;
 }

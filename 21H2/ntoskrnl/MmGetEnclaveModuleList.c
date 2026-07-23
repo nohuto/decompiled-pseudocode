@@ -1,17 +1,17 @@
 /*
- * XREFs of MmGetEnclaveModuleList @ 0x14054B734
+ * XREFs of MmGetEnclaveModuleList @ 0x14054B974
  * Callers:
- *     PsGetProcessEnclaveModuleInfo @ 0x14058470C (PsGetProcessEnclaveModuleInfo.c)
+ *     PsGetProcessEnclaveModuleInfo @ 0x14058493C (PsGetProcessEnclaveModuleInfo.c)
  * Callees:
- *     MiObtainReferencedVadEx @ 0x14021B2A0 (MiObtainReferencedVadEx.c)
- *     MiAllocatePool @ 0x14025AD70 (MiAllocatePool.c)
- *     MiUnlockAndDereferenceVadShared @ 0x14025B250 (MiUnlockAndDereferenceVadShared.c)
+ *     MiAllocatePool @ 0x14027C2E0 (MiAllocatePool.c)
+ *     MiUnlockAndDereferenceVadShared @ 0x14027C7C0 (MiUnlockAndDereferenceVadShared.c)
+ *     MiObtainReferencedVadEx @ 0x1402BFBA0 (MiObtainReferencedVadEx.c)
  */
 
 __int64 __fastcall MmGetEnclaveModuleList(unsigned __int64 a1, _QWORD *a2, unsigned int *a3)
 {
   unsigned int v3; // ebx
-  volatile signed __int32 *v6; // rax
+  __int64 v6; // rax
   char *v7; // rsi
   __int64 **v9; // rdi
   unsigned int v10; // ecx
@@ -29,15 +29,15 @@ __int64 __fastcall MmGetEnclaveModuleList(unsigned __int64 a1, _QWORD *a2, unsig
   v7 = (char *)v6;
   if ( !v6 )
     return v17;
-  if ( (v6[12] & 0x3100000) != 0x2100000 || (v6[16] & 1) != 0 )
+  if ( (*(_DWORD *)(v6 + 48) & 0x3100000) != 0x2100000 || (*(_DWORD *)(v6 + 64) & 1) != 0 )
   {
     v3 = -1073741800;
   }
   else
   {
-    v9 = (__int64 **)(v6 + 20);
+    v9 = (__int64 **)(v6 + 80);
     v10 = 0;
-    v11 = (__int64 **)*((_QWORD *)v6 + 10);
+    v11 = *(__int64 ***)(v6 + 80);
     while ( v11 != v9 )
     {
       if ( v10 == -1 )

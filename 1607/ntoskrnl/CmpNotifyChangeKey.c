@@ -1,27 +1,27 @@
 /*
- * XREFs of CmpNotifyChangeKey @ 0x140401234
+ * XREFs of CmpNotifyChangeKey @ 0x1404000F4
  * Callers:
- *     NtNotifyChangeMultipleKeys @ 0x1404009C4 (NtNotifyChangeMultipleKeys.c)
+ *     NtNotifyChangeMultipleKeys @ 0x1403FF884 (NtNotifyChangeMultipleKeys.c)
  * Callees:
- *     ExAllocatePoolWithQuotaTag @ 0x1400127B0 (ExAllocatePoolWithQuotaTag.c)
- *     EtwTraceKernelEvent @ 0x140014190 (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     SeCaptureSubjectContext @ 0x140412030 (SeCaptureSubjectContext.c)
- *     CmpIsKeyDeletedForKeyBody @ 0x140439400 (CmpIsKeyDeletedForKeyBody.c)
- *     CmpFreePostBlock @ 0x14049A988 (CmpFreePostBlock.c)
- *     CmpPostNotify @ 0x14049A9D4 (CmpPostNotify.c)
+ *     ExAllocatePoolWithQuotaTag @ 0x140012330 (ExAllocatePoolWithQuotaTag.c)
+ *     EtwTraceKernelEvent @ 0x140013D10 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     CmpFreePostBlock @ 0x1403E38A8 (CmpFreePostBlock.c)
+ *     CmpPostNotify @ 0x1403E38F4 (CmpPostNotify.c)
+ *     SeCaptureSubjectContext @ 0x140410EF0 (SeCaptureSubjectContext.c)
+ *     CmpIsKeyDeletedForKeyBody @ 0x1404382D0 (CmpIsKeyDeletedForKeyBody.c)
  */
 
 __int64 __fastcall CmpNotifyChangeKey(__int64 a1, __int64 a2, int a3, char a4, int a5, int a6, __int64 a7)
 {
-  char *v11; // rbx
+  __int64 v11; // rbx
   __int64 v12; // r14
   char *PoolWithQuotaTag; // rax
-  __int64 **v14; // rdx
-  _QWORD *v15; // rax
+  __int64 *v14; // rdx
+  __int64 *v15; // rax
   __int64 v16; // rcx
   _QWORD *v17; // rax
-  int v18; // edx
+  __int64 v18; // rdx
   _QWORD *v19; // rcx
   __int64 *v20; // r8
   _QWORD *v21; // rax
@@ -49,12 +49,12 @@ __int64 __fastcall CmpNotifyChangeKey(__int64 a1, __int64 a2, int a3, char a4, i
     v30 = -1073741444;
     goto LABEL_35;
   }
-  v11 = *(char **)(a1 + 16);
+  v11 = *(_QWORD *)(a1 + 16);
   v12 = *(_QWORD *)(*(_QWORD *)(a1 + 8) + 24LL);
   if ( !v11 )
   {
     PoolWithQuotaTag = (char *)ExAllocatePoolWithQuotaTag((POOL_TYPE)9, 0x58uLL, 0x626E4D43u);
-    v11 = PoolWithQuotaTag;
+    v11 = (__int64)PoolWithQuotaTag;
     if ( PoolWithQuotaTag )
     {
       *((_QWORD *)PoolWithQuotaTag + 4) = *(_QWORD *)(a1 + 8);
@@ -64,28 +64,28 @@ __int64 __fastcall CmpNotifyChangeKey(__int64 a1, __int64 a2, int a3, char a4, i
       *(_QWORD *)(a1 + 16) = PoolWithQuotaTag;
       *((_QWORD *)PoolWithQuotaTag + 5) = a1;
       SeCaptureSubjectContext((PSECURITY_SUBJECT_CONTEXT)(PoolWithQuotaTag + 56));
-      v14 = (__int64 **)(v12 + 2712);
+      v14 = (__int64 *)(v12 + 2712);
       if ( *(_QWORD *)(v12 + 2712) )
       {
         while ( 1 )
         {
-          v14 = (__int64 **)*v14;
-          if ( ((*((_DWORD *)v14[4] + 1) >> 21) & 0x3FFu) > ((*(_DWORD *)(*(_QWORD *)(a1 + 8) + 4LL) >> 21) & 0x3FFu) )
+          v14 = (__int64 *)*v14;
+          if ( ((*(_DWORD *)(v14[4] + 4) >> 21) & 0x3FFu) > ((*(_DWORD *)(*(_QWORD *)(a1 + 8) + 4LL) >> 21) & 0x3FFu) )
             break;
           if ( !*v14 )
             goto LABEL_7;
         }
         *(_QWORD *)v11 = v14;
-        *v14[1] = (__int64)v11;
-        *((_QWORD *)v11 + 1) = v14[1];
-        v14[1] = (__int64 *)v11;
+        *(_QWORD *)v14[1] = v11;
+        *(_QWORD *)(v11 + 8) = v14[1];
+        v14[1] = v11;
       }
       else
       {
 LABEL_7:
-        *v14 = (__int64 *)v11;
+        *v14 = v11;
         *(_QWORD *)v11 = 0LL;
-        *((_QWORD *)v11 + 1) = v14;
+        *(_QWORD *)(v11 + 8) = v14;
       }
       goto LABEL_9;
     }
@@ -95,9 +95,9 @@ LABEL_35:
     return v30;
   }
 LABEL_9:
-  v15 = v11 + 16;
-  v16 = *((_QWORD *)v11 + 2);
-  if ( *(char **)(v16 + 8) != v11 + 16 )
+  v15 = (__int64 *)(v11 + 16);
+  v16 = *(_QWORD *)(v11 + 16);
+  if ( *(_QWORD *)(v16 + 8) != v11 + 16 )
     __fastfail(3u);
   *(_QWORD *)(a2 + 8) = v15;
   *(_QWORD *)a2 = v16;
@@ -119,7 +119,7 @@ LABEL_9:
     *v28 = v17;
     *(_QWORD *)(a7 + 40) = v17;
   }
-  v18 = 3;
+  v18 = 3LL;
   if ( (unsigned int)(unsigned __int16)*(_DWORD *)(a2 + 56) - 3 > 1 )
   {
     CurrentIrql = KeGetCurrentIrql();
@@ -184,8 +184,8 @@ LABEL_9:
     v39 = 19;
     EtwTraceKernelEvent((int)&v38, 1, 0x42000000u, 2352, 5249282);
   }
-  if ( *((int *)v11 + 12) >= 0 )
+  if ( *(int *)(v11 + 48) >= 0 )
     return 259LL;
-  CmpPostNotify((_DWORD)v11, v18, (_DWORD)v20, 268, 1, 0LL, 0LL);
+  CmpPostNotify(v11, v18, (__int64)v20, 0x10Cu, 1, 0LL, 0LL);
   return 0LL;
 }

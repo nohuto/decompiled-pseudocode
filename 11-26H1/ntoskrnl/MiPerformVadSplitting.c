@@ -1,24 +1,24 @@
 /*
- * XREFs of MiPerformVadSplitting @ 0x140315B44
+ * XREFs of MiPerformVadSplitting @ 0x140317B74
  * Callers:
- *     MiDeletePartialVad @ 0x1403BCC54 (MiDeletePartialVad.c)
+ *     MiDeletePartialVad @ 0x1403C6AC4 (MiDeletePartialVad.c)
  * Callees:
- *     MiLockWorkingSetExclusive @ 0x14027E5A0 (MiLockWorkingSetExclusive.c)
- *     MiUnlockWorkingSetExclusive @ 0x14027E758 (MiUnlockWorkingSetExclusive.c)
- *     LOCK_PAGE_TABLE_COMMITMENT @ 0x14027F6FC (LOCK_PAGE_TABLE_COMMITMENT.c)
- *     MiCountSharedPages @ 0x1402D0E10 (MiCountSharedPages.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402DED10 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiComputePageCommitment @ 0x140311CE0 (MiComputePageCommitment.c)
- *     MiAdvanceVadView @ 0x1403158A0 (MiAdvanceVadView.c)
- *     MiInsertVad @ 0x140316000 (MiInsertVad.c)
- *     MiPostInsertVad @ 0x140316744 (MiPostInsertVad.c)
- *     UNLOCK_PAGE_TABLE_COMMITMENT @ 0x140316ED0 (UNLOCK_PAGE_TABLE_COMMITMENT.c)
- *     MiUnlockVadTree @ 0x140326440 (MiUnlockVadTree.c)
- *     MiLockVadTree @ 0x1403265D0 (MiLockVadTree.c)
- *     PsReturnProcessPagedPoolQuota @ 0x1403BCF90 (PsReturnProcessPagedPoolQuota.c)
- *     MiLockNestedVad @ 0x140A99C90 (MiLockNestedVad.c)
- *     MiUnlockNestedVad @ 0x140A9F610 (MiUnlockNestedVad.c)
+ *     MiLockWorkingSetExclusive @ 0x14027DB10 (MiLockWorkingSetExclusive.c)
+ *     MiUnlockWorkingSetExclusive @ 0x14027DCC8 (MiUnlockWorkingSetExclusive.c)
+ *     LOCK_PAGE_TABLE_COMMITMENT @ 0x14027EC6C (LOCK_PAGE_TABLE_COMMITMENT.c)
+ *     MiCountSharedPages @ 0x1402B2BD0 (MiCountSharedPages.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402C0B20 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiComputePageCommitment @ 0x140313D10 (MiComputePageCommitment.c)
+ *     MiAdvanceVadView @ 0x1403178D0 (MiAdvanceVadView.c)
+ *     MiInsertVad @ 0x140318030 (MiInsertVad.c)
+ *     MiPostInsertVad @ 0x140318774 (MiPostInsertVad.c)
+ *     UNLOCK_PAGE_TABLE_COMMITMENT @ 0x140318F00 (UNLOCK_PAGE_TABLE_COMMITMENT.c)
+ *     MiUnlockVadTree @ 0x140328470 (MiUnlockVadTree.c)
+ *     MiLockVadTree @ 0x140328600 (MiLockVadTree.c)
+ *     PsReturnProcessPagedPoolQuota @ 0x1403C6E00 (PsReturnProcessPagedPoolQuota.c)
+ *     MiLockNestedVad @ 0x140A9DE10 (MiLockNestedVad.c)
+ *     MiUnlockNestedVad @ 0x140A9F940 (MiUnlockNestedVad.c)
  */
 
 __int64 __fastcall MiPerformVadSplitting(__int64 a1)

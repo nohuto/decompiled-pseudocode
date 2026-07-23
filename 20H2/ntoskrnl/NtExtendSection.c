@@ -9,39 +9,39 @@
  *     ExRaiseDatatypeMisalignment @ 0x140777E40 (ExRaiseDatatypeMisalignment.c)
  */
 
-NTSTATUS __fastcall NtExtendSection(HANDLE Handle, unsigned __int64 a2)
+NTSTATUS __cdecl NtExtendSection(HANDLE SectionHandle, PLARGE_INTEGER NewSectionSize)
 {
   KPROCESSOR_MODE PreviousMode; // r9
   NTSTATUS result; // eax
   __int64 v6; // rcx
   PVOID Object; // [rsp+30h] [rbp-18h] BYREF
-  int v8; // [rsp+60h] [rbp+18h]
-  __int64 v9; // [rsp+68h] [rbp+20h] BYREF
+  NTSTATUS v8; // [rsp+60h] [rbp+18h]
+  LONGLONG QuadPart; // [rsp+68h] [rbp+20h] BYREF
 
-  v9 = 0LL;
+  QuadPart = 0LL;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
   {
-    if ( (a2 & 3) != 0 )
+    if ( ((unsigned __int8)NewSectionSize & 3) != 0 )
       ExRaiseDatatypeMisalignment();
     v6 = 0x7FFFFFFF0000LL;
-    if ( a2 < 0x7FFFFFFF0000LL )
-      v6 = a2;
+    if ( (unsigned __int64)NewSectionSize < 0x7FFFFFFF0000LL )
+      v6 = (__int64)NewSectionSize;
     *(_BYTE *)v6 = *(_BYTE *)v6;
     *(_BYTE *)(v6 + 7) = *(_BYTE *)(v6 + 7);
-    v9 = *(_QWORD *)a2;
+    QuadPart = NewSectionSize->QuadPart;
   }
   else
   {
-    v9 = *(_QWORD *)a2;
+    QuadPart = NewSectionSize->QuadPart;
   }
   Object = 0LL;
-  result = ObReferenceObjectByHandle(Handle, 0x10u, MmSectionObjectType, PreviousMode, &Object, 0LL);
+  result = ObReferenceObjectByHandle(SectionHandle, 0x10u, MmSectionObjectType, PreviousMode, &Object, 0LL);
   if ( result >= 0 )
   {
-    v8 = MmExtendSection(Object, &v9, 0LL);
+    v8 = MmExtendSection(Object, &QuadPart, 0LL);
     HalPutDmaAdapter((PADAPTER_OBJECT)Object);
-    *(_QWORD *)a2 = v9;
+    NewSectionSize->QuadPart = QuadPart;
     return v8;
   }
   return result;

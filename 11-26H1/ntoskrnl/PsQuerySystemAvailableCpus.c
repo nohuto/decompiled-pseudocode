@@ -1,12 +1,15 @@
 /*
- * XREFs of PsQuerySystemAvailableCpus @ 0x140615580
+ * XREFs of PsQuerySystemAvailableCpus @ 0x1406184F0
  * Callers:
  *     <none>
  * Callees:
- *     KeQuerySystemAvailableCpus @ 0x1405E5860 (KeQuerySystemAvailableCpus.c)
+ *     KeQuerySystemAvailableCpus @ 0x1405E81D0 (KeQuerySystemAvailableCpus.c)
  */
 
-__int64 __fastcall PsQuerySystemAvailableCpus(struct _KAFFINITY_EX *a1, _QWORD *a2, unsigned __int64 *a3)
+__int64 __fastcall PsQuerySystemAvailableCpus(
+        struct _KAFFINITY_EX *a1,
+        struct _LIST_ENTRY **a2,
+        struct _LIST_ENTRY **a3)
 {
   if ( !a1 || !a3 )
     return 3221225485LL;

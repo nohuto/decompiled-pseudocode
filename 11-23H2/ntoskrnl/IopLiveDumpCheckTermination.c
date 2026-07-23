@@ -1,8 +1,8 @@
 /*
- * XREFs of IopLiveDumpCheckTermination @ 0x14094DEE4
+ * XREFs of IopLiveDumpCheckTermination @ 0x14094E0E4
  * Callers:
- *     IopLiveDumpWriteDumpFile @ 0x14094F484 (IopLiveDumpWriteDumpFile.c)
- *     IopLiveDumpWriteDumpFileWithExtraPages @ 0x14094F958 (IopLiveDumpWriteDumpFileWithExtraPages.c)
+ *     IopLiveDumpWriteDumpFile @ 0x14094F684 (IopLiveDumpWriteDumpFile.c)
+ *     IopLiveDumpWriteDumpFileWithExtraPages @ 0x14094FB58 (IopLiveDumpWriteDumpFileWithExtraPages.c)
  * Callees:
  *     <none>
  */

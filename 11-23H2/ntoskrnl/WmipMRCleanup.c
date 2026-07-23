@@ -1,9 +1,9 @@
 /*
- * XREFs of WmipMRCleanup @ 0x1409E15B0
+ * XREFs of WmipMRCleanup @ 0x1409E1840
  * Callers:
  *     <none>
  * Callees:
- *     WmipGenerateMofResourceNotification @ 0x140850260 (WmipGenerateMofResourceNotification.c)
+ *     WmipGenerateMofResourceNotification @ 0x140850560 (WmipGenerateMofResourceNotification.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

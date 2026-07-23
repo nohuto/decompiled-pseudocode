@@ -1,12 +1,12 @@
 /*
- * XREFs of PiDmInitializeComparisonObject @ 0x1404FF138
+ * XREFs of PiDmInitializeComparisonObject @ 0x1404E20C8
  * Callers:
- *     PiDmGetObject @ 0x1404FF000 (PiDmGetObject.c)
- *     PiPnpRtlObjectEventCreate @ 0x1405015D8 (PiPnpRtlObjectEventCreate.c)
- *     PiDmLookupObject @ 0x140506200 (PiDmLookupObject.c)
- *     PiDmAddCacheReferenceForObject @ 0x140506288 (PiDmAddCacheReferenceForObject.c)
+ *     PiDmGetObject @ 0x1404E1F90 (PiDmGetObject.c)
+ *     PiPnpRtlObjectEventCreate @ 0x1404E4568 (PiPnpRtlObjectEventCreate.c)
+ *     PiDmLookupObject @ 0x1404E9190 (PiDmLookupObject.c)
+ *     PiDmAddCacheReferenceForObject @ 0x1404E9218 (PiDmAddCacheReferenceForObject.c)
  * Callees:
- *     RtlHashUnicodeString @ 0x1404FF220 (RtlHashUnicodeString.c)
+ *     RtlHashUnicodeString @ 0x1404E21B0 (RtlHashUnicodeString.c)
  */
 
 NTSTATUS __fastcall PiDmInitializeComparisonObject(wchar_t *a1, int a2, __int64 a3)

@@ -1,19 +1,19 @@
 /*
- * XREFs of RtlUnicodeStringToInteger @ 0x140684670
+ * XREFs of RtlUnicodeStringToInteger @ 0x1405DE4B0
  * Callers:
- *     RtlpMuiRegAddAlternateCodePage @ 0x1403ACD90 (RtlpMuiRegAddAlternateCodePage.c)
- *     RtlGetIntegerAtom @ 0x14061B6E0 (RtlGetIntegerAtom.c)
- *     _PnpParseIndirectResourceString @ 0x140684510 (_PnpParseIndirectResourceString.c)
- *     PspReadIFEOPerfOptions @ 0x1406AED10 (PspReadIFEOPerfOptions.c)
- *     RtlQueryImageFileKeyOption @ 0x1406AEF00 (RtlQueryImageFileKeyOption.c)
- *     _PnpGetGenericStorePropertyKeys @ 0x140767F80 (_PnpGetGenericStorePropertyKeys.c)
- *     WdipSemLoadNextEndEvent @ 0x1407993F4 (WdipSemLoadNextEndEvent.c)
- *     WdipSemLoadNextScenario @ 0x140799D84 (WdipSemLoadNextScenario.c)
- *     PiDcInitUpdateProperties @ 0x1407A3C28 (PiDcInitUpdateProperties.c)
- *     CmpGetAcpiProfileInformation @ 0x1407A601C (CmpGetAcpiProfileInformation.c)
- *     PspIsDfssEnabled @ 0x1407A8CA0 (PspIsDfssEnabled.c)
- *     PopDetectSimulatedHeteroProcessors @ 0x1407BB808 (PopDetectSimulatedHeteroProcessors.c)
- *     PiCMDeleteDeviceKey @ 0x1408AFF68 (PiCMDeleteDeviceKey.c)
+ *     RtlpMuiRegAddAlternateCodePage @ 0x1403A8404 (RtlpMuiRegAddAlternateCodePage.c)
+ *     _PnpParseIndirectResourceString @ 0x1405DE350 (_PnpParseIndirectResourceString.c)
+ *     PspReadIFEOPerfOptions @ 0x14060D5B0 (PspReadIFEOPerfOptions.c)
+ *     RtlQueryImageFileKeyOption @ 0x14060D7A0 (RtlQueryImageFileKeyOption.c)
+ *     RtlGetIntegerAtom @ 0x140685340 (RtlGetIntegerAtom.c)
+ *     _PnpGetGenericStorePropertyKeys @ 0x140768140 (_PnpGetGenericStorePropertyKeys.c)
+ *     WdipSemLoadNextEndEvent @ 0x1407995F4 (WdipSemLoadNextEndEvent.c)
+ *     WdipSemLoadNextScenario @ 0x140799F84 (WdipSemLoadNextScenario.c)
+ *     PiDcInitUpdateProperties @ 0x1407A3E28 (PiDcInitUpdateProperties.c)
+ *     CmpGetAcpiProfileInformation @ 0x1407A621C (CmpGetAcpiProfileInformation.c)
+ *     PspIsDfssEnabled @ 0x1407A8EA0 (PspIsDfssEnabled.c)
+ *     PopDetectSimulatedHeteroProcessors @ 0x1407BBF98 (PopDetectSimulatedHeteroProcessors.c)
+ *     PiCMDeleteDeviceKey @ 0x1408B00C8 (PiCMDeleteDeviceKey.c)
  * Callees:
  *     <none>
  */

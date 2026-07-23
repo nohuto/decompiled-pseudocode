@@ -1,18 +1,18 @@
 /*
- * XREFs of IopOpenLinkOrRenameTarget @ 0x1406089A8
+ * XREFs of IopOpenLinkOrRenameTarget @ 0x140698458
  * Callers:
- *     NtSetInformationFile @ 0x140352270 (NtSetInformationFile.c)
- *     IoSetInformation @ 0x14077C0D0 (IoSetInformation.c)
+ *     NtSetInformationFile @ 0x14035CFC0 (NtSetInformationFile.c)
+ *     IoSetInformation @ 0x14077C290 (IoSetInformation.c)
  * Callees:
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     IoGetRelatedDeviceObject @ 0x140351920 (IoGetRelatedDeviceObject.c)
- *     IopGetFileObjectExtension @ 0x1403567E0 (IopGetFileObjectExtension.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     IopGetBasicInformationFile @ 0x1406088E8 (IopGetBasicInformationFile.c)
- *     IoCreateFileEx @ 0x14060B270 (IoCreateFileEx.c)
- *     ObCloseHandle @ 0x14061AB80 (ObCloseHandle.c)
- *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
- *     IoConvertFileHandleToKernelHandle @ 0x14072A4C0 (IoConvertFileHandleToKernelHandle.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     IoGetRelatedDeviceObject @ 0x14035C670 (IoGetRelatedDeviceObject.c)
+ *     IopGetFileObjectExtension @ 0x140361530 (IopGetFileObjectExtension.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     ObCloseHandle @ 0x1406847E0 (ObCloseHandle.c)
+ *     IopGetBasicInformationFile @ 0x140698398 (IopGetBasicInformationFile.c)
+ *     IoCreateFileEx @ 0x14069AD20 (IoCreateFileEx.c)
+ *     ObReferenceObjectByHandle @ 0x140707FA0 (ObReferenceObjectByHandle.c)
+ *     IoConvertFileHandleToKernelHandle @ 0x14072A970 (IoConvertFileHandleToKernelHandle.c)
  */
 
 __int64 __fastcall IopOpenLinkOrRenameTarget(HANDLE *a1, __int64 a2, __int64 a3, struct _FILE_OBJECT *a4)
@@ -61,7 +61,7 @@ __int64 __fastcall IopOpenLinkOrRenameTarget(HANDLE *a1, __int64 a2, __int64 a3,
   memset(&DriverContext.Size + 1, 0, 22);
   if ( v4 )
   {
-    result = IopGetBasicInformationFile(a4, (__int64)v32);
+    result = IopGetBasicInformationFile(a4, (struct _IRP *)v32);
     if ( (int)result < 0 )
       return result;
     if ( (v33 & 0x10) != 0 )

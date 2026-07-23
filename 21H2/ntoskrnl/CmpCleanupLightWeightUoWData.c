@@ -1,24 +1,24 @@
 /*
- * XREFs of CmpCleanupLightWeightUoWData @ 0x1406A3D24
+ * XREFs of CmpCleanupLightWeightUoWData @ 0x1405E17F4
  * Callers:
- *     CmpCleanupLightWeightPrepare @ 0x1406A3650 (CmpCleanupLightWeightPrepare.c)
+ *     CmpCleanupLightWeightPrepare @ 0x1405DF3A4 (CmpCleanupLightWeightPrepare.c)
  * Callees:
- *     CmSiFreeMemory @ 0x140201A30 (CmSiFreeMemory.c)
- *     CmpFreeTransientPoolWithTag @ 0x140206FA8 (CmpFreeTransientPoolWithTag.c)
- *     CmpDereferenceSecurityNode @ 0x1403F06FC (CmpDereferenceSecurityNode.c)
- *     CmpFreeKeyByCell @ 0x14066B280 (CmpFreeKeyByCell.c)
- *     CmpFreeValue @ 0x14066B438 (CmpFreeValue.c)
- *     CmpCleanupDiscardReplaceContext @ 0x14066C100 (CmpCleanupDiscardReplaceContext.c)
- *     CmpLightWeightCleanupSetValueKeyUoW @ 0x1406A4210 (CmpLightWeightCleanupSetValueKeyUoW.c)
- *     CmpLightWeightCleanupModifyKeyDataUoW @ 0x14087EAC4 (CmpLightWeightCleanupModifyKeyDataUoW.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     CmSiFreeMemory @ 0x1402253C0 (CmSiFreeMemory.c)
+ *     CmpFreeTransientPoolWithTag @ 0x1402483A4 (CmpFreeTransientPoolWithTag.c)
+ *     CmpDereferenceSecurityNode @ 0x1403F086C (CmpDereferenceSecurityNode.c)
+ *     CmpLightWeightCleanupSetValueKeyUoW @ 0x1405E1CE0 (CmpLightWeightCleanupSetValueKeyUoW.c)
+ *     CmpFreeKeyByCell @ 0x1406600A0 (CmpFreeKeyByCell.c)
+ *     CmpFreeValue @ 0x140660258 (CmpFreeValue.c)
+ *     CmpCleanupDiscardReplaceContext @ 0x140660F20 (CmpCleanupDiscardReplaceContext.c)
+ *     CmpLightWeightCleanupModifyKeyDataUoW @ 0x14087EC24 (CmpLightWeightCleanupModifyKeyDataUoW.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall CmpCleanupLightWeightUoWData(__int64 a1, __int64 a2, __int64 a3)
 {
   ULONG_PTR *v3; // rdi
   int v6; // eax
-  _QWORD *v7; // rcx
+  __int64 v7; // rcx
   ULONG_PTR v8; // rdx
   unsigned int *v9; // rcx
   ULONG_PTR v10; // rdx
@@ -58,7 +58,7 @@ LABEL_25:
       if ( v6 != 12 )
         return;
 LABEL_11:
-      CmpFreeKeyByCell(*(_QWORD *)(*(_QWORD *)(a1 + 48) + 32LL), *(_DWORD *)(*(_QWORD *)(a1 + 48) + 40LL), 0);
+      CmpFreeKeyByCell(*(_QWORD *)(*(_QWORD *)(a1 + 48) + 32LL));
       *(_DWORD *)(*(_QWORD *)(a1 + 48) + 40LL) = *(_DWORD *)(a1 + 88);
       *(_DWORD *)(a1 + 88) = 0;
       v3 = *(ULONG_PTR **)(a1 + 104);
@@ -68,7 +68,7 @@ LABEL_12:
         CmpLightWeightCleanupModifyKeyDataUoW(*(_QWORD *)(*(_QWORD *)(a1 + 48) + 32LL));
         *(_QWORD *)(a1 + 104) = 0LL;
       }
-      v7 = *(_QWORD **)(a1 + 112);
+      v7 = *(_QWORD *)(a1 + 112);
       if ( v7 )
       {
         CmpCleanupDiscardReplaceContext(v7, a3);

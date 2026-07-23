@@ -12,66 +12,60 @@
  */
 
 __int64 __fastcall LdrMapAndVerifyResourceFile(
-        __int64 a1,
+        void *a1,
         __int64 a2,
-        __int64 a3,
-        __int64 a4,
+        char a3,
+        int a4,
         const wchar_t *a5,
         int a6,
         HANDLE *a7,
         _QWORD *a8,
-        __int64 *a9)
+        unsigned __int64 *a9)
 {
-  int v9; // r13d
-  char v10; // bl
-  __int64 v13; // rdx
-  __int64 v14; // r8
-  __int64 v15; // r9
-  __int64 v16; // rcx
-  int v17; // ebx
-  __int64 v18; // rdi
-  __int64 v20; // rcx
-  __int64 v21; // [rsp+30h] [rbp-48h] BYREF
+  int v13; // r8d
+  __int64 v14; // rcx
+  int v15; // ebx
+  unsigned __int64 v16; // rdi
+  __int64 v18; // rcx
+  PVOID BaseAddress; // [rsp+30h] [rbp-48h] BYREF
   HANDLE Handle; // [rsp+38h] [rbp-40h] BYREF
-  __int64 v23; // [rsp+40h] [rbp-38h] BYREF
+  __int64 v21; // [rsp+40h] [rbp-38h] BYREF
 
-  v9 = a4;
-  v10 = a3;
   Handle = 0LL;
   *a7 = 0LL;
   *a8 = 0LL;
   *a9 = 0LL;
+  BaseAddress = 0LL;
   v21 = 0LL;
-  v23 = 0LL;
-  if ( (unsigned int)RtlGetCurrentServiceSessionId(a1, a2, a3, a4) )
-    v16 = (__int64)NtCurrentPeb()->SharedData + 555;
+  if ( RtlGetCurrentServiceSessionId() )
+    v14 = (__int64)NtCurrentPeb()->SharedData + 555;
   else
-    v16 = 2147353477LL;
-  if ( (*(_BYTE *)v16 & 1) != 0 )
+    v14 = 2147353477LL;
+  if ( (*(_BYTE *)v14 & 1) != 0 )
   {
-    if ( (unsigned int)RtlGetCurrentServiceSessionId(v16, v13, v14, v15) )
-      v20 = (__int64)NtCurrentPeb()->SharedData + 554;
+    if ( RtlGetCurrentServiceSessionId() )
+      v18 = (__int64)NtCurrentPeb()->SharedData + 554;
     else
-      v20 = 2147353476LL;
-    LdrpTraceLoadMUIDll(a2, *(unsigned __int8 *)v20);
+      v18 = 2147353476LL;
+    LdrpTraceLoadMUIDll(a2, *(unsigned __int8 *)v18);
   }
-  LOBYTE(v14) = v10;
-  v17 = LdrpMapResourceFile(a1, a2, v14, (unsigned int)&Handle, (__int64)&v21, (__int64)&v23);
-  if ( v17 >= 0 )
+  LOBYTE(v13) = a3;
+  v15 = LdrpMapResourceFile((_DWORD)a1, a2, v13, (unsigned int)&Handle, (__int64)&BaseAddress, (__int64)&v21);
+  if ( v15 >= 0 )
   {
-    v18 = v21 | 1;
-    if ( LdrpVerifyAlternateResourceModuleEx(a1, v21 | 1, a2, a5, v9, a6) )
+    v16 = (unsigned __int64)BaseAddress | 1;
+    if ( LdrpVerifyAlternateResourceModuleEx(a1, (void *)((unsigned __int64)BaseAddress | 1), a2, a5, a4, a6) )
     {
       *a7 = Handle;
-      *a8 = v23;
-      *a9 = v18;
+      *a8 = v21;
+      *a9 = v16;
     }
     else
     {
-      NtUnmapViewOfSection(-1LL);
+      NtUnmapViewOfSection((HANDLE)0xFFFFFFFFFFFFFFFFLL, BaseAddress);
       NtClose(Handle);
       return (unsigned int)-1073020926;
     }
   }
-  return (unsigned int)v17;
+  return (unsigned int)v15;
 }

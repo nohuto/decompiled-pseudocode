@@ -10,9 +10,9 @@
  *     <none>
  */
 
-uint8_t sub_1800F8F3C()
+BOOLEAN sub_1800F8F3C()
 {
-  uint8_t result; // al
+  BOOLEAN result; // al
 
   result = NtCurrentPeb()->BeingDebugged;
   if ( !result )

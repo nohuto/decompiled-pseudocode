@@ -6,13 +6,13 @@
  *     <none>
  */
 
-char RtlQueryProcessPlaceholderCompatibilityMode()
+CHAR RtlQueryProcessPlaceholderCompatibilityMode(void)
 {
   struct _PEB *v0; // rax
 
   v0 = NtCurrentPeb();
   if ( v0 )
-    return (char)v0[2].UnicodeCaseTableData;
+    return v0->PlaceholderCompatibilityMode;
   else
     return -3;
 }

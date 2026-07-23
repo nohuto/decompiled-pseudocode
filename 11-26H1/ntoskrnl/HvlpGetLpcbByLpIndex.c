@@ -1,16 +1,16 @@
 /*
- * XREFs of HvlpGetLpcbByLpIndex @ 0x1403E6258
+ * XREFs of HvlpGetLpcbByLpIndex @ 0x1402F3138
  * Callers:
- *     PpmHvSnapPerformanceAccumulation @ 0x140252790 (PpmHvSnapPerformanceAccumulation.c)
- *     HvlSharedIsr @ 0x1403E61A0 (HvlSharedIsr.c)
- *     HvlEnlightenProcessor @ 0x140530860 (HvlEnlightenProcessor.c)
- *     HvlGetApicIdFromLpIndex @ 0x1405B9220 (HvlGetApicIdFromLpIndex.c)
- *     HvlGetLpStatsPageByLpIndex @ 0x1405B9290 (HvlGetLpStatsPageByLpIndex.c)
- *     HvlGetVpSintMessagePage @ 0x1405B9490 (HvlGetVpSintMessagePage.c)
- *     HvlQueryHypervisorProcessorNodeNumber @ 0x1405B9550 (HvlQueryHypervisorProcessorNodeNumber.c)
- *     HvlQueryProcessorTopologyEx @ 0x1405B96B0 (HvlQueryProcessorTopologyEx.c)
- *     HvlpInitializeBootProcessor @ 0x1405BA2EC (HvlpInitializeBootProcessor.c)
- *     HvlInitializeProcessor @ 0x1407918C4 (HvlInitializeProcessor.c)
+ *     PpmHvSnapPerformanceAccumulation @ 0x1402540F0 (PpmHvSnapPerformanceAccumulation.c)
+ *     HvlSharedIsr @ 0x1402F3080 (HvlSharedIsr.c)
+ *     HvlEnlightenProcessor @ 0x140532D60 (HvlEnlightenProcessor.c)
+ *     HvlGetApicIdFromLpIndex @ 0x1405BBA90 (HvlGetApicIdFromLpIndex.c)
+ *     HvlGetLpStatsPageByLpIndex @ 0x1405BBB00 (HvlGetLpStatsPageByLpIndex.c)
+ *     HvlGetVpSintMessagePage @ 0x1405BBD00 (HvlGetVpSintMessagePage.c)
+ *     HvlQueryHypervisorProcessorNodeNumber @ 0x1405BBDC0 (HvlQueryHypervisorProcessorNodeNumber.c)
+ *     HvlQueryProcessorTopologyEx @ 0x1405BBF20 (HvlQueryProcessorTopologyEx.c)
+ *     HvlpInitializeBootProcessor @ 0x1405BCB5C (HvlpInitializeBootProcessor.c)
+ *     HvlInitializeProcessor @ 0x1407943F4 (HvlInitializeProcessor.c)
  * Callees:
  *     <none>
  */
@@ -33,7 +33,7 @@ _LIST_ENTRY *__fastcall HvlpGetLpcbByLpIndex(unsigned int a1)
       v2 += 26;
     }
     if ( !a1 )
-      return &stru_140E3E928.ThreadListEntry;
+      return &stru_140E3EAA8.ThreadListEntry;
   }
   return result;
 }

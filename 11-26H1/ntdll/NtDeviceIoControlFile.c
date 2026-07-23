@@ -1,11 +1,11 @@
 /*
- * XREFs of NtDeviceIoControlFile @ 0x18015F020
+ * XREFs of NtDeviceIoControlFile @ 0x18015EF20
  * Callers:
- *     SaferpIsDllAllowed @ 0x1800E48F4 (SaferpIsDllAllowed.c)
- *     RtlQueryVolumeDiskSpeedPolicy @ 0x18010E084 (RtlQueryVolumeDiskSpeedPolicy.c)
- *     GetProcessIptTrace @ 0x18015A84C (GetProcessIptTrace.c)
- *     GetProcessIptTraceSize @ 0x18015A95C (GetProcessIptTraceSize.c)
- *     RtlpQueryDiskWriteConstraintPolicyByHandle @ 0x18015ADE4 (RtlpQueryDiskWriteConstraintPolicyByHandle.c)
+ *     SaferpIsDllAllowed @ 0x1800E27A4 (SaferpIsDllAllowed.c)
+ *     RtlQueryVolumeDiskSpeedPolicy @ 0x18010DBD4 (RtlQueryVolumeDiskSpeedPolicy.c)
+ *     GetProcessIptTrace @ 0x18015A71C (GetProcessIptTrace.c)
+ *     GetProcessIptTraceSize @ 0x18015A82C (GetProcessIptTraceSize.c)
+ *     RtlpQueryDiskWriteConstraintPolicyByHandle @ 0x18015ACB4 (RtlpQueryDiskWriteConstraintPolicyByHandle.c)
  * Callees:
  *     <none>
  */

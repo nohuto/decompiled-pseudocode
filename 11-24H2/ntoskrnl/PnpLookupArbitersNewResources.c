@@ -1,10 +1,10 @@
 /*
- * XREFs of PnpLookupArbitersNewResources @ 0x140AADFA4
+ * XREFs of PnpLookupArbitersNewResources @ 0x140AA9024
  * Callers:
- *     IopRetestConfiguration @ 0x140721A0C (IopRetestConfiguration.c)
- *     IopTestConfiguration @ 0x140721D2C (IopTestConfiguration.c)
+ *     IopRetestConfiguration @ 0x14071F59C (IopRetestConfiguration.c)
+ *     IopTestConfiguration @ 0x14071F8BC (IopTestConfiguration.c)
  * Callees:
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall PnpLookupArbitersNewResources(
@@ -13,13 +13,13 @@ __int64 __fastcall PnpLookupArbitersNewResources(
         __int64 a3,
         char a4,
         __int64 *a5,
-        _DWORD *a6)
+        unsigned int *a6)
 {
   unsigned int v6; // ebx
   __int64 v8; // rax
   __int64 v9; // r10
   _QWORD *v10; // r8
-  int v11; // edi
+  unsigned int v11; // edi
   __int64 *v12; // rcx
   __int64 v13; // rsi
   unsigned int v14; // eax
@@ -66,7 +66,7 @@ __int64 __fastcall PnpLookupArbitersNewResources(
     while ( v16 );
     if ( v11 )
     {
-      Pool2 = ExAllocatePool2(0x100uLL);
+      Pool2 = ExAllocatePool2(0x100uLL, 20LL * v11, 0x20207050u);
       if ( !Pool2 )
         return 3221225626LL;
       *a6 = v11;

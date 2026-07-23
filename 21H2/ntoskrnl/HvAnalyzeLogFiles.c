@@ -1,20 +1,20 @@
 /*
- * XREFs of HvAnalyzeLogFiles @ 0x140880C2C
+ * XREFs of HvAnalyzeLogFiles @ 0x140880D8C
  * Callers:
- *     HvLoadHive @ 0x140722748 (HvLoadHive.c)
+ *     HvLoadHive @ 0x1406FA774 (HvLoadHive.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     memset @ 0x140414200 (memset.c)
- *     HvpHeaderCheckSum @ 0x1407248A8 (HvpHeaderCheckSum.c)
- *     HvpDetermineIncrementalLogFileMaximums @ 0x140881778 (HvpDetermineIncrementalLogFileMaximums.c)
- *     HvpDetermineLatestLogFile @ 0x140881830 (HvpDetermineLatestLogFile.c)
- *     HvpIsReadErrorTransient @ 0x140881984 (HvpIsReadErrorTransient.c)
- *     HvpLogIneligibleLogHeader @ 0x140881A80 (HvpLogIneligibleLogHeader.c)
- *     HvpLogInvalidLogHeader @ 0x140881B48 (HvpLogInvalidLogHeader.c)
- *     HvpLogUnreadableLog @ 0x140881CE0 (HvpLogUnreadableLog.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14027E1A4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x1402864F4 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     HvpHeaderCheckSum @ 0x1406FC8D4 (HvpHeaderCheckSum.c)
+ *     HvpDetermineIncrementalLogFileMaximums @ 0x1408818D8 (HvpDetermineIncrementalLogFileMaximums.c)
+ *     HvpDetermineLatestLogFile @ 0x140881990 (HvpDetermineLatestLogFile.c)
+ *     HvpIsReadErrorTransient @ 0x140881AE4 (HvpIsReadErrorTransient.c)
+ *     HvpLogIneligibleLogHeader @ 0x140881BE0 (HvpLogIneligibleLogHeader.c)
+ *     HvpLogInvalidLogHeader @ 0x140881CA8 (HvpLogInvalidLogHeader.c)
+ *     HvpLogUnreadableLog @ 0x140881E40 (HvpLogUnreadableLog.c)
  */
 
 __int64 __fastcall HvAnalyzeLogFiles(
@@ -209,7 +209,7 @@ LABEL_61:
       v77 = 0x1000000LL;
       v85 = &v77;
       v86 = 8LL;
-      tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C02130, (unsigned __int8 *)byte_140023E1D, 0LL, 0LL, 3u, v84);
+      tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C02130, (unsigned __int8 *)byte_140023DFD, 0LL, 0LL, 3u, v84);
     }
     return (unsigned int)-1073741492;
   }
@@ -306,7 +306,7 @@ LABEL_61:
     v95 = 4LL;
     v73 = v47;
     v97 = 4LL;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C02130, (unsigned __int8 *)&unk_140023DC0, 0LL, 0LL, 7u, &v87);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C02130, (unsigned __int8 *)byte_140023E31, 0LL, 0LL, 7u, &v87);
     v46 = dword_140C02130;
   }
   if ( v37 == 1 )
@@ -382,7 +382,7 @@ LABEL_47:
         v86 = 8LL;
         tlgWriteTransfer_EtwWriteTransfer(
           (__int64)&dword_140C02130,
-          (unsigned __int8 *)byte_140023D00,
+          (unsigned __int8 *)byte_140023DC0,
           0LL,
           0LL,
           3u,

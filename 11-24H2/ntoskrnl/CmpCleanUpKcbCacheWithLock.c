@@ -1,30 +1,30 @@
 /*
- * XREFs of CmpCleanUpKcbCacheWithLock @ 0x1408704E0
+ * XREFs of CmpCleanUpKcbCacheWithLock @ 0x140874810
  * Callers:
- *     CmpPerformCompleteKcbCacheLookup @ 0x140844830 (CmpPerformCompleteKcbCacheLookup.c)
- *     CmpDereferenceKeyControlBlock @ 0x140845CD0 (CmpDereferenceKeyControlBlock.c)
- *     CmpDoParseKey @ 0x14086E7B0 (CmpDoParseKey.c)
- *     CmpCommitDiscardReplacePost @ 0x140870A94 (CmpCommitDiscardReplacePost.c)
- *     CmpDereferenceKeyControlBlockWithLock @ 0x14087DE20 (CmpDereferenceKeyControlBlockWithLock.c)
- *     CmpCleanUpKCBCacheTable @ 0x14097BF7C (CmpCleanUpKCBCacheTable.c)
- *     CmpDelayCloseWorker @ 0x1409D6A50 (CmpDelayCloseWorker.c)
- *     CmpSearchKeyControlBlockTreeEx @ 0x140A4F298 (CmpSearchKeyControlBlockTreeEx.c)
+ *     CmpPerformCompleteKcbCacheLookup @ 0x140840AF0 (CmpPerformCompleteKcbCacheLookup.c)
+ *     CmpDereferenceKeyControlBlock @ 0x140841F90 (CmpDereferenceKeyControlBlock.c)
+ *     CmpDoParseKey @ 0x140872AE0 (CmpDoParseKey.c)
+ *     CmpCommitDiscardReplacePost @ 0x140874DC4 (CmpCommitDiscardReplacePost.c)
+ *     CmpDereferenceKeyControlBlockWithLock @ 0x140881CD0 (CmpDereferenceKeyControlBlockWithLock.c)
+ *     CmpCleanUpKCBCacheTable @ 0x14096478C (CmpCleanUpKCBCacheTable.c)
+ *     CmpDelayCloseWorker @ 0x1409C6AD0 (CmpDelayCloseWorker.c)
+ *     CmpSearchKeyControlBlockTreeEx @ 0x140A46048 (CmpSearchKeyControlBlockTreeEx.c)
  * Callees:
- *     CmpFreeTransientPoolWithTag @ 0x140441FC0 (CmpFreeTransientPoolWithTag.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     CmpDereferenceNameControlBlockWithLock @ 0x140870E00 (CmpDereferenceNameControlBlockWithLock.c)
- *     EtwpTraceRegistry @ 0x140870F40 (EtwpTraceRegistry.c)
- *     CmpConstructName @ 0x1408763E0 (CmpConstructName.c)
- *     CmpDelayDerefKeyControlBlock @ 0x14087E570 (CmpDelayDerefKeyControlBlock.c)
- *     CmpDoQueueLateUnloadWorker @ 0x14087E638 (CmpDoQueueLateUnloadWorker.c)
- *     CmpLockDeletedHashEntryExclusiveByKcb @ 0x14097C944 (CmpLockDeletedHashEntryExclusiveByKcb.c)
- *     CmpUnlockDeletedHashEntryByKcb @ 0x14097CA14 (CmpUnlockDeletedHashEntryByKcb.c)
- *     CmpRemoveKeyHashFromDeletedKcbTable @ 0x1409E58BC (CmpRemoveKeyHashFromDeletedKcbTable.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
- *     CmpAttachToRegistryProcess @ 0x140BB98E0 (CmpAttachToRegistryProcess.c)
- *     CmpDetachFromRegistryProcess @ 0x140BB9920 (CmpDetachFromRegistryProcess.c)
+ *     CmpFreeTransientPoolWithTag @ 0x140438B90 (CmpFreeTransientPoolWithTag.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     CmpDereferenceNameControlBlockWithLock @ 0x140875130 (CmpDereferenceNameControlBlockWithLock.c)
+ *     EtwpTraceRegistry @ 0x140875270 (EtwpTraceRegistry.c)
+ *     CmpConstructName @ 0x14087A710 (CmpConstructName.c)
+ *     CmpDelayDerefKeyControlBlock @ 0x140882420 (CmpDelayDerefKeyControlBlock.c)
+ *     CmpDoQueueLateUnloadWorker @ 0x1408824E8 (CmpDoQueueLateUnloadWorker.c)
+ *     CmpLockDeletedHashEntryExclusiveByKcb @ 0x140965154 (CmpLockDeletedHashEntryExclusiveByKcb.c)
+ *     CmpUnlockDeletedHashEntryByKcb @ 0x140965224 (CmpUnlockDeletedHashEntryByKcb.c)
+ *     CmpRemoveKeyHashFromDeletedKcbTable @ 0x1409E014C (CmpRemoveKeyHashFromDeletedKcbTable.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
+ *     CmpAttachToRegistryProcess @ 0x140BBB8E0 (CmpAttachToRegistryProcess.c)
+ *     CmpDetachFromRegistryProcess @ 0x140BBB920 (CmpDetachFromRegistryProcess.c)
  */
 
 void __fastcall CmpCleanUpKcbCacheWithLock(ULONG_PTR BugCheckParameter4, __int64 a2)
@@ -76,7 +76,7 @@ void __fastcall CmpCleanUpKcbCacheWithLock(ULONG_PTR BugCheckParameter4, __int64
       if ( v5 == EtwpTraceRegistry )
         EtwpTraceRegistry(v6, (unsigned int)v32, 0, 0, BugCheckParameter4, (__int64)v7);
       else
-        guard_dispatch_icall_no_overrides(v6, v32, 0LL, 0LL);
+        guard_dispatch_icall_no_overrides(v6, v32);
       CmpFreeTransientPoolWithTag(v7, 0x624E4D43u);
     }
     CmpDetachFromRegistryProcess(&v33);

@@ -1,7 +1,7 @@
 /*
- * XREFs of PopPlInitComponent @ 0x1409A0344
+ * XREFs of PopPlInitComponent @ 0x1409A0544
  * Callers:
- *     PopPlInitComponents @ 0x1409A0404 (PopPlInitComponents.c)
+ *     PopPlInitComponents @ 0x1409A0604 (PopPlInitComponents.c)
  * Callees:
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

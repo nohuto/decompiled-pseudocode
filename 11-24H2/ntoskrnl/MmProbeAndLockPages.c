@@ -1,75 +1,76 @@
 /*
- * XREFs of MmProbeAndLockPages @ 0x140282330
+ * XREFs of MmProbeAndLockPages @ 0x1402378C0
  * Callers:
- *     VslpLockPagesForTransfer @ 0x140266DCC (VslpLockPagesForTransfer.c)
- *     VslpLockMdlForTransfer @ 0x1402670CC (VslpLockMdlForTransfer.c)
- *     MiGetWorkingSetInfo @ 0x140267168 (MiGetWorkingSetInfo.c)
- *     CcZeroDataInCache @ 0x140267564 (CcZeroDataInCache.c)
- *     IopProbeAndLockPages @ 0x140267E4C (IopProbeAndLockPages.c)
- *     CcPrepareMdlWrite @ 0x1402CC1E0 (CcPrepareMdlWrite.c)
- *     MiGetWorkingSetInfoList @ 0x1403032B0 (MiGetWorkingSetInfoList.c)
- *     CcLockSystemCacheBuffer @ 0x14040CB58 (CcLockSystemCacheBuffer.c)
- *     KeSwappablePageReference @ 0x14046A5CC (KeSwappablePageReference.c)
- *     IopProbeAndLockPages_1 @ 0x14046E260 (IopProbeAndLockPages_1.c)
- *     VslFinalizeSecureImageHash @ 0x1404A0990 (VslFinalizeSecureImageHash.c)
- *     IopProbeAndLockPages_2 @ 0x1404A7238 (IopProbeAndLockPages_2.c)
- *     sub_140518F40 @ 0x140518F40 (sub_140518F40.c)
- *     KiOpPatchCode @ 0x1405C535C (KiOpPatchCode.c)
- *     PspIumAllocatePartitionState @ 0x1405E61E8 (PspIumAllocatePartitionState.c)
- *     SmRecordDecompressionFailureDumpPayload @ 0x14060F110 (SmRecordDecompressionFailureDumpPayload.c)
- *     DifMmProbeAndLockPagesWrapper @ 0x1406343F0 (DifMmProbeAndLockPagesWrapper.c)
- *     VmProbeAndLockPages @ 0x14064A330 (VmProbeAndLockPages.c)
- *     MiPrepareImagePagesForHotPatch @ 0x14067D29C (MiPrepareImagePagesForHotPatch.c)
- *     VslObtainHotPatchUndoTable @ 0x14070FCC0 (VslObtainHotPatchUndoTable.c)
- *     IopAllocateAndLockMdl @ 0x14071194C (IopAllocateAndLockMdl.c)
- *     IopSetFileObjectIosbRange @ 0x140712DF8 (IopSetFileObjectIosbRange.c)
- *     NtQueryQuotaInformationFile @ 0x140717C10 (NtQueryQuotaInformationFile.c)
- *     SmProcessStatsRequest @ 0x140798698 (SmProcessStatsRequest.c)
- *     ExInitializeLeapSecondData @ 0x1407B5C30 (ExInitializeLeapSecondData.c)
- *     NtStartProfile @ 0x1407C4440 (NtStartProfile.c)
- *     NtPssCaptureVaSpaceBulk @ 0x1407C4840 (NtPssCaptureVaSpaceBulk.c)
- *     CmpLockKeyBodyIntoMemory @ 0x1407DB030 (CmpLockKeyBodyIntoMemory.c)
- *     MiApplyImageHotPatch @ 0x1407F16A0 (MiApplyImageHotPatch.c)
- *     IopReadFile @ 0x1408C0610 (IopReadFile.c)
- *     IopXxxControlFile @ 0x1408C1970 (IopXxxControlFile.c)
- *     MiCopyPagesIntoEnclave @ 0x1408DA288 (MiCopyPagesIntoEnclave.c)
- *     MiLoadDataIntoVsmEnclave @ 0x1408DABA0 (MiLoadDataIntoVsmEnclave.c)
- *     ExLockUserBuffer @ 0x140966B28 (ExLockUserBuffer.c)
- *     MiQueryMemoryPhysicalContiguity @ 0x140987B34 (MiQueryMemoryPhysicalContiguity.c)
- *     MiCopyVirtualMemory @ 0x1409A9D80 (MiCopyVirtualMemory.c)
- *     WbMakeUserDataPagesKernelWritable @ 0x1409E1088 (WbMakeUserDataPagesKernelWritable.c)
- *     MmProbeAndLockProcessPages @ 0x1409F6900 (MmProbeAndLockProcessPages.c)
- *     FsRtlKernelFsControlFile @ 0x1409FD420 (FsRtlKernelFsControlFile.c)
- *     VslCallEnclave @ 0x140A07B64 (VslCallEnclave.c)
- *     AlpcpInitializeCompletionList @ 0x140A0AC54 (AlpcpInitializeCompletionList.c)
- *     MiRotateToFrameBuffer @ 0x140A2E9A4 (MiRotateToFrameBuffer.c)
- *     VslValidateDynamicCodePages @ 0x140A460AC (VslValidateDynamicCodePages.c)
- *     PspCreateSecureThread @ 0x140A72708 (PspCreateSecureThread.c)
- *     PopReadPagesFromHiberFile @ 0x140AB1180 (PopReadPagesFromHiberFile.c)
- *     CcMdlRead @ 0x140AC3350 (CcMdlRead.c)
- *     MiLockKernelScpSection @ 0x140C55A58 (MiLockKernelScpSection.c)
+ *     VslpLockPagesForTransfer @ 0x14025E3AC (VslpLockPagesForTransfer.c)
+ *     VslpLockMdlForTransfer @ 0x14025E6AC (VslpLockMdlForTransfer.c)
+ *     MiGetWorkingSetInfo @ 0x14025E748 (MiGetWorkingSetInfo.c)
+ *     CcZeroDataInCache @ 0x14025EB44 (CcZeroDataInCache.c)
+ *     IopProbeAndLockPages @ 0x14025F42C (IopProbeAndLockPages.c)
+ *     MiGetWorkingSetInfoList @ 0x14030D190 (MiGetWorkingSetInfoList.c)
+ *     CcLockSystemCacheBuffer @ 0x1404051E8 (CcLockSystemCacheBuffer.c)
+ *     CcPrepareMdlWrite @ 0x14040B2B0 (CcPrepareMdlWrite.c)
+ *     IopProbeAndLockPages_1 @ 0x140468A3C (IopProbeAndLockPages_1.c)
+ *     KeSwappablePageReference @ 0x140470DA8 (KeSwappablePageReference.c)
+ *     VslFinalizeSecureImageHash @ 0x14049B010 (VslFinalizeSecureImageHash.c)
+ *     IopProbeAndLockPages_2 @ 0x1404A1C64 (IopProbeAndLockPages_2.c)
+ *     sub_140516800 @ 0x140516800 (sub_140516800.c)
+ *     KiOpPatchCode @ 0x1405C2A90 (KiOpPatchCode.c)
+ *     PspIumAllocatePartitionState @ 0x1405E37E8 (PspIumAllocatePartitionState.c)
+ *     SmRecordDecompressionFailureDumpPayload @ 0x14060D6D0 (SmRecordDecompressionFailureDumpPayload.c)
+ *     DifMmProbeAndLockPagesWrapper @ 0x1406329B0 (DifMmProbeAndLockPagesWrapper.c)
+ *     VmProbeAndLockPages @ 0x1406488F0 (VmProbeAndLockPages.c)
+ *     MiPrepareImagePagesForHotPatch @ 0x14067E494 (MiPrepareImagePagesForHotPatch.c)
+ *     VslObtainHotPatchUndoTable @ 0x14070D850 (VslObtainHotPatchUndoTable.c)
+ *     IopAllocateAndLockMdl @ 0x14070F4DC (IopAllocateAndLockMdl.c)
+ *     IopSetFileObjectIosbRange @ 0x140710988 (IopSetFileObjectIosbRange.c)
+ *     NtQueryQuotaInformationFile @ 0x1407157A0 (NtQueryQuotaInformationFile.c)
+ *     SmProcessStatsRequest @ 0x1407987A8 (SmProcessStatsRequest.c)
+ *     ExInitializeLeapSecondData @ 0x1407B6080 (ExInitializeLeapSecondData.c)
+ *     NtStartProfile @ 0x1407C2260 (NtStartProfile.c)
+ *     NtPssCaptureVaSpaceBulk @ 0x1407C51A0 (NtPssCaptureVaSpaceBulk.c)
+ *     CmpLockKeyBodyIntoMemory @ 0x1407DB580 (CmpLockKeyBodyIntoMemory.c)
+ *     MiApplyImageHotPatch @ 0x1407F1C70 (MiApplyImageHotPatch.c)
+ *     IopReadFile @ 0x1408BDFD0 (IopReadFile.c)
+ *     IopXxxControlFile @ 0x1408BF330 (IopXxxControlFile.c)
+ *     ExLockUserBuffer @ 0x14094F5B8 (ExLockUserBuffer.c)
+ *     MiQueryMemoryPhysicalContiguity @ 0x140970318 (MiQueryMemoryPhysicalContiguity.c)
+ *     MiCopyVirtualMemory @ 0x140993190 (MiCopyVirtualMemory.c)
+ *     WbMakeUserDataPagesKernelWritable @ 0x1409DAE38 (WbMakeUserDataPagesKernelWritable.c)
+ *     MmProbeAndLockProcessPages @ 0x1409EA850 (MmProbeAndLockProcessPages.c)
+ *     FsRtlKernelFsControlFile @ 0x1409F6160 (FsRtlKernelFsControlFile.c)
+ *     VslCallEnclave @ 0x140A04094 (VslCallEnclave.c)
+ *     AlpcpInitializeCompletionList @ 0x140A07184 (AlpcpInitializeCompletionList.c)
+ *     MiRotateToFrameBuffer @ 0x140A233E4 (MiRotateToFrameBuffer.c)
+ *     MiCopyPagesIntoEnclave @ 0x140A29D18 (MiCopyPagesIntoEnclave.c)
+ *     MiLoadDataIntoVsmEnclave @ 0x140A2A630 (MiLoadDataIntoVsmEnclave.c)
+ *     VslValidateDynamicCodePages @ 0x140A3BD6C (VslValidateDynamicCodePages.c)
+ *     PspCreateSecureThread @ 0x140A6BAE8 (PspCreateSecureThread.c)
+ *     PopReadPagesFromHiberFile @ 0x140AAC0F0 (PopReadPagesFromHiberFile.c)
+ *     CcMdlRead @ 0x140ABE630 (CcMdlRead.c)
+ *     MiLockKernelScpSection @ 0x140C57BE8 (MiLockKernelScpSection.c)
  * Callees:
- *     RtlRaiseStatus @ 0x140280B30 (RtlRaiseStatus.c)
- *     MiProbeAndLockComplete @ 0x140282248 (MiProbeAndLockComplete.c)
- *     MiProbeAndLockPrepare @ 0x140282460 (MiProbeAndLockPrepare.c)
- *     MiProbeAndLockPacket @ 0x140282730 (MiProbeAndLockPacket.c)
- *     MiUnlockAndDereferenceVad @ 0x1402BAFA0 (MiUnlockAndDereferenceVad.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     MiReturnFullProcessCommitment @ 0x1409DE7C8 (MiReturnFullProcessCommitment.c)
+ *     RtlRaiseStatus @ 0x1402360C0 (RtlRaiseStatus.c)
+ *     MiProbeAndLockComplete @ 0x1402377D8 (MiProbeAndLockComplete.c)
+ *     MiProbeAndLockPrepare @ 0x1402379F0 (MiProbeAndLockPrepare.c)
+ *     MiProbeAndLockPacket @ 0x140237CC0 (MiProbeAndLockPacket.c)
+ *     MiUnlockAndDereferenceVad @ 0x1403626E0 (MiUnlockAndDereferenceVad.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     MiReturnFullProcessCommitment @ 0x1409D8398 (MiReturnFullProcessCommitment.c)
  */
 
 void __stdcall MmProbeAndLockPages(PMDL MemoryDescriptorList, KPROCESSOR_MODE AccessMode, LOCK_OPERATION Operation)
 {
-  int v6; // eax
+  NTSTATUS v6; // eax
   int v7; // eax
-  int v8; // ebx
+  NTSTATUS v8; // ebx
   __int64 v9; // rcx
   __int64 v10; // rax
   _BYTE *v11; // rdi
   __int64 v12; // rdx
-  unsigned __int64 v13[14]; // [rsp+40h] [rbp-B8h] BYREF
-  __int64 v14; // [rsp+B0h] [rbp-48h]
-  __int64 v15; // [rsp+B8h] [rbp-40h]
+  _BYTE v13[88]; // [rsp+40h] [rbp-B8h] BYREF
+  __int64 v14; // [rsp+98h] [rbp-60h]
+  __int64 v15; // [rsp+B0h] [rbp-48h]
+  __int64 v16; // [rsp+B8h] [rbp-40h]
   PVOID P; // [rsp+C0h] [rbp-38h]
 
   memset_0(v13, 0, 0xB0uLL);
@@ -84,17 +85,17 @@ void __stdcall MmProbeAndLockPages(PMDL MemoryDescriptorList, KPROCESSOR_MODE Ac
   if ( v6 < 0 )
     RtlRaiseStatus(v6);
   v7 = MiProbeAndLockPacket(v13);
-  v8 = MiProbeAndLockComplete(v13, v7);
+  v8 = MiProbeAndLockComplete((__int64)v13, v7);
   if ( P )
   {
     v9 = *((unsigned int *)P + 13);
-    v10 = v14;
+    v10 = v15;
     v11 = P;
-    v12 = v14 + (v9 | ((unsigned __int64)*((unsigned __int8 *)P + 34) << 32));
-    *((_DWORD *)P + 13) = v14 + v9;
+    v12 = v15 + (v9 | ((unsigned __int64)*((unsigned __int8 *)P + 34) << 32));
+    *((_DWORD *)P + 13) = v15 + v9;
     v11[34] = BYTE4(v12);
-    if ( v15 != v10 )
-      MiReturnFullProcessCommitment(v13[11], v15 - v10);
+    if ( v16 != v10 )
+      MiReturnFullProcessCommitment(v14);
     MiUnlockAndDereferenceVad(v11);
   }
   if ( v8 < 0 )

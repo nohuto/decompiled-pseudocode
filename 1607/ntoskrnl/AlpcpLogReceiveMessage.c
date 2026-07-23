@@ -1,12 +1,12 @@
 /*
- * XREFs of AlpcpLogReceiveMessage @ 0x1406568AC
+ * XREFs of AlpcpLogReceiveMessage @ 0x140656990
  * Callers:
- *     AlpcpReceiveSynchronousReply @ 0x140447C40 (AlpcpReceiveSynchronousReply.c)
- *     AlpcpReceiveMessage @ 0x1404494D0 (AlpcpReceiveMessage.c)
- *     AlpcpReceiveMessagePort @ 0x14044CD70 (AlpcpReceiveMessagePort.c)
+ *     AlpcpReceiveSynchronousReply @ 0x140446B10 (AlpcpReceiveSynchronousReply.c)
+ *     AlpcpReceiveMessage @ 0x1404483A0 (AlpcpReceiveMessage.c)
+ *     AlpcpReceiveMessagePort @ 0x14044BC40 (AlpcpReceiveMessagePort.c)
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     AlpcpInvokeLogCallbacks @ 0x140656688 (AlpcpInvokeLogCallbacks.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     AlpcpInvokeLogCallbacks @ 0x14065676C (AlpcpInvokeLogCallbacks.c)
  */
 
 unsigned __int64 __fastcall AlpcpLogReceiveMessage(__int64 a1)

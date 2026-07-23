@@ -1,15 +1,15 @@
 /*
- * XREFs of HvlpTryConfigureInterface @ 0x1403836B0
+ * XREFs of HvlpTryConfigureInterface @ 0x140383890
  * Callers:
- *     HvlRestoreEnlightenment @ 0x14053FD14 (HvlRestoreEnlightenment.c)
- *     HvlPhase0Initialize @ 0x14081FE98 (HvlPhase0Initialize.c)
+ *     HvlRestoreEnlightenment @ 0x1405403D4 (HvlRestoreEnlightenment.c)
+ *     HvlPhase0Initialize @ 0x140820198 (HvlPhase0Initialize.c)
  *     HvlEnableVsmCalls @ 0x140B75EAC (HvlEnableVsmCalls.c)
  * Callees:
- *     MmGetPhysicalAddress @ 0x14028BEE0 (MmGetPhysicalAddress.c)
- *     HviIsHypervisorMicrosoftCompatible @ 0x1403827CC (HviIsHypervisorMicrosoftCompatible.c)
- *     HviGetHypervisorFeatures @ 0x140382D40 (HviGetHypervisorFeatures.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     MmGetPhysicalAddress @ 0x14028C170 (MmGetPhysicalAddress.c)
+ *     HviIsHypervisorMicrosoftCompatible @ 0x14038296C (HviIsHypervisorMicrosoftCompatible.c)
+ *     HviGetHypervisorFeatures @ 0x140382EE0 (HviGetHypervisorFeatures.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall HvlpTryConfigureInterface(__int64 a1)

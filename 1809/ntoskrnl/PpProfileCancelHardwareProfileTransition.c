@@ -1,13 +1,13 @@
 /*
- * XREFs of PpProfileCancelHardwareProfileTransition @ 0x1408327C4
+ * XREFs of PpProfileCancelHardwareProfileTransition @ 0x140833A24
  * Callers:
- *     PnpProcessQueryRemoveAndEject @ 0x1406EF790 (PnpProcessQueryRemoveAndEject.c)
- *     PipProcessStartPhase2 @ 0x1406FD624 (PipProcessStartPhase2.c)
+ *     PnpProcessQueryRemoveAndEject @ 0x1406F0A30 (PnpProcessQueryRemoveAndEject.c)
+ *     PipProcessStartPhase2 @ 0x1406FE8C4 (PipProcessStartPhase2.c)
  * Callees:
  *     KeReleaseGuardedMutex @ 0x140014E30 (KeReleaseGuardedMutex.c)
  *     ExAcquireFastMutex @ 0x14004E530 (ExAcquireFastMutex.c)
- *     KeReleaseSemaphore @ 0x1400C5EC0 (KeReleaseSemaphore.c)
- *     PnpRequestHwProfileChangeNotification @ 0x140825FA4 (PnpRequestHwProfileChangeNotification.c)
+ *     KeReleaseSemaphore @ 0x1400C5E00 (KeReleaseSemaphore.c)
+ *     PnpRequestHwProfileChangeNotification @ 0x1408271A4 (PnpRequestHwProfileChangeNotification.c)
  */
 
 LONG PpProfileCancelHardwareProfileTransition()

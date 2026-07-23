@@ -3,7 +3,7 @@
  * Callers:
  *     PoInitializePrcb @ 0x140A8C9B0 (PoInitializePrcb.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall PpmHeteroAmdProcessorInit(__int64 a1)

@@ -58,7 +58,7 @@ __int64 __fastcall ApiSetResolveToHost(_BYTE *a1, unsigned __int16 *a2, __int64 
         {
           if ( a3 && *(_DWORD *)(v15 + 20) > 1u )
           {
-            v16 = ApiSetpSearchForApiSetHost(v15, *(_WORD **)(a3 + 8), *(_WORD *)a3 >> 1, v7);
+            v16 = ApiSetpSearchForApiSetHost(v15, *(const WCHAR **)(a3 + 8), *(_WORD *)a3 >> 1, v7);
 LABEL_19:
             v9 = 1;
             *(_QWORD *)(a5 + 8) = v7 + *(unsigned int *)(v16 + 12);

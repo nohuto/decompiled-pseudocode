@@ -19,19 +19,16 @@
 
 __int64 LdrpInitializeImportRedirection()
 {
-  int v0; // ebx
+  int Dll; // ebx
   _UNICODE_STRING *p_RedirectionDllName; // rdi
-  unsigned __int64 v3; // rdx
-  unsigned __int64 v4; // r8
-  unsigned __int64 v5; // r9
-  int v6; // eax
-  __int64 v7; // rcx
-  _BYTE v8[8]; // [rsp+38h] [rbp-49h] BYREF
-  __int64 v9; // [rsp+40h] [rbp-41h] BYREF
-  __int64 v10[15]; // [rsp+48h] [rbp-39h] BYREF
-  char v11; // [rsp+C4h] [rbp+43h]
+  int v3; // eax
+  __int64 v4; // rcx
+  _BYTE v5[8]; // [rsp+38h] [rbp-49h] BYREF
+  __int64 **v6; // [rsp+40h] [rbp-41h] BYREF
+  PWSTR Path[15]; // [rsp+48h] [rbp-39h] BYREF
+  char v8; // [rsp+C4h] [rbp+43h]
 
-  v0 = 0;
+  Dll = 0;
   p_RedirectionDllName = &NtCurrentPeb()->ProcessParameters->RedirectionDllName;
   if ( p_RedirectionDllName->Length )
   {
@@ -42,28 +39,28 @@ __int64 LdrpInitializeImportRedirection()
       2u,
       "Loading import redirection DLL: '%wZ'\n",
       p_RedirectionDllName);
-    LdrpInitializeDllPath(0LL, 0LL, v10);
-    v0 = LdrpLoadDll(&p_RedirectionDllName->Length, (int)v10, 0x1000001u, &v9);
-    if ( v11 )
-      RtlReleasePath(v10[0], v3, v4, v5);
-    if ( v0 >= 0 )
+    LdrpInitializeDllPath(0LL, 0LL, (const WCHAR **)Path);
+    Dll = LdrpLoadDll(&p_RedirectionDllName->Length, (int)Path, 16777217, (PVOID *)&v6);
+    if ( v8 )
+      RtlReleasePath(Path[0]);
+    if ( Dll >= 0 )
     {
-      v6 = LdrpBuildImportRedirection(v9);
-      v0 = v6;
-      if ( v6 >= 0 )
+      v3 = LdrpBuildImportRedirection(v6);
+      Dll = v3;
+      if ( v3 >= 0 )
       {
         LdrpDrainWorkQueue(0);
         LdrpAcquireLoaderLock();
-        v8[0] = 0;
-        v0 = LdrpInitializeGraphRecurse(*(__int64 **)(v9 + 152), 0LL, v8);
-        LdrpReleaseLoaderLock(v7, 2, v0);
+        v5[0] = 0;
+        Dll = LdrpInitializeGraphRecurse(v6[19], 0LL, v5);
+        LdrpReleaseLoaderLock(v4, 2, Dll);
         LdrpDropLastInProgressCount();
-        if ( v0 >= 0 )
+        if ( Dll >= 0 )
         {
-          *(_DWORD *)(*(_QWORD *)(v9 + 152) + 24LL) = -1;
-          *(_WORD *)(**(_QWORD **)(v9 + 152) - 52LL) = -1;
-          LdrpLogImportRedirectionTelemetry(v9);
-          LdrpRedirectionModule = v9;
+          *((_DWORD *)v6[19] + 6) = -1;
+          *(_WORD *)(*v6[19] - 52) = -1;
+          LdrpLogImportRedirectionTelemetry(v6);
+          LdrpRedirectionModule = (__int64)v6;
         }
       }
       else
@@ -74,9 +71,9 @@ __int64 LdrpInitializeImportRedirection()
           (__int64)"LdrpInitializeImportRedirection",
           0,
           "Unable to build import redirection Table, Status = 0x%x\n",
-          v6);
+          v3);
       }
     }
   }
-  return (unsigned int)v0;
+  return (unsigned int)Dll;
 }

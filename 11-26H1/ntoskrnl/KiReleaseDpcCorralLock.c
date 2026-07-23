@@ -1,12 +1,12 @@
 /*
- * XREFs of KiReleaseDpcCorralLock @ 0x1403C25D0
+ * XREFs of KiReleaseDpcCorralLock @ 0x1403CC4D0
  * Callers:
- *     KeGenericCallDpcEx @ 0x1403C2284 (KeGenericCallDpcEx.c)
- *     KiGenericCallDpcInitiatorWorker @ 0x1403C23F0 (KiGenericCallDpcInitiatorWorker.c)
+ *     KeGenericCallDpcEx @ 0x1403CC184 (KeGenericCallDpcEx.c)
+ *     KiGenericCallDpcInitiatorWorker @ 0x1403CC2F0 (KiGenericCallDpcInitiatorWorker.c)
  * Callees:
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     KeLeaveGuardedRegion @ 0x14027DB10 (KeLeaveGuardedRegion.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     KeLeaveGuardedRegion @ 0x14027D080 (KeLeaveGuardedRegion.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
  */
 
 void KiReleaseDpcCorralLock()

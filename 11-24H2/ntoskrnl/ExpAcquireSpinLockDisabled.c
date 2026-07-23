@@ -1,18 +1,18 @@
 /*
- * XREFs of ExpAcquireSpinLockDisabled @ 0x14042ED58
+ * XREFs of ExpAcquireSpinLockDisabled @ 0x140420A88
  * Callers:
- *     ExInterlockedAddLargeInteger @ 0x14042E210 (ExInterlockedAddLargeInteger.c)
- *     ExInterlockedAddUlong @ 0x14042E270 (ExInterlockedAddUlong.c)
- *     ExInterlockedInsertHeadList @ 0x14042EB80 (ExInterlockedInsertHeadList.c)
- *     ExInterlockedInsertTailList @ 0x14042EC00 (ExInterlockedInsertTailList.c)
- *     ExInterlockedRemoveHeadList @ 0x14042ECB0 (ExInterlockedRemoveHeadList.c)
- *     ExInterlockedPopEntryList @ 0x140658370 (ExInterlockedPopEntryList.c)
- *     ExInterlockedPushEntryList @ 0x1406583C0 (ExInterlockedPushEntryList.c)
+ *     ExInterlockedAddLargeInteger @ 0x14041FF40 (ExInterlockedAddLargeInteger.c)
+ *     ExInterlockedAddUlong @ 0x14041FFA0 (ExInterlockedAddUlong.c)
+ *     ExInterlockedInsertHeadList @ 0x1404208B0 (ExInterlockedInsertHeadList.c)
+ *     ExInterlockedInsertTailList @ 0x140420930 (ExInterlockedInsertTailList.c)
+ *     ExInterlockedRemoveHeadList @ 0x1404209E0 (ExInterlockedRemoveHeadList.c)
+ *     ExInterlockedPopEntryList @ 0x140656A70 (ExInterlockedPopEntryList.c)
+ *     ExInterlockedPushEntryList @ 0x140656AC0 (ExInterlockedPushEntryList.c)
  * Callees:
- *     KiRemoveSystemWorkPriorityKick @ 0x14025E408 (KiRemoveSystemWorkPriorityKick.c)
- *     HvlNotifyLongSpinWait @ 0x140293260 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140293290 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     KeDisableInterrupts @ 0x140321E80 (KeDisableInterrupts.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14028EA18 (KiRemoveSystemWorkPriorityKick.c)
+ *     HvlNotifyLongSpinWait @ 0x1402A2E60 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402A2E90 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     KeDisableInterrupts @ 0x1402CAA10 (KeDisableInterrupts.c)
  */
 
 bool __fastcall ExpAcquireSpinLockDisabled(volatile signed __int32 *a1)

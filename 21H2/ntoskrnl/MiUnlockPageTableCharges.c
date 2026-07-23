@@ -1,51 +1,47 @@
 /*
- * XREFs of MiUnlockPageTableCharges @ 0x14026FD98
+ * XREFs of MiUnlockPageTableCharges @ 0x14025DD38
  * Callers:
- *     MiCopyOnWrite @ 0x14023F300 (MiCopyOnWrite.c)
- *     MmUnlockPages @ 0x140244A70 (MmUnlockPages.c)
- *     MiUnlockWsle @ 0x14026FC1C (MiUnlockWsle.c)
- *     NtLockVirtualMemory @ 0x140270060 (NtLockVirtualMemory.c)
- *     MiUnlockPageTableRange @ 0x1402D0E1C (MiUnlockPageTableRange.c)
- *     MiDemoteCombinedPte @ 0x14036B260 (MiDemoteCombinedPte.c)
+ *     MiUnlockPageTableRange @ 0x14024F2AC (MiUnlockPageTableRange.c)
+ *     MiUnlockWsle @ 0x14025DBBC (MiUnlockWsle.c)
+ *     NtLockVirtualMemory @ 0x14025E000 (NtLockVirtualMemory.c)
+ *     MiCopyOnWrite @ 0x1402E3B50 (MiCopyOnWrite.c)
+ *     MmUnlockPages @ 0x1402E92C0 (MmUnlockPages.c)
+ *     MiDemoteCombinedPte @ 0x14036B410 (MiDemoteCombinedPte.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
- *     MiIsLowestPageTablePage @ 0x14026FFD4 (MiIsLowestPageTablePage.c)
- *     MiReturnCommit @ 0x1403182A0 (MiReturnCommit.c)
- *     MiPfnShareCountIsZero @ 0x140326190 (MiPfnShareCountIsZero.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     MiIsLowestPageTablePage @ 0x14025DF74 (MiIsLowestPageTablePage.c)
+ *     KeYieldProcessorEx @ 0x1402EFAD0 (KeYieldProcessorEx.c)
+ *     MiReturnCommit @ 0x140322FF0 (MiReturnCommit.c)
+ *     MiPfnShareCountIsZero @ 0x140330EE0 (MiPfnShareCountIsZero.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
  */
 
-unsigned __int64 __fastcall MiUnlockPageTableCharges(
-        ULONG_PTR BugCheckParameter2,
-        unsigned __int64 a2,
-        __int64 a3,
-        __int64 a4)
+unsigned __int64 __fastcall MiUnlockPageTableCharges(ULONG_PTR BugCheckParameter2, int a2, __int64 a3, __int64 i)
 {
   __int64 v4; // rsi
   int IsLowestPageTablePage; // eax
   int v7; // ebp
   unsigned __int64 v8; // rdi
   __int64 v9; // r14
-  __int64 v10; // r8
+  __int64 CurrentPrcb; // r8
   __int64 v11; // r15
   __int64 v12; // r15
   __int64 v13; // rcx
   unsigned __int64 result; // rax
   __int64 v15; // rdx
-  struct _KPRCB *CurrentPrcb; // r8
-  __int64 CachedResidentAvailable; // rdx
+  unsigned __int64 v16; // rdx
+  __int64 v17; // rdx
   bool v18; // zf
   int v19; // [rsp+78h] [rbp+10h] BYREF
 
   v4 = 0LL;
-  if ( (_DWORD)a2 == 2 )
+  if ( a2 == 2 )
   {
     IsLowestPageTablePage = MiIsLowestPageTablePage();
     v7 = 3;
   }
   else
   {
-    if ( !(_DWORD)a2 )
+    if ( !a2 )
     {
       v7 = 4;
       goto LABEL_7;
@@ -66,7 +62,7 @@ LABEL_38:
       *(_QWORD *)(BugCheckParameter2 + 24) & 0x3FFFFFFFFFFFFFFFLL);
   v8 = 0LL;
   v9 = 0LL;
-  v10 = 0x7FFFFFFFFFFFFFFFLL;
+  CurrentPrcb = 0x7FFFFFFFFFFFFFFFLL;
   while ( 1 )
   {
     v11 = *(_QWORD *)(BugCheckParameter2 + 40);
@@ -77,29 +73,29 @@ LABEL_38:
       do
       {
         do
-          KeYieldProcessorEx(&v19, a2, v10, a4);
+          KeYieldProcessorEx(&v19);
         while ( *(__int64 *)(BugCheckParameter2 + 24) < 0 );
       }
       while ( _interlockedbittestandset64((volatile signed __int32 *)(BugCheckParameter2 + 24), 0x3FuLL) );
-      v10 = 0x7FFFFFFFFFFFFFFFLL;
+      CurrentPrcb = 0x7FFFFFFFFFFFFFFFLL;
     }
     v13 = *(_QWORD *)(BugCheckParameter2 + 24);
     result = v13 - 0x10000;
     v15 = v13 ^ ((v13 - 0x10000) ^ v13) & 0x3FFFFFFFFFFFFFFFLL;
     *(_QWORD *)(BugCheckParameter2 + 24) = v15;
-    a2 = v15 & 0x3FFFFFFFFFFFFFFFLL;
-    if ( a2 >= 0x10000 )
+    v16 = v15 & 0x3FFFFFFFFFFFFFFFLL;
+    if ( v16 >= 0x10000 )
       break;
     if ( !v4 )
     {
-      result = qword_140C4E648;
-      v4 = *(_QWORD *)(qword_140C4E648 + 8 * ((*(_QWORD *)(BugCheckParameter2 + 40) >> 39) & 0x3FFLL));
+      result = qword_140C4E688;
+      v4 = *(_QWORD *)(qword_140C4E688 + 8 * ((*(_QWORD *)(BugCheckParameter2 + 40) >> 39) & 0x3FFLL));
     }
     ++v8;
-    if ( !a2 )
+    if ( !v16 )
     {
-      result = MiPfnShareCountIsZero(BugCheckParameter2);
-      v10 = 0x7FFFFFFFFFFFFFFFLL;
+      result = MiPfnShareCountIsZero(BugCheckParameter2, 0LL);
+      CurrentPrcb = 0x7FFFFFFFFFFFFFFFLL;
       if ( (_DWORD)result != 3 )
         ++v9;
     }
@@ -115,34 +111,31 @@ LABEL_22:
     result = (unsigned __int64)&MiSystemPartition;
     if ( (ULONG_PTR *)v4 == &MiSystemPartition )
     {
-      CurrentPrcb = KeGetCurrentPrcb();
-      CachedResidentAvailable = (int)CurrentPrcb->CachedResidentAvailable;
-      if ( (_DWORD)CachedResidentAvailable != -1 )
+      CurrentPrcb = (__int64)KeGetCurrentPrcb();
+      v17 = *(int *)(CurrentPrcb + 33564);
+      if ( (_DWORD)v17 != -1 )
       {
-        for ( ; v8 + CachedResidentAvailable <= 0x100; result = v8 + (int)result )
+        for ( i = 256LL; v8 + v17 <= 0x100; result = v8 + (int)result )
         {
           if ( v8 >= 0x80000 )
             break;
           result = (unsigned int)_InterlockedCompareExchange(
-                                   (volatile signed __int32 *)&CurrentPrcb->CachedResidentAvailable,
-                                   CachedResidentAvailable + v8,
-                                   CachedResidentAvailable);
-          v18 = (_DWORD)CachedResidentAvailable == (_DWORD)result;
-          CachedResidentAvailable = (int)result;
+                                   (volatile signed __int32 *)(CurrentPrcb + 33564),
+                                   v17 + v8,
+                                   v17);
+          v18 = (_DWORD)v17 == (_DWORD)result;
+          v17 = (int)result;
           if ( v18 )
             goto LABEL_35;
           if ( (_DWORD)result == -1 )
             break;
         }
-        if ( (int)CachedResidentAvailable > 192 )
+        if ( (int)v17 > 192 )
         {
-          result = (unsigned int)_InterlockedCompareExchange(
-                                   (volatile signed __int32 *)&CurrentPrcb->CachedResidentAvailable,
-                                   192,
-                                   CachedResidentAvailable);
-          if ( (_DWORD)CachedResidentAvailable == (_DWORD)result )
+          result = (unsigned int)_InterlockedCompareExchange((volatile signed __int32 *)(CurrentPrcb + 33564), 192, v17);
+          if ( (_DWORD)v17 == (_DWORD)result )
           {
-            result = (unsigned int)(CachedResidentAvailable - 192);
+            result = (unsigned int)(v17 - 192);
             v8 += (int)result;
           }
         }
@@ -153,6 +146,6 @@ LABEL_22:
   }
 LABEL_35:
   if ( v9 )
-    return MiReturnCommit(v4, v9);
+    return MiReturnCommit(v4, v9, CurrentPrcb, i);
   return result;
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of I_MinCryptVerifyHashSignerAuthenticatedAttributes @ 0x1408A2728
+ * XREFs of I_MinCryptVerifyHashSignerAuthenticatedAttributes @ 0x1408A8B38
  * Callers:
- *     I_MinCryptVerifyReturnSignerAuthenticatedAttributes @ 0x1408A2958 (I_MinCryptVerifyReturnSignerAuthenticatedAttributes.c)
- *     I_MinCryptVerifySignerAuthenticatedAttributes @ 0x1408A29D8 (I_MinCryptVerifySignerAuthenticatedAttributes.c)
+ *     I_MinCryptVerifyReturnSignerAuthenticatedAttributes @ 0x1408A8D68 (I_MinCryptVerifyReturnSignerAuthenticatedAttributes.c)
+ *     I_MinCryptVerifySignerAuthenticatedAttributes @ 0x1408A8DE8 (I_MinCryptVerifySignerAuthenticatedAttributes.c)
  * Callees:
- *     memcmp @ 0x14073D750 (memcmp.c)
- *     I_MinAsn1ParseSingleAttribute @ 0x1408A308C (I_MinAsn1ParseSingleAttribute.c)
- *     MinAsn1ExtractContent @ 0x1408A46CC (MinAsn1ExtractContent.c)
+ *     memcmp @ 0x140742350 (memcmp.c)
+ *     I_MinAsn1ParseSingleAttribute @ 0x1408A949C (I_MinAsn1ParseSingleAttribute.c)
+ *     MinAsn1ExtractContent @ 0x1408AAADC (MinAsn1ExtractContent.c)
  */
 
 __int64 __fastcall I_MinCryptVerifyHashSignerAuthenticatedAttributes(void *Buf1, int a2, __int64 a3)
@@ -20,7 +20,7 @@ __int64 __fastcall I_MinCryptVerifyHashSignerAuthenticatedAttributes(void *Buf1,
   v8 = 0LL;
   Buf2 = 0LL;
   LODWORD(Size) = 0;
-  if ( !(unsigned __int8)I_MinAsn1ParseSingleAttribute(&qword_140BD9A58, a3, a3, &v8)
+  if ( !(unsigned __int8)I_MinAsn1ParseSingleAttribute(&qword_140BE08F8, a3, a3, &v8)
     || (int)MinAsn1ExtractContent(*((_QWORD *)&v8 + 1), (unsigned int)v8, &Size, &Buf2) < 0
     || a2 != (_DWORD)Size
     || memcmp(Buf1, Buf2, (unsigned int)Size) )

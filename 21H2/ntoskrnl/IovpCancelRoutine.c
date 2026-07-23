@@ -1,10 +1,10 @@
 /*
- * XREFs of IovpCancelRoutine @ 0x1409D03D0
+ * XREFs of IovpCancelRoutine @ 0x1409D13D0
  * Callers:
- *     IoCancelIrp @ 0x1402BB2C0 (IoCancelIrp.c)
+ *     IoCancelIrp @ 0x1402394D0 (IoCancelIrp.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     VfIsRuleClassEnabled @ 0x1409C6020 (VfIsRuleClassEnabled.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     VfIsRuleClassEnabled @ 0x1409C7020 (VfIsRuleClassEnabled.c)
  */
 
 __int64 __fastcall IovpCancelRoutine(__int64 a1, __int64 a2, __int64 (__fastcall *a3)(__int64, __int64))

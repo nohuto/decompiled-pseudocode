@@ -9,64 +9,65 @@
  *     LdrpGetLoadAsEntry @ 0x180053918 (LdrpGetLoadAsEntry.c)
  *     LdrFindEntryForAddress @ 0x1800539E0 (LdrFindEntryForAddress.c)
  *     __security_check_cookie @ 0x18008C940 (__security_check_cookie.c)
- *     ZwQueryAttributesFile @ 0x18009DDE0 (ZwQueryAttributesFile.c)
+ *     ZwQueryAttributesFile @ 0x18009DDA0 (ZwQueryAttributesFile.c)
  */
 
-__int64 __fastcall LdrpIsReparsePoint(__int64 a1)
+__int64 __fastcall LdrpIsReparsePoint(void *a1)
 {
   unsigned int v1; // ebx
-  __int64 v2; // rcx
-  __int64 v3; // rdi
-  __int64 v4; // rdx
-  __int64 v6; // [rsp+28h] [rbp-79h] BYREF
-  __int128 v7; // [rsp+30h] [rbp-71h] BYREF
-  __int128 v8; // [rsp+40h] [rbp-61h] BYREF
-  __int64 v9; // [rsp+50h] [rbp-51h]
-  int v10; // [rsp+60h] [rbp-41h] BYREF
-  __int64 v11; // [rsp+68h] [rbp-39h]
-  __int128 *v12; // [rsp+70h] [rbp-31h]
-  int v13; // [rsp+78h] [rbp-29h]
-  __int128 v14; // [rsp+80h] [rbp-21h]
-  _OWORD v15[3]; // [rsp+90h] [rbp-11h] BYREF
-  _BYTE v16[32]; // [rsp+C0h] [rbp+1Fh] BYREF
-  int v17; // [rsp+E0h] [rbp+3Fh]
+  wchar_t *Buffer; // rcx
+  wchar_t *v3; // rdi
+  unsigned __int64 ContainingDirectory; // rdx
+  PLDR_DATA_TABLE_ENTRY Entry; // [rsp+28h] [rbp-79h] BYREF
+  _UNICODE_STRING NtFileName; // [rsp+30h] [rbp-71h] BYREF
+  _RTL_RELATIVE_NAME_U RelativeName; // [rsp+40h] [rbp-61h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+60h] [rbp-41h] BYREF
+  PCWSTR DosFileName[2]; // [rsp+90h] [rbp-11h] BYREF
+  __int128 v11; // [rsp+A0h] [rbp-1h]
+  __int128 v12; // [rsp+B0h] [rbp+Fh]
+  _FILE_BASIC_INFORMATION FileInformation; // [rsp+C0h] [rbp+1Fh] BYREF
 
-  v6 = 0LL;
+  Entry = 0LL;
   v1 = -1073741823;
-  memset(v15, 0, sizeof(v15));
-  if ( (a1 & 3) != 0 )
+  *(_OWORD *)DosFileName = 0LL;
+  v11 = 0LL;
+  v12 = 0LL;
+  if ( ((unsigned __int8)a1 & 3) != 0 )
   {
-    if ( (int)LdrpGetLoadAsEntry(a1, v15) < 0 )
+    if ( (int)LdrpGetLoadAsEntry(a1, DosFileName) < 0 )
       return v1;
-    LODWORD(v2) = DWORD2(v15[0]);
+    Buffer = (wchar_t *)DosFileName[1];
   }
   else
   {
-    if ( (int)LdrFindEntryForAddress(a1, &v6) < 0 )
+    if ( LdrFindEntryForAddress(a1, &Entry) < 0 )
       return v1;
-    v2 = *(_QWORD *)(v6 + 80);
+    Buffer = Entry->FullDllName.Buffer;
   }
-  if ( RtlDosPathNameToRelativeNtPathName_U(v2, (int)&v7, 0, (__int64)&v8) )
+  if ( RtlDosPathNameToRelativeNtPathName_U(Buffer, &NtFileName, 0LL, &RelativeName) )
   {
-    v3 = *((_QWORD *)&v7 + 1);
-    if ( (_WORD)v8 )
+    v3 = NtFileName.Buffer;
+    if ( RelativeName.RelativeName.Length )
     {
-      v4 = v9;
-      v7 = v8;
+      ContainingDirectory = (unsigned __int64)RelativeName.ContainingDirectory;
+      NtFileName = RelativeName.RelativeName;
     }
     else
     {
-      v4 = 0LL;
+      ContainingDirectory = 0LL;
     }
-    v10 = 48;
-    v13 = 64;
-    v12 = &v7;
-    v11 = v4 & -(__int64)(v3 != 0);
-    v14 = 0LL;
-    if ( (int)ZwQueryAttributesFile(&v10, v16) >= 0 && (v17 & 0x400) != 0 )
+    ObjectAttributes.Length = 48;
+    ObjectAttributes.Attributes = 64;
+    ObjectAttributes.ObjectName = &NtFileName;
+    ObjectAttributes.RootDirectory = (HANDLE)(ContainingDirectory & -(__int64)(v3 != 0LL));
+    *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+    if ( ZwQueryAttributesFile(&ObjectAttributes, &FileInformation) >= 0
+      && (FileInformation.FileAttributes & 0x400) != 0 )
+    {
       v1 = 0;
+    }
     if ( v3 )
-      RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v3);
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v3);
   }
   return v1;
 }

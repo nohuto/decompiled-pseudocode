@@ -1,12 +1,12 @@
 /*
- * XREFs of MiFlushDataSection @ 0x140483F48
+ * XREFs of MiFlushDataSection @ 0x14047F468
  * Callers:
- *     MiCreateImageFileMap @ 0x140944150 (MiCreateImageFileMap.c)
+ *     MiCreateImageFileMap @ 0x14098DFC0 (MiCreateImageFileMap.c)
  * Callees:
- *     MmFlushSection @ 0x140240CC4 (MmFlushSection.c)
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     CcFlushCachePriv @ 0x1402AC810 (CcFlushCachePriv.c)
- *     MiLockSectionControlArea @ 0x140316190 (MiLockSectionControlArea.c)
+ *     MmFlushSection @ 0x140208E14 (MmFlushSection.c)
+ *     CcFlushCachePriv @ 0x1402771F0 (CcFlushCachePriv.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     MiLockSectionControlArea @ 0x1402BED40 (MiLockSectionControlArea.c)
  */
 
 __int64 __fastcall MiFlushDataSection(__int64 a1, _DWORD *a2)
@@ -14,7 +14,7 @@ __int64 __fastcall MiFlushDataSection(__int64 a1, _DWORD *a2)
   _QWORD *v4; // rcx
   __int64 result; // rax
   int v6; // ebx
-  void *v7; // rcx
+  const void *v7; // rcx
   __int128 v8; // [rsp+40h] [rbp-18h] BYREF
   unsigned __int8 v9; // [rsp+60h] [rbp+8h] BYREF
 
@@ -29,7 +29,7 @@ __int64 __fastcall MiFlushDataSection(__int64 a1, _DWORD *a2)
       *a2 = 1;
     v6 = *(_DWORD *)(result + 88);
     MiReleaseSpinLockExclusive((_DWORD *)(result + 72), v9);
-    v7 = *(void **)(a1 + 40);
+    v7 = *(const void **)(a1 + 40);
     if ( v6 )
     {
       CcFlushCachePriv(v7, (__int64)&CcFlushForImageSection, 0, 0LL, 0, &v8, 0LL);
@@ -37,7 +37,7 @@ __int64 __fastcall MiFlushDataSection(__int64 a1, _DWORD *a2)
     }
     else
     {
-      return MmFlushSection((__int64 *)v7, 0LL, 0LL, 0LL, &v8, 1);
+      return MmFlushSection((int)v7, 0LL, 0LL, 0LL, &v8, 1);
     }
   }
   return result;

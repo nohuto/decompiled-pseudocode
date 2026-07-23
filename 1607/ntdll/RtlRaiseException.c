@@ -1,34 +1,34 @@
 /*
- * XREFs of RtlRaiseException @ 0x180036770
+ * XREFs of RtlRaiseException @ 0x180036760
  * Callers:
- *     PssNtValidateDescriptor @ 0x180008280 (PssNtValidateDescriptor.c)
- *     RtlGetActiveActivationContext @ 0x18000F470 (RtlGetActiveActivationContext.c)
- *     RtlActivateActivationContextUnsafeFast @ 0x180016370 (RtlActivateActivationContextUnsafeFast.c)
- *     LdrpLoadDependentModule @ 0x180016680 (LdrpLoadDependentModule.c)
- *     RtlDeactivateActivationContextUnsafeFast @ 0x180018750 (RtlDeactivateActivationContextUnsafeFast.c)
- *     TppCallbackEpilog @ 0x18001FBD0 (TppCallbackEpilog.c)
- *     TppCallbackCheckThreadAfterCallback @ 0x18001FF50 (TppCallbackCheckThreadAfterCallback.c)
- *     RtlpReAllocateHeapInternal @ 0x180020DD0 (RtlpReAllocateHeapInternal.c)
- *     TpCheckTerminateWorker @ 0x180052990 (TpCheckTerminateWorker.c)
- *     vDbgPrintExWithPrefixInternal @ 0x18005C428 (vDbgPrintExWithPrefixInternal.c)
- *     RtlpAllocateActivationContextStackFrame @ 0x180068D68 (RtlpAllocateActivationContextStackFrame.c)
- *     RtlDeactivateActivationContext @ 0x180077950 (RtlDeactivateActivationContext.c)
- *     RtlpFreeActivationContextStackFrame @ 0x180077A58 (RtlpFreeActivationContextStackFrame.c)
- *     RtlpTpImpersonate @ 0x18007E68C (RtlpTpImpersonate.c)
- *     RaiseException @ 0x18009F070 (RaiseException.c)
+ *     PssNtValidateDescriptor @ 0x180008270 (PssNtValidateDescriptor.c)
+ *     RtlGetActiveActivationContext @ 0x18000F460 (RtlGetActiveActivationContext.c)
+ *     RtlActivateActivationContextUnsafeFast @ 0x180016360 (RtlActivateActivationContextUnsafeFast.c)
+ *     LdrpLoadDependentModule @ 0x180016670 (LdrpLoadDependentModule.c)
+ *     RtlDeactivateActivationContextUnsafeFast @ 0x180018740 (RtlDeactivateActivationContextUnsafeFast.c)
+ *     TppCallbackEpilog @ 0x18001FBC0 (TppCallbackEpilog.c)
+ *     TppCallbackCheckThreadAfterCallback @ 0x18001FF40 (TppCallbackCheckThreadAfterCallback.c)
+ *     RtlpReAllocateHeapInternal @ 0x180020DC0 (RtlpReAllocateHeapInternal.c)
+ *     TpCheckTerminateWorker @ 0x180052980 (TpCheckTerminateWorker.c)
+ *     vDbgPrintExWithPrefixInternal @ 0x18005C418 (vDbgPrintExWithPrefixInternal.c)
+ *     RtlpAllocateActivationContextStackFrame @ 0x180068D58 (RtlpAllocateActivationContextStackFrame.c)
+ *     RtlDeactivateActivationContext @ 0x180077940 (RtlDeactivateActivationContext.c)
+ *     RtlpFreeActivationContextStackFrame @ 0x180077A48 (RtlpFreeActivationContextStackFrame.c)
+ *     RtlpTpImpersonate @ 0x18007E67C (RtlpTpImpersonate.c)
+ *     RaiseException @ 0x18009F060 (RaiseException.c)
  *     KiRaiseUserExceptionDispatcher @ 0x1800AA070 (KiRaiseUserExceptionDispatcher.c)
- *     RtlpPossibleDeadlock @ 0x1800D3C08 (RtlpPossibleDeadlock.c)
- *     RtlpAllocateHeapRaiseException @ 0x1800EC1A0 (RtlpAllocateHeapRaiseException.c)
+ *     RtlpPossibleDeadlock @ 0x1800D3CC8 (RtlpPossibleDeadlock.c)
+ *     RtlpAllocateHeapRaiseException @ 0x1800EC260 (RtlpAllocateHeapRaiseException.c)
  *     RtlReportCriticalFailure @ 0x1800F735C (RtlReportCriticalFailure.c)
  *     TppRaiseHandleStatus @ 0x1800FE514 (TppRaiseHandleStatus.c)
  *     TppRaiseInvalidParameter @ 0x1800FE5C4 (TppRaiseInvalidParameter.c)
  * Callees:
- *     RtlDispatchException @ 0x1800349C0 (RtlDispatchException.c)
- *     RtlLookupFunctionEntry @ 0x180035FA0 (RtlLookupFunctionEntry.c)
- *     RtlpSameFunction @ 0x180078BE4 (RtlpSameFunction.c)
- *     RtlpUnwindOpSlots @ 0x180088E64 (RtlpUnwindOpSlots.c)
- *     __security_check_cookie @ 0x180096C40 (__security_check_cookie.c)
- *     RtlpUnwindEpilogue @ 0x1800A5BE0 (RtlpUnwindEpilogue.c)
+ *     RtlDispatchException @ 0x1800349B0 (RtlDispatchException.c)
+ *     RtlLookupFunctionEntry @ 0x180035F90 (RtlLookupFunctionEntry.c)
+ *     RtlpSameFunction @ 0x180078BD4 (RtlpSameFunction.c)
+ *     RtlpUnwindOpSlots @ 0x180088E54 (RtlpUnwindOpSlots.c)
+ *     __security_check_cookie @ 0x180096C30 (__security_check_cookie.c)
+ *     RtlpUnwindEpilogue @ 0x1800A5BD4 (RtlpUnwindEpilogue.c)
  *     RtlRaiseStatus @ 0x1800A5DE0 (RtlRaiseStatus.c)
  *     ZwRaiseException @ 0x1800A8E70 (ZwRaiseException.c)
  *     RtlpCaptureContext @ 0x1800AA0D0 (RtlpCaptureContext.c)
@@ -39,7 +39,7 @@
 
 void __stdcall RtlRaiseException(PEXCEPTION_RECORD ExceptionRecord)
 {
-  unsigned int v1; // edi
+  NTSTATUS v1; // edi
   DWORD64 Rip; // rbx
   PRUNTIME_FUNCTION v3; // rax
   __int64 v4; // rdx
@@ -61,7 +61,7 @@ void __stdcall RtlRaiseException(PEXCEPTION_RECORD ExceptionRecord)
   __int64 v20; // r9
   unsigned int v21; // ecx
   DWORD64 v22; // rax
-  struct _EXCEPTION_RECORD *v23; // rdi
+  PEXCEPTION_RECORD v23; // rdi
   unsigned __int64 v24; // rcx
   __int64 v25; // rax
   void *v26; // rsp
@@ -102,16 +102,17 @@ void __stdcall RtlRaiseException(PEXCEPTION_RECORD ExceptionRecord)
   __int64 i; // r14
   __int64 v62; // rcx
   char v63; // al
-  DWORD64 v64; // [rsp+40h] [rbp+0h] BYREF
+  BOOLEAN v64; // r8
+  DWORD64 v65; // [rsp+40h] [rbp+0h] BYREF
   unsigned __int64 ImageBase; // [rsp+48h] [rbp+8h] BYREF
-  struct _EXCEPTION_RECORD *ExceptionRecorda; // [rsp+50h] [rbp+10h]
+  PEXCEPTION_RECORD ExceptionRecorda; // [rsp+50h] [rbp+10h]
   struct _CONTEXT ContextRecord; // [rsp+60h] [rbp+20h] BYREF
-  int v68; // [rsp+530h] [rbp+4F0h]
-  int v69; // [rsp+534h] [rbp+4F4h]
-  int v70; // [rsp+538h] [rbp+4F8h]
-  int v71; // [rsp+53Ch] [rbp+4FCh]
-  int v72; // [rsp+540h] [rbp+500h]
-  int v73; // [rsp+544h] [rbp+504h]
+  int v69; // [rsp+530h] [rbp+4F0h]
+  int v70; // [rsp+534h] [rbp+4F4h]
+  int v71; // [rsp+538h] [rbp+4F8h]
+  int v72; // [rsp+53Ch] [rbp+4FCh]
+  int v73; // [rsp+540h] [rbp+500h]
+  int v74; // [rsp+544h] [rbp+504h]
   struct _UNWIND_HISTORY_TABLE HistoryTable; // [rsp+550h] [rbp+510h] BYREF
 
   ExceptionRecorda = ExceptionRecord;
@@ -135,7 +136,7 @@ LABEL_145:
   {
     Rsp = (DWORD64 *)ContextRecord.Rsp;
 LABEL_4:
-    v64 = (DWORD64)Rsp;
+    v65 = (DWORD64)Rsp;
     goto LABEL_5;
   }
   if ( v9 >= *(unsigned __int8 *)(v10 + 1) || (*(_BYTE *)v10 & 0x20) != 0 )
@@ -160,7 +161,7 @@ LABEL_4:
     v32 = *(unsigned __int8 *)(v10 + 3);
     v31 = *(_BYTE *)(v10 + 3);
   }
-  v64 = *(&ContextRecord.Rax + (v31 & 0xF)) - (int)(v32 & 0xFFFFFFF0);
+  v65 = *(&ContextRecord.Rax + (v31 & 0xF)) - (int)(v32 & 0xFFFFFFF0);
 LABEL_5:
   if ( v11 < 2 )
   {
@@ -319,7 +320,7 @@ LABEL_27:
         ++v15;
         p_BeginAddress = (unsigned int *)&v18[2 * v56 + 4];
         if ( v15 > 0x20 )
-          RtlRaiseStatus(3221225727LL);
+          RtlRaiseStatus(-1073741569);
       }
       while ( 1 )
       {
@@ -350,7 +351,7 @@ LABEL_27:
           if ( !v52 )
           {
             v16 = (unsigned int)(v16 + 1);
-            v53 = (ULONGLONG *)(v64 + 16 * (unsigned int)*(unsigned __int16 *)&v18[2 * v16 + 4]);
+            v53 = (ULONGLONG *)(v65 + 16 * (unsigned int)*(unsigned __int16 *)&v18[2 * v16 + 4]);
             v54 = 2LL * (unsigned int)v20;
             *(&ContextRecord.Xmm0.Low + 2 * (unsigned int)v20) = *v53;
             v55 = v53[1];
@@ -360,7 +361,7 @@ LABEL_27:
           if ( !v58 )
           {
             v16 = (unsigned int)(v16 + 2);
-            v5 = v64
+            v5 = v65
                + *(unsigned __int16 *)&v18[2 * (unsigned int)(v16 - 1) + 4]
                + (*(unsigned __int16 *)&v18[2 * v16 + 4] << 16);
             v54 = 2LL * (unsigned int)v20;
@@ -374,7 +375,7 @@ LABEL_45:
           }
           if ( v58 != 1 )
 LABEL_141:
-            RtlRaiseStatus(3221225727LL);
+            RtlRaiseStatus(-1073741569);
           v17 = 1;
           v59 = (DWORD64 **)(Rsp + 3);
           if ( (_DWORD)v20 )
@@ -392,7 +393,7 @@ LABEL_141:
             v16 = (unsigned int)(v16 + 2);
             v30 = *(_QWORD *)((*(unsigned __int16 *)&v18[2 * v16 + 4] << 16)
                             + (unsigned int)*(unsigned __int16 *)&v18[2 * (unsigned int)(v16 - 1) + 4]
-                            + v64);
+                            + v65);
 LABEL_44:
             *(&ContextRecord.Rax + v20) = v30;
             goto LABEL_45;
@@ -411,7 +412,7 @@ LABEL_44:
                   if ( v29 != 1 )
                     goto LABEL_141;
                   v16 = (unsigned int)(v16 + 1);
-                  v30 = *(_QWORD *)(8 * (unsigned int)*(unsigned __int16 *)&v18[2 * v16 + 4] + v64);
+                  v30 = *(_QWORD *)(8 * (unsigned int)*(unsigned __int16 *)&v18[2 * v16 + 4] + v65);
                   goto LABEL_44;
                 }
                 ContextRecord.Rsp = *(&ContextRecord.Rax + (v18[3] & 0xF));
@@ -487,7 +488,7 @@ LABEL_30:
   ExceptionRecorda->ExceptionAddress = (void *)ContextRecord.Rip;
   if ( NtCurrentPeb()->BeingDebugged )
   {
-    LOBYTE(v5) = 1;
+    v64 = 1;
     goto LABEL_144;
   }
   if ( MEMORY[0x7FFE03D8] )
@@ -497,22 +498,22 @@ LABEL_30:
     if ( v24 + 15 < v24 )
       v25 = 0xFFFFFFFFFFFFFF0LL;
     v26 = alloca(v25 & 0xFFFFFFFFFFFFFFF0uLL);
-    v72 = (((unsigned __int64)&ContextRecord.P4Home + 7) & 0xFFFFFFFFFFFFFFC0uLL) - ((unsigned int)&v64 + 1264);
-    v68 = v72;
-    v73 = MEMORY[0x7FFE03E8] - 512;
-    v70 = -1232;
-    v69 = 24 - v72;
-    v71 = 1232;
+    v73 = (((unsigned __int64)&ContextRecord.P4Home + 7) & 0xFFFFFFFFFFFFFFC0uLL) - ((unsigned int)&v65 + 1264);
+    v69 = v73;
+    v74 = MEMORY[0x7FFE03E8] - 512;
+    v71 = -1232;
+    v70 = 24 - v73;
+    v72 = 1232;
     memset((void *)(((unsigned __int64)&ContextRecord.P4Home + 7) & 0xFFFFFFFFFFFFFFC0uLL), 0, 0x40uLL);
     if ( (MEMORY[0x7FFE03EC] & 2) != 0 )
       *(_QWORD *)((((unsigned __int64)&ContextRecord.P4Home + 7) & 0xFFFFFFFFFFFFFFC0uLL) + 8) = MEMORY[0x7FFE03D8] | 0x8000000000000000uLL;
     ContextRecord.ContextFlags |= 0x100040u;
   }
-  if ( !(unsigned __int8)RtlDispatchException((__int64)v23, (__int64)&ContextRecord) )
+  if ( !RtlDispatchException(v23, &ContextRecord) )
   {
-    v5 = 0LL;
+    v64 = 0;
 LABEL_144:
-    v1 = ZwRaiseException(v23, &ContextRecord, v5);
+    v1 = ZwRaiseException(v23, &ContextRecord, v64);
     goto LABEL_145;
   }
   RtlRestoreContext(&ContextRecord, v23);

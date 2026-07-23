@@ -18,7 +18,7 @@ __int64 __fastcall BiCreateMergedBootEntry(_DWORD *a1, char *a2, _DWORD *a3, _WO
   __int64 v7; // rax
   _DWORD *v9; // rdi
   _WORD *v10; // r15
-  struct _FILE_PATH *v11; // r14
+  _FILE_PATH *v11; // r14
   char *v13; // rax
   signed int DeviceFromEfiPath; // ebx
   int FilePathFromEfiPath; // eax
@@ -29,7 +29,7 @@ __int64 __fastcall BiCreateMergedBootEntry(_DWORD *a1, char *a2, _DWORD *a3, _WO
   unsigned int v20; // eax
   unsigned int v21; // eax
   unsigned int v22; // r12d
-  struct _FILE_PATH *PoolWithTag; // rax
+  _FILE_PATH *PoolWithTag; // rax
   void *v24; // rdx
   int v25; // eax
   unsigned int v26; // ecx
@@ -119,7 +119,7 @@ LABEL_12:
     DeviceFromEfiPath = v21 < v19 ? 0xC0000095 : 0;
     if ( v21 < v19 )
       goto LABEL_35;
-    PoolWithTag = (struct _FILE_PATH *)ExAllocatePoolWithTag(PagedPool, v22, 0x4B444342u);
+    PoolWithTag = (_FILE_PATH *)ExAllocatePoolWithTag(PagedPool, v22, 0x4B444342u);
     v11 = PoolWithTag;
     if ( !PoolWithTag )
     {

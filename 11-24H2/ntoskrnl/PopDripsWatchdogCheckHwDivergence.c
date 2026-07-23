@@ -1,27 +1,27 @@
 /*
- * XREFs of PopDripsWatchdogCheckHwDivergence @ 0x14075FE54
+ * XREFs of PopDripsWatchdogCheckHwDivergence @ 0x14075EE54
  * Callers:
- *     PopDripsWatchdogDiagnosticWorker @ 0x14075FF20 (PopDripsWatchdogDiagnosticWorker.c)
+ *     PopDripsWatchdogDiagnosticWorker @ 0x14075EF20 (PopDripsWatchdogDiagnosticWorker.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwUpdateWnfStateData @ 0x1406AA030 (ZwUpdateWnfStateData.c)
- *     DbgkWerCaptureLiveKernelDump @ 0x140AA9B20 (DbgkWerCaptureLiveKernelDump.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwUpdateWnfStateData @ 0x1406AAFD0 (ZwUpdateWnfStateData.c)
+ *     DbgkWerCaptureLiveKernelDump @ 0x140AA4BD0 (DbgkWerCaptureLiveKernelDump.c)
  */
 
-__int64 __fastcall PopDripsWatchdogCheckHwDivergence(unsigned __int64 a1, unsigned __int64 a2)
+NTSTATUS __fastcall PopDripsWatchdogCheckHwDivergence(unsigned __int64 a1, unsigned __int64 a2)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
   unsigned __int64 v3; // [rsp+50h] [rbp-28h] BYREF
   unsigned __int64 v4; // [rsp+58h] [rbp-20h]
 
   if ( a2 > a1 )
   {
-    result = (unsigned int)PopDripsSwHwDivergenceThreshold;
+    result = PopDripsSwHwDivergenceThreshold;
     if ( (unsigned int)PopDripsSwHwDivergenceThreshold < (a2 - a1) / 0xF4240 )
     {
       v3 = a2;
       v4 = a1;
-      result = ZwUpdateWnfStateData((__int64)&WNF_PO_SW_HW_DRIPS_DIVERGENCE, (__int64)&v3);
+      result = ZwUpdateWnfStateData(&WNF_PO_SW_HW_DRIPS_DIVERGENCE, &v3, 0x10u, 0LL, 0LL, 0, 0);
       if ( PopDripsSwHwDivergenceEnableLiveDump )
         return DbgkWerCaptureLiveKernelDump((unsigned int)L"DripsDiverge", 420, v3, v4, 0LL, 0LL, 0LL, 0LL, 0);
     }

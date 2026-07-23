@@ -1,20 +1,20 @@
 /*
- * XREFs of MiLoadSectionIntoVsmEnclave @ 0x140A3E498
+ * XREFs of MiLoadSectionIntoVsmEnclave @ 0x140A3E748
  * Callers:
- *     NtLoadEnclaveData @ 0x140A3F270 (NtLoadEnclaveData.c)
+ *     NtLoadEnclaveData @ 0x140A3F520 (NtLoadEnclaveData.c)
  * Callees:
- *     MiUnlockAndDereferenceVad @ 0x140274A90 (MiUnlockAndDereferenceVad.c)
- *     MiVadDeleted @ 0x140275410 (MiVadDeleted.c)
- *     MiCommitExistingVad @ 0x140276A30 (MiCommitExistingVad.c)
- *     MiUnlockVad @ 0x140289CA0 (MiUnlockVad.c)
- *     MiLockVad @ 0x14029C7D0 (MiLockVad.c)
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     MiCountCommittedPages @ 0x14064745C (MiCountCommittedPages.c)
- *     MiDecommitRegion @ 0x140744560 (MiDecommitRegion.c)
- *     MiPrefetchControlArea @ 0x1407DC90C (MiPrefetchControlArea.c)
- *     VslLoadEnclaveModule @ 0x1409429C8 (VslLoadEnclaveModule.c)
- *     MiMapImageForEnclaveUse @ 0x140A3E748 (MiMapImageForEnclaveUse.c)
- *     MiUnmapImageForEnclaveUse @ 0x140A3E994 (MiUnmapImageForEnclaveUse.c)
+ *     MiUnlockAndDereferenceVad @ 0x140274D20 (MiUnlockAndDereferenceVad.c)
+ *     MiVadDeleted @ 0x1402756A0 (MiVadDeleted.c)
+ *     MiCommitExistingVad @ 0x140276CC0 (MiCommitExistingVad.c)
+ *     MiUnlockVad @ 0x140289F30 (MiUnlockVad.c)
+ *     MiLockVad @ 0x14029CA60 (MiLockVad.c)
+ *     MiAllocatePool @ 0x1402DF430 (MiAllocatePool.c)
+ *     MiCountCommittedPages @ 0x1406479AC (MiCountCommittedPages.c)
+ *     MiDecommitRegion @ 0x140744750 (MiDecommitRegion.c)
+ *     MiPrefetchControlArea @ 0x1407DCBDC (MiPrefetchControlArea.c)
+ *     VslLoadEnclaveModule @ 0x140942BC8 (VslLoadEnclaveModule.c)
+ *     MiMapImageForEnclaveUse @ 0x140A3E9F8 (MiMapImageForEnclaveUse.c)
+ *     MiUnmapImageForEnclaveUse @ 0x140A3EC44 (MiUnmapImageForEnclaveUse.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

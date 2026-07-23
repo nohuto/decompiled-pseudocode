@@ -33,7 +33,7 @@ void __fastcall CmUnregisterMachineHiveLoadedNotification(unsigned int *P)
       if ( *(unsigned int **)(*(_QWORD *)P + 8LL) != P || (v6 = (PVOID *)*((_QWORD *)P + 1), *v6 != P) )
         __fastfail(3u);
       *v6 = v5;
-      v5->Header.WaitListHead.Flink = (struct _LIST_ENTRY *)v6;
+      *((_QWORD *)v5 + 1) = v6;
       *((_BYTE *)P + 109) = 0;
     }
     ExReleasePushLockEx((ULONG_PTR)v4, 0LL);

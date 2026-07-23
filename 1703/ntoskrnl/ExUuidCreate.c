@@ -27,9 +27,9 @@ NTSTATUS __stdcall ExUuidCreate(UUID *Uuid)
   char v5; // cl
   int v6; // eax
   __int64 v7; // rdi
-  _BYTE *v9; // rax
+  PRTL_BALANCED_NODE v9; // rax
   signed __int8 v10; // cf
-  _BYTE *v11; // rbp
+  PRTL_BALANCED_NODE v11; // rbp
 
   CurrentThread = KeGetCurrentThread();
   Values = 0;
@@ -55,13 +55,13 @@ NTSTATUS __stdcall ExUuidCreate(UUID *Uuid)
       return Values;
     }
     --CurrentThread->KernelApcDisable;
-    v9 = (_BYTE *)KeAbPreAcquire((ULONG_PTR)&ExpUuidLock, 0LL, 0LL);
+    v9 = KeAbPreAcquire((ULONG_PTR)&ExpUuidLock, 0LL, 0);
     v10 = _interlockedbittestandset64((volatile signed __int32 *)&ExpUuidLock, 0LL);
     v11 = v9;
     if ( v10 )
       ExfAcquirePushLockExclusiveEx(&ExpUuidLock, v9, (ULONG_PTR)&ExpUuidLock);
     if ( v11 )
-      v11[26] |= 1u;
+      BYTE2(v11[1].Left) |= 1u;
     if ( v4 == ExpUuidCachedValues )
       break;
 LABEL_14:

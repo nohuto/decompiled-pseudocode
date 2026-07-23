@@ -1,17 +1,17 @@
 /*
- * XREFs of RtlpLookupUserFunctionTable @ 0x1400AD988
+ * XREFs of RtlpLookupUserFunctionTable @ 0x1400ABEF0
  * Callers:
- *     RtlpLookupFunctionEntryForStackWalks @ 0x140051360 (RtlpLookupFunctionEntryForStackWalks.c)
+ *     RtlpLookupFunctionEntryForStackWalks @ 0x140050EE0 (RtlpLookupFunctionEntryForStackWalks.c)
  * Callees:
- *     KiLeaveGuardedRegionUnsafe @ 0x140013B70 (KiLeaveGuardedRegionUnsafe.c)
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     RtlCaptureImageExceptionValues @ 0x140084CD8 (RtlCaptureImageExceptionValues.c)
- *     RtlpLookupUserFunctionTableInverted @ 0x1400ADB38 (RtlpLookupUserFunctionTableInverted.c)
- *     ExfAcquirePushLockSharedEx @ 0x1400C8280 (ExfAcquirePushLockSharedEx.c)
- *     ExfReleasePushLockShared @ 0x1400C8640 (ExfReleasePushLockShared.c)
- *     MmGetImageBase @ 0x1404D1238 (MmGetImageBase.c)
- *     ExRaiseDatatypeMisalignment @ 0x1406B6058 (ExRaiseDatatypeMisalignment.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1400136F0 (KiLeaveGuardedRegionUnsafe.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     RtlCaptureImageExceptionValues @ 0x140082E38 (RtlCaptureImageExceptionValues.c)
+ *     RtlpLookupUserFunctionTableInverted @ 0x1400AC0A0 (RtlpLookupUserFunctionTableInverted.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1400C6120 (ExfAcquirePushLockSharedEx.c)
+ *     ExfReleasePushLockShared @ 0x1400C64E0 (ExfReleasePushLockShared.c)
+ *     MmGetImageBase @ 0x1404B4CD8 (MmGetImageBase.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1406B6190 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall RtlpLookupUserFunctionTable(unsigned __int64 a1, __int64 a2)

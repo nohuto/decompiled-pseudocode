@@ -1,43 +1,43 @@
 /*
- * XREFs of NtQueryInformationFile @ 0x1405FAEA0
+ * XREFs of NtQueryInformationFile @ 0x1406EA600
  * Callers:
- *     PfpFileCheckAttributesForPrefetch @ 0x1402D4170 (PfpFileCheckAttributesForPrefetch.c)
- *     PfSnGetPrefetchInstructions @ 0x1406CEC28 (PfSnGetPrefetchInstructions.c)
- *     RtlIsPartialPlaceholderFileHandle @ 0x1409174B0 (RtlIsPartialPlaceholderFileHandle.c)
+ *     PfpFileCheckAttributesForPrefetch @ 0x140272E48 (PfpFileCheckAttributesForPrefetch.c)
+ *     PfSnGetPrefetchInstructions @ 0x1406A5F08 (PfSnGetPrefetchInstructions.c)
+ *     RtlIsPartialPlaceholderFileHandle @ 0x140917610 (RtlIsPartialPlaceholderFileHandle.c)
  * Callees:
- *     IopUpdateOtherOperationCount @ 0x14022BCB0 (IopUpdateOtherOperationCount.c)
- *     IopVerifierExAllocatePoolWithQuota @ 0x14022BCD0 (IopVerifierExAllocatePoolWithQuota.c)
- *     IopCallDriverReference @ 0x14022BD00 (IopCallDriverReference.c)
- *     KeSetKernelStackSwapEnable @ 0x14022C190 (KeSetKernelStackSwapEnable.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     IopWaitForSynchronousIo @ 0x1402D41CC (IopWaitForSynchronousIo.c)
- *     IopCompleteRequest @ 0x140342B20 (IopCompleteRequest.c)
- *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
- *     IopReferenceFileObject @ 0x140348A20 (IopReferenceFileObject.c)
- *     KeAbPreAcquire @ 0x14034A230 (KeAbPreAcquire.c)
- *     ObfReferenceObject @ 0x14034B230 (ObfReferenceObject.c)
- *     IopQueueThreadIrp @ 0x14034B290 (IopQueueThreadIrp.c)
- *     IopReleaseFileObjectLock @ 0x14034D750 (IopReleaseFileObjectLock.c)
- *     IoGetRelatedDeviceObject @ 0x140351920 (IoGetRelatedDeviceObject.c)
- *     IopAllocateIrpExReturn @ 0x140351A40 (IopAllocateIrpExReturn.c)
- *     IopResetEvent @ 0x140351DE0 (IopResetEvent.c)
- *     IoGetAttachedDevice @ 0x140353740 (IoGetAttachedDevice.c)
- *     KeInitializeEvent @ 0x1403538F0 (KeInitializeEvent.c)
- *     IopGetFileVolumeNameInformation @ 0x140360418 (IopGetFileVolumeNameInformation.c)
- *     IOP_INT_TO_EXT_PRIORITY @ 0x1403F133C (IOP_INT_TO_EXT_PRIORITY.c)
+ *     IopVerifierExAllocatePoolWithQuota_0 @ 0x140236060 (IopVerifierExAllocatePoolWithQuota_0.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     IopWaitForSynchronousIo @ 0x140272EA4 (IopWaitForSynchronousIo.c)
+ *     IopGetFileVolumeNameInformation @ 0x1402A5348 (IopGetFileVolumeNameInformation.c)
+ *     IopUpdateOtherOperationCount @ 0x1402D0560 (IopUpdateOtherOperationCount.c)
+ *     IopCallDriverReference @ 0x1402D0580 (IopCallDriverReference.c)
+ *     KeSetKernelStackSwapEnable @ 0x1402D0A10 (KeSetKernelStackSwapEnable.c)
+ *     IopCompleteRequest @ 0x14034D870 (IopCompleteRequest.c)
+ *     KeWaitForSingleObject @ 0x1403504C0 (KeWaitForSingleObject.c)
+ *     IopReferenceFileObject @ 0x140353770 (IopReferenceFileObject.c)
+ *     KeAbPreAcquire @ 0x140354F80 (KeAbPreAcquire.c)
+ *     ObfReferenceObject @ 0x140355F80 (ObfReferenceObject.c)
+ *     IopQueueThreadIrp @ 0x140355FE0 (IopQueueThreadIrp.c)
+ *     IopReleaseFileObjectLock @ 0x1403584A0 (IopReleaseFileObjectLock.c)
+ *     IoGetRelatedDeviceObject @ 0x14035C670 (IoGetRelatedDeviceObject.c)
+ *     IopAllocateIrpExReturn @ 0x14035C790 (IopAllocateIrpExReturn.c)
+ *     IopResetEvent @ 0x14035CB30 (IopResetEvent.c)
+ *     IoGetAttachedDevice @ 0x14035E490 (IoGetAttachedDevice.c)
+ *     KeInitializeEvent @ 0x14035E640 (KeInitializeEvent.c)
+ *     IOP_INT_TO_EXT_PRIORITY @ 0x1403F126C (IOP_INT_TO_EXT_PRIORITY.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     memset @ 0x140414200 (memset.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414300 (memset.c)
  *     IopExceptionCleanupEx @ 0x1405CDBA4 (IopExceptionCleanupEx.c)
- *     IopValidateQueryInformationParameters @ 0x1405FB810 (IopValidateQueryInformationParameters.c)
- *     IopGetModeInformation @ 0x140694D58 (IopGetModeInformation.c)
- *     IopWaitAndAcquireFileObjectLock @ 0x1406E7BB8 (IopWaitAndAcquireFileObjectLock.c)
- *     IopAllocateIrpCleanup @ 0x140890E54 (IopAllocateIrpCleanup.c)
- *     IopCancelAlertedRequest @ 0x14089108C (IopCancelAlertedRequest.c)
- *     IopGetNumaNodeInformation @ 0x1408958A8 (IopGetNumaNodeInformation.c)
- *     IopQueryProcessIdsUsingFile @ 0x140895A08 (IopQueryProcessIdsUsingFile.c)
- *     VfFastIoCheckState @ 0x1409C99B4 (VfFastIoCheckState.c)
- *     VfFastIoSnapState @ 0x1409C9A8C (VfFastIoSnapState.c)
+ *     IopGetModeInformation @ 0x1405F42A8 (IopGetModeInformation.c)
+ *     IopValidateQueryInformationParameters @ 0x1406EAF70 (IopValidateQueryInformationParameters.c)
+ *     IopWaitAndAcquireFileObjectLock @ 0x1406FEF98 (IopWaitAndAcquireFileObjectLock.c)
+ *     IopAllocateIrpCleanup @ 0x140890FB4 (IopAllocateIrpCleanup.c)
+ *     IopCancelAlertedRequest @ 0x1408911EC (IopCancelAlertedRequest.c)
+ *     IopGetNumaNodeInformation @ 0x140895A08 (IopGetNumaNodeInformation.c)
+ *     IopQueryProcessIdsUsingFile @ 0x140895B68 (IopQueryProcessIdsUsingFile.c)
+ *     VfFastIoCheckState @ 0x1409CA9B4 (VfFastIoCheckState.c)
+ *     VfFastIoSnapState @ 0x1409CAA8C (VfFastIoSnapState.c)
  */
 
 NTSTATUS __stdcall NtQueryInformationFile(
@@ -58,7 +58,7 @@ NTSTATUS __stdcall NtQueryInformationFile(
   PFAST_IO_DISPATCH FastIoDispatch; // r14
   struct _KTHREAD *v18; // rax
   PFILE_OBJECT v19; // rbx
-  __int64 v20; // rax
+  PRTL_BALANCED_NODE v20; // rax
   __int64 v21; // rdx
   __int64 v22; // r8
   _DWORD *v23; // r9
@@ -72,11 +72,11 @@ NTSTATUS __stdcall NtQueryInformationFile(
   IRP *v31; // rsi
   struct _KEVENT *p_Event; // rax
   struct _IO_STACK_LOCATION *CurrentStackLocation; // rbx
-  struct _IRP *PoolWithQuota; // rax
+  struct _IRP *PoolWithQuota_0; // rax
   char v35; // r10
   NTSTATUS NumaNodeInformation; // r14d
   int ModeInformation; // eax
-  _DWORD *v38; // r9
+  int *v38; // r9
   char v39; // r15
   KPROCESSOR_MODE v40; // bl
   _DWORD *p_Type; // rdx
@@ -220,7 +220,7 @@ LABEL_113:
         else
         {
           if ( v20 )
-            *(_BYTE *)(v20 + 26) |= 1u;
+            BYTE2(v20[1].Left) |= 1u;
           v15 = FileObject;
           ObfReferenceObject(FileObject);
           FileVolumeNameInformation = 0;
@@ -329,10 +329,10 @@ LABEL_31:
       v31->UserBuffer = FileInformation;
       v31->AssociatedIrp.MasterIrp = 0LL;
       v31->MdlAddress = 0LL;
-      PoolWithQuota = (struct _IRP *)IopVerifierExAllocatePoolWithQuota((__int64)v31, Length);
-      v31->AssociatedIrp.MasterIrp = PoolWithQuota;
+      PoolWithQuota_0 = (struct _IRP *)IopVerifierExAllocatePoolWithQuota_0((__int64)v31, Length);
+      v31->AssociatedIrp.MasterIrp = PoolWithQuota_0;
       if ( !IopDisableBufferedIoInit )
-        memset(PoolWithQuota, 0, Length);
+        memset(PoolWithQuota_0, 0, Length);
       v31->Flags |= 0x870u;
       CurrentStackLocation[-1].Parameters.Read.Length = Length;
       CurrentStackLocation[-1].Parameters.Create.Options = v10;
@@ -346,7 +346,7 @@ LABEL_31:
       switch ( v10 )
       {
         case FileModeInformation:
-          ModeInformation = IopGetModeInformation(v15);
+          ModeInformation = IopGetModeInformation((__int64)v15);
           *v38 = ModeInformation;
           v31->IoStatus.Information = 4LL;
           v39 = v58;
@@ -421,7 +421,7 @@ LABEL_71:
           break;
         case FileAllInformation:
           HIDWORD(v31->AssociatedIrp.MasterIrp->UserIosb) = v72.GrantedAccess;
-          v48 = IopGetModeInformation(v15);
+          v48 = IopGetModeInformation((__int64)v15);
           *(_DWORD *)(v49 + 88) = v48;
           v47 = DeviceObject;
           *(_DWORD *)(v49 + 92) = DeviceObject->AlignmentRequirement;

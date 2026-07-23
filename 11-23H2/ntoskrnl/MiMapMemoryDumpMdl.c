@@ -1,20 +1,20 @@
 /*
- * XREFs of MiMapMemoryDumpMdl @ 0x14062FD48
+ * XREFs of MiMapMemoryDumpMdl @ 0x140630298
  * Callers:
- *     MmMapMemoryDumpMdl @ 0x140630640 (MmMapMemoryDumpMdl.c)
- *     MmMapMemoryDumpMdlEx @ 0x140630680 (MmMapMemoryDumpMdlEx.c)
- *     MmMapMemoryDumpMdlEx2 @ 0x1406306A8 (MmMapMemoryDumpMdlEx2.c)
+ *     MmMapMemoryDumpMdl @ 0x140630B90 (MmMapMemoryDumpMdl.c)
+ *     MmMapMemoryDumpMdlEx @ 0x140630BD0 (MmMapMemoryDumpMdlEx.c)
+ *     MmMapMemoryDumpMdlEx2 @ 0x140630BF8 (MmMapMemoryDumpMdlEx2.c)
  * Callees:
  *     MiMakeProtectionPfnCompatible @ 0x140217E64 (MiMakeProtectionPfnCompatible.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1402712F0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiPteInShadowRange @ 0x140271360 (MiPteInShadowRange.c)
- *     MiFlushTbList @ 0x140279880 (MiFlushTbList.c)
- *     MiInsertTbFlushEntry @ 0x14027F570 (MiInsertTbFlushEntry.c)
- *     MiMakeValidPte @ 0x1402CF2B0 (MiMakeValidPte.c)
- *     MiWritePteShadow @ 0x14035734C (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x1403573AC (MiPteHasShadow.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140271580 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x1402715F0 (MiPteInShadowRange.c)
+ *     MiFlushTbList @ 0x140279B10 (MiFlushTbList.c)
+ *     MiInsertTbFlushEntry @ 0x14027F800 (MiInsertTbFlushEntry.c)
+ *     MiMakeValidPte @ 0x1402CF540 (MiMakeValidPte.c)
+ *     MiWritePteShadow @ 0x1403574EC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x14035754C (MiPteHasShadow.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 char __fastcall MiMapMemoryDumpMdl(unsigned __int64 a1, __int64 a2, __int64 a3, char a4)

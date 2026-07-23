@@ -35,7 +35,7 @@ __int64 *ExInitializeTimeRefresh()
   v1[1] = -1LL;
   v1[0] = 0LL;
   ExpTimeRefreshInterval = -36000000000LL;
-  KeSetTimer2((__int64)&ExpTimeRefreshTimer, -36000000000LL, 0LL, (__int64)v1);
+  KeSetTimer2((__int64)&ExpTimeRefreshTimer, (LARGE_INTEGER)-36000000000LL, 0LL, (__int64)v1);
   result = &ExpTimerResolutionListHead;
   ExpTimeRefreshLock = 0LL;
   qword_140EFE5B8 = (__int64)&ExpTimerResolutionListHead;

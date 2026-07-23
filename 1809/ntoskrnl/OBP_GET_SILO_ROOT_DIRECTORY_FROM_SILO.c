@@ -1,8 +1,8 @@
 /*
- * XREFs of OBP_GET_SILO_ROOT_DIRECTORY_FROM_SILO @ 0x1400DDB4C
+ * XREFs of OBP_GET_SILO_ROOT_DIRECTORY_FROM_SILO @ 0x1400DDBCC
  * Callers:
- *     ObQueryNameStringMode @ 0x140660F50 (ObQueryNameStringMode.c)
- *     ObpCreateSymbolicLinkName @ 0x1406C4440 (ObpCreateSymbolicLinkName.c)
+ *     ObQueryNameStringMode @ 0x140662110 (ObQueryNameStringMode.c)
+ *     ObpCreateSymbolicLinkName @ 0x1406C56E0 (ObpCreateSymbolicLinkName.c)
  * Callees:
  *     <none>
  */
@@ -18,7 +18,7 @@ PVOID __fastcall OBP_GET_SILO_ROOT_DIRECTORY_FROM_SILO(__int64 a1)
   if ( a1 )
     v1 = *(_QWORD *)(a1 + 1288);
   else
-    v1 = qword_14055B988;
+    v1 = qword_14055C988;
   v2 = (unsigned int)PsObjectDirectorySiloContextSlot;
   v3 = 0LL;
   if ( (unsigned int)PsObjectDirectorySiloContextSlot >= 0x20 )

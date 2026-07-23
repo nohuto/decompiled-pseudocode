@@ -22,5 +22,5 @@ NTSTATUS __stdcall ZwOpenObjectAuditAlarm(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(SubsystemName, HandleId, ObjectTypeName);
+  return KiServiceInternal(SubsystemName);
 }

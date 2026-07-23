@@ -1,43 +1,43 @@
 /*
- * XREFs of AlpcpSendMessage @ 0x1405E4800
+ * XREFs of AlpcpSendMessage @ 0x1406D3F60
  * Callers:
- *     NtWaitForWorkViaWorkerFactory @ 0x140203150 (NtWaitForWorkViaWorkerFactory.c)
- *     NtReplyPort @ 0x1405DE380 (NtReplyPort.c)
- *     AlpcpSendLegacySynchronousRequest @ 0x1405DFA58 (AlpcpSendLegacySynchronousRequest.c)
- *     LpcRequestPort @ 0x1405E3D10 (LpcRequestPort.c)
- *     AlpcpProcessSynchronousRequest @ 0x1405E6EE0 (AlpcpProcessSynchronousRequest.c)
- *     NtAlpcSendWaitReceivePort @ 0x1405E79F0 (NtAlpcSendWaitReceivePort.c)
- *     NtReplyWaitReceivePortEx @ 0x1405EAA60 (NtReplyWaitReceivePortEx.c)
- *     NtRequestPort @ 0x1406B1A70 (NtRequestPort.c)
+ *     NtWaitForWorkViaWorkerFactory @ 0x1402A7A90 (NtWaitForWorkViaWorkerFactory.c)
+ *     NtRequestPort @ 0x140610AB0 (NtRequestPort.c)
+ *     NtReplyPort @ 0x1406CDAE0 (NtReplyPort.c)
+ *     AlpcpSendLegacySynchronousRequest @ 0x1406CF1B8 (AlpcpSendLegacySynchronousRequest.c)
+ *     LpcRequestPort @ 0x1406D3470 (LpcRequestPort.c)
+ *     AlpcpProcessSynchronousRequest @ 0x1406D6640 (AlpcpProcessSynchronousRequest.c)
+ *     NtAlpcSendWaitReceivePort @ 0x1406D7150 (NtAlpcSendWaitReceivePort.c)
+ *     NtReplyWaitReceivePortEx @ 0x1406DA1C0 (NtReplyWaitReceivePortEx.c)
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x1402056A0 (ObfReferenceObjectWithTag.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     RtlpInterlockedPopEntrySList @ 0x140407930 (RtlpInterlockedPopEntrySList.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     memset @ 0x140414200 (memset.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     ObfReferenceObjectWithTag @ 0x1402A9FE0 (ObfReferenceObjectWithTag.c)
+ *     ExfReleasePushLockShared @ 0x1402FC1C0 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     ExAcquirePushLockSharedEx @ 0x1403558A0 (ExAcquirePushLockSharedEx.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140407B10 (RtlpInterlockedPopEntrySList.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414300 (memset.c)
  *     AlpcpAvailableBufferSize @ 0x1405CF054 (AlpcpAvailableBufferSize.c)
- *     PsReleaseProcessWakeCounter @ 0x1405DE9D0 (PsReleaseProcessWakeCounter.c)
- *     AlpcpCancelMessage @ 0x1405E301C (AlpcpCancelMessage.c)
- *     AlpcpDispatchReplyToPort @ 0x1405E35BC (AlpcpDispatchReplyToPort.c)
- *     AlpcpReleaseAttributes @ 0x1405E39F0 (AlpcpReleaseAttributes.c)
- *     AlpcpCaptureMessageData @ 0x1405E3D7C (AlpcpCaptureMessageData.c)
- *     AlpcpValidateMessage @ 0x1405E3F28 (AlpcpValidateMessage.c)
- *     AlpcpDispatchReplyToWaitingThread @ 0x1405E4440 (AlpcpDispatchReplyToWaitingThread.c)
- *     AlpcpDispatchNewMessage @ 0x1405E5250 (AlpcpDispatchNewMessage.c)
- *     AlpcpCaptureAttributes @ 0x1405E6290 (AlpcpCaptureAttributes.c)
- *     AlpcpLookupMessage @ 0x1405E6870 (AlpcpLookupMessage.c)
- *     PspChargeProcessWakeCounter @ 0x1405E6B10 (PspChargeProcessWakeCounter.c)
- *     AlpcpUnlockMessage @ 0x1405E9ECC (AlpcpUnlockMessage.c)
- *     AlpcpDereferenceBlobEx @ 0x1405E9FC0 (AlpcpDereferenceBlobEx.c)
- *     AlpcpChargePagedPoolQuota @ 0x140660A4C (AlpcpChargePagedPoolQuota.c)
- *     AlpcpReleaseViewAttribute @ 0x1406B4784 (AlpcpReleaseViewAttribute.c)
- *     AlpcpEnterAllocationEventMessageLog @ 0x1408C2AA0 (AlpcpEnterAllocationEventMessageLog.c)
- *     AlpcpValidateDataInformation @ 0x1408C2FD8 (AlpcpValidateDataInformation.c)
+ *     AlpcpReleaseViewAttribute @ 0x140613954 (AlpcpReleaseViewAttribute.c)
+ *     AlpcpChargePagedPoolQuota @ 0x14065586C (AlpcpChargePagedPoolQuota.c)
+ *     PsReleaseProcessWakeCounter @ 0x1406CE130 (PsReleaseProcessWakeCounter.c)
+ *     AlpcpCancelMessage @ 0x1406D277C (AlpcpCancelMessage.c)
+ *     AlpcpDispatchReplyToPort @ 0x1406D2D1C (AlpcpDispatchReplyToPort.c)
+ *     AlpcpReleaseAttributes @ 0x1406D3150 (AlpcpReleaseAttributes.c)
+ *     AlpcpCaptureMessageData @ 0x1406D34DC (AlpcpCaptureMessageData.c)
+ *     AlpcpValidateMessage @ 0x1406D3688 (AlpcpValidateMessage.c)
+ *     AlpcpDispatchReplyToWaitingThread @ 0x1406D3BA0 (AlpcpDispatchReplyToWaitingThread.c)
+ *     AlpcpDispatchNewMessage @ 0x1406D49B0 (AlpcpDispatchNewMessage.c)
+ *     AlpcpCaptureAttributes @ 0x1406D59F0 (AlpcpCaptureAttributes.c)
+ *     AlpcpLookupMessage @ 0x1406D5FD0 (AlpcpLookupMessage.c)
+ *     PspChargeProcessWakeCounter @ 0x1406D6270 (PspChargeProcessWakeCounter.c)
+ *     AlpcpUnlockMessage @ 0x1406D962C (AlpcpUnlockMessage.c)
+ *     AlpcpDereferenceBlobEx @ 0x1406D9720 (AlpcpDereferenceBlobEx.c)
+ *     AlpcpEnterAllocationEventMessageLog @ 0x1408C2C00 (AlpcpEnterAllocationEventMessageLog.c)
+ *     AlpcpValidateDataInformation @ 0x1408C3138 (AlpcpValidateDataInformation.c)
  */
 
 __int64 __fastcall AlpcpSendMessage(__int64 a1, __m256i *a2, __int64 a3, char a4)
@@ -70,7 +70,7 @@ __int64 __fastcall AlpcpSendMessage(__int64 a1, __m256i *a2, __int64 a3, char a4
   _QWORD *v30; // rbx
   bool v31; // di
   bool v32; // zf
-  __int64 v33; // rdx
+  unsigned __int64 v33; // rdx
   _QWORD *v34; // rax
   _OWORD *v35; // r12
   __int64 v36; // rdx
@@ -262,15 +262,15 @@ LABEL_64:
   }
   if ( !v13 )
   {
-    ++dword_140CEBF14;
+    ++dword_140CEBF54;
     v21 = RtlpInterlockedPopEntrySList(&AlpcpLookasides);
     if ( !v21 )
     {
-      ++dword_140CEBF18;
-      v21 = (PSLIST_ENTRY)((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD))qword_140CEBF30)(
-                            (unsigned int)dword_140CEBF24,
-                            (unsigned int)dword_140CEBF2C,
-                            (unsigned int)dword_140CEBF28);
+      ++dword_140CEBF58;
+      v21 = (PSLIST_ENTRY)((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD))qword_140CEBF70)(
+                            (unsigned int)dword_140CEBF64,
+                            (unsigned int)dword_140CEBF6C,
+                            (unsigned int)dword_140CEBF68);
       if ( !v21 )
         return 3221225626LL;
     }
@@ -363,7 +363,7 @@ LABEL_106:
     v33 = 792LL;
     if ( *(_QWORD *)(v22 + 224) )
       v33 = *(_QWORD *)(v22 + 232) + 792LL;
-    v26 = AlpcpChargePagedPoolQuota(KeGetCurrentThread()->ApcState.Process, v33);
+    v26 = AlpcpChargePagedPoolQuota((__int64)KeGetCurrentThread()->ApcState.Process, v33);
     if ( v26 < 0 )
     {
       AlpcpUnlockMessage(BugCheckParameter2);
@@ -403,7 +403,7 @@ LABEL_122:
       v38 = *(_QWORD *)(v22 + 208);
       if ( v38 )
       {
-        PspChargeProcessWakeCounter((PVOID)(v38 & 0xFFFFFFFFFFFFFFF8uLL), -1, 1, 0LL);
+        PspChargeProcessWakeCounter(v38 & 0xFFFFFFFFFFFFFFF8uLL, -1, 1, 0LL);
         *(_QWORD *)(v22 + 208) = 0LL;
       }
       v39 = *(_QWORD *)(v22 + 216);

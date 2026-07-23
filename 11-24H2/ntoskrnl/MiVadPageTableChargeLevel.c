@@ -1,11 +1,11 @@
 /*
- * XREFs of MiVadPageTableChargeLevel @ 0x14041EF70
+ * XREFs of MiVadPageTableChargeLevel @ 0x140414CB0
  * Callers:
- *     MiCommitPageTablesForVad @ 0x1408E26C0 (MiCommitPageTablesForVad.c)
- *     MiReturnPageTablePageCommitment @ 0x1409DE1C0 (MiReturnPageTablePageCommitment.c)
+ *     MiCommitPageTablesForVad @ 0x140919270 (MiCommitPageTablesForVad.c)
+ *     MiReturnPageTablePageCommitment @ 0x1409D7D90 (MiReturnPageTablePageCommitment.c)
  * Callees:
- *     MiPageSizeToPteLevel @ 0x14041EFEC (MiPageSizeToPteLevel.c)
- *     MiGetAweVadPageSize @ 0x140988078 (MiGetAweVadPageSize.c)
+ *     MiPageSizeToPteLevel @ 0x140414D2C (MiPageSizeToPteLevel.c)
+ *     MiGetAweVadPageSize @ 0x14097085C (MiGetAweVadPageSize.c)
  */
 
 __int64 __fastcall MiVadPageTableChargeLevel(__int64 a1)

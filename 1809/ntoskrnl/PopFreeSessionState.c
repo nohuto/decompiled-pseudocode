@@ -1,11 +1,11 @@
 /*
- * XREFs of PopFreeSessionState @ 0x1406E1438
+ * XREFs of PopFreeSessionState @ 0x1406E26D8
  * Callers:
- *     PopSessionClosed @ 0x1406E13F8 (PopSessionClosed.c)
+ *     PopSessionClosed @ 0x1406E2698 (PopSessionClosed.c)
  * Callees:
  *     KeReleaseGuardedMutex @ 0x140014E30 (KeReleaseGuardedMutex.c)
  *     ExAcquireFastMutex @ 0x14004E530 (ExAcquireFastMutex.c)
- *     PopFreeRegistration @ 0x1406E14E8 (PopFreeRegistration.c)
+ *     PopFreeRegistration @ 0x1406E2788 (PopFreeRegistration.c)
  */
 
 void __fastcall PopFreeSessionState(int a1)

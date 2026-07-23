@@ -13,9 +13,9 @@
 __int64 __fastcall PopPerfBoostPowerRequest(__int64 a1, __int64 a2, char a3)
 {
   int v3; // ebx
-  __int64 v5; // [rsp+68h] [rbp+20h] BYREF
+  __int64 Buffer; // [rsp+68h] [rbp+20h] BYREF
 
-  v5 = 0LL;
+  Buffer = 0LL;
   if ( a3 )
   {
     PpmAcquireLock((struct _KTHREAD **)&PpmPerfPolicyLock);
@@ -32,8 +32,8 @@ __int64 __fastcall PopPerfBoostPowerRequest(__int64 a1, __int64 a2, char a3)
     PpmPerfUpdateDomainPolicy(0LL);
     v3 = 1;
   }
-  HIDWORD(v5) = -1;
-  LODWORD(v5) = v3 | v5 & 0xFFFFFFFD;
-  ZwUpdateWnfStateData((__int64)&WNF_SEB_LOW_LATENCY_POWER_REQUEST, (__int64)&v5, 8LL);
+  HIDWORD(Buffer) = -1;
+  LODWORD(Buffer) = v3 | Buffer & 0xFFFFFFFD;
+  ZwUpdateWnfStateData(&WNF_SEB_LOW_LATENCY_POWER_REQUEST, &Buffer, 8u, 0LL, 0LL, 0, 0);
   return 0LL;
 }

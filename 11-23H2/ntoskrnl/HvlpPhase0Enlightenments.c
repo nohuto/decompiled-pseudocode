@@ -1,13 +1,13 @@
 /*
- * XREFs of HvlpPhase0Enlightenments @ 0x14054941C
+ * XREFs of HvlpPhase0Enlightenments @ 0x140549ADC
  * Callers:
- *     HvlRestoreEnlightenment @ 0x14053FD14 (HvlRestoreEnlightenment.c)
- *     HvlPhase0Initialize @ 0x14081FE98 (HvlPhase0Initialize.c)
+ *     HvlRestoreEnlightenment @ 0x1405403D4 (HvlRestoreEnlightenment.c)
+ *     HvlPhase0Initialize @ 0x140820198 (HvlPhase0Initialize.c)
  * Callees:
- *     MmGetPhysicalAddress @ 0x14028BEE0 (MmGetPhysicalAddress.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     HvlpGetRegister64 @ 0x140548CE0 (HvlpGetRegister64.c)
- *     HvlpSetRegister64 @ 0x140548E30 (HvlpSetRegister64.c)
+ *     MmGetPhysicalAddress @ 0x14028C170 (MmGetPhysicalAddress.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     HvlpGetRegister64 @ 0x1405493A0 (HvlpGetRegister64.c)
+ *     HvlpSetRegister64 @ 0x1405494F0 (HvlpSetRegister64.c)
  */
 
 __int64 __fastcall HvlpPhase0Enlightenments(__int64 a1)
@@ -22,7 +22,7 @@ __int64 __fastcall HvlpPhase0Enlightenments(__int64 a1)
   v5 = 0LL;
   if ( (HvlEnlightenments & 0x100) == 0 )
     return 0LL;
-  HvlpGetRegister64(589847LL, &v6);
+  HvlpGetRegister64(589847, &v6);
   v3 = v6 | 1;
   if ( (HvlpFlags & 2) != 0 )
   {
@@ -34,7 +34,7 @@ __int64 __fastcall HvlpPhase0Enlightenments(__int64 a1)
     if ( v1 )
     {
 LABEL_5:
-      HvlpSetRegister64(589847LL, v3);
+      HvlpSetRegister64(589847, v3);
       if ( v1 )
         HvlpReferenceTscPage = v1;
       return 0LL;

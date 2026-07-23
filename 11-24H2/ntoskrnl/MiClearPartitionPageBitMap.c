@@ -1,16 +1,16 @@
 /*
- * XREFs of MiClearPartitionPageBitMap @ 0x140689D44
+ * XREFs of MiClearPartitionPageBitMap @ 0x14068AE74
  * Callers:
- *     MiInsertPartitionPages @ 0x14068A8D0 (MiInsertPartitionPages.c)
+ *     MiInsertPartitionPages @ 0x14068BA00 (MiInsertPartitionPages.c)
  * Callees:
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     MiLockDynamicMemoryExclusive @ 0x14066DDE4 (MiLockDynamicMemoryExclusive.c)
- *     MiUnlockDynamicMemoryExclusive @ 0x14066E948 (MiUnlockDynamicMemoryExclusive.c)
- *     MiActOnPartitionNodePages @ 0x140688F24 (MiActOnPartitionNodePages.c)
- *     MiDeletePartitionPageNodes @ 0x14068A020 (MiDeletePartitionPageNodes.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     MiMakePartitionMemoryBlock @ 0x1407FC61C (MiMakePartitionMemoryBlock.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     MiLockDynamicMemoryExclusive @ 0x14066EFB8 (MiLockDynamicMemoryExclusive.c)
+ *     MiUnlockDynamicMemoryExclusive @ 0x14066FB1C (MiUnlockDynamicMemoryExclusive.c)
+ *     MiActOnPartitionNodePages @ 0x14068A054 (MiActOnPartitionNodePages.c)
+ *     MiDeletePartitionPageNodes @ 0x14068B150 (MiDeletePartitionPageNodes.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     MiMakePartitionMemoryBlock @ 0x1407FCD8C (MiMakePartitionMemoryBlock.c)
  */
 
 __int64 __fastcall MiClearPartitionPageBitMap(__int64 a1, _QWORD **a2)

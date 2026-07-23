@@ -1,12 +1,12 @@
 /*
- * XREFs of PipGrowDeviceObjectList @ 0x14091431C
+ * XREFs of PipGrowDeviceObjectList @ 0x1409B698C
  * Callers:
- *     PipDeviceObjectListAdd @ 0x1409140DC (PipDeviceObjectListAdd.c)
+ *     PipDeviceObjectListAdd @ 0x1409B674C (PipDeviceObjectListAdd.c)
  * Callees:
- *     PiAllocateDeviceObjectList @ 0x140912A20 (PiAllocateDeviceObjectList.c)
- *     PipFreeDeviceObjectList @ 0x140913A8C (PipFreeDeviceObjectList.c)
- *     PipDeviceObjectListAdd @ 0x1409140DC (PipDeviceObjectListAdd.c)
- *     PipDeviceObjectListElementAt @ 0x140AEAB48 (PipDeviceObjectListElementAt.c)
+ *     PiAllocateDeviceObjectList @ 0x1409B4B00 (PiAllocateDeviceObjectList.c)
+ *     PipFreeDeviceObjectList @ 0x1409B5B6C (PipFreeDeviceObjectList.c)
+ *     PipDeviceObjectListAdd @ 0x1409B674C (PipDeviceObjectListAdd.c)
+ *     PipDeviceObjectListElementAt @ 0x140AED638 (PipDeviceObjectListElementAt.c)
  */
 
 __int64 __fastcall PipGrowDeviceObjectList(unsigned int **a1)

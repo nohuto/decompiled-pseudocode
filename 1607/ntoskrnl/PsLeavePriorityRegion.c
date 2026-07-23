@@ -1,5 +1,5 @@
 /*
- * XREFs of PsLeavePriorityRegion @ 0x14008BAD0
+ * XREFs of PsLeavePriorityRegion @ 0x14008B230
  * Callers:
  *     <none>
  * Callees:

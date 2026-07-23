@@ -1,20 +1,20 @@
 /*
- * XREFs of EtwpGetLoggerTimeStamp @ 0x14021BEC0
+ * XREFs of EtwpGetLoggerTimeStamp @ 0x14021D850
  * Callers:
- *     EtwpReserveTraceBuffer @ 0x140218410 (EtwpReserveTraceBuffer.c)
- *     EtwpPrepareDirtyBuffer @ 0x140219094 (EtwpPrepareDirtyBuffer.c)
- *     EtwpSwitchBuffer @ 0x140219160 (EtwpSwitchBuffer.c)
- *     EtwpLogContextSwapEvent @ 0x140412F7C (EtwpLogContextSwapEvent.c)
- *     EtwSendTraceBuffer @ 0x1406C6570 (EtwSendTraceBuffer.c)
- *     EtwpRelinquishCompressionTarget @ 0x1406C8310 (EtwpRelinquishCompressionTarget.c)
- *     EtwpRotateCompressionTarget @ 0x1406C836C (EtwpRotateCompressionTarget.c)
- *     EtwpInitializeTimeStamp @ 0x140A6DB58 (EtwpInitializeTimeStamp.c)
+ *     EtwpReserveTraceBuffer @ 0x140218740 (EtwpReserveTraceBuffer.c)
+ *     EtwpPrepareDirtyBuffer @ 0x1402191F4 (EtwpPrepareDirtyBuffer.c)
+ *     EtwpSwitchBuffer @ 0x1402192C0 (EtwpSwitchBuffer.c)
+ *     EtwpLogContextSwapEvent @ 0x1404075AC (EtwpLogContextSwapEvent.c)
+ *     EtwSendTraceBuffer @ 0x1406CA270 (EtwSendTraceBuffer.c)
+ *     EtwpRelinquishCompressionTarget @ 0x1406CC2F0 (EtwpRelinquishCompressionTarget.c)
+ *     EtwpRotateCompressionTarget @ 0x1406CC34C (EtwpRotateCompressionTarget.c)
+ *     EtwpInitializeTimeStamp @ 0x140AB2428 (EtwpInitializeTimeStamp.c)
  * Callees:
- *     HalpTimerQueryCounterSafe @ 0x1402085F0 (HalpTimerQueryCounterSafe.c)
- *     HalpTimerScaleCounter @ 0x140208D00 (HalpTimerScaleCounter.c)
- *     KeQueryPerformanceCounter @ 0x14021C3F0 (KeQueryPerformanceCounter.c)
- *     EtwpGetHostPerfCounter @ 0x14046F124 (EtwpGetHostPerfCounter.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     HalpTimerQueryCounterSafe @ 0x1402086D0 (HalpTimerQueryCounterSafe.c)
+ *     HalpTimerScaleCounter @ 0x140208DE0 (HalpTimerScaleCounter.c)
+ *     KeQueryPerformanceCounter @ 0x14021DD80 (KeQueryPerformanceCounter.c)
+ *     EtwpGetHostPerfCounter @ 0x1404688A4 (EtwpGetHostPerfCounter.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall EtwpGetLoggerTimeStamp(__int64 a1)
@@ -99,7 +99,7 @@ __int64 __fastcall EtwpGetLoggerTimeStamp(__int64 a1)
             v24 = 0;
             if ( HalpTimerQueryCounterHandlerCount )
             {
-              v33 = &unk_140FBB448;
+              v33 = &unk_140FBB7E8;
               do
               {
                 if ( v13 == *v33 )
@@ -184,7 +184,7 @@ __int64 __fastcall EtwpGetLoggerTimeStamp(__int64 a1)
             v23 = 0;
             if ( HalpTimerQueryCounterHandlerCount )
             {
-              v30 = &unk_140FBB448;
+              v30 = &unk_140FBB7E8;
               do
               {
                 if ( v13 == *v30 )

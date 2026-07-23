@@ -1,16 +1,16 @@
 /*
- * XREFs of MiUnmapLargePages @ 0x1401F5944
+ * XREFs of MiUnmapLargePages @ 0x1401F5770
  * Callers:
- *     MmUnmapIoSpace @ 0x14009B4B0 (MmUnmapIoSpace.c)
- *     MiReleaseLargePteMappings @ 0x140125F84 (MiReleaseLargePteMappings.c)
- *     MiUnmapLargeDriver @ 0x140662F2C (MiUnmapLargeDriver.c)
+ *     MmUnmapIoSpace @ 0x14009ACB0 (MmUnmapIoSpace.c)
+ *     MiReleaseLargePteMappings @ 0x1401264F4 (MiReleaseLargePteMappings.c)
+ *     MiUnmapLargeDriver @ 0x140663010 (MiUnmapLargeDriver.c)
  * Callees:
- *     MiReturnSystemVa @ 0x1400C08D0 (MiReturnSystemVa.c)
- *     MiInsertTbFlushEntry @ 0x1400E0240 (MiInsertTbFlushEntry.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiReturnSystemVa @ 0x1400BE760 (MiReturnSystemVa.c)
+ *     MiInsertTbFlushEntry @ 0x1400DE0E0 (MiInsertTbFlushEntry.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
  */
 
 void __fastcall MiUnmapLargePages(unsigned __int64 a1, unsigned __int64 a2, int a3)

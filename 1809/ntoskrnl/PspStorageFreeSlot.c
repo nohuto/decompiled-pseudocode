@@ -1,19 +1,19 @@
 /*
- * XREFs of PspStorageFreeSlot @ 0x14088F4B4
+ * XREFs of PspStorageFreeSlot @ 0x140890714
  * Callers:
- *     PsFreeSiloContextSlot @ 0x140886650 (PsFreeSiloContextSlot.c)
- *     PsUnregisterSiloMonitor @ 0x14088BA80 (PsUnregisterSiloMonitor.c)
- *     PspInitializeSiloStructures @ 0x1409B01B8 (PspInitializeSiloStructures.c)
+ *     PsFreeSiloContextSlot @ 0x1408878B0 (PsFreeSiloContextSlot.c)
+ *     PsUnregisterSiloMonitor @ 0x14088CCE0 (PsUnregisterSiloMonitor.c)
+ *     PspInitializeSiloStructures @ 0x1409B11B8 (PspInitializeSiloStructures.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
  */
 
 __int64 __fastcall PspStorageFreeSlot(unsigned int a1)
 {
   unsigned int v1; // ebx
-  struct _RTL_BITMAP *v2; // rdi
+  _RTL_BITMAP *v2; // rdi
   unsigned int v3; // ebx
 
   v1 = a1;

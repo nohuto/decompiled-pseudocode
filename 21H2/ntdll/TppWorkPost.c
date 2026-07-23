@@ -7,8 +7,8 @@
  * Callees:
  *     TpPostTask @ 0x180012A98 (TpPostTask.c)
  *     TppBarrierAdjust @ 0x18004CF8C (TppBarrierAdjust.c)
- *     _guard_dispatch_icall_nop @ 0x1800A1160 (_guard_dispatch_icall_nop.c)
- *     RtlpTpETWCallbackEnqueue @ 0x1801126D8 (RtlpTpETWCallbackEnqueue.c)
+ *     _guard_dispatch_icall_nop @ 0x1800A1120 (_guard_dispatch_icall_nop.c)
+ *     RtlpTpETWCallbackEnqueue @ 0x180112698 (RtlpTpETWCallbackEnqueue.c)
  */
 
 __int64 __fastcall TppWorkPost(__int64 a1)

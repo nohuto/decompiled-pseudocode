@@ -1,20 +1,20 @@
 /*
- * XREFs of ExpInitFullProcessSecurityInfo @ 0x14085F780
+ * XREFs of ExpInitFullProcessSecurityInfo @ 0x14085F9C0
  * Callers:
  *     <none>
  * Callees:
- *     RtlLengthSid @ 0x140227A40 (RtlLengthSid.c)
- *     RtlGetDaclSecurityDescriptor @ 0x140297640 (RtlGetDaclSecurityDescriptor.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ZwOpenKey @ 0x14041AFA0 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x14041B040 (ZwQueryValueKey.c)
- *     memset @ 0x140435A00 (memset.c)
- *     RtlpAddKnownAce @ 0x140735270 (RtlpAddKnownAce.c)
- *     RtlValidSid @ 0x1407373A0 (RtlValidSid.c)
+ *     RtlLengthSid @ 0x140227B50 (RtlLengthSid.c)
+ *     RtlGetDaclSecurityDescriptor @ 0x1402978D0 (RtlGetDaclSecurityDescriptor.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ZwOpenKey @ 0x14041B330 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x14041B3D0 (ZwQueryValueKey.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     RtlpAddKnownAce @ 0x140735460 (RtlpAddKnownAce.c)
+ *     RtlValidSid @ 0x140737590 (RtlValidSid.c)
  */
 
-_BOOL8 __fastcall ExpInitFullProcessSecurityInfo(PRTL_RUN_ONCE RunOnce, PVOID Parameter, PVOID *Context)
+_BOOL8 __fastcall ExpInitFullProcessSecurityInfo(PRTL_RUN_ONCE a1, PVOID a2, PVOID *a3)
 {
   int DaclSecurityDescriptor; // ebx
   _DWORD *v5; // rdi
@@ -40,7 +40,7 @@ _BOOL8 __fastcall ExpInitFullProcessSecurityInfo(PRTL_RUN_ONCE RunOnce, PVOID Pa
   {
     DaclSecurityDescriptor = ZwQueryValueKey(
                                KeyHandle,
-                               &stru_140C06750,
+                               &stru_140C06748,
                                KeyValuePartialInformation,
                                KeyValueInformation,
                                0x50u,
@@ -63,7 +63,7 @@ _BOOL8 __fastcall ExpInitFullProcessSecurityInfo(PRTL_RUN_ONCE RunOnce, PVOID Pa
                                                   + 4) )
           {
 LABEL_10:
-            *Context = &ExpFullProcessInfoSecurityDescriptor;
+            *a3 = &ExpFullProcessInfoSecurityDescriptor;
           }
           else
           {
@@ -74,7 +74,7 @@ LABEL_10:
                 DaclSecurityDescriptor = -1073741271;
                 goto LABEL_11;
               }
-              DaclSecurityDescriptor = RtlpAddKnownAce((__int64)Dacl, 2u, 0, 1, (unsigned __int8 *)v5, 0);
+              DaclSecurityDescriptor = RtlpAddKnownAce(Dacl, 2u, 0, 1, (unsigned __int8 *)v5, 0);
               if ( DaclSecurityDescriptor < 0 )
                 goto LABEL_11;
               v5 += 8;

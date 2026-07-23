@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpGetMcaMaxVendorSpecificSectionLength @ 0x14057E6E4
+ * XREFs of HalpGetMcaMaxVendorSpecificSectionLength @ 0x140580C04
  * Callers:
- *     HalpCorrectErrSrc @ 0x140BE9AC0 (HalpCorrectErrSrc.c)
+ *     HalpCorrectErrSrc @ 0x140BEFAC0 (HalpCorrectErrSrc.c)
  * Callees:
- *     HalpGetCpuVendor @ 0x140453A00 (HalpGetCpuVendor.c)
+ *     HalpGetCpuVendor @ 0x14044BB30 (HalpGetCpuVendor.c)
  */
 
 __int64 HalpGetMcaMaxVendorSpecificSectionLength()

@@ -1,17 +1,17 @@
 /*
- * XREFs of PopCreateNotificationName @ 0x140545198
+ * XREFs of PopCreateNotificationName @ 0x1405456D8
  * Callers:
- *     PopGetSettingNotificationName @ 0x14051FCC4 (PopGetSettingNotificationName.c)
+ *     PopGetSettingNotificationName @ 0x140502D2C (PopGetSettingNotificationName.c)
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     ZwCreateWnfStateName @ 0x14015B480 (ZwCreateWnfStateName.c)
- *     RtlSetDaclSecurityDescriptor @ 0x140413E70 (RtlSetDaclSecurityDescriptor.c)
- *     RtlCreateSecurityDescriptor @ 0x140413ED0 (RtlCreateSecurityDescriptor.c)
- *     RtlCreateAcl @ 0x140420AB8 (RtlCreateAcl.c)
- *     RtlAddAccessAllowedAce @ 0x14048D14C (RtlAddAccessAllowedAce.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     ZwCreateWnfStateName @ 0x14015B9F0 (ZwCreateWnfStateName.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x140412D30 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateSecurityDescriptor @ 0x140412D90 (RtlCreateSecurityDescriptor.c)
+ *     RtlCreateAcl @ 0x14041F978 (RtlCreateAcl.c)
+ *     RtlAddAccessAllowedAce @ 0x14048DBDC (RtlAddAccessAllowedAce.c)
  */
 
-__int64 __fastcall PopCreateNotificationName(__int64 a1)
+NTSTATUS __fastcall PopCreateNotificationName(PWNF_STATE_NAME StateName)
 {
   _BYTE SecurityDescriptor[48]; // [rsp+40h] [rbp-148h] BYREF
   ACL Acl; // [rsp+70h] [rbp-118h] BYREF
@@ -22,5 +22,5 @@ __int64 __fastcall PopCreateNotificationName(__int64 a1)
   RtlAddAccessAllowedAce(&Acl, 2u, 0x120001u, SeAllAppPackagesSid);
   RtlCreateSecurityDescriptor(SecurityDescriptor, 1u);
   RtlSetDaclSecurityDescriptor(SecurityDescriptor, 1u, &Acl, 0);
-  return ZwCreateWnfStateName(a1, 3LL, 4LL);
+  return ZwCreateWnfStateName(StateName, WnfTemporaryStateName, WnfDataScopeMachine, 0, 0LL, 0x24u, SecurityDescriptor);
 }

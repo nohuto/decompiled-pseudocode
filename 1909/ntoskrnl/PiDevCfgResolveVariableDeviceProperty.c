@@ -19,18 +19,18 @@
 
 __int64 __fastcall PiDevCfgResolveVariableDeviceProperty(__int64 *a1, void *a2, __int64 a3)
 {
-  int RegistryValue; // ebx
+  NTSTATUS RegistryValue; // ebx
   unsigned int *v7; // r15
   wchar_t *v8; // rax
   int v9; // r14d
   __int64 v10; // r8
   int ObjectProperty; // eax
   unsigned int v12; // esi
-  _DWORD *PoolWithTag; // rdi
-  int v15; // ecx
-  _DWORD *v16; // rax
+  _DWORD *p_Data1; // rdi
+  int Data1_low; // ecx
+  _DWORD *PoolWithTag; // rax
   PVOID P; // [rsp+60h] [rbp-39h] BYREF
-  PVOID v18; // [rsp+68h] [rbp-31h] BYREF
+  PGUID v18; // [rsp+68h] [rbp-31h] BYREF
   __int64 v19; // [rsp+70h] [rbp-29h] BYREF
   UNICODE_STRING UnicodeString; // [rsp+78h] [rbp-21h] BYREF
   UNICODE_STRING GuidString; // [rsp+88h] [rbp-11h] BYREF
@@ -84,7 +84,7 @@ LABEL_59:
                        0LL,
                        (__int64)&Guid,
                        (__int64)&v19,
-                       &v18,
+                       (PVOID *)&v18,
                        &P,
                        0);
     RegistryValue = ObjectProperty;
@@ -118,7 +118,7 @@ LABEL_12:
           v12 = (unsigned int)P;
           if ( (unsigned int)P >= 2 )
           {
-            PoolWithTag = v18;
+            p_Data1 = &v18->Data1;
             if ( !*((_WORD *)v18 + ((unsigned __int64)(unsigned int)P >> 1) - 1) )
               goto LABEL_14;
           }
@@ -142,10 +142,10 @@ LABEL_12:
           goto LABEL_21;
         v9 = 4;
         v12 = 4;
-        PoolWithTag = ExAllocatePoolWithTag(PagedPool, 4uLL, 0x63647050u);
-        if ( PoolWithTag )
+        p_Data1 = ExAllocatePoolWithTag(PagedPool, 4uLL, 0x63647050u);
+        if ( p_Data1 )
         {
-          v15 = *(_BYTE *)v18 == 0xFF;
+          Data1_low = LOBYTE(v18->Data1) == 0xFF;
           goto LABEL_30;
         }
         goto LABEL_29;
@@ -160,10 +160,10 @@ LABEL_12:
               goto LABEL_21;
             v9 = 4;
             v12 = 4;
-            PoolWithTag = ExAllocatePoolWithTag(PagedPool, 4uLL, 0x63647050u);
-            if ( PoolWithTag )
+            p_Data1 = ExAllocatePoolWithTag(PagedPool, 4uLL, 0x63647050u);
+            if ( p_Data1 )
             {
-              v15 = *(unsigned __int16 *)v18;
+              Data1_low = LOWORD(v18->Data1);
               goto LABEL_30;
             }
 LABEL_29:
@@ -176,18 +176,18 @@ LABEL_29:
               goto LABEL_21;
             v9 = 4;
             v12 = 4;
-            PoolWithTag = ExAllocatePoolWithTag(PagedPool, 4uLL, 0x63647050u);
-            if ( PoolWithTag )
+            p_Data1 = ExAllocatePoolWithTag(PagedPool, 4uLL, 0x63647050u);
+            if ( p_Data1 )
             {
-              v15 = *(unsigned __int8 *)v18;
+              Data1_low = LOBYTE(v18->Data1);
 LABEL_30:
-              *PoolWithTag = v15;
+              *p_Data1 = Data1_low;
               goto LABEL_15;
             }
             goto LABEL_29;
           }
 LABEL_58:
-          PoolWithTag = 0LL;
+          p_Data1 = 0LL;
           v12 = 0;
           v9 = 0;
           goto LABEL_15;
@@ -210,13 +210,13 @@ LABEL_49:
           {
             v9 = 11;
 LABEL_48:
-            PoolWithTag = v18;
+            p_Data1 = &v18->Data1;
 LABEL_14:
             v18 = 0LL;
 LABEL_15:
             *(_DWORD *)(a3 + 32) = v9;
             *(_DWORD *)(a3 + 36) = v12;
-            *(_QWORD *)(a3 + 40) = PoolWithTag;
+            *(_QWORD *)(a3 + 40) = p_Data1;
             goto LABEL_16;
           }
 LABEL_21:
@@ -230,15 +230,15 @@ LABEL_47:
       }
       if ( (_DWORD)P != 16 )
         goto LABEL_21;
-      RegistryValue = RtlStringFromGUIDEx((unsigned int *)v18, (__int64)&UnicodeString, 1);
+      RegistryValue = RtlStringFromGUIDEx(v18, &UnicodeString, 1u);
       if ( RegistryValue >= 0 )
       {
         v12 = UnicodeString.Length + 2;
-        v16 = ExAllocatePoolWithTag(PagedPool, v12, 0x63647050u);
-        PoolWithTag = v16;
-        if ( v16 )
+        PoolWithTag = ExAllocatePoolWithTag(PagedPool, v12, 0x63647050u);
+        p_Data1 = PoolWithTag;
+        if ( PoolWithTag )
         {
-          memmove(v16, UnicodeString.Buffer, v12);
+          memmove(PoolWithTag, UnicodeString.Buffer, v12);
           goto LABEL_15;
         }
         goto LABEL_29;

@@ -16,5 +16,5 @@ NTSTATUS __stdcall ZwEnumerateTransactionObject(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(RootObjectHandle, *(_QWORD *)&QueryType);
+  return sub_140433F80(RootObjectHandle, *(_QWORD *)&QueryType);
 }

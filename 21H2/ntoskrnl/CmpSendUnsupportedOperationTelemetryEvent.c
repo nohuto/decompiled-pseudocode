@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpSendUnsupportedOperationTelemetryEvent @ 0x1408765DC
+ * XREFs of CmpSendUnsupportedOperationTelemetryEvent @ 0x14087673C
  * Callers:
- *     CmpFlushUnsupportedOperationTelemetry @ 0x140725A44 (CmpFlushUnsupportedOperationTelemetry.c)
- *     CmpLogUnsupportedOperation @ 0x14087634C (CmpLogUnsupportedOperation.c)
+ *     CmpFlushUnsupportedOperationTelemetry @ 0x140619E1C (CmpFlushUnsupportedOperationTelemetry.c)
+ *     CmpLogUnsupportedOperation @ 0x1408764AC (CmpLogUnsupportedOperation.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14027E1A4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x1402864F4 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 void CmpSendUnsupportedOperationTelemetryEvent()
@@ -39,7 +39,7 @@ void CmpSendUnsupportedOperationTelemetryEvent()
       v11 = 8LL;
       tlgWriteTransfer_EtwWriteTransfer(
         (__int64)&dword_140C02130,
-        (unsigned __int8 *)&dword_140023A34,
+        (unsigned __int8 *)&dword_140023AF4,
         0LL,
         0LL,
         5u,

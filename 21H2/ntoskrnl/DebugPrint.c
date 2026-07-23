@@ -1,7 +1,7 @@
 /*
- * XREFs of DebugPrint @ 0x1404078C0
+ * XREFs of DebugPrint @ 0x140407AA0
  * Callers:
- *     vDbgPrintExWithPrefixInternal @ 0x1402841E0 (vDbgPrintExWithPrefixInternal.c)
+ *     vDbgPrintExWithPrefixInternal @ 0x140272800 (vDbgPrintExWithPrefixInternal.c)
  * Callees:
  *     <none>
  */

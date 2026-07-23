@@ -20,7 +20,7 @@ char __fastcall KiIpiInterruptSubDispatch()
   int v7; // ecx
   char result; // al
 
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KzSetIrqlUnsafe(14LL);
   }

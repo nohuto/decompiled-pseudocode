@@ -1,7 +1,7 @@
 /*
- * XREFs of MincryptAlloc @ 0x140A71D0C
+ * XREFs of MincryptAlloc @ 0x140A71FBC
  * Callers:
- *     SymCryptCallbackAlloc @ 0x14067D9E0 (SymCryptCallbackAlloc.c)
+ *     SymCryptCallbackAlloc @ 0x14067DF30 (SymCryptCallbackAlloc.c)
  * Callees:
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

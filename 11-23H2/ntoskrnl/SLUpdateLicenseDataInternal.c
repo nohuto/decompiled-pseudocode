@@ -1,39 +1,39 @@
 /*
- * XREFs of SLUpdateLicenseDataInternal @ 0x1409FA694
+ * XREFs of SLUpdateLicenseDataInternal @ 0x1409FA924
  * Callers:
- *     ExUpdateLicenseData @ 0x1407EACF0 (ExUpdateLicenseData.c)
- *     ExInitLicenseData @ 0x14080EF78 (ExInitLicenseData.c)
+ *     ExUpdateLicenseData @ 0x1407EAFC0 (ExUpdateLicenseData.c)
+ *     ExInitLicenseData @ 0x14080F248 (ExInitLicenseData.c)
  * Callees:
  *     MiRemoveFromSystemSpace @ 0x140213780 (MiRemoveFromSystemSpace.c)
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ObfReferenceObject @ 0x140233C40 (ObfReferenceObject.c)
- *     PsGetCurrentServerSilo @ 0x140289F90 (PsGetCurrentServerSilo.c)
- *     PsIsHostSilo @ 0x1402AF900 (PsIsHostSilo.c)
- *     ExfReleasePushLockShared @ 0x1402BD860 (ExfReleasePushLockShared.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     memcmp @ 0x1403DA350 (memcmp.c)
- *     qsort @ 0x1403DA430 (qsort.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ZwCreateSection @ 0x14041B6A0 (ZwCreateSection.c)
- *     RtlCompareMemory @ 0x140429820 (RtlCompareMemory.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     memset @ 0x140435A00 (memset.c)
- *     ExpGetLicenseTamperState @ 0x14060905C (ExpGetLicenseTamperState.c)
- *     ExpLicUpdateChecksum @ 0x1406091C8 (ExpLicUpdateChecksum.c)
- *     ExpSetLicenseTamperState @ 0x1406093E4 (ExpSetLicenseTamperState.c)
- *     MiMapViewInSystemSpace @ 0x1406AD6A4 (MiMapViewInSystemSpace.c)
- *     ObReferenceObjectByHandle @ 0x1406E62C0 (ObReferenceObjectByHandle.c)
- *     ExpSetKernelDataProtection @ 0x1407AE830 (ExpSetKernelDataProtection.c)
- *     ExpReducedLicenseData @ 0x1407EAD40 (ExpReducedLicenseData.c)
- *     sub_14080FB44 @ 0x14080FB44 (sub_14080FB44.c)
- *     sub_14082F980 @ 0x14082F980 (sub_14082F980.c)
- *     ntoskrnl_24 @ 0x1409F9A10 (ntoskrnl_24.c)
- *     sub_1409FA09C @ 0x1409FA09C (sub_1409FA09C.c)
- *     SLSendPolicyChangeNotifications @ 0x1409FA66C (SLSendPolicyChangeNotifications.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockSharedEx @ 0x140230E80 (ExAcquirePushLockSharedEx.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     ObfReferenceObject @ 0x140233D10 (ObfReferenceObject.c)
+ *     PsGetCurrentServerSilo @ 0x14028A220 (PsGetCurrentServerSilo.c)
+ *     PsIsHostSilo @ 0x1402AFB90 (PsIsHostSilo.c)
+ *     ExfReleasePushLockShared @ 0x1402BDAF0 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     memcmp @ 0x1403DA530 (memcmp.c)
+ *     qsort @ 0x1403DA610 (qsort.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ZwCreateSection @ 0x14041BA30 (ZwCreateSection.c)
+ *     RtlCompareMemory @ 0x140429BB0 (RtlCompareMemory.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     ExpGetLicenseTamperState @ 0x1406095AC (ExpGetLicenseTamperState.c)
+ *     ExpLicUpdateChecksum @ 0x140609718 (ExpLicUpdateChecksum.c)
+ *     ExpSetLicenseTamperState @ 0x140609934 (ExpSetLicenseTamperState.c)
+ *     MiMapViewInSystemSpace @ 0x1406AD6D4 (MiMapViewInSystemSpace.c)
+ *     ObReferenceObjectByHandle @ 0x1406E62F0 (ObReferenceObjectByHandle.c)
+ *     ExpSetKernelDataProtection @ 0x1407AEA20 (ExpSetKernelDataProtection.c)
+ *     ExpReducedLicenseData @ 0x1407EB010 (ExpReducedLicenseData.c)
+ *     sub_14080FE14 @ 0x14080FE14 (sub_14080FE14.c)
+ *     sub_14082FC80 @ 0x14082FC80 (sub_14082FC80.c)
+ *     ntoskrnl_24 @ 0x1409F9CA0 (ntoskrnl_24.c)
+ *     sub_1409FA32C @ 0x1409FA32C (sub_1409FA32C.c)
+ *     SLSendPolicyChangeNotifications @ 0x1409FA8FC (SLSendPolicyChangeNotifications.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
@@ -319,7 +319,7 @@ LABEL_131:
     v7 = 0LL;
     goto LABEL_136;
   }
-  v52 = sub_14080FB44((__int64)v27, 1, 0LL, 0, (unsigned int *)&NumOfElements);
+  v52 = sub_14080FE14((__int64)v27, 1, 0LL, 0, (unsigned int *)&NumOfElements);
   if ( v52 == -1073741789 )
   {
     v30 = KeGetCurrentThread();
@@ -348,9 +348,9 @@ LABEL_136:
       v6 = v57;
       goto LABEL_137;
     }
-    v52 = sub_14080FB44(BugCheckParameter1, 0, Pool2, NumOfElements, 0LL);
+    v52 = sub_14080FE14(BugCheckParameter1, 0, Pool2, NumOfElements, 0LL);
     if ( v52 >= 0 )
-      qsort(v8, v31, 0x10uLL, (int (__cdecl *)(const void *, const void *))sub_14082F980);
+      qsort(v8, v31, 0x10uLL, (int (__cdecl *)(const void *, const void *))sub_14082FC80);
     v29 = 0;
   }
   else
@@ -389,7 +389,7 @@ LABEL_136:
         break;
       }
       v35 = (unsigned int)v34;
-      v36 = sub_14082F980(&Src[2 * v33], (_QWORD *)(16 * v34 + a1 + 24));
+      v36 = sub_14082FC80(&Src[2 * v33], (_QWORD *)(16 * v34 + a1 + 24));
       v75 = v36;
       v37 = Src[2 * v33 + 1];
       v78 = v37;
@@ -521,7 +521,7 @@ LABEL_104:
   v48 = v66;
   if ( v66 )
     goto LABEL_124;
-  v52 = sub_1409FA09C(a1);
+  v52 = sub_1409FA32C(a1);
   if ( v52 < 0 )
   {
 LABEL_135:

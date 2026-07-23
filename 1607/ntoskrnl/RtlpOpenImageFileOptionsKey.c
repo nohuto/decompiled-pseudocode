@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpOpenImageFileOptionsKey @ 0x1404D3154
+ * XREFs of RtlpOpenImageFileOptionsKey @ 0x1404B6BF4
  * Callers:
- *     SepIsImageInMinTcbList @ 0x14045DDCC (SepIsImageInMinTcbList.c)
- *     PspAllocateProcess @ 0x14046F030 (PspAllocateProcess.c)
+ *     SepIsImageInMinTcbList @ 0x14045CC9C (SepIsImageInMinTcbList.c)
+ *     PspAllocateProcess @ 0x14046DF00 (PspAllocateProcess.c)
  * Callees:
- *     ZwOpenKey @ 0x140159EC0 (ZwOpenKey.c)
- *     RtlpOpenBaseImageFileOptionsKey @ 0x1404D3228 (RtlpOpenBaseImageFileOptionsKey.c)
- *     RtlpProcessIFEOKeyFilter @ 0x1404D32CC (RtlpProcessIFEOKeyFilter.c)
+ *     ZwOpenKey @ 0x14015A430 (ZwOpenKey.c)
+ *     RtlpOpenBaseImageFileOptionsKey @ 0x1404B6CC8 (RtlpOpenBaseImageFileOptionsKey.c)
+ *     RtlpProcessIFEOKeyFilter @ 0x1404B6D6C (RtlpProcessIFEOKeyFilter.c)
  */
 
 NTSTATUS __fastcall RtlpOpenImageFileOptionsKey(unsigned __int16 *a1, __int64 a2, HANDLE *a3)

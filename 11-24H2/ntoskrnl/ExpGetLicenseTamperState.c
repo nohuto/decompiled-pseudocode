@@ -1,16 +1,16 @@
 /*
- * XREFs of ExpGetLicenseTamperState @ 0x1406557A0
+ * XREFs of ExpGetLicenseTamperState @ 0x140653EA0
  * Callers:
- *     ExGetLicenseTamperState @ 0x1407B8030 (ExGetLicenseTamperState.c)
- *     ExSetLicenseTamperState @ 0x1407B8160 (ExSetLicenseTamperState.c)
- *     sub_1407B85B0 @ 0x1407B85B0 (sub_1407B85B0.c)
- *     sub_1407B95B0 @ 0x1407B95B0 (sub_1407B95B0.c)
- *     sub_1407B9630 @ 0x1407B9630 (sub_1407B9630.c)
- *     SLUpdateLicenseDataInternal @ 0x1407BA204 (SLUpdateLicenseDataInternal.c)
+ *     ExGetLicenseTamperState @ 0x1407B8480 (ExGetLicenseTamperState.c)
+ *     ExSetLicenseTamperState @ 0x1407B85B0 (ExSetLicenseTamperState.c)
+ *     sub_1407B8A00 @ 0x1407B8A00 (sub_1407B8A00.c)
+ *     sub_1407B9A00 @ 0x1407B9A00 (sub_1407B9A00.c)
+ *     sub_1407B9A80 @ 0x1407B9A80 (sub_1407B9A80.c)
+ *     SLUpdateLicenseDataInternal @ 0x1407BA654 (SLUpdateLicenseDataInternal.c)
  * Callees:
- *     ExpLicUpdateChecksum @ 0x14065590C (ExpLicUpdateChecksum.c)
- *     ntoskrnl_20 @ 0x140972DB0 (ntoskrnl_20.c)
- *     ExpGetKernelDataProtection @ 0x140973020 (ExpGetKernelDataProtection.c)
+ *     ExpLicUpdateChecksum @ 0x14065400C (ExpLicUpdateChecksum.c)
+ *     ntoskrnl_20 @ 0x14095B5C0 (ntoskrnl_20.c)
+ *     ExpGetKernelDataProtection @ 0x14095B830 (ExpGetKernelDataProtection.c)
  */
 
 __int64 __fastcall ExpGetLicenseTamperState(__int64 a1, _DWORD *a2)

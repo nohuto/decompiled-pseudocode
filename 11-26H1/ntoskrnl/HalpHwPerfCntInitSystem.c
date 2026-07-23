@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpHwPerfCntInitSystem @ 0x140BEA9A0
+ * XREFs of HalpHwPerfCntInitSystem @ 0x140BF09A0
  * Callers:
  *     <none>
  * Callees:
- *     HalpInitializeUncoreProfiling @ 0x140596B48 (HalpInitializeUncoreProfiling.c)
- *     HalpPmuArbiterQueryRegistryQuantum @ 0x140781878 (HalpPmuArbiterQueryRegistryQuantum.c)
- *     HalpCompleteInitializeProfiling @ 0x140BED700 (HalpCompleteInitializeProfiling.c)
- *     HalpInitializeProfiling @ 0x140BED728 (HalpInitializeProfiling.c)
- *     HalpInitializePmcCounterSetInfo @ 0x140CAE788 (HalpInitializePmcCounterSetInfo.c)
- *     HalpInitializePmuArbiter @ 0x140CAE86C (HalpInitializePmuArbiter.c)
+ *     HalpInitializeUncoreProfiling @ 0x1405992C8 (HalpInitializeUncoreProfiling.c)
+ *     HalpPmuArbiterQueryRegistryQuantum @ 0x140784378 (HalpPmuArbiterQueryRegistryQuantum.c)
+ *     HalpCompleteInitializeProfiling @ 0x140BF3700 (HalpCompleteInitializeProfiling.c)
+ *     HalpInitializeProfiling @ 0x140BF3728 (HalpInitializeProfiling.c)
+ *     HalpInitializePmcCounterSetInfo @ 0x140CB47C8 (HalpInitializePmcCounterSetInfo.c)
+ *     HalpInitializePmuArbiter @ 0x140CB48AC (HalpInitializePmuArbiter.c)
  */
 
 __int64 __fastcall HalpHwPerfCntInitSystem(__int64 a1, __int64 a2)

@@ -1,14 +1,14 @@
 /*
- * XREFs of ObpCreateDefaultObjectTypeSD @ 0x140795F90
+ * XREFs of ObpCreateDefaultObjectTypeSD @ 0x140796190
  * Callers:
- *     ObpInitObjectTypeSD @ 0x140795EFC (ObpInitObjectTypeSD.c)
+ *     ObpInitObjectTypeSD @ 0x1407960FC (ObpInitObjectTypeSD.c)
  * Callees:
- *     RtlLengthSid @ 0x14027EA70 (RtlLengthSid.c)
- *     memset @ 0x140414200 (memset.c)
- *     RtlpAddKnownAce @ 0x14065C460 (RtlpAddKnownAce.c)
- *     RtlCreateAcl @ 0x140660570 (RtlCreateAcl.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     RtlLengthSid @ 0x14026CA10 (RtlLengthSid.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     RtlpAddKnownAce @ 0x140651280 (RtlpAddKnownAce.c)
+ *     RtlCreateAcl @ 0x140655390 (RtlCreateAcl.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall ObpCreateDefaultObjectTypeSD(_QWORD *a1)
@@ -39,9 +39,9 @@ __int64 __fastcall ObpCreateDefaultObjectTypeSD(_QWORD *a1)
     memset(PoolWithTag + 20, 0, v6);
     Acl = RtlCreateAcl((PACL)(v8 + 20), v5, 2u);
     if ( Acl < 0
-      || (Acl = RtlpAddKnownAce((__int64)(v8 + 20), 2u, 0, 983041, (unsigned __int8 *)SeWorldSid, 0), Acl < 0)
-      || (Acl = RtlpAddKnownAce((__int64)(v8 + 20), 2u, 0, 983041, (unsigned __int8 *)SeAliasAdminsSid, 0), Acl < 0)
-      || (Acl = RtlpAddKnownAce((__int64)(v8 + 20), 2u, 0, 983041, (unsigned __int8 *)SeLocalSystemSid, 0), Acl < 0) )
+      || (Acl = RtlpAddKnownAce((PACL)(v8 + 20), 2u, 0, 983041, (unsigned __int8 *)SeWorldSid, 0), Acl < 0)
+      || (Acl = RtlpAddKnownAce((PACL)(v8 + 20), 2u, 0, 983041, (unsigned __int8 *)SeAliasAdminsSid, 0), Acl < 0)
+      || (Acl = RtlpAddKnownAce((PACL)(v8 + 20), 2u, 0, 983041, (unsigned __int8 *)SeLocalSystemSid, 0), Acl < 0) )
     {
       ExFreePoolWithTag(v8, 0);
     }

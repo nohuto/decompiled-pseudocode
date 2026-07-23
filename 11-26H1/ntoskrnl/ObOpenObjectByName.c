@@ -1,23 +1,23 @@
 /*
- * XREFs of ObOpenObjectByName @ 0x1408FC870
+ * XREFs of ObOpenObjectByName @ 0x14092C800
  * Callers:
- *     NtOpenIoCompletion @ 0x140796E40 (NtOpenIoCompletion.c)
- *     NtOpenCpuPartition @ 0x1407F1E00 (NtOpenCpuPartition.c)
- *     NtOpenPartition @ 0x1407FD970 (NtOpenPartition.c)
- *     NtOpenTimer @ 0x14083AA90 (NtOpenTimer.c)
- *     NtOpenKeyedEvent @ 0x140841DC0 (NtOpenKeyedEvent.c)
- *     CmpCreatePredefined @ 0x14084B04C (CmpCreatePredefined.c)
- *     NtOpenRegistryTransaction @ 0x14084F1E0 (NtOpenRegistryTransaction.c)
- *     CmpDoReOpenTransKey @ 0x140863A58 (CmpDoReOpenTransKey.c)
- *     NtOpenJobObject @ 0x140A77BE0 (NtOpenJobObject.c)
- *     NtOpenEvent @ 0x140AAB9F0 (NtOpenEvent.c)
- *     NtOpenMutant @ 0x140AC59C0 (NtOpenMutant.c)
- *     NtOpenSession @ 0x140B28070 (NtOpenSession.c)
- *     IopUnloadDriver @ 0x140B2ADF8 (IopUnloadDriver.c)
- *     CmInitSystem1 @ 0x140CE888C (CmInitSystem1.c)
+ *     NtOpenIoCompletion @ 0x140799970 (NtOpenIoCompletion.c)
+ *     NtOpenCpuPartition @ 0x1407F7960 (NtOpenCpuPartition.c)
+ *     NtOpenPartition @ 0x1408033A0 (NtOpenPartition.c)
+ *     NtOpenTimer @ 0x140840CD0 (NtOpenTimer.c)
+ *     NtOpenKeyedEvent @ 0x14084BE00 (NtOpenKeyedEvent.c)
+ *     CmpCreatePredefined @ 0x14085135C (CmpCreatePredefined.c)
+ *     NtOpenRegistryTransaction @ 0x1408554F0 (NtOpenRegistryTransaction.c)
+ *     CmpDoReOpenTransKey @ 0x140869E38 (CmpDoReOpenTransKey.c)
+ *     NtOpenEvent @ 0x140AA8FA0 (NtOpenEvent.c)
+ *     NtOpenMutant @ 0x140AC7630 (NtOpenMutant.c)
+ *     NtOpenJobObject @ 0x140B0FD10 (NtOpenJobObject.c)
+ *     NtOpenSession @ 0x140B29D00 (NtOpenSession.c)
+ *     IopUnloadDriver @ 0x140B2CE78 (IopUnloadDriver.c)
+ *     CmInitSystem1 @ 0x140CEEC2C (CmInitSystem1.c)
  * Callees:
- *     PsGetCurrentSilo @ 0x14041BBC0 (PsGetCurrentSilo.c)
- *     ObOpenObjectByNameEx @ 0x1408FCDF0 (ObOpenObjectByNameEx.c)
+ *     PsGetCurrentSilo @ 0x140413410 (PsGetCurrentSilo.c)
+ *     ObOpenObjectByNameEx @ 0x14092CD80 (ObOpenObjectByNameEx.c)
  */
 
 __int64 __fastcall ObOpenObjectByName(

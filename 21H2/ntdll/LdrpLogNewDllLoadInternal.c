@@ -1,5 +1,5 @@
 /*
- * XREFs of LdrpLogNewDllLoadInternal @ 0x1800CFC50
+ * XREFs of LdrpLogNewDllLoadInternal @ 0x1800CFC10
  * Callers:
  *     LdrpLogNewDllLoad @ 0x180014A14 (LdrpLogNewDllLoad.c)
  *     LdrLogNewDataDllLoad @ 0x180074360 (LdrLogNewDataDllLoad.c)
@@ -7,34 +7,40 @@
  *     RtlFreeHeap @ 0x180024760 (RtlFreeHeap.c)
  *     RtlGetCurrentServiceSessionId @ 0x180024850 (RtlGetCurrentServiceSessionId.c)
  *     RtlAllocateHeap @ 0x18002A9A0 (RtlAllocateHeap.c)
- *     NtTraceEvent @ 0x18009E1F0 (NtTraceEvent.c)
- *     memmove @ 0x1800A44C0 (memmove.c)
+ *     NtTraceEvent @ 0x18009E1B0 (NtTraceEvent.c)
+ *     memmove @ 0x1800A4480 (memmove.c)
  */
 
-__int64 __fastcall LdrpLogNewDllLoadInternal(__int64 a1, __int64 a2, int a3, unsigned int a4, void *Src)
+int __fastcall LdrpLogNewDllLoadInternal(__int64 a1, __int64 a2, int a3, unsigned int a4, void *Src)
 {
   size_t v6; // rbp
-  __int64 result; // rax
-  __int64 v10; // rdi
-  __int16 v11; // ax
+  unsigned int v9; // esi
+  _WORD *Heap; // rax
+  _WORD *v11; // rdi
+  __int16 v12; // ax
+  __int64 v13; // rcx
 
   v6 = a4;
-  result = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, NtdllBaseTag + 1572864, a4 + 54);
-  v10 = result;
-  if ( result )
+  v9 = a4 + 54;
+  Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, NtdllBaseTag + 1572864, a4 + 54);
+  v11 = Heap;
+  if ( Heap )
   {
-    v11 = 5296;
+    v12 = 5296;
     if ( (unsigned int)(a3 - 5) <= 1 )
-      v11 = 5297;
-    *(_WORD *)(v10 + 6) = v11;
-    *(_DWORD *)(v10 + 48) = a3;
-    *(_QWORD *)(v10 + 32) = a1;
-    *(_QWORD *)(v10 + 40) = a2;
-    memmove((void *)(v10 + 52), Src, v6);
-    *(_WORD *)(v10 + 2 * (v6 >> 1) + 52) = 0;
-    RtlGetCurrentServiceSessionId();
-    NtTraceEvent();
-    return RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v10);
+      v12 = 5297;
+    v11[3] = v12;
+    *((_DWORD *)v11 + 12) = a3;
+    *((_QWORD *)v11 + 4) = a1;
+    *((_QWORD *)v11 + 5) = a2;
+    memmove(v11 + 26, Src, v6);
+    v11[(v6 >> 1) + 26] = 0;
+    if ( RtlGetCurrentServiceSessionId() )
+      v13 = (__int64)NtCurrentPeb()->SharedData + 554;
+    else
+      v13 = 2147353476LL;
+    NtTraceEvent((HANDLE)*(unsigned __int8 *)v13, 0x403u, v9 - 32, v11);
+    LODWORD(Heap) = RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v11);
   }
-  return result;
+  return (int)Heap;
 }

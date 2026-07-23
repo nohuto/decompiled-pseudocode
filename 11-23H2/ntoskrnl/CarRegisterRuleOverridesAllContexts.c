@@ -1,9 +1,9 @@
 /*
- * XREFs of CarRegisterRuleOverridesAllContexts @ 0x1405D4330
+ * XREFs of CarRegisterRuleOverridesAllContexts @ 0x1405D48A0
  * Callers:
  *     <none>
  * Callees:
- *     CarRegisterRuleOverrideAllContexts @ 0x1405D4260 (CarRegisterRuleOverrideAllContexts.c)
+ *     CarRegisterRuleOverrideAllContexts @ 0x1405D47D0 (CarRegisterRuleOverrideAllContexts.c)
  */
 
 __int64 __fastcall CarRegisterRuleOverridesAllContexts(unsigned int a1, __int64 a2, int a3)

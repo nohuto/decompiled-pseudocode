@@ -1,13 +1,13 @@
 /*
- * XREFs of PsSetLoadImageNotifyRoutineEx @ 0x140A897E0
+ * XREFs of PsSetLoadImageNotifyRoutineEx @ 0x140A85BE0
  * Callers:
- *     PsSetLoadImageNotifyRoutine @ 0x14077A300 (PsSetLoadImageNotifyRoutine.c)
- *     EtwpCoverageSamplerStart @ 0x1407B2D48 (EtwpCoverageSamplerStart.c)
+ *     PsSetLoadImageNotifyRoutine @ 0x14077A400 (PsSetLoadImageNotifyRoutine.c)
+ *     EtwpCoverageSamplerStart @ 0x1407B3198 (EtwpCoverageSamplerStart.c)
  * Callees:
- *     ExCompareExchangeCallBack @ 0x1402C9C50 (ExCompareExchangeCallBack.c)
- *     PspLogAuditSetLoadImageNotifyRoutineEvent @ 0x140A89894 (PspLogAuditSetLoadImageNotifyRoutineEvent.c)
- *     ExAllocateCallBack @ 0x140A89920 (ExAllocateCallBack.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExCompareExchangeCallBack @ 0x14040EA64 (ExCompareExchangeCallBack.c)
+ *     PspLogAuditSetLoadImageNotifyRoutineEvent @ 0x140A85C94 (PspLogAuditSetLoadImageNotifyRoutineEvent.c)
+ *     ExAllocateCallBack @ 0x140A85D20 (ExAllocateCallBack.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PsSetLoadImageNotifyRoutineEx(__int64 a1, __int64 a2)

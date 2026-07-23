@@ -1,12 +1,12 @@
 /*
- * XREFs of AlpcpQuerySidMessage @ 0x140AA1F10
+ * XREFs of AlpcpQuerySidMessage @ 0x140AA39E0
  * Callers:
- *     NtAlpcQueryInformationMessage @ 0x1407C0BF0 (NtAlpcQueryInformationMessage.c)
+ *     NtAlpcQueryInformationMessage @ 0x1407C3C50 (NtAlpcQueryInformationMessage.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     AlpcpGetEffectiveTokenMessage @ 0x140929D90 (AlpcpGetEffectiveTokenMessage.c)
- *     AlpcpQuerySidToken @ 0x140AA1FCC (AlpcpQuerySidToken.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     AlpcpGetEffectiveTokenMessage @ 0x1409058A0 (AlpcpGetEffectiveTokenMessage.c)
+ *     AlpcpQuerySidToken @ 0x140AA3A9C (AlpcpQuerySidToken.c)
  */
 
 __int64 __fastcall AlpcpQuerySidMessage(__int64 a1, __int64 a2, __int64 a3, unsigned int a4, __int64 a5)

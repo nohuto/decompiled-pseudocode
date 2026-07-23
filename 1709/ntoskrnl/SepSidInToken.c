@@ -12,5 +12,5 @@
 
 bool __fastcall SepSidInToken(__int64 a1, void *a2, void *a3, char a4, char a5, char a6)
 {
-  return SepSidInTokenSidHash((a5 != 0 ? 504LL : 232LL) + a1, a2, a3, a4, a5, a6);
+  return SepSidInTokenSidHash((PSID_AND_ATTRIBUTES_HASH)((a5 != 0 ? 504LL : 232LL) + a1), a2, a3, a4, a5, a6);
 }

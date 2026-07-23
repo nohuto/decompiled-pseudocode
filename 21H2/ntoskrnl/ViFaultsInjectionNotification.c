@@ -1,10 +1,10 @@
 /*
- * XREFs of ViFaultsInjectionNotification @ 0x1409DD17C
+ * XREFs of ViFaultsInjectionNotification @ 0x1409DE17C
  * Callers:
- *     VfFaultsInjectResourceFailure @ 0x1409DC82C (VfFaultsInjectResourceFailure.c)
+ *     VfFaultsInjectResourceFailure @ 0x1409DD82C (VfFaultsInjectResourceFailure.c)
  * Callees:
- *     RtlCaptureStackBackTrace @ 0x14021CE20 (RtlCaptureStackBackTrace.c)
- *     ViTargetIncrementCounter @ 0x1409D750C (ViTargetIncrementCounter.c)
+ *     RtlCaptureStackBackTrace @ 0x1402C1720 (RtlCaptureStackBackTrace.c)
+ *     ViTargetIncrementCounter @ 0x1409D850C (ViTargetIncrementCounter.c)
  */
 
 char __fastcall ViFaultsInjectionNotification(int a1)
@@ -13,7 +13,7 @@ char __fastcall ViFaultsInjectionNotification(int a1)
   __int64 v3; // rbx
   __int64 retaddr; // [rsp+28h] [rbp+0h]
 
-  LOBYTE(v2) = ++dword_140C2A88C;
+  LOBYTE(v2) = ++dword_140C2A8CC;
   if ( (MmVerifierData & 0x1000) != 0 )
     LOBYTE(v2) = ViTargetIncrementCounter(retaddr, 172LL);
   if ( ViFaultTraces )

@@ -1,20 +1,20 @@
 /*
- * XREFs of MmAllocateMappingAddressEx @ 0x140A5B620
+ * XREFs of MmAllocateMappingAddressEx @ 0x140A531F0
  * Callers:
- *     DifMmAllocateMappingAddressExWrapper @ 0x140632250 (DifMmAllocateMappingAddressExWrapper.c)
- *     PnprInitializeMappingReserve @ 0x14072F9F4 (PnprInitializeMappingReserve.c)
- *     EtwpSavePersistedLogger @ 0x1407AFE60 (EtwpSavePersistedLogger.c)
- *     MmAllocateMappingAddress @ 0x140A5B600 (MmAllocateMappingAddress.c)
+ *     DifMmAllocateMappingAddressExWrapper @ 0x140630810 (DifMmAllocateMappingAddressExWrapper.c)
+ *     PnprInitializeMappingReserve @ 0x14072DA04 (PnprInitializeMappingReserve.c)
+ *     EtwpSavePersistedLogger @ 0x1407B02B0 (EtwpSavePersistedLogger.c)
+ *     MmAllocateMappingAddress @ 0x140A531D0 (MmAllocateMappingAddress.c)
  * Callees:
- *     MiReservePtes @ 0x14028FF10 (MiReservePtes.c)
- *     MiAllocatePool @ 0x1402ACA70 (MiAllocatePool.c)
- *     VfPtMiscPoolNotification @ 0x140400260 (VfPtMiscPoolNotification.c)
- *     VfPtIsAptEnabledOnKernel @ 0x1404128C0 (VfPtIsAptEnabledOnKernel.c)
- *     MiInsertMappingNode @ 0x14049F418 (MiInsertMappingNode.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     MiInsertPteTracker @ 0x1406913D4 (MiInsertPteTracker.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     MiAllocatePool @ 0x140277450 (MiAllocatePool.c)
+ *     MiReservePtes @ 0x14029FB10 (MiReservePtes.c)
+ *     VfPtIsAptEnabledOnKernel @ 0x140394D00 (VfPtIsAptEnabledOnKernel.c)
+ *     VfPtMiscPoolNotification @ 0x1403FA750 (VfPtMiscPoolNotification.c)
+ *     MiInsertMappingNode @ 0x14049A260 (MiInsertMappingNode.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     MiInsertPteTracker @ 0x1406924A4 (MiInsertPteTracker.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MmAllocateMappingAddressEx(__int64 a1, unsigned int a2, int a3)
@@ -45,7 +45,7 @@ __int64 __fastcall MmAllocateMappingAddressEx(__int64 a1, unsigned int a2, int a
   Pool = MiAllocatePool(0x40uLL, 0x30uLL, 1836214605);
   if ( !Pool )
     return 0LL;
-  v8 = MiReservePtes((__int64)&qword_140E37568, v6);
+  v8 = MiReservePtes((__int64)&qword_140E376A8, v6);
   v9 = (_QWORD *)v8;
   if ( !v8 )
   {
@@ -64,7 +64,7 @@ __int64 __fastcall MmAllocateMappingAddressEx(__int64 a1, unsigned int a2, int a
     *v9++ = CLFS_LSN_NULL_EXT;
   }
   while ( v10 < v6 );
-  if ( (dword_140FC41FC & 1) != 0 )
+  if ( (dword_140FC51FC & 1) != 0 )
   {
     v13[0] = 0LL;
     v13[1] = 0LL;

@@ -1,31 +1,31 @@
 /*
- * XREFs of IopDropIrp @ 0x140268190
+ * XREFs of IopDropIrp @ 0x140267700
  * Callers:
- *     IoRemoveIoCompletion @ 0x1402207D0 (IoRemoveIoCompletion.c)
- *     IopfCompleteRequest @ 0x1403FDA10 (IopfCompleteRequest.c)
- *     IopCopyCompleteReadIrp @ 0x14040FA00 (IopCopyCompleteReadIrp.c)
- *     IopCopyCompleteReadRequest @ 0x14040FD30 (IopCopyCompleteReadRequest.c)
- *     IopIoRingCompleteIrp @ 0x1404113E8 (IopIoRingCompleteIrp.c)
- *     IopFreeCompletionListPackets @ 0x140A7A574 (IopFreeCompletionListPackets.c)
+ *     IoRemoveIoCompletion @ 0x140222160 (IoRemoveIoCompletion.c)
+ *     IopfCompleteRequest @ 0x1403FA200 (IopfCompleteRequest.c)
+ *     IopCopyCompleteReadIrp @ 0x14040F120 (IopCopyCompleteReadIrp.c)
+ *     IopCopyCompleteReadRequest @ 0x14040F450 (IopCopyCompleteReadRequest.c)
+ *     IopIoRingCompleteIrp @ 0x140410B08 (IopIoRingCompleteIrp.c)
+ *     IopFreeCompletionListPackets @ 0x140A824B4 (IopFreeCompletionListPackets.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeAreAllApcsDisabled @ 0x140263C40 (KeAreAllApcsDisabled.c)
- *     ObFastDereferenceObject @ 0x140265740 (ObFastDereferenceObject.c)
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     ObpPushStackInfo @ 0x1402659F0 (ObpPushStackInfo.c)
- *     IoFreeIrp @ 0x140268860 (IoFreeIrp.c)
- *     OBJECT_HEADER_TO_HANDLE_REVOCATION_INFO @ 0x140269BD0 (OBJECT_HEADER_TO_HANDLE_REVOCATION_INFO.c)
- *     KiReleaseSpinLockInstrumented @ 0x1402BDFEC (KiReleaseSpinLockInstrumented.c)
- *     KiAcquireSpinLockInstrumented @ 0x14032F380 (KiAcquireSpinLockInstrumented.c)
- *     KxWaitForSpinLockAndAcquire @ 0x14032F490 (KxWaitForSpinLockAndAcquire.c)
- *     IoFreeMdl @ 0x14039F190 (IoFreeMdl.c)
- *     ObpDeferObjectDeletion @ 0x1403DD9F0 (ObpDeferObjectDeletion.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     ObpDeregisterObject @ 0x140779D4C (ObpDeregisterObject.c)
- *     ObpRemoveObjectRoutine @ 0x140923BC0 (ObpRemoveObjectRoutine.c)
- *     ObpHandleRevocationBlockRemoveObject @ 0x140A5A090 (ObpHandleRevocationBlockRemoveObject.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeAreAllApcsDisabled @ 0x1402631B0 (KeAreAllApcsDisabled.c)
+ *     ObFastDereferenceObject @ 0x140264CB0 (ObFastDereferenceObject.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     ObpPushStackInfo @ 0x140264F60 (ObpPushStackInfo.c)
+ *     IoFreeIrp @ 0x140267DD0 (IoFreeIrp.c)
+ *     OBJECT_HEADER_TO_HANDLE_REVOCATION_INFO @ 0x140269140 (OBJECT_HEADER_TO_HANDLE_REVOCATION_INFO.c)
+ *     KiReleaseSpinLockInstrumented @ 0x140308CAC (KiReleaseSpinLockInstrumented.c)
+ *     KiAcquireSpinLockInstrumented @ 0x1403313B0 (KiAcquireSpinLockInstrumented.c)
+ *     KxWaitForSpinLockAndAcquire @ 0x1403314C0 (KxWaitForSpinLockAndAcquire.c)
+ *     IoFreeMdl @ 0x1403A0EF0 (IoFreeMdl.c)
+ *     ObpDeferObjectDeletion @ 0x1403E0BE0 (ObpDeferObjectDeletion.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     ObpDeregisterObject @ 0x14077CC7C (ObpDeregisterObject.c)
+ *     ObpRemoveObjectRoutine @ 0x1408FF6D0 (ObpRemoveObjectRoutine.c)
+ *     ObpHandleRevocationBlockRemoveObject @ 0x140A67000 (ObpHandleRevocationBlockRemoveObject.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall IopDropIrp(PIRP Irp, ULONG_PTR BugCheckParameter2)
@@ -81,7 +81,7 @@ void __fastcall IopDropIrp(PIRP Irp, ULONG_PTR BugCheckParameter2)
       __writecr8(2uLL);
     if ( KiIrqlFlags )
       KiRaiseIrqlProcessIrqlFlags(CurrentIrql, 2LL);
-    if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+    if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
     {
       if ( _interlockedbittestandset64(v7, 0LL) )
         KxWaitForSpinLockAndAcquire(v7);
@@ -101,7 +101,7 @@ void __fastcall IopDropIrp(PIRP Irp, ULONG_PTR BugCheckParameter2)
     Flink->Blink = Blink;
     Irp->ThreadListEntry.Blink = &Irp->ThreadListEntry;
     p_ThreadListEntry->Flink = p_ThreadListEntry;
-    if ( ((__int64)IopSessionNotificationLock.SuspendEvent.Header.WaitListHead.Blink & 1) != 0 )
+    if ( (IopPerfIoTrackingLock.QuantumTarget & 1) != 0 )
     {
       ObFastDereferenceObject(
         (signed __int64 *)&KeGetCurrentThread()[1].SchedulerApc.SystemArgument2,
@@ -145,7 +145,7 @@ void __fastcall IopDropIrp(PIRP Irp, ULONG_PTR BugCheckParameter2)
       }
     }
     Irp->Flags = Irp->Flags & 0xFFFF5FFF | 0x8000;
-    if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+    if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
       _InterlockedAnd64((volatile signed __int64 *)v7, 0LL);
     else
       KiReleaseSpinLockInstrumented(v7, retaddr);

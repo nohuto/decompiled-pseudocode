@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     ExpSetResourceOwnerPointerEx @ 0x14021A7D0 (ExpSetResourceOwnerPointerEx.c)
+ *     sub_14021A7D0 @ 0x14021A7D0 (sub_14021A7D0.c)
  *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
  */
 
@@ -11,5 +11,5 @@ void __stdcall ExSetResourceOwnerPointerEx(PERESOURCE Resource, PVOID OwnerPoint
 {
   if ( (Resource->ReservedLowFlags & 1) != 0 )
     KeBugCheckEx(0x1C6u, 0xEuLL, (ULONG_PTR)Resource, 0LL, 0LL);
-  ExpSetResourceOwnerPointerEx((ULONG_PTR)Resource, (ULONG_PTR)OwnerPointer);
+  sub_14021A7D0((ULONG_PTR)Resource, (ULONG_PTR)OwnerPointer);
 }

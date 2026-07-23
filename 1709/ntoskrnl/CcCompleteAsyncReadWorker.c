@@ -16,7 +16,7 @@ void __fastcall CcCompleteAsyncReadWorker(_QWORD *P)
 {
   char v1; // bp
   __int64 v3; // rdi
-  struct _SLIST_ENTRY *NextWorkQueueEntry; // r15
+  _SLIST_ENTRY *NextWorkQueueEntry; // r15
   __int64 v5; // rsi
   _QWORD *v6; // rdx
 
@@ -24,7 +24,7 @@ void __fastcall CcCompleteAsyncReadWorker(_QWORD *P)
   if ( *((_DWORD *)P + 8) == 4 )
   {
     v3 = P[7];
-    NextWorkQueueEntry = (struct _SLIST_ENTRY *)P[6];
+    NextWorkQueueEntry = (_SLIST_ENTRY *)P[6];
     v5 = *((unsigned int *)P + 9);
     do
     {
@@ -40,7 +40,7 @@ void __fastcall CcCompleteAsyncReadWorker(_QWORD *P)
       }
       else
       {
-        NextWorkQueueEntry = (struct _SLIST_ENTRY *)CcFindNextWorkQueueEntry(v3, v6);
+        NextWorkQueueEntry = (_SLIST_ENTRY *)CcFindNextWorkQueueEntry(v3, v6);
       }
       ExReleasePushLockEx(v3 + 832, 0LL);
     }

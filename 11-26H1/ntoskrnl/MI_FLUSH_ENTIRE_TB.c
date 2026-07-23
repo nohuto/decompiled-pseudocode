@@ -1,11 +1,11 @@
 /*
- * XREFs of MI_FLUSH_ENTIRE_TB @ 0x140250014
+ * XREFs of MI_FLUSH_ENTIRE_TB @ 0x140251974
  * Callers:
- *     MiBuildPhysicalPageFreeChain @ 0x140700C48 (MiBuildPhysicalPageFreeChain.c)
- *     MiConvertHiberPhasePages @ 0x140C00AE4 (MiConvertHiberPhasePages.c)
+ *     MiBuildPhysicalPageFreeChain @ 0x140705918 (MiBuildPhysicalPageFreeChain.c)
+ *     MiConvertHiberPhasePages @ 0x140C06CF4 (MiConvertHiberPhasePages.c)
  * Callees:
- *     KeFlushCurrentTbOnly @ 0x140250688 (KeFlushCurrentTbOnly.c)
- *     KeFlushTb @ 0x1402507D0 (KeFlushTb.c)
+ *     KeFlushCurrentTbOnly @ 0x140251FE8 (KeFlushCurrentTbOnly.c)
+ *     KeFlushTb @ 0x140252130 (KeFlushTb.c)
  */
 
 __int64 __fastcall MI_FLUSH_ENTIRE_TB(__int64 a1, int a2)

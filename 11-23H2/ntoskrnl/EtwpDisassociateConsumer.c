@@ -1,10 +1,10 @@
 /*
  * XREFs of EtwpDisassociateConsumer @ 0x1406828FC
  * Callers:
- *     EtwpRealtimeDeliverBuffer @ 0x140708D60 (EtwpRealtimeDeliverBuffer.c)
+ *     EtwpRealtimeDeliverBuffer @ 0x140708F70 (EtwpRealtimeDeliverBuffer.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
  */
 
 LONG_PTR __fastcall EtwpDisassociateConsumer(__int64 a1, void *a2)

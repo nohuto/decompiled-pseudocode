@@ -1,29 +1,29 @@
 /*
- * XREFs of TpAllocCleanupGroup @ 0x1800ED550
+ * XREFs of TpAllocCleanupGroup @ 0x1800EC9F0
  * Callers:
  *     <none>
  * Callees:
- *     RtlFreeHeap_0 @ 0x18003FD10 (RtlFreeHeap_0.c)
- *     RtlAllocateHeap_0 @ 0x1800439E0 (RtlAllocateHeap_0.c)
- *     TppRaiseInvalidParameter @ 0x180067FF8 (TppRaiseInvalidParameter.c)
+ *     RtlFreeHeap_0 @ 0x18002A280 (RtlFreeHeap_0.c)
+ *     RtlAllocateHeap_0 @ 0x18002DF50 (RtlAllocateHeap_0.c)
+ *     TppRaiseInvalidParameter @ 0x180088448 (TppRaiseInvalidParameter.c)
  */
 
-__int64 __fastcall TpAllocCleanupGroup(_QWORD *a1)
+NTSTATUS __cdecl TpAllocCleanupGroup(PTP_CLEANUP_GROUP *CleanupGroupReturn)
 {
   _QWORD *Heap_0; // rax
   _QWORD *v3; // r8
   _QWORD *v4; // rax
-  int v5; // ebx
+  NTSTATUS v5; // ebx
 
-  if ( !a1 || NtCurrentPeb()->Ldr->ShutdownInProgress )
+  if ( !CleanupGroupReturn || NtCurrentPeb()->Ldr->ShutdownInProgress )
   {
     TppRaiseInvalidParameter();
-    return 3221225485LL;
+    return -1073741811;
   }
   else
   {
-    *a1 = 0LL;
-    Heap_0 = (_QWORD *)RtlAllocateHeap_0();
+    *CleanupGroupReturn = 0LL;
+    Heap_0 = RtlAllocateHeap_0(NtCurrentPeb()->ProcessHeap, TppHeapTag | 8, 0x50uLL);
     v3 = Heap_0;
     if ( Heap_0 )
     {
@@ -38,7 +38,7 @@ __int64 __fastcall TpAllocCleanupGroup(_QWORD *a1)
       *((_OWORD *)v3 + 2) = 0LL;
       v3[6] = 0LL;
       v5 = 0;
-      *a1 = v3;
+      *CleanupGroupReturn = (PTP_CLEANUP_GROUP)v3;
     }
     else
     {
@@ -47,8 +47,8 @@ __int64 __fastcall TpAllocCleanupGroup(_QWORD *a1)
     if ( v5 < 0 )
     {
       if ( v3 )
-        RtlFreeHeap_0();
+        RtlFreeHeap_0(NtCurrentPeb()->ProcessHeap, TppHeapTag, v3);
     }
-    return (unsigned int)v5;
+    return v5;
   }
 }

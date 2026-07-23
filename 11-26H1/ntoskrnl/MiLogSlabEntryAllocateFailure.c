@@ -1,15 +1,15 @@
 /*
- * XREFs of MiLogSlabEntryAllocateFailure @ 0x140206FC8
+ * XREFs of MiLogSlabEntryAllocateFailure @ 0x1402070A8
  * Callers:
- *     MiCreateSlabEntry @ 0x140206284 (MiCreateSlabEntry.c)
+ *     MiCreateSlabEntry @ 0x140206364 (MiCreateSlabEntry.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     _tlgWriteAgg @ 0x1404599C0 (_tlgWriteAgg.c)
- *     MiNodeAvailablePages @ 0x1404BE5E8 (MiNodeAvailablePages.c)
- *     _tlgWriteEx_EtwWriteEx @ 0x1404E33C4 (_tlgWriteEx_EtwWriteEx.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     _tlgWriteAgg @ 0x140451240 (_tlgWriteAgg.c)
+ *     MiNodeAvailablePages @ 0x1404B7E38 (MiNodeAvailablePages.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x1404DC958 (_tlgWriteEx_EtwWriteEx.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void __fastcall MiLogSlabEntryAllocateFailure(__int64 a1, int a2, int a3, int a4, char a5)
@@ -66,7 +66,7 @@ void __fastcall MiLogSlabEntryAllocateFailure(__int64 a1, int a2, int a3, int a4
 
   v29 = a3;
   v28 = a2;
-  if ( !stru_140E36558.FirstArgument )
+  if ( !stru_140E366D8.FirstArgument )
     return;
   v7 = *(ULONG **)(a1 + 24);
   v8 = *(unsigned int *)(a1 + 132);
@@ -74,7 +74,7 @@ void __fastcall MiLogSlabEntryAllocateFailure(__int64 a1, int a2, int a3, int a4
   v10 = *(_QWORD *)(v9 + 13888);
   if ( v7 == &MiSystemPartition )
   {
-    v11 = *((_QWORD *)&stru_140E36558.WaitBlock[0].Object + v8);
+    v11 = *((_QWORD *)&stru_140E366D8.WaitBlock[0].Object + v8);
     if ( v10 <= v11 )
     {
       v10 = 0LL;
@@ -111,8 +111,8 @@ LABEL_6:
     LOBYTE(v9) = CurrentIrql;
     KiRaiseIrqlProcessIrqlFlags(v9, 2LL);
   }
-  if ( *(_DWORD *)stru_140E36558.FirstArgument > 5u
-    && (unsigned __int8)tlgKeywordOn(stru_140E36558.FirstArgument, 0x400000000400LL) )
+  if ( *(_DWORD *)stru_140E366D8.FirstArgument > 5u
+    && (unsigned __int8)tlgKeywordOn(stru_140E366D8.FirstArgument, 0x400000000400LL) )
   {
     v31 = 1LL;
     v34 = &v31;
@@ -147,10 +147,10 @@ LABEL_6:
     v53 = 1LL;
     v30 = 0x1000000LL;
     v55 = 8LL;
-    tlgWriteAgg(v15, (int)&dword_1400594F4, v15, 13, &v33);
+    tlgWriteAgg(v15, (int)&byte_14005A4E7, v15, 13, &v33);
   }
-  if ( *(_DWORD *)stru_140E36558.FirstArgument > 5u
-    && (unsigned __int8)tlgKeywordOn(stru_140E36558.FirstArgument, 1024LL) )
+  if ( *(_DWORD *)stru_140E366D8.FirstArgument > 5u
+    && (unsigned __int8)tlgKeywordOn(stru_140E366D8.FirstArgument, 1024LL) )
   {
     v27 = *(_DWORD *)(a1 + 128);
     v35 = 4LL;
@@ -179,7 +179,7 @@ LABEL_6:
     v49 = 4LL;
     v20[0] = a5;
     v51 = 1LL;
-    tlgWriteEx_EtwWriteEx(v16, (int)&byte_140059439, v16, 1, v18, v19, 0xBu, (__int64)&v33);
+    tlgWriteEx_EtwWriteEx(v16, (int)&dword_14005A42C, v16, 1, v18, v19, 0xBu, (__int64)&v33);
   }
   if ( KiIrqlFlags )
   {

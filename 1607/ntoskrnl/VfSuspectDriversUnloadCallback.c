@@ -3,9 +3,9 @@
  * Callers:
  *     VfDriverUnloadImage @ 0x1406FE170 (VfDriverUnloadImage.c)
  * Callees:
- *     RtlEqualUnicodeString @ 0x14040F720 (RtlEqualUnicodeString.c)
+ *     RtlEqualUnicodeString @ 0x14040E5E0 (RtlEqualUnicodeString.c)
  *     VfDriverLock @ 0x1406FE42C (VfDriverLock.c)
- *     VfNotifyVerifierExtensions @ 0x140704E00 (VfNotifyVerifierExtensions.c)
+ *     VfNotifyVerifierExtensions @ 0x140704E30 (VfNotifyVerifierExtensions.c)
  */
 
 LONG __fastcall VfSuspectDriversUnloadCallback(__int64 a1)
@@ -41,7 +41,7 @@ LONG __fastcall VfSuspectDriversUnloadCallback(__int64 a1)
   {
     if ( RtlEqualUnicodeString((PCUNICODE_STRING)(i + 24), (PCUNICODE_STRING)(a1 + 88), 1u) )
     {
-      ++dword_140307234;
+      ++dword_140307274;
       ++*(_DWORD *)(i + 20);
       VfNotifyVerifierExtensions(2, a1);
       break;

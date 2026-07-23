@@ -1,5 +1,5 @@
 /*
- * XREFs of SepGetSystemSigningLevel @ 0x140B0D020
+ * XREFs of SepGetSystemSigningLevel @ 0x140B0E770
  * Callers:
  *     <none>
  * Callees:
@@ -12,6 +12,6 @@ __int64 SepGetSystemSigningLevel()
 
   result = (unsigned __int8)SeILSigningPolicy;
   if ( !SeILSigningPolicy )
-    return LOBYTE(RtlpBootStatHandleLock.AffinityVersion);
+    return LOBYTE(RtlpBootStatHandleLock.Affinity);
   return result;
 }

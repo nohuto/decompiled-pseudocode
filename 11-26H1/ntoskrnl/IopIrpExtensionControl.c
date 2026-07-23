@@ -1,13 +1,13 @@
 /*
- * XREFs of IopIrpExtensionControl @ 0x1405CAA44
+ * XREFs of IopIrpExtensionControl @ 0x1405CD314
  * Callers:
- *     IopEtwEnableCallback @ 0x1407949C0 (IopEtwEnableCallback.c)
- *     IoRegisterIoTracking @ 0x140797B40 (IoRegisterIoTracking.c)
- *     IoUnregisterIoTracking @ 0x140797CB0 (IoUnregisterIoTracking.c)
+ *     IopEtwEnableCallback @ 0x1407974F0 (IopEtwEnableCallback.c)
+ *     IoRegisterIoTracking @ 0x14079A670 (IoRegisterIoTracking.c)
+ *     IoUnregisterIoTracking @ 0x14079A7E0 (IoUnregisterIoTracking.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x1402B4730 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x1402B98C0 (KeReleaseInStackQueuedSpinLock.c)
- *     IopUpdateFunctionPointers @ 0x1405CAB80 (IopUpdateFunctionPointers.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402FF400 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x140304580 (KeReleaseInStackQueuedSpinLock.c)
+ *     IopUpdateFunctionPointers @ 0x1405CD450 (IopUpdateFunctionPointers.c)
  */
 
 void __fastcall IopIrpExtensionControl(int a1, int a2)
@@ -17,16 +17,16 @@ void __fastcall IopIrpExtensionControl(int a1, int a2)
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
 
   memset(&LockHandle, 0, sizeof(LockHandle));
-  KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)&IopSessionNotificationLock.SuspendEvent.Header.WaitListHead, &LockHandle);
+  KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)&IopPerfIoTrackingLock.Header.WaitListHead, &LockHandle);
   v5 = 1LL;
   if ( a2 == 1 )
   {
     v4 = IopIrpExtensionStatus == 0;
     IopIrpExtensionStatus |= a1;
     if ( (a1 & 1) != 0 )
-      ++dword_140E65F84;
+      ++dword_140E66224;
     if ( (a1 & 2) != 0 )
-      ++dword_140E65F88;
+      ++dword_140E66228;
     if ( v4 )
     {
       LOBYTE(v4) = 1;
@@ -36,9 +36,9 @@ LABEL_16:
   }
   else
   {
-    if ( (a1 & 1) != 0 && !--dword_140E65F84 )
+    if ( (a1 & 1) != 0 && !--dword_140E66224 )
       IopIrpExtensionStatus &= ~1u;
-    if ( (a1 & 2) != 0 && !--dword_140E65F88 )
+    if ( (a1 & 2) != 0 && !--dword_140E66228 )
       IopIrpExtensionStatus &= ~2u;
     if ( !IopIrpExtensionStatus )
     {

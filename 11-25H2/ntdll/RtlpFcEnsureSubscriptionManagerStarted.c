@@ -10,13 +10,13 @@
 
 __int64 RtlpFcEnsureSubscriptionManagerStarted()
 {
-  int started; // ebx
+  NTSTATUS started; // ebx
 
-  started = RtlRunOnceBeginInitialize(&qword_1801D5DD0, 0LL, 0LL);
+  started = RtlRunOnceBeginInitialize(&stru_1801D5DD0, 0, 0LL);
   if ( started )
   {
     started = RtlpFcStartSubscriptionManager();
-    RtlRunOnceComplete(&qword_1801D5DD0, (started >> 31) & 4);
+    RtlRunOnceComplete(&stru_1801D5DD0, (started >> 31) & 4, 0LL);
   }
   return (unsigned int)started;
 }

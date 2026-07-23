@@ -17,7 +17,7 @@
 __int64 __fastcall CmpRecordShutdownStopTime(__int64 a1, __int64 a2, __int64 a3, struct _LOOKASIDE_LIST_EX *a4)
 {
   struct _PRIVILEGE_SET *v4; // rdi
-  WCHAR *TransientPoolWithTag; // rax
+  WCHAR *TargetPath; // rax
   WCHAR *v6; // rsi
   int PersistedStateLocation; // ebx
   LARGE_INTEGER PerformanceFrequency; // [rsp+40h] [rbp-19h] BYREF
@@ -36,16 +36,16 @@ __int64 __fastcall CmpRecordShutdownStopTime(__int64 a1, __int64 a2, __int64 a3,
   v14 = 0LL;
   memset(&ObjectAttributes, 0, sizeof(ObjectAttributes));
   DestinationString = 0LL;
-  TransientPoolWithTag = (WCHAR *)CmpAllocateTransientPoolWithTag(PagedPool, 0x410uLL, 0x30384D43u, a4);
-  v6 = TransientPoolWithTag;
-  if ( TransientPoolWithTag )
+  TargetPath = (WCHAR *)CmpAllocateTransientPoolWithTag(PagedPool, 0x410uLL, 0x30384D43u, a4);
+  v6 = TargetPath;
+  if ( TargetPath )
   {
     PersistedStateLocation = RtlGetPersistedStateLocation(
                                L"ShutdownPath",
                                0LL,
                                L"\\REGISTRY\\MACHINE\\SOFTWARE\\MICROSOFT\\WINDOWS\\CURRENTVERSION\\SHUTDOWN",
-                               0,
-                               TransientPoolWithTag,
+                               LocationTypeRegistry,
+                               TargetPath,
                                0x410u,
                                0LL);
     if ( PersistedStateLocation >= 0 )

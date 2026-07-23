@@ -1,14 +1,14 @@
 /*
- * XREFs of ObpCallPostOperationCallbacks @ 0x1408A5722
+ * XREFs of ObpCallPostOperationCallbacks @ 0x1408A5972
  * Callers:
- *     ObpCallPreOperationCallbacks @ 0x1406FAFD0 (ObpCallPreOperationCallbacks.c)
- *     ObpPostInterceptHandleCreate @ 0x1408A57C8 (ObpPostInterceptHandleCreate.c)
- *     ObpPostInterceptHandleDuplicate @ 0x1408A585C (ObpPostInterceptHandleDuplicate.c)
+ *     ObpCallPreOperationCallbacks @ 0x1406FB1E0 (ObpCallPreOperationCallbacks.c)
+ *     ObpPostInterceptHandleCreate @ 0x1408A5A18 (ObpPostInterceptHandleCreate.c)
+ *     ObpPostInterceptHandleDuplicate @ 0x1408A5AAC (ObpPostInterceptHandleDuplicate.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExReleaseRundownProtection_0 @ 0x14028B390 (ExReleaseRundownProtection_0.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     KeLeaveCriticalRegion @ 0x140231550 (KeLeaveCriticalRegion.c)
+ *     ExReleaseRundownProtection_0 @ 0x14028B620 (ExReleaseRundownProtection_0.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

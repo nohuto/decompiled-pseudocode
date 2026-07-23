@@ -1,11 +1,11 @@
 /*
- * XREFs of MiPfCompleteInPageSupport @ 0x1400239B8
+ * XREFs of MiPfCompleteInPageSupport @ 0x140023538
  * Callers:
- *     MiPfCompletePrefetchIos @ 0x140023914 (MiPfCompletePrefetchIos.c)
- *     MiPfCompleteCoalescedIo @ 0x140125BC0 (MiPfCompleteCoalescedIo.c)
+ *     MiPfCompletePrefetchIos @ 0x140023494 (MiPfCompletePrefetchIos.c)
+ *     MiPfCompleteCoalescedIo @ 0x140126130 (MiPfCompleteCoalescedIo.c)
  * Callees:
- *     MiGetAnyMultiplexedVm @ 0x14001D05C (MiGetAnyMultiplexedVm.c)
- *     MiWaitForInPageComplete @ 0x1400251B0 (MiWaitForInPageComplete.c)
+ *     MiGetAnyMultiplexedVm @ 0x14001CBDC (MiGetAnyMultiplexedVm.c)
+ *     MiWaitForInPageComplete @ 0x140024D30 (MiWaitForInPageComplete.c)
  */
 
 __int64 __fastcall MiPfCompleteInPageSupport(__int64 a1, __int64 a2)

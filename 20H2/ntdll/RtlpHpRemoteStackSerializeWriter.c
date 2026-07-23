@@ -8,26 +8,26 @@
  *     memmove @ 0x1800A3EC0 (memmove.c)
  */
 
-__int64 __fastcall RtlpHpRemoteStackSerializeWriter(char *Src, size_t Size, __int64 a3)
+NTSTATUS __fastcall RtlpHpRemoteStackSerializeWriter(char *Src, size_t Size, __int64 a3)
 {
   size_t v4; // rdi
   __int64 v6; // rcx
-  size_t *v7; // r14
-  size_t v8; // rsi
+  ULONG_PTR *ViewSize; // r14
+  ULONG_PTR v8; // rsi
   __int64 v9; // rdx
-  _QWORD *v10; // r12
-  _QWORD *v11; // r15
+  PVOID *v10; // r12
+  LARGE_INTEGER *SectionOffset; // r15
   size_t v12; // rsi
-  size_t v13; // rcx
-  size_t v14; // rax
-  __int64 result; // rax
+  SIZE_T CommitSize; // rcx
+  SIZE_T v14; // rax
+  NTSTATUS result; // eax
 
   *(_QWORD *)(a3 + 32) += Size;
   v4 = Size;
   if ( *(_DWORD *)(a3 + 28) != -1073741789 && Size )
   {
     v6 = *(_QWORD *)(a3 + 72);
-    v7 = (size_t *)(a3 + 56);
+    ViewSize = (ULONG_PTR *)(a3 + 56);
     v8 = *(_QWORD *)(a3 + 56);
     if ( v6 + Size <= v8 )
     {
@@ -38,36 +38,46 @@ LABEL_10:
     else
     {
       v9 = *(_QWORD *)(a3 + 72);
-      v10 = (_QWORD *)(a3 + 48);
-      v11 = (_QWORD *)(a3 + 64);
+      v10 = (PVOID *)(a3 + 48);
+      SectionOffset = (LARGE_INTEGER *)(a3 + 64);
       while ( 1 )
       {
         v12 = v8 - v9;
-        memmove((void *)(v9 + *v10), Src, v12);
+        memmove((char *)*v10 + v9, Src, v12);
         v4 -= v12;
-        *v11 += *v7;
+        SectionOffset->QuadPart += *ViewSize;
         Src += v12;
-        if ( *v11 >= *(_QWORD *)(a3 + 8) )
+        if ( SectionOffset->QuadPart >= *(_QWORD *)(a3 + 8) )
           break;
-        NtUnmapViewOfSection();
-        v13 = *v7;
-        v14 = *(_QWORD *)(a3 + 8) - *v11;
+        NtUnmapViewOfSection((HANDLE)0xFFFFFFFFFFFFFFFFLL, *v10);
+        CommitSize = *ViewSize;
+        v14 = *(_QWORD *)(a3 + 8) - SectionOffset->QuadPart;
         *v10 = 0LL;
-        if ( v13 >= v14 )
-          v13 = v14;
-        *v7 = v13;
-        result = ZwMapViewOfSection();
-        if ( (int)result < 0 )
+        if ( CommitSize >= v14 )
+          CommitSize = v14;
+        *ViewSize = CommitSize;
+        result = ZwMapViewOfSection(
+                   *(HANDLE *)a3,
+                   (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+                   v10,
+                   0LL,
+                   CommitSize,
+                   SectionOffset,
+                   ViewSize,
+                   ViewUnmap,
+                   0,
+                   4u);
+        if ( result < 0 )
           return result;
         *(_QWORD *)(a3 + 72) = 0LL;
         v9 = 0LL;
-        v8 = *v7;
+        v8 = *ViewSize;
         v6 = 0LL;
-        if ( v4 <= *v7 )
+        if ( v4 <= *ViewSize )
           goto LABEL_10;
       }
       *(_DWORD *)(a3 + 28) = -1073741789;
     }
   }
-  return 0LL;
+  return 0;
 }

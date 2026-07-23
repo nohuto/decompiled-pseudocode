@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpLogHiveDestroyEvent @ 0x140A12770
+ * XREFs of CmpLogHiveDestroyEvent @ 0x140A12A20
  * Callers:
  *     CmpRemoveHiveFromNamespace @ 0x140207A94 (CmpRemoveHiveFromNamespace.c)
  * Callees:
  *     EtwTraceKernelEvent @ 0x140211EDC (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall CmpLogHiveDestroyEvent(__int64 a1)

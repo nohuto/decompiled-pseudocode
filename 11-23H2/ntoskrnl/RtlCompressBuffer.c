@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlCompressBuffer @ 0x140363AD0
+ * XREFs of RtlCompressBuffer @ 0x140363C70
  * Callers:
- *     EtwpFileModeCompress @ 0x1403A677C (EtwpFileModeCompress.c)
- *     ?SmCompressCtxProcessEntry@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_CONTEXT@1@PEAU1@PEAX2PEAU_SM_COMPRESS_ENTRY@1@@Z @ 0x1405BE8BC (-SmCompressCtxProcessEntry@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_CONTEXT@1@PEAU1@PE.c)
- *     ?StDmpSinglePageAdd@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_IO_PARAMS@1@PEAU_ST_WORK_ITEM@1@PEAK@Z @ 0x1405C7A58 (-StDmpSinglePageAdd@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_IO_PARAMS@1@PEAU_ST_W.c)
- *     EtwpCompressBuffer @ 0x140602160 (EtwpCompressBuffer.c)
- *     RtlCompressChunks @ 0x1409B8F90 (RtlCompressChunks.c)
- *     EtwpWriteBufferCompressed @ 0x1409EE46C (EtwpWriteBufferCompressed.c)
+ *     EtwpFileModeCompress @ 0x1403A695C (EtwpFileModeCompress.c)
+ *     ?SmCompressCtxProcessEntry@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_CONTEXT@1@PEAU1@PEAX2PEAU_SM_COMPRESS_ENTRY@1@@Z @ 0x1405BEE2C (-SmCompressCtxProcessEntry@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_CONTEXT@1@PEAU1@PE.c)
+ *     ?StDmpSinglePageAdd@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_IO_PARAMS@1@PEAU_ST_WORK_ITEM@1@PEAK@Z @ 0x1405C7FC8 (-StDmpSinglePageAdd@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_IO_PARAMS@1@PEAU_ST_W.c)
+ *     EtwpCompressBuffer @ 0x1406026B0 (EtwpCompressBuffer.c)
+ *     RtlCompressChunks @ 0x1409B9190 (RtlCompressChunks.c)
+ *     EtwpWriteBufferCompressed @ 0x1409EE6FC (EtwpWriteBufferCompressed.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 NTSTATUS __stdcall RtlCompressBuffer(

@@ -15,7 +15,7 @@ __int64 __fastcall PopEmModuleAddressMatchCallback(__int64 *a1, int a2, PCSZ *a3
   __int64 v7; // rax
   const UNICODE_STRING *v8; // rdi
   UNICODE_STRING DestinationString; // [rsp+20h] [rbp-28h] BYREF
-  STRING SourceString; // [rsp+30h] [rbp-18h] BYREF
+  ANSI_STRING SourceString; // [rsp+30h] [rbp-18h] BYREF
 
   *(_QWORD *)&SourceString.Length = 0LL;
   SourceString.Buffer = 0LL;

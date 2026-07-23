@@ -1,9 +1,9 @@
 /*
- * XREFs of MiGetZeroingCandidateCount @ 0x1402A5B44
+ * XREFs of MiGetZeroingCandidateCount @ 0x140481224
  * Callers:
- *     MiPeriodicZeroingNeeded @ 0x1402A64FC (MiPeriodicZeroingNeeded.c)
- *     MiImmediateZeroingNeeded @ 0x1402DEC2C (MiImmediateZeroingNeeded.c)
- *     MiPeriodicZeroingSufficient @ 0x14050A1D4 (MiPeriodicZeroingSufficient.c)
+ *     MiPeriodicZeroingNeeded @ 0x1402A58F4 (MiPeriodicZeroingNeeded.c)
+ *     MiImmediateZeroingNeeded @ 0x1402C09EC (MiImmediateZeroingNeeded.c)
+ *     MiPeriodicZeroingSufficient @ 0x1404811D8 (MiPeriodicZeroingSufficient.c)
  * Callees:
  *     <none>
  */
@@ -42,7 +42,7 @@ unsigned __int64 __fastcall MiGetZeroingCandidateCount(__int64 a1, int a2)
   if ( v10 )
   {
     v10 = 0LL;
-    for ( i = 0; i < (unsigned __int8)byte_140E2D718; v10 += *(_QWORD *)(a1 + 8 * (2 * v3 + v16) + 13912) )
+    for ( i = 0; i < (unsigned __int8)byte_140E2D898; v10 += *(_QWORD *)(a1 + 8 * (2 * v3 + v16) + 13912) )
       v16 = i++;
   }
   v11 = (v10 << 18) + v4;

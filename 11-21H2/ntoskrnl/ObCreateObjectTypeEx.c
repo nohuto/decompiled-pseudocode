@@ -2,12 +2,12 @@
  * XREFs of ObCreateObjectTypeEx @ 0x140824B30
  * Callers:
  *     ObCreateObjectType @ 0x140824B10 (ObCreateObjectType.c)
- *     VRegSetup @ 0x14085B100 (VRegSetup.c)
- *     AlpcpInitSystem @ 0x14085C5A8 (AlpcpInitSystem.c)
- *     CmpInitializeLightWeightTransactionType @ 0x140862F14 (CmpInitializeLightWeightTransactionType.c)
- *     TtmInit @ 0x1408633F0 (TtmInit.c)
- *     EtwpInitializePrivateSessionDemuxObject @ 0x1408636E8 (EtwpInitializePrivateSessionDemuxObject.c)
- *     IoCreateObjectTypes @ 0x140AFD20C (IoCreateObjectTypes.c)
+ *     sub_14085B100 @ 0x14085B100 (sub_14085B100.c)
+ *     sub_14085C5A8 @ 0x14085C5A8 (sub_14085C5A8.c)
+ *     sub_140862F14 @ 0x140862F14 (sub_140862F14.c)
+ *     sub_1408633F0 @ 0x1408633F0 (sub_1408633F0.c)
+ *     sub_1408636E8 @ 0x1408636E8 (sub_1408636E8.c)
+ *     sub_140AFD20C @ 0x140AFD20C (sub_140AFD20C.c)
  * Callees:
  *     RtlCopyUnicodeString @ 0x1402A76A0 (RtlCopyUnicodeString.c)
  *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
@@ -17,14 +17,14 @@
  *     DbgPrintEx @ 0x140369B90 (DbgPrintEx.c)
  *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
  *     memset @ 0x140435E00 (memset.c)
- *     ObpUnlockDirectory @ 0x14066960C (ObpUnlockDirectory.c)
- *     ObpLookupDirectoryEntry @ 0x1406A9B40 (ObpLookupDirectoryEntry.c)
- *     ObpInsertDirectoryEntry @ 0x1406B9100 (ObpInsertDirectoryEntry.c)
- *     ObpLockDirectoryExclusive @ 0x1406B96B0 (ObpLockDirectoryExclusive.c)
- *     ObpAllocateObject @ 0x14072E5D0 (ObpAllocateObject.c)
+ *     sub_14066960C @ 0x14066960C (sub_14066960C.c)
+ *     sub_1406A9B40 @ 0x1406A9B40 (sub_1406A9B40.c)
+ *     sub_1406B9100 @ 0x1406B9100 (sub_1406B9100.c)
+ *     sub_1406B96B0 @ 0x1406B96B0 (sub_1406B96B0.c)
+ *     sub_14072E5D0 @ 0x14072E5D0 (sub_14072E5D0.c)
  *     RtlxUnicodeStringToOemSize @ 0x140759A50 (RtlxUnicodeStringToOemSize.c)
  *     RtlUnicodeStringToAnsiString @ 0x140759C40 (RtlUnicodeStringToAnsiString.c)
- *     ObpInitObjectTypeSD @ 0x140825158 (ObpInitObjectTypeSD.c)
+ *     sub_140825158 @ 0x140825158 (sub_140825158.c)
  *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
  */
@@ -45,7 +45,7 @@ __int64 __fastcall ObCreateObjectTypeEx(
   wchar_t v14; // ax
   _OWORD *v15; // rbx
   UNICODE_STRING v16; // xmm6
-  int inited; // esi
+  int v17; // esi
   size_t v18; // rax
   _QWORD *v19; // rbx
   bool v20; // zf
@@ -114,13 +114,13 @@ __int64 __fastcall ObCreateObjectTypeEx(
   if ( !v12 )
   {
 LABEL_13:
-    if ( ObpTypeDirectoryObject )
+    if ( qword_140C24F00 )
     {
-      ObpLockDirectoryExclusive((__int64)&v49.m256i_i64[1], (__int64)ObpTypeDirectoryObject);
-      if ( ObpLookupDirectoryEntry(&SourceString->Length, 0x40u, &v49.m256i_i64[1]) )
+      sub_1406B96B0((__int64)&v49.m256i_i64[1], (__int64)qword_140C24F00);
+      if ( sub_1406A9B40(&SourceString->Length, 0x40u, &v49.m256i_i64[1]) )
       {
         if ( v49.m256i_i64[1] )
-          ObpUnlockDirectory((__int64)&v49.m256i_i64[1]);
+          sub_14066960C((__int64)&v49.m256i_i64[1]);
         return 3221225525LL;
       }
     }
@@ -128,14 +128,14 @@ LABEL_13:
     if ( !DestinationString.Buffer )
     {
       if ( v49.m256i_i64[1] )
-        ObpUnlockDirectory((__int64)&v49.m256i_i64[1]);
+        sub_14066960C((__int64)&v49.m256i_i64[1]);
       return 3221225626LL;
     }
     DestinationString.MaximumLength = SourceString->MaximumLength;
     RtlCopyUnicodeString(&DestinationString, SourceString);
-    v15 = ObpTypeObjectType;
+    v15 = qword_140C246D8;
     v16 = DestinationString;
-    if ( !ObpTypeObjectType )
+    if ( !qword_140C246D8 )
     {
       v42 = *a2;
       BYTE8(v58[2]) = 2;
@@ -162,11 +162,11 @@ LABEL_13:
     LODWORD(v57[0]) = 16;
     *(_QWORD *)((char *)&v57[1] + 4) = *((_QWORD *)v15 + 13);
     HIDWORD(v57[1]) = 2048;
-    inited = ObpAllocateObject((int *)v57, 0, (__int64)v15, &DestinationString, 216, Size, 0LL);
-    if ( inited < 0 )
+    v17 = sub_14072E5D0((int *)v57, 0, (__int64)v15, &DestinationString, 216, Size, 0LL);
+    if ( v17 < 0 )
     {
       if ( v49.m256i_i64[1] )
-        ObpUnlockDirectory((__int64)&v49.m256i_i64[1]);
+        sub_14066960C((__int64)&v49.m256i_i64[1]);
       ExFreePoolWithTag(DestinationString.Buffer, 0);
     }
     else
@@ -174,13 +174,13 @@ LABEL_13:
       v18 = Size[0];
       *(_QWORD *)(Size[0] + 32) = 0LL;
       v19 = (_QWORD *)(v18 + 48);
-      v20 = (_DWORD)InitializationPhase == 0;
+      v20 = (_DWORD)dword_140C4E560 == 0;
       *(UNICODE_STRING *)(v18 + 64) = v16;
-      if ( v20 || (inited = ObpInitObjectTypeSD(v18 + 48, a3), inited >= 0) )
+      if ( v20 || (v17 = sub_140825158(v18 + 48, a3), v17 >= 0) )
       {
         *(_OWORD *)((char *)v19 + 44) = 0LL;
         *((_DWORD *)v19 + 15) = 0;
-        if ( ObpTypeObjectType )
+        if ( qword_140C246D8 )
         {
           v21 = 1;
           v22 = ((RtlxUnicodeStringToOemSize(SourceString) + 2) & 0xFFFC) + 1;
@@ -231,7 +231,7 @@ LABEL_84:
         }
         else
         {
-          ObpTypeObjectType = v19;
+          qword_140C246D8 = v19;
           *((_DWORD *)v19 + 11) = 1;
           *((_DWORD *)v19 + 48) = 1416258127;
         }
@@ -253,7 +253,7 @@ LABEL_84:
         else
           *((_DWORD *)v19 + 27) += v28;
         if ( !*((_QWORD *)a2 + 11) )
-          v19[19] = SeDefaultObjectMethod;
+          v19[19] = sub_140725080;
         v19[23] = 0LL;
         v19[1] = v19;
         *v19 = v19;
@@ -262,81 +262,80 @@ LABEL_84:
         if ( (*((_BYTE *)v19 + 66) & 4) != 0 )
         {
           *((_DWORD *)v19 + 23) |= 0x100000u;
-          v8 = &ObpDefaultObject;
+          v8 = &word_140C24FA0;
         }
         v19[4] = v8;
         CurrentThread = KeGetCurrentThread();
-        --CurrentThread->SpecialApcDisable;
-        ExAcquirePushLockExclusiveEx((ULONG_PTR)ObpTypeObjectType + 184, 0LL);
+        --*((_WORD *)CurrentThread + 243);
+        ExAcquirePushLockExclusiveEx((ULONG_PTR)qword_140C246D8 + 184, 0LL);
         if ( (*(_BYTE *)(Size[0] + 26) & 1) != 0 )
           v30 = (_QWORD *)(Size[0] - 32);
         else
           v30 = 0LL;
-        v31 = ObpTypeObjectType;
-        v32 = (PVOID *)*((_QWORD *)ObpTypeObjectType + 1);
-        if ( *v32 != ObpTypeObjectType )
+        v31 = qword_140C246D8;
+        v32 = (PVOID *)*((_QWORD *)qword_140C246D8 + 1);
+        if ( *v32 != qword_140C246D8 )
           __fastfail(3u);
-        *v30 = ObpTypeObjectType;
+        *v30 = qword_140C246D8;
         v30[1] = v32;
         *v32 = v30;
         v33 = -1073741670;
         v31[1] = v30;
-        v34 = ObpTypeObjectType;
-        v35 = *((_DWORD *)ObpTypeObjectType + 11);
+        v34 = qword_140C246D8;
+        v35 = *((_DWORD *)qword_140C246D8 + 11);
         if ( v35 >= 0x100 )
-          inited = -1073741670;
+          v17 = -1073741670;
         else
-          ObpObjectTypes[v35 - 1] = (__int64)v19;
+          qword_140C24700[v35 - 1] = (__int64)v19;
         ExReleasePushLockEx((ULONG_PTR)v34 + 184, 0LL);
         v36 = KeGetCurrentThread();
-        v20 = v36->SpecialApcDisable++ == -1;
-        if ( v20 && ($CEA84C04E3712D858E5667A507841A2A *)v36->ApcState.ApcListHead[0].Flink != &v36->152 )
+        v20 = (*((_WORD *)v36 + 243))++ == 0xFFFF;
+        if ( v20 && *((struct _KTHREAD **)v36 + 19) != (struct _KTHREAD *)((char *)v36 + 152) )
           KiCheckForKernelApcDelivery();
-        if ( v19 != ObpTypeObjectType )
+        if ( v19 != qword_140C246D8 )
         {
-          if ( inited < 0 )
+          if ( v17 < 0 )
           {
 LABEL_90:
             if ( v49.m256i_i64[1] )
-              ObpUnlockDirectory((__int64)&v49.m256i_i64[1]);
-            v33 = inited;
+              sub_14066960C((__int64)&v49.m256i_i64[1]);
+            v33 = v17;
             goto LABEL_93;
           }
           v37 = 3;
           v38 = 3LL;
-          while ( _InterlockedCompareExchange64(&ObTypeIndexTable[v38], 1LL, 0LL) )
+          while ( _InterlockedCompareExchange64(&qword_140D07490[v38], 1LL, 0LL) )
           {
             v38 = ++v37;
             if ( (unsigned __int64)v37 >= 0x100 )
             {
-              inited = -1073741823;
+              v17 = -1073741823;
               goto LABEL_90;
             }
           }
           v10 = v37;
         }
-        ObTypeIndexTable[v10] = (__int64)v19;
+        qword_140D07490[v10] = (__int64)v19;
         *((_BYTE *)v19 + 40) = v10;
-        if ( !ObpTypeDirectoryObject
-          || ObpInsertDirectoryEntry((char *)ObpTypeDirectoryObject, (char *)v19, (__int64)&v49.m256i_i64[1]) )
+        if ( !qword_140C24F00 || sub_1406B9100((char *)qword_140C24F00, (char *)v19, (__int64)&v49.m256i_i64[1]) )
         {
           if ( v49.m256i_i64[1] )
-            ObpUnlockDirectory((__int64)&v49.m256i_i64[1]);
+            sub_14066960C((__int64)&v49.m256i_i64[1]);
           *v56 = v19;
           return 0LL;
         }
-        ObTypeIndexTable[v10] = 0LL;
+        qword_140D07490[v10] = 0LL;
         if ( v49.m256i_i64[1] )
-          ObpUnlockDirectory((__int64)&v49.m256i_i64[1]);
+          sub_14066960C((__int64)&v49.m256i_i64[1]);
 LABEL_93:
         ObfDereferenceObject(v19);
         return v33;
       }
       if ( v49.m256i_i64[1] )
-        ObpUnlockDirectory((__int64)&v49.m256i_i64[1]);
+        sub_14066960C((__int64)&v49.m256i_i64[1]);
       ObfDereferenceObject(v19);
     }
-    return (unsigned int)inited;
+    return (unsigned int)v17;
   }
   while ( 1 )
   {

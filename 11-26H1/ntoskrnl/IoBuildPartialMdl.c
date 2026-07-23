@@ -1,11 +1,11 @@
 /*
- * XREFs of IoBuildPartialMdl @ 0x140440FA0
+ * XREFs of IoBuildPartialMdl @ 0x140439AB0
  * Callers:
- *     HalpDmaCheckMdlAccessibility @ 0x14043F81C (HalpDmaCheckMdlAccessibility.c)
- *     HalpDmaFlushBuffer @ 0x14044011C (HalpDmaFlushBuffer.c)
- *     IopMcCreatePartialMdl @ 0x140B01164 (IopMcCreatePartialMdl.c)
+ *     HalpDmaCheckMdlAccessibility @ 0x14043832C (HalpDmaCheckMdlAccessibility.c)
+ *     HalpDmaFlushBuffer @ 0x140438C2C (HalpDmaFlushBuffer.c)
+ *     IopMcCreatePartialMdl @ 0x140B02E94 (IopMcCreatePartialMdl.c)
  * Callees:
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 void __stdcall IoBuildPartialMdl(PMDL SourceMdl, PMDL TargetMdl, PVOID VirtualAddress, ULONG Length)

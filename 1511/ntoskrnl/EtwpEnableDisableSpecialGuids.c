@@ -25,10 +25,10 @@ __int64 __fastcall EtwpEnableDisableSpecialGuids(
   char v12; // bl
   unsigned __int8 v13; // r14
   unsigned int v14; // edx
-  _UNKNOWN **v15; // r8
+  GUID **v15; // r8
   __int64 v16; // rax
   __int64 v17; // rcx
-  unsigned __int64 v18; // rcx
+  __int64 v18; // rcx
   __int64 v20; // r8
   unsigned int v21; // ebx
   __int64 v22; // r8
@@ -42,9 +42,9 @@ __int64 __fastcall EtwpEnableDisableSpecialGuids(
   *a6 = 1;
   if ( a3 == 2 )
   {
-    v20 = SystemTraceControlGuid - *a1;
-    if ( SystemTraceControlGuid == *a1 )
-      v20 = 0x3969A8086000829ALL - a1[1];
+    v20 = *(_QWORD *)&SystemTraceControlGuid.Data1 - *a1;
+    if ( *(_QWORD *)&SystemTraceControlGuid.Data1 == *a1 )
+      v20 = *(_QWORD *)SystemTraceControlGuid.Data4 - a1[1];
     v21 = 0;
     if ( v20 )
     {
@@ -77,21 +77,21 @@ LABEL_12:
   do
   {
     v16 = *a1;
-    v17 = *(_QWORD *)*v15 - *a1;
+    v17 = *(_QWORD *)&(*v15)->Data1 - *a1;
     if ( !v17 )
-      v17 = *((_QWORD *)*v15 + 1) - a1[1];
+      v17 = *(_QWORD *)(*v15)->Data4 - a1[1];
     if ( !v17 )
     {
       LOBYTE(v15) = a4;
-      return EtwpEnableDisableUMGL(v13, a2, v15, *((unsigned __int8 *)&EtwpUmglProviders + 16 * v14 + 8));
+      return EtwpEnableDisableUMGL(v13, a2, v15, *((unsigned __int8 *)&(&EtwpUmglProviders)[2 * v14] + 8));
     }
     ++v14;
     v15 += 2;
   }
   while ( v14 < 0xA );
-  v18 = KernelRundownGuid - v16;
-  if ( KernelRundownGuid == v16 )
-    v18 = 0xCDF584518E9C7793uLL - a1[1];
+  v18 = *(_QWORD *)&KernelRundownGuid.Data1 - v16;
+  if ( *(_QWORD *)&KernelRundownGuid.Data1 == v16 )
+    v18 = *(_QWORD *)KernelRundownGuid.Data4 - a1[1];
   if ( v18 )
     goto LABEL_12;
   if ( PsIsCurrentThreadInServerSilo() )

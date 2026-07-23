@@ -1,29 +1,28 @@
 /*
- * XREFs of _CmAddDeviceToContainerWorker @ 0x140486C80
+ * XREFs of _CmAddDeviceToContainerWorker @ 0x14051299C
  * Callers:
- *     _CmAddDeviceToContainer @ 0x140485F54 (_CmAddDeviceToContainer.c)
+ *     _CmAddDeviceToContainer @ 0x14050FC58 (_CmAddDeviceToContainer.c)
  * Callees:
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     _CmCreateDeviceContainer @ 0x140486094 (_CmCreateDeviceContainer.c)
- *     _PnpCtxRegCreateKey @ 0x14048706C (_PnpCtxRegCreateKey.c)
- *     _PnpCtxRegSetValue @ 0x1404870E4 (_PnpCtxRegSetValue.c)
- *     _PnpCtxRegQueryValue @ 0x140504098 (_PnpCtxRegQueryValue.c)
- *     _PnpObjectRaisePropertyChangeEvent @ 0x1405067F4 (_PnpObjectRaisePropertyChangeEvent.c)
- *     _PnpCtxRegDeleteKey @ 0x1406D7080 (_PnpCtxRegDeleteKey.c)
- *     _CmDeleteDeviceContainer @ 0x1406D9A10 (_CmDeleteDeviceContainer.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     _PnpCtxRegQueryValue @ 0x1404E7028 (_PnpCtxRegQueryValue.c)
+ *     _PnpObjectRaisePropertyChangeEvent @ 0x1404E9784 (_PnpObjectRaisePropertyChangeEvent.c)
+ *     _PnpCtxRegCreateKey @ 0x140512D88 (_PnpCtxRegCreateKey.c)
+ *     _PnpCtxRegSetValue @ 0x140512E00 (_PnpCtxRegSetValue.c)
+ *     _CmCreateDeviceContainer @ 0x140512EA4 (_CmCreateDeviceContainer.c)
+ *     _PnpCtxRegDeleteKey @ 0x1406D71B8 (_PnpCtxRegDeleteKey.c)
+ *     _CmDeleteDeviceContainer @ 0x1406D9B48 (_CmDeleteDeviceContainer.c)
  */
 
-__int64 __fastcall CmAddDeviceToContainerWorker(__int64 a1, __int64 a2, __int64 a3, __int64 a4, _BYTE *a5)
+__int64 __fastcall CmAddDeviceToContainerWorker(__int64 a1, __int64 a2, int a3, const WCHAR *a4, _BYTE *a5)
 {
   _BYTE *v5; // rsi
-  int v7; // r12d
-  int v10; // eax
+  int DeviceContainer; // eax
   int v11; // r9d
   HANDLE v12; // r14
   int Key; // ebx
   int v14; // r9d
   __int64 v15; // rcx
-  int v16; // eax
+  int Value; // eax
   _BYTE v18[4]; // [rsp+40h] [rbp-30h] BYREF
   int v19; // [rsp+44h] [rbp-2Ch] BYREF
   int v20; // [rsp+48h] [rbp-28h] BYREF
@@ -35,15 +34,14 @@ __int64 __fastcall CmAddDeviceToContainerWorker(__int64 a1, __int64 a2, __int64 
   v23 = 0LL;
   v22 = 0LL;
   Handle = 0LL;
-  v7 = a3;
   *a5 = 0;
   v18[0] = 0;
   v20 = 0;
   v19 = 0;
-  v10 = CmCreateDeviceContainer(a1, a2, a3, &v23, v18);
+  DeviceContainer = CmCreateDeviceContainer(a1, a2, a3, (unsigned int)&v23, (__int64)v18);
   v12 = v23;
-  Key = v10;
-  if ( v10 >= 0 )
+  Key = DeviceContainer;
+  if ( DeviceContainer >= 0 )
   {
     Key = PnpCtxRegCreateKey(
             a1,
@@ -56,19 +54,19 @@ __int64 __fastcall CmAddDeviceToContainerWorker(__int64 a1, __int64 a2, __int64 
             (__int64)&v20);
     if ( Key >= 0 )
     {
-      Key = PnpCtxRegCreateKey(a1, (_DWORD)v22, v7, v14, 3, 0LL, (__int64)&Handle, (__int64)&v19);
+      Key = PnpCtxRegCreateKey(a1, (_DWORD)v22, a3, v14, 3, 0LL, (__int64)&Handle, (__int64)&v19);
       if ( Key >= 0 )
       {
         if ( v19 == 2 )
         {
           LODWORD(a5) = 0;
-          v16 = PnpCtxRegQueryValue(v15, Handle, a4, 0LL, 0LL, &a5);
-          Key = v16;
-          if ( v16 == -1073741772 || v16 == -1073741444 )
+          Value = PnpCtxRegQueryValue(v15, Handle, a4, 0LL, 0LL, (unsigned int *)&a5);
+          Key = Value;
+          if ( Value == -1073741772 || Value == -1073741444 )
           {
             Key = 0;
           }
-          else if ( !v16 )
+          else if ( !Value )
           {
             *v5 = 1;
             goto LABEL_9;
@@ -78,7 +76,7 @@ __int64 __fastcall CmAddDeviceToContainerWorker(__int64 a1, __int64 a2, __int64 
         {
           Key = PnpCtxRegSetValue(v15, Handle, a4, 0LL, 0LL, 0);
           if ( Key >= 0 )
-            PnpObjectRaisePropertyChangeEvent(a1, a4, 1, 0, 0LL, (__int64)&DEVPKEY_Device_ContainerId);
+            PnpObjectRaisePropertyChangeEvent(a1, (__int64)a4, 1LL, 0LL, 0LL, (__int64)&DEVPKEY_Device_ContainerId);
         }
       }
     }

@@ -1,23 +1,23 @@
 /*
- * XREFs of SdbpUmaInit_PCWSTR @ 0x1407149BC
+ * XREFs of SdbpUmaInit_PCWSTR @ 0x1407196AC
  * Callers:
- *     SdbpCheckContainment @ 0x1408824D0 (SdbpCheckContainment.c)
- *     SdbpCheckMatchingDevice @ 0x140882640 (SdbpCheckMatchingDevice.c)
- *     SdbpCheckMatchingDir @ 0x140882780 (SdbpCheckMatchingDir.c)
- *     SdbpCheckMatchingFiles @ 0x1408829B0 (SdbpCheckMatchingFiles.c)
- *     SdbpCheckMatchingRegistryValue @ 0x140882FC0 (SdbpCheckMatchingRegistryValue.c)
- *     SdbpCheckMatchingText @ 0x1408833A0 (SdbpCheckMatchingText.c)
- *     SdbpCheckMatchingTextEntry @ 0x140883550 (SdbpCheckMatchingTextEntry.c)
- *     SdbpCheckSdbCapability @ 0x140883E50 (SdbpCheckSdbCapability.c)
- *     SdbpGetMatchingTextAttributes @ 0x1408843F0 (SdbpGetMatchingTextAttributes.c)
- *     SdbpMatchList @ 0x1408850CC (SdbpMatchList.c)
- *     SdbpResolveMatchingFile @ 0x140885488 (SdbpResolveMatchingFile.c)
- *     SdbpCheckAllAttributes @ 0x140B45B64 (SdbpCheckAllAttributes.c)
+ *     SdbpCheckContainment @ 0x1408888D0 (SdbpCheckContainment.c)
+ *     SdbpCheckMatchingDevice @ 0x140888A40 (SdbpCheckMatchingDevice.c)
+ *     SdbpCheckMatchingDir @ 0x140888B80 (SdbpCheckMatchingDir.c)
+ *     SdbpCheckMatchingFiles @ 0x140888DB0 (SdbpCheckMatchingFiles.c)
+ *     SdbpCheckMatchingRegistryValue @ 0x1408893C0 (SdbpCheckMatchingRegistryValue.c)
+ *     SdbpCheckMatchingText @ 0x1408897A0 (SdbpCheckMatchingText.c)
+ *     SdbpCheckMatchingTextEntry @ 0x140889950 (SdbpCheckMatchingTextEntry.c)
+ *     SdbpCheckSdbCapability @ 0x14088A250 (SdbpCheckSdbCapability.c)
+ *     SdbpGetMatchingTextAttributes @ 0x14088A7F0 (SdbpGetMatchingTextAttributes.c)
+ *     SdbpMatchList @ 0x14088B4CC (SdbpMatchList.c)
+ *     SdbpResolveMatchingFile @ 0x14088B888 (SdbpResolveMatchingFile.c)
+ *     SdbpCheckAllAttributes @ 0x140B47B94 (SdbpCheckAllAttributes.c)
  * Callees:
- *     RtlCopyFromUser @ 0x140533E38 (RtlCopyFromUser.c)
- *     RtlWideStringLengthFromUser @ 0x14077F6B4 (RtlWideStringLengthFromUser.c)
- *     AslAlloc @ 0x1409E4C90 (AslAlloc.c)
- *     AslFree @ 0x1409E6BD8 (AslFree.c)
+ *     RtlCopyFromUser @ 0x1405362B8 (RtlCopyFromUser.c)
+ *     RtlWideStringLengthFromUser @ 0x1407821B4 (RtlWideStringLengthFromUser.c)
+ *     AslFree @ 0x1409D6144 (AslFree.c)
+ *     AslAlloc @ 0x1409D8260 (AslAlloc.c)
  */
 
 __int64 (*__fastcall SdbpUmaInit_PCWSTR(__int64 (*Src)(void), __int64 (**a2)(void)))(void)

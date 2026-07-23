@@ -1,10 +1,10 @@
 /*
- * XREFs of FsRtlRemovePerFileObjectContext @ 0x1403C5670
+ * XREFs of FsRtlRemovePerFileObjectContext @ 0x1403B4230
  * Callers:
  *     <none>
  * Callees:
- *     FsRtlAcquireAutoExpandPushLockExclusive @ 0x1403C576C (FsRtlAcquireAutoExpandPushLockExclusive.c)
- *     FsRtlReleaseAutoExpandPushLockExclusive @ 0x1403C58E4 (FsRtlReleaseAutoExpandPushLockExclusive.c)
+ *     FsRtlAcquireAutoExpandPushLockExclusive @ 0x1403B432C (FsRtlAcquireAutoExpandPushLockExclusive.c)
+ *     FsRtlReleaseAutoExpandPushLockExclusive @ 0x1403B44A4 (FsRtlReleaseAutoExpandPushLockExclusive.c)
  */
 
 PFSRTL_PER_FILEOBJECT_CONTEXT __stdcall FsRtlRemovePerFileObjectContext(

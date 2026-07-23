@@ -1,11 +1,11 @@
 /*
- * XREFs of MiStoreLogWriteIssueRetry @ 0x1401F4D14
+ * XREFs of MiStoreLogWriteIssueRetry @ 0x1401F4B40
  * Callers:
- *     MiStoreWriteModifiedPages @ 0x140118960 (MiStoreWriteModifiedPages.c)
+ *     MiStoreWriteModifiedPages @ 0x140118ED0 (MiStoreWriteModifiedPages.c)
  * Callees:
- *     _TlgKeywordOn @ 0x140088D98 (_TlgKeywordOn.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     _TlgWriteEx @ 0x1401E12FC (_TlgWriteEx.c)
+ *     _TlgKeywordOn @ 0x14010CF88 (_TlgKeywordOn.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     _TlgWriteEx @ 0x1401E1128 (_TlgWriteEx.c)
  */
 
 void __fastcall MiStoreLogWriteIssueRetry(__int64 a1, int a2, int a3, __int64 a4, int a5)
@@ -21,9 +21,9 @@ void __fastcall MiStoreLogWriteIssueRetry(__int64 a1, int a2, int a3, __int64 a4
   int v15; // [rsp+60h] [rbp+0h] BYREF
 
   v5 = (unsigned __int64)&v15 & 0xFFFFFFFFFFFFFFE0uLL;
-  if ( hProvider && hProvider->LevelPlus1 > 5 )
+  if ( qword_1403277E0 && qword_1403277E0->LevelPlus1 > 5 )
   {
-    if ( TlgKeywordOn(hProvider, 2uLL) )
+    if ( TlgKeywordOn(qword_1403277E0, 2uLL) )
     {
       v12 = *v11;
       *(_DWORD *)(((unsigned __int64)&v15 & 0xFFFFFFFFFFFFFFE0uLL) + 0x4C) = 0;
@@ -55,7 +55,7 @@ void __fastcall MiStoreLogWriteIssueRetry(__int64 a1, int a2, int a3, __int64 a4
       *(_DWORD *)(((unsigned __int64)&v15 & 0xFFFFFFFFFFFFFFE0uLL) + 0x78) = 4;
       *(_DWORD *)(((unsigned __int64)&v15 & 0xFFFFFFFFFFFFFFE0uLL) + 0x88) = 4;
       *(_DWORD *)(((unsigned __int64)&v15 & 0xFFFFFFFFFFFFFFE0uLL) + 0x98) = 4;
-      TlgWriteEx(v10, &unk_14027C8EB, v8, v9, v13, v14, 8u, (EVENT_DATA_DESCRIPTOR *)(v5 + 32));
+      TlgWriteEx(v10, &unk_14027C9EB, v8, v9, v13, v14, 8u, (EVENT_DATA_DESCRIPTOR *)(v5 + 32));
     }
   }
 }

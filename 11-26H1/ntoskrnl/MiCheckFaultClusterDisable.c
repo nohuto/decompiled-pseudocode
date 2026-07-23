@@ -1,7 +1,7 @@
 /*
- * XREFs of MiCheckFaultClusterDisable @ 0x14046B000
+ * XREFs of MiCheckFaultClusterDisable @ 0x140464780
  * Callers:
- *     MiDetermineThreadFaultCluster @ 0x1402D60A8 (MiDetermineThreadFaultCluster.c)
+ *     MiDetermineThreadFaultCluster @ 0x1402B7E68 (MiDetermineThreadFaultCluster.c)
  * Callees:
  *     <none>
  */

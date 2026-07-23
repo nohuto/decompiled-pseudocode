@@ -1,41 +1,44 @@
 /*
- * XREFs of RtlpImageDirectoryEntryToData32 @ 0x14040E1A0
+ * XREFs of RtlpImageDirectoryEntryToData32 @ 0x14042B0D0
  * Callers:
- *     RtlpImageDirectoryEntryToDataEx @ 0x14040E000 (RtlpImageDirectoryEntryToDataEx.c)
+ *     RtlpImageDirectoryEntryToDataEx @ 0x14042AF30 (RtlpImageDirectoryEntryToDataEx.c)
  * Callees:
- *     RtlAddressInSectionTable @ 0x14040E484 (RtlAddressInSectionTable.c)
+ *     RtlAddressInSectionTable @ 0x14042B3B4 (RtlAddressInSectionTable.c)
  */
 
 __int64 __fastcall RtlpImageDirectoryEntryToData32(
-        unsigned __int64 a1,
+        char *BaseOfImage,
         char a2,
         unsigned __int16 a3,
         _DWORD *a4,
-        __int64 a5,
-        __int64 *a6)
+        PIMAGE_NT_HEADERS NtHeaders,
+        _QWORD *a6)
 {
   __int64 v6; // rax
   __int64 v7; // r8
-  __int64 v8; // rax
+  PVOID v8; // rax
 
-  if ( (unsigned int)a3 >= *(_DWORD *)(a5 + 116) )
+  if ( (unsigned int)a3 >= HIDWORD(NtHeaders->OptionalHeader.SizeOfHeapReserve) )
     return 3221225485LL;
   v6 = a3;
-  v7 = *(unsigned int *)(a5 + 8LL * a3 + 120);
+  v7 = *((unsigned int *)&NtHeaders->OptionalHeader.SizeOfHeapCommit + 2 * a3);
   if ( !(_DWORD)v7 )
     return 3221225474LL;
-  if ( a1 < 0x7FFFFFFF0000LL && (v7 + a1 > 0x7FFFFFFF0000LL || v7 + a1 <= a1) )
-    return 3221225485LL;
-  *a4 = *(_DWORD *)(a5 + 8 * v6 + 124);
-  if ( a2 || (unsigned int)v7 < *(_DWORD *)(a5 + 84) )
+  if ( (unsigned __int64)BaseOfImage < 0x7FFFFFFF0000LL
+    && ((unsigned __int64)&BaseOfImage[v7] > 0x7FFFFFFF0000LL || &BaseOfImage[v7] <= BaseOfImage) )
   {
-    *a6 = v7 + a1;
+    return 3221225485LL;
+  }
+  *a4 = *((_DWORD *)&NtHeaders->OptionalHeader.SizeOfHeapCommit + 2 * v6 + 1);
+  if ( a2 || (unsigned int)v7 < NtHeaders->OptionalHeader.SizeOfHeaders )
+  {
+    *a6 = &BaseOfImage[v7];
     return 0LL;
   }
   else
   {
-    v8 = RtlAddressInSectionTable(a5, a1);
+    v8 = RtlAddressInSectionTable(NtHeaders, BaseOfImage, v7);
     *a6 = v8;
-    return v8 == 0 ? 0xC000000D : 0;
+    return v8 == 0LL ? 0xC000000D : 0;
   }
 }

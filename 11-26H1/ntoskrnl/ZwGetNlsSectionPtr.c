@@ -1,15 +1,21 @@
 /*
- * XREFs of ZwGetNlsSectionPtr @ 0x140725430
+ * XREFs of ZwGetNlsSectionPtr @ 0x14072A000
  * Callers:
- *     DifZwGetNlsSectionPtrWrapper @ 0x1406A7E20 (DifZwGetNlsSectionPtrWrapper.c)
- *     RtlpGetNormalization @ 0x14080F254 (RtlpGetNormalization.c)
+ *     DifZwGetNlsSectionPtrWrapper @ 0x1406ABA00 (DifZwGetNlsSectionPtrWrapper.c)
+ *     RtlpGetNormalization @ 0x140814CE4 (RtlpGetNormalization.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwGetNlsSectionPtr(__int64 a1, __int64 a2)
+// local variable allocation has failed, the output may be wrong!
+NTSTATUS __cdecl ZwGetNlsSectionPtr(
+        ULONG SectionType,
+        ULONG SectionData,
+        PVOID ContextData,
+        PVOID *SectionPointer,
+        PULONG SectionSize)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(*(_QWORD *)&SectionType);
 }

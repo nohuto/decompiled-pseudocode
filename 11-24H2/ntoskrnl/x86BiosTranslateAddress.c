@@ -1,21 +1,21 @@
 /*
- * XREFs of x86BiosTranslateAddress @ 0x140469260
+ * XREFs of x86BiosTranslateAddress @ 0x140461C10
  * Callers:
- *     x86BiosReadMemory @ 0x140468070 (x86BiosReadMemory.c)
- *     XmPopStack @ 0x140468128 (XmPopStack.c)
- *     XmGetStringAddressRange @ 0x140468728 (XmGetStringAddressRange.c)
- *     XmPushStack @ 0x140468C28 (XmPushStack.c)
- *     XmGetWordImmediate @ 0x140468D7C (XmGetWordImmediate.c)
- *     XmEvaluateAddressSpecifier @ 0x140468DC4 (XmEvaluateAddressSpecifier.c)
- *     XmGetCodeByte @ 0x140469218 (XmGetCodeByte.c)
- *     HalInitializeBios @ 0x14053BD40 (HalInitializeBios.c)
- *     x86BiosWriteMemory @ 0x140546880 (x86BiosWriteMemory.c)
- *     XmEmulateInterrupt @ 0x14055EA70 (XmEmulateInterrupt.c)
- *     XmInitializeEmulator @ 0x14055EB08 (XmInitializeEmulator.c)
- *     XmGetLongImmediate @ 0x14056C8F0 (XmGetLongImmediate.c)
- *     XmIntOp @ 0x1405767F0 (XmIntOp.c)
- *     XmGetOffsetAddress @ 0x140577894 (XmGetOffsetAddress.c)
- *     XmGetStringAddress @ 0x1405778DC (XmGetStringAddress.c)
+ *     x86BiosReadMemory @ 0x140460A20 (x86BiosReadMemory.c)
+ *     XmPopStack @ 0x140460AD8 (XmPopStack.c)
+ *     XmGetStringAddressRange @ 0x1404610D8 (XmGetStringAddressRange.c)
+ *     XmPushStack @ 0x1404615D8 (XmPushStack.c)
+ *     XmGetWordImmediate @ 0x14046172C (XmGetWordImmediate.c)
+ *     XmEvaluateAddressSpecifier @ 0x140461774 (XmEvaluateAddressSpecifier.c)
+ *     XmGetCodeByte @ 0x140461BC8 (XmGetCodeByte.c)
+ *     HalInitializeBios @ 0x140539620 (HalInitializeBios.c)
+ *     x86BiosWriteMemory @ 0x140544140 (x86BiosWriteMemory.c)
+ *     XmEmulateInterrupt @ 0x14055C6A0 (XmEmulateInterrupt.c)
+ *     XmInitializeEmulator @ 0x14055C738 (XmInitializeEmulator.c)
+ *     XmGetLongImmediate @ 0x140569D80 (XmGetLongImmediate.c)
+ *     XmIntOp @ 0x140573C80 (XmIntOp.c)
+ *     XmGetOffsetAddress @ 0x140574D24 (XmGetOffsetAddress.c)
+ *     XmGetStringAddress @ 0x140574D6C (XmGetStringAddress.c)
  * Callees:
  *     <none>
  */

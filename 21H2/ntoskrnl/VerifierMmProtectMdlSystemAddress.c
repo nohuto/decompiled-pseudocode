@@ -1,10 +1,10 @@
 /*
- * XREFs of VerifierMmProtectMdlSystemAddress @ 0x1409E6FC0
+ * XREFs of VerifierMmProtectMdlSystemAddress @ 0x1409E7FC0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     VfCheckPageProtection @ 0x1409C7CBC (VfCheckPageProtection.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     VfCheckPageProtection @ 0x1409C8CBC (VfCheckPageProtection.c)
  */
 
 __int64 __fastcall VerifierMmProtectMdlSystemAddress(__int64 a1, unsigned int a2)

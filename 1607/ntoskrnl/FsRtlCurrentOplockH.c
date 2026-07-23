@@ -1,5 +1,5 @@
 /*
- * XREFs of FsRtlCurrentOplockH @ 0x14061E4E0
+ * XREFs of FsRtlCurrentOplockH @ 0x14061E594
  * Callers:
  *     <none>
  * Callees:

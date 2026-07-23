@@ -1,22 +1,22 @@
 /*
- * XREFs of IoWriteCapturedPristineTriageDumpToDedicatedDumpFile @ 0x1405C7D7C
+ * XREFs of IoWriteCapturedPristineTriageDumpToDedicatedDumpFile @ 0x1405CA64C
  * Callers:
- *     KiDeferredBugcheckRecoveryWorker @ 0x1405F9FE0 (KiDeferredBugcheckRecoveryWorker.c)
+ *     KiDeferredBugcheckRecoveryWorker @ 0x1405FCA00 (KiDeferredBugcheckRecoveryWorker.c)
  * Callees:
- *     MmBuildMdlForNonPagedPool @ 0x14024C4E0 (MmBuildMdlForNonPagedPool.c)
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     IoSynchronousPageWriteEx @ 0x14026B9F0 (IoSynchronousPageWriteEx.c)
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     IopAllocateMdl @ 0x14039EBE0 (IopAllocateMdl.c)
- *     IoFreeMdl @ 0x14039F190 (IoFreeMdl.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwQueryInformationFile @ 0x140723610 (ZwQueryInformationFile.c)
- *     ObReferenceObjectByHandle @ 0x1408F9550 (ObReferenceObjectByHandle.c)
+ *     MmBuildMdlForNonPagedPool @ 0x14024DE40 (MmBuildMdlForNonPagedPool.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     IoSynchronousPageWriteEx @ 0x14026AF60 (IoSynchronousPageWriteEx.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     IopAllocateMdl @ 0x1403A0940 (IopAllocateMdl.c)
+ *     IoFreeMdl @ 0x1403A0EF0 (IoFreeMdl.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwQueryInformationFile @ 0x1407281E0 (ZwQueryInformationFile.c)
+ *     ObReferenceObjectByHandle @ 0x1409294E0 (ObReferenceObjectByHandle.c)
  */
 
 __int64 IoWriteCapturedPristineTriageDumpToDedicatedDumpFile()
 {
-  _DWORD *v0; // rdi
+  __int64 v0; // rdi
   __int64 v1; // rdi
   NTSTATUS Status; // ebx
   void *v3; // rcx
@@ -32,19 +32,19 @@ __int64 IoWriteCapturedPristineTriageDumpToDedicatedDumpFile()
   __int128 FileInformation; // [rsp+78h] [rbp+37h] BYREF
   __int64 v15; // [rsp+88h] [rbp+47h]
 
-  v0 = KsepShimDbLock.WaitBlock[2].Object;
+  v0 = *(_QWORD *)&KsepShimDbLock.SuspendEvent.Header.Lock;
   v12 = 0LL;
   v15 = 0LL;
   v11 = 0LL;
   FileInformation = 0LL;
   IoStatusBlock = 0LL;
-  if ( !KsepShimDbLock.WaitBlock[2].Object )
+  if ( !*(_QWORD *)&KsepShimDbLock.SuspendEvent.Header.Lock )
   {
     if ( *(_DWORD *)(CrashdmpDumpBlock + 1336) != 4 || (v1 = *(_QWORD *)(CrashdmpDumpBlock + 1328)) == 0 )
       return (unsigned int)-1073741670;
-    v0 = (_DWORD *)(v1 - 0x2000);
+    v0 = v1 - 0x2000;
   }
-  if ( v0 + 2048 == IoPreparedTriageDumpData )
+  if ( (void *)(v0 + 0x2000) == IoPreparedTriageDumpData )
   {
     v3 = *(void **)(CrashdmpDumpBlock + 1352);
     if ( v3 )
@@ -53,7 +53,7 @@ __int64 IoWriteCapturedPristineTriageDumpToDedicatedDumpFile()
       Status = ObReferenceObjectByHandle(v3, 0, (POBJECT_TYPE)IoFileObjectType, 0, &Object, 0LL);
       if ( Status >= 0 )
       {
-        Mdl = (struct _MDL *)IopAllocateMdl((__int64)v0, v0[2049], 0, v4, 0LL, 0);
+        Mdl = (struct _MDL *)IopAllocateMdl(v0, *(_DWORD *)(v0 + 8196), 0, v4, 0LL, 0);
         v6 = (struct _FILE_OBJECT *)Object;
         v7 = Mdl;
         if ( Mdl )

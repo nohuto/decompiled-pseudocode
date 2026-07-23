@@ -1,11 +1,11 @@
 /*
- * XREFs of McTemplateK0zzzt_EtwWriteTransfer @ 0x1405A8934
+ * XREFs of McTemplateK0zzzt_EtwWriteTransfer @ 0x1405A5924
  * Callers:
- *     PiSwDeviceInterfaceSetState @ 0x1408B22B0 (PiSwDeviceInterfaceSetState.c)
- *     PiSwDeviceInterfacesUpdateState @ 0x1409FB394 (PiSwDeviceInterfacesUpdateState.c)
+ *     PiSwDeviceInterfaceSetState @ 0x1408AFBA4 (PiSwDeviceInterfaceSetState.c)
+ *     PiSwDeviceInterfacesUpdateState @ 0x1409F3D04 (PiSwDeviceInterfacesUpdateState.c)
  * Callees:
- *     McGenEventWrite_EtwWriteTransfer @ 0x1403305B0 (McGenEventWrite_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1402B8E28 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall McTemplateK0zzzt_EtwWriteTransfer(

@@ -1,11 +1,11 @@
 /*
- * XREFs of PpmRegisterVetoList @ 0x1407CA1F0
+ * XREFs of PpmRegisterVetoList @ 0x1407CD290
  * Callers:
  *     <none>
  * Callees:
- *     PopReleaseRwLock @ 0x14043630C (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x140436378 (PopAcquireRwLockExclusive.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     PopReleaseRwLock @ 0x14021B1A8 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x140425310 (PopAcquireRwLockExclusive.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall PpmRegisterVetoList(unsigned int *a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
@@ -18,9 +18,9 @@ __int64 __fastcall PpmRegisterVetoList(unsigned int *a1, __int64 a2, __int64 a3,
   __int128 *v10; // r8
   __int128 v11; // xmm0
 
-  PopAcquireRwLockExclusive((unsigned __int64 *)&stru_140F10070.1136, a2, a3, a4);
+  PopAcquireRwLockExclusive((unsigned __int64 *)&PpmIdlePolicyLock, a2, a3, a4);
   v5 = 0;
-  if ( stru_140E66FF0.IptSaveArea )
+  if ( stru_140E67200.Padding[4] )
   {
     v5 = -1073741431;
   }
@@ -46,13 +46,13 @@ __int64 __fastcall PpmRegisterVetoList(unsigned int *a1, __int64 a2, __int64 a3,
       }
       *Pool2 = v6;
       Pool2[1] = v6;
-      stru_140E66FF0.IptSaveArea = Pool2;
+      stru_140E67200.Padding[4] = (unsigned __int64)Pool2;
     }
     else
     {
       v5 = -1073741670;
     }
   }
-  PopReleaseRwLock((struct _KTHREAD *)&stru_140F10070.1136);
+  PopReleaseRwLock(&PpmIdlePolicyLock);
   return v5;
 }

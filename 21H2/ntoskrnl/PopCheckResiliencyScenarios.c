@@ -1,23 +1,23 @@
 /*
- * XREFs of PopCheckResiliencyScenarios @ 0x140679DA0
+ * XREFs of PopCheckResiliencyScenarios @ 0x14066D4E0
  * Callers:
- *     PopHandleSystemRequiredPowerRequestsUpdate @ 0x1402811BC (PopHandleSystemRequiredPowerRequestsUpdate.c)
- *     PopCoalescingSetActiveState @ 0x14056EBC4 (PopCoalescingSetActiveState.c)
- *     PopUpdateConsoleDisplayState @ 0x1407814E4 (PopUpdateConsoleDisplayState.c)
- *     PopDeepSleepPowerSettingCallback @ 0x1407D3560 (PopDeepSleepPowerSettingCallback.c)
- *     PopCoalescingPowerSettingCallback @ 0x1407D38A0 (PopCoalescingPowerSettingCallback.c)
- *     PdcPoResiliencyClient @ 0x1408EFA70 (PdcPoResiliencyClient.c)
- *     PopPdcIdleResiliencyCallback @ 0x1408F004C (PopPdcIdleResiliencyCallback.c)
- *     PopTransitionSystemPowerStateEx @ 0x1409910F4 (PopTransitionSystemPowerStateEx.c)
+ *     PopHandleSystemRequiredPowerRequestsUpdate @ 0x14026F3FC (PopHandleSystemRequiredPowerRequestsUpdate.c)
+ *     PopCoalescingSetActiveState @ 0x14056EE04 (PopCoalescingSetActiveState.c)
+ *     PopUpdateConsoleDisplayState @ 0x1407816A4 (PopUpdateConsoleDisplayState.c)
+ *     PopDeepSleepPowerSettingCallback @ 0x1407D36D0 (PopDeepSleepPowerSettingCallback.c)
+ *     PopCoalescingPowerSettingCallback @ 0x1407D3A10 (PopCoalescingPowerSettingCallback.c)
+ *     PdcPoResiliencyClient @ 0x1408EFBD0 (PdcPoResiliencyClient.c)
+ *     PopPdcIdleResiliencyCallback @ 0x1408F01AC (PopPdcIdleResiliencyCallback.c)
+ *     PopTransitionSystemPowerStateEx @ 0x1409920F4 (PopTransitionSystemPowerStateEx.c)
  * Callees:
- *     PpmReleaseLock @ 0x14022AB00 (PpmReleaseLock.c)
- *     PopDeepSleepSetDisengageReason @ 0x140281548 (PopDeepSleepSetDisengageReason.c)
- *     PopDeepSleepClearDisengageReason @ 0x1402815D0 (PopDeepSleepClearDisengageReason.c)
- *     PoFxSendSystemLatencyUpdate @ 0x140281818 (PoFxSendSystemLatencyUpdate.c)
- *     PpmAcquireLock @ 0x140281A74 (PpmAcquireLock.c)
- *     PopDeepSleepEnabled @ 0x140281AC0 (PopDeepSleepEnabled.c)
- *     PpmGetDeepSleepPlatformStateIndex @ 0x140565CEC (PpmGetDeepSleepPlatformStateIndex.c)
- *     PopEnsureCoalescingWorkerWillRun @ 0x14056ECF0 (PopEnsureCoalescingWorkerWillRun.c)
+ *     PopDeepSleepSetDisengageReason @ 0x14026F788 (PopDeepSleepSetDisengageReason.c)
+ *     PopDeepSleepClearDisengageReason @ 0x14026F810 (PopDeepSleepClearDisengageReason.c)
+ *     PoFxSendSystemLatencyUpdate @ 0x14026FA58 (PoFxSendSystemLatencyUpdate.c)
+ *     PpmAcquireLock @ 0x14026FCB4 (PpmAcquireLock.c)
+ *     PopDeepSleepEnabled @ 0x14026FD00 (PopDeepSleepEnabled.c)
+ *     PpmReleaseLock @ 0x1402CF3B0 (PpmReleaseLock.c)
+ *     PpmGetDeepSleepPlatformStateIndex @ 0x140565F2C (PpmGetDeepSleepPlatformStateIndex.c)
+ *     PopEnsureCoalescingWorkerWillRun @ 0x14056EF30 (PopEnsureCoalescingWorkerWillRun.c)
  */
 
 void PopCheckResiliencyScenarios()
@@ -32,7 +32,7 @@ void PopCheckResiliencyScenarios()
   if ( !PopDeepSleepEnforced && !PopCoalescingEnforced )
   {
     v1 = 1;
-    if ( byte_140C24074 )
+    if ( byte_140C23434 )
     {
       v2 = PopPdcIdleResiliency;
       if ( PopDeepSleepEnabled() )
@@ -57,15 +57,15 @@ void PopCheckResiliencyScenarios()
     else
     {
       PopDeepSleepSetDisengageReason(0);
-      if ( byte_140C24074 && !PopDeepSleepEnabled() )
+      if ( byte_140C23434 && !PopDeepSleepEnabled() )
       {
-        PpmAcquireLock((struct _KTHREAD **)&PopFxSystemLatencyLock);
+        PpmAcquireLock(&PopFxSystemLatencyLock);
         if ( PopIdleResiliencyIsEngagedWithoutDeepSleep != v2 )
         {
           PopIdleResiliencyIsEngagedWithoutDeepSleep = v2;
           PoFxSendSystemLatencyUpdate();
         }
-        PpmReleaseLock(&PopFxSystemLatencyLock);
+        PpmReleaseLock((__int64 *)&PopFxSystemLatencyLock);
       }
     }
     if ( v1 != v0 )

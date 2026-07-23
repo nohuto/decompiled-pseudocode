@@ -11,7 +11,7 @@
 NTSTATUS __fastcall EtwTraceLpacAccessFailure(int a1)
 {
   NTSTATUS result; // eax
-  __int64 v2; // [rsp+30h] [rbp-30h] BYREF
+  LARGE_INTEGER v2; // [rsp+30h] [rbp-30h] BYREF
   struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+38h] [rbp-28h] BYREF
   int *v4; // [rsp+48h] [rbp-18h]
   int v5; // [rsp+50h] [rbp-10h]
@@ -19,7 +19,7 @@ NTSTATUS __fastcall EtwTraceLpacAccessFailure(int a1)
   int v7; // [rsp+70h] [rbp+10h] BYREF
 
   v7 = a1;
-  v2 = 0LL;
+  v2.QuadPart = 0LL;
   if ( EtwLpacProvRegHandle )
   {
     KeQuerySystemTimePrecise(&v2);

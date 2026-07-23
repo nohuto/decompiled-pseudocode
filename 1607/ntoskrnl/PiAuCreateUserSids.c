@@ -3,9 +3,9 @@
  * Callers:
  *     PiAuCreateSecurityObjects @ 0x1407B3320 (PiAuCreateSecurityObjects.c)
  * Callees:
- *     memset @ 0x1401715C0 (memset.c)
- *     RtlValidSid @ 0x1404217D0 (RtlValidSid.c)
- *     PiAuAllocateAndInitializeSid @ 0x14057187C (PiAuAllocateAndInitializeSid.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     RtlValidSid @ 0x140420690 (RtlValidSid.c)
+ *     PiAuAllocateAndInitializeSid @ 0x140571DBC (PiAuAllocateAndInitializeSid.c)
  */
 
 __int64 __fastcall PiAuCreateUserSids(PVOID *a1)
@@ -18,8 +18,8 @@ __int64 __fastcall PiAuCreateUserSids(PVOID *a1)
   PSID *v7; // rsi
   BOOLEAN valid; // al
   unsigned int v9; // ecx
-  struct _SID_IDENTIFIER_AUTHORITY v11; // [rsp+40h] [rbp+20h] BYREF
-  struct _SID_IDENTIFIER_AUTHORITY v12; // [rsp+48h] [rbp+28h] BYREF
+  _SID_IDENTIFIER_AUTHORITY v11; // [rsp+40h] [rbp+20h] BYREF
+  _SID_IDENTIFIER_AUTHORITY v12; // [rsp+48h] [rbp+28h] BYREF
 
   *(_DWORD *)v11.Value = 0;
   *(_DWORD *)v12.Value = 0;

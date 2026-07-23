@@ -1,14 +1,14 @@
 /*
- * XREFs of CcRegistryChangeCallback @ 0x14039ACD0
+ * XREFs of CcRegistryChangeCallback @ 0x14039AE20
  * Callers:
  *     <none>
  * Callees:
- *     DbgPrintEx @ 0x14037F820 (DbgPrintEx.c)
- *     CcOpenRegistryPath @ 0x1403CCFDC (CcOpenRegistryPath.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     ZwNotifyChangeKey @ 0x1403FC6E0 (ZwNotifyChangeKey.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     DbgPrintEx @ 0x14037F370 (DbgPrintEx.c)
+ *     CcOpenRegistryPath @ 0x1403CD14C (CcOpenRegistryPath.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     ZwNotifyChangeKey @ 0x1403FC8C0 (ZwNotifyChangeKey.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall CcRegistryChangeCallback(char *P)

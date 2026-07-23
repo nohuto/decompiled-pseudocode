@@ -1,26 +1,26 @@
 /*
- * XREFs of PiSwIrpInterfaceRegister @ 0x1408B2584
+ * XREFs of PiSwIrpInterfaceRegister @ 0x1408AFE78
  * Callers:
- *     PiSwDispatch @ 0x140730760 (PiSwDispatch.c)
+ *     PiSwDispatch @ 0x14072E770 (PiSwDispatch.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x14025A450 (ExReleaseResourceLite.c)
- *     McTemplateK0zzd_EtwWriteTransfer @ 0x14032FA04 (McTemplateK0zzd_EtwWriteTransfer.c)
- *     IofCompleteRequest @ 0x1403DBAD0 (IofCompleteRequest.c)
- *     RtlStringCbCopyW @ 0x140433420 (RtlStringCbCopyW.c)
- *     McTemplateK0zz_EtwWriteTransfer @ 0x1405A82A8 (McTemplateK0zz_EtwWriteTransfer.c)
- *     McTemplateK0zzz_EtwWriteTransfer @ 0x1405A855C (McTemplateK0zzz_EtwWriteTransfer.c)
- *     PiSwUpdateArrayProperties @ 0x1408B2070 (PiSwUpdateArrayProperties.c)
- *     PiSwDeviceInterfaceSetState @ 0x1408B22B0 (PiSwDeviceInterfaceSetState.c)
- *     IopRegisterDeviceInterface @ 0x1408B3B2C (IopRegisterDeviceInterface.c)
- *     PiSwPropertySet @ 0x1408B80F0 (PiSwPropertySet.c)
- *     PiSwValidatePropertyArray @ 0x1408B8D6C (PiSwValidatePropertyArray.c)
- *     PiSwLock @ 0x1408B9494 (PiSwLock.c)
- *     PiSwDeviceOperationsAllowed @ 0x1408BA604 (PiSwDeviceOperationsAllowed.c)
- *     PiSwDeviceFindInterfaceEntry @ 0x1408BB17C (PiSwDeviceFindInterfaceEntry.c)
- *     PiSwInterfaceCreate @ 0x1409F82E4 (PiSwInterfaceCreate.c)
- *     PiSwInterfaceFree @ 0x1409F8A14 (PiSwInterfaceFree.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x14028AA60 (ExReleaseResourceLite.c)
+ *     McTemplateK0zzd_EtwWriteTransfer @ 0x1402B827C (McTemplateK0zzd_EtwWriteTransfer.c)
+ *     IofCompleteRequest @ 0x1403CCDA0 (IofCompleteRequest.c)
+ *     RtlStringCbCopyW @ 0x140425B00 (RtlStringCbCopyW.c)
+ *     McTemplateK0zz_EtwWriteTransfer @ 0x1405A5298 (McTemplateK0zz_EtwWriteTransfer.c)
+ *     McTemplateK0zzz_EtwWriteTransfer @ 0x1405A554C (McTemplateK0zzz_EtwWriteTransfer.c)
+ *     PiSwUpdateArrayProperties @ 0x1408AF964 (PiSwUpdateArrayProperties.c)
+ *     PiSwDeviceInterfaceSetState @ 0x1408AFBA4 (PiSwDeviceInterfaceSetState.c)
+ *     IopRegisterDeviceInterface @ 0x1408B141C (IopRegisterDeviceInterface.c)
+ *     PiSwPropertySet @ 0x1408B5A60 (PiSwPropertySet.c)
+ *     PiSwValidatePropertyArray @ 0x1408B66DC (PiSwValidatePropertyArray.c)
+ *     PiSwLock @ 0x1408B6E3C (PiSwLock.c)
+ *     PiSwDeviceOperationsAllowed @ 0x1408B7FB4 (PiSwDeviceOperationsAllowed.c)
+ *     PiSwDeviceFindInterfaceEntry @ 0x1408B8B2C (PiSwDeviceFindInterfaceEntry.c)
+ *     PiSwInterfaceCreate @ 0x1409F0C54 (PiSwInterfaceCreate.c)
+ *     PiSwInterfaceFree @ 0x1409F1384 (PiSwInterfaceFree.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiSwIrpInterfaceRegister(PIRP Irp, __int64 a2, __int64 a3)
@@ -63,7 +63,7 @@ __int64 __fastcall PiSwIrpInterfaceRegister(PIRP Irp, __int64 a2, __int64 a3)
   pszSrc = 0LL;
   v30 = 0;
   v29 = 0;
-  if ( (byte_140EEFD24 & 0x40) != 0 )
+  if ( (byte_140EEFF64 & 0x40) != 0 )
     McTemplateK0zz_EtwWriteTransfer(
       (__int64)Irp,
       (const EVENT_DESCRIPTOR *)KMPnPEvt_SwDevice_RegisterInterface_Start,
@@ -80,7 +80,7 @@ __int64 __fastcall PiSwIrpInterfaceRegister(PIRP Irp, __int64 a2, __int64 a3)
   updated = MesDecodeBufferHandleCreate(MasterIrp, CurrentStackLocation->Parameters.Create.Options, v28);
   if ( updated >= 0 )
   {
-    NdrMesTypeDecode3(v28[0], "TP 3\a", &off_140B3B430, &off_140E06FF0, 2, &P);
+    NdrMesTypeDecode3(v28[0], "TP 3\a", &off_140B3D1E0, &off_140E06FF0, 2, &P);
     if ( P && *(_QWORD *)P && ((v9 = *((_QWORD *)P + 3)) != 0 || !*((_DWORD *)P + 4)) && (*((_DWORD *)P + 4) || !v9) )
     {
       updated = PiSwValidatePropertyArray(*((_QWORD *)P + 3));
@@ -103,7 +103,7 @@ __int64 __fastcall PiSwIrpInterfaceRegister(PIRP Irp, __int64 a2, __int64 a3)
                       (__int64)&v30);
           if ( updated >= 0 )
           {
-            if ( (byte_140EEFD24 & 0x40) != 0 )
+            if ( (byte_140EEFF64 & 0x40) != 0 )
               McTemplateK0zzz_EtwWriteTransfer(
                 v17,
                 (const EVENT_DESCRIPTOR *)KMPnPEvt_SwDevice_InterfaceRegistered,
@@ -207,7 +207,7 @@ LABEL_18:
     MesHandleFree();
   Irp->IoStatus.Status = updated;
   IofCompleteRequest(Irp, 0);
-  if ( (byte_140EEFD24 & 0x40) != 0 )
+  if ( (byte_140EEFF64 & 0x40) != 0 )
     McTemplateK0zzd_EtwWriteTransfer(
       v14,
       (__int64)KMPnPEvt_SwDevice_RegisterInterface_Stop,

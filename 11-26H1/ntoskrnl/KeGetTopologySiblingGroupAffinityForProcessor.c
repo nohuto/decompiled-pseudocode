@@ -1,7 +1,7 @@
 /*
- * XREFs of KeGetTopologySiblingGroupAffinityForProcessor @ 0x14048AD58
+ * XREFs of KeGetTopologySiblingGroupAffinityForProcessor @ 0x140484898
  * Callers:
- *     KeInitSystem @ 0x140CC82B8 (KeInitSystem.c)
+ *     KeInitSystem @ 0x140CCE3A8 (KeInitSystem.c)
  * Callees:
  *     <none>
  */

@@ -3,11 +3,11 @@
  * Callers:
  *     MiInitSystem @ 0x140B44518 (MiInitSystem.c)
  * Callees:
- *     MiReservePtes @ 0x14027D190 (MiReservePtes.c)
- *     MiLockDynamicMemoryExclusive @ 0x14061B5A4 (MiLockDynamicMemoryExclusive.c)
- *     MiUnlockDynamicMemoryExclusive @ 0x14061BFAC (MiUnlockDynamicMemoryExclusive.c)
- *     MiInitializeDynamicBitmap @ 0x14081C7A4 (MiInitializeDynamicBitmap.c)
- *     MiUpdateMirrorBitmaps @ 0x140A2F0F8 (MiUpdateMirrorBitmaps.c)
+ *     MiReservePtes @ 0x14027D420 (MiReservePtes.c)
+ *     MiLockDynamicMemoryExclusive @ 0x14061BAF4 (MiLockDynamicMemoryExclusive.c)
+ *     MiUnlockDynamicMemoryExclusive @ 0x14061C4FC (MiUnlockDynamicMemoryExclusive.c)
+ *     MiInitializeDynamicBitmap @ 0x14081CA74 (MiInitializeDynamicBitmap.c)
+ *     MiUpdateMirrorBitmaps @ 0x140A2F3A8 (MiUpdateMirrorBitmaps.c)
  */
 
 __int64 MiInitializeMirroring()

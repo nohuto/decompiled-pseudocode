@@ -1,10 +1,10 @@
 /*
- * XREFs of MiReturnVadDeleted @ 0x1404A3690
+ * XREFs of MiReturnVadDeleted @ 0x14049D1A0
  * Callers:
- *     MiReserveUserMemory @ 0x14095B5DC (MiReserveUserMemory.c)
- *     MiDeleteVad @ 0x14095BF10 (MiDeleteVad.c)
- *     MiCoalescePlaceholderAllocations @ 0x14095FF68 (MiCoalescePlaceholderAllocations.c)
- *     MiFinishPlaceholderVadReplacement @ 0x140B05F14 (MiFinishPlaceholderVadReplacement.c)
+ *     MiReserveUserMemory @ 0x140A00E9C (MiReserveUserMemory.c)
+ *     MiDeleteVad @ 0x140A017D0 (MiDeleteVad.c)
+ *     MiCoalescePlaceholderAllocations @ 0x140A05828 (MiCoalescePlaceholderAllocations.c)
+ *     MiFinishPlaceholderVadReplacement @ 0x140B08044 (MiFinishPlaceholderVadReplacement.c)
  * Callees:
  *     <none>
  */

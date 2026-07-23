@@ -25,7 +25,7 @@
  *     sub_1800FFB4C @ 0x1800FFB4C (sub_1800FFB4C.c)
  */
 
-__int64 __fastcall sub_180024AD0(__int64 a1, unsigned __int64 a2, int a3)
+__int64 __fastcall sub_180024AD0(_DWORD *BaseAddress, unsigned __int64 a2, int a3)
 {
   unsigned __int64 v4; // r15
   int v6; // r14d
@@ -45,12 +45,12 @@ __int64 __fastcall sub_180024AD0(__int64 a1, unsigned __int64 a2, int a3)
   _QWORD **v20; // r12
   __int64 v21; // rbx
   __int64 v22; // r9
-  __int64 v23; // rcx
+  __int64 UserModeGlobalLogger; // rcx
   unsigned int v24; // r8d
   unsigned int i; // edx
   signed __int32 v26; // ebx
-  struct _SLIST_ENTRY *v27; // rdx
-  union _SLIST_HEADER *v28; // rcx
+  _SLIST_ENTRY *v27; // rdx
+  _SLIST_HEADER *v28; // rcx
   unsigned int v29; // r13d
   PSLIST_ENTRY v30; // rax
   int j; // r8d
@@ -59,26 +59,26 @@ __int64 __fastcall sub_180024AD0(__int64 a1, unsigned __int64 a2, int a3)
   int v34; // eax
   __int64 v35; // r8
   signed __int64 v36; // rdx
-  union _SLIST_HEADER **v37; // r9
+  _SLIST_HEADER **v37; // r9
   __int64 v38; // r13
-  struct _SLIST_ENTRY *v39; // rbx
-  union _SLIST_HEADER *v40; // rcx
+  _SLIST_ENTRY *v39; // rbx
+  _SLIST_HEADER *v40; // rcx
   signed __int32 v41; // eax
   __int64 v42; // r10
-  union _SLIST_HEADER *v43; // rcx
+  _SLIST_HEADER *v43; // rcx
   __int64 v44; // r13
-  unsigned int v45; // eax
+  ULONG v45; // eax
   int v46; // r8d
   signed __int64 v47; // rdx
-  union _SLIST_HEADER *v48; // rcx
+  _SLIST_HEADER *v48; // rcx
   signed __int32 v49; // eax
   unsigned __int16 *v50; // r9
   unsigned int v51; // r8d
   __int64 v52; // r10
-  struct _SLIST_ENTRY *v53; // rdx
-  union _SLIST_HEADER *Next; // rcx
+  _SLIST_ENTRY *v53; // rdx
+  _SLIST_HEADER *Next; // rcx
   unsigned __int8 v55; // al
-  union _SLIST_HEADER ListHead; // [rsp+30h] [rbp-158h] BYREF
+  _SLIST_HEADER ListHead; // [rsp+30h] [rbp-158h] BYREF
   int v58; // [rsp+40h] [rbp-148h]
   unsigned __int16 v59; // [rsp+44h] [rbp-144h]
   unsigned __int16 v60; // [rsp+46h] [rbp-142h]
@@ -93,13 +93,13 @@ __int64 __fastcall sub_180024AD0(__int64 a1, unsigned __int64 a2, int a3)
   unsigned int k; // [rsp+78h] [rbp-110h]
   signed __int64 v70; // [rsp+90h] [rbp-F8h]
   int v71; // [rsp+98h] [rbp-F0h]
-  __int64 v72; // [rsp+A0h] [rbp-E8h] BYREF
+  ULONG_PTR RegionSize; // [rsp+A0h] [rbp-E8h] BYREF
   int m; // [rsp+A8h] [rbp-E0h]
   unsigned __int64 v74; // [rsp+B0h] [rbp-D8h]
-  unsigned __int64 v75; // [rsp+B8h] [rbp-D0h] BYREF
+  PVOID BaseAddressa; // [rsp+B8h] [rbp-D0h] BYREF
   int v76; // [rsp+C8h] [rbp-C0h]
   unsigned int v77; // [rsp+DCh] [rbp-ACh]
-  char v78[8]; // [rsp+E0h] [rbp-A8h] BYREF
+  ULONG OldProtect; // [rsp+E0h] [rbp-A8h] BYREF
   __int64 v79; // [rsp+E8h] [rbp-A0h]
   __int64 v80; // [rsp+F0h] [rbp-98h]
   int v81; // [rsp+108h] [rbp-80h]
@@ -108,7 +108,7 @@ __int64 __fastcall sub_180024AD0(__int64 a1, unsigned __int64 a2, int a3)
   struct _TEB *v84; // [rsp+128h] [rbp-60h]
   struct _TEB *v85; // [rsp+130h] [rbp-58h]
   struct _TEB *v86; // [rsp+138h] [rbp-50h]
-  __int64 v87; // [rsp+140h] [rbp-48h]
+  _DWORD *v87; // [rsp+140h] [rbp-48h]
   signed __int64 v88; // [rsp+148h] [rbp-40h]
   __int64 v89; // [rsp+158h] [rbp-30h]
 
@@ -116,13 +116,13 @@ __int64 __fastcall sub_180024AD0(__int64 a1, unsigned __int64 a2, int a3)
   v6 = 0;
   if ( (byte_18015BFBC & 2) == 0 )
   {
-    v8 = sub_180023C90(a1, a2, a3, 0LL, 0LL);
+    v8 = sub_180023C90((__int64)BaseAddress, a2, a3, 0LL, 0LL);
     v66 = v8;
     return v8;
   }
   v7 = 0LL;
-  v87 = a1;
-  if ( *(_DWORD *)(a1 + 16) == -571548178 )
+  v87 = BaseAddress;
+  if ( BaseAddress[4] == -571548178 )
   {
     if ( (dword_180158684 & 2) == 0 || !a2 )
       goto LABEL_4;
@@ -132,7 +132,7 @@ __int64 __fastcall sub_180024AD0(__int64 a1, unsigned __int64 a2, int a3)
     }
     else
     {
-      v71 = sub_1800588D4(&qword_180159600, a2 >> 16, 1LL);
+      v71 = sub_1800588D4(&stru_180159600);
       if ( v71 )
       {
 LABEL_4:
@@ -172,7 +172,7 @@ LABEL_4:
           v6 |= 0x1000000u;
           *((_DWORD *)&ListHead.HeaderX64 + 3) = v6;
         }
-        v8 = sub_180025780(a1, v4, v6 & 0x11000001, (int)v67, &ListHead);
+        v8 = sub_180025780((int)BaseAddress, v4, v6 & 0x11000001, (int)v67, &ListHead);
         v58 = v8;
         if ( v8 )
         {
@@ -183,7 +183,7 @@ LABEL_4:
           *(_QWORD *)v67 = v9;
           if ( (dword_18015C2A8 & 1) == 0
             || (dword_18015C2A8 & 2) == 0
-            || a1 == *(_QWORD *)&qword_18015BFE0
+            || BaseAddress == qword_18015BFE0
             || !NtCurrentPeb()->ProcessHeap )
           {
             goto LABEL_22;
@@ -199,15 +199,15 @@ LABEL_4:
     v4 -= 16LL;
     goto LABEL_4;
   }
-  if ( (*(_DWORD *)(a1 + 116) & 0x1000000) != 0 )
+  if ( (BaseAddress[29] & 0x1000000) != 0 )
     goto LABEL_170;
-  if ( (*(_BYTE *)(a1 + 120) & 1) != 0 )
+  if ( (BaseAddress[30] & 1) != 0 )
   {
-    v7 = sub_180077158(a1, a2);
+    v7 = sub_180077158(BaseAddress, a2);
   }
   else if ( (a2 & 0xF) != 0 )
   {
-    sub_1800A4DFC(9, a1, a2, 0, 0LL, 0LL);
+    sub_1800A4DFC(9, (_DWORD)BaseAddress, a2, 0, 0LL, 0LL);
     v74 = 0LL;
   }
   else
@@ -222,7 +222,7 @@ LABEL_4:
     }
     else
     {
-      sub_1800A4DFC(8, a1, v7, 0, 0LL, 0LL);
+      sub_1800A4DFC(8, (_DWORD)BaseAddress, v7, 0, 0LL, 0LL);
       v7 = 0LL;
       v74 = 0LL;
     }
@@ -234,9 +234,9 @@ LABEL_4:
     *((_BYTE *)&ListHead.HeaderX64 + 4) = 1;
     if ( *(char *)(v7 + 15) >= 0 )
     {
-      if ( *(_DWORD *)(a1 + 124) )
+      if ( BaseAddress[31] )
       {
-        v76 = *(_DWORD *)(v7 + 8) ^ *(_DWORD *)(a1 + 136);
+        v76 = *(_DWORD *)(v7 + 8) ^ BaseAddress[34];
         if ( HIBYTE(v76) != ((unsigned __int8)v76 ^ (unsigned __int8)(BYTE1(v76) ^ BYTE2(v76))) )
         {
           *((_BYTE *)&ListHead.HeaderX64 + 4) = 0;
@@ -248,7 +248,7 @@ LABEL_4:
     }
     else
     {
-      v11 = sub_1800959D8(a1, v7);
+      v11 = sub_1800959D8(BaseAddress, v7);
       *((_BYTE *)&ListHead.HeaderX64 + 4) = v11;
       if ( !v11 )
       {
@@ -259,7 +259,7 @@ LABEL_81:
         {
           v19 = *(_BYTE *)(v4 - 16 + 15) == 5 ? v4 - 16LL * *(unsigned __int8 *)(v4 - 16 + 14) : 0LL;
           v80 = v19;
-          if ( (int)sub_180095A28(*(_DWORD *)(v4 - 8), a1, v4, 3, v19) < 0 )
+          if ( (int)sub_180095A28(*(_DWORD *)(v4 - 8), (_DWORD)BaseAddress, v4, 3, v19) < 0 )
           {
             NtCurrentTeb()->LastStatusValue = -1073741811;
             v10 = NtCurrentTeb();
@@ -270,11 +270,11 @@ LABEL_81:
 LABEL_88:
         if ( *(char *)(v7 + 15) < 0 )
         {
-          if ( (unsigned __int16)qword_18015BFE8 ^ (unsigned __int16)(a1 ^ *(_WORD *)(v7 + 8) ^ (v7 >> 4))
+          if ( (unsigned __int16)qword_18015BFE8 ^ (unsigned __int16)((unsigned __int16)BaseAddress ^ *(_WORD *)(v7 + 8) ^ (v7 >> 4))
             || (v20 = *(_QWORD ***)(v7
-                                  - (((unsigned int)qword_18015BFE8 ^ (unsigned int)a1 ^ *(_DWORD *)(v7 + 8) ^ (unsigned int)(v7 >> 4)) >> 12))) == 0LL )
+                                  - (((unsigned int)qword_18015BFE8 ^ (unsigned int)BaseAddress ^ *(_DWORD *)(v7 + 8) ^ (unsigned int)(v7 >> 4)) >> 12))) == 0LL )
           {
-            sub_1800A4DFC(3, a1, v7, 0, 0LL, 0LL);
+            sub_1800A4DFC(3, (_DWORD)BaseAddress, v7, 0, 0LL, 0LL);
             v8 = 1;
           }
           else
@@ -291,11 +291,11 @@ LABEL_88:
               sub_1800A4DFC(3, *(_QWORD *)(v21 + 24), v7, 0, 0LL, 0LL);
               goto LABEL_168;
             }
-            if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-              v23 = (__int64)NtCurrentPeb()->HotpatchInformation + 550;
+            if ( RtlGetCurrentServiceSessionId() )
+              UserModeGlobalLogger = (__int64)NtCurrentPeb()->SharedData->UserModeGlobalLogger;
             else
-              v23 = 2147353472LL;
-            if ( *(_BYTE *)v23 && (NtCurrentPeb()->TracingFlags & 1) != 0 )
+              UserModeGlobalLogger = 2147353472LL;
+            if ( *(_BYTE *)UserModeGlobalLogger && (NtCurrentPeb()->TracingFlags & 1) != 0 )
               sub_1800FFB4C(*(_QWORD *)(v21 + 24), v7 + 16, 2LL, v22);
             v63 = 0;
             v62 = 0;
@@ -322,8 +322,8 @@ LABEL_107:
             *(_BYTE *)(v7 + 15) = 0x80;
             if ( v26 == -1 )
             {
-              v27 = (struct _SLIST_ENTRY *)(v7 + 16);
-              v28 = (union _SLIST_HEADER *)(v20 + 2);
+              v27 = (_SLIST_ENTRY *)(v7 + 16);
+              v28 = (_SLIST_HEADER *)(v20 + 2);
 LABEL_167:
               RtlInterlockedPushEntrySList_0(v28, v27);
 LABEL_168:
@@ -358,7 +358,7 @@ LABEL_168:
               v35 = (__int64)*v20;
               if ( (_WORD)v34 != *((_WORD *)v20 + 20)
                 || (v36 = *(unsigned int *)(*(_QWORD *)v35 + 32LL),
-                    v37 = (union _SLIST_HEADER **)*(unsigned int *)(v35 + 168),
+                    v37 = (_SLIST_HEADER **)*(unsigned int *)(v35 + 168),
                     *(_DWORD *)(v35 + 164) == 1)
                 && (unsigned int)v36 >= (unsigned int)v37
                 && (v36 = (unsigned int)(v36 - (_DWORD)v37), (unsigned int)v36 < *(_DWORD *)(*(_QWORD *)v35 + 36LL)) )
@@ -384,27 +384,27 @@ LABEL_168:
                   if ( v51 >= 0x10 )
                   {
                     *((_BYTE *)&ListHead.HeaderX64 + 5) = 0;
-                    v27 = (struct _SLIST_ENTRY *)(v20 + 6);
-                    v28 = (union _SLIST_HEADER *)(*(_QWORD *)(*(_QWORD *)(**v20 + 24LL)
-                                                            + 8LL * *((unsigned __int16 *)*v20 + 86)
-                                                            + 1192)
-                                                + 144LL);
+                    v27 = (_SLIST_ENTRY *)(v20 + 6);
+                    v28 = (_SLIST_HEADER *)(*(_QWORD *)(*(_QWORD *)(**v20 + 24LL)
+                                                      + 8LL * *((unsigned __int16 *)*v20 + 86)
+                                                      + 1192)
+                                          + 144LL);
                     goto LABEL_167;
                   }
                   v52 = ((_BYTE)v51 + (unsigned __int8)v50[87]) & 0xF;
-                  v53 = *(struct _SLIST_ENTRY **)&v50[4 * v52 + 8];
+                  v53 = *(_SLIST_ENTRY **)&v50[4 * v52 + 8];
                   if ( v53 )
                   {
                     if ( (*((_BYTE *)&v53[2].Next + 12) & 1) == 0
-                      && v53 == (struct _SLIST_ENTRY *)_InterlockedCompareExchange64(
-                                                         (volatile signed __int64 *)&v50[4 * v52 + 8],
-                                                         (signed __int64)v20,
-                                                         (signed __int64)v53) )
+                      && v53 == (_SLIST_ENTRY *)_InterlockedCompareExchange64(
+                                                  (volatile signed __int64 *)&v50[4 * v52 + 8],
+                                                  (signed __int64)v20,
+                                                  (signed __int64)v53) )
                     {
                       _m_prefetchw((char *)&v53[2].Next + 12);
                       if ( _InterlockedAnd((volatile signed __int32 *)&v53[2].Next + 3, 0xFFFFFFFD) == 2 )
                       {
-                        Next = (union _SLIST_HEADER *)v53->Next->Next;
+                        Next = (_SLIST_HEADER *)v53->Next->Next;
                         v53->Next = 0LL;
                         RtlInterlockedPushEntrySList_0(Next, v53 + 3);
                       }
@@ -425,13 +425,13 @@ LABEL_168:
               }
               v65 = 0;
               v38 = (__int64)*v20;
-              v39 = (struct _SLIST_ENTRY *)_InterlockedExchange64(*v20 + 1, 0LL);
+              v39 = (_SLIST_ENTRY *)_InterlockedExchange64(*v20 + 1, 0LL);
               if ( !v39 )
                 goto LABEL_138;
               _m_prefetchw((char *)&v39[2].Next + 12);
               if ( _InterlockedAnd((volatile signed __int32 *)&v39[2].Next + 3, 0xFFFFFFF9) == 6 )
               {
-                v40 = (union _SLIST_HEADER *)v39->Next->Next;
+                v40 = (_SLIST_HEADER *)v39->Next->Next;
                 v39->Next = 0LL;
                 RtlInterlockedPushEntrySList_0(v40, v39 + 3);
                 *((_BYTE *)&ListHead.HeaderX64 + 6) = 0;
@@ -451,7 +451,7 @@ LABEL_168:
                 }
                 while ( v41 != _InterlockedCompareExchange((volatile signed __int32 *)&v39[2].Next + 3, v41 | 2, v41) );
                 *((_BYTE *)&ListHead.HeaderX64 + 7) = 1;
-                v37 = (union _SLIST_HEADER **)v39->Next;
+                v37 = (_SLIST_HEADER **)v39->Next;
                 v35 = 0LL;
                 for ( m = 0; ; m = v35 )
                 {
@@ -478,7 +478,7 @@ LABEL_168:
                       _m_prefetchw((const void *)(v36 + 44));
                       if ( _InterlockedAnd((volatile signed __int32 *)(v36 + 44), 0xFFFFFFFD) == 2 )
                       {
-                        v43 = **(union _SLIST_HEADER ***)v36;
+                        v43 = **(_SLIST_HEADER ***)v36;
                         *(_QWORD *)v36 = 0LL;
                         RtlInterlockedPushEntrySList_0(v43, (PSLIST_ENTRY)(v36 + 48));
                       }
@@ -500,19 +500,19 @@ LABEL_138:
               v68 = *v20;
               if ( (*((_BYTE *)v20 + 38) & 3) != 0 )
               {
-                v75 = ((unsigned __int64)v20[1] + 4151) & 0xFFFFFFFFFFFFF000uLL;
-                v72 = (unsigned __int16)sub_18008AEA0(v20, v36, v35, v37);
-                v72 *= 16LL * *((unsigned __int16 *)v20 + 20);
+                BaseAddressa = (PVOID)(((unsigned __int64)v20[1] + 4151) & 0xFFFFFFFFFFFFF000uLL);
+                RegionSize = (unsigned __int16)sub_18008AEA0(v20, v36, v35, v37);
+                RegionSize *= 16LL * *((unsigned __int16 *)v20 + 20);
                 v8 = 1;
                 v45 = sub_18001E548(*(_DWORD **)(v44 + 24), 1);
-                ZwProtectVirtualMemory(-1LL, &v75, &v72, v45, v78);
+                ZwProtectVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddressa, &RegionSize, v45, &OldProtect);
               }
               else
               {
                 v8 = 1;
               }
               *((_DWORD *)v20[1] + 5) = 0;
-              sub_180022088(v44, (__int64)v20[1]);
+              sub_180022088(v44, v20[1]);
               v46 = -*((unsigned __int16 *)v20 + 20);
               do
               {
@@ -531,7 +531,7 @@ LABEL_138:
               _m_prefetchw((char *)v20 + 44);
               if ( _InterlockedAnd((volatile signed __int32 *)v20 + 11, 0xFFFFFFFE) == 1 )
               {
-                v48 = (union _SLIST_HEADER *)**v20;
+                v48 = (_SLIST_HEADER *)**v20;
                 *v20 = 0LL;
                 RtlInterlockedPushEntrySList_0(v48, (PSLIST_ENTRY)v20 + 3);
               }
@@ -543,12 +543,12 @@ LABEL_171:
           *(_QWORD *)v67 = 0LL;
           if ( (dword_18015C2A8 & 1) != 0
             && (dword_18015C2A8 & 2) != 0
-            && a1 != *(_QWORD *)&qword_18015BFE0
+            && BaseAddress != qword_18015BFE0
             && NtCurrentPeb()->ProcessHeap
             && (a3 & 0x10000000) == 0 )
           {
 LABEL_176:
-            sub_1800FEEB8(a1, v4);
+            sub_1800FEEB8(BaseAddress, v4);
           }
 LABEL_22:
           if ( v8 && LOWORD(ListHead.Alignment) )
@@ -558,7 +558,7 @@ LABEL_22:
           goto LABEL_25;
         }
 LABEL_170:
-        v55 = sub_1800265E0(a1, a3 | 2u, v7, v4);
+        v55 = sub_1800265E0(BaseAddress);
         v8 = v55;
         v58 = v55;
         if ( !v55 )
@@ -568,12 +568,12 @@ LABEL_170:
     }
     if ( *(char *)(v7 + 15) >= 0 )
     {
-      if ( *(_DWORD *)(a1 + 124) )
+      if ( BaseAddress[31] )
       {
         v14 = *(_DWORD *)(v7 + 8);
         v81 = v14;
-        if ( (v14 & *(_DWORD *)(a1 + 124)) != 0 )
-          v81 = v14 ^ *(_DWORD *)(a1 + 136);
+        if ( (v14 & BaseAddress[31]) != 0 )
+          v81 = v14 ^ BaseAddress[34];
         v13 = v81;
       }
       else
@@ -584,22 +584,22 @@ LABEL_170:
     }
     else
     {
-      if ( *(_WORD *)(v7 + 8) ^ (unsigned __int16)(qword_18015BFE8 ^ a1 ^ (v7 >> 4)) )
+      if ( *(_WORD *)(v7 + 8) ^ (unsigned __int16)(qword_18015BFE8 ^ (unsigned __int16)BaseAddress ^ (v7 >> 4)) )
         v12 = 0LL;
       else
         v12 = *(_QWORD *)(v7
-                        - ((*(_DWORD *)(v7 + 8) ^ (unsigned int)qword_18015BFE8 ^ (unsigned int)a1 ^ (unsigned int)(v7 >> 4)) >> 12));
+                        - ((*(_DWORD *)(v7 + 8) ^ (unsigned int)qword_18015BFE8 ^ (unsigned int)BaseAddress ^ (unsigned int)(v7 >> 4)) >> 12));
       v13 = *(_WORD *)(v12 + 36);
     }
     v15 = v13;
     if ( *(_BYTE *)(v7 + 15) == 4 )
     {
-      if ( *(_DWORD *)(a1 + 124) )
+      if ( BaseAddress[31] )
       {
         v16 = *(_DWORD *)(v7 + 8);
         v82 = v16;
-        if ( (v16 & *(_DWORD *)(a1 + 124)) != 0 )
-          v82 = v16 ^ *(_DWORD *)(a1 + 136);
+        if ( (v16 & BaseAddress[31]) != 0 )
+          v82 = v16 ^ BaseAddress[34];
         v17 = v82;
       }
       else
@@ -617,7 +617,7 @@ LABEL_170:
       goto LABEL_81;
     *((_BYTE *)&ListHead.HeaderX64 + 4) = 0;
 LABEL_82:
-    sub_1800A4DFC(3, a1, v7, v4, 0LL, 0LL);
+    sub_1800A4DFC(3, (_DWORD)BaseAddress, v7, v4, 0LL, 0LL);
     NtCurrentTeb()->LastStatusValue = -1073741811;
     v10 = NtCurrentTeb();
     v85 = v10;

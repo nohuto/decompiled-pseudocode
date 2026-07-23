@@ -8,7 +8,7 @@
  *     RtlpRegisterStackTrace @ 0x18010AC98 (RtlpRegisterStackTrace.c)
  */
 
-__int64 __fastcall RtlpStackTraceDatabaseLogPrefix(__int64 a1, __int64 a2, unsigned int a3, signed __int64 *a4)
+__int64 __fastcall RtlpStackTraceDatabaseLogPrefix(__int64 a1, __int64 a2, unsigned int a3, char **a4)
 {
   USHORT v5; // ax
   ULONG BackTraceHash[4]; // [rsp+20h] [rbp-128h] BYREF
@@ -16,7 +16,7 @@ __int64 __fastcall RtlpStackTraceDatabaseLogPrefix(__int64 a1, __int64 a2, unsig
 
   if ( a3 == 1 )
   {
-    *a4 = 16LL;
+    *a4 = (char *)16;
   }
   else if ( a3 > 1 && (a3 <= 3 || a3 - 5 <= 1) )
   {

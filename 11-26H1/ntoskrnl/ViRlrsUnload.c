@@ -1,12 +1,12 @@
 /*
- * XREFs of ViRlrsUnload @ 0x1406486D0
+ * XREFs of ViRlrsUnload @ 0x14064C2B0
  * Callers:
  *     <none>
  * Callees:
- *     PsSetCreateProcessNotifyRoutine @ 0x1407FCCC0 (PsSetCreateProcessNotifyRoutine.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
- *     VfFaultsRemoveAllApps @ 0x140C34968 (VfFaultsRemoveAllApps.c)
- *     VfFaultsRemoveAllTags @ 0x140C34A00 (VfFaultsRemoveAllTags.c)
+ *     PsSetCreateProcessNotifyRoutine @ 0x1408026F0 (PsSetCreateProcessNotifyRoutine.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
+ *     VfFaultsRemoveAllApps @ 0x140C3A978 (VfFaultsRemoveAllApps.c)
+ *     VfFaultsRemoveAllTags @ 0x140C3AA10 (VfFaultsRemoveAllTags.c)
  */
 
 __int64 ViRlrsUnload()

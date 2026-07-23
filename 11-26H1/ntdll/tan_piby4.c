@@ -1,7 +1,7 @@
 /*
- * XREFs of tan_piby4 @ 0x18012D630
+ * XREFs of tan_piby4 @ 0x18012D3A0
  * Callers:
- *     tan @ 0x18012D300 (tan.c)
+ *     tan @ 0x18012D070 (tan.c)
  * Callees:
  *     <none>
  */

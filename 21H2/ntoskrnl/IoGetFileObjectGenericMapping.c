@@ -1,8 +1,8 @@
 /*
- * XREFs of IoGetFileObjectGenericMapping @ 0x140693B60
+ * XREFs of IoGetFileObjectGenericMapping @ 0x1405F30C0
  * Callers:
- *     CmpCheckHivePrimaryFileReadWriteAccess @ 0x1404EC8A8 (CmpCheckHivePrimaryFileReadWriteAccess.c)
- *     VfUtilIsLocalSystem @ 0x1409C67E4 (VfUtilIsLocalSystem.c)
+ *     CmpCheckHivePrimaryFileReadWriteAccess @ 0x1404ECAE8 (CmpCheckHivePrimaryFileReadWriteAccess.c)
+ *     VfUtilIsLocalSystem @ 0x1409C77E4 (VfUtilIsLocalSystem.c)
  * Callees:
  *     <none>
  */

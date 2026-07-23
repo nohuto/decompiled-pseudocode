@@ -1,14 +1,14 @@
 /*
- * XREFs of MiCompareHotPatchNodes @ 0x14086F6BC
+ * XREFs of MiCompareHotPatchNodes @ 0x140875A8C
  * Callers:
- *     MiGetAllRegisteredPatches @ 0x14086FD1C (MiGetAllRegisteredPatches.c)
- *     MiInsertHotPatchRecord @ 0x1408708FC (MiInsertHotPatchRecord.c)
- *     MiInsertPreviouslyRegisteredHotPatchRecord @ 0x140870AAC (MiInsertPreviouslyRegisteredHotPatchRecord.c)
- *     MiInsertSecureImageActivePatch @ 0x140870BC8 (MiInsertSecureImageActivePatch.c)
- *     MmRemoveSecureImageActivePatch @ 0x140874D80 (MmRemoveSecureImageActivePatch.c)
- *     MiFindProcessImageHotPatchRecord @ 0x140A99998 (MiFindProcessImageHotPatchRecord.c)
- *     MiFindHotPatchRecord @ 0x140ABFFE4 (MiFindHotPatchRecord.c)
- *     MmRegisterHotPatches @ 0x140CFBBA4 (MmRegisterHotPatches.c)
+ *     MiGetAllRegisteredPatches @ 0x14087607C (MiGetAllRegisteredPatches.c)
+ *     MiInsertHotPatchRecord @ 0x140876C5C (MiInsertHotPatchRecord.c)
+ *     MiInsertPreviouslyRegisteredHotPatchRecord @ 0x140876E0C (MiInsertPreviouslyRegisteredHotPatchRecord.c)
+ *     MiInsertSecureImageActivePatch @ 0x140876F28 (MiInsertSecureImageActivePatch.c)
+ *     MmRemoveSecureImageActivePatch @ 0x14087B164 (MmRemoveSecureImageActivePatch.c)
+ *     MiFindProcessImageHotPatchRecord @ 0x140A9DB18 (MiFindProcessImageHotPatchRecord.c)
+ *     MiFindHotPatchRecord @ 0x140AC2084 (MiFindHotPatchRecord.c)
+ *     MmRegisterHotPatches @ 0x140D01F24 (MmRegisterHotPatches.c)
  * Callees:
  *     <none>
  */

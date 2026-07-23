@@ -1,9 +1,9 @@
 /*
- * XREFs of KiComputeTopologyConstantsIntelCompatible @ 0x1405FBE0C
+ * XREFs of KiComputeTopologyConstantsIntelCompatible @ 0x1405FE85C
  * Callers:
- *     KiComputeTopologyConstants @ 0x1405FBA98 (KiComputeTopologyConstants.c)
+ *     KiComputeTopologyConstants @ 0x1405FE4E8 (KiComputeTopologyConstants.c)
  * Callees:
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall KiComputeTopologyConstantsIntelCompatible(int a1, unsigned int a2, __int64 a3, int *a4)

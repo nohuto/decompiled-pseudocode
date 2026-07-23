@@ -11,7 +11,7 @@
  *     ExFreePoolWithTag @ 0x140B62CD0 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall BiHandleFirmwareDefaultEntry(__int64 a1, __int64 a2, PVOID *a3, unsigned int *a4)
+__int64 __fastcall BiHandleFirmwareDefaultEntry(__int64 a1, void *a2, PVOID *a3, unsigned int *a4)
 {
   int Element; // eax
   unsigned int v9; // ebx
@@ -22,32 +22,31 @@ __int64 __fastcall BiHandleFirmwareDefaultEntry(__int64 a1, __int64 a2, PVOID *a
   _DWORD *v14; // rax
   _DWORD *Pool2; // rax
   _DWORD *v16; // r14
-  int v18; // [rsp+20h] [rbp-28h] BYREF
-  int v19; // [rsp+24h] [rbp-24h] BYREF
-  PVOID P[4]; // [rsp+28h] [rbp-20h] BYREF
+  _DWORD v18[2]; // [rsp+20h] [rbp-28h] BYREF
+  PVOID P; // [rsp+28h] [rbp-20h]
 
-  v18 = 0;
-  v19 = 0;
-  P[0] = 0LL;
-  Element = BiGetElement(a2, 587202563LL, P, &v19);
+  v18[0] = 0;
+  v18[1] = 0;
+  P = 0LL;
+  Element = BiGetElement(a2, 0x23000003u);
   v9 = Element;
   if ( Element == -1073741275 )
     goto LABEL_20;
   if ( Element < 0 )
     goto LABEL_21;
   BiDeleteElement(a2, 587202563LL);
-  if ( (int)BiTranslateObjectIdentifier(a1, P[0], &v18) < 0 )
+  if ( (int)BiTranslateObjectIdentifier(a1, P, v18) < 0 )
     goto LABEL_20;
   v10 = *a4;
   v11 = 0LL;
   v12 = (char *)*a3;
-  v13 = v18;
+  v13 = v18[0];
   if ( !*a4 )
     goto LABEL_10;
   v14 = *a3;
   do
   {
-    if ( *v14 == v18 )
+    if ( *v14 == v18[0] )
       break;
     v11 = (unsigned int)(v11 + 1);
     ++v14;
@@ -77,7 +76,7 @@ LABEL_10:
 LABEL_20:
   v9 = 0;
 LABEL_21:
-  if ( P[0] )
-    ExFreePoolWithTag(P[0], 0x4B444342u);
+  if ( P )
+    ExFreePoolWithTag(P, 0x4B444342u);
   return v9;
 }

@@ -3,12 +3,12 @@
  * Callers:
  *     PoClearPowerRequestInternal @ 0x1400027C4 (PoClearPowerRequestInternal.c)
  *     PoSetPowerRequestInternal @ 0x140002E88 (PoSetPowerRequestInternal.c)
- *     PopClearSpecialRequest @ 0x14086636C (PopClearSpecialRequest.c)
- *     PopSetSpecialRequest @ 0x140866600 (PopSetSpecialRequest.c)
+ *     PopClearSpecialRequest @ 0x1408675CC (PopClearSpecialRequest.c)
+ *     PopSetSpecialRequest @ 0x140867860 (PopSetSpecialRequest.c)
  * Callees:
  *     EtwEventEnabled @ 0x14005B2D0 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x1400CAD60 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x1400CAE40 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 char __fastcall PopDiagTracePowerRequestChange(__int64 a1)

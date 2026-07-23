@@ -10,9 +10,9 @@
  *     LdrpLogDllState @ 0x180026314 (LdrpLogDllState.c)
  *     LdrpSendDllNotifications @ 0x18002795C (LdrpSendDllNotifications.c)
  *     SbUpdateSwitchContextBasedOnDll @ 0x1800279F0 (SbUpdateSwitchContextBasedOnDll.c)
- *     CompatCachepLookupCdb @ 0x180077890 (CompatCachepLookupCdb.c)
- *     AVrfDllLoadNotification @ 0x180087A7C (AVrfDllLoadNotification.c)
- *     _guard_dispatch_icall_nop @ 0x1800A3CE0 (_guard_dispatch_icall_nop.c)
+ *     CompatCachepLookupCdb @ 0x1800778A0 (CompatCachepLookupCdb.c)
+ *     AVrfDllLoadNotification @ 0x180087A8C (AVrfDllLoadNotification.c)
+ *     _guard_dispatch_icall_nop @ 0x1800A3D00 (_guard_dispatch_icall_nop.c)
  *     memmove @ 0x1800A6DC0 (memmove.c)
  *     LdrpLogDbgPrint @ 0x1800CFAF8 (LdrpLogDbgPrint.c)
  */
@@ -45,7 +45,7 @@ __int64 __fastcall LdrpSendPostSnapNotifications(__int64 a1)
   v3 = g_pShimmedModuleList != 0LL;
   v22 = v3;
   NtGlobalFlag = NtCurrentPeb()->NtGlobalFlag;
-  RtlEnterCriticalSection((__int64)&LdrpDllNotificationLock);
+  RtlEnterCriticalSection(&LdrpDllNotificationLock);
   if ( g_ShimsEnabled )
   {
     v5 = MEMORY[0x7FFE0330];
@@ -87,7 +87,7 @@ __int64 __fastcall LdrpSendPostSnapNotifications(__int64 a1)
             v14 = v13 + g_pShimmedModuleListLength + 1;
           else
             v14 = v13 + 2;
-          Heap = (char *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, 2 * v14);
+          Heap = (char *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, 2 * v14);
           if ( Heap )
           {
             if ( g_pShimmedModuleList )
@@ -99,7 +99,7 @@ __int64 __fastcall LdrpSendPostSnapNotifications(__int64 a1)
                 ++v18;
               while ( v10[v18] );
               memmove(&Heap[v17 + 2], v10, 2 * v18);
-              RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (unsigned __int64)g_pShimmedModuleList);
+              RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, g_pShimmedModuleList);
               v1 = a1;
             }
             else
@@ -141,6 +141,6 @@ __int64 __fastcall LdrpSendPostSnapNotifications(__int64 a1)
     }
     while ( v6 != v1 );
   }
-  RtlLeaveCriticalSection((__int64)&LdrpDllNotificationLock);
+  RtlLeaveCriticalSection(&LdrpDllNotificationLock);
   return (unsigned int)Notification;
 }

@@ -1,14 +1,14 @@
 /*
- * XREFs of RegistryOverwriteCentralProcessor @ 0x1409F3520
+ * XREFs of RegistryOverwriteCentralProcessor @ 0x1409F4520
  * Callers:
- *     StartFirstUserProcess @ 0x1409C5CC0 (StartFirstUserProcess.c)
+ *     StartFirstUserProcess @ 0x1409C6CC0 (StartFirstUserProcess.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     ZwOpenKey @ 0x1401B83D0 (ZwOpenKey.c)
- *     ZwEnumerateKey @ 0x1401B87D0 (ZwEnumerateKey.c)
- *     ZwSetValueKey @ 0x1401B8D90 (ZwSetValueKey.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     ZwOpenKey @ 0x1401B8530 (ZwOpenKey.c)
+ *     ZwEnumerateKey @ 0x1401B8930 (ZwEnumerateKey.c)
+ *     ZwSetValueKey @ 0x1401B8EF0 (ZwSetValueKey.c)
  */
 
 __int64 RegistryOverwriteCentralProcessor()

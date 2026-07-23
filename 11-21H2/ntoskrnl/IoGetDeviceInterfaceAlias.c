@@ -1,26 +1,26 @@
 /*
  * XREFs of IoGetDeviceInterfaceAlias @ 0x1406DB590
  * Callers:
- *     PiCMGetDeviceInterfaceAlias @ 0x1406DB388 (PiCMGetDeviceInterfaceAlias.c)
+ *     sub_1406DB388 @ 0x1406DB388 (sub_1406DB388.c)
  * Callees:
  *     ExAcquireResourceExclusiveLite @ 0x1402AE340 (ExAcquireResourceExclusiveLite.c)
  *     ExReleaseResourceLite @ 0x1402B0E80 (ExReleaseResourceLite.c)
  *     RtlInitUnicodeStringEx @ 0x1402DFB70 (RtlInitUnicodeStringEx.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
+ *     sub_1402F9540 @ 0x1402F9540 (sub_1402F9540.c)
  *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
  *     ZwClose @ 0x14041B940 (ZwClose.c)
- *     _CmGetDeviceInterfacePathFormat @ 0x1406DBA7C (_CmGetDeviceInterfacePathFormat.c)
- *     _CmGetDeviceInterfaceReferenceString @ 0x1406DBB10 (_CmGetDeviceInterfaceReferenceString.c)
+ *     sub_1406DBA7C @ 0x1406DBA7C (sub_1406DBA7C.c)
+ *     sub_1406DBB10 @ 0x1406DBB10 (sub_1406DBB10.c)
  *     RtlFreeUnicodeString @ 0x1407023F0 (RtlFreeUnicodeString.c)
  *     SeCaptureSubjectContext @ 0x14072A600 (SeCaptureSubjectContext.c)
- *     _PnpStringFromGuid @ 0x140773030 (_PnpStringFromGuid.c)
- *     PnpUnicodeStringToWstr @ 0x140779CA0 (PnpUnicodeStringToWstr.c)
- *     PnpUnicodeStringToWstrFree @ 0x14077BAB8 (PnpUnicodeStringToWstrFree.c)
- *     PiPnpRtlApplyMandatoryFilters @ 0x14077D454 (PiPnpRtlApplyMandatoryFilters.c)
- *     _PnpGetObjectProperty @ 0x14077DA5C (_PnpGetObjectProperty.c)
- *     _CmValidateDeviceInterfaceName @ 0x14077F150 (_CmValidateDeviceInterfaceName.c)
- *     _CmOpenDeviceInterfaceRegKey @ 0x140784B14 (_CmOpenDeviceInterfaceRegKey.c)
- *     _CmGetDeviceInterfaceName @ 0x140789718 (_CmGetDeviceInterfaceName.c)
+ *     sub_140773030 @ 0x140773030 (sub_140773030.c)
+ *     sub_140779CA0 @ 0x140779CA0 (sub_140779CA0.c)
+ *     sub_14077BAB8 @ 0x14077BAB8 (sub_14077BAB8.c)
+ *     sub_14077D454 @ 0x14077D454 (sub_14077D454.c)
+ *     sub_14077DA5C @ 0x14077DA5C (sub_14077DA5C.c)
+ *     sub_14077F150 @ 0x14077F150 (sub_14077F150.c)
+ *     sub_140784B14 @ 0x140784B14 (sub_140784B14.c)
+ *     sub_140789718 @ 0x140789718 (sub_140789718.c)
  *     SeReleaseSubjectContext @ 0x1407CA9B0 (SeReleaseSubjectContext.c)
  *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
@@ -34,140 +34,137 @@ NTSTATUS __stdcall IoGetDeviceInterfaceAlias(
   void *v6; // rsi
   __int64 v7; // rdi
   __int64 v8; // rcx
-  int ObjectProperty; // ebx
+  int inited; // ebx
   struct _KTHREAD *CurrentThread; // rax
   __int64 Pool2; // rax
   void *v12; // r14
   __int64 v13; // rdi
-  __int64 v14; // rcx
+  int v14; // ecx
   __int64 v15; // rcx
-  __int64 v16; // rcx
+  int v16; // ecx
   WCHAR *v17; // rdi
   char v18; // r12
   int v19; // r9d
-  __int64 v21; // rcx
+  int v21; // ecx
   unsigned int v22; // ebx
-  __int64 v23; // rcx
-  int SessionId; // [rsp+20h] [rbp-E0h]
-  int SessionIda; // [rsp+20h] [rbp-E0h]
-  _WORD v26[2]; // [rsp+60h] [rbp-A0h] BYREF
-  unsigned int v27; // [rsp+64h] [rbp-9Ch] BYREF
-  int v28; // [rsp+68h] [rbp-98h] BYREF
-  int v29[2]; // [rsp+70h] [rbp-90h] BYREF
-  int v30; // [rsp+78h] [rbp-88h] BYREF
+  int v23; // ecx
+  _WORD v24[2]; // [rsp+60h] [rbp-A0h] BYREF
+  unsigned int v25; // [rsp+64h] [rbp-9Ch] BYREF
+  int v26; // [rsp+68h] [rbp-98h] BYREF
+  int v27[2]; // [rsp+70h] [rbp-90h] BYREF
+  int v28; // [rsp+78h] [rbp-88h] BYREF
   HANDLE Handle; // [rsp+80h] [rbp-80h] BYREF
   struct _SECURITY_SUBJECT_CONTEXT SubjectContext; // [rsp+88h] [rbp-78h] BYREF
-  _BYTE v33[80]; // [rsp+B0h] [rbp-50h] BYREF
+  _BYTE v31[80]; // [rsp+B0h] [rbp-50h] BYREF
 
-  v26[0] = 0;
+  v24[0] = 0;
   Handle = 0LL;
-  v28 = 0;
+  v26 = 0;
   v6 = 0LL;
-  v30 = 0;
+  v28 = 0;
   v7 = 0LL;
-  *(_QWORD *)v29 = 0LL;
+  *(_QWORD *)v27 = 0LL;
   memset(&SubjectContext, 0, sizeof(SubjectContext));
   if ( !SymbolicLinkName || !SymbolicLinkName->Buffer || !SymbolicLinkName->Length )
     goto LABEL_29;
-  ObjectProperty = PnpUnicodeStringToWstr(v29, 0LL, SymbolicLinkName);
-  if ( ObjectProperty < 0 )
+  inited = sub_140779CA0(v27, 0LL, SymbolicLinkName);
+  if ( inited < 0 )
   {
 LABEL_27:
-    v7 = *(_QWORD *)v29;
+    v7 = *(_QWORD *)v27;
     goto LABEL_28;
   }
-  v7 = *(_QWORD *)v29;
-  if ( (int)CmValidateDeviceInterfaceName(v8, *(_QWORD *)v29) < 0 )
+  v7 = *(_QWORD *)v27;
+  if ( (int)sub_14077F150(v8, *(_QWORD *)v27) < 0 )
   {
 LABEL_29:
-    ObjectProperty = -1073741811;
+    inited = -1073741811;
     goto LABEL_28;
   }
   SeCaptureSubjectContext(&SubjectContext);
-  ObjectProperty = PiPnpRtlApplyMandatoryFilters(PiPnpRtlCtx, v7, 3, 0, (ULONG)&SubjectContext, (__int64)v26);
+  inited = sub_14077D454(qword_140D00AC0, v7, 3, 0, (ULONG)&SubjectContext, (__int64)v24);
   SeReleaseSubjectContext(&SubjectContext);
-  if ( ObjectProperty >= 0 )
+  if ( inited >= 0 )
   {
-    if ( !LOBYTE(v26[0]) )
+    if ( !LOBYTE(v24[0]) )
     {
-      ObjectProperty = -1073741790;
+      inited = -1073741790;
       goto LABEL_28;
     }
-    ObjectProperty = PnpStringFromGuid(AliasInterfaceClassGuid, v33);
-    if ( ObjectProperty >= 0 )
+    inited = sub_140773030(AliasInterfaceClassGuid, v31);
+    if ( inited >= 0 )
     {
       CurrentThread = KeGetCurrentThread();
-      --CurrentThread->KernelApcDisable;
-      ExAcquireResourceExclusiveLite(&PnpRegistryDeviceResource, 1u);
+      --*((_WORD *)CurrentThread + 242);
+      ExAcquireResourceExclusiveLite(&stru_140C462A0, 1u);
       Pool2 = ExAllocatePool2(256LL, 400LL, 538996816LL);
       v12 = (void *)Pool2;
       if ( Pool2 )
       {
-        v13 = *(_QWORD *)v29;
-        ObjectProperty = PnpGetObjectProperty(
-                           PiPnpRtlCtx,
-                           v29[0],
-                           3,
-                           0,
-                           0LL,
-                           (__int64)&DEVPKEY_Device_InstanceId,
-                           (__int64)&v28,
-                           Pool2,
-                           400,
-                           (__int64)&v30,
-                           0);
-        if ( ObjectProperty < 0 )
+        v13 = *(_QWORD *)v27;
+        inited = sub_14077DA5C(
+                   qword_140D00AC0,
+                   v27[0],
+                   3,
+                   0,
+                   0LL,
+                   (__int64)&qword_140010AD8,
+                   (__int64)&v26,
+                   Pool2,
+                   400,
+                   (__int64)&v28,
+                   0);
+        if ( inited < 0 )
           goto LABEL_23;
-        if ( v28 != 18 )
+        if ( v26 != 18 )
         {
-          ObjectProperty = -1073741585;
+          inited = -1073741585;
           goto LABEL_23;
         }
-        v27 = 128;
+        v25 = 128;
         v6 = (void *)ExAllocatePool2(256LL, 256LL, 538996816LL);
         if ( !v6 )
           goto LABEL_32;
-        ObjectProperty = CmGetDeviceInterfaceReferenceString(v14, v13, v6, 128LL, &v27);
-        if ( ObjectProperty != -1073741789 )
+        inited = sub_1406DBB10(v14, v13, (_DWORD)v6, 128, (__int64)&v25);
+        if ( inited != -1073741789 )
         {
 LABEL_14:
-          if ( ObjectProperty == -1073741772 )
+          if ( inited == -1073741772 )
           {
             ExFreePoolWithTag(v6, 0);
             v6 = 0LL;
           }
-          else if ( ObjectProperty < 0 )
+          else if ( inited < 0 )
           {
             goto LABEL_23;
           }
-          ObjectProperty = CmGetDeviceInterfacePathFormat(v15, v13, (char *)v26 + 1);
-          if ( ObjectProperty >= 0 )
+          inited = sub_1406DBA7C(v15, v13, (char *)v24 + 1);
+          if ( inited >= 0 )
           {
-            v27 = 512;
+            v25 = 512;
             v17 = (WCHAR *)ExAllocatePool2(256LL, 1024LL, 538996816LL);
             if ( v17 )
             {
-              v18 = HIBYTE(v26[0]);
-              LOBYTE(SessionId) = HIBYTE(v26[0]);
-              ObjectProperty = CmGetDeviceInterfaceName(v16, v33, v12, v6, SessionId, v17, 512, &v27);
-              if ( ObjectProperty != -1073741789 )
+              v18 = HIBYTE(v24[0]);
+              inited = sub_140789718(
+                         v16,
+                         (unsigned int)v31,
+                         (_DWORD)v12,
+                         (_DWORD)v6,
+                         SHIBYTE(v24[0]),
+                         (__int64)v17,
+                         512,
+                         (__int64)&v25);
+              if ( inited != -1073741789 )
               {
 LABEL_19:
-                if ( ObjectProperty >= 0 )
+                if ( inited >= 0 )
                 {
-                  ObjectProperty = RtlInitUnicodeStringEx(AliasSymbolicLinkName, v17);
-                  if ( ObjectProperty >= 0 )
+                  inited = RtlInitUnicodeStringEx(AliasSymbolicLinkName, v17);
+                  if ( inited >= 0 )
                   {
-                    ObjectProperty = CmOpenDeviceInterfaceRegKey(
-                                       PiPnpRtlCtx,
-                                       (_DWORD)v17,
-                                       48,
-                                       v19,
-                                       131097,
-                                       0,
-                                       (__int64)&Handle,
-                                       0LL);
-                    if ( ObjectProperty < 0 )
+                    inited = sub_140784B14(qword_140D00AC0, (_DWORD)v17, 48, v19, 131097, 0, (__int64)&Handle, 0LL);
+                    if ( inited < 0 )
                       RtlFreeUnicodeString(AliasSymbolicLinkName);
                     else
                       ZwClose(Handle);
@@ -176,20 +173,27 @@ LABEL_19:
                 goto LABEL_23;
               }
               ExFreePoolWithTag(v17, 0);
-              v22 = v27;
-              v17 = (WCHAR *)ExAllocatePool2(256LL, 2LL * v27, 538996816LL);
+              v22 = v25;
+              v17 = (WCHAR *)ExAllocatePool2(256LL, 2LL * v25, 538996816LL);
               if ( v17 )
               {
-                LOBYTE(SessionIda) = v18;
-                ObjectProperty = CmGetDeviceInterfaceName(v23, v33, v12, v6, SessionIda, v17, v22, &v27);
+                inited = sub_140789718(
+                           v23,
+                           (unsigned int)v31,
+                           (_DWORD)v12,
+                           (_DWORD)v6,
+                           v18,
+                           (__int64)v17,
+                           v22,
+                           (__int64)&v25);
                 goto LABEL_19;
               }
             }
             goto LABEL_32;
           }
 LABEL_23:
-          ExReleaseResourceLite(&PnpRegistryDeviceResource);
-          KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+          ExReleaseResourceLite(&stru_140C462A0);
+          sub_1402F9540((__int64)KeGetCurrentThread());
           if ( v6 )
             ExFreePoolWithTag(v6, 0);
           if ( v12 )
@@ -197,19 +201,19 @@ LABEL_23:
           goto LABEL_27;
         }
         ExFreePoolWithTag(v6, 0);
-        v6 = (void *)ExAllocatePool2(256LL, 2LL * v27, 538996816LL);
+        v6 = (void *)ExAllocatePool2(256LL, 2LL * v25, 538996816LL);
         if ( v6 )
         {
-          ObjectProperty = CmGetDeviceInterfaceReferenceString(v21, v13, v6, v27, &v27);
+          inited = sub_1406DBB10(v21, v13, (_DWORD)v6, v25, (__int64)&v25);
           goto LABEL_14;
         }
       }
 LABEL_32:
-      ObjectProperty = -1073741670;
+      inited = -1073741670;
       goto LABEL_23;
     }
   }
 LABEL_28:
-  PnpUnicodeStringToWstrFree(v7, SymbolicLinkName);
-  return ObjectProperty;
+  sub_14077BAB8(v7, SymbolicLinkName);
+  return inited;
 }

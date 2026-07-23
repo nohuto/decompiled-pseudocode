@@ -1,11 +1,11 @@
 /*
- * XREFs of KiSendHeteroRescheduleIntRequest @ 0x14051FF30
+ * XREFs of KiSendHeteroRescheduleIntRequest @ 0x140520170
  * Callers:
- *     KiIdleSchedule @ 0x140256BD0 (KiIdleSchedule.c)
- *     KiSwapThread @ 0x1403466D0 (KiSwapThread.c)
- *     KeTransitionProcessorParkState @ 0x1405254AC (KeTransitionProcessorParkState.c)
+ *     KiIdleSchedule @ 0x140278140 (KiIdleSchedule.c)
+ *     KiSwapThread @ 0x140351420 (KiSwapThread.c)
+ *     KeTransitionProcessorParkState @ 0x1405256EC (KeTransitionProcessorParkState.c)
  * Callees:
- *     KiSendHeteroRescheduleIntRequestHelper @ 0x14051FFF0 (KiSendHeteroRescheduleIntRequestHelper.c)
+ *     KiSendHeteroRescheduleIntRequestHelper @ 0x140520230 (KiSendHeteroRescheduleIntRequestHelper.c)
  */
 
 __int64 __fastcall KiSendHeteroRescheduleIntRequest(_QWORD *a1)

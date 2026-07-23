@@ -1,13 +1,13 @@
 /*
- * XREFs of MmGetSectionStrongImageReference @ 0x1407FB42C
+ * XREFs of MmGetSectionStrongImageReference @ 0x1407FBB9C
  * Callers:
- *     PsDispatchIumService @ 0x14048D020 (PsDispatchIumService.c)
- *     PspAllocateProcess @ 0x140A1C4C0 (PspAllocateProcess.c)
+ *     PsDispatchIumService @ 0x1404E66B4 (PsDispatchIumService.c)
+ *     PspAllocateProcess @ 0x1409FACD0 (PspAllocateProcess.c)
  * Callees:
- *     MiSectionControlArea @ 0x1402D4800 (MiSectionControlArea.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x14084B7E0 (ObpReferenceObjectByHandleWithTag.c)
- *     MiGetSectionStrongImageReference @ 0x1409593FC (MiGetSectionStrongImageReference.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     MiSectionControlArea @ 0x140355A80 (MiSectionControlArea.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x140847AA0 (ObpReferenceObjectByHandleWithTag.c)
+ *     MiGetSectionStrongImageReference @ 0x14093AE14 (MiGetSectionStrongImageReference.c)
  */
 
 __int64 __fastcall MmGetSectionStrongImageReference(ULONG_PTR a1, __int64 a2, void *a3, _QWORD *a4)

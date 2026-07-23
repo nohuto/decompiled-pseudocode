@@ -1,16 +1,16 @@
 /*
- * XREFs of MiSystemVaToDynamicBitmap @ 0x1402B407C
+ * XREFs of MiSystemVaToDynamicBitmap @ 0x14023222C
  * Callers:
- *     MiObtainSystemVa @ 0x1402B37E0 (MiObtainSystemVa.c)
- *     MiMakeSystemRangeAvailable @ 0x1402FD514 (MiMakeSystemRangeAvailable.c)
- *     MiIsSystemVaAllocated @ 0x14053D914 (MiIsSystemVaAllocated.c)
- *     MiMarkSystemVaAllocated @ 0x14053DC70 (MiMarkSystemVaAllocated.c)
- *     MiInitializeKernelStacks @ 0x140A4D410 (MiInitializeKernelStacks.c)
- *     MiInitializeSystemPtes @ 0x140A4E1C4 (MiInitializeSystemPtes.c)
- *     MiInitializeNonPagedPool @ 0x140A4E39C (MiInitializeNonPagedPool.c)
- *     MiBuildPagedPool @ 0x140A4E614 (MiBuildPagedPool.c)
- *     MiInitializeDynamicRegion @ 0x140A4E6D4 (MiInitializeDynamicRegion.c)
- *     MiInitializeDriverImages @ 0x140A4E6F4 (MiInitializeDriverImages.c)
+ *     MiObtainSystemVa @ 0x140231990 (MiObtainSystemVa.c)
+ *     MiMakeSystemRangeAvailable @ 0x140308264 (MiMakeSystemRangeAvailable.c)
+ *     MiIsSystemVaAllocated @ 0x14053DB54 (MiIsSystemVaAllocated.c)
+ *     MiMarkSystemVaAllocated @ 0x14053DEB0 (MiMarkSystemVaAllocated.c)
+ *     MiInitializeKernelStacks @ 0x140A4E410 (MiInitializeKernelStacks.c)
+ *     MiInitializeSystemPtes @ 0x140A4F1C4 (MiInitializeSystemPtes.c)
+ *     MiInitializeNonPagedPool @ 0x140A4F39C (MiInitializeNonPagedPool.c)
+ *     MiBuildPagedPool @ 0x140A4F614 (MiBuildPagedPool.c)
+ *     MiInitializeDynamicRegion @ 0x140A4F6D4 (MiInitializeDynamicRegion.c)
+ *     MiInitializeDriverImages @ 0x140A4F6F4 (MiInitializeDriverImages.c)
  * Callees:
  *     <none>
  */
@@ -27,26 +27,26 @@ __int64 *__fastcall MiSystemVaToDynamicBitmap(int a1)
 
   v1 = a1 - 6;
   if ( !v1 )
-    return &qword_140C4E170;
+    return &qword_140C4E1B0;
   v2 = v1 - 2;
   if ( !v2 )
-    return &qword_140C4E1B8;
+    return &qword_140C4E1F8;
   v3 = v2 - 1;
   if ( !v3 )
-    return &qword_140C4E098;
+    return &qword_140C4E0D8;
   v5 = v3 - 2;
   if ( !v5 )
-    return (__int64 *)&unk_140C4E128;
+    return (__int64 *)&unk_140C4E168;
   v6 = v5 - 1;
   if ( !v6 )
-    return &qword_140C4E0E0;
+    return &qword_140C4E120;
   v7 = v6 - 1;
   if ( !v7 )
-    return &qword_140C4E098;
+    return &qword_140C4E0D8;
   v8 = v7 - 1;
   if ( !v8 )
-    return &qword_140C4E050;
+    return &qword_140C4E090;
   if ( v8 == 1 )
-    return (__int64 *)&unk_140C4E200;
+    return (__int64 *)&unk_140C4E240;
   return 0LL;
 }

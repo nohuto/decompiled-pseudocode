@@ -21,22 +21,26 @@
  *     AlpcpFreeCompletionList @ 0x14052D2E8 (AlpcpFreeCompletionList.c)
  */
 
-__int64 __fastcall NtAlpcSetInformation(void *a1, int a2, PVOID *a3, unsigned int a4)
+NTSTATUS __cdecl NtAlpcSetInformation(
+        HANDLE PortHandle,
+        ALPC_PORT_INFORMATION_CLASS PortInformationClass,
+        PVOID PortInformation,
+        ULONG Length)
 {
   struct _KTHREAD *CurrentThread; // rax
   KPROCESSOR_MODE PreviousMode; // di
   PVOID *v8; // rcx
   PVOID *v9; // r12
   int v10; // r13d
-  NTSTATUS v11; // edi
+  signed int v11; // edi
   __int64 v12; // r9
-  int v13; // r14d
-  int v14; // r14d
-  NTSTATUS v15; // eax
+  __int32 v13; // r14d
+  __int32 v14; // r14d
+  signed int v15; // eax
   struct _KTHREAD *v16; // rcx
   __int16 v17; // ax
-  int v19; // r14d
-  int v20; // r14d
+  __int32 v19; // r14d
+  __int32 v20; // r14d
   int v21; // r14d
   int v22; // r14d
   unsigned __int64 *v23; // rbx
@@ -71,11 +75,14 @@ __int64 __fastcall NtAlpcSetInformation(void *a1, int a2, PVOID *a3, unsigned in
   __int32 v52; // [rsp+68h] [rbp-90h]
   unsigned __int64 v53; // [rsp+6Ch] [rbp-8Ch]
 
-  Handle = a1;
-  v47 = a3;
+  Handle = PortHandle;
+  v47 = (PVOID *)PortInformation;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  if ( !a1 || !v47 && a2 != 7 && a2 != 10 )
+  if ( !PortHandle
+    || !v47
+    && PortInformationClass != AlpcUnregisterCompletionListInformation
+    && PortInformationClass != AlpcCompletionListRundownInformation )
   {
     v11 = -1073741811;
     goto LABEL_16;
@@ -86,9 +93,9 @@ __int64 __fastcall NtAlpcSetInformation(void *a1, int a2, PVOID *a3, unsigned in
   v49 = v47;
   v9 = v47;
   v50 = v47;
-  if ( a4 && PreviousMode )
+  if ( Length && PreviousMode )
   {
-    if ( a4 > 0x48 )
+    if ( Length > 0x48 )
     {
       v11 = -1073741820;
       goto LABEL_16;
@@ -97,7 +104,7 @@ __int64 __fastcall NtAlpcSetInformation(void *a1, int a2, PVOID *a3, unsigned in
       v8 = (PVOID *)MmUserProbeAddress;
     v49 = v8;
     v47 = v8;
-    memmove(&v51, v8, a4);
+    memmove(&v51, v8, Length);
     v9 = (PVOID *)&v51;
     v50 = (PVOID *)&v51;
   }
@@ -105,10 +112,10 @@ __int64 __fastcall NtAlpcSetInformation(void *a1, int a2, PVOID *a3, unsigned in
   v11 = ObReferenceObjectByHandle(Handle, 1u, AlpcPortObjectType, PreviousMode, &Object, 0LL);
   if ( v11 >= 0 )
   {
-    v13 = a2 - 1;
+    v13 = PortInformationClass - 1;
     if ( !v13 )
     {
-      if ( a4 != 72 )
+      if ( Length != 72 )
         goto LABEL_85;
       v27 = *(_DWORD *)v9;
       if ( (*(_DWORD *)v9 & 0xFE00FFFF) == 0 )
@@ -125,7 +132,7 @@ __int64 __fastcall NtAlpcSetInformation(void *a1, int a2, PVOID *a3, unsigned in
     v14 = v13 - 1;
     if ( !v14 )
     {
-      if ( a4 == 16 )
+      if ( Length == 16 )
       {
         v15 = AlpcpAssociateIoCompletionPort(Object, v9[1], *v9);
 LABEL_14:
@@ -141,7 +148,7 @@ LABEL_85:
     v19 = v14 - 3;
     if ( !v19 )
     {
-      v11 = a4 != 16 ? 0xC000000D : 0;
+      v11 = Length != 16 ? 0xC000000D : 0;
       goto LABEL_15;
     }
     v20 = v19 - 1;
@@ -153,7 +160,7 @@ LABEL_85:
         v22 = v21 - 1;
         if ( !v22 )
         {
-          if ( a4 == 4 && *(_DWORD *)v9 )
+          if ( Length == 4 && *(_DWORD *)v9 )
           {
             v23 = (unsigned __int64 *)((char *)Object + 352);
             v24 = KeAbPreAcquire((ULONG_PTR)Object + 352, 0LL, 0LL, v12);
@@ -182,7 +189,7 @@ LABEL_34:
         v29 = v22 - 1;
         if ( v29 )
         {
-          if ( v29 == 1 && !a4 )
+          if ( v29 == 1 && !Length )
           {
             v30 = (unsigned __int64 *)((char *)Object + 352);
             v31 = KeAbPreAcquire((ULONG_PTR)Object + 352, 0LL, 0LL, v12);
@@ -224,7 +231,7 @@ LABEL_34:
       }
       else
       {
-        if ( a4 )
+        if ( Length )
           goto LABEL_83;
         v34 = (unsigned __int64 *)((char *)Object + 352);
         v35 = KeAbPreAcquire((ULONG_PTR)Object + 352, 0LL, 0LL, v12);
@@ -244,13 +251,13 @@ LABEL_34:
     }
     if ( (*((_DWORD *)Object + 104) & 6) == 2 )
     {
-      if ( a4 == 24 )
+      if ( Length == 24 )
       {
         v10 = 0;
       }
       else
       {
-        if ( a4 != 16 )
+        if ( Length != 16 )
           goto LABEL_83;
         v44 = *(__m128i *)v9;
         v9 = (PVOID *)&v51;
@@ -281,5 +288,5 @@ LABEL_16:
   {
     KiCheckForKernelApcDelivery();
   }
-  return (unsigned int)v11;
+  return v11;
 }

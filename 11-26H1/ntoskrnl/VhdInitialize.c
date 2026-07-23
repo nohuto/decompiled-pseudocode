@@ -1,21 +1,21 @@
 /*
- * XREFs of VhdInitialize @ 0x140D02894
+ * XREFs of VhdInitialize @ 0x140D08C34
  * Callers:
- *     IopInitializeBootDrivers @ 0x140CBF2A4 (IopInitializeBootDrivers.c)
+ *     IopInitializeBootDrivers @ 0x140CC5374 (IopInitializeBootDrivers.c)
  * Callees:
- *     RtlStringCbCatW @ 0x1404308C4 (RtlStringCbCatW.c)
- *     RtlStringCbPrintfW @ 0x140433060 (RtlStringCbPrintfW.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     strstr @ 0x140535B20 (strstr.c)
- *     PnpBootDeviceWait @ 0x1405D85A4 (PnpBootDeviceWait.c)
- *     Feature_VhdBootAttachNullTerminate__private_IsEnabledDeviceUsageNoInline @ 0x14071EA90 (Feature_VhdBootAttachNullTerminate__private_IsEnabledDeviceUsageNoInline.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     VhdiMountVhdFile @ 0x1408A63B0 (VhdiMountVhdFile.c)
- *     RtlFreeAnsiString @ 0x140A007C0 (RtlFreeAnsiString.c)
- *     RtlStringFromGUID @ 0x140A3DEC0 (RtlStringFromGUID.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     VhdiGetDiskParameters @ 0x140D02B90 (VhdiGetDiskParameters.c)
+ *     RtlStringCbCatW @ 0x14041D8F0 (RtlStringCbCatW.c)
+ *     RtlStringCbPrintfW @ 0x140420090 (RtlStringCbPrintfW.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     strstr @ 0x140537FA0 (strstr.c)
+ *     PnpBootDeviceWait @ 0x1405DADA4 (PnpBootDeviceWait.c)
+ *     Feature_VhdBootAttachNullTerminate__private_IsEnabledDeviceUsageNoInline @ 0x140723720 (Feature_VhdBootAttachNullTerminate__private_IsEnabledDeviceUsageNoInline.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     VhdiMountVhdFile @ 0x1408AC820 (VhdiMountVhdFile.c)
+ *     RtlStringFromGUID @ 0x1409F98E0 (RtlStringFromGUID.c)
+ *     RtlFreeAnsiString @ 0x140A169F0 (RtlFreeAnsiString.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     VhdiGetDiskParameters @ 0x140D08F30 (VhdiGetDiskParameters.c)
  */
 
 __int64 __fastcall VhdInitialize(__int64 a1)
@@ -153,7 +153,7 @@ LABEL_38:
         v8 = 5LL;
         goto LABEL_38;
       }
-      WheapPfaLock.SchedulerAssistLastYieldBoostTime = (__int64)v15;
+      qword_140EF00C0 = (__int64)v15;
       v19 = v16 - 1;
       do
         ++v11;

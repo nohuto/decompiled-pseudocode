@@ -10,38 +10,40 @@
  *     _RtlpValidTrustSubjectContext@16 @ 0x4B34A352 (_RtlpValidTrustSubjectContext@16.c)
  */
 
-int __thiscall RtlpValidFilterAclSubjectContext(void *this)
+int __fastcall RtlpValidFilterAclSubjectContext(PACL Acl, void *a2)
 {
-  unsigned __int8 *AceByType; // eax
-  int v3; // ecx
-  unsigned __int8 *v4; // esi
-  int v6; // [esp+10h] [ebp-14h] BYREF
-  unsigned int v7; // [esp+14h] [ebp-10h] BYREF
+  _DWORD *AceByType; // eax
+  int v4; // ecx
+  _DWORD *v5; // esi
+  size_t v7; // [esp-4h] [ebp-28h]
+  int v9; // [esp+10h] [ebp-14h] BYREF
+  ULONG Index; // [esp+14h] [ebp-10h] BYREF
   int Buf2; // [esp+18h] [ebp-Ch] BYREF
-  __int16 v9; // [esp+1Ch] [ebp-8h]
+  __int16 v12; // [esp+1Ch] [ebp-8h]
 
-  v6 = 0;
+  v9 = 0;
   Buf2 = 0;
-  v9 = 256;
-  v7 = 0;
+  v12 = 256;
+  Index = 0;
   while ( 1 )
   {
-    AceByType = RtlFindAceByType((int)this, 21, &v7);
-    v4 = AceByType;
+    AceByType = RtlFindAceByType(Acl, 0x15u, &Index);
+    v5 = AceByType;
     if ( !AceByType )
       goto LABEL_3;
-    if ( (*((_DWORD *)AceByType + 1) & 0xFF000000) != 0 )
+    if ( (AceByType[1] & 0xFF000000) != 0 )
       return -1073741811;
-    if ( (AceByType[1] & 0x40) == 0 )
+    if ( (*((_BYTE *)AceByType + 1) & 0x40) == 0 )
       break;
-    if ( !(unsigned __int8)RtlpValidTrustSubjectContext(v3, &v6) )
+    if ( !(unsigned __int8)RtlpValidTrustSubjectContext(a2, AceByType + 2, v4, (int)&v9) )
       return -1073741790;
 LABEL_3:
-    ++v7;
-    if ( !v4 )
-      return v6;
+    ++Index;
+    if ( !v5 )
+      return v9;
   }
-  if ( !memcmp(AceByType + 10, &Buf2, 6u) && v4[9] == 1 && !*((_DWORD *)v4 + 4) )
+  LODWORD(v7) = 6;
+  if ( !memcmp((char *)AceByType + 10, &Buf2, v7) && *((_BYTE *)v5 + 9) == 1 && !v5[4] )
     goto LABEL_3;
   return -1073741811;
 }

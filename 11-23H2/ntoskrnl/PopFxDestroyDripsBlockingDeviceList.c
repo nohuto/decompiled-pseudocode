@@ -1,14 +1,14 @@
 /*
- * XREFs of PopFxDestroyDripsBlockingDeviceList @ 0x140984B94
+ * XREFs of PopFxDestroyDripsBlockingDeviceList @ 0x140984D94
  * Callers:
- *     PopFxBuildDripsBlockingDeviceList @ 0x140588CF4 (PopFxBuildDripsBlockingDeviceList.c)
- *     PopDripsWatchdogCallbackHandler @ 0x14099BFF0 (PopDripsWatchdogCallbackHandler.c)
- *     PopDripsWatchdogTakeAction @ 0x1409A11AC (PopDripsWatchdogTakeAction.c)
+ *     PopFxBuildDripsBlockingDeviceList @ 0x1405891E4 (PopFxBuildDripsBlockingDeviceList.c)
+ *     PopDripsWatchdogCallbackHandler @ 0x14099C1F0 (PopDripsWatchdogCallbackHandler.c)
+ *     PopDripsWatchdogTakeAction @ 0x1409A13AC (PopDripsWatchdogTakeAction.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExReleasePushLockEx @ 0x140231190 (ExReleasePushLockEx.c)
- *     PopFxReleaseDevice @ 0x140462D9C (PopFxReleaseDevice.c)
- *     IoLockUnlockPnpDeviceTree @ 0x140954C10 (IoLockUnlockPnpDeviceTree.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExReleasePushLockEx @ 0x140231280 (ExReleasePushLockEx.c)
+ *     PopFxReleaseDevice @ 0x14046319C (PopFxReleaseDevice.c)
+ *     IoLockUnlockPnpDeviceTree @ 0x140954E10 (IoLockUnlockPnpDeviceTree.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

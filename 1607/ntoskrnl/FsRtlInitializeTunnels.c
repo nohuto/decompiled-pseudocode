@@ -3,8 +3,8 @@
  * Callers:
  *     FsRtlInitSystem @ 0x1407B6884 (FsRtlInitSystem.c)
  * Callees:
- *     ExInitializePagedLookasideList @ 0x1403E3794 (ExInitializePagedLookasideList.c)
- *     FsRtlGetTunnelParameterValue @ 0x140576E3C (FsRtlGetTunnelParameterValue.c)
+ *     ExInitializePagedLookasideList @ 0x1403E4DC0 (ExInitializePagedLookasideList.c)
+ *     FsRtlGetTunnelParameterValue @ 0x14057737C (FsRtlGetTunnelParameterValue.c)
  */
 
 void FsRtlInitializeTunnels()

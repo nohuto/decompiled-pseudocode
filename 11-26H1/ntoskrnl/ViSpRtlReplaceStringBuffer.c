@@ -1,13 +1,13 @@
 /*
- * XREFs of ViSpRtlReplaceStringBuffer @ 0x140C43E24
+ * XREFs of ViSpRtlReplaceStringBuffer @ 0x140C49E34
  * Callers:
- *     ViSpRtlUpcaseUnicodeStringToAnsiString_Exit @ 0x140C43DA0 (ViSpRtlUpcaseUnicodeStringToAnsiString_Exit.c)
- *     ViSpRtlCreateUnicodeString_Exit @ 0x140C43DD0 (ViSpRtlCreateUnicodeString_Exit.c)
- *     ViSpRtlDuplicateUnicodeString_Exit @ 0x140C43E00 (ViSpRtlDuplicateUnicodeString_Exit.c)
+ *     ViSpRtlUpcaseUnicodeStringToAnsiString_Exit @ 0x140C49DB0 (ViSpRtlUpcaseUnicodeStringToAnsiString_Exit.c)
+ *     ViSpRtlCreateUnicodeString_Exit @ 0x140C49DE0 (ViSpRtlCreateUnicodeString_Exit.c)
+ *     ViSpRtlDuplicateUnicodeString_Exit @ 0x140C49E10 (ViSpRtlDuplicateUnicodeString_Exit.c)
  * Callees:
- *     memmove @ 0x14073D480 (memmove.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
- *     VfHandlePoolAlloc @ 0x140C44300 (VfHandlePoolAlloc.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
+ *     VfHandlePoolAlloc @ 0x140C4A310 (VfHandlePoolAlloc.c)
  */
 
 void __fastcall ViSpRtlReplaceStringBuffer(__int64 a1, __int64 a2)

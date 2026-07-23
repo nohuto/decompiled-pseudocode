@@ -32,7 +32,7 @@ __int64 __fastcall KeMaskInterrupt(__int64 *a1, unsigned __int8 a2, __int64 a3, 
   __int64 v21; // rax
   unsigned int v22; // ecx
   unsigned __int8 v23[4]; // [rsp+30h] [rbp-30h] BYREF
-  struct _PROCESSOR_NUMBER ProcNumber; // [rsp+34h] [rbp-2Ch] BYREF
+  _PROCESSOR_NUMBER ProcNumber; // [rsp+34h] [rbp-2Ch] BYREF
   unsigned int v25; // [rsp+38h] [rbp-28h] BYREF
   _BYTE v26[16]; // [rsp+40h] [rbp-20h] BYREF
 

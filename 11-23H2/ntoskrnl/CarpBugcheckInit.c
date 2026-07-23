@@ -1,19 +1,19 @@
 /*
- * XREFs of CarpBugcheckInit @ 0x1405D58D4
+ * XREFs of CarpBugcheckInit @ 0x1405D5E44
  * Callers:
- *     CarInit @ 0x1405D3D04 (CarInit.c)
+ *     CarInit @ 0x1405D4274 (CarInit.c)
  * Callees:
- *     KeRegisterBugCheckReasonCallback @ 0x140354A70 (KeRegisterBugCheckReasonCallback.c)
+ *     KeRegisterBugCheckReasonCallback @ 0x140354C10 (KeRegisterBugCheckReasonCallback.c)
  */
 
 BOOLEAN CarpBugcheckInit()
 {
-  dword_140C34FAC = CarTipTag;
-  dword_140C34FB0 = CarTriageContext;
-  dword_140C34FA8 = (unsigned __int16)NtBuildNumber;
+  dword_140C34F2C = CarTipTag;
+  dword_140C34F30 = CarTriageContext;
+  dword_140C34F28 = (unsigned __int16)NtBuildNumber;
   CarViolationSnapshot = 1;
-  dword_140C34F84 = 128;
-  qword_140C34FB4 = CarRuleClasses;
+  dword_140C34F04 = 128;
+  qword_140C34F34 = CarRuleClasses;
   CarBugCheckCallback.State = 0;
   return KeRegisterBugCheckReasonCallback(
            &CarBugCheckCallback,

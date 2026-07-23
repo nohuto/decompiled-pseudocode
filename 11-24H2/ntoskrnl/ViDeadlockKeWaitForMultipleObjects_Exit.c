@@ -1,9 +1,9 @@
 /*
- * XREFs of ViDeadlockKeWaitForMultipleObjects_Exit @ 0x140B99890
+ * XREFs of ViDeadlockKeWaitForMultipleObjects_Exit @ 0x140B9B890
  * Callers:
  *     <none>
  * Callees:
- *     ViDeadlockObjectAcquired @ 0x140B99AE4 (ViDeadlockObjectAcquired.c)
+ *     ViDeadlockObjectAcquired @ 0x140B9BAE4 (ViDeadlockObjectAcquired.c)
  */
 
 signed int __fastcall ViDeadlockKeWaitForMultipleObjects_Exit(__int64 *a1)

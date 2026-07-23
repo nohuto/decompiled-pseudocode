@@ -1,18 +1,18 @@
 /*
- * XREFs of WmipGetSysIds @ 0x140822C0C
+ * XREFs of WmipGetSysIds @ 0x140828E1C
  * Callers:
- *     WmipQueryWmiDataBlock @ 0x140AC49C0 (WmipQueryWmiDataBlock.c)
+ *     WmipQueryWmiDataBlock @ 0x140AC6630 (WmipQueryWmiDataBlock.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     ExReleaseResourceLite @ 0x1402B4CF0 (ExReleaseResourceLite.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     MmUnmapIoSpace @ 0x140343610 (MmUnmapIoSpace.c)
- *     KeReleaseMutex @ 0x1403DD0F0 (KeReleaseMutex.c)
- *     WmipFindSMBiosStructure @ 0x1408227A4 (WmipFindSMBiosStructure.c)
- *     WmipFindSysIdTable @ 0x1408228C0 (WmipFindSysIdTable.c)
- *     WmipParseSysIdTable @ 0x140822EC4 (WmipParseSysIdTable.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     ExReleaseResourceLite @ 0x1402FF9C0 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     MmUnmapIoSpace @ 0x140345690 (MmUnmapIoSpace.c)
+ *     KeReleaseMutex @ 0x1403E02E0 (KeReleaseMutex.c)
+ *     WmipFindSMBiosStructure @ 0x1408289B4 (WmipFindSMBiosStructure.c)
+ *     WmipFindSysIdTable @ 0x140828AD0 (WmipFindSysIdTable.c)
+ *     WmipParseSysIdTable @ 0x1408290D4 (WmipParseSysIdTable.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall WmipGetSysIds(_QWORD *a1, _DWORD *a2, _QWORD *a3, _DWORD *a4)
@@ -36,8 +36,8 @@ __int64 __fastcall WmipGetSysIds(_QWORD *a1, _DWORD *a2, _QWORD *a3, _DWORD *a4)
   v7 = a1;
   v21[0] = 0LL;
   NumberOfBytes = 0;
-  KeWaitForSingleObject(&EtwpSecurityLock.IoSelfBoostsEntry, Executive, 0, 0, 0LL);
-  if ( !BYTE4(EtwpSecurityLock.Padding[0]) )
+  KeWaitForSingleObject(&WmipSMMutex, Executive, 0, 0, 0LL);
+  if ( !WmipSysIdRead )
   {
     if ( (int)WmipFindSysIdTable(v21, v16, &NumberOfBytes) < 0 )
     {
@@ -48,11 +48,11 @@ __int64 __fastcall WmipGetSysIds(_QWORD *a1, _DWORD *a2, _QWORD *a3, _DWORD *a4)
       if ( SMBiosStructure >= 0 )
       {
         WmipSysId1394 = 0LL;
-        LODWORD(EtwpSecurityLock.Padding[0]) = 0;
+        WmipSysId1394Count = 0;
         v14 = v21[0];
         if ( *(_BYTE *)(v21[0] + 1LL) <= 8u )
         {
-          EtwpSecurityLock.Padding[1] = 0LL;
+          WmipSysIdUuid = 0LL;
           WmipSysIdUuidCount = 0;
         }
         else
@@ -62,7 +62,7 @@ __int64 __fastcall WmipGetSysIds(_QWORD *a1, _DWORD *a2, _QWORD *a3, _DWORD *a4)
           {
             *Pool2 = *(_OWORD *)(v14 + 8);
             WmipSysIdUuidCount = 1;
-            EtwpSecurityLock.Padding[1] = (unsigned __int64)Pool2;
+            WmipSysIdUuid = (__int64)Pool2;
             SMBiosStructure = 0;
             NumberOfBytes_4 = 0;
           }
@@ -75,7 +75,7 @@ __int64 __fastcall WmipGetSysIds(_QWORD *a1, _DWORD *a2, _QWORD *a3, _DWORD *a4)
         }
         if ( BaseAddress )
           MmUnmapIoSpace(BaseAddress, NumberOfBytes);
-        ExReleaseResourceLite((PERESOURCE)&EtwpSecurityLock.WpsFeedback);
+        ExReleaseResourceLite(&WmipSMBiosLock);
         KeLeaveCriticalRegion();
       }
     }
@@ -93,7 +93,7 @@ __int64 __fastcall WmipGetSysIds(_QWORD *a1, _DWORD *a2, _QWORD *a3, _DWORD *a4)
           v11 = (void *)v10;
           if ( !v10 )
           {
-            KeReleaseMutex((PRKMUTEX)&EtwpSecurityLock.IoSelfBoostsEntry, 0);
+            KeReleaseMutex(&WmipSMMutex, 0);
             return 3221225626LL;
           }
           v13 = v10 + v9;
@@ -110,26 +110,26 @@ __int64 __fastcall WmipGetSysIds(_QWORD *a1, _DWORD *a2, _QWORD *a3, _DWORD *a4)
           }
           else
           {
-            EtwpSecurityLock.Padding[1] = (unsigned __int64)v11;
+            WmipSysIdUuid = (__int64)v11;
             WmipSysIdUuidCount = v17;
             WmipSysId1394 = v13;
-            LODWORD(EtwpSecurityLock.Padding[0]) = (_DWORD)BaseAddress;
+            WmipSysId1394Count = (int)BaseAddress;
           }
         }
       }
     }
-    BYTE4(EtwpSecurityLock.Padding[0]) = SMBiosStructure != -1073741670;
+    WmipSysIdRead = SMBiosStructure != -1073741670;
     WmipSysIdStatus = SMBiosStructure;
     v7 = a1;
   }
-  KeReleaseMutex((PRKMUTEX)&EtwpSecurityLock.IoSelfBoostsEntry, 0);
+  KeReleaseMutex(&WmipSMMutex, 0);
   result = (unsigned int)WmipSysIdStatus;
   if ( WmipSysIdStatus >= 0 )
   {
-    *v7 = EtwpSecurityLock.Padding[1];
+    *v7 = WmipSysIdUuid;
     *a2 = WmipSysIdUuidCount;
     *a3 = WmipSysId1394;
-    *a4 = EtwpSecurityLock.Padding[0];
+    *a4 = WmipSysId1394Count;
   }
   return result;
 }

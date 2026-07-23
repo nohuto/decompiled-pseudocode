@@ -1,21 +1,21 @@
 /*
- * XREFs of PiAuGetServiceStateSecurityObject @ 0x1407A84C8
+ * XREFs of PiAuGetServiceStateSecurityObject @ 0x1407AB078
  * Callers:
- *     PiCreateServiceKeyUnderPath @ 0x1407A102C (PiCreateServiceKeyUnderPath.c)
- *     PiCreateServiceStateKey @ 0x140A126EC (PiCreateServiceStateKey.c)
+ *     PiCreateServiceKeyUnderPath @ 0x1407A3B6C (PiCreateServiceKeyUnderPath.c)
+ *     PiCreateServiceStateKey @ 0x140A118DC (PiCreateServiceStateKey.c)
  * Callees:
- *     RtlLengthSid @ 0x1404872D0 (RtlLengthSid.c)
- *     RtlLengthSecurityDescriptor @ 0x1409228D0 (RtlLengthSecurityDescriptor.c)
- *     RtlValidSecurityDescriptor @ 0x140926EB0 (RtlValidSecurityDescriptor.c)
- *     RtlpAddKnownAce @ 0x1409D7990 (RtlpAddKnownAce.c)
- *     RtlCreateAcl @ 0x1409D8030 (RtlCreateAcl.c)
- *     RtlSetOwnerSecurityDescriptor @ 0x1409D8260 (RtlSetOwnerSecurityDescriptor.c)
- *     RtlAbsoluteToSelfRelativeSD @ 0x140A61650 (RtlAbsoluteToSelfRelativeSD.c)
- *     RtlSetDaclSecurityDescriptor @ 0x140A6B0F0 (RtlSetDaclSecurityDescriptor.c)
- *     RtlCreateSecurityDescriptor @ 0x140A6C2F0 (RtlCreateSecurityDescriptor.c)
- *     RtlSetGroupSecurityDescriptor @ 0x140AABBB0 (RtlSetGroupSecurityDescriptor.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlLengthSid @ 0x140480CA0 (RtlLengthSid.c)
+ *     RtlLengthSecurityDescriptor @ 0x1408FE3E0 (RtlLengthSecurityDescriptor.c)
+ *     RtlValidSecurityDescriptor @ 0x1409029C0 (RtlValidSecurityDescriptor.c)
+ *     RtlpAddKnownAce @ 0x1409A8880 (RtlpAddKnownAce.c)
+ *     RtlCreateAcl @ 0x1409A8F20 (RtlCreateAcl.c)
+ *     RtlSetOwnerSecurityDescriptor @ 0x1409A9150 (RtlSetOwnerSecurityDescriptor.c)
+ *     RtlAbsoluteToSelfRelativeSD @ 0x140A6E620 (RtlAbsoluteToSelfRelativeSD.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x140A7C820 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateSecurityDescriptor @ 0x140A7D920 (RtlCreateSecurityDescriptor.c)
+ *     RtlSetGroupSecurityDescriptor @ 0x140AA9160 (RtlSetGroupSecurityDescriptor.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiAuGetServiceStateSecurityObject(char a1, _QWORD *a2)
@@ -38,7 +38,7 @@ __int64 __fastcall PiAuGetServiceStateSecurityObject(char a1, _QWORD *a2)
   v4 = 0LL;
   v5 = RtlLengthSid(SeExports->SeUserModeDriversSid);
   v6 = RtlLengthSid(SeAliasAdminsSid) + v5;
-  v7 = RtlLengthSid(*(PSID *)&RtlpBootStatHandleLock.WaitRegister.Flags) + 32 + v6;
+  v7 = RtlLengthSid(*(PSID *)((char *)&RtlpBootStatHandleLock.116 + 4)) + 32 + v6;
   Pool2 = (ACL *)ExAllocatePool2(0x100uLL);
   v9 = Pool2;
   if ( Pool2 )
@@ -46,7 +46,7 @@ __int64 __fastcall PiAuGetServiceStateSecurityObject(char a1, _QWORD *a2)
     Acl = RtlCreateAcl(Pool2, v7, 2u);
     if ( Acl >= 0 )
     {
-      Acl = RtlpAddKnownAce((int)v9, 2, 2, 983103, *(void **)&RtlpBootStatHandleLock.WaitRegister.Flags, 0);
+      Acl = RtlpAddKnownAce((int)v9, 2, 2, 983103, *(void **)((char *)&RtlpBootStatHandleLock.116 + 4), 0);
       if ( Acl >= 0 )
       {
         Acl = RtlpAddKnownAce((int)v9, 2, 2, a1 != 0 ? 196639 : 131097, SeAliasAdminsSid, 0);
@@ -61,10 +61,10 @@ __int64 __fastcall PiAuGetServiceStateSecurityObject(char a1, _QWORD *a2)
               Acl = RtlSetDaclSecurityDescriptor(SecurityDescriptor, 1u, v9, 0);
               if ( Acl >= 0 )
               {
-                v11 = *(void **)&RtlpBootStatHandleLock.WaitRegister.Flags;
+                v11 = *(void **)((char *)&RtlpBootStatHandleLock.116 + 4);
                 Acl = RtlSetOwnerSecurityDescriptor(
                         SecurityDescriptor,
-                        *(PSID *)&RtlpBootStatHandleLock.WaitRegister.Flags,
+                        *(PSID *)((char *)&RtlpBootStatHandleLock.116 + 4),
                         0);
                 if ( Acl >= 0 )
                 {

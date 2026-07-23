@@ -30,7 +30,7 @@ __int64 __fastcall sub_1800EF2CC(__int64 a1, unsigned __int8 a2, __int64 a3, __i
   {
     if ( ((a2 | *(_BYTE *)(a1 + 116)) & 1) == 0 )
     {
-      RtlEnterCriticalSection(*(_QWORD *)(a1 + 352));
+      RtlEnterCriticalSection(*(PRTL_CRITICAL_SECTION *)(a1 + 352));
       v8 = 1;
     }
     if ( *(_DWORD *)(a1 + 124) )
@@ -100,6 +100,6 @@ __int64 __fastcall sub_1800EF2CC(__int64 a1, unsigned __int8 a2, __int64 a3, __i
   *(_DWORD *)(v10 - 8) = a6;
   *(_BYTE *)(v10 - 1) = 5;
   if ( v8 )
-    RtlLeaveCriticalSection(*(_QWORD *)(a1 + 352));
+    RtlLeaveCriticalSection(*(PRTL_CRITICAL_SECTION *)(a1 + 352));
   return v10;
 }

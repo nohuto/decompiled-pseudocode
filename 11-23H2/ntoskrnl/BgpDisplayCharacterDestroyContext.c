@@ -4,7 +4,7 @@
  *     BgConsoleDestroyInterface @ 0x140AEF504 (BgConsoleDestroyInterface.c)
  *     BgpBcInitializeCriticalMode @ 0x140B9C3E8 (BgpBcInitializeCriticalMode.c)
  * Callees:
- *     BgpFwFreeMemory @ 0x1403860A0 (BgpFwFreeMemory.c)
+ *     BgpFwFreeMemory @ 0x140386280 (BgpFwFreeMemory.c)
  *     BgpTxtDestroyRegion @ 0x140AEC904 (BgpTxtDestroyRegion.c)
  */
 

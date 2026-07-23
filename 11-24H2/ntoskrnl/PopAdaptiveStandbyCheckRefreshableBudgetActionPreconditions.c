@@ -1,8 +1,8 @@
 /*
- * XREFs of PopAdaptiveStandbyCheckRefreshableBudgetActionPreconditions @ 0x140760C84
+ * XREFs of PopAdaptiveStandbyCheckRefreshableBudgetActionPreconditions @ 0x14075FE30
  * Callers:
- *     PopAdaptiveStandbyCheckHibernateBudgetAction @ 0x1407604EC (PopAdaptiveStandbyCheckHibernateBudgetAction.c)
- *     PopAdaptiveStandbyCheckRestrictedStandbyBudgetAction @ 0x140760D48 (PopAdaptiveStandbyCheckRestrictedStandbyBudgetAction.c)
+ *     PopAdaptiveStandbyCheckHibernateBudgetAction @ 0x14075F4EC (PopAdaptiveStandbyCheckHibernateBudgetAction.c)
+ *     PopAdaptiveStandbyCheckRestrictedStandbyBudgetAction @ 0x14075FEF4 (PopAdaptiveStandbyCheckRestrictedStandbyBudgetAction.c)
  * Callees:
  *     <none>
  */
@@ -23,7 +23,7 @@ char __fastcall PopAdaptiveStandbyCheckRefreshableBudgetActionPreconditions(
   }
   else if ( *(_DWORD *)(a2 + 24) && (v6 = *(_DWORD *)(a2 + 20)) != 0 )
   {
-    if ( *(_BYTE *)(a1 + 176) )
+    if ( *(_BYTE *)(a1 + 196) )
     {
       *a4 = 12;
     }

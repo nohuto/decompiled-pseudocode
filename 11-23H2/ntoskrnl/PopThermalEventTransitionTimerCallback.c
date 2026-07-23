@@ -1,12 +1,12 @@
 /*
- * XREFs of PopThermalEventTransitionTimerCallback @ 0x14058FAF0
+ * XREFs of PopThermalEventTransitionTimerCallback @ 0x14058FFE0
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     PopDeepSleepClearDisengageReason @ 0x14028E75C (PopDeepSleepClearDisengageReason.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PopDeepSleepClearDisengageReason @ 0x14028E9EC (PopDeepSleepClearDisengageReason.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 PopThermalEventTransitionTimerCallback()
@@ -18,17 +18,17 @@ __int64 PopThermalEventTransitionTimerCallback()
   bool v4; // zf
 
   v0 = KeAcquireSpinLockRaiseToDpc(&PopThermalEventTransitionContext);
-  if ( byte_140C3C878 )
+  if ( byte_140C3C6F8 )
   {
     PopDeepSleepClearDisengageReason(0xAu);
-    dword_140C3C7EC = -1;
-    byte_140C3C878 = 0;
+    dword_140C3C66C = -1;
+    byte_140C3C6F8 = 0;
   }
   result = KxReleaseSpinLock((volatile signed __int64 *)&PopThermalEventTransitionContext);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
       && (unsigned __int8)result <= 0xFu
       && (unsigned __int8)v0 <= 0xFu
       && (unsigned __int8)result >= 2u )

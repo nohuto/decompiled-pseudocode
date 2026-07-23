@@ -1,13 +1,13 @@
 /*
- * XREFs of MiIssueNoPtesBugcheck @ 0x1401E7418
+ * XREFs of MiIssueNoPtesBugcheck @ 0x1401E7244
  * Callers:
- *     MmMapLockedPagesSpecifyCache @ 0x1400DE220 (MmMapLockedPagesSpecifyCache.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x1400DC0C0 (MmMapLockedPagesSpecifyCache.c)
  *     MiBuildPagedPool @ 0x14078E258 (MiBuildPagedPool.c)
  *     MiInitializePteInfo @ 0x1407BB960 (MiInitializePteInfo.c)
  * Callees:
- *     MmGetNumberOfFreeSystemPtes @ 0x1400BEE84 (MmGetNumberOfFreeSystemPtes.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     MiGetHighestPteConsumer @ 0x1401FC6C0 (MiGetHighestPteConsumer.c)
+ *     MmGetNumberOfFreeSystemPtes @ 0x1400BCD14 (MmGetNumberOfFreeSystemPtes.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     MiGetHighestPteConsumer @ 0x1401FC4EC (MiGetHighestPteConsumer.c)
  */
 
 void __fastcall __noreturn MiIssueNoPtesBugcheck(ULONG_PTR BugCheckParameter2)

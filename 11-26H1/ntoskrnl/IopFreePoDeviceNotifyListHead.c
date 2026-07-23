@@ -1,11 +1,11 @@
 /*
- * XREFs of IopFreePoDeviceNotifyListHead @ 0x140C05608
+ * XREFs of IopFreePoDeviceNotifyListHead @ 0x140C0B818
  * Callers:
- *     IoBuildPoDeviceNotifyList @ 0x140C04DF0 (IoBuildPoDeviceNotifyList.c)
- *     IoFreePoDeviceNotifyList @ 0x140C0A0AC (IoFreePoDeviceNotifyList.c)
+ *     IoBuildPoDeviceNotifyList @ 0x140C0B000 (IoBuildPoDeviceNotifyList.c)
+ *     IoFreePoDeviceNotifyList @ 0x140C102BC (IoFreePoDeviceNotifyList.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall IopFreePoDeviceNotifyListHead(_QWORD *a1)

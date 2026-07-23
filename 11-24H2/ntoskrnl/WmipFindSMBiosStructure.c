@@ -1,15 +1,15 @@
 /*
- * XREFs of WmipFindSMBiosStructure @ 0x1407A4174
+ * XREFs of WmipFindSMBiosStructure @ 0x1407A4284
  * Callers:
- *     WmipReadSMBiosSysInfo @ 0x14064C35C (WmipReadSMBiosSysInfo.c)
- *     WmipGetSMBiosEventlog @ 0x1407A4388 (WmipGetSMBiosEventlog.c)
- *     WmipGetSysIds @ 0x1407A45E0 (WmipGetSysIds.c)
+ *     WmipReadSMBiosSysInfo @ 0x14064A91C (WmipReadSMBiosSysInfo.c)
+ *     WmipGetSMBiosEventlog @ 0x1407A4498 (WmipGetSMBiosEventlog.c)
+ *     WmipGetSysIds @ 0x1407A46F0 (WmipGetSysIds.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x14025A450 (ExReleaseResourceLite.c)
- *     MmUnmapIoSpace @ 0x140263160 (MmUnmapIoSpace.c)
- *     MmMapIoSpaceEx @ 0x1402E9A50 (MmMapIoSpaceEx.c)
- *     WmipAcquireSmbiosLockShared @ 0x140A421E4 (WmipAcquireSmbiosLockShared.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x14028AA60 (ExReleaseResourceLite.c)
+ *     MmUnmapIoSpace @ 0x1402929D0 (MmUnmapIoSpace.c)
+ *     MmMapIoSpaceEx @ 0x14034B090 (MmMapIoSpaceEx.c)
+ *     WmipAcquireSmbiosLockShared @ 0x140A37AC4 (WmipAcquireSmbiosLockShared.c)
  */
 
 __int64 __fastcall WmipFindSMBiosStructure(char a1, _QWORD *a2, PVOID *a3, _DWORD *a4)
@@ -24,7 +24,7 @@ __int64 __fastcall WmipFindSMBiosStructure(char a1, _QWORD *a2, PVOID *a3, _DWOR
   v8 = 0;
   if ( WmipSMBiosTablePhysicalAddress )
   {
-    v9 = MmMapIoSpaceEx(WmipSMBiosTablePhysicalAddress, (unsigned int)WmipSMBiosTableLength, 4u);
+    v9 = MmMapIoSpaceEx(WmipSMBiosTablePhysicalAddress, (unsigned int)WmipSMBiosTableLength, 4LL);
     *a3 = (PVOID)v9;
     if ( v9 )
     {

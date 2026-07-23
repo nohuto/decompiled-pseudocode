@@ -1,33 +1,33 @@
 /*
- * XREFs of MiSwapNumaStandbyPage @ 0x1402C1010
+ * XREFs of MiSwapNumaStandbyPage @ 0x1402C1200
  * Callers:
  *     MiGetPage @ 0x140049D50 (MiGetPage.c)
- *     MiPruneStandbyPages @ 0x1402C0A94 (MiPruneStandbyPages.c)
+ *     MiPruneStandbyPages @ 0x1402C0C84 (MiPruneStandbyPages.c)
  * Callees:
  *     MiFinalizePageAttribute @ 0x140029658 (MiFinalizePageAttribute.c)
  *     MiSetPfnTbFlushStamp @ 0x1400296A4 (MiSetPfnTbFlushStamp.c)
  *     MiUnmapPageInHyperSpaceWorker @ 0x14003AB00 (MiUnmapPageInHyperSpaceWorker.c)
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
- *     MiSetPfnBlink @ 0x140065CB0 (MiSetPfnBlink.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     MiMapPageInHyperSpaceWorker @ 0x140082780 (MiMapPageInHyperSpaceWorker.c)
- *     MiSetOriginalPtePfnFromFreeList @ 0x140097EA0 (MiSetOriginalPtePfnFromFreeList.c)
- *     KxAcquireQueuedSpinLock @ 0x1400AC9B0 (KxAcquireQueuedSpinLock.c)
- *     MiCopyPage @ 0x1400B1C50 (MiCopyPage.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     MiReleaseFreshPage @ 0x1400E1004 (MiReleaseFreshPage.c)
- *     MiCopyPfnEntryEx @ 0x14010E000 (MiCopyPfnEntryEx.c)
- *     MiCanPageMove @ 0x1401183F4 (MiCanPageMove.c)
- *     MiUpdateTransitionPteFrame @ 0x1401189A4 (MiUpdateTransitionPteFrame.c)
- *     MiIsDecayPfn @ 0x140118C0C (MiIsDecayPfn.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     KeMakeKernelDirectoryTableBase @ 0x14013CCBC (KeMakeKernelDirectoryTableBase.c)
- *     MiUnlinkNumaStandbyPage @ 0x140152280 (MiUnlinkNumaStandbyPage.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     MiInsertNumaStandbyPage @ 0x1402C03F4 (MiInsertNumaStandbyPage.c)
- *     MiReuseStandbyPage @ 0x1402C0FA0 (MiReuseStandbyPage.c)
+ *     MiSetPfnBlink @ 0x140065CA0 (MiSetPfnBlink.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     MiMapPageInHyperSpaceWorker @ 0x140082770 (MiMapPageInHyperSpaceWorker.c)
+ *     MiSetOriginalPtePfnFromFreeList @ 0x140097DE0 (MiSetOriginalPtePfnFromFreeList.c)
+ *     KxAcquireQueuedSpinLock @ 0x1400AC8F0 (KxAcquireQueuedSpinLock.c)
+ *     MiCopyPage @ 0x1400B1B90 (MiCopyPage.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     MiReleaseFreshPage @ 0x1400E1084 (MiReleaseFreshPage.c)
+ *     MiCopyPfnEntryEx @ 0x14010E080 (MiCopyPfnEntryEx.c)
+ *     MiCanPageMove @ 0x140118464 (MiCanPageMove.c)
+ *     MiUpdateTransitionPteFrame @ 0x140118A14 (MiUpdateTransitionPteFrame.c)
+ *     MiIsDecayPfn @ 0x140118C7C (MiIsDecayPfn.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     KeMakeKernelDirectoryTableBase @ 0x14013CDBC (KeMakeKernelDirectoryTableBase.c)
+ *     MiUnlinkNumaStandbyPage @ 0x140152380 (MiUnlinkNumaStandbyPage.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiInsertNumaStandbyPage @ 0x1402C05E4 (MiInsertNumaStandbyPage.c)
+ *     MiReuseStandbyPage @ 0x1402C1190 (MiReuseStandbyPage.c)
  */
 
 ULONG_PTR __fastcall MiSwapNumaStandbyPage(ULONG_PTR a1, unsigned int a2, int a3, char a4)
@@ -119,7 +119,7 @@ ULONG_PTR __fastcall MiSwapNumaStandbyPage(ULONG_PTR a1, unsigned int a2, int a3
   v80 = 0;
   v13 = *(_QWORD *)(v9 + 40);
   v70 = MmNumberOfChannels;
-  v14 = *(_QWORD *)(qword_14043A748 + 8 * ((v13 >> 40) & 0x3FF));
+  v14 = *(_QWORD *)(qword_14043B808 + 8 * ((v13 >> 40) & 0x3FF));
   v15 = 0;
   v79 = v14;
   v69 = 0;
@@ -288,11 +288,11 @@ LABEL_48:
   }
   if ( MiCanPageMove(48 * v23 - 0x58000000000LL) )
   {
-    if ( dword_14043A76C != 1 )
+    if ( dword_14043B82C != 1 )
       goto LABEL_73;
     v35 = v23 & 0x1F;
     LOBYTE(v36) = 1;
-    v37 = (volatile signed __int32 *)(qword_14043A7C8 + 4 * (v23 >> 5));
+    v37 = (volatile signed __int32 *)(qword_14043B888 + 4 * (v23 >> 5));
     if ( v35 + 1 > 0x20 )
     {
       if ( (v23 & 0x1F) != 0 )
@@ -372,7 +372,7 @@ LABEL_73:
           if ( (unsigned int)MiPteHasShadow() )
           {
             v60 = 1;
-            if ( !HIBYTE(word_14043A1AC) )
+            if ( !HIBYTE(word_14043B26C) )
             {
               v63 = (v59 & 1) == 0;
               goto LABEL_98;

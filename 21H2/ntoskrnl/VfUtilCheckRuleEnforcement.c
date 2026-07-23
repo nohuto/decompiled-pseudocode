@@ -1,10 +1,10 @@
 /*
- * XREFs of VfUtilCheckRuleEnforcement @ 0x1409C65DC
+ * XREFs of VfUtilCheckRuleEnforcement @ 0x1409C75DC
  * Callers:
- *     VerifierMmBuildMdlForNonPagedPool @ 0x1409E6620 (VerifierMmBuildMdlForNonPagedPool.c)
- *     VerifierMmUnmapLockedPages @ 0x1409E71D0 (VerifierMmUnmapLockedPages.c)
+ *     VerifierMmBuildMdlForNonPagedPool @ 0x1409E7620 (VerifierMmBuildMdlForNonPagedPool.c)
+ *     VerifierMmUnmapLockedPages @ 0x1409E81D0 (VerifierMmUnmapLockedPages.c)
  * Callees:
- *     VfTargetDriversGetVerifierData @ 0x1409D6E40 (VfTargetDriversGetVerifierData.c)
+ *     VfTargetDriversGetVerifierData @ 0x1409D7E40 (VfTargetDriversGetVerifierData.c)
  */
 
 _BOOL8 VfUtilCheckRuleEnforcement()

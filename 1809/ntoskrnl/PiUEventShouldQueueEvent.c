@@ -1,7 +1,7 @@
 /*
  * XREFs of PiUEventShouldQueueEvent @ 0x140006360
  * Callers:
- *     PiUEventNotifyUserMode @ 0x14058EF60 (PiUEventNotifyUserMode.c)
+ *     PiUEventNotifyUserMode @ 0x14058FF60 (PiUEventNotifyUserMode.c)
  * Callees:
  *     <none>
  */

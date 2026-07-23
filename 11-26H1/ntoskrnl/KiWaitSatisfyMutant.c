@@ -1,15 +1,15 @@
 /*
- * XREFs of KiWaitSatisfyMutant @ 0x1404419C0
+ * XREFs of KiWaitSatisfyMutant @ 0x14043A4D0
  * Callers:
- *     IopReleaseFileObjectLock @ 0x140269EC0 (IopReleaseFileObjectLock.c)
- *     KiTryUnwaitThread @ 0x1402735B4 (KiTryUnwaitThread.c)
- *     ExReleaseFastMutexUnsafe @ 0x140276140 (ExReleaseFastMutexUnsafe.c)
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     KeReleaseGuardedMutex @ 0x140278D40 (KeReleaseGuardedMutex.c)
- *     FsRtlReleaseHeaderMutex @ 0x14027C200 (FsRtlReleaseHeaderMutex.c)
- *     KeWaitForMultipleObjects @ 0x140396440 (KeWaitForMultipleObjects.c)
- *     KeSetEventBoostPriorityEx @ 0x140421E18 (KeSetEventBoostPriorityEx.c)
- *     KiWaitSatisfyAny @ 0x1405F7F18 (KiWaitSatisfyAny.c)
+ *     IopReleaseFileObjectLock @ 0x140269430 (IopReleaseFileObjectLock.c)
+ *     KiTryUnwaitThread @ 0x140272B24 (KiTryUnwaitThread.c)
+ *     ExReleaseFastMutexUnsafe @ 0x1402756B0 (ExReleaseFastMutexUnsafe.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     KeReleaseGuardedMutex @ 0x1402782B0 (KeReleaseGuardedMutex.c)
+ *     FsRtlReleaseHeaderMutex @ 0x14027B770 (FsRtlReleaseHeaderMutex.c)
+ *     KeWaitForMultipleObjects @ 0x1403981C0 (KeWaitForMultipleObjects.c)
+ *     KeSetEventBoostPriorityEx @ 0x140419658 (KeSetEventBoostPriorityEx.c)
+ *     KiWaitSatisfyAny @ 0x1405FA938 (KiWaitSatisfyAny.c)
  * Callees:
  *     <none>
  */

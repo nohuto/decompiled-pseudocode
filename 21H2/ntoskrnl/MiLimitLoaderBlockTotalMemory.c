@@ -1,9 +1,9 @@
 /*
- * XREFs of MiLimitLoaderBlockTotalMemory @ 0x140A67870
+ * XREFs of MiLimitLoaderBlockTotalMemory @ 0x140A68870
  * Callers:
- *     MiMemoryLicense @ 0x140A6778C (MiMemoryLicense.c)
+ *     MiMemoryLicense @ 0x140A6878C (MiMemoryLicense.c)
  * Callees:
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
  */
 
 unsigned __int64 __fastcall MiLimitLoaderBlockTotalMemory(__int64 a1, ULONG_PTR a2)

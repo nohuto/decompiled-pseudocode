@@ -1,23 +1,23 @@
 /*
- * XREFs of PopCheckDisabledState @ 0x140945078
+ * XREFs of PopCheckDisabledState @ 0x1409C09E8
  * Callers:
- *     PopFilterCapabilities @ 0x140944D5C (PopFilterCapabilities.c)
+ *     PopFilterCapabilities @ 0x1409C06CC (PopFilterCapabilities.c)
  * Callees:
  *     <none>
  */
 
 char __fastcall PopCheckDisabledState(int a1)
 {
-  struct _KTHREAD *Next; // r8
+  struct _KTHREAD *v1; // r8
   char v2; // dl
 
-  Next = (struct _KTHREAD *)stru_140F10070.SystemAffinityTokenListHead.Next;
+  v1 = *(struct _KTHREAD **)&PpmIdlePolicyLock.SystemCallNumber;
   v2 = 0;
-  while ( Next != (struct _KTHREAD *)&stru_140F10070.SystemAffinityTokenListHead )
+  while ( v1 != (struct _KTHREAD *)&PpmIdlePolicyLock.SystemCallNumber )
   {
-    if ( *((_BYTE *)&Next->Header.WaitListHead.Blink + a1) )
+    if ( *((_BYTE *)&v1->Header.WaitListHead.Blink + a1) )
       return 1;
-    Next = *(struct _KTHREAD **)&Next->Header.Lock;
+    v1 = *(struct _KTHREAD **)&v1->Header.Lock;
   }
   return v2;
 }

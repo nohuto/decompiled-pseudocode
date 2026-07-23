@@ -1,41 +1,39 @@
 /*
- * XREFs of IopInitializeCrashDump @ 0x140710F50
+ * XREFs of IopInitializeCrashDump @ 0x14070EAE0
  * Callers:
- *     IoConfigureCrashDump @ 0x140590DB4 (IoConfigureCrashDump.c)
- *     IoInitializeCrashDump @ 0x140710A68 (IoInitializeCrashDump.c)
- *     IopInitCrashDumpRegCallback @ 0x140C1CA50 (IopInitCrashDumpRegCallback.c)
+ *     IoConfigureCrashDump @ 0x14058DDD4 (IoConfigureCrashDump.c)
+ *     IoInitializeCrashDump @ 0x14070E5F8 (IoInitializeCrashDump.c)
+ *     IopInitCrashDumpRegCallback @ 0x140C1EA90 (IopInitCrashDumpRegCallback.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     IopDumpTraceLoadCrashDumpDriverFailure @ 0x1404D856C (IopDumpTraceLoadCrashDumpDriverFailure.c)
- *     IopLoadCrashdumpDriver @ 0x1404D88C4 (IopLoadCrashdumpDriver.c)
- *     SecureDump_GetSecureDumpSettings @ 0x1404F70B8 (SecureDump_GetSecureDumpSettings.c)
- *     IopDumpTraceInitializeCrashDumpFailure @ 0x140594148 (IopDumpTraceInitializeCrashDumpFailure.c)
- *     IopReadDumpRegistry @ 0x140594D8C (IopReadDumpRegistry.c)
- *     IopInitializeRemovePagesArray @ 0x1405A0C5C (IopInitializeRemovePagesArray.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     FsRtlIssueFileNotificationFsctl @ 0x14070CF48 (FsRtlIssueFileNotificationFsctl.c)
- *     ObReferenceObjectByHandle @ 0x14084AF40 (ObReferenceObjectByHandle.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     IopDumpTraceLoadCrashDumpDriverFailure @ 0x1404D19BC (IopDumpTraceLoadCrashDumpDriverFailure.c)
+ *     IopLoadCrashdumpDriver @ 0x1404D1D14 (IopLoadCrashdumpDriver.c)
+ *     SecureDump_GetSecureDumpSettings @ 0x1404F4998 (SecureDump_GetSecureDumpSettings.c)
+ *     IopDumpTraceInitializeCrashDumpFailure @ 0x14059116C (IopDumpTraceInitializeCrashDumpFailure.c)
+ *     IopReadDumpRegistry @ 0x140591DB0 (IopReadDumpRegistry.c)
+ *     IopInitializeRemovePagesArray @ 0x14059DB8C (IopInitializeRemovePagesArray.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     FsRtlIssueFileNotificationFsctl @ 0x14070AAE8 (FsRtlIssueFileNotificationFsctl.c)
+ *     ObReferenceObjectByHandle @ 0x140847200 (ObReferenceObjectByHandle.c)
  */
 
 char __fastcall IopInitializeCrashDump(__int64 Handle, __int128 *a2)
 {
   int CrashdumpDriver; // eax
   __int64 v6; // rdx
-  __int64 v7; // r8
-  __int64 v8; // r9
-  int v9; // eax
-  HANDLE v10; // rcx
-  __int64 v11; // rdx
-  __int128 v12; // [rsp+30h] [rbp-40h] BYREF
-  _QWORD v13[4]; // [rsp+40h] [rbp-30h] BYREF
-  char v14; // [rsp+60h] [rbp-10h]
-  __int16 v15; // [rsp+61h] [rbp-Fh]
-  char v16; // [rsp+63h] [rbp-Dh]
+  int v7; // eax
+  HANDLE v8; // rcx
+  __int64 v9; // rdx
+  __int128 v10; // [rsp+30h] [rbp-40h] BYREF
+  _QWORD v11[4]; // [rsp+40h] [rbp-30h] BYREF
+  char v12; // [rsp+60h] [rbp-10h]
+  __int16 v13; // [rsp+61h] [rbp-Fh]
+  char v14; // [rsp+63h] [rbp-Dh]
   PVOID Object; // [rsp+90h] [rbp+20h] BYREF
 
   LODWORD(Object) = 0;
-  *(_QWORD *)&v12 = 0LL;
-  DWORD2(v12) = 0;
+  *(_QWORD *)&v10 = 0LL;
+  DWORD2(v10) = 0;
   if ( ForceDumpDisabled || !AllowCrashDump )
     return 0;
   IopReadDumpRegistry(Handle, &Object);
@@ -43,33 +41,33 @@ char __fastcall IopInitializeCrashDump(__int64 Handle, __int128 *a2)
     return 1;
   if ( CrashdmpImageEntry || (CrashdumpDriver = IopLoadCrashdumpDriver(), CrashdumpDriver >= 0) )
   {
-    if ( (int)SecureDump_GetSecureDumpSettings((__int64)&v12) < 0 )
+    if ( (int)SecureDump_GetSecureDumpSettings((__int64)&v10) < 0 )
       return 0;
-    if ( (_BYTE)v12 )
+    if ( (_BYTE)v10 )
     {
-      if ( !qword_140E65F38 )
+      if ( !qword_140E66078 )
         return 0;
-      v13[3] = *(_QWORD *)((char *)&v12 + 4);
-      v14 = BYTE1(v12);
-      v13[1] = SecureDump_Get_SecureDumpHeader;
-      v13[2] = SecureDump_Encrypt_DmpData;
-      v13[0] = 40LL;
-      v15 = 0;
-      v16 = 0;
-      if ( (int)guard_dispatch_icall_no_overrides(v13, v6, v7, v8) < 0 )
+      v11[3] = *(_QWORD *)((char *)&v10 + 4);
+      v12 = BYTE1(v10);
+      v11[1] = SecureDump_Get_SecureDumpHeader;
+      v11[2] = SecureDump_Encrypt_DmpData;
+      v11[0] = 40LL;
+      v13 = 0;
+      v14 = 0;
+      if ( (int)guard_dispatch_icall_no_overrides(v11, v6) < 0 )
         return 0;
     }
-    v12 = *a2;
-    v9 = guard_dispatch_icall_no_overrides(Handle, &CrashdmpDumpBlock, &v12, v8);
-    if ( v9 < 0 )
+    v10 = *a2;
+    v7 = guard_dispatch_icall_no_overrides(Handle, &CrashdmpDumpBlock);
+    if ( v7 < 0 )
     {
       CrashdmpDumpBlock = 0LL;
-      IopDumpTraceInitializeCrashDumpFailure(v9);
+      IopDumpTraceInitializeCrashDumpFailure(v7);
       return 0;
     }
     CrashdmpInitialized = 1;
-    v10 = *(HANDLE *)(CrashdmpDumpBlock + 1352);
-    if ( !v10 )
+    v8 = *(HANDLE *)(CrashdmpDumpBlock + 1352);
+    if ( !v8 )
     {
       if ( !Handle )
       {
@@ -81,15 +79,12 @@ LABEL_23:
         }
         return 1;
       }
-      v10 = (HANDLE)Handle;
+      v8 = (HANDLE)Handle;
     }
     Object = 0LL;
-    if ( ObReferenceObjectByHandle(v10, 0, (POBJECT_TYPE)IoFileObjectType, 0, &Object, 0LL) >= 0 )
+    if ( ObReferenceObjectByHandle(v8, 0, (POBJECT_TYPE)IoFileObjectType, 0, &Object, 0LL) >= 0 )
     {
-      FsRtlIssueFileNotificationFsctl(
-        (PFILE_OBJECT)Object,
-        v11,
-        (__int128 *)&FILE_TYPE_NOTIFICATION_GUID_CRASHDUMP_FILE);
+      FsRtlIssueFileNotificationFsctl((PFILE_OBJECT)Object, v9, (__int128 *)&FILE_TYPE_NOTIFICATION_GUID_CRASHDUMP_FILE);
       ObfDereferenceObject(Object);
     }
     goto LABEL_23;

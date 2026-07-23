@@ -1,17 +1,17 @@
 /*
- * XREFs of HalpDmaCommitContiguousMapBuffers @ 0x14054F1B4
+ * XREFs of HalpDmaCommitContiguousMapBuffers @ 0x14054CAF4
  * Callers:
- *     HalpDmaAllocateMapRegisters @ 0x14038E95C (HalpDmaAllocateMapRegisters.c)
- *     HalpDmaAllocateLocalContiguousPool @ 0x1406FF764 (HalpDmaAllocateLocalContiguousPool.c)
- *     HalpDmaGrowContiguousMapBuffers @ 0x140ABD4C4 (HalpDmaGrowContiguousMapBuffers.c)
- *     HalpDmaInitializeMasterAdapter @ 0x140C10B98 (HalpDmaInitializeMasterAdapter.c)
+ *     HalpDmaAllocateMapRegisters @ 0x14038829C (HalpDmaAllocateMapRegisters.c)
+ *     HalpDmaAllocateLocalContiguousPool @ 0x1406FD3A4 (HalpDmaAllocateLocalContiguousPool.c)
+ *     HalpDmaGrowContiguousMapBuffers @ 0x140AB8534 (HalpDmaGrowContiguousMapBuffers.c)
+ *     HalpDmaInitializeMasterAdapter @ 0x140C12B98 (HalpDmaInitializeMasterAdapter.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140275CD0 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x1402D8540 (KeAcquireInStackQueuedSpinLock.c)
- *     RtlClearBits @ 0x14037CD40 (RtlClearBits.c)
- *     HalpDmaTranslationEntryToIndex @ 0x14047B640 (HalpDmaTranslationEntryToIndex.c)
- *     HalpDmaGetTranslationEntries @ 0x14048F7B4 (HalpDmaGetTranslationEntries.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x14022B260 (KeReleaseInStackQueuedSpinLock.c)
+ *     RtlClearBits @ 0x1402EA360 (RtlClearBits.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1403597C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     HalpDmaTranslationEntryToIndex @ 0x1404772B8 (HalpDmaTranslationEntryToIndex.c)
+ *     HalpDmaGetTranslationEntries @ 0x1404899C4 (HalpDmaGetTranslationEntries.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 unsigned __int64 __fastcall HalpDmaCommitContiguousMapBuffers(

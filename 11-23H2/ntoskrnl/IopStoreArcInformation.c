@@ -3,8 +3,8 @@
  * Callers:
  *     IoInitSystemPreDrivers @ 0x140B4B914 (IoInitSystemPreDrivers.c)
  * Callees:
- *     RtlStringCbCopyA @ 0x140348078 (RtlStringCbCopyA.c)
- *     _strnicmp @ 0x1403D9800 (_strnicmp.c)
+ *     RtlStringCbCopyA @ 0x140348308 (RtlStringCbCopyA.c)
+ *     _strnicmp @ 0x1403D99E0 (_strnicmp.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
@@ -28,7 +28,7 @@ __int64 __fastcall IopStoreArcInformation(__int64 a1)
   __int64 m; // rcx
 
   v1 = *(__int64 ***)(a1 + 232);
-  v2 = dword_140C31B10;
+  v2 = dword_140C31AB0;
   v3 = 0;
   qword_140D54BB0 = (__int64)&IoArcTableListHead;
   IoArcTableListHead = (__int64)&IoArcTableListHead;

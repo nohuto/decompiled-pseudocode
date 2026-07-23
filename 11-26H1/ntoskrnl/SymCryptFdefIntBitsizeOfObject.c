@@ -1,7 +1,7 @@
 /*
- * XREFs of SymCryptFdefIntBitsizeOfObject @ 0x140570994
+ * XREFs of SymCryptFdefIntBitsizeOfObject @ 0x14056FB74
  * Callers:
- *     SymCryptIntBitsizeOfObject @ 0x14055C160 (SymCryptIntBitsizeOfObject.c)
+ *     SymCryptIntBitsizeOfObject @ 0x14055E648 (SymCryptIntBitsizeOfObject.c)
  * Callees:
  *     <none>
  */

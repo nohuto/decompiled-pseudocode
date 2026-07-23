@@ -1,12 +1,12 @@
 /*
- * XREFs of MiPulseCommitSignal @ 0x1402C024C
+ * XREFs of MiPulseCommitSignal @ 0x1402C043C
  * Callers:
  *     MiChargeCommit @ 0x14004CF20 (MiChargeCommit.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     KePulseEvent @ 0x1400F0BC0 (KePulseEvent.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14007DE80 (KeAcquireInStackQueuedSpinLock.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     KePulseEvent @ 0x1400F0C40 (KePulseEvent.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiPulseCommitSignal(__int64 a1)

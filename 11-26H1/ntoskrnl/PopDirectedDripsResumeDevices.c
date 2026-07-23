@@ -1,15 +1,15 @@
 /*
- * XREFs of PopDirectedDripsResumeDevices @ 0x140AC5364
+ * XREFs of PopDirectedDripsResumeDevices @ 0x140AC6FD4
  * Callers:
- *     PopDirectedDripsWorkerRoutine @ 0x1407CC5D0 (PopDirectedDripsWorkerRoutine.c)
- *     PopDirectedDripsRefreshDisengageState @ 0x140AC4F18 (PopDirectedDripsRefreshDisengageState.c)
- *     PopDirectedDripsHandleResiliencyNotification @ 0x140AC5068 (PopDirectedDripsHandleResiliencyNotification.c)
+ *     PopDirectedDripsWorkerRoutine @ 0x1407CF670 (PopDirectedDripsWorkerRoutine.c)
+ *     PopDirectedDripsRefreshDisengageState @ 0x140AC6B88 (PopDirectedDripsRefreshDisengageState.c)
+ *     PopDirectedDripsHandleResiliencyNotification @ 0x140AC6CD8 (PopDirectedDripsHandleResiliencyNotification.c)
  * Callees:
- *     PopFxClearDirectedDripsCandidateDeviceList @ 0x1404C7D84 (PopFxClearDirectedDripsCandidateDeviceList.c)
- *     PopDirectedDripsDiagTraceNotifyDevices @ 0x1404D64A0 (PopDirectedDripsDiagTraceNotifyDevices.c)
- *     PopDirectedDripsReleaseTransitionLock @ 0x140AC5458 (PopDirectedDripsReleaseTransitionLock.c)
- *     PopDirectedDripsDestroyBroadcast @ 0x140B336CC (PopDirectedDripsDestroyBroadcast.c)
- *     PoBroadcastSystemState @ 0x140C05D10 (PoBroadcastSystemState.c)
+ *     PopFxClearDirectedDripsCandidateDeviceList @ 0x1404C1AC4 (PopFxClearDirectedDripsCandidateDeviceList.c)
+ *     PopDirectedDripsDiagTraceNotifyDevices @ 0x1404CFC70 (PopDirectedDripsDiagTraceNotifyDevices.c)
+ *     PopDirectedDripsReleaseTransitionLock @ 0x140AC70C8 (PopDirectedDripsReleaseTransitionLock.c)
+ *     PopDirectedDripsDestroyBroadcast @ 0x140B35B1C (PopDirectedDripsDestroyBroadcast.c)
+ *     PoBroadcastSystemState @ 0x140C0BF20 (PoBroadcastSystemState.c)
  */
 
 void __fastcall PopDirectedDripsResumeDevices(unsigned __int32 *a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
@@ -20,7 +20,7 @@ void __fastcall PopDirectedDripsResumeDevices(unsigned __int32 *a1, __int64 a2, 
   __int64 v8; // r8
   unsigned __int32 v9; // ett
   __int16 v10; // di
-  unsigned __int32 Blink; // eax
+  unsigned __int32 v11; // eax
   __int64 v12; // rcx
   unsigned __int32 v13; // ett
 
@@ -46,19 +46,16 @@ void __fastcall PopDirectedDripsResumeDevices(unsigned __int32 *a1, __int64 a2, 
     PopDirectedDripsDestroyBroadcast();
   if ( !v4 && (v10 & 0x200) == 0 )
   {
-    _m_prefetchw(&PopDirectedDripsUmLock.Header.WaitListHead.Blink);
-    Blink = (unsigned __int32)PopDirectedDripsUmLock.Header.WaitListHead.Blink;
+    _m_prefetchw(&PopDirectedDripsUmTestDeviceCount);
+    v11 = PopDirectedDripsUmTestDeviceCount;
     do
     {
-      v12 = Blink;
-      v13 = Blink;
-      Blink = _InterlockedCompareExchange(
-                (volatile signed __int32 *)&PopDirectedDripsUmLock.Header.WaitListHead.Blink,
-                Blink,
-                Blink);
+      v12 = v11;
+      v13 = v11;
+      v11 = _InterlockedCompareExchange(&PopDirectedDripsUmTestDeviceCount, v11, v11);
     }
-    while ( v13 != Blink );
-    if ( !Blink )
+    while ( v13 != v11 );
+    if ( !v11 )
       PopFxClearDirectedDripsCandidateDeviceList(v12, a2, v8, a4);
   }
   _InterlockedAnd((volatile signed __int32 *)a1, 0xFFFFFF6F);

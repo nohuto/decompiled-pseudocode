@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpInitializeDeferredErrorVector @ 0x1403A3F48
+ * XREFs of HalpInitializeDeferredErrorVector @ 0x1403A4098
  * Callers:
- *     HalpInterruptInitializeLocalUnit @ 0x1403A3D0C (HalpInterruptInitializeLocalUnit.c)
+ *     HalpInterruptInitializeLocalUnit @ 0x1403A3E5C (HalpInterruptInitializeLocalUnit.c)
  * Callees:
- *     HalpInterruptSetLineStateInternal @ 0x140378BAC (HalpInterruptSetLineStateInternal.c)
- *     HalpInterruptFindLines @ 0x140378CA0 (HalpInterruptFindLines.c)
- *     HalpInterruptGetPriority @ 0x1403A407C (HalpInterruptGetPriority.c)
+ *     HalpInterruptSetLineStateInternal @ 0x1403786FC (HalpInterruptSetLineStateInternal.c)
+ *     HalpInterruptFindLines @ 0x1403787F0 (HalpInterruptFindLines.c)
+ *     HalpInterruptGetPriority @ 0x1403A41CC (HalpInterruptGetPriority.c)
  */
 
 __int64 __fastcall HalpInitializeDeferredErrorVector(__int64 a1, int a2)

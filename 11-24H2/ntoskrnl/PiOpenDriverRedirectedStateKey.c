@@ -1,15 +1,15 @@
 /*
- * XREFs of PiOpenDriverRedirectedStateKey @ 0x140A84618
+ * XREFs of PiOpenDriverRedirectedStateKey @ 0x140A7F158
  * Callers:
- *     PipHardwareConfigActivateService @ 0x140A84510 (PipHardwareConfigActivateService.c)
+ *     PipHardwareConfigActivateService @ 0x140A7F050 (PipHardwareConfigActivateService.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     RtlUnicodeStringPrintfEx @ 0x14049EF80 (RtlUnicodeStringPrintfEx.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwOpenKey @ 0x1406A6650 (ZwOpenKey.c)
- *     PiGetStateRootPath @ 0x1409CB310 (PiGetStateRootPath.c)
- *     IopAllocateUnicodeString @ 0x140A0D4B0 (IopAllocateUnicodeString.c)
- *     ExFreePool @ 0x140B72CB0 (ExFreePool.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     RtlUnicodeStringPrintfEx @ 0x140499DB0 (RtlUnicodeStringPrintfEx.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwOpenKey @ 0x1406A75F0 (ZwOpenKey.c)
+ *     PiGetStateRootPath @ 0x1409B55E8 (PiGetStateRootPath.c)
+ *     IopAllocateUnicodeString @ 0x1409BB8B4 (IopAllocateUnicodeString.c)
+ *     ExFreePool @ 0x140B74850 (ExFreePool.c)
  */
 
 __int64 __fastcall PiOpenDriverRedirectedStateKey(unsigned __int16 *a1, __int64 a2, _QWORD *a3)
@@ -32,7 +32,7 @@ __int64 __fastcall PiOpenDriverRedirectedStateKey(unsigned __int16 *a1, __int64 
   RtlInitUnicodeString(&v12, 0LL);
   if ( a1 && *((_QWORD *)a1 + 1) && *a1 >= 2u && a3 )
   {
-    StateRootPath = PiGetStateRootPath(L"DriverStatePath", 0LL, 0LL, &DestinationString);
+    StateRootPath = PiGetStateRootPath(L"DriverStatePath", 0LL, LocationTypeRegistry, &DestinationString);
     if ( StateRootPath >= 0 )
     {
       v6 = *a1 + 2;

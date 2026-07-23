@@ -13,15 +13,15 @@
  *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall NtSetTimerResolution(unsigned int a1, char a2, int *a3)
+NTSTATUS __cdecl NtSetTimerResolution(ULONG DesiredTime, BOOLEAN SetResolution, PULONG ActualTime)
 {
   __int64 v6; // r8
   _KPROCESS *Process; // rbx
-  unsigned int v8; // r13d
-  int updated; // r15d
+  NTSTATUS v8; // r13d
+  ULONG updated; // r15d
   signed __int32 DirectoryTableBase_high; // eax
   signed __int32 v11; // ett
-  unsigned int v12; // edx
+  ULONG v12; // edx
   char v13; // cl
   void *v14; // r14
   void *v15; // rdi
@@ -35,8 +35,8 @@ __int64 __fastcall NtSetTimerResolution(unsigned int a1, char a2, int *a3)
   if ( KeGetCurrentThread()->PreviousMode )
   {
     v6 = 0x7FFFFFFF0000LL;
-    if ( (unsigned __int64)a3 < 0x7FFFFFFF0000LL )
-      v6 = (__int64)a3;
+    if ( (unsigned __int64)ActualTime < 0x7FFFFFFF0000LL )
+      v6 = (__int64)ActualTime;
     *(_DWORD *)v6 = *(_DWORD *)v6;
   }
   Process = KeGetCurrentThread()->ApcState.Process;
@@ -46,7 +46,7 @@ __int64 __fastcall NtSetTimerResolution(unsigned int a1, char a2, int *a3)
   updated = KeTimeIncrement;
   _m_prefetchw((char *)&Process[1].DirectoryTableBase + 4);
   DirectoryTableBase_high = HIDWORD(Process[1].DirectoryTableBase);
-  if ( a2 )
+  if ( SetResolution )
   {
     v17 = 1;
     do
@@ -62,19 +62,19 @@ __int64 __fastcall NtSetTimerResolution(unsigned int a1, char a2, int *a3)
     if ( DirectoryTableBase_high >= 0 )
       ExpInsertTimerResolutionEntry((__int64)Process);
     if ( (v19 & 0x1000) != 0 )
-      v17 = a1 <= LODWORD(Process[1].PerProcessorCycleTimes);
+      v17 = DesiredTime <= LODWORD(Process[1].PerProcessorCycleTimes);
     else
       ++ExpTimerResolutionCount;
-    if ( !Process[1].LastRebalanceQpc || a1 < HIDWORD(Process[1].PerProcessorCycleTimes) )
+    if ( !Process[1].LastRebalanceQpc || DesiredTime < HIDWORD(Process[1].PerProcessorCycleTimes) )
       v24 = 1;
-    LODWORD(Process[1].PerProcessorCycleTimes) = a1;
+    LODWORD(Process[1].PerProcessorCycleTimes) = DesiredTime;
     PoTraceSystemTimerResolution(0LL, Process);
     if ( (HIDWORD(Process[2].Header.WaitListHead.Flink) & 0x4000000) != 0 )
     {
       updated = KePseudoHrTimeIncrement;
       goto LABEL_10;
     }
-    v12 = a1;
+    v12 = DesiredTime;
     v13 = v17;
   }
   else
@@ -115,7 +115,7 @@ LABEL_10:
       v21 = LastRebalanceQpc == 0;
       if ( LastRebalanceQpc )
       {
-        if ( a1 >= HIDWORD(Process[1].PerProcessorCycleTimes) )
+        if ( DesiredTime >= HIDWORD(Process[1].PerProcessorCycleTimes) )
         {
 LABEL_33:
           ExReleaseResourceLite(&ExpTimeRefreshLock);
@@ -126,7 +126,7 @@ LABEL_33:
       }
       if ( !v21 )
         v14 = (void *)Process[1].LastRebalanceQpc;
-      HIDWORD(Process[1].PerProcessorCycleTimes) = a1;
+      HIDWORD(Process[1].PerProcessorCycleTimes) = DesiredTime;
       Process[1].LastRebalanceQpc = (unsigned __int64)v15;
       v15 = 0LL;
       goto LABEL_33;
@@ -137,6 +137,6 @@ LABEL_11:
     ExFreePoolWithTag(v14, 0x50455654u);
   if ( v15 )
     ExFreePoolWithTag(v15, 0x50455654u);
-  *a3 = updated;
+  *ActualTime = updated;
   return v8;
 }

@@ -11,52 +11,52 @@
  *     sub_180106250 @ 0x180106250 (sub_180106250.c)
  */
 
-__int64 __fastcall RtlSetIoCompletionCallback(__int64 a1, __int64 a2, __int64 a3)
+NTSTATUS __cdecl RtlSetIoCompletionCallback(HANDLE FileHandle, APC_CALLBACK_FUNCTION CompletionProc, ULONG Flags)
 {
   int v6; // ebx
   char v7; // al
   __int64 v8; // rdx
   __int64 v9; // [rsp+28h] [rbp-10h] BYREF
-  __int64 v10; // [rsp+58h] [rbp+20h] BYREF
+  HANDLE TokenHandle; // [rsp+58h] [rbp+20h] BYREF
 
-  v10 = 0LL;
+  TokenHandle = 0LL;
   v9 = 0LL;
   if ( NtCurrentPeb()->Ldr->ShutdownInProgress )
-    return 3221225473LL;
-  if ( !a1 || (_DWORD)a3 )
-    return 3221225485LL;
-  v6 = sub_180012CB0(&v10, 0, a3);
+    return -1073741823;
+  if ( !FileHandle || Flags )
+    return -1073741811;
+  v6 = sub_180012CB0(&TokenHandle, 0);
   if ( v6 >= 0 )
   {
     if ( byte_18015C7E0 )
       goto LABEL_13;
-    RtlAcquireSRWLockExclusive(&qword_18015C7D8);
+    RtlAcquireSRWLockExclusive(&stru_18015C7D8);
     if ( byte_18015C7E0 )
     {
       v6 = 0;
     }
     else
     {
-      v6 = LdrRegisterDllNotification(0, (__int64)sub_1801060E0, 0LL, qword_18015C7F8);
+      v6 = LdrRegisterDllNotification(0, NotificationFunction, 0LL, &Cookie);
       v7 = byte_18015C7E0;
       if ( v6 >= 0 )
         v7 = 1;
       byte_18015C7E0 = v7;
     }
-    RtlReleaseSRWLockExclusive(&qword_18015C7D8);
+    RtlReleaseSRWLockExclusive(&stru_18015C7D8);
     if ( v6 >= 0 )
     {
 LABEL_13:
-      v6 = sub_180106250(&v9, a2, a1);
+      v6 = sub_180106250(&v9, CompletionProc, FileHandle);
       if ( v6 >= 0 )
       {
         v8 = v9;
         *(_QWORD *)(v9 + 160) = NtCurrentTeb()->SubProcessTag;
-        *(struct _GUID *)(v8 + 168) = NtCurrentTeb()->ActivityId;
+        *(GUID *)(v8 + 168) = NtCurrentTeb()->ActivityId;
         v6 = 0;
       }
     }
   }
-  sub_180012FFC(v10);
-  return (unsigned int)v6;
+  sub_180012FFC(TokenHandle);
+  return v6;
 }

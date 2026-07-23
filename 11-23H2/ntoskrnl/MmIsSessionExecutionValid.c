@@ -1,12 +1,12 @@
 /*
- * XREFs of MmIsSessionExecutionValid @ 0x1402A6680
+ * XREFs of MmIsSessionExecutionValid @ 0x1402A6910
  * Callers:
- *     RtlpWalkFrameChain @ 0x1402A42A0 (RtlpWalkFrameChain.c)
+ *     RtlpWalkFrameChain @ 0x1402A4530 (RtlpWalkFrameChain.c)
  * Callees:
- *     ExAcquireSpinLockSharedAtDpcLevel @ 0x14025AD10 (ExAcquireSpinLockSharedAtDpcLevel.c)
- *     MmGetSessionIdEx @ 0x1402A1720 (MmGetSessionIdEx.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7C00 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x14025AFA0 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     MmGetSessionIdEx @ 0x1402A19B0 (MmGetSessionIdEx.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7E90 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MmIsSessionExecutionValid(__int64 a1, __int64 a2, unsigned __int64 a3)
@@ -47,9 +47,9 @@ __int64 __fastcall MmIsSessionExecutionValid(__int64 a1, __int64 a2, unsigned __
     {
       v9 = KeGetCurrentIrql();
       __writecr8(0xFuLL);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
-        if ( (KiIrqlFlags & 1) != 0 && v9 <= 0xFu )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v9 <= 0xFu )
         {
           SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
           if ( v9 == 15 )
@@ -84,10 +84,10 @@ LABEL_22:
     ExReleaseSpinLockSharedFromDpcLevel(&PsLoadedModuleSpinLock);
     if ( CurrentIrql < 0xFu )
     {
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v14 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)(v14 - 2) <= 0xDu )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && (unsigned __int8)(v14 - 2) <= 0xDu )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           v16 = CurrentPrcb->SchedulerAssist;

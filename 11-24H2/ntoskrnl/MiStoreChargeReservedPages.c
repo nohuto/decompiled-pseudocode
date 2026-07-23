@@ -1,21 +1,21 @@
 /*
- * XREFs of MiStoreChargeReservedPages @ 0x14068BDD0
+ * XREFs of MiStoreChargeReservedPages @ 0x14068CF00
  * Callers:
- *     MmStoreRegister @ 0x1407FD3A8 (MmStoreRegister.c)
+ *     MmStoreRegister @ 0x1407FDB18 (MmStoreRegister.c)
  * Callees:
- *     MiAcquireNonPagedResources @ 0x140211200 (MiAcquireNonPagedResources.c)
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     MiAcquireNonPagedResources @ 0x14033A560 (MiAcquireNonPagedResources.c)
  */
 
 __int64 __fastcall MiStoreChargeReservedPages(__int64 a1)
 {
   KIRQL v3; // al
 
-  if ( (int)MiAcquireNonPagedResources((ULONG *)a1, 0x20uLL, 0LL, 6u) < 0 )
+  if ( (int)MiAcquireNonPagedResources((ULONG *)a1, 0x20uLL, 0LL, 6LL) < 0 )
     return 0LL;
-  v3 = ExAcquireSpinLockExclusive(&dword_140E2FF40);
+  v3 = ExAcquireSpinLockExclusive(&dword_140E30080);
   _InterlockedOr((volatile signed __int32 *)(a1 + 4), 4u);
-  MiReleaseSpinLockExclusive(&dword_140E2FF40, v3);
+  MiReleaseSpinLockExclusive(&dword_140E30080, v3);
   return 1LL;
 }

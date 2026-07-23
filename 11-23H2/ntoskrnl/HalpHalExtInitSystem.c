@@ -1,5 +1,5 @@
 /*
- * XREFs of HalpHalExtInitSystem @ 0x140A91860
+ * XREFs of HalpHalExtInitSystem @ 0x140A916E0
  * Callers:
  *     <none>
  * Callees:

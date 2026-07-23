@@ -1,9 +1,9 @@
 /*
- * XREFs of IopDeleteIoCompletion @ 0x140ADEA60
+ * XREFs of IopDeleteIoCompletion @ 0x140ADBC50
  * Callers:
  *     <none>
  * Callees:
- *     IopDeleteIoCompletionInternal @ 0x1403DC1DC (IopDeleteIoCompletionInternal.c)
+ *     IopDeleteIoCompletionInternal @ 0x1403DF3CC (IopDeleteIoCompletionInternal.c)
  */
 
 void __fastcall IopDeleteIoCompletion(ULONG_PTR a1)

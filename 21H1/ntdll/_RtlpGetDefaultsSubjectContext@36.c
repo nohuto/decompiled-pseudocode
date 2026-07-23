@@ -11,84 +11,98 @@
  *     _ZwOpenProcessToken@12 @ 0x4B2F3C00 (_ZwOpenProcessToken@12.c)
  */
 
-int __fastcall RtlpGetDefaultsSubjectContext(
-        int a1,
+NTSTATUS __fastcall RtlpGetDefaultsSubjectContext(
+        HANDLE TokenHandle,
         char a2,
-        int *a3,
-        int *a4,
-        int *a5,
-        int *a6,
-        int *a7,
-        int *a8,
-        int *a9)
+        PVOID *a3,
+        PVOID *a4,
+        PVOID *a5,
+        PVOID *a6,
+        PVOID *a7,
+        PVOID *a8,
+        PVOID *a9)
 {
   struct _PEB *v10; // eax
-  int ProcessHeap; // edi
-  int Heap; // eax
-  int DefaultTrustSubjectContext; // esi
-  int v14; // eax
-  int v15; // eax
-  int v16; // eax
-  int *v18; // ebx
-  int v19; // eax
-  int v20; // eax
-  int v21; // [esp+Ch] [ebp-20h] BYREF
-  int v22; // [esp+10h] [ebp-1Ch] BYREF
-  int v23; // [esp+14h] [ebp-18h] BYREF
-  int v24; // [esp+18h] [ebp-14h] BYREF
-  int v25; // [esp+1Ch] [ebp-10h] BYREF
-  int v26; // [esp+20h] [ebp-Ch] BYREF
-  HANDLE Handle; // [esp+24h] [ebp-8h] BYREF
-  char v28; // [esp+2Ah] [ebp-2h]
-  char v29; // [esp+2Bh] [ebp-1h]
+  void *ProcessHeap; // edi
+  PVOID Heap; // eax
+  NTSTATUS DefaultTrustSubjectContext; // esi
+  PVOID v14; // eax
+  PVOID v15; // eax
+  PVOID v16; // eax
+  PVOID *v18; // ebx
+  PVOID v19; // eax
+  PVOID v20; // eax
+  SIZE_T v21; // [esp-4h] [ebp-30h]
+  SIZE_T v22; // [esp-4h] [ebp-30h]
+  SIZE_T v23; // [esp-4h] [ebp-30h]
+  SIZE_T v24; // [esp-4h] [ebp-30h]
+  SIZE_T v25; // [esp-4h] [ebp-30h]
+  ULONG v26; // [esp+Ch] [ebp-20h] BYREF
+  ULONG ReturnLength; // [esp+10h] [ebp-1Ch] BYREF
+  ULONG TokenInformationLength; // [esp+14h] [ebp-18h] BYREF
+  ULONG v29; // [esp+18h] [ebp-14h] BYREF
+  ULONG v30; // [esp+1Ch] [ebp-10h] BYREF
+  ULONG v31; // [esp+20h] [ebp-Ch] BYREF
+  HANDLE TokenHandlea; // [esp+24h] [ebp-8h] BYREF
+  char v33; // [esp+2Ah] [ebp-2h]
+  char v34; // [esp+2Bh] [ebp-1h]
 
-  v28 = a2;
-  Handle = 0;
+  v33 = a2;
+  TokenHandlea = 0;
   *a6 = 0;
-  v29 = 0;
+  v34 = 0;
   *a4 = 0;
   *a9 = 0;
   *a5 = 0;
   *a7 = 0;
   v10 = NtCurrentPeb();
   *a3 = 0;
-  ProcessHeap = (int)v10->ProcessHeap;
-  if ( a1 )
+  ProcessHeap = v10->ProcessHeap;
+  if ( TokenHandle )
   {
-    v23 = 72;
-    Heap = RtlAllocateHeap(ProcessHeap, NtdllBaseTag + 1310720, 72);
+    LODWORD(v21) = 72;
+    TokenInformationLength = 72;
+    Heap = RtlAllocateHeap(ProcessHeap, NtdllBaseTag + 1310720, v21);
     *a3 = Heap;
     if ( Heap )
     {
-      DefaultTrustSubjectContext = ZwQueryInformationToken(a1, 4, Heap, v23, &v23);
+      DefaultTrustSubjectContext = ZwQueryInformationToken(
+                                     TokenHandle,
+                                     4u,
+                                     Heap,
+                                     TokenInformationLength,
+                                     &TokenInformationLength);
       if ( DefaultTrustSubjectContext < 0 )
         goto LABEL_15;
-      v22 = 76;
-      v14 = RtlAllocateHeap(ProcessHeap, NtdllBaseTag + 1310720, 76);
+      LODWORD(v22) = 76;
+      ReturnLength = 76;
+      v14 = RtlAllocateHeap(ProcessHeap, NtdllBaseTag + 1310720, v22);
       *a7 = v14;
       if ( v14 )
       {
-        DefaultTrustSubjectContext = ZwQueryInformationToken(a1, 25, v14, v22, &v22);
+        DefaultTrustSubjectContext = ZwQueryInformationToken(TokenHandle, 0x19u, v14, ReturnLength, &ReturnLength);
         if ( DefaultTrustSubjectContext < 0 )
           goto LABEL_15;
-        DefaultTrustSubjectContext = ZwQueryInformationToken(a1, 5, *a4, 0, &v26);
+        DefaultTrustSubjectContext = ZwQueryInformationToken(TokenHandle, 5u, *a4, 0, &v31);
         if ( DefaultTrustSubjectContext != -1073741789 )
           goto LABEL_15;
-        v15 = RtlAllocateHeap(ProcessHeap, NtdllBaseTag + 1310720, v26);
+        LODWORD(v23) = v31;
+        v15 = RtlAllocateHeap(ProcessHeap, NtdllBaseTag + 1310720, v23);
         *a4 = v15;
         if ( v15 )
         {
-          DefaultTrustSubjectContext = ZwQueryInformationToken(a1, 5, v15, v26, &v26);
+          DefaultTrustSubjectContext = ZwQueryInformationToken(TokenHandle, 5u, v15, v31, &v31);
           if ( DefaultTrustSubjectContext < 0 )
             goto LABEL_15;
-          DefaultTrustSubjectContext = ZwQueryInformationToken(a1, 6, *a5, 0, &v25);
+          DefaultTrustSubjectContext = ZwQueryInformationToken(TokenHandle, 6u, *a5, 0, &v30);
           if ( DefaultTrustSubjectContext != -1073741789 )
             goto LABEL_15;
-          v16 = RtlAllocateHeap(ProcessHeap, NtdllBaseTag + 1310720, v25);
+          LODWORD(v24) = v30;
+          v16 = RtlAllocateHeap(ProcessHeap, NtdllBaseTag + 1310720, v24);
           *a5 = v16;
           if ( v16 )
           {
-            DefaultTrustSubjectContext = ZwQueryInformationToken(a1, 6, v16, v25, &v25);
+            DefaultTrustSubjectContext = ZwQueryInformationToken(TokenHandle, 6u, v16, v30, &v30);
             if ( DefaultTrustSubjectContext >= 0 )
               goto LABEL_12;
 LABEL_15:
@@ -103,38 +117,40 @@ LABEL_16:
     goto LABEL_15;
   }
 LABEL_12:
-  DefaultTrustSubjectContext = RtlpGetDefaultTrustSubjectContext(a1, a8);
+  DefaultTrustSubjectContext = RtlpGetDefaultTrustSubjectContext(TokenHandle);
   if ( DefaultTrustSubjectContext < 0 )
     goto LABEL_15;
-  if ( !v28 )
+  if ( !v33 )
     return 0;
-  DefaultTrustSubjectContext = ZwOpenProcessToken(-1, 8, &Handle);
+  DefaultTrustSubjectContext = ZwOpenProcessToken((HANDLE)0xFFFFFFFF, 8u, &TokenHandlea);
   if ( DefaultTrustSubjectContext < 0 )
   {
-    v29 = 0;
+    v34 = 0;
     goto LABEL_15;
   }
-  v29 = 1;
-  v21 = 72;
-  v19 = RtlAllocateHeap(ProcessHeap, NtdllBaseTag + 1310720, 72);
+  LODWORD(v21) = 72;
+  v34 = 1;
+  v26 = 72;
+  v19 = RtlAllocateHeap(ProcessHeap, NtdllBaseTag + 1310720, v21);
   *a6 = v19;
   if ( !v19 )
     goto LABEL_16;
   v18 = a9;
-  DefaultTrustSubjectContext = ZwQueryInformationToken(Handle, 4, v19, v21, &v21);
+  DefaultTrustSubjectContext = ZwQueryInformationToken(TokenHandlea, 4u, v19, v26, &v26);
   if ( DefaultTrustSubjectContext >= 0 )
   {
-    DefaultTrustSubjectContext = ZwQueryInformationToken(Handle, 5, *a9, 0, &v24);
+    DefaultTrustSubjectContext = ZwQueryInformationToken(TokenHandlea, 5u, *a9, 0, &v29);
     if ( DefaultTrustSubjectContext == -1073741789 )
     {
-      v20 = RtlAllocateHeap(ProcessHeap, NtdllBaseTag + 1310720, v24);
+      LODWORD(v25) = v29;
+      v20 = RtlAllocateHeap(ProcessHeap, NtdllBaseTag + 1310720, v25);
       *a9 = v20;
       if ( v20 )
       {
-        DefaultTrustSubjectContext = ZwQueryInformationToken(Handle, 5, v20, v24, &v24);
+        DefaultTrustSubjectContext = ZwQueryInformationToken(TokenHandlea, 5u, v20, v29, &v29);
         if ( DefaultTrustSubjectContext >= 0 )
         {
-          NtClose(Handle);
+          NtClose(TokenHandlea);
           return 0;
         }
       }
@@ -176,7 +192,7 @@ LABEL_25:
     RtlFreeHeap(ProcessHeap, 0, *v18);
     *v18 = 0;
   }
-  if ( v29 == 1 )
-    NtClose(Handle);
+  if ( v34 == 1 )
+    NtClose(TokenHandlea);
   return DefaultTrustSubjectContext;
 }

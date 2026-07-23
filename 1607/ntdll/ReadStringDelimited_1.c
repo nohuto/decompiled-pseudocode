@@ -3,7 +3,7 @@
  * Callers:
  *     _winput_s @ 0x1800A5094 (_winput_s.c)
  * Callees:
- *     __security_check_cookie @ 0x180096C40 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x180096C30 (__security_check_cookie.c)
  *     ReadString_1 @ 0x1800A4BA8 (ReadString_1.c)
  *     _alloca_probe @ 0x1800AADB0 (_alloca_probe.c)
  *     memset @ 0x1800ACCC0 (memset.c)

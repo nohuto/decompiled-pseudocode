@@ -34,18 +34,18 @@ void __fastcall LZNT1DecompressChunkWorkItem(char *P)
   }
   if ( _InterlockedExchangeAdd((volatile signed __int32 *)(*((_QWORD *)P + 10) + 24LL), 0xFFFFFFFF) == 1 )
     KeSetEvent(*((PRKEVENT *)P + 10), 0, 0);
-  ++RtlLznt1DecompressChunkLookaside.L.TotalFrees;
-  if ( LOWORD(RtlLznt1DecompressChunkLookaside.L.ListHead.Alignment) >= RtlLznt1DecompressChunkLookaside.L.Depth )
+  ++unk_140E27F5C;
+  if ( LOWORD(RtlLznt1DecompressChunkLookaside.Alignment) >= unk_140E27F50 )
   {
-    ++RtlLznt1DecompressChunkLookaside.L.FreeMisses;
-    if ( (void (__stdcall *)(PVOID))RtlLznt1DecompressChunkLookaside.L.FreeEx == ExFreePool )
+    ++unk_140E27F60;
+    if ( (void (__stdcall *)(PVOID))unk_140E27F78 == ExFreePool )
       ExFreePool(P);
     else
       guard_dispatch_icall_no_overrides(P, v3);
   }
   else
   {
-    if ( (void (__stdcall *)(PPRIVILEGE_SET))RtlLznt1DecompressChunkLookaside.L.FreeEx == CmSiFreeMemory )
+    if ( (void (__stdcall *)(PPRIVILEGE_SET))unk_140E27F78 == CmSiFreeMemory )
     {
       v4 = (unsigned __int64)(P + 8);
       if ( byte_140FCDC68 )
@@ -54,12 +54,9 @@ void __fastcall LZNT1DecompressChunkWorkItem(char *P)
           KeBugCheckEx(0x1F1u, 2uLL, 1uLL, (ULONG_PTR)(P + 8), 0LL);
         if ( (v4 & 7) != 0 )
           KeBugCheckEx(0x1F1u, 2uLL, 2uLL, (ULONG_PTR)(P + 8), 8uLL);
-        if ( &P[RtlLznt1DecompressChunkLookaside.L.Size] < P + 8 )
-          KeBugCheckEx(0x1F1u, 2uLL, 3uLL, (ULONG_PTR)(P + 8), RtlLznt1DecompressChunkLookaside.L.Size - 8LL);
-        v5 = (RtlLznt1DecompressChunkLookaside.L.Size
-            - 8LL
-            - (unsigned __int64)((LOBYTE(RtlLznt1DecompressChunkLookaside.L.Size) - 9) & 7)
-            + 7) >> 3;
+        if ( &P[dword_140E27F6C[0]] < P + 8 )
+          KeBugCheckEx(0x1F1u, 2uLL, 3uLL, (ULONG_PTR)(P + 8), dword_140E27F6C[0] - 8LL);
+        v5 = (dword_140E27F6C[0] - 8LL - (unsigned __int64)((LOBYTE(dword_140E27F6C[0]) - 9) & 7) + 7) >> 3;
         if ( v5 )
         {
           LOBYTE(v3) = -116;
@@ -67,6 +64,6 @@ void __fastcall LZNT1DecompressChunkWorkItem(char *P)
         }
       }
     }
-    RtlpInterlockedPushEntrySList(&RtlLznt1DecompressChunkLookaside.L.ListHead, (PSLIST_ENTRY)P);
+    RtlpInterlockedPushEntrySList(&RtlLznt1DecompressChunkLookaside, (PSLIST_ENTRY)P);
   }
 }

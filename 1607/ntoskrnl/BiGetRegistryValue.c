@@ -1,25 +1,25 @@
 /*
- * XREFs of BiGetRegistryValue @ 0x14053D91C
+ * XREFs of BiGetRegistryValue @ 0x14053DE5C
  * Callers:
- *     BiWasFirmwareModified @ 0x14012DFC4 (BiWasFirmwareModified.c)
- *     BiUnloadHiveByHandle @ 0x140533C28 (BiUnloadHiveByHandle.c)
- *     BiMarkTreatAsSystemStore @ 0x14053BADC (BiMarkTreatAsSystemStore.c)
- *     BiIsWinPEBoot @ 0x14053CF20 (BiIsWinPEBoot.c)
- *     BiIsSystemStore @ 0x14053D3D8 (BiIsSystemStore.c)
- *     BiGetObjectDescription @ 0x14053D854 (BiGetObjectDescription.c)
- *     BcdGetElementDataWithFlags @ 0x14053DC9C (BcdGetElementDataWithFlags.c)
- *     BiIsPortableWorkspaceBoot @ 0x1406D2B38 (BiIsPortableWorkspaceBoot.c)
- *     BiGetSavedBootEntry @ 0x1406D5314 (BiGetSavedBootEntry.c)
- *     BiUpdateBcdObject @ 0x1406D5A18 (BiUpdateBcdObject.c)
+ *     BiWasFirmwareModified @ 0x14012E534 (BiWasFirmwareModified.c)
+ *     BiUnloadHiveByHandle @ 0x140534168 (BiUnloadHiveByHandle.c)
+ *     BiMarkTreatAsSystemStore @ 0x14053C01C (BiMarkTreatAsSystemStore.c)
+ *     BiIsWinPEBoot @ 0x14053D460 (BiIsWinPEBoot.c)
+ *     BiIsSystemStore @ 0x14053D918 (BiIsSystemStore.c)
+ *     BiGetObjectDescription @ 0x14053DD94 (BiGetObjectDescription.c)
+ *     BcdGetElementDataWithFlags @ 0x14053E1DC (BcdGetElementDataWithFlags.c)
+ *     BiIsPortableWorkspaceBoot @ 0x1406D2C70 (BiIsPortableWorkspaceBoot.c)
+ *     BiGetSavedBootEntry @ 0x1406D544C (BiGetSavedBootEntry.c)
+ *     BiUpdateBcdObject @ 0x1406D5B50 (BiUpdateBcdObject.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     BiSanitizeHandle @ 0x140124DA8 (BiSanitizeHandle.c)
- *     BiZwQueryValueKey @ 0x14012E064 (BiZwQueryValueKey.c)
- *     BiZwClose @ 0x14012E078 (BiZwClose.c)
- *     memmove @ 0x140171280 (memmove.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     BiSanitizeHandle @ 0x140125318 (BiSanitizeHandle.c)
+ *     BiZwQueryValueKey @ 0x14012E5D4 (BiZwQueryValueKey.c)
+ *     BiZwClose @ 0x14012E5E8 (BiZwClose.c)
+ *     memmove @ 0x140171780 (memmove.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     BiOpenKey @ 0x14053DE4C (BiOpenKey.c)
+ *     BiOpenKey @ 0x14053E38C (BiOpenKey.c)
  */
 
 __int64 __fastcall BiGetRegistryValue(__int64 a1, const WCHAR *a2, __int64 a3, int a4, _QWORD *a5, _DWORD *a6)

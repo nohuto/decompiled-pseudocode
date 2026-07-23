@@ -1,17 +1,17 @@
 /*
- * XREFs of MiRemoveWsle @ 0x140325384
+ * XREFs of MiRemoveWsle @ 0x1403273B4
  * Callers:
- *     MiCombineWithExisting @ 0x140308244 (MiCombineWithExisting.c)
- *     MiTerminateWsle @ 0x140324930 (MiTerminateWsle.c)
+ *     MiCombineWithExisting @ 0x1402EA2C4 (MiCombineWithExisting.c)
+ *     MiTerminateWsle @ 0x140326960 (MiTerminateWsle.c)
  * Callees:
- *     MiGetSystemRegionType @ 0x140264F40 (MiGetSystemRegionType.c)
- *     MiWriteWsle @ 0x14029F7F0 (MiWriteWsle.c)
- *     MiUpdateWorkingSetAgeDistribution @ 0x1402EAE10 (MiUpdateWorkingSetAgeDistribution.c)
- *     MiLockWorkingSetCoreShared @ 0x1402EDEA0 (MiLockWorkingSetCoreShared.c)
- *     MiReadPteShadow @ 0x140314FF0 (MiReadPteShadow.c)
- *     MiUnlockWorkingSetCoreShared @ 0x14036C280 (MiUnlockWorkingSetCoreShared.c)
- *     MiIsDriverPage @ 0x1404BD140 (MiIsDriverPage.c)
- *     MiLogRemoveWsleEvent @ 0x140507AB4 (MiLogRemoveWsleEvent.c)
+ *     MiGetSystemRegionType @ 0x1402644B0 (MiGetSystemRegionType.c)
+ *     MiWriteWsle @ 0x14029ED40 (MiWriteWsle.c)
+ *     MiUpdateWorkingSetAgeDistribution @ 0x1402CCE50 (MiUpdateWorkingSetAgeDistribution.c)
+ *     MiLockWorkingSetCoreShared @ 0x1402CFF20 (MiLockWorkingSetCoreShared.c)
+ *     MiReadPteShadow @ 0x140317020 (MiReadPteShadow.c)
+ *     MiUnlockWorkingSetCoreShared @ 0x14036E020 (MiUnlockWorkingSetCoreShared.c)
+ *     MiIsDriverPage @ 0x1404B6920 (MiIsDriverPage.c)
+ *     MiLogRemoveWsleEvent @ 0x140501484 (MiLogRemoveWsleEvent.c)
  */
 
 __int64 __fastcall MiRemoveWsle(__int64 a1, unsigned __int64 a2, __int64 a3, int a4, int a5)
@@ -42,9 +42,11 @@ __int64 __fastcall MiRemoveWsle(__int64 a1, unsigned __int64 a2, __int64 a3, int
   v12 = 0x7FFFFFFFF8LL;
   if ( (v5 & 0xF) == 3 )
   {
-    if ( PsNtosImageBase && (a2 >= PsNtosImageBase && a2 < PsNtosImageEnd || a2 >= PsHalImageBase && a2 < PsHalImageEnd) )
+    if ( PsNtosImageBase
+      && (a2 >= (unsigned __int64)PsNtosImageBase && a2 < PsNtosImageEnd
+       || a2 >= (unsigned __int64)PsHalImageBase && a2 < PsHalImageEnd) )
     {
-      _InterlockedDecrement((volatile signed __int32 *)&stru_140E2D150.SchedulerApcFill5[72]);
+      _InterlockedDecrement((volatile signed __int32 *)&stru_140E2D2D0.SchedulerApcFill5[72]);
     }
     else if ( (unsigned int)MiGetSystemRegionType(a2) == 11 )
     {
@@ -52,7 +54,7 @@ __int64 __fastcall MiRemoveWsle(__int64 a1, unsigned __int64 a2, __int64 a3, int
       v11 = (__int64 *)0xFFFFF6FFFFFFFFFFLL;
       v12 = 0x7FFFFFFFF8LL;
       if ( IsDriverPage )
-        _InterlockedDecrement((volatile signed __int32 *)&stru_140E2D150.SchedulerApcFill5[76]);
+        _InterlockedDecrement((volatile signed __int32 *)&stru_140E2D2D0.SchedulerApcFill5[76]);
     }
     else
     {
@@ -93,7 +95,7 @@ LABEL_27:
   }
   if ( !v15 )
     MiUpdateWorkingSetAgeDistribution(a1, a2, v13, -1LL, 0);
-  v16 = &dword_140E37880;
+  v16 = &dword_140E37A00;
   if ( (*(_DWORD *)(a1 + 184) & 0xF) != 1 )
     v16 = 0LL;
   if ( v16 )

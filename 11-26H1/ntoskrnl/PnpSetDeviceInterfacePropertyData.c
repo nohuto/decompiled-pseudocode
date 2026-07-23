@@ -1,28 +1,28 @@
 /*
- * XREFs of PnpSetDeviceInterfacePropertyData @ 0x1409DAEF8
+ * XREFs of PnpSetDeviceInterfacePropertyData @ 0x140A18148
  * Callers:
- *     IoSetDeviceInterfacePropertyData @ 0x1409DAEB0 (IoSetDeviceInterfacePropertyData.c)
+ *     IoSetDeviceInterfacePropertyData @ 0x140A18100 (IoSetDeviceInterfacePropertyData.c)
  * Callees:
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     PnpUnicodeStringToWstrFree @ 0x1409DB5D0 (PnpUnicodeStringToWstrFree.c)
- *     PiPnpRtlSetObjectProperty @ 0x1409DBA24 (PiPnpRtlSetObjectProperty.c)
- *     RtlLCIDToCultureName @ 0x140B5CEE0 (RtlLCIDToCultureName.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     PnpUnicodeStringToWstrFree @ 0x140A18820 (PnpUnicodeStringToWstrFree.c)
+ *     PiPnpRtlSetObjectProperty @ 0x140A18C74 (PiPnpRtlSetObjectProperty.c)
+ *     RtlLCIDToCultureName @ 0x140B60060 (RtlLCIDToCultureName.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall PnpSetDeviceInterfacePropertyData(
         unsigned __int16 *a1,
         __int64 a2,
-        unsigned int a3,
+        LCID a3,
         __int64 a4,
         int a5,
         int a6,
         __int64 a7)
 {
   _WORD *v10; // rdi
-  _BYTE *v11; // rbp
+  wchar_t *Buffer; // rbp
   __int64 v12; // r8
   _WORD *v13; // rcx
   unsigned __int64 v14; // rdx
@@ -30,26 +30,25 @@ __int64 __fastcall PnpSetDeviceInterfacePropertyData(
   _WORD *v16; // rbx
   unsigned int v17; // ebx
   _WORD *v19; // rax
-  __int64 v20; // [rsp+50h] [rbp-108h] BYREF
-  _BYTE *v21; // [rsp+58h] [rbp-100h]
-  _BYTE v22[176]; // [rsp+60h] [rbp-F8h] BYREF
+  UNICODE_STRING String; // [rsp+50h] [rbp-108h] BYREF
+  _BYTE v21[176]; // [rsp+60h] [rbp-F8h] BYREF
 
-  memset_0(v22, 0, 0xAAuLL);
-  v20 = 0LL;
+  memset_0(v21, 0, 0xAAuLL);
+  *(_QWORD *)&String.Length = 0LL;
   v10 = 0LL;
   if ( !a1 || !*((_QWORD *)a1 + 1) || !*a1 )
     return (unsigned int)-1073741811;
   if ( a3 )
   {
-    WORD1(v20) = 170;
-    v21 = v22;
-    if ( !(unsigned __int8)RtlLCIDToCultureName(a3, &v20) )
+    String.MaximumLength = 170;
+    String.Buffer = (wchar_t *)v21;
+    if ( !RtlLCIDToCultureName(a3, &String) )
       return (unsigned int)-1073741823;
-    v11 = v21;
+    Buffer = String.Buffer;
   }
   else
   {
-    v11 = 0LL;
+    Buffer = 0LL;
   }
   v12 = a1[1];
   if ( (unsigned __int16)v12 < 2u )
@@ -80,7 +79,7 @@ __int64 __fastcall PnpSetDeviceInterfacePropertyData(
         v10 = v16;
         v16[(unsigned __int64)*a1 >> 1] = 0;
 LABEL_16:
-        v17 = PiPnpRtlSetObjectProperty(*(_QWORD *)&PiPnpRtlCtx, v10, 3LL, 0LL, v11, a2, a5, a7, a6, 0);
+        v17 = PiPnpRtlSetObjectProperty(*(_QWORD *)&PiPnpRtlCtx, v10, 3LL, 0LL, Buffer, a2, a5, a7, a6, 0);
         goto LABEL_17;
       }
     }

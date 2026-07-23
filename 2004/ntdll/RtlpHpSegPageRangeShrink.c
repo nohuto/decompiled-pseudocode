@@ -13,7 +13,7 @@
  *     RtlAcquireSRWLockExclusive @ 0x1800290A0 (RtlAcquireSRWLockExclusive.c)
  */
 
-struct _PEB *__fastcall RtlpHpSegPageRangeShrink(__int64 a1, __int64 a2, unsigned int a3, int a4)
+void __fastcall RtlpHpSegPageRangeShrink(__int64 a1, __int64 a2, unsigned int a3, char a4)
 {
   unsigned int v5; // r14d
   __int64 v7; // rsi
@@ -24,10 +24,11 @@ struct _PEB *__fastcall RtlpHpSegPageRangeShrink(__int64 a1, __int64 a2, unsigne
   __int16 v14; // dx
   int v15; // ebx
   __int64 v16; // rax
-  struct _PEB *result; // rax
+  __int64 *v17; // rax
   __int64 v18; // rbx
-  struct _PEB **v19; // rcx
-  char v20; // [rsp+70h] [rbp+18h] BYREF
+  __int64 v19; // rax
+  _QWORD *v20; // rcx
+  __int64 v21; // [rsp+70h] [rbp+18h] BYREF
 
   v5 = *(unsigned __int8 *)(a2 + 31) - a3;
   v7 = a2 + 32LL * a3;
@@ -44,10 +45,10 @@ struct _PEB *__fastcall RtlpHpSegPageRangeShrink(__int64 a1, __int64 a2, unsigne
     while ( v11 );
   }
   if ( (a4 & 1) == 0 )
-    RtlAcquireSRWLockExclusive(a1 + 64);
+    RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 64));
   v12 = *(unsigned __int8 *)(a2 + 31);
   v13 = *(_DWORD *)(a2 + 28);
-  v20 = -1;
+  LOBYTE(v21) = -1;
   v14 = ~(_WORD)v13;
   if ( v12 == v5 )
   {
@@ -65,21 +66,20 @@ struct _PEB *__fastcall RtlpHpSegPageRangeShrink(__int64 a1, __int64 a2, unsigne
   *(_BYTE *)(v7 + 31) = v5;
   *(_DWORD *)v7 = -857879331;
   *(_BYTE *)(v7 + 24) &= 0xF3u;
-  v16 = RtlpHpSegPageRangeCoalesce(a1, v7, a4, 0, (__int64)&v20);
-  result = (struct _PEB *)RtlpHpSegFreeRangeInsert(a1, v16, 0LL);
-  v18 = (__int64)result;
-  if ( result )
+  v16 = RtlpHpSegPageRangeCoalesce(a1, (__int64)&v21);
+  v17 = (__int64 *)RtlpHpSegFreeRangeInsert(a1, v16, 0LL);
+  v18 = (__int64)v17;
+  if ( v17 )
   {
-    result = *(struct _PEB **)&result->InheritedAddressSpace;
-    if ( result->Mutant != (void *)v18 || (v19 = *(struct _PEB ***)(v18 + 8), *v19 != (struct _PEB *)v18) )
+    v19 = *v17;
+    if ( *(_QWORD *)(v19 + 8) != v18 || (v20 = *(_QWORD **)(v18 + 8), *v20 != v18) )
       __fastfail(3u);
-    *v19 = result;
-    result->Mutant = v19;
+    *v20 = v19;
+    *(_QWORD *)(v19 + 8) = v20;
     --*(_QWORD *)(a1 + 88);
   }
   if ( (a4 & 1) == 0 )
-    result = (struct _PEB *)RtlReleaseSRWLockExclusive(a1 + 64);
+    RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 64));
   if ( v18 )
-    return RtlpHpSegSegmentFree(a1, v18, 0x7FFFFFFFu, 1);
-  return result;
+    RtlpHpSegSegmentFree(a1, v18, 0x7FFFFFFF, 1);
 }

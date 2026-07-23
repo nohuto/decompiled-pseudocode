@@ -1,21 +1,21 @@
 /*
- * XREFs of CmEnumerateValueKeyFromMergedView @ 0x140A66364
+ * XREFs of CmEnumerateValueKeyFromMergedView @ 0x140A5F148
  * Callers:
- *     CmQueryKey @ 0x140877890 (CmQueryKey.c)
- *     NtEnumerateValueKey @ 0x14090C2D0 (NtEnumerateValueKey.c)
+ *     CmQueryKey @ 0x14087BBC0 (CmQueryKey.c)
+ *     NtEnumerateValueKey @ 0x1408E39F0 (NtEnumerateValueKey.c)
  * Callees:
- *     CmpFindNameInListWithStatus @ 0x14086C510 (CmpFindNameInListWithStatus.c)
- *     HvpGetCellFlat @ 0x140874470 (HvpGetCellFlat.c)
- *     HvpGetCellPaged @ 0x1408744C0 (HvpGetCellPaged.c)
- *     HvpReleaseCellPaged @ 0x140875760 (HvpReleaseCellPaged.c)
- *     CmpQueryKeyValueData @ 0x140875E50 (CmpQueryKeyValueData.c)
- *     CmpTransSearchAddTransFromKeyBody @ 0x140879368 (CmpTransSearchAddTransFromKeyBody.c)
- *     HvpReleaseCellFlat @ 0x140884BB0 (HvpReleaseCellFlat.c)
- *     CmpLockTwoKcbsShared @ 0x1409F45F0 (CmpLockTwoKcbsShared.c)
- *     CmpUnlockTwoKcbs @ 0x1409F67C4 (CmpUnlockTwoKcbs.c)
- *     CmpIsKeyDeletedForKeyBody @ 0x140BB9480 (CmpIsKeyDeletedForKeyBody.c)
- *     CmpLockRegistry @ 0x140BB9E60 (CmpLockRegistry.c)
- *     CmpUnlockRegistry @ 0x140BB9F50 (CmpUnlockRegistry.c)
+ *     CmpFindNameInListWithStatus @ 0x140870840 (CmpFindNameInListWithStatus.c)
+ *     HvpGetCellFlat @ 0x1408787A0 (HvpGetCellFlat.c)
+ *     HvpGetCellPaged @ 0x1408787F0 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x140879A90 (HvpReleaseCellPaged.c)
+ *     CmpQueryKeyValueData @ 0x14087A180 (CmpQueryKeyValueData.c)
+ *     CmpTransSearchAddTransFromKeyBody @ 0x14087D698 (CmpTransSearchAddTransFromKeyBody.c)
+ *     HvpReleaseCellFlat @ 0x140888A60 (HvpReleaseCellFlat.c)
+ *     CmpLockTwoKcbsShared @ 0x1409E8950 (CmpLockTwoKcbsShared.c)
+ *     CmpUnlockTwoKcbs @ 0x1409EA714 (CmpUnlockTwoKcbs.c)
+ *     CmpIsKeyDeletedForKeyBody @ 0x140BBB480 (CmpIsKeyDeletedForKeyBody.c)
+ *     CmpLockRegistry @ 0x140BBBE60 (CmpLockRegistry.c)
+ *     CmpUnlockRegistry @ 0x140BBBF50 (CmpUnlockRegistry.c)
  */
 
 __int64 __fastcall CmEnumerateValueKeyFromMergedView(

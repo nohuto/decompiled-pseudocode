@@ -1,9 +1,9 @@
 /*
- * XREFs of MI_MAKE_PROTECT_WRITE_COPY @ 0x14030B554
+ * XREFs of MI_MAKE_PROTECT_WRITE_COPY @ 0x1402ED5D4
  * Callers:
- *     MiCombineInitialFinish @ 0x14030A2B4 (MiCombineInitialFinish.c)
- *     MiHandleForkValidPrivatePte @ 0x14030ADC0 (MiHandleForkValidPrivatePte.c)
- *     MiHandleForkTransitionPte @ 0x14030E420 (MiHandleForkTransitionPte.c)
+ *     MiCombineInitialFinish @ 0x1402EC334 (MiCombineInitialFinish.c)
+ *     MiHandleForkValidPrivatePte @ 0x1402ECE40 (MiHandleForkValidPrivatePte.c)
+ *     MiHandleForkTransitionPte @ 0x1402F04A0 (MiHandleForkTransitionPte.c)
  * Callees:
  *     <none>
  */

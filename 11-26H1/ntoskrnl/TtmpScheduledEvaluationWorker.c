@@ -1,13 +1,13 @@
 /*
- * XREFs of TtmpScheduledEvaluationWorker @ 0x1407EC860
+ * XREFs of TtmpScheduledEvaluationWorker @ 0x1407F23C0
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     ExReleaseResourceLite @ 0x1402B4CF0 (ExReleaseResourceLite.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     TtmiScheduleSessionWorker @ 0x1407E67A4 (TtmiScheduleSessionWorker.c)
- *     TtmpAcquireSessionLock @ 0x140A3ACCC (TtmpAcquireSessionLock.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     ExReleaseResourceLite @ 0x1402FF9C0 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     TtmiScheduleSessionWorker @ 0x1407EC304 (TtmiScheduleSessionWorker.c)
+ *     TtmpAcquireSessionLock @ 0x1409F68CC (TtmpAcquireSessionLock.c)
  */
 
 LONG_PTR __fastcall TtmpScheduledEvaluationWorker(volatile __int32 *Object)
@@ -30,7 +30,7 @@ LONG_PTR __fastcall TtmpScheduledEvaluationWorker(volatile __int32 *Object)
         TtmiScheduleSessionWorker(v3, 2);
       }
     }
-    ExReleaseResourceLite((PERESOURCE)&PsAltSystemCallRegistrationLock.WriteOperationCount);
+    ExReleaseResourceLite((PERESOURCE)&PsAltSystemCallRegistrationLock.WpsFeedback);
     KeLeaveCriticalRegion();
     return ObfDereferenceObject((PVOID)Object);
   }

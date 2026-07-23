@@ -1,9 +1,9 @@
 /*
- * XREFs of MiGetValidAwePartitionId @ 0x14054C500
+ * XREFs of MiGetValidAwePartitionId @ 0x14054C740
  * Callers:
- *     MiGetPageProtection @ 0x140330DA0 (MiGetPageProtection.c)
+ *     MiGetPageProtection @ 0x14033BAF0 (MiGetPageProtection.c)
  * Callees:
- *     MiPteInShadowRange @ 0x140348AF0 (MiPteInShadowRange.c)
+ *     MiPteInShadowRange @ 0x140353840 (MiPteInShadowRange.c)
  */
 
 __int64 __fastcall MiGetValidAwePartitionId(unsigned __int64 a1)
@@ -39,9 +39,9 @@ __int64 __fastcall MiGetValidAwePartitionId(unsigned __int64 a1)
       }
     }
   }
-  else if ( qword_140C4DF40 && (a1 & 0x10) == 0 )
+  else if ( qword_140C4DF80 && (a1 & 0x10) == 0 )
   {
-    v1 = a1 & ~qword_140C4DF40;
+    v1 = a1 & ~qword_140C4DF80;
   }
   v5 = (v1 >> 12) & 0xFFFFFFFFFLL;
   if ( ((*(_QWORD *)(48 * v5 - 0x57FFFFFFFD8LL) >> 50) & 1) != 0 )

@@ -1,31 +1,35 @@
 /*
- * XREFs of CmFcpInitializeFeatureUsageProviderSubscription @ 0x1407E4CFC
+ * XREFs of CmFcpInitializeFeatureUsageProviderSubscription @ 0x1407E52AC
  * Callers:
- *     CmFcpManagerAllocateUsageProviderSubscription @ 0x140ABA02C (CmFcpManagerAllocateUsageProviderSubscription.c)
+ *     CmFcpManagerAllocateUsageProviderSubscription @ 0x140AB5048 (CmFcpManagerAllocateUsageProviderSubscription.c)
  * Callees:
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 *__fastcall CmFcpInitializeFeatureUsageProviderSubscription(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  __int64 v4; // rbx
   __int64 *result; // rax
 
-  v4 = a1 + 16;
-  *(_OWORD *)a1 = 0LL;
-  *(_QWORD *)(a1 + 96) = 0LL;
+  memset_0((void *)a1, 0, 0x88uLL);
+  if ( a4 )
+  {
+    *(_QWORD *)(a1 + 112) = *(_QWORD *)a4;
+    *(_QWORD *)(a1 + 120) = *(_QWORD *)(a4 + 8);
+    *(_DWORD *)(a1 + 128) = *(_DWORD *)(a4 + 24);
+    a4 = *(_QWORD *)(a4 + 16);
+  }
   memset_0((void *)(a1 + 16), 0, 0x40uLL);
-  *(_QWORD *)(v4 + 24) = v4;
-  *(_QWORD *)(v4 + 16) = CmpWorkItemWrapper;
-  *(_QWORD *)v4 = 0LL;
-  *(_QWORD *)(v4 + 48) = CmFcpFeatureUsageProviderSubscriptionWrapper;
+  *(_QWORD *)(a1 + 16) = 0LL;
+  *(_DWORD *)(a1 + 56) = 0;
+  *(_QWORD *)(a1 + 48) = 0LL;
+  *(_QWORD *)(a1 + 32) = CmpWorkItemWrapper;
+  *(_QWORD *)(a1 + 64) = CmFcpFeatureUsageProviderSubscriptionWrapper;
   result = CmFcSystemManager;
-  *(_DWORD *)(v4 + 40) = 0;
-  *(_QWORD *)(v4 + 32) = 0LL;
-  *(_DWORD *)(v4 + 44) = 4;
-  *(_QWORD *)(v4 + 56) = a4;
+  *(_QWORD *)(a1 + 40) = a1 + 16;
+  *(_DWORD *)(a1 + 60) = 4;
+  *(_QWORD *)(a1 + 72) = a4;
+  *(_QWORD *)(a1 + 104) = 0LL;
   *(_QWORD *)(a1 + 80) = a3;
   *(_QWORD *)(a1 + 88) = CmFcSystemManager;
-  *(_QWORD *)(a1 + 104) = 0LL;
   return result;
 }

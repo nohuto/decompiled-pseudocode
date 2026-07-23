@@ -6,7 +6,7 @@
  *     ZwCompareObjects @ 0x18009D9F0 (ZwCompareObjects.c)
  */
 
-bool __fastcall RtlIsCurrentThread(__int64 a1)
+BOOLEAN __cdecl RtlIsCurrentThread(HANDLE ThreadHandle)
 {
-  return a1 == -2 || (int)ZwCompareObjects(-2LL, a1) >= 0;
+  return ThreadHandle == (HANDLE)-2LL || ZwCompareObjects((HANDLE)0xFFFFFFFFFFFFFFFELL, ThreadHandle) >= 0;
 }

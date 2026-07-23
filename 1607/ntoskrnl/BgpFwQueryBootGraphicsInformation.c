@@ -1,13 +1,13 @@
 /*
- * XREFs of BgpFwQueryBootGraphicsInformation @ 0x140129AF0
+ * XREFs of BgpFwQueryBootGraphicsInformation @ 0x14012A060
  * Callers:
- *     BgQueryBootGraphicsInformation @ 0x140127134 (BgQueryBootGraphicsInformation.c)
+ *     BgQueryBootGraphicsInformation @ 0x1401276A4 (BgQueryBootGraphicsInformation.c)
  * Callees:
- *     BgpFwReleaseLock @ 0x1401271F4 (BgpFwReleaseLock.c)
- *     BgpFwAcquireLock @ 0x140127230 (BgpFwAcquireLock.c)
- *     BgpFwAllocateMemory @ 0x140129508 (BgpFwAllocateMemory.c)
- *     BgpFwFreeMemory @ 0x14012968C (BgpFwFreeMemory.c)
- *     memmove @ 0x140171280 (memmove.c)
+ *     BgpFwReleaseLock @ 0x140127764 (BgpFwReleaseLock.c)
+ *     BgpFwAcquireLock @ 0x1401277A0 (BgpFwAcquireLock.c)
+ *     BgpFwAllocateMemory @ 0x140129A78 (BgpFwAllocateMemory.c)
+ *     BgpFwFreeMemory @ 0x140129BFC (BgpFwFreeMemory.c)
+ *     memmove @ 0x140171780 (memmove.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */
 

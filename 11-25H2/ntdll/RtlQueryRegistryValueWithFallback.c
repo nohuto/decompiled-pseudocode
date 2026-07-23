@@ -9,55 +9,56 @@
  *     memmove @ 0x180168980 (memmove.c)
  */
 
-__int64 __fastcall RtlQueryRegistryValueWithFallback(
-        __int64 a1,
-        __int64 a2,
-        __int64 a3,
-        unsigned int a4,
-        _DWORD *a5,
-        void *a6,
-        _DWORD *a7)
+NTSTATUS __cdecl RtlQueryRegistryValueWithFallback(
+        HANDLE PrimaryHandle,
+        HANDLE FallbackHandle,
+        PUNICODE_STRING ValueName,
+        ULONG ValueLength,
+        PULONG ValueType,
+        PVOID ValueData,
+        PULONG ResultLength)
 {
-  unsigned int v12; // r15d
-  _DWORD *Heap; // rdi
-  __int64 v14; // r9
-  int v15; // ebx
-  int v16; // [rsp+60h] [rbp+8h] BYREF
+  ULONG Length; // r15d
+  ULONG *Heap; // rdi
+  int v14; // ebx
+  ULONG v15; // [rsp+60h] [rbp+8h] BYREF
 
-  v16 = 0;
-  if ( !a1 && !a2 )
-    return 3221225485LL;
-  if ( a4 >= 0xFFFFFFF0 )
-    return (unsigned int)-1073741675;
-  v12 = a4 + 16;
-  Heap = (_DWORD *)RtlAllocateHeap((char *)NtCurrentPeb()->ProcessHeap, 0, a4 + 16);
+  v15 = 0;
+  if ( __PAIR128__((unsigned __int64)PrimaryHandle, (unsigned __int64)FallbackHandle) == 0 )
+    return -1073741811;
+  if ( ValueLength >= 0xFFFFFFF0 )
+    return -1073741675;
+  Length = ValueLength + 16;
+  Heap = (ULONG *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, ValueLength + 16);
   if ( Heap )
   {
-    v15 = -1073741772;
-    if ( !a1 || (v15 = NtQueryValueKey(a1, a3, 2LL, Heap, v12, &v16), v15 == -1073741772) )
+    v14 = -1073741772;
+    if ( !PrimaryHandle
+      || (v14 = NtQueryValueKey(PrimaryHandle, ValueName, KeyValuePartialInformation, Heap, Length, &v15),
+          v14 == -1073741772) )
     {
-      if ( !a2 )
+      if ( !FallbackHandle )
       {
-LABEL_20:
-        RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (__int64)Heap, v14);
-        return (unsigned int)v15;
+LABEL_19:
+        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Heap);
+        return v14;
       }
-      v15 = NtQueryValueKey(a2, a3, 2LL, Heap, v12, &v16);
+      v14 = NtQueryValueKey(FallbackHandle, ValueName, KeyValuePartialInformation, Heap, Length, &v15);
     }
-    if ( (int)(v15 + 0x80000000) < 0 || v15 == -2147483643 )
+    if ( (int)(v14 + 0x80000000) < 0 || v14 == -2147483643 )
     {
-      if ( a5 )
-        *a5 = Heap[1];
-      if ( v15 >= 0 )
+      if ( ValueType )
+        *ValueType = Heap[1];
+      if ( v14 >= 0 )
       {
-        if ( a4 < Heap[2] )
-          v15 = -2147483643;
+        if ( ValueLength < Heap[2] )
+          v14 = -2147483643;
         else
-          memmove(a6, Heap + 3, (unsigned int)Heap[2]);
+          memmove(ValueData, Heap + 3, Heap[2]);
       }
-      *a7 = Heap[2];
+      *ResultLength = Heap[2];
     }
-    goto LABEL_20;
+    goto LABEL_19;
   }
-  return (unsigned int)-1073741801;
+  return -1073741801;
 }

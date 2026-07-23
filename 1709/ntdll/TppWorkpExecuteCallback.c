@@ -11,13 +11,13 @@
  *     _guard_dispatch_icall_nop @ 0x1800A3A60 (_guard_dispatch_icall_nop.c)
  */
 
-struct _PEB *__fastcall TppWorkpExecuteCallback(__int64 a1, __int64 a2)
+int __fastcall TppWorkpExecuteCallback(PTP_CALLBACK_INSTANCE Instance, __int64 a2)
 {
   __int64 *v2; // rbx
   __int64 v5; // rsi
   _DWORD *SharedData; // rcx
   __int64 v7; // rcx
-  struct _PEB *result; // rax
+  struct _PEB *v8; // rax
   _DWORD *v9; // rcx
   __int64 v10; // rcx
   __int64 v11; // rdx
@@ -28,8 +28,8 @@ struct _PEB *__fastcall TppWorkpExecuteCallback(__int64 a1, __int64 a2)
   unsigned int v16; // eax
   _QWORD *v17; // r8
   _QWORD *v18; // rdi
-  void (__fastcall *v19)(__int64, __int64, __int64 *); // rax
-  __int64 v20; // rdx
+  void (__cdecl *v19)(PTP_CALLBACK_INSTANCE, PVOID, PTP_WORK); // rax
+  void *v20; // rdx
   _DWORD *v21; // rcx
   __int64 v22; // rcx
 
@@ -42,8 +42,8 @@ struct _PEB *__fastcall TppWorkpExecuteCallback(__int64 a1, __int64 a2)
     v7 = 2147353478LL;
   if ( *(_BYTE *)v7 )
     TppETWCallbackDequeue(v2[18], a2, v2[10], v2[11], v2[13]);
-  result = (struct _PEB *)TppWorkCallbackPrologRelease(a1, v2, 0LL);
-  if ( (_DWORD)result )
+  LODWORD(v8) = TppWorkCallbackPrologRelease(Instance);
+  if ( (_DWORD)v8 )
   {
     v9 = NtCurrentPeb()->SharedData;
     if ( v9 && *v9 )
@@ -73,33 +73,33 @@ struct _PEB *__fastcall TppWorkpExecuteCallback(__int64 a1, __int64 a2)
     {
       v18 = 0LL;
     }
-    *(_QWORD *)(a1 + 88) = v2[10];
-    *(_QWORD *)(a1 + 96) = v2[11];
-    v19 = (void (__fastcall *)(__int64, __int64, __int64 *))v2[10];
-    v20 = v2[11];
-    if ( (char *)v19 == (char *)LdrpWorkCallback )
-      LdrpWorkCallback(a1, v20, v2);
+    *((_QWORD *)Instance + 11) = v2[10];
+    *((_QWORD *)Instance + 12) = v2[11];
+    v19 = (void (__cdecl *)(PTP_CALLBACK_INSTANCE, PVOID, PTP_WORK))v2[10];
+    v20 = (void *)v2[11];
+    if ( v19 == LdrpWorkCallback )
+      LdrpWorkCallback(Instance, v20, (PTP_WORK)v2);
     else
-      v19(a1, v20, v2);
-    result = NtCurrentPeb();
-    v21 = result->SharedData;
+      ((void (__fastcall *)(PTP_CALLBACK_INSTANCE, void *, __int64 *))v19)(Instance, v20, v2);
+    v8 = NtCurrentPeb();
+    v21 = v8->SharedData;
     if ( v21 && *v21 )
     {
-      result = NtCurrentPeb();
-      v5 = (__int64)result->SharedData + 556;
+      v8 = NtCurrentPeb();
+      v5 = (__int64)v8->SharedData + 556;
     }
     if ( *(_BYTE *)v5 )
-      result = (struct _PEB *)RtlpTpETWCallbackStop(v2[18], a2, v2[10], v2[11], v2[13]);
+      LODWORD(v8) = RtlpTpETWCallbackStop(v2[18], a2, v2[10], v2[11], v2[13]);
     if ( v18 )
     {
       v22 = v18[3];
-      result = (struct _PEB *)(MEMORY[0x7FFE0008] - MEMORY[0x7FFE03B0]);
+      v8 = (struct _PEB *)(MEMORY[0x7FFE0008] - MEMORY[0x7FFE03B0]);
       if ( MEMORY[0x7FFE0008] - MEMORY[0x7FFE03B0] >= v22 )
       {
-        result = (struct _PEB *)((char *)result - v22);
-        v18[3] = result;
+        v8 = (struct _PEB *)((char *)v8 - v22);
+        v18[3] = v8;
       }
     }
   }
-  return result;
+  return (int)v8;
 }

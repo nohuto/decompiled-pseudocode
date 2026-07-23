@@ -50,7 +50,7 @@ __int64 __fastcall CmpStartRMLog(char *a1, _OWORD *a2)
   PVOID pvReadContext; // [rsp+68h] [rbp-61h] BYREF
   ULONG pcbReadBuffer; // [rsp+70h] [rbp-59h] BYREF
   UNICODE_STRING UnicodeString; // [rsp+78h] [rbp-51h] BYREF
-  UNICODE_STRING v32; // [rsp+88h] [rbp-41h] BYREF
+  UNICODE_STRING GuidString; // [rsp+88h] [rbp-41h] BYREF
   ULONG pcbRestartBuffer; // [rsp+98h] [rbp-31h] BYREF
   __int64 Pool2; // [rsp+A0h] [rbp-29h]
   PCUNICODE_STRING Source; // [rsp+A8h] [rbp-21h]
@@ -71,8 +71,8 @@ __int64 __fastcall CmpStartRMLog(char *a1, _OWORD *a2)
   *(_QWORD *)&UnicodeString.Length = 0LL;
   v3 = 0LL;
   UnicodeString.Buffer = 0LL;
-  *(_QWORD *)&v32.Length = 0LL;
-  v32.Buffer = 0LL;
+  *(_QWORD *)&GuidString.Length = 0LL;
+  GuidString.Buffer = 0LL;
   ppvRestartBuffer = 0LL;
   pcbRestartBuffer = 0;
   plsn.ullOffset = 0LL;
@@ -104,10 +104,7 @@ LABEL_4:
     Source = &CmpLogPath;
     if ( a2 )
       *(_OWORD *)(*(_QWORD *)(qword_140E09990 + 64) + 128LL) = *a2;
-    FileSecurityDescriptor = RtlStringFromGUIDEx(
-                               (unsigned int *)(*(_QWORD *)(qword_140E09990 + 64) + 128LL),
-                               (__int64)&v32,
-                               1);
+    FileSecurityDescriptor = RtlStringFromGUIDEx((PGUID)(*(_QWORD *)(qword_140E09990 + 64) + 128LL), &GuidString, 1u);
     if ( FileSecurityDescriptor >= 0 )
     {
       *((_QWORD *)a1 + 9) = 5242880LL;
@@ -126,7 +123,7 @@ LABEL_18:
       {
         FileSecurityDescriptor = CmpStartCLFSLog(
                                    Source,
-                                   &v32,
+                                   &GuidString,
                                    ppvReadContext,
                                    (__int64)(a1 + 72),
                                    v44 == 0,
@@ -268,9 +265,9 @@ LABEL_36:
       if ( a2 )
         *(_OWORD *)(*(_QWORD *)(*((_QWORD *)a1 + 10) + 64LL) + 128LL) = *a2;
       FileSecurityDescriptor = RtlStringFromGUIDEx(
-                                 (unsigned int *)(*(_QWORD *)(*((_QWORD *)a1 + 10) + 64LL) + 128LL),
-                                 (__int64)&v32,
-                                 1);
+                                 (PGUID)(*(_QWORD *)(*((_QWORD *)a1 + 10) + 64LL) + 128LL),
+                                 &GuidString,
+                                 1u);
       if ( FileSecurityDescriptor >= 0 )
       {
         v11 = *((_QWORD *)a1 + 10);
@@ -292,8 +289,8 @@ LABEL_56:
   KeLeaveCriticalRegion();
   if ( UnicodeString.Buffer )
     RtlFreeAnsiString(&UnicodeString);
-  if ( v32.Buffer )
-    RtlFreeAnsiString(&v32);
+  if ( GuidString.Buffer )
+    RtlFreeAnsiString(&GuidString);
   ExFreePoolWithTag(v6, 0);
   if ( v3 )
     ExFreePoolWithTag(v3, 0);

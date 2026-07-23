@@ -3,11 +3,11 @@
  * Callers:
  *     KiSaveNpxState @ 0x14020DD30 (KiSaveNpxState.c)
  *     KeSaveExtendedAndSupervisorState @ 0x14020DDDC (KeSaveExtendedAndSupervisorState.c)
- *     RtlXSaveS @ 0x14036E4A4 (RtlXSaveS.c)
- *     ViCtxCaptureInitialIsrState @ 0x140AE4AE8 (ViCtxCaptureInitialIsrState.c)
- *     ViCtxCheckAndReleaseIsrState @ 0x140AE4B88 (ViCtxCheckAndReleaseIsrState.c)
+ *     RtlXSaveS @ 0x14036E644 (RtlXSaveS.c)
+ *     ViCtxCaptureInitialIsrState @ 0x140AE4AD8 (ViCtxCaptureInitialIsrState.c)
+ *     ViCtxCheckAndReleaseIsrState @ 0x140AE4B78 (ViCtxCheckAndReleaseIsrState.c)
  * Callees:
- *     XSaveCHelper @ 0x14042A190 (XSaveCHelper.c)
+ *     XSaveCHelper @ 0x14042A520 (XSaveCHelper.c)
  */
 
 __int64 __fastcall RtlXSave(_DWORD *a1, unsigned __int64 a2, __int64 a3)

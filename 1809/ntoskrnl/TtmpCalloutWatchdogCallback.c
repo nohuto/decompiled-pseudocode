@@ -1,12 +1,12 @@
 /*
- * XREFs of TtmpCalloutWatchdogCallback @ 0x14087DD70
+ * XREFs of TtmpCalloutWatchdogCallback @ 0x14087EFD0
  * Callers:
  *     <none>
  * Callees:
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     NtPowerInformation @ 0x14058C170 (NtPowerInformation.c)
- *     DbgkWerCaptureLiveKernelDump @ 0x1408124F0 (DbgkWerCaptureLiveKernelDump.c)
- *     TtmiLogCalloutWatchdogCrashSkipped @ 0x140882C74 (TtmiLogCalloutWatchdogCrashSkipped.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     NtPowerInformation @ 0x14058D170 (NtPowerInformation.c)
+ *     DbgkWerCaptureLiveKernelDump @ 0x1408136F0 (DbgkWerCaptureLiveKernelDump.c)
+ *     TtmiLogCalloutWatchdogCrashSkipped @ 0x140883ED4 (TtmiLogCalloutWatchdogCrashSkipped.c)
  */
 
 __int64 __fastcall TtmpCalloutWatchdogCallback(
@@ -23,7 +23,7 @@ __int64 __fastcall TtmpCalloutWatchdogCallback(
 
   v12[1] = 0;
   v12[0] = 37;
-  if ( NtPowerInformation(SystemPowerStateLogging|0x40, v12, 8u, &v11, 4u) < 0 )
+  if ( NtPowerInformation(PowerInformationInternal, v12, 8u, &v11, 4u) < 0 )
   {
     v9 = -1;
   }

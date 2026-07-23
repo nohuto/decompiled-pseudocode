@@ -1,10 +1,10 @@
 /*
- * XREFs of MxSwitchDescriptors @ 0x140A9304C
+ * XREFs of MxSwitchDescriptors @ 0x140A9404C
  * Callers:
- *     MxGetNextPage @ 0x140A44EE4 (MxGetNextPage.c)
+ *     MxGetNextPage @ 0x140A45EE4 (MxGetNextPage.c)
  * Callees:
- *     MiSearchNumaNodeTable @ 0x14032B790 (MiSearchNumaNodeTable.c)
- *     MiInitializeBootMemoryDescriptor @ 0x140A44FE0 (MiInitializeBootMemoryDescriptor.c)
+ *     MiSearchNumaNodeTable @ 0x1403364E0 (MiSearchNumaNodeTable.c)
+ *     MiInitializeBootMemoryDescriptor @ 0x140A45FE0 (MiInitializeBootMemoryDescriptor.c)
  */
 
 unsigned __int64 *__fastcall MxSwitchDescriptors(unsigned int a1)

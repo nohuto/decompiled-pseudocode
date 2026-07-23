@@ -1,18 +1,18 @@
 /*
- * XREFs of MiDeleteSegmentPages @ 0x140478E6C
+ * XREFs of MiDeleteSegmentPages @ 0x1404727CC
  * Callers:
- *     MiInitializeImageExtents @ 0x14086D3A0 (MiInitializeImageExtents.c)
- *     MiSegmentDelete @ 0x140A816BC (MiSegmentDelete.c)
+ *     MiInitializeImageExtents @ 0x140873770 (MiInitializeImageExtents.c)
+ *     MiSegmentDelete @ 0x140A8752C (MiSegmentDelete.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiReturnCommit @ 0x14036D2B0 (MiReturnCommit.c)
- *     MiReturnResident @ 0x14036E2C0 (MiReturnResident.c)
- *     MiGetCommittedPages @ 0x14045C518 (MiGetCommittedPages.c)
- *     MiDeleteSubsectionPages @ 0x1404919FC (MiDeleteSubsectionPages.c)
- *     MiDeleteSubsectionExtents @ 0x1404B6680 (MiDeleteSubsectionExtents.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiReturnCommit @ 0x14036F050 (MiReturnCommit.c)
+ *     MiReturnResident @ 0x140370060 (MiReturnResident.c)
+ *     MiGetCommittedPages @ 0x1404560C0 (MiGetCommittedPages.c)
+ *     MiDeleteSubsectionPages @ 0x14048B54C (MiDeleteSubsectionPages.c)
+ *     MiDeleteSubsectionExtents @ 0x1404AFAD0 (MiDeleteSubsectionExtents.c)
  */
 
 void __fastcall MiDeleteSegmentPages(_QWORD *a1)
@@ -30,7 +30,7 @@ void __fastcall MiDeleteSegmentPages(_QWORD *a1)
 
   v2 = 0;
   v3 = 0LL;
-  v4 = *(_QWORD *)(stru_140E2EB88.ThreadLock + 8LL * (*((_DWORD *)a1 + 15) & 0x3FF));
+  v4 = *(_QWORD *)(stru_140E2ED08.ThreadLock + 8LL * (*((_DWORD *)a1 + 15) & 0x3FF));
   if ( a1[8] )
     v2 = (a1[7] & 0x20) == 0;
   v5 = ((unsigned __int16)*(_DWORD *)(*a1 + 12LL) >> 10) & 1;

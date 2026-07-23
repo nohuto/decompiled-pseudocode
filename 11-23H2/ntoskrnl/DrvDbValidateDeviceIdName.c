@@ -1,10 +1,10 @@
 /*
- * XREFs of DrvDbValidateDeviceIdName @ 0x140A6D7BC
+ * XREFs of DrvDbValidateDeviceIdName @ 0x140A6DA6C
  * Callers:
- *     DrvDbDispatchDeviceId @ 0x1408762A0 (DrvDbDispatchDeviceId.c)
+ *     DrvDbDispatchDeviceId @ 0x1408764E0 (DrvDbDispatchDeviceId.c)
  * Callees:
- *     RtlUnalignedStringCchLengthW @ 0x14022B66C (RtlUnalignedStringCchLengthW.c)
- *     wcschr @ 0x1403DB910 (wcschr.c)
+ *     RtlUnalignedStringCchLengthW @ 0x14022B77C (RtlUnalignedStringCchLengthW.c)
+ *     wcschr @ 0x1403DBAF0 (wcschr.c)
  */
 
 __int64 __fastcall DrvDbValidateDeviceIdName(__int64 a1, const wchar_t *a2)

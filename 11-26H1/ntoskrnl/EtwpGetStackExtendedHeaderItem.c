@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwpGetStackExtendedHeaderItem @ 0x14047A534
+ * XREFs of EtwpGetStackExtendedHeaderItem @ 0x140473EA4
  * Callers:
- *     EtwpEventWriteFull @ 0x14021336C (EtwpEventWriteFull.c)
- *     EtwpWriteUserEvent @ 0x140B7D098 (EtwpWriteUserEvent.c)
+ *     EtwpEventWriteFull @ 0x14021344C (EtwpEventWriteFull.c)
+ *     EtwpWriteUserEvent @ 0x140B85DAC (EtwpWriteUserEvent.c)
  * Callees:
- *     RtlWalkFrameChain @ 0x140262D70 (RtlWalkFrameChain.c)
- *     MmCanThreadFault @ 0x140262E50 (MmCanThreadFault.c)
- *     KeExpandKernelStackAndCalloutInternal @ 0x1402638C0 (KeExpandKernelStackAndCalloutInternal.c)
- *     KeGetEffectiveIrql @ 0x1402642B0 (KeGetEffectiveIrql.c)
+ *     RtlWalkFrameChain @ 0x1402622E0 (RtlWalkFrameChain.c)
+ *     MmCanThreadFault @ 0x1402623C0 (MmCanThreadFault.c)
+ *     KeExpandKernelStackAndCalloutInternal @ 0x140262E30 (KeExpandKernelStackAndCalloutInternal.c)
+ *     KeGetEffectiveIrql @ 0x140263820 (KeGetEffectiveIrql.c)
  */
 
 char __fastcall EtwpGetStackExtendedHeaderItem(

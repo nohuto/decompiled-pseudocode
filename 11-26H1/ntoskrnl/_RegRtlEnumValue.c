@@ -1,17 +1,17 @@
 /*
- * XREFs of _RegRtlEnumValue @ 0x14091AFB0
+ * XREFs of _RegRtlEnumValue @ 0x140975A14
  * Callers:
- *     _RegRtlCopyTreeInternal @ 0x14089D400 (_RegRtlCopyTreeInternal.c)
- *     _PnpGetGenericStorePropertyKeys @ 0x140919888 (_PnpGetGenericStorePropertyKeys.c)
- *     _PnpCtxRegEnumValue @ 0x14091ACF0 (_PnpCtxRegEnumValue.c)
- *     DrvDbGetDeviceIdDriverInfMatches @ 0x14091AD40 (DrvDbGetDeviceIdDriverInfMatches.c)
- *     _PnpGetGenericStorePropertyLocales @ 0x140AB3B94 (_PnpGetGenericStorePropertyLocales.c)
- *     DrvDbSetDeviceIdDriverInfMatches @ 0x140ACFC14 (DrvDbSetDeviceIdDriverInfMatches.c)
+ *     _RegRtlCopyTreeInternal @ 0x1408A3800 (_RegRtlCopyTreeInternal.c)
+ *     _PnpGetGenericStorePropertyKeys @ 0x1409742E8 (_PnpGetGenericStorePropertyKeys.c)
+ *     _PnpCtxRegEnumValue @ 0x140975750 (_PnpCtxRegEnumValue.c)
+ *     DrvDbGetDeviceIdDriverInfMatches @ 0x1409757A0 (DrvDbGetDeviceIdDriverInfMatches.c)
+ *     _PnpGetGenericStorePropertyLocales @ 0x140AB4F34 (_PnpGetGenericStorePropertyLocales.c)
+ *     DrvDbSetDeviceIdDriverInfMatches @ 0x140ADFC40 (DrvDbSetDeviceIdDriverInfMatches.c)
  * Callees:
- *     ZwEnumerateValueKey @ 0x140723650 (ZwEnumerateValueKey.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ZwEnumerateValueKey @ 0x140728220 (ZwEnumerateValueKey.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall RegRtlEnumValue(

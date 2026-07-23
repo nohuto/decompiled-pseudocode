@@ -1,16 +1,16 @@
 /*
- * XREFs of CmpDeleteKcbCache @ 0x1408C8450
+ * XREFs of CmpDeleteKcbCache @ 0x1408CEA04
  * Callers:
- *     CmpDereferenceHive @ 0x1408C6580 (CmpDereferenceHive.c)
- *     CmpPerformCompleteKcbCacheLookup @ 0x1408C6670 (CmpPerformCompleteKcbCacheLookup.c)
- *     CmpDereferenceKeyControlBlock @ 0x1408C8770 (CmpDereferenceKeyControlBlock.c)
- *     CmpDeleteKeyObject @ 0x1408C9470 (CmpDeleteKeyObject.c)
- *     CmpDeleteHive @ 0x1408D42C4 (CmpDeleteHive.c)
- *     CmpWalkOneLevel @ 0x1408D5620 (CmpWalkOneLevel.c)
- *     CmpInitializeKcbCache @ 0x14097C668 (CmpInitializeKcbCache.c)
- *     CmpUnlockHashEntry @ 0x140A345F0 (CmpUnlockHashEntry.c)
+ *     CmpDereferenceHive @ 0x1408CCB50 (CmpDereferenceHive.c)
+ *     CmpPerformCompleteKcbCacheLookup @ 0x1408CCC40 (CmpPerformCompleteKcbCacheLookup.c)
+ *     CmpDereferenceKeyControlBlock @ 0x1408CED20 (CmpDereferenceKeyControlBlock.c)
+ *     CmpDeleteKeyObject @ 0x1408CFA20 (CmpDeleteKeyObject.c)
+ *     CmpDeleteHive @ 0x1408DA884 (CmpDeleteHive.c)
+ *     CmpWalkOneLevel @ 0x1408DBBE0 (CmpWalkOneLevel.c)
+ *     CmpInitializeKcbCache @ 0x14093E678 (CmpInitializeKcbCache.c)
+ *     CmpUnlockHashEntry @ 0x140A4F550 (CmpUnlockHashEntry.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall CmpDeleteKcbCache(__int64 a1)

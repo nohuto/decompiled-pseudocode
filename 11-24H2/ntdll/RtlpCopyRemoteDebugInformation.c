@@ -1,16 +1,16 @@
 /*
- * XREFs of RtlpCopyRemoteDebugInformation @ 0x180045DD0
+ * XREFs of RtlpCopyRemoteDebugInformation @ 0x180029D60
  * Callers:
- *     RtlQueryProcessDebugInformation @ 0x180044CD0 (RtlQueryProcessDebugInformation.c)
+ *     RtlQueryProcessDebugInformation @ 0x180028C60 (RtlQueryProcessDebugInformation.c)
  * Callees:
- *     RtlpCommitQueryDebugInfo @ 0x180047450 (RtlpCommitQueryDebugInfo.c)
- *     ZwAllocateVirtualMemory @ 0x180161F90 (ZwAllocateVirtualMemory.c)
- *     memmove @ 0x180167400 (memmove.c)
+ *     RtlpCommitQueryDebugInfo @ 0x18002B900 (RtlpCommitQueryDebugInfo.c)
+ *     ZwAllocateVirtualMemory @ 0x180160350 (ZwAllocateVirtualMemory.c)
+ *     memmove @ 0x1801657C0 (memmove.c)
  */
 
-__int64 __fastcall RtlpCopyRemoteDebugInformation(__int64 a1)
+NTSTATUS __fastcall RtlpCopyRemoteDebugInformation(__int64 a1)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
   unsigned int v3; // edi
   int v4; // ecx
   __int128 v5; // [rsp+70h] [rbp-39h]
@@ -18,27 +18,27 @@ __int64 __fastcall RtlpCopyRemoteDebugInformation(__int64 a1)
   __int128 v7; // [rsp+A0h] [rbp-9h]
   __int128 v8; // [rsp+C0h] [rbp+17h]
   __int128 v9; // [rsp+D0h] [rbp+27h]
-  __int64 v10; // [rsp+110h] [rbp+67h] BYREF
-  _OWORD *v11; // [rsp+118h] [rbp+6Fh] BYREF
+  ULONG_PTR RegionSize; // [rsp+110h] [rbp+67h] BYREF
+  PVOID BaseAddress; // [rsp+118h] [rbp+6Fh] BYREF
 
-  v10 = 0LL;
-  v11 = (_OWORD *)(a1 + *(_QWORD *)(a1 + 88));
-  v5 = v11[4];
-  v6 = v11[6];
-  v7 = v11[7];
-  v8 = v11[9];
-  v9 = v11[10];
-  v10 = *((_QWORD *)&v5 + 1);
+  RegionSize = 0LL;
+  BaseAddress = (PVOID)(a1 + *(_QWORD *)(a1 + 88));
+  v5 = *((_OWORD *)BaseAddress + 4);
+  v6 = *((_OWORD *)BaseAddress + 6);
+  v7 = *((_OWORD *)BaseAddress + 7);
+  v8 = *((_OWORD *)BaseAddress + 9);
+  v9 = *((_OWORD *)BaseAddress + 10);
+  RegionSize = *((_QWORD *)&v5 + 1);
   if ( *((_QWORD *)&v5 + 1) > *(_QWORD *)(a1 + 88) || *((_QWORD *)&v5 + 1) < 0xD0uLL )
-    return 3221225473LL;
-  result = ZwAllocateVirtualMemory(-1LL, &v11, 0LL, &v10, 4096, 4);
-  if ( (int)result >= 0 )
+    return -1073741823;
+  result = ZwAllocateVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, 0LL, &RegionSize, 0x1000u, 4u);
+  if ( result >= 0 )
   {
     *(_QWORD *)(a1 + 72) = 208LL;
-    v3 = v10 - 208;
-    if ( RtlpCommitQueryDebugInfo(a1, (unsigned int)(v10 - 208)) )
+    v3 = RegionSize - 208;
+    if ( RtlpCommitQueryDebugInfo(a1, (unsigned int)(RegionSize - 208)) )
     {
-      memmove((void *)(a1 + 208), v11 + 13, v3);
+      memmove((void *)(a1 + 208), (char *)BaseAddress + 208, v3);
       v4 = *(_DWORD *)(a1 + 64);
       if ( (v4 & 0x21C) != 0 )
       {
@@ -55,11 +55,11 @@ __int64 __fastcall RtlpCopyRemoteDebugInformation(__int64 a1)
         *(_QWORD *)(a1 + 144) = v8;
       if ( (v4 & 0xC00) != 0 )
         *(_QWORD *)(a1 + 168) = *((_QWORD *)&v9 + 1);
-      return 0LL;
+      return 0;
     }
     else
     {
-      return 3221225626LL;
+      return -1073741670;
     }
   }
   return result;

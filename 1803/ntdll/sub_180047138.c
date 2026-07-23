@@ -9,7 +9,7 @@
 
 __int64 __fastcall sub_180047138(volatile signed __int32 *a1, __int64 a2)
 {
-  void *v2; // rdx
+  _RTL_SRWLOCK *v2; // rdx
   __int64 *v3; // rcx
   __int64 result; // rax
 
@@ -18,20 +18,20 @@ __int64 __fastcall sub_180047138(volatile signed __int32 *a1, __int64 a2)
     if ( !a2 || (a1 = (volatile signed __int32 *)qword_18015D3A8, (*(_BYTE *)(a2 + 56) & 2) == 0) )
       a1 = (volatile signed __int32 *)qword_18015D3B8;
   }
-  if ( a1 == (volatile signed __int32 *)qword_18015D3B8 )
+  if ( a1 == qword_18015D3B8 )
   {
-    v2 = &unk_18015D3B0;
-    v3 = &qword_18015D3B8;
+    v2 = &stru_18015D3B0;
+    v3 = (__int64 *)&qword_18015D3B8;
     return sub_180047198(v3, v2);
   }
   if ( a1 == (volatile signed __int32 *)qword_18015D3A8 )
   {
-    v2 = &unk_18015D3A0;
+    v2 = (_RTL_SRWLOCK *)&unk_18015D3A0;
     v3 = &qword_18015D3A8;
     return sub_180047198(v3, v2);
   }
   result = (unsigned int)_InterlockedExchangeAdd(a1, 0xFFFFFFFF);
   if ( (_DWORD)result == 1 )
-    return sub_18007E8A0(a1);
+    return sub_18007E8A0((PVOID)a1);
   return result;
 }

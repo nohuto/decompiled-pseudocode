@@ -1,13 +1,13 @@
 /*
- * XREFs of CmpInitializeHardwareConfiguration @ 0x140CEE32C
+ * XREFs of CmpInitializeHardwareConfiguration @ 0x140CF46A8
  * Callers:
- *     CmInitSystem1 @ 0x140CE888C (CmInitSystem1.c)
+ *     CmInitSystem1 @ 0x140CEEC2C (CmInitSystem1.c)
  * Callees:
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwCreateKey @ 0x140723790 (ZwCreateKey.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
- *     CmpSetupConfigurationTree @ 0x140CEE48C (CmpSetupConfigurationTree.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwCreateKey @ 0x140728360 (ZwCreateKey.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
+ *     CmpSetupConfigurationTree @ 0x140CF4808 (CmpSetupConfigurationTree.c)
  */
 
 NTSTATUS __fastcall CmpInitializeHardwareConfiguration(__int64 a1)
@@ -24,14 +24,14 @@ NTSTATUS __fastcall CmpInitializeHardwareConfiguration(__int64 a1)
   Disposition = 0;
   ObjectAttributes.RootDirectory = 0LL;
   *(_QWORD *)&ObjectAttributes.Attributes = 576LL;
-  ObjectAttributes.ObjectName = (PUNICODE_STRING)&KiSystemServiceTraceCallbackLock.AbCompletedIoQoSBoostCount;
+  ObjectAttributes.ObjectName = (PUNICODE_STRING)&KiSystemServiceTraceCallbackLock.ForegroundLossTime;
   *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
   result = ZwCreateKey(&KeyHandle, 0x2001Fu, &ObjectAttributes, 0, 0LL, 0, &Disposition);
   if ( result >= 0 )
   {
     ZwClose(KeyHandle);
     ObjectAttributes.Length = 48;
-    ObjectAttributes.ObjectName = (PUNICODE_STRING)&KiSystemServiceTraceCallbackLock.PriorityFloorCounts[8];
+    ObjectAttributes.ObjectName = (PUNICODE_STRING)&KiSystemServiceTraceCallbackLock.InGlobalForegroundList;
     ObjectAttributes.RootDirectory = 0LL;
     ObjectAttributes.Attributes = 576;
     *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;

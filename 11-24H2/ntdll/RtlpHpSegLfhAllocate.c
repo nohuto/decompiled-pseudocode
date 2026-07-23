@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpHpSegLfhAllocate @ 0x180051370
+ * XREFs of RtlpHpSegLfhAllocate @ 0x180066F50
  * Callers:
  *     <none>
  * Callees:
- *     RtlpHpSegAlloc @ 0x180051440 (RtlpHpSegAlloc.c)
- *     RtlpHpSegPageRangeComputeLargePageCost @ 0x1800F7560 (RtlpHpSegPageRangeComputeLargePageCost.c)
+ *     RtlpHpSegAlloc @ 0x180067020 (RtlpHpSegAlloc.c)
+ *     RtlpHpSegPageRangeComputeLargePageCost @ 0x1800F1CB0 (RtlpHpSegPageRangeComputeLargePageCost.c)
  */
 
 __int64 __fastcall RtlpHpSegLfhAllocate(__int64 a1, unsigned int a2, _DWORD *a3, _DWORD *a4)

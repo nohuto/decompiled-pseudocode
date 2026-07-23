@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpOpenBaseImageFileOptionsKey @ 0x140A31DB4
+ * XREFs of RtlpOpenBaseImageFileOptionsKey @ 0x140A25D24
  * Callers:
- *     RtlQueryImageFileExecutionOptions @ 0x14077DA00 (RtlQueryImageFileExecutionOptions.c)
- *     RtlpOpenImageFileOptionsKeyEx @ 0x140A31C68 (RtlpOpenImageFileOptionsKeyEx.c)
+ *     RtlQueryImageFileExecutionOptions @ 0x14077D930 (RtlQueryImageFileExecutionOptions.c)
+ *     RtlpOpenImageFileOptionsKeyEx @ 0x140A25BD8 (RtlpOpenImageFileOptionsKeyEx.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x140347D10 (PsGetCurrentServerSiloGlobals.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     RtlpOpenBaseImageFileOptionsKeyEx @ 0x1406F92EC (RtlpOpenBaseImageFileOptionsKeyEx.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140326710 (PsGetCurrentServerSiloGlobals.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     RtlpOpenBaseImageFileOptionsKeyEx @ 0x1406F6F2C (RtlpOpenBaseImageFileOptionsKeyEx.c)
  */
 
 NTSTATUS __fastcall RtlpOpenBaseImageFileOptionsKey(_QWORD *a1)

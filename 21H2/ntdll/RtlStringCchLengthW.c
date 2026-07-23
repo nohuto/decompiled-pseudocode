@@ -7,7 +7,7 @@
  *     RtlGetParentLocaleName @ 0x18003C490 (RtlGetParentLocaleName.c)
  *     LdrpMultiSZCchLength @ 0x18003EF8C (LdrpMultiSZCchLength.c)
  *     RtlpCheckMuiMultiStringSafe @ 0x18003F044 (RtlpCheckMuiMultiStringSafe.c)
- *     RtlpValidAttribute @ 0x1800EABBC (RtlpValidAttribute.c)
+ *     RtlpValidAttribute @ 0x1800EAB7C (RtlpValidAttribute.c)
  * Callees:
  *     <none>
  */

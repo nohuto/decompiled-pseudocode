@@ -53,8 +53,8 @@ __int64 __fastcall MiZeroPageCalibrate(int *a1)
   unsigned __int64 v29; // r14
   void *v30; // rdi
   int AcceleratorDescriptor; // eax
-  struct _SLIST_ENTRY *v33; // r14
-  struct _SLIST_ENTRY *v34; // rdx
+  _SLIST_ENTRY *v33; // r14
+  _SLIST_ENTRY *v34; // rdx
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
@@ -101,7 +101,7 @@ __int64 __fastcall MiZeroPageCalibrate(int *a1)
       RtlRaiseStatus(-2147483646);
     *(_OWORD *)(((unsigned __int64)&v41 & 0xFFFFFFFFFFFFFFC0uLL) + 0x130) = 0LL;
     AcceleratorDescriptor = MiAllocateAcceleratorDescriptor(0LL, v8, v13, (_QWORD *)(v1 + 24));
-    v33 = *(struct _SLIST_ENTRY **)(((unsigned __int64)&v41 & 0xFFFFFFFFFFFFFFC0uLL) + 0x18);
+    v33 = *(_SLIST_ENTRY **)(((unsigned __int64)&v41 & 0xFFFFFFFFFFFFFFC0uLL) + 0x18);
     *(_DWORD *)v1 = AcceleratorDescriptor;
     if ( v33 )
     {
@@ -209,10 +209,13 @@ LABEL_40:
         v30 = *(void **)(((unsigned __int64)&v41 & 0xFFFFFFFFFFFFFFC0uLL) + 0x78);
       }
       ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v28 + 48));
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v29 <= 0xFu && CurrentIrql >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+          && CurrentIrql <= 0xFu
+          && (unsigned __int8)v29 <= 0xFu
+          && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;

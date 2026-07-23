@@ -1,21 +1,21 @@
 /*
- * XREFs of ObShutdownSystem @ 0x1406655DC
+ * XREFs of ObShutdownSystem @ 0x1406656C0
  * Callers:
  *     PoBroadcastSystemState @ 0x1403CEBF8 (PoBroadcastSystemState.c)
  *     PopGracefulShutdown @ 0x1403DEE20 (PopGracefulShutdown.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfReleasePushLock @ 0x1400C8620 (ExfReleasePushLock.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfReleasePushLock @ 0x1400C64C0 (ExfReleasePushLock.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     ObReferenceObjectByName @ 0x140405BE0 (ObReferenceObjectByName.c)
- *     ExEnumHandleTable @ 0x14045E4D0 (ExEnumHandleTable.c)
- *     ObMakeTemporaryObject @ 0x1404EB310 (ObMakeTemporaryObject.c)
- *     ObpDeleteSymbolicLinkName @ 0x1404EFC88 (ObpDeleteSymbolicLinkName.c)
+ *     ObReferenceObjectByName @ 0x140404AA0 (ObReferenceObjectByName.c)
+ *     ExEnumHandleTable @ 0x14045D3A0 (ExEnumHandleTable.c)
+ *     ObMakeTemporaryObject @ 0x1404CD494 (ObMakeTemporaryObject.c)
+ *     ObpDeleteSymbolicLinkName @ 0x1404D1CA4 (ObpDeleteSymbolicLinkName.c)
  */
 
 void __fastcall ObShutdownSystem(int a1)

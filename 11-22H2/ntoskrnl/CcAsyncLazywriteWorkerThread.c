@@ -61,10 +61,13 @@ __int64 __fastcall CcAsyncLazywriteWorkerThread(__int64 a1, __int64 a2)
     --*(_DWORD *)(v2 + 304);
     KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
     OldIrql = LockHandle.OldIrql;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && LockHandle.OldIrql <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -84,10 +87,10 @@ __int64 __fastcall CcAsyncLazywriteWorkerThread(__int64 a1, __int64 a2)
       CcNotifyWriteBehindVolume(v6, 32);
       KxReleaseQueuedSpinLock((volatile signed __int64 **)&v21);
       v15 = v21.OldIrql;
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v16 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v16 <= 0xFu && v21.OldIrql <= 0xFu && v16 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v16 <= 0xFu && v21.OldIrql <= 0xFu && v16 >= 2u )
         {
           v17 = KeGetCurrentPrcb();
           v18 = v17->SchedulerAssist;

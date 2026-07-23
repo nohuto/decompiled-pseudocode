@@ -41,10 +41,10 @@ void *__fastcall RtlpHpLargeAlloc(__int64 a1, __int16 a2, size_t a3, unsigned in
   unsigned __int64 v17; // rdx
   unsigned __int64 v18; // rax
   unsigned __int8 v19; // al
-  unsigned __int64 *v20; // rcx
+  _RTL_RB_TREE *v20; // rcx
   unsigned __int64 v21; // rbx
-  unsigned __int64 v22; // rdx
-  bool v23; // r8
+  unsigned __int64 Root; // rdx
+  BOOLEAN v23; // r8
   unsigned __int64 v24; // rax
   volatile signed __int64 *v25; // r14
   struct _KTHREAD *CurrentThread; // rbx
@@ -53,7 +53,7 @@ void *__fastcall RtlpHpLargeAlloc(__int64 a1, __int16 a2, size_t a3, unsigned in
   unsigned int v30; // edx
   bool v31; // zf
   __int64 v32; // rcx
-  unsigned __int64 v33; // rdi
+  __int64 v33; // rdi
   __int64 v34; // rdx
   __int64 v35; // rcx
   unsigned __int8 CurrentIrql; // al
@@ -173,44 +173,44 @@ void *__fastcall RtlpHpLargeAlloc(__int64 a1, __int16 a2, size_t a3, unsigned in
         *(_QWORD *)(v8 + 32) = v17 ^ (unsigned __int8)(v17 ^ (4 * v18)) & 0xFC;
         *(_WORD *)(v8 + 24) = ((_WORD)v60 << 12) - a2;
         v19 = RtlpHpLargeLockAcquire(a1, v15);
-        v20 = (unsigned __int64 *)(a1 + 72);
+        v20 = (_RTL_RB_TREE *)(a1 + 72);
         v21 = v19;
         if ( (*(_BYTE *)(a1 + 80) & 1) != 0 )
         {
-          if ( *v20 )
-            v22 = *v20 ^ (unsigned __int64)v20;
+          if ( v20->Root )
+            Root = (unsigned __int64)v20->Root ^ (unsigned __int64)v20;
           else
-            v22 = 0LL;
+            Root = 0LL;
         }
         else
         {
-          v22 = *v20;
+          Root = (unsigned __int64)v20->Root;
         }
         v23 = 0;
-        if ( v22 )
+        if ( Root )
         {
           while ( 1 )
           {
-            if ( (unsigned __int64)v40 < (*(_QWORD *)(v22 + 24) & 0xFFFFFFFFFFFF0000uLL) )
+            if ( (unsigned __int64)v40 < (*(_QWORD *)(Root + 24) & 0xFFFFFFFFFFFF0000uLL) )
             {
-              v24 = *(_QWORD *)v22;
+              v24 = *(_QWORD *)Root;
               if ( (*(_BYTE *)(a1 + 80) & 1) != 0 )
               {
                 if ( !v24 )
                   break;
-                v24 ^= v22;
+                v24 ^= Root;
               }
               if ( !v24 )
                 break;
             }
             else
             {
-              v24 = *(_QWORD *)(v22 + 8);
+              v24 = *(_QWORD *)(Root + 8);
               if ( (*(_BYTE *)(a1 + 80) & 1) != 0 )
               {
                 if ( !v24 )
                   goto LABEL_33;
-                v24 ^= v22;
+                v24 ^= Root;
               }
               if ( !v24 )
               {
@@ -219,10 +219,10 @@ LABEL_33:
                 break;
               }
             }
-            v22 = v24;
+            Root = v24;
           }
         }
-        RtlRbInsertNodeEx(v20, v22, v23, v8);
+        RtlRbInsertNodeEx(v20, (PRTL_BALANCED_NODE)Root, v23, (PRTL_BALANCED_NODE)v8);
         if ( (v15 & 1) == 0 )
         {
           v25 = (volatile signed __int64 *)(a1 + 64);
@@ -266,7 +266,7 @@ LABEL_33:
               v31 = !_BitScanReverse((unsigned int *)&v32, v30);
               if ( v31 )
                 break;
-              v33 = (unsigned __int64)&CurrentThread->LockEntries[v32];
+              v33 = (__int64)&CurrentThread->LockEntries[v32];
               v30 &= ~(1 << v32);
               if ( (*(_BYTE *)(v33 + 26) & 1) != 0
                 && (*(_DWORD *)(v33 + 32) & 1) == 0
@@ -280,12 +280,12 @@ LABEL_33:
                   {
                     *(_BYTE *)(v33 + 32) |= 2u;
                     if ( *(__int64 *)(v33 + 32) < 0 )
-                      KiAbEntryRemoveFromTree(v33);
+                      KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v33);
                     v42 = *(_DWORD *)(v33 + 88) & 0x1FFFF;
                     *(_DWORD *)(v33 + 88) &= 0xFFFE0000;
                     *(_BYTE *)(v33 + 25) &= ~1u;
                     *(_QWORD *)(v33 + 32) = 0LL;
-                    v34 = (__int64)(v33 - (unsigned __int64)CurrentThread->LockEntries) / 96;
+                    v34 = (signed __int64)(v33 - (unsigned __int64)CurrentThread->LockEntries) / 96;
                     if ( v29 == 1 )
                       CurrentThread->AbEntrySummary |= 1 << v34;
                     else

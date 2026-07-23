@@ -1,12 +1,12 @@
 /*
- * XREFs of PopDiagTraceIllegalProcessorThrottle @ 0x140572BD4
+ * XREFs of PopDiagTraceIllegalProcessorThrottle @ 0x140572E14
  * Callers:
- *     PpmPerfSnapDeliveredPerformance @ 0x140220810 (PpmPerfSnapDeliveredPerformance.c)
- *     PpmPerfCheckForIllegalProcessorThrottle @ 0x1402A7DA4 (PpmPerfCheckForIllegalProcessorThrottle.c)
+ *     PpmPerfCheckForIllegalProcessorThrottle @ 0x140225EE4 (PpmPerfCheckForIllegalProcessorThrottle.c)
+ *     PpmPerfSnapDeliveredPerformance @ 0x1402C5110 (PpmPerfSnapDeliveredPerformance.c)
  * Callees:
- *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x14025DD10 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x14027F840 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x1402C0830 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 void __fastcall PopDiagTraceIllegalProcessorThrottle(int a1, __int64 a2, _QWORD *a3)
@@ -47,7 +47,7 @@ void __fastcall PopDiagTraceIllegalProcessorThrottle(int a1, __int64 a2, _QWORD 
     v10 = &v20;
     v11 = 8;
     if ( *a3 )
-      v7 = (unsigned int)KeMaximumIncrement * (MEMORY[0xFFFFF78000000320] - *a3) / 10000000LL;
+      v7 = KeMaximumIncrement * (MEMORY[0xFFFFF78000000320] - *a3) / 10000000LL;
     else
       LODWORD(v7) = 0;
     v15 = 0;

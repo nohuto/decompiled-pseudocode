@@ -1,12 +1,12 @@
 /*
- * XREFs of PspUpdateJobEffectivePriorityLimits @ 0x1407FA07C
+ * XREFs of PspUpdateJobEffectivePriorityLimits @ 0x1407FFAAC
  * Callers:
- *     PspEstablishJobHierarchy @ 0x1407F836C (PspEstablishJobHierarchy.c)
- *     PspSetJobIoPriorityLimitPreCallback @ 0x1407F9460 (PspSetJobIoPriorityLimitPreCallback.c)
- *     PspSetJobPagePriorityLimitPreCallback @ 0x1407F9860 (PspSetJobPagePriorityLimitPreCallback.c)
- *     PspSetJobBackgroundCountCallback @ 0x140AF1AD0 (PspSetJobBackgroundCountCallback.c)
+ *     PspEstablishJobHierarchy @ 0x1407FDE6C (PspEstablishJobHierarchy.c)
+ *     PspSetJobIoPriorityLimitPreCallback @ 0x1407FEF60 (PspSetJobIoPriorityLimitPreCallback.c)
+ *     PspSetJobPagePriorityLimitPreCallback @ 0x1407FF360 (PspSetJobPagePriorityLimitPreCallback.c)
+ *     PspSetJobBackgroundCountCallback @ 0x140AF43A0 (PspSetJobBackgroundCountCallback.c)
  * Callees:
- *     MmGetMinWsPagePriority @ 0x1404B1660 (MmGetMinWsPagePriority.c)
+ *     MmGetMinWsPagePriority @ 0x1404AACF0 (MmGetMinWsPagePriority.c)
  */
 
 void __fastcall PspUpdateJobEffectivePriorityLimits(__int64 a1, char a2)

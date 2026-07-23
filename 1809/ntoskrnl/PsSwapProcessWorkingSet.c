@@ -1,16 +1,16 @@
 /*
- * XREFs of PsSwapProcessWorkingSet @ 0x1408887BC
+ * XREFs of PsSwapProcessWorkingSet @ 0x140889A1C
  * Callers:
- *     MmProcessWorkingSetControl @ 0x14085ED80 (MmProcessWorkingSetControl.c)
+ *     MmProcessWorkingSetControl @ 0x14085FFE0 (MmProcessWorkingSetControl.c)
  * Callees:
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceSharedLite @ 0x140050860 (ExAcquireResourceSharedLite.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     PspChangeProcessExecutionState @ 0x1406035AC (PspChangeProcessExecutionState.c)
- *     PspRequestProcessExecutionState @ 0x140604508 (PspRequestProcessExecutionState.c)
+ *     ExfReleasePushLockShared @ 0x1400913F0 (ExfReleasePushLockShared.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     PspChangeProcessExecutionState @ 0x1406045AC (PspChangeProcessExecutionState.c)
+ *     PspRequestProcessExecutionState @ 0x140605508 (PspRequestProcessExecutionState.c)
  */
 
 __int64 __fastcall PsSwapProcessWorkingSet(PEPROCESS Process, char a2)

@@ -1,17 +1,17 @@
 /*
- * XREFs of MiCoalescePlaceholderAllocations @ 0x1408519F8
+ * XREFs of MiCoalescePlaceholderAllocations @ 0x140852C58
  * Callers:
- *     MmFreeVirtualMemory @ 0x1405EF4F0 (MmFreeVirtualMemory.c)
+ *     MmFreeVirtualMemory @ 0x1405F04F0 (MmFreeVirtualMemory.c)
  * Callees:
- *     MiDeleteVad @ 0x140065E10 (MiDeleteVad.c)
- *     MiReferenceVad @ 0x1400755A0 (MiReferenceVad.c)
- *     MiUnlockVad @ 0x1400784B0 (MiUnlockVad.c)
- *     MiLocateAddress @ 0x140087860 (MiLocateAddress.c)
- *     UNLOCK_ADDRESS_SPACE_UNORDERED @ 0x140088CD8 (UNLOCK_ADDRESS_SPACE_UNORDERED.c)
- *     MiRemovePlaceholderVad @ 0x1402C4EBC (MiRemovePlaceholderVad.c)
- *     MiUnlockVadRange @ 0x140604A50 (MiUnlockVadRange.c)
- *     MiLockVadRange @ 0x140604B60 (MiLockVadRange.c)
- *     MiCheckSecuredVad @ 0x140618974 (MiCheckSecuredVad.c)
+ *     MiDeleteVad @ 0x140065E00 (MiDeleteVad.c)
+ *     MiReferenceVad @ 0x140075590 (MiReferenceVad.c)
+ *     MiUnlockVad @ 0x1400784A0 (MiUnlockVad.c)
+ *     MiLocateAddress @ 0x140087850 (MiLocateAddress.c)
+ *     UNLOCK_ADDRESS_SPACE_UNORDERED @ 0x140088CC8 (UNLOCK_ADDRESS_SPACE_UNORDERED.c)
+ *     MiRemovePlaceholderVad @ 0x1402C50AC (MiRemovePlaceholderVad.c)
+ *     MiUnlockVadRange @ 0x140605A50 (MiUnlockVadRange.c)
+ *     MiLockVadRange @ 0x140605B60 (MiLockVadRange.c)
+ *     MiCheckSecuredVad @ 0x140619974 (MiCheckSecuredVad.c)
  */
 
 __int64 __fastcall MiCoalescePlaceholderAllocations(__int64 a1, unsigned __int64 a2, unsigned __int64 a3, char a4)

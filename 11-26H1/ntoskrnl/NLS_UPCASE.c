@@ -1,15 +1,15 @@
 /*
- * XREFs of NLS_UPCASE @ 0x14042F430
+ * XREFs of NLS_UPCASE @ 0x14041C340
  * Callers:
- *     RtlUpcaseUnicodeToCustomCPN @ 0x140801F00 (RtlUpcaseUnicodeToCustomCPN.c)
- *     VrpPreOpenOrCreate @ 0x140975760 (VrpPreOpenOrCreate.c)
- *     _CmIsRootDevice @ 0x140991F84 (_CmIsRootDevice.c)
- *     _CmOpenDeviceRegKeyWorker @ 0x140996CF0 (_CmOpenDeviceRegKeyWorker.c)
- *     RtlIsValidOemCharacter @ 0x140A6B160 (RtlIsValidOemCharacter.c)
- *     PiDevCfgResolveVariable @ 0x140A71BD0 (PiDevCfgResolveVariable.c)
- *     PipFindDeviceOverrideEntry @ 0x140AA773C (PipFindDeviceOverrideEntry.c)
- *     PnpGenerateDeviceIdsHash @ 0x140AA8798 (PnpGenerateDeviceIdsHash.c)
- *     RtlSuffixUnicodeString @ 0x140AE4280 (RtlSuffixUnicodeString.c)
+ *     RtlUpcaseUnicodeToCustomCPN @ 0x1408079A0 (RtlUpcaseUnicodeToCustomCPN.c)
+ *     VrpPreOpenOrCreate @ 0x140937770 (VrpPreOpenOrCreate.c)
+ *     _CmIsRootDevice @ 0x1409529E4 (_CmIsRootDevice.c)
+ *     _CmOpenDeviceRegKeyWorker @ 0x140957750 (_CmOpenDeviceRegKeyWorker.c)
+ *     RtlIsValidOemCharacter @ 0x14097E350 (RtlIsValidOemCharacter.c)
+ *     PipFindDeviceOverrideEntry @ 0x1409DAC70 (PipFindDeviceOverrideEntry.c)
+ *     PnpGenerateDeviceIdsHash @ 0x1409DBCCC (PnpGenerateDeviceIdsHash.c)
+ *     PiDevCfgResolveVariable @ 0x140A480A0 (PiDevCfgResolveVariable.c)
+ *     RtlSuffixUnicodeString @ 0x140AE1D90 (RtlSuffixUnicodeString.c)
  * Callees:
  *     <none>
  */

@@ -1,15 +1,15 @@
 /*
- * XREFs of CcAllocateWorkQueueEntry @ 0x140072080
+ * XREFs of CcAllocateWorkQueueEntry @ 0x140071C00
  * Callers:
- *     CcNotifyOfMappedWrite @ 0x14002078C (CcNotifyOfMappedWrite.c)
- *     CcAsyncCopyRead @ 0x14006DB6C (CcAsyncCopyRead.c)
- *     CcScheduleReadAheadEx @ 0x14006EE10 (CcScheduleReadAheadEx.c)
- *     CcLazyWriteScan @ 0x140070CA0 (CcLazyWriteScan.c)
- *     CcWriteBehind @ 0x14007161C (CcWriteBehind.c)
- *     CcWaitForCurrentLazyWriterActivity @ 0x14010F010 (CcWaitForCurrentLazyWriterActivity.c)
- *     CcQueueLazyWriteScanThread @ 0x14013FDAC (CcQueueLazyWriteScanThread.c)
+ *     CcNotifyOfMappedWrite @ 0x14002030C (CcNotifyOfMappedWrite.c)
+ *     CcAsyncCopyRead @ 0x14006D6EC (CcAsyncCopyRead.c)
+ *     CcScheduleReadAheadEx @ 0x14006E990 (CcScheduleReadAheadEx.c)
+ *     CcLazyWriteScan @ 0x140070820 (CcLazyWriteScan.c)
+ *     CcWriteBehind @ 0x14007119C (CcWriteBehind.c)
+ *     CcWaitForCurrentLazyWriterActivity @ 0x14010F574 (CcWaitForCurrentLazyWriterActivity.c)
+ *     CcQueueLazyWriteScanThread @ 0x14014031C (CcQueueLazyWriteScanThread.c)
  * Callees:
- *     RtlpInterlockedPopEntrySList @ 0x140166E00 (RtlpInterlockedPopEntrySList.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140167370 (RtlpInterlockedPopEntrySList.c)
  */
 
 __int64 __fastcall CcAllocateWorkQueueEntry(PSLIST_ENTRY *a1)

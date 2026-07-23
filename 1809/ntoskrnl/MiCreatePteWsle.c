@@ -1,9 +1,9 @@
 /*
- * XREFs of MiCreatePteWsle @ 0x1409D1F90
+ * XREFs of MiCreatePteWsle @ 0x1409D2F90
  * Callers:
  *     <none>
  * Callees:
- *     MiWriteWsle @ 0x1400DB198 (MiWriteWsle.c)
+ *     MiWriteWsle @ 0x1400DB218 (MiWriteWsle.c)
  */
 
 __int64 __fastcall MiCreatePteWsle(__int64 a1, _BYTE *a2, int a3)

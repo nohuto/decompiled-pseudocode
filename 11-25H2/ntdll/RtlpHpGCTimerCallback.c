@@ -7,16 +7,13 @@
  *     RtlpHpTlLogGCTimerFinished @ 0x18014E2A8 (RtlpHpTlLogGCTimerFinished.c)
  */
 
-__int64 __fastcall RtlpHpGCTimerCallback(__int64 a1, __int64 a2)
+void __fastcall RtlpHpGCTimerCallback(PTP_CALLBACK_INSTANCE a1, _DWORD *a2, PTP_TIMER a3)
 {
-  __int64 result; // rax
-
-  result = RtlpEnumProcessHeaps(
-             (__int64 (__fastcall *)(__int64, __int64, __int64 *))RtlpHpGCTimerEnumProcessHeapsCallback,
-             a2,
-             4);
+  RtlpEnumProcessHeaps(
+    (__int64 (__fastcall *)(__int64, __int64, __int64 *))RtlpHpGCTimerEnumProcessHeapsCallback,
+    (__int64)a2,
+    4);
   if ( (RtlpHpHeapFeatures & 8) != 0 )
-    result = RtlpHpTlLogGCTimerFinished();
-  *(_DWORD *)(a2 + 16) = 0;
-  return result;
+    RtlpHpTlLogGCTimerFinished();
+  a2[4] = 0;
 }

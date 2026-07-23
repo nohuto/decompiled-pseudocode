@@ -1,10 +1,10 @@
 /*
- * XREFs of PnprCompleteWake @ 0x140562B94
+ * XREFs of PnprCompleteWake @ 0x140563254
  * Callers:
- *     PnprInitiateReplaceOperation @ 0x140A9C914 (PnprInitiateReplaceOperation.c)
- *     PnprQuiesceWorker @ 0x140A9DE60 (PnprQuiesceWorker.c)
+ *     PnprInitiateReplaceOperation @ 0x140A9C784 (PnprInitiateReplaceOperation.c)
+ *     PnprQuiesceWorker @ 0x140A9DCD0 (PnprQuiesceWorker.c)
  * Callees:
- *     PnprUnlockPagesForReplace @ 0x140966FD4 (PnprUnlockPagesForReplace.c)
+ *     PnprUnlockPagesForReplace @ 0x1409671D4 (PnprUnlockPagesForReplace.c)
  */
 
 __int64 PnprCompleteWake()

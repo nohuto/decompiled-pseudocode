@@ -1,9 +1,9 @@
 /*
- * XREFs of NtUnloadDriver @ 0x140707030
+ * XREFs of NtUnloadDriver @ 0x1407082D0
  * Callers:
  *     <none>
  * Callees:
- *     IopUnloadDriver @ 0x1407089C8 (IopUnloadDriver.c)
+ *     IopUnloadDriver @ 0x140709C68 (IopUnloadDriver.c)
  */
 
 NTSTATUS __stdcall NtUnloadDriver(PUNICODE_STRING DriverServiceName)

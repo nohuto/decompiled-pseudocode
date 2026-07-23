@@ -47,7 +47,7 @@ NTSTATUS __fastcall PspSetupUserShadowStack(
     {
       if ( (*(_DWORD *)(a2 + 48) & 0x100040) == 0x100040 )
       {
-        ExtendedFeature = (_QWORD *)RtlLocateExtendedFeature(a2 + 1232, 11LL);
+        ExtendedFeature = RtlLocateExtendedFeature((PCONTEXT_EX)(a2 + 1232), 0xBu, 0LL);
         if ( ExtendedFeature )
         {
           *(_QWORD *)(*(int *)(a2 + 1248) + a2 + 1232) |= 0x800uLL;

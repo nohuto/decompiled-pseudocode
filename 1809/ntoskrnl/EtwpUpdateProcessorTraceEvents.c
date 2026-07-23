@@ -1,7 +1,7 @@
 /*
- * XREFs of EtwpUpdateProcessorTraceEvents @ 0x1408C9D44
+ * XREFs of EtwpUpdateProcessorTraceEvents @ 0x1408CB004
  * Callers:
- *     EtwSetPerformanceTraceInformation @ 0x1408B9A4C (EtwSetPerformanceTraceInformation.c)
+ *     EtwSetPerformanceTraceInformation @ 0x1408BAD0C (EtwSetPerformanceTraceInformation.c)
  * Callees:
  *     <none>
  */

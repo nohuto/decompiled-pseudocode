@@ -1,19 +1,19 @@
 /*
- * XREFs of CmpSetSystemValues @ 0x140A59CB0
+ * XREFs of CmpSetSystemValues @ 0x140A5ACB0
  * Callers:
- *     CmInitSystem1 @ 0x140A59F78 (CmInitSystem1.c)
+ *     CmInitSystem1 @ 0x140A5AF78 (CmInitSystem1.c)
  * Callees:
- *     CmpSetSystemRegistryString @ 0x1403B7D94 (CmpSetSystemRegistryString.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     ZwOpenKey @ 0x1403FA5E0 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x1403FA680 (ZwQueryValueKey.c)
- *     ZwSetValueKey @ 0x1403FAFA0 (ZwSetValueKey.c)
+ *     CmpSetSystemRegistryString @ 0x1403B7F04 (CmpSetSystemRegistryString.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403FA7C0 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1403FA860 (ZwQueryValueKey.c)
+ *     ZwSetValueKey @ 0x1403FB180 (ZwSetValueKey.c)
  */
 
-__int64 __fastcall CmpSetSystemValues(__int64 *a1)
+__int64 __fastcall CmpSetSystemValues(__int64 a1)
 {
-  int v2; // ebx
+  NTSTATUS v2; // ebx
   int v4; // ecx
   HANDLE KeyHandle; // [rsp+38h] [rbp-D0h] BYREF
   int Data; // [rsp+40h] [rbp-C8h] BYREF
@@ -43,27 +43,27 @@ __int64 __fastcall CmpSetSystemValues(__int64 *a1)
            CmpLoadOptions.Length);
     if ( v2 >= 0 )
     {
-      v2 = CmpSetSystemRegistryString(KeyHandle, (PUNICODE_STRING)&CmpSystemBootDeviceString, a1[23]);
+      v2 = CmpSetSystemRegistryString(KeyHandle, (PUNICODE_STRING)&CmpSystemBootDeviceString, *(PCSTR *)(a1 + 184));
       if ( v2 >= 0 )
       {
-        v2 = CmpSetSystemRegistryString(KeyHandle, (PUNICODE_STRING)&CmpFirmwareBootDeviceString, a1[24]);
+        v2 = CmpSetSystemRegistryString(KeyHandle, (PUNICODE_STRING)&CmpFirmwareBootDeviceString, *(PCSTR *)(a1 + 192));
         if ( v2 >= 0 )
         {
-          v2 = CmpSetSystemRegistryString(KeyHandle, (PUNICODE_STRING)&CmpWindowsSysPartString, a1[43]);
+          v2 = CmpSetSystemRegistryString(KeyHandle, (PUNICODE_STRING)&CmpWindowsSysPartString, *(PCSTR *)(a1 + 344));
           if ( v2 >= 0 )
           {
-            v2 = CmpSetSystemRegistryString(KeyHandle, (PUNICODE_STRING)&CmpOsBootstatPathString, a1[41]);
+            v2 = CmpSetSystemRegistryString(KeyHandle, (PUNICODE_STRING)&CmpOsBootstatPathString, *(PCSTR *)(a1 + 328));
             if ( v2 >= 0 )
             {
-              Data = *(_DWORD *)(a1[30] + 132) & 1;
+              Data = *(_DWORD *)(*(_QWORD *)(a1 + 240) + 132LL) & 1;
               v2 = ZwSetValueKey(KeyHandle, (PUNICODE_STRING)&CmpLastBootSucceededString, 0, 4u, &Data, 4u);
               if ( v2 >= 0 )
               {
-                Data = (*(_DWORD *)(a1[30] + 132) >> 1) & 1;
+                Data = (*(_DWORD *)(*(_QWORD *)(a1 + 240) + 132LL) >> 1) & 1;
                 v2 = ZwSetValueKey(KeyHandle, (PUNICODE_STRING)&CmpLastBootShutdownString, 0, 4u, &Data, 4u);
                 if ( v2 >= 0 )
                 {
-                  if ( (*(_DWORD *)(a1[30] + 132) & 2) == 0 )
+                  if ( (*(_DWORD *)(*(_QWORD *)(a1 + 240) + 132LL) & 2) == 0 )
                   {
                     if ( ZwQueryValueKey(
                            KeyHandle,

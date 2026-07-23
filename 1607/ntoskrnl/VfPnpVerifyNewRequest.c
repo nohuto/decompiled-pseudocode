@@ -3,8 +3,8 @@
  * Callers:
  *     <none>
  * Callees:
- *     MmIsNonPagedSystemAddressValid @ 0x1401E6950 (MmIsNonPagedSystemAddressValid.c)
- *     ViErrorReport1 @ 0x140223660 (ViErrorReport1.c)
+ *     MmIsNonPagedSystemAddressValid @ 0x1401E677C (MmIsNonPagedSystemAddressValid.c)
+ *     ViErrorReport1 @ 0x14022348C (ViErrorReport1.c)
  */
 
 void __fastcall VfPnpVerifyNewRequest(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5, const void *a6)

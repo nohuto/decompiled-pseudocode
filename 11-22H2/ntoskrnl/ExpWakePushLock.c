@@ -65,10 +65,10 @@ LABEL_7:
         {
           CurrentIrql = KeGetCurrentIrql();
           __writecr8(2uLL);
-          LODWORD(v7) = KiIrqlFlags;
-          if ( KiIrqlFlags )
+          LODWORD(v7) = (_DWORD)KiIrqlFlags;
+          if ( (_DWORD)KiIrqlFlags )
           {
-            if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+            if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
             {
               SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
               LODWORD(v7) = 4;
@@ -94,10 +94,10 @@ LABEL_7:
         while ( Blink );
         if ( CurrentIrql != 2 )
         {
-          if ( KiIrqlFlags )
+          if ( (_DWORD)KiIrqlFlags )
           {
             v14 = KeGetCurrentIrql();
-            if ( (KiIrqlFlags & 1) != 0 && v14 <= 0xFu && CurrentIrql <= 0xFu && v14 >= 2u )
+            if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v14 <= 0xFu && CurrentIrql <= 0xFu && v14 >= 2u )
             {
               CurrentPrcb = KeGetCurrentPrcb();
               v16 = CurrentPrcb->SchedulerAssist;

@@ -1,20 +1,20 @@
 /*
  * XREFs of HalpInterruptStartProcessor @ 0x140A88D4C
  * Callers:
- *     HalStartNextProcessor @ 0x140376AB0 (HalStartNextProcessor.c)
- *     HalStartDynamicProcessor @ 0x140504BF0 (HalStartDynamicProcessor.c)
- *     HalpDpStartProcessor @ 0x140A97B74 (HalpDpStartProcessor.c)
- *     HalpBlkStartBlockedProcessor @ 0x140A986CC (HalpBlkStartBlockedProcessor.c)
+ *     HalStartNextProcessor @ 0x140376C50 (HalStartNextProcessor.c)
+ *     HalStartDynamicProcessor @ 0x140505140 (HalStartDynamicProcessor.c)
+ *     HalpDpStartProcessor @ 0x140A979E4 (HalpDpStartProcessor.c)
+ *     HalpBlkStartBlockedProcessor @ 0x140A9853C (HalpBlkStartBlockedProcessor.c)
  * Callees:
- *     HalpSetProcessorStateByNtIndex @ 0x14037681C (HalpSetProcessorStateByNtIndex.c)
- *     HalpInterruptSetProcessorStartContext @ 0x140376870 (HalpInterruptSetProcessorStartContext.c)
- *     HalpInterruptWaitForProcessorStartUp @ 0x1403768E4 (HalpInterruptWaitForProcessorStartUp.c)
- *     HalpInterruptGetNextProcessorLocalId @ 0x140376958 (HalpInterruptGetNextProcessorLocalId.c)
- *     HalpHvVpStartEnabled @ 0x140377550 (HalpHvVpStartEnabled.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     HalpInterruptSetProblemEx @ 0x14051AA08 (HalpInterruptSetProblemEx.c)
- *     HalpHvStartProcessor @ 0x14051B368 (HalpHvStartProcessor.c)
- *     HalpMmUpdateTiledMemoryMapTargetStub @ 0x14051B548 (HalpMmUpdateTiledMemoryMapTargetStub.c)
+ *     HalpSetProcessorStateByNtIndex @ 0x1403769BC (HalpSetProcessorStateByNtIndex.c)
+ *     HalpInterruptSetProcessorStartContext @ 0x140376A10 (HalpInterruptSetProcessorStartContext.c)
+ *     HalpInterruptWaitForProcessorStartUp @ 0x140376A84 (HalpInterruptWaitForProcessorStartUp.c)
+ *     HalpInterruptGetNextProcessorLocalId @ 0x140376AF8 (HalpInterruptGetNextProcessorLocalId.c)
+ *     HalpHvVpStartEnabled @ 0x1403776F0 (HalpHvVpStartEnabled.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     HalpInterruptSetProblemEx @ 0x14051AF58 (HalpInterruptSetProblemEx.c)
+ *     HalpHvStartProcessor @ 0x14051B8B8 (HalpHvStartProcessor.c)
+ *     HalpMmUpdateTiledMemoryMapTargetStub @ 0x14051BA98 (HalpMmUpdateTiledMemoryMapTargetStub.c)
  */
 
 __int64 __fastcall HalpInterruptStartProcessor(unsigned int a1, int a2, char a3, const void *a4)

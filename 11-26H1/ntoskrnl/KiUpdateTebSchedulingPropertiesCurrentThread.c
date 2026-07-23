@@ -1,14 +1,14 @@
 /*
- * XREFs of KiUpdateTebSchedulingPropertiesCurrentThread @ 0x1402C3B18
+ * XREFs of KiUpdateTebSchedulingPropertiesCurrentThread @ 0x14030E7D8
  * Callers:
- *     KeUpdateTebSchedulingPropertiesCurrentThread @ 0x1402C3744 (KeUpdateTebSchedulingPropertiesCurrentThread.c)
- *     KiUpdateTebApc @ 0x1402C3B00 (KiUpdateTebApc.c)
+ *     KeUpdateTebSchedulingPropertiesCurrentThread @ 0x14030E404 (KeUpdateTebSchedulingPropertiesCurrentThread.c)
+ *     KiUpdateTebApc @ 0x14030E7C0 (KiUpdateTebApc.c)
  * Callees:
- *     KiReleaseThreadLockLowerIrql @ 0x1402C45E0 (KiReleaseThreadLockLowerIrql.c)
- *     KiAcquireThreadLockRaiseToDpc @ 0x1402C4710 (KiAcquireThreadLockRaiseToDpc.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     RtlCopyToUser @ 0x14077F284 (RtlCopyToUser.c)
- *     RtlWriteULongToUser @ 0x14077F7A0 (RtlWriteULongToUser.c)
+ *     KiReleaseThreadLockLowerIrql @ 0x14030F2A0 (KiReleaseThreadLockLowerIrql.c)
+ *     KiAcquireThreadLockRaiseToDpc @ 0x14030F3D0 (KiAcquireThreadLockRaiseToDpc.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     RtlCopyToUser @ 0x140781D84 (RtlCopyToUser.c)
+ *     RtlWriteULongToUser @ 0x1407822A0 (RtlWriteULongToUser.c)
  */
 
 __int64 __fastcall KiUpdateTebSchedulingPropertiesCurrentThread(__int64 a1)
@@ -56,7 +56,7 @@ __int64 __fastcall KiUpdateTebSchedulingPropertiesCurrentThread(__int64 a1)
     {
       if ( (unsigned int)v6 < KeMaximumProcessors )
       {
-        v10 = *(_DWORD *)(*(_QWORD *)&KiSupervisorXStateFeaturesLock.WaitBlockFill11[112] + 4 * v6);
+        v10 = *((_DWORD *)&KiSupervisorXStateFeaturesLock.SchedulerApc.Thread->Header.Lock + v6);
         if ( v10 )
         {
           LOWORD(v14) = v10 >> 6;

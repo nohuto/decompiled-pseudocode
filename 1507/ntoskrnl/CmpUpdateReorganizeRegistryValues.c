@@ -21,7 +21,7 @@ void CmpUpdateReorganizeRegistryValues()
   __int64 CreateOptions; // [rsp+28h] [rbp-51h]
   HANDLE KeyHandle; // [rsp+40h] [rbp-39h] BYREF
   UNICODE_STRING DestinationString; // [rsp+48h] [rbp-31h] BYREF
-  struct _TIME_FIELDS TimeFields; // [rsp+58h] [rbp-21h] BYREF
+  _TIME_FIELDS TimeFields; // [rsp+58h] [rbp-21h] BYREF
   LARGE_INTEGER LocalTime; // [rsp+68h] [rbp-11h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+70h] [rbp-9h] BYREF
   wchar_t Dst[16]; // [rsp+A0h] [rbp+27h] BYREF

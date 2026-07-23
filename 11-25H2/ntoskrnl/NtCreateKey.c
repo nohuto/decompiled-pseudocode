@@ -10,14 +10,21 @@
  *     CmCreateKey @ 0x140AD24C0 (CmCreateKey.c)
  */
 
-__int64 __fastcall NtCreateKey(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __m128i *a5, int a6, _DWORD *a7)
+NTSTATUS __cdecl NtCreateKey(
+        PHANDLE KeyHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        ULONG TitleIndex,
+        PUNICODE_STRING Class,
+        ULONG CreateOptions,
+        PULONG Disposition)
 {
   HANDLE *v7; // r10
   unsigned int v8; // r11d
   ULONG_PTR v9; // r8
   int v10; // r9d
   __int64 v11; // r9
-  unsigned int v12; // r8d
+  NTSTATUS v12; // r8d
   __int128 v14; // [rsp+40h] [rbp-21h] BYREF
   __int64 Parameter; // [rsp+50h] [rbp-11h] BYREF
   HANDLE *v16; // [rsp+58h] [rbp-9h]
@@ -27,9 +34,9 @@ __int64 __fastcall NtCreateKey(__int64 a1, __int64 a2, __int64 a3, __int64 a4, _
   int v20; // [rsp+70h] [rbp+Fh]
   int v21; // [rsp+74h] [rbp+13h]
   __m128i *v22; // [rsp+78h] [rbp+17h]
-  int v23; // [rsp+80h] [rbp+1Fh]
+  ULONG v23; // [rsp+80h] [rbp+1Fh]
   int v24; // [rsp+84h] [rbp+23h]
-  _DWORD *v25; // [rsp+88h] [rbp+27h]
+  PULONG v25; // [rsp+88h] [rbp+27h]
   __int64 v26; // [rsp+90h] [rbp+2Fh]
 
   v18 = 0;
@@ -38,9 +45,9 @@ __int64 __fastcall NtCreateKey(__int64 a1, __int64 a2, __int64 a3, __int64 a4, _
   v14 = 0LL;
   v24 = 0;
   CmpInitializeThreadInfo((_KAFFINITY_EX *)&v14);
-  v22 = a5;
-  v23 = a6;
-  v25 = a7;
+  v22 = (__m128i *)Class;
+  v23 = CreateOptions;
+  v25 = Disposition;
   Parameter = 0LL;
   v18 = 0;
   v21 = 0;

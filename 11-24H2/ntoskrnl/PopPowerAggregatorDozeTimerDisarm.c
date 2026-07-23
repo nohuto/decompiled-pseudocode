@@ -1,13 +1,13 @@
 /*
- * XREFs of PopPowerAggregatorDozeTimerDisarm @ 0x1406F54C4
+ * XREFs of PopPowerAggregatorDozeTimerDisarm @ 0x1406F34C4
  * Callers:
- *     PopPowerAggregatorEvaluateDozeTimers @ 0x1406F53DC (PopPowerAggregatorEvaluateDozeTimers.c)
- *     PopPowerAggregatorDozeTimerArm @ 0x14075914C (PopPowerAggregatorDozeTimerArm.c)
+ *     PopPowerAggregatorEvaluateDozeTimers @ 0x1406F33DC (PopPowerAggregatorEvaluateDozeTimers.c)
+ *     PopPowerAggregatorDozeTimerArm @ 0x1407575AC (PopPowerAggregatorDozeTimerArm.c)
  * Callees:
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     KeCancelTimer2 @ 0x1403C0960 (KeCancelTimer2.c)
- *     PopPowerAggregatorDiagTraceDozeTimerDisarmed @ 0x1406F555C (PopPowerAggregatorDiagTraceDozeTimerDisarmed.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     KeCancelTimer2 @ 0x1403AF520 (KeCancelTimer2.c)
+ *     PopPowerAggregatorDiagTraceDozeTimerDisarmed @ 0x1406F355C (PopPowerAggregatorDiagTraceDozeTimerDisarmed.c)
  */
 
 __int64 __fastcall PopPowerAggregatorDozeTimerDisarm(__int64 a1, unsigned int a2, __int64 a3, __int64 a4)

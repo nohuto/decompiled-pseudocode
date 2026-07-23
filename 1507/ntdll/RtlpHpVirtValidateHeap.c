@@ -9,39 +9,36 @@
  *     RtlpHpVirtHeapTableDereferenceHeap @ 0x1800EAD60 (RtlpHpVirtHeapTableDereferenceHeap.c)
  */
 
-bool __fastcall RtlpHpVirtValidateHeap(void *a1, unsigned int a2, unsigned __int64 a3)
+bool __fastcall RtlpHpVirtValidateHeap(PRTL_CRITICAL_SECTION *a1, unsigned int a2, unsigned __int64 a3)
 {
-  unsigned __int64 HeapByAlloc; // rbx
+  PRTL_CRITICAL_SECTION *HeapByAlloc; // rbx
   int v7; // esi
-  void *ProcessHeap; // rax
-  char *v9; // rdx
-  bool v10; // di
-  __int64 v11; // r8
-  __int64 v12; // r9
+  PRTL_CRITICAL_SECTION *ProcessHeap; // rax
+  bool v9; // di
 
   if ( a1 != NtCurrentPeb()->ProcessHeap )
   {
-    HeapByAlloc = (unsigned __int64)a1;
+    HeapByAlloc = a1;
 LABEL_8:
     v7 = 0;
     goto LABEL_9;
   }
   if ( a3 )
   {
-    HeapByAlloc = RtlpHpVirtFindHeapByAlloc((__int64)a1, a3, 0LL);
+    HeapByAlloc = (PRTL_CRITICAL_SECTION *)RtlpHpVirtFindHeapByAlloc((__int64)a1, a3, 0LL);
     goto LABEL_8;
   }
   v7 = 1;
-  ProcessHeap = RtlpHpVirtGetProcessHeap(1u);
-  HeapByAlloc = (unsigned __int64)ProcessHeap;
+  ProcessHeap = (PRTL_CRITICAL_SECTION *)RtlpHpVirtGetProcessHeap(1u);
+  HeapByAlloc = ProcessHeap;
   if ( !ProcessHeap || ProcessHeap == a1 )
   {
-    HeapByAlloc = (unsigned __int64)a1;
+    HeapByAlloc = a1;
     goto LABEL_8;
   }
 LABEL_9:
-  v10 = RtlpValidateHeapInternal(HeapByAlloc, a2, a3);
+  v9 = RtlpValidateHeapInternal(HeapByAlloc, (PRTL_DYNAMIC_HASH_TABLE_ENUMERATOR)a2, a3);
   if ( v7 )
-    RtlpHpVirtHeapTableDereferenceHeap(HeapByAlloc, v9, v11, v12);
-  return v10;
+    RtlpHpVirtHeapTableDereferenceHeap((__int64)HeapByAlloc);
+  return v9;
 }

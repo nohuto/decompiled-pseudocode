@@ -1,10 +1,10 @@
 /*
- * XREFs of SepCaptureTokenSecurityOperations @ 0x140370B58
+ * XREFs of SepCaptureTokenSecurityOperations @ 0x140370CF8
  * Callers:
- *     SepCaptureTokenSecurityAttributesAndOperationsInformation @ 0x1407F0920 (SepCaptureTokenSecurityAttributesAndOperationsInformation.c)
+ *     SepCaptureTokenSecurityAttributesAndOperationsInformation @ 0x1407F0BF0 (SepCaptureTokenSecurityAttributesAndOperationsInformation.c)
  * Callees:
- *     RtlULongLongMult @ 0x14022CE2C (RtlULongLongMult.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00B60 (ExRaiseDatatypeMisalignment.c)
+ *     RtlULongLongMult @ 0x14022CF3C (RtlULongLongMult.c)
+ *     ExRaiseDatatypeMisalignment @ 0x140A00DF0 (ExRaiseDatatypeMisalignment.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

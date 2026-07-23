@@ -1,10 +1,10 @@
 /*
- * XREFs of MiStartBackgroundZeroTimer @ 0x14070EAF4
+ * XREFs of MiStartBackgroundZeroTimer @ 0x1407137F4
  * Callers:
- *     MiSelectBestZeroingProcessor @ 0x1403E8AC4 (MiSelectBestZeroingProcessor.c)
- *     MiReduceZeroingThreads @ 0x14051EB08 (MiReduceZeroingThreads.c)
+ *     MiSelectBestZeroingProcessor @ 0x1402F59A4 (MiSelectBestZeroingProcessor.c)
+ *     MiReduceZeroingThreads @ 0x1405211AC (MiReduceZeroingThreads.c)
  * Callees:
- *     KiSetTimerEx @ 0x1403ABF20 (KiSetTimerEx.c)
+ *     KiSetTimerEx @ 0x1403B5C30 (KiSetTimerEx.c)
  */
 
 __int64 __fastcall MiStartBackgroundZeroTimer(__int64 a1)

@@ -11,15 +11,16 @@
  *     <none>
  */
 
-__int64 __fastcall RtlGetCurrentProcessorNumber(unsigned __int8 a1)
+ULONG RtlGetCurrentProcessorNumber(void)
 {
+  unsigned __int8 v0; // cl
   char v2; // zf
   unsigned __int32 v3; // eax
 
   if ( MEMORY[0x7FFE0294] )
   {
     __asm { rdtscp }
-    return a1;
+    return v0;
   }
   else
   {

@@ -1,13 +1,13 @@
 /*
- * XREFs of MiCheckForUserStackOverflow @ 0x1407BD998
+ * XREFs of MiCheckForUserStackOverflow @ 0x1407BDC68
  * Callers:
- *     MiUserFault @ 0x140235890 (MiUserFault.c)
+ *     MiUserFault @ 0x140235960 (MiUserFault.c)
  * Callees:
- *     MiObtainReferencedVadEx @ 0x140274CB0 (MiObtainReferencedVadEx.c)
- *     MiUnlockAndDereferenceVadShared @ 0x140275470 (MiUnlockAndDereferenceVadShared.c)
- *     ZwAllocateVirtualMemory @ 0x14041B060 (ZwAllocateVirtualMemory.c)
- *     ZwProtectVirtualMemory @ 0x14041B760 (ZwProtectVirtualMemory.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00B60 (ExRaiseDatatypeMisalignment.c)
+ *     MiObtainReferencedVadEx @ 0x140274F40 (MiObtainReferencedVadEx.c)
+ *     MiUnlockAndDereferenceVadShared @ 0x140275700 (MiUnlockAndDereferenceVadShared.c)
+ *     ZwAllocateVirtualMemory @ 0x14041B3F0 (ZwAllocateVirtualMemory.c)
+ *     ZwProtectVirtualMemory @ 0x14041BAF0 (ZwProtectVirtualMemory.c)
+ *     ExRaiseDatatypeMisalignment @ 0x140A00DF0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall MiCheckForUserStackOverflow(unsigned __int64 a1, int a2)
@@ -45,11 +45,13 @@ __int64 __fastcall MiCheckForUserStackOverflow(unsigned __int64 a1, int a2)
   struct _KTHREAD *v34; // [rsp+58h] [rbp-40h]
   unsigned __int64 v35; // [rsp+60h] [rbp-38h]
   __int64 v36; // [rsp+68h] [rbp-30h]
-  int v37; // [rsp+B8h] [rbp+20h] BYREF
+  ULONG OldProtect; // [rsp+B0h] [rbp+18h] BYREF
+  int v38; // [rsp+B8h] [rbp+20h] BYREF
 
   v3 = 0;
   RegionSize = 0LL;
   v4 = 0;
+  OldProtect = 0;
   v5 = 0LL;
   CurrentThread = KeGetCurrentThread();
   v34 = CurrentThread;
@@ -73,7 +75,7 @@ __int64 __fastcall MiCheckForUserStackOverflow(unsigned __int64 a1, int a2)
     v9 = 0LL;
     if ( (MiFlags & 0x1000000) == 0 )
       goto LABEL_6;
-    v26 = MiObtainReferencedVadEx(a1, 2, &v37);
+    v26 = MiObtainReferencedVadEx(a1, 2, &v38);
     v9 = (char *)v26;
     if ( !v26 )
       goto LABEL_6;
@@ -179,7 +181,7 @@ LABEL_17:
     v29 = (void *)(v13 + 4096);
 LABEL_53:
     BaseAddress = v29;
-    ZwProtectVirtualMemory(-1LL, (__int64)&BaseAddress);
+    ZwProtectVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, &RegionSize, 4u, &OldProtect);
     v19 = (char *)BaseAddress;
     v10 = -1073741571;
     goto LABEL_22;

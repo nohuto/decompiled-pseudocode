@@ -1,10 +1,10 @@
 /*
- * XREFs of MmCheckMdlPages @ 0x140AE8294
+ * XREFs of MmCheckMdlPages @ 0x140AE8284
  * Callers:
- *     ViMmMapLockedPagesSanityChecks @ 0x140AE3A88 (ViMmMapLockedPagesSanityChecks.c)
+ *     ViMmMapLockedPagesSanityChecks @ 0x140AE3A78 (ViMmMapLockedPagesSanityChecks.c)
  * Callees:
- *     MiIsPfn @ 0x14023F0C0 (MiIsPfn.c)
- *     VerifierBugCheckIfAppropriate @ 0x140ACD2B4 (VerifierBugCheckIfAppropriate.c)
+ *     MiIsPfn @ 0x14023F190 (MiIsPfn.c)
+ *     VerifierBugCheckIfAppropriate @ 0x140ACD2A4 (VerifierBugCheckIfAppropriate.c)
  */
 
 __int64 __fastcall MmCheckMdlPages(ULONG_PTR BugCheckParameter2)

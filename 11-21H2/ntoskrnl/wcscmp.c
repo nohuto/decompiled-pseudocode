@@ -1,15 +1,15 @@
 /*
  * XREFs of wcscmp @ 0x1403E32F0
  * Callers:
- *     SepCleanupLUIDDeviceMapDirectory @ 0x14069CEC8 (SepCleanupLUIDDeviceMapDirectory.c)
- *     PiDcUpdateDeviceContainerMembership @ 0x14076C764 (PiDcUpdateDeviceContainerMembership.c)
- *     _CmGetDeviceContainerIdFromBase @ 0x14076CE48 (_CmGetDeviceContainerIdFromBase.c)
- *     _CmValidateDeviceContainerName @ 0x14076D788 (_CmValidateDeviceContainerName.c)
- *     PiDcContainerRequiresConfiguration @ 0x14076DAF0 (PiDcContainerRequiresConfiguration.c)
- *     PiDqDispatch @ 0x140776650 (PiDqDispatch.c)
- *     _CmGetDeviceMappedPropertyFromComposite @ 0x14078600C (_CmGetDeviceMappedPropertyFromComposite.c)
- *     EtwStartAutoLogger @ 0x140817CD8 (EtwStartAutoLogger.c)
- *     HdlspAddLogEntry @ 0x140AA8B28 (HdlspAddLogEntry.c)
+ *     sub_14069CEC8 @ 0x14069CEC8 (sub_14069CEC8.c)
+ *     sub_14076C764 @ 0x14076C764 (sub_14076C764.c)
+ *     sub_14076CE48 @ 0x14076CE48 (sub_14076CE48.c)
+ *     sub_14076D788 @ 0x14076D788 (sub_14076D788.c)
+ *     sub_14076DAF0 @ 0x14076DAF0 (sub_14076DAF0.c)
+ *     sub_140776650 @ 0x140776650 (sub_140776650.c)
+ *     sub_14078600C @ 0x14078600C (sub_14078600C.c)
+ *     sub_140817CD8 @ 0x140817CD8 (sub_140817CD8.c)
+ *     sub_140AA8B28 @ 0x140AA8B28 (sub_140AA8B28.c)
  * Callees:
  *     <none>
  */

@@ -1,12 +1,12 @@
 /*
- * XREFs of PspEstimateNewProcessServerSilo @ 0x14060DB18
+ * XREFs of PspEstimateNewProcessServerSilo @ 0x14060EB18
  * Callers:
- *     NtCreateUserProcess @ 0x14060A950 (NtCreateUserProcess.c)
+ *     NtCreateUserProcess @ 0x14060B950 (NtCreateUserProcess.c)
  * Callees:
  *     PsGetProcessServerSilo @ 0x14004D260 (PsGetProcessServerSilo.c)
- *     PsGetEffectiveServerSilo @ 0x14008FD30 (PsGetEffectiveServerSilo.c)
- *     PsGetHostSilo @ 0x140091C70 (PsGetHostSilo.c)
- *     PsIsHostSilo @ 0x1400B8A80 (PsIsHostSilo.c)
+ *     PsGetEffectiveServerSilo @ 0x14008FC70 (PsGetEffectiveServerSilo.c)
+ *     PsGetHostSilo @ 0x140091BB0 (PsGetHostSilo.c)
+ *     PsIsHostSilo @ 0x1400B89C0 (PsIsHostSilo.c)
  */
 
 __int64 __fastcall PspEstimateNewProcessServerSilo(__int64 a1, __int64 a2, unsigned __int64 a3)

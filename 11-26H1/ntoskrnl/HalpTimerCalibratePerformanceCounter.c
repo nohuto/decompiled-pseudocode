@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpTimerCalibratePerformanceCounter @ 0x1404E57D4
+ * XREFs of HalpTimerCalibratePerformanceCounter @ 0x1404DED74
  * Callers:
- *     HalpTimerRestorePerformanceCounter @ 0x1404E56C8 (HalpTimerRestorePerformanceCounter.c)
- *     HalCalibratePerformanceCounter @ 0x140576AC0 (HalCalibratePerformanceCounter.c)
- *     HalpTimerInitialize @ 0x1405778D8 (HalpTimerInitialize.c)
- *     HalpTimerPerformanceCounterPowerChange @ 0x140582648 (HalpTimerPerformanceCounterPowerChange.c)
+ *     HalpTimerRestorePerformanceCounter @ 0x1404DEC68 (HalpTimerRestorePerformanceCounter.c)
+ *     HalCalibratePerformanceCounter @ 0x140578FF0 (HalCalibratePerformanceCounter.c)
+ *     HalpTimerInitialize @ 0x140579E08 (HalpTimerInitialize.c)
+ *     HalpTimerPerformanceCounterPowerChange @ 0x140584B68 (HalpTimerPerformanceCounterPowerChange.c)
  * Callees:
- *     HalpTimerQueryCounterSafe @ 0x1402085F0 (HalpTimerQueryCounterSafe.c)
- *     HalpTimerPropagateQpcBiasUpdate @ 0x1404E5900 (HalpTimerPropagateQpcBiasUpdate.c)
+ *     HalpTimerQueryCounterSafe @ 0x1402086D0 (HalpTimerQueryCounterSafe.c)
+ *     HalpTimerPropagateQpcBiasUpdate @ 0x1404DEEA0 (HalpTimerPropagateQpcBiasUpdate.c)
  */
 
 __int64 __fastcall HalpTimerCalibratePerformanceCounter(ULONG_PTR BugCheckParameter3, __int64 a2)

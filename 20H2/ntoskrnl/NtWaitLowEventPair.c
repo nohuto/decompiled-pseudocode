@@ -6,7 +6,7 @@
  *     <none>
  */
 
-__int64 NtWaitLowEventPair()
+NTSTATUS __cdecl NtWaitLowEventPair(HANDLE EventPairHandle)
 {
-  return 3221225474LL;
+  return -1073741822;
 }

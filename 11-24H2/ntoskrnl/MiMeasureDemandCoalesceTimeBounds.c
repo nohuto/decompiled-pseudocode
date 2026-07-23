@@ -1,20 +1,20 @@
 /*
- * XREFs of MiMeasureDemandCoalesceTimeBounds @ 0x140C59ADC
+ * XREFs of MiMeasureDemandCoalesceTimeBounds @ 0x140C5BC6C
  * Callers:
- *     MiInitNucleus @ 0x140C4F298 (MiInitNucleus.c)
+ *     MiInitNucleus @ 0x140C51428 (MiInitNucleus.c)
  * Callees:
- *     KeQueryUnbiasedInterruptTimePrecise @ 0x140309950 (KeQueryUnbiasedInterruptTimePrecise.c)
- *     MiFreePagesFromMdl @ 0x1403A2330 (MiFreePagesFromMdl.c)
- *     MmAllocatePartitionNodePagesForMdlEx @ 0x140411FD0 (MmAllocatePartitionNodePagesForMdlEx.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     MiFreePagesFromMdl @ 0x140218F60 (MiFreePagesFromMdl.c)
+ *     KeQueryUnbiasedInterruptTimePrecise @ 0x140313830 (KeQueryUnbiasedInterruptTimePrecise.c)
+ *     MmAllocatePartitionNodePagesForMdlEx @ 0x140394410 (MmAllocatePartitionNodePagesForMdlEx.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 MiMeasureDemandCoalesceTimeBounds()
 {
-  unsigned __int64 v0; // rbx
+  __int64 v0; // rbx
   unsigned int v1; // ebp
   ULONG_PTR PartitionNodePagesForMdl; // rax
   void *v3; // r14
@@ -91,11 +91,10 @@ __int64 MiMeasureDemandCoalesceTimeBounds()
       do
       {
         v12 = *v11++;
-        v13 = MiPageSizes[v0 / 2];
-        v0 += 2LL;
+        v13 = MiPageSizes[v0++];
         v14 = v10 * v12 * (v13 >> 4);
         result = 0x47AE147AE147AE15LL * v14;
-        *(_QWORD *)&CmpHoldLazyFlush[v0] = v14 / 0x64;
+        *(_QWORD *)&aCmfc[v0 * 8 + 4] = v14 / 0x64;
         --v9;
       }
       while ( v9 );

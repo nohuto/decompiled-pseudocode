@@ -1,15 +1,15 @@
 /*
- * XREFs of PopHiberInitializeResources @ 0x140988824
+ * XREFs of PopHiberInitializeResources @ 0x140988A24
  * Callers:
- *     PopAllocateHiberContext @ 0x140987D38 (PopAllocateHiberContext.c)
+ *     PopAllocateHiberContext @ 0x140987F38 (PopAllocateHiberContext.c)
  * Callees:
- *     RtlGetCompressionWorkSpaceSize @ 0x1402F5920 (RtlGetCompressionWorkSpaceSize.c)
- *     memset @ 0x140435A00 (memset.c)
- *     IoGetDumpStackTransferSizes @ 0x1405506C0 (IoGetDumpStackTransferSizes.c)
- *     PoSetHiberRange @ 0x14058E8A0 (PoSetHiberRange.c)
- *     PopCalculateHiberFileSize @ 0x140800FFC (PopCalculateHiberFileSize.c)
- *     MmAllocateDumpHibernateResources @ 0x1408012CC (MmAllocateDumpHibernateResources.c)
- *     MmMarkHiberRange @ 0x140A30A70 (MmMarkHiberRange.c)
+ *     RtlGetCompressionWorkSpaceSize @ 0x1402F5BB0 (RtlGetCompressionWorkSpaceSize.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     IoGetDumpStackTransferSizes @ 0x140550D80 (IoGetDumpStackTransferSizes.c)
+ *     PoSetHiberRange @ 0x14058ED90 (PoSetHiberRange.c)
+ *     PopCalculateHiberFileSize @ 0x1408012CC (PopCalculateHiberFileSize.c)
+ *     MmAllocateDumpHibernateResources @ 0x14080159C (MmAllocateDumpHibernateResources.c)
+ *     MmMarkHiberRange @ 0x140A30D20 (MmMarkHiberRange.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
@@ -96,13 +96,13 @@ char *__fastcall PopHiberInitializeResources(_QWORD *MemoryMap)
   {
     ExFreePoolWithTag((PVOID)Pool2, 0x72626968u);
 LABEL_14:
-    Pool2 = (__int64)qword_140C3CE68;
+    Pool2 = (__int64)qword_140C3D008;
     v7 = 1;
     v1 = 1;
     v11 = 1;
-    memset(qword_140C3CE68, 0, 0x80uLL);
+    memset(qword_140C3D008, 0, 0x80uLL);
     v12 = 12288;
-    *(_QWORD *)(Pool2 + 8) = qword_140C3CDE8;
+    *(_QWORD *)(Pool2 + 8) = qword_140C3CF88;
     v22 = (char *)Address;
     goto LABEL_15;
   }

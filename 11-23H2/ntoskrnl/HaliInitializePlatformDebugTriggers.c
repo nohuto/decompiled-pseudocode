@@ -1,10 +1,10 @@
 /*
- * XREFs of HaliInitializePlatformDebugTriggers @ 0x140527DE0
+ * XREFs of HaliInitializePlatformDebugTriggers @ 0x140528330
  * Callers:
  *     <none>
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     HalpAcquirePccInterface @ 0x140935854 (HalpAcquirePccInterface.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     HalpAcquirePccInterface @ 0x140935A54 (HalpAcquirePccInterface.c)
  */
 
 void HaliInitializePlatformDebugTriggers()

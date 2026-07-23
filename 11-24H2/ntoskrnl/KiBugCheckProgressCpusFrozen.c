@@ -1,10 +1,10 @@
 /*
- * XREFs of KiBugCheckProgressCpusFrozen @ 0x1405B2F94
+ * XREFs of KiBugCheckProgressCpusFrozen @ 0x1405AFF04
  * Callers:
- *     KeBugCheck2 @ 0x1405B1780 (KeBugCheck2.c)
+ *     KeBugCheck2 @ 0x1405AE6F0 (KeBugCheck2.c)
  * Callees:
- *     WheaLogInternalEvent @ 0x14065E070 (WheaLogInternalEvent.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     WheaLogInternalEvent @ 0x14065C840 (WheaLogInternalEvent.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 char __fastcall KiBugCheckProgressCpusFrozen(char a1)

@@ -1,13 +1,15 @@
 /*
- * XREFs of RtlDoesFileExists_U @ 0x1800A5BA0
+ * XREFs of RtlDoesFileExists_U @ 0x1800A4CD0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall RtlDoesFileExists_U(__int64 a1, __int64 a2)
+BOOLEAN __cdecl RtlDoesFileExists_U(PCWSTR FileName)
 {
-  LOBYTE(a2) = 1;
-  return RtlDoesFileExists_UEx(a1, a2);
+  char v1; // dl
+
+  v1 = 1;
+  return RtlDoesFileExists_UEx(FileName, v1);
 }

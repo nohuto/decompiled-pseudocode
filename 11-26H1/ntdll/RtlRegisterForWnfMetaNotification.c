@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlRegisterForWnfMetaNotification @ 0x180106960
+ * XREFs of RtlRegisterForWnfMetaNotification @ 0x180106360
  * Callers:
  *     <none>
  * Callees:
- *     RtlpSubscribeWnfStateChangeNotificationInternal @ 0x18006E03C (RtlpSubscribeWnfStateChangeNotificationInternal.c)
+ *     RtlpSubscribeWnfStateChangeNotificationInternal @ 0x18008E48C (RtlpSubscribeWnfStateChangeNotificationInternal.c)
  */
 
 __int64 __fastcall RtlRegisterForWnfMetaNotification(_QWORD *a1, __int64 a2, int a3, int a4, __int64 a5)

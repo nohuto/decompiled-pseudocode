@@ -3,7 +3,7 @@
  * Callers:
  *     MiCaptureRetpolineRelocationTables @ 0x1406A723C (MiCaptureRetpolineRelocationTables.c)
  *     MiParseImageLoadConfig @ 0x1406A828C (MiParseImageLoadConfig.c)
- *     MiCaptureBootDriverRetpolineInfo @ 0x14082F420 (MiCaptureBootDriverRetpolineInfo.c)
+ *     MiCaptureBootDriverRetpolineInfo @ 0x14082F720 (MiCaptureBootDriverRetpolineInfo.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */

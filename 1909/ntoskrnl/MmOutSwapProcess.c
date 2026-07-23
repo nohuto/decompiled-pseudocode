@@ -35,7 +35,7 @@ __int64 __fastcall MmOutSwapProcess(__int64 a1)
   _QWORD *v8; // rcx
   unsigned __int8 v9; // bl
   struct _KPRCB *v10; // rcx
-  struct _SLIST_ENTRY *v11; // rcx
+  _SLIST_ENTRY *v11; // rcx
   unsigned __int8 OldIrql; // bl
   struct _KPRCB *CurrentPrcb; // rcx
   __int64 v14; // rbx
@@ -122,7 +122,7 @@ __int64 __fastcall MmOutSwapProcess(__int64 a1)
     KiRemoveSystemWorkPriorityKick(v10);
   }
   __writecr8(v9);
-  v11 = *(struct _SLIST_ENTRY **)(v4 + 40);
+  v11 = *(_SLIST_ENTRY **)(v4 + 40);
   if ( v11 )
   {
     MiEmptyPageAccessLog(v11);

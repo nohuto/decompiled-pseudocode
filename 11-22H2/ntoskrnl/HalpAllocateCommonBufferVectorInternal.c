@@ -277,10 +277,10 @@ LABEL_41:
   *(_QWORD *)(v48 + 8) = v18;
   *v46 = v18;
   KxReleaseSpinLock(v44);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v49 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v49 <= 0xFu && (unsigned __int8)v47 <= 0xFu && v49 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v49 <= 0xFu && (unsigned __int8)v47 <= 0xFu && v49 >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

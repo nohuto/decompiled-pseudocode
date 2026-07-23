@@ -7,7 +7,7 @@
  *     RtlpFcCallChangeCallbacks @ 0x1800A0254 (RtlpFcCallChangeCallbacks.c)
  */
 
-__int64 __fastcall RtlpFcWnfCallback(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall RtlpFcWnfCallback(__int64 a1, __int64 a2, __int64 a3, _RTL_SRWLOCK *a4)
 {
   RtlpFcUpdateLocalConfiguration(a4, MEMORY[0x7FFE0720], 1);
   RtlpFcCallChangeCallbacks(a4);

@@ -1,7 +1,7 @@
 /*
- * XREFs of ViXdvGetFuncAddress @ 0x140B8AB70
+ * XREFs of ViXdvGetFuncAddress @ 0x140B8CB70
  * Callers:
- *     ViXdvDriverLoadImage @ 0x140B8A9B0 (ViXdvDriverLoadImage.c)
+ *     ViXdvDriverLoadImage @ 0x140B8C9B0 (ViXdvDriverLoadImage.c)
  * Callees:
  *     <none>
  */

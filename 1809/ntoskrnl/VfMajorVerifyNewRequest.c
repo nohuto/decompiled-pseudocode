@@ -1,9 +1,9 @@
 /*
- * XREFs of VfMajorVerifyNewRequest @ 0x140935EE8
+ * XREFs of VfMajorVerifyNewRequest @ 0x140936EE8
  * Callers:
- *     IovpCallDriver1 @ 0x14092EC8C (IovpCallDriver1.c)
+ *     IovpCallDriver1 @ 0x14092FC8C (IovpCallDriver1.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
  */
 
 __int64 (__fastcall *__fastcall VfMajorVerifyNewRequest(
@@ -24,12 +24,12 @@ __int64 (__fastcall *__fastcall VfMajorVerifyNewRequest(
     v11 = (v6 != 0xFF) + 28LL;
   else
     v11 = v6;
-  v12 = (void (__fastcall *)(__int64))*((_QWORD *)&unk_140987BC8 + 12 * v11);
+  v12 = (void (__fastcall *)(__int64))*((_QWORD *)&unk_140988BC8 + 12 * v11);
   if ( v12 )
     v12(a1);
-  result = qword_140988648;
-  if ( qword_140988648 )
-    return (__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD, _QWORD, _QWORD, _QWORD))qword_140988648(
+  result = qword_140989648;
+  if ( qword_140989648 )
+    return (__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD, _QWORD, _QWORD, _QWORD))qword_140989648(
                                                                                      a1,
                                                                                      a2,
                                                                                      a3,

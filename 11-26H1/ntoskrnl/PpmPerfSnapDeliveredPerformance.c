@@ -1,16 +1,16 @@
 /*
- * XREFs of PpmPerfSnapDeliveredPerformance @ 0x140253660
+ * XREFs of PpmPerfSnapDeliveredPerformance @ 0x140254FC0
  * Callers:
- *     PpmCheckSnapAllDeliveredPerformance @ 0x140252E50 (PpmCheckSnapAllDeliveredPerformance.c)
- *     PpmPerfAction @ 0x1402532A0 (PpmPerfAction.c)
+ *     PpmCheckSnapAllDeliveredPerformance @ 0x1402547B0 (PpmCheckSnapAllDeliveredPerformance.c)
+ *     PpmPerfAction @ 0x140254C00 (PpmPerfAction.c)
  * Callees:
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     PpmHvSnapPerformanceAccumulation @ 0x140252790 (PpmHvSnapPerformanceAccumulation.c)
- *     PpmSnapPerformanceAccumulation @ 0x140253D2C (PpmSnapPerformanceAccumulation.c)
- *     PpmPerfCheckForIllegalProcessorThrottle @ 0x140254020 (PpmPerfCheckForIllegalProcessorThrottle.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memmove @ 0x14073D480 (memmove.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     PpmHvSnapPerformanceAccumulation @ 0x1402540F0 (PpmHvSnapPerformanceAccumulation.c)
+ *     PpmSnapPerformanceAccumulation @ 0x14025568C (PpmSnapPerformanceAccumulation.c)
+ *     PpmPerfCheckForIllegalProcessorThrottle @ 0x140255980 (PpmPerfCheckForIllegalProcessorThrottle.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memmove @ 0x140742080 (memmove.c)
  */
 
 char __fastcall PpmPerfSnapDeliveredPerformance(__int64 a1, char a2, unsigned __int64 a3)
@@ -60,10 +60,10 @@ char __fastcall PpmPerfSnapDeliveredPerformance(__int64 a1, char a2, unsigned __
   __int64 v48; // rdx
   __int64 v49; // rdx
   const EVENT_DESCRIPTOR *v50; // r10
-  struct _LIST_ENTRY *Flink; // rcx
+  __int64 v51; // rcx
   unsigned __int64 Keyword; // r8
   unsigned __int8 v53; // al
-  struct _LIST_ENTRY *Blink; // rcx
+  __int64 v54; // rcx
   unsigned __int64 v55; // r8
   unsigned __int8 v56; // al
   unsigned __int64 **v57; // rax
@@ -132,10 +132,7 @@ LABEL_6:
       v19 = *(_QWORD *)(v12 + 35264);
       v20 = *(_QWORD *)(v12 + 35272);
       if ( v19 && v20 && *(_QWORD *)(v19 + 424) )
-        guard_dispatch_icall_no_overrides(
-          *(_QWORD *)(v20 + 8),
-          *(_QWORD *)&PopSleepstudySessionLock.SystemCallNumber,
-          0LL);
+        guard_dispatch_icall_no_overrides(*(_QWORD *)(v20 + 8), PpmCheckTime, 0LL);
       v14 = v58;
       v15 = v59;
     }
@@ -173,23 +170,18 @@ LABEL_6:
         UserData.Ptr = (ULONGLONG)&v60;
         if ( PpmEtwRegistered )
         {
-          if ( PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink )
+          if ( PpmEtwHandle )
           {
-            if ( (Flink = PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink[2].Flink,
-                  Keyword = v50->Keyword,
-                  LODWORD(Flink[6].Flink))
-              && ((v53 = BYTE4(Flink[6].Flink), v50->Level <= v53) || !v53)
-              && (((__int64)Flink[6].Blink & 0x40) != 0 && !Keyword
-               || (Keyword & (unsigned __int64)Flink[7].Flink) != 0
-               && (struct _LIST_ENTRY *)(Keyword & (unsigned __int64)Flink[7].Blink) == Flink[7].Blink)
-              || HIWORD(PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink[6].Flink)
-              && (Blink = PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink[2].Blink,
-                  v55 = v50->Keyword,
-                  LODWORD(Blink[6].Flink))
-              && ((v56 = BYTE4(Blink[6].Flink), v50->Level <= v56) || !v56)
-              && (((__int64)Blink[6].Blink & 0x40) != 0 && !v55
-               || (v55 & (unsigned __int64)Blink[7].Flink) != 0
-               && (struct _LIST_ENTRY *)(v55 & (unsigned __int64)Blink[7].Blink) == Blink[7].Blink) )
+            if ( (v51 = *(_QWORD *)(PpmEtwHandle + 32), Keyword = v50->Keyword, *(_DWORD *)(v51 + 96))
+              && ((v53 = *(_BYTE *)(v51 + 100), v50->Level <= v53) || !v53)
+              && ((*(_DWORD *)(v51 + 104) & 0x40) != 0 && !Keyword
+               || (Keyword & *(_QWORD *)(v51 + 112)) != 0
+               && (Keyword & *(_QWORD *)(v51 + 120)) == *(_QWORD *)(v51 + 120))
+              || *(_WORD *)(PpmEtwHandle + 102)
+              && (v54 = *(_QWORD *)(PpmEtwHandle + 40), v55 = v50->Keyword, *(_DWORD *)(v54 + 96))
+              && ((v56 = *(_BYTE *)(v54 + 100), v50->Level <= v56) || !v56)
+              && ((*(_DWORD *)(v54 + 104) & 0x40) != 0 && !v55
+               || (v55 & *(_QWORD *)(v54 + 112)) != 0 && (v55 & *(_QWORD *)(v54 + 120)) == *(_QWORD *)(v54 + 120)) )
             {
               if ( v17 && PopQpcFrequency && PopQpcFrequency != 1000000 )
               {
@@ -210,15 +202,7 @@ LABEL_6:
               else
                 v57 = &v58;
               v71 = v57;
-              EtwWriteEx(
-                (REGHANDLE)PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink,
-                v50,
-                0LL,
-                0,
-                0LL,
-                0LL,
-                4u,
-                &UserData);
+              EtwWriteEx(PpmEtwHandle, v50, 0LL, 0, 0LL, 0LL, 4u, &UserData);
               v15 = v59;
             }
           }
@@ -294,7 +278,7 @@ LABEL_6:
         v41 = 0LL;
         v42 = *(_QWORD *)(v64 + 35432);
         v63 = *(_QWORD *)(v64 + 35440);
-        if ( !PpmHeteroWorkloadClasses )
+        if ( !(_DWORD)PpmHeteroWorkloadClasses )
           goto LABEL_38;
         do
         {
@@ -320,7 +304,7 @@ LABEL_6:
           *(_QWORD *)(v42 + 8 * v41 + 8) = v44;
           v41 = (unsigned int)(v41 + 1);
         }
-        while ( (unsigned int)v41 < PpmHeteroWorkloadClasses );
+        while ( (unsigned int)v41 < (unsigned int)PpmHeteroWorkloadClasses );
       }
     }
     v38 = v59;

@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpInitializeLightWeightTransactionType @ 0x1407DE434
+ * XREFs of CmpInitializeLightWeightTransactionType @ 0x1407DE984
  * Callers:
- *     CmInitSystem1 @ 0x140C44EC0 (CmInitSystem1.c)
+ *     CmInitSystem1 @ 0x140C47010 (CmInitSystem1.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ObCreateObjectTypeEx @ 0x140A9DB20 (ObCreateObjectTypeEx.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ObCreateObjectTypeEx @ 0x140A99090 (ObCreateObjectTypeEx.c)
  */
 
 __int64 CmpInitializeLightWeightTransactionType()

@@ -10,15 +10,15 @@
  *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall wil_details_StagingConfig_Load(__int64 a1, int a2, __int64 a3, char *a4)
+__int64 __fastcall wil_details_StagingConfig_Load(__int64 a1, unsigned int a2, __int64 a3, void *a4)
 {
   int v7; // edi
   __int64 v8; // r13
   char *PoolWithTag; // r15
-  __int64 v10; // rax
+  WNF_STATE_NAME v10; // rax
   char *v11; // rbx
   SIZE_T v12; // r14
-  unsigned int v13; // eax
+  NTSTATUS v13; // eax
   unsigned int v14; // r12d
   unsigned __int64 v15; // r8
   char *v16; // rdx
@@ -26,38 +26,38 @@ __int64 __fastcall wil_details_StagingConfig_Load(__int64 a1, int a2, __int64 a3
   unsigned __int64 v18; // rax
   __int64 v19; // r9
   __int64 v20; // r10
-  int v21; // r9d
-  __int64 v22; // rax
+  ULONG v21; // r9d
+  WNF_STATE_NAME v22; // rax
   int v23; // edx
   int v24; // ecx
   int v25; // eax
-  unsigned int v26; // [rsp+30h] [rbp-30h] BYREF
-  int v27; // [rsp+34h] [rbp-2Ch] BYREF
-  char *v28; // [rsp+38h] [rbp-28h] BYREF
-  __int64 v29; // [rsp+40h] [rbp-20h] BYREF
-  __int64 v30; // [rsp+48h] [rbp-18h] BYREF
+  ULONG BufferSize; // [rsp+30h] [rbp-30h] BYREF
+  ULONG ChangeStamp; // [rsp+34h] [rbp-2Ch] BYREF
+  ULONG v28[2]; // [rsp+38h] [rbp-28h] BYREF
+  WNF_STATE_NAME v29; // [rsp+40h] [rbp-20h] BYREF
+  WNF_STATE_NAME StateName; // [rsp+48h] [rbp-18h] BYREF
 
-  LODWORD(v29) = a2;
-  v28 = a4;
+  v29.Data[0] = a2;
+  *(_QWORD *)v28 = a4;
   memset((void *)(a1 + 8), 0, 0x50uLL);
   v7 = 0;
   *(_DWORD *)a1 = a2;
   *(_DWORD *)(a1 + 4) = 0;
   v8 = 200LL;
   PoolWithTag = 0LL;
-  v10 = _WIL_WNF_WIL_USER_FEATURE_STORE;
+  v10 = (WNF_STATE_NAME)_WIL_WNF_WIL_USER_FEATURE_STORE;
   v11 = 0LL;
   v12 = -(__int64)(a4 != 0LL) & 0xC8;
-  if ( !(_DWORD)v29 )
-    v10 = _WIL_WNF_WIL_MACHINE_FEATURE_STORE;
-  v30 = v10;
-  v26 = a4 != 0LL ? 0xC8 : 0;
-  v13 = ZwQueryWnfStateData(&v30, 0LL, 0LL, a1 + 8, a4, &v26);
+  if ( !v29.Data[0] )
+    v10 = (WNF_STATE_NAME)_WIL_WNF_WIL_MACHINE_FEATURE_STORE;
+  StateName = v10;
+  BufferSize = a4 != 0LL ? 0xC8 : 0;
+  v13 = ZwQueryWnfStateData(&StateName, 0LL, 0LL, (PWNF_CHANGE_STAMP)(a1 + 8), a4, &BufferSize);
   v14 = v13;
   if ( !v13 )
   {
-    v11 = v28;
-    if ( !v28 )
+    v11 = *(char **)v28;
+    if ( !*(_QWORD *)v28 )
       goto LABEL_15;
   }
   while ( v13 == -1073741789 )
@@ -66,8 +66,8 @@ LABEL_15:
     if ( v12 < 0xC8 )
       v12 = 200LL;
     v18 = v12;
-    v12 = v26;
-    if ( v18 >= v26 )
+    v12 = BufferSize;
+    if ( v18 >= BufferSize )
       v12 = v18;
     if ( v12 < 0x10 )
       v12 = 16LL;
@@ -76,8 +76,8 @@ LABEL_15:
     PoolWithTag = (char *)ExAllocatePoolWithTag(NonPagedPoolNx, v12, 0x4C4957u);
     if ( !PoolWithTag )
       return 3221225626LL;
-    v26 = v12;
-    v13 = ZwQueryWnfStateData(&v30, 0LL, 0LL, a1 + 8, PoolWithTag, &v26);
+    BufferSize = v12;
+    v13 = ZwQueryWnfStateData(&StateName, 0LL, 0LL, (PWNF_CHANGE_STAMP)(a1 + 8), PoolWithTag, &BufferSize);
     v14 = v13;
     v11 = PoolWithTag;
   }
@@ -89,8 +89,8 @@ LABEL_15:
   }
   else
   {
-    v15 = v26;
-    if ( v26 > 4 )
+    v15 = BufferSize;
+    if ( BufferSize > 4 )
       *(_BYTE *)(a1 + 12) = *v11;
     if ( (unsigned int)v15 >= 0x10
       && *(_BYTE *)(a1 + 12) == 2
@@ -98,18 +98,18 @@ LABEL_15:
       && (v20 = *((unsigned __int16 *)v11 + 2),
           v15 >= v19 + 16 * (unsigned __int64)*((unsigned __int16 *)v11 + 3) + 12 * v20) )
     {
-      v27 = 0;
+      ChangeStamp = 0;
       v21 = 0;
       if ( (_WORD)v20 )
       {
-        v22 = _WIL_WNF_WIL_USER_FEATURE_STORE_MODIFIED;
-        if ( !(_DWORD)v29 )
-          v22 = _WIL_WNF_WIL_MACHINE_FEATURE_STORE_MODIFIED;
+        v22 = (WNF_STATE_NAME)_WIL_WNF_WIL_USER_FEATURE_STORE_MODIFIED;
+        if ( !v29.Data[0] )
+          v22 = (WNF_STATE_NAME)_WIL_WNF_WIL_MACHINE_FEATURE_STORE_MODIFIED;
         v29 = v22;
-        LODWORD(v28) = 0;
-        ZwQueryWnfStateData(&v29, 0LL, 0LL, &v27, 0LL, &v28);
-        LODWORD(v15) = v26;
-        v21 = v27;
+        v28[0] = 0;
+        ZwQueryWnfStateData(&v29, 0LL, 0LL, &ChangeStamp, 0LL, v28);
+        LODWORD(v15) = BufferSize;
+        v21 = ChangeStamp;
       }
       *(_QWORD *)(a1 + 24) = v11;
       *(_QWORD *)(a1 + 32) = v11 + 16;
@@ -126,10 +126,10 @@ LABEL_15:
     }
     else
     {
-      v26 = 16;
+      BufferSize = 16;
       *(_OWORD *)v11 = 0LL;
       *(_DWORD *)v11 = 1049090;
-      LODWORD(v15) = v26;
+      LODWORD(v15) = BufferSize;
       *(_QWORD *)(a1 + 24) = v11;
       v16 = &v11[*((unsigned __int16 *)v11 + 1)];
       *(_QWORD *)(a1 + 32) = v16;

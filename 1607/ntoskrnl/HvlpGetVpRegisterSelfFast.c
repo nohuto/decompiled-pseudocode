@@ -1,10 +1,10 @@
 /*
- * XREFs of HvlpGetVpRegisterSelfFast @ 0x14023CDE0
+ * XREFs of HvlpGetVpRegisterSelfFast @ 0x14023CCC4
  * Callers:
  *     HvlEnableVsmCalls @ 0x1407BD24C (HvlEnableVsmCalls.c)
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     HvcallFastExtended @ 0x14023203C (HvcallFastExtended.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     HvcallFastExtended @ 0x140231E68 (HvcallFastExtended.c)
  */
 
 __int64 __fastcall HvlpGetVpRegisterSelfFast(__int64 a1, __int64 a2)

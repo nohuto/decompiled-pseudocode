@@ -1,57 +1,56 @@
 /*
- * XREFs of RtlCreateServiceSid @ 0x180039210
+ * XREFs of RtlCreateServiceSid @ 0x180023780
  * Callers:
- *     RtlAppxIsFileOwnedByTrustedInstaller @ 0x180137F60 (RtlAppxIsFileOwnedByTrustedInstaller.c)
+ *     RtlAppxIsFileOwnedByTrustedInstaller @ 0x180137CD0 (RtlAppxIsFileOwnedByTrustedInstaller.c)
  * Callees:
- *     RtlpSysVolFree @ 0x180038000 (RtlpSysVolFree.c)
- *     SymCryptSha1Result @ 0x180039BD0 (SymCryptSha1Result.c)
- *     SymCryptSha1Append @ 0x180039CF0 (SymCryptSha1Append.c)
- *     SymCryptSha1Init @ 0x180039D20 (SymCryptSha1Init.c)
- *     RtlUpcaseUnicodeString @ 0x18003AB90 (RtlUpcaseUnicodeString.c)
- *     __security_check_cookie @ 0x180162C90 (__security_check_cookie.c)
- *     memset$thunk$772440563353939046 @ 0x180170030 (memset$thunk$772440563353939046.c)
+ *     RtlpSysVolFree @ 0x180001CD0 (RtlpSysVolFree.c)
+ *     SymCryptSha1Result @ 0x180024140 (SymCryptSha1Result.c)
+ *     SymCryptSha1Append @ 0x180024260 (SymCryptSha1Append.c)
+ *     SymCryptSha1Init @ 0x180024290 (SymCryptSha1Init.c)
+ *     RtlUpcaseUnicodeString @ 0x180025100 (RtlUpcaseUnicodeString.c)
+ *     __security_check_cookie @ 0x180162B90 (__security_check_cookie.c)
+ *     memset$thunk$772440563353939046 @ 0x18016F030 (memset$thunk$772440563353939046.c)
  */
 
-__int64 __fastcall RtlCreateServiceSid(__int64 a1, __int64 a2, unsigned int *a3)
+NTSTATUS __cdecl RtlCreateServiceSid(PUNICODE_STRING ServiceName, PSID ServiceSid, PULONG ServiceSidLength)
 {
-  __int64 v6; // r8
-  unsigned int v7; // eax
-  __int64 result; // rax
-  __int64 v9; // rdi
-  unsigned int v10; // eax
-  _BYTE v11[4]; // [rsp+20h] [rbp-B8h] BYREF
-  int v12; // [rsp+24h] [rbp-B4h]
-  __int128 v13; // [rsp+A0h] [rbp-38h] BYREF
-  int v14; // [rsp+B0h] [rbp-28h]
+  ULONG v6; // eax
+  NTSTATUS result; // eax
+  wchar_t *Buffer; // rdi
+  int v9; // eax
+  _BYTE v10[4]; // [rsp+20h] [rbp-B8h] BYREF
+  int v11; // [rsp+24h] [rbp-B4h]
+  _UNICODE_STRING DestinationString; // [rsp+A0h] [rbp-38h] BYREF
+  int v13; // [rsp+B0h] [rbp-28h]
 
-  v12 = 0;
-  v13 = 0LL;
-  memset_thunk_772440563353939046(v11, 0, 0x7CuLL);
-  if ( !a1 || !a3 )
-    return 3221225485LL;
-  v7 = *a3;
-  *a3 = 32;
-  if ( v7 < 0x20 )
-    return 3221225507LL;
-  LOBYTE(v6) = 1;
-  result = RtlUpcaseUnicodeString(&v13, a1, v6);
-  if ( (int)result >= 0 )
+  v11 = 0;
+  DestinationString = 0LL;
+  memset_thunk_772440563353939046(v10, 0, 0x7CuLL);
+  if ( !ServiceName || !ServiceSidLength )
+    return -1073741811;
+  v6 = *ServiceSidLength;
+  *ServiceSidLength = 32;
+  if ( v6 < 0x20 )
+    return -1073741789;
+  result = RtlUpcaseUnicodeString(&DestinationString, ServiceName, 1u);
+  if ( result >= 0 )
   {
-    SymCryptSha1Init(v11);
-    v9 = *((_QWORD *)&v13 + 1);
-    SymCryptSha1Append(v11, *((_QWORD *)&v13 + 1), (unsigned __int16)v13);
-    SymCryptSha1Result(v11, &v13);
-    if ( v9 )
-      RtlpSysVolFree(v9);
-    *(_WORD *)a2 = 1537;
-    *(_DWORD *)(a2 + 2) = RtlpNtAuthority;
-    *(_WORD *)(a2 + 6) = 1280;
-    v10 = v13;
-    *(_DWORD *)(a2 + 8) = 80;
-    *(_QWORD *)(a2 + 12) = __PAIR64__(DWORD1(v13), v10);
-    *(_QWORD *)(a2 + 20) = *((_QWORD *)&v13 + 1);
-    *(_DWORD *)(a2 + 28) = v14;
-    return 0LL;
+    SymCryptSha1Init(v10);
+    Buffer = DestinationString.Buffer;
+    SymCryptSha1Append(v10, DestinationString.Buffer, DestinationString.Length);
+    SymCryptSha1Result(v10, &DestinationString);
+    if ( Buffer )
+      RtlpSysVolFree(Buffer);
+    *(_WORD *)ServiceSid = 1537;
+    *(_DWORD *)((char *)ServiceSid + 2) = RtlpNtAuthority;
+    *((_WORD *)ServiceSid + 3) = 1280;
+    v9 = *(_DWORD *)&DestinationString.Length;
+    *((_DWORD *)ServiceSid + 2) = 80;
+    *((_DWORD *)ServiceSid + 3) = v9;
+    *((_DWORD *)ServiceSid + 4) = *(_DWORD *)(&DestinationString.MaximumLength + 1);
+    *(_QWORD *)((char *)ServiceSid + 20) = DestinationString.Buffer;
+    *((_DWORD *)ServiceSid + 7) = v13;
+    return 0;
   }
   return result;
 }

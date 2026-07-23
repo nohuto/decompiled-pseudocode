@@ -20,7 +20,7 @@ PRTL_DYNAMIC_HASH_TABLE_ENTRY __stdcall RtlLookupEntryHashTable(
   unsigned int v7; // ecx
   unsigned int v8; // edx
   _QWORD *Directory; // r10
-  struct _RTL_DYNAMIC_HASH_TABLE_ENTRY *v10; // r8
+  _RTL_DYNAMIC_HASH_TABLE_ENTRY *v10; // r8
   PRTL_DYNAMIC_HASH_TABLE_ENTRY *v11; // rcx
   PRTL_DYNAMIC_HASH_TABLE_ENTRY *v12; // r10
   _QWORD *v13; // rdx

@@ -34,11 +34,11 @@ __int64 __fastcall PopBootStatCheckIntegrity(__int64 a1)
   __int64 v13; // [rsp+30h] [rbp-48h]
   __int64 v14; // [rsp+38h] [rbp-40h]
   __int64 v15; // [rsp+40h] [rbp-38h]
-  bool v16; // [rsp+88h] [rbp+10h] BYREF
+  BOOLEAN Verified; // [rsp+88h] [rbp+10h] BYREF
   KPROCESSOR_MODE v17; // [rsp+90h] [rbp+18h]
   char v18; // [rsp+98h] [rbp+20h]
 
-  v16 = 0;
+  Verified = 0;
   Pool2 = 0LL;
   FileHandle = 0LL;
   v18 = 0;
@@ -95,11 +95,11 @@ __int64 __fastcall PopBootStatCheckIntegrity(__int64 a1)
   {
     if ( !PreviousMode || (v6 = PopBootStatAccessCheck(FileHandle, PreviousMode, 1u), v6 >= 0) )
     {
-      v6 = RtlCheckBootStatusIntegrity(FileHandle, &v16);
+      v6 = RtlCheckBootStatusIntegrity(FileHandle, &Verified);
       if ( v6 >= 0 )
       {
         if ( *(_DWORD *)(Pool2 + 16) )
-          **(_BYTE **)(Pool2 + 8) = v16;
+          **(_BYTE **)(Pool2 + 8) = Verified;
         else
           v6 = -1073741811;
       }

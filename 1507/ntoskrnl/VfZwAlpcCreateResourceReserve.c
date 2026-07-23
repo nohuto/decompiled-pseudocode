@@ -7,11 +7,11 @@
  *     ViZwShouldCheck @ 0x14075882C (ViZwShouldCheck.c)
  */
 
-__int64 __fastcall VfZwAlpcCreateResourceReserve(__int64 a1, unsigned int a2, __int64 a3, int a4)
+NTSTATUS __fastcall VfZwAlpcCreateResourceReserve(HANDLE PortHandle, ULONG Flags, SIZE_T MessageSize, HANDLE *a4)
 {
   _UNKNOWN *retaddr; // [rsp+28h] [rbp+0h]
 
   if ( (unsigned int)ViZwShouldCheck() )
-    ViZwCheckVirtualAddress(a4, (int)retaddr);
-  return pXdvZwAlpcCreateResourceReserve(a1, a2, a3);
+    ViZwCheckVirtualAddress((int)a4, (int)retaddr);
+  return pXdvZwAlpcCreateResourceReserve(PortHandle, Flags, MessageSize, a4);
 }

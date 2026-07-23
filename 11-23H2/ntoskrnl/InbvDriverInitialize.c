@@ -5,10 +5,10 @@
  *     Phase1InitializationDiscard @ 0x140B4FFBC (Phase1InitializationDiscard.c)
  *     InitBootProcessor @ 0x140B52774 (InitBootProcessor.c)
  * Callees:
- *     InbvSetFunction @ 0x140387F88 (InbvSetFunction.c)
- *     InbvDetermineFunction @ 0x140387FF8 (InbvDetermineFunction.c)
- *     _strupr @ 0x1403D8960 (_strupr.c)
- *     strstr @ 0x1403D91D0 (strstr.c)
+ *     InbvSetFunction @ 0x140388168 (InbvSetFunction.c)
+ *     InbvDetermineFunction @ 0x1403881D8 (InbvDetermineFunction.c)
+ *     _strupr @ 0x1403D8B40 (_strupr.c)
+ *     strstr @ 0x1403D93B0 (strstr.c)
  *     BvgaDriverInitialize @ 0x140B525E0 (BvgaDriverInitialize.c)
  *     BgkInitialize @ 0x140B9D198 (BgkInitialize.c)
  */

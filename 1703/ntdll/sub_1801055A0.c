@@ -19,8 +19,8 @@ __int64 __fastcall sub_1801055A0(__int64 a1)
   __int64 result; // rax
 
   v2 = a1 - 200;
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-    v3 = (__int64)NtCurrentPeb()->HotpatchInformation + 556;
+  if ( RtlGetCurrentServiceSessionId() )
+    v3 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[3];
   else
     v3 = 2147353478LL;
   if ( *(_BYTE *)v3 )
@@ -40,7 +40,7 @@ __int64 __fastcall sub_1801055A0(__int64 a1)
   v5 = 0;
 LABEL_11:
   if ( v5 )
-    sub_18007358C((volatile signed __int64 *)(v2 + 56), -v5, 0);
+    sub_18007358C((_RTL_SRWLOCK *)(v2 + 56), -v5, 0);
   result = (unsigned int)_InterlockedExchangeAdd((volatile signed __int32 *)v2, 0xFFFFFFFF);
   if ( (_DWORD)result == 1 )
     return (**(__int64 (__fastcall ***)(__int64))(v2 + 8))(v2);

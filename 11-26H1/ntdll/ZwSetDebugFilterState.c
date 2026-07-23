@@ -1,16 +1,16 @@
 /*
- * XREFs of ZwSetDebugFilterState @ 0x1801622B0
+ * XREFs of ZwSetDebugFilterState @ 0x1801621B0
  * Callers:
- *     DbgSetDebugFilterState @ 0x18013BA40 (DbgSetDebugFilterState.c)
+ *     DbgSetDebugFilterState @ 0x18013B900 (DbgSetDebugFilterState.c)
  * Callees:
  *     <none>
  */
 
-__int64 ZwSetDebugFilterState()
+NTSTATUS __cdecl ZwSetDebugFilterState(ULONG ComponentId, ULONG Level, BOOLEAN State)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 412LL;
+  result = 412;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

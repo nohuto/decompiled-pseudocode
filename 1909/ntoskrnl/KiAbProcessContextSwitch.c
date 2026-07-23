@@ -147,7 +147,7 @@ LABEL_8:
           memset(&LockHandle, 0, sizeof(LockHandle));
           v40 = 0;
           v41 = 0;
-          LockedHeadEntry = KiAbEntryGetLockedHeadEntry(v11, 1LL, &LockHandle, v4);
+          LockedHeadEntry = KiAbEntryGetLockedHeadEntry((PRTL_BALANCED_NODE)v11);
           v16 = LockedHeadEntry;
           if ( !LockedHeadEntry )
           {
@@ -158,7 +158,7 @@ LABEL_14:
           if ( (*(_BYTE *)(v11 + 25) & 1) == 0 )
           {
             if ( v11 != LockedHeadEntry )
-              KiAbEntryUpdateOwnerTreePosition(v11, LockedHeadEntry);
+              KiAbEntryUpdateOwnerTreePosition((PRTL_BALANCED_NODE)v11);
             KiAbDetermineMaxWaiterPriority(v16, &v40);
             if ( !v40 )
             {
@@ -175,7 +175,7 @@ LABEL_13:
                                  (__int64)&v41)
               && v11 != v16 )
             {
-              KiAbEntryUpdateOwnerTreePosition(v11, v16);
+              KiAbEntryUpdateOwnerTreePosition((PRTL_BALANCED_NODE)v11);
             }
             v13 = v41;
 LABEL_34:
@@ -205,7 +205,7 @@ LABEL_34:
             goto LABEL_14;
           }
           if ( v11 != LockedHeadEntry )
-            KiAbEntryUpdateWaiterTreePosition(v11, LockedHeadEntry);
+            KiAbEntryUpdateWaiterTreePosition((PRTL_BALANCED_NODE)v11);
           v20 = *(_QWORD *)(v16 + 56);
           if ( v20 )
             v4 = *(unsigned __int8 *)(v20 + 48);

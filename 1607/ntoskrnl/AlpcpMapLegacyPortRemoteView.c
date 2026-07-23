@@ -1,12 +1,12 @@
 /*
- * XREFs of AlpcpMapLegacyPortRemoteView @ 0x140546E5C
+ * XREFs of AlpcpMapLegacyPortRemoteView @ 0x14054739C
  * Callers:
- *     AlpcpAcceptConnectPort @ 0x1404B4A28 (AlpcpAcceptConnectPort.c)
+ *     AlpcpAcceptConnectPort @ 0x14049EE08 (AlpcpAcceptConnectPort.c)
  * Callees:
- *     AlpcpLockForCachedReferenceBlob @ 0x14040B470 (AlpcpLockForCachedReferenceBlob.c)
- *     AlpcpDereferenceBlobEx @ 0x14040C274 (AlpcpDereferenceBlobEx.c)
- *     AlpcpCreateView @ 0x14040D220 (AlpcpCreateView.c)
- *     AlpcpUnlockBlob @ 0x14050E530 (AlpcpUnlockBlob.c)
+ *     AlpcpLockForCachedReferenceBlob @ 0x14040A330 (AlpcpLockForCachedReferenceBlob.c)
+ *     AlpcpDereferenceBlobEx @ 0x14040B134 (AlpcpDereferenceBlobEx.c)
+ *     AlpcpCreateView @ 0x14040C0E0 (AlpcpCreateView.c)
+ *     AlpcpUnlockBlob @ 0x1404F14C0 (AlpcpUnlockBlob.c)
  */
 
 __int64 __fastcall AlpcpMapLegacyPortRemoteView(unsigned __int64 *Object, __int64 a2, _QWORD *a3)

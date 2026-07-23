@@ -1,16 +1,15 @@
 /*
- * XREFs of ZwQueryVirtualMemory @ 0x14015A0E0
+ * XREFs of ZwQueryVirtualMemory @ 0x14015A650
  * Callers:
- *     ?SmStTrimWsStoreBatch@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@PEAKPEAPEAXKKPEA_K@Z @ 0x14021D290 (-SmStTrimWsStoreBatch@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@PEAKPEAPEAXKKPEA_K@Z.c)
- *     LdrpResGetMappingSize @ 0x14051B7C4 (LdrpResGetMappingSize.c)
- *     RtlCreateHeap @ 0x140540228 (RtlCreateHeap.c)
- *     EtwTimLogRedirectionTrustPolicy @ 0x1406A0764 (EtwTimLogRedirectionTrustPolicy.c)
- *     EtwpTiQueryVad @ 0x1406A63DC (EtwpTiQueryVad.c)
+ *     ?SmStTrimWsStoreBatch@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@PEAKPEAPEAXKKPEA_K@Z @ 0x14021D0BC (-SmStTrimWsStoreBatch@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@PEAKPEAPEAXKKPEA_K@Z.c)
+ *     LdrpResGetMappingSize @ 0x1404FEBB4 (LdrpResGetMappingSize.c)
+ *     RtlCreateHeap @ 0x140540768 (RtlCreateHeap.c)
+ *     EtwTimLogRedirectionTrustPolicy @ 0x1406A089C (EtwTimLogRedirectionTrustPolicy.c)
+ *     EtwpTiQueryVad @ 0x1406A6514 (EtwpTiQueryVad.c)
  * Callees:
  *     <none>
  */
 
-// local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall ZwQueryVirtualMemory(
         HANDLE ProcessHandle,
         PVOID BaseAddress,
@@ -21,5 +20,5 @@ NTSTATUS __stdcall ZwQueryVirtualMemory(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(ProcessHandle, BaseAddress, *(_QWORD *)&MemoryInformationClass);
+  return KiServiceInternal(ProcessHandle);
 }

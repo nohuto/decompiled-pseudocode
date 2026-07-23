@@ -1,21 +1,21 @@
 /*
- * XREFs of MiSetPfnTbFlushStamp @ 0x1402FBDB0
+ * XREFs of MiSetPfnTbFlushStamp @ 0x140253C90
  * Callers:
- *     MiStealPage @ 0x1402263B0 (MiStealPage.c)
- *     MiMakePageAvoidRead @ 0x1402EF168 (MiMakePageAvoidRead.c)
- *     MiInitializeReadInProgressPfn @ 0x1402EF9B8 (MiInitializeReadInProgressPfn.c)
- *     MiGetPageChainSmallPageProcess @ 0x1402FBB90 (MiGetPageChainSmallPageProcess.c)
- *     MiGetPageChain @ 0x1402FCDC0 (MiGetPageChain.c)
- *     MiSwapNumaStandbyPage @ 0x14039474C (MiSwapNumaStandbyPage.c)
- *     MiGetPageTablePages @ 0x14039E9BC (MiGetPageTablePages.c)
- *     MiSwapStackPage @ 0x1404303C4 (MiSwapStackPage.c)
- *     MiMapPageFileHash @ 0x140486688 (MiMapPageFileHash.c)
- *     MiDeleteSubsectionLargePages @ 0x1404CA9A4 (MiDeleteSubsectionLargePages.c)
- *     MiPerformFinalZeroing @ 0x1404F8564 (MiPerformFinalZeroing.c)
- *     MiCreatePfnTemplate @ 0x14066C510 (MiCreatePfnTemplate.c)
- *     MiUpdateLargePageSectionPfns @ 0x140673088 (MiUpdateLargePageSectionPfns.c)
- *     MiPurgeBadFileOnlyPages @ 0x14067B98C (MiPurgeBadFileOnlyPages.c)
- *     MiAllocateDummyPage @ 0x140C4EBD8 (MiAllocateDummyPage.c)
+ *     MiGetPageTablePages @ 0x14021CA98 (MiGetPageTablePages.c)
+ *     MiMakePageAvoidRead @ 0x140253334 (MiMakePageAvoidRead.c)
+ *     MiGetPageChainSmallPageProcess @ 0x140253A70 (MiGetPageChainSmallPageProcess.c)
+ *     MiStealPage @ 0x140253D10 (MiStealPage.c)
+ *     MiInitializeReadInProgressPfn @ 0x1402558FC (MiInitializeReadInProgressPfn.c)
+ *     MiGetPageChain @ 0x140307540 (MiGetPageChain.c)
+ *     MiSwapNumaStandbyPage @ 0x1403F7A6C (MiSwapNumaStandbyPage.c)
+ *     MiSwapStackPage @ 0x140421D74 (MiSwapStackPage.c)
+ *     MiMapPageFileHash @ 0x140425FA8 (MiMapPageFileHash.c)
+ *     MiDeleteSubsectionLargePages @ 0x1404C3EC4 (MiDeleteSubsectionLargePages.c)
+ *     MiPerformFinalZeroing @ 0x1404F5E44 (MiPerformFinalZeroing.c)
+ *     MiCreatePfnTemplate @ 0x14066D6E0 (MiCreatePfnTemplate.c)
+ *     MiUpdateLargePageSectionPfns @ 0x140674258 (MiUpdateLargePageSectionPfns.c)
+ *     MiPurgeBadFileOnlyPages @ 0x14067CB6C (MiPurgeBadFileOnlyPages.c)
+ *     MiAllocateDummyPage @ 0x140C50D68 (MiAllocateDummyPage.c)
  * Callees:
  *     <none>
  */

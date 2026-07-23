@@ -1,10 +1,10 @@
 /*
- * XREFs of ?StringCchCatW@@YAJPEAG_KPEBG@Z @ 0x18005A7C0
+ * XREFs of ?StringCchCatW@@YAJPEAG_KPEBG@Z @ 0x18005A7B0
  * Callers:
- *     ResCOpenRegistryKey @ 0x180059EEC (ResCOpenRegistryKey.c)
- *     ResCKeGetBaseFolder @ 0x18005A658 (ResCKeGetBaseFolder.c)
+ *     ResCOpenRegistryKey @ 0x180059EDC (ResCOpenRegistryKey.c)
+ *     ResCKeGetBaseFolder @ 0x18005A648 (ResCKeGetBaseFolder.c)
  * Callees:
- *     StringCopyWorkerW @ 0x18005A840 (StringCopyWorkerW.c)
+ *     StringCopyWorkerW @ 0x18005A830 (StringCopyWorkerW.c)
  */
 
 __int64 __fastcall StringCchCatW(unsigned __int16 *a1, __int64 a2, size_t *a3)

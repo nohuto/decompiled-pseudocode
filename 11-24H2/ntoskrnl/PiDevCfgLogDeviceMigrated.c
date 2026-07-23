@@ -1,9 +1,9 @@
 /*
- * XREFs of PiDevCfgLogDeviceMigrated @ 0x1406F8FC8
+ * XREFs of PiDevCfgLogDeviceMigrated @ 0x1406F6C00
  * Callers:
- *     PiDevCfgMigrateDevice @ 0x14099A6AC (PiDevCfgMigrateDevice.c)
+ *     PiDevCfgMigrateDevice @ 0x1409CCE1C (PiDevCfgMigrateDevice.c)
  * Callees:
- *     McTemplateK0zzjzitd_EtwWriteTransfer @ 0x1404B2768 (McTemplateK0zzjzitd_EtwWriteTransfer.c)
+ *     McTemplateK0zzjzitd_EtwWriteTransfer @ 0x1404ACFF8 (McTemplateK0zzjzitd_EtwWriteTransfer.c)
  */
 
 char __fastcall PiDevCfgLogDeviceMigrated(__int64 a1, __int64 a2, int a3)
@@ -13,10 +13,10 @@ char __fastcall PiDevCfgLogDeviceMigrated(__int64 a1, __int64 a2, int a3)
   __int64 v7; // rcx
   __int64 v8; // rax
 
-  result = byte_140EEFD22;
-  if ( (byte_140EEFD22 & 0x10) != 0 && (byte_140EEFD22 & 0x40) != 0 && (byte_140EEFD22 & 0x20) != 0 )
+  result = byte_140EEFF62;
+  if ( (byte_140EEFF62 & 0x10) != 0 && (byte_140EEFF62 & 0x40) != 0 && (byte_140EEFF62 & 0x20) != 0 )
   {
-    v6 = (const wchar_t *)&dword_140B43C84;
+    v6 = (const wchar_t *)&dword_140B45A74;
     v7 = a2 + 80;
     if ( a3 < 0 )
     {

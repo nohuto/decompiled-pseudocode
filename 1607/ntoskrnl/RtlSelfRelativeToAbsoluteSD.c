@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlSelfRelativeToAbsoluteSD @ 0x14052D8FC
+ * XREFs of RtlSelfRelativeToAbsoluteSD @ 0x14052DE3C
  * Callers:
  *     <none>
  * Callees:
- *     memmove @ 0x140171280 (memmove.c)
- *     RtlpQuerySecurityDescriptor @ 0x1404D6C10 (RtlpQuerySecurityDescriptor.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     RtlpQuerySecurityDescriptor @ 0x1404BA214 (RtlpQuerySecurityDescriptor.c)
  */
 
 NTSTATUS __stdcall RtlSelfRelativeToAbsoluteSD(

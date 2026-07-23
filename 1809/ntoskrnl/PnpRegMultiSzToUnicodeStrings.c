@@ -1,11 +1,11 @@
 /*
- * XREFs of PnpRegMultiSzToUnicodeStrings @ 0x1409CA4C8
+ * XREFs of PnpRegMultiSzToUnicodeStrings @ 0x1409CB4C8
  * Callers:
- *     PiInitCacheGroupInformation @ 0x1409CA3F8 (PiInitCacheGroupInformation.c)
+ *     PiInitCacheGroupInformation @ 0x1409CB3F8 (PiInitCacheGroupInformation.c)
  * Callees:
- *     PnpFreeUnicodeStringList @ 0x14018B280 (PnpFreeUnicodeStringList.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
+ *     PnpFreeUnicodeStringList @ 0x14018B3C0 (PnpFreeUnicodeStringList.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PnpRegMultiSzToUnicodeStrings(_DWORD *a1, PVOID **a2, unsigned int *a3)

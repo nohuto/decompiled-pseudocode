@@ -23,109 +23,108 @@ __int64 __fastcall EtwpFinalizeLogFileHeader(__int64 a1, char a2)
 {
   unsigned int v2; // edi
   bool v3; // zf
-  unsigned int v6; // r15d
-  __int64 Heap; // r14
-  NTSTATUS v8; // esi
-  __int64 v9; // r9
-  int v10; // eax
-  int v11; // eax
-  int v12; // ecx
-  unsigned __int64 v13; // rdx
-  int v15; // [rsp+50h] [rbp-29h] BYREF
-  unsigned __int64 v16; // [rsp+58h] [rbp-21h] BYREF
-  __int64 v17; // [rsp+60h] [rbp-19h] BYREF
-  __int128 v18; // [rsp+68h] [rbp-11h] BYREF
-  __int128 v19; // [rsp+78h] [rbp-1h] BYREF
-  __int128 v20; // [rsp+88h] [rbp+Fh] BYREF
-  __int64 v21; // [rsp+98h] [rbp+1Fh]
+  ULONG Length; // r15d
+  LARGE_INTEGER *Buffer; // r14
+  int v8; // esi
+  int v9; // eax
+  NTSTATUS v10; // eax
+  int v11; // ecx
+  unsigned __int64 v12; // rdx
+  int v14; // [rsp+50h] [rbp-29h] BYREF
+  unsigned __int64 FileInformation; // [rsp+58h] [rbp-21h] BYREF
+  LARGE_INTEGER ByteOffset; // [rsp+60h] [rbp-19h] BYREF
+  _IO_STATUS_BLOCK IoStatusBlock; // [rsp+68h] [rbp-11h] BYREF
+  _IO_STATUS_BLOCK v18; // [rsp+78h] [rbp-1h] BYREF
+  __int128 FsInformation; // [rsp+88h] [rbp+Fh] BYREF
+  __int64 v20; // [rsp+98h] [rbp+1Fh]
 
   v2 = 0;
   v3 = (*(_DWORD *)(a1 + 308) & 0x4000000) == 0;
-  v17 = 0LL;
-  v21 = 0LL;
-  LODWORD(v16) = 0;
-  v18 = 0LL;
-  v15 = 0;
+  ByteOffset.QuadPart = 0LL;
   v20 = 0LL;
+  LODWORD(FileInformation) = 0;
+  IoStatusBlock = 0LL;
+  v14 = 0;
+  FsInformation = 0LL;
   if ( !v3 )
   {
-    v8 = EtwpWriteRemainingCompressedData(a1, &v16, &v15);
+    v8 = EtwpWriteRemainingCompressedData(a1, &FileInformation, &v14);
     if ( v8 < 0 )
       goto LABEL_19;
-    *(_DWORD *)(a1 + 376) += v16;
-    *(_DWORD *)(a1 + 372) += v15;
+    *(_DWORD *)(a1 + 376) += FileInformation;
+    *(_DWORD *)(a1 + 372) += v14;
   }
   if ( *(_QWORD *)(a1 + 448) != a1 + 448
     || *(_QWORD *)(a1 + 464) != a1 + 464
     || *(_QWORD *)(a1 + 504)
     || (*(_DWORD *)(a1 + 308) & 0x1000) != 0 )
   {
-    v6 = *(_DWORD *)(a1 + 192);
+    Length = *(_DWORD *)(a1 + 192);
     goto LABEL_4;
   }
-  v8 = ZwQueryVolumeInformationFile(*(_QWORD *)(a1 + 128), &v18, &v20, 24LL, 3);
+  v8 = ZwQueryVolumeInformationFile(*(HANDLE *)(a1 + 128), &IoStatusBlock, &FsInformation, 0x18u, FileFsSizeInformation);
   if ( v8 >= 0 )
   {
-    v6 = -HIDWORD(v21) & (HIDWORD(v21) + 7);
+    Length = -HIDWORD(v20) & (HIDWORD(v20) + 7);
 LABEL_4:
-    Heap = RtlAllocateHeap((char *)NtCurrentPeb()->ProcessHeap, 8u, v6);
-    if ( !Heap )
+    Buffer = (LARGE_INTEGER *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, Length);
+    if ( !Buffer )
     {
       v8 = -1073741801;
       return RtlNtStatusToDosError(v8);
     }
-    v8 = NtReadFile(*(_QWORD *)(a1 + 128), 0LL, 0LL, 0LL, &v18, Heap, v6, &v17, 0LL);
+    v8 = NtReadFile(*(HANDLE *)(a1 + 128), 0LL, 0LL, 0LL, &IoStatusBlock, Buffer, Length, &ByteOffset, 0LL);
     if ( v8 < 0 )
       goto LABEL_18;
-    if ( v6 >= *(_DWORD *)Heap )
-      v6 = *(_DWORD *)Heap;
+    if ( Length >= Buffer->LowPart )
+      Length = Buffer->LowPart;
     if ( !a2 )
     {
-      *(_DWORD *)(Heap + 116) = *(_DWORD *)(a1 + 188);
-      *(_DWORD *)(Heap + 140) = *(_DWORD *)(a1 + 376);
-      *(_DWORD *)(Heap + 152) += *(_DWORD *)(a1 + 368);
-      *(_DWORD *)(Heap + 380) += *(_DWORD *)(a1 + 372);
-      v10 = *(_DWORD *)(a1 + 308);
-      if ( (v10 & 0x10000) != 0 )
+      Buffer[14].HighPart = *(_DWORD *)(a1 + 188);
+      Buffer[17].HighPart = *(_DWORD *)(a1 + 376);
+      Buffer[19].LowPart += *(_DWORD *)(a1 + 368);
+      Buffer[47].HighPart += *(_DWORD *)(a1 + 372);
+      v9 = *(_DWORD *)(a1 + 308);
+      if ( (v9 & 0x10000) != 0 )
       {
-        if ( (v10 & 0x1000) != 0 )
-          EtwpFinalizeRelogFileHeaderStats(a1, Heap, v6, v16, v15);
+        if ( (v9 & 0x1000) != 0 )
+          EtwpFinalizeRelogFileHeaderStats(a1, (_DWORD)Buffer, Length, FileInformation, v14);
       }
       else
       {
-        *(_QWORD *)(Heap + 120) = RtlGetSystemTimePrecise();
+        Buffer[15] = RtlGetSystemTimePrecise();
       }
     }
-    *(_DWORD *)(Heap + 48) = *(_DWORD *)(Heap + 4);
-    EtwpAddReloggedHeaderExtensionEvents(a1, Heap, v6);
-    EtwpAddProviderTrackingInfo(a1, Heap, v6);
-    v11 = NtWriteFile(*(_QWORD *)(a1 + 128), 0LL, 0LL, 0LL, &v18, Heap, v6, &v17, 0LL);
-    v8 = v11;
+    Buffer[6].LowPart = Buffer->HighPart;
+    EtwpAddReloggedHeaderExtensionEvents(a1, Buffer, Length);
+    EtwpAddProviderTrackingInfo(a1, Buffer, Length);
+    v10 = NtWriteFile(*(HANDLE *)(a1 + 128), 0LL, 0LL, 0LL, &IoStatusBlock, Buffer, Length, &ByteOffset, 0LL);
+    v8 = v10;
     if ( a2 )
       goto LABEL_18;
-    if ( v11 < 0 )
+    if ( v10 < 0 )
       goto LABEL_18;
-    v12 = *(_DWORD *)(a1 + 308);
-    if ( (v12 & 0x4000020) == 0 )
+    v11 = *(_DWORD *)(a1 + 308);
+    if ( (v11 & 0x4000020) == 0 )
       goto LABEL_18;
-    v19 = 0LL;
-    if ( (v12 & 0x4000000) != 0 )
+    v18 = 0LL;
+    if ( (v11 & 0x4000000) != 0 )
     {
-      v13 = *(_QWORD *)(a1 + 344);
+      v12 = *(_QWORD *)(a1 + 344);
     }
     else
     {
-      v13 = *(unsigned int *)(a1 + 192) * (unsigned __int64)*(unsigned int *)(a1 + 376);
-      if ( v13 >= *(unsigned int *)(a1 + 304) * ((-(__int64)((v12 & 0x2000) != 0) & 0xFFFFFFFFFFF00400uLL) + 0x100000) )
+      v12 = *(unsigned int *)(a1 + 192) * (unsigned __int64)*(unsigned int *)(a1 + 376);
+      if ( v12 >= *(unsigned int *)(a1 + 304) * ((-(__int64)((v11 & 0x2000) != 0) & 0xFFFFFFFFFFF00400uLL) + 0x100000) )
       {
 LABEL_18:
-        RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, Heap, v9);
+        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Buffer);
         goto LABEL_19;
       }
     }
-    v16 = v13;
-    if ( v13 )
-      v8 = ZwSetInformationFile(*(_QWORD *)(a1 + 128), &v19, &v16, 8LL, 20);
+    FileInformation = v12;
+    if ( v12 )
+      v8 = ZwSetInformationFile(*(HANDLE *)(a1 + 128), &v18, &FileInformation, 8u, FileEndOfFileInformation);
     goto LABEL_18;
   }
 LABEL_19:

@@ -1,10 +1,10 @@
 /*
- * XREFs of FsRtlNotifyInitializeSync @ 0x1407C4F00
+ * XREFs of FsRtlNotifyInitializeSync @ 0x1407C51D0
  * Callers:
  *     FsRtlNotifyFilterReportChangeLiteEx @ 0x14068A3A0 (FsRtlNotifyFilterReportChangeLiteEx.c)
- *     FsRtlNotifyFilterChangeDirectoryLite @ 0x1407C4B00 (FsRtlNotifyFilterChangeDirectoryLite.c)
+ *     FsRtlNotifyFilterChangeDirectoryLite @ 0x1407C4DD0 (FsRtlNotifyFilterChangeDirectoryLite.c)
  * Callees:
- *     KeInitializeEvent @ 0x1402AF870 (KeInitializeEvent.c)
+ *     KeInitializeEvent @ 0x1402AFB00 (KeInitializeEvent.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 

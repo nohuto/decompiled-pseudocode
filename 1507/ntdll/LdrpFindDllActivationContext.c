@@ -15,7 +15,7 @@ __int64 __fastcall LdrpFindDllActivationContext(_QWORD *a1)
   _WORD *v4; // rdi
   int v5; // eax
   __int64 v6; // rax
-  volatile signed __int32 *v8; // rcx
+  _ACTIVATION_CONTEXT *v8; // rcx
   __int64 v9; // [rsp+68h] [rbp+10h] BYREF
 
   v2 = 0;
@@ -36,7 +36,7 @@ __int64 __fastcall LdrpFindDllActivationContext(_QWORD *a1)
       {
         v4 += 4;
       }
-      v5 = LdrpManifestProberRoutine(a1[6], v4, &v9);
+      v5 = ((__int64 (__fastcall *)(_QWORD, _WORD *, __int64 *))LdrpManifestProberRoutine)(a1[6], v4, &v9);
       v2 = v5;
       if ( (unsigned int)(v5 + 1073741687) <= 2
         || v5 == -1073741637
@@ -50,7 +50,7 @@ __int64 __fastcall LdrpFindDllActivationContext(_QWORD *a1)
             544,
             (unsigned int)"LdrpFindDllActivationContext",
             2,
-            "Probing for the manifest of DLL \"%wZ\" failed with status 0x%08lx\n",
+            (__int64)"Probing for the manifest of DLL \"%wZ\" failed with status 0x%08lx\n",
             a1 + 9,
             v5);
         v2 = 0;
@@ -58,7 +58,7 @@ __int64 __fastcall LdrpFindDllActivationContext(_QWORD *a1)
       v6 = v9;
       if ( v9 )
       {
-        v8 = (volatile signed __int32 *)a1[17];
+        v8 = (_ACTIVATION_CONTEXT *)a1[17];
         if ( v8 )
         {
           RtlReleaseActivationContext(v8);
@@ -74,7 +74,7 @@ __int64 __fastcall LdrpFindDllActivationContext(_QWORD *a1)
             573,
             (unsigned int)"LdrpFindDllActivationContext",
             0,
-            "Querying the active activation context failed with status 0x%08lx\n",
+            (__int64)"Querying the active activation context failed with status 0x%08lx\n",
             v2);
         if ( (LdrpDebugFlags & 0x10) != 0 )
           __debugbreak();

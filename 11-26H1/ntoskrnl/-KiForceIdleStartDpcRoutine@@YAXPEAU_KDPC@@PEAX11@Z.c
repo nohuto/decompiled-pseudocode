@@ -1,12 +1,12 @@
 /*
- * XREFs of ?KiForceIdleStartDpcRoutine@@YAXPEAU_KDPC@@PEAX11@Z @ 0x1404FE0B0
+ * XREFs of ?KiForceIdleStartDpcRoutine@@YAXPEAU_KDPC@@PEAX11@Z @ 0x1404F75F0
  * Callers:
  *     <none>
  * Callees:
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     ?KiForceIdleUpdateSchedulerParkState@@YAXE@Z @ 0x1404C4E10 (-KiForceIdleUpdateSchedulerParkState@@YAXE@Z.c)
- *     KiSetForceIdleState @ 0x1404C5428 (KiSetForceIdleState.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14052FA20 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     ?KiForceIdleUpdateSchedulerParkState@@YAXE@Z @ 0x1404BE7C0 (-KiForceIdleUpdateSchedulerParkState@@YAXE@Z.c)
+ *     KiSetForceIdleState @ 0x1404BEDD8 (KiSetForceIdleState.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x140531F20 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void __fastcall KiForceIdleStartDpcRoutine(
@@ -25,11 +25,11 @@ void __fastcall KiForceIdleStartDpcRoutine(
   v4 = 0;
   _disable();
   v9[0] = 0;
-  while ( _interlockedbittestandset64((volatile signed __int32 *)&KiForceIdleLock, 0LL) )
+  while ( _interlockedbittestandset64(&KiSupervisorXStateFeaturesLock.Timer.Header.LockNV, 0LL) )
   {
     do
       KeYieldProcessorEx(v9);
-    while ( KiForceIdleLock );
+    while ( *(_QWORD *)&KiSupervisorXStateFeaturesLock.Timer.Header.Lock );
   }
   if ( KiForceIdleState == 1 )
   {
@@ -40,7 +40,7 @@ void __fastcall KiForceIdleStartDpcRoutine(
   {
     v4 = 1;
   }
-  _InterlockedAnd64(&KiForceIdleLock, 0LL);
+  _InterlockedAnd64((volatile signed __int64 *)&KiSupervisorXStateFeaturesLock.Timer.Header.Lock, 0LL);
   CurrentPrcb = KeGetCurrentPrcb();
   SchedulerAssist = (signed __int32 *)CurrentPrcb->SchedulerAssist;
   if ( SchedulerAssist )

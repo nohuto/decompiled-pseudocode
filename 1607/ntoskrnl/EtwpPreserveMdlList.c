@@ -1,7 +1,7 @@
 /*
- * XREFs of EtwpPreserveMdlList @ 0x1406AA0AC
+ * XREFs of EtwpPreserveMdlList @ 0x1406AA1E4
  * Callers:
- *     EtwpPreserveLogger @ 0x1406A9E8C (EtwpPreserveLogger.c)
+ *     EtwpPreserveLogger @ 0x1406A9FC4 (EtwpPreserveLogger.c)
  * Callees:
  *     KsrMdlToMemoryRuns_0 @ 0x140001290 (KsrMdlToMemoryRuns_0.c)
  *     KsrPersistMemoryWithMetadata_0 @ 0x140001298 (KsrPersistMemoryWithMetadata_0.c)

@@ -61,7 +61,7 @@ __int64 __fastcall PiAuCreateStandardSecurityObject(PSID *a1)
   v6 = PiAuSwDeviceCreateSidSubAuthorities;
   do
   {
-    Acl = PiAuAllocateAndInitializeSid(&v27[v4], (struct _SID_IDENTIFIER_AUTHORITY *)BufferLength, *v6);
+    Acl = PiAuAllocateAndInitializeSid(&v27[v4], (_SID_IDENTIFIER_AUTHORITY *)BufferLength, *v6);
     if ( Acl < 0 )
       goto LABEL_42;
     v8 = v25;

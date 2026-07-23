@@ -1,11 +1,11 @@
 /*
- * XREFs of MiWriteBrownPages @ 0x1404AEFB0
+ * XREFs of MiWriteBrownPages @ 0x1404A8640
  * Callers:
  *     <none>
  * Callees:
- *     MiUnlockMirrorWritePages @ 0x1404AF09C (MiUnlockMirrorWritePages.c)
- *     MiLockMirrorWritePages @ 0x140522AD4 (MiLockMirrorWritePages.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     MiUnlockMirrorWritePages @ 0x1404A872C (MiUnlockMirrorWritePages.c)
+ *     MiLockMirrorWritePages @ 0x140525140 (MiLockMirrorWritePages.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall MiWriteBrownPages(__int64 a1, unsigned __int64 a2, __int64 a3)

@@ -1,16 +1,16 @@
 /*
- * XREFs of RtlQueryApplicationKeyOption @ 0x180089988
+ * XREFs of RtlQueryApplicationKeyOption @ 0x1800A5448
  * Callers:
- *     LdrpInitializeProcess @ 0x180066D74 (LdrpInitializeProcess.c)
+ *     LdrpInitializeProcess @ 0x1800AEF54 (LdrpInitializeProcess.c)
  * Callees:
- *     RtlQueryImageFileKeyOption @ 0x180089B50 (RtlQueryImageFileKeyOption.c)
+ *     RtlQueryImageFileKeyOption @ 0x1800A5610 (RtlQueryImageFileKeyOption.c)
  */
 
 __int64 __fastcall RtlQueryApplicationKeyOption(
-        __int64 a1,
-        __int64 a2,
-        __int64 a3,
-        unsigned int a4,
+        void *a1,
+        void *a2,
+        wchar_t *a3,
+        __int64 a4,
         __int64 a5,
         int a6,
         __int64 a7,
@@ -19,15 +19,14 @@ __int64 __fastcall RtlQueryApplicationKeyOption(
   __int64 result; // rax
 
   if ( a1
-    && ((result = RtlQueryImageFileKeyOption(a1, a3, a4, a5, a6, 0LL), (((_DWORD)result + 0x80000000) & 0x80000000) != 0)
+    && ((result = RtlQueryImageFileKeyOption(a1, a3, a6, 0LL), (((_DWORD)result + 0x80000000) & 0x80000000) != 0)
      || (_DWORD)result == -2147483643) )
   {
     if ( a8 )
       *a8 = a1;
   }
   else if ( a2
-         && ((result = RtlQueryImageFileKeyOption(a2, a3, a4, a5, a6, 0LL),
-              (((_DWORD)result + 0x80000000) & 0x80000000) != 0)
+         && ((result = RtlQueryImageFileKeyOption(a2, a3, a6, 0LL), (((_DWORD)result + 0x80000000) & 0x80000000) != 0)
           || (_DWORD)result == -2147483643) )
   {
     if ( a8 )

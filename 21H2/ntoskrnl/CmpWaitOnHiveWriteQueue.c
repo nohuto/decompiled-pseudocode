@@ -1,29 +1,29 @@
 /*
- * XREFs of CmpWaitOnHiveWriteQueue @ 0x14087263C
+ * XREFs of CmpWaitOnHiveWriteQueue @ 0x14087279C
  * Callers:
- *     CmpFlushHive @ 0x14062A0D8 (CmpFlushHive.c)
- *     CmpBecomeActiveFlusherAndReconciler @ 0x14079EBD8 (CmpBecomeActiveFlusherAndReconciler.c)
- *     NtCompressKey @ 0x1408682E0 (NtCompressKey.c)
+ *     CmpFlushHive @ 0x1406A48D8 (CmpFlushHive.c)
+ *     CmpBecomeActiveFlusherAndReconciler @ 0x14079EDD8 (CmpBecomeActiveFlusherAndReconciler.c)
+ *     NtCompressKey @ 0x140868440 (NtCompressKey.c)
  * Callees:
- *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
- *     EtwWrite @ 0x14025DC90 (EtwWrite.c)
- *     KeAbPostReleaseEx @ 0x14028DE10 (KeAbPostReleaseEx.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     KeAbPreWait @ 0x1402F30C0 (KeAbPreWait.c)
- *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     KeAbPreAcquire @ 0x14034A230 (KeAbPreAcquire.c)
- *     KeInitializeEvent @ 0x1403538F0 (KeInitializeEvent.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     CmpUnlockRegistry @ 0x1406F5ED0 (CmpUnlockRegistry.c)
+ *     KeAbPostReleaseEx @ 0x14020AFB0 (KeAbPostReleaseEx.c)
+ *     EtwWrite @ 0x14027F7C0 (EtwWrite.c)
+ *     EtwEventEnabled @ 0x1402C0830 (EtwEventEnabled.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     KeAbPreWait @ 0x1402FDE10 (KeAbPreWait.c)
+ *     KeWaitForSingleObject @ 0x1403504C0 (KeWaitForSingleObject.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     KeAbPreAcquire @ 0x140354F80 (KeAbPreAcquire.c)
+ *     KeInitializeEvent @ 0x14035E640 (KeInitializeEvent.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     CmpUnlockRegistry @ 0x14070D2B0 (CmpUnlockRegistry.c)
  */
 
 __int64 __fastcall CmpWaitOnHiveWriteQueue(__int64 a1, ULONG_PTR a2)
 {
   REGHANDLE v4; // rbx
-  __int64 v5; // rax
-  __int64 v6; // rbx
-  ULONG_PTR v7; // rax
+  PRTL_BALANCED_NODE v5; // rax
+  _RTL_BALANCED_NODE *v6; // rbx
+  PRTL_BALANCED_NODE v7; // rax
   REGHANDLE v8; // rbx
   struct _KEVENT Event; // [rsp+30h] [rbp-50h] BYREF
   __int64 v11; // [rsp+48h] [rbp-38h]
@@ -47,12 +47,12 @@ __int64 __fastcall CmpWaitOnHiveWriteQueue(__int64 a1, ULONG_PTR a2)
   v5 = KeAbPreAcquire(a2, 0LL, 0);
   v6 = v5;
   if ( v5 )
-    KeAbPreWait(v5);
+    KeAbPreWait((__int64)v5);
   KeWaitForSingleObject(&Event, Executive, 0, 0, 0LL);
   if ( v6 )
   {
     v7 = KeAbPreAcquire(a2, v6, 0);
-    KeAbPostReleaseEx(a2, v7);
+    KeAbPostReleaseEx(a2, (ULONG_PTR)v7);
   }
   v8 = EtwpRegTraceHandle;
   v14 = (EVENT_DESCRIPTOR)REGISTRY_PERF_EVENT_HIVE_FLUSH_FINISH_WAIT_FOR_ACTIVE;

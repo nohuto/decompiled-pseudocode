@@ -1,10 +1,10 @@
 /*
- * XREFs of PspAssociateCompletionPortCallback @ 0x140585450
+ * XREFs of PspAssociateCompletionPortCallback @ 0x140586450
  * Callers:
  *     <none>
  * Callees:
- *     RtlInterlockedSetClearBits @ 0x14008F8E0 (RtlInterlockedSetClearBits.c)
- *     PspSendJobNotification @ 0x140137DBC (PspSendJobNotification.c)
+ *     RtlInterlockedSetClearBits @ 0x14008F800 (RtlInterlockedSetClearBits.c)
+ *     PspSendJobNotification @ 0x140137EBC (PspSendJobNotification.c)
  */
 
 __int64 __fastcall PspAssociateCompletionPortCallback(__int64 a1, __int64 a2)

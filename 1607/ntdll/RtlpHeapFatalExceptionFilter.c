@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpHeapFatalExceptionFilter @ 0x1800E2FB0
+ * XREFs of RtlpHeapFatalExceptionFilter @ 0x1800E3070
  * Callers:
- *     RtlpHpAllocWithExceptionProtection @ 0x1800227C0 (RtlpHpAllocWithExceptionProtection.c)
- *     RtlpHpFreeWithExceptionProtection @ 0x180046F90 (RtlpHpFreeWithExceptionProtection.c)
- *     RtlpHpReAllocWithExceptionProtection @ 0x180073610 (RtlpHpReAllocWithExceptionProtection.c)
+ *     RtlpHpAllocWithExceptionProtection @ 0x1800227B0 (RtlpHpAllocWithExceptionProtection.c)
+ *     RtlpHpFreeWithExceptionProtection @ 0x180046F80 (RtlpHpFreeWithExceptionProtection.c)
+ *     RtlpHpReAllocWithExceptionProtection @ 0x180073600 (RtlpHpReAllocWithExceptionProtection.c)
  * Callees:
- *     RtlpHeapExceptionFilter @ 0x1800EC210 (RtlpHeapExceptionFilter.c)
+ *     RtlpHeapExceptionFilter @ 0x1800EC2D0 (RtlpHeapExceptionFilter.c)
  */
 
 __int64 RtlpHeapFatalExceptionFilter()

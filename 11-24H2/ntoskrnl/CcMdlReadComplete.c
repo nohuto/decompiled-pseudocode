@@ -1,11 +1,11 @@
 /*
- * XREFs of CcMdlReadComplete @ 0x140A3C810
+ * XREFs of CcMdlReadComplete @ 0x140A31FF0
  * Callers:
  *     <none>
  * Callees:
- *     IoGetRelatedDeviceObject @ 0x140373C70 (IoGetRelatedDeviceObject.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     CcMdlReadComplete2 @ 0x140A3C878 (CcMdlReadComplete2.c)
+ *     IoGetRelatedDeviceObject @ 0x14025C530 (IoGetRelatedDeviceObject.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     CcMdlReadComplete2 @ 0x140A32058 (CcMdlReadComplete2.c)
  */
 
 void __stdcall CcMdlReadComplete(PFILE_OBJECT FileObject, PMDL MdlChain)
@@ -20,7 +20,7 @@ void __stdcall CcMdlReadComplete(PFILE_OBJECT FileObject, PMDL MdlChain)
   if ( !FastIoDispatch
     || FastIoDispatch->SizeOfFastIoDispatch <= 0x98
     || !FastIoDispatch->MdlReadComplete
-    || !(unsigned __int8)guard_dispatch_icall_no_overrides(FileObject, MdlChain, RelatedDeviceObject, FastIoDispatch) )
+    || !(unsigned __int8)guard_dispatch_icall_no_overrides(FileObject, MdlChain) )
   {
     CcMdlReadComplete2(RelatedDeviceObject, MdlChain, DriverObject);
   }

@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlIsCriticalSectionLocked @ 0x1800D38D0
+ * XREFs of RtlIsCriticalSectionLocked @ 0x1800D3990
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-_BOOL8 __fastcall RtlIsCriticalSectionLocked(__int64 a1)
+LOGICAL __cdecl RtlIsCriticalSectionLocked(PRTL_CRITICAL_SECTION CriticalSection)
 {
-  return (*(_BYTE *)(a1 + 8) & 1) == 0;
+  return (CriticalSection->LockCount & 1) == 0;
 }

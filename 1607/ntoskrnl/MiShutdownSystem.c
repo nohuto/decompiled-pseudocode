@@ -3,19 +3,19 @@
  * Callers:
  *     MmShutdownSystem @ 0x1403DEC00 (MmShutdownSystem.c)
  * Callees:
- *     KeSetEvent @ 0x1400562D0 (KeSetEvent.c)
- *     CcNotifyWriteBehind @ 0x1400AB9E0 (CcNotifyWriteBehind.c)
- *     MmUnlockPagableImageSection @ 0x1400AC6FC (MmUnlockPagableImageSection.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     MmFlushAllFilesystemPages @ 0x1401E5DD4 (MmFlushAllFilesystemPages.c)
+ *     KeSetEvent @ 0x140055E50 (KeSetEvent.c)
+ *     CcNotifyWriteBehind @ 0x1400A9F48 (CcNotifyWriteBehind.c)
+ *     MmUnlockPagableImageSection @ 0x1400AAC64 (MmUnlockPagableImageSection.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     MmFlushAllFilesystemPages @ 0x1401E5C00 (MmFlushAllFilesystemPages.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  *     MiZeroAllPageFiles @ 0x1403DEA58 (MiZeroAllPageFiles.c)
- *     MmReleaseLoadLock @ 0x140483400 (MmReleaseLoadLock.c)
- *     MmAcquireLoadLock @ 0x14048342C (MmAcquireLoadLock.c)
- *     MmLockPagableSectionByHandle @ 0x1404DC9CC (MmLockPagableSectionByHandle.c)
- *     MmZeroPageFileAtShutdown @ 0x1406574F4 (MmZeroPageFileAtShutdown.c)
- *     MiDeletePagingFiles @ 0x14065AF04 (MiDeletePagingFiles.c)
+ *     MmReleaseLoadLock @ 0x140482154 (MmReleaseLoadLock.c)
+ *     MmAcquireLoadLock @ 0x140482180 (MmAcquireLoadLock.c)
+ *     MmLockPagableSectionByHandle @ 0x1404BFFD0 (MmLockPagableSectionByHandle.c)
+ *     MmZeroPageFileAtShutdown @ 0x1406575D8 (MmZeroPageFileAtShutdown.c)
+ *     MiDeletePagingFiles @ 0x14065AFE8 (MiDeletePagingFiles.c)
  */
 
 char MiShutdownSystem()
@@ -30,13 +30,13 @@ char MiShutdownSystem()
   PVOID v7; // rsi
   PVOID v8; // rcx
 
-  if ( !dword_140327014 )
+  if ( !dword_140327054 )
   {
     CcNotifyWriteBehind(2);
     v0 = MmZeroPageFileAtShutdown();
     MmFlushAllFilesystemPages(0);
-    dword_140327014 = 1;
-    KeSetEvent(&stru_1403235D0, 0, 0);
+    dword_140327054 = 1;
+    KeSetEvent(&stru_140323610, 0, 0);
     if ( v0 == 1 )
     {
       if ( (MiFlags & 4) == 0 )

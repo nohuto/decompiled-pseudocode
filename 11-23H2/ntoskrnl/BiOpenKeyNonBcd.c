@@ -1,14 +1,14 @@
 /*
- * XREFs of BiOpenKeyNonBcd @ 0x140807B14
+ * XREFs of BiOpenKeyNonBcd @ 0x140807DE4
  * Callers:
- *     BiOpenSystemStore @ 0x1408034C4 (BiOpenSystemStore.c)
- *     BiLoadHive @ 0x140807084 (BiLoadHive.c)
- *     BiCleanupLoadedStores @ 0x140807BE4 (BiCleanupLoadedStores.c)
- *     BiDoesHiveKeyExist @ 0x140A5D458 (BiDoesHiveKeyExist.c)
+ *     BiOpenSystemStore @ 0x140803794 (BiOpenSystemStore.c)
+ *     BiLoadHive @ 0x140807354 (BiLoadHive.c)
+ *     BiCleanupLoadedStores @ 0x140807EB4 (BiCleanupLoadedStores.c)
+ *     BiDoesHiveKeyExist @ 0x140A5D708 (BiDoesHiveKeyExist.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ZwOpenKey @ 0x14041AFA0 (ZwOpenKey.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ZwOpenKey @ 0x14041B330 (ZwOpenKey.c)
  */
 
 __int64 __fastcall BiOpenKeyNonBcd(void *a1, const WCHAR *a2, ACCESS_MASK a3, HANDLE *a4)

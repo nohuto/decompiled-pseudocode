@@ -1,9 +1,9 @@
 /*
- * XREFs of KiProcessDeferredDpcWatchdogViolation @ 0x14057B208
+ * XREFs of KiProcessDeferredDpcWatchdogViolation @ 0x14057B6F8
  * Callers:
- *     KiCallInterruptServiceRoutine @ 0x140324950 (KiCallInterruptServiceRoutine.c)
+ *     KiCallInterruptServiceRoutine @ 0x140324BE0 (KiCallInterruptServiceRoutine.c)
  * Callees:
- *     VslKernelShadowStackAssist @ 0x14054BA40 (VslKernelShadowStackAssist.c)
+ *     VslKernelShadowStackAssist @ 0x14054C100 (VslKernelShadowStackAssist.c)
  */
 
 void (__fastcall __noreturn *__fastcall KiProcessDeferredDpcWatchdogViolation(__int64 a1))(__int64 a1)
@@ -12,14 +12,14 @@ void (__fastcall __noreturn *__fastcall KiProcessDeferredDpcWatchdogViolation(__
 
   KiDeferredDpcWatchdogActivePrcb = 1LL;
   KiInjectedMachineFrame = 0LL;
-  xmmword_140C41430 = 0LL;
-  xmmword_140C41440 = 0LL;
-  LOWORD(xmmword_140C41440) = *(_WORD *)(a1 + 392);
-  *((_QWORD *)&xmmword_140C41430 + 1) = *(_QWORD *)(a1 + 384);
-  LODWORD(xmmword_140C41430) = *(_DWORD *)(a1 + 376);
+  xmmword_140C413D0 = 0LL;
+  xmmword_140C413E0 = 0LL;
+  LOWORD(xmmword_140C413E0) = *(_WORD *)(a1 + 392);
+  *((_QWORD *)&xmmword_140C413D0 + 1) = *(_QWORD *)(a1 + 384);
+  LODWORD(xmmword_140C413D0) = *(_DWORD *)(a1 + 376);
   WORD4(KiInjectedMachineFrame) = *(_WORD *)(a1 + 368);
   *(_QWORD *)&KiInjectedMachineFrame = *(_QWORD *)(a1 + 360);
-  *((_QWORD *)&xmmword_140C41440 + 1) = *(_QWORD *)(a1 + 56);
+  *((_QWORD *)&xmmword_140C413E0 + 1) = *(_QWORD *)(a1 + 56);
   *(_QWORD *)(a1 + 56) = &KiInjectedMachineFrame;
   result = KiDeferredDpcWatchdogViolation;
   *(_QWORD *)(a1 + 360) = KiDeferredDpcWatchdogViolation;

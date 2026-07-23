@@ -1,9 +1,9 @@
 /*
  * XREFs of MmHasImageBeenImportOptimized @ 0x14069707C
  * Callers:
- *     MiReapplyImportOptimizationForDriverVerifier @ 0x1406408E8 (MiReapplyImportOptimizationForDriverVerifier.c)
+ *     MiReapplyImportOptimizationForDriverVerifier @ 0x140640E38 (MiReapplyImportOptimizationForDriverVerifier.c)
  *     MiUnloadSystemImage @ 0x1406962FC (MiUnloadSystemImage.c)
- *     MmApplyVerifierToRunningImage @ 0x140AE7FB0 (MmApplyVerifierToRunningImage.c)
+ *     MmApplyVerifierToRunningImage @ 0x140AE7FA0 (MmApplyVerifierToRunningImage.c)
  * Callees:
  *     MiIsImportOptimizationEnabled @ 0x14020EBB8 (MiIsImportOptimizationEnabled.c)
  */

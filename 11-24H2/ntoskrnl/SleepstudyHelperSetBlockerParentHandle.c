@@ -1,10 +1,10 @@
 /*
- * XREFs of SleepstudyHelperSetBlockerParentHandle @ 0x140485B00
+ * XREFs of SleepstudyHelperSetBlockerParentHandle @ 0x1404810F0
  * Callers:
  *     <none>
  * Callees:
- *     SshpDereferenceBlocker @ 0x14047C6F0 (SshpDereferenceBlocker.c)
- *     SshpReferenceBlocker @ 0x140485B6C (SshpReferenceBlocker.c)
+ *     SshpDereferenceBlocker @ 0x140477900 (SshpDereferenceBlocker.c)
+ *     SshpReferenceBlocker @ 0x14048115C (SshpReferenceBlocker.c)
  */
 
 __int64 __fastcall SleepstudyHelperSetBlockerParentHandle(__int64 a1, KSPIN_LOCK *a2)

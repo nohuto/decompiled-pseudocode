@@ -1,20 +1,20 @@
 /*
- * XREFs of KeConnectInterrupt @ 0x140424368
+ * XREFs of KeConnectInterrupt @ 0x140431458
  * Callers:
- *     IopConnectInterrupt @ 0x140A98890 (IopConnectInterrupt.c)
+ *     IopConnectInterrupt @ 0x140A9CA10 (IopConnectInterrupt.c)
  * Callees:
- *     ?KiClearSystemPriority@@YAXPEAU_KTHREAD@@PEAJ@Z @ 0x14037B2F0 (-KiClearSystemPriority@@YAXPEAU_KTHREAD@@PEAJ@Z.c)
- *     ?KiSetSystemPriorityThread@@YAXPEAU_KTHREAD@@JK@Z @ 0x140395420 (-KiSetSystemPriorityThread@@YAXPEAU_KTHREAD@@JK@Z.c)
- *     KiUnmaskSecondaryInterruptInternal @ 0x140423578 (KiUnmaskSecondaryInterruptInternal.c)
- *     KiUnmaskInterruptInternal @ 0x14042370C (KiUnmaskInterruptInternal.c)
- *     KeDisconnectInterrupt @ 0x140423CA0 (KeDisconnectInterrupt.c)
- *     KiConnectInterrupt @ 0x140424570 (KiConnectInterrupt.c)
- *     KiConnectSecondaryInterrupt @ 0x1404247F8 (KiConnectSecondaryInterrupt.c)
- *     KiIsInterruptTypeSecondary @ 0x140424BA4 (KiIsInterruptTypeSecondary.c)
- *     KiIntSteerConnect @ 0x140424BD8 (KiIntSteerConnect.c)
- *     HalEnableInterrupt @ 0x1404252A0 (HalEnableInterrupt.c)
- *     KiIntSteerEnable @ 0x140425410 (KiIntSteerEnable.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     ?KiClearSystemPriority@@YAXPEAU_KTHREAD@@PEAJ@Z @ 0x14037D0A0 (-KiClearSystemPriority@@YAXPEAU_KTHREAD@@PEAJ@Z.c)
+ *     ?KiSetSystemPriorityThread@@YAXPEAU_KTHREAD@@JK@Z @ 0x1403971A0 (-KiSetSystemPriorityThread@@YAXPEAU_KTHREAD@@JK@Z.c)
+ *     KiUnmaskSecondaryInterruptInternal @ 0x140430668 (KiUnmaskSecondaryInterruptInternal.c)
+ *     KiUnmaskInterruptInternal @ 0x1404307FC (KiUnmaskInterruptInternal.c)
+ *     KeDisconnectInterrupt @ 0x140430D90 (KeDisconnectInterrupt.c)
+ *     KiConnectInterrupt @ 0x140431660 (KiConnectInterrupt.c)
+ *     KiConnectSecondaryInterrupt @ 0x1404318E8 (KiConnectSecondaryInterrupt.c)
+ *     KiIsInterruptTypeSecondary @ 0x140431C94 (KiIsInterruptTypeSecondary.c)
+ *     KiIntSteerConnect @ 0x140431CC8 (KiIntSteerConnect.c)
+ *     HalEnableInterrupt @ 0x140432390 (HalEnableInterrupt.c)
+ *     KiIntSteerEnable @ 0x140432500 (KiIntSteerEnable.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall KeConnectInterrupt(__int64 *a1, unsigned __int8 a2, __int64 a3)

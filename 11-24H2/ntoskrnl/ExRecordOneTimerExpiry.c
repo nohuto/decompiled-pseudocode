@@ -1,7 +1,7 @@
 /*
- * XREFs of ExRecordOneTimerExpiry @ 0x1406572D0
+ * XREFs of ExRecordOneTimerExpiry @ 0x1406559D0
  * Callers:
- *     KeResumeClockTimerFromIdle @ 0x1405B9944 (KeResumeClockTimerFromIdle.c)
+ *     KeResumeClockTimerFromIdle @ 0x1405B6F84 (KeResumeClockTimerFromIdle.c)
  * Callees:
  *     <none>
  */
@@ -19,12 +19,12 @@ char __fastcall ExRecordOneTimerExpiry(unsigned __int8 a1, char a2)
   {
     v2 = a1 < 0x14u ? a1 : 0;
     v3 = a1 < 0x14u ? a2 : 0;
-    v4 = (unsigned __int8 *)&unk_140E09360;
-    LOBYTE(v5) = v3 < *((_BYTE *)&unk_140E09360 + 24 * v2) ? v3 : 0;
+    v4 = (unsigned __int8 *)&unk_140E093D0;
+    LOBYTE(v5) = v3 < *((_BYTE *)&unk_140E093D0 + 24 * v2) ? v3 : 0;
     v6 = (unsigned __int8)v5;
-    if ( ((unsigned __int8)v2 & (unsigned __int8)-(v3 < *((_BYTE *)&unk_140E09360 + 24 * v2))) != 0 )
+    if ( ((unsigned __int8)v2 & (unsigned __int8)-(v3 < *((_BYTE *)&unk_140E093D0 + 24 * v2))) != 0 )
     {
-      v7 = v3 < *((_BYTE *)&unk_140E09360 + 24 * v2) ? (unsigned __int8)v2 : 0;
+      v7 = v3 < *((_BYTE *)&unk_140E093D0 + 24 * v2) ? (unsigned __int8)v2 : 0;
       do
       {
         v5 = *v4;

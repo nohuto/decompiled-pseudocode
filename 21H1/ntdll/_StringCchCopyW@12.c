@@ -14,7 +14,7 @@
  * Fallback: raw IDA disassembly follows.
  *
  * 000000004B33B6B7: mov     edi, edi
- * 000000004B33B6B9: push    ebp; pszSrc
+ * 000000004B33B6B9: push    ebp; pcchNewDestLength
  * 000000004B33B6BA: mov     ebp, esp
  * 000000004B33B6BC: xor     eax, eax
  * 000000004B33B6BE: test    edx, edx
@@ -24,7 +24,7 @@
  * 000000004B33B6CA: mov     eax, 80070057h
  * 000000004B33B6CF: test    eax, eax
  * 000000004B33B6D1: js      short loc_4B33B6DF
- * 000000004B33B6D3: push    ecx; pcchNewDestLength
+ * 000000004B33B6D3: push    ecx
  * 000000004B33B6D4: push    [ebp+pszDest]; cchDest
  * 000000004B33B6D7: push    ecx; pszDest
  * 000000004B33B6D8: call    StringCopyWorkerW_0

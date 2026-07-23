@@ -1,10 +1,10 @@
 /*
- * XREFs of KitInitialize @ 0x140A71764
+ * XREFs of KitInitialize @ 0x140A72764
  * Callers:
- *     IoInitSystemPreDrivers @ 0x140A3EB60 (IoInitSystemPreDrivers.c)
+ *     IoInitSystemPreDrivers @ 0x140A3FB60 (IoInitSystemPreDrivers.c)
  * Callees:
- *     EtwRegister @ 0x140762CB0 (EtwRegister.c)
- *     KitpInitAitSampleRate @ 0x140A7179C (KitpInitAitSampleRate.c)
+ *     EtwRegister @ 0x140762E70 (EtwRegister.c)
+ *     KitpInitAitSampleRate @ 0x140A7279C (KitpInitAitSampleRate.c)
  */
 
 NTSTATUS KitInitialize()

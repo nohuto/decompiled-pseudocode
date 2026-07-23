@@ -1,14 +1,14 @@
 /*
- * XREFs of PpmInfoApplySettingUpdate @ 0x1409BDA78
+ * XREFs of PpmInfoApplySettingUpdate @ 0x1409A40C8
  * Callers:
- *     PpmSetProfilePolicySetting @ 0x1409BD414 (PpmSetProfilePolicySetting.c)
+ *     PpmSetProfilePolicySetting @ 0x1409A3A64 (PpmSetProfilePolicySetting.c)
  * Callees:
- *     PopReleaseRwLock @ 0x1403B5EC8 (PopReleaseRwLock.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     PpmInfoReleaseLocks @ 0x1409BDB24 (PpmInfoReleaseLocks.c)
- *     PpmGetPolicyAction @ 0x140A74530 (PpmGetPolicyAction.c)
- *     PpmReapplyIdlePolicy @ 0x140A97940 (PpmReapplyIdlePolicy.c)
- *     PpmReapplyPerfPolicy @ 0x140AC77C4 (PpmReapplyPerfPolicy.c)
+ *     PopReleaseRwLock @ 0x1402AE8FC (PopReleaseRwLock.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     PpmInfoReleaseLocks @ 0x1409A4174 (PpmInfoReleaseLocks.c)
+ *     PpmGetPolicyAction @ 0x140A6E858 (PpmGetPolicyAction.c)
+ *     PpmReapplyIdlePolicy @ 0x140A94190 (PpmReapplyIdlePolicy.c)
+ *     PpmReapplyPerfPolicy @ 0x140AC5250 (PpmReapplyPerfPolicy.c)
  */
 
 __int64 __fastcall PpmInfoApplySettingUpdate(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

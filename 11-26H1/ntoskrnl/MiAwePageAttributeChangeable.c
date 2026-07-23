@@ -1,7 +1,7 @@
 /*
- * XREFs of MiAwePageAttributeChangeable @ 0x140700B04
+ * XREFs of MiAwePageAttributeChangeable @ 0x1407057D4
  * Callers:
- *     MiResolveAwePageConflict @ 0x1407029E4 (MiResolveAwePageConflict.c)
+ *     MiResolveAwePageConflict @ 0x1407076B4 (MiResolveAwePageConflict.c)
  * Callees:
  *     <none>
  */

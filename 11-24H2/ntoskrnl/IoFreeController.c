@@ -1,11 +1,11 @@
 /*
- * XREFs of IoFreeController @ 0x140596940
+ * XREFs of IoFreeController @ 0x140593920
  * Callers:
- *     IoAllocateController @ 0x1404BE150 (IoAllocateController.c)
- *     DifIoFreeControllerWrapper @ 0x140628300 (DifIoFreeControllerWrapper.c)
+ *     IoAllocateController @ 0x1404B9310 (IoAllocateController.c)
+ *     DifIoFreeControllerWrapper @ 0x1406268C0 (DifIoFreeControllerWrapper.c)
  * Callees:
- *     KeRemoveDeviceQueue @ 0x140390B70 (KeRemoveDeviceQueue.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     KeRemoveDeviceQueue @ 0x14038A4B0 (KeRemoveDeviceQueue.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 void __stdcall IoFreeController(PCONTROLLER_OBJECT ControllerObject)
@@ -16,10 +16,5 @@ void __stdcall IoFreeController(PCONTROLLER_OBJECT ControllerObject)
   p_DeviceWaitQueue = &ControllerObject->DeviceWaitQueue;
   do
     v2 = KeRemoveDeviceQueue(p_DeviceWaitQueue);
-  while ( v2
-       && (unsigned int)guard_dispatch_icall_no_overrides(
-                          &v2[-4].SortKey,
-                          v2[-2].DeviceListEntry.Flink,
-                          0LL,
-                          v2[1].DeviceListEntry.Blink) == 2 );
+  while ( v2 && (unsigned int)guard_dispatch_icall_no_overrides(&v2[-4].SortKey, v2[-2].DeviceListEntry.Flink) == 2 );
 }

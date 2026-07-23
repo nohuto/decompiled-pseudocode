@@ -6,18 +6,21 @@
  *     _RtlAllocateHeap@12 @ 0x4B2C5D40 (_RtlAllocateHeap@12.c)
  */
 
-int __stdcall RtlStartRXact(int a1)
+int __userpurge RtlStartRXact@<eax>(int a1@<ebx>, int a2)
 {
   _DWORD *Heap; // eax
+  SIZE_T v4; // [esp-8h] [ebp-Ch]
 
-  if ( *(_DWORD *)(a1 + 12) )
+  if ( *(_DWORD *)(a2 + 12) )
     return -1073741540;
-  Heap = (_DWORD *)RtlAllocateHeap((int)NtCurrentPeb()->ProcessHeap, 0, 0x4000);
+  HIDWORD(v4) = a1;
+  LODWORD(v4) = 0x4000;
+  Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, v4);
   if ( !Heap )
     return -1073741801;
   *Heap = 0;
   Heap[1] = 0x4000;
   Heap[2] = 12;
-  *(_DWORD *)(a1 + 12) = Heap;
+  *(_DWORD *)(a2 + 12) = Heap;
   return 0;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpHpSegVsAllocate @ 0x1800F3BA0
+ * XREFs of RtlpHpSegVsAllocate @ 0x1800EE0C0
  * Callers:
- *     RtlpHpVsSubsegmentCreate @ 0x18004FC80 (RtlpHpVsSubsegmentCreate.c)
- *     RtlpHpLfhSubsegmentCreate @ 0x180050DD0 (RtlpHpLfhSubsegmentCreate.c)
+ *     RtlpHpVsSubsegmentCreate @ 0x180065860 (RtlpHpVsSubsegmentCreate.c)
+ *     RtlpHpLfhSubsegmentCreate @ 0x1800669B0 (RtlpHpLfhSubsegmentCreate.c)
  * Callees:
- *     RtlpHpSegSubAllocate @ 0x180051270 (RtlpHpSegSubAllocate.c)
+ *     RtlpHpSegSubAllocate @ 0x180066E50 (RtlpHpSegSubAllocate.c)
  */
 
 __int64 __fastcall RtlpHpSegVsAllocate(__int64 a1, unsigned int a2, _DWORD *a3, _DWORD *a4)

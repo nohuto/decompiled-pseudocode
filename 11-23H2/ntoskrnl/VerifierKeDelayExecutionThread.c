@@ -1,10 +1,10 @@
 /*
- * XREFs of VerifierKeDelayExecutionThread @ 0x140AD5490
+ * XREFs of VerifierKeDelayExecutionThread @ 0x140AD5480
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     ViKeInjectStatusAlerted @ 0x140AC0618 (ViKeInjectStatusAlerted.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     ViKeInjectStatusAlerted @ 0x140AC0608 (ViKeInjectStatusAlerted.c)
  */
 
 __int64 __fastcall VerifierKeDelayExecutionThread(char a1, char a2, __int64 a3)

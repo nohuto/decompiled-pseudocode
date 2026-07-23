@@ -1,33 +1,29 @@
 /*
- * XREFs of LdrpIsCODServiceEnabled @ 0x180160260
+ * XREFs of LdrpIsCODServiceEnabled @ 0x18015E620
  * Callers:
- *     LdrpCheckComponentOnDemandEtwEvent @ 0x180111934 (LdrpCheckComponentOnDemandEtwEvent.c)
+ *     LdrpCheckComponentOnDemandEtwEvent @ 0x18010CD44 (LdrpCheckComponentOnDemandEtwEvent.c)
  * Callees:
- *     NtClose @ 0x180161E70 (NtClose.c)
- *     NtOpenKeyEx @ 0x1801641E0 (NtOpenKeyEx.c)
+ *     NtClose @ 0x180160230 (NtClose.c)
+ *     NtOpenKeyEx @ 0x1801625A0 (NtOpenKeyEx.c)
  */
 
 bool LdrpIsCODServiceEnabled()
 {
   bool v0; // bl
   _QWORD v2[2]; // [rsp+20h] [rbp-40h] BYREF
-  _QWORD v3[3]; // [rsp+30h] [rbp-30h] BYREF
-  int v4; // [rsp+48h] [rbp-18h]
-  int v5; // [rsp+4Ch] [rbp-14h]
-  __int128 v6; // [rsp+50h] [rbp-10h]
-  HANDLE Handle; // [rsp+70h] [rbp+10h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+30h] [rbp-30h] BYREF
+  HANDLE KeyHandle; // [rsp+70h] [rbp+10h] BYREF
 
-  v5 = 0;
-  Handle = 0LL;
-  v3[1] = 0LL;
+  memset(&ObjectAttributes.Attributes + 1, 0, 20);
+  KeyHandle = 0LL;
+  ObjectAttributes.RootDirectory = 0LL;
   v2[1] = L"\\Registry\\Machine\\Software\\Microsoft\\Windows NT\\CurrentVersion\\AppCompatFlags\\Compatibility Assistant\\";
-  v3[0] = 48LL;
-  v3[2] = v2;
+  *(_QWORD *)&ObjectAttributes.Length = 48LL;
+  ObjectAttributes.ObjectName = (PUNICODE_STRING)v2;
   v2[0] = 13500620LL;
-  v4 = 64;
-  v6 = 0LL;
-  v0 = (int)NtOpenKeyEx(&Handle, 131353LL, v3, 0LL) >= 0;
-  if ( Handle )
-    NtClose(Handle);
+  ObjectAttributes.Attributes = 64;
+  v0 = NtOpenKeyEx(&KeyHandle, 0x20119u, &ObjectAttributes, 0) >= 0;
+  if ( KeyHandle )
+    NtClose(KeyHandle);
   return v0;
 }

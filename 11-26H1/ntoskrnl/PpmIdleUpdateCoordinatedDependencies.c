@@ -1,7 +1,7 @@
 /*
- * XREFs of PpmIdleUpdateCoordinatedDependencies @ 0x1407E1E74
+ * XREFs of PpmIdleUpdateCoordinatedDependencies @ 0x1407E6F04
  * Callers:
- *     PpmInstallCoordinatedIdleStates @ 0x1407C9BE0 (PpmInstallCoordinatedIdleStates.c)
+ *     PpmInstallCoordinatedIdleStates @ 0x1407CCC80 (PpmInstallCoordinatedIdleStates.c)
  * Callees:
  *     <none>
  */

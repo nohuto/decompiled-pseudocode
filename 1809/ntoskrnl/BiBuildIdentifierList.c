@@ -1,45 +1,45 @@
 /*
- * XREFs of BiBuildIdentifierList @ 0x1408F2468
+ * XREFs of BiBuildIdentifierList @ 0x1408F3728
  * Callers:
- *     BiBindEfiNamespaceObjects @ 0x1408F23CC (BiBindEfiNamespaceObjects.c)
- *     BiExportStoreAlterationsToEfi @ 0x1408F39D8 (BiExportStoreAlterationsToEfi.c)
+ *     BiBindEfiNamespaceObjects @ 0x1408F368C (BiBindEfiNamespaceObjects.c)
+ *     BiExportStoreAlterationsToEfi @ 0x1408F4C98 (BiExportStoreAlterationsToEfi.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     RtlGUIDFromString @ 0x14059A5A0 (RtlGUIDFromString.c)
- *     BiGetObjectDescription @ 0x140711214 (BiGetObjectDescription.c)
- *     BiEnumerateSubKeys @ 0x140712924 (BiEnumerateSubKeys.c)
- *     BcdOpenObject @ 0x140712E24 (BcdOpenObject.c)
- *     BcdCloseObject @ 0x140712FA0 (BcdCloseObject.c)
- *     BcdGetElementDataWithFlags @ 0x140713550 (BcdGetElementDataWithFlags.c)
- *     BiOpenKey @ 0x140713780 (BiOpenKey.c)
- *     BiCloseKey @ 0x1407138F0 (BiCloseKey.c)
- *     BiLogMessage @ 0x1407140B4 (BiLogMessage.c)
- *     BiEnumerateBootEntries @ 0x1408F3464 (BiEnumerateBootEntries.c)
- *     BiFreeIdentifierList @ 0x1408F3A78 (BiFreeIdentifierList.c)
- *     BiGetObjectReferenceFromEfiEntry @ 0x1408F3DE4 (BiGetObjectReferenceFromEfiEntry.c)
- *     BiGetSavedBootEntry @ 0x1408F3F70 (BiGetSavedBootEntry.c)
- *     BiLookupObjectByBootEntry @ 0x1408F41F0 (BiLookupObjectByBootEntry.c)
- *     BiLookupObjectByIdentifierAndBootEntry @ 0x1408F4220 (BiLookupObjectByIdentifierAndBootEntry.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     RtlGUIDFromString @ 0x14059B5A0 (RtlGUIDFromString.c)
+ *     BiGetObjectDescription @ 0x1407124B4 (BiGetObjectDescription.c)
+ *     BiEnumerateSubKeys @ 0x140713BC4 (BiEnumerateSubKeys.c)
+ *     BcdOpenObject @ 0x1407140C4 (BcdOpenObject.c)
+ *     BcdCloseObject @ 0x140714240 (BcdCloseObject.c)
+ *     BcdGetElementDataWithFlags @ 0x1407147F0 (BcdGetElementDataWithFlags.c)
+ *     BiOpenKey @ 0x140714A20 (BiOpenKey.c)
+ *     BiCloseKey @ 0x140714B90 (BiCloseKey.c)
+ *     BiLogMessage @ 0x140715354 (BiLogMessage.c)
+ *     BiEnumerateBootEntries @ 0x1408F4724 (BiEnumerateBootEntries.c)
+ *     BiFreeIdentifierList @ 0x1408F4D38 (BiFreeIdentifierList.c)
+ *     BiGetObjectReferenceFromEfiEntry @ 0x1408F50A4 (BiGetObjectReferenceFromEfiEntry.c)
+ *     BiGetSavedBootEntry @ 0x1408F5230 (BiGetSavedBootEntry.c)
+ *     BiLookupObjectByBootEntry @ 0x1408F54B0 (BiLookupObjectByBootEntry.c)
+ *     BiLookupObjectByIdentifierAndBootEntry @ 0x1408F54E0 (BiLookupObjectByIdentifierAndBootEntry.c)
  */
 
-__int64 __fastcall BiBuildIdentifierList(__int64 a1, __int64 a2, _QWORD *a3)
+__int64 __fastcall BiBuildIdentifierList(__int64 BcdStoreHandle, __int64 a2, _QWORD *a3)
 {
   PCWSTR *v4; // rsi
-  __int64 v5; // r14
+  HANDLE v5; // r14
   int v6; // ebx
-  unsigned int v7; // r12d
+  ULONG v7; // r12d
   __int64 v8; // r15
   PCWSTR *v9; // r13
-  __int64 v10; // r14
+  HANDLE v10; // r14
   int v11; // esi
   GUID *PoolWithTag; // rax
   GUID *v13; // rbx
-  __int64 v14; // r8
+  BCD_FLAGS v14; // r8d
   GUID **v15; // rax
   GUID **v16; // rax
   PVOID v17; // rcx
@@ -73,9 +73,9 @@ __int64 __fastcall BiBuildIdentifierList(__int64 a1, __int64 a2, _QWORD *a3)
   GUID *v45; // rax
   _QWORD *v46; // rdx
   _QWORD *v47; // rax
-  ULONG v49; // [rsp+30h] [rbp-79h] BYREF
-  char v50[4]; // [rsp+34h] [rbp-75h] BYREF
-  _DWORD *v51; // [rsp+38h] [rbp-71h] BYREF
+  ULONG BufferSize; // [rsp+30h] [rbp-79h] BYREF
+  char Buffer[4]; // [rsp+34h] [rbp-75h] BYREF
+  __int64 v51; // [rsp+38h] [rbp-71h] BYREF
   _QWORD *v52; // [rsp+40h] [rbp-69h] BYREF
   _QWORD **v53; // [rsp+48h] [rbp-61h]
   PCWSTR *v54; // [rsp+50h] [rbp-59h] BYREF
@@ -86,7 +86,7 @@ __int64 __fastcall BiBuildIdentifierList(__int64 a1, __int64 a2, _QWORD *a3)
   void *v59; // [rsp+78h] [rbp-31h] BYREF
   PVOID P; // [rsp+80h] [rbp-29h] BYREF
   PVOID v61; // [rsp+88h] [rbp-21h] BYREF
-  __int64 v62; // [rsp+90h] [rbp-19h] BYREF
+  HANDLE BcdObjectHandle; // [rsp+90h] [rbp-19h] BYREF
   int v63; // [rsp+98h] [rbp-11h] BYREF
   int v64; // [rsp+9Ch] [rbp-Dh]
   UNICODE_STRING DestinationString; // [rsp+A0h] [rbp-9h] BYREF
@@ -100,30 +100,30 @@ __int64 __fastcall BiBuildIdentifierList(__int64 a1, __int64 a2, _QWORD *a3)
   *a3 = a3;
   v56 = (GUID *)&v55;
   v4 = 0LL;
-  v51 = (_DWORD *)a1;
+  v51 = BcdStoreHandle;
   v55 = &v55;
   v54 = 0LL;
   v53 = &v52;
-  v5 = a1;
+  v5 = (HANDLE)BcdStoreHandle;
   v52 = &v52;
-  v6 = BiOpenKey(a1, L"Objects", 0x20019u, &v59);
+  v6 = BiOpenKey(BcdStoreHandle, L"Objects", 0x20019u, &v59);
   if ( v6 >= 0 )
   {
-    v6 = BiEnumerateSubKeys(v59, &v54, &v49);
+    v6 = BiEnumerateSubKeys(v59, &v54, &BufferSize);
     if ( v6 < 0 )
       goto LABEL_60;
-    v7 = v49;
+    v7 = BufferSize;
     v8 = 0LL;
-    if ( v49 )
+    if ( BufferSize )
     {
       v9 = v54;
       do
       {
         RtlInitUnicodeString(&DestinationString, v9[v8]);
-        if ( RtlGUIDFromString(&DestinationString, &Guid) >= 0 && (int)BcdOpenObject(v5, &Guid.Data1, &v62) >= 0 )
+        if ( RtlGUIDFromString(&DestinationString, &Guid) >= 0 && BcdOpenObject(v5, &Guid, &BcdObjectHandle) >= 0 )
         {
-          v10 = v62;
-          if ( (int)BiGetObjectDescription(v62, &v63) >= 0
+          v10 = BcdObjectHandle;
+          if ( (int)BiGetObjectDescription((__int64)BcdObjectHandle, &v63) >= 0
             && (v64 & 0xF0000000) == 0x10000000
             && (v64 & 0xF00000) == 0x100000 )
           {
@@ -163,8 +163,8 @@ LABEL_68:
                 *v16 = v13;
                 v58 = v13;
               }
-              v49 = 2;
-              if ( (int)BcdGetElementDataWithFlags(v10, 0x16000082u, v14, (__int64)v50, &v49) >= 0 && v50[0] )
+              BufferSize = 2;
+              if ( BcdGetElementDataWithFlags(v10, 0x16000082u, v14, Buffer, &BufferSize) >= 0 && Buffer[0] )
                 v13[3].Data1 |= 0x10u;
               if ( (int)BiGetSavedBootEntry(v10, &P) >= 0 )
               {
@@ -176,22 +176,22 @@ LABEL_68:
             }
           }
           BcdCloseObject(v10);
-          v5 = (__int64)v51;
+          v5 = (HANDLE)v51;
         }
         v8 = (unsigned int)(v8 + 1);
       }
       while ( (unsigned int)v8 < v7 );
     }
-    v18 = BiEnumerateBootEntries(&v61, &v49);
+    v18 = BiEnumerateBootEntries(&v61, &BufferSize);
     v19 = v61;
     v6 = v18;
     if ( v18 >= 0 )
     {
-      v20 = v49;
+      v20 = BufferSize;
       v21 = 0LL;
       v51 = 0LL;
       v22 = (unsigned int *)v61;
-      if ( v49 )
+      if ( BufferSize )
       {
         while ( 1 )
         {
@@ -203,13 +203,13 @@ LABEL_68:
           else
           {
             ObjectReferenceFromEfiEntry = BiLookupObjectByIdentifierAndBootEntry(&v57, &Guid, v22[3], &v51);
-            v21 = v51;
+            v21 = (_DWORD *)v51;
             v24 = 32;
           }
           if ( ObjectReferenceFromEfiEntry < 0 )
           {
             v28 = ExAllocatePoolWithTag(PagedPool, 0x38uLL, 0x4B444342u);
-            v51 = v28;
+            v51 = (__int64)v28;
             v21 = v28;
             if ( !v28 )
               break;

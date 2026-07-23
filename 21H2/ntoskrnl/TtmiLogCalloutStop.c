@@ -1,12 +1,12 @@
 /*
- * XREFs of TtmiLogCalloutStop @ 0x140901434
+ * XREFs of TtmiLogCalloutStop @ 0x140901594
  * Callers:
- *     TtmpStopCallout @ 0x1408FD408 (TtmpStopCallout.c)
+ *     TtmpStopCallout @ 0x1408FD568 (TtmpStopCallout.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
- *     PsGetProcessSessionIdEx @ 0x1402830D0 (PsGetProcessSessionIdEx.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     PsGetProcessSessionIdEx @ 0x14023A7B0 (PsGetProcessSessionIdEx.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14027E1A4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x1402864F4 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 char __fastcall TtmiLogCalloutStop(int a1, int a2, __int64 a3, int a4, int a5, unsigned __int64 a6)
@@ -68,7 +68,7 @@ char __fastcall TtmiLogCalloutStop(int a1, int a2, __int64 a3, int a4, int a5, u
       if ( (_BYTE)v6 )
       {
         ProcessSessionId = PsGetProcessSessionIdEx((__int64)KeGetCurrentThread()->ApcState.Process);
-        v11 = byte_14002C079;
+        v11 = byte_14002BAA3;
         v42 = 4LL;
         p_ProcessSessionId = &ProcessSessionId;
         v12 = &dword_140D2D890;
@@ -102,7 +102,7 @@ char __fastcall TtmiLogCalloutStop(int a1, int a2, __int64 a3, int a4, int a5, u
     if ( (_BYTE)v6 )
     {
       v15 = PsGetProcessSessionIdEx((__int64)KeGetCurrentThread()->ApcState.Process);
-      v11 = byte_14002BC33;
+      v11 = &byte_14002BD2F;
       v29 = 4LL;
       v28 = &v15;
       v12 = &dword_140D2D8C8;

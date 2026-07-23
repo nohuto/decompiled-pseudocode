@@ -1,7 +1,7 @@
 /*
- * XREFs of VfMajorAdvanceIrpStatus @ 0x14070E3B4
+ * XREFs of VfMajorAdvanceIrpStatus @ 0x14070E3E4
  * Callers:
- *     IovpCompleteRequest2 @ 0x14070B1D8 (IovpCompleteRequest2.c)
+ *     IovpCompleteRequest2 @ 0x14070B208 (IovpCompleteRequest2.c)
  * Callees:
  *     <none>
  */

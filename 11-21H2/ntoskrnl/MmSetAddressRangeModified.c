@@ -3,10 +3,10 @@
  * Callers:
  *     <none>
  * Callees:
- *     MmSetAddressRangeModifiedEx @ 0x14033D860 (MmSetAddressRangeModifiedEx.c)
+ *     sub_14033D860 @ 0x14033D860 (sub_14033D860.c)
  */
 
 BOOLEAN __stdcall MmSetAddressRangeModified(PVOID Address, SIZE_T Length)
 {
-  return MmSetAddressRangeModifiedEx(Address, Length);
+  return sub_14033D860(Address, Length);
 }

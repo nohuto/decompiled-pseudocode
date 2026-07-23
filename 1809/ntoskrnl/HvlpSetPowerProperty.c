@@ -1,15 +1,15 @@
 /*
- * XREFs of HvlpSetPowerProperty @ 0x1402773A4
+ * XREFs of HvlpSetPowerProperty @ 0x140277594
  * Callers:
- *     PpmScaleIdleStateValues @ 0x140175828 (PpmScaleIdleStateValues.c)
- *     HvlConfigureIdleStates @ 0x1402767B4 (HvlConfigureIdleStates.c)
- *     HvlRegisterPerfFeedbackCounters @ 0x140276F3C (HvlRegisterPerfFeedbackCounters.c)
- *     HvlSetPlatformIdleState @ 0x140276FBC (HvlSetPlatformIdleState.c)
- *     HvlpPowerPolicySettingCallback @ 0x1402772C0 (HvlpPowerPolicySettingCallback.c)
+ *     PpmScaleIdleStateValues @ 0x140175928 (PpmScaleIdleStateValues.c)
+ *     HvlConfigureIdleStates @ 0x1402769A4 (HvlConfigureIdleStates.c)
+ *     HvlRegisterPerfFeedbackCounters @ 0x14027712C (HvlRegisterPerfFeedbackCounters.c)
+ *     HvlSetPlatformIdleState @ 0x1402771AC (HvlSetPlatformIdleState.c)
+ *     HvlpPowerPolicySettingCallback @ 0x1402774B0 (HvlpPowerPolicySettingCallback.c)
  * Callees:
- *     HvcallpNoHypervisorPresent @ 0x14013E6A0 (HvcallpNoHypervisorPresent.c)
- *     HvlpAcquireHypercallPage @ 0x140271864 (HvlpAcquireHypercallPage.c)
- *     HvlpReleaseHypercallPage @ 0x140272384 (HvlpReleaseHypercallPage.c)
+ *     HvcallpNoHypervisorPresent @ 0x14013E7A0 (HvcallpNoHypervisorPresent.c)
+ *     HvlpAcquireHypercallPage @ 0x140271A54 (HvlpAcquireHypercallPage.c)
+ *     HvlpReleaseHypercallPage @ 0x140272574 (HvlpReleaseHypercallPage.c)
  */
 
 __int64 __fastcall HvlpSetPowerProperty(_OWORD *a1)

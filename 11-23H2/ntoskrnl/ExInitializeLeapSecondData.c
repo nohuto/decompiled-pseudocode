@@ -1,18 +1,18 @@
 /*
- * XREFs of ExInitializeLeapSecondData @ 0x140853510
+ * XREFs of ExInitializeLeapSecondData @ 0x140853810
  * Callers:
  *     Phase1InitializationDiscard @ 0x140B4FFBC (Phase1InitializationDiscard.c)
  * Callees:
  *     MmSizeOfMdl @ 0x140206EA0 (MmSizeOfMdl.c)
  *     MiRemoveFromSystemSpace @ 0x140213780 (MiRemoveFromSystemSpace.c)
- *     MmProbeAndLockPages @ 0x140238790 (MmProbeAndLockPages.c)
- *     MmMapLockedPagesSpecifyCache @ 0x14027CF60 (MmMapLockedPagesSpecifyCache.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ZwCreateSection @ 0x14041B6A0 (ZwCreateSection.c)
- *     memset @ 0x140435A00 (memset.c)
- *     MiMapViewInSystemSpace @ 0x1406AD6A4 (MiMapViewInSystemSpace.c)
- *     ObReferenceObjectByHandle @ 0x1406E62C0 (ObReferenceObjectByHandle.c)
- *     ExpReadLeapSecondData @ 0x140853714 (ExpReadLeapSecondData.c)
+ *     MmProbeAndLockPages @ 0x140238860 (MmProbeAndLockPages.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x14027D1F0 (MmMapLockedPagesSpecifyCache.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ZwCreateSection @ 0x14041BA30 (ZwCreateSection.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     MiMapViewInSystemSpace @ 0x1406AD6D4 (MiMapViewInSystemSpace.c)
+ *     ObReferenceObjectByHandle @ 0x1406E62F0 (ObReferenceObjectByHandle.c)
+ *     ExpReadLeapSecondData @ 0x140853A14 (ExpReadLeapSecondData.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 

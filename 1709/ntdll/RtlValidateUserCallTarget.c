@@ -21,7 +21,7 @@ __int64 __fastcall RtlValidateUserCallTarget(__int64 a1, _DWORD *a2)
   int v11; // eax
 
   v3 = a1;
-  v4 = CfgAddressToBitState(a1, qword_18016F370);
+  v4 = CfgAddressToBitState(a1, LdrSystemDllInitBlock.CfgBitMap);
   v7 = 0;
   if ( !v4 )
     goto LABEL_8;

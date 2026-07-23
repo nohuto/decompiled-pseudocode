@@ -18,19 +18,19 @@ void *__cdecl bsearch_s(
         void *Context)
 {
   char *v6; // ebx
-  rsize_t v7; // edi
+  unsigned int v7; // edi
   char *v8; // esi
-  rsize_t v9; // eax
+  unsigned int v9; // eax
   char v10; // cl
   int v11; // eax
   int v13; // [esp+Ch] [ebp-Ch]
-  rsize_t v14; // [esp+10h] [ebp-8h]
+  unsigned int v14; // [esp+10h] [ebp-8h]
   char *v15; // [esp+14h] [ebp-4h]
 
   v6 = (char *)Base;
   v7 = NumOfElements;
-  v8 = (char *)Base + SizeOfElements * (NumOfElements - 1);
-  if ( (Base || !NumOfElements) && SizeOfElements && CompareFunction )
+  v8 = (char *)Base + HIDWORD(NumOfElements) * (NumOfElements - 1);
+  if ( (Base || !(_DWORD)NumOfElements) && HIDWORD(NumOfElements) && (_DWORD)SizeOfElements )
   {
     while ( 1 )
     {
@@ -42,25 +42,27 @@ void *__cdecl bsearch_s(
       {
         if ( !v7 )
           return 0;
-        return CompareFunction(Context, Key, v6) == 0 ? v6 : 0;
+        return ((int (__cdecl *)(_DWORD, const void *, char *))SizeOfElements)(HIDWORD(SizeOfElements), Key, v6) == 0
+             ? v6
+             : 0;
       }
       v10 = v7;
       v7 = v9 - 1;
       v13 = v10 & 1;
       if ( (v10 & 1) == 0 )
         --v9;
-      v15 = &v6[SizeOfElements * v9];
-      v11 = CompareFunction(Context, Key, v15);
+      v15 = &v6[HIDWORD(NumOfElements) * v9];
+      v11 = ((int (__cdecl *)(_DWORD, const void *, char *))SizeOfElements)(HIDWORD(SizeOfElements), Key, v15);
       if ( !v11 )
         return v15;
       if ( v11 >= 0 )
         break;
-      v8 = &v15[-SizeOfElements];
+      v8 = &v15[-HIDWORD(NumOfElements)];
       if ( v13 )
 LABEL_14:
         v7 = v14;
     }
-    v6 = &v15[SizeOfElements];
+    v6 = &v15[HIDWORD(NumOfElements)];
     goto LABEL_14;
   }
   _invalid_parameter();

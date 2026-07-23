@@ -1,17 +1,17 @@
 /*
- * XREFs of KiCancelTimer @ 0x1403AD2D0
+ * XREFs of KiCancelTimer @ 0x1403B6FE0
  * Callers:
- *     KiSuspendThread @ 0x14020909C (KiSuspendThread.c)
- *     KiSetTimerEx @ 0x1403ABF20 (KiSetTimerEx.c)
- *     KeSetTimerEx @ 0x1403AC190 (KeSetTimerEx.c)
- *     KeCancelTimerInternal @ 0x1404B95AC (KeCancelTimerInternal.c)
+ *     KiSuspendThread @ 0x14020917C (KiSuspendThread.c)
+ *     KiSetTimerEx @ 0x1403B5C30 (KiSetTimerEx.c)
+ *     KeSetTimerEx @ 0x1403B5EA0 (KeSetTimerEx.c)
+ *     KeCancelTimerInternal @ 0x1404B2DDC (KeCancelTimerInternal.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     HvlNotifyLongSpinWait @ 0x1402BBF00 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402BC760 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     EtwTraceKernelEvent @ 0x1402DAC90 (EtwTraceKernelEvent.c)
- *     DifObjTrkRemoveItem @ 0x1403ADC70 (DifObjTrkRemoveItem.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     EtwTraceKernelEvent @ 0x1402BCA50 (EtwTraceKernelEvent.c)
+ *     HvlNotifyLongSpinWait @ 0x140306BC0 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140307420 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     DifObjTrkRemoveItem @ 0x1403B7980 (DifObjTrkRemoveItem.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall KiCancelTimer(__int64 a1, char a2)
@@ -187,7 +187,7 @@ LABEL_45:
 LABEL_34:
       if ( *(_DWORD *)(v15 + 28) == -1 && *(_DWORD *)(v14 + 28) == -1 )
       {
-        v20 = qword_140FC1698[2 * *(unsigned __int8 *)(v8 + 208)];
+        v20 = qword_140FC2698[2 * *(unsigned __int8 *)(v8 + 208)];
         if ( !KiSerializeTimerExpiration )
         {
           _interlockedbittestandreset64((volatile signed __int32 *)((v7 << 6) + v20), *(unsigned __int8 *)(v8 + 209));

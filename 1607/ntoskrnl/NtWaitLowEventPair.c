@@ -1,5 +1,5 @@
 /*
- * XREFs of NtWaitLowEventPair @ 0x140581938
+ * XREFs of NtWaitLowEventPair @ 0x140581DE8
  * Callers:
  *     <none>
  * Callees:

@@ -17,7 +17,7 @@
 
 __int64 __fastcall ST_STORE<SM_TRAITS>::StDmSinglePageCopy(
         __int64 a1,
-        __int64 a2,
+        void *a2,
         _DWORD *a3,
         unsigned __int64 a4,
         __int64 a5,
@@ -27,47 +27,47 @@ __int64 __fastcall ST_STORE<SM_TRAITS>::StDmSinglePageCopy(
   unsigned int v8; // edi
   unsigned __int64 v9; // r12
   char v11; // bl
-  __int64 pbOutput; // rsi
-  _OWORD *v13; // r14
+  unsigned __int64 v12; // rsi
+  UCHAR *v13; // r14
   __int64 v14; // r8
   ULONG cbOutput; // edx
   char v16; // al
   __int64 v17; // rcx
   __int64 v18; // r12
   __int64 v19; // rbx
-  unsigned int v20; // eax
+  ULONG v20; // eax
   __int64 v22; // rcx
   _OWORD *v23; // rax
   __int128 v24; // xmm1
   int v25; // eax
-  UCHAR *v26; // [rsp+20h] [rbp-A8h]
-  ULONG v27; // [rsp+28h] [rbp-A0h]
+  UCHAR *CompressedBufferSize; // [rsp+20h] [rbp-A8h]
+  ULONG FinalUncompressedSize; // [rsp+28h] [rbp-A0h]
   ULONG v28; // [rsp+48h] [rbp-80h]
   ULONG pcbResult; // [rsp+58h] [rbp-70h] BYREF
-  int v30; // [rsp+5Ch] [rbp-6Ch] BYREF
-  __int64 v31; // [rsp+60h] [rbp-68h]
+  ULONG v30; // [rsp+5Ch] [rbp-6Ch] BYREF
+  PVOID WorkSpace; // [rsp+60h] [rbp-68h]
   _DWORD v32[4]; // [rsp+68h] [rbp-60h] BYREF
 
   v7 = *(unsigned int *)(a1 + 176);
   v8 = 0;
   v9 = (unsigned __int64)a3;
-  v31 = a2;
+  WorkSpace = a2;
   v11 = 0;
-  pbOutput = (__int64)a3 + v7;
-  v13 = (_OWORD *)a4;
+  v12 = (unsigned __int64)a3 + v7;
+  v13 = (UCHAR *)a4;
   v14 = *(_QWORD *)(a1 + 456);
   cbOutput = ~(*(_DWORD *)(v14 + 8) - 1) & (*(_DWORD *)(v14 + 8) + *(unsigned __int16 *)(a5 + 4) - 1);
   pcbResult = cbOutput;
   if ( (a4 & 1) != 0 )
   {
-    v13 = *(_OWORD **)(a6 + 48);
+    v13 = *(UCHAR **)(a6 + 48);
     a4 &= ~1uLL;
   }
-  if ( (pbOutput & 3) != 0 )
+  if ( (v12 & 3) != 0 )
   {
     v9 &= 0xFFFFFFFFFFFFFFFCuLL;
-    v16 = pbOutput & 3;
-    pbOutput &= 0xFFFFFFFFFFFFFFFCuLL;
+    v16 = v12 & 3;
+    v12 &= 0xFFFFFFFFFFFFFFFCuLL;
     if ( (v16 & 2) != 0 )
     {
       memmove((void *)a4, (const void *)v9, (unsigned int)v7 + cbOutput);
@@ -77,9 +77,9 @@ LABEL_28:
     }
     if ( *(_DWORD *)(v14 + 24) )
     {
-      memmove(*(void **)(a1 + 1048), (const void *)pbOutput, cbOutput);
+      memmove(*(void **)(a1 + 1048), (const void *)v12, cbOutput);
       cbOutput = pcbResult;
-      pbOutput = *(_QWORD *)(a1 + 1048);
+      v12 = *(_QWORD *)(a1 + 1048);
     }
   }
   v17 = *(_QWORD *)(a1 + 456);
@@ -94,12 +94,12 @@ LABEL_28:
     *(_DWORD *)(v17 + 104) = 16;
     if ( BCryptDecrypt(
            *(BCRYPT_KEY_HANDLE *)(v17 + 32),
-           (PUCHAR)pbOutput,
+           (PUCHAR)v12,
            cbOutput,
            (void *)(v17 + 56),
-           v26,
-           v27,
-           (PUCHAR)pbOutput,
+           CompressedBufferSize,
+           FinalUncompressedSize,
+           (PUCHAR)v12,
            cbOutput,
            &pcbResult,
            v28) < 0 )
@@ -107,12 +107,12 @@ LABEL_28:
       v25 = -1073741173;
 LABEL_34:
       v8 = v25;
-      ST_STORE<SM_TRAITS>::StDmPageError(a1, pbOutput, a4, a5, v25);
+      ST_STORE<SM_TRAITS>::StDmPageError(a1, v12, a4, a5, v25);
       goto LABEL_28;
     }
   }
   else if ( (unsigned __int8)*(_DWORD *)(a1 + 128)
-         && *(_DWORD *)v9 != RtlComputeCrc32(0, (PUCHAR)pbOutput, *(unsigned __int16 *)(a5 + 4)) )
+         && *(_DWORD *)v9 != RtlComputeCrc32(0, (PUCHAR)v12, *(unsigned __int16 *)(a5 + 4)) )
   {
     v25 = -1073741761;
     goto LABEL_34;
@@ -137,27 +137,27 @@ LABEL_34:
   v20 = *(unsigned __int16 *)(a5 + 4);
   if ( v20 >= 0x1000 )
   {
-    memmove((void *)a4, (const void *)pbOutput, *(unsigned __int16 *)(a5 + 4));
+    memmove((void *)a4, (const void *)v12, *(unsigned __int16 *)(a5 + 4));
   }
-  else if ( (int)RtlDecompressBufferEx(*(_WORD *)(a1 + 432), (__int64)v13, 0x1000u, pbOutput, v20, (__int64)&v30, v31) >= 0
+  else if ( RtlDecompressBufferEx(*(_WORD *)(a1 + 432), v13, 0x1000u, (PUCHAR)v12, v20, &v30, WorkSpace) >= 0
          && v30 == 4096 )
   {
-    if ( v13 != (_OWORD *)a4 )
+    if ( v13 != (UCHAR *)a4 )
     {
       v22 = 32LL;
       v23 = (_OWORD *)a4;
       do
       {
-        *v23 = *v13;
-        v23[1] = v13[1];
-        v23[2] = v13[2];
-        v23[3] = v13[3];
-        v23[4] = v13[4];
-        v23[5] = v13[5];
-        v23[6] = v13[6];
+        *v23 = *(_OWORD *)v13;
+        v23[1] = *((_OWORD *)v13 + 1);
+        v23[2] = *((_OWORD *)v13 + 2);
+        v23[3] = *((_OWORD *)v13 + 3);
+        v23[4] = *((_OWORD *)v13 + 4);
+        v23[5] = *((_OWORD *)v13 + 5);
+        v23[6] = *((_OWORD *)v13 + 6);
         v23 += 8;
-        v24 = v13[7];
-        v13 += 8;
+        v24 = *((_OWORD *)v13 + 7);
+        v13 += 128;
         *(v23 - 1) = v24;
         --v22;
       }
@@ -173,6 +173,6 @@ LABEL_19:
   if ( (v11 & 2) != 0 )
     *(_DWORD *)(v18 + 56) = StLockAcquireShared((struct VLOCK *)(*(_QWORD *)(a1 + 152) + 4488LL));
   if ( (v11 & 1) != 0 )
-    ST_STORE<SM_TRAITS>::StDmPageError(a1, pbOutput, a4, a5, v8);
+    ST_STORE<SM_TRAITS>::StDmPageError(a1, v12, a4, a5, v8);
   return v8;
 }

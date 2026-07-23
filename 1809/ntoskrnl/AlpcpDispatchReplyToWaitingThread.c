@@ -1,24 +1,24 @@
 /*
- * XREFs of AlpcpDispatchReplyToWaitingThread @ 0x140634530
+ * XREFs of AlpcpDispatchReplyToWaitingThread @ 0x140635550
  * Callers:
- *     AlpcpDispatchMessage @ 0x14061A7E4 (AlpcpDispatchMessage.c)
- *     AlpcpSendMessage @ 0x1406348F0 (AlpcpSendMessage.c)
+ *     AlpcpDispatchMessage @ 0x14061B7E4 (AlpcpDispatchMessage.c)
+ *     AlpcpSendMessage @ 0x140635910 (AlpcpSendMessage.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KeReleaseSemaphoreEx @ 0x1400D2970 (KeReleaseSemaphoreEx.c)
- *     AlpcpUnlockMessage @ 0x140615E4C (AlpcpUnlockMessage.c)
- *     AlpcpExposeViewAttributeInSenderContext @ 0x140617B88 (AlpcpExposeViewAttributeInSenderContext.c)
- *     AlpcpSetOwnerPortMessage @ 0x140636190 (AlpcpSetOwnerPortMessage.c)
- *     AlpcpCaptureMessageDataSafe @ 0x1406361D0 (AlpcpCaptureMessageDataSafe.c)
- *     AlpcpUnlockBlob @ 0x140637040 (AlpcpUnlockBlob.c)
- *     AlpcpEnterStateChangeEventMessageLog @ 0x14084A598 (AlpcpEnterStateChangeEventMessageLog.c)
- *     AlpcpLogSendMessage @ 0x14084B9C4 (AlpcpLogSendMessage.c)
- *     AlpcpLogWaitForReply @ 0x14084BB80 (AlpcpLogWaitForReply.c)
+ *     ExfReleasePushLockShared @ 0x1400913F0 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     KeReleaseSemaphoreEx @ 0x1400D29F0 (KeReleaseSemaphoreEx.c)
+ *     AlpcpUnlockMessage @ 0x140616E4C (AlpcpUnlockMessage.c)
+ *     AlpcpExposeViewAttributeInSenderContext @ 0x140618B88 (AlpcpExposeViewAttributeInSenderContext.c)
+ *     AlpcpSetOwnerPortMessage @ 0x1406371B0 (AlpcpSetOwnerPortMessage.c)
+ *     AlpcpCaptureMessageDataSafe @ 0x1406371F0 (AlpcpCaptureMessageDataSafe.c)
+ *     AlpcpUnlockBlob @ 0x140638060 (AlpcpUnlockBlob.c)
+ *     AlpcpEnterStateChangeEventMessageLog @ 0x14084B7F8 (AlpcpEnterStateChangeEventMessageLog.c)
+ *     AlpcpLogSendMessage @ 0x14084CC24 (AlpcpLogSendMessage.c)
+ *     AlpcpLogWaitForReply @ 0x14084CDE0 (AlpcpLogWaitForReply.c)
  */
 
 __int64 __fastcall AlpcpDispatchReplyToWaitingThread(__int64 *a1)

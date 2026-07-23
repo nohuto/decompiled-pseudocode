@@ -1,10 +1,10 @@
 /*
- * XREFs of MiInitializeDynamicPfnsTarget @ 0x1402A6AC0
+ * XREFs of MiInitializeDynamicPfnsTarget @ 0x1402A6CB0
  * Callers:
  *     <none>
  * Callees:
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     MiInitializeUnusablePfns @ 0x14017F04C (MiInitializeUnusablePfns.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     MiInitializeUnusablePfns @ 0x14017F18C (MiInitializeUnusablePfns.c)
  */
 
 __int64 __fastcall MiInitializeDynamicPfnsTarget(__int64 a1, __int64 a2, volatile signed __int32 *a3, __int64 a4)

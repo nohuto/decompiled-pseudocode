@@ -1,53 +1,53 @@
 /*
- * XREFs of SepReconcileTrustSidWithProcessProtection @ 0x1403597C0
+ * XREFs of SepReconcileTrustSidWithProcessProtection @ 0x1403E3A30
  * Callers:
- *     SeCreateClientSecurity @ 0x140896720 (SeCreateClientSecurity.c)
- *     NtAlpcImpersonateClientOfPort @ 0x140896970 (NtAlpcImpersonateClientOfPort.c)
- *     SeCreateClientSecurityEx @ 0x1408974A0 (SeCreateClientSecurityEx.c)
- *     AlpcpGetEffectiveTokenMessage @ 0x140897750 (AlpcpGetEffectiveTokenMessage.c)
- *     AlpcpExposeTokenAttribute @ 0x140898930 (AlpcpExposeTokenAttribute.c)
+ *     SeCreateClientSecurity @ 0x14089EDC0 (SeCreateClientSecurity.c)
+ *     NtAlpcImpersonateClientOfPort @ 0x14089F010 (NtAlpcImpersonateClientOfPort.c)
+ *     SeCreateClientSecurityEx @ 0x14089FB40 (SeCreateClientSecurityEx.c)
+ *     AlpcpGetEffectiveTokenMessage @ 0x14089FDF0 (AlpcpGetEffectiveTokenMessage.c)
+ *     AlpcpExposeTokenAttribute @ 0x1408A0FD0 (AlpcpExposeTokenAttribute.c)
  * Callees:
- *     RtlIsValidProcessTrustLabelSid @ 0x1403599E0 (RtlIsValidProcessTrustLabelSid.c)
+ *     RtlIsValidProcessTrustLabelSid @ 0x1403E3C50 (RtlIsValidProcessTrustLabelSid.c)
  */
 
-__int64 __fastcall SepReconcileTrustSidWithProcessProtection(__int64 a1, unsigned __int8 *a2, _BYTE *a3, _QWORD *a4)
+char __fastcall SepReconcileTrustSidWithProcessProtection(PSID Sid, unsigned __int8 *a2, _BYTE *a3, _QWORD *a4)
 {
-  __int64 result; // rax
-  __int64 v5; // r11
-  __int64 v6; // r10
-  _QWORD *v7; // r9
-  __int64 v8; // r10
-  __int64 v9; // r11
+  unsigned int v4; // eax
+  PSID v5; // r11
+  PSID v6; // r10
+  _BYTE *v7; // r8
+  _QWORD *v8; // r9
+  __int64 v9; // r10
+  __int64 v10; // r11
 
-  result = *a2;
+  v4 = *a2;
   *a3 = 0;
-  v5 = a1;
+  v5 = Sid;
   *a4 = 0LL;
-  if ( (_DWORD)result != 98 )
+  if ( v4 != 98 )
   {
-    a2 = (unsigned __int8 *)0x140000000LL;
-    result = (int)result - 18;
-    switch ( (int)result )
+    v4 -= 18;
+    switch ( v4 )
     {
-      case 0:
-        v6 = SeProcTrustAuthenticodeSid;
+      case 0u:
+        v6 = (PSID)SeProcTrustAuthenticodeSid;
         goto LABEL_3;
-      case 31:
-        v6 = SeProcTrustLiteAntimalwareSid;
+      case 0x1Fu:
+        v6 = (PSID)SeProcTrustLiteAntimalwareSid;
         goto LABEL_3;
-      case 63:
-        v6 = SeProcTrustLiteWinSid;
+      case 0x3Fu:
+        v6 = (PSID)SeProcTrustLiteWinSid;
         goto LABEL_3;
-      case 64:
-        v6 = SeProcTrustWinSid;
+      case 0x40u:
+        v6 = (PSID)SeProcTrustWinSid;
         goto LABEL_3;
-      case 79:
-        v6 = SeProcTrustLiteWinTcbSid;
+      case 0x4Fu:
+        v6 = (PSID)SeProcTrustLiteWinTcbSid;
         goto LABEL_3;
-      case 96:
+      case 0x60u:
         break;
-      case 111:
-        v6 = SeProcTrustLiteAppSid;
+      case 0x6Fu:
+        v6 = (PSID)SeProcTrustLiteAppSid;
         goto LABEL_3;
       default:
         goto LABEL_4;
@@ -57,36 +57,30 @@ __int64 __fastcall SepReconcileTrustSidWithProcessProtection(__int64 a1, unsigne
 LABEL_3:
   if ( v6 )
   {
-    result = RtlIsValidProcessTrustLabelSid(v6, a2, a3);
-    if ( !(_BYTE)result )
+    LOBYTE(v4) = RtlIsValidProcessTrustLabelSid(v6);
+    if ( !(_BYTE)v4 )
       goto LABEL_7;
   }
 LABEL_4:
-  if ( v5 )
+  if ( !v5 )
+    return v4;
+  LOBYTE(v4) = RtlIsValidProcessTrustLabelSid(v5);
+  if ( !(_BYTE)v4 )
+    goto LABEL_7;
+  if ( v9 )
   {
-    result = RtlIsValidProcessTrustLabelSid(v5, a2, a3);
-    if ( (_BYTE)result )
+    v4 = *(_DWORD *)(v10 + 8);
+    if ( *(_DWORD *)(v9 + 8) < v4 || (v4 = *(_DWORD *)(v10 + 12), *(_DWORD *)(v9 + 12) < v4) )
     {
-      if ( !v8 )
-      {
-        if ( *(_DWORD *)(v9 + 8) )
-        {
-          *a3 = 1;
-          *v7 = 0LL;
-        }
-        return result;
-      }
-      result = *(unsigned int *)(v9 + 8);
-      if ( *(_DWORD *)(v8 + 8) >= (unsigned int)result )
-      {
-        result = *(unsigned int *)(v9 + 12);
-        if ( *(_DWORD *)(v8 + 12) >= (unsigned int)result )
-          return result;
-      }
-    }
 LABEL_7:
-    *a3 = 1;
-    *v7 = v8;
+      *v7 = 1;
+      *v8 = v9;
+    }
   }
-  return result;
+  else if ( *(_DWORD *)(v10 + 8) )
+  {
+    *v7 = 1;
+    *v8 = 0LL;
+  }
+  return v4;
 }

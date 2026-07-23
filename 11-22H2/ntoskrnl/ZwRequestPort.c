@@ -6,9 +6,9 @@
  *     <none>
  */
 
-__int64 __fastcall ZwRequestPort(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwRequestPort(HANDLE PortHandle, PPORT_MESSAGE RequestMessage)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(PortHandle);
 }

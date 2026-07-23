@@ -1,26 +1,26 @@
 /*
- * XREFs of CmNotifyRunDown @ 0x140ABE29C
+ * XREFs of CmNotifyRunDown @ 0x14094BC20
  * Callers:
- *     PspExitThread @ 0x14095771C (PspExitThread.c)
+ *     PspExitThread @ 0x14094B14C (PspExitThread.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     ExReleaseFastMutexUnsafe @ 0x140276140 (ExReleaseFastMutexUnsafe.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     DbgPrint @ 0x140396F60 (DbgPrint.c)
- *     ExAcquireFastMutexUnsafe @ 0x1403FC2F0 (ExAcquireFastMutexUnsafe.c)
- *     CmpInitializeThreadInfo @ 0x14043CF00 (CmpInitializeThreadInfo.c)
- *     CmCleanupThreadInfo @ 0x14044C0A0 (CmCleanupThreadInfo.c)
- *     KeRemoveQueueApc @ 0x140467790 (KeRemoveQueueApc.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     RtlCopyToUser @ 0x14077F284 (RtlCopyToUser.c)
- *     RtlWriteULong64ToUser @ 0x14077F758 (RtlWriteULong64ToUser.c)
- *     CmpFreeSubordinatePost @ 0x1408D08C0 (CmpFreeSubordinatePost.c)
- *     CmpFreePostBlock @ 0x1408D1020 (CmpFreePostBlock.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408F29F0 (ExRaiseDatatypeMisalignment.c)
- *     CmpCancelSubordinatePost @ 0x140AAF2D0 (CmpCancelSubordinatePost.c)
- *     CmpLockRegistry @ 0x140C58850 (CmpLockRegistry.c)
- *     CmpUnlockRegistry @ 0x140C58970 (CmpUnlockRegistry.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     ExReleaseFastMutexUnsafe @ 0x1402756B0 (ExReleaseFastMutexUnsafe.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     DbgPrint @ 0x140398CE0 (DbgPrint.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1403F8AE0 (ExAcquireFastMutexUnsafe.c)
+ *     CmpInitializeThreadInfo @ 0x14042F7B0 (CmpInitializeThreadInfo.c)
+ *     CmCleanupThreadInfo @ 0x1404441C0 (CmCleanupThreadInfo.c)
+ *     KeRemoveQueueApc @ 0x140460EE0 (KeRemoveQueueApc.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     RtlCopyToUser @ 0x140781D84 (RtlCopyToUser.c)
+ *     RtlWriteULong64ToUser @ 0x140782258 (RtlWriteULong64ToUser.c)
+ *     CmpFreeSubordinatePost @ 0x1408D6E80 (CmpFreeSubordinatePost.c)
+ *     CmpFreePostBlock @ 0x1408D75E0 (CmpFreePostBlock.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408F8FB0 (ExRaiseDatatypeMisalignment.c)
+ *     CmpCancelSubordinatePost @ 0x140AACF20 (CmpCancelSubordinatePost.c)
+ *     CmpLockRegistry @ 0x140C5E850 (CmpLockRegistry.c)
+ *     CmpUnlockRegistry @ 0x140C5E970 (CmpUnlockRegistry.c)
  */
 
 _KAFFINITY_EX *__fastcall CmNotifyRunDown(__int64 a1)
@@ -28,76 +28,79 @@ _KAFFINITY_EX *__fastcall CmNotifyRunDown(__int64 a1)
   _KAFFINITY_EX *v1; // rsi
   __int64 v2; // r13
   _KAFFINITY_EX *result; // rax
-  __int64 v4; // rcx
-  int v5; // edx
+  __int64 v4; // rdx
+  __int64 v5; // rcx
+  __int64 v6; // r8
+  __int64 v7; // r9
+  int v8; // edx
   unsigned __int8 CurrentIrql; // r12
-  __int64 v7; // rcx
-  _KAFFINITY_EX **v8; // r14
-  _KAFFINITY_EX *v9; // rax
-  _KAFFINITY_EX **v10; // rdi
-  int v11; // eax
-  _KAFFINITY_EX *v12; // rdx
+  __int64 v10; // rcx
+  _KAFFINITY_EX **v11; // r14
+  _KAFFINITY_EX *v12; // rax
+  _KAFFINITY_EX **v13; // rdi
+  int v14; // eax
+  _KAFFINITY_EX *v15; // rdx
   _KPROCESS *Process; // rcx
-  bool v14; // dl
-  _QWORD *v15; // rcx
-  __int16 v16; // ax
-  _KAFFINITY_EX *v18; // rdx
-  struct _KEVENT *v19; // rcx
-  _KAFFINITY_EX *v20; // rcx
-  _KAFFINITY_EX ***v21; // rax
-  _KAFFINITY_EX **v22; // rdx
-  __int64 v23; // rcx
+  bool v17; // dl
+  _QWORD *v18; // rcx
+  __int16 v19; // ax
+  _KAFFINITY_EX *v21; // rdx
+  struct _KEVENT *v22; // rcx
+  _KAFFINITY_EX *v23; // rcx
   _KAFFINITY_EX ***v24; // rax
-  _KAFFINITY_EX *v25; // rcx
-  _KAFFINITY_EX ***v26; // rax
-  _KAFFINITY_EX **v27; // rax
+  _KAFFINITY_EX **v25; // rdx
+  __int64 v26; // rcx
+  _KAFFINITY_EX ***v27; // rax
+  _KAFFINITY_EX *v28; // rcx
+  _KAFFINITY_EX ***v29; // rax
+  _KAFFINITY_EX **v30; // rax
   __int128 Src; // [rsp+40h] [rbp-78h] BYREF
-  __int128 v29; // [rsp+50h] [rbp-68h] BYREF
-  __int64 v30; // [rsp+60h] [rbp-58h]
+  __int128 v32; // [rsp+50h] [rbp-68h] BYREF
+  __int64 v33; // [rsp+60h] [rbp-58h]
   struct _KTHREAD *CurrentThread; // [rsp+68h] [rbp-50h]
-  _KPROCESS *v32; // [rsp+70h] [rbp-48h]
+  _KPROCESS *v35; // [rsp+70h] [rbp-48h]
 
-  v29 = 0LL;
-  v30 = 0LL;
+  v32 = 0LL;
+  v33 = 0LL;
   v1 = (_KAFFINITY_EX *)(a1 + 1240);
   v2 = a1 + 1240;
   result = *(_KAFFINITY_EX **)(a1 + 1240);
   if ( result && result != v1 )
   {
-    CmpInitializeThreadInfo((_KAFFINITY_EX *)&v29);
-    CmpLockRegistry(v4);
+    CmpInitializeThreadInfo((_KAFFINITY_EX *)&v32);
+    CmpLockRegistry(v5, v4, v6, v7);
     ExAcquireFastMutexUnsafe((PFAST_MUTEX)(&CmpKeyLockTracker.SwapListEntry + 1));
     CurrentIrql = KeGetCurrentIrql();
     if ( CurrentIrql != 1 )
       __writecr8(1uLL);
     if ( KiIrqlFlags )
     {
-      LOBYTE(v5) = 1;
-      KiRaiseIrqlProcessIrqlFlags(CurrentIrql, v5);
+      LOBYTE(v8) = 1;
+      KiRaiseIrqlProcessIrqlFlags(CurrentIrql, v8);
     }
     if ( *(_QWORD *)&v1->Count )
     {
       while ( 1 )
       {
-        v8 = *(_KAFFINITY_EX ***)&v1->Count;
+        v11 = *(_KAFFINITY_EX ***)&v1->Count;
         if ( *(_QWORD *)&v1->Count == v2 )
           break;
-        v9 = *v8;
-        if ( v8[1] != v1 || (_KAFFINITY_EX **)v9->Bitmap[0] != v8 )
+        v12 = *v11;
+        if ( v11[1] != v1 || (_KAFFINITY_EX **)v12->Bitmap[0] != v11 )
 LABEL_50:
           __fastfail(3u);
-        *(_QWORD *)&v1->Count = v9;
-        v9->Bitmap[0] = (unsigned __int64)v1;
-        v10 = v8 - 2;
-        v11 = *((_DWORD *)v8 + 10);
-        if ( (v11 & 0x10000) != 0 )
+        *(_QWORD *)&v1->Count = v12;
+        v12->Bitmap[0] = (unsigned __int64)v1;
+        v13 = v11 - 2;
+        v14 = *((_DWORD *)v11 + 10);
+        if ( (v14 & 0x10000) != 0 )
         {
-          if ( (_WORD)v11 == 2 )
+          if ( (_WORD)v14 == 2 )
           {
-            v12 = v8[6];
-            if ( (unsigned __int64 *)v12->StaticBitmap[12] == &v12->StaticBitmap[12] )
+            v15 = v11[6];
+            if ( (unsigned __int64 *)v15->StaticBitmap[12] == &v15->StaticBitmap[12] )
             {
-              DbgPrint("IoStatusBlock pointing onto itself AsyncUser = %p\n", v12);
+              DbgPrint("IoStatusBlock pointing onto itself AsyncUser = %p\n", v15);
               if ( (_BYTE)KdDebuggerEnabled )
               {
                 if ( !(_BYTE)KdDebuggerNotPresent )
@@ -106,86 +109,86 @@ LABEL_50:
             }
             CurrentThread = KeGetCurrentThread();
             Process = CurrentThread->ApcState.Process;
-            v32 = Process;
-            v14 = 0;
+            v35 = Process;
+            v17 = 0;
             if ( Process[1].ReadyTime )
             {
-              v16 = WORD2(Process[3].PerProcessorCycleTimes);
-              if ( v16 == 332 || v16 == 452 )
-                v14 = 1;
+              v19 = WORD2(Process[3].PerProcessorCycleTimes);
+              if ( v19 == 332 || v19 == 452 )
+                v17 = 1;
             }
-            v15 = (_QWORD *)v10[8]->StaticBitmap[12];
-            if ( v14 )
+            v18 = (_QWORD *)v13[8]->StaticBitmap[12];
+            if ( v17 )
             {
-              if ( ((unsigned __int8)v15 & 3) != 0 )
+              if ( ((unsigned __int8)v18 & 3) != 0 )
                 ExRaiseDatatypeMisalignment();
-              RtlWriteULong64ToUser(v15, 267LL);
+              RtlWriteULong64ToUser(v18, 267LL);
             }
             else
             {
               Src = 0x10BuLL;
-              if ( ((unsigned __int8)v15 & 3) != 0 )
+              if ( ((unsigned __int8)v18 & 3) != 0 )
                 ExRaiseDatatypeMisalignment();
-              RtlCopyToUser(v15, &Src, 0x10uLL);
+              RtlCopyToUser(v18, &Src, 0x10uLL);
             }
-            v18 = v8[6];
-            if ( (unsigned __int64 *)v18->StaticBitmap[12] == &v18->StaticBitmap[12] )
+            v21 = v11[6];
+            if ( (unsigned __int64 *)v21->StaticBitmap[12] == &v21->StaticBitmap[12] )
             {
-              DbgPrint("IoStatusBlock pointing onto itself AsyncUser = %p\n", v18);
+              DbgPrint("IoStatusBlock pointing onto itself AsyncUser = %p\n", v21);
               if ( (_BYTE)KdDebuggerEnabled )
               {
                 if ( !(_BYTE)KdDebuggerNotPresent )
                   __debugbreak();
               }
             }
-            v19 = (struct _KEVENT *)v10[8]->Bitmap[0];
-            if ( v19 )
+            v22 = (struct _KEVENT *)v13[8]->Bitmap[0];
+            if ( v22 )
             {
-              KeSetEvent(v19, 0, 0);
-              ObfDereferenceObject((PVOID)v10[8]->Bitmap[0]);
+              KeSetEvent(v22, 0, 0);
+              ObfDereferenceObject((PVOID)v13[8]->Bitmap[0]);
             }
-            if ( !KeRemoveQueueApc((__int64)&v10[8]->StaticBitmap[1]) )
+            if ( !KeRemoveQueueApc((__int64)&v13[8]->StaticBitmap[1]) )
             {
-              v20 = *v10;
-              v21 = (_KAFFINITY_EX ***)v10[1];
-              if ( (_KAFFINITY_EX **)(*v10)->Bitmap[0] != v10 || *v21 != v10 )
+              v23 = *v13;
+              v24 = (_KAFFINITY_EX ***)v13[1];
+              if ( (_KAFFINITY_EX **)(*v13)->Bitmap[0] != v13 || *v24 != v13 )
                 goto LABEL_50;
-              *v21 = (_KAFFINITY_EX **)v20;
-              v20->Bitmap[0] = (unsigned __int64)v21;
-              v22 = (_KAFFINITY_EX **)v10[4];
-              if ( v22 != v10 + 4 )
+              *v24 = (_KAFFINITY_EX **)v23;
+              v23->Bitmap[0] = (unsigned __int64)v24;
+              v25 = (_KAFFINITY_EX **)v13[4];
+              if ( v25 != v13 + 4 )
               {
-                v23 = (__int64)*(v22 - 4);
-                v24 = (_KAFFINITY_EX ***)*(v22 - 3);
-                if ( *(_KAFFINITY_EX ***)(v23 + 8) != v22 - 4 || *v24 != v22 - 4 )
+                v26 = (__int64)*(v25 - 4);
+                v27 = (_KAFFINITY_EX ***)*(v25 - 3);
+                if ( *(_KAFFINITY_EX ***)(v26 + 8) != v25 - 4 || *v27 != v25 - 4 )
                   goto LABEL_50;
-                *v24 = (_KAFFINITY_EX **)v23;
-                *(_QWORD *)(v23 + 8) = v24;
+                *v27 = (_KAFFINITY_EX **)v26;
+                *(_QWORD *)(v26 + 8) = v27;
               }
             }
           }
           else
           {
-            v25 = *v10;
-            v26 = (_KAFFINITY_EX ***)v10[1];
-            if ( (_KAFFINITY_EX **)(*v10)->Bitmap[0] != v10 || *v26 != v10 )
+            v28 = *v13;
+            v29 = (_KAFFINITY_EX ***)v13[1];
+            if ( (_KAFFINITY_EX **)(*v13)->Bitmap[0] != v13 || *v29 != v13 )
               goto LABEL_50;
-            *v26 = (_KAFFINITY_EX **)v25;
-            v25->Bitmap[0] = (unsigned __int64)v26;
-            CmpCancelSubordinatePost((__int64)(v8 - 2), 0LL);
+            *v29 = (_KAFFINITY_EX **)v28;
+            v28->Bitmap[0] = (unsigned __int64)v29;
+            CmpCancelSubordinatePost(v11 - 2, 0LL);
           }
-          CmpFreeSubordinatePost((__int64)v10);
-          CmpFreePostBlock(v10);
+          CmpFreeSubordinatePost((__int64)v13);
+          CmpFreePostBlock(v13);
         }
         else
         {
-          v27 = (_KAFFINITY_EX **)v1->Bitmap[0];
-          if ( *v27 != v1 )
+          v30 = (_KAFFINITY_EX **)v1->Bitmap[0];
+          if ( *v30 != v1 )
             goto LABEL_50;
-          *v8 = v1;
-          v8[1] = (_KAFFINITY_EX *)v27;
-          *v27 = (_KAFFINITY_EX *)v8;
-          v1->Bitmap[0] = (unsigned __int64)v8;
+          *v11 = v1;
+          v11[1] = (_KAFFINITY_EX *)v30;
+          *v30 = (_KAFFINITY_EX *)v11;
+          v1->Bitmap[0] = (unsigned __int64)v11;
         }
       }
     }
@@ -193,8 +196,8 @@ LABEL_50:
       KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), CurrentIrql);
     __writecr8(CurrentIrql);
     ExReleaseFastMutexUnsafe((PFAST_MUTEX)(&CmpKeyLockTracker.SwapListEntry + 1));
-    CmpUnlockRegistry(v7);
-    return CmCleanupThreadInfo((_KAFFINITY_EX **)&v29);
+    CmpUnlockRegistry(v10);
+    return CmCleanupThreadInfo((_KAFFINITY_EX **)&v32);
   }
   return result;
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of SepInitializeLowBoxNumberTable @ 0x140816AD0
+ * XREFs of SepInitializeLowBoxNumberTable @ 0x14081CCE0
  * Callers:
- *     SepSetTokenLowboxNumber @ 0x140A2C4A4 (SepSetTokenLowboxNumber.c)
+ *     SepSetTokenLowboxNumber @ 0x140A3E100 (SepSetTokenLowboxNumber.c)
  * Callees:
- *     RtlClearAllBits @ 0x14047EA90 (RtlClearAllBits.c)
- *     RtlCreateHashTable @ 0x1404B89B0 (RtlCreateHashTable.c)
- *     RtlDeleteHashTable @ 0x1404B8B10 (RtlDeleteHashTable.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     RtlClearAllBits @ 0x140478400 (RtlClearAllBits.c)
+ *     RtlCreateHashTable @ 0x1404B21E0 (RtlCreateHashTable.c)
+ *     RtlDeleteHashTable @ 0x1404B2340 (RtlDeleteHashTable.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall SepInitializeLowBoxNumberTable(__int64 a1)

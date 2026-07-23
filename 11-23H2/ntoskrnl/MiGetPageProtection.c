@@ -1,24 +1,24 @@
 /*
- * XREFs of MiGetPageProtection @ 0x140272A20
+ * XREFs of MiGetPageProtection @ 0x140272CB0
  * Callers:
- *     MiQueryAddressState @ 0x140271C00 (MiQueryAddressState.c)
- *     MiCommitExistingVad @ 0x140276A30 (MiCommitExistingVad.c)
- *     MiProtectPrivateMemory @ 0x1402A2880 (MiProtectPrivateMemory.c)
+ *     MiQueryAddressState @ 0x140271E90 (MiQueryAddressState.c)
+ *     MiCommitExistingVad @ 0x140276CC0 (MiCommitExistingVad.c)
+ *     MiProtectPrivateMemory @ 0x1402A2B10 (MiProtectPrivateMemory.c)
  * Callees:
  *     MI_PROTO_FORMAT_COMBINED @ 0x14020AE38 (MI_PROTO_FORMAT_COMBINED.c)
  *     MiTryLockProtoPoolPageAtDpc @ 0x14021C84C (MiTryLockProtoPoolPageAtDpc.c)
- *     MiGetProtoPteAddress @ 0x140272E90 (MiGetProtoPteAddress.c)
- *     MiIsPrototypePteVadLookup @ 0x14027CF00 (MiIsPrototypePteVadLookup.c)
- *     MiLocateCloneAddress @ 0x140294598 (MiLocateCloneAddress.c)
- *     MiUnlockProtoPoolPage @ 0x1402DAEF0 (MiUnlockProtoPoolPage.c)
- *     MiLockTransitionLeafPageEx @ 0x140347CA8 (MiLockTransitionLeafPageEx.c)
- *     MiGetImageProtoProtection @ 0x1403568BC (MiGetImageProtoProtection.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     MiCaptureProtectionFromLockedProto @ 0x14046CAC0 (MiCaptureProtectionFromLockedProto.c)
- *     MiRotatedToFrameBuffer @ 0x140632E54 (MiRotatedToFrameBuffer.c)
- *     MiGetProtectionFromPte @ 0x140648EBC (MiGetProtectionFromPte.c)
- *     MiGetValidAwePartitionId @ 0x14064A9EC (MiGetValidAwePartitionId.c)
- *     MiGetValidAweProtection @ 0x14064AA84 (MiGetValidAweProtection.c)
+ *     MiGetProtoPteAddress @ 0x140273120 (MiGetProtoPteAddress.c)
+ *     MiIsPrototypePteVadLookup @ 0x14027D190 (MiIsPrototypePteVadLookup.c)
+ *     MiLocateCloneAddress @ 0x140294828 (MiLocateCloneAddress.c)
+ *     MiUnlockProtoPoolPage @ 0x1402DB180 (MiUnlockProtoPoolPage.c)
+ *     MiLockTransitionLeafPageEx @ 0x140347F38 (MiLockTransitionLeafPageEx.c)
+ *     MiGetImageProtoProtection @ 0x140356A5C (MiGetImageProtoProtection.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     MiCaptureProtectionFromLockedProto @ 0x14046CEC0 (MiCaptureProtectionFromLockedProto.c)
+ *     MiRotatedToFrameBuffer @ 0x1406333A4 (MiRotatedToFrameBuffer.c)
+ *     MiGetProtectionFromPte @ 0x14064940C (MiGetProtectionFromPte.c)
+ *     MiGetValidAwePartitionId @ 0x14064AF3C (MiGetValidAwePartitionId.c)
+ *     MiGetValidAweProtection @ 0x14064AFD4 (MiGetValidAweProtection.c)
  */
 
 __int64 __fastcall MiGetPageProtection(

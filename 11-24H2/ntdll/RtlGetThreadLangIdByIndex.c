@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlGetThreadLangIdByIndex @ 0x180111E10
+ * XREFs of RtlGetThreadLangIdByIndex @ 0x18010D280
  * Callers:
  *     <none>
  * Callees:
- *     GetLCIDFromLangListNodeWithLICCheck @ 0x180061A10 (GetLCIDFromLangListNodeWithLICCheck.c)
+ *     GetLCIDFromLangListNodeWithLICCheck @ 0x1800775F0 (GetLCIDFromLangListNodeWithLICCheck.c)
  */
 
 __int64 __fastcall RtlGetThreadLangIdByIndex(int a1, unsigned int a2, _DWORD *a3, unsigned int *a4)

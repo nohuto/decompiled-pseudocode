@@ -1,14 +1,14 @@
 /*
- * XREFs of ExfWaitForRundownProtectionRelease @ 0x1402C6ABC
+ * XREFs of ExfWaitForRundownProtectionRelease @ 0x1402BB63C
  * Callers:
- *     ExWaitForRundownProtectionRelease @ 0x1402C6A90 (ExWaitForRundownProtectionRelease.c)
- *     CmLoadAppKey @ 0x14092DB9C (CmLoadAppKey.c)
- *     PfSnPrefetchSections @ 0x140954784 (PfSnPrefetchSections.c)
- *     PfSnPrefetchSectionsCleanup @ 0x140954B40 (PfSnPrefetchSectionsCleanup.c)
- *     PfSnPrefetchScenario @ 0x140962D70 (PfSnPrefetchScenario.c)
+ *     ExWaitForRundownProtectionRelease @ 0x1402BB610 (ExWaitForRundownProtectionRelease.c)
+ *     CmLoadAppKey @ 0x14092FCDC (CmLoadAppKey.c)
+ *     PfSnPrefetchSections @ 0x140938134 (PfSnPrefetchSections.c)
+ *     PfSnPrefetchSectionsCleanup @ 0x1409384F0 (PfSnPrefetchSectionsCleanup.c)
+ *     PfSnPrefetchScenario @ 0x14094A830 (PfSnPrefetchScenario.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     KeYieldProcessorEx @ 0x1403F9C60 (KeYieldProcessorEx.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     KeYieldProcessorEx @ 0x1403EFB70 (KeYieldProcessorEx.c)
  */
 
 int __fastcall ExfWaitForRundownProtectionRelease(volatile signed __int64 *a1, unsigned __int64 a2)

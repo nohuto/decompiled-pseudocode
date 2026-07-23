@@ -3,20 +3,20 @@
  * Callers:
  *     MiUnlockMdlWritePages @ 0x14001E4F0 (MiUnlockMdlWritePages.c)
  *     MiWriteComplete @ 0x140021DE0 (MiWriteComplete.c)
- *     MiBuildMappedCluster @ 0x14007FF80 (MiBuildMappedCluster.c)
- *     MiGatherPagefilePages @ 0x14014EFE0 (MiGatherPagefilePages.c)
- *     MiUnlockStoreLockedPages @ 0x1401541C0 (MiUnlockStoreLockedPages.c)
+ *     MiBuildMappedCluster @ 0x14007FF70 (MiBuildMappedCluster.c)
+ *     MiGatherPagefilePages @ 0x14014F0E0 (MiGatherPagefilePages.c)
+ *     MiUnlockStoreLockedPages @ 0x1401542C0 (MiUnlockStoreLockedPages.c)
  * Callees:
  *     MiIsPfnCommitNotCharged @ 0x140030DB0 (MiIsPfnCommitNotCharged.c)
  *     MiInsertPageInFreeOrZeroedList @ 0x1400387F0 (MiInsertPageInFreeOrZeroedList.c)
  *     MiInsertPageInList @ 0x140039FD0 (MiInsertPageInList.c)
  *     MiGetSystemRegionType @ 0x14004EC30 (MiGetSystemRegionType.c)
- *     MiReturnCommit @ 0x140065D40 (MiReturnCommit.c)
- *     MiRestoreTransitionPte @ 0x140081010 (MiRestoreTransitionPte.c)
- *     MiReleasePageFileSpace @ 0x1400823A4 (MiReleasePageFileSpace.c)
- *     MiCapturePageFileInfoInline @ 0x140119DD0 (MiCapturePageFileInfoInline.c)
- *     MI_IS_PTE_IN_WS_SWAP_SET @ 0x14011B9B4 (MI_IS_PTE_IN_WS_SWAP_SET.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     MiReturnCommit @ 0x140065D30 (MiReturnCommit.c)
+ *     MiRestoreTransitionPte @ 0x140081000 (MiRestoreTransitionPte.c)
+ *     MiReleasePageFileSpace @ 0x140082394 (MiReleasePageFileSpace.c)
+ *     MiCapturePageFileInfoInline @ 0x140119E40 (MiCapturePageFileInfoInline.c)
+ *     MI_IS_PTE_IN_WS_SWAP_SET @ 0x14011BA24 (MI_IS_PTE_IN_WS_SWAP_SET.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiWriteCompletePfn(ULONG_PTR BugCheckParameter2, char a2)
@@ -44,7 +44,7 @@ __int64 __fastcall MiWriteCompletePfn(ULONG_PTR BugCheckParameter2, char a2)
   else if ( (a2 & 2) != 0 )
   {
     v13 = MI_IS_PTE_IN_WS_SWAP_SET(
-            *(_QWORD *)(qword_14043A748 + 8 * ((*(_QWORD *)(BugCheckParameter2 + 40) >> 40) & 0x3FFLL)),
+            *(_QWORD *)(qword_14043B808 + 8 * ((*(_QWORD *)(BugCheckParameter2 + 40) >> 40) & 0x3FFLL)),
             BugCheckParameter2 + 16);
     if ( !v13 && (*(_DWORD *)(BugCheckParameter2 + 16) & 2) != 0 )
       v13 = ((v14 >> 54) & 7) == 2;
@@ -68,7 +68,7 @@ __int64 __fastcall MiWriteCompletePfn(ULONG_PTR BugCheckParameter2, char a2)
       && (*(_QWORD *)(BugCheckParameter2 + 24) & 0x4000000000000000LL) != 0
       && !(unsigned int)MiIsPfnCommitNotCharged(BugCheckParameter2, v6) )
     {
-      MiReturnCommit(*(_QWORD *)(qword_14043A748 + 8 * ((*(_QWORD *)(BugCheckParameter2 + 40) >> 40) & 0x3FFLL)), 1LL);
+      MiReturnCommit(*(_QWORD *)(qword_14043B808 + 8 * ((*(_QWORD *)(BugCheckParameter2 + 40) >> 40) & 0x3FFLL)), 1LL);
     }
     if ( (a2 & 8) != 0 )
       *(_BYTE *)(BugCheckParameter2 + 35) &= 0xF8u;
@@ -99,7 +99,7 @@ __int64 __fastcall MiWriteCompletePfn(ULONG_PTR BugCheckParameter2, char a2)
       if ( (v15 & 0x10) != 0 )
         *(_BYTE *)(BugCheckParameter2 + 35) = v15 & 0xEF;
       MiReleasePageFileSpace(
-        *(_QWORD *)(qword_14043A748 + 8 * ((*(_QWORD *)(BugCheckParameter2 + 40) >> 40) & 0x3FFLL)),
+        *(_QWORD *)(qword_14043B808 + 8 * ((*(_QWORD *)(BugCheckParameter2 + 40) >> 40) & 0x3FFLL)),
         *(_QWORD *)(BugCheckParameter2 + 16),
         1LL);
     }

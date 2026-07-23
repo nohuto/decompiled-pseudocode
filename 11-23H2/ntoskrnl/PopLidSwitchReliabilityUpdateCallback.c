@@ -1,12 +1,12 @@
 /*
- * XREFs of PopLidSwitchReliabilityUpdateCallback @ 0x1408234E0
+ * XREFs of PopLidSwitchReliabilityUpdateCallback @ 0x1408237E0
  * Callers:
  *     <none>
  * Callees:
- *     PopAcquireRwLockExclusive @ 0x14032C5E4 (PopAcquireRwLockExclusive.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     PopBroadcastSessionInfo @ 0x140824F14 (PopBroadcastSessionInfo.c)
- *     PopEvaluatePowerButtonSuppressionState @ 0x14099CA5C (PopEvaluatePowerButtonSuppressionState.c)
+ *     PopAcquireRwLockExclusive @ 0x14032C874 (PopAcquireRwLockExclusive.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     PopBroadcastSessionInfo @ 0x140825214 (PopBroadcastSessionInfo.c)
+ *     PopEvaluatePowerButtonSuppressionState @ 0x14099CC5C (PopEvaluatePowerButtonSuppressionState.c)
  */
 
 __int64 __fastcall PopLidSwitchReliabilityUpdateCallback(_QWORD *a1, int *a2, int a3)
@@ -32,7 +32,7 @@ __int64 __fastcall PopLidSwitchReliabilityUpdateCallback(_QWORD *a1, int *a2, in
     v7 = *a2;
     if ( PopPlatformAoAc )
     {
-      PopAcquireRwLockExclusive((ULONG_PTR)&xmmword_140C398D0);
+      PopAcquireRwLockExclusive((ULONG_PTR)&xmmword_140C39850);
       BYTE1(PopPowerButtonSuppression) = v7 != 0 ? PopPowerButtonSuppression : 0;
       PopEvaluatePowerButtonSuppressionState();
     }

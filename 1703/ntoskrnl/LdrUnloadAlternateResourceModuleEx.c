@@ -14,24 +14,26 @@
  *     MmUnmapViewInSystemSpace @ 0x140497530 (MmUnmapViewInSystemSpace.c)
  */
 
-char __fastcall LdrUnloadAlternateResourceModuleEx(__int64 a1, __int64 a2, __int64 a3)
+// local variable allocation has failed, the output may be wrong!
+BOOLEAN __cdecl LdrUnloadAlternateResourceModuleEx(PVOID DllHandle, ULONG Flags)
 {
-  char v4; // bl
+  __int64 v2; // r8
+  BOOLEAN v4; // bl
   unsigned int v5; // edx
   int i; // edi
   int v7; // r15d
-  _QWORD *v8; // rsi
-  void *v9; // rcx
-  void *v10; // rcx
+  PVOID *v8; // rsi
+  PVOID v9; // rcx
+  PVOID v10; // rcx
   bool v11; // zf
   __int64 v12; // rax
   PVOID PoolWithTag; // rdi
   PVOID v14; // rbx
 
   v4 = 0;
-  if ( !a1 )
+  if ( !DllHandle )
     return 0;
-  LdrpInitMuiCrits(a1, a2, a3);
+  LdrpInitMuiCrits((__int64)DllHandle, *(__int64 *)&Flags, v2);
   KeWaitForSingleObject(&MuiMutex, Executive, 0, 0, 0LL);
   v5 = AlternateResourceModuleCount;
   if ( AlternateResourceModuleCount )
@@ -41,17 +43,17 @@ char __fastcall LdrUnloadAlternateResourceModuleEx(__int64 a1, __int64 a2, __int
       if ( i <= 0 )
         goto LABEL_23;
       v7 = i - 1;
-      v8 = (char *)AlternateResourceModules + 72 * i - 72;
-      if ( v8[1] == a1 )
+      v8 = (PVOID *)((char *)AlternateResourceModules + 72 * i - 72);
+      if ( v8[1] == DllHandle )
         break;
 LABEL_6:
       ;
     }
-    v9 = (void *)v8[4];
-    if ( v9 && v9 != (void *)-1LL )
+    v9 = v8[4];
+    if ( v9 && v9 != (PVOID)-1LL )
     {
       MmUnmapViewInSystemSpace(v9);
-      v10 = (void *)v8[5];
+      v10 = v8[5];
       if ( v10 )
       {
         ZwClose(v10);

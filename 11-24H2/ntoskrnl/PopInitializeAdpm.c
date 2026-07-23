@@ -1,27 +1,27 @@
 /*
- * XREFs of PopInitializeAdpm @ 0x140C33664
+ * XREFs of PopInitializeAdpm @ 0x140C357A4
  * Callers:
- *     PoInitSystem @ 0x140C61990 (PoInitSystem.c)
+ *     PoInitSystem @ 0x140C63AE4 (PoInitSystem.c)
  * Callees:
- *     ExInitializeResourceLite2 @ 0x140365350 (ExInitializeResourceLite2.c)
- *     Feature_UnattendedRebootIdleFix__private_IsEnabledDeviceUsageNoInline @ 0x1405DAE00 (Feature_UnattendedRebootIdleFix__private_IsEnabledDeviceUsageNoInline.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     PopExtendConnectionState @ 0x14075F788 (PopExtendConnectionState.c)
- *     ExSubscribeWnfStateChange @ 0x140A19320 (ExSubscribeWnfStateChange.c)
- *     PopAdaptiveInitializeBootContext @ 0x140C335CC (PopAdaptiveInitializeBootContext.c)
+ *     ExInitializeResourceLite2 @ 0x1403EAA00 (ExInitializeResourceLite2.c)
+ *     Feature_UnattendedRebootIdleFix__private_IsEnabledDeviceUsageNoInline @ 0x1405D8120 (Feature_UnattendedRebootIdleFix__private_IsEnabledDeviceUsageNoInline.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     PopExtendConnectionState @ 0x14075E728 (PopExtendConnectionState.c)
+ *     ExSubscribeWnfStateChange @ 0x140A12490 (ExSubscribeWnfStateChange.c)
+ *     PopAdaptiveInitializeBootContext @ 0x140C3570C (PopAdaptiveInitializeBootContext.c)
  */
 
-__int64 PopInitializeAdpm()
+NTSTATUS PopInitializeAdpm()
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
   char v1; // [rsp+40h] [rbp+8h] BYREF
 
   ExInitializeResourceLite2(&PopAdpmLock, -1);
   memset_0(&PopAdaptiveContext, 0, 0x50uLL);
-  dword_140F07358 = -1;
+  dword_140F07678 = -1;
   PopMaximumConnectionSessions = 0;
   PopConnectionState = 0LL;
-  dword_140F0735C = 3;
+  dword_140F0767C = 3;
   PopExtendConnectionState(0);
   if ( (unsigned int)Feature_UnattendedRebootIdleFix__private_IsEnabledDeviceUsageNoInline() )
   {

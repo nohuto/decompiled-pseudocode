@@ -1,11 +1,11 @@
 /*
- * XREFs of PpmEventIdleStateChange @ 0x14011FC98
+ * XREFs of PpmEventIdleStateChange @ 0x14011FD08
  * Callers:
  *     PoIdle @ 0x14005D6B0 (PoIdle.c)
- *     PpmTracePerfIdleRundown @ 0x1402E3360 (PpmTracePerfIdleRundown.c)
+ *     PpmTracePerfIdleRundown @ 0x1402E3550 (PpmTracePerfIdleRundown.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x1400F3710 (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     EtwTraceKernelEvent @ 0x1400F3790 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 void __fastcall PpmEventIdleStateChange(int a1, int a2)
@@ -16,7 +16,7 @@ void __fastcall PpmEventIdleStateChange(int a1, int a2)
   int v5; // [rsp+48h] [rbp-20h]
   int v6; // [rsp+4Ch] [rbp-1Ch]
 
-  if ( (xmmword_140541350 & 0x8000) != 0 )
+  if ( (xmmword_140542350 & 0x8000) != 0 )
   {
     v2[0] = a1;
     v2[1] = a2;

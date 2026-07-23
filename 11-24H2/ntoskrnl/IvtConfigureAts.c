@@ -1,18 +1,18 @@
 /*
- * XREFs of IvtConfigureAts @ 0x14056DE70
+ * XREFs of IvtConfigureAts @ 0x14056B300
  * Callers:
  *     <none>
  * Callees:
- *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x1402D84E0 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
- *     KxReleaseQueuedSpinLock @ 0x140321BB0 (KxReleaseQueuedSpinLock.c)
- *     IvtGetBlockedDomain @ 0x1404C8254 (IvtGetBlockedDomain.c)
- *     IvtUpdateScalableModeContextEntry @ 0x1404CB910 (IvtUpdateScalableModeContextEntry.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     IvtAllocateTranslationStructures @ 0x14056D8D8 (IvtAllocateTranslationStructures.c)
- *     IvtFreeScalableModePasidTables @ 0x14056E600 (IvtFreeScalableModePasidTables.c)
- *     IvtGetDomainId @ 0x14056E758 (IvtGetDomainId.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402CA740 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x140359760 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     IvtGetBlockedDomain @ 0x1404C1988 (IvtGetBlockedDomain.c)
+ *     IvtUpdateScalableModeContextEntry @ 0x1404C4D8C (IvtUpdateScalableModeContextEntry.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     IvtAllocateTranslationStructures @ 0x14056AD68 (IvtAllocateTranslationStructures.c)
+ *     IvtFreeScalableModePasidTables @ 0x14056BA90 (IvtFreeScalableModePasidTables.c)
+ *     IvtGetDomainId @ 0x14056BBE8 (IvtGetDomainId.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall IvtConfigureAts(__int64 a1, __int64 a2, char a3)

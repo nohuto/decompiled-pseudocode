@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwpStackRundown @ 0x14022B020
+ * XREFs of EtwpStackRundown @ 0x14022AE4C
  * Callers:
- *     EtwpStopLoggerInstance @ 0x140493B50 (EtwpStopLoggerInstance.c)
- *     EtwpCheckLoggerAccessAndDoRundown @ 0x1406A6C80 (EtwpCheckLoggerAccessAndDoRundown.c)
+ *     EtwpStopLoggerInstance @ 0x1404945E0 (EtwpStopLoggerInstance.c)
+ *     EtwpCheckLoggerAccessAndDoRundown @ 0x1406A6DB8 (EtwpCheckLoggerAccessAndDoRundown.c)
  * Callees:
- *     KxAcquireSpinLock @ 0x140092A60 (KxAcquireSpinLock.c)
- *     KeReleaseSpinLock @ 0x1400E9A70 (KeReleaseSpinLock.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     EtwpDereferenceStackEntry @ 0x14022AFC4 (EtwpDereferenceStackEntry.c)
- *     EtwpTraceCachedStack @ 0x14022B104 (EtwpTraceCachedStack.c)
+ *     KxAcquireSpinLock @ 0x140092260 (KxAcquireSpinLock.c)
+ *     KeReleaseSpinLock @ 0x1400EB600 (KeReleaseSpinLock.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     EtwpDereferenceStackEntry @ 0x14022ADF0 (EtwpDereferenceStackEntry.c)
+ *     EtwpTraceCachedStack @ 0x14022AF30 (EtwpTraceCachedStack.c)
  */
 
 void __fastcall EtwpStackRundown(__int64 a1, unsigned int a2)
@@ -43,7 +43,7 @@ void __fastcall EtwpStackRundown(__int64 a1, unsigned int a2)
         do
         {
           EtwpTraceCachedStack(a2, 6180LL, *v9);
-          EtwpDereferenceStackEntry(*v9++, (union _SLIST_HEADER *)a1);
+          EtwpDereferenceStackEntry(*v9++, (_SLIST_HEADER *)a1);
           --v6;
         }
         while ( v6 );

@@ -7,10 +7,10 @@
  *     PsIsCurrentThreadInServerSilo @ 0x140287350 (PsIsCurrentThreadInServerSilo.c)
  */
 
-__int64 RtlGetSuiteMask()
+ULONG RtlGetSuiteMask(void)
 {
   if ( PsIsCurrentThreadInServerSilo() )
-    return *(unsigned int *)(*((_QWORD *)PsGetCurrentServerSiloGlobals() + 165) + 20LL);
+    return *(_DWORD *)(*((_QWORD *)PsGetCurrentServerSiloGlobals() + 165) + 20LL);
   else
     return MEMORY[0xFFFFF780000002D0];
 }

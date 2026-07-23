@@ -1,14 +1,14 @@
 /*
- * XREFs of PfSnPowerBoost @ 0x1407E6D5C
+ * XREFs of PfSnPowerBoost @ 0x1407E702C
  * Callers:
- *     PfSnAsyncPrefetchWorker @ 0x14074DCA0 (PfSnAsyncPrefetchWorker.c)
+ *     PfSnAsyncPrefetchWorker @ 0x14074DE90 (PfSnAsyncPrefetchWorker.c)
  * Callees:
- *     KiSetTimerEx @ 0x140252820 (KiSetTimerEx.c)
- *     KeCancelTimer @ 0x140252AA0 (KeCancelTimer.c)
- *     ExAcquireRundownProtection_0 @ 0x14028B360 (ExAcquireRundownProtection_0.c)
- *     ExReleaseRundownProtection_0 @ 0x14028B390 (ExReleaseRundownProtection_0.c)
- *     ExWaitForRundownProtectionRelease @ 0x14030A340 (ExWaitForRundownProtectionRelease.c)
- *     PfSnPowerBoostUpdate @ 0x1407E6DD8 (PfSnPowerBoostUpdate.c)
+ *     KiSetTimerEx @ 0x1402528E0 (KiSetTimerEx.c)
+ *     KeCancelTimer @ 0x140252B60 (KeCancelTimer.c)
+ *     ExAcquireRundownProtection_0 @ 0x14028B5F0 (ExAcquireRundownProtection_0.c)
+ *     ExReleaseRundownProtection_0 @ 0x14028B620 (ExReleaseRundownProtection_0.c)
+ *     ExWaitForRundownProtectionRelease @ 0x14030A5D0 (ExWaitForRundownProtectionRelease.c)
+ *     PfSnPowerBoostUpdate @ 0x1407E70A8 (PfSnPowerBoostUpdate.c)
  */
 
 void __fastcall PfSnPowerBoost(PEX_RUNDOWN_REF RunRef, int a2)

@@ -1,20 +1,20 @@
 /*
- * XREFs of MiPruneCachedStackList @ 0x14048CBC8
+ * XREFs of MiPruneCachedStackList @ 0x1404878E8
  * Callers:
- *     MiAdjustCachedStacks @ 0x140269740 (MiAdjustCachedStacks.c)
- *     MiAdjustCachedStackList @ 0x1402698A4 (MiAdjustCachedStackList.c)
+ *     MiAdjustCachedStackList @ 0x1402AF530 (MiAdjustCachedStackList.c)
+ *     MiAdjustCachedStacks @ 0x1402AF604 (MiAdjustCachedStacks.c)
  * Callees:
- *     MiDeleteCachedKernelShadowStack @ 0x140269224 (MiDeleteCachedKernelShadowStack.c)
- *     MiDeleteCachedKernelStack @ 0x140269ADC (MiDeleteCachedKernelStack.c)
- *     RtlpInterlockedPopEntrySList @ 0x1406B3890 (RtlpInterlockedPopEntrySList.c)
- *     RtlpInterlockedPushEntrySList @ 0x1406B38D0 (RtlpInterlockedPushEntrySList.c)
+ *     MiDeleteCachedKernelShadowStack @ 0x14021E9E8 (MiDeleteCachedKernelShadowStack.c)
+ *     MiDeleteCachedKernelStack @ 0x14021F06C (MiDeleteCachedKernelStack.c)
+ *     RtlpInterlockedPopEntrySList @ 0x1406B4830 (RtlpInterlockedPopEntrySList.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1406B4870 (RtlpInterlockedPushEntrySList.c)
  */
 
-__int64 __fastcall MiPruneCachedStackList(union _SLIST_HEADER *a1, union _SLIST_HEADER *a2, unsigned int a3, int a4)
+__int64 __fastcall MiPruneCachedStackList(_SLIST_HEADER *a1, _SLIST_HEADER *a2, unsigned int a3, int a4)
 {
   __int64 result; // rax
   PSLIST_ENTRY v9; // rax
-  struct _SLIST_ENTRY *v10; // rbx
+  _SLIST_ENTRY *v10; // rbx
 
   for ( result = LOWORD(a2->Alignment); (unsigned int)result > a3; result = LOWORD(a2->Alignment) )
   {

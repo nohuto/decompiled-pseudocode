@@ -14,8 +14,8 @@ PSLIST_ENTRY MiInitializeDecayPfns()
   PSLIST_ENTRY result; // rax
 
   v0 = 2048LL;
-  BitMapHeader.SizeOfBitMap = 2048;
-  BitMapHeader.Buffer = (unsigned int *)&unk_140C68298;
+  stru_140C68288.SizeOfBitMap = 2048;
+  stru_140C68288.Buffer = (unsigned int *)&unk_140C68298;
   if ( ((unsigned __int8)&ListHead & 0xF) != 0 )
     RtlRaiseStatus(-2147483646);
   ListHead = 0LL;

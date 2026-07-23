@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpFlushBufferToRealtime @ 0x1406BD8AC
+ * XREFs of EtwpFlushBufferToRealtime @ 0x1406BD8DC
  * Callers:
- *     EtwpFlushBuffer @ 0x1406BD950 (EtwpFlushBuffer.c)
+ *     EtwpFlushBuffer @ 0x1406BD980 (EtwpFlushBuffer.c)
  * Callees:
- *     EtwpRealtimeDeliverBuffer @ 0x140708D60 (EtwpRealtimeDeliverBuffer.c)
- *     EtwpRealtimeSaveBuffer @ 0x1407F5B4C (EtwpRealtimeSaveBuffer.c)
+ *     EtwpRealtimeDeliverBuffer @ 0x140708F70 (EtwpRealtimeDeliverBuffer.c)
+ *     EtwpRealtimeSaveBuffer @ 0x1407F5E1C (EtwpRealtimeSaveBuffer.c)
  */
 
 __int64 __fastcall EtwpFlushBufferToRealtime(__int64 a1, __int64 a2, char a3)

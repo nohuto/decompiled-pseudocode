@@ -1,14 +1,14 @@
 /*
- * XREFs of MiIsPageTableDeletable @ 0x1402E5884
+ * XREFs of MiIsPageTableDeletable @ 0x1402E5B14
  * Callers:
- *     MiDeleteVa @ 0x14027A5C0 (MiDeleteVa.c)
- *     MiDeleteEmptyPageTable @ 0x140357CE0 (MiDeleteEmptyPageTable.c)
+ *     MiDeleteVa @ 0x14027A850 (MiDeleteVa.c)
+ *     MiDeleteEmptyPageTable @ 0x140357E80 (MiDeleteEmptyPageTable.c)
  * Callees:
- *     MiLockPageTableInternal @ 0x140237700 (MiLockPageTableInternal.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1402712F0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiGetLeafVa @ 0x1402E5A20 (MiGetLeafVa.c)
- *     MiGetUsedPtesHandle @ 0x1402E5A70 (MiGetUsedPtesHandle.c)
- *     MiUnlockPageTableInternal @ 0x1403195C0 (MiUnlockPageTableInternal.c)
+ *     MiLockPageTableInternal @ 0x1402377D0 (MiLockPageTableInternal.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140271580 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiGetLeafVa @ 0x1402E5CB0 (MiGetLeafVa.c)
+ *     MiGetUsedPtesHandle @ 0x1402E5D00 (MiGetUsedPtesHandle.c)
+ *     MiUnlockPageTableInternal @ 0x140319850 (MiUnlockPageTableInternal.c)
  */
 
 _BOOL8 __fastcall MiIsPageTableDeletable(__int64 a1, unsigned __int64 a2)

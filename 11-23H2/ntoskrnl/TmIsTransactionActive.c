@@ -1,8 +1,8 @@
 /*
- * XREFs of TmIsTransactionActive @ 0x1403D8570
+ * XREFs of TmIsTransactionActive @ 0x1403D8750
  * Callers:
- *     CmpTransIsTransActive @ 0x1406164BC (CmpTransIsTransActive.c)
- *     CmpTransReferenceTransaction @ 0x1407689D0 (CmpTransReferenceTransaction.c)
+ *     CmpTransIsTransActive @ 0x140616A0C (CmpTransIsTransActive.c)
+ *     CmpTransReferenceTransaction @ 0x140768BC0 (CmpTransReferenceTransaction.c)
  * Callees:
  *     <none>
  */

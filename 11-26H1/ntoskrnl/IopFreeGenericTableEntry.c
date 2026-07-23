@@ -1,9 +1,9 @@
 /*
- * XREFs of IopFreeGenericTableEntry @ 0x1407949F0
+ * XREFs of IopFreeGenericTableEntry @ 0x140797520
  * Callers:
  *     <none>
  * Callees:
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall IopFreeGenericTableEntry(__int64 a1, void *a2)

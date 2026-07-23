@@ -1,7 +1,7 @@
 /*
- * XREFs of PoClearPowerRequest @ 0x140111B48
+ * XREFs of PoClearPowerRequest @ 0x1401120AC
  * Callers:
- *     PopApplyLegacyPowerRequestFlags @ 0x14010EA38 (PopApplyLegacyPowerRequestFlags.c)
+ *     PopApplyLegacyPowerRequestFlags @ 0x14010EF9C (PopApplyLegacyPowerRequestFlags.c)
  * Callees:
  *     <none>
  */

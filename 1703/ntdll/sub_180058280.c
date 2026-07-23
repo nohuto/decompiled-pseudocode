@@ -11,13 +11,13 @@
  *     RtlInitUnicodeStringEx @ 0x180040170 (RtlInitUnicodeStringEx.c)
  */
 
-bool __fastcall sub_180058280(__int64 a1, char a2)
+bool __fastcall sub_180058280(PCWSTR SourceString, char a2)
 {
   int v3; // edx
-  _BYTE v5[24]; // [rsp+20h] [rbp-18h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+20h] [rbp-18h] BYREF
 
-  if ( (int)RtlInitUnicodeStringEx((__int64)v5, a1) < 0 )
+  if ( RtlInitUnicodeStringEx(&DestinationString, SourceString) < 0 )
     return 0;
   LOBYTE(v3) = a2;
-  return sub_18003D528((int)v5, v3);
+  return sub_18003D528((int)&DestinationString, v3);
 }

@@ -1,14 +1,14 @@
 /*
- * XREFs of WmipDeleteMethod @ 0x140A0D4B0
+ * XREFs of WmipDeleteMethod @ 0x140A0CF00
  * Callers:
  *     <none>
  * Callees:
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     KeReleaseMutex @ 0x1403DD0F0 (KeReleaseMutex.c)
- *     WmipCompleteGuidIrpWithError @ 0x1404C964C (WmipCompleteGuidIrpWithError.c)
- *     WmipDisableCollectOrEvent @ 0x140A0D5A8 (WmipDisableCollectOrEvent.c)
- *     WmipUnreferenceEntry @ 0x140A0EF48 (WmipUnreferenceEntry.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     KeReleaseMutex @ 0x1403E02E0 (KeReleaseMutex.c)
+ *     WmipCompleteGuidIrpWithError @ 0x1404C306C (WmipCompleteGuidIrpWithError.c)
+ *     WmipDisableCollectOrEvent @ 0x140A0CFF8 (WmipDisableCollectOrEvent.c)
+ *     WmipUnreferenceEntry @ 0x140A0E124 (WmipUnreferenceEntry.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 LONG __fastcall WmipDeleteMethod(__int64 a1)
@@ -25,13 +25,13 @@ LONG __fastcall WmipDeleteMethod(__int64 a1)
   {
     if ( *(_BYTE *)(a1 + 160) )
       WmipDisableCollectOrEvent(v2, *(unsigned int *)(a1 + 64));
-    KeWaitForSingleObject(&EtwpSecurityLock.IoSelfBoostsEntry, Executive, 0, 0, 0LL);
+    KeWaitForSingleObject(&WmipSMMutex, Executive, 0, 0, 0LL);
     v3 = *(_QWORD *)(a1 + 40);
     if ( *(_QWORD *)(v3 + 8) != a1 + 40 || (v4 = *(_QWORD **)(a1 + 48), *v4 != a1 + 40) )
       __fastfail(3u);
     *v4 = v3;
     *(_QWORD *)(v3 + 8) = v4;
-    KeReleaseMutex((PRKMUTEX)&EtwpSecurityLock.IoSelfBoostsEntry, 0);
+    KeReleaseMutex(&WmipSMMutex, 0);
     WmipUnreferenceEntry(&WmipGEChunkInfo, *(_QWORD *)(a1 + 56));
   }
   result = *(_DWORD *)(a1 + 164);
@@ -43,9 +43,9 @@ LONG __fastcall WmipDeleteMethod(__int64 a1)
     v7 = *(void **)(a1 + 128);
     if ( v7 )
       ExFreePoolWithTag(v7, 0);
-    KeWaitForSingleObject(&EtwpSecurityLock.IoSelfBoostsEntry, Executive, 0, 0, 0LL);
+    KeWaitForSingleObject(&WmipSMMutex, Executive, 0, 0, 0LL);
     WmipCompleteGuidIrpWithError(a1);
-    return KeReleaseMutex((PRKMUTEX)&EtwpSecurityLock.IoSelfBoostsEntry, 0);
+    return KeReleaseMutex(&WmipSMMutex, 0);
   }
   return result;
 }

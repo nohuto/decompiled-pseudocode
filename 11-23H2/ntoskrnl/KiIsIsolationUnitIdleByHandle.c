@@ -1,10 +1,10 @@
 /*
- * XREFs of KiIsIsolationUnitIdleByHandle @ 0x14057E738
+ * XREFs of KiIsIsolationUnitIdleByHandle @ 0x14057EC28
  * Callers:
- *     KiChooseTargetProcessor @ 0x1402392E0 (KiChooseTargetProcessor.c)
- *     KiHeteroChooseTargetProcessor @ 0x140461916 (KiHeteroChooseTargetProcessor.c)
- *     KiPopulateTrivialProcessorSelectionResult @ 0x14057764C (KiPopulateTrivialProcessorSelectionResult.c)
- *     KiAttemptToUnparkIdleSoftParkedProcessorOnSchedule @ 0x14057DB2C (KiAttemptToUnparkIdleSoftParkedProcessorOnSchedule.c)
+ *     KiChooseTargetProcessor @ 0x1402393B0 (KiChooseTargetProcessor.c)
+ *     KiHeteroChooseTargetProcessor @ 0x140461D16 (KiHeteroChooseTargetProcessor.c)
+ *     KiPopulateTrivialProcessorSelectionResult @ 0x140577B3C (KiPopulateTrivialProcessorSelectionResult.c)
+ *     KiAttemptToUnparkIdleSoftParkedProcessorOnSchedule @ 0x14057E01C (KiAttemptToUnparkIdleSoftParkedProcessorOnSchedule.c)
  * Callees:
  *     <none>
  */

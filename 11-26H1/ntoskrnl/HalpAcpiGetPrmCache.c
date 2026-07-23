@@ -1,5 +1,5 @@
 /*
- * XREFs of HalpAcpiGetPrmCache @ 0x140579850
+ * XREFs of HalpAcpiGetPrmCache @ 0x14057BD80
  * Callers:
  *     <none>
  * Callees:

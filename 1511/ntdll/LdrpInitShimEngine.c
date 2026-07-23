@@ -17,75 +17,69 @@
  *     LdrpLogDbgPrint @ 0x1800C9198 (LdrpLogDbgPrint.c)
  */
 
-_BYTE *__fastcall LdrpInitShimEngine(PCWSTR SourceString, __int64 a2)
+void __fastcall LdrpInitShimEngine(PCWSTR SourceString, __int64 a2)
 {
-  _BYTE *result; // rax
-  char *v5; // rdx
-  __int64 v6; // r8
-  __int64 v7; // r9
-  char v8; // cl
-  unsigned __int64 v9; // [rsp+40h] [rbp-C0h] BYREF
-  int v10; // [rsp+48h] [rbp-B8h] BYREF
-  PCWSTR SourceStringa; // [rsp+50h] [rbp-B0h]
-  UNICODE_STRING DestinationString; // [rsp+58h] [rbp-A8h] BYREF
-  _QWORD v13[16]; // [rsp+70h] [rbp-90h] BYREF
-  _BYTE v14[512]; // [rsp+F0h] [rbp-10h] BYREF
+  __int64 v4; // r9
+  char v5; // cl
+  PVOID v6; // [rsp+40h] [rbp-C0h] BYREF
+  int v7; // [rsp+48h] [rbp-B8h] BYREF
+  PVOID BaseAddress; // [rsp+50h] [rbp-B0h]
+  _UNICODE_STRING DestinationString; // [rsp+58h] [rbp-A8h] BYREF
+  _QWORD v10[16]; // [rsp+70h] [rbp-90h] BYREF
+  _BYTE v11[512]; // [rsp+F0h] [rbp-10h] BYREF
 
-  LdrpInitializeDllPath(0LL, 0LL, v13);
+  LdrpInitializeDllPath(0LL, 0LL, v10);
   RtlInitUnicodeString(&DestinationString, SourceString);
-  LODWORD(SourceString) = LdrpLoadDll((__int64)&DestinationString, (int)v13, 0, 1, (__int64)&v9);
-  result = (_BYTE *)LdrpReleaseDllPath((__int64)v13);
+  LOBYTE(v4) = 1;
+  LODWORD(SourceString) = LdrpLoadDll((__int64)&DestinationString, (__int64)v10, 0, v4, (__int64)&v6);
+  LdrpReleaseDllPath((__int64)v10);
   if ( (int)SourceString < 0 )
   {
-    v8 = LdrpDebugFlags;
+    v5 = LdrpDebugFlags;
     if ( (LdrpDebugFlags & 3) == 0 )
       goto LABEL_9;
-    result = (_BYTE *)LdrpLogDbgPrint(
-                        (unsigned int)"minkernel\\ntdll\\ldrinit.c",
-                        2363,
-                        (unsigned int)"LdrpInitShimEngine",
-                        0,
-                        (__int64)"Loading the shim engine DLL \"%wZ\" failed with status 0x%08lx\n");
+    LdrpLogDbgPrint(
+      (unsigned int)"minkernel\\ntdll\\ldrinit.c",
+      2363,
+      (unsigned int)"LdrpInitShimEngine",
+      0,
+      (__int64)"Loading the shim engine DLL \"%wZ\" failed with status 0x%08lx\n");
     goto LABEL_8;
   }
-  *(_DWORD *)(v9 + 104) |= 0x100u;
-  g_pShimEngineModule = *(_QWORD *)(v9 + 48);
-  LdrpPinModule(v9);
-  LdrpDereferenceModule(v9, v5, v6, v7);
-  result = (_BYTE *)LdrpGetShimEngineInterface();
-  if ( (int)result >= 0 )
+  *((_DWORD *)v6 + 26) |= 0x100u;
+  g_pShimEngineModule = (PVOID)*((_QWORD *)v6 + 6);
+  LdrpPinModule((__int64)v6);
+  LdrpDereferenceModule((char *)v6);
+  if ( (int)LdrpGetShimEngineInterface() >= 0 )
   {
-    SourceStringa = (PCWSTR)v14;
-    v10 = 0x2000000;
-    result = (_BYTE *)((__int64 (__fastcall *)(int *, __int64, __int64))(__ROR8__(
-                                                                           g_pfnSE_InitializeEngine,
-                                                                           64 - (MEMORY[0x7FFE0330] & 0x3Fu)) ^ MEMORY[0x7FFE0330]))(
-                        &v10,
-                        LdrpImageEntry + 72,
-                        a2);
-    if ( (int)result >= 0 )
+    BaseAddress = v11;
+    v7 = 0x2000000;
+    if ( ((int (__fastcall *)(int *, __int64, __int64))(__ROR8__(
+                                                          g_pfnSE_InitializeEngine,
+                                                          64 - ((unsigned __int8)MEMORY[0x7FFE0330] & 0x3Fu)) ^ (unsigned int)MEMORY[0x7FFE0330]))(
+           &v7,
+           LdrpImageEntry + 72,
+           a2) >= 0 )
     {
-      LdrpLoadShimEngine(SourceStringa);
-      result = v14;
-      if ( SourceStringa != (PCWSTR)v14 )
-        return (_BYTE *)RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (unsigned __int64)SourceStringa);
+      LdrpLoadShimEngine((PCWSTR)BaseAddress);
+      if ( BaseAddress != v11 )
+        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, BaseAddress);
     }
-    return result;
+    return;
   }
-  v8 = LdrpDebugFlags;
+  v5 = LdrpDebugFlags;
   if ( (LdrpDebugFlags & 3) != 0 )
   {
-    result = (_BYTE *)LdrpLogDbgPrint(
-                        (unsigned int)"minkernel\\ntdll\\ldrinit.c",
-                        2377,
-                        (unsigned int)"LdrpInitShimEngine",
-                        0,
-                        (__int64)"Getting the shim engine exports failed with status 0x%08lx\n");
+    LdrpLogDbgPrint(
+      (unsigned int)"minkernel\\ntdll\\ldrinit.c",
+      2377,
+      (unsigned int)"LdrpInitShimEngine",
+      0,
+      (__int64)"Getting the shim engine exports failed with status 0x%08lx\n");
 LABEL_8:
-    v8 = LdrpDebugFlags;
+    v5 = LdrpDebugFlags;
   }
 LABEL_9:
-  if ( (v8 & 0x10) != 0 )
+  if ( (v5 & 0x10) != 0 )
     __debugbreak();
-  return result;
 }

@@ -1,13 +1,13 @@
 /*
- * XREFs of VfSuspectRemoveDifVolatileVerification @ 0x140ADACA4
+ * XREFs of VfSuspectRemoveDifVolatileVerification @ 0x140ADAC94
  * Callers:
- *     VfDriverRemoveAllDifVerification @ 0x1405CEEA0 (VfDriverRemoveAllDifVerification.c)
- *     VfDriverRemoveDifVerification @ 0x140ACA7A8 (VfDriverRemoveDifVerification.c)
+ *     VfDriverRemoveAllDifVerification @ 0x1405CF410 (VfDriverRemoveAllDifVerification.c)
+ *     VfDriverRemoveDifVerification @ 0x140ACA798 (VfDriverRemoveDifVerification.c)
  * Callees:
- *     VfTargetRecoverIoCallbacks @ 0x1405CF204 (VfTargetRecoverIoCallbacks.c)
- *     VfTargetDriversDisableVerifier @ 0x140ACB440 (VfTargetDriversDisableVerifier.c)
- *     VfSuspectDifRemoveEntry @ 0x140ADA37C (VfSuspectDifRemoveEntry.c)
- *     VfThunkApplyPristineToAllSession @ 0x140ADB2FC (VfThunkApplyPristineToAllSession.c)
+ *     VfTargetRecoverIoCallbacks @ 0x1405CF774 (VfTargetRecoverIoCallbacks.c)
+ *     VfTargetDriversDisableVerifier @ 0x140ACB430 (VfTargetDriversDisableVerifier.c)
+ *     VfSuspectDifRemoveEntry @ 0x140ADA36C (VfSuspectDifRemoveEntry.c)
+ *     VfThunkApplyPristineToAllSession @ 0x140ADB2EC (VfThunkApplyPristineToAllSession.c)
  */
 
 __int64 __fastcall VfSuspectRemoveDifVolatileVerification(__int64 a1)

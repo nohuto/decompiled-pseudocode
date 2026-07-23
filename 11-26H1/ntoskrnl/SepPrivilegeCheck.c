@@ -1,24 +1,24 @@
 /*
- * XREFs of SepPrivilegeCheck @ 0x14042F0A0
+ * XREFs of SepPrivilegeCheck @ 0x14041BFB0
  * Callers:
- *     RtlpNewSecurityObject @ 0x1408E0FD0 (RtlpNewSecurityObject.c)
- *     CmpCreateKeyBody @ 0x1408FBCB0 (CmpCreateKeyBody.c)
- *     ObCreateObjectEx @ 0x1408FD7D0 (ObCreateObjectEx.c)
- *     IopParseDevice @ 0x1409008C0 (IopParseDevice.c)
- *     MiIsUserQueryVmCallerTrusted @ 0x140920364 (MiIsUserQueryVmCallerTrusted.c)
- *     ObpCreateHandle @ 0x14092CA60 (ObpCreateHandle.c)
- *     ObpGrantAccess @ 0x140930170 (ObpGrantAccess.c)
- *     CmpCheckOpenAccessOnKeyBody @ 0x140930F10 (CmpCheckOpenAccessOnKeyBody.c)
- *     ObpAdjustCreatorAccessState @ 0x140931B40 (ObpAdjustCreatorAccessState.c)
- *     SeSinglePrivilegeCheck @ 0x140932280 (SeSinglePrivilegeCheck.c)
- *     SeSinglePrivilegeCheckEx @ 0x140932740 (SeSinglePrivilegeCheckEx.c)
- *     ObCreateObject @ 0x140932FB0 (ObCreateObject.c)
- *     PiAuDoesClientHavePrivilege @ 0x14098CFD8 (PiAuDoesClientHavePrivilege.c)
- *     SeCheckAuditPrivilege @ 0x1409F7320 (SeCheckAuditPrivilege.c)
- *     NtPrivilegeCheck @ 0x140A42F40 (NtPrivilegeCheck.c)
- *     SePrivilegeCheck @ 0x140A48B30 (SePrivilegeCheck.c)
- *     SeCheckPrivilegedObject @ 0x140A7A93C (SeCheckPrivilegedObject.c)
- *     FsRtlpOplockTryPrepForAckTimeout @ 0x140AE6EA0 (FsRtlpOplockTryPrepForAckTimeout.c)
+ *     RtlpNewSecurityObject @ 0x1408E7590 (RtlpNewSecurityObject.c)
+ *     ObpCreateHandle @ 0x140908590 (ObpCreateHandle.c)
+ *     ObpGrantAccess @ 0x14090BCA0 (ObpGrantAccess.c)
+ *     CmpCheckOpenAccessOnKeyBody @ 0x14090CA40 (CmpCheckOpenAccessOnKeyBody.c)
+ *     ObpAdjustCreatorAccessState @ 0x14090D710 (ObpAdjustCreatorAccessState.c)
+ *     SeSinglePrivilegeCheck @ 0x14090DE50 (SeSinglePrivilegeCheck.c)
+ *     SeSinglePrivilegeCheckEx @ 0x14090E300 (SeSinglePrivilegeCheckEx.c)
+ *     ObCreateObject @ 0x14090EB60 (ObCreateObject.c)
+ *     MiIsUserQueryVmCallerTrusted @ 0x140923720 (MiIsUserQueryVmCallerTrusted.c)
+ *     CmpCreateKeyBody @ 0x14092BC40 (CmpCreateKeyBody.c)
+ *     ObCreateObjectEx @ 0x14092D760 (ObCreateObjectEx.c)
+ *     IopParseDevice @ 0x140930850 (IopParseDevice.c)
+ *     PiAuDoesClientHavePrivilege @ 0x14094DA38 (PiAuDoesClientHavePrivilege.c)
+ *     NtPrivilegeCheck @ 0x1409E1EF0 (NtPrivilegeCheck.c)
+ *     SePrivilegeCheck @ 0x140A51E20 (SePrivilegeCheck.c)
+ *     SeCheckAuditPrivilege @ 0x140A5FE70 (SeCheckAuditPrivilege.c)
+ *     SeCheckPrivilegedObject @ 0x140A8287C (SeCheckPrivilegedObject.c)
+ *     FsRtlpOplockTryPrepForAckTimeout @ 0x140AE4C60 (FsRtlpOplockTryPrepForAckTimeout.c)
  * Callees:
  *     <none>
  */

@@ -1,20 +1,20 @@
 /*
- * XREFs of _CmCreateDevice @ 0x1409D41D8
+ * XREFs of _CmCreateDevice @ 0x1409C4008
  * Callers:
- *     IoReportDetectedDevice @ 0x14071C850 (IoReportDetectedDevice.c)
- *     IoReportRootDevice @ 0x14071D300 (IoReportRootDevice.c)
- *     PiDevCfgInitDriverDatabaseCallback @ 0x14072A318 (PiDevCfgInitDriverDatabaseCallback.c)
- *     PiCMGenerateDeviceInstance @ 0x14073136C (PiCMGenerateDeviceInstance.c)
- *     _PnpDispatchDevice @ 0x1408CDBB0 (_PnpDispatchDevice.c)
- *     PiCreateDeviceInstanceKey @ 0x1409D4128 (PiCreateDeviceInstanceKey.c)
- *     PiCMCreateDevice @ 0x140AB4970 (PiCMCreateDevice.c)
- *     IopInitializePlugPlayServices @ 0x140C1F07C (IopInitializePlugPlayServices.c)
+ *     IoReportDetectedDevice @ 0x14071A3E0 (IoReportDetectedDevice.c)
+ *     IoReportRootDevice @ 0x14071AE90 (IoReportRootDevice.c)
+ *     PiDevCfgInitDriverDatabaseCallback @ 0x140727F68 (PiDevCfgInitDriverDatabaseCallback.c)
+ *     PiCMGenerateDeviceInstance @ 0x14072F37C (PiCMGenerateDeviceInstance.c)
+ *     _PnpDispatchDevice @ 0x1408CB5A0 (_PnpDispatchDevice.c)
+ *     PiCreateDeviceInstanceKey @ 0x1409C3F58 (PiCreateDeviceInstanceKey.c)
+ *     PiCMCreateDevice @ 0x140AB39A4 (PiCMCreateDevice.c)
+ *     IopInitializePlugPlayServices @ 0x140C210BC (IopInitializePlugPlayServices.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     _CmCreateDeviceWorker @ 0x1409D4358 (_CmCreateDeviceWorker.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     _CmCreateDeviceWorker @ 0x1409C4188 (_CmCreateDeviceWorker.c)
  */
 
 __int64 __fastcall CmCreateDevice(__int64 a1, __int64 a2, int a3, HANDLE *a4, _BYTE *a5, int a6)
@@ -37,7 +37,7 @@ __int64 __fastcall CmCreateDevice(__int64 a1, __int64 a2, int a3, HANDLE *a4, _B
   v20 = a6;
   if ( v10 )
   {
-    v11 = guard_dispatch_icall_no_overrides(a1, a2, 1LL, 2LL);
+    v11 = guard_dispatch_icall_no_overrides(a1, a2);
     if ( v11 == -1073741822 )
     {
       v10 = 0LL;
@@ -59,7 +59,7 @@ LABEL_11:
   if ( !v10 )
     goto LABEL_13;
   v16[0] = DeviceWorker;
-  v14 = guard_dispatch_icall_no_overrides(a1, a2, 1LL, 2LL);
+  v14 = guard_dispatch_icall_no_overrides(a1, a2);
   if ( v14 == -1073741536 )
   {
 LABEL_12:

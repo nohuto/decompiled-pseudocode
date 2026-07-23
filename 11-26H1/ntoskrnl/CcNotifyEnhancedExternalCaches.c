@@ -1,13 +1,13 @@
 /*
- * XREFs of CcNotifyEnhancedExternalCaches @ 0x140506F50
+ * XREFs of CcNotifyEnhancedExternalCaches @ 0x140500920
  * Callers:
- *     CcNotifyExternalCachesInternal @ 0x140506DEC (CcNotifyExternalCachesInternal.c)
+ *     CcNotifyExternalCachesInternal @ 0x1405007BC (CcNotifyExternalCachesInternal.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 void __fastcall CcNotifyEnhancedExternalCaches(int a1, __int64 a2, __int64 a3)
@@ -21,7 +21,7 @@ void __fastcall CcNotifyEnhancedExternalCaches(int a1, __int64 a2, __int64 a3)
   __int64 v11; // [rsp+40h] [rbp-30h]
 
   memset_0(&v7, 0, 0x40uLL);
-  v5 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)&EmpParseLock.SchedulerSharedSwappablePage);
+  v5 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)&EmpParseLock.SchedulerAssistYieldCounter);
   for ( i = *(_QWORD **)(a3 + 1264); i != (_QWORD *)(a3 + 1264); i = (_QWORD *)*i )
   {
     v7 = 1;
@@ -44,5 +44,5 @@ LABEL_6:
 LABEL_8:
     guard_dispatch_icall_no_overrides(i - 4, &v7);
   }
-  KeReleaseSpinLock((PKSPIN_LOCK)&EmpParseLock.SchedulerSharedSwappablePage, v5);
+  KeReleaseSpinLock((PKSPIN_LOCK)&EmpParseLock.SchedulerAssistYieldCounter, v5);
 }

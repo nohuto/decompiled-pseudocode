@@ -1,29 +1,29 @@
 /*
- * XREFs of MiLockVadRange @ 0x1408E8B10
+ * XREFs of MiLockVadRange @ 0x1408D92F0
  * Callers:
- *     NtUnlockVirtualMemory @ 0x1402333D0 (NtUnlockVirtualMemory.c)
- *     NtLockVirtualMemory @ 0x1403FD910 (NtLockVirtualMemory.c)
- *     MiCoalescePlaceholderAllocations @ 0x1408DC33C (MiCoalescePlaceholderAllocations.c)
- *     MmAssignProcessToJob @ 0x1408E8398 (MmAssignProcessToJob.c)
- *     MiCloneProcessAddressSpace @ 0x140ABD72C (MiCloneProcessAddressSpace.c)
+ *     NtUnlockVirtualMemory @ 0x140213FA0 (NtUnlockVirtualMemory.c)
+ *     NtLockVirtualMemory @ 0x1403DBC30 (NtLockVirtualMemory.c)
+ *     MmAssignProcessToJob @ 0x1408D8B78 (MmAssignProcessToJob.c)
+ *     MiCoalescePlaceholderAllocations @ 0x1408DA56C (MiCoalescePlaceholderAllocations.c)
+ *     MiCloneProcessAddressSpace @ 0x140AB879C (MiCloneProcessAddressSpace.c)
  * Callees:
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     MiGetNextVad @ 0x1402614BC (MiGetNextVad.c)
- *     MiLockVad @ 0x1402629EC (MiLockVad.c)
- *     MiReferenceVad @ 0x140262A70 (MiReferenceVad.c)
- *     MiUnlockAndDereferenceVad @ 0x1402BAFA0 (MiUnlockAndDereferenceVad.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     MiWaitForVadDeletion @ 0x1402FBA58 (MiWaitForVadDeletion.c)
- *     MiLocateAddress @ 0x1402FC070 (MiLocateAddress.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     MiGetFirstVad @ 0x1404043B8 (MiGetFirstVad.c)
- *     LOCK_ADDRESS_SPACE_SHARED @ 0x140404438 (LOCK_ADDRESS_SPACE_SHARED.c)
- *     UNLOCK_ADDRESS_SPACE_UNORDERED @ 0x140405E18 (UNLOCK_ADDRESS_SPACE_UNORDERED.c)
- *     LOCK_ADDRESS_SPACE @ 0x140405F18 (LOCK_ADDRESS_SPACE.c)
- *     MiVadDeleted @ 0x140428540 (MiVadDeleted.c)
- *     UNLOCK_ADDRESS_SPACE_SHARED_UNORDERED @ 0x14068EC3C (UNLOCK_ADDRESS_SPACE_SHARED_UNORDERED.c)
- *     MiVadIsMetadataBitmap @ 0x1408E8D78 (MiVadIsMetadataBitmap.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     MiGetNextVad @ 0x140291ACC (MiGetNextVad.c)
+ *     MiLockVad @ 0x1402926F0 (MiLockVad.c)
+ *     MiReferenceVad @ 0x140292770 (MiReferenceVad.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     MiLocateAddress @ 0x140344F70 (MiLocateAddress.c)
+ *     MiWaitForVadDeletion @ 0x140345500 (MiWaitForVadDeletion.c)
+ *     MiUnlockAndDereferenceVad @ 0x1403626E0 (MiUnlockAndDereferenceVad.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     MiGetFirstVad @ 0x1403C6358 (MiGetFirstVad.c)
+ *     LOCK_ADDRESS_SPACE_SHARED @ 0x1403C63D8 (LOCK_ADDRESS_SPACE_SHARED.c)
+ *     UNLOCK_ADDRESS_SPACE_UNORDERED @ 0x1403C8374 (UNLOCK_ADDRESS_SPACE_UNORDERED.c)
+ *     LOCK_ADDRESS_SPACE @ 0x1403C8474 (LOCK_ADDRESS_SPACE.c)
+ *     MiVadDeleted @ 0x14041C6D0 (MiVadDeleted.c)
+ *     UNLOCK_ADDRESS_SPACE_SHARED_UNORDERED @ 0x14068FD18 (UNLOCK_ADDRESS_SPACE_SHARED_UNORDERED.c)
+ *     MiVadIsMetadataBitmap @ 0x1408D9558 (MiVadIsMetadataBitmap.c)
  */
 
 __int64 __fastcall MiLockVadRange(__int64 a1, unsigned __int64 a2, unsigned __int64 a3, int a4)
@@ -43,10 +43,10 @@ __int64 __fastcall MiLockVadRange(__int64 a1, unsigned __int64 a2, unsigned __in
   __int64 *v18; // rsi
   __int64 v19; // r14
   unsigned __int64 *v20; // rbx
-  _QWORD *v21; // rax
-  _QWORD *v22; // rbp
-  _QWORD *v23; // rax
-  _QWORD *v24; // r15
+  char *v21; // rax
+  char *v22; // rbp
+  char *v23; // rax
+  char *v24; // r15
   unsigned __int64 v25; // rdi
   __int64 v26; // rcx
   int v27; // [rsp+20h] [rbp-58h]
@@ -104,12 +104,12 @@ LABEL_13:
     {
       if ( v10 )
       {
-        v23 = KeAbPreAcquire(i + 40, 0LL);
+        v23 = (char *)KeAbPreAcquire(i + 40, 0LL);
         v24 = v23;
         if ( _interlockedbittestandset64((volatile signed __int32 *)(i + 40), 0LL) )
-          ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(i + 40), (__int64)v23, i + 40);
+          ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(i + 40), v23, i + 40);
         if ( v24 )
-          *((_BYTE *)v24 + 10) = 1;
+          v24[10] = 1;
         CurrentThread = v28;
       }
       else
@@ -158,12 +158,12 @@ LABEL_13:
       if ( v10 )
       {
         v20 = (unsigned __int64 *)(*v18 + 40);
-        v21 = KeAbPreAcquire((__int64)v20, 0LL);
+        v21 = (char *)KeAbPreAcquire((__int64)v20, 0LL);
         v22 = v21;
         if ( _interlockedbittestandset64((volatile signed __int32 *)v20, 0LL) )
-          ExfAcquirePushLockExclusiveEx(v20, (__int64)v21, (__int64)v20);
+          ExfAcquirePushLockExclusiveEx(v20, v21, (__int64)v20);
         if ( v22 )
-          *((_BYTE *)v22 + 10) = 1;
+          v22[10] = 1;
       }
       else
       {

@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpTestMemory @ 0x1402F8A24
+ * XREFs of RtlpTestMemory @ 0x1402F8C14
  * Callers:
- *     RtlpGenericInverseCouplingWorker @ 0x1402F8154 (RtlpGenericInverseCouplingWorker.c)
+ *     RtlpGenericInverseCouplingWorker @ 0x1402F8344 (RtlpGenericInverseCouplingWorker.c)
  * Callees:
  *     <none>
  */

@@ -12,7 +12,7 @@ __int64 __fastcall CcZeroDataOnDisk(__int64 a1, __int64 *a2, _QWORD *a3)
   char v3; // bp
   __int64 v5; // rbx
   unsigned int v6; // edi
-  int v7; // ecx
+  NTSTATUS v7; // ecx
   __int64 result; // rax
   unsigned int i; // esi
   __int64 v10; // [rsp+48h] [rbp+10h] BYREF

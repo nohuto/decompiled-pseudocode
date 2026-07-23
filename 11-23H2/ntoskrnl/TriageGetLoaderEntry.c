@@ -1,5 +1,5 @@
 /*
- * XREFs of TriageGetLoaderEntry @ 0x140679848
+ * XREFs of TriageGetLoaderEntry @ 0x140679D98
  * Callers:
  *     VfTriageAddDrivers @ 0x140B970A8 (VfTriageAddDrivers.c)
  *     ViTriageSameDriversFromDump @ 0x140B973B4 (ViTriageSameDriversFromDump.c)

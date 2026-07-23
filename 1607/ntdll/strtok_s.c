@@ -3,9 +3,9 @@
  * Callers:
  *     <none>
  * Callees:
- *     _invalid_parameter @ 0x180096B68 (_invalid_parameter.c)
- *     __security_check_cookie @ 0x180096C40 (__security_check_cookie.c)
- *     __report_rangecheckfailure @ 0x180096DE0 (__report_rangecheckfailure.c)
+ *     _invalid_parameter @ 0x180096B58 (_invalid_parameter.c)
+ *     __security_check_cookie @ 0x180096C30 (__security_check_cookie.c)
+ *     __report_rangecheckfailure @ 0x180096DD0 (__report_rangecheckfailure.c)
  */
 
 char *__cdecl strtok_s(char *String, const char *Delimiter, char **Context)

@@ -1,13 +1,13 @@
 /*
- * XREFs of KiConnectInterrupt @ 0x14016DCC0
+ * XREFs of KiConnectInterrupt @ 0x14016DDC0
  * Callers:
- *     KeConnectInterrupt @ 0x14016DB40 (KeConnectInterrupt.c)
+ *     KeConnectInterrupt @ 0x14016DC40 (KeConnectInterrupt.c)
  * Callees:
- *     KeRevertToUserGroupAffinityThread @ 0x1400D8210 (KeRevertToUserGroupAffinityThread.c)
- *     KiAcquireInterruptConnectLock @ 0x14016DE38 (KiAcquireInterruptConnectLock.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KiInsertInterruptObjectOrdered @ 0x1402997E8 (KiInsertInterruptObjectOrdered.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x1400D8290 (KeRevertToUserGroupAffinityThread.c)
+ *     KiAcquireInterruptConnectLock @ 0x14016DF38 (KiAcquireInterruptConnectLock.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiInsertInterruptObjectOrdered @ 0x1402999D8 (KiInsertInterruptObjectOrdered.c)
  */
 
 __int64 __fastcall KiConnectInterrupt(__int64 a1)

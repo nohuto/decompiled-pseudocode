@@ -9,5 +9,5 @@
 void __fastcall CcFreePrivateCacheMapIgnoreNull(PVOID Entry)
 {
   if ( Entry )
-    ExFreeToLookasideListEx(&CcPrivateCacheMapLookasideList, Entry);
+    ExFreeToLookasideListEx((PLOOKASIDE_LIST_EX)&CcPrivateCacheMapLookasideList, Entry);
 }

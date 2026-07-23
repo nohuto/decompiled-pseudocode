@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpLMStubVmTarget @ 0x140722BA0
+ * XREFs of HalpLMStubVmTarget @ 0x140727770
  * Callers:
- *     HalpLMStubForVM @ 0x140722AE0 (HalpLMStubForVM.c)
+ *     HalpLMStubForVM @ 0x1407276B0 (HalpLMStubForVM.c)
  * Callees:
  *     <none>
  */

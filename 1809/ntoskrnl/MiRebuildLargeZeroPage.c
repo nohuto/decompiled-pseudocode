@@ -1,15 +1,15 @@
 /*
- * XREFs of MiRebuildLargeZeroPage @ 0x1400904D0
+ * XREFs of MiRebuildLargeZeroPage @ 0x140090410
  * Callers:
  *     <none>
  * Callees:
- *     MiProcessLargeCoalesceList @ 0x14009069C (MiProcessLargeCoalesceList.c)
- *     PsDereferencePartition @ 0x140090CC0 (PsDereferencePartition.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     memset @ 0x1401D1880 (memset.c)
+ *     MiProcessLargeCoalesceList @ 0x1400905DC (MiProcessLargeCoalesceList.c)
+ *     PsDereferencePartition @ 0x140090C00 (PsDereferencePartition.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC420 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC5A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x1401D1980 (memset.c)
  */
 
 __int64 __fastcall MiRebuildLargeZeroPage(__int64 a1)

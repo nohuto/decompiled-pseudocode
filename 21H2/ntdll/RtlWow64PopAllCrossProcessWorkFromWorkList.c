@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlWow64PopAllCrossProcessWorkFromWorkList @ 0x180103300
+ * XREFs of RtlWow64PopAllCrossProcessWorkFromWorkList @ 0x1801032C0
  * Callers:
  *     <none>
  * Callees:

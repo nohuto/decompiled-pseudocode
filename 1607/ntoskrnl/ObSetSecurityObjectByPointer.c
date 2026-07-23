@@ -1,11 +1,11 @@
 /*
- * XREFs of ObSetSecurityObjectByPointer @ 0x1404072C4
+ * XREFs of ObSetSecurityObjectByPointer @ 0x140406184
  * Callers:
- *     PiSwGetChildPdo @ 0x1403F1528 (PiSwGetChildPdo.c)
- *     SepAppendAceToTokenObjectAcl @ 0x140406AA0 (SepAppendAceToTokenObjectAcl.c)
- *     PipChangeDeviceObjectFromRegistryProperties @ 0x1404E1F74 (PipChangeDeviceObjectFromRegistryProperties.c)
- *     NtSetSecurityObject @ 0x140520B3C (NtSetSecurityObject.c)
- *     VRegSetup @ 0x140551650 (VRegSetup.c)
+ *     PiSwGetChildPdo @ 0x1403F03EC (PiSwGetChildPdo.c)
+ *     SepAppendAceToTokenObjectAcl @ 0x140405960 (SepAppendAceToTokenObjectAcl.c)
+ *     PipChangeDeviceObjectFromRegistryProperties @ 0x1404D3B60 (PipChangeDeviceObjectFromRegistryProperties.c)
+ *     NtSetSecurityObject @ 0x140503BA4 (NtSetSecurityObject.c)
+ *     VRegSetup @ 0x140551B90 (VRegSetup.c)
  * Callees:
  *     <none>
  */

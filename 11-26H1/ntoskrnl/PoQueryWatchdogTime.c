@@ -1,15 +1,15 @@
 /*
- * XREFs of PoQueryWatchdogTime @ 0x1403A9C80
+ * XREFs of PoQueryWatchdogTime @ 0x1403B3890
  * Callers:
  *     <none>
  * Callees:
- *     KxWaitForLockOwnerShip @ 0x1402B29C0 (KxWaitForLockOwnerShip.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x1402B4830 (KiAcquireQueuedSpinLockInstrumented.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x1402B98C0 (KeReleaseInStackQueuedSpinLock.c)
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     PopComputeWatchdogTimeout @ 0x1403AAE28 (PopComputeWatchdogTimeout.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KxWaitForLockOwnerShip @ 0x1402FD690 (KxWaitForLockOwnerShip.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x1402FF500 (KiAcquireQueuedSpinLockInstrumented.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x140304580 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PopComputeWatchdogTimeout @ 0x1403B4B38 (PopComputeWatchdogTimeout.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 BOOLEAN __stdcall PoQueryWatchdogTime(PDEVICE_OBJECT Pdo, PULONG SecondsRemaining)
@@ -38,7 +38,7 @@ BOOLEAN __stdcall PoQueryWatchdogTime(PDEVICE_OBJECT Pdo, PULONG SecondsRemainin
   else
     DeviceNode = 0LL;
   LockHandle.LockQueue.Next = 0LL;
-  LockHandle.LockQueue.Lock = qword_140F10540;
+  LockHandle.LockQueue.Lock = (unsigned __int64 *volatile)&PpmIdlePolicyLock.WaitListEntry.Blink;
   CurrentIrql = KeGetCurrentIrql();
   if ( CurrentIrql != 2 )
     __writecr8(2uLL);
@@ -48,18 +48,20 @@ BOOLEAN __stdcall PoQueryWatchdogTime(PDEVICE_OBJECT Pdo, PULONG SecondsRemainin
     KiRaiseIrqlProcessIrqlFlags(Pdo, 2LL);
   }
   LockHandle.OldIrql = CurrentIrql;
-  if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+  if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
   {
-    v8 = _InterlockedExchange64((volatile __int64 *)qword_140F10540, (__int64)&LockHandle);
+    v8 = _InterlockedExchange64((volatile __int64 *)&PpmIdlePolicyLock.WaitListEntry.Blink, (__int64)&LockHandle);
     if ( v8 )
       KxWaitForLockOwnerShip((volatile signed __int64)&LockHandle, v8, v2);
   }
   else
   {
-    KiAcquireQueuedSpinLockInstrumented((__int64)&LockHandle, (volatile __int64 *)qword_140F10540);
+    KiAcquireQueuedSpinLockInstrumented(
+      (__int64)&LockHandle,
+      (volatile __int64 *)&PpmIdlePolicyLock.WaitListEntry.Blink);
   }
   v9 = DeviceNode[33];
-  stru_140F10070.ApcState.ApcListHead[1].Flink = (struct _LIST_ENTRY *)KeGetCurrentThread();
+  PopIrpLockThread = (__int64)KeGetCurrentThread();
   if ( v9 )
   {
     v12 = *(_QWORD *)(v9 + 72LL * *(char *)(v9 + 66) + 200);
@@ -85,7 +87,7 @@ BOOLEAN __stdcall PoQueryWatchdogTime(PDEVICE_OBJECT Pdo, PULONG SecondsRemainin
     }
     KeReleaseSpinLock((PKSPIN_LOCK)(v15 + 288), v16);
   }
-  stru_140F10070.ApcState.ApcListHead[1].Flink = 0LL;
+  PopIrpLockThread = 0LL;
   KeReleaseInStackQueuedSpinLock(&LockHandle);
   if ( v3 != -1LL )
   {

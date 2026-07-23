@@ -1,10 +1,10 @@
 /*
- * XREFs of PopBootLoaderTraceCopyPfnList @ 0x140B4B22C
+ * XREFs of PopBootLoaderTraceCopyPfnList @ 0x140B4D26C
  * Callers:
- *     PopBuildMemoryImageHeader @ 0x140B64920 (PopBuildMemoryImageHeader.c)
+ *     PopBuildMemoryImageHeader @ 0x140B66A30 (PopBuildMemoryImageHeader.c)
  * Callees:
- *     PoSetHiberRange @ 0x1402649E0 (PoSetHiberRange.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
+ *     PoSetHiberRange @ 0x14046AD10 (PoSetHiberRange.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
  */
 
 void __fastcall PopBootLoaderTraceCopyPfnList(_QWORD *MemoryMap, __int64 a2)

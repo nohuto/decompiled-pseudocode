@@ -1,11 +1,11 @@
 /*
- * XREFs of MiLogStandbyRepurpose @ 0x140463A68
+ * XREFs of MiLogStandbyRepurpose @ 0x14045A1A8
  * Callers:
- *     MiRestoreTransitionPte @ 0x140271094 (MiRestoreTransitionPte.c)
+ *     MiRestoreTransitionPte @ 0x140226624 (MiRestoreTransitionPte.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14020FA40 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140210170 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     KeInsertQueueDpc @ 0x1402542F0 (KeInsertQueueDpc.c)
+ *     KeInsertQueueDpc @ 0x140284900 (KeInsertQueueDpc.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140338DA0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1403394D0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
  */
 
 void __fastcall MiLogStandbyRepurpose(__int64 a1, __int64 a2)

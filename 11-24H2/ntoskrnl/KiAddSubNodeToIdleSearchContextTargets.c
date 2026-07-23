@@ -1,7 +1,7 @@
 /*
- * XREFs of KiAddSubNodeToIdleSearchContextTargets @ 0x1405B58A8
+ * XREFs of KiAddSubNodeToIdleSearchContextTargets @ 0x1405B2B70
  * Callers:
- *     KiConfigureCooperativeIdleSearchContextTargets @ 0x1405B6868 (KiConfigureCooperativeIdleSearchContextTargets.c)
+ *     KiConfigureCooperativeIdleSearchContextTargets @ 0x1405B3B28 (KiConfigureCooperativeIdleSearchContextTargets.c)
  * Callees:
  *     <none>
  */

@@ -1,11 +1,11 @@
 /*
- * XREFs of XmInOp @ 0x140469390
+ * XREFs of XmInOp @ 0x140461D40
  * Callers:
  *     <none>
  * Callees:
- *     x86BiosReadIoSpace @ 0x1404693F0 (x86BiosReadIoSpace.c)
- *     XmStoreResult @ 0x14046959C (XmStoreResult.c)
- *     longjmp @ 0x1404FB920 (longjmp.c)
+ *     x86BiosReadIoSpace @ 0x140461DA0 (x86BiosReadIoSpace.c)
+ *     XmStoreResult @ 0x140461F4C (XmStoreResult.c)
+ *     longjmp @ 0x1404F91E0 (longjmp.c)
  */
 
 __int64 __fastcall XmInOp(__int64 a1)

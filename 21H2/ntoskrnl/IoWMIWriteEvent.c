@@ -1,24 +1,24 @@
 /*
- * XREFs of IoWMIWriteEvent @ 0x14037E730
+ * XREFs of IoWMIWriteEvent @ 0x14037E280
  * Callers:
- *     PpmFireWmiEvent @ 0x1405784F8 (PpmFireWmiEvent.c)
- *     PpmWmiFireIdleAccountingEvent @ 0x140578580 (PpmWmiFireIdleAccountingEvent.c)
+ *     PpmFireWmiEvent @ 0x140578738 (PpmFireWmiEvent.c)
+ *     PpmWmiFireIdleAccountingEvent @ 0x1405787C0 (PpmWmiFireIdleAccountingEvent.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     ExQueueWorkItem @ 0x14023E750 (ExQueueWorkItem.c)
- *     WmipDoFindRegEntryByProviderId @ 0x1402650B0 (WmipDoFindRegEntryByProviderId.c)
- *     ExInterlockedInsertTailList @ 0x1402A0380 (ExInterlockedInsertTailList.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     ExInterlockedInsertTailList @ 0x14021D900 (ExInterlockedInsertTailList.c)
+ *     WmipDoFindRegEntryByProviderId @ 0x140253140 (WmipDoFindRegEntryByProviderId.c)
+ *     ExQueueWorkItem @ 0x1402E2FA0 (ExQueueWorkItem.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     EtwTraceEvent @ 0x1405A60A0 (EtwTraceEvent.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     EtwTraceEvent @ 0x1405A62D0 (EtwTraceEvent.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 NTSTATUS __stdcall IoWMIWriteEvent(PVOID WnodeEventItem)
 {
   NTSTATUS v1; // edi
   int v3; // ebx
-  struct _LIST_ENTRY *PoolWithTag; // rbp
+  _LIST_ENTRY *PoolWithTag; // rbp
   int v5; // ebx
   unsigned __int64 v6; // r14
   _DWORD *RegEntryByProviderId; // rax
@@ -60,7 +60,7 @@ LABEL_16:
     return -2147483643;
   }
 LABEL_3:
-  PoolWithTag = (struct _LIST_ENTRY *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x20uLL, 0x77696D57u);
+  PoolWithTag = (_LIST_ENTRY *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x20uLL, 0x77696D57u);
   if ( !PoolWithTag )
     return -1073741670;
   v5 = *((_DWORD *)WnodeEventItem + 1);

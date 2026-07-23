@@ -1,10 +1,10 @@
 /*
- * XREFs of PiProcessStartSystemDevices @ 0x1408641C0
+ * XREFs of PiProcessStartSystemDevices @ 0x140864400
  * Callers:
- *     PnpDeviceActionWorker @ 0x140359430 (PnpDeviceActionWorker.c)
+ *     PnpDeviceActionWorker @ 0x1403595D0 (PnpDeviceActionWorker.c)
  * Callees:
- *     PnpDiagnosticTrace @ 0x140362B58 (PnpDiagnosticTrace.c)
- *     PipProcessDevNodeTree @ 0x1406CB690 (PipProcessDevNodeTree.c)
+ *     PnpDiagnosticTrace @ 0x140362CF8 (PnpDiagnosticTrace.c)
+ *     PipProcessDevNodeTree @ 0x1406CB6C0 (PipProcessDevNodeTree.c)
  */
 
 __int64 __fastcall PiProcessStartSystemDevices(__int64 a1)

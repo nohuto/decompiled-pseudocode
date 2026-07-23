@@ -1,12 +1,11 @@
 /*
- * XREFs of ZwOpenTransactionManager @ 0x14041D4A0
+ * XREFs of ZwOpenTransactionManager @ 0x14041D830
  * Callers:
- *     DifZwOpenTransactionManagerWrapper @ 0x1405F2CC0 (DifZwOpenTransactionManagerWrapper.c)
+ *     DifZwOpenTransactionManagerWrapper @ 0x1405F3230 (DifZwOpenTransactionManagerWrapper.c)
  * Callees:
  *     <none>
  */
 
-// local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall ZwOpenTransactionManager(
         PHANDLE TmHandle,
         ACCESS_MASK DesiredAccess,
@@ -17,5 +16,5 @@ NTSTATUS __stdcall ZwOpenTransactionManager(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(TmHandle, *(_QWORD *)&DesiredAccess);
+  return KiServiceInternal(TmHandle);
 }

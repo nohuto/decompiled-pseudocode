@@ -1,10 +1,10 @@
 /*
- * XREFs of PfpPartitionIterateAndCheckCanAnyDoAccessLogging @ 0x1406002C4
+ * XREFs of PfpPartitionIterateAndCheckCanAnyDoAccessLogging @ 0x140602D74
  * Callers:
- *     PfpProcessScenarioPhase @ 0x140B1CEB8 (PfpProcessScenarioPhase.c)
- *     PfpScenCtxPrefetchWait @ 0x140BF8AD8 (PfpScenCtxPrefetchWait.c)
+ *     PfpProcessScenarioPhase @ 0x140B1F0C8 (PfpProcessScenarioPhase.c)
+ *     PfpScenCtxPrefetchWait @ 0x140BFEAD8 (PfpScenCtxPrefetchWait.c)
  * Callees:
- *     PfpPartitionIterate @ 0x140382630 (PfpPartitionIterate.c)
+ *     PfpPartitionIterate @ 0x1403843E0 (PfpPartitionIterate.c)
  */
 
 __int64 PfpPartitionIterateAndCheckCanAnyDoAccessLogging()

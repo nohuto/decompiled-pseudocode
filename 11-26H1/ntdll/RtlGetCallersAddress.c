@@ -1,30 +1,29 @@
 /*
- * XREFs of RtlGetCallersAddress @ 0x180111380
+ * XREFs of RtlGetCallersAddress @ 0x180110F00
  * Callers:
  *     <none>
  * Callees:
- *     RtlCaptureStackBackTrace @ 0x180010460 (RtlCaptureStackBackTrace.c)
+ *     RtlCaptureStackBackTrace @ 0x18005BB90 (RtlCaptureStackBackTrace.c)
  */
 
-USHORT __fastcall RtlGetCallersAddress(_QWORD *a1, _QWORD *a2)
+void __cdecl RtlGetCallersAddress(PVOID *CallersAddress, PVOID *CallersCaller)
 {
-  USHORT result; // ax
-  __int64 v5; // r8
+  USHORT v4; // ax
+  void *v5; // r8
   __int128 v6; // [rsp+20h] [rbp-18h] BYREF
 
   v6 = 0LL;
-  result = RtlCaptureStackBackTrace(2u, 2u, (PVOID *)&v6, 0LL);
+  v4 = RtlCaptureStackBackTrace(2u, 2u, (PVOID *)&v6, 0LL);
   v5 = 0LL;
-  if ( result )
+  if ( v4 )
   {
-    *a1 = v6;
-    if ( result >= 2u )
-      v5 = *((_QWORD *)&v6 + 1);
+    *CallersAddress = (PVOID)v6;
+    if ( v4 >= 2u )
+      v5 = (void *)*((_QWORD *)&v6 + 1);
   }
   else
   {
-    *a1 = 0LL;
+    *CallersAddress = 0LL;
   }
-  *a2 = v5;
-  return result;
+  *CallersCaller = v5;
 }

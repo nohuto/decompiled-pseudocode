@@ -1,10 +1,10 @@
 /*
- * XREFs of VmpCheckUnpinAndDereference @ 0x1406C0CF0
+ * XREFs of VmpCheckUnpinAndDereference @ 0x1406C48D0
  * Callers:
- *     VmpUnpinMemoryRangeHelper @ 0x1406C286C (VmpUnpinMemoryRangeHelper.c)
+ *     VmpUnpinMemoryRangeHelper @ 0x1406C644C (VmpUnpinMemoryRangeHelper.c)
  * Callees:
- *     VmpFindNextPinnedPageStateHelper @ 0x1406C11C8 (VmpFindNextPinnedPageStateHelper.c)
- *     VmpRefDerefPinnedPages @ 0x1406C1A5C (VmpRefDerefPinnedPages.c)
+ *     VmpFindNextPinnedPageStateHelper @ 0x1406C4DA8 (VmpFindNextPinnedPageStateHelper.c)
+ *     VmpRefDerefPinnedPages @ 0x1406C563C (VmpRefDerefPinnedPages.c)
  */
 
 __int64 __fastcall VmpCheckUnpinAndDereference(

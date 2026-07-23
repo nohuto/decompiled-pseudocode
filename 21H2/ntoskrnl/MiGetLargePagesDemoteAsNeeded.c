@@ -1,13 +1,13 @@
 /*
  * XREFs of MiGetLargePagesDemoteAsNeeded @ 0x1403F5870
  * Callers:
- *     MiGetLargePageChain @ 0x1402BED44 (MiGetLargePageChain.c)
- *     MiFindLargeNodePage @ 0x140394ED0 (MiFindLargeNodePage.c)
- *     MiTimeSingleLargePageZeroWorker @ 0x1403B0728 (MiTimeSingleLargePageZeroWorker.c)
+ *     MiGetLargePageChain @ 0x14023D194 (MiGetLargePageChain.c)
+ *     MiFindLargeNodePage @ 0x140395020 (MiFindLargeNodePage.c)
+ *     MiTimeSingleLargePageZeroWorker @ 0x1403B0898 (MiTimeSingleLargePageZeroWorker.c)
  *     MiGetFastLargePages @ 0x1403F7B20 (MiGetFastLargePages.c)
  * Callees:
- *     MiInitializePageColorBase @ 0x14023F280 (MiInitializePageColorBase.c)
- *     MiGetLargePage @ 0x140303A34 (MiGetLargePage.c)
+ *     MiInitializePageColorBase @ 0x1402E3AD0 (MiInitializePageColorBase.c)
+ *     MiGetLargePage @ 0x14030E784 (MiGetLargePage.c)
  *     MiGetFreeZeroLargePages @ 0x1403F6914 (MiGetFreeZeroLargePages.c)
  */
 
@@ -18,7 +18,7 @@ __int64 __fastcall MiGetLargePagesDemoteAsNeeded(
         unsigned __int64 a4,
         int a5,
         int a6,
-        unsigned int a7)
+        int a7)
 {
   int v8; // r10d
   __int64 v9; // r12

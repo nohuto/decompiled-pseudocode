@@ -11,7 +11,7 @@
  */
 
 __int64 __fastcall SmDecompressBuffer(
-        __int64 a1,
+        char *Buffer,
         unsigned int a2,
         _QWORD *a3,
         _DWORD *a4,
@@ -19,49 +19,49 @@ __int64 __fastcall SmDecompressBuffer(
         __int64 (__fastcall **a6)(_QWORD))
 {
   NTSTATUS CompressionWorkSpaceSize; // ebx
-  __int64 v8; // r15
+  void *WorkSpace; // r15
   int v10; // ecx
-  unsigned int v11; // ebp
-  const void *v12; // r14
+  ULONG CompressedBufferSize; // ebp
+  char *v12; // r14
   size_t v13; // rdi
   __int64 v14; // r12
   void *v15; // rsi
   unsigned __int8 v16; // al
-  unsigned __int16 v17; // r13
+  USHORT v17; // r13
   _DWORD *v19; // rbx
-  unsigned int v20; // eax
-  unsigned int v21; // eax
-  int v22; // [rsp+40h] [rbp-58h] BYREF
+  ULONG32 v20; // eax
+  ULONG32 v21; // eax
+  int Buffera; // [rsp+40h] [rbp-58h] BYREF
   ULONG CompressBufferWorkSpaceSize[21]; // [rsp+44h] [rbp-54h] BYREF
   ULONG CompressFragmentWorkSpaceSize; // [rsp+A0h] [rbp+8h] BYREF
-  int v25; // [rsp+A8h] [rbp+10h] BYREF
+  ULONG FinalUncompressedSize; // [rsp+A8h] [rbp+10h] BYREF
   _QWORD *v26; // [rsp+B0h] [rbp+18h]
   _DWORD *v27; // [rsp+B8h] [rbp+20h]
 
   v27 = a4;
   v26 = a3;
   CompressionWorkSpaceSize = 0;
-  v25 = 0;
+  FinalUncompressedSize = 0;
   CompressFragmentWorkSpaceSize = 0;
-  v8 = 0LL;
+  WorkSpace = 0LL;
   CompressBufferWorkSpaceSize[0] = 0;
   if ( a2 < 8 )
     return (unsigned int)-1073741246;
-  v10 = *(_DWORD *)a1;
-  v11 = a2 - 8;
+  v10 = *(_DWORD *)Buffer;
+  CompressedBufferSize = a2 - 8;
   if ( (v10 & 0xFFFFFF) != 0x4D414D )
     return (unsigned int)-1073741672;
   if ( v10 < 0 )
   {
-    if ( v11 >= 4 )
+    if ( CompressedBufferSize >= 4 )
     {
-      v19 = (_DWORD *)(a1 + 8);
-      v22 = 0;
-      v12 = (const void *)(a1 + 12);
-      v11 = a2 - 12;
-      v20 = RtlComputeCrc32(0LL, a1, 8LL);
-      v21 = RtlComputeCrc32(v20, &v22, 4LL);
-      if ( (unsigned int)RtlComputeCrc32(v21, v12, v11) == *v19 )
+      v19 = Buffer + 8;
+      Buffera = 0;
+      v12 = Buffer + 12;
+      CompressedBufferSize = a2 - 12;
+      v20 = RtlComputeCrc32(0, Buffer, 8u);
+      v21 = RtlComputeCrc32(v20, &Buffera, 4u);
+      if ( RtlComputeCrc32(v21, v12, CompressedBufferSize) == *v19 )
       {
         CompressionWorkSpaceSize = 0;
         goto LABEL_5;
@@ -69,23 +69,23 @@ __int64 __fastcall SmDecompressBuffer(
     }
     return (unsigned int)-1073741246;
   }
-  v12 = (const void *)(a1 + 8);
+  v12 = Buffer + 8;
 LABEL_5:
-  v13 = *(unsigned int *)(a1 + 4);
+  v13 = *((unsigned int *)Buffer + 1);
   if ( a5 && (unsigned int)v13 > *a5 )
     return (unsigned int)-1073739516;
   v14 = (__int64)a6;
   v15 = (void *)(*a6)((unsigned int)v13);
   if ( !v15 )
     return (unsigned int)-1073741670;
-  v16 = *(_BYTE *)(a1 + 3) & 0x7F;
+  v16 = Buffer[3] & 0x7F;
   v17 = v16;
   if ( !v16 )
   {
-    if ( v11 == (_DWORD)v13 )
+    if ( CompressedBufferSize == (_DWORD)v13 )
     {
       memmove(v15, v12, v13);
-      v25 = v13;
+      FinalUncompressedSize = v13;
       goto LABEL_15;
     }
 LABEL_21:
@@ -100,17 +100,24 @@ LABEL_21:
   {
     if ( CompressFragmentWorkSpaceSize )
     {
-      v8 = (*(__int64 (**)(void))v14)();
-      if ( !v8 )
+      WorkSpace = (void *)(*(__int64 (**)(void))v14)();
+      if ( !WorkSpace )
       {
         CompressionWorkSpaceSize = -1073741670;
         goto LABEL_16;
       }
     }
-    CompressionWorkSpaceSize = RtlDecompressBufferEx(v17, (_DWORD)v15, v13, (_DWORD)v12, v11, (__int64)&v25, v8);
+    CompressionWorkSpaceSize = RtlDecompressBufferEx(
+                                 v17,
+                                 (PUCHAR)v15,
+                                 v13,
+                                 (PUCHAR)v12,
+                                 CompressedBufferSize,
+                                 &FinalUncompressedSize,
+                                 WorkSpace);
     if ( CompressionWorkSpaceSize >= 0 )
     {
-      if ( (_DWORD)v13 == v25 )
+      if ( (_DWORD)v13 == FinalUncompressedSize )
       {
         CompressionWorkSpaceSize = 0;
 LABEL_15:
@@ -125,7 +132,7 @@ LABEL_15:
 LABEL_16:
   if ( v15 )
     (*(void (__fastcall **)(void *))(v14 + 8))(v15);
-  if ( v8 )
-    (*(void (__fastcall **)(__int64))(v14 + 8))(v8);
+  if ( WorkSpace )
+    (*(void (__fastcall **)(void *))(v14 + 8))(WorkSpace);
   return (unsigned int)CompressionWorkSpaceSize;
 }

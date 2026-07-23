@@ -8,13 +8,13 @@
 
 __int64 __fastcall KeQueryKvaShadowRegion(__int64 a1, unsigned __int64 **a2, unsigned __int64 *a3)
 {
-  __int64 v3; // r9
+  _IMAGE_NT_HEADERS64 *v3; // r9
   __int64 v6; // rcx
   KPCR *Pcr; // rax
   _DWORD *v9; // rdx
-  _DWORD *v10; // rax
-  unsigned int v11; // ecx
-  unsigned int v12; // eax
+  PIMAGE_SECTION_HEADER v10; // rax
+  unsigned int PhysicalAddress; // ecx
+  unsigned int SizeOfRawData; // eax
   struct _KPRCB *CurrentPrcb; // rax
 
   v3 = 0LL;
@@ -35,19 +35,19 @@ __int64 __fastcall KeQueryKvaShadowRegion(__int64 a1, unsigned __int64 **a2, uns
            && 0x140000107LL + (unsigned __int64)MEMORY[0x14000003C] <= 0x7FFFFFFEFFFFLL)
           && *v9 == 17744 )
         {
-          v3 = 0x140000000LL + MEMORY[0x14000003C];
+          v3 = (_IMAGE_NT_HEADERS64 *)(0x140000000LL + MEMORY[0x14000003C]);
         }
       }
-      v10 = (_DWORD *)RtlSectionTableFromVirtualAddress(
-                        v3,
-                        0x140000000uLL,
-                        (unsigned int)KiDivideErrorFaultShadow - 0x40000000);
-      *a2 = (unsigned __int64 *)(0x140000000LL + (unsigned int)v10[3]);
-      v11 = v10[2];
-      v12 = v10[4];
-      if ( v11 <= v12 )
-        v11 = v12;
-      *a3 = (v11 + 4095LL) & 0xFFFFFFFFFFFFF000uLL;
+      v10 = RtlSectionTableFromVirtualAddress(
+              v3,
+              (PVOID)0x140000000LL,
+              (unsigned int)KiDivideErrorFaultShadow - 0x40000000);
+      *a2 = (unsigned __int64 *)(0x140000000LL + v10->VirtualAddress);
+      PhysicalAddress = v10->Misc.PhysicalAddress;
+      SizeOfRawData = v10->SizeOfRawData;
+      if ( PhysicalAddress <= SizeOfRawData )
+        PhysicalAddress = SizeOfRawData;
+      *a3 = (PhysicalAddress + 4095LL) & 0xFFFFFFFFFFFFF000uLL;
     }
     else
     {

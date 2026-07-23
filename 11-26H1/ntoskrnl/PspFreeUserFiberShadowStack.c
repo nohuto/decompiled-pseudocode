@@ -1,16 +1,16 @@
 /*
- * XREFs of PspFreeUserFiberShadowStack @ 0x14095ED2C
+ * XREFs of PspFreeUserFiberShadowStack @ 0x140A045EC
  * Callers:
- *     NtSetInformationProcess @ 0x140B72B10 (NtSetInformationProcess.c)
+ *     NtSetInformationProcess @ 0x140B781E0 (NtSetInformationProcess.c)
  * Callees:
- *     KiDispatchException @ 0x1403D3400 (KiDispatchException.c)
- *     PspGetBaseTrapFrame @ 0x14046B7C0 (PspGetBaseTrapFrame.c)
- *     MmUpdateUserShadowStackValue @ 0x1404E0BFC (MmUpdateUserShadowStackValue.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwQueryVirtualMemory @ 0x140723850 (ZwQueryVirtualMemory.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ProbeForRead @ 0x1408EF880 (ProbeForRead.c)
- *     MmFreeVirtualMemory @ 0x14095F3F0 (MmFreeVirtualMemory.c)
+ *     KiDispatchException @ 0x1403D63D0 (KiDispatchException.c)
+ *     PspGetBaseTrapFrame @ 0x140464F40 (PspGetBaseTrapFrame.c)
+ *     MmUpdateUserShadowStackValue @ 0x1404DA2DC (MmUpdateUserShadowStackValue.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwQueryVirtualMemory @ 0x140728420 (ZwQueryVirtualMemory.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ProbeForRead @ 0x1408F5E40 (ProbeForRead.c)
+ *     MmFreeVirtualMemory @ 0x140A04CB0 (MmFreeVirtualMemory.c)
  */
 
 __int64 __fastcall PspFreeUserFiberShadowStack(PVOID BaseAddress)
@@ -39,7 +39,7 @@ __int64 __fastcall PspFreeUserFiberShadowStack(PVOID BaseAddress)
     updated = ZwQueryVirtualMemory(
                 (HANDLE)0xFFFFFFFFFFFFFFFFLL,
                 BaseAddress,
-                (MEMORY_INFORMATION_CLASS)3,
+                MemoryRegionInformation,
                 MemoryInformation,
                 0x30uLL,
                 0LL);

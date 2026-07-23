@@ -46,7 +46,7 @@ LABEL_6:
       *(_QWORD *)(i + 64) = 0LL;
       *(_QWORD *)(i + 144) = *(_QWORD *)(a1 + 24);
       *(_DWORD *)(i + 152) = *(_DWORD *)(a1 + 32);
-      RtlDuplicateUnicodeString(1, *(__int16 **)(a1 + 8), i + 128);
+      RtlDuplicateUnicodeString(1u, *(PUNICODE_STRING *)(a1 + 8), (PUNICODE_STRING)(i + 128));
     }
     *(_DWORD *)(i + 120) &= 0xFFFFFFF9;
     if ( i == a2 )

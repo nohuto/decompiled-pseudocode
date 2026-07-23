@@ -1,76 +1,91 @@
 /*
- * XREFs of PopFxActivateComponent @ 0x1403B61EC
+ * XREFs of PopFxActivateComponent @ 0x1402AE4EC
  * Callers:
- *     PopFxNotifyPreDIrpIssue @ 0x1403765BC (PopFxNotifyPreDIrpIssue.c)
- *     PopFxActivateComponentDependencies @ 0x1403B5F40 (PopFxActivateComponentDependencies.c)
- *     PoFxActivateComponent @ 0x1403B6160 (PoFxActivateComponent.c)
- *     PoFxAddComponentRelation @ 0x1405CFDE0 (PoFxAddComponentRelation.c)
- *     PoFxAddDeviceRelation @ 0x1405D0050 (PoFxAddDeviceRelation.c)
- *     PoFxRemoveComponentRelation @ 0x1405D0490 (PoFxRemoveComponentRelation.c)
- *     PopFxRegisterDevice @ 0x14074E950 (PopFxRegisterDevice.c)
- *     PopFxRegisterDeviceWorker @ 0x14074EBF0 (PopFxRegisterDeviceWorker.c)
+ *     PopFxActivateComponentDependencies @ 0x1402AE240 (PopFxActivateComponentDependencies.c)
+ *     PoFxActivateComponent @ 0x1402AE460 (PoFxActivateComponent.c)
+ *     PopFxNotifyPreDIrpIssue @ 0x1403A7CC8 (PopFxNotifyPreDIrpIssue.c)
+ *     PoFxAddComponentRelation @ 0x1405CD500 (PoFxAddComponentRelation.c)
+ *     PoFxAddDeviceRelation @ 0x1405CD770 (PoFxAddDeviceRelation.c)
+ *     PoFxRemoveComponentRelation @ 0x1405CDBB0 (PoFxRemoveComponentRelation.c)
+ *     PopFxRegisterDevice @ 0x14074CC80 (PopFxRegisterDevice.c)
+ *     PopFxRegisterDeviceWorker @ 0x14074CF20 (PopFxRegisterDeviceWorker.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeLeaveGuardedRegion @ 0x1402BB460 (KeLeaveGuardedRegion.c)
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     PopFxActivateComponentWorker @ 0x1403B6358 (PopFxActivateComponentWorker.c)
- *     ?KiClearSystemPriority@@YAXPEAU_KTHREAD@@PEAJ@Z @ 0x1403B6408 (-KiClearSystemPriority@@YAXPEAU_KTHREAD@@PEAJ@Z.c)
- *     ?KiSetSystemPriorityThread@@YAXPEAU_KTHREAD@@JK@Z @ 0x1403B6558 (-KiSetSystemPriorityThread@@YAXPEAU_KTHREAD@@JK@Z.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PopFxActivateComponentWorker @ 0x1402AE658 (PopFxActivateComponentWorker.c)
+ *     ?KiClearSystemPriority@@YAXPEAU_KTHREAD@@PEAJ@Z @ 0x1402AE6EC (-KiClearSystemPriority@@YAXPEAU_KTHREAD@@PEAJ@Z.c)
+ *     ?KiSetSystemPriorityThread@@YAXPEAU_KTHREAD@@JK@Z @ 0x1402AE83C (-KiSetSystemPriorityThread@@YAXPEAU_KTHREAD@@JK@Z.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     KeLeaveGuardedRegion @ 0x140362BA0 (KeLeaveGuardedRegion.c)
  */
 
-void __fastcall PopFxActivateComponent(ULONG_PTR BugCheckParameter2, __int64 a2, char a3)
+void __fastcall PopFxActivateComponent(__int64 a1, __int64 a2, __int64 a3, char a4)
 {
+  char v5; // di
+  int v6; // eax
   struct _KTHREAD *CurrentThread; // rax
-  char v7; // bp
-  int v8; // eax
-  KSPIN_LOCK *v9; // rbx
-  KIRQL v10; // al
-  int v11; // [rsp+A0h] [rbp+8h] BYREF
+  char v10; // bp
+  _OWORD *v11; // rbx
+  int v12; // eax
+  KSPIN_LOCK *v13; // rbx
+  KIRQL v14; // al
+  _OWORD v15[3]; // [rsp+30h] [rbp-68h] BYREF
+  __int64 v16; // [rsp+60h] [rbp-38h]
+  int v17; // [rsp+68h] [rbp-30h]
+  int v18; // [rsp+A0h] [rbp+8h] BYREF
 
-  if ( (*(_DWORD *)(BugCheckParameter2 + 864) & 1) == 0 )
+  v16 = 0LL;
+  v17 = 0;
+  v5 = a3;
+  v6 = *(_DWORD *)(a1 + 864);
+  memset(v15, 0, sizeof(v15));
+  if ( (v6 & 1) == 0 )
   {
     if ( (a3 & 6) == 4 )
     {
       CurrentThread = KeGetCurrentThread();
-      v7 = 1;
+      v10 = 1;
       --CurrentThread->SpecialApcDisable;
     }
     else
     {
-      v7 = 0;
+      v10 = 0;
     }
-    v8 = _InterlockedIncrement((volatile signed __int32 *)(a2 + 88));
-    if ( v8 == 1 )
+    v11 = v15;
+    if ( (a3 & 2) != 0 )
+      v11 = 0LL;
+    v12 = _InterlockedIncrement((volatile signed __int32 *)(a2 + 88));
+    if ( v12 == 1 )
     {
       if ( KeGetCurrentIrql() < 2u )
         KiSetSystemPriorityThread((ULONG_PTR)KeGetCurrentThread(), 16, a3);
       _InterlockedIncrement((volatile signed __int32 *)(a2 + 88));
-      PopFxActivateComponentWorker(BugCheckParameter2);
+      LOBYTE(a3) = a4;
+      PopFxActivateComponentWorker(a1, a2, a3, v11);
       if ( KeGetCurrentIrql() < 2u )
       {
-        v11 = 16;
-        KiClearSystemPriority((ULONG_PTR)KeGetCurrentThread(), &v11);
+        v18 = 16;
+        KiClearSystemPriority((ULONG_PTR)KeGetCurrentThread(), &v18);
       }
     }
     else
     {
-      if ( v8 < 0 )
+      if ( v12 < 0 )
       {
-LABEL_6:
-        if ( v7 )
+LABEL_8:
+        if ( v10 )
           KeLeaveGuardedRegion();
         return;
       }
-      if ( (v8 & 0x40000000) != 0 && (a3 & 8) == 0 )
+      if ( (v12 & 0x40000000) != 0 && (a3 & 8) == 0 )
       {
-        v9 = (KSPIN_LOCK *)(a2 + 128);
-        v10 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(a2 + 128));
-        KeReleaseSpinLock(v9, v10);
+        v13 = (KSPIN_LOCK *)(a2 + 128);
+        v14 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(a2 + 128));
+        KeReleaseSpinLock(v13, v14);
       }
     }
-    if ( (a3 & 1) != 0 )
+    if ( (v5 & 1) != 0 )
       KeWaitForSingleObject((PVOID)(a2 + 104), Executive, 0, 0, 0LL);
-    goto LABEL_6;
+    goto LABEL_8;
   }
 }

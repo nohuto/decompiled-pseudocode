@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlAddDynamicEnforcedAddressRange @ 0x140787614
+ * XREFs of RtlAddDynamicEnforcedAddressRange @ 0x140787544
  * Callers:
- *     PspProcessDynamicEnforcedAddressRanges @ 0x140774FD4 (PspProcessDynamicEnforcedAddressRanges.c)
+ *     PspProcessDynamicEnforcedAddressRanges @ 0x1407751F4 (PspProcessDynamicEnforcedAddressRanges.c)
  * Callees:
- *     RtlAvlInsertNodeEx @ 0x14025FDD0 (RtlAvlInsertNodeEx.c)
- *     RtlpDynamicEnforcedAddressRangesTreeCompare @ 0x140787788 (RtlpDynamicEnforcedAddressRangesTreeCompare.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlAvlInsertNodeEx @ 0x1402903E0 (RtlAvlInsertNodeEx.c)
+ *     RtlpDynamicEnforcedAddressRangesTreeCompare @ 0x1407876B8 (RtlpDynamicEnforcedAddressRangesTreeCompare.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall RtlAddDynamicEnforcedAddressRange(unsigned __int64 *a1, __int64 a2, __int64 a3)
@@ -18,7 +18,7 @@ __int64 __fastcall RtlAddDynamicEnforcedAddressRange(unsigned __int64 *a1, __int
   int v11; // eax
   _QWORD *v12; // rax
 
-  Pool2 = ExAllocatePool2(0x101uLL);
+  Pool2 = ExAllocatePool2(0x101uLL, 0x28uLL, 0x52414544u);
   v7 = 0;
   v8 = (_QWORD *)Pool2;
   if ( !Pool2 )

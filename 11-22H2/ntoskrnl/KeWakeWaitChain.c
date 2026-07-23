@@ -25,7 +25,7 @@ __int64 __fastcall KeWakeWaitChain(volatile signed __int32 **a1, unsigned int a2
 {
   volatile signed __int32 *v3; // rdi
   unsigned int v5; // ebx
-  struct _PROCESSOR_NUMBER v6; // r15d
+  _PROCESSOR_NUMBER v6; // r15d
   unsigned __int8 CurrentIrql; // cl
   struct _KPRCB *CurrentPrcb; // r12
   int v12; // ecx
@@ -63,13 +63,13 @@ __int64 __fastcall KeWakeWaitChain(volatile signed __int32 **a1, unsigned int a2
 
   v3 = *a1;
   v5 = 0;
-  v6 = (struct _PROCESSOR_NUMBER)1;
+  v6 = (_PROCESSOR_NUMBER)1;
   if ( !*a1 )
     return v5;
   CurrentIrql = KeGetCurrentIrql();
   v42 = CurrentIrql;
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 2 )
@@ -125,7 +125,7 @@ LABEL_8:
             *(_QWORD *)v16 = 0LL;
             v25 = KeGetCurrentIrql();
             __writecr8(2uLL);
-            if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v25 <= 0xFu )
+            if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v25 <= 0xFu )
             {
               v26 = KeGetCurrentPrcb()->SchedulerAssist;
               if ( v25 == 2 )
@@ -203,7 +203,7 @@ LABEL_17:
     v23 = KiRemoveBoostThread(CurrentPrcb, CurrentPrcb->CurrentThread);
     if ( a2 )
     {
-      v6 = (struct _PROCESSOR_NUMBER)2;
+      v6 = (_PROCESSOR_NUMBER)2;
       if ( v23 > (char)a2 )
         a2 = v23;
     }

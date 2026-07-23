@@ -1,19 +1,19 @@
 /*
- * XREFs of PoClearPowerRequestInternal @ 0x1400FB9D0
+ * XREFs of PoClearPowerRequestInternal @ 0x1400F9750
  * Callers:
- *     PoClearPowerRequest @ 0x140111B48 (PoClearPowerRequest.c)
- *     PoClearPowerRequestInternalDeferred @ 0x140131570 (PoClearPowerRequestInternalDeferred.c)
- *     PopDelayedPowerRequestClearDpc @ 0x140131EFC (PopDelayedPowerRequestClearDpc.c)
- *     NtPowerInformation @ 0x14051E834 (NtPowerInformation.c)
- *     PopPowerRequestActionInfo @ 0x14051FEF8 (PopPowerRequestActionInfo.c)
+ *     PoClearPowerRequest @ 0x1401120AC (PoClearPowerRequest.c)
+ *     PoClearPowerRequestInternalDeferred @ 0x140131AE0 (PoClearPowerRequestInternalDeferred.c)
+ *     PopDelayedPowerRequestClearDpc @ 0x14013246C (PopDelayedPowerRequestClearDpc.c)
+ *     NtPowerInformation @ 0x14050189C (NtPowerInformation.c)
+ *     PopPowerRequestActionInfo @ 0x140502F60 (PopPowerRequestActionInfo.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140012750 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14001BD40 (KeAcquireInStackQueuedSpinLock.c)
- *     PopDiagTracePowerRequestChange @ 0x1400FBC50 (PopDiagTracePowerRequestChange.c)
- *     PopQueuePowerRequestCallback @ 0x1400FBD5C (PopQueuePowerRequestCallback.c)
- *     PopPowerRequestCallbackWorker @ 0x1400FBE30 (PopPowerRequestCallbackWorker.c)
- *     PopReleasePowerRequestPushLock @ 0x140520694 (PopReleasePowerRequestPushLock.c)
- *     PopAcquirePowerRequestPushLock @ 0x140520750 (PopAcquirePowerRequestPushLock.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x1400122D0 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14001B8C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     PopDiagTracePowerRequestChange @ 0x1400F99D0 (PopDiagTracePowerRequestChange.c)
+ *     PopQueuePowerRequestCallback @ 0x1400F9ADC (PopQueuePowerRequestCallback.c)
+ *     PopPowerRequestCallbackWorker @ 0x1400F9BB0 (PopPowerRequestCallbackWorker.c)
+ *     PopReleasePowerRequestPushLock @ 0x1405036FC (PopReleasePowerRequestPushLock.c)
+ *     PopAcquirePowerRequestPushLock @ 0x1405037B8 (PopAcquirePowerRequestPushLock.c)
  */
 
 __int64 __fastcall PoClearPowerRequestInternal(__int64 a1, signed int a2)

@@ -1,11 +1,11 @@
 /*
- * XREFs of PfpParametersRead @ 0x14075214C
+ * XREFs of PfpParametersRead @ 0x14075333C
  * Callers:
- *     PfpParametersWatcher @ 0x140865A10 (PfpParametersWatcher.c)
- *     PfpParametersInitialize @ 0x1409D472C (PfpParametersInitialize.c)
+ *     PfpParametersWatcher @ 0x140866C70 (PfpParametersWatcher.c)
+ *     PfpParametersInitialize @ 0x1409D572C (PfpParametersInitialize.c)
  * Callees:
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     PfpGetParameter @ 0x140752888 (PfpGetParameter.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     PfpGetParameter @ 0x140753A78 (PfpGetParameter.c)
  */
 
 __int64 __fastcall PfpParametersRead(__int64 a1)

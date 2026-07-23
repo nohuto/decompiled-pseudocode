@@ -109,7 +109,7 @@ LABEL_43:
         if ( (v63 & 1) != 0 )
           v63 = (unsigned int)(v63 + 1);
         if ( (unsigned int)++v16 > 0x20 )
-          RtlRaiseStatus(3221225727LL);
+          RtlRaiseStatus(-1073741569);
         v18 = (_BYTE *)(a2 + *(unsigned int *)&v18[2 * v63 + 12]);
         v17 = v18 + 2;
         if ( v18[2] )

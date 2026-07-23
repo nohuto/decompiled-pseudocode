@@ -1,13 +1,13 @@
 /*
- * XREFs of AslpFileGetExportName @ 0x14088CEC4
+ * XREFs of AslpFileGetExportName @ 0x1408932C0
  * Callers:
- *     AslpFileGetPeExportNameAttribute @ 0x14088D92C (AslpFileGetPeExportNameAttribute.c)
+ *     AslpFileGetPeExportNameAttribute @ 0x140893D28 (AslpFileGetPeExportNameAttribute.c)
  * Callees:
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     AslStringAnsiToUnicode @ 0x140887EBC (AslStringAnsiToUnicode.c)
- *     AslpFileQueryExportName @ 0x14088EF6C (AslpFileQueryExportName.c)
- *     AslLogCallPrintf @ 0x1409E8884 (AslLogCallPrintf.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     AslStringAnsiToUnicode @ 0x14088E2B8 (AslStringAnsiToUnicode.c)
+ *     AslpFileQueryExportName @ 0x140895368 (AslpFileQueryExportName.c)
+ *     AslLogCallPrintf @ 0x1409D5294 (AslLogCallPrintf.c)
  */
 
 __int64 __fastcall AslpFileGetExportName(wchar_t **a1)
@@ -16,7 +16,7 @@ __int64 __fastcall AslpFileGetExportName(wchar_t **a1)
   int v3; // ebx
   const char *v4; // r9
   int v5; // r8d
-  char v7[256]; // [rsp+30h] [rbp-118h] BYREF
+  CHAR v7[256]; // [rsp+30h] [rbp-118h] BYREF
 
   memset_0(v7, 0, sizeof(v7));
   ExportName = AslpFileQueryExportName(v7);

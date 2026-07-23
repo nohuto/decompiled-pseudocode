@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlUnicodeStringValidateSrcWorker @ 0x1405EC7DC
+ * XREFs of RtlUnicodeStringValidateSrcWorker @ 0x1405EF14C
  * Callers:
- *     RtlUnicodeStringCopy @ 0x14043D5D0 (RtlUnicodeStringCopy.c)
- *     CmpDoWritethroughReparse @ 0x1408C11D0 (CmpDoWritethroughReparse.c)
+ *     RtlUnicodeStringCopy @ 0x14042FE80 (RtlUnicodeStringCopy.c)
+ *     CmpDoWritethroughReparse @ 0x1408C77A0 (CmpDoWritethroughReparse.c)
  * Callees:
- *     RtlUnicodeStringValidateWorker_1 @ 0x1405EC828 (RtlUnicodeStringValidateWorker_1.c)
+ *     RtlUnicodeStringValidateWorker_1 @ 0x1405EF198 (RtlUnicodeStringValidateWorker_1.c)
  */
 
 NTSTATUS __stdcall RtlUnicodeStringValidateSrcWorker(

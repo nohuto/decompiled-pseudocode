@@ -1,11 +1,11 @@
 /*
- * XREFs of MiCountSystemPool @ 0x14030B920
+ * XREFs of MiCountSystemPool @ 0x140316670
  * Callers:
- *     MmFreePoolMemory @ 0x1402FA848 (MmFreePoolMemory.c)
- *     MiCommitPoolMemory @ 0x14030B22C (MiCommitPoolMemory.c)
- *     MmFreeSecurePoolMemory @ 0x140544F08 (MmFreeSecurePoolMemory.c)
+ *     MmFreePoolMemory @ 0x140305598 (MmFreePoolMemory.c)
+ *     MiCommitPoolMemory @ 0x140315F7C (MiCommitPoolMemory.c)
+ *     MmFreeSecurePoolMemory @ 0x140545148 (MmFreeSecurePoolMemory.c)
  * Callees:
- *     MiFreeExcessSegments @ 0x140314D50 (MiFreeExcessSegments.c)
+ *     MiFreeExcessSegments @ 0x14031FAA0 (MiFreeExcessSegments.c)
  */
 
 unsigned __int64 __fastcall MiCountSystemPool(int a1, unsigned __int64 a2, int a3)
@@ -19,10 +19,10 @@ unsigned __int64 __fastcall MiCountSystemPool(int a1, unsigned __int64 a2, int a
   switch ( a1 )
   {
     case 5:
-      v5 = &qword_140C4C8C8;
+      v5 = &qword_140C4C908;
       break;
     case 6:
-      v5 = &qword_140C4EF28;
+      v5 = &qword_140C4EF68;
       break;
     case 1:
       result = -(__int64)a2;
@@ -35,7 +35,7 @@ unsigned __int64 __fastcall MiCountSystemPool(int a1, unsigned __int64 a2, int a
       break;
     default:
       result = 0LL;
-      v5 = (volatile signed __int64 *)&unk_140C4C8D0;
+      v5 = (volatile signed __int64 *)&unk_140C4C910;
       if ( a1 != 15 )
         v5 = 0LL;
       break;

@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwpCheckCurrentUserProcessAccess @ 0x1409414D8
+ * XREFs of EtwpCheckCurrentUserProcessAccess @ 0x1409416A8
  * Callers:
- *     EtwpNotifyGuid @ 0x1406E1804 (EtwpNotifyGuid.c)
- *     EtwpIsRegEntryAllowed @ 0x1406E3F1C (EtwpIsRegEntryAllowed.c)
- *     EtwpGetPrivateSessionTraceHandle @ 0x14093F1B0 (EtwpGetPrivateSessionTraceHandle.c)
+ *     EtwpNotifyGuid @ 0x1406B8AE4 (EtwpNotifyGuid.c)
+ *     EtwpIsRegEntryAllowed @ 0x1406BB1FC (EtwpIsRegEntryAllowed.c)
+ *     EtwpGetPrivateSessionTraceHandle @ 0x14093F380 (EtwpGetPrivateSessionTraceHandle.c)
  * Callees:
- *     EtwpAccessCheck @ 0x140643B58 (EtwpAccessCheck.c)
- *     ObReleaseObjectSecurity @ 0x14065F410 (ObReleaseObjectSecurity.c)
- *     ObpGetObjectSecurity @ 0x14065F800 (ObpGetObjectSecurity.c)
+ *     EtwpAccessCheck @ 0x140638968 (EtwpAccessCheck.c)
+ *     ObReleaseObjectSecurity @ 0x140654230 (ObReleaseObjectSecurity.c)
+ *     ObpGetObjectSecurity @ 0x140654620 (ObpGetObjectSecurity.c)
  */
 
 __int64 __fastcall EtwpCheckCurrentUserProcessAccess(__int64 a1)

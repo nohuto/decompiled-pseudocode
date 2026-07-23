@@ -1,14 +1,14 @@
 /*
- * XREFs of PopPowerAggregatorSystemTransitionExitStateHandler @ 0x140774BE0
+ * XREFs of PopPowerAggregatorSystemTransitionExitStateHandler @ 0x140774DA0
  * Callers:
- *     PopPowerAggregatorInvokeStateMachine @ 0x1407761A8 (PopPowerAggregatorInvokeStateMachine.c)
+ *     PopPowerAggregatorInvokeStateMachine @ 0x140776368 (PopPowerAggregatorInvokeStateMachine.c)
  * Callees:
- *     KeResetEvent @ 0x14027BC40 (KeResetEvent.c)
- *     PopReleaseRwLock @ 0x14027C284 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x140281AD4 (PopAcquireRwLockExclusive.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     PopPowerAggregatorStartNextSession @ 0x140774C94 (PopPowerAggregatorStartNextSession.c)
- *     PopPowerAggregatorSetCurrentState @ 0x140776048 (PopPowerAggregatorSetCurrentState.c)
+ *     KeResetEvent @ 0x140269BE0 (KeResetEvent.c)
+ *     PopReleaseRwLock @ 0x14026A224 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14026FD14 (PopAcquireRwLockExclusive.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     PopPowerAggregatorStartNextSession @ 0x140774E54 (PopPowerAggregatorStartNextSession.c)
+ *     PopPowerAggregatorSetCurrentState @ 0x140776208 (PopPowerAggregatorSetCurrentState.c)
  */
 
 __int64 __fastcall PopPowerAggregatorSystemTransitionExitStateHandler(__int64 a1)
@@ -34,11 +34,11 @@ LABEL_5:
   PopPowerAggregatorSetCurrentState(a1, v5);
   PopPowerAggregatorStartNextSession(0LL, 11LL);
   PopReleaseRwLock((ULONG_PTR)&PopPowerAggregatorLock);
-  if ( qword_140C543E0 )
+  if ( qword_140C54420 )
   {
-    qword_140C543E0(2LL);
-    if ( qword_140C543E0 )
-      qword_140C543E0(3LL);
+    qword_140C54420(2LL);
+    if ( qword_140C54420 )
+      qword_140C54420(3LL);
   }
   PopAcquireRwLockExclusive((ULONG_PTR)&PopPowerAggregatorLock);
   return 0LL;

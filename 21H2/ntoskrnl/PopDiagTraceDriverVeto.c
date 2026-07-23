@@ -1,13 +1,13 @@
 /*
- * XREFs of PopDiagTraceDriverVeto @ 0x1409B1FC4
+ * XREFs of PopDiagTraceDriverVeto @ 0x1409B2EF4
  * Callers:
- *     PopCompleteNotifyTransitionCommon @ 0x1403887B8 (PopCompleteNotifyTransitionCommon.c)
+ *     PopCompleteNotifyTransitionCommon @ 0x140388908 (PopCompleteNotifyTransitionCommon.c)
  * Callees:
- *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
- *     EtwWrite @ 0x14025DC90 (EtwWrite.c)
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     PopDiagGetDriverName @ 0x140388F7C (PopDiagGetDriverName.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     EtwWrite @ 0x14027F7C0 (EtwWrite.c)
+ *     EtwEventEnabled @ 0x1402C0830 (EtwEventEnabled.c)
+ *     PopDiagGetDriverName @ 0x1403890CC (PopDiagGetDriverName.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 char __fastcall PopDiagTraceDriverVeto(__int64 a1, __int64 a2)
@@ -39,7 +39,7 @@ char __fastcall PopDiagTraceDriverVeto(__int64 a1, __int64 a2)
     {
       if ( PopDiagGetDriverName(a1, SourceString) < 0 )
       {
-        RtlInitUnicodeString(&DestinationString_8, &word_1409A1D10);
+        RtlInitUnicodeString(&DestinationString_8, &word_1409A2C40);
         Length = DestinationString_8.Length;
         v6 = 0;
       }

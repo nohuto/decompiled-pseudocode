@@ -1,12 +1,12 @@
 /*
- * XREFs of PopSessionConnectedV2 @ 0x1407DDDF4
+ * XREFs of PopSessionConnectedV2 @ 0x1407E2424
  * Callers:
- *     PopSessionConnectionChangeV2 @ 0x1407DDEB4 (PopSessionConnectionChangeV2.c)
+ *     PopSessionConnectionChangeV2 @ 0x1407E24E4 (PopSessionConnectionChangeV2.c)
  * Callees:
- *     PopAdaptiveConsoleSessionOverrideTrigger @ 0x1407DDB54 (PopAdaptiveConsoleSessionOverrideTrigger.c)
- *     PopDiagTraceSessionStates @ 0x140A3BA08 (PopDiagTraceSessionStates.c)
- *     PopSetSessionDisplayStatus @ 0x140A3C548 (PopSetSessionDisplayStatus.c)
- *     PopAdaptiveGetSessionStateUnsafe @ 0x140A3D93C (PopAdaptiveGetSessionStateUnsafe.c)
+ *     PopAdaptiveConsoleSessionOverrideTrigger @ 0x1407E2184 (PopAdaptiveConsoleSessionOverrideTrigger.c)
+ *     PopDiagTraceSessionStates @ 0x1409F7428 (PopDiagTraceSessionStates.c)
+ *     PopSetSessionDisplayStatus @ 0x1409F7F68 (PopSetSessionDisplayStatus.c)
+ *     PopAdaptiveGetSessionStateUnsafe @ 0x1409F935C (PopAdaptiveGetSessionStateUnsafe.c)
  */
 
 __int64 __fastcall PopSessionConnectedV2(unsigned int a1, __int64 a2, __int64 a3, __int64 a4)
@@ -17,8 +17,8 @@ __int64 __fastcall PopSessionConnectedV2(unsigned int a1, __int64 a2, __int64 a3
   PopDiagTraceSessionStates(&POP_ETW_ADPM_SESSION_CONNECTED);
   if ( !v4 )
   {
-    PopAdaptiveStandbyLock.PriorityFloorCounts[24] = 1;
-    *(_DWORD *)&PopAdaptiveStandbyLock.AbWaitEntryCount = a1;
+    PopConsoleSession = 1;
+    dword_140F0C078 = a1;
   }
   PopSetSessionDisplayStatus(a1, 1LL);
   if ( LOBYTE(ExpPlatformBinaryLock.Timer.Dpc) )

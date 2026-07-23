@@ -1,12 +1,12 @@
 /*
- * XREFs of KeCopyContextFromUch @ 0x14065114C
+ * XREFs of KeCopyContextFromUch @ 0x140651230
  * Callers:
- *     PspGetSetContextInternal @ 0x140518130 (PspGetSetContextInternal.c)
+ *     PspGetSetContextInternal @ 0x1404FB520 (PspGetSetContextInternal.c)
  * Callees:
- *     KeContextFromKframes @ 0x1400F4450 (KeContextFromKframes.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     KiCopyXStateArea @ 0x1401D64B8 (KiCopyXStateArea.c)
- *     RtlpSanitizeContextFlags @ 0x1405187CC (RtlpSanitizeContextFlags.c)
+ *     KeContextFromKframes @ 0x1400F22A0 (KeContextFromKframes.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     KiCopyXStateArea @ 0x1401D62E4 (KiCopyXStateArea.c)
+ *     RtlpSanitizeContextFlags @ 0x1404FBBBC (RtlpSanitizeContextFlags.c)
  */
 
 __int64 __fastcall KeCopyContextFromUch(__int64 a1, __int64 a2)

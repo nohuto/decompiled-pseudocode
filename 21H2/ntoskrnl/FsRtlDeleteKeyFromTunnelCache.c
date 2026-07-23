@@ -1,18 +1,18 @@
 /*
- * XREFs of FsRtlDeleteKeyFromTunnelCache @ 0x140688920
+ * XREFs of FsRtlDeleteKeyFromTunnelCache @ 0x1405E7DB0
  * Callers:
  *     <none>
  * Callees:
- *     KeReleaseGuardedMutex @ 0x140265CD0 (KeReleaseGuardedMutex.c)
- *     RtlRealSuccessor @ 0x14029FD70 (RtlRealSuccessor.c)
- *     FsRtlRemoveNodeFromTunnel @ 0x14029FE0C (FsRtlRemoveNodeFromTunnel.c)
- *     FsRtlEmptyFreePoolList @ 0x14029FF14 (FsRtlEmptyFreePoolList.c)
- *     ExAcquireFastMutex @ 0x14034A080 (ExAcquireFastMutex.c)
+ *     RtlRealSuccessor @ 0x14021D2F0 (RtlRealSuccessor.c)
+ *     FsRtlRemoveNodeFromTunnel @ 0x14021D38C (FsRtlRemoveNodeFromTunnel.c)
+ *     FsRtlEmptyFreePoolList @ 0x14021D494 (FsRtlEmptyFreePoolList.c)
+ *     KeReleaseGuardedMutex @ 0x140253C70 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x140354DD0 (ExAcquireFastMutex.c)
  */
 
 void __stdcall FsRtlDeleteKeyFromTunnelCache(TUNNEL *Cache, ULONGLONG DirectoryKey)
 {
-  RTL_SPLAY_LINKS *v2; // rbx
+  _RTL_SPLAY_LINKS *v2; // rbx
   PRTL_SPLAY_LINKS v5; // rax
   PRTL_SPLAY_LINKS v6; // rbp
   _QWORD *v7[3]; // [rsp+20h] [rbp-18h] BYREF

@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpDmaAllocateScatterPagesFromScatterPoolV2 @ 0x14045DDC0
+ * XREFs of HalpDmaAllocateScatterPagesFromScatterPoolV2 @ 0x14045E1C0
  * Callers:
- *     HalpDmaAllocateScatterPagesFromScatterPool @ 0x14045B3AE (HalpDmaAllocateScatterPagesFromScatterPool.c)
+ *     HalpDmaAllocateScatterPagesFromScatterPool @ 0x14045B7AE (HalpDmaAllocateScatterPagesFromScatterPool.c)
  * Callees:
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402610F0 (KeAcquireInStackQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall HalpDmaAllocateScatterPagesFromScatterPoolV2(
@@ -64,10 +64,13 @@ __int64 __fastcall HalpDmaAllocateScatterPagesFromScatterPoolV2(
 LABEL_3:
     KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
     OldIrql = LockHandle.OldIrql;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && LockHandle.OldIrql <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -75,7 +78,7 @@ LABEL_3:
         v17 = (v16 & SchedulerAssist[5]) == 0;
         SchedulerAssist[5] &= v16;
         if ( v17 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
       }
     }
     __writecr8(OldIrql);
@@ -97,10 +100,10 @@ LABEL_3:
     *(_DWORD *)(v9 + 216) -= a3;
   KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
   v24 = LockHandle.OldIrql;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v25 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v25 <= 0xFu && LockHandle.OldIrql <= 0xFu && v25 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v25 <= 0xFu && LockHandle.OldIrql <= 0xFu && v25 >= 2u )
     {
       v26 = KeGetCurrentPrcb();
       v27 = v26->SchedulerAssist;
@@ -108,7 +111,7 @@ LABEL_3:
       v17 = (v28 & v27[5]) == 0;
       v27[5] &= v28;
       if ( v17 )
-        KiRemoveSystemWorkPriorityKick(v26);
+        KiRemoveSystemWorkPriorityKick((__int64)v26);
     }
   }
   __writecr8(v24);

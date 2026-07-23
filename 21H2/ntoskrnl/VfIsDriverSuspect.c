@@ -1,11 +1,11 @@
 /*
- * XREFs of VfIsDriverSuspect @ 0x1409C2524
+ * XREFs of VfIsDriverSuspect @ 0x1409C3524
  * Callers:
- *     MiApplyImportOptimizationToRuntimeDriver @ 0x14075CB78 (MiApplyImportOptimizationToRuntimeDriver.c)
+ *     MiApplyImportOptimizationToRuntimeDriver @ 0x14075CD38 (MiApplyImportOptimizationToRuntimeDriver.c)
  * Callees:
- *     KeReleaseMutex @ 0x1402EE5A0 (KeReleaseMutex.c)
- *     ViSuspectDriversLookupEntry @ 0x1409C2574 (ViSuspectDriversLookupEntry.c)
- *     VfDriverLock @ 0x1409C25B8 (VfDriverLock.c)
+ *     KeReleaseMutex @ 0x1402F92F0 (KeReleaseMutex.c)
+ *     ViSuspectDriversLookupEntry @ 0x1409C3574 (ViSuspectDriversLookupEntry.c)
+ *     VfDriverLock @ 0x1409C35B8 (VfDriverLock.c)
  */
 
 _BOOL8 __fastcall VfIsDriverSuspect(PCUNICODE_STRING String2)

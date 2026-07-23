@@ -1,17 +1,17 @@
 /*
- * XREFs of IommuDomainAttachDevice @ 0x1404DA3E0
+ * XREFs of IommuDomainAttachDevice @ 0x1404DA620
  * Callers:
  *     <none>
  * Callees:
- *     KxAcquireSpinLock @ 0x1402295B0 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     HalpMmAllocCtxFree @ 0x140379460 (HalpMmAllocCtxFree.c)
- *     HalpIommuGetDeviceId @ 0x140379A34 (HalpIommuGetDeviceId.c)
- *     HalpMmAllocCtxAlloc @ 0x14037CA48 (HalpMmAllocCtxAlloc.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x1402CDEB0 (KxAcquireSpinLock.c)
+ *     HalpMmAllocCtxFree @ 0x140378FB0 (HalpMmAllocCtxFree.c)
+ *     HalpIommuGetDeviceId @ 0x140379584 (HalpIommuGetDeviceId.c)
+ *     HalpMmAllocCtxAlloc @ 0x14037C598 (HalpMmAllocCtxAlloc.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     HalpIommuJoinDmaDomain @ 0x1404C98BC (HalpIommuJoinDmaDomain.c)
- *     HalpIommuCreateDevice @ 0x1408649C4 (HalpIommuCreateDevice.c)
- *     HalpIommuDeleteDevice @ 0x140864C50 (HalpIommuDeleteDevice.c)
+ *     HalpIommuJoinDmaDomain @ 0x1404C9AFC (HalpIommuJoinDmaDomain.c)
+ *     HalpIommuCreateDevice @ 0x140864B24 (HalpIommuCreateDevice.c)
+ *     HalpIommuDeleteDevice @ 0x140864DB0 (HalpIommuDeleteDevice.c)
  */
 
 __int64 __fastcall IommuDomainAttachDevice(__int64 a1, struct _DEVICE_OBJECT *a2, int a3, int a4)
@@ -72,13 +72,13 @@ __int64 __fastcall IommuDomainAttachDevice(__int64 a1, struct _DEVICE_OBJECT *a2
             SchedulerAssist[5] |= (-1 << (CurrentIrql + 1)) & 0x1FFC;
           }
           KxAcquireSpinLock(&HalpIommuParaVirtDeviceCacheLock);
-          v19 = (_QWORD *)qword_140C48CE8;
-          if ( *(__int64 **)qword_140C48CE8 != &HalpIommuParaVirtDeviceCache )
+          v19 = (_QWORD *)qword_140C48D28;
+          if ( *(__int64 **)qword_140C48D28 != &HalpIommuParaVirtDeviceCache )
             __fastfail(3u);
           *v15 = &HalpIommuParaVirtDeviceCache;
           v15[1] = v19;
           *v19 = v15;
-          qword_140C48CE8 = (__int64)v15;
+          qword_140C48D28 = (__int64)v15;
           KxReleaseSpinLock(&HalpIommuParaVirtDeviceCacheLock);
           if ( KiIrqlFlags )
           {

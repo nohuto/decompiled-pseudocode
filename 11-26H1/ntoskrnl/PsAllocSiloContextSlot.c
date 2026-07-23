@@ -1,9 +1,9 @@
 /*
- * XREFs of PsAllocSiloContextSlot @ 0x1407EE600
+ * XREFs of PsAllocSiloContextSlot @ 0x1407F4160
  * Callers:
  *     <none>
  * Callees:
- *     PspStorageAllocSlot @ 0x1407FF9E4 (PspStorageAllocSlot.c)
+ *     PspStorageAllocSlot @ 0x140805414 (PspStorageAllocSlot.c)
  */
 
 __int64 __fastcall PsAllocSiloContextSlot(__int64 a1, __int64 a2)

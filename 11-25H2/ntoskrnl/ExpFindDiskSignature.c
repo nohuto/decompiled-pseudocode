@@ -13,9 +13,9 @@
  *     ExFreePoolWithTag @ 0x140B62CD0 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall ExpFindDiskSignature(_QWORD *a1, _DWORD *a2, unsigned int *a3, _QWORD *a4, _QWORD *a5, char a6)
+NTSTATUS __fastcall ExpFindDiskSignature(_QWORD *a1, _DWORD *a2, unsigned int *a3, _QWORD *a4, _QWORD *a5, char a6)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
   wchar_t *Pool2; // rbp
   unsigned int v8; // esi
   int PartitionTableInfo; // ebx
@@ -24,20 +24,20 @@ __int64 __fastcall ExpFindDiskSignature(_QWORD *a1, _DWORD *a2, unsigned int *a3
   bool v12; // zf
   __int64 v13; // rcx
   _DWORD *P; // [rsp+20h] [rbp-88h]
-  __int128 v19; // [rsp+48h] [rbp-60h] BYREF
+  __int128 SystemInformation; // [rsp+48h] [rbp-60h] BYREF
   __int64 v20; // [rsp+58h] [rbp-50h]
 
   P = 0LL;
   v20 = 0LL;
-  v19 = 0LL;
-  result = ZwQuerySystemInformation(7LL, (__int64)&v19);
-  if ( (int)result >= 0 )
+  SystemInformation = 0LL;
+  result = ZwQuerySystemInformation(SystemDeviceInformation, &SystemInformation, 0x18u, 0LL);
+  if ( result >= 0 )
   {
     Pool2 = (wchar_t *)ExAllocatePool2(0x40uLL);
     if ( Pool2 )
     {
       v8 = 0;
-      if ( !(_DWORD)v19 )
+      if ( !(_DWORD)SystemInformation )
         goto LABEL_21;
       do
       {
@@ -78,17 +78,17 @@ __int64 __fastcall ExpFindDiskSignature(_QWORD *a1, _DWORD *a2, unsigned int *a3
         }
         ++v8;
       }
-      while ( v8 < (unsigned int)v19 );
+      while ( v8 < (unsigned int)SystemInformation );
       if ( PartitionTableInfo >= 0 )
 LABEL_21:
         PartitionTableInfo = -1073741766;
 LABEL_22:
       ExFreePoolWithTag(Pool2, 0);
-      return (unsigned int)PartitionTableInfo;
+      return PartitionTableInfo;
     }
     else
     {
-      return 3221225626LL;
+      return -1073741670;
     }
   }
   return result;

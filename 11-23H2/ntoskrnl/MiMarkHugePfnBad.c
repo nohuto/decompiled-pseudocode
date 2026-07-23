@@ -1,26 +1,26 @@
 /*
- * XREFs of MiMarkHugePfnBad @ 0x140621618
+ * XREFs of MiMarkHugePfnBad @ 0x140621B68
  * Callers:
- *     MmMarkPhysicalMemoryAsBad @ 0x14062B5B0 (MmMarkPhysicalMemoryAsBad.c)
+ *     MmMarkPhysicalMemoryAsBad @ 0x14062BB00 (MmMarkPhysicalMemoryAsBad.c)
  * Callees:
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KeDelayExecutionThread @ 0x140246810 (KeDelayExecutionThread.c)
- *     MiSearchNumaNodeTable @ 0x14026EAD0 (MiSearchNumaNodeTable.c)
- *     RtlAvlInsertNodeEx @ 0x1402880C0 (RtlAvlInsertNodeEx.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14028A930 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MmGetSessionIdEx @ 0x1402A1720 (MmGetSessionIdEx.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F820 (KiCheckForKernelApcDelivery.c)
- *     KiAbTryReclaimOrphanedEntries @ 0x14032FA68 (KiAbTryReclaimOrphanedEntries.c)
- *     MiIsPageInHugePfn @ 0x140336DAC (MiIsPageInHugePfn.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiHugePfnPartition @ 0x140620C50 (MiHugePfnPartition.c)
- *     MiInsertHugeRangeInList @ 0x140620FCC (MiInsertHugeRangeInList.c)
- *     MiLockHugePfn @ 0x1406213F4 (MiLockHugePfn.c)
- *     MiUnlinkHugeRange @ 0x140622ABC (MiUnlinkHugeRange.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     KeDelayExecutionThread @ 0x1402468E0 (KeDelayExecutionThread.c)
+ *     MiSearchNumaNodeTable @ 0x14026ED60 (MiSearchNumaNodeTable.c)
+ *     RtlAvlInsertNodeEx @ 0x140288350 (RtlAvlInsertNodeEx.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14028ABC0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MmGetSessionIdEx @ 0x1402A19B0 (MmGetSessionIdEx.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     MiAllocatePool @ 0x1402DF430 (MiAllocatePool.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402FD0A0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KiCheckForKernelApcDelivery @ 0x14030FAB0 (KiCheckForKernelApcDelivery.c)
+ *     KiAbTryReclaimOrphanedEntries @ 0x14032FCF8 (KiAbTryReclaimOrphanedEntries.c)
+ *     MiIsPageInHugePfn @ 0x14033703C (MiIsPageInHugePfn.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     MiHugePfnPartition @ 0x1406211A0 (MiHugePfnPartition.c)
+ *     MiInsertHugeRangeInList @ 0x14062151C (MiInsertHugeRangeInList.c)
+ *     MiLockHugePfn @ 0x140621944 (MiLockHugePfn.c)
+ *     MiUnlinkHugeRange @ 0x14062300C (MiUnlinkHugeRange.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
@@ -269,7 +269,9 @@ LABEL_66:
       _InterlockedAnd(
         (volatile signed __int32 *)(qword_140C67DF8 + 4 * (((((__int64)v34 - qword_140C67DF0) >> 3) & 0x3FFFFFuLL) >> 5)),
         ~(1 << ((((__int64)v34 - qword_140C67DF0) >> 3) & 0x1F)));
-      if ( KiIrqlFlags && (CurrentIrql = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && CurrentIrql <= 0xFu )
+      if ( (_DWORD)KiIrqlFlags
+        && (CurrentIrql = KeGetCurrentIrql(), ((unsigned __int8)KiIrqlFlags & 1) != 0)
+        && CurrentIrql <= 0xFu )
       {
         v38 = v67;
         if ( v67 <= 0xFu && CurrentIrql >= 2u )
@@ -361,7 +363,7 @@ LABEL_88:
     _InterlockedAnd(
       (volatile signed __int32 *)(qword_140C67DF8 + 4 * (((((__int64)v34 - qword_140C67DF0) >> 3) & 0x3FFFFFuLL) >> 5)),
       ~(1 << ((((__int64)v34 - qword_140C67DF0) >> 3) & 0x1F)));
-    if ( KiIrqlFlags && (v54 = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && v54 <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && (v54 = KeGetCurrentIrql(), ((unsigned __int8)KiIrqlFlags & 1) != 0) && v54 <= 0xFu )
     {
       v55 = v67;
       if ( v67 <= 0xFu && v54 >= 2u )

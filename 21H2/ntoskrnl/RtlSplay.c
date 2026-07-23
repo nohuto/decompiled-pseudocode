@@ -1,20 +1,20 @@
 /*
- * XREFs of RtlSplay @ 0x140359770
+ * XREFs of RtlSplay @ 0x1403644C0
  * Callers:
- *     FsRtlPrivateCheckForExclusiveLockAccess @ 0x1402ADB54 (FsRtlPrivateCheckForExclusiveLockAccess.c)
- *     RtlInsertElementGenericTableFull @ 0x1402B8E50 (RtlInsertElementGenericTableFull.c)
- *     FsRtlPrivateInsertSharedLock @ 0x140359518 (FsRtlPrivateInsertSharedLock.c)
- *     FsRtlPrivateCheckForSharedLockAccess @ 0x14035966C (FsRtlPrivateCheckForSharedLockAccess.c)
- *     RtlLookupElementGenericTable @ 0x1403596F0 (RtlLookupElementGenericTable.c)
- *     RtlDelete @ 0x140359960 (RtlDelete.c)
- *     FsRtlCheckNoExclusiveConflict @ 0x14036BC98 (FsRtlCheckNoExclusiveConflict.c)
- *     FsRtlCheckNoSharedConflict @ 0x14036C880 (FsRtlCheckNoSharedConflict.c)
- *     RtlEnumerateGenericTable @ 0x140382190 (RtlEnumerateGenericTable.c)
- *     RtlLookupElementGenericTableFull @ 0x14058BC90 (RtlLookupElementGenericTableFull.c)
- *     RtlInsertUnicodePrefix @ 0x140693770 (RtlInsertUnicodePrefix.c)
- *     RtlFindUnicodePrefix @ 0x1406938D0 (RtlFindUnicodePrefix.c)
- *     PfxFindPrefix @ 0x140911CE0 (PfxFindPrefix.c)
- *     PfxInsertPrefix @ 0x140911DE0 (PfxInsertPrefix.c)
+ *     FsRtlPrivateCheckForExclusiveLockAccess @ 0x14022BEB4 (FsRtlPrivateCheckForExclusiveLockAccess.c)
+ *     RtlInsertElementGenericTableFull @ 0x140237060 (RtlInsertElementGenericTableFull.c)
+ *     FsRtlPrivateInsertSharedLock @ 0x140364268 (FsRtlPrivateInsertSharedLock.c)
+ *     FsRtlPrivateCheckForSharedLockAccess @ 0x1403643BC (FsRtlPrivateCheckForSharedLockAccess.c)
+ *     RtlLookupElementGenericTable @ 0x140364440 (RtlLookupElementGenericTable.c)
+ *     RtlDelete @ 0x1403646B0 (RtlDelete.c)
+ *     FsRtlCheckNoExclusiveConflict @ 0x14036BE48 (FsRtlCheckNoExclusiveConflict.c)
+ *     FsRtlCheckNoSharedConflict @ 0x14036CA30 (FsRtlCheckNoSharedConflict.c)
+ *     RtlEnumerateGenericTable @ 0x140381CE0 (RtlEnumerateGenericTable.c)
+ *     RtlLookupElementGenericTableFull @ 0x14058BEC0 (RtlLookupElementGenericTableFull.c)
+ *     RtlInsertUnicodePrefix @ 0x1405F2CD0 (RtlInsertUnicodePrefix.c)
+ *     RtlFindUnicodePrefix @ 0x1405F2E30 (RtlFindUnicodePrefix.c)
+ *     PfxFindPrefix @ 0x140911E40 (PfxFindPrefix.c)
+ *     PfxInsertPrefix @ 0x140911F40 (PfxInsertPrefix.c)
  * Callees:
  *     <none>
  */
@@ -22,7 +22,7 @@
 PRTL_SPLAY_LINKS __stdcall RtlSplay(PRTL_SPLAY_LINKS Links)
 {
   _RTL_SPLAY_LINKS *Parent; // rax
-  RTL_SPLAY_LINKS *LeftChild; // r8
+  _RTL_SPLAY_LINKS *LeftChild; // r8
   _RTL_SPLAY_LINKS *v4; // rdx
   _RTL_SPLAY_LINKS *RightChild; // rdx
   _RTL_SPLAY_LINKS *v6; // rdx

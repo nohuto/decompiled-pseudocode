@@ -1,20 +1,20 @@
 /*
- * XREFs of MiActOnLargeKernelHalPages @ 0x140863FAC
+ * XREFs of MiActOnLargeKernelHalPages @ 0x14086A38C
  * Callers:
- *     MiProtectSystemImage @ 0x140A7935C (MiProtectSystemImage.c)
- *     MiCreateSlabAllocationsFromKernelHal @ 0x140CFE440 (MiCreateSlabAllocationsFromKernelHal.c)
- *     MiInitializeBootLoadedDriverPfns @ 0x140D002A4 (MiInitializeBootLoadedDriverPfns.c)
+ *     MiProtectSystemImage @ 0x1409E4B80 (MiProtectSystemImage.c)
+ *     MiCreateSlabAllocationsFromKernelHal @ 0x140D047E0 (MiCreateSlabAllocationsFromKernelHal.c)
+ *     MiInitializeBootLoadedDriverPfns @ 0x140D06644 (MiInitializeBootLoadedDriverPfns.c)
  * Callees:
- *     RtlImageNtHeader @ 0x1404696C0 (RtlImageNtHeader.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     RtlImageNtHeader @ 0x140462E40 (RtlImageNtHeader.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
-__int64 __fastcall MiActOnLargeKernelHalPages(unsigned __int64 a1)
+__int64 __fastcall MiActOnLargeKernelHalPages(void *a1)
 {
   unsigned __int64 v1; // rsi
-  _DWORD *v2; // rax
+  PIMAGE_NT_HEADERS v2; // rax
   int v3; // r8d
-  _DWORD *v4; // r14
+  PIMAGE_NT_HEADERS v4; // r14
   __int64 *v5; // rbx
   unsigned __int64 v6; // rbp
   int v7; // edi
@@ -29,7 +29,7 @@ __int64 __fastcall MiActOnLargeKernelHalPages(unsigned __int64 a1)
   __int128 v17; // [rsp+4Ch] [rbp-4Ch]
   int v18; // [rsp+5Ch] [rbp-3Ch]
 
-  v1 = a1;
+  v1 = (unsigned __int64)a1;
   v2 = RtlImageNtHeader(a1);
   v3 = 0x40000000;
   v15 = 0LL;
@@ -38,8 +38,8 @@ __int64 __fastcall MiActOnLargeKernelHalPages(unsigned __int64 a1)
   v18 = 0x40000000;
   v5 = &v14;
   v6 = v1;
-  v7 = *((unsigned __int16 *)v2 + 3) + 1;
-  LODWORD(v15) = v2[21];
+  v7 = v2->FileHeader.NumberOfSections + 1;
+  LODWORD(v15) = v2->OptionalHeader.SizeOfHeaders;
   v8 = v1;
   v16 = v15;
   v17 = 0LL;
@@ -63,10 +63,10 @@ __int64 __fastcall MiActOnLargeKernelHalPages(unsigned __int64 a1)
       v8 = v9;
     }
     if ( v5 == &v14 )
-      v5 = (__int64 *)((char *)v4 + *((unsigned __int16 *)v4 + 10) + 24);
+      v5 = (__int64 *)((char *)&v4->OptionalHeader + v4->FileHeader.SizeOfOptionalHeader);
     else
       v5 += 5;
-    v1 = a1;
+    v1 = (unsigned __int64)a1;
     --v7;
   }
   return guard_dispatch_icall_no_overrides(v8, (v6 + 0x1FFFFF) & 0xFFFFFFFFFFE00000uLL);

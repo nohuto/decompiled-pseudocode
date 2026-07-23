@@ -1,14 +1,14 @@
 /*
- * XREFs of ExInitializeNPagedLookasideList @ 0x1403C3290
+ * XREFs of ExInitializeNPagedLookasideList @ 0x1403C3470
  * Callers:
- *     FsRtlInitExtraCreateParameterLookasideList @ 0x140858B20 (FsRtlInitExtraCreateParameterLookasideList.c)
- *     AlpcpInitSystem @ 0x14085A348 (AlpcpInitSystem.c)
+ *     FsRtlInitExtraCreateParameterLookasideList @ 0x140858D60 (FsRtlInitExtraCreateParameterLookasideList.c)
+ *     AlpcpInitSystem @ 0x14085A588 (AlpcpInitSystem.c)
  *     KiFilterFiberContext @ 0x140B17C30 (KiFilterFiberContext.c)
  *     IoInitSystemPreDrivers @ 0x140B4B914 (IoInitSystemPreDrivers.c)
  *     FsRtlInitializeLargeMcbs @ 0x140B688D0 (FsRtlInitializeLargeMcbs.c)
  *     FsRtlInitializeFileLocks @ 0x140B68A60 (FsRtlInitializeFileLocks.c)
  * Callees:
- *     ExInitializeNPagedLookasideListInternal @ 0x1403C32D0 (ExInitializeNPagedLookasideListInternal.c)
+ *     ExInitializeNPagedLookasideListInternal @ 0x1403C34B0 (ExInitializeNPagedLookasideListInternal.c)
  */
 
 void __stdcall ExInitializeNPagedLookasideList(

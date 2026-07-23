@@ -11,16 +11,16 @@ __int64 __fastcall RtlpHpInitializePerfPolicies(int a1)
 {
   int WowTebOffset; // edi
   __int64 result; // rax
-  int v4; // [rsp+38h] [rbp+10h] BYREF
+  _NT_PRODUCT_TYPE NtProductType; // [rsp+38h] [rbp+10h] BYREF
   int v5; // [rsp+40h] [rbp+18h] BYREF
 
   v5 = 0;
-  v4 = 0;
+  NtProductType = 0;
   WowTebOffset = NtCurrentTeb()->WowTebOffset;
   result = (unsigned int)RtlpHpLfhPerfFlags;
   if ( RtlpHpLfhPerfFlags )
     goto LABEL_7;
-  if ( RtlGetNtProductType(&v4) && v4 != 1 )
+  if ( RtlGetNtProductType(&NtProductType) && NtProductType != NtProductWinNt )
   {
     result = 10255LL;
     goto LABEL_6;

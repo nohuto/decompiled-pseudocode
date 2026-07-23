@@ -1,10 +1,10 @@
 /*
- * XREFs of _itow_s @ 0x180132C90
+ * XREFs of _itow_s @ 0x180132A00
  * Callers:
- *     RtlpFindRegTziForCurrentYear @ 0x1801005AC (RtlpFindRegTziForCurrentYear.c)
- *     LdrpMUIEtwOutput @ 0x180113278 (LdrpMUIEtwOutput.c)
+ *     RtlpFindRegTziForCurrentYear @ 0x1800FFCFC (RtlpFindRegTziForCurrentYear.c)
+ *     LdrpMUIEtwOutput @ 0x180112D28 (LdrpMUIEtwOutput.c)
  * Callees:
- *     xtow_s @ 0x180132E84 (xtow_s.c)
+ *     xtow_s @ 0x180132BF4 (xtow_s.c)
  */
 
 errno_t __cdecl itow_s(int Value, wchar_t *Buffer, size_t BufferCount, int Radix)

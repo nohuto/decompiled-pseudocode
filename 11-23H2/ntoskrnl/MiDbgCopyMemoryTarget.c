@@ -1,17 +1,17 @@
 /*
- * XREFs of MiDbgCopyMemoryTarget @ 0x140643A30
+ * XREFs of MiDbgCopyMemoryTarget @ 0x140643F80
  * Callers:
  *     <none>
  * Callees:
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1402712F0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiWriteValidPteNewProtection @ 0x140284800 (MiWriteValidPteNewProtection.c)
- *     MiGetSystemRegionType @ 0x140284870 (MiGetSystemRegionType.c)
- *     MiFillPteHierarchy @ 0x14028AEF0 (MiFillPteHierarchy.c)
- *     MiGetLeafVa @ 0x1402E5A20 (MiGetLeafVa.c)
- *     MiCopyFromUntrustedMemory @ 0x1402E60F0 (MiCopyFromUntrustedMemory.c)
- *     KeFlushSingleTb @ 0x1402EB0C4 (KeFlushSingleTb.c)
- *     MiCopyToUntrustedMemory @ 0x140398640 (MiCopyToUntrustedMemory.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140271580 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiWriteValidPteNewProtection @ 0x140284A90 (MiWriteValidPteNewProtection.c)
+ *     MiGetSystemRegionType @ 0x140284B00 (MiGetSystemRegionType.c)
+ *     MiFillPteHierarchy @ 0x14028B180 (MiFillPteHierarchy.c)
+ *     MiGetLeafVa @ 0x1402E5CB0 (MiGetLeafVa.c)
+ *     MiCopyFromUntrustedMemory @ 0x1402E6380 (MiCopyFromUntrustedMemory.c)
+ *     KeFlushSingleTb @ 0x1402EB354 (KeFlushSingleTb.c)
+ *     MiCopyToUntrustedMemory @ 0x140398820 (MiCopyToUntrustedMemory.c)
  */
 
 __int64 __fastcall MiDbgCopyMemoryTarget(__int64 a1, __int64 a2, volatile signed __int32 *a3, __int64 a4)

@@ -1,15 +1,15 @@
 /*
- * XREFs of EtwpTraceUmMessage @ 0x1800BD9EC
+ * XREFs of EtwpTraceUmMessage @ 0x1800BB44C
  * Callers:
- *     EtwTraceMessage @ 0x1800BD810 (EtwTraceMessage.c)
- *     EtwTraceMessageVa @ 0x1800BD900 (EtwTraceMessageVa.c)
+ *     EtwTraceMessage @ 0x1800BB270 (EtwTraceMessage.c)
+ *     EtwTraceMessageVa @ 0x1800BB360 (EtwTraceMessageVa.c)
  * Callees:
- *     EtwpDemuxUmTraceHandle @ 0x180011110 (EtwpDemuxUmTraceHandle.c)
- *     EtwpReserveTraceBuffer @ 0x180011230 (EtwpReserveTraceBuffer.c)
- *     memmove @ 0x180164700 (memmove.c)
+ *     EtwpDemuxUmTraceHandle @ 0x18005C840 (EtwpDemuxUmTraceHandle.c)
+ *     EtwpReserveTraceBuffer @ 0x18005C960 (EtwpReserveTraceBuffer.c)
+ *     memmove @ 0x180164600 (memmove.c)
  */
 
-__int64 __fastcall EtwpTraceUmMessage(unsigned __int16 a1, char a2, signed __int32 *a3, __int16 a4, __int64 a5)
+__int64 __fastcall EtwpTraceUmMessage(unsigned __int16 a1, char a2, signed __int32 *a3, __int16 a4, _QWORD *a5)
 {
   __int64 v7; // r15
   __int64 v8; // rcx
@@ -18,7 +18,7 @@ __int64 __fastcall EtwpTraceUmMessage(unsigned __int16 a1, char a2, signed __int
   char v11; // r12
   unsigned int v12; // ebx
   __int64 v13; // r14
-  __int64 i; // rcx
+  _QWORD *i; // rcx
   __int64 v15; // rdi
   signed __int32 v16; // eax
   volatile signed __int32 *v17; // rcx
@@ -73,18 +73,18 @@ LABEL_6:
         + ((v11 & 4) != 0 ? 4 : 0)
         + ((v11 & 0x20) != 0 ? 16 : 8)
         + 4 * v30;
-    v13 = a5;
-    for ( i = a5; *(_QWORD *)i; i += 16LL )
+    v13 = (__int64)a5;
+    for ( i = a5; *i; v12 += *((_DWORD *)i - 2) )
     {
-      if ( v12 + *(_DWORD *)(i + 8) < v12 )
+      i += 2;
+      if ( v12 + *((_DWORD *)i - 2) < v12 )
         return 534LL;
-      v12 += *(_DWORD *)(i + 8);
     }
     v15 = EtwpReserveTraceBuffer(
             v7,
             v12,
             NtCurrentTeb()->CurrentIdealProcessor.Reserved,
-            (_QWORD *)((unsigned __int64)&v27 & -(__int64)(v10 != 0)),
+            (LARGE_INTEGER *)((unsigned __int64)&v27 & -(__int64)(v10 != 0)),
             &v26);
     v16 = 0;
     v17 = *(volatile signed __int32 **)(v7 + 384);

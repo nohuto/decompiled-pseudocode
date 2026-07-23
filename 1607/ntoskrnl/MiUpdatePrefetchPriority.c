@@ -1,16 +1,16 @@
 /*
- * XREFs of MiUpdatePrefetchPriority @ 0x1400E6670
+ * XREFs of MiUpdatePrefetchPriority @ 0x1400E4510
  * Callers:
- *     MiValidFault @ 0x1400E6250 (MiValidFault.c)
- *     MiPrefetchJumpVad @ 0x1401E8798 (MiPrefetchJumpVad.c)
+ *     MiValidFault @ 0x1400E40F0 (MiValidFault.c)
+ *     MiPrefetchJumpVad @ 0x1401E85C4 (MiPrefetchJumpVad.c)
  * Callees:
- *     MiLocateAddress @ 0x14001F090 (MiLocateAddress.c)
- *     MiLockPageAtDpcInline @ 0x14002EB30 (MiLockPageAtDpcInline.c)
- *     MiIsPfnInline @ 0x140030920 (MiIsPfnInline.c)
- *     MiLockTransitionLeafPage @ 0x1400B8FB8 (MiLockTransitionLeafPage.c)
- *     MiUpdatePfnPriority @ 0x1400BDCE0 (MiUpdatePfnPriority.c)
- *     MiGetPfnPriority @ 0x1400E67A4 (MiGetPfnPriority.c)
- *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F2550 (MI_GET_PAGE_FRAME_FROM_PTE.c)
+ *     MiLocateAddress @ 0x14001EC10 (MiLocateAddress.c)
+ *     MiLockPageAtDpcInline @ 0x14002E6B0 (MiLockPageAtDpcInline.c)
+ *     MiIsPfnInline @ 0x1400304A0 (MiIsPfnInline.c)
+ *     MiLockTransitionLeafPage @ 0x1400B6E48 (MiLockTransitionLeafPage.c)
+ *     MiUpdatePfnPriority @ 0x1400BBB70 (MiUpdatePfnPriority.c)
+ *     MiGetPfnPriority @ 0x1400E4644 (MiGetPfnPriority.c)
+ *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F237C (MI_GET_PAGE_FRAME_FROM_PTE.c)
  */
 
 __int64 __fastcall MiUpdatePrefetchPriority(__int64 a1, unsigned __int64 a2)
@@ -58,7 +58,7 @@ __int64 __fastcall MiUpdatePrefetchPriority(__int64 a1, unsigned __int64 a2)
     v10 = *(_DWORD *)(v7 + 48);
     goto LABEL_10;
   }
-  if ( KeGetCurrentThread()->ApcState.Process[1].ActiveProcessors.Bitmap[3] || *(_QWORD *)(qword_140327F90 + 276840560) )
+  if ( KeGetCurrentThread()->ApcState.Process[1].ActiveProcessors.Bitmap[3] || *(_QWORD *)(qword_140327FD0 + 276840560) )
   {
     result = MiLocateAddress(v8);
     if ( !result )

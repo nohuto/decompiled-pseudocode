@@ -1,11 +1,11 @@
 /*
- * XREFs of KeUpdateThreadSchedulingProperties @ 0x1400C8E18
+ * XREFs of KeUpdateThreadSchedulingProperties @ 0x1400C6CB8
  * Callers:
- *     KiSetThreadSchedulingGroup @ 0x1400C8BC0 (KiSetThreadSchedulingGroup.c)
- *     KiRemoveThreadFromSchedulingGroup @ 0x1400C8C8C (KiRemoveThreadFromSchedulingGroup.c)
+ *     KiSetThreadSchedulingGroup @ 0x1400C6A60 (KiSetThreadSchedulingGroup.c)
+ *     KiRemoveThreadFromSchedulingGroup @ 0x1400C6B2C (KiRemoveThreadFromSchedulingGroup.c)
  * Callees:
- *     KiQueryEffectivePriorityThread @ 0x1400D016C (KiQueryEffectivePriorityThread.c)
- *     KiUpdateSharedReadyQueueAffinityThread @ 0x1400F2E14 (KiUpdateSharedReadyQueueAffinityThread.c)
+ *     KiQueryEffectivePriorityThread @ 0x1400CE00C (KiQueryEffectivePriorityThread.c)
+ *     KiUpdateSharedReadyQueueAffinityThread @ 0x1400F0C64 (KiUpdateSharedReadyQueueAffinityThread.c)
  */
 
 char __fastcall KeUpdateThreadSchedulingProperties(__int64 a1, __int64 a2, __int64 a3)

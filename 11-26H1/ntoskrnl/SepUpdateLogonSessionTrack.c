@@ -1,14 +1,14 @@
 /*
- * XREFs of SepUpdateLogonSessionTrack @ 0x140AE6934
+ * XREFs of SepUpdateLogonSessionTrack @ 0x140AE46F4
  * Callers:
- *     SepRmAddLogonSessionInfoWrkr @ 0x140AE6910 (SepRmAddLogonSessionInfoWrkr.c)
+ *     SepRmAddLogonSessionInfoWrkr @ 0x140AE46D0 (SepRmAddLogonSessionInfoWrkr.c)
  * Callees:
- *     ExAcquireResourceExclusiveLite @ 0x140275200 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x1402B4CF0 (ExReleaseResourceLite.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140274770 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x1402FF9C0 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SepUpdateLogonSessionTrack(__int64 a1)
@@ -28,7 +28,7 @@ __int64 __fastcall SepUpdateLogonSessionTrack(__int64 a1)
   v4 = 0;
   --CurrentThread->KernelApcDisable;
   v5 = v1 >> 28;
-  ExAcquireResourceExclusiveLite((PERESOURCE)&RtlpBootStatHandleLock.InGlobalUpdateVpThreadPriorityList + (v5 & 3), 1u);
+  ExAcquireResourceExclusiveLite((PERESOURCE)&RtlpBootStatHandleLock.SystemAffinityTokenListHead + (v5 & 3), 1u);
   for ( i = *(__int64 **)(SepLogonSessions + 8 * v5); ; i = (__int64 *)*i )
   {
     if ( !i )
@@ -70,7 +70,7 @@ __int64 __fastcall SepUpdateLogonSessionTrack(__int64 a1)
     v4 = -1073741670;
   }
 LABEL_10:
-  ExReleaseResourceLite((PERESOURCE)&RtlpBootStatHandleLock.InGlobalUpdateVpThreadPriorityList + (v5 & 3));
+  ExReleaseResourceLite((PERESOURCE)&RtlpBootStatHandleLock.SystemAffinityTokenListHead + (v5 & 3));
   KeLeaveCriticalRegion();
   return v4;
 }

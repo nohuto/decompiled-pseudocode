@@ -1,9 +1,9 @@
 /*
- * XREFs of PsGetServerSiloActiveConsoleId @ 0x1404E8B48
+ * XREFs of PsGetServerSiloActiveConsoleId @ 0x1404E1F08
  * Callers:
- *     IopGetThreadActiveConsoleId @ 0x140B272C8 (IopGetThreadActiveConsoleId.c)
+ *     IopGetThreadActiveConsoleId @ 0x140B29378 (IopGetThreadActiveConsoleId.c)
  * Callees:
- *     PsGetServerSiloGlobals @ 0x140216B70 (PsGetServerSiloGlobals.c)
+ *     PsGetServerSiloGlobals @ 0x140216EA0 (PsGetServerSiloGlobals.c)
  */
 
 __int64 __fastcall PsGetServerSiloActiveConsoleId(__int64 a1)

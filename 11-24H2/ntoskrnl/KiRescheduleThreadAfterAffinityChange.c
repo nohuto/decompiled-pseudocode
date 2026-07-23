@@ -1,20 +1,20 @@
 /*
- * XREFs of KiRescheduleThreadAfterAffinityChange @ 0x1403B21E0
+ * XREFs of KiRescheduleThreadAfterAffinityChange @ 0x1403A09F0
  * Callers:
- *     KiSetAffinityThread @ 0x1403B1A08 (KiSetAffinityThread.c)
- *     KiUpdateThreadCpuSets @ 0x1403C6418 (KiUpdateThreadCpuSets.c)
+ *     KiSetAffinityThread @ 0x1403A0218 (KiSetAffinityThread.c)
+ *     KiUpdateThreadCpuSets @ 0x14048B9CC (KiUpdateThreadCpuSets.c)
  * Callees:
- *     KiStartRescheduleContext @ 0x140254D50 (KiStartRescheduleContext.c)
- *     ?KiCompleteRescheduleContextEntry@@YAXPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KPRCB@@PEAU_KTHREAD@@PEAU_KTHREAD_SCHEDULE_REASON_DATA@@@Z @ 0x1402979F0 (-KiCompleteRescheduleContextEntry@@YAXPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KPRCB@@PEAU_KTHREAD.c)
- *     KiSearchForNewThreadsForRescheduleContext @ 0x1402986C0 (KiSearchForNewThreadsForRescheduleContext.c)
- *     ?KiCommitRescheduleContextEntry@@YAEPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KPRCB@@KPEAU_SINGLE_LIST_ENTRY@@@Z @ 0x140299510 (-KiCommitRescheduleContextEntry@@YAEPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KPRCB@@KPEAU_SINGLE_L.c)
- *     KiRemoveThreadFromAnyReadyQueue @ 0x14030D3E8 (KiRemoveThreadFromAnyReadyQueue.c)
- *     KiFlushSoftwareInterruptBatch @ 0x14031FCD0 (KiFlushSoftwareInterruptBatch.c)
- *     KeWakeAddressAll @ 0x140321AA0 (KeWakeAddressAll.c)
- *     KxWaitForLockChainValid @ 0x140321D40 (KxWaitForLockChainValid.c)
- *     KiPrepareReadyThreadForRescheduling @ 0x14033817C (KiPrepareReadyThreadForRescheduling.c)
- *     KeCheckProcessorAffinityEx @ 0x1403C9F30 (KeCheckProcessorAffinityEx.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     KiStartRescheduleContext @ 0x140285360 (KiStartRescheduleContext.c)
+ *     KiSearchForNewThreadsForRescheduleContext @ 0x1402A71B0 (KiSearchForNewThreadsForRescheduleContext.c)
+ *     ?KiCommitRescheduleContextEntry@@YAEPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KPRCB@@KPEAU_SINGLE_LIST_ENTRY@@@Z @ 0x1402A8000 (-KiCommitRescheduleContextEntry@@YAEPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KPRCB@@KPEAU_SINGLE_L.c)
+ *     KiFlushSoftwareInterruptBatch @ 0x1402C8860 (KiFlushSoftwareInterruptBatch.c)
+ *     KeWakeAddressAll @ 0x1402CA630 (KeWakeAddressAll.c)
+ *     KxWaitForLockChainValid @ 0x1402CA8D0 (KxWaitForLockChainValid.c)
+ *     KiRemoveThreadFromAnyReadyQueue @ 0x1402D8B94 (KiRemoveThreadFromAnyReadyQueue.c)
+ *     KiPrepareReadyThreadForRescheduling @ 0x1402DE7C8 (KiPrepareReadyThreadForRescheduling.c)
+ *     ?KiCompleteRescheduleContextEntry@@YAXPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KPRCB@@PEAU_KTHREAD@@PEAU_KTHREAD_SCHEDULE_REASON_DATA@@@Z @ 0x1402E1220 (-KiCompleteRescheduleContextEntry@@YAXPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KPRCB@@PEAU_KTHREAD.c)
+ *     KeCheckProcessorAffinityEx @ 0x1403A4AD0 (KeCheckProcessorAffinityEx.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 void __fastcall KiRescheduleThreadAfterAffinityChange(
@@ -152,7 +152,7 @@ LABEL_17:
     KiSearchForNewThreadsForRescheduleContext(StaticRescheduleContext, a9);
     v30 = 0;
     v43 = 0;
-    if ( (WORD2(xmmword_140FC5B10) & 0x400) != 0 )
+    if ( (WORD2(xmmword_140FC6B50) & 0x400) != 0 )
       v30 = 2;
     v31 = 0;
     if ( StaticRescheduleContext->ProcessorCount )

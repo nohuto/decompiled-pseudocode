@@ -1,13 +1,13 @@
 /*
- * XREFs of MiRebalanceZeroFreeLists @ 0x1403D2A70
+ * XREFs of MiRebalanceZeroFreeLists @ 0x1403F7590
  * Callers:
  *     <none>
  * Callees:
- *     MiPruneStandbyPages @ 0x140225F84 (MiPruneStandbyPages.c)
- *     PsDereferencePartition @ 0x140275E60 (PsDereferencePartition.c)
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     MiFreeZeroPagesNeeded @ 0x1403D2B30 (MiFreeZeroPagesNeeded.c)
+ *     PsDereferencePartition @ 0x14022B3F0 (PsDereferencePartition.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     MiFreeZeroPagesNeeded @ 0x1403F7650 (MiFreeZeroPagesNeeded.c)
+ *     MiPruneStandbyPages @ 0x1403F7714 (MiPruneStandbyPages.c)
  */
 
 void __fastcall MiRebalanceZeroFreeLists(__int64 a1, __int64 a2, __int64 a3)
@@ -25,12 +25,15 @@ void __fastcall MiRebalanceZeroFreeLists(__int64 a1, __int64 a2, __int64 a3)
       LOBYTE(a3) = j;
       v6 = MiFreeZeroPagesNeeded(a1, i, a3);
       if ( v6 )
-        MiPruneStandbyPages(a1, i, j, v6);
+      {
+        LOBYTE(a3) = j;
+        MiPruneStandbyPages(a1, i, a3, v6);
+      }
     }
   }
   v7 = *(_QWORD *)(a1 + 184);
-  v8 = ExAcquireSpinLockExclusive(&dword_140E2FF40);
+  v8 = ExAcquireSpinLockExclusive(&dword_140E30080);
   *(_QWORD *)(a1 + 16928) = 0LL;
-  MiReleaseSpinLockExclusive(&dword_140E2FF40, v8);
+  MiReleaseSpinLockExclusive(&dword_140E30080, v8);
   PsDereferencePartition(v7);
 }

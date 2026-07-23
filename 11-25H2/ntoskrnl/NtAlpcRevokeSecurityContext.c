@@ -12,10 +12,10 @@
  *     AlpcpLockBlobExclusive @ 0x14098BD84 (AlpcpLockBlobExclusive.c)
  */
 
-__int64 __fastcall NtAlpcRevokeSecurityContext(void *a1, int a2, __int64 a3)
+NTSTATUS __cdecl NtAlpcRevokeSecurityContext(HANDLE PortHandle, ULONG Flags, ALPC_HANDLE ContextHandle)
 {
   struct _KTHREAD *CurrentThread; // rax
-  NTSTATUS v5; // ebx
+  int v5; // ebx
   PVOID v6; // rsi
   __int64 v7; // rax
   ULONG_PTR v8; // rdi
@@ -24,18 +24,18 @@ __int64 __fastcall NtAlpcRevokeSecurityContext(void *a1, int a2, __int64 a3)
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  if ( a2 )
+  if ( Flags )
   {
     v5 = -1073741811;
   }
   else
   {
     Object = 0LL;
-    v5 = ObReferenceObjectByHandle(a1, 1u, AlpcPortObjectType, KeGetCurrentThread()->PreviousMode, &Object, 0LL);
+    v5 = ObReferenceObjectByHandle(PortHandle, 1u, AlpcPortObjectType, KeGetCurrentThread()->PreviousMode, &Object, 0LL);
     if ( v5 >= 0 )
     {
       v6 = Object;
-      v7 = AlpcReferenceBlobByHandle(*((_QWORD *)Object + 2) + 40LL, a3, AlpcSecurityType);
+      v7 = AlpcReferenceBlobByHandle(*((_QWORD *)Object + 2) + 40LL, ContextHandle, AlpcSecurityType);
       v8 = v7;
       if ( v7 )
       {
@@ -68,5 +68,5 @@ __int64 __fastcall NtAlpcRevokeSecurityContext(void *a1, int a2, __int64 a3)
     }
   }
   KeLeaveCriticalRegion();
-  return (unsigned int)v5;
+  return v5;
 }

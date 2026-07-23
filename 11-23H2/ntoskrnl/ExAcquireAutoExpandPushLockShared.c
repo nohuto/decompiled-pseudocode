@@ -1,17 +1,17 @@
 /*
- * XREFs of ExAcquireAutoExpandPushLockShared @ 0x1402308C0
+ * XREFs of ExAcquireAutoExpandPushLockShared @ 0x1402309B0
  * Callers:
- *     MiDeletePagablePteRange @ 0x14027A160 (MiDeletePagablePteRange.c)
- *     FsRtlLookupPerFileContext @ 0x140368D40 (FsRtlLookupPerFileContext.c)
- *     MiFreePhysicalPages @ 0x14064A540 (MiFreePhysicalPages.c)
- *     MiLockAwePagesShared @ 0x14064B014 (MiLockAwePagesShared.c)
- *     MiLockAweVadsShared @ 0x14064B070 (MiLockAweVadsShared.c)
+ *     MiDeletePagablePteRange @ 0x14027A3F0 (MiDeletePagablePteRange.c)
+ *     FsRtlLookupPerFileContext @ 0x140368EE0 (FsRtlLookupPerFileContext.c)
+ *     MiFreePhysicalPages @ 0x14064AA90 (MiFreePhysicalPages.c)
+ *     MiLockAwePagesShared @ 0x14064B564 (MiLockAwePagesShared.c)
+ *     MiLockAweVadsShared @ 0x14064B5C0 (MiLockAweVadsShared.c)
  * Callees:
- *     MmGetSessionIdEx @ 0x1402A1720 (MmGetSessionIdEx.c)
- *     ExfAcquirePushLockSharedEx @ 0x1402FD040 (ExfAcquirePushLockSharedEx.c)
- *     KiAbTryReclaimOrphanedEntries @ 0x14032FA68 (KiAbTryReclaimOrphanedEntries.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     MmGetSessionIdEx @ 0x1402A19B0 (MmGetSessionIdEx.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1402FD2D0 (ExfAcquirePushLockSharedEx.c)
+ *     KiAbTryReclaimOrphanedEntries @ 0x14032FCF8 (KiAbTryReclaimOrphanedEntries.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  */
 
 ULONG_PTR __fastcall ExAcquireAutoExpandPushLockShared(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter1)

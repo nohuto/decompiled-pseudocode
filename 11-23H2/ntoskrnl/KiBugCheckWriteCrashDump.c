@@ -1,11 +1,11 @@
 /*
- * XREFs of KiBugCheckWriteCrashDump @ 0x140569AEC
+ * XREFs of KiBugCheckWriteCrashDump @ 0x14056A1AC
  * Callers:
- *     KeBugCheck2 @ 0x140568290 (KeBugCheck2.c)
- *     KiCaptureDumpPostRecovery @ 0x14057AC90 (KiCaptureDumpPostRecovery.c)
+ *     KeBugCheck2 @ 0x140568950 (KeBugCheck2.c)
+ *     KiCaptureDumpPostRecovery @ 0x14057B180 (KiCaptureDumpPostRecovery.c)
  * Callees:
- *     IoSaveBugCheckProgress @ 0x1405509E0 (IoSaveBugCheckProgress.c)
- *     IoWriteCrashDump @ 0x140551300 (IoWriteCrashDump.c)
+ *     IoSaveBugCheckProgress @ 0x1405510A0 (IoSaveBugCheckProgress.c)
+ *     IoWriteCrashDump @ 0x1405519C0 (IoWriteCrashDump.c)
  */
 
 char __fastcall KiBugCheckWriteCrashDump(__int64 a1)

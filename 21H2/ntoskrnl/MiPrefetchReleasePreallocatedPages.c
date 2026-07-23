@@ -1,11 +1,11 @@
 /*
- * XREFs of MiPrefetchReleasePreallocatedPages @ 0x1405399A0
+ * XREFs of MiPrefetchReleasePreallocatedPages @ 0x140539BE0
  * Callers:
- *     MiPrefetchVirtualMemory @ 0x140274EA0 (MiPrefetchVirtualMemory.c)
- *     MiPrefetchPreallocatePages @ 0x140539620 (MiPrefetchPreallocatePages.c)
+ *     MiPrefetchVirtualMemory @ 0x140262E40 (MiPrefetchVirtualMemory.c)
+ *     MiPrefetchPreallocatePages @ 0x140539860 (MiPrefetchPreallocatePages.c)
  * Callees:
- *     MiFreePageChain @ 0x14028BED4 (MiFreePageChain.c)
- *     MiReturnCommit @ 0x1403182A0 (MiReturnCommit.c)
+ *     MiFreePageChain @ 0x140209074 (MiFreePageChain.c)
+ *     MiReturnCommit @ 0x140322FF0 (MiReturnCommit.c)
  */
 
 void __fastcall MiPrefetchReleasePreallocatedPages(__int64 a1, __int64 a2, __int64 a3, int a4)

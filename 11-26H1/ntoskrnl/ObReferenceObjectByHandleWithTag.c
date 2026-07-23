@@ -1,22 +1,22 @@
 /*
- * XREFs of ObReferenceObjectByHandleWithTag @ 0x1408F9EF0
+ * XREFs of ObReferenceObjectByHandleWithTag @ 0x140929E80
  * Callers:
- *     SepReferenceTokenByHandle @ 0x1402AC430 (SepReferenceTokenByHandle.c)
- *     ExpSetTimer2 @ 0x1403A9844 (ExpSetTimer2.c)
- *     PopCreatePowerThread @ 0x1403B653C (PopCreatePowerThread.c)
- *     NtSignalAndWaitForSingleObject @ 0x1403DBD20 (NtSignalAndWaitForSingleObject.c)
- *     NtSetTimerEx @ 0x140436460 (NtSetTimerEx.c)
- *     NtSetTimer @ 0x140436D00 (NtSetTimer.c)
- *     MiReferenceAweHandle @ 0x140513A44 (MiReferenceAweHandle.c)
- *     MiInsertNewZeroThread @ 0x1405161C8 (MiInsertNewZeroThread.c)
- *     PspQueryInformationProcessAvailableCpus @ 0x14052CCA8 (PspQueryInformationProcessAvailableCpus.c)
- *     DbgkCaptureLiveKernelDump @ 0x1405B4278 (DbgkCaptureLiveKernelDump.c)
- *     PspTimerDelayProcess @ 0x140617460 (PspTimerDelayProcess.c)
- *     NtCancelTimer @ 0x1406CF780 (NtCancelTimer.c)
- *     PspBuildCreateProcessContext @ 0x140A00BC4 (PspBuildCreateProcessContext.c)
- *     PopDirectedDripsInitializePhase3 @ 0x140CD0B50 (PopDirectedDripsInitializePhase3.c)
+ *     SepReferenceTokenByHandle @ 0x1403ABB50 (SepReferenceTokenByHandle.c)
+ *     ExpSetTimer2 @ 0x1403B3454 (ExpSetTimer2.c)
+ *     PopCreatePowerThread @ 0x1403C043C (PopCreatePowerThread.c)
+ *     NtSignalAndWaitForSingleObject @ 0x1403DEF10 (NtSignalAndWaitForSingleObject.c)
+ *     NtSetTimerEx @ 0x1404253F0 (NtSetTimerEx.c)
+ *     NtSetTimer @ 0x140425C90 (NtSetTimer.c)
+ *     MiReferenceAweHandle @ 0x14050D4B4 (MiReferenceAweHandle.c)
+ *     MiInsertNewZeroThread @ 0x14050FC38 (MiInsertNewZeroThread.c)
+ *     PspQueryInformationProcessAvailableCpus @ 0x14052F1C8 (PspQueryInformationProcessAvailableCpus.c)
+ *     DbgkCaptureLiveKernelDump @ 0x1405B6A88 (DbgkCaptureLiveKernelDump.c)
+ *     PspTimerDelayProcess @ 0x14061A450 (PspTimerDelayProcess.c)
+ *     NtCancelTimer @ 0x1406D37B0 (NtCancelTimer.c)
+ *     PspBuildCreateProcessContext @ 0x140A79424 (PspBuildCreateProcessContext.c)
+ *     PopDirectedDripsInitializePhase3 @ 0x140CD6CF8 (PopDirectedDripsInitializePhase3.c)
  * Callees:
- *     ObpReferenceObjectByHandleWithTag @ 0x1408FA680 (ObpReferenceObjectByHandleWithTag.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x14092A610 (ObpReferenceObjectByHandleWithTag.c)
  */
 
 NTSTATUS __stdcall ObReferenceObjectByHandleWithTag(

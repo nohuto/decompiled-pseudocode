@@ -1,9 +1,9 @@
 /*
- * XREFs of KiUmsCallEntry @ 0x140413780
+ * XREFs of KiUmsCallEntry @ 0x140413880
  * Callers:
- *     KiSystemCall64 @ 0x140411A00 (KiSystemCall64.c)
+ *     KiSystemCall64 @ 0x140411B00 (KiSystemCall64.c)
  * Callees:
- *     KiSwapToUmsThread @ 0x1408BD920 (KiSwapToUmsThread.c)
+ *     KiSwapToUmsThread @ 0x1408BDA80 (KiSwapToUmsThread.c)
  */
 
 __int64 __fastcall KiUmsCallEntry()

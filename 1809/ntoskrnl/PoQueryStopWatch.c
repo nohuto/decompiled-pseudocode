@@ -1,8 +1,8 @@
 /*
  * XREFs of PoQueryStopWatch @ 0x140001DC4
  * Callers:
- *     PopIsDataAccruedByPowerRequestStats @ 0x1405887D8 (PopIsDataAccruedByPowerRequestStats.c)
- *     PopPublishAndPurgePowerRequestStats @ 0x14087AE1C (PopPublishAndPurgePowerRequestStats.c)
+ *     PopIsDataAccruedByPowerRequestStats @ 0x1405897D8 (PopIsDataAccruedByPowerRequestStats.c)
+ *     PopPublishAndPurgePowerRequestStats @ 0x14087C07C (PopPublishAndPurgePowerRequestStats.c)
  * Callees:
  *     <none>
  */

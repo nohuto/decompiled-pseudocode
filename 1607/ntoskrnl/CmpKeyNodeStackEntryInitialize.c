@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpKeyNodeStackEntryInitialize @ 0x140581850
+ * XREFs of CmpKeyNodeStackEntryInitialize @ 0x140581D00
  * Callers:
- *     CmpKeyEnumStackAdvanceInternal @ 0x14060A1B8 (CmpKeyEnumStackAdvanceInternal.c)
- *     CmpInitializeKeyNodeStack @ 0x14060BC84 (CmpInitializeKeyNodeStack.c)
- *     CmpStartKeyNodeStack @ 0x14060BF6C (CmpStartKeyNodeStack.c)
+ *     CmpKeyEnumStackAdvanceInternal @ 0x14060A26C (CmpKeyEnumStackAdvanceInternal.c)
+ *     CmpInitializeKeyNodeStack @ 0x14060BD38 (CmpInitializeKeyNodeStack.c)
+ *     CmpStartKeyNodeStack @ 0x14060C020 (CmpStartKeyNodeStack.c)
  * Callees:
- *     memset @ 0x1401715C0 (memset.c)
+ *     memset @ 0x140171AC0 (memset.c)
  */
 
 __int64 __fastcall CmpKeyNodeStackEntryInitialize(_DWORD *a1)

@@ -13,8 +13,8 @@ unsigned __int64 __fastcall ExGetCurrentProcessorCpuUsage(_DWORD *a1)
 
   CurrentPrcb = KeGetCurrentPrcb();
   result = 100
-         * (unsigned __int64)CurrentPrcb->IdleThread->SchedulerApc.SpareLong0
-         / (CurrentPrcb->KernelTime + (unsigned __int64)CurrentPrcb->UserTime);
+         * (unsigned __int64)*(unsigned int *)(*((_QWORD *)CurrentPrcb + 3) + 652LL)
+         / (*((unsigned int *)CurrentPrcb + 8273) + (unsigned __int64)*((unsigned int *)CurrentPrcb + 8274));
   *a1 = 100 - result;
   return result;
 }

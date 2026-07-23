@@ -1,8 +1,8 @@
 /*
- * XREFs of IopCheckFileObjectExtensionFlag @ 0x14027C2B0
+ * XREFs of IopCheckFileObjectExtensionFlag @ 0x14026A250
  * Callers:
- *     NtReadFileScatter @ 0x140699E80 (NtReadFileScatter.c)
- *     NtWriteFileGather @ 0x14069A620 (NtWriteFileGather.c)
+ *     NtReadFileScatter @ 0x1405F9040 (NtReadFileScatter.c)
+ *     NtWriteFileGather @ 0x1405F97E0 (NtWriteFileGather.c)
  * Callees:
  *     <none>
  */

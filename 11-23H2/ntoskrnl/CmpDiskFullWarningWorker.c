@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpDiskFullWarningWorker @ 0x140A11AC0
+ * XREFs of CmpDiskFullWarningWorker @ 0x140A11D70
  * Callers:
  *     <none>
  * Callees:
- *     ExRaiseHardError @ 0x140A00B80 (ExRaiseHardError.c)
+ *     ExRaiseHardError @ 0x140A00E10 (ExRaiseHardError.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

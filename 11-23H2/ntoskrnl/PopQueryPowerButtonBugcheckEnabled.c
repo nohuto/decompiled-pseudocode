@@ -1,14 +1,14 @@
 /*
- * XREFs of PopQueryPowerButtonBugcheckEnabled @ 0x140996C88
+ * XREFs of PopQueryPowerButtonBugcheckEnabled @ 0x140996E88
  * Callers:
- *     PopPowerButtonWorkCallback @ 0x1405990F0 (PopPowerButtonWorkCallback.c)
- *     PopPowerInformationInternal @ 0x1407ED06C (PopPowerInformationInternal.c)
+ *     PopPowerButtonWorkCallback @ 0x1405995E0 (PopPowerButtonWorkCallback.c)
+ *     PopPowerInformationInternal @ 0x1407ED33C (PopPowerInformationInternal.c)
  * Callees:
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExfReleasePushLockShared @ 0x1402BD860 (ExfReleasePushLockShared.c)
- *     DbgPrintEx @ 0x14032A740 (DbgPrintEx.c)
+ *     ExAcquirePushLockSharedEx @ 0x140230E80 (ExAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x140231550 (KeLeaveCriticalRegion.c)
+ *     ExfReleasePushLockShared @ 0x1402BDAF0 (ExfReleasePushLockShared.c)
+ *     DbgPrintEx @ 0x14032A9D0 (DbgPrintEx.c)
  */
 
 __int64 PopQueryPowerButtonBugcheckEnabled()
@@ -31,7 +31,7 @@ __int64 PopQueryPowerButtonBugcheckEnabled()
   KeLeaveCriticalRegion();
   if ( v1 == 2 )
     v2 = 1;
-  LOBYTE(word_140C3A078) = v2;
+  LOBYTE(word_140C3A018) = v2;
   if ( (v3 & 1) != 0 )
   {
     v4 = v3 & 0xF0;
@@ -44,7 +44,7 @@ __int64 PopQueryPowerButtonBugcheckEnabled()
         "PopQueryPowerButtonBugcheckEnabled: PowerButtonLiveDump Timeout value is invalid or not specified. Set it to default.\n");
     }
   }
-  HIDWORD(qword_140C3A084) = v3;
+  HIDWORD(qword_140C3A024) = v3;
   DbgPrintEx(
     0x92u,
     2u,

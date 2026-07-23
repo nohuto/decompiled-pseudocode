@@ -1,19 +1,19 @@
 /*
- * XREFs of MiConvertActiveLargePageToSmall @ 0x14041F5E8
+ * XREFs of MiConvertActiveLargePageToSmall @ 0x1402EDFDC
  * Callers:
- *     MiCreateSlabEntry @ 0x1403A112C (MiCreateSlabEntry.c)
- *     MiInitializeFoundLargeNodePage @ 0x1404F869C (MiInitializeFoundLargeNodePage.c)
- *     MiUpdateLargePageSectionPfns @ 0x140673088 (MiUpdateLargePageSectionPfns.c)
- *     MiInitializeNonPagedPool @ 0x140C53CA4 (MiInitializeNonPagedPool.c)
- *     MiCreateKernelHalSlabRange @ 0x140C59210 (MiCreateKernelHalSlabRange.c)
+ *     MiCreateSlabEntry @ 0x140217C8C (MiCreateSlabEntry.c)
+ *     MiInitializeFoundLargeNodePage @ 0x1404F5F7C (MiInitializeFoundLargeNodePage.c)
+ *     MiUpdateLargePageSectionPfns @ 0x140674258 (MiUpdateLargePageSectionPfns.c)
+ *     MiInitializeNonPagedPool @ 0x140C55E34 (MiInitializeNonPagedPool.c)
+ *     MiCreateKernelHalSlabRange @ 0x140C5B3A0 (MiCreateKernelHalSlabRange.c)
  * Callees:
- *     HvlNotifyLongSpinWait @ 0x140293260 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140293290 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     KeShouldYieldProcessor @ 0x1402DA180 (KeShouldYieldProcessor.c)
- *     MiGetPfnPageSizeIndex @ 0x1403070C0 (MiGetPfnPageSizeIndex.c)
- *     MiConvertLargePfnToSmall @ 0x14041F790 (MiConvertLargePfnToSmall.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KeShouldYieldProcessor @ 0x14023BA60 (KeShouldYieldProcessor.c)
+ *     HvlNotifyLongSpinWait @ 0x1402A2E60 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402A2E90 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     MiConvertLargePfnToSmall @ 0x1402EE180 (MiConvertLargePfnToSmall.c)
+ *     MiGetPfnPageSizeIndex @ 0x140310FA0 (MiGetPfnPageSizeIndex.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall MiConvertActiveLargePageToSmall(__int64 a1, int a2)

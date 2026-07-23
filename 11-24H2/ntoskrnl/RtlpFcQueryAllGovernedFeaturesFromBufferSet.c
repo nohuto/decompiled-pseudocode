@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpFcQueryAllGovernedFeaturesFromBufferSet @ 0x14078D2DC
+ * XREFs of RtlpFcQueryAllGovernedFeaturesFromBufferSet @ 0x14078D20C
  * Callers:
- *     RtlQueryAllInternalRuntimeFeatureConfigurations @ 0x1405E9080 (RtlQueryAllInternalRuntimeFeatureConfigurations.c)
+ *     RtlQueryAllInternalRuntimeFeatureConfigurations @ 0x1405E65D0 (RtlQueryAllInternalRuntimeFeatureConfigurations.c)
  * Callees:
- *     memmove @ 0x1406BFC40 (memmove.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
  */
 
 __int64 __fastcall RtlpFcQueryAllGovernedFeaturesFromBufferSet(__int64 a1, void *a2, unsigned __int64 *a3)

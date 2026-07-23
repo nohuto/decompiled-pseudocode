@@ -1,9 +1,9 @@
 /*
- * XREFs of CcGetPrivateVolumeCacheMapFromFileObject @ 0x140319AD0
+ * XREFs of CcGetPrivateVolumeCacheMapFromFileObject @ 0x140319D60
  * Callers:
- *     CcCopyWriteWontFlush @ 0x140319820 (CcCopyWriteWontFlush.c)
- *     CcForceWriteThrough @ 0x140369520 (CcForceWriteThrough.c)
- *     CcDeferWrite @ 0x140537480 (CcDeferWrite.c)
+ *     CcCopyWriteWontFlush @ 0x140319AB0 (CcCopyWriteWontFlush.c)
+ *     CcForceWriteThrough @ 0x1403696C0 (CcForceWriteThrough.c)
+ *     CcDeferWrite @ 0x1405379D0 (CcDeferWrite.c)
  * Callees:
  *     <none>
  */

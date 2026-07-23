@@ -1,13 +1,13 @@
 /*
- * XREFs of PipIommuRetrieveDeviceId @ 0x14075060C
+ * XREFs of PipIommuRetrieveDeviceId @ 0x1407517FC
  * Callers:
- *     PiIommuAllocateExtension @ 0x140750538 (PiIommuAllocateExtension.c)
+ *     PiIommuAllocateExtension @ 0x140751728 (PiIommuAllocateExtension.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     PipIommuValidateDeviceId @ 0x1407506E8 (PipIommuValidateDeviceId.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     PipIommuValidateDeviceId @ 0x1407518D8 (PipIommuValidateDeviceId.c)
  */
 
 __int64 __fastcall PipIommuRetrieveDeviceId(ULONG_PTR BugCheckParameter2, _QWORD *a2)

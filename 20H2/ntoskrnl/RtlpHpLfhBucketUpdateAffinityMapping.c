@@ -48,13 +48,13 @@ __int64 __fastcall RtlpHpLfhBucketUpdateAffinityMapping(__int64 a1, __int64 a2)
   unsigned int v27; // edx
   bool v28; // zf
   __int64 v29; // rcx
-  unsigned __int64 v30; // rdi
+  __int64 v30; // rdi
   __int64 v31; // rdx
   __int64 v32; // rcx
   struct _KTHREAD *v33; // rbx
   unsigned int v34; // edx
   __int64 v35; // rcx
-  unsigned __int64 v36; // rdi
+  __int64 v36; // rdi
   unsigned __int8 v37; // al
   __int64 v38; // rcx
   __int64 v39; // r8
@@ -180,7 +180,7 @@ LABEL_16:
         v50[1] = v29;
         if ( v28 )
           break;
-        v30 = (unsigned __int64)&v25->LockEntries[v29];
+        v30 = (__int64)&v25->LockEntries[v29];
         v27 &= ~(1 << v29);
         if ( (*(_BYTE *)(v30 + 26) & 1) != 0
           && (*(_DWORD *)(v30 + 32) & 1) == 0
@@ -194,12 +194,12 @@ LABEL_16:
             {
               *(_BYTE *)(v30 + 32) |= 2u;
               if ( *(__int64 *)(v30 + 32) < 0 )
-                KiAbEntryRemoveFromTree(v30);
+                KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v30);
               v51 = *(_DWORD *)(v30 + 88) & 0x1FFFF;
               *(_DWORD *)(v30 + 88) &= 0xFFFE0000;
               *(_BYTE *)(v30 + 25) &= ~1u;
               *(_QWORD *)(v30 + 32) = 0LL;
-              v31 = (__int64)(v30 - (unsigned __int64)v25->LockEntries) / 96;
+              v31 = (signed __int64)(v30 - (unsigned __int64)v25->LockEntries) / 96;
               if ( v26 == 1 )
                 v25->AbEntrySummary |= 1 << v31;
               else
@@ -267,7 +267,7 @@ LABEL_33:
       v49 = v35;
       if ( v28 )
         break;
-      v36 = (unsigned __int64)&v33->LockEntries[v35];
+      v36 = (__int64)&v33->LockEntries[v35];
       v34 &= ~(1 << v35);
       if ( (*(_BYTE *)(v36 + 26) & 1) != 0
         && (*(_DWORD *)(v36 + 32) & 1) == 0
@@ -281,7 +281,7 @@ LABEL_33:
           {
             *(_BYTE *)(v36 + 32) |= 2u;
             if ( *(__int64 *)(v36 + 32) < 0 )
-              KiAbEntryRemoveFromTree(v36);
+              KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v36);
             v50[0] = *(_DWORD *)(v36 + 88) & 0x1FFFF;
             *(_DWORD *)(v36 + 88) &= 0xFFFE0000;
             *(_BYTE *)(v36 + 25) &= ~1u;

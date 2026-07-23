@@ -1,13 +1,13 @@
 /*
- * XREFs of MiMakeUnusedImageExtentsCold @ 0x1405543E8
+ * XREFs of MiMakeUnusedImageExtentsCold @ 0x140554628
  * Callers:
- *     MiRelocateImage @ 0x1406D54B0 (MiRelocateImage.c)
+ *     MiRelocateImage @ 0x1406AC790 (MiRelocateImage.c)
  * Callees:
- *     MiGetLeafPfnBuddy @ 0x140380A4C (MiGetLeafPfnBuddy.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     MiGetLeafPfnBuddy @ 0x14038059C (MiGetLeafPfnBuddy.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  *     MiAddPageToHeatList @ 0x1403F7C88 (MiAddPageToHeatList.c)
- *     memset @ 0x140414200 (memset.c)
- *     MiNotifyPageHeat @ 0x14055FDC4 (MiNotifyPageHeat.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     MiNotifyPageHeat @ 0x140560004 (MiNotifyPageHeat.c)
  */
 
 unsigned __int64 __fastcall MiMakeUnusedImageExtentsCold(__int64 a1)

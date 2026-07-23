@@ -1,14 +1,14 @@
 /*
- * XREFs of CmpStopSiloKeyLockTracker @ 0x140A87210
+ * XREFs of CmpStopSiloKeyLockTracker @ 0x140A81F60
  * Callers:
- *     PspDeleteExternalServerSiloState @ 0x140772928 (PspDeleteExternalServerSiloState.c)
- *     CmpFreeSiloContextCallback @ 0x140A871C0 (CmpFreeSiloContextCallback.c)
+ *     PspDeleteExternalServerSiloState @ 0x140772B48 (PspDeleteExternalServerSiloState.c)
+ *     CmpFreeSiloContextCallback @ 0x140A81F10 (CmpFreeSiloContextCallback.c)
  * Callees:
- *     CmpFreeSiloKeyLockEntry @ 0x1407DDE48 (CmpFreeSiloKeyLockEntry.c)
- *     KsepCacheLock @ 0x1408BB520 (KsepCacheLock.c)
- *     CmpUnlockSiloKeyLockTracker @ 0x140A872EC (CmpUnlockSiloKeyLockTracker.c)
- *     CmpLockRegistry @ 0x140BB9E60 (CmpLockRegistry.c)
- *     CmpUnlockRegistry @ 0x140BB9F50 (CmpUnlockRegistry.c)
+ *     CmpFreeSiloKeyLockEntry @ 0x1407DE398 (CmpFreeSiloKeyLockEntry.c)
+ *     KsepCacheLock @ 0x1408B8ED0 (KsepCacheLock.c)
+ *     CmpUnlockSiloKeyLockTracker @ 0x140A8203C (CmpUnlockSiloKeyLockTracker.c)
+ *     CmpLockRegistry @ 0x140BBBE60 (CmpLockRegistry.c)
+ *     CmpUnlockRegistry @ 0x140BBBF50 (CmpUnlockRegistry.c)
  */
 
 ULONG_PTR *__fastcall CmpStopSiloKeyLockTracker(ULONG_PTR BugCheckParameter2)

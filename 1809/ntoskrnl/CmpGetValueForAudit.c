@@ -1,14 +1,14 @@
 /*
- * XREFs of CmpGetValueForAudit @ 0x1408004C4
+ * XREFs of CmpGetValueForAudit @ 0x1408016C4
  * Callers:
- *     CmDeleteValueKey @ 0x1405B6634 (CmDeleteValueKey.c)
- *     CmSetValueKey @ 0x1405CBE28 (CmSetValueKey.c)
+ *     CmDeleteValueKey @ 0x1405B7634 (CmDeleteValueKey.c)
+ *     CmSetValueKey @ 0x1405CCE28 (CmSetValueKey.c)
  * Callees:
  *     CmpAllocateTransientPoolWithTag @ 0x140013040 (CmpAllocateTransientPoolWithTag.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     CmpGetValueData @ 0x1405D20A0 (CmpGetValueData.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     CmpGetValueData @ 0x1405D30A0 (CmpGetValueData.c)
  */
 
 __int64 __fastcall CmpGetValueForAudit(__int64 a1, __int64 a2, __int64 a3, ULONG a4)

@@ -41,7 +41,7 @@ NTSTATUS __stdcall RtlConvertSidToUnicodeString(
   char v22; // [rsp+22Ch] [rbp+12Ch] BYREF
   char v23; // [rsp+22Eh] [rbp+12Eh] BYREF
 
-  if ( (unsigned __int8)RtlValidSid(Sid) != 1 || *(_BYTE *)Sid != 1 )
+  if ( RtlValidSid(Sid) != 1 || *(_BYTE *)Sid != 1 )
     return -1073741704;
   wcscpy_s(&Destination, 0x100uLL, L"S-1-");
   v6 = 0;
@@ -99,7 +99,7 @@ NTSTATUS __stdcall RtlConvertSidToUnicodeString(
     {
 LABEL_14:
       if ( AllocateDestinationString )
-        return (unsigned __int8)RtlCreateUnicodeString(UnicodeString, &Destination) == 0 ? 0xC0000017 : 0;
+        return RtlCreateUnicodeString(UnicodeString, &Destination) == 0 ? 0xC0000017 : 0;
       while ( v7 < &v23 && *(_WORD *)v7 )
         v7 += 2;
       MaximumLength = UnicodeString->MaximumLength;

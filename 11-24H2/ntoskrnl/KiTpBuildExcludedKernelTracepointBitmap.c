@@ -1,25 +1,25 @@
 /*
- * XREFs of KiTpBuildExcludedKernelTracepointBitmap @ 0x14073DCD0
+ * XREFs of KiTpBuildExcludedKernelTracepointBitmap @ 0x14073BC00
  * Callers:
- *     KiTpIsExcludedKernelTracepointLocation @ 0x14073DEF0 (KiTpIsExcludedKernelTracepointLocation.c)
+ *     KiTpIsExcludedKernelTracepointLocation @ 0x14073BE20 (KiTpIsExcludedKernelTracepointLocation.c)
  * Callees:
- *     RtlSetBits @ 0x14024BCC0 (RtlSetBits.c)
- *     RtlLookupFunctionEntry @ 0x14027D3A0 (RtlLookupFunctionEntry.c)
- *     RtlpxLookupFunctionTable @ 0x14027DCB0 (RtlpxLookupFunctionTable.c)
- *     KeReadStateSemaphore @ 0x1404506F0 (KeReadStateSemaphore.c)
- *     RtlIsSpecialUnwind @ 0x1405F0978 (RtlIsSpecialUnwind.c)
- *     RtlLookupPrimaryFunctionEntry @ 0x1405F09D0 (RtlLookupPrimaryFunctionEntry.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     RtlLookupFunctionEntry @ 0x140232930 (RtlLookupFunctionEntry.c)
+ *     RtlpxLookupFunctionTable @ 0x140233240 (RtlpxLookupFunctionTable.c)
+ *     RtlSetBits @ 0x14027C2D0 (RtlSetBits.c)
+ *     KeReadStateSemaphore @ 0x140445960 (KeReadStateSemaphore.c)
+ *     RtlIsSpecialUnwind @ 0x1405EDF58 (RtlIsSpecialUnwind.c)
+ *     RtlLookupPrimaryFunctionEntry @ 0x1405EDFB0 (RtlLookupPrimaryFunctionEntry.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 PRTL_BITMAP __fastcall KiTpBuildExcludedKernelTracepointBitmap(PRTL_BITMAP BitMapHeader)
 {
   __int64 v1; // rbx
-  ULONG_PTR v3; // rbx
+  unsigned __int64 v3; // rbx
   unsigned int *Pool2; // rax
-  unsigned __int64 *v5; // rsi
+  DWORD64 *v5; // rsi
   __int64 v6; // rbp
-  unsigned __int64 v7; // rbx
+  DWORD64 v7; // rbx
   struct _KSEMAPHORE *v8; // rax
   unsigned int LockNV; // ebx
   unsigned int StateSemaphore; // eax
@@ -36,23 +36,23 @@ PRTL_BITMAP __fastcall KiTpBuildExcludedKernelTracepointBitmap(PRTL_BITMAP BitMa
   ULONG v21; // edx
   __int128 v23; // [rsp+20h] [rbp-48h] BYREF
   __int64 v24; // [rsp+30h] [rbp-38h]
-  unsigned __int64 v25; // [rsp+70h] [rbp+8h] BYREF
+  unsigned __int64 ImageBase; // [rsp+70h] [rbp+8h] BYREF
 
   v1 = PsNtosImageEnd;
-  v25 = 0LL;
+  ImageBase = 0LL;
   *BitMapHeader = 0LL;
-  v3 = (((v1 - PsNtosImageBase + 15) >> 4) + 31) & 0xFFFFFFFFFFFFFFE0uLL;
-  Pool2 = (unsigned int *)ExAllocatePool2(0x40uLL);
+  v3 = (((unsigned __int64)(v1 - (_QWORD)PsNtosImageBase + 15) >> 4) + 31) & 0xFFFFFFFFFFFFFFE0uLL;
+  Pool2 = (unsigned int *)ExAllocatePool2(0x40uLL, v3 >> 3, 0x70727446u);
   if ( Pool2 )
   {
     BitMapHeader->SizeOfBitMap = v3;
-    v5 = (unsigned __int64 *)KiTpExcludedRoutines;
+    v5 = (DWORD64 *)KiTpExcludedRoutines;
     BitMapHeader->Buffer = Pool2;
     v6 = 198LL;
     do
     {
       v7 = *v5;
-      v8 = (struct _KSEMAPHORE *)RtlLookupFunctionEntry(*v5, &v25, 0LL);
+      v8 = (struct _KSEMAPHORE *)RtlLookupFunctionEntry(*v5, &ImageBase, 0LL);
       if ( v8 )
       {
         LockNV = v8->Header.LockNV;
@@ -60,7 +60,7 @@ PRTL_BITMAP __fastcall KiTpBuildExcludedKernelTracepointBitmap(PRTL_BITMAP BitMa
       }
       else
       {
-        LockNV = v7 - PsNtosImageBase;
+        LockNV = v7 - (_DWORD)PsNtosImageBase;
         StateSemaphore = LockNV + 1;
       }
       RtlSetBits(BitMapHeader, LockNV >> 4, (((unsigned __int64)StateSemaphore + 15) >> 4) - (LockNV >> 4));
@@ -71,10 +71,11 @@ PRTL_BITMAP __fastcall KiTpBuildExcludedKernelTracepointBitmap(PRTL_BITMAP BitMa
     v11 = 0;
     v24 = 0LL;
     v23 = 0LL;
-    if ( PsNtosImageBase < *((_QWORD *)&xmmword_141200030 + 1)
-      || PsNtosImageBase >= *((_QWORD *)&xmmword_141200030 + 1) + (unsigned __int64)(unsigned int)qword_141200040 )
+    if ( (unsigned __int64)PsNtosImageBase < *((_QWORD *)&xmmword_141200030 + 1)
+      || (unsigned __int64)PsNtosImageBase >= *((_QWORD *)&xmmword_141200030 + 1)
+                                            + (unsigned __int64)(unsigned int)qword_141200040 )
     {
-      v12 = RtlpxLookupFunctionTable(PsNtosImageBase, (__int64)&v23);
+      v12 = RtlpxLookupFunctionTable((unsigned __int64)PsNtosImageBase, (__int64)&v23);
     }
     else
     {
@@ -89,7 +90,7 @@ PRTL_BITMAP __fastcall KiTpBuildExcludedKernelTracepointBitmap(PRTL_BITMAP BitMa
     }
     else
     {
-      v13 = v25;
+      v13 = ImageBase;
     }
     v14 = v11 / 0xC;
     if ( v11 / 0xC )

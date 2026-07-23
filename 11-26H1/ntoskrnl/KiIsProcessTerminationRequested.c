@@ -1,7 +1,7 @@
 /*
- * XREFs of KiIsProcessTerminationRequested @ 0x1404B6914
+ * XREFs of KiIsProcessTerminationRequested @ 0x1404AFD64
  * Callers:
- *     KiSchedulerApcTerminate @ 0x1409576C0 (KiSchedulerApcTerminate.c)
+ *     KiSchedulerApcTerminate @ 0x14094B0F0 (KiSchedulerApcTerminate.c)
  * Callees:
  *     <none>
  */

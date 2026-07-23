@@ -1,10 +1,10 @@
 /*
- * XREFs of NormBuffer__LastStartBase @ 0x1405B07D8
+ * XREFs of NormBuffer__LastStartBase @ 0x1405B0D48
  * Callers:
- *     NormBuffer__LastStartBasePair @ 0x1405B0804 (NormBuffer__LastStartBasePair.c)
- *     Normalization__NormalizeCharacter @ 0x1409C1338 (Normalization__NormalizeCharacter.c)
+ *     NormBuffer__LastStartBasePair @ 0x1405B0D74 (NormBuffer__LastStartBasePair.c)
+ *     Normalization__NormalizeCharacter @ 0x1409C1538 (Normalization__NormalizeCharacter.c)
  * Callees:
- *     Normalization__GetFirstDecomposedCharPlane0 @ 0x1409C079C (Normalization__GetFirstDecomposedCharPlane0.c)
+ *     Normalization__GetFirstDecomposedCharPlane0 @ 0x1409C099C (Normalization__GetFirstDecomposedCharPlane0.c)
  */
 
 __int64 __fastcall NormBuffer__LastStartBase(__int64 a1)

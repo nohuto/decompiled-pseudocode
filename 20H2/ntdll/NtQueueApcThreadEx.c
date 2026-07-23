@@ -6,11 +6,17 @@
  *     <none>
  */
 
-__int64 NtQueueApcThreadEx()
+NTSTATUS __cdecl NtQueueApcThreadEx(
+        HANDLE ThreadHandle,
+        HANDLE ReserveHandle,
+        PPS_APC_ROUTINE ApcRoutine,
+        PVOID ApcArgument1,
+        PVOID ApcArgument2,
+        PVOID ApcArgument3)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 357LL;
+  result = 357;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

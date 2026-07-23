@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlLogStackTrace @ 0x1800FC9F0
+ * XREFs of RtlLogStackTrace @ 0x1800FC140
  * Callers:
  *     <none>
  * Callees:
@@ -9,7 +9,7 @@
 __int64 __fastcall RtlLogStackTrace(int a1)
 {
   if ( RtlpStackTraceDatabase )
-    return RtlStdLogStackTrace(RtlpStackTraceDatabase, a1);
+    return RtlStdLogStackTrace((__int64)RtlpStackTraceDatabase, a1);
   else
     return 0LL;
 }

@@ -1,13 +1,13 @@
 /*
- * XREFs of PopFxSetDripsBlockedByDeviceActivity @ 0x14058BA44
+ * XREFs of PopFxSetDripsBlockedByDeviceActivity @ 0x14058BF34
  * Callers:
- *     PopFxPlatformStateAvailable @ 0x14058B35C (PopFxPlatformStateAvailable.c)
+ *     PopFxPlatformStateAvailable @ 0x14058B84C (PopFxPlatformStateAvailable.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     PopFxUpdateDeviceIRPhaseAccounting @ 0x14058C2D4 (PopFxUpdateDeviceIRPhaseAccounting.c)
- *     PopFxUpdateGlobalDeviceAccountingInfo @ 0x14058C38C (PopFxUpdateGlobalDeviceAccountingInfo.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     PopFxUpdateDeviceIRPhaseAccounting @ 0x14058C7C4 (PopFxUpdateDeviceIRPhaseAccounting.c)
+ *     PopFxUpdateGlobalDeviceAccountingInfo @ 0x14058C87C (PopFxUpdateGlobalDeviceAccountingInfo.c)
  */
 
 __int64 __fastcall PopFxSetDripsBlockedByDeviceActivity(char a1)
@@ -20,13 +20,13 @@ __int64 __fastcall PopFxSetDripsBlockedByDeviceActivity(char a1)
   bool v7; // zf
 
   v3 = KeAcquireSpinLockRaiseToDpc(&PopFxGlobalDeviceAccountingLock);
-  if ( byte_140C3ED81 )
+  if ( byte_140C3EDA1 )
   {
     if ( PopFxGlobalDeviceAccountingInfo == a1 )
       goto LABEL_8;
     v2 = MEMORY[0xFFFFF78000000008];
     if ( a1 )
-      qword_140C3ED88 = MEMORY[0xFFFFF78000000008];
+      qword_140C3EDA8 = MEMORY[0xFFFFF78000000008];
     else
       PopFxUpdateGlobalDeviceAccountingInfo(MEMORY[0xFFFFF78000000008], 0LL);
   }
@@ -38,10 +38,10 @@ __int64 __fastcall PopFxSetDripsBlockedByDeviceActivity(char a1)
   }
 LABEL_8:
   result = KxReleaseSpinLock((volatile signed __int64 *)&PopFxGlobalDeviceAccountingLock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
       && (unsigned __int8)result <= 0xFu
       && (unsigned __int8)v3 <= 0xFu
       && (unsigned __int8)result >= 2u )

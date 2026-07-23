@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpHpOptIntoSegmentHeap @ 0x1800F4508
+ * XREFs of RtlpHpOptIntoSegmentHeap @ 0x1800F44C8
  * Callers:
- *     RtlInitializeHeapManager @ 0x1800F2694 (RtlInitializeHeapManager.c)
+ *     RtlInitializeHeapManager @ 0x1800F2654 (RtlInitializeHeapManager.c)
  * Callees:
  *     RtlGetSuiteMask @ 0x18003CC10 (RtlGetSuiteMask.c)
  *     RtlQueryPackageIdentity @ 0x18006AA20 (RtlQueryPackageIdentity.c)
@@ -24,11 +24,11 @@ __int64 __fastcall RtlpHpOptIntoSegmentHeap(unsigned __int16 *a1)
   const wchar_t **v10; // rsi
   const wchar_t *v11; // r12
   __int64 v12; // rax
-  int v14; // [rsp+40h] [rbp-C0h] BYREF
-  __int64 v15; // [rsp+48h] [rbp-B8h] BYREF
+  _PS_PKG_CLAIM PkgClaim; // [rsp+40h] [rbp-C0h] BYREF
+  ULONG_PTR PackageSize; // [rsp+48h] [rbp-B8h] BYREF
   _QWORD v16[6]; // [rsp+50h] [rbp-B0h] BYREF
-  wchar_t String1[16]; // [rsp+80h] [rbp-80h] BYREF
-  wchar_t v18[128]; // [rsp+A0h] [rbp-60h] BYREF
+  WCHAR String1[16]; // [rsp+80h] [rbp-80h] BYREF
+  WCHAR PackageFullName[128]; // [rsp+A0h] [rbp-60h] BYREF
 
   v1 = NtCurrentPeb();
   v16[0] = L"svchost.exe";
@@ -39,14 +39,14 @@ __int64 __fastcall RtlpHpOptIntoSegmentHeap(unsigned __int16 *a1)
   v16[4] = L"services.exe";
   v16[5] = L"lsass.exe";
   if ( (RtlGetSuiteMask() & 0x10000) != 0
-    || (int)RtlQueryActivationContextApplicationSettings(
-              0LL,
-              0LL,
-              L"http://schemas.microsoft.com/SMI/2020/WindowsSettings",
-              L"heapType",
-              String1,
-              0xFuLL,
-              0LL) >= 0
+    || RtlQueryActivationContextApplicationSettings(
+         0,
+         0LL,
+         (PWSTR)L"http://schemas.microsoft.com/SMI/2020/WindowsSettings",
+         (PWSTR)L"heapType",
+         String1,
+         0xFuLL,
+         0LL) >= 0
     && !wcsnicmp(String1, L"SegmentHeap", 0xFuLL) )
   {
     goto LABEL_25;
@@ -95,9 +95,9 @@ __int64 __fastcall RtlpHpOptIntoSegmentHeap(unsigned __int16 *a1)
         ++v4;
       }
 LABEL_23:
-      v15 = 256LL;
-      if ( (int)RtlQueryPackageIdentity(-4, (int)v18, (int)&v15, 0, 0LL, 0LL) < 0
-        || wcsnicmp(v18, L"DefaultBrowser_NOPUBLISHERID", 0x1DuLL) )
+      PackageSize = 256LL;
+      if ( RtlQueryPackageIdentity((HANDLE)0xFFFFFFFFFFFFFFFCLL, PackageFullName, &PackageSize, 0LL, 0LL, 0LL) < 0
+        || wcsnicmp(PackageFullName, L"DefaultBrowser_NOPUBLISHERID", 0x1DuLL) )
       {
         return v3;
       }
@@ -106,7 +106,10 @@ LABEL_25:
     RtlpHpAppCompatFlags = 0;
     return 1;
   }
-  if ( (int)RtlQueryPackageClaims(-4, 0LL, 0LL, 0LL, 0LL, 0LL, (__int64)&v14, 0LL) < 0 || (v14 & 0x8000) == 0 )
+  if ( RtlQueryPackageClaims((HANDLE)0xFFFFFFFFFFFFFFFCLL, 0LL, 0LL, 0LL, 0LL, 0LL, &PkgClaim, 0LL) < 0
+    || (PkgClaim.Flags & 0x8000) == 0 )
+  {
     goto LABEL_25;
+  }
   return v3;
 }

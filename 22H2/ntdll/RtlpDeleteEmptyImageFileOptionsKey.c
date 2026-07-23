@@ -14,18 +14,18 @@ __int64 __fastcall RtlpDeleteEmptyImageFileOptionsKey(unsigned __int16 *a1)
   int v2; // ebx
   __int64 result; // rax
   char IsEmptyImageFileOptionsKey; // si
-  HANDLE Handle; // [rsp+38h] [rbp+10h] BYREF
+  HANDLE KeyHandle; // [rsp+38h] [rbp+10h] BYREF
 
   v2 = 0;
   while ( 1 )
   {
-    result = RtlpOpenImageFileOptionsKeyEx(a1, 65545LL, 0, &Handle);
+    result = RtlpOpenImageFileOptionsKeyEx(a1, 65545LL, 0, &KeyHandle);
     if ( (int)result < 0 )
       break;
-    IsEmptyImageFileOptionsKey = RtlpIsEmptyImageFileOptionsKey(Handle);
+    IsEmptyImageFileOptionsKey = RtlpIsEmptyImageFileOptionsKey(KeyHandle);
     if ( IsEmptyImageFileOptionsKey )
-      NtDeleteKey();
-    NtClose(Handle);
+      NtDeleteKey(KeyHandle);
+    NtClose(KeyHandle);
     if ( IsEmptyImageFileOptionsKey )
     {
       if ( (unsigned int)++v2 < 2 )

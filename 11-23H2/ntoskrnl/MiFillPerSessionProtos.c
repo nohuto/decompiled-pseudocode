@@ -1,27 +1,27 @@
 /*
- * XREFs of MiFillPerSessionProtos @ 0x140A49FAC
+ * XREFs of MiFillPerSessionProtos @ 0x140A4A25C
  * Callers:
- *     MiAllocatePerSessionProtos @ 0x1407B5E60 (MiAllocatePerSessionProtos.c)
+ *     MiAllocatePerSessionProtos @ 0x1407B6140 (MiAllocatePerSessionProtos.c)
  * Callees:
  *     MiReturnPfnReferenceCount @ 0x14020DC40 (MiReturnPfnReferenceCount.c)
  *     MiMapSinglePage @ 0x140217D58 (MiMapSinglePage.c)
  *     MiMarkPfnVerified @ 0x140219BD0 (MiMarkPfnVerified.c)
- *     MiGetPage @ 0x14026D360 (MiGetPage.c)
- *     MiPteInShadowRange @ 0x140271360 (MiPteInShadowRange.c)
- *     MiGetControlAreaPartition @ 0x1402756B0 (MiGetControlAreaPartition.c)
- *     MiReservePtes @ 0x14027D190 (MiReservePtes.c)
- *     MiCopyPage @ 0x140283E10 (MiCopyPage.c)
- *     MiGetNextPageColor @ 0x1402923CC (MiGetNextPageColor.c)
- *     MiReleasePtes @ 0x1402CB8E0 (MiReleasePtes.c)
- *     MiInitializePageColorBase @ 0x1402E1690 (MiInitializePageColorBase.c)
- *     MiWritePteShadow @ 0x14035734C (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x1403573AC (MiPteHasShadow.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     KeCopyPrivilegedPage @ 0x14056EC28 (KeCopyPrivilegedPage.c)
- *     MiWaitForFreePage @ 0x140653A48 (MiWaitForFreePage.c)
- *     MiInitializeProtoPfn @ 0x14066B270 (MiInitializeProtoPfn.c)
- *     MiAllocateDriverPage @ 0x140706324 (MiAllocateDriverPage.c)
- *     MiRelocateImagePfn @ 0x1407442C0 (MiRelocateImagePfn.c)
+ *     MiGetPage @ 0x14026D5F0 (MiGetPage.c)
+ *     MiPteInShadowRange @ 0x1402715F0 (MiPteInShadowRange.c)
+ *     MiGetControlAreaPartition @ 0x140275940 (MiGetControlAreaPartition.c)
+ *     MiReservePtes @ 0x14027D420 (MiReservePtes.c)
+ *     MiCopyPage @ 0x1402840A0 (MiCopyPage.c)
+ *     MiGetNextPageColor @ 0x14029265C (MiGetNextPageColor.c)
+ *     MiReleasePtes @ 0x1402CBB70 (MiReleasePtes.c)
+ *     MiInitializePageColorBase @ 0x1402E1920 (MiInitializePageColorBase.c)
+ *     MiWritePteShadow @ 0x1403574EC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x14035754C (MiPteHasShadow.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     KeCopyPrivilegedPage @ 0x14056F168 (KeCopyPrivilegedPage.c)
+ *     MiWaitForFreePage @ 0x140653F98 (MiWaitForFreePage.c)
+ *     MiInitializeProtoPfn @ 0x14066B7C0 (MiInitializeProtoPfn.c)
+ *     MiAllocateDriverPage @ 0x140706534 (MiAllocateDriverPage.c)
+ *     MiRelocateImagePfn @ 0x1407444B0 (MiRelocateImagePfn.c)
  */
 
 __int64 __fastcall MiFillPerSessionProtos(

@@ -1,10 +1,10 @@
 /*
- * XREFs of PspLockJobExclusiveUnlessRoot @ 0x14077D0F0
+ * XREFs of PspLockJobExclusiveUnlessRoot @ 0x14077FBE4
  * Callers:
- *     PspSendProcessNotificationToJobChain @ 0x140958A58 (PspSendProcessNotificationToJobChain.c)
- *     PspRemoveProcessFromJobChain @ 0x140959638 (PspRemoveProcessFromJobChain.c)
+ *     PspRemoveProcessFromJobChain @ 0x1409FEEF8 (PspRemoveProcessFromJobChain.c)
+ *     PspSendProcessNotificationToJobChain @ 0x140AE4DDC (PspSendProcessNotificationToJobChain.c)
  * Callees:
- *     ExAcquireFastResourceExclusive @ 0x140275660 (ExAcquireFastResourceExclusive.c)
+ *     ExAcquireFastResourceExclusive @ 0x140274BD0 (ExAcquireFastResourceExclusive.c)
  */
 
 char __fastcall PspLockJobExclusiveUnlessRoot(__int64 a1)

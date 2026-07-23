@@ -1,12 +1,12 @@
 /*
- * XREFs of CcTelemetryPeriodicTimerCallback @ 0x140880BC0
+ * XREFs of CcTelemetryPeriodicTimerCallback @ 0x140880E00
  * Callers:
  *     <none>
  * Callees:
- *     KeSetCoalescableTimer @ 0x140252560 (KeSetCoalescableTimer.c)
- *     CcForEachPartition @ 0x140310DCC (CcForEachPartition.c)
- *     CcHasGlobalTelemetryChanged @ 0x1403D10B4 (CcHasGlobalTelemetryChanged.c)
- *     CcPostVolumeTelemetry @ 0x1403D10D0 (CcPostVolumeTelemetry.c)
+ *     KeSetCoalescableTimer @ 0x140252620 (KeSetCoalescableTimer.c)
+ *     CcForEachPartition @ 0x14031105C (CcForEachPartition.c)
+ *     CcHasGlobalTelemetryChanged @ 0x1403D1294 (CcHasGlobalTelemetryChanged.c)
+ *     CcPostVolumeTelemetry @ 0x1403D12B0 (CcPostVolumeTelemetry.c)
  */
 
 void CcTelemetryPeriodicTimerCallback()

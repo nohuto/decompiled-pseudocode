@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpSetPriorityThread @ 0x1404ED860
+ * XREFs of CmpSetPriorityThread @ 0x1404E6E40
  * Callers:
- *     CmpDoFileWrite @ 0x140AE6B08 (CmpDoFileWrite.c)
+ *     CmpDoFileWrite @ 0x140AE48C8 (CmpDoFileWrite.c)
  * Callees:
- *     KeSetActualBasePriorityThread @ 0x140239560 (KeSetActualBasePriorityThread.c)
+ *     KeSetActualBasePriorityThread @ 0x14023AEC0 (KeSetActualBasePriorityThread.c)
  */
 
 __int64 __fastcall CmpSetPriorityThread(__int64 a1, __int64 a2, __int64 a3)

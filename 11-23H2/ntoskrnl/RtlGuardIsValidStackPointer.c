@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlGuardIsValidStackPointer @ 0x140770CD0
+ * XREFs of RtlGuardIsValidStackPointer @ 0x140770EC0
  * Callers:
- *     KeVerifyContextRecord @ 0x14030DD74 (KeVerifyContextRecord.c)
+ *     KeVerifyContextRecord @ 0x14030E004 (KeVerifyContextRecord.c)
  * Callees:
  *     <none>
  */

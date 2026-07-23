@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpCreateNtFileName @ 0x1406E0310
+ * XREFs of EtwpCreateNtFileName @ 0x1406B75F0
  * Callers:
- *     EtwpDelayCreate @ 0x1406E00F0 (EtwpDelayCreate.c)
+ *     EtwpDelayCreate @ 0x1406B73D0 (EtwpDelayCreate.c)
  * Callees:
- *     RtlStringCbPrintfW @ 0x14027EB50 (RtlStringCbPrintfW.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     RtlStringCbPrintfW @ 0x14026CAF0 (RtlStringCbPrintfW.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 NTSTATUS __fastcall EtwpCreateNtFileName(_WORD *a1, wchar_t **a2, int *a3)

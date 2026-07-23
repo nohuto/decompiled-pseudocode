@@ -1,48 +1,48 @@
 /*
- * XREFs of _RegRtlOpenKeyTransacted @ 0x140997950
+ * XREFs of _RegRtlOpenKeyTransacted @ 0x1409583B0
  * Callers:
- *     _SysCtxOpenControlSet @ 0x14089CA30 (_SysCtxOpenControlSet.c)
- *     _SysCtxOpenMachine @ 0x14089CC70 (_SysCtxOpenMachine.c)
- *     _RegRtlCopyTreeInternal @ 0x14089D400 (_RegRtlCopyTreeInternal.c)
- *     PiCreateDriverSwDevices @ 0x14090988C (PiCreateDriverSwDevices.c)
- *     _CmIsDeviceInContainer @ 0x140909D5C (_CmIsDeviceInContainer.c)
- *     _CmGetDeviceInterfaceMappedPropertyFromRegValue @ 0x1409172EC (_CmGetDeviceInterfaceMappedPropertyFromRegValue.c)
- *     _CmGetInterfaceClassMappedPropertyFromRegValue @ 0x140917AA0 (_CmGetInterfaceClassMappedPropertyFromRegValue.c)
- *     _CmGetInstallerClassCompoundFilters @ 0x140918A78 (_CmGetInstallerClassCompoundFilters.c)
- *     _PnpGetGenericStorePropertyKeys @ 0x140919888 (_PnpGetGenericStorePropertyKeys.c)
- *     DrvDbGetDriverPackageMappedProperty @ 0x14091C280 (DrvDbGetDriverPackageMappedProperty.c)
- *     DrvDbOpenObjectRegKey @ 0x14091D580 (DrvDbOpenObjectRegKey.c)
- *     PiDevCfgClearDeviceMigrationNode @ 0x14098BEFC (PiDevCfgClearDeviceMigrationNode.c)
- *     PiDqOpenUserObjectRegKey @ 0x1409920EC (PiDqOpenUserObjectRegKey.c)
- *     _CmGetDeviceCompoundFilters @ 0x140992AA8 (_CmGetDeviceCompoundFilters.c)
- *     _PnpOpenPropertiesKey @ 0x140995B20 (_PnpOpenPropertiesKey.c)
- *     _CmOpenDeviceRegKeyWorker @ 0x140996CF0 (_CmOpenDeviceRegKeyWorker.c)
- *     _PnpCtxRegOpenKey @ 0x140997890 (_PnpCtxRegOpenKey.c)
- *     _SysCtxRegOpenKey @ 0x1409978F0 (_SysCtxRegOpenKey.c)
- *     _PnpGetObjectPropertyWorker @ 0x14099C0F0 (_PnpGetObjectPropertyWorker.c)
- *     _PnpGetGenericStoreProperty @ 0x14099DD20 (_PnpGetGenericStoreProperty.c)
- *     _PnpGetObjectProperty @ 0x14099E300 (_PnpGetObjectProperty.c)
- *     _CmOpenDeviceInterfaceRegKeyWorker @ 0x14099FC70 (_CmOpenDeviceInterfaceRegKeyWorker.c)
- *     _CmOpenCommonClassRegKeyWorker @ 0x1409A0580 (_CmOpenCommonClassRegKeyWorker.c)
- *     PiDqDeleteUserObjectFromLoadedHives @ 0x140A2D2D4 (PiDqDeleteUserObjectFromLoadedHives.c)
- *     DrvDbDeleteObjectSubKey @ 0x140A2D44C (DrvDbDeleteObjectSubKey.c)
- *     _RegRtlDeletePathInternal @ 0x140A2D934 (_RegRtlDeletePathInternal.c)
- *     _RegRtlDeleteTreeInternal @ 0x140A2DB2C (_RegRtlDeleteTreeInternal.c)
- *     _RegRtlDeleteKeyTransacted @ 0x140A2DD6C (_RegRtlDeleteKeyTransacted.c)
- *     PiDevCfgQueryDeviceMigrationNode @ 0x140A70B50 (PiDevCfgQueryDeviceMigrationNode.c)
- *     PiDrvDbLoadNode @ 0x140A78308 (PiDrvDbLoadNode.c)
- *     DrvDbGetObjectSubKeyCallback @ 0x140A80FB0 (DrvDbGetObjectSubKeyCallback.c)
- *     _RegRtlOpenPredefinedKey @ 0x140AE8C08 (_RegRtlOpenPredefinedKey.c)
- *     _CmRemoveDeviceFromContainerWorker @ 0x140B1D980 (_CmRemoveDeviceFromContainerWorker.c)
- *     PiCreateDriverSwDeviceCallback @ 0x140B48EE0 (PiCreateDriverSwDeviceCallback.c)
- *     _RegRtlOpenKey @ 0x140B69FF0 (_RegRtlOpenKey.c)
+ *     _SysCtxOpenControlSet @ 0x1408A2E30 (_SysCtxOpenControlSet.c)
+ *     _SysCtxOpenMachine @ 0x1408A3070 (_SysCtxOpenMachine.c)
+ *     _RegRtlCopyTreeInternal @ 0x1408A3800 (_RegRtlCopyTreeInternal.c)
+ *     PiDqOpenUserObjectRegKey @ 0x140952B4C (PiDqOpenUserObjectRegKey.c)
+ *     _CmGetDeviceCompoundFilters @ 0x140953508 (_CmGetDeviceCompoundFilters.c)
+ *     _PnpOpenPropertiesKey @ 0x140956580 (_PnpOpenPropertiesKey.c)
+ *     _CmOpenDeviceRegKeyWorker @ 0x140957750 (_CmOpenDeviceRegKeyWorker.c)
+ *     _PnpCtxRegOpenKey @ 0x1409582F0 (_PnpCtxRegOpenKey.c)
+ *     _SysCtxRegOpenKey @ 0x140958350 (_SysCtxRegOpenKey.c)
+ *     _PnpGetObjectPropertyWorker @ 0x14095CB50 (_PnpGetObjectPropertyWorker.c)
+ *     _PnpGetGenericStoreProperty @ 0x14095E780 (_PnpGetGenericStoreProperty.c)
+ *     _PnpGetObjectProperty @ 0x14095ED60 (_PnpGetObjectProperty.c)
+ *     _CmOpenDeviceInterfaceRegKeyWorker @ 0x1409606D0 (_CmOpenDeviceInterfaceRegKeyWorker.c)
+ *     _CmOpenCommonClassRegKeyWorker @ 0x140960FE0 (_CmOpenCommonClassRegKeyWorker.c)
+ *     _CmGetDeviceInterfaceMappedPropertyFromRegValue @ 0x140971D58 (_CmGetDeviceInterfaceMappedPropertyFromRegValue.c)
+ *     _CmGetInterfaceClassMappedPropertyFromRegValue @ 0x140972500 (_CmGetInterfaceClassMappedPropertyFromRegValue.c)
+ *     _CmGetInstallerClassCompoundFilters @ 0x1409734D8 (_CmGetInstallerClassCompoundFilters.c)
+ *     _PnpGetGenericStorePropertyKeys @ 0x1409742E8 (_PnpGetGenericStorePropertyKeys.c)
+ *     DrvDbGetDriverPackageMappedProperty @ 0x140976CE0 (DrvDbGetDriverPackageMappedProperty.c)
+ *     DrvDbOpenObjectRegKey @ 0x140977FE0 (DrvDbOpenObjectRegKey.c)
+ *     PiCreateDriverSwDevices @ 0x1409ABE44 (PiCreateDriverSwDevices.c)
+ *     _CmIsDeviceInContainer @ 0x1409AC314 (_CmIsDeviceInContainer.c)
+ *     DrvDbDeleteObjectSubKey @ 0x140A3EE58 (DrvDbDeleteObjectSubKey.c)
+ *     _RegRtlDeletePathInternal @ 0x140A3F340 (_RegRtlDeletePathInternal.c)
+ *     _RegRtlDeleteTreeInternal @ 0x140A3F538 (_RegRtlDeleteTreeInternal.c)
+ *     _RegRtlDeleteKeyTransacted @ 0x140A3F778 (_RegRtlDeleteKeyTransacted.c)
+ *     PiDqDeleteUserObjectFromLoadedHives @ 0x140A3F7D8 (PiDqDeleteUserObjectFromLoadedHives.c)
+ *     PiDevCfgClearDeviceMigrationNode @ 0x140A4661C (PiDevCfgClearDeviceMigrationNode.c)
+ *     PiDevCfgQueryDeviceMigrationNode @ 0x140A47478 (PiDevCfgQueryDeviceMigrationNode.c)
+ *     PiDrvDbLoadNode @ 0x140A80DA8 (PiDrvDbLoadNode.c)
+ *     DrvDbGetObjectSubKeyCallback @ 0x140A86E20 (DrvDbGetObjectSubKeyCallback.c)
+ *     _RegRtlOpenPredefinedKey @ 0x140AE6AB8 (_RegRtlOpenPredefinedKey.c)
+ *     _CmRemoveDeviceFromContainerWorker @ 0x140B1FA04 (_CmRemoveDeviceFromContainerWorker.c)
+ *     PiCreateDriverSwDeviceCallback @ 0x140B4AC70 (PiCreateDriverSwDeviceCallback.c)
+ *     _RegRtlOpenKey @ 0x140B6D1FC (_RegRtlOpenKey.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x14045D040 (RtlInitUnicodeStringEx.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwOpenKeyEx @ 0x140725970 (ZwOpenKeyEx.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     NtOpenKeyTransactedEx_Stub @ 0x140776D80 (NtOpenKeyTransactedEx_Stub.c)
- *     _RegRtlOpenPredefinedKey @ 0x140AE8C08 (_RegRtlOpenPredefinedKey.c)
+ *     RtlInitUnicodeStringEx @ 0x140456BE0 (RtlInitUnicodeStringEx.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwOpenKeyEx @ 0x14072A540 (ZwOpenKeyEx.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     NtOpenKeyTransactedEx_Stub @ 0x140779C28 (NtOpenKeyTransactedEx_Stub.c)
+ *     _RegRtlOpenPredefinedKey @ 0x140AE6AB8 (_RegRtlOpenPredefinedKey.c)
  */
 
 __int64 __fastcall RegRtlOpenKeyTransacted(
@@ -57,7 +57,7 @@ __int64 __fastcall RegRtlOpenKeyTransacted(
   int inited; // ebx
   ULONG v11; // eax
   PHANDLE v13; // rsi
-  __int64 WriteOperationCount; // rax
+  NTSTATUS (__stdcall *v14)(PHANDLE, ACCESS_MASK, POBJECT_ATTRIBUTES, HANDLE); // rax
   UNICODE_STRING DestinationString; // [rsp+30h] [rbp-58h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+40h] [rbp-48h] BYREF
   HANDLE Handle; // [rsp+90h] [rbp+8h] BYREF
@@ -87,21 +87,18 @@ __int64 __fastcall RegRtlOpenKeyTransacted(
         inited = NtOpenKeyTransactedEx_Stub((__int64)KeyHandle, a4);
         if ( inited == -1073741702 )
         {
-          if ( LOBYTE(WheapPfaLock.ReadOperationCount) )
+          if ( LOBYTE(WheapPfaLock.UserWaitTime) )
           {
-            WriteOperationCount = WheapPfaLock.WriteOperationCount;
+            v14 = (NTSTATUS (__stdcall *)(PHANDLE, ACCESS_MASK, POBJECT_ATTRIBUTES, HANDLE))WheapPfaLock.TracingPrivate[0];
           }
           else
           {
-            WriteOperationCount = (__int64)ZwOpenKeyTransacted;
-            LOBYTE(WheapPfaLock.ReadOperationCount) = 1;
-            WheapPfaLock.WriteOperationCount = (__int64)ZwOpenKeyTransacted;
+            v14 = ZwOpenKeyTransacted;
+            LOBYTE(WheapPfaLock.UserWaitTime) = 1;
+            WheapPfaLock.TracingPrivate[0] = (unsigned __int64)ZwOpenKeyTransacted;
           }
-          if ( !WriteOperationCount
-            || (inited = guard_dispatch_icall_no_overrides((__int64)v13, a4), inited == -1073741702) )
-          {
+          if ( !v14 || (inited = guard_dispatch_icall_no_overrides((__int64)v13, a4), inited == -1073741702) )
             inited = -1072103420;
-          }
         }
       }
       else

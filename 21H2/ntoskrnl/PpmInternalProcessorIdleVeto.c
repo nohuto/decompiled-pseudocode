@@ -1,9 +1,9 @@
 /*
- * XREFs of PpmInternalProcessorIdleVeto @ 0x14056732C
+ * XREFs of PpmInternalProcessorIdleVeto @ 0x14056756C
  * Callers:
- *     PopPowerInformationInternal @ 0x140678DF4 (PopPowerInformationInternal.c)
+ *     PopPowerInformationInternal @ 0x14066C534 (PopPowerInformationInternal.c)
  * Callees:
- *     KeGetPrcb @ 0x140228E30 (KeGetPrcb.c)
+ *     KeGetPrcb @ 0x1402CD730 (KeGetPrcb.c)
  */
 
 __int64 __fastcall PpmInternalProcessorIdleVeto(unsigned int a1, unsigned int a2, char a3)

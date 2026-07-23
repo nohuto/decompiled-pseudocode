@@ -1,37 +1,37 @@
 /*
- * XREFs of MmAllocateSpecialPool @ 0x1401EBAE0
+ * XREFs of MmAllocateSpecialPool @ 0x1401EB90C
  * Callers:
- *     ExAllocatePoolWithTagPriority @ 0x14007E210 (ExAllocatePoolWithTagPriority.c)
+ *     ExAllocatePoolWithTagPriority @ 0x14007E290 (ExAllocatePoolWithTagPriority.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140012750 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14001BD40 (KeAcquireInStackQueuedSpinLock.c)
- *     RemoveListHeadPte @ 0x14001BEFC (RemoveListHeadPte.c)
- *     MiGetAnyMultiplexedVm @ 0x14001D05C (MiGetAnyMultiplexedVm.c)
- *     MiChargeCommit @ 0x14002B650 (MiChargeCommit.c)
- *     MiMakeValidKernelPte @ 0x140034D10 (MiMakeValidKernelPte.c)
- *     MI_SHOULD_PTE_BE_GLOBAL @ 0x140036D30 (MI_SHOULD_PTE_BE_GLOBAL.c)
- *     MiGetPage @ 0x14003DA50 (MiGetPage.c)
- *     MiReturnCommit @ 0x14004E500 (MiReturnCommit.c)
- *     MiReturnResidentAvailable @ 0x14004F1E0 (MiReturnResidentAvailable.c)
- *     MiReleaseFreshPage @ 0x1400AC5F4 (MiReleaseFreshPage.c)
- *     MiInitializeColorBaseSession @ 0x1400B3A88 (MiInitializeColorBaseSession.c)
- *     MiNumberWsSwapPagefiles @ 0x1400BE89C (MiNumberWsSwapPagefiles.c)
- *     MiChargeWsles @ 0x1400E1B20 (MiChargeWsles.c)
- *     MiInitializePageColorBase @ 0x1400E60A0 (MiInitializePageColorBase.c)
- *     MiInitializePfn @ 0x1400E7280 (MiInitializePfn.c)
- *     MiChargeResident @ 0x140103450 (MiChargeResident.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     MiExpandSpecialPool @ 0x1401EB618 (MiExpandSpecialPool.c)
- *     MiMakeSpecialPoolPaged @ 0x1401EB7D0 (MiMakeSpecialPoolPaged.c)
- *     MmFreeSpecialPool @ 0x1401EC0A4 (MmFreeSpecialPool.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
- *     MiGetContainingPageTable @ 0x1401F25F0 (MiGetContainingPageTable.c)
- *     MiGetPteLink @ 0x1401F2680 (MiGetPteLink.c)
- *     MiGetPteTimeStamp @ 0x1401F269C (MiGetPteTimeStamp.c)
- *     MiUpdatePageFileHighInPte @ 0x1401F2958 (MiUpdatePageFileHighInPte.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x1400122D0 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14001B8C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     RemoveListHeadPte @ 0x14001BA7C (RemoveListHeadPte.c)
+ *     MiGetAnyMultiplexedVm @ 0x14001CBDC (MiGetAnyMultiplexedVm.c)
+ *     MiChargeCommit @ 0x14002B1D0 (MiChargeCommit.c)
+ *     MiMakeValidKernelPte @ 0x140034890 (MiMakeValidKernelPte.c)
+ *     MI_SHOULD_PTE_BE_GLOBAL @ 0x1400368B0 (MI_SHOULD_PTE_BE_GLOBAL.c)
+ *     MiGetPage @ 0x14003D5D0 (MiGetPage.c)
+ *     MiReturnCommit @ 0x14004E080 (MiReturnCommit.c)
+ *     MiReturnResidentAvailable @ 0x14004ED60 (MiReturnResidentAvailable.c)
+ *     MiReleaseFreshPage @ 0x1400AAB5C (MiReleaseFreshPage.c)
+ *     MiInitializeColorBaseSession @ 0x1400B1908 (MiInitializeColorBaseSession.c)
+ *     MiNumberWsSwapPagefiles @ 0x1400BC72C (MiNumberWsSwapPagefiles.c)
+ *     MiChargeWsles @ 0x1400DF9C0 (MiChargeWsles.c)
+ *     MiInitializePageColorBase @ 0x1400E3F40 (MiInitializePageColorBase.c)
+ *     MiInitializePfn @ 0x1400E5120 (MiInitializePfn.c)
+ *     MiChargeResident @ 0x1401011D0 (MiChargeResident.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     MiExpandSpecialPool @ 0x1401EB444 (MiExpandSpecialPool.c)
+ *     MiMakeSpecialPoolPaged @ 0x1401EB5FC (MiMakeSpecialPoolPaged.c)
+ *     MmFreeSpecialPool @ 0x1401EBED0 (MmFreeSpecialPool.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
+ *     MiGetContainingPageTable @ 0x1401F241C (MiGetContainingPageTable.c)
+ *     MiGetPteLink @ 0x1401F24AC (MiGetPteLink.c)
+ *     MiGetPteTimeStamp @ 0x1401F24C8 (MiGetPteTimeStamp.c)
+ *     MiUpdatePageFileHighInPte @ 0x1401F2840 (MiUpdatePageFileHighInPte.c)
  */
 
 ULONG_PTR __fastcall MmAllocateSpecialPool(ULONG_PTR BugCheckParameter3, int a2, int a3, int a4)
@@ -90,13 +90,13 @@ ULONG_PTR __fastcall MmAllocateSpecialPool(ULONG_PTR BugCheckParameter3, int a2,
     v13 = qword_1403A9360 | 0xFFFFFFFFF021LL;
     if ( (unsigned int)MI_SHOULD_PTE_BE_GLOBAL(0LL) )
       v13 |= 0x100uLL;
-    v9 = (KSPIN_LOCK *)qword_140327EA8;
+    v9 = (KSPIN_LOCK *)qword_140327EE8;
     v12 = v13 & 0xFFFFFFFFFFFFFE3DuLL | 0x42;
     MiInitializeColorBaseSession((__int64)&v38);
   }
   else
   {
-    v9 = &qword_1403277C0;
+    v9 = &qword_140327800;
     MiInitializePageColorBase(0LL, 0, (__int64)&v38);
     if ( !v6 )
     {
@@ -110,35 +110,35 @@ ULONG_PTR __fastcall MmAllocateSpecialPool(ULONG_PTR BugCheckParameter3, int a2,
     return 0LL;
   if ( !(unsigned int)MiChargeCommit((__int64)MiSystemPartition, 1uLL, 1) )
   {
-    ++dword_140326504;
+    ++dword_140326544;
     return 0LL;
   }
-  v14 = qword_140324E80;
-  if ( qword_1403278F8 > (unsigned __int64)qword_140324E80 >> 1 )
+  v14 = qword_140324EC0;
+  if ( qword_140327938 > (unsigned __int64)qword_140324EC0 >> 1 )
   {
     if ( !Count || (v15 = MiNumberWsSwapPagefiles((__int64)MiSystemPartition), v16 == v15) )
     {
-      ++dword_1403264FC;
+      ++dword_14032653C;
 LABEL_24:
       MiReturnCommit((__int64)MiSystemPartition, 1uLL);
       return 0LL;
     }
   }
-  if ( !v6 && qword_140326518 > qword_140324DD0 >> 3 )
+  if ( !v6 && qword_140326558 > qword_140324E10 >> 3 )
   {
-    ++dword_1403264F4;
+    ++dword_140326534;
     goto LABEL_24;
   }
   AnyMultiplexedVm = 0LL;
   v18 = (unsigned __int64)(v9 + 1);
   if ( v6 )
   {
-    if ( v9 == &qword_1403277C0 )
+    if ( v9 == &qword_140327800 )
     {
       AnyMultiplexedVm = MiGetAnyMultiplexedVm(2);
       if ( !(unsigned int)MiChargeWsles((ULONG_PTR)AnyMultiplexedVm, 1LL, 0) )
       {
-        ++dword_140326510;
+        ++dword_140326550;
         goto LABEL_24;
       }
     }
@@ -147,7 +147,7 @@ LABEL_24:
   {
     if ( !(unsigned int)MiChargeResident(MiSystemPartition, 1uLL, 128LL) )
     {
-      ++dword_140326500;
+      ++dword_140326540;
       goto LABEL_24;
     }
     v18 = (unsigned __int64)(v9 + 4);
@@ -157,12 +157,12 @@ LABEL_24:
   if ( v14 < 0x120
     || (Page = MiGetPage((__int64)MiSystemPartition, v40 | (unsigned int)(unsigned __int16)(v39 & v19), 0), Page == -1) )
   {
-    ++dword_1403264F0;
+    ++dword_140326530;
 LABEL_64:
     MiReturnCommit((__int64)MiSystemPartition, 1uLL);
     if ( v6 )
     {
-      if ( v9 == &qword_1403277C0 )
+      if ( v9 == &qword_140327800 )
         MiChargeWsles((ULONG_PTR)AnyMultiplexedVm, -1LL, 0);
     }
     else
@@ -187,20 +187,20 @@ LABEL_64:
   if ( !v21 )
   {
     MiReleaseFreshPage(48 * Page - 0x58000000000LL);
-    ++dword_1403264F8;
+    ++dword_140326538;
     goto LABEL_64;
   }
 LABEL_36:
-  v29 = _InterlockedIncrement64(&qword_1403278F8);
+  v29 = _InterlockedIncrement64(&qword_140327938);
   if ( v29 == 1 )
-    _InterlockedAdd(&dword_140327788, 1u);
+    _InterlockedAdd(&dword_1403277C8, 1u);
   v30 = (v12 ^ (Page << 12)) & 0xFFFFFFFFF000LL ^ v12;
   MiInitializePfn(48 * Page - 0x58000000000LL, v21, v43, 4);
   *(_QWORD *)v21 = v30;
   if ( (unsigned int)MiPteInShadowRange(v21, v31) )
     MiWritePteShadow(v32, v30);
-  if ( v29 > qword_1403264E8 )
-    qword_1403264E8 = v29;
+  if ( v29 > qword_140326528 )
+    qword_140326528 = v29;
   v33 = MEMORY[0xFFFFF78000000320];
   v34 = v21 << 25 >> 16;
   memset((void *)v34, MEMORY[0xFFFFF78000000320] | 1, 0x1000uLL);
@@ -219,7 +219,7 @@ LABEL_36:
   *(_QWORD *)v36 = 0LL;
   *(_QWORD *)(v36 + 8) = 0LL;
   *(_DWORD *)v36 = BugCheckParameter3;
-  if ( v9 != &qword_1403277C0 )
+  if ( v9 != &qword_140327800 )
   {
     *(_DWORD *)v36 = BugCheckParameter3 | 0x2000;
     _InterlockedAdd64((volatile signed __int64 *)v9 + 7, 1uLL);
@@ -231,14 +231,14 @@ LABEL_36:
     *(_DWORD *)v36 |= 0x8000u;
     if ( !(unsigned int)MiMakeSpecialPoolPaged((__int64)v9, (unsigned __int64 *)v21) )
     {
-      ++dword_140326508;
+      ++dword_140326548;
       MmFreeSpecialPool(v34);
       return 0LL;
     }
   }
   else
   {
-    _InterlockedAdd64(&qword_140326518, 1uLL);
+    _InterlockedAdd64(&qword_140326558, 1uLL);
   }
   if ( v35 )
     *(_DWORD *)v36 |= 0x4000u;

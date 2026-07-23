@@ -1,13 +1,13 @@
 /*
- * XREFs of MiRemoveMdlPages @ 0x140A2E53C
+ * XREFs of MiRemoveMdlPages @ 0x140A2E7EC
  * Callers:
- *     MiAllocatePagesForMdl @ 0x1402F8CDC (MiAllocatePagesForMdl.c)
+ *     MiAllocatePagesForMdl @ 0x1402F8F6C (MiAllocatePagesForMdl.c)
  * Callees:
- *     MiSetPfnOwnedAndActive @ 0x1402E2D3C (MiSetPfnOwnedAndActive.c)
- *     MiFreeContiguousPages @ 0x1403C39DC (MiFreeContiguousPages.c)
- *     MiRemovePhysicalMemoryBatchComplete @ 0x14061BF84 (MiRemovePhysicalMemoryBatchComplete.c)
- *     MiSortMdlFrames @ 0x140623878 (MiSortMdlFrames.c)
- *     MiRemovePhysicalMemory @ 0x140A2CC4C (MiRemovePhysicalMemory.c)
+ *     MiSetPfnOwnedAndActive @ 0x1402E2FCC (MiSetPfnOwnedAndActive.c)
+ *     MiFreeContiguousPages @ 0x1403C3BBC (MiFreeContiguousPages.c)
+ *     MiRemovePhysicalMemoryBatchComplete @ 0x14061C4D4 (MiRemovePhysicalMemoryBatchComplete.c)
+ *     MiSortMdlFrames @ 0x140623DC8 (MiSortMdlFrames.c)
+ *     MiRemovePhysicalMemory @ 0x140A2CEFC (MiRemovePhysicalMemory.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

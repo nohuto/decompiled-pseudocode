@@ -1,30 +1,32 @@
 /*
- * XREFs of PopUmpoSendPowerRequestCreate @ 0x140ADE014
+ * XREFs of PopUmpoSendPowerRequestCreate @ 0x140ADAD84
  * Callers:
- *     PopPowerRequestCreateCommon @ 0x140436FDC (PopPowerRequestCreateCommon.c)
- *     PopPowerRequestNotificationsBegin @ 0x1407C9544 (PopPowerRequestNotificationsBegin.c)
+ *     PopPowerRequestCreateCommon @ 0x140425F6C (PopPowerRequestCreateCommon.c)
+ *     PopPowerRequestNotificationsBegin @ 0x1407CC5E4 (PopPowerRequestNotificationsBegin.c)
  * Callees:
- *     PoStoreDiagnosticContext @ 0x1404372B0 (PoStoreDiagnosticContext.c)
- *     PopUmpoSendPowerMessage @ 0x140437684 (PopUmpoSendPowerMessage.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     PoStoreDiagnosticContext @ 0x140426240 (PoStoreDiagnosticContext.c)
+ *     PopUmpoSendPowerMessage @ 0x140426614 (PopUmpoSendPowerMessage.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PopUmpoSendPowerRequestCreate(int a1)
 {
-  unsigned __int64 i; // rcx
+  _KTHREAD_WPS_FEEDBACK *i; // rcx
   unsigned __int64 v3; // rsi
   __int64 Pool2; // rax
   _DWORD *v5; // rbx
-  unsigned __int64 j; // rcx
+  _KTHREAD_WPS_FEEDBACK *j; // rcx
   unsigned __int64 v7; // [rsp+38h] [rbp+10h] BYREF
 
   v7 = 0LL;
-  for ( i = stru_140F12D20.QuantumTarget; (unsigned __int64 *)i != &stru_140F12D20.QuantumTarget; i = *(_QWORD *)i )
+  for ( i = stru_140F12EA0.WpsFeedback;
+        i != (_KTHREAD_WPS_FEEDBACK *)&stru_140F12EA0.WpsFeedback;
+        i = (_KTHREAD_WPS_FEEDBACK *)i->FeedbackStartTime )
   {
-    if ( *(_DWORD *)(i + 36) == a1 )
+    if ( HIDWORD(i[1].FeedbackStartTime) == a1 )
     {
-      if ( (unsigned int)PoStoreDiagnosticContext(*(_QWORD *)(i + 96), 0LL, &v7) == -1073741789 )
+      if ( (unsigned int)PoStoreDiagnosticContext(i[3].FeedbackStartTime, 0LL, &v7) == -1073741789 )
       {
         v3 = v7;
         Pool2 = ExAllocatePool2(0x100uLL);
@@ -33,12 +35,14 @@ void __fastcall PopUmpoSendPowerRequestCreate(int a1)
         {
           *(_DWORD *)Pool2 = 15;
           *(_DWORD *)(Pool2 + 8) = a1;
-          for ( j = stru_140F12D20.QuantumTarget; (unsigned __int64 *)j != &stru_140F12D20.QuantumTarget; j = *(_QWORD *)j )
+          for ( j = stru_140F12EA0.WpsFeedback;
+                j != (_KTHREAD_WPS_FEEDBACK *)&stru_140F12EA0.WpsFeedback;
+                j = (_KTHREAD_WPS_FEEDBACK *)j->FeedbackStartTime )
           {
-            if ( *(_DWORD *)(j + 36) == a1 )
+            if ( HIDWORD(j[1].FeedbackStartTime) == a1 )
             {
-              if ( (int)PoStoreDiagnosticContext(*(_QWORD *)(j + 96), (unsigned __int64 *)(Pool2 + 16), &v7) >= 0 )
-                PopUmpoSendPowerMessage(v5, v3 + 16, 0, 0LL);
+              if ( (int)PoStoreDiagnosticContext(j[3].FeedbackStartTime, (unsigned __int64 *)(Pool2 + 16), &v7) >= 0 )
+                PopUmpoSendPowerMessage(v5, v3 + 16, 0);
               break;
             }
           }

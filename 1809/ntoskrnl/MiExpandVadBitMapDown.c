@@ -1,10 +1,10 @@
 /*
- * XREFs of MiExpandVadBitMapDown @ 0x140858A14
+ * XREFs of MiExpandVadBitMapDown @ 0x140859C74
  * Callers:
- *     MiExpandVadBitMap @ 0x140679CCC (MiExpandVadBitMap.c)
+ *     MiExpandVadBitMap @ 0x14067AE8C (MiExpandVadBitMap.c)
  * Callees:
- *     MiMakeHyperRangeAccessible @ 0x14006E3D0 (MiMakeHyperRangeAccessible.c)
- *     MiUpdateVadBits @ 0x140679E10 (MiUpdateVadBits.c)
+ *     MiMakeHyperRangeAccessible @ 0x14006E3C0 (MiMakeHyperRangeAccessible.c)
+ *     MiUpdateVadBits @ 0x14067AFD0 (MiUpdateVadBits.c)
  */
 
 __int64 __fastcall MiExpandVadBitMapDown(_DWORD *a1, unsigned int a2, __int64 a3, __int64 a4)
@@ -17,7 +17,7 @@ __int64 __fastcall MiExpandVadBitMapDown(_DWORD *a1, unsigned int a2, __int64 a3
   int v10; // ebx
   __int64 v12; // [rsp+40h] [rbp+8h] BYREF
 
-  v5 = 8 * (a1[2] - qword_14043A528);
+  v5 = 8 * (a1[2] - qword_14043B5E8);
   v6 = *(_QWORD *)&KeGetCurrentThread()->ApcState.Process[1].IdealGlobalNode;
   if ( a2 > v5 )
     return 0LL;
@@ -30,7 +30,7 @@ __int64 __fastcall MiExpandVadBitMapDown(_DWORD *a1, unsigned int a2, __int64 a3
   *a1 += v8 << 15;
   v10 = v5 - (v8 << 15);
   *((_QWORD *)a1 + 1) = v9;
-  if ( v9 == (_DWORD *)qword_14043A528 )
+  if ( v9 == (_DWORD *)qword_14043B5E8 )
   {
     *v9 |= 1u;
     v10 = 1;
@@ -39,7 +39,7 @@ __int64 __fastcall MiExpandVadBitMapDown(_DWORD *a1, unsigned int a2, __int64 a3
   a1[4] = v10;
   a1[6] = v10;
   MiUpdateVadBits(
-    (*((_QWORD *)a1 + 1) - qword_14043A528) << 19,
-    ((*((_QWORD *)a1 + 1) - qword_14043A528) << 19) + ((unsigned __int64)v8 << 31));
+    (*((_QWORD *)a1 + 1) - qword_14043B5E8) << 19,
+    ((*((_QWORD *)a1 + 1) - qword_14043B5E8) << 19) + ((unsigned __int64)v8 << 31));
   return 1LL;
 }

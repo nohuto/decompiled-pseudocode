@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpUnlockHashEntryByIndex @ 0x140875BBC
+ * XREFs of CmpUnlockHashEntryByIndex @ 0x140875D1C
  * Callers:
- *     CmpSearchKeyControlBlockTreeEx @ 0x14086F1D4 (CmpSearchKeyControlBlockTreeEx.c)
+ *     CmpSearchKeyControlBlockTreeEx @ 0x14086F334 (CmpSearchKeyControlBlockTreeEx.c)
  * Callees:
- *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
- *     CmpDeleteHive @ 0x14071C6F4 (CmpDeleteHive.c)
+ *     ExReleasePushLockEx @ 0x140355BE0 (ExReleasePushLockEx.c)
+ *     CmpDeleteHive @ 0x1405E0094 (CmpDeleteHive.c)
  */
 
 void __fastcall CmpUnlockHashEntryByIndex(volatile signed __int32 *P, unsigned int a2)

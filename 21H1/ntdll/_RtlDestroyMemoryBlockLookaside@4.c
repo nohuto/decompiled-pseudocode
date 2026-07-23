@@ -8,17 +8,17 @@
  *     _RtlDestroyMemoryZone@4 @ 0x4B34D720 (_RtlDestroyMemoryZone@4.c)
  */
 
-int __stdcall RtlDestroyMemoryBlockLookaside(int a1)
+NTSTATUS __cdecl RtlDestroyMemoryBlockLookaside(PVOID MemoryBlockLookaside)
 {
-  int v1; // edi
-  int v2; // ebx
+  void *v1; // edi
+  void *v2; // ebx
   int v3; // esi
-  int result; // eax
+  NTSTATUS result; // eax
 
-  v1 = *(_DWORD *)(a1 + 8);
-  v2 = *(_DWORD *)(a1 + 4);
-  RtlAcquireSRWLockExclusive((volatile signed __int32 *)a1);
-  if ( *(_DWORD *)(a1 + 24) )
+  v1 = (void *)*((_DWORD *)MemoryBlockLookaside + 2);
+  v2 = (void *)*((_DWORD *)MemoryBlockLookaside + 1);
+  RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)MemoryBlockLookaside);
+  if ( *((_DWORD *)MemoryBlockLookaside + 6) )
     RtlpUnregisterLockedMemoryBlockLookaside();
   v3 = RtlDestroyMemoryZone(v1);
   result = RtlDestroyMemoryZone(v2);

@@ -1,18 +1,17 @@
 /*
- * XREFs of PpmHeteroHgsRegisterContainmentGroups @ 0x1405D7408
+ * XREFs of PpmHeteroHgsRegisterContainmentGroups @ 0x1405D49AC
  * Callers:
- *     PpmHeteroHgsEvalAndRegisterContainmentGroups @ 0x1405D7220 (PpmHeteroHgsEvalAndRegisterContainmentGroups.c)
- *     PpmParkRegisterParking @ 0x1405D9FB4 (PpmParkRegisterParking.c)
- *     PpmParkInitParkNode @ 0x1405E3894 (PpmParkInitParkNode.c)
+ *     PpmHeteroHgsEvalAndRegisterContainmentGroups @ 0x1405D47C4 (PpmHeteroHgsEvalAndRegisterContainmentGroups.c)
+ *     PpmParkRegisterParking @ 0x1405D72D0 (PpmParkRegisterParking.c)
+ *     PpmParkInitParkNode @ 0x1405E0E1C (PpmParkInitParkNode.c)
  * Callees:
- *     KeAddProcessorAffinityEx @ 0x140257130 (KeAddProcessorAffinityEx.c)
- *     KeGetPrcb @ 0x140352980 (KeGetPrcb.c)
- *     KeEnumerateNextProcessor @ 0x14040D4F0 (KeEnumerateNextProcessor.c)
- *     Feature_Servicing_WpsContainmentFixNoneZone__private_IsEnabledDeviceUsageNoInline @ 0x140457B34 (Feature_Servicing_WpsContainmentFixNoneZone__private_IsEnabledDeviceUsageNoInline.c)
- *     Feature_PpmParkEx__private_IsEnabledDeviceUsageNoInline @ 0x1405B4FB0 (Feature_PpmParkEx__private_IsEnabledDeviceUsageNoInline.c)
- *     PpmEventHgsContainmentGroupInfo @ 0x1405D916C (PpmEventHgsContainmentGroupInfo.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     KeAddProcessorAffinityEx @ 0x140287740 (KeAddProcessorAffinityEx.c)
+ *     KeGetPrcb @ 0x1402B0A10 (KeGetPrcb.c)
+ *     KeEnumerateNextProcessor @ 0x140405740 (KeEnumerateNextProcessor.c)
+ *     Feature_PpmParkEx__private_IsEnabledDeviceUsageNoInline @ 0x1405B2224 (Feature_PpmParkEx__private_IsEnabledDeviceUsageNoInline.c)
+ *     PpmEventHgsContainmentGroupInfo @ 0x1405D660C (PpmEventHgsContainmentGroupInfo.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall PpmHeteroHgsRegisterContainmentGroups(__int64 a1, __int64 a2, __int64 *a3)
@@ -44,7 +43,7 @@ __int64 __fastcall PpmHeteroHgsRegisterContainmentGroups(__int64 a1, __int64 a2,
   v21 = 0;
   v22 = 0;
   v26 = 0;
-  result = ExAllocatePool2(0x40uLL);
+  result = ExAllocatePool2(0x40uLL, 0x340uLL, 0x704D5050u);
   v6 = result;
   if ( !result )
     return result;
@@ -140,17 +139,17 @@ LABEL_28:
   }
   while ( v8 < 3 );
   *(_DWORD *)(v6 + 4) = 2;
-  if ( (unsigned int)Feature_Servicing_WpsContainmentFixNoneZone__private_IsEnabledDeviceUsageNoInline() && a2 )
+  if ( a2 )
   {
-    v17 = *(_QWORD *)(a2 + 1272);
+    v17 = *(_QWORD *)(a2 + 1280);
     if ( v17 )
     {
       *(_DWORD *)(v6 + 812) = *(_DWORD *)(v17 + 812);
-      *(_BYTE *)(v6 + 808) = *(_BYTE *)(*(_QWORD *)(a2 + 1272) + 808LL);
-      *(_BYTE *)(v6 + 827) = *(_BYTE *)(*(_QWORD *)(a2 + 1272) + 827LL);
+      *(_BYTE *)(v6 + 808) = *(_BYTE *)(*(_QWORD *)(a2 + 1280) + 808LL);
+      *(_BYTE *)(v6 + 827) = *(_BYTE *)(*(_QWORD *)(a2 + 1280) + 827LL);
     }
   }
   PpmHeteroHgsContainmentState |= 4u;
-  *(_QWORD *)(v4 + 1272) = v6;
+  *(_QWORD *)(v4 + 1280) = v6;
   return PpmEventHgsContainmentGroupInfo(v4, 0LL);
 }

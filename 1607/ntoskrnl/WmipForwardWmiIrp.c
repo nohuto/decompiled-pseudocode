@@ -1,21 +1,21 @@
 /*
- * XREFs of WmipForwardWmiIrp @ 0x14050514C
+ * XREFs of WmipForwardWmiIrp @ 0x1404E80DC
  * Callers:
- *     WmipSendWmiIrpToTraceDeviceList @ 0x1404C0C34 (WmipSendWmiIrpToTraceDeviceList.c)
- *     WmipQueryAllData @ 0x140504C98 (WmipQueryAllData.c)
- *     WmipQuerySetExecuteSI @ 0x14052A4BC (WmipQuerySetExecuteSI.c)
- *     WmipSendWmiIrp @ 0x1405496D8 (WmipSendWmiIrp.c)
- *     WmipSetTraceNotify @ 0x14057A164 (WmipSetTraceNotify.c)
+ *     WmipSendWmiIrpToTraceDeviceList @ 0x1404AC964 (WmipSendWmiIrpToTraceDeviceList.c)
+ *     WmipQueryAllData @ 0x1404E7C28 (WmipQueryAllData.c)
+ *     WmipQuerySetExecuteSI @ 0x14052B10C (WmipQuerySetExecuteSI.c)
+ *     WmipSendWmiIrp @ 0x140549C18 (WmipSendWmiIrp.c)
+ *     WmipSetTraceNotify @ 0x14057A6A4 (WmipSetTraceNotify.c)
  * Callees:
- *     KeInitializeEvent @ 0x14002DEA0 (KeInitializeEvent.c)
- *     IofCallDriver @ 0x14002E060 (IofCallDriver.c)
- *     KeWaitForSingleObject @ 0x14005C880 (KeWaitForSingleObject.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     WmipFindRegEntryByProviderId @ 0x1400C4838 (WmipFindRegEntryByProviderId.c)
- *     WmipUnreferenceRegEntry @ 0x1400C48D0 (WmipUnreferenceRegEntry.c)
- *     IoGetAttachedDeviceReference @ 0x1400C48F0 (IoGetAttachedDeviceReference.c)
- *     WmipTranslatePDOInstanceNames @ 0x14053519C (WmipTranslatePDOInstanceNames.c)
- *     WmipUpdateDeviceStackSize @ 0x14053A760 (WmipUpdateDeviceStackSize.c)
+ *     KeInitializeEvent @ 0x14002DA20 (KeInitializeEvent.c)
+ *     IofCallDriver @ 0x14002DBE0 (IofCallDriver.c)
+ *     KeWaitForSingleObject @ 0x14005C400 (KeWaitForSingleObject.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     WmipFindRegEntryByProviderId @ 0x1400C26D8 (WmipFindRegEntryByProviderId.c)
+ *     WmipUnreferenceRegEntry @ 0x1400C2770 (WmipUnreferenceRegEntry.c)
+ *     IoGetAttachedDeviceReference @ 0x1400C2790 (IoGetAttachedDeviceReference.c)
+ *     WmipTranslatePDOInstanceNames @ 0x1405356DC (WmipTranslatePDOInstanceNames.c)
+ *     WmipUpdateDeviceStackSize @ 0x14053ACA0 (WmipUpdateDeviceStackSize.c)
  */
 
 __int64 __fastcall WmipForwardWmiIrp(

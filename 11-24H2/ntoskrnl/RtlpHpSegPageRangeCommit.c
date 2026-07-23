@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlpHpSegPageRangeCommit @ 0x1402C1C30
+ * XREFs of RtlpHpSegPageRangeCommit @ 0x14035F6F0
  * Callers:
- *     RtlpHpSegPageRangeCoalesce @ 0x1402B8A00 (RtlpHpSegPageRangeCoalesce.c)
- *     RtlpHpSegLfhVsCommit @ 0x1402B92D0 (RtlpHpSegLfhVsCommit.c)
- *     RtlpHpSegLfhVsDecommit @ 0x1402C1450 (RtlpHpSegLfhVsDecommit.c)
- *     RtlpHpSegAlloc @ 0x1402C162C (RtlpHpSegAlloc.c)
- *     RtlpHpMetadataCommit @ 0x140605270 (RtlpHpMetadataCommit.c)
+ *     RtlpHpSegAlloc @ 0x14035DCCC (RtlpHpSegAlloc.c)
+ *     RtlpHpSegPageRangeCoalesce @ 0x140360140 (RtlpHpSegPageRangeCoalesce.c)
+ *     RtlpHpSegLfhVsCommit @ 0x140360A10 (RtlpHpSegLfhVsCommit.c)
+ *     RtlpHpSegLfhVsDecommit @ 0x140368600 (RtlpHpSegLfhVsDecommit.c)
+ *     RtlpHpMetadataCommit @ 0x1406028B0 (RtlpHpMetadataCommit.c)
  * Callees:
- *     RtlpHpSegMgrCommit @ 0x1402C21D4 (RtlpHpSegMgrCommit.c)
- *     RtlpLogHeapDecommit @ 0x1404F8C84 (RtlpLogHeapDecommit.c)
- *     RtlpLogHeapCommit @ 0x1404F8D04 (RtlpLogHeapCommit.c)
+ *     RtlpHpSegMgrCommit @ 0x14035E694 (RtlpHpSegMgrCommit.c)
+ *     RtlpLogHeapDecommit @ 0x1404F6564 (RtlpLogHeapDecommit.c)
+ *     RtlpLogHeapCommit @ 0x1404F65E4 (RtlpLogHeapCommit.c)
  */
 
 __int64 __fastcall RtlpHpSegPageRangeCommit(
@@ -249,7 +249,7 @@ LABEL_27:
       if ( (a5 & 2) != 0 )
         v36 = 1073745920;
     }
-    result = RtlpHpSegMgrCommit(a1, v27, v36, (a5 >> 22) & 2);
+    result = RtlpHpSegMgrCommit(a1, a2 & *(_QWORD *)a1, v34 + v12, v35, v27, v36, (a5 >> 22) & 2);
     if ( (int)result < 0 )
       return result;
     if ( v27 > 0 )

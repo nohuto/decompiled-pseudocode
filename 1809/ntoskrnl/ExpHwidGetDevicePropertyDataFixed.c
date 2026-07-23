@@ -1,17 +1,17 @@
 /*
- * XREFs of ExpHwidGetDevicePropertyDataFixed @ 0x140586700
+ * XREFs of ExpHwidGetDevicePropertyDataFixed @ 0x140587700
  * Callers:
- *     ExpHwidProcessInterface @ 0x140585E18 (ExpHwidProcessInterface.c)
- *     ExpHwidAuthenticateHardwareId @ 0x140586410 (ExpHwidAuthenticateHardwareId.c)
- *     ExpHwidGetDeviceProperties @ 0x1405865BC (ExpHwidGetDeviceProperties.c)
+ *     ExpHwidProcessInterface @ 0x140586E18 (ExpHwidProcessInterface.c)
+ *     ExpHwidAuthenticateHardwareId @ 0x140587410 (ExpHwidAuthenticateHardwareId.c)
+ *     ExpHwidGetDeviceProperties @ 0x1405875BC (ExpHwidGetDeviceProperties.c)
  * Callees:
- *     IoGetDevicePropertyData @ 0x140586930 (IoGetDevicePropertyData.c)
- *     PnpGetDeviceInterfacePropertyData @ 0x14082862C (PnpGetDeviceInterfacePropertyData.c)
+ *     IoGetDevicePropertyData @ 0x140587930 (IoGetDevicePropertyData.c)
+ *     PnpGetDeviceInterfacePropertyData @ 0x14082982C (PnpGetDeviceInterfacePropertyData.c)
  */
 
 NTSTATUS __fastcall ExpHwidGetDevicePropertyDataFixed(
         struct _DEVICE_OBJECT *a1,
-        int a2,
+        __int64 a2,
         const DEVPROPKEY *a3,
         int a4,
         ULONG Size,
@@ -26,7 +26,7 @@ NTSTATUS __fastcall ExpHwidGetDevicePropertyDataFixed(
   if ( a1 )
     result = IoGetDevicePropertyData(a1, a3, 0, 0, Size, a6, v9, &v10);
   else
-    result = PnpGetDeviceInterfacePropertyData(a2, (_DWORD)a3, 0, a2, Size, (__int64)a6, (__int64)v9, (__int64)&v10);
+    result = PnpGetDeviceInterfacePropertyData(a2, a3, 0LL);
   if ( result >= 0 )
   {
     if ( v10 == a4 )

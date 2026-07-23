@@ -1,7 +1,7 @@
 /*
- * XREFs of PopDiagGetPowerSchemeInfo @ 0x1403C7DD4
+ * XREFs of PopDiagGetPowerSchemeInfo @ 0x1403C7FB4
  * Callers:
- *     PopCaptureSleepStudyStatistics @ 0x1403C7F00 (PopCaptureSleepStudyStatistics.c)
+ *     PopCaptureSleepStudyStatistics @ 0x1403C80E0 (PopCaptureSleepStudyStatistics.c)
  * Callees:
  *     <none>
  */

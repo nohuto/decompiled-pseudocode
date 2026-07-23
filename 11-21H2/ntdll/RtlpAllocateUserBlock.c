@@ -8,12 +8,12 @@
  *     RtlpLogHeapSubSegmentAllocCached @ 0x18011729C (RtlpLogHeapSubSegmentAllocCached.c)
  */
 
-__int64 __fastcall RtlpAllocateUserBlock(__int64 a1, unsigned __int8 a2, __int64 a3, char a4)
+_BYTE *__fastcall RtlpAllocateUserBlock(__int64 a1, unsigned __int8 a2, __int64 a3, char a4)
 {
   __int64 v4; // r14
   __int64 v8; // rdi
   __int64 v9; // rbx
-  __int64 UserBlockFromHeap; // rbp
+  _BYTE *UserBlockFromHeap; // rbp
   unsigned __int64 v11; // rax
   unsigned __int64 v12; // rdi
   _DWORD *SharedData; // rcx
@@ -26,15 +26,15 @@ __int64 __fastcall RtlpAllocateUserBlock(__int64 a1, unsigned __int8 a2, __int64
   v8 = a2;
   v9 = a1 + 48 * (a2 - 5LL);
   ++*(_WORD *)(v9 + 28);
-  UserBlockFromHeap = (__int64)RtlpInterlockedPopEntrySList((PSLIST_HEADER)v9);
+  UserBlockFromHeap = RtlpInterlockedPopEntrySList((PSLIST_HEADER)v9);
   if ( UserBlockFromHeap )
   {
     ++*(_WORD *)(v9 + 32);
 LABEL_3:
-    v11 = 1LL << *(_BYTE *)(UserBlockFromHeap + 16);
+    v11 = 1LL << UserBlockFromHeap[16];
     if ( v11 > 0xF0000 )
       v11 = 983040LL;
-    v12 = v11 + *(unsigned __int16 *)(UserBlockFromHeap + 18);
+    v12 = v11 + *((unsigned __int16 *)UserBlockFromHeap + 9);
     SharedData = NtCurrentPeb()->SharedData;
     if ( SharedData && *SharedData )
       v14 = (__int64)NtCurrentPeb()->SharedData + 550;
@@ -47,11 +47,11 @@ LABEL_3:
   }
   if ( (unsigned __int8)v4 > 7u )
   {
-    UserBlockFromHeap = (__int64)RtlpInterlockedPopEntrySList((PSLIST_HEADER)(a1 + 48 * (v4 - 6)));
+    UserBlockFromHeap = RtlpInterlockedPopEntrySList((PSLIST_HEADER)(a1 + 48 * (v4 - 6)));
     if ( UserBlockFromHeap )
       goto LABEL_3;
   }
-  UserBlockFromHeap = RtlpAllocateUserBlockFromHeap(*(_QWORD *)(a1 + 24), v4, a3, a4);
+  UserBlockFromHeap = RtlpAllocateUserBlockFromHeap(*(_QWORD **)(a1 + 24), v4, a3, a4);
   if ( UserBlockFromHeap )
     _InterlockedAdd((volatile signed __int32 *)(a1 + 48 * v8 - 224), 1u);
 LABEL_9:

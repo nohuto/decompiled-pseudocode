@@ -1,27 +1,27 @@
 /*
  * XREFs of ExRaiseHardError @ 0x140A02230
  * Callers:
- *     NtRaiseHardError @ 0x1406CDD90 (NtRaiseHardError.c)
- *     CmpMountPreloadedHives @ 0x14083200C (CmpMountPreloadedHives.c)
- *     CmpLoadHiveThread @ 0x14083C870 (CmpLoadHiveThread.c)
- *     CmpQuotaWarningWorker @ 0x140911AE0 (CmpQuotaWarningWorker.c)
- *     CmpDiskFullWarningWorker @ 0x14091D6C0 (CmpDiskFullWarningWorker.c)
- *     IopHardErrorThread @ 0x1409345F0 (IopHardErrorThread.c)
- *     IopRaiseHardError @ 0x140934B80 (IopRaiseHardError.c)
- *     IopRaiseInformationalHardError @ 0x140934E20 (IopRaiseInformationalHardError.c)
- *     ExpExpirationThread @ 0x1409F7CD0 (ExpExpirationThread.c)
+ *     sub_1406CDD90 @ 0x1406CDD90 (sub_1406CDD90.c)
+ *     sub_14083200C @ 0x14083200C (sub_14083200C.c)
+ *     sub_14083C870 @ 0x14083C870 (sub_14083C870.c)
+ *     sub_140911AE0 @ 0x140911AE0 (sub_140911AE0.c)
+ *     sub_14091D6C0 @ 0x14091D6C0 (sub_14091D6C0.c)
+ *     sub_1409345F0 @ 0x1409345F0 (sub_1409345F0.c)
+ *     sub_140934B80 @ 0x140934B80 (sub_140934B80.c)
+ *     sub_140934E20 @ 0x140934E20 (sub_140934E20.c)
+ *     sub_1409F7CD0 @ 0x1409F7CD0 (sub_1409F7CD0.c)
  * Callees:
  *     RtlCopyUnicodeString @ 0x1402A76A0 (RtlCopyUnicodeString.c)
  *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     Feature_3907421502__private_IsEnabled @ 0x14041AC58 (Feature_3907421502__private_IsEnabled.c)
+ *     sub_14041AC58 @ 0x14041AC58 (sub_14041AC58.c)
  *     ZwAllocateVirtualMemory @ 0x14041BA60 (ZwAllocateVirtualMemory.c)
  *     ZwFreeVirtualMemory @ 0x14041BB20 (ZwFreeVirtualMemory.c)
  *     memmove @ 0x140435B40 (memmove.c)
  *     memset @ 0x140435E00 (memset.c)
- *     ExpRaiseHardError @ 0x1406CDFAC (ExpRaiseHardError.c)
+ *     sub_1406CDFAC @ 0x1406CDFAC (sub_1406CDFAC.c)
  */
 
-int __fastcall ExRaiseHardError(unsigned int a1, unsigned int a2, int a3, char *a4, int a5, unsigned int *a6)
+int __fastcall ExRaiseHardError(unsigned int a1, unsigned int a2, unsigned int a3, char *a4, int a5, unsigned int *a6)
 {
   __int64 v8; // rsi
   unsigned int v9; // ebx
@@ -56,7 +56,7 @@ int __fastcall ExRaiseHardError(unsigned int a1, unsigned int a2, int a3, char *
   PVOID BaseAddress; // [rsp+58h] [rbp-170h] BYREF
   unsigned int v39; // [rsp+60h] [rbp-168h]
   unsigned int v40; // [rsp+68h] [rbp-160h]
-  int v41; // [rsp+70h] [rbp-158h]
+  unsigned int v41; // [rsp+70h] [rbp-158h]
   wchar_t *v42; // [rsp+78h] [rbp-150h]
   unsigned int *v43; // [rsp+80h] [rbp-148h]
   PVOID v44[3]; // [rsp+88h] [rbp-140h] BYREF
@@ -82,7 +82,7 @@ int __fastcall ExRaiseHardError(unsigned int a1, unsigned int a2, int a3, char *
   RegionSize = 0LL;
   v44[0] = 0LL;
   BaseAddress = 0LL;
-  result = Feature_3907421502__private_IsEnabled();
+  result = sub_14041AC58();
   if ( result )
   {
     memset(v49, 0, sizeof(v49));
@@ -91,7 +91,7 @@ int __fastcall ExRaiseHardError(unsigned int a1, unsigned int a2, int a3, char *
     v48 = 0LL;
     v25 = 80LL;
     memset(Src, 0, sizeof(Src));
-    if ( ExpTooLateForErrors )
+    if ( byte_140D01198 )
     {
       v24 = 0;
       v11 = 1;
@@ -111,7 +111,7 @@ int __fastcall ExRaiseHardError(unsigned int a1, unsigned int a2, int a3, char *
             v27 = a4;
             do
             {
-              if ( _bittest(&a3, v26) )
+              if ( _bittest((const int *)&a3, v26) )
               {
                 v25 += *(unsigned __int16 *)(*(_QWORD *)v27 + 2LL);
                 RegionSize = v25;
@@ -133,7 +133,7 @@ int __fastcall ExRaiseHardError(unsigned int a1, unsigned int a2, int a3, char *
             v35 = i;
             if ( (unsigned int)i >= (unsigned int)v8 )
               break;
-            if ( _bittest(&a3, i) )
+            if ( _bittest((const int *)&a3, i) )
             {
               v45 = (unsigned int)i;
               *(_OWORD *)&Src[2 * (unsigned int)i] = *(_OWORD *)*(_QWORD *)&a4[8 * i];
@@ -153,7 +153,7 @@ int __fastcall ExRaiseHardError(unsigned int a1, unsigned int a2, int a3, char *
           }
         }
       }
-      v24 = ExpRaiseHardError(v37, v8, a3, v49, (__int64)v47, a5, &v36);
+      v24 = sub_1406CDFAC(v37, v8, a3, v49, (__int64)v47, a5, &v36);
       v11 = v36;
     }
     else
@@ -169,7 +169,7 @@ LABEL_44:
     }
     return v24;
   }
-  if ( ExpTooLateForErrors )
+  if ( byte_140D01198 )
   {
     *a6 = 1;
     return result;
@@ -183,7 +183,7 @@ LABEL_44:
   {
     BaseAddress = a4;
 LABEL_22:
-    v24 = ExpRaiseHardError(v9, v8, a3, BaseAddress, (__int64)BaseAddress, a5, &v36);
+    v24 = sub_1406CDFAC(v9, v8, a3, BaseAddress, (__int64)BaseAddress, a5, &v36);
     if ( BaseAddress && BaseAddress != a4 )
     {
       RegionSize = 0LL;
@@ -201,7 +201,7 @@ LABEL_22:
     v16 = (_OWORD **)a4;
     do
     {
-      if ( _bittest(&a3, v14) )
+      if ( _bittest((const int *)&a3, v14) )
       {
         *(_OWORD *)(v15 - 1) = **v16;
         v13 += *v15;
@@ -225,7 +225,7 @@ LABEL_22:
       v35 = j;
       if ( (unsigned int)j >= (unsigned int)v8 )
         break;
-      if ( _bittest(&a3, j) )
+      if ( _bittest((const int *)&a3, j) )
       {
         *(_QWORD *)&v17[8 * j] = &v18[16 * (unsigned int)j];
         v21 = (unsigned int)j;

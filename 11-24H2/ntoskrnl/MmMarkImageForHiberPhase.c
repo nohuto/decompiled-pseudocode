@@ -1,15 +1,15 @@
 /*
- * XREFs of MmMarkImageForHiberPhase @ 0x140B6312C
+ * XREFs of MmMarkImageForHiberPhase @ 0x140B651FC
  * Callers:
- *     PoSetHiberRange @ 0x1402649E0 (PoSetHiberRange.c)
- *     MiMarkHiberProtectedImages @ 0x140672BF0 (MiMarkHiberProtectedImages.c)
+ *     PoSetHiberRange @ 0x14046AD10 (PoSetHiberRange.c)
+ *     MiMarkHiberProtectedImages @ 0x140673DC0 (MiMarkHiberProtectedImages.c)
  * Callees:
- *     MmLockLoadedModuleListShared @ 0x14027C0CC (MmLockLoadedModuleListShared.c)
- *     MmUnlockLoadedModuleListShared @ 0x14027C120 (MmUnlockLoadedModuleListShared.c)
- *     MmFindDataTableEntryByAddress @ 0x1402C724C (MmFindDataTableEntryByAddress.c)
- *     MmGetLoadedModuleImageAdditionalTablesAddress @ 0x1403EA010 (MmGetLoadedModuleImageAdditionalTablesAddress.c)
- *     MiMarkNonPagedHiberPhasePages @ 0x140B6282C (MiMarkNonPagedHiberPhasePages.c)
- *     MiMarkHotPatchesForHiberPhase @ 0x140B63450 (MiMarkHotPatchesForHiberPhase.c)
+ *     MmLockLoadedModuleListShared @ 0x14023165C (MmLockLoadedModuleListShared.c)
+ *     MmUnlockLoadedModuleListShared @ 0x1402316B0 (MmUnlockLoadedModuleListShared.c)
+ *     MmFindDataTableEntryByAddress @ 0x1402BBDCC (MmFindDataTableEntryByAddress.c)
+ *     MmGetLoadedModuleImageAdditionalTablesAddress @ 0x1403D7CB0 (MmGetLoadedModuleImageAdditionalTablesAddress.c)
+ *     MiMarkNonPagedHiberPhasePages @ 0x140B648FC (MiMarkNonPagedHiberPhasePages.c)
+ *     MiMarkHotPatchesForHiberPhase @ 0x140B65520 (MiMarkHotPatchesForHiberPhase.c)
  */
 
 __int64 __fastcall MmMarkImageForHiberPhase(unsigned __int64 a1)

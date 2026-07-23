@@ -11,89 +11,90 @@
  *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
  */
 
-__int64 __fastcall EtwpFindDebugId(__int64 a1, size_t a2, __int64 *a3, _DWORD *a4)
+__int64 __fastcall EtwpFindDebugId(char *BaseOfImage, size_t a2, __int64 *a3, _DWORD *a4)
 {
-  int v5; // edi
-  __int64 v6; // rax
-  int v7; // edx
-  int v8; // r14d
-  __int64 v9; // rax
-  __int64 v10; // rbx
+  PIMAGE_NT_HEADERS v6; // rax
+  int v7; // r14d
+  _QWORD *v8; // rax
+  _QWORD *v9; // rbx
+  unsigned __int64 v10; // rsi
   unsigned __int64 v11; // rsi
-  unsigned __int64 v12; // rsi
   unsigned int i; // r15d
-  size_t v14; // rcx
-  size_t v15; // rdi
-  void *v16; // rax
-  void **v17; // rcx
+  size_t v13; // rcx
+  size_t v14; // rdi
+  const void *v15; // rax
+  void **v16; // rcx
   __int64 Pool2; // rax
-  void *Src; // [rsp+30h] [rbp-78h] BYREF
-  unsigned int v21; // [rsp+38h] [rbp-70h]
-  __int64 v22; // [rsp+40h] [rbp-68h]
-  __int64 v23; // [rsp+48h] [rbp-60h]
-  __int128 v24; // [rsp+50h] [rbp-58h]
-  size_t Size; // [rsp+60h] [rbp-48h]
-  int v26; // [rsp+68h] [rbp-40h]
+  ULONG Size[2]; // [rsp+30h] [rbp-78h] BYREF
+  unsigned int v20; // [rsp+38h] [rbp-70h]
+  PIMAGE_NT_HEADERS v21; // [rsp+40h] [rbp-68h]
+  PVOID v22; // [rsp+48h] [rbp-60h]
+  __int128 v23; // [rsp+50h] [rbp-58h]
+  size_t v24; // [rsp+60h] [rbp-48h]
+  int v25; // [rsp+68h] [rbp-40h]
 
-  v5 = a1;
-  v6 = RtlImageNtHeader(a1);
-  v8 = v6;
-  v22 = v6;
+  v6 = RtlImageNtHeader(BaseOfImage);
+  v7 = (int)v6;
+  v21 = v6;
   if ( !v6 )
     return 3221225595LL;
-  LODWORD(Src) = 0;
-  LOBYTE(v7) = 1;
-  v9 = RtlImageDirectoryEntryToData(v5, v7, 6, (int)&Src);
-  v10 = v9;
-  v23 = v9;
-  if ( !v9 || (unsigned int)Src < 0x1C )
+  Size[0] = 0;
+  v8 = RtlImageDirectoryEntryToData(BaseOfImage, 1u, 6u, Size);
+  v9 = v8;
+  v22 = v8;
+  if ( !v8 || Size[0] < 0x1C )
     return 3221225485LL;
-  v11 = (unsigned int)Src;
-  if ( !(unsigned __int8)EtwpIsValidImageAddress(v8, v5, a2, v9, (unsigned int)Src) )
+  v10 = Size[0];
+  if ( !(unsigned __int8)EtwpIsValidImageAddress(v7, (_DWORD)BaseOfImage, a2, (_DWORD)v8, Size[0]) )
     return 3221225595LL;
-  v12 = v11 / 0x1C;
+  v11 = v10 / 0x1C;
   for ( i = 0; ; ++i )
   {
-    v21 = i;
-    if ( i >= (unsigned int)v12 )
+    v20 = i;
+    if ( i >= (unsigned int)v11 )
       return 3221226021LL;
-    v24 = *(_OWORD *)v10;
-    Size = *(_QWORD *)(v10 + 16);
-    v26 = *(_DWORD *)(v10 + 24);
-    v14 = HIDWORD(Size);
-    if ( HIDWORD(Size) > a2 )
+    v23 = *(_OWORD *)v9;
+    v24 = v9[2];
+    v25 = *((_DWORD *)v9 + 6);
+    v13 = HIDWORD(v24);
+    if ( HIDWORD(v24) > a2 )
       return 3221225485LL;
-    v15 = (unsigned int)Size;
-    if ( (unsigned int)Size > a2 || v14 > a2 - (unsigned int)Size )
+    v14 = (unsigned int)v24;
+    if ( (unsigned int)v24 > a2 || v13 > a2 - (unsigned int)v24 )
       return 3221225485LL;
-    if ( HIDWORD(v24) == 2 )
+    if ( HIDWORD(v23) == 2 )
     {
-      Src = (void *)(a1 + v14);
-      if ( !(unsigned __int8)EtwpIsValidImageAddress(v22, a1, a2, (int)a1 + HIDWORD(Size), (unsigned int)Size) )
+      *(_QWORD *)Size = &BaseOfImage[v13];
+      if ( !(unsigned __int8)EtwpIsValidImageAddress(
+                               (_DWORD)v21,
+                               (_DWORD)BaseOfImage,
+                               a2,
+                               (int)BaseOfImage + HIDWORD(v24),
+                               (unsigned int)v24) )
         return 3221225595LL;
-      v16 = Src;
-      if ( *(_DWORD *)Src == 1396986706 )
+      v15 = *(const void **)Size;
+      if ( **(_DWORD **)Size == 1396986706 )
         break;
     }
-    v10 += 28LL;
-    v23 = v10;
+    v9 = (_QWORD *)((char *)v9 + 28);
+    v22 = v9;
   }
-  if ( (unsigned int)v15 < 0x1C )
+  if ( (unsigned int)v14 < 0x1C )
     return 3221225595LL;
-  if ( *a4 >= (unsigned int)v15 )
+  if ( *a4 >= (unsigned int)v14 )
   {
-    v17 = (void **)a3;
+    v16 = (void **)a3;
 LABEL_16:
-    *a4 = v15;
-    memmove(*v17, v16, v15);
+    *a4 = v14;
+    memmove(*v16, v15, v14);
     return 0LL;
   }
-  Pool2 = ExAllocatePool2(256LL, v15, 1651995717LL);
-  v17 = (void **)a3;
+  Pool2 = ExAllocatePool2(256LL, v14, 1651995717LL);
+  v16 = (void **)a3;
   *a3 = Pool2;
   if ( Pool2 )
   {
-    v16 = Src;
+    v15 = *(const void **)Size;
     goto LABEL_16;
   }
   return 3221225495LL;

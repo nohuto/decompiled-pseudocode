@@ -1,19 +1,19 @@
 /*
- * XREFs of CcDeleteMbcb @ 0x140125988
+ * XREFs of CcDeleteMbcb @ 0x140125A58
  * Callers:
- *     CcDeleteSharedCacheMap @ 0x14007C270 (CcDeleteSharedCacheMap.c)
- *     CcSetFileSizesEx @ 0x14007CFC0 (CcSetFileSizesEx.c)
+ *     CcDeleteSharedCacheMap @ 0x14007C260 (CcDeleteSharedCacheMap.c)
+ *     CcSetFileSizesEx @ 0x14007CFB0 (CcSetFileSizesEx.c)
  * Callees:
  *     KeReleaseGuardedMutex @ 0x140014E30 (KeReleaseGuardedMutex.c)
  *     CcDeallocateBcb @ 0x140020F14 (CcDeallocateBcb.c)
  *     CcDeductDirtyPages @ 0x14002124C (CcDeductDirtyPages.c)
  *     ExAcquireFastMutex @ 0x14004E530 (ExAcquireFastMutex.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     ExFreeToNPagedLookasideList @ 0x1400922D8 (ExFreeToNPagedLookasideList.c)
- *     CcGetPartition @ 0x1400AD030 (CcGetPartition.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14007DE80 (KeAcquireInStackQueuedSpinLock.c)
+ *     ExFreeToNPagedLookasideList @ 0x140092218 (ExFreeToNPagedLookasideList.c)
+ *     CcGetPartition @ 0x1400ACF70 (CcGetPartition.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 void __fastcall CcDeleteMbcb(__int64 a1, __int64 a2, __int64 a3)

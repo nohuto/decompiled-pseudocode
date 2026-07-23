@@ -31,7 +31,7 @@ __int64 __fastcall MiPrepareToHotPatchImage(__int64 a1, __int64 a2, _BYTE *a3)
   int v9; // ebx
   unsigned int *v10; // r13
   _QWORD *v11; // rax
-  RTL_BITMAP *v12; // rcx
+  _RTL_BITMAP *v12; // rcx
   int v13; // edx
   _DWORD *v14; // rbx
   _DWORD *v15; // r12
@@ -39,7 +39,7 @@ __int64 __fastcall MiPrepareToHotPatchImage(__int64 a1, __int64 a2, _BYTE *a3)
   unsigned int v17; // r12d
   unsigned int *v18; // rcx
   _QWORD *v19; // rax
-  RTL_BITMAP *v20; // rcx
+  _RTL_BITMAP *v20; // rcx
   int v21; // r9d
   ULONG v22; // edx
   PRTL_BITMAP *v23; // r12
@@ -107,7 +107,7 @@ __int64 __fastcall MiPrepareToHotPatchImage(__int64 a1, __int64 a2, _BYTE *a3)
       *(_DWORD *)v11 = *v10;
       v11[1] = v11 + 2;
     }
-    v12 = *(RTL_BITMAP **)(a1 + 40);
+    v12 = *(_RTL_BITMAP **)(a1 + 40);
     if ( v12 )
     {
       RtlClearAllBits(v12);
@@ -142,7 +142,7 @@ __int64 __fastcall MiPrepareToHotPatchImage(__int64 a1, __int64 a2, _BYTE *a3)
       *(_DWORD *)v19 = v17;
       v19[1] = v19 + 2;
     }
-    v20 = *(RTL_BITMAP **)(a1 + 40);
+    v20 = *(_RTL_BITMAP **)(a1 + 40);
     if ( !v20 )
       return (unsigned int)-1073741670;
     RtlClearAllBits(v20);

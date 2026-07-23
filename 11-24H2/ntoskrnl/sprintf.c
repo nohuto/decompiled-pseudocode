@@ -1,11 +1,11 @@
 /*
- * XREFs of sprintf @ 0x1404FF560
+ * XREFs of sprintf @ 0x1404FCE20
  * Callers:
  *     <none>
  * Callees:
- *     xHalTimerWatchdogStop @ 0x140493990 (xHalTimerWatchdogStop.c)
- *     _flsbuf @ 0x140500C5C (_flsbuf.c)
- *     _output_l @ 0x140501698 (_output_l.c)
+ *     xHalTimerWatchdogStop @ 0x14048E2E0 (xHalTimerWatchdogStop.c)
+ *     _flsbuf @ 0x1404FE51C (_flsbuf.c)
+ *     _output_l @ 0x1404FEF58 (_output_l.c)
  */
 
 int sprintf(char *Dest, const char *Format, ...)

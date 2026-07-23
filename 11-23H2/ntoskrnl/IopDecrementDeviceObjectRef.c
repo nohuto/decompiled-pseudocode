@@ -1,24 +1,24 @@
 /*
- * XREFs of IopDecrementDeviceObjectRef @ 0x1402AFDB0
+ * XREFs of IopDecrementDeviceObjectRef @ 0x1402B0040
  * Callers:
- *     IopCheckVpbMounted @ 0x1402AF440 (IopCheckVpbMounted.c)
- *     IopDecrementDeviceObjectHandleCount @ 0x1403D71AC (IopDecrementDeviceObjectHandleCount.c)
- *     IopMountVolume @ 0x1407014E8 (IopMountVolume.c)
- *     IopParseDevice @ 0x14072CD50 (IopParseDevice.c)
- *     IopDeleteFile @ 0x140730490 (IopDeleteFile.c)
- *     IoCreateStreamFileObjectEx2 @ 0x140767CE0 (IoCreateStreamFileObjectEx2.c)
- *     IopLoadFileSystemDriver @ 0x140875830 (IopLoadFileSystemDriver.c)
- *     IopShutdownBaseFileSystems @ 0x140A99EE4 (IopShutdownBaseFileSystems.c)
+ *     IopCheckVpbMounted @ 0x1402AF6D0 (IopCheckVpbMounted.c)
+ *     IopDecrementDeviceObjectHandleCount @ 0x1403D738C (IopDecrementDeviceObjectHandleCount.c)
+ *     IopMountVolume @ 0x1407016F8 (IopMountVolume.c)
+ *     IopParseDevice @ 0x14072CF50 (IopParseDevice.c)
+ *     IopDeleteFile @ 0x140730680 (IopDeleteFile.c)
+ *     IoCreateStreamFileObjectEx2 @ 0x140767ED0 (IoCreateStreamFileObjectEx2.c)
+ *     IopLoadFileSystemDriver @ 0x140875A70 (IopLoadFileSystemDriver.c)
+ *     IopShutdownBaseFileSystems @ 0x140A99D54 (IopShutdownBaseFileSystems.c)
  * Callees:
- *     KxWaitForLockOwnerShip @ 0x140260F20 (KxWaitForLockOwnerShip.c)
- *     IopCompleteUnloadOrDelete @ 0x140305300 (IopCompleteUnloadOrDelete.c)
- *     KxWaitForLockChainValid @ 0x14031A6D0 (KxWaitForLockChainValid.c)
- *     IoAddTriageDumpDataBlock @ 0x1403882BC (IoAddTriageDumpDataBlock.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x14046018E (KiAcquireQueuedSpinLockInstrumented.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     KiReleaseQueuedSpinLockInstrumented @ 0x140571548 (KiReleaseQueuedSpinLockInstrumented.c)
- *     KiHaltOnAddressWakeEntireList @ 0x14057FF6C (KiHaltOnAddressWakeEntireList.c)
+ *     KxWaitForLockOwnerShip @ 0x1402611B0 (KxWaitForLockOwnerShip.c)
+ *     IopCompleteUnloadOrDelete @ 0x140305590 (IopCompleteUnloadOrDelete.c)
+ *     KxWaitForLockChainValid @ 0x14031A960 (KxWaitForLockChainValid.c)
+ *     IoAddTriageDumpDataBlock @ 0x14038849C (IoAddTriageDumpDataBlock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x14046058E (KiAcquireQueuedSpinLockInstrumented.c)
+ *     KiReleaseQueuedSpinLockInstrumented @ 0x140571A88 (KiReleaseQueuedSpinLockInstrumented.c)
+ *     KiHaltOnAddressWakeEntireList @ 0x14058045C (KiHaltOnAddressWakeEntireList.c)
  */
 
 __int64 __fastcall IopDecrementDeviceObjectRef(ULONG_PTR BugCheckParameter2, char a2)
@@ -45,7 +45,7 @@ __int64 __fastcall IopDecrementDeviceObjectRef(ULONG_PTR BugCheckParameter2, cha
   v4 = 0;
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 2 )
@@ -103,10 +103,10 @@ __int64 __fastcall IopDecrementDeviceObjectRef(ULONG_PTR BugCheckParameter2, cha
   }
   KiReleaseQueuedSpinLockInstrumented(v9, retaddr);
 LABEL_10:
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v16 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v16 <= 0xFu && CurrentIrql <= 0xFu && v16 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v16 <= 0xFu && CurrentIrql <= 0xFu && v16 >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v18 = CurrentPrcb->SchedulerAssist;

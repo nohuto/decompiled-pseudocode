@@ -1,34 +1,35 @@
 /*
- * XREFs of CmpHiveCacheEntryCleanup @ 0x140861D7C
+ * XREFs of CmpHiveCacheEntryCleanup @ 0x14086815C
  * Callers:
- *     CmpLoadHiveThread @ 0x14084B550 (CmpLoadHiveThread.c)
- *     CmpMachineHiveCacheClaimEntry @ 0x1408578F0 (CmpMachineHiveCacheClaimEntry.c)
- *     CmpMachineHiveCachePopulateEntry @ 0x14085797C (CmpMachineHiveCachePopulateEntry.c)
- *     CmpHiveCachePnpNotificationCallback @ 0x140861FE0 (CmpHiveCachePnpNotificationCallback.c)
- *     CmpHiveCachePopulateHiveEntryThread @ 0x140862230 (CmpHiveCachePopulateHiveEntryThread.c)
+ *     CmpLoadHiveThread @ 0x140851860 (CmpLoadHiveThread.c)
+ *     CmpMachineHiveCacheClaimEntry @ 0x14085DC80 (CmpMachineHiveCacheClaimEntry.c)
+ *     CmpMachineHiveCachePopulateEntry @ 0x14085DD0C (CmpMachineHiveCachePopulateEntry.c)
+ *     CmpHiveCachePnpNotificationCallback @ 0x1408683C0 (CmpHiveCachePnpNotificationCallback.c)
+ *     CmpHiveCachePopulateHiveEntryThread @ 0x140868610 (CmpHiveCachePopulateHiveEntryThread.c)
  * Callees:
- *     CmSiFreeMemory @ 0x140495010 (CmSiFreeMemory.c)
- *     PnpUnregisterPlugPlayNotification @ 0x1404ABEF8 (PnpUnregisterPlugPlayNotification.c)
- *     CmSiEventTupleCleanup @ 0x1404B535C (CmSiEventTupleCleanup.c)
- *     CmSiWaitForSingleEvent @ 0x1404D0228 (CmSiWaitForSingleEvent.c)
- *     CmSiSetEvent @ 0x1406E3094 (CmSiSetEvent.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwSetInformationObject @ 0x140723F70 (ZwSetInformationObject.c)
- *     CmpDestroyHive @ 0x1408B6DC4 (CmpDestroyHive.c)
- *     NtClose @ 0x1408F9F30 (NtClose.c)
+ *     CmSiFreeMemory @ 0x14048EB60 (CmSiFreeMemory.c)
+ *     PnpUnregisterPlugPlayNotification @ 0x1404A5588 (PnpUnregisterPlugPlayNotification.c)
+ *     CmSiEventTupleCleanup @ 0x1404AE7AC (CmSiEventTupleCleanup.c)
+ *     CmSiWaitForSingleEvent @ 0x1404C9C58 (CmSiWaitForSingleEvent.c)
+ *     CmSiSetEvent @ 0x1406E7D40 (CmSiSetEvent.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwSetInformationObject @ 0x140728B40 (ZwSetInformationObject.c)
+ *     CmpDestroyHive @ 0x1408BD394 (CmpDestroyHive.c)
+ *     NtClose @ 0x140929EC0 (NtClose.c)
  */
 
 void __fastcall CmpHiveCacheEntryCleanup(__int64 a1, int a2)
 {
   __int64 v2; // rsi
   void *v4; // rcx
-  __int64 v5; // rcx
-  __int64 v6; // rcx
-  __int64 v7; // rcx
+  void *v5; // rcx
+  void *v6; // rcx
+  void *v7; // rcx
   struct _LIST_ENTRY *v8; // rcx
   _OWORD *v9; // rdi
   struct _PRIVILEGE_SET *v10; // rcx
   void *v11; // rcx
+  __int16 ObjectInformation; // [rsp+38h] [rbp+10h] BYREF
 
   v2 = 6LL;
   if ( a2 == 6 )
@@ -63,24 +64,27 @@ void __fastcall CmpHiveCacheEntryCleanup(__int64 a1, int a2)
       CmpDestroyHive(v4);
       *(_QWORD *)(a1 + 368) = 0LL;
     }
-    v5 = *(_QWORD *)(a1 + 176);
+    v5 = *(void **)(a1 + 176);
     if ( v5 )
     {
-      ZwSetInformationObject(v5, 4LL);
+      ObjectInformation = 0;
+      ZwSetInformationObject(v5, ObjectHandleFlagInformation, &ObjectInformation, 2u);
       ZwClose(*(HANDLE *)(a1 + 176));
       *(_QWORD *)(a1 + 176) = 0LL;
     }
-    v6 = *(_QWORD *)(a1 + 184);
+    v6 = *(void **)(a1 + 184);
     if ( v6 )
     {
-      ZwSetInformationObject(v6, 4LL);
+      ObjectInformation = 0;
+      ZwSetInformationObject(v6, ObjectHandleFlagInformation, &ObjectInformation, 2u);
       ZwClose(*(HANDLE *)(a1 + 184));
       *(_QWORD *)(a1 + 184) = 0LL;
     }
-    v7 = *(_QWORD *)(a1 + 192);
+    v7 = *(void **)(a1 + 192);
     if ( v7 )
     {
-      ZwSetInformationObject(v7, 4LL);
+      ObjectInformation = 0;
+      ZwSetInformationObject(v7, ObjectHandleFlagInformation, &ObjectInformation, 2u);
       ZwClose(*(HANDLE *)(a1 + 192));
       *(_QWORD *)(a1 + 192) = 0LL;
     }

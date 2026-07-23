@@ -1,23 +1,23 @@
 /*
- * XREFs of EtwReplyNotification @ 0x18010ED10
+ * XREFs of EtwReplyNotification @ 0x180109CF0
  * Callers:
- *     EtwDeliverDataBlock @ 0x18001E150 (EtwDeliverDataBlock.c)
+ *     EtwDeliverDataBlock @ 0x18004AB50 (EtwDeliverDataBlock.c)
  * Callees:
- *     RtlNtStatusToDosError @ 0x18001C620 (RtlNtStatusToDosError.c)
- *     NtTraceControl @ 0x180165740 (NtTraceControl.c)
+ *     RtlNtStatusToDosError @ 0x180049020 (RtlNtStatusToDosError.c)
+ *     NtTraceControl @ 0x180163B00 (NtTraceControl.c)
  */
 
-__int64 __fastcall EtwReplyNotification(__int64 a1)
+ULONG __cdecl EtwReplyNotification(PETW_NOTIFICATION_HEADER Notification)
 {
-  __int64 v1; // r8
-  unsigned int v2; // ebx
+  ULONG NotificationSize; // r8d
+  ULONG v2; // ebx
   NTSTATUS v3; // eax
-  int v5; // [rsp+40h] [rbp+8h] BYREF
+  ULONG ReturnLength; // [rsp+40h] [rbp+8h] BYREF
 
-  v1 = *(unsigned int *)(a1 + 4);
+  NotificationSize = Notification->NotificationSize;
   v2 = 0;
-  v5 = 0;
-  v3 = NtTraceControl(18LL, a1, v1, 0LL, 0, &v5);
+  ReturnLength = 0;
+  v3 = NtTraceControl(EtwSendReplyDataBlock, Notification, NotificationSize, 0LL, 0, &ReturnLength);
   if ( v3 )
     return RtlNtStatusToDosError(v3);
   return v2;

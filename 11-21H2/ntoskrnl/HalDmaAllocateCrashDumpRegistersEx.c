@@ -3,13 +3,13 @@
  * Callers:
  *     <none>
  * Callees:
- *     HalpMmAllocCtxFree @ 0x1403B1B5C (HalpMmAllocCtxFree.c)
- *     HalpMmAllocCtxAlloc @ 0x1403B1F04 (HalpMmAllocCtxAlloc.c)
- *     HalpIsHvPresent @ 0x1403B37F0 (HalpIsHvPresent.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
- *     HalpDmaAllocateMapRegisters @ 0x140456F16 (HalpDmaAllocateMapRegisters.c)
- *     HalpDmaFreeMapRegisters @ 0x14045746C (HalpDmaFreeMapRegisters.c)
- *     HalpDmaAllocateMapRegistersAtHighLevel @ 0x140512C04 (HalpDmaAllocateMapRegistersAtHighLevel.c)
+ *     sub_1403B1B5C @ 0x1403B1B5C (sub_1403B1B5C.c)
+ *     sub_1403B1F04 @ 0x1403B1F04 (sub_1403B1F04.c)
+ *     sub_1403B37F0 @ 0x1403B37F0 (sub_1403B37F0.c)
+ *     sub_14042A5E0 @ 0x14042A5E0 (sub_14042A5E0.c)
+ *     sub_140456F16 @ 0x140456F16 (sub_140456F16.c)
+ *     sub_14045746C @ 0x14045746C (sub_14045746C.c)
+ *     sub_140512C04 @ 0x140512C04 (sub_140512C04.c)
  */
 
 __int64 __fastcall HalDmaAllocateCrashDumpRegistersEx(
@@ -27,30 +27,25 @@ __int64 __fastcall HalDmaAllocateCrashDumpRegistersEx(
   _QWORD *v12; // rax
   _QWORD *v13; // rbx
   unsigned int v14; // ebp
-  __int64 MapRegisters; // rax
+  __int64 v15; // rax
   __int64 v16; // rbp
   int v17; // r13d
   __int64 v18; // rcx
-  __int64 v19; // rax
-  __int64 v20; // r12
-  _QWORD *v21; // r9
-  __int64 v22; // rax
-  __int64 v23; // rcx
-  unsigned int v24; // eax
-  __int64 v25; // rax
-  __int64 v26; // rcx
-  __int64 v27; // r8
-  unsigned int v28; // eax
-  __int64 v29; // rdx
-  __int64 v30; // r8
-  unsigned int v31; // eax
-  __int128 v32; // [rsp+40h] [rbp-48h] BYREF
-  __int64 v33; // [rsp+50h] [rbp-38h]
-  unsigned int v34; // [rsp+90h] [rbp+8h] BYREF
+  __int64 v19; // r12
+  _QWORD *v20; // r9
+  __int64 v21; // rax
+  __int64 v22; // rcx
+  unsigned int v23; // eax
+  __int64 v24; // rax
+  __int64 v25; // rcx
+  __int64 v26; // r8
+  unsigned int v27; // eax
+  __int64 v28; // rdx
+  __int64 v29; // r8
+  unsigned int v30; // eax
+  unsigned int v31; // [rsp+90h] [rbp+8h] BYREF
 
   v5 = a2;
-  LODWORD(v33) = 0;
-  v32 = 0LL;
   if ( !a1 )
     return 3221225485LL;
   if ( !a2 )
@@ -83,48 +78,33 @@ __int64 __fastcall HalDmaAllocateCrashDumpRegistersEx(
     return 3221225485LL;
   if ( !KeGetCurrentIrql() )
   {
-    MapRegisters = HalpDmaAllocateMapRegisters(a1, a2);
-    v16 = MapRegisters;
-    if ( MapRegisters )
+    v15 = sub_140456F16(a1, a2);
+    v16 = v15;
+    if ( v15 )
     {
-      *(_QWORD *)(a1 + 8 * v9 + 248) = MapRegisters;
+      *(_QWORD *)(a1 + 8 * v9 + 248) = v15;
       *(_DWORD *)(a1 + 4 * v9 + 264) = v5;
       if ( *(_DWORD *)(a1 + 512) == 3 )
       {
-        v17 = ((__int64 (__fastcall *)(_QWORD, __int64, _QWORD, _QWORD, _QWORD, __int64))qword_140C4BDF0)(
-                *(_QWORD *)(*(_QWORD *)(a1 + 504) + 40LL),
-                v5 << 12,
-                0LL,
-                0LL,
-                0LL,
-                MapRegisters + 24);
+        v17 = sub_14042A5E0(*(_QWORD *)(*(_QWORD *)(a1 + 504) + 40LL), v5 << 12);
         if ( v17 < 0 )
           goto LABEL_34;
-        if ( HalpIsHvPresent() )
+        if ( sub_1403B37F0() )
         {
-          LODWORD(v32) = 2;
-          v33 = v5;
-          v19 = HalpMmAllocCtxAlloc(v18, 8 * v5);
-          v20 = v19;
+          v19 = sub_1403B1F04(v18, 8 * v5);
           if ( v19 )
           {
-            *((_QWORD *)&v32 + 1) = v19;
-            v21 = (_QWORD *)v16;
-            v22 = 0LL;
+            v20 = (_QWORD *)v16;
+            v21 = 0LL;
             do
             {
-              *(_QWORD *)(v20 + 8 * v22) = *v21 >> 12;
-              v22 = (unsigned int)(v22 + 1);
-              v21 = (_QWORD *)v21[1];
+              *(_QWORD *)(v19 + 8 * v21) = *v20 >> 12;
+              v21 = (unsigned int)(v21 + 1);
+              v20 = (_QWORD *)v20[1];
             }
-            while ( v21 );
-            v17 = ((__int64 (__fastcall *)(_QWORD, _QWORD, __int64, __int128 *, __int64))qword_140C4BE00)(
-                    *(_QWORD *)(v16 + 24),
-                    0LL,
-                    3LL,
-                    &v32,
-                    v16 + 24);
-            HalpMmAllocCtxFree(v23, v20);
+            while ( v20 );
+            v17 = sub_14042A5E0(*(_QWORD *)(v16 + 24), 0LL);
+            sub_1403B1B5C(v22, v19);
             if ( v17 >= 0 )
             {
               *(_BYTE *)(v16 + 64) = 1;
@@ -132,7 +112,7 @@ __int64 __fastcall HalDmaAllocateCrashDumpRegistersEx(
             }
           }
 LABEL_34:
-          HalpDmaFreeMapRegisters(a1, v16, (unsigned int)v5);
+          sub_14045746C(a1, v16, (unsigned int)v5);
           return (unsigned int)v17;
         }
       }
@@ -151,54 +131,54 @@ LABEL_40:
     *v8 = *(_DWORD *)(a1 + 4LL * a3 + 264);
     return result;
   }
-  if ( HalpDmaHibernateRegisterPhase == 1 )
+  if ( dword_140C4E248 == 1 )
   {
     result = 3221225659LL;
     goto LABEL_40;
   }
-  v34 = a2 - v14;
-  v25 = HalpDmaAllocateMapRegistersAtHighLevel(a1, &v34);
-  v26 = v25;
-  if ( !v25 )
+  v31 = a2 - v14;
+  v24 = sub_140512C04(a1, &v31);
+  v25 = v24;
+  if ( !v24 )
   {
     *(_QWORD *)a4 = 0LL;
     *v8 = v14;
     return 3221225626LL;
   }
-  v27 = v34;
-  if ( v34 != (_DWORD)v5 - v14 )
+  v26 = v31;
+  if ( v31 != (_DWORD)v5 - v14 )
   {
-    v24 = v34 + v14;
+    v23 = v31 + v14;
     *(_QWORD *)a4 = 0LL;
-    *v8 = v24;
-    HalpDmaFreeMapRegisters(a1, v26, v27);
+    *v8 = v23;
+    sub_14045746C(a1, v25, v26);
     return 3221225626LL;
   }
   if ( *(_QWORD *)(a1 + 8 * v9 + 248) )
   {
     _mm_lfence();
-    v28 = *(_DWORD *)(a1 + 4 * v9 + 264);
-    v29 = *(_QWORD *)(a1 + 8 * v9 + 248);
-    if ( v28 > 1 )
+    v27 = *(_DWORD *)(a1 + 4 * v9 + 264);
+    v28 = *(_QWORD *)(a1 + 8 * v9 + 248);
+    if ( v27 > 1 )
     {
-      v30 = v28 - 1;
+      v29 = v27 - 1;
       do
       {
-        v29 = *(_QWORD *)(v29 + 8);
-        --v30;
+        v28 = *(_QWORD *)(v28 + 8);
+        --v29;
       }
-      while ( v30 );
+      while ( v29 );
     }
-    v31 = v34;
-    *(_QWORD *)(v29 + 8) = v26;
-    *(_DWORD *)(a1 + 4 * v9 + 264) += v31;
+    v30 = v31;
+    *(_QWORD *)(v28 + 8) = v25;
+    *(_DWORD *)(a1 + 4 * v9 + 264) += v30;
     *(_DWORD *)(a1 + 240) = v5;
   }
   else
   {
-    *(_QWORD *)(a1 + 232) = v25;
+    *(_QWORD *)(a1 + 232) = v24;
     *(_DWORD *)(a1 + 240) = v5;
-    *(_QWORD *)(a1 + 8 * v9 + 248) = v25;
+    *(_QWORD *)(a1 + 8 * v9 + 248) = v24;
     *(_DWORD *)(a1 + 4 * v9 + 264) = v5;
   }
   *(_QWORD *)a4 = *(_QWORD *)(a1 + 8 * v9 + 248);
@@ -207,16 +187,16 @@ LABEL_9:
   if ( *(_QWORD *)a4 )
     *(_QWORD *)(*(_QWORD *)a4 + 56LL) = *(_QWORD *)a4;
   ++*(_DWORD *)(a1 + 4 * v9 + 272);
-  for ( i = (__int64 *)HalpDmaHibernateAdapters; i != &HalpDmaHibernateAdapters; i = (__int64 *)*i )
+  for ( i = (__int64 *)qword_140C4E270; i != &qword_140C4E270; i = (__int64 *)*i )
   {
     if ( i - 35 == (__int64 *)a1 )
       return 0LL;
   }
   v12 = (_QWORD *)qword_140C4E278;
   v13 = (_QWORD *)(a1 + 280);
-  if ( *(__int64 **)qword_140C4E278 != &HalpDmaHibernateAdapters )
+  if ( *(__int64 **)qword_140C4E278 != &qword_140C4E270 )
     __fastfail(3u);
-  *v13 = &HalpDmaHibernateAdapters;
+  *v13 = &qword_140C4E270;
   v13[1] = v12;
   *v12 = v13;
   qword_140C4E278 = (__int64)v13;

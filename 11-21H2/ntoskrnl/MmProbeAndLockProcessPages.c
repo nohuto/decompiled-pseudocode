@@ -1,10 +1,10 @@
 /*
  * XREFs of MmProbeAndLockProcessPages @ 0x140708890
  * Callers:
- *     CcAsyncReadPrefetch @ 0x14029C970 (CcAsyncReadPrefetch.c)
+ *     sub_14029C970 @ 0x14029C970 (sub_14029C970.c)
  * Callees:
- *     KiUnstackDetachProcess @ 0x1402D0930 (KiUnstackDetachProcess.c)
- *     KiStackAttachProcess @ 0x14030D5C0 (KiStackAttachProcess.c)
+ *     sub_1402D0930 @ 0x1402D0930 (sub_1402D0930.c)
+ *     sub_14030D5C0 @ 0x14030D5C0 (sub_14030D5C0.c)
  *     MmProbeAndLockPages @ 0x140319E90 (MmProbeAndLockPages.c)
  *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
  */
@@ -23,12 +23,12 @@ void __stdcall MmProbeAndLockProcessPages(
   memset(v8, 0, sizeof(v8));
   v6 = 0;
   v7 = Operation != IoReadAccess;
-  if ( Process != KeGetCurrentThread()->ApcState.Process )
+  if ( Process != *((PEPROCESS *)KeGetCurrentThread() + 23) )
   {
     v6 = 1;
-    KiStackAttachProcess(Process, 0LL, (__int64)v8, *(_DWORD **)&Operation);
+    sub_14030D5C0((ULONG_PTR)Process, 0LL, (__int64)v8, *(__int64 *)&Operation);
   }
   MmProbeAndLockPages(MemoryDescriptorList, AccessMode, v7);
   if ( v6 )
-    KiUnstackDetachProcess((__int64)v8, 0LL);
+    sub_1402D0930((__int64)v8, 0LL);
 }

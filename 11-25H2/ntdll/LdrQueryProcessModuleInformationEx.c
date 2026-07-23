@@ -18,7 +18,12 @@
  *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180174020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
  */
 
-__int64 __fastcall LdrQueryProcessModuleInformationEx(void *a1, char a2, _DWORD *a3, unsigned int a4, unsigned int *a5)
+__int64 __fastcall LdrQueryProcessModuleInformationEx(
+        void *a1,
+        __int64 a2,
+        _DWORD *a3,
+        unsigned int a4,
+        unsigned int *a5)
 {
   unsigned int v6; // esi
   __int64 v7; // r14
@@ -32,7 +37,7 @@ __int64 __fastcall LdrQueryProcessModuleInformationEx(void *a1, char a2, _DWORD 
   __int64 (__fastcall *v15)(void *, __int64, __int64 *); // rax
   __int64 v16; // rdx
   unsigned int v17; // ecx
-  __int64 (__fastcall *v18)(void *, _DWORD *, __int64, __int64); // rax
+  __int64 (__fastcall *v18)(void *, _DWORD *, __int64, __int64, __int64); // rax
   int ModuleInfoFromLdrEntry; // eax
   _DWORD *v20; // rdx
   __int64 v21; // rcx
@@ -154,11 +159,11 @@ __int64 __fastcall LdrQueryProcessModuleInformationEx(void *a1, char a2, _DWORD 
           }
           else
           {
-            v18 = (__int64 (__fastcall *)(void *, _DWORD *, __int64, __int64))*(&funcs_180069A5C + 5 * i);
+            v18 = (__int64 (__fastcall *)(void *, _DWORD *, __int64, __int64, __int64))*(&funcs_180069A5C + 5 * i);
             if ( (char *)v18 == (char *)LdrQueryModuleInfoFromLdrEntry )
-              ModuleInfoFromLdrEntry = LdrQueryModuleInfoFromLdrEntry((_DWORD)v37, (_DWORD)v31, v28, v30, a2);
+              ModuleInfoFromLdrEntry = LdrQueryModuleInfoFromLdrEntry(v37, v31, v28, v30, a2);
             else
-              ModuleInfoFromLdrEntry = v18(v37, v31, v28, v30);
+              ModuleInfoFromLdrEntry = v18(v37, v31, v28, v30, a2);
             if ( ModuleInfoFromLdrEntry < 0 )
             {
               v27 = ModuleInfoFromLdrEntry;

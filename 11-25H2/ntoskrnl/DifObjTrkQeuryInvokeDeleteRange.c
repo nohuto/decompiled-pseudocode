@@ -23,7 +23,7 @@ void __fastcall DifObjTrkQeuryInvokeDeleteRange(unsigned __int64 a1, __int64 a2,
 {
   PEX_SPIN_LOCK v4; // rsi
   int VaTypeForVerifier; // eax
-  RTL_AVL_TABLE *v10; // rsi
+  _RTL_AVL_TABLE *v10; // rsi
   int *v11; // rbx
   PEX_SPIN_LOCK v12; // r14
   int *v13; // rdi
@@ -68,7 +68,7 @@ void __fastcall DifObjTrkQeuryInvokeDeleteRange(unsigned __int64 a1, __int64 a2,
             VaTypeForVerifier = MmGetVaTypeForVerifier(a1);
             if ( VaTypeForVerifier != 5 )
             {
-              v10 = (RTL_AVL_TABLE *)&v4[30 * VaTypeForVerifier + 16];
+              v10 = (_RTL_AVL_TABLE *)&v4[30 * VaTypeForVerifier + 16];
               if ( v10->NumberGenericTableElements )
               {
                 v36 = a1;

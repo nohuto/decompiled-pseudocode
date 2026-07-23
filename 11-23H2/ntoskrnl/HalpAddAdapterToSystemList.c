@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpAddAdapterToSystemList @ 0x1405160FC
+ * XREFs of HalpAddAdapterToSystemList @ 0x14051664C
  * Callers:
- *     HalGetAdapterV3 @ 0x140827530 (HalGetAdapterV3.c)
+ *     HalGetAdapterV3 @ 0x140827830 (HalGetAdapterV3.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KxAcquireSpinLock @ 0x1402515B0 (KxAcquireSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x140251670 (KxAcquireSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall HalpAddAdapterToSystemList(__int64 a1, __int64 a2)
@@ -26,7 +26,10 @@ __int64 __fastcall HalpAddAdapterToSystemList(__int64 a1, __int64 a2)
   v2 = *(unsigned __int8 *)(a1 + 176);
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(v2);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)(v2 - 2) <= 0xDu )
+  if ( (_DWORD)KiIrqlFlags
+    && ((unsigned __int8)KiIrqlFlags & 1) != 0
+    && CurrentIrql <= 0xFu
+    && (unsigned __int8)(v2 - 2) <= 0xDu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == (_BYTE)v2 )
@@ -45,10 +48,10 @@ __int64 __fastcall HalpAddAdapterToSystemList(__int64 a1, __int64 a2)
   *v8 = v9;
   *(_QWORD *)(a1 + 24) = v9;
   KxReleaseSpinLock((volatile signed __int64 *)(a1 + 168));
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v10 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v10 <= 0xFu && CurrentIrql <= 0xFu && v10 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v10 <= 0xFu && CurrentIrql <= 0xFu && v10 >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v12 = CurrentPrcb->SchedulerAssist;
@@ -56,7 +59,7 @@ __int64 __fastcall HalpAddAdapterToSystemList(__int64 a1, __int64 a2)
       v14 = (v13 & v12[5]) == 0;
       v12[5] &= v13;
       if ( v14 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
     }
   }
   result = CurrentIrql;

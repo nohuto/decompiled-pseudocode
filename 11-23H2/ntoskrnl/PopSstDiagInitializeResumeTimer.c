@@ -1,12 +1,12 @@
 /*
- * XREFs of PopSstDiagInitializeResumeTimer @ 0x140AAA664
+ * XREFs of PopSstDiagInitializeResumeTimer @ 0x140AAA4D4
  * Callers:
- *     PopHandleNextState @ 0x140AA811C (PopHandleNextState.c)
+ *     PopHandleNextState @ 0x140AA7F8C (PopHandleNextState.c)
  * Callees:
- *     PpmConvertTime @ 0x140255510 (PpmConvertTime.c)
- *     KeQueryPerformanceCounter @ 0x1402C3270 (KeQueryPerformanceCounter.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     HvlQueryHypervisorTscAdjustment @ 0x14053FA4C (HvlQueryHypervisorTscAdjustment.c)
+ *     PpmConvertTime @ 0x1402555D0 (PpmConvertTime.c)
+ *     KeQueryPerformanceCounter @ 0x1402C3500 (KeQueryPerformanceCounter.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     HvlQueryHypervisorTscAdjustment @ 0x14054010C (HvlQueryHypervisorTscAdjustment.c)
  */
 
 unsigned __int64 PopSstDiagInitializeResumeTimer()
@@ -21,7 +21,7 @@ unsigned __int64 PopSstDiagInitializeResumeTimer()
   unsigned __int64 v7; // [rsp+40h] [rbp+8h] BYREF
   __int64 v8; // [rsp+48h] [rbp+10h] BYREF
 
-  qword_140C39450 = 0LL;
+  qword_140C393D0 = 0LL;
   v0 = 0LL;
   v7 = 0LL;
   v8 = 0LL;
@@ -40,6 +40,6 @@ unsigned __int64 PopSstDiagInitializeResumeTimer()
     v5 -= result;
   }
   PopSstDiagResumeClock = __PAIR128__(v0, v7);
-  qword_140C39450 = v5;
+  qword_140C393D0 = v5;
   return result;
 }

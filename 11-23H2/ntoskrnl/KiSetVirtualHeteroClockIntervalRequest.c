@@ -1,13 +1,13 @@
 /*
- * XREFs of KiSetVirtualHeteroClockIntervalRequest @ 0x140462680
+ * XREFs of KiSetVirtualHeteroClockIntervalRequest @ 0x140462A80
  * Callers:
- *     KeUpdatePendingQosRequest @ 0x14046147C (KeUpdatePendingQosRequest.c)
- *     KiSetVirtualHeteroClockIntervalRequestDpcRoutine @ 0x1404627A0 (KiSetVirtualHeteroClockIntervalRequestDpcRoutine.c)
+ *     KeUpdatePendingQosRequest @ 0x14046187C (KeUpdatePendingQosRequest.c)
+ *     KiSetVirtualHeteroClockIntervalRequestDpcRoutine @ 0x140462BA0 (KiSetVirtualHeteroClockIntervalRequestDpcRoutine.c)
  * Callees:
- *     KiSendClockInterruptToClockOwner @ 0x1403650B8 (KiSendClockInterruptToClockOwner.c)
- *     KiSetClockInterval @ 0x1403B1FA4 (KiSetClockInterval.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     KiResetClockInterval @ 0x14056FDE4 (KiResetClockInterval.c)
+ *     KiSendClockInterruptToClockOwner @ 0x140365258 (KiSendClockInterruptToClockOwner.c)
+ *     KiSetClockInterval @ 0x1403B2184 (KiSetClockInterval.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KiResetClockInterval @ 0x140570324 (KiResetClockInterval.c)
  */
 
 __int64 __fastcall KiSetVirtualHeteroClockIntervalRequest(char a1)
@@ -24,7 +24,7 @@ __int64 __fastcall KiSetVirtualHeteroClockIntervalRequest(char a1)
 
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(0xFuLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 15 )
@@ -40,13 +40,13 @@ __int64 __fastcall KiSetVirtualHeteroClockIntervalRequest(char a1)
   }
   else if ( !byte_140C0D2F0 && KiQosHysteresisTimerPeriod )
   {
-    KiSetClockInterval(KiQosHysteresisTimerPeriod, 0, (unsigned __int64)&KiVirtualHeteroClockRequest);
+    KiSetClockInterval(KiQosHysteresisTimerPeriod, 0, (__int64)&KiVirtualHeteroClockRequest);
     KiSendClockInterruptToClockOwner();
   }
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v4 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v4 <= 0xFu && CurrentIrql <= 0xFu && v4 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v4 <= 0xFu && CurrentIrql <= 0xFu && v4 >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v6 = CurrentPrcb->SchedulerAssist;
@@ -54,7 +54,7 @@ __int64 __fastcall KiSetVirtualHeteroClockIntervalRequest(char a1)
       v8 = (v7 & v6[5]) == 0;
       v6[5] &= v7;
       if ( v8 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
     }
   }
   result = CurrentIrql;

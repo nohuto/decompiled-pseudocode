@@ -1,11 +1,11 @@
 /*
- * XREFs of MmVirtualAccessFault @ 0x14065BF34
+ * XREFs of MmVirtualAccessFault @ 0x14065C018
  * Callers:
- *     VmAccessFault @ 0x140223D14 (VmAccessFault.c)
- *     PspIumGetPhysicalPage @ 0x140682204 (PspIumGetPhysicalPage.c)
+ *     VmAccessFault @ 0x140223B40 (VmAccessFault.c)
+ *     PspIumGetPhysicalPage @ 0x1406822E8 (PspIumGetPhysicalPage.c)
  * Callees:
- *     MmAccessFault @ 0x14003E7A0 (MmAccessFault.c)
- *     MiInitializeFaultVaListCore @ 0x1401718A4 (MiInitializeFaultVaListCore.c)
+ *     MmAccessFault @ 0x14003E320 (MmAccessFault.c)
+ *     MiInitializeFaultVaListCore @ 0x140171DA0 (MiInitializeFaultVaListCore.c)
  */
 
 __int64 __fastcall MmVirtualAccessFault(__int64 a1, char a2, __int64 *a3)

@@ -1,13 +1,13 @@
 /*
- * XREFs of PopDisableIrpWatchdog @ 0x14058305C
+ * XREFs of PopDisableIrpWatchdog @ 0x14058354C
  * Callers:
- *     PopDequeueQuerySetIrp @ 0x14028E3BC (PopDequeueQuerySetIrp.c)
+ *     PopDequeueQuerySetIrp @ 0x14028E64C (PopDequeueQuerySetIrp.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeCancelTimer @ 0x140252AA0 (KeCancelTimer.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     PopIrpWatchdogBugcheck @ 0x140583394 (PopIrpWatchdogBugcheck.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeCancelTimer @ 0x140252B60 (KeCancelTimer.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     PopIrpWatchdogBugcheck @ 0x140583884 (PopIrpWatchdogBugcheck.c)
  */
 
 __int64 __fastcall PopDisableIrpWatchdog(__int64 a1)
@@ -29,10 +29,10 @@ __int64 __fastcall PopDisableIrpWatchdog(__int64 a1)
     *(_DWORD *)(v2 + 296) = 0;
   }
   result = KxReleaseSpinLock((volatile signed __int64 *)(v2 + 288));
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
       && (unsigned __int8)result <= 0xFu
       && (unsigned __int8)v3 <= 0xFu
       && (unsigned __int8)result >= 2u )

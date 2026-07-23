@@ -1,11 +1,11 @@
 /*
- * XREFs of PpmEventParkingCountSelection @ 0x14042060C
+ * XREFs of PpmEventParkingCountSelection @ 0x140417E4C
  * Callers:
- *     PpmParkCalculateUnparkCount @ 0x140420130 (PpmParkCalculateUnparkCount.c)
+ *     PpmParkCalculateUnparkCount @ 0x140417970 (PpmParkCalculateUnparkCount.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 char __fastcall PpmEventParkingCountSelection(
@@ -56,9 +56,7 @@ char __fastcall PpmEventParkingCountSelection(
   v35 = a1;
   if ( PpmEtwRegistered )
   {
-    LOBYTE(v11) = EtwEventEnabled(
-                    (REGHANDLE)PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink,
-                    &PPM_ETW_PARKING_COUNT_SELECTION);
+    LOBYTE(v11) = EtwEventEnabled(PpmEtwHandle, &PPM_ETW_PARKING_COUNT_SELECTION);
     if ( (_BYTE)v11 )
     {
       UserData.Ptr = (ULONGLONG)&v35;
@@ -83,15 +81,7 @@ char __fastcall PpmEventParkingCountSelection(
       v29 = 4LL;
       v31 = 4LL;
       v33 = 4LL;
-      LOBYTE(v11) = EtwWriteEx(
-                      (REGHANDLE)PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink,
-                      &PPM_ETW_PARKING_COUNT_SELECTION,
-                      0LL,
-                      0,
-                      0LL,
-                      0LL,
-                      0xBu,
-                      &UserData);
+      LOBYTE(v11) = EtwWriteEx(PpmEtwHandle, &PPM_ETW_PARKING_COUNT_SELECTION, 0LL, 0, 0LL, 0LL, 0xBu, &UserData);
     }
   }
   return (char)v11;

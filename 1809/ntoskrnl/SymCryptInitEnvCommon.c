@@ -1,7 +1,7 @@
 /*
- * XREFs of SymCryptInitEnvCommon @ 0x1401B25DC
+ * XREFs of SymCryptInitEnvCommon @ 0x1401B271C
  * Callers:
- *     SymCryptInitEnvWindowsKernelmodeWin8_1nLater @ 0x1401AF208 (SymCryptInitEnvWindowsKernelmodeWin8_1nLater.c)
+ *     SymCryptInitEnvWindowsKernelmodeWin8_1nLater @ 0x1401AF348 (SymCryptInitEnvWindowsKernelmodeWin8_1nLater.c)
  * Callees:
  *     <none>
  */

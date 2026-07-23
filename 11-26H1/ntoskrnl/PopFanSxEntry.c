@@ -1,25 +1,27 @@
 /*
- * XREFs of PopFanSxEntry @ 0x140435910
+ * XREFs of PopFanSxEntry @ 0x14042474C
  * Callers:
- *     PopTransitionSystemPowerStateEx @ 0x140C0B0A0 (PopTransitionSystemPowerStateEx.c)
+ *     PopTransitionSystemPowerStateEx @ 0x140C112B0 (PopTransitionSystemPowerStateEx.c)
  * Callees:
- *     PopAcquireRwLockShared @ 0x140436298 (PopAcquireRwLockShared.c)
- *     PopReleaseRwLock @ 0x14043630C (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x140436378 (PopAcquireRwLockExclusive.c)
- *     PopFanUpdateStatistics @ 0x140B68ADC (PopFanUpdateStatistics.c)
+ *     PopReleaseRwLock @ 0x14021B1A8 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockShared @ 0x140424A28 (PopAcquireRwLockShared.c)
+ *     PopAcquireRwLockExclusive @ 0x140425310 (PopAcquireRwLockExclusive.c)
+ *     PopFanUpdateStatistics @ 0x140B6BA6C (PopFanUpdateStatistics.c)
  */
 
 __int64 PopFanSxEntry()
 {
-  int *i; // rdi
+  unsigned __int8 *i; // rdi
 
-  PopAcquireRwLockShared(&unk_140F10E30);
-  for ( i = *(int **)((char *)&stru_140F10828.116 + 4); i != &stru_140F10828.MiscFlags + 1; i = *(int **)i )
+  PopAcquireRwLockShared(&PopPolicyDeviceLock);
+  for ( i = *(unsigned __int8 **)&PpmIdlePolicyLock.ResourceIndex;
+        i != &PpmIdlePolicyLock.ResourceIndex;
+        i = *(unsigned __int8 **)i )
   {
-    PopAcquireRwLockExclusive(i + 100);
+    PopAcquireRwLockExclusive(i + 400);
     PopFanUpdateStatistics(i);
-    *((_BYTE *)i + 200) = 1;
-    PopReleaseRwLock((struct _KTHREAD *)(i + 100));
+    i[200] = 1;
+    PopReleaseRwLock((struct _KTHREAD *)(i + 400));
   }
-  return PopReleaseRwLock(&unk_140F10E30);
+  return PopReleaseRwLock((struct _KTHREAD *)&PopPolicyDeviceLock);
 }

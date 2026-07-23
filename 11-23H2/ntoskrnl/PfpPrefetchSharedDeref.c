@@ -3,8 +3,8 @@
  * Callers:
  *     PfpPrefetchSharedConflictNotifyEnd @ 0x1406832D0 (PfpPrefetchSharedConflictNotifyEnd.c)
  *     PfpPrefetchRequestPerform @ 0x1406846E8 (PfpPrefetchRequestPerform.c)
- *     PfSnCleanupPrefetchHeader @ 0x14075CEB0 (PfSnCleanupPrefetchHeader.c)
- *     PfpQueryFileExtentsRequest @ 0x14097E4F0 (PfpQueryFileExtentsRequest.c)
+ *     PfSnCleanupPrefetchHeader @ 0x14075D0A0 (PfSnCleanupPrefetchHeader.c)
+ *     PfpQueryFileExtentsRequest @ 0x14097E6F0 (PfpQueryFileExtentsRequest.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */

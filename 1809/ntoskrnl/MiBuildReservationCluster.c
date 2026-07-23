@@ -1,7 +1,7 @@
 /*
- * XREFs of MiBuildReservationCluster @ 0x1401500BC
+ * XREFs of MiBuildReservationCluster @ 0x1401501BC
  * Callers:
- *     MiGatherPagefilePages @ 0x14014EFE0 (MiGatherPagefilePages.c)
+ *     MiGatherPagefilePages @ 0x14014F0E0 (MiGatherPagefilePages.c)
  * Callees:
  *     MiReleasePageFileInfo @ 0x14002A628 (MiReleasePageFileInfo.c)
  *     MiLockPageInline @ 0x14002CE40 (MiLockPageInline.c)
@@ -12,20 +12,20 @@
  *     MiUpdatePageFileHighInPte @ 0x14003D770 (MiUpdatePageFileHighInPte.c)
  *     MiMakeValidPte @ 0x14003D7F0 (MiMakeValidPte.c)
  *     MiReservePtes @ 0x14005C890 (MiReservePtes.c)
- *     MiDecrementShareCount @ 0x140081EA0 (MiDecrementShareCount.c)
- *     MiReferencePageForModifiedWrite @ 0x14011BB94 (MiReferencePageForModifiedWrite.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     MiLockNestedPageAtDpcInline @ 0x140120F04 (MiLockNestedPageAtDpcInline.c)
- *     MiRefPageFileSpaceBitmaps @ 0x14014F8FC (MiRefPageFileSpaceBitmaps.c)
- *     MiDerefPageFileSpaceBitmaps @ 0x14014FAA8 (MiDerefPageFileSpaceBitmaps.c)
- *     MiGetPageForWriteCluster @ 0x140150660 (MiGetPageForWriteCluster.c)
- *     MiAddToReservationCluster @ 0x14015086C (MiAddToReservationCluster.c)
- *     MiGetPageFileSectionForReservation @ 0x1401576DC (MiGetPageFileSectionForReservation.c)
- *     MiReleasePageFileSectionInfo @ 0x140157C9C (MiReleasePageFileSectionInfo.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     MiDecrementShareCount @ 0x140081E90 (MiDecrementShareCount.c)
+ *     MiReferencePageForModifiedWrite @ 0x14011BC04 (MiReferencePageForModifiedWrite.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     MiLockNestedPageAtDpcInline @ 0x140120FD4 (MiLockNestedPageAtDpcInline.c)
+ *     MiRefPageFileSpaceBitmaps @ 0x14014F9FC (MiRefPageFileSpaceBitmaps.c)
+ *     MiDerefPageFileSpaceBitmaps @ 0x14014FBA8 (MiDerefPageFileSpaceBitmaps.c)
+ *     MiGetPageForWriteCluster @ 0x140150760 (MiGetPageForWriteCluster.c)
+ *     MiAddToReservationCluster @ 0x14015096C (MiAddToReservationCluster.c)
+ *     MiGetPageFileSectionForReservation @ 0x1401577DC (MiGetPageFileSectionForReservation.c)
+ *     MiReleasePageFileSectionInfo @ 0x140157D9C (MiReleasePageFileSectionInfo.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiBuildReservationCluster(_QWORD *a1, __int64 a2, unsigned int *a3, _DWORD *a4)
@@ -138,8 +138,8 @@ __int64 __fastcall MiBuildReservationCluster(_QWORD *a1, __int64 a2, unsigned in
       goto LABEL_80;
     }
     v12 = *(_QWORD *)(v10 + 16);
-    if ( qword_14043A0C0 && (v12 & 0x10) == 0 )
-      v12 &= ~qword_14043A0C0;
+    if ( qword_14043B180 && (v12 & 0x10) == 0 )
+      v12 &= ~qword_14043B180;
     v13 = HIDWORD(v12);
     if ( (unsigned int)v13 >= v79 )
       break;
@@ -189,7 +189,7 @@ __int64 __fastcall MiBuildReservationCluster(_QWORD *a1, __int64 a2, unsigned in
       {
         v82 = 0LL;
       }
-      v21 = MiReservePtes((__int64)&qword_14043AFA0, (unsigned __int64 *)1);
+      v21 = MiReservePtes((__int64)&qword_14043C060, (unsigned __int64 *)1);
       v77 = v21;
       v22 = v21;
       if ( v21 )
@@ -216,8 +216,8 @@ LABEL_14:
           v74 = v32;
           if ( (unsigned int)v29 >= v32 - 1 )
             LODWORD(v29) = v32 - 1;
-          if ( qword_14043A0C0 && (v28 & 0x10) == 0 )
-            v31 = v28 & ~qword_14043A0C0;
+          if ( qword_14043B180 && (v28 & 0x10) == 0 )
+            v31 = v28 & ~qword_14043B180;
           v33 = HIDWORD(v31);
           if ( v33 + (unsigned __int64)(unsigned int)v29 >= v79 )
             LODWORD(v29) = v79 - v33 - 1;
@@ -238,7 +238,7 @@ LABEL_14:
               LODWORD(v29) = v29 - 1;
               ++v16;
               *++v83 = v38;
-              if ( v38 == qword_14043ADC8 )
+              if ( v38 == qword_14043BE88 )
                 ++v34;
               if ( v73 == 3 && v16 >= 0x10 )
                 break;
@@ -261,8 +261,8 @@ LABEL_14:
           v43 = v41 >> 3;
           if ( (unsigned int)v43 >= v40 )
             v43 = v40;
-          if ( qword_14043A0C0 && (v28 & 0x10) == 0 )
-            v42 = v28 & ~qword_14043A0C0;
+          if ( qword_14043B180 && (v28 & 0x10) == 0 )
+            v42 = v28 & ~qword_14043B180;
           v44 = HIDWORD(v42);
           if ( (unsigned int)v43 > (unsigned __int64)(v44 - 1) )
             v43 = (unsigned int)(v44 - 1);
@@ -284,7 +284,7 @@ LABEL_14:
               LODWORD(v43) = v43 - 1;
               ++v16;
               *v45 = v48;
-              if ( v48 == qword_14043ADC8 )
+              if ( v48 == qword_14043BE88 )
                 ++v39;
             }
             while ( (v73 != 3 || v16 < 0x10) && (_DWORD)v43 );
@@ -300,16 +300,16 @@ LABEL_14:
             v49 = Src;
           }
           v51 = *(_QWORD *)(48LL * *v49 - 0x58000000000LL + 16);
-          if ( qword_14043A0C0 && (v51 & 0x10) == 0 )
-            v51 &= ~qword_14043A0C0;
+          if ( qword_14043B180 && (v51 & 0x10) == 0 )
+            v51 &= ~qword_14043B180;
           v13 = HIDWORD(v51);
-          MiReleasePtes((__int64)&qword_14043AFA0, v77, 1u);
+          MiReleasePtes((__int64)&qword_14043C060, v77, 1u);
           goto LABEL_54;
         }
         if ( (unsigned int)MiPteHasShadow() )
         {
           v24 = 1;
-          if ( HIBYTE(word_14043A1AC) )
+          if ( HIBYTE(word_14043B26C) )
             goto LABEL_14;
         }
         else if ( (KeGetCurrentThread()->ApcState.Process[2].ActiveProcessors.Bitmap[0] & 0x100000000000LL) == 0 )

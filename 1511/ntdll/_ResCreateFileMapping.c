@@ -10,26 +10,48 @@
  *     BaseFormatObjectAttributes @ 0x1800F84E8 (BaseFormatObjectAttributes.c)
  */
 
-__int64 __fastcall ResCreateFileMapping(__int64 a1, __int64 a2, int a3, __int64 a4, int a5, PCWSTR SourceString)
+HANDLE __fastcall ResCreateFileMapping(
+        HANDLE FileHandle,
+        __int64 a2,
+        int a3,
+        __int64 a4,
+        unsigned int a5,
+        PCWSTR SourceString)
 {
-  unsigned int v6; // ebx
-  UNICODE_STRING *p_DestinationString; // r8
-  ULONG v10; // ecx
-  NTSTATUS Section; // eax
-  _DWORD *v13; // r9
-  _DWORD v14[2]; // [rsp+48h] [rbp-29h] BYREF
-  _QWORD v15[2]; // [rsp+50h] [rbp-21h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+60h] [rbp-11h] BYREF
-  _BYTE v17[56]; // [rsp+70h] [rbp-1h] BYREF
+  ULONG AllocationAttributes; // esi
+  ULONG SectionPageProtection; // ebx
+  ACCESS_MASK v10; // edi
+  _UNICODE_STRING *p_DestinationString; // r8
+  LONG v12; // ecx
+  NTSTATUS v14; // eax
+  LARGE_INTEGER *p_MaximumSize; // r9
+  LARGE_INTEGER MaximumSize; // [rsp+48h] [rbp-29h] BYREF
+  POBJECT_ATTRIBUTES ObjectAttributes; // [rsp+50h] [rbp-21h] BYREF
+  HANDLE SectionHandle; // [rsp+58h] [rbp-19h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+60h] [rbp-11h] BYREF
+  _BYTE v20[56]; // [rsp+70h] [rbp-1h] BYREF
 
-  v6 = a3 & 0x9D800000 ^ a3;
-  if ( v6 != 4 && v6 != 64 && v6 != 32 && v6 != 2 && v6 != 8 )
+  AllocationAttributes = a3 & 0x9D800000;
+  SectionPageProtection = a3 & 0x9D800000 ^ a3;
+  v10 = 983045;
+  if ( (a3 & 0x9D800000) == 0 )
+    AllocationAttributes = 0x8000000;
+  switch ( SectionPageProtection )
   {
-LABEL_8:
-    v10 = 87;
-LABEL_9:
-    RtlSetLastWin32Error(v10);
-    return 0LL;
+    case 4u:
+      v10 = 983047;
+      break;
+    case 0x40u:
+      v10 = 983055;
+      break;
+    case 0x20u:
+      v10 = 983053;
+      break;
+    case 2u:
+    case 8u:
+      break;
+    default:
+      goto LABEL_13;
   }
   if ( SourceString )
   {
@@ -40,28 +62,44 @@ LABEL_9:
   {
     p_DestinationString = 0LL;
   }
-  Section = BaseFormatObjectAttributes((__int64)v17, a2, (__int64)p_DestinationString, v15);
-  if ( Section < 0 )
-    goto LABEL_12;
+  v14 = BaseFormatObjectAttributes((__int64)v20, a2, (__int64)p_DestinationString, &ObjectAttributes);
+  if ( v14 < 0 )
+    goto LABEL_17;
   if ( a5 )
   {
-    v14[1] = 0;
-    v13 = v14;
-    v14[0] = a5;
+    p_MaximumSize = &MaximumSize;
+    MaximumSize.QuadPart = a5;
   }
   else
   {
-    v13 = 0LL;
+    p_MaximumSize = 0LL;
   }
-  if ( a1 == -1 && !v13 )
-    goto LABEL_8;
-  Section = NtCreateSection();
-  if ( Section < 0 )
+  if ( FileHandle == (HANDLE)-1LL )
   {
-LABEL_12:
-    v10 = RtlNtStatusToDosError(Section);
-    goto LABEL_9;
+    FileHandle = 0LL;
+    if ( !p_MaximumSize )
+    {
+LABEL_13:
+      v12 = 87;
+LABEL_14:
+      RtlSetLastWin32Error(v12);
+      return 0LL;
+    }
+  }
+  v14 = NtCreateSection(
+          &SectionHandle,
+          v10,
+          ObjectAttributes,
+          p_MaximumSize,
+          SectionPageProtection,
+          AllocationAttributes,
+          FileHandle);
+  if ( v14 < 0 )
+  {
+LABEL_17:
+    v12 = RtlNtStatusToDosError(v14);
+    goto LABEL_14;
   }
   RtlSetLastWin32Error(0);
-  return v15[1];
+  return SectionHandle;
 }

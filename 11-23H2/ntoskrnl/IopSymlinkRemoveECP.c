@@ -1,11 +1,11 @@
 /*
- * XREFs of IopSymlinkRemoveECP @ 0x1402FD8D4
+ * XREFs of IopSymlinkRemoveECP @ 0x1402FDB64
  * Callers:
- *     IopParseDevice @ 0x14072CD50 (IopParseDevice.c)
- *     IopGraftName @ 0x14087F518 (IopGraftName.c)
- *     IopSymlinkUpdateECP @ 0x14088075C (IopSymlinkUpdateECP.c)
+ *     IopParseDevice @ 0x14072CF50 (IopParseDevice.c)
+ *     IopGraftName @ 0x14087F758 (IopGraftName.c)
+ *     IopSymlinkUpdateECP @ 0x14088099C (IopSymlinkUpdateECP.c)
  * Callees:
- *     FsRtlRemoveExtraCreateParameter @ 0x1407653E0 (FsRtlRemoveExtraCreateParameter.c)
+ *     FsRtlRemoveExtraCreateParameter @ 0x1407655D0 (FsRtlRemoveExtraCreateParameter.c)
  */
 
 NTSTATUS __fastcall IopSymlinkRemoveECP(struct _ECP_LIST *a1, PVOID *a2)

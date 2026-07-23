@@ -1,16 +1,16 @@
 /*
- * XREFs of ?ReadEntries@SC_GPT@@AEAAJPEAVGPT_HEADER@@PEAU_GPT_ENTRY@@@Z @ 0x1405C7D84
+ * XREFs of ?ReadEntries@SC_GPT@@AEAAJPEAVGPT_HEADER@@PEAU_GPT_ENTRY@@@Z @ 0x1405C7FB4
  * Callers:
- *     ?ReadEntries@SC_GPT@@AEAAJPEAVGPT_HEADER@@PEAPEAU_GPT_ENTRY@@@Z @ 0x1405C7CEC (-ReadEntries@SC_GPT@@AEAAJPEAVGPT_HEADER@@PEAPEAU_GPT_ENTRY@@@Z.c)
- *     ?VerifyPartitionTable@SC_GPT@@QEAAJE@Z @ 0x1405C824C (-VerifyPartitionTable@SC_GPT@@QEAAJE@Z.c)
+ *     ?ReadEntries@SC_GPT@@AEAAJPEAVGPT_HEADER@@PEAPEAU_GPT_ENTRY@@@Z @ 0x1405C7F1C (-ReadEntries@SC_GPT@@AEAAJPEAVGPT_HEADER@@PEAPEAU_GPT_ENTRY@@@Z.c)
+ *     ?VerifyPartitionTable@SC_GPT@@QEAAJE@Z @ 0x1405C847C (-VerifyPartitionTable@SC_GPT@@QEAAJE@Z.c)
  * Callees:
- *     RtlComputeCrc32 @ 0x1402A2690 (RtlComputeCrc32.c)
- *     ?ReadSectors@SC_DISK@@QEAAJK_KPEAX@Z @ 0x1405C7038 (-ReadSectors@SC_DISK@@QEAAJK_KPEAX@Z.c)
+ *     RtlComputeCrc32 @ 0x14021FAD0 (RtlComputeCrc32.c)
+ *     ?ReadSectors@SC_DISK@@QEAAJK_KPEAX@Z @ 0x1405C7268 (-ReadSectors@SC_DISK@@QEAAJK_KPEAX@Z.c)
  */
 
 __int64 __fastcall SC_GPT::ReadEntries(SC_DISK **this, struct GPT_HEADER *a2, struct _GPT_ENTRY *a3)
 {
-  unsigned int v4; // esi
+  ULONG v4; // esi
   int Sectors; // ebx
 
   v4 = *((_DWORD *)a2 + 20) * *((_DWORD *)a2 + 21);
@@ -19,7 +19,7 @@ __int64 __fastcall SC_GPT::ReadEntries(SC_DISK **this, struct GPT_HEADER *a2, st
               (-*((_DWORD *)*this + 57) & (v4 + *((_DWORD *)*this + 57) - 1)) >> *((_DWORD *)*this + 58),
               *((_QWORD *)a2 + 9),
               a3);
-  if ( Sectors >= 0 && (unsigned int)RtlComputeCrc32(0, (char *)a3, v4) != *((_DWORD *)a2 + 22) )
+  if ( Sectors >= 0 && RtlComputeCrc32(0, a3, v4) != *((_DWORD *)a2 + 22) )
     return (unsigned int)-1073741774;
   return (unsigned int)Sectors;
 }

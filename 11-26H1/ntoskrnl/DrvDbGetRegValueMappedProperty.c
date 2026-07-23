@@ -1,19 +1,19 @@
 /*
- * XREFs of DrvDbGetRegValueMappedProperty @ 0x14091B9E0
+ * XREFs of DrvDbGetRegValueMappedProperty @ 0x140976440
  * Callers:
- *     DrvDbGetDriverPackageSignerName @ 0x14089E738 (DrvDbGetDriverPackageSignerName.c)
- *     DrvDbGetDeviceIdMappedProperty @ 0x14091B5B8 (DrvDbGetDeviceIdMappedProperty.c)
- *     DrvDbGetDriverInfFileMappedProperty @ 0x14091BEAC (DrvDbGetDriverInfFileMappedProperty.c)
- *     DrvDbGetDriverPackageMappedProperty @ 0x14091C280 (DrvDbGetDriverPackageMappedProperty.c)
- *     DrvDbGetDriverDatabaseMappedProperty @ 0x140B234C4 (DrvDbGetDriverDatabaseMappedProperty.c)
- *     DrvDbGetDriverFileMappedProperty @ 0x140B61BEC (DrvDbGetDriverFileMappedProperty.c)
+ *     DrvDbGetDriverPackageSignerName @ 0x1408A4B38 (DrvDbGetDriverPackageSignerName.c)
+ *     DrvDbGetDeviceIdMappedProperty @ 0x140976018 (DrvDbGetDeviceIdMappedProperty.c)
+ *     DrvDbGetDriverInfFileMappedProperty @ 0x14097690C (DrvDbGetDriverInfFileMappedProperty.c)
+ *     DrvDbGetDriverPackageMappedProperty @ 0x140976CE0 (DrvDbGetDriverPackageMappedProperty.c)
+ *     DrvDbGetDriverDatabaseMappedProperty @ 0x140B258C4 (DrvDbGetDriverDatabaseMappedProperty.c)
+ *     DrvDbGetDriverFileMappedProperty @ 0x140B64C8C (DrvDbGetDriverFileMappedProperty.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x14045D040 (RtlInitUnicodeStringEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwQueryValueKey @ 0x1407236D0 (ZwQueryValueKey.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeStringEx @ 0x140456BE0 (RtlInitUnicodeStringEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwQueryValueKey @ 0x1407282A0 (ZwQueryValueKey.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall DrvDbGetRegValueMappedProperty(

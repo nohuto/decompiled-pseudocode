@@ -1,13 +1,13 @@
 /*
- * XREFs of SepExamineGlobalSaclEx @ 0x14021A318
+ * XREFs of SepExamineGlobalSaclEx @ 0x14021A144
  * Callers:
- *     SepAccessCheckAndAuditAlarm @ 0x1404B6D30 (SepAccessCheckAndAuditAlarm.c)
+ *     SepAccessCheckAndAuditAlarm @ 0x1404A1110 (SepAccessCheckAndAuditAlarm.c)
  * Callees:
- *     ExReleaseResourceLite @ 0x140068940 (ExReleaseResourceLite.c)
- *     KeLeaveCriticalRegion @ 0x140069D00 (KeLeaveCriticalRegion.c)
- *     SepRmAcquireGlobalSaclReadLock @ 0x14021A48C (SepRmAcquireGlobalSaclReadLock.c)
- *     SepExamineSaclEx @ 0x140691D50 (SepExamineSaclEx.c)
- *     SepRmGlobalSaclFind @ 0x140695604 (SepRmGlobalSaclFind.c)
+ *     ExReleaseResourceLite @ 0x1400684C0 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x140069880 (KeLeaveCriticalRegion.c)
+ *     SepRmAcquireGlobalSaclReadLock @ 0x14021A2B8 (SepRmAcquireGlobalSaclReadLock.c)
+ *     SepExamineSaclEx @ 0x140691E34 (SepExamineSaclEx.c)
+ *     SepRmGlobalSaclFind @ 0x1406956E8 (SepRmGlobalSaclFind.c)
  */
 
 void __fastcall SepExamineGlobalSaclEx(

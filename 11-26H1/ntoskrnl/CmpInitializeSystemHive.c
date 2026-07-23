@@ -1,14 +1,14 @@
 /*
- * XREFs of CmpInitializeSystemHive @ 0x140CEB618
+ * XREFs of CmpInitializeSystemHive @ 0x140CF19B8
  * Callers:
- *     CmpInitializePreloadedHives @ 0x140CEB354 (CmpInitializePreloadedHives.c)
+ *     CmpInitializePreloadedHives @ 0x140CF16F4 (CmpInitializePreloadedHives.c)
  * Callees:
- *     CmpAllocatePool @ 0x140474870 (CmpAllocatePool.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     CmpSetupLoggingState @ 0x14084D128 (CmpSetupLoggingState.c)
- *     CmpCreateHive @ 0x1408B5E6C (CmpCreateHive.c)
- *     CmpLinkHiveToMaster @ 0x14097C11C (CmpLinkHiveToMaster.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     CmpAllocatePool @ 0x14046DFF0 (CmpAllocatePool.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     CmpSetupLoggingState @ 0x140853434 (CmpSetupLoggingState.c)
+ *     CmpCreateHive @ 0x1408BC440 (CmpCreateHive.c)
+ *     CmpLinkHiveToMaster @ 0x14093E12C (CmpLinkHiveToMaster.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall CmpInitializeSystemHive(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -30,7 +30,7 @@ __int64 __fastcall CmpInitializeSystemHive(__int64 a1, __int64 a2, __int64 a3, _
   if ( Pool )
   {
     v9 = 18;
-    if ( LODWORD(WheapPfaLock.StackBase) )
+    if ( LODWORD(WheapPfaLock.ThreadLock) )
       v9 = 33554450;
     Hive = CmpCreateHive(
              BugCheckParameter3,
@@ -39,7 +39,7 @@ __int64 __fastcall CmpInitializeSystemHive(__int64 a1, __int64 a2, __int64 a3, _
              2u,
              *(_QWORD *)(a1 + 168),
              0LL,
-             (__int64)&KiSystemServiceTraceCallbackLock.ApcState.ApcListHead[1],
+             (__int64)&KiSystemServiceTraceCallbackLock.ApcState.Process,
              5832712,
              0LL,
              0LL,
@@ -50,16 +50,16 @@ __int64 __fastcall CmpInitializeSystemHive(__int64 a1, __int64 a2, __int64 a3, _
       KeBugCheckEx(0x74u, 3uLL, 2uLL, (ULONG_PTR)Pool, Hive);
     CmpSetupLoggingState(BugCheckParameter3[0], (unsigned int *)(*(_QWORD *)(a1 + 240) + 2916LL));
     if ( (_BYTE)v15 == 1 )
-      LOBYTE(WheapPfaLock.ThreadLock) = 1;
-    if ( BYTE5(NlsMbOemCodePageTag) )
+      LOBYTE(WheapPfaLock.CurrentRunTime) = 1;
+    if ( BYTE4(NlsMbOemCodePageTag) )
       *(_DWORD *)(BugCheckParameter3[0] + 160) |= 0x8000u;
-    if ( HIDWORD(WheapPfaLock.CycleTime) && !HIDWORD(WheapPfaLock.ThreadLock) )
+    if ( HIDWORD(WheapPfaLock.KernelStack) && !LODWORD(WheapPfaLock.KernelStack) )
     {
       *(_DWORD *)(BugCheckParameter3[0] + 160) |= 0x8000u;
       *(_DWORD *)(BugCheckParameter3[0] + 160) &= ~2u;
     }
     v11 = *(_DWORD *)(*(_QWORD *)(BugCheckParameter3[0] + 64) + 4088LL);
-    *(_DWORD *)&CmpCallbackListLock.ApcStateFill[28] = v11;
+    *(_DWORD *)&CmpContextListLock.ApcStateFill[36] = v11;
     if ( !CmSelfHeal )
     {
       BYTE2(NlsMbOemCodePageTag) = 0;
@@ -67,7 +67,7 @@ __int64 __fastcall CmpInitializeSystemHive(__int64 a1, __int64 a2, __int64 a3, _
         KeBugCheckEx(0x74u, 3uLL, 3uLL, BugCheckParameter3[0], 0LL);
     }
     v12 = CmpLinkHiveToMaster(
-            (unsigned __int16 *)&KiSystemServiceTraceCallbackLock.ApcStateFill[32],
+            (unsigned __int16 *)&KiSystemServiceTraceCallbackLock.152,
             0LL,
             BugCheckParameter3[0],
             0,

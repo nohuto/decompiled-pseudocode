@@ -1,15 +1,15 @@
 /*
- * XREFs of MiReturnPartitionPagesToParent @ 0x14065B458
+ * XREFs of MiReturnPartitionPagesToParent @ 0x14065B9A8
  * Callers:
- *     MiFreePartitionPhysicalPages @ 0x140A44AF4 (MiFreePartitionPhysicalPages.c)
+ *     MiFreePartitionPhysicalPages @ 0x140A44DA4 (MiFreePartitionPhysicalPages.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiDrainZeroLookasides @ 0x1403BC1A8 (MiDrainZeroLookasides.c)
- *     memset @ 0x140435A00 (memset.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiReleasePartitionHugeIoSpace @ 0x1406224D0 (MiReleasePartitionHugeIoSpace.c)
- *     MiActOnPartitionNodePages @ 0x140658080 (MiActOnPartitionNodePages.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiDrainZeroLookasides @ 0x1403BC388 (MiDrainZeroLookasides.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     MiReleasePartitionHugeIoSpace @ 0x140622A20 (MiReleasePartitionHugeIoSpace.c)
+ *     MiActOnPartitionNodePages @ 0x1406585D0 (MiActOnPartitionNodePages.c)
  */
 
 __int64 __fastcall MiReturnPartitionPagesToParent(ULONG_PTR BugCheckParameter2)
@@ -71,10 +71,13 @@ __int64 __fastcall MiReturnPartitionPagesToParent(ULONG_PTR BugCheckParameter2)
     MiActOnPartitionNodePages(v8, 6u, 0, v16);
   }
   ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(BugCheckParameter2 + 224));
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v6 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v6 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

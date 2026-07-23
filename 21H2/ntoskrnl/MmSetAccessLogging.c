@@ -1,14 +1,14 @@
 /*
- * XREFs of MmSetAccessLogging @ 0x140380B54
+ * XREFs of MmSetAccessLogging @ 0x1403806A4
  * Callers:
- *     PfTAccessTracingStart @ 0x140990448 (PfTAccessTracingStart.c)
- *     PfTAccessTracingCleanup @ 0x14099A9FC (PfTAccessTracingCleanup.c)
- *     PfTSetTracingPriority @ 0x1409B0E2C (PfTSetTracingPriority.c)
+ *     PfTAccessTracingStart @ 0x140991448 (PfTAccessTracingStart.c)
+ *     PfTAccessTracingCleanup @ 0x14099B9FC (PfTAccessTracingCleanup.c)
+ *     PfTSetTracingPriority @ 0x1409B1D5C (PfTSetTracingPriority.c)
  * Callees:
- *     KeInsertQueueDpc @ 0x14021FD40 (KeInsertQueueDpc.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
- *     ExQueueWorkItem @ 0x14023E750 (ExQueueWorkItem.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KeInsertQueueDpc @ 0x1402C4640 (KeInsertQueueDpc.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402D3660 (KeAcquireInStackQueuedSpinLock.c)
+ *     ExQueueWorkItem @ 0x1402E2FA0 (ExQueueWorkItem.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
@@ -25,9 +25,9 @@ char __fastcall MmSetAccessLogging(int a1, int a2)
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
 
   memset(&LockHandle, 0, sizeof(LockHandle));
-  KeAcquireInStackQueuedSpinLock(&qword_140C4E840, &LockHandle);
-  dword_140C4E828 = a1;
-  dword_140C4E82C = a2;
+  KeAcquireInStackQueuedSpinLock(&qword_140C4E880, &LockHandle);
+  dword_140C4E868 = a1;
+  dword_140C4E86C = a2;
   if ( a1 )
   {
     KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
@@ -56,17 +56,17 @@ char __fastcall MmSetAccessLogging(int a1, int a2)
   }
   else
   {
-    if ( stru_140C4E808.Parameter )
+    if ( stru_140C4E848.Parameter )
     {
-      if ( stru_140C4E808.Parameter == (void *)2 )
-        stru_140C4E808.Parameter = (void *)3;
+      if ( stru_140C4E848.Parameter == (void *)2 )
+        stru_140C4E848.Parameter = (void *)3;
     }
     else
     {
-      stru_140C4E808.List.Flink = 0LL;
-      stru_140C4E808.WorkerRoutine = (void (__fastcall *)(void *))MiEmptyAccessLogs;
-      stru_140C4E808.Parameter = (void *)1;
-      ExQueueWorkItem(&stru_140C4E808, DelayedWorkQueue);
+      stru_140C4E848.List.Flink = 0LL;
+      stru_140C4E848.WorkerRoutine = (void (__fastcall *)(void *))MiEmptyAccessLogs;
+      stru_140C4E848.Parameter = (void *)1;
+      ExQueueWorkItem(&stru_140C4E848, DelayedWorkQueue);
     }
     KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
     LOBYTE(v4) = KiIrqlFlags;

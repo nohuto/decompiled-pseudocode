@@ -88,10 +88,10 @@ void __fastcall FsRtlPrivateCheckWaitingLocks(__int64 a1, __int64 a2, KIRQL a3)
       if ( i == *(_QWORD **)(a2 + 32) )
         *(_QWORD *)(a2 + 32) = v3;
       KxReleaseSpinLock((volatile signed __int64 *)a2);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && a3 <= 0xFu && CurrentIrql >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && a3 <= 0xFu && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;

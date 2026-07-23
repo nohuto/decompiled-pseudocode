@@ -1,9 +1,9 @@
 /*
- * XREFs of ViGenericSetQuota @ 0x140942E30
+ * XREFs of ViGenericSetQuota @ 0x140943E30
  * Callers:
  *     <none>
  * Callees:
- *     ViGenericDispatchHandler @ 0x1409429F4 (ViGenericDispatchHandler.c)
+ *     ViGenericDispatchHandler @ 0x1409439F4 (ViGenericDispatchHandler.c)
  */
 
 __int64 __fastcall ViGenericSetQuota(__int64 a1, __int64 a2)

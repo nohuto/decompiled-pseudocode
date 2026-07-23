@@ -8,29 +8,29 @@
  *     _stricmp @ 0x180124090 (_stricmp.c)
  */
 
-__int64 __fastcall LdrpGetDelayloadDescriptor(unsigned __int64 a1, const char *a2)
+char *__fastcall LdrpGetDelayloadDescriptor(void *a1, const char *a2)
 {
   __int64 v4; // rdi
-  __int64 v5; // r14
-  unsigned int v6; // esi
-  unsigned int i; // ebx
-  __int64 v8; // rbp
-  unsigned int v10; // [rsp+60h] [rbp+18h] BYREF
+  char *v5; // r14
+  ULONG v6; // esi
+  ULONG i; // ebx
+  char *v8; // rbp
+  ULONG v10; // [rsp+60h] [rbp+18h] BYREF
 
   v10 = 0;
   v4 = 0LL;
-  v5 = RtlImageDirectoryEntryToData(a1, 1, 0xDu, &v10);
+  v5 = (char *)RtlImageDirectoryEntryToData(a1, 1u, 0xDu, &v10);
   if ( v5 )
   {
     v6 = v10 >> 5;
     for ( i = 0; ; ++i )
     {
-      v8 = v5 + 32LL * i;
-      if ( !*(_DWORD *)(v8 + 4) || i >= v6 )
+      v8 = &v5[32 * i];
+      if ( !*((_DWORD *)v8 + 1) || i >= v6 )
         break;
-      if ( !stricmp((const char *)(a1 + *(unsigned int *)(v8 + 4)), a2) )
-        return v5 + 32LL * i;
+      if ( !stricmp((const char *)a1 + *((unsigned int *)v8 + 1), a2) )
+        return &v5[32 * i];
     }
   }
-  return v4;
+  return (char *)v4;
 }

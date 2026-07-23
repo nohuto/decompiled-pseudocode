@@ -1,11 +1,11 @@
 /*
- * XREFs of PpmEventTraceExpectedUtility @ 0x1404A9E28
+ * XREFs of PpmEventTraceExpectedUtility @ 0x1404A34B8
  * Callers:
- *     PpmPerfApplyProcessorState @ 0x140252C88 (PpmPerfApplyProcessorState.c)
+ *     PpmPerfApplyProcessorState @ 0x1402545E8 (PpmPerfApplyProcessorState.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 char __fastcall PpmEventTraceExpectedUtility(__int64 a1)
@@ -53,27 +53,23 @@ char __fastcall PpmEventTraceExpectedUtility(__int64 a1)
   v25 = &v11;
   if ( PpmEtwRegistered )
   {
-    LOBYTE(v3) = EtwEventEnabled((REGHANDLE)PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink, v2);
+    LOBYTE(v3) = EtwEventEnabled(PpmEtwHandle, v2);
     if ( (_BYTE)v3 )
     {
       *(_QWORD *)&UserData.Size = 8LL;
-      UserData.Ptr = (ULONGLONG)&PopSleepstudySessionLock.SystemCallNumber;
+      UserData.Ptr = (ULONGLONG)&PpmCheckTime;
       v4 = *(_QWORD *)(a1 + 8);
       if ( v4 )
         v5 = *(_DWORD *)(v4 + 80);
       else
         v5 = 100;
       v15 = v5;
-      v6 = (unsigned __int64)PopSleepstudySessionLock.FirstArgument / 0x2710;
-      v7 = ((unsigned int)((unsigned __int64)PopSleepstudySessionLock.FirstArgument / 0x2710)
-          * (*(_DWORD *)(a1 + 40)
-           / v5)
-          + 50)
-         / 0x64;
+      v6 = PpmCheckPeriod / 0x2710uLL;
+      v7 = ((unsigned int)(PpmCheckPeriod / 0x2710uLL) * (*(_DWORD *)(a1 + 40) / v5) + 50) / 0x64;
       v12 = v7;
-      if ( v7 > (unsigned int)((unsigned __int64)PopSleepstudySessionLock.FirstArgument / 0x2710) )
+      if ( v7 > (unsigned int)(PpmCheckPeriod / 0x2710uLL) )
       {
-        v12 = (unsigned __int64)PopSleepstudySessionLock.FirstArgument / 0x2710;
+        v12 = PpmCheckPeriod / 0x2710uLL;
         v8 = 0;
         v9 = v7 - v6;
       }
@@ -92,15 +88,7 @@ char __fastcall PpmEventTraceExpectedUtility(__int64 a1)
       v20 = 4LL;
       v22 = 4LL;
       v24 = 4LL;
-      LOBYTE(v3) = EtwWriteEx(
-                     (REGHANDLE)PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink,
-                     v2,
-                     0LL,
-                     0,
-                     0LL,
-                     0LL,
-                     6u,
-                     &UserData);
+      LOBYTE(v3) = EtwWriteEx(PpmEtwHandle, v2, 0LL, 0, 0LL, 0LL, 6u, &UserData);
     }
   }
   return (char)v3;

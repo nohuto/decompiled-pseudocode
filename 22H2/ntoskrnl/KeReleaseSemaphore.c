@@ -105,7 +105,7 @@ LONG __stdcall KeReleaseSemaphore(PRKSEMAPHORE Semaphore, KPRIORITY Increment, L
       }
     }
     __writecr8(CurrentIrql);
-    RtlRaiseStatus(3221225543LL);
+    RtlRaiseStatus(-1073741753);
   }
   Semaphore->Header.SignalState = v12;
   if ( !SignalState )

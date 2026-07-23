@@ -6,7 +6,15 @@
  *     _Wow64SystemServiceCall@0 @ 0x4B308730 (_Wow64SystemServiceCall@0.c)
  */
 
-int __stdcall NtCreateKeyTransacted(int a1, int a2, int a3, int a4, int a5, int a6, int a7, int a8)
+NTSTATUS __cdecl NtCreateKeyTransacted(
+        PHANDLE KeyHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        ULONG TitleIndex,
+        PUNICODE_STRING Class,
+        ULONG CreateOptions,
+        HANDLE TransactionHandle,
+        PULONG Disposition)
 {
   return Wow64SystemServiceCall();
 }

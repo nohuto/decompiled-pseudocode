@@ -1,10 +1,10 @@
 /*
- * XREFs of PnpDeviceCompletionQueueIsEmpty @ 0x140009768
+ * XREFs of PnpDeviceCompletionQueueIsEmpty @ 0x1400092DC
  * Callers:
- *     PnpDeviceCompletionProcessCompletedRequests @ 0x1403F47CC (PnpDeviceCompletionProcessCompletedRequests.c)
+ *     PnpDeviceCompletionProcessCompletedRequests @ 0x1403F3690 (PnpDeviceCompletionProcessCompletedRequests.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x1400E9A70 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1400EFE30 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeReleaseSpinLock @ 0x1400EB600 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1400EDCB0 (KeAcquireSpinLockRaiseToDpc.c)
  */
 
 _BOOL8 PnpDeviceCompletionQueueIsEmpty()
@@ -13,9 +13,9 @@ _BOOL8 PnpDeviceCompletionQueueIsEmpty()
   KIRQL v1; // al
 
   v0 = 0;
-  v1 = KeAcquireSpinLockRaiseToDpc(&qword_14031F908);
+  v1 = KeAcquireSpinLockRaiseToDpc(&qword_14031F928);
   if ( (__int64 *)PnpDeviceCompletionQueue == &PnpDeviceCompletionQueue )
-    v0 = qword_14031F8D8 == (_QWORD)&qword_14031F8D8;
-  KeReleaseSpinLock(&qword_14031F908, v1);
+    v0 = qword_14031F8F8 == (_QWORD)&qword_14031F8F8;
+  KeReleaseSpinLock(&qword_14031F928, v1);
   return v0;
 }

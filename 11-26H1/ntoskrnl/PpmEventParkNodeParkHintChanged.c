@@ -1,12 +1,12 @@
 /*
- * XREFs of PpmEventParkNodeParkHintChanged @ 0x140514EC8
+ * XREFs of PpmEventParkNodeParkHintChanged @ 0x14050E938
  * Callers:
- *     PpmParkApplyPolicy @ 0x1402592F0 (PpmParkApplyPolicy.c)
+ *     PpmParkApplyPolicy @ 0x14025AAD0 (PpmParkApplyPolicy.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     PpmEventAddAffinityMaskAsSubset @ 0x140420DB0 (PpmEventAddAffinityMaskAsSubset.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     PpmEventAddAffinityMaskAsSubset @ 0x1404185F0 (PpmEventAddAffinityMaskAsSubset.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void __fastcall PpmEventParkNodeParkHintChanged(_WORD *a1, _WORD *a2)
@@ -24,21 +24,11 @@ void __fastcall PpmEventParkNodeParkHintChanged(_WORD *a1, _WORD *a2)
   UserDataCount = 0;
   if ( PpmEventPerfCheckData && PpmEtwRegistered )
   {
-    if ( EtwEventEnabled(
-           (REGHANDLE)PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink,
-           &PPM_ETW_PARK_NODE_PARK_HINT_CHANGE) )
+    if ( EtwEventEnabled(PpmEtwHandle, &PPM_ETW_PARK_NODE_PARK_HINT_CHANGE) )
     {
       PpmEventAddAffinityMaskAsSubset(0LL, a1, (__int64)v8, (__int64)v9, (__int64)UserData, &v7, &v6, &UserDataCount);
       PpmEventAddAffinityMaskAsSubset(a1, a2, (__int64)v8, (__int64)v9, (__int64)UserData, &v7, &v6, &UserDataCount);
-      EtwWriteEx(
-        (REGHANDLE)PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink,
-        &PPM_ETW_PARK_NODE_PARK_HINT_CHANGE,
-        0LL,
-        0,
-        0LL,
-        0LL,
-        UserDataCount,
-        UserData);
+      EtwWriteEx(PpmEtwHandle, &PPM_ETW_PARK_NODE_PARK_HINT_CHANGE, 0LL, 0, 0LL, 0LL, UserDataCount, UserData);
     }
   }
 }

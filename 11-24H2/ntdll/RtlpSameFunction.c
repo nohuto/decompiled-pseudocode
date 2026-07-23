@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpSameFunction @ 0x1800ED7FC
+ * XREFs of RtlpSameFunction @ 0x1800E8AEC
  * Callers:
- *     RtlpxVirtualUnwind @ 0x180016C30 (RtlpxVirtualUnwind.c)
+ *     RtlpxVirtualUnwind @ 0x180043630 (RtlpxVirtualUnwind.c)
  * Callees:
- *     RtlLookupFunctionEntry @ 0x180015110 (RtlLookupFunctionEntry.c)
- *     RtlpLookupPrimaryFunctionEntry @ 0x1800ED864 (RtlpLookupPrimaryFunctionEntry.c)
+ *     RtlLookupFunctionEntry @ 0x180041B10 (RtlLookupFunctionEntry.c)
+ *     RtlpLookupPrimaryFunctionEntry @ 0x1800E8B54 (RtlpLookupPrimaryFunctionEntry.c)
  */
 
 PRUNTIME_FUNCTION __fastcall RtlpSameFunction(__int64 a1, __int64 a2, ULONG64 a3)

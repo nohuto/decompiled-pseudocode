@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpLfhBucketUsageUpdate @ 0x140323B54
+ * XREFs of RtlpLfhBucketUsageUpdate @ 0x140323DE4
  * Callers:
- *     RtlpHpLfhBucketUpdateStats @ 0x140323AC0 (RtlpHpLfhBucketUpdateStats.c)
+ *     RtlpHpLfhBucketUpdateStats @ 0x140323D50 (RtlpHpLfhBucketUpdateStats.c)
  * Callees:
  *     <none>
  */

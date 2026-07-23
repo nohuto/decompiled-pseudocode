@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpValueEnumStackEntryCleanup @ 0x1404CD7D4
+ * XREFs of CmpValueEnumStackEntryCleanup @ 0x1404C7204
  * Callers:
- *     CmpValueEnumStackCleanup @ 0x140981258 (CmpValueEnumStackCleanup.c)
+ *     CmpValueEnumStackCleanup @ 0x140943268 (CmpValueEnumStackCleanup.c)
  * Callees:
- *     HvpReleaseCellFlat @ 0x1408D51E0 (HvpReleaseCellFlat.c)
- *     HvpReleaseCellPaged @ 0x1408D73B0 (HvpReleaseCellPaged.c)
+ *     HvpReleaseCellFlat @ 0x1408DB7A0 (HvpReleaseCellFlat.c)
+ *     HvpReleaseCellPaged @ 0x1408DD970 (HvpReleaseCellPaged.c)
  */
 
 __int64 __fastcall CmpValueEnumStackEntryCleanup(__int64 *a1)

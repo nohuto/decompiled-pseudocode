@@ -1,19 +1,19 @@
 /*
- * XREFs of _CmDeleteDeviceInterfaceRegKeyWorker @ 0x140896A38
+ * XREFs of _CmDeleteDeviceInterfaceRegKeyWorker @ 0x14089CE38
  * Callers:
- *     _CmDeleteDeviceInterfaceRegKey @ 0x140B5EC1C (_CmDeleteDeviceInterfaceRegKey.c)
+ *     _CmDeleteDeviceInterfaceRegKey @ 0x140B61D9C (_CmDeleteDeviceInterfaceRegKey.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x14045D040 (RtlInitUnicodeStringEx.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     _PnpCtxGetCachedContextBaseKey @ 0x140996AB8 (_PnpCtxGetCachedContextBaseKey.c)
- *     _CmOpenDeviceInterfaceRegKey @ 0x14099EF5C (_CmOpenDeviceInterfaceRegKey.c)
- *     _CmGetDeviceInterfaceRegKeyPath @ 0x1409A0C40 (_CmGetDeviceInterfaceRegKeyPath.c)
- *     RtlPrefixUnicodeString @ 0x140A29BF0 (RtlPrefixUnicodeString.c)
- *     _PnpCtxRegOpenCurrentUserKey @ 0x140A2AEB0 (_PnpCtxRegOpenCurrentUserKey.c)
- *     _PnpCtxRegDeleteKey @ 0x140A2D8BC (_PnpCtxRegDeleteKey.c)
- *     _PnpCtxRegDeleteTree @ 0x140A2D8F8 (_PnpCtxRegDeleteTree.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeStringEx @ 0x140456BE0 (RtlInitUnicodeStringEx.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     _PnpCtxGetCachedContextBaseKey @ 0x140957518 (_PnpCtxGetCachedContextBaseKey.c)
+ *     _CmOpenDeviceInterfaceRegKey @ 0x14095F9BC (_CmOpenDeviceInterfaceRegKey.c)
+ *     _CmGetDeviceInterfaceRegKeyPath @ 0x1409616A0 (_CmGetDeviceInterfaceRegKeyPath.c)
+ *     RtlPrefixUnicodeString @ 0x140A3CC90 (RtlPrefixUnicodeString.c)
+ *     _PnpCtxRegOpenCurrentUserKey @ 0x140A3DF40 (_PnpCtxRegOpenCurrentUserKey.c)
+ *     _PnpCtxRegDeleteKey @ 0x140A3F2C8 (_PnpCtxRegDeleteKey.c)
+ *     _PnpCtxRegDeleteTree @ 0x140A3F304 (_PnpCtxRegDeleteTree.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall CmDeleteDeviceInterfaceRegKeyWorker(

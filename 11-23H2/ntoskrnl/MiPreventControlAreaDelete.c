@@ -1,10 +1,10 @@
 /*
- * XREFs of MiPreventControlAreaDelete @ 0x140624DBC
+ * XREFs of MiPreventControlAreaDelete @ 0x14062530C
  * Callers:
- *     MiDeleteCachedSubsection @ 0x140623B48 (MiDeleteCachedSubsection.c)
- *     MiFlushControlArea @ 0x140624534 (MiFlushControlArea.c)
+ *     MiDeleteCachedSubsection @ 0x140624098 (MiDeleteCachedSubsection.c)
+ *     MiFlushControlArea @ 0x140624A84 (MiFlushControlArea.c)
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x1402B68C0 (ObfReferenceObjectWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x1402B6B50 (ObfReferenceObjectWithTag.c)
  */
 
 unsigned __int64 __fastcall MiPreventControlAreaDelete(__int64 a1)

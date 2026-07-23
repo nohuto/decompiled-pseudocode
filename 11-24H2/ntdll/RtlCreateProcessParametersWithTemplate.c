@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlCreateProcessParametersWithTemplate @ 0x1800E6900
+ * XREFs of RtlCreateProcessParametersWithTemplate @ 0x1800E1DB0
  * Callers:
  *     <none>
  * Callees:
- *     RtlCreateProcessParametersInternal @ 0x1800E6A30 (RtlCreateProcessParametersInternal.c)
+ *     RtlCreateProcessParametersInternal @ 0x1800E1EE0 (RtlCreateProcessParametersInternal.c)
  */
 
 __int64 __fastcall RtlCreateProcessParametersWithTemplate(int a1, __int64 a2, int a3)

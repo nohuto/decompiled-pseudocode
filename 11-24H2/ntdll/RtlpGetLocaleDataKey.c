@@ -1,41 +1,36 @@
 /*
- * XREFs of RtlpGetLocaleDataKey @ 0x1800D313C
+ * XREFs of RtlpGetLocaleDataKey @ 0x18009A4D4
  * Callers:
- *     RtlpGetUserLocaleName @ 0x1800D2DDC (RtlpGetUserLocaleName.c)
+ *     RtlpGetUserLocaleName @ 0x180099D30 (RtlpGetUserLocaleName.c)
  * Callees:
- *     OpenGlobalizationUserSettingsKey @ 0x180034720 (OpenGlobalizationUserSettingsKey.c)
- *     NtClose @ 0x180161E70 (NtClose.c)
- *     NtOpenKey @ 0x180161ED0 (NtOpenKey.c)
+ *     OpenGlobalizationUserSettingsKey @ 0x1800149A0 (OpenGlobalizationUserSettingsKey.c)
+ *     NtClose @ 0x180160230 (NtClose.c)
+ *     NtOpenKey @ 0x180160290 (NtOpenKey.c)
  */
 
 __int64 __fastcall RtlpGetLocaleDataKey(__int64 a1, __int64 a2)
 {
-  _DWORD v3[2]; // [rsp+20h] [rbp-30h] BYREF
-  HANDLE v4; // [rsp+28h] [rbp-28h]
-  const wchar_t *v5; // [rsp+30h] [rbp-20h]
-  int v6; // [rsp+38h] [rbp-18h]
-  int v7; // [rsp+3Ch] [rbp-14h]
-  __int128 v8; // [rsp+40h] [rbp-10h]
-  HANDLE Handle; // [rsp+60h] [rbp+10h] BYREF
-  HANDLE v10; // [rsp+68h] [rbp+18h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+20h] [rbp-30h] BYREF
+  HANDLE KeyHandle; // [rsp+60h] [rbp+10h] BYREF
+  HANDLE Handle; // [rsp+68h] [rbp+18h] BYREF
 
-  v7 = 0;
+  *(&ObjectAttributes.Attributes + 1) = 0;
+  KeyHandle = 0LL;
   Handle = 0LL;
-  v10 = 0LL;
-  v3[1] = 0;
-  if ( !gLocaleDataRegKey && (int)OpenGlobalizationUserSettingsKey(0x20019u, a2, (__int64)&v10) >= 0 )
+  *(&ObjectAttributes.Length + 1) = 0;
+  if ( !gLocaleDataRegKey && OpenGlobalizationUserSettingsKey(131097LL, a2, &Handle) >= 0 )
   {
-    v4 = v10;
-    v3[0] = 48;
-    v5 = L"68";
-    v6 = 64;
-    v8 = 0LL;
-    if ( (int)NtOpenKey(&Handle, 0x80000000LL, v3) >= 0
-      && _InterlockedCompareExchange64(&gLocaleDataRegKey, (signed __int64)Handle, 0LL) )
+    ObjectAttributes.RootDirectory = Handle;
+    ObjectAttributes.Length = 48;
+    ObjectAttributes.ObjectName = (PUNICODE_STRING)L"68";
+    ObjectAttributes.Attributes = 64;
+    *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+    if ( NtOpenKey(&KeyHandle, 0x80000000, &ObjectAttributes) >= 0
+      && _InterlockedCompareExchange64(&gLocaleDataRegKey, (signed __int64)KeyHandle, 0LL) )
     {
-      NtClose(Handle);
+      NtClose(KeyHandle);
     }
-    NtClose(v10);
+    NtClose(Handle);
   }
   return gLocaleDataRegKey;
 }

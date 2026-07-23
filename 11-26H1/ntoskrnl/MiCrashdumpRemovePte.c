@@ -1,11 +1,11 @@
 /*
- * XREFs of MiCrashdumpRemovePte @ 0x1406F63A0
+ * XREFs of MiCrashdumpRemovePte @ 0x1406FB010
  * Callers:
  *     <none>
  * Callees:
- *     MiGetSystemRegionType @ 0x140264F40 (MiGetSystemRegionType.c)
- *     MiGetLeafVa @ 0x140326060 (MiGetLeafVa.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     MiGetSystemRegionType @ 0x1402644B0 (MiGetSystemRegionType.c)
+ *     MiGetLeafVa @ 0x140328090 (MiGetLeafVa.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall MiCrashdumpRemovePte(__int64 a1, unsigned __int64 *a2, int a3)

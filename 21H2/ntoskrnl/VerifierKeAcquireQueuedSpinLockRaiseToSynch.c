@@ -1,11 +1,11 @@
 /*
- * XREFs of VerifierKeAcquireQueuedSpinLockRaiseToSynch @ 0x1409DA920
+ * XREFs of VerifierKeAcquireQueuedSpinLockRaiseToSynch @ 0x1409DB920
  * Callers:
  *     <none>
  * Callees:
- *     KeAcquireQueuedSpinLockRaiseToSynch @ 0x140516130 (KeAcquireQueuedSpinLockRaiseToSynch.c)
- *     ViTargetIncrementCounter @ 0x1409D750C (ViTargetIncrementCounter.c)
- *     ViKeRaiseIrqlSanityChecks @ 0x1409DC27C (ViKeRaiseIrqlSanityChecks.c)
+ *     KeAcquireQueuedSpinLockRaiseToSynch @ 0x140516370 (KeAcquireQueuedSpinLockRaiseToSynch.c)
+ *     ViTargetIncrementCounter @ 0x1409D850C (ViTargetIncrementCounter.c)
+ *     ViKeRaiseIrqlSanityChecks @ 0x1409DD27C (ViKeRaiseIrqlSanityChecks.c)
  */
 
 unsigned __int8 __fastcall VerifierKeAcquireQueuedSpinLockRaiseToSynch(__int64 a1)
@@ -15,7 +15,7 @@ unsigned __int8 __fastcall VerifierKeAcquireQueuedSpinLockRaiseToSynch(__int64 a
   unsigned __int8 result; // al
   __int64 retaddr; // [rsp+28h] [rbp+0h]
 
-  ++dword_140C2A868;
+  ++dword_140C2A8A8;
   v2 = retaddr;
   if ( (MmVerifierData & 0x1000) != 0 )
     ViTargetIncrementCounter(retaddr, 156LL);

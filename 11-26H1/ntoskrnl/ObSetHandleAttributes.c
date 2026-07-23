@@ -1,18 +1,18 @@
 /*
- * XREFs of ObSetHandleAttributes @ 0x140970980
+ * XREFs of ObSetHandleAttributes @ 0x1409BAAF0
  * Callers:
- *     NtSetInformationObject @ 0x140970880 (NtSetInformationObject.c)
+ *     NtSetInformationObject @ 0x1409BA9F0 (NtSetInformationObject.c)
  * Callees:
- *     KiUnstackDetachProcess @ 0x1402307C0 (KiUnstackDetachProcess.c)
- *     KiStackAttachProcess @ 0x140247880 (KiStackAttachProcess.c)
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402BA1B0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExGetHandlePointer @ 0x140457590 (ExGetHandlePointer.c)
- *     ExfUnblockPushLock @ 0x1404CE970 (ExfUnblockPushLock.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ExpBlockOnLockedHandleEntry @ 0x1408FAEC4 (ExpBlockOnLockedHandleEntry.c)
- *     ExpLookupHandleTableEntry @ 0x1408FAF00 (ExpLookupHandleTableEntry.c)
- *     ObReferenceProcessHandleTable @ 0x1409717D0 (ObReferenceProcessHandleTable.c)
+ *     KiUnstackDetachProcess @ 0x140232120 (KiUnstackDetachProcess.c)
+ *     KiStackAttachProcess @ 0x1402491E0 (KiStackAttachProcess.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140304E70 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExGetHandlePointer @ 0x14044EE00 (ExGetHandlePointer.c)
+ *     ExfUnblockPushLock @ 0x1404C83A0 (ExfUnblockPushLock.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ExpBlockOnLockedHandleEntry @ 0x14092AE54 (ExpBlockOnLockedHandleEntry.c)
+ *     ExpLookupHandleTableEntry @ 0x14092AE90 (ExpLookupHandleTableEntry.c)
+ *     ObReferenceProcessHandleTable @ 0x1409BB940 (ObReferenceProcessHandleTable.c)
  */
 
 __int64 __fastcall ObSetHandleAttributes(unsigned __int64 a1, unsigned __int64 a2, char a3)

@@ -1,10 +1,10 @@
 /*
- * XREFs of MiAddFileOnlyPfns @ 0x14065A2DC
+ * XREFs of MiAddFileOnlyPfns @ 0x14065A3C0
  * Callers:
- *     MiAllocateFileExtents @ 0x14065A34C (MiAllocateFileExtents.c)
+ *     MiAllocateFileExtents @ 0x14065A430 (MiAllocateFileExtents.c)
  * Callees:
- *     MiAddPhysicalMemory @ 0x1406575DC (MiAddPhysicalMemory.c)
- *     MiRemovePhysicalMemory @ 0x1406581C0 (MiRemovePhysicalMemory.c)
+ *     MiAddPhysicalMemory @ 0x1406576C0 (MiAddPhysicalMemory.c)
+ *     MiRemovePhysicalMemory @ 0x1406582A4 (MiRemovePhysicalMemory.c)
  */
 
 __int64 __fastcall MiAddFileOnlyPfns(__int64 a1, __int64 a2)

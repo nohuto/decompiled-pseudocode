@@ -1,17 +1,17 @@
 /*
- * XREFs of PpmInstallNewIdleStates @ 0x14039F5E0
+ * XREFs of PpmInstallNewIdleStates @ 0x14039F7C0
  * Callers:
- *     PpmIdleInstallDefaultStates @ 0x14039F5C0 (PpmIdleInstallDefaultStates.c)
+ *     PpmIdleInstallDefaultStates @ 0x14039F7A0 (PpmIdleInstallDefaultStates.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KxAcquireSpinLock @ 0x1402515B0 (KxAcquireSpinLock.c)
- *     KeAddProcessorAffinityEx @ 0x1402573A0 (KeAddProcessorAffinityEx.c)
- *     PpmDeepestHardwareIdleState @ 0x14039FB18 (PpmDeepestHardwareIdleState.c)
- *     PpmResetIdlePolicy @ 0x14039FB58 (PpmResetIdlePolicy.c)
- *     PpmUpdateProcessorIdleAccounting @ 0x14039FCE4 (PpmUpdateProcessorIdleAccounting.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x140251670 (KxAcquireSpinLock.c)
+ *     KeAddProcessorAffinityEx @ 0x140257460 (KeAddProcessorAffinityEx.c)
+ *     PpmDeepestHardwareIdleState @ 0x14039FCF8 (PpmDeepestHardwareIdleState.c)
+ *     PpmResetIdlePolicy @ 0x14039FD38 (PpmResetIdlePolicy.c)
+ *     PpmUpdateProcessorIdleAccounting @ 0x14039FEC4 (PpmUpdateProcessorIdleAccounting.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140435E00 (memset.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
@@ -228,8 +228,7 @@ __int64 __fastcall PpmInstallNewIdleStates(__int64 a1, __int64 a2, int a3)
         else
         {
           v31 = a1;
-          *(_QWORD *)(v26 + 24) = (unsigned int)KeMaximumIncrement
-                                * (unsigned __int64)*(unsigned int *)(*(_QWORD *)(a1 + 24) + 652LL);
+          *(_QWORD *)(v26 + 24) = KeMaximumIncrement * (unsigned __int64)*(unsigned int *)(*(_QWORD *)(a1 + 24) + 652LL);
         }
         PpmResetIdlePolicy(v45);
         if ( v30 )

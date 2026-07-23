@@ -1,21 +1,21 @@
 /*
- * XREFs of PiAuCheckTokenMembership @ 0x140727EE8
+ * XREFs of PiAuCheckTokenMembership @ 0x140725A78
  * Callers:
- *     PiAuCheckClientInteractive @ 0x140727E24 (PiAuCheckClientInteractive.c)
+ *     PiAuCheckClientInteractive @ 0x1407259B4 (PiAuCheckClientInteractive.c)
  * Callees:
- *     SeAccessCheck @ 0x14035A5B0 (SeAccessCheck.c)
- *     RtlLengthSid @ 0x140456300 (RtlLengthSid.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     SeReleaseSubjectContext @ 0x14084D7E0 (SeReleaseSubjectContext.c)
- *     SeCaptureSubjectContext @ 0x14084D8F0 (SeCaptureSubjectContext.c)
- *     RtlCreateAcl @ 0x14085CAA0 (RtlCreateAcl.c)
- *     RtlSetOwnerSecurityDescriptor @ 0x14085CB30 (RtlSetOwnerSecurityDescriptor.c)
- *     RtlpAddKnownAce @ 0x14091DA10 (RtlpAddKnownAce.c)
- *     RtlSetDaclSecurityDescriptor @ 0x1409E56A0 (RtlSetDaclSecurityDescriptor.c)
- *     RtlCreateSecurityDescriptor @ 0x1409E6710 (RtlCreateSecurityDescriptor.c)
- *     RtlSetGroupSecurityDescriptor @ 0x140A23FB0 (RtlSetGroupSecurityDescriptor.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     SeAccessCheck @ 0x1403B6900 (SeAccessCheck.c)
+ *     RtlLengthSid @ 0x14044B2D0 (RtlLengthSid.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     SeReleaseSubjectContext @ 0x140849AA0 (SeReleaseSubjectContext.c)
+ *     SeCaptureSubjectContext @ 0x140849BB0 (SeCaptureSubjectContext.c)
+ *     RtlCreateAcl @ 0x140858810 (RtlCreateAcl.c)
+ *     RtlSetOwnerSecurityDescriptor @ 0x1408588A0 (RtlSetOwnerSecurityDescriptor.c)
+ *     RtlpAddKnownAce @ 0x140911480 (RtlpAddKnownAce.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x1409DFF30 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateSecurityDescriptor @ 0x1409E16D0 (RtlCreateSecurityDescriptor.c)
+ *     RtlSetGroupSecurityDescriptor @ 0x140A18380 (RtlSetGroupSecurityDescriptor.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiAuCheckTokenMembership(void *Src, BOOLEAN *a2)
@@ -39,7 +39,7 @@ __int64 __fastcall PiAuCheckTokenMembership(void *Src, BOOLEAN *a2)
   GenericMapping.GenericAll = 2031617;
   *a2 = 0;
   v4 = 3 * (RtlLengthSid(Src) + 20);
-  Pool2 = (ACL *)ExAllocatePool2(0x100uLL);
+  Pool2 = (ACL *)ExAllocatePool2(0x100uLL, v4, 0x20207050u);
   v6 = Pool2;
   if ( Pool2 )
   {

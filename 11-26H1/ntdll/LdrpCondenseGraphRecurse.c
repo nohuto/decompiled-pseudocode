@@ -1,14 +1,14 @@
 /*
- * XREFs of LdrpCondenseGraphRecurse @ 0x1801191F0
+ * XREFs of LdrpCondenseGraphRecurse @ 0x180118FA0
  * Callers:
- *     LdrpCondenseGraph @ 0x1801191B4 (LdrpCondenseGraph.c)
- *     LdrpCondenseGraphRecurse @ 0x1801191F0 (LdrpCondenseGraphRecurse.c)
+ *     LdrpCondenseGraph @ 0x180118F64 (LdrpCondenseGraph.c)
+ *     LdrpCondenseGraphRecurse @ 0x180118FA0 (LdrpCondenseGraphRecurse.c)
  * Callees:
- *     RtlpAcquireSRWLockExclusiveContended @ 0x18002B280 (RtlpAcquireSRWLockExclusiveContended.c)
- *     RtlReleaseSRWLockExclusive @ 0x18003FAA0 (RtlReleaseSRWLockExclusive.c)
- *     RtlFreeHeap_0 @ 0x18003FD10 (RtlFreeHeap_0.c)
- *     LdrpCondenseGraphRecurse @ 0x1801191F0 (LdrpCondenseGraphRecurse.c)
- *     LdrpMergeNodes @ 0x1801194CC (LdrpMergeNodes.c)
+ *     RtlpAcquireSRWLockExclusiveContended @ 0x180016380 (RtlpAcquireSRWLockExclusiveContended.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18002A010 (RtlReleaseSRWLockExclusive.c)
+ *     RtlFreeHeap_0 @ 0x18002A280 (RtlFreeHeap_0.c)
+ *     LdrpCondenseGraphRecurse @ 0x180118FA0 (LdrpCondenseGraphRecurse.c)
+ *     LdrpMergeNodes @ 0x18011927C (LdrpMergeNodes.c)
  */
 
 __int64 __fastcall LdrpCondenseGraphRecurse(__int64 a1, int *a2, _QWORD *a3)
@@ -30,8 +30,9 @@ __int64 __fastcall LdrpCondenseGraphRecurse(__int64 a1, int *a2, _QWORD *a3)
   _QWORD *v20; // rcx
   _QWORD *v22; // rbx
   _QWORD *v23; // r8
-  _QWORD *v24; // rdi
-  _QWORD *v25; // [rsp+50h] [rbp+8h] BYREF
+  _QWORD *v24; // rbp
+  _QWORD *v25; // rdi
+  _QWORD *v26; // [rsp+50h] [rbp+8h] BYREF
 
   ++*a2;
   v3 = (_QWORD *)(a1 + 64);
@@ -102,7 +103,7 @@ LABEL_11:
         v13 = v16;
       }
       while ( v3 != v12 );
-      v25 = v14;
+      v26 = v14;
       if ( v15 )
       {
         SchedulerSharedDataSlot = NtCurrentTeb()->SchedulerSharedDataSlot;
@@ -123,25 +124,28 @@ LABEL_11:
         }
 LABEL_26:
         if ( _interlockedbittestandset64((volatile signed __int32 *)&LdrpModuleDatatableLock, 0LL) )
-          RtlpAcquireSRWLockExclusiveContended(&LdrpModuleDatatableLock, (__int64)SchedulerSharedDataSlot);
-        LdrpMergeNodes(a1, &v25);
+          RtlpAcquireSRWLockExclusiveContended(
+            (volatile signed __int64 *)&LdrpModuleDatatableLock,
+            (unsigned __int64)SchedulerSharedDataSlot);
+        LdrpMergeNodes(a1, &v26);
         RtlReleaseSRWLockExclusive(&LdrpModuleDatatableLock);
-        v22 = v25;
+        v22 = v26;
         while ( v22 )
         {
           v23 = (_QWORD *)*(v22 - 6);
+          v24 = v22;
           v22 = (_QWORD *)*v22;
           if ( v23 )
           {
             do
             {
-              v24 = (_QWORD *)*v23;
-              RtlFreeHeap_0();
-              v23 = v24;
+              v25 = (_QWORD *)*v23;
+              RtlFreeHeap_0(LdrpHeap, 0, v23);
+              v23 = v25;
             }
-            while ( v24 );
+            while ( v25 );
           }
-          RtlFreeHeap_0();
+          RtlFreeHeap_0(LdrpHeap, 0, v24 - 8);
         }
       }
     }

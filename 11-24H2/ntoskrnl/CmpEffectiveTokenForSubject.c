@@ -1,8 +1,8 @@
 /*
- * XREFs of CmpEffectiveTokenForSubject @ 0x1409B0CB0
+ * XREFs of CmpEffectiveTokenForSubject @ 0x14099A770
  * Callers:
- *     CmpExamineSaclForAuditEvent @ 0x1407DCEC0 (CmpExamineSaclForAuditEvent.c)
- *     CmpReportAuditVirtualizationEvent @ 0x1407DD868 (CmpReportAuditVirtualizationEvent.c)
+ *     CmpExamineSaclForAuditEvent @ 0x1407DD410 (CmpExamineSaclForAuditEvent.c)
+ *     CmpReportAuditVirtualizationEvent @ 0x1407DDDB8 (CmpReportAuditVirtualizationEvent.c)
  * Callees:
  *     <none>
  */

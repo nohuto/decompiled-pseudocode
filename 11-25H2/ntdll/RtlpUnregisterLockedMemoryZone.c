@@ -8,10 +8,10 @@
  *     RtlUnlockModuleSection @ 0x1800F02C0 (RtlUnlockModuleSection.c)
  */
 
-__int64 RtlpUnregisterLockedMemoryZone()
+void RtlpUnregisterLockedMemoryZone()
 {
-  RtlAcquireSRWLockExclusive((volatile signed __int32 *)&RtlpMemoryZoneLock);
+  RtlAcquireSRWLockExclusive(&RtlpMemoryZoneLock);
   if ( !--RtlpLockedMemoryZoneCount )
-    RtlUnlockModuleSection((__int64)RtlAllocateMemoryZone);
-  return RtlReleaseSRWLockExclusive(&RtlpMemoryZoneLock);
+    RtlUnlockModuleSection(RtlAllocateMemoryZone);
+  RtlReleaseSRWLockExclusive(&RtlpMemoryZoneLock);
 }

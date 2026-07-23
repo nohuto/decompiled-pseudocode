@@ -1,19 +1,19 @@
 /*
- * XREFs of MiInitializeTransitionPfn @ 0x140023124
+ * XREFs of MiInitializeTransitionPfn @ 0x140022CA4
  * Callers:
- *     MiCopyDataPageToImagePage @ 0x140023A40 (MiCopyDataPageToImagePage.c)
- *     MiSectionCreated @ 0x1400FD2C8 (MiSectionCreated.c)
- *     MiInitializeImageProtos @ 0x1400FD83C (MiInitializeImageProtos.c)
+ *     MiCopyDataPageToImagePage @ 0x1400235C0 (MiCopyDataPageToImagePage.c)
+ *     MiSectionCreated @ 0x1400FB048 (MiSectionCreated.c)
+ *     MiInitializeImageProtos @ 0x1400FB5BC (MiInitializeImageProtos.c)
  * Callees:
- *     MiFinalizePageAttribute @ 0x14002375C (MiFinalizePageAttribute.c)
- *     MiLockNestedPageAtDpcInline @ 0x14009E2E0 (MiLockNestedPageAtDpcInline.c)
- *     MiProtectionToCacheAttribute @ 0x1400E74EC (MiProtectionToCacheAttribute.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
- *     MI_GET_PROTECTION_FROM_SOFT_PROTOTYPE_PTE @ 0x1401F25B8 (MI_GET_PROTECTION_FROM_SOFT_PROTOTYPE_PTE.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiGetContainingPageTable @ 0x1401F25F0 (MiGetContainingPageTable.c)
- *     MiMakeTransitionPte @ 0x1401F279C (MiMakeTransitionPte.c)
+ *     MiFinalizePageAttribute @ 0x1400232DC (MiFinalizePageAttribute.c)
+ *     MiLockNestedPageAtDpcInline @ 0x14009DAE0 (MiLockNestedPageAtDpcInline.c)
+ *     MiProtectionToCacheAttribute @ 0x1400E538C (MiProtectionToCacheAttribute.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
+ *     MI_GET_PROTECTION_FROM_SOFT_PROTOTYPE_PTE @ 0x1401F23E4 (MI_GET_PROTECTION_FROM_SOFT_PROTOTYPE_PTE.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
+ *     MiGetContainingPageTable @ 0x1401F241C (MiGetContainingPageTable.c)
+ *     MiMakeTransitionPte @ 0x1401F25C8 (MiMakeTransitionPte.c)
  */
 
 __int64 __fastcall MiInitializeTransitionPfn(__int64 a1, __int64 *a2)

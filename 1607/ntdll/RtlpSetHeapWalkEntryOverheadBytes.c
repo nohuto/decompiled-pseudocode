@@ -2,8 +2,8 @@
  * XREFs of RtlpSetHeapWalkEntryOverheadBytes @ 0x1800010E0
  * Callers:
  *     RtlpWalkLowFragHeapSegment @ 0x180001070 (RtlpWalkLowFragHeapSegment.c)
- *     RtlpWalkHeap @ 0x18004D484 (RtlpWalkHeap.c)
- *     RtlpWalkLFHBlock @ 0x18004DBD8 (RtlpWalkLFHBlock.c)
+ *     RtlpWalkHeap @ 0x18004D474 (RtlpWalkHeap.c)
+ *     RtlpWalkLFHBlock @ 0x18004DBC8 (RtlpWalkLFHBlock.c)
  * Callees:
  *     <none>
  */

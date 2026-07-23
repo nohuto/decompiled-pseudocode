@@ -1,10 +1,10 @@
 /*
- * XREFs of MiLockNestedPageAtDpcInline @ 0x140431E80
+ * XREFs of MiLockNestedPageAtDpcInline @ 0x14041EEB0
  * Callers:
  *     <none>
  * Callees:
- *     HvlNotifyLongSpinWait @ 0x1402BBF00 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402BC760 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     HvlNotifyLongSpinWait @ 0x140306BC0 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140307420 (KiCheckVpBackingLongSpinWaitHypercall.c)
  */
 
 void __fastcall MiLockNestedPageAtDpcInline(__int64 a1)

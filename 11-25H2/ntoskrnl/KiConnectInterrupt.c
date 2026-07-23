@@ -29,8 +29,8 @@ __int64 __fastcall KiConnectInterrupt(__int64 a1)
   __int64 (__fastcall *v16)(int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, __int16); // rax
   __int64 v17; // r11
   __int64 v18; // r10
-  struct _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-58h] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+30h] [rbp-48h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-58h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+30h] [rbp-48h] BYREF
 
   v1 = *(unsigned int *)(a1 + 88);
   v2 = 0;

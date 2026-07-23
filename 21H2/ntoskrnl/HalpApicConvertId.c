@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpApicConvertId @ 0x1404DCCE0
+ * XREFs of HalpApicConvertId @ 0x1404DCF20
  * Callers:
- *     HalpApicConvertToRte @ 0x14037D378 (HalpApicConvertToRte.c)
+ *     HalpApicConvertToRte @ 0x14037CEC8 (HalpApicConvertToRte.c)
  * Callees:
  *     <none>
  */

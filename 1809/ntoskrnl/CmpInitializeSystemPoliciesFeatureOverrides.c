@@ -1,16 +1,16 @@
 /*
- * XREFs of CmpInitializeSystemPoliciesFeatureOverrides @ 0x1409AABC0
+ * XREFs of CmpInitializeSystemPoliciesFeatureOverrides @ 0x1409ABBC0
  * Callers:
- *     CmpGetSystemControlValues @ 0x1409CE008 (CmpGetSystemControlValues.c)
+ *     CmpGetSystemControlValues @ 0x1409CF008 (CmpGetSystemControlValues.c)
  * Callees:
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     reg_FeatureDescriptors_SkipPadding @ 0x1401B2F14 (reg_FeatureDescriptors_SkipPadding.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     RtlIntegerToUnicodeString @ 0x1405A8E00 (RtlIntegerToUnicodeString.c)
- *     CmpWalkPath @ 0x14073D690 (CmpWalkPath.c)
- *     CmpFindValueByName @ 0x14073D858 (CmpFindValueByName.c)
- *     CmpValueToData @ 0x14073D888 (CmpValueToData.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     reg_FeatureDescriptors_SkipPadding @ 0x1401B3054 (reg_FeatureDescriptors_SkipPadding.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     RtlIntegerToUnicodeString @ 0x1405A9E00 (RtlIntegerToUnicodeString.c)
+ *     CmpWalkPath @ 0x14073E880 (CmpWalkPath.c)
+ *     CmpFindValueByName @ 0x14073EA48 (CmpFindValueByName.c)
+ *     CmpValueToData @ 0x14073EA78 (CmpValueToData.c)
  */
 
 _QWORD *__fastcall CmpInitializeSystemPoliciesFeatureOverrides(__int64 a1, unsigned int a2)
@@ -42,8 +42,8 @@ _QWORD *__fastcall CmpInitializeSystemPoliciesFeatureOverrides(__int64 a1, unsig
   v2 = 0LL;
   v3 = CmpWalkPath((__int64)&CmControlHive, a2, L"Policies\\Microsoft\\FeatureManagement\\Overrides");
   if ( v3 != -1 )
-    v2 = ((__int64 (__fastcall *)(ULONG_PTR *, _QWORD, _DWORD *))qword_140A0DFB8)(&CmControlHive, v3, v15);
-  for ( i = &reg_FeatureDescriptors_a; ; i = v11 + 5 )
+    v2 = ((__int64 (__fastcall *)(ULONG_PTR *, _QWORD, _DWORD *))qword_140A0EFB8)(&CmControlHive, v3, v15);
+  for ( i = &g_Feature_1627116858_61432006_FeatureDescriptorDetails; ; i = v11 + 5 )
   {
     result = reg_FeatureDescriptors_SkipPadding(i);
     v11 = result;
@@ -63,7 +63,7 @@ _QWORD *__fastcall CmpInitializeSystemPoliciesFeatureOverrides(__int64 a1, unsig
       ValueByName = CmpFindValueByName((int)&CmControlHive, v2, (int)&String);
       if ( ValueByName != -1 )
       {
-        v6 = ((__int64 (__fastcall *)(ULONG_PTR *, _QWORD, _DWORD *))qword_140A0DFB8)(&CmControlHive, ValueByName, v14);
+        v6 = ((__int64 (__fastcall *)(ULONG_PTR *, _QWORD, _DWORD *))qword_140A0EFB8)(&CmControlHive, ValueByName, v14);
         if ( v6 )
         {
           if ( *(_DWORD *)(v6 + 12) == 4 )
@@ -80,15 +80,15 @@ _QWORD *__fastcall CmpInitializeSystemPoliciesFeatureOverrides(__int64 a1, unsig
                 else
                   *v9 = 2;
               }
-              ((void (__fastcall *)(ULONG_PTR *, __int64 *))qword_140A0DFC0)(&CmControlHive, &v13);
+              ((void (__fastcall *)(ULONG_PTR *, __int64 *))qword_140A0EFC0)(&CmControlHive, &v13);
             }
           }
-          ((void (__fastcall *)(ULONG_PTR *, _DWORD *))qword_140A0DFC0)(&CmControlHive, v14);
+          ((void (__fastcall *)(ULONG_PTR *, _DWORD *))qword_140A0EFC0)(&CmControlHive, v14);
         }
       }
     }
   }
   if ( v2 )
-    return (_QWORD *)((__int64 (__fastcall *)(ULONG_PTR *, _DWORD *))qword_140A0DFC0)(&CmControlHive, v15);
+    return (_QWORD *)((__int64 (__fastcall *)(ULONG_PTR *, _DWORD *))qword_140A0EFC0)(&CmControlHive, v15);
   return result;
 }

@@ -63,13 +63,13 @@
  *     KiLowerIrqlProcessIrqlFlags @ 0x1404F1088 (KiLowerIrqlProcessIrqlFlags.c)
  */
 
-__int64 __fastcall KeSetTimer2(__int64 a1, __int64 SystemTimePrecise, __int64 a3, __int64 a4)
+__int64 __fastcall KeSetTimer2(__int64 a1, LARGE_INTEGER SystemTimePrecise, __int64 a3, __int64 a4)
 {
   __int64 v5; // r12
-  __int64 v6; // rsi
+  __int64 QuadPart; // rsi
   char v8; // r13
   unsigned __int8 CurrentIrql; // bp
-  unsigned __int64 InterruptTimePrecise; // rax
+  LARGE_INTEGER InterruptTimePrecise; // rax
   unsigned __int64 v11; // rbx
   __int64 v12; // r14
   __int64 v13; // rax
@@ -87,10 +87,10 @@ __int64 __fastcall KeSetTimer2(__int64 a1, __int64 SystemTimePrecise, __int64 a3
   __int64 retaddr; // [rsp+58h] [rbp+0h]
   char v27; // [rsp+60h] [rbp+8h] BYREF
   char v28; // [rsp+68h] [rbp+10h] BYREF
-  unsigned __int64 v29; // [rsp+70h] [rbp+18h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+70h] [rbp+18h] BYREF
 
   v5 = a3;
-  v6 = SystemTimePrecise;
+  QuadPart = SystemTimePrecise.QuadPart;
   if ( a3 && a3 < (unsigned int)KeMinimumIncrement )
     v5 = (unsigned int)KeMinimumIncrement;
   v8 = *(_BYTE *)(a1 + 129);
@@ -99,24 +99,24 @@ __int64 __fastcall KeSetTimer2(__int64 a1, __int64 SystemTimePrecise, __int64 a3
   if ( KiIrqlFlags )
     KiRaiseIrqlProcessIrqlFlags(CurrentIrql);
   v27 = 0;
-  if ( v6 > 0 )
+  if ( QuadPart > 0 )
   {
     v27 = 1;
     if ( (v8 & 4) != 0 )
       SystemTimePrecise = RtlGetSystemTimePrecise();
     else
-      SystemTimePrecise = MEMORY[0xFFFFF78000000014];
+      SystemTimePrecise.QuadPart = MEMORY[0xFFFFF78000000014];
     v25 = 0LL;
-    if ( v6 > SystemTimePrecise )
-      v25 = SystemTimePrecise - v6;
-    v6 = v25;
+    if ( QuadPart > SystemTimePrecise.QuadPart )
+      v25 = SystemTimePrecise.QuadPart - QuadPart;
+    QuadPart = v25;
   }
   if ( (v8 & 4) != 0 )
-    InterruptTimePrecise = RtlGetInterruptTimePrecise(&v29);
+    InterruptTimePrecise = RtlGetInterruptTimePrecise(&PerformanceCounter);
   else
-    InterruptTimePrecise = MEMORY[0xFFFFF78000000008];
-  v11 = InterruptTimePrecise - v6;
-  if ( InterruptTimePrecise >= v6 || v11 == -1LL )
+    InterruptTimePrecise.QuadPart = MEMORY[0xFFFFF78000000008];
+  v11 = InterruptTimePrecise.QuadPart - QuadPart;
+  if ( InterruptTimePrecise.QuadPart >= (unsigned __int64)QuadPart || v11 == -1LL )
     v11 = -2LL;
   v12 = v11;
   if ( a4 && *(_BYTE *)(a1 + 130) != 23 )
@@ -136,7 +136,11 @@ __int64 __fastcall KeSetTimer2(__int64 a1, __int64 SystemTimePrecise, __int64 a3
   v14 = 0;
   v28 = 0;
   v15 = 1;
-  if ( !(unsigned __int8)KiAcquireTimer2LockUnlessDisabled(a1, SystemTimePrecise, a3, a4) )
+  if ( !(unsigned __int8)((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD, _QWORD))KiAcquireTimer2LockUnlessDisabled)(
+                           a1,
+                           (LARGE_INTEGER)SystemTimePrecise.QuadPart,
+                           a3,
+                           a4) )
   {
     if ( (unsigned __int8)KiAcquireTimer2CollectionLockIfInserted(a1) )
     {
@@ -227,7 +231,7 @@ LABEL_21:
             KiRequestTimer2Expiration();
           }
           else if ( (v8 & 4) != 0
-                 && v11 < MEMORY[0xFFFFF78000000008] + (unsigned __int64)(unsigned int)KeMaximumIncrement
+                 && v11 < MEMORY[0xFFFFF78000000008] + (unsigned __int64)KeMaximumIncrement
                  && (!KiClockOwnerOneShotRequest
                   || v11 < KiClockOwnerOneShotRequest
                   && KiClockOwnerOneShotRequest - v11 > (unsigned int)KeMinimumIncrement) )

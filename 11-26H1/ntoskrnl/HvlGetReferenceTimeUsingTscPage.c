@@ -1,7 +1,7 @@
 /*
- * XREFs of HvlGetReferenceTimeUsingTscPage @ 0x140419B50
+ * XREFs of HvlGetReferenceTimeUsingTscPage @ 0x1404113A0
  * Callers:
- *     HvlGetReferenceTime @ 0x140419B10 (HvlGetReferenceTime.c)
+ *     HvlGetReferenceTime @ 0x140411360 (HvlGetReferenceTime.c)
  * Callees:
  *     <none>
  */

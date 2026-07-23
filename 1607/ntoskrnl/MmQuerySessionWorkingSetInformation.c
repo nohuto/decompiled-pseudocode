@@ -1,10 +1,10 @@
 /*
- * XREFs of MmQuerySessionWorkingSetInformation @ 0x1401EA408
+ * XREFs of MmQuerySessionWorkingSetInformation @ 0x1401EA234
  * Callers:
- *     EtwpLogSessionWorkingSetInfo @ 0x1406A258C (EtwpLogSessionWorkingSetInfo.c)
+ *     EtwpLogSessionWorkingSetInfo @ 0x1406A26C4 (EtwpLogSessionWorkingSetInfo.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140012750 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14001BD40 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x1400122D0 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14001B8C0 (KeAcquireInStackQueuedSpinLock.c)
  */
 
 __int64 __fastcall MmQuerySessionWorkingSetInformation(__int64 a1, _DWORD *a2)
@@ -25,9 +25,9 @@ __int64 __fastcall MmQuerySessionWorkingSetInformation(__int64 a1, _DWORD *a2)
   v4 = 0;
   v5 = 0;
   v6 = (unsigned __int64 *)(a1 + 40LL * (unsigned int)*a2);
-  KeAcquireInStackQueuedSpinLock(&qword_140327740, &LockHandle);
-  v7 = (__int64 *)qword_140327810;
-  if ( (__int64 *)qword_140327810 != &qword_140327810 )
+  KeAcquireInStackQueuedSpinLock(&qword_140327780, &LockHandle);
+  v7 = (__int64 *)qword_140327850;
+  if ( (__int64 *)qword_140327850 != &qword_140327850 )
   {
     v8 = (unsigned __int64 *)(a1 + 24);
     do
@@ -61,7 +61,7 @@ __int64 __fastcall MmQuerySessionWorkingSetInformation(__int64 a1, _DWORD *a2)
       v7 = (__int64 *)*v7;
       ++v5;
     }
-    while ( v7 != &qword_140327810 );
+    while ( v7 != &qword_140327850 );
   }
   KeReleaseInStackQueuedSpinLock(&LockHandle);
   result = v4;

@@ -1,8 +1,8 @@
 /*
- * XREFs of HvpIsMetadataArrayCoherent @ 0x140806D08
+ * XREFs of HvpIsMetadataArrayCoherent @ 0x140807F08
  * Callers:
- *     HvpApplyIncrementalLogFile @ 0x140806774 (HvpApplyIncrementalLogFile.c)
- *     HvpApplyLegacyLogFile @ 0x140806990 (HvpApplyLegacyLogFile.c)
+ *     HvpApplyIncrementalLogFile @ 0x140807974 (HvpApplyIncrementalLogFile.c)
+ *     HvpApplyLegacyLogFile @ 0x140807B90 (HvpApplyLegacyLogFile.c)
  * Callees:
  *     <none>
  */

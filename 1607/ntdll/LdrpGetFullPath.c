@@ -1,14 +1,14 @@
 /*
- * XREFs of LdrpGetFullPath @ 0x18000EF04
+ * XREFs of LdrpGetFullPath @ 0x18000EEF4
  * Callers:
- *     LdrpResolveDllName @ 0x18000FA94 (LdrpResolveDllName.c)
- *     LdrpPreprocessDllName @ 0x180015890 (LdrpPreprocessDllName.c)
- *     LdrpApplyFileNameRedirection @ 0x180015A34 (LdrpApplyFileNameRedirection.c)
- *     LdrpLoadDependentModule @ 0x180016680 (LdrpLoadDependentModule.c)
+ *     LdrpResolveDllName @ 0x18000FA84 (LdrpResolveDllName.c)
+ *     LdrpPreprocessDllName @ 0x180015880 (LdrpPreprocessDllName.c)
+ *     LdrpApplyFileNameRedirection @ 0x180015A24 (LdrpApplyFileNameRedirection.c)
+ *     LdrpLoadDependentModule @ 0x180016670 (LdrpLoadDependentModule.c)
  * Callees:
- *     NtdllpFreeStringRoutine @ 0x1800094E0 (NtdllpFreeStringRoutine.c)
- *     NtdllpAllocateStringRoutine @ 0x180018BE8 (NtdllpAllocateStringRoutine.c)
- *     RtlGetFullPathName_Ustr @ 0x18001D830 (RtlGetFullPathName_Ustr.c)
+ *     NtdllpFreeStringRoutine @ 0x1800094D0 (NtdllpFreeStringRoutine.c)
+ *     NtdllpAllocateStringRoutine @ 0x180018BD8 (NtdllpAllocateStringRoutine.c)
+ *     RtlGetFullPathName_Ustr @ 0x18001D820 (RtlGetFullPathName_Ustr.c)
  */
 
 __int64 __fastcall LdrpGetFullPath(__int64 a1, __int64 a2)
@@ -17,7 +17,7 @@ __int64 __fastcall LdrpGetFullPath(__int64 a1, __int64 a2)
   unsigned int v5; // ebx
   __int16 v6; // si
   _WORD *StringRoutine; // r14
-  __int64 v9; // rcx
+  void *v9; // rcx
   char v10; // [rsp+68h] [rbp+10h] BYREF
   int v11; // [rsp+70h] [rbp+18h] BYREF
   int v12; // [rsp+74h] [rbp+1Ch]
@@ -42,8 +42,8 @@ __int64 __fastcall LdrpGetFullPath(__int64 a1, __int64 a2)
     StringRoutine = (_WORD *)NtdllpAllocateStringRoutine(FullPathName_Ustr);
     if ( !StringRoutine )
       return (unsigned int)-1073741801;
-    v9 = *(_QWORD *)(a2 + 8);
-    if ( a2 + 16 != v9 )
+    v9 = *(void **)(a2 + 8);
+    if ( (void *)(a2 + 16) != v9 )
       NtdllpFreeStringRoutine(v9);
     *(_WORD *)(a2 + 16) = 0;
     *(_QWORD *)(a2 + 8) = StringRoutine;

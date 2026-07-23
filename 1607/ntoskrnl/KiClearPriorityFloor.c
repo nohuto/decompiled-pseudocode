@@ -1,11 +1,11 @@
 /*
- * XREFs of KiClearPriorityFloor @ 0x1400A1458
+ * XREFs of KiClearPriorityFloor @ 0x14009FD80
  * Callers:
- *     KiAbThreadUnboostCpuPriority @ 0x1400A13E8 (KiAbThreadUnboostCpuPriority.c)
+ *     KiAbThreadUnboostCpuPriority @ 0x14009FD10 (KiAbThreadUnboostCpuPriority.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14002ECB0 (KeYieldProcessorEx.c)
- *     KiSetPriorityThread @ 0x1400D2BA0 (KiSetPriorityThread.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
+ *     KeYieldProcessorEx @ 0x14002E830 (KeYieldProcessorEx.c)
+ *     KiSetPriorityThread @ 0x1400D0A40 (KiSetPriorityThread.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
  */
 
 char __fastcall KiClearPriorityFloor(ULONG_PTR BugCheckParameter1, __int64 a2, char a3)

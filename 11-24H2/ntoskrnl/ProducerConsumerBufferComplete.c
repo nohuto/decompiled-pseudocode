@@ -1,12 +1,12 @@
 /*
- * XREFs of ProducerConsumerBufferComplete @ 0x140B5EFE0
+ * XREFs of ProducerConsumerBufferComplete @ 0x140B61060
  * Callers:
- *     PopCountDataAsProduced @ 0x140B5C6EC (PopCountDataAsProduced.c)
- *     PopDecompressHiberBlocks @ 0x140B5C904 (PopDecompressHiberBlocks.c)
- *     PopRequestRead @ 0x140B5DC4C (PopRequestRead.c)
- *     PopRequestWrite @ 0x140B5E080 (PopRequestWrite.c)
+ *     PopCountDataAsProduced @ 0x140B5E75C (PopCountDataAsProduced.c)
+ *     PopDecompressHiberBlocks @ 0x140B5E974 (PopDecompressHiberBlocks.c)
+ *     PopRequestRead @ 0x140B5FCCC (PopRequestRead.c)
+ *     PopRequestWrite @ 0x140B60100 (PopRequestWrite.c)
  * Callees:
- *     PopHiberCheckForDebugBreak @ 0x140B691F0 (PopHiberCheckForDebugBreak.c)
+ *     PopHiberCheckForDebugBreak @ 0x140B6A908 (PopHiberCheckForDebugBreak.c)
  */
 
 __int64 __fastcall ProducerConsumerBufferComplete(__int64 a1, __int64 a2, int a3, unsigned int a4)

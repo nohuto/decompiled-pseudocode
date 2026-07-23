@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlEqualString @ 0x1400F2DD0
+ * XREFs of RtlEqualString @ 0x1400F2E50
  * Callers:
- *     IopInitializeBuiltinDriver @ 0x1409CBA80 (IopInitializeBuiltinDriver.c)
- *     IopGetBootDiskInformation @ 0x1409F4AA4 (IopGetBootDiskInformation.c)
+ *     IopInitializeBuiltinDriver @ 0x1409CCA80 (IopInitializeBuiltinDriver.c)
+ *     IopGetBootDiskInformation @ 0x1409F5AA4 (IopGetBootDiskInformation.c)
  * Callees:
- *     RtlUpperChar @ 0x1406798A0 (RtlUpperChar.c)
+ *     RtlUpperChar @ 0x14067AA60 (RtlUpperChar.c)
  */
 
 BOOLEAN __stdcall RtlEqualString(const STRING *String1, const STRING *String2, BOOLEAN CaseInSensitive)

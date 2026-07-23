@@ -1,10 +1,10 @@
 /*
- * XREFs of EmpAllocatePool @ 0x14037454C
+ * XREFs of EmpAllocatePool @ 0x14037409C
  * Callers:
- *     EmpEvaluateTargetRule @ 0x140373ED8 (EmpEvaluateTargetRule.c)
- *     EmpEvaluateNodeLink @ 0x14037411C (EmpEvaluateNodeLink.c)
+ *     EmpEvaluateTargetRule @ 0x140373A28 (EmpEvaluateTargetRule.c)
+ *     EmpEvaluateNodeLink @ 0x140373C6C (EmpEvaluateNodeLink.c)
  * Callees:
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 PVOID __fastcall EmpAllocatePool(SIZE_T NumberOfBytes, __int64 *a2, _DWORD *a3)

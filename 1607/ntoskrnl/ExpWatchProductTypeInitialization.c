@@ -3,22 +3,22 @@
  * Callers:
  *     ExInitSystemPhase2 @ 0x1407A916C (ExInitSystemPhase2.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     ObfDereferenceObjectWithTag @ 0x14006ACD0 (ObfDereferenceObjectWithTag.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     wcsncmp @ 0x14014F040 (wcsncmp.c)
- *     wcscat_s @ 0x140152FF8 (wcscat_s.c)
- *     wcscpy_s @ 0x140153094 (wcscpy_s.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     ObfDereferenceObjectWithTag @ 0x14006A850 (ObfDereferenceObjectWithTag.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     wcsncmp @ 0x14014F600 (wcsncmp.c)
+ *     wcscat_s @ 0x1401535B8 (wcscat_s.c)
+ *     wcscpy_s @ 0x140153654 (wcscpy_s.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     NtNotifyChangeKey @ 0x14040095C (NtNotifyChangeKey.c)
- *     NtOpenKey @ 0x140415458 (NtOpenKey.c)
- *     NtEnumerateKey @ 0x140439B70 (NtEnumerateKey.c)
- *     NtQueryKey @ 0x14043B2A0 (NtQueryKey.c)
- *     NtQueryValueKey @ 0x14043B880 (NtQueryValueKey.c)
- *     ObReferenceObjectByHandle @ 0x140450D40 (ObReferenceObjectByHandle.c)
- *     NtClose @ 0x14050B0E0 (NtClose.c)
+ *     NtNotifyChangeKey @ 0x1403FF81C (NtNotifyChangeKey.c)
+ *     NtOpenKey @ 0x140414318 (NtOpenKey.c)
+ *     NtEnumerateKey @ 0x140438A40 (NtEnumerateKey.c)
+ *     NtQueryKey @ 0x14043A170 (NtQueryKey.c)
+ *     NtQueryValueKey @ 0x14043A750 (NtQueryValueKey.c)
+ *     ObReferenceObjectByHandle @ 0x14044FC10 (ObReferenceObjectByHandle.c)
+ *     NtClose @ 0x1404EE070 (NtClose.c)
  *     ExpUpdateProductSuiteTypeInRegistry @ 0x1407AA814 (ExpUpdateProductSuiteTypeInRegistry.c)
  *     ExpLicenseWatchInitWorker @ 0x1407AB13C (ExpLicenseWatchInitWorker.c)
  */
@@ -112,8 +112,8 @@ char ExpWatchProductTypeInitialization()
     ExpControlKey = v3;
     return 1;
   }
-  qword_1402FCFB0 = (__int64)ExpWatchProductTypeWork;
-  qword_1402FCFB8 = 0LL;
+  qword_1402FCFD0 = (__int64)ExpWatchProductTypeWork;
+  qword_1402FCFD8 = 0LL;
   *(_QWORD *)ExpWatchProductTypeWorkItem = 0LL;
   RtlInitUnicodeString(&DestinationString, L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\ProductOptions");
   ObjectAttributes.Length = 48;
@@ -137,7 +137,7 @@ char ExpWatchProductTypeInitialization()
         KeBugCheckEx(0x9Au, 0xCuLL, (unsigned int)v7, 0LL, 0LL);
     }
     ExpControlKey = v3;
-    qword_1402FCFD8 = v0;
+    qword_1402FCF78 = v0;
     ExpUpdateProductSuiteTypeInRegistry();
     RtlInitUnicodeString(&ValueName, L"ProductType");
     PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x22uLL, 0x2079654Bu);
@@ -156,17 +156,17 @@ char ExpWatchProductTypeInitialization()
         if ( NtQueryValueKey(ExpProductTypeKey, &ValueName, KeyValuePartialInformation, v44, 0x10u, &ResultLength) != -2147483643 )
           goto LABEL_18;
         ResultLength += 16;
-        qword_140329648 = ExAllocatePoolWithTag(PagedPool, ResultLength, 0x2079654Bu);
-        if ( !qword_140329648 )
+        qword_140329688 = ExAllocatePoolWithTag(PagedPool, ResultLength, 0x2079654Bu);
+        if ( !qword_140329688 )
           KeBugCheckEx(0x9Au, 0x14uLL, ResultLength, 2uLL, 0LL);
         if ( NtQueryValueKey(
                ExpProductTypeKey,
                &ValueName,
                KeyValuePartialInformation,
-               qword_140329648,
+               qword_140329688,
                ResultLength,
                &ResultLength) >= 0
-          || (ExFreePoolWithTag(qword_140329648, 0), qword_140329648 = 0LL, !ExpSetupModeDetected) )
+          || (ExFreePoolWithTag(qword_140329688, 0), qword_140329688 = 0LL, !ExpSetupModeDetected) )
         {
 LABEL_18:
           v10 = -1LL;

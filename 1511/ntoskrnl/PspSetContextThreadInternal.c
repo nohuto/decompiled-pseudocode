@@ -23,77 +23,77 @@
  *     RtlpSanitizeContextFlags @ 0x1403F035C (RtlpSanitizeContextFlags.c)
  */
 
-__int64 __fastcall PspSetContextThreadInternal(__int64 a1, __int64 a2, char a3, char a4, char a5)
+int __fastcall PspSetContextThreadInternal(__int64 a1, CONTEXT *a2, char a3, char a4, char a5)
 {
-  __int64 v7; // rsi
+  CONTEXT *v7; // rsi
   struct _KTHREAD *CurrentThread; // rbx
-  __int64 result; // rax
+  int result; // eax
   char v11; // dl
-  unsigned int *v12; // r9
-  unsigned int v13; // r14d
+  ULONG *p_ContextFlags; // r9
+  ULONG v13; // r14d
   unsigned __int64 v14; // rax
   void *v15; // rsp
   int v16; // edx
   int v17; // ecx
-  unsigned int v18; // [rsp+40h] [rbp+0h] BYREF
-  unsigned int v19; // [rsp+44h] [rbp+4h]
-  __int64 v20; // [rsp+48h] [rbp+8h] BYREF
+  ULONG ContextFlags; // [rsp+40h] [rbp+0h] BYREF
+  ULONG ContextLength; // [rsp+44h] [rbp+4h] BYREF
+  PCONTEXT_EX ContextEx; // [rsp+48h] [rbp+8h] BYREF
   _BYTE v21[64]; // [rsp+50h] [rbp+10h] BYREF
   _QWORD v22[3]; // [rsp+90h] [rbp+50h] BYREF
   char v23; // [rsp+A8h] [rbp+68h]
   char v24; // [rsp+A9h] [rbp+69h]
-  unsigned int v25; // [rsp+ACh] [rbp+6Ch]
+  int v25; // [rsp+ACh] [rbp+6Ch]
   _BYTE v26[24]; // [rsp+B0h] [rbp+70h] BYREF
-  unsigned int *v27; // [rsp+C8h] [rbp+88h]
+  PCONTEXT Context; // [rsp+C8h] [rbp+88h]
 
   v7 = a2;
   CurrentThread = KeGetCurrentThread();
   if ( a3 )
   {
-    v12 = (unsigned int *)(a2 + 48);
-    if ( a2 + 48 >= MmUserProbeAddress )
-      v12 = (unsigned int *)MmUserProbeAddress;
-    v18 = *v12;
+    p_ContextFlags = &a2->ContextFlags;
+    if ( (unsigned __int64)&a2->ContextFlags >= MmUserProbeAddress )
+      p_ContextFlags = (ULONG *)MmUserProbeAddress;
+    ContextFlags = *p_ContextFlags;
   }
   else
   {
-    v18 = *(_DWORD *)(a2 + 48);
+    ContextFlags = a2->ContextFlags;
   }
   LOBYTE(a2) = a3;
-  result = RtlpSanitizeContextFlags(&v18, a2);
-  if ( (int)result >= 0 )
+  result = RtlpSanitizeContextFlags(&ContextFlags, a2);
+  if ( result >= 0 )
   {
     if ( a3 )
     {
-      v13 = v18;
-      result = RtlGetExtendedContextLength(v18);
-      if ( (int)result < 0 )
+      v13 = ContextFlags;
+      result = RtlGetExtendedContextLength(ContextFlags, &ContextLength);
+      if ( result < 0 )
         return result;
-      v14 = v19 + 15LL;
-      if ( v14 <= v19 )
+      v14 = ContextLength + 15LL;
+      if ( v14 <= ContextLength )
         v14 = 0xFFFFFFFFFFFFFF0LL;
       v15 = alloca(v14 & 0xFFFFFFFFFFFFFFF0uLL);
-      v27 = &v18;
-      memset(&v18, 0, v19);
-      result = RtlInitializeExtendedContext((__int64)v27, v13, &v20);
-      if ( (int)result < 0 )
+      Context = (PCONTEXT)&ContextFlags;
+      memset(&ContextFlags, 0, ContextLength);
+      result = RtlInitializeExtendedContext(Context, v13, &ContextEx);
+      if ( result < 0 )
         return result;
-      v27 = (unsigned int *)(v20 - 1232);
+      Context = (PCONTEXT)&ContextEx[-39].XState;
       LOBYTE(v16) = 1;
-      result = RtlpReadExtendedContext(v17, v16, v20, v13, v7, 0LL);
-      if ( (int)result < 0 )
+      result = RtlpReadExtendedContext(v17, v16, (_DWORD)ContextEx, v13, (__int64)v7, 0LL);
+      if ( result < 0 )
         return result;
     }
     else
     {
-      v27 = (unsigned int *)v7;
+      Context = v7;
     }
     if ( !a4 )
       goto LABEL_10;
     if ( (*(_DWORD *)(a1 + 116) & 0x400) != 0 )
-      return 3221225520LL;
+      return -1073741776;
     if ( (struct _KTHREAD *)a1 != CurrentThread
-      || (result = KeVerifyContextRecord((__int64)CurrentThread, (__int64)v27), (int)result >= 0) )
+      || (result = KeVerifyContextRecord((__int64)CurrentThread, (__int64)Context), result >= 0) )
     {
 LABEL_10:
       v23 = a4;
@@ -113,7 +113,7 @@ LABEL_10:
         KeInitializeGate((__int64)v26);
         KeInitializeApc((__int64)v21, a1, 0, (__int64)PspGetSetContextSpecialApc, 0LL, 0LL, 0, 0LL);
         if ( !(unsigned __int8)KeInsertQueueApc((__int64)v21, 1LL, a1, 2) )
-          return 3221225473LL;
+          return -1073741823;
         KeWaitForGate((__int64)v26, 0);
       }
       return v25;

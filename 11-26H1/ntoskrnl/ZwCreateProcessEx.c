@@ -1,14 +1,23 @@
 /*
- * XREFs of ZwCreateProcessEx @ 0x140723D90
+ * XREFs of ZwCreateProcessEx @ 0x140728960
  * Callers:
- *     DifZwCreateProcessExWrapper @ 0x1406A0D30 (DifZwCreateProcessExWrapper.c)
+ *     DifZwCreateProcessExWrapper @ 0x1406A4910 (DifZwCreateProcessExWrapper.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwCreateProcessEx(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwCreateProcessEx(
+        PHANDLE ProcessHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        HANDLE ParentProcess,
+        ULONG Flags,
+        HANDLE SectionHandle,
+        HANDLE DebugPort,
+        HANDLE TokenHandle,
+        ULONG Reserved)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(ProcessHandle);
 }

@@ -1,23 +1,23 @@
 /*
- * XREFs of CmpLightWeightCommitDeleteKeyUoW @ 0x140803778
+ * XREFs of CmpLightWeightCommitDeleteKeyUoW @ 0x140804978
  * Callers:
- *     CmpProcessLightWeightUOW @ 0x140694A1C (CmpProcessLightWeightUOW.c)
+ *     CmpProcessLightWeightUOW @ 0x140695BDC (CmpProcessLightWeightUOW.c)
  * Callees:
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
  *     CmSiFreeMemory @ 0x140013000 (CmSiFreeMemory.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     CmpCleanupDiscardReplaceContext @ 0x1405AA51C (CmpCleanupDiscardReplaceContext.c)
- *     CmpDiscardKcb @ 0x1405AA6A8 (CmpDiscardKcb.c)
- *     CmpMarkKeyUnbacked @ 0x1405AA8A0 (CmpMarkKeyUnbacked.c)
- *     CmpCleanUpSubKeyInfo @ 0x1405ACA60 (CmpCleanUpSubKeyInfo.c)
- *     CmpFlushNotifiesOnKeyBodyList @ 0x1405AD310 (CmpFlushNotifiesOnKeyBodyList.c)
- *     CmpFreeKeyByCell @ 0x1405AD6F8 (CmpFreeKeyByCell.c)
- *     CmpCommitDiscardAndReplaceKcbAndUnbackedHigherLayers @ 0x1407F9A0C (CmpCommitDiscardAndReplaceKcbAndUnbackedHigherLayers.c)
- *     CmpEnumerateAllHigherLayerKcbs @ 0x1407F9C88 (CmpEnumerateAllHigherLayerKcbs.c)
- *     CmpLightWeightCleanupModifyKeyDataUoW @ 0x1408035A0 (CmpLightWeightCleanupModifyKeyDataUoW.c)
- *     CmpLightWeightSwapParentSubKeyList @ 0x140804C80 (CmpLightWeightSwapParentSubKeyList.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     CmpCleanupDiscardReplaceContext @ 0x1405AB51C (CmpCleanupDiscardReplaceContext.c)
+ *     CmpDiscardKcb @ 0x1405AB6A8 (CmpDiscardKcb.c)
+ *     CmpMarkKeyUnbacked @ 0x1405AB8A0 (CmpMarkKeyUnbacked.c)
+ *     CmpCleanUpSubKeyInfo @ 0x1405ADA60 (CmpCleanUpSubKeyInfo.c)
+ *     CmpFlushNotifiesOnKeyBodyList @ 0x1405AE310 (CmpFlushNotifiesOnKeyBodyList.c)
+ *     CmpFreeKeyByCell @ 0x1405AE6F8 (CmpFreeKeyByCell.c)
+ *     CmpCommitDiscardAndReplaceKcbAndUnbackedHigherLayers @ 0x1407FAC0C (CmpCommitDiscardAndReplaceKcbAndUnbackedHigherLayers.c)
+ *     CmpEnumerateAllHigherLayerKcbs @ 0x1407FAE88 (CmpEnumerateAllHigherLayerKcbs.c)
+ *     CmpLightWeightCleanupModifyKeyDataUoW @ 0x1408047A0 (CmpLightWeightCleanupModifyKeyDataUoW.c)
+ *     CmpLightWeightSwapParentSubKeyList @ 0x140805E80 (CmpLightWeightSwapParentSubKeyList.c)
  */
 
 void __fastcall CmpLightWeightCommitDeleteKeyUoW(__int64 a1, _QWORD *a2)
@@ -46,14 +46,14 @@ void __fastcall CmpLightWeightCommitDeleteKeyUoW(__int64 a1, _QWORD *a2)
   v5 = *(_QWORD *)(a1 + 48);
   v6 = *(_QWORD *)(v5 + 24);
   if ( (int)CmpFreeKeyByCell(v6, *(_DWORD *)(v5 + 32), 0) < 0
-    && stru_1403FFAA0.LevelPlus1 > 5
-    && TlgKeywordOn(&stru_1403FFAA0, 0x200000000000uLL) )
+    && stru_140400AA0.LevelPlus1 > 5
+    && TlgKeywordOn(&stru_140400AA0, 0x200000000000uLL) )
   {
     v20 = 0;
     v18 = &v14;
     v14 = v7;
     v19 = 4;
-    TlgWrite(&stru_1403FFAA0, &unk_14036C711, 0LL, 0LL, 3u, &pData);
+    TlgWrite(&stru_140400AA0, &unk_14036D6A1, 0LL, 0LL, 3u, &pData);
   }
   v8 = *(_QWORD *)(*(_QWORD *)(a1 + 48) + 64LL);
   if ( *v2 == 1 )

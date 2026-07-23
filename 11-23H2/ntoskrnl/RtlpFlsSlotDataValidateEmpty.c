@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpFlsSlotDataValidateEmpty @ 0x140309588
+ * XREFs of RtlpFlsSlotDataValidateEmpty @ 0x140309818
  * Callers:
- *     PspTlsDataCleanup @ 0x14076E1F0 (PspTlsDataCleanup.c)
+ *     PspTlsDataCleanup @ 0x14076E3E0 (PspTlsDataCleanup.c)
  * Callees:
  *     <none>
  */

@@ -1,15 +1,15 @@
 /*
- * XREFs of ExCleanTimerResolutionRequest @ 0x14013F858
+ * XREFs of ExCleanTimerResolutionRequest @ 0x14013F958
  * Callers:
- *     PspExitProcess @ 0x140608E0C (PspExitProcess.c)
+ *     PspExitProcess @ 0x140609E0C (PspExitProcess.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     ZwSetTimerResolution @ 0x1401BB6B0 (ZwSetTimerResolution.c)
- *     ExAcquireTimeRefreshLock @ 0x14066583C (ExAcquireTimeRefreshLock.c)
- *     ExReleaseTimeRefreshLock @ 0x1406BEBF8 (ExReleaseTimeRefreshLock.c)
- *     PoDiagFreeUsermodeStack @ 0x1406D6B70 (PoDiagFreeUsermodeStack.c)
+ *     KxReleaseSpinLock @ 0x1400630D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14008CE80 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     ZwSetTimerResolution @ 0x1401BB810 (ZwSetTimerResolution.c)
+ *     ExAcquireTimeRefreshLock @ 0x1406669FC (ExAcquireTimeRefreshLock.c)
+ *     ExReleaseTimeRefreshLock @ 0x1406BFE98 (ExReleaseTimeRefreshLock.c)
+ *     PoDiagFreeUsermodeStack @ 0x1406D7E10 (PoDiagFreeUsermodeStack.c)
  */
 
 __int64 __fastcall ExCleanTimerResolutionRequest(__int64 a1)

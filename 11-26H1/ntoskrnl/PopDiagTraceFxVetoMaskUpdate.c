@@ -1,11 +1,11 @@
 /*
- * XREFs of PopDiagTraceFxVetoMaskUpdate @ 0x14050AF24
+ * XREFs of PopDiagTraceFxVetoMaskUpdate @ 0x140504994
  * Callers:
- *     PopPepUpdateIdleStateRefCount @ 0x1403B2278 (PopPepUpdateIdleStateRefCount.c)
+ *     PopPepUpdateIdleStateRefCount @ 0x1403BBF88 (PopPepUpdateIdleStateRefCount.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 char __fastcall PopDiagTraceFxVetoMaskUpdate(__int64 a1, int a2, int a3, int a4, char a5)
@@ -31,11 +31,9 @@ char __fastcall PopDiagTraceFxVetoMaskUpdate(__int64 a1, int a2, int a3, int a4,
   v19 = a3;
   v18 = a2;
   v17 = a1;
-  if ( byte_140E67628 )
+  if ( PopDiagHandleRegistered )
   {
-    LOBYTE(v5) = EtwEventEnabled(
-                   *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-                   &POP_ETW_EVENT_FX_VETO_MASK_UPDATE);
+    LOBYTE(v5) = EtwEventEnabled(PopDiagHandle, &POP_ETW_EVENT_FX_VETO_MASK_UPDATE);
     if ( (_BYTE)v5 )
     {
       UserData.Ptr = (ULONGLONG)&v17;
@@ -48,15 +46,7 @@ char __fastcall PopDiagTraceFxVetoMaskUpdate(__int64 a1, int a2, int a3, int a4,
       v14 = &a5;
       v13 = 4LL;
       v15 = 4LL;
-      LOBYTE(v5) = EtwWriteEx(
-                     *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-                     &POP_ETW_EVENT_FX_VETO_MASK_UPDATE,
-                     0LL,
-                     1u,
-                     0LL,
-                     0LL,
-                     5u,
-                     &UserData);
+      LOBYTE(v5) = EtwWriteEx(PopDiagHandle, &POP_ETW_EVENT_FX_VETO_MASK_UPDATE, 0LL, 1u, 0LL, 0LL, 5u, &UserData);
     }
   }
   return (char)v5;

@@ -1,22 +1,22 @@
 /*
- * XREFs of PopPepWork @ 0x140311E5C
+ * XREFs of PopPepWork @ 0x1403120EC
  * Callers:
- *     PopFxDispatchPluginWorkOnce @ 0x140311B84 (PopFxDispatchPluginWorkOnce.c)
+ *     PopFxDispatchPluginWorkOnce @ 0x140311E14 (PopFxDispatchPluginWorkOnce.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     EtwWriteEx @ 0x1402581E0 (EtwWriteEx.c)
- *     EtwEventEnabled @ 0x140258420 (EtwEventEnabled.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14028A930 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     ExfReleasePushLockShared @ 0x1402BD860 (ExfReleasePushLockShared.c)
- *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x1403121F0 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
- *     PopPepStartActivity @ 0x14031383C (PopPepStartActivity.c)
- *     PopPepGetReadyActivityType @ 0x1403148F0 (PopPepGetReadyActivityType.c)
- *     PopDiagTraceFxDefaultPepWorkerEnd @ 0x140314DE8 (PopDiagTraceFxDefaultPepWorkerEnd.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockSharedEx @ 0x140230E80 (ExAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     EtwWriteEx @ 0x1402582A0 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x1402584E0 (EtwEventEnabled.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14028ABC0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExfReleasePushLockShared @ 0x1402BDAF0 (ExfReleasePushLockShared.c)
+ *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x140312480 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     PopPepStartActivity @ 0x140313ACC (PopPepStartActivity.c)
+ *     PopPepGetReadyActivityType @ 0x140314B80 (PopPepGetReadyActivityType.c)
+ *     PopDiagTraceFxDefaultPepWorkerEnd @ 0x140315078 (PopDiagTraceFxDefaultPepWorkerEnd.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 char __fastcall PopPepWork(char a1, __int64 a2)
@@ -92,7 +92,7 @@ char __fastcall PopPepWork(char a1, __int64 a2)
   }
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 2 )
@@ -197,10 +197,10 @@ LABEL_21:
   started = 0;
   v22 = 0;
 LABEL_29:
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v32 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v32 <= 0xFu && CurrentIrql <= 0xFu && v32 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v32 <= 0xFu && CurrentIrql <= 0xFu && v32 >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v34 = CurrentPrcb->SchedulerAssist;

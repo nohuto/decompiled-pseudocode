@@ -10,11 +10,11 @@
  *     <none>
  */
 
-__int64 ZwContinue()
+NTSTATUS __cdecl ZwContinue(PCONTEXT ContextRecord, BOOLEAN TestAlert)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 67LL;
+  result = 67;
   __asm { syscall; Low latency system call }
   return result;
 }

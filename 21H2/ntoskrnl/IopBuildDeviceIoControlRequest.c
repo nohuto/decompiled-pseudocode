@@ -1,27 +1,27 @@
 /*
- * XREFs of IopBuildDeviceIoControlRequest @ 0x14022B990
+ * XREFs of IopBuildDeviceIoControlRequest @ 0x1402D0240
  * Callers:
- *     IoBuildDeviceIoControlRequest @ 0x14022C130 (IoBuildDeviceIoControlRequest.c)
- *     FsRtlGetVirtualDiskNestingLevel @ 0x1402CBBB0 (FsRtlGetVirtualDiskNestingLevel.c)
- *     IopAssignBootDriveLetter @ 0x140A61AA8 (IopAssignBootDriveLetter.c)
- *     IopCreateArcNamesCd @ 0x140A61E50 (IopCreateArcNamesCd.c)
- *     IopGetBootDiskInformation @ 0x140A8F9DC (IopGetBootDiskInformation.c)
- *     VhdiMountVhdFile @ 0x140A94C98 (VhdiMountVhdFile.c)
- *     SbpAddTransportToInstance @ 0x140A955E8 (SbpAddTransportToInstance.c)
- *     SbpStartLanman @ 0x140A957E8 (SbpStartLanman.c)
+ *     FsRtlGetVirtualDiskNestingLevel @ 0x14024A300 (FsRtlGetVirtualDiskNestingLevel.c)
+ *     IoBuildDeviceIoControlRequest @ 0x1402D09B0 (IoBuildDeviceIoControlRequest.c)
+ *     IopAssignBootDriveLetter @ 0x140A62AA8 (IopAssignBootDriveLetter.c)
+ *     IopCreateArcNamesCd @ 0x140A62E50 (IopCreateArcNamesCd.c)
+ *     IopGetBootDiskInformation @ 0x140A909DC (IopGetBootDiskInformation.c)
+ *     VhdiMountVhdFile @ 0x140A95C98 (VhdiMountVhdFile.c)
+ *     SbpAddTransportToInstance @ 0x140A965E8 (SbpAddTransportToInstance.c)
+ *     SbpStartLanman @ 0x140A967E8 (SbpStartLanman.c)
  * Callees:
- *     KxAcquireSpinLock @ 0x1402295B0 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     PsGetBaseIoPriorityThread @ 0x14022C100 (PsGetBaseIoPriorityThread.c)
- *     IopVerifierExAllocatePool @ 0x14022C9E0 (IopVerifierExAllocatePool.c)
- *     IopProbeAndLockPages_1 @ 0x1402E7A50 (IopProbeAndLockPages_1.c)
- *     IoAllocateMdl @ 0x1402E8BB0 (IoAllocateMdl.c)
- *     IoFreeMdl @ 0x1402E9600 (IoFreeMdl.c)
- *     IopAllocateIrpExReturn @ 0x140351A40 (IopAllocateIrpExReturn.c)
- *     IoFreeIrp @ 0x140353540 (IoFreeIrp.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     IopVerifierExAllocatePool @ 0x1402336E0 (IopVerifierExAllocatePool.c)
+ *     IopProbeAndLockPages_0 @ 0x140298DA0 (IopProbeAndLockPages_0.c)
+ *     IoAllocateMdl @ 0x140299F00 (IoAllocateMdl.c)
+ *     IoFreeMdl @ 0x14029A950 (IoFreeMdl.c)
+ *     KxAcquireSpinLock @ 0x1402CDEB0 (KxAcquireSpinLock.c)
+ *     PsGetBaseIoPriorityThread @ 0x1402D0980 (PsGetBaseIoPriorityThread.c)
+ *     IopAllocateIrpExReturn @ 0x14035C790 (IopAllocateIrpExReturn.c)
+ *     IoFreeIrp @ 0x14035E290 (IoFreeIrp.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 IRP *__fastcall IopBuildDeviceIoControlRequest(
@@ -36,13 +36,12 @@ IRP *__fastcall IopBuildDeviceIoControlRequest(
         struct _IO_STATUS_BLOCK *a9,
         __int64 a10)
 {
-  size_t v10; // r14
-  int v12; // r13d
+  SIZE_T v10; // r14
   __int64 Irp; // rax
   IRP *v15; // rbx
   __int64 v16; // rdi
   unsigned int v17; // esi
-  __int64 v18; // rdx
+  SIZE_T v18; // rdx
   struct _IRP *v19; // rax
   int Flags; // ecx
   struct _KTHREAD *CurrentThread; // r10
@@ -51,22 +50,22 @@ IRP *__fastcall IopBuildDeviceIoControlRequest(
   unsigned __int8 CurrentIrql; // r15
   KSPIN_LOCK *p_Thread; // r14
   struct _LIST_ENTRY *Flink; // rax
+  __int64 v27; // rdx
   int BaseIoPriorityThread; // edx
-  __int64 v28; // r8
+  __int64 v29; // r8
   struct _IRP *Pool; // rax
-  int v31; // eax
-  int v32; // r14d
-  PMDL Mdl; // rax
-  int v34; // edx
+  int v32; // eax
+  unsigned int v33; // r14d
+  __int64 v34; // rdx
+  PMDL Mdl; // rcx
   _DWORD *SchedulerAssist; // r9
-  unsigned __int8 v36; // al
+  unsigned __int8 v37; // al
   struct _KPRCB *CurrentPrcb; // r9
-  _DWORD *v38; // r8
-  int v39; // eax
-  bool v40; // zf
+  _DWORD *v39; // r8
+  int v40; // eax
+  bool v41; // zf
 
   v10 = a4;
-  v12 = a2;
   Irp = IopAllocateIrpExReturn(a2, *(unsigned __int8 *)(a2 + 76), 0LL, a10);
   v15 = (IRP *)Irp;
   if ( !Irp )
@@ -87,20 +86,20 @@ IRP *__fastcall IopBuildDeviceIoControlRequest(
     }
     if ( a3 )
     {
-      Pool = (struct _IRP *)IopVerifierExAllocatePool(516LL, v10);
+      Pool = (struct _IRP *)IopVerifierExAllocatePool(NonPagedPoolNxCacheAligned, v10);
       v15->AssociatedIrp.MasterIrp = Pool;
       if ( !Pool )
         goto LABEL_36;
       memmove(Pool, a3, v10);
-      v31 = 48;
-      v32 = 0;
+      v32 = 48;
+      v33 = 0;
     }
     else
     {
+      v33 = 0;
       v32 = 0;
-      v31 = 0;
     }
-    v15->Flags = v31;
+    v15->Flags = v32;
     if ( !VirtualAddress )
       goto LABEL_13;
     Mdl = IoAllocateMdl(VirtualAddress, Length, 0, 0, 0LL);
@@ -108,8 +107,8 @@ IRP *__fastcall IopBuildDeviceIoControlRequest(
     if ( Mdl )
     {
       if ( v17 != 1 )
-        v32 = 1;
-      IopProbeAndLockPages_1((_DWORD)Mdl, v34, v32, v12, *(unsigned __int8 *)(v16 - 72));
+        v33 = 1;
+      IopProbeAndLockPages_0((__int64)Mdl, v34, v33, a2, *(unsigned __int8 *)(v16 - 72));
       goto LABEL_13;
     }
     if ( a3 )
@@ -123,7 +122,7 @@ LABEL_36:
     v18 = (unsigned int)v10;
     if ( (unsigned int)v10 <= Length )
       v18 = Length;
-    v19 = (struct _IRP *)IopVerifierExAllocatePool(516LL, v18);
+    v19 = (struct _IRP *)IopVerifierExAllocatePool(NonPagedPoolNxCacheAligned, v18);
     v15->AssociatedIrp.MasterIrp = v19;
     if ( v19 )
     {
@@ -169,24 +168,25 @@ LABEL_13:
   {
     if ( (KiIrqlFlags & 1) != 0 )
     {
-      v36 = KeGetCurrentIrql();
-      if ( v36 <= 0xFu && CurrentIrql <= 0xFu && v36 >= 2u )
+      v37 = KeGetCurrentIrql();
+      if ( v37 <= 0xFu && CurrentIrql <= 0xFu && v37 >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
-        v38 = CurrentPrcb->SchedulerAssist;
-        v39 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-        v40 = (v39 & v38[5]) == 0;
-        v38[5] &= v39;
-        if ( v40 )
+        v39 = CurrentPrcb->SchedulerAssist;
+        v40 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+        v41 = (v40 & v39[5]) == 0;
+        v27 = (unsigned int)v40 & v39[5];
+        v39[5] = v27;
+        if ( v41 )
           KiRemoveSystemWorkPriorityKick(CurrentPrcb);
       }
     }
   }
   __writecr8(CurrentIrql);
-  BaseIoPriorityThread = PsGetBaseIoPriorityThread(v15->Tail.Overlay.Thread);
-  if ( BaseIoPriorityThread < 2 && (struct _KTHREAD *)v28 == KeGetCurrentThread() )
+  BaseIoPriorityThread = PsGetBaseIoPriorityThread(v15->Tail.Overlay.Thread, v27);
+  if ( BaseIoPriorityThread < 2 && (struct _KTHREAD *)v29 == KeGetCurrentThread() )
   {
-    if ( *(_DWORD *)(v28 + 1360) )
+    if ( *(_DWORD *)(v29 + 1360) )
       BaseIoPriorityThread = 2;
   }
   v15->Flags = v15->Flags & 0xFFF1FFFF | ((BaseIoPriorityThread << 17) + 0x20000);

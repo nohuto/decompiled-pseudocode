@@ -1,5 +1,5 @@
 /*
- * XREFs of pow @ 0x1800A37A0
+ * XREFs of pow @ 0x1800A3760
  * Callers:
  *     <none>
  * Callees:

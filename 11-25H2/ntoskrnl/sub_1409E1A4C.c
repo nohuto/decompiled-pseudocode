@@ -103,7 +103,7 @@ __int64 __fastcall sub_1409E1A4C(__int64 *a1, int a2, _DWORD *a3)
                 v16 = v7,
                 v7 >= 0) )
           {
-            v7 = ZwFlushInstructionCache(-1LL, (__int64)v6);
+            v7 = ZwFlushInstructionCache((HANDLE)0xFFFFFFFFFFFFFFFFLL, v6, a3[2] & 0xFFFFFFF);
           }
         }
       }

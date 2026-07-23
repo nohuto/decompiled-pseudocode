@@ -10,17 +10,17 @@
  *     _NtSetEvent@8 @ 0x4B2F2A40 (_NtSetEvent@8.c)
  */
 
-int __fastcall EtwpSynchronizeWithLogger(_DWORD *a1, int a2)
+int __fastcall EtwpSynchronizeWithLogger(int a1, int a2)
 {
   int result; // eax
-  int v5; // [esp-8h] [ebp-14h]
+  void *v5; // [esp-8h] [ebp-14h]
 
-  v5 = a1[24];
-  a1[55] |= a2;
+  v5 = *(void **)(a1 + 96);
+  *(_DWORD *)(a1 + 220) |= a2;
   NtSetEvent(v5, 0);
-  ZwWaitForSingleObject(a1[25], 0, 0);
-  result = a1[8];
-  a1[55] &= ~a2;
-  a1[8] = 0;
+  ZwWaitForSingleObject(*(HANDLE *)(a1 + 100), 0, 0);
+  result = *(_DWORD *)(a1 + 32);
+  *(_DWORD *)(a1 + 220) &= ~a2;
+  *(_DWORD *)(a1 + 32) = 0;
   return result;
 }

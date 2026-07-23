@@ -2,11 +2,11 @@
  * XREFs of RtlMergeBitMaps @ 0x14000FA94
  * Callers:
  *     HvUnCOWReconciledPages @ 0x14000EEC0 (HvUnCOWReconciledPages.c)
- *     HvStoreModifiedData @ 0x1405A7438 (HvStoreModifiedData.c)
- *     CmpFlushHive @ 0x1405B2F54 (CmpFlushHive.c)
- *     MiSelectRelocationStartHint @ 0x14064FBC4 (MiSelectRelocationStartHint.c)
- *     HvpPerformLogFileRecovery @ 0x1407F7B60 (HvpPerformLogFileRecovery.c)
- *     HvFoldBackUnreconciledData @ 0x1407FAD28 (HvFoldBackUnreconciledData.c)
+ *     HvStoreModifiedData @ 0x1405A8438 (HvStoreModifiedData.c)
+ *     CmpFlushHive @ 0x1405B3F54 (CmpFlushHive.c)
+ *     MiSelectRelocationStartHint @ 0x140650D84 (MiSelectRelocationStartHint.c)
+ *     HvpPerformLogFileRecovery @ 0x1407F8D60 (HvpPerformLogFileRecovery.c)
+ *     HvFoldBackUnreconciledData @ 0x1407FBF28 (HvFoldBackUnreconciledData.c)
  * Callees:
  *     <none>
  */

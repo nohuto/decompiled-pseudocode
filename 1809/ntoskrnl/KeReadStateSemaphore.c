@@ -1,9 +1,9 @@
 /*
  * XREFs of KeReadStateSemaphore @ 0x140005D60
  * Callers:
- *     PnpDeviceEventWorker @ 0x14058BBC0 (PnpDeviceEventWorker.c)
- *     IopParseDevice @ 0x14063CCE0 (IopParseDevice.c)
- *     PnpProcessQueryRemoveAndEject @ 0x1406EF790 (PnpProcessQueryRemoveAndEject.c)
+ *     PnpDeviceEventWorker @ 0x14058CBC0 (PnpDeviceEventWorker.c)
+ *     IopParseDevice @ 0x14063DD00 (IopParseDevice.c)
+ *     PnpProcessQueryRemoveAndEject @ 0x1406F0A30 (PnpProcessQueryRemoveAndEject.c)
  * Callees:
  *     <none>
  */

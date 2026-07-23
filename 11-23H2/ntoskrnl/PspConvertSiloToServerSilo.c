@@ -1,19 +1,19 @@
 /*
- * XREFs of PspConvertSiloToServerSilo @ 0x1409ACBE4
+ * XREFs of PspConvertSiloToServerSilo @ 0x1409ACDE4
  * Callers:
  *     NtSetInformationJobObject @ 0x1406A4040 (NtSetInformationJobObject.c)
  * Callees:
  *     PsIsServerSilo @ 0x14020C020 (PsIsServerSilo.c)
- *     PsIsCurrentThreadInServerSilo @ 0x140287470 (PsIsCurrentThreadInServerSilo.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x140287700 (PsIsCurrentThreadInServerSilo.c)
  *     PsGetParentSilo @ 0x1406831E0 (PsGetParentSilo.c)
  *     PspUnlockJob @ 0x1406A3BFC (PspUnlockJob.c)
  *     PspLockJobExclusive @ 0x1406A3DF8 (PspLockJobExclusive.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1406E6300 (ObpReferenceObjectByHandleWithTag.c)
- *     PspJobHasChildren @ 0x1407E6554 (PspJobHasChildren.c)
- *     PspDeleteServerSiloGlobals @ 0x1409ACE90 (PspDeleteServerSiloGlobals.c)
- *     PspQueueDeferredWorkAndWait @ 0x1409AD1DC (PspQueueDeferredWorkAndWait.c)
- *     EtwTraceJobServerSiloStateChange @ 0x1409E55DC (EtwTraceJobServerSiloStateChange.c)
- *     ObGetSiloRootDirectoryPath @ 0x140A73E44 (ObGetSiloRootDirectoryPath.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x1406E6330 (ObpReferenceObjectByHandleWithTag.c)
+ *     PspJobHasChildren @ 0x1407E6824 (PspJobHasChildren.c)
+ *     PspDeleteServerSiloGlobals @ 0x1409AD090 (PspDeleteServerSiloGlobals.c)
+ *     PspQueueDeferredWorkAndWait @ 0x1409AD3DC (PspQueueDeferredWorkAndWait.c)
+ *     EtwTraceJobServerSiloStateChange @ 0x1409E586C (EtwTraceJobServerSiloStateChange.c)
+ *     ObGetSiloRootDirectoryPath @ 0x140A740F4 (ObGetSiloRootDirectoryPath.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 

@@ -1,11 +1,11 @@
 /*
- * XREFs of MiResetVirtualMemory @ 0x140441CD0
+ * XREFs of MiResetVirtualMemory @ 0x1404388A4
  * Callers:
- *     MiAllocateVirtualMemory @ 0x1408DF540 (MiAllocateVirtualMemory.c)
+ *     MiAllocateVirtualMemory @ 0x1409160F0 (MiAllocateVirtualMemory.c)
  * Callees:
- *     MiWalkVaRange @ 0x14028A740 (MiWalkVaRange.c)
- *     MiAllowProtectionChange @ 0x140441E14 (MiAllowProtectionChange.c)
- *     MiCheckSecuredVad @ 0x1408DD998 (MiCheckSecuredVad.c)
+ *     MiWalkVaRange @ 0x14029A340 (MiWalkVaRange.c)
+ *     MiAllowProtectionChange @ 0x1404389E8 (MiAllowProtectionChange.c)
+ *     MiCheckSecuredVad @ 0x1408DBE18 (MiCheckSecuredVad.c)
  */
 
 __int64 __fastcall MiResetVirtualMemory(

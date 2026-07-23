@@ -1,18 +1,18 @@
 /*
- * XREFs of PspSetCreateProcessNotifyRoutine @ 0x140B2CF9C
+ * XREFs of PspSetCreateProcessNotifyRoutine @ 0x140B2F01C
  * Callers:
- *     PsSetCreateProcessNotifyRoutine @ 0x1407FCCC0 (PsSetCreateProcessNotifyRoutine.c)
- *     PsSetCreateProcessNotifyRoutineEx @ 0x1407FCCE0 (PsSetCreateProcessNotifyRoutineEx.c)
- *     PsSetCreateProcessNotifyRoutineEx2 @ 0x1407FCD00 (PsSetCreateProcessNotifyRoutineEx2.c)
+ *     PsSetCreateProcessNotifyRoutine @ 0x1408026F0 (PsSetCreateProcessNotifyRoutine.c)
+ *     PsSetCreateProcessNotifyRoutineEx @ 0x140802710 (PsSetCreateProcessNotifyRoutineEx.c)
+ *     PsSetCreateProcessNotifyRoutineEx2 @ 0x140802730 (PsSetCreateProcessNotifyRoutineEx2.c)
  * Callees:
- *     ExReferenceCallBackBlock @ 0x14029BA90 (ExReferenceCallBackBlock.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402BA1B0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExDereferenceCallBackBlock @ 0x140435D80 (ExDereferenceCallBackBlock.c)
- *     ExCompareExchangeCallBack @ 0x140463604 (ExCompareExchangeCallBack.c)
- *     ExWaitForRundownProtectionRelease @ 0x140463DA0 (ExWaitForRundownProtectionRelease.c)
- *     MmVerifyCallbackFunctionCheckFlags @ 0x140514250 (MmVerifyCallbackFunctionCheckFlags.c)
- *     ExAllocateCallBack @ 0x140B30CE4 (ExAllocateCallBack.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExReferenceCallBackBlock @ 0x14029AFF0 (ExReferenceCallBackBlock.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140304E70 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExDereferenceCallBackBlock @ 0x140424890 (ExDereferenceCallBackBlock.c)
+ *     ExCompareExchangeCallBack @ 0x14045C5C4 (ExCompareExchangeCallBack.c)
+ *     ExWaitForRundownProtectionRelease @ 0x14045CD60 (ExWaitForRundownProtectionRelease.c)
+ *     MmVerifyCallbackFunctionCheckFlags @ 0x14050DCC0 (MmVerifyCallbackFunctionCheckFlags.c)
+ *     ExAllocateCallBack @ 0x140B32EE4 (ExAllocateCallBack.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PspSetCreateProcessNotifyRoutine(__int64 a1, __int64 a2)
@@ -51,9 +51,9 @@ __int64 __fastcall PspSetCreateProcessNotifyRoutine(__int64 a1, __int64 a2)
           && LODWORD(v7[2].Count) == (_DWORD)v2
           && ExCompareExchangeCallBack((signed __int64 *)&PspCreateProcessNotifyRoutine.Ptr + i, 0LL, (__int64)v7) )
         {
-          v12 = (volatile signed __int32 *)&PspSiloMonitorLock.SchedulerApcFill5[52];
+          v12 = (volatile signed __int32 *)&PspSiloMonitorLock.SchedulerApcFill5[48];
           if ( v3 )
-            v12 = (volatile signed __int32 *)&PspSiloMonitorLock.SchedulerApcFill5[60];
+            v12 = (volatile signed __int32 *)&PspSiloMonitorLock.SchedulerApcFill5[44];
           _InterlockedDecrement(v12);
           ExDereferenceCallBackBlock((signed __int64 *)&PspCreateProcessNotifyRoutine.Ptr + i, v8);
           KiLeaveCriticalRegionUnsafe((__int64)CurrentThread, v13);
@@ -86,13 +86,13 @@ __int64 __fastcall PspSetCreateProcessNotifyRoutine(__int64 a1, __int64 a2)
   }
   if ( v3 )
   {
-    _InterlockedIncrement((volatile signed __int32 *)&PspSiloMonitorLock.SchedulerApcFill5[60]);
+    _InterlockedIncrement((volatile signed __int32 *)&PspSiloMonitorLock.SchedulerApcFill5[44]);
     if ( (PspNotifyEnableMask & 4) == 0 )
       _interlockedbittestandset(&PspNotifyEnableMask, 2u);
   }
   else
   {
-    _InterlockedIncrement((volatile signed __int32 *)&PspSiloMonitorLock.SchedulerApcFill5[52]);
+    _InterlockedIncrement((volatile signed __int32 *)&PspSiloMonitorLock.SchedulerApcFill5[48]);
     if ( (PspNotifyEnableMask & 2) == 0 )
       _interlockedbittestandset(&PspNotifyEnableMask, 1u);
   }

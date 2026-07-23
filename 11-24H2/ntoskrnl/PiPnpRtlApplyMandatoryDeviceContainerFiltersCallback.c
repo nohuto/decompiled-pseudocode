@@ -1,9 +1,9 @@
 /*
- * XREFs of PiPnpRtlApplyMandatoryDeviceContainerFiltersCallback @ 0x140A5E7B0
+ * XREFs of PiPnpRtlApplyMandatoryDeviceContainerFiltersCallback @ 0x140A56A20
  * Callers:
  *     <none>
  * Callees:
- *     PiPnpRtlApplyMandatoryDeviceFilters @ 0x1408D1BF0 (PiPnpRtlApplyMandatoryDeviceFilters.c)
+ *     PiPnpRtlApplyMandatoryDeviceFilters @ 0x1408CF5E0 (PiPnpRtlApplyMandatoryDeviceFilters.c)
  */
 
 __int64 __fastcall PiPnpRtlApplyMandatoryDeviceContainerFiltersCallback(__int64 a1, __int64 a2, _BYTE *a3)

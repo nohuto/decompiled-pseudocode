@@ -1,11 +1,11 @@
 /*
- * XREFs of WheaGetCurrentProcessName @ 0x14065CD20
+ * XREFs of WheaGetCurrentProcessName @ 0x14065B440
  * Callers:
- *     KiMcheckAlternateReturn @ 0x1405C9C80 (KiMcheckAlternateReturn.c)
- *     WheaTerminateProcess @ 0x1407C7780 (WheaTerminateProcess.c)
+ *     KiMcheckAlternateReturn @ 0x1405C73B0 (KiMcheckAlternateReturn.c)
+ *     WheaTerminateProcess @ 0x1407C7C20 (WheaTerminateProcess.c)
  * Callees:
- *     RtlInitAnsiString @ 0x1404654C0 (RtlInitAnsiString.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
+ *     RtlInitAnsiString @ 0x14045BBA0 (RtlInitAnsiString.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
  */
 
 __int64 __fastcall WheaGetCurrentProcessName(void **a1, unsigned int *a2)

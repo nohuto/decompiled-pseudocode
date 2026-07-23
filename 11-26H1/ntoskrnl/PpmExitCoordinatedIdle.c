@@ -1,18 +1,18 @@
 /*
- * XREFs of PpmExitCoordinatedIdle @ 0x1403EC374
+ * XREFs of PpmExitCoordinatedIdle @ 0x1402F93B8
  * Callers:
- *     PpmIdleExecuteTransition @ 0x1403EB78C (PpmIdleExecuteTransition.c)
+ *     PpmIdleExecuteTransition @ 0x1402F87D0 (PpmIdleExecuteTransition.c)
  * Callees:
- *     KeCheckProcessorAffinityEx @ 0x14042D260 (KeCheckProcessorAffinityEx.c)
- *     PpmExitCoordinatedIdleState @ 0x1404F2C6C (PpmExitCoordinatedIdleState.c)
- *     PpmEventCoordinatedIdleTransition @ 0x1404F9E40 (PpmEventCoordinatedIdleTransition.c)
- *     KdPowerTransitionEx @ 0x14050A220 (KdPowerTransitionEx.c)
- *     Feature_Servicing_SWDripsDiagnostics__private_IsEnabledDeviceUsageNoInline @ 0x140526BA0 (Feature_Servicing_SWDripsDiagnostics__private_IsEnabledDeviceUsageNoInline.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     KdCallPowerHandlers @ 0x1405E3910 (KdCallPowerHandlers.c)
- *     Feature_Servicing_CoordinatedIdleExitFix__private_IsEnabledDeviceUsageNoInline @ 0x140601384 (Feature_Servicing_CoordinatedIdleExitFix__private_IsEnabledDeviceUsageNoInline.c)
- *     PpmUpdatePlatformIdleAccounting @ 0x1406037EC (PpmUpdatePlatformIdleAccounting.c)
- *     PopIdleWakeNotifyWakeSource @ 0x140610904 (PopIdleWakeNotifyWakeSource.c)
+ *     KeCheckProcessorAffinityEx @ 0x140421930 (KeCheckProcessorAffinityEx.c)
+ *     PpmExitCoordinatedIdleState @ 0x1404EC24C (PpmExitCoordinatedIdleState.c)
+ *     PpmEventCoordinatedIdleTransition @ 0x1404F3450 (PpmEventCoordinatedIdleTransition.c)
+ *     KdPowerTransitionEx @ 0x140503C90 (KdPowerTransitionEx.c)
+ *     Feature_Servicing_SWDripsDiagnostics__private_IsEnabledDeviceUsageNoInline @ 0x140529210 (Feature_Servicing_SWDripsDiagnostics__private_IsEnabledDeviceUsageNoInline.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     KdCallPowerHandlers @ 0x1405E6280 (KdCallPowerHandlers.c)
+ *     Feature_Servicing_CoordinatedIdleExitFix__private_IsEnabledDeviceUsageNoInline @ 0x140603E34 (Feature_Servicing_CoordinatedIdleExitFix__private_IsEnabledDeviceUsageNoInline.c)
+ *     PpmUpdatePlatformIdleAccounting @ 0x14060629C (PpmUpdatePlatformIdleAccounting.c)
+ *     PopIdleWakeNotifyWakeSource @ 0x140613B64 (PopIdleWakeNotifyWakeSource.c)
  */
 
 __int64 __fastcall PpmExitCoordinatedIdle(
@@ -120,7 +120,7 @@ __int64 __fastcall PpmExitCoordinatedIdle(
           KdPowerTransitionEx(2147483649LL, v28);
           v27 = a4;
         }
-        if ( (*(_WORD *)&stru_140F10828.WaitBlockFill11[100] & 0x100) != 0
+        if ( (PpmIdlePolicyLock.SchedulerAssistLastYieldBoostTime & 0x100) != 0
           && v27 >= 0
           && !a5
           && a7

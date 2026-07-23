@@ -7,22 +7,22 @@
  *     RtlQueryImageFileKeyOption @ 0x1409C0C60 (RtlQueryImageFileKeyOption.c)
  */
 
-int __fastcall PspQueryComPlusRunUnderWoW(__int64 a1, _BYTE *a2)
+NTSTATUS __fastcall PspQueryComPlusRunUnderWoW(__int64 a1, _BYTE *a2)
 {
   char v2; // al
-  int result; // eax
+  NTSTATUS result; // eax
   void *v6; // rcx
-  int v7; // [rsp+50h] [rbp+18h] BYREF
+  int SystemInformation; // [rsp+50h] [rbp+18h] BYREF
   int v8; // [rsp+58h] [rbp+20h] BYREF
 
   v2 = MEMORY[0xFFFFF780000002E0];
-  v7 = MEMORY[0xFFFFF780000002E0];
+  SystemInformation = MEMORY[0xFFFFF780000002E0];
   if ( MEMORY[0xFFFFF780000002E0] == -1 )
   {
-    result = ZwQuerySystemInformation(59LL, (__int64)&v7);
+    result = ZwQuerySystemInformation(SystemComPlusPackage, &SystemInformation, 4u, 0LL);
     if ( result < 0 )
       return result;
-    v2 = v7;
+    v2 = SystemInformation;
   }
   if ( (v2 & 1) == 0 )
     goto LABEL_13;

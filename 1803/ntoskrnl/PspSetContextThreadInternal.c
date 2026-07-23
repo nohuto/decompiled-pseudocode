@@ -25,79 +25,79 @@
  *     RtlpReadExtendedContext @ 0x1405B8618 (RtlpReadExtendedContext.c)
  */
 
-__int64 __fastcall PspSetContextThreadInternal(PETHREAD Thread, __int64 a2, char a3, char a4, char a5)
+int __fastcall PspSetContextThreadInternal(PETHREAD Thread, CONTEXT *a2, char a3, char a4, char a5)
 {
-  __int64 v7; // rbx
+  CONTEXT *v7; // rbx
   struct _KTHREAD *CurrentThread; // r14
-  __int64 result; // rax
+  int result; // eax
   struct _KPROCESS *v11; // rbx
   char v12; // al
-  __int64 v13; // rax
-  unsigned int v14; // esi
+  __int64 p_ContextFlags; // rax
+  ULONG v14; // esi
   unsigned __int64 v15; // rax
   void *v16; // rsp
   int v17; // edx
   int v18; // ecx
-  unsigned int v19; // [rsp+40h] [rbp+0h] BYREF
-  unsigned int v20; // [rsp+44h] [rbp+4h]
-  __int64 v21; // [rsp+48h] [rbp+8h] BYREF
+  ULONG ContextFlags; // [rsp+40h] [rbp+0h] BYREF
+  ULONG ContextLength; // [rsp+44h] [rbp+4h] BYREF
+  PCONTEXT_EX ContextEx; // [rsp+48h] [rbp+8h] BYREF
   _BYTE v22[64]; // [rsp+50h] [rbp+10h] BYREF
   _QWORD v23[3]; // [rsp+90h] [rbp+50h] BYREF
   char v24; // [rsp+A8h] [rbp+68h]
   char v25; // [rsp+A9h] [rbp+69h]
-  unsigned int v26; // [rsp+ACh] [rbp+6Ch]
+  int v26; // [rsp+ACh] [rbp+6Ch]
   _BYTE v27[24]; // [rsp+B0h] [rbp+70h] BYREF
-  unsigned int *v28; // [rsp+C8h] [rbp+88h]
+  PCONTEXT Context; // [rsp+C8h] [rbp+88h]
 
   v7 = a2;
   CurrentThread = KeGetCurrentThread();
   if ( a3 )
   {
-    v13 = a2 + 48;
-    if ( (unsigned __int64)(a2 + 48) >= 0x7FFFFFFF0000LL )
-      v13 = 0x7FFFFFFF0000LL;
-    v19 = *(_DWORD *)v13;
+    p_ContextFlags = (__int64)&a2->ContextFlags;
+    if ( (unsigned __int64)&a2->ContextFlags >= 0x7FFFFFFF0000LL )
+      p_ContextFlags = 0x7FFFFFFF0000LL;
+    ContextFlags = *(_DWORD *)p_ContextFlags;
   }
   else
   {
-    v19 = *(_DWORD *)(a2 + 48);
+    ContextFlags = a2->ContextFlags;
   }
   LOBYTE(a2) = a3;
-  result = RtlpSanitizeContextFlags(&v19, a2);
-  if ( (int)result >= 0 )
+  result = RtlpSanitizeContextFlags(&ContextFlags, a2);
+  if ( result >= 0 )
   {
     if ( a3 )
     {
-      v14 = v19;
-      result = RtlGetExtendedContextLength(v19);
-      if ( (int)result < 0 )
+      v14 = ContextFlags;
+      result = RtlGetExtendedContextLength(ContextFlags, &ContextLength);
+      if ( result < 0 )
         return result;
-      v15 = v20 + 15LL;
-      if ( v15 <= v20 )
+      v15 = ContextLength + 15LL;
+      if ( v15 <= ContextLength )
         v15 = 0xFFFFFFFFFFFFFF0LL;
       v16 = alloca(v15 & 0xFFFFFFFFFFFFFFF0uLL);
-      v28 = &v19;
-      memset(&v19, 0, v20);
-      result = RtlInitializeExtendedContext((__int64)v28, v14, &v21);
-      if ( (int)result < 0 )
+      Context = (PCONTEXT)&ContextFlags;
+      memset(&ContextFlags, 0, ContextLength);
+      result = RtlInitializeExtendedContext(Context, v14, &ContextEx);
+      if ( result < 0 )
         return result;
-      v28 = (unsigned int *)(v21 - 1232);
+      Context = (PCONTEXT)&ContextEx[-39].XState;
       LOBYTE(v17) = 1;
-      result = RtlpReadExtendedContext(v18, v17, v21, v14, v7, 0LL);
-      if ( (int)result < 0 )
+      result = RtlpReadExtendedContext(v18, v17, (_DWORD)ContextEx, v14, (__int64)v7, 0LL);
+      if ( result < 0 )
         return result;
     }
     else
     {
-      v28 = (unsigned int *)v7;
+      Context = v7;
     }
     if ( !a4 )
       goto LABEL_10;
     if ( (Thread->MiscFlags & 0x400) != 0 )
-      return 3221225520LL;
+      return -1073741776;
     v11 = IoThreadToProcess(CurrentThread);
     if ( IoThreadToProcess(Thread) != v11
-      || (result = KeVerifyContextRecord((__int64)Thread, (__int64)v28), (int)result >= 0) )
+      || (result = KeVerifyContextRecord((__int64)Thread, (__int64)Context), result >= 0) )
     {
 LABEL_10:
       v24 = a4;
@@ -117,7 +117,7 @@ LABEL_10:
         KeInitializeGate((__int64)v27);
         KeInitializeApc((__int64)v22, (__int64)Thread, 0, (__int64)PspGetSetContextSpecialApc, 0LL, 0LL, 0, 0LL);
         if ( !KeInsertQueueApc((__int64)v22, 1LL, (__int64)Thread, 2) )
-          return 3221225473LL;
+          return -1073741823;
         KeWaitForGate((__int64)v27, 0);
       }
       return v26;

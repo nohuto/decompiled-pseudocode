@@ -1,21 +1,21 @@
 /*
- * XREFs of MiFaultGetFileExtents @ 0x1405483F0
+ * XREFs of MiFaultGetFileExtents @ 0x140548630
  * Callers:
- *     MmAccessFault @ 0x14020D090 (MmAccessFault.c)
+ *     MmAccessFault @ 0x1402B1990 (MmAccessFault.c)
  * Callees:
- *     MiReleaseFaultCharges @ 0x1402C8F9C (MiReleaseFaultCharges.c)
- *     MiRetainSubsection @ 0x1402C9564 (MiRetainSubsection.c)
- *     MiDereferenceControlArea @ 0x1402D38B8 (MiDereferenceControlArea.c)
- *     MiFreeInPageSupportBlock @ 0x1402FC8DC (MiFreeInPageSupportBlock.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140314D90 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MmGetSessionIdEx @ 0x14034AE60 (MmGetSessionIdEx.c)
- *     MiGetSharedProtos @ 0x1403A6208 (MiGetSharedProtos.c)
- *     MiReleaseFaultSynchronization @ 0x140548EC4 (MiReleaseFaultSynchronization.c)
- *     MiAllocateFileExtents @ 0x1408CF510 (MiAllocateFileExtents.c)
+ *     MiReleaseFaultCharges @ 0x1402477FC (MiReleaseFaultCharges.c)
+ *     MiRetainSubsection @ 0x140247E44 (MiRetainSubsection.c)
+ *     MiDereferenceControlArea @ 0x140251BB8 (MiDereferenceControlArea.c)
+ *     MiFreeInPageSupportBlock @ 0x14030762C (MiFreeInPageSupportBlock.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14031FAE0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140346AD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MmGetSessionIdEx @ 0x140355BB0 (MmGetSessionIdEx.c)
+ *     MiGetSharedProtos @ 0x1403A6358 (MiGetSharedProtos.c)
+ *     MiReleaseFaultSynchronization @ 0x140549104 (MiReleaseFaultSynchronization.c)
+ *     MiAllocateFileExtents @ 0x1408CF670 (MiAllocateFileExtents.c)
  */
 
-__int64 __fastcall MiFaultGetFileExtents(__int64 a1, struct _SLIST_ENTRY *a2)
+__int64 __fastcall MiFaultGetFileExtents(__int64 a1, _SLIST_ENTRY *a2)
 {
   ULONG_PTR Next; // rdi
   __int64 v5; // r14

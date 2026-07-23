@@ -1,33 +1,33 @@
 /*
- * XREFs of MiInitializeDynamicPfns @ 0x14061AEF8
+ * XREFs of MiInitializeDynamicPfns @ 0x14061B448
  * Callers:
- *     MiMapNewPfns @ 0x140A2C910 (MiMapNewPfns.c)
- *     MiRemovePhysicalMemory @ 0x140A2CC4C (MiRemovePhysicalMemory.c)
+ *     MiMapNewPfns @ 0x140A2CBC0 (MiMapNewPfns.c)
+ *     MiRemovePhysicalMemory @ 0x140A2CEFC (MiRemovePhysicalMemory.c)
  * Callees:
  *     MiInitializeAllResidentPageBasePfns @ 0x140219FF4 (MiInitializeAllResidentPageBasePfns.c)
  *     MiAbortCombineScan @ 0x14021AAAC (MiAbortCombineScan.c)
  *     MiPageCombiningActive @ 0x14021AB5C (MiPageCombiningActive.c)
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     MiReferenceControlAreaPfn @ 0x14025B320 (MiReferenceControlAreaPfn.c)
- *     MiSearchNumaNodeTable @ 0x14026EAD0 (MiSearchNumaNodeTable.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiUnlockProtoPoolPage @ 0x1402DAEF0 (MiUnlockProtoPoolPage.c)
- *     MiLockProtoPoolPageForce @ 0x1402DDFD4 (MiLockProtoPoolPageForce.c)
- *     MiUpdateLargePageBitMap @ 0x1402E890C (MiUpdateLargePageBitMap.c)
- *     KeShouldYieldProcessor @ 0x140333C70 (KeShouldYieldProcessor.c)
- *     MiDetermineNewPfnHeatState @ 0x1403478E8 (MiDetermineNewPfnHeatState.c)
- *     MiCreatePfnTemplate @ 0x140375554 (MiCreatePfnTemplate.c)
- *     MiRestrictRangeToNode @ 0x140375714 (MiRestrictRangeToNode.c)
- *     MiInitializeNewPfns @ 0x140375770 (MiInitializeNewPfns.c)
- *     MiEndDpcGang @ 0x14038B840 (MiEndDpcGang.c)
- *     MiInitializeDpcGang @ 0x14038B890 (MiInitializeDpcGang.c)
- *     MiStartDpcGang @ 0x14038BCC4 (MiStartDpcGang.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiSetPfnRemovalRequested @ 0x14064DEB4 (MiSetPfnRemovalRequested.c)
- *     MiUpdatePartitionChildPageCounts @ 0x14065BD04 (MiUpdatePartitionChildPageCounts.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     MiReferenceControlAreaPfn @ 0x14025B5B0 (MiReferenceControlAreaPfn.c)
+ *     MiSearchNumaNodeTable @ 0x14026ED60 (MiSearchNumaNodeTable.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiUnlockProtoPoolPage @ 0x1402DB180 (MiUnlockProtoPoolPage.c)
+ *     MiLockProtoPoolPageForce @ 0x1402DE264 (MiLockProtoPoolPageForce.c)
+ *     MiUpdateLargePageBitMap @ 0x1402E8B9C (MiUpdateLargePageBitMap.c)
+ *     KeShouldYieldProcessor @ 0x140333F00 (KeShouldYieldProcessor.c)
+ *     MiDetermineNewPfnHeatState @ 0x140347B78 (MiDetermineNewPfnHeatState.c)
+ *     MiCreatePfnTemplate @ 0x1403756F4 (MiCreatePfnTemplate.c)
+ *     MiRestrictRangeToNode @ 0x1403758B4 (MiRestrictRangeToNode.c)
+ *     MiInitializeNewPfns @ 0x140375910 (MiInitializeNewPfns.c)
+ *     MiEndDpcGang @ 0x14038BA20 (MiEndDpcGang.c)
+ *     MiInitializeDpcGang @ 0x14038BA70 (MiInitializeDpcGang.c)
+ *     MiStartDpcGang @ 0x14038BEA4 (MiStartDpcGang.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     MiSetPfnRemovalRequested @ 0x14064E404 (MiSetPfnRemovalRequested.c)
+ *     MiUpdatePartitionChildPageCounts @ 0x14065C254 (MiUpdatePartitionChildPageCounts.c)
  */
 
 void __fastcall MiInitializeDynamicPfns(
@@ -115,10 +115,13 @@ void __fastcall MiInitializeDynamicPfns(
     v12 = v11;
     byte_140C6B44C = 1;
     ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C6B520);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v12 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v12 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -224,7 +227,7 @@ void __fastcall MiInitializeDynamicPfns(
   v30 = 0LL;
   v31 = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v31 <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v31 <= 0xFu )
   {
     v32 = KeGetCurrentPrcb()->SchedulerAssist;
     if ( v31 == 2 )
@@ -270,7 +273,7 @@ LABEL_58:
       }
       else
       {
-        if ( KiIrqlFlags && (v41 = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && v41 <= 0xFu )
+        if ( (_DWORD)KiIrqlFlags && (v41 = KeGetCurrentIrql(), ((unsigned __int8)KiIrqlFlags & 1) != 0) && v41 <= 0xFu )
         {
           v42 = v52[0];
           if ( v52[0] <= 0xFu && v41 >= 2u )
@@ -292,7 +295,7 @@ LABEL_58:
         __writecr8(v42);
         v31 = KeGetCurrentIrql();
         __writecr8(2uLL);
-        if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v31 <= 0xFu )
+        if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v31 <= 0xFu )
         {
           v46 = KeGetCurrentPrcb()->SchedulerAssist;
           if ( v31 == 2 )
@@ -321,10 +324,10 @@ LABEL_56:
     goto LABEL_57;
   }
 LABEL_78:
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v48 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v48 <= 0xFu && v31 <= 0xFu && v48 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v48 <= 0xFu && v31 <= 0xFu && v48 >= 2u )
     {
       v49 = KeGetCurrentPrcb();
       v50 = v49->SchedulerAssist;

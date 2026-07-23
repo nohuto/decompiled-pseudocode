@@ -3,8 +3,8 @@
  * Callers:
  *     MiCreatePfnDatabase @ 0x140B450C8 (MiCreatePfnDatabase.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     qsort @ 0x1403DA430 (qsort.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     qsort @ 0x1403DA610 (qsort.c)
  */
 
 __int64 __fastcall MiInitializeNumaGraph(__int64 a1)

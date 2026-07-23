@@ -35,14 +35,14 @@ void __stdcall FsRtlNotifyFilterReportChange(
   USHORT v10; // r15
   PSTRING v11; // r10
   struct _KTHREAD *CurrentThread; // rbx
-  struct _LIST_ENTRY *Flink; // r13
-  struct _LIST_ENTRY *v15; // rdi
+  _LIST_ENTRY *Flink; // r13
+  _LIST_ENTRY *v15; // rdi
   char v16; // r11
   char v17; // bl
   PSTRING v18; // r14
   __int16 v19; // r8
   unsigned int Flink_high; // r13d
-  struct _LIST_ENTRY *v21; // rax
+  _LIST_ENTRY *v21; // rax
   unsigned __int16 v22; // ax
   int v23; // r14d
   unsigned int v24; // r14d
@@ -86,23 +86,23 @@ void __stdcall FsRtlNotifyFilterReportChange(
   char v62; // [rsp+40h] [rbp-F8h]
   unsigned __int16 v63; // [rsp+48h] [rbp-F0h]
   int v64; // [rsp+4Ch] [rbp-ECh]
-  STRING OemString; // [rsp+58h] [rbp-E0h] BYREF
+  OEM_STRING OemString; // [rsp+58h] [rbp-E0h] BYREF
   int Length; // [rsp+68h] [rbp-D0h]
   struct _LIST_ENTRY *v67; // [rsp+70h] [rbp-C8h]
-  struct _LIST_ENTRY *v68; // [rsp+78h] [rbp-C0h]
-  STRING v69; // [rsp+80h] [rbp-B8h] BYREF
+  _LIST_ENTRY *v68; // [rsp+78h] [rbp-C0h]
+  OEM_STRING v69; // [rsp+80h] [rbp-B8h] BYREF
   unsigned int v70; // [rsp+90h] [rbp-A8h]
   int v71; // [rsp+94h] [rbp-A4h]
   int v72; // [rsp+98h] [rbp-A0h]
   USHORT v73; // [rsp+A0h] [rbp-98h]
   _DWORD v74[5]; // [rsp+A2h] [rbp-96h] BYREF
-  struct _LIST_ENTRY *v75; // [rsp+B8h] [rbp-80h]
+  _LIST_ENTRY *v75; // [rsp+B8h] [rbp-80h]
   struct _LIST_ENTRY **p_Blink; // [rsp+C0h] [rbp-78h]
-  struct _LIST_ENTRY *v77; // [rsp+C8h] [rbp-70h]
+  _LIST_ENTRY *v77; // [rsp+C8h] [rbp-70h]
   _WORD v78[4]; // [rsp+D0h] [rbp-68h] BYREF
   char *Buffer; // [rsp+D8h] [rbp-60h]
   struct _LIST_ENTRY **v80; // [rsp+E8h] [rbp-50h]
-  struct _LIST_ENTRY *v82; // [rsp+148h] [rbp+10h]
+  _LIST_ENTRY *v82; // [rsp+148h] [rbp+10h]
 
   v82 = NotifyList;
   v10 = TargetNameOffset;

@@ -6,10 +6,7 @@
  *     sub_18008275C @ 0x18008275C (sub_18008275C.c)
  */
 
-__int64 __fastcall RtlCheckForOrphanedCriticalSections(__int64 a1)
+void __cdecl RtlCheckForOrphanedCriticalSections(HANDLE ThreadHandle)
 {
-  __int64 v2; // [rsp+38h] [rbp+10h] BYREF
-
-  v2 = 0LL;
-  return sub_18008275C(a1, &v2);
+  sub_18008275C(ThreadHandle);
 }

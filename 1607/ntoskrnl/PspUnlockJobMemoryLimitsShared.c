@@ -1,15 +1,15 @@
 /*
- * XREFs of PspUnlockJobMemoryLimitsShared @ 0x1404694D0
+ * XREFs of PspUnlockJobMemoryLimitsShared @ 0x1404683A0
  * Callers:
- *     NtSetInformationJobObject @ 0x140464BD8 (NtSetInformationJobObject.c)
- *     NtQueryInformationJobObject @ 0x140466FD0 (NtQueryInformationJobObject.c)
- *     PspEnforceLimitsJobPostCallback @ 0x1404688C0 (PspEnforceLimitsJobPostCallback.c)
- *     PspApplyJobLimitsToProcess @ 0x14046A1D0 (PspApplyJobLimitsToProcess.c)
- *     PsReportProcessMemoryLimitViolation @ 0x1406800EC (PsReportProcessMemoryLimitViolation.c)
+ *     NtSetInformationJobObject @ 0x140463AA8 (NtSetInformationJobObject.c)
+ *     NtQueryInformationJobObject @ 0x140465EA0 (NtQueryInformationJobObject.c)
+ *     PspEnforceLimitsJobPostCallback @ 0x140467790 (PspEnforceLimitsJobPostCallback.c)
+ *     PspApplyJobLimitsToProcess @ 0x1404690A0 (PspApplyJobLimitsToProcess.c)
+ *     PsReportProcessMemoryLimitViolation @ 0x1406801D0 (PsReportProcessMemoryLimitViolation.c)
  * Callees:
- *     KiLeaveGuardedRegionUnsafe @ 0x140013B70 (KiLeaveGuardedRegionUnsafe.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1400C8640 (ExfReleasePushLockShared.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1400136F0 (KiLeaveGuardedRegionUnsafe.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfReleasePushLockShared @ 0x1400C64E0 (ExfReleasePushLockShared.c)
  */
 
 unsigned __int64 __fastcall PspUnlockJobMemoryLimitsShared(__int64 a1, __int64 a2)

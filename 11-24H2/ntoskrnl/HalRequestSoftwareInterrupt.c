@@ -1,16 +1,16 @@
 /*
- * XREFs of HalRequestSoftwareInterrupt @ 0x14034AB60
+ * XREFs of HalRequestSoftwareInterrupt @ 0x140369040
  * Callers:
- *     KiEndInterruptCycleAccumulation @ 0x14034A8A0 (KiEndInterruptCycleAccumulation.c)
- *     KeUpdateTotalCyclesCurrentThread @ 0x14034AEC0 (KeUpdateTotalCyclesCurrentThread.c)
- *     KiReduceByEffectiveIdleSmtSet @ 0x14034B700 (KiReduceByEffectiveIdleSmtSet.c)
- *     KiStartThreadCycleAccumulation @ 0x14034ED50 (KiStartThreadCycleAccumulation.c)
- *     KiUpdateTotalCyclesCurrentThread @ 0x14034F060 (KiUpdateTotalCyclesCurrentThread.c)
- *     KeQueryTotalCycleTimeThread @ 0x1403EBDD0 (KeQueryTotalCycleTimeThread.c)
- *     SwapContext @ 0x1406B2B40 (SwapContext.c)
+ *     KiEndInterruptCycleAccumulation @ 0x140368D80 (KiEndInterruptCycleAccumulation.c)
+ *     KeUpdateTotalCyclesCurrentThread @ 0x1403693A0 (KeUpdateTotalCyclesCurrentThread.c)
+ *     KiReduceByEffectiveIdleSmtSet @ 0x140369BE0 (KiReduceByEffectiveIdleSmtSet.c)
+ *     KiStartThreadCycleAccumulation @ 0x14036D230 (KiStartThreadCycleAccumulation.c)
+ *     KiUpdateTotalCyclesCurrentThread @ 0x14036D540 (KiUpdateTotalCyclesCurrentThread.c)
+ *     KeQueryTotalCycleTimeThread @ 0x1403E03C0 (KeQueryTotalCycleTimeThread.c)
+ *     SwapContext @ 0x1406B3AE0 (SwapContext.c)
  * Callees:
- *     HalpInterruptSendIpi @ 0x14031FDE0 (HalpInterruptSendIpi.c)
- *     HalpDisableInterrupts @ 0x140320790 (HalpDisableInterrupts.c)
+ *     HalpInterruptSendIpi @ 0x1402C8970 (HalpInterruptSendIpi.c)
+ *     HalpDisableInterrupts @ 0x1402C9320 (HalpDisableInterrupts.c)
  */
 
 __int64 __fastcall HalRequestSoftwareInterrupt(char a1)

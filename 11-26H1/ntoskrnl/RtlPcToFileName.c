@@ -1,16 +1,16 @@
 /*
- * XREFs of RtlPcToFileName @ 0x140419600
+ * XREFs of RtlPcToFileName @ 0x14040DB30
  * Callers:
- *     ExpTraceLogBadResourceAddress @ 0x14052D790 (ExpTraceLogBadResourceAddress.c)
- *     KiLogSingleDpcSoftTimeoutEvent @ 0x1405E91A0 (KiLogSingleDpcSoftTimeoutEvent.c)
- *     EtwTimLogControlProtectionKernelModeReturnMismatch @ 0x1406C6AF4 (EtwTimLogControlProtectionKernelModeReturnMismatch.c)
- *     KitLogFeatureUsage @ 0x1406D2550 (KitLogFeatureUsage.c)
- *     PoRegisterPowerSettingCallback @ 0x140B05F90 (PoRegisterPowerSettingCallback.c)
+ *     ExpTraceLogBadResourceAddress @ 0x14052FCB0 (ExpTraceLogBadResourceAddress.c)
+ *     KiLogSingleDpcSoftTimeoutEvent @ 0x1405EBB10 (KiLogSingleDpcSoftTimeoutEvent.c)
+ *     EtwTimLogControlProtectionKernelModeReturnMismatch @ 0x1406CA7F4 (EtwTimLogControlProtectionKernelModeReturnMismatch.c)
+ *     KitLogFeatureUsage @ 0x1406D6580 (KitLogFeatureUsage.c)
+ *     PoRegisterPowerSettingCallback @ 0x140B080C0 (PoRegisterPowerSettingCallback.c)
  * Callees:
- *     MmUnlockLoadedModuleListShared @ 0x140366D8C (MmUnlockLoadedModuleListShared.c)
- *     MmLockLoadedModuleListShared @ 0x140366E14 (MmLockLoadedModuleListShared.c)
- *     MmFindDataTableEntryByAddress @ 0x140366EA0 (MmFindDataTableEntryByAddress.c)
- *     RtlCopyUnicodeString @ 0x140419A90 (RtlCopyUnicodeString.c)
+ *     MmUnlockLoadedModuleListShared @ 0x140368B2C (MmUnlockLoadedModuleListShared.c)
+ *     MmLockLoadedModuleListShared @ 0x140368BB4 (MmLockLoadedModuleListShared.c)
+ *     MmFindDataTableEntryByAddress @ 0x140368C40 (MmFindDataTableEntryByAddress.c)
+ *     RtlCopyUnicodeString @ 0x14040DFC0 (RtlCopyUnicodeString.c)
  */
 
 __int64 __fastcall RtlPcToFileName(unsigned __int64 a1, UNICODE_STRING *a2)

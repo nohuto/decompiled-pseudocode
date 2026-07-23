@@ -1,16 +1,16 @@
 /*
- * XREFs of HalpInitializeGenericErrorSource @ 0x140BEC3F8
+ * XREFs of HalpInitializeGenericErrorSource @ 0x140BF23F8
  * Callers:
- *     HalpInitializeErrSrc @ 0x140BE9E50 (HalpInitializeErrSrc.c)
+ *     HalpInitializeErrSrc @ 0x140BEFE50 (HalpInitializeErrSrc.c)
  * Callees:
- *     MmMapIoSpaceEx @ 0x140363DC0 (MmMapIoSpaceEx.c)
- *     HalpCheckAndReportGhes @ 0x1404DC5EC (HalpCheckAndReportGhes.c)
- *     HalpFindGhesEntry @ 0x14058E368 (HalpFindGhesEntry.c)
- *     HalpRegisterPeiErrorSource @ 0x14058E3B8 (HalpRegisterPeiErrorSource.c)
- *     HalpInitGenericErrorSourceEntry @ 0x140BEBDF4 (HalpInitGenericErrorSourceEntry.c)
- *     HalpInitGenericErrorSourceEntryV2 @ 0x140BEC05C (HalpInitGenericErrorSourceEntryV2.c)
- *     HalpInitGenericErrorSourcePollingRoutine @ 0x140BEC328 (HalpInitGenericErrorSourcePollingRoutine.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     MmMapIoSpaceEx @ 0x140365B60 (MmMapIoSpaceEx.c)
+ *     HalpCheckAndReportGhes @ 0x1404D5CCC (HalpCheckAndReportGhes.c)
+ *     HalpFindGhesEntry @ 0x140590AE8 (HalpFindGhesEntry.c)
+ *     HalpRegisterPeiErrorSource @ 0x140590B38 (HalpRegisterPeiErrorSource.c)
+ *     HalpInitGenericErrorSourceEntry @ 0x140BF1DF4 (HalpInitGenericErrorSourceEntry.c)
+ *     HalpInitGenericErrorSourceEntryV2 @ 0x140BF205C (HalpInitGenericErrorSourceEntryV2.c)
+ *     HalpInitGenericErrorSourcePollingRoutine @ 0x140BF2328 (HalpInitGenericErrorSourcePollingRoutine.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall HalpInitializeGenericErrorSource(int a1, __int64 a2)
@@ -47,20 +47,20 @@ __int64 __fastcall HalpInitializeGenericErrorSource(int a1, __int64 a2)
     return 0LL;
   if ( !HalpGenericInitDone )
   {
-    qword_140FBA658 = (__int64)&HalpGenericPeiErrorSourceListHead;
+    qword_140FBAA08 = (__int64)&HalpGenericPeiErrorSourceListHead;
     HalpGenericPeiErrorSourceListHead = (__int64)&HalpGenericPeiErrorSourceListHead;
-    qword_140FBA7A8 = (__int64)&HalpGenericAssistErrorSourceListHead;
+    qword_140FBAB58 = (__int64)&HalpGenericAssistErrorSourceListHead;
     HalpGenericAssistErrorSourceListHead = (__int64)&HalpGenericAssistErrorSourceListHead;
     HalpGenericInitDone = 1;
-    qword_140FBA678 = (__int64)&HalpGenericPolledErrorSourceListHead;
+    qword_140FBAB48 = (__int64)&HalpGenericPolledErrorSourceListHead;
     HalpGenericPolledErrorSourceListHead = (__int64)&HalpGenericPolledErrorSourceListHead;
-    qword_140FBA798 = (__int64)&HalpGenericNmiErrorSourceListHead;
+    qword_140FBAB68 = (__int64)&HalpGenericNmiErrorSourceListHead;
     HalpGenericNmiErrorSourceListHead = (__int64)&HalpGenericNmiErrorSourceListHead;
-    qword_140FBA668 = (__int64)&HalpGenericSeaErrorSourceListHead;
+    qword_140FBAA28 = (__int64)&HalpGenericSeaErrorSourceListHead;
     HalpGenericSeaErrorSourceListHead = (__int64)&HalpGenericSeaErrorSourceListHead;
-    qword_140FBA788 = (__int64)&HalpGenericSdeiErrorSourceListHead;
+    qword_140FBAA38 = (__int64)&HalpGenericSdeiErrorSourceListHead;
     HalpGenericSdeiErrorSourceListHead = (__int64)&HalpGenericSdeiErrorSourceListHead;
-    qword_140FBA648 = (__int64)&HalpGenericSeiErrorSourceListHead;
+    qword_140FBAA18 = (__int64)&HalpGenericSeiErrorSourceListHead;
     HalpGenericSeiErrorSourceListHead = (__int64)&HalpGenericSeiErrorSourceListHead;
   }
   switch ( *(_BYTE *)(a2 + 64) )
@@ -75,14 +75,14 @@ __int64 __fastcall HalpInitializeGenericErrorSource(int a1, __int64 a2)
       *((_QWORD *)P + 2) = MEMORY[0xFFFFF78000000320];
       if ( inited < 0 )
         return v5;
-      v21 = (_QWORD *)qword_140FBA678;
-      if ( *(__int64 **)qword_140FBA678 != &HalpGenericPolledErrorSourceListHead )
+      v21 = (_QWORD *)qword_140FBAB48;
+      if ( *(__int64 **)qword_140FBAB48 != &HalpGenericPolledErrorSourceListHead )
         goto LABEL_56;
       v22 = HalpGenericPollingInitDone == 0;
       *v20 = &HalpGenericPolledErrorSourceListHead;
       v20[1] = v21;
       *v21 = v20;
-      qword_140FBA678 = (__int64)v20;
+      qword_140FBAB48 = (__int64)v20;
       if ( v22 )
       {
         HalpGenericPollingInitDone = 1;
@@ -107,13 +107,13 @@ __int64 __fastcall HalpInitializeGenericErrorSource(int a1, __int64 a2)
           ExFreePoolWithTag(v15, 0x576C6148u);
           return 3221225473LL;
         }
-        v18 = (_QWORD *)qword_140FBA798;
-        if ( *(__int64 **)qword_140FBA798 != &HalpGenericNmiErrorSourceListHead )
+        v18 = (_QWORD *)qword_140FBAB68;
+        if ( *(__int64 **)qword_140FBAB68 != &HalpGenericNmiErrorSourceListHead )
           goto LABEL_56;
         *v15 = &HalpGenericNmiErrorSourceListHead;
         v15[1] = v18;
         *v18 = v15;
-        qword_140FBA798 = (__int64)v15;
+        qword_140FBAB68 = (__int64)v15;
       }
       if ( !HalpGenericNmiInitDone )
         HalpGenericNmiInitDone = 1;
@@ -147,14 +147,14 @@ LABEL_59:
       v5 = v11;
       if ( v11 >= 0 )
       {
-        v12 = (_QWORD *)qword_140FBA668;
-        if ( *(__int64 **)qword_140FBA668 != &HalpGenericSeaErrorSourceListHead )
+        v12 = (_QWORD *)qword_140FBAA28;
+        if ( *(__int64 **)qword_140FBAA28 != &HalpGenericSeaErrorSourceListHead )
           goto LABEL_56;
         v13 = P;
         *(_QWORD *)P = &HalpGenericSeaErrorSourceListHead;
         v13[1] = v12;
         *v12 = v13;
-        qword_140FBA668 = (__int64)v13;
+        qword_140FBAA28 = (__int64)v13;
       }
       if ( !HalpGenericSeaInitDone )
         HalpGenericSeaInitDone = 1;
@@ -167,14 +167,14 @@ LABEL_59:
       v5 = v8;
       if ( v8 >= 0 )
       {
-        v9 = (_QWORD *)qword_140FBA648;
-        if ( *(__int64 **)qword_140FBA648 != &HalpGenericSeiErrorSourceListHead )
+        v9 = (_QWORD *)qword_140FBAA18;
+        if ( *(__int64 **)qword_140FBAA18 != &HalpGenericSeiErrorSourceListHead )
           goto LABEL_56;
         v10 = P;
         *(_QWORD *)P = &HalpGenericSeiErrorSourceListHead;
         v10[1] = v9;
         *v9 = v10;
-        qword_140FBA648 = (__int64)v10;
+        qword_140FBAA18 = (__int64)v10;
       }
       if ( !HalpGenericSeiInitDone )
         HalpGenericSeiInitDone = 1;
@@ -195,13 +195,13 @@ LABEL_59:
     v5 = HalpRegisterPeiErrorSource((unsigned __int64)P);
     if ( (v5 & 0x80000000) == 0 )
     {
-      v7 = (_QWORD *)qword_140FBA658;
-      if ( *(__int64 **)qword_140FBA658 == &HalpGenericPeiErrorSourceListHead )
+      v7 = (_QWORD *)qword_140FBAA08;
+      if ( *(__int64 **)qword_140FBAA08 == &HalpGenericPeiErrorSourceListHead )
       {
         *v6 = &HalpGenericPeiErrorSourceListHead;
         v6[1] = v7;
         *v7 = v6;
-        qword_140FBA658 = (__int64)v6;
+        qword_140FBAA08 = (__int64)v6;
         goto LABEL_59;
       }
 LABEL_56:

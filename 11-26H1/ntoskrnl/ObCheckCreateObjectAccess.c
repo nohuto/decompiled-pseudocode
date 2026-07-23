@@ -1,19 +1,19 @@
 /*
- * XREFs of ObCheckCreateObjectAccess @ 0x1408EE440
+ * XREFs of ObCheckCreateObjectAccess @ 0x1408F4A00
  * Callers:
- *     ObpLookupObjectName @ 0x1408FE2F0 (ObpLookupObjectName.c)
+ *     ObpLookupObjectName @ 0x14092E280 (ObpLookupObjectName.c)
  * Callees:
- *     SeAccessCheck @ 0x1402B6340 (SeAccessCheck.c)
- *     CmSiFreeMemory @ 0x140495010 (CmSiFreeMemory.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     SeLockSubjectContext @ 0x1408EE720 (SeLockSubjectContext.c)
- *     SeUnlockSubjectContext @ 0x1408EE780 (SeUnlockSubjectContext.c)
- *     ObpReferenceSecurityDescriptor @ 0x1408EE7D0 (ObpReferenceSecurityDescriptor.c)
- *     SeAppendPrivileges @ 0x140903960 (SeAppendPrivileges.c)
- *     ObDereferenceSecurityDescriptor @ 0x140931DF0 (ObDereferenceSecurityDescriptor.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     SeAccessCheck @ 0x140301000 (SeAccessCheck.c)
+ *     CmSiFreeMemory @ 0x14048EB60 (CmSiFreeMemory.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     SeLockSubjectContext @ 0x1408F4CE0 (SeLockSubjectContext.c)
+ *     SeUnlockSubjectContext @ 0x1408F4D40 (SeUnlockSubjectContext.c)
+ *     ObpReferenceSecurityDescriptor @ 0x1408F4D90 (ObpReferenceSecurityDescriptor.c)
+ *     ObDereferenceSecurityDescriptor @ 0x14090D9C0 (ObDereferenceSecurityDescriptor.c)
+ *     SeAppendPrivileges @ 0x1409338F0 (SeAppendPrivileges.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 BOOLEAN __fastcall ObCheckCreateObjectAccess(

@@ -1,22 +1,22 @@
 /*
- * XREFs of MiChangePageAttributeBatch @ 0x140368E1C
+ * XREFs of MiChangePageAttributeBatch @ 0x14036ABBC
  * Callers:
- *     MiGetPageChain @ 0x140285DD0 (MiGetPageChain.c)
- *     MiSwitchToTransition @ 0x1402A2130 (MiSwitchToTransition.c)
- *     MiFreeSlabEntry @ 0x1402A7A6C (MiFreeSlabEntry.c)
- *     MiConvertContiguousPages @ 0x14046B804 (MiConvertContiguousPages.c)
- *     MiPerformFinalZeroing @ 0x140513B9C (MiPerformFinalZeroing.c)
- *     MiChangePageAttributeAndZeroBatch @ 0x14070D2EC (MiChangePageAttributeAndZeroBatch.c)
+ *     MiGetPageChain @ 0x140285330 (MiGetPageChain.c)
+ *     MiSwitchToTransition @ 0x1402A1680 (MiSwitchToTransition.c)
+ *     MiFreeSlabEntry @ 0x1402A6E7C (MiFreeSlabEntry.c)
+ *     MiConvertContiguousPages @ 0x140464F84 (MiConvertContiguousPages.c)
+ *     MiPerformFinalZeroing @ 0x14050D60C (MiPerformFinalZeroing.c)
+ *     MiChangePageAttributeAndZeroBatch @ 0x140711F9C (MiChangePageAttributeAndZeroBatch.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     MiFlushCacheForAttributeChange @ 0x14024FAF0 (MiFlushCacheForAttributeChange.c)
- *     KeInvalidateAllCaches @ 0x14024FCE0 (KeInvalidateAllCaches.c)
- *     MiFlushEntireTbDueToAttributeChange @ 0x14024FD8C (MiFlushEntireTbDueToAttributeChange.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     KeShouldYieldProcessor @ 0x1402D49D0 (KeShouldYieldProcessor.c)
- *     MiGetPteLink @ 0x140369198 (MiGetPteLink.c)
- *     MiAbortCombineScan @ 0x1403691D0 (MiAbortCombineScan.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     MiFlushCacheForAttributeChange @ 0x140251450 (MiFlushCacheForAttributeChange.c)
+ *     KeInvalidateAllCaches @ 0x140251640 (KeInvalidateAllCaches.c)
+ *     MiFlushEntireTbDueToAttributeChange @ 0x1402516EC (MiFlushEntireTbDueToAttributeChange.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     KeShouldYieldProcessor @ 0x1402B6790 (KeShouldYieldProcessor.c)
+ *     MiGetPteLink @ 0x14036AF38 (MiGetPteLink.c)
+ *     MiAbortCombineScan @ 0x14036AF70 (MiAbortCombineScan.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall MiChangePageAttributeBatch(__int64 a1, int a2)
@@ -110,9 +110,9 @@ __int64 __fastcall MiChangePageAttributeBatch(__int64 a1, int a2)
     if ( !v7 )
     {
       MiFlushEntireTbDueToAttributeChange();
-      if ( v5 >= (unsigned int)dword_140E2D734 && v18 != 1 )
+      if ( v5 >= (unsigned int)dword_140E2D8B4 && v18 != 1 )
       {
-        ++dword_140E2D72C;
+        ++dword_140E2D8AC;
         KeInvalidateAllCaches();
         v12 = 0LL;
         v25 = 1;
@@ -136,7 +136,7 @@ LABEL_12:
       *(_DWORD *)(v14 - 0x220000000000LL + 32) = (v18 << 22) ^ (*(_DWORD *)(v14 - 0x220000000000LL + 32) ^ (v18 << 22)) & 0xFF3FFFFF;
       if ( !v17 && !v24 && (v16 & 0xC00000) == 0x400000 && v18 != 1 )
       {
-        ++dword_140E2D730;
+        ++dword_140E2D8B0;
         MiFlushCacheForAttributeChange(v14 / 48, 1LL, v18, 0LL);
       }
       *(_QWORD *)(v14 - 0x220000000000LL + 24) &= 0xC7FFFFFFFFFFFFFFuLL;

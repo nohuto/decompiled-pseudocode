@@ -10,98 +10,97 @@
  *     RtlSetOwnerSecurityDescriptor @ 0x180044FD0 (RtlSetOwnerSecurityDescriptor.c)
  *     RtlCreateSecurityDescriptor @ 0x180045030 (RtlCreateSecurityDescriptor.c)
  *     RtlIsCapabilitySid @ 0x1800463D0 (RtlIsCapabilitySid.c)
- *     __security_check_cookie @ 0x18008FEC0 (__security_check_cookie.c)
- *     ZwAccessCheck @ 0x1800A02E0 (ZwAccessCheck.c)
- *     NtClose @ 0x1800A04C0 (NtClose.c)
- *     NtQueryInformationToken @ 0x1800A0700 (NtQueryInformationToken.c)
- *     NtOpenThreadTokenEx @ 0x1800A08C0 (NtOpenThreadTokenEx.c)
- *     NtOpenProcessTokenEx @ 0x1800A08E0 (NtOpenProcessTokenEx.c)
- *     NtDuplicateToken @ 0x1800A0B20 (NtDuplicateToken.c)
+ *     __security_check_cookie @ 0x18008FED0 (__security_check_cookie.c)
+ *     ZwAccessCheck @ 0x1800A0300 (ZwAccessCheck.c)
+ *     NtClose @ 0x1800A04E0 (NtClose.c)
+ *     NtQueryInformationToken @ 0x1800A0720 (NtQueryInformationToken.c)
+ *     NtOpenThreadTokenEx @ 0x1800A08E0 (NtOpenThreadTokenEx.c)
+ *     NtOpenProcessTokenEx @ 0x1800A0900 (NtOpenProcessTokenEx.c)
+ *     NtDuplicateToken @ 0x1800A0B40 (NtDuplicateToken.c)
  */
 
-__int64 __fastcall RtlCheckTokenCapability(void *a1, __int64 a2, _BYTE *a3)
+NTSTATUS __cdecl RtlCheckTokenCapability(HANDLE TokenHandle, PSID CapabilitySidToCheck, PBOOLEAN HasCapability)
 {
-  __int64 v6; // r8
-  HANDLE v7; // rcx
-  int v8; // ebx
-  HANDLE v10; // [rsp+40h] [rbp-C0h] BYREF
-  int v11; // [rsp+48h] [rbp-B8h] BYREF
-  int v12; // [rsp+4Ch] [rbp-B4h] BYREF
-  int v13; // [rsp+50h] [rbp-B0h] BYREF
-  int v14; // [rsp+54h] [rbp-ACh] BYREF
-  HANDLE Handle; // [rsp+58h] [rbp-A8h] BYREF
-  int v16; // [rsp+60h] [rbp-A0h] BYREF
-  __int64 v17; // [rsp+68h] [rbp-98h]
-  __int64 v18; // [rsp+70h] [rbp-90h]
-  int v19; // [rsp+78h] [rbp-88h]
-  __int64 v20; // [rsp+80h] [rbp-80h]
-  _DWORD *v21; // [rsp+88h] [rbp-78h]
-  _BYTE v22[48]; // [rsp+90h] [rbp-70h] BYREF
-  __int64 v23[12]; // [rsp+C0h] [rbp-40h] BYREF
-  _DWORD v24[2]; // [rsp+120h] [rbp+20h] BYREF
-  __int16 v25; // [rsp+128h] [rbp+28h]
-  char v26[160]; // [rsp+130h] [rbp+30h] BYREF
-  _BYTE v27[56]; // [rsp+1D0h] [rbp+D0h] BYREF
+  HANDLE v6; // rcx
+  int v7; // ebx
+  HANDLE ClientToken; // [rsp+40h] [rbp-C0h] BYREF
+  ULONG ReturnLength; // [rsp+48h] [rbp-B8h] BYREF
+  ULONG PrivilegeSetLength; // [rsp+4Ch] [rbp-B4h] BYREF
+  NTSTATUS AccessStatus; // [rsp+50h] [rbp-B0h] BYREF
+  ACCESS_MASK GrantedAccess; // [rsp+54h] [rbp-ACh] BYREF
+  HANDLE TokenHandlea; // [rsp+58h] [rbp-A8h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+60h] [rbp-A0h] BYREF
+  _BYTE SecurityDescriptor[48]; // [rsp+90h] [rbp-70h] BYREF
+  unsigned __int8 *TokenInformation; // [rsp+C0h] [rbp-40h] BYREF
+  _DWORD v18[2]; // [rsp+120h] [rbp+20h] BYREF
+  __int16 v19; // [rsp+128h] [rbp+28h]
+  ACL Acl; // [rsp+130h] [rbp+30h] BYREF
+  _PRIVILEGE_SET PrivilegeSet; // [rsp+1D0h] [rbp+D0h] BYREF
 
-  v10 = 0LL;
-  *a3 = 0;
-  if ( !(unsigned __int8)RtlIsCapabilitySid(a2) )
+  ClientToken = 0LL;
+  *HasCapability = 0;
+  if ( !RtlIsCapabilitySid(CapabilitySidToCheck) )
   {
-    v8 = -1073741811;
+    v7 = -1073741811;
     goto LABEL_9;
   }
-  if ( a1 )
+  if ( TokenHandle )
   {
-    v7 = a1;
-    v10 = a1;
+    v6 = TokenHandle;
+    ClientToken = TokenHandle;
     goto LABEL_4;
   }
-  LOBYTE(v6) = 1;
-  v8 = NtOpenThreadTokenEx(-2LL, 8LL, v6);
-  if ( v8 == -1073741700 )
+  v7 = NtOpenThreadTokenEx((HANDLE)0xFFFFFFFFFFFFFFFELL, 8u, 1u, 0, &ClientToken);
+  if ( v7 == -1073741700 )
   {
-    v8 = NtOpenProcessTokenEx(-1LL, 10LL, 0LL, &Handle);
-    if ( v8 < 0 )
+    v7 = NtOpenProcessTokenEx((HANDLE)0xFFFFFFFFFFFFFFFFLL, 0xAu, 0, &TokenHandlea);
+    if ( v7 < 0 )
       goto LABEL_16;
-    v17 = 0LL;
-    v19 = 0;
-    v18 = 0LL;
-    v20 = 0LL;
-    v21 = v24;
-    v16 = 48;
-    v24[0] = 12;
-    v24[1] = 2;
-    v25 = 1;
-    v8 = NtDuplicateToken(Handle, 8LL, &v16, 0LL, 2, &v10);
-    NtClose(Handle);
+    memset(&ObjectAttributes.RootDirectory, 0, 20);
+    ObjectAttributes.SecurityDescriptor = 0LL;
+    ObjectAttributes.SecurityQualityOfService = v18;
+    ObjectAttributes.Length = 48;
+    v18[0] = 12;
+    v18[1] = 2;
+    v19 = 1;
+    v7 = NtDuplicateToken(TokenHandlea, 8u, &ObjectAttributes, 0, TokenImpersonation, &ClientToken);
+    NtClose(TokenHandlea);
   }
-  if ( v8 >= 0 )
+  if ( v7 >= 0 )
   {
-    v7 = v10;
+    v6 = ClientToken;
 LABEL_4:
-    v11 = 88;
-    NtQueryInformationToken(v7, 1LL, v23, 88LL, &v11);
-    RtlCreateSecurityDescriptor(v22, 1);
-    RtlSetOwnerSecurityDescriptor((__int64)v22, v23[0], 0);
-    RtlSetGroupSecurityDescriptor((__int64)v22, v23[0], 0);
-    RtlCreateAcl((__int64)v26, 0xA0u, 2);
-    RtlpAddKnownAce(v26, 2u, 0, 65537, v23[0], 0);
-    RtlpAddKnownAce(v26, 2u, 0, 65537, a2, 0);
-    RtlSetDaclSecurityDescriptor((__int64)v22, 1, (__int64)v26, 0);
-    v12 = 56;
-    v8 = ZwAccessCheck(v22, v10, 65537LL, &RtlpCheckTokenCapabilityGenericMapping, v27, &v12, &v14, &v13);
-    if ( v8 >= 0 )
+    ReturnLength = 88;
+    NtQueryInformationToken(v6, 1u, &TokenInformation, 0x58u, &ReturnLength);
+    RtlCreateSecurityDescriptor(SecurityDescriptor, 1u);
+    RtlSetOwnerSecurityDescriptor(SecurityDescriptor, TokenInformation, 0);
+    RtlSetGroupSecurityDescriptor(SecurityDescriptor, TokenInformation, 0);
+    RtlCreateAcl(&Acl, 0xA0u, 2u);
+    RtlpAddKnownAce(&Acl, 2u, 0, 65537, TokenInformation, 0);
+    RtlpAddKnownAce(&Acl, 2u, 0, 65537, (unsigned __int8 *)CapabilitySidToCheck, 0);
+    RtlSetDaclSecurityDescriptor(SecurityDescriptor, 1u, &Acl, 0);
+    PrivilegeSetLength = 56;
+    v7 = ZwAccessCheck(
+           SecurityDescriptor,
+           ClientToken,
+           0x10001u,
+           (PGENERIC_MAPPING)&RtlpCheckTokenCapabilityGenericMapping,
+           &PrivilegeSet,
+           &PrivilegeSetLength,
+           &GrantedAccess,
+           &AccessStatus);
+    if ( v7 >= 0 )
     {
-      if ( !v13 && v14 == 65537 )
-        *a3 = 1;
-      v8 = 0;
+      if ( !AccessStatus && GrantedAccess == 65537 )
+        *HasCapability = 1;
+      v7 = 0;
     }
 LABEL_9:
-    if ( a1 )
-      return (unsigned int)v8;
+    if ( TokenHandle )
+      return v7;
   }
 LABEL_16:
-  if ( v10 )
-    NtClose(v10);
-  return (unsigned int)v8;
+  if ( ClientToken )
+    NtClose(ClientToken);
+  return v7;
 }

@@ -11,25 +11,28 @@
  *     RtlFreeHeap @ 0x18003B030 (RtlFreeHeap.c)
  */
 
-__int64 __fastcall LdrpReleaseTlsEntry(void *a1, __int64 *a2)
+__int64 __fastcall LdrpReleaseTlsEntry(void *a1, unsigned int **a2)
 {
-  _UNKNOWN **TlsEntry; // rax
-  __int64 v5; // rbx
-  _UNKNOWN ***v6; // rcx
-  _QWORD *v7; // rax
+  unsigned int *TlsEntry; // rax
+  unsigned int *v5; // rbx
+  __int64 v6; // rcx
+  unsigned int **v7; // rax
 
   if ( !a2 )
     RtlAcquireSRWLockExclusive(&LdrpTlsLock);
-  TlsEntry = LdrpFindTlsEntry(a1);
-  v5 = (__int64)TlsEntry;
+  TlsEntry = (unsigned int *)LdrpFindTlsEntry(a1);
+  v5 = TlsEntry;
   if ( TlsEntry )
   {
-    v6 = (_UNKNOWN ***)*TlsEntry;
-    if ( *((_UNKNOWN ***)*TlsEntry + 1) != TlsEntry || (v7 = TlsEntry[1], *v7 != v5) )
+    v6 = *(_QWORD *)TlsEntry;
+    if ( *(unsigned int **)(*(_QWORD *)TlsEntry + 8LL) != TlsEntry
+      || (v7 = (unsigned int **)*((_QWORD *)TlsEntry + 1), *v7 != v5) )
+    {
       __fastfail(3u);
-    *v7 = v6;
-    v6[1] = (_UNKNOWN **)v7;
-    *((_BYTE *)Src + ((unsigned __int64)*(unsigned int *)(v5 + 64) >> 3)) &= ~(1 << (*(_DWORD *)(v5 + 64) & 7));
+    }
+    *v7 = (unsigned int *)v6;
+    *(_QWORD *)(v6 + 8) = v7;
+    *((_BYTE *)LdrpTlsBitmap.Buffer + ((unsigned __int64)v5[16] >> 3)) &= ~(1 << (v5[16] & 7));
   }
   if ( !a2 )
     RtlReleaseSRWLockExclusive(&LdrpTlsLock);

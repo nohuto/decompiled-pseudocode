@@ -84,7 +84,7 @@ __int64 __fastcall SMKM_STORE_MGR<SM_TRAITS>::SmFeEvictInitiate(__int64 a1, unsi
         {
           *(_BYTE *)(v16 + 32) |= 2u;
           if ( *(__int64 *)(v16 + 32) < 0 )
-            KiAbEntryRemoveFromTree(v16);
+            KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v16);
           v20[0] = *(_DWORD *)(v16 + 88) & 0x1FFFF;
           *(_DWORD *)(v16 + 88) &= 0xFFFE0000;
           *(_BYTE *)(v16 + 25) &= ~1u;

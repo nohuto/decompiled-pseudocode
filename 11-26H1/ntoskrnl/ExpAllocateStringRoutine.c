@@ -1,9 +1,9 @@
 /*
- * XREFs of ExpAllocateStringRoutine @ 0x140A80EC0
+ * XREFs of ExpAllocateStringRoutine @ 0x140A86D30
  * Callers:
  *     <none>
  * Callees:
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 ExpAllocateStringRoutine()

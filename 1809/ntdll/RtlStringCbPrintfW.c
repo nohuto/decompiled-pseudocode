@@ -4,7 +4,7 @@
  *     RtlQueryProcessHeapInformation @ 0x1800D9600 (RtlQueryProcessHeapInformation.c)
  *     RtlpGetTagName @ 0x1800F3690 (RtlpGetTagName.c)
  * Callees:
- *     _vsnwprintf @ 0x1800917E0 (_vsnwprintf.c)
+ *     _vsnwprintf @ 0x1800917F0 (_vsnwprintf.c)
  */
 
 __int64 RtlStringCbPrintfW(wchar_t *Buffer, unsigned __int64 a2, const wchar_t *a3, ...)

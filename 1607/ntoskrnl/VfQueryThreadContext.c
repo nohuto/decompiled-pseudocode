@@ -1,9 +1,9 @@
 /*
- * XREFs of VfQueryThreadContext @ 0x1402228A4
+ * XREFs of VfQueryThreadContext @ 0x1402226D0
  * Callers:
  *     <none>
  * Callees:
- *     ViIsContextIdValid @ 0x140704A04 (ViIsContextIdValid.c)
+ *     ViIsContextIdValid @ 0x140704A34 (ViIsContextIdValid.c)
  */
 
 __int64 __fastcall VfQueryThreadContext(__int64 a1, __int64 a2)

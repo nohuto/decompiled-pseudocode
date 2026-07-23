@@ -1,75 +1,72 @@
 /*
- * XREFs of PopDripsWatchdogStartWatchdog @ 0x140A3C690
+ * XREFs of PopDripsWatchdogStartWatchdog @ 0x1409F80B0
  * Callers:
  *     <none>
  * Callees:
- *     ExReleaseResourceLite @ 0x1402B4CF0 (ExReleaseResourceLite.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     PopCalculateIdleInformation @ 0x140434E0C (PopCalculateIdleInformation.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     PiDmObjectManagerAcquireExclusiveLock @ 0x1409D92BC (PiDmObjectManagerAcquireExclusiveLock.c)
- *     PopDripsWatchdogScheduleNextTimer @ 0x140A3C818 (PopDripsWatchdogScheduleNextTimer.c)
+ *     ExReleaseResourceLite @ 0x1402FF9C0 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     PopCalculateIdleInformation @ 0x140423CE4 (PopCalculateIdleInformation.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     PiDmObjectManagerAcquireExclusiveLock @ 0x1409AA1AC (PiDmObjectManagerAcquireExclusiveLock.c)
+ *     PopDripsWatchdogScheduleNextTimer @ 0x1409F8238 (PopDripsWatchdogScheduleNextTimer.c)
  */
 
 void PopDripsWatchdogStartWatchdog()
 {
-  signed __int32 Blink; // eax
+  signed __int32 v0; // eax
   signed __int32 v1; // ett
-  void *v2; // rdi
-  void *v3; // rbx
+  __int64 v2; // rdi
+  __int64 v3; // rbx
   __int128 v4; // [rsp+20h] [rbp-38h] BYREF
   __int128 v5; // [rsp+30h] [rbp-28h]
-  void *v6; // [rsp+40h] [rbp-18h]
+  __int64 v6; // [rsp+40h] [rbp-18h]
 
   v4 = 0LL;
   v6 = 0LL;
   v5 = 0LL;
-  PiDmObjectManagerAcquireExclusiveLock((struct _ERESOURCE *)&PopAdaptiveStandbyLock.QuantumTarget);
-  if ( ((__int64)PopAdaptiveStandbyLock.FirstArgument & 2) != 0 )
+  PiDmObjectManagerAcquireExclusiveLock(&PopDripsWatchdogContext);
+  if ( (dword_140F0BDA8 & 2) != 0 )
   {
-    _m_prefetchw(&PopDirectedDripsUmLock.Header.WaitListHead.Blink);
-    Blink = (signed __int32)PopDirectedDripsUmLock.Header.WaitListHead.Blink;
+    _m_prefetchw(&PopDirectedDripsUmTestDeviceCount);
+    v0 = PopDirectedDripsUmTestDeviceCount;
     do
     {
-      v1 = Blink;
-      Blink = _InterlockedCompareExchange(
-                (volatile signed __int32 *)&PopDirectedDripsUmLock.Header.WaitListHead.Blink,
-                Blink,
-                Blink);
+      v1 = v0;
+      v0 = _InterlockedCompareExchange(&PopDirectedDripsUmTestDeviceCount, v0, v0);
     }
-    while ( v1 != Blink );
-    if ( !Blink )
+    while ( v1 != v0 );
+    if ( !v0 )
     {
-      v2 = (void *)MEMORY[0xFFFFF78000000008];
+      v2 = MEMORY[0xFFFFF78000000008];
       PopCalculateIdleInformation((__int64)&v4);
-      v3 = *(void **)&PopSleepstudySessionLock.PriorityFloorSummary;
-      if ( (PopAdaptiveStandbyLock.WaitBlockFill4[4] & 1) != 0 )
+      v3 = PopWdiCurrentScenarioInstanceId;
+      if ( (dword_140F0BE64 & 1) != 0 )
       {
-        PopAdaptiveStandbyLock.WaitBlock[0].SpareLong = 0;
-        *(_OWORD *)&PopAdaptiveStandbyLock.WaitBlockFill11[56] = v4;
-        *(_DWORD *)&PopAdaptiveStandbyLock.WaitBlockFill11[24] = PopAdaptiveStandbyLock.Header.WaitListHead.Blink;
-        PopAdaptiveStandbyLock.WaitBlock[0].Object = v2;
-        PopAdaptiveStandbyLock.WaitBlock[0].WaitListEntry.Blink = 0LL;
-        *(_OWORD *)&PopAdaptiveStandbyLock.WaitBlockFill11[72] = v5;
-        PopAdaptiveStandbyLock.WaitBlock[0].SparePtr = v2;
-        PopAdaptiveStandbyLock.WaitBlock[1].SparePtr = v6;
-        PopDripsWatchdogScheduleNextTimer(&PopAdaptiveStandbyLock.TrapFrame);
+        dword_140F0BE74 = 0;
+        xmmword_140F0BE98 = v4;
+        dword_140F0BE78 = PopDripsWatchdogDebounceTickInterval;
+        qword_140F0BE80 = v2;
+        qword_140F0BE68 = 0LL;
+        xmmword_140F0BEA8 = v5;
+        qword_140F0BE88 = v2;
+        qword_140F0BEB8 = v6;
+        PopDripsWatchdogScheduleNextTimer(&unk_140F0BDB0);
       }
-      if ( (PopAdaptiveStandbyLock.NpxState & 0x100000000LL) != 0 )
+      if ( (dword_140F0BF74 & 1) != 0 )
       {
-        PopAdaptiveStandbyLock.SavedApcState.ApcListHead[0].Flink = 0LL;
-        memset_0(&PopAdaptiveStandbyLock.SavedApcStateFill[8], 0, 0x50uLL);
-        *(_DWORD *)&PopAdaptiveStandbyLock.SavedApcStateFill[36] = DWORD1(xmmword_140F0FEA0);
-        *(_OWORD *)&PopAdaptiveStandbyLock.SchedulerApc.Type = v4;
-        *(_QWORD *)&PopAdaptiveStandbyLock.SavedApcStateFill[40] = qword_140E26FA0;
-        *(_OWORD *)&PopAdaptiveStandbyLock.SchedulerApcFill5[16] = v5;
-        PopAdaptiveStandbyLock.SchedulerApc.Reserved[0] = v6;
-        PopDripsWatchdogScheduleNextTimer(&PopAdaptiveStandbyLock.WaitBlockFill11[96]);
+        qword_140F0BF78 = 0LL;
+        memset_0(&unk_140F0BF80, 0, 0x50uLL);
+        dword_140F0BF9C = DWORD1(xmmword_140F10660);
+        xmmword_140F0BFA8 = v4;
+        qword_140F0BFA0 = qword_140E270E0;
+        xmmword_140F0BFB8 = v5;
+        qword_140F0BFC8 = v6;
+        PopDripsWatchdogScheduleNextTimer(&unk_140F0BEC0);
       }
-      LODWORD(PopAdaptiveStandbyLock.FirstArgument) |= 4u;
-      PopAdaptiveStandbyLock.SchedulerApc.Reserved[2] = v3;
+      dword_140F0BDA8 |= 4u;
+      qword_140F0BFD8 = v3;
     }
   }
-  ExReleaseResourceLite((PERESOURCE)&PopAdaptiveStandbyLock.QuantumTarget);
+  ExReleaseResourceLite(&PopDripsWatchdogContext);
   KeLeaveCriticalRegion();
 }

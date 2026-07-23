@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwRaiseHardError @ 0x1401BAD90
+ * XREFs of ZwRaiseHardError @ 0x1401BAEF0
  * Callers:
  *     <none>
  * Callees:
@@ -17,8 +17,5 @@ NTSTATUS __stdcall ZwRaiseHardError(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(
-           *(_QWORD *)&ErrorStatus,
-           *(_QWORD *)&NumberOfParameters,
-           *(_QWORD *)&UnicodeStringParameterMask);
+  return KiServiceInternal(*(_QWORD *)&ErrorStatus);
 }

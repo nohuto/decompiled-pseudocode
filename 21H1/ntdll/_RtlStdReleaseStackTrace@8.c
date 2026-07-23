@@ -13,14 +13,14 @@
  *     _RtlpStdListRemove@8 @ 0x4B3694A1 (_RtlpStdListRemove@8.c)
  */
 
-int __stdcall RtlStdReleaseStackTrace(int a1, int a2)
+void __stdcall RtlStdReleaseStackTrace(int a1, int a2)
 {
   int v2; // edi
   unsigned int v3; // eax
   int v4; // ecx
   _DWORD *v5; // edx
-  int v6; // ebx
-  int result; // eax
+  _RTL_SRWLOCK *v6; // ebx
+  unsigned __int16 v7; // cx
 
   v2 = 0;
   v3 = 0;
@@ -35,26 +35,24 @@ int __stdcall RtlStdReleaseStackTrace(int a1, int a2)
     }
     while ( v4 );
   }
-  v6 = a1 + 8 * (v3 % *(_DWORD *)(a1 + 376));
+  v6 = (_RTL_SRWLOCK *)(a1 + 8 * (v3 % *(_DWORD *)(a1 + 376)));
   if ( !byte_4B3A5DA8 )
-    RtlAcquireSRWLockExclusive((volatile signed __int32 *)(v6 + 384));
-  result = *(_WORD *)(a2 + 4) & 0x7FF;
-  if ( (_WORD)result != 2047 )
+    RtlAcquireSRWLockExclusive(v6 + 96);
+  v7 = *(_WORD *)(a2 + 4);
+  if ( (v7 & 0x7FF) != 0x7FF )
   {
-    result = *(unsigned __int16 *)(a2 + 4) ^ (*(unsigned __int16 *)(a2 + 4) ^ (*(unsigned __int16 *)(a2 + 4) - 1)) & 0x7FF;
-    *(_WORD *)(a2 + 4) = result;
-    if ( (result & 0x7FF) == 0 )
+    *(_WORD *)(a2 + 4) = v7 ^ (v7 ^ (v7 - 1)) & 0x7FF;
+    if ( ((v7 ^ (v7 ^ (unsigned __int16)(v7 - 1)) & 0x7FF) & 0x7FF) == 0 )
     {
-      result = RtlpStdListRemove(v6 + 380, a2);
+      RtlpStdListRemove(&v6[95], a2);
       v2 = 1;
     }
   }
   if ( !byte_4B3A5DA8 )
-    result = RtlReleaseSRWLockExclusive((volatile signed __int32 *)(v6 + 384));
+    RtlReleaseSRWLockExclusive(v6 + 96);
   if ( v2 )
   {
-    result = RtlpInterlockedPushEntrySList(a1 + 8 * ((*(unsigned __int16 *)(a2 + 4) >> 11) + 15), (_DWORD *)(a2 + 12));
+    RtlpInterlockedPushEntrySList(a1 + 8 * ((*(unsigned __int16 *)(a2 + 4) >> 11) + 15), (_DWORD *)(a2 + 12));
     _InterlockedIncrement((volatile signed __int32 *)(a1 + 108));
   }
-  return result;
 }

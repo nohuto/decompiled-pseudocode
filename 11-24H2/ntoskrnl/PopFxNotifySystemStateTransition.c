@@ -1,43 +1,30 @@
 /*
- * XREFs of PopFxNotifySystemStateTransition @ 0x1404A87DC
+ * XREFs of PopFxNotifySystemStateTransition @ 0x1404A2D4C
  * Callers:
- *     PopHandleNextState @ 0x140B65E10 (PopHandleNextState.c)
+ *     PopHandleNextState @ 0x140B67F50 (PopHandleNextState.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
-void __fastcall PopFxNotifySystemStateTransition(__int64 a1, char a2, int a3)
+void __fastcall PopFxNotifySystemStateTransition(__int64 a1, char a2)
 {
-  __int64 v3; // r9
-  __int64 v4; // rax
-  __int64 v5; // rcx
-  __int64 v6; // rdx
-  int *v7; // r8
-  int v8; // [rsp+30h] [rbp+8h] BYREF
-  int v9; // [rsp+48h] [rbp+20h] BYREF
+  __int64 v2; // r9
+  __int64 v3; // rax
+  __int64 v4; // rdx
 
-  v3 = *(_QWORD *)(a1 + 35368);
-  if ( v3 )
+  v2 = *(_QWORD *)(a1 + 35368);
+  if ( v2 )
   {
-    v4 = *(_QWORD *)(v3 + 64);
-    v5 = *(_QWORD *)(v3 + 72);
-    if ( v4 )
+    v3 = *(_QWORD *)(v2 + 64);
+    if ( v3 )
     {
-      if ( *(_QWORD *)(v4 + 104) )
+      if ( *(_QWORD *)(v3 + 104) )
       {
         if ( a2 )
-        {
-          v8 = a3;
-          v6 = 39LL;
-          v7 = &v8;
-        }
+          v4 = 39LL;
         else
-        {
-          v9 = a3;
-          v6 = 40LL;
-          v7 = &v9;
-        }
-        guard_dispatch_icall_no_overrides(v5, v6, v7, v3);
+          v4 = 40LL;
+        guard_dispatch_icall_no_overrides(*(_QWORD *)(v2 + 72), v4);
       }
     }
   }

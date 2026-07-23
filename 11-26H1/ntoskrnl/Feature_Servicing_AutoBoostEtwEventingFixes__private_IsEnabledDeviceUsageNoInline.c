@@ -1,9 +1,9 @@
 /*
- * XREFs of Feature_Servicing_AutoBoostEtwEventingFixes__private_IsEnabledDeviceUsageNoInline @ 0x1406C5FF4
+ * XREFs of Feature_Servicing_AutoBoostEtwEventingFixes__private_IsEnabledDeviceUsageNoInline @ 0x1406C9C90
  * Callers:
- *     Feature_Servicing_AutoBoostEtwEventingFixes__private_IsEnabledWithReporting @ 0x1404B1670 (Feature_Servicing_AutoBoostEtwEventingFixes__private_IsEnabledWithReporting.c)
+ *     Feature_Servicing_AutoBoostEtwEventingFixes__private_IsEnabledWithReporting @ 0x1404AAD00 (Feature_Servicing_AutoBoostEtwEventingFixes__private_IsEnabledWithReporting.c)
  * Callees:
- *     Feature_Servicing_AutoBoostEtwEventingFixes__private_IsEnabledFallback @ 0x1405016BC (Feature_Servicing_AutoBoostEtwEventingFixes__private_IsEnabledFallback.c)
+ *     Feature_Servicing_AutoBoostEtwEventingFixes__private_IsEnabledFallback @ 0x1404FAEAC (Feature_Servicing_AutoBoostEtwEventingFixes__private_IsEnabledFallback.c)
  */
 
 __int64 Feature_Servicing_AutoBoostEtwEventingFixes__private_IsEnabledDeviceUsageNoInline()

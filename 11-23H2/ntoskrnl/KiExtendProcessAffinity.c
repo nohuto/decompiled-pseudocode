@@ -1,8 +1,8 @@
 /*
- * XREFs of KiExtendProcessAffinity @ 0x14057E964
+ * XREFs of KiExtendProcessAffinity @ 0x14057EE54
  * Callers:
  *     KeSetUserAffinityThread @ 0x1402028C4 (KeSetUserAffinityThread.c)
- *     KeStartThread @ 0x1402BE0D8 (KeStartThread.c)
+ *     KeStartThread @ 0x1402BE368 (KeStartThread.c)
  * Callees:
  *     KiComputeGroupMask @ 0x140223B08 (KiComputeGroupMask.c)
  *     KiSetIdealNodeProcessByGroup @ 0x140223B54 (KiSetIdealNodeProcessByGroup.c)

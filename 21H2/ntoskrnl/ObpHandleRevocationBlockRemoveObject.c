@@ -1,10 +1,10 @@
 /*
- * XREFs of ObpHandleRevocationBlockRemoveObject @ 0x140684EE0
+ * XREFs of ObpHandleRevocationBlockRemoveObject @ 0x1405E3190
  * Callers:
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
- *     ObpProcessRemoveObjectQueue @ 0x140684B90 (ObpProcessRemoveObjectQueue.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
+ *     ObpProcessRemoveObjectQueue @ 0x1405E2E40 (ObpProcessRemoveObjectQueue.c)
  * Callees:
- *     ObpHandleRevocationBlockRemoveInsertedObject @ 0x1408DC9E0 (ObpHandleRevocationBlockRemoveInsertedObject.c)
+ *     ObpHandleRevocationBlockRemoveInsertedObject @ 0x1408DCB40 (ObpHandleRevocationBlockRemoveInsertedObject.c)
  */
 
 __int64 __fastcall ObpHandleRevocationBlockRemoveObject(__int64 a1)

@@ -1,22 +1,22 @@
 /*
- * XREFs of DbgkpSetProcessDebugObject @ 0x140885810
+ * XREFs of DbgkpSetProcessDebugObject @ 0x140885970
  * Callers:
- *     NtDebugActiveProcess @ 0x140885D80 (NtDebugActiveProcess.c)
+ *     NtDebugActiveProcess @ 0x140885EE0 (NtDebugActiveProcess.c)
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x1402056A0 (ObfReferenceObjectWithTag.c)
- *     KeReleaseGuardedMutex @ 0x140265CD0 (KeReleaseGuardedMutex.c)
- *     ExReleaseRundownProtection_0 @ 0x14027C4F0 (ExReleaseRundownProtection_0.c)
- *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
- *     ExAcquireFastMutex @ 0x14034A080 (ExAcquireFastMutex.c)
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
- *     ObfReferenceObject @ 0x14034B230 (ObfReferenceObject.c)
- *     PsGetNextProcessThread @ 0x14070A2F0 (PsGetNextProcessThread.c)
- *     DbgkpMarkProcessPeb @ 0x140884B2C (DbgkpMarkProcessPeb.c)
- *     DbgkpPostFakeThreadMessages @ 0x140884E94 (DbgkpPostFakeThreadMessages.c)
- *     DbgkpWakeTarget @ 0x140885B10 (DbgkpWakeTarget.c)
+ *     KeReleaseGuardedMutex @ 0x140253C70 (KeReleaseGuardedMutex.c)
+ *     ExReleaseRundownProtection @ 0x14026A490 (ExReleaseRundownProtection.c)
+ *     ObfReferenceObjectWithTag @ 0x1402A9FE0 (ObfReferenceObjectWithTag.c)
+ *     KeSetEvent @ 0x14034E2F0 (KeSetEvent.c)
+ *     ExAcquireFastMutex @ 0x140354DD0 (ExAcquireFastMutex.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
+ *     ObfReferenceObject @ 0x140355F80 (ObfReferenceObject.c)
+ *     PsGetNextProcessThread @ 0x1407216D0 (PsGetNextProcessThread.c)
+ *     DbgkpMarkProcessPeb @ 0x140884C8C (DbgkpMarkProcessPeb.c)
+ *     DbgkpPostFakeThreadMessages @ 0x140884FF4 (DbgkpPostFakeThreadMessages.c)
+ *     DbgkpWakeTarget @ 0x140885C70 (DbgkpWakeTarget.c)
  */
 
-__int64 DbgkpSetProcessDebugObject(__int64 BugCheckParameter1, PRKEVENT Event, int a3, ...)
+__int64 DbgkpSetProcessDebugObject(ULONG_PTR BugCheckParameter1, PRKEVENT Event, int a3, ...)
 {
   struct _KTHREAD *CurrentThread; // r13
   int v4; // edi
@@ -87,7 +87,7 @@ __int64 DbgkpSetProcessDebugObject(__int64 BugCheckParameter1, PRKEVENT Event, i
       v27 = 0;
       ObfDereferenceObjectWithTag(v7, 0x4F676244u);
       v4 = DbgkpPostFakeThreadMessages(
-             (struct _KPROCESS *)BugCheckParameter1,
+             BugCheckParameter1,
              Event,
              NextProcessThread,
              (struct _EX_RUNDOWN_REF **)&Object,
@@ -175,7 +175,7 @@ LABEL_32:
     if ( (v17 & 8) != 0 )
     {
       v10[3].Header.SignalState = v17 & 0xFFFFFFF7;
-      ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)&Blink[79].Blink);
+      ExReleaseRundownProtection((PEX_RUNDOWN_REF)&Blink[79].Blink);
     }
     CurrentThread = v22;
   }

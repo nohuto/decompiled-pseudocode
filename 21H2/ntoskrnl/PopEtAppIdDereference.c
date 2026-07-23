@@ -1,11 +1,11 @@
 /*
- * XREFs of PopEtAppIdDereference @ 0x140699444
+ * XREFs of PopEtAppIdDereference @ 0x1405F8134
  * Callers:
- *     PoEnergyContextCleanup @ 0x140613CAC (PoEnergyContextCleanup.c)
- *     PopEtGetProcessAppId @ 0x140698028 (PopEtGetProcessAppId.c)
- *     PopEtAggregateKeyCleanup @ 0x14069936C (PopEtAggregateKeyCleanup.c)
+ *     PopEtGetProcessAppId @ 0x1405F6D20 (PopEtGetProcessAppId.c)
+ *     PopEtAggregateKeyCleanup @ 0x1405F805C (PopEtAggregateKeyCleanup.c)
+ *     PoEnergyContextCleanup @ 0x14067D90C (PoEnergyContextCleanup.c)
  * Callees:
- *     RtlInternEntryDereference @ 0x140699474 (RtlInternEntryDereference.c)
+ *     RtlInternEntryDereference @ 0x1405F8164 (RtlInternEntryDereference.c)
  */
 
 __int64 __fastcall PopEtAppIdDereference(__int64 a1)
@@ -13,6 +13,6 @@ __int64 __fastcall PopEtAppIdDereference(__int64 a1)
   __int64 result; // rax
 
   if ( *(_WORD *)(a1 + 24) )
-    return RtlInternEntryDereference(PopEtGlobals + 56, a1);
+    return RtlInternEntryDereference(PopEtGlobals + 56);
   return result;
 }

@@ -1,24 +1,24 @@
 /*
- * XREFs of ObInitProcess @ 0x14093BD38
+ * XREFs of ObInitProcess @ 0x14094D010
  * Callers:
- *     PspAllocateProcess @ 0x140A1C4C0 (PspAllocateProcess.c)
+ *     PspAllocateProcess @ 0x1409FACD0 (PspAllocateProcess.c)
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x140245670 (ExReleaseRundownProtection_0.c)
- *     SepAuditingForSubCategory @ 0x14046D838 (SepAuditingForSubCategory.c)
- *     SepAdtIncorporatePerUserPolicy @ 0x140791F68 (SepAdtIncorporatePerUserPolicy.c)
- *     SeReleaseSubjectContext @ 0x14084D7E0 (SeReleaseSubjectContext.c)
- *     SeCaptureSubjectContext @ 0x14084D8F0 (SeCaptureSubjectContext.c)
- *     ExEnumHandleTable @ 0x1408EF990 (ExEnumHandleTable.c)
- *     ExCreateHandleTable @ 0x14093BEF4 (ExCreateHandleTable.c)
- *     ExDupHandleTable @ 0x14093D080 (ExDupHandleTable.c)
- *     ObReferenceProcessHandleTable @ 0x140940570 (ObReferenceProcessHandleTable.c)
- *     ExSweepHandleTable @ 0x1409E502C (ExSweepHandleTable.c)
- *     ExDestroyHandleTable @ 0x1409E5220 (ExDestroyHandleTable.c)
+ *     ExReleaseRundownProtection_0 @ 0x14020DE50 (ExReleaseRundownProtection_0.c)
+ *     SepAuditingForSubCategory @ 0x1404683D8 (SepAuditingForSubCategory.c)
+ *     SepAdtIncorporatePerUserPolicy @ 0x140791F38 (SepAdtIncorporatePerUserPolicy.c)
+ *     SeReleaseSubjectContext @ 0x140849AA0 (SeReleaseSubjectContext.c)
+ *     SeCaptureSubjectContext @ 0x140849BB0 (SeCaptureSubjectContext.c)
+ *     ExEnumHandleTable @ 0x140861190 (ExEnumHandleTable.c)
+ *     ExDupHandleTable @ 0x140891770 (ExDupHandleTable.c)
+ *     ObReferenceProcessHandleTable @ 0x140894BB0 (ObReferenceProcessHandleTable.c)
+ *     ExCreateHandleTable @ 0x14094D1CC (ExCreateHandleTable.c)
+ *     ExSweepHandleTable @ 0x1409DFA8C (ExSweepHandleTable.c)
+ *     ExDestroyHandleTable @ 0x1409DFC80 (ExDestroyHandleTable.c)
  */
 
-__int64 __fastcall ObInitProcess(struct _EX_RUNDOWN_REF *a1, __int64 a2, int a3, int a4)
+__int64 __fastcall ObInitProcess(struct _EX_RUNDOWN_REF *a1, ULONG_PTR a2, unsigned int a3, _BYTE *a4)
 {
-  __int64 v8; // rsi
+  unsigned int *v8; // rsi
   unsigned int *HandleTable; // r14
   char v10; // al
   int v12; // r14d
@@ -36,10 +36,10 @@ __int64 __fastcall ObInitProcess(struct _EX_RUNDOWN_REF *a1, __int64 a2, int a3,
     HandleTable = (unsigned int *)ExCreateHandleTable(a2, 1LL);
     goto LABEL_3;
   }
-  v8 = ObReferenceProcessHandleTable(a1);
+  v8 = (unsigned int *)ObReferenceProcessHandleTable(a1);
   if ( !v8 )
     return 3221225738LL;
-  v12 = ExDupHandleTable(a2, v8, a3, a4, (__int64)&v17);
+  v12 = ExDupHandleTable(a2, v8, a3, a4, (PVOID *)&v17);
   if ( v12 >= 0 )
   {
     HandleTable = v17;
@@ -49,7 +49,7 @@ LABEL_3:
       *(_QWORD *)(a2 + 768) = HandleTable;
       v10 = SepAuditingForSubCategory(124, 1);
       LOBYTE(v17) = v10;
-      if ( dword_140F047A0 )
+      if ( dword_140F049C0 )
       {
         memset(&SubjectContext, 0, sizeof(SubjectContext));
         SeCaptureSubjectContext(&SubjectContext);

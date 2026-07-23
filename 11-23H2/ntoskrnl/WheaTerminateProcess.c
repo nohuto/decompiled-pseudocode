@@ -1,11 +1,11 @@
 /*
- * XREFs of WheaTerminateProcess @ 0x140A08020
+ * XREFs of WheaTerminateProcess @ 0x140A082D0
  * Callers:
- *     KiMcheckAlternateReturn @ 0x140580390 (KiMcheckAlternateReturn.c)
+ *     KiMcheckAlternateReturn @ 0x140580880 (KiMcheckAlternateReturn.c)
  * Callees:
- *     PsGetProcessId @ 0x1402FA490 (PsGetProcessId.c)
- *     WheaGetCurrentProcessName @ 0x140611C40 (WheaGetCurrentProcessName.c)
- *     WheapLogProcessTerminateEvent @ 0x140613430 (WheapLogProcessTerminateEvent.c)
+ *     PsGetProcessId @ 0x1402FA720 (PsGetProcessId.c)
+ *     WheaGetCurrentProcessName @ 0x140612190 (WheaGetCurrentProcessName.c)
+ *     WheapLogProcessTerminateEvent @ 0x140613980 (WheapLogProcessTerminateEvent.c)
  *     PsTerminateProcess @ 0x140683794 (PsTerminateProcess.c)
  */
 

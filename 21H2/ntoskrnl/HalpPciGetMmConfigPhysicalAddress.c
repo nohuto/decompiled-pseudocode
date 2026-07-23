@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpPciGetMmConfigPhysicalAddress @ 0x1402B1D20
+ * XREFs of HalpPciGetMmConfigPhysicalAddress @ 0x14022FED0
  * Callers:
- *     HalpPciAccessMmConfigSpace @ 0x1402B1C70 (HalpPciAccessMmConfigSpace.c)
+ *     HalpPciAccessMmConfigSpace @ 0x14022FE20 (HalpPciAccessMmConfigSpace.c)
  * Callees:
  *     <none>
  */

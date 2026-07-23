@@ -1,18 +1,18 @@
 /*
- * XREFs of ExpCreateRestrictedFastCacheRegistryKey @ 0x1406AED54
+ * XREFs of ExpCreateRestrictedFastCacheRegistryKey @ 0x1406AEE8C
  * Callers:
- *     ExpObtainFastCacheKeyBody @ 0x14057A65C (ExpObtainFastCacheKeyBody.c)
+ *     ExpObtainFastCacheKeyBody @ 0x14057AB9C (ExpObtainFastCacheKeyBody.c)
  * Callees:
- *     RtlLengthSid @ 0x14000C2AC (RtlLengthSid.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     ZwCreateKey @ 0x14015A020 (ZwCreateKey.c)
+ *     RtlLengthSid @ 0x14000BE2C (RtlLengthSid.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     ZwCreateKey @ 0x14015A590 (ZwCreateKey.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     RtlSetDaclSecurityDescriptor @ 0x140413E70 (RtlSetDaclSecurityDescriptor.c)
- *     RtlCreateSecurityDescriptor @ 0x140413ED0 (RtlCreateSecurityDescriptor.c)
- *     RtlCreateAcl @ 0x140420AB8 (RtlCreateAcl.c)
- *     RtlAddAccessAllowedAce @ 0x14048D14C (RtlAddAccessAllowedAce.c)
- *     RtlCompareUnicodeString @ 0x1404FF850 (RtlCompareUnicodeString.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x140412D30 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateSecurityDescriptor @ 0x140412D90 (RtlCreateSecurityDescriptor.c)
+ *     RtlCreateAcl @ 0x14041F978 (RtlCreateAcl.c)
+ *     RtlAddAccessAllowedAce @ 0x14048DBDC (RtlAddAccessAllowedAce.c)
+ *     RtlCompareUnicodeString @ 0x1404E27E0 (RtlCompareUnicodeString.c)
  */
 
 __int64 __fastcall ExpCreateRestrictedFastCacheRegistryKey(UNICODE_STRING *String1, HANDLE *a2)
@@ -47,14 +47,14 @@ __int64 __fastcall ExpCreateRestrictedFastCacheRegistryKey(UNICODE_STRING *Strin
             Acl = RtlSetDaclSecurityDescriptor(SecurityDescriptor, 1u, v7, 0);
             if ( Acl >= 0 )
             {
-              if ( !RtlCompareUnicodeString(String1, &stru_1406E9CC8, 0) )
+              if ( !RtlCompareUnicodeString(String1, &stru_1406E9DF8, 0) )
                 goto LABEL_11;
               ObjectAttributes.RootDirectory = 0LL;
               ObjectAttributes.SecurityQualityOfService = 0LL;
               ObjectAttributes.SecurityDescriptor = SecurityDescriptor;
               ObjectAttributes.Length = 48;
               ObjectAttributes.Attributes = 576;
-              ObjectAttributes.ObjectName = (PUNICODE_STRING)&stru_1406E9CC8;
+              ObjectAttributes.ObjectName = (PUNICODE_STRING)&stru_1406E9DF8;
               Acl = ZwCreateKey(&KeyHandle, 0x20006u, &ObjectAttributes, 0, 0LL, 0, 0LL);
               if ( Acl >= 0 )
               {

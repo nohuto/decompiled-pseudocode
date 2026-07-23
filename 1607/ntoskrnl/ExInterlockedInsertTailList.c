@@ -1,21 +1,21 @@
 /*
- * XREFs of ExInterlockedInsertTailList @ 0x14008C0E0
+ * XREFs of ExInterlockedInsertTailList @ 0x14008B840
  * Callers:
- *     CcCanIWrite @ 0x1400209F0 (CcCanIWrite.c)
- *     IoWMIWriteEvent @ 0x14012F930 (IoWMIWriteEvent.c)
- *     CcDeferWrite @ 0x1401B1A08 (CcDeferWrite.c)
- *     WheapWorkQueueAddItem @ 0x1402312A0 (WheapWorkQueueAddItem.c)
- *     IoInitializeTimer @ 0x14057F6F0 (IoInitializeTimer.c)
- *     VfAllocateAdapterChannel @ 0x1407061E0 (VfAllocateAdapterChannel.c)
- *     VfAllocateAdapterChannelEx @ 0x1407063A4 (VfAllocateAdapterChannelEx.c)
+ *     CcCanIWrite @ 0x140020570 (CcCanIWrite.c)
+ *     IoWMIWriteEvent @ 0x14012FEA0 (IoWMIWriteEvent.c)
+ *     CcDeferWrite @ 0x1401B18EC (CcDeferWrite.c)
+ *     WheapWorkQueueAddItem @ 0x1402310CC (WheapWorkQueueAddItem.c)
+ *     IoInitializeTimer @ 0x14057FB9C (IoInitializeTimer.c)
+ *     VfAllocateAdapterChannel @ 0x140706210 (VfAllocateAdapterChannel.c)
+ *     VfAllocateAdapterChannelEx @ 0x1407063D4 (VfAllocateAdapterChannelEx.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14002ECB0 (KeYieldProcessorEx.c)
+ *     KeYieldProcessorEx @ 0x14002E830 (KeYieldProcessorEx.c)
  */
 
 PLIST_ENTRY __stdcall ExInterlockedInsertTailList(PLIST_ENTRY ListHead, PLIST_ENTRY ListEntry, PKSPIN_LOCK Lock)
 {
   PLIST_ENTRY result; // rax
-  struct _LIST_ENTRY *Flink; // rcx
+  _LIST_ENTRY *Flink; // rcx
   __int16 v8; // [rsp+30h] [rbp-8h]
   int v9; // [rsp+40h] [rbp+8h] BYREF
 

@@ -1,9 +1,9 @@
 /*
- * XREFs of KeSynchronizeTimeToQpc @ 0x140126C7C
+ * XREFs of KeSynchronizeTimeToQpc @ 0x1401271EC
  * Callers:
  *     <none>
  * Callees:
- *     KiUpdateTimeAssist @ 0x140083350 (KiUpdateTimeAssist.c)
+ *     KiUpdateTimeAssist @ 0x140083FD0 (KiUpdateTimeAssist.c)
  */
 
 __int64 __fastcall KeSynchronizeTimeToQpc(__int64 a1)

@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpInterruptFindBestRouting @ 0x14037C524
+ * XREFs of HalpInterruptFindBestRouting @ 0x14037C6C4
  * Callers:
- *     HalpInterruptRemap @ 0x14037C0D8 (HalpInterruptRemap.c)
- *     HalpInterruptSetLineState @ 0x14037C70C (HalpInterruptSetLineState.c)
- *     HalpInterruptSetDestinationInternal @ 0x1405043BC (HalpInterruptSetDestinationInternal.c)
+ *     HalpInterruptRemap @ 0x14037C278 (HalpInterruptRemap.c)
+ *     HalpInterruptSetLineState @ 0x14037C8AC (HalpInterruptSetLineState.c)
+ *     HalpInterruptSetDestinationInternal @ 0x14050490C (HalpInterruptSetDestinationInternal.c)
  * Callees:
- *     HalpInterruptLookupController @ 0x14031FEE0 (HalpInterruptLookupController.c)
- *     HalpInterruptSetProblemEx @ 0x14051AA08 (HalpInterruptSetProblemEx.c)
+ *     HalpInterruptLookupController @ 0x140320170 (HalpInterruptLookupController.c)
+ *     HalpInterruptSetProblemEx @ 0x14051AF58 (HalpInterruptSetProblemEx.c)
  */
 
 __int64 __fastcall HalpInterruptFindBestRouting(int *a1, __int64 a2)

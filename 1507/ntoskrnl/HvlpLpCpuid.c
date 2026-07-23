@@ -29,11 +29,11 @@ PSLIST_ENTRY __fastcall HvlpLpCpuid(int a1, unsigned int a2, int a3, _DWORD *a4)
   PSLIST_ENTRY v25; // [rsp+28h] [rbp-B0h]
   _SLIST_ENTRY *v26; // [rsp+30h] [rbp-A8h]
   PSLIST_ENTRY ListEntry; // [rsp+38h] [rbp-A0h]
-  union _SLIST_HEADER *v28; // [rsp+50h] [rbp-88h]
-  struct _SLIST_ENTRY *v29; // [rsp+58h] [rbp-80h]
+  _SLIST_HEADER *v28; // [rsp+50h] [rbp-88h]
+  _SLIST_ENTRY *v29; // [rsp+58h] [rbp-80h]
   _SLIST_ENTRY *v30; // [rsp+60h] [rbp-78h]
-  struct _KPRCB *v31; // [rsp+70h] [rbp-68h]
-  struct _SLIST_ENTRY *v32; // [rsp+78h] [rbp-60h]
+  _SLIST_HEADER *v31; // [rsp+70h] [rbp-68h]
+  _SLIST_ENTRY *v32; // [rsp+78h] [rbp-60h]
   _SLIST_ENTRY *v33; // [rsp+80h] [rbp-58h]
   __int16 v34; // [rsp+D0h] [rbp-8h]
 
@@ -56,7 +56,7 @@ PSLIST_ENTRY __fastcall HvlpLpCpuid(int a1, unsigned int a2, int a3, _DWORD *a4)
     if ( v14 )
     {
       Next = v14[1].Next;
-      v28 = (union _SLIST_HEADER *)CurrentPrcb;
+      v28 = (_SLIST_HEADER *)CurrentPrcb;
       v15 = BYTE4(CurrentPrcb);
       v23 = 1;
       ListEntry = v14;
@@ -107,7 +107,7 @@ LABEL_14:
     goto LABEL_14;
   }
   v10 = 1;
-  v31 = v24;
+  v31 = (_SLIST_HEADER *)v24;
   v18 = v19[1].Next;
   v16 = (char)v24;
   v25 = (PSLIST_ENTRY)v17;
@@ -147,7 +147,7 @@ LABEL_15:
   if ( (v10 & 1) != 0 )
   {
     v25[1].Next = v26;
-    return RtlpInterlockedPushEntrySList(&v31->HypercallPageList, v25);
+    return RtlpInterlockedPushEntrySList(v31 + 1535, v25);
   }
   else
   {

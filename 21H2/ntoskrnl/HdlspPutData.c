@@ -1,9 +1,9 @@
 /*
- * XREFs of HdlspPutData @ 0x1409EFFD0
+ * XREFs of HdlspPutData @ 0x1409F0FD0
  * Callers:
- *     HdlspDispatch @ 0x1409EEE80 (HdlspDispatch.c)
+ *     HdlspDispatch @ 0x1409EFE80 (HdlspDispatch.c)
  * Callees:
- *     InbvPortPutByte @ 0x1405C9EEC (InbvPortPutByte.c)
+ *     InbvPortPutByte @ 0x1405CA11C (InbvPortPutByte.c)
  */
 
 void __fastcall HdlspPutData(__int64 a1, __int64 a2, __int64 a3)

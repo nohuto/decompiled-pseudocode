@@ -1,12 +1,12 @@
 /*
- * XREFs of MiLogCreateImageFileMapFailure @ 0x14087FD20
+ * XREFs of MiLogCreateImageFileMapFailure @ 0x140886120
  * Callers:
- *     MiBuildImageControlArea @ 0x140A551FC (MiBuildImageControlArea.c)
+ *     MiBuildImageControlArea @ 0x140A6279C (MiBuildImageControlArea.c)
  * Callees:
- *     _tlgCreate1Sz_char @ 0x1403EEB48 (_tlgCreate1Sz_char.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     _tlgWriteEx_EtwWriteEx @ 0x1404E33C4 (_tlgWriteEx_EtwWriteEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     _tlgCreate1Sz_char @ 0x140453678 (_tlgCreate1Sz_char.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x1404DC958 (_tlgWriteEx_EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void __fastcall MiLogCreateImageFileMapFailure(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int a5)
@@ -33,8 +33,8 @@ void __fastcall MiLogCreateImageFileMapFailure(__int64 a1, __int64 a2, __int64 a
   __int64 *v24; // [rsp+C0h] [rbp+2Fh]
   __int64 v25; // [rsp+C8h] [rbp+37h]
 
-  if ( *(_DWORD *)stru_140E36558.FirstArgument > 2u
-    && tlgKeywordOn((__int64)stru_140E36558.FirstArgument, 0x400000004000LL) )
+  if ( *(_DWORD *)stru_140E366D8.FirstArgument > 2u
+    && tlgKeywordOn((__int64)stru_140E366D8.FirstArgument, 0x400000004000LL) )
   {
     tlgCreate1Sz_char((__int64)v15, "SectionAlignmentIssue");
     v11 = v6;
@@ -51,6 +51,6 @@ void __fastcall MiLogCreateImageFileMapFailure(__int64 a1, __int64 a2, __int64 a
     v21 = 4LL;
     v23 = 4LL;
     v13 = 0x1000000LL;
-    tlgWriteEx_EtwWriteEx(v8, (unsigned __int8 *)&word_14005A51E, v7, v5 + 1, v9, v10, v5 + 8, &v14);
+    tlgWriteEx_EtwWriteEx(v8, (unsigned __int8 *)&byte_14005B511, v7, v5 + 1, v9, v10, v5 + 8, &v14);
   }
 }

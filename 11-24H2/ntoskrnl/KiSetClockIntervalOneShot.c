@@ -1,13 +1,13 @@
 /*
- * XREFs of KiSetClockIntervalOneShot @ 0x14029D85C
+ * XREFs of KiSetClockIntervalOneShot @ 0x1402AC34C
  * Callers:
- *     KiCheckForTimerExpiration @ 0x14029CAE0 (KiCheckForTimerExpiration.c)
+ *     KiCheckForTimerExpiration @ 0x1402AB5D0 (KiCheckForTimerExpiration.c)
  * Callees:
- *     Feature_Servicing_Kernel_ClockTickIdleEstimateFix__private_IsEnabledNoReportingNoInline @ 0x14029D018 (Feature_Servicing_Kernel_ClockTickIdleEstimateFix__private_IsEnabledNoReportingNoInline.c)
- *     KiSetClockTimer @ 0x14029F85C (KiSetClockTimer.c)
- *     KiSetClockIntervalToMinimumRequested @ 0x1402A0A58 (KiSetClockIntervalToMinimumRequested.c)
- *     PoTraceSystemTimerResolutionKernel @ 0x1402A18F4 (PoTraceSystemTimerResolutionKernel.c)
- *     KiGetClockIntervalOneShot @ 0x1404446C0 (KiGetClockIntervalOneShot.c)
+ *     Feature_Servicing_Kernel_ClockTickIdleEstimateFix__private_IsEnabledNoReportingNoInline @ 0x1402ABB08 (Feature_Servicing_Kernel_ClockTickIdleEstimateFix__private_IsEnabledNoReportingNoInline.c)
+ *     KiSetClockIntervalToMinimumRequested @ 0x1403183C8 (KiSetClockIntervalToMinimumRequested.c)
+ *     PoTraceSystemTimerResolutionKernel @ 0x140410FE0 (PoTraceSystemTimerResolutionKernel.c)
+ *     KiSetClockTimer @ 0x14043504C (KiSetClockTimer.c)
+ *     KiGetClockIntervalOneShot @ 0x14043A160 (KiGetClockIntervalOneShot.c)
  */
 
 __int64 __fastcall KiSetClockIntervalOneShot(__int64 a1, __int64 a2)

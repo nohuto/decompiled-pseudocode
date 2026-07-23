@@ -16,17 +16,17 @@
 
 unsigned __int64 __fastcall MiProtectSystemImage(__int64 a1)
 {
-  unsigned __int64 v1; // rbx
+  char *v1; // rbx
   unsigned __int64 result; // rax
-  __int64 v4; // r13
+  PIMAGE_NT_HEADERS v4; // r13
   BOOL v5; // r15d
-  __int64 v6; // r14
+  __int64 NumberOfSections; // r14
   int v7; // r10d
   _OWORD *v8; // rsi
   __int64 v9; // rdi
-  unsigned int *v10; // r8
-  unsigned __int64 v11; // r9
-  unsigned int v12; // ecx
+  int *v10; // r8
+  char *v11; // r9
+  int v12; // ecx
   unsigned __int64 v13; // r9
   __int64 v14; // rax
   unsigned __int64 v15; // rdi
@@ -46,7 +46,7 @@ unsigned __int64 __fastcall MiProtectSystemImage(__int64 a1)
   unsigned __int64 v29; // r10
   unsigned __int64 v30; // r11
   unsigned __int64 v31; // r8
-  __int64 v32; // rcx
+  __int64 SectionAlignment; // rcx
   unsigned __int64 v33; // rdx
   unsigned int v34; // eax
   __int64 v35; // rax
@@ -61,10 +61,10 @@ unsigned __int64 __fastcall MiProtectSystemImage(__int64 a1)
   _OWORD v45[2]; // [rsp+58h] [rbp-60h] BYREF
   __int64 v46; // [rsp+78h] [rbp-40h]
 
-  v1 = *(_QWORD *)(a1 + 48);
+  v1 = *(char **)(a1 + 48);
   memset(v45, 0, sizeof(v45));
   v46 = 0LL;
-  result = MI_IS_PHYSICAL_ADDRESS(v1);
+  result = MI_IS_PHYSICAL_ADDRESS((unsigned __int64)v1);
   if ( (_DWORD)result )
   {
     if ( v1 == PsNtosImageBase || v1 == PsHalImageBase )
@@ -75,28 +75,30 @@ unsigned __int64 __fastcall MiProtectSystemImage(__int64 a1)
     v37 = 0;
     v4 = RtlImageNtHeader(v1);
     v5 = 0;
-    if ( (unsigned int)MiGetSystemRegionType(v1) == 1 )
+    if ( (unsigned int)MiGetSystemRegionType((unsigned __int64)v1) == 1 )
       v37 = 1;
     else
       v5 = (*(_DWORD *)(a1 + 104) & 0x8000000) == 0;
-    v6 = *(unsigned __int16 *)(v4 + 6);
-    v7 = *(unsigned __int16 *)(v4 + 6);
-    v8 = (_OWORD *)(v4 + *(unsigned __int16 *)(v4 + 20) + 24LL);
-    v9 = (*(_DWORD *)(v4 + 80) >> 12) + (unsigned int)((*(_DWORD *)(v4 + 80) & 0xFFF) != 0);
-    result = v1;
-    if ( *(_WORD *)(v4 + 6) )
+    NumberOfSections = v4->FileHeader.NumberOfSections;
+    v7 = v4->FileHeader.NumberOfSections;
+    v8 = (_OWORD *)((char *)&v4->OptionalHeader.Magic + v4->FileHeader.SizeOfOptionalHeader);
+    v9 = (v4->OptionalHeader.SizeOfImage >> 12) + ((v4->OptionalHeader.SizeOfImage & 0xFFF) != 0);
+    result = (unsigned __int64)v1;
+    if ( v4->FileHeader.NumberOfSections )
     {
-      v10 = (unsigned int *)(v8 + 1);
+      v10 = (int *)(v8 + 1);
       while ( 1 )
       {
-        v11 = v1 + *(v10 - 1);
-        if ( v11 < result )
+        v11 = &v1[*(v10 - 1)];
+        if ( (unsigned __int64)v11 < result )
           break;
         v12 = *v10;
-        if ( *v10 < *(v10 - 2) )
+        if ( *v10 < (unsigned int)*(v10 - 2) )
           v12 = *(v10 - 2);
         v10 += 10;
-        result = -(__int64)*(unsigned int *)(v4 + 56) & (v11 + *(unsigned int *)(v4 + 56) + v12 - 1LL);
+        result = -(__int64)v4->OptionalHeader.SectionAlignment & (unsigned __int64)&v11[v4->OptionalHeader.SectionAlignment
+                                                                                      - 1
+                                                                                      + v12];
         if ( !--v7 )
           goto LABEL_10;
       }
@@ -105,13 +107,13 @@ unsigned __int64 __fastcall MiProtectSystemImage(__int64 a1)
     {
 LABEL_10:
       v39 = -1073741824;
-      v44 = (char *)v8 + 40 * v6 - 1;
-      PteAddress = MiGetPteAddress(v1);
+      v44 = (char *)v8 + 40 * NumberOfSections - 1;
+      PteAddress = MiGetPteAddress((unsigned __int64)v1);
       v36 = 0;
       v14 = PteAddress + 8 * v9;
       v15 = 0LL;
       v41 = 0LL;
-      v16 = v6 + 1;
+      v16 = NumberOfSections + 1;
       v42 = v14;
       do
       {
@@ -125,7 +127,7 @@ LABEL_10:
         }
         else
         {
-          v17 = v1 + *((unsigned int *)v8 + 3);
+          v17 = (unsigned __int64)&v1[*((unsigned int *)v8 + 3)];
           v19 = MiGetPteAddress(v17);
           if ( v20 < v18 )
             v20 = v18;
@@ -153,9 +155,9 @@ LABEL_10:
         v23 = *((_DWORD *)v8 + 9) & 0xE0000000;
         if ( v5 && ((MiFlags & 0x10000) == 0 || (*((_DWORD *)v8 + 9) & 0x20000000) == 0) )
           v23 = *((_DWORD *)v8 + 9) & 0x60000000 | 0x80000000;
-        if ( v23 == v39 && (result = *(unsigned int *)(v4 + 56), (unsigned int)result <= 0x1000) )
+        if ( v23 == v39 && (result = v4->OptionalHeader.SectionAlignment, (unsigned int)result <= 0x1000) )
         {
-          v32 = (unsigned int)result;
+          SectionAlignment = (unsigned int)result;
           v33 = result + v38 - 1LL;
         }
         else
@@ -176,14 +178,14 @@ LABEL_10:
               v31 = v29;
             result = MiSetSystemCodeProtection(a1, v30, v31, v28);
           }
-          v32 = *(unsigned int *)(v4 + 56);
-          v33 = v32 + v38 - 1LL;
+          SectionAlignment = v4->OptionalHeader.SectionAlignment;
+          v33 = SectionAlignment + v38 - 1LL;
           PteAddress = v19;
           v39 = v23;
         }
         v15 = v41;
         v8 = (_OWORD *)((char *)v8 + 40);
-        v13 = (-v32 & (v17 + v33)) - 1;
+        v13 = (-SectionAlignment & (v17 + v33)) - 1;
         v44 = (char *)v13;
         --v16;
       }

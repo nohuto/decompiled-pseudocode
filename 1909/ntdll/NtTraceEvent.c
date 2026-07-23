@@ -75,11 +75,11 @@
  *     <none>
  */
 
-__int64 NtTraceEvent()
+NTSTATUS __cdecl NtTraceEvent(HANDLE TraceHandle, ULONG Flags, ULONG FieldSize, PVOID Fields)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 94LL;
+  result = 94;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

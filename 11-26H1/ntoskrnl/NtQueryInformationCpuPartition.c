@@ -1,19 +1,19 @@
 /*
- * XREFs of NtQueryInformationCpuPartition @ 0x1407F1ED0
+ * XREFs of NtQueryInformationCpuPartition @ 0x1407F7A30
  * Callers:
- *     DifNtQueryInformationCpuPartitionWrapper @ 0x1406828B0 (DifNtQueryInformationCpuPartitionWrapper.c)
+ *     DifNtQueryInformationCpuPartitionWrapper @ 0x140686490 (DifNtQueryInformationCpuPartitionWrapper.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     KeQueryMaximumGroupCount @ 0x1404BB300 (KeQueryMaximumGroupCount.c)
- *     KeQueryCpuPartitionAffinity @ 0x1405F3D38 (KeQueryCpuPartitionAffinity.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     RtlCopyToUser @ 0x14077F284 (RtlCopyToUser.c)
- *     RtlReadULongFromUser @ 0x14077F590 (RtlReadULongFromUser.c)
- *     RtlWriteULongToUser @ 0x14077F7A0 (RtlWriteULongToUser.c)
- *     PspReferenceCpuPartitionByHandle @ 0x1407F2CB4 (PspReferenceCpuPartitionByHandle.c)
- *     ProbeForWrite @ 0x1408F5D00 (ProbeForWrite.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     KeQueryMaximumGroupCount @ 0x1404B4AE0 (KeQueryMaximumGroupCount.c)
+ *     KeQueryCpuPartitionAffinity @ 0x1405F66F8 (KeQueryCpuPartitionAffinity.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     RtlCopyToUser @ 0x140781D84 (RtlCopyToUser.c)
+ *     RtlReadULongFromUser @ 0x140782090 (RtlReadULongFromUser.c)
+ *     RtlWriteULongToUser @ 0x1407822A0 (RtlWriteULongToUser.c)
+ *     PspReferenceCpuPartitionByHandle @ 0x1407F8814 (PspReferenceCpuPartitionByHandle.c)
+ *     ProbeForWrite @ 0x140925C90 (ProbeForWrite.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall NtQueryInformationCpuPartition(

@@ -15,7 +15,7 @@ void __cdecl RtlpFlsClonePrepare()
   int v3; // edi
   unsigned int v4; // eax
   int v5; // ecx
-  volatile signed __int32 *v6; // eax
+  _RTL_SRWLOCK *v6; // eax
   unsigned int v7; // [esp+8h] [ebp-8h]
   int v8; // [esp+Ch] [ebp-4h]
 
@@ -34,7 +34,7 @@ void __cdecl RtlpFlsClonePrepare()
       {
         _BitScanReverse(&v4, v2);
         v5 = v2 ^ (1 << v4);
-        v6 = (volatile signed __int32 *)dword_4B3A66C4[v4];
+        v6 = (&dword_4B3A66C4)[v4];
         if ( v6 )
           v6 += 2 * v5 + 1;
         RtlAcquireSRWLockExclusive(v6);
@@ -44,11 +44,11 @@ void __cdecl RtlpFlsClonePrepare()
       while ( v3 );
       v0 = v8;
     }
-    RtlAcquireSRWLockExclusive((volatile signed __int32 *)&RtlpFlsContext);
+    RtlAcquireSRWLockExclusive(&RtlpFlsContext);
     if ( dword_4B3A66FC <= v0 )
       break;
     v0 = dword_4B3A66FC;
     v8 = dword_4B3A66FC;
-    RtlReleaseSRWLockExclusive((volatile signed __int32 *)&RtlpFlsContext);
+    RtlReleaseSRWLockExclusive(&RtlpFlsContext);
   }
 }

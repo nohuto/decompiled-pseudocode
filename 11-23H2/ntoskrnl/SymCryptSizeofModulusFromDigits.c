@@ -1,12 +1,12 @@
 /*
- * XREFs of SymCryptSizeofModulusFromDigits @ 0x1403F9AA0
+ * XREFs of SymCryptSizeofModulusFromDigits @ 0x1403F9C80
  * Callers:
- *     SymCryptRsakeyCreate @ 0x1403F7864 (SymCryptRsakeyCreate.c)
- *     SymCryptRsakeyCreateAllObjects @ 0x1403F79EC (SymCryptRsakeyCreateAllObjects.c)
- *     SymCryptSizeofRsakeyFromParams @ 0x1403F801C (SymCryptSizeofRsakeyFromParams.c)
- *     SymCryptEcurveAllocate @ 0x1403F80AC (SymCryptEcurveAllocate.c)
+ *     SymCryptRsakeyCreate @ 0x1403F7A44 (SymCryptRsakeyCreate.c)
+ *     SymCryptRsakeyCreateAllObjects @ 0x1403F7BCC (SymCryptRsakeyCreateAllObjects.c)
+ *     SymCryptSizeofRsakeyFromParams @ 0x1403F81FC (SymCryptSizeofRsakeyFromParams.c)
+ *     SymCryptEcurveAllocate @ 0x1403F828C (SymCryptEcurveAllocate.c)
  * Callees:
- *     SymCryptFdefSizeofModulusFromDigits @ 0x14040549C (SymCryptFdefSizeofModulusFromDigits.c)
+ *     SymCryptFdefSizeofModulusFromDigits @ 0x14040567C (SymCryptFdefSizeofModulusFromDigits.c)
  */
 
 __int64 SymCryptSizeofModulusFromDigits()

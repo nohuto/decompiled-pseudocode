@@ -1,10 +1,10 @@
 /*
- * XREFs of MiBitmapRangeZeroEx @ 0x1403096C0
+ * XREFs of MiBitmapRangeZeroEx @ 0x140314410
  * Callers:
- *     MiReturnPageTablePageCommitment @ 0x1406EE990 (MiReturnPageTablePageCommitment.c)
+ *     MiReturnPageTablePageCommitment @ 0x140705D70 (MiReturnPageTablePageCommitment.c)
  * Callees:
- *     MiFillPteHierarchy @ 0x14030C470 (MiFillPteHierarchy.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x14032DEC0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiFillPteHierarchy @ 0x1403171C0 (MiFillPteHierarchy.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140338C10 (MI_READ_PTE_LOCK_FREE.c)
  */
 
 __int64 __fastcall MiBitmapRangeZeroEx(__int64 a1, __int64 a2, _QWORD *a3)

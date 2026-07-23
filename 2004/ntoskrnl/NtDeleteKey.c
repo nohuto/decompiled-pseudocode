@@ -29,7 +29,7 @@
  *     SeDeleteObjectAuditAlarmWithTransaction @ 0x14091DF60 (SeDeleteObjectAuditAlarmWithTransaction.c)
  */
 
-__int64 __fastcall NtDeleteKey(HANDLE Handle)
+NTSTATUS __cdecl NtDeleteKey(HANDLE KeyHandle)
 {
   _DMA_OPERATIONS *v1; // rbx
   char v3; // r14
@@ -39,7 +39,7 @@ __int64 __fastcall NtDeleteKey(HANDLE Handle)
   struct _KTHREAD *CurrentThread; // rax
   __int64 v8; // r8
   _DMA_OPERATIONS *v9; // rcx
-  int v10; // edi
+  NTSTATUS v10; // edi
   PADAPTER_OBJECT v11; // rbx
   struct _KTHREAD *v12; // rax
   int v13; // edx
@@ -86,7 +86,7 @@ __int64 __fastcall NtDeleteKey(HANDLE Handle)
     v10 = -1073741431;
     goto LABEL_32;
   }
-  v10 = CmObReferenceObjectByHandle(Handle, 0x10000u, v8, PreviousMode, &DmaAdapter, &v23);
+  v10 = CmObReferenceObjectByHandle(KeyHandle, 0x10000u, v8, PreviousMode, &DmaAdapter, &v23);
   if ( v10 == -1073741790 )
   {
     SeCaptureSubjectContext(&SubjectContext);
@@ -96,7 +96,7 @@ __int64 __fastcall NtDeleteKey(HANDLE Handle)
       v11 = DmaAdapter;
       goto LABEL_40;
     }
-    v17 = CmObReferenceObjectByHandle(Handle, 0x20019u, v16, PreviousMode, &DmaAdapter, &v23);
+    v17 = CmObReferenceObjectByHandle(KeyHandle, 0x20019u, v16, PreviousMode, &DmaAdapter, &v23);
     v11 = DmaAdapter;
     v10 = v17;
     if ( v17 < 0 )
@@ -189,7 +189,7 @@ LABEL_22:
           {
             p_TransactionId = 0LL;
           }
-          SeDeleteObjectAuditAlarmWithTransaction(v11, Handle, p_TransactionId);
+          SeDeleteObjectAuditAlarmWithTransaction(v11, KeyHandle, p_TransactionId);
         }
       }
       else
@@ -230,5 +230,5 @@ LABEL_32:
     ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)&CmpShutdownRundown);
     KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   }
-  return (unsigned int)v10;
+  return v10;
 }

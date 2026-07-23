@@ -34,7 +34,7 @@ __int64 __fastcall RtlpQueryProcessEnumHeapsRoutine(__int64 a1, _QWORD *a2)
     *((_DWORD *)v5 + 2) = *(_DWORD *)(a1 + 112);
     *((_WORD *)v5 + 6) = 16;
     *((_WORD *)v5 + 7) = *(_WORD *)(a1 + 304);
-    HeapTag = RtlpGetHeapTag(a1);
+    HeapTag = RtlpGetHeapTag((void *)a1);
     v8 = *((_QWORD *)v5 + 3);
     *((_QWORD *)v5 + 11) = HeapTag;
     for ( i = *(__int64 **)(a1 + 288); i != (__int64 *)(a1 + 288); i = (__int64 *)*i )

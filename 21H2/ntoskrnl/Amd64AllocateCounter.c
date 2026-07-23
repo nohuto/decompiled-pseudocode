@@ -1,9 +1,9 @@
 /*
- * XREFs of Amd64AllocateCounter @ 0x1404DD728
+ * XREFs of Amd64AllocateCounter @ 0x1404DD968
  * Callers:
- *     Amd64EnableMonitoring @ 0x1404DD920 (Amd64EnableMonitoring.c)
+ *     Amd64EnableMonitoring @ 0x1404DDB60 (Amd64EnableMonitoring.c)
  * Callees:
- *     HalpAllocateHalCounters @ 0x1404B90B4 (HalpAllocateHalCounters.c)
+ *     HalpAllocateHalCounters @ 0x1404B92F4 (HalpAllocateHalCounters.c)
  */
 
 __int64 __fastcall Amd64AllocateCounter(int a1, _DWORD *a2, _DWORD *a3)

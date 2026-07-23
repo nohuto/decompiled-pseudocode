@@ -1,24 +1,24 @@
 /*
- * XREFs of RtlpHpLargeFree @ 0x1403546B4
+ * XREFs of RtlpHpLargeFree @ 0x14035645C
  * Callers:
- *     RtlpHpFreeHeap @ 0x140347010 (RtlpHpFreeHeap.c)
- *     RtlpHpMetadataFree @ 0x1403524BC (RtlpHpMetadataFree.c)
- *     RtlpHpAllocateHeapSlow @ 0x140352630 (RtlpHpAllocateHeapSlow.c)
- *     ExFreeHeapPool @ 0x1403A7BB0 (ExFreeHeapPool.c)
+ *     RtlpHpFreeHeap @ 0x140349090 (RtlpHpFreeHeap.c)
+ *     RtlpHpMetadataFree @ 0x140354540 (RtlpHpMetadataFree.c)
+ *     RtlpHpAllocateHeapSlow @ 0x1403546B4 (RtlpHpAllocateHeapSlow.c)
+ *     ExFreeHeapPool @ 0x1403A9910 (ExFreeHeapPool.c)
  * Callees:
- *     RtlpHpVaMgrCtxFree @ 0x14034FEFC (RtlpHpVaMgrCtxFree.c)
- *     RtlpHpMetadataFree @ 0x1403524BC (RtlpHpMetadataFree.c)
- *     RtlpHpLargeAllocGetMetadata @ 0x1403547F8 (RtlpHpLargeAllocGetMetadata.c)
- *     RtlpHpLargeLockAcquire @ 0x140354858 (RtlpHpLargeLockAcquire.c)
- *     RtlpHpLargeLockRelease @ 0x14035487C (RtlpHpLargeLockRelease.c)
- *     RtlRbRemoveNode @ 0x140377C60 (RtlRbRemoveNode.c)
- *     RtlpLogHeapFailure @ 0x140521C9C (RtlpLogHeapFailure.c)
+ *     RtlpHpVaMgrCtxFree @ 0x140351F7C (RtlpHpVaMgrCtxFree.c)
+ *     RtlpHpMetadataFree @ 0x140354540 (RtlpHpMetadataFree.c)
+ *     RtlpHpLargeAllocGetMetadata @ 0x1403565A0 (RtlpHpLargeAllocGetMetadata.c)
+ *     RtlpHpLargeLockAcquire @ 0x140356600 (RtlpHpLargeLockAcquire.c)
+ *     RtlpHpLargeLockRelease @ 0x140356624 (RtlpHpLargeLockRelease.c)
+ *     RtlRbRemoveNode @ 0x140379A10 (RtlRbRemoveNode.c)
+ *     RtlpLogHeapFailure @ 0x140524308 (RtlpLogHeapFailure.c)
  */
 
-unsigned __int64 __fastcall RtlpHpLargeFree(volatile signed __int64 *a1, __int64 a2)
+unsigned __int64 __fastcall RtlpHpLargeFree(__int128 *a1, __int64 a2)
 {
   char v4; // r14
-  __int64 Metadata; // rax
+  _RTL_BALANCED_NODE *Metadata; // rax
   __int64 v6; // rdx
   unsigned __int64 v7; // rdi
   __int64 v8; // rsi
@@ -31,12 +31,12 @@ unsigned __int64 __fastcall RtlpHpLargeFree(volatile signed __int64 *a1, __int64
   unsigned __int64 v16; // [rsp+78h] [rbp+20h] BYREF
 
   v4 = RtlpHpLargeLockAcquire(a1);
-  Metadata = RtlpHpLargeAllocGetMetadata(a1, a2);
+  Metadata = (_RTL_BALANCED_NODE *)RtlpHpLargeAllocGetMetadata(a1, a2);
   v7 = 0LL;
-  v8 = Metadata;
+  v8 = (__int64)Metadata;
   if ( Metadata )
   {
-    RtlRbRemoveNode(a1 + 9, Metadata);
+    RtlRbRemoveNode((PRTL_RB_TREE)((char *)a1 + 72), Metadata);
     LOBYTE(v9) = v4;
     RtlpHpLargeLockRelease(a1, v9);
     v10 = *(_QWORD *)(v8 + 32);
@@ -47,12 +47,12 @@ unsigned __int64 __fastcall RtlpHpLargeFree(volatile signed __int64 *a1, __int64
     v16 = v7;
     if ( v7 )
     {
-      RtlpHpVaMgrCtxFree((__int64)&ExpUuidLock.FirstArgument, &v15, &v16);
+      RtlpHpVaMgrCtxFree((__int64)&ExpUuidLock.TrapFrame, &v15, &v16);
       v7 = v16;
     }
-    _InterlockedAdd64(a1 + 12, -(*(_QWORD *)(v8 + 32) >> 12));
-    _InterlockedAdd64(a1 + 11, -(__int64)(v7 >> 12));
-    v14 = *(_OWORD *)a1;
+    _InterlockedAdd64((volatile signed __int64 *)a1 + 12, -(*(_QWORD *)(v8 + 32) >> 12));
+    _InterlockedAdd64((volatile signed __int64 *)a1 + 11, -(__int64)(v7 >> 12));
+    v14 = *a1;
     RtlpHpMetadataFree(v8, &v14);
   }
   else

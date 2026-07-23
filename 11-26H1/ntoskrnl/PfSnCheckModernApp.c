@@ -1,22 +1,22 @@
 /*
- * XREFs of PfSnCheckModernApp @ 0x1409E923C
+ * XREFs of PfSnCheckModernApp @ 0x1409D34B4
  * Callers:
- *     PfSnCalculateScenarioNameAndHash @ 0x1409E8E38 (PfSnCalculateScenarioNameAndHash.c)
- *     PfSnBeginAppLaunch @ 0x1409E9DD0 (PfSnBeginAppLaunch.c)
+ *     PfSnBeginAppLaunch @ 0x1409D1320 (PfSnBeginAppLaunch.c)
+ *     PfSnCalculateScenarioNameAndHash @ 0x1409D30B0 (PfSnCalculateScenarioNameAndHash.c)
  * Callees:
- *     ObFastDereferenceObject @ 0x140265740 (ObFastDereferenceObject.c)
- *     PsReferencePrimaryTokenWithTag @ 0x140279DC0 (PsReferencePrimaryTokenWithTag.c)
- *     RtlQueryPackageIdentity @ 0x140460890 (RtlQueryPackageIdentity.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     ObFastDereferenceObject @ 0x140264CB0 (ObFastDereferenceObject.c)
+ *     PsReferencePrimaryTokenWithTag @ 0x140279330 (PsReferencePrimaryTokenWithTag.c)
+ *     RtlQueryPackageIdentity @ 0x140459DD0 (RtlQueryPackageIdentity.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall PfSnCheckModernApp(int *a1, _DWORD *a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
 {
-  wchar_t *v7; // rbx
+  WCHAR *v7; // rbx
   int v8; // ebp
   _KPROCESS *Process; // r14
-  ULONG_PTR v10; // r15
-  int PackageIdentity; // eax
+  void *v10; // r15
+  NTSTATUS PackageIdentity; // eax
   unsigned int v12; // esi
   int v13; // edi
   __int64 v14; // r8
@@ -28,29 +28,29 @@ __int64 __fastcall PfSnCheckModernApp(int *a1, _DWORD *a2, __int64 a3, struct _K
   __int64 v20; // r10
   __int64 v21; // r10
   unsigned __int8 *v22; // r10
-  size_t v23; // r11
-  size_t v24; // rbx
+  ULONG_PTR v23; // r11
+  ULONG_PTR v24; // rbx
   __int64 v25; // rcx
   __int64 v26; // rax
-  size_t v27; // r11
-  size_t v28; // r11
+  ULONG_PTR v27; // r11
+  ULONG_PTR v28; // r11
   __int64 v30; // r10
   __int64 v31; // r10
   __int64 v32; // r10
   __int64 v33; // r10
-  __int64 v34; // r11
-  __int64 v35; // r11
-  __int64 v36; // r11
-  __int64 v37; // r11
-  size_t v38[2]; // [rsp+30h] [rbp-F8h] BYREF
-  wchar_t v39[72]; // [rsp+40h] [rbp-E8h] BYREF
+  ULONG_PTR v34; // r11
+  ULONG_PTR v35; // r11
+  ULONG_PTR v36; // r11
+  ULONG_PTR v37; // r11
+  ULONG_PTR AppIdSize[2]; // [rsp+30h] [rbp-F8h] BYREF
+  WCHAR AppId[72]; // [rsp+40h] [rbp-E8h] BYREF
 
-  v7 = (wchar_t *)a3;
+  v7 = (WCHAR *)a3;
   v8 = 0;
   Process = KeGetCurrentThread()->ApcState.Process;
-  v10 = PsReferencePrimaryTokenWithTag((__int64)Process, 0x746C6644u, a3, a4);
-  v38[0] = 130LL;
-  PackageIdentity = RtlQueryPackageIdentity(v10, v7, (size_t *)a4, v39, v38, 0LL);
+  v10 = (void *)PsReferencePrimaryTokenWithTag((__int64)Process, 0x746C6644u, a3, a4);
+  AppIdSize[0] = 130LL;
+  PackageIdentity = RtlQueryPackageIdentity(v10, v7, (PSIZE_T)a4, AppId, AppIdSize, 0LL);
   v12 = PackageIdentity;
   if ( PackageIdentity >= 0 )
   {
@@ -102,9 +102,9 @@ __int64 __fastcall PfSnCheckModernApp(int *a1, _DWORD *a2, __int64 a3, struct _K
                 if ( v33 != 1 )
                 {
 LABEL_11:
-                  v22 = (unsigned __int8 *)v39;
-                  v23 = v38[0] - 2;
-                  if ( (signed __int64)(v38[0] - 2) >= 8 )
+                  v22 = (unsigned __int8 *)AppId;
+                  v23 = AppIdSize[0] - 2;
+                  if ( (signed __int64)(AppIdSize[0] - 2) >= 8 )
                   {
                     v24 = v23 >> 3;
                     v23 -= 8 * (v23 >> 3);
@@ -163,22 +163,22 @@ LABEL_19:
                   goto LABEL_20;
                 }
                 LODWORD(v16) = *(unsigned __int8 *)v7 + 37 * v16;
-                v7 = (wchar_t *)((char *)v7 + 1);
+                v7 = (WCHAR *)((char *)v7 + 1);
               }
               LODWORD(v16) = *(unsigned __int8 *)v7 + 37 * v16;
-              v7 = (wchar_t *)((char *)v7 + 1);
+              v7 = (WCHAR *)((char *)v7 + 1);
             }
             LODWORD(v16) = *(unsigned __int8 *)v7 + 37 * v16;
-            v7 = (wchar_t *)((char *)v7 + 1);
+            v7 = (WCHAR *)((char *)v7 + 1);
           }
           LODWORD(v16) = *(unsigned __int8 *)v7 + 37 * v16;
-          v7 = (wchar_t *)((char *)v7 + 1);
+          v7 = (WCHAR *)((char *)v7 + 1);
         }
         LODWORD(v16) = *(unsigned __int8 *)v7 + 37 * v16;
-        v7 = (wchar_t *)((char *)v7 + 1);
+        v7 = (WCHAR *)((char *)v7 + 1);
       }
       LODWORD(v16) = *(unsigned __int8 *)v7 + 37 * v16;
-      v7 = (wchar_t *)((char *)v7 + 1);
+      v7 = (WCHAR *)((char *)v7 + 1);
     }
     LODWORD(v16) = *(unsigned __int8 *)v7 + 37 * v16;
     goto LABEL_11;
@@ -187,6 +187,6 @@ LABEL_19:
   if ( PackageIdentity == -1073741275 )
     goto LABEL_19;
 LABEL_20:
-  ObFastDereferenceObject((signed __int64 *)&Process[1].ActiveProcessors, v10, 0x746C6644u);
+  ObFastDereferenceObject((signed __int64 *)&Process[1].ActiveProcessors, (ULONG_PTR)v10, 0x746C6644u);
   return v12;
 }

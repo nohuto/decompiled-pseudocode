@@ -99,10 +99,10 @@ __int64 __fastcall HsaAllocateRemappingTableEntry(
         }
         v19 = (unsigned __int8)byte_140C5FCD8;
         KxReleaseSpinLock((volatile signed __int64 *)&qword_140C5FCD0);
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           CurrentIrql = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
             && (unsigned __int8)CurrentIrql <= 0xFu
             && (unsigned __int8)v19 <= 0xFu
             && (unsigned __int8)CurrentIrql >= 2u )
@@ -178,10 +178,10 @@ LABEL_28:
             v33 = (unsigned __int8)byte_140C5FCD8;
             KxReleaseSpinLock((volatile signed __int64 *)&qword_140C5FCD0);
             v25 = (unsigned int)KiIrqlFlags;
-            if ( KiIrqlFlags )
+            if ( (_DWORD)KiIrqlFlags )
             {
               v34 = KeGetCurrentIrql();
-              if ( (KiIrqlFlags & 1) != 0 && v34 <= 0xFu && (unsigned __int8)v33 <= 0xFu && v34 >= 2u )
+              if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v34 <= 0xFu && (unsigned __int8)v33 <= 0xFu && v34 >= 2u )
               {
                 v35 = KeGetCurrentPrcb();
                 v25 = (unsigned int)(v33 + 1);

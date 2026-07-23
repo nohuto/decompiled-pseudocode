@@ -1,9 +1,9 @@
 /*
- * XREFs of PpmPerfUpdateHwDebugData @ 0x1402553BC
+ * XREFs of PpmPerfUpdateHwDebugData @ 0x14025547C
  * Callers:
- *     PpmPerfSnapDeliveredPerformance @ 0x140255F80 (PpmPerfSnapDeliveredPerformance.c)
+ *     PpmPerfSnapDeliveredPerformance @ 0x140256040 (PpmPerfSnapDeliveredPerformance.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall PpmPerfUpdateHwDebugData(__int64 a1)

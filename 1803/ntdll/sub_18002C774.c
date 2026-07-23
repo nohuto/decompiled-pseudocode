@@ -16,7 +16,7 @@
  *     _guard_dispatch_icall_nop @ 0x18009E4A0 (_guard_dispatch_icall_nop.c)
  */
 
-void __fastcall sub_18002C774(__int64 a1, __int64 a2, unsigned int a3)
+void __fastcall sub_18002C774(_DWORD *Instance, __int64 a2, unsigned int a3)
 {
   __int64 v6; // rsi
   __int64 v7; // rsi
@@ -25,7 +25,7 @@ void __fastcall sub_18002C774(__int64 a1, __int64 a2, unsigned int a3)
 
   if ( a3 == 258 )
   {
-    if ( !(unsigned int)sub_180025ACC(a1, a2, 0) )
+    if ( !(unsigned int)sub_180025ACC(Instance, a2, 0) )
       return;
     goto LABEL_4;
   }
@@ -33,30 +33,30 @@ void __fastcall sub_18002C774(__int64 a1, __int64 a2, unsigned int a3)
   if ( !v6 )
   {
 LABEL_3:
-    sub_180025A28(a1, a2);
+    sub_180025A28(Instance, a2);
 LABEL_4:
     v7 = 2147353478LL;
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-      v8 = (__int64)NtCurrentPeb()->HotpatchInformation + 556;
+    if ( RtlGetCurrentServiceSessionId() )
+      v8 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[3];
     else
       v8 = 2147353478LL;
     if ( *(_BYTE *)v8 )
       sub_180001FD0(*(_QWORD *)(a2 + 144), a2 + 392, *(_QWORD *)(a2 + 80), *(_QWORD *)(a2 + 88), *(_QWORD *)(a2 + 104));
     sub_18002567C(&v9, *(_QWORD *)(a2 + 80), *(_QWORD *)(a2 + 88), *(_QWORD *)(a2 + 104));
-    *(_QWORD *)(a1 + 88) = *(_QWORD *)(a2 + 80);
-    *(_QWORD *)(a1 + 96) = *(_QWORD *)(a2 + 88);
-    (*(void (__fastcall **)(__int64, _QWORD, __int64, _QWORD))(a2 + 80))(a1, *(_QWORD *)(a2 + 88), a2, a3);
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-      v7 = (__int64)NtCurrentPeb()->HotpatchInformation + 556;
+    *((_QWORD *)Instance + 11) = *(_QWORD *)(a2 + 80);
+    *((_QWORD *)Instance + 12) = *(_QWORD *)(a2 + 88);
+    (*(void (__fastcall **)(_DWORD *, _QWORD, __int64, _QWORD))(a2 + 80))(Instance, *(_QWORD *)(a2 + 88), a2, a3);
+    if ( RtlGetCurrentServiceSessionId() )
+      v7 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[3];
     if ( *(_BYTE *)v7 )
       sub_180002050(*(_QWORD *)(a2 + 144), a2 + 392, *(_QWORD *)(a2 + 80), *(_QWORD *)(a2 + 88), *(_QWORD *)(a2 + 104));
     sub_180025644(v9);
     return;
   }
-  if ( (int)LdrAddRefDll(0LL, *(_QWORD *)(a2 + 136)) >= 0 )
+  if ( LdrAddRefDll(0, *(PVOID *)(a2 + 136)) >= 0 )
   {
-    *(_DWORD *)(a1 + 144) |= 0x100u;
-    *(_QWORD *)(a1 + 168) = v6;
+    Instance[36] |= 0x100u;
+    *((_QWORD *)Instance + 21) = v6;
     goto LABEL_3;
   }
   sub_180055584(a2 + 56, 0xFFFFFFFFLL);

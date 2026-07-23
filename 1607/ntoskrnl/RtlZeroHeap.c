@@ -1,16 +1,16 @@
 /*
- * XREFs of RtlZeroHeap @ 0x14068889C
+ * XREFs of RtlZeroHeap @ 0x140688980
  * Callers:
  *     <none>
  * Callees:
- *     ExAcquireResourceExclusiveLite @ 0x140068160 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x140068940 (ExReleaseResourceLite.c)
- *     RtlpHeapAddListEntry @ 0x140093EE8 (RtlpHeapAddListEntry.c)
- *     RtlpHeapRemoveListEntry @ 0x1400949E8 (RtlpHeapRemoveListEntry.c)
- *     RtlpFindEntry @ 0x140094AD0 (RtlpFindEntry.c)
- *     RtlpLogHeapFailure @ 0x140159514 (RtlpLogHeapFailure.c)
- *     RtlpHeapExceptionFilter @ 0x1402137E0 (RtlpHeapExceptionFilter.c)
- *     RtlpAnalyzeHeapFailure @ 0x1402185AC (RtlpAnalyzeHeapFailure.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140067CE0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x1400684C0 (ExReleaseResourceLite.c)
+ *     RtlpHeapAddListEntry @ 0x1400936E8 (RtlpHeapAddListEntry.c)
+ *     RtlpHeapRemoveListEntry @ 0x1400941E8 (RtlpHeapRemoveListEntry.c)
+ *     RtlpFindEntry @ 0x1400942D0 (RtlpFindEntry.c)
+ *     RtlpLogHeapFailure @ 0x140159A84 (RtlpLogHeapFailure.c)
+ *     RtlpHeapExceptionFilter @ 0x14021360C (RtlpHeapExceptionFilter.c)
+ *     RtlpAnalyzeHeapFailure @ 0x1402183D8 (RtlpAnalyzeHeapFailure.c)
  */
 
 BOOLEAN __stdcall RtlZeroHeap(PVOID HeapHandle, ULONG Flags)

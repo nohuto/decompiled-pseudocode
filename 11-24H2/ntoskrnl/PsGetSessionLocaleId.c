@@ -1,8 +1,8 @@
 /*
- * XREFs of PsGetSessionLocaleId @ 0x1408FF084
+ * XREFs of PsGetSessionLocaleId @ 0x140921964
  * Callers:
- *     PspUserThreadStartup @ 0x1408FEA00 (PspUserThreadStartup.c)
- *     NtQueryDefaultLocale @ 0x1408FF6F0 (NtQueryDefaultLocale.c)
+ *     PspUserThreadStartup @ 0x1409212E0 (PspUserThreadStartup.c)
+ *     NtQueryDefaultLocale @ 0x140921FD0 (NtQueryDefaultLocale.c)
  * Callees:
  *     <none>
  */

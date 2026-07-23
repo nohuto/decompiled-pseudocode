@@ -1,14 +1,14 @@
 /*
- * XREFs of PnpIsAnyDeviceInstanceEnabled @ 0x1405385F8
+ * XREFs of PnpIsAnyDeviceInstanceEnabled @ 0x140538B38
  * Callers:
- *     PnpDriverStarted @ 0x14053859C (PnpDriverStarted.c)
+ *     PnpDriverStarted @ 0x140538ADC (PnpDriverStarted.c)
  * Callees:
- *     ZwClose @ 0x140159E60 (ZwClose.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     IopGetRegistryValue @ 0x14049F430 (IopGetRegistryValue.c)
- *     PnpIsDeviceInstanceEnabled @ 0x1404E7734 (PnpIsDeviceInstanceEnabled.c)
- *     PipServiceInstanceToDeviceInstance @ 0x1405383B0 (PipServiceInstanceToDeviceInstance.c)
- *     PipOpenServiceEnumKeys @ 0x140538DE4 (PipOpenServiceEnumKeys.c)
+ *     PnpIsDeviceInstanceEnabled @ 0x14050EA28 (PnpIsDeviceInstanceEnabled.c)
+ *     IopGetRegistryValue @ 0x14051783C (IopGetRegistryValue.c)
+ *     PipServiceInstanceToDeviceInstance @ 0x1405388F0 (PipServiceInstanceToDeviceInstance.c)
+ *     PipOpenServiceEnumKeys @ 0x140539324 (PipOpenServiceEnumKeys.c)
  */
 
 __int64 __fastcall PnpIsAnyDeviceInstanceEnabled(__int64 a1)
@@ -44,7 +44,7 @@ __int64 __fastcall PnpIsAnyDeviceInstanceEnabled(__int64 a1)
       {
         if ( PipServiceInstanceToDeviceInstance(v9, 0LL, v3, &v8, &v11, 983103) >= 0 )
         {
-          IsDeviceInstanceEnabled = PnpIsDeviceInstanceEnabled(v11, (__int64)&v8, 0);
+          IsDeviceInstanceEnabled = PnpIsDeviceInstanceEnabled(v11, &v8.Length, 0);
           ExFreePoolWithTag(v8.Buffer, 0);
           ZwClose(v11);
           if ( IsDeviceInstanceEnabled )

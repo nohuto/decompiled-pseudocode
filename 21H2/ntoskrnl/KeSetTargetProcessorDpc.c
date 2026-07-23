@@ -1,16 +1,16 @@
 /*
- * XREFs of KeSetTargetProcessorDpc @ 0x140519D70
+ * XREFs of KeSetTargetProcessorDpc @ 0x140519FB0
  * Callers:
  *     <none>
  * Callees:
- *     KeQueryActiveProcessorCountEx @ 0x14027B610 (KeQueryActiveProcessorCountEx.c)
- *     KeSetTargetProcessorDpcEx @ 0x1402D1640 (KeSetTargetProcessorDpcEx.c)
+ *     KeSetTargetProcessorDpcEx @ 0x14024FAD0 (KeSetTargetProcessorDpcEx.c)
+ *     KeQueryActiveProcessorCountEx @ 0x1402695B0 (KeQueryActiveProcessorCountEx.c)
  */
 
 void __stdcall KeSetTargetProcessorDpc(PRKDPC Dpc, CCHAR Number)
 {
   unsigned __int16 v4; // bx
-  struct _PROCESSOR_NUMBER ProcNumber; // [rsp+38h] [rbp+10h] BYREF
+  _PROCESSOR_NUMBER ProcNumber; // [rsp+38h] [rbp+10h] BYREF
 
   if ( KeForceGroupAwareness )
     v4 = KiActiveGroups - 1;

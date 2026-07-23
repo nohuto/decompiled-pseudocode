@@ -1,21 +1,21 @@
 /*
- * XREFs of MmReleaseCommitForMemResetPages @ 0x14052CCF4
+ * XREFs of MmReleaseCommitForMemResetPages @ 0x14052CF34
  * Callers:
- *     NtSetInformationProcess @ 0x14070A4B0 (NtSetInformationProcess.c)
+ *     NtSetInformationProcess @ 0x140721890 (NtSetInformationProcess.c)
  * Callees:
- *     MiGetSharedVm @ 0x14021AF50 (MiGetSharedVm.c)
- *     MiUnlockWorkingSetExclusive @ 0x14021CAE0 (MiUnlockWorkingSetExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
- *     KeForceAttachProcess @ 0x14025C278 (KeForceAttachProcess.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     KeForceDetachProcess @ 0x1402BA388 (KeForceDetachProcess.c)
- *     MiPrepareAttachThread @ 0x1402EF3D4 (MiPrepareAttachThread.c)
- *     MiAttachThreadDone @ 0x1402EF448 (MiAttachThreadDone.c)
- *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KeForceDetachProcess @ 0x140238598 (KeForceDetachProcess.c)
+ *     KeForceAttachProcess @ 0x14027D7E8 (KeForceAttachProcess.c)
+ *     MiGetSharedVm @ 0x1402BF850 (MiGetSharedVm.c)
+ *     MiUnlockWorkingSetExclusive @ 0x1402C13E0 (MiUnlockWorkingSetExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x1402C1960 (ExAcquireSpinLockExclusive.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402D3660 (KeAcquireInStackQueuedSpinLock.c)
+ *     MiPrepareAttachThread @ 0x1402FA124 (MiPrepareAttachThread.c)
+ *     MiAttachThreadDone @ 0x1402FA198 (MiAttachThreadDone.c)
+ *     KeWaitForSingleObject @ 0x1403504C0 (KeWaitForSingleObject.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     KeRetryOutswapProcess @ 0x1405138C8 (KeRetryOutswapProcess.c)
+ *     KeRetryOutswapProcess @ 0x140513B08 (KeRetryOutswapProcess.c)
  */
 
 __int64 __fastcall MmReleaseCommitForMemResetPages(volatile signed __int32 *BugCheckParameter1, int a2)

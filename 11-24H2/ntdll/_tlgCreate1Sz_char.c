@@ -1,13 +1,13 @@
 /*
- * XREFs of _tlgCreate1Sz_char @ 0x1800AE2D0
+ * XREFs of _tlgCreate1Sz_char @ 0x1800E3A94
  * Callers:
- *     MicrosoftTelemetryAssertTriggeredWorker @ 0x1800ADB9C (MicrosoftTelemetryAssertTriggeredWorker.c)
- *     LdrpCgLogFailure @ 0x18015FC00 (LdrpCgLogFailure.c)
+ *     MicrosoftTelemetryAssertTriggeredWorker @ 0x1800E3360 (MicrosoftTelemetryAssertTriggeredWorker.c)
+ *     LdrpCgLogFailure @ 0x18015DFC0 (LdrpCgLogFailure.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall tlgCreate1Sz_char(__int64 a1, _BYTE *a2)
+__int64 __fastcall tlgCreate1Sz_char(__int64 a1, const ULONG *a2)
 {
   __int64 v2; // rax
   __int64 result; // rax
@@ -17,12 +17,12 @@ __int64 __fastcall tlgCreate1Sz_char(__int64 a1, _BYTE *a2)
     v2 = -1LL;
     do
       ++v2;
-    while ( a2[v2] );
+    while ( *((_BYTE *)a2 + v2) );
     result = (unsigned int)(v2 + 1);
   }
   else
   {
-    a2 = &unk_180178AE6;
+    a2 = &Flags;
     result = 1LL;
   }
   *(_DWORD *)(a1 + 12) = 0;

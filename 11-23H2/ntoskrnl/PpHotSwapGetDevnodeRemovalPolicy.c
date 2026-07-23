@@ -1,12 +1,12 @@
 /*
- * XREFs of PpHotSwapGetDevnodeRemovalPolicy @ 0x140793124
+ * XREFs of PpHotSwapGetDevnodeRemovalPolicy @ 0x140793314
  * Callers:
- *     PiControlGetPropertyData @ 0x140792750 (PiControlGetPropertyData.c)
- *     IoGetDeviceProperty @ 0x1407929A0 (IoGetDeviceProperty.c)
+ *     PiControlGetPropertyData @ 0x140792940 (PiControlGetPropertyData.c)
+ *     IoGetDeviceProperty @ 0x140792B90 (IoGetDeviceProperty.c)
  * Callees:
- *     PpDevNodeUnlockTree @ 0x1406C98FC (PpDevNodeUnlockTree.c)
- *     PpDevNodeLockTree @ 0x1406C9990 (PpDevNodeLockTree.c)
- *     PiHotSwapGetDetachableNode @ 0x1407DE088 (PiHotSwapGetDetachableNode.c)
+ *     PpDevNodeUnlockTree @ 0x1406C992C (PpDevNodeUnlockTree.c)
+ *     PpDevNodeLockTree @ 0x1406C99C0 (PpDevNodeLockTree.c)
+ *     PiHotSwapGetDetachableNode @ 0x1407DE358 (PiHotSwapGetDetachableNode.c)
  */
 
 void __fastcall PpHotSwapGetDevnodeRemovalPolicy(__int64 a1, char a2, unsigned int *a3)

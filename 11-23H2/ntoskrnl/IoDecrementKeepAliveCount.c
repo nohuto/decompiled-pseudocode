@@ -1,14 +1,14 @@
 /*
- * XREFs of IoDecrementKeepAliveCount @ 0x140557FC0
+ * XREFs of IoDecrementKeepAliveCount @ 0x140558680
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     ExQueueWorkItem @ 0x1402B7C30 (ExQueueWorkItem.c)
- *     KeAlertThread @ 0x140309850 (KeAlertThread.c)
- *     IopAdjustFileObjectKeepAliveCount @ 0x14055846C (IopAdjustFileObjectKeepAliveCount.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ExQueueWorkItem @ 0x1402B7EC0 (ExQueueWorkItem.c)
+ *     KeAlertThread @ 0x140309AE0 (KeAlertThread.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     IopAdjustFileObjectKeepAliveCount @ 0x140558B2C (IopAdjustFileObjectKeepAliveCount.c)
  */
 
 __int64 __fastcall IoDecrementKeepAliveCount(int a1, int a2)
@@ -56,10 +56,13 @@ __int64 __fastcall IoDecrementKeepAliveCount(int a1, int a2)
       }
     }
     KxReleaseSpinLock((volatile signed __int64 *)qword_140C5DDF0);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v3 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v3 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         v8 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v3 + 1));
@@ -67,7 +70,7 @@ __int64 __fastcall IoDecrementKeepAliveCount(int a1, int a2)
         v10 = (v8 & SchedulerAssist[5]) == 0;
         SchedulerAssist[5] &= v8;
         if ( v10 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
       }
     }
     __writecr8(v3);

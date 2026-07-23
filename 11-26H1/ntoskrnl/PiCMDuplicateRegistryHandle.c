@@ -1,13 +1,13 @@
 /*
- * XREFs of PiCMDuplicateRegistryHandle @ 0x140A007EC
+ * XREFs of PiCMDuplicateRegistryHandle @ 0x14091D314
  * Callers:
- *     PiCMOpenClassKey @ 0x140916DFC (PiCMOpenClassKey.c)
- *     PiCMOpenDeviceKey @ 0x1409FF7B4 (PiCMOpenDeviceKey.c)
- *     PiCMOpenDeviceInterfaceKey @ 0x140ABE0C4 (PiCMOpenDeviceInterfaceKey.c)
+ *     PiCMOpenDeviceInterfaceKey @ 0x14091B4B8 (PiCMOpenDeviceInterfaceKey.c)
+ *     PiCMOpenDeviceKey @ 0x14091C550 (PiCMOpenDeviceKey.c)
+ *     PiCMOpenClassKey @ 0x140971868 (PiCMOpenClassKey.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     ObReferenceObjectByHandle @ 0x1408F9550 (ObReferenceObjectByHandle.c)
- *     ObOpenObjectByPointer @ 0x14092AFF0 (ObOpenObjectByPointer.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     ObOpenObjectByPointer @ 0x140906B20 (ObOpenObjectByPointer.c)
+ *     ObReferenceObjectByHandle @ 0x1409294E0 (ObReferenceObjectByHandle.c)
  */
 
 __int64 __fastcall PiCMDuplicateRegistryHandle(

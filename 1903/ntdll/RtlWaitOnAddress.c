@@ -6,7 +6,7 @@
  *     sub_180007424 @ 0x180007424 (sub_180007424.c)
  */
 
-__int64 __fastcall RtlWaitOnAddress(int a1, int a2, int a3, int a4)
+NTSTATUS __cdecl RtlWaitOnAddress(void *Address, PVOID CompareAddress, SIZE_T AddressSize, PLARGE_INTEGER Timeout)
 {
-  return sub_180007424(a1, a2, a3, a4, dword_180163B6C);
+  return sub_180007424((_DWORD)Address, (_DWORD)CompareAddress, AddressSize, (_DWORD)Timeout, dword_180163B6C);
 }

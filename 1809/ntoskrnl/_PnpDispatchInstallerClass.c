@@ -1,18 +1,18 @@
 /*
- * XREFs of _PnpDispatchInstallerClass @ 0x1406F09B0
+ * XREFs of _PnpDispatchInstallerClass @ 0x1406F1C50
  * Callers:
  *     <none>
  * Callees:
  *     _PnpMapCmStatusToDispatchStatus @ 0x140007248 (_PnpMapCmStatusToDispatchStatus.c)
- *     _CmValidateInstallerClassName @ 0x140596DE4 (_CmValidateInstallerClassName.c)
- *     _CmOpenInstallerClassRegKey @ 0x14059EB8C (_CmOpenInstallerClassRegKey.c)
- *     _CmGetInstallerClassMappedProperty @ 0x1406F0AF0 (_CmGetInstallerClassMappedProperty.c)
- *     _CmGetMatchingCommonClassList @ 0x14074A5D0 (_CmGetMatchingCommonClassList.c)
- *     _CmCreateInstallerClass @ 0x1408F6084 (_CmCreateInstallerClass.c)
- *     _CmDeleteInstallerClass @ 0x1408F7BC0 (_CmDeleteInstallerClass.c)
- *     _CmGetInstallerClassMappedPropertyKeys @ 0x1408FE74C (_CmGetInstallerClassMappedPropertyKeys.c)
- *     _CmGetInstallerClassMappedPropertyLocales @ 0x1408FEB00 (_CmGetInstallerClassMappedPropertyLocales.c)
- *     _CmSetInstallerClassMappedProperty @ 0x1408FF480 (_CmSetInstallerClassMappedProperty.c)
+ *     _CmValidateInstallerClassName @ 0x140597DE4 (_CmValidateInstallerClassName.c)
+ *     _CmOpenInstallerClassRegKey @ 0x14059FB8C (_CmOpenInstallerClassRegKey.c)
+ *     _CmGetInstallerClassMappedProperty @ 0x1406F1D90 (_CmGetInstallerClassMappedProperty.c)
+ *     _CmGetMatchingCommonClassList @ 0x14074B7C0 (_CmGetMatchingCommonClassList.c)
+ *     _CmCreateInstallerClass @ 0x1408F7344 (_CmCreateInstallerClass.c)
+ *     _CmDeleteInstallerClass @ 0x1408F8E80 (_CmDeleteInstallerClass.c)
+ *     _CmGetInstallerClassMappedPropertyKeys @ 0x1408FFA0C (_CmGetInstallerClassMappedPropertyKeys.c)
+ *     _CmGetInstallerClassMappedPropertyLocales @ 0x1408FFDC0 (_CmGetInstallerClassMappedPropertyLocales.c)
+ *     _CmSetInstallerClassMappedProperty @ 0x140900740 (_CmSetInstallerClassMappedProperty.c)
  */
 
 __int64 __fastcall PnpDispatchInstallerClass(__int64 a1, const WCHAR *a2, __int64 a3, int a4, __int64 a5)

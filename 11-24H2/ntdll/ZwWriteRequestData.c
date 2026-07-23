@@ -1,16 +1,22 @@
 /*
- * XREFs of ZwWriteRequestData @ 0x180162770
+ * XREFs of ZwWriteRequestData @ 0x180160B30
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 ZwWriteRequestData()
+NTSTATUS __cdecl ZwWriteRequestData(
+        HANDLE PortHandle,
+        PPORT_MESSAGE Message,
+        ULONG DataEntryIndex,
+        PVOID Buffer,
+        SIZE_T BufferSize,
+        PSIZE_T NumberOfBytesWritten)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 87LL;
+  result = 87;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

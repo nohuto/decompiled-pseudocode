@@ -1,10 +1,10 @@
 /*
- * XREFs of NtCreateWaitablePort @ 0x14071E8C0
+ * XREFs of NtCreateWaitablePort @ 0x14071FB60
  * Callers:
  *     <none>
  * Callees:
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     AlpcpCreateConnectionPort @ 0x1406B66A8 (AlpcpCreateConnectionPort.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     AlpcpCreateConnectionPort @ 0x1406B7948 (AlpcpCreateConnectionPort.c)
  */
 
 NTSTATUS __stdcall NtCreateWaitablePort(

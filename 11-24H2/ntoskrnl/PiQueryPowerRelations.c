@@ -1,23 +1,23 @@
 /*
- * XREFs of PiQueryPowerRelations @ 0x140A8C2C8
+ * XREFs of PiQueryPowerRelations @ 0x140A887F8
  * Callers:
- *     PnpDeviceActionWorker @ 0x14046CD70 (PnpDeviceActionWorker.c)
- *     PipProcessRebuildPowerRelationsQueue @ 0x140A0F244 (PipProcessRebuildPowerRelationsQueue.c)
+ *     PnpDeviceActionWorker @ 0x140467910 (PnpDeviceActionWorker.c)
+ *     PipProcessRebuildPowerRelationsQueue @ 0x1409BD654 (PipProcessRebuildPowerRelationsQueue.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x14025A450 (ExReleaseResourceLite.c)
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     ExAcquireResourceSharedLite @ 0x140341E80 (ExAcquireResourceSharedLite.c)
- *     IoAddTriageDumpDataBlock @ 0x1403F2880 (IoAddTriageDumpDataBlock.c)
- *     PnpAcquirePowerRelationsQueueLock @ 0x1404AEDD8 (PnpAcquirePowerRelationsQueueLock.c)
- *     PnpReleasePowerRelationsQueueLock @ 0x1404B4398 (PnpReleasePowerRelationsQueueLock.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     PnpQueryDeviceRelations @ 0x1408BB608 (PnpQueryDeviceRelations.c)
- *     PiQueryPowerDependencyRelations @ 0x140A8C850 (PiQueryPowerDependencyRelations.c)
- *     PiValidatePowerRelations @ 0x140A8CA94 (PiValidatePowerRelations.c)
- *     PiPnpRtlPdoRaiseNtPlugPlayPropertyChangeEvent @ 0x140A9D8CC (PiPnpRtlPdoRaiseNtPlugPlayPropertyChangeEvent.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x14028AA60 (ExReleaseResourceLite.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     ExAcquireResourceSharedLite @ 0x140321360 (ExAcquireResourceSharedLite.c)
+ *     IoAddTriageDumpDataBlock @ 0x1403E65A0 (IoAddTriageDumpDataBlock.c)
+ *     PnpAcquirePowerRelationsQueueLock @ 0x1404A97B0 (PnpAcquirePowerRelationsQueueLock.c)
+ *     PnpReleasePowerRelationsQueueLock @ 0x1404AEBE4 (PnpReleasePowerRelationsQueueLock.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     PnpQueryDeviceRelations @ 0x1408B8FB8 (PnpQueryDeviceRelations.c)
+ *     PiQueryPowerDependencyRelations @ 0x140A88D80 (PiQueryPowerDependencyRelations.c)
+ *     PiValidatePowerRelations @ 0x140A88FC4 (PiValidatePowerRelations.c)
+ *     PiPnpRtlPdoRaiseNtPlugPlayPropertyChangeEvent @ 0x140A98E3C (PiPnpRtlPdoRaiseNtPlugPlayPropertyChangeEvent.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiQueryPowerRelations(__int64 a1, char a2)
@@ -270,7 +270,7 @@ LABEL_73:
           }
           if ( *(_QWORD *)(v16 + 16) )
           {
-            Pool2 = ExAllocatePool2(0x40uLL);
+            Pool2 = ExAllocatePool2(0x40uLL, 0x38uLL, 0x72775044u);
             v18 = (_QWORD *)Pool2;
             if ( !Pool2 )
             {

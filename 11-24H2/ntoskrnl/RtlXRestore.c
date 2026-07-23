@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlXRestore @ 0x1404078FC
+ * XREFs of RtlXRestore @ 0x1403FFDDC
  * Callers:
- *     RtlXRestoreS @ 0x140406EF8 (RtlXRestoreS.c)
- *     KxContextToKframes @ 0x140407390 (KxContextToKframes.c)
- *     KiRestoreProcessorState @ 0x1405CA37C (KiRestoreProcessorState.c)
+ *     RtlXRestoreS @ 0x1403FF3D8 (RtlXRestoreS.c)
+ *     KxContextToKframes @ 0x1403FF870 (KxContextToKframes.c)
+ *     KiRestoreProcessorState @ 0x1405C7AAC (KiRestoreProcessorState.c)
  * Callees:
  *     <none>
  */

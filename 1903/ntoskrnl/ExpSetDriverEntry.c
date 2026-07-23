@@ -26,8 +26,8 @@ __int64 __fastcall ExpSetDriverEntry(int a1, _DWORD *a2, unsigned __int64 a3)
 {
   _DWORD *v3; // r12
   unsigned int v5; // r14d
-  struct _FILE_PATH *v6; // r15
-  struct _FILE_PATH *v7; // r13
+  _FILE_PATH *v6; // r15
+  _FILE_PATH *v7; // r13
   KPROCESSOR_MODE PreviousMode; // dl
   __int64 v9; // rax
   unsigned int v10; // ecx
@@ -43,8 +43,8 @@ __int64 __fastcall ExpSetDriverEntry(int a1, _DWORD *a2, unsigned __int64 a3)
   int v21; // eax
   __int64 v22; // r8
   size_t v23; // r13
-  struct _FILE_PATH *v24; // rax
-  struct _FILE_PATH *v25; // rbx
+  _FILE_PATH *v24; // rax
+  _FILE_PATH *v25; // rbx
   ULONG Length; // eax
   size_t v27; // rbx
   PVOID v28; // rax
@@ -55,7 +55,7 @@ __int64 __fastcall ExpSetDriverEntry(int a1, _DWORD *a2, unsigned __int64 a3)
   ULONG OutputFilePathLength; // [rsp+38h] [rbp-A0h] BYREF
   _DWORD *v34; // [rsp+40h] [rbp-98h]
   size_t Size; // [rsp+48h] [rbp-90h]
-  struct _FILE_PATH *v36; // [rsp+50h] [rbp-88h]
+  _FILE_PATH *v36; // [rsp+50h] [rbp-88h]
   int v38; // [rsp+5Ch] [rbp-7Ch]
   PVOID v39; // [rsp+60h] [rbp-78h]
   PVOID P; // [rsp+68h] [rbp-70h]
@@ -130,7 +130,7 @@ __int64 __fastcall ExpSetDriverEntry(int a1, _DWORD *a2, unsigned __int64 a3)
     else
     {
       LODWORD(Size) = 2 * v21 + 2;
-      v6 = (struct _FILE_PATH *)((char *)v16 + v22);
+      v6 = (_FILE_PATH *)((char *)v16 + v22);
       EnvironmentVariable = ExpVerifyFilePath((char *)v16 + v22);
       if ( EnvironmentVariable >= 0 )
       {
@@ -153,7 +153,7 @@ LABEL_63:
           EnvironmentVariable = ZwTranslateFilePath(v6, 4u, 0LL, (ULONG)&OutputFilePathLength);
           if ( EnvironmentVariable != -1073741789 )
             goto LABEL_63;
-          v24 = (struct _FILE_PATH *)ExAllocatePoolWithTag(NonPagedPoolNx, OutputFilePathLength, 0x72766E45u);
+          v24 = (_FILE_PATH *)ExAllocatePoolWithTag(NonPagedPoolNx, OutputFilePathLength, 0x72766E45u);
           v25 = v24;
           v36 = v24;
           if ( !v24 )

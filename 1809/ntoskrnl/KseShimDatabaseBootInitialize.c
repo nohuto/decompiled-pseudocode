@@ -1,15 +1,15 @@
 /*
- * XREFs of KseShimDatabaseBootInitialize @ 0x1409AEFF4
+ * XREFs of KseShimDatabaseBootInitialize @ 0x1409AFFF4
  * Callers:
- *     KseInitialize @ 0x1409AF930 (KseInitialize.c)
+ *     KseInitialize @ 0x1409B0930 (KseInitialize.c)
  * Callees:
- *     KsepPoolAllocatePaged @ 0x1400F4CDC (KsepPoolAllocatePaged.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     KsepDebugPrint @ 0x14029FC44 (KsepDebugPrint.c)
- *     KsepLogError @ 0x14029FEE4 (KsepLogError.c)
- *     RtlAssert @ 0x1402EF860 (RtlAssert.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     SdbInitDatabaseInMemory @ 0x1405A21DC (SdbInitDatabaseInMemory.c)
+ *     KsepPoolAllocatePaged @ 0x1400F4D5C (KsepPoolAllocatePaged.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     KsepDebugPrint @ 0x14029FE34 (KsepDebugPrint.c)
+ *     KsepLogError @ 0x1402A00D4 (KsepLogError.c)
+ *     RtlAssert @ 0x1402EFA50 (RtlAssert.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     SdbInitDatabaseInMemory @ 0x1405A31DC (SdbInitDatabaseInMemory.c)
  */
 
 __int64 __fastcall KseShimDatabaseBootInitialize(void *Src, size_t Size)
@@ -77,7 +77,7 @@ __int64 __fastcall KseShimDatabaseBootInitialize(void *Src, size_t Size)
     if ( KsepShimDbAddress )
     {
       ExFreePoolWithTag(KsepShimDbAddress, 0x6145534Bu);
-      _InterlockedAdd(&dword_14041AB64, 1u);
+      _InterlockedAdd(&dword_14041BC24, 1u);
     }
     KsepShimDbAddress = 0LL;
     return (unsigned int)-1073741823;

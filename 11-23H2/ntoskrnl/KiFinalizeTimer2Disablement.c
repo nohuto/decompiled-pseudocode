@@ -1,14 +1,14 @@
 /*
- * XREFs of KiFinalizeTimer2Disablement @ 0x14031E0B4
+ * XREFs of KiFinalizeTimer2Disablement @ 0x14031E344
  * Callers:
- *     KiExpireTimer2 @ 0x140251A80 (KiExpireTimer2.c)
- *     KiUpdateTimer2Flags @ 0x14031E018 (KiUpdateTimer2Flags.c)
+ *     KiExpireTimer2 @ 0x140251B40 (KiExpireTimer2.c)
+ *     KiUpdateTimer2Flags @ 0x14031E2A8 (KiUpdateTimer2Flags.c)
  * Callees:
- *     EtwGetKernelTraceTimestamp @ 0x1402A2F90 (EtwGetKernelTraceTimestamp.c)
- *     EtwTraceTimedEvent @ 0x140338D50 (EtwTraceTimedEvent.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     EtwGetKernelTraceTimestamp @ 0x1402A3220 (EtwGetKernelTraceTimestamp.c)
+ *     EtwTraceTimedEvent @ 0x140338FE0 (EtwTraceTimedEvent.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall KiFinalizeTimer2Disablement(unsigned __int64 a1)
@@ -50,7 +50,7 @@ __int64 __fastcall KiFinalizeTimer2Disablement(unsigned __int64 a1)
     v4 = KiWaitAlways ^ _byteswap_uint64(a1 ^ __ROL8__(KiWaitNever ^ *(_QWORD *)(a1 + 120), KiWaitNever));
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(2uLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
       v9 = 4;
@@ -61,10 +61,10 @@ __int64 __fastcall KiFinalizeTimer2Disablement(unsigned __int64 a1)
     if ( v3 )
       EtwGetKernelTraceTimestamp((__int64)v16, 1073872896LL);
     v6(v4);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v10 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v10 <= 0xFu && CurrentIrql <= 0xFu && v10 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v10 <= 0xFu && CurrentIrql <= 0xFu && v10 >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         v12 = CurrentPrcb->SchedulerAssist;

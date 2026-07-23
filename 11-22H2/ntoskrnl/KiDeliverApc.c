@@ -125,7 +125,7 @@ void __fastcall KiDeliverApc(char a1, __int64 a2, __int64 a3)
         goto LABEL_15;
       CurrentIrql = KeGetCurrentIrql();
       __writecr8(2uLL);
-      if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+      if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
       {
         SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
         if ( CurrentIrql == 2 )
@@ -157,10 +157,10 @@ void __fastcall KiDeliverApc(char a1, __int64 a2, __int64 a3)
         if ( CurrentThread->ApcState.InProgressFlags || CurrentThread->KernelApcDisable )
         {
           CurrentThread->ThreadLock = 0LL;
-          if ( KiIrqlFlags )
+          if ( (_DWORD)KiIrqlFlags )
           {
             v42 = KeGetCurrentIrql();
-            if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)(v42 - 2) <= 0xDu )
+            if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && (unsigned __int8)(v42 - 2) <= 0xDu )
             {
               CurrentPrcb = KeGetCurrentPrcb();
               v44 = CurrentPrcb->SchedulerAssist;
@@ -181,10 +181,10 @@ void __fastcall KiDeliverApc(char a1, __int64 a2, __int64 a3)
         v19->Blink = v20;
         BYTE2(v12[5].Flink) = 0;
         CurrentThread->ThreadLock = 0LL;
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v36 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)(v36 - 2) <= 0xDu )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && (unsigned __int8)(v36 - 2) <= 0xDu )
           {
             v37 = KeGetCurrentPrcb();
             v38 = v37->SchedulerAssist;
@@ -204,10 +204,10 @@ void __fastcall KiDeliverApc(char a1, __int64 a2, __int64 a3)
           &Blink);
         if ( v55 )
         {
-          if ( KiIrqlFlags )
+          if ( (_DWORD)KiIrqlFlags )
           {
             v39 = KeGetCurrentIrql();
-            if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)(v39 - 2) <= 0xDu )
+            if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && (unsigned __int8)(v39 - 2) <= 0xDu )
             {
               v40 = KeGetCurrentPrcb();
               v41 = v40->SchedulerAssist;
@@ -235,10 +235,10 @@ void __fastcall KiDeliverApc(char a1, __int64 a2, __int64 a3)
         v14->Blink = v15;
         BYTE2(v12[5].Flink) = 0;
         CurrentThread->ThreadLock = 0LL;
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v33 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)(v33 - 2) <= 0xDu )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && (unsigned __int8)(v33 - 2) <= 0xDu )
           {
             v34 = KeGetCurrentPrcb();
             v35 = v34->SchedulerAssist;
@@ -261,10 +261,10 @@ void __fastcall KiDeliverApc(char a1, __int64 a2, __int64 a3)
       }
     }
     CurrentThread->ThreadLock = 0LL;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v45 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)(v45 - 2) <= 0xDu )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && (unsigned __int8)(v45 - 2) <= 0xDu )
       {
         v46 = KeGetCurrentPrcb();
         v47 = v46->SchedulerAssist;
@@ -288,7 +288,7 @@ LABEL_15:
       v61 = 0;
       v23 = KeGetCurrentIrql();
       __writecr8(2uLL);
-      if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v23 <= 0xFu )
+      if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v23 <= 0xFu )
       {
         v32 = KeGetCurrentPrcb()->SchedulerAssist;
         if ( v23 != 2 )
@@ -366,10 +366,10 @@ LABEL_95:
       }
 LABEL_49:
       CurrentThread->ThreadLock = 0LL;
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v50 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)(v50 - 2) <= 0xDu )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && (unsigned __int8)(v50 - 2) <= 0xDu )
         {
           v51 = KeGetCurrentPrcb();
           v52 = v51->SchedulerAssist;

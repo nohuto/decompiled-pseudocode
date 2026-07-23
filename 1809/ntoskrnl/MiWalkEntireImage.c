@@ -1,11 +1,11 @@
 /*
  * XREFs of MiWalkEntireImage @ 0x14002F290
  * Callers:
- *     MiApplyImportOptimizationToRuntimeDriver @ 0x140582188 (MiApplyImportOptimizationToRuntimeDriver.c)
- *     MiSwitchBaseAddress @ 0x14064FCB4 (MiSwitchBaseAddress.c)
- *     MiRelocateImage @ 0x14064FEC4 (MiRelocateImage.c)
- *     MiUnloadSystemImage @ 0x140651AA4 (MiUnloadSystemImage.c)
- *     MiValidateSectionCreate @ 0x140652E10 (MiValidateSectionCreate.c)
+ *     MiApplyImportOptimizationToRuntimeDriver @ 0x140583188 (MiApplyImportOptimizationToRuntimeDriver.c)
+ *     MiSwitchBaseAddress @ 0x140650E74 (MiSwitchBaseAddress.c)
+ *     MiRelocateImage @ 0x140651084 (MiRelocateImage.c)
+ *     MiUnloadSystemImage @ 0x140652C64 (MiUnloadSystemImage.c)
+ *     MiValidateSectionCreate @ 0x140653FD0 (MiValidateSectionCreate.c)
  * Callees:
  *     MiWaitForCollidedFaultComplete @ 0x140003F00 (MiWaitForCollidedFaultComplete.c)
  *     MiGetEffectivePagePriorityThread @ 0x14001AEA8 (MiGetEffectivePagePriorityThread.c)
@@ -33,35 +33,35 @@
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     MiUseSlabAllocator @ 0x140065C90 (MiUseSlabAllocator.c)
- *     MiReturnCommit @ 0x140065D40 (MiReturnCommit.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     MiReturnFreeZeroPage @ 0x14008229C (MiReturnFreeZeroPage.c)
- *     MiCaptureDirtyBitToPfn @ 0x140087910 (MiCaptureDirtyBitToPfn.c)
- *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
- *     MiDeleteTransitionPte @ 0x140095430 (MiDeleteTransitionPte.c)
- *     MiInitializePageFaultPacket @ 0x140096218 (MiInitializePageFaultPacket.c)
- *     MiSetOriginalPtePfnFromFreeList @ 0x140097EA0 (MiSetOriginalPtePfnFromFreeList.c)
- *     MiTrimSharedPage @ 0x1400E9770 (MiTrimSharedPage.c)
- *     MiGetPagingFileOffset @ 0x14010FA24 (MiGetPagingFileOffset.c)
- *     MiReplaceTransitionPage @ 0x14011846C (MiReplaceTransitionPage.c)
- *     MiDecayPfnFullyInitialized @ 0x14011BD70 (MiDecayPfnFullyInitialized.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     MiDiscardTransitionPte @ 0x14015829C (MiDiscardTransitionPte.c)
- *     MiIsPfnSystemCharged @ 0x14016B7F0 (MiIsPfnSystemCharged.c)
- *     MiGetSharedProtos @ 0x140177174 (MiGetSharedProtos.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     MiUpdateImagePfnImportRelocations @ 0x1401B51AC (MiUpdateImagePfnImportRelocations.c)
- *     MiDriverPageIsDangling @ 0x1402AB104 (MiDriverPageIsDangling.c)
- *     MiSplitDirectMapPage @ 0x1402B6D24 (MiSplitDirectMapPage.c)
- *     MiFreeSlabPage @ 0x1402C25CC (MiFreeSlabPage.c)
- *     MiGetSlabPage @ 0x1402C29DC (MiGetSlabPage.c)
- *     MiValidateImagePfn @ 0x1405A8854 (MiValidateImagePfn.c)
- *     MiPageHasRelocations @ 0x1405A8B14 (MiPageHasRelocations.c)
- *     MiRelocateImagePfn @ 0x1405DF930 (MiRelocateImagePfn.c)
- *     MiPrefetchControlArea @ 0x1406C7244 (MiPrefetchControlArea.c)
- *     MiGetNextDirectFixupProto @ 0x14085C25C (MiGetNextDirectFixupProto.c)
+ *     MiUseSlabAllocator @ 0x140065C80 (MiUseSlabAllocator.c)
+ *     MiReturnCommit @ 0x140065D30 (MiReturnCommit.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     MiReturnFreeZeroPage @ 0x14008228C (MiReturnFreeZeroPage.c)
+ *     MiCaptureDirtyBitToPfn @ 0x140087900 (MiCaptureDirtyBitToPfn.c)
+ *     ExfReleasePushLockShared @ 0x1400913F0 (ExfReleasePushLockShared.c)
+ *     MiDeleteTransitionPte @ 0x140095370 (MiDeleteTransitionPte.c)
+ *     MiInitializePageFaultPacket @ 0x140096158 (MiInitializePageFaultPacket.c)
+ *     MiSetOriginalPtePfnFromFreeList @ 0x140097DE0 (MiSetOriginalPtePfnFromFreeList.c)
+ *     MiTrimSharedPage @ 0x1400E97F0 (MiTrimSharedPage.c)
+ *     MiGetPagingFileOffset @ 0x14010FAA4 (MiGetPagingFileOffset.c)
+ *     MiReplaceTransitionPage @ 0x1401184DC (MiReplaceTransitionPage.c)
+ *     MiDecayPfnFullyInitialized @ 0x14011BDE0 (MiDecayPfnFullyInitialized.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     MiDiscardTransitionPte @ 0x14015839C (MiDiscardTransitionPte.c)
+ *     MiIsPfnSystemCharged @ 0x14016B8F0 (MiIsPfnSystemCharged.c)
+ *     MiGetSharedProtos @ 0x140177274 (MiGetSharedProtos.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiUpdateImagePfnImportRelocations @ 0x1401B52EC (MiUpdateImagePfnImportRelocations.c)
+ *     MiDriverPageIsDangling @ 0x1402AB2F4 (MiDriverPageIsDangling.c)
+ *     MiSplitDirectMapPage @ 0x1402B6F14 (MiSplitDirectMapPage.c)
+ *     MiFreeSlabPage @ 0x1402C27BC (MiFreeSlabPage.c)
+ *     MiGetSlabPage @ 0x1402C2BCC (MiGetSlabPage.c)
+ *     MiValidateImagePfn @ 0x1405A9854 (MiValidateImagePfn.c)
+ *     MiPageHasRelocations @ 0x1405A9B14 (MiPageHasRelocations.c)
+ *     MiRelocateImagePfn @ 0x1405E0930 (MiRelocateImagePfn.c)
+ *     MiPrefetchControlArea @ 0x1406C84E4 (MiPrefetchControlArea.c)
+ *     MiGetNextDirectFixupProto @ 0x14085D4BC (MiGetNextDirectFixupProto.c)
  */
 
 __int64 __fastcall MiWalkEntireImage(ULONG_PTR a1, __int64 a2, unsigned int a3, unsigned int a4)
@@ -200,7 +200,7 @@ __int64 __fastcall MiWalkEntireImage(ULONG_PTR a1, __int64 a2, unsigned int a3, 
   v7 = 0;
   v97 = a3;
   v8 = *(_QWORD *)a1;
-  v9 = *(_QWORD *)(qword_14043A748 + 8LL * (v4 & 0x3FF));
+  v9 = *(_QWORD *)(qword_14043B808 + 8LL * (v4 & 0x3FF));
   v123 = a2;
   v10 = *(_DWORD *)(a1 + 56);
   v104 = a4;
@@ -367,11 +367,11 @@ LABEL_44:
         }
         if ( (v30 & 0x400) != 0 || (v30 & 0x800) == 0 )
           break;
-        if ( !v30 || !qword_14043A0C0 || (v30 & qword_14043A0C0) != 0 )
+        if ( !v30 || !qword_14043B180 || (v30 & qword_14043B180) != 0 )
         {
           v31 = *(_QWORD *)v18;
-          if ( qword_14043A0C0 && (v30 & 0x10) == 0 )
-            v31 = v30 & ~qword_14043A0C0;
+          if ( qword_14043B180 && (v30 & 0x10) == 0 )
+            v31 = v30 & ~qword_14043B180;
           goto LABEL_44;
         }
       }
@@ -408,9 +408,9 @@ LABEL_52:
         {
           v36 = MI_READ_PTE_LOCK_FREE(&v112);
         }
-        else if ( qword_14043A0C0 && (v36 & 0x10) == 0 )
+        else if ( qword_14043B180 && (v36 & 0x10) == 0 )
         {
-          v36 &= ~qword_14043A0C0;
+          v36 &= ~qword_14043B180;
         }
         v23 = v97;
         v41 = v29 & (v36 >> 12);
@@ -513,8 +513,8 @@ LABEL_89:
             v50 = 1;
         }
         v53 = (v49 >> 40) & 0x3FF;
-        v54 = *(ULONG_PTR **)(qword_14043A748 + 8 * v53);
-        if ( !v50 || (unsigned int)MiChargeCommit(*(_QWORD *)(qword_14043A748 + 8 * v53), 1LL, 4LL) )
+        v54 = *(ULONG_PTR **)(qword_14043B808 + 8 * v53);
+        if ( !v50 || (unsigned int)MiChargeCommit(*(_QWORD *)(qword_14043B808 + 8 * v53), 1LL, 4LL) )
         {
           if ( v54 == &MiSystemPartition )
           {
@@ -697,7 +697,7 @@ LABEL_181:
           if ( (v73 & 0x400) == 0 )
           {
             v68 = MiCaptureDirtyBitToPfn(v72);
-            v67 = *(struct _KEVENT **)(qword_14043A748 + 8 * ((*(_QWORD *)(v72 + 40) >> 40) & 0x3FFLL));
+            v67 = *(struct _KEVENT **)(qword_14043B808 + 8 * ((*(_QWORD *)(v72 + 40) >> 40) & 0x3FFLL));
           }
         }
         if ( (v7 & 0x10) != 0 && (*(_BYTE *)(v72 + 34) & 7) == 6 )
@@ -752,7 +752,7 @@ LABEL_181:
           v88 = 58;
           if ( v96 == -1073741670 )
             v88 = 36;
-          dword_140438DF0 = v88;
+          dword_140439EB0 = v88;
           goto LABEL_249;
         }
         if ( v114 )

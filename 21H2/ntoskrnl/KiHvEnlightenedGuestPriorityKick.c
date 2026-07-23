@@ -1,7 +1,7 @@
 /*
- * XREFs of KiHvEnlightenedGuestPriorityKick @ 0x14022FE90
+ * XREFs of KiHvEnlightenedGuestPriorityKick @ 0x1402D46E0
  * Callers:
- *     KiDeferredReadySingleThread @ 0x140343EC0 (KiDeferredReadySingleThread.c)
+ *     KiDeferredReadySingleThread @ 0x14034EC10 (KiDeferredReadySingleThread.c)
  * Callees:
  *     <none>
  */

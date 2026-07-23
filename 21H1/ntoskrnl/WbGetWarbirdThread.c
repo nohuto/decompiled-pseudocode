@@ -45,7 +45,7 @@ __int64 __fastcall WbGetWarbirdThread(__int64 a1, __int64 a2, _QWORD *a3)
   v25 = 0LL;
   --CurrentThread->SpecialApcDisable;
   v7 = (unsigned __int64 *)(a1 + 128);
-  v8 = KeAbPreAcquire(a1 + 128, 0LL, 0LL);
+  v8 = KeAbPreAcquire(a1 + 128, 0LL, 0);
   if ( _InterlockedCompareExchange64((volatile signed __int64 *)v7, 17LL, 0LL) )
     ExfAcquirePushLockSharedEx(v7, v8, (ULONG_PTR)v7);
   if ( v8 )
@@ -77,7 +77,7 @@ LABEL_25:
     }
     v15 = KeGetCurrentThread();
     --v15->SpecialApcDisable;
-    v16 = KeAbPreAcquire((ULONG_PTR)v7, 0LL, 0LL);
+    v16 = KeAbPreAcquire((ULONG_PTR)v7, 0LL, 0);
     v18 = v16;
     if ( _interlockedbittestandset64((volatile signed __int32 *)v7, 0LL) )
       ExfAcquirePushLockExclusiveEx(v7, v16, (ULONG_PTR)v7);

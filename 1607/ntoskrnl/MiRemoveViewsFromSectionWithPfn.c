@@ -1,17 +1,17 @@
 /*
- * XREFs of MiRemoveViewsFromSectionWithPfn @ 0x14002270C
+ * XREFs of MiRemoveViewsFromSectionWithPfn @ 0x14002228C
  * Callers:
- *     MiRemoveMappedPtes @ 0x140100320 (MiRemoveMappedPtes.c)
- *     MiReleaseReadListResources @ 0x14042C750 (MiReleaseReadListResources.c)
- *     MiPfPrepareSequentialReadList @ 0x1404302F0 (MiPfPrepareSequentialReadList.c)
- *     MiMapViewOfDataSection @ 0x1404354C0 (MiMapViewOfDataSection.c)
- *     MiPfPrepareReadList @ 0x140445CF0 (MiPfPrepareReadList.c)
- *     MiExtendSection @ 0x140521CB4 (MiExtendSection.c)
+ *     MiRemoveMappedPtes @ 0x1400FE0A0 (MiRemoveMappedPtes.c)
+ *     MiReleaseReadListResources @ 0x14042B620 (MiReleaseReadListResources.c)
+ *     MiPfPrepareSequentialReadList @ 0x14042F1C0 (MiPfPrepareSequentialReadList.c)
+ *     MiMapViewOfDataSection @ 0x140434390 (MiMapViewOfDataSection.c)
+ *     MiPfPrepareReadList @ 0x140444BC0 (MiPfPrepareReadList.c)
+ *     MiExtendSection @ 0x140504D14 (MiExtendSection.c)
  * Callees:
- *     MiRemoveViewsFromSection @ 0x1400227E4 (MiRemoveViewsFromSection.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14002E9E0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusive @ 0x14002EB90 (ExAcquireSpinLockExclusive.c)
- *     MiReturnSubsectionCharges @ 0x1401F5310 (MiReturnSubsectionCharges.c)
+ *     MiRemoveViewsFromSection @ 0x140022364 (MiRemoveViewsFromSection.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14002E560 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusive @ 0x14002E710 (ExAcquireSpinLockExclusive.c)
+ *     MiReturnSubsectionCharges @ 0x1401F513C (MiReturnSubsectionCharges.c)
  */
 
 void __fastcall MiRemoveViewsFromSectionWithPfn(__int64 *a1, __int64 a2)

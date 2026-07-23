@@ -7,7 +7,7 @@
  *     _RtlpHpMetadataFree@12 @ 0x4B379479 (_RtlpHpMetadataFree@12.c)
  */
 
-BOOL __stdcall RtlpHpTagRunOnceInit(int a1, _DWORD *a2, int a3)
+BOOL __stdcall RtlpHpTagRunOnceInit(PRTL_RUN_ONCE a1, _DWORD *a2, PVOID *a3)
 {
   int v3; // esi
   unsigned int *v4; // edi

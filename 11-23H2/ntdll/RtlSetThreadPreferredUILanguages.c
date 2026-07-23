@@ -34,15 +34,15 @@ __int64 __fastcall RtlSetThreadPreferredUILanguages(int a1, __int64 a2, int *a3)
   __int64 v18; // rax
   __int64 v19; // rax
   __int64 v20; // rax
-  unsigned __int16 *v21; // [rsp+40h] [rbp-10h] BYREF
+  PVOID BaseAddress; // [rsp+40h] [rbp-10h] BYREF
   __int64 v22; // [rsp+48h] [rbp-8h] BYREF
-  unsigned int v23; // [rsp+90h] [rbp+40h] BYREF
-  int v24; // [rsp+A8h] [rbp+58h] BYREF
+  ULONG NumberOfLanguages; // [rsp+90h] [rbp+40h] BYREF
+  ULONG ReturnLength; // [rsp+A8h] [rbp+58h] BYREF
 
-  v23 = 0;
-  v24 = 0;
+  NumberOfLanguages = 0;
+  ReturnLength = 0;
   v5 = a1;
-  v21 = 0LL;
+  BaseAddress = 0LL;
   v6 = 0;
   v22 = 0LL;
   if ( (a1 & 0xFFFF7CF2) != 0 )
@@ -77,29 +77,29 @@ __int64 __fastcall RtlSetThreadPreferredUILanguages(int a1, __int64 a2, int *a3)
     if ( (int)RtlpCheckMuiMultiStringSafe(a2, (-(__int64)((v5 & 4) != 0) & 0xFFFFFFFFFFFFFFAFuLL) + 85) < 0 )
       DbgPrint(
         "*** ASSERT FAILED: Input parameter LanguagesBuffer for function RtlSetThreadPreferredUILanguages is not a valid multi-string!\n");
-    if ( (int)LdrpMultiSZCchLength(a2, v10, &v23) < 0 )
+    if ( (int)LdrpMultiSZCchLength(a2, v10, &NumberOfLanguages) < 0 )
       return (unsigned int)-1073741811;
-    if ( v23 < 2 || *(_WORD *)a2 || *(_WORD *)(a2 + 2) )
+    if ( NumberOfLanguages < 2 || *(_WORD *)a2 || *(_WORD *)(a2 + 2) )
     {
-      if ( (int)LdrpCreateLangFallbackList((__int64 *)&v21, v22, 5u, 0) < 0 || !v21 )
+      if ( (int)LdrpCreateLangFallbackList((__int64 *)&BaseAddress, v22, 5u, 0) < 0 || !BaseAddress )
         return (unsigned int)-1073741801;
       updated = RtlpMuiRegAddMultiSzToLangFallbackList(
-                  g_RegInfo,
+                  (__int64)g_RegInfo,
                   (const WCHAR *)a2,
-                  v23,
+                  NumberOfLanguages,
                   v5 | 2u,
                   26,
                   5u,
-                  (__int64 *)&v21);
+                  (__int64 *)&BaseAddress);
       if ( (updated & 0x80000000) != 0 )
       {
-        RtlpMuiRegFreeLanguageList((__int64)v21);
+        RtlpMuiRegFreeLanguageList(BaseAddress);
         return updated;
       }
-      v11 = v21[2];
+      v11 = *((unsigned __int16 *)BaseAddress + 2);
       if ( !(_WORD)v11 )
       {
-        RtlpMuiRegFreeLanguageList((__int64)v21);
+        RtlpMuiRegFreeLanguageList(BaseAddress);
         return (unsigned int)-1073741823;
       }
       if ( a3 )
@@ -108,10 +108,10 @@ __int64 __fastcall RtlSetThreadPreferredUILanguages(int a1, __int64 a2, int *a3)
   }
   if ( NtCurrentTeb()->PreferredLanguages )
   {
-    RtlpMuiRegFreeLanguageList((__int64)NtCurrentTeb()->PreferredLanguages);
+    RtlpMuiRegFreeLanguageList(NtCurrentTeb()->PreferredLanguages);
     NtCurrentTeb()->PreferredLanguages = 0LL;
   }
-  NtCurrentTeb()->PreferredLanguages = v21;
+  NtCurrentTeb()->PreferredLanguages = BaseAddress;
 LABEL_23:
   if ( NtCurrentTeb()->MergedPrefLanguages )
   {
@@ -192,6 +192,6 @@ LABEL_40:
   }
   *(_DWORD *)(v14 + 40) &= 0xFFFFFFF9;
 LABEL_44:
-  RtlGetThreadPreferredUILanguages(v5 | 0x30, (__int64)&v23, 0LL, &v24);
+  RtlGetThreadPreferredUILanguages(v5 | 0x30, &NumberOfLanguages, 0LL, &ReturnLength);
   return updated;
 }

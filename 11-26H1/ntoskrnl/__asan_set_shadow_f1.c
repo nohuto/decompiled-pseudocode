@@ -1,9 +1,9 @@
 /*
- * XREFs of __asan_set_shadow_f1 @ 0x1405DFD40
+ * XREFs of __asan_set_shadow_f1 @ 0x1405E26B0
  * Callers:
  *     <none>
  * Callees:
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 void *__fastcall _asan_set_shadow_f1(void *a1, size_t a2)

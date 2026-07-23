@@ -1,13 +1,13 @@
 /*
- * XREFs of TtmNotifySessionTerminalInput @ 0x1408FEE7C
+ * XREFs of TtmNotifySessionTerminalInput @ 0x1408FEFDC
  * Callers:
- *     PopPowerInformationInternal @ 0x140678DF4 (PopPowerInformationInternal.c)
+ *     PopPowerInformationInternal @ 0x14066C534 (PopPowerInformationInternal.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
- *     TtmiResetTerminalTimeouts @ 0x1408FD8E8 (TtmiResetTerminalTimeouts.c)
- *     TtmpAcquireSessionById @ 0x1408FF5F0 (TtmpAcquireSessionById.c)
- *     TtmiLogError @ 0x140902AC4 (TtmiLogError.c)
+ *     KeLeaveCriticalRegion @ 0x140356100 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x140356140 (ExReleaseResourceLite.c)
+ *     TtmiResetTerminalTimeouts @ 0x1408FDA48 (TtmiResetTerminalTimeouts.c)
+ *     TtmpAcquireSessionById @ 0x1408FF750 (TtmpAcquireSessionById.c)
+ *     TtmiLogError @ 0x140902C24 (TtmiLogError.c)
  */
 
 void __fastcall TtmNotifySessionTerminalInput(unsigned int a1, int a2, char a3)

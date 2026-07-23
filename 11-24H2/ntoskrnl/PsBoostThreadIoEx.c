@@ -1,38 +1,38 @@
 /*
- * XREFs of PsBoostThreadIoEx @ 0x14024DD90
+ * XREFs of PsBoostThreadIoEx @ 0x14027E3A0
  * Callers:
- *     KiAbSetMinimumThreadPriority @ 0x14024E520 (KiAbSetMinimumThreadPriority.c)
- *     KiAbIoBoostOwners @ 0x14024EA60 (KiAbIoBoostOwners.c)
- *     KiAbCpuBoostOwners @ 0x14024F2F0 (KiAbCpuBoostOwners.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402769C0 (ExAcquireResourceExclusiveLite.c)
- *     ExpBoostIoAfterAcquire @ 0x140278960 (ExpBoostIoAfterAcquire.c)
- *     ExDeleteResourceLite @ 0x1402CD920 (ExDeleteResourceLite.c)
- *     ExReinitializeResourceLite @ 0x1402CDC90 (ExReinitializeResourceLite.c)
- *     ExpSetResourceOwnerPointerEx @ 0x1402CEC30 (ExpSetResourceOwnerPointerEx.c)
- *     KiAbThreadRemoveBoostsSlow @ 0x140340980 (KiAbThreadRemoveBoostsSlow.c)
- *     ExpAcquireResourceSharedLite @ 0x140342300 (ExpAcquireResourceSharedLite.c)
- *     FsRtlpWaitForIoAtEof @ 0x14040D308 (FsRtlpWaitForIoAtEof.c)
- *     FsRtlpModifyThreadPriorities @ 0x14047FCA8 (FsRtlpModifyThreadPriorities.c)
- *     FsRtlpDoBoost @ 0x14047FDA8 (FsRtlpDoBoost.c)
- *     IoBoostThreadIo @ 0x1404B4100 (IoBoostThreadIo.c)
- *     CcApplyLowIoPriorityToThread @ 0x1404DAC78 (CcApplyLowIoPriorityToThread.c)
- *     CcBoostLowPriorityWorkerThread @ 0x1404DAE88 (CcBoostLowPriorityWorkerThread.c)
- *     CcAcquireByteRangeForWrite @ 0x1404DC470 (CcAcquireByteRangeForWrite.c)
- *     ExEnterPriorityRegionAndAcquireResourceExclusive @ 0x140656DA0 (ExEnterPriorityRegionAndAcquireResourceExclusive.c)
- *     ExReleaseResourceAndLeavePriorityRegion @ 0x140656E00 (ExReleaseResourceAndLeavePriorityRegion.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14022BF50 (ExAcquireResourceExclusiveLite.c)
+ *     ExpBoostIoAfterAcquire @ 0x14022DEF0 (ExpBoostIoAfterAcquire.c)
+ *     KiAbSetMinimumThreadPriority @ 0x14027EB30 (KiAbSetMinimumThreadPriority.c)
+ *     KiAbIoBoostOwners @ 0x14027F070 (KiAbIoBoostOwners.c)
+ *     KiAbCpuBoostOwners @ 0x14027F900 (KiAbCpuBoostOwners.c)
+ *     FsRtlpWaitForIoAtEof @ 0x1402E1598 (FsRtlpWaitForIoAtEof.c)
+ *     ExDeleteResourceLite @ 0x1402E55A0 (ExDeleteResourceLite.c)
+ *     ExReinitializeResourceLite @ 0x1402E5910 (ExReinitializeResourceLite.c)
+ *     KiAbThreadRemoveBoostsSlow @ 0x14031FE60 (KiAbThreadRemoveBoostsSlow.c)
+ *     ExpAcquireResourceSharedLite @ 0x1403217E0 (ExpAcquireResourceSharedLite.c)
+ *     ExpSetResourceOwnerPointerEx @ 0x1403FE770 (ExpSetResourceOwnerPointerEx.c)
+ *     FsRtlpModifyThreadPriorities @ 0x14047A8E8 (FsRtlpModifyThreadPriorities.c)
+ *     FsRtlpDoBoost @ 0x14047A9E8 (FsRtlpDoBoost.c)
+ *     IoBoostThreadIo @ 0x1404AE920 (IoBoostThreadIo.c)
+ *     CcApplyLowIoPriorityToThread @ 0x1404D4698 (CcApplyLowIoPriorityToThread.c)
+ *     CcBoostLowPriorityWorkerThread @ 0x1404D48A8 (CcBoostLowPriorityWorkerThread.c)
+ *     CcAcquireByteRangeForWrite @ 0x1404D5E90 (CcAcquireByteRangeForWrite.c)
+ *     ExEnterPriorityRegionAndAcquireResourceExclusive @ 0x1406554A0 (ExEnterPriorityRegionAndAcquireResourceExclusive.c)
+ *     ExReleaseResourceAndLeavePriorityRegion @ 0x140655500 (ExReleaseResourceAndLeavePriorityRegion.c)
  * Callees:
- *     KiReleaseSpinLockInstrumented @ 0x14024E080 (KiReleaseSpinLockInstrumented.c)
- *     KiAbThreadInsertList @ 0x14024E470 (KiAbThreadInsertList.c)
- *     KiAbQueueAutoBoostDpc @ 0x140253AF0 (KiAbQueueAutoBoostDpc.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     RtlCaptureStackBackTrace @ 0x14027C690 (RtlCaptureStackBackTrace.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlCaptureStackBackTrace @ 0x140231C20 (RtlCaptureStackBackTrace.c)
+ *     KiReleaseSpinLockInstrumented @ 0x14027E690 (KiReleaseSpinLockInstrumented.c)
+ *     KiAbThreadInsertList @ 0x14027EA80 (KiAbThreadInsertList.c)
+ *     KiAbQueueAutoBoostDpc @ 0x140284100 (KiAbQueueAutoBoostDpc.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
-void __fastcall PsBoostThreadIoEx(__int64 a1, char a2, __int64 a3, __int64 a4)
+void __fastcall PsBoostThreadIoEx(__int64 a1, char a2, char a3, __int64 a4)
 {
   signed __int32 v4; // ebx
   KIRQL v5; // r15
@@ -60,12 +60,12 @@ void __fastcall PsBoostThreadIoEx(__int64 a1, char a2, __int64 a3, __int64 a4)
   {
     v7 = 1;
   }
-  else if ( !(_BYTE)a3 )
+  else if ( !a3 )
   {
     v11 = (volatile signed __int64 *)(a1 + 1552);
     goto LABEL_4;
   }
-  Pool2 = ExAllocatePool2(0x40uLL);
+  Pool2 = ExAllocatePool2(0x40uLL, 0x70uLL, 0x736F6F42u);
   v10 = (_QWORD *)Pool2;
   if ( Pool2 )
   {
@@ -174,7 +174,7 @@ LABEL_8:
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(2uLL);
     if ( KiIrqlFlags )
-      KiRaiseIrqlProcessIrqlFlags(CurrentIrql, 2LL, a3);
+      KiRaiseIrqlProcessIrqlFlags(CurrentIrql, 2LL);
     CurrentPrcb = KeGetCurrentPrcb();
     if ( (unsigned int)KiAbThreadInsertList(a1, &CurrentPrcb->AbPropagateBoostsList, a1 + 808) )
       KiAbQueueAutoBoostDpc(CurrentPrcb);

@@ -13,52 +13,49 @@
  *     ZwCreateSemaphore @ 0x18009C1D0 (ZwCreateSemaphore.c)
  */
 
-_WORD *__fastcall RtlInitializeResource(__int64 a1)
+void __cdecl RtlInitializeResource(PRTL_RESOURCE Resource)
 {
   PSLIST_ENTRY v2; // rax
   PSLIST_ENTRY v3; // rdi
   int v4; // eax
   int v5; // esi
   int v6; // esi
-  __int64 v7; // rax
-  _WORD *result; // rax
-  __int64 v9; // [rsp+58h] [rbp+10h] BYREF
-  __int64 v10; // [rsp+60h] [rbp+18h] BYREF
+  HANDLE v7; // rax
+  HANDLE SemaphoreHandle; // [rsp+58h] [rbp+10h] BYREF
+  HANDLE v9; // [rsp+60h] [rbp+18h] BYREF
 
   v2 = sub_1800244F8();
   v3 = v2;
   if ( !v2 )
-    RtlRaiseStatus(3221225495LL);
+    RtlRaiseStatus(-1073741801);
   HIDWORD(v2[2].Next) = 0;
   v4 = sub_1800244C4(1u);
   WORD1(v3->Next) = v4;
   *((_WORD *)&v3[2].Next + 6) = HIWORD(v4);
-  v5 = ZwCreateSemaphore(&v9, 1048579LL, 0LL, 0LL, 0x7FFFFFFF);
+  v5 = ZwCreateSemaphore(&SemaphoreHandle, 0x100003u, 0LL, 0, 0x7FFFFFFF);
   if ( v5 < 0 )
   {
     sub_180029EA4(v3);
-    RtlRaiseStatus((unsigned int)v5);
+    RtlRaiseStatus(v5);
   }
-  v6 = ZwCreateSemaphore(&v10, 1048579LL, 0LL, 0LL, 0x7FFFFFFF);
+  v6 = ZwCreateSemaphore(&v9, 0x100003u, 0LL, 0, 0x7FFFFFFF);
   if ( v6 < 0 )
   {
-    ZwClose(v9);
+    ZwClose(SemaphoreHandle);
     sub_180029EA4(v3);
-    RtlRaiseStatus((unsigned int)v6);
+    RtlRaiseStatus(v6);
   }
-  v7 = v9;
-  *(_DWORD *)(a1 + 48) = 0;
-  *(_DWORD *)(a1 + 64) = 0;
-  *(_DWORD *)(a1 + 68) = 0;
-  *(_QWORD *)(a1 + 72) = 0LL;
-  *(_DWORD *)(a1 + 80) = 0;
-  *(_QWORD *)(a1 + 40) = v7;
-  *(_QWORD *)(a1 + 56) = v10;
-  *(_QWORD *)(a1 + 88) = v3;
-  RtlInitializeCriticalSectionEx(a1, 0LL, 0x8000000LL);
-  sub_180024408(a1);
-  result = *(_WORD **)a1;
-  if ( *(_QWORD *)a1 != -1LL )
-    *result = 1;
-  return result;
+  v7 = SemaphoreHandle;
+  Resource->NumberOfWaitingShared = 0;
+  Resource->NumberOfWaitingExclusive = 0;
+  Resource->NumberOfActive = 0;
+  Resource->ExclusiveOwnerThread = 0LL;
+  Resource->Flags = 0;
+  Resource->SharedSemaphore = v7;
+  Resource->ExclusiveSemaphore = v9;
+  Resource->DebugInfo = (PRTL_RESOURCE_DEBUG)v3;
+  RtlInitializeCriticalSectionEx(&Resource->CriticalSection, 0, 0x8000000u);
+  sub_180024408((__int64)Resource);
+  if ( Resource->CriticalSection.DebugInfo != (PRTL_CRITICAL_SECTION_DEBUG)-1LL )
+    Resource->CriticalSection.DebugInfo->Type = 1;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of MiInvokeIoReleasePages @ 0x1405141E4
+ * XREFs of MiInvokeIoReleasePages @ 0x14050DC54
  * Callers:
- *     MiUnlockOpportunisticPagesInPageTable @ 0x14031391C (MiUnlockOpportunisticPagesInPageTable.c)
+ *     MiUnlockOpportunisticPagesInPageTable @ 0x14031594C (MiUnlockOpportunisticPagesInPageTable.c)
  * Callees:
- *     IoTryReleasePages @ 0x140411820 (IoTryReleasePages.c)
+ *     IoTryReleasePages @ 0x140410F40 (IoTryReleasePages.c)
  */
 
 void __fastcall MiInvokeIoReleasePages(__int64 a1)

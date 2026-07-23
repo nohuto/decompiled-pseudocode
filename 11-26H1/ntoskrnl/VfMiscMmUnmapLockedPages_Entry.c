@@ -1,14 +1,14 @@
 /*
- * XREFs of VfMiscMmUnmapLockedPages_Entry @ 0x140C3D1D0
+ * XREFs of VfMiscMmUnmapLockedPages_Entry @ 0x140C431E0
  * Callers:
  *     <none>
  * Callees:
- *     MmIsUserAddress @ 0x14044E7C0 (MmIsUserAddress.c)
- *     PsGetProcessExitProcessCalled @ 0x1404A6B80 (PsGetProcessExitProcessCalled.c)
- *     ZwQueryVirtualMemory @ 0x140723850 (ZwQueryVirtualMemory.c)
- *     VfUtilCheckRuleEnforcement @ 0x140C216FC (VfUtilCheckRuleEnforcement.c)
- *     ViTargetAddToCounter @ 0x140C29598 (ViTargetAddToCounter.c)
- *     CarReportRuleViolationFromNt @ 0x140C2BF1C (CarReportRuleViolationFromNt.c)
+ *     MmIsUserAddress @ 0x1404468F0 (MmIsUserAddress.c)
+ *     PsGetProcessExitProcessCalled @ 0x1404A0210 (PsGetProcessExitProcessCalled.c)
+ *     ZwQueryVirtualMemory @ 0x140728420 (ZwQueryVirtualMemory.c)
+ *     VfUtilCheckRuleEnforcement @ 0x140C2770C (VfUtilCheckRuleEnforcement.c)
+ *     ViTargetAddToCounter @ 0x140C2F5A8 (ViTargetAddToCounter.c)
+ *     CarReportRuleViolationFromNt @ 0x140C31F2C (CarReportRuleViolationFromNt.c)
  */
 
 __int64 __fastcall VfMiscMmUnmapLockedPages_Entry(__int64 a1)
@@ -59,7 +59,7 @@ LABEL_7:
             ZwQueryVirtualMemory(
               (HANDLE)0xFFFFFFFFFFFFFFFFLL,
               v5,
-              (MEMORY_INFORMATION_CLASS)7,
+              MemoryRegionInformationEx,
               &MemoryInformation,
               0x30uLL,
               0LL) < 0)

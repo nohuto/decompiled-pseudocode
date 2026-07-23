@@ -7,7 +7,7 @@
  *     RtlpCSparseBitmapLock @ 0x180006534 (RtlpCSparseBitmapLock.c)
  *     RtlpWakeByAddress @ 0x18006471C (RtlpWakeByAddress.c)
  *     RtlpWaitOnAddress @ 0x180064BA4 (RtlpWaitOnAddress.c)
- *     ZwFreeVirtualMemory @ 0x18009DA00 (ZwFreeVirtualMemory.c)
+ *     ZwFreeVirtualMemory @ 0x18009D9C0 (ZwFreeVirtualMemory.c)
  */
 
 char __fastcall RtlpCSparseBitmapPageDecommit(__int64 a1, unsigned __int64 a2, int a3)
@@ -33,8 +33,8 @@ char __fastcall RtlpCSparseBitmapPageDecommit(__int64 a1, unsigned __int64 a2, i
   unsigned __int64 v24; // [rsp+58h] [rbp-80h]
   unsigned __int64 v25; // [rsp+60h] [rbp-78h]
   __int64 v26; // [rsp+68h] [rbp-70h] BYREF
-  __int64 v27; // [rsp+70h] [rbp-68h] BYREF
-  unsigned __int64 v28; // [rsp+78h] [rbp-60h] BYREF
+  ULONG_PTR RegionSize; // [rsp+70h] [rbp-68h] BYREF
+  PVOID BaseAddress; // [rsp+78h] [rbp-60h] BYREF
   _BYTE v29[16]; // [rsp+80h] [rbp-58h] BYREF
   __int128 v30; // [rsp+90h] [rbp-48h]
   int v31; // [rsp+F0h] [rbp+18h]
@@ -133,9 +133,9 @@ LABEL_23:
     {
 LABEL_36:
       _interlockedbittestandreset64(*(volatile signed __int32 **)a1, v4);
-      v28 = *(_QWORD *)(a1 + 8) + (v4 << 12);
-      v27 = 4096LL;
-      LOBYTE(v12) = ZwFreeVirtualMemory(-1LL, &v28, &v27, 0x4000LL);
+      BaseAddress = (PVOID)(*(_QWORD *)(a1 + 8) + (v4 << 12));
+      RegionSize = 4096LL;
+      LOBYTE(v12) = ZwFreeVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, &RegionSize, 0x4000u);
       goto LABEL_21;
     }
     LOBYTE(v12) = 0;

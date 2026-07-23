@@ -1,7 +1,7 @@
 /*
- * XREFs of CmpGetCachedFullKCBName @ 0x140206DDC
+ * XREFs of CmpGetCachedFullKCBName @ 0x1402AB70C
  * Callers:
- *     CmpDoParseKey @ 0x1406F9170 (CmpDoParseKey.c)
+ *     CmpDoParseKey @ 0x140710550 (CmpDoParseKey.c)
  * Callees:
  *     <none>
  */

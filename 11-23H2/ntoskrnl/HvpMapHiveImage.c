@@ -1,15 +1,15 @@
 /*
- * XREFs of HvpMapHiveImage @ 0x140A1DCF4
+ * XREFs of HvpMapHiveImage @ 0x140A1DFA4
  * Callers:
- *     HvpMapHiveImageFromFile @ 0x140A1DE78 (HvpMapHiveImageFromFile.c)
+ *     HvpMapHiveImageFromFile @ 0x140A1E128 (HvpMapHiveImageFromFile.c)
  * Callees:
- *     SetFailureLocation @ 0x1402F69F0 (SetFailureLocation.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     HvpProtectBinPartial @ 0x14070AFE0 (HvpProtectBinPartial.c)
- *     HvpPointMapEntriesToBuffer @ 0x14074FDCC (HvpPointMapEntriesToBuffer.c)
- *     HvpAllocateBin @ 0x1407501CC (HvpAllocateBin.c)
- *     HvpFreeBin @ 0x1407E9958 (HvpFreeBin.c)
- *     HvpReadHiveDataFromFile @ 0x140A1DF2C (HvpReadHiveDataFromFile.c)
+ *     SetFailureLocation @ 0x1402F6C80 (SetFailureLocation.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     HvpProtectBinPartial @ 0x14070B1F0 (HvpProtectBinPartial.c)
+ *     HvpPointMapEntriesToBuffer @ 0x14074FFBC (HvpPointMapEntriesToBuffer.c)
+ *     HvpAllocateBin @ 0x1407503BC (HvpAllocateBin.c)
+ *     HvpFreeBin @ 0x1407E9C28 (HvpFreeBin.c)
+ *     HvpReadHiveDataFromFile @ 0x140A1E1DC (HvpReadHiveDataFromFile.c)
  */
 
 __int64 __fastcall HvpMapHiveImage(ULONG_PTR BugCheckParameter2, __int64 a2, int a3, __int64 a4, __int64 a5)

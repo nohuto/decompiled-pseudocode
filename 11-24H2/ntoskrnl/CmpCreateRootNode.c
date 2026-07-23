@@ -1,15 +1,15 @@
 /*
- * XREFs of CmpCreateRootNode @ 0x140C46F60
+ * XREFs of CmpCreateRootNode @ 0x140C490B0
  * Callers:
- *     CmpCreateRegistryRoot @ 0x140C46D74 (CmpCreateRegistryRoot.c)
+ *     CmpCreateRegistryRoot @ 0x140C48EC4 (CmpCreateRegistryRoot.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     HvpGetCellContextInitialize @ 0x140875730 (HvpGetCellContextInitialize.c)
- *     HvpReleaseCellPaged @ 0x140875760 (HvpReleaseCellPaged.c)
- *     CmpNameSize @ 0x140881BCC (CmpNameSize.c)
- *     HvAllocateCell @ 0x1408822D8 (HvAllocateCell.c)
- *     CmpCopyName @ 0x140883248 (CmpCopyName.c)
- *     HvpReleaseCellFlat @ 0x140884BB0 (HvpReleaseCellFlat.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     HvpGetCellContextInitialize @ 0x140879A60 (HvpGetCellContextInitialize.c)
+ *     HvpReleaseCellPaged @ 0x140879A90 (HvpReleaseCellPaged.c)
+ *     CmpNameSize @ 0x140885A7C (CmpNameSize.c)
+ *     HvAllocateCell @ 0x140886188 (HvAllocateCell.c)
+ *     CmpCopyName @ 0x1408870F8 (CmpCopyName.c)
+ *     HvpReleaseCellFlat @ 0x140888A60 (HvpReleaseCellFlat.c)
  */
 
 __int64 __fastcall CmpCreateRootNode(__int64 a1, __int64 a2, _DWORD *a3)

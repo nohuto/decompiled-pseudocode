@@ -1,12 +1,12 @@
 /*
- * XREFs of DifPsSetLoadImageNotifyRoutineWrapper @ 0x1405EAAE0
+ * XREFs of DifPsSetLoadImageNotifyRoutineWrapper @ 0x1405EB050
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     DifGetAPIThunkContextById @ 0x1404664BE (DifGetAPIThunkContextById.c)
- *     DifGetReturnAddressForWrappers @ 0x1405F88C4 (DifGetReturnAddressForWrappers.c)
- *     PsSetLoadImageNotifyRoutine @ 0x140842DA0 (PsSetLoadImageNotifyRoutine.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x1404668BE (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F8E34 (DifGetReturnAddressForWrappers.c)
+ *     PsSetLoadImageNotifyRoutine @ 0x1408430A0 (PsSetLoadImageNotifyRoutine.c)
  */
 
 NTSTATUS __fastcall DifPsSetLoadImageNotifyRoutineWrapper(PLOAD_IMAGE_NOTIFY_ROUTINE NotifyRoutine)

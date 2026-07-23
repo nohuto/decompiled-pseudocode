@@ -1,12 +1,12 @@
 /*
- * XREFs of PiSwDeviceOperationsAllowed @ 0x14074D08C
+ * XREFs of PiSwDeviceOperationsAllowed @ 0x14074D24C
  * Callers:
- *     PiSwIrpSetLifetime @ 0x14074CFCC (PiSwIrpSetLifetime.c)
- *     PiSwIrpInterfaceRegister @ 0x14074D118 (PiSwIrpInterfaceRegister.c)
- *     PiSwIrpPropertySet @ 0x14078A5A4 (PiSwIrpPropertySet.c)
- *     PiSwIrpInterfacePropertySet @ 0x1407BD244 (PiSwIrpInterfacePropertySet.c)
- *     PiSwIrpInterfaceSetState @ 0x1407CEDBC (PiSwIrpInterfaceSetState.c)
- *     PiSwIrpGetLifetime @ 0x1408AEA70 (PiSwIrpGetLifetime.c)
+ *     PiSwIrpSetLifetime @ 0x14074D18C (PiSwIrpSetLifetime.c)
+ *     PiSwIrpInterfaceRegister @ 0x14074D2D8 (PiSwIrpInterfaceRegister.c)
+ *     PiSwIrpPropertySet @ 0x14078A764 (PiSwIrpPropertySet.c)
+ *     PiSwIrpInterfacePropertySet @ 0x1407BD9D4 (PiSwIrpInterfacePropertySet.c)
+ *     PiSwIrpInterfaceSetState @ 0x1407CEF2C (PiSwIrpInterfaceSetState.c)
+ *     PiSwIrpGetLifetime @ 0x1408AEBD0 (PiSwIrpGetLifetime.c)
  * Callees:
  *     <none>
  */

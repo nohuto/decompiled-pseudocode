@@ -6,43 +6,43 @@
  *     RtlUpperChar @ 0x180062250 (RtlUpperChar.c)
  */
 
-char __fastcall RtlPrefixString(unsigned __int16 *a1, __int64 a2, char a3)
+BOOLEAN __cdecl RtlPrefixString(PSTRING String1, PSTRING String2, BOOLEAN CaseInSensitive)
 {
-  _BYTE *v3; // rdi
-  _BYTE *v4; // rsi
-  __int64 v5; // r14
-  char v7; // al
-  __int64 v8; // rcx
-  __int64 v9; // rdx
+  char *Buffer; // rdi
+  char *v4; // rsi
+  char *v5; // r14
+  CHAR v6; // cl
+  CHAR v8; // bl
+  char *v9; // rdx
 
-  v3 = (_BYTE *)*((_QWORD *)a1 + 1);
-  if ( *(_WORD *)a2 >= *a1 )
+  Buffer = String1->Buffer;
+  if ( String2->Length >= String1->Length )
   {
-    v4 = &v3[*a1];
-    if ( v3 >= v4 )
+    v4 = &Buffer[String1->Length];
+    if ( Buffer >= v4 )
       return 1;
-    if ( a3 )
+    if ( CaseInSensitive )
     {
-      v5 = *(_QWORD *)(a2 + 8) - (_QWORD)v3;
+      v5 = (char *)(String2->Buffer - Buffer);
       while ( 1 )
       {
-        if ( *v3 != v3[v5] )
+        v6 = Buffer[(_QWORD)v5];
+        if ( *Buffer != v6 )
         {
-          v7 = ((__int64 (*)(void))RtlUpperChar)();
-          LOBYTE(v8) = *v3;
-          if ( (unsigned __int8)RtlUpperChar(v8) != v7 )
+          v8 = RtlUpperChar(v6);
+          if ( RtlUpperChar(*Buffer) != v8 )
             break;
         }
-        if ( ++v3 >= v4 )
+        if ( ++Buffer >= v4 )
           return 1;
       }
     }
     else
     {
-      v9 = *(_QWORD *)(a2 + 8) - (_QWORD)v3;
-      while ( *v3 == v3[v9] )
+      v9 = (char *)(String2->Buffer - Buffer);
+      while ( *Buffer == Buffer[(_QWORD)v9] )
       {
-        if ( ++v3 >= v4 )
+        if ( ++Buffer >= v4 )
           return 1;
       }
     }

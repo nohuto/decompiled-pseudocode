@@ -65,10 +65,13 @@ __int64 __fastcall MiLateWritePageHash(__int64 a1, int a2, __int64 a3, __int64 a
       MiWriteEntirePageHashEntry(v12, a4);
     }
     ExReleaseSpinLockExclusiveFromDpcLevel(v4);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v11 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v11 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -84,10 +87,10 @@ __int64 __fastcall MiLateWritePageHash(__int64 a1, int a2, __int64 a3, __int64 a
   else
   {
     ExReleaseSpinLockExclusiveFromDpcLevel(v4);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v14 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v14 <= 0xFu && (unsigned __int8)v11 <= 0xFu && v14 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v14 <= 0xFu && (unsigned __int8)v11 <= 0xFu && v14 >= 2u )
       {
         v15 = KeGetCurrentPrcb();
         v16 = v15->SchedulerAssist;

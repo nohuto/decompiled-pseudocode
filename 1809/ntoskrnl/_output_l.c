@@ -1,18 +1,18 @@
 /*
- * XREFs of _output_l @ 0x140198E74
+ * XREFs of _output_l @ 0x140198FB4
  * Callers:
- *     _vsnprintf_l @ 0x140194D3C (_vsnprintf_l.c)
- *     _snprintf @ 0x140195200 (_snprintf.c)
- *     sprintf @ 0x140196AD0 (sprintf.c)
- *     _vsprintf_l @ 0x1401975C4 (_vsprintf_l.c)
+ *     _vsnprintf_l @ 0x140194E7C (_vsnprintf_l.c)
+ *     _snprintf @ 0x140195340 (_snprintf.c)
+ *     sprintf @ 0x140196C10 (sprintf.c)
+ *     _vsprintf_l @ 0x140197704 (_vsprintf_l.c)
  * Callees:
- *     xHalTimerWatchdogStop @ 0x140176800 (xHalTimerWatchdogStop.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     wctomb_s @ 0x140197DF0 (wctomb_s.c)
- *     write_char_0 @ 0x1401996C4 (write_char_0.c)
- *     write_multi_char_0 @ 0x14019971C (write_multi_char_0.c)
- *     write_string_0 @ 0x140199774 (write_string_0.c)
- *     _get_printf_count_output @ 0x140199E0C (_get_printf_count_output.c)
+ *     xHalTimerWatchdogStop @ 0x140176900 (xHalTimerWatchdogStop.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     wctomb_s @ 0x140197F30 (wctomb_s.c)
+ *     write_char_0 @ 0x140199804 (write_char_0.c)
+ *     write_multi_char_0 @ 0x14019985C (write_multi_char_0.c)
+ *     write_string_0 @ 0x1401998B4 (write_string_0.c)
+ *     _get_printf_count_output @ 0x140199F4C (_get_printf_count_output.c)
  */
 
 __int64 __fastcall output_l(__int64 a1, _BYTE *a2, __int64 a3, int *a4)

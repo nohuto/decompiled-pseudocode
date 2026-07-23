@@ -1,7 +1,7 @@
 /*
- * XREFs of PfpFileBuildReadList @ 0x140509108
+ * XREFs of PfpFileBuildReadList @ 0x1404EC098
  * Callers:
- *     PfpFileBuildReadSupport @ 0x140509310 (PfpFileBuildReadSupport.c)
+ *     PfpFileBuildReadSupport @ 0x1404EC2A0 (PfpFileBuildReadSupport.c)
  * Callees:
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */

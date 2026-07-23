@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlULongLongMult @ 0x14000E098
+ * XREFs of RtlULongLongMult @ 0x14000DC18
  * Callers:
- *     SepCaptureTokenSecurityOperations @ 0x14008064C (SepCaptureTokenSecurityOperations.c)
+ *     SepCaptureTokenSecurityOperations @ 0x1400806CC (SepCaptureTokenSecurityOperations.c)
  * Callees:
  *     <none>
  */

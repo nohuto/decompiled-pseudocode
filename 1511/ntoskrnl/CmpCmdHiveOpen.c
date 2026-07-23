@@ -27,12 +27,12 @@ __int64 __fastcall CmpCmdHiveOpen(
         __int64 a7)
 {
   int v11; // edi
-  int inited; // eax
-  int v13; // ebx
+  NTSTATUS inited; // eax
+  NTSTATUS v13; // ebx
   unsigned int v14; // eax
   int v15; // ecx
   PACCESS_TOKEN v17; // rsi
-  int v18; // eax
+  NTSTATUS v18; // eax
   struct _KTHREAD *CurrentThread; // rcx
   int v20; // [rsp+28h] [rbp-1E0h]
   int v21; // [rsp+28h] [rbp-1E0h]
@@ -41,7 +41,7 @@ __int64 __fastcall CmpCmdHiveOpen(
   BOOLEAN EnableHardErrors; // [rsp+50h] [rbp-1B8h]
   BOOLEAN EffectiveOnly; // [rsp+51h] [rbp-1B7h] BYREF
   BOOLEAN CopyOnOpen[2]; // [rsp+52h] [rbp-1B6h] BYREF
-  enum _SECURITY_IMPERSONATION_LEVEL ImpersonationLevel[3]; // [rsp+54h] [rbp-1B4h] BYREF
+  _SECURITY_IMPERSONATION_LEVEL ImpersonationLevel[3]; // [rsp+54h] [rbp-1B4h] BYREF
   _QWORD v28[44]; // [rsp+60h] [rbp-1A8h] BYREF
 
   memset(v28, 0, sizeof(v28));
@@ -64,7 +64,7 @@ __int64 __fastcall CmpCmdHiveOpen(
     if ( a2 )
     {
       v17 = PsReferenceImpersonationToken(KeGetCurrentThread(), CopyOnOpen, &EffectiveOnly, ImpersonationLevel);
-      v13 = RtlImpersonateSelfEx(2LL, 0LL, 0LL);
+      v13 = RtlImpersonateSelfEx(SecurityImpersonation, 0, 0LL);
       if ( v13 >= 0 )
       {
         v18 = CmpInitHiveFromFile(a1, v11, a4, a3, a5, v21, v23, a7, v28);

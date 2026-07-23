@@ -1,7 +1,7 @@
 /*
  * XREFs of KeInitializeSecondaryInterruptServices @ 0x1409618C0
  * Callers:
- *     HalpAllocateGsivForSecondaryInterrupt @ 0x14051CF20 (HalpAllocateGsivForSecondaryInterrupt.c)
+ *     sub_14051CF20 @ 0x14051CF20 (sub_14051CF20.c)
  * Callees:
  *     KeInitializeDpc @ 0x1402940D0 (KeInitializeDpc.c)
  *     KeInitializeEvent @ 0x1402A7B90 (KeInitializeEvent.c)
@@ -19,7 +19,7 @@ __int64 KeInitializeSecondaryInterruptServices()
 
   PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x3000uLL, 0x6953654Bu);
   v1 = 0;
-  KiGlobalSecondaryIDT = (__int64)PoolWithTag;
+  qword_140C2B0D8 = (__int64)PoolWithTag;
   v2 = PoolWithTag;
   if ( PoolWithTag )
   {
@@ -35,12 +35,12 @@ __int64 KeInitializeSecondaryInterruptServices()
       --v4;
     }
     while ( v4 );
-    qword_140C2B0C8 = (__int64)&KiSecondarySignalList;
-    KiSecondarySignalList = (__int64)&KiSecondarySignalList;
-    KeInitializeDpc((PRKDPC)&KiSecondarySignalDpc, (PKDEFERRED_ROUTINE)KiProcessSecondarySignalList, 0LL);
-    KiSecondarySignalListLock = 0LL;
-    KiSecondarySignalDpcRunning = 0;
-    KiSecondaryInterruptServicesEnabled = 1;
+    qword_140C2B0C8 = (__int64)&qword_140C2B0C0;
+    qword_140C2B0C0 = (__int64)&qword_140C2B0C0;
+    KeInitializeDpc((PRKDPC)&stru_140C2B080, (PKDEFERRED_ROUTINE)sub_14056F330, 0LL);
+    qword_140C2B0D0 = 0LL;
+    byte_140C2B0E0 = 0;
+    byte_140C2B068 = 1;
   }
   else
   {

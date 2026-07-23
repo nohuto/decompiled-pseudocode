@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpHpSegReportBusyBlock @ 0x1800F0AF4
+ * XREFs of RtlpHpSegReportBusyBlock @ 0x1800EB774
  * Callers:
- *     RtlpHpSegWalk @ 0x1800478F0 (RtlpHpSegWalk.c)
- *     RtlpHpSegReportPageRange @ 0x18011D290 (RtlpHpSegReportPageRange.c)
+ *     RtlpHpSegWalk @ 0x18002B478 (RtlpHpSegWalk.c)
+ *     RtlpHpSegReportPageRange @ 0x18011B4C0 (RtlpHpSegReportPageRange.c)
  * Callees:
- *     RtlpHpExtrasReportBusyBlock @ 0x1800F0B58 (RtlpHpExtrasReportBusyBlock.c)
+ *     RtlpHpExtrasReportBusyBlock @ 0x1800EB7D8 (RtlpHpExtrasReportBusyBlock.c)
  */
 
 __int64 __fastcall RtlpHpSegReportBusyBlock(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int a5)

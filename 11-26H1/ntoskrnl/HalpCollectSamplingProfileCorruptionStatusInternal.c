@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpCollectSamplingProfileCorruptionStatusInternal @ 0x1405801D0
+ * XREFs of HalpCollectSamplingProfileCorruptionStatusInternal @ 0x1405826F0
  * Callers:
- *     HalpCollectSamplingProfileCorruptionStatus @ 0x14058011C (HalpCollectSamplingProfileCorruptionStatus.c)
+ *     HalpCollectSamplingProfileCorruptionStatus @ 0x14058263C (HalpCollectSamplingProfileCorruptionStatus.c)
  * Callees:
  *     <none>
  */

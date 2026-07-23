@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlBackoff @ 0x1400C8490
+ * XREFs of RtlBackoff @ 0x1400C6330
  * Callers:
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfAcquirePushLockSharedEx @ 0x1400C8280 (ExfAcquirePushLockSharedEx.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1400C6120 (ExfAcquirePushLockSharedEx.c)
  * Callees:
  *     <none>
  */

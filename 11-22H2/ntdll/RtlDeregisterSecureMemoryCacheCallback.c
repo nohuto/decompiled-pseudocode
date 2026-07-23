@@ -8,36 +8,39 @@
  *     RtlFreeHeap @ 0x18003B190 (RtlFreeHeap.c)
  */
 
-char __fastcall RtlDeregisterSecureMemoryCacheCallback(void *a1)
+NTSTATUS __cdecl RtlDeregisterSecureMemoryCacheCallback(PRTL_SECURE_MEMORY_CACHE_CALLBACK Callback)
 {
-  _UNKNOWN **i; // rbx
-  _QWORD *v5; // rdx
-  void **v6; // rax
+  PRTL_SECURE_MEMORY_CACHE_CALLBACK *i; // rbx
+  NTSTATUS result; // eax
+  PRTL_SECURE_MEMORY_CACHE_CALLBACK v5; // rdx
+  PVOID *v6; // rax
 
   RtlAcquireSRWLockExclusive(&RtlpSecMemLock);
-  for ( i = (_UNKNOWN **)RtlpSecMemListHead; ; i = (_UNKNOWN **)*i )
+  for ( i = (PRTL_SECURE_MEMORY_CACHE_CALLBACK *)RtlpSecMemListHead; ; i = (PRTL_SECURE_MEMORY_CACHE_CALLBACK *)*i )
   {
-    if ( i == &RtlpSecMemListHead )
+    if ( i == (PRTL_SECURE_MEMORY_CACHE_CALLBACK *)&RtlpSecMemListHead )
     {
       RtlReleaseSRWLockExclusive(&RtlpSecMemLock);
-      return 0;
+      LOBYTE(result) = 0;
+      return result;
     }
-    if ( i[3] == a1 )
+    if ( i[3] == Callback )
       break;
   }
   if ( (*((_DWORD *)i + 4))-- == 1 )
   {
     v5 = *i;
-    if ( *((_UNKNOWN ***)*i + 1) != i || (v6 = (void **)i[1], *v6 != i) )
+    if ( *((PRTL_SECURE_MEMORY_CACHE_CALLBACK **)*i + 1) != i || (v6 = (PVOID *)i[1], *v6 != i) )
       __fastfail(3u);
     *v6 = v5;
-    v5[1] = v6;
+    *((_QWORD *)v5 + 1) = v6;
     RtlReleaseSRWLockExclusive(&RtlpSecMemLock);
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (__int64)i);
+    result = RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, i);
   }
   else
   {
     RtlReleaseSRWLockExclusive(&RtlpSecMemLock);
   }
-  return 1;
+  LOBYTE(result) = 1;
+  return result;
 }

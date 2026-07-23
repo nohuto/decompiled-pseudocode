@@ -1,17 +1,17 @@
 /*
- * XREFs of EtwpObjectHandleEnumCallback @ 0x14093DEF0
+ * XREFs of EtwpObjectHandleEnumCallback @ 0x14093E0C0
  * Callers:
  *     <none>
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x1402056A0 (ObfReferenceObjectWithTag.c)
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
- *     EtwpLogKernelEvent @ 0x140350000 (EtwpLogKernelEvent.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     ExCheckSingleFilter @ 0x1405B35FC (ExCheckSingleFilter.c)
+ *     ObfReferenceObjectWithTag @ 0x1402A9FE0 (ObfReferenceObjectWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
+ *     EtwpLogKernelEvent @ 0x14035AD50 (EtwpLogKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     ExCheckSingleFilter @ 0x1405B382C (ExCheckSingleFilter.c)
  *     ExUnlockHandleTableEntry @ 0x1405D6CB0 (ExUnlockHandleTableEntry.c)
- *     ObQueryNameString @ 0x140718930 (ObQueryNameString.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     ObQueryNameString @ 0x1406C6F80 (ObQueryNameString.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 char __fastcall EtwpObjectHandleEnumCallback(__int64 a1, volatile signed __int64 *a2, unsigned int a3, __int64 a4)
@@ -28,7 +28,7 @@ char __fastcall EtwpObjectHandleEnumCallback(__int64 a1, volatile signed __int64
   int v16; // r8d
   unsigned int v17; // r9d
   ULONG v18; // r8d
-  struct _OBJECT_NAME_INFORMATION *PoolWithTag; // rbx
+  _OBJECT_NAME_INFORMATION *PoolWithTag; // rbx
   NTSTATUS v20; // r15d
   int Length; // ecx
   __int64 v22; // rax
@@ -82,7 +82,7 @@ LABEL_8:
   ObfReferenceObjectWithTag(v11, 0x54777445u);
   ExUnlockHandleTableEntry(a1, a2);
   v18 = *(unsigned __int16 *)(a4 + 24);
-  PoolWithTag = *(struct _OBJECT_NAME_INFORMATION **)(a4 + 16);
+  PoolWithTag = *(_OBJECT_NAME_INFORMATION **)(a4 + 16);
   v32 = &v26;
   ReturnLength = v18;
   v33[0] = 18LL;
@@ -91,9 +91,9 @@ LABEL_8:
     v20 = ObQueryNameString(v11, PoolWithTag, v18, &ReturnLength);
     if ( v20 != -1073741820 )
       break;
-    if ( PoolWithTag != *(struct _OBJECT_NAME_INFORMATION **)(a4 + 16) )
+    if ( PoolWithTag != *(_OBJECT_NAME_INFORMATION **)(a4 + 16) )
       ExFreePoolWithTag(PoolWithTag, 0);
-    PoolWithTag = (struct _OBJECT_NAME_INFORMATION *)ExAllocatePoolWithTag(PagedPool, ReturnLength, 0x74777445u);
+    PoolWithTag = (_OBJECT_NAME_INFORMATION *)ExAllocatePoolWithTag(PagedPool, ReturnLength, 0x74777445u);
     if ( !PoolWithTag )
       break;
     v18 = ReturnLength;
@@ -114,7 +114,7 @@ LABEL_8:
   v23 = *(_QWORD *)(a4 + 32);
   v33[v22 - 1] = &EtwpNull;
   EtwpLogKernelEvent((__int64)&v32, *(_QWORD *)(v23 + 1080), *(_DWORD *)v23, v12 + 1, v7, 0x401802u);
-  if ( PoolWithTag && PoolWithTag != *(struct _OBJECT_NAME_INFORMATION **)(a4 + 16) )
+  if ( PoolWithTag && PoolWithTag != *(_OBJECT_NAME_INFORMATION **)(a4 + 16) )
     ExFreePoolWithTag(PoolWithTag, 0);
   return 0;
 }

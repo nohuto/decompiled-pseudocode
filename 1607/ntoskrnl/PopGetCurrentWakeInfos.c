@@ -1,10 +1,10 @@
 /*
- * XREFs of PopGetCurrentWakeInfos @ 0x140125824
+ * XREFs of PopGetCurrentWakeInfos @ 0x140125D94
  * Callers:
- *     PopGetWakeSource @ 0x140532EB8 (PopGetWakeSource.c)
+ *     PopGetWakeSource @ 0x1405333F8 (PopGetWakeSource.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140012750 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14001BD40 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x1400122D0 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14001B8C0 (KeAcquireInStackQueuedSpinLock.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */
 

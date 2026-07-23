@@ -1,13 +1,13 @@
 /*
- * XREFs of MiAddRangeToPartitionTree @ 0x1401F0D8C
+ * XREFs of MiAddRangeToPartitionTree @ 0x1401F0BB8
  * Callers:
- *     MiAddMdlToPartitionTree @ 0x1401F0CE4 (MiAddMdlToPartitionTree.c)
- *     MiAllocatePartitionPhysicalPages @ 0x1401F0FD8 (MiAllocatePartitionPhysicalPages.c)
- *     MiHotAddPartitionMemory @ 0x1406605D8 (MiHotAddPartitionMemory.c)
+ *     MiAddMdlToPartitionTree @ 0x1401F0B10 (MiAddMdlToPartitionTree.c)
+ *     MiAllocatePartitionPhysicalPages @ 0x1401F0E04 (MiAllocatePartitionPhysicalPages.c)
+ *     MiHotAddPartitionMemory @ 0x1406606BC (MiHotAddPartitionMemory.c)
  * Callees:
- *     RtlSetBitsEx @ 0x1400179FC (RtlSetBitsEx.c)
- *     RtlAvlInsertNodeEx @ 0x1400273B0 (RtlAvlInsertNodeEx.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     RtlSetBitsEx @ 0x14001757C (RtlSetBitsEx.c)
+ *     RtlAvlInsertNodeEx @ 0x140026F30 (RtlAvlInsertNodeEx.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */

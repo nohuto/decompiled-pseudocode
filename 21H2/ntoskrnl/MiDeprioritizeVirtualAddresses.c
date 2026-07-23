@@ -1,25 +1,25 @@
 /*
- * XREFs of MiDeprioritizeVirtualAddresses @ 0x1405366CC
+ * XREFs of MiDeprioritizeVirtualAddresses @ 0x14053690C
  * Callers:
- *     MiDeprioritizeVad @ 0x140381E94 (MiDeprioritizeVad.c)
- *     HvTrimHive @ 0x1406BD0DC (HvTrimHive.c)
+ *     MiDeprioritizeVad @ 0x1403819E4 (MiDeprioritizeVad.c)
+ *     HvTrimHive @ 0x14061A688 (HvTrimHive.c)
  * Callees:
- *     MiUnlockWorkingSetShared @ 0x14020F790 (MiUnlockWorkingSetShared.c)
- *     MiGetPfnPriority @ 0x1402185D0 (MiGetPfnPriority.c)
- *     MiLockWorkingSetShared @ 0x140219CB0 (MiLockWorkingSetShared.c)
- *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
- *     MiGetWsleContents @ 0x140270D40 (MiGetWsleContents.c)
- *     MiUpdatePfnPriority @ 0x140270DA4 (MiUpdatePfnPriority.c)
- *     MiUnlockPageTableInternal @ 0x1402855F0 (MiUnlockPageTableInternal.c)
- *     MiLockLowestValidPageTable @ 0x1403055C0 (MiLockLowestValidPageTable.c)
- *     MI_WSLE_LOG_ACCESS @ 0x140309080 (MI_WSLE_LOG_ACCESS.c)
- *     MiFreeWsleList @ 0x140327320 (MiFreeWsleList.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x14032DEC0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiInsertTbFlushEntry @ 0x140335D70 (MiInsertTbFlushEntry.c)
- *     MiTbFlushType @ 0x140337208 (MiTbFlushType.c)
- *     MiDemoteCombinedPte @ 0x14036B260 (MiDemoteCombinedPte.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
+ *     MiUnlockPageTableInternal @ 0x140202790 (MiUnlockPageTableInternal.c)
+ *     MiGetWsleContents @ 0x14025ECE0 (MiGetWsleContents.c)
+ *     MiUpdatePfnPriority @ 0x14025ED44 (MiUpdatePfnPriority.c)
+ *     MiUnlockWorkingSetShared @ 0x1402B4090 (MiUnlockWorkingSetShared.c)
+ *     MiGetPfnPriority @ 0x1402BCED0 (MiGetPfnPriority.c)
+ *     MiLockWorkingSetShared @ 0x1402BE5B0 (MiLockWorkingSetShared.c)
+ *     KeYieldProcessorEx @ 0x1402EFAD0 (KeYieldProcessorEx.c)
+ *     MiLockLowestValidPageTable @ 0x140310310 (MiLockLowestValidPageTable.c)
+ *     MI_WSLE_LOG_ACCESS @ 0x140313DD0 (MI_WSLE_LOG_ACCESS.c)
+ *     MiFreeWsleList @ 0x140332070 (MiFreeWsleList.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140338C10 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiInsertTbFlushEntry @ 0x140340AC0 (MiInsertTbFlushEntry.c)
+ *     MiTbFlushType @ 0x140341F58 (MiTbFlushType.c)
+ *     MiDemoteCombinedPte @ 0x14036B410 (MiDemoteCombinedPte.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
  */
 
 __int64 __fastcall MiDeprioritizeVirtualAddresses(unsigned __int64 a1, __int64 a2, __int64 a3, char a4)
@@ -51,7 +51,7 @@ __int64 __fastcall MiDeprioritizeVirtualAddresses(unsigned __int64 a1, __int64 a
   v29[2] = 0LL;
   v29[3] = 0LL;
   LODWORD(v29[0]) = v8;
-  v26 = dword_140C4E828;
+  v26 = dword_140C4E868;
   WORD2(v29[0]) = 4;
   LODWORD(v29[1]) = 20;
   v9 = ((a1 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;

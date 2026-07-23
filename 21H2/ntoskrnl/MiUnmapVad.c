@@ -1,16 +1,16 @@
 /*
- * XREFs of MiUnmapVad @ 0x14061E420
+ * XREFs of MiUnmapVad @ 0x140688090
  * Callers:
- *     MiMapViewOfImageSection @ 0x14061CEB0 (MiMapViewOfImageSection.c)
- *     MiUnmapViewOfSection @ 0x14061E0F0 (MiUnmapViewOfSection.c)
- *     MiCleanVad @ 0x14061E898 (MiCleanVad.c)
- *     MiMapViewOfDataSection @ 0x1406EC100 (MiMapViewOfDataSection.c)
+ *     MiMapViewOfImageSection @ 0x140686B20 (MiMapViewOfImageSection.c)
+ *     MiUnmapViewOfSection @ 0x140687D60 (MiUnmapViewOfSection.c)
+ *     MiCleanVad @ 0x140688508 (MiCleanVad.c)
+ *     MiMapViewOfDataSection @ 0x1407034E0 (MiMapViewOfDataSection.c)
  * Callees:
- *     MiDeleteVad @ 0x14021BFF0 (MiDeleteVad.c)
- *     MiReferenceControlAreaFile @ 0x14031CEB0 (MiReferenceControlAreaFile.c)
- *     MiDereferenceControlAreaFile @ 0x1403571E4 (MiDereferenceControlAreaFile.c)
- *     PfCheckDeprioritizeFile @ 0x1406CD858 (PfCheckDeprioritizeFile.c)
- *     MiLogMapFileEvent @ 0x1408C4748 (MiLogMapFileEvent.c)
+ *     MiDeleteVad @ 0x1402C08F0 (MiDeleteVad.c)
+ *     MiReferenceControlAreaFile @ 0x140327C00 (MiReferenceControlAreaFile.c)
+ *     MiDereferenceControlAreaFile @ 0x140361F34 (MiDereferenceControlAreaFile.c)
+ *     PfCheckDeprioritizeFile @ 0x14067C4E8 (PfCheckDeprioritizeFile.c)
+ *     MiLogMapFileEvent @ 0x1408C48A8 (MiLogMapFileEvent.c)
  */
 
 __int64 __fastcall MiUnmapVad(__int64 a1, __int64 a2, int a3)
@@ -31,9 +31,7 @@ __int64 __fastcall MiUnmapVad(__int64 a1, __int64 a2, int a3)
       && (unsigned int)PfCheckDeprioritizeFile(
                          HIDWORD(Process[1].ActiveProcessors.Bitmap[8]),
                          v9,
-                         (*(unsigned int *)(a1 + 28) | ((unsigned __int64)*(unsigned __int8 *)(a1 + 33) << 32))
-                       - (*(unsigned int *)(a1 + 24) | ((unsigned __int64)*(unsigned __int8 *)(a1 + 32) << 32))
-                       + 1) == 1 )
+                         *(_DWORD *)(a1 + 28) - *(_DWORD *)(a1 + 24) + 1) == 1 )
     {
       a3 |= 0x80000000;
     }

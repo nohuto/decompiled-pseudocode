@@ -1,15 +1,15 @@
 /*
- * XREFs of PpmIdleAllocateVetoReasons @ 0x140749EB8
+ * XREFs of PpmIdleAllocateVetoReasons @ 0x1407481E8
  * Callers:
- *     PopFxRequestCommon @ 0x1405D1EB0 (PopFxRequestCommon.c)
+ *     PopFxRequestCommon @ 0x1405CF5D0 (PopFxRequestCommon.c)
  * Callees:
- *     PopReleaseRwLock @ 0x1403B5EC8 (PopReleaseRwLock.c)
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     PopAcquireRwLockExclusive @ 0x1404283D4 (PopAcquireRwLockExclusive.c)
- *     PpmIdleInstallNewVetoList @ 0x1405CE7A0 (PpmIdleInstallNewVetoList.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     PopReleaseRwLock @ 0x1402AE8FC (PopReleaseRwLock.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     PopAcquireRwLockExclusive @ 0x14041C564 (PopAcquireRwLockExclusive.c)
+ *     PpmIdleInstallNewVetoList @ 0x1405CBEC0 (PpmIdleInstallNewVetoList.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PpmIdleAllocateVetoReasons(_DWORD *a1)
@@ -42,8 +42,8 @@ __int64 __fastcall PpmIdleAllocateVetoReasons(_DWORD *a1)
     v4 = v3 + a1[1];
     if ( v4 >= (unsigned int)v3 )
     {
-      Pool2 = ExAllocatePool2(0x40uLL);
-      if ( Pool2 && (v5 = (_DWORD *)ExAllocatePool2(0x40uLL), (v6 = v5) != 0LL) )
+      Pool2 = ExAllocatePool2(0x40uLL, (*(_DWORD *)PpmPlatformStates * v4) << 6, 0x694D5050u);
+      if ( Pool2 && (v5 = (_DWORD *)ExAllocatePool2(0x40uLL, 24 * v4 + 8, 0x694D5050u), (v6 = v5) != 0LL) )
       {
         v5[1] = v4;
         v7 = v3;
@@ -51,7 +51,7 @@ __int64 __fastcall PpmIdleAllocateVetoReasons(_DWORD *a1)
         while ( v7 < v4 )
         {
           v8 = 2LL * (v7 - (unsigned int)v3);
-          v9 = (WCHAR *)ExAllocatePool2(0x40uLL);
+          v9 = (WCHAR *)ExAllocatePool2(0x40uLL, 2LL * LOWORD(a1[4 * (v7 - (unsigned int)v3) + 3]) + 2, 0x694D5050u);
           SourceString = v9;
           if ( !v9 )
             goto LABEL_8;

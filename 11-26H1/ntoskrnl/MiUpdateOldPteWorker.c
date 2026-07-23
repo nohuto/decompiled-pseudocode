@@ -1,14 +1,14 @@
 /*
- * XREFs of MiUpdateOldPteWorker @ 0x14029C38C
+ * XREFs of MiUpdateOldPteWorker @ 0x14029B8EC
  * Callers:
- *     MiUpdateOldPte @ 0x1402FDD30 (MiUpdateOldPte.c)
- *     MiUpdateOldPagesVpabCallback @ 0x1404C96D0 (MiUpdateOldPagesVpabCallback.c)
+ *     MiUpdateOldPte @ 0x1402DFDB0 (MiUpdateOldPte.c)
+ *     MiUpdateOldPagesVpabCallback @ 0x1404C30F0 (MiUpdateOldPagesVpabCallback.c)
  * Callees:
- *     MiEmptyWorkingSetHelper @ 0x14029C1E8 (MiEmptyWorkingSetHelper.c)
- *     MiAcquirePrcbAgeTrimLists @ 0x14029CE20 (MiAcquirePrcbAgeTrimLists.c)
- *     MiIsDecayPfn @ 0x1402F9850 (MiIsDecayPfn.c)
- *     MiGetPfnSlabType @ 0x1402FDC40 (MiGetPfnSlabType.c)
- *     MiLockSetPfnPriority @ 0x140457A10 (MiLockSetPfnPriority.c)
+ *     MiEmptyWorkingSetHelper @ 0x14029B748 (MiEmptyWorkingSetHelper.c)
+ *     MiAcquirePrcbAgeTrimLists @ 0x14029C380 (MiAcquirePrcbAgeTrimLists.c)
+ *     MiIsDecayPfn @ 0x1402DB8D0 (MiIsDecayPfn.c)
+ *     MiGetPfnSlabType @ 0x1402DFCC0 (MiGetPfnSlabType.c)
+ *     MiLockSetPfnPriority @ 0x14044F280 (MiLockSetPfnPriority.c)
  */
 
 __int64 __fastcall MiUpdateOldPteWorker(__int64 a1, unsigned __int64 a2, unsigned __int64 a3, unsigned int *a4)
@@ -22,7 +22,7 @@ __int64 __fastcall MiUpdateOldPteWorker(__int64 a1, unsigned __int64 a2, unsigne
   if ( (*(_QWORD *)(a3 + 40) & 0x20000000000000LL) != 0
     || (*(_DWORD *)(a3 + 32) & 0x8000000) != 0
     && (a3 < 0xFFFFDE0000000000uLL
-     || a3 >= 48 * qword_140E2D7A0 - 0x21FFFFFFFFD0LL
+     || a3 >= 48 * qword_140E2D920 - 0x21FFFFFFFFD0LL
      || (unsigned int)MiIsDecayPfn((__int64)(a3 + 0x220000000000LL) / 48)
      || (v4 & 0x70000) != 0x60000 && (unsigned int)MiGetPfnSlabType(a3) == 9) )
   {

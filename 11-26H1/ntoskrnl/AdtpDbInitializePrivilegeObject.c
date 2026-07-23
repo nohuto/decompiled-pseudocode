@@ -1,9 +1,9 @@
 /*
- * XREFs of AdtpDbInitializePrivilegeObject @ 0x1407156E0
+ * XREFs of AdtpDbInitializePrivilegeObject @ 0x14071A3D0
  * Callers:
- *     AdtpInitializeAuditingCommon @ 0x140890D3C (AdtpInitializeAuditingCommon.c)
+ *     AdtpInitializeAuditingCommon @ 0x140897138 (AdtpInitializeAuditingCommon.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
  */
 
 __int64 AdtpDbInitializePrivilegeObject()
@@ -15,7 +15,7 @@ __int64 AdtpDbInitializePrivilegeObject()
 
   v0 = 0LL;
   AdtpWellKnownPrivilegeMaxLen = 0;
-  v1 = (const WCHAR **)off_14000EF50;
+  v1 = (const WCHAR **)off_14000F260;
   v2 = &AdtpKnownPrivilege;
   do
   {

@@ -151,7 +151,7 @@ LABEL_12:
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(1uLL);
     if ( !_interlockedbittestandreset(v14, 0) )
-      ExpAcquireFastMutexContended(a1 + 280);
+      ExpAcquireFastMutexContended(a1 + 280, (PRTL_BALANCED_NODE)v5);
     if ( v5 )
       *(_BYTE *)(v5 + 26) |= 1u;
     *(_QWORD *)(a1 + 288) = KeGetCurrentThread();

@@ -1,11 +1,11 @@
 /*
- * XREFs of Feature_CET_User_Audit_Livedump__private_ReportDeviceUsage @ 0x1403F2A24
+ * XREFs of Feature_CET_User_Audit_Livedump__private_ReportDeviceUsage @ 0x1403F2A74
  * Callers:
- *     KiLogControlProtectionUserModeReturnMismatch @ 0x1403F2B88 (KiLogControlProtectionUserModeReturnMismatch.c)
- *     KiLogUserCetSetContextIpValidationFailure @ 0x1403F2C04 (KiLogUserCetSetContextIpValidationFailure.c)
+ *     KiLogControlProtectionUserModeReturnMismatch @ 0x1403F2BD8 (KiLogControlProtectionUserModeReturnMismatch.c)
+ *     KiLogUserCetSetContextIpValidationFailure @ 0x1403F2C54 (KiLogUserCetSetContextIpValidationFailure.c)
  * Callees:
- *     wil_details_FeatureReporting_ReportUsageToService @ 0x140252F20 (wil_details_FeatureReporting_ReportUsageToService.c)
- *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x1403F0A5C (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
+ *     wil_details_FeatureReporting_ReportUsageToService @ 0x140285D90 (wil_details_FeatureReporting_ReportUsageToService.c)
+ *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x1403F1CA0 (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
  */
 
 void Feature_CET_User_Audit_Livedump__private_ReportDeviceUsage()

@@ -1,11 +1,11 @@
 /*
- * XREFs of TtmpWriteDisplayStateChangedEvent @ 0x1409ABED4
+ * XREFs of TtmpWriteDisplayStateChangedEvent @ 0x1409AC0D4
  * Callers:
- *     TtmiSessionTerminalListWorker @ 0x1409AB290 (TtmiSessionTerminalListWorker.c)
+ *     TtmiSessionTerminalListWorker @ 0x1409AB490 (TtmiSessionTerminalListWorker.c)
  * Callees:
- *     memset @ 0x140435A00 (memset.c)
- *     TtmiWriteEventToAllQueues @ 0x1409A4EB8 (TtmiWriteEventToAllQueues.c)
- *     TtmiLogTerminalDisplayStateChangedEvent @ 0x1409AA2A0 (TtmiLogTerminalDisplayStateChangedEvent.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     TtmiWriteEventToAllQueues @ 0x1409A50B8 (TtmiWriteEventToAllQueues.c)
+ *     TtmiLogTerminalDisplayStateChangedEvent @ 0x1409AA4A0 (TtmiLogTerminalDisplayStateChangedEvent.c)
  */
 
 void __fastcall TtmpWriteDisplayStateChangedEvent(__int64 a1, _DWORD *a2)

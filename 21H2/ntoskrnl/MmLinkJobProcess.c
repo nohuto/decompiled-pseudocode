@@ -1,19 +1,19 @@
 /*
- * XREFs of MmLinkJobProcess @ 0x14071FCB8
+ * XREFs of MmLinkJobProcess @ 0x1406F5BF4
  * Callers:
- *     PspEstablishJobHierarchy @ 0x14071FA0C (PspEstablishJobHierarchy.c)
+ *     PspEstablishJobHierarchy @ 0x1406F5948 (PspEstablishJobHierarchy.c)
  * Callees:
- *     MiAllocatePool @ 0x14025AD70 (MiAllocatePool.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
- *     MiRemoveSharedCommitNode @ 0x1406EB4E0 (MiRemoveSharedCommitNode.c)
- *     MiInsertSharedCommitNode @ 0x1406EB750 (MiInsertSharedCommitNode.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     MiAllocatePool @ 0x14027C2E0 (MiAllocatePool.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x140355AE0 (KiLeaveGuardedRegionUnsafe.c)
+ *     MiRemoveSharedCommitNode @ 0x1407028C0 (MiRemoveSharedCommitNode.c)
+ *     MiInsertSharedCommitNode @ 0x140702B30 (MiInsertSharedCommitNode.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
-char __fastcall MmLinkJobProcess(__int64 a1, unsigned __int64 a2)
+char __fastcall MmLinkJobProcess(__int64 a1, __int64 a2)
 {
   int inserted; // r15d
   __int64 v4; // r13
@@ -29,10 +29,10 @@ char __fastcall MmLinkJobProcess(__int64 a1, unsigned __int64 a2)
   __int64 *v14; // rax
   __int64 *v15; // rcx
   __int64 *v16; // rsi
-  _QWORD *v17; // r14
+  __int64 v17; // r14
   __int64 *v20; // rcx
   __int64 *v21; // rax
-  unsigned __int64 i; // rsi
+  __int64 i; // rsi
   __int64 *v23; // [rsp+20h] [rbp-10h] BYREF
   __int64 **v24; // [rsp+28h] [rbp-8h]
   struct _KTHREAD *CurrentThread; // [rsp+78h] [rbp+48h]
@@ -76,7 +76,7 @@ LABEL_6:
       v4 = a1;
     }
     while ( (_QWORD *)*v6 != v6 )
-      MiRemoveSharedCommitNode(*(_QWORD **)(*v6 + 16LL), a2, 1);
+      MiRemoveSharedCommitNode(*(_QWORD *)(*v6 + 16LL), a2, 1LL);
     if ( inserted < 0 )
     {
       while ( 1 )
@@ -124,12 +124,12 @@ LABEL_35:
     v16 = v14 - 5;
     if ( inserted >= 0 )
     {
-      v17 = (_QWORD *)v16[7];
+      v17 = v16[7];
       if ( v16[4] )
       {
         do
         {
-          inserted = MiInsertSharedCommitNode(v17, a2, 1);
+          inserted = MiInsertSharedCommitNode(v17, a2, 1LL);
           if ( inserted < 0 )
             break;
         }
@@ -140,7 +140,7 @@ LABEL_35:
   }
   if ( inserted < 0 )
   {
-    for ( i = a2 + 2360; *(_QWORD *)i != i; MiRemoveSharedCommitNode(*(_QWORD **)(*(_QWORD *)i + 16LL), a2, 1) )
+    for ( i = a2 + 2360; *(_QWORD *)i != i; MiRemoveSharedCommitNode(*(_QWORD *)(*(_QWORD *)i + 16LL), a2, 1LL) )
       ;
     _InterlockedAnd((volatile signed __int32 *)(a2 + 2172), 0xFFFFFFF7);
     _InterlockedOr((volatile signed __int32 *)(a2 + 2172), 0x10u);

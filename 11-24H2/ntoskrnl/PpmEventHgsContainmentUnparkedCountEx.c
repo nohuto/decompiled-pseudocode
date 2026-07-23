@@ -1,11 +1,11 @@
 /*
- * XREFs of PpmEventHgsContainmentUnparkedCountEx @ 0x1405DD848
+ * XREFs of PpmEventHgsContainmentUnparkedCountEx @ 0x1405DA6C8
  * Callers:
- *     PpmHeteroHgsCalculateContainmentCount @ 0x1404EBB30 (PpmHeteroHgsCalculateContainmentCount.c)
+ *     PpmHeteroHgsCalculateContainmentCount @ 0x1404E2A70 (PpmHeteroHgsCalculateContainmentCount.c)
  * Callees:
- *     EtwWriteEx @ 0x140259680 (EtwWriteEx.c)
- *     EtwEventEnabled @ 0x1402A1BD0 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x140289C90 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x1402D1300 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 BOOLEAN __fastcall PpmEventHgsContainmentUnparkedCountEx(
@@ -71,10 +71,10 @@ BOOLEAN __fastcall PpmEventHgsContainmentUnparkedCountEx(
     result = EtwEventEnabled(PpmEtwHandle, &PPM_ETW_WPS_CONTAINMENT_UNPARK_COUNT);
     if ( result )
     {
-      v10 = *(_QWORD *)(a4 + 1272);
+      v10 = *(_QWORD *)(a4 + 1280);
       v16 = ((unsigned int)PpmHeteroHgsContainmentState >> 3) & 1;
-      LOWORD(v12) = *(_WORD *)(a4 + 1256);
-      LOWORD(v13) = *(_WORD *)(a4 + 1258);
+      LOWORD(v12) = *(_WORD *)(a4 + 1264);
+      LOWORD(v13) = *(_WORD *)(a4 + 1266);
       v15 = *(_DWORD *)(v10 + 4);
       v14 = a7 != 0;
       v17 = *(_BYTE *)(v10 + 824) != 0;

@@ -38,10 +38,10 @@ __int64 __fastcall KiContinuePreviousModeUser(
 {
   __int64 v16; // rdi
   __int64 v17; // r11
-  unsigned int v18; // ebx
+  ULONG v18; // ebx
   __int64 result; // rax
   bool v20; // cl
-  int v21; // r13d
+  NTSTATUS v21; // r13d
   char v22; // r9
   bool v23; // cl
   __int64 v24; // r10
@@ -57,7 +57,7 @@ __int64 __fastcall KiContinuePreviousModeUser(
   int v34; // edx
   BOOL v35; // ecx
   char v36; // r10
-  __int64 v37; // r9
+  ULONG64 v37; // r9
   __int64 v38; // r10
   char *v39; // r11
   __int64 v40; // rcx
@@ -72,18 +72,18 @@ __int64 __fastcall KiContinuePreviousModeUser(
   int v49; // r14d
   __int64 v50; // rcx
   __int64 v51; // r10
-  unsigned __int64 v52; // rax
-  __int64 v53; // rdx
+  _CONTEXT_EX *v52; // rax
+  unsigned __int64 v53; // rdx
   unsigned int Flink_high; // r15d
   unsigned int v55; // r15d
   __int64 v56; // r9
   unsigned __int64 ExtendedFeatureDisableMask; // rdx
   __int16 v58; // ax
   __int64 v59; // [rsp+20h] [rbp-10h]
-  unsigned __int64 v60; // [rsp+30h] [rbp+0h] BYREF
+  PCONTEXT_EX ContextEx; // [rsp+30h] [rbp+0h] BYREF
   struct _KTHREAD *CurrentThread; // [rsp+38h] [rbp+8h]
   _BYTE v62[24]; // [rsp+40h] [rbp+10h] BYREF
-  unsigned int v63; // [rsp+58h] [rbp+28h]
+  ULONG v63; // [rsp+58h] [rbp+28h]
   __int64 v64; // [rsp+60h] [rbp+30h]
   __int64 v65; // [rsp+68h] [rbp+38h]
   __int64 v66; // [rsp+70h] [rbp+40h]
@@ -93,7 +93,7 @@ __int64 __fastcall KiContinuePreviousModeUser(
   v65 = a2;
   v16 = a1;
   v64 = a1;
-  v60 = 0LL;
+  ContextEx = 0LL;
   v17 = 0LL;
   CurrentThread = KeGetCurrentThread();
   v18 = *(_DWORD *)(a1 + 48);
@@ -280,7 +280,7 @@ LABEL_47:
   if ( v17 + 15 <= (unsigned __int64)(unsigned int)v17 )
     v32 = 0xFFFFFFFFFFFFFF0LL;
   v33 = alloca(v32 & 0xFFFFFFFFFFFFFFF0uLL);
-  memset_0(&v60, 0, (unsigned int)v17);
+  memset_0(&ContextEx, 0, (unsigned int)v17);
   if ( (v18 & 0x27FFFF80) == 0x10000
     || (v18 & 0x7FFFF20) == 0x100000
     || (v18 & 0x200000) != 0 && (v18 & 0x7DFFFF0) == 0
@@ -305,7 +305,7 @@ LABEL_47:
     v37 = 0LL;
     if ( (v36 & 2) != 0 )
       v37 = MEMORY[0xFFFFF780000003D8] | MEMORY[0xFFFFF78000000708];
-    v21 = RtlInitializeExtendedContext2((__int64)&v60, v18, &v60, v37);
+    v21 = RtlInitializeExtendedContext2((PCONTEXT)&ContextEx, v18, &ContextEx, v37);
   }
   else
   {
@@ -315,10 +315,10 @@ LABEL_62:
   if ( v21 < 0 )
     return (unsigned int)v21;
   LOBYTE(v34) = 1;
-  result = RtlpReadExtendedContext(v35, v34, v60, v18, v16, 0LL);
+  result = RtlpReadExtendedContext(v35, v34, (_DWORD)ContextEx, v18, v16, 0LL);
   if ( (int)result >= 0 )
   {
-    v60 = 0LL;
+    ContextEx = 0LL;
     if ( (v64 & 0x100040) != 0x100040 )
     {
       v43 = CurrentThread;
@@ -401,9 +401,9 @@ LABEL_85:
             if ( v42 )
             {
               v51 = SLODWORD(STACK[0x510]);
-              v52 = __readmsr(0x6A7u);
-              v60 = v52;
-              v53 = *(unsigned __int64 *)((char *)&v60 + v51 + 1232) & 0x800;
+              v52 = (_CONTEXT_EX *)__readmsr(0x6A7u);
+              ContextEx = v52;
+              v53 = *(unsigned __int64 *)((char *)&ContextEx + v51 + 1232) & 0x800;
               if ( (CurrentThread->MiscFlags & 0x100000) != 0 )
               {
                 if ( v53 )
@@ -414,7 +414,7 @@ LABEL_85:
                 }
                 else
                 {
-                  *(unsigned __int64 *)((char *)&v60 + v51 + 1232) |= 0x800uLL;
+                  *(PCONTEXT_EX *)((char *)&ContextEx + v51 + 1232) = (PCONTEXT_EX)(*(unsigned __int64 *)((char *)&ContextEx + v51 + 1232) | 0x800);
                   *(_QWORD *)v42 = 1LL;
                   *((_QWORD *)v42 + 1) = v52;
                 }
@@ -459,10 +459,10 @@ LABEL_86:
             v55 = Flink_high >> 31;
             v48 = KiVerifyContextIpForUserCet(
                     (_DWORD)v43,
-                    (unsigned int)&v60,
+                    (unsigned int)&ContextEx,
                     (unsigned int)v62,
                     (unsigned __int8)v55,
-                    (__int64)&v60);
+                    (__int64)&ContextEx);
             if ( v48 == -1073740278 )
             {
               v56 = (unsigned __int8)v55 ^ 1u;
@@ -482,12 +482,12 @@ LABEL_161:
             ExtendedFeatureDisableMask = v43->ExtendedFeatureDisableMask;
             if ( ExtendedFeatureDisableMask
               && (v64 & 0x100040) == 0x100040
-              && (ExtendedFeatureDisableMask & *(unsigned __int64 *)((char *)&v60 + SLODWORD(STACK[0x510]) + 1232)) != 0 )
+              && (ExtendedFeatureDisableMask & *(unsigned __int64 *)((char *)&ContextEx + SLODWORD(STACK[0x510]) + 1232)) != 0 )
             {
               return 3221225485LL;
             }
             LOBYTE(v59) = 1;
-            KeContextToKframes(v66, v65, (unsigned int)&v60, v18, v59);
+            KeContextToKframes(v66, v65, (unsigned int)&ContextEx, v18, v59);
             return 0LL;
           }
         }

@@ -10,10 +10,10 @@
  *     __SEH_prolog4 @ 0x4B307AC4 (__SEH_prolog4.c)
  */
 
-int __stdcall TppIopFree(_DWORD *a1)
+LOGICAL __stdcall TppIopFree(_DWORD *BaseAddress)
 {
-  TpAdjustBindingCount(a1[23], 0xFFFFFFFF);
-  a1[38] = 0;
-  TppCleanupGroupMemberDestroy(a1);
-  return RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, TppHeapTag + 0x40000, (int)a1);
+  TpAdjustBindingCount(BaseAddress[23], 0xFFFFFFFF);
+  BaseAddress[38] = 0;
+  TppCleanupGroupMemberDestroy((int)BaseAddress);
+  return RtlFreeHeap(NtCurrentPeb()->ProcessHeap, TppHeapTag + 0x40000, BaseAddress);
 }

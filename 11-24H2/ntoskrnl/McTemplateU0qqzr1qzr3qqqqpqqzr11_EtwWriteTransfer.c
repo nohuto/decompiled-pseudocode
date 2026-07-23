@@ -1,10 +1,10 @@
 /*
- * XREFs of McTemplateU0qqzr1qzr3qqqqpqqzr11_EtwWriteTransfer @ 0x1403300D4
+ * XREFs of McTemplateU0qqzr1qzr3qqqqpqqzr11_EtwWriteTransfer @ 0x1402B894C
  * Callers:
- *     Pdcv2EventWrite_ACTIVATION_CLIENT_ACTIVATE @ 0x14032FFE4 (Pdcv2EventWrite_ACTIVATION_CLIENT_ACTIVATE.c)
+ *     Pdcv2EventWrite_ACTIVATION_CLIENT_ACTIVATE @ 0x1402B885C (Pdcv2EventWrite_ACTIVATION_CLIENT_ACTIVATE.c)
  * Callees:
- *     McGenEventWrite_EtwWriteTransfer @ 0x1403305B0 (McGenEventWrite_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1402B8E28 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 __int64 __fastcall McTemplateU0qqzr1qzr3qqqqpqqzr11_EtwWriteTransfer(

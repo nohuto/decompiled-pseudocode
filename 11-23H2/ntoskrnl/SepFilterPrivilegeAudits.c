@@ -1,8 +1,8 @@
 /*
- * XREFs of SepFilterPrivilegeAudits @ 0x1407C0FC8
+ * XREFs of SepFilterPrivilegeAudits @ 0x1407C1298
  * Callers:
- *     SepAdtAuditPrivilegeUseWithContext @ 0x1406C342C (SepAdtAuditPrivilegeUseWithContext.c)
- *     SePrivilegedServiceAuditAlarm @ 0x1406C381C (SePrivilegedServiceAuditAlarm.c)
+ *     SepAdtAuditPrivilegeUseWithContext @ 0x1406C345C (SepAdtAuditPrivilegeUseWithContext.c)
+ *     SePrivilegedServiceAuditAlarm @ 0x1406C384C (SePrivilegedServiceAuditAlarm.c)
  * Callees:
  *     <none>
  */

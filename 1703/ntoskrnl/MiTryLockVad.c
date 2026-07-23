@@ -17,7 +17,7 @@ __int64 __fastcall MiTryLockVad(__int64 a1, __int64 a2)
   if ( *(char *)(a1 + 1744) < 0 )
     return 0LL;
   v3 = (volatile signed __int32 *)(a2 + 40);
-  v4 = KeAbPreAcquire(a2 + 40);
+  v4 = KeAbPreAcquire(a2 + 40, 0LL);
   if ( _interlockedbittestandset64(v3, 0LL) )
   {
     v5 = 0;

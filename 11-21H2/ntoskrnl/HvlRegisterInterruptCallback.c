@@ -10,12 +10,12 @@ __int64 __fastcall HvlRegisterInterruptCallback(unsigned int a1, signed __int64 
 {
   if ( a1 > 4 )
     return 3221225485LL;
-  if ( !HvlHypervisorConnected )
+  if ( !byte_140D0688B )
     return 3221225659LL;
-  if ( (__int64 (*)())_InterlockedCompareExchange64(
-                        (volatile signed __int64 *)&HvlpInterruptCallback[a1],
-                        a2,
-                        (signed __int64)HvlDummyInterruptCallback) != HvlDummyInterruptCallback )
+  if ( (__int64 (__fastcall *)(__int64, __int64, __int64))_InterlockedCompareExchange64(
+                                                            (volatile signed __int64 *)&off_140D05510[a1],
+                                                            a2,
+                                                            (signed __int64)sub_140543130) != sub_140543130 )
     return 3221225473LL;
   if ( a3 )
     *a3 = a1 + 48;

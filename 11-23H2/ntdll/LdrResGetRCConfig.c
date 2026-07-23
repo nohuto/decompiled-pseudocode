@@ -15,78 +15,88 @@
  *     LdrpTraceLoadMUIDll @ 0x1800ED41C (LdrpTraceLoadMUIDll.c)
  */
 
-__int64 __fastcall LdrResGetRCConfig(__int64 a1, __int64 a2, __int64 *a3, __int64 a4, char a5)
+__int64 __fastcall LdrResGetRCConfig(void *a1, __int64 a2, __int64 *a3, unsigned int a4, char a5)
 {
-  unsigned int v5; // r13d
   int v7; // edi
-  __int64 v8; // rdx
-  _DWORD *v9; // r8
-  __int64 v10; // r9
-  __int64 v11; // r15
-  __int64 v12; // rcx
-  __int64 v13; // rsi
-  unsigned __int64 v14; // rcx
-  __int64 v15; // rax
-  unsigned int v16; // edi
-  __int64 v17; // rdx
-  __int64 v18; // rcx
-  __int64 v19; // r8
-  __int64 v20; // r9
+  __int64 v8; // r15
+  __int64 v9; // rcx
+  __int64 v10; // rsi
+  PVOID v11; // rcx
+  __int64 v12; // rax
+  unsigned int v13; // edi
   __int64 result; // rax
-  __int64 v22; // r12
-  int v23; // eax
-  int v24; // r9d
-  __int64 v25; // rcx
-  __int64 v26; // r8
-  __int64 v27; // rcx
-  int v28; // [rsp+50h] [rbp-B8h]
-  _DWORD *v29; // [rsp+58h] [rbp-B0h] BYREF
-  __int64 v30; // [rsp+60h] [rbp-A8h]
-  __int64 v31; // [rsp+68h] [rbp-A0h] BYREF
-  __int64 *v32; // [rsp+70h] [rbp-98h]
-  __int64 v33[2]; // [rsp+78h] [rbp-90h] BYREF
-  int v34; // [rsp+88h] [rbp-80h] BYREF
-  const wchar_t *v35; // [rsp+90h] [rbp-78h]
-  int v36; // [rsp+98h] [rbp-70h] BYREF
-  const wchar_t *v37; // [rsp+A0h] [rbp-68h]
-  _QWORD v38[3]; // [rsp+A8h] [rbp-60h] BYREF
+  unsigned __int64 v15; // r12
+  int v16; // ecx
+  _DWORD *v17; // r8
+  int v18; // r9d
+  __int64 v19; // rdx
+  unsigned int v20; // ecx
+  unsigned int v21; // r9d
+  unsigned int v22; // ecx
+  unsigned int v23; // r9d
+  unsigned int v24; // ecx
+  unsigned int v25; // r9d
+  unsigned int v26; // ecx
+  unsigned int v27; // r9d
+  unsigned int v28; // ecx
+  unsigned int v29; // r9d
+  unsigned int v30; // ecx
+  unsigned int v31; // r9d
+  unsigned int v32; // ecx
+  unsigned int v33; // r9d
+  unsigned int v34; // ecx
+  unsigned int v35; // r9d
+  __int64 v36; // rcx
+  __int64 v37; // r8
+  __int64 v38; // rcx
+  __int64 v39; // rcx
+  int v40; // [rsp+50h] [rbp-B8h]
+  _DWORD *v41; // [rsp+58h] [rbp-B0h] BYREF
+  PVOID DllHandle; // [rsp+60h] [rbp-A8h]
+  __int64 v43; // [rsp+68h] [rbp-A0h] BYREF
+  __int64 *v44; // [rsp+70h] [rbp-98h]
+  __int64 v45[2]; // [rsp+78h] [rbp-90h] BYREF
+  int v46; // [rsp+88h] [rbp-80h] BYREF
+  const wchar_t *v47; // [rsp+90h] [rbp-78h]
+  int v48; // [rsp+98h] [rbp-70h] BYREF
+  const wchar_t *v49; // [rsp+A0h] [rbp-68h]
+  _QWORD v50[3]; // [rsp+A8h] [rbp-60h] BYREF
 
-  v5 = a4;
-  v32 = a3;
-  v30 = a1;
-  v33[1] = a1;
-  v38[0] = L"MUI";
-  v38[1] = 1LL;
-  v38[2] = 0LL;
-  v31 = a2;
-  v29 = 0LL;
-  v34 = 3145774;
-  v35 = L"LdrResGetRCConfig Enter";
-  v36 = 3014700;
-  v37 = L"LdrResGetRCConfig Exit";
+  v44 = a3;
+  DllHandle = a1;
+  v45[1] = (__int64)a1;
+  v50[0] = L"MUI";
+  v50[1] = 1LL;
+  v50[2] = 0LL;
+  v43 = a2;
+  v41 = 0LL;
+  v46 = 3145774;
+  v47 = L"LdrResGetRCConfig Enter";
+  v48 = 3014700;
+  v49 = L"LdrResGetRCConfig Exit";
   v7 = a4 & 0x2000;
-  v11 = 2147353477LL;
-  if ( (unsigned int)RtlGetCurrentServiceSessionId(a1, a2, a3, a4) )
-    v12 = (__int64)NtCurrentPeb()->SharedData + 555;
+  v8 = 2147353477LL;
+  if ( RtlGetCurrentServiceSessionId() )
+    v9 = (__int64)NtCurrentPeb()->SharedData + 555;
   else
-    v12 = 2147353477LL;
-  if ( (*(_BYTE *)v12 & 1) != 0 )
+    v9 = 2147353477LL;
+  if ( (*(_BYTE *)v9 & 1) != 0 )
   {
-    v13 = 2147353476LL;
-    if ( (unsigned int)RtlGetCurrentServiceSessionId(v12, v8, v9, v10) )
-      v27 = (__int64)NtCurrentPeb()->SharedData + 554;
+    v10 = 2147353476LL;
+    if ( RtlGetCurrentServiceSessionId() )
+      v39 = (__int64)NtCurrentPeb()->SharedData + 554;
     else
-      v27 = 2147353476LL;
-    LdrpTraceLoadMUIDll(&v34, *(unsigned __int8 *)v27);
+      v39 = 2147353476LL;
+    LdrpTraceLoadMUIDll(&v46, *(unsigned __int8 *)v39);
   }
   else
   {
-    v13 = 2147353476LL;
+    v10 = 2147353476LL;
   }
-  v14 = v30;
-  if ( !v30 )
+  v11 = DllHandle;
+  if ( !DllHandle )
   {
-    v16 = -1073741811;
+    v13 = -1073741811;
     goto LABEL_9;
   }
   if ( !a5 )
@@ -94,160 +104,157 @@ __int64 __fastcall LdrResGetRCConfig(__int64 a1, __int64 a2, __int64 *a3, __int6
 LABEL_16:
     if ( !a2 && !v7 )
     {
-      result = LdrpResGetMappingSize(v14, &v31, v5, 0LL);
+      result = LdrpResGetMappingSize(v11, &v43, a4, 0LL);
       if ( (int)result < 0 )
         return result;
     }
-    v22 = v30;
-    v23 = LdrpResSearchResourceMappedFile(v30, v31, v7 != 0 ? 8240 : 4144, (__int64)v38, 3, &v29, v33, 0LL, 0LL);
-    v14 = (unsigned int)v23;
-    if ( v23 < 0 )
+    v15 = (unsigned __int64)DllHandle;
+    v16 = LdrpResSearchResourceMappedFile(DllHandle, v43, v7 != 0 ? 8240 : 4144, (__int64)v50, 3, &v41, v45, 0LL, 0LL);
+    if ( v16 < 0 )
     {
-      if ( v23 != -1073741701 )
-        v14 = 3221225610LL;
-      v16 = v14;
-      v28 = v14;
+      if ( v16 != -1073741701 )
+        v16 = -1073741686;
+      v13 = v16;
+      v40 = v16;
       goto LABEL_21;
     }
-    v9 = v29;
+    v17 = v41;
     if ( !v7 )
     {
-      v8 = (unsigned int)v29[1];
-      v14 = v31 + (v22 & 0xFFFFFFFFFFFFFFFCuLL);
-      if ( (unsigned __int64)v29 + v8 > v14 )
+      v19 = (unsigned int)v41[1];
+      if ( (unsigned __int64)v41 + v19 > v43 + (v15 & 0xFFFFFFFFFFFFFFFCuLL) )
       {
-        v16 = -1073741701;
-        v28 = -1073741701;
+        v13 = -1073741701;
+        v40 = -1073741701;
 LABEL_21:
-        v9 = 0LL;
-        v29 = 0LL;
+        v17 = 0LL;
+        v41 = 0LL;
 LABEL_22:
         if ( a5 )
         {
-          v24 = -1;
-          if ( v9 )
-            v24 = (int)v9;
-          LdrpSetAlternateResourceModuleHandle(v22, 0, 0, v24, 0, 2, v16, 0LL);
+          v18 = -1;
+          if ( v17 )
+            v18 = (int)v17;
+          LdrpSetAlternateResourceModuleHandle(v15, 0, 0, v18, 0, 2, v13, 0LL);
         }
         goto LABEL_10;
       }
-      v16 = -1073020925;
-      v28 = -1073020925;
-      v14 = (unsigned int)v29[17];
-      v10 = (unsigned int)(v14 + v29[18]);
-      if ( (unsigned int)v10 > (unsigned int)v8 )
+      v13 = -1073020925;
+      v40 = -1073020925;
+      v20 = v41[17];
+      v21 = v20 + v41[18];
+      if ( v21 > (unsigned int)v19 )
         goto LABEL_21;
-      if ( (unsigned int)v10 < (unsigned int)v14 )
+      if ( v21 < v20 )
         goto LABEL_21;
-      v14 = (unsigned int)v29[19];
-      v10 = (unsigned int)(v14 + v29[20]);
-      if ( (unsigned int)v10 > (unsigned int)v8 )
+      v22 = v41[19];
+      v23 = v22 + v41[20];
+      if ( v23 > (unsigned int)v19 )
         goto LABEL_21;
-      if ( (unsigned int)v10 < (unsigned int)v14 )
+      if ( v23 < v22 )
         goto LABEL_21;
-      v14 = (unsigned int)v29[21];
-      v10 = (unsigned int)(v14 + v29[22]);
-      if ( (unsigned int)v10 > (unsigned int)v8 )
+      v24 = v41[21];
+      v25 = v24 + v41[22];
+      if ( v25 > (unsigned int)v19 )
         goto LABEL_21;
-      if ( (unsigned int)v10 < (unsigned int)v14 )
+      if ( v25 < v24 )
         goto LABEL_21;
-      v14 = (unsigned int)v29[23];
-      v10 = (unsigned int)(v14 + v29[24]);
-      if ( (unsigned int)v10 > (unsigned int)v8 )
+      v26 = v41[23];
+      v27 = v26 + v41[24];
+      if ( v27 > (unsigned int)v19 )
         goto LABEL_21;
-      if ( (unsigned int)v10 < (unsigned int)v14 )
+      if ( v27 < v26 )
         goto LABEL_21;
-      v14 = (unsigned int)v29[25];
-      v10 = (unsigned int)(v14 + v29[26]);
-      if ( (unsigned int)v10 > (unsigned int)v8 )
+      v28 = v41[25];
+      v29 = v28 + v41[26];
+      if ( v29 > (unsigned int)v19 )
         goto LABEL_21;
-      if ( (unsigned int)v10 < (unsigned int)v14 )
+      if ( v29 < v28 )
         goto LABEL_21;
-      v14 = (unsigned int)v29[27];
-      v10 = (unsigned int)(v14 + v29[28]);
-      if ( (unsigned int)v10 > (unsigned int)v8 )
+      v30 = v41[27];
+      v31 = v30 + v41[28];
+      if ( v31 > (unsigned int)v19 )
         goto LABEL_21;
-      if ( (unsigned int)v10 < (unsigned int)v14 )
+      if ( v31 < v30 )
         goto LABEL_21;
-      v14 = (unsigned int)v29[29];
-      v10 = (unsigned int)(v14 + v29[30]);
-      if ( (unsigned int)v10 > (unsigned int)v8 )
+      v32 = v41[29];
+      v33 = v32 + v41[30];
+      if ( v33 > (unsigned int)v19 )
         goto LABEL_21;
-      if ( (unsigned int)v10 < (unsigned int)v14 )
+      if ( v33 < v32 )
         goto LABEL_21;
-      v14 = (unsigned int)v29[31];
-      v10 = (unsigned int)(v14 + v29[32]);
-      if ( (unsigned int)v10 > (unsigned int)v8 )
+      v34 = v41[31];
+      v35 = v34 + v41[32];
+      if ( v35 > (unsigned int)v19 )
         goto LABEL_21;
-      if ( (unsigned int)v10 < (unsigned int)v14 )
+      if ( v35 < v34 )
         goto LABEL_21;
-      if ( *v29 != -20054323 )
+      if ( *v41 != -20054323 )
         goto LABEL_21;
-      if ( v8 != v33[0] )
+      if ( v19 != v45[0] )
         goto LABEL_21;
-      if ( v29[2] != 0x10000 )
+      if ( v41[2] != 0x10000 )
         goto LABEL_21;
-      v25 = (unsigned int)v29[3];
-      if ( (_DWORD)v25 )
+      v36 = (unsigned int)v41[3];
+      if ( (_DWORD)v36 )
       {
-        if ( !(unsigned __int8)CheckOneBitValidFlag(v25, 7LL, v29) )
+        if ( !(unsigned __int8)CheckOneBitValidFlag(v36, 7LL, v41) )
           goto LABEL_21;
       }
-      if ( !(unsigned __int8)CheckOneBitValidFlag(v9[4] & 0xFFFFFFCF, 3LL, v9) )
+      if ( !(unsigned __int8)CheckOneBitValidFlag(v17[4] & 0xFFFFFFCF, 3LL, v17) )
         goto LABEL_21;
-      if ( !(unsigned __int8)CheckOneBitValidFlag(*(_DWORD *)(v26 + 16) & 0xFFFFFFFC, 48LL, v26) )
+      if ( !(unsigned __int8)CheckOneBitValidFlag(*(_DWORD *)(v37 + 16) & 0xFFFFFFFC, 48LL, v37) )
         goto LABEL_21;
-      if ( (v9[4] & 1) != 0 )
+      if ( (v17[4] & 1) != 0 )
       {
-        if ( !(unsigned __int8)CheckOneBitValidFlag((unsigned int)v9[6], 3LL, v9) )
+        if ( !(unsigned __int8)CheckOneBitValidFlag((unsigned int)v17[6], 3LL, v17) )
           goto LABEL_21;
-        v14 = (unsigned int)v9[5];
-        if ( (_DWORD)v14 )
+        v38 = (unsigned int)v17[5];
+        if ( (_DWORD)v38 )
         {
-          if ( !(unsigned __int8)CheckOneBitValidFlag(v14, 256LL, v9) )
+          if ( !(unsigned __int8)CheckOneBitValidFlag(v38, 256LL, v17) )
             goto LABEL_21;
         }
       }
     }
-    if ( v32 )
-      *v32 = (__int64)v9;
-    v16 = 0;
-    v28 = 0;
+    if ( v44 )
+      *v44 = (__int64)v17;
+    v13 = 0;
+    v40 = 0;
     goto LABEL_22;
   }
-  v15 = LdrpGetFromMUIMemCache(v30, 0LL, 0LL, 8LL);
-  v29 = (_DWORD *)v15;
-  if ( v15 != -1 )
+  v12 = LdrpGetFromMUIMemCache(DllHandle);
+  v41 = (_DWORD *)v12;
+  if ( v12 != -1 )
   {
-    if ( v15 )
+    if ( v12 )
     {
-      v16 = 0;
-      v28 = 0;
-      v14 = (unsigned __int64)v32;
-      if ( v32 )
-        *v32 = v15;
+      v13 = 0;
+      v40 = 0;
+      if ( v44 )
+        *v44 = v12;
       goto LABEL_10;
     }
-    v14 = v30;
+    v11 = DllHandle;
     goto LABEL_16;
   }
-  v16 = -1073741686;
+  v13 = -1073741686;
 LABEL_9:
-  v28 = v16;
+  v40 = v13;
 LABEL_10:
-  if ( (unsigned int)RtlGetCurrentServiceSessionId(v14, v8, v9, v10) )
+  if ( RtlGetCurrentServiceSessionId() )
   {
-    v11 = (__int64)NtCurrentPeb()->SharedData + 555;
-    v16 = v28;
+    v8 = (__int64)NtCurrentPeb()->SharedData + 555;
+    v13 = v40;
   }
-  if ( (*(_BYTE *)v11 & 1) != 0 )
+  if ( (*(_BYTE *)v8 & 1) != 0 )
   {
-    if ( (unsigned int)RtlGetCurrentServiceSessionId(v18, v17, v19, v20) )
+    if ( RtlGetCurrentServiceSessionId() )
     {
-      v13 = (__int64)NtCurrentPeb()->SharedData + 554;
-      v16 = v28;
+      v10 = (__int64)NtCurrentPeb()->SharedData + 554;
+      v13 = v40;
     }
-    LdrpTraceLoadMUIDll(&v36, *(unsigned __int8 *)v13);
+    LdrpTraceLoadMUIDll(&v48, *(unsigned __int8 *)v10);
   }
-  return v16;
+  return v13;
 }

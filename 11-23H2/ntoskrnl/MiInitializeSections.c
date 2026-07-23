@@ -1,13 +1,13 @@
 /*
- * XREFs of MiInitializeSections @ 0x140837B4C
+ * XREFs of MiInitializeSections @ 0x140837E4C
  * Callers:
- *     MiInitializePartition @ 0x1408372A0 (MiInitializePartition.c)
+ *     MiInitializePartition @ 0x1408375A0 (MiInitializePartition.c)
  *     MiInitNucleus @ 0x140B41888 (MiInitNucleus.c)
  * Callees:
  *     InitializeSListHead @ 0x140221420 (InitializeSListHead.c)
- *     KeInitializeEvent @ 0x1402AF870 (KeInitializeEvent.c)
- *     KeInitializeSemaphore @ 0x1402B32F0 (KeInitializeSemaphore.c)
- *     KeInitializeTimerEx @ 0x1402BE660 (KeInitializeTimerEx.c)
+ *     KeInitializeEvent @ 0x1402AFB00 (KeInitializeEvent.c)
+ *     KeInitializeSemaphore @ 0x1402B3580 (KeInitializeSemaphore.c)
+ *     KeInitializeTimerEx @ 0x1402BE8F0 (KeInitializeTimerEx.c)
  */
 
 void __fastcall MiInitializeSections(__int64 a1)

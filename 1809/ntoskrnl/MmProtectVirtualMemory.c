@@ -1,28 +1,28 @@
 /*
- * XREFs of MmProtectVirtualMemory @ 0x1405EDFD0
+ * XREFs of MmProtectVirtualMemory @ 0x1405EEFD0
  * Callers:
- *     PsDispatchIumService @ 0x1402EAB94 (PsDispatchIumService.c)
- *     MiAllocateVirtualMemory @ 0x1405ED650 (MiAllocateVirtualMemory.c)
- *     NtProtectVirtualMemory @ 0x1405EDD70 (NtProtectVirtualMemory.c)
+ *     PsDispatchIumService @ 0x1402EAD84 (PsDispatchIumService.c)
+ *     MiAllocateVirtualMemory @ 0x1405EE650 (MiAllocateVirtualMemory.c)
+ *     NtProtectVirtualMemory @ 0x1405EED70 (NtProtectVirtualMemory.c)
  * Callees:
  *     KiCheckForKernelApcDelivery @ 0x140005A50 (KiCheckForKernelApcDelivery.c)
  *     MiGetProtoPteAddress @ 0x140042770 (MiGetProtoPteAddress.c)
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     MiReadPteShadow @ 0x14006C550 (MiReadPteShadow.c)
- *     MiProtectPrivateMemory @ 0x140070DC0 (MiProtectPrivateMemory.c)
- *     MiSetProtectionOnSection @ 0x140071E80 (MiSetProtectionOnSection.c)
- *     MiMakeProtectionMask @ 0x1400744A0 (MiMakeProtectionMask.c)
- *     MiUnlockAndDereferenceVad @ 0x140074550 (MiUnlockAndDereferenceVad.c)
- *     MiObtainReferencedVadEx @ 0x1400747E0 (MiObtainReferencedVadEx.c)
- *     MiVadMapsLargeImage @ 0x140074A10 (MiVadMapsLargeImage.c)
- *     MiIsProcessCfgEnabled @ 0x1400884BC (MiIsProcessCfgEnabled.c)
- *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
- *     MiAllowProtectionChange @ 0x1400F15E8 (MiAllowProtectionChange.c)
- *     MiProtectAweRegion @ 0x1402B15BC (MiProtectAweRegion.c)
- *     MiProtectEnclavePages @ 0x1402BE120 (MiProtectEnclavePages.c)
- *     MiCommitVadCfgBits @ 0x1405F45BC (MiCommitVadCfgBits.c)
- *     MiCheckSecuredVad @ 0x140618974 (MiCheckSecuredVad.c)
+ *     MiReadPteShadow @ 0x14006C540 (MiReadPteShadow.c)
+ *     MiProtectPrivateMemory @ 0x140070DB0 (MiProtectPrivateMemory.c)
+ *     MiSetProtectionOnSection @ 0x140071E70 (MiSetProtectionOnSection.c)
+ *     MiMakeProtectionMask @ 0x140074490 (MiMakeProtectionMask.c)
+ *     MiUnlockAndDereferenceVad @ 0x140074540 (MiUnlockAndDereferenceVad.c)
+ *     MiObtainReferencedVadEx @ 0x1400747D0 (MiObtainReferencedVadEx.c)
+ *     MiVadMapsLargeImage @ 0x140074A00 (MiVadMapsLargeImage.c)
+ *     MiIsProcessCfgEnabled @ 0x1400884AC (MiIsProcessCfgEnabled.c)
+ *     ExfReleasePushLockShared @ 0x1400913F0 (ExfReleasePushLockShared.c)
+ *     MiAllowProtectionChange @ 0x1400F1668 (MiAllowProtectionChange.c)
+ *     MiProtectAweRegion @ 0x1402B17AC (MiProtectAweRegion.c)
+ *     MiProtectEnclavePages @ 0x1402BE310 (MiProtectEnclavePages.c)
+ *     MiCommitVadCfgBits @ 0x1405F55BC (MiCommitVadCfgBits.c)
+ *     MiCheckSecuredVad @ 0x140619974 (MiCheckSecuredVad.c)
  */
 
 __int64 __fastcall MmProtectVirtualMemory(

@@ -1,9 +1,9 @@
 /*
- * XREFs of MiInitializeImageHotPatchContext @ 0x1408557DC
+ * XREFs of MiInitializeImageHotPatchContext @ 0x140856A3C
  * Callers:
- *     MiPerformImageHotPatch @ 0x140856C80 (MiPerformImageHotPatch.c)
+ *     MiPerformImageHotPatch @ 0x140857EE0 (MiPerformImageHotPatch.c)
  * Callees:
- *     memset @ 0x1401D1880 (memset.c)
+ *     memset @ 0x1401D1980 (memset.c)
  */
 
 void *__fastcall MiInitializeImageHotPatchContext(_QWORD *a1, __int64 a2)

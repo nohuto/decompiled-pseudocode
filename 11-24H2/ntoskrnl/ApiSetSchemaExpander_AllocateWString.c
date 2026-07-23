@@ -1,9 +1,9 @@
 /*
- * XREFs of ApiSetSchemaExpander_AllocateWString @ 0x1406628E8
+ * XREFs of ApiSetSchemaExpander_AllocateWString @ 0x1406611CC
  * Callers:
- *     ApiSetSchemaExpander_InsertHostEntry @ 0x140662E14 (ApiSetSchemaExpander_InsertHostEntry.c)
+ *     ApiSetSchemaExpander_InsertHostEntry @ 0x1406616F8 (ApiSetSchemaExpander_InsertHostEntry.c)
  * Callees:
- *     memmove @ 0x1406BFC40 (memmove.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
  */
 
 __int64 __fastcall ApiSetSchemaExpander_AllocateWString(__int64 a1, const void *a2, unsigned int a3, _DWORD *a4)

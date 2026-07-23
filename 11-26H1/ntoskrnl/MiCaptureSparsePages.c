@@ -1,13 +1,13 @@
 /*
- * XREFs of MiCaptureSparsePages @ 0x140879C14
+ * XREFs of MiCaptureSparsePages @ 0x140880010
  * Callers:
- *     MiDeleteSparseRange @ 0x14087A3B4 (MiDeleteSparseRange.c)
+ *     MiDeleteSparseRange @ 0x1408807B0 (MiDeleteSparseRange.c)
  * Callees:
- *     MiGetContainingPageTable @ 0x1402D9BF0 (MiGetContainingPageTable.c)
- *     MiMakeValidPte @ 0x1402DA020 (MiMakeValidPte.c)
- *     MiLockAndDecrementShareCount @ 0x1403091DC (MiLockAndDecrementShareCount.c)
- *     MiInsertPageChainHead @ 0x14033A060 (MiInsertPageChainHead.c)
- *     MiInitializePageChainHead @ 0x140449C90 (MiInitializePageChainHead.c)
+ *     MiGetContainingPageTable @ 0x1402BB9B0 (MiGetContainingPageTable.c)
+ *     MiMakeValidPte @ 0x1402BBDE0 (MiMakeValidPte.c)
+ *     MiLockAndDecrementShareCount @ 0x1402EB25C (MiLockAndDecrementShareCount.c)
+ *     MiInsertPageChainHead @ 0x14033C0E0 (MiInsertPageChainHead.c)
+ *     MiInitializePageChainHead @ 0x140441DC0 (MiInitializePageChainHead.c)
  */
 
 __int64 __fastcall MiCaptureSparsePages(unsigned __int64 *BugCheckParameter4, __int64 a2, __int64 *a3)
@@ -18,7 +18,7 @@ __int64 __fastcall MiCaptureSparsePages(unsigned __int64 *BugCheckParameter4, __
   unsigned __int64 ContainingPageTable; // r8
 
   MiInitializePageChainHead((__int64)a3);
-  result = MiMakeValidPte((unsigned __int64)BugCheckParameter4, (__int64)qword_140E36000[0], 1);
+  result = MiMakeValidPte((unsigned __int64)BugCheckParameter4, (__int64)qword_140E36180[0], 1);
   for ( i = result; a2; --a2 )
   {
     v8 = *BugCheckParameter4;

@@ -1,14 +1,14 @@
 /*
- * XREFs of MiLogBadMapper @ 0x140630DF8
+ * XREFs of MiLogBadMapper @ 0x140631348
  * Callers:
- *     MiShowBadMapper @ 0x1406310BC (MiShowBadMapper.c)
+ *     MiShowBadMapper @ 0x14063160C (MiShowBadMapper.c)
  *     MmRegisterEtwProvider @ 0x140B4D698 (MmRegisterEtwProvider.c)
  * Callees:
  *     _tlgKeywordOn @ 0x140212E64 (_tlgKeywordOn.c)
  *     InsertEventEntryInLookUpTable @ 0x140212F60 (InsertEventEntryInLookUpTable.c)
- *     EtwWriteEx @ 0x1402581E0 (EtwWriteEx.c)
- *     _tlgWriteEx_EtwWriteEx @ 0x140367F70 (_tlgWriteEx_EtwWriteEx.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x1402582A0 (EtwWriteEx.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x140368110 (_tlgWriteEx_EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 char __fastcall MiLogBadMapper(__int64 a1, int a2, EVENT_DESCRIPTOR *a3)
@@ -77,7 +77,7 @@ char __fastcall MiLogBadMapper(__int64 a1, int a2, EVENT_DESCRIPTOR *a3)
       v35 = 8;
       EventDescriptor = a2;
       v38 = 4;
-      LOBYTE(v3) = tlgWriteEx_EtwWriteEx(v9, (unsigned __int8 *)&dword_14003868C, v8, 1u, v22, v23, 4u, &UserData);
+      LOBYTE(v3) = tlgWriteEx_EtwWriteEx(v9, (unsigned __int8 *)&dword_140038774, v8, 1u, v22, v23, 4u, &UserData);
     }
   }
   if ( **(_DWORD **)&qword_140C698E8 > 5u )
@@ -111,7 +111,7 @@ char __fastcall MiLogBadMapper(__int64 a1, int a2, EVENT_DESCRIPTOR *a3)
       *(_QWORD *)&EventDescriptor_8.Id = 0x50B000000LL;
       EventDescriptor_8.Keyword = v10;
       UserData.Size = *(unsigned __int16 *)UserData.Ptr;
-      v31 = &word_1400386D6;
+      v31 = &word_1400387BE;
       UserData.Reserved = 2;
       v32 = 121;
       v33 = 1;
@@ -120,13 +120,13 @@ char __fastcall MiLogBadMapper(__int64 a1, int a2, EVENT_DESCRIPTOR *a3)
       if ( *(void (__fastcall **)(const struct _GUID *, unsigned int, unsigned __int8, unsigned __int64, unsigned __int64, struct _EVENT_FILTER_DESCRIPTOR *, void *))(v11 + 40) == TlgAggregateInternalRegisteredProviderEtwCallback )
       {
         v12 = 0;
-        v13 = (char *)&unk_1400386D8;
+        v13 = (char *)&unk_1400387C0;
         do
           v14 = *v13++;
         while ( v14 < 0 );
         while ( *v13++ )
           ;
-        while ( v13 < &byte_14003874F )
+        while ( v13 < &byte_140038837 )
         {
           while ( *v13++ )
             ;

@@ -1,15 +1,15 @@
 /*
- * XREFs of FsRtlpCancelWaitingIrp @ 0x1404EC858
+ * XREFs of FsRtlpCancelWaitingIrp @ 0x1404E5E38
  * Callers:
- *     FsRtlpWaitOnIrp @ 0x1404EC254 (FsRtlpWaitOnIrp.c)
- *     FsRtlpWaitingIrpCancelRoutine @ 0x1405B7770 (FsRtlpWaitingIrpCancelRoutine.c)
+ *     FsRtlpWaitOnIrp @ 0x1404E5834 (FsRtlpWaitOnIrp.c)
+ *     FsRtlpWaitingIrpCancelRoutine @ 0x1405B9FE0 (FsRtlpWaitingIrpCancelRoutine.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     ExAcquireFastMutex @ 0x140278070 (ExAcquireFastMutex.c)
- *     KeReleaseGuardedMutex @ 0x140278D40 (KeReleaseGuardedMutex.c)
- *     KeReleaseQueuedSpinLock @ 0x1402E2650 (KeReleaseQueuedSpinLock.c)
- *     FsRtlpRemoveAndCompleteWaitingIrp @ 0x1403FE7A0 (FsRtlpRemoveAndCompleteWaitingIrp.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     ExAcquireFastMutex @ 0x1402775E0 (ExAcquireFastMutex.c)
+ *     KeReleaseGuardedMutex @ 0x1402782B0 (KeReleaseGuardedMutex.c)
+ *     KeReleaseQueuedSpinLock @ 0x1402C4710 (KeReleaseQueuedSpinLock.c)
+ *     FsRtlpRemoveAndCompleteWaitingIrp @ 0x1403FAF90 (FsRtlpRemoveAndCompleteWaitingIrp.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void __fastcall FsRtlpCancelWaitingIrp(__int64 a1, char a2)
@@ -53,7 +53,7 @@ void __fastcall FsRtlpCancelWaitingIrp(__int64 a1, char a2)
     v9 = *(_DWORD *)(v3 + 144);
     v23 = &v9;
     v24 = 4LL;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E06B30, (unsigned __int8 *)&dword_14004540C, 0LL, 0LL, 4u, v20);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E06B30, (unsigned __int8 *)byte_140045A61, 0LL, 0LL, 4u, v20);
   }
   if ( !a2 )
     ExAcquireFastMutex(*(PKGUARDED_MUTEX *)(v3 + 152));
@@ -82,7 +82,7 @@ void __fastcall FsRtlpCancelWaitingIrp(__int64 a1, char a2)
         v28 = 1LL;
         tlgWriteTransfer_EtwWriteTransfer(
           (__int64)&dword_140E06B30,
-          (unsigned __int8 *)&dword_1400453A4,
+          (unsigned __int8 *)byte_1400459F9,
           0LL,
           0LL,
           6u,
@@ -106,6 +106,12 @@ void __fastcall FsRtlpCancelWaitingIrp(__int64 a1, char a2)
     v8 = *(_DWORD *)(v3 + 144);
     v18 = &v8;
     v19 = 4LL;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E06B30, (unsigned __int8 *)&byte_14004535F, 0LL, 0LL, 4u, &v15);
+    tlgWriteTransfer_EtwWriteTransfer(
+      (__int64)&dword_140E06B30,
+      (unsigned __int8 *)&dword_1400459B4,
+      0LL,
+      0LL,
+      4u,
+      &v15);
   }
 }

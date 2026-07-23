@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpTimeToTimeFields @ 0x1800B8380
+ * XREFs of RtlpTimeToTimeFields @ 0x1800A2440
  * Callers:
- *     RtlCutoverTimeToSystemTime @ 0x1800B8140 (RtlCutoverTimeToSystemTime.c)
- *     RtlTimeToTimeFields @ 0x1800EEEC0 (RtlTimeToTimeFields.c)
+ *     RtlCutoverTimeToSystemTime @ 0x1800A2200 (RtlCutoverTimeToSystemTime.c)
+ *     RtlTimeToTimeFields @ 0x1800EA0A0 (RtlTimeToTimeFields.c)
  * Callees:
- *     RtlpTimeToTimeFieldsNoLeapSeconds @ 0x1800B8760 (RtlpTimeToTimeFieldsNoLeapSeconds.c)
+ *     RtlpTimeToTimeFieldsNoLeapSeconds @ 0x1800A2820 (RtlpTimeToTimeFieldsNoLeapSeconds.c)
  */
 
 __int16 __fastcall RtlpTimeToTimeFields(__int64 *a1, _OWORD *a2, __int64 *a3)

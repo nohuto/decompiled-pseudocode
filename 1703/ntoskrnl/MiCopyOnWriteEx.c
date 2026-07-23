@@ -183,8 +183,8 @@ __int64 __fastcall MiCopyOnWriteEx(ULONG_PTR BugCheckParameter2, __int64 a2, ULO
       goto LABEL_12;
   }
   if ( PsNtosImageBase
-    && (BugCheckParameter2 >= PsNtosImageBase && BugCheckParameter2 < PsNtosImageEnd
-     || BugCheckParameter2 >= PsHalImageBase && BugCheckParameter2 < PsHalImageEnd) )
+    && (BugCheckParameter2 >= (unsigned __int64)PsNtosImageBase && BugCheckParameter2 < PsNtosImageEnd
+     || BugCheckParameter2 >= (unsigned __int64)PsHalImageBase && BugCheckParameter2 < PsHalImageEnd) )
   {
 LABEL_12:
     v80 = 0;

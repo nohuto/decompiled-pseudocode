@@ -6,7 +6,7 @@
  *     IopUnloadDriver @ 0x140AA3F28 (IopUnloadDriver.c)
  */
 
-__int64 __fastcall NtUnloadDriver(__int64 a1)
+NTSTATUS __cdecl NtUnloadDriver(PUNICODE_STRING DriverServiceName)
 {
-  return IopUnloadDriver(a1, 0LL);
+  return IopUnloadDriver(DriverServiceName, 0LL);
 }

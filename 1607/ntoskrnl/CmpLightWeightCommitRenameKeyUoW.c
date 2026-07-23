@@ -1,18 +1,18 @@
 /*
- * XREFs of CmpLightWeightCommitRenameKeyUoW @ 0x14060E7D8
+ * XREFs of CmpLightWeightCommitRenameKeyUoW @ 0x14060E88C
  * Callers:
- *     CmpProcessLightWeightUOW @ 0x14053AD0C (CmpProcessLightWeightUOW.c)
+ *     CmpProcessLightWeightUOW @ 0x14053B24C (CmpProcessLightWeightUOW.c)
  * Callees:
- *     CmpDiscardKcb @ 0x14000ADEC (CmpDiscardKcb.c)
- *     CmpSearchKeyControlBlockTreeEx @ 0x1401B4BDC (CmpSearchKeyControlBlockTreeEx.c)
- *     HvFreeCell @ 0x1404016EC (HvFreeCell.c)
- *     CmpDereferenceKeyControlBlockWithLock @ 0x140437B40 (CmpDereferenceKeyControlBlockWithLock.c)
- *     CmpSearchForOpenSubKeys @ 0x14049ACE4 (CmpSearchForOpenSubKeys.c)
- *     CmpMarkKeyUnbacked @ 0x14049FE7C (CmpMarkKeyUnbacked.c)
- *     CmpFlushNotifiesOnKeyBodyList @ 0x14049FEF8 (CmpFlushNotifiesOnKeyBodyList.c)
- *     CmpUpdateParentForEachSon @ 0x14060B25C (CmpUpdateParentForEachSon.c)
- *     CmpLightWeightCleanupModifyKeyDataUoW @ 0x14060E2DC (CmpLightWeightCleanupModifyKeyDataUoW.c)
- *     CmpLightWeightSwapParentSubKeyList @ 0x14060F820 (CmpLightWeightSwapParentSubKeyList.c)
+ *     CmpDiscardKcb @ 0x14000A96C (CmpDiscardKcb.c)
+ *     CmpSearchKeyControlBlockTreeEx @ 0x1401B4AC0 (CmpSearchKeyControlBlockTreeEx.c)
+ *     CmpSearchForOpenSubKeys @ 0x1403E3C04 (CmpSearchForOpenSubKeys.c)
+ *     HvFreeCell @ 0x1404005AC (HvFreeCell.c)
+ *     CmpDereferenceKeyControlBlockWithLock @ 0x140436A10 (CmpDereferenceKeyControlBlockWithLock.c)
+ *     CmpMarkKeyUnbacked @ 0x140518288 (CmpMarkKeyUnbacked.c)
+ *     CmpFlushNotifiesOnKeyBodyList @ 0x140518304 (CmpFlushNotifiesOnKeyBodyList.c)
+ *     CmpUpdateParentForEachSon @ 0x14060B310 (CmpUpdateParentForEachSon.c)
+ *     CmpLightWeightCleanupModifyKeyDataUoW @ 0x14060E390 (CmpLightWeightCleanupModifyKeyDataUoW.c)
+ *     CmpLightWeightSwapParentSubKeyList @ 0x14060F8D4 (CmpLightWeightSwapParentSubKeyList.c)
  */
 
 void __fastcall CmpLightWeightCommitRenameKeyUoW(__int64 *a1, _QWORD *a2)
@@ -41,7 +41,7 @@ void __fastcall CmpLightWeightCommitRenameKeyUoW(__int64 *a1, _QWORD *a2)
   v5 = *(_QWORD *)(v4 + 24);
   CmpUpdateParentForEachSon(v5, *(unsigned int *)(v4 + 32), 0);
   HvFreeCell(v5, *(unsigned int *)(a1[11] + 32));
-  CmpFlushNotifiesOnKeyBodyList(a1[11], 8, 1);
+  CmpFlushNotifiesOnKeyBodyList(a1[11], 8LL, 1);
   CmpMarkKeyUnbacked(a1[11]);
   CmpDiscardKcb(a1[11]);
   v6 = (*(__int64 (__fastcall **)(ULONG_PTR, _QWORD, int *))(v5 + 8))(v5, *(unsigned int *)(a1[6] + 32), &v15);

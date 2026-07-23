@@ -1,18 +1,18 @@
 /*
- * XREFs of PopIdleWakeNotifyModernStandbyEnter @ 0x1404E5BDC
+ * XREFs of PopIdleWakeNotifyModernStandbyEnter @ 0x1404DF17C
  * Callers:
- *     PopSleepstudyStartNextSession @ 0x140A39120 (PopSleepstudyStartNextSession.c)
+ *     PopSleepstudyStartNextSession @ 0x1409F4CE0 (PopSleepstudyStartNextSession.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 void PopIdleWakeNotifyModernStandbyEnter()
 {
   __int64 Pool2; // rax
-  __int64 v1; // rbx
+  void *v1; // rbx
   _QWORD *v2; // rdi
   unsigned int v3; // esi
   unsigned int *v4; // r14
@@ -20,7 +20,7 @@ void PopIdleWakeNotifyModernStandbyEnter()
   signed __int32 v6; // eax
 
   Pool2 = ExAllocatePool2(0x40uLL);
-  v1 = Pool2;
+  v1 = (void *)Pool2;
   if ( Pool2 )
   {
     *(_QWORD *)(Pool2 + 38056) = Pool2;
@@ -51,7 +51,7 @@ void PopIdleWakeNotifyModernStandbyEnter()
         *v4 = v3;
         do
         {
-          v6 = _InterlockedIncrement((volatile signed __int32 *)&PopAdaptiveStandbyLock.InGlobalUpdateVpThreadPriorityList);
+          v6 = _InterlockedIncrement(&PopIdleWakeNextToken);
           *((_DWORD *)v2 - 100) = v6;
         }
         while ( v6 == -1 );
@@ -64,8 +64,8 @@ void PopIdleWakeNotifyModernStandbyEnter()
       v2 += 148;
     }
     while ( v3 < 0x20 );
-    v5 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)&PopAdaptiveStandbyLock.KernelShadowStack);
-    *(_QWORD *)&PopAdaptiveStandbyLock.SchedulerAssistPriorityFloor = v1;
-    KeReleaseSpinLock((PKSPIN_LOCK)&PopAdaptiveStandbyLock.KernelShadowStack, v5);
+    v5 = KeAcquireSpinLockRaiseToDpc(&PopIdleWakeContextLock);
+    PopIdleWakeContext = v1;
+    KeReleaseSpinLock(&PopIdleWakeContextLock, v5);
   }
 }

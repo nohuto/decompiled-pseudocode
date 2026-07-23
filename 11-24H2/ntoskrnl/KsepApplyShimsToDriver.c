@@ -1,14 +1,14 @@
 /*
- * XREFs of KsepApplyShimsToDriver @ 0x14073F3A4
+ * XREFs of KsepApplyShimsToDriver @ 0x14073D2D4
  * Callers:
- *     KseDriverLoadImage @ 0x140959DBC (KseDriverLoadImage.c)
+ *     KseDriverLoadImage @ 0x14094187C (KseDriverLoadImage.c)
  * Callees:
- *     KsepDebugPrint @ 0x1402CA2D8 (KsepDebugPrint.c)
- *     PsReferenceSiloContext @ 0x14033FA90 (PsReferenceSiloContext.c)
- *     KsepLogInfo @ 0x14048E6C8 (KsepLogInfo.c)
- *     KsepLogError @ 0x14048E6F8 (KsepLogError.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     KsepPatchDriverImportsTable @ 0x14073F684 (KsepPatchDriverImportsTable.c)
+ *     PsReferenceSiloContext @ 0x14031EF70 (PsReferenceSiloContext.c)
+ *     KsepLogInfo @ 0x140488AF8 (KsepLogInfo.c)
+ *     KsepLogError @ 0x140488B28 (KsepLogError.c)
+ *     KsepDebugPrint @ 0x1404CC7D8 (KsepDebugPrint.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     KsepPatchDriverImportsTable @ 0x14073D5B4 (KsepPatchDriverImportsTable.c)
  */
 
 __int64 __fastcall KsepApplyShimsToDriver(__int64 a1, __int64 a2, __int64 a3, unsigned int a4)
@@ -34,15 +34,11 @@ __int64 __fastcall KsepApplyShimsToDriver(__int64 a1, __int64 a2, __int64 a3, un
       if ( *(_QWORD *)(*(_QWORD *)(v9 + 16) + 40LL) )
       {
         LODWORD(v18) = *(_DWORD *)(a1 + 120);
-        v10 = guard_dispatch_icall_no_overrides(
-                a2,
-                *(_QWORD *)(a1 + 48),
-                *(unsigned int *)(a1 + 64),
-                *(unsigned int *)(a1 + 156));
+        v10 = guard_dispatch_icall_no_overrides(a2, *(_QWORD *)(a1 + 48));
         if ( v10 < 0 )
         {
           v14 = ((unsigned __int8)_InterlockedExchangeAdd(&KsepHistoryErrorsIndex, 1u) + 1) & 0x3F;
-          dword_140F0F384[2 * v14] = v10;
+          dword_140F0F684[2 * v14] = v10;
           KsepHistoryErrors[2 * v14] = 459392;
           if ( (KsepDebugFlag & 2) != 0 )
             KsepDebugPrint(
@@ -64,7 +60,7 @@ __int64 __fastcall KsepApplyShimsToDriver(__int64 a1, __int64 a2, __int64 a3, un
       if ( (v11 & 0x80000000) != 0 )
       {
         v15 = ((unsigned __int8)_InterlockedExchangeAdd(&KsepHistoryErrorsIndex, 1u) + 1) & 0x3F;
-        dword_140F0F384[2 * v15] = v11;
+        dword_140F0F684[2 * v15] = v11;
         KsepHistoryErrors[2 * v15] = 459411;
         if ( (KsepDebugFlag & 2) != 0 )
           KsepDebugPrint(8LL, (int)"KSE: Failed to patch driver [%ws]: 0x%x\n", *(_QWORD *)(a2 + 8), v11);

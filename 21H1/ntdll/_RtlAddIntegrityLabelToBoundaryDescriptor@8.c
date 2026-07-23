@@ -6,7 +6,11 @@
  *     _RtlAddSIDToBoundaryDescriptorEx@12 @ 0x4B2A9D06 (_RtlAddSIDToBoundaryDescriptorEx@12.c)
  */
 
-int __stdcall RtlAddIntegrityLabelToBoundaryDescriptor(int a1, unsigned __int8 *a2)
+NTSTATUS __cdecl RtlAddIntegrityLabelToBoundaryDescriptor(
+        POBJECT_BOUNDARY_DESCRIPTOR *BoundaryDescriptor,
+        PSID IntegrityLabel)
 {
-  return RtlAddSIDToBoundaryDescriptorEx(a1, a2, 1);
+  int v2; // edi
+
+  return RtlAddSIDToBoundaryDescriptorEx((unsigned __int8 *)IntegrityLabel, (int)BoundaryDescriptor, v2, 1);
 }

@@ -9,56 +9,54 @@
  *     RtlpHpVaMgrCtxAllocatorFind @ 0x180064584 (RtlpHpVaMgrCtxAllocatorFind.c)
  */
 
-__int64 __fastcall RtlpHpVaMgrCtxAllocatorReference(__int64 a1, unsigned __int64 a2, unsigned __int64 *a3, __int64 a4)
+__int64 __fastcall RtlpHpVaMgrCtxAllocatorReference(__int64 a1, __int64 a2, unsigned int a3)
 {
-  unsigned int v5; // edi
-  unsigned int v7; // edi
-  __int64 v8; // rax
-  __int64 v9; // rbx
-  __int16 v10; // ax
-  __int64 v12; // r8
-  __int64 v13; // rax
-  char v14; // dl
-  __int64 v15; // [rsp+40h] [rbp+8h] BYREF
+  unsigned int v6; // edi
+  __int64 v7; // rax
+  __int64 v8; // rbx
+  __int16 v9; // ax
+  __int64 v11; // r8
+  __int64 v12; // rax
+  char v13; // dl
+  __int64 v14; // [rsp+40h] [rbp+8h] BYREF
 
-  v5 = (unsigned int)a3;
-  RtlAcquireSRWLockExclusive(a1 + 96, a2, a3, a4);
-  v7 = v5 >> 20;
-  v8 = RtlpHpVaMgrCtxAllocatorFind(a1, a2, v7, &v15);
-  v9 = v8;
-  if ( v8 )
+  RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 96));
+  v6 = a3 >> 20;
+  v7 = RtlpHpVaMgrCtxAllocatorFind(a1, a2, v6, &v14);
+  v8 = v7;
+  if ( v7 )
   {
-    v10 = *(_WORD *)(v8 + 42);
-    if ( v10 == -1 )
-      v9 = 0LL;
+    v9 = *(_WORD *)(v7 + 42);
+    if ( v9 == -1 )
+      v8 = 0LL;
     else
-      *(_WORD *)(v9 + 42) = v10 + 1;
+      *(_WORD *)(v8 + 42) = v9 + 1;
   }
   else
   {
-    v12 = v15;
-    if ( v15 )
+    v11 = v14;
+    if ( v14 )
     {
-      *(_BYTE *)(v15 + 46) &= ~1u;
-      v13 = *(_QWORD *)(a2 + 16);
-      *(_QWORD *)v12 = 0LL;
-      *(_QWORD *)(v12 + 32) = v13;
-      *(_WORD *)(v12 + 40) = v7;
-      *(_WORD *)(v12 + 42) = 1;
-      v9 = v12;
-      *(_QWORD *)(v12 + 24) = a1;
-      LOBYTE(v13) = *(_BYTE *)(a2 + 8);
-      *(_BYTE *)(v12 + 44) = (v12 - a1 - 112) / 48;
-      v14 = *(_BYTE *)(a2 + 12);
-      *(_BYTE *)(v12 + 45) = v13;
-      *(_BYTE *)(v12 + 46) = *(_BYTE *)(v12 + 46) & 0xF1 | (*(_DWORD *)(a2 + 4) != 0) | (2
-                                                                                       * (*(_BYTE *)(a2 + 4) & 3 | (4 * (v14 & 1))));
+      *(_BYTE *)(v14 + 46) &= ~1u;
+      v12 = *(_QWORD *)(a2 + 16);
+      *(_QWORD *)v11 = 0LL;
+      *(_QWORD *)(v11 + 32) = v12;
+      *(_WORD *)(v11 + 40) = v6;
+      *(_WORD *)(v11 + 42) = 1;
+      v8 = v11;
+      *(_QWORD *)(v11 + 24) = a1;
+      LOBYTE(v12) = *(_BYTE *)(a2 + 8);
+      *(_BYTE *)(v11 + 44) = (v11 - a1 - 112) / 48;
+      v13 = *(_BYTE *)(a2 + 12);
+      *(_BYTE *)(v11 + 45) = v12;
+      *(_BYTE *)(v11 + 46) = *(_BYTE *)(v11 + 46) & 0xF1 | (*(_DWORD *)(a2 + 4) != 0) | (2
+                                                                                       * (*(_BYTE *)(a2 + 4) & 3 | (4 * (v13 & 1))));
       ++*(_DWORD *)(a1 + 104);
     }
   }
-  RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a1 + 96));
-  if ( v9 )
-    return *(unsigned __int8 *)(v9 + 44);
+  RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 96));
+  if ( v8 )
+    return *(unsigned __int8 *)(v8 + 44);
   else
     return 0xFFFFFFFFLL;
 }

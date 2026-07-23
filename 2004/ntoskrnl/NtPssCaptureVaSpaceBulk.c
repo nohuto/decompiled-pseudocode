@@ -18,85 +18,102 @@
  *     ProbeForWrite @ 0x1406929C0 (ProbeForWrite.c)
  */
 
-__int64 __fastcall NtPssCaptureVaSpaceBulk(void *a1, unsigned __int64 a2, __int128 *a3, SIZE_T a4, __int64 *a5)
+NTSTATUS __cdecl NtPssCaptureVaSpaceBulk(
+        HANDLE ProcessHandle,
+        PVOID BaseAddress,
+        PNTPSS_MEMORY_BULK_INFORMATION BulkInformation,
+        SIZE_T BulkInformationLength,
+        PSIZE_T ReturnLength)
 {
   ULONG v5; // r10d
-  __int128 *MappedSystemVa; // r14
+  _NTPSS_MEMORY_BULK_INFORMATION *MappedSystemVa; // r14
   int v7; // ebx
   struct _MDL *v8; // r15
   int v9; // edi
   KPROCESSOR_MODE PreviousMode; // r13
   __int64 v12; // rcx
-  struct _MDL *Mdl; // rax
-  _QWORD *v14; // r13
-  PVOID BaseAddress; // [rsp+58h] [rbp-E0h]
-  __int64 v16; // [rsp+60h] [rbp-D8h]
-  char *Handlea; // [rsp+68h] [rbp-D0h]
+  struct _MDL *v13; // rax
+  _NTPSS_MEMORY_BULK_INFORMATION *v14; // r13
+  HANDLE v15; // rcx
+  char *BaseAddressa; // [rsp+58h] [rbp-E0h]
+  ULONG_PTR v17; // [rsp+60h] [rbp-D8h] BYREF
+  HANDLE Handle; // [rsp+68h] [rbp-D0h]
+  ULONG Length[2]; // [rsp+70h] [rbp-C8h]
+  PMDL Mdl; // [rsp+78h] [rbp-C0h]
   PVOID Object; // [rsp+80h] [rbp-B8h] BYREF
-  ULONG_PTR ReturnLength; // [rsp+88h] [rbp-B0h] BYREF
-  __int128 v22; // [rsp+90h] [rbp-A8h]
-  void *v23; // [rsp+A0h] [rbp-98h]
-  unsigned __int64 v24; // [rsp+A8h] [rbp-90h]
-  __int128 *v25; // [rsp+B0h] [rbp-88h]
-  SIZE_T v26; // [rsp+B8h] [rbp-80h]
+  ULONG_PTR v22; // [rsp+88h] [rbp-B0h] BYREF
+  _NTPSS_MEMORY_BULK_INFORMATION v23; // [rsp+90h] [rbp-A8h]
+  HANDLE v24; // [rsp+A0h] [rbp-98h]
+  PVOID v25; // [rsp+A8h] [rbp-90h]
+  PNTPSS_MEMORY_BULK_INFORMATION v26; // [rsp+B0h] [rbp-88h]
+  SIZE_T v27; // [rsp+B8h] [rbp-80h]
   struct _KTHREAD *CurrentThread; // [rsp+C0h] [rbp-78h]
   struct _KAPC_STATE ApcState; // [rsp+C8h] [rbp-70h] BYREF
 
-  v5 = a4;
-  MappedSystemVa = a3;
-  BaseAddress = (PVOID)a2;
-  v23 = a1;
-  v24 = a2;
-  v25 = a3;
-  v26 = a4;
+  v5 = BulkInformationLength;
+  *(_QWORD *)Length = BulkInformationLength;
+  MappedSystemVa = BulkInformation;
+  BaseAddressa = (char *)BaseAddress;
+  Handle = ProcessHandle;
+  v24 = ProcessHandle;
+  v25 = BaseAddress;
+  v26 = BulkInformation;
+  v27 = BulkInformationLength;
   Object = 0LL;
   memset(&ApcState, 0, sizeof(ApcState));
-  ReturnLength = 0LL;
-  v16 = 0LL;
+  v22 = 0LL;
+  v17 = 0LL;
   v7 = 0;
   v8 = 0LL;
   v9 = 0;
-  if ( a4 < 0x10 )
-    return 3221225476LL;
+  if ( BulkInformationLength < 0x10 )
+    return -1073741820;
   CurrentThread = KeGetCurrentThread();
   PreviousMode = CurrentThread->PreviousMode;
   if ( PreviousMode )
   {
-    v22 = 0LL;
-    ProbeForWrite(a3, a4, 8u);
-    if ( a5 )
+    v23 = 0LL;
+    ProbeForWrite(BulkInformation, BulkInformationLength, 8u);
+    if ( ReturnLength )
     {
-      v12 = (__int64)a5;
-      if ( (unsigned __int64)a5 >= 0x7FFFFFFF0000LL )
+      v12 = (__int64)ReturnLength;
+      if ( (unsigned __int64)ReturnLength >= 0x7FFFFFFF0000LL )
         v12 = 0x7FFFFFFF0000LL;
       *(_QWORD *)v12 = *(_QWORD *)v12;
     }
-    v22 = *MappedSystemVa;
-    a2 = (unsigned __int64)BaseAddress;
-    v5 = a4;
+    v23 = *MappedSystemVa;
+    BaseAddress = BaseAddressa;
+    v5 = Length[0];
   }
   else
   {
-    v22 = *a3;
+    v23 = *BulkInformation;
   }
-  if ( (_DWORD)v22 )
+  if ( v23.QueryFlags )
   {
-    if ( (v22 & 0xFFFFFFFC) != 0 )
+    if ( (v23.QueryFlags & 0xFFFFFFFC) != 0 )
     {
       v9 = -1073741637;
     }
     else
     {
-      if ( a2 <= 0x7FFFFFFEFFFFLL )
+      if ( (unsigned __int64)BaseAddress <= 0x7FFFFFFEFFFFLL )
       {
         if ( PreviousMode )
         {
-          Mdl = IoAllocateMdl(MappedSystemVa, v5, 0, 0, 0LL);
-          v8 = Mdl;
-          if ( !Mdl
-            || ((MmProbeAndLockPages(Mdl, 0, IoWriteAccess), (v8->MdlFlags & 5) == 0)
-              ? (MappedSystemVa = (__int128 *)MmMapLockedPagesSpecifyCache(v8, 0, MmCached, 0LL, 0, 0x40000010u))
-              : (MappedSystemVa = (__int128 *)v8->MappedSystemVa),
+          v13 = IoAllocateMdl(MappedSystemVa, v5, 0, 0, 0LL);
+          v8 = v13;
+          Mdl = v13;
+          if ( !v13
+            || ((MmProbeAndLockPages(v13, 0, IoWriteAccess), (v8->MdlFlags & 5) == 0)
+              ? (MappedSystemVa = (_NTPSS_MEMORY_BULK_INFORMATION *)MmMapLockedPagesSpecifyCache(
+                                                                      v8,
+                                                                      0,
+                                                                      MmCached,
+                                                                      0LL,
+                                                                      0,
+                                                                      0x40000010u))
+              : (MappedSystemVa = (_NTPSS_MEMORY_BULK_INFORMATION *)v8->MappedSystemVa),
                 !MappedSystemVa) )
           {
             v9 = -1073741670;
@@ -107,10 +124,10 @@ __int64 __fastcall NtPssCaptureVaSpaceBulk(void *a1, unsigned __int64 a2, __int1
         {
           v8 = 0LL;
         }
-        if ( a1 != (void *)-1LL )
+        if ( Handle != (HANDLE)-1LL )
         {
           v9 = ObReferenceObjectByHandleWithTag(
-                 a1,
+                 Handle,
                  0x1000u,
                  (POBJECT_TYPE)PsProcessType,
                  PreviousMode,
@@ -130,15 +147,20 @@ __int64 __fastcall NtPssCaptureVaSpaceBulk(void *a1, unsigned __int64 a2, __int1
         }
         if ( PreviousMode )
         {
-          v9 = ZwPssCaptureVaSpaceBulk(-1LL, (__int64)BaseAddress);
+          v9 = ZwPssCaptureVaSpaceBulk(
+                 (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+                 BaseAddressa,
+                 MappedSystemVa,
+                 *(SIZE_T *)Length,
+                 &v17);
         }
         else
         {
-          *((_DWORD *)MappedSystemVa + 1) = 0;
-          v16 = 16LL;
-          Handlea = (char *)(a4 - 16);
+          MappedSystemVa->NumberOfEntries = 0;
+          v17 = 16LL;
+          Handle = (HANDLE)(*(_QWORD *)Length - 16LL);
           v14 = MappedSystemVa + 1;
-          if ( a4 - 16 >= 0x30 )
+          if ( (unsigned __int64)(*(_QWORD *)Length - 16LL) >= 0x30 )
           {
             while ( 1 )
             {
@@ -149,27 +171,28 @@ __int64 __fastcall NtPssCaptureVaSpaceBulk(void *a1, unsigned __int64 a2, __int1
               }
               v9 = NtQueryVirtualMemory(
                      (HANDLE)0xFFFFFFFFFFFFFFFFLL,
-                     BaseAddress,
+                     BaseAddressa,
                      MemoryBasicInformation,
                      v14,
                      0x30uLL,
-                     &ReturnLength);
+                     &v22);
               if ( v9 < 0 )
                 break;
-              Handlea -= ReturnLength;
-              v16 += ReturnLength;
-              BaseAddress = (PVOID)(*v14 + v14[3]);
-              v14 += 6;
-              ++*((_DWORD *)MappedSystemVa + 1);
-              *((_QWORD *)MappedSystemVa + 1) = BaseAddress;
-              if ( (unsigned __int64)Handlea < 0x30 )
+              Handle = (char *)Handle - v22;
+              v15 = Handle;
+              v17 += v22;
+              BaseAddressa = (char *)v14[1].NextValidAddress + *(_QWORD *)&v14->QueryFlags;
+              v14 += 3;
+              ++MappedSystemVa->NumberOfEntries;
+              MappedSystemVa->NextValidAddress = BaseAddressa;
+              if ( (unsigned __int64)v15 < 0x30 )
                 goto LABEL_41;
             }
-            if ( *((_DWORD *)MappedSystemVa + 1) )
+            if ( MappedSystemVa->NumberOfEntries )
               v9 = 0;
           }
 LABEL_41:
-          if ( v9 >= 0 && *((_QWORD *)MappedSystemVa + 1) != 0x7FFFFFFF0000LL )
+          if ( v9 >= 0 && MappedSystemVa->NextValidAddress != (PVOID)0x7FFFFFFF0000LL )
             v9 = 261;
         }
         goto LABEL_44;
@@ -189,7 +212,7 @@ LABEL_44:
     MmUnlockPages(v8);
     IoFreeMdl(v8);
   }
-  if ( a5 )
-    *a5 = v16;
-  return (unsigned int)v9;
+  if ( ReturnLength )
+    *ReturnLength = v17;
+  return v9;
 }

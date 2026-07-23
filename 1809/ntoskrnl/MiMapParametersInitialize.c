@@ -1,14 +1,14 @@
 /*
- * XREFs of MiMapParametersInitialize @ 0x1405F0080
+ * XREFs of MiMapParametersInitialize @ 0x1405F1080
  * Callers:
- *     MmMapSecureViewOfSection @ 0x140618574 (MmMapSecureViewOfSection.c)
- *     MiMapViewOfSectionExCommon @ 0x140676C10 (MiMapViewOfSectionExCommon.c)
- *     NtMapViewOfSection @ 0x140676FB0 (NtMapViewOfSection.c)
- *     MmMapViewOfSection @ 0x140678B60 (MmMapViewOfSection.c)
+ *     MmMapSecureViewOfSection @ 0x140619574 (MmMapSecureViewOfSection.c)
+ *     MiMapViewOfSectionExCommon @ 0x140677DD0 (MiMapViewOfSectionExCommon.c)
+ *     NtMapViewOfSection @ 0x140678170 (NtMapViewOfSection.c)
+ *     MmMapViewOfSection @ 0x140679D20 (MmMapViewOfSection.c)
  * Callees:
- *     MiSectionControlArea @ 0x140075E70 (MiSectionControlArea.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     MiGetUserReservationHighestAddress @ 0x14069624C (MiGetUserReservationHighestAddress.c)
+ *     MiSectionControlArea @ 0x140075E60 (MiSectionControlArea.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     MiGetUserReservationHighestAddress @ 0x14069740C (MiGetUserReservationHighestAddress.c)
  */
 
 __int64 __fastcall MiMapParametersInitialize(

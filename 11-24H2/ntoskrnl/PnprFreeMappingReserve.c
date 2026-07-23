@@ -1,11 +1,11 @@
 /*
- * XREFs of PnprFreeMappingReserve @ 0x14072F56C
+ * XREFs of PnprFreeMappingReserve @ 0x14072D57C
  * Callers:
- *     PnpReplacePartitionUnit @ 0x14072E220 (PnpReplacePartitionUnit.c)
- *     PnprAllocateMappingReserves @ 0x14072F094 (PnprAllocateMappingReserves.c)
+ *     PnpReplacePartitionUnit @ 0x14072C230 (PnpReplacePartitionUnit.c)
+ *     PnprAllocateMappingReserves @ 0x14072D0A4 (PnprAllocateMappingReserves.c)
  * Callees:
- *     IoFreeMdl @ 0x140267750 (IoFreeMdl.c)
- *     MmFreeMappingAddress @ 0x140A5DAA0 (MmFreeMappingAddress.c)
+ *     IoFreeMdl @ 0x14025ED30 (IoFreeMdl.c)
+ *     MmFreeMappingAddress @ 0x140A55EC0 (MmFreeMappingAddress.c)
  */
 
 void __fastcall PnprFreeMappingReserve(__int64 a1)

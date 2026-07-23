@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlInitAnsiStringEx @ 0x1800E0390
+ * XREFs of RtlInitAnsiStringEx @ 0x1800DB490
  * Callers:
- *     LdrpEnclaveAddDelayloadModules @ 0x1800D9400 (LdrpEnclaveAddDelayloadModules.c)
- *     RtlInitUTF8StringEx @ 0x18013C680 (RtlInitUTF8StringEx.c)
- *     LdrpAddRedirectedFunction @ 0x180160C30 (LdrpAddRedirectedFunction.c)
+ *     LdrpEnclaveAddDelayloadModules @ 0x1800D4770 (LdrpEnclaveAddDelayloadModules.c)
+ *     RtlInitUTF8StringEx @ 0x18013A870 (RtlInitUTF8StringEx.c)
+ *     LdrpAddRedirectedFunction @ 0x18015EFF0 (LdrpAddRedirectedFunction.c)
  * Callees:
- *     strlen @ 0x180167CE0 (strlen.c)
+ *     strlen @ 0x1801660A0 (strlen.c)
  */
 
 NTSTATUS __stdcall RtlInitAnsiStringEx(PANSI_STRING DestinationString, PCSZ SourceString)

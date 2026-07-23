@@ -1,9 +1,9 @@
 /*
- * XREFs of SmKmStoreRefInitialize @ 0x14081A7C4
+ * XREFs of SmKmStoreRefInitialize @ 0x1408209D4
  * Callers:
- *     SmKmStoreAdd @ 0x140B0B64C (SmKmStoreAdd.c)
+ *     SmKmStoreAdd @ 0x140B0CD9C (SmKmStoreAdd.c)
  * Callees:
- *     ExWaitForRundownProtectionRelease @ 0x140463DA0 (ExWaitForRundownProtectionRelease.c)
+ *     ExWaitForRundownProtectionRelease @ 0x14045CD60 (ExWaitForRundownProtectionRelease.c)
  */
 
 void __fastcall SmKmStoreRefInitialize(struct _EX_RUNDOWN_REF *a1)

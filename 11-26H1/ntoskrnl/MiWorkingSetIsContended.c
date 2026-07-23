@@ -1,32 +1,32 @@
 /*
- * XREFs of MiWorkingSetIsContended @ 0x1403182D0
+ * XREFs of MiWorkingSetIsContended @ 0x14031A300
  * Callers:
- *     MiGetPageChain @ 0x140285DD0 (MiGetPageChain.c)
- *     MiGetWorkingSetInfoList @ 0x1402D28A0 (MiGetWorkingSetInfoList.c)
- *     MiWalkVaRange @ 0x1402D3560 (MiWalkVaRange.c)
- *     MiQueryAddressSpan @ 0x140304F70 (MiQueryAddressSpan.c)
- *     MiSharePagesYield @ 0x1403070E0 (MiSharePagesYield.c)
- *     MiMapUserLargePages @ 0x14030FD60 (MiMapUserLargePages.c)
- *     MiCommitVadFillPageTables @ 0x140310ED0 (MiCommitVadFillPageTables.c)
- *     MiProtectGoodCitizen @ 0x140311404 (MiProtectGoodCitizen.c)
- *     MiComputePageCommitment @ 0x140311CE0 (MiComputePageCommitment.c)
- *     MiReplaceRotateWithDemandZeroNoCopy @ 0x140312684 (MiReplaceRotateWithDemandZeroNoCopy.c)
- *     MiInsertViewOfPhysicalSection @ 0x140315954 (MiInsertViewOfPhysicalSection.c)
- *     MiWalkPtesForWriteWatchState @ 0x1403178F8 (MiWalkPtesForWriteWatchState.c)
- *     MiGetPageChainYield @ 0x140318260 (MiGetPageChainYield.c)
- *     MiMoveDirtyBitsToPfns @ 0x140319470 (MiMoveDirtyBitsToPfns.c)
- *     MiDecommitRemoveEnclaveAcquireLocks @ 0x140341128 (MiDecommitRemoveEnclaveAcquireLocks.c)
- *     MiCommitEnclavePages @ 0x140341288 (MiCommitEnclavePages.c)
- *     MiAddPagesToEnclave @ 0x1403414DC (MiAddPagesToEnclave.c)
- *     MiFillPoolCommitPageTable @ 0x1403652A0 (MiFillPoolCommitPageTable.c)
- *     MiMapLockedPagesInUserSpaceHelper @ 0x14036672C (MiMapLockedPagesInUserSpaceHelper.c)
- *     MiDispatchFault @ 0x1403A3E60 (MiDispatchFault.c)
- *     MiUpdatePrivateDemandZeroView @ 0x1404E72E8 (MiUpdatePrivateDemandZeroView.c)
- *     MiVadRangeIsIoSpace @ 0x1404F4AF0 (MiVadRangeIsIoSpace.c)
- *     MiProtectEnclavePages @ 0x140519CE0 (MiProtectEnclavePages.c)
- *     MiQueryVaPhysicalContiguity @ 0x1407004D4 (MiQueryVaPhysicalContiguity.c)
- *     MiMakeVaRangePhysicallyContiguous @ 0x14070B50C (MiMakeVaRangePhysicallyContiguous.c)
- *     MiScrubLargeMappedPage @ 0x14070C03C (MiScrubLargeMappedPage.c)
+ *     MiGetPageChain @ 0x140285330 (MiGetPageChain.c)
+ *     MiGetWorkingSetInfoList @ 0x1402B4660 (MiGetWorkingSetInfoList.c)
+ *     MiWalkVaRange @ 0x1402B5320 (MiWalkVaRange.c)
+ *     MiQueryAddressSpan @ 0x1402E6FF0 (MiQueryAddressSpan.c)
+ *     MiSharePagesYield @ 0x1402E9160 (MiSharePagesYield.c)
+ *     MiMapUserLargePages @ 0x1402F1DE0 (MiMapUserLargePages.c)
+ *     MiCommitVadFillPageTables @ 0x140312F04 (MiCommitVadFillPageTables.c)
+ *     MiProtectGoodCitizen @ 0x140313438 (MiProtectGoodCitizen.c)
+ *     MiComputePageCommitment @ 0x140313D10 (MiComputePageCommitment.c)
+ *     MiReplaceRotateWithDemandZeroNoCopy @ 0x1403146B4 (MiReplaceRotateWithDemandZeroNoCopy.c)
+ *     MiInsertViewOfPhysicalSection @ 0x140317984 (MiInsertViewOfPhysicalSection.c)
+ *     MiWalkPtesForWriteWatchState @ 0x140319928 (MiWalkPtesForWriteWatchState.c)
+ *     MiGetPageChainYield @ 0x14031A290 (MiGetPageChainYield.c)
+ *     MiMoveDirtyBitsToPfns @ 0x14031B4A0 (MiMoveDirtyBitsToPfns.c)
+ *     MiDecommitRemoveEnclaveAcquireLocks @ 0x1403431A8 (MiDecommitRemoveEnclaveAcquireLocks.c)
+ *     MiCommitEnclavePages @ 0x140343308 (MiCommitEnclavePages.c)
+ *     MiAddPagesToEnclave @ 0x14034355C (MiAddPagesToEnclave.c)
+ *     MiFillPoolCommitPageTable @ 0x140367040 (MiFillPoolCommitPageTable.c)
+ *     MiMapLockedPagesInUserSpaceHelper @ 0x1403684CC (MiMapLockedPagesInUserSpaceHelper.c)
+ *     MiDispatchFault @ 0x1403A5BC0 (MiDispatchFault.c)
+ *     MiUpdatePrivateDemandZeroView @ 0x1404E06A4 (MiUpdatePrivateDemandZeroView.c)
+ *     MiVadRangeIsIoSpace @ 0x1404EE0D0 (MiVadRangeIsIoSpace.c)
+ *     MiProtectEnclavePages @ 0x140513750 (MiProtectEnclavePages.c)
+ *     MiQueryVaPhysicalContiguity @ 0x1407051A4 (MiQueryVaPhysicalContiguity.c)
+ *     MiMakeVaRangePhysicallyContiguous @ 0x1407101BC (MiMakeVaRangePhysicallyContiguous.c)
+ *     MiScrubLargeMappedPage @ 0x140710CEC (MiScrubLargeMappedPage.c)
  * Callees:
  *     <none>
  */
@@ -43,7 +43,7 @@ _BOOL8 __fastcall MiWorkingSetIsContended(__int64 a1, int a2)
   if ( v2 != 5 && v2 > 4u )
     return 0LL;
   if ( (*(_DWORD *)(a1 + 184) & 0xF) == 1 )
-    v3 = &qword_140E37800;
+    v3 = &qword_140E37980;
   else
     v3 = (__int64 *)(a1 + 192);
   v4 = *v3;

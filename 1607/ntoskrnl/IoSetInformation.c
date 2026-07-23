@@ -1,25 +1,25 @@
 /*
- * XREFs of IoSetInformation @ 0x1404E8078
+ * XREFs of IoSetInformation @ 0x1404CA404
  * Callers:
- *     MiAttemptPageFileReduction @ 0x1401EDDD8 (MiAttemptPageFileReduction.c)
- *     MiAttemptPageFileExtension @ 0x14065ACD8 (MiAttemptPageFileExtension.c)
+ *     MiAttemptPageFileReduction @ 0x1401EDC04 (MiAttemptPageFileReduction.c)
+ *     MiAttemptPageFileExtension @ 0x14065ADBC (MiAttemptPageFileExtension.c)
  * Callees:
- *     KeInitializeEvent @ 0x14002DEA0 (KeInitializeEvent.c)
- *     IofCallDriver @ 0x14002E060 (IofCallDriver.c)
- *     IoGetRelatedDeviceObject @ 0x14002E0E0 (IoGetRelatedDeviceObject.c)
- *     IopQueueThreadIrp @ 0x14002E170 (IopQueueThreadIrp.c)
- *     KeResetEvent @ 0x14002E630 (KeResetEvent.c)
- *     IofCompleteRequest @ 0x140053560 (IofCompleteRequest.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     KeSetEvent @ 0x1400562D0 (KeSetEvent.c)
- *     KeWaitForSingleObject @ 0x14005C880 (KeWaitForSingleObject.c)
- *     ObfReferenceObject @ 0x14006A060 (ObfReferenceObject.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     IopAcquireFileObjectLock @ 0x1403ECA60 (IopAcquireFileObjectLock.c)
- *     IopOpenLinkOrRenameTarget @ 0x1404D9450 (IopOpenLinkOrRenameTarget.c)
- *     IopCancelAlertedRequest @ 0x1404F0BD8 (IopCancelAlertedRequest.c)
- *     ObCloseHandle @ 0x14050C73C (ObCloseHandle.c)
- *     IopAllocateIrpCleanup @ 0x140620DC0 (IopAllocateIrpCleanup.c)
+ *     KeInitializeEvent @ 0x14002DA20 (KeInitializeEvent.c)
+ *     IofCallDriver @ 0x14002DBE0 (IofCallDriver.c)
+ *     IoGetRelatedDeviceObject @ 0x14002DC60 (IoGetRelatedDeviceObject.c)
+ *     IopQueueThreadIrp @ 0x14002DCF0 (IopQueueThreadIrp.c)
+ *     KeResetEvent @ 0x14002E1B0 (KeResetEvent.c)
+ *     IofCompleteRequest @ 0x1400530E0 (IofCompleteRequest.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     KeSetEvent @ 0x140055E50 (KeSetEvent.c)
+ *     KeWaitForSingleObject @ 0x14005C400 (KeWaitForSingleObject.c)
+ *     ObfReferenceObject @ 0x140069BE0 (ObfReferenceObject.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     IopAcquireFileObjectLock @ 0x1403EE090 (IopAcquireFileObjectLock.c)
+ *     IopOpenLinkOrRenameTarget @ 0x1404BCA54 (IopOpenLinkOrRenameTarget.c)
+ *     IopCancelAlertedRequest @ 0x1404D2CCC (IopCancelAlertedRequest.c)
+ *     ObCloseHandle @ 0x1404EF6CC (ObCloseHandle.c)
+ *     IopAllocateIrpCleanup @ 0x140620E74 (IopAllocateIrpCleanup.c)
  */
 
 NTSTATUS __stdcall IoSetInformation(

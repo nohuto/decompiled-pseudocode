@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlComputeLfnChecksum @ 0x1800FC7CC
+ * XREFs of RtlComputeLfnChecksum @ 0x1800FC78C
  * Callers:
- *     RtlGenerate8dot3Name @ 0x1800FC840 (RtlGenerate8dot3Name.c)
+ *     RtlGenerate8dot3Name @ 0x1800FC800 (RtlGenerate8dot3Name.c)
  * Callees:
  *     <none>
  */

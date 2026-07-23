@@ -1,9 +1,9 @@
 /*
- * XREFs of SepTokenPrivilegeCount @ 0x140428B80
+ * XREFs of SepTokenPrivilegeCount @ 0x14041CCD0
  * Callers:
- *     SeQueryInformationToken @ 0x14090D870 (SeQueryInformationToken.c)
- *     SepRemoveDisabledGroupsAndPrivileges @ 0x1409B29B4 (SepRemoveDisabledGroupsAndPrivileges.c)
- *     NtQueryInformationToken @ 0x140AD3370 (NtQueryInformationToken.c)
+ *     SeQueryInformationToken @ 0x1408E4F90 (SeQueryInformationToken.c)
+ *     SepRemoveDisabledGroupsAndPrivileges @ 0x1409A9D44 (SepRemoveDisabledGroupsAndPrivileges.c)
+ *     NtQueryInformationToken @ 0x140AD09E0 (NtQueryInformationToken.c)
  * Callees:
  *     <none>
  */

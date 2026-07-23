@@ -1,10 +1,10 @@
 /*
- * XREFs of AuthzBasepQueryTokenAttributeAndValues @ 0x1405C145C
+ * XREFs of AuthzBasepQueryTokenAttributeAndValues @ 0x1405C168C
  * Callers:
- *     AuthzBasepQuerySecurityAttributeAndValues @ 0x14024E6B8 (AuthzBasepQuerySecurityAttributeAndValues.c)
+ *     AuthzBasepQuerySecurityAttributeAndValues @ 0x1402F2F08 (AuthzBasepQuerySecurityAttributeAndValues.c)
  * Callees:
- *     SepCopyTokenIntegrity @ 0x14025299C (SepCopyTokenIntegrity.c)
- *     AuthzBasepFindTokenAttribute @ 0x1405C13E8 (AuthzBasepFindTokenAttribute.c)
+ *     SepCopyTokenIntegrity @ 0x14028584C (SepCopyTokenIntegrity.c)
+ *     AuthzBasepFindTokenAttribute @ 0x1405C1618 (AuthzBasepFindTokenAttribute.c)
  */
 
 __int64 __fastcall AuthzBasepQueryTokenAttributeAndValues(__int64 a1)
@@ -81,7 +81,7 @@ __int64 __fastcall AuthzBasepQueryTokenAttributeAndValues(__int64 a1)
     {
       if ( *((_DWORD *)TokenAttribute + 2) == 2 )
       {
-        SepCopyTokenIntegrity(*(_QWORD *)(a1 + 8));
+        SepCopyTokenIntegrity();
         v7 = (__int64 *)(a1 + 64);
         *(_QWORD *)(a1 + 64) = MEMORY[8];
       }

@@ -1,19 +1,19 @@
 /*
- * XREFs of MiTransferSoftwarePte @ 0x14026A0D8
+ * XREFs of MiTransferSoftwarePte @ 0x140258078
  * Callers:
- *     MiWriteComplete @ 0x140255170 (MiWriteComplete.c)
- *     MiStoreWriteModifiedPages @ 0x140266950 (MiStoreWriteModifiedPages.c)
- *     MiTrimUnusedPageFileRegionsWorker @ 0x140267690 (MiTrimUnusedPageFileRegionsWorker.c)
- *     MiZeroCfgSystemWideBitmapWorker @ 0x1402696C0 (MiZeroCfgSystemWideBitmapWorker.c)
- *     MiUpdatePfnBackingStore @ 0x140269DE4 (MiUpdatePfnBackingStore.c)
- *     MiRewriteTrimPteAsDemandZero @ 0x140269EA8 (MiRewriteTrimPteAsDemandZero.c)
- *     MiFindFreePageFileSpace @ 0x14026A714 (MiFindFreePageFileSpace.c)
- *     MiDecommitPages @ 0x140334820 (MiDecommitPages.c)
- *     MiBuildForkPte @ 0x1405582BC (MiBuildForkPte.c)
+ *     MiStoreWriteModifiedPages @ 0x1402548F0 (MiStoreWriteModifiedPages.c)
+ *     MiTrimUnusedPageFileRegionsWorker @ 0x140255630 (MiTrimUnusedPageFileRegionsWorker.c)
+ *     MiZeroCfgSystemWideBitmapWorker @ 0x140257660 (MiZeroCfgSystemWideBitmapWorker.c)
+ *     MiUpdatePfnBackingStore @ 0x140257D84 (MiUpdatePfnBackingStore.c)
+ *     MiRewriteTrimPteAsDemandZero @ 0x140257E48 (MiRewriteTrimPteAsDemandZero.c)
+ *     MiFindFreePageFileSpace @ 0x1402586B4 (MiFindFreePageFileSpace.c)
+ *     MiWriteComplete @ 0x1402766E0 (MiWriteComplete.c)
+ *     MiDecommitPages @ 0x14033F570 (MiDecommitPages.c)
+ *     MiBuildForkPte @ 0x1405584FC (MiBuildForkPte.c)
  * Callees:
- *     MiUpdatePageFileHighInPte @ 0x14023DD80 (MiUpdatePageFileHighInPte.c)
- *     MiSetNonResidentPteHeat @ 0x14023E7B0 (MiSetNonResidentPteHeat.c)
- *     MiSwizzleInvalidPte @ 0x140329F90 (MiSwizzleInvalidPte.c)
+ *     MiUpdatePageFileHighInPte @ 0x1402E25D0 (MiUpdatePageFileHighInPte.c)
+ *     MiSetNonResidentPteHeat @ 0x1402E3000 (MiSetNonResidentPteHeat.c)
+ *     MiSwizzleInvalidPte @ 0x140334CE0 (MiSwizzleInvalidPte.c)
  */
 
 unsigned __int64 __fastcall MiTransferSoftwarePte(unsigned __int64 a1, __int64 a2, unsigned int a3)
@@ -30,7 +30,7 @@ unsigned __int64 __fastcall MiTransferSoftwarePte(unsigned __int64 a1, __int64 a
 
   v12 = a1;
   v4 = a3;
-  MiSetNonResidentPteHeat(&v12, 0);
+  MiSetNonResidentPteHeat(&v12, 0LL);
   if ( (v6 & 0x400) != 0 || (v5 & 4) != 0 )
     result = v12;
   else

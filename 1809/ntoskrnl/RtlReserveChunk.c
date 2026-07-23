@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlReserveChunk @ 0x140890AD0
+ * XREFs of RtlReserveChunk @ 0x140891D30
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
  */
 
 NTSTATUS __stdcall RtlReserveChunk(

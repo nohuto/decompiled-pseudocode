@@ -9,84 +9,88 @@
  *     RtlDowncaseUnicodeChar @ 0x1800D1FC0 (RtlDowncaseUnicodeChar.c)
  */
 
-__int64 __fastcall RtlFindCharInUnicodeString(int a1, __int16 *a2, __int64 a3, _WORD *a4)
+NTSTATUS __cdecl RtlFindCharInUnicodeString(
+        ULONG Flags,
+        PUNICODE_STRING StringToSearch,
+        PUNICODE_STRING CharSet,
+        PUSHORT NonInclusivePrefixLength)
 {
   __int64 v4; // rbp
   char v6; // r12
-  __int64 result; // rax
-  unsigned __int16 v8; // r8
+  NTSTATUS result; // eax
+  unsigned __int16 MaximumLength; // r8
   unsigned __int16 v9; // r8
-  __int16 v10; // r11
-  char *v11; // r13
-  __int16 *v12; // rsi
+  unsigned __int16 Length; // r11
+  unsigned __int16 *Buffer; // r13
+  unsigned __int16 *v12; // rsi
   unsigned __int16 v13; // bx
   unsigned __int16 v14; // di
-  int v15; // r8d
+  ULONG v15; // r8d
   int v16; // r15d
-  __int16 v17; // cx
+  unsigned __int16 v17; // cx
   __int16 v18; // bx
-  __int16 v19; // bx
-  int v20; // r12d
-  __int16 v21; // dx
+  USHORT v19; // bx
+  ULONG v20; // r12d
+  unsigned __int16 v21; // dx
   unsigned __int16 v22; // cx
   signed __int64 v23; // r13
-  _WORD *v24; // r14
+  WCHAR *v24; // r14
   int v25; // r12d
-  __int16 v26; // r8
+  WCHAR v26; // r8
   unsigned __int16 i; // dx
   unsigned __int16 v28; // cx
-  int v29; // r12d
-  __int16 v30; // r15
-  __int16 v31; // [rsp+20h] [rbp-A8h]
-  int v32; // [rsp+24h] [rbp-A4h]
-  _WORD *v33; // [rsp+28h] [rbp-A0h]
+  ULONG v29; // r12d
+  WCHAR v30; // r15
+  unsigned __int16 v31; // [rsp+20h] [rbp-A8h]
+  ULONG v32; // [rsp+24h] [rbp-A4h]
+  USHORT *v33; // [rsp+28h] [rbp-A0h]
   int v34; // [rsp+30h] [rbp-98h]
   _WORD v35[32]; // [rsp+40h] [rbp-88h] BYREF
 
   LODWORD(v4) = 0;
-  v33 = a4;
-  v6 = a1;
-  if ( a4 )
-    *a4 = 0;
-  if ( (a1 & 0xFFFFFFF8) != 0 || !a4 )
-    return 3221225485LL;
-  result = 0LL;
-  if ( a2 )
+  v33 = NonInclusivePrefixLength;
+  v6 = Flags;
+  if ( NonInclusivePrefixLength )
+    *NonInclusivePrefixLength = 0;
+  if ( (Flags & 0xFFFFFFF8) != 0 || !NonInclusivePrefixLength )
+    return -1073741811;
+  result = 0;
+  if ( StringToSearch )
   {
-    if ( (*(_BYTE *)a2 & 1) != 0
-      || (v8 = a2[1], (v8 & 1) != 0)
-      || (unsigned __int16)*a2 > v8
-      || v8 == 0xFFFF
-      || !*((_QWORD *)a2 + 1) && (*a2 || v8) )
+    if ( (StringToSearch->Length & 1) != 0
+      || (MaximumLength = StringToSearch->MaximumLength, (MaximumLength & 1) != 0)
+      || StringToSearch->Length > MaximumLength
+      || MaximumLength == 0xFFFF
+      || !StringToSearch->Buffer && (StringToSearch->Length || MaximumLength) )
     {
-      result = 3221225485LL;
+      result = -1073741811;
     }
   }
-  if ( (int)result >= 0 )
+  if ( result >= 0 )
   {
-    result = 0LL;
-    if ( a3 )
+    result = 0;
+    if ( CharSet )
     {
-      if ( (*(_BYTE *)a3 & 1) != 0
-        || (v9 = *(_WORD *)(a3 + 2), (v9 & 1) != 0)
-        || *(_WORD *)a3 > v9
+      if ( (CharSet->Length & 1) != 0
+        || (v9 = CharSet->MaximumLength, (v9 & 1) != 0)
+        || CharSet->Length > v9
         || v9 == 0xFFFF
-        || !*(_QWORD *)(a3 + 8) && (*(_WORD *)a3 || v9) )
+        || !CharSet->Buffer && (CharSet->Length || v9) )
       {
-        result = 3221225485LL;
+        result = -1073741811;
       }
     }
-    if ( (int)result >= 0 )
+    if ( result >= 0 )
     {
-      v10 = *a2;
-      v11 = *(char **)(a3 + 8);
-      v12 = (__int16 *)*((_QWORD *)a2 + 1);
-      v13 = (unsigned __int16)*a2 >> 1;
-      v14 = *(_WORD *)a3 >> 1;
-      v15 = a1 & 1;
-      v31 = *a2;
+      Length = StringToSearch->Length;
+      Buffer = CharSet->Buffer;
+      v12 = StringToSearch->Buffer;
+      v13 = StringToSearch->Length >> 1;
+      v14 = CharSet->Length >> 1;
+      v15 = Flags & 1;
+      v31 = StringToSearch->Length;
       v32 = v15;
-      if ( (a1 & 1) != 0 )
+      if ( (Flags & 1) != 0 )
       {
         v16 = -1;
         v34 = -1;
@@ -97,11 +101,11 @@ __int64 __fastcall RtlFindCharInUnicodeString(int a1, __int16 *a2, __int64 a3, _
         v16 = 1;
         v34 = 1;
       }
-      if ( (a1 & 4) == 0 )
+      if ( (Flags & 4) == 0 )
       {
         if ( v14 == 1 )
         {
-          v17 = *(_WORD *)v11;
+          v17 = *Buffer;
           if ( (v6 & 2) != 0 )
           {
             if ( v13 )
@@ -132,7 +136,7 @@ __int64 __fastcall RtlFindCharInUnicodeString(int a1, __int16 *a2, __int64 a3, _
         }
         else if ( v13 )
         {
-          v20 = a1 & 2;
+          v20 = Flags & 2;
           while ( 1 )
           {
             v21 = *v12;
@@ -143,7 +147,7 @@ __int64 __fastcall RtlFindCharInUnicodeString(int a1, __int16 *a2, __int64 a3, _
               {
                 do
                 {
-                  if ( v21 == *(_WORD *)&v11[2 * v22] )
+                  if ( v21 == Buffer[v22] )
                     break;
                   ++v22;
                 }
@@ -159,7 +163,7 @@ __int64 __fastcall RtlFindCharInUnicodeString(int a1, __int16 *a2, __int64 a3, _
               {
                 do
                 {
-                  if ( v21 == *(_WORD *)&v11[2 * v22] )
+                  if ( v21 == Buffer[v22] )
                     break;
                   ++v22;
                 }
@@ -174,18 +178,18 @@ __int64 __fastcall RtlFindCharInUnicodeString(int a1, __int16 *a2, __int64 a3, _
               goto LABEL_27;
           }
         }
-        return 3221226021LL;
+        return -1073741275;
       }
       if ( v14 <= 0x20u )
       {
         if ( v14 )
         {
           v4 = v14;
-          v23 = v11 - (char *)v35;
+          v23 = (char *)Buffer - (char *)v35;
           v24 = v35;
           do
           {
-            *v24 = RtlDowncaseUnicodeChar(*(unsigned __int16 *)((char *)v24 + v23));
+            *v24 = RtlDowncaseUnicodeChar(*(WCHAR *)((char *)v24 + v23));
             ++v24;
             --v4;
           }
@@ -196,7 +200,7 @@ __int64 __fastcall RtlFindCharInUnicodeString(int a1, __int16 *a2, __int64 a3, _
           v25 = v6 & 2;
           while ( 1 )
           {
-            v26 = RtlDowncaseUnicodeChar((unsigned __int16)*v12);
+            v26 = RtlDowncaseUnicodeChar(*v12);
             if ( v25 )
             {
               for ( i = v4; i < v14; ++i )
@@ -229,19 +233,19 @@ __int64 __fastcall RtlFindCharInUnicodeString(int a1, __int16 *a2, __int64 a3, _
               goto LABEL_79;
           }
         }
-        return 3221226021LL;
+        return -1073741275;
       }
       if ( v13 )
       {
-        v29 = a1 & 2;
+        v29 = Flags & 2;
         while ( 1 )
         {
-          v30 = RtlDowncaseUnicodeChar((unsigned __int16)*v12);
+          v30 = RtlDowncaseUnicodeChar(*v12);
           if ( v29 )
           {
             do
             {
-              if ( v30 == (unsigned __int16)RtlDowncaseUnicodeChar(*(unsigned __int16 *)&v11[2 * (unsigned __int16)v4]) )
+              if ( v30 == RtlDowncaseUnicodeChar(Buffer[(unsigned __int16)v4]) )
                 break;
               LOWORD(v4) = v4 + 1;
             }
@@ -253,7 +257,7 @@ __int64 __fastcall RtlFindCharInUnicodeString(int a1, __int16 *a2, __int64 a3, _
           {
             do
             {
-              if ( v30 == (unsigned __int16)RtlDowncaseUnicodeChar(*(unsigned __int16 *)&v11[2 * (unsigned __int16)v4]) )
+              if ( v30 == RtlDowncaseUnicodeChar(Buffer[(unsigned __int16)v4]) )
                 break;
               LOWORD(v4) = v4 + 1;
             }
@@ -263,8 +267,8 @@ __int64 __fastcall RtlFindCharInUnicodeString(int a1, __int16 *a2, __int64 a3, _
 LABEL_78:
               LODWORD(v4) = 0;
 LABEL_79:
-              v10 = v31;
-              a4 = v33;
+              Length = v31;
+              NonInclusivePrefixLength = v33;
               v15 = v32;
 LABEL_27:
               if ( v13 )
@@ -273,11 +277,11 @@ LABEL_27:
                 if ( v15 )
                   v19 = 2 * v18;
                 else
-                  v19 = v10 - 2 * v18;
-                *a4 = v19;
-                return (unsigned int)v4;
+                  v19 = Length - 2 * v18;
+                *NonInclusivePrefixLength = v19;
+                return v4;
               }
-              return 3221226021LL;
+              return -1073741275;
             }
           }
           LODWORD(v4) = 0;
@@ -286,7 +290,7 @@ LABEL_27:
             goto LABEL_79;
         }
       }
-      return 3221226021LL;
+      return -1073741275;
     }
   }
   return result;

@@ -1,12 +1,12 @@
 /*
- * XREFs of MiLockDynamicMemoryNestedExclusive @ 0x1406E96A4
+ * XREFs of MiLockDynamicMemoryNestedExclusive @ 0x1406EE344
  * Callers:
- *     MiAcquireAddMemoryLocks @ 0x140864F14 (MiAcquireAddMemoryLocks.c)
- *     MiNodeZeroConductor @ 0x140B27510 (MiNodeZeroConductor.c)
+ *     MiAcquireAddMemoryLocks @ 0x14086B2F4 (MiAcquireAddMemoryLocks.c)
+ *     MiNodeZeroConductor @ 0x140B29DD0 (MiNodeZeroConductor.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
  */
 
 void __fastcall MiLockDynamicMemoryNestedExclusive(__int64 a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
@@ -15,10 +15,10 @@ void __fastcall MiLockDynamicMemoryNestedExclusive(__int64 a1, __int64 a2, __int
   void *v5; // rdx
   AutoBoost *v6; // rbx
 
-  v4 = (AutoBoost *)KeAbPreAcquire((__int64)&stru_140E37DC8, 0LL, 0LL, a4);
+  v4 = (AutoBoost *)KeAbPreAcquire((__int64)&stru_140E37F48, 0LL, 0LL, a4);
   v6 = v4;
-  if ( _interlockedbittestandset64((volatile signed __int32 *)&stru_140E37DC8, 0LL) )
-    ExfAcquirePushLockExclusiveEx((unsigned __int64 *)&stru_140E37DC8, v4, (__int64)&stru_140E37DC8);
+  if ( _interlockedbittestandset64((volatile signed __int32 *)&stru_140E37F48, 0LL) )
+    ExfAcquirePushLockExclusiveEx((unsigned __int64 *)&stru_140E37F48, v4, (__int64)&stru_140E37F48);
   if ( v6 )
   {
     if ( (KiAbpGlobalState & 1) != 0 )

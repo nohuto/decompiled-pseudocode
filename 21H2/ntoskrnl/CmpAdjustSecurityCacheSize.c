@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpAdjustSecurityCacheSize @ 0x1406BA680
+ * XREFs of CmpAdjustSecurityCacheSize @ 0x1406198B0
  * Callers:
- *     CmpValidateHiveSecurityDescriptors @ 0x14066D478 (CmpValidateHiveSecurityDescriptors.c)
+ *     CmpValidateHiveSecurityDescriptors @ 0x140662298 (CmpValidateHiveSecurityDescriptors.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     memmove @ 0x140413F40 (memmove.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     memmove @ 0x140414040 (memmove.c)
  */
 
 char __fastcall CmpAdjustSecurityCacheSize(__int64 a1)

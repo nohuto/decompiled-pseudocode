@@ -1,11 +1,11 @@
 /*
- * XREFs of FioFwReadUlongAtOffset @ 0x14069BF2C
+ * XREFs of FioFwReadUlongAtOffset @ 0x14069CFAC
  * Callers:
- *     RaspMapGlyphIndexToLocation @ 0x14069BD2C (RaspMapGlyphIndexToLocation.c)
- *     BgpFoInitialize @ 0x140C6FFA0 (BgpFoInitialize.c)
- *     FopInitializeFonts @ 0x140C701EC (FopInitializeFonts.c)
+ *     RaspMapGlyphIndexToLocation @ 0x14069CDAC (RaspMapGlyphIndexToLocation.c)
+ *     BgpFoInitialize @ 0x140C72100 (BgpFoInitialize.c)
+ *     FopInitializeFonts @ 0x140C7234C (FopInitializeFonts.c)
  * Callees:
- *     FioFwReadBytesAtOffset @ 0x1404665BC (FioFwReadBytesAtOffset.c)
+ *     FioFwReadBytesAtOffset @ 0x14045DF18 (FioFwReadBytesAtOffset.c)
  */
 
 __int64 __fastcall FioFwReadUlongAtOffset(__int64 a1, unsigned int a2, _DWORD *a3)

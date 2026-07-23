@@ -1,15 +1,15 @@
 /*
- * XREFs of MiEnableImageDirectMap @ 0x14063CC50
+ * XREFs of MiEnableImageDirectMap @ 0x14063D1A0
  * Callers:
  *     MiCreateImageFileMap @ 0x1406A8928 (MiCreateImageFileMap.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ObFastReplaceObject @ 0x14029A578 (ObFastReplaceObject.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiAllocateEntireImageFileExtents @ 0x140A32F24 (MiAllocateEntireImageFileExtents.c)
- *     MiDeleteFileExtentList @ 0x140A33E10 (MiDeleteFileExtentList.c)
- *     MiInitializeImageExtents @ 0x140A33E8C (MiInitializeImageExtents.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ObFastReplaceObject @ 0x14029A808 (ObFastReplaceObject.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     MiAllocateEntireImageFileExtents @ 0x140A331D4 (MiAllocateEntireImageFileExtents.c)
+ *     MiDeleteFileExtentList @ 0x140A340C0 (MiDeleteFileExtentList.c)
+ *     MiInitializeImageExtents @ 0x140A3413C (MiInitializeImageExtents.c)
  */
 
 __int64 __fastcall MiEnableImageDirectMap(
@@ -46,10 +46,13 @@ __int64 __fastcall MiEnableImageDirectMap(
         if ( !v12 || (*(_DWORD *)(v12 + 56) & 3) == 0 && (*(_BYTE *)(v12 + 62) & 0xC) != 4 )
           *((_BYTE *)a2 + 62) = *((_BYTE *)a2 + 62) & 0xF3 | 4;
         ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C65540);
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           CurrentIrql = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v11 <= 0xFu && CurrentIrql >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+            && CurrentIrql <= 0xFu
+            && (unsigned __int8)v11 <= 0xFu
+            && CurrentIrql >= 2u )
           {
             CurrentPrcb = KeGetCurrentPrcb();
             SchedulerAssist = CurrentPrcb->SchedulerAssist;

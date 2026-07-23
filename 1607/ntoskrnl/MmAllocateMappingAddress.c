@@ -1,19 +1,19 @@
 /*
- * XREFs of MmAllocateMappingAddress @ 0x14052C2FC
+ * XREFs of MmAllocateMappingAddress @ 0x14052C83C
  * Callers:
- *     SmFpPreAllocate @ 0x1401488D8 (SmFpPreAllocate.c)
- *     HvlpInitializeHvCrashdump @ 0x1401C08E8 (HvlpInitializeHvCrashdump.c)
- *     PnprInitializeMappingReserve @ 0x1406448B8 (PnprInitializeMappingReserve.c)
- *     EtwpSavePersistedLogger @ 0x1406AA264 (EtwpSavePersistedLogger.c)
+ *     SmFpPreAllocate @ 0x140148E48 (SmFpPreAllocate.c)
+ *     HvlpInitializeHvCrashdump @ 0x1401C07CC (HvlpInitializeHvCrashdump.c)
+ *     PnprInitializeMappingReserve @ 0x14064499C (PnprInitializeMappingReserve.c)
+ *     EtwpSavePersistedLogger @ 0x1406AA39C (EtwpSavePersistedLogger.c)
  *     PspIumInitialize @ 0x1407AA3D0 (PspIumInitialize.c)
  * Callees:
- *     MiReservePtes @ 0x1400DDB50 (MiReservePtes.c)
- *     MiInsertMappingNode @ 0x140110B70 (MiInsertMappingNode.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
- *     MiInsertPteTracker @ 0x1401FC7EC (MiInsertPteTracker.c)
+ *     MiReservePtes @ 0x1400DB9F0 (MiReservePtes.c)
+ *     MiInsertMappingNode @ 0x1401110D4 (MiInsertMappingNode.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
+ *     MiInsertPteTracker @ 0x1401FC618 (MiInsertPteTracker.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */
@@ -49,7 +49,7 @@ PVOID __stdcall MmAllocateMappingAddress(SIZE_T NumberOfBytes, ULONG PoolTag)
   PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x30uLL, 0x6D72694Du);
   if ( !PoolWithTag )
     return 0LL;
-  v6 = MiReservePtes((__int64)&qword_140327870, (unsigned int)v3, v5);
+  v6 = MiReservePtes((__int64)&qword_1403278B0, (unsigned int)v3, v5);
   v7 = (_QWORD *)v6;
   if ( !v6 )
   {

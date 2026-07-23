@@ -1,21 +1,21 @@
 /*
- * XREFs of MiGetLeafPfnBuddy @ 0x140416870
+ * XREFs of MiGetLeafPfnBuddy @ 0x14040AE80
  * Callers:
- *     MmCheckCachedPageStates @ 0x1402E6810 (MmCheckCachedPageStates.c)
- *     MiIdentifyResidentPage @ 0x1402F17A0 (MiIdentifyResidentPage.c)
- *     MiLockProtoPoolPage @ 0x1402F50D0 (MiLockProtoPoolPage.c)
- *     MiCheckProtoPtePageState @ 0x14031BB00 (MiCheckProtoPtePageState.c)
- *     MiRelockProtoPoolPage @ 0x14031BFF4 (MiRelockProtoPoolPage.c)
- *     MiLockProtoPoolPageForce @ 0x1403A10E0 (MiLockProtoPoolPageForce.c)
- *     MiAcquireCachedPageLocks @ 0x1403A17C0 (MiAcquireCachedPageLocks.c)
- *     MiFreePhysicalPageChain @ 0x1403C73D4 (MiFreePhysicalPageChain.c)
- *     MiJumpStackTarget @ 0x1403E4C40 (MiJumpStackTarget.c)
- *     MiIdentifyAwePage @ 0x140415764 (MiIdentifyAwePage.c)
- *     MiSwapStackPage @ 0x140415804 (MiSwapStackPage.c)
- *     MiCanStealKernelStack @ 0x140415D64 (MiCanStealKernelStack.c)
- *     MiGetPfnPidSafe @ 0x140416120 (MiGetPfnPidSafe.c)
- *     MmDeleteKernelStack @ 0x1404162AC (MmDeleteKernelStack.c)
- *     MiDeleteSubsectionLargePages @ 0x140510EFC (MiDeleteSubsectionLargePages.c)
+ *     MmCheckCachedPageStates @ 0x1402C8850 (MmCheckCachedPageStates.c)
+ *     MiIdentifyResidentPage @ 0x1402D3820 (MiIdentifyResidentPage.c)
+ *     MiLockProtoPoolPage @ 0x1402D7150 (MiLockProtoPoolPage.c)
+ *     MiCheckProtoPtePageState @ 0x14031DB30 (MiCheckProtoPtePageState.c)
+ *     MiRelockProtoPoolPage @ 0x14031E024 (MiRelockProtoPoolPage.c)
+ *     MiLockProtoPoolPageForce @ 0x1403A2E40 (MiLockProtoPoolPageForce.c)
+ *     MiAcquireCachedPageLocks @ 0x1403A3520 (MiAcquireCachedPageLocks.c)
+ *     MiFreePhysicalPageChain @ 0x1403D12C8 (MiFreePhysicalPageChain.c)
+ *     MiJumpStackTarget @ 0x1403E7E30 (MiJumpStackTarget.c)
+ *     MiIdentifyAwePage @ 0x140409D94 (MiIdentifyAwePage.c)
+ *     MiSwapStackPage @ 0x140409E34 (MiSwapStackPage.c)
+ *     MiCanStealKernelStack @ 0x14040A394 (MiCanStealKernelStack.c)
+ *     MiGetPfnPidSafe @ 0x14040A730 (MiGetPfnPidSafe.c)
+ *     MmDeleteKernelStack @ 0x14040A8BC (MmDeleteKernelStack.c)
+ *     MiDeleteSubsectionLargePages @ 0x14050A96C (MiDeleteSubsectionLargePages.c)
  * Callees:
  *     <none>
  */

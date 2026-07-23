@@ -1,15 +1,15 @@
 /*
- * XREFs of EtwpStackRundown @ 0x1404692E0
+ * XREFs of EtwpStackRundown @ 0x1404696E0
  * Callers:
- *     EtwpStopLoggerInstance @ 0x1407F6374 (EtwpStopLoggerInstance.c)
- *     EtwpCheckLoggerAccessAndDoRundown @ 0x1409EE934 (EtwpCheckLoggerAccessAndDoRundown.c)
+ *     EtwpStopLoggerInstance @ 0x1407F6644 (EtwpStopLoggerInstance.c)
+ *     EtwpCheckLoggerAccessAndDoRundown @ 0x1409EEBC4 (EtwpCheckLoggerAccessAndDoRundown.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KxAcquireSpinLock @ 0x1402515B0 (KxAcquireSpinLock.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     EtwpDereferenceStackEntry @ 0x140469272 (EtwpDereferenceStackEntry.c)
- *     EtwpTraceCachedStack @ 0x140469498 (EtwpTraceCachedStack.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x140251670 (KxAcquireSpinLock.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     EtwpDereferenceStackEntry @ 0x140469672 (EtwpDereferenceStackEntry.c)
+ *     EtwpTraceCachedStack @ 0x140469898 (EtwpTraceCachedStack.c)
  */
 
 void __fastcall EtwpStackRundown(__int64 a1, __int64 a2, unsigned int a3)
@@ -26,8 +26,8 @@ void __fastcall EtwpStackRundown(__int64 a1, __int64 a2, unsigned int a3)
   _DWORD *v15; // r9
   int v16; // eax
   bool v17; // zf
-  struct _SLIST_ENTRY **v18; // rdi
-  struct _SLIST_ENTRY *v19; // rbx
+  _SLIST_ENTRY **v18; // rdi
+  _SLIST_ENTRY *v19; // rbx
   _OWORD v20[2]; // [rsp+20h] [rbp-68h] BYREF
 
   v3 = 0LL;
@@ -42,7 +42,7 @@ void __fastcall EtwpStackRundown(__int64 a1, __int64 a2, unsigned int a3)
         v8 = 0LL;
         CurrentIrql = KeGetCurrentIrql();
         __writecr8(2uLL);
-        if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+        if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
         {
           SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
           if ( CurrentIrql == 2 )
@@ -59,10 +59,10 @@ void __fastcall EtwpStackRundown(__int64 a1, __int64 a2, unsigned int a3)
           v8 = (unsigned int)(v8 + 1);
         }
         KxReleaseSpinLock((volatile signed __int64 *)v7 + 2);
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v13 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v13 <= 0xFu && CurrentIrql <= 0xFu && v13 >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v13 <= 0xFu && CurrentIrql <= 0xFu && v13 >= 2u )
           {
             CurrentPrcb = KeGetCurrentPrcb();
             v15 = CurrentPrcb->SchedulerAssist;
@@ -70,13 +70,13 @@ void __fastcall EtwpStackRundown(__int64 a1, __int64 a2, unsigned int a3)
             v17 = (v16 & v15[5]) == 0;
             v15[5] &= v16;
             if ( v17 )
-              KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+              KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
           }
         }
         __writecr8(CurrentIrql);
         if ( (_DWORD)v8 )
         {
-          v18 = (struct _SLIST_ENTRY **)v20;
+          v18 = (_SLIST_ENTRY **)v20;
           do
           {
             v19 = *v18;

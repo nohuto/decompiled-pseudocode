@@ -3,35 +3,46 @@
  * Callers:
  *     RtlGetFileMUIPath @ 0x180034DB0 (RtlGetFileMUIPath.c)
  *     RtlGetFullPathName_U @ 0x1800357B0 (RtlGetFullPathName_U.c)
- *     RtlDosSearchPath_U @ 0x18008DB30 (RtlDosSearchPath_U.c)
+ *     RtlDosSearchPath_U @ 0x18008DB40 (RtlDosSearchPath_U.c)
  * Callees:
  *     RtlInitUnicodeStringEx @ 0x18000C120 (RtlInitUnicodeStringEx.c)
  *     RtlGetFullPathName_Ustr @ 0x18000DB20 (RtlGetFullPathName_Ustr.c)
  */
 
-__int64 __fastcall RtlGetFullPathName_UEx(__int64 a1, unsigned int a2, _WORD *a3, _QWORD *a4, _DWORD *a5)
+NTSTATUS __cdecl RtlGetFullPathName_UEx(
+        PCWSTR FileName,
+        ULONG BufferLength,
+        PWSTR Buffer,
+        PWSTR *FilePart,
+        ULONG *BytesRequired)
 {
-  _DWORD *v5; // rbx
-  __int64 result; // rax
-  int FullPathName_Ustr; // eax
-  unsigned __int16 v11[12]; // [rsp+30h] [rbp-18h] BYREF
+  ULONG *v5; // rbx
+  NTSTATUS result; // eax
+  ULONG FullPathName_Ustr; // eax
+  _UNICODE_STRING DestinationString; // [rsp+30h] [rbp-18h] BYREF
 
-  v5 = a5;
-  if ( a5 )
-    *a5 = 0;
-  result = RtlInitUnicodeStringEx((__int64)v11, a1);
-  if ( (int)result >= 0 )
+  v5 = BytesRequired;
+  if ( BytesRequired )
+    *BytesRequired = 0;
+  result = RtlInitUnicodeStringEx(&DestinationString, FileName);
+  if ( result >= 0 )
   {
-    FullPathName_Ustr = RtlGetFullPathName_Ustr(v11, a2, a3, a4, 0LL, (__int64)&a5);
+    FullPathName_Ustr = RtlGetFullPathName_Ustr(
+                          &DestinationString.Length,
+                          BufferLength,
+                          Buffer,
+                          FilePart,
+                          0LL,
+                          (__int64)&BytesRequired);
     if ( FullPathName_Ustr )
     {
       if ( v5 )
         *v5 = FullPathName_Ustr;
-      return 0LL;
+      return 0;
     }
     else
     {
-      return 3221225523LL;
+      return -1073741773;
     }
   }
   return result;

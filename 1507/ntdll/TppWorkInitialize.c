@@ -12,30 +12,27 @@
 
 __int64 __fastcall TppWorkInitialize(__int64 a1, int a2, int a3, int a4, __int64 a5, __int64 a6)
 {
-  char *v7; // rdx
-  int v8; // ebx
-  volatile signed __int32 *v9; // r8
-  __int64 v10; // r9
-  __int64 v11; // rcx
+  int v7; // ebx
+  __int64 v8; // rcx
 
-  v8 = TppCleanupGroupMemberInitialize(a1, a2, a3, a4, a5);
-  if ( v8 >= 0 )
+  v7 = TppCleanupGroupMemberInitialize(a1, a2, a3, a4, a5);
+  if ( v7 >= 0 )
   {
-    v11 = *(_QWORD *)(a1 + 136);
-    if ( v11 )
+    v8 = *(_QWORD *)(a1 + 136);
+    if ( v8 )
     {
       *(_QWORD *)(a1 + 192) = a6;
       *(_DWORD *)(a1 + 200) = 0;
-      TppGetCurrentThreadNumaNode(v11, a1 + 200, a1 + 204);
+      TppGetCurrentThreadNumaNode(v8, a1 + 200, a1 + 204);
       *(_DWORD *)(a1 + 224) = 1;
-      v8 = 0;
+      v7 = 0;
     }
     else
     {
-      v8 = -1073741811;
+      v7 = -1073741811;
     }
-    if ( v8 < 0 )
-      TppCleanupGroupMemberDestroy((_QWORD *)a1, v7, v9, v10);
+    if ( v7 < 0 )
+      TppCleanupGroupMemberDestroy((_QWORD *)a1);
   }
-  return (unsigned int)v8;
+  return (unsigned int)v7;
 }

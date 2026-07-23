@@ -1,10 +1,10 @@
 /*
- * XREFs of IoControlPnpDeviceActionQueue @ 0x1401106E8
+ * XREFs of IoControlPnpDeviceActionQueue @ 0x140110C4C
  * Callers:
- *     PopFxChildDeviceActive @ 0x140202518 (PopFxChildDeviceActive.c)
- *     PopUpdateWakeSourceWorker @ 0x140205A18 (PopUpdateWakeSourceWorker.c)
- *     PopDiagDeviceRundownWorker @ 0x14052B16C (PopDiagDeviceRundownWorker.c)
- *     WmipRegistrationWorker @ 0x140543088 (WmipRegistrationWorker.c)
+ *     PopFxChildDeviceActive @ 0x140202344 (PopFxChildDeviceActive.c)
+ *     PopUpdateWakeSourceWorker @ 0x140205844 (PopUpdateWakeSourceWorker.c)
+ *     PopDiagDeviceRundownWorker @ 0x14052BDBC (PopDiagDeviceRundownWorker.c)
+ *     WmipRegistrationWorker @ 0x1405435C8 (WmipRegistrationWorker.c)
  * Callees:
  *     <none>
  */

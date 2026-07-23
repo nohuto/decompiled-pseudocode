@@ -1,9 +1,9 @@
 /*
- * XREFs of ExtEnvZeroMemory @ 0x14036D6F0
+ * XREFs of ExtEnvZeroMemory @ 0x14036D8A0
  * Callers:
- *     HsaInitializeInterruptRemapping @ 0x1409AA448 (HsaInitializeInterruptRemapping.c)
+ *     HsaInitializeInterruptRemapping @ 0x1409AB378 (HsaInitializeInterruptRemapping.c)
  * Callees:
- *     memset @ 0x140414200 (memset.c)
+ *     memset @ 0x140414300 (memset.c)
  */
 
 void __stdcall ExtEnvZeroMemory(void *a1, SIZE_T Length)

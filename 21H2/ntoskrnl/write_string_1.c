@@ -1,9 +1,9 @@
 /*
- * XREFs of write_string_1 @ 0x1403D9030
+ * XREFs of write_string_1 @ 0x1403D91A0
  * Callers:
- *     _output_s @ 0x1403D862C (_output_s.c)
+ *     _output_s @ 0x1403D879C (_output_s.c)
  * Callees:
- *     write_char_0 @ 0x1403D5C08 (write_char_0.c)
+ *     write_char_0 @ 0x1403D5D78 (write_char_0.c)
  */
 
 int __fastcall write_string_1(char *a1, int a2, FILE *a3, _DWORD *a4)

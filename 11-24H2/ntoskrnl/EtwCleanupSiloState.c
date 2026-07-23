@@ -1,15 +1,15 @@
 /*
- * XREFs of EtwCleanupSiloState @ 0x1407A62BC
+ * XREFs of EtwCleanupSiloState @ 0x1407A63FC
  * Callers:
- *     PspDeleteServerSiloGlobals @ 0x1407729F4 (PspDeleteServerSiloGlobals.c)
+ *     PspDeleteServerSiloGlobals @ 0x140772C14 (PspDeleteServerSiloGlobals.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExfReleasePushLockShared @ 0x14025DE00 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockSharedEx @ 0x14034050C (ExfAcquirePushLockSharedEx.c)
- *     KeBugCheck @ 0x1404FB970 (KeBugCheck.c)
- *     EtwpCleanupSiloState @ 0x1407A70EC (EtwpCleanupSiloState.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExfReleasePushLockShared @ 0x14028E410 (ExfReleasePushLockShared.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockSharedEx @ 0x14031F9EC (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     KeBugCheck @ 0x1404F9230 (KeBugCheck.c)
+ *     EtwpCleanupSiloState @ 0x1407A722C (EtwpCleanupSiloState.c)
  */
 
 __int64 __fastcall EtwCleanupSiloState(_QWORD *P)
@@ -18,7 +18,7 @@ __int64 __fastcall EtwCleanupSiloState(_QWORD *P)
   unsigned int j; // esi
   struct _KTHREAD *CurrentThread; // rax
   signed __int64 *v5; // r14
-  _QWORD *v6; // rbp
+  char *v6; // rbp
   unsigned int k; // ecx
 
   if ( !P )
@@ -34,11 +34,11 @@ LABEL_20:
     CurrentThread = KeGetCurrentThread();
     v5 = &P[7 * j + 90];
     --CurrentThread->KernelApcDisable;
-    v6 = KeAbPreAcquire((__int64)(v5 + 6), 0LL);
+    v6 = (char *)KeAbPreAcquire((__int64)(v5 + 6), 0LL);
     if ( _InterlockedCompareExchange64(v5 + 6, 17LL, 0LL) )
       ExfAcquirePushLockSharedEx(v5 + 6, 0, v6, (__int64)(v5 + 6));
     if ( v6 )
-      *((_BYTE *)v6 + 10) = 1;
+      v6[10] = 1;
     for ( k = 0; k < 3; ++k )
     {
       if ( (signed __int64 *)v5[2 * k] != &v5[2 * k] )

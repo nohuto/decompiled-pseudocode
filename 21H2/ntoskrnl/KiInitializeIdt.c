@@ -1,8 +1,8 @@
 /*
- * XREFs of KiInitializeIdt @ 0x14099FAC8
+ * XREFs of KiInitializeIdt @ 0x1409A09F8
  * Callers:
- *     KiInitializeBootStructures @ 0x14099C160 (KiInitializeBootStructures.c)
- *     KiEnableKvaShadowing @ 0x14099F860 (KiEnableKvaShadowing.c)
+ *     KiInitializeBootStructures @ 0x14099D160 (KiInitializeBootStructures.c)
+ *     KiEnableKvaShadowing @ 0x1409A0790 (KiEnableKvaShadowing.c)
  * Callees:
  *     <none>
  */

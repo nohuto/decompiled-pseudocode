@@ -1,12 +1,12 @@
 /*
- * XREFs of PfSnGetCompletedTrace @ 0x1407D6F3C
+ * XREFs of PfSnGetCompletedTrace @ 0x1407D720C
  * Callers:
- *     PfSnQueryPrefetcherInformation @ 0x1407D6CF4 (PfSnQueryPrefetcherInformation.c)
+ *     PfSnQueryPrefetcherInformation @ 0x1407D6FC4 (PfSnQueryPrefetcherInformation.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x140230720 (ExAcquireFastMutex.c)
- *     ExReleaseFastMutex @ 0x140230860 (ExReleaseFastMutex.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     ProbeForWrite @ 0x140729380 (ProbeForWrite.c)
+ *     ExAcquireFastMutex @ 0x140230810 (ExAcquireFastMutex.c)
+ *     ExReleaseFastMutex @ 0x140230950 (ExReleaseFastMutex.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     ProbeForWrite @ 0x140729580 (ProbeForWrite.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

@@ -1,32 +1,32 @@
 /*
- * XREFs of RtlGetCurrentServiceSessionId @ 0x18002CD80
+ * XREFs of RtlGetCurrentServiceSessionId @ 0x18002CD70
  * Callers:
- *     RtlGetNtProductType @ 0x18002CD40 (RtlGetNtProductType.c)
- *     RtlGetSuiteMask @ 0x18002CDC0 (RtlGetSuiteMask.c)
- *     RtlIsMultiSessionSku @ 0x180072080 (RtlIsMultiSessionSku.c)
- *     RtlGetActiveConsoleId @ 0x1800863B0 (RtlGetActiveConsoleId.c)
+ *     RtlGetNtProductType @ 0x18002CD30 (RtlGetNtProductType.c)
+ *     RtlGetSuiteMask @ 0x18002CDB0 (RtlGetSuiteMask.c)
+ *     RtlIsMultiSessionSku @ 0x180072070 (RtlIsMultiSessionSku.c)
+ *     RtlGetActiveConsoleId @ 0x1800863A0 (RtlGetActiveConsoleId.c)
  *     CsrpLocalSetupForSecureProcess @ 0x1800CEC24 (CsrpLocalSetupForSecureProcess.c)
  *     RtlGetConsoleSessionForegroundProcessId @ 0x1800EEE80 (RtlGetConsoleSessionForegroundProcessId.c)
  * Callees:
- *     __security_check_cookie @ 0x180096C40 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x180096C30 (__security_check_cookie.c)
  *     NtQueryInformationJobObject @ 0x1800A8AF0 (NtQueryInformationJobObject.c)
  */
 
-__int64 RtlGetCurrentServiceSessionId()
+ULONG RtlGetCurrentServiceSessionId(void)
 {
-  __int64 result; // rax
-  _DWORD v1[8]; // [rsp+30h] [rbp-38h] BYREF
+  ULONG result; // eax
+  ULONG JobObjectInformation[8]; // [rsp+30h] [rbp-38h] BYREF
 
-  result = (unsigned int)dword_18014FDEC;
-  if ( dword_18014FDEC == -1 )
+  result = dword_18014FDE8;
+  if ( dword_18014FDE8 == -1 )
   {
-    result = 0LL;
+    result = 0;
     if ( !LdrpIsSecureProcess )
     {
-      NtQueryInformationJobObject(0LL, 39LL, v1, 32LL, 0LL);
-      result = v1[0];
+      NtQueryInformationJobObject(0LL, JobObjectServerSiloUserSharedData, JobObjectInformation, 0x20u, 0LL);
+      result = JobObjectInformation[0];
     }
-    dword_18014FDEC = result;
+    dword_18014FDE8 = result;
   }
   return result;
 }

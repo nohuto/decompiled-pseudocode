@@ -1,5 +1,5 @@
 /*
- * XREFs of PoFxPowerOnCrashdumpDevice @ 0x1402021F8
+ * XREFs of PoFxPowerOnCrashdumpDevice @ 0x140202024
  * Callers:
  *     <none>
  * Callees:

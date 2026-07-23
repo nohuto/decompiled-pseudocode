@@ -1,17 +1,17 @@
 /*
- * XREFs of VmDeleteMemoryRange @ 0x140B080E0
+ * XREFs of VmDeleteMemoryRange @ 0x140B0A210
  * Callers:
  *     <none>
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     VmpRemoveMemoryRange @ 0x14051122C (VmpRemoveMemoryRange.c)
- *     VmpLogCreateDeleteMemoryRange @ 0x14081E2F4 (VmpLogCreateDeleteMemoryRange.c)
- *     VmpValidateMemoryRangeParameters @ 0x140B08298 (VmpValidateMemoryRangeParameters.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     VmpRemoveMemoryRange @ 0x14050AC9C (VmpRemoveMemoryRange.c)
+ *     VmpLogCreateDeleteMemoryRange @ 0x140824504 (VmpLogCreateDeleteMemoryRange.c)
+ *     VmpValidateMemoryRangeParameters @ 0x140B0A3C8 (VmpValidateMemoryRangeParameters.c)
  */
 
 __int64 __fastcall VmDeleteMemoryRange(unsigned __int64 a1, unsigned __int64 a2, __int64 a3, __int64 a4)
@@ -50,7 +50,12 @@ __int64 __fastcall VmDeleteMemoryRange(unsigned __int64 a1, unsigned __int64 a2,
       else
         *((_BYTE *)v14 + 10) = 1;
     }
-    v15 = VmpRemoveMemoryRange((PEX_SPIN_LOCK)Blink, a2 >> 12, a1 >> 12, a3, a4);
+    v15 = VmpRemoveMemoryRange(
+            (PEX_SPIN_LOCK)Blink,
+            (_RTL_BALANCED_NODE *)(a2 >> 12),
+            (_RTL_BALANCED_NODE *)(a1 >> 12),
+            a3,
+            a4);
     v10 = a1;
     v16 = v15;
     if ( v15 >= 0 )
@@ -60,13 +65,13 @@ __int64 __fastcall VmDeleteMemoryRange(unsigned __int64 a1, unsigned __int64 a2,
   {
     v16 = -1073741688;
   }
-  if ( stru_140F066E8.QuantumTarget )
+  if ( stru_140F06A28.InitialStack )
   {
-    if ( *(_DWORD *)stru_140F066E8.QuantumTarget )
+    if ( *(_DWORD *)stru_140F06A28.InitialStack )
     {
-      if ( *(char *)(stru_140F066E8.QuantumTarget + 16) < 0 )
+      if ( *((char *)stru_140F06A28.InitialStack + 16) < 0 )
       {
-        v18 = *(_QWORD *)(stru_140F066E8.QuantumTarget + 24);
+        v18 = *((_QWORD *)stru_140F06A28.InitialStack + 3);
         if ( (v18 & 0x80) == v18 )
           VmpLogCreateDeleteMemoryRange(v18, 1, v10, a2, a3, 0LL, a4, v16);
       }

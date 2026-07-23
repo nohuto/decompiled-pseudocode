@@ -1,24 +1,24 @@
 /*
- * XREFs of PopFxIdleWorkerTail @ 0x140395604
+ * XREFs of PopFxIdleWorkerTail @ 0x140397384
  * Callers:
- *     PopFxIdleWorker @ 0x140395300 (PopFxIdleWorker.c)
- *     PoFxCompleteIdleCondition @ 0x140489250 (PoFxCompleteIdleCondition.c)
+ *     PopFxIdleWorker @ 0x140397080 (PopFxIdleWorker.c)
+ *     PoFxCompleteIdleCondition @ 0x140482D90 (PoFxCompleteIdleCondition.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KxReleaseSpinLock @ 0x1402BDEF0 (KxReleaseSpinLock.c)
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     PopFxActivateComponentWorker @ 0x14037AE70 (PopFxActivateComponentWorker.c)
- *     PopFxReferenceDevice @ 0x1403948D4 (PopFxReferenceDevice.c)
- *     PopFxDeviceCriticalRegionEnter @ 0x1403955A8 (PopFxDeviceCriticalRegionEnter.c)
- *     PopFxDeviceCriticalRegionLeave @ 0x1403955D8 (PopFxDeviceCriticalRegionLeave.c)
- *     PopDiagTraceFxComponentLogicalCondition @ 0x140395C74 (PopDiagTraceFxComponentLogicalCondition.c)
- *     PopFxUpdateAccountingActiveTime @ 0x140395DB8 (PopFxUpdateAccountingActiveTime.c)
- *     PopFxDeactivateComponentDependencies @ 0x140395E1C (PopFxDeactivateComponentDependencies.c)
- *     PopFxCompleteComponentActivation @ 0x1403AECF4 (PopFxCompleteComponentActivation.c)
- *     PopPluginComponentActive @ 0x1403AED90 (PopPluginComponentActive.c)
- *     PopFxProcessWork @ 0x1403AEEC0 (PopFxProcessWork.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KxReleaseSpinLock @ 0x140308BB0 (KxReleaseSpinLock.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PopFxActivateComponentWorker @ 0x14037CC20 (PopFxActivateComponentWorker.c)
+ *     PopFxReferenceDevice @ 0x140396654 (PopFxReferenceDevice.c)
+ *     PopFxDeviceCriticalRegionEnter @ 0x140397328 (PopFxDeviceCriticalRegionEnter.c)
+ *     PopFxDeviceCriticalRegionLeave @ 0x140397358 (PopFxDeviceCriticalRegionLeave.c)
+ *     PopDiagTraceFxComponentLogicalCondition @ 0x1403979F4 (PopDiagTraceFxComponentLogicalCondition.c)
+ *     PopFxUpdateAccountingActiveTime @ 0x140397B38 (PopFxUpdateAccountingActiveTime.c)
+ *     PopFxDeactivateComponentDependencies @ 0x140397B9C (PopFxDeactivateComponentDependencies.c)
+ *     PopFxCompleteComponentActivation @ 0x1403B8A04 (PopFxCompleteComponentActivation.c)
+ *     PopPluginComponentActive @ 0x1403B8AA0 (PopPluginComponentActive.c)
+ *     PopFxProcessWork @ 0x1403B8BD0 (PopFxProcessWork.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 void __fastcall PopFxIdleWorkerTail(_QWORD *BugCheckParameter2, unsigned int a2, void *a3)

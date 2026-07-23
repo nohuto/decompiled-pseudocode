@@ -1,13 +1,13 @@
 /*
- * XREFs of MiSetVadFlags @ 0x1400879E0
+ * XREFs of MiSetVadFlags @ 0x1400879D0
  * Callers:
  *     MiGetProtoPteAddress @ 0x140042770 (MiGetProtoPteAddress.c)
- *     MiRemoveSecureEntry @ 0x1400860C0 (MiRemoveSecureEntry.c)
- *     MiAddSecureEntry @ 0x1405F3490 (MiAddSecureEntry.c)
- *     MiSetImageHotPatchAllowed @ 0x140857FC4 (MiSetImageHotPatchAllowed.c)
+ *     MiRemoveSecureEntry @ 0x1400860B0 (MiRemoveSecureEntry.c)
+ *     MiAddSecureEntry @ 0x1405F4490 (MiAddSecureEntry.c)
+ *     MiSetImageHotPatchAllowed @ 0x140859224 (MiSetImageHotPatchAllowed.c)
  * Callees:
- *     MiLockVadCore @ 0x140087AD0 (MiLockVadCore.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiLockVadCore @ 0x140087AC0 (MiLockVadCore.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiSetVadFlags(__int64 a1, char a2, char a3)

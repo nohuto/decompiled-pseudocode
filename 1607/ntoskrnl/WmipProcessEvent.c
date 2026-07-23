@@ -1,21 +1,21 @@
 /*
- * XREFs of WmipProcessEvent @ 0x140537B40
+ * XREFs of WmipProcessEvent @ 0x140538080
  * Callers:
- *     WmipEventNotification @ 0x140536DB8 (WmipEventNotification.c)
- *     WmipSendGuidUpdateNotifications @ 0x140537A1C (WmipSendGuidUpdateNotifications.c)
- *     WmipGenerateMofResourceNotification @ 0x140576CD8 (WmipGenerateMofResourceNotification.c)
- *     WmipGenerateBinaryMofNotification @ 0x14069F03C (WmipGenerateBinaryMofNotification.c)
+ *     WmipEventNotification @ 0x1405372F8 (WmipEventNotification.c)
+ *     WmipSendGuidUpdateNotifications @ 0x140537F5C (WmipSendGuidUpdateNotifications.c)
+ *     WmipGenerateMofResourceNotification @ 0x140577218 (WmipGenerateMofResourceNotification.c)
+ *     WmipGenerateBinaryMofNotification @ 0x14069F174 (WmipGenerateBinaryMofNotification.c)
  * Callees:
- *     KeReleaseMutex @ 0x140055FE0 (KeReleaseMutex.c)
- *     KeWaitForSingleObject @ 0x14005C880 (KeWaitForSingleObject.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     ObReferenceObjectSafe @ 0x14008C540 (ObReferenceObjectSafe.c)
- *     WmipWriteWnodeToObject @ 0x14012C474 (WmipWriteWnodeToObject.c)
+ *     KeReleaseMutex @ 0x140055B60 (KeReleaseMutex.c)
+ *     KeWaitForSingleObject @ 0x14005C400 (KeWaitForSingleObject.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     ObReferenceObjectSafe @ 0x14008BCA0 (ObReferenceObjectSafe.c)
+ *     WmipWriteWnodeToObject @ 0x14012C9E4 (WmipWriteWnodeToObject.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     WmipFindGEByGuid @ 0x1404746D0 (WmipFindGEByGuid.c)
- *     WmipUnreferenceEntry @ 0x140505084 (WmipUnreferenceEntry.c)
- *     WmipDereferenceEvent @ 0x14069DE08 (WmipDereferenceEvent.c)
- *     WmipIncludeStaticNames @ 0x14069E1AC (WmipIncludeStaticNames.c)
+ *     WmipFindGEByGuid @ 0x1404735A0 (WmipFindGEByGuid.c)
+ *     WmipUnreferenceEntry @ 0x1404E8014 (WmipUnreferenceEntry.c)
+ *     WmipDereferenceEvent @ 0x14069DEEC (WmipDereferenceEvent.c)
+ *     WmipIncludeStaticNames @ 0x14069E290 (WmipIncludeStaticNames.c)
  */
 
 __int64 __fastcall WmipProcessEvent(_DWORD *Src, char a2, char a3)

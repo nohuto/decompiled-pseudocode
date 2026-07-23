@@ -1,12 +1,12 @@
 /*
- * XREFs of PiDevCfgInitMigrationContext @ 0x140700DF4
+ * XREFs of PiDevCfgInitMigrationContext @ 0x140702094
  * Callers:
- *     PiDevCfgMigrateDevice @ 0x140700D10 (PiDevCfgMigrateDevice.c)
+ *     PiDevCfgMigrateDevice @ 0x140701FB0 (PiDevCfgMigrateDevice.c)
  * Callees:
- *     ZwOpenKey @ 0x1401B83D0 (ZwOpenKey.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     _PnpCtxGetCachedContextBaseKey @ 0x1405C7C40 (_PnpCtxGetCachedContextBaseKey.c)
- *     PiDevCfgFreeMigrationContext @ 0x140700DD4 (PiDevCfgFreeMigrationContext.c)
+ *     ZwOpenKey @ 0x1401B8530 (ZwOpenKey.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     _PnpCtxGetCachedContextBaseKey @ 0x1405C8C40 (_PnpCtxGetCachedContextBaseKey.c)
+ *     PiDevCfgFreeMigrationContext @ 0x140702074 (PiDevCfgFreeMigrationContext.c)
  */
 
 __int64 __fastcall PiDevCfgInitMigrationContext(UNICODE_STRING *a1, void *a2, void **a3)

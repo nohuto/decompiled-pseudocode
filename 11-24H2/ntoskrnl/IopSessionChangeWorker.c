@@ -1,16 +1,16 @@
 /*
- * XREFs of IopSessionChangeWorker @ 0x14044B580
+ * XREFs of IopSessionChangeWorker @ 0x1404426C0
  * Callers:
  *     <none>
  * Callees:
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     PopUmpoMessageCallback @ 0x14044B8D0 (PopUmpoMessageCallback.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     PsSetSessionObjectIoEvent @ 0x140AAC088 (PsSetSessionObjectIoEvent.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     PopUmpoMessageCallback @ 0x140442A10 (PopUmpoMessageCallback.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     PsSetSessionObjectIoEvent @ 0x140AA7058 (PsSetSessionObjectIoEvent.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall IopSessionChangeWorker(PVOID *Argument1)
@@ -18,14 +18,12 @@ void __fastcall IopSessionChangeWorker(PVOID *Argument1)
   _QWORD *v2; // rdi
   KSPIN_LOCK *v3; // r14
   KIRQL v4; // al
-  __int64 v5; // r9
-  _QWORD *v6; // rbx
-  KIRQL v7; // bp
-  PVOID v8; // rcx
-  __int64 v9; // r9
-  void *v10; // rcx
-  int v11; // eax
-  bool v12; // zf
+  _QWORD *v5; // rbx
+  KIRQL v6; // bp
+  PVOID v7; // rcx
+  void *v8; // rcx
+  int v9; // eax
+  bool v10; // zf
 
   if ( IopSessionCallbackObject )
   {
@@ -34,46 +32,46 @@ void __fastcall IopSessionChangeWorker(PVOID *Argument1)
     {
       v3 = (KSPIN_LOCK *)((char *)IopSessionCallbackObject + 8);
       v4 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)IopSessionCallbackObject + 1);
-      v6 = (_QWORD *)*v2;
-      v7 = v4;
+      v5 = (_QWORD *)*v2;
+      v6 = v4;
       if ( v4 == 2 )
       {
-        while ( v6 != v2 )
+        while ( v5 != v2 )
         {
-          guard_dispatch_icall_no_overrides(v6[4], Argument1, 0LL, v5);
-          v6 = (_QWORD *)*v6;
+          guard_dispatch_icall_no_overrides(v5[4], Argument1);
+          v5 = (_QWORD *)*v5;
         }
       }
       else
       {
-        while ( v6 != v2 )
+        while ( v5 != v2 )
         {
-          if ( !*((_BYTE *)v6 + 44) )
+          if ( !*((_BYTE *)v5 + 44) )
           {
-            ++*((_DWORD *)v6 + 10);
-            KeReleaseSpinLock(v3, v7);
-            v10 = (void *)v6[4];
-            if ( (CALLBACK_FUNCTION *)v6[3] == PopUmpoMessageCallback )
-              PopUmpoMessageCallback(v10, Argument1, 0LL);
+            ++*((_DWORD *)v5 + 10);
+            KeReleaseSpinLock(v3, v6);
+            v8 = (void *)v5[4];
+            if ( (CALLBACK_FUNCTION *)v5[3] == PopUmpoMessageCallback )
+              PopUmpoMessageCallback(v8, Argument1, 0LL);
             else
-              guard_dispatch_icall_no_overrides(v10, Argument1, 0LL, v9);
-            v7 = KeAcquireSpinLockRaiseToDpc(v3);
-            v11 = *((_DWORD *)v6 + 10) - 1;
-            v12 = *((_BYTE *)v6 + 44) == 0;
-            *((_DWORD *)v6 + 10) = v11;
-            if ( !v12 && !v11 )
+              guard_dispatch_icall_no_overrides(v8, Argument1);
+            v6 = KeAcquireSpinLockRaiseToDpc(v3);
+            v9 = *((_DWORD *)v5 + 10) - 1;
+            v10 = *((_BYTE *)v5 + 44) == 0;
+            *((_DWORD *)v5 + 10) = v9;
+            if ( !v10 && !v9 )
               KeSetEvent(&ExpCallbackEvent, 0, 0);
           }
-          v6 = (_QWORD *)*v6;
+          v5 = (_QWORD *)*v5;
         }
       }
-      KeReleaseSpinLock(v3, v7);
+      KeReleaseSpinLock(v3, v6);
     }
   }
   PsSetSessionObjectIoEvent(Argument1[7]);
   ObfDereferenceObjectWithTag(Argument1[7], 0x746C6644u);
-  v8 = Argument1[6];
-  if ( v8 )
-    ExFreePoolWithTag(v8, 0);
+  v7 = Argument1[6];
+  if ( v7 )
+    ExFreePoolWithTag(v7, 0);
   ExFreePoolWithTag(Argument1, 0);
 }

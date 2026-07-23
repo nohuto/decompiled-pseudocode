@@ -1,15 +1,15 @@
 /*
- * XREFs of MiCompleteSecureProcessFault @ 0x1401EF744
+ * XREFs of MiCompleteSecureProcessFault @ 0x1401EF570
  * Callers:
- *     MiAllocateWsle @ 0x14003C0F0 (MiAllocateWsle.c)
- *     MiValidVirtualizationFault @ 0x1401EFD00 (MiValidVirtualizationFault.c)
+ *     MiAllocateWsle @ 0x14003BC70 (MiAllocateWsle.c)
+ *     MiValidVirtualizationFault @ 0x1401EFB2C (MiValidVirtualizationFault.c)
  * Callees:
- *     MiCaptureDirtyBitToPfn @ 0x140015D60 (MiCaptureDirtyBitToPfn.c)
- *     MiReleasePageFileInfo @ 0x14001A280 (MiReleasePageFileInfo.c)
- *     MiAbortCombineScan @ 0x14001D810 (MiAbortCombineScan.c)
- *     MiLockPageAtDpcInline @ 0x14002EB30 (MiLockPageAtDpcInline.c)
- *     MiPartitionIdToPointer @ 0x1400680A0 (MiPartitionIdToPointer.c)
- *     MiMarkPfnVerified @ 0x14010A2D4 (MiMarkPfnVerified.c)
+ *     MiCaptureDirtyBitToPfn @ 0x1400158E0 (MiCaptureDirtyBitToPfn.c)
+ *     MiReleasePageFileInfo @ 0x140019E00 (MiReleasePageFileInfo.c)
+ *     MiAbortCombineScan @ 0x14001D390 (MiAbortCombineScan.c)
+ *     MiLockPageAtDpcInline @ 0x14002E6B0 (MiLockPageAtDpcInline.c)
+ *     MiPartitionIdToPointer @ 0x140067C20 (MiPartitionIdToPointer.c)
+ *     MiMarkPfnVerified @ 0x140108054 (MiMarkPfnVerified.c)
  */
 
 void __fastcall MiCompleteSecureProcessFault(__int64 a1)

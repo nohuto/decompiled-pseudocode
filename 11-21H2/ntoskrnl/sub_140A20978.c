@@ -1,0 +1,68 @@
+/*
+ * XREFs of sub_140A20978 @ 0x140A20978
+ * Callers:
+ *     sub_140A1E590 @ 0x140A1E590 (sub_140A1E590.c)
+ * Callees:
+ *     sub_140A207C4 @ 0x140A207C4 (sub_140A207C4.c)
+ *     sub_140A20A2C @ 0x140A20A2C (sub_140A20A2C.c)
+ *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
+ */
+
+__int64 __fastcall sub_140A20978(__int64 a1)
+{
+  int v2; // eax
+  ULONG *v3; // rbx
+  unsigned int v4; // ebp
+  __int64 v5; // r8
+  ULONG v6; // r9d
+  _DWORD *v7; // rcx
+  ULONG v8; // edx
+  _DWORD *v9; // rsi
+  __int64 v10; // rcx
+  _DWORD *v11; // rdi
+  ULONG v13; // [rsp+48h] [rbp+10h] BYREF
+  PVOID P; // [rsp+50h] [rbp+18h] BYREF
+
+  v13 = 0;
+  P = 0LL;
+  v2 = sub_140A207C4((ULONG **)&P, &v13);
+  v3 = (ULONG *)P;
+  v4 = v2;
+  if ( v2 >= 0 )
+  {
+    v5 = 0LL;
+    v6 = v13;
+    if ( v13 )
+    {
+      v7 = P;
+      do
+      {
+        if ( *v7 == *(_DWORD *)(*(_QWORD *)(a1 + 40) + 8LL) )
+          break;
+        v5 = (unsigned int)(v5 + 1);
+        ++v7;
+      }
+      while ( (unsigned int)v5 < v13 );
+    }
+    if ( (_DWORD)v5 != v13 )
+    {
+      v8 = v13 - 1;
+      if ( (unsigned int)v5 < v13 - 1 )
+      {
+        v9 = (char *)P + 4 * (unsigned int)(v5 + 1);
+        v10 = v8 - (unsigned int)v5;
+        v11 = (char *)P + 4 * v5;
+        while ( v10 )
+        {
+          *v11++ = *v9++;
+          --v10;
+        }
+      }
+      if ( v6 != v8 )
+        v4 = sub_140A20A2C(v3, v8);
+    }
+  }
+  if ( v3 )
+    ExFreePoolWithTag(v3, 0x4B444342u);
+  return v4;
+}

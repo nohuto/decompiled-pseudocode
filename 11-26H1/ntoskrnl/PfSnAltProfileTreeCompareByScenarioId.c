@@ -1,10 +1,10 @@
 /*
- * XREFs of PfSnAltProfileTreeCompareByScenarioId @ 0x1409EA1EC
+ * XREFs of PfSnAltProfileTreeCompareByScenarioId @ 0x1409D2930
  * Callers:
- *     PfSnAltProfileFindByScenarioId @ 0x1409EA150 (PfSnAltProfileFindByScenarioId.c)
- *     PfSnSetAltPrefetchParam @ 0x140B6B900 (PfSnSetAltPrefetchParam.c)
+ *     PfSnAltProfileFindByScenarioId @ 0x1409D2894 (PfSnAltProfileFindByScenarioId.c)
+ *     PfSnSetAltPrefetchParam @ 0x140B6E9FC (PfSnSetAltPrefetchParam.c)
  * Callees:
- *     wcsncmp @ 0x1405381A0 (wcsncmp.c)
+ *     wcsncmp @ 0x14053A620 (wcsncmp.c)
  */
 
 int __fastcall PfSnAltProfileTreeCompareByScenarioId(wchar_t *Str2, __int64 a2)

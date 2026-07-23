@@ -1,12 +1,12 @@
 /*
- * XREFs of HdlspEnableTerminal @ 0x140BAD9D4
+ * XREFs of HdlspEnableTerminal @ 0x140BAF9D4
  * Callers:
- *     HdlspDispatch @ 0x140BAD320 (HdlspDispatch.c)
- *     HeadlessInit @ 0x140C42184 (HeadlessInit.c)
+ *     HdlspDispatch @ 0x140BAF320 (HdlspDispatch.c)
+ *     HeadlessInit @ 0x140C442D4 (HeadlessInit.c)
  * Callees:
- *     InbvPortInitialize @ 0x1406A141C (InbvPortInitialize.c)
- *     InbvPortTerminate @ 0x1406A1650 (InbvPortTerminate.c)
- *     HdlspSendStringAtBaud @ 0x140BAE5CC (HdlspSendStringAtBaud.c)
+ *     InbvPortInitialize @ 0x1406A2474 (InbvPortInitialize.c)
+ *     InbvPortTerminate @ 0x1406A26A8 (InbvPortTerminate.c)
+ *     HdlspSendStringAtBaud @ 0x140BB05CC (HdlspSendStringAtBaud.c)
  */
 
 __int64 __fastcall HdlspEnableTerminal(char a1)
@@ -30,9 +30,7 @@ __int64 __fastcall HdlspEnableTerminal(char a1)
                HeadlessGlobals[8],
                (_DWORD *)HeadlessGlobals + 14,
                v2,
-               *((_BYTE *)HeadlessGlobals + 85),
-               *((_BYTE *)HeadlessGlobals + 86),
-               *((_BYTE *)HeadlessGlobals + 87));
+               *((_BYTE *)HeadlessGlobals + 85));
         *((_DWORD *)HeadlessGlobals + 12) ^= ((unsigned __int8)v3 ^ (unsigned __int8)*((_DWORD *)HeadlessGlobals + 12)) & 1;
         if ( (v3 & 1) == 0 )
           return 3221225473LL;

@@ -1,11 +1,11 @@
 /*
- * XREFs of EncloseSubCondition @ 0x1408608AC
+ * XREFs of EncloseSubCondition @ 0x140864EB8
  * Callers:
- *     LocalpGetStringForCondition @ 0x140861744 (LocalpGetStringForCondition.c)
+ *     LocalpGetStringForCondition @ 0x140865D50 (LocalpGetStringForCondition.c)
  * Callees:
- *     RtlStringCchPrintfW @ 0x140476998 (RtlStringCchPrintfW.c)
- *     SddlpAlloc @ 0x1408638C4 (SddlpAlloc.c)
- *     SddlpFree @ 0x140863910 (SddlpFree.c)
+ *     RtlStringCchPrintfW @ 0x140472F38 (RtlStringCchPrintfW.c)
+ *     SddlpAlloc @ 0x140867ED4 (SddlpAlloc.c)
+ *     SddlpFree @ 0x140867F20 (SddlpFree.c)
  */
 
 __int64 __fastcall EncloseSubCondition(wchar_t **a1)

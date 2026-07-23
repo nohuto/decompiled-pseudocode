@@ -14,15 +14,15 @@ int __stdcall LdrpFreeTls()
   struct _TEB *v0; // esi
   void **p_ThreadLocalStoragePointer; // edi
   void **ThreadLocalStoragePointer; // esi
-  int v3; // ebx
+  void **v3; // ebx
   unsigned int v4; // edi
   unsigned int v5; // eax
-  _DWORD *v6; // ecx
+  PVOID *v6; // ecx
   unsigned int v8; // [esp+10h] [ebp-8h]
-  void *ProcessHeap; // [esp+14h] [ebp-4h]
+  PVOID HeapHandle; // [esp+14h] [ebp-4h]
 
   v0 = NtCurrentTeb();
-  ProcessHeap = NtCurrentPeb()->ProcessHeap;
+  HeapHandle = NtCurrentPeb()->ProcessHeap;
   RtlAcquireSRWLockShared(&LdrpTlsLock);
   p_ThreadLocalStoragePointer = &v0->ThreadLocalStoragePointer;
   ThreadLocalStoragePointer = (void **)v0->ThreadLocalStoragePointer;
@@ -34,7 +34,7 @@ int __stdcall LdrpFreeTls()
   RtlReleaseSRWLockShared(&LdrpTlsLock);
   if ( ThreadLocalStoragePointer && ThreadLocalStoragePointer != p_ThreadLocalStoragePointer )
   {
-    v3 = (int)(ThreadLocalStoragePointer - 2);
+    v3 = ThreadLocalStoragePointer - 2;
     v4 = 0;
     v5 = (unsigned int)*(ThreadLocalStoragePointer - 2);
     v8 = v5;
@@ -42,18 +42,18 @@ int __stdcall LdrpFreeTls()
     {
       do
       {
-        v6 = ThreadLocalStoragePointer[v4];
+        v6 = (PVOID *)ThreadLocalStoragePointer[v4];
         if ( v6 )
         {
-          RtlFreeHeap((int)ProcessHeap, 0, *(v6 - 1));
+          RtlFreeHeap(HeapHandle, 0, *(v6 - 1));
           v5 = v8;
         }
         ++v4;
       }
       while ( v4 < v5 );
-      v3 = (int)(ThreadLocalStoragePointer - 2);
+      v3 = ThreadLocalStoragePointer - 2;
     }
-    RtlFreeHeap((int)ProcessHeap, 0, v3);
+    RtlFreeHeap(HeapHandle, 0, v3);
   }
   return LdrpCleanupThreadTlsData();
 }

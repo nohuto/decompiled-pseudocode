@@ -1,19 +1,19 @@
 /*
- * XREFs of PiQueryAndAllocateBootResources @ 0x1406FB2EC
+ * XREFs of PiQueryAndAllocateBootResources @ 0x1406FC58C
  * Callers:
- *     PiProcessNewDeviceNode @ 0x1406E3F14 (PiProcessNewDeviceNode.c)
+ *     PiProcessNewDeviceNode @ 0x1406E51B4 (PiProcessNewDeviceNode.c)
  * Callees:
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceSharedLite @ 0x140050860 (ExAcquireResourceSharedLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     ZwSetValueKey @ 0x1401B8D90 (ZwSetValueKey.c)
- *     ZwDeleteValueKey @ 0x1401B9BB0 (ZwDeleteValueKey.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     _CmOpenDeviceRegKey @ 0x1405C6EF0 (_CmOpenDeviceRegKey.c)
- *     PipSetDevNodeFlags @ 0x1406E50DC (PipSetDevNodeFlags.c)
- *     IopQueryDeviceResources @ 0x1406FB4F4 (IopQueryDeviceResources.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     ZwSetValueKey @ 0x1401B8EF0 (ZwSetValueKey.c)
+ *     ZwDeleteValueKey @ 0x1401B9D10 (ZwDeleteValueKey.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     _CmOpenDeviceRegKey @ 0x1405C7EF0 (_CmOpenDeviceRegKey.c)
+ *     PipSetDevNodeFlags @ 0x1406E637C (PipSetDevNodeFlags.c)
+ *     IopQueryDeviceResources @ 0x1406FC794 (IopQueryDeviceResources.c)
  */
 
 __int64 __fastcall PiQueryAndAllocateBootResources(__int64 a1)

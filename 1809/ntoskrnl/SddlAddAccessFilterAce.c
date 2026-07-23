@@ -1,15 +1,15 @@
 /*
- * XREFs of SddlAddAccessFilterAce @ 0x1408A6458
+ * XREFs of SddlAddAccessFilterAce @ 0x1408A76B8
  * Callers:
- *     LocalGetAclForString @ 0x1406AFC8C (LocalGetAclForString.c)
+ *     LocalGetAclForString @ 0x1406B0F2C (LocalGetAclForString.c)
  * Callees:
  *     RtlLengthSid @ 0x1400162C0 (RtlLengthSid.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     RtlFirstFreeAce @ 0x1406309F0 (RtlFirstFreeAce.c)
- *     RtlValidSid @ 0x140631570 (RtlValidSid.c)
- *     RtlValidAcl @ 0x140631700 (RtlValidAcl.c)
- *     RtlCopySid @ 0x140649190 (RtlCopySid.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     RtlFirstFreeAce @ 0x140631A10 (RtlFirstFreeAce.c)
+ *     RtlValidSid @ 0x140632590 (RtlValidSid.c)
+ *     RtlValidAcl @ 0x140632720 (RtlValidAcl.c)
+ *     RtlCopySid @ 0x14064A350 (RtlCopySid.c)
  */
 
 __int64 __fastcall SddlAddAccessFilterAce(

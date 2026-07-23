@@ -107,10 +107,13 @@ LABEL_49:
   if ( (_KPROCESS *)v10 == KeGetCurrentThread()->ApcState.Process )
   {
     _InterlockedAnd64((volatile signed __int64 *)(a2 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v4 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v4 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -241,10 +244,10 @@ LABEL_77:
     ++dword_140C136D8;
     _InterlockedAnd64((volatile signed __int64 *)(a2 + 24), 0x7FFFFFFFFFFFFFFFuLL);
 LABEL_51:
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v21 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v21 <= 0xFu && (unsigned __int8)v4 <= 0xFu && v21 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v21 <= 0xFu && (unsigned __int8)v4 <= 0xFu && v21 >= 2u )
       {
         v22 = KeGetCurrentPrcb();
         v23 = v22->SchedulerAssist;
@@ -261,10 +264,10 @@ LABEL_51:
   v41 = MiPrepareAttachThread(v10, v10 + 1664);
   _InterlockedAnd64((volatile signed __int64 *)(a2 + 24), 0x7FFFFFFFFFFFFFFFuLL);
   KxReleaseQueuedSpinLock((volatile signed __int64 **)&v37);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v26 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v26 <= 0xFu && (unsigned __int8)v4 <= 0xFu && v26 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v26 <= 0xFu && (unsigned __int8)v4 <= 0xFu && v26 >= 2u )
     {
       v27 = KeGetCurrentPrcb();
       v28 = v27->SchedulerAssist;

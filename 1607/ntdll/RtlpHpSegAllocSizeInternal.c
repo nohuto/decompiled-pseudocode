@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpHpSegAllocSizeInternal @ 0x18004460C
+ * XREFs of RtlpHpSegAllocSizeInternal @ 0x1800445FC
  * Callers:
- *     RtlpHpSegAllocSize @ 0x180029310 (RtlpHpSegAllocSize.c)
- *     RtlpHpReallocComputeSizes @ 0x180043A24 (RtlpHpReallocComputeSizes.c)
+ *     RtlpHpSegAllocSize @ 0x180029300 (RtlpHpSegAllocSize.c)
+ *     RtlpHpReallocComputeSizes @ 0x180043A14 (RtlpHpReallocComputeSizes.c)
  *     RtlpHpSegReportPageRange @ 0x1800FA0D4 (RtlpHpSegReportPageRange.c)
  * Callees:
- *     RtlpHpLfhSubsegmentSizeBlockInternal @ 0x18004456C (RtlpHpLfhSubsegmentSizeBlockInternal.c)
- *     RtlpHpVsChunkSize @ 0x18004BDF8 (RtlpHpVsChunkSize.c)
+ *     RtlpHpLfhSubsegmentSizeBlockInternal @ 0x18004455C (RtlpHpLfhSubsegmentSizeBlockInternal.c)
+ *     RtlpHpVsChunkSize @ 0x18004BDE8 (RtlpHpVsChunkSize.c)
  */
 
 unsigned __int64 __fastcall RtlpHpSegAllocSizeInternal(

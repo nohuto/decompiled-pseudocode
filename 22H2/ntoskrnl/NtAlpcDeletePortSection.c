@@ -11,10 +11,10 @@
  *     AlpcReferenceBlobByHandle @ 0x1406D9700 (AlpcReferenceBlobByHandle.c)
  */
 
-__int64 __fastcall NtAlpcDeletePortSection(void *a1, int a2, __int64 a3)
+NTSTATUS __cdecl NtAlpcDeletePortSection(HANDLE PortHandle, ULONG Flags, ALPC_HANDLE SectionHandle)
 {
   struct _KTHREAD *CurrentThread; // rax
-  NTSTATUS v5; // ebx
+  int v5; // ebx
   struct _DMA_ADAPTER *v6; // rsi
   __int64 v7; // rax
   ULONG_PTR v8; // rdi
@@ -22,7 +22,7 @@ __int64 __fastcall NtAlpcDeletePortSection(void *a1, int a2, __int64 a3)
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  if ( a2 )
+  if ( Flags )
   {
     v5 = -1073741811;
   }
@@ -30,7 +30,7 @@ __int64 __fastcall NtAlpcDeletePortSection(void *a1, int a2, __int64 a3)
   {
     DmaAdapter = 0LL;
     v5 = ObReferenceObjectByHandle(
-           a1,
+           PortHandle,
            1u,
            AlpcPortObjectType,
            KeGetCurrentThread()->PreviousMode,
@@ -39,7 +39,7 @@ __int64 __fastcall NtAlpcDeletePortSection(void *a1, int a2, __int64 a3)
     if ( v5 >= 0 )
     {
       v6 = DmaAdapter;
-      v7 = AlpcReferenceBlobByHandle(*(_QWORD *)&DmaAdapter[1].Version + 40LL, a3, AlpcSectionType);
+      v7 = AlpcReferenceBlobByHandle(*(_QWORD *)&DmaAdapter[1].Version + 40LL, SectionHandle, AlpcSectionType);
       v8 = v7;
       if ( v7 )
       {
@@ -57,5 +57,5 @@ __int64 __fastcall NtAlpcDeletePortSection(void *a1, int a2, __int64 a3)
     }
   }
   KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-  return (unsigned int)v5;
+  return v5;
 }

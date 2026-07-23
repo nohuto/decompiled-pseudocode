@@ -1,18 +1,18 @@
 /*
- * XREFs of EtwpAllocateFreeBuffers @ 0x14024C2BC
+ * XREFs of EtwpAllocateFreeBuffers @ 0x14027C8CC
  * Callers:
- *     EtwpSwitchBuffer @ 0x14024CDA0 (EtwpSwitchBuffer.c)
- *     EtwpAllocateTraceBufferPool @ 0x140830488 (EtwpAllocateTraceBufferPool.c)
- *     EtwpFlushActiveBuffers @ 0x1409D8040 (EtwpFlushActiveBuffers.c)
- *     EtwpAdjustFreeBuffers @ 0x1409D8EEC (EtwpAdjustFreeBuffers.c)
+ *     EtwpSwitchBuffer @ 0x14027D3B0 (EtwpSwitchBuffer.c)
+ *     EtwpAllocateTraceBufferPool @ 0x1409CF86C (EtwpAllocateTraceBufferPool.c)
+ *     EtwpFlushActiveBuffers @ 0x1409D1730 (EtwpFlushActiveBuffers.c)
+ *     EtwpAdjustFreeBuffers @ 0x1409D39FC (EtwpAdjustFreeBuffers.c)
  * Callees:
- *     EtwpEnqueueAvailableBuffer @ 0x14024D1E0 (EtwpEnqueueAvailableBuffer.c)
- *     EtwpUnlockBufferList @ 0x1403EEBF4 (EtwpUnlockBufferList.c)
- *     EtwpLockBufferList @ 0x1403EEC80 (EtwpLockBufferList.c)
- *     EtwpAllocateTraceBuffer @ 0x14040FF9C (EtwpAllocateTraceBuffer.c)
- *     EtwpInitializeBufferHeader @ 0x140479B7C (EtwpInitializeBufferHeader.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     EtwpEnqueueAvailableBuffer @ 0x14027D7F0 (EtwpEnqueueAvailableBuffer.c)
+ *     EtwpUnlockBufferList @ 0x1403E1688 (EtwpUnlockBufferList.c)
+ *     EtwpLockBufferList @ 0x1403E1714 (EtwpLockBufferList.c)
+ *     EtwpInitializeBufferHeader @ 0x14047540C (EtwpInitializeBufferHeader.c)
+ *     EtwpAllocateTraceBuffer @ 0x14047CE80 (EtwpAllocateTraceBuffer.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpAllocateFreeBuffers(ULONG_PTR BugCheckParameter2, unsigned int a2)
@@ -37,7 +37,7 @@ __int64 __fastcall EtwpAllocateFreeBuffers(ULONG_PTR BugCheckParameter2, unsigne
       TraceBuffer = (void *)EtwpAllocateTraceBuffer(BugCheckParameter2);
       if ( !TraceBuffer )
         goto LABEL_6;
-      Pool2 = (_QWORD *)ExAllocatePool2(0x40uLL);
+      Pool2 = (_QWORD *)ExAllocatePool2(0x40uLL, 0x18uLL, 0x6E777445u);
       if ( !Pool2 )
       {
         ExFreePoolWithTag(TraceBuffer, 0);

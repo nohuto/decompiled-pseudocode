@@ -1,37 +1,40 @@
 /*
- * XREFs of RtlAllocateAndInitializeSid @ 0x1800E4010
+ * XREFs of RtlAllocateAndInitializeSid @ 0x1800DF990
  * Callers:
  *     <none>
  * Callees:
- *     RtlAllocateHeap @ 0x180011260 (RtlAllocateHeap.c)
+ *     RtlAllocateHeap @ 0x18003DC60 (RtlAllocateHeap.c)
  */
 
-__int64 __fastcall RtlAllocateAndInitializeSid(
-        __int64 a1,
-        unsigned __int8 a2,
-        int a3,
-        int a4,
-        int a5,
-        int a6,
-        int a7,
-        int a8,
-        int a9,
-        int a10,
-        __int64 *a11)
+NTSTATUS __cdecl RtlAllocateAndInitializeSid(
+        PSID_IDENTIFIER_AUTHORITY IdentifierAuthority,
+        UCHAR SubAuthorityCount,
+        ULONG SubAuthority0,
+        ULONG SubAuthority1,
+        ULONG SubAuthority2,
+        ULONG SubAuthority3,
+        ULONG SubAuthority4,
+        ULONG SubAuthority5,
+        ULONG SubAuthority6,
+        ULONG SubAuthority7,
+        PSID *Sid)
 {
   int v11; // ebx
-  __int64 Heap; // rax
+  char *Heap; // rax
 
-  v11 = a2;
-  if ( a2 > 8u )
-    return 3221225592LL;
-  Heap = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, NtdllBaseTag + 1310720, 4 * (unsigned int)a2 + 8);
+  v11 = SubAuthorityCount;
+  if ( SubAuthorityCount > 8u )
+    return -1073741704;
+  Heap = (char *)RtlAllocateHeap(
+                   NtCurrentPeb()->ProcessHeap,
+                   NtdllBaseTag + 1310720,
+                   4 * (unsigned int)SubAuthorityCount + 8);
   if ( !Heap )
-    return 3221225495LL;
-  *(_BYTE *)(Heap + 1) = v11;
-  *(_BYTE *)Heap = 1;
-  *(_DWORD *)(Heap + 2) = *(_DWORD *)a1;
-  *(_WORD *)(Heap + 6) = *(_WORD *)(a1 + 4);
+    return -1073741801;
+  Heap[1] = v11;
+  *Heap = 1;
+  *(_DWORD *)(Heap + 2) = *(_DWORD *)IdentifierAuthority->Value;
+  *((_WORD *)Heap + 3) = *(_WORD *)&IdentifierAuthority->Value[4];
   if ( v11 != 1 )
   {
     if ( v11 != 2 )
@@ -39,36 +42,36 @@ __int64 __fastcall RtlAllocateAndInitializeSid(
       switch ( v11 )
       {
         case 3:
-          goto LABEL_15;
-        case 4:
           goto LABEL_14;
-        case 5:
+        case 4:
           goto LABEL_13;
-        case 6:
+        case 5:
           goto LABEL_12;
+        case 6:
+          goto LABEL_11;
         case 7:
-          goto LABEL_17;
+          goto LABEL_16;
         case 8:
-          *(_DWORD *)(Heap + 36) = a10;
-LABEL_17:
-          *(_DWORD *)(Heap + 32) = a9;
+          *((_DWORD *)Heap + 9) = SubAuthority7;
+LABEL_16:
+          *((_DWORD *)Heap + 8) = SubAuthority6;
+LABEL_11:
+          *((_DWORD *)Heap + 7) = SubAuthority5;
 LABEL_12:
-          *(_DWORD *)(Heap + 28) = a8;
+          *((_DWORD *)Heap + 6) = SubAuthority4;
 LABEL_13:
-          *(_DWORD *)(Heap + 24) = a7;
+          *((_DWORD *)Heap + 5) = SubAuthority3;
 LABEL_14:
-          *(_DWORD *)(Heap + 20) = a6;
-LABEL_15:
-          *(_DWORD *)(Heap + 16) = a5;
+          *((_DWORD *)Heap + 4) = SubAuthority2;
           break;
         default:
           goto LABEL_5;
       }
     }
-    *(_DWORD *)(Heap + 12) = a4;
+    *((_DWORD *)Heap + 3) = SubAuthority1;
   }
-  *(_DWORD *)(Heap + 8) = a3;
+  *((_DWORD *)Heap + 2) = SubAuthority0;
 LABEL_5:
-  *a11 = Heap;
-  return 0LL;
+  *Sid = Heap;
+  return 0;
 }

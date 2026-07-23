@@ -1,15 +1,15 @@
 /*
- * XREFs of MiMakeProtoTransition @ 0x14055C768
+ * XREFs of MiMakeProtoTransition @ 0x14055C9A8
  * Callers:
- *     MiDeletePteList @ 0x140231820 (MiDeletePteList.c)
+ *     MiDeletePteList @ 0x1402D6070 (MiDeletePteList.c)
  * Callees:
- *     MiWritePteShadow @ 0x1402B69BC (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x1402B6A1C (MiPteHasShadow.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x14032DEC0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiMakeTransitionPte @ 0x14032E9B0 (MiMakeTransitionPte.c)
- *     MiMapPageInHyperSpaceWorker @ 0x140331AB0 (MiMapPageInHyperSpaceWorker.c)
- *     MiUnmapPageInHyperSpaceWorker @ 0x140348910 (MiUnmapPageInHyperSpaceWorker.c)
- *     MiPteInShadowRange @ 0x140348AF0 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x140234B9C (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140234BFC (MiPteHasShadow.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140338C10 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiMakeTransitionPte @ 0x140339700 (MiMakeTransitionPte.c)
+ *     MiMapPageInHyperSpaceWorker @ 0x14033C800 (MiMapPageInHyperSpaceWorker.c)
+ *     MiUnmapPageInHyperSpaceWorker @ 0x140353660 (MiUnmapPageInHyperSpaceWorker.c)
+ *     MiPteInShadowRange @ 0x140353840 (MiPteInShadowRange.c)
  */
 
 char __fastcall MiMakeProtoTransition(__int64 a1)
@@ -23,9 +23,7 @@ char __fastcall MiMakeProtoTransition(__int64 a1)
   char v8; // di
   int v9; // ebp
   __int64 v10; // rbx
-  __int64 v11; // rdx
-  __int64 v12; // r8
-  bool v13; // zf
+  bool v11; // zf
   __int64 TransitionPte; // [rsp+40h] [rbp+8h] BYREF
 
   v2 = MI_READ_PTE_LOCK_FREE(a1 + 16);
@@ -57,23 +55,22 @@ char __fastcall MiMakeProtoTransition(__int64 a1)
     if ( (unsigned int)MiPteHasShadow() )
     {
       v9 = 1;
-      if ( HIBYTE(word_140C4E008) )
+      if ( HIBYTE(word_140C4E048) )
         goto LABEL_18;
-      v13 = (v8 & 1) == 0;
+      v11 = (v8 & 1) == 0;
     }
     else
     {
       if ( (HIDWORD(KeGetCurrentThread()->ApcState.Process[2].Header.WaitListHead.Flink) & 0x1000) == 0 )
         goto LABEL_18;
-      v13 = (v8 & 1) == 0;
+      v11 = (v8 & 1) == 0;
     }
-    if ( !v13 )
+    if ( !v11 )
       v10 |= 0x8000000000000000uLL;
   }
 LABEL_18:
   *v5 = v10;
   if ( v9 )
-    MiWritePteShadow((__int64)v5, v10, v12);
-  LOBYTE(v11) = 17;
-  return MiUnmapPageInHyperSpaceWorker((unsigned __int64)v5, v11, 0x80000000);
+    MiWritePteShadow((__int64)v5, v10);
+  return MiUnmapPageInHyperSpaceWorker((unsigned __int64)v5, 0x11u, 0x80000000);
 }

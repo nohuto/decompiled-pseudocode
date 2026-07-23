@@ -1,14 +1,14 @@
 /*
- * XREFs of ExpWakePushLock @ 0x1402F15A0
+ * XREFs of ExpWakePushLock @ 0x1402FC2F0
  * Callers:
- *     ExfReleasePushLockSharedEx @ 0x1402904F0 (ExfReleasePushLockSharedEx.c)
- *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
- *     ExfReleasePushLockExclusive @ 0x1402F1520 (ExfReleasePushLockExclusive.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     ExpOptimizePushLockList @ 0x1402F3184 (ExpOptimizePushLockList.c)
+ *     ExfReleasePushLockSharedEx @ 0x14020E460 (ExfReleasePushLockSharedEx.c)
+ *     ExfReleasePushLockShared @ 0x1402FC1C0 (ExfReleasePushLockShared.c)
+ *     ExfReleasePushLockExclusive @ 0x1402FC270 (ExfReleasePushLockExclusive.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     ExpOptimizePushLockList @ 0x1402FDED4 (ExpOptimizePushLockList.c)
  * Callees:
- *     KiAbApplyWakeupBoost @ 0x1402F197C (KiAbApplyWakeupBoost.c)
- *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
+ *     KiAbApplyWakeupBoost @ 0x1402FC6CC (KiAbApplyWakeupBoost.c)
+ *     KeSetEvent @ 0x14034E2F0 (KeSetEvent.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
@@ -20,7 +20,7 @@ int __fastcall ExpWakePushLock(volatile signed __int64 *a1, signed __int64 a2)
   signed __int64 Blink; // rax
   bool v6; // zf
   unsigned __int8 CurrentIrql; // di
-  struct _KEVENT *v8; // rsi
+  struct _LIST_ENTRY *v8; // rsi
   struct _LIST_ENTRY *Flink; // rdx
   _QWORD *v10; // rax
   unsigned __int8 v11; // al
@@ -80,10 +80,10 @@ LABEL_7:
         }
         do
         {
-          v8 = (struct _KEVENT *)v4[1].Header.WaitListHead.Blink;
+          v8 = v4[1].Header.WaitListHead.Blink;
           if ( !_interlockedbittestandreset(&v4[2].Header.SignalState, 1u) )
             LODWORD(Blink) = KeSetEvent(v4, 0, 0);
-          v4 = v8;
+          v4 = (struct _KEVENT *)v8;
         }
         while ( v8 );
         if ( CurrentIrql != 2 )

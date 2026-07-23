@@ -1,17 +1,17 @@
 /*
- * XREFs of CmpUnlockHashEntryByKcb @ 0x14076A7B0
+ * XREFs of CmpUnlockHashEntryByKcb @ 0x14076A9A0
  * Callers:
  *     CmpRemoveHiveFromNamespace @ 0x140207A94 (CmpRemoveHiveFromNamespace.c)
- *     CmDeleteLayeredKey @ 0x1406168EC (CmDeleteLayeredKey.c)
+ *     CmDeleteLayeredKey @ 0x140616E3C (CmDeleteLayeredKey.c)
  *     CmpGetSymbolicLinkTarget @ 0x14068FC80 (CmpGetSymbolicLinkTarget.c)
- *     CmpPerformCompleteKcbCacheLookup @ 0x1406E7E90 (CmpPerformCompleteKcbCacheLookup.c)
- *     CmpDoParseKey @ 0x1406E9100 (CmpDoParseKey.c)
- *     CmDeleteKey @ 0x14070FFEC (CmDeleteKey.c)
- *     CmpDoBuildVirtualStack @ 0x140A190BC (CmpDoBuildVirtualStack.c)
+ *     CmpPerformCompleteKcbCacheLookup @ 0x1406E7EC0 (CmpPerformCompleteKcbCacheLookup.c)
+ *     CmpDoParseKey @ 0x1406E9130 (CmpDoParseKey.c)
+ *     CmDeleteKey @ 0x1407101FC (CmDeleteKey.c)
+ *     CmpDoBuildVirtualStack @ 0x140A1936C (CmpDoBuildVirtualStack.c)
  * Callees:
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfReleasePushLock @ 0x1402BD830 (ExfReleasePushLock.c)
- *     CmpDeleteHive @ 0x14074E6D4 (CmpDeleteHive.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfReleasePushLock @ 0x1402BDAC0 (ExfReleasePushLock.c)
+ *     CmpDeleteHive @ 0x14074E8C4 (CmpDeleteHive.c)
  */
 
 void __fastcall CmpUnlockHashEntryByKcb(__int64 a1)

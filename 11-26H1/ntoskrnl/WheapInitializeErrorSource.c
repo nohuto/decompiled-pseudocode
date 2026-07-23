@@ -1,13 +1,13 @@
 /*
- * XREFs of WheapInitializeErrorSource @ 0x140847684
+ * XREFs of WheapInitializeErrorSource @ 0x14084D8E4
  * Callers:
- *     WheapInitializeDeferredErrorSources @ 0x1406D4870 (WheapInitializeDeferredErrorSources.c)
- *     WheaAddErrorSource @ 0x140847770 (WheaAddErrorSource.c)
- *     WheapInitializeErrorSourceTable @ 0x140CE8128 (WheapInitializeErrorSourceTable.c)
+ *     WheapInitializeDeferredErrorSources @ 0x1406D88F0 (WheapInitializeDeferredErrorSources.c)
+ *     WheaAddErrorSource @ 0x14084D9D0 (WheaAddErrorSource.c)
+ *     WheapInitializeErrorSourceTable @ 0x140CEE4C8 (WheapInitializeErrorSourceTable.c)
  * Callees:
- *     WheapInitializeErrorRecordWrapper @ 0x1404F5C54 (WheapInitializeErrorRecordWrapper.c)
- *     WheapCallErrorSourceCorrect @ 0x1406D67AC (WheapCallErrorSourceCorrect.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     WheapInitializeErrorRecordWrapper @ 0x1404EF214 (WheapInitializeErrorRecordWrapper.c)
+ *     WheapCallErrorSourceCorrect @ 0x1406DA88C (WheapCallErrorSourceCorrect.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall WheapInitializeErrorSource(__int64 a1)

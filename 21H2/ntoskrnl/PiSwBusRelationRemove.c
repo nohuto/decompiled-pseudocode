@@ -1,13 +1,13 @@
 /*
- * XREFs of PiSwBusRelationRemove @ 0x140732C94
+ * XREFs of PiSwBusRelationRemove @ 0x140732E54
  * Callers:
- *     PiSwProcessRemove @ 0x140732BD8 (PiSwProcessRemove.c)
- *     PiSwCloseDevice @ 0x1407349F0 (PiSwCloseDevice.c)
- *     PiSwIrpStartCreateWorker @ 0x14074DBB8 (PiSwIrpStartCreateWorker.c)
+ *     PiSwProcessRemove @ 0x140732D98 (PiSwProcessRemove.c)
+ *     PiSwCloseDevice @ 0x140734BB0 (PiSwCloseDevice.c)
+ *     PiSwIrpStartCreateWorker @ 0x14074DD78 (PiSwIrpStartCreateWorker.c)
  * Callees:
- *     RtlDeleteElementGenericTableAvl @ 0x1402648C0 (RtlDeleteElementGenericTableAvl.c)
- *     PiSwDeviceDereference @ 0x14074CF94 (PiSwDeviceDereference.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     RtlDeleteElementGenericTableAvl @ 0x140252950 (RtlDeleteElementGenericTableAvl.c)
+ *     PiSwDeviceDereference @ 0x14074D154 (PiSwDeviceDereference.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiSwBusRelationRemove(char *P)

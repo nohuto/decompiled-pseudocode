@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpHvEpReadMsr @ 0x14045B990
+ * XREFs of HalpHvEpReadMsr @ 0x14045BD90
  * Callers:
  *     <none>
  * Callees:
- *     HalpHvLpReadMcaStatusMsr @ 0x14050B624 (HalpHvLpReadMcaStatusMsr.c)
- *     HalpHvLpReadMultipleMsr @ 0x14050B6F0 (HalpHvLpReadMultipleMsr.c)
+ *     HalpHvLpReadMcaStatusMsr @ 0x14050BB74 (HalpHvLpReadMcaStatusMsr.c)
+ *     HalpHvLpReadMultipleMsr @ 0x14050BC40 (HalpHvLpReadMultipleMsr.c)
  */
 
 unsigned __int64 __fastcall HalpHvEpReadMsr(__int64 a1, __int64 a2, __int64 a3)

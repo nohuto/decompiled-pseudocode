@@ -1,7 +1,7 @@
 /*
  * XREFs of IoIsOperationSynchronous @ 0x1400188F0
  * Callers:
- *     FsRtlpOplockFsctrlInternal @ 0x1405DC640 (FsRtlpOplockFsctrlInternal.c)
+ *     FsRtlpOplockFsctrlInternal @ 0x1405DD640 (FsRtlpOplockFsctrlInternal.c)
  * Callees:
  *     <none>
  */

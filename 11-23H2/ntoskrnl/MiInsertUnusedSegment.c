@@ -1,21 +1,21 @@
 /*
- * XREFs of MiInsertUnusedSegment @ 0x1402A0C98
+ * XREFs of MiInsertUnusedSegment @ 0x1402A0F28
  * Callers:
  *     MiCleanSection @ 0x1402016FC (MiCleanSection.c)
- *     MiCheckControlArea @ 0x14029FBC0 (MiCheckControlArea.c)
- *     MiDeleteCachedSegment @ 0x140623954 (MiDeleteCachedSegment.c)
- *     MiDeleteCachedSubsection @ 0x140623B48 (MiDeleteCachedSubsection.c)
- *     MiFlushControlArea @ 0x140624534 (MiFlushControlArea.c)
- *     MiMakeUnusedSegmentDeleteOnClose @ 0x140624BC8 (MiMakeUnusedSegmentDeleteOnClose.c)
- *     MiProcessDeleteOnClose @ 0x140624E0C (MiProcessDeleteOnClose.c)
- *     MiSetDeleteOnClose @ 0x140625DEC (MiSetDeleteOnClose.c)
+ *     MiCheckControlArea @ 0x14029FE50 (MiCheckControlArea.c)
+ *     MiDeleteCachedSegment @ 0x140623EA4 (MiDeleteCachedSegment.c)
+ *     MiDeleteCachedSubsection @ 0x140624098 (MiDeleteCachedSubsection.c)
+ *     MiFlushControlArea @ 0x140624A84 (MiFlushControlArea.c)
+ *     MiMakeUnusedSegmentDeleteOnClose @ 0x140625118 (MiMakeUnusedSegmentDeleteOnClose.c)
+ *     MiProcessDeleteOnClose @ 0x14062535C (MiProcessDeleteOnClose.c)
+ *     MiSetDeleteOnClose @ 0x14062633C (MiSetDeleteOnClose.c)
  * Callees:
- *     KiSetTimerEx @ 0x140252820 (KiSetTimerEx.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14028A930 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiComputePagedPoolSegmentBytes @ 0x1402A0D94 (MiComputePagedPoolSegmentBytes.c)
- *     MiReleaseControlAreaCharges @ 0x1402A0E14 (MiReleaseControlAreaCharges.c)
- *     MiConvertStaticSubsections @ 0x1402A0F18 (MiConvertStaticSubsections.c)
+ *     KiSetTimerEx @ 0x1402528E0 (KiSetTimerEx.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14028ABC0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiComputePagedPoolSegmentBytes @ 0x1402A1024 (MiComputePagedPoolSegmentBytes.c)
+ *     MiReleaseControlAreaCharges @ 0x1402A10A4 (MiReleaseControlAreaCharges.c)
+ *     MiConvertStaticSubsections @ 0x1402A11A8 (MiConvertStaticSubsections.c)
  */
 
 __int64 __fastcall MiInsertUnusedSegment(__int64 a1)

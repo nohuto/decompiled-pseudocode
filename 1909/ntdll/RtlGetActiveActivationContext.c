@@ -8,30 +8,30 @@
  *     __security_check_cookie @ 0x18008CE50 (__security_check_cookie.c)
  */
 
-__int64 __fastcall RtlGetActiveActivationContext(_QWORD *a1)
+NTSTATUS __cdecl RtlGetActiveActivationContext(PACTIVATION_CONTEXT ActivationContext)
 {
   _ACTIVATION_CONTEXT_STACK *ActivationContextStackPointer; // rdx
   unsigned __int64 ActiveFrame; // rbx
   EXCEPTION_RECORD ExceptionRecord; // [rsp+20h] [rbp-59h] BYREF
 
   ActivationContextStackPointer = NtCurrentTeb()->ActivationContextStackPointer;
-  if ( !a1 )
-    return 3221225485LL;
-  *a1 = 0LL;
+  if ( !ActivationContext )
+    return -1073741811;
+  *(_QWORD *)&ActivationContext->RefCount = 0LL;
   if ( !ActivationContextStackPointer )
-    return 0LL;
+    return 0;
   ActiveFrame = (unsigned __int64)ActivationContextStackPointer->ActiveFrame;
   if ( !ActivationContextStackPointer->ActiveFrame )
-    return 0LL;
+    return 0;
   if ( (*(_DWORD *)(ActiveFrame + 16) & 0x70) == 0x20
     && ((*(_BYTE *)(ActiveFrame + 16) & 8) != 0
      || *(_QWORD *)(ActiveFrame - 16) < 0x48uLL
      || *(_QWORD *)(ActiveFrame + 24) == ~*(_QWORD *)ActiveFrame
      && *(_QWORD *)(ActiveFrame + 32) == ~*(_QWORD *)(ActiveFrame + 8)) )
   {
-    RtlAddRefActivationContext(*(volatile signed __int32 **)(ActiveFrame + 8));
-    *a1 = *(_QWORD *)(ActiveFrame + 8);
-    return 0LL;
+    RtlAddRefActivationContext(*(PACTIVATION_CONTEXT *)(ActiveFrame + 8));
+    *(_QWORD *)&ActivationContext->RefCount = *(_QWORD *)(ActiveFrame + 8);
+    return 0;
   }
   ExceptionRecord.ExceptionRecord = 0LL;
   ExceptionRecord.NumberParameters = 4;
@@ -42,5 +42,5 @@ __int64 __fastcall RtlGetActiveActivationContext(_QWORD *a1)
   ExceptionRecord.ExceptionCode = -1072365548;
   ExceptionRecord.ExceptionFlags = 1;
   RtlRaiseException(&ExceptionRecord);
-  return 3221225701LL;
+  return -1073741595;
 }

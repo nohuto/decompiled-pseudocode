@@ -1,34 +1,34 @@
 /*
- * XREFs of PiDevCfgResolveVariableDeviceProperty @ 0x1406F6DB0
+ * XREFs of PiDevCfgResolveVariableDeviceProperty @ 0x1406F8050
  * Callers:
  *     <none>
  * Callees:
- *     PnpValidateRegistryString @ 0x14015D94C (PnpValidateRegistryString.c)
- *     PnpValidateMultiSzData @ 0x14015D984 (PnpValidateMultiSzData.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     RtlStringFromGUIDEx @ 0x14058B238 (RtlStringFromGUIDEx.c)
- *     PnpGetObjectProperty @ 0x140599EC8 (PnpGetObjectProperty.c)
- *     RtlGUIDFromString @ 0x14059A5A0 (RtlGUIDFromString.c)
- *     RtlFreeAnsiString @ 0x140623790 (RtlFreeAnsiString.c)
- *     IopGetRegistryValue @ 0x1406804D4 (IopGetRegistryValue.c)
- *     PnpRegSzToString @ 0x1406F5B74 (PnpRegSzToString.c)
+ *     PnpValidateRegistryString @ 0x14015DA4C (PnpValidateRegistryString.c)
+ *     PnpValidateMultiSzData @ 0x14015DA84 (PnpValidateMultiSzData.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     RtlStringFromGUIDEx @ 0x14058C238 (RtlStringFromGUIDEx.c)
+ *     PnpGetObjectProperty @ 0x14059AEC8 (PnpGetObjectProperty.c)
+ *     RtlGUIDFromString @ 0x14059B5A0 (RtlGUIDFromString.c)
+ *     RtlFreeAnsiString @ 0x140624790 (RtlFreeAnsiString.c)
+ *     IopGetRegistryValue @ 0x140681694 (IopGetRegistryValue.c)
+ *     PnpRegSzToString @ 0x1406F6E14 (PnpRegSzToString.c)
  */
 
 __int64 __fastcall PiDevCfgResolveVariableDeviceProperty(__int64 *a1, void *a2, __int64 a3)
 {
-  int RegistryValue; // ebx
+  NTSTATUS RegistryValue; // ebx
   unsigned int *v7; // r15
   int v8; // r14d
   __int64 v9; // r8
   int ObjectProperty; // eax
   unsigned int v11; // esi
-  _DWORD *PoolWithTag; // rdi
-  int v14; // ecx
-  _DWORD *v15; // rax
-  PVOID P; // [rsp+60h] [rbp-29h] BYREF
+  _DWORD *p_Data1; // rdi
+  int Data1_low; // ecx
+  _DWORD *PoolWithTag; // rax
+  PGUID v16; // [rsp+60h] [rbp-29h] BYREF
   UNICODE_STRING GuidString; // [rsp+68h] [rbp-21h] BYREF
   __int64 v18; // [rsp+78h] [rbp-11h] BYREF
   UNICODE_STRING UnicodeString; // [rsp+80h] [rbp-9h] BYREF
@@ -36,7 +36,7 @@ __int64 __fastcall PiDevCfgResolveVariableDeviceProperty(__int64 *a1, void *a2, 
   int v21; // [rsp+A0h] [rbp+17h]
 
   *(_QWORD *)&GuidString.Length = 0LL;
-  P = 0LL;
+  v16 = 0LL;
   *(_DWORD *)&UnicodeString.Length = 0;
   UnicodeString.Buffer = 0LL;
   RegistryValue = IopGetRegistryValue(a2, L"PropertyGuid", 0, &GuidString);
@@ -76,7 +76,7 @@ LABEL_59:
                        0LL,
                        (__int64)&Guid,
                        (__int64)&v18,
-                       &P,
+                       (PVOID *)&v16,
                        &GuidString,
                        0);
     RegistryValue = ObjectProperty;
@@ -95,7 +95,7 @@ LABEL_59:
       if ( (_DWORD)v18 == 8210 )
       {
         v11 = *(_DWORD *)&GuidString.Length;
-        if ( PnpValidateMultiSzData(P, *(unsigned int *)&GuidString.Length) )
+        if ( PnpValidateMultiSzData(v16, *(unsigned int *)&GuidString.Length) )
         {
           v8 = 7;
           goto LABEL_48;
@@ -110,8 +110,8 @@ LABEL_12:
           v11 = *(_DWORD *)&GuidString.Length;
           if ( *(_DWORD *)&GuidString.Length >= 2u )
           {
-            PoolWithTag = P;
-            if ( !*((_WORD *)P + ((unsigned __int64)*(unsigned int *)&GuidString.Length >> 1) - 1) )
+            p_Data1 = &v16->Data1;
+            if ( !*((_WORD *)v16 + ((unsigned __int64)*(unsigned int *)&GuidString.Length >> 1) - 1) )
               goto LABEL_14;
           }
           goto LABEL_21;
@@ -134,10 +134,10 @@ LABEL_12:
           goto LABEL_21;
         v8 = 4;
         v11 = 4;
-        PoolWithTag = ExAllocatePoolWithTag(PagedPool, 4uLL, 0x63647050u);
-        if ( PoolWithTag )
+        p_Data1 = ExAllocatePoolWithTag(PagedPool, 4uLL, 0x63647050u);
+        if ( p_Data1 )
         {
-          v14 = *(_BYTE *)P == 0xFF;
+          Data1_low = LOBYTE(v16->Data1) == 0xFF;
           goto LABEL_30;
         }
         goto LABEL_29;
@@ -152,10 +152,10 @@ LABEL_12:
               goto LABEL_21;
             v8 = 4;
             v11 = 4;
-            PoolWithTag = ExAllocatePoolWithTag(PagedPool, 4uLL, 0x63647050u);
-            if ( PoolWithTag )
+            p_Data1 = ExAllocatePoolWithTag(PagedPool, 4uLL, 0x63647050u);
+            if ( p_Data1 )
             {
-              v14 = *(unsigned __int16 *)P;
+              Data1_low = LOWORD(v16->Data1);
               goto LABEL_30;
             }
 LABEL_29:
@@ -168,18 +168,18 @@ LABEL_29:
               goto LABEL_21;
             v8 = 4;
             v11 = 4;
-            PoolWithTag = ExAllocatePoolWithTag(PagedPool, 4uLL, 0x63647050u);
-            if ( PoolWithTag )
+            p_Data1 = ExAllocatePoolWithTag(PagedPool, 4uLL, 0x63647050u);
+            if ( p_Data1 )
             {
-              v14 = *(unsigned __int8 *)P;
+              Data1_low = LOBYTE(v16->Data1);
 LABEL_30:
-              *PoolWithTag = v14;
+              *p_Data1 = Data1_low;
               goto LABEL_15;
             }
             goto LABEL_29;
           }
 LABEL_58:
-          PoolWithTag = 0LL;
+          p_Data1 = 0LL;
           v11 = 0;
           v8 = 0;
           goto LABEL_15;
@@ -202,13 +202,13 @@ LABEL_49:
           {
             v8 = 11;
 LABEL_48:
-            PoolWithTag = P;
+            p_Data1 = &v16->Data1;
 LABEL_14:
-            P = 0LL;
+            v16 = 0LL;
 LABEL_15:
             *(_DWORD *)(a3 + 32) = v8;
             *(_DWORD *)(a3 + 36) = v11;
-            *(_QWORD *)(a3 + 40) = PoolWithTag;
+            *(_QWORD *)(a3 + 40) = p_Data1;
             goto LABEL_16;
           }
 LABEL_21:
@@ -222,15 +222,15 @@ LABEL_47:
       }
       if ( *(_DWORD *)&GuidString.Length != 16 )
         goto LABEL_21;
-      RegistryValue = RtlStringFromGUIDEx((unsigned int *)P, (__int64)&UnicodeString, 1);
+      RegistryValue = RtlStringFromGUIDEx(v16, &UnicodeString, 1u);
       if ( RegistryValue >= 0 )
       {
         v11 = UnicodeString.Length + 2;
-        v15 = ExAllocatePoolWithTag(PagedPool, v11, 0x63647050u);
-        PoolWithTag = v15;
-        if ( v15 )
+        PoolWithTag = ExAllocatePoolWithTag(PagedPool, v11, 0x63647050u);
+        p_Data1 = PoolWithTag;
+        if ( PoolWithTag )
         {
-          memmove(v15, UnicodeString.Buffer, v11);
+          memmove(PoolWithTag, UnicodeString.Buffer, v11);
           goto LABEL_15;
         }
         goto LABEL_29;
@@ -239,8 +239,8 @@ LABEL_47:
   }
 LABEL_16:
   RtlFreeAnsiString(&UnicodeString);
-  if ( P )
-    ExFreePoolWithTag(P, 0);
+  if ( v16 )
+    ExFreePoolWithTag(v16, 0);
   if ( v7 )
     ExFreePoolWithTag(v7, 0);
   return (unsigned int)RegistryValue;

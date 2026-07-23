@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpMuiRegTryToAppendLanguageToMuiszFromLangList @ 0x1800147BC
+ * XREFs of RtlpMuiRegTryToAppendLanguageToMuiszFromLangList @ 0x1800147AC
  * Callers:
- *     LdrpConvertLangFallbackListToMultiSz @ 0x1800145BC (LdrpConvertLangFallbackListToMultiSz.c)
+ *     LdrpConvertLangFallbackListToMultiSz @ 0x1800145AC (LdrpConvertLangFallbackListToMultiSz.c)
  * Callees:
- *     RtlpMuiRegTryToAppendLangId @ 0x180014890 (RtlpMuiRegTryToAppendLangId.c)
- *     RtlpMuiRegTryToAppendLanguageName @ 0x180076AF4 (RtlpMuiRegTryToAppendLanguageName.c)
- *     __security_check_cookie @ 0x180096C40 (__security_check_cookie.c)
+ *     RtlpMuiRegTryToAppendLangId @ 0x180014880 (RtlpMuiRegTryToAppendLangId.c)
+ *     RtlpMuiRegTryToAppendLanguageName @ 0x180076AE4 (RtlpMuiRegTryToAppendLanguageName.c)
+ *     __security_check_cookie @ 0x180096C30 (__security_check_cookie.c)
  */
 
 __int64 __fastcall RtlpMuiRegTryToAppendLanguageToMuiszFromLangList(

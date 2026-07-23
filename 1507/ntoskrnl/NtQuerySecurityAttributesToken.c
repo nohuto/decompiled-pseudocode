@@ -15,24 +15,24 @@
  *     ExRaiseDatatypeMisalignment @ 0x1406F78A0 (ExRaiseDatatypeMisalignment.c)
  */
 
-__int64 __fastcall NtQuerySecurityAttributesToken(
-        char *a1,
-        __int64 a2,
-        unsigned int a3,
-        _QWORD *a4,
-        unsigned int a5,
-        unsigned __int64 a6)
+NTSTATUS __cdecl NtQuerySecurityAttributesToken(
+        HANDLE TokenHandle,
+        PUNICODE_STRING Attributes,
+        ULONG NumberOfAttributes,
+        PVOID Buffer,
+        ULONG Length,
+        PULONG ReturnLength)
 {
   char v9; // r13
   unsigned __int8 v10; // r15
   unsigned __int64 v11; // rdx
   ULONG64 v12; // rcx
   unsigned __int64 v13; // rcx
-  _DWORD *v14; // r14
-  unsigned __int64 v15; // rdx
+  PULONG v14; // r14
+  PULONG v15; // rdx
   ULONG64 v16; // rcx
   unsigned __int64 v17; // rcx
-  int SecurityAttributesToken; // edi
+  NTSTATUS SecurityAttributesToken; // edi
   struct _KTHREAD *CurrentThread; // rax
   PERESOURCE *v20; // rbx
   char v21; // dl
@@ -53,9 +53,9 @@ __int64 __fastcall NtQuerySecurityAttributesToken(
   v26[0] = 0;
   v10 = KeGetCurrentThread()->gap0[10];
   v26[1] = v10;
-  if ( a5 )
+  if ( Length )
   {
-    if ( a4 )
+    if ( Buffer )
       goto LABEL_3;
 LABEL_39:
     SecurityAttributesToken = -1073741811;
@@ -64,18 +64,18 @@ LABEL_41:
     v20 = (PERESOURCE *)Object;
     goto LABEL_25;
   }
-  if ( a4 )
+  if ( Buffer )
     goto LABEL_39;
 LABEL_3:
   if ( v10 )
   {
-    if ( a5 )
+    if ( Length )
     {
-      v11 = (unsigned __int64)a4;
-      if ( ((unsigned __int8)a4 & 3) != 0 )
+      v11 = (unsigned __int64)Buffer;
+      if ( ((unsigned __int8)Buffer & 3) != 0 )
         ExRaiseDatatypeMisalignment();
-      v12 = (ULONG64)a4 + a5 - 1;
-      if ( (unsigned __int64)a4 > v12 || v12 >= MmUserProbeAddress )
+      v12 = (ULONG64)Buffer + Length - 1;
+      if ( (unsigned __int64)Buffer > v12 || v12 >= MmUserProbeAddress )
       {
         if ( !KeGetCurrentThread()->ApcState.Process->SecurePid )
           ExRaiseAccessViolation();
@@ -91,12 +91,12 @@ LABEL_3:
         while ( v11 != v13 );
       }
     }
-    v14 = (_DWORD *)a6;
-    v15 = a6;
-    if ( (a6 & 3) != 0 )
+    v14 = ReturnLength;
+    v15 = ReturnLength;
+    if ( ((unsigned __int8)ReturnLength & 3) != 0 )
       ExRaiseDatatypeMisalignment();
-    v16 = a6 + 3;
-    if ( a6 >= a6 + 3 || v16 >= MmUserProbeAddress )
+    v16 = (ULONG64)ReturnLength + 3;
+    if ( ReturnLength >= (PULONG)((char *)ReturnLength + 3) || v16 >= MmUserProbeAddress )
     {
       if ( !KeGetCurrentThread()->ApcState.Process->SecurePid )
         ExRaiseAccessViolation();
@@ -107,20 +107,20 @@ LABEL_3:
       do
       {
         *(_BYTE *)v15 = *(_BYTE *)v15;
-        v15 = (v15 & 0xFFFFFFFFFFFFF000uLL) + 4096;
+        v15 = (PULONG)(((unsigned __int64)v15 & 0xFFFFFFFFFFFFF000uLL) + 4096);
       }
-      while ( v15 != v17 );
+      while ( v15 != (PULONG)v17 );
     }
   }
   else
   {
-    v14 = (_DWORD *)a6;
+    v14 = ReturnLength;
   }
-  SecurityAttributesToken = SepCaptureUnicodeStringArray(a2, a3, v10, &P);
+  SecurityAttributesToken = SepCaptureUnicodeStringArray(Attributes, NumberOfAttributes, v10, &P);
   v27 = SecurityAttributesToken;
   if ( SecurityAttributesToken < 0 )
     goto LABEL_41;
-  SecurityAttributesToken = SepReferenceTokenByHandle(a1, 8u, v10, &Object, v26, &v30);
+  SecurityAttributesToken = SepReferenceTokenByHandle((char *)TokenHandle, 8u, v10, &Object, v26, &v30);
   v27 = SecurityAttributesToken;
   if ( SecurityAttributesToken < 0 )
     goto LABEL_41;
@@ -129,8 +129,15 @@ LABEL_3:
   v20 = (PERESOURCE *)Object;
   ExAcquireResourceSharedLite(*((PERESOURCE *)Object + 6), 1u);
   v9 = 1;
-  LODWORD(Size) = a5;
-  SecurityAttributesToken = SepInternalQuerySecurityAttributesTokenEx((__int64)v20, v21, (__int64)P, a3, a4, Size, v14);
+  LODWORD(Size) = Length;
+  SecurityAttributesToken = SepInternalQuerySecurityAttributesTokenEx(
+                              (__int64)v20,
+                              v21,
+                              (__int64)P,
+                              NumberOfAttributes,
+                              Buffer,
+                              Size,
+                              v14);
   v27 = SecurityAttributesToken;
 LABEL_25:
   if ( v10 == 1 && P )
@@ -152,5 +159,5 @@ LABEL_25:
   }
   if ( v20 )
     ObfDereferenceObject(v20);
-  return (unsigned int)SecurityAttributesToken;
+  return SecurityAttributesToken;
 }

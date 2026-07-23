@@ -6,7 +6,13 @@
  *     sub_18000A6BC @ 0x18000A6BC (sub_18000A6BC.c)
  */
 
-__int64 __fastcall RtlQueryRegistryValues(__int64 a1, const WCHAR *a2, __int64 a3, __int64 a4, __int64 a5)
+// local variable allocation has failed, the output may be wrong!
+NTSTATUS __cdecl RtlQueryRegistryValues(
+        ULONG RelativeTo,
+        PCWSTR Path,
+        PRTL_QUERY_REGISTRY_TABLE QueryTable,
+        PVOID Context,
+        PVOID Environment)
 {
-  return sub_18000A6BC(a1, a2, a3, a4, a5, 0);
+  return sub_18000A6BC(*(__int64 *)&RelativeTo, Path, (__int64)QueryTable, (__int64)Context, Environment, 0);
 }

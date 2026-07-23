@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlpMuiRegGetInstalledLanguageIndex @ 0x1406E6DD0
+ * XREFs of RtlpMuiRegGetInstalledLanguageIndex @ 0x1406E6F08
  * Callers:
- *     RtlpMuiRegValidateConfigNode @ 0x14023E914 (RtlpMuiRegValidateConfigNode.c)
- *     RtlpLoadPolicyLanguageSpec @ 0x1406E6564 (RtlpLoadPolicyLanguageSpec.c)
- *     RtlpMuiRegConfigMatchesInstalled @ 0x1406E688C (RtlpMuiRegConfigMatchesInstalled.c)
+ *     RtlpMuiRegValidateConfigNode @ 0x14023E7F8 (RtlpMuiRegValidateConfigNode.c)
+ *     RtlpLoadPolicyLanguageSpec @ 0x1406E669C (RtlpLoadPolicyLanguageSpec.c)
+ *     RtlpMuiRegConfigMatchesInstalled @ 0x1406E69C4 (RtlpMuiRegConfigMatchesInstalled.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     RtlpMuiRegGetInstalledLanguageIndexByLangId @ 0x1405613F4 (RtlpMuiRegGetInstalledLanguageIndexByLangId.c)
- *     RtlCultureNameToLCID @ 0x1405617C8 (RtlCultureNameToLCID.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     RtlpMuiRegGetInstalledLanguageIndexByLangId @ 0x140561934 (RtlpMuiRegGetInstalledLanguageIndexByLangId.c)
+ *     RtlCultureNameToLCID @ 0x140561D08 (RtlCultureNameToLCID.c)
  */
 
 __int64 __fastcall RtlpMuiRegGetInstalledLanguageIndex(__int64 a1, int a2, signed __int16 a3, signed __int16 *a4)
@@ -21,7 +21,7 @@ __int64 __fastcall RtlpMuiRegGetInstalledLanguageIndex(__int64 a1, int a2, signe
   __int64 v13; // r8
   const WCHAR *v14; // rdx
   UNICODE_STRING DestinationString; // [rsp+20h] [rbp-18h] BYREF
-  int v17; // [rsp+40h] [rbp+8h] BYREF
+  DWORD Lcid; // [rsp+40h] [rbp+8h] BYREF
 
   v4 = 0;
   v8 = 1;
@@ -54,9 +54,9 @@ LABEL_10:
     if ( !v14 )
       return (unsigned int)-1073741772;
     RtlInitUnicodeString(&DestinationString, v14);
-    if ( !RtlCultureNameToLCID(&DestinationString.Length, &v17) )
+    if ( !RtlCultureNameToLCID(&DestinationString, &Lcid) )
       return (unsigned int)-1073741772;
-    a3 = v17;
+    a3 = Lcid;
     a2 = 1;
     v8 = 0;
   }

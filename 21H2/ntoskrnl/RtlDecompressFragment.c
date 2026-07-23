@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlDecompressFragment @ 0x140910570
+ * XREFs of RtlDecompressFragment @ 0x1409106D0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 NTSTATUS __stdcall RtlDecompressFragment(

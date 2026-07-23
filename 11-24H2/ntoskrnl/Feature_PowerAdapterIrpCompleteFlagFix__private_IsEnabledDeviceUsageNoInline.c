@@ -1,10 +1,10 @@
 /*
- * XREFs of Feature_PowerAdapterIrpCompleteFlagFix__private_IsEnabledDeviceUsageNoInline @ 0x1405D7CA8
+ * XREFs of Feature_PowerAdapterIrpCompleteFlagFix__private_IsEnabledDeviceUsageNoInline @ 0x1405D521C
  * Callers:
- *     PopPowerAdapterAdd @ 0x14075B550 (PopPowerAdapterAdd.c)
- *     PopPowerAdapterQueryStatus @ 0x14075BB40 (PopPowerAdapterQueryStatus.c)
+ *     PopPowerAdapterAdd @ 0x14075A030 (PopPowerAdapterAdd.c)
+ *     PopPowerAdapterQueryStatus @ 0x14075A84C (PopPowerAdapterQueryStatus.c)
  * Callees:
- *     Feature_PowerAdapterIrpCompleteFlagFix__private_IsEnabledFallback @ 0x1405D7CE0 (Feature_PowerAdapterIrpCompleteFlagFix__private_IsEnabledFallback.c)
+ *     Feature_PowerAdapterIrpCompleteFlagFix__private_IsEnabledFallback @ 0x1405D5254 (Feature_PowerAdapterIrpCompleteFlagFix__private_IsEnabledFallback.c)
  */
 
 __int64 Feature_PowerAdapterIrpCompleteFlagFix__private_IsEnabledDeviceUsageNoInline()

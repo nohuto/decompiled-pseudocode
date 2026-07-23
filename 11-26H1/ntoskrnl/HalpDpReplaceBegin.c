@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpDpReplaceBegin @ 0x140785E10
+ * XREFs of HalpDpReplaceBegin @ 0x140788940
  * Callers:
  *     <none>
  * Callees:
- *     HalpInterruptDpReplaceBegin @ 0x140599C1C (HalpInterruptDpReplaceBegin.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     HalpDpSortApicList @ 0x140786008 (HalpDpSortApicList.c)
- *     HalpBuildResumeStructures @ 0x140BEAFB0 (HalpBuildResumeStructures.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     HalpInterruptDpReplaceBegin @ 0x14059C39C (HalpInterruptDpReplaceBegin.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     HalpDpSortApicList @ 0x140788B38 (HalpDpSortApicList.c)
+ *     HalpBuildResumeStructures @ 0x140BF0FB0 (HalpBuildResumeStructures.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall HalpDpReplaceBegin(__int64 a1, __int64 *a2)

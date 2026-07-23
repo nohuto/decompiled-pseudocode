@@ -1,19 +1,19 @@
 /*
- * XREFs of LocalGetStringForRelativeAttribute @ 0x1406CF418
+ * XREFs of LocalGetStringForRelativeAttribute @ 0x1406CF550
  * Callers:
- *     LocalGetAceCondition @ 0x1406CB4C8 (LocalGetAceCondition.c)
+ *     LocalGetAceCondition @ 0x1406CB600 (LocalGetAceCondition.c)
  * Callees:
- *     RtlStringCbLengthW @ 0x14009ED7C (RtlStringCbLengthW.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     _i64tow_s @ 0x140151C84 (_i64tow_s.c)
- *     _ui64tow_s @ 0x140151CF4 (_ui64tow_s.c)
- *     _ultow_s @ 0x140151D08 (_ultow_s.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     SddlpFree @ 0x1404D6ABC (SddlpFree.c)
- *     SddlpAlloc @ 0x1404D7574 (SddlpAlloc.c)
- *     LocalGetStringForSid @ 0x1406CB818 (LocalGetStringForSid.c)
- *     EncodeAttributeName @ 0x1406CC970 (EncodeAttributeName.c)
+ *     RtlStringCbLengthW @ 0x140085E34 (RtlStringCbLengthW.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     _i64tow_s @ 0x140152244 (_i64tow_s.c)
+ *     _ui64tow_s @ 0x1401522B4 (_ui64tow_s.c)
+ *     _ultow_s @ 0x1401522C8 (_ultow_s.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     SddlpFree @ 0x1404BA0C0 (SddlpFree.c)
+ *     SddlpAlloc @ 0x1404BAB78 (SddlpAlloc.c)
+ *     LocalGetStringForSid @ 0x1406CB950 (LocalGetStringForSid.c)
+ *     EncodeAttributeName @ 0x1406CCAA8 (EncodeAttributeName.c)
  */
 
 __int64 __fastcall LocalGetStringForRelativeAttribute(

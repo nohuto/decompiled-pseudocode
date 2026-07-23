@@ -1,13 +1,13 @@
 /*
- * XREFs of IoReleaseRemoveLockAndWaitEx @ 0x1401CCDEC
+ * XREFs of IoReleaseRemoveLockAndWaitEx @ 0x1401CCC38
  * Callers:
- *     PopFxAcpiUnregisterDevice @ 0x14020E838 (PopFxAcpiUnregisterDevice.c)
- *     PopFxUnregisterDevice @ 0x14066D58C (PopFxUnregisterDevice.c)
+ *     PopFxAcpiUnregisterDevice @ 0x14020E664 (PopFxAcpiUnregisterDevice.c)
+ *     PopFxUnregisterDevice @ 0x14066D670 (PopFxUnregisterDevice.c)
  *     ViFilterDispatchPnp @ 0x14071ADC8 (ViFilterDispatchPnp.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x14005C880 (KeWaitForSingleObject.c)
+ *     KeWaitForSingleObject @ 0x14005C400 (KeWaitForSingleObject.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     VfRemLockReportBadReleaseAndWaitTag @ 0x14070DE5C (VfRemLockReportBadReleaseAndWaitTag.c)
+ *     VfRemLockReportBadReleaseAndWaitTag @ 0x14070DE8C (VfRemLockReportBadReleaseAndWaitTag.c)
  */
 
 void __stdcall IoReleaseRemoveLockAndWaitEx(PIO_REMOVE_LOCK RemoveLock, PVOID Tag, ULONG RemlockSize)

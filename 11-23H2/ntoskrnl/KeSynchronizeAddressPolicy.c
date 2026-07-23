@@ -1,17 +1,17 @@
 /*
- * XREFs of KeSynchronizeAddressPolicy @ 0x1403608FC
+ * XREFs of KeSynchronizeAddressPolicy @ 0x140360A9C
  * Callers:
- *     PspDisablePrimaryTokenExchange @ 0x14076F8E0 (PspDisablePrimaryTokenExchange.c)
+ *     PspDisablePrimaryTokenExchange @ 0x14076FAD0 (PspDisablePrimaryTokenExchange.c)
  * Callees:
- *     KiCopyAffinityEx @ 0x1402545C0 (KiCopyAffinityEx.c)
- *     KeCountSetBitsAffinityEx @ 0x1402C01C0 (KeCountSetBitsAffinityEx.c)
- *     KeRemoveProcessorAffinityEx @ 0x1402C02B0 (KeRemoveProcessorAffinityEx.c)
- *     KiIpiStallOnPacketTargetsPrcb @ 0x1402C02F0 (KiIpiStallOnPacketTargetsPrcb.c)
- *     KiIpiSendPacket @ 0x1402C0330 (KiIpiSendPacket.c)
- *     KiSynchronizeAddressPolicyTarget @ 0x140360AA0 (KiSynchronizeAddressPolicyTarget.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiCopyAffinityEx @ 0x140254680 (KiCopyAffinityEx.c)
+ *     KeCountSetBitsAffinityEx @ 0x1402C0450 (KeCountSetBitsAffinityEx.c)
+ *     KeRemoveProcessorAffinityEx @ 0x1402C0540 (KeRemoveProcessorAffinityEx.c)
+ *     KiIpiStallOnPacketTargetsPrcb @ 0x1402C0580 (KiIpiStallOnPacketTargetsPrcb.c)
+ *     KiIpiSendPacket @ 0x1402C05C0 (KiIpiSendPacket.c)
+ *     KiSynchronizeAddressPolicyTarget @ 0x140360C40 (KiSynchronizeAddressPolicyTarget.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 void *__fastcall KeSynchronizeAddressPolicy(__int64 a1)
@@ -35,7 +35,7 @@ void *__fastcall KeSynchronizeAddressPolicy(__int64 a1)
   {
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(0xCuLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
       if ( CurrentIrql == 12 )
@@ -56,10 +56,10 @@ void *__fastcall KeSynchronizeAddressPolicy(__int64 a1)
       KiIpiSendPacket(0, (int)v14, (__int64)KiSynchronizeAddressPolicyTarget, 1LL, 0LL, 0LL);
       KiIpiStallOnPacketTargetsPrcb(v8, (__int64)CurrentPrcb);
     }
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v9 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v9 <= 0xFu && CurrentIrql <= 0xFu && v9 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v9 <= 0xFu && CurrentIrql <= 0xFu && v9 >= 2u )
       {
         v10 = KeGetCurrentPrcb();
         v11 = v10->SchedulerAssist;

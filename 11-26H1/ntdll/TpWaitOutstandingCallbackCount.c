@@ -1,31 +1,31 @@
 /*
- * XREFs of TpWaitOutstandingCallbackCount @ 0x1800DCD2C
+ * XREFs of TpWaitOutstandingCallbackCount @ 0x1800D9C9C
  * Callers:
- *     RtlDeregisterWaitEx @ 0x1801087C0 (RtlDeregisterWaitEx.c)
+ *     RtlDeregisterWaitEx @ 0x180108160 (RtlDeregisterWaitEx.c)
  * Callees:
- *     RtlAcquireSRWLockExclusive @ 0x18003F4D0 (RtlAcquireSRWLockExclusive.c)
- *     RtlReleaseSRWLockExclusive @ 0x18003FAA0 (RtlReleaseSRWLockExclusive.c)
- *     TppRaiseInvalidParameter @ 0x180067FF8 (TppRaiseInvalidParameter.c)
+ *     RtlAcquireSRWLockExclusive @ 0x180029A40 (RtlAcquireSRWLockExclusive.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18002A010 (RtlReleaseSRWLockExclusive.c)
+ *     TppRaiseInvalidParameter @ 0x180088448 (TppRaiseInvalidParameter.c)
  */
 
-__int64 __fastcall TpWaitOutstandingCallbackCount(__int64 a1, __int64 a2)
+__int64 __fastcall TpWaitOutstandingCallbackCount(__int64 a1)
 {
-  int v2; // eax
-  volatile signed __int64 *v4; // rdi
-  unsigned int v5; // ebx
+  int v1; // eax
+  _RTL_SRWLOCK *v3; // rdi
+  unsigned int v4; // ebx
 
-  v2 = *(_DWORD *)(a1 + 168);
-  if ( ((v2 & 0x10000) != 0
-     || (v2 & 0x20000) != 0
-     || *(__int64 (__fastcall ***)())(a1 + 8) != TppWaitpCleanupGroupMemberVFuncs
+  v1 = *(_DWORD *)(a1 + 168);
+  if ( ((v1 & 0x10000) != 0
+     || (v1 & 0x20000) != 0
+     || *(__int64 (__fastcall ***)(PVOID))(a1 + 8) != &TppWaitpCleanupGroupMemberVFuncs
      || NtCurrentPeb()->Ldr->ShutdownInProgress)
     && !NtCurrentPeb()->Ldr->ShutdownInProgress )
   {
     TppRaiseInvalidParameter();
   }
-  v4 = (volatile signed __int64 *)(a1 + 240);
-  RtlAcquireSRWLockExclusive((volatile signed __int64 *)(a1 + 240), a2);
-  v5 = *(_DWORD *)(a1 + 56);
-  RtlReleaseSRWLockExclusive(v4);
-  return v5;
+  v3 = (_RTL_SRWLOCK *)(a1 + 240);
+  RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 240));
+  v4 = *(_DWORD *)(a1 + 56);
+  RtlReleaseSRWLockExclusive(v3);
+  return v4;
 }

@@ -1,42 +1,42 @@
 /*
- * XREFs of MiApplyDriverHotPatch @ 0x140A34878
+ * XREFs of MiApplyDriverHotPatch @ 0x140A34B28
  * Callers:
- *     MiApplyHotPatchToLoadedDriver @ 0x140A35068 (MiApplyHotPatchToLoadedDriver.c)
+ *     MiApplyHotPatchToLoadedDriver @ 0x140A35318 (MiApplyHotPatchToLoadedDriver.c)
  * Callees:
  *     MiSessionLookupImage @ 0x14020AB68 (MiSessionLookupImage.c)
  *     MiGetSessionVm @ 0x14020B11C (MiGetSessionVm.c)
  *     MiGetAnyMultiplexedVm @ 0x1402146B4 (MiGetAnyMultiplexedVm.c)
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     memset @ 0x140435A00 (memset.c)
- *     VslApplyHotPatch @ 0x14054AB70 (VslApplyHotPatch.c)
- *     MiLinkHotPatchToBase @ 0x1406426A8 (MiLinkHotPatchToBase.c)
- *     MiUpdatePatchInProgress @ 0x140642F5C (MiUpdatePatchInProgress.c)
+ *     MiAllocatePool @ 0x1402DF430 (MiAllocatePool.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     VslApplyHotPatch @ 0x14054B230 (VslApplyHotPatch.c)
+ *     MiLinkHotPatchToBase @ 0x140642BF8 (MiLinkHotPatchToBase.c)
+ *     MiUpdatePatchInProgress @ 0x1406434AC (MiUpdatePatchInProgress.c)
  *     MiFreeLoadedImportList @ 0x140696D20 (MiFreeLoadedImportList.c)
- *     RtlFindExportedRoutineByName @ 0x1406AD3F0 (RtlFindExportedRoutineByName.c)
- *     MiUnlockDriverPages @ 0x140875B2C (MiUnlockDriverPages.c)
- *     VslDetermineHotPatchUndoTableSize @ 0x140942124 (VslDetermineHotPatchUndoTableSize.c)
- *     VslObtainHotPatchUndoTable @ 0x140942AF8 (VslObtainHotPatchUndoTable.c)
- *     MiAddEntryToImportList @ 0x140A2AF98 (MiAddEntryToImportList.c)
- *     MiPrepareDriverPatchState @ 0x140A2B624 (MiPrepareDriverPatchState.c)
- *     MiActOnPatchInAllSessions @ 0x140A34610 (MiActOnPatchInAllSessions.c)
- *     MiApplyHotPatchToDriverDataPages @ 0x140A34F28 (MiApplyHotPatchToDriverDataPages.c)
- *     MiCheckPatchesInSupportedSections @ 0x140A363B0 (MiCheckPatchesInSupportedSections.c)
- *     MiIdentifyImageDiscardablePages @ 0x140A37674 (MiIdentifyImageDiscardablePages.c)
- *     MiIdentifyPatchImageDataPages @ 0x140A3777C (MiIdentifyPatchImageDataPages.c)
- *     MiInvokePatchCallback @ 0x140A37E90 (MiInvokePatchCallback.c)
- *     MiLogHotPatchOperationStatus @ 0x140A38F58 (MiLogHotPatchOperationStatus.c)
- *     MiPrepareDriverForHotPatch @ 0x140A3A814 (MiPrepareDriverForHotPatch.c)
- *     MiGetSectionStrongImageReference @ 0x140A43794 (MiGetSectionStrongImageReference.c)
- *     MiAllocateKernelCfgBitmapPageTables @ 0x140A43E4C (MiAllocateKernelCfgBitmapPageTables.c)
- *     RtlFindHotPatchBase @ 0x140A7649C (RtlFindHotPatchBase.c)
- *     RtlFindHotPatchInformation @ 0x140A764CC (RtlFindHotPatchInformation.c)
- *     RtlPatchContainsCallTarget @ 0x140A76694 (RtlPatchContainsCallTarget.c)
- *     RtlValidateHotPatchBase @ 0x140A766E4 (RtlValidateHotPatchBase.c)
+ *     RtlFindExportedRoutineByName @ 0x1406AD420 (RtlFindExportedRoutineByName.c)
+ *     MiUnlockDriverPages @ 0x140875D6C (MiUnlockDriverPages.c)
+ *     VslDetermineHotPatchUndoTableSize @ 0x140942324 (VslDetermineHotPatchUndoTableSize.c)
+ *     VslObtainHotPatchUndoTable @ 0x140942CF8 (VslObtainHotPatchUndoTable.c)
+ *     MiAddEntryToImportList @ 0x140A2B248 (MiAddEntryToImportList.c)
+ *     MiPrepareDriverPatchState @ 0x140A2B8D4 (MiPrepareDriverPatchState.c)
+ *     MiActOnPatchInAllSessions @ 0x140A348C0 (MiActOnPatchInAllSessions.c)
+ *     MiApplyHotPatchToDriverDataPages @ 0x140A351D8 (MiApplyHotPatchToDriverDataPages.c)
+ *     MiCheckPatchesInSupportedSections @ 0x140A36660 (MiCheckPatchesInSupportedSections.c)
+ *     MiIdentifyImageDiscardablePages @ 0x140A37924 (MiIdentifyImageDiscardablePages.c)
+ *     MiIdentifyPatchImageDataPages @ 0x140A37A2C (MiIdentifyPatchImageDataPages.c)
+ *     MiInvokePatchCallback @ 0x140A38140 (MiInvokePatchCallback.c)
+ *     MiLogHotPatchOperationStatus @ 0x140A39208 (MiLogHotPatchOperationStatus.c)
+ *     MiPrepareDriverForHotPatch @ 0x140A3AAC4 (MiPrepareDriverForHotPatch.c)
+ *     MiGetSectionStrongImageReference @ 0x140A43A44 (MiGetSectionStrongImageReference.c)
+ *     MiAllocateKernelCfgBitmapPageTables @ 0x140A440FC (MiAllocateKernelCfgBitmapPageTables.c)
+ *     RtlFindHotPatchBase @ 0x140A7674C (RtlFindHotPatchBase.c)
+ *     RtlFindHotPatchInformation @ 0x140A7677C (RtlFindHotPatchInformation.c)
+ *     RtlPatchContainsCallTarget @ 0x140A76944 (RtlPatchContainsCallTarget.c)
+ *     RtlValidateHotPatchBase @ 0x140A76994 (RtlValidateHotPatchBase.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall MiApplyDriverHotPatch(__int64 a1, __int64 a2, __int64 a3, char a4)
+__int64 __fastcall MiApplyDriverHotPatch(unsigned __int64 a1, unsigned __int64 a2, __int64 a3, char a4)
 {
   _QWORD *v6; // r15
   __int64 result; // rax
@@ -63,8 +63,8 @@ __int64 __fastcall MiApplyDriverHotPatch(__int64 a1, __int64 a2, __int64 a3, cha
   _QWORD v28[8]; // [rsp+68h] [rbp-A0h] BYREF
   _QWORD *v29; // [rsp+A8h] [rbp-60h]
   void *v30; // [rsp+B0h] [rbp-58h]
-  __int64 v31[14]; // [rsp+B8h] [rbp-50h] BYREF
-  __int64 v32[20]; // [rsp+128h] [rbp+20h] BYREF
+  _RTL_BITMAP_EX v31[7]; // [rsp+B8h] [rbp-50h] BYREF
+  _RTL_BITMAP_EX v32[10]; // [rsp+128h] [rbp+20h] BYREF
   int v33; // [rsp+1E0h] [rbp+D8h]
 
   v24 = 0;
@@ -75,7 +75,7 @@ __int64 __fastcall MiApplyDriverHotPatch(__int64 a1, __int64 a2, __int64 a3, cha
   memset(v28, 0, sizeof(v28));
   if ( (*(_DWORD *)(a2 + 196) & 0x20) != 0 )
     return 3221225496LL;
-  v28[3] = RtlFindHotPatchInformation(*(_QWORD *)(a1 + 48));
+  v28[3] = RtlFindHotPatchInformation(*(PVOID *)(a1 + 48));
   v8 = v28[3];
   HotPatchBase = RtlFindHotPatchBase(v28[3]);
   if ( !HotPatchBase )
@@ -85,12 +85,12 @@ __int64 __fastcall MiApplyDriverHotPatch(__int64 a1, __int64 a2, __int64 a3, cha
   if ( !(unsigned __int8)RtlValidateHotPatchBase(v9, HotPatchBase, v11, v10) )
     return 3221225595LL;
   memset(v31, 0, 0x68uLL);
-  v31[0] = a2;
-  v31[1] = HotPatchBase;
-  LODWORD(v31[3]) = (v11 >> 12) + ((v11 & 0xFFF) != 0);
+  v31[0].SizeOfBitMap = a2;
+  v31[0].Buffer = (unsigned __int64 *)HotPatchBase;
+  LODWORD(v31[1].Buffer) = (v11 >> 12) + ((v11 & 0xFFF) != 0);
   memset(v32, 0, 0x68uLL);
-  v32[0] = a1;
-  LODWORD(v32[3]) = (v10 >> 12) + ((v10 & 0xFFF) != 0);
+  v32[0].SizeOfBitMap = a1;
+  LODWORD(v32[1].Buffer) = (v10 >> 12) + ((v10 & 0xFFF) != 0);
   if ( !*(_QWORD *)(a2 + 280) )
     goto LABEL_11;
   result = VslDetermineHotPatchUndoTableSize(*(_QWORD *)(a2 + 48), &v24);
@@ -196,7 +196,7 @@ LABEL_11:
       if ( SectionStrongImageReference >= 0 )
       {
         if ( (*(_DWORD *)(a2 + 196) & 0x100) != 0 )
-          v28[6] = RtlFindExportedRoutineByName(*(_QWORD *)(a1 + 48), "__PatchMainCallout__");
+          v28[6] = RtlFindExportedRoutineByName(*(PVOID *)(a1 + 48), "__PatchMainCallout__");
         if ( v28[6] )
         {
           LODWORD(v28[7]) = 0;

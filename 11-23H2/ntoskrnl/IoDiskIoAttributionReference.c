@@ -1,9 +1,9 @@
 /*
- * XREFs of IoDiskIoAttributionReference @ 0x140463A78
+ * XREFs of IoDiskIoAttributionReference @ 0x140463E78
  * Callers:
- *     PspAllocateProcess @ 0x1406B442C (PspAllocateProcess.c)
- *     IoDiskIoAttributionAllocate @ 0x1407D8538 (IoDiskIoAttributionAllocate.c)
- *     PspAllocatePartition @ 0x140859010 (PspAllocatePartition.c)
+ *     PspAllocateProcess @ 0x1406B45D8 (PspAllocateProcess.c)
+ *     IoDiskIoAttributionAllocate @ 0x1407D8808 (IoDiskIoAttributionAllocate.c)
+ *     PspAllocatePartition @ 0x140859250 (PspAllocatePartition.c)
  * Callees:
  *     <none>
  */

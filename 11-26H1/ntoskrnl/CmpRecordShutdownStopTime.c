@@ -1,23 +1,23 @@
 /*
- * XREFs of CmpRecordShutdownStopTime @ 0x140854628
+ * XREFs of CmpRecordShutdownStopTime @ 0x14085A938
  * Callers:
- *     CmShutdownSystem1 @ 0x1406E2270 (CmShutdownSystem1.c)
+ *     CmShutdownSystem1 @ 0x1406E64F0 (CmShutdownSystem1.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x14021C3F0 (KeQueryPerformanceCounter.c)
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     CmpAllocatePool @ 0x140474870 (CmpAllocatePool.c)
- *     CmSiFreeMemory @ 0x140495010 (CmSiFreeMemory.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwCreateKey @ 0x140723790 (ZwCreateKey.c)
- *     ZwSetValueKey @ 0x140723FF0 (ZwSetValueKey.c)
- *     CmpReadBuildVersion @ 0x140854404 (CmpReadBuildVersion.c)
- *     RtlGetPersistedStateLocation @ 0x140A10D20 (RtlGetPersistedStateLocation.c)
+ *     KeQueryPerformanceCounter @ 0x14021DD80 (KeQueryPerformanceCounter.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     CmpAllocatePool @ 0x14046DFF0 (CmpAllocatePool.c)
+ *     CmSiFreeMemory @ 0x14048EB60 (CmSiFreeMemory.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwCreateKey @ 0x140728360 (ZwCreateKey.c)
+ *     ZwSetValueKey @ 0x140728BC0 (ZwSetValueKey.c)
+ *     CmpReadBuildVersion @ 0x14085A714 (CmpReadBuildVersion.c)
+ *     RtlGetPersistedStateLocation @ 0x140A0FF10 (RtlGetPersistedStateLocation.c)
  */
 
 __int64 CmpRecordShutdownStopTime()
 {
   struct _PRIVILEGE_SET *v0; // rdi
-  WCHAR *Pool; // rax
+  WCHAR *TargetPath; // rax
   WCHAR *v2; // rsi
   int PersistedStateLocation; // ebx
   LARGE_INTEGER Data; // [rsp+40h] [rbp-19h] BYREF
@@ -38,11 +38,18 @@ __int64 CmpRecordShutdownStopTime()
   DataSize = 0;
   DestinationString = 0LL;
   v10 = 0;
-  Pool = (WCHAR *)CmpAllocatePool(0x100uLL);
-  v2 = Pool;
-  if ( Pool )
+  TargetPath = (WCHAR *)CmpAllocatePool(0x100uLL);
+  v2 = TargetPath;
+  if ( TargetPath )
   {
-    PersistedStateLocation = RtlGetPersistedStateLocation(L"ShutdownPath", Pool, 1040, 0LL);
+    PersistedStateLocation = RtlGetPersistedStateLocation(
+                               L"ShutdownPath",
+                               0LL,
+                               L"\\REGISTRY\\MACHINE\\SOFTWARE\\MICROSOFT\\WINDOWS\\CURRENTVERSION\\SHUTDOWN",
+                               LocationTypeRegistry,
+                               TargetPath,
+                               0x410u,
+                               0LL);
     if ( PersistedStateLocation >= 0 )
     {
       RtlInitUnicodeString(&DestinationString, v2);

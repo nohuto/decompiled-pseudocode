@@ -1,12 +1,12 @@
 /*
- * XREFs of KiLeaveCooperativeIdleSearch @ 0x140457AB0
+ * XREFs of KiLeaveCooperativeIdleSearch @ 0x14044F320
  * Callers:
- *     KiSearchForNewThreadsWithinL0SearchContext @ 0x14023F880 (KiSearchForNewThreadsWithinL0SearchContext.c)
- *     KiSearchForNewThreadsWithinSearchContext @ 0x14023FC00 (KiSearchForNewThreadsWithinSearchContext.c)
+ *     KiSearchForNewThreadsWithinL0SearchContext @ 0x1402411E0 (KiSearchForNewThreadsWithinL0SearchContext.c)
+ *     KiSearchForNewThreadsWithinSearchContext @ 0x140241560 (KiSearchForNewThreadsWithinSearchContext.c)
  * Callees:
- *     KxWaitForLockOwnerShip @ 0x1402B29C0 (KxWaitForLockOwnerShip.c)
- *     KeWakeAddressAll @ 0x1402BA1F0 (KeWakeAddressAll.c)
- *     KxWaitForLockChainValid @ 0x1402BA360 (KxWaitForLockChainValid.c)
+ *     KxWaitForLockOwnerShip @ 0x1402FD690 (KxWaitForLockOwnerShip.c)
+ *     KeWakeAddressAll @ 0x140304EB0 (KeWakeAddressAll.c)
+ *     KxWaitForLockChainValid @ 0x140305020 (KxWaitForLockChainValid.c)
  */
 
 char __fastcall KiLeaveCooperativeIdleSearch(__int64 a1, __int64 a2, __int64 i, char a4)

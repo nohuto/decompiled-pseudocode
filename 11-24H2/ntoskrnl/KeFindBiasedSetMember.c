@@ -1,7 +1,7 @@
 /*
- * XREFs of KeFindBiasedSetMember @ 0x14040CCF0
+ * XREFs of KeFindBiasedSetMember @ 0x140405380
  * Callers:
- *     NtGetCurrentProcessorNumber @ 0x140A7DD80 (NtGetCurrentProcessorNumber.c)
+ *     NtGetCurrentProcessorNumber @ 0x140A78080 (NtGetCurrentProcessorNumber.c)
  * Callees:
  *     <none>
  */

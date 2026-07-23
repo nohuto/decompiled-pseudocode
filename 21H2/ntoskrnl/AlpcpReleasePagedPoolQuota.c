@@ -1,14 +1,14 @@
 /*
- * XREFs of AlpcpReleasePagedPoolQuota @ 0x14061FB44
+ * XREFs of AlpcpReleasePagedPoolQuota @ 0x1406897B4
  * Callers:
- *     AlpcpCaptureMessageData @ 0x1405E3D7C (AlpcpCaptureMessageData.c)
- *     AlpcpCaptureMessageDataSafe @ 0x1405E6080 (AlpcpCaptureMessageDataSafe.c)
- *     AlpcSecurityDestroyProcedure @ 0x14061FAC0 (AlpcSecurityDestroyProcedure.c)
- *     AlpcpCreateSecurityContext @ 0x1406605EC (AlpcpCreateSecurityContext.c)
- *     AlpcMessageDestroyProcedure @ 0x14068A760 (AlpcMessageDestroyProcedure.c)
- *     AlpcpCreateReserve @ 0x1406B0D14 (AlpcpCreateReserve.c)
+ *     AlpcMessageDestroyProcedure @ 0x1405E9BF0 (AlpcMessageDestroyProcedure.c)
+ *     AlpcpCreateReserve @ 0x14060FCC4 (AlpcpCreateReserve.c)
+ *     AlpcpCreateSecurityContext @ 0x14065540C (AlpcpCreateSecurityContext.c)
+ *     AlpcSecurityDestroyProcedure @ 0x140689730 (AlpcSecurityDestroyProcedure.c)
+ *     AlpcpCaptureMessageData @ 0x1406D34DC (AlpcpCaptureMessageData.c)
+ *     AlpcpCaptureMessageDataSafe @ 0x1406D57E0 (AlpcpCaptureMessageDataSafe.c)
  * Callees:
- *     PsReturnProcessPagedPoolQuota @ 0x140318410 (PsReturnProcessPagedPoolQuota.c)
+ *     PsReturnProcessPagedPoolQuota @ 0x140323160 (PsReturnProcessPagedPoolQuota.c)
  */
 
 unsigned __int64 __fastcall AlpcpReleasePagedPoolQuota(struct _KPROCESS *a1, unsigned __int64 a2)

@@ -1,20 +1,20 @@
 /*
- * XREFs of RawInitiateDeleteVolume @ 0x14010C63C
+ * XREFs of RawInitiateDeleteVolume @ 0x14010C6BC
  * Callers:
- *     RawCompletionRoutine @ 0x1400F9740 (RawCompletionRoutine.c)
- *     RawVerifyVolume @ 0x1402EC294 (RawVerifyVolume.c)
- *     RawReadWriteDeviceControl @ 0x14064B378 (RawReadWriteDeviceControl.c)
- *     RawCreate @ 0x14068F450 (RawCreate.c)
- *     RawCleanup @ 0x14068F78C (RawCleanup.c)
- *     RawClose @ 0x14068F8F8 (RawClose.c)
+ *     RawCompletionRoutine @ 0x1400F97C0 (RawCompletionRoutine.c)
+ *     RawVerifyVolume @ 0x1402EC484 (RawVerifyVolume.c)
+ *     RawReadWriteDeviceControl @ 0x14064C538 (RawReadWriteDeviceControl.c)
+ *     RawCreate @ 0x140690610 (RawCreate.c)
+ *     RawCleanup @ 0x14069094C (RawCleanup.c)
+ *     RawClose @ 0x140690AB8 (RawClose.c)
  * Callees:
  *     KeReleaseGuardedMutex @ 0x140014E30 (KeReleaseGuardedMutex.c)
  *     KeReleaseQueuedSpinLock @ 0x140018930 (KeReleaseQueuedSpinLock.c)
  *     ExAcquireFastMutex @ 0x14004E530 (ExAcquireFastMutex.c)
- *     KeAcquireQueuedSpinLock @ 0x1400ACF30 (KeAcquireQueuedSpinLock.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     RawDeleteVcb @ 0x14068F978 (RawDeleteVcb.c)
- *     RawCleanupVcb @ 0x14068F9A8 (RawCleanupVcb.c)
+ *     KeAcquireQueuedSpinLock @ 0x1400ACE70 (KeAcquireQueuedSpinLock.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     RawDeleteVcb @ 0x140690B38 (RawDeleteVcb.c)
+ *     RawCleanupVcb @ 0x140690B68 (RawCleanupVcb.c)
  */
 
 char __fastcall RawInitiateDeleteVolume(PFSRTL_ADVANCED_FCB_HEADER AdvancedHeader, int a2, int a3)
@@ -69,13 +69,13 @@ char __fastcall RawInitiateDeleteVolume(PFSRTL_ADVANCED_FCB_HEADER AdvancedHeade
           Blink->Flink = v14;
           v14->Blink = Blink;
           *(_DWORD *)&AdvancedHeader[1].NodeTypeCode |= 6u;
-          v16 = (struct _LIST_ENTRY *)qword_14040E168;
-          if ( *(__int64 **)qword_14040E168 == &RawDismountedQueue )
+          v16 = (struct _LIST_ENTRY *)qword_14040F1C8;
+          if ( *(__int64 **)qword_14040F1C8 == &RawDismountedQueue )
           {
             *(_QWORD *)p_FilterContexts = &RawDismountedQueue;
             AdvancedHeader[1].FilterContexts.Blink = v16;
             v16->Flink = (struct _LIST_ENTRY *)p_FilterContexts;
-            qword_14040E168 = (__int64)&AdvancedHeader[1].FilterContexts;
+            qword_14040F1C8 = (__int64)&AdvancedHeader[1].FilterContexts;
             KeReleaseGuardedMutex(&RawGlobalLock);
             return v3;
           }

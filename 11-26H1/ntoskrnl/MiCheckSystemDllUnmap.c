@@ -1,11 +1,11 @@
 /*
- * XREFs of MiCheckSystemDllUnmap @ 0x1409E8DCC
+ * XREFs of MiCheckSystemDllUnmap @ 0x1409E6908
  * Callers:
- *     MiUnmapViewOfSectionPrepare @ 0x1409C40F0 (MiUnmapViewOfSectionPrepare.c)
+ *     MiUnmapViewOfSectionPrepare @ 0x1409950D0 (MiUnmapViewOfSectionPrepare.c)
  * Callees:
- *     MiLogSystemDllUnmap @ 0x1406F7FD4 (MiLogSystemDllUnmap.c)
- *     PsWow64GetProcessNtdllType @ 0x1409EA77C (PsWow64GetProcessNtdllType.c)
- *     PsQuerySystemDllInfo @ 0x1409EBB38 (PsQuerySystemDllInfo.c)
+ *     MiLogSystemDllUnmap @ 0x1406FCCA4 (MiLogSystemDllUnmap.c)
+ *     PsWow64GetProcessNtdllType @ 0x1409E6F4C (PsWow64GetProcessNtdllType.c)
+ *     PsQuerySystemDllInfo @ 0x1409E8308 (PsQuerySystemDllInfo.c)
  */
 
 void __fastcall MiCheckSystemDllUnmap(__int64 a1, __int64 a2, __int64 a3)
@@ -17,7 +17,7 @@ void __fastcall MiCheckSystemDllUnmap(__int64 a1, __int64 a2, __int64 a3)
   __int64 v7; // rax
   __int64 v8; // r10
 
-  if ( stru_140E36558.FirstArgument
+  if ( stru_140E366D8.FirstArgument
     && (*(_DWORD *)(a3 + 500) & 8) == 0
     && ((SystemDllInfo = PsQuerySystemDllInfo(0LL)) != 0 && *(_QWORD *)(SystemDllInfo + 24) == v5
      || (ProcessNtdllType = PsWow64GetProcessNtdllType(v4)) != 0

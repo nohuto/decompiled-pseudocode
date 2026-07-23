@@ -19,7 +19,7 @@ char __fastcall VrpBecomeDiffHiveEntryTransitionOwner(__int64 a1)
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   *v1 = KeGetCurrentThread();
-  v3 = KeAbPreAcquire((ULONG_PTR)v1, 0LL, 0LL);
+  v3 = KeAbPreAcquire((ULONG_PTR)v1, 0LL, 0);
   if ( v3 )
     *(_BYTE *)(v3 + 26) |= 1u;
   return 1;

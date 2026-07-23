@@ -253,7 +253,7 @@ LABEL_42:
         v48 = 0LL;
         v50 = 0LL;
         v36 = KeGetCurrentPrcb();
-        KiAbProcessThreadLocks(CurrentThread, 1u, 1, 1, (__int64)&v48, (__int64)&v50, (__int64)&v36->AbSelfIoBoostsList);
+        KiAbProcessThreadLocks(CurrentThread, 1, 1, 1, (__int64)&v48, (__int64)&v50, (__int64)&v36->AbSelfIoBoostsList);
         KiAbProcessLocksWorker(&v50, (__int64 *)&v36->AbSelfIoBoostsList, (__int64)&v48, 0);
         v37 = v48;
         while ( v37 )

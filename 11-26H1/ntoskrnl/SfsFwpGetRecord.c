@@ -1,11 +1,11 @@
 /*
- * XREFs of SfsFwpGetRecord @ 0x1406DCEE4
+ * XREFs of SfsFwpGetRecord @ 0x1406E1184
  * Callers:
- *     PrExtGetRecord @ 0x1406DCC7C (PrExtGetRecord.c)
+ *     PrExtGetRecord @ 0x1406E0F1C (PrExtGetRecord.c)
  * Callees:
- *     DrpGetRecord @ 0x1406DE258 (DrpGetRecord.c)
- *     DrpGetRecordCount @ 0x1406DE294 (DrpGetRecordCount.c)
- *     DrpGetSectionAtIndex @ 0x1406DE2C0 (DrpGetSectionAtIndex.c)
+ *     DrpGetRecord @ 0x1406E24F8 (DrpGetRecord.c)
+ *     DrpGetRecordCount @ 0x1406E2534 (DrpGetRecordCount.c)
+ *     DrpGetSectionAtIndex @ 0x1406E2560 (DrpGetSectionAtIndex.c)
  */
 
 __int64 __fastcall SfsFwpGetRecord(__int64 a1, unsigned __int64 a2, _QWORD *a3, _QWORD *a4, unsigned int *a5)
@@ -24,7 +24,7 @@ __int64 __fastcall SfsFwpGetRecord(__int64 a1, unsigned __int64 a2, _QWORD *a3, 
   unsigned int v25; // [rsp+20h] [rbp-30h] BYREF
   int v26; // [rsp+24h] [rbp-2Ch]
   _DWORD *v27; // [rsp+28h] [rbp-28h] BYREF
-  __int64 v28[4]; // [rsp+30h] [rbp-20h] BYREF
+  _QWORD v28[4]; // [rsp+30h] [rbp-20h] BYREF
 
   v27 = 0LL;
   v28[0] = 0LL;
@@ -52,8 +52,8 @@ __int64 __fastcall SfsFwpGetRecord(__int64 a1, unsigned __int64 a2, _QWORD *a3, 
         v18 = *(_QWORD *)(v16 + 24) + 24LL;
         if ( v18 > a2 )
           return (unsigned int)-1073741811;
-        v19 = *(_QWORD *)(v28[0] + 8);
-        v20 = *(unsigned int *)(v28[0] + 20);
+        v19 = *(_QWORD *)(v28[0] + 8LL);
+        v20 = *(unsigned int *)(v28[0] + 20LL);
         if ( v18 + v19 + 4 * v20 > a2 )
           return (unsigned int)-1073741811;
         v21 = *(_QWORD *)(v16 + 16);
@@ -64,10 +64,10 @@ __int64 __fastcall SfsFwpGetRecord(__int64 a1, unsigned __int64 a2, _QWORD *a3, 
           if ( *(_DWORD *)(v28[0] + 4 * j + 24) == v26 )
           {
             v23 = *(_DWORD *)(v16 + 8);
-            if ( LODWORD(CmpCallbackListLock.Timer.Dpc) < v23 && v23 < v13 )
+            if ( CmpContextListLock.Timer.DueTime.LowPart < v23 && v23 < v13 )
             {
               v13 = *(_DWORD *)(v16 + 8);
-              HIDWORD(CmpCallbackListLock.Timer.Header.WaitListHead.Blink) = v13;
+              HIDWORD(CmpContextListLock.Timer.Header.WaitListHead.Flink) = v13;
               *a4 = v21;
               *a5 = v23;
               *a3 = v17;
@@ -78,7 +78,7 @@ __int64 __fastcall SfsFwpGetRecord(__int64 a1, unsigned __int64 a2, _QWORD *a3, 
         }
       }
     }
-    if ( !HIDWORD(CmpCallbackListLock.Timer.Header.WaitListHead.Blink) )
+    if ( !HIDWORD(CmpContextListLock.Timer.Header.WaitListHead.Flink) )
       return (unsigned int)-1073741275;
   }
   else

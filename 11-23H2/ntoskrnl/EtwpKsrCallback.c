@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwpKsrCallback @ 0x1409ED4E0
+ * XREFs of EtwpKsrCallback @ 0x1409ED770
  * Callers:
  *     <none>
  * Callees:
- *     KeWaitForSingleObject @ 0x140243CE0 (KeWaitForSingleObject.c)
- *     EtwpReleaseLoggerContext @ 0x1406BE208 (EtwpReleaseLoggerContext.c)
- *     EtwpAcquireLoggerContextByLoggerId @ 0x1406BECCC (EtwpAcquireLoggerContextByLoggerId.c)
- *     EtwpCancelMemoryPreservation @ 0x1409ED2D0 (EtwpCancelMemoryPreservation.c)
- *     EtwpPreserveLogger @ 0x1409ED61C (EtwpPreserveLogger.c)
- *     EtwpSavePersistedLoggers @ 0x1409EDFC8 (EtwpSavePersistedLoggers.c)
+ *     KeWaitForSingleObject @ 0x140243DB0 (KeWaitForSingleObject.c)
+ *     EtwpReleaseLoggerContext @ 0x1406BE238 (EtwpReleaseLoggerContext.c)
+ *     EtwpAcquireLoggerContextByLoggerId @ 0x1406BECFC (EtwpAcquireLoggerContextByLoggerId.c)
+ *     EtwpCancelMemoryPreservation @ 0x1409ED560 (EtwpCancelMemoryPreservation.c)
+ *     EtwpPreserveLogger @ 0x1409ED8AC (EtwpPreserveLogger.c)
+ *     EtwpSavePersistedLoggers @ 0x1409EE258 (EtwpSavePersistedLoggers.c)
  */
 
 void __fastcall EtwpKsrCallback(PVOID CallbackContext, PVOID Argument1, PVOID Argument2)

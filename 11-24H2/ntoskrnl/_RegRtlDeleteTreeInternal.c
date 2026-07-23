@@ -1,19 +1,19 @@
 /*
- * XREFs of _RegRtlDeleteTreeInternal @ 0x140991230
+ * XREFs of _RegRtlDeleteTreeInternal @ 0x14097C270
  * Callers:
- *     _RegRtlDeleteTreeInternal @ 0x140991230 (_RegRtlDeleteTreeInternal.c)
- *     _RegRtlDeletePathInternal @ 0x140A6AD38 (_RegRtlDeletePathInternal.c)
- *     _PnpCtxRegDeleteTree @ 0x140A845DC (_PnpCtxRegDeleteTree.c)
+ *     _RegRtlDeleteTreeInternal @ 0x14097C270 (_RegRtlDeleteTreeInternal.c)
+ *     _RegRtlDeletePathInternal @ 0x140A64448 (_RegRtlDeletePathInternal.c)
+ *     _PnpCtxRegDeleteTree @ 0x140A7F11C (_PnpCtxRegDeleteTree.c)
  * Callees:
- *     RtlpGetStackLimits @ 0x14027FEF0 (RtlpGetStackLimits.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     _RegRtlOpenKeyTransacted @ 0x1408C7B60 (_RegRtlOpenKeyTransacted.c)
- *     _RegRtlDeleteTreeInternal @ 0x140991230 (_RegRtlDeleteTreeInternal.c)
- *     _RegRtlEnumKey @ 0x140992974 (_RegRtlEnumKey.c)
- *     _RegRtlQueryInfoKey @ 0x140993F98 (_RegRtlQueryInfoKey.c)
- *     _RegRtlDeleteKeyTransacted @ 0x140A6AF3C (_RegRtlDeleteKeyTransacted.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlpGetStackLimits @ 0x140235480 (RtlpGetStackLimits.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     _RegRtlOpenKeyTransacted @ 0x1408C5590 (_RegRtlOpenKeyTransacted.c)
+ *     _RegRtlDeleteTreeInternal @ 0x14097C270 (_RegRtlDeleteTreeInternal.c)
+ *     _RegRtlEnumKey @ 0x14097D9B4 (_RegRtlEnumKey.c)
+ *     _RegRtlQueryInfoKey @ 0x14097EFD8 (_RegRtlQueryInfoKey.c)
+ *     _RegRtlDeleteKeyTransacted @ 0x140A6464C (_RegRtlDeleteKeyTransacted.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall RegRtlDeleteTreeInternal(__int64 a1, const WCHAR *a2, __int64 a3, char a4)
@@ -21,7 +21,7 @@ __int64 __fastcall RegRtlDeleteTreeInternal(__int64 a1, const WCHAR *a2, __int64
   int v4; // r14d
   void *Pool2; // rsi
   unsigned int v8; // r15d
-  bool StackLimits; // al
+  char StackLimits; // al
   int v11; // ebx
   unsigned __int64 v12; // rdi
   int v13; // eax
@@ -30,8 +30,8 @@ __int64 __fastcall RegRtlDeleteTreeInternal(__int64 a1, const WCHAR *a2, __int64
   unsigned int v17; // eax
   unsigned int v18; // [rsp+30h] [rbp-20h] BYREF
   HANDLE Handle; // [rsp+38h] [rbp-18h] BYREF
-  unsigned __int64 v20; // [rsp+40h] [rbp-10h] BYREF
-  unsigned __int64 v21; // [rsp+48h] [rbp-8h] BYREF
+  __int64 v20; // [rsp+40h] [rbp-10h] BYREF
+  __int64 v21; // [rsp+48h] [rbp-8h] BYREF
 
   v4 = 0;
   Handle = 0LL;
@@ -40,8 +40,8 @@ __int64 __fastcall RegRtlDeleteTreeInternal(__int64 a1, const WCHAR *a2, __int64
   Pool2 = 0LL;
   v20 = 0LL;
   v8 = 0;
-  StackLimits = RtlpGetStackLimits((char **)&v20, &v21);
-  if ( (unsigned __int64)&v21 - (v20 & -(__int64)StackLimits) < 0x400 )
+  StackLimits = RtlpGetStackLimits((__int64)&v20, (__int64)&v21);
+  if ( (unsigned __int64)&v21 - (v20 & -(__int64)(StackLimits != 0)) < 0x400 )
   {
     v11 = -1073741670;
     goto LABEL_9;
@@ -89,7 +89,7 @@ LABEL_6:
         if ( Pool2 )
           ExFreePoolWithTag(Pool2, 0);
 LABEL_31:
-        Pool2 = (void *)ExAllocatePool2(0x100uLL);
+        Pool2 = (void *)ExAllocatePool2(0x100uLL, (unsigned int)v12, 0x4C474552u);
         if ( !Pool2 )
         {
           v11 = -1073741801;

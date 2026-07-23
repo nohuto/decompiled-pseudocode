@@ -1,10 +1,10 @@
 /*
- * XREFs of KeRestoreIptStateAfterProcessorComesOnline @ 0x14057265C
+ * XREFs of KeRestoreIptStateAfterProcessorComesOnline @ 0x140572B9C
  * Callers:
- *     PnprQuiesceProcessorDpc @ 0x140A9D480 (PnprQuiesceProcessorDpc.c)
- *     PopHandleNextState @ 0x140AA811C (PopHandleNextState.c)
+ *     PnprQuiesceProcessorDpc @ 0x140A9D2F0 (PnprQuiesceProcessorDpc.c)
+ *     PopHandleNextState @ 0x140AA7F8C (PopHandleNextState.c)
  * Callees:
- *     KiRestoreIptState @ 0x140572BE0 (KiRestoreIptState.c)
+ *     KiRestoreIptState @ 0x140573120 (KiRestoreIptState.c)
  */
 
 struct _KPRCB *__fastcall KeRestoreIptStateAfterProcessorComesOnline(__int64 a1, __int64 a2, __int64 a3)

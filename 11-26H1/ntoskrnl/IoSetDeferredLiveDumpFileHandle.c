@@ -1,12 +1,12 @@
 /*
- * XREFs of IoSetDeferredLiveDumpFileHandle @ 0x1405CC1F8
+ * XREFs of IoSetDeferredLiveDumpFileHandle @ 0x1405CEA0C
  * Callers:
- *     DbgkpWerStartDeferredLiveDump @ 0x14078C478 (DbgkpWerStartDeferredLiveDump.c)
+ *     DbgkpWerStartDeferredLiveDump @ 0x14078EFA8 (DbgkpWerStartDeferredLiveDump.c)
  * Callees:
- *     ExAcquireResourceExclusiveLite @ 0x140275200 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x1402B4CF0 (ExReleaseResourceLite.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     IopLiveDumpValidateDumpFileHandle @ 0x1405D2D58 (IopLiveDumpValidateDumpFileHandle.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140274770 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x1402FF9C0 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     IopLiveDumpValidateDumpFileHandle @ 0x1405D5548 (IopLiveDumpValidateDumpFileHandle.c)
  */
 
 __int64 __fastcall IoSetDeferredLiveDumpFileHandle(__int64 a1, __int64 a2)

@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlValidateHotPatchBase @ 0x14091B1E4
+ * XREFs of RtlValidateHotPatchBase @ 0x14091B344
  * Callers:
- *     MiPerformImageHotPatch @ 0x1408CCEC4 (MiPerformImageHotPatch.c)
+ *     MiPerformImageHotPatch @ 0x1408CD024 (MiPerformImageHotPatch.c)
  * Callees:
- *     RtlGetHotPatchSize @ 0x14058FD0C (RtlGetHotPatchSize.c)
- *     RtlDetermineHotPatchExtent @ 0x14091ADEC (RtlDetermineHotPatchExtent.c)
+ *     RtlGetHotPatchSize @ 0x14058FF3C (RtlGetHotPatchSize.c)
+ *     RtlDetermineHotPatchExtent @ 0x14091AF4C (RtlDetermineHotPatchExtent.c)
  */
 
 char __fastcall RtlValidateHotPatchBase(_DWORD *a1, __int64 a2, unsigned int a3, unsigned int a4)

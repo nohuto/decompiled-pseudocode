@@ -7,11 +7,14 @@
  *     <none>
  */
 
-__int64 ZwOpenSymbolicLinkObject()
+NTSTATUS __cdecl ZwOpenSymbolicLinkObject(
+        PHANDLE LinkHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 280LL;
+  result = 280;
   __asm { syscall; Low latency system call }
   return result;
 }

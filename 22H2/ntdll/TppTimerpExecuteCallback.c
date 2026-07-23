@@ -13,7 +13,7 @@
  *     RtlpTpETWCallbackStop @ 0x180112690 (RtlpTpETWCallbackStop.c)
  */
 
-void __fastcall TppTimerpExecuteCallback(__int64 a1, __int64 a2)
+void __fastcall TppTimerpExecuteCallback(_QWORD *Instance, __int64 a2)
 {
   int v2; // esi
   __int64 *v3; // rbx
@@ -25,25 +25,25 @@ void __fastcall TppTimerpExecuteCallback(__int64 a1, __int64 a2)
   v2 = a2;
   v3 = (__int64 *)(a2 - 200);
   v5 = 2147353478LL;
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+  if ( RtlGetCurrentServiceSessionId() )
     v6 = (__int64)NtCurrentPeb()->SharedData + 556;
   else
     v6 = 2147353478LL;
   if ( *(_BYTE *)v6 )
     TppETWCallbackDequeue(v3[18], v2, v3[10], v3[11], v3[13]);
-  if ( (unsigned int)TppWorkCallbackPrologRelease(a1, (__int64)v3, 0) )
+  if ( (unsigned int)TppWorkCallbackPrologRelease(Instance, (__int64)v3, 0) )
   {
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+    if ( RtlGetCurrentServiceSessionId() )
       v7 = (__int64)NtCurrentPeb()->SharedData + 556;
     else
       v7 = 2147353478LL;
     if ( *(_BYTE *)v7 )
       RtlpTpETWCallbackStart(v3[18], v2, v3[10], v3[11], v3[13]);
     TppStartThreadData(&v8, v3[10], v3[11], v3[13]);
-    *(_QWORD *)(a1 + 88) = v3[10];
-    *(_QWORD *)(a1 + 96) = v3[11];
-    ((void (__fastcall *)(__int64, __int64, __int64 *))v3[10])(a1, v3[11], v3);
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+    Instance[11] = v3[10];
+    Instance[12] = v3[11];
+    ((void (__fastcall *)(_QWORD *, __int64, __int64 *))v3[10])(Instance, v3[11], v3);
+    if ( RtlGetCurrentServiceSessionId() )
       v5 = (__int64)NtCurrentPeb()->SharedData + 556;
     if ( *(_BYTE *)v5 )
       RtlpTpETWCallbackStop(v3[18], v2, v3[10], v3[11], v3[13]);

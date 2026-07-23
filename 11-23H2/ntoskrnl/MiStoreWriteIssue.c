@@ -1,10 +1,10 @@
 /*
- * XREFs of MiStoreWriteIssue @ 0x14065CCF4
+ * XREFs of MiStoreWriteIssue @ 0x14065D244
  * Callers:
- *     MiStoreWriteModifiedPages @ 0x14046DAAA (MiStoreWriteModifiedPages.c)
+ *     MiStoreWriteModifiedPages @ 0x14046DEAA (MiStoreWriteModifiedPages.c)
  * Callees:
- *     SmpPageWrite @ 0x1405C9DB0 (SmpPageWrite.c)
- *     ?SmKeyConvert@@YAJPEAT_MM_STORE_KEY@@PEAT_SM_PAGE_KEY@@@Z @ 0x1405CCB48 (-SmKeyConvert@@YAJPEAT_MM_STORE_KEY@@PEAT_SM_PAGE_KEY@@@Z.c)
+ *     SmpPageWrite @ 0x1405CA320 (SmpPageWrite.c)
+ *     ?SmKeyConvert@@YAJPEAT_MM_STORE_KEY@@PEAT_SM_PAGE_KEY@@@Z @ 0x1405CD0B8 (-SmKeyConvert@@YAJPEAT_MM_STORE_KEY@@PEAT_SM_PAGE_KEY@@@Z.c)
  */
 
 __int64 __fastcall MiStoreWriteIssue(

@@ -1,16 +1,16 @@
 /*
- * XREFs of PiAuditDeviceOperation @ 0x14096F718
+ * XREFs of PiAuditDeviceOperation @ 0x14096F918
  * Callers:
- *     PiPnpRtlSetObjectProperty @ 0x140796788 (PiPnpRtlSetObjectProperty.c)
- *     PiAuditDeviceEnableDisableAction @ 0x14096F6A0 (PiAuditDeviceEnableDisableAction.c)
- *     PiAuditDeviceEnableDisableRequest @ 0x14096F6D4 (PiAuditDeviceEnableDisableRequest.c)
- *     PiAuditDeviceStart @ 0x14096FD8C (PiAuditDeviceStart.c)
+ *     PiPnpRtlSetObjectProperty @ 0x140796978 (PiPnpRtlSetObjectProperty.c)
+ *     PiAuditDeviceEnableDisableAction @ 0x14096F8A0 (PiAuditDeviceEnableDisableAction.c)
+ *     PiAuditDeviceEnableDisableRequest @ 0x14096F8D4 (PiAuditDeviceEnableDisableRequest.c)
+ *     PiAuditDeviceStart @ 0x14096FF8C (PiAuditDeviceStart.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     _PnpGetObjectProperty @ 0x1406D01F0 (_PnpGetObjectProperty.c)
- *     PnpFindAlternateStringData @ 0x1407931C4 (PnpFindAlternateStringData.c)
- *     SeAuditPlugAndPlay @ 0x1409CAB48 (SeAuditPlugAndPlay.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     _PnpGetObjectProperty @ 0x1406D0220 (_PnpGetObjectProperty.c)
+ *     PnpFindAlternateStringData @ 0x1407933B4 (PnpFindAlternateStringData.c)
+ *     SeAuditPlugAndPlay @ 0x1409CAD48 (SeAuditPlugAndPlay.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

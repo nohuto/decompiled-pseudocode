@@ -1,21 +1,21 @@
 /*
- * XREFs of MmAllocatePagesForMdlEx @ 0x1402F8740
+ * XREFs of MmAllocatePagesForMdlEx @ 0x1402F89D0
  * Callers:
- *     EtwpAllocateTraceBuffer @ 0x14037153C (EtwpAllocateTraceBuffer.c)
- *     BgpFwAllocateMemory @ 0x14038762C (BgpFwAllocateMemory.c)
- *     HalpAllocateCommonBufferDmaThin @ 0x140390EC4 (HalpAllocateCommonBufferDmaThin.c)
- *     PpmHeteroInitializeHgsSupport @ 0x1403AC3F4 (PpmHeteroInitializeHgsSupport.c)
- *     HalpAllocateCommonBufferVectorInternal @ 0x14050F470 (HalpAllocateCommonBufferVectorInternal.c)
- *     HalpAllocateDomainCommonBufferInternal @ 0x1405123D0 (HalpAllocateDomainCommonBufferInternal.c)
- *     HalpAllocateCommonBufferDmarThin @ 0x140513B58 (HalpAllocateCommonBufferDmarThin.c)
- *     PopGenerateMdl @ 0x14058EAD8 (PopGenerateMdl.c)
- *     PopGenerateScratchMdl @ 0x14058EB74 (PopGenerateScratchMdl.c)
- *     ?SmStAllocatePhysicalRegion@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@K@Z @ 0x1405C0458 (-SmStAllocatePhysicalRegion@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@K@Z.c)
- *     DifMmAllocatePagesForMdlExWrapper @ 0x1405E6C40 (DifMmAllocatePagesForMdlExWrapper.c)
- *     IoReserveKsrPersistentMemoryEx @ 0x1409529C0 (IoReserveKsrPersistentMemoryEx.c)
- *     ResFwGetContext @ 0x140AF2010 (ResFwGetContext.c)
+ *     EtwpAllocateTraceBuffer @ 0x1403716DC (EtwpAllocateTraceBuffer.c)
+ *     BgpFwAllocateMemory @ 0x14038780C (BgpFwAllocateMemory.c)
+ *     HalpAllocateCommonBufferDmaThin @ 0x1403910A4 (HalpAllocateCommonBufferDmaThin.c)
+ *     PpmHeteroInitializeHgsSupport @ 0x1403AC5D4 (PpmHeteroInitializeHgsSupport.c)
+ *     HalpAllocateCommonBufferVectorInternal @ 0x14050F9C0 (HalpAllocateCommonBufferVectorInternal.c)
+ *     HalpAllocateDomainCommonBufferInternal @ 0x140512920 (HalpAllocateDomainCommonBufferInternal.c)
+ *     HalpAllocateCommonBufferDmarThin @ 0x1405140A8 (HalpAllocateCommonBufferDmarThin.c)
+ *     PopGenerateMdl @ 0x14058EFC8 (PopGenerateMdl.c)
+ *     PopGenerateScratchMdl @ 0x14058F064 (PopGenerateScratchMdl.c)
+ *     ?SmStAllocatePhysicalRegion@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@K@Z @ 0x1405C09C8 (-SmStAllocatePhysicalRegion@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@K@Z.c)
+ *     DifMmAllocatePagesForMdlExWrapper @ 0x1405E71B0 (DifMmAllocatePagesForMdlExWrapper.c)
+ *     IoReserveKsrPersistentMemoryEx @ 0x140952BC0 (IoReserveKsrPersistentMemoryEx.c)
+ *     ResFwGetContext @ 0x140AF2020 (ResFwGetContext.c)
  * Callees:
- *     MmAllocatePartitionNodePagesForMdlEx @ 0x1402F87A0 (MmAllocatePartitionNodePagesForMdlEx.c)
+ *     MmAllocatePartitionNodePagesForMdlEx @ 0x1402F8A30 (MmAllocatePartitionNodePagesForMdlEx.c)
  */
 
 PMDL __stdcall MmAllocatePagesForMdlEx(

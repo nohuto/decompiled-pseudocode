@@ -1,9 +1,9 @@
 /*
- * XREFs of SepDesktopAppModifyTokenBreakaway @ 0x14063B594
+ * XREFs of SepDesktopAppModifyTokenBreakaway @ 0x14063E6B0
  * Callers:
- *     SepDesktopAppxSubProcessToken @ 0x14045FEB8 (SepDesktopAppxSubProcessToken.c)
+ *     SepDesktopAppxSubProcessToken @ 0x14051E308 (SepDesktopAppxSubProcessToken.c)
  * Callees:
- *     AuthzBasepSetSecurityAttributesToken @ 0x1403CB2B8 (AuthzBasepSetSecurityAttributesToken.c)
+ *     AuthzBasepSetSecurityAttributesToken @ 0x1403AFD64 (AuthzBasepSetSecurityAttributesToken.c)
  */
 
 __int64 __fastcall SepDesktopAppModifyTokenBreakaway(__int64 a1, int *a2, char a3)
@@ -11,7 +11,7 @@ __int64 __fastcall SepDesktopAppModifyTokenBreakaway(__int64 a1, int *a2, char a
   int v4; // r8d
   unsigned int v5; // eax
   int v6; // r8d
-  __int64 v7; // rcx
+  _DWORD *v7; // rcx
   _DWORD v9[2]; // [rsp+20h] [rbp-40h] BYREF
   int *v10; // [rsp+28h] [rbp-38h]
   int v11; // [rsp+30h] [rbp-30h] BYREF
@@ -32,7 +32,7 @@ __int64 __fastcall SepDesktopAppModifyTokenBreakaway(__int64 a1, int *a2, char a
   if ( a3 != 1 )
     v6 = v5;
   *a2 = v6;
-  v7 = *(_QWORD *)(a1 + 776);
+  v7 = *(_DWORD **)(a1 + 776);
   v13 = 0LL;
   LOWORD(v13) = 2;
   v10 = &v11;

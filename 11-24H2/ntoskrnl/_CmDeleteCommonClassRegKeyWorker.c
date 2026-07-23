@@ -1,18 +1,18 @@
 /*
- * XREFs of _CmDeleteCommonClassRegKeyWorker @ 0x140817FD8
+ * XREFs of _CmDeleteCommonClassRegKeyWorker @ 0x140818718
  * Callers:
- *     _CmDeleteCommonClassRegKey @ 0x140817E8C (_CmDeleteCommonClassRegKey.c)
+ *     _CmDeleteCommonClassRegKey @ 0x1408185CC (_CmDeleteCommonClassRegKey.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x14045AA10 (RtlInitUnicodeStringEx.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     _PnpCtxRegDeleteKey @ 0x1406F8D28 (_PnpCtxRegDeleteKey.c)
- *     RtlPrefixUnicodeString @ 0x14086E3C0 (RtlPrefixUnicodeString.c)
- *     _PnpCtxGetCachedContextBaseKey @ 0x1408C7E7C (_PnpCtxGetCachedContextBaseKey.c)
- *     _CmGetCommonClassRegKeyPath @ 0x1408CA010 (_CmGetCommonClassRegKeyPath.c)
- *     _PnpCtxRegDeleteTree @ 0x140A845DC (_PnpCtxRegDeleteTree.c)
- *     _PnpCtxRegOpenCurrentUserKey @ 0x140A8BE3C (_PnpCtxRegOpenCurrentUserKey.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeStringEx @ 0x14044FE60 (RtlInitUnicodeStringEx.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     _PnpCtxRegDeleteKey @ 0x1406F6960 (_PnpCtxRegDeleteKey.c)
+ *     RtlPrefixUnicodeString @ 0x1408726F0 (RtlPrefixUnicodeString.c)
+ *     _PnpCtxGetCachedContextBaseKey @ 0x1408C58AC (_PnpCtxGetCachedContextBaseKey.c)
+ *     _CmGetCommonClassRegKeyPath @ 0x1408C7A40 (_CmGetCommonClassRegKeyPath.c)
+ *     _PnpCtxRegDeleteTree @ 0x140A7F11C (_PnpCtxRegDeleteTree.c)
+ *     _PnpCtxRegOpenCurrentUserKey @ 0x140A8832C (_PnpCtxRegOpenCurrentUserKey.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall CmDeleteCommonClassRegKeyWorker(__int64 a1, __int64 a2, unsigned int a3, unsigned int a4, char a5)
@@ -42,7 +42,7 @@ __int64 __fastcall CmDeleteCommonClassRegKeyWorker(__int64 a1, __int64 a2, unsig
   DestinationString = 0LL;
   for ( i = (a3 & 0x200) != 0 ? 320 : 200; ; i = 0 )
   {
-    Pool2 = (wchar_t *)ExAllocatePool2(0x100uLL);
+    Pool2 = (wchar_t *)ExAllocatePool2(0x100uLL, i, 0x52504E50u);
     if ( !Pool2 )
     {
       inited = -1073741801;

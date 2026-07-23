@@ -1,13 +1,13 @@
 /*
- * XREFs of IopUpdateFunctionPointers @ 0x140501958
+ * XREFs of IopUpdateFunctionPointers @ 0x1405018D8
  * Callers:
- *     IopIrpExtensionControl @ 0x140500E98 (IopIrpExtensionControl.c)
- *     IoPerfInit @ 0x140507DE0 (IoPerfInit.c)
- *     IoPerfReset @ 0x140507EDC (IoPerfReset.c)
- *     IoVerifierInit @ 0x1409C476C (IoVerifierInit.c)
+ *     IopIrpExtensionControl @ 0x140500E18 (IopIrpExtensionControl.c)
+ *     IoPerfInit @ 0x140507D60 (IoPerfInit.c)
+ *     IoPerfReset @ 0x140507E5C (IoPerfReset.c)
+ *     IoVerifierInit @ 0x1409C576C (IoVerifierInit.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402D3660 (KeAcquireInStackQueuedSpinLock.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 

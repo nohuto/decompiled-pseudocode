@@ -1,7 +1,7 @@
 /*
- * XREFs of MiSetZeroThreadState @ 0x1404B1D20
+ * XREFs of MiSetZeroThreadState @ 0x1404AB3E0
  * Callers:
- *     MiCreateZeroThreadContext @ 0x140773624 (MiCreateZeroThreadContext.c)
+ *     MiCreateZeroThreadContext @ 0x140776624 (MiCreateZeroThreadContext.c)
  * Callees:
  *     <none>
  */

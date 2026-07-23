@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpRemoveFromDelayedDeref @ 0x1404A0ECC
+ * XREFs of CmpRemoveFromDelayedDeref @ 0x1405192D8
  * Callers:
- *     CmDeleteKey @ 0x1403FF378 (CmDeleteKey.c)
- *     CmpReferenceKeyControlBlock @ 0x1404A0538 (CmpReferenceKeyControlBlock.c)
+ *     CmDeleteKey @ 0x1403FE238 (CmDeleteKey.c)
+ *     CmpReferenceKeyControlBlock @ 0x140518944 (CmpReferenceKeyControlBlock.c)
  * Callees:
- *     KeReleaseGuardedMutex @ 0x14000CA40 (KeReleaseGuardedMutex.c)
- *     ExAcquireFastMutex @ 0x14002D0A0 (ExAcquireFastMutex.c)
+ *     KeReleaseGuardedMutex @ 0x14000C5C0 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x14002CC20 (ExAcquireFastMutex.c)
  */
 
 char __fastcall CmpRemoveFromDelayedDeref(__int64 a1)

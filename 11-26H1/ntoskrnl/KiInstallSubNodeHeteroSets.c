@@ -1,10 +1,10 @@
 /*
- * XREFs of KiInstallSubNodeHeteroSets @ 0x1403EF348
+ * XREFs of KiInstallSubNodeHeteroSets @ 0x140453E78
  * Callers:
- *     KeConfigureHeteroProcessors @ 0x1403ED9F4 (KeConfigureHeteroProcessors.c)
- *     KeUpdateProcessorRestrictions @ 0x1405E9610 (KeUpdateProcessorRestrictions.c)
+ *     KeConfigureHeteroProcessors @ 0x140452524 (KeConfigureHeteroProcessors.c)
+ *     KeUpdateProcessorRestrictions @ 0x1405EBF80 (KeUpdateProcessorRestrictions.c)
  * Callees:
- *     KiComputeHeteroSet @ 0x1403EF490 (KiComputeHeteroSet.c)
+ *     KiComputeHeteroSet @ 0x140453FC0 (KiComputeHeteroSet.c)
  */
 
 __int64 __fastcall KiInstallSubNodeHeteroSets(__int64 a1, int a2, __int64 a3, unsigned int a4)

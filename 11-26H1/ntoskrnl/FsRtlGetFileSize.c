@@ -1,22 +1,22 @@
 /*
- * XREFs of FsRtlGetFileSize @ 0x140A56DE0
+ * XREFs of FsRtlGetFileSize @ 0x140A64360
  * Callers:
- *     FsRtlCreateSectionForDataScan @ 0x1402C53E0 (FsRtlCreateSectionForDataScan.c)
- *     MiCreateImageMapHeader @ 0x140A55DDC (MiCreateImageMapHeader.c)
- *     MiCreateDataFileMap @ 0x140A565D8 (MiCreateDataFileMap.c)
- *     MiShareExistingControlArea @ 0x140A56A00 (MiShareExistingControlArea.c)
- *     MmExtendSection @ 0x140A58080 (MmExtendSection.c)
- *     ExpQueryCodeIntegrityCertificateInfo @ 0x140A77228 (ExpQueryCodeIntegrityCertificateInfo.c)
- *     ExpQueryElamCertInfo @ 0x140A77E5C (ExpQueryElamCertInfo.c)
+ *     FsRtlCreateSectionForDataScan @ 0x1403100A0 (FsRtlCreateSectionForDataScan.c)
+ *     MiCreateImageMapHeader @ 0x140A63364 (MiCreateImageMapHeader.c)
+ *     MiCreateDataFileMap @ 0x140A63B60 (MiCreateDataFileMap.c)
+ *     MiShareExistingControlArea @ 0x140A63F80 (MiShareExistingControlArea.c)
+ *     MmExtendSection @ 0x140A65600 (MmExtendSection.c)
+ *     ExpQueryCodeIntegrityCertificateInfo @ 0x140A7FF48 (ExpQueryCodeIntegrityCertificateInfo.c)
+ *     ExpQueryElamCertInfo @ 0x140A80900 (ExpQueryElamCertInfo.c)
  * Callees:
- *     IofCallDriver @ 0x1402655A0 (IofCallDriver.c)
- *     IoAllocateIrpEx @ 0x14026C530 (IoAllocateIrpEx.c)
- *     IoGetRelatedDeviceObject @ 0x14026CA30 (IoGetRelatedDeviceObject.c)
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     KeInitializeEvent @ 0x140466F30 (KeInitializeEvent.c)
- *     IoSetThreadHardErrorMode @ 0x140491610 (IoSetThreadHardErrorMode.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     IofCallDriver @ 0x140264B10 (IofCallDriver.c)
+ *     IoAllocateIrpEx @ 0x14026BAA0 (IoAllocateIrpEx.c)
+ *     IoGetRelatedDeviceObject @ 0x14026BFA0 (IoGetRelatedDeviceObject.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     KeInitializeEvent @ 0x140460680 (KeInitializeEvent.c)
+ *     IoSetThreadHardErrorMode @ 0x14048B160 (IoSetThreadHardErrorMode.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 NTSTATUS __stdcall FsRtlGetFileSize(PFILE_OBJECT FileObject, PLARGE_INTEGER FileSize)

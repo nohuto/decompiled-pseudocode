@@ -8,5 +8,5 @@
 
 void BgpFwInitializeLock()
 {
-  qword_14033DB50 = 0LL;
+  qword_14033DB90 = 0LL;
 }

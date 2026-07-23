@@ -6,9 +6,9 @@
  *     RtlpHpSegMgrRelease @ 0x180065644 (RtlpHpSegMgrRelease.c)
  *     RtlpHpSegContextInitialize @ 0x1800662D4 (RtlpHpSegContextInitialize.c)
  *     RtlpHpSegSegmentInitialize @ 0x18006711C (RtlpHpSegSegmentInitialize.c)
- *     RtlpHpSegMgrVaCtxFree @ 0x180123B58 (RtlpHpSegMgrVaCtxFree.c)
- *     RtlpHpSegMgrVaCtxInitialize @ 0x180123CA4 (RtlpHpSegMgrVaCtxInitialize.c)
- *     RtlpHpSegMgrVaCtxInsert @ 0x180123D00 (RtlpHpSegMgrVaCtxInsert.c)
+ *     RtlpHpSegMgrVaCtxFree @ 0x180123B28 (RtlpHpSegMgrVaCtxFree.c)
+ *     RtlpHpSegMgrVaCtxInitialize @ 0x180123C74 (RtlpHpSegMgrVaCtxInitialize.c)
+ *     RtlpHpSegMgrVaCtxInsert @ 0x180123CD0 (RtlpHpSegMgrVaCtxInsert.c)
  * Callees:
  *     RtlpHpVaMgrCtxQuery @ 0x180064680 (RtlpHpVaMgrCtxQuery.c)
  */

@@ -1,11 +1,11 @@
 /*
- * XREFs of PiGetProviderList @ 0x140A0FB40
+ * XREFs of PiGetProviderList @ 0x1409BDF50
  * Callers:
- *     PnpGetDeviceDependencyList @ 0x140A0DA98 (PnpGetDeviceDependencyList.c)
- *     IopCheckIfMergeRequired @ 0x140A0EBBC (IopCheckIfMergeRequired.c)
- *     PnpNewDeviceNodeDependencyCheck @ 0x140A0ECA8 (PnpNewDeviceNodeDependencyCheck.c)
- *     IopSortRelationListForRemove @ 0x140A0F630 (IopSortRelationListForRemove.c)
- *     PiQueryPowerDependencyRelations @ 0x140A8C850 (PiQueryPowerDependencyRelations.c)
+ *     PnpGetDeviceDependencyList @ 0x1409BBE9C (PnpGetDeviceDependencyList.c)
+ *     IopCheckIfMergeRequired @ 0x1409BCFC0 (IopCheckIfMergeRequired.c)
+ *     PnpNewDeviceNodeDependencyCheck @ 0x1409BD0AC (PnpNewDeviceNodeDependencyCheck.c)
+ *     IopSortRelationListForRemove @ 0x1409BDA40 (IopSortRelationListForRemove.c)
+ *     PiQueryPowerDependencyRelations @ 0x140A88D80 (PiQueryPowerDependencyRelations.c)
  * Callees:
  *     <none>
  */

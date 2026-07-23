@@ -9,10 +9,10 @@
  *     _guard_dispatch_icall_nop @ 0x1800A3A60 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 __fastcall RtlFlsFree(unsigned int a1)
+NTSTATUS __cdecl RtlFlsFree(ULONG FlsIndex)
 {
   _PEB *ProcessEnvironmentBlock; // rsi
-  const signed __int32 **FlsBitmap; // rcx
+  _RTL_BITMAP *FlsBitmap; // rcx
   unsigned __int8 v4; // di
   struct _FLS_CALLBACK_INFO *FlsCallback; // rax
   __int64 v6; // r14
@@ -20,26 +20,26 @@ __int64 __fastcall RtlFlsFree(unsigned int a1)
   void (*v8)(void); // r15
   _LIST_ENTRY *i; // rbx
 
-  if ( a1 - 1 > 0x7E )
-    return 3221225485LL;
+  if ( FlsIndex - 1 > 0x7E )
+    return -1073741811;
   ProcessEnvironmentBlock = NtCurrentTeb()->ProcessEnvironmentBlock;
   RtlAcquireSRWLockExclusive(&RtlpFlsLock);
-  FlsBitmap = (const signed __int32 **)ProcessEnvironmentBlock->FlsBitmap;
-  if ( a1 >= *(_DWORD *)FlsBitmap )
+  FlsBitmap = (_RTL_BITMAP *)ProcessEnvironmentBlock->FlsBitmap;
+  if ( FlsIndex >= FlsBitmap->SizeOfBitMap )
   {
     v4 = 0;
   }
   else
   {
-    v4 = _bittest(FlsBitmap[1], a1);
+    v4 = _bittest((const signed __int32 *)FlsBitmap->Buffer, FlsIndex);
     if ( v4 )
     {
-      RtlClearBits(FlsBitmap, a1, 1LL);
+      RtlClearBits(FlsBitmap, FlsIndex, 1u);
       FlsCallback = ProcessEnvironmentBlock->FlsCallback;
-      v6 = 16LL * a1;
-      v7 = a1;
+      v6 = 16LL * FlsIndex;
+      v7 = FlsIndex;
       v8 = *(void (**)(void))((char *)FlsCallback + v6);
-      RtlAcquireSRWLockExclusive((char *)FlsCallback + v6 + 8);
+      RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)((char *)FlsCallback + v6 + 8));
       for ( i = ProcessEnvironmentBlock->FlsListHead.Flink; i != &ProcessEnvironmentBlock->FlsListHead; i = i->Flink )
       {
         if ( v8 )
@@ -50,7 +50,7 @@ __int64 __fastcall RtlFlsFree(unsigned int a1)
         *((_QWORD *)&i[1].Flink + v7) = 0LL;
       }
       *(_QWORD *)((char *)ProcessEnvironmentBlock->FlsCallback + v6) = 0LL;
-      RtlReleaseSRWLockExclusive((char *)ProcessEnvironmentBlock->FlsCallback + v6 + 8);
+      RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)((char *)ProcessEnvironmentBlock->FlsCallback + v6 + 8));
     }
   }
   RtlReleaseSRWLockExclusive(&RtlpFlsLock);

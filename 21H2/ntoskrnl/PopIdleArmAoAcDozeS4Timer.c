@@ -1,20 +1,20 @@
 /*
- * XREFs of PopIdleArmAoAcDozeS4Timer @ 0x14057C218
+ * XREFs of PopIdleArmAoAcDozeS4Timer @ 0x14057C458
  * Callers:
- *     PopUmpoProcessPowerMessage @ 0x14067A644 (PopUmpoProcessPowerMessage.c)
- *     PopUpdateSystemIdleContext @ 0x1408F12A4 (PopUpdateSystemIdleContext.c)
- *     PopIdleCsStateChanged @ 0x1408F5634 (PopIdleCsStateChanged.c)
- *     PopUpdateSmartUserPresencePredictions @ 0x1408F570C (PopUpdateSmartUserPresencePredictions.c)
+ *     PopUmpoProcessPowerMessage @ 0x14066DD84 (PopUmpoProcessPowerMessage.c)
+ *     PopUpdateSystemIdleContext @ 0x1408F1404 (PopUpdateSystemIdleContext.c)
+ *     PopIdleCsStateChanged @ 0x1408F5794 (PopIdleCsStateChanged.c)
+ *     PopUpdateSmartUserPresencePredictions @ 0x1408F586C (PopUpdateSmartUserPresencePredictions.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     KeSetTimer2 @ 0x14022C550 (KeSetTimer2.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     KeSetTimer2 @ 0x1402D0DD0 (KeSetTimer2.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     memset @ 0x140414200 (memset.c)
- *     PopIdleChooseDozeS4Time @ 0x14057C35C (PopIdleChooseDozeS4Time.c)
- *     PopIsDozeSupported @ 0x14067B328 (PopIsDozeSupported.c)
- *     PopFilterCapabilities @ 0x14067B484 (PopFilterCapabilities.c)
- *     PopTraceSystemIdleS0LowPowerDozeTimerArmed @ 0x1408EC7E4 (PopTraceSystemIdleS0LowPowerDozeTimerArmed.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     PopIdleChooseDozeS4Time @ 0x14057C59C (PopIdleChooseDozeS4Time.c)
+ *     PopIsDozeSupported @ 0x14066EA68 (PopIsDozeSupported.c)
+ *     PopFilterCapabilities @ 0x14066EBC4 (PopFilterCapabilities.c)
+ *     PopTraceSystemIdleS0LowPowerDozeTimerArmed @ 0x1408EC944 (PopTraceSystemIdleS0LowPowerDozeTimerArmed.c)
  */
 
 __int64 PopIdleArmAoAcDozeS4Timer()
@@ -41,12 +41,12 @@ __int64 PopIdleArmAoAcDozeS4Timer()
     if ( (_BYTE)result )
     {
       v2 = KeAcquireSpinLockRaiseToDpc(&PopIdleAoAcDozeS4Lock);
-      if ( !byte_140C233A4 )
+      if ( !byte_140C239A4 )
       {
         KeSetTimer2((__int64)&PopIdleAoAcDozeS4Timer, v8, 0LL, 0LL);
         v1 = 1;
-        dword_140C233A8 = v7;
-        byte_140C233A4 = 1;
+        dword_140C239A8 = v7;
+        byte_140C239A4 = 1;
       }
       KxReleaseSpinLock(&PopIdleAoAcDozeS4Lock);
       result = (unsigned int)KiIrqlFlags;

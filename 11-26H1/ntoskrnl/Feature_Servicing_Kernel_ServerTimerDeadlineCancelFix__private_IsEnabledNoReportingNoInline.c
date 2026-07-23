@@ -1,9 +1,9 @@
 /*
- * XREFs of Feature_Servicing_Kernel_ServerTimerDeadlineCancelFix__private_IsEnabledNoReportingNoInline @ 0x1405ED0F0
+ * XREFs of Feature_Servicing_Kernel_ServerTimerDeadlineCancelFix__private_IsEnabledNoReportingNoInline @ 0x1405EFA60
  * Callers:
- *     KePrepareClockTimerForIdle @ 0x1405ED338 (KePrepareClockTimerForIdle.c)
+ *     KePrepareClockTimerForIdle @ 0x1405EFCA8 (KePrepareClockTimerForIdle.c)
  * Callees:
- *     Feature_Servicing_Kernel_ServerTimerDeadlineCancelFix__private_IsEnabledFallback @ 0x1405ED0D0 (Feature_Servicing_Kernel_ServerTimerDeadlineCancelFix__private_IsEnabledFallback.c)
+ *     Feature_Servicing_Kernel_ServerTimerDeadlineCancelFix__private_IsEnabledFallback @ 0x1405EFA40 (Feature_Servicing_Kernel_ServerTimerDeadlineCancelFix__private_IsEnabledFallback.c)
  */
 
 __int64 Feature_Servicing_Kernel_ServerTimerDeadlineCancelFix__private_IsEnabledNoReportingNoInline()

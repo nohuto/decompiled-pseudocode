@@ -1,11 +1,11 @@
 /*
- * XREFs of XmInsOp @ 0x140533B50
+ * XREFs of XmInsOp @ 0x1405340A0
  * Callers:
- *     XmEmulateStream @ 0x1403BE4E0 (XmEmulateStream.c)
+ *     XmEmulateStream @ 0x1403BE6C0 (XmEmulateStream.c)
  * Callees:
- *     XmGetStringAddress @ 0x1403992EC (XmGetStringAddress.c)
- *     XmStoreResult @ 0x1403B9608 (XmStoreResult.c)
- *     x86BiosReadIoSpace @ 0x1403C2810 (x86BiosReadIoSpace.c)
+ *     XmGetStringAddress @ 0x1403994CC (XmGetStringAddress.c)
+ *     XmStoreResult @ 0x1403B97E8 (XmStoreResult.c)
+ *     x86BiosReadIoSpace @ 0x1403C29F0 (x86BiosReadIoSpace.c)
  */
 
 _WORD *__fastcall XmInsOp(__int64 a1)

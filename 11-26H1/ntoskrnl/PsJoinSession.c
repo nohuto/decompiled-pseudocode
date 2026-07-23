@@ -1,10 +1,10 @@
 /*
- * XREFs of PsJoinSession @ 0x140ABD728
+ * XREFs of PsJoinSession @ 0x140ABFD18
  * Callers:
- *     MmCreateProcessAddressSpace @ 0x140ABD3B0 (MmCreateProcessAddressSpace.c)
+ *     MmCreateProcessAddressSpace @ 0x140ABF9A0 (MmCreateProcessAddressSpace.c)
  * Callees:
- *     PspLockProcessListExclusive @ 0x140215EEC (PspLockProcessListExclusive.c)
- *     PspUnlockProcessListExclusive @ 0x140215F5C (PspUnlockProcessListExclusive.c)
+ *     PspLockProcessListExclusive @ 0x14021621C (PspLockProcessListExclusive.c)
+ *     PspUnlockProcessListExclusive @ 0x14021628C (PspUnlockProcessListExclusive.c)
  */
 
 void __fastcall PsJoinSession(__int64 a1, __int64 a2)

@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlGetThreadLangIdByIndex @ 0x1404EEC70
+ * XREFs of RtlGetThreadLangIdByIndex @ 0x1404E8250
  * Callers:
  *     <none>
  * Callees:
- *     ProbeForRead @ 0x1408EF880 (ProbeForRead.c)
+ *     ProbeForRead @ 0x1408F5E40 (ProbeForRead.c)
  */
 
 __int64 __fastcall RtlGetThreadLangIdByIndex(int a1, unsigned int a2, _DWORD *a3, unsigned int *a4)

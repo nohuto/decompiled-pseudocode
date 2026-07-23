@@ -1,11 +1,11 @@
 /*
- * XREFs of PsSetExeModerationState @ 0x1405A3DEC
+ * XREFs of PsSetExeModerationState @ 0x1405A42DC
  * Callers:
- *     NtSetSystemInformation @ 0x14075EE30 (NtSetSystemInformation.c)
+ *     NtSetSystemInformation @ 0x14075F020 (NtSetSystemInformation.c)
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x14028B390 (ExReleaseRundownProtection_0.c)
- *     ExGetExtensionTable @ 0x1402FA440 (ExGetExtensionTable.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     ExReleaseRundownProtection_0 @ 0x14028B620 (ExReleaseRundownProtection_0.c)
+ *     ExGetExtensionTable @ 0x1402FA6D0 (ExGetExtensionTable.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall PsSetExeModerationState(__int64 a1, unsigned int a2, unsigned int a3)

@@ -17,7 +17,7 @@
 
 __int64 __fastcall MmCallDllInitialize(__int64 a1, __int64 a2)
 {
-  char *v4; // rcx
+  void *v4; // rcx
   __int64 result; // rax
   __int64 (__fastcall *v6)(UNICODE_STRING *); // r14
   unsigned __int16 v7; // ax
@@ -34,7 +34,7 @@ __int64 __fastcall MmCallDllInitialize(__int64 a1, __int64 a2)
   UNICODE_STRING Source; // [rsp+30h] [rbp-10h] BYREF
 
   *(_QWORD *)&Destination.Length = 0LL;
-  v4 = *(char **)(a1 + 48);
+  v4 = *(void **)(a1 + 48);
   Destination.Buffer = 0LL;
   *(_QWORD *)&Source.Length = 0LL;
   Source.Buffer = 0LL;

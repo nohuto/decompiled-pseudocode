@@ -1,16 +1,16 @@
 /*
- * XREFs of MiFreeRetpolineImportInfo @ 0x140A981A0
+ * XREFs of MiFreeRetpolineImportInfo @ 0x140A9495C
  * Callers:
- *     MiUnloadSystemImage @ 0x140A8AD84 (MiUnloadSystemImage.c)
+ *     MiUnloadSystemImage @ 0x140A870C4 (MiUnloadSystemImage.c)
  * Callees:
- *     MiSectionControlArea @ 0x1402D4800 (MiSectionControlArea.c)
- *     MiWalkEntireImage @ 0x1402E85C0 (MiWalkEntireImage.c)
- *     MI_LOCK_RELOCATIONS_EXCLUSIVE @ 0x14045B1E0 (MI_LOCK_RELOCATIONS_EXCLUSIVE.c)
- *     MI_UNLOCK_RELOCATIONS_EXCLUSIVE @ 0x140460630 (MI_UNLOCK_RELOCATIONS_EXCLUSIVE.c)
- *     VslFreeSecureImageIat @ 0x1404B2C04 (VslFreeSecureImageIat.c)
- *     MiGetBaseLoaderPortion @ 0x1404D0508 (MiGetBaseLoaderPortion.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     MiWalkEntireImage @ 0x140349C00 (MiWalkEntireImage.c)
+ *     MiSectionControlArea @ 0x140355A80 (MiSectionControlArea.c)
+ *     MI_LOCK_RELOCATIONS_EXCLUSIVE @ 0x1404505E0 (MI_LOCK_RELOCATIONS_EXCLUSIVE.c)
+ *     MI_UNLOCK_RELOCATIONS_EXCLUSIVE @ 0x140455510 (MI_UNLOCK_RELOCATIONS_EXCLUSIVE.c)
+ *     VslFreeSecureImageIat @ 0x1404AD40C (VslFreeSecureImageIat.c)
+ *     MiGetBaseLoaderPortion @ 0x1404C96FC (MiGetBaseLoaderPortion.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiFreeRetpolineImportInfo(__int64 a1)
@@ -45,7 +45,7 @@ void __fastcall MiFreeRetpolineImportInfo(__int64 a1)
       if ( v8 < 0 )
         KeBugCheckEx(0x1Au, 0x1085uLL, v4, v8, 0LL);
     }
-    MiWalkEntireImage(v4, qword_140E2D750, 8u, 0xFFFFFFFF);
+    MiWalkEntireImage(v4, qword_140E2D890, 8u, 0xFFFFFFFF);
   }
   else
   {

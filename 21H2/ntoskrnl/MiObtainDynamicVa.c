@@ -1,15 +1,15 @@
 /*
- * XREFs of MiObtainDynamicVa @ 0x1402B3808
+ * XREFs of MiObtainDynamicVa @ 0x1402319B8
  * Callers:
- *     MiReservePoolMemory @ 0x1402B2E74 (MiReservePoolMemory.c)
- *     MiObtainSystemVa @ 0x1402B37E0 (MiObtainSystemVa.c)
+ *     MiReservePoolMemory @ 0x140231024 (MiReservePoolMemory.c)
+ *     MiObtainSystemVa @ 0x140231990 (MiObtainSystemVa.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     MiReclaimSystemVa @ 0x1402B4188 (MiReclaimSystemVa.c)
- *     RtlSetBitsEx @ 0x140316A00 (RtlSetBitsEx.c)
- *     MiFindNextAlignedForwardRunClearEx @ 0x1403C5A24 (MiFindNextAlignedForwardRunClearEx.c)
- *     MiExtendDynamicBitMap @ 0x1403C984C (MiExtendDynamicBitMap.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     MiReclaimSystemVa @ 0x140232338 (MiReclaimSystemVa.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402D3660 (KeAcquireInStackQueuedSpinLock.c)
+ *     RtlSetBitsEx @ 0x140321750 (RtlSetBitsEx.c)
+ *     MiFindNextAlignedForwardRunClearEx @ 0x1403C5E54 (MiFindNextAlignedForwardRunClearEx.c)
+ *     MiExtendDynamicBitMap @ 0x1403C99EC (MiExtendDynamicBitMap.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
@@ -616,12 +616,12 @@ LABEL_87:
   {
     v5[3] = v31 + 1;
   }
-  if ( v5 == &qword_140C4E1B8 )
+  if ( v5 == &qword_140C4E1F8 )
   {
-    qword_140C4E048 -= v9 << 21;
+    qword_140C4E088 -= v9 << 21;
     MiReclaimSystemVa(0LL);
   }
-  _InterlockedExchangeAdd64(&qword_140C4F948[v32], v9);
+  _InterlockedExchangeAdd64(&qword_140C4F988[v32], v9);
   KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
   v33 = LockHandle.OldIrql;
   if ( KiIrqlFlags )

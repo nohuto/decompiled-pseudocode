@@ -1,16 +1,16 @@
 /*
- * XREFs of HalCreateCommonBufferFromMdl @ 0x140511E90
+ * XREFs of HalCreateCommonBufferFromMdl @ 0x1405123E0
  * Callers:
  *     <none>
  * Callees:
- *     MmMapLockedPagesSpecifyCache @ 0x14027CF60 (MmMapLockedPagesSpecifyCache.c)
- *     HalpDmaReferenceDomainObject @ 0x14039106C (HalpDmaReferenceDomainObject.c)
- *     HalpAllocateCommonBufferEntry @ 0x1403910F4 (HalpAllocateCommonBufferEntry.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     HalpCreateCommonBufferFromMdlVerifyParams @ 0x14050FD74 (HalpCreateCommonBufferFromMdlVerifyParams.c)
- *     HalpDmaDereferenceDomainObject @ 0x1405127A8 (HalpDmaDereferenceDomainObject.c)
- *     MmGetCacheAttributeEx @ 0x14061ECA0 (MmGetCacheAttributeEx.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x14027D1F0 (MmMapLockedPagesSpecifyCache.c)
+ *     HalpDmaReferenceDomainObject @ 0x14039124C (HalpDmaReferenceDomainObject.c)
+ *     HalpAllocateCommonBufferEntry @ 0x1403912D4 (HalpAllocateCommonBufferEntry.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     HalpCreateCommonBufferFromMdlVerifyParams @ 0x1405102C4 (HalpCreateCommonBufferFromMdlVerifyParams.c)
+ *     HalpDmaDereferenceDomainObject @ 0x140512CF8 (HalpDmaDereferenceDomainObject.c)
+ *     MmGetCacheAttributeEx @ 0x14061F1F0 (MmGetCacheAttributeEx.c)
  */
 
 __int64 __fastcall HalCreateCommonBufferFromMdl(
@@ -39,7 +39,7 @@ __int64 __fastcall HalCreateCommonBufferFromMdl(
   unsigned __int64 *v22; // rdx
   unsigned __int64 v23; // rcx
   bool v24; // cc
-  PVOID MappedSystemVa; // rax
+  char *MappedSystemVa; // rax
   char v26; // al
   char v28; // [rsp+41h] [rbp-80h]
   PMDL MemoryDescriptorList; // [rsp+48h] [rbp-79h] BYREF
@@ -250,14 +250,14 @@ LABEL_43:
 LABEL_44:
         if ( (v10->MdlFlags & 5) != 0 )
         {
-          MappedSystemVa = v10->MappedSystemVa;
+          MappedSystemVa = (char *)v10->MappedSystemVa;
         }
         else
         {
-          MappedSystemVa = MmMapLockedPagesSpecifyCache(v10, 0, MmCached, 0LL, 0, 0);
+          MappedSystemVa = (char *)MmMapLockedPagesSpecifyCache(v10, 0, MmCached, 0LL, 0, 0);
           v17 = v31;
         }
-        CacheAttribute = HalpAllocateCommonBufferEntry(v16, (unsigned __int64)MappedSystemVa + v38, v17, v6, 0);
+        CacheAttribute = HalpAllocateCommonBufferEntry(v16, (_RTL_BALANCED_NODE *)&MappedSystemVa[v38], v17, v6, 0);
         if ( CacheAttribute >= 0 )
         {
           *v39 = v31;

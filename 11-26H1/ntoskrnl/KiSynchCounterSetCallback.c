@@ -1,18 +1,18 @@
 /*
- * XREFs of KiSynchCounterSetCallback @ 0x140A67DA0
+ * XREFs of KiSynchCounterSetCallback @ 0x140A74D70
  * Callers:
  *     <none>
  * Callees:
- *     KeQueryActiveProcessorCountEx @ 0x140211EA0 (KeQueryActiveProcessorCountEx.c)
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     RtlStringCbPrintfW @ 0x140433060 (RtlStringCbPrintfW.c)
- *     ExReleaseExtensionTable @ 0x14048FC18 (ExReleaseExtensionTable.c)
- *     ExGetExtensionTable @ 0x14049B7B0 (ExGetExtensionTable.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     EtwDereferenceSpinLockCounters @ 0x14082C880 (EtwDereferenceSpinLockCounters.c)
- *     EtwReferenceSpinLockCounters @ 0x14082C8E0 (EtwReferenceSpinLockCounters.c)
- *     ExpPcwDisabledStatus @ 0x140A69904 (ExpPcwDisabledStatus.c)
+ *     KeQueryActiveProcessorCountEx @ 0x140211F80 (KeQueryActiveProcessorCountEx.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     RtlStringCbPrintfW @ 0x140420090 (RtlStringCbPrintfW.c)
+ *     ExReleaseExtensionTable @ 0x1404896C4 (ExReleaseExtensionTable.c)
+ *     ExGetExtensionTable @ 0x140495300 (ExGetExtensionTable.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     EtwDereferenceSpinLockCounters @ 0x140832AC0 (EtwDereferenceSpinLockCounters.c)
+ *     EtwReferenceSpinLockCounters @ 0x140832B20 (EtwReferenceSpinLockCounters.c)
+ *     ExpPcwDisabledStatus @ 0x140A768D4 (ExpPcwDisabledStatus.c)
  */
 
 __int64 __fastcall KiSynchCounterSetCallback(int a1, __int64 a2)

@@ -4,14 +4,14 @@
  *     RtlpHpLargeAlloc @ 0x140009ED8 (RtlpHpLargeAlloc.c)
  *     RtlpHpSegMgrCommit @ 0x14000C244 (RtlpHpSegMgrCommit.c)
  *     RtlpHpSegMgrReserve @ 0x14000D98C (RtlpHpSegMgrReserve.c)
- *     RtlpHpHeapExtendContext @ 0x1401362A8 (RtlpHpHeapExtendContext.c)
- *     RtlpHpHeapAllocate @ 0x1401410D0 (RtlpHpHeapAllocate.c)
+ *     RtlpHpHeapExtendContext @ 0x1401363A8 (RtlpHpHeapExtendContext.c)
+ *     RtlpHpHeapAllocate @ 0x1401411D0 (RtlpHpHeapAllocate.c)
  * Callees:
  *     RtlpHpEnvGetHeapManager @ 0x14000CE30 (RtlpHpEnvGetHeapManager.c)
  *     RtlpHpEnvAllocVA @ 0x14000D060 (RtlpHpEnvAllocVA.c)
  *     RtlpHpVaMgrCtxAlloc @ 0x14000D2EC (RtlpHpVaMgrCtxAlloc.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memset @ 0x1401D1880 (memset.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memset @ 0x1401D1980 (memset.c)
  */
 
 __int64 __fastcall RtlpHpAllocVA(void **a1, size_t *a2, __int64 a3, int a4, int a5, __int128 *a6)

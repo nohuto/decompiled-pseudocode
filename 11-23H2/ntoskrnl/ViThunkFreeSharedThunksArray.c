@@ -1,9 +1,9 @@
 /*
- * XREFs of ViThunkFreeSharedThunksArray @ 0x140ABCF50
+ * XREFs of ViThunkFreeSharedThunksArray @ 0x140ABCF40
  * Callers:
- *     VfThunkRemoveTargetNotify @ 0x140ABCE78 (VfThunkRemoveTargetNotify.c)
- *     VfThunkAddTargetNotify @ 0x140ABCF7C (VfThunkAddTargetNotify.c)
- *     ViThunkCreateSharedExportInformation @ 0x140ABD010 (ViThunkCreateSharedExportInformation.c)
+ *     VfThunkRemoveTargetNotify @ 0x140ABCE68 (VfThunkRemoveTargetNotify.c)
+ *     VfThunkAddTargetNotify @ 0x140ABCF6C (VfThunkAddTargetNotify.c)
+ *     ViThunkCreateSharedExportInformation @ 0x140ABD000 (ViThunkCreateSharedExportInformation.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */

@@ -1,25 +1,25 @@
 /*
- * XREFs of LdrpProcessWork @ 0x180021E60
+ * XREFs of LdrpProcessWork @ 0x18004E860
  * Callers:
- *     LdrpDrainWorkQueue @ 0x180003E20 (LdrpDrainWorkQueue.c)
- *     LdrpLoadDllInternal @ 0x18000B460 (LdrpLoadDllInternal.c)
- *     LdrpLoadDependentModuleInternal @ 0x18000D2E0 (LdrpLoadDependentModuleInternal.c)
- *     TppWorkpExecuteCallback @ 0x180022BB0 (TppWorkpExecuteCallback.c)
- *     LdrpWorkCallback @ 0x1800EAD70 (LdrpWorkCallback.c)
+ *     LdrpLoadDllInternal @ 0x180037E60 (LdrpLoadDllInternal.c)
+ *     LdrpLoadDependentModuleInternal @ 0x180039CE0 (LdrpLoadDependentModuleInternal.c)
+ *     TppWorkpExecuteCallback @ 0x18004F5B0 (TppWorkpExecuteCallback.c)
+ *     LdrpDrainWorkQueue @ 0x1800AB680 (LdrpDrainWorkQueue.c)
+ *     LdrpWorkCallback @ 0x1800E6AB0 (LdrpWorkCallback.c)
  * Callees:
- *     LdrpReportError @ 0x180005D20 (LdrpReportError.c)
- *     LdrpLogInternal @ 0x180013D80 (LdrpLogInternal.c)
- *     RtlEnterCriticalSection @ 0x1800148F0 (RtlEnterCriticalSection.c)
- *     RtlLeaveCriticalSection @ 0x1800149F0 (RtlLeaveCriticalSection.c)
- *     LdrpSnapModule @ 0x180056F30 (LdrpSnapModule.c)
- *     LdrpLogLoadFailureEtwEvent @ 0x180066194 (LdrpLogLoadFailureEtwEvent.c)
- *     LdrpMapDllSearchPath @ 0x180074F30 (LdrpMapDllSearchPath.c)
- *     LdrpMapDllFullPath @ 0x180075388 (LdrpMapDllFullPath.c)
- *     LdrpMapDllRetry @ 0x1800D5ED0 (LdrpMapDllRetry.c)
- *     LdrpLogDeprecatedDllEtwEvent @ 0x1800F980C (LdrpLogDeprecatedDllEtwEvent.c)
- *     LdrpLogError @ 0x1800FB40C (LdrpLogError.c)
- *     LdrpMapDllPatchImage @ 0x18011446C (LdrpMapDllPatchImage.c)
- *     ZwSetEvent @ 0x180161E50 (ZwSetEvent.c)
+ *     LdrpReportError @ 0x180032720 (LdrpReportError.c)
+ *     LdrpLogInternal @ 0x180040780 (LdrpLogInternal.c)
+ *     RtlEnterCriticalSection @ 0x1800412F0 (RtlEnterCriticalSection.c)
+ *     RtlLeaveCriticalSection @ 0x1800413F0 (RtlLeaveCriticalSection.c)
+ *     LdrpSnapModule @ 0x18006CB10 (LdrpSnapModule.c)
+ *     LdrpMapDllSearchPath @ 0x180091810 (LdrpMapDllSearchPath.c)
+ *     LdrpMapDllFullPath @ 0x180091C68 (LdrpMapDllFullPath.c)
+ *     LdrpLogLoadFailureEtwEvent @ 0x1800AE370 (LdrpLogLoadFailureEtwEvent.c)
+ *     LdrpMapDllRetry @ 0x1800D1240 (LdrpMapDllRetry.c)
+ *     LdrpLogDeprecatedDllEtwEvent @ 0x1800F44BC (LdrpLogDeprecatedDllEtwEvent.c)
+ *     LdrpLogError @ 0x1800F633C (LdrpLogError.c)
+ *     LdrpMapDllPatchImage @ 0x18010F6BC (LdrpMapDllPatchImage.c)
+ *     ZwSetEvent @ 0x180160210 (ZwSetEvent.c)
  */
 
 void __fastcall LdrpProcessWork(__int64 a1, char a2)
@@ -29,12 +29,15 @@ void __fastcall LdrpProcessWork(__int64 a1, char a2)
   int v6; // eax
   int v7; // esi
   __int64 v8; // rax
-  int v9; // edx
-  int v10; // eax
-  bool v11; // bl
+  __int64 v9; // rcx
+  __int64 v10; // rax
+  __int64 v11; // rdx
+  int v12; // eax
+  bool v13; // bl
+  int v14; // [rsp+20h] [rbp-38h]
 
   if ( **(int **)(a1 + 40) < 0 )
-    goto LABEL_20;
+    goto LABEL_22;
   v4 = *(_QWORD *)(a1 + 56);
   if ( *(_DWORD *)(*(_QWORD *)(v4 + 152) + 56LL) )
   {
@@ -59,42 +62,49 @@ void __fastcall LdrpProcessWork(__int64 a1, char a2)
       }
       else
       {
-        v6 = LdrpMapDllSearchPath(a1);
+        v6 = LdrpMapDllSearchPath((PCUNICODE_STRING)a1);
       }
     }
     v7 = v6;
     if ( v6 >= 0 || v6 == -1073741267 )
-      goto LABEL_20;
+      goto LABEL_22;
+    v8 = *(_QWORD *)(a1 + 48);
+    v9 = v8 + 72;
+    if ( !v8 )
+      v9 = 0LL;
     LdrpLogInternal(
-      (__int64)"minkernel\\ldr\\ldrmap.c",
+      "minkernel\\ldr\\ldrmap.c",
       2148,
       (__int64)"LdrpProcessWork",
       0,
       "Unable to load DLL: \"%wZ\", Parent Module: \"%wZ\", Status: 0x%x\n",
-      a1);
+      a1,
+      v9,
+      v7);
     if ( v7 == -1073741515 )
     {
       LdrpLogError(3221225781LL, 25LL, 0LL, a1);
       LdrpLogDeprecatedDllEtwEvent(a1);
-      v8 = *(_QWORD *)(a1 + 48);
-      v9 = v8 + 72;
-      if ( !v8 )
-        v9 = 0;
-      LdrpLogLoadFailureEtwEvent(a1, v9, -1073741515, (unsigned int)&LoadFailure, 0);
+      v10 = *(_QWORD *)(a1 + 48);
+      v11 = v10 + 72;
+      if ( !v10 )
+        v11 = 0LL;
+      LOBYTE(v14) = 0;
+      LdrpLogLoadFailureEtwEvent(a1, v11, 3221225781LL, &LoadFailure, v14);
       if ( (*(_BYTE *)(*(_QWORD *)(a1 + 56) + 104LL) & 0x20) != 0 )
         LdrpReportError((__int128 *)a1, 0LL, -1073741515);
     }
   }
   if ( v7 < 0 )
     **(_DWORD **)(a1 + 40) = v7;
-LABEL_20:
+LABEL_22:
   if ( !a2 )
   {
-    RtlEnterCriticalSection((__int64)&LdrpWorkQueueLock);
-    v10 = --LdrpWorkInProgress;
-    v11 = (__int64 *)LdrpWorkQueue == &LdrpWorkQueue && v10 == 1;
-    RtlLeaveCriticalSection((__int64)&LdrpWorkQueueLock);
-    if ( v11 )
+    RtlEnterCriticalSection(&LdrpWorkQueueLock);
+    v12 = --LdrpWorkInProgress;
+    v13 = (__int64 *)LdrpWorkQueue == &LdrpWorkQueue && v12 == 1;
+    RtlLeaveCriticalSection(&LdrpWorkQueueLock);
+    if ( v13 )
       ZwSetEvent(LdrpWorkCompleteEvent, 0LL);
   }
 }

@@ -1,7 +1,7 @@
 /*
- * XREFs of KiAbThreadClearAcquiredLockEntry @ 0x140013BB0
+ * XREFs of KiAbThreadClearAcquiredLockEntry @ 0x140013730
  * Callers:
- *     ExReleaseCacheAwarePushLockSharedEx @ 0x1400139A0 (ExReleaseCacheAwarePushLockSharedEx.c)
+ *     ExReleaseCacheAwarePushLockSharedEx @ 0x140013520 (ExReleaseCacheAwarePushLockSharedEx.c)
  * Callees:
  *     <none>
  */

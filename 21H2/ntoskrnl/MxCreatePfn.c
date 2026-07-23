@@ -1,9 +1,9 @@
 /*
- * XREFs of MxCreatePfn @ 0x140A56F34
+ * XREFs of MxCreatePfn @ 0x140A57F34
  * Callers:
- *     MxCreatePfns @ 0x140A56C60 (MxCreatePfns.c)
+ *     MxCreatePfns @ 0x140A57C60 (MxCreatePfns.c)
  * Callees:
- *     MiSwizzleInvalidPte @ 0x140329F90 (MiSwizzleInvalidPte.c)
+ *     MiSwizzleInvalidPte @ 0x140334CE0 (MiSwizzleInvalidPte.c)
  *     MiSetResidentPageMemberInPfn @ 0x1403F4998 (MiSetResidentPageMemberInPfn.c)
  */
 

@@ -1,11 +1,11 @@
 /*
- * XREFs of PpmHighPerfRequestExpiration @ 0x1403A7630
+ * XREFs of PpmHighPerfRequestExpiration @ 0x1403A7780
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     PoClearPowerRequestInternal @ 0x140281F9C (PoClearPowerRequestInternal.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     PoClearPowerRequestInternal @ 0x1402701DC (PoClearPowerRequestInternal.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 

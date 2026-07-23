@@ -1,22 +1,22 @@
 /*
- * XREFs of CcQueueLazyWriteScanThread @ 0x140536E40
+ * XREFs of CcQueueLazyWriteScanThread @ 0x140537390
  * Callers:
  *     <none>
  * Callees:
- *     KeWaitForSingleObject @ 0x140243CE0 (KeWaitForSingleObject.c)
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
- *     CcPostWorkQueue @ 0x14029AFB4 (CcPostWorkQueue.c)
- *     CcAllocateWorkQueueEntry @ 0x14029B670 (CcAllocateWorkQueueEntry.c)
- *     CcDereferencePartition @ 0x14029C430 (CcDereferencePartition.c)
- *     KeWaitForMultipleObjects @ 0x1403111A0 (KeWaitForMultipleObjects.c)
- *     CcSetLazyWriteScanQueuedInternal @ 0x14035B930 (CcSetLazyWriteScanQueuedInternal.c)
- *     CcIsLazyWriteScanQueuedInternal @ 0x14035CF70 (CcIsLazyWriteScanQueuedInternal.c)
- *     CcNotifyExternalCachesInternal @ 0x1403D31F8 (CcNotifyExternalCachesInternal.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     CcAdjustWriteBehindThreadPoolIfNeeded @ 0x140535C54 (CcAdjustWriteBehindThreadPoolIfNeeded.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeWaitForSingleObject @ 0x140243DB0 (KeWaitForSingleObject.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402610F0 (KeAcquireInStackQueuedSpinLock.c)
+ *     CcPostWorkQueue @ 0x14029B244 (CcPostWorkQueue.c)
+ *     CcAllocateWorkQueueEntry @ 0x14029B900 (CcAllocateWorkQueueEntry.c)
+ *     CcDereferencePartition @ 0x14029C6C0 (CcDereferencePartition.c)
+ *     KeWaitForMultipleObjects @ 0x140311430 (KeWaitForMultipleObjects.c)
+ *     CcSetLazyWriteScanQueuedInternal @ 0x14035BAD0 (CcSetLazyWriteScanQueuedInternal.c)
+ *     CcIsLazyWriteScanQueuedInternal @ 0x14035D110 (CcIsLazyWriteScanQueuedInternal.c)
+ *     CcNotifyExternalCachesInternal @ 0x1403D33D8 (CcNotifyExternalCachesInternal.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     CcAdjustWriteBehindThreadPoolIfNeeded @ 0x1405361A4 (CcAdjustWriteBehindThreadPoolIfNeeded.c)
  */
 
 void __fastcall CcQueueLazyWriteScanThread(_QWORD *StartContext)
@@ -142,10 +142,13 @@ LABEL_16:
         KxReleaseQueuedSpinLock((volatile signed __int64 **)&WaitBlockArray_8);
 LABEL_40:
         OldIrql = WaitBlockArray_8.OldIrql;
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           CurrentIrql = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && WaitBlockArray_8.OldIrql <= 0xFu && CurrentIrql >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+            && CurrentIrql <= 0xFu
+            && WaitBlockArray_8.OldIrql <= 0xFu
+            && CurrentIrql >= 2u )
           {
             CurrentPrcb = KeGetCurrentPrcb();
             SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -153,7 +156,7 @@ LABEL_40:
             v22 = (v29 & SchedulerAssist[5]) == 0;
             SchedulerAssist[5] &= v29;
             if ( v22 )
-              KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+              KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
           }
         }
         __writecr8(OldIrql);
@@ -163,10 +166,10 @@ LABEL_40:
         CcSetLazyWriteScanQueuedInternal(v16, v10, 1);
         KxReleaseQueuedSpinLock((volatile signed __int64 **)&WaitBlockArray_8);
         v17 = WaitBlockArray_8.OldIrql;
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v18 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v18 <= 0xFu && WaitBlockArray_8.OldIrql <= 0xFu && v18 >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v18 <= 0xFu && WaitBlockArray_8.OldIrql <= 0xFu && v18 >= 2u )
           {
             v19 = KeGetCurrentPrcb();
             v20 = v19->SchedulerAssist;
@@ -174,7 +177,7 @@ LABEL_40:
             v22 = (v21 & v20[5]) == 0;
             v20[5] &= v21;
             if ( v22 )
-              KiRemoveSystemWorkPriorityKick(v19);
+              KiRemoveSystemWorkPriorityKick((__int64)v19);
           }
         }
         __writecr8(v17);

@@ -32,8 +32,8 @@ char __fastcall MiSetPagingOfDriver(__int64 a1, unsigned __int64 *a2, unsigned _
   __int64 v13; // r9
   __int64 v14; // rcx
   unsigned __int64 v15; // rbx
-  __int64 v16; // rax
-  __int64 v17; // rt1
+  PVOID v16; // rax
+  PVOID v17; // rt1
   __int64 v18; // rcx
   __int64 v19; // r10
   unsigned __int64 *v20; // r11
@@ -136,12 +136,12 @@ char __fastcall MiSetPagingOfDriver(__int64 a1, unsigned __int64 *a2, unsigned _
   LOBYTE(v16) = MiUnlockWorkingSetShared((__int64)&unk_140E37B00, v11);
   if ( v9 )
   {
-    v16 = *(_QWORD *)(v5 + 48);
-    v17 = *(_QWORD *)&KeNumberProcessorsGroup0[9];
+    v16 = *(PVOID *)(v5 + 48);
+    v17 = *(PVOID *)&KeNumberProcessorsGroup0[9];
     if ( v16 == v17 || v16 == PsHalImageBase )
       _InterlockedAdd((_DWORD *)&xmmword_140E2D628 + 2, v9);
     else
       _InterlockedAdd((_DWORD *)&xmmword_140E2D628 + 3, v9);
   }
-  return v16;
+  return (char)v16;
 }

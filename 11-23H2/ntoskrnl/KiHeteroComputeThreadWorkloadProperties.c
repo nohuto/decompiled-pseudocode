@@ -1,12 +1,12 @@
 /*
- * XREFs of KiHeteroComputeThreadWorkloadProperties @ 0x140461C9C
+ * XREFs of KiHeteroComputeThreadWorkloadProperties @ 0x14046209C
  * Callers:
- *     KiCheckPreferredHeteroProcessor @ 0x1402C8490 (KiCheckPreferredHeteroProcessor.c)
- *     KiHeteroChooseTargetProcessor @ 0x140461916 (KiHeteroChooseTargetProcessor.c)
+ *     KiCheckPreferredHeteroProcessor @ 0x1402C8720 (KiCheckPreferredHeteroProcessor.c)
+ *     KiHeteroChooseTargetProcessor @ 0x140461D16 (KiHeteroChooseTargetProcessor.c)
  * Callees:
- *     KiComputeHeteroThreadQos @ 0x1402B0DF0 (KiComputeHeteroThreadQos.c)
- *     KiHeteroComputeThreadImportance @ 0x140461C32 (KiHeteroComputeThreadImportance.c)
- *     KiSetThreadQosLevelUnsafe @ 0x140462658 (KiSetThreadQosLevelUnsafe.c)
+ *     KiComputeHeteroThreadQos @ 0x1402B1080 (KiComputeHeteroThreadQos.c)
+ *     KiHeteroComputeThreadImportance @ 0x140462032 (KiHeteroComputeThreadImportance.c)
+ *     KiSetThreadQosLevelUnsafe @ 0x140462A58 (KiSetThreadQosLevelUnsafe.c)
  */
 
 __int64 __fastcall KiHeteroComputeThreadWorkloadProperties(__int64 a1, __int64 a2)

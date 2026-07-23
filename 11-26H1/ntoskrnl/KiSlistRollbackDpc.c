@@ -1,9 +1,9 @@
 /*
- * XREFs of KiSlistRollbackDpc @ 0x1405E5540
+ * XREFs of KiSlistRollbackDpc @ 0x1405E7EB0
  * Callers:
  *     <none>
  * Callees:
- *     KiRequestSchedulerApcThread @ 0x1405F6A2C (KiRequestSchedulerApcThread.c)
+ *     KiRequestSchedulerApcThread @ 0x1405F93EC (KiRequestSchedulerApcThread.c)
  */
 
 void __fastcall KiSlistRollbackDpc(

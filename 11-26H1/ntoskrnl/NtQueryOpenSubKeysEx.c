@@ -1,41 +1,46 @@
 /*
- * XREFs of NtQueryOpenSubKeysEx @ 0x14084F540
+ * XREFs of NtQueryOpenSubKeysEx @ 0x140855850
  * Callers:
- *     DifNtQueryOpenSubKeysExWrapper @ 0x140684B50 (DifNtQueryOpenSubKeysExWrapper.c)
+ *     DifNtQueryOpenSubKeysExWrapper @ 0x140688730 (DifNtQueryOpenSubKeysExWrapper.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     CmpInitializeThreadInfo @ 0x14043CF00 (CmpInitializeThreadInfo.c)
- *     CmCleanupThreadInfo @ 0x14044C0A0 (CmCleanupThreadInfo.c)
- *     CmpAllocateTransientPoolWithQuota @ 0x1404869D8 (CmpAllocateTransientPoolWithQuota.c)
- *     CmSiFreeMemory @ 0x140495010 (CmSiFreeMemory.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     RtlCopyToUser @ 0x14077F284 (RtlCopyToUser.c)
- *     RtlReadULongFromUser @ 0x14077F590 (RtlReadULongFromUser.c)
- *     RtlWriteULongToUser @ 0x14077F7A0 (RtlWriteULongToUser.c)
- *     CmpLockRegistryExclusive @ 0x1408C2148 (CmpLockRegistryExclusive.c)
- *     ObReferenceObjectByNameEx @ 0x1408EBDCC (ObReferenceObjectByNameEx.c)
- *     ProbeForWrite @ 0x1408F5D00 (ProbeForWrite.c)
- *     SeSinglePrivilegeCheck @ 0x140932280 (SeSinglePrivilegeCheck.c)
- *     CmpInitializeParseContext @ 0x14097C5D0 (CmpInitializeParseContext.c)
- *     CmpCleanupParseContext @ 0x14097C850 (CmpCleanupParseContext.c)
- *     CmpSearchForOpenSubKeys @ 0x140B2250C (CmpSearchForOpenSubKeys.c)
- *     CmpPerformKeyBodyDeletionCheck @ 0x140C587C0 (CmpPerformKeyBodyDeletionCheck.c)
- *     CmpReleaseShutdownRundown @ 0x140C58900 (CmpReleaseShutdownRundown.c)
- *     CmpAttachToRegistryProcess @ 0x140C58930 (CmpAttachToRegistryProcess.c)
- *     CmpUnlockRegistry @ 0x140C58970 (CmpUnlockRegistry.c)
- *     CmpDetachFromRegistryProcess @ 0x140C58A50 (CmpDetachFromRegistryProcess.c)
- *     CmpAcquireShutdownRundown @ 0x140C58AB0 (CmpAcquireShutdownRundown.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     CmpInitializeThreadInfo @ 0x14042F7B0 (CmpInitializeThreadInfo.c)
+ *     CmCleanupThreadInfo @ 0x1404441C0 (CmCleanupThreadInfo.c)
+ *     CmpAllocateTransientPoolWithQuota @ 0x140480350 (CmpAllocateTransientPoolWithQuota.c)
+ *     CmSiFreeMemory @ 0x14048EB60 (CmSiFreeMemory.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     RtlCopyToUser @ 0x140781D84 (RtlCopyToUser.c)
+ *     RtlReadULongFromUser @ 0x140782090 (RtlReadULongFromUser.c)
+ *     RtlWriteULongToUser @ 0x1407822A0 (RtlWriteULongToUser.c)
+ *     CmpLockRegistryExclusive @ 0x1408C8718 (CmpLockRegistryExclusive.c)
+ *     ObReferenceObjectByNameEx @ 0x1408F238C (ObReferenceObjectByNameEx.c)
+ *     SeSinglePrivilegeCheck @ 0x14090DE50 (SeSinglePrivilegeCheck.c)
+ *     ProbeForWrite @ 0x140925C90 (ProbeForWrite.c)
+ *     CmpInitializeParseContext @ 0x14093E5E0 (CmpInitializeParseContext.c)
+ *     CmpCleanupParseContext @ 0x14093E860 (CmpCleanupParseContext.c)
+ *     CmpSearchForOpenSubKeys @ 0x140B2490C (CmpSearchForOpenSubKeys.c)
+ *     CmpPerformKeyBodyDeletionCheck @ 0x140C5E7C0 (CmpPerformKeyBodyDeletionCheck.c)
+ *     CmpReleaseShutdownRundown @ 0x140C5E900 (CmpReleaseShutdownRundown.c)
+ *     CmpAttachToRegistryProcess @ 0x140C5E930 (CmpAttachToRegistryProcess.c)
+ *     CmpUnlockRegistry @ 0x140C5E970 (CmpUnlockRegistry.c)
+ *     CmpDetachFromRegistryProcess @ 0x140C5EA50 (CmpDetachFromRegistryProcess.c)
+ *     CmpAcquireShutdownRundown @ 0x140C5EAB0 (CmpAcquireShutdownRundown.c)
  */
 
-__int64 __fastcall NtQueryOpenSubKeysEx(int a1, unsigned int a2, int *a3, unsigned int *a4)
+NTSTATUS __cdecl NtQueryOpenSubKeysEx(
+        POBJECT_ATTRIBUTES TargetKey,
+        ULONG BufferLength,
+        PVOID Buffer,
+        PULONG RequiredSize)
 {
   SIZE_T v6; // rdi
+  int v7; // ebx
   __int64 v8; // rdx
   __int64 v9; // rcx
   __int64 v10; // rcx
-  int v11; // ebx
+  NTSTATUS v11; // ebx
   KPROCESSOR_MODE PreviousMode; // si
   int ULongFromUser; // eax
   size_t v14; // r15
@@ -54,7 +59,8 @@ __int64 __fastcall NtQueryOpenSubKeysEx(int a1, unsigned int a2, int *a3, unsign
   __int128 v28; // [rsp+78h] [rbp-270h]
   _KAFFINITY_EX v29[2]; // [rsp+88h] [rbp-260h] BYREF
 
-  v6 = a2;
+  v6 = BufferLength;
+  v7 = (int)TargetKey;
   memset(v29, 0, 72);
   memset_0(&v29[0].StaticBitmap[8], 0, 0x1D0uLL);
   Object[0] = 0LL;
@@ -85,12 +91,12 @@ __int64 __fastcall NtQueryOpenSubKeysEx(int a1, unsigned int a2, int *a3, unsign
     goto LABEL_8;
   if ( PreviousMode )
   {
-    ULongFromUser = RtlReadULongFromUser(a4);
-    RtlWriteULongToUser(a4, ULongFromUser);
-    ProbeForWrite(a3, v6, 4u);
+    ULongFromUser = RtlReadULongFromUser(RequiredSize);
+    RtlWriteULongToUser(RequiredSize, ULongFromUser);
+    ProbeForWrite(Buffer, v6, 4u);
   }
   v11 = ObReferenceObjectByNameEx(
-          a1,
+          v7,
           0,
           131097,
           (_DWORD)CmKeyObjectType,
@@ -128,23 +134,23 @@ LABEL_8:
         CmpUnlockRegistry(v16);
         v23 = 0;
         if ( PreviousMode )
-          RtlWriteULongToUser(a4, v27);
+          RtlWriteULongToUser(RequiredSize, v27);
         else
-          *a4 = v27;
+          *RequiredSize = v27;
         v17 = (char *)Src[1];
         v18 = *(_DWORD *)Src[1];
         if ( PreviousMode )
         {
-          RtlWriteULongToUser(a3, v18);
+          RtlWriteULongToUser(Buffer, v18);
           v17 = (char *)Src[1];
         }
         else
         {
-          *a3 = v18;
+          *(_DWORD *)Buffer = v18;
         }
         if ( v11 >= 0 )
         {
-          v19 = v17 - (char *)a3;
+          v19 = v17 - (_BYTE *)Buffer;
           v20 = 0;
           if ( *(_DWORD *)v17 )
           {
@@ -156,9 +162,9 @@ LABEL_8:
             while ( v20 < *(_DWORD *)Src[1] );
           }
           if ( PreviousMode )
-            RtlCopyToUser(a3, v17, v14);
+            RtlCopyToUser(Buffer, v17, v14);
           else
-            RtlCopyVolatileMemory(a3, v17, v14);
+            RtlCopyVolatileMemory(Buffer, v17, v14);
           v11 = 0;
         }
       }
@@ -179,5 +185,5 @@ LABEL_29:
   if ( Src[1] )
     CmSiFreeMemory((PPRIVILEGE_SET)Src[1]);
   CmCleanupThreadInfo((_KAFFINITY_EX **)v29);
-  return (unsigned int)v11;
+  return v11;
 }

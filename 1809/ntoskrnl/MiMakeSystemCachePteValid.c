@@ -1,5 +1,5 @@
 /*
- * XREFs of MiMakeSystemCachePteValid @ 0x1400D7A80
+ * XREFs of MiMakeSystemCachePteValid @ 0x1400D7B00
  * Callers:
  *     MmCopyToCachedPage @ 0x140033050 (MmCopyToCachedPage.c)
  * Callees:
@@ -11,11 +11,11 @@
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  *     MiUnlockWorkingSetShared @ 0x140046970 (MiUnlockWorkingSetShared.c)
  *     MiAllocateWsle @ 0x140048800 (MiAllocateWsle.c)
- *     MiLockWorkingSetOptimal @ 0x140088344 (MiLockWorkingSetOptimal.c)
- *     MiIsPfnFileOnly @ 0x14009CA20 (MiIsPfnFileOnly.c)
- *     PfSnLogPageFault @ 0x1400D74B0 (PfSnLogPageFault.c)
- *     MiUnlockPageTableInternal @ 0x140104A90 (MiUnlockPageTableInternal.c)
- *     MiLockAndDecrementShareCount @ 0x1401180A8 (MiLockAndDecrementShareCount.c)
+ *     MiLockWorkingSetOptimal @ 0x140088334 (MiLockWorkingSetOptimal.c)
+ *     MiIsPfnFileOnly @ 0x14009C960 (MiIsPfnFileOnly.c)
+ *     PfSnLogPageFault @ 0x1400D7530 (PfSnLogPageFault.c)
+ *     MiUnlockPageTableInternal @ 0x140104B10 (MiUnlockPageTableInternal.c)
+ *     MiLockAndDecrementShareCount @ 0x140118118 (MiLockAndDecrementShareCount.c)
  */
 
 void __fastcall MiMakeSystemCachePteValid(__int64 a1, unsigned __int64 a2, unsigned __int64 a3, char a4)
@@ -70,7 +70,7 @@ void __fastcall MiMakeSystemCachePteValid(__int64 a1, unsigned __int64 a2, unsig
   {
     ValidPte = v27;
   }
-  v16 = ValidPte & 0xFFFFFFFFFFFFFEFBuLL | ((unsigned __int64)(word_14043A1AC & 1) << 8);
+  v16 = ValidPte & 0xFFFFFFFFFFFFFEFBuLL | ((unsigned __int64)(word_14043B26C & 1) << 8);
   if ( (a4 & 8) != 0 && MiIsPfnFileOnly((__int64)v7) )
     v16 &= 0xFFFFFFFFFFFFFFBDuLL;
   v17 = v7[2];
@@ -91,10 +91,10 @@ LABEL_8:
   MiUnlockWorkingSetShared(a1, v13);
   if ( v8 )
   {
-    if ( qword_14043A0C0 )
+    if ( qword_14043B180 )
     {
       if ( (v17 & 0x10) == 0 )
-        v17 &= ~qword_14043A0C0;
+        v17 &= ~qword_14043B180;
     }
     v20 = v17 >> 16;
     v21 = *(_QWORD *)v20;

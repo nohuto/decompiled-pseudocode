@@ -1,23 +1,23 @@
 /*
- * XREFs of MiIncreaseCommitLimits @ 0x140705868
+ * XREFs of MiIncreaseCommitLimits @ 0x14070A538
  * Callers:
- *     MiEnableNewPfns @ 0x1406E8478 (MiEnableNewPfns.c)
- *     MiInitializeCommitment @ 0x1407059A4 (MiInitializeCommitment.c)
- *     MiInsertPartitionPageNodes @ 0x140708F28 (MiInsertPartitionPageNodes.c)
- *     MiTargetedPageFileReductionApc @ 0x14070D818 (MiTargetedPageFileReductionApc.c)
- *     MiCompleteMemoryAddition @ 0x140865B8C (MiCompleteMemoryAddition.c)
- *     MiFreePartitionPhysicalPages @ 0x1408691D8 (MiFreePartitionPhysicalPages.c)
- *     MiInsertPageFileInList @ 0x14086BC8C (MiInsertPageFileInList.c)
- *     MiUpdateExistingPageFile @ 0x14086C380 (MiUpdateExistingPageFile.c)
- *     MiExtendPagingFiles @ 0x140B2F8D4 (MiExtendPagingFiles.c)
+ *     MiEnableNewPfns @ 0x1406ED114 (MiEnableNewPfns.c)
+ *     MiInitializeCommitment @ 0x14070A674 (MiInitializeCommitment.c)
+ *     MiInsertPartitionPageNodes @ 0x14070DBDC (MiInsertPartitionPageNodes.c)
+ *     MiTargetedPageFileReductionApc @ 0x1407124C8 (MiTargetedPageFileReductionApc.c)
+ *     MiCompleteMemoryAddition @ 0x14086BF6C (MiCompleteMemoryAddition.c)
+ *     MiFreePartitionPhysicalPages @ 0x14086F5B8 (MiFreePartitionPhysicalPages.c)
+ *     MiInsertPageFileInList @ 0x14087206C (MiInsertPageFileInList.c)
+ *     MiUpdateExistingPageFile @ 0x140872760 (MiUpdateExistingPageFile.c)
+ *     MiExtendPagingFiles @ 0x140B316B4 (MiExtendPagingFiles.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiRestockOverCommit @ 0x1404F9494 (MiRestockOverCommit.c)
- *     MiComputeCommitThresholds @ 0x1404FA2DC (MiComputeCommitThresholds.c)
- *     MiUpdatePageFileList @ 0x1406F8F84 (MiUpdatePageFileList.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiRestockOverCommit @ 0x1404F2AA4 (MiRestockOverCommit.c)
+ *     MiComputeCommitThresholds @ 0x1404F38EC (MiComputeCommitThresholds.c)
+ *     MiUpdatePageFileList @ 0x1406FDC54 (MiUpdatePageFileList.c)
  */
 
 void __fastcall MiIncreaseCommitLimits(

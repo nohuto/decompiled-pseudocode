@@ -21,17 +21,17 @@
  *     RtlReportExceptionEx @ 0x1800E8110 (RtlReportExceptionEx.c)
  *     WerpBreakIntoDebuggerIfPresent @ 0x1800E8F9C (WerpBreakIntoDebuggerIfPresent.c)
  *     RtlAssert @ 0x1800F9FE0 (RtlAssert.c)
- *     RtlReportFatalFailure @ 0x18010D6F0 (RtlReportFatalFailure.c)
- *     TppTerminateProcess @ 0x18012731C (TppTerminateProcess.c)
+ *     RtlReportFatalFailure @ 0x18010D6C0 (RtlReportFatalFailure.c)
+ *     TppTerminateProcess @ 0x1801272EC (TppTerminateProcess.c)
  * Callees:
  *     <none>
  */
 
-__int64 ZwTerminateProcess()
+NTSTATUS __cdecl ZwTerminateProcess(HANDLE ProcessHandle, NTSTATUS ExitStatus)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 44LL;
+  result = 44;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

@@ -1,21 +1,21 @@
 /*
- * XREFs of MiFlushAllFilesystemPages @ 0x1405355C8
+ * XREFs of MiFlushAllFilesystemPages @ 0x140535808
  * Callers:
- *     MiGetNextPageTablePte @ 0x14020CDB0 (MiGetNextPageTablePte.c)
- *     MiCommitExistingVad @ 0x140218D90 (MiCommitExistingVad.c)
- *     MiInPageSingleKernelStack @ 0x1402E4C40 (MiInPageSingleKernelStack.c)
- *     MiMakeSystemAddressValid @ 0x14030E390 (MiMakeSystemAddressValid.c)
- *     MiWaitForInPageComplete @ 0x14031B1F0 (MiWaitForInPageComplete.c)
- *     MiSetProtectionOnSection @ 0x140332C70 (MiSetProtectionOnSection.c)
- *     MiLockPagedAddress @ 0x14036B924 (MiLockPagedAddress.c)
- *     MiMakeOutswappedPageResident @ 0x14052BAC0 (MiMakeOutswappedPageResident.c)
- *     MiShutdownSystem @ 0x1409AFDB8 (MiShutdownSystem.c)
+ *     MiInPageSingleKernelStack @ 0x140295F90 (MiInPageSingleKernelStack.c)
+ *     MiGetNextPageTablePte @ 0x1402B16B0 (MiGetNextPageTablePte.c)
+ *     MiCommitExistingVad @ 0x1402BD690 (MiCommitExistingVad.c)
+ *     MiMakeSystemAddressValid @ 0x1403190E0 (MiMakeSystemAddressValid.c)
+ *     MiWaitForInPageComplete @ 0x140325F40 (MiWaitForInPageComplete.c)
+ *     MiSetProtectionOnSection @ 0x14033D9C0 (MiSetProtectionOnSection.c)
+ *     MiLockPagedAddress @ 0x14036BAD4 (MiLockPagedAddress.c)
+ *     MiMakeOutswappedPageResident @ 0x14052BD00 (MiMakeOutswappedPageResident.c)
+ *     MiShutdownSystem @ 0x1409B0CE8 (MiShutdownSystem.c)
  * Callees:
- *     KeDelayExecutionThread @ 0x140257490 (KeDelayExecutionThread.c)
- *     MiIsWorkingSetTrimThread @ 0x1402C4D10 (MiIsWorkingSetTrimThread.c)
- *     CcForEachPartition @ 0x1402F8C10 (CcForEachPartition.c)
- *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
- *     MiEmptyAllWorkingSets @ 0x14053B1F8 (MiEmptyAllWorkingSets.c)
+ *     MiIsWorkingSetTrimThread @ 0x140243290 (MiIsWorkingSetTrimThread.c)
+ *     KeDelayExecutionThread @ 0x140278A00 (KeDelayExecutionThread.c)
+ *     CcForEachPartition @ 0x140303960 (CcForEachPartition.c)
+ *     KeSetEvent @ 0x14034E2F0 (KeSetEvent.c)
+ *     MiEmptyAllWorkingSets @ 0x14053B438 (MiEmptyAllWorkingSets.c)
  */
 
 __int64 MiFlushAllFilesystemPages()
@@ -41,35 +41,35 @@ __int64 MiFlushAllFilesystemPages()
         {
           if ( v2 == 1 )
           {
-            result = (unsigned int)_InterlockedIncrement(&dword_140C4E6C8);
+            result = (unsigned int)_InterlockedIncrement(&dword_140C4E708);
             if ( (_DWORD)result != 1 )
               return result;
             MiEmptyAllWorkingSets(&MiSystemPartition);
           }
-          _InterlockedIncrement(&dword_140C51094);
-          result = qword_140C52B30;
-          if ( qword_140C52AC0 != qword_140C52B30 )
+          _InterlockedIncrement(&dword_140C510D4);
+          result = qword_140C52B70;
+          if ( qword_140C52B00 != qword_140C52B70 )
           {
-            v4 = dword_140C5102C;
+            v4 = dword_140C5106C;
             do
             {
-              KeSetEvent(&stru_140C51098, 0, 0);
+              KeSetEvent(&stru_140C510D8, 0, 0);
               CcForEachPartition((__int64 (__fastcall *)(__int64, __int64))CcNotifyWriteBehindHelper, 2LL, 0);
-              result = qword_140C52B30;
-              if ( qword_140C52AC0 == qword_140C52B30 )
+              result = qword_140C52B70;
+              if ( qword_140C52B00 == qword_140C52B70 )
                 break;
               KeDelayExecutionThread(0, 0, (PLARGE_INTEGER)&Mi30Milliseconds);
-              result = (unsigned int)dword_140C5102C;
-              if ( v4 != dword_140C5102C )
+              result = (unsigned int)dword_140C5106C;
+              if ( v4 != dword_140C5106C )
               {
-                v4 = dword_140C5102C;
+                v4 = dword_140C5106C;
                 v3 = -1;
               }
               ++v3;
             }
             while ( v3 < 0xFF );
           }
-          _InterlockedDecrement(&dword_140C51094);
+          _InterlockedDecrement(&dword_140C510D4);
         }
       }
     }

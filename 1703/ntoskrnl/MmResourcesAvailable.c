@@ -44,7 +44,7 @@ __int64 __fastcall MmResourcesAvailable(char a1, unsigned __int64 a2, int a3)
   struct _KEVENT *v26; // rcx
   struct _KTHREAD *v27; // r14
   __int64 SessionId; // rdx
-  __int64 v29; // r8
+  unsigned int v29; // r8d
   bool v30; // zf
   __int64 v31; // rcx
   int v32; // eax
@@ -130,7 +130,7 @@ LABEL_5:
         SessionId = 0xFFFFFFFFLL;
       --v27->SpecialApcDisable;
       ++v27->AbAllocationRegionCount;
-      LODWORD(v29) = ((char)v27->AbEntrySummary | (char)v27->AbOrphanedEntrySummary) ^ 0x3F;
+      v29 = ((char)v27->AbEntrySummary | (char)v27->AbOrphanedEntrySummary) ^ 0x3F;
       AbAllocationRegionCount = v27->AbAllocationRegionCount;
       v30 = !_BitScanReverse((unsigned int *)&v31, v29);
       if ( v30 )
@@ -146,7 +146,7 @@ LABEL_57:
           v32 = 1 << v31;
           v33 = v31;
           v34 = &v27->LockEntries[v33];
-          v29 = ~v32 & (unsigned int)v29;
+          v29 &= ~v32;
           if ( (v34->AcquiredByte & 1) != 0
             && (*(_DWORD *)&v34->LockState.0 & 1) == 0
             && (*(_QWORD *)&v34->LockState.0 & 0x7FFFFFFFFFFFFFFCLL) == ((unsigned __int64)&qword_14036D058 & 0x7FFFFFFFFFFFFFFCLL)
@@ -168,7 +168,7 @@ LABEL_56:
         }
         v34->CrossThreadReleasableAndBusyByte |= 2u;
         if ( (__int64)v34->LockState.LockState < 0 )
-          KiAbEntryRemoveFromTree((__int64)&v27->LockEntries[v33], SessionId, v29);
+          KiAbEntryRemoveFromTree(&v27->LockEntries[v33].TreeNode, SessionId);
         v45 = 0;
         v45 = v34->BoostBitmap.AllFields & 0x1FFFF;
         v34->BoostBitmap.AllFields &= 0xFFFE0000;

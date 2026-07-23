@@ -1,14 +1,14 @@
 /*
- * XREFs of KeVerifyContextRecord @ 0x1403E7FA0
+ * XREFs of KeVerifyContextRecord @ 0x1403D5B40
  * Callers:
- *     KyRaiseException @ 0x1403E65D0 (KyRaiseException.c)
- *     PspGetSetContextInternal @ 0x1409A4CA0 (PspGetSetContextInternal.c)
+ *     KyRaiseException @ 0x1403D4170 (KyRaiseException.c)
+ *     PspGetSetContextInternal @ 0x1409882C0 (PspGetSetContextInternal.c)
  * Callees:
- *     KiVerifyContextIpForUserCet @ 0x1403E8138 (KiVerifyContextIpForUserCet.c)
- *     KiLogUserCetSetContextIpValidationFailure @ 0x1405C6D6C (KiLogUserCetSetContextIpValidationFailure.c)
- *     PsWow64GetProcessMachine @ 0x1408FB0E0 (PsWow64GetProcessMachine.c)
- *     RtlGuardIsValidStackPointer @ 0x1409E3B90 (RtlGuardIsValidStackPointer.c)
- *     RtlGuardIsValidWow64StackPointer @ 0x140A468E8 (RtlGuardIsValidWow64StackPointer.c)
+ *     KiVerifyContextIpForUserCet @ 0x1403D5CD8 (KiVerifyContextIpForUserCet.c)
+ *     KiLogUserCetSetContextIpValidationFailure @ 0x1405C449C (KiLogUserCetSetContextIpValidationFailure.c)
+ *     PsWow64GetProcessMachine @ 0x14091D9C0 (PsWow64GetProcessMachine.c)
+ *     RtlGuardIsValidStackPointer @ 0x1409DE5F0 (RtlGuardIsValidStackPointer.c)
+ *     RtlGuardIsValidWow64StackPointer @ 0x140A3C85C (RtlGuardIsValidWow64StackPointer.c)
  */
 
 __int64 __fastcall KeVerifyContextRecord(__int64 a1, __int64 a2, unsigned int *a3, __int64 a4)

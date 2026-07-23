@@ -1,14 +1,14 @@
 /*
- * XREFs of IoWMIDeviceObjectToInstanceName @ 0x140AE8F00
+ * XREFs of IoWMIDeviceObjectToInstanceName @ 0x140AEB150
  * Callers:
- *     IoWMIHandleToInstanceName @ 0x140B2E460 (IoWMIHandleToInstanceName.c)
+ *     IoWMIHandleToInstanceName @ 0x140B303B0 (IoWMIHandleToInstanceName.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     IoGetDeviceAttachmentBaseRef @ 0x14026F260 (IoGetDeviceAttachmentBaseRef.c)
- *     RtlStringCbPrintfW @ 0x140433060 (RtlStringCbPrintfW.c)
- *     WmipGetGuidObjectInstanceInfo @ 0x140AE8FF4 (WmipGetGuidObjectInstanceInfo.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePool @ 0x140C10E30 (ExFreePool.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     IoGetDeviceAttachmentBaseRef @ 0x14026E7D0 (IoGetDeviceAttachmentBaseRef.c)
+ *     RtlStringCbPrintfW @ 0x140420090 (RtlStringCbPrintfW.c)
+ *     WmipGetGuidObjectInstanceInfo @ 0x140AEB244 (WmipGetGuidObjectInstanceInfo.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePool @ 0x140C16E30 (ExFreePool.c)
  */
 
 NTSTATUS __stdcall IoWMIDeviceObjectToInstanceName(

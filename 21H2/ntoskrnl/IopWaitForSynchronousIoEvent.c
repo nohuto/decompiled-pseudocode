@@ -1,13 +1,13 @@
 /*
- * XREFs of IopWaitForSynchronousIoEvent @ 0x1403F1280
+ * XREFs of IopWaitForSynchronousIoEvent @ 0x1403F11B0
  * Callers:
- *     IopWaitForSynchronousIo @ 0x1402D41CC (IopWaitForSynchronousIo.c)
+ *     IopWaitForSynchronousIo @ 0x140272EA4 (IopWaitForSynchronousIo.c)
  *     NtCopyFileChunk @ 0x1405CDD80 (NtCopyFileChunk.c)
- *     IopSynchronousServiceTail @ 0x1406FED80 (IopSynchronousServiceTail.c)
+ *     IopSynchronousServiceTail @ 0x140716160 (IopSynchronousServiceTail.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
- *     IopCheckIrpCancelled @ 0x140500690 (IopCheckIrpCancelled.c)
- *     IopCancelAlertedRequest @ 0x14089108C (IopCancelAlertedRequest.c)
+ *     KeWaitForSingleObject @ 0x1403504C0 (KeWaitForSingleObject.c)
+ *     IopCheckIrpCancelled @ 0x140500610 (IopCheckIrpCancelled.c)
+ *     IopCancelAlertedRequest @ 0x1408911EC (IopCancelAlertedRequest.c)
  */
 
 __int64 __fastcall IopWaitForSynchronousIoEvent(PIRP Irp, char a2, char a3, _DWORD *a4)

@@ -21,19 +21,19 @@ struct _TEB *__fastcall RtlpHpHeapLock(__int64 a1, _BYTE *a2)
     }
     else
     {
-      RtlAcquireSRWLockExclusive(a1 + 968);
+      RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 968));
       *a2 = -1;
       if ( (*(_BYTE *)(a1 + 20) & 1) == 0 )
       {
-        RtlAcquireSRWLockExclusive(a1 + 704);
+        RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 704));
         if ( (*(_BYTE *)(a1 + 20) & 1) == 0 )
         {
-          RtlAcquireSRWLockExclusive(a1 + 384);
+          RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 384));
           if ( (*(_BYTE *)(a1 + 20) & 1) == 0 )
           {
-            RtlAcquireSRWLockExclusive(a1 + 576);
+            RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 576));
             if ( (*(_BYTE *)(a1 + 20) & 1) == 0 )
-              RtlAcquireSRWLockExclusive(a1 + 64);
+              RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 64));
           }
         }
       }

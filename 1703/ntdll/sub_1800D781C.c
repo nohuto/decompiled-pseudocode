@@ -10,7 +10,7 @@
  *     sub_1800D7750 @ 0x1800D7750 (sub_1800D7750.c)
  */
 
-__int64 __fastcall sub_1800D781C(__int64 a1, __int64 a2, __int64 a3)
+__int64 __fastcall sub_1800D781C(__int64 a1, void *a2, void *a3)
 {
   unsigned int v4; // edi
   WCHAR *v5; // rbx
@@ -19,12 +19,12 @@ __int64 __fastcall sub_1800D781C(__int64 a1, __int64 a2, __int64 a3)
   WCHAR v8; // ax
   const WCHAR *v9; // rdx
   const char *v10; // rax
-  int v12; // [rsp+30h] [rbp-258h]
-  UNICODE_STRING DestinationString; // [rsp+40h] [rbp-248h] BYREF
+  __int64 v12; // [rsp+30h] [rbp-258h]
+  _UNICODE_STRING DestinationString; // [rsp+40h] [rbp-248h] BYREF
   WCHAR SourceString[256]; // [rsp+50h] [rbp-238h] BYREF
 
   SourceString[0] = 0;
-  if ( (int)sub_18007C1E0(a2, a3, (__int64)L"VerifierActivationFilter", 1u, (__int64)SourceString, 512, v12, 0LL) < 0 )
+  if ( sub_18007C1E0(a2, a3, L"VerifierActivationFilter", 1u, SourceString, 0x200u, v12, 0LL) < 0 )
   {
     return 1;
   }
@@ -82,7 +82,7 @@ __int64 __fastcall sub_1800D781C(__int64 a1, __int64 a2, __int64 a3)
     }
     if ( (dword_180155A10 & 5) != 0 )
     {
-      v10 = (const char *)&unk_1801150C2;
+      v10 = (const char *)&dword_1801150C2;
       if ( !v4 )
         v10 = "not ";
       sub_1800D5274(

@@ -1,31 +1,36 @@
 /*
- * XREFs of NtCreateIoRing @ 0x140717160
+ * XREFs of NtCreateIoRing @ 0x140714CF0
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     _tlgWriteAgg @ 0x1403D06F8 (_tlgWriteAgg.c)
- *     KeInitializeEvent @ 0x140409D80 (KeInitializeEvent.c)
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     _tlgCreate1Sz_char @ 0x1404397B4 (_tlgCreate1Sz_char.c)
- *     PsGetProcessImageFileName @ 0x14044CCB0 (PsGetProcessImageFileName.c)
- *     IopExceptionFilter @ 0x1405962D8 (IopExceptionFilter.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     IopAllocateAndLockMdl @ 0x14071194C (IopAllocateAndLockMdl.c)
- *     ObInsertObjectEx @ 0x140857620 (ObInsertObjectEx.c)
- *     ObCreateObjectEx @ 0x14089C4F0 (ObCreateObjectEx.c)
- *     ObCloseHandle @ 0x1408A2B10 (ObCloseHandle.c)
- *     ProbeForWrite @ 0x1408C0590 (ProbeForWrite.c)
- *     MmMapViewOfSection @ 0x1409071A0 (MmMapViewOfSection.c)
- *     MmCreateSection @ 0x140940B50 (MmCreateSection.c)
- *     MmMapViewInSessionSpace @ 0x140946C00 (MmMapViewInSessionSpace.c)
+ *     _tlgWriteAgg @ 0x140273698 (_tlgWriteAgg.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     KeInitializeEvent @ 0x140402260 (KeInitializeEvent.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     _tlgCreate1Sz_char @ 0x14042C374 (_tlgCreate1Sz_char.c)
+ *     PsGetProcessImageFileName @ 0x140443BB0 (PsGetProcessImageFileName.c)
+ *     IopExceptionFilter @ 0x140593308 (IopExceptionFilter.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     IopAllocateAndLockMdl @ 0x14070F4DC (IopAllocateAndLockMdl.c)
+ *     ObInsertObjectEx @ 0x140853900 (ObInsertObjectEx.c)
+ *     ObCreateObjectEx @ 0x1408A4B90 (ObCreateObjectEx.c)
+ *     ObCloseHandle @ 0x1408AB1B0 (ObCloseHandle.c)
+ *     ProbeForWrite @ 0x1408BDF50 (ProbeForWrite.c)
+ *     MmMapViewOfSection @ 0x1408DE270 (MmMapViewOfSection.c)
+ *     MmMapViewInSessionSpace @ 0x1408EB520 (MmMapViewInSessionSpace.c)
+ *     MmCreateSection @ 0x14098ADB0 (MmCreateSection.c)
  */
 
-__int64 __fastcall NtCreateIoRing(unsigned __int64 a1, unsigned int a2, __int128 *a3, unsigned int a4, _OWORD *Address)
+NTSTATUS __cdecl NtCreateIoRing(
+        PHANDLE IoRingHandle,
+        ULONG CreateParametersLength,
+        PVOID CreateParameters,
+        ULONG OutputParametersLength,
+        PVOID OutputParameters)
 {
   char v7; // r15
-  int inserted; // edi
+  NTSTATUS inserted; // edi
   __int64 v9; // rcx
   int v10; // r12d
   unsigned int v11; // esi
@@ -54,7 +59,7 @@ __int64 __fastcall NtCreateIoRing(unsigned __int64 a1, unsigned int a2, __int128
   __int64 v35; // [rsp+A8h] [rbp-1D0h] BYREF
   __int64 v36; // [rsp+B0h] [rbp-1C8h] BYREF
   HANDLE Handle; // [rsp+B8h] [rbp-1C0h] BYREF
-  _QWORD *v38; // [rsp+C0h] [rbp-1B8h]
+  PHANDLE v38; // [rsp+C0h] [rbp-1B8h]
   __int64 v39; // [rsp+C8h] [rbp-1B0h] BYREF
   __int64 v40; // [rsp+D0h] [rbp-1A8h] BYREF
   _QWORD v41[4]; // [rsp+D8h] [rbp-1A0h] BYREF
@@ -91,19 +96,19 @@ __int64 __fastcall NtCreateIoRing(unsigned __int64 a1, unsigned int a2, __int128
   __int64 *v72; // [rsp+220h] [rbp-58h]
   __int64 v73; // [rsp+228h] [rbp-50h]
 
-  v38 = (_QWORD *)a1;
+  v38 = IoRingHandle;
   HIDWORD(PreviousMode) = 0;
   v7 = KeGetCurrentThread()->PreviousMode;
   LOBYTE(PreviousMode) = v7;
   v24 = 0LL;
   v25 = 0;
   Object = 0LL;
-  if ( a2 < 0x14 )
+  if ( CreateParametersLength < 0x14 )
   {
     inserted = -1073741584;
     goto LABEL_51;
   }
-  if ( a4 < 0x30 )
+  if ( OutputParametersLength < 0x30 )
   {
     inserted = -1073741789;
     goto LABEL_51;
@@ -111,13 +116,13 @@ __int64 __fastcall NtCreateIoRing(unsigned __int64 a1, unsigned int a2, __int128
   if ( v7 )
   {
     v9 = 0x7FFFFFFF0000LL;
-    if ( a1 < 0x7FFFFFFF0000LL )
-      v9 = a1;
+    if ( (unsigned __int64)IoRingHandle < 0x7FFFFFFF0000LL )
+      v9 = (__int64)IoRingHandle;
     *(_QWORD *)v9 = *(_QWORD *)v9;
-    ProbeForWrite(Address, a4, 1u);
+    ProbeForWrite(OutputParameters, OutputParametersLength, 1u);
   }
-  v24 = *a3;
-  v25 = *((_DWORD *)a3 + 4);
+  v24 = *(_OWORD *)CreateParameters;
+  v25 = *((_DWORD *)CreateParameters + 4);
   v10 = v24;
   if ( (unsigned int)(v24 - 1) > 0x18F )
   {
@@ -191,8 +196,8 @@ LABEL_13:
   v41[0] = 48LL;
   memset(&v41[1], 0, 24);
   v42 = 0LL;
-  LOBYTE(a4) = v7;
-  inserted = ObCreateObjectEx(0, (_DWORD)IoRingObjectType, (unsigned int)v41, a4);
+  LOBYTE(OutputParametersLength) = v7;
+  inserted = ObCreateObjectEx(0, (_DWORD)IoRingObjectType, (unsigned int)v41, OutputParametersLength);
   HIDWORD(PreviousMode) = inserted;
   if ( inserted < 0 )
     goto LABEL_43;
@@ -273,9 +278,9 @@ LABEL_13:
   {
     *v38 = Handle;
     v17 = (char *)Object;
-    *Address = *(_OWORD *)((char *)Object + 8);
-    Address[1] = *(_OWORD *)(v17 + 24);
-    Address[2] = *(_OWORD *)(v17 + 40);
+    *(_OWORD *)OutputParameters = *(_OWORD *)((char *)Object + 8);
+    *((_OWORD *)OutputParameters + 1) = *(_OWORD *)(v17 + 24);
+    *((_OWORD *)OutputParameters + 2) = *(_OWORD *)(v17 + 40);
   }
   else
   {
@@ -333,12 +338,12 @@ LABEL_43:
       v40 = 0x1000000LL;
       v72 = &v40;
       v73 = 8LL;
-      tlgWriteAgg((__int64)&dword_140E06E48, (unsigned __int8 *)&byte_1400454DF, (__int64)v20, 0x12u, (__int64)v43);
+      tlgWriteAgg((__int64)&dword_140E06E48, (unsigned __int8 *)&byte_1400458DF, (__int64)v20, 0x12u, (__int64)v43);
     }
     inserted = HIDWORD(PreviousMode);
   }
 LABEL_51:
   if ( Object )
     ObfDereferenceObject(Object);
-  return (unsigned int)inserted;
+  return inserted;
 }

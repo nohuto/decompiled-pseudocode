@@ -6,7 +6,7 @@
  *     memset_0 @ 0x1406B4D40 (memset_0.c)
  */
 
-__int64 __fastcall ExpInitBootEntropyInformation(PRTL_RUN_ONCE RunOnce, _DWORD **Parameter, PVOID *Context)
+__int64 __fastcall ExpInitBootEntropyInformation(PRTL_RUN_ONCE a1, _DWORD **a2, PVOID *a3)
 {
   __int64 v3; // rax
   _DWORD *v5; // rbx
@@ -17,9 +17,9 @@ __int64 __fastcall ExpInitBootEntropyInformation(PRTL_RUN_ONCE RunOnce, _DWORD *
   __int128 v10; // xmm0
 
   v3 = *(_QWORD *)&KeNumberProcessorsGroup0[1];
-  v5 = *Parameter;
+  v5 = *a2;
   v6 = (char *)(*(_QWORD *)(v3 + 240) + 344LL);
-  if ( *Parameter )
+  if ( *a2 )
   {
     memset_0(v5, 0, 0x448uLL);
     v7 = v5 + 4;
@@ -48,6 +48,6 @@ __int64 __fastcall ExpInitBootEntropyInformation(PRTL_RUN_ONCE RunOnce, _DWORD *
     *(_OWORD *)(v5 + 270) = *(_OWORD *)(v6 + 1080);
   }
   memset(v6, 0, 0x448uLL);
-  *Parameter = (_DWORD *)-1LL;
+  *a2 = (_DWORD *)-1LL;
   return 1LL;
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of Normalization__CanCombinableCharactersCombine @ 0x18010E094
+ * XREFs of Normalization__CanCombinableCharactersCombine @ 0x18010E064
  * Callers:
  *     Normalization__NormalizeCharacter @ 0x18008A014 (Normalization__NormalizeCharacter.c)
- *     NormBuffer__LastStartBasePair @ 0x18010DB68 (NormBuffer__LastStartBasePair.c)
- *     NormBuffer__RecheckStartCombinations @ 0x18010DBB8 (NormBuffer__RecheckStartCombinations.c)
- *     Normalization__CanCombineWithStartBase @ 0x18010E208 (Normalization__CanCombineWithStartBase.c)
- *     Normalization__CanCombineWithStartFirstPair @ 0x18010E254 (Normalization__CanCombineWithStartFirstPair.c)
- *     Normalization__IsNormalized @ 0x18010E578 (Normalization__IsNormalized.c)
+ *     NormBuffer__LastStartBasePair @ 0x18010DB38 (NormBuffer__LastStartBasePair.c)
+ *     NormBuffer__RecheckStartCombinations @ 0x18010DB88 (NormBuffer__RecheckStartCombinations.c)
+ *     Normalization__CanCombineWithStartBase @ 0x18010E1D8 (Normalization__CanCombineWithStartBase.c)
+ *     Normalization__CanCombineWithStartFirstPair @ 0x18010E224 (Normalization__CanCombineWithStartFirstPair.c)
+ *     Normalization__IsNormalized @ 0x18010E548 (Normalization__IsNormalized.c)
  * Callees:
  *     <none>
  */

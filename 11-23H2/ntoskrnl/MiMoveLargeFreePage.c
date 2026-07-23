@@ -1,15 +1,15 @@
 /*
- * XREFs of MiMoveLargeFreePage @ 0x14064F7F4
+ * XREFs of MiMoveLargeFreePage @ 0x14064FD44
  * Callers:
- *     MiTransferPartitionPageRun @ 0x14065B604 (MiTransferPartitionPageRun.c)
+ *     MiTransferPartitionPageRun @ 0x14065BB54 (MiTransferPartitionPageRun.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     MiInsertLargePageInNodeList @ 0x1402D6BE0 (MiInsertLargePageInNodeList.c)
- *     MiLockPageInline @ 0x1402EF680 (MiLockPageInline.c)
- *     MiTryUnlinkNodeLargePages @ 0x1403A0B7C (MiTryUnlinkNodeLargePages.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     MiMoveBadPageCrossPartition @ 0x14064D904 (MiMoveBadPageCrossPartition.c)
- *     MiUpdatePartitionChildPageCounts @ 0x14065BD04 (MiUpdatePartitionChildPageCounts.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     MiInsertLargePageInNodeList @ 0x1402D6E70 (MiInsertLargePageInNodeList.c)
+ *     MiLockPageInline @ 0x1402EF910 (MiLockPageInline.c)
+ *     MiTryUnlinkNodeLargePages @ 0x1403A0D5C (MiTryUnlinkNodeLargePages.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     MiMoveBadPageCrossPartition @ 0x14064DE54 (MiMoveBadPageCrossPartition.c)
+ *     MiUpdatePartitionChildPageCounts @ 0x14065C254 (MiUpdatePartitionChildPageCounts.c)
  */
 
 __int64 __fastcall MiMoveLargeFreePage(__int64 a1, unsigned int a2, __int64 a3, _WORD *a4)

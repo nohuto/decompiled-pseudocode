@@ -1,14 +1,18 @@
 /*
- * XREFs of ZwCreateMutant @ 0x1406A7B50
+ * XREFs of ZwCreateMutant @ 0x1406A8AF0
  * Callers:
- *     BcdInitializeBcdSyncMutant @ 0x140C5C860 (BcdInitializeBcdSyncMutant.c)
+ *     BcdInitializeBcdSyncMutant @ 0x140C5E9F0 (BcdInitializeBcdSyncMutant.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwCreateMutant(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwCreateMutant(
+        PHANDLE MutantHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        BOOLEAN InitialOwner)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(MutantHandle);
 }

@@ -1,22 +1,22 @@
 /*
- * XREFs of CmpQueryKeyName @ 0x1404044D0
+ * XREFs of CmpQueryKeyName @ 0x140403390
  * Callers:
  *     <none>
  * Callees:
- *     CmpFreeTransientPoolWithTag @ 0x14002D218 (CmpFreeTransientPoolWithTag.c)
- *     ExIsResourceAcquiredSharedLite @ 0x14002D250 (ExIsResourceAcquiredSharedLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     CmpUnlockRegistry @ 0x14040476C (CmpUnlockRegistry.c)
- *     CmpLockRegistry @ 0x1404047A0 (CmpLockRegistry.c)
- *     CmpLockKcbShared @ 0x140435440 (CmpLockKcbShared.c)
- *     CmpConstructNameWithStatus @ 0x140437710 (CmpConstructNameWithStatus.c)
- *     CmpUnlockKcb @ 0x140438610 (CmpUnlockKcb.c)
- *     CmPostCallbackNotification @ 0x140439490 (CmPostCallbackNotification.c)
- *     CmpCallCallBacks @ 0x140452A00 (CmpCallCallBacks.c)
- *     RtlFreeAnsiString @ 0x140458CF0 (RtlFreeAnsiString.c)
- *     CmVirtualKCBToRealPath @ 0x14060035C (CmVirtualKCBToRealPath.c)
+ *     CmpFreeTransientPoolWithTag @ 0x14002CD98 (CmpFreeTransientPoolWithTag.c)
+ *     ExIsResourceAcquiredSharedLite @ 0x14002CDD0 (ExIsResourceAcquiredSharedLite.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     CmpUnlockRegistry @ 0x14040362C (CmpUnlockRegistry.c)
+ *     CmpLockRegistry @ 0x140403660 (CmpLockRegistry.c)
+ *     CmpLockKcbShared @ 0x140434310 (CmpLockKcbShared.c)
+ *     CmpConstructNameWithStatus @ 0x1404365E0 (CmpConstructNameWithStatus.c)
+ *     CmpUnlockKcb @ 0x1404374E0 (CmpUnlockKcb.c)
+ *     CmPostCallbackNotification @ 0x140438360 (CmPostCallbackNotification.c)
+ *     CmpCallCallBacks @ 0x1404518D0 (CmpCallCallBacks.c)
+ *     RtlFreeAnsiString @ 0x140457BC0 (RtlFreeAnsiString.c)
+ *     CmVirtualKCBToRealPath @ 0x140600410 (CmVirtualKCBToRealPath.c)
  */
 
 __int64 __fastcall CmpQueryKeyName(__int64 a1, __int64 a2, __int64 a3, unsigned int a4, _DWORD *a5)

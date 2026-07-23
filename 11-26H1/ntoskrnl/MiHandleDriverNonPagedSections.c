@@ -1,19 +1,19 @@
 /*
- * XREFs of MiHandleDriverNonPagedSections @ 0x140AC8ED0
+ * XREFs of MiHandleDriverNonPagedSections @ 0x140ACAFE8
  * Callers:
- *     MiApplyHotPatchToLoadedDriver @ 0x14086E384 (MiApplyHotPatchToLoadedDriver.c)
- *     MmLoadSystemImageEx @ 0x140A269D4 (MmLoadSystemImageEx.c)
- *     MmRegisterHotPatches @ 0x140CFBBA4 (MmRegisterHotPatches.c)
+ *     MiApplyHotPatchToLoadedDriver @ 0x140874754 (MiApplyHotPatchToLoadedDriver.c)
+ *     MmLoadSystemImageEx @ 0x140A39A74 (MmLoadSystemImageEx.c)
+ *     MmRegisterHotPatches @ 0x140D01F24 (MmRegisterHotPatches.c)
  * Callees:
- *     MI_IS_PHYSICAL_ADDRESS @ 0x14024C8D0 (MI_IS_PHYSICAL_ADDRESS.c)
- *     MiLockCode @ 0x14029602C (MiLockCode.c)
- *     MiUnlockCodePage @ 0x140367FA8 (MiUnlockCodePage.c)
- *     RtlFindSetBits @ 0x1403F7770 (RtlFindSetBits.c)
- *     RtlFindNextForwardRunClear @ 0x14041D9C0 (RtlFindNextForwardRunClear.c)
- *     MiGetPteAddress @ 0x1404468C0 (MiGetPteAddress.c)
- *     MiGetExtendedLoaderBitmap @ 0x1404FE2CC (MiGetExtendedLoaderBitmap.c)
- *     MiDisablePagingOfDriver @ 0x140AC94F8 (MiDisablePagingOfDriver.c)
- *     MiSnapDriverRange @ 0x140AC95AC (MiSnapDriverRange.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x14024E230 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     MiLockCode @ 0x14029558C (MiLockCode.c)
+ *     MiUnlockCodePage @ 0x140369D48 (MiUnlockCodePage.c)
+ *     RtlFindSetBits @ 0x1403F1120 (RtlFindSetBits.c)
+ *     RtlFindNextForwardRunClear @ 0x140415210 (RtlFindNextForwardRunClear.c)
+ *     MiGetPteAddress @ 0x14043F3C0 (MiGetPteAddress.c)
+ *     MiGetExtendedLoaderBitmap @ 0x1404F780C (MiGetExtendedLoaderBitmap.c)
+ *     MiDisablePagingOfDriver @ 0x140ACB608 (MiDisablePagingOfDriver.c)
+ *     MiSnapDriverRange @ 0x140ACB6BC (MiSnapDriverRange.c)
  */
 
 __int64 __fastcall MiHandleDriverNonPagedSections(__int64 a1, char a2)
@@ -23,7 +23,7 @@ __int64 __fastcall MiHandleDriverNonPagedSections(__int64 a1, char a2)
   BOOL v6; // r12d
   ULONG v7; // ebp
   ULONG_PTR *v8; // r15
-  RTL_BITMAP *ExtendedLoaderBitmap; // r14
+  _RTL_BITMAP *ExtendedLoaderBitmap; // r14
   ULONG SetBits; // eax
   ULONG v11; // ebx
   ULONG NextForwardRunClear; // eax
@@ -46,7 +46,7 @@ __int64 __fastcall MiHandleDriverNonPagedSections(__int64 a1, char a2)
   if ( (unsigned int)MI_IS_PHYSICAL_ADDRESS(v3) )
     return 0LL;
   v5 = 0;
-  if ( (dword_140FBE204 & 1) != 0 || (a2 & 2) != 0 )
+  if ( (dword_140FBF204 & 1) != 0 || (a2 & 2) != 0 )
   {
     v20 = 0;
     v21 = 0LL;
@@ -80,7 +80,7 @@ LABEL_19:
   v6 = 1;
   v7 = 0;
   v8 = 0LL;
-  ExtendedLoaderBitmap = (RTL_BITMAP *)MiGetExtendedLoaderBitmap(a1);
+  ExtendedLoaderBitmap = (_RTL_BITMAP *)MiGetExtendedLoaderBitmap(a1);
   while ( 1 )
   {
     v25 = *(ULONG_PTR **)(a1 + 48);

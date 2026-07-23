@@ -3,10 +3,10 @@
  * Callers:
  *     IoBuildPoDeviceNotifyList @ 0x1403D183C (IoBuildPoDeviceNotifyList.c)
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memmove @ 0x140171280 (memmove.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memmove @ 0x140171780 (memmove.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     ObQueryNameString @ 0x1404DC4E0 (ObQueryNameString.c)
+ *     ObQueryNameString @ 0x1404BFAE4 (ObQueryNameString.c)
  */
 
 _WORD *__fastcall IopCaptureObjectName(void *a1)
@@ -14,7 +14,7 @@ _WORD *__fastcall IopCaptureObjectName(void *a1)
   _WORD *v1; // rbx
   _WORD *PoolWithTag; // rax
   ULONG ReturnLength[4]; // [rsp+20h] [rbp-228h] BYREF
-  struct _OBJECT_NAME_INFORMATION ObjectNameInfo; // [rsp+30h] [rbp-218h] BYREF
+  _OBJECT_NAME_INFORMATION ObjectNameInfo; // [rsp+30h] [rbp-218h] BYREF
 
   v1 = 0LL;
   if ( ObQueryNameString(a1, &ObjectNameInfo, 0x200u, ReturnLength) >= 0 )

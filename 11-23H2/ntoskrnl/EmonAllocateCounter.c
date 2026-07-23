@@ -1,10 +1,10 @@
 /*
- * XREFs of EmonAllocateCounter @ 0x14051CBD0
+ * XREFs of EmonAllocateCounter @ 0x14051D120
  * Callers:
- *     EmonEnableMonitoring @ 0x14051D240 (EmonEnableMonitoring.c)
+ *     EmonEnableMonitoring @ 0x14051D790 (EmonEnableMonitoring.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x1402C3270 (KeQueryPerformanceCounter.c)
- *     HalpAllocateHalCounters @ 0x140501C18 (HalpAllocateHalCounters.c)
+ *     KeQueryPerformanceCounter @ 0x1402C3500 (KeQueryPerformanceCounter.c)
+ *     HalpAllocateHalCounters @ 0x140502168 (HalpAllocateHalCounters.c)
  */
 
 __int64 __fastcall EmonAllocateCounter(int a1, __int64 a2, int a3, int *a4)

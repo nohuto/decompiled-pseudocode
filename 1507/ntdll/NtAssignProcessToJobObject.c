@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 NtAssignProcessToJobObject()
+NTSTATUS __cdecl NtAssignProcessToJobObject(HANDLE JobHandle, HANDLE ProcessHandle)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 139LL;
+  result = 139;
   __asm { syscall; Low latency system call }
   return result;
 }

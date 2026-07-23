@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlXSave @ 0x1403D4DC0
+ * XREFs of RtlXSave @ 0x1403D7D90
  * Callers:
- *     RtlXSaveS @ 0x1403D45AC (RtlXSaveS.c)
- *     KeContextFromKframes @ 0x1403D46B0 (KeContextFromKframes.c)
- *     KiSaveProcessorState @ 0x1405FD570 (KiSaveProcessorState.c)
- *     ViCtxCaptureInitialIsrState @ 0x140C40CDC (ViCtxCaptureInitialIsrState.c)
- *     ViCtxCheckAndReleaseIsrState @ 0x140C40D80 (ViCtxCheckAndReleaseIsrState.c)
+ *     RtlXSaveS @ 0x1403D757C (RtlXSaveS.c)
+ *     KeContextFromKframes @ 0x1403D7680 (KeContextFromKframes.c)
+ *     KiSaveProcessorState @ 0x1405FFFC0 (KiSaveProcessorState.c)
+ *     ViCtxCaptureInitialIsrState @ 0x140C46CEC (ViCtxCaptureInitialIsrState.c)
+ *     ViCtxCheckAndReleaseIsrState @ 0x140C46D90 (ViCtxCheckAndReleaseIsrState.c)
  * Callees:
  *     <none>
  */

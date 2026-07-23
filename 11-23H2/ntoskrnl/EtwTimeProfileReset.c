@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwTimeProfileReset @ 0x140864C68
+ * XREFs of EtwTimeProfileReset @ 0x140864EA8
  * Callers:
  *     Phase1InitializationDiscard @ 0x140B4FFBC (Phase1InitializationDiscard.c)
  * Callees:
- *     KeStopProfile @ 0x14057401C (KeStopProfile.c)
- *     EtwpTimeProfileStart @ 0x1409E6B48 (EtwpTimeProfileStart.c)
+ *     KeStopProfile @ 0x14057455C (KeStopProfile.c)
+ *     EtwpTimeProfileStart @ 0x1409E6DD8 (EtwpTimeProfileStart.c)
  */
 
 __int64 EtwTimeProfileReset()

@@ -1,18 +1,18 @@
 /*
- * XREFs of _CmOpenDeviceInterfaceRegKeyWorker @ 0x1404F8C08
+ * XREFs of _CmOpenDeviceInterfaceRegKeyWorker @ 0x1404DBB94
  * Callers:
- *     _CmOpenDeviceInterfaceRegKey @ 0x1404F8AF8 (_CmOpenDeviceInterfaceRegKey.c)
+ *     _CmOpenDeviceInterfaceRegKey @ 0x1404DBA84 (_CmOpenDeviceInterfaceRegKey.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x1400C39C0 (RtlInitUnicodeStringEx.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
+ *     RtlInitUnicodeStringEx @ 0x1400C1850 (RtlInitUnicodeStringEx.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     _PnpCtxRegCreateTree @ 0x1404FA7B8 (_PnpCtxRegCreateTree.c)
- *     _CmGetDeviceInterfaceRegKeyPath @ 0x1404FB104 (_CmGetDeviceInterfaceRegKeyPath.c)
- *     _SysCtxRegOpenKey @ 0x1404FDB8C (_SysCtxRegOpenKey.c)
- *     _PnpCtxGetCachedContextBaseKey @ 0x1404FDCC4 (_PnpCtxGetCachedContextBaseKey.c)
- *     RtlPrefixUnicodeString @ 0x1404FDFD0 (RtlPrefixUnicodeString.c)
- *     _PnpCtxRegOpenCurrentUserKey @ 0x1406D710C (_PnpCtxRegOpenCurrentUserKey.c)
+ *     _PnpCtxRegCreateTree @ 0x1404DD744 (_PnpCtxRegCreateTree.c)
+ *     _CmGetDeviceInterfaceRegKeyPath @ 0x1404DE090 (_CmGetDeviceInterfaceRegKeyPath.c)
+ *     _SysCtxRegOpenKey @ 0x1404E0B1C (_SysCtxRegOpenKey.c)
+ *     _PnpCtxGetCachedContextBaseKey @ 0x1404E0C54 (_PnpCtxGetCachedContextBaseKey.c)
+ *     RtlPrefixUnicodeString @ 0x1404E0F60 (RtlPrefixUnicodeString.c)
+ *     _PnpCtxRegOpenCurrentUserKey @ 0x1406D7244 (_PnpCtxRegOpenCurrentUserKey.c)
  */
 
 __int64 __fastcall CmOpenDeviceInterfaceRegKeyWorker(

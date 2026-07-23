@@ -1,14 +1,14 @@
 /*
- * XREFs of PopFxIssueDirectedPowerTransition @ 0x14058ADF4
+ * XREFs of PopFxIssueDirectedPowerTransition @ 0x14058B2E4
  * Callers:
- *     PopIssueDirectedPowerTransition @ 0x14098BCE0 (PopIssueDirectedPowerTransition.c)
+ *     PopIssueDirectedPowerTransition @ 0x14098BEE0 (PopIssueDirectedPowerTransition.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     PopFxQueueWorkOrder @ 0x14028C1CC (PopFxQueueWorkOrder.c)
- *     PopFxAddRefDevice @ 0x1403124A4 (PopFxAddRefDevice.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     PopFxBugCheck @ 0x140588BE0 (PopFxBugCheck.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PopFxQueueWorkOrder @ 0x14028C45C (PopFxQueueWorkOrder.c)
+ *     PopFxAddRefDevice @ 0x140312734 (PopFxAddRefDevice.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     PopFxBugCheck @ 0x1405890D0 (PopFxBugCheck.c)
  */
 
 __int64 __fastcall PopFxIssueDirectedPowerTransition(ULONG_PTR BugCheckParameter2, char a2, __int64 a3)
@@ -40,10 +40,10 @@ __int64 __fastcall PopFxIssueDirectedPowerTransition(ULONG_PTR BugCheckParameter
   *(_DWORD *)(BugCheckParameter2 + 1176) = -1073741436;
   PopFxQueueWorkOrder(BugCheckParameter2 + 920, BugCheckParameter2);
   result = KxReleaseSpinLock(v6);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
       && (unsigned __int8)result <= 0xFu
       && (unsigned __int8)v7 <= 0xFu
       && (unsigned __int8)result >= 2u )

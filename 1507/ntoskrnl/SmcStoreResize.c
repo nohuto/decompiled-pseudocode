@@ -59,7 +59,7 @@ __int64 __fastcall SmcStoreResize(__int64 a1, _DWORD *a2)
   __int16 v36; // ax
   struct _EX_RUNDOWN_REF *v37; // rcx
   unsigned __int64 v38; // rtt
-  struct _RTL_BITMAP BitMapHeader; // [rsp+30h] [rbp-30h] BYREF
+  _RTL_BITMAP BitMapHeader; // [rsp+30h] [rbp-30h] BYREF
   _QWORD v41[4]; // [rsp+40h] [rbp-20h] BYREF
   int v43; // [rsp+A8h] [rbp+48h]
   struct _EX_RUNDOWN_REF *v44; // [rsp+B0h] [rbp+50h]

@@ -1,30 +1,30 @@
 /*
- * XREFs of RtlCopyContext @ 0x1800DDBD0
+ * XREFs of RtlCopyContext @ 0x1800D8D40
  * Callers:
  *     <none>
  * Callees:
- *     RtlpValidateContextFlags @ 0x180017E20 (RtlpValidateContextFlags.c)
- *     RtlpCopyLegacyContextX86 @ 0x1800DDED0 (RtlpCopyLegacyContextX86.c)
- *     RtlpCopyXStateChunk @ 0x1800DE120 (RtlpCopyXStateChunk.c)
- *     RtlpCopyKernelCetChunk @ 0x18011FEF8 (RtlpCopyKernelCetChunk.c)
- *     RtlpCopyLegacyContextAmd64 @ 0x18011FF3C (RtlpCopyLegacyContextAmd64.c)
- *     RtlpCopyLegacyContextArm @ 0x18012012C (RtlpCopyLegacyContextArm.c)
- *     RtlpCopyLegacyContextArm64 @ 0x180143B0C (RtlpCopyLegacyContextArm64.c)
+ *     RtlpValidateContextFlags @ 0x180044820 (RtlpValidateContextFlags.c)
+ *     RtlpCopyLegacyContextX86 @ 0x1800D9040 (RtlpCopyLegacyContextX86.c)
+ *     RtlpCopyXStateChunk @ 0x1800D9290 (RtlpCopyXStateChunk.c)
+ *     RtlpCopyKernelCetChunk @ 0x18011E128 (RtlpCopyKernelCetChunk.c)
+ *     RtlpCopyLegacyContextAmd64 @ 0x18011E16C (RtlpCopyLegacyContextAmd64.c)
+ *     RtlpCopyLegacyContextArm @ 0x18011E35C (RtlpCopyLegacyContextArm.c)
+ *     RtlpCopyLegacyContextArm64 @ 0x180141EBC (RtlpCopyLegacyContextArm64.c)
  */
 
-__int64 __fastcall RtlCopyContext(unsigned int *a1, unsigned int a2, int *a3)
+NTSTATUS __cdecl RtlCopyContext(PCONTEXT Context, ULONG ContextFlags, PCONTEXT Source)
 {
   int v4; // ebx
-  __int64 v7; // r14
-  __int64 result; // rax
+  M128A *XmmRegisters; // r14
+  NTSTATUS result; // eax
   unsigned int *v9; // rax
-  int *v10; // rbp
+  int *p_ContextFlags; // rbp
   unsigned int v11; // esi
   int v12; // ebp
   int v13; // ecx
-  unsigned int v14; // ebp
+  ULONG v14; // ebp
   __int64 v15; // rcx
-  unsigned int v16; // esi
+  NTSTATUS v16; // esi
   char v17; // r12
   int v18; // eax
   int v19; // ecx
@@ -33,83 +33,83 @@ __int64 __fastcall RtlCopyContext(unsigned int *a1, unsigned int a2, int *a3)
   int v22; // [rsp+34h] [rbp-44h] BYREF
   unsigned int v23; // [rsp+38h] [rbp-40h]
   unsigned int *v24; // [rsp+40h] [rbp-38h]
-  int v25; // [rsp+98h] [rbp+20h]
+  ULONG v25; // [rsp+98h] [rbp+20h]
 
   v4 = 0;
   v21 = 0;
   v22 = 0;
-  v7 = 0LL;
-  result = RtlpValidateContextFlags(a2, 0LL);
-  if ( (int)result < 0 )
+  XmmRegisters = 0LL;
+  result = RtlpValidateContextFlags(ContextFlags, 0LL);
+  if ( result < 0 )
     return result;
-  v25 = a2 & 0x100000;
-  if ( (a2 & 0x10000) != 0 )
+  v25 = ContextFlags & 0x100000;
+  if ( (ContextFlags & 0x10000) != 0 )
   {
-    v9 = a1;
-    v10 = a3;
+    v9 = (unsigned int *)Context;
+    p_ContextFlags = (int *)Source;
   }
   else
   {
-    v25 = a2 & 0x100000;
-    if ( (a2 & 0x100000) != 0 )
+    v25 = ContextFlags & 0x100000;
+    if ( (ContextFlags & 0x100000) != 0 )
     {
-      v10 = a3 + 12;
-      v9 = a1 + 12;
+      p_ContextFlags = (int *)&Source->ContextFlags;
+      v9 = &Context->ContextFlags;
     }
-    else if ( (a2 & 0x200000) != 0 )
+    else if ( (ContextFlags & 0x200000) != 0 )
     {
-      v10 = a3;
-      v9 = a1;
+      p_ContextFlags = (int *)Source;
+      v9 = (unsigned int *)Context;
     }
-    else if ( (a2 & 0x400000) != 0 )
+    else if ( (ContextFlags & 0x400000) != 0 )
     {
-      v10 = a3;
-      v9 = a1;
+      p_ContextFlags = (int *)Source;
+      v9 = (unsigned int *)Context;
     }
     else
     {
-      v10 = 0LL;
+      p_ContextFlags = 0LL;
       v9 = 0LL;
     }
   }
   v11 = *v9;
-  v12 = *v10;
+  v12 = *p_ContextFlags;
   v13 = v12 | *v9;
   v24 = v9;
   v23 = v11;
-  result = RtlpValidateContextFlags(a2 | v13, 0LL);
-  if ( (int)result < 0 )
+  result = RtlpValidateContextFlags(ContextFlags | v13, 0LL);
+  if ( result < 0 )
     return result;
-  v14 = a2 & v12;
+  v14 = ContextFlags & v12;
   result = RtlpValidateContextFlags(v14, (__int64)&v21);
-  if ( (int)result < 0 )
+  if ( result < 0 )
     return result;
   result = RtlpValidateContextFlags(v11, (__int64)&v22);
   v16 = result;
-  if ( (int)result < 0 )
+  if ( result < 0 )
     return result;
   v17 = v21;
   if ( (~v22 & v21) != 0 )
-    return 2147483653LL;
+    return -2147483643;
   v18 = v14 & 0x10000;
   v21 = v14 & 0x10000;
   if ( (v14 & 0x10000) != 0 )
   {
-    RtlpCopyLegacyContextX86(v15, a1, v14, a3);
+    RtlpCopyLegacyContextX86(v15, Context, v14, Source);
   }
   else if ( (v14 & 0x100000) != 0 )
   {
-    RtlpCopyLegacyContextAmd64(v15, a1, v14, a3);
+    RtlpCopyLegacyContextAmd64(v15, Context, v14, Source);
   }
   else if ( (v14 & 0x200000) != 0 )
   {
-    RtlpCopyLegacyContextArm(v15, a1, v14, a3);
+    RtlpCopyLegacyContextArm(v15, Context, v14, Source);
   }
   else
   {
     if ( (v14 & 0x400000) == 0 )
       goto LABEL_11;
-    RtlpCopyLegacyContextArm64(v15, a1, v14, a3);
+    RtlpCopyLegacyContextArm64(v15, Context, v14, Source);
   }
   v18 = v21;
 LABEL_11:
@@ -120,34 +120,36 @@ LABEL_11:
   {
     if ( v18 )
     {
-      v7 = (__int64)(a3 + 179);
-      v4 = (_DWORD)a1 + 716;
+      XmmRegisters = (M128A *)((char *)&Source->1 + 460);
+      v4 = (_DWORD)Context + 716;
       if ( (v14 & 0x10020) == 0x10020 && (v20 & 0x10020) != 0x10020 )
-        a1[182] = 716;
+        *((_DWORD *)&Context->1 + 118) = 716;
     }
     else if ( v25 )
     {
-      v7 = (__int64)(a3 + 308);
-      v4 = (_DWORD)a1 + 1232;
+      XmmRegisters = (M128A *)&Source[1];
+      v4 = (_DWORD)Context + 1232;
     }
-    else if ( (a2 & 0x200000) != 0 )
+    else if ( (ContextFlags & 0x200000) != 0 )
     {
-      v7 = (__int64)(a3 + 104);
-      v4 = (_DWORD)a1 + 416;
+      XmmRegisters = Source->FltSave.XmmRegisters;
+      v4 = (_DWORD)Context + 416;
     }
-    else if ( (a2 & 0x400000) != 0 )
+    else if ( (ContextFlags & 0x400000) != 0 )
     {
-      v7 = (__int64)(a3 + 228);
-      v4 = (_DWORD)a1 + 912;
+      XmmRegisters = &Source->VectorRegister[9];
+      v4 = (_DWORD)Context + 912;
     }
   }
-  if ( (v17 & 2) == 0 || (result = RtlpCopyXStateChunk(v19, v4, v4, v7, v7), v16 = result, (int)result >= 0) )
+  if ( (v17 & 2) == 0
+    || (result = RtlpCopyXStateChunk(v19, v4, v4, (_DWORD)XmmRegisters, (__int64)XmmRegisters), v16 = result,
+                                                                                                result >= 0) )
   {
     if ( (v17 & 4) == 0 )
       return v16;
-    result = RtlpCopyKernelCetChunk(v19, v4, v4, v7, v7);
+    result = RtlpCopyKernelCetChunk(v19, v4, v4, (_DWORD)XmmRegisters, (__int64)XmmRegisters);
     v16 = result;
-    if ( (int)result >= 0 )
+    if ( result >= 0 )
       return v16;
   }
   return result;

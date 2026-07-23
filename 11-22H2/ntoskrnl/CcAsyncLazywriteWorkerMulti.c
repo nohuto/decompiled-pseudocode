@@ -35,7 +35,7 @@ void __fastcall CcAsyncLazywriteWorkerMulti(__int64 a1)
   const char *v10; // rcx
   KSPIN_LOCK *v11; // rsi
   __int64 v12; // rcx
-  struct _SLIST_ENTRY *NextWorkQueueEntry; // rbx
+  _SLIST_ENTRY *NextWorkQueueEntry; // rbx
   unsigned __int64 OldIrql; // r15
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
@@ -206,13 +206,16 @@ LABEL_23:
   KeAcquireInStackQueuedSpinLock(v11, &LockHandle);
   while ( *(_QWORD *)(v2 + 312) != v2 + 312 && v6 - 1 < v39 )
   {
-    NextWorkQueueEntry = (struct _SLIST_ENTRY *)CcFindNextWorkQueueEntry(v12, v2, (_QWORD *)(v2 + 312));
+    NextWorkQueueEntry = (_SLIST_ENTRY *)CcFindNextWorkQueueEntry(v12, v2, (_QWORD *)(v2 + 312));
     KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
     OldIrql = LockHandle.OldIrql;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && LockHandle.OldIrql <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -269,10 +272,10 @@ LABEL_35:
   KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
   v26 = LockHandle.OldIrql;
   v3 = v40;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v27 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v27 <= 0xFu && LockHandle.OldIrql <= 0xFu && v27 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v27 <= 0xFu && LockHandle.OldIrql <= 0xFu && v27 >= 2u )
     {
       v28 = KeGetCurrentPrcb();
       v29 = v28->SchedulerAssist;

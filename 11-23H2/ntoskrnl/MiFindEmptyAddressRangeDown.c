@@ -1,9 +1,9 @@
 /*
- * XREFs of MiFindEmptyAddressRangeDown @ 0x1407B6550
+ * XREFs of MiFindEmptyAddressRangeDown @ 0x1407B6830
  * Callers:
- *     MiSelectUserAddress @ 0x14071FCC0 (MiSelectUserAddress.c)
+ *     MiSelectUserAddress @ 0x14071FEC0 (MiSelectUserAddress.c)
  * Callees:
- *     MiFindEmptyAddressRangeDownTree @ 0x1407B6658 (MiFindEmptyAddressRangeDownTree.c)
+ *     MiFindEmptyAddressRangeDownTree @ 0x1407B6938 (MiFindEmptyAddressRangeDownTree.c)
  */
 
 __int64 __fastcall MiFindEmptyAddressRangeDown(

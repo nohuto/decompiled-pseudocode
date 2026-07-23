@@ -1,25 +1,25 @@
 /*
- * XREFs of IopLiveDumpWriteDumpFile @ 0x140343D08
+ * XREFs of IopLiveDumpWriteDumpFile @ 0x140345D88
  * Callers:
- *     IoCaptureLiveDump @ 0x14051255C (IoCaptureLiveDump.c)
- *     IoWriteDeferredLiveDumpData @ 0x1405CC298 (IoWriteDeferredLiveDumpData.c)
+ *     IoCaptureLiveDump @ 0x14050BFCC (IoCaptureLiveDump.c)
+ *     IoWriteDeferredLiveDumpData @ 0x1405CEAAC (IoWriteDeferredLiveDumpData.c)
  * Callees:
  *     RtlNumberOfSetBitsEx @ 0x140200820 (RtlNumberOfSetBitsEx.c)
- *     MmUnmapLockedPages @ 0x140281690 (MmUnmapLockedPages.c)
- *     MmFreeIndependentPages @ 0x140308D40 (MmFreeIndependentPages.c)
- *     IopLiveDumpShouldCheckChunkCRC @ 0x140344034 (IopLiveDumpShouldCheckChunkCRC.c)
- *     IopLiveDumpCheckTermination @ 0x140344064 (IopLiveDumpCheckTermination.c)
- *     IopLiveDumpWriteBuffer @ 0x140344094 (IopLiveDumpWriteBuffer.c)
- *     MiFreePagesFromMdl @ 0x1403454C0 (MiFreePagesFromMdl.c)
- *     RtlpComputeCrcInternal @ 0x1404878F0 (RtlpComputeCrcInternal.c)
- *     IopLiveDumpFreeDumpBuffers @ 0x1404E4914 (IopLiveDumpFreeDumpBuffers.c)
- *     IopLiveDumpFreeIoSpaceRanges @ 0x1405CF4FC (IopLiveDumpFreeIoSpaceRanges.c)
- *     IopLiveDumpWriteSecondaryData @ 0x1405D3964 (IopLiveDumpWriteSecondaryData.c)
- *     SecureDump_Get_SecureDumpHeader @ 0x1405D6680 (SecureDump_Get_SecureDumpHeader.c)
- *     IopLiveDumpTraceChunkCRCMismatchWrite @ 0x1405D7900 (IopLiveDumpTraceChunkCRCMismatchWrite.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     MmUnmapLockedPages @ 0x140280C00 (MmUnmapLockedPages.c)
+ *     MmFreeIndependentPages @ 0x1402EADC0 (MmFreeIndependentPages.c)
+ *     IopLiveDumpShouldCheckChunkCRC @ 0x1403460B4 (IopLiveDumpShouldCheckChunkCRC.c)
+ *     IopLiveDumpCheckTermination @ 0x1403460E4 (IopLiveDumpCheckTermination.c)
+ *     IopLiveDumpWriteBuffer @ 0x140346114 (IopLiveDumpWriteBuffer.c)
+ *     MiFreePagesFromMdl @ 0x140347540 (MiFreePagesFromMdl.c)
+ *     RtlpComputeCrcInternal @ 0x140481430 (RtlpComputeCrcInternal.c)
+ *     IopLiveDumpFreeDumpBuffers @ 0x1404DDEB4 (IopLiveDumpFreeDumpBuffers.c)
+ *     IopLiveDumpFreeIoSpaceRanges @ 0x1405D1D0C (IopLiveDumpFreeIoSpaceRanges.c)
+ *     IopLiveDumpWriteSecondaryData @ 0x1405D6154 (IopLiveDumpWriteSecondaryData.c)
+ *     SecureDump_Get_SecureDumpHeader @ 0x1405D8E70 (SecureDump_Get_SecureDumpHeader.c)
+ *     IopLiveDumpTraceChunkCRCMismatchWrite @ 0x1405DA0F0 (IopLiveDumpTraceChunkCRCMismatchWrite.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IopLiveDumpWriteDumpFile(__int64 a1)

@@ -101,7 +101,7 @@ __int64 PnprQuiesceProcessors()
   v2 = 2LL;
   __writecr8(2uLL);
   v3 = (unsigned int)LOBYTE(Dpc.Number) + 1;
-  if ( KiIrqlFlags
+  if ( (_DWORD)KiIrqlFlags
     && ((unsigned __int8)KiIrqlFlags & (unsigned __int8)(LOBYTE(Dpc.Number) + 1)) != 0
     && CurrentIrql <= 0xFu )
   {

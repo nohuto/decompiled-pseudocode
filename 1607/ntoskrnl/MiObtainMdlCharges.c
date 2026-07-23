@@ -1,11 +1,11 @@
 /*
- * XREFs of MiObtainMdlCharges @ 0x140103DA8
+ * XREFs of MiObtainMdlCharges @ 0x140101B28
  * Callers:
- *     MiAllocatePagesForMdl @ 0x140104224 (MiAllocatePagesForMdl.c)
+ *     MiAllocatePagesForMdl @ 0x140101FA4 (MiAllocatePagesForMdl.c)
  * Callees:
- *     MiChargeCommit @ 0x14002B650 (MiChargeCommit.c)
- *     MiReturnCommit @ 0x14004E500 (MiReturnCommit.c)
- *     MiChargeResident @ 0x140103450 (MiChargeResident.c)
+ *     MiChargeCommit @ 0x14002B1D0 (MiChargeCommit.c)
+ *     MiReturnCommit @ 0x14004E080 (MiReturnCommit.c)
+ *     MiChargeResident @ 0x1401011D0 (MiChargeResident.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */
@@ -134,7 +134,7 @@ _DWORD *__fastcall MiObtainMdlCharges(
       MiReturnCommit(a1, v18 - v11);
   }
   if ( (int *)a1 == MiSystemPartition )
-    _InterlockedExchangeAdd64(&qword_1403278E8, v11);
+    _InterlockedExchangeAdd64(&qword_140327928, v11);
   result = v17;
   v17[10] = (_DWORD)v11 << 12;
   return result;

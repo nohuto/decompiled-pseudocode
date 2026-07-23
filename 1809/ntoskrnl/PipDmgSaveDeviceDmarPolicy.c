@@ -1,12 +1,12 @@
 /*
- * XREFs of PipDmgSaveDeviceDmarPolicy @ 0x1406FE7A4
+ * XREFs of PipDmgSaveDeviceDmarPolicy @ 0x1406FFA44
  * Callers:
- *     PipCallDriverAddDevice @ 0x1406E6C4C (PipCallDriverAddDevice.c)
+ *     PipCallDriverAddDevice @ 0x1406E7EEC (PipCallDriverAddDevice.c)
  * Callees:
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     _PnpSetObjectProperty @ 0x1406E5624 (_PnpSetObjectProperty.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     _PnpSetObjectProperty @ 0x1406E68C4 (_PnpSetObjectProperty.c)
  */
 
 __int64 __fastcall PipDmgSaveDeviceDmarPolicy(__int64 a1, __int64 a2, int a3)
@@ -44,7 +44,7 @@ __int64 __fastcall PipDmgSaveDeviceDmarPolicy(__int64 a1, __int64 a2, int a3)
   v8 = v6;
   if ( v7 )
   {
-    if ( stru_1403FFBC8.LevelPlus1 > 5 && TlgKeywordOn(&stru_1403FFBC8, 0x400000000000uLL) )
+    if ( stru_140400BC8.LevelPlus1 > 5 && TlgKeywordOn(&stru_140400BC8, 0x400000000000uLL) )
     {
       v15 = 0;
       v17[1] = 0;
@@ -56,7 +56,7 @@ __int64 __fastcall PipDmgSaveDeviceDmarPolicy(__int64 a1, __int64 a2, int a3)
       v18 = &v11;
       v14 = 2;
       v19 = 4;
-      TlgWrite(&stru_1403FFBC8, &unk_14036D443, 0LL, 0LL, 5u, &pData);
+      TlgWrite(&stru_140400BC8, &unk_14036E35A, 0LL, 0LL, 5u, &pData);
       v7 = *(_QWORD *)(a1 + 720);
     }
     *(_BYTE *)(v7 + 16) = (v10 == 2) | *(_BYTE *)(v7 + 16) & 0xFE;

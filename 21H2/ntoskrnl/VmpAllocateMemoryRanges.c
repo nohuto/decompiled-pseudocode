@@ -1,13 +1,13 @@
 /*
- * XREFs of VmpAllocateMemoryRanges @ 0x14092F54C
+ * XREFs of VmpAllocateMemoryRanges @ 0x14092F6AC
  * Callers:
- *     VmpSplitMemoryRange @ 0x1405A5144 (VmpSplitMemoryRange.c)
- *     VmCreateMemoryRange @ 0x14092EE00 (VmCreateMemoryRange.c)
- *     VmPreallocateForRangeCreate @ 0x14092F110 (VmPreallocateForRangeCreate.c)
+ *     VmpSplitMemoryRange @ 0x1405A5374 (VmpSplitMemoryRange.c)
+ *     VmCreateMemoryRange @ 0x14092EF60 (VmCreateMemoryRange.c)
+ *     VmPreallocateForRangeCreate @ 0x14092F270 (VmPreallocateForRangeCreate.c)
  * Callees:
- *     memset @ 0x140414200 (memset.c)
- *     VmpFreeMemoryRanges @ 0x14092F698 (VmpFreeMemoryRanges.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     VmpFreeMemoryRanges @ 0x14092F7F8 (VmpFreeMemoryRanges.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 _QWORD *__fastcall VmpAllocateMemoryRanges(unsigned __int64 a1)

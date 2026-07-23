@@ -1,28 +1,28 @@
 /*
- * XREFs of RtlpLogHeapSubSegmentActivate @ 0x180096B60
+ * XREFs of RtlpLogHeapSubSegmentActivate @ 0x1800A1880
  * Callers:
- *     RtlpLowFragHeapAllocFromContext @ 0x180028AA0 (RtlpLowFragHeapAllocFromContext.c)
- *     RtlpLocalInfoAllocFromCache @ 0x18002A3E0 (RtlpLocalInfoAllocFromCache.c)
+ *     RtlpLowFragHeapAllocFromContext @ 0x1800554A0 (RtlpLowFragHeapAllocFromContext.c)
+ *     RtlpLocalInfoAllocFromCache @ 0x180056DE0 (RtlpLocalInfoAllocFromCache.c)
  * Callees:
- *     RtlGetCurrentServiceSessionId @ 0x180055A20 (RtlGetCurrentServiceSessionId.c)
- *     NtTraceEvent @ 0x180162840 (NtTraceEvent.c)
- *     __security_check_cookie @ 0x1801659C0 (__security_check_cookie.c)
+ *     RtlGetCurrentServiceSessionId @ 0x18006B600 (RtlGetCurrentServiceSessionId.c)
+ *     NtTraceEvent @ 0x180160C00 (NtTraceEvent.c)
+ *     __security_check_cookie @ 0x180163D80 (__security_check_cookie.c)
  */
 
-__int64 __fastcall RtlpLogHeapSubSegmentActivate(__int64 a1, __int64 a2)
+NTSTATUS __fastcall RtlpLogHeapSubSegmentActivate(__int64 a1, __int64 a2)
 {
   __int64 v2; // rcx
-  _OWORD v4[2]; // [rsp+20h] [rbp-48h] BYREF
+  _OWORD Fields[2]; // [rsp+20h] [rbp-48h] BYREF
   __int64 v5; // [rsp+40h] [rbp-28h]
   __int64 v6; // [rsp+48h] [rbp-20h]
 
   v5 = a1;
-  memset(v4, 0, sizeof(v4));
-  WORD3(v4[0]) = 4152;
+  memset(Fields, 0, sizeof(Fields));
+  WORD3(Fields[0]) = 4152;
   v6 = a2;
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+  if ( RtlGetCurrentServiceSessionId() )
     v2 = (__int64)NtCurrentPeb()->SharedData + 550;
   else
     v2 = 2147353472LL;
-  return NtTraceEvent(*(unsigned __int8 *)v2, 132098LL, 16LL, v4);
+  return NtTraceEvent((HANDLE)*(unsigned __int8 *)v2, 0x20402u, 0x10u, Fields);
 }

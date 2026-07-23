@@ -1,33 +1,39 @@
 /*
- * XREFs of SepIsParentOfChildAppContainer @ 0x14092567C
+ * XREFs of SepIsParentOfChildAppContainer @ 0x1409257DC
  * Callers:
- *     SeIsParentOfChildAppContainer @ 0x14091C850 (SeIsParentOfChildAppContainer.c)
+ *     SeIsParentOfChildAppContainer @ 0x14091C9B0 (SeIsParentOfChildAppContainer.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
- *     SepGetTokenSessionMapEntry @ 0x140597B98 (SepGetTokenSessionMapEntry.c)
- *     RtlIsParentOfChildAppContainer @ 0x140673594 (RtlIsParentOfChildAppContainer.c)
- *     SepFindMatchingLowBoxNumberEntries @ 0x1409252EC (SepFindMatchingLowBoxNumberEntries.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExfReleasePushLockShared @ 0x1402FC1C0 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     ExAcquirePushLockSharedEx @ 0x1403558A0 (ExAcquirePushLockSharedEx.c)
+ *     SepGetTokenSessionMapEntry @ 0x140597DC8 (SepGetTokenSessionMapEntry.c)
+ *     RtlIsParentOfChildAppContainer @ 0x1406687C4 (RtlIsParentOfChildAppContainer.c)
+ *     SepFindMatchingLowBoxNumberEntries @ 0x14092544C (SepFindMatchingLowBoxNumberEntries.c)
  */
 
-char __fastcall SepIsParentOfChildAppContainer(unsigned int a1, int a2, int a3)
+BOOLEAN __fastcall SepIsParentOfChildAppContainer(unsigned int a1, int a2, int a3)
 {
-  char IsParentOfChildAppContainer; // r15
+  BOOLEAN IsParentOfChildAppContainer; // r15
   char v7; // r12
   struct _KTHREAD *CurrentThread; // rax
   struct _KTHREAD *v9; // rax
   ULONG_PTR v10; // rdi
-  __int64 v12; // [rsp+30h] [rbp-10h] BYREF
-  PRTL_DYNAMIC_HASH_TABLE_ENTRY v13; // [rsp+38h] [rbp-8h] BYREF
+  __int64 v11; // rdx
+  __int64 v12; // r8
+  __int64 v13; // r9
+  __int64 v14; // rdx
+  __int64 v15; // r8
+  __int64 v16; // r9
+  __int64 v18; // [rsp+30h] [rbp-10h] BYREF
+  PRTL_DYNAMIC_HASH_TABLE_ENTRY v19; // [rsp+38h] [rbp-8h] BYREF
   ULONG_PTR BugCheckParameter2; // [rsp+88h] [rbp+48h] BYREF
 
   BugCheckParameter2 = 0LL;
-  v13 = 0LL;
-  v12 = 0LL;
+  v19 = 0LL;
+  v18 = 0LL;
   IsParentOfChildAppContainer = 0;
   v7 = 0;
   if ( a2 && a3 )
@@ -44,7 +50,7 @@ LABEL_11:
         if ( _InterlockedCompareExchange64((volatile signed __int64 *)&LowboxSessionMapLock, 0LL, 17LL) != 17 )
           ExfReleasePushLockShared((signed __int64 *)&LowboxSessionMapLock);
         KeAbPostRelease((ULONG_PTR)&LowboxSessionMapLock);
-        KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+        KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v14, v15, v16);
         return IsParentOfChildAppContainer;
       }
     }
@@ -60,13 +66,13 @@ LABEL_11:
                 *(PRTL_DYNAMIC_HASH_TABLE *)(v10 + 24),
                 a2,
                 a3,
-                &v13,
-                (PRTL_DYNAMIC_HASH_TABLE_ENTRY *)&v12) >= 0 )
-      IsParentOfChildAppContainer = RtlIsParentOfChildAppContainer(v13[1].Linkage.Blink, *(PSID *)(v12 + 32));
+                &v19,
+                (PRTL_DYNAMIC_HASH_TABLE_ENTRY *)&v18) >= 0 )
+      IsParentOfChildAppContainer = RtlIsParentOfChildAppContainer(v19[1].Linkage.Blink, *(PSID *)(v18 + 32));
     if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)v10, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
       ExfTryToWakePushLock(BugCheckParameter2);
     KeAbPostRelease(BugCheckParameter2);
-    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v11, v12, v13);
     if ( !v7 )
       return IsParentOfChildAppContainer;
     goto LABEL_11;

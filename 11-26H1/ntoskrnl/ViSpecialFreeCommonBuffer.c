@@ -1,15 +1,15 @@
 /*
- * XREFs of ViSpecialFreeCommonBuffer @ 0x140C27E70
+ * XREFs of ViSpecialFreeCommonBuffer @ 0x140C2DE80
  * Callers:
- *     VfFreeCommonBuffer @ 0x140C24600 (VfFreeCommonBuffer.c)
+ *     VfFreeCommonBuffer @ 0x140C2A610 (VfFreeCommonBuffer.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
- *     DECREMENT_COMMON_BUFFERS @ 0x140C22AFC (DECREMENT_COMMON_BUFFERS.c)
- *     ViCheckPadding @ 0x140C26560 (ViCheckPadding.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
+ *     DECREMENT_COMMON_BUFFERS @ 0x140C28B0C (DECREMENT_COMMON_BUFFERS.c)
+ *     ViCheckPadding @ 0x140C2C570 (ViCheckPadding.c)
  */
 
 __int64 __fastcall ViSpecialFreeCommonBuffer(__int64 a1, unsigned __int16 *a2, void *a3)

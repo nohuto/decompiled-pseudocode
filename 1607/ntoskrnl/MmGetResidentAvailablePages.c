@@ -1,13 +1,13 @@
 /*
- * XREFs of MmGetResidentAvailablePages @ 0x1400AB11C
+ * XREFs of MmGetResidentAvailablePages @ 0x1400A969C
  * Callers:
- *     ExpQuerySystemPerformanceInformation @ 0x140414000 (ExpQuerySystemPerformanceInformation.c)
- *     ExpQuerySystemInformation @ 0x140415620 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemPerformanceInformation @ 0x140412EC0 (ExpQuerySystemPerformanceInformation.c)
+ *     ExpQuerySystemInformation @ 0x1404144E0 (ExpQuerySystemInformation.c)
  * Callees:
  *     <none>
  */
 
 __int64 MmGetResidentAvailablePages()
 {
-  return *(_QWORD *)(*(_QWORD *)qword_140326FF8 + 6528LL);
+  return *(_QWORD *)(*(_QWORD *)qword_140327038 + 6528LL);
 }

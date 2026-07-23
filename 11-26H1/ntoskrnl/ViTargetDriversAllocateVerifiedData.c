@@ -1,19 +1,19 @@
 /*
- * XREFs of ViTargetDriversAllocateVerifiedData @ 0x140C2963C
+ * XREFs of ViTargetDriversAllocateVerifiedData @ 0x140C2F64C
  * Callers:
- *     VfTargetDriversAdd @ 0x1403B7B18 (VfTargetDriversAdd.c)
- *     VfTargetDriversEnableVerifier @ 0x140C28F98 (VfTargetDriversEnableVerifier.c)
+ *     VfTargetDriversAdd @ 0x1403C1A18 (VfTargetDriversAdd.c)
+ *     VfTargetDriversEnableVerifier @ 0x140C2EFA8 (VfTargetDriversEnableVerifier.c)
  * Callees:
- *     InitializeSListHead @ 0x140499200 (InitializeSListHead.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     InitializeSListHead @ 0x140492D50 (InitializeSListHead.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
-union _SLIST_HEADER *__fastcall ViTargetDriversAllocateVerifiedData(unsigned __int64 a1)
+_SLIST_HEADER *__fastcall ViTargetDriversAllocateVerifiedData(unsigned __int64 a1)
 {
-  union _SLIST_HEADER *Pool2; // rax
-  union _SLIST_HEADER *v3; // rbx
+  _SLIST_HEADER *Pool2; // rax
+  _SLIST_HEADER *v3; // rbx
 
-  Pool2 = (union _SLIST_HEADER *)ExAllocatePool2(64LL, 0x120uLL, 0x44566656u);
+  Pool2 = (_SLIST_HEADER *)ExAllocatePool2(64LL, 0x120uLL, 0x44566656u);
   v3 = Pool2;
   if ( Pool2 )
   {

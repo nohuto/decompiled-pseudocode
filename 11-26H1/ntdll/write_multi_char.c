@@ -1,9 +1,9 @@
 /*
- * XREFs of write_multi_char @ 0x18012F2BC
+ * XREFs of write_multi_char @ 0x18012F02C
  * Callers:
- *     _output_l @ 0x18012EA30 (_output_l.c)
+ *     _output_l @ 0x18012E7A0 (_output_l.c)
  * Callees:
- *     write_char @ 0x18012F26C (write_char.c)
+ *     write_char @ 0x18012EFDC (write_char.c)
  */
 
 void __fastcall write_multi_char(unsigned __int8 a1, int a2, __int64 a3, _DWORD *a4)

@@ -49,7 +49,7 @@ __int64 __fastcall MiInsertVadCharges(__int64 a1, struct _KPROCESS *a2)
   unsigned int v20; // esi
   __int64 v21; // rdi
   __int64 v22; // rbp
-  struct _RTL_BITMAP *v23; // r9
+  _RTL_BITMAP *v23; // r9
   unsigned int v24; // eax
   unsigned int v25; // r8d
   int v26; // r15d
@@ -141,7 +141,7 @@ LABEL_27:
   v22 = *(_QWORD *)&KeGetCurrentThread()->ApcState.Process[1].IdealGlobalNode;
   do
   {
-    v23 = (struct _RTL_BITMAP *)(v21 + v22);
+    v23 = (_RTL_BITMAP *)(v21 + v22);
     v24 = 8 * (*(_DWORD *)(v21 + v22 + 56) - qword_14036C5C8);
     if ( v20 >= v24 )
     {

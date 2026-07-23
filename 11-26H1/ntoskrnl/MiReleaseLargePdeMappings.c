@@ -1,20 +1,20 @@
 /*
- * XREFs of MiReleaseLargePdeMappings @ 0x1402A2D84
+ * XREFs of MiReleaseLargePdeMappings @ 0x1402A22D4
  * Callers:
- *     MiReleasePteMappings @ 0x1402A3B00 (MiReleasePteMappings.c)
+ *     MiReleasePteMappings @ 0x1402A3050 (MiReleasePteMappings.c)
  * Callees:
- *     MiMakeDemandZeroPte @ 0x14028B2D0 (MiMakeDemandZeroPte.c)
- *     MiReturnSystemVa @ 0x1402A4238 (MiReturnSystemVa.c)
- *     MiLockPageTableInternal @ 0x1402B34E0 (MiLockPageTableInternal.c)
- *     MiUnlockPageTableInternal @ 0x1402D13E0 (MiUnlockPageTableInternal.c)
- *     MiUnlockWorkingSetShared @ 0x1402EB6C0 (MiUnlockWorkingSetShared.c)
- *     MiLockWorkingSetShared @ 0x1402EDD60 (MiLockWorkingSetShared.c)
- *     MiFlushTbList @ 0x140329040 (MiFlushTbList.c)
- *     MiInsertLargeTbFlushEntry @ 0x140343930 (MiInsertLargeTbFlushEntry.c)
- *     MiInitializeTbFlushList @ 0x140360920 (MiInitializeTbFlushList.c)
- *     MiLockWorkingSetSharedAtDpc @ 0x1403654E4 (MiLockWorkingSetSharedAtDpc.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     MiMakeDemandZeroPte @ 0x14028A830 (MiMakeDemandZeroPte.c)
+ *     MiReturnSystemVa @ 0x1402A3788 (MiReturnSystemVa.c)
+ *     MiUnlockPageTableInternal @ 0x1402B31A0 (MiUnlockPageTableInternal.c)
+ *     MiUnlockWorkingSetShared @ 0x1402CD700 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x1402CFDE0 (MiLockWorkingSetShared.c)
+ *     MiLockPageTableInternal @ 0x1402FE1B0 (MiLockPageTableInternal.c)
+ *     MiFlushTbList @ 0x14032B070 (MiFlushTbList.c)
+ *     MiInsertLargeTbFlushEntry @ 0x1403459B0 (MiInsertLargeTbFlushEntry.c)
+ *     MiInitializeTbFlushList @ 0x1403626C0 (MiInitializeTbFlushList.c)
+ *     MiLockWorkingSetSharedAtDpc @ 0x140367284 (MiLockWorkingSetSharedAtDpc.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall MiReleaseLargePdeMappings(__int64 a1, _QWORD *a2, BOOL a3)
@@ -55,7 +55,7 @@ __int64 __fastcall MiReleaseLargePdeMappings(__int64 a1, _QWORD *a2, BOOL a3)
   v6 = *a2 >> 16;
   v7 = ((*(_QWORD *)(a1 + 32) >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
   v34 = v7;
-  MiInitializeTbFlushList((unsigned int)v36, (unsigned int)&unk_140E371C0, 20, 8, 1);
+  MiInitializeTbFlushList((unsigned int)v36, (unsigned int)&unk_140E37340, 20, 8, 1);
   v9 = v8 + 12;
   if ( *(_DWORD *)(a1 + 44) != v10 )
     v9 = v8 + 10;
@@ -76,18 +76,18 @@ __int64 __fastcall MiReleaseLargePdeMappings(__int64 a1, _QWORD *a2, BOOL a3)
     else
     {
       v16 = *(_QWORD *)(v15 + 8);
-      if ( qword_140E2D740 )
+      if ( qword_140E2D8C0 )
       {
         if ( (v16 & 0x10) != 0 )
           v16 &= ~0x10uLL;
         else
-          v16 &= qword_140E2D748;
+          v16 &= qword_140E2D8C8;
       }
       v17 = HIDWORD(v16);
     }
     if ( v6 )
     {
-      if ( qword_140E2D740 )
+      if ( qword_140E2D8C0 )
       {
         if ( (v6 & 0x10) != 0 )
         {
@@ -95,7 +95,7 @@ __int64 __fastcall MiReleaseLargePdeMappings(__int64 a1, _QWORD *a2, BOOL a3)
         }
         else
         {
-          v6 &= qword_140E2D748;
+          v6 &= qword_140E2D8C8;
           v14 = v29;
         }
       }
@@ -110,11 +110,11 @@ __int64 __fastcall MiReleaseLargePdeMappings(__int64 a1, _QWORD *a2, BOOL a3)
     if ( (_BYTE)CurrentIrql == 2 )
     {
       v26 = 17;
-      MiLockWorkingSetSharedAtDpc(&unk_140E371C0);
+      MiLockWorkingSetSharedAtDpc(&unk_140E37340);
     }
     else
     {
-      v26 = MiLockWorkingSetShared(&unk_140E371C0);
+      v26 = MiLockWorkingSetShared(&unk_140E37340);
     }
     v20 = 0;
     if ( v17 )
@@ -138,16 +138,16 @@ LABEL_19:
           goto LABEL_23;
         }
       }
-      MiUnlockPageTableInternal(&unk_140E371C0, v18);
+      MiUnlockPageTableInternal(&unk_140E37340, v18);
 LABEL_27:
       v18 = ((v15 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
-      MiLockPageTableInternal(&unk_140E371C0, v18, 0LL);
+      MiLockPageTableInternal(&unk_140E37340, v18, 0LL);
       goto LABEL_19;
     }
 LABEL_23:
-    MiUnlockPageTableInternal(&unk_140E371C0, v18);
+    MiUnlockPageTableInternal(&unk_140E37340, v18);
     LOBYTE(v21) = v26;
-    MiUnlockWorkingSetShared(&unk_140E371C0, v21);
+    MiUnlockWorkingSetShared(&unk_140E37340, v21);
     if ( a3 )
     {
       MiFlushTbList(v36);

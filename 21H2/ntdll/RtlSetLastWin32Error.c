@@ -17,40 +17,38 @@
  *     EtwGetTraceEnableFlags @ 0x180081DA0 (EtwGetTraceEnableFlags.c)
  *     EtwpTrackProviderBinary @ 0x180081E38 (EtwpTrackProviderBinary.c)
  *     EtwRegisterSecurityProvider @ 0x18008C5A0 (EtwRegisterSecurityProvider.c)
- *     EtwpUseDescriptorType @ 0x180110970 (EtwpUseDescriptorType.c)
- *     EtwCreateTraceInstanceId @ 0x180110A60 (EtwCreateTraceInstanceId.c)
- *     TppRaiseInvalidParameter @ 0x1801124DC (TppRaiseInvalidParameter.c)
+ *     EtwpUseDescriptorType @ 0x180110930 (EtwpUseDescriptorType.c)
+ *     EtwCreateTraceInstanceId @ 0x180110A20 (EtwCreateTraceInstanceId.c)
+ *     TppRaiseInvalidParameter @ 0x18011249C (TppRaiseInvalidParameter.c)
  * Callees:
  *     EtwEventWrite @ 0x180050300 (EtwEventWrite.c)
  *     __security_check_cookie @ 0x18008C940 (__security_check_cookie.c)
  */
 
-__int64 __fastcall RtlSetLastWin32Error(unsigned int a1)
+void __cdecl RtlSetLastWin32Error(LONG Win32Error)
 {
-  __int64 result; // rax
-  _QWORD v2[2]; // [rsp+20h] [rbp-28h] BYREF
-  unsigned int v3; // [rsp+50h] [rbp+8h] BYREF
+  struct _TEB *v1; // rax
+  _EVENT_DATA_DESCRIPTOR UserData; // [rsp+20h] [rbp-28h] BYREF
+  LONG v3; // [rsp+50h] [rbp+8h] BYREF
 
-  v3 = a1;
-  result = (__int64)NtCurrentTeb();
-  if ( g_dwLastErrorToBreakOn && a1 == g_dwLastErrorToBreakOn )
+  v3 = Win32Error;
+  v1 = NtCurrentTeb();
+  if ( g_dwLastErrorToBreakOn && Win32Error == g_dwLastErrorToBreakOn )
     __debugbreak();
-  if ( *(_DWORD *)(result + 104) != a1 )
+  if ( v1->LastErrorValue != Win32Error )
   {
-    *(_DWORD *)(result + 104) = a1;
-    result = v3;
+    v1->LastErrorValue = Win32Error;
     if ( v3 )
     {
       if ( g_isErrorOriginProviderEnabled )
       {
         if ( v3 != 997 )
         {
-          v2[0] = &v3;
-          v2[1] = 4LL;
-          return EtwEventWrite(g_hUserDiagnosticProvider, (int)&SetLastWin32ErrorEvent, 1, (__int64)v2);
+          UserData.Ptr = (unsigned __int64)&v3;
+          *(_QWORD *)&UserData.Size = 4LL;
+          EtwEventWrite(g_hUserDiagnosticProvider, &SetLastWin32ErrorEvent, 1u, &UserData);
         }
       }
     }
   }
-  return result;
 }

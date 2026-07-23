@@ -1,14 +1,14 @@
 /*
- * XREFs of PopGetPolicyDeviceObject @ 0x14075A584
+ * XREFs of PopGetPolicyDeviceObject @ 0x140758C74
  * Callers:
- *     PopConnectToPolicyDevice @ 0x14075A3DC (PopConnectToPolicyDevice.c)
+ *     PopConnectToPolicyDevice @ 0x140758ACC (PopConnectToPolicyDevice.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     ObfReferenceObjectWithTag @ 0x1403403E0 (ObfReferenceObjectWithTag.c)
- *     IoGetRelatedDeviceObject @ 0x140373C70 (IoGetRelatedDeviceObject.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwCreateFile @ 0x1406A6EB0 (ZwCreateFile.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x14084B7E0 (ObpReferenceObjectByHandleWithTag.c)
+ *     IoGetRelatedDeviceObject @ 0x14025C530 (IoGetRelatedDeviceObject.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x14031F8C0 (ObfReferenceObjectWithTag.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwCreateFile @ 0x1406A7E50 (ZwCreateFile.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x140847AA0 (ObpReferenceObjectByHandleWithTag.c)
  */
 
 PDEVICE_OBJECT __fastcall PopGetPolicyDeviceObject(UNICODE_STRING *a1, PFILE_OBJECT *a2)

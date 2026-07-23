@@ -23,12 +23,12 @@
 __int64 __fastcall LdrpGenericExceptionFilter(const void **a1, const char *a2)
 {
   char v3; // al
-  unsigned int v4; // edi
+  NTSTATUS v4; // edi
   bool v6; // zf
   int v7; // ecx
   int v8; // ecx
   int v9; // ecx
-  char v10; // [rsp+60h] [rbp+8h] BYREF
+  CHAR Response; // [rsp+60h] [rbp+8h] BYREF
 
   v3 = LdrpDebugFlags;
   v4 = *(_DWORD *)*a1;
@@ -53,18 +53,18 @@ __int64 __fastcall LdrpGenericExceptionFilter(const void **a1, const char *a2)
     while ( 1 )
     {
       DbgPrint("\n***Exception thrown within loader***\n");
-      DbgPrompt("Break repeatedly, break Once, Ignore, terminate Process or terminate Thread (boipt)? ", &v10, 2LL);
-      if ( v10 > 98 )
+      DbgPrompt("Break repeatedly, break Once, Ignore, terminate Process or terminate Thread (boipt)? ", &Response, 2u);
+      if ( Response > 98 )
       {
-        v7 = v10 - 105;
-        v6 = v10 == 105;
+        v7 = Response - 105;
+        v6 = Response == 105;
       }
       else
       {
-        if ( v10 == 98 || v10 == 66 )
+        if ( Response == 98 || Response == 66 )
           goto LABEL_18;
-        v7 = v10 - 73;
-        v6 = v10 == 73;
+        v7 = Response - 73;
+        v6 = Response == 73;
       }
       if ( v6 )
         return 1LL;
@@ -82,16 +82,14 @@ LABEL_18:
         {
           LdrpLogFatalLdrEtwEvent(
             (const void **)&NtCurrentPeb()->ProcessParameters->ImagePathName,
-            (__int64)&LoaderFatalErrorThread);
-          NtTerminateThread(-2LL, v4);
+            &LoaderFatalErrorThread);
+          NtTerminateThread((HANDLE)0xFFFFFFFFFFFFFFFELL, v4);
         }
       }
       else
       {
-        LdrpLogFatalLdrEtwEvent(
-          (const void **)&NtCurrentPeb()->ProcessParameters->ImagePathName,
-          (__int64)&LoaderFatalErrorProc);
-        ZwTerminateProcess(-1LL, v4);
+        LdrpLogFatalLdrEtwEvent((const void **)&NtCurrentPeb()->ProcessParameters->ImagePathName, &LoaderFatalErrorProc);
+        ZwTerminateProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, v4);
       }
     }
   }

@@ -1,20 +1,20 @@
 /*
- * XREFs of AslStringPatternMatchExW @ 0x140960540
+ * XREFs of AslStringPatternMatchExW @ 0x140948000
  * Callers:
- *     KseLookupHardwareId @ 0x14073FD4C (KseLookupHardwareId.c)
- *     SdbpCheckMatchingRegistryValue @ 0x14080332C (SdbpCheckMatchingRegistryValue.c)
- *     SdbpFindNextNamedTagHelper @ 0x140805968 (SdbpFindNextNamedTagHelper.c)
- *     SdbpCheckAttribute @ 0x1408075F4 (SdbpCheckAttribute.c)
- *     AslpProcessMatchRegNode @ 0x14080B678 (AslpProcessMatchRegNode.c)
- *     SdbpFindNextIndexedWildCardTag @ 0x14095B554 (SdbpFindNextIndexedWildCardTag.c)
- *     AslStringPatternMatchW @ 0x14095F194 (AslStringPatternMatchW.c)
- *     SdbpFindFirstIndexedWildCardTag @ 0x14095FB48 (SdbpFindFirstIndexedWildCardTag.c)
- *     AslStringPatternMatchExW @ 0x140960540 (AslStringPatternMatchExW.c)
- *     SdbpFindFirstNamedTagHelper @ 0x140ABBFC4 (SdbpFindFirstNamedTagHelper.c)
+ *     KseLookupHardwareId @ 0x14073DC7C (KseLookupHardwareId.c)
+ *     SdbpCheckMatchingRegistryValue @ 0x140803A6C (SdbpCheckMatchingRegistryValue.c)
+ *     SdbpFindNextNamedTagHelper @ 0x1408060A8 (SdbpFindNextNamedTagHelper.c)
+ *     SdbpCheckAttribute @ 0x140807D34 (SdbpCheckAttribute.c)
+ *     AslpProcessMatchRegNode @ 0x14080BDB8 (AslpProcessMatchRegNode.c)
+ *     SdbpFindNextIndexedWildCardTag @ 0x140943014 (SdbpFindNextIndexedWildCardTag.c)
+ *     AslStringPatternMatchW @ 0x140946C54 (AslStringPatternMatchW.c)
+ *     SdbpFindFirstIndexedWildCardTag @ 0x140947608 (SdbpFindFirstIndexedWildCardTag.c)
+ *     AslStringPatternMatchExW @ 0x140948000 (AslStringPatternMatchExW.c)
+ *     SdbpFindFirstNamedTagHelper @ 0x140AB6FE4 (SdbpFindFirstNamedTagHelper.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x140347D10 (PsGetCurrentServerSiloGlobals.c)
- *     RtlUpcaseUnicodeChar @ 0x1408441F0 (RtlUpcaseUnicodeChar.c)
- *     AslStringPatternMatchExW @ 0x140960540 (AslStringPatternMatchExW.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140326710 (PsGetCurrentServerSiloGlobals.c)
+ *     RtlUpcaseUnicodeChar @ 0x1408404B0 (RtlUpcaseUnicodeChar.c)
+ *     AslStringPatternMatchExW @ 0x140948000 (AslStringPatternMatchExW.c)
  */
 
 __int64 __fastcall AslStringPatternMatchExW(WCHAR *a1, WCHAR *a2)

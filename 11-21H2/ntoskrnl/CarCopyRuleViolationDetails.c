@@ -3,24 +3,24 @@
  * Callers:
  *     CarReportRuleViolationForTriage @ 0x140604030 (CarReportRuleViolationForTriage.c)
  * Callees:
- *     RtlStringCchCopyA @ 0x14024F6E4 (RtlStringCchCopyA.c)
- *     RtlStringCchCopyW @ 0x1402E0200 (RtlStringCchCopyW.c)
+ *     sub_14024F6E4 @ 0x14024F6E4 (sub_14024F6E4.c)
+ *     sub_1402E0200 @ 0x1402E0200 (sub_1402E0200.c)
  *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall CarCopyRuleViolationDetails(__int64 a1, __int64 a2)
 {
-  NTSTATUS v4; // ebx
-  char *v5; // rsi
-  wchar_t *v6; // r15
+  int v4; // ebx
+  void *v5; // rsi
+  void *v6; // r15
   __int64 v7; // r14
   __int64 v8; // rax
   __int64 v9; // rbx
-  size_t v10; // rbx
-  wchar_t *Pool2; // rax
+  __int64 v10; // rbx
+  _WORD *Pool2; // rax
   __int64 v12; // rax
-  char *v13; // rax
+  _BYTE *v13; // rax
 
   v4 = 0;
   v5 = 0LL;
@@ -41,7 +41,7 @@ __int64 __fastcall CarCopyRuleViolationDetails(__int64 a1, __int64 a2)
         ++v9;
       while ( *(_WORD *)(v8 + 2 * v9) );
       v10 = v9 + 1;
-      Pool2 = (wchar_t *)ExAllocatePool2(64LL, 2 * v10, 1316118851LL);
+      Pool2 = (_WORD *)ExAllocatePool2(64LL, 2 * v10, 1316118851LL);
       v6 = Pool2;
       if ( !Pool2 )
       {
@@ -51,7 +51,7 @@ LABEL_21:
         *(_QWORD *)(a1 + 24) = 0LL;
         return (unsigned int)v4;
       }
-      v4 = RtlStringCchCopyW(Pool2, v10, *(NTSTRSAFE_PCWSTR *)(a2 + 56));
+      v4 = sub_1402E0200(Pool2, v10, *(_QWORD *)(a2 + 56));
       if ( v4 < 0 )
       {
 LABEL_15:
@@ -69,14 +69,14 @@ LABEL_16:
       do
         ++v7;
       while ( *(_BYTE *)(v12 + v7) );
-      v13 = (char *)ExAllocatePool2(64LL, v7 + 1, 1316118851LL);
+      v13 = (_BYTE *)ExAllocatePool2(64LL, v7 + 1, 1316118851LL);
       v5 = v13;
       if ( !v13 )
       {
         v4 = -1073741801;
         goto LABEL_14;
       }
-      v4 = RtlStringCchCopyA(v13, v7 + 1, *(NTSTRSAFE_PCSTR *)(a2 + 24));
+      v4 = sub_14024F6E4(v13, v7 + 1, *(_QWORD *)(a2 + 24));
       if ( v4 < 0 )
       {
 LABEL_14:

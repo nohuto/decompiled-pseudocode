@@ -5,7 +5,7 @@
  * Callees:
  *     ObfReferenceObjectWithTag @ 0x1402A6D50 (ObfReferenceObjectWithTag.c)
  *     ExQueueWorkItem @ 0x140345FC0 (ExQueueWorkItem.c)
- *     IoAddTriageDumpDataBlock @ 0x1403D99B4 (IoAddTriageDumpDataBlock.c)
+ *     sub_1403D99B4 @ 0x1403D99B4 (sub_1403D99B4.c)
  *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
  *     memmove @ 0x140435B40 (memmove.c)
  *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
@@ -35,16 +35,16 @@ NTSTATUS __stdcall IoRequestDeviceEjectEx(
   DeviceNode = PhysicalDeviceObject->DeviceObjectExtension->DeviceNode;
   if ( !DeviceNode || (DeviceNode[99] & 0x20000) != 0 )
   {
-    IoAddTriageDumpDataBlock((ULONG)PhysicalDeviceObject, (PVOID)PhysicalDeviceObject->Size);
+    sub_1403D99B4((ULONG)PhysicalDeviceObject, (PVOID)PhysicalDeviceObject->Size);
     v12 = PhysicalDeviceObject->DriverObject;
     if ( v12 )
     {
-      IoAddTriageDumpDataBlock((ULONG)v12, (PVOID)(unsigned int)v12->Size);
+      sub_1403D99B4((ULONG)v12, (PVOID)(unsigned int)v12->Size);
       p_DriverName = &PhysicalDeviceObject->DriverObject->DriverName;
       if ( p_DriverName->Length )
       {
-        IoAddTriageDumpDataBlock((ULONG)p_DriverName, (PVOID)2);
-        IoAddTriageDumpDataBlock(
+        sub_1403D99B4((ULONG)p_DriverName, (PVOID)2);
+        sub_1403D99B4(
           (ULONG)PhysicalDeviceObject->DriverObject->DriverName.Buffer,
           (PVOID)PhysicalDeviceObject->DriverObject->DriverName.Length);
       }
@@ -53,18 +53,18 @@ NTSTATUS __stdcall IoRequestDeviceEjectEx(
     if ( v14 )
     {
       v15 = (unsigned __int16 *)(v14 + 40);
-      IoAddTriageDumpDataBlock((ULONG)v14, (PVOID)0x310);
+      sub_1403D99B4((ULONG)v14, (PVOID)0x310);
       if ( *v15 )
       {
-        IoAddTriageDumpDataBlock((ULONG)v15, (PVOID)2);
-        IoAddTriageDumpDataBlock(*((_QWORD *)v15 + 1), (PVOID)*v15);
+        sub_1403D99B4((ULONG)v15, (PVOID)2);
+        sub_1403D99B4(*((_QWORD *)v15 + 1), (PVOID)*v15);
       }
       DeviceObjectExtension = PhysicalDeviceObject->DeviceObjectExtension;
       v17 = (char *)DeviceObjectExtension->DeviceNode + 56;
       if ( *v17 )
       {
-        IoAddTriageDumpDataBlock((ULONG)v17, (PVOID)2);
-        IoAddTriageDumpDataBlock(
+        sub_1403D99B4((ULONG)v17, (PVOID)2);
+        sub_1403D99B4(
           *((_QWORD *)PhysicalDeviceObject->DeviceObjectExtension->DeviceNode + 8),
           (PVOID)*((unsigned __int16 *)PhysicalDeviceObject->DeviceObjectExtension->DeviceNode + 28));
         DeviceObjectExtension = PhysicalDeviceObject->DeviceObjectExtension;
@@ -75,9 +75,9 @@ NTSTATUS __stdcall IoRequestDeviceEjectEx(
         v19 = (_WORD *)(v18 + 56);
         if ( *v19 )
         {
-          IoAddTriageDumpDataBlock((ULONG)v19, (PVOID)2);
+          sub_1403D99B4((ULONG)v19, (PVOID)2);
           v20 = *((_QWORD *)PhysicalDeviceObject->DeviceObjectExtension->DeviceNode + 2);
-          IoAddTriageDumpDataBlock(*(_QWORD *)(v20 + 64), (PVOID)*(unsigned __int16 *)(v20 + 56));
+          sub_1403D99B4(*(_QWORD *)(v20 + 64), (PVOID)*(unsigned __int16 *)(v20 + 56));
         }
       }
     }
@@ -97,7 +97,7 @@ LABEL_20:
   *(_QWORD *)(Pool2 + 16) = DriverObject;
   *(_DWORD *)(Pool2 + 464) = 0;
   *(_WORD *)(Pool2 + 468) = 0;
-  *(_QWORD *)(Pool2 + 48) = PnpRequestDeviceEjectExWorker;
+  *(_QWORD *)(Pool2 + 48) = sub_140945380;
   *(_QWORD *)(Pool2 + 56) = Pool2;
   *(_QWORD *)(Pool2 + 32) = 0LL;
   ExQueueWorkItem((PWORK_QUEUE_ITEM)(Pool2 + 32), DelayedWorkQueue);

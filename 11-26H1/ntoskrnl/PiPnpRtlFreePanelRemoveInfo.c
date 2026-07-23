@@ -1,12 +1,12 @@
 /*
- * XREFs of PiPnpRtlFreePanelRemoveInfo @ 0x14077AB6C
+ * XREFs of PiPnpRtlFreePanelRemoveInfo @ 0x14077DA9C
  * Callers:
- *     PiPnpRtlGatherContainerRemoveInfo @ 0x1407787B0 (PiPnpRtlGatherContainerRemoveInfo.c)
- *     PiPnpRtlGatherPanelRemoveInfo @ 0x140778860 (PiPnpRtlGatherPanelRemoveInfo.c)
- *     PiPnpRtlCmActionCallback @ 0x1409A2FF0 (PiPnpRtlCmActionCallback.c)
+ *     PiPnpRtlGatherContainerRemoveInfo @ 0x14077B650 (PiPnpRtlGatherContainerRemoveInfo.c)
+ *     PiPnpRtlGatherPanelRemoveInfo @ 0x14077B700 (PiPnpRtlGatherPanelRemoveInfo.c)
+ *     PiPnpRtlCmActionCallback @ 0x140963A50 (PiPnpRtlCmActionCallback.c)
  * Callees:
- *     PiDmObjectRelease @ 0x1409A6000 (PiDmObjectRelease.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     PiDmObjectRelease @ 0x140966A60 (PiDmObjectRelease.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PiPnpRtlFreePanelRemoveInfo(void **P)

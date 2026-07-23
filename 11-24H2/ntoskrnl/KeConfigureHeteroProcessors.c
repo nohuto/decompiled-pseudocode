@@ -1,22 +1,22 @@
 /*
- * XREFs of KeConfigureHeteroProcessors @ 0x140438880
+ * XREFs of KeConfigureHeteroProcessors @ 0x14042B440
  * Callers:
- *     PopInitializeHeteroProcessors @ 0x140A2A138 (PopInitializeHeteroProcessors.c)
+ *     PopInitializeHeteroProcessors @ 0x140AC57E0 (PopInitializeHeteroProcessors.c)
  * Callees:
- *     KiEnumerateNextSchedulerSubNodeInSystem @ 0x140208D20 (KiEnumerateNextSchedulerSubNodeInSystem.c)
- *     KiComputeHeteroConfig @ 0x140438A8C (KiComputeHeteroConfig.c)
- *     KiTraceLogHeteroRundown @ 0x140438E68 (KiTraceLogHeteroRundown.c)
- *     KiGetNumberOfActiveSubNodes @ 0x1404397E8 (KiGetNumberOfActiveSubNodes.c)
- *     KiInitializeSystemSubNodeEnumerationContext @ 0x140439854 (KiInitializeSystemSubNodeEnumerationContext.c)
- *     KiUpdateProcessorClasses @ 0x1404398F8 (KiUpdateProcessorClasses.c)
- *     KiUpdateHgsScores @ 0x140439BDC (KiUpdateHgsScores.c)
- *     KiConfigureCpuSetSchedulingInformation @ 0x140439E44 (KiConfigureCpuSetSchedulingInformation.c)
- *     KiInstallSubNodeHeteroSets @ 0x1404AD6A0 (KiInstallSubNodeHeteroSets.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     wil_details_FeatureReporting_ReportUsageToService @ 0x14053CAC4 (wil_details_FeatureReporting_ReportUsageToService.c)
- *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x14053CB54 (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     KiEnumerateNextSchedulerSubNodeInSystem @ 0x140330300 (KiEnumerateNextSchedulerSubNodeInSystem.c)
+ *     KiConfigureCpuSetSchedulingInformation @ 0x14037342C (KiConfigureCpuSetSchedulingInformation.c)
+ *     KiComputeHeteroConfig @ 0x14042B64C (KiComputeHeteroConfig.c)
+ *     KiTraceLogHeteroRundown @ 0x14042BA28 (KiTraceLogHeteroRundown.c)
+ *     KiGetNumberOfActiveSubNodes @ 0x14042C3A8 (KiGetNumberOfActiveSubNodes.c)
+ *     KiInitializeSystemSubNodeEnumerationContext @ 0x14042C414 (KiInitializeSystemSubNodeEnumerationContext.c)
+ *     KiUpdateProcessorClasses @ 0x14042C4B8 (KiUpdateProcessorClasses.c)
+ *     KiUpdateHgsScores @ 0x14042C79C (KiUpdateHgsScores.c)
+ *     KiInstallSubNodeHeteroSets @ 0x1404A7D80 (KiInstallSubNodeHeteroSets.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     wil_details_FeatureReporting_ReportUsageToService @ 0x14053A3BC (wil_details_FeatureReporting_ReportUsageToService.c)
+ *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x14053A44C (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 __int64 __fastcall KeConfigureHeteroProcessors(__int64 a1, __int64 a2, _DWORD *a3)
@@ -94,7 +94,7 @@ LABEL_22:
     KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), v10);
   }
   __writecr8(CurrentIrql);
-  KiTraceLogHeteroRundown(&dword_140E07080);
+  KiTraceLogHeteroRundown(&dword_140E070B8);
   v12 = KeHeteroSystem;
   v13 = 0;
   v14 = KiDefaultHeteroCpuPolicy;

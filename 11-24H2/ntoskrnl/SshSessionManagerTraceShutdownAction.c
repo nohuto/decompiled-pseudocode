@@ -1,10 +1,10 @@
 /*
- * XREFs of SshSessionManagerTraceShutdownAction @ 0x140767184
+ * XREFs of SshSessionManagerTraceShutdownAction @ 0x140766BB8
  * Callers:
- *     PopDiagTraceShutdownAction @ 0x1405D5604 (PopDiagTraceShutdownAction.c)
+ *     PopDiagTraceShutdownAction @ 0x1405D2C18 (PopDiagTraceShutdownAction.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     SshpSessionManagerSendControlEvent @ 0x140A70190 (SshpSessionManagerSendControlEvent.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     SshpSessionManagerSendControlEvent @ 0x140A69620 (SshpSessionManagerSendControlEvent.c)
  */
 
 __int64 __fastcall SshSessionManagerTraceShutdownAction(int a1, int a2, int a3)

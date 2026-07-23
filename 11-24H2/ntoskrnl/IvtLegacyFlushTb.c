@@ -1,9 +1,9 @@
 /*
- * XREFs of IvtLegacyFlushTb @ 0x140570120
+ * XREFs of IvtLegacyFlushTb @ 0x14056D5B0
  * Callers:
  *     <none>
  * Callees:
- *     IvtLegacyFlushTbInternal @ 0x140570168 (IvtLegacyFlushTbInternal.c)
+ *     IvtLegacyFlushTbInternal @ 0x14056D5F8 (IvtLegacyFlushTbInternal.c)
  */
 
 __int64 __fastcall IvtLegacyFlushTb(int a1, int a2, __int64 a3, __int64 a4, __int64 a5, int a6, __int64 a7)

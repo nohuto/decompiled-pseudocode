@@ -7,14 +7,23 @@
  *     AlpcpCreateConnectionPort @ 0x1409DFF40 (AlpcpCreateConnectionPort.c)
  */
 
-__int64 __fastcall NtCreateWaitablePort(__int64 a1, __int64 a2)
+NTSTATUS __cdecl NtCreateWaitablePort(
+        PHANDLE PortHandle,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        ULONG MaxConnectionInfoLength,
+        ULONG MaxMessageLength,
+        ULONG MaxPoolUsage)
 {
   struct _KTHREAD *CurrentThread; // rax
-  unsigned int ConnectionPort; // ebx
+  NTSTATUS ConnectionPort; // ebx
+  char v8; // [rsp+20h] [rbp-18h]
+  char v9; // [rsp+28h] [rbp-10h]
 
   CurrentThread = KeGetCurrentThread();
+  v9 = 1;
+  v8 = 1;
   --CurrentThread->KernelApcDisable;
-  ConnectionPort = AlpcpCreateConnectionPort(a1, a2, 0LL);
+  ConnectionPort = AlpcpCreateConnectionPort(PortHandle, ObjectAttributes, 0LL, MaxMessageLength, v8, v9);
   KeLeaveCriticalRegion();
   return ConnectionPort;
 }

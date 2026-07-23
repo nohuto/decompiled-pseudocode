@@ -11,39 +11,43 @@
  *     memmove @ 0x180098200 (memmove.c)
  */
 
-__int64 __fastcall RtlQueryAtomInAtomTable(__int64 a1, char *a2, _DWORD *a3, _DWORD *a4, void *a5, unsigned int *a6)
+NTSTATUS __cdecl RtlQueryAtomInAtomTable(
+        PVOID AtomTableHandle,
+        RTL_ATOM Atom,
+        PULONG AtomUsage,
+        PULONG AtomFlags,
+        PWSTR AtomName,
+        PULONG AtomNameLength)
 {
-  unsigned __int16 v8; // bx
-  unsigned int v10; // edi
-  __int64 v11; // rax
-  __int64 v12; // rdx
+  NTSTATUS v10; // edi
+  _RTL_HANDLE_TABLE_ENTRY *v11; // rax
+  _RTL_HANDLE_TABLE_ENTRY *v12; // rdx
   unsigned __int16 *v13; // rax
   unsigned int v14; // esi
-  unsigned int v15; // eax
+  ULONG v15; // eax
   unsigned __int64 v16; // rbx
-  unsigned int v17; // eax
+  ULONG v17; // eax
   wchar_t Buffer[16]; // [rsp+40h] [rbp-68h] BYREF
 
-  v8 = (unsigned __int16)a2;
-  if ( RtlpLockAtomTable(a1, a2, (__int64)a3, (__int64)a4) )
+  if ( RtlpLockAtomTable((__int64)AtomTableHandle) )
   {
-    if ( v8 < 0xC000u )
+    if ( Atom < 0xC000u )
     {
-      if ( !v8 )
+      if ( !Atom )
       {
         v10 = -1073741811;
         goto LABEL_31;
       }
       v10 = 0;
-      if ( a3 )
-        *a3 = 1;
-      if ( a4 )
-        *a4 = 1;
-      if ( !a5 )
+      if ( AtomUsage )
+        *AtomUsage = 1;
+      if ( AtomFlags )
+        *AtomFlags = 1;
+      if ( !AtomName )
         goto LABEL_31;
-      v14 = 2 * snwprintf_s(Buffer, 0x10uLL, 0xFFFFFFFFFFFFFFFFuLL, L"#%u", v8);
-      v17 = *a6;
-      if ( v14 >= *a6 )
+      v14 = 2 * snwprintf_s(Buffer, 0x10uLL, 0xFFFFFFFFFFFFFFFFuLL, L"#%u", Atom);
+      v17 = *AtomNameLength;
+      if ( v14 >= *AtomNameLength )
       {
         v14 = v17 - 2;
         if ( v17 < 2 )
@@ -51,7 +55,7 @@ __int64 __fastcall RtlQueryAtomInAtomTable(__int64 a1, char *a2, _DWORD *a3, _DW
       }
       if ( v14 )
       {
-        memmove(a5, Buffer, v14);
+        memmove(AtomName, Buffer, v14);
         v16 = (unsigned __int64)v14 >> 1;
         goto LABEL_14;
       }
@@ -59,29 +63,29 @@ __int64 __fastcall RtlQueryAtomInAtomTable(__int64 a1, char *a2, _DWORD *a3, _DW
     else
     {
       v10 = -1073741816;
-      v11 = RtlpAtomMapAtomToHandleEntry(a1, v8 & 0x3FFF);
+      v11 = RtlpAtomMapAtomToHandleEntry((__int64)AtomTableHandle, Atom & 0x3FFF);
       v12 = v11;
       if ( !v11 )
         goto LABEL_31;
-      if ( *(_WORD *)(v11 + 10) != v8 )
+      if ( WORD1(v11[1].NextFree) != Atom )
         goto LABEL_31;
-      v13 = (unsigned __int16 *)(v11 + 12);
+      v13 = (unsigned __int16 *)&v11[1].NextFree + 2;
       if ( !v13 )
         goto LABEL_31;
       v10 = 0;
-      if ( a3 )
-        *a3 = *v13;
-      if ( a4 )
-        *a4 = *(unsigned __int16 *)(v12 + 14);
-      if ( !a5 )
+      if ( AtomUsage )
+        *AtomUsage = *v13;
+      if ( AtomFlags )
+        *AtomFlags = HIWORD(v12[1].NextFree);
+      if ( !AtomName )
         goto LABEL_31;
-      v14 = 2 * *(unsigned __int8 *)(v12 + 16);
-      v15 = *a6;
-      if ( v14 >= *a6 )
+      v14 = 2 * LOBYTE(v12[2].Flags);
+      v15 = *AtomNameLength;
+      if ( v14 >= *AtomNameLength )
       {
         if ( v15 < 2 )
         {
-          *a6 = v14;
+          *AtomNameLength = v14;
           v14 = 0;
         }
         else
@@ -91,18 +95,18 @@ __int64 __fastcall RtlQueryAtomInAtomTable(__int64 a1, char *a2, _DWORD *a3, _DW
       }
       if ( v14 )
       {
-        memmove(a5, (const void *)(v12 + 18), v14);
+        memmove(AtomName, (char *)&v12[2].NextFree + 2, v14);
         v16 = (unsigned __int64)v14 >> 1;
 LABEL_14:
-        *((_WORD *)a5 + v16) = 0;
-        *a6 = v14;
+        AtomName[v16] = 0;
+        *AtomNameLength = v14;
 LABEL_31:
-        RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a1 + 8));
+        RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)AtomTableHandle + 1);
         return v10;
       }
     }
     v10 = -1073741789;
     goto LABEL_31;
   }
-  return 3221225485LL;
+  return -1073741811;
 }

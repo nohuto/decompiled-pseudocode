@@ -3,10 +3,10 @@
  * Callers:
  *     PopReadSimulateProcessorClasses @ 0x140B70B7C (PopReadSimulateProcessorClasses.c)
  * Callees:
- *     KeGetProcessorIndexFromNumber @ 0x1402551B0 (KeGetProcessorIndexFromNumber.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     ZwEnumerateValueKey @ 0x14041AFC0 (ZwEnumerateValueKey.c)
- *     ZwQueryValueKey @ 0x14041B040 (ZwQueryValueKey.c)
+ *     KeGetProcessorIndexFromNumber @ 0x140255270 (KeGetProcessorIndexFromNumber.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     ZwEnumerateValueKey @ 0x14041B350 (ZwEnumerateValueKey.c)
+ *     ZwQueryValueKey @ 0x14041B3D0 (ZwQueryValueKey.c)
  */
 
 char __fastcall PopReadSimulateProcessorClass(unsigned __int16 a1, void *a2, ULONG a3, __int64 a4)
@@ -21,7 +21,7 @@ char __fastcall PopReadSimulateProcessorClass(unsigned __int16 a1, void *a2, ULO
   int v15; // r9d
   ULONG ProcessorIndexFromNumber; // eax
   __int64 v17; // rbx
-  struct _PROCESSOR_NUMBER ProcNumber; // [rsp+30h] [rbp-39h] BYREF
+  _PROCESSOR_NUMBER ProcNumber; // [rsp+30h] [rbp-39h] BYREF
   ULONG ResultLength; // [rsp+34h] [rbp-35h] BYREF
   UNICODE_STRING ValueName; // [rsp+38h] [rbp-31h] BYREF
   __int128 KeyValueInformation; // [rsp+48h] [rbp-21h] BYREF

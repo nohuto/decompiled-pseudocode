@@ -1,10 +1,10 @@
 /*
- * XREFs of MiRelocateImagePrepare @ 0x1409CAA88
+ * XREFs of MiRelocateImagePrepare @ 0x14099BA68
  * Callers:
- *     MiRelocateImage @ 0x1409CA7A4 (MiRelocateImage.c)
+ *     MiRelocateImage @ 0x14099B784 (MiRelocateImage.c)
  * Callees:
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     MmGetCurrentProcessorColor @ 0x14044ADC0 (MmGetCurrentProcessorColor.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     MmGetCurrentProcessorColor @ 0x140442EF0 (MmGetCurrentProcessorColor.c)
  */
 
 __int64 __fastcall MiRelocateImagePrepare(__int64 **a1)

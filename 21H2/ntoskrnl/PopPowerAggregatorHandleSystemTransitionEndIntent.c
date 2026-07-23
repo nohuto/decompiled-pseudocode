@@ -1,7 +1,7 @@
 /*
- * XREFs of PopPowerAggregatorHandleSystemTransitionEndIntent @ 0x14077A620
+ * XREFs of PopPowerAggregatorHandleSystemTransitionEndIntent @ 0x14077A7E0
  * Callers:
- *     PopPowerAggregatorHandleIntentUnsafe @ 0x140775E14 (PopPowerAggregatorHandleIntentUnsafe.c)
+ *     PopPowerAggregatorHandleIntentUnsafe @ 0x140775FD4 (PopPowerAggregatorHandleIntentUnsafe.c)
  * Callees:
  *     <none>
  */

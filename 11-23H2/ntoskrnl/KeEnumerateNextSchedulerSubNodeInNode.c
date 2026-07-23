@@ -1,16 +1,16 @@
 /*
- * XREFs of KeEnumerateNextSchedulerSubNodeInNode @ 0x1402C1BFC
+ * XREFs of KeEnumerateNextSchedulerSubNodeInNode @ 0x1402C1E8C
  * Callers:
- *     PoCopyDeepIdleMask @ 0x14028FC5C (PoCopyDeepIdleMask.c)
- *     PoAllProcessorsDeepIdle @ 0x1402C1B20 (PoAllProcessorsDeepIdle.c)
- *     KeQueryNodeActiveAffinityEx @ 0x140306B58 (KeQueryNodeActiveAffinityEx.c)
- *     KeQueryNodeActiveProcessorCount @ 0x1403B4260 (KeQueryNodeActiveProcessorCount.c)
- *     KiConfigureHeteroProcessorsTarget @ 0x14056B650 (KiConfigureHeteroProcessorsTarget.c)
- *     KiEnumerateNextSchedulerSubNodeInSystem @ 0x1405708A8 (KiEnumerateNextSchedulerSubNodeInSystem.c)
- *     PpmGetIdleConstrainedMask @ 0x140584200 (PpmGetIdleConstrainedMask.c)
- *     ExpQuerySystemInformation @ 0x140726850 (ExpQuerySystemInformation.c)
- *     PpmEventTraceHeteroSets @ 0x14082D474 (PpmEventTraceHeteroSets.c)
- *     KiSynchNumaCounterSetCallback @ 0x140973FA0 (KiSynchNumaCounterSetCallback.c)
+ *     PoCopyDeepIdleMask @ 0x14028FEEC (PoCopyDeepIdleMask.c)
+ *     PoAllProcessorsDeepIdle @ 0x1402C1DB0 (PoAllProcessorsDeepIdle.c)
+ *     KeQueryNodeActiveAffinityEx @ 0x140306DE8 (KeQueryNodeActiveAffinityEx.c)
+ *     KeQueryNodeActiveProcessorCount @ 0x1403B4440 (KeQueryNodeActiveProcessorCount.c)
+ *     KiConfigureHeteroProcessorsTarget @ 0x14056BD10 (KiConfigureHeteroProcessorsTarget.c)
+ *     KiEnumerateNextSchedulerSubNodeInSystem @ 0x140570DE8 (KiEnumerateNextSchedulerSubNodeInSystem.c)
+ *     PpmGetIdleConstrainedMask @ 0x1405846F0 (PpmGetIdleConstrainedMask.c)
+ *     ExpQuerySystemInformation @ 0x140726A50 (ExpQuerySystemInformation.c)
+ *     PpmEventTraceHeteroSets @ 0x14082D774 (PpmEventTraceHeteroSets.c)
+ *     KiSynchNumaCounterSetCallback @ 0x1409741A0 (KiSynchNumaCounterSetCallback.c)
  *     KiCountNodeZeroSetBitsGroupAffinity @ 0x140B45B8C (KiCountNodeZeroSetBitsGroupAffinity.c)
  *     KiConfigureAllSchedulingInformation @ 0x140B4C770 (KiConfigureAllSchedulingInformation.c)
  * Callees:

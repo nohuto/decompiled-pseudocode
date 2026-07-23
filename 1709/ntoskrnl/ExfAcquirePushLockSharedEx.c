@@ -42,101 +42,97 @@
  *     KeBugCheckEx @ 0x140181290 (KeBugCheckEx.c)
  */
 
-signed __int64 __fastcall ExfAcquirePushLockSharedEx(signed __int64 *a1, unsigned __int64 a2, unsigned __int64 a3)
+signed __int64 __fastcall ExfAcquirePushLockSharedEx(signed __int64 *a1, __int64 a2, ULONG_PTR a3)
 {
-  ULONG_PTR v3; // r15
-  unsigned __int64 v4; // r14
   signed __int64 v6; // rbx
   signed __int64 v7; // rcx
   signed __int64 result; // rax
   bool v9; // cl
-  bool v10; // zf
-  signed __int64 v11; // rax
-  int v12; // ecx
-  unsigned __int64 v13; // rax
-  unsigned int v14; // ecx
+  unsigned __int64 v10; // rdx
+  bool v11; // zf
+  signed __int64 v12; // rax
+  int v13; // ecx
+  unsigned __int64 v14; // rax
+  unsigned int v15; // ecx
   struct _KTHREAD *CurrentThread; // rdi
   int SessionId; // eax
-  _QWORD *v17; // rcx
-  _QWORD *v18; // rax
-  __int64 v19; // rax
-  signed __int64 v20; // rax
+  _QWORD *v18; // rcx
+  _QWORD *v19; // rax
+  __int64 v20; // rax
+  signed __int64 v21; // rax
   int i; // ecx
-  int v23[4]; // [rsp+30h] [rbp-50h] BYREF
+  int v24[4]; // [rsp+30h] [rbp-50h] BYREF
   __int16 Object; // [rsp+40h] [rbp-40h] BYREF
-  char v25; // [rsp+42h] [rbp-3Eh]
-  _BYTE v26[5]; // [rsp+43h] [rbp-3Dh] BYREF
-  _QWORD v27[3]; // [rsp+48h] [rbp-38h] BYREF
+  char v26; // [rsp+42h] [rbp-3Eh]
+  _BYTE v27[5]; // [rsp+43h] [rbp-3Dh] BYREF
+  _QWORD v28[3]; // [rsp+48h] [rbp-38h] BYREF
   __int16 *p_Object; // [rsp+60h] [rbp-20h]
-  __int64 v29; // [rsp+68h] [rbp-18h]
-  int v30; // [rsp+70h] [rbp-10h]
-  signed __int32 v31; // [rsp+74h] [rbp-Ch] BYREF
-  unsigned __int64 v32; // [rsp+78h] [rbp-8h]
-  unsigned int v33; // [rsp+C0h] [rbp+40h]
-  unsigned int v34; // [rsp+D8h] [rbp+58h] BYREF
+  __int64 v30; // [rsp+68h] [rbp-18h]
+  int v31; // [rsp+70h] [rbp-10h]
+  signed __int32 v32; // [rsp+74h] [rbp-Ch] BYREF
+  __int64 v33; // [rsp+78h] [rbp-8h]
+  unsigned int v34; // [rsp+C0h] [rbp+40h]
+  unsigned int v35; // [rsp+D8h] [rbp+58h] BYREF
 
-  v3 = a3;
-  v34 = 0;
-  v4 = a2;
+  v35 = 0;
   _m_prefetchw(a1);
   v6 = *a1;
   while ( (v6 & 1) != 0 && ((v6 & 2) != 0 || (v6 & 0xFFFFFFFFFFFFFFF0uLL) == 0) )
   {
-    if ( v4 )
+    if ( a2 )
     {
-      *(_BYTE *)(v4 + 32) |= 2u;
-      if ( *(__int64 *)(v4 + 32) < 0 )
-        KiAbEntryRemoveFromTree(v4, a2, a3);
-      *(_BYTE *)(v4 + 25) |= 1u;
-      *(_BYTE *)(v4 + 32) &= ~2u;
+      *(_BYTE *)(a2 + 32) |= 2u;
+      if ( *(__int64 *)(a2 + 32) < 0 )
+        KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)a2);
+      *(_BYTE *)(a2 + 25) |= 1u;
+      *(_BYTE *)(a2 + 32) &= ~2u;
     }
     v9 = 0;
-    v32 = v4;
-    v31 = 2;
-    v29 = 0LL;
+    v33 = a2;
+    v32 = 2;
+    v30 = 0LL;
     if ( (v6 & 2) != 0 )
     {
       p_Object = 0LL;
-      v30 = -1;
-      v27[2] = v6 & 0xFFFFFFFFFFFFFFF0uLL;
-      a2 = (unsigned __int64)&Object | v6 & 8 | 7;
+      v31 = -1;
+      v28[2] = v6 & 0xFFFFFFFFFFFFFFF0uLL;
+      v10 = (unsigned __int64)&Object | v6 & 8 | 7;
       v9 = (v6 & 4) == 0;
     }
     else
     {
-      v30 = -2;
+      v31 = -2;
       p_Object = &Object;
-      a2 = (unsigned __int64)v26;
+      v10 = (unsigned __int64)v27;
     }
-    v11 = _InterlockedCompareExchange64(a1, a2, v6);
-    v10 = v6 == v11;
-    v6 = v11;
-    if ( !v10 )
+    v12 = _InterlockedCompareExchange64(a1, v10, v6);
+    v11 = v6 == v12;
+    v6 = v12;
+    if ( !v11 )
     {
-      v12 = v34;
-      if ( v34 )
+      v13 = v35;
+      if ( v35 )
       {
-        if ( v34 < 0x1FFF )
-          v12 = 2 * v34;
+        if ( v35 < 0x1FFF )
+          v13 = 2 * v35;
 LABEL_19:
-        v34 = v12;
-        v13 = __rdtsc();
-        v33 = 0;
-        a2 = (unsigned int)(v12 - 1);
-        v14 = (a2 & v13) + v12;
-        if ( v14 )
+        v35 = v13;
+        v14 = __rdtsc();
+        v34 = 0;
+        v15 = ((v13 - 1) & v14) + v13;
+        if ( v15 )
         {
           do
           {
             _mm_pause();
-            ++v33;
+            ++v34;
           }
-          while ( v33 < v14 );
+          while ( v34 < v15 );
         }
       }
       else if ( (_DWORD)KeNumberProcessors_0 != 1 )
       {
-        v12 = 64;
+        v13 = 64;
         goto LABEL_19;
       }
 LABEL_21:
@@ -148,75 +144,74 @@ LABEL_21:
     {
       while ( 1 )
       {
-        a3 = a2 & 0xFFFFFFFFFFFFFFF0uLL;
-        v17 = (_QWORD *)(a2 & 0xFFFFFFFFFFFFFFF0uLL);
-        if ( !*(_QWORD *)((a2 & 0xFFFFFFFFFFFFFFF0uLL) + 0x20) )
+        v18 = (_QWORD *)(v10 & 0xFFFFFFFFFFFFFFF0uLL);
+        if ( !*(_QWORD *)((v10 & 0xFFFFFFFFFFFFFFF0uLL) + 0x20) )
         {
           do
           {
-            v18 = v17;
-            v17 = (_QWORD *)v17[3];
-            v17[5] = v18;
-            v19 = v17[4];
+            v19 = v18;
+            v18 = (_QWORD *)v18[3];
+            v18[5] = v19;
+            v20 = v18[4];
           }
-          while ( !v19 );
-          if ( v17 != (_QWORD *)a3 )
-            *(_QWORD *)((a2 & 0xFFFFFFFFFFFFFFF0uLL) + 0x20) = v19;
+          while ( !v20 );
+          if ( v18 != (_QWORD *)(v10 & 0xFFFFFFFFFFFFFFF0uLL) )
+            *(_QWORD *)((v10 & 0xFFFFFFFFFFFFFFF0uLL) + 0x20) = v20;
         }
-        v20 = _InterlockedCompareExchange64(a1, a2 - 4, a2);
-        v10 = a2 == v20;
-        a2 = v20;
-        if ( v10 )
+        v21 = _InterlockedCompareExchange64(a1, v10 - 4, v10);
+        v11 = v10 == v21;
+        v10 = v21;
+        if ( v11 )
           break;
-        if ( (v20 & 1) == 0 )
+        if ( (v21 & 1) == 0 )
         {
-          ExpWakePushLock(a1, v20);
+          ExpWakePushLock(a1, v21);
           break;
         }
       }
     }
     Object = 1;
-    v27[1] = v27;
-    v27[0] = v27;
-    v25 = 6;
-    *(_DWORD *)&v26[1] = 0;
+    v28[1] = v28;
+    v28[0] = v28;
+    v26 = 6;
+    *(_DWORD *)&v27[1] = 0;
     if ( MEMORY[0xFFFFF7800000036A] > 1u )
     {
       for ( i = ExpSpinCount; i; --i )
       {
-        if ( (v31 & 2) == 0 )
+        if ( (v32 & 2) == 0 )
           break;
         _mm_pause();
       }
     }
-    if ( _interlockedbittestandreset(&v31, 1u) )
+    if ( _interlockedbittestandreset(&v32, 1u) )
       KeWaitForSingleObject(&Object, WrPushLock, 0, 0, 0LL);
 LABEL_22:
-    if ( v4 )
+    if ( a2 )
     {
-      v23[0] = 0;
+      v24[0] = 0;
       CurrentThread = KeGetCurrentThread();
       --CurrentThread->SpecialApcDisable;
       if ( ++CurrentThread->AbAllocationRegionCount != 1 )
-        KeBugCheckEx(0x192u, (ULONG_PTR)CurrentThread, v3, KeGetCurrentIrql(), 0LL);
-      *(_BYTE *)(v4 + 32) |= 2u;
-      if ( *(__int64 *)(v4 + 32) < 0 )
-        KiAbEntryRemoveFromTree(v4, a2, a3);
-      v23[0] = 0;
-      v23[0] = *(_DWORD *)(v4 + 88) & 0x1FFFF;
-      *(_DWORD *)(v4 + 88) &= 0xFFFE0000;
-      *(_BYTE *)(v4 + 25) &= ~1u;
-      *(_QWORD *)(v4 + 32) = 0LL;
-      if ( v3 >= 0xFFFF800000000000uLL && byte_1403899D0[((v3 >> 39) & 0x1FF) - 256] == 1 )
+        KeBugCheckEx(0x192u, (ULONG_PTR)CurrentThread, a3, KeGetCurrentIrql(), 0LL);
+      *(_BYTE *)(a2 + 32) |= 2u;
+      if ( *(__int64 *)(a2 + 32) < 0 )
+        KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)a2);
+      v24[0] = 0;
+      v24[0] = *(_DWORD *)(a2 + 88) & 0x1FFFF;
+      *(_DWORD *)(a2 + 88) &= 0xFFFE0000;
+      *(_BYTE *)(a2 + 25) &= ~1u;
+      *(_QWORD *)(a2 + 32) = 0LL;
+      if ( a3 >= 0xFFFF800000000000uLL && byte_1403899D0[((a3 >> 39) & 0x1FF) - 256] == 1 )
         SessionId = MmGetSessionIdEx(CurrentThread->ApcState.Process);
       else
         SessionId = -1;
-      *(_DWORD *)(v4 + 40) = SessionId;
-      *(_QWORD *)(v4 + 32) = v3 & 0x7FFFFFFFFFFFFFFCLL;
+      *(_DWORD *)(a2 + 40) = SessionId;
+      *(_QWORD *)(a2 + 32) = a3 & 0x7FFFFFFFFFFFFFFCLL;
       --CurrentThread->AbAllocationRegionCount;
-      KiAbThreadRemoveBoosts(CurrentThread, v3, v23);
-      v10 = CurrentThread->SpecialApcDisable++ == -1;
-      if ( v10
+      KiAbThreadRemoveBoosts(CurrentThread, a3, v24);
+      v11 = CurrentThread->SpecialApcDisable++ == -1;
+      if ( v11
         && ($B476B70DB57F76B110DA5B9238C3E934 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
       {
         KiCheckForKernelApcDelivery();
@@ -229,9 +224,9 @@ LABEL_22:
   result = _InterlockedCompareExchange64(a1, v7, v6);
   if ( v6 != result )
   {
-    if ( v4 )
-      KeAbPreWait(v4);
-    RtlBackoff(&v34);
+    if ( a2 )
+      KeAbPreWait(a2);
+    RtlBackoff(&v35);
     goto LABEL_21;
   }
   return result;

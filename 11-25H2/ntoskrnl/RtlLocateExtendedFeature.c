@@ -7,10 +7,10 @@
  *     <none>
  */
 
-char *__fastcall RtlLocateExtendedFeature(_DWORD *a1, unsigned int a2, _DWORD *a3)
+PVOID __cdecl RtlLocateExtendedFeature(PCONTEXT_EX ContextEx, ULONG FeatureId, PULONG Length)
 {
   __int64 v3; // rsi
-  __int64 v4; // rdi
+  __int64 Offset; // rdi
   char *v5; // rdi
   __int64 v6; // r8
   unsigned int v7; // r10d
@@ -18,43 +18,44 @@ char *__fastcall RtlLocateExtendedFeature(_DWORD *a1, unsigned int a2, _DWORD *a
   __int64 v9; // rdx
   _DWORD *v10; // rcx
   __int64 v11; // rax
-  int v13; // eax
+  ULONG v13; // eax
 
-  if ( a2 - 2 > 0x3D )
+  if ( FeatureId - 2 > 0x3D )
     return 0LL;
-  v3 = 1LL << a2;
-  if ( ((MEMORY[0xFFFFF780000003D8] | MEMORY[0xFFFFF78000000708]) & (1LL << a2)) == 0
+  v3 = 1LL << FeatureId;
+  if ( ((MEMORY[0xFFFFF780000003D8] | MEMORY[0xFFFFF78000000708]) & (1LL << FeatureId)) == 0
     || (MEMORY[0xFFFFF780000003EC] & 0xFFFFFFF8) != 0 )
   {
     return 0LL;
   }
-  v4 = (int)a1[4];
-  if ( *a1 <= (int)v4 && a1[1] + *a1 >= (int)v4 + a1[5] )
+  Offset = ContextEx->XState.Offset;
+  if ( ContextEx->All.Offset <= (int)Offset
+    && (signed int)(ContextEx->All.Length + ContextEx->All.Offset) >= (signed int)(Offset + ContextEx->XState.Length) )
   {
-    v5 = (char *)a1 + v4;
+    v5 = (char *)ContextEx + Offset;
     if ( v5 )
     {
-      if ( a3 )
+      if ( Length )
       {
         if ( (MEMORY[0xFFFFF780000003EC] & 2) != 0 )
-          v13 = *(_DWORD *)(4LL * a2 - 0x87FFFFFF9FCLL);
+          v13 = *(_DWORD *)(4LL * FeatureId - 0x87FFFFFF9FCLL);
         else
-          v13 = *(_DWORD *)(8LL * a2 - 0x87FFFFFFC0CLL);
-        *a3 = v13;
+          v13 = *(_DWORD *)(8LL * FeatureId - 0x87FFFFFFC0CLL);
+        *Length = v13;
       }
       if ( (MEMORY[0xFFFFF780000003EC] & 2) == 0 )
       {
-        v11 = *(unsigned int *)(8LL * a2 - 0x87FFFFFFC10LL);
+        v11 = *(unsigned int *)(8LL * FeatureId - 0x87FFFFFFC10LL);
         return &v5[v11 - 512];
       }
       v6 = *((_QWORD *)v5 + 1);
       if ( (v3 & v6) != 0 )
       {
         v7 = 576;
-        if ( a2 > 2 )
+        if ( FeatureId > 2 )
         {
           v8 = 4LL;
-          v9 = a2 - 2;
+          v9 = FeatureId - 2;
           v10 = (_DWORD *)0xFFFFF7800000060CLL;
           do
           {

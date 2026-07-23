@@ -1,14 +1,14 @@
 /*
- * XREFs of PiDqQueryRelease @ 0x14098FF78
+ * XREFs of PiDqQueryRelease @ 0x1409509D8
  * Callers:
- *     PiDqDispatch @ 0x14098EE00 (PiDqDispatch.c)
- *     PiDqObjectManagerServiceActionQueue @ 0x14098F320 (PiDqObjectManagerServiceActionQueue.c)
- *     PiDqObjectManagerUnregisterQuery @ 0x140990358 (PiDqObjectManagerUnregisterQuery.c)
+ *     PiDqDispatch @ 0x14094F860 (PiDqDispatch.c)
+ *     PiDqObjectManagerServiceActionQueue @ 0x14094FD80 (PiDqObjectManagerServiceActionQueue.c)
+ *     PiDqObjectManagerUnregisterQuery @ 0x140950DB8 (PiDqObjectManagerUnregisterQuery.c)
  * Callees:
- *     McTemplateK0p_EtwWriteTransfer @ 0x14049E704 (McTemplateK0p_EtwWriteTransfer.c)
- *     SeReleaseSubjectContext @ 0x1408CB2E0 (SeReleaseSubjectContext.c)
- *     PiDqQueryFreeActiveData @ 0x140990044 (PiDqQueryFreeActiveData.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     McTemplateK0p_EtwWriteTransfer @ 0x140498254 (McTemplateK0p_EtwWriteTransfer.c)
+ *     SeReleaseSubjectContext @ 0x1408D1890 (SeReleaseSubjectContext.c)
+ *     PiDqQueryFreeActiveData @ 0x140950AA4 (PiDqQueryFreeActiveData.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PiDqQueryRelease(PVOID P)
@@ -17,7 +17,7 @@ void __fastcall PiDqQueryRelease(PVOID P)
 
   if ( _InterlockedExchangeAdd((volatile signed __int32 *)P + 53, 0xFFFFFFFF) == 1 )
   {
-    if ( byte_140EF3DCA < 0 )
+    if ( byte_140EF412A < 0 )
       McTemplateK0p_EtwWriteTransfer((__int64)P, (__int64)KMPnPEvt_DevQuery_QueryStop, *((_QWORD *)P + 3), P);
     PiDqQueryFreeActiveData(P);
     v2 = (void *)*((_QWORD *)P + 3);

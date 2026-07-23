@@ -1,9 +1,9 @@
 /*
- * XREFs of NtAccessCheckByTypeResultListAndAuditAlarm @ 0x140921180
+ * XREFs of NtAccessCheckByTypeResultListAndAuditAlarm @ 0x1409212E0
  * Callers:
  *     <none>
  * Callees:
- *     SepAccessCheckAndAuditAlarm @ 0x1406260EC (SepAccessCheckAndAuditAlarm.c)
+ *     SepAccessCheckAndAuditAlarm @ 0x140692204 (SepAccessCheckAndAuditAlarm.c)
  */
 
 NTSTATUS __stdcall NtAccessCheckByTypeResultListAndAuditAlarm(

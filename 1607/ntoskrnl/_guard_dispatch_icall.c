@@ -1,7 +1,7 @@
 /*
- * XREFs of _guard_dispatch_icall @ 0x140166AA0
+ * XREFs of _guard_dispatch_icall @ 0x140167010
  * Callers:
- *     shortsort @ 0x14014E270 (shortsort.c)
+ *     shortsort @ 0x14014E830 (shortsort.c)
  * Callees:
  *     <none>
  */

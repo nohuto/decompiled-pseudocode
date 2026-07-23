@@ -1,18 +1,18 @@
 /*
- * XREFs of SepSetTokenUserAndGroups @ 0x1409F49B0
+ * XREFs of SepSetTokenUserAndGroups @ 0x1409E8D10
  * Callers:
- *     SepCreateTokenEx @ 0x1403645F4 (SepCreateTokenEx.c)
+ *     SepCreateTokenEx @ 0x1403E9CAC (SepCreateTokenEx.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     SepLogTokenSidManagement @ 0x14078FD60 (SepLogTokenSidManagement.c)
- *     SepCompareSidValuesBlocks @ 0x140792EF8 (SepCompareSidValuesBlocks.c)
- *     SepCreateSidValuesBlock @ 0x140792F9C (SepCreateSidValuesBlock.c)
- *     SepDereferenceSidValuesBlock @ 0x140793210 (SepDereferenceSidValuesBlock.c)
- *     SepDuplicateSid @ 0x1409F4D58 (SepDuplicateSid.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     SepLogTokenSidManagement @ 0x14078FD30 (SepLogTokenSidManagement.c)
+ *     SepCompareSidValuesBlocks @ 0x140792F98 (SepCompareSidValuesBlocks.c)
+ *     SepCreateSidValuesBlock @ 0x14079303C (SepCreateSidValuesBlock.c)
+ *     SepDereferenceSidValuesBlock @ 0x1407932B0 (SepDereferenceSidValuesBlock.c)
+ *     SepDuplicateSid @ 0x1409E90B8 (SepDuplicateSid.c)
  */
 
 __int64 __fastcall SepSetTokenUserAndGroups(__int64 a1, unsigned __int8 **a2, unsigned int a3, __int64 a4, int a5)
@@ -24,8 +24,8 @@ __int64 __fastcall SepSetTokenUserAndGroups(__int64 a1, unsigned __int8 **a2, un
   int v13; // r12d
   struct _KTHREAD *CurrentThread; // rcx
   unsigned __int64 *v15; // rsi
-  _QWORD *v16; // rax
-  _QWORD *v17; // rbp
+  char *v16; // rax
+  char *v17; // rbp
   __int64 v18; // rsi
   PVOID v19; // rbx
   char v20; // cl
@@ -62,12 +62,12 @@ __int64 __fastcall SepSetTokenUserAndGroups(__int64 a1, unsigned __int8 **a2, un
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->KernelApcDisable;
     v15 = (unsigned __int64 *)(*(_QWORD *)(a1 + 216) + 112LL);
-    v16 = KeAbPreAcquire((__int64)v15, 0LL);
+    v16 = (char *)KeAbPreAcquire((__int64)v15, 0LL);
     v17 = v16;
     if ( _interlockedbittestandset64((volatile signed __int32 *)v15, 0LL) )
-      ExfAcquirePushLockExclusiveEx(v15, (__int64)v16, (__int64)v15);
+      ExfAcquirePushLockExclusiveEx(v15, v16, (__int64)v15);
     if ( v17 )
-      *((_BYTE *)v17 + 10) = 1;
+      v17[10] = 1;
     if ( !*(_QWORD *)(*(_QWORD *)(a1 + 216) + 128LL) )
     {
       if ( _InterlockedIncrement64((volatile signed __int64 *)P + 1) <= 1 )
@@ -107,7 +107,7 @@ LABEL_18:
     *(_QWORD *)(a1 + 1128) = v19;
 LABEL_26:
     v23 = *(_QWORD *)(a1 + 1128);
-    *(_QWORD *)(a1 + 152) = a1 + 1168;
+    *(_QWORD *)(a1 + 152) = a1 + 1176;
     v24 = v23 + 24;
     v25 = 0;
     *(_DWORD *)(a1 + 124) = a3 + 1;

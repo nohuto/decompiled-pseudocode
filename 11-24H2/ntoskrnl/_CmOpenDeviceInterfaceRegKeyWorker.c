@@ -1,23 +1,23 @@
 /*
- * XREFs of _CmOpenDeviceInterfaceRegKeyWorker @ 0x1408CAE98
+ * XREFs of _CmOpenDeviceInterfaceRegKeyWorker @ 0x1408C88C8
  * Callers:
- *     _CmOpenDeviceInterfaceRegKey @ 0x1408CB4B4 (_CmOpenDeviceInterfaceRegKey.c)
+ *     _CmOpenDeviceInterfaceRegKey @ 0x1408C8EE4 (_CmOpenDeviceInterfaceRegKey.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x140347D10 (PsGetCurrentServerSiloGlobals.c)
- *     NLS_UPCASE @ 0x140400650 (NLS_UPCASE.c)
- *     RtlInitUnicodeStringEx @ 0x14045AA10 (RtlInitUnicodeStringEx.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     RtlPrefixUnicodeString @ 0x14086E3C0 (RtlPrefixUnicodeString.c)
- *     _PnpCtxRegOpenKey @ 0x1408C7AFC (_PnpCtxRegOpenKey.c)
- *     _RegRtlOpenKeyTransacted @ 0x1408C7B60 (_RegRtlOpenKeyTransacted.c)
- *     _PnpCtxGetCachedNodeBaseKey @ 0x1408C7D10 (_PnpCtxGetCachedNodeBaseKey.c)
- *     _CmGetDeviceInterfaceRegKeyPath @ 0x1408CA360 (_CmGetDeviceInterfaceRegKeyPath.c)
- *     _CmOpenDeviceInterfaceRegKey @ 0x1408CB4B4 (_CmOpenDeviceInterfaceRegKey.c)
- *     _PnpCtxRegCreateTree @ 0x140926128 (_PnpCtxRegCreateTree.c)
- *     _CmGetDeviceInterfaceRegKeySecurityDescriptor @ 0x140A870F8 (_CmGetDeviceInterfaceRegKeySecurityDescriptor.c)
- *     _SysCtxRegOpenCurrentUserKey @ 0x140A8BE6C (_SysCtxRegOpenCurrentUserKey.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140326710 (PsGetCurrentServerSiloGlobals.c)
+ *     NLS_UPCASE @ 0x1403FAB40 (NLS_UPCASE.c)
+ *     RtlInitUnicodeStringEx @ 0x14044FE60 (RtlInitUnicodeStringEx.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     RtlPrefixUnicodeString @ 0x1408726F0 (RtlPrefixUnicodeString.c)
+ *     _PnpCtxRegOpenKey @ 0x1408C552C (_PnpCtxRegOpenKey.c)
+ *     _RegRtlOpenKeyTransacted @ 0x1408C5590 (_RegRtlOpenKeyTransacted.c)
+ *     _PnpCtxGetCachedNodeBaseKey @ 0x1408C5740 (_PnpCtxGetCachedNodeBaseKey.c)
+ *     _CmGetDeviceInterfaceRegKeyPath @ 0x1408C7D90 (_CmGetDeviceInterfaceRegKeyPath.c)
+ *     _CmOpenDeviceInterfaceRegKey @ 0x1408C8EE4 (_CmOpenDeviceInterfaceRegKey.c)
+ *     _PnpCtxRegCreateTree @ 0x140928268 (_PnpCtxRegCreateTree.c)
+ *     _CmGetDeviceInterfaceRegKeySecurityDescriptor @ 0x140A81E48 (_CmGetDeviceInterfaceRegKeySecurityDescriptor.c)
+ *     _SysCtxRegOpenCurrentUserKey @ 0x140A8835C (_SysCtxRegOpenCurrentUserKey.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall CmOpenDeviceInterfaceRegKeyWorker(
@@ -94,7 +94,7 @@ LABEL_23:
   LODWORD(v15) = (a3 & 0x200) != 0 ? 600 : 480;
   while ( 1 )
   {
-    Pool2 = (wchar_t *)ExAllocatePool2(0x100uLL);
+    Pool2 = (wchar_t *)ExAllocatePool2(0x100uLL, (unsigned int)v15, 0x52504E50u);
     if ( !Pool2 )
     {
       inited = -1073741801;

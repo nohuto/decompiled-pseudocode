@@ -1,18 +1,18 @@
 /*
- * XREFs of IopLiveDumpCallRemovePagesCallbacks @ 0x140599B68
+ * XREFs of IopLiveDumpCallRemovePagesCallbacks @ 0x140596AE8
  * Callers:
- *     IopLiveDumpEstimateMemoryPages @ 0x14059A9C0 (IopLiveDumpEstimateMemoryPages.c)
+ *     IopLiveDumpEstimateMemoryPages @ 0x140597940 (IopLiveDumpEstimateMemoryPages.c)
  * Callees:
- *     MmIsAddressValidEx @ 0x140262FC0 (MmIsAddressValidEx.c)
- *     IopLiveDumpIsTracingEnabled @ 0x1404FA9A4 (IopLiveDumpIsTracingEnabled.c)
- *     RtlStringCbLengthA @ 0x14055FE14 (RtlStringCbLengthA.c)
- *     IoFreeDumpRange @ 0x1405918B0 (IoFreeDumpRange.c)
- *     IopLiveDumpTraceRemovePagesCallbackFailure @ 0x14059E1EC (IopLiveDumpTraceRemovePagesCallbackFailure.c)
- *     IopLiveDumpTrace @ 0x1405A3070 (IopLiveDumpTrace.c)
- *     IopLiveDumpTraceNoArgs @ 0x1405A33C0 (IopLiveDumpTraceNoArgs.c)
- *     KeValidateBugCheckCallbackRecord @ 0x1405B2970 (KeValidateBugCheckCallbackRecord.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     MmIsAddressValidEx @ 0x140244560 (MmIsAddressValidEx.c)
+ *     IopLiveDumpIsTracingEnabled @ 0x1404F8284 (IopLiveDumpIsTracingEnabled.c)
+ *     RtlStringCbLengthA @ 0x14055DA44 (RtlStringCbLengthA.c)
+ *     IoFreeDumpRange @ 0x14058E8D0 (IoFreeDumpRange.c)
+ *     IopLiveDumpTraceRemovePagesCallbackFailure @ 0x14059B16C (IopLiveDumpTraceRemovePagesCallbackFailure.c)
+ *     IopLiveDumpTrace @ 0x14059FFB0 (IopLiveDumpTrace.c)
+ *     IopLiveDumpTraceNoArgs @ 0x1405A0300 (IopLiveDumpTraceNoArgs.c)
+ *     KeValidateBugCheckCallbackRecord @ 0x1405AF8E0 (KeValidateBugCheckCallbackRecord.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 *__fastcall IopLiveDumpCallRemovePagesCallbacks(_DWORD *a1)
@@ -33,7 +33,7 @@ __int64 *__fastcall IopLiveDumpCallRemovePagesCallbacks(_DWORD *a1)
   size_t pcbLength; // [rsp+38h] [rbp-D0h] BYREF
   const CHAR *v15; // [rsp+40h] [rbp-C8h]
   _DWORD *v16; // [rsp+48h] [rbp-C0h]
-  __int128 v17; // [rsp+50h] [rbp-B8h] BYREF
+  __int128 v17; // [rsp+50h] [rbp-B8h]
   __int128 v18; // [rsp+60h] [rbp-A8h]
   _QWORD v19[2]; // [rsp+70h] [rbp-98h] BYREF
   __int64 v20; // [rsp+80h] [rbp-88h]
@@ -101,7 +101,7 @@ __int64 *__fastcall IopLiveDumpCallRemovePagesCallbacks(_DWORD *a1)
         v18 = 0uLL;
         DWORD2(v17) = 0;
         v8 = 0;
-        guard_dispatch_icall_no_overrides(6LL, v20, &v17, 32LL);
+        guard_dispatch_icall_no_overrides(6LL, v20);
         if ( *((_QWORD *)&v18 + 1) )
         {
           v9 = DWORD2(v17);

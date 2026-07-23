@@ -1,5 +1,5 @@
 /*
- * XREFs of VfSetVerifierRunningMode @ 0x14070FE60
+ * XREFs of VfSetVerifierRunningMode @ 0x14070FE90
  * Callers:
  *     VfSetVerifierInformationEx @ 0x140721158 (VfSetVerifierInformationEx.c)
  *     ViInitSystemPhase0 @ 0x1407B9E64 (ViInitSystemPhase0.c)
@@ -15,6 +15,6 @@ __int64 __fastcall VfSetVerifierRunningMode(int a1)
     return 3221225485LL;
   VfVerifyMode = a1;
   result = 0LL;
-  dword_14030727C = a1;
+  dword_1403072BC = a1;
   return result;
 }

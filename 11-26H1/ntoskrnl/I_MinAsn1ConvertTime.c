@@ -1,16 +1,16 @@
 /*
- * XREFs of I_MinAsn1ConvertTime @ 0x1408A3EFC
+ * XREFs of I_MinAsn1ConvertTime @ 0x1408AA30C
  * Callers:
- *     MinAsn1DecodeGeneralizedTime @ 0x1408A42CC (MinAsn1DecodeGeneralizedTime.c)
- *     MinAsn1DecodeUtcTime @ 0x1408A4588 (MinAsn1DecodeUtcTime.c)
+ *     MinAsn1DecodeGeneralizedTime @ 0x1408AA6DC (MinAsn1DecodeGeneralizedTime.c)
+ *     MinAsn1DecodeUtcTime @ 0x1408AA998 (MinAsn1DecodeUtcTime.c)
  * Callees:
- *     RtlTimeFieldsToTime @ 0x1404522E0 (RtlTimeFieldsToTime.c)
- *     I_MinAsn1AdjustFileTime @ 0x1408A3D14 (I_MinAsn1AdjustFileTime.c)
+ *     RtlTimeFieldsToTime @ 0x14044A410 (RtlTimeFieldsToTime.c)
+ *     I_MinAsn1AdjustFileTime @ 0x1408AA124 (I_MinAsn1AdjustFileTime.c)
  */
 
 bool __fastcall I_MinAsn1ConvertTime(__int16 *a1, __int16 a2, char a3, LARGE_INTEGER *a4)
 {
-  TIME_FIELDS TimeFields; // [rsp+20h] [rbp-18h] BYREF
+  _TIME_FIELDS TimeFields; // [rsp+20h] [rbp-18h] BYREF
 
   TimeFields.Weekday = 0;
   TimeFields.Year = *a1;

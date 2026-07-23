@@ -9,27 +9,30 @@
  *     RtlpInvalidatePathCache @ 0x1800789C0 (RtlpInvalidatePathCache.c)
  */
 
-__int64 __fastcall LdrRemoveDllDirectory(__int64 a1)
+NTSTATUS __cdecl LdrRemoveDllDirectory(DLL_DIRECTORY_COOKIE Cookie)
 {
-  __int64 v2; // rdx
-  _QWORD *v3; // rax
-  __int64 v4; // rdi
+  _QWORD *v2; // rdx
+  DLL_DIRECTORY_COOKIE *v3; // rax
+  void *v4; // rdi
 
   if ( (LdrpPolicyBits & 4) == 0 )
-    return 3221225485LL;
+    return -1073741811;
   RtlAcquireSRWLockExclusive(&LdrpDllDirectoryLock);
-  v2 = *(_QWORD *)a1;
-  if ( *(_QWORD *)(*(_QWORD *)a1 + 8LL) != a1 || (v3 = *(_QWORD **)(a1 + 8), *v3 != a1) )
+  v2 = *(_QWORD **)Cookie;
+  if ( *(DLL_DIRECTORY_COOKIE *)(*(_QWORD *)Cookie + 8LL) != Cookie
+    || (v3 = (DLL_DIRECTORY_COOKIE *)*((_QWORD *)Cookie + 1), *v3 != Cookie) )
+  {
     __fastfail(3u);
+  }
   *v3 = v2;
-  *(_QWORD *)(v2 + 8) = v3;
-  word_18017E218 += -2 - *(_WORD *)(a1 + 16);
+  v2[1] = v3;
+  word_18017E218 += -2 - *((_WORD *)Cookie + 8);
   RtlReleaseSRWLockExclusive(&LdrpDllDirectoryLock);
   RtlAcquireSRWLockExclusive(&RtlpCachedPathLock);
-  v4 = RtlpInvalidatePathCache(&RtlpDllSearchPathWithOptions);
+  v4 = (void *)RtlpInvalidatePathCache(&RtlpDllSearchPathWithOptions);
   RtlReleaseSRWLockExclusive(&RtlpCachedPathLock);
   if ( v4 )
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v4);
-  RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, a1);
-  return 0LL;
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v4);
+  RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Cookie);
+  return 0;
 }

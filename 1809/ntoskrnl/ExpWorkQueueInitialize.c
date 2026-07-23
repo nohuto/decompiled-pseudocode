@@ -1,11 +1,11 @@
 /*
- * XREFs of ExpWorkQueueInitialize @ 0x140754D60
+ * XREFs of ExpWorkQueueInitialize @ 0x140755F50
  * Callers:
- *     ExpPartitionCreatePoolInternal @ 0x140754C64 (ExpPartitionCreatePoolInternal.c)
+ *     ExpPartitionCreatePoolInternal @ 0x140755E54 (ExpPartitionCreatePoolInternal.c)
  * Callees:
- *     KeQueryNodeActiveAffinity @ 0x1400E3C40 (KeQueryNodeActiveAffinity.c)
- *     KeInitializePriQueue @ 0x14018D0B4 (KeInitializePriQueue.c)
- *     memset @ 0x1401D1880 (memset.c)
+ *     KeQueryNodeActiveAffinity @ 0x1400E3CC0 (KeQueryNodeActiveAffinity.c)
+ *     KeInitializePriQueue @ 0x14018D1F4 (KeInitializePriQueue.c)
+ *     memset @ 0x1401D1980 (memset.c)
  */
 
 __int64 __fastcall ExpWorkQueueInitialize(__int64 a1, int a2, int a3, __int64 a4, __int64 a5, unsigned int a6)

@@ -1,11 +1,11 @@
 /*
- * XREFs of KeSrcuSynchronize @ 0x14073C950
+ * XREFs of KeSrcuSynchronize @ 0x14073A880
  * Callers:
  *     <none>
  * Callees:
- *     KeWaitForGate @ 0x140415DEC (KeWaitForGate.c)
- *     KeInitializeGate @ 0x1404892A8 (KeInitializeGate.c)
- *     KiSrcuStartGracePeriod @ 0x1405C1A2C (KiSrcuStartGracePeriod.c)
+ *     KeWaitForGate @ 0x140271C4C (KeWaitForGate.c)
+ *     KeInitializeGate @ 0x1404842C4 (KeInitializeGate.c)
+ *     KiSrcuStartGracePeriod @ 0x1405BEFFC (KiSrcuStartGracePeriod.c)
  */
 
 __int64 __fastcall KeSrcuSynchronize(KSPIN_LOCK *a1)
@@ -15,5 +15,5 @@ __int64 __fastcall KeSrcuSynchronize(KSPIN_LOCK *a1)
   memset(v3, 0, sizeof(v3));
   KeInitializeGate((__int64)&v3[1] + 8, 0);
   KiSrcuStartGracePeriod(a1, (KSPIN_LOCK *)v3);
-  return KeWaitForGate((__int64)&v3[1] + 8, 42LL, 0);
+  return KeWaitForGate((__int64)&v3[1] + 8, 42LL);
 }

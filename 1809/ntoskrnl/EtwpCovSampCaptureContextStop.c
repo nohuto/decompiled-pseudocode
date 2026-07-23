@@ -1,19 +1,19 @@
 /*
- * XREFs of EtwpCovSampCaptureContextStop @ 0x1403167B0
+ * XREFs of EtwpCovSampCaptureContextStop @ 0x1403169A0
  * Callers:
- *     EtwpCoverageSamplerStop @ 0x1408C8E30 (EtwpCoverageSamplerStop.c)
+ *     EtwpCoverageSamplerStop @ 0x1408CA0F0 (EtwpCoverageSamplerStop.c)
  * Callees:
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     KeResetEvent @ 0x1400B8AA0 (KeResetEvent.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     EtwpCovSampCaptureCancelApcs @ 0x140316544 (EtwpCovSampCaptureCancelApcs.c)
- *     EtwpCovSampCaptureCleanupLookasides @ 0x140316698 (EtwpCovSampCaptureCleanupLookasides.c)
- *     EtwpCovSampCaptureFlushSampleBuffers @ 0x140316950 (EtwpCovSampCaptureFlushSampleBuffers.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     EtwpCovSampCaptureFreeLookasides @ 0x1408C4344 (EtwpCovSampCaptureFreeLookasides.c)
+ *     KxReleaseSpinLock @ 0x1400630D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14008CE80 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     KeResetEvent @ 0x1400B89E0 (KeResetEvent.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     EtwpCovSampCaptureCancelApcs @ 0x140316734 (EtwpCovSampCaptureCancelApcs.c)
+ *     EtwpCovSampCaptureCleanupLookasides @ 0x140316888 (EtwpCovSampCaptureCleanupLookasides.c)
+ *     EtwpCovSampCaptureFlushSampleBuffers @ 0x140316B40 (EtwpCovSampCaptureFlushSampleBuffers.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     EtwpCovSampCaptureFreeLookasides @ 0x1408C5604 (EtwpCovSampCaptureFreeLookasides.c)
  */
 
 _QWORD *__fastcall EtwpCovSampCaptureContextStop(__int64 a1)

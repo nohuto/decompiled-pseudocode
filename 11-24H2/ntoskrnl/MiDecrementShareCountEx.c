@@ -1,165 +1,169 @@
 /*
- * XREFs of MiDecrementShareCountEx @ 0x140220590
+ * XREFs of MiDecrementShareCountEx @ 0x14024D2E0
  * Callers:
- *     MiCompletePrivateZeroFault @ 0x14021D340 (MiCompletePrivateZeroFault.c)
- *     MiDeleteTransitionPte @ 0x14023D260 (MiDeleteTransitionPte.c)
- *     MiMakeSystemCacheRangeValid @ 0x140243570 (MiMakeSystemCacheRangeValid.c)
- *     MiRestoreTransitionPte @ 0x140271094 (MiRestoreTransitionPte.c)
- *     MiCopyOnWrite @ 0x1402E47DC (MiCopyOnWrite.c)
- *     MiMakePageAvoidRead @ 0x1402EF168 (MiMakePageAvoidRead.c)
- *     MiAddPageToInsertList @ 0x1402F2180 (MiAddPageToInsertList.c)
- *     MiCombineWithExisting @ 0x1402F92E0 (MiCombineWithExisting.c)
- *     MiFreeDeferredCrcPages @ 0x1402FA444 (MiFreeDeferredCrcPages.c)
- *     MiDuplicateCloneLeaf @ 0x140396854 (MiDuplicateCloneLeaf.c)
- *     MmFreeIndependentPages @ 0x14039EC60 (MmFreeIndependentPages.c)
- *     MiLockAndDecrementShareCount @ 0x14039EFA4 (MiLockAndDecrementShareCount.c)
- *     MiOutPageSingleKernelStack @ 0x14039F510 (MiOutPageSingleKernelStack.c)
- *     MiFreeContiguousPages @ 0x1403A95E8 (MiFreeContiguousPages.c)
- *     MiZeroCfgSystemWideBitmapWorker @ 0x1403E4774 (MiZeroCfgSystemWideBitmapWorker.c)
- *     MmOutSwapProcess @ 0x14042D50C (MmOutSwapProcess.c)
- *     MiFreeUnmappedPageTables @ 0x14045A680 (MiFreeUnmappedPageTables.c)
- *     MiDeleteTopLevelPage @ 0x14045BEF4 (MiDeleteTopLevelPage.c)
- *     MiRewriteTrimPteAsDemandZero @ 0x14046511C (MiRewriteTrimPteAsDemandZero.c)
- *     MiTrimSystemImagePages @ 0x1404A7A78 (MiTrimSystemImagePages.c)
- *     MiFinishLastForkPageTable @ 0x1404A903C (MiFinishLastForkPageTable.c)
- *     MiDecrementLargeSubsections @ 0x1404C8E10 (MiDecrementLargeSubsections.c)
- *     MiClearDriverTablePtes @ 0x1404F2870 (MiClearDriverTablePtes.c)
- *     MiDecrementProtoShareCounts @ 0x14067A6F4 (MiDecrementProtoShareCounts.c)
- *     MmInitializeImageViewExtensionCfg @ 0x140C5428C (MmInitializeImageViewExtensionCfg.c)
- *     MiTradeBootImagePage @ 0x140C5BB90 (MiTradeBootImagePage.c)
- *     MiInsertRegistryPageInModifiedList @ 0x140C65450 (MiInsertRegistryPageInModifiedList.c)
+ *     MiRewriteTrimPteAsDemandZero @ 0x140200A7C (MiRewriteTrimPteAsDemandZero.c)
+ *     MiDeleteTransitionPte @ 0x140204FF0 (MiDeleteTransitionPte.c)
+ *     MiMakeSystemCacheRangeValid @ 0x14020BFD0 (MiMakeSystemCacheRangeValid.c)
+ *     MiOutPageSingleKernelStack @ 0x140215F40 (MiOutPageSingleKernelStack.c)
+ *     MmFreeIndependentPages @ 0x14021D100 (MmFreeIndependentPages.c)
+ *     MiLockAndDecrementShareCount @ 0x14021D444 (MiLockAndDecrementShareCount.c)
+ *     MiRestoreTransitionPte @ 0x140226624 (MiRestoreTransitionPte.c)
+ *     MiCompletePrivateZeroFault @ 0x14024A090 (MiCompletePrivateZeroFault.c)
+ *     MiMakePageAvoidRead @ 0x140253334 (MiMakePageAvoidRead.c)
+ *     MiAddPageToInsertList @ 0x140257CC0 (MiAddPageToInsertList.c)
+ *     MiCombineWithExisting @ 0x140294840 (MiCombineWithExisting.c)
+ *     MmOutSwapProcess @ 0x1402DDEEC (MmOutSwapProcess.c)
+ *     MiFreeDeferredCrcPages @ 0x140345FC8 (MiFreeDeferredCrcPages.c)
+ *     MiCopyOnWrite @ 0x140346A74 (MiCopyOnWrite.c)
+ *     MiDuplicateCloneLeaf @ 0x14038FAFC (MiDuplicateCloneLeaf.c)
+ *     MiFreeContiguousPages @ 0x140398278 (MiFreeContiguousPages.c)
+ *     MiZeroCfgSystemWideBitmapWorker @ 0x1403D2314 (MiZeroCfgSystemWideBitmapWorker.c)
+ *     MiFreeUnmappedPageTables @ 0x14044FAD0 (MiFreeUnmappedPageTables.c)
+ *     MiDeleteTopLevelPage @ 0x14045128C (MiDeleteTopLevelPage.c)
+ *     MiTrimSystemImagePages @ 0x1404A24CC (MiTrimSystemImagePages.c)
+ *     MiFinishLastForkPageTable @ 0x1404A345C (MiFinishLastForkPageTable.c)
+ *     MiDecrementLargeSubsections @ 0x1404C22C0 (MiDecrementLargeSubsections.c)
+ *     MiClearDriverTablePtes @ 0x1404F0310 (MiClearDriverTablePtes.c)
+ *     MiDecrementProtoShareCounts @ 0x14067B8D4 (MiDecrementProtoShareCounts.c)
+ *     MmInitializeImageViewExtensionCfg @ 0x140C5641C (MmInitializeImageViewExtensionCfg.c)
+ *     MiTradeBootImagePage @ 0x140C5DD20 (MiTradeBootImagePage.c)
+ *     MiInsertRegistryPageInModifiedList @ 0x140C675CC (MiInsertRegistryPageInModifiedList.c)
  * Callees:
- *     MiGetPfnPriority @ 0x1402141E0 (MiGetPfnPriority.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x14021A250 (MI_READ_PTE_LOCK_FREE.c)
- *     MiReleasePageFileInfo @ 0x14021B9A0 (MiReleasePageFileInfo.c)
- *     MiMapPageInHyperSpaceWorker @ 0x14021F1A0 (MiMapPageInHyperSpaceWorker.c)
- *     MiInsertPageInFreeOrZeroedList @ 0x140222210 (MiInsertPageInFreeOrZeroedList.c)
- *     MiInsertPageInList @ 0x14022CB10 (MiInsertPageInList.c)
- *     MiBadShareCount @ 0x14023EE28 (MiBadShareCount.c)
- *     MiGetPagingFileOffset @ 0x1402E5A60 (MiGetPagingFileOffset.c)
- *     MiInsertProtectedStandbyPage @ 0x1402F09B0 (MiInsertProtectedStandbyPage.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     MiBadShareCount @ 0x140206F78 (MiBadShareCount.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140246FA0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiReleasePageFileInfo @ 0x1402486F0 (MiReleasePageFileInfo.c)
+ *     MiMapPageInHyperSpaceWorker @ 0x14024BEF0 (MiMapPageInHyperSpaceWorker.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x14024EF60 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiInsertProtectedStandbyPage @ 0x1402567C0 (MiInsertProtectedStandbyPage.c)
+ *     MiInsertPageInList @ 0x140300420 (MiInsertPageInList.c)
+ *     MiGetPfnPriority @ 0x140335630 (MiGetPfnPriority.c)
+ *     MiGetPagingFileOffset @ 0x140341C00 (MiGetPagingFileOffset.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
-__int64 __fastcall MiDecrementShareCountEx(unsigned __int64 a1, __int64 a2)
+__int64 __fastcall MiDecrementShareCountEx(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  __int64 v4; // rax
-  __int64 v6; // r14
-  __int64 v7; // rsi
-  unsigned __int64 v8; // r8
-  __int64 *v9; // r10
-  __int64 v10; // r9
-  __int64 v11; // rax
-  unsigned int v12; // edi
-  __int64 v14; // rax
-  __int64 v15; // rcx
-  char v16; // al
-  int v17; // [rsp+80h] [rbp+8h]
-  unsigned __int64 v18; // [rsp+90h] [rbp+18h]
+  __int64 v6; // rax
+  __int64 v8; // r14
+  __int64 v9; // rsi
+  unsigned __int64 v10; // r8
+  __int64 *v11; // r10
+  __int64 v12; // r9
+  __int64 v13; // rax
+  unsigned int v14; // edi
+  __int64 v16; // rax
+  __int64 v17; // rcx
+  __int64 v18; // rdx
+  char v19; // al
+  int v20; // [rsp+80h] [rbp+8h]
+  unsigned __int64 v21; // [rsp+90h] [rbp+18h]
 
   if ( (*(_BYTE *)(a1 + 34) & 7) != 6 )
     MiBadShareCount(a1);
-  v4 = *(_QWORD *)(a1 + 24);
-  *(_QWORD *)(a1 + 24) = ((v4 & 0x3FFFFFFFFFFFFFFFLL) - 1) ^ (v4 ^ ((v4 & 0x3FFFFFFFFFFFFFFFLL) - 1)) & 0xC000000000000000uLL;
-  if ( (v4 & 0x3FFFFFFFFFFFFFFFLL) == 1 )
+  v6 = *(_QWORD *)(a1 + 24);
+  *(_QWORD *)(a1 + 24) = ((v6 & 0x3FFFFFFFFFFFFFFFLL) - 1) ^ (v6 ^ ((v6 & 0x3FFFFFFFFFFFFFFFLL) - 1)) & 0xC000000000000000uLL;
+  if ( (v6 & 0x3FFFFFFFFFFFFFFFLL) == 1 )
   {
-    v17 = *(_DWORD *)(a1 + 32);
+    v20 = *(_DWORD *)(a1 + 32);
     if ( *(__int64 *)(a1 + 40) < 0 )
     {
-      v6 = *(_QWORD *)(a1 + 16) >> 5;
-      v7 = ((unsigned int)*(_QWORD *)(a1 + 8) >> 3) & 0x1FF;
-      v8 = MiMapPageInHyperSpaceWorker(*(_QWORD *)(a1 + 40) & 0xFFFFFFFFFFLL, 0LL, 0x80000000LL);
-      v9 = (__int64 *)(v8 + 8 * v7);
-      v10 = ((unsigned __int64)*v9 >> 12) & 0xFFFFFFFFFFLL;
-      if ( 48 * v10 - 0x220000000000LL != a1 )
+      v8 = *(_QWORD *)(a1 + 16) >> 5;
+      v9 = ((unsigned int)*(_QWORD *)(a1 + 8) >> 3) & 0x1FF;
+      v10 = MiMapPageInHyperSpaceWorker(*(_QWORD *)(a1 + 40) & 0xFFFFFFFFFFLL, 0LL, 0x80000000);
+      v11 = (__int64 *)(v10 + 8 * v9);
+      v12 = ((unsigned __int64)*v11 >> 12) & 0xFFFFFFFFFFLL;
+      if ( 48 * v12 - 0x220000000000LL != a1 )
         KeBugCheckEx(
           0x4Eu,
           6uLL,
-          0xAAAAAAAAAAAAAAABuLL * ((__int64)(a1 + 0x220000000000LL) >> 4),
-          (ULONG_PTR)v9,
-          *(_QWORD *)(v8 + 8 * v7));
-      v11 = 32 * ((v10 << 7) | v6 & 0x1F | 0x40);
-      if ( qword_140E2DB80 )
+          0xAAAAAAAAAAAAAAABuLL * ((a1 + 0x220000000000LL) >> 4),
+          (ULONG_PTR)v11,
+          *(_QWORD *)(v10 + 8 * v9));
+      a4 = v12 << 7;
+      v13 = 32 * (a4 | v8 & 0x1F | 0x40);
+      if ( qword_140E2DCC0 )
       {
-        if ( (v11 & qword_140E2DB80) != 0 )
-          v11 |= 0x10uLL;
+        if ( (v13 & qword_140E2DCC0) != 0 )
+          v13 |= 0x10uLL;
         else
-          v11 |= qword_140E2DB80;
+          v13 |= qword_140E2DCC0;
       }
-      *v9 = v11;
+      *v11 = v13;
       *(_QWORD *)KeGetCurrentPrcb()->MmInternal = 0LL;
-      *(_QWORD *)(((v8 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL) = CLFS_LSN_NULL_EXT;
+      *(_QWORD *)(((v10 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL) = CLFS_LSN_NULL_EXT;
     }
-    LOWORD(v17) = v17 - 1;
-    if ( (_WORD)v17 )
+    LOWORD(v20) = v20 - 1;
+    if ( (_WORD)v20 )
     {
       if ( (*(_QWORD *)(a1 + 24) & 0x4000000000000000LL) != 0 )
       {
-        BYTE2(v17) |= 7u;
+        BYTE2(v20) |= 7u;
       }
       else
       {
-        if ( (v17 & 0x100000) != 0 )
+        if ( (v20 & 0x100000) != 0 )
         {
-          v16 = BYTE2(v17) & 0xF8 | 3;
+          v19 = BYTE2(v20) & 0xF8 | 3;
         }
-        else if ( (v17 & 0x80000) != 0 )
+        else if ( (v20 & 0x80000) != 0 )
         {
-          v16 = BYTE2(v17) & 0xF8 | 3;
+          v19 = BYTE2(v20) & 0xF8 | 3;
         }
         else
         {
-          v16 = BYTE2(v17) & 0xF8 | 2;
+          v19 = BYTE2(v20) & 0xF8 | 2;
         }
-        BYTE2(v17) = v16;
+        BYTE2(v20) = v19;
       }
-      *(_DWORD *)(a1 + 32) = v17;
+      *(_DWORD *)(a1 + 32) = v20;
       if ( (*(_DWORD *)(a1 + 16) & 0x400LL) == 0 && (unsigned int)MiGetPagingFileOffset(*(_QWORD *)(a1 + 16)) )
-        *(_BYTE *)(*((_QWORD *)qword_140E2FF88 + ((*(_QWORD *)(a1 + 40) >> 43) & 0x3FFLL)) + 723LL) = 1;
+        *(_BYTE *)(*((_QWORD *)qword_140E300C8 + ((*(_QWORD *)(a1 + 40) >> 43) & 0x3FFLL)) + 723LL) = 1;
       return 3;
     }
     else if ( (*(_QWORD *)(a1 + 24) & 0x4000000000000000LL) != 0 )
     {
-      if ( (v17 & 0x10000000) != 0 )
-        HIBYTE(v17) &= ~0x10u;
-      *(_DWORD *)(a1 + 32) = v17;
-      v18 = *(_QWORD *)(a1 + 16);
-      if ( (v18 & 0x400) == 0 && ((v18 & 4) != 0 || (v18 & 2) != 0) )
+      if ( (v20 & 0x10000000) != 0 )
+        HIBYTE(v20) &= ~0x10u;
+      *(_DWORD *)(a1 + 32) = v20;
+      v21 = *(_QWORD *)(a1 + 16);
+      if ( (v21 & 0x400) == 0 && ((v21 & 4) != 0 || (v21 & 2) != 0) )
       {
-        if ( v18 )
-          MiReleasePageFileInfo(*((_QWORD *)qword_140E2FF88 + ((*(_QWORD *)(a1 + 40) >> 43) & 0x3FFLL)), v18, 1LL);
+        if ( v21 )
+          MiReleasePageFileInfo(*((_QWORD *)qword_140E300C8 + ((*(_QWORD *)(a1 + 40) >> 43) & 0x3FFLL)), v21, 1LL, a4);
       }
-      MiInsertPageInFreeOrZeroedList(0xAAAAAAAAAAAAAAABuLL * ((__int64)(a1 + 0x220000000000LL) >> 4));
+      MiInsertPageInFreeOrZeroedList(0xAAAAAAAAAAAAAAABuLL * ((a1 + 0x220000000000LL) >> 4));
       return 4;
     }
     else
     {
-      v14 = MI_READ_PTE_LOCK_FREE(a1 + 16);
-      v15 = -9LL;
-      v12 = 4;
-      if ( (v14 & 0x400) != 0 )
-        v15 = -2049LL;
-      *(_QWORD *)(a1 + 16) = v14 & v15;
-      if ( (v17 & 0x100000) != 0 )
+      v16 = MI_READ_PTE_LOCK_FREE(a1 + 16);
+      v17 = -9LL;
+      v14 = 4;
+      if ( (v16 & 0x400) != 0 )
+        v17 = -2049LL;
+      *(_QWORD *)(a1 + 16) = v16 & v17;
+      if ( (v20 & 0x100000) != 0 )
       {
-        *(_DWORD *)(a1 + 32) = v17;
+        v18 = 8LL;
+        *(_DWORD *)(a1 + 32) = v20;
       }
       else
       {
-        BYTE2(v17) = BYTE2(v17) & 0xF8 | 2;
-        *(_DWORD *)(a1 + 32) = v17;
+        BYTE2(v20) = BYTE2(v20) & 0xF8 | 2;
+        *(_DWORD *)(a1 + 32) = v20;
         if ( a2 && (unsigned int)MiGetPfnPriority(a1) < 5 )
         {
           MiInsertProtectedStandbyPage(a2, a1);
-          return v12;
+          return v14;
         }
+        v18 = 4LL;
       }
-      MiInsertPageInList(a1);
+      MiInsertPageInList(a1, v18);
     }
   }
   else
   {
     return 2;
   }
-  return v12;
+  return v14;
 }

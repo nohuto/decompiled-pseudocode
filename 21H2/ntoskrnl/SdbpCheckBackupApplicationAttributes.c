@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     SdbpCheckApplicationTypeAttributes @ 0x1403F9710 (SdbpCheckApplicationTypeAttributes.c)
+ *     SdbpCheckApplicationTypeAttributes @ 0x1403F98F0 (SdbpCheckApplicationTypeAttributes.c)
  */
 
 __int64 __fastcall SdbpCheckBackupApplicationAttributes(

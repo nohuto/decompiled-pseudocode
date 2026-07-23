@@ -1,20 +1,20 @@
 /*
- * XREFs of VfInitSystemNoRebootNeeded @ 0x140AC2D18
+ * XREFs of VfInitSystemNoRebootNeeded @ 0x140AC2D08
  * Callers:
- *     VfAddVerifierEntry @ 0x140ADD660 (VfAddVerifierEntry.c)
- *     VfSetVerifierInformation @ 0x140ADD818 (VfSetVerifierInformation.c)
+ *     VfAddVerifierEntry @ 0x140ADD650 (VfAddVerifierEntry.c)
+ *     VfSetVerifierInformation @ 0x140ADD808 (VfSetVerifierInformation.c)
  *     ViInitSystemPhase0 @ 0x140B69A68 (ViInitSystemPhase0.c)
  * Callees:
- *     ExSetPoolFlags @ 0x140607A98 (ExSetPoolFlags.c)
- *     ExDisableAllLookasideLists @ 0x14060B238 (ExDisableAllLookasideLists.c)
- *     MmLockPagableDataSection @ 0x1406AD5B0 (MmLockPagableDataSection.c)
- *     PsSetCreateProcessNotifyRoutine @ 0x140842F20 (PsSetCreateProcessNotifyRoutine.c)
- *     IoVerifierInit @ 0x140AC0CAC (IoVerifierInit.c)
- *     VfInitVerifierComponents @ 0x140AC2E70 (VfInitVerifierComponents.c)
- *     VfPendingInitPhase1 @ 0x140AD1890 (VfPendingInitPhase1.c)
- *     VfFaultsInitPhase0 @ 0x140AD5E48 (VfFaultsInitPhase0.c)
- *     VfPoolInitPhase1 @ 0x140ADA148 (VfPoolInitPhase1.c)
- *     VfSettingsMiscellaneousChecksInitPhase1 @ 0x140ADAEB8 (VfSettingsMiscellaneousChecksInitPhase1.c)
+ *     ExSetPoolFlags @ 0x140607FE8 (ExSetPoolFlags.c)
+ *     ExDisableAllLookasideLists @ 0x14060B788 (ExDisableAllLookasideLists.c)
+ *     MmLockPagableDataSection @ 0x1406AD5E0 (MmLockPagableDataSection.c)
+ *     PsSetCreateProcessNotifyRoutine @ 0x140843220 (PsSetCreateProcessNotifyRoutine.c)
+ *     IoVerifierInit @ 0x140AC0C9C (IoVerifierInit.c)
+ *     VfInitVerifierComponents @ 0x140AC2E60 (VfInitVerifierComponents.c)
+ *     VfPendingInitPhase1 @ 0x140AD1880 (VfPendingInitPhase1.c)
+ *     VfFaultsInitPhase0 @ 0x140AD5E38 (VfFaultsInitPhase0.c)
+ *     VfPoolInitPhase1 @ 0x140ADA138 (VfPoolInitPhase1.c)
+ *     VfSettingsMiscellaneousChecksInitPhase1 @ 0x140ADAEA8 (VfSettingsMiscellaneousChecksInitPhase1.c)
  */
 
 void __fastcall VfInitSystemNoRebootNeeded(__int64 a1, int a2, __int64 a3, __int64 a4)

@@ -1,12 +1,12 @@
 /*
- * XREFs of UcpFindOrCreateTelemetryRecord @ 0x140712BE8
+ * XREFs of UcpFindOrCreateTelemetryRecord @ 0x1407178E0
  * Callers:
- *     UcOnUnexpectedCodePath @ 0x140712950 (UcOnUnexpectedCodePath.c)
+ *     UcOnUnexpectedCodePath @ 0x140717648 (UcOnUnexpectedCodePath.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     UcpCreateTelemetryRecord @ 0x140712B54 (UcpCreateTelemetryRecord.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     UcpCreateTelemetryRecord @ 0x14071784C (UcpCreateTelemetryRecord.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall UcpFindOrCreateTelemetryRecord(__int64 a1)
@@ -55,7 +55,7 @@ __int64 __fastcall UcpFindOrCreateTelemetryRecord(__int64 a1)
     }
     return v3;
   }
-  if ( !HIBYTE(WheapPfaLock.Timer.Processor) && WheapPfaLock.Timer.TimerDifObjTracking == 1 )
+  if ( *(_WORD *)&WheapPfaLock.WaitBlockFill11[81] == 1 )
   {
     if ( (unsigned int)dword_140E0A020 > 4 && tlgKeywordOn((__int64)&dword_140E0A020, 0x400000000000LL) )
     {
@@ -64,13 +64,13 @@ __int64 __fastcall UcpFindOrCreateTelemetryRecord(__int64 a1)
       v12 = 8LL;
       tlgWriteTransfer_EtwWriteTransfer(
         (__int64)&dword_140E0A020,
-        (unsigned __int8 *)&unk_14005A580,
+        (unsigned __int8 *)byte_14005B609,
         0LL,
         0LL,
         3u,
         &v10);
     }
-    HIBYTE(WheapPfaLock.Timer.Processor) = 1;
+    WheapPfaLock.WaitBlockFill6[82] = 1;
   }
   ++UcpTriggeredNodeCount;
   return 0LL;

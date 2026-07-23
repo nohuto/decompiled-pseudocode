@@ -1,9 +1,9 @@
 /*
- * XREFs of PiDqQueryActionQueueEntryCreate @ 0x1407FA2B8
+ * XREFs of PiDqQueryActionQueueEntryCreate @ 0x1407FA588
  * Callers:
- *     PiDqQueryApplyObjectEvent @ 0x140786C94 (PiDqQueryApplyObjectEvent.c)
- *     PiDqQueryEnumObject @ 0x140788234 (PiDqQueryEnumObject.c)
- *     PiDqObjectManagerEnumerateAndRegisterQuery @ 0x1407F9F68 (PiDqObjectManagerEnumerateAndRegisterQuery.c)
+ *     PiDqQueryApplyObjectEvent @ 0x140786E84 (PiDqQueryApplyObjectEvent.c)
+ *     PiDqQueryEnumObject @ 0x140788424 (PiDqQueryEnumObject.c)
+ *     PiDqObjectManagerEnumerateAndRegisterQuery @ 0x1407FA238 (PiDqObjectManagerEnumerateAndRegisterQuery.c)
  * Callees:
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

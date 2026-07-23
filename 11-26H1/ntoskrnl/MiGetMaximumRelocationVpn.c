@@ -1,7 +1,7 @@
 /*
- * XREFs of MiGetMaximumRelocationVpn @ 0x140A7D960
+ * XREFs of MiGetMaximumRelocationVpn @ 0x140A837D0
  * Callers:
- *     MiCreateFileOnlyImageFixupExtents @ 0x140507310 (MiCreateFileOnlyImageFixupExtents.c)
+ *     MiCreateFileOnlyImageFixupExtents @ 0x140500CE0 (MiCreateFileOnlyImageFixupExtents.c)
  * Callees:
  *     <none>
  */

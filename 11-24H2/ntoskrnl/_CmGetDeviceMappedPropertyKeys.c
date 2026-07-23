@@ -1,12 +1,12 @@
 /*
- * XREFs of _CmGetDeviceMappedPropertyKeys @ 0x1409B44A8
+ * XREFs of _CmGetDeviceMappedPropertyKeys @ 0x1409AB838
  * Callers:
- *     _PnpDispatchDevice @ 0x1408CDBB0 (_PnpDispatchDevice.c)
- *     _CmDeleteDeviceWorker @ 0x1409B2CB8 (_CmDeleteDeviceWorker.c)
+ *     _PnpDispatchDevice @ 0x1408CB5A0 (_PnpDispatchDevice.c)
+ *     _CmDeleteDeviceWorker @ 0x1409AA048 (_CmDeleteDeviceWorker.c)
  * Callees:
- *     _CmGetDeviceMappedPropertyFromComposite @ 0x1409B4770 (_CmGetDeviceMappedPropertyFromComposite.c)
- *     _CmGetDeviceMappedPropertyFromRegProp @ 0x1409B5B50 (_CmGetDeviceMappedPropertyFromRegProp.c)
- *     _CmGetDeviceMappedPropertyFromInstanceKeyRegValue @ 0x1409B6034 (_CmGetDeviceMappedPropertyFromInstanceKeyRegValue.c)
+ *     _CmGetDeviceMappedPropertyFromComposite @ 0x1409ABB00 (_CmGetDeviceMappedPropertyFromComposite.c)
+ *     _CmGetDeviceMappedPropertyFromRegProp @ 0x1409ACEE0 (_CmGetDeviceMappedPropertyFromRegProp.c)
+ *     _CmGetDeviceMappedPropertyFromInstanceKeyRegValue @ 0x1409AD3C4 (_CmGetDeviceMappedPropertyFromInstanceKeyRegValue.c)
  */
 
 __int64 __fastcall CmGetDeviceMappedPropertyKeys(
@@ -98,7 +98,7 @@ LABEL_11:
   for ( j = 0; j < 2; ++j )
   {
     v21 = 32LL * j;
-    v22 = *(__int64 *)((char *)&off_140B3B930 + v21);
+    v22 = *(__int64 *)((char *)&off_140B3D6F0 + v21);
     if ( v22 )
     {
       if ( a4
@@ -106,7 +106,7 @@ LABEL_11:
                                                             v11,
                                                             a2,
                                                             a3,
-                                                            (unsigned int)*(DEVPROPKEY **)((char *)&off_140B3B930 + v21),
+                                                            (unsigned int)*(DEVPROPKEY **)((char *)&off_140B3D6F0 + v21),
                                                             (__int64)v33,
                                                             0LL,
                                                             0,
@@ -139,7 +139,7 @@ LABEL_11:
   }
   for ( k = 0; k < 0x1C; ++k )
   {
-    v24 = (__int64)*(&off_140B3DD70 + 2 * k);
+    v24 = (__int64)*(&off_140B3FB70 + 2 * k);
     if ( a4
       || (DeviceMappedPropertyFromComposite = CmGetDeviceMappedPropertyFromComposite(
                                                 v11,

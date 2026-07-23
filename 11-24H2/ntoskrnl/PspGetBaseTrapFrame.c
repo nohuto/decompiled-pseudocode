@@ -1,9 +1,9 @@
 /*
- * XREFs of PspGetBaseTrapFrame @ 0x140434EF0
+ * XREFs of PspGetBaseTrapFrame @ 0x140427E50
  * Callers:
- *     KiRollbackSlistPops @ 0x1404C1F40 (KiRollbackSlistPops.c)
- *     PspFreeUserFiberShadowStack @ 0x1408DB370 (PspFreeUserFiberShadowStack.c)
- *     PspInitializeThunkContext @ 0x1408FE308 (PspInitializeThunkContext.c)
+ *     KiRollbackSlistPops @ 0x1404BD530 (KiRollbackSlistPops.c)
+ *     PspFreeUserFiberShadowStack @ 0x1408D959C (PspFreeUserFiberShadowStack.c)
+ *     PspInitializeThunkContext @ 0x140920BE8 (PspInitializeThunkContext.c)
  * Callees:
  *     <none>
  */

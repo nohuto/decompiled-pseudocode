@@ -1,15 +1,15 @@
 /*
- * XREFs of SdbpGetProcessHistory @ 0x140A51E28
+ * XREFs of SdbpGetProcessHistory @ 0x140A520D8
  * Callers:
- *     SdbpInitializeSearchDBContext @ 0x140A513C0 (SdbpInitializeSearchDBContext.c)
+ *     SdbpInitializeSearchDBContext @ 0x140A51670 (SdbpInitializeSearchDBContext.c)
  * Callees:
- *     NLS_UPCASE @ 0x14022D310 (NLS_UPCASE.c)
- *     PsGetCurrentServerSiloGlobals @ 0x14022D370 (PsGetCurrentServerSiloGlobals.c)
- *     _wcsnicmp @ 0x1403D9B90 (_wcsnicmp.c)
- *     memmove @ 0x140435700 (memmove.c)
+ *     NLS_UPCASE @ 0x14022D420 (NLS_UPCASE.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x14022D480 (PsGetCurrentServerSiloGlobals.c)
+ *     _wcsnicmp @ 0x1403D9D70 (_wcsnicmp.c)
+ *     memmove @ 0x140435B00 (memmove.c)
  *     AslLogCallPrintf @ 0x1406956FC (AslLogCallPrintf.c)
  *     RtlGetNtSystemRoot @ 0x140695E40 (RtlGetNtSystemRoot.c)
- *     AslAlloc @ 0x140758498 (AslAlloc.c)
+ *     AslAlloc @ 0x140758688 (AslAlloc.c)
  */
 
 _WORD *__fastcall SdbpGetProcessHistory(char *a1, _WORD *a2, _WORD *a3)
@@ -20,7 +20,7 @@ _WORD *__fastcall SdbpGetProcessHistory(char *a1, _WORD *a2, _WORD *a3)
   __int64 v6; // r13
   char *v7; // rdi
   __int64 v8; // rcx
-  __int64 NtSystemRoot; // rax
+  PWSTR NtSystemRoot; // rax
   __int64 v10; // rcx
   char *v11; // r11
   const wchar_t *v12; // r10
@@ -39,7 +39,7 @@ _WORD *__fastcall SdbpGetProcessHistory(char *a1, _WORD *a2, _WORD *a3)
   _WORD *v25; // r14
   _WORD *result; // rax
   size_t v27; // r15
-  _WORD *v28; // rax
+  PWSTR v28; // rax
   __int64 v29; // rbx
   char *v30; // r11
   const wchar_t *v31; // r10
@@ -136,7 +136,7 @@ LABEL_18:
     v10 = -1LL;
     do
       ++v10;
-    while ( *(_WORD *)(NtSystemRoot + 2 * v10) );
+    while ( NtSystemRoot[v10] );
     v8 = v10 + 1;
 LABEL_34:
     v21 = -1073741789;
@@ -156,7 +156,7 @@ LABEL_34:
   v27 = v23 >> 1;
   if ( !wcsnicmp(L"__PROCESS_HISTORY", L"systemroot", 0xAuLL) )
   {
-    v28 = (_WORD *)RtlGetNtSystemRoot();
+    v28 = RtlGetNtSystemRoot();
     do
       ++v3;
     while ( v28[v3] );

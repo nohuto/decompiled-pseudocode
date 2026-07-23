@@ -11,7 +11,7 @@ void __fastcall sub_18008CAF0(unsigned __int64 a1)
   __int64 v1; // rdx
   unsigned __int64 v2; // rax
 
-  v1 = *(_QWORD *)(qword_18017A380 + 8 * (a1 >> 9));
+  v1 = *(_QWORD *)(LdrSystemDllInitBlock.MitigationOptionsMap.Map[2] + 8 * (a1 >> 9));
   v2 = a1 >> 3;
   if ( (a1 & 0xF) != 0 )
   {

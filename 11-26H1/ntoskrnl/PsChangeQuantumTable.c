@@ -1,14 +1,14 @@
 /*
- * XREFs of PsChangeQuantumTable @ 0x140966954
+ * XREFs of PsChangeQuantumTable @ 0x140AB8200
  * Callers:
- *     NtSetSystemInformation @ 0x140833840 (NtSetSystemInformation.c)
- *     PspInitPhase0 @ 0x140D06FAC (PspInitPhase0.c)
+ *     NtSetSystemInformation @ 0x140839A80 (NtSetSystemInformation.c)
+ *     PspInitPhase0 @ 0x140D0D27C (PspInitPhase0.c)
  * Callees:
  *     KeSetQuantumProcess @ 0x1402028D4 (KeSetQuantumProcess.c)
- *     PspUnlockProcessListShared @ 0x14027D690 (PspUnlockProcessListShared.c)
- *     PspLockProcessListShared @ 0x14043D700 (PspLockProcessListShared.c)
- *     MmIsThisAnNtAsSystem @ 0x1404E6E00 (MmIsThisAnNtAsSystem.c)
- *     PspComputeQuantum @ 0x140966B6C (PspComputeQuantum.c)
+ *     PspUnlockProcessListShared @ 0x14027CC00 (PspUnlockProcessListShared.c)
+ *     PspLockProcessListShared @ 0x14042FFB0 (PspLockProcessListShared.c)
+ *     MmIsThisAnNtAsSystem @ 0x1404E02A0 (MmIsThisAnNtAsSystem.c)
+ *     PspComputeQuantum @ 0x140AB8418 (PspComputeQuantum.c)
  */
 
 void __fastcall PsChangeQuantumTable(char a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
@@ -71,14 +71,14 @@ LABEL_26:
 LABEL_11:
   PspForegroundQuantum = *(_WORD *)v4;
   v10 = *((_BYTE *)v4 + 2);
-  PspUseJobSchedulingClasses = v4 == (int *)byte_140BD8C7B;
-  byte_140FD6AEE = v10;
+  PspUseJobSchedulingClasses = v4 == (int *)byte_140BDFB0B;
+  byte_140FD7AEE = v10;
   if ( a1 )
   {
     CurrentThread = KeGetCurrentThread();
     PspLockProcessListShared((__int64)CurrentThread, a2, a3, a4);
-    for ( i = PsAltSystemCallRegistrationLock.WaitBlock[0].Thread;
-          i != (struct _KTHREAD *)&PsAltSystemCallRegistrationLock.WaitBlockFill11[24];
+    for ( i = (struct _KTHREAD *)PsAltSystemCallRegistrationLock.WaitBlock[2].WaitListEntry.Flink;
+          i != (struct _KTHREAD *)&PsAltSystemCallRegistrationLock.WaitBlockFill11[96];
           i = *(struct _KTHREAD **)&i->Header.Lock )
     {
       LOBYTE(v12) = i->SuspendEvent.Header.Size;

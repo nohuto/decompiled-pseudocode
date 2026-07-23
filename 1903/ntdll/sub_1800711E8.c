@@ -22,8 +22,8 @@
 __int64 __fastcall sub_1800711E8(__int64 a1, unsigned int *a2, unsigned int a3, __int64 a4, _DWORD *a5)
 {
   __int64 v5; // r14
-  int v8; // ebx
-  __int64 v9; // r13
+  NTSTATUS v8; // ebx
+  PWCH Buffer; // r13
   __int64 v10; // rdx
   char *v11; // r9
   char *v12; // rcx
@@ -32,7 +32,7 @@ __int64 __fastcall sub_1800711E8(__int64 a1, unsigned int *a2, unsigned int a3, 
   int v15; // ecx
   unsigned __int64 v16; // rsi
   __int64 v17; // rdi
-  __int64 v18; // rax
+  unsigned int *v18; // rax
   int v19; // ecx
   int v20; // eax
   int v21; // eax
@@ -40,21 +40,21 @@ __int64 __fastcall sub_1800711E8(__int64 a1, unsigned int *a2, unsigned int a3, 
   wchar_t *v24; // rax
   unsigned __int16 v25; // bx
   void **v26; // rcx
-  __int64 v27; // rax
+  HANDLE ContainingDirectory; // rax
   int v28; // eax
   int v29; // eax
   int v30; // eax
-  __int64 v31; // [rsp+20h] [rbp-E0h]
-  __int64 v32; // [rsp+28h] [rbp-D8h]
+  ULONG ShareAccess[2]; // [rsp+20h] [rbp-E0h]
+  ULONG OpenOptions[2]; // [rsp+28h] [rbp-D8h]
   char v33; // [rsp+40h] [rbp-C0h]
   int *v34; // [rsp+48h] [rbp-B8h] BYREF
-  __int64 v35; // [rsp+50h] [rbp-B0h] BYREF
+  HANDLE FileHandle; // [rsp+50h] [rbp-B0h] BYREF
   int v36; // [rsp+58h] [rbp-A8h] BYREF
-  __int64 v37; // [rsp+60h] [rbp-A0h]
-  __int64 v38; // [rsp+68h] [rbp-98h]
-  __int64 v39; // [rsp+70h] [rbp-90h] BYREF
+  POBJECT_BOUNDARY_DESCRIPTOR BoundaryDescriptor; // [rsp+60h] [rbp-A0h]
+  unsigned int *v38; // [rsp+68h] [rbp-98h]
+  unsigned int *v39; // [rsp+70h] [rbp-90h] BYREF
   __int64 v40; // [rsp+78h] [rbp-88h]
-  __int64 v41; // [rsp+80h] [rbp-80h]
+  unsigned int *v41; // [rsp+80h] [rbp-80h]
   int v42; // [rsp+88h] [rbp-78h] BYREF
   _BYTE *v43; // [rsp+90h] [rbp-70h]
   char v44; // [rsp+98h] [rbp-68h]
@@ -62,33 +62,28 @@ __int64 __fastcall sub_1800711E8(__int64 a1, unsigned int *a2, unsigned int a3, 
   char v46; // [rsp+A8h] [rbp-58h]
   _WORD v47[4]; // [rsp+B0h] [rbp-50h] BYREF
   char *v48; // [rsp+B8h] [rbp-48h]
-  __int128 v49; // [rsp+C0h] [rbp-40h] BYREF
+  _UNICODE_STRING NtFileName; // [rsp+C0h] [rbp-40h] BYREF
   _DWORD *v50; // [rsp+D0h] [rbp-30h]
   int v51; // [rsp+D8h] [rbp-28h] BYREF
   char *v52; // [rsp+E0h] [rbp-20h]
-  __int128 v53; // [rsp+E8h] [rbp-18h] BYREF
-  __int64 v54; // [rsp+F8h] [rbp-8h]
-  int v55; // [rsp+108h] [rbp+8h] BYREF
-  __int64 v56; // [rsp+110h] [rbp+10h]
-  __int128 *v57; // [rsp+118h] [rbp+18h]
-  int v58; // [rsp+120h] [rbp+20h]
-  __int128 v59; // [rsp+128h] [rbp+28h]
-  char v60[24]; // [rsp+138h] [rbp+38h] BYREF
-  _BYTE v61[544]; // [rsp+150h] [rbp+50h] BYREF
-  char v62; // [rsp+370h] [rbp+270h] BYREF
+  _RTL_RELATIVE_NAME_U RelativeName; // [rsp+E8h] [rbp-18h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+108h] [rbp+8h] BYREF
+  _IO_STATUS_BLOCK IoStatusBlock; // [rsp+138h] [rbp+38h] BYREF
+  _BYTE v56[544]; // [rsp+150h] [rbp+50h] BYREF
+  char v57; // [rsp+370h] [rbp+270h] BYREF
 
   v5 = a3;
   v50 = a5;
   v33 = 0;
-  v35 = 0LL;
+  FileHandle = 0LL;
   v8 = 0;
   v51 = 34078720;
-  v9 = 0LL;
-  v52 = &v62;
+  Buffer = 0LL;
+  v52 = &v57;
   v36 = 0;
-  v37 = 0LL;
-  LODWORD(v49) = 0;
-  *((_QWORD *)&v49 + 1) = 0LL;
+  BoundaryDescriptor = 0LL;
+  *(_DWORD *)&NtFileName.Length = 0;
+  NtFileName.Buffer = 0LL;
   v38 = 0LL;
   if ( !a1 )
   {
@@ -100,7 +95,7 @@ __int64 __fastcall sub_1800711E8(__int64 a1, unsigned int *a2, unsigned int a3, 
     v30 = *(_DWORD *)(a1 + 4);
 LABEL_65:
     DbgPrintEx(
-      51,
+      0x33u,
       0,
       "SXS: %s() bad parameters\n"
       "SXS:   Map                : %p\n"
@@ -125,7 +120,7 @@ LABEL_65:
   if ( v13 > 0xFFFE )
   {
     DbgPrintEx(
-      51,
+      0x33u,
       0,
       "SXS: Assembly directory name stored in assembly information too long (%lu bytes) - ACTIVATION_CONTEXT_DATA at %p\n",
       v13,
@@ -139,16 +134,16 @@ LABEL_65:
     v47[0] = *((_WORD *)v11 + 40);
     v47[1] = v47[0];
     v14 = *((unsigned int *)v11 + 21);
-    v39 = (__int64)a2;
+    v39 = a2;
     v48 = &v12[v14];
     LODWORD(v40) = v5;
-    v43 = v61;
+    v43 = v56;
     v41 = 0LL;
     v42 = 34996224;
     v44 = 0;
     v46 = 0;
     v45 = 0LL;
-    sub_18005AAF0(1, &v39, a5);
+    sub_18005AAF0(1, (__int64)&v39, a5);
     if ( v46 )
     {
       v8 = -1073741536;
@@ -168,10 +163,10 @@ LABEL_65:
           {
             v39 = v18;
             v40 = v17;
-            v43 = v61;
+            v43 = v56;
             v42 = 34996224;
             LOWORD(v41) = 0;
-            sub_18005AAF0(2, &v39, v50);
+            sub_18005AAF0(2, (__int64)&v39, v50);
             if ( (_BYTE)v41 )
               break;
             if ( BYTE1(v41) )
@@ -182,11 +177,11 @@ LABEL_65:
             }
             if ( (_WORD)v42 )
             {
-              v19 = v35;
-              if ( v35 )
+              v19 = (int)FileHandle;
+              if ( FileHandle )
               {
-                ZwClose(v35);
-                v35 = 0LL;
+                ZwClose(FileHandle);
+                FileHandle = 0LL;
               }
               v20 = sub_180071730(
                       v19,
@@ -195,20 +190,20 @@ LABEL_65:
                       (unsigned int)&v51,
                       (__int64)&v36,
                       (__int64)&v34,
-                      (__int64)&v35);
+                      (__int64)&FileHandle);
               v8 = v20;
               if ( v20 >= 0 )
                 goto LABEL_17;
               if ( v20 != -1072365564 )
               {
-                LODWORD(v32) = v20;
+                OpenOptions[0] = v20;
                 DbgPrintEx(
-                  51,
+                  0x33u,
                   0,
                   "SXS: Attempt to probe assembly storage root %wZ for assembly directory %wZ failed with status = 0x%08lx\n",
                   &v42,
                   v47,
-                  v32);
+                  *(_QWORD *)OpenOptions);
                 goto LABEL_22;
               }
             }
@@ -223,11 +218,16 @@ LABEL_17:
         if ( v17 == v16 )
         {
 LABEL_59:
-          DbgPrintEx(51, 0, "SXS: Unable to resolve storage root for assembly directory %wZ in %Iu tries\n", v47, v17);
+          DbgPrintEx(
+            0x33u,
+            0,
+            "SXS: Unable to resolve storage root for assembly directory %wZ in %Iu tries\n",
+            v47,
+            v17);
           v8 = -1072365564;
 LABEL_22:
           v39 = v38;
-          sub_18005AAF0(4, &v39, v50);
+          sub_18005AAF0(4, (__int64)&v39, v50);
           goto LABEL_23;
         }
         goto LABEL_18;
@@ -239,17 +239,17 @@ LABEL_22:
               (unsigned int)&v51,
               (__int64)&v36,
               (__int64)&v34,
-              (__int64)&v35);
+              (__int64)&FileHandle);
       v8 = v28;
       if ( v28 >= 0 )
       {
-        v29 = sub_180071608(a1, (unsigned int)v5, &v42, &v35);
+        v29 = sub_180071608(a1, (unsigned int)v5, &v42, &FileHandle);
         v8 = v29;
         if ( v29 >= 0 )
           v8 = 0;
         else
           DbgPrintEx(
-            51,
+            0x33u,
             0,
             "SXS: Attempt to insert well known storage root into assembly storage map assembly roster index %lu failed; S"
             "tatus = 0x%08lx\n",
@@ -258,18 +258,18 @@ LABEL_22:
       }
       else
       {
-        LODWORD(v31) = v28;
+        ShareAccess[0] = v28;
         DbgPrintEx(
-          51,
+          0x33u,
           0,
           "SXS: Attempt to probe known root of assembly storage (\"%wZ\") failed; Status = 0x%08lx\n",
           &v42,
-          v31);
+          *(_QWORD *)ShareAccess);
       }
     }
 LABEL_23:
-    if ( v37 )
-      RtlDeleteBoundaryDescriptor(v37);
+    if ( BoundaryDescriptor )
+      RtlDeleteBoundaryDescriptor(BoundaryDescriptor);
     goto LABEL_25;
   }
   v34 = &v51;
@@ -291,40 +291,40 @@ LABEL_36:
     *(_WORD *)(*((_QWORD *)v34 + 1) + 2 * ((unsigned __int64)v25 >> 1) - 2) = 0;
     *(_WORD *)v34 = v25 - 2;
 LABEL_18:
-    if ( !v35 )
+    if ( !FileHandle )
     {
-      if ( !RtlDosPathNameToRelativeNtPathName_U(*((_QWORD *)v34 + 1), (int)&v49, 0LL, (__int64)&v53) )
+      if ( !RtlDosPathNameToRelativeNtPathName_U(*((PCWSTR *)v34 + 1), &NtFileName, 0LL, &RelativeName) )
       {
         DbgPrintEx(
-          51,
+          0x33u,
           0,
           "SXS: Attempt to translate DOS path name \"%S\" to NT format failed\n",
           *((const wchar_t **)v34 + 1));
         v8 = -1073741766;
         goto LABEL_21;
       }
-      v9 = *((_QWORD *)&v49 + 1);
-      if ( (_WORD)v53 )
+      Buffer = NtFileName.Buffer;
+      if ( RelativeName.RelativeName.Length )
       {
-        v27 = v54;
-        v49 = v53;
+        ContainingDirectory = RelativeName.ContainingDirectory;
+        NtFileName = RelativeName.RelativeName;
       }
       else
       {
-        v27 = 0LL;
-        v54 = 0LL;
+        ContainingDirectory = 0LL;
+        RelativeName.ContainingDirectory = 0LL;
       }
-      v56 = v27;
-      v57 = &v49;
-      v55 = 48;
-      v58 = 64;
-      v59 = 0LL;
-      v8 = ZwOpenFile(&v35, 1048608LL, &v55, v60, 3, 33);
-      RtlReleaseRelativeName((__int64)&v53);
+      ObjectAttributes.RootDirectory = ContainingDirectory;
+      ObjectAttributes.ObjectName = &NtFileName;
+      ObjectAttributes.Length = 48;
+      ObjectAttributes.Attributes = 64;
+      *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+      v8 = ZwOpenFile(&FileHandle, 0x100020u, &ObjectAttributes, &IoStatusBlock, 3u, 0x21u);
+      RtlReleaseRelativeName(&RelativeName);
       if ( v8 < 0 )
       {
         DbgPrintEx(
-          51,
+          0x33u,
           0,
           "SXS: Unable to open assembly directory under storage root \"%S\"; Status = 0x%08lx\n",
           *((const wchar_t **)v34 + 1),
@@ -332,10 +332,10 @@ LABEL_18:
         goto LABEL_21;
       }
     }
-    v21 = sub_180071608(a1, (unsigned int)v5, v34, &v35);
+    v21 = sub_180071608(a1, (unsigned int)v5, v34, &FileHandle);
     v8 = v21;
     if ( v21 < 0 )
-      DbgPrintEx(51, 0, "SXS: Storage resolution failed to insert entry to storage map; Status = 0x%08lx\n", v21);
+      DbgPrintEx(0x33u, 0, "SXS: Storage resolution failed to insert entry to storage map; Status = 0x%08lx\n", v21);
     else
       v8 = 0;
 LABEL_21:
@@ -344,8 +344,8 @@ LABEL_21:
     goto LABEL_22;
   }
   HIWORD(v36) = 2 * (v24 - v23 + 2);
-  v37 = sub_18006D6B8(v25);
-  if ( v37 )
+  BoundaryDescriptor = (POBJECT_BOUNDARY_DESCRIPTOR)sub_18006D6B8(v25);
+  if ( BoundaryDescriptor )
   {
     v26 = (void **)&v36;
     v34 = &v36;
@@ -353,9 +353,9 @@ LABEL_21:
   }
   v8 = -1073741801;
 LABEL_25:
-  if ( v35 )
-    ZwClose(v35);
-  if ( v9 )
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v9);
+  if ( FileHandle )
+    ZwClose(FileHandle);
+  if ( Buffer )
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Buffer);
   return (unsigned int)v8;
 }

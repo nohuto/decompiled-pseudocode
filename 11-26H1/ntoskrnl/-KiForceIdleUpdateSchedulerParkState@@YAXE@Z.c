@@ -1,23 +1,23 @@
 /*
- * XREFs of ?KiForceIdleUpdateSchedulerParkState@@YAXE@Z @ 0x1404C4E10
+ * XREFs of ?KiForceIdleUpdateSchedulerParkState@@YAXE@Z @ 0x1404BE7C0
  * Callers:
- *     ?KiForceIdleStopDpcRoutine@@YAXPEAU_KDPC@@PEAX11@Z @ 0x1404C4D60 (-KiForceIdleStopDpcRoutine@@YAXPEAU_KDPC@@PEAX11@Z.c)
- *     ?KiForceIdleStartDpcRoutine@@YAXPEAU_KDPC@@PEAX11@Z @ 0x1404FE0B0 (-KiForceIdleStartDpcRoutine@@YAXPEAU_KDPC@@PEAX11@Z.c)
+ *     ?KiForceIdleStopDpcRoutine@@YAXPEAU_KDPC@@PEAX11@Z @ 0x1404BE710 (-KiForceIdleStopDpcRoutine@@YAXPEAU_KDPC@@PEAX11@Z.c)
+ *     ?KiForceIdleStartDpcRoutine@@YAXPEAU_KDPC@@PEAX11@Z @ 0x1404F75F0 (-KiForceIdleStartDpcRoutine@@YAXPEAU_KDPC@@PEAX11@Z.c)
  * Callees:
- *     KeAddProcessorAffinityEx @ 0x140246720 (KeAddProcessorAffinityEx.c)
- *     RtlAndAffinityEx @ 0x140252394 (RtlAndAffinityEx.c)
- *     RtlOrAffinityEx @ 0x14025A978 (RtlOrAffinityEx.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     KeGetPrcb @ 0x1402916D0 (KeGetPrcb.c)
- *     KiInsertQueueDpc @ 0x1402BD330 (KiInsertQueueDpc.c)
- *     KiCheckPrcbAffinityEx @ 0x1402BDFC0 (KiCheckPrcbAffinityEx.c)
- *     KeRemoveQueueDpcEx @ 0x140423370 (KeRemoveQueueDpcEx.c)
- *     KiSendSoftwareInterrupt @ 0x140446190 (KiSendSoftwareInterrupt.c)
- *     Feature_ForceIdleReschedulingFix__private_IsEnabledDeviceUsageNoInline @ 0x1404C5518 (Feature_ForceIdleReschedulingFix__private_IsEnabledDeviceUsageNoInline.c)
- *     ?KiForceIdleParkUnparkProcessor@@YAXPEAU_KPRCB@@E@Z @ 0x1404F1878 (-KiForceIdleParkUnparkProcessor@@YAXPEAU_KPRCB@@E@Z.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     KeAddProcessorAffinityEx @ 0x140248080 (KeAddProcessorAffinityEx.c)
+ *     RtlAndAffinityEx @ 0x140253CF4 (RtlAndAffinityEx.c)
+ *     RtlOrAffinityEx @ 0x14025C158 (RtlOrAffinityEx.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     KeGetPrcb @ 0x140290C30 (KeGetPrcb.c)
+ *     KiInsertQueueDpc @ 0x140307FF0 (KiInsertQueueDpc.c)
+ *     KiCheckPrcbAffinityEx @ 0x140308C80 (KiCheckPrcbAffinityEx.c)
+ *     KeRemoveQueueDpcEx @ 0x140430460 (KeRemoveQueueDpcEx.c)
+ *     KiSendSoftwareInterrupt @ 0x14043EC90 (KiSendSoftwareInterrupt.c)
+ *     Feature_ForceIdleReschedulingFix__private_IsEnabledDeviceUsageNoInline @ 0x1404BEEC8 (Feature_ForceIdleReschedulingFix__private_IsEnabledDeviceUsageNoInline.c)
+ *     ?KiForceIdleParkUnparkProcessor@@YAXPEAU_KPRCB@@E@Z @ 0x1404EAE58 (-KiForceIdleParkUnparkProcessor@@YAXPEAU_KPRCB@@E@Z.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 void __fastcall KiForceIdleUpdateSchedulerParkState(unsigned __int8 a1)
@@ -91,7 +91,7 @@ void __fastcall KiForceIdleUpdateSchedulerParkState(unsigned __int8 a1)
     v29.Count = v7;
     if ( v7 )
     {
-      memmove(&v29.8, &unk_140E0AE38, 8LL * v7);
+      memmove(&v29.8, &unk_140E0AF18, 8LL * v7);
       Size = v29.Size;
       v6 = v7;
     }
@@ -111,14 +111,14 @@ void __fastcall KiForceIdleUpdateSchedulerParkState(unsigned __int8 a1)
   memset_0(&v29.8, 0, sizeof(v29.8));
   v9 = 32;
   v10 = 0;
-  Count = *(_WORD *)&stru_140FC01F0.WaitRegister.Flags;
+  Count = *(_WORD *)&stru_140FC11F0.WaitRegister.Flags;
   v29.Reserved = 0;
-  if ( *(_WORD *)&stru_140FC01F0.WaitRegister.Flags > 0x20u )
+  if ( *(_WORD *)&stru_140FC11F0.WaitRegister.Flags > 0x20u )
     Count = 32;
   v29.Count = Count;
   if ( Count )
   {
-    memmove(&v29.8, (char *)&stru_140FC01F0.116 + 4, 8LL * Count);
+    memmove(&v29.8, (char *)&stru_140FC11F0.116 + 4, 8LL * Count);
     v9 = v29.Size;
     v10 = Count;
     Count = v29.Count;
@@ -139,7 +139,7 @@ LABEL_25:
     RtlAndAffinityEx(&v29.Count, (unsigned __int16 *)&v30, (__int64)&v29);
     Count = v29.Count;
   }
-  v13 = *(_DWORD *)(*(_QWORD *)&KiSupervisorXStateFeaturesLock.WaitBlockFill11[112] + 4LL * CurrentPrcb->Number);
+  v13 = *((_DWORD *)&KiSupervisorXStateFeaturesLock.SchedulerApc.Thread->Header.Lock + CurrentPrcb->Number);
   Bitmap = v13 >> 6;
   if ( (unsigned int)Bitmap < Count && (Bitmap = v29.Bitmap[Bitmap] >> v13, (Bitmap & 1) != 0) )
   {
@@ -222,8 +222,7 @@ LABEL_25:
       {
         _BitScanForward64(&v25, v23);
         v23 &= ~(1LL << v25);
-        v26 = (struct _KPRCB *)KeGetPrcb(*((_DWORD *)&KiSupervisorXStateFeaturesLock.WaitBlock[2].Thread->Header.Lock
-                                         + 64 * k
+        v26 = (struct _KPRCB *)KeGetPrcb(*((_DWORD *)&KiSupervisorXStateFeaturesLock.SchedulerApc.ApcListEntry.Flink[16 * k].Flink
                                          + (unsigned int)(unsigned __int8)v25));
         if ( v26 == KeGetCurrentPrcb() )
           KiForceIdleParkUnparkProcessor(v26, v1);

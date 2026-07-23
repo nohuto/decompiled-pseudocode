@@ -1,12 +1,12 @@
 /*
- * XREFs of strcmp @ 0x1406C0400
+ * XREFs of strcmp @ 0x1406C1300
  * Callers:
- *     PopWatchdogDumpControlRoutine @ 0x1405E11B0 (PopWatchdogDumpControlRoutine.c)
- *     ExpSetBootEntry @ 0x1407BC32C (ExpSetBootEntry.c)
- *     NtEnumerateBootEntries @ 0x140965240 (NtEnumerateBootEntries.c)
- *     ViXdvDriverLoadImage @ 0x140B8A9B0 (ViXdvDriverLoadImage.c)
- *     HdlspDispatch @ 0x140BAD320 (HdlspDispatch.c)
- *     HalpAcpiFindRsdp @ 0x140C0D868 (HalpAcpiFindRsdp.c)
+ *     PopWatchdogDumpControlRoutine @ 0x1405DE7D0 (PopWatchdogDumpControlRoutine.c)
+ *     ExpSetBootEntry @ 0x1407BC77C (ExpSetBootEntry.c)
+ *     NtEnumerateBootEntries @ 0x14094DCD0 (NtEnumerateBootEntries.c)
+ *     ViXdvDriverLoadImage @ 0x140B8C9B0 (ViXdvDriverLoadImage.c)
+ *     HdlspDispatch @ 0x140BAF320 (HdlspDispatch.c)
+ *     HalpAcpiFindRsdp @ 0x140C0F868 (HalpAcpiFindRsdp.c)
  * Callees:
  *     <none>
  */

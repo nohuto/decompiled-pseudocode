@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlGetCurrentUmsThread @ 0x180146A20
+ * XREFs of RtlGetCurrentUmsThread @ 0x1801468D0
  * Callers:
  *     <none>
  * Callees:

@@ -8,10 +8,10 @@
  *     sub_180058E68 @ 0x180058E68 (sub_180058E68.c)
  */
 
-__int64 __fastcall sub_180057320(_QWORD *a1)
+LOGICAL __fastcall sub_180057320(_QWORD *BaseAddress)
 {
-  sub_180058E68(a1[18], 0xFFFFFFFFLL);
-  a1[32] = 0LL;
-  sub_180024608(a1);
-  return RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, dword_18015D050 + 0x40000, (unsigned __int64)a1);
+  sub_180058E68(BaseAddress[18], 0xFFFFFFFFLL);
+  BaseAddress[32] = 0LL;
+  sub_180024608(BaseAddress);
+  return RtlFreeHeap(NtCurrentPeb()->ProcessHeap, dword_18015D050 + 0x40000, BaseAddress);
 }

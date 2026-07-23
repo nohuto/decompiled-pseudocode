@@ -1,49 +1,49 @@
 /*
- * XREFs of PopCaptureSleepStudyStatistics @ 0x140570558
+ * XREFs of PopCaptureSleepStudyStatistics @ 0x140570798
  * Callers:
- *     PopSleepstudyCaptureSessionStatistics @ 0x1408FA1C8 (PopSleepstudyCaptureSessionStatistics.c)
+ *     PopSleepstudyCaptureSessionStatistics @ 0x1408FA328 (PopSleepstudyCaptureSessionStatistics.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x140229C10 (KeReleaseSpinLock.c)
- *     PopGetPowerSettingValue @ 0x140281EC4 (PopGetPowerSettingValue.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
- *     memset @ 0x140414200 (memset.c)
- *     PpmGetPlatformSelectionVetoCounts @ 0x140565D70 (PpmGetPlatformSelectionVetoCounts.c)
- *     PpmIdleCaptureCsVetoAccounting @ 0x140565DB0 (PpmIdleCaptureCsVetoAccounting.c)
- *     PpmIdleStartCsVetoAccounting @ 0x140566E9C (PpmIdleStartCsVetoAccounting.c)
- *     PpmResetDripsAccountingSnapshot @ 0x1405675D8 (PpmResetDripsAccountingSnapshot.c)
- *     PpmSnapDripsAccountingSnapshot @ 0x140567940 (PpmSnapDripsAccountingSnapshot.c)
- *     PopFxStartDeviceAccounting @ 0x14056CD7C (PopFxStartDeviceAccounting.c)
- *     PopFxStopDeviceAccounting @ 0x14056D03C (PopFxStopDeviceAccounting.c)
- *     PopCalculateCsSummary @ 0x14056FEA0 (PopCalculateCsSummary.c)
- *     PopCalculateIdleInformation @ 0x140570410 (PopCalculateIdleInformation.c)
- *     PopGetModernStandbyTransitionReason @ 0x140576500 (PopGetModernStandbyTransitionReason.c)
- *     PopIdleWakeNotifyModernStandbyEnter @ 0x14057B8DC (PopIdleWakeNotifyModernStandbyEnter.c)
- *     PopIdleWakeNotifyModernStandbyExit @ 0x14057BA10 (PopIdleWakeNotifyModernStandbyExit.c)
- *     PopIsHibernateSupported @ 0x14067B368 (PopIsHibernateSupported.c)
- *     PopFilterCapabilities @ 0x14067B484 (PopFilterCapabilities.c)
- *     PopDirectedDripsNotify @ 0x14078DB18 (PopDirectedDripsNotify.c)
- *     PopNetCheckOpportunisticDs @ 0x14078E40C (PopNetCheckOpportunisticDs.c)
- *     PopNetCheckUserConnectivityPolicy @ 0x14078E430 (PopNetCheckUserConnectivityPolicy.c)
- *     PopCurrentPowerStatePrecise @ 0x14078E444 (PopCurrentPowerStatePrecise.c)
- *     PopClearConnectedStandbyMarker @ 0x1408E10E4 (PopClearConnectedStandbyMarker.c)
- *     PopSetConnectedStandbyMarker @ 0x1408E16F8 (PopSetConnectedStandbyMarker.c)
- *     PopFxLogSocSubsystemBlockingTimes @ 0x1408E4B10 (PopFxLogSocSubsystemBlockingTimes.c)
- *     PopFxLogSocSubsystemMetadata @ 0x1408E4CC0 (PopFxLogSocSubsystemMetadata.c)
- *     PopFxLookupSocSubsystemsByPlatformIdleState @ 0x1408E50BC (PopFxLookupSocSubsystemsByPlatformIdleState.c)
- *     PopFxResetSocSubsystemAccounting @ 0x1408E57A8 (PopFxResetSocSubsystemAccounting.c)
- *     PopDiagTraceCsConsumption @ 0x1408E8B78 (PopDiagTraceCsConsumption.c)
- *     PopDiagTraceCsEnterReason @ 0x1408E8CBC (PopDiagTraceCsEnterReason.c)
- *     PopDiagTraceCsExitReason @ 0x1408E8F34 (PopDiagTraceCsExitReason.c)
- *     PopGetEnergyCounter @ 0x1408EDC70 (PopGetEnergyCounter.c)
- *     PopQueryInputSuppressionCount @ 0x1408EED9C (PopQueryInputSuppressionCount.c)
- *     PopNetIsCompliantNicPresent @ 0x1408F1E68 (PopNetIsCompliantNicPresent.c)
- *     PopNetIsDisconnectStandbyActive @ 0x1408F1E7C (PopNetIsDisconnectStandbyActive.c)
- *     PopIsLockConsoleTimeoutActive @ 0x1408F518C (PopIsLockConsoleTimeoutActive.c)
- *     PopStatsNotifyPowerRequestCsState @ 0x1408F6690 (PopStatsNotifyPowerRequestCsState.c)
- *     ExStartRecordingIRTimerExpiries @ 0x14094F024 (ExStartRecordingIRTimerExpiries.c)
- *     ExStopRecordingIRTimerExpiries @ 0x14094F0B0 (ExStopRecordingIRTimerExpiries.c)
- *     PopReleasePolicyLock @ 0x14098F590 (PopReleasePolicyLock.c)
- *     PopAcquirePolicyLock @ 0x14098F5D0 (PopAcquirePolicyLock.c)
+ *     PopGetPowerSettingValue @ 0x140270104 (PopGetPowerSettingValue.c)
+ *     KeReleaseSpinLock @ 0x1402CE500 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     PpmGetPlatformSelectionVetoCounts @ 0x140565FB0 (PpmGetPlatformSelectionVetoCounts.c)
+ *     PpmIdleCaptureCsVetoAccounting @ 0x140565FF0 (PpmIdleCaptureCsVetoAccounting.c)
+ *     PpmIdleStartCsVetoAccounting @ 0x1405670DC (PpmIdleStartCsVetoAccounting.c)
+ *     PpmResetDripsAccountingSnapshot @ 0x140567818 (PpmResetDripsAccountingSnapshot.c)
+ *     PpmSnapDripsAccountingSnapshot @ 0x140567B80 (PpmSnapDripsAccountingSnapshot.c)
+ *     PopFxStartDeviceAccounting @ 0x14056CFBC (PopFxStartDeviceAccounting.c)
+ *     PopFxStopDeviceAccounting @ 0x14056D27C (PopFxStopDeviceAccounting.c)
+ *     PopCalculateCsSummary @ 0x1405700E0 (PopCalculateCsSummary.c)
+ *     PopCalculateIdleInformation @ 0x140570650 (PopCalculateIdleInformation.c)
+ *     PopGetModernStandbyTransitionReason @ 0x140576740 (PopGetModernStandbyTransitionReason.c)
+ *     PopIdleWakeNotifyModernStandbyEnter @ 0x14057BB1C (PopIdleWakeNotifyModernStandbyEnter.c)
+ *     PopIdleWakeNotifyModernStandbyExit @ 0x14057BC50 (PopIdleWakeNotifyModernStandbyExit.c)
+ *     PopIsHibernateSupported @ 0x14066EAA8 (PopIsHibernateSupported.c)
+ *     PopFilterCapabilities @ 0x14066EBC4 (PopFilterCapabilities.c)
+ *     PopDirectedDripsNotify @ 0x14078DCD8 (PopDirectedDripsNotify.c)
+ *     PopNetCheckOpportunisticDs @ 0x14078E5CC (PopNetCheckOpportunisticDs.c)
+ *     PopNetCheckUserConnectivityPolicy @ 0x14078E5F0 (PopNetCheckUserConnectivityPolicy.c)
+ *     PopCurrentPowerStatePrecise @ 0x14078E604 (PopCurrentPowerStatePrecise.c)
+ *     PopClearConnectedStandbyMarker @ 0x1408E1244 (PopClearConnectedStandbyMarker.c)
+ *     PopSetConnectedStandbyMarker @ 0x1408E1858 (PopSetConnectedStandbyMarker.c)
+ *     PopFxLogSocSubsystemBlockingTimes @ 0x1408E4C70 (PopFxLogSocSubsystemBlockingTimes.c)
+ *     PopFxLogSocSubsystemMetadata @ 0x1408E4E20 (PopFxLogSocSubsystemMetadata.c)
+ *     PopFxLookupSocSubsystemsByPlatformIdleState @ 0x1408E521C (PopFxLookupSocSubsystemsByPlatformIdleState.c)
+ *     PopFxResetSocSubsystemAccounting @ 0x1408E5908 (PopFxResetSocSubsystemAccounting.c)
+ *     PopDiagTraceCsConsumption @ 0x1408E8CD8 (PopDiagTraceCsConsumption.c)
+ *     PopDiagTraceCsEnterReason @ 0x1408E8E1C (PopDiagTraceCsEnterReason.c)
+ *     PopDiagTraceCsExitReason @ 0x1408E9094 (PopDiagTraceCsExitReason.c)
+ *     PopGetEnergyCounter @ 0x1408EDDD0 (PopGetEnergyCounter.c)
+ *     PopQueryInputSuppressionCount @ 0x1408EEEFC (PopQueryInputSuppressionCount.c)
+ *     PopNetIsCompliantNicPresent @ 0x1408F1FC8 (PopNetIsCompliantNicPresent.c)
+ *     PopNetIsDisconnectStandbyActive @ 0x1408F1FDC (PopNetIsDisconnectStandbyActive.c)
+ *     PopIsLockConsoleTimeoutActive @ 0x1408F52EC (PopIsLockConsoleTimeoutActive.c)
+ *     PopStatsNotifyPowerRequestCsState @ 0x1408F67F0 (PopStatsNotifyPowerRequestCsState.c)
+ *     ExStartRecordingIRTimerExpiries @ 0x14094F1F4 (ExStartRecordingIRTimerExpiries.c)
+ *     ExStopRecordingIRTimerExpiries @ 0x14094F280 (ExStopRecordingIRTimerExpiries.c)
+ *     PopReleasePolicyLock @ 0x140991044 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140991084 (PopAcquirePolicyLock.c)
  */
 
 __int64 __fastcall PopCaptureSleepStudyStatistics(_QWORD *a1, __int64 a2, __int64 a3)
@@ -123,81 +123,81 @@ __int64 __fastcall PopCaptureSleepStudyStatistics(_QWORD *a1, __int64 a2, __int6
   {
     PopWnfCsEnterScenarioId = a2;
     PopCalculateIdleInformation((__int64)&v50);
-    PpmGetPlatformSelectionVetoCounts(dword_140C50080, &v48, &v49);
+    PpmGetPlatformSelectionVetoCounts(dword_140C500C0, &v48, &v49);
     PopCsConsumption = HIDWORD(v52[0]);
-    qword_140C4FF10 = *((_QWORD *)&v50 + 1);
-    dword_140C4FF20 = DWORD2(v51);
-    qword_140C4FF18 = v50;
-    qword_140C4FF98 = v51;
-    qword_140C4FFA0 = v48;
-    qword_140C4FFA8 = v49;
-    dword_140C4FFD0 = DWORD2(v52[0]);
-    qword_140C4FF08 = v10;
-    qword_140C4FF40 = 0LL;
-    qword_140C4FF28 = 0LL;
-    qword_140C4FF30 = 0LL;
-    qword_140C4FF50 = 0LL;
-    qword_140C4FF88 = 0LL;
-    qword_140C4FF90 = 0LL;
-    qword_140C4FF60 = 0LL;
-    qword_140C4FF70 = 0LL;
+    qword_140C4FF50 = *((_QWORD *)&v50 + 1);
+    dword_140C4FF60 = DWORD2(v51);
+    qword_140C4FF58 = v50;
+    qword_140C4FFD8 = v51;
+    qword_140C4FFE0 = v48;
+    qword_140C4FFE8 = v49;
+    dword_140C50010 = DWORD2(v52[0]);
+    qword_140C4FF48 = v10;
     qword_140C4FF80 = 0LL;
-    qword_140C4FFE0 = 0LL;
-    qword_140C4FFE8 = 0LL;
-    qword_140C4FFF0 = 0LL;
-    byte_140C4FFCC = 0;
+    qword_140C4FF68 = 0LL;
+    qword_140C4FF70 = 0LL;
+    qword_140C4FF90 = 0LL;
+    qword_140C4FFC8 = 0LL;
+    qword_140C4FFD0 = 0LL;
+    qword_140C4FFA0 = 0LL;
+    qword_140C4FFB0 = 0LL;
+    qword_140C4FFC0 = 0LL;
+    qword_140C50020 = 0LL;
+    qword_140C50028 = 0LL;
+    qword_140C50030 = 0LL;
+    byte_140C5000C = 0;
     PopNetIsDisconnectStandbyActive(&v39);
-    v11 = KeAcquireSpinLockRaiseToDpc(&qword_140C22FD8);
-    qword_140C22FC8 = 0LL;
-    qword_140C22FD0 = 0LL;
+    v11 = KeAcquireSpinLockRaiseToDpc(&qword_140C23598);
+    qword_140C23588 = 0LL;
+    qword_140C23590 = 0LL;
     PopDisplayOnPerformance = 0LL;
-    dword_140C22FE0 = 1;
-    KeReleaseSpinLock(&qword_140C22FD8, v11);
+    dword_140C235A0 = 1;
+    KeReleaseSpinLock(&qword_140C23598, v11);
     PopGetEnergyCounter(&CsSessionEnergyCounter);
-    byte_140C4FFC0 = (dword_140C23E8C == 0) | byte_140C4FFC0 & 0xFE;
-    byte_140C4FFC1 ^= (byte_140C4FFC1 ^ PopNetIsCompliantNicPresent()) & 1;
+    byte_140C50000 = (dword_140C2332C == 0) | byte_140C50000 & 0xFE;
+    byte_140C50001 ^= (byte_140C50001 ^ PopNetIsCompliantNicPresent()) & 1;
     if ( (((v39 - 1) & 0xFFFFFFFC) != 0 || v39 == 2)
       && (unsigned __int8)PopNetCheckUserConnectivityPolicy()
       && !(unsigned __int8)PopNetCheckOpportunisticDs() )
     {
-      byte_140C4FFC1 &= ~2u;
+      byte_140C50001 &= ~2u;
     }
     else
     {
-      byte_140C4FFC1 |= 2u;
+      byte_140C50001 |= 2u;
     }
     if ( PopDiagCachedAggregatorIntent )
     {
-      dword_140C4FFFC = PopDiagCachedAggregatorIntent;
-      dword_140C50000 = 6;
+      dword_140C5003C = PopDiagCachedAggregatorIntent;
+      dword_140C50040 = 6;
       PopDiagCachedAggregatorAction = 6;
       PopDiagCachedAggregatorIntent = 0;
     }
     PopGetPowerSettingValue((__int64)&GUID_ENERGY_SAVER_POLICY, v12, 3, &v40, v33, &v54);
-    byte_140C4FFC1 ^= (byte_140C4FFC1 ^ (4 * v40)) & 4;
+    byte_140C50001 ^= (byte_140C50001 ^ (4 * v40)) & 4;
     PopGetPowerSettingValue((__int64)&GUID_VIDEO_POWERDOWN_TIMEOUT, v13, 3, &v41, v34, &v54);
-    dword_140C4FFB0 = v41;
+    dword_140C4FFF0 = v41;
     PopGetPowerSettingValue((__int64)&GUID_VIDEO_CONSOLE_LOCK_TIMEOUT, v14, 3, &v42, v35, &v54);
-    dword_140C4FFB4 = v42;
-    byte_140C4FFB8 = IsLockConsoleTimeoutActive;
+    dword_140C4FFF4 = v42;
+    byte_140C4FFF8 = IsLockConsoleTimeoutActive;
     PopGetPowerSettingValue((__int64)&GUID_STANDBY_TIMEOUT, v15, 3, &v43, v36, &v54);
-    dword_140C4FFBC = v43;
-    byte_140C4FFD5 = (char)KdDebuggerEnabled;
+    dword_140C4FFFC = v43;
+    byte_140C50015 = (char)KdDebuggerEnabled;
     v3 = PopFilterCapabilities(&PopCapabilities, v53);
     if ( v3 >= 0 )
       IsHibernateSupported = PopIsHibernateSupported(v53);
-    byte_140C4FFD4 = IsHibernateSupported;
+    byte_140C50014 = IsHibernateSupported;
     PopGetPowerSettingValue((__int64)&GUID_HIBERNATE_TIMEOUT, v16, 3, &v44, v37, &v54);
-    dword_140C4FFD8 = v44;
+    dword_140C50018 = v44;
     PopGetPowerSettingValue((__int64)&GUID_STANDBY_BUDGET_PERCENT, v17, 3, &v45, v38, &v54);
-    dword_140C4FFDC = v45;
-    _InterlockedExchange64(&qword_140C50040, 0LL);
-    if ( PopFxLookupSocSubsystemsByPlatformIdleState((unsigned int)dword_140C50080) )
-      v3 = PopFxResetSocSubsystemAccounting((unsigned int)dword_140C50080);
+    dword_140C5001C = v45;
+    _InterlockedExchange64(&qword_140C50080, 0LL);
+    if ( PopFxLookupSocSubsystemsByPlatformIdleState((unsigned int)dword_140C500C0) )
+      v3 = PopFxResetSocSubsystemAccounting((unsigned int)dword_140C500C0);
     PopFxStartDeviceAccounting();
     PpmIdleStartCsVetoAccounting();
-    dword_140C4FFC4 = PopAggressiveStandbyEnabledActions;
-    dword_140C4FFC8 = PopAggressiveStandbyAppliedActions;
+    dword_140C50004 = PopAggressiveStandbyEnabledActions;
+    dword_140C50008 = PopAggressiveStandbyAppliedActions;
     ExStartRecordingIRTimerExpiries();
     PpmResetDripsAccountingSnapshot();
     LOBYTE(v18) = 1;
@@ -212,7 +212,7 @@ __int64 __fastcall PopCaptureSleepStudyStatistics(_QWORD *a1, __int64 a2, __int6
     v46 = 0;
     PopQueryInputSuppressionCount(&v46, v23);
     v25 = v46;
-    dword_140C4FFF8 = v46;
+    dword_140C50038 = v46;
   }
   else
   {
@@ -220,24 +220,24 @@ __int64 __fastcall PopCaptureSleepStudyStatistics(_QWORD *a1, __int64 a2, __int6
     PopCalculateCsSummary(a3, PopSleepstudyStopReason);
     v47 = a3;
     PopDirectedDripsNotify(1LL, &v47);
-    PpmIdleCaptureCsVetoAccounting(v26, dword_140C50080);
+    PpmIdleCaptureCsVetoAccounting(v26, dword_140C500C0);
     ExStopRecordingIRTimerExpiries();
     PopFxStopDeviceAccounting();
     PpmSnapDripsAccountingSnapshot(v27, 10 * *(_QWORD *)(a3 + 32), 10 * *(_DWORD *)(a3 + 40));
     PopDiagTraceCsConsumption(a3);
     PopDiagTraceCsExitReason(a3, a2);
-    if ( PopFxLookupSocSubsystemsByPlatformIdleState((unsigned int)dword_140C50080) )
+    if ( PopFxLookupSocSubsystemsByPlatformIdleState((unsigned int)dword_140C500C0) )
     {
-      PopFxLogSocSubsystemBlockingTimes(v28, (unsigned int)dword_140C50080);
-      v3 = PopFxLogSocSubsystemMetadata(v29, (unsigned int)dword_140C50080);
+      PopFxLogSocSubsystemBlockingTimes(v28, (unsigned int)dword_140C500C0);
+      v3 = PopFxLogSocSubsystemMetadata(v29, (unsigned int)dword_140C500C0);
     }
     PopStatsNotifyPowerRequestCsState(v28, 0LL);
     v30 = PopGetModernStandbyTransitionReason(0LL, 0LL);
     PopClearConnectedStandbyMarker(v30);
-    qword_140C4FF08 = 0LL;
-    v31 = KeAcquireSpinLockRaiseToDpc(&qword_140C22FD8);
-    dword_140C22FE0 = 0;
-    KeReleaseSpinLock(&qword_140C22FD8, v31);
+    qword_140C4FF48 = 0LL;
+    v31 = KeAcquireSpinLockRaiseToDpc(&qword_140C23598);
+    dword_140C235A0 = 0;
+    KeReleaseSpinLock(&qword_140C23598, v31);
   }
   PopReleasePolicyLock(v25, v24);
   return (unsigned int)v3;

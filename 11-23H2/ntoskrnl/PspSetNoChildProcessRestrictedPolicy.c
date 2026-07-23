@@ -1,12 +1,12 @@
 /*
- * XREFs of PspSetNoChildProcessRestrictedPolicy @ 0x1407E8570
+ * XREFs of PspSetNoChildProcessRestrictedPolicy @ 0x1407E8840
  * Callers:
- *     PspApplyMitigationOptions @ 0x1406B3700 (PspApplyMitigationOptions.c)
- *     NtSetInformationProcess @ 0x140774540 (NtSetInformationProcess.c)
+ *     PspApplyMitigationOptions @ 0x1406B3730 (PspApplyMitigationOptions.c)
+ *     NtSetInformationProcess @ 0x140774730 (NtSetInformationProcess.c)
  * Callees:
- *     PsReferencePrimaryTokenWithTag @ 0x1402329C0 (PsReferencePrimaryTokenWithTag.c)
- *     ObFastDereferenceObject @ 0x140297C80 (ObFastDereferenceObject.c)
- *     SeTokenSetNoChildProcessRestricted @ 0x14036BA24 (SeTokenSetNoChildProcessRestricted.c)
+ *     PsReferencePrimaryTokenWithTag @ 0x140232A90 (PsReferencePrimaryTokenWithTag.c)
+ *     ObFastDereferenceObject @ 0x140297F10 (ObFastDereferenceObject.c)
+ *     SeTokenSetNoChildProcessRestricted @ 0x14036BBC4 (SeTokenSetNoChildProcessRestricted.c)
  */
 
 signed __int64 __fastcall PspSetNoChildProcessRestrictedPolicy(__int64 a1, int a2)

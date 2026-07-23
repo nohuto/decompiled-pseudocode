@@ -1,21 +1,21 @@
 /*
- * XREFs of BgpRasPrintGlyph @ 0x1404AD338
+ * XREFs of BgpRasPrintGlyph @ 0x1404A69C8
  * Callers:
- *     BgpTxtDisplayCharacter @ 0x1404AD084 (BgpTxtDisplayCharacter.c)
- *     BgpTxtDisplayString @ 0x140C51FA0 (BgpTxtDisplayString.c)
+ *     BgpTxtDisplayCharacter @ 0x1404A6714 (BgpTxtDisplayCharacter.c)
+ *     BgpTxtDisplayString @ 0x140C57FA0 (BgpTxtDisplayString.c)
  * Callees:
- *     RaspRectangleCreate @ 0x140354958 (RaspRectangleCreate.c)
- *     BgpFmRoundUp @ 0x140355950 (BgpFmRoundUp.c)
- *     RaspFreeMemory @ 0x140355DE4 (RaspFreeMemory.c)
- *     BgpFwAllocateMemory @ 0x140355EBC (BgpFwAllocateMemory.c)
- *     DbgPrintEx @ 0x140397530 (DbgPrintEx.c)
- *     RaspAntiAlias @ 0x1404ACE2C (RaspAntiAlias.c)
- *     RaspRasterize @ 0x1404AD80C (RaspRasterize.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     BgpGxCopyRectangle @ 0x140C51A04 (BgpGxCopyRectangle.c)
- *     RaspAddCacheEntry @ 0x140C5220C (RaspAddCacheEntry.c)
- *     RaspDestroyCachedBitmap @ 0x140C54EA4 (RaspDestroyCachedBitmap.c)
+ *     RaspRectangleCreate @ 0x140356700 (RaspRectangleCreate.c)
+ *     BgpFmRoundUp @ 0x1403576F0 (BgpFmRoundUp.c)
+ *     RaspFreeMemory @ 0x140357B8C (RaspFreeMemory.c)
+ *     BgpFwAllocateMemory @ 0x140357C64 (BgpFwAllocateMemory.c)
+ *     DbgPrintEx @ 0x1403992B0 (DbgPrintEx.c)
+ *     RaspAntiAlias @ 0x1404A64BC (RaspAntiAlias.c)
+ *     RaspRasterize @ 0x1404A6E94 (RaspRasterize.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     BgpGxCopyRectangle @ 0x140C57A04 (BgpGxCopyRectangle.c)
+ *     RaspAddCacheEntry @ 0x140C5820C (RaspAddCacheEntry.c)
+ *     RaspDestroyCachedBitmap @ 0x140C5AEA4 (RaspDestroyCachedBitmap.c)
  */
 
 __int64 __fastcall BgpRasPrintGlyph(
@@ -30,9 +30,9 @@ __int64 __fastcall BgpRasPrintGlyph(
         __int128 *a9)
 {
   int v10; // edx
-  __int128 *v11; // r14
+  __int128 *v11; // r15
   int v12; // edi
-  __int128 *v13; // r15
+  __int128 *v13; // r12
   int v14; // ecx
   bool v15; // r13
   __int64 v16; // rsi
@@ -49,10 +49,10 @@ __int64 __fastcall BgpRasPrintGlyph(
   __int64 v27; // rcx
   __int64 v28; // rdx
   int v29; // r9d
-  int v30; // r12d
+  int v30; // r14d
   int v31; // eax
-  unsigned int v32; // r12d
-  unsigned int v33; // r12d
+  unsigned int v32; // r14d
+  unsigned int v33; // r14d
   __int128 v34; // xmm1
   __int128 v35; // xmm0
   __int128 v36; // xmm1

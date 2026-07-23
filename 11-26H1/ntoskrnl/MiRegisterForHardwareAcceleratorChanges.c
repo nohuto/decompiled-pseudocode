@@ -1,8 +1,8 @@
 /*
- * XREFs of MiRegisterForHardwareAcceleratorChanges @ 0x140D01528
+ * XREFs of MiRegisterForHardwareAcceleratorChanges @ 0x140D078C8
  * Callers:
- *     MiInitSystem @ 0x140CF15C4 (MiInitSystem.c)
- *     MiInitializeHardwareAccelerators @ 0x140D014CC (MiInitializeHardwareAccelerators.c)
+ *     MiInitSystem @ 0x140CF7944 (MiInitSystem.c)
+ *     MiInitializeHardwareAccelerators @ 0x140D0786C (MiInitializeHardwareAccelerators.c)
  * Callees:
  *     <none>
  */
@@ -26,12 +26,12 @@ __int64 MiRegisterForHardwareAcceleratorChanges()
   v1[1] = MM_ACCELERATOR_DATA_MOVER;
   v1[3] = PnpDriverObject;
   v1[2] = 0LL;
-  result = AccelInitializeOffloadWorkspace(v1, &qword_140E36528);
+  result = AccelInitializeOffloadWorkspace(v1, &qword_140E366A8);
   if ( (int)result >= 0 )
   {
     v2[0] = 5767169LL;
     v10 = 0LL;
-    v2[1] = qword_140E36528;
+    v2[1] = qword_140E366A8;
     v2[2] = &GUID_ACCELERATOR_TYPE_DATA_MOVER;
     v6 = MmAcceleratorCallbackRoutine;
     v8 = 1114112LL;
@@ -44,8 +44,8 @@ __int64 MiRegisterForHardwareAcceleratorChanges()
     result = AccelAcquireResourcesAsync(v2);
     if ( (int)result < 0 )
     {
-      result = AccelDestroyOffloadWorkspace(qword_140E36528);
-      qword_140E36528 = 0LL;
+      result = AccelDestroyOffloadWorkspace(qword_140E366A8);
+      qword_140E366A8 = 0LL;
     }
   }
   return result;

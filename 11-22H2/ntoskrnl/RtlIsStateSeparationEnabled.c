@@ -12,7 +12,7 @@
  *     CmIsStateSeparationEnabled @ 0x140367128 (CmIsStateSeparationEnabled.c)
  */
 
-bool RtlIsStateSeparationEnabled()
+BOOLEAN RtlIsStateSeparationEnabled(void)
 {
   return CmIsStateSeparationEnabled();
 }

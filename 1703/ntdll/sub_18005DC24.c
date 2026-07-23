@@ -10,16 +10,17 @@
  *     ZwMapCMFModule @ 0x1800A7410 (ZwMapCMFModule.c)
  */
 
-__int64 __fastcall sub_18005DC24(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5)
+PVOID __fastcall sub_18005DC24(ULONG a1, ULONG a2, ULONG *a3, ULONG *a4, PULONG CacheIndexOut)
 {
-  NTSTATUS v5; // eax
-  ULONG v6; // eax
+  int v5; // eax
+  LONG v6; // eax
+  PVOID v8; // [rsp+30h] [rbp-18h] BYREF
 
-  v5 = ZwMapCMFModule(a1, a2, a5);
-  if ( v5 < 0 )
-  {
-    v6 = RtlNtStatusToDosError(v5);
-    RtlSetLastWin32Error(v6);
-  }
+  v8 = 0LL;
+  v5 = ZwMapCMFModule(a1, a2, CacheIndexOut, a4, a3, &v8);
+  if ( v5 >= 0 )
+    return v8;
+  v6 = RtlNtStatusToDosError(v5);
+  RtlSetLastWin32Error(v6);
   return 0LL;
 }

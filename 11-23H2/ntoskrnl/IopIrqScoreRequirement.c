@@ -1,5 +1,5 @@
 /*
- * XREFs of IopIrqScoreRequirement @ 0x1407FD780
+ * XREFs of IopIrqScoreRequirement @ 0x1407FDA50
  * Callers:
  *     <none>
  * Callees:

@@ -1,7 +1,7 @@
 /*
- * XREFs of CcAdjustBcbDepth @ 0x14040A290
+ * XREFs of CcAdjustBcbDepth @ 0x14040A470
  * Callers:
- *     CcBcbProfiler @ 0x1403DB990 (CcBcbProfiler.c)
+ *     CcBcbProfiler @ 0x1403DBB00 (CcBcbProfiler.c)
  *     sub_1405CC010 @ 0x1405CC010 (sub_1405CC010.c)
  * Callees:
  *     <none>

@@ -1,11 +1,11 @@
 /*
- * XREFs of SeValidateImageHeader @ 0x1409CD10C
+ * XREFs of SeValidateImageHeader @ 0x14099E0EC
  * Callers:
- *     MiValidateImageHeader @ 0x1409CBC24 (MiValidateImageHeader.c)
+ *     MiValidateImageHeader @ 0x14099CC04 (MiValidateImageHeader.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     SepScheduleImageVerificationCallbacks @ 0x140B1423C (SepScheduleImageVerificationCallbacks.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     SepScheduleImageVerificationCallbacks @ 0x140B1633C (SepScheduleImageVerificationCallbacks.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SeValidateImageHeader(
@@ -35,9 +35,9 @@ __int64 __fastcall SeValidateImageHeader(
 
   P = 0LL;
   v21 = 0;
-  if ( SepRmCapTableLock.InGlobalForegroundList )
+  if ( SepRmCapTableLock.ReadTransferCount )
   {
-    v20 = (unsigned __int64)&P & -(__int64)(LODWORD(RtlpBootStatHandleLock.Affinity) != 0);
+    v20 = (unsigned __int64)&P & -(__int64)(*(_DWORD *)&RtlpBootStatHandleLock.AffinityPrimaryGroup != 0);
     v15 = guard_dispatch_icall_no_overrides(a1, a2);
     v16 = P;
     v17 = v15;

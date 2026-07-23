@@ -9,26 +9,26 @@
  *     ZwProtectVirtualMemory @ 0x1800A5D00 (ZwProtectVirtualMemory.c)
  */
 
-__int64 __fastcall sub_180006E54(__int64 a1, __int64 a2, int a3)
+LOGICAL __fastcall sub_180006E54(PVOID BaseAddress, _BYTE *a2, ULONG a3)
 {
-  char v5; // cl
-  __int64 v6; // r8
-  unsigned int v7; // eax
-  __int64 v8; // [rsp+48h] [rbp+10h] BYREF
-  int v9; // [rsp+50h] [rbp+18h] BYREF
-  __int64 v10; // [rsp+58h] [rbp+20h] BYREF
+  char v6; // cl
+  __int64 v7; // r8
+  ULONG v8; // eax
+  ULONG_PTR RegionSize; // [rsp+48h] [rbp+10h] BYREF
+  ULONG OldProtect; // [rsp+50h] [rbp+18h] BYREF
+  PVOID BaseAddressa; // [rsp+58h] [rbp+20h] BYREF
 
-  v9 = a3;
-  if ( *(_BYTE *)(a2 + 17) )
+  OldProtect = a3;
+  if ( a2[17] )
   {
-    v5 = *(_BYTE *)(a2 + 16);
-    v8 = 4096LL;
-    v6 = 1LL << v5;
-    if ( (unsigned __int64)(1LL << v5) > 0xF0000 )
-      v6 = 983040LL;
-    v10 = a2 + v6 + *(unsigned __int16 *)(a2 + 18);
-    v7 = sub_18001E548(a1, 1LL);
-    ZwProtectVirtualMemory(-1LL, &v10, &v8, v7, &v9);
+    v6 = a2[16];
+    RegionSize = 4096LL;
+    v7 = 1LL << v6;
+    if ( (unsigned __int64)(1LL << v6) > 0xF0000 )
+      v7 = 983040LL;
+    BaseAddressa = &a2[v7 + *((unsigned __int16 *)a2 + 9)];
+    v8 = sub_18001E548(BaseAddress);
+    ZwProtectVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddressa, &RegionSize, v8, &OldProtect);
   }
-  return RtlFreeHeap(a1, 0x800000LL);
+  return RtlFreeHeap(BaseAddress, 0x800000u, a2);
 }

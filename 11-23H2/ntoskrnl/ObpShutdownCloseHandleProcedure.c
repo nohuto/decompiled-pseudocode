@@ -1,11 +1,11 @@
 /*
- * XREFs of ObpShutdownCloseHandleProcedure @ 0x14097B240
+ * XREFs of ObpShutdownCloseHandleProcedure @ 0x14097B440
  * Callers:
  *     <none>
  * Callees:
- *     ExGetHandlePointer @ 0x14022F740 (ExGetHandlePointer.c)
- *     DbgPrint @ 0x14032A6F0 (DbgPrint.c)
- *     ExfUnblockPushLock @ 0x140412160 (ExfUnblockPushLock.c)
+ *     ExGetHandlePointer @ 0x14022F830 (ExGetHandlePointer.c)
+ *     DbgPrint @ 0x14032A980 (DbgPrint.c)
+ *     ExfUnblockPushLock @ 0x1404124A0 (ExfUnblockPushLock.c)
  */
 
 char __fastcall ObpShutdownCloseHandleProcedure(__int64 a1, __int64 *a2, int a3, _DWORD *a4)

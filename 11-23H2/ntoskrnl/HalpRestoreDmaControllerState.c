@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpRestoreDmaControllerState @ 0x140A95308
+ * XREFs of HalpRestoreDmaControllerState @ 0x140A95178
  * Callers:
- *     HalpAcpiPostSleep @ 0x140A96600 (HalpAcpiPostSleep.c)
+ *     HalpAcpiPostSleep @ 0x140A96470 (HalpAcpiPostSleep.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     HalpMiscIsLegacyPcType @ 0x14050B28C (HalpMiscIsLegacyPcType.c)
- *     HalpRestoreLegacyDmaControllerState @ 0x140A96450 (HalpRestoreLegacyDmaControllerState.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     HalpMiscIsLegacyPcType @ 0x14050B7DC (HalpMiscIsLegacyPcType.c)
+ *     HalpRestoreLegacyDmaControllerState @ 0x140A962C0 (HalpRestoreLegacyDmaControllerState.c)
  */
 
 char HalpRestoreDmaControllerState()

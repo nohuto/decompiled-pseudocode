@@ -1,21 +1,21 @@
 /*
- * XREFs of CmpSecurityMethod @ 0x1406D58D0
+ * XREFs of CmpSecurityMethod @ 0x1406D5900
  * Callers:
  *     <none>
  * Callees:
- *     CmpInitializeThreadInfo @ 0x14022E640 (CmpInitializeThreadInfo.c)
- *     CmCleanupThreadInfo @ 0x14022E680 (CmCleanupThreadInfo.c)
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     CmpIsRegistryLockAcquired @ 0x14022FB70 (CmpIsRegistryLockAcquired.c)
- *     EtwGetKernelTraceTimestamp @ 0x1402A2F90 (EtwGetKernelTraceTimestamp.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     CmpInitializeThreadInfo @ 0x14022E750 (CmpInitializeThreadInfo.c)
+ *     CmCleanupThreadInfo @ 0x14022E790 (CmCleanupThreadInfo.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     CmpIsRegistryLockAcquired @ 0x14022FC60 (CmpIsRegistryLockAcquired.c)
+ *     EtwGetKernelTraceTimestamp @ 0x1402A3220 (EtwGetKernelTraceTimestamp.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  *     CmPostCallbackNotificationEx @ 0x140691E30 (CmPostCallbackNotificationEx.c)
- *     CmpQueryKeySecurity @ 0x1406D5BA0 (CmpQueryKeySecurity.c)
- *     CmpCallCallBacksEx @ 0x1406E85F0 (CmpCallCallBacksEx.c)
- *     CmpSetKeySecurity @ 0x14070C3BC (CmpSetKeySecurity.c)
- *     CmpAssignKeySecurity @ 0x14085838C (CmpAssignKeySecurity.c)
+ *     CmpQueryKeySecurity @ 0x1406D5BD0 (CmpQueryKeySecurity.c)
+ *     CmpCallCallBacksEx @ 0x1406E8620 (CmpCallCallBacksEx.c)
+ *     CmpSetKeySecurity @ 0x14070C5CC (CmpSetKeySecurity.c)
+ *     CmpAssignKeySecurity @ 0x1408585CC (CmpAssignKeySecurity.c)
  */
 
 __int64 __fastcall CmpSecurityMethod(

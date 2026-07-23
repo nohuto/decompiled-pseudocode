@@ -1,8 +1,8 @@
 /*
- * XREFs of IoGetInitiatorProcess @ 0x140433670
+ * XREFs of IoGetInitiatorProcess @ 0x140428740
  * Callers:
- *     IoIsInitiator32bitProcess @ 0x140433600 (IoIsInitiator32bitProcess.c)
- *     IopCheckInitiatorHint @ 0x140454DB0 (IopCheckInitiatorHint.c)
+ *     IoIsInitiator32bitProcess @ 0x1404286D0 (IoIsInitiator32bitProcess.c)
+ *     IopCheckInitiatorHint @ 0x14044CEE0 (IopCheckInitiatorHint.c)
  * Callees:
  *     <none>
  */

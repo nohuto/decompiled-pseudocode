@@ -7,17 +7,17 @@
  *     ZwQuerySystemInformation @ 0x1800A59C0 (ZwQuerySystemInformation.c)
  */
 
-__int64 __fastcall RtlSystemTimeToLocalTime(_QWORD *a1, _QWORD *a2)
+NTSTATUS __cdecl RtlSystemTimeToLocalTime(PLARGE_INTEGER SystemTime, PLARGE_INTEGER LocalTime)
 {
-  __int64 result; // rax
-  _BYTE v5[16]; // [rsp+20h] [rbp-48h] BYREF
+  NTSTATUS result; // eax
+  _BYTE SystemInformation[16]; // [rsp+20h] [rbp-48h] BYREF
   __int64 v6; // [rsp+30h] [rbp-38h]
 
-  result = ZwQuerySystemInformation(3LL, v5, 48LL, 0LL);
-  if ( (int)result >= 0 )
+  result = ZwQuerySystemInformation(SystemTimeOfDayInformation, SystemInformation, 0x30u, 0LL);
+  if ( result >= 0 )
   {
-    *a2 = *a1 - v6;
-    return 0LL;
+    LocalTime->QuadPart = SystemTime->QuadPart - v6;
+    return 0;
   }
   return result;
 }

@@ -1,14 +1,14 @@
 /*
- * XREFs of KiDetectKvaLeakage @ 0x14099D588
+ * XREFs of KiDetectKvaLeakage @ 0x14099E4BC
  * Callers:
- *     KiSetFeatureBits @ 0x14099CB6C (KiSetFeatureBits.c)
+ *     KiSetFeatureBits @ 0x14099DB6C (KiSetFeatureBits.c)
  * Callees:
- *     HvlGetImplementedPhysicalBits @ 0x1403ADCC8 (HvlGetImplementedPhysicalBits.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     KiIsKvaShadowNeededForBranchConfusion @ 0x1403F31C4 (KiIsKvaShadowNeededForBranchConfusion.c)
- *     KiIsKvaShadowNeededForTsa @ 0x1403F322C (KiIsKvaShadowNeededForTsa.c)
+ *     HvlGetImplementedPhysicalBits @ 0x1403ADE18 (HvlGetImplementedPhysicalBits.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     KiIsKvaShadowNeededForBranchConfusion @ 0x1403F3214 (KiIsKvaShadowNeededForBranchConfusion.c)
+ *     KiIsKvaShadowNeededForTsa @ 0x1403F327C (KiIsKvaShadowNeededForTsa.c)
  *     KiIsFbClearSupported @ 0x1403F3738 (KiIsFbClearSupported.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
  */
 
 char __fastcall KiDetectKvaLeakage(__int64 a1)

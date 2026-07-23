@@ -1,10 +1,10 @@
 /*
- * XREFs of MiUpdateZeroFreeBitmap @ 0x1402897F0
+ * XREFs of MiUpdateZeroFreeBitmap @ 0x140288D50
  * Callers:
- *     MiReplenishPageSlist @ 0x14028A710 (MiReplenishPageSlist.c)
- *     MiUnlinkFreeOrZeroedPage @ 0x14028C8F4 (MiUnlinkFreeOrZeroedPage.c)
+ *     MiReplenishPageSlist @ 0x140289C70 (MiReplenishPageSlist.c)
+ *     MiUnlinkFreeOrZeroedPage @ 0x14028BE54 (MiUnlinkFreeOrZeroedPage.c)
  * Callees:
- *     MiColorGetCache @ 0x140289A00 (MiColorGetCache.c)
+ *     MiColorGetCache @ 0x140288F60 (MiColorGetCache.c)
  */
 
 unsigned __int64 __fastcall MiUpdateZeroFreeBitmap(__int64 a1, __int64 a2, int a3)

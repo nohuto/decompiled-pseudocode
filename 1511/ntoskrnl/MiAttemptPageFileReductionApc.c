@@ -34,7 +34,7 @@ LONG __fastcall MiAttemptPageFileReductionApc(struct _KEVENT *a1)
   __int64 v13; // rdi
   __int16 v14; // ax
   __int64 v15; // rax
-  struct _RTL_BITMAP *v16; // r10
+  _RTL_BITMAP *v16; // r10
   const signed __int32 *v17; // r8
   unsigned int v18; // ecx
   const signed __int32 *v19; // rdx
@@ -50,7 +50,7 @@ LONG __fastcall MiAttemptPageFileReductionApc(struct _KEVENT *a1)
   __int64 v29; // rdx
   unsigned __int64 v30; // rax
   __int64 v31; // rcx
-  struct _RTL_BITMAP *v32; // rbx
+  _RTL_BITMAP *v32; // rbx
   int v34; // [rsp+30h] [rbp-69h]
   unsigned int v35; // [rsp+34h] [rbp-65h]
   _DWORD *v36; // [rsp+38h] [rbp-61h]
@@ -59,12 +59,12 @@ LONG __fastcall MiAttemptPageFileReductionApc(struct _KEVENT *a1)
   unsigned int v39; // [rsp+50h] [rbp-49h]
   PRTL_BITMAP v40; // [rsp+58h] [rbp-41h]
   __int64 v41; // [rsp+60h] [rbp-39h]
-  struct _RTL_BITMAP *v42; // [rsp+68h] [rbp-31h]
+  _RTL_BITMAP *v42; // [rsp+68h] [rbp-31h]
   ULONG StartingRunIndex; // [rsp+70h] [rbp-29h] BYREF
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+78h] [rbp-21h] BYREF
   ULONG v45; // [rsp+90h] [rbp-9h] BYREF
-  struct _RTL_BITMAP BitMapHeader; // [rsp+98h] [rbp-1h] BYREF
-  struct _RTL_BITMAP v47; // [rsp+A8h] [rbp+Fh] BYREF
+  _RTL_BITMAP BitMapHeader; // [rsp+98h] [rbp-1h] BYREF
+  _RTL_BITMAP v47; // [rsp+A8h] [rbp+Fh] BYREF
   struct _KEVENT *Event; // [rsp+100h] [rbp+67h]
   int v49; // [rsp+118h] [rbp+7Fh]
 
@@ -116,11 +116,11 @@ LONG __fastcall MiAttemptPageFileReductionApc(struct _KEVENT *a1)
         v2 = *(_QWORD *)(v13 + 256);
         KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(v13 + 232), &LockHandle);
         v15 = *(_QWORD *)(v13 + 112);
-        v16 = (struct _RTL_BITMAP *)(v15 + 8);
+        v16 = (_RTL_BITMAP *)(v15 + 8);
         v17 = *(const signed __int32 **)(v15 + 16);
         v18 = *(_DWORD *)v13 - 1;
         v40 = (PRTL_BITMAP)(v15 + 8);
-        v42 = (struct _RTL_BITMAP *)(v15 + 24);
+        v42 = (_RTL_BITMAP *)(v15 + 24);
         if ( _bittest(v17, v18) == 1 || (v19 = *(const signed __int32 **)(v15 + 32), _bittest(v19, v18) == 1) )
         {
           v25 = v49;
@@ -202,7 +202,7 @@ LABEL_35:
                 *(_QWORD *)(v13 + 24) += LastBackwardRunClear;
                 *(_QWORD *)(v13 + 48) += LastBackwardRunClear;
                 *(_QWORD *)v13 = v28 + LastBackwardRunClear;
-                v32 = (struct _RTL_BITMAP *)(v31 + 24);
+                v32 = (_RTL_BITMAP *)(v31 + 24);
                 RtlClearBits((PRTL_BITMAP)(v31 + 8), v28, LastBackwardRunClear);
                 RtlClearBits(v32, v28, LastBackwardRunClear);
                 if ( v28 < *(unsigned int *)(v13 + 120) )

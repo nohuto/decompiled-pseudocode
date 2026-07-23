@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlExecuteUmsThread @ 0x1800EC850
+ * XREFs of RtlExecuteUmsThread @ 0x1800EC910
  * Callers:
  *     <none>
  * Callees:
- *     RtlGetCurrentUmsThread @ 0x180061980 (RtlGetCurrentUmsThread.c)
- *     __security_check_cookie @ 0x180096C40 (__security_check_cookie.c)
+ *     RtlGetCurrentUmsThread @ 0x180061970 (RtlGetCurrentUmsThread.c)
+ *     __security_check_cookie @ 0x180096C30 (__security_check_cookie.c)
  *     NtTraceEvent @ 0x1800A6FD0 (NtTraceEvent.c)
  *     RtlpExecuteUmsThread @ 0x1800AA8A1 (RtlpExecuteUmsThread.c)
  *     RtlpLoadUmsDebugRegisterState @ 0x1800FCB40 (RtlpLoadUmsDebugRegisterState.c)
@@ -17,12 +17,13 @@ __int64 __fastcall RtlExecuteUmsThread(__int64 a1)
   int v4; // ecx
   unsigned int v5; // ebx
   struct _TEB **v6; // [rsp+20h] [rbp-58h] BYREF
-  __int16 v7; // [rsp+2Eh] [rbp-4Ah]
-  int v8; // [rsp+48h] [rbp-30h]
-  int v9; // [rsp+4Ch] [rbp-2Ch]
-  int v10; // [rsp+50h] [rbp-28h]
-  int v11; // [rsp+54h] [rbp-24h]
-  int v12; // [rsp+58h] [rbp-20h]
+  _BYTE Fields[6]; // [rsp+28h] [rbp-50h] BYREF
+  __int16 v8; // [rsp+2Eh] [rbp-4Ah]
+  int v9; // [rsp+48h] [rbp-30h]
+  int v10; // [rsp+4Ch] [rbp-2Ch]
+  int v11; // [rsp+50h] [rbp-28h]
+  int v12; // [rsp+54h] [rbp-24h]
+  int v13; // [rsp+58h] [rbp-20h]
 
   if ( !a1 )
     return 3221225485LL;
@@ -46,14 +47,14 @@ __int64 __fastcall RtlExecuteUmsThread(__int64 a1)
       && *(_DWORD *)(a1 + 1288) == 1000 * (*(_DWORD *)(a1 + 1288) / 0x3E8u)
       && (*(_DWORD *)(a1 + 1264) & 8) == 0 )
     {
-      v7 = 6436;
+      v8 = 6436;
       v4 = *(_DWORD *)(*(_QWORD *)(a1 + 1248) + 72LL);
-      v9 = *(_DWORD *)(a1 + 1288);
-      v11 = *(_DWORD *)(a1 + 1296);
-      v10 = *(_DWORD *)(a1 + 1292);
-      v12 = *(_DWORD *)(a1 + 1300);
-      v8 = v4;
-      NtTraceEvent();
+      v10 = *(_DWORD *)(a1 + 1288);
+      v12 = *(_DWORD *)(a1 + 1296);
+      v11 = *(_DWORD *)(a1 + 1292);
+      v13 = *(_DWORD *)(a1 + 1300);
+      v9 = v4;
+      NtTraceEvent((HANDLE)MEMORY[0x7FFE038C], 0x20402u, 0x14u, Fields);
     }
     RtlpExecuteUmsThread(a1);
     if ( (*(_QWORD *)(a1 + 1272) & 0xFFFFFFFFFFFFFFFCuLL) != 0 )

@@ -1,12 +1,12 @@
 /*
- * XREFs of MiLogCombinedPteDelete @ 0x1407049B0
+ * XREFs of MiLogCombinedPteDelete @ 0x140709680
  * Callers:
- *     MiDecommitSharedPageTail @ 0x1402DBF60 (MiDecommitSharedPageTail.c)
- *     MiDemoteCombinedPte @ 0x1402FE120 (MiDemoteCombinedPte.c)
- *     MiDecrementCombinedPteEx @ 0x14036A1BC (MiDecrementCombinedPteEx.c)
+ *     MiDecommitSharedPageTail @ 0x1402BDD20 (MiDecommitSharedPageTail.c)
+ *     MiDemoteCombinedPte @ 0x1402E01A0 (MiDemoteCombinedPte.c)
+ *     MiDecrementCombinedPteEx @ 0x14036BF5C (MiDecrementCombinedPteEx.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x1402DAC90 (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwTraceKernelEvent @ 0x1402BCA50 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall MiLogCombinedPteDelete(__int64 a1)

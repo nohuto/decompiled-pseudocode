@@ -1,13 +1,13 @@
 /*
- * XREFs of AslRegistryGetString @ 0x140A542D4
+ * XREFs of AslRegistryGetString @ 0x140A54584
  * Callers:
- *     SdbGetMergeRedirectPath @ 0x140A4E100 (SdbGetMergeRedirectPath.c)
+ *     SdbGetMergeRedirectPath @ 0x140A4E3B0 (SdbGetMergeRedirectPath.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     ZwQueryValueKey @ 0x14041B040 (ZwQueryValueKey.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     ZwQueryValueKey @ 0x14041B3D0 (ZwQueryValueKey.c)
  *     AslLogCallPrintf @ 0x1406956FC (AslLogCallPrintf.c)
- *     AslStringDuplicate @ 0x1406D49F8 (AslStringDuplicate.c)
- *     AslAlloc @ 0x140758498 (AslAlloc.c)
+ *     AslStringDuplicate @ 0x1406D4A28 (AslStringDuplicate.c)
+ *     AslAlloc @ 0x140758688 (AslAlloc.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

@@ -1,12 +1,12 @@
 /*
- * XREFs of VfSuspectDriversRemove @ 0x140C38DC4
+ * XREFs of VfSuspectDriversRemove @ 0x140C3EDD4
  * Callers:
- *     VfRemoveVerifierEntry @ 0x140C39AF0 (VfRemoveVerifierEntry.c)
+ *     VfRemoveVerifierEntry @ 0x140C3FB00 (VfRemoveVerifierEntry.c)
  * Callees:
- *     KeReleaseMutex @ 0x1403DD0F0 (KeReleaseMutex.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
- *     ViSuspectDriversLookupEntry @ 0x140C20440 (ViSuspectDriversLookupEntry.c)
- *     VfDriverLock @ 0x140C46804 (VfDriverLock.c)
+ *     KeReleaseMutex @ 0x1403E02E0 (KeReleaseMutex.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
+ *     ViSuspectDriversLookupEntry @ 0x140C2644C (ViSuspectDriversLookupEntry.c)
+ *     VfDriverLock @ 0x140C4C814 (VfDriverLock.c)
  */
 
 __int64 __fastcall VfSuspectDriversRemove(PCUNICODE_STRING String2)

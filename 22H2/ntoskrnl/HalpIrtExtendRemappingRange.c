@@ -17,7 +17,7 @@ __int64 __fastcall HalpIrtExtendRemappingRange(unsigned int a1)
   __int64 v2; // rdi
   char v3; // si
   unsigned int *PoolWithTag; // rbp
-  RTL_BITMAP BitMapHeader; // [rsp+20h] [rbp-18h] BYREF
+  _RTL_BITMAP BitMapHeader; // [rsp+20h] [rbp-18h] BYREF
 
   v1 = 0;
   v2 = a1;

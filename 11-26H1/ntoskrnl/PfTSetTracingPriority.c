@@ -1,12 +1,12 @@
 /*
- * XREFs of PfTSetTracingPriority @ 0x140BF8F54
+ * XREFs of PfTSetTracingPriority @ 0x140BFEF54
  * Callers:
- *     PfpLogEventRequest @ 0x140B4F4BC (PfpLogEventRequest.c)
+ *     PfpLogEventRequest @ 0x140B51D4C (PfpLogEventRequest.c)
  * Callees:
- *     PfLockExclusiveAcquire @ 0x1404C3BA0 (PfLockExclusiveAcquire.c)
- *     PfLockExclusiveRelease @ 0x1404C761C (PfLockExclusiveRelease.c)
- *     PfpPartitionToParent @ 0x1404D5F40 (PfpPartitionToParent.c)
- *     MmSetAccessLogging @ 0x140703220 (MmSetAccessLogging.c)
+ *     PfLockExclusiveAcquire @ 0x1404BD3F0 (PfLockExclusiveAcquire.c)
+ *     PfLockExclusiveRelease @ 0x1404C0F38 (PfLockExclusiveRelease.c)
+ *     PfpPartitionToParent @ 0x1404CF710 (PfpPartitionToParent.c)
+ *     MmSetAccessLogging @ 0x140707EF0 (MmSetAccessLogging.c)
  */
 
 void __fastcall PfTSetTracingPriority(__int64 a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)

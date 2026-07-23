@@ -15,30 +15,30 @@
 __int64 HalpTimerConfigureQpcBypass()
 {
   char v0; // bl
-  int SystemInformation; // esi
+  NTSTATUS v1; // esi
   ULONG_PTR *Timer; // rax
   unsigned __int64 v3; // rdi
   int v4; // eax
-  int v5; // r8d
+  DWORD v5; // r8d
   __int16 *v6; // rdx
-  int v7; // ecx
+  RTL_SYSTEM_GLOBAL_DATA_ID v7; // ecx
   __int64 result; // rax
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
   bool v11; // zf
   signed __int32 v12[8]; // [rsp+0h] [rbp-48h] BYREF
-  __int64 v13[3]; // [rsp+30h] [rbp-18h] BYREF
+  __int64 SystemInformation[3]; // [rsp+30h] [rbp-18h] BYREF
   unsigned __int8 v14; // [rsp+80h] [rbp+38h] BYREF
-  __int64 v15; // [rsp+88h] [rbp+40h] BYREF
+  char Buffer; // [rsp+88h] [rbp+40h] BYREF
   char v16; // [rsp+90h] [rbp+48h] BYREF
   __int16 v17; // [rsp+98h] [rbp+50h] BYREF
 
   v14 = 0;
-  v13[0] = 0LL;
+  SystemInformation[0] = 0LL;
   v17 = 0;
-  LOBYTE(v15) = 0;
+  Buffer = 0;
   v0 = 0;
-  SystemInformation = NtQuerySystemInformation(197LL, v13, 8LL, 0LL);
+  v1 = NtQuerySystemInformation(SystemHypervisorSharedPageInformation, SystemInformation, 8u, 0LL);
   Timer = HalpFindTimer(5, 0, 0, 0, 1);
   if ( Timer )
   {
@@ -60,27 +60,27 @@ __int64 HalpTimerConfigureQpcBypass()
   }
   v3 = KeAcquireSpinLockRaiseToDpc(&HalpTscFallbackLock);
   v4 = *(_DWORD *)(HalpPerformanceCounter + 228);
-  if ( (v4 == 5 || v4 == 7) && SystemInformation >= 0 && v13[0] )
+  if ( (v4 == 5 || v4 == 7) && v1 >= 0 && SystemInformation[0] )
   {
     v16 = v0 | 3;
-    RtlSetSystemGlobalData(16, &v15, 1);
+    RtlSetSystemGlobalData(GlobalDataIdQpcShift, &Buffer, 1u);
     _InterlockedOr(v12, 0);
     v5 = 1;
     v6 = (__int16 *)&v16;
-    v7 = 17;
+    v7 = GlobalDataIdQpcBypassEnabled;
   }
   else
   {
     v5 = 2;
     v6 = &v17;
-    v7 = 18;
+    v7 = GlobalDataIdQpcData;
   }
   RtlSetSystemGlobalData(v7, v6, v5);
   result = KxReleaseSpinLock((volatile signed __int64 *)&HalpTscFallbackLock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
       && (unsigned __int8)result <= 0xFu
       && (unsigned __int8)v3 <= 0xFu
       && (unsigned __int8)result >= 2u )

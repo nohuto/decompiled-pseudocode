@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwQueryVirtualMemory @ 0x1800A0740
+ * XREFs of ZwQueryVirtualMemory @ 0x1800A0760
  * Callers:
  *     RtlpWalkFrameChain @ 0x1800038B0 (RtlpWalkFrameChain.c)
  *     RtlpGetImageBaseViaQueryVirtualMemory @ 0x180009B38 (RtlpGetImageBaseViaQueryVirtualMemory.c)
@@ -10,12 +10,12 @@
  *     RtlCreateHeap @ 0x18005F7E0 (RtlCreateHeap.c)
  *     RtlpProtectHeap @ 0x180060780 (RtlpProtectHeap.c)
  *     RtlpHpHeapValidateProtection @ 0x180060C34 (RtlpHpHeapValidateProtection.c)
- *     LdrpCheckPagesForTampering @ 0x180078DB8 (LdrpCheckPagesForTampering.c)
- *     LdrpTouchThreadStack @ 0x180085B38 (LdrpTouchThreadStack.c)
- *     RtlLockCurrentThread @ 0x1800865A0 (RtlLockCurrentThread.c)
- *     LdrpProtectAndRelocateImage @ 0x1800873A4 (LdrpProtectAndRelocateImage.c)
- *     RtlUnlockCurrentThread @ 0x18008A0A0 (RtlUnlockCurrentThread.c)
- *     LdrpGetModuleInfoFromVirtualMemory @ 0x18008F554 (LdrpGetModuleInfoFromVirtualMemory.c)
+ *     LdrpCheckPagesForTampering @ 0x180078DC8 (LdrpCheckPagesForTampering.c)
+ *     LdrpTouchThreadStack @ 0x180085B48 (LdrpTouchThreadStack.c)
+ *     RtlLockCurrentThread @ 0x1800865B0 (RtlLockCurrentThread.c)
+ *     LdrpProtectAndRelocateImage @ 0x1800873B4 (LdrpProtectAndRelocateImage.c)
+ *     RtlUnlockCurrentThread @ 0x18008A0B0 (RtlUnlockCurrentThread.c)
+ *     LdrpGetModuleInfoFromVirtualMemory @ 0x18008F564 (LdrpGetModuleInfoFromVirtualMemory.c)
  *     LdrIsEnclaveAddress @ 0x1800CEE1C (LdrIsEnclaveAddress.c)
  *     LdrpCaptureCriticalThunks @ 0x1800D7094 (LdrpCaptureCriticalThunks.c)
  *     RtlResetStackOverflow @ 0x1800DFABC (RtlResetStackOverflow.c)
@@ -34,11 +34,17 @@
  *     <none>
  */
 
-__int64 ZwQueryVirtualMemory()
+NTSTATUS __cdecl ZwQueryVirtualMemory(
+        HANDLE ProcessHandle,
+        PVOID BaseAddress,
+        MEMORY_INFORMATION_CLASS MemoryInformationClass,
+        PVOID MemoryInformation,
+        SIZE_T MemoryInformationLength,
+        PSIZE_T ReturnLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 35LL;
+  result = 35;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

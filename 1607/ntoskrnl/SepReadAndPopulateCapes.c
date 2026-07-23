@@ -1,20 +1,20 @@
 /*
- * XREFs of SepReadAndPopulateCapes @ 0x14056BD0C
+ * XREFs of SepReadAndPopulateCapes @ 0x14056C24C
  * Callers:
- *     SepBuildCapPolicyTable @ 0x140144EF0 (SepBuildCapPolicyTable.c)
+ *     SepBuildCapPolicyTable @ 0x140145460 (SepBuildCapPolicyTable.c)
  * Callees:
- *     RtlStringCbPrintfW @ 0x14000C1D4 (RtlStringCbPrintfW.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     ZwQueryKey @ 0x140159F40 (ZwQueryKey.c)
- *     ZwQueryValueKey @ 0x140159F60 (ZwQueryValueKey.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     SepRmCapPoolExpand @ 0x14021B580 (SepRmCapPoolExpand.c)
+ *     RtlStringCbPrintfW @ 0x14000BD54 (RtlStringCbPrintfW.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     ZwQueryKey @ 0x14015A4B0 (ZwQueryKey.c)
+ *     ZwQueryValueKey @ 0x14015A4D0 (ZwQueryValueKey.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     SepRmCapPoolExpand @ 0x14021B3AC (SepRmCapPoolExpand.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     SepRegOpenKey @ 0x140476484 (SepRegOpenKey.c)
- *     SeValidSecurityDescriptor @ 0x1404C7814 (SeValidSecurityDescriptor.c)
+ *     SepRegOpenKey @ 0x140475354 (SepRegOpenKey.c)
+ *     SeValidSecurityDescriptor @ 0x140486C5C (SeValidSecurityDescriptor.c)
  */
 
 __int64 __fastcall SepReadAndPopulateCapes(HANDLE KeyHandle, int a2, _DWORD *a3, PVOID *a4)

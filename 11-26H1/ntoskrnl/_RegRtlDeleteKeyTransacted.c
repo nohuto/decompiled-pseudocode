@@ -1,13 +1,13 @@
 /*
- * XREFs of _RegRtlDeleteKeyTransacted @ 0x140A2DD6C
+ * XREFs of _RegRtlDeleteKeyTransacted @ 0x140A3F778
  * Callers:
- *     _PnpCtxRegDeleteKey @ 0x140A2D8BC (_PnpCtxRegDeleteKey.c)
- *     _RegRtlDeletePathInternal @ 0x140A2D934 (_RegRtlDeletePathInternal.c)
- *     _RegRtlDeleteTreeInternal @ 0x140A2DB2C (_RegRtlDeleteTreeInternal.c)
+ *     _PnpCtxRegDeleteKey @ 0x140A3F2C8 (_PnpCtxRegDeleteKey.c)
+ *     _RegRtlDeletePathInternal @ 0x140A3F340 (_RegRtlDeletePathInternal.c)
+ *     _RegRtlDeleteTreeInternal @ 0x140A3F538 (_RegRtlDeleteTreeInternal.c)
  * Callees:
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwDeleteKey @ 0x140724F70 (ZwDeleteKey.c)
- *     _RegRtlOpenKeyTransacted @ 0x140997950 (_RegRtlOpenKeyTransacted.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwDeleteKey @ 0x140729B40 (ZwDeleteKey.c)
+ *     _RegRtlOpenKeyTransacted @ 0x1409583B0 (_RegRtlOpenKeyTransacted.c)
  */
 
 __int64 __fastcall RegRtlDeleteKeyTransacted(char *a1, const WCHAR *a2, __int64 a3)

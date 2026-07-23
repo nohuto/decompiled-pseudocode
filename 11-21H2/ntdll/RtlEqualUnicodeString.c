@@ -17,30 +17,30 @@
  *     <none>
  */
 
-char __fastcall RtlEqualUnicodeString(unsigned __int16 *a1, __int64 a2, char a3)
+BOOLEAN __cdecl RtlEqualUnicodeString(PUNICODE_STRING String1, PUNICODE_STRING String2, BOOLEAN CaseInSensitive)
 {
-  __int64 v3; // r9
-  _WORD *v4; // rax
-  char *v5; // r11
-  __int64 v6; // rbx
+  __int64 Length; // r9
+  wchar_t *Buffer; // rax
+  wchar_t *v5; // r11
+  char *v6; // rbx
   unsigned __int64 v7; // r10
   unsigned __int64 v8; // r9
-  __int64 v10; // r8
+  char *v10; // r8
 
-  v3 = *a1;
-  if ( (_WORD)v3 == *(_WORD *)a2 )
+  Length = String1->Length;
+  if ( (_WORD)Length == String2->Length )
   {
-    v4 = (_WORD *)*((_QWORD *)a1 + 1);
-    v5 = (char *)v4 + v3;
-    if ( v4 >= (_WORD *)((char *)v4 + v3) )
+    Buffer = String1->Buffer;
+    v5 = (wchar_t *)((char *)Buffer + Length);
+    if ( Buffer >= (wchar_t *)((char *)Buffer + Length) )
       return 1;
-    if ( a3 )
+    if ( CaseInSensitive )
     {
-      v6 = *(_QWORD *)(a2 + 8) - (_QWORD)v4;
+      v6 = (char *)((char *)String2->Buffer - (char *)Buffer);
       while ( 1 )
       {
-        v7 = (unsigned __int16)*v4;
-        v8 = *(unsigned __int16 *)((char *)v4 + v6);
+        v7 = *Buffer;
+        v8 = *(unsigned __int16 *)((char *)Buffer + (_QWORD)v6);
         if ( (_WORD)v7 != (_WORD)v8 )
         {
           if ( (unsigned int)v7 >= 0x61 )
@@ -88,16 +88,16 @@ char __fastcall RtlEqualUnicodeString(unsigned __int16 *a1, __int64 a2, char a3)
           if ( (_WORD)v7 != (_WORD)v8 )
             break;
         }
-        if ( ++v4 >= (_WORD *)v5 )
+        if ( ++Buffer >= v5 )
           return 1;
       }
     }
     else
     {
-      v10 = *(_QWORD *)(a2 + 8) - (_QWORD)v4;
-      while ( *v4 == *(_WORD *)((char *)v4 + v10) )
+      v10 = (char *)((char *)String2->Buffer - (char *)Buffer);
+      while ( *Buffer == *(wchar_t *)((char *)Buffer + (_QWORD)v10) )
       {
-        if ( ++v4 >= (_WORD *)v5 )
+        if ( ++Buffer >= v5 )
           return 1;
       }
     }

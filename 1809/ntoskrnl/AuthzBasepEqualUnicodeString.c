@@ -1,14 +1,14 @@
 /*
- * XREFs of AuthzBasepEqualUnicodeString @ 0x1400A5DE8
+ * XREFs of AuthzBasepEqualUnicodeString @ 0x1400A5D28
  * Callers:
- *     SeSecurityAttributePresent @ 0x1400A7050 (SeSecurityAttributePresent.c)
- *     AuthzBasepFindSecurityAttribute @ 0x1400A71F0 (AuthzBasepFindSecurityAttribute.c)
- *     AuthzBasepFindSecurityAttributeValue @ 0x1400D9084 (AuthzBasepFindSecurityAttributeValue.c)
- *     AuthzBasepFindTokenAttribute @ 0x140324C8C (AuthzBasepFindTokenAttribute.c)
- *     AuthzBasepFindSystemSecurityAttribute @ 0x140625864 (AuthzBasepFindSystemSecurityAttribute.c)
+ *     SeSecurityAttributePresent @ 0x1400A6F90 (SeSecurityAttributePresent.c)
+ *     AuthzBasepFindSecurityAttribute @ 0x1400A7130 (AuthzBasepFindSecurityAttribute.c)
+ *     AuthzBasepFindSecurityAttributeValue @ 0x1400D9104 (AuthzBasepFindSecurityAttributeValue.c)
+ *     AuthzBasepFindTokenAttribute @ 0x140324E7C (AuthzBasepFindTokenAttribute.c)
+ *     AuthzBasepFindSystemSecurityAttribute @ 0x140626884 (AuthzBasepFindSystemSecurityAttribute.c)
  * Callees:
- *     AuthzBasepEqualUnicodeStringCaseSensitive @ 0x14013ADF8 (AuthzBasepEqualUnicodeStringCaseSensitive.c)
- *     RtlEqualUnicodeString @ 0x140625D40 (RtlEqualUnicodeString.c)
+ *     AuthzBasepEqualUnicodeStringCaseSensitive @ 0x14013AEF8 (AuthzBasepEqualUnicodeStringCaseSensitive.c)
+ *     RtlEqualUnicodeString @ 0x140626D60 (RtlEqualUnicodeString.c)
  */
 
 BOOLEAN __fastcall AuthzBasepEqualUnicodeString(const UNICODE_STRING *a1, const UNICODE_STRING *a2)

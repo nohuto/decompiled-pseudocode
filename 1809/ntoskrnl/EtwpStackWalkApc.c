@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpStackWalkApc @ 0x14030F670
+ * XREFs of EtwpStackWalkApc @ 0x14030F860
  * Callers:
  *     <none>
  * Callees:
- *     EtwpFinalizePendingApc @ 0x14030F1CC (EtwpFinalizePendingApc.c)
- *     EtwpTraceStackWalk @ 0x14030F744 (EtwpTraceStackWalk.c)
+ *     EtwpFinalizePendingApc @ 0x14030F3BC (EtwpFinalizePendingApc.c)
+ *     EtwpTraceStackWalk @ 0x14030F934 (EtwpTraceStackWalk.c)
  */
 
 void __fastcall EtwpStackWalkApc(__int64 a1, _QWORD *a2, unsigned int **a3, int *a4, int *a5)

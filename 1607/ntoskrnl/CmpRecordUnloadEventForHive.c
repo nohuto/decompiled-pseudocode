@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpRecordUnloadEventForHive @ 0x14049B43C
+ * XREFs of CmpRecordUnloadEventForHive @ 0x1404D009C
  * Callers:
- *     CmUnloadKeyEx @ 0x14049D9AC (CmUnloadKeyEx.c)
- *     CmpLinkHiveToMaster @ 0x1404A10B4 (CmpLinkHiveToMaster.c)
- *     CmpResolveHiveLoadConflict @ 0x1405FF120 (CmpResolveHiveLoadConflict.c)
+ *     CmUnloadKeyEx @ 0x140515DB8 (CmUnloadKeyEx.c)
+ *     CmpLinkHiveToMaster @ 0x1405194C0 (CmpLinkHiveToMaster.c)
+ *     CmpResolveHiveLoadConflict @ 0x1405FF1D4 (CmpResolveHiveLoadConflict.c)
  * Callees:
- *     ObfReferenceObject @ 0x14006A060 (ObfReferenceObject.c)
- *     memmove @ 0x140171280 (memmove.c)
+ *     ObfReferenceObject @ 0x140069BE0 (ObfReferenceObject.c)
+ *     memmove @ 0x140171780 (memmove.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */

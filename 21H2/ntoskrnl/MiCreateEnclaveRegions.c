@@ -1,18 +1,18 @@
 /*
- * XREFs of MiCreateEnclaveRegions @ 0x140A54ED8
+ * XREFs of MiCreateEnclaveRegions @ 0x140A55ED8
  * Callers:
- *     MiInitSystem @ 0x140A53E5C (MiInitSystem.c)
+ *     MiInitSystem @ 0x140A54E5C (MiInitSystem.c)
  * Callees:
- *     MiInsertPageInFreeOrZeroedList @ 0x140234F10 (MiInsertPageInFreeOrZeroedList.c)
- *     MiAllocatePool @ 0x14025AD70 (MiAllocatePool.c)
- *     ExInitializePushLock @ 0x140278EE0 (ExInitializePushLock.c)
- *     MiInitializeMdlPfn @ 0x1402E37C4 (MiInitializeMdlPfn.c)
- *     MiLockPageInline @ 0x1402FFE30 (MiLockPageInline.c)
- *     MiUpdateLargePageBitMap @ 0x140300090 (MiUpdateLargePageBitMap.c)
- *     RtlAvlInsertNodeEx @ 0x140316550 (RtlAvlInsertNodeEx.c)
- *     MiSwizzleInvalidPte @ 0x140329F90 (MiSwizzleInvalidPte.c)
+ *     ExInitializePushLock @ 0x140266E80 (ExInitializePushLock.c)
+ *     MiAllocatePool @ 0x14027C2E0 (MiAllocatePool.c)
+ *     MiInitializeMdlPfn @ 0x140294B14 (MiInitializeMdlPfn.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x1402D9760 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiLockPageInline @ 0x14030AB80 (MiLockPageInline.c)
+ *     MiUpdateLargePageBitMap @ 0x14030ADE0 (MiUpdateLargePageBitMap.c)
+ *     RtlAvlInsertNodeEx @ 0x1403212A0 (RtlAvlInsertNodeEx.c)
+ *     MiSwizzleInvalidPte @ 0x140334CE0 (MiSwizzleInvalidPte.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     MiInitializeEnclaveMetadataPage @ 0x140A92754 (MiInitializeEnclaveMetadataPage.c)
+ *     MiInitializeEnclaveMetadataPage @ 0x140A93754 (MiInitializeEnclaveMetadataPage.c)
  */
 
 _BOOL8 __fastcall MiCreateEnclaveRegions(__int64 a1)
@@ -41,11 +41,11 @@ _BOOL8 __fastcall MiCreateEnclaveRegions(__int64 a1)
   bool v24; // zf
   __int64 *v25; // [rsp+60h] [rbp+8h]
 
-  qword_140C4EEB0 = (__int64)&qword_140C4EEA8;
-  qword_140C4EEA8 = (__int64)&qword_140C4EEA8;
+  qword_140C4EEF0 = (__int64)&qword_140C4EEE8;
+  qword_140C4EEE8 = (__int64)&qword_140C4EEE8;
   v2 = 0LL;
-  qword_140C4EEB8 = 0LL;
-  ExInitializePushLock(&stru_140C4EEC0);
+  qword_140C4EEF8 = 0LL;
+  ExInitializePushLock(&stru_140C4EF00);
   v3 = (__int64 *)(a1 + 32);
   v4 = MiSwizzleInvalidPte(128LL);
   v25 = v3;
@@ -71,8 +71,8 @@ _BOOL8 __fastcall MiCreateEnclaveRegions(__int64 a1)
     Pool[3] = v7;
     v11 = 0;
     Pool[4] = v8;
-    v12 = (_QWORD *)qword_140C4EE80;
-    if ( !qword_140C4EE80 )
+    v12 = (_QWORD *)qword_140C4EEC0;
+    if ( !qword_140C4EEC0 )
       goto LABEL_15;
     while ( v7 < v12[3] )
     {
@@ -87,7 +87,7 @@ LABEL_20:
       goto LABEL_20;
     v11 = 1;
 LABEL_15:
-    RtlAvlInsertNodeEx((unsigned __int64 *)&qword_140C4EE80, (unsigned __int64)v12, v11, v2);
+    RtlAvlInsertNodeEx((unsigned __int64 *)&qword_140C4EEC0, (unsigned __int64)v12, v11, v2);
 LABEL_16:
     MiUpdateLargePageBitMap((__int64)&MiSystemPartition, v7, v8, 0, 0);
     v17 = 48 * v7 - 0x58000000000LL;
@@ -134,7 +134,7 @@ LABEL_16:
       while ( v8 );
       v3 = v25;
     }
-    qword_140C4EFB8 -= i[4];
+    qword_140C4EFF8 -= i[4];
   }
-  return !qword_140C4EE80 || (unsigned int)MiInitializeEnclaveMetadataPage();
+  return !qword_140C4EEC0 || (unsigned int)MiInitializeEnclaveMetadataPage();
 }

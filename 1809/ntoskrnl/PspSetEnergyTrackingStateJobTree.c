@@ -1,12 +1,12 @@
 /*
- * XREFs of PspSetEnergyTrackingStateJobTree @ 0x1405B9614
+ * XREFs of PspSetEnergyTrackingStateJobTree @ 0x1405BA614
  * Callers:
- *     NtSetInformationJobObject @ 0x140600B10 (NtSetInformationJobObject.c)
+ *     NtSetInformationJobObject @ 0x140601B10 (NtSetInformationJobObject.c)
  * Callees:
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceExclusiveLite @ 0x1400505F0 (ExAcquireResourceExclusiveLite.c)
- *     PspIsContextAdmin @ 0x1405B96B4 (PspIsContextAdmin.c)
- *     PspEnumJobsAndProcessesInJobHierarchy @ 0x1405FD9F4 (PspEnumJobsAndProcessesInJobHierarchy.c)
+ *     PspIsContextAdmin @ 0x1405BA6B4 (PspIsContextAdmin.c)
+ *     PspEnumJobsAndProcessesInJobHierarchy @ 0x1405FE9F4 (PspEnumJobsAndProcessesInJobHierarchy.c)
  */
 
 __int64 __fastcall PspSetEnergyTrackingStateJobTree(char *Object, _DWORD *a2)

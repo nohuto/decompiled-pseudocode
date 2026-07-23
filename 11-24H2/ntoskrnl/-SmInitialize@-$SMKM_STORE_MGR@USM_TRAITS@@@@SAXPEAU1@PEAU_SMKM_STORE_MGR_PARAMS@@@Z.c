@@ -1,14 +1,14 @@
 /*
- * XREFs of ?SmInitialize@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAU_SMKM_STORE_MGR_PARAMS@@@Z @ 0x14060A68C
+ * XREFs of ?SmInitialize@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAU_SMKM_STORE_MGR_PARAMS@@@Z @ 0x140608C4C
  * Callers:
- *     ?SmFirstTimeInit@@YAJPEAU_SM_PARTITION@@K@Z @ 0x1404A8CB0 (-SmFirstTimeInit@@YAJPEAU_SM_PARTITION@@K@Z.c)
- *     SmPartitionInitialize @ 0x140797684 (SmPartitionInitialize.c)
+ *     ?SmFirstTimeInit@@YAJPEAU_SM_PARTITION@@K@Z @ 0x1404A30D0 (-SmFirstTimeInit@@YAJPEAU_SM_PARTITION@@K@Z.c)
+ *     SmPartitionInitialize @ 0x140797794 (SmPartitionInitialize.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x14034FA10 (KeQueryPerformanceCounter.c)
- *     KiInitializeTimer2 @ 0x1403BF498 (KiInitializeTimer2.c)
- *     InitializeSListHead @ 0x14045FE80 (InitializeSListHead.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     SmKmInitialize @ 0x140799CB8 (SmKmInitialize.c)
+ *     KeQueryPerformanceCounter @ 0x14036DEF0 (KeQueryPerformanceCounter.c)
+ *     KiInitializeTimer2 @ 0x1403AE058 (KiInitializeTimer2.c)
+ *     InitializeSListHead @ 0x140454D40 (InitializeSListHead.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     SmKmInitialize @ 0x140799DC8 (SmKmInitialize.c)
  */
 
 __int64 (__fastcall *__fastcall SMKM_STORE_MGR<SM_TRAITS>::SmInitialize(

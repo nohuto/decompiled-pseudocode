@@ -1,49 +1,48 @@
 /*
- * XREFs of PipSetDevNodeProblem @ 0x140916A54
+ * XREFs of PipSetDevNodeProblem @ 0x1409714C0
  * Callers:
- *     PnpRemoveLockedDeviceNode @ 0x1404D23F4 (PnpRemoveLockedDeviceNode.c)
- *     IoReportDetectedDevice @ 0x14079E000 (IoReportDetectedDevice.c)
- *     IopQueueDeviceResetEvent @ 0x1407A29D4 (IopQueueDeviceResetEvent.c)
- *     PnpDisableDevice @ 0x1407A4630 (PnpDisableDevice.c)
- *     PiProfileUpdateDeviceTreeCallback @ 0x1407ACF70 (PiProfileUpdateDeviceTreeCallback.c)
- *     PiInitializeDevice @ 0x1407B36E8 (PiInitializeDevice.c)
- *     PnpRebalance @ 0x1407B3F98 (PnpRebalance.c)
- *     PiProcessQueryRemoveNoFdo @ 0x1407B87D4 (PiProcessQueryRemoveNoFdo.c)
- *     PnpProcessAssignResources @ 0x14090B6F8 (PnpProcessAssignResources.c)
- *     PipProcessDevNodeTree @ 0x14090C86C (PipProcessDevNodeTree.c)
- *     PipProcessEnumeratedChildDevice @ 0x14090DC90 (PipProcessEnumeratedChildDevice.c)
- *     PnpQueryID @ 0x14090F2E8 (PnpQueryID.c)
- *     PipCallDriverAddDevice @ 0x1409156CC (PipCallDriverAddDevice.c)
- *     PipCallDriverAddDeviceQueryRoutine @ 0x140916458 (PipCallDriverAddDeviceQueryRoutine.c)
- *     PnpSurpriseRemoveLockedDeviceNode @ 0x140A8A8E0 (PnpSurpriseRemoveLockedDeviceNode.c)
- *     IopInitializeDeviceInstanceKey @ 0x140AA0078 (IopInitializeDeviceInstanceKey.c)
- *     PiProcessNewDeviceNode @ 0x140AA5E3C (PiProcessNewDeviceNode.c)
- *     PnpQueryDeviceID @ 0x140AA88B8 (PnpQueryDeviceID.c)
- *     PiDevCfgProcessDevice @ 0x140AD089C (PiDevCfgProcessDevice.c)
- *     PiProcessSetDeviceProblem @ 0x140B314EC (PiProcessSetDeviceProblem.c)
- *     PnpDriverLoadingFailed @ 0x140B4655C (PnpDriverLoadingFailed.c)
+ *     PnpRemoveLockedDeviceNode @ 0x1404CBC6C (PnpRemoveLockedDeviceNode.c)
+ *     IoReportDetectedDevice @ 0x1407A0B40 (IoReportDetectedDevice.c)
+ *     IopQueueDeviceResetEvent @ 0x1407A5514 (IopQueueDeviceResetEvent.c)
+ *     PnpDisableDevice @ 0x1407A7170 (PnpDisableDevice.c)
+ *     PiProfileUpdateDeviceTreeCallback @ 0x1407AFFD0 (PiProfileUpdateDeviceTreeCallback.c)
+ *     PiInitializeDevice @ 0x1407B6748 (PiInitializeDevice.c)
+ *     PnpRebalance @ 0x1407B6FF8 (PnpRebalance.c)
+ *     PiProcessQueryRemoveNoFdo @ 0x1407BB834 (PiProcessQueryRemoveNoFdo.c)
+ *     PipCallDriverAddDevice @ 0x140970138 (PipCallDriverAddDevice.c)
+ *     PipCallDriverAddDeviceQueryRoutine @ 0x140970EC4 (PipCallDriverAddDeviceQueryRoutine.c)
+ *     PnpProcessAssignResources @ 0x1409AD81C (PnpProcessAssignResources.c)
+ *     PipProcessDevNodeTree @ 0x1409AE99C (PipProcessDevNodeTree.c)
+ *     PipProcessEnumeratedChildDevice @ 0x1409AFDC0 (PipProcessEnumeratedChildDevice.c)
+ *     PnpQueryID @ 0x1409B1418 (PnpQueryID.c)
+ *     PnpSurpriseRemoveLockedDeviceNode @ 0x1409B7700 (PnpSurpriseRemoveLockedDeviceNode.c)
+ *     PiProcessNewDeviceNode @ 0x1409D9370 (PiProcessNewDeviceNode.c)
+ *     PnpQueryDeviceID @ 0x1409DBDEC (PnpQueryDeviceID.c)
+ *     IopInitializeDeviceInstanceKey @ 0x140AA1A08 (IopInitializeDeviceInstanceKey.c)
+ *     PiDevCfgProcessDevice @ 0x140AE7A3C (PiDevCfgProcessDevice.c)
+ *     PiProcessSetDeviceProblem @ 0x140B336EC (PiProcessSetDeviceProblem.c)
+ *     PnpDriverLoadingFailed @ 0x140B4858C (PnpDriverLoadingFailed.c)
  * Callees:
- *     McTemplateK0pzzqdqd_EtwWriteTransfer @ 0x1405DA5D8 (McTemplateK0pzzqdqd_EtwWriteTransfer.c)
- *     PnpLogDeviceRequiresReboot @ 0x1407A474C (PnpLogDeviceRequiresReboot.c)
- *     PiAuditDeviceEnableDisableAction @ 0x1407B4FC0 (PiAuditDeviceEnableDisableAction.c)
- *     _PnpRaiseNtPlugPlayDevicePropertyChangeEvent @ 0x14090D4E8 (_PnpRaiseNtPlugPlayDevicePropertyChangeEvent.c)
- *     PipSetDevNodeFlags @ 0x14090DD60 (PipSetDevNodeFlags.c)
- *     PnpTraceSetDevNodeProblem @ 0x140916CF0 (PnpTraceSetDevNodeProblem.c)
- *     _PnpGetObjectProperty @ 0x14099E300 (_PnpGetObjectProperty.c)
- *     PiPnpRtlBeginOperation @ 0x1409A7AC8 (PiPnpRtlBeginOperation.c)
- *     PiPnpRtlEndOperation @ 0x1409A7CB4 (PiPnpRtlEndOperation.c)
- *     SeAuditingWithTokenForSubcategory @ 0x140A435C0 (SeAuditingWithTokenForSubcategory.c)
+ *     McTemplateK0pzzqdqd_EtwWriteTransfer @ 0x1405DCDD8 (McTemplateK0pzzqdqd_EtwWriteTransfer.c)
+ *     PnpLogDeviceRequiresReboot @ 0x1407A728C (PnpLogDeviceRequiresReboot.c)
+ *     PiAuditDeviceEnableDisableAction @ 0x1407B8020 (PiAuditDeviceEnableDisableAction.c)
+ *     _PnpGetObjectProperty @ 0x14095ED60 (_PnpGetObjectProperty.c)
+ *     PiPnpRtlBeginOperation @ 0x140968528 (PiPnpRtlBeginOperation.c)
+ *     PiPnpRtlEndOperation @ 0x140968708 (PiPnpRtlEndOperation.c)
+ *     PnpTraceSetDevNodeProblem @ 0x14097175C (PnpTraceSetDevNodeProblem.c)
+ *     _PnpRaiseNtPlugPlayDevicePropertyChangeEvent @ 0x1409AF618 (_PnpRaiseNtPlugPlayDevicePropertyChangeEvent.c)
+ *     PipSetDevNodeFlags @ 0x1409AFE90 (PipSetDevNodeFlags.c)
+ *     SeAuditingWithTokenForSubcategory @ 0x1409FE320 (SeAuditingWithTokenForSubcategory.c)
  */
 
-void __fastcall PipSetDevNodeProblem(__int64 a1, __int64 a2, int a3)
+void __fastcall PipSetDevNodeProblem(__int64 a1, int a2, int a3)
 {
   int v3; // edi
   int v5; // r14d
-  int v6; // r15d
   __int64 v8; // r8
   __int64 v9; // rdx
   __int64 v10; // rcx
-  __int64 *v11; // rsi
+  _QWORD *v11; // rsi
   __int64 v12; // rdx
   __int64 v13; // rcx
   __int64 v14; // [rsp+30h] [rbp-40h]
@@ -57,30 +56,29 @@ void __fastcall PipSetDevNodeProblem(__int64 a1, __int64 a2, int a3)
 
   v3 = *(_DWORD *)(a1 + 404);
   v5 = *(_DWORD *)(a1 + 408);
-  v6 = a2;
   P = 0LL;
   v18 = 0;
   v21 = 0;
   v20 = 0;
-  if ( (*(_DWORD *)(a1 + 396) & 0x2000) == 0 || v5 != a3 || v3 != (_DWORD)a2 )
+  if ( (*(_DWORD *)(a1 + 396) & 0x2000) == 0 || v5 != a3 || v3 != a2 )
   {
-    PiPnpRtlBeginOperation(&P, a2);
-    PipSetDevNodeFlags(a1, 0x2000u);
+    PiPnpRtlBeginOperation(&P);
+    PipSetDevNodeFlags(a1, 0x2000LL);
     v9 = *(_QWORD *)(a1 + 48);
-    *(_DWORD *)(a1 + 404) = v6;
+    *(_DWORD *)(a1 + 404) = a2;
     *(_DWORD *)(a1 + 408) = a3;
     if ( v9 )
     {
       if ( (int)PnpGetObjectProperty(
-                  PiPnpRtlCtx,
+                  *(__int64 *)&PiPnpRtlCtx,
                   v9,
                   1,
-                  0,
+                  0LL,
                   0LL,
                   (__int64)DEVPKEY_Device_ProblemStatusOverride,
-                  (__int64)&v20,
+                  &v20,
                   (__int64)&v18,
-                  4,
+                  4u,
                   (__int64)&v21,
                   0) >= 0
         && v20 == 24
@@ -89,11 +87,11 @@ void __fastcall PipSetDevNodeProblem(__int64 a1, __int64 a2, int a3)
       {
         *(_DWORD *)(a1 + 408) = v18;
       }
-      v11 = (__int64 *)(a1 + 48);
+      v11 = (_QWORD *)(a1 + 48);
       if ( *(_DWORD *)(a1 + 404) != v3 )
-        PnpRaiseNtPlugPlayDevicePropertyChangeEvent(v10, *v11, 12);
+        PnpRaiseNtPlugPlayDevicePropertyChangeEvent(v10, *v11, 12LL);
       if ( *(_DWORD *)(a1 + 408) != v5 )
-        PnpRaiseNtPlugPlayDevicePropertyChangeEvent(v10, *v11, 13);
+        PnpRaiseNtPlugPlayDevicePropertyChangeEvent(v10, *v11, 13LL);
       PnpTraceSetDevNodeProblem(
         a1 + 40,
         a1 + 56,
@@ -115,15 +113,15 @@ void __fastcall PipSetDevNodeProblem(__int64 a1, __int64 a2, int a3)
     v13 = 3LL * *(unsigned int *)(a1 + 880);
     *(_QWORD *)(a1 + 8 * v13 + 784) = MEMORY[0xFFFFF78000000014];
     *(_DWORD *)(a1 + 8 * v13 + 792) = 1;
-    *(_DWORD *)(a1 + 8 * v13 + 796) = v6;
+    *(_DWORD *)(a1 + 8 * v13 + 796) = a2;
     *(_DWORD *)(a1 + 8 * v13 + 800) = v12;
     *(_DWORD *)(a1 + 880) = ((unsigned __int8)*(_DWORD *)(a1 + 880) + 1) & 3;
-    if ( (byte_140EF3DCB & 0x20) != 0 )
+    if ( (byte_140EF412B & 0x20) != 0 )
     {
       LODWORD(v17) = v5;
       LODWORD(v16) = v3;
       LODWORD(v15) = v12;
-      LODWORD(v14) = v6;
+      LODWORD(v14) = a2;
       McTemplateK0pzzqdqd_EtwWriteTransfer(
         v13,
         v12,
@@ -137,6 +135,6 @@ void __fastcall PipSetDevNodeProblem(__int64 a1, __int64 a2, int a3)
         v17);
     }
     if ( P )
-      PiPnpRtlEndOperation(P);
+      PiPnpRtlEndOperation((char *)P);
   }
 }

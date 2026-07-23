@@ -25,7 +25,7 @@ int __fastcall DbgUiConvertStateChangeStructureWorker(int a1, int a2, char a3)
       *(_DWORD *)a2 = 2;
       *(_DWORD *)(a2 + 12) = *(_DWORD *)(a1 + 12);
       *(_DWORD *)(a2 + 20) = *(_DWORD *)(a1 + 20);
-      if ( NtQueryInformationThread(*(HANDLE *)(a1 + 12), (THREADINFOCLASS)0, ThreadInformation, 0x1Cu, 0) >= 0 )
+      if ( NtQueryInformationThread(*(HANDLE *)(a1 + 12), ThreadBasicInformation, ThreadInformation, 0x1Cu, 0) >= 0 )
         *(_DWORD *)(a2 + 16) = v11;
       else
         *(_DWORD *)(a2 + 16) = 0;
@@ -39,7 +39,7 @@ int __fastcall DbgUiConvertStateChangeStructureWorker(int a1, int a2, char a3)
       *(_DWORD *)(a2 + 28) = *(_DWORD *)(a1 + 32);
       *(_DWORD *)(a2 + 32) = *(_DWORD *)(a1 + 36);
       *(_DWORD *)(a2 + 40) = *(_DWORD *)(a1 + 44);
-      if ( NtQueryInformationThread(*(HANDLE *)(a1 + 16), (THREADINFOCLASS)0, ThreadInformation, 0x1Cu, 0) >= 0 )
+      if ( NtQueryInformationThread(*(HANDLE *)(a1 + 16), ThreadBasicInformation, ThreadInformation, 0x1Cu, 0) >= 0 )
         *(_DWORD *)(a2 + 36) = v11;
       else
         *(_DWORD *)(a2 + 36) = 0;

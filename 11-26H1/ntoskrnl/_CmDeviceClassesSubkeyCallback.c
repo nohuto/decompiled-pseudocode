@@ -1,21 +1,21 @@
 /*
- * XREFs of _CmDeviceClassesSubkeyCallback @ 0x140898860
+ * XREFs of _CmDeviceClassesSubkeyCallback @ 0x14089EC60
  * Callers:
  *     <none>
  * Callees:
- *     RtlStringCchCopyExW @ 0x14045AB50 (RtlStringCchCopyExW.c)
- *     RtlInitUnicodeStringEx @ 0x14045D040 (RtlInitUnicodeStringEx.c)
- *     RtlStringCchCopyW @ 0x14046AD84 (RtlStringCchCopyW.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     _PnpCtxRegQueryValue @ 0x140917E70 (_PnpCtxRegQueryValue.c)
- *     RtlEqualUnicodeString @ 0x14091F0E0 (RtlEqualUnicodeString.c)
- *     _PnpCtxRegOpenKey @ 0x140997890 (_PnpCtxRegOpenKey.c)
- *     _CmValidateDeviceInterfaceName @ 0x1409A0350 (_CmValidateDeviceInterfaceName.c)
- *     _CmIsDeviceInterfaceEnabled @ 0x140A6C320 (_CmIsDeviceInterfaceEnabled.c)
- *     _PnpCtxRegEnumKeyWithCallback @ 0x140B202B8 (_PnpCtxRegEnumKeyWithCallback.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlStringCchCopyExW @ 0x140454380 (RtlStringCchCopyExW.c)
+ *     RtlInitUnicodeStringEx @ 0x140456BE0 (RtlInitUnicodeStringEx.c)
+ *     RtlStringCchCopyW @ 0x140464504 (RtlStringCchCopyW.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     _PnpCtxRegOpenKey @ 0x1409582F0 (_PnpCtxRegOpenKey.c)
+ *     _CmValidateDeviceInterfaceName @ 0x140960DB0 (_CmValidateDeviceInterfaceName.c)
+ *     _PnpCtxRegQueryValue @ 0x1409728D0 (_PnpCtxRegQueryValue.c)
+ *     RtlEqualUnicodeString @ 0x140979B40 (RtlEqualUnicodeString.c)
+ *     _CmIsDeviceInterfaceEnabled @ 0x140A7D950 (_CmIsDeviceInterfaceEnabled.c)
+ *     _PnpCtxRegEnumKeyWithCallback @ 0x140B226B8 (_PnpCtxRegEnumKeyWithCallback.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall CmDeviceClassesSubkeyCallback(__int64 a1, int a2, const wchar_t *a3, unsigned int *a4)

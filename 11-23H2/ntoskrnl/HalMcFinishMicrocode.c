@@ -1,13 +1,13 @@
 /*
- * XREFs of HalMcFinishMicrocode @ 0x1403B0E04
+ * XREFs of HalMcFinishMicrocode @ 0x1403B0FE4
  * Callers:
  *     HalpProcInitSystem @ 0x140A8A680 (HalpProcInitSystem.c)
  * Callees:
- *     HalpIsPartitionCpuManager @ 0x140377EF8 (HalpIsPartitionCpuManager.c)
- *     HalpMcUpdateFindDataTableEntry @ 0x1403796FC (HalpMcUpdateFindDataTableEntry.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     MmGetSystemRoutineAddress @ 0x140756870 (MmGetSystemRoutineAddress.c)
- *     HalpMcExportAndChargeNeededData @ 0x1408608B0 (HalpMcExportAndChargeNeededData.c)
+ *     HalpIsPartitionCpuManager @ 0x140378098 (HalpIsPartitionCpuManager.c)
+ *     HalpMcUpdateFindDataTableEntry @ 0x14037989C (HalpMcUpdateFindDataTableEntry.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     MmGetSystemRoutineAddress @ 0x140756A60 (MmGetSystemRoutineAddress.c)
+ *     HalpMcExportAndChargeNeededData @ 0x140860AF0 (HalpMcExportAndChargeNeededData.c)
  */
 
 char __fastcall HalMcFinishMicrocode(__int64 a1, __int64 a2)

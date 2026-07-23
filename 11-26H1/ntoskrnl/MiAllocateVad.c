@@ -1,19 +1,19 @@
 /*
- * XREFs of MiAllocateVad @ 0x14095D5C0
+ * XREFs of MiAllocateVad @ 0x140A02E80
  * Callers:
- *     MiFreeVadRange @ 0x1403BC958 (MiFreeVadRange.c)
- *     MiAllocateProcessVads @ 0x14095E044 (MiAllocateProcessVads.c)
- *     MiCreatePlaceholderStorage @ 0x1409C684C (MiCreatePlaceholderStorage.c)
+ *     MiFreeVadRange @ 0x1403C67C8 (MiFreeVadRange.c)
+ *     MiCreatePlaceholderStorage @ 0x14099782C (MiCreatePlaceholderStorage.c)
+ *     MiAllocateProcessVads @ 0x140A03904 (MiAllocateProcessVads.c)
  * Callees:
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     MmGetCurrentProcessorColor @ 0x14044ADC0 (MmGetCurrentProcessorColor.c)
- *     MiUpdateVadStartVpn @ 0x14049B0E4 (MiUpdateVadStartVpn.c)
- *     MiAddSecureEntry @ 0x14095D9B8 (MiAddSecureEntry.c)
- *     MiInitializeQuotaTracker @ 0x1409C4B54 (MiInitializeQuotaTracker.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     MmGetCurrentProcessorColor @ 0x140442EF0 (MmGetCurrentProcessorColor.c)
+ *     MiUpdateVadStartVpn @ 0x140494C34 (MiUpdateVadStartVpn.c)
+ *     MiInitializeQuotaTracker @ 0x140995B34 (MiInitializeQuotaTracker.c)
+ *     MiAddSecureEntry @ 0x140A03278 (MiAddSecureEntry.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall MiAllocateVad(__int64 *a1, __int64 a2, unsigned __int64 a3, unsigned __int64 a4, char a5)
+__int64 __fastcall MiAllocateVad(__int64 *a1, unsigned __int8 a2, unsigned __int64 a3, unsigned __int64 a4, char a5)
 {
   int CurrentProcessorColor; // eax
   __int64 PoolMm; // rax
@@ -29,7 +29,7 @@ __int64 __fastcall MiAllocateVad(__int64 *a1, __int64 a2, unsigned __int64 a3, u
   v11 = PoolMm;
   if ( PoolMm )
   {
-    v12 = MiInitializeQuotaTracker(PoolMm + 68, a2, 0LL);
+    MiInitializeQuotaTracker((_BYTE *)(PoolMm + 68), a2, 0);
     *(_QWORD *)(v12 + 16) = -2LL;
     MiUpdateVadStartVpn(v12, a3 >> 12);
     *(_DWORD *)(v13 + 28) = a4 >> 12;

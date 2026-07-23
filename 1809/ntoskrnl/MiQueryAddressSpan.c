@@ -1,13 +1,13 @@
 /*
- * XREFs of MiQueryAddressSpan @ 0x140075EA0
+ * XREFs of MiQueryAddressSpan @ 0x140075E90
  * Callers:
- *     MmQueryVirtualMemory @ 0x1405EE910 (MmQueryVirtualMemory.c)
+ *     MmQueryVirtualMemory @ 0x1405EF910 (MmQueryVirtualMemory.c)
  * Callees:
  *     MiQueryAddressState @ 0x14003EAF0 (MiQueryAddressState.c)
  *     MiUnlockWorkingSetShared @ 0x140046970 (MiUnlockWorkingSetShared.c)
- *     MiLockWorkingSetShared @ 0x140076050 (MiLockWorkingSetShared.c)
- *     MiWorkingSetIsContended @ 0x1400992A0 (MiWorkingSetIsContended.c)
- *     KeShouldYieldProcessor @ 0x1400F9CE0 (KeShouldYieldProcessor.c)
+ *     MiLockWorkingSetShared @ 0x140076040 (MiLockWorkingSetShared.c)
+ *     MiWorkingSetIsContended @ 0x1400991E0 (MiWorkingSetIsContended.c)
+ *     KeShouldYieldProcessor @ 0x1400F9D60 (KeShouldYieldProcessor.c)
  */
 
 __int64 __fastcall MiQueryAddressSpan(__int64 a1, unsigned __int64 a2, unsigned __int64 a3, ULONG_PTR a4)

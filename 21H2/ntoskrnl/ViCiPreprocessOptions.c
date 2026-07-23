@@ -1,13 +1,13 @@
 /*
- * XREFs of ViCiPreprocessOptions @ 0x1409C7E50
+ * XREFs of ViCiPreprocessOptions @ 0x1409C8E50
  * Callers:
- *     VfCheckImageCompliance @ 0x1409C791C (VfCheckImageCompliance.c)
- *     VfCheckPagePriority @ 0x1409C7C14 (VfCheckPagePriority.c)
- *     VfCheckPageProtection @ 0x1409C7CBC (VfCheckPageProtection.c)
- *     VfCheckPoolType @ 0x1409C7D64 (VfCheckPoolType.c)
+ *     VfCheckImageCompliance @ 0x1409C891C (VfCheckImageCompliance.c)
+ *     VfCheckPagePriority @ 0x1409C8C14 (VfCheckPagePriority.c)
+ *     VfCheckPageProtection @ 0x1409C8CBC (VfCheckPageProtection.c)
+ *     VfCheckPoolType @ 0x1409C8D64 (VfCheckPoolType.c)
  * Callees:
- *     DbgPrintEx @ 0x14037F820 (DbgPrintEx.c)
- *     VfUtilDbgPrint @ 0x1405A06F4 (VfUtilDbgPrint.c)
+ *     DbgPrintEx @ 0x14037F370 (DbgPrintEx.c)
+ *     VfUtilDbgPrint @ 0x1405A0924 (VfUtilDbgPrint.c)
  */
 
 __int64 ViCiPreprocessOptions(_DWORD *a1, const char *a2, char a3, __int64 a4, __int64 a5, __int64 a6, ...)

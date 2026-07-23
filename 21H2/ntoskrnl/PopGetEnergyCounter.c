@@ -1,12 +1,12 @@
 /*
- * XREFs of PopGetEnergyCounter @ 0x1408EDC70
+ * XREFs of PopGetEnergyCounter @ 0x1408EDDD0
  * Callers:
- *     PopCaptureSleepStudyStatistics @ 0x140570558 (PopCaptureSleepStudyStatistics.c)
- *     PopMeasureEnergyChange @ 0x1408EDCBC (PopMeasureEnergyChange.c)
- *     PopSleepstudyCaptureResiliencyStatistics @ 0x1408FA074 (PopSleepstudyCaptureResiliencyStatistics.c)
+ *     PopCaptureSleepStudyStatistics @ 0x140570798 (PopCaptureSleepStudyStatistics.c)
+ *     PopMeasureEnergyChange @ 0x1408EDE1C (PopMeasureEnergyChange.c)
+ *     PopSleepstudyCaptureResiliencyStatistics @ 0x1408FA1D4 (PopSleepstudyCaptureResiliencyStatistics.c)
  * Callees:
- *     PopReleaseRwLock @ 0x14027C284 (PopReleaseRwLock.c)
- *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
+ *     PopReleaseRwLock @ 0x14026A224 (PopReleaseRwLock.c)
+ *     ExAcquirePushLockSharedEx @ 0x1403558A0 (ExAcquirePushLockSharedEx.c)
  */
 
 void __fastcall PopGetEnergyCounter(_OWORD *a1)
@@ -15,7 +15,7 @@ void __fastcall PopGetEnergyCounter(_OWORD *a1)
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  ExAcquirePushLockSharedEx((ULONG_PTR)&xmmword_140C237F0, 0LL);
-  *a1 = xmmword_140C23820;
-  PopReleaseRwLock((ULONG_PTR)&xmmword_140C237F0);
+  ExAcquirePushLockSharedEx((ULONG_PTR)&xmmword_140C23E10, 0LL);
+  *a1 = xmmword_140C23E40;
+  PopReleaseRwLock((ULONG_PTR)&xmmword_140C23E10);
 }

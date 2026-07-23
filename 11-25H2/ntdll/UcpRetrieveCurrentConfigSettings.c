@@ -10,34 +10,35 @@
  *     memset$thunk$772440563353939046 @ 0x180174030 (memset$thunk$772440563353939046.c)
  */
 
-__int64 __fastcall UcpRetrieveCurrentConfigSettings(_DWORD *a1, _BYTE *a2, _BYTE *a3)
+int __fastcall UcpRetrieveCurrentConfigSettings(_DWORD *a1, _BYTE *a2, _BYTE *a3)
 {
-  __int64 result; // rax
-  _DWORD *v7; // rbx
-  __int64 v8; // r9
+  _DWORD *Heap; // rax
+  _DWORD *Buffer; // rbx
+  unsigned int v8; // r9d
   __int64 v9; // r8
   _DWORD *v10; // rcx
-  size_t Size; // [rsp+30h] [rbp-38h] BYREF
-  __int64 v12; // [rsp+38h] [rbp-30h] BYREF
+  SIZE_T Size; // [rsp+30h] [rbp-38h] BYREF
+  WNF_STATE_NAME StateName; // [rsp+38h] [rbp-30h] BYREF
 
   Size = 0LL;
-  v12 = WNF_UCP_CLIENT_CONFIG_BUFFER;
-  ZwQueryWnfStateData(&v12, 0LL, 0LL, (char *)&Size + 4, 0LL, &Size);
-  result = (unsigned int)Size;
+  StateName = (WNF_STATE_NAME)WNF_UCP_CLIENT_CONFIG_BUFFER;
+  ZwQueryWnfStateData(&StateName, 0LL, 0LL, (PWNF_CHANGE_STAMP)&Size + 1, 0LL, (PULONG)&Size);
+  LODWORD(Heap) = Size;
   if ( (_DWORD)Size )
   {
-    result = RtlAllocateHeap((char *)NtCurrentPeb()->ProcessHeap, 8u, (unsigned int)Size);
-    v7 = (_DWORD *)result;
-    if ( result )
+    Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, (unsigned int)Size);
+    Buffer = Heap;
+    if ( Heap )
     {
-      memset_thunk_772440563353939046((void *)result, 0, (unsigned int)Size);
-      if ( (int)ZwQueryWnfStateData(&v12, 0LL, 0LL, (char *)&Size + 4, v7, &Size) >= 0 && *v7 == 1 )
+      memset_thunk_772440563353939046(Heap, 0, (unsigned int)Size);
+      if ( ZwQueryWnfStateData(&StateName, 0LL, 0LL, (PWNF_CHANGE_STAMP)&Size + 1, Buffer, (PULONG)&Size) >= 0
+        && *Buffer == 1 )
       {
-        v8 = (unsigned int)v7[1];
+        v8 = Buffer[1];
         v9 = 0LL;
-        if ( (_DWORD)v8 )
+        if ( v8 )
         {
-          v10 = v7 + 5;
+          v10 = Buffer + 5;
           do
           {
             if ( *(v10 - 3) != *a1 )
@@ -60,18 +61,18 @@ __int64 __fastcall UcpRetrieveCurrentConfigSettings(_DWORD *a1, _BYTE *a2, _BYTE
             if ( *(v10 - 2) == a1[1] )
             {
 LABEL_16:
-              *a3 = v7[5 * v9 + 6];
-              return RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (__int64)v7, v8);
+              *a3 = Buffer[5 * v9 + 6];
+              break;
             }
 LABEL_14:
             v9 = (unsigned int)(v9 + 1);
             v10 += 5;
           }
-          while ( (unsigned int)v9 < (unsigned int)v8 );
+          while ( (unsigned int)v9 < v8 );
         }
       }
-      return RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (__int64)v7, v8);
+      LODWORD(Heap) = RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Buffer);
     }
   }
-  return result;
+  return (int)Heap;
 }

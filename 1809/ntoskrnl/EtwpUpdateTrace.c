@@ -1,34 +1,34 @@
 /*
- * XREFs of EtwpUpdateTrace @ 0x140725ADC
+ * XREFs of EtwpUpdateTrace @ 0x140726D7C
  * Callers:
- *     NtTraceControl @ 0x1405C2F40 (NtTraceControl.c)
- *     EtwWmitraceWorker @ 0x1408BD780 (EtwWmitraceWorker.c)
+ *     NtTraceControl @ 0x1405C3F40 (NtTraceControl.c)
+ *     EtwWmitraceWorker @ 0x1408BEA40 (EtwWmitraceWorker.c)
  * Callees:
  *     EtwpQueryUsedProcessorCount @ 0x14001557C (EtwpQueryUsedProcessorCount.c)
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     EtwEventEnabled @ 0x14005B2D0 (EtwEventEnabled.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     EtwpCheckLoggerControlAccess @ 0x1405C1E98 (EtwpCheckLoggerControlAccess.c)
- *     EtwpReleaseLoggerContext @ 0x1405C5160 (EtwpReleaseLoggerContext.c)
- *     EtwpFreeSecurityDescriptor @ 0x1405C5658 (EtwpFreeSecurityDescriptor.c)
- *     EtwpGetSecurityDescriptorByGuid @ 0x1405C6050 (EtwpGetSecurityDescriptorByGuid.c)
- *     RtlFreeAnsiString @ 0x140623790 (RtlFreeAnsiString.c)
- *     SeCreateClientSecurity @ 0x1406491D0 (SeCreateClientSecurity.c)
- *     EtwpAcquireLoggerContext @ 0x140659E50 (EtwpAcquireLoggerContext.c)
- *     EtwpValidateLoggerInfo @ 0x140659F38 (EtwpValidateLoggerInfo.c)
- *     EtwpCaptureString @ 0x14065A024 (EtwpCaptureString.c)
- *     EtwpGetLoggerInfoFromContext @ 0x14065AAD0 (EtwpGetLoggerInfoFromContext.c)
- *     EtwpGetSystemMaximumBufferCount @ 0x14065AEB4 (EtwpGetSystemMaximumBufferCount.c)
- *     EtwpCheckForStackTracingExtension @ 0x14065AF4C (EtwpCheckForStackTracingExtension.c)
- *     EtwpValidateFlagExtension @ 0x14065B56C (EtwpValidateFlagExtension.c)
- *     EtwpSynchronizeWithLogger @ 0x1406C2FA8 (EtwpSynchronizeWithLogger.c)
- *     EtwpUpdateLoggerGroupMasks @ 0x140725D9C (EtwpUpdateLoggerGroupMasks.c)
- *     EtwpCheckForPoolTagFilterExtension @ 0x140726E24 (EtwpCheckForPoolTagFilterExtension.c)
- *     EtwpCheckSystemTraceAccess @ 0x140726EBC (EtwpCheckSystemTraceAccess.c)
- *     EtwpUpdatePerProcessTracing @ 0x1408B5874 (EtwpUpdatePerProcessTracing.c)
- *     EtwpEventWriteTemplateSession @ 0x1408BB068 (EtwpEventWriteTemplateSession.c)
- *     EtwpSendDbgId @ 0x1408BDBE8 (EtwpSendDbgId.c)
- *     EtwpUpdateLoggerSecurityDescriptor @ 0x1408C3010 (EtwpUpdateLoggerSecurityDescriptor.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     EtwpCheckLoggerControlAccess @ 0x1405C2E98 (EtwpCheckLoggerControlAccess.c)
+ *     EtwpReleaseLoggerContext @ 0x1405C6160 (EtwpReleaseLoggerContext.c)
+ *     EtwpFreeSecurityDescriptor @ 0x1405C6658 (EtwpFreeSecurityDescriptor.c)
+ *     EtwpGetSecurityDescriptorByGuid @ 0x1405C7050 (EtwpGetSecurityDescriptorByGuid.c)
+ *     RtlFreeAnsiString @ 0x140624790 (RtlFreeAnsiString.c)
+ *     SeCreateClientSecurity @ 0x14064A390 (SeCreateClientSecurity.c)
+ *     EtwpAcquireLoggerContext @ 0x14065B010 (EtwpAcquireLoggerContext.c)
+ *     EtwpValidateLoggerInfo @ 0x14065B0F8 (EtwpValidateLoggerInfo.c)
+ *     EtwpCaptureString @ 0x14065B1E4 (EtwpCaptureString.c)
+ *     EtwpGetLoggerInfoFromContext @ 0x14065BC90 (EtwpGetLoggerInfoFromContext.c)
+ *     EtwpGetSystemMaximumBufferCount @ 0x14065C074 (EtwpGetSystemMaximumBufferCount.c)
+ *     EtwpCheckForStackTracingExtension @ 0x14065C10C (EtwpCheckForStackTracingExtension.c)
+ *     EtwpValidateFlagExtension @ 0x14065C72C (EtwpValidateFlagExtension.c)
+ *     EtwpSynchronizeWithLogger @ 0x1406C4248 (EtwpSynchronizeWithLogger.c)
+ *     EtwpUpdateLoggerGroupMasks @ 0x14072703C (EtwpUpdateLoggerGroupMasks.c)
+ *     EtwpCheckForPoolTagFilterExtension @ 0x1407280C4 (EtwpCheckForPoolTagFilterExtension.c)
+ *     EtwpCheckSystemTraceAccess @ 0x14072815C (EtwpCheckSystemTraceAccess.c)
+ *     EtwpUpdatePerProcessTracing @ 0x1408B6B34 (EtwpUpdatePerProcessTracing.c)
+ *     EtwpEventWriteTemplateSession @ 0x1408BC328 (EtwpEventWriteTemplateSession.c)
+ *     EtwpSendDbgId @ 0x1408BEEA8 (EtwpSendDbgId.c)
+ *     EtwpUpdateLoggerSecurityDescriptor @ 0x1408C42D0 (EtwpUpdateLoggerSecurityDescriptor.c)
  */
 
 __int64 __fastcall EtwpUpdateTrace(__int64 a1, __int64 a2)
@@ -135,14 +135,14 @@ LABEL_8:
 LABEL_18:
         v12 = p_Length + 73;
         v13 = *(_QWORD *)(p_Length + 73);
-        v14 = HeapGuid - v13;
-        if ( HeapGuid == v13 )
-          v14 = 0x4AA2F2756B3425A8LL - *(_QWORD *)(p_Length + 75);
+        v14 = *(_QWORD *)&HeapGuid.Data1 - v13;
+        if ( *(_QWORD *)&HeapGuid.Data1 == v13 )
+          v14 = *(_QWORD *)HeapGuid.Data4 - *(_QWORD *)(p_Length + 75);
         if ( v14 )
         {
-          v15 = CritSecGuid - v13;
-          if ( CritSecGuid == v13 )
-            v15 = 0x6B81390EF58D1581LL - *(_QWORD *)(p_Length + 75);
+          v15 = *(_QWORD *)&CritSecGuid.Data1 - v13;
+          if ( *(_QWORD *)&CritSecGuid.Data1 == v13 )
+            v15 = *(_QWORD *)CritSecGuid.Data4 - *(_QWORD *)(p_Length + 75);
           if ( v15 )
           {
 LABEL_24:

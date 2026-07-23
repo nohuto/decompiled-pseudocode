@@ -1,9 +1,9 @@
 /*
- * XREFs of IoGetKsrPersistentMemoryBuffer @ 0x14071AF90
+ * XREFs of IoGetKsrPersistentMemoryBuffer @ 0x140718B20
  * Callers:
  *     <none>
  * Callees:
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall IoGetKsrPersistentMemoryBuffer(__int64 a1, _QWORD *a2, _QWORD *a3)

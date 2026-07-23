@@ -1,22 +1,22 @@
 /*
- * XREFs of HalpIommuUnblockDevice @ 0x14050C0A0
+ * XREFs of HalpIommuUnblockDevice @ 0x140505B10
  * Callers:
  *     <none>
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     HalpMmAllocCtxFree @ 0x140359004 (HalpMmAllocCtxFree.c)
- *     ?KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z @ 0x140444460 (-KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z.c)
- *     HalpIommuQueryAcpiDeviceMapping @ 0x1404F3A80 (HalpIommuQueryAcpiDeviceMapping.c)
- *     HalpIommuCheckExceptionList @ 0x140501974 (HalpIommuCheckExceptionList.c)
- *     HalpIommuCreateDevice @ 0x14051AC18 (HalpIommuCreateDevice.c)
- *     HalpIommuDeleteDevice @ 0x140587958 (HalpIommuDeleteDevice.c)
- *     HalpIommuCreateIncreaseAliasTrack @ 0x14058D3D4 (HalpIommuCreateIncreaseAliasTrack.c)
- *     HalpIommuGetAcpiDeviceMapCount @ 0x14058D9B4 (HalpIommuGetAcpiDeviceMapCount.c)
- *     HalpIommuJoinDmaDomain @ 0x14058DCF4 (HalpIommuJoinDmaDomain.c)
- *     IommupHvAttachDeviceDomain @ 0x14059D868 (IommupHvAttachDeviceDomain.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     HalpMmAllocCtxFree @ 0x14035ADA4 (HalpMmAllocCtxFree.c)
+ *     ?KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z @ 0x14043CF70 (-KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z.c)
+ *     HalpIommuQueryAcpiDeviceMapping @ 0x1404ED060 (HalpIommuQueryAcpiDeviceMapping.c)
+ *     HalpIommuCheckExceptionList @ 0x1404FB164 (HalpIommuCheckExceptionList.c)
+ *     HalpIommuCreateDevice @ 0x140514688 (HalpIommuCreateDevice.c)
+ *     HalpIommuDeleteDevice @ 0x140589F30 (HalpIommuDeleteDevice.c)
+ *     HalpIommuCreateIncreaseAliasTrack @ 0x14058FB54 (HalpIommuCreateIncreaseAliasTrack.c)
+ *     HalpIommuGetAcpiDeviceMapCount @ 0x140590134 (HalpIommuGetAcpiDeviceMapCount.c)
+ *     HalpIommuJoinDmaDomain @ 0x140590474 (HalpIommuJoinDmaDomain.c)
+ *     IommupHvAttachDeviceDomain @ 0x14059FFE8 (IommupHvAttachDeviceDomain.c)
  */
 
 __int64 __fastcall HalpIommuUnblockDevice(__int128 *Src, __int64 a2, __int64 *a3)

@@ -25,18 +25,18 @@
  *     memset$thunk$772440563353939046 @ 0x180174030 (memset$thunk$772440563353939046.c)
  */
 
-__int64 __fastcall RtlpWnfWalkUserSubscriptionList(__int64 a1, __int64 a2, int a3)
+__int64 __fastcall RtlpWnfWalkUserSubscriptionList(__int64 a1, _RTL_SRWLOCK *a2, int a3)
 {
   __int64 v4; // r10
-  volatile signed __int64 *v5; // rdx
-  volatile signed __int64 **v6; // rcx
+  _RTL_SRWLOCK *v5; // rdx
+  _RTL_SRWLOCK **v6; // rcx
   _QWORD *SchedulerSharedDataSlot; // r9
   unsigned int i; // edx
-  _QWORD *v9; // rax
-  _QWORD *v10; // r14
-  _QWORD *v11; // rbx
-  _QWORD *v12; // r13
-  _QWORD *v13; // rdi
+  unsigned __int64 *v9; // rax
+  unsigned __int64 *Value; // r14
+  unsigned __int64 *v11; // rbx
+  unsigned __int64 *v12; // r13
+  unsigned __int64 *v13; // rdi
   __int64 v14; // r8
   __int64 v15; // rdx
   unsigned int v16; // r15d
@@ -44,71 +44,71 @@ __int64 __fastcall RtlpWnfWalkUserSubscriptionList(__int64 a1, __int64 a2, int a
   signed __int64 v18; // rax
   bool v19; // cc
   signed __int64 v20; // rax
-  void (__fastcall *v21)(__int64, __int64, __int64, __int64); // rbx
-  __int64 v22; // rsi
-  __int64 v24; // rax
-  __int64 v25; // rbx
+  void (__fastcall *v21)(unsigned __int64, __int64, __int64, __int64); // rbx
+  unsigned __int64 v22; // rsi
+  unsigned __int64 v24; // rax
+  _RTL_CRITICAL_SECTION *v25; // rbx
   int v26; // ecx
-  __int64 v27; // rax
-  void (__fastcall *v28)(_QWORD, _QWORD, _QWORD); // rsi
+  _RTL_SRWLOCK *v27; // rax
+  NTSTATUS (__cdecl *v28)(PRTL_CRITICAL_SECTION); // rsi
   __int64 v29; // rdx
-  int v30; // eax
+  NTSTATUS v30; // eax
   __int64 v31; // rcx
   int v32; // esi
   int *SharedData; // rax
   __int64 v34; // rcx
   int v35; // esi
-  __int64 v36; // r15
-  unsigned int v37; // ebx
+  _RTL_SRWLOCK *v36; // r15
+  unsigned __int32 v37; // ebx
   int v38; // ecx
   int v39; // eax
   int v40; // ecx
-  volatile signed __int32 *v41; // rcx
+  _RTL_SRWLOCK *v41; // rcx
   __int64 v42; // rcx
-  __int64 v43; // rcx
-  _QWORD *v44; // rax
-  unsigned int v45; // eax
+  unsigned __int64 v43; // rcx
+  unsigned __int64 **v44; // rax
+  LONG v45; // eax
   _DWORD *v46; // r15
   signed __int32 v47[8]; // [rsp+0h] [rbp-1B8h] BYREF
   __int64 v48; // [rsp+20h] [rbp-198h]
   int v49; // [rsp+28h] [rbp-190h]
-  int v50; // [rsp+40h] [rbp-178h]
-  int v51; // [rsp+44h] [rbp-174h]
+  NTSTATUS v50; // [rsp+40h] [rbp-178h]
+  NTSTATUS v51; // [rsp+44h] [rbp-174h]
   __int64 v52; // [rsp+48h] [rbp-170h]
   int v53; // [rsp+50h] [rbp-168h]
   int v54; // [rsp+54h] [rbp-164h]
   int v55; // [rsp+58h] [rbp-160h]
-  __int64 v56; // [rsp+60h] [rbp-158h]
+  unsigned __int64 v56; // [rsp+60h] [rbp-158h]
   int v57; // [rsp+68h] [rbp-150h]
   __int64 v58; // [rsp+70h] [rbp-148h]
   __int64 v59; // [rsp+78h] [rbp-140h]
-  __int64 v60; // [rsp+80h] [rbp-138h]
-  __int64 v61; // [rsp+88h] [rbp-130h]
+  _RTL_SRWLOCK *v60; // [rsp+80h] [rbp-138h]
+  PVOID SubProcessTag; // [rsp+88h] [rbp-130h]
   int v62; // [rsp+90h] [rbp-128h]
-  volatile signed __int64 *v63; // [rsp+98h] [rbp-120h]
-  __int64 v64; // [rsp+A0h] [rbp-118h]
-  __int64 (__fastcall *v65)(_QWORD); // [rsp+A8h] [rbp-110h]
-  __int64 v66; // [rsp+B0h] [rbp-108h]
-  _QWORD *v67; // [rsp+B8h] [rbp-100h]
-  _QWORD *v68; // [rsp+C0h] [rbp-F8h]
+  PRTL_SRWLOCK SRWLock; // [rsp+98h] [rbp-120h]
+  _RTL_CRITICAL_SECTION *v64; // [rsp+A0h] [rbp-118h]
+  NTSTATUS (__cdecl *v65)(PRTL_CRITICAL_SECTION); // [rsp+A8h] [rbp-110h]
+  _RTL_SRWLOCK *v66; // [rsp+B0h] [rbp-108h]
+  unsigned __int64 *v67; // [rsp+B8h] [rbp-100h]
+  _RTL_SRWLOCK *v68; // [rsp+C0h] [rbp-F8h]
   int v69; // [rsp+C8h] [rbp-F0h]
   unsigned __int64 v70; // [rsp+D0h] [rbp-E8h]
-  _QWORD *v71; // [rsp+D8h] [rbp-E0h]
+  unsigned __int64 *v71; // [rsp+D8h] [rbp-E0h]
   __int64 v72; // [rsp+E0h] [rbp-D8h]
-  __int64 v73; // [rsp+E8h] [rbp-D0h]
-  __int64 v74; // [rsp+F8h] [rbp-C0h]
-  volatile signed __int32 *v75; // [rsp+100h] [rbp-B8h]
-  _QWORD *v76; // [rsp+108h] [rbp-B0h]
-  _BYTE v77[6]; // [rsp+120h] [rbp-98h] BYREF
+  _RTL_SRWLOCK *v73; // [rsp+E8h] [rbp-D0h]
+  PVOID v74; // [rsp+F8h] [rbp-C0h]
+  PRTL_SRWLOCK v75; // [rsp+100h] [rbp-B8h]
+  unsigned __int64 *v76; // [rsp+108h] [rbp-B0h]
+  _BYTE Fields[6]; // [rsp+120h] [rbp-98h] BYREF
   __int16 v78; // [rsp+126h] [rbp-92h]
-  __int64 v79; // [rsp+140h] [rbp-78h]
-  _QWORD *v80; // [rsp+148h] [rbp-70h]
-  __int64 v81; // [rsp+150h] [rbp-68h]
-  __int64 (__fastcall *v82)(_QWORD); // [rsp+158h] [rbp-60h]
+  _RTL_CRITICAL_SECTION *v79; // [rsp+140h] [rbp-78h]
+  unsigned __int64 *v80; // [rsp+148h] [rbp-70h]
+  _RTL_SRWLOCK *v81; // [rsp+150h] [rbp-68h]
+  NTSTATUS (__cdecl *v82)(PRTL_CRITICAL_SECTION); // [rsp+158h] [rbp-60h]
   int v83; // [rsp+160h] [rbp-58h]
   unsigned int v84; // [rsp+164h] [rbp-54h]
-  int v85; // [rsp+168h] [rbp-50h]
-  __int64 v86; // [rsp+170h] [rbp-48h]
+  NTSTATUS v85; // [rsp+168h] [rbp-50h]
+  _RTL_CRITICAL_SECTION *v86; // [rsp+170h] [rbp-48h]
 
   v60 = a2;
   v4 = a1;
@@ -117,9 +117,9 @@ __int64 __fastcall RtlpWnfWalkUserSubscriptionList(__int64 a1, __int64 a2, int a
   v73 = a2;
   v57 = 0;
   v59 = a1 + *(unsigned int *)(a1 + 44);
-  v5 = (volatile signed __int64 *)(a2 + 64);
-  v63 = v5;
-  v75 = (volatile signed __int32 *)v5;
+  v5 = a2 + 8;
+  SRWLock = v5;
+  v75 = v5;
   v6 = 0LL;
   SchedulerSharedDataSlot = NtCurrentTeb()->SchedulerSharedDataSlot;
   if ( SchedulerSharedDataSlot )
@@ -128,11 +128,11 @@ __int64 __fastcall RtlpWnfWalkUserSubscriptionList(__int64 a1, __int64 a2, int a
     {
       if ( !SchedulerSharedDataSlot[i] )
       {
-        v6 = (volatile signed __int64 **)&SchedulerSharedDataSlot[i];
+        v6 = (_RTL_SRWLOCK **)&SchedulerSharedDataSlot[i];
         break;
       }
     }
-    v5 = v63;
+    v5 = SRWLock;
   }
   if ( v6 )
     *v6 = v5;
@@ -141,23 +141,23 @@ __int64 __fastcall RtlpWnfWalkUserSubscriptionList(__int64 a1, __int64 a2, int a
     RtlpAcquireSRWLockExclusiveContended(v5);
     v4 = v52;
   }
-  v9 = (_QWORD *)(a2 + 72);
-  v68 = (_QWORD *)(a2 + 72);
-  v10 = *(_QWORD **)(a2 + 72);
-  v67 = v10;
+  v9 = (unsigned __int64 *)&a2[9];
+  v68 = a2 + 9;
+  Value = (unsigned __int64 *)a2[9].Value;
+  v67 = Value;
   while ( 1 )
   {
-    v11 = v10;
-    v76 = v10;
-    if ( v10 == v9 )
+    v11 = Value;
+    v76 = Value;
+    if ( Value == v9 )
       break;
-    v12 = v10 - 1;
-    v13 = v10 - 1;
-    v71 = v10 - 1;
+    v12 = Value - 1;
+    v13 = Value - 1;
+    v71 = Value - 1;
     v14 = RtlpFreezeTimeBias;
     v15 = MEMORY[0x7FFE03B0];
     v70 = MEMORY[0x7FFE0008] - RtlpFreezeTimeBias - MEMORY[0x7FFE03B0] + 500000;
-    if ( _InterlockedIncrement64(v10 + 3) <= 1 )
+    if ( _InterlockedIncrement64((volatile signed __int64 *)Value + 3) <= 1 )
       __fastfail(0xEu);
     v16 = v12[9] & *(_DWORD *)(v4 + 24);
     if ( !*((_DWORD *)v12 + 19)
@@ -171,30 +171,30 @@ __int64 __fastcall RtlpWnfWalkUserSubscriptionList(__int64 a1, __int64 a2, int a
        || *(_DWORD *)(v4 + 16) - v40 > 0)
       && (!a3 || *((_DWORD *)v12 + 38)) )
     {
-      v65 = (__int64 (__fastcall *)(_QWORD))v12[5];
+      v65 = (NTSTATUS (__cdecl *)(PRTL_CRITICAL_SECTION))v12[5];
       v24 = v12[3];
-      v25 = *(_QWORD *)(v24 + 16);
+      v25 = *(_RTL_CRITICAL_SECTION **)(v24 + 16);
       v58 = *(_QWORD *)(v24 + 56);
       v56 = v12[6];
-      v61 = v12[7];
+      SubProcessTag = (PVOID)v12[7];
       *((_DWORD *)v12 + 34) = NtCurrentTeb()->ClientId.UniqueThread;
-      if ( v10 == (_QWORD *)-136LL )
+      if ( Value == (unsigned __int64 *)-136LL )
       {
-        v45 = RtlNtStatusToDosErrorNoTeb(0xC000000D);
+        v45 = RtlNtStatusToDosErrorNoTeb(-1073741811);
         RtlSetLastWin32Error(v45);
       }
       else
       {
         v12[18] = MEMORY[0x7FFE0008] - RtlpFreezeTimeBias - MEMORY[0x7FFE03B0];
       }
-      RtlReleaseSRWLockExclusive(v63);
+      RtlReleaseSRWLockExclusive(SRWLock);
       v50 = 0;
       v51 = 0;
       v55 = 0;
       v62 = 0;
       v26 = 0;
       v53 = 0;
-      v27 = v12[10];
+      v27 = (_RTL_SRWLOCK *)v12[10];
       v66 = v27;
       if ( !v27 )
       {
@@ -207,10 +207,10 @@ LABEL_32:
         }
         else
         {
-          v74 = RtlSetThreadSubProcessTag(v61);
+          v74 = RtlSetThreadSubProcessTag(SubProcessTag);
           v54 = 1;
-          LODWORD(v61) = 1;
-          v28 = (void (__fastcall *)(_QWORD, _QWORD, _QWORD))v65;
+          LODWORD(SubProcessTag) = 1;
+          v28 = v65;
           if ( (v16 & 1) != 0 )
           {
             v49 = *(_DWORD *)(v52 + 20);
@@ -225,7 +225,7 @@ LABEL_32:
               if ( (char *)v65 == (char *)RtlpFcWnfCallback )
                 v30 = RtlpFcWnfCallback(v25, v29, v58, v56, v48, v49);
               else
-                v30 = ((__int64 (__fastcall *)(__int64, __int64, __int64, __int64, __int64, int))v65)(
+                v30 = ((__int64 (__fastcall *)(_RTL_CRITICAL_SECTION *, __int64, __int64, unsigned __int64, __int64, int))v65)(
                         v25,
                         v29,
                         v58,
@@ -242,7 +242,13 @@ LABEL_32:
           }
           if ( (v16 & 0x10) != 0 && !*((_DWORD *)v12 + 19) && (v30 >= 0 || (*((_BYTE *)v12 + 68) & 4) == 0) )
           {
-            ((void (__fastcall *)(__int64, _QWORD, __int64, __int64, _QWORD, _DWORD))v28)(v25, 0LL, v58, v56, 0LL, 0);
+            ((void (__fastcall *)(_RTL_CRITICAL_SECTION *, _QWORD, __int64, unsigned __int64, _QWORD, _DWORD))v28)(
+              v25,
+              0LL,
+              v58,
+              v56,
+              0LL,
+              0);
             v50 = 0;
             v51 = 0;
           }
@@ -251,11 +257,11 @@ LABEL_32:
             if ( (char *)v28 == (char *)RtlpWnfMetaCallbackProc )
               RtlpWnfMetaCallbackProc(v25, v56, v16);
             else
-              v28(v25, v56, v16);
+              ((void (__fastcall *)(_RTL_CRITICAL_SECTION *, unsigned __int64, _QWORD))v28)(v25, v56, v16);
             v50 = 0;
             v51 = 0;
           }
-          if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+          if ( RtlGetCurrentServiceSessionId() )
           {
             v31 = (__int64)NtCurrentPeb()->SharedData + 564;
             v50 = v51;
@@ -267,12 +273,12 @@ LABEL_32:
           if ( *(_BYTE *)v31 )
           {
             v32 = *(_DWORD *)(v52 + 16);
-            memset_thunk_772440563353939046(v77, 0, 0x50uLL);
+            memset_thunk_772440563353939046(Fields, 0, 0x50uLL);
             v78 = 3362;
             v86 = v25;
             v64 = v25;
             v79 = v25;
-            v80 = v10 - 1;
+            v80 = Value - 1;
             v81 = v60;
             v82 = v65;
             v83 = v32;
@@ -283,7 +289,7 @@ LABEL_32:
               v34 = (__int64)NtCurrentPeb()->SharedData + 564;
             else
               v34 = 2147353486LL;
-            NtTraceEvent(*(unsigned __int8 *)v34, 132098LL, 44LL, v77);
+            NtTraceEvent((HANDLE)*(unsigned __int8 *)v34, 0x20402u, 0x2Cu, Fields);
           }
           v35 = v54;
           v36 = v66;
@@ -292,7 +298,7 @@ LABEL_32:
           v26 = v53;
         }
         if ( v26 )
-          RtlReleaseSRWLockExclusive((volatile signed __int64 *)(v36 + 24));
+          RtlReleaseSRWLockExclusive(v36 + 3);
         if ( v35 )
         {
           RtlAcquireSRWLockExclusive(v75);
@@ -321,18 +327,18 @@ LABEL_32:
         v39 = 0;
         goto LABEL_72;
       }
-      v41 = (volatile signed __int32 *)(v27 + 24);
+      v41 = v27 + 3;
       if ( a3 )
       {
         RtlAcquireSRWLockExclusive(v41);
       }
-      else if ( !(unsigned __int8)RtlTryAcquireSRWLockExclusive(v41) )
+      else if ( !RtlTryAcquireSRWLockExclusive(v41) )
       {
         v39 = 1;
 LABEL_72:
         *((_DWORD *)v12 + 38) = v39;
         if ( !v55 )
-          RtlAcquireSRWLockExclusive((volatile signed __int32 *)(v60 + 64));
+          RtlAcquireSRWLockExclusive(v60 + 8);
         *((_DWORD *)v13 + 34) = 0;
         v13[18] = 0LL;
         v11 = v76;
@@ -343,9 +349,9 @@ LABEL_72:
       goto LABEL_32;
     }
 LABEL_21:
-    v10 = (_QWORD *)*v10;
-    v67 = v10;
-    v18 = _InterlockedExchangeAdd64(v13 + 4, 0xFFFFFFFFFFFFFFFFuLL);
+    Value = (unsigned __int64 *)*Value;
+    v67 = Value;
+    v18 = _InterlockedExchangeAdd64((volatile signed __int64 *)v13 + 4, 0xFFFFFFFFFFFFFFFFuLL);
     v19 = v18 <= 1;
     v20 = v18 - 1;
     if ( v19 )
@@ -356,15 +362,15 @@ LABEL_21:
       if ( v42 )
         RtlpDecrementWnfSerializationGroup(v42);
       v43 = *v11;
-      v44 = (_QWORD *)v11[1];
-      if ( *(_QWORD **)(*v11 + 8LL) != v11 || (_QWORD *)*v44 != v11 )
+      v44 = (unsigned __int64 **)v11[1];
+      if ( *(unsigned __int64 **)(*v11 + 8) != v11 || *v44 != v11 )
         __fastfail(3u);
-      *v44 = v43;
+      *v44 = (unsigned __int64 *)v43;
       *(_QWORD *)(v43 + 8) = v44;
       v46 = (_DWORD *)v13[11];
-      v21 = (void (__fastcall *)(__int64, __int64, __int64, __int64))v13[12];
+      v21 = (void (__fastcall *)(unsigned __int64, __int64, __int64, __int64))v13[12];
       v22 = v13[13];
-      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, v13);
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v13);
       if ( v46 )
       {
         *v46 = 1;
@@ -378,14 +384,14 @@ LABEL_21:
       v22 = 0LL;
     }
     v4 = v52;
-    v9 = v68;
+    v9 = (unsigned __int64 *)v68;
     if ( v21 )
     {
       v21(v22, v15, v14, 2147352584LL);
       v4 = v52;
-      v9 = v68;
+      v9 = (unsigned __int64 *)v68;
     }
   }
-  RtlReleaseSRWLockExclusive((volatile signed __int64 *)(v60 + 64));
+  RtlReleaseSRWLockExclusive(v60 + 8);
   return v57 != 0 ? 0xC000022D : 0;
 }

@@ -1,16 +1,16 @@
 /*
- * XREFs of CmpCmdInit @ 0x1407D5788
+ * XREFs of CmpCmdInit @ 0x1407D5C78
  * Callers:
- *     CmCompleteRegistryInitialization @ 0x1407CF20C (CmCompleteRegistryInitialization.c)
+ *     CmCompleteRegistryInitialization @ 0x1407CF6FC (CmCompleteRegistryInitialization.c)
  * Callees:
- *     KiSetTimerEx @ 0x1403347A0 (KiSetTimerEx.c)
- *     ExGenRandom @ 0x14041A540 (ExGenRandom.c)
- *     KeInitializeTimer @ 0x140455420 (KeInitializeTimer.c)
- *     KeInitializeDpc @ 0x140455470 (KeInitializeDpc.c)
- *     PoRegisterCoalescingCallback @ 0x140750DC0 (PoRegisterCoalescingCallback.c)
- *     CmpInitializeLazyWriters @ 0x1407DF164 (CmpInitializeLazyWriters.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KiSetTimerEx @ 0x140316810 (KiSetTimerEx.c)
+ *     ExGenRandom @ 0x14040A540 (ExGenRandom.c)
+ *     KeInitializeTimer @ 0x14044A0E0 (KeInitializeTimer.c)
+ *     KeInitializeDpc @ 0x14044A220 (KeInitializeDpc.c)
+ *     PoRegisterCoalescingCallback @ 0x14074F0E0 (PoRegisterCoalescingCallback.c)
+ *     CmpInitializeLazyWriters @ 0x1407DF6B4 (CmpInitializeLazyWriters.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall CmpCmdInit(char a1)
@@ -19,6 +19,8 @@ __int64 __fastcall CmpCmdInit(char a1)
   void *Pool2; // rax
   unsigned __int64 v4; // rsi
   void *v5; // r8
+  __int64 v11; // r8
+  __int64 v12; // r9
   __int64 result; // rax
 
   CmpInitializeLazyWriters();
@@ -40,14 +42,14 @@ __int64 __fastcall CmpCmdInit(char a1)
   }
   KiSetTimerEx((__int64)&CmpEnableLazyFlushTimer, -10000000LL * v2, 0, 0, (__int64)&CmpEnableLazyFlushDpc);
   _mm_lfence();
-  Pool2 = (void *)ExAllocatePool2(0x40uLL);
+  Pool2 = (void *)ExAllocatePool2(0x40uLL, 8uLL, 0x58637044u);
   v4 = (unsigned __int64)Pool2;
   if ( Pool2 )
   {
     ExFreePoolWithTag(Pool2, 0);
     _RAX = 2147483656LL;
     __asm { cpuid }
-    v5 = (void *)(v4 ^ ((unsigned __int64)(unsigned int)ExGenRandom(0) << SBYTE1(_RAX)));
+    v5 = (void *)(v4 ^ ((unsigned __int64)(unsigned int)ExGenRandom(0, _RDX, v11, v12) << SBYTE1(_RAX)));
   }
   else
   {

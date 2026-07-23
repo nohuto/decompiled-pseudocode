@@ -1,16 +1,16 @@
 /*
- * XREFs of PspOneDirectionSecurityDomainCombine @ 0x1406B6944
+ * XREFs of PspOneDirectionSecurityDomainCombine @ 0x1406B7BE4
  * Callers:
- *     PspDisablePrimaryTokenExchange @ 0x1405F7498 (PspDisablePrimaryTokenExchange.c)
+ *     PspDisablePrimaryTokenExchange @ 0x1405F8498 (PspDisablePrimaryTokenExchange.c)
  * Callees:
  *     SepDeleteAccessState @ 0x14004D950 (SepDeleteAccessState.c)
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     SeReleaseSubjectContext @ 0x1405E1240 (SeReleaseSubjectContext.c)
- *     ObCloseHandle @ 0x1405F5700 (ObCloseHandle.c)
- *     SeCreateAccessStateEx @ 0x140612280 (SeCreateAccessStateEx.c)
- *     PsLookupProcessByProcessId @ 0x140646C20 (PsLookupProcessByProcessId.c)
- *     ObOpenObjectByPointer @ 0x1406470C0 (ObOpenObjectByPointer.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     SeReleaseSubjectContext @ 0x1405E2240 (SeReleaseSubjectContext.c)
+ *     ObCloseHandle @ 0x1405F6700 (ObCloseHandle.c)
+ *     SeCreateAccessStateEx @ 0x140613280 (SeCreateAccessStateEx.c)
+ *     PsLookupProcessByProcessId @ 0x140647C40 (PsLookupProcessByProcessId.c)
+ *     ObOpenObjectByPointer @ 0x1406480E0 (ObOpenObjectByPointer.c)
  */
 
 void __fastcall PspOneDirectionSecurityDomainCombine(HANDLE *Object)

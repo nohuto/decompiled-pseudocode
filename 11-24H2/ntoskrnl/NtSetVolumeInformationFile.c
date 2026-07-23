@@ -1,28 +1,28 @@
 /*
- * XREFs of NtSetVolumeInformationFile @ 0x140718380
+ * XREFs of NtSetVolumeInformationFile @ 0x140715F10
  * Callers:
  *     <none>
  * Callees:
- *     IopAllocateIrpExReturn @ 0x140253DC0 (IopAllocateIrpExReturn.c)
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     PsReferenceSiloContext @ 0x14033FA90 (PsReferenceSiloContext.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     IoGetRelatedDeviceObject @ 0x140373C70 (IoGetRelatedDeviceObject.c)
- *     IopResetEvent @ 0x1403C4670 (IopResetEvent.c)
- *     IopReferenceFileObject @ 0x1403F5300 (IopReferenceFileObject.c)
- *     KeInitializeEvent @ 0x140409D80 (KeInitializeEvent.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ExRaiseDatatypeMisalignment @ 0x14089B1F0 (ExRaiseDatatypeMisalignment.c)
- *     IopSynchronousServiceTail @ 0x1408C3300 (IopSynchronousServiceTail.c)
- *     IopSynchronousApiServiceTail @ 0x14096F574 (IopSynchronousApiServiceTail.c)
- *     IopExceptionCleanupEx @ 0x140970628 (IopExceptionCleanupEx.c)
- *     IopWaitAndAcquireFileObjectLock @ 0x140970738 (IopWaitAndAcquireFileObjectLock.c)
- *     IopAllocateIrpCleanup @ 0x140A0C064 (IopAllocateIrpCleanup.c)
- *     IoReportTargetDeviceChange @ 0x140A50860 (IoReportTargetDeviceChange.c)
- *     IoGetRelatedTargetDevice @ 0x140A561A8 (IoGetRelatedTargetDevice.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     IoGetRelatedDeviceObject @ 0x14025C530 (IoGetRelatedDeviceObject.c)
+ *     IopAllocateIrpExReturn @ 0x1402843D0 (IopAllocateIrpExReturn.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     PsReferenceSiloContext @ 0x14031EF70 (PsReferenceSiloContext.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     IopResetEvent @ 0x1403B3230 (IopResetEvent.c)
+ *     IopReferenceFileObject @ 0x1403EB740 (IopReferenceFileObject.c)
+ *     KeInitializeEvent @ 0x140402260 (KeInitializeEvent.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408A3890 (ExRaiseDatatypeMisalignment.c)
+ *     IopSynchronousServiceTail @ 0x1408C0CC0 (IopSynchronousServiceTail.c)
+ *     IopSynchronousApiServiceTail @ 0x140957634 (IopSynchronousApiServiceTail.c)
+ *     IopExceptionCleanupEx @ 0x140958E38 (IopExceptionCleanupEx.c)
+ *     IopWaitAndAcquireFileObjectLock @ 0x140958F48 (IopWaitAndAcquireFileObjectLock.c)
+ *     IopAllocateIrpCleanup @ 0x140A0B2A4 (IopAllocateIrpCleanup.c)
+ *     IoReportTargetDeviceChange @ 0x140A47610 (IoReportTargetDeviceChange.c)
+ *     IoGetRelatedTargetDevice @ 0x140A4E0F8 (IoGetRelatedTargetDevice.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __stdcall NtSetVolumeInformationFile(
@@ -180,7 +180,7 @@ LABEL_34:
     }
     else
     {
-      Pool2 = (struct _KEVENT *)ExAllocatePool2(0x40uLL);
+      Pool2 = (struct _KEVENT *)ExAllocatePool2(0x40uLL, 0x18uLL, 0x76456F49u);
       v7 = Pool2;
       P = Pool2;
       if ( !Pool2 )
@@ -232,7 +232,7 @@ LABEL_44:
     v33->AssociatedIrp.MasterIrp = 0LL;
     v33->MdlAddress = 0LL;
     v37 = Size[0];
-    v38 = (struct _IRP *)ExAllocatePool2(0x61uLL);
+    v38 = (struct _IRP *)ExAllocatePool2(0x61uLL, Size[0], 0x42536F49u);
     v33->AssociatedIrp.MasterIrp = v38;
     memmove(v38, Src, v37);
     v39 = v45;

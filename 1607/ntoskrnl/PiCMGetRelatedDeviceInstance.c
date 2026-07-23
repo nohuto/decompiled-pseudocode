@@ -1,19 +1,19 @@
 /*
- * XREFs of PiCMGetRelatedDeviceInstance @ 0x14052C468
+ * XREFs of PiCMGetRelatedDeviceInstance @ 0x14052C9A8
  * Callers:
- *     PiCMHandleIoctl @ 0x1404FC77C (PiCMHandleIoctl.c)
+ *     PiCMHandleIoctl @ 0x1404DF70C (PiCMHandleIoctl.c)
  * Callees:
- *     RtlStringCbCopyExW @ 0x1400A49F4 (RtlStringCbCopyExW.c)
- *     RtlInitUnicodeStringEx @ 0x1400C39C0 (RtlInitUnicodeStringEx.c)
+ *     RtlInitUnicodeStringEx @ 0x1400C1850 (RtlInitUnicodeStringEx.c)
+ *     RtlStringCbCopyExW @ 0x14010AC6C (RtlStringCbCopyExW.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     PiGetRelatedDevice @ 0x1403F3930 (PiGetRelatedDevice.c)
- *     _CmGetDeviceParent @ 0x1404CFAC4 (_CmGetDeviceParent.c)
- *     _CmIsRootDevice @ 0x1404CFC28 (_CmIsRootDevice.c)
- *     PiCMCaptureObjectInputData @ 0x1404F8E1C (PiCMCaptureObjectInputData.c)
- *     PiCMReleaseObjectInputData @ 0x1404F921C (PiCMReleaseObjectInputData.c)
- *     PiCMReturnBufferResultData @ 0x1404FCC2C (PiCMReturnBufferResultData.c)
- *     _CmValidateDeviceName @ 0x1404FD9C0 (_CmValidateDeviceName.c)
+ *     PiGetRelatedDevice @ 0x1403F27F4 (PiGetRelatedDevice.c)
+ *     PiCMCaptureObjectInputData @ 0x1404DBDA8 (PiCMCaptureObjectInputData.c)
+ *     PiCMReleaseObjectInputData @ 0x1404DC1A8 (PiCMReleaseObjectInputData.c)
+ *     PiCMReturnBufferResultData @ 0x1404DFBBC (PiCMReturnBufferResultData.c)
+ *     _CmValidateDeviceName @ 0x1404E0950 (_CmValidateDeviceName.c)
+ *     _CmGetDeviceParent @ 0x14050CB90 (_CmGetDeviceParent.c)
+ *     _CmIsRootDevice @ 0x14050CCF4 (_CmIsRootDevice.c)
  */
 
 __int64 __fastcall PiCMGetRelatedDeviceInstance(
@@ -79,7 +79,7 @@ __int64 __fastcall PiCMGetRelatedDeviceInstance(
       {
         case 1:
           v20 = v14 >> 1;
-          DeviceParent = CmGetDeviceParent(PiPnpRtlCtx, v13, PoolWithTag, &v20);
+          DeviceParent = CmGetDeviceParent(*(__int64 *)&PiPnpRtlCtx, v13, PoolWithTag, &v20);
           v9 = v20;
           inited = DeviceParent;
 LABEL_16:

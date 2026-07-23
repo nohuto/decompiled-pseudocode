@@ -24,11 +24,7 @@ __int64 __fastcall RtlpFtQueryConfiguration(unsigned int a1, __int64 a2)
 
   v13 = HIDWORD(a2);
   v2 = a2;
-  RtlRunOnceExecuteOnce(
-    &_ft_g_init_once,
-    (unsigned int (__fastcall *)(volatile signed __int64 *, __int64, unsigned __int64 *))RtlpFtInitOnceCallback,
-    0LL,
-    0LL);
+  RtlRunOnceExecuteOnce(&_ft_g_init_once, (PRTL_RUN_ONCE_INIT_FN)RtlpFtInitOnceCallback, 0LL, 0LL);
   v12 = 0LL;
   HIDWORD(v10) = HIDWORD(v2);
   v11 = 0LL;

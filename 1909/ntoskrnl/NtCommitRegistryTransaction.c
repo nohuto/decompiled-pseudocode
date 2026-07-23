@@ -14,48 +14,43 @@
  *     CmpCommitLightWeightTransaction @ 0x1406E33B4 (CmpCommitLightWeightTransaction.c)
  */
 
-__int64 __fastcall NtCommitRegistryTransaction(HANDLE Handle, int a2)
+NTSTATUS __cdecl NtCommitRegistryTransaction(HANDLE RegistryTransactionHandle, ULONG Flags)
 {
   NTSTATUS v4; // eax
   PVOID v5; // rdi
-  int v6; // ebx
+  NTSTATUS v6; // ebx
   PVOID Object; // [rsp+30h] [rbp-48h] BYREF
   _BYTE v9[48]; // [rsp+38h] [rbp-40h] BYREF
 
   memset(v9, 0, sizeof(v9));
-  if ( (unsigned __int8)CmpAcquireShutdownRundown() )
+  if ( !(unsigned __int8)CmpAcquireShutdownRundown() )
+    return -1073741431;
+  if ( Flags )
   {
-    if ( a2 )
-    {
-      v6 = -1073741811;
-    }
-    else
-    {
-      v4 = ObReferenceObjectByHandle(
-             Handle,
-             8u,
-             CmRegistryTransactionType,
-             KeGetCurrentThread()->PreviousMode,
-             &Object,
-             0LL);
-      v5 = Object;
-      v6 = v4;
-      if ( v4 >= 0 )
-      {
-        CmpAttachToRegistryProcess((__int64)v9);
-        v6 = CmpCommitLightWeightTransaction(v5);
-        CmpDetachFromRegistryProcess((struct _KTHREAD *)v9);
-        if ( v6 >= 0 )
-          v6 = 0;
-      }
-      if ( v5 )
-        ObfDereferenceObject(v5);
-    }
-    CmpReleaseShutdownRundown();
+    v6 = -1073741811;
   }
   else
   {
-    return (unsigned int)-1073741431;
+    v4 = ObReferenceObjectByHandle(
+           RegistryTransactionHandle,
+           8u,
+           CmRegistryTransactionType,
+           KeGetCurrentThread()->PreviousMode,
+           &Object,
+           0LL);
+    v5 = Object;
+    v6 = v4;
+    if ( v4 >= 0 )
+    {
+      CmpAttachToRegistryProcess((__int64)v9);
+      v6 = CmpCommitLightWeightTransaction(v5);
+      CmpDetachFromRegistryProcess((struct _KTHREAD *)v9);
+      if ( v6 >= 0 )
+        v6 = 0;
+    }
+    if ( v5 )
+      ObfDereferenceObject(v5);
   }
-  return (unsigned int)v6;
+  CmpReleaseShutdownRundown();
+  return v6;
 }

@@ -1,14 +1,14 @@
 /*
- * XREFs of CarLoadImageHandler @ 0x140616118
+ * XREFs of CarLoadImageHandler @ 0x1406146D8
  * Callers:
- *     VfSuspectDriversLoadCallback @ 0x140B9AB3C (VfSuspectDriversLoadCallback.c)
+ *     VfSuspectDriversLoadCallback @ 0x140B9CB3C (VfSuspectDriversLoadCallback.c)
  * Callees:
- *     _tlgCreate1Sz_wchar_t @ 0x140330A30 (_tlgCreate1Sz_wchar_t.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     CarCopyDriverName @ 0x140615750 (CarCopyDriverName.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     _tlgCreate1Sz_wchar_t @ 0x1402B92A8 (_tlgCreate1Sz_wchar_t.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     CarCopyDriverName @ 0x140613D10 (CarCopyDriverName.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 void __fastcall CarLoadImageHandler(__int64 a1)
@@ -34,7 +34,7 @@ void __fastcall CarLoadImageHandler(__int64 a1)
   int v20; // [rsp+C0h] [rbp+3Fh]
   int v21; // [rsp+C4h] [rbp+43h]
 
-  Pool2 = ExAllocatePool2(0x40uLL);
+  Pool2 = ExAllocatePool2(0x40uLL, 0x60uLL, 0x4E726143u);
   v3 = Pool2;
   if ( Pool2 )
   {
@@ -48,8 +48,8 @@ void __fastcall CarLoadImageHandler(__int64 a1)
     if ( CarLogInitialized )
     {
       if ( (VfRuleClasses & 0x400000) != 0
-        && (unsigned int)dword_140E09000 > 5
-        && tlgKeywordOn((__int64)&dword_140E09000, 0x800000000000LL) )
+        && (unsigned int)dword_140E09070 > 5
+        && tlgKeywordOn((__int64)&dword_140E09070, 0x800000000000LL) )
       {
         v11 = 0;
         v4 = CarTipTag;
@@ -69,8 +69,8 @@ void __fastcall CarLoadImageHandler(__int64 a1)
         v17 = 8;
         v20 = 8;
         tlgWriteTransfer_EtwWriteTransfer(
-          (__int64)&dword_140E09000,
-          (unsigned __int8 *)byte_140051765,
+          (__int64)&dword_140E09070,
+          (unsigned __int8 *)&byte_140052177,
           0LL,
           0LL,
           7u,

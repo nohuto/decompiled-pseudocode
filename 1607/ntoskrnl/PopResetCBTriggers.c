@@ -1,8 +1,8 @@
 /*
- * XREFs of PopResetCBTriggers @ 0x14056E530
+ * XREFs of PopResetCBTriggers @ 0x14056EA70
  * Callers:
- *     PopApplyPolicy @ 0x14056DFD8 (PopApplyPolicy.c)
- *     PopBatteryUpdateCompositeInformation @ 0x14066F4EC (PopBatteryUpdateCompositeInformation.c)
+ *     PopApplyPolicy @ 0x14056E518 (PopApplyPolicy.c)
+ *     PopBatteryUpdateCompositeInformation @ 0x14066F5D0 (PopBatteryUpdateCompositeInformation.c)
  * Callees:
  *     <none>
  */
@@ -13,7 +13,7 @@ int *__fastcall PopResetCBTriggers(unsigned __int8 a1)
   int v2; // edx
   __int64 v3; // rcx
 
-  result = &dword_14030378C;
+  result = &dword_1403036CC;
   v2 = ~a1;
   v3 = 4LL;
   do

@@ -1,18 +1,18 @@
 /*
- * XREFs of PiDevCfgQueryIncludedDriverConfigurations @ 0x1408797E4
+ * XREFs of PiDevCfgQueryIncludedDriverConfigurations @ 0x140879A24
  * Callers:
- *     PiDevCfgQueryDriverConfiguration @ 0x140879374 (PiDevCfgQueryDriverConfiguration.c)
+ *     PiDevCfgQueryDriverConfiguration @ 0x1408795B4 (PiDevCfgQueryDriverConfiguration.c)
  * Callees:
- *     PnpDuplicateUnicodeString @ 0x1403CDE80 (PnpDuplicateUnicodeString.c)
- *     wcschr @ 0x1403DB910 (wcschr.c)
- *     wcsrchr @ 0x1403DBB10 (wcsrchr.c)
- *     PiDevCfgGetDriverConfigurationKeyScope @ 0x140561DC8 (PiDevCfgGetDriverConfigurationKeyScope.c)
- *     PiDevCfgPushDriverNodeEntry @ 0x140562254 (PiDevCfgPushDriverNodeEntry.c)
- *     RtlEqualUnicodeString @ 0x1406DA2F0 (RtlEqualUnicodeString.c)
- *     PiDevCfgFreeDriverNode @ 0x140879210 (PiDevCfgFreeDriverNode.c)
- *     PiDevCfgQueryDriverConfiguration @ 0x140879374 (PiDevCfgQueryDriverConfiguration.c)
- *     PiDevCfgAppendMultiSz @ 0x14095C634 (PiDevCfgAppendMultiSz.c)
- *     PiDevCfgQueryIncludedDriverNode @ 0x14095F208 (PiDevCfgQueryIncludedDriverNode.c)
+ *     PnpDuplicateUnicodeString @ 0x1403CE060 (PnpDuplicateUnicodeString.c)
+ *     wcschr @ 0x1403DBAF0 (wcschr.c)
+ *     wcsrchr @ 0x1403DBCF0 (wcsrchr.c)
+ *     PiDevCfgGetDriverConfigurationKeyScope @ 0x140562488 (PiDevCfgGetDriverConfigurationKeyScope.c)
+ *     PiDevCfgPushDriverNodeEntry @ 0x140562914 (PiDevCfgPushDriverNodeEntry.c)
+ *     RtlEqualUnicodeString @ 0x1406DA320 (RtlEqualUnicodeString.c)
+ *     PiDevCfgFreeDriverNode @ 0x140879450 (PiDevCfgFreeDriverNode.c)
+ *     PiDevCfgQueryDriverConfiguration @ 0x1408795B4 (PiDevCfgQueryDriverConfiguration.c)
+ *     PiDevCfgAppendMultiSz @ 0x14095C834 (PiDevCfgAppendMultiSz.c)
+ *     PiDevCfgQueryIncludedDriverNode @ 0x14095F408 (PiDevCfgQueryIncludedDriverNode.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

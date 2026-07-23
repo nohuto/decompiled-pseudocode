@@ -1,17 +1,17 @@
 /*
- * XREFs of ViFlushDoubleBuffer @ 0x1407092A8
+ * XREFs of ViFlushDoubleBuffer @ 0x1407092D8
  * Callers:
- *     VfFlushAdapterBuffers @ 0x140706E98 (VfFlushAdapterBuffers.c)
- *     VfPutScatterGatherList @ 0x140708310 (VfPutScatterGatherList.c)
+ *     VfFlushAdapterBuffers @ 0x140706EC8 (VfFlushAdapterBuffers.c)
+ *     VfPutScatterGatherList @ 0x140708340 (VfPutScatterGatherList.c)
  * Callees:
- *     MmMapLockedPages @ 0x1401E4010 (MmMapLockedPages.c)
- *     VfUtilDbgPrint @ 0x14022264C (VfUtilDbgPrint.c)
- *     VfReportIssueWithOptions @ 0x140223544 (VfReportIssueWithOptions.c)
- *     ViCopyBackModifiedBuffer @ 0x140709054 (ViCopyBackModifiedBuffer.c)
- *     ViFindMappedRegisterInFile @ 0x140709278 (ViFindMappedRegisterInFile.c)
- *     ViFreeMapRegistersToFile @ 0x1407095A8 (ViFreeMapRegistersToFile.c)
- *     ViGetMdlBufferSa @ 0x140709814 (ViGetMdlBufferSa.c)
- *     ViHalPreprocessOptions @ 0x140709ABC (ViHalPreprocessOptions.c)
+ *     MmMapLockedPages @ 0x1401E3E3C (MmMapLockedPages.c)
+ *     VfUtilDbgPrint @ 0x140222478 (VfUtilDbgPrint.c)
+ *     VfReportIssueWithOptions @ 0x140223370 (VfReportIssueWithOptions.c)
+ *     ViCopyBackModifiedBuffer @ 0x140709084 (ViCopyBackModifiedBuffer.c)
+ *     ViFindMappedRegisterInFile @ 0x1407092A8 (ViFindMappedRegisterInFile.c)
+ *     ViFreeMapRegistersToFile @ 0x1407095D8 (ViFreeMapRegistersToFile.c)
+ *     ViGetMdlBufferSa @ 0x140709844 (ViGetMdlBufferSa.c)
+ *     ViHalPreprocessOptions @ 0x140709AEC (ViHalPreprocessOptions.c)
  */
 
 __int64 __fastcall ViFlushDoubleBuffer(_QWORD *a1, ULONG_PTR a2, int a3, unsigned int a4, char a5)

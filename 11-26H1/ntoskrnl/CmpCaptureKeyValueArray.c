@@ -1,15 +1,15 @@
 /*
- * XREFs of CmpCaptureKeyValueArray @ 0x14097DACC
+ * XREFs of CmpCaptureKeyValueArray @ 0x14093FADC
  * Callers:
- *     NtQueryMultipleValueKey @ 0x14097D340 (NtQueryMultipleValueKey.c)
+ *     NtQueryMultipleValueKey @ 0x14093F350 (NtQueryMultipleValueKey.c)
  * Callees:
- *     CmpAllocateTransientPoolWithQuota @ 0x1404869D8 (CmpAllocateTransientPoolWithQuota.c)
- *     CmSiFreeMemory @ 0x140495010 (CmSiFreeMemory.c)
- *     RtlCopyFromUser @ 0x140533E38 (RtlCopyFromUser.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     CmpCaptureUnicodeStringBuffer @ 0x1408F2650 (CmpCaptureUnicodeStringBuffer.c)
- *     CmpDoesBufferRequireCapturing @ 0x14097DDF0 (CmpDoesBufferRequireCapturing.c)
- *     CmpCaptureUnicodeString @ 0x14097E720 (CmpCaptureUnicodeString.c)
+ *     CmpAllocateTransientPoolWithQuota @ 0x140480350 (CmpAllocateTransientPoolWithQuota.c)
+ *     CmSiFreeMemory @ 0x14048EB60 (CmSiFreeMemory.c)
+ *     RtlCopyFromUser @ 0x1405362B8 (RtlCopyFromUser.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     CmpCaptureUnicodeStringBuffer @ 0x1408F8C10 (CmpCaptureUnicodeStringBuffer.c)
+ *     CmpDoesBufferRequireCapturing @ 0x14093FE00 (CmpDoesBufferRequireCapturing.c)
+ *     CmpCaptureUnicodeString @ 0x140940730 (CmpCaptureUnicodeString.c)
  */
 
 __int64 __fastcall CmpCaptureKeyValueArray(

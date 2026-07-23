@@ -1,0 +1,12 @@
+/*
+ * XREFs of Feature_575661368__private_IsEnabledFallback @ 0x1406C7214
+ * Callers:
+ *     Feature_575661368__private_IsEnabledDeviceUsageNoInline @ 0x1406C71D8 (Feature_575661368__private_IsEnabledDeviceUsageNoInline.c)
+ * Callees:
+ *     wil_details_IsEnabledFallback @ 0x1404FAECC (wil_details_IsEnabledFallback.c)
+ */
+
+__int64 __fastcall Feature_575661368__private_IsEnabledFallback(__int64 a1, unsigned int a2)
+{
+  return wil_details_IsEnabledFallback(a1, a2, (volatile signed __int32 **)&Feature_575661368__private_descriptor, 0);
+}

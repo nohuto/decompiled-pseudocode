@@ -1,11 +1,11 @@
 /*
- * XREFs of HvTrimHive @ 0x1406BDD20
+ * XREFs of HvTrimHive @ 0x1406BEFC0
  * Callers:
- *     CmpTrimHive @ 0x1405B0000 (CmpTrimHive.c)
+ *     CmpTrimHive @ 0x1405B1000 (CmpTrimHive.c)
  * Callees:
  *     MiGetAnyMultiplexedVm @ 0x140028884 (MiGetAnyMultiplexedVm.c)
- *     MiDeprioritizeVirtualAddresses @ 0x1402AB6BC (MiDeprioritizeVirtualAddresses.c)
- *     HvpGetCellMap @ 0x1405FB04C (HvpGetCellMap.c)
+ *     MiDeprioritizeVirtualAddresses @ 0x1402AB8AC (MiDeprioritizeVirtualAddresses.c)
+ *     HvpGetCellMap @ 0x1405FC04C (HvpGetCellMap.c)
  */
 
 void __fastcall HvTrimHive(__int64 a1, unsigned int a2, unsigned int a3)

@@ -1,8 +1,8 @@
 /*
- * XREFs of HalGetMemoryCachingRequirements @ 0x140497A80
+ * XREFs of HalGetMemoryCachingRequirements @ 0x1404915D0
  * Callers:
- *     PopGetHwConfigurationSignature @ 0x140C08A4C (PopGetHwConfigurationSignature.c)
- *     HalpPowerInitFwPerformanceTableMappings @ 0x140CAE4F8 (HalpPowerInitFwPerformanceTableMappings.c)
+ *     PopGetHwConfigurationSignature @ 0x140C0EC5C (PopGetHwConfigurationSignature.c)
+ *     HalpPowerInitFwPerformanceTableMappings @ 0x140CB4538 (HalpPowerInitFwPerformanceTableMappings.c)
  * Callees:
  *     <none>
  */
@@ -19,7 +19,7 @@ __int64 __fastcall HalGetMemoryCachingRequirements(unsigned __int64 a1, __int64 
     *a3 = 0;
     while ( 1 )
     {
-      if ( v3 >= HIDWORD(HalpPmuArbiter.WaitBlockList) )
+      if ( v3 >= LODWORD(HalpPmuArbiter.WaitBlockList) )
         return 3221225473LL;
       v4 = *(_QWORD *)(HalpPmuArbiter.WaitStatus + 24LL * v3) << 12;
       if ( a1 >= v4 )

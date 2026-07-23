@@ -1,25 +1,25 @@
 /*
- * XREFs of MiValidFault @ 0x1400B6DF0
+ * XREFs of MiValidFault @ 0x1400B6D30
  * Callers:
  *     MiUserFault @ 0x140044870 (MiUserFault.c)
  * Callees:
  *     MiReleaseFaultState @ 0x14001AED0 (MiReleaseFaultState.c)
  *     MiRelockFaultState @ 0x14002D290 (MiRelockFaultState.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
- *     MiLockPageAndSetDirty @ 0x140086028 (MiLockPageAndSetDirty.c)
- *     MiWriteValidPteNewProtection @ 0x140087970 (MiWriteValidPteNewProtection.c)
- *     MiCopyOnWrite @ 0x1400B45E0 (MiCopyOnWrite.c)
- *     MiUpdatePrefetchPriority @ 0x1400B71C0 (MiUpdatePrefetchPriority.c)
- *     MiCheckAndUpdateIoAttribution @ 0x1400DF0F4 (MiCheckAndUpdateIoAttribution.c)
- *     MiCheckSystemNxFault @ 0x1400E9488 (MiCheckSystemNxFault.c)
- *     KeFlushSingleTb @ 0x1400ECDF4 (KeFlushSingleTb.c)
- *     MiTbFlushType @ 0x1400EDBA4 (MiTbFlushType.c)
- *     KeInvalidAccessAllowed @ 0x140117D0C (KeInvalidAccessAllowed.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     MiCanGrantExecute @ 0x1402BBB60 (MiCanGrantExecute.c)
- *     MiSetFaultPacketDirectives @ 0x1402BC740 (MiSetFaultPacketDirectives.c)
- *     MiValidVirtualizationFault @ 0x1402BC760 (MiValidVirtualizationFault.c)
- *     MiForceCrashForInvalidAccess @ 0x14084BEA4 (MiForceCrashForInvalidAccess.c)
+ *     MiLockPageAndSetDirty @ 0x140086018 (MiLockPageAndSetDirty.c)
+ *     MiWriteValidPteNewProtection @ 0x140087960 (MiWriteValidPteNewProtection.c)
+ *     MiCopyOnWrite @ 0x1400B4520 (MiCopyOnWrite.c)
+ *     MiUpdatePrefetchPriority @ 0x1400B7100 (MiUpdatePrefetchPriority.c)
+ *     MiCheckAndUpdateIoAttribution @ 0x1400DF174 (MiCheckAndUpdateIoAttribution.c)
+ *     MiCheckSystemNxFault @ 0x1400E9508 (MiCheckSystemNxFault.c)
+ *     KeFlushSingleTb @ 0x1400ECE74 (KeFlushSingleTb.c)
+ *     MiTbFlushType @ 0x1400EDC24 (MiTbFlushType.c)
+ *     KeInvalidAccessAllowed @ 0x140117D7C (KeInvalidAccessAllowed.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     MiCanGrantExecute @ 0x1402BBD50 (MiCanGrantExecute.c)
+ *     MiSetFaultPacketDirectives @ 0x1402BC930 (MiSetFaultPacketDirectives.c)
+ *     MiValidVirtualizationFault @ 0x1402BC950 (MiValidVirtualizationFault.c)
+ *     MiForceCrashForInvalidAccess @ 0x14084D104 (MiForceCrashForInvalidAccess.c)
  */
 
 __int64 __fastcall MiValidFault(__int64 a1, __int64 a2)
@@ -255,7 +255,7 @@ LABEL_11:
       v11 = v40;
     }
     if ( (v18 & 1) == 0
-      && (!v18 || !qword_14043A0C0 || (v18 & qword_14043A0C0) != 0)
+      && (!v18 || !qword_14043B180 || (v18 & qword_14043B180) != 0)
       && (v18 & 0x400) == 0
       && (v18 & 4) != 0 )
     {

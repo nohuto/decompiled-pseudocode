@@ -1,9 +1,9 @@
 /*
- * XREFs of _snprintf_s @ 0x18012CD50
+ * XREFs of _snprintf_s @ 0x18012AF80
  * Callers:
- *     RtlIncrementCorrelationVector @ 0x1800F63E0 (RtlIncrementCorrelationVector.c)
+ *     RtlIncrementCorrelationVector @ 0x1800F0940 (RtlIncrementCorrelationVector.c)
  * Callees:
- *     _vsnprintf_s @ 0x18012CD80 (_vsnprintf_s.c)
+ *     _vsnprintf_s @ 0x18012AFB0 (_vsnprintf_s.c)
  */
 
 int snprintf_s(char *const Buffer, const size_t BufferCount, const size_t MaxCount, const char *const Format, ...)

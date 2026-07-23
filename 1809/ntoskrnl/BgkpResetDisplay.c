@@ -1,10 +1,10 @@
 /*
- * XREFs of BgkpResetDisplay @ 0x14027DD90
+ * XREFs of BgkpResetDisplay @ 0x14027DF80
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1880 (memset.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1980 (memset.c)
  */
 
 __int64 __fastcall BgkpResetDisplay(char a1, _BYTE *a2, _QWORD *a3)
@@ -13,11 +13,11 @@ __int64 __fastcall BgkpResetDisplay(char a1, _BYTE *a2, _QWORD *a3)
   __int64 v5; // rcx
 
   *a3 = 0LL;
-  if ( !a1 || dword_1404DB180 == 2 )
+  if ( !a1 || dword_1404DC240 == 2 )
     return 3221225659LL;
-  if ( !qword_1404DC908 )
+  if ( !qword_1404DDA08 )
     return 3221225473LL;
-  qword_1404DC908(80LL);
+  qword_1404DDA08(80LL);
   LOBYTE(v5) = 1;
   VidResetDisplay(v5);
   memset(a2, 0, 0x28uLL);

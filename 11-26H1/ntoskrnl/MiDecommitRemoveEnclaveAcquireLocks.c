@@ -1,14 +1,14 @@
 /*
- * XREFs of MiDecommitRemoveEnclaveAcquireLocks @ 0x140341128
+ * XREFs of MiDecommitRemoveEnclaveAcquireLocks @ 0x1403431A8
  * Callers:
- *     MiDecommitHardwareEnclavePages @ 0x140340E34 (MiDecommitHardwareEnclavePages.c)
+ *     MiDecommitHardwareEnclavePages @ 0x140342EB4 (MiDecommitHardwareEnclavePages.c)
  * Callees:
- *     KeShouldYieldProcessor @ 0x1402D49D0 (KeShouldYieldProcessor.c)
- *     MiLockWorkingSetShared @ 0x1402EDD60 (MiLockWorkingSetShared.c)
- *     MiMakeSystemAddressValid @ 0x1403028C0 (MiMakeSystemAddressValid.c)
- *     MiPageTableLockIsContended @ 0x140306820 (MiPageTableLockIsContended.c)
- *     MiWorkingSetIsContended @ 0x1403182D0 (MiWorkingSetIsContended.c)
- *     MiDecommitRemoveEnclaveReleaseLocks @ 0x14052E654 (MiDecommitRemoveEnclaveReleaseLocks.c)
+ *     KeShouldYieldProcessor @ 0x1402B6790 (KeShouldYieldProcessor.c)
+ *     MiLockWorkingSetShared @ 0x1402CFDE0 (MiLockWorkingSetShared.c)
+ *     MiMakeSystemAddressValid @ 0x1402E4940 (MiMakeSystemAddressValid.c)
+ *     MiPageTableLockIsContended @ 0x1402E88A0 (MiPageTableLockIsContended.c)
+ *     MiWorkingSetIsContended @ 0x14031A300 (MiWorkingSetIsContended.c)
+ *     MiDecommitRemoveEnclaveReleaseLocks @ 0x140530B74 (MiDecommitRemoveEnclaveReleaseLocks.c)
  */
 
 void __fastcall MiDecommitRemoveEnclaveAcquireLocks(__int64 a1, ULONG_PTR a2)

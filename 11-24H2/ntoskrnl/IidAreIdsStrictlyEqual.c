@@ -1,12 +1,12 @@
 /*
- * XREFs of IidAreIdsStrictlyEqual @ 0x14069BF5C
+ * XREFs of IidAreIdsStrictlyEqual @ 0x14069CFDC
  * Callers:
- *     HalpDmaFindAdapterByDeviceId @ 0x14053C514 (HalpDmaFindAdapterByDeviceId.c)
- *     HalpIommuCreateDevice @ 0x14054D63C (HalpIommuCreateDevice.c)
- *     HalpIommuDeleteDevice @ 0x14054DC10 (HalpIommuDeleteDevice.c)
- *     HalpIommuCreateIncreaseAliasTrack @ 0x140553870 (HalpIommuCreateIncreaseAliasTrack.c)
- *     HalpIommuDecreaseAliasTrack @ 0x14055397C (HalpIommuDecreaseAliasTrack.c)
- *     HalpIommuGetReservedRanges @ 0x140553E64 (HalpIommuGetReservedRanges.c)
+ *     HalpDmaFindAdapterByDeviceId @ 0x140539DA0 (HalpDmaFindAdapterByDeviceId.c)
+ *     HalpIommuCreateDevice @ 0x14054AEFC (HalpIommuCreateDevice.c)
+ *     HalpIommuDeleteDevice @ 0x14054B4BC (HalpIommuDeleteDevice.c)
+ *     HalpIommuCreateIncreaseAliasTrack @ 0x1405511B0 (HalpIommuCreateIncreaseAliasTrack.c)
+ *     HalpIommuDecreaseAliasTrack @ 0x1405512BC (HalpIommuDecreaseAliasTrack.c)
+ *     HalpIommuGetReservedRanges @ 0x1405517A4 (HalpIommuGetReservedRanges.c)
  * Callees:
  *     <none>
  */

@@ -1,9 +1,9 @@
 /*
- * XREFs of PopExecutionRequiredCallback @ 0x140588DE0
+ * XREFs of PopExecutionRequiredCallback @ 0x140589DE0
  * Callers:
  *     <none>
  * Callees:
- *     PopHandleConvergedPowerRequestUpdate @ 0x140589D88 (PopHandleConvergedPowerRequestUpdate.c)
+ *     PopHandleConvergedPowerRequestUpdate @ 0x14058AD88 (PopHandleConvergedPowerRequestUpdate.c)
  */
 
 __int64 __fastcall PopExecutionRequiredCallback(__int64 a1, unsigned int a2)

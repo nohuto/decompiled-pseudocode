@@ -1,12 +1,12 @@
 /*
- * XREFs of IpmiLibpKcsHandleError @ 0x1406A00D8
+ * XREFs of IpmiLibpKcsHandleError @ 0x1406A11DC
  * Callers:
- *     IpmiLibpKcsBmcTransact @ 0x1406A0030 (IpmiLibpKcsBmcTransact.c)
+ *     IpmiLibpKcsBmcTransact @ 0x1406A1134 (IpmiLibpKcsBmcTransact.c)
  * Callees:
- *     IpmiLibReadOneByte @ 0x14069FB48 (IpmiLibReadOneByte.c)
- *     IpmiLibWriteOneByte @ 0x14069FB88 (IpmiLibWriteOneByte.c)
- *     IpmiLibpKcsSpinRegister @ 0x1406A0634 (IpmiLibpKcsSpinRegister.c)
- *     IpmiLibpHandleErrorInterrupt @ 0x1406A0800 (IpmiLibpHandleErrorInterrupt.c)
+ *     IpmiLibReadOneByte @ 0x1406A0C4C (IpmiLibReadOneByte.c)
+ *     IpmiLibWriteOneByte @ 0x1406A0C8C (IpmiLibWriteOneByte.c)
+ *     IpmiLibpKcsSpinRegister @ 0x1406A173C (IpmiLibpKcsSpinRegister.c)
+ *     IpmiLibpHandleErrorInterrupt @ 0x1406A1908 (IpmiLibpHandleErrorInterrupt.c)
  */
 
 __int64 __fastcall IpmiLibpKcsHandleError(__int64 a1, __int64 a2)
@@ -31,7 +31,7 @@ __int64 __fastcall IpmiLibpKcsHandleError(__int64 a1, __int64 a2)
   {
     if ( (unsigned int)IpmiLibpKcsSpinRegister(a1, a2, 2LL) )
       goto LABEL_20;
-    dword_140EF9C54 = 4;
+    dword_140EF9F54 = 4;
     IpmiLibWriteOneByte(a1, 1u, 0x60u);
     v5 = IpmiLibpHandleErrorInterrupt(v4, a2, &v14, &v15);
     v6 = 0;
@@ -39,7 +39,7 @@ __int64 __fastcall IpmiLibpKcsHandleError(__int64 a1, __int64 a2)
       v6 = v5;
     if ( v6 )
       goto LABEL_20;
-    dword_140EF9C54 = 5;
+    dword_140EF9F54 = 5;
     IpmiLibWriteOneByte(a1, 0, 0);
     v8 = IpmiLibpHandleErrorInterrupt(v7, a2, &v14, &v15);
     v9 = 0;
@@ -53,10 +53,10 @@ LABEL_20:
     }
     if ( (unsigned __int8)v14 != 255 )
     {
-      if ( (dword_140EF9C20 & 1) == 0 )
+      if ( (dword_140EF9F20 & 1) == 0 )
         IpmiLibReadOneByte(a1, 0);
       IpmiLibWriteOneByte(a1, 0, 0x68u);
-      dword_140EF9C54 = 6;
+      dword_140EF9F54 = 6;
       v11 = IpmiLibpHandleErrorInterrupt(v10, a2, &v14, &v15);
       v12 = 0;
       if ( v11 != -1073741822 )

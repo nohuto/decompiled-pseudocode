@@ -25,11 +25,7 @@ __int64 __fastcall LdrpLoadKnownDll(_BYTE *a1)
   int KnownDll; // ebx
   char v5; // al
   int v6; // ebx
-  char *v7; // rdx
-  __int64 v8; // r8
-  __int64 v9; // r9
-  _BYTE v11[40]; // [rsp+30h] [rbp-28h] BYREF
-  __int64 v12; // [rsp+60h] [rbp+8h] BYREF
+  _BYTE v8[40]; // [rsp+30h] [rbp-28h] BYREF
   HANDLE Handle; // [rsp+68h] [rbp+10h] BYREF
 
   v1 = *((_DWORD *)a1 + 6);
@@ -38,8 +34,8 @@ __int64 __fastcall LdrpLoadKnownDll(_BYTE *a1)
   KnownDll = -1073741515;
   if ( (v1 & 0x200) != 0 )
   {
-    v5 = LdrpCheckKnownDllFullPath(a1, v11);
-    a1 = v11;
+    v5 = LdrpCheckKnownDllFullPath(a1, v8);
+    a1 = v8;
   }
   else
   {
@@ -47,31 +43,17 @@ __int64 __fastcall LdrpLoadKnownDll(_BYTE *a1)
   }
   if ( v5 )
   {
-    KnownDll = LdrpFindKnownDll(a1, v3 + 88, v3 + 72, &Handle);
+    KnownDll = LdrpFindKnownDll((PCUNICODE_STRING)a1, (PUNICODE_STRING)(v3 + 88), (PUNICODE_STRING)(v3 + 72), &Handle);
     if ( KnownDll >= 0 )
     {
       LdrpLogDllState(*(_QWORD *)(v3 + 48), v3 + 72, 0x14A5u);
-      v12 = 0LL;
       v6 = LdrpHashUnicodeString(v3 + 88);
-      RtlAcquireSRWLockExclusive(&LdrpModuleDatatableLock, v7, v8, v9);
-      KnownDll = LdrpFindLoadedDllByNameLockHeld(
-                   (int)v3 + 88,
-                   (int)v3 + 72,
-                   *((_DWORD *)v2 + 6),
-                   (unsigned int)&v12,
-                   v6);
-      if ( KnownDll == -1073741515 )
+      RtlAcquireSRWLockExclusive(&LdrpModuleDatatableLock);
+      if ( (unsigned int)LdrpFindLoadedDllByNameLockHeld((PUNICODE_STRING)(v3 + 88), (PUNICODE_STRING)(v3 + 72), v6) == -1073741515 )
         LdrpInsertDataTableEntry(v3);
       RtlReleaseSRWLockExclusive(&LdrpModuleDatatableLock);
-      if ( v12 )
-      {
-        LdrpLoadContextReplaceModule(v2);
-      }
-      else
-      {
-        LdrpLogDllState(0, v3 + 72, 0x14AAu);
-        KnownDll = LdrpMapDllWithSectionHandle(v2, Handle);
-      }
+      LdrpLogDllState(0, v3 + 72, 0x14AAu);
+      KnownDll = LdrpMapDllWithSectionHandle(v2, Handle);
       NtClose(Handle);
     }
   }

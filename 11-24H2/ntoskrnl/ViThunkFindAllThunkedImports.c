@@ -1,15 +1,15 @@
 /*
- * XREFs of ViThunkFindAllThunkedImports @ 0x140B97688
+ * XREFs of ViThunkFindAllThunkedImports @ 0x140B99688
  * Callers:
- *     ViThunkApplyWdmThunksCurrentSession @ 0x140B97424 (ViThunkApplyWdmThunksCurrentSession.c)
+ *     ViThunkApplyWdmThunksCurrentSession @ 0x140B99424 (ViThunkApplyWdmThunksCurrentSession.c)
  * Callees:
- *     RtlImageDirectoryEntryToData @ 0x14042CAF0 (RtlImageDirectoryEntryToData.c)
- *     ViThunkGetWdmThunk @ 0x140B978B4 (ViThunkGetWdmThunk.c)
+ *     RtlImageDirectoryEntryToData @ 0x1402EEB70 (RtlImageDirectoryEntryToData.c)
+ *     ViThunkGetWdmThunk @ 0x140B998B4 (ViThunkGetWdmThunk.c)
  */
 
 __int64 __fastcall ViThunkFindAllThunkedImports(__int64 a1, __int64 a2, unsigned int *a3)
 {
-  unsigned __int64 v3; // rcx
+  void *v3; // rcx
   _DWORD *v4; // rsi
   _QWORD *v6; // r11
   __int64 v7; // r8
@@ -23,10 +23,10 @@ __int64 __fastcall ViThunkFindAllThunkedImports(__int64 a1, __int64 a2, unsigned
   __int64 v16; // [rsp+38h] [rbp+10h] BYREF
 
   v16 = a2;
-  v3 = *(_QWORD *)(a1 + 48);
+  v3 = *(void **)(a1 + 48);
   v4 = ViWdmThunksWithIatIndex;
   LODWORD(v16) = 0;
-  v6 = (_QWORD *)RtlImageDirectoryEntryToData(v3, 1, 0xCu, &v16);
+  v6 = RtlImageDirectoryEntryToData(v3, 1u, 0xCu, (PULONG)&v16);
   if ( !v6 || !(_DWORD)v16 )
     return 0LL;
   v7 = (unsigned int)v16 >> 3;

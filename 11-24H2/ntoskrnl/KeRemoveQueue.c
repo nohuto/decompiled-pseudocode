@@ -1,9 +1,9 @@
 /*
- * XREFs of KeRemoveQueue @ 0x1402A60E0
+ * XREFs of KeRemoveQueue @ 0x1402D5810
  * Callers:
  *     <none>
  * Callees:
- *     KeRemoveQueueEx @ 0x1402A49D0 (KeRemoveQueueEx.c)
+ *     KeRemoveQueueEx @ 0x1402D4100 (KeRemoveQueueEx.c)
  */
 
 PLIST_ENTRY __stdcall KeRemoveQueue(PRKQUEUE Queue, KPROCESSOR_MODE WaitMode, PLARGE_INTEGER Timeout)

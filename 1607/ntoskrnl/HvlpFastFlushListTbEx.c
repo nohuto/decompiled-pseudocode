@@ -1,13 +1,13 @@
 /*
- * XREFs of HvlpFastFlushListTbEx @ 0x1401C17FC
+ * XREFs of HvlpFastFlushListTbEx @ 0x1401C16E0
  * Callers:
- *     HvlpFlushRangeListTbEx @ 0x1401C199C (HvlpFlushRangeListTbEx.c)
+ *     HvlpFlushRangeListTbEx @ 0x1401C1880 (HvlpFlushRangeListTbEx.c)
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     HvcallpExtendedFastHypercall @ 0x1401685A0 (HvcallpExtendedFastHypercall.c)
- *     HvlpAffinityToHvProcessorSet @ 0x1401BFDE4 (HvlpAffinityToHvProcessorSet.c)
- *     HvlpCopyFlushVaList @ 0x1401C15D0 (HvlpCopyFlushVaList.c)
- *     VslFastFlushSecureRangeList @ 0x1401C27F4 (VslFastFlushSecureRangeList.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     HvcallpExtendedFastHypercall @ 0x140168B10 (HvcallpExtendedFastHypercall.c)
+ *     HvlpAffinityToHvProcessorSet @ 0x1401BFCC8 (HvlpAffinityToHvProcessorSet.c)
+ *     HvlpCopyFlushVaList @ 0x1401C14B4 (HvlpCopyFlushVaList.c)
+ *     VslFastFlushSecureRangeList @ 0x1401C26D8 (VslFastFlushSecureRangeList.c)
  */
 
 __int64 __fastcall HvlpFastFlushListTbEx(__int64 *a1, __int64 a2, char a3, unsigned int a4, __int64 *a5, int a6)

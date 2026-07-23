@@ -6,9 +6,12 @@
  *     _RtlpHpAppCompatDontChangePolicy@0 @ 0x4B2ED850 (_RtlpHpAppCompatDontChangePolicy@0.c)
  */
 
-int __userpurge RtlUserThreadStart@<eax>(int a1@<eax>, int a2@<ebx>, int a3, int a4)
+void __cdecl RtlUserThreadStart(PTHREAD_START_ROUTINE Function, PVOID Parameter)
 {
+  int v2; // eax
+  int v3; // ebx
+
   if ( !LdrDelegatedRtlUserThreadStart )
-    _RtlUserThreadStart(a1, a2);
-  return LdrDelegatedRtlUserThreadStart(a3, a4);
+    _RtlUserThreadStart(v2, v3);
+  LdrDelegatedRtlUserThreadStart(Function, Parameter);
 }

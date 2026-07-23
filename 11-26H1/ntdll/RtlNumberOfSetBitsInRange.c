@@ -1,19 +1,19 @@
 /*
- * XREFs of RtlNumberOfSetBitsInRange @ 0x180141530
+ * XREFs of RtlNumberOfSetBitsInRange @ 0x180141430
  * Callers:
- *     RtlNumberOfClearBitsInRange @ 0x180141500 (RtlNumberOfClearBitsInRange.c)
+ *     RtlNumberOfClearBitsInRange @ 0x180141400 (RtlNumberOfClearBitsInRange.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall RtlNumberOfSetBitsInRange(__int64 a1, unsigned int a2, unsigned int a3)
+ULONG __cdecl RtlNumberOfSetBitsInRange(PRTL_BITMAP BitMapHeader, ULONG StartingIndex, ULONG Length)
 {
-  unsigned int v4; // r9d
+  ULONG v4; // r9d
   char *v5; // r8
-  unsigned int v6; // r11d
+  ULONG v6; // r11d
   __int64 v7; // rdi
-  int v8; // esi
-  unsigned int v9; // r10d
+  ULONG v8; // esi
+  ULONG v9; // r10d
   __int64 v11; // rax
   unsigned __int64 v12; // rcx
   char v13; // dl
@@ -23,27 +23,27 @@ __int64 __fastcall RtlNumberOfSetBitsInRange(__int64 a1, unsigned int a2, unsign
   __int64 v17; // rdx
   char v18; // cl
 
-  if ( a2 >= *(_DWORD *)a1 )
-    return 0xFFFFFFFFLL;
-  if ( *(_DWORD *)a1 - a2 < a3 )
-    return 0xFFFFFFFFLL;
+  if ( StartingIndex >= BitMapHeader->SizeOfBitMap )
+    return -1;
+  if ( BitMapHeader->SizeOfBitMap - StartingIndex < Length )
+    return -1;
   v4 = 0;
-  if ( !a3 )
-    return 0xFFFFFFFFLL;
-  v5 = (char *)(*(_QWORD *)(a1 + 8) + (a2 >> 3));
-  v6 = (a3 + a2 - 1) >> 3;
-  v7 = a2 & 7;
-  v8 = (a3 + a2 - 1) & 7;
-  v9 = a2 >> 3;
-  if ( a2 >> 3 == v6 )
-    return RtlpBitsClearTotal[(unsigned __int8)~(*v5 & byte_18017CAF8[v7] & byte_18018B198[v8 + 1])];
-  if ( (((unsigned __int8)a3 | (unsigned __int8)a2) & 0x3F) != 0 )
+  if ( !Length )
+    return -1;
+  v5 = (char *)BitMapHeader->Buffer + (StartingIndex >> 3);
+  v6 = (Length + StartingIndex - 1) >> 3;
+  v7 = StartingIndex & 7;
+  v8 = (Length + StartingIndex - 1) & 7;
+  v9 = StartingIndex >> 3;
+  if ( StartingIndex >> 3 == v6 )
+    return RtlpBitsClearTotal[(unsigned __int8)~(*v5 & byte_18017B818[v7] & byte_18018A108[v8 + 1])];
+  if ( (((unsigned __int8)Length | (unsigned __int8)StartingIndex) & 0x3F) != 0 )
   {
-    if ( (a2 & 7) != 0 )
+    if ( (StartingIndex & 7) != 0 )
     {
       v13 = *v5++;
       ++v9;
-      v4 = RtlpBitsClearTotal[(unsigned __int8)~(v13 & byte_18017CAF8[v7])];
+      v4 = RtlpBitsClearTotal[(unsigned __int8)~(v13 & byte_18017B818[v7])];
     }
     v14 = 8 - (v9 & 7);
     if ( (v14 & 0xFFFFFFF7) != 0 )
@@ -77,11 +77,11 @@ __int64 __fastcall RtlNumberOfSetBitsInRange(__int64 a1, unsigned int a2, unsign
       }
       while ( v17 );
     }
-    return v4 + RtlpBitsClearTotal[(unsigned __int8)~(*v5 & byte_18018B198[v8 + 1])];
+    return v4 + RtlpBitsClearTotal[(unsigned __int8)~(*v5 & byte_18018A108[v8 + 1])];
   }
   else
   {
-    v11 = ((a3 - 1) >> 6) + 1;
+    v11 = ((Length - 1) >> 6) + 1;
     do
     {
       v12 = *(_QWORD *)v5;

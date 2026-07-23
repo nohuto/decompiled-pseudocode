@@ -1,10 +1,10 @@
 /*
- * XREFs of VerifierPortIoAllocateIrp @ 0x140C28CF0
+ * XREFs of VerifierPortIoAllocateIrp @ 0x140C2ED00
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     CarReportRuleViolationFromNt @ 0x140C2BF1C (CarReportRuleViolationFromNt.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     CarReportRuleViolationFromNt @ 0x140C31F2C (CarReportRuleViolationFromNt.c)
  */
 
 __int64 __fastcall VerifierPortIoAllocateIrp(char a1, __int64 a2, __int64 a3)

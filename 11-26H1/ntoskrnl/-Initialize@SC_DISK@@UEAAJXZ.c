@@ -1,13 +1,13 @@
 /*
- * XREFs of ?Initialize@SC_DISK@@UEAAJXZ @ 0x14071B1A0
+ * XREFs of ?Initialize@SC_DISK@@UEAAJXZ @ 0x14071FE30
  * Callers:
- *     ?Initialize@NT_DISK@@QEAAJPEAU_DEVICE_OBJECT@@@Z @ 0x140790C5C (-Initialize@NT_DISK@@QEAAJPEAU_DEVICE_OBJECT@@@Z.c)
+ *     ?Initialize@NT_DISK@@QEAAJPEAU_DEVICE_OBJECT@@@Z @ 0x14079378C (-Initialize@NT_DISK@@QEAAJPEAU_DEVICE_OBJECT@@@Z.c)
  * Callees:
- *     ?GenerateId@SC_DISK@@AEAAJXZ @ 0x14071AF48 (-GenerateId@SC_DISK@@AEAAJXZ.c)
- *     ?GetStorageProperty@SC_DEVICE@@QEAAJW4_STORAGE_PROPERTY_ID@@PEAPEAU_STORAGE_DESCRIPTOR_HEADER@@@Z @ 0x14071C2E8 (-GetStorageProperty@SC_DEVICE@@QEAAJW4_STORAGE_PROPERTY_ID@@PEAPEAU_STORAGE_DESCRIPTOR_HEADER@@@.c)
- *     ?Initialize@SC_DEVICE@@UEAAJXZ @ 0x14071C480 (-Initialize@SC_DEVICE@@UEAAJXZ.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     ?GenerateId@SC_DISK@@AEAAJXZ @ 0x14071FBD8 (-GenerateId@SC_DISK@@AEAAJXZ.c)
+ *     ?GetStorageProperty@SC_DEVICE@@QEAAJW4_STORAGE_PROPERTY_ID@@PEAPEAU_STORAGE_DESCRIPTOR_HEADER@@@Z @ 0x140720F78 (-GetStorageProperty@SC_DEVICE@@QEAAJW4_STORAGE_PROPERTY_ID@@PEAPEAU_STORAGE_DESCRIPTOR_HEADER@@@.c)
+ *     ?Initialize@SC_DEVICE@@UEAAJXZ @ 0x140721110 (-Initialize@SC_DEVICE@@UEAAJXZ.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall SC_DISK::Initialize(SC_DISK *this)

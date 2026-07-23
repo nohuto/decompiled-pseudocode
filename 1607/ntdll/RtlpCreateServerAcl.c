@@ -1,16 +1,16 @@
 /*
- * XREFs of RtlpCreateServerAcl @ 0x1800E0D0C
+ * XREFs of RtlpCreateServerAcl @ 0x1800E0DCC
  * Callers:
  *     RtlpSetSecurityObject @ 0x180003850 (RtlpSetSecurityObject.c)
- *     RtlpNewSecurityObject @ 0x180044AD8 (RtlpNewSecurityObject.c)
+ *     RtlpNewSecurityObject @ 0x180044AC8 (RtlpNewSecurityObject.c)
  * Callees:
- *     RtlAllocateHeap @ 0x180022DB0 (RtlAllocateHeap.c)
- *     RtlCreateAcl @ 0x180040A00 (RtlCreateAcl.c)
+ *     RtlAllocateHeap @ 0x180022DA0 (RtlAllocateHeap.c)
+ *     RtlCreateAcl @ 0x1800409F0 (RtlCreateAcl.c)
  *     memmove @ 0x1800AC980 (memmove.c)
- *     RtlUShortAdd @ 0x1800DFDB4 (RtlUShortAdd.c)
+ *     RtlUShortAdd @ 0x1800DFE74 (RtlUShortAdd.c)
  */
 
-__int64 __fastcall RtlpCreateServerAcl(__int64 a1, char a2, unsigned __int8 *a3, __int64 *a4, _BYTE *a5)
+__int64 __fastcall RtlpCreateServerAcl(__int64 a1, char a2, unsigned __int8 *a3, ACL **a4, _BYTE *a5)
 {
   unsigned __int16 v6; // cx
   _BYTE *v9; // rax
@@ -25,10 +25,10 @@ __int64 __fastcall RtlpCreateServerAcl(__int64 a1, char a2, unsigned __int8 *a3,
   unsigned __int16 v18; // dx
   __int64 v19; // r10
   int v20; // r11d
-  __int64 Heap; // rax
-  unsigned int v22; // edx
+  ACL *Heap; // rax
+  ULONG v22; // edx
   unsigned int v23; // ebp
-  __int64 v24; // r15
+  ACL *v24; // r15
   char *v25; // rdi
   unsigned __int8 *v26; // r15
   char v27; // al
@@ -38,7 +38,7 @@ __int64 __fastcall RtlpCreateServerAcl(__int64 a1, char a2, unsigned __int8 *a3,
   char *v31; // rdi
   int v32; // edx
   __int16 v33; // ax
-  __int64 v34; // [rsp+60h] [rbp+8h] BYREF
+  ACL *v34; // [rsp+60h] [rbp+8h] BYREF
   void *Src; // [rsp+70h] [rbp+18h]
 
   Src = a3;
@@ -71,12 +71,12 @@ LABEL_12:
         result = RtlUShortAdd(v6, v15, &v34);
         if ( (int)result < 0 )
           return result;
-        v6 = v34;
+        v6 = (unsigned __int16)v34;
       }
       result = RtlUShortAdd(v6, *(_WORD *)(v13 + 2), &v34);
       if ( (int)result < 0 )
         return result;
-      v6 = v34;
+      v6 = (unsigned __int16)v34;
       v13 = v18 + v19;
       if ( v20 + 1 >= v11 )
         goto LABEL_16;
@@ -84,22 +84,22 @@ LABEL_12:
     result = RtlUShortAdd(v6, v12, &v34);
     if ( (int)result < 0 )
       return result;
-    v6 = v34;
+    v6 = (unsigned __int16)v34;
     v15 = 4;
     goto LABEL_12;
   }
 LABEL_16:
-  Heap = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, NtdllBaseTag + 1310720, v6);
+  Heap = (ACL *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, NtdllBaseTag + 1310720, v6);
   *a4 = Heap;
   if ( !Heap )
     return 3221225626LL;
   v22 = (unsigned __int16)v34;
   *a5 = 1;
-  RtlCreateAcl(Heap, v22, 3);
+  RtlCreateAcl(Heap, v22, 3u);
   v23 = 0;
   v24 = *a4;
   v34 = v24;
-  v25 = (char *)(v24 + 8);
+  v25 = (char *)&v24[1];
   if ( *(_WORD *)(a1 + 4) )
   {
     v26 = (unsigned __int8 *)Src;
@@ -136,6 +136,6 @@ LABEL_16:
     while ( v23 < *(unsigned __int16 *)(a1 + 4) );
     v24 = v34;
   }
-  *(_WORD *)(v24 + 4) = *(_WORD *)(a1 + 4);
+  v24->AceCount = *(_WORD *)(a1 + 4);
   return 0LL;
 }

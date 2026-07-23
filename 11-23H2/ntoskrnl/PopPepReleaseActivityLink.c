@@ -1,18 +1,18 @@
 /*
- * XREFs of PopPepReleaseActivityLink @ 0x140313AE4
+ * XREFs of PopPepReleaseActivityLink @ 0x140313D74
  * Callers:
- *     PopPepUpdateConstraints @ 0x14028D234 (PopPepUpdateConstraints.c)
- *     PopPepTryPowerDownDevice @ 0x140310CD0 (PopPepTryPowerDownDevice.c)
- *     PopPepProcessEvent @ 0x140313900 (PopPepProcessEvent.c)
- *     PopPepComponentSetLatency @ 0x14035B570 (PopPepComponentSetLatency.c)
- *     PopPepComponentSetResidency @ 0x1403B3D44 (PopPepComponentSetResidency.c)
- *     PopPepCompleteComponentIdleState @ 0x14059EBA4 (PopPepCompleteComponentIdleState.c)
- *     PopPepComponentSetWakeHint @ 0x14059ECB0 (PopPepComponentSetWakeHint.c)
- *     PopPepSurprisePowerOn @ 0x14059FDC0 (PopPepSurprisePowerOn.c)
+ *     PopPepUpdateConstraints @ 0x14028D4C4 (PopPepUpdateConstraints.c)
+ *     PopPepTryPowerDownDevice @ 0x140310F60 (PopPepTryPowerDownDevice.c)
+ *     PopPepProcessEvent @ 0x140313B90 (PopPepProcessEvent.c)
+ *     PopPepComponentSetLatency @ 0x14035B710 (PopPepComponentSetLatency.c)
+ *     PopPepComponentSetResidency @ 0x1403B3F24 (PopPepComponentSetResidency.c)
+ *     PopPepCompleteComponentIdleState @ 0x14059F094 (PopPepCompleteComponentIdleState.c)
+ *     PopPepComponentSetWakeHint @ 0x14059F1A0 (PopPepComponentSetWakeHint.c)
+ *     PopPepSurprisePowerOn @ 0x1405A02B0 (PopPepSurprisePowerOn.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7C00 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7E90 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void __fastcall PopPepReleaseActivityLink(__int64 a1, volatile LONG *a2, char a3, unsigned __int8 a4)
@@ -49,10 +49,13 @@ void __fastcall PopPepReleaseActivityLink(__int64 a1, volatile LONG *a2, char a3
     ExReleaseSpinLockExclusiveFromDpcLevel(a2);
     ExReleaseSpinLockSharedFromDpcLevel((PEX_SPIN_LOCK)(a1 + 64));
   }
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v4 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v4 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

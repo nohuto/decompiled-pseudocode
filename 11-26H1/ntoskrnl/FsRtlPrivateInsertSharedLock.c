@@ -1,23 +1,23 @@
 /*
- * XREFs of FsRtlPrivateInsertSharedLock @ 0x1402C0A10
+ * XREFs of FsRtlPrivateInsertSharedLock @ 0x14030B6D0
  * Callers:
- *     FsRtlPrivateLock @ 0x1402C0190 (FsRtlPrivateLock.c)
- *     FsRtlPrivateInsertLock @ 0x1402C0850 (FsRtlPrivateInsertLock.c)
+ *     FsRtlPrivateLock @ 0x14030AE50 (FsRtlPrivateLock.c)
+ *     FsRtlPrivateInsertLock @ 0x14030B510 (FsRtlPrivateInsertLock.c)
  * Callees:
- *     RtlSplay @ 0x1402C0DB0 (RtlSplay.c)
- *     RtlRealSuccessor @ 0x1402C1830 (RtlRealSuccessor.c)
- *     ExFreeToNPagedLookasideList @ 0x1403B5A60 (ExFreeToNPagedLookasideList.c)
- *     RtlDeleteNoSplay @ 0x1403B6670 (RtlDeleteNoSplay.c)
- *     FsRtlSplitLocks @ 0x1403B7268 (FsRtlSplitLocks.c)
- *     RtlpInterlockedPopEntrySList @ 0x140730C90 (RtlpInterlockedPopEntrySList.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     RtlSplay @ 0x14030BA70 (RtlSplay.c)
+ *     RtlRealSuccessor @ 0x14030C4F0 (RtlRealSuccessor.c)
+ *     ExFreeToNPagedLookasideList @ 0x1403BF960 (ExFreeToNPagedLookasideList.c)
+ *     RtlDeleteNoSplay @ 0x1403C0570 (RtlDeleteNoSplay.c)
+ *     FsRtlSplitLocks @ 0x1403C1168 (FsRtlSplitLocks.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140735860 (RtlpInterlockedPopEntrySList.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 char __fastcall FsRtlPrivateInsertSharedLock(__int64 a1, _RTL_SPLAY_LINKS *a2)
 {
   _RTL_SPLAY_LINKS *v2; // r8
-  RTL_SPLAY_LINKS *v4; // rdx
-  RTL_SPLAY_LINKS *v5; // r9
+  _RTL_SPLAY_LINKS *v4; // rdx
+  _RTL_SPLAY_LINKS *v5; // r9
   _RTL_SPLAY_LINKS *v6; // rbx
   char v7; // r14
   bool v9; // zf
@@ -25,11 +25,11 @@ char __fastcall FsRtlPrivateInsertSharedLock(__int64 a1, _RTL_SPLAY_LINKS *a2)
   _RTL_SPLAY_LINKS *Parent; // r11
   unsigned __int64 v12; // rax
   _RTL_SPLAY_LINKS *v13; // rcx
-  RTL_SPLAY_LINKS *v14; // rsi
+  _RTL_SPLAY_LINKS *v14; // rsi
   PSLIST_ENTRY v15; // rax
   PRTL_SPLAY_LINKS v16; // rdx
   _RTL_SPLAY_LINKS *v17; // rax
-  RTL_SPLAY_LINKS *v18; // rcx
+  _RTL_SPLAY_LINKS *v18; // rcx
   _RTL_SPLAY_LINKS *v19; // r8
   _RTL_SPLAY_LINKS *v20; // rax
   PRTL_SPLAY_LINKS i; // r14
@@ -128,14 +128,14 @@ LABEL_11:
       FsRtlSplitLocks(&v14[-1], 0LL, 0LL, 0LL);
     goto LABEL_24;
   }
-  ++dword_140E11394;
+  ++dword_140E11754;
   v15 = RtlpInterlockedPopEntrySList(&FsRtlLockTreeNodeLookasideList);
   if ( v15
-    || (++dword_140E11398,
+    || (++dword_140E11758,
         (v15 = (PSLIST_ENTRY)guard_dispatch_icall_no_overrides(
-                               (unsigned int)dword_140E113A4,
-                               (unsigned int)dword_140E113AC,
-                               (unsigned int)dword_140E113A8)) != 0LL) )
+                               (unsigned int)dword_140E11764,
+                               (unsigned int)dword_140E1176C,
+                               (unsigned int)dword_140E11768)) != 0LL) )
   {
     v15[2].Next = 0LL;
     v16 = (PRTL_SPLAY_LINKS)(&v15[1].Next + 1);

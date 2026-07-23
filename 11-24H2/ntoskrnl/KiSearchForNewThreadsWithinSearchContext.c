@@ -1,18 +1,18 @@
 /*
- * XREFs of KiSearchForNewThreadsWithinSearchContext @ 0x1404E9D80
+ * XREFs of KiSearchForNewThreadsWithinSearchContext @ 0x1404E0D30
  * Callers:
- *     KiSearchForNewThreadsWithinL0SearchContext @ 0x1404E9D30 (KiSearchForNewThreadsWithinL0SearchContext.c)
- *     KiSearchForNewThreadsWithinL1SearchContext @ 0x1404E9D54 (KiSearchForNewThreadsWithinL1SearchContext.c)
+ *     KiSearchForNewThreadsWithinL0SearchContext @ 0x1404E0CE0 (KiSearchForNewThreadsWithinL0SearchContext.c)
+ *     KiSearchForNewThreadsWithinL1SearchContext @ 0x1404E0D04 (KiSearchForNewThreadsWithinL1SearchContext.c)
  * Callees:
- *     KiRemoveSystemWorkPriorityKick @ 0x14025E408 (KiRemoveSystemWorkPriorityKick.c)
- *     KiAcquirePrcbLocksForIsolationUnit @ 0x140293190 (KiAcquirePrcbLocksForIsolationUnit.c)
- *     HvlNotifyLongSpinWait @ 0x140293260 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140293290 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     KiSearchForNewThreadsOnTarget @ 0x1403DD970 (KiSearchForNewThreadsOnTarget.c)
- *     KiGetNextIdleSearchTargetInGeneration @ 0x1403F5680 (KiGetNextIdleSearchTargetInGeneration.c)
- *     KiJoinCooperativeIdleSearch @ 0x1404E9730 (KiJoinCooperativeIdleSearch.c)
- *     KiLeaveCooperativeIdleSearch @ 0x1404E99B0 (KiLeaveCooperativeIdleSearch.c)
- *     KiSwapStacksAndRetireDpcList @ 0x1406B2A20 (KiSwapStacksAndRetireDpcList.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14028EA18 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiAcquirePrcbLocksForIsolationUnit @ 0x1402A2D90 (KiAcquirePrcbLocksForIsolationUnit.c)
+ *     HvlNotifyLongSpinWait @ 0x1402A2E60 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402A2E90 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     KiSearchForNewThreadsOnTarget @ 0x1403BD660 (KiSearchForNewThreadsOnTarget.c)
+ *     KiGetNextIdleSearchTargetInGeneration @ 0x1403EBAC0 (KiGetNextIdleSearchTargetInGeneration.c)
+ *     KiJoinCooperativeIdleSearch @ 0x1404E06E0 (KiJoinCooperativeIdleSearch.c)
+ *     KiLeaveCooperativeIdleSearch @ 0x1404E0960 (KiLeaveCooperativeIdleSearch.c)
+ *     KiSwapStacksAndRetireDpcList @ 0x1406B39C0 (KiSwapStacksAndRetireDpcList.c)
  */
 
 _KTHREAD *__fastcall KiSearchForNewThreadsWithinSearchContext(
@@ -60,7 +60,7 @@ LABEL_2:
     {
       if ( *(_QWORD *)(a1 + 8) != *(_QWORD *)(a1 + 24) )
       {
-        KiAcquirePrcbLocksForIsolationUnit(a1, 0, a2);
+        KiAcquirePrcbLocksForIsolationUnit(a1, 0LL, a2);
         v15 = *(_KTHREAD **)(a1 + 16);
         if ( v15 == *(_KTHREAD **)(a1 + 24) )
           *(_BYTE *)(a1 + 14523) = 1;

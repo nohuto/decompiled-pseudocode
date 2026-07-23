@@ -12,28 +12,34 @@
 
 __int64 __fastcall sub_1800114C0(__int64 a1)
 {
-  __int64 Heap; // rbx
-  int v3; // edi
-  unsigned __int64 i; // rdx
-  unsigned int v6; // [rsp+48h] [rbp+10h] BYREF
-  int v7; // [rsp+50h] [rbp+18h] BYREF
+  char *Heap; // rbx
+  NTSTATUS v3; // edi
+  char *i; // rdx
+  ULONG SystemInformationLength; // [rsp+48h] [rbp+10h] BYREF
+  int InputBuffer; // [rsp+50h] [rbp+18h] BYREF
 
-  v7 = 1;
-  v6 = 80 * dword_18015BFF0;
-  Heap = RtlAllocateHeap(
-           NtCurrentPeb()->ProcessHeap,
-           (dword_18015C000 + 786432) | 8u,
-           (unsigned int)(80 * dword_18015BFF0));
+  InputBuffer = 1;
+  SystemInformationLength = 80 * dword_18015BFF0;
+  Heap = (char *)RtlAllocateHeap(
+                   NtCurrentPeb()->ProcessHeap,
+                   (dword_18015C000 + 786432) | 8,
+                   (unsigned int)(80 * dword_18015BFF0));
   if ( Heap )
   {
-    v3 = ZwQuerySystemInformationEx(107LL, &v7, 4LL, Heap, v6, &v6);
+    v3 = ZwQuerySystemInformationEx(
+           SystemLogicalProcessorAndGroupInformation,
+           &InputBuffer,
+           4u,
+           Heap,
+           SystemInformationLength,
+           &SystemInformationLength);
     if ( v3 >= 0 )
     {
       memset(*(void **)(a1 + 48), 0, 16LL * (unsigned int)dword_18015BFF0);
-      for ( i = Heap; i < Heap + (unsigned __int64)v6; i += *(unsigned int *)(i + 4) )
-        *(_OWORD *)(*(_QWORD *)(a1 + 48) + 16LL * *(unsigned int *)(i + 8)) = *(_OWORD *)(i + 32);
+      for ( i = Heap; i < &Heap[SystemInformationLength]; i += *((unsigned int *)i + 1) )
+        *(_OWORD *)(*(_QWORD *)(a1 + 48) + 16LL * *((unsigned int *)i + 2)) = *((_OWORD *)i + 2);
     }
-    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, (unsigned int)(dword_18015C000 + 786432));
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, dword_18015C000 + 786432, Heap);
   }
   else
   {

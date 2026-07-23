@@ -1,12 +1,12 @@
 /*
- * XREFs of IoGetDeviceInstanceName @ 0x14012C56C
+ * XREFs of IoGetDeviceInstanceName @ 0x14012CADC
  * Callers:
- *     WmipQueryWmiDataBlock @ 0x1404BE40C (WmipQueryWmiDataBlock.c)
- *     WmipTranslatePDOInstanceNames @ 0x14053519C (WmipTranslatePDOInstanceNames.c)
- *     WmipGetGuidObjectInstanceInfo @ 0x1405465B0 (WmipGetGuidObjectInstanceInfo.c)
+ *     WmipQueryWmiDataBlock @ 0x1404AA13C (WmipQueryWmiDataBlock.c)
+ *     WmipTranslatePDOInstanceNames @ 0x1405356DC (WmipTranslatePDOInstanceNames.c)
+ *     WmipGetGuidObjectInstanceInfo @ 0x140546AF0 (WmipGetGuidObjectInstanceInfo.c)
  * Callees:
- *     IoAddTriageDumpDataBlock @ 0x14014B3B4 (IoAddTriageDumpDataBlock.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
+ *     IoAddTriageDumpDataBlock @ 0x14014B924 (IoAddTriageDumpDataBlock.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall IoGetDeviceInstanceName(ULONG_PTR BugCheckParameter2, PUNICODE_STRING DestinationString)

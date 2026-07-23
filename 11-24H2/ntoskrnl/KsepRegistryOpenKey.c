@@ -1,15 +1,15 @@
 /*
- * XREFs of KsepRegistryOpenKey @ 0x14095BE4C
+ * XREFs of KsepRegistryOpenKey @ 0x14094390C
  * Callers:
- *     KsepDbQueryRegistryDeviceDataList @ 0x14073E7D4 (KsepDbQueryRegistryDeviceDataList.c)
- *     KsepMatchInitBiosInfo @ 0x140C2BB00 (KsepMatchInitBiosInfo.c)
- *     KsepEngineReadFlags @ 0x140C2C160 (KsepEngineReadFlags.c)
+ *     KsepDbQueryRegistryDeviceDataList @ 0x14073C704 (KsepDbQueryRegistryDeviceDataList.c)
+ *     KsepMatchInitBiosInfo @ 0x140C2DC20 (KsepMatchInitBiosInfo.c)
+ *     KsepEngineReadFlags @ 0x140C2E280 (KsepEngineReadFlags.c)
  * Callees:
- *     KsepPoolFreePaged @ 0x1404A6F94 (KsepPoolFreePaged.c)
- *     RtlAssert @ 0x1405E9340 (RtlAssert.c)
- *     ZwOpenKey @ 0x1406A6650 (ZwOpenKey.c)
- *     KsepStringConcatenate @ 0x14095BF50 (KsepStringConcatenate.c)
- *     KsepStringDuplicate @ 0x14095CB04 (KsepStringDuplicate.c)
+ *     KsepPoolFreePaged @ 0x1404A18F4 (KsepPoolFreePaged.c)
+ *     RtlAssert @ 0x1405E6890 (RtlAssert.c)
+ *     ZwOpenKey @ 0x1406A75F0 (ZwOpenKey.c)
+ *     KsepStringConcatenate @ 0x140943A10 (KsepStringConcatenate.c)
+ *     KsepStringDuplicate @ 0x1409445C4 (KsepStringDuplicate.c)
  */
 
 __int64 __fastcall KsepRegistryOpenKey(__int64 a1, __int64 a2, HANDLE *a3)
@@ -59,7 +59,7 @@ __int64 __fastcall KsepRegistryOpenKey(__int64 a1, __int64 a2, HANDLE *a3)
     if ( v7 >= 0 )
     {
       *a3 = KeyHandle;
-      _InterlockedIncrement(&dword_140F0F318);
+      _InterlockedIncrement(&dword_140F0F618);
     }
   }
   if ( v12 )

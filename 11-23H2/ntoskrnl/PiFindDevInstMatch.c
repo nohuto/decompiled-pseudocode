@@ -1,13 +1,13 @@
 /*
- * XREFs of PiFindDevInstMatch @ 0x1407C1FB4
+ * XREFs of PiFindDevInstMatch @ 0x1407C2284
  * Callers:
- *     PiProcessDriverInstance @ 0x1407C1D20 (PiProcessDriverInstance.c)
+ *     PiProcessDriverInstance @ 0x1407C1FF0 (PiProcessDriverInstance.c)
  * Callees:
- *     RtlStringCchPrintfExW @ 0x14022B720 (RtlStringCchPrintfExW.c)
- *     ZwQueryValueKey @ 0x14041B040 (ZwQueryValueKey.c)
+ *     RtlStringCchPrintfExW @ 0x14022B830 (RtlStringCchPrintfExW.c)
+ *     ZwQueryValueKey @ 0x14041B3D0 (ZwQueryValueKey.c)
  *     IopGetRegistryValue @ 0x14068CE78 (IopGetRegistryValue.c)
- *     RtlEqualUnicodeString @ 0x1406DA2F0 (RtlEqualUnicodeString.c)
- *     PnpRegSzToString @ 0x1407C21BC (PnpRegSzToString.c)
+ *     RtlEqualUnicodeString @ 0x1406DA320 (RtlEqualUnicodeString.c)
+ *     PnpRegSzToString @ 0x1407C248C (PnpRegSzToString.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

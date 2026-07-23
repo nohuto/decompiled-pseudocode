@@ -1,11 +1,11 @@
 /*
- * XREFs of ObFastReferenceObject @ 0x140415390
+ * XREFs of ObFastReferenceObject @ 0x1404099C0
  * Callers:
- *     IopQueueIrpToFileObject @ 0x1404151E0 (IopQueueIrpToFileObject.c)
- *     PspReferenceSystemDll @ 0x140962FE8 (PspReferenceSystemDll.c)
+ *     IopQueueIrpToFileObject @ 0x140409810 (IopQueueIrpToFileObject.c)
+ *     PspReferenceSystemDll @ 0x140A08E70 (PspReferenceSystemDll.c)
  * Callees:
- *     ObpTraceObjectReferenceIfActive @ 0x140278BB0 (ObpTraceObjectReferenceIfActive.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     ObpTraceObjectReferenceIfActive @ 0x140278120 (ObpTraceObjectReferenceIfActive.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 ULONG_PTR __fastcall ObFastReferenceObject(signed __int64 *a1, unsigned int a2)

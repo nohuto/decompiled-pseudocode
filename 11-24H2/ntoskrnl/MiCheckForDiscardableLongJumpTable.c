@@ -1,9 +1,9 @@
 /*
- * XREFs of MiCheckForDiscardableLongJumpTable @ 0x140688E78
+ * XREFs of MiCheckForDiscardableLongJumpTable @ 0x140689FA8
  * Callers:
- *     MiProcessKernelCfgImageLoadConfig @ 0x140A659F0 (MiProcessKernelCfgImageLoadConfig.c)
+ *     MiProcessKernelCfgImageLoadConfig @ 0x140A5E1C0 (MiProcessKernelCfgImageLoadConfig.c)
  * Callees:
- *     MiSnapDriverRange @ 0x140A3DE88 (MiSnapDriverRange.c)
+ *     MiSnapDriverRange @ 0x140A33798 (MiSnapDriverRange.c)
  */
 
 unsigned __int64 __fastcall MiCheckForDiscardableLongJumpTable(__int64 a1, __int64 a2)

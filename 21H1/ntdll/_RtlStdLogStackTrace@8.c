@@ -8,13 +8,13 @@
  *     _RtlpStdLogCapturedStackTrace@12 @ 0x4B3694C1 (_RtlpStdLogCapturedStackTrace@12.c)
  */
 
-int __stdcall RtlStdLogStackTrace(int a1, int a2)
+int __stdcall RtlStdLogStackTrace(PRTL_SRWLOCK SRWLock, int a2)
 {
   PVOID BackTrace; // [esp+Ch] [ebp-8Ch] BYREF
   ULONG BackTraceHash; // [esp+94h] [ebp-4h] BYREF
 
   if ( RtlCaptureStackBackTrace(a2 + 1, 0x20u, &BackTrace, &BackTraceHash) )
-    return RtlpStdLogCapturedStackTrace(BackTraceHash);
+    return RtlpStdLogCapturedStackTrace(SRWLock, BackTraceHash);
   else
     return 0;
 }

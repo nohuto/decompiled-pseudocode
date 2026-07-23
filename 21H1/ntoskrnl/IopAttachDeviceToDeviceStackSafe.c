@@ -43,11 +43,11 @@ PDEVICE_OBJECT __fastcall IopAttachDeviceToDeviceStackSafe(__int64 a1, struct _D
   __int64 v20; // rdx
   __int64 v21; // rax
   __int64 v22; // rax
-  struct _OBJECT_NAME_INFORMATION *p_ObjectNameInfo; // rsi
-  struct _OBJECT_NAME_INFORMATION *v24; // r15
+  _OBJECT_NAME_INFORMATION *p_ObjectNameInfo; // rsi
+  _OBJECT_NAME_INFORMATION *v24; // r15
   __int16 v25; // cx
   NTSTATUS v26; // r14d
-  struct _OBJECT_NAME_INFORMATION *PoolWithTag; // rax
+  _OBJECT_NAME_INFORMATION *PoolWithTag; // rax
   bool v28; // sf
   unsigned __int16 Length; // ax
   __int64 v30; // rax
@@ -76,7 +76,7 @@ PDEVICE_OBJECT __fastcall IopAttachDeviceToDeviceStackSafe(__int64 a1, struct _D
   wchar_t *v53; // [rsp+D0h] [rbp-30h]
   int v54; // [rsp+D8h] [rbp-28h]
   int v55; // [rsp+DCh] [rbp-24h]
-  struct _OBJECT_NAME_INFORMATION ObjectNameInfo; // [rsp+E0h] [rbp-20h] BYREF
+  _OBJECT_NAME_INFORMATION ObjectNameInfo; // [rsp+E0h] [rbp-20h] BYREF
 
   v3 = *(_QWORD *)(a1 + 312);
   v41 = a2;
@@ -173,7 +173,7 @@ PDEVICE_OBJECT __fastcall IopAttachDeviceToDeviceStackSafe(__int64 a1, struct _D
       v22 = *(_QWORD *)(a1 + 8);
       p_ObjectNameInfo = &ObjectNameInfo;
       v40[0] = 1835034LL;
-      v24 = (struct _OBJECT_NAME_INFORMATION *)v40;
+      v24 = (_OBJECT_NAME_INFORMATION *)v40;
       v25 = *(_WORD *)(v22 + 56) >> 1;
       DiskDeviceObject = 0LL;
       v37 = v25;
@@ -184,7 +184,7 @@ PDEVICE_OBJECT __fastcall IopAttachDeviceToDeviceStackSafe(__int64 a1, struct _D
         v26 = ObQueryNameString(DiskDeviceObject, &ObjectNameInfo, ReturnLength, &ReturnLength);
         if ( v26 == -1073741820 )
         {
-          PoolWithTag = (struct _OBJECT_NAME_INFORMATION *)ExAllocatePoolWithTag(PagedPool, ReturnLength, 0x6E4F6F49u);
+          PoolWithTag = (_OBJECT_NAME_INFORMATION *)ExAllocatePoolWithTag(PagedPool, ReturnLength, 0x6E4F6F49u);
           p_ObjectNameInfo = PoolWithTag;
           if ( PoolWithTag )
             v26 = ObQueryNameString(DiskDeviceObject, PoolWithTag, ReturnLength, &ReturnLength);

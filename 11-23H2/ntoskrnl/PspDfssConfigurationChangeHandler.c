@@ -1,9 +1,9 @@
 /*
- * XREFs of PspDfssConfigurationChangeHandler @ 0x1409AC570
+ * XREFs of PspDfssConfigurationChangeHandler @ 0x1409AC770
  * Callers:
  *     <none>
  * Callees:
- *     PspReadDfssConfigurationValues @ 0x1405A3734 (PspReadDfssConfigurationValues.c)
+ *     PspReadDfssConfigurationValues @ 0x1405A3C24 (PspReadDfssConfigurationValues.c)
  */
 
 void PspDfssConfigurationChangeHandler()

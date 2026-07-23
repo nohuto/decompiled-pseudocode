@@ -1,10 +1,10 @@
 /*
- * XREFs of KiMaskInterruptInternal @ 0x1401241BC
+ * XREFs of KiMaskInterruptInternal @ 0x14012472C
  * Callers:
- *     KeMaskInterrupt @ 0x1401240A0 (KeMaskInterrupt.c)
- *     KiMaskInterruptDpc @ 0x1401D6AE8 (KiMaskInterruptDpc.c)
+ *     KeMaskInterrupt @ 0x140124610 (KeMaskInterrupt.c)
+ *     KiMaskInterruptDpc @ 0x1401D6914 (KiMaskInterruptDpc.c)
  * Callees:
- *     xHalVectorToIDTEntry @ 0x1400B5F74 (xHalVectorToIDTEntry.c)
+ *     xHalVectorToIDTEntry @ 0x1400B3D9C (xHalVectorToIDTEntry.c)
  */
 
 __int64 __fastcall KiMaskInterruptInternal(char a1)

@@ -3,9 +3,9 @@
  * Callers:
  *     KiAbProcessThreadLocks @ 0x140023C40 (KiAbProcessThreadLocks.c)
  *     KiAbProcessContextSwitch @ 0x140057DC0 (KiAbProcessContextSwitch.c)
- *     KiAbForceProcessLockEntry @ 0x140166180 (KiAbForceProcessLockEntry.c)
+ *     KiAbForceProcessLockEntry @ 0x140166280 (KiAbForceProcessLockEntry.c)
  * Callees:
- *     PsGetIoPriorityThread @ 0x1400B6B40 (PsGetIoPriorityThread.c)
+ *     PsGetIoPriorityThread @ 0x1400B6A80 (PsGetIoPriorityThread.c)
  */
 
 __int64 __fastcall KiAbTryIncrementIoWaiterCounts(unsigned __int8 *a1, __int64 a2)

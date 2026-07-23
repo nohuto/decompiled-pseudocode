@@ -1,13 +1,13 @@
 /*
- * XREFs of SiQueryProperty @ 0x140A5F754
+ * XREFs of SiQueryProperty @ 0x140A5FA04
  * Callers:
- *     SyspartGetPhysicalPartitions @ 0x140A5F20C (SyspartGetPhysicalPartitions.c)
- *     SyspartIsSpace @ 0x140A5F378 (SyspartIsSpace.c)
+ *     SyspartGetPhysicalPartitions @ 0x140A5F4BC (SyspartGetPhysicalPartitions.c)
+ *     SyspartIsSpace @ 0x140A5F628 (SyspartIsSpace.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     ZwDeviceIoControlFile @ 0x14041AE40 (ZwDeviceIoControlFile.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     SiOpenDevice @ 0x1407C01D4 (SiOpenDevice.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     ZwDeviceIoControlFile @ 0x14041B1D0 (ZwDeviceIoControlFile.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     SiOpenDevice @ 0x1407C04A4 (SiOpenDevice.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

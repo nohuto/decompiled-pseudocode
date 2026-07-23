@@ -14,12 +14,12 @@ __int64 __fastcall sub_18004E6F8(__int64 a1, unsigned __int64 a2, __int64 a3, _O
 {
   unsigned __int64 v5; // r15
   unsigned __int64 v7; // rsi
-  int v9; // edi
-  __int64 v11; // [rsp+28h] [rbp-48h]
-  __int64 v12; // [rsp+30h] [rbp-40h]
-  unsigned __int64 v13; // [rsp+50h] [rbp-20h] BYREF
+  NTSTATUS v9; // edi
+  int v11; // [rsp+28h] [rbp-48h]
+  int v12; // [rsp+30h] [rbp-40h]
+  PVOID BaseAddress; // [rsp+50h] [rbp-20h] BYREF
   __int128 v14; // [rsp+58h] [rbp-18h]
-  __int64 v15; // [rsp+A0h] [rbp+30h] BYREF
+  ULONG_PTR RegionSize; // [rsp+A0h] [rbp+30h] BYREF
   unsigned __int64 v16; // [rsp+A8h] [rbp+38h] BYREF
 
   v16 = a2;
@@ -27,9 +27,9 @@ __int64 __fastcall sub_18004E6F8(__int64 a1, unsigned __int64 a2, __int64 a3, _O
   v7 = a2;
   if ( !_bittest64((const signed __int64 *)(a1 + 56), a2 >> 15) )
   {
-    v15 = 4096LL;
-    v13 = *(_QWORD *)a1 + (v5 << 12);
-    v9 = sub_180047BA0((__int64)&v13, (__int64)&v15, 0LL, 1073745920, 4, v11, v12, 0LL);
+    RegionSize = 4096LL;
+    BaseAddress = (PVOID)(*(_QWORD *)a1 + (v5 << 12));
+    v9 = sub_180047BA0(&BaseAddress, &RegionSize, 0LL, 1073745920, 4u, v11, v12, 0LL);
     if ( v9 < 0 )
       return (unsigned int)v9;
     _interlockedbittestandset64((volatile signed __int32 *)(a1 + 56), v5);
@@ -47,9 +47,9 @@ __int64 __fastcall sub_18004E6F8(__int64 a1, unsigned __int64 a2, __int64 a3, _O
   }
   if ( !_bittest64(*(const signed __int64 **)a1, v7) )
   {
-    v15 = 4096LL;
-    v13 = *(_QWORD *)(a1 + 8) + (v7 << 12);
-    v9 = sub_180047BA0((__int64)&v13, (__int64)&v15, 0LL, 1073745920, 4, v11, v12, 0LL);
+    RegionSize = 4096LL;
+    BaseAddress = (PVOID)(*(_QWORD *)(a1 + 8) + (v7 << 12));
+    v9 = sub_180047BA0(&BaseAddress, &RegionSize, 0LL, 1073745920, 4u, v11, v12, 0LL);
     if ( v9 < 0 )
     {
       sub_18004E6DC(a3);

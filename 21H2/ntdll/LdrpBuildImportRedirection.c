@@ -1,10 +1,10 @@
 /*
- * XREFs of LdrpBuildImportRedirection @ 0x1800D4FC4
+ * XREFs of LdrpBuildImportRedirection @ 0x1800D4F84
  * Callers:
  *     LdrpInitializeImportRedirection @ 0x180082514 (LdrpInitializeImportRedirection.c)
  * Callees:
  *     LdrpGetProcedureAddress @ 0x1800321C0 (LdrpGetProcedureAddress.c)
- *     LdrpAddRedirectedFunction @ 0x1800D4C94 (LdrpAddRedirectedFunction.c)
+ *     LdrpAddRedirectedFunction @ 0x1800D4C54 (LdrpAddRedirectedFunction.c)
  */
 
 __int64 __fastcall LdrpBuildImportRedirection(__int64 a1, char *a2)

@@ -1,12 +1,12 @@
 /*
- * XREFs of DifIoSetCompletionRoutineExWrapper @ 0x1405E10D0
+ * XREFs of DifIoSetCompletionRoutineExWrapper @ 0x1405E1640
  * Callers:
  *     <none>
  * Callees:
- *     IoSetCompletionRoutineEx @ 0x14035CFF0 (IoSetCompletionRoutineEx.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     DifGetAPIThunkContextById @ 0x1404664BE (DifGetAPIThunkContextById.c)
- *     DifGetReturnAddressForWrappers @ 0x1405F88C4 (DifGetReturnAddressForWrappers.c)
+ *     IoSetCompletionRoutineEx @ 0x14035D190 (IoSetCompletionRoutineEx.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x1404668BE (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F8E34 (DifGetReturnAddressForWrappers.c)
  */
 
 NTSTATUS __fastcall DifIoSetCompletionRoutineExWrapper(

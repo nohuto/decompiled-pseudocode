@@ -1,11 +1,11 @@
 /*
- * XREFs of SymCryptIntSetValueUint32 @ 0x140523A20
+ * XREFs of SymCryptIntSetValueUint32 @ 0x140521338
  * Callers:
- *     SymCryptRsakeyCalculatePrivateFields @ 0x14052158C (SymCryptRsakeyCalculatePrivateFields.c)
- *     SymCryptIntExtendedGcd @ 0x140529024 (SymCryptIntExtendedGcd.c)
- *     SymCryptFdefIntToDivisor @ 0x14052F24C (SymCryptFdefIntToDivisor.c)
+ *     SymCryptRsakeyCalculatePrivateFields @ 0x14051EE5C (SymCryptRsakeyCalculatePrivateFields.c)
+ *     SymCryptIntExtendedGcd @ 0x140526944 (SymCryptIntExtendedGcd.c)
+ *     SymCryptFdefIntToDivisor @ 0x1405296F4 (SymCryptFdefIntToDivisor.c)
  * Callees:
- *     SymCryptFdefIntSetValueUint32 @ 0x140537488 (SymCryptFdefIntSetValueUint32.c)
+ *     SymCryptFdefIntSetValueUint32 @ 0x140531928 (SymCryptFdefIntSetValueUint32.c)
  */
 
 __int64 SymCryptIntSetValueUint32()

@@ -1,7 +1,7 @@
 /*
  * XREFs of ZwQueryInformationTransaction @ 0x14041E1E0
  * Callers:
- *     DifZwQueryInformationTransactionWrapper @ 0x140625160 (DifZwQueryInformationTransactionWrapper.c)
+ *     sub_140625160 @ 0x140625160 (sub_140625160.c)
  * Callees:
  *     <none>
  */
@@ -16,5 +16,5 @@ NTSTATUS __stdcall ZwQueryInformationTransaction(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(TransactionHandle, *(_QWORD *)&TransactionInformationClass);
+  return sub_140433F80(TransactionHandle, *(_QWORD *)&TransactionInformationClass);
 }

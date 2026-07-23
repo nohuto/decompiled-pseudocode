@@ -1,13 +1,13 @@
 /*
- * XREFs of MiMapBackgroundPageToZero @ 0x14051F110
+ * XREFs of MiMapBackgroundPageToZero @ 0x1405217B4
  * Callers:
- *     MiBackgroundZeroNodePages @ 0x1404976C0 (MiBackgroundZeroNodePages.c)
+ *     MiBackgroundZeroNodePages @ 0x140491210 (MiBackgroundZeroNodePages.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     MiGetUltraMapping @ 0x1402881D0 (MiGetUltraMapping.c)
- *     MiWriteLargePte @ 0x1402A10E0 (MiWriteLargePte.c)
- *     MiSafeLockPage @ 0x1402F3700 (MiSafeLockPage.c)
- *     MiGetZeroingContext @ 0x14045D650 (MiGetZeroingContext.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     MiGetUltraMapping @ 0x140287730 (MiGetUltraMapping.c)
+ *     MiWriteLargePte @ 0x1402A0630 (MiWriteLargePte.c)
+ *     MiSafeLockPage @ 0x1402D5780 (MiSafeLockPage.c)
+ *     MiGetZeroingContext @ 0x140457050 (MiGetZeroingContext.c)
  */
 
 __int64 __fastcall MiMapBackgroundPageToZero(_QWORD *a1, unsigned int a2)
@@ -42,7 +42,7 @@ __int64 __fastcall MiMapBackgroundPageToZero(_QWORD *a1, unsigned int a2)
   }
   v9 = (*(_QWORD *)(ZeroingContext + 24) >> 12) & 0x3FFFFFFFFFLL;
   v10 = 48 * v9 - 0x220000000000LL;
-  v11 = (unsigned __int8)MiSafeLockPage(v9, 0xFFFFF68000000000uLL);
+  v11 = (unsigned __int8)MiSafeLockPage(v9, 0xFFFFF68000000000uLL, 0x7FFFFFFFF8LL);
   if ( (*(_QWORD *)(ZeroingContext + 24) & 1) != 0 )
   {
     if ( (_BYTE)v11 != 17 )

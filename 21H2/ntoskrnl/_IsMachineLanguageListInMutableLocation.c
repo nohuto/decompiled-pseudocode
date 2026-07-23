@@ -1,12 +1,12 @@
 /*
- * XREFs of _IsMachineLanguageListInMutableLocation @ 0x1403ACEDC
+ * XREFs of _IsMachineLanguageListInMutableLocation @ 0x1403A8550
  * Callers:
- *     _RtlpMuiRegLoadInstalled @ 0x1407940E4 (_RtlpMuiRegLoadInstalled.c)
+ *     _RtlpMuiRegLoadInstalled @ 0x14078FE84 (_RtlpMuiRegLoadInstalled.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     NtClose @ 0x1406F0980 (NtClose.c)
- *     LdrpQueryValueKey @ 0x14079370C (LdrpQueryValueKey.c)
- *     LdrpOpenKey @ 0x140793BA8 (LdrpOpenKey.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     NtClose @ 0x140707D60 (NtClose.c)
+ *     LdrpQueryValueKey @ 0x14078F4AC (LdrpQueryValueKey.c)
+ *     LdrpOpenKey @ 0x14078F948 (LdrpOpenKey.c)
  */
 
 char IsMachineLanguageListInMutableLocation()

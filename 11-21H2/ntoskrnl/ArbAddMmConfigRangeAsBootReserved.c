@@ -1,13 +1,13 @@
 /*
  * XREFs of ArbAddMmConfigRangeAsBootReserved @ 0x1408391E8
  * Callers:
- *     IopMemInitialize @ 0x140838FBC (IopMemInitialize.c)
+ *     sub_140838FBC @ 0x140838FBC (sub_140838FBC.c)
  * Callees:
  *     ZwClose @ 0x14041B940 (ZwClose.c)
  *     ZwOpenKey @ 0x14041B9A0 (ZwOpenKey.c)
  *     memmove @ 0x140435B40 (memmove.c)
  *     RtlAddRange @ 0x14083A010 (RtlAddRange.c)
- *     ArbpGetRegistryValue @ 0x14083B060 (ArbpGetRegistryValue.c)
+ *     sub_14083B060 @ 0x14083B060 (sub_14083B060.c)
  *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
  */
@@ -18,7 +18,7 @@ NTSTATUS __fastcall ArbAddMmConfigRangeAsBootReserved(__int64 a1, int a2)
   int v3; // edi
   NTSTATUS result; // eax
   NTSTATUS v7; // ebx
-  int RegistryValue; // eax
+  int v8; // eax
   int v9; // eax
   __int64 v10; // r14
   void *Pool2; // rax
@@ -31,14 +31,14 @@ NTSTATUS __fastcall ArbAddMmConfigRangeAsBootReserved(__int64 a1, int a2)
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+68h] [rbp-1h] BYREF
   HANDLE KeyHandle; // [rsp+E8h] [rbp+7Fh] BYREF
 
-  v2 = (unsigned int *)ArbMmConfigRange;
+  v2 = (unsigned int *)qword_140C54C50;
   KeyHandle = 0LL;
   Handle = 0LL;
   v3 = 0;
   memset(&ObjectAttributes, 0, 44);
   v16 = 0LL;
   v17 = 0LL;
-  if ( ArbMmConfigRange )
+  if ( qword_140C54C50 )
   {
 LABEL_9:
     for ( i = v2 + 2; i < &v2[8 * v2[1] + 2]; i += 8 )
@@ -77,11 +77,11 @@ LABEL_9:
     ZwClose(KeyHandle);
     return v7;
   }
-  RegistryValue = ArbpGetRegistryValue(Handle);
-  v3 = RegistryValue;
-  if ( RegistryValue < 0 )
+  v8 = sub_14083B060(Handle);
+  v3 = v8;
+  if ( v8 < 0 )
   {
-    if ( RegistryValue != -1073741670 )
+    if ( v8 != -1073741670 )
       v3 = 0;
     goto $cleanup$30;
   }
@@ -93,7 +93,7 @@ LABEL_9:
     {
       v10 = (unsigned int)(32 * v9 + 8);
       Pool2 = (void *)ExAllocatePool2(64LL, v10, 1315074625LL);
-      ArbMmConfigRange = (__int64)Pool2;
+      qword_140C54C50 = (__int64)Pool2;
       if ( Pool2 )
         memmove(Pool2, v2, (unsigned int)v10);
     }

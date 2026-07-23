@@ -1,7 +1,7 @@
 /*
- * XREFs of SshpCopyDataEntry @ 0x1405A2C80
+ * XREFs of SshpCopyDataEntry @ 0x1405A3170
  * Callers:
- *     SleepstudyHelperCreateBlockerData @ 0x1409A1CD0 (SleepstudyHelperCreateBlockerData.c)
+ *     SleepstudyHelperCreateBlockerData @ 0x1409A1ED0 (SleepstudyHelperCreateBlockerData.c)
  * Callees:
  *     RtlUnicodeStringCopy @ 0x140208E68 (RtlUnicodeStringCopy.c)
  *     SSHSupportAllocatePaged @ 0x14069376C (SSHSupportAllocatePaged.c)

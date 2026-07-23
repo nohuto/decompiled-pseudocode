@@ -1,8 +1,8 @@
 /*
  * XREFs of ViKeObjectAcquired @ 0x140713078
  * Callers:
- *     VerifierKeWaitForMultipleObjects @ 0x1407128BC (VerifierKeWaitForMultipleObjects.c)
- *     VerifierKeWaitForSingleObject @ 0x1407129A4 (VerifierKeWaitForSingleObject.c)
+ *     VerifierKeWaitForMultipleObjects @ 0x140712874 (VerifierKeWaitForMultipleObjects.c)
+ *     VerifierKeWaitForSingleObject @ 0x14071295C (VerifierKeWaitForSingleObject.c)
  * Callees:
  *     VfDeadlockAcquireResource @ 0x140713510 (VfDeadlockAcquireResource.c)
  */

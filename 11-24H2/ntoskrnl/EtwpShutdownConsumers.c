@@ -1,35 +1,35 @@
 /*
- * XREFs of EtwpShutdownConsumers @ 0x1409D7DD4
+ * XREFs of EtwpShutdownConsumers @ 0x140A49484
  * Callers:
- *     EtwpFreeLoggerContext @ 0x1409D77E0 (EtwpFreeLoggerContext.c)
+ *     EtwpFreeLoggerContext @ 0x140A48E90 (EtwpFreeLoggerContext.c)
  * Callees:
- *     ExfReleasePushLock @ 0x14025E260 (ExfReleasePushLock.c)
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     EtwpRealtimeDisconnectAllConsumers @ 0x1409D7F24 (EtwpRealtimeDisconnectAllConsumers.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     ExfReleasePushLock @ 0x14028E870 (ExfReleasePushLock.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     EtwpRealtimeDisconnectAllConsumers @ 0x140A495D4 (EtwpRealtimeDisconnectAllConsumers.c)
  */
 
 __int64 __fastcall EtwpShutdownConsumers(__int64 a1)
 {
   signed __int64 *v2; // rdi
-  _QWORD *v3; // rax
-  _QWORD *v4; // rbx
+  char *v3; // rax
+  char *v4; // rbx
   signed __int64 v5; // rax
   signed __int64 v6; // rdx
   signed __int64 v7; // rtt
   PRKEVENT *v9; // rbx
 
-  EtwpRealtimeDisconnectAllConsumers();
+  EtwpRealtimeDisconnectAllConsumers(a1);
   v2 = (signed __int64 *)(a1 + 688);
-  v3 = KeAbPreAcquire(a1 + 688, 0LL);
+  v3 = (char *)KeAbPreAcquire(a1 + 688, 0LL);
   v4 = v3;
   if ( _interlockedbittestandset64((volatile signed __int32 *)(a1 + 688), 0LL) )
-    ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(a1 + 688), (__int64)v3, a1 + 688);
+    ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(a1 + 688), v3, a1 + 688);
   if ( v4 )
-    *((_BYTE *)v4 + 10) = 1;
+    v4[10] = 1;
   *(_DWORD *)(a1 + 816) |= 0x200u;
   if ( (*(_DWORD *)(a1 + 824) & 0x20) != 0 )
   {

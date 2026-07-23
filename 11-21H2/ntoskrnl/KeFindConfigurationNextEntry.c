@@ -1,7 +1,7 @@
 /*
  * XREFs of KeFindConfigurationNextEntry @ 0x140AF9950
  * Callers:
- *     HalpAcpiFindRsdp @ 0x140AF9858 (HalpAcpiFindRsdp.c)
+ *     sub_140AF9858 @ 0x140AF9858 (sub_140AF9858.c)
  *     KeFindConfigurationNextEntry @ 0x140AF9950 (KeFindConfigurationNextEntry.c)
  *     KeFindConfigurationEntry @ 0x140B518A0 (KeFindConfigurationEntry.c)
  * Callees:

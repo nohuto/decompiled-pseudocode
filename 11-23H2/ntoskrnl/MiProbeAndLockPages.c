@@ -1,42 +1,42 @@
 /*
- * XREFs of MiProbeAndLockPages @ 0x1402FC270
+ * XREFs of MiProbeAndLockPages @ 0x1402FC500
  * Callers:
- *     MiGetWorkingSetInfoList @ 0x1402F1954 (MiGetWorkingSetInfoList.c)
- *     MmProbeAndLockPagesPrivate @ 0x1402FBEF8 (MmProbeAndLockPagesPrivate.c)
- *     CcZeroDataInCache @ 0x1402FBF18 (CcZeroDataInCache.c)
- *     MiGetWorkingSetInfo @ 0x140363210 (MiGetWorkingSetInfo.c)
- *     CcPrepareMdlWrite @ 0x140369190 (CcPrepareMdlWrite.c)
- *     IopProbeAndLockPages @ 0x140371DD4 (IopProbeAndLockPages.c)
- *     VslpLockPagesForTransfer @ 0x1403CEA84 (VslpLockPagesForTransfer.c)
- *     VslpLockMdlForTransfer @ 0x1403CEC60 (VslpLockMdlForTransfer.c)
- *     IopProbeAndLockPages_0 @ 0x1403D4174 (IopProbeAndLockPages_0.c)
- *     CcLockSystemCacheBuffer @ 0x140537760 (CcLockSystemCacheBuffer.c)
- *     VslFinalizeSecureImageHash @ 0x14054DC00 (VslFinalizeSecureImageHash.c)
- *     IopProbeAndLockPages_1 @ 0x140555AD0 (IopProbeAndLockPages_1.c)
- *     IopProbeAndLockPages_2 @ 0x140559CDC (IopProbeAndLockPages_2.c)
- *     KiOpPatchCode @ 0x14057F400 (KiOpPatchCode.c)
- *     PspIumAllocatePartitionState @ 0x1405A5910 (PspIumAllocatePartitionState.c)
- *     SmPrepareForFatalPageError @ 0x1405CD804 (SmPrepareForFatalPageError.c)
- *     VmProbeAndLockPages @ 0x1405F8BC0 (VmProbeAndLockPages.c)
- *     MiPrepareImagePagesForHotPatch @ 0x1406428C8 (MiPrepareImagePagesForHotPatch.c)
+ *     MiGetWorkingSetInfoList @ 0x1402F1BE4 (MiGetWorkingSetInfoList.c)
+ *     MmProbeAndLockPagesPrivate @ 0x1402FC188 (MmProbeAndLockPagesPrivate.c)
+ *     CcZeroDataInCache @ 0x1402FC1A8 (CcZeroDataInCache.c)
+ *     MiGetWorkingSetInfo @ 0x1403633B0 (MiGetWorkingSetInfo.c)
+ *     CcPrepareMdlWrite @ 0x140369330 (CcPrepareMdlWrite.c)
+ *     IopProbeAndLockPages @ 0x140371F74 (IopProbeAndLockPages.c)
+ *     VslpLockPagesForTransfer @ 0x1403CEC64 (VslpLockPagesForTransfer.c)
+ *     VslpLockMdlForTransfer @ 0x1403CEE40 (VslpLockMdlForTransfer.c)
+ *     IopProbeAndLockPages_0 @ 0x1403D4354 (IopProbeAndLockPages_0.c)
+ *     CcLockSystemCacheBuffer @ 0x140537CB0 (CcLockSystemCacheBuffer.c)
+ *     VslFinalizeSecureImageHash @ 0x14054E2C0 (VslFinalizeSecureImageHash.c)
+ *     IopProbeAndLockPages_1 @ 0x140556190 (IopProbeAndLockPages_1.c)
+ *     IopProbeAndLockPages_2 @ 0x14055A39C (IopProbeAndLockPages_2.c)
+ *     KiOpPatchCode @ 0x14057F8F0 (KiOpPatchCode.c)
+ *     PspIumAllocatePartitionState @ 0x1405A5E80 (PspIumAllocatePartitionState.c)
+ *     SmPrepareForFatalPageError @ 0x1405CDD74 (SmPrepareForFatalPageError.c)
+ *     VmProbeAndLockPages @ 0x1405F9130 (VmProbeAndLockPages.c)
+ *     MiPrepareImagePagesForHotPatch @ 0x140642E18 (MiPrepareImagePagesForHotPatch.c)
  *     MiLockRetpolineStubs @ 0x140B999F0 (MiLockRetpolineStubs.c)
  * Callees:
- *     MiProbeAndLockPrepare @ 0x140234DB0 (MiProbeAndLockPrepare.c)
- *     MiProbeAndLockPacket @ 0x140236260 (MiProbeAndLockPacket.c)
- *     MiProbeAndLockComplete @ 0x140238870 (MiProbeAndLockComplete.c)
- *     MiUnlockAndDereferenceVad @ 0x140274A90 (MiUnlockAndDereferenceVad.c)
- *     RtlRaiseStatus @ 0x1403217B0 (RtlRaiseStatus.c)
- *     memset @ 0x140435A00 (memset.c)
- *     MiReturnFullProcessCommitment @ 0x140764E54 (MiReturnFullProcessCommitment.c)
+ *     MiProbeAndLockPrepare @ 0x140234E80 (MiProbeAndLockPrepare.c)
+ *     MiProbeAndLockPacket @ 0x140236330 (MiProbeAndLockPacket.c)
+ *     MiProbeAndLockComplete @ 0x140238940 (MiProbeAndLockComplete.c)
+ *     MiUnlockAndDereferenceVad @ 0x140274D20 (MiUnlockAndDereferenceVad.c)
+ *     RtlRaiseStatus @ 0x140321A40 (RtlRaiseStatus.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     MiReturnFullProcessCommitment @ 0x140765044 (MiReturnFullProcessCommitment.c)
  */
 
 void __fastcall MiProbeAndLockPages(__int64 a1, char a2, signed __int32 a3)
 {
-  int v6; // eax
+  NTSTATUS v6; // eax
   int v7; // eax
-  int v8; // eax
+  NTSTATUS v8; // eax
   char *v9; // rbx
-  int v10; // edi
+  NTSTATUS v10; // edi
   int v11; // edx
   unsigned __int64 v12; // r8
   int v13; // eax
@@ -56,7 +56,7 @@ void __fastcall MiProbeAndLockPages(__int64 a1, char a2, signed __int32 a3)
          a3,
          1);
   if ( v6 < 0 )
-    RtlRaiseStatus((unsigned int)v6);
+    RtlRaiseStatus(v6);
   v7 = MiProbeAndLockPacket((__int64)v17);
   v8 = MiProbeAndLockComplete((__int64)v17, v7);
   v9 = (char *)v17[16];
@@ -75,5 +75,5 @@ void __fastcall MiProbeAndLockPages(__int64 a1, char a2, signed __int32 a3)
     MiUnlockAndDereferenceVad(v9);
   }
   if ( v10 < 0 )
-    RtlRaiseStatus((unsigned int)v10);
+    RtlRaiseStatus(v10);
 }

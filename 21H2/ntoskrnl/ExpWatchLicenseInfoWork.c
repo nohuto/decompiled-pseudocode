@@ -1,23 +1,23 @@
 /*
- * XREFs of ExpWatchLicenseInfoWork @ 0x14094BFD0
+ * XREFs of ExpWatchLicenseInfoWork @ 0x14094C1A0
  * Callers:
  *     <none>
  * Callees:
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     wcscat_s @ 0x1403D81D0 (wcscat_s.c)
- *     wcscpy_s @ 0x1403D8270 (wcscpy_s.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     NtEnumerateKey @ 0x1405F3E50 (NtEnumerateKey.c)
- *     CmOpenKey @ 0x140655330 (CmOpenKey.c)
- *     NtNotifyChangeKey @ 0x1406631C0 (NtNotifyChangeKey.c)
- *     NtSetValueKey @ 0x140663DC0 (NtSetValueKey.c)
- *     PsCreateSystemThreadEx @ 0x1406D0190 (PsCreateSystemThreadEx.c)
- *     NtClose @ 0x1406F0980 (NtClose.c)
- *     NtQueryKey @ 0x1406F8570 (NtQueryKey.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     wcscat_s @ 0x1403D8340 (wcscat_s.c)
+ *     wcscpy_s @ 0x1403D83E0 (wcscpy_s.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     CmOpenKey @ 0x14064A150 (CmOpenKey.c)
+ *     NtNotifyChangeKey @ 0x140657FE0 (NtNotifyChangeKey.c)
+ *     NtSetValueKey @ 0x140658BE0 (NtSetValueKey.c)
+ *     PsCreateSystemThreadEx @ 0x1406A7470 (PsCreateSystemThreadEx.c)
+ *     NtEnumerateKey @ 0x1406E35B0 (NtEnumerateKey.c)
+ *     NtClose @ 0x140707D60 (NtClose.c)
+ *     NtQueryKey @ 0x14070F950 (NtQueryKey.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 NTSTATUS __fastcall ExpWatchLicenseInfoWork(__int64 a1)
@@ -25,8 +25,8 @@ NTSTATUS __fastcall ExpWatchLicenseInfoWork(__int64 a1)
   char v2; // r14
   HANDLE v3; // rcx
   int v4; // eax
-  int v5; // eax
-  unsigned int v6; // r12d
+  NTSTATUS v5; // eax
+  ULONG v6; // r12d
   wchar_t *PoolWithTag; // r15
   __int64 v8; // r10
   __int64 v9; // rdx
@@ -34,61 +34,58 @@ NTSTATUS __fastcall ExpWatchLicenseInfoWork(__int64 a1)
   unsigned __int16 v11; // cx
   SIZE_T v12; // r9
   unsigned __int64 v13; // rax
-  int v14; // eax
-  unsigned int v15; // esi
-  unsigned int i; // edx
+  NTSTATUS v14; // eax
+  ULONG v15; // esi
+  ULONG i; // edx
   __int64 v17; // rax
   int v18; // eax
-  int v19; // eax
-  int v20; // eax
+  NTSTATUS v19; // eax
+  NTSTATUS v20; // eax
   NTSTATUS result; // eax
-  SIZE_T BugCheckParameter4; // [rsp+20h] [rbp-99h]
-  size_t Size; // [rsp+28h] [rbp-91h]
-  size_t Sizea; // [rsp+28h] [rbp-91h]
   UNICODE_STRING DestinationString; // [rsp+50h] [rbp-69h] BYREF
-  __int64 v26; // [rsp+60h] [rbp-59h] BYREF
-  HANDLE Handle; // [rsp+68h] [rbp-51h] BYREF
-  HANDLE v28; // [rsp+70h] [rbp-49h] BYREF
-  _DWORD v29[2]; // [rsp+78h] [rbp-41h] BYREF
-  __int64 v30; // [rsp+80h] [rbp-39h]
+  ULONG ResultLength; // [rsp+60h] [rbp-59h] BYREF
+  HANDLE KeyHandle; // [rsp+68h] [rbp-51h] BYREF
+  HANDLE Handle; // [rsp+70h] [rbp-49h] BYREF
+  _DWORD v26[2]; // [rsp+78h] [rbp-41h] BYREF
+  __int64 v27; // [rsp+80h] [rbp-39h]
   UNICODE_STRING *p_DestinationString; // [rsp+88h] [rbp-31h]
-  int v32; // [rsp+90h] [rbp-29h]
-  int v33; // [rsp+94h] [rbp-25h]
-  __int128 v34; // [rsp+98h] [rbp-21h]
-  UNICODE_STRING v35; // [rsp+A8h] [rbp-11h] BYREF
-  __int128 v36; // [rsp+B8h] [rbp-1h] BYREF
-  __int128 v37; // [rsp+C8h] [rbp+Fh]
-  __int128 v38; // [rsp+D8h] [rbp+1Fh]
+  int v29; // [rsp+90h] [rbp-29h]
+  int v30; // [rsp+94h] [rbp-25h]
+  __int128 v31; // [rsp+98h] [rbp-21h]
+  UNICODE_STRING ValueName; // [rsp+A8h] [rbp-11h] BYREF
+  __int128 KeyInformation; // [rsp+B8h] [rbp-1h] BYREF
+  __int128 v34; // [rsp+C8h] [rbp+Fh]
+  __int128 v35; // [rsp+D8h] [rbp+1Fh]
 
-  v28 = 0LL;
-  v2 = 0;
-  v36 = 0LL;
-  LODWORD(v26) = 0;
-  v37 = 0LL;
   Handle = 0LL;
-  v38 = 0LL;
-  v29[1] = 0;
-  DestinationString = 0LL;
-  v33 = 0;
+  v2 = 0;
+  KeyInformation = 0LL;
+  ResultLength = 0;
+  v34 = 0LL;
+  KeyHandle = 0LL;
   v35 = 0LL;
+  v26[1] = 0;
+  DestinationString = 0LL;
+  v30 = 0;
+  ValueName = 0LL;
   if ( !ExpSetupModeDetected )
   {
     RtlInitUnicodeString(&DestinationString, *(PCWSTR *)(a1 + 16));
     v3 = *(HANDLE *)a1;
     p_DestinationString = &DestinationString;
-    v30 = 0LL;
-    v34 = 0LL;
-    v29[0] = 48;
-    v32 = 576;
+    v27 = 0LL;
+    v31 = 0LL;
+    v26[0] = 48;
+    v29 = 576;
     NtClose(v3);
-    v4 = CmOpenKey((HANDLE *)a1, 131103, (__int64)v29, 0, 0LL);
+    v4 = CmOpenKey((HANDLE *)a1, 131103, (__int64)v26, 0, 0LL);
     if ( v4 < 0 )
       KeBugCheckEx(0x9Au, 0x12uLL, v4, 0LL, 0LL);
-    v5 = NtQueryKey(*(HANDLE *)a1, 2u, &v36, 0x30u, &v26);
+    v5 = NtQueryKey(*(HANDLE *)a1, KeyFullInformation, &KeyInformation, 0x30u, &ResultLength);
     if ( v5 < 0 )
       KeBugCheckEx(0x9Au, 0x13uLL, v5, 0LL, 0LL);
-    v6 = 2 * DWORD2(v37) + 56;
-    if ( v6 < DWORD2(v37) || v6 < 2 * (unsigned __int64)(unsigned int)(DWORD2(v37) + 16) )
+    v6 = 2 * DWORD2(v34) + 56;
+    if ( v6 < DWORD2(v34) || v6 < 2 * (unsigned __int64)(unsigned int)(DWORD2(v34) + 16) )
       v2 = 1;
     PoolWithTag = (wchar_t *)ExAllocatePoolWithTag(NonPagedPoolNx, v6, 0x2079654Bu);
     if ( !PoolWithTag || v2 )
@@ -99,9 +96,9 @@ NTSTATUS __fastcall ExpWatchLicenseInfoWork(__int64 a1)
     do
       ++v10;
     while ( *(_WORD *)(v8 + 2 * v10 + 32) );
-    v11 = 2 * (WORD4(v37) + v10);
+    v11 = 2 * (WORD4(v34) + v10);
     DestinationString.Length = v11;
-    if ( (unsigned int)v11 < DWORD2(v37) )
+    if ( (unsigned int)v11 < DWORD2(v34) )
       goto LABEL_19;
     v12 = v11;
     v13 = -1LL;
@@ -113,7 +110,7 @@ NTSTATUS __fastcall ExpWatchLicenseInfoWork(__int64 a1)
     do
       ++v9;
     while ( *(_WORD *)(v8 + 2 * v9 + 32) );
-    if ( v11 < (unsigned __int64)DWORD2(v37) + v9 )
+    if ( v11 < (unsigned __int64)DWORD2(v34) + v9 )
     {
 LABEL_19:
       v2 = 1;
@@ -123,16 +120,14 @@ LABEL_19:
     DestinationString.Buffer = (wchar_t *)ExAllocatePoolWithTag(NonPagedPoolNx, v12, 0x2079654Bu);
     if ( !DestinationString.Buffer || v2 )
       KeBugCheckEx(0x9Au, 0x14uLL, DestinationString.Length, 1uLL, 0LL);
-    RtlInitUnicodeString(&v35, L"ConcurrentLimit");
-    LODWORD(Size) = 4;
-    v14 = NtSetValueKey(*(_QWORD *)a1, (unsigned __int64)&v35, 0, 4u, (void *)(a1 + 8), Size);
+    RtlInitUnicodeString(&ValueName, L"ConcurrentLimit");
+    v14 = NtSetValueKey(*(HANDLE *)a1, &ValueName, 0, 4u, (PVOID)(a1 + 8), 4u);
     if ( v14 < 0 )
       KeBugCheckEx(0x9Au, 0x15uLL, v14, 0LL, 0LL);
     v15 = 0;
     for ( i = 0; ; i = v15 )
     {
-      LODWORD(BugCheckParameter4) = v6;
-      v20 = NtEnumerateKey(*(HANDLE *)a1, i, 0, PoolWithTag, BugCheckParameter4, &v26);
+      v20 = NtEnumerateKey(*(HANDLE *)a1, i, KeyBasicInformation, PoolWithTag, v6, &ResultLength);
       if ( v20 == -2147483622 )
         break;
       if ( v20 >= 0 )
@@ -148,20 +143,19 @@ LABEL_19:
         do
           ++v17;
         while ( DestinationString.Buffer[v17] );
-        v29[0] = 48;
+        v26[0] = 48;
         DestinationString.Length = 2 * v17;
-        v30 = 0LL;
+        v27 = 0LL;
         p_DestinationString = &DestinationString;
-        v32 = 576;
-        v34 = 0LL;
-        v18 = CmOpenKey(&Handle, 131103, (__int64)v29, 0, 0LL);
+        v29 = 576;
+        v31 = 0LL;
+        v18 = CmOpenKey(&KeyHandle, 131103, (__int64)v26, 0, 0LL);
         if ( v18 < 0 )
           KeBugCheckEx(0x9Au, 0x16uLL, v18, 0LL, 0LL);
-        LODWORD(Sizea) = 4;
-        v19 = NtSetValueKey((__int64)Handle, (unsigned __int64)&v35, 0, 4u, (void *)(a1 + 8), Sizea);
+        v19 = NtSetValueKey(KeyHandle, &ValueName, 0, 4u, (PVOID)(a1 + 8), 4u);
         if ( v19 < 0 )
           KeBugCheckEx(0x9Au, 0x17uLL, v19, 0LL, 0LL);
-        NtClose(Handle);
+        NtClose(KeyHandle);
       }
       ++v15;
     }
@@ -169,22 +163,22 @@ LABEL_19:
     ExFreePoolWithTag(DestinationString.Buffer, 0);
   }
   result = NtNotifyChangeKey(
-             *(_QWORD *)a1,
-             0,
-             a1 + 24,
-             1LL,
-             (volatile void *)(a1 + 56),
-             268435461,
-             1,
-             (volatile void *)(a1 + 72),
-             4,
-             1);
+             *(HANDLE *)a1,
+             0LL,
+             (PIO_APC_ROUTINE)(a1 + 24),
+             (PVOID)1,
+             (PIO_STATUS_BLOCK)(a1 + 56),
+             0x10000005u,
+             1u,
+             (PVOID)(a1 + 72),
+             4u,
+             1u);
   if ( result < 0 )
     KeBugCheckEx(0x9Au, 0x18uLL, result, 0LL, 0LL);
   if ( !ExpSetupModeDetected )
   {
     result = PsCreateSystemThreadEx(
-               (__int64)&v28,
+               (__int64)&Handle,
                0x1FFFFF,
                0LL,
                0LL,
@@ -194,7 +188,7 @@ LABEL_19:
                0LL,
                0LL);
     if ( result >= 0 )
-      return ZwClose(v28);
+      return ZwClose(Handle);
   }
   return result;
 }

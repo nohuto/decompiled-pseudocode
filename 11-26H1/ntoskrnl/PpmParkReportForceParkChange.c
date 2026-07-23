@@ -1,13 +1,13 @@
 /*
- * XREFs of PpmParkReportForceParkChange @ 0x14042C088
+ * XREFs of PpmParkReportForceParkChange @ 0x140420758
  * Callers:
- *     PpmPerfAction @ 0x1402532A0 (PpmPerfAction.c)
+ *     PpmPerfAction @ 0x140254C00 (PpmPerfAction.c)
  * Callees:
- *     KeInterlockedSetProcessorAffinityEx @ 0x14042C030 (KeInterlockedSetProcessorAffinityEx.c)
- *     KeInterlockedClearProcessorAffinityEx @ 0x14042C170 (KeInterlockedClearProcessorAffinityEx.c)
- *     KeTransitionProcessorParkState @ 0x14042C1D0 (KeTransitionProcessorParkState.c)
- *     KeCheckProcessorAffinityEx @ 0x14042D260 (KeCheckProcessorAffinityEx.c)
- *     PpmEventCoreParkingForceParkedStateChange @ 0x14042D33C (PpmEventCoreParkingForceParkedStateChange.c)
+ *     KeInterlockedSetProcessorAffinityEx @ 0x140420700 (KeInterlockedSetProcessorAffinityEx.c)
+ *     KeInterlockedClearProcessorAffinityEx @ 0x140420840 (KeInterlockedClearProcessorAffinityEx.c)
+ *     KeTransitionProcessorParkState @ 0x1404208A0 (KeTransitionProcessorParkState.c)
+ *     KeCheckProcessorAffinityEx @ 0x140421930 (KeCheckProcessorAffinityEx.c)
+ *     PpmEventCoreParkingForceParkedStateChange @ 0x140421A0C (PpmEventCoreParkingForceParkedStateChange.c)
  */
 
 __int64 __fastcall PpmParkReportForceParkChange(struct _KPRCB *a1)

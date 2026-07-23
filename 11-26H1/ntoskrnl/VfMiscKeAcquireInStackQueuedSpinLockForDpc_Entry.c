@@ -1,9 +1,9 @@
 /*
- * XREFs of VfMiscKeAcquireInStackQueuedSpinLockForDpc_Entry @ 0x140C3CCD0
+ * XREFs of VfMiscKeAcquireInStackQueuedSpinLockForDpc_Entry @ 0x140C42CE0
  * Callers:
  *     <none>
  * Callees:
- *     VfMiscCheckKernelAddress @ 0x1404FD268 (VfMiscCheckKernelAddress.c)
+ *     VfMiscCheckKernelAddress @ 0x1404F67A8 (VfMiscCheckKernelAddress.c)
  */
 
 __int64 __fastcall VfMiscKeAcquireInStackQueuedSpinLockForDpc_Entry(__int64 a1)

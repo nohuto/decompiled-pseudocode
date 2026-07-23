@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwpApplyContainerFilter @ 0x1409F4CF8
+ * XREFs of EtwpApplyContainerFilter @ 0x1409F4F88
  * Callers:
- *     EtwpApplyScopeFilters @ 0x1406BFCC4 (EtwpApplyScopeFilters.c)
- *     EtwpApplyTransientFilters @ 0x1409F5118 (EtwpApplyTransientFilters.c)
+ *     EtwpApplyScopeFilters @ 0x1406BFCF4 (EtwpApplyScopeFilters.c)
+ *     EtwpApplyTransientFilters @ 0x1409F53A8 (EtwpApplyTransientFilters.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     _wcsnicmp @ 0x1403D9B90 (_wcsnicmp.c)
- *     RtlUTF8ToUnicodeN @ 0x1406DA5D0 (RtlUTF8ToUnicodeN.c)
- *     RtlFreeUnicodeString @ 0x14076F3D0 (RtlFreeUnicodeString.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     _wcsnicmp @ 0x1403D9D70 (_wcsnicmp.c)
+ *     RtlUTF8ToUnicodeN @ 0x1406DA600 (RtlUTF8ToUnicodeN.c)
+ *     RtlFreeUnicodeString @ 0x14076F5C0 (RtlFreeUnicodeString.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 

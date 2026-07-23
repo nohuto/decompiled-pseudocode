@@ -1,12 +1,12 @@
 /*
- * XREFs of ExpWriteTimeZoneBias @ 0x1409DCE5C
+ * XREFs of ExpWriteTimeZoneBias @ 0x140A7A0B8
  * Callers:
- *     ExInitializeUtcTimeZoneBias @ 0x1407B5E1C (ExInitializeUtcTimeZoneBias.c)
- *     ExpRefreshTimeZoneInformation @ 0x1409DC59C (ExpRefreshTimeZoneInformation.c)
- *     Phase1InitializationDiscard @ 0x140C0C048 (Phase1InitializationDiscard.c)
+ *     ExInitializeUtcTimeZoneBias @ 0x1407B626C (ExInitializeUtcTimeZoneBias.c)
+ *     ExpRefreshTimeZoneInformation @ 0x140A7981C (ExpRefreshTimeZoneInformation.c)
+ *     Phase1InitializationDiscard @ 0x140C0E048 (Phase1InitializationDiscard.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x140347D10 (PsGetCurrentServerSiloGlobals.c)
- *     PsIsCurrentThreadInServerSilo @ 0x14042F240 (PsIsCurrentThreadInServerSilo.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140326710 (PsGetCurrentServerSiloGlobals.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x140421410 (PsIsCurrentThreadInServerSilo.c)
  */
 
 __int64 __fastcall ExpWriteTimeZoneBias(_DWORD *a1)

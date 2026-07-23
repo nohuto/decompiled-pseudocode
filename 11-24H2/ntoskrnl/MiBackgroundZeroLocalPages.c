@@ -1,38 +1,38 @@
 /*
- * XREFs of MiBackgroundZeroLocalPages @ 0x14020A480
+ * XREFs of MiBackgroundZeroLocalPages @ 0x140332260
  * Callers:
- *     MiBackgroundZeroNodePages @ 0x1403C6F60 (MiBackgroundZeroNodePages.c)
+ *     MiBackgroundZeroNodePages @ 0x140412BA0 (MiBackgroundZeroNodePages.c)
  * Callees:
- *     MiGetBackgroundHugePageToZero @ 0x140209AF0 (MiGetBackgroundHugePageToZero.c)
- *     MiAssignBackgroundZeroThreadToProcessor @ 0x140209CEC (MiAssignBackgroundZeroThreadToProcessor.c)
- *     MiZeroThreadContextSetExiting @ 0x140209DA4 (MiZeroThreadContextSetExiting.c)
- *     MiFindBestZeroingProcessor @ 0x140209DE8 (MiFindBestZeroingProcessor.c)
- *     MiSetZeroPageThreadPriority @ 0x14020A388 (MiSetZeroPageThreadPriority.c)
- *     MiZeroThreadContextPrepareToWait @ 0x14020A440 (MiZeroThreadContextPrepareToWait.c)
- *     MiLockMultipleZeroChunks @ 0x14020AC60 (MiLockMultipleZeroChunks.c)
- *     MiUnlockMultipleZeroChunks @ 0x14020AF10 (MiUnlockMultipleZeroChunks.c)
- *     MiMoveZeroedPages @ 0x14020B140 (MiMoveZeroedPages.c)
- *     MiExamineZeroChunks @ 0x14020B260 (MiExamineZeroChunks.c)
- *     MiGetSinglePageToZero @ 0x14020B4C0 (MiGetSinglePageToZero.c)
- *     MiMapBackgroundPagesToZero @ 0x14020B740 (MiMapBackgroundPagesToZero.c)
- *     MiTryZeroMemory @ 0x14020BD20 (MiTryZeroMemory.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14020FA40 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     KeWaitForMultipleObjects @ 0x14033D720 (KeWaitForMultipleObjects.c)
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     KeQueryPerformanceCounter @ 0x14034FA10 (KeQueryPerformanceCounter.c)
- *     MiReassessZeroThreads @ 0x1403C698C (MiReassessZeroThreads.c)
- *     MiUnlinkZeroThreadFromActiveDomain @ 0x1403C7D5C (MiUnlinkZeroThreadFromActiveDomain.c)
- *     MiDecrementZeroEngineThread @ 0x1403C7E68 (MiDecrementZeroEngineThread.c)
- *     MiGetZeroingContext @ 0x14042DCB0 (MiGetZeroingContext.c)
- *     MiInitializePageHeatList @ 0x14043F8A0 (MiInitializePageHeatList.c)
- *     MiAddPageToHeatRanges @ 0x14043F904 (MiAddPageToHeatRanges.c)
- *     MiFlushZeroPageHeatBatch @ 0x140469FF0 (MiFlushZeroPageHeatBatch.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     MiZeroPageMakeHot @ 0x1406903F8 (MiZeroPageMakeHot.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     KeWaitForMultipleObjects @ 0x14031CC00 (KeWaitForMultipleObjects.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     MiGetBackgroundHugePageToZero @ 0x1403310D0 (MiGetBackgroundHugePageToZero.c)
+ *     MiAssignBackgroundZeroThreadToProcessor @ 0x1403312CC (MiAssignBackgroundZeroThreadToProcessor.c)
+ *     MiZeroThreadContextSetExiting @ 0x140331384 (MiZeroThreadContextSetExiting.c)
+ *     MiFindBestZeroingProcessor @ 0x1403313C8 (MiFindBestZeroingProcessor.c)
+ *     MiSetZeroPageThreadPriority @ 0x140331968 (MiSetZeroPageThreadPriority.c)
+ *     MiZeroThreadContextPrepareToWait @ 0x140331A20 (MiZeroThreadContextPrepareToWait.c)
+ *     MiTryZeroMemory @ 0x140331A60 (MiTryZeroMemory.c)
+ *     MiMapBackgroundPagesToZero @ 0x140331C80 (MiMapBackgroundPagesToZero.c)
+ *     MiLockMultipleZeroChunks @ 0x140332A40 (MiLockMultipleZeroChunks.c)
+ *     MiUnlockMultipleZeroChunks @ 0x140332CF0 (MiUnlockMultipleZeroChunks.c)
+ *     MiMoveZeroedPages @ 0x140332F20 (MiMoveZeroedPages.c)
+ *     MiExamineZeroChunks @ 0x140333040 (MiExamineZeroChunks.c)
+ *     MiGetSinglePageToZero @ 0x1403332A0 (MiGetSinglePageToZero.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140338DA0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KeQueryPerformanceCounter @ 0x14036DEF0 (KeQueryPerformanceCounter.c)
+ *     MiReassessZeroThreads @ 0x1404125C0 (MiReassessZeroThreads.c)
+ *     MiUnlinkZeroThreadFromActiveDomain @ 0x14041399C (MiUnlinkZeroThreadFromActiveDomain.c)
+ *     MiDecrementZeroEngineThread @ 0x140413AA8 (MiDecrementZeroEngineThread.c)
+ *     MiGetZeroingContext @ 0x14041F9E0 (MiGetZeroingContext.c)
+ *     MiInitializePageHeatList @ 0x140435B60 (MiInitializePageHeatList.c)
+ *     MiAddPageToHeatRanges @ 0x140435BC4 (MiAddPageToHeatRanges.c)
+ *     MiFlushZeroPageHeatBatch @ 0x140462F20 (MiFlushZeroPageHeatBatch.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     MiZeroPageMakeHot @ 0x1406914C8 (MiZeroPageMakeHot.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall MiBackgroundZeroLocalPages(__int64 a1)
@@ -68,7 +68,7 @@ __int64 __fastcall MiBackgroundZeroLocalPages(__int64 a1)
   unsigned __int64 v30; // rsi
   unsigned __int64 v31; // rsi
   struct _KTHREAD *v32; // rcx
-  __int64 v33; // rdx
+  int v33; // edx
   KIRQL v35; // bl
   int v36; // ecx
   LARGE_INTEGER v37; // rax
@@ -88,7 +88,7 @@ __int64 __fastcall MiBackgroundZeroLocalPages(__int64 a1)
   int v51; // [rsp+44h] [rbp-BCh]
   int v52; // [rsp+48h] [rbp-B8h]
   LARGE_INTEGER v53; // [rsp+50h] [rbp-B0h]
-  unsigned int v54; // [rsp+58h] [rbp-A8h]
+  int v54; // [rsp+58h] [rbp-A8h]
   __int64 v55; // [rsp+60h] [rbp-A0h]
   LARGE_INTEGER PerformanceFrequency; // [rsp+68h] [rbp-98h] BYREF
   LARGE_INTEGER v57; // [rsp+70h] [rbp-90h] BYREF
@@ -128,7 +128,7 @@ __int64 __fastcall MiBackgroundZeroLocalPages(__int64 a1)
     MiInitializePageHeatList(v77, 0LL, 1LL, 16LL);
     *(_QWORD *)(a1 + 672) = v77;
   }
-  v54 = MiSetZeroPageThreadPriority(a1, 0LL, 0LL);
+  v54 = MiSetZeroPageThreadPriority(a1, 0, 0);
   _InterlockedExchange((volatile __int32 *)(a1 + 388), 0);
   PerformanceFrequency.QuadPart = 0LL;
   v7 = KeQueryPerformanceCounter(&PerformanceFrequency);
@@ -185,10 +185,10 @@ LABEL_51:
           KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), (unsigned __int8)v31);
         __writecr8(v31);
       }
-      ++dword_140EF4C4C;
+      ++dword_140EF4E6C;
       goto LABEL_56;
     }
-    while ( *(_DWORD *)(v11 + 16944) || dword_140E37510 )
+    while ( *(_DWORD *)(v11 + 16944) || dword_140E37650 )
     {
       MiZeroThreadContextPrepareToWait(a1);
       v10 = v8 + 208;
@@ -202,19 +202,19 @@ LABEL_51:
     if ( v12 == *(_QWORD *)(a1 + 368)
       && (v13 = *(unsigned __int16 *)(a1 + 360), (_WORD)v13 == *(_WORD *)(a1 + 376))
       && v12
-      && (v12 & qword_140E2EC50[v13]) == 0 )
+      && (v12 & qword_140E2ED90[v13]) == 0 )
     {
-      ++dword_140EF4CA0;
+      ++dword_140EF4EC0;
     }
     else
     {
-      ++dword_140EF4CA4;
+      ++dword_140EF4EC4;
       v35 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(*(_QWORD *)(v8 + 208) + 15280LL));
       if ( *(_QWORD *)(a1 + 352) )
         MiUnlinkZeroThreadFromActiveDomain(a1);
-      MiFindBestZeroingProcessor((__int64)v73, (int *)v8, 0LL, 1);
+      MiFindBestZeroingProcessor((__int64)v73, (int *)v8, 0, 1);
       v36 = DWORD2(v74);
-      ++dword_140EF4C88[SDWORD2(v74)];
+      ++dword_140EF4EA8[SDWORD2(v74)];
       if ( v36 == 5 )
       {
         MiDecrementZeroEngineThread(a1);
@@ -224,7 +224,7 @@ LABEL_51:
         ++*(_DWORD *)(v8 + 276);
         MiAssignBackgroundZeroThreadToProcessor(a1, v8, (__int64)v73);
       }
-      MiReleaseSpinLockExclusive(*(_QWORD *)(v8 + 208) + 15280LL, v35);
+      MiReleaseSpinLockExclusive((_DWORD *)(*(_QWORD *)(v8 + 208) + 15280LL), v35);
     }
     if ( v9 )
     {
@@ -269,7 +269,7 @@ LABEL_51:
                   (unsigned int)v14) )
             goto LABEL_57;
         }
-        BackgroundHugePageToZero = MiMapBackgroundPagesToZero(a1, (unsigned int)v14);
+        BackgroundHugePageToZero = MiMapBackgroundPagesToZero(a1, v14);
         goto LABEL_27;
       }
     }
@@ -308,7 +308,7 @@ LABEL_27:
           v63[1] = 1;
         }
       }
-      ++dword_140EF4CB4[v21];
+      ++dword_140EF4ED4[v21];
       v51 = MiTryZeroMemory(a1);
       do
       {
@@ -421,15 +421,15 @@ LABEL_57:
       v3 = v14 + 1;
     }
   }
-  ++dword_140EF4C50;
+  ++dword_140EF4E70;
   v40 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(*(_QWORD *)(v4 + 208) + 15280LL));
   MiZeroThreadContextSetExiting(a1);
-  MiReleaseSpinLockExclusive(*(_QWORD *)(v4 + 208) + 15280LL, v40);
+  MiReleaseSpinLockExclusive((_DWORD *)(*(_QWORD *)(v4 + 208) + 15280LL), v40);
 LABEL_56:
   MiZeroThreadContextPrepareToWait(a1);
   v32 = CurrentThread;
   v33 = v54;
   *(_QWORD *)(a1 + 672) = 0LL;
   *((_DWORD *)&v32[1].SwapListEntry + 3) &= ~0x400u;
-  return MiSetZeroPageThreadPriority(a1, v33, 0LL);
+  return MiSetZeroPageThreadPriority(a1, v33, 0);
 }

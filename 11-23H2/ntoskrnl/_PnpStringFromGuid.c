@@ -1,25 +1,25 @@
 /*
- * XREFs of _PnpStringFromGuid @ 0x140787E54
+ * XREFs of _PnpStringFromGuid @ 0x140788044
  * Callers:
- *     PiDcHandleDeviceEvent @ 0x140787320 (PiDcHandleDeviceEvent.c)
- *     IopGetDeviceInterfaces @ 0x1407873F0 (IopGetDeviceInterfaces.c)
- *     PiDmObjectGetCachedCmProperty @ 0x1407890E0 (PiDmObjectGetCachedCmProperty.c)
- *     PiDmCacheDataEncode @ 0x14078D4E0 (PiDmCacheDataEncode.c)
- *     _PnpDeviceRaisePropertyChangeEventWorker @ 0x1407973CC (_PnpDeviceRaisePropertyChangeEventWorker.c)
- *     IoGetDeviceInterfaceAlias @ 0x1407C54D0 (IoGetDeviceInterfaceAlias.c)
- *     PiDmGetReferencedObjectFromProperty @ 0x1407CBFF4 (PiDmGetReferencedObjectFromProperty.c)
- *     PiDcHandleInterfaceEvent @ 0x1407DB2E4 (PiDcHandleInterfaceEvent.c)
- *     PiDqObjectManagerEnumerateAndRegisterQuery @ 0x1407F9F68 (PiDqObjectManagerEnumerateAndRegisterQuery.c)
- *     PiSwPdoPnPDispatch @ 0x140818AD0 (PiSwPdoPnPDispatch.c)
- *     PiDmListInitEnumCallback @ 0x14082F280 (PiDmListInitEnumCallback.c)
- *     _CmBuildDevicePanelId @ 0x140862D28 (_CmBuildDevicePanelId.c)
- *     IopRegisterDeviceInterface @ 0x1408667FC (IopRegisterDeviceInterface.c)
- *     _CmSetDeviceMappedPropertyFromRegProp @ 0x1408808A0 (_CmSetDeviceMappedPropertyFromRegProp.c)
- *     PiPnpRtlGatherInstallerClassChangeInfo @ 0x1408827B0 (PiPnpRtlGatherInstallerClassChangeInfo.c)
- *     PiPnpRtlGatherInterfaceDeleteInfo @ 0x14095A5AC (PiPnpRtlGatherInterfaceDeleteInfo.c)
+ *     PiDcHandleDeviceEvent @ 0x140787510 (PiDcHandleDeviceEvent.c)
+ *     IopGetDeviceInterfaces @ 0x1407875E0 (IopGetDeviceInterfaces.c)
+ *     PiDmObjectGetCachedCmProperty @ 0x1407892D0 (PiDmObjectGetCachedCmProperty.c)
+ *     PiDmCacheDataEncode @ 0x14078D6D0 (PiDmCacheDataEncode.c)
+ *     _PnpDeviceRaisePropertyChangeEventWorker @ 0x1407975BC (_PnpDeviceRaisePropertyChangeEventWorker.c)
+ *     IoGetDeviceInterfaceAlias @ 0x1407C57A0 (IoGetDeviceInterfaceAlias.c)
+ *     PiDmGetReferencedObjectFromProperty @ 0x1407CC2C4 (PiDmGetReferencedObjectFromProperty.c)
+ *     PiDcHandleInterfaceEvent @ 0x1407DB5B4 (PiDcHandleInterfaceEvent.c)
+ *     PiDqObjectManagerEnumerateAndRegisterQuery @ 0x1407FA238 (PiDqObjectManagerEnumerateAndRegisterQuery.c)
+ *     PiSwPdoPnPDispatch @ 0x140818DA0 (PiSwPdoPnPDispatch.c)
+ *     PiDmListInitEnumCallback @ 0x14082F580 (PiDmListInitEnumCallback.c)
+ *     _CmBuildDevicePanelId @ 0x140862F68 (_CmBuildDevicePanelId.c)
+ *     IopRegisterDeviceInterface @ 0x140866A3C (IopRegisterDeviceInterface.c)
+ *     _CmSetDeviceMappedPropertyFromRegProp @ 0x140880AE0 (_CmSetDeviceMappedPropertyFromRegProp.c)
+ *     PiPnpRtlGatherInstallerClassChangeInfo @ 0x1408829F0 (PiPnpRtlGatherInstallerClassChangeInfo.c)
+ *     PiPnpRtlGatherInterfaceDeleteInfo @ 0x14095A7AC (PiPnpRtlGatherInterfaceDeleteInfo.c)
  *     PipCreateComputerId @ 0x140B3B8BC (PipCreateComputerId.c)
  * Callees:
- *     RtlStringCchPrintfExW @ 0x14022B720 (RtlStringCchPrintfExW.c)
+ *     RtlStringCchPrintfExW @ 0x14022B830 (RtlStringCchPrintfExW.c)
  */
 
 NTSTATUS __fastcall PnpStringFromGuid(int *a1, wchar_t *a2)

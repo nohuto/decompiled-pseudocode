@@ -1,15 +1,15 @@
 /*
- * XREFs of CmpCheckRegistry2 @ 0x1405F0040
+ * XREFs of CmpCheckRegistry2 @ 0x1406DF7A0
  * Callers:
- *     CmCheckRegistry @ 0x1407216C8 (CmCheckRegistry.c)
+ *     CmCheckRegistry @ 0x1406F8F20 (CmCheckRegistry.c)
  * Callees:
- *     SetFailureLocation @ 0x1402C4808 (SetFailureLocation.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     CmpCheckKey @ 0x1405F11F0 (CmpCheckKey.c)
- *     CmpDoFindSubKeyByNumber @ 0x1405F2D00 (CmpDoFindSubKeyByNumber.c)
- *     CmpCheckLexicographicalOrder @ 0x1405F2E10 (CmpCheckLexicographicalOrder.c)
- *     CmpCheckAndFixSecurityCellsRefcount @ 0x1406B1544 (CmpCheckAndFixSecurityCellsRefcount.c)
- *     CmpRemoveSubKeyCellNoCellRef @ 0x14087B020 (CmpRemoveSubKeyCellNoCellRef.c)
+ *     SetFailureLocation @ 0x140242D88 (SetFailureLocation.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     CmpCheckAndFixSecurityCellsRefcount @ 0x1406104F4 (CmpCheckAndFixSecurityCellsRefcount.c)
+ *     CmpCheckKey @ 0x1406E0950 (CmpCheckKey.c)
+ *     CmpDoFindSubKeyByNumber @ 0x1406E2460 (CmpDoFindSubKeyByNumber.c)
+ *     CmpCheckLexicographicalOrder @ 0x1406E2570 (CmpCheckLexicographicalOrder.c)
+ *     CmpRemoveSubKeyCellNoCellRef @ 0x14087B180 (CmpRemoveSubKeyCellNoCellRef.c)
  */
 
 __int64 __fastcall CmpCheckRegistry2(
@@ -33,7 +33,7 @@ __int64 __fastcall CmpCheckRegistry2(
   int v20; // eax
   unsigned int v21; // edi
   __int64 v22; // rdx
-  int v23; // eax
+  signed int v23; // eax
   __int64 v24; // rax
   unsigned int v25; // edi
   __int64 v26; // rdx
@@ -41,11 +41,11 @@ __int64 __fastcall CmpCheckRegistry2(
   __int64 v28; // rax
   unsigned int SubKeyByNumber; // edi
   __int64 v30; // rax
-  int v31; // eax
+  unsigned int v31; // eax
   int v32; // r15d
   __int64 v33; // rbx
-  int v34; // eax
-  int v35; // [rsp+20h] [rbp-78h]
+  unsigned int v34; // eax
+  unsigned int v35; // [rsp+20h] [rbp-78h]
   __int64 v36; // [rsp+40h] [rbp-58h]
   __int64 v37; // [rsp+48h] [rbp-50h] BYREF
   _DWORD v38[4]; // [rsp+50h] [rbp-48h] BYREF
@@ -61,7 +61,7 @@ __int64 __fastcall CmpCheckRegistry2(
   v36 = v13;
   if ( !v13 )
   {
-    SetFailureLocation(a7, 0, 13, -1073741670, 0);
+    SetFailureLocation(a7, 0, 13, 0xC000009A, 0);
     return 3221225626LL;
   }
   if ( a7 )
@@ -105,7 +105,7 @@ LABEL_12:
             v32 = a2 & 0x20000;
             goto LABEL_35;
           }
-          SetFailureLocation(a7, 0, 13, v23, 37);
+          SetFailureLocation(a7, 0, 13, v23, 0x25u);
 LABEL_54:
           v33 = v36;
           goto LABEL_55;
@@ -175,7 +175,7 @@ LABEL_47:
     (*(void (__fastcall **)(ULONG_PTR, __int64 *))(BugCheckParameter2 + 16))(BugCheckParameter2, &v37);
     if ( v17 < 0 )
     {
-      if ( (a2 & 0x20000) != 0 || (unsigned __int8)CmpCheckAndFixSecurityCellsRefcount(BugCheckParameter2) )
+      if ( (a2 & 0x20000) != 0 || CmpCheckAndFixSecurityCellsRefcount(BugCheckParameter2) )
       {
         v21 = v40 != 0 ? 0x8000002A : 0;
         goto LABEL_54;
@@ -183,7 +183,7 @@ LABEL_47:
       v35 = 112;
 LABEL_53:
       v21 = -1073741492;
-      SetFailureLocation(a7, 0, 13, -1073741492, v35);
+      SetFailureLocation(a7, 0, 13, 0xC000014C, v35);
       goto LABEL_54;
     }
     v15 = a8;
@@ -217,7 +217,7 @@ LABEL_35:
   else
   {
     v21 = -1073741492;
-    SetFailureLocation(a7, 0, 13, -1073741492, 32);
+    SetFailureLocation(a7, 0, 13, 0xC000014C, 0x20u);
   }
 LABEL_55:
   (*(void (__fastcall **)(__int64, __int64))(BugCheckParameter2 + 32))(v33, 10240LL);

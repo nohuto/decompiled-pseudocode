@@ -1,16 +1,16 @@
 /*
- * XREFs of CcDeleteMbcb @ 0x140088410
+ * XREFs of CcDeleteMbcb @ 0x14010C600
  * Callers:
- *     CcSetFileSizesEx @ 0x14007344C (CcSetFileSizesEx.c)
- *     CcDeleteSharedCacheMap @ 0x1400CCD34 (CcDeleteSharedCacheMap.c)
+ *     CcSetFileSizesEx @ 0x140072FCC (CcSetFileSizesEx.c)
+ *     CcDeleteSharedCacheMap @ 0x1400CABD4 (CcDeleteSharedCacheMap.c)
  * Callees:
- *     KeReleaseGuardedMutex @ 0x14000CA40 (KeReleaseGuardedMutex.c)
- *     ExFreeToNPagedLookasideList @ 0x14000F4A4 (ExFreeToNPagedLookasideList.c)
- *     ExAcquireFastMutex @ 0x14002D0A0 (ExAcquireFastMutex.c)
- *     CcDeallocateBcb @ 0x140088578 (CcDeallocateBcb.c)
- *     CcDeductDirtyPages @ 0x1400CC864 (CcDeductDirtyPages.c)
- *     KeAcquireQueuedSpinLock @ 0x1400E8D30 (KeAcquireQueuedSpinLock.c)
- *     KeReleaseQueuedSpinLock @ 0x1400E8DA0 (KeReleaseQueuedSpinLock.c)
+ *     KeReleaseGuardedMutex @ 0x14000C5C0 (KeReleaseGuardedMutex.c)
+ *     ExFreeToNPagedLookasideList @ 0x14000F024 (ExFreeToNPagedLookasideList.c)
+ *     ExAcquireFastMutex @ 0x14002CC20 (ExAcquireFastMutex.c)
+ *     CcDeductDirtyPages @ 0x1400CA704 (CcDeductDirtyPages.c)
+ *     KeAcquireQueuedSpinLock @ 0x1400E6BD0 (KeAcquireQueuedSpinLock.c)
+ *     KeReleaseQueuedSpinLock @ 0x1400E6C40 (KeReleaseQueuedSpinLock.c)
+ *     CcDeallocateBcb @ 0x14010C768 (CcDeallocateBcb.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  */
 
@@ -38,7 +38,7 @@ void __fastcall CcDeleteMbcb(__int64 a1)
   if ( v3 )
   {
     v4 = KeAcquireQueuedSpinLock(5uLL);
-    CcDeductDirtyPages(a1, *(unsigned int *)(v3 + 8));
+    CcDeductDirtyPages(a1, *(_DWORD *)(v3 + 8));
     KeReleaseQueuedSpinLock(5uLL, v4);
     v5 = (PVOID ***)(v3 + 16);
     while ( *v5 != (PVOID **)v5 )

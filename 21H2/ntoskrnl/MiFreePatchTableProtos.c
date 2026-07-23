@@ -1,15 +1,15 @@
 /*
- * XREFs of MiFreePatchTableProtos @ 0x1408C9EC4
+ * XREFs of MiFreePatchTableProtos @ 0x1408CA024
  * Callers:
- *     MiUnloadSystemImage @ 0x1406D11C8 (MiUnloadSystemImage.c)
- *     MmLoadSystemImageEx @ 0x14075BAFC (MmLoadSystemImageEx.c)
+ *     MiUnloadSystemImage @ 0x1406A84A8 (MiUnloadSystemImage.c)
+ *     MmLoadSystemImageEx @ 0x14075BCBC (MmLoadSystemImageEx.c)
  * Callees:
- *     MiWritePteShadow @ 0x1402B69BC (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x1402B6A1C (MiPteHasShadow.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x14032DEC0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiPteInShadowRange @ 0x140348AF0 (MiPteInShadowRange.c)
- *     MiUnlockPagedAddress @ 0x1405369F0 (MiUnlockPagedAddress.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     MiWritePteShadow @ 0x140234B9C (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140234BFC (MiPteHasShadow.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140338C10 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x140353840 (MiPteInShadowRange.c)
+ *     MiUnlockPagedAddress @ 0x140536C30 (MiUnlockPagedAddress.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiFreePatchTableProtos(unsigned __int64 *P)
@@ -20,13 +20,12 @@ void __fastcall MiFreePatchTableProtos(unsigned __int64 *P)
   unsigned __int64 i; // rbp
   unsigned __int64 v6; // rbx
   int v7; // r15d
-  __int64 v8; // r8
-  bool v9; // zf
+  bool v8; // zf
 
   v1 = 0LL;
   v3 = P;
-  v4 = (dword_140C4CCB0 & 0xFFF) != 0;
-  for ( i = ((unsigned int)dword_140C4CCB0 >> 12) + v4; i; --i )
+  v4 = (dword_140C4CCF0 & 0xFFF) != 0;
+  for ( i = ((unsigned int)dword_140C4CCF0 >> 12) + v4; i; --i )
   {
     if ( !MI_READ_PTE_LOCK_FREE((unsigned __int64)v3) )
       break;
@@ -37,23 +36,23 @@ void __fastcall MiFreePatchTableProtos(unsigned __int64 *P)
       if ( (unsigned int)MiPteHasShadow() )
       {
         v7 = 1;
-        if ( !HIBYTE(word_140C4E008) )
+        if ( !HIBYTE(word_140C4E048) )
         {
-          v9 = (ZeroPte & 1) == 0;
+          v8 = (ZeroPte & 1) == 0;
           goto LABEL_9;
         }
       }
       else if ( (HIDWORD(KeGetCurrentThread()->ApcState.Process[2].Header.WaitListHead.Flink) & 0x1000) != 0 )
       {
-        v9 = (ZeroPte & 1) == 0;
+        v8 = (ZeroPte & 1) == 0;
 LABEL_9:
-        if ( !v9 )
+        if ( !v8 )
           v6 = ZeroPte | 0x8000000000000000uLL;
       }
     }
     *v3 = v6;
     if ( v7 )
-      MiWritePteShadow((__int64)v3, v6, v8);
+      MiWritePteShadow((__int64)v3, v6);
     ++v3;
   }
   if ( 8 * i )

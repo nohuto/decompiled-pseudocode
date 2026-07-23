@@ -1,10 +1,10 @@
 /*
- * XREFs of RaspDestroySegmentList @ 0x140129410
+ * XREFs of RaspDestroySegmentList @ 0x140129980
  * Callers:
- *     RaspScanConvert @ 0x140127F90 (RaspScanConvert.c)
- *     RaspCreateSegmentList @ 0x140129058 (RaspCreateSegmentList.c)
+ *     RaspScanConvert @ 0x140128500 (RaspScanConvert.c)
+ *     RaspCreateSegmentList @ 0x1401295C8 (RaspCreateSegmentList.c)
  * Callees:
- *     RaspFreeMemory @ 0x140129678 (RaspFreeMemory.c)
+ *     RaspFreeMemory @ 0x140129BE8 (RaspFreeMemory.c)
  */
 
 __int64 __fastcall RaspDestroySegmentList(__int64 a1, unsigned int a2, __int64 a3)

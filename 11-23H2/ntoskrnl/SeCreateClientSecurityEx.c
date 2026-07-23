@@ -1,18 +1,18 @@
 /*
- * XREFs of SeCreateClientSecurityEx @ 0x14071D1B0
+ * XREFs of SeCreateClientSecurityEx @ 0x14071D3B0
  * Callers:
- *     AlpcpGetEffectiveTokenMessage @ 0x140714BEC (AlpcpGetEffectiveTokenMessage.c)
- *     AlpcpImpersonateMessage @ 0x14071CE00 (AlpcpImpersonateMessage.c)
- *     AlpcpExposeTokenAttribute @ 0x14073C230 (AlpcpExposeTokenAttribute.c)
+ *     AlpcpGetEffectiveTokenMessage @ 0x140714DFC (AlpcpGetEffectiveTokenMessage.c)
+ *     AlpcpImpersonateMessage @ 0x14071D000 (AlpcpImpersonateMessage.c)
+ *     AlpcpExposeTokenAttribute @ 0x14073C420 (AlpcpExposeTokenAttribute.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     PsReferencePrimaryTokenWithTag @ 0x1402329C0 (PsReferencePrimaryTokenWithTag.c)
- *     PsGetCurrentServerSilo @ 0x140289F90 (PsGetCurrentServerSilo.c)
- *     PsIsHostSilo @ 0x1402AF900 (PsIsHostSilo.c)
- *     SepReconcileTrustSidWithProcessProtection @ 0x1402B3314 (SepReconcileTrustSidWithProcessProtection.c)
- *     PsReferenceImpersonationTokenEx @ 0x14071D7A0 (PsReferenceImpersonationTokenEx.c)
- *     SepCreateClientSecurityEx @ 0x14071D8F0 (SepCreateClientSecurityEx.c)
- *     SepUpdateSiloInClientSecurity @ 0x1409CEF58 (SepUpdateSiloInClientSecurity.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     PsReferencePrimaryTokenWithTag @ 0x140232A90 (PsReferencePrimaryTokenWithTag.c)
+ *     PsGetCurrentServerSilo @ 0x14028A220 (PsGetCurrentServerSilo.c)
+ *     PsIsHostSilo @ 0x1402AFB90 (PsIsHostSilo.c)
+ *     SepReconcileTrustSidWithProcessProtection @ 0x1402B35A4 (SepReconcileTrustSidWithProcessProtection.c)
+ *     PsReferenceImpersonationTokenEx @ 0x14071D9A0 (PsReferenceImpersonationTokenEx.c)
+ *     SepCreateClientSecurityEx @ 0x14071DAF0 (SepCreateClientSecurityEx.c)
+ *     SepUpdateSiloInClientSecurity @ 0x1409CF158 (SepUpdateSiloInClientSecurity.c)
  */
 
 __int64 __fastcall SeCreateClientSecurityEx(__int64 a1, int a2, unsigned __int8 a3, __int64 a4)

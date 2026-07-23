@@ -1,10 +1,10 @@
 /*
- * XREFs of SmcProcessResizeRequest @ 0x14092AAB0
+ * XREFs of SmcProcessResizeRequest @ 0x14092AC10
  * Callers:
- *     SmSetStoreInformation @ 0x1406BE524 (SmSetStoreInformation.c)
+ *     SmSetStoreInformation @ 0x14061D784 (SmSetStoreInformation.c)
  * Callees:
- *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
- *     SmcStoreResize @ 0x14092E078 (SmcStoreResize.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BFB0 (ExRaiseDatatypeMisalignment.c)
+ *     SmcStoreResize @ 0x14092E1D8 (SmcStoreResize.c)
  */
 
 __int64 __fastcall SmcProcessResizeRequest(__int64 a1, unsigned __int64 a2, int a3, char a4)

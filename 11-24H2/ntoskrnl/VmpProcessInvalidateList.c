@@ -1,16 +1,16 @@
 /*
- * XREFs of VmpProcessInvalidateList @ 0x1404A9F18
+ * XREFs of VmpProcessInvalidateList @ 0x1404A41E8
  * Callers:
- *     VmpFlushTb @ 0x140292380 (VmpFlushTb.c)
- *     KeFlushTb @ 0x1403AFDF0 (KeFlushTb.c)
- *     VmpInsertInvalidateListRange @ 0x1403B12F8 (VmpInsertInvalidateListRange.c)
- *     VmpInvalidateSlatBatched @ 0x14047F01C (VmpInvalidateSlatBatched.c)
+ *     VmpFlushTb @ 0x1402A1F80 (VmpFlushTb.c)
+ *     KeFlushTb @ 0x14039E600 (KeFlushTb.c)
+ *     VmpInsertInvalidateListRange @ 0x14039FB08 (VmpInsertInvalidateListRange.c)
+ *     VmpInvalidateSlatBatched @ 0x140479E38 (VmpInvalidateSlatBatched.c)
  * Callees:
- *     KeQueryUnbiasedInterruptTimePrecise @ 0x140309950 (KeQueryUnbiasedInterruptTimePrecise.c)
- *     HvlMapSparseGpaPages @ 0x1403AE57C (HvlMapSparseGpaPages.c)
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     VmpInvalidateSingleGpaRange @ 0x1404B3164 (VmpInvalidateSingleGpaRange.c)
- *     VmpLogTbFlushSlatInvalidate @ 0x14064BE28 (VmpLogTbFlushSlatInvalidate.c)
+ *     KeQueryUnbiasedInterruptTimePrecise @ 0x140313830 (KeQueryUnbiasedInterruptTimePrecise.c)
+ *     HvlMapSparseGpaPages @ 0x14039CD8C (HvlMapSparseGpaPages.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     VmpInvalidateSingleGpaRange @ 0x1404AD974 (VmpInvalidateSingleGpaRange.c)
+ *     VmpLogTbFlushSlatInvalidate @ 0x14064A3E8 (VmpLogTbFlushSlatInvalidate.c)
  */
 
 char __fastcall VmpProcessInvalidateList(__int64 a1, __int64 a2)

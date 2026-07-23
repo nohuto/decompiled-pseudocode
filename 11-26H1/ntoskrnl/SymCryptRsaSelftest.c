@@ -1,20 +1,20 @@
 /*
- * XREFs of SymCryptRsaSelftest @ 0x1405632FC
+ * XREFs of SymCryptRsaSelftest @ 0x14056580C
  * Callers:
- *     SymCryptRsakeySetValueInternal @ 0x14055A418 (SymCryptRsakeySetValueInternal.c)
+ *     SymCryptRsakeySetValueInternal @ 0x14055C930 (SymCryptRsakeySetValueInternal.c)
  * Callees:
- *     SymCryptRestoreXmm @ 0x1404D58B4 (SymCryptRestoreXmm.c)
- *     SymCryptWipe @ 0x140556458 (SymCryptWipe.c)
- *     SymCryptRsakeyAllocate @ 0x140559884 (SymCryptRsakeyAllocate.c)
- *     SymCryptRsakeyFree @ 0x14055A380 (SymCryptRsakeyFree.c)
- *     SymCryptRsakeySetValue @ 0x14055A3A8 (SymCryptRsakeySetValue.c)
- *     SymCryptRsaPkcs1Sign @ 0x14055EB54 (SymCryptRsaPkcs1Sign.c)
- *     SymCryptRsaPkcs1Verify @ 0x14055ECB0 (SymCryptRsaPkcs1Verify.c)
- *     SymCryptFatal @ 0x1405E5578 (SymCryptFatal.c)
- *     SymCryptCallbackAlloc @ 0x140722890 (SymCryptCallbackAlloc.c)
- *     SymCryptCallbackFree @ 0x1407228C8 (SymCryptCallbackFree.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memcmp @ 0x14073D750 (memcmp.c)
+ *     SymCryptRestoreXmm @ 0x1404CF078 (SymCryptRestoreXmm.c)
+ *     SymCryptWipe @ 0x1405588E8 (SymCryptWipe.c)
+ *     SymCryptRsakeyAllocate @ 0x14055BD14 (SymCryptRsakeyAllocate.c)
+ *     SymCryptRsakeyFree @ 0x14055C898 (SymCryptRsakeyFree.c)
+ *     SymCryptRsakeySetValue @ 0x14055C8C0 (SymCryptRsakeySetValue.c)
+ *     SymCryptRsaPkcs1Sign @ 0x140561078 (SymCryptRsaPkcs1Sign.c)
+ *     SymCryptRsaPkcs1Verify @ 0x1405611D4 (SymCryptRsaPkcs1Verify.c)
+ *     SymCryptFatal @ 0x1405E7EE8 (SymCryptFatal.c)
+ *     SymCryptCallbackAlloc @ 0x140727460 (SymCryptCallbackAlloc.c)
+ *     SymCryptCallbackFree @ 0x140727498 (SymCryptCallbackFree.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memcmp @ 0x140742350 (memcmp.c)
  */
 
 __int64 SymCryptRsaSelftest()
@@ -32,9 +32,9 @@ __int64 SymCryptRsaSelftest()
   if ( !v0 )
     SymCryptFatal(1179209811LL);
   v5[0] = 1;
-  v7[0] = qword_140024FA8;
+  v7[0] = qword_140024868;
   v5[1] = 2048;
-  v7[1] = qword_140025028;
+  v7[1] = qword_1400248E8;
   v5[2] = 2;
   v5[3] = 1;
   v6[0] = 128LL;
@@ -44,7 +44,7 @@ __int64 SymCryptRsaSelftest()
   if ( !v1 )
     SymCryptFatal(1179209811LL);
   if ( (unsigned int)SymCryptRsakeySetValue(
-                       (int)qword_140024EA8,
+                       (int)qword_140024768,
                        256,
                        (int)&rsakey,
                        1,

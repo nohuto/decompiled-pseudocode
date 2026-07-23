@@ -1,9 +1,9 @@
 /*
- * XREFs of SdbpBinarySearchFirst @ 0x14067D7BC
+ * XREFs of SdbpBinarySearchFirst @ 0x14067E97C
  * Callers:
- *     SdbpGetFirstIndexedRecord @ 0x14067CCB0 (SdbpGetFirstIndexedRecord.c)
+ *     SdbpGetFirstIndexedRecord @ 0x14067DE70 (SdbpGetFirstIndexedRecord.c)
  * Callees:
- *     memmove @ 0x1401D1540 (memmove.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
  */
 
 __int64 __fastcall SdbpBinarySearchFirst(__int64 a1, unsigned int a2, unsigned __int64 a3, int *a4)

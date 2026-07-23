@@ -1,50 +1,48 @@
 /*
- * XREFs of RtlpGetUserOrMachineUILanguage4NLS @ 0x1800D2EC0
+ * XREFs of RtlpGetUserOrMachineUILanguage4NLS @ 0x180099E20
  * Callers:
- *     RtlLCIDToCultureName @ 0x1800360C0 (RtlLCIDToCultureName.c)
- *     RtlpMatchUILanguage @ 0x1800D0FEC (RtlpMatchUILanguage.c)
- *     RtlLcidToLocaleName @ 0x1800D26D0 (RtlLcidToLocaleName.c)
+ *     RtlLCIDToCultureName @ 0x180016340 (RtlLCIDToCultureName.c)
+ *     RtlLcidToLocaleName @ 0x180099060 (RtlLcidToLocaleName.c)
+ *     RtlpMatchUILanguage @ 0x18009A584 (RtlpMatchUILanguage.c)
  * Callees:
- *     OpenGlobalizationUserSettingsKey @ 0x180034720 (OpenGlobalizationUserSettingsKey.c)
- *     RtlInitUnicodeString @ 0x1800DA0A0 (RtlInitUnicodeString.c)
- *     LdrpQueryValueKey @ 0x1800E8D50 (LdrpQueryValueKey.c)
- *     LdrpOpenKey @ 0x1800EA970 (LdrpOpenKey.c)
- *     NtClose @ 0x180161E70 (NtClose.c)
+ *     OpenGlobalizationUserSettingsKey @ 0x1800149A0 (OpenGlobalizationUserSettingsKey.c)
+ *     RtlInitUnicodeString @ 0x1800C7EE0 (RtlInitUnicodeString.c)
+ *     LdrpQueryValueKey @ 0x1800E4440 (LdrpQueryValueKey.c)
+ *     LdrpOpenKey @ 0x1800E61E0 (LdrpOpenKey.c)
+ *     NtClose @ 0x180160230 (NtClose.c)
  */
 
 __int64 __fastcall RtlpGetUserOrMachineUILanguage4NLS(int a1, __int64 a2, unsigned __int64 *a3)
 {
-  int v6; // ebx
+  NTSTATUS v6; // ebx
   HANDLE v7; // rdx
   unsigned __int64 v8; // rax
   unsigned int v9; // edi
-  int v11; // [rsp+30h] [rbp-30h] BYREF
   HANDLE Handle; // [rsp+38h] [rbp-28h] BYREF
-  HANDLE v13; // [rsp+40h] [rbp-20h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+48h] [rbp-18h] BYREF
-  int v15; // [rsp+98h] [rbp+38h] BYREF
+  HANDLE v12; // [rsp+40h] [rbp-20h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+48h] [rbp-18h] BYREF
+  __int64 v14; // [rsp+98h] [rbp+38h] BYREF
 
-  v13 = 0LL;
+  v12 = 0LL;
   Handle = 0LL;
-  v15 = 0;
-  v11 = 7;
+  LODWORD(v14) = 0;
   DestinationString = 0LL;
-  v6 = OpenGlobalizationUserSettingsKey(0x2000000u, a2, (__int64)&v13);
+  v6 = OpenGlobalizationUserSettingsKey(0x2000000LL, a2, &v12);
   if ( v6 < 0 )
     goto LABEL_21;
   if ( a1 == 1 )
   {
     RtlInitUnicodeString(&DestinationString, L"Control Panel\\Desktop");
-    v7 = v13;
+    v7 = v12;
   }
   else
   {
     RtlInitUnicodeString(&DestinationString, L"Control Panel\\Desktop\\MuiCached");
-    v6 = LdrpOpenKey(&DestinationString, v13, 131097LL, &Handle);
+    v6 = LdrpOpenKey(&DestinationString, v12, 131097LL, &Handle);
     if ( v6 >= 0 )
     {
       RtlInitUnicodeString(&DestinationString, L"MachinePreferredUILanguages");
-      v6 = LdrpQueryValueKey(Handle, &DestinationString, &v11, 0LL, &v15);
+      v6 = LdrpQueryValueKey(Handle, &DestinationString, (__int64)&v14);
       if ( v6 >= 0 )
         goto LABEL_10;
     }
@@ -59,43 +57,40 @@ __int64 __fastcall RtlpGetUserOrMachineUILanguage4NLS(int a1, __int64 a2, unsign
   if ( v6 < 0 )
     goto LABEL_21;
   RtlInitUnicodeString(&DestinationString, L"PreferredUILanguages");
-  v6 = LdrpQueryValueKey(Handle, &DestinationString, &v11, 0LL, &v15);
+  v6 = LdrpQueryValueKey(Handle, &DestinationString, (__int64)&v14);
 LABEL_10:
-  if ( v6 != -1073741772 && v15 )
+  if ( v6 != -1073741772 && (_DWORD)v14 )
   {
-    if ( v6 != -2147483643 )
+    if ( v6 == -2147483643 )
     {
-LABEL_20:
-      v6 = -1073741772;
-      goto LABEL_21;
-    }
-    v8 = (unsigned int)(v15 + 1);
-    v9 = (unsigned int)v8 >> 1;
-    if ( !a2 )
-    {
-      v6 = 0;
+      v8 = (unsigned int)(v14 + 1);
+      v9 = (unsigned int)v8 >> 1;
+      if ( !a2 )
+      {
+        v6 = 0;
 LABEL_15:
-      *a3 = v9;
-      goto LABEL_21;
-    }
-    if ( *a3 < v8 >> 1 )
-    {
-      v6 = -1073741789;
-      goto LABEL_15;
-    }
-    v6 = LdrpQueryValueKey(Handle, &DestinationString, &v11, a2, &v15);
-    if ( v6 >= 0 )
-    {
-      if ( v11 == 7 )
+        *a3 = v9;
+        goto LABEL_21;
+      }
+      if ( *a3 < v8 >> 1 )
+      {
+        v6 = -1073741789;
         goto LABEL_15;
-      goto LABEL_20;
+      }
+      v6 = LdrpQueryValueKey(Handle, &DestinationString, (__int64)&v14);
+      if ( v6 >= 0 )
+        goto LABEL_15;
+    }
+    else
+    {
+      v6 = -1073741772;
     }
   }
 LABEL_21:
-  if ( v13 )
+  if ( v12 )
   {
-    NtClose(v13);
-    v13 = 0LL;
+    NtClose(v12);
+    v12 = 0LL;
   }
   if ( Handle )
     NtClose(Handle);

@@ -1,11 +1,11 @@
 /*
- * XREFs of ExpGetPoolTagInfoTarget @ 0x140095A20
+ * XREFs of ExpGetPoolTagInfoTarget @ 0x140095220
  * Callers:
  *     <none>
  * Callees:
- *     KeYieldProcessorEx @ 0x14002ECB0 (KeYieldProcessorEx.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     HvlNotifyLongSpinWait @ 0x1401BAE68 (HvlNotifyLongSpinWait.c)
+ *     KeYieldProcessorEx @ 0x14002E830 (KeYieldProcessorEx.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     HvlNotifyLongSpinWait @ 0x1401BAD4C (HvlNotifyLongSpinWait.c)
  */
 
 __int64 __fastcall ExpGetPoolTagInfoTarget(__int64 a1, __int64 a2, volatile signed __int32 *a3, __int64 a4)

@@ -1,5 +1,5 @@
 /*
- * XREFs of NtdllDialogWndProc_A @ 0x18009D3D0
+ * XREFs of NtdllDialogWndProc_A @ 0x18009D390
  * Callers:
  *     <none>
  * Callees:

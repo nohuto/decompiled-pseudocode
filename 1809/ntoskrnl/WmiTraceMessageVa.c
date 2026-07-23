@@ -1,9 +1,9 @@
 /*
- * XREFs of WmiTraceMessageVa @ 0x14030EE80
+ * XREFs of WmiTraceMessageVa @ 0x14030F070
  * Callers:
  *     <none>
  * Callees:
- *     EtwpTraceMessageVa @ 0x140113240 (EtwpTraceMessageVa.c)
+ *     EtwpTraceMessageVa @ 0x1401132B0 (EtwpTraceMessageVa.c)
  */
 
 __int64 __fastcall WmiTraceMessageVa(__int64 a1, char a2, signed __int32 *a3, __int16 a4, __int64 a5)

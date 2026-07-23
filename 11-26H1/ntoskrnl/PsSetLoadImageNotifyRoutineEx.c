@@ -1,13 +1,13 @@
 /*
- * XREFs of PsSetLoadImageNotifyRoutineEx @ 0x140B30BB0
+ * XREFs of PsSetLoadImageNotifyRoutineEx @ 0x140B32DB0
  * Callers:
- *     PsSetLoadImageNotifyRoutine @ 0x1407FCDB0 (PsSetLoadImageNotifyRoutine.c)
- *     EtwpCoverageSamplerStart @ 0x1408314FC (EtwpCoverageSamplerStart.c)
+ *     PsSetLoadImageNotifyRoutine @ 0x1408027E0 (PsSetLoadImageNotifyRoutine.c)
+ *     EtwpCoverageSamplerStart @ 0x14083773C (EtwpCoverageSamplerStart.c)
  * Callees:
- *     ExCompareExchangeCallBack @ 0x140463604 (ExCompareExchangeCallBack.c)
- *     PspLogAuditSetLoadImageNotifyRoutineEvent @ 0x140B30C64 (PspLogAuditSetLoadImageNotifyRoutineEvent.c)
- *     ExAllocateCallBack @ 0x140B30CE4 (ExAllocateCallBack.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExCompareExchangeCallBack @ 0x14045C5C4 (ExCompareExchangeCallBack.c)
+ *     PspLogAuditSetLoadImageNotifyRoutineEvent @ 0x140B32E64 (PspLogAuditSetLoadImageNotifyRoutineEvent.c)
+ *     ExAllocateCallBack @ 0x140B32EE4 (ExAllocateCallBack.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PsSetLoadImageNotifyRoutineEx(__int64 a1, __int64 a2)
@@ -29,10 +29,10 @@ __int64 __fastcall PsSetLoadImageNotifyRoutineEx(__int64 a1, __int64 a2)
         ExFreePoolWithTag(v4, 0);
         goto LABEL_12;
       }
-      if ( ExCompareExchangeCallBack((signed __int64 *)&PspLoadImageNotifyRoutine.Ptr + i, v4, 0LL) )
+      if ( ExCompareExchangeCallBack((signed __int64 *)&NormalizationListLock.PropagateBoostsEntry.Next + i, v4, 0LL) )
         break;
     }
-    _InterlockedIncrement((volatile signed __int32 *)&PspSiloMonitorLock.SchedulerApcFill5[44]);
+    _InterlockedIncrement((volatile signed __int32 *)&PspSiloMonitorLock.SchedulerApcFill5[60]);
     if ( (PspNotifyEnableMask & 1) == 0 )
       _interlockedbittestandset(&PspNotifyEnableMask, 0);
   }

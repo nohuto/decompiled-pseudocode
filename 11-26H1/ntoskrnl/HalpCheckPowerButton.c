@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpCheckPowerButton @ 0x14057F750
+ * XREFs of HalpCheckPowerButton @ 0x140581C70
  * Callers:
  *     <none>
  * Callees:
- *     HalpAcpiPmRegisterRead @ 0x14046B750 (HalpAcpiPmRegisterRead.c)
- *     HalpShutdown @ 0x14057FA90 (HalpShutdown.c)
- *     InbvCheckDisplayOwnership @ 0x1405C4B00 (InbvCheckDisplayOwnership.c)
+ *     HalpAcpiPmRegisterRead @ 0x140464ED0 (HalpAcpiPmRegisterRead.c)
+ *     HalpShutdown @ 0x140581FB0 (HalpShutdown.c)
+ *     InbvCheckDisplayOwnership @ 0x1405C7370 (InbvCheckDisplayOwnership.c)
  */
 
 void HalpCheckPowerButton()
@@ -14,7 +14,7 @@ void HalpCheckPowerButton()
   __int16 v1; // [rsp+40h] [rbp+8h] BYREF
 
   v1 = 0;
-  if ( (LODWORD(KiDpcWatchdogConfigurationLock.Header.WaitListHead.Flink) || (unsigned __int8)InbvCheckDisplayOwnership())
+  if ( ((_DWORD)KiBugCheckData || (unsigned __int8)InbvCheckDisplayOwnership())
     && LODWORD(HalpPmuArbiter.TrapFrame)
     && LOBYTE(IommuInterfaceStateChangeCallbackPushLock.ThreadTimerDelay) )
   {

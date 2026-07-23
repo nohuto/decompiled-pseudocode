@@ -1,10 +1,10 @@
 /*
- * XREFs of LpcExitProcess @ 0x140460F24
+ * XREFs of LpcExitProcess @ 0x14045FDF4
  * Callers:
- *     PspProcessDelete @ 0x140460828 (PspProcessDelete.c)
- *     PspExitThread @ 0x14051611C (PspExitThread.c)
+ *     PspProcessDelete @ 0x14045F6F8 (PspProcessDelete.c)
+ *     PspExitThread @ 0x1404F950C (PspExitThread.c)
  * Callees:
- *     PsReturnProcessPagedPoolQuota @ 0x140027B7C (PsReturnProcessPagedPoolQuota.c)
+ *     PsReturnProcessPagedPoolQuota @ 0x1400276FC (PsReturnProcessPagedPoolQuota.c)
  */
 
 __int64 __fastcall LpcExitProcess(ULONG_PTR a1)

@@ -1,26 +1,26 @@
 /*
- * XREFs of PopAllocateIrp @ 0x1403775F8
+ * XREFs of PopAllocateIrp @ 0x1403A8268
  * Callers:
- *     PopRequestPowerIrp @ 0x140377360 (PopRequestPowerIrp.c)
- *     PopNotifyDevice @ 0x140B6F748 (PopNotifyDevice.c)
+ *     PopRequestPowerIrp @ 0x1403A7FD0 (PopRequestPowerIrp.c)
+ *     PopNotifyDevice @ 0x140B717B8 (PopNotifyDevice.c)
  * Callees:
- *     ExAllocateFromNPagedLookasideList @ 0x140248B90 (ExAllocateFromNPagedLookasideList.c)
- *     ExFreeToNPagedLookasideList @ 0x14024A9C0 (ExFreeToNPagedLookasideList.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x140275CD0 (KeReleaseInStackQueuedSpinLock.c)
- *     IoGetDeviceAttachmentBaseRefWithTag @ 0x1402D4B68 (IoGetDeviceAttachmentBaseRefWithTag.c)
- *     IoGetAttachedDeviceReferenceWithTag @ 0x1402D6794 (IoGetAttachedDeviceReferenceWithTag.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x1402D8540 (KeAcquireInStackQueuedSpinLock.c)
- *     IoReuseIrp @ 0x14031A320 (IoReuseIrp.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     KeDelayExecutionThread @ 0x14033BC60 (KeDelayExecutionThread.c)
- *     ObfReferenceObjectWithTag @ 0x1403403E0 (ObfReferenceObjectWithTag.c)
- *     IoAllocateIrp @ 0x1403724A0 (IoAllocateIrp.c)
- *     PopFxLockDevice @ 0x140376070 (PopFxLockDevice.c)
- *     PopFxDereferenceDevice @ 0x140376880 (PopFxDereferenceDevice.c)
- *     PopFxAllocatePowerIrp @ 0x140378380 (PopFxAllocatePowerIrp.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     VfIrpWatermark @ 0x140B8E080 (VfIrpWatermark.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x14022B260 (KeReleaseInStackQueuedSpinLock.c)
+ *     IoAllocateIrp @ 0x14025AD60 (IoAllocateIrp.c)
+ *     IoReuseIrp @ 0x1402C2EB0 (IoReuseIrp.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     ExAllocateFromNPagedLookasideList @ 0x1402E2DD0 (ExAllocateFromNPagedLookasideList.c)
+ *     ExFreeToNPagedLookasideList @ 0x1402E4C00 (ExFreeToNPagedLookasideList.c)
+ *     PopFxAllocatePowerIrp @ 0x1402E6A5C (PopFxAllocatePowerIrp.c)
+ *     KeDelayExecutionThread @ 0x14031B140 (KeDelayExecutionThread.c)
+ *     ObfReferenceObjectWithTag @ 0x14031F8C0 (ObfReferenceObjectWithTag.c)
+ *     IoGetDeviceAttachmentBaseRefWithTag @ 0x140355DE8 (IoGetDeviceAttachmentBaseRefWithTag.c)
+ *     IoGetAttachedDeviceReferenceWithTag @ 0x140357A14 (IoGetAttachedDeviceReferenceWithTag.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1403597C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     PopFxLockDevice @ 0x1403A79D0 (PopFxLockDevice.c)
+ *     PopFxDereferenceDevice @ 0x1403A7F58 (PopFxDereferenceDevice.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     VfIrpWatermark @ 0x140B90080 (VfIrpWatermark.c)
  */
 
 __int64 __fastcall PopAllocateIrp(
@@ -44,7 +44,7 @@ __int64 __fastcall PopAllocateIrp(
   void *DeviceAttachmentBaseRefWithTag; // rax
   void *v19; // rbx
   __int64 v20; // rcx
-  int PowerIrp; // eax
+  int v21; // eax
   unsigned int v22; // r15d
   void *v23; // rax
   _QWORD *v24; // rdx
@@ -86,9 +86,9 @@ __int64 __fastcall PopAllocateIrp(
     {
       if ( a3 == 2 && a4 == 1 )
       {
-        PowerIrp = PopFxAllocatePowerIrp(v20, (int)a1, a5, a8, a9, a7, (KIRQL)&Irp, (__int64)&v36);
-        v22 = PowerIrp;
-        if ( PowerIrp < 0 && PowerIrp != -1073741130 || PowerIrp == 259 )
+        v21 = PopFxAllocatePowerIrp(v20, (__int64)a1, a5, a8, a9, a7, &Irp, &v36);
+        v22 = v21;
+        if ( v21 < 0 && v21 != -1073741130 || v21 == 259 )
         {
           v14 = Irp;
           v15 = v36;
@@ -99,7 +99,7 @@ LABEL_37:
             goto LABEL_38;
           goto LABEL_28;
         }
-        if ( PowerIrp >= 0 )
+        if ( v21 >= 0 )
         {
           v16 = *(_QWORD *)(Interval.QuadPart + 80);
           if ( AttachedDeviceReferenceWithTag->StackSize > *(_BYTE *)(*(_QWORD *)(v16 + 16) + 66LL) )
@@ -146,15 +146,15 @@ LABEL_11:
           v27[-1].DeviceObject = AttachedDeviceReferenceWithTag;
           KeAcquireInStackQueuedSpinLock(&PopIrpLock, &LockHandle);
           PopIrpLockThread = (__int64)KeGetCurrentThread();
-          v28 = (_QWORD *)qword_140F0B688;
-          if ( *(__int64 **)qword_140F0B688 != &PopIrpList )
+          v28 = (_QWORD *)qword_140F0B1F8;
+          if ( *(__int64 **)qword_140F0B1F8 != &PopIrpList )
             __fastfail(3u);
           v32 = v36;
           PopIrpLockThread = 0LL;
           *(_QWORD *)v36 = &PopIrpList;
           v32[1] = v28;
           *v28 = v32;
-          qword_140F0B688 = (__int64)v32;
+          qword_140F0B1F8 = (__int64)v32;
           KeReleaseInStackQueuedSpinLock(&LockHandle);
           AttachedDeviceReferenceWithTag = 0LL;
           v14 = Irp;

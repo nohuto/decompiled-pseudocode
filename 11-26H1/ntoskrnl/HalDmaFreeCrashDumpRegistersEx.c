@@ -1,10 +1,10 @@
 /*
- * XREFs of HalDmaFreeCrashDumpRegistersEx @ 0x1404EFF50
+ * XREFs of HalDmaFreeCrashDumpRegistersEx @ 0x1404E9530
  * Callers:
- *     DifHalDmaFreeCrashDumpRegistersExWrapper @ 0x140655ED0 (DifHalDmaFreeCrashDumpRegistersExWrapper.c)
+ *     DifHalDmaFreeCrashDumpRegistersExWrapper @ 0x140659AB0 (DifHalDmaFreeCrashDumpRegistersExWrapper.c)
  * Callees:
- *     HalpDmaFreeCrashdumpRegistersInternal @ 0x1404EFF74 (HalpDmaFreeCrashdumpRegistersInternal.c)
- *     HalpDmaExtractFromVerifierShadowAdapter @ 0x1404F0014 (HalpDmaExtractFromVerifierShadowAdapter.c)
+ *     HalpDmaFreeCrashdumpRegistersInternal @ 0x1404E9554 (HalpDmaFreeCrashdumpRegistersInternal.c)
+ *     HalpDmaExtractFromVerifierShadowAdapter @ 0x1404E95F4 (HalpDmaExtractFromVerifierShadowAdapter.c)
  */
 
 __int64 HalDmaFreeCrashDumpRegistersEx()

@@ -1,14 +1,14 @@
 /*
- * XREFs of ExpCaptureWnfStateName @ 0x14060F868
+ * XREFs of ExpCaptureWnfStateName @ 0x140610868
  * Callers:
- *     NtUnsubscribeWnfStateChange @ 0x140606BC0 (NtUnsubscribeWnfStateChange.c)
- *     ExpWnfCompleteThreadSubscriptions @ 0x14060E8D0 (ExpWnfCompleteThreadSubscriptions.c)
- *     NtUpdateWnfStateData @ 0x14060EBB0 (NtUpdateWnfStateData.c)
- *     ExpWnfSubscribeWnfStateChange @ 0x14060F054 (ExpWnfSubscribeWnfStateChange.c)
- *     NtQueryWnfStateData @ 0x14060F3C0 (NtQueryWnfStateData.c)
- *     NtDeleteWnfStateName @ 0x1406AB2E0 (NtDeleteWnfStateName.c)
- *     NtQueryWnfStateNameInformation @ 0x1406B4ED0 (NtQueryWnfStateNameInformation.c)
- *     NtDeleteWnfStateData @ 0x14075E520 (NtDeleteWnfStateData.c)
+ *     NtUnsubscribeWnfStateChange @ 0x140607BC0 (NtUnsubscribeWnfStateChange.c)
+ *     ExpWnfCompleteThreadSubscriptions @ 0x14060F8D0 (ExpWnfCompleteThreadSubscriptions.c)
+ *     NtUpdateWnfStateData @ 0x14060FBB0 (NtUpdateWnfStateData.c)
+ *     ExpWnfSubscribeWnfStateChange @ 0x140610054 (ExpWnfSubscribeWnfStateChange.c)
+ *     NtQueryWnfStateData @ 0x1406103C0 (NtQueryWnfStateData.c)
+ *     NtDeleteWnfStateName @ 0x1406AC580 (NtDeleteWnfStateName.c)
+ *     NtQueryWnfStateNameInformation @ 0x1406B6170 (NtQueryWnfStateNameInformation.c)
+ *     NtDeleteWnfStateData @ 0x14075F710 (NtDeleteWnfStateData.c)
  * Callees:
  *     <none>
  */

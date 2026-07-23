@@ -1,20 +1,20 @@
 /*
  * XREFs of PsGetPermanentSiloContext @ 0x140211FA0
  * Callers:
- *     CmGetRootKeyObjectForSilo @ 0x140690BDC (CmGetRootKeyObjectForSilo.c)
- *     CmpGetOrCreateContextForSiloNoRef @ 0x140690C50 (CmpGetOrCreateContextForSiloNoRef.c)
- *     VrpHandleIoctlLoadDifferencingHive @ 0x140690CFC (VrpHandleIoctlLoadDifferencingHive.c)
- *     VrpHandleIoctlCreateNamespaceNode @ 0x140691898 (VrpHandleIoctlCreateNamespaceNode.c)
- *     VRegEnabledInJob @ 0x1406928FC (VRegEnabledInJob.c)
- *     CmpParseKey @ 0x1407349A0 (CmpParseKey.c)
- *     ObpLookupObjectName @ 0x1407CB6C0 (ObpLookupObjectName.c)
- *     VrpHandleIoctlUnloadDynamicallyLoadedHives @ 0x1407F5F80 (VrpHandleIoctlUnloadDynamicallyLoadedHives.c)
- *     CmLockKeyForWrite @ 0x14080F9EC (CmLockKeyForWrite.c)
- *     ObInitServerSilo @ 0x140859318 (ObInitServerSilo.c)
- *     VrpHandleIoctlCreateMultipleNamespaceNodes @ 0x1409262FC (VrpHandleIoctlCreateMultipleNamespaceNodes.c)
- *     VrpHandleIoctlModifyFlags @ 0x140926868 (VrpHandleIoctlModifyFlags.c)
- *     PspDeleteExternalServerSiloState @ 0x1409ABED8 (PspDeleteExternalServerSiloState.c)
- *     ObGetSiloRootDirectoryPath @ 0x140A34854 (ObGetSiloRootDirectoryPath.c)
+ *     sub_140690BDC @ 0x140690BDC (sub_140690BDC.c)
+ *     sub_140690C50 @ 0x140690C50 (sub_140690C50.c)
+ *     sub_140690CFC @ 0x140690CFC (sub_140690CFC.c)
+ *     sub_140691898 @ 0x140691898 (sub_140691898.c)
+ *     sub_1406928FC @ 0x1406928FC (sub_1406928FC.c)
+ *     sub_1407349A0 @ 0x1407349A0 (sub_1407349A0.c)
+ *     sub_1407CB6C0 @ 0x1407CB6C0 (sub_1407CB6C0.c)
+ *     sub_1407F5F80 @ 0x1407F5F80 (sub_1407F5F80.c)
+ *     sub_14080F9EC @ 0x14080F9EC (sub_14080F9EC.c)
+ *     sub_140859318 @ 0x140859318 (sub_140859318.c)
+ *     sub_1409262FC @ 0x1409262FC (sub_1409262FC.c)
+ *     sub_140926868 @ 0x140926868 (sub_140926868.c)
+ *     sub_1409ABED8 @ 0x1409ABED8 (sub_1409ABED8.c)
+ *     sub_140A34854 @ 0x140A34854 (sub_140A34854.c)
  * Callees:
  *     <none>
  */

@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpCCSwapInitializeProcessor @ 0x140798EEC
+ * XREFs of EtwpCCSwapInitializeProcessor @ 0x1407990EC
  * Callers:
- *     EtwInitializeProcessor @ 0x140798E7C (EtwInitializeProcessor.c)
+ *     EtwInitializeProcessor @ 0x14079907C (EtwInitializeProcessor.c)
  * Callees:
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpCCSwapInitializeProcessor(__int64 a1)

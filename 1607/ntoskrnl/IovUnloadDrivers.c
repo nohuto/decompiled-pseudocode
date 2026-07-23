@@ -3,11 +3,11 @@
  * Callers:
  *     IoShutdownSystem @ 0x1403D9EDC (IoShutdownSystem.c)
  * Callees:
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     ZwDelayExecution @ 0x14015A300 (ZwDelayExecution.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     ZwDelayExecution @ 0x14015A870 (ZwDelayExecution.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     ObEnumerateObjectsByType @ 0x140666508 (ObEnumerateObjectsByType.c)
- *     IovpUnloadDriver @ 0x14070172C (IovpUnloadDriver.c)
+ *     ObEnumerateObjectsByType @ 0x1406665EC (ObEnumerateObjectsByType.c)
+ *     IovpUnloadDriver @ 0x14070175C (IovpUnloadDriver.c)
  */
 
 __int64 IovUnloadDrivers()

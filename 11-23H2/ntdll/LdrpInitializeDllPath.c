@@ -37,9 +37,9 @@ void *__fastcall LdrpInitializeDllPath(__int64 a1, __int64 a2, __int64 *a3)
     *a3 = a2;
     LdrpLogInternal(
       (unsigned int)"minkernel\\ntdll\\ldrutil.c",
-      1445LL,
+      1445,
       (__int64)"LdrpInitializeDllPath",
-      2LL,
+      2u,
       "DLL search path passed in externally: %ws\n",
       a2);
     return (void *)LdrpLogDllStateEx2(v7, a1, *a3, 5312LL);

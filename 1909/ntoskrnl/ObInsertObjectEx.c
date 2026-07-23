@@ -84,7 +84,7 @@ __int64 __fastcall ObInsertObjectEx(
         _QWORD *a7)
 {
   _QWORD *v8; // r12
-  struct _SLIST_ENTRY *v11; // rsi
+  _SLIST_ENTRY *v11; // rsi
   char *v12; // r8
   unsigned __int64 v13; // rcx
   void *v14; // rbx
@@ -106,7 +106,7 @@ __int64 __fastcall ObInsertObjectEx(
   PSECURITY_DESCRIPTOR v31; // rdx
   int v32; // ebx
   _SLIST_ENTRY *v33; // rcx
-  struct _SLIST_ENTRY *v34; // rax
+  _SLIST_ENTRY *v34; // rax
   int Handle; // r15d
   KPROCESSOR_MODE v36; // al
   struct _KTHREAD *v37; // rax
@@ -120,8 +120,8 @@ __int64 __fastcall ObInsertObjectEx(
   __int64 v45; // [rsp+48h] [rbp-B8h]
   __int64 v46; // [rsp+48h] [rbp-B8h]
   KPROCESSOR_MODE PreviousMode; // [rsp+60h] [rbp-A0h]
-  unsigned int v50; // [rsp+6Ch] [rbp-94h] BYREF
-  __int64 v51; // [rsp+70h] [rbp-90h] BYREF
+  int v50; // [rsp+6Ch] [rbp-94h] BYREF
+  ULONG Index[2]; // [rsp+70h] [rbp-90h] BYREF
   PSECURITY_DESCRIPTOR SecurityDescriptor; // [rsp+78h] [rbp-88h] BYREF
   char *v53; // [rsp+80h] [rbp-80h]
   struct _KTHREAD *v54; // [rsp+88h] [rbp-78h]
@@ -139,7 +139,7 @@ __int64 __fastcall ObInsertObjectEx(
   v60 = a7;
   memset(v62, 0, sizeof(v62));
   memset(v61, 0, sizeof(v61));
-  v11 = (struct _SLIST_ENTRY *)*(Object - 2);
+  v11 = (_SLIST_ENTRY *)*(Object - 2);
   v12 = 0LL;
   v13 = *((unsigned __int8 *)Object - 24) ^ (unsigned __int64)(unsigned __int8)((unsigned __int16)((_WORD)Object - 48) >> 8);
   v53 = 0LL;
@@ -185,7 +185,7 @@ __int64 __fastcall ObInsertObjectEx(
       if ( LOWORD(P->ListHead.Alignment) >= P->Depth )
       {
         ++P->FreeMisses;
-        ((void (__fastcall *)(struct _SLIST_ENTRY *))P->FreeEx)(v11);
+        ((void (__fastcall *)(_SLIST_ENTRY *))P->FreeEx)(v11);
         ObfDereferenceObject(Object);
         return (unsigned int)v14;
       }
@@ -274,9 +274,10 @@ LABEL_44:
     if ( !v53 && ((v15->TypeInfo.ObjectTypeFlags & 8) != 0 || (char *)v11[2].Next != v53) )
     {
       v31 = AccessState->SecurityDescriptor;
+      Index[1] = 0;
       SecurityDescriptor = 0LL;
-      v51 = 8LL;
-      v32 = SeComputeAutoInheritByObjectTypeEx((__int64)v15, (__int64)v31, 0LL, &v50, &v51);
+      Index[0] = 8;
+      v32 = SeComputeAutoInheritByObjectTypeEx((__int64)v15, (__int64)v31, 0LL, &v50, Index);
       if ( v32 < 0 )
         goto LABEL_51;
       v32 = SeAssignSecurityEx2(
@@ -285,8 +286,8 @@ LABEL_44:
               (int)&SecurityDescriptor,
               0LL,
               v15 == ObpDirectoryObjectType,
-              (16 * (a5 & 1)) | v50,
-              &v51,
+              (16 * (a5 & 1)) | (unsigned int)v50,
+              Index,
               (__int64)&AccessState->SubjectSecurityContext,
               (__int64)&v15->TypeInfo.GenericMapping);
       if ( v32 < 0 )
@@ -373,7 +374,7 @@ LABEL_71:
     else
     {
       ++L->FreeMisses;
-      ((void (__fastcall *)(struct _SLIST_ENTRY *))L->FreeEx)(v11);
+      ((void (__fastcall *)(_SLIST_ENTRY *))L->FreeEx)(v11);
     }
     if ( AccessState == (PACCESS_STATE)v61 )
     {

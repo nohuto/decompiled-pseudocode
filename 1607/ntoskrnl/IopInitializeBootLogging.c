@@ -1,19 +1,19 @@
 /*
- * XREFs of IopInitializeBootLogging @ 0x14062188C
+ * XREFs of IopInitializeBootLogging @ 0x140621940
  * Callers:
  *     Phase1InitializationDiscard @ 0x140794438 (Phase1InitializationDiscard.c)
  * Callees:
- *     ExInitializeResourceLite @ 0x14000ECC0 (ExInitializeResourceLite.c)
- *     ExAcquireResourceExclusiveLite @ 0x140068160 (ExAcquireResourceExclusiveLite.c)
- *     ExAcquireResourceSharedLite @ 0x1400685B0 (ExAcquireResourceSharedLite.c)
- *     ExReleaseResourceLite @ 0x140068940 (ExReleaseResourceLite.c)
- *     ExAllocatePoolWithTagPriority @ 0x14007E210 (ExAllocatePoolWithTagPriority.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     ExInitializeResourceLite @ 0x14000E840 (ExInitializeResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140067CE0 (ExAcquireResourceExclusiveLite.c)
+ *     ExAcquireResourceSharedLite @ 0x140068130 (ExAcquireResourceSharedLite.c)
+ *     ExReleaseResourceLite @ 0x1400684C0 (ExReleaseResourceLite.c)
+ *     ExAllocatePoolWithTagPriority @ 0x14007E290 (ExAllocatePoolWithTagPriority.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     RtlAnsiStringToUnicodeString @ 0x1403F6600 (RtlAnsiStringToUnicodeString.c)
- *     IopBootLog @ 0x1404EFE0C (IopBootLog.c)
- *     RtlFindMessage @ 0x14051C574 (RtlFindMessage.c)
- *     RtlCreateUnicodeStringFromAsciiz @ 0x14055FCEC (RtlCreateUnicodeStringFromAsciiz.c)
+ *     RtlAnsiStringToUnicodeString @ 0x1403F54C4 (RtlAnsiStringToUnicodeString.c)
+ *     IopBootLog @ 0x1404D1E28 (IopBootLog.c)
+ *     RtlFindMessage @ 0x1404FF964 (RtlFindMessage.c)
+ *     RtlCreateUnicodeStringFromAsciiz @ 0x14056022C (RtlCreateUnicodeStringFromAsciiz.c)
  */
 
 void __fastcall IopInitializeBootLogging(__int64 a1, __int64 a2)
@@ -30,7 +30,7 @@ void __fastcall IopInitializeBootLogging(__int64 a1, __int64 a2)
   unsigned __int64 v13; // rcx
   wchar_t *v14; // rax
   PVOID *i; // rbx
-  STRING SourceString; // [rsp+30h] [rbp-10h] BYREF
+  ANSI_STRING SourceString; // [rsp+30h] [rbp-10h] BYREF
   PMESSAGE_RESOURCE_ENTRY MessageResourceEntry; // [rsp+70h] [rbp+30h] BYREF
 
   if ( !qword_140747020 )

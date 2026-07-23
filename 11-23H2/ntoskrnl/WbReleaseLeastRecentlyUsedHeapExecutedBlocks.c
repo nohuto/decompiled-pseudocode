@@ -1,15 +1,15 @@
 /*
- * XREFs of WbReleaseLeastRecentlyUsedHeapExecutedBlocks @ 0x1407617D0
+ * XREFs of WbReleaseLeastRecentlyUsedHeapExecutedBlocks @ 0x1407619C0
  * Callers:
- *     WbGetHeapExecutedBlock @ 0x140762918 (WbGetHeapExecutedBlock.c)
+ *     WbGetHeapExecutedBlock @ 0x140762B08 (WbGetHeapExecutedBlock.c)
  * Callees:
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F820 (KiCheckForKernelApcDelivery.c)
- *     sub_140761978 @ 0x140761978 (sub_140761978.c)
- *     sub_140762AA4 @ 0x140762AA4 (sub_140762AA4.c)
+ *     KeAbPreAcquire @ 0x140230FD0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402FD0A0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KiCheckForKernelApcDelivery @ 0x14030FAB0 (KiCheckForKernelApcDelivery.c)
+ *     sub_140761B68 @ 0x140761B68 (sub_140761B68.c)
+ *     sub_140762C94 @ 0x140762C94 (sub_140762C94.c)
  */
 
 void __fastcall WbReleaseLeastRecentlyUsedHeapExecutedBlocks(unsigned __int64 *a1, int a2)
@@ -82,8 +82,8 @@ void __fastcall WbReleaseLeastRecentlyUsedHeapExecutedBlocks(unsigned __int64 *a
       {
         v16 = v14[6];
         v20 = 0LL;
-        if ( (int)sub_140761978((int)a1 + 8, v16, 8, -1, (__int64)&v20) >= 0 )
-          sub_140762AA4(a1, v20);
+        if ( (int)sub_140761B68((int)a1 + 8, v16, 8, -1, (__int64)&v20) >= 0 )
+          sub_140762C94(a1, v20);
       }
       v17 = _InterlockedExchangeAdd64((volatile signed __int64 *)v3, 0xFFFFFFFFFFFFFFFFuLL);
       if ( (v17 & 2) != 0 && (v17 & 4) == 0 )
@@ -95,7 +95,7 @@ void __fastcall WbReleaseLeastRecentlyUsedHeapExecutedBlocks(unsigned __int64 *a
         KiCheckForKernelApcDelivery();
       if ( !v14 )
         break;
-      sub_140762AA4(a1, v14);
+      sub_140762C94(a1, v14);
     }
     while ( v2 > 0 );
   }

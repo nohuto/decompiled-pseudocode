@@ -47,10 +47,13 @@ unsigned __int64 *__fastcall MiRemoveMappingNode(ULONG_PTR BugCheckParameter2, U
     KeBugCheckEx(0xDAu, 0x106uLL, BugCheckParameter2, v3, 0LL);
   RtlAvlRemoveNode((unsigned __int64 *)&qword_140C685C8, v5);
   ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C685C0);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v7 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v7 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

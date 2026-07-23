@@ -1,9 +1,9 @@
 /*
- * XREFs of KiSetVirtualHeteroClockIntervalRequestDpcRoutine @ 0x1404627A0
+ * XREFs of KiSetVirtualHeteroClockIntervalRequestDpcRoutine @ 0x140462BA0
  * Callers:
  *     <none>
  * Callees:
- *     KiSetVirtualHeteroClockIntervalRequest @ 0x140462680 (KiSetVirtualHeteroClockIntervalRequest.c)
+ *     KiSetVirtualHeteroClockIntervalRequest @ 0x140462A80 (KiSetVirtualHeteroClockIntervalRequest.c)
  */
 
 __int64 KiSetVirtualHeteroClockIntervalRequestDpcRoutine()

@@ -1,22 +1,22 @@
 /*
- * XREFs of PsUnregisterSiloMonitor @ 0x140681064
+ * XREFs of PsUnregisterSiloMonitor @ 0x140681148
  * Callers:
  *     CmpInitServerSilo @ 0x1407AE8A8 (CmpInitServerSilo.c)
  * Callees:
- *     xHalTimerWatchdogStop @ 0x140002DFC (xHalTimerWatchdogStop.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
- *     KiStackAttachProcess @ 0x1400CD1F0 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x1400CE820 (KiUnstackDetachProcess.c)
- *     PspAcquirePushLockExclusive @ 0x14013E198 (PspAcquirePushLockExclusive.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     PspGetHostSiloStorage @ 0x14017192C (PspGetHostSiloStorage.c)
- *     PspGetServerSiloStatePointer @ 0x140171934 (PspGetServerSiloStatePointer.c)
+ *     xHalTimerWatchdogStop @ 0x140002F70 (xHalTimerWatchdogStop.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
+ *     KiStackAttachProcess @ 0x1400CB090 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x1400CC6C0 (KiUnstackDetachProcess.c)
+ *     PspAcquirePushLockExclusive @ 0x14013E708 (PspAcquirePushLockExclusive.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     PspGetHostSiloStorage @ 0x140171E28 (PspGetHostSiloStorage.c)
+ *     PspGetServerSiloStatePointer @ 0x140171E30 (PspGetServerSiloStatePointer.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     PspGetNextSilo @ 0x14055F95C (PspGetNextSilo.c)
- *     PspStorageFreeSlot @ 0x140682A68 (PspStorageFreeSlot.c)
- *     PspStorageRemoveObject @ 0x140682BEC (PspStorageRemoveObject.c)
+ *     PspGetNextSilo @ 0x14055FE9C (PspGetNextSilo.c)
+ *     PspStorageFreeSlot @ 0x140682B4C (PspStorageFreeSlot.c)
+ *     PspStorageRemoveObject @ 0x140682CD0 (PspStorageRemoveObject.c)
  */
 
 void __fastcall PsUnregisterSiloMonitor(unsigned int *P)

@@ -1,15 +1,15 @@
 /*
- * XREFs of LdrpInitializeGraphRecurse @ 0x1800722B8
+ * XREFs of LdrpInitializeGraphRecurse @ 0x1800722A8
  * Callers:
- *     LdrpPrepareModuleForExecution @ 0x18002DA88 (LdrpPrepareModuleForExecution.c)
- *     LdrGetProcedureAddressForCaller @ 0x180031D60 (LdrGetProcedureAddressForCaller.c)
- *     LdrpInitializeGraphRecurse @ 0x1800722B8 (LdrpInitializeGraphRecurse.c)
- *     LdrpInitializeShimDllDependencies @ 0x18007DF78 (LdrpInitializeShimDllDependencies.c)
- *     LdrpInitializeProcess @ 0x180091E34 (LdrpInitializeProcess.c)
- *     AVrfInitializeVerifier @ 0x1800D5F68 (AVrfInitializeVerifier.c)
+ *     LdrpPrepareModuleForExecution @ 0x18002DA78 (LdrpPrepareModuleForExecution.c)
+ *     LdrGetProcedureAddressForCaller @ 0x180031D50 (LdrGetProcedureAddressForCaller.c)
+ *     LdrpInitializeGraphRecurse @ 0x1800722A8 (LdrpInitializeGraphRecurse.c)
+ *     LdrpInitializeShimDllDependencies @ 0x18007DF68 (LdrpInitializeShimDllDependencies.c)
+ *     LdrpInitializeProcess @ 0x180091E24 (LdrpInitializeProcess.c)
+ *     AVrfInitializeVerifier @ 0x1800D6028 (AVrfInitializeVerifier.c)
  * Callees:
- *     LdrpInitializeGraphRecurse @ 0x1800722B8 (LdrpInitializeGraphRecurse.c)
- *     LdrpInitializeNode @ 0x180072384 (LdrpInitializeNode.c)
+ *     LdrpInitializeGraphRecurse @ 0x1800722A8 (LdrpInitializeGraphRecurse.c)
+ *     LdrpInitializeNode @ 0x180072374 (LdrpInitializeNode.c)
  */
 
 __int64 __fastcall LdrpInitializeGraphRecurse(__int64 a1, __int64 a2, _BYTE *a3)

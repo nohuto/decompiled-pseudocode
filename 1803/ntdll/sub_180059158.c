@@ -13,21 +13,21 @@
  *     sub_180059528 @ 0x180059528 (sub_180059528.c)
  */
 
-__int64 __fastcall sub_180059158(__int64 a1, unsigned __int64 a2, unsigned __int64 *a3, __int64 a4)
+__int64 __fastcall sub_180059158(__int64 a1)
 {
-  unsigned int v5; // edi
-  __int64 v6; // rcx
+  unsigned int v2; // edi
+  __int64 v3; // rcx
 
-  v5 = 0;
-  RtlAcquireSRWLockExclusive((unsigned __int64)&qword_18015D070, a2, a3, a4);
-  v6 = *(_QWORD *)(a1 + 152);
-  if ( *(_DWORD *)(v6 + 24) != -1 && (*(_BYTE *)(*(_QWORD *)v6 - 56LL) & 0x20) == 0 )
+  v2 = 0;
+  RtlAcquireSRWLockExclusive(&stru_18015D070);
+  v3 = *(_QWORD *)(a1 + 152);
+  if ( *(_DWORD *)(v3 + 24) != -1 && (*(_BYTE *)(*(_QWORD *)v3 - 56LL) & 0x20) == 0 )
   {
-    if ( *(_DWORD *)(v6 + 24) )
+    if ( *(_DWORD *)(v3 + 24) )
       sub_180059528();
     else
-      v5 = -1073741823;
+      v2 = -1073741823;
   }
-  RtlReleaseSRWLockExclusive(&qword_18015D070);
-  return v5;
+  RtlReleaseSRWLockExclusive(&stru_18015D070);
+  return v2;
 }

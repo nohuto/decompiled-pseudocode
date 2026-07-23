@@ -1,15 +1,15 @@
 /*
- * XREFs of PopFxIdleTimeoutDpcRoutine @ 0x1404D4C60
+ * XREFs of PopFxIdleTimeoutDpcRoutine @ 0x1404CE4D0
  * Callers:
  *     <none>
  * Callees:
- *     PopDiagTraceFxDevicePowerRequirement @ 0x140219E80 (PopDiagTraceFxDevicePowerRequirement.c)
- *     PopFxAddLogEntry @ 0x14021A640 (PopFxAddLogEntry.c)
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     PopFxBugCheck @ 0x1403B0E54 (PopFxBugCheck.c)
- *     PopFxDeliverDevicePowerRequired @ 0x1403B3CC4 (PopFxDeliverDevicePowerRequired.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     PopDiagTraceFxDevicePowerRequirement @ 0x14021B810 (PopDiagTraceFxDevicePowerRequirement.c)
+ *     PopFxAddLogEntry @ 0x14021BFD0 (PopFxAddLogEntry.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PopFxBugCheck @ 0x1403BAB64 (PopFxBugCheck.c)
+ *     PopFxDeliverDevicePowerRequired @ 0x1403BDBD0 (PopFxDeliverDevicePowerRequired.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 void __fastcall PopFxIdleTimeoutDpcRoutine(__int64 a1, ULONG_PTR a2)

@@ -3,10 +3,10 @@
  * Callers:
  *     <none>
  * Callees:
- *     RtlpQueryTimeZoneInformationWorker @ 0x1406F1774 (RtlpQueryTimeZoneInformationWorker.c)
+ *     sub_1406F1774 @ 0x1406F1774 (sub_1406F1774.c)
  */
 
-__int64 __fastcall RtlQueryTimeZoneInformation(char *a1)
+NTSTATUS __cdecl RtlQueryTimeZoneInformation(PRTL_TIME_ZONE_INFORMATION TimeZoneInformation)
 {
-  return RtlpQueryTimeZoneInformationWorker(a1, 0xACuLL);
+  return sub_1406F1774((char *)TimeZoneInformation, 0xACuLL);
 }

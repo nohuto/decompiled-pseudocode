@@ -1,12 +1,12 @@
 /*
- * XREFs of NtSetEvent @ 0x14098A760
+ * XREFs of NtSetEvent @ 0x140973E50
  * Callers:
- *     SepAdtInitializeAuditingOptions @ 0x140C3B150 (SepAdtInitializeAuditingOptions.c)
+ *     SepAdtInitializeAuditingOptions @ 0x140C3D2A8 (SepAdtInitializeAuditingOptions.c)
  * Callees:
- *     NtSetEventEx @ 0x14098A780 (NtSetEventEx.c)
+ *     NtSetEventEx @ 0x140973E70 (NtSetEventEx.c)
  */
 
-__int64 __fastcall NtSetEvent(void *a1)
+NTSTATUS __cdecl NtSetEvent(HANDLE EventHandle, PLONG PreviousState)
 {
-  return NtSetEventEx(a1);
+  return NtSetEventEx(EventHandle);
 }

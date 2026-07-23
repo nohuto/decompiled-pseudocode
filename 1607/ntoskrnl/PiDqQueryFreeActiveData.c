@@ -1,30 +1,30 @@
 /*
- * XREFs of PiDqQueryFreeActiveData @ 0x14048CA74
+ * XREFs of PiDqQueryFreeActiveData @ 0x14048D088
  * Callers:
- *     PiDqIrpQueryGetResult @ 0x14048AB64 (PiDqIrpQueryGetResult.c)
- *     PiDqObjectManagerEnumerateAndRegisterQuery @ 0x14048AD7C (PiDqObjectManagerEnumerateAndRegisterQuery.c)
- *     PiDqIrpQueryCreate @ 0x14048B3E8 (PiDqIrpQueryCreate.c)
- *     PiDqObjectManagerServiceActionQueue @ 0x14048B654 (PiDqObjectManagerServiceActionQueue.c)
- *     PiDqQueryApplyObjectEvent @ 0x14048BF34 (PiDqQueryApplyObjectEvent.c)
- *     PiDqQueryRelease @ 0x14048C588 (PiDqQueryRelease.c)
- *     PiDqQueryAppendActionEntry @ 0x14048C88C (PiDqQueryAppendActionEntry.c)
+ *     PiDqIrpQueryGetResult @ 0x14048ADF8 (PiDqIrpQueryGetResult.c)
+ *     PiDqObjectManagerEnumerateAndRegisterQuery @ 0x14048B010 (PiDqObjectManagerEnumerateAndRegisterQuery.c)
+ *     PiDqIrpQueryCreate @ 0x14048B94C (PiDqIrpQueryCreate.c)
+ *     PiDqObjectManagerServiceActionQueue @ 0x14048BBB8 (PiDqObjectManagerServiceActionQueue.c)
+ *     PiDqQueryApplyObjectEvent @ 0x14048C498 (PiDqQueryApplyObjectEvent.c)
+ *     PiDqQueryRelease @ 0x14048CAEC (PiDqQueryRelease.c)
+ *     PiDqQueryAppendActionEntry @ 0x14048CEA0 (PiDqQueryAppendActionEntry.c)
  * Callees:
- *     RtlIsGenericTableEmptyAvl @ 0x1400C3E40 (RtlIsGenericTableEmptyAvl.c)
- *     PiDqQueryDeleteObjectFromResultSet @ 0x14048A260 (PiDqQueryDeleteObjectFromResultSet.c)
- *     PiDqQueryActionQueueEntryFree @ 0x14048BD04 (PiDqQueryActionQueueEntryFree.c)
- *     PiDqActionDataFree @ 0x14048BEE8 (PiDqActionDataFree.c)
+ *     RtlIsGenericTableEmptyAvl @ 0x1400C1CE0 (RtlIsGenericTableEmptyAvl.c)
+ *     PiDqQueryActionQueueEntryFree @ 0x14048C268 (PiDqQueryActionQueueEntryFree.c)
+ *     PiDqActionDataFree @ 0x14048C44C (PiDqActionDataFree.c)
+ *     PiDqQueryDeleteObjectFromResultSet @ 0x1404D1050 (PiDqQueryDeleteObjectFromResultSet.c)
  */
 
 void __fastcall PiDqQueryFreeActiveData(__int64 a1)
 {
-  struct _RTL_AVL_TABLE *i; // rcx
+  _RTL_AVL_TABLE *i; // rcx
   __int64 **v3; // rdi
   _QWORD *v4; // rcx
   __int64 *v5; // rcx
   __int64 v6; // rax
 
-  for ( i = (struct _RTL_AVL_TABLE *)(a1 + 72); !RtlIsGenericTableEmptyAvl(i); i = (struct _RTL_AVL_TABLE *)(a1 + 72) )
-    PiDqQueryDeleteObjectFromResultSet(a1, *(void **)(*(_QWORD *)(a1 + 88) + 32LL));
+  for ( i = (_RTL_AVL_TABLE *)(a1 + 72); !RtlIsGenericTableEmptyAvl(i); i = (_RTL_AVL_TABLE *)(a1 + 72) )
+    PiDqQueryDeleteObjectFromResultSet(a1, *(_QWORD *)(*(_QWORD *)(a1 + 88) + 32LL));
   v3 = (__int64 **)(a1 + 192);
   while ( *v3 != (__int64 *)v3 )
   {

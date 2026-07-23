@@ -1,11 +1,11 @@
 /*
- * XREFs of TxtpDestroyCacheEntry @ 0x140C52B30
+ * XREFs of TxtpDestroyCacheEntry @ 0x140C58B30
  * Callers:
- *     TxtpAddCacheEntry @ 0x140C527F0 (TxtpAddCacheEntry.c)
- *     TxtpClearCache @ 0x140C52AD4 (TxtpClearCache.c)
+ *     TxtpAddCacheEntry @ 0x140C587F0 (TxtpAddCacheEntry.c)
+ *     TxtpClearCache @ 0x140C58AD4 (TxtpClearCache.c)
  * Callees:
- *     BgpFwFreeMemory @ 0x140355E00 (BgpFwFreeMemory.c)
- *     BgpGxRectangleDestroy @ 0x140C53414 (BgpGxRectangleDestroy.c)
+ *     BgpFwFreeMemory @ 0x140357BA8 (BgpFwFreeMemory.c)
+ *     BgpGxRectangleDestroy @ 0x140C59414 (BgpGxRectangleDestroy.c)
  */
 
 void __fastcall TxtpDestroyCacheEntry(__int64 a1)

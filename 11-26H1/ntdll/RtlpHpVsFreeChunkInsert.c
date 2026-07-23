@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlpHpVsFreeChunkInsert @ 0x1800E797C
+ * XREFs of RtlpHpVsFreeChunkInsert @ 0x1800E63DC
  * Callers:
- *     RtlpHpVsSlotAddSubsegment @ 0x1800130E0 (RtlpHpVsSlotAddSubsegment.c)
- *     RtlpHpVsChunkFree @ 0x18006B040 (RtlpHpVsChunkFree.c)
+ *     RtlpHpVsSlotAddSubsegment @ 0x18005E810 (RtlpHpVsSlotAddSubsegment.c)
+ *     RtlpHpVsChunkFree @ 0x18008B490 (RtlpHpVsChunkFree.c)
  * Callees:
- *     RtlpHpVsChunkComputeCost @ 0x18006B794 (RtlpHpVsChunkComputeCost.c)
+ *     RtlpHpVsChunkComputeCost @ 0x18008BBE4 (RtlpHpVsChunkComputeCost.c)
  */
 
-char __fastcall RtlpHpVsFreeChunkInsert(__int64 a1, __int64 a2, __int64 a3, unsigned __int64 a4)
+BOOLEAN __fastcall RtlpHpVsFreeChunkInsert(__int64 a1, __int64 a2, __int64 a3, unsigned __int64 a4)
 {
-  bool v7; // bl
+  BOOLEAN v7; // bl
   __int16 v8; // ax
   int v9; // r8d
   unsigned __int64 v10; // rax
@@ -54,7 +54,7 @@ char __fastcall RtlpHpVsFreeChunkInsert(__int64 a1, __int64 a2, __int64 a3, unsi
           {
 LABEL_13:
             v7 = 1;
-            return RtlRbInsertNodeEx((unsigned __int64 *)(a2 + 16), v12, v7, a4 + 8);
+            return RtlRbInsertNodeEx((PRTL_RB_TREE)(a2 + 16), (PRTL_BALANCED_NODE)v12, v7, (PRTL_BALANCED_NODE)(a4 + 8));
           }
           v13 ^= v12;
         }
@@ -67,14 +67,14 @@ LABEL_13:
         if ( (*(_BYTE *)(a2 + 24) & 1) != 0 )
         {
           if ( !v13 )
-            return RtlRbInsertNodeEx((unsigned __int64 *)(a2 + 16), v12, v7, a4 + 8);
+            return RtlRbInsertNodeEx((PRTL_RB_TREE)(a2 + 16), (PRTL_BALANCED_NODE)v12, v7, (PRTL_BALANCED_NODE)(a4 + 8));
           v13 ^= v12;
         }
         if ( !v13 )
-          return RtlRbInsertNodeEx((unsigned __int64 *)(a2 + 16), v12, v7, a4 + 8);
+          return RtlRbInsertNodeEx((PRTL_RB_TREE)(a2 + 16), (PRTL_BALANCED_NODE)v12, v7, (PRTL_BALANCED_NODE)(a4 + 8));
       }
       v12 = v13;
     }
   }
-  return RtlRbInsertNodeEx((unsigned __int64 *)(a2 + 16), v12, v7, a4 + 8);
+  return RtlRbInsertNodeEx((PRTL_RB_TREE)(a2 + 16), (PRTL_BALANCED_NODE)v12, v7, (PRTL_BALANCED_NODE)(a4 + 8));
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of DifSetCallerContext @ 0x14064A9C0
+ * XREFs of DifSetCallerContext @ 0x14064E5A0
  * Callers:
  *     <none>
  * Callees:
- *     DifIsSupportedDomain @ 0x140640170 (DifIsSupportedDomain.c)
- *     DifPopSegment @ 0x14064D034 (DifPopSegment.c)
- *     DifPushSegment @ 0x14064D11C (DifPushSegment.c)
- *     VfTargetDriversGetVerifierData @ 0x140C46B58 (VfTargetDriversGetVerifierData.c)
+ *     DifIsSupportedDomain @ 0x140643D50 (DifIsSupportedDomain.c)
+ *     DifPopSegment @ 0x140650C14 (DifPopSegment.c)
+ *     DifPushSegment @ 0x140650CFC (DifPushSegment.c)
+ *     VfTargetDriversGetVerifierData @ 0x140C4CB68 (VfTargetDriversGetVerifierData.c)
  */
 
 char __fastcall DifSetCallerContext(unsigned __int64 a1)
@@ -24,7 +24,7 @@ char __fastcall DifSetCallerContext(unsigned __int64 a1)
     && DifIsSupportedDomain(retaddr)
     && VfTargetDriversGetVerifierData(a1) )
   {
-    v3 = DifPopSegment(&stru_140E27B08.InGlobalForegroundList);
+    v3 = DifPopSegment(&stru_140E27C48.SchedulerApcFill5[48]);
     v4 = (_QWORD *)v3;
     if ( v3 )
     {
@@ -33,11 +33,11 @@ char __fastcall DifSetCallerContext(unsigned __int64 a1)
       v5 = *(_QWORD **)&KeGetCurrentThread()[1].WaitBlockFill11[64];
       if ( !v5 )
       {
-        v6 = DifPopSegment(&stru_140E27B08.792);
+        v6 = DifPopSegment(&stru_140E27C48.792);
         v5 = (_QWORD *)v6;
         if ( !v6 )
         {
-          DifPushSegment(&stru_140E27B08.InGlobalForegroundList);
+          DifPushSegment(&stru_140E27C48.SchedulerApcFill5[48]);
           return v1;
         }
         *(_QWORD *)&KeGetCurrentThread()[1].WaitBlockFill11[64] = v6;

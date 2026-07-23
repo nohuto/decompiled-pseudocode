@@ -1,5 +1,5 @@
 /*
- * XREFs of NtQuerySecurityPolicy @ 0x1800A01D0
+ * XREFs of NtQuerySecurityPolicy @ 0x1800A0190
  * Callers:
  *     <none>
  * Callees:

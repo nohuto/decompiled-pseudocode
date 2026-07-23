@@ -1,12 +1,12 @@
 /*
- * XREFs of CarLiveDump @ 0x1405D5A90
+ * XREFs of CarLiveDump @ 0x1405D6000
  * Callers:
- *     CarDoLiveDump @ 0x1405D59D0 (CarDoLiveDump.c)
+ *     CarDoLiveDump @ 0x1405D5F40 (CarDoLiveDump.c)
  * Callees:
- *     CarEtwWriteLiveDumpEvent @ 0x1405D2E90 (CarEtwWriteLiveDumpEvent.c)
- *     CarDeleteTelemetryData @ 0x1405D3AE4 (CarDeleteTelemetryData.c)
- *     DifiDbgPrint @ 0x1405D5644 (DifiDbgPrint.c)
- *     DbgkWerCaptureLiveKernelDump @ 0x1408834E0 (DbgkWerCaptureLiveKernelDump.c)
+ *     CarEtwWriteLiveDumpEvent @ 0x1405D3400 (CarEtwWriteLiveDumpEvent.c)
+ *     CarDeleteTelemetryData @ 0x1405D4054 (CarDeleteTelemetryData.c)
+ *     DifiDbgPrint @ 0x1405D5BB4 (DifiDbgPrint.c)
+ *     DbgkWerCaptureLiveKernelDump @ 0x140883720 (DbgkWerCaptureLiveKernelDump.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
@@ -19,10 +19,10 @@ void __fastcall CarLiveDump(PVOID P)
   v2 = DbgkWerCaptureLiveKernelDump(
          (unsigned int)L"VerifierExt",
          452,
-         qword_140C34F28,
-         qword_140C34F30,
-         qword_140C34F38,
-         qword_140C34F40,
+         qword_140C34EC8,
+         qword_140C34ED0,
+         qword_140C34ED8,
+         qword_140C34EE0,
          CarLiveDumpData,
          (__int64)CarLiveDumpCallBack,
          0);
@@ -36,10 +36,10 @@ void __fastcall CarLiveDump(PVOID P)
   {
     DifiDbgPrint("Livedump failed with Status code: 0x%X \n", v2);
   }
-  if ( qword_140C34F48 )
+  if ( qword_140C34EE8 )
   {
-    ExFreePoolWithTag(qword_140C34F48, 0x4E726143u);
-    qword_140C34F48 = 0LL;
+    ExFreePoolWithTag(qword_140C34EE8, 0x4E726143u);
+    qword_140C34EE8 = 0LL;
   }
   CarDeleteTelemetryData((void **)&CarLiveDumpData);
   if ( P )

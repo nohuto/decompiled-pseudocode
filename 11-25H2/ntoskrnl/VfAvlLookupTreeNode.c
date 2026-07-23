@@ -61,12 +61,12 @@ PVOID __fastcall VfAvlLookupTreeNode(__int64 *a1, __int64 a2, unsigned __int64 a
   __int64 v14; // rax
   __int64 v15; // rax
   __int64 v16; // r8
-  RTL_AVL_TABLE *v17; // r12
+  _RTL_AVL_TABLE *v17; // r12
   unsigned __int64 v18; // rsi
   __int64 v19; // rax
   __int64 v20; // r8
-  RTL_AVL_TABLE *v21; // rbx
-  RTL_AVL_TABLE *v22; // [rsp+20h] [rbp-20h]
+  _RTL_AVL_TABLE *v21; // rbx
+  _RTL_AVL_TABLE *v22; // [rsp+20h] [rbp-20h]
   unsigned __int64 Buffer; // [rsp+28h] [rbp-18h] BYREF
   __int64 v24; // [rsp+30h] [rbp-10h]
   TABLE_SEARCH_RESULT SearchResult; // [rsp+90h] [rbp+50h] BYREF
@@ -88,7 +88,7 @@ PVOID __fastcall VfAvlLookupTreeNode(__int64 *a1, __int64 a2, unsigned __int64 a
     v14 = 4096LL;
   v24 = v14;
   v15 = ViAvlTableIndex(a1, a3);
-  v17 = (RTL_AVL_TABLE *)(*(_QWORD *)(v16 + 16) + 192 * v15);
+  v17 = (_RTL_AVL_TABLE *)(*(_QWORD *)(v16 + 16) + 192 * v15);
   v22 = v17;
   ViAvlRaiseIrqlSafe(a2);
   ViAvlAcquireTableLockAtDpcLevelSafe(v17, a2);
@@ -114,7 +114,7 @@ LABEL_4:
         else
           v24 = v12 - v10;
         v19 = ViAvlTableIndex(v9, v10);
-        v21 = (RTL_AVL_TABLE *)(*(_QWORD *)(v20 + 16) + 192 * v19);
+        v21 = (_RTL_AVL_TABLE *)(*(_QWORD *)(v20 + 16) + 192 * v19);
         ViAvlRaiseIrqlSafe(a2);
         ViAvlAcquireTableLockAtDpcLevelSafe(v21, a2);
         NodeOrParent = 0LL;

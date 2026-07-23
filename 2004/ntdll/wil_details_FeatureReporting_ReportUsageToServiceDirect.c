@@ -11,46 +11,46 @@
 
 __int64 __fastcall wil_details_FeatureReporting_ReportUsageToServiceDirect(
         volatile signed __int32 *a1,
-        unsigned int a2,
+        ULONG a2,
         int a3,
         int a4,
         unsigned int a5)
 {
   _DWORD *v9; // rax
   unsigned int v10; // ebx
-  unsigned int v12; // [rsp+30h] [rbp-40h] BYREF
-  int v13; // [rsp+34h] [rbp-3Ch]
-  __int64 v14; // [rsp+38h] [rbp-38h] BYREF
-  unsigned int v15; // [rsp+40h] [rbp-30h]
-  __int64 v16; // [rsp+44h] [rbp-2Ch]
-  int v17; // [rsp+4Ch] [rbp-24h]
-  __int128 v18; // [rsp+50h] [rbp-20h] BYREF
-  __int64 v19; // [rsp+60h] [rbp-10h]
+  _RTL_FEATURE_USAGE_REPORT FeatureUsageReport; // [rsp+30h] [rbp-40h] BYREF
+  __int64 v13; // [rsp+38h] [rbp-38h] BYREF
+  unsigned int v14; // [rsp+40h] [rbp-30h]
+  __int64 v15; // [rsp+44h] [rbp-2Ch]
+  int v16; // [rsp+4Ch] [rbp-24h]
+  __int128 v17; // [rsp+50h] [rbp-20h] BYREF
+  __int64 v18; // [rsp+60h] [rbp-10h]
 
-  v9 = wil_details_FeatureReporting_RecordUsageInCache((__int64)&v14, a1, a5);
+  v9 = wil_details_FeatureReporting_RecordUsageInCache((__int64)&v13, a1, a5);
   v10 = 0;
-  v18 = *(_OWORD *)v9;
-  v19 = *((_QWORD *)v9 + 2);
+  v17 = *(_OWORD *)v9;
+  v18 = *((_QWORD *)v9 + 2);
   if ( g_wil_details_recordFeatureUsage )
   {
-    g_wil_details_recordFeatureUsage(a2, a5, 1LL, a1, &v18);
+    g_wil_details_recordFeatureUsage(a2, a5, 1LL, a1, &v17);
     if ( a3 )
     {
-      v14 = 0LL;
-      v16 = 0LL;
-      v15 = a5;
-      v17 = a4;
-      g_wil_details_recordFeatureUsage(a2, a5, 1LL, 0LL, &v14);
+      v13 = 0LL;
+      v15 = 0LL;
+      v14 = a5;
+      v16 = a4;
+      g_wil_details_recordFeatureUsage(a2, a5, 1LL, 0LL, &v13);
     }
   }
   else if ( a3 && a5 != 254 )
   {
-    v12 = a2;
-    v13 = (unsigned __int16)a5;
+    FeatureUsageReport.ReportingOptions = 0;
+    FeatureUsageReport.FeatureId = a2;
+    FeatureUsageReport.ReportingKind = a5;
     if ( a4 )
-      HIWORD(v13) |= 1u;
-    RtlNotifyFeatureUsage(&v12);
+      FeatureUsageReport.ReportingOptions |= 1u;
+    RtlNotifyFeatureUsage(&FeatureUsageReport);
   }
-  LOBYTE(v10) = (_DWORD)v19 == 0;
+  LOBYTE(v10) = (_DWORD)v18 == 0;
   return v10;
 }

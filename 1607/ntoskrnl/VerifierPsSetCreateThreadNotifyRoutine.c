@@ -1,5 +1,5 @@
 /*
- * XREFs of VerifierPsSetCreateThreadNotifyRoutine @ 0x14070CCBC
+ * XREFs of VerifierPsSetCreateThreadNotifyRoutine @ 0x14070CCEC
  * Callers:
  *     <none>
  * Callees:

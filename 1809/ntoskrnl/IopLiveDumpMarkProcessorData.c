@@ -1,9 +1,9 @@
 /*
- * XREFs of IopLiveDumpMarkProcessorData @ 0x140578F74
+ * XREFs of IopLiveDumpMarkProcessorData @ 0x140579F74
  * Callers:
- *     IopLiveDumpMarkRequiredDumpData @ 0x140579088 (IopLiveDumpMarkRequiredDumpData.c)
+ *     IopLiveDumpMarkRequiredDumpData @ 0x14057A088 (IopLiveDumpMarkRequiredDumpData.c)
  * Callees:
- *     MmAddRangeToCrashDump @ 0x1402AE210 (MmAddRangeToCrashDump.c)
+ *     MmAddRangeToCrashDump @ 0x1402AE400 (MmAddRangeToCrashDump.c)
  */
 
 __int64 __fastcall IopLiveDumpMarkProcessorData(__int64 (__fastcall **a1)(_QWORD, __int64, __int64, __int64), int a2)

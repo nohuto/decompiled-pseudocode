@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlpTraceDatabaseInternalAdd @ 0x1405F0590
+ * XREFs of RtlpTraceDatabaseInternalAdd @ 0x1405EDB70
  * Callers:
- *     RtlTraceDatabaseAdd @ 0x1405F0170 (RtlTraceDatabaseAdd.c)
+ *     RtlTraceDatabaseAdd @ 0x1405ED750 (RtlTraceDatabaseAdd.c)
  * Callees:
- *     DbgPrint @ 0x1402CB260 (DbgPrint.c)
- *     RtlpTraceDatabaseAllocate @ 0x1405F0568 (RtlpTraceDatabaseAllocate.c)
- *     RtlpTraceDatabaseInternalFind @ 0x1405F0754 (RtlpTraceDatabaseInternalFind.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
+ *     DbgPrint @ 0x140274290 (DbgPrint.c)
+ *     RtlpTraceDatabaseAllocate @ 0x1405EDB48 (RtlpTraceDatabaseAllocate.c)
+ *     RtlpTraceDatabaseInternalFind @ 0x1405EDD34 (RtlpTraceDatabaseInternalFind.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
  */
 
 char __fastcall RtlpTraceDatabaseInternalAdd(__int64 a1, unsigned int a2, const void *a3, _QWORD *a4)
@@ -19,21 +19,19 @@ char __fastcall RtlpTraceDatabaseInternalAdd(__int64 a1, unsigned int a2, const 
   unsigned __int64 v12; // rax
   __int64 v13; // rax
   __int64 v14; // r14
-  __int64 v15; // r8
-  __int64 v16; // r9
-  unsigned int v17; // eax
-  unsigned int v18; // ecx
-  unsigned int v19; // edx
-  _QWORD v20[5]; // [rsp+20h] [rbp-28h] BYREF
+  unsigned int v15; // eax
+  unsigned int v16; // ecx
+  unsigned int v17; // edx
+  _QWORD v18[5]; // [rsp+20h] [rbp-28h] BYREF
 
-  v20[0] = 0LL;
+  v18[0] = 0LL;
   v5 = a2;
   if ( a2 <= 0x100 )
   {
-    if ( (unsigned __int8)RtlpTraceDatabaseInternalFind(a1, a2, a3, v20) )
+    if ( (unsigned __int8)RtlpTraceDatabaseInternalFind(a1, a2, a3, v18) )
     {
-      v8 = v20[0];
-      ++*(_DWORD *)(v20[0] + 4LL);
+      v8 = v18[0];
+      ++*(_DWORD *)(v18[0] + 4LL);
       if ( a4 )
         *a4 = v8;
       ++*(_QWORD *)(a1 + 144);
@@ -45,7 +43,7 @@ char __fastcall RtlpTraceDatabaseInternalAdd(__int64 a1, unsigned int a2, const 
     {
       v12 = *(_QWORD *)(a1 + 24);
       if ( v12 && *(_QWORD *)(a1 + 32) > v12
-        || (v13 = RtlpTraceDatabaseAllocate(4096LL, *(_DWORD *)(a1 + 4)), (v10 = v13) == 0) )
+        || (v13 = RtlpTraceDatabaseAllocate(0x1000uLL, *(_DWORD *)(a1 + 4), *(_DWORD *)(a1 + 8)), (v10 = v13) == 0) )
       {
 LABEL_11:
         if ( a4 )
@@ -73,12 +71,12 @@ LABEL_11:
       *(_QWORD *)(v14 + 16) = 0LL;
       *(_QWORD *)(v14 + 24) = 0LL;
       memmove((void *)(v14 + 56), a3, 8 * v5);
-      v17 = guard_dispatch_icall_no_overrides((unsigned int)v5, a3, v15, v16);
-      v18 = *(_DWORD *)(a1 + 112);
-      v19 = v17 % v18;
-      ++*(_DWORD *)(a1 + 4LL * (v19 / (v18 >> 4)) + 152);
-      *(_QWORD *)(v14 + 40) = *(_QWORD *)(*(_QWORD *)(a1 + 120) + 8LL * (v17 % v18));
-      *(_QWORD *)(*(_QWORD *)(a1 + 120) + 8LL * v19) = v14;
+      v15 = guard_dispatch_icall_no_overrides((unsigned int)v5, a3);
+      v16 = *(_DWORD *)(a1 + 112);
+      v17 = v15 % v16;
+      ++*(_DWORD *)(a1 + 4LL * (v17 / (v16 >> 4)) + 152);
+      *(_QWORD *)(v14 + 40) = *(_QWORD *)(*(_QWORD *)(a1 + 120) + 8LL * (v15 % v16));
+      *(_QWORD *)(*(_QWORD *)(a1 + 120) + 8LL * v17) = v14;
       if ( a4 )
         *a4 = v14;
       ++*(_QWORD *)(a1 + 136);

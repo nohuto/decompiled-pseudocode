@@ -4,19 +4,19 @@
  *     Phase1InitializationIoReady @ 0x1407934EC (Phase1InitializationIoReady.c)
  *     Phase1InitializationDiscard @ 0x140794438 (Phase1InitializationDiscard.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     ZwReadFile @ 0x140159D40 (ZwReadFile.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     ZwQueryInformationFile @ 0x140159EA0 (ZwQueryInformationFile.c)
- *     ZwEnumerateValueKey @ 0x140159EE0 (ZwEnumerateValueKey.c)
- *     ZwQueryKey @ 0x140159F40 (ZwQueryKey.c)
- *     ZwCreateKey @ 0x14015A020 (ZwCreateKey.c)
- *     ZwCreateFile @ 0x14015A720 (ZwCreateFile.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     ZwReadFile @ 0x14015A2B0 (ZwReadFile.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     ZwQueryInformationFile @ 0x14015A410 (ZwQueryInformationFile.c)
+ *     ZwEnumerateValueKey @ 0x14015A450 (ZwEnumerateValueKey.c)
+ *     ZwQueryKey @ 0x14015A4B0 (ZwQueryKey.c)
+ *     ZwCreateKey @ 0x14015A590 (ZwCreateKey.c)
+ *     ZwCreateFile @ 0x14015AC90 (ZwCreateFile.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     RtlAppendStringToString @ 0x1405446F0 (RtlAppendStringToString.c)
- *     EmpProviderRegister @ 0x14055420C (EmpProviderRegister.c)
+ *     RtlAppendStringToString @ 0x140544C30 (RtlAppendStringToString.c)
+ *     EmpProviderRegister @ 0x14055474C (EmpProviderRegister.c)
  *     EmpCacheBiosDate @ 0x1407A7158 (EmpCacheBiosDate.c)
  *     EmpParseInfDatabase @ 0x1407A7384 (EmpParseInfDatabase.c)
  */
@@ -54,7 +54,7 @@ __int64 __fastcall EmInitSystem(int a1, __int64 a2)
   v3 = 0LL;
   if ( !a1 )
   {
-    dword_140322548 |= 0x80000000;
+    dword_140322568 |= 0x80000000;
     EmpRuleUpdateWorker.WorkerRoutine = (void (__fastcall *)(void *))EmpRuleUpdateWorkerThread;
     EmpParseLock = 0LL;
     EmpDatabaseLock = 0LL;

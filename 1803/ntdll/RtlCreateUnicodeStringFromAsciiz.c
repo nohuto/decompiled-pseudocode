@@ -7,10 +7,10 @@
  *     RtlInitAnsiStringEx @ 0x18006DC10 (RtlInitAnsiStringEx.c)
  */
 
-bool __fastcall RtlCreateUnicodeStringFromAsciiz(PUNICODE_STRING DestinationString, const char *a2)
+BOOLEAN __cdecl RtlCreateUnicodeStringFromAsciiz(PUNICODE_STRING DestinationString, PCSTR SourceString)
 {
-  STRING DestinationStringa; // [rsp+20h] [rbp-18h] BYREF
+  _STRING DestinationStringa; // [rsp+20h] [rbp-18h] BYREF
 
-  return RtlInitAnsiStringEx(&DestinationStringa, a2) >= 0
+  return RtlInitAnsiStringEx(&DestinationStringa, SourceString) >= 0
       && RtlAnsiStringToUnicodeString(DestinationString, &DestinationStringa, 1u) >= 0;
 }

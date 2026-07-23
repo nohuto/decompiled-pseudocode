@@ -1,13 +1,13 @@
 /*
- * XREFs of PopPowerRequestExecutionRequiredSettingCallback @ 0x140AACF80
+ * XREFs of PopPowerRequestExecutionRequiredSettingCallback @ 0x140AA8000
  * Callers:
  *     <none>
  * Callees:
- *     PopReleaseRwLock @ 0x1403B5EC8 (PopReleaseRwLock.c)
- *     KeCancelTimer2 @ 0x1403C0960 (KeCancelTimer2.c)
- *     PopAcquireRwLockExclusive @ 0x1404283D4 (PopAcquireRwLockExclusive.c)
- *     PopPowerRequestSetExecutionRequiredTimeoutTimer @ 0x140749E0C (PopPowerRequestSetExecutionRequiredTimeoutTimer.c)
- *     PopPowerRequestHandleExecutionEnablementUpdate @ 0x140A3BCEC (PopPowerRequestHandleExecutionEnablementUpdate.c)
+ *     PopReleaseRwLock @ 0x1402AE8FC (PopReleaseRwLock.c)
+ *     KeCancelTimer2 @ 0x1403AF520 (KeCancelTimer2.c)
+ *     PopAcquireRwLockExclusive @ 0x14041C564 (PopAcquireRwLockExclusive.c)
+ *     PopPowerRequestSetExecutionRequiredTimeoutTimer @ 0x14074813C (PopPowerRequestSetExecutionRequiredTimeoutTimer.c)
+ *     PopPowerRequestHandleExecutionEnablementUpdate @ 0x140A314CC (PopPowerRequestHandleExecutionEnablementUpdate.c)
  */
 
 __int64 __fastcall PopPowerRequestExecutionRequiredSettingCallback(_QWORD *a1, int *a2, int a3)
@@ -20,7 +20,7 @@ __int64 __fastcall PopPowerRequestExecutionRequiredSettingCallback(_QWORD *a1, i
   __int64 v11; // r8
 
   v6 = -1073741811;
-  PopAcquireRwLockExclusive(&PopPowerRequestLock);
+  PopAcquireRwLockExclusive((unsigned __int64 *)&PopPowerRequestLock);
   v8 = *(_QWORD *)&GUID_EXECUTION_REQUIRED_REQUEST_TIMEOUT.Data1 - *a1;
   if ( *(_QWORD *)&GUID_EXECUTION_REQUIRED_REQUEST_TIMEOUT.Data1 == *a1 )
     v8 = *(_QWORD *)GUID_EXECUTION_REQUIRED_REQUEST_TIMEOUT.Data4 - a1[1];
@@ -32,6 +32,6 @@ __int64 __fastcall PopPowerRequestExecutionRequiredSettingCallback(_QWORD *a1, i
     PopPowerRequestHandleExecutionEnablementUpdate(v10, v9, v11);
     v6 = 0;
   }
-  PopReleaseRwLock((signed __int64 *)&PopPowerRequestLock);
+  PopReleaseRwLock(&PopPowerRequestLock);
   return v6;
 }

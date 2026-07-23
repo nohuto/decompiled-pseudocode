@@ -1,18 +1,18 @@
 /*
- * XREFs of MiAllowImageMap @ 0x14061D9F0
+ * XREFs of MiAllowImageMap @ 0x140687660
  * Callers:
- *     MiMapViewOfImageSection @ 0x14061CEB0 (MiMapViewOfImageSection.c)
+ *     MiMapViewOfImageSection @ 0x140686B20 (MiMapViewOfImageSection.c)
  * Callees:
- *     SeGetTrustLabelAce @ 0x14027E380 (SeGetTrustLabelAce.c)
- *     MiReferenceControlAreaFile @ 0x14031CEB0 (MiReferenceControlAreaFile.c)
- *     MiDereferenceControlAreaFile @ 0x1403571E4 (MiDereferenceControlAreaFile.c)
- *     MiGetControlAreaLoadConfig @ 0x14035F2D8 (MiGetControlAreaLoadConfig.c)
+ *     SeGetTrustLabelAce @ 0x14026C320 (SeGetTrustLabelAce.c)
+ *     MiGetControlAreaLoadConfig @ 0x1402A4208 (MiGetControlAreaLoadConfig.c)
+ *     MiReferenceControlAreaFile @ 0x140327C00 (MiReferenceControlAreaFile.c)
+ *     MiDereferenceControlAreaFile @ 0x140361F34 (MiDereferenceControlAreaFile.c)
  *     PsBlockNonCetBinaries @ 0x1405CF59C (PsBlockNonCetBinaries.c)
- *     ObReleaseObjectSecurity @ 0x14065F410 (ObReleaseObjectSecurity.c)
- *     ObpGetObjectSecurity @ 0x14065F800 (ObpGetObjectSecurity.c)
- *     SeQueryMandatoryLabel @ 0x140674294 (SeQueryMandatoryLabel.c)
- *     EtwTimLogProhibitLowILImageMap @ 0x14093BDC8 (EtwTimLogProhibitLowILImageMap.c)
- *     EtwpTimLogMitigationForProcess @ 0x14093C644 (EtwpTimLogMitigationForProcess.c)
+ *     ObReleaseObjectSecurity @ 0x140654230 (ObReleaseObjectSecurity.c)
+ *     ObpGetObjectSecurity @ 0x140654620 (ObpGetObjectSecurity.c)
+ *     SeQueryMandatoryLabel @ 0x1406694C4 (SeQueryMandatoryLabel.c)
+ *     EtwTimLogProhibitLowILImageMap @ 0x14093BF98 (EtwTimLogProhibitLowILImageMap.c)
+ *     EtwpTimLogMitigationForProcess @ 0x14093C814 (EtwpTimLogMitigationForProcess.c)
  */
 
 __int64 __fastcall MiAllowImageMap(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -30,11 +30,11 @@ __int64 __fastcall MiAllowImageMap(__int64 a1, __int64 a2, __int64 a3, __int64 a
   int v18; // esi
   ULONG_PTR v19; // r15
   PSECURITY_DESCRIPTOR v20; // rbp
-  PSECURITY_DESCRIPTOR SecurityDescriptor[7]; // [rsp+20h] [rbp-38h] BYREF
+  PSECURITY_DESCRIPTOR SecurityDescriptor; // [rsp+20h] [rbp-38h] BYREF
   BOOLEAN MemoryAllocated; // [rsp+60h] [rbp+8h] BYREF
 
   v4 = *(_DWORD *)(a1 + 2512);
-  SecurityDescriptor[0] = 0LL;
+  SecurityDescriptor = 0LL;
   v8 = v4 & 0x80000;
   if ( ((v4 & 0x80000) != 0 || (v4 & 0x100000) != 0) && (*(_BYTE *)(a2 + 40) & 3) != 0 )
   {
@@ -70,16 +70,19 @@ LABEL_18:
   {
     MemoryAllocated = 0;
     v19 = MiReferenceControlAreaFile(a3);
-    ObjectSecurity = ObpGetObjectSecurity(v19, SecurityDescriptor, &MemoryAllocated);
+    ObjectSecurity = ObpGetObjectSecurity(v19, &SecurityDescriptor, &MemoryAllocated, 0);
     if ( ObjectSecurity < 0 )
     {
       ObjectSecurity = -1073741790;
     }
     else
     {
-      v20 = SecurityDescriptor[0];
-      if ( (unsigned int)SeQueryMandatoryLabel(SecurityDescriptor[0]) <= 0x1000 && !SeGetTrustLabelAce((__int64)v20) )
+      v20 = SecurityDescriptor;
+      if ( (unsigned int)SeQueryMandatoryLabel((__int64)SecurityDescriptor) <= 0x1000
+        && !SeGetTrustLabelAce((__int64)v20) )
+      {
         ObjectSecurity = -1073741790;
+      }
       ObReleaseObjectSecurity(v20, MemoryAllocated);
     }
     if ( ObjectSecurity == -1073741790 )

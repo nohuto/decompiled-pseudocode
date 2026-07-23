@@ -1,8 +1,8 @@
 /*
- * XREFs of SmKmKeyGenKeyFind @ 0x1409D8FB4
+ * XREFs of SmKmKeyGenKeyFind @ 0x1409D91B4
  * Callers:
- *     SmKmKeyGenGenerate @ 0x1409D8E0C (SmKmKeyGenGenerate.c)
- *     SmKmKeyGenNewKey @ 0x1409D9174 (SmKmKeyGenNewKey.c)
+ *     SmKmKeyGenGenerate @ 0x1409D900C (SmKmKeyGenGenerate.c)
+ *     SmKmKeyGenNewKey @ 0x1409D9374 (SmKmKeyGenNewKey.c)
  * Callees:
  *     <none>
  */

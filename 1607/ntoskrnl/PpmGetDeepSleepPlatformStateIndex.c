@@ -1,9 +1,9 @@
 /*
- * XREFs of PpmGetDeepSleepPlatformStateIndex @ 0x1401FF9E8
+ * XREFs of PpmGetDeepSleepPlatformStateIndex @ 0x1401FF814
  * Callers:
- *     PopFxEnablePlatformStates @ 0x140202BA4 (PopFxEnablePlatformStates.c)
- *     PopCheckResiliencyScenarios @ 0x1403F5C64 (PopCheckResiliencyScenarios.c)
- *     PpmEnableCoordinatedIdleStates @ 0x14066AB28 (PpmEnableCoordinatedIdleStates.c)
+ *     PopFxEnablePlatformStates @ 0x1402029D0 (PopFxEnablePlatformStates.c)
+ *     PopCheckResiliencyScenarios @ 0x1403F4B28 (PopCheckResiliencyScenarios.c)
+ *     PpmEnableCoordinatedIdleStates @ 0x14066AC0C (PpmEnableCoordinatedIdleStates.c)
  * Callees:
  *     <none>
  */

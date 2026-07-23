@@ -51,8 +51,8 @@ __int64 __fastcall PopIssueActionRequest(char a1, POWER_ACTION a2, SYSTEM_POWER_
   signed __int32 v18[8]; // [rsp+0h] [rbp-58h] BYREF
   bool v19; // [rsp+20h] [rbp-38h]
   char v20; // [rsp+21h] [rbp-37h]
-  int v21; // [rsp+24h] [rbp-34h]
-  int v22; // [rsp+28h] [rbp-30h] BYREF
+  ULONG v21; // [rsp+24h] [rbp-34h]
+  ULONG v22; // [rsp+28h] [rbp-30h] BYREF
   _DWORD v23[4]; // [rsp+30h] [rbp-28h] BYREF
   int v24; // [rsp+40h] [rbp-18h]
   unsigned int v25; // [rsp+44h] [rbp-14h]
@@ -188,7 +188,7 @@ LABEL_36:
       goto LABEL_58;
     v22 = v21;
     v24 = 7;
-    PopDispatchStateCallout(v23, &v22);
+    PopDispatchStateCallout(v23, (int *)&v22);
   }
   if ( !a1 && !v19 )
   {

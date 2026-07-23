@@ -12,76 +12,78 @@
  *     ExRaiseDatatypeMisalignment @ 0x14085AF60 (ExRaiseDatatypeMisalignment.c)
  */
 
-__int64 __fastcall NtSetBootOptions(int *a1, char a2)
+NTSTATUS __cdecl NtSetBootOptions(PBOOT_OPTIONS BootOptions, ULONG FieldsToChange)
 {
+  char v2; // si
   KPROCESSOR_MODE PreviousMode; // dl
-  unsigned __int64 v5; // rax
+  unsigned __int64 p_Length; // rax
   unsigned int v6; // eax
-  unsigned int v8; // eax
+  ULONG NextBootEntryId; // eax
   struct _KTHREAD *v9; // rax
-  int v10; // ebx
-  unsigned int v11; // [rsp+34h] [rbp-34h] BYREF
+  NTSTATUS v10; // ebx
+  ULONG Timeout; // [rsp+34h] [rbp-34h] BYREF
   _DWORD v12[2]; // [rsp+38h] [rbp-30h] BYREF
-  int v13; // [rsp+40h] [rbp-28h]
+  ULONG Version; // [rsp+40h] [rbp-28h]
   struct _KTHREAD *CurrentThread; // [rsp+50h] [rbp-18h]
 
-  v11 = 0;
+  v2 = FieldsToChange;
+  Timeout = 0;
   v12[0] = 0;
   if ( dword_140EFE810 != 2 || PsIsCurrentThreadInServerSilo() )
-    return 3221225474LL;
+    return -1073741822;
   CurrentThread = KeGetCurrentThread();
   PreviousMode = CurrentThread->PreviousMode;
-  v5 = (unsigned __int64)(a1 + 1);
+  p_Length = (unsigned __int64)&BootOptions->Length;
   if ( PreviousMode )
   {
-    if ( v5 >= 0x7FFFFFFF0000LL )
-      v5 = 0x7FFFFFFF0000LL;
-    v6 = *(_DWORD *)v5;
+    if ( p_Length >= 0x7FFFFFFF0000LL )
+      p_Length = 0x7FFFFFFF0000LL;
+    v6 = *(_DWORD *)p_Length;
   }
   else
   {
-    v6 = *(_DWORD *)v5;
+    v6 = *(_DWORD *)p_Length;
   }
   v12[1] = v6;
   if ( v6 < 0x14 )
-    return 3221225485LL;
+    return -1073741811;
   if ( PreviousMode )
   {
-    if ( ((unsigned __int8)a1 & 3) != 0 )
+    if ( ((unsigned __int8)BootOptions & 3) != 0 )
       ExRaiseDatatypeMisalignment();
     if ( !SeSinglePrivilegeCheck(SeSystemEnvironmentPrivilege, PreviousMode) )
-      return 3221225569LL;
+      return -1073741727;
   }
-  v13 = *a1;
-  if ( v13 != 1 )
-    return 3221225485LL;
-  v11 = a1[2];
-  v8 = a1[4];
-  v12[0] = v8;
-  if ( (a2 & 2) != 0 && v8 > 0xFFFF )
-    return 3221225485LL;
+  Version = BootOptions->Version;
+  if ( Version != 1 )
+    return -1073741811;
+  Timeout = BootOptions->Timeout;
+  NextBootEntryId = BootOptions->NextBootEntryId;
+  v12[0] = NextBootEntryId;
+  if ( (v2 & 2) != 0 && NextBootEntryId > 0xFFFF )
+    return -1073741811;
   v9 = KeGetCurrentThread();
   --v9->KernelApcDisable;
   ExAcquireFastMutexUnsafe(&ExpEnvironmentLock);
   v10 = 0;
-  if ( (a2 & 1) != 0 )
+  if ( (v2 & 1) != 0 )
   {
-    if ( v11 == -1 )
+    if ( Timeout == -1 )
     {
-      v11 = 0xFFFF;
+      Timeout = 0xFFFF;
     }
-    else if ( v11 > 0xFFFE )
+    else if ( Timeout > 0xFFFE )
     {
-      v11 = 65534;
+      Timeout = 65534;
     }
     v10 = IoSetEnvironmentVariableEx(
             (unsigned int)L"Timeout",
             (unsigned int)&EfiBootVariablesGuid,
-            (unsigned int)&v11,
+            (unsigned int)&Timeout,
             2,
             1);
   }
-  if ( v10 >= 0 && (a2 & 2) != 0 )
+  if ( v10 >= 0 && (v2 & 2) != 0 )
     v10 = IoSetEnvironmentVariableEx(
             (unsigned int)L"BootNext",
             (unsigned int)&EfiBootVariablesGuid,
@@ -90,5 +92,5 @@ __int64 __fastcall NtSetBootOptions(int *a1, char a2)
             1);
   ExReleaseFastMutexUnsafe(&ExpEnvironmentLock);
   KeLeaveCriticalRegion();
-  return (unsigned int)v10;
+  return v10;
 }

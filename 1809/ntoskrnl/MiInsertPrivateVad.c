@@ -1,14 +1,14 @@
 /*
- * XREFs of MiInsertPrivateVad @ 0x1400767F0
+ * XREFs of MiInsertPrivateVad @ 0x1400767E0
  * Callers:
- *     MiReserveUserMemory @ 0x1405F1600 (MiReserveUserMemory.c)
- *     MiAllocateNewSubAllocatedRegion @ 0x140695EA0 (MiAllocateNewSubAllocatedRegion.c)
- *     MiAllocateEnclaveVad @ 0x140859158 (MiAllocateEnclaveVad.c)
+ *     MiReserveUserMemory @ 0x1405F2600 (MiReserveUserMemory.c)
+ *     MiAllocateNewSubAllocatedRegion @ 0x140697060 (MiAllocateNewSubAllocatedRegion.c)
+ *     MiAllocateEnclaveVad @ 0x14085A3B8 (MiAllocateEnclaveVad.c)
  * Callees:
- *     MiUnlockWorkingSetExclusive @ 0x140063CE0 (MiUnlockWorkingSetExclusive.c)
- *     RtlAvlInsertNodeEx @ 0x140064B40 (RtlAvlInsertNodeEx.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
- *     MiAweViewInserter @ 0x14084F634 (MiAweViewInserter.c)
+ *     MiUnlockWorkingSetExclusive @ 0x140063CD0 (MiUnlockWorkingSetExclusive.c)
+ *     RtlAvlInsertNodeEx @ 0x140064B30 (RtlAvlInsertNodeEx.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC420 (ExAcquireSpinLockExclusive.c)
+ *     MiAweViewInserter @ 0x140850894 (MiAweViewInserter.c)
  */
 
 __int64 __fastcall MiInsertPrivateVad(__int64 a1, __int64 a2, __int64 a3)
@@ -34,7 +34,7 @@ __int64 __fastcall MiInsertPrivateVad(__int64 a1, __int64 a2, __int64 a3)
   v6 = *(unsigned int *)(a1 + 28) | ((unsigned __int64)*(unsigned __int8 *)(a1 + 33) << 32);
   v7 = *(unsigned int *)(a1 + 24) | ((unsigned __int64)*(unsigned __int8 *)(a1 + 32) << 32);
   if ( (*(_BYTE *)(a3 + 1464) & 7) == 2 )
-    v8 = &dword_14043B700;
+    v8 = &dword_14043C7C0;
   else
     v8 = (LONG *)(a3 + 1472);
   v9 = ExAcquireSpinLockExclusive(v8);

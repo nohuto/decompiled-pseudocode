@@ -1,22 +1,22 @@
 /*
- * XREFs of _CmDeleteDeviceRegKeyWorker @ 0x140A61EF4
+ * XREFs of _CmDeleteDeviceRegKeyWorker @ 0x140A621A4
  * Callers:
- *     _CmDeleteDeviceRegKey @ 0x140A61DBC (_CmDeleteDeviceRegKey.c)
+ *     _CmDeleteDeviceRegKey @ 0x140A6206C (_CmDeleteDeviceRegKey.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x14022B6C0 (RtlInitUnicodeStringEx.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     wcsrchr @ 0x1403DBB10 (wcsrchr.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     _CmOpenDeviceRegKey @ 0x1406CE0C4 (_CmOpenDeviceRegKey.c)
- *     _CmGetDeviceRegKeyPath @ 0x1406CE63C (_CmGetDeviceRegKeyPath.c)
- *     _PnpCtxGetCachedContextBaseKey @ 0x1406CEEB0 (_PnpCtxGetCachedContextBaseKey.c)
- *     RtlPrefixUnicodeString @ 0x1406D9E20 (RtlPrefixUnicodeString.c)
- *     _CmSetDeviceRegProp @ 0x14079862C (_CmSetDeviceRegProp.c)
- *     _RegRtlDeleteKeyTransacted @ 0x140862E48 (_RegRtlDeleteKeyTransacted.c)
- *     _RegRtlDeleteTreeInternal @ 0x14086B268 (_RegRtlDeleteTreeInternal.c)
- *     _CmDeleteDeviceRegKey @ 0x140A61DBC (_CmDeleteDeviceRegKey.c)
- *     _CmDeleteDeviceMappedPropertyForAllDriverKeyRegValues @ 0x140A6741C (_CmDeleteDeviceMappedPropertyForAllDriverKeyRegValues.c)
- *     _SysCtxRegOpenCurrentUserKey @ 0x140A6A3BC (_SysCtxRegOpenCurrentUserKey.c)
+ *     RtlInitUnicodeStringEx @ 0x14022B7D0 (RtlInitUnicodeStringEx.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     wcsrchr @ 0x1403DBCF0 (wcsrchr.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     _CmOpenDeviceRegKey @ 0x1406CE0F4 (_CmOpenDeviceRegKey.c)
+ *     _CmGetDeviceRegKeyPath @ 0x1406CE66C (_CmGetDeviceRegKeyPath.c)
+ *     _PnpCtxGetCachedContextBaseKey @ 0x1406CEEE0 (_PnpCtxGetCachedContextBaseKey.c)
+ *     RtlPrefixUnicodeString @ 0x1406D9E50 (RtlPrefixUnicodeString.c)
+ *     _CmSetDeviceRegProp @ 0x14079881C (_CmSetDeviceRegProp.c)
+ *     _RegRtlDeleteKeyTransacted @ 0x140863088 (_RegRtlDeleteKeyTransacted.c)
+ *     _RegRtlDeleteTreeInternal @ 0x14086B4A8 (_RegRtlDeleteTreeInternal.c)
+ *     _CmDeleteDeviceRegKey @ 0x140A6206C (_CmDeleteDeviceRegKey.c)
+ *     _CmDeleteDeviceMappedPropertyForAllDriverKeyRegValues @ 0x140A676CC (_CmDeleteDeviceMappedPropertyForAllDriverKeyRegValues.c)
+ *     _SysCtxRegOpenCurrentUserKey @ 0x140A6A66C (_SysCtxRegOpenCurrentUserKey.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

@@ -1,17 +1,17 @@
 /*
- * XREFs of CmFcpManagerDrainUsageNotifications @ 0x14080E008
+ * XREFs of CmFcpManagerDrainUsageNotifications @ 0x14080E2D8
  * Callers:
- *     CmFcpManagerSoftwareHiveReady @ 0x14080DBC0 (CmFcpManagerSoftwareHiveReady.c)
- *     CmFcManagerDrainAllFeatureUsageNotifications @ 0x140A26D60 (CmFcManagerDrainAllFeatureUsageNotifications.c)
- *     CmFcpManagerDrainUsageNotificationsWorker @ 0x140A27BA0 (CmFcpManagerDrainUsageNotificationsWorker.c)
- *     CmFcpManagerRetryUsageNotificationsWorker @ 0x140A27E40 (CmFcpManagerRetryUsageNotificationsWorker.c)
+ *     CmFcpManagerSoftwareHiveReady @ 0x14080DE90 (CmFcpManagerSoftwareHiveReady.c)
+ *     CmFcManagerDrainAllFeatureUsageNotifications @ 0x140A27010 (CmFcManagerDrainAllFeatureUsageNotifications.c)
+ *     CmFcpManagerDrainUsageNotificationsWorker @ 0x140A27E50 (CmFcpManagerDrainUsageNotificationsWorker.c)
+ *     CmFcpManagerRetryUsageNotificationsWorker @ 0x140A280F0 (CmFcpManagerRetryUsageNotificationsWorker.c)
  * Callees:
- *     RtlFindNextForwardRunSet @ 0x140294DC4 (RtlFindNextForwardRunSet.c)
- *     RtlpFcBufferManagerDereferenceBuffers @ 0x14035D208 (RtlpFcBufferManagerDereferenceBuffers.c)
- *     RtlpFcBufferManagerReferenceBuffers @ 0x14035D29C (RtlpFcBufferManagerReferenceBuffers.c)
- *     CmFcpManagerArmFeatureUsageRetryTimer @ 0x140617224 (CmFcpManagerArmFeatureUsageRetryTimer.c)
- *     RtlUpdateSwapReference @ 0x14080E0D8 (RtlUpdateSwapReference.c)
- *     RtlpFcSendFeatureUsageNotifications @ 0x1409C881C (RtlpFcSendFeatureUsageNotifications.c)
+ *     RtlFindNextForwardRunSet @ 0x140295054 (RtlFindNextForwardRunSet.c)
+ *     RtlpFcBufferManagerDereferenceBuffers @ 0x14035D3A8 (RtlpFcBufferManagerDereferenceBuffers.c)
+ *     RtlpFcBufferManagerReferenceBuffers @ 0x14035D43C (RtlpFcBufferManagerReferenceBuffers.c)
+ *     CmFcpManagerArmFeatureUsageRetryTimer @ 0x140617774 (CmFcpManagerArmFeatureUsageRetryTimer.c)
+ *     RtlUpdateSwapReference @ 0x14080E3A8 (RtlUpdateSwapReference.c)
+ *     RtlpFcSendFeatureUsageNotifications @ 0x1409C8A1C (RtlpFcSendFeatureUsageNotifications.c)
  */
 
 __int64 __fastcall CmFcpManagerDrainUsageNotifications(__int64 a1, char a2)

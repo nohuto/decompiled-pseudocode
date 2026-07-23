@@ -13,13 +13,13 @@
 __int64 __fastcall DbgkLkmdUnregisterCallback(__int64 a1)
 {
   unsigned int i; // edi
-  union _RTL_RUN_ONCE *v3; // rsi
+  _RTL_RUN_ONCE *v3; // rsi
   struct _EX_RUNDOWN_REF *v4; // rax
   struct _EX_RUNDOWN_REF *v5; // rbx
 
   for ( i = 0; i < 8; ++i )
   {
-    v3 = &stru_140E3E9A0 + 2 * i;
+    v3 = &RunOnce + 2 * i;
     v4 = ExReferenceCallBackBlock((signed __int64 *)v3);
     v5 = v4;
     if ( v4 )

@@ -1,36 +1,36 @@
 /*
- * XREFs of MiReferenceIoPages @ 0x140336500
+ * XREFs of MiReferenceIoPages @ 0x140336790
  * Callers:
- *     MiProbeLockFrame @ 0x140236500 (MiProbeLockFrame.c)
- *     MiFillSystemPtes @ 0x14027E8C0 (MiFillSystemPtes.c)
- *     MiMapContiguousMemoryLarge @ 0x14038E404 (MiMapContiguousMemoryLarge.c)
- *     MiMapMdlCommon @ 0x1403A7570 (MiMapMdlCommon.c)
- *     MiMapLockedPagesInUserSpace @ 0x140748574 (MiMapLockedPagesInUserSpace.c)
- *     MiMapViewOfPhysicalSection @ 0x140A30CE0 (MiMapViewOfPhysicalSection.c)
- *     MiRotateToFrameBuffer @ 0x140A316A0 (MiRotateToFrameBuffer.c)
- *     MiRotateToFrameBufferNoCopy @ 0x140A319A4 (MiRotateToFrameBufferNoCopy.c)
+ *     MiProbeLockFrame @ 0x1402365D0 (MiProbeLockFrame.c)
+ *     MiFillSystemPtes @ 0x14027EB50 (MiFillSystemPtes.c)
+ *     MiMapContiguousMemoryLarge @ 0x14038E5E4 (MiMapContiguousMemoryLarge.c)
+ *     MiMapMdlCommon @ 0x1403A7750 (MiMapMdlCommon.c)
+ *     MiMapLockedPagesInUserSpace @ 0x140748764 (MiMapLockedPagesInUserSpace.c)
+ *     MiMapViewOfPhysicalSection @ 0x140A30F90 (MiMapViewOfPhysicalSection.c)
+ *     MiRotateToFrameBuffer @ 0x140A31950 (MiRotateToFrameBuffer.c)
+ *     MiRotateToFrameBufferNoCopy @ 0x140A31C54 (MiRotateToFrameBufferNoCopy.c)
  *     MiAddLoaderHalIoPte @ 0x140B5B010 (MiAddLoaderHalIoPte.c)
  * Callees:
- *     MiSearchNumaNodeTable @ 0x14026EAD0 (MiSearchNumaNodeTable.c)
- *     RtlAvlInsertNodeEx @ 0x1402880C0 (RtlAvlInsertNodeEx.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14028A930 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7C00 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExAllocatePoolMm @ 0x1402E26E0 (ExAllocatePoolMm.c)
- *     KeShouldYieldProcessor @ 0x140333C70 (KeShouldYieldProcessor.c)
- *     MiDereferenceIoPages @ 0x1403360F4 (MiDereferenceIoPages.c)
- *     MiUnlockIoPfnTree @ 0x140336454 (MiUnlockIoPfnTree.c)
- *     MiIsPageInIoHugeRangeTransition @ 0x1403364D0 (MiIsPageInIoHugeRangeTransition.c)
- *     MiLockIoPfnTree @ 0x140336C50 (MiLockIoPfnTree.c)
- *     MiIoSpaceGetBounds @ 0x140336CF0 (MiIoSpaceGetBounds.c)
- *     MiFlushEntireTbDueToAttributeChange @ 0x14036F59C (MiFlushEntireTbDueToAttributeChange.c)
- *     MiConvertIoPfnTreeLockExclusiveToShared @ 0x1403A0238 (MiConvertIoPfnTreeLockExclusiveToShared.c)
- *     MiIoPfnTreeLockContended @ 0x1403C5AB0 (MiIoPfnTreeLockContended.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiFlushCachedIoPfnRange @ 0x14062DF4C (MiFlushCachedIoPfnRange.c)
- *     MiFlushCacheMdl @ 0x140660EA0 (MiFlushCacheMdl.c)
+ *     MiSearchNumaNodeTable @ 0x14026ED60 (MiSearchNumaNodeTable.c)
+ *     RtlAvlInsertNodeEx @ 0x140288350 (RtlAvlInsertNodeEx.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14028ABC0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7E90 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAllocatePoolMm @ 0x1402E2970 (ExAllocatePoolMm.c)
+ *     KeShouldYieldProcessor @ 0x140333F00 (KeShouldYieldProcessor.c)
+ *     MiDereferenceIoPages @ 0x140336384 (MiDereferenceIoPages.c)
+ *     MiUnlockIoPfnTree @ 0x1403366E4 (MiUnlockIoPfnTree.c)
+ *     MiIsPageInIoHugeRangeTransition @ 0x140336760 (MiIsPageInIoHugeRangeTransition.c)
+ *     MiLockIoPfnTree @ 0x140336EE0 (MiLockIoPfnTree.c)
+ *     MiIoSpaceGetBounds @ 0x140336F80 (MiIoSpaceGetBounds.c)
+ *     MiFlushEntireTbDueToAttributeChange @ 0x14036F73C (MiFlushEntireTbDueToAttributeChange.c)
+ *     MiConvertIoPfnTreeLockExclusiveToShared @ 0x1403A0418 (MiConvertIoPfnTreeLockExclusiveToShared.c)
+ *     MiIoPfnTreeLockContended @ 0x1403C5C90 (MiIoPfnTreeLockContended.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     MiFlushCachedIoPfnRange @ 0x14062E49C (MiFlushCachedIoPfnRange.c)
+ *     MiFlushCacheMdl @ 0x1406613F0 (MiFlushCacheMdl.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
@@ -145,7 +145,7 @@ __int64 __fastcall MiReferenceIoPages(int a1, __int64 a2, unsigned __int64 a3, i
   CurrentIrql = KeGetCurrentIrql();
   v76 = CurrentIrql;
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 2 )
@@ -158,10 +158,10 @@ __int64 __fastcall MiReferenceIoPages(int a1, __int64 a2, unsigned __int64 a3, i
   MiIoSpaceGetBounds(&v82, v12);
   if ( HIDWORD(v83) != 3 && (_DWORD)v9 == 1 && v12 + v7 - 1 <= *((_QWORD *)&v82 + 1) )
   {
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v52 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v52 <= 0xFu && v14 <= 0xFu && v52 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v52 <= 0xFu && v14 <= 0xFu && v52 >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         v54 = CurrentPrcb->SchedulerAssist;
@@ -225,10 +225,10 @@ LABEL_53:
   v31 = P;
   if ( !P )
   {
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v57 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v57 <= 0xFu && v76 <= 0xFu && v57 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v57 <= 0xFu && v76 <= 0xFu && v57 >= 2u )
       {
         v58 = KeGetCurrentPrcb();
         v59 = v58->SchedulerAssist;
@@ -262,7 +262,7 @@ LABEL_53:
     while ( v36 );
     v39 = KeGetCurrentIrql();
     __writecr8(2uLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v39 <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v39 <= 0xFu )
     {
       v49 = KeGetCurrentPrcb()->SchedulerAssist;
       if ( v39 == 2 )
@@ -343,7 +343,7 @@ LABEL_38:
         MiUnlockIoPfnTree(v76, 1);
         v66 = KeGetCurrentIrql();
         __writecr8(2uLL);
-        if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v66 <= 0xFu )
+        if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v66 <= 0xFu )
         {
           v67 = KeGetCurrentPrcb()->SchedulerAssist;
           if ( v66 == 2 )
@@ -486,10 +486,10 @@ LABEL_37:
 LABEL_44:
     v12 = v88;
   ExReleaseSpinLockSharedFromDpcLevel((PEX_SPIN_LOCK)(*((_QWORD *)KeGetCurrentPrcb()->MmInternal + 1577) + 384LL));
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v69 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v69 <= 0xFu && v76 <= 0xFu && v69 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v69 <= 0xFu && v76 <= 0xFu && v69 >= 2u )
     {
       v70 = KeGetCurrentPrcb();
       v71 = v70->SchedulerAssist;

@@ -1,17 +1,17 @@
 /*
- * XREFs of MiInvalidateCollidedIos @ 0x1400B27C4
+ * XREFs of MiInvalidateCollidedIos @ 0x1400B0704
  * Callers:
- *     MiFinishHardFault @ 0x14004D6A0 (MiFinishHardFault.c)
- *     MiDeleteSubsectionPages @ 0x140061C70 (MiDeleteSubsectionPages.c)
- *     MmPurgeSection @ 0x140072AB0 (MmPurgeSection.c)
- *     MiDeleteTransitionPte @ 0x1400B90F8 (MiDeleteTransitionPte.c)
- *     MiPurgeImageSection @ 0x1401EA8A8 (MiPurgeImageSection.c)
+ *     MiFinishHardFault @ 0x14004D220 (MiFinishHardFault.c)
+ *     MiDeleteSubsectionPages @ 0x1400617F0 (MiDeleteSubsectionPages.c)
+ *     MmPurgeSection @ 0x140072630 (MmPurgeSection.c)
+ *     MiDeleteTransitionPte @ 0x1400B6F88 (MiDeleteTransitionPte.c)
+ *     MiPurgeImageSection @ 0x1401EA6D4 (MiPurgeImageSection.c)
  * Callees:
- *     MiReleaseInPageRefs @ 0x1400B2A10 (MiReleaseInPageRefs.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiUpdateTransitionPteFrame @ 0x1401F2A38 (MiUpdateTransitionPteFrame.c)
+ *     MiReleaseInPageRefs @ 0x1400B0950 (MiReleaseInPageRefs.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
+ *     MiUpdateTransitionPteFrame @ 0x1401F2864 (MiUpdateTransitionPteFrame.c)
  */
 
 __int64 __fastcall MiInvalidateCollidedIos(__int64 a1)

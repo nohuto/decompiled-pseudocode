@@ -1,23 +1,23 @@
 /*
- * XREFs of EtwpGetLoggerInfoFromContext @ 0x140A6FDA8
+ * XREFs of EtwpGetLoggerInfoFromContext @ 0x14097A694
  * Callers:
- *     EtwpTransitionToRealtime @ 0x14052ECDC (EtwpTransitionToRealtime.c)
- *     EtwpIncrementTraceFile @ 0x14077B460 (EtwpIncrementTraceFile.c)
- *     EtwpQueryTrace @ 0x14091F240 (EtwpQueryTrace.c)
- *     EtwpUpdateTrace @ 0x140A6C6F0 (EtwpUpdateTrace.c)
- *     EtwpStartLogger @ 0x140A6E1B4 (EtwpStartLogger.c)
- *     EtwpStopTrace @ 0x140A6F2F8 (EtwpStopTrace.c)
- *     EtwpFlushTrace @ 0x140A6F6CC (EtwpFlushTrace.c)
+ *     EtwpTransitionToRealtime @ 0x1405311FC (EtwpTransitionToRealtime.c)
+ *     EtwpIncrementTraceFile @ 0x14077E0A0 (EtwpIncrementTraceFile.c)
+ *     EtwpQueryTrace @ 0x140979CA0 (EtwpQueryTrace.c)
+ *     EtwpUpdateTrace @ 0x140AB081C (EtwpUpdateTrace.c)
+ *     EtwpStartLogger @ 0x140AB0F2C (EtwpStartLogger.c)
+ *     EtwpStopTrace @ 0x140AB2D10 (EtwpStopTrace.c)
+ *     EtwpFlushTrace @ 0x140AB2FD0 (EtwpFlushTrace.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     RtlCopyUnicodeString @ 0x140419A90 (RtlCopyUnicodeString.c)
- *     ProbeForRead @ 0x1408EF880 (ProbeForRead.c)
- *     ProbeForWrite @ 0x1408F5D00 (ProbeForWrite.c)
- *     RtlEqualUnicodeString @ 0x14091F0E0 (RtlEqualUnicodeString.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     RtlCopyUnicodeString @ 0x14040DFC0 (RtlCopyUnicodeString.c)
+ *     ProbeForRead @ 0x1408F5E40 (ProbeForRead.c)
+ *     ProbeForWrite @ 0x140925C90 (ProbeForWrite.c)
+ *     RtlEqualUnicodeString @ 0x140979B40 (RtlEqualUnicodeString.c)
  */
 
 __int64 __fastcall EtwpGetLoggerInfoFromContext(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -44,7 +44,7 @@ __int64 __fastcall EtwpGetLoggerInfoFromContext(__int64 a1, __int64 a2, __int64 
     v19 = *(_QWORD *)(a2 + 1360);
     v21[0] = *(_OWORD *)(v18 + v19 + 4556);
     v21[1] = *(_OWORD *)(v18 + v19 + 4572);
-    v20 = EtwpEnableFlagMap;
+    v20 = &EtwpEnableFlagMap;
     a4 = 8LL;
     do
     {

@@ -15,9 +15,9 @@
 __int64 __fastcall EtwpProviderArrivalCallback(__int64 a1, __int64 a2)
 {
   unsigned int DebugId; // ebx
-  NTSTATUS DllFullName; // eax
+  int DllFullName; // eax
   PVOID BaseOfImage; // [rsp+20h] [rbp-248h] BYREF
-  _QWORD v9[3]; // [rsp+28h] [rbp-240h] BYREF
+  _UNICODE_STRING FullDllName; // [rsp+28h] [rbp-240h] BYREF
   char v10; // [rsp+40h] [rbp-228h] BYREF
 
   DebugId = 0;
@@ -26,20 +26,20 @@ __int64 __fastcall EtwpProviderArrivalCallback(__int64 a1, __int64 a2)
     return 87;
   if ( (*(_WORD *)(a2 + 98) & 0x3FFF) == 2 )
   {
-    DebugId = EtwpFindDebugId(BaseOfImage, 0x3FFFLL, v9, &BaseOfImage);
+    DebugId = EtwpFindDebugId(BaseOfImage, 0x3FFFLL, &FullDllName, &BaseOfImage);
     if ( DebugId )
       return DebugId;
-    return (unsigned int)EtwpAddProviderToSession(a1, v9[0], (unsigned int)BaseOfImage);
+    return (unsigned int)EtwpAddProviderToSession(a1, *(_QWORD *)&FullDllName.Length, (unsigned int)BaseOfImage);
   }
   if ( *(__int16 *)(a2 + 98) < 0 )
   {
-    v9[1] = &v10;
-    WORD1(v9[0]) = 260;
-    DllFullName = LdrGetDllFullName(BaseOfImage, v9);
+    FullDllName.Buffer = (unsigned __int16 *)&v10;
+    FullDllName.MaximumLength = 260;
+    DllFullName = LdrGetDllFullName(BaseOfImage, &FullDllName);
     if ( DllFullName < 0 )
       return RtlNtStatusToDosError(DllFullName);
     else
-      return (unsigned int)EtwpAddWinRtProviderToSession(a1, v9, a2 + 32);
+      return (unsigned int)EtwpAddWinRtProviderToSession(a1, &FullDllName, a2 + 32);
   }
   return DebugId;
 }

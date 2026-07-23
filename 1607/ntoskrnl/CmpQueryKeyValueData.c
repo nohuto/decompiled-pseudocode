@@ -1,16 +1,16 @@
 /*
- * XREFs of CmpQueryKeyValueData @ 0x140440360
+ * XREFs of CmpQueryKeyValueData @ 0x14043F230
  * Callers:
- *     CmEnumerateValueKey @ 0x140437F70 (CmEnumerateValueKey.c)
- *     CmQueryValueKey @ 0x14043F420 (CmQueryValueKey.c)
- *     CmEnumerateValueFromLayeredKey @ 0x1405FCCF0 (CmEnumerateValueFromLayeredKey.c)
- *     CmEnumerateValueKeyFromMergedView @ 0x1405FF9F4 (CmEnumerateValueKeyFromMergedView.c)
+ *     CmEnumerateValueKey @ 0x140436E40 (CmEnumerateValueKey.c)
+ *     CmQueryValueKey @ 0x14043E2F0 (CmQueryValueKey.c)
+ *     CmEnumerateValueFromLayeredKey @ 0x1405FCDA4 (CmEnumerateValueFromLayeredKey.c)
+ *     CmEnumerateValueKeyFromMergedView @ 0x1405FFAA8 (CmEnumerateValueKeyFromMergedView.c)
  * Callees:
- *     memmove @ 0x140171280 (memmove.c)
+ *     memmove @ 0x140171780 (memmove.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     CmpGetValueDataFromCache @ 0x1404029F0 (CmpGetValueDataFromCache.c)
- *     CmpCopyCompressedName @ 0x1404400E0 (CmpCopyCompressedName.c)
- *     CmpGetValueData @ 0x140442F60 (CmpGetValueData.c)
+ *     CmpGetValueDataFromCache @ 0x1404018B0 (CmpGetValueDataFromCache.c)
+ *     CmpCopyCompressedName @ 0x14043EFB0 (CmpCopyCompressedName.c)
+ *     CmpGetValueData @ 0x140441E30 (CmpGetValueData.c)
  */
 
 __int64 __fastcall CmpQueryKeyValueData(__int64 a1, int a2, __int64 a3, int a4, _DWORD *Src, unsigned int a6, int *a7)

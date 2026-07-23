@@ -1,10 +1,10 @@
 /*
- * XREFs of MiQueryPfn @ 0x140469560
+ * XREFs of MiQueryPfn @ 0x140462CE0
  * Callers:
- *     MiQueryPteAttributes @ 0x1402D2E80 (MiQueryPteAttributes.c)
+ *     MiQueryPteAttributes @ 0x1402B4C40 (MiQueryPteAttributes.c)
  * Callees:
- *     MiIsDecayPfn @ 0x1402F9850 (MiIsDecayPfn.c)
- *     MiGetPfnSlabType @ 0x1402FDC40 (MiGetPfnSlabType.c)
+ *     MiIsDecayPfn @ 0x1402DB8D0 (MiIsDecayPfn.c)
+ *     MiGetPfnSlabType @ 0x1402DFCC0 (MiGetPfnSlabType.c)
  */
 
 char __fastcall MiQueryPfn(__int64 a1, __int64 a2)
@@ -29,7 +29,7 @@ char __fastcall MiQueryPfn(__int64 a1, __int64 a2)
   if ( (*(_QWORD *)(v3 + 40) & 0x20000000000000LL) != 0
     || (*(_DWORD *)(v3 + 32) & 0x8000000) != 0
     && (v3 < 0xFFFFDE0000000000uLL
-     || v3 >= 48 * qword_140E2D7A0 - 0x21FFFFFFFFD0LL
+     || v3 >= 48 * qword_140E2D920 - 0x21FFFFFFFFD0LL
      || MiIsDecayPfn(48 * a1 / 48)
      || (v4 & 0x70000) != 0x60000 && (unsigned int)MiGetPfnSlabType(v3) == 9) )
   {

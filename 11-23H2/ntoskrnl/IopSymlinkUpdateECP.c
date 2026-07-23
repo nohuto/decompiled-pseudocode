@@ -1,19 +1,19 @@
 /*
- * XREFs of IopSymlinkUpdateECP @ 0x14088075C
+ * XREFs of IopSymlinkUpdateECP @ 0x14088099C
  * Callers:
- *     IopParseDevice @ 0x14072CD50 (IopParseDevice.c)
- *     IopSymlinkRememberJunction @ 0x14087F418 (IopSymlinkRememberJunction.c)
- *     IopGraftName @ 0x14087F518 (IopGraftName.c)
- *     IopSymlinkApplyToOpenedName @ 0x140948C80 (IopSymlinkApplyToOpenedName.c)
+ *     IopParseDevice @ 0x14072CF50 (IopParseDevice.c)
+ *     IopSymlinkRememberJunction @ 0x14087F658 (IopSymlinkRememberJunction.c)
+ *     IopGraftName @ 0x14087F758 (IopGraftName.c)
+ *     IopSymlinkApplyToOpenedName @ 0x140948E80 (IopSymlinkApplyToOpenedName.c)
  * Callees:
- *     RtlCopyUnicodeString @ 0x1402AEFD0 (RtlCopyUnicodeString.c)
- *     IopSymlinkGetECP @ 0x1402FD8B0 (IopSymlinkGetECP.c)
- *     IopSymlinkRemoveECP @ 0x1402FD8D4 (IopSymlinkRemoveECP.c)
- *     FsRtlFreeExtraCreateParameter @ 0x14073E120 (FsRtlFreeExtraCreateParameter.c)
- *     IoGetIrpExtraCreateParameter @ 0x140765330 (IoGetIrpExtraCreateParameter.c)
- *     IopSymlinkAllocateAndAddECP @ 0x1407CD8CC (IopSymlinkAllocateAndAddECP.c)
- *     IopSymlinkInitializeSymlinkInfo @ 0x1407CD998 (IopSymlinkInitializeSymlinkInfo.c)
- *     IopSymlinkFreeRelatedMountPointChain @ 0x1407D9428 (IopSymlinkFreeRelatedMountPointChain.c)
+ *     RtlCopyUnicodeString @ 0x1402AF260 (RtlCopyUnicodeString.c)
+ *     IopSymlinkGetECP @ 0x1402FDB40 (IopSymlinkGetECP.c)
+ *     IopSymlinkRemoveECP @ 0x1402FDB64 (IopSymlinkRemoveECP.c)
+ *     FsRtlFreeExtraCreateParameter @ 0x14073E310 (FsRtlFreeExtraCreateParameter.c)
+ *     IoGetIrpExtraCreateParameter @ 0x140765520 (IoGetIrpExtraCreateParameter.c)
+ *     IopSymlinkAllocateAndAddECP @ 0x1407CDB9C (IopSymlinkAllocateAndAddECP.c)
+ *     IopSymlinkInitializeSymlinkInfo @ 0x1407CDC68 (IopSymlinkInitializeSymlinkInfo.c)
+ *     IopSymlinkFreeRelatedMountPointChain @ 0x1407D96F8 (IopSymlinkFreeRelatedMountPointChain.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

@@ -1,10 +1,10 @@
 /*
- * XREFs of KdDeregisterPowerHandler @ 0x1401D1380
+ * XREFs of KdDeregisterPowerHandler @ 0x1401D11AC
  * Callers:
  *     <none>
  * Callees:
- *     KxAcquireSpinLock @ 0x140092A60 (KxAcquireSpinLock.c)
- *     KeReleaseSpinLock @ 0x1400E9A70 (KeReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x140092260 (KxAcquireSpinLock.c)
+ *     KeReleaseSpinLock @ 0x1400EB600 (KeReleaseSpinLock.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  */
 

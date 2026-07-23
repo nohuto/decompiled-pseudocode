@@ -1,12 +1,12 @@
 /*
- * XREFs of PopTraceHibernatePolicyUpdate @ 0x1407D59EC
+ * XREFs of PopTraceHibernatePolicyUpdate @ 0x1407D8B9C
  * Callers:
- *     PoInitHiberServices @ 0x1407C8370 (PoInitHiberServices.c)
- *     PopWnfHibernatePolicyCallback @ 0x1407D0DE0 (PopWnfHibernatePolicyCallback.c)
+ *     PoInitHiberServices @ 0x1407CB3D0 (PoInitHiberServices.c)
+ *     PopWnfHibernatePolicyCallback @ 0x1407D3E80 (PopWnfHibernatePolicyCallback.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void PopTraceHibernatePolicyUpdate()
@@ -24,7 +24,7 @@ void PopTraceHibernatePolicyUpdate()
   __int64 *v10; // [rsp+80h] [rbp+37h]
   __int64 v11; // [rsp+88h] [rbp+3Fh]
 
-  if ( (unsigned int)dword_140E07598 > 5 && tlgKeywordOn((__int64)&dword_140E07598, 0x400000000000LL) )
+  if ( (unsigned int)dword_140E07560 > 5 && tlgKeywordOn((__int64)&dword_140E07560, 0x400000000000LL) )
   {
     v3 = v1;
     v6 = &v3;
@@ -35,6 +35,6 @@ void PopTraceHibernatePolicyUpdate()
     v9 = 1LL;
     v4 = 0x1000000LL;
     v11 = 8LL;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E07598, (unsigned __int8 *)&word_14004A6C6, 0LL, 0LL, 5u, &v5);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E07560, (unsigned __int8 *)byte_14004AFA9, 0LL, 0LL, 5u, &v5);
   }
 }

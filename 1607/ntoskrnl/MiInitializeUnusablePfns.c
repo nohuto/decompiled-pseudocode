@@ -1,14 +1,14 @@
 /*
- * XREFs of MiInitializeUnusablePfns @ 0x14013B380
+ * XREFs of MiInitializeUnusablePfns @ 0x14013B8F0
  * Callers:
- *     MiInitializeDynamicPfnsTarget @ 0x1401E1F14 (MiInitializeDynamicPfnsTarget.c)
+ *     MiInitializeDynamicPfnsTarget @ 0x1401E1D40 (MiInitializeDynamicPfnsTarget.c)
  *     MiSwitchToPfns @ 0x1407965E0 (MiSwitchToPfns.c)
  * Callees:
- *     MiPageToChannel @ 0x14001BA40 (MiPageToChannel.c)
- *     MiPageToNode @ 0x14001BA54 (MiPageToNode.c)
- *     MiLockPageInline @ 0x140022E70 (MiLockPageInline.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     MiMakeDemandZeroPte @ 0x1401F2734 (MiMakeDemandZeroPte.c)
+ *     MiPageToChannel @ 0x14001B5C0 (MiPageToChannel.c)
+ *     MiPageToNode @ 0x14001B5D4 (MiPageToNode.c)
+ *     MiLockPageInline @ 0x1400229F0 (MiLockPageInline.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     MiMakeDemandZeroPte @ 0x1401F2560 (MiMakeDemandZeroPte.c)
  */
 
 unsigned __int64 __fastcall MiInitializeUnusablePfns(_QWORD *a1, unsigned __int64 a2, unsigned __int16 a3, char a4)
@@ -56,7 +56,7 @@ unsigned __int64 __fastcall MiInitializeUnusablePfns(_QWORD *a1, unsigned __int6
   {
     v26[1] = 0LL;
     v26[5] = v26[5] & 0xFE3FFFFFFFFFFFFFuLL | 0xC0000000000000LL;
-    _InterlockedIncrement64(&qword_140326AA0);
+    _InterlockedIncrement64(&qword_140326AE0);
   }
   BYTE2(v26[4]) ^= (v10 ^ BYTE2(v26[4])) & 7;
   BYTE2(v26[4]) = BYTE2(v26[4]) & 0x3F | 0x40;
@@ -80,7 +80,7 @@ unsigned __int64 __fastcall MiInitializeUnusablePfns(_QWORD *a1, unsigned __int6
     v26[0] = KeGetCurrentThread()->ApcState.Process;
     v26[3] = v16 | 0x4000000000000000LL;
     LOWORD(v26[4]) = v17;
-    _InterlockedExchangeAdd64(&qword_1403278E8, a2);
+    _InterlockedExchangeAdd64(&qword_140327928, a2);
     v14 = v26[5];
   }
   v26[5] = v14 | 0x20000000000000LL;

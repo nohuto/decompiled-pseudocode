@@ -6,21 +6,26 @@
  *     <none>
  */
 
-__int64 __fastcall RtlValidateUnicodeString(int a1, __int64 a2)
+NTSTATUS __cdecl RtlValidateUnicodeString(ULONG Flags, PUNICODE_STRING String)
 {
-  __int64 result; // rax
-  unsigned __int16 v3; // cx
+  NTSTATUS result; // eax
+  USHORT MaximumLength; // cx
 
-  result = 0LL;
-  if ( a1 )
-    return 3221225485LL;
-  if ( a2 )
+  result = 0;
+  if ( Flags )
+    return -1073741811;
+  if ( String )
   {
-    if ( (*(_BYTE *)a2 & 1) != 0 )
-      return 3221225485LL;
-    v3 = *(_WORD *)(a2 + 2);
-    if ( (v3 & 1) != 0 || *(_WORD *)a2 > v3 || v3 == 0xFFFF || !*(_QWORD *)(a2 + 8) && (*(_WORD *)a2 || v3) )
-      return 3221225485LL;
+    if ( (String->Length & 1) != 0 )
+      return -1073741811;
+    MaximumLength = String->MaximumLength;
+    if ( (MaximumLength & 1) != 0
+      || String->Length > MaximumLength
+      || MaximumLength == 0xFFFF
+      || !String->Buffer && (String->Length || MaximumLength) )
+    {
+      return -1073741811;
+    }
   }
   return result;
 }

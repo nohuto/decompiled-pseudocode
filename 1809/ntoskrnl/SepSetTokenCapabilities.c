@@ -1,27 +1,27 @@
 /*
- * XREFs of SepSetTokenCapabilities @ 0x1405BCEA4
+ * XREFs of SepSetTokenCapabilities @ 0x1405BDEA4
  * Callers:
- *     SepGetAnonymousToken @ 0x1400DD50C (SepGetAnonymousToken.c)
- *     SepDuplicateToken @ 0x140649480 (SepDuplicateToken.c)
- *     NtCreateLowBoxToken @ 0x140654F70 (NtCreateLowBoxToken.c)
- *     SepFilterToken @ 0x140657CCC (SepFilterToken.c)
+ *     SepGetAnonymousToken @ 0x1400DD58C (SepGetAnonymousToken.c)
+ *     SepDuplicateToken @ 0x14064A640 (SepDuplicateToken.c)
+ *     NtCreateLowBoxToken @ 0x140656130 (NtCreateLowBoxToken.c)
+ *     SepFilterToken @ 0x140658E8C (SepFilterToken.c)
  * Callees:
  *     SepFreeTokenCapabilities @ 0x140023058 (SepFreeTokenCapabilities.c)
- *     RtlSidHashInitialize @ 0x1400CC440 (RtlSidHashInitialize.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     SepLengthSidAndAttributesArray @ 0x1405BD014 (SepLengthSidAndAttributesArray.c)
- *     SeCaptureSidAndAttributesArray @ 0x1405BD0D0 (SeCaptureSidAndAttributesArray.c)
- *     RtlIsParentOfChildAppContainer @ 0x140654C34 (RtlIsParentOfChildAppContainer.c)
- *     SepInsertOrReferenceSharedSidEntries @ 0x1408A4304 (SepInsertOrReferenceSharedSidEntries.c)
+ *     RtlSidHashInitialize @ 0x1400CC4C0 (RtlSidHashInitialize.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     SepLengthSidAndAttributesArray @ 0x1405BE014 (SepLengthSidAndAttributesArray.c)
+ *     SeCaptureSidAndAttributesArray @ 0x1405BE0D0 (SeCaptureSidAndAttributesArray.c)
+ *     RtlIsParentOfChildAppContainer @ 0x140655DF4 (RtlIsParentOfChildAppContainer.c)
+ *     SepInsertOrReferenceSharedSidEntries @ 0x1408A5564 (SepInsertOrReferenceSharedSidEntries.c)
  */
 
-__int64 __fastcall SepSetTokenCapabilities(__int64 a1, void *a2, void *a3, unsigned int a4)
+__int64 __fastcall SepSetTokenCapabilities(__int64 a1, void *a2, void *a3, ULONG a4)
 {
   __int64 result; // rax
   unsigned int v8; // ebp
-  PVOID PoolWithTag; // rax
-  void *v10; // rsi
+  _SID_AND_ATTRIBUTES *PoolWithTag; // rax
+  _SID_AND_ATTRIBUTES *v10; // rsi
   int v11; // eax
   unsigned int v12; // ebp
   void *v13; // rcx
@@ -39,7 +39,7 @@ __int64 __fastcall SepSetTokenCapabilities(__int64 a1, void *a2, void *a3, unsig
     v13 = *(void **)(a1 + 784);
     if ( v13 )
     {
-      if ( !(unsigned __int8)RtlIsParentOfChildAppContainer(v13, a2) )
+      if ( !RtlIsParentOfChildAppContainer(v13, a2) )
         return 3221225506LL;
     }
   }
@@ -58,7 +58,7 @@ __int64 __fastcall SepSetTokenCapabilities(__int64 a1, void *a2, void *a3, unsig
         return result;
       v8 = NumberOfBytes;
     }
-    PoolWithTag = ExAllocatePoolWithTag(PagedPool, v8, 0x73536553u);
+    PoolWithTag = (_SID_AND_ATTRIBUTES *)ExAllocatePoolWithTag(PagedPool, v8, 0x73536553u);
     v10 = PoolWithTag;
     if ( PoolWithTag )
     {
@@ -77,7 +77,7 @@ __int64 __fastcall SepSetTokenCapabilities(__int64 a1, void *a2, void *a3, unsig
           SepFreeTokenCapabilities(a1);
         *(_QWORD *)(a1 + 792) = v10;
         *(_DWORD *)(a1 + 800) = a4;
-        RtlSidHashInitialize((__int64 *)v10, a4, (_QWORD *)(a1 + 808));
+        RtlSidHashInitialize(v10, a4, (PSID_AND_ATTRIBUTES_HASH)(a1 + 808));
       }
       return v12;
     }

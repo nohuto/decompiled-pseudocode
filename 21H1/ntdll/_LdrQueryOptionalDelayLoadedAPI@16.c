@@ -9,47 +9,50 @@
  *     _LdrpGetDelayloadDescriptor@8 @ 0x4B32F7C7 (_LdrpGetDelayloadDescriptor@8.c)
  */
 
-int __thiscall LdrQueryOptionalDelayLoadedAPI(_BYTE *this, _BYTE *a2, int a3, int a4, int a5)
+NTSTATUS __cdecl LdrQueryOptionalDelayLoadedAPI(
+        PVOID ParentModuleBase,
+        PCSTR DllName,
+        PCSTR ProcedureName,
+        ULONG Flags)
 {
-  int v6; // ecx
-  unsigned __int8 v7; // al
-  int v8; // eax
-  char *DelayloadedMethodInDescriptor; // eax
-  _BYTE *DelayloadDescriptor; // edi
-  _BYTE *v11; // [esp+0h] [ebp-4h] BYREF
+  int v5; // ecx
+  unsigned __int8 v6; // al
+  int v7; // eax
+  IMAGE_THUNK_DATA64 *DelayloadedMethodInDescriptor; // eax
+  const IMAGE_DELAYLOAD_DESCRIPTOR *v9; // edi
+  PCIMAGE_DELAYLOAD_DESCRIPTOR DelayloadDescriptor; // [esp+0h] [ebp-4h] BYREF
 
-  v11 = this;
-  if ( a5 )
+  if ( Flags )
     return -1073741811;
-  v6 = 0;
+  v5 = 0;
   while ( 1 )
   {
-    v7 = *(_BYTE *)(a3 + v6);
-    if ( v7 != asc_4B291AA4[v6] )
+    v6 = DllName[v5];
+    if ( v6 != asc_4B291AA4[v5] )
       break;
-    if ( ++v6 == 2 )
+    if ( ++v5 == 2 )
     {
-      v8 = 0;
+      v7 = 0;
       goto LABEL_8;
     }
   }
-  v8 = v7 < (unsigned __int8)asc_4B291AA4[v6] ? -1 : 1;
+  v7 = v6 < (unsigned __int8)asc_4B291AA4[v5] ? -1 : 1;
 LABEL_8:
-  if ( v8 )
+  if ( v7 )
   {
-    DelayloadDescriptor = (_BYTE *)LdrpGetDelayloadDescriptor(a2);
-    if ( !DelayloadDescriptor )
+    v9 = (const IMAGE_DELAYLOAD_DESCRIPTOR *)LdrpGetDelayloadDescriptor(ParentModuleBase);
+    if ( !v9 )
       return -1073741515;
-    DelayloadedMethodInDescriptor = (char *)LdrpFindDelayloadedMethodInDescriptor(a4);
+    DelayloadedMethodInDescriptor = (IMAGE_THUNK_DATA64 *)LdrpFindDelayloadedMethodInDescriptor(ProcedureName);
   }
   else
   {
-    DelayloadedMethodInDescriptor = (char *)LdrpFindDelayloadedMethod(&v11);
-    DelayloadDescriptor = v11;
+    DelayloadedMethodInDescriptor = (IMAGE_THUNK_DATA64 *)LdrpFindDelayloadedMethod(
+                                                            ParentModuleBase,
+                                                            (int)&DelayloadDescriptor);
+    v9 = DelayloadDescriptor;
   }
   if ( DelayloadedMethodInDescriptor )
-    return LdrResolveDelayLoadedAPI(a2, DelayloadDescriptor, 0, 0, DelayloadedMethodInDescriptor, 0) != 0
-         ? 0
-         : -1073741511;
+    return LdrResolveDelayLoadedAPI(ParentModuleBase, v9, 0, 0, DelayloadedMethodInDescriptor, 0) != 0 ? 0 : -1073741511;
   return -1073741515;
 }

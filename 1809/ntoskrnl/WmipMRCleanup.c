@@ -1,10 +1,10 @@
 /*
- * XREFs of WmipMRCleanup @ 0x140758380
+ * XREFs of WmipMRCleanup @ 0x140759570
  * Callers:
  *     <none>
  * Callees:
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     WmipGenerateMofResourceNotification @ 0x1407583F0 (WmipGenerateMofResourceNotification.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     WmipGenerateMofResourceNotification @ 0x1407595E0 (WmipGenerateMofResourceNotification.c)
  */
 
 void __fastcall WmipMRCleanup(__int64 a1)

@@ -1,13 +1,13 @@
 /*
- * XREFs of HvpExpandMap @ 0x140723290
+ * XREFs of HvpExpandMap @ 0x1406FB2BC
  * Callers:
- *     HvpAddBin @ 0x140722A58 (HvpAddBin.c)
- *     HvpPerformLogFileRecovery @ 0x1408740BC (HvpPerformLogFileRecovery.c)
+ *     HvpAddBin @ 0x1406FAA84 (HvpAddBin.c)
+ *     HvpPerformLogFileRecovery @ 0x14087421C (HvpPerformLogFileRecovery.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     memset @ 0x140414200 (memset.c)
- *     HvpFreeMap @ 0x1406BB0F8 (HvpFreeMap.c)
- *     HvpAllocateMap @ 0x1407259B0 (HvpAllocateMap.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     HvpFreeMap @ 0x14061A3C8 (HvpFreeMap.c)
+ *     HvpAllocateMap @ 0x14061E850 (HvpAllocateMap.c)
  */
 
 __int64 __fastcall HvpExpandMap(__int64 a1, unsigned int a2, unsigned int a3, unsigned int a4)
@@ -50,7 +50,7 @@ __int64 __fastcall HvpExpandMap(__int64 a1, unsigned int a2, unsigned int a3, un
     if ( v11 || (v17 = 632 * v5, *(_QWORD *)(632 * v9 + a1 + 280) != 632 * v9 + a1 + 288) )
     {
 LABEL_13:
-      if ( !(unsigned __int8)HvpAllocateMap(a1, *(_QWORD *)(632 * v9 + a1 + 280), v11 + 1, v12) )
+      if ( !HvpAllocateMap(a1, *(_QWORD *)(632 * v9 + a1 + 280), v11 + 1, v12) )
       {
         v4 = -1073741801;
         HvpFreeMap(a1, *(_QWORD *)(632 * v9 + a1 + 280), v11 + 1, v12);

@@ -1,13 +1,13 @@
 /*
- * XREFs of IopDecrementCompletionContextUsageCount @ 0x14035DC08
+ * XREFs of IopDecrementCompletionContextUsageCount @ 0x14035DDA8
  * Callers:
- *     IopXxxControlFile @ 0x1406E54E0 (IopXxxControlFile.c)
- *     NtLockFile @ 0x140765490 (NtLockFile.c)
+ *     IopXxxControlFile @ 0x1406E5510 (IopXxxControlFile.c)
+ *     NtLockFile @ 0x140765680 (NtLockFile.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall IopDecrementCompletionContextUsageCount(ULONG_PTR BugCheckParameter1)
@@ -29,10 +29,10 @@ __int64 __fastcall IopDecrementCompletionContextUsageCount(ULONG_PTR BugCheckPar
   BugCheckParameter4 = *(_QWORD *)(v4 + 16);
   *(_QWORD *)(v4 + 16) = BugCheckParameter4 - 1;
   result = KxReleaseSpinLock(v1);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
       && (unsigned __int8)result <= 0xFu
       && (unsigned __int8)v5 <= 0xFu
       && (unsigned __int8)result >= 2u )

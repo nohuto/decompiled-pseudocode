@@ -1,17 +1,17 @@
 /*
- * XREFs of KeSetTimerEx @ 0x1403AC190
+ * XREFs of KeSetTimerEx @ 0x1403B5EA0
  * Callers:
  *     <none>
  * Callees:
- *     KiExitDispatcher @ 0x140246C20 (KiExitDispatcher.c)
- *     KiInsertTimerTable @ 0x1403ACC88 (KiInsertTimerTable.c)
- *     KiDecodeTolerableDelayValue @ 0x1403ACEEC (KiDecodeTolerableDelayValue.c)
- *     KiTimerWaitTest @ 0x1403ACF4C (KiTimerWaitTest.c)
- *     KiCancelTimer @ 0x1403AD2D0 (KiCancelTimer.c)
- *     DifObjTrkRemoveItem @ 0x1403ADC70 (DifObjTrkRemoveItem.c)
- *     KiObjTrkTimerPend @ 0x1403ADE18 (KiObjTrkTimerPend.c)
- *     KiTraceSetTimer @ 0x1403E5D48 (KiTraceSetTimer.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiExitDispatcher @ 0x140248580 (KiExitDispatcher.c)
+ *     KiInsertTimerTable @ 0x1403B6998 (KiInsertTimerTable.c)
+ *     KiDecodeTolerableDelayValue @ 0x1403B6BFC (KiDecodeTolerableDelayValue.c)
+ *     KiTimerWaitTest @ 0x1403B6C5C (KiTimerWaitTest.c)
+ *     KiCancelTimer @ 0x1403B6FE0 (KiCancelTimer.c)
+ *     DifObjTrkRemoveItem @ 0x1403B7980 (DifObjTrkRemoveItem.c)
+ *     KiObjTrkTimerPend @ 0x1403B7B28 (KiObjTrkTimerPend.c)
+ *     KiTraceSetTimer @ 0x1403E8F38 (KiTraceSetTimer.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 BOOLEAN __stdcall KeSetTimerEx(PKTIMER Timer, LARGE_INTEGER DueTime, LONG Period, PKDPC Dpc)
@@ -36,7 +36,7 @@ BOOLEAN __stdcall KeSetTimerEx(PKTIMER Timer, LARGE_INTEGER DueTime, LONG Period
   v8 = KiWaitNever;
   v9 = v7;
   v10 = (_KDPC *)(KiWaitNever ^ __ROR8__(
-                                  (unsigned __int64)Timer ^ _byteswap_uint64((unsigned __int64)stru_140FC01F0.WaitBlock[2].WaitListEntry.Flink ^ (unsigned __int64)Dpc),
+                                  (unsigned __int64)Timer ^ _byteswap_uint64((unsigned __int64)stru_140FC11F0.WaitBlock[2].WaitListEntry.Blink ^ (unsigned __int64)Dpc),
                                   KiWaitNever));
   CurrentIrql = KeGetCurrentIrql();
   if ( CurrentIrql != 2 )

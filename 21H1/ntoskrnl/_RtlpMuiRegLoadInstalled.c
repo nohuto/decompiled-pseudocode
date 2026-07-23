@@ -13,13 +13,13 @@
  *     _RtlpMuiRegValidateInstalled @ 0x140794530 (_RtlpMuiRegValidateInstalled.c)
  */
 
-__int64 __fastcall RtlpMuiRegLoadInstalled(__int64 a1, __int64 a2)
+__int64 __fastcall RtlpMuiRegLoadInstalled(__int64 a1)
 {
   int InstallUILanguage; // edi
   _QWORD *Languages; // rax
   _QWORD *StringPool; // rax
-  char v6; // al
-  const WCHAR *v7; // rdx
+  char v5; // al
+  const WCHAR *v6; // rdx
   __int64 result; // rax
 
   InstallUILanguage = 0;
@@ -27,7 +27,7 @@ __int64 __fastcall RtlpMuiRegLoadInstalled(__int64 a1, __int64 a2)
     return 3221225485LL;
   if ( PsUILanguageComitted )
   {
-    InstallUILanguage = ZwQueryInstallUILanguage(a1 + 4, a2);
+    InstallUILanguage = ZwQueryInstallUILanguage((LANGID *)(a1 + 4));
     if ( InstallUILanguage < 0 || ((*(_WORD *)(a1 + 4) - 4096) & 0xFBFF) == 0 )
       goto LABEL_12;
     RtlpLoadInstallLanguageFallback(a1, (_WORD *)(a1 + 6), (_WORD *)(a1 + 8));
@@ -48,11 +48,11 @@ LABEL_12:
   if ( !StringPool )
     goto LABEL_12;
   *(_DWORD *)a1 |= 2u;
-  v6 = IsMachineLanguageListInMutableLocation();
-  v7 = L"\\Registry\\Machine\\OSDATA\\System\\CurrentControlSet\\Control\\MUI\\UILanguages";
-  if ( !v6 )
-    v7 = L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\MUI\\UILanguages";
-  InstallUILanguage = RtlpMuiRegLoadInstalledFromKey(a1, v7);
+  v5 = IsMachineLanguageListInMutableLocation();
+  v6 = L"\\Registry\\Machine\\OSDATA\\System\\CurrentControlSet\\Control\\MUI\\UILanguages";
+  if ( !v5 )
+    v6 = L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\MUI\\UILanguages";
+  InstallUILanguage = RtlpMuiRegLoadInstalledFromKey(a1, v6);
   if ( InstallUILanguage < 0 )
     goto LABEL_12;
   result = RtlpMuiRegValidateInstalled(a1);

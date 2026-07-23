@@ -1,11 +1,11 @@
 /*
- * XREFs of PopDiagTraceDirectedDripsWorker @ 0x140AF1E70
+ * XREFs of PopDiagTraceDirectedDripsWorker @ 0x140AF4740
  * Callers:
- *     PopDirectedDripsWorkerRoutine @ 0x1407CC5D0 (PopDirectedDripsWorkerRoutine.c)
+ *     PopDirectedDripsWorkerRoutine @ 0x1407CF670 (PopDirectedDripsWorkerRoutine.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void __fastcall PopDiagTraceDirectedDripsWorker(__int64 a1)
@@ -19,25 +19,18 @@ void __fastcall PopDiagTraceDirectedDripsWorker(__int64 a1)
   __int64 v7; // [rsp+80h] [rbp+10h] BYREF
 
   v7 = a1;
-  if ( byte_140E67628 )
+  if ( PopDiagHandleRegistered )
   {
-    if ( EtwEventEnabled(
-           *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-           &POP_ETW_EVENT_DIRECTED_DRIPS_WORKER) )
+    if ( EtwEventEnabled(PopDiagHandle, &POP_ETW_EVENT_DIRECTED_DRIPS_WORKER) )
     {
-      v1 = qword_140F0F5D0;
+      v1 = PopWnfCsEnterScenarioId;
       *(_QWORD *)&UserData.Size = 1LL;
       UserData.Ptr = (ULONGLONG)&v1;
       v3 = &v7;
-      v5 = &qword_140F0F5D0;
+      v5 = &PopWnfCsEnterScenarioId;
       v4 = 8LL;
       v6 = 8LL;
-      EtwWrite(
-        *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-        &POP_ETW_EVENT_DIRECTED_DRIPS_WORKER,
-        0LL,
-        3u,
-        &UserData);
+      EtwWrite(PopDiagHandle, &POP_ETW_EVENT_DIRECTED_DRIPS_WORKER, 0LL, 3u, &UserData);
     }
   }
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of IvtBuildScalableModePasidDirectoryEntry @ 0x14052BD54
+ * XREFs of IvtBuildScalableModePasidDirectoryEntry @ 0x14052C2A4
  * Callers:
- *     IvtInitializeScalableModePasidTables @ 0x14052D290 (IvtInitializeScalableModePasidTables.c)
- *     IvtUpdateScalableModePasidTablesForPasid @ 0x14052DE30 (IvtUpdateScalableModePasidTablesForPasid.c)
+ *     IvtInitializeScalableModePasidTables @ 0x14052D7E0 (IvtInitializeScalableModePasidTables.c)
+ *     IvtUpdateScalableModePasidTablesForPasid @ 0x14052E380 (IvtUpdateScalableModePasidTablesForPasid.c)
  * Callees:
- *     MmGetPhysicalAddress @ 0x14028BEE0 (MmGetPhysicalAddress.c)
+ *     MmGetPhysicalAddress @ 0x14028C170 (MmGetPhysicalAddress.c)
  */
 
 PHYSICAL_ADDRESS __fastcall IvtBuildScalableModePasidDirectoryEntry(

@@ -1,16 +1,20 @@
 /*
- * XREFs of WerpSetProcessFaultInformation @ 0x1800DDC78
+ * XREFs of WerpSetProcessFaultInformation @ 0x1800DDC38
  * Callers:
- *     RtlReportExceptionEx @ 0x1800DCB70 (RtlReportExceptionEx.c)
- *     RtlReportExceptionHelper @ 0x1800DD040 (RtlReportExceptionHelper.c)
+ *     RtlReportExceptionEx @ 0x1800DCB30 (RtlReportExceptionEx.c)
+ *     RtlReportExceptionHelper @ 0x1800DD000 (RtlReportExceptionHelper.c)
  * Callees:
- *     NtSetInformationProcess @ 0x18009D9C0 (NtSetInformationProcess.c)
+ *     NtSetInformationProcess @ 0x18009D980 (NtSetInformationProcess.c)
  */
 
-__int64 __fastcall WerpSetProcessFaultInformation(__int64 a1)
+NTSTATUS __fastcall WerpSetProcessFaultInformation(void *a1)
 {
-  if ( a1 )
-    return NtSetInformationProcess();
-  else
-    return 3221225711LL;
+  int ProcessInformation; // [rsp+30h] [rbp+8h] BYREF
+  int v3; // [rsp+34h] [rbp+Ch]
+
+  if ( !a1 )
+    return -1073741585;
+  v3 = 0;
+  ProcessInformation = 1;
+  return NtSetInformationProcess(a1, ProcessFaultInformation, &ProcessInformation, 8u);
 }

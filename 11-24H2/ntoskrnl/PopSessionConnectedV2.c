@@ -1,12 +1,12 @@
 /*
- * XREFs of PopSessionConnectedV2 @ 0x14075F844
+ * XREFs of PopSessionConnectedV2 @ 0x14075E7E4
  * Callers:
- *     PopSessionConnectionChangeV2 @ 0x14075F904 (PopSessionConnectionChangeV2.c)
+ *     PopSessionConnectionChangeV2 @ 0x14075E8A4 (PopSessionConnectionChangeV2.c)
  * Callees:
- *     PopAdaptiveConsoleSessionOverrideTrigger @ 0x14075F23C (PopAdaptiveConsoleSessionOverrideTrigger.c)
- *     PopDiagTraceSessionStates @ 0x1409BA66C (PopDiagTraceSessionStates.c)
- *     PopSetSessionDisplayStatus @ 0x1409BA88C (PopSetSessionDisplayStatus.c)
- *     PopAdaptiveGetSessionStateUnsafe @ 0x1409BB45C (PopAdaptiveGetSessionStateUnsafe.c)
+ *     PopAdaptiveConsoleSessionOverrideTrigger @ 0x14075E1DC (PopAdaptiveConsoleSessionOverrideTrigger.c)
+ *     PopDiagTraceSessionStates @ 0x1409A0CBC (PopDiagTraceSessionStates.c)
+ *     PopSetSessionDisplayStatus @ 0x1409A0EDC (PopSetSessionDisplayStatus.c)
+ *     PopAdaptiveGetSessionStateUnsafe @ 0x1409A1AAC (PopAdaptiveGetSessionStateUnsafe.c)
  */
 
 __int64 __fastcall PopSessionConnectedV2(unsigned int a1, __int64 a2, __int64 a3, __int64 a4)
@@ -18,7 +18,7 @@ __int64 __fastcall PopSessionConnectedV2(unsigned int a1, __int64 a2, __int64 a3
   if ( !v4 )
   {
     PopConsoleSession = 1;
-    dword_140F07358 = a1;
+    dword_140F07678 = a1;
   }
   PopSetSessionDisplayStatus(a1, 1LL);
   if ( PopAdaptiveBootContext )

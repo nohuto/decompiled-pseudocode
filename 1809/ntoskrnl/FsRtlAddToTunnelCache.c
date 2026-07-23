@@ -1,9 +1,9 @@
 /*
- * XREFs of FsRtlAddToTunnelCache @ 0x1405BFEB0
+ * XREFs of FsRtlAddToTunnelCache @ 0x1405C0EB0
  * Callers:
  *     <none>
  * Callees:
- *     FsRtlAddToTunnelCacheEx @ 0x1405819D0 (FsRtlAddToTunnelCacheEx.c)
+ *     FsRtlAddToTunnelCacheEx @ 0x1405829D0 (FsRtlAddToTunnelCacheEx.c)
  */
 
 void __stdcall FsRtlAddToTunnelCache(

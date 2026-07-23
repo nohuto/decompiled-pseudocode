@@ -1,30 +1,30 @@
 /*
- * XREFs of ObShutdownSystem @ 0x1407C25A0
+ * XREFs of ObShutdownSystem @ 0x1407C5600
  * Callers:
- *     PopGracefulShutdown @ 0x140BF9180 (PopGracefulShutdown.c)
- *     PoBroadcastSystemState @ 0x140C05D10 (PoBroadcastSystemState.c)
+ *     PopGracefulShutdown @ 0x140BFF180 (PopGracefulShutdown.c)
+ *     PoBroadcastSystemState @ 0x140C0BF20 (PoBroadcastSystemState.c)
  * Callees:
- *     PsGetServerSiloGlobals @ 0x140216B70 (PsGetServerSiloGlobals.c)
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     ExfReleasePushLock @ 0x1402E3120 (ExfReleasePushLock.c)
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     HalSystemVectorDispatchEntry @ 0x1404BD660 (HalSystemVectorDispatchEntry.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     ObCleanupSiloState @ 0x1407C216C (ObCleanupSiloState.c)
- *     ObReferenceObjectByName @ 0x1408F2260 (ObReferenceObjectByName.c)
- *     ExEnumHandleTable @ 0x1408FBBA0 (ExEnumHandleTable.c)
- *     ObpDeleteSymbolicLinkName @ 0x140B008CC (ObpDeleteSymbolicLinkName.c)
- *     ObMakeTemporaryObject @ 0x140B01A40 (ObMakeTemporaryObject.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
- *     ObpShutdownTraceLoggingProvider @ 0x140CCDE3C (ObpShutdownTraceLoggingProvider.c)
+ *     PsGetServerSiloGlobals @ 0x140216EA0 (PsGetServerSiloGlobals.c)
+ *     ExfReleasePushLock @ 0x14021B220 (ExfReleasePushLock.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     HalSystemVectorDispatchEntry @ 0x1404B6E40 (HalSystemVectorDispatchEntry.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     ObCleanupSiloState @ 0x1407C51CC (ObCleanupSiloState.c)
+ *     ObReferenceObjectByName @ 0x1408F8820 (ObReferenceObjectByName.c)
+ *     ExEnumHandleTable @ 0x14092BB30 (ExEnumHandleTable.c)
+ *     ObpDeleteSymbolicLinkName @ 0x140B025FC (ObpDeleteSymbolicLinkName.c)
+ *     ObMakeTemporaryObject @ 0x140B03770 (ObMakeTemporaryObject.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
+ *     ObpShutdownTraceLoggingProvider @ 0x140CD3F9C (ObpShutdownTraceLoggingProvider.c)
  */
 
-LONG_PTR __fastcall ObShutdownSystem(PVOID *a1, _KTHREAD **a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
+LONG_PTR __fastcall ObShutdownSystem(void **a1, _KTHREAD **a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
 {
   __int64 v4; // r12
   _QWORD *v5; // rdi
@@ -70,10 +70,10 @@ LONG_PTR __fastcall ObShutdownSystem(PVOID *a1, _KTHREAD **a2, __int64 a3, struc
     }
     else
     {
-      v5 = ObpTypeObjectType;
+      v5 = *(_QWORD **)&ObpStackTraceLock.PriorityFloorSummary;
       DestinationString = 0LL;
       Object = 0LL;
-      v6 = *(_QWORD **)ObpTypeObjectType;
+      v6 = **(_QWORD ***)&ObpStackTraceLock.PriorityFloorSummary;
       while ( v6 != v5 )
       {
         v7 = v6 + 10;
@@ -102,22 +102,22 @@ LONG_PTR __fastcall ObShutdownSystem(PVOID *a1, _KTHREAD **a2, __int64 a3, struc
       v8 = HalSystemVectorDispatchEntry();
       ServerSiloGlobals = (volatile __int64 *)PsGetServerSiloGlobals(v8);
       ObCleanupSiloState(ServerSiloGlobals);
-      ObfDereferenceObject(ObpRootDirectoryObject);
+      ObfDereferenceObject(*(PVOID *)&ObpStackTraceLock.PriorityFloorCounts[24]);
       ObfDereferenceObject(ObpDirectoryObjectType);
       ObfDereferenceObject(ObpSymbolicLinkObjectType);
       ObfDereferenceObject(ObpTypeDirectoryObject);
-      return ObfDereferenceObject(ObpTypeObjectType);
+      return ObfDereferenceObject(*(PVOID *)&ObpStackTraceLock.PriorityFloorSummary);
     }
   }
   else
   {
-    v11 = (struct _KLOCK_ENTRIES *)ObpRootDirectoryObject;
+    v11 = *(struct _KLOCK_ENTRIES **)&ObpStackTraceLock.PriorityFloorCounts[24];
     v12 = 1LL;
     v34 = 1;
     v13 = 0LL;
     v14 = 1;
     v15 = 1;
-    if ( ObpRootDirectoryObject )
+    if ( *(_QWORD *)&ObpStackTraceLock.PriorityFloorCounts[24] )
     {
 LABEL_15:
       while ( 2 )
@@ -167,7 +167,7 @@ LABEL_16:
                   v13 = a4;
               }
             }
-            if ( v20 == ObpTypeObjectType )
+            if ( v20 == *(struct _OBJECT_TYPE **)&ObpStackTraceLock.PriorityFloorSummary )
             {
               v18 = a2;
             }
@@ -253,7 +253,7 @@ LABEL_16:
         }
         --v14;
         if ( (BYTE2(v11[-1].Entries[0].WaiterTree.Min) & 2) != 0 )
-          a1 = (PVOID *)((char *)&v11[-1].Entries[0].OwnerTree.Root
+          a1 = (void **)((char *)&v11[-1].Entries[0].OwnerTree.Root
                        - ObpInfoMaskToOffset[BYTE2(v11[-1].Entries[0].WaiterTree.Min) & 3]);
         else
           a1 = 0LL;

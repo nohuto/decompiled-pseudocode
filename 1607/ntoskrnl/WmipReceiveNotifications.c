@@ -1,20 +1,20 @@
 /*
- * XREFs of WmipReceiveNotifications @ 0x1400AF3D4
+ * XREFs of WmipReceiveNotifications @ 0x1400AD93C
  * Callers:
- *     WmipIoControl @ 0x1404749C4 (WmipIoControl.c)
+ *     WmipIoControl @ 0x140473894 (WmipIoControl.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140012750 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14001BD40 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseMutex @ 0x140055FE0 (KeReleaseMutex.c)
- *     KeWaitForSingleObject @ 0x14005C880 (KeWaitForSingleObject.c)
- *     ObfDereferenceObjectWithTag @ 0x14006ACD0 (ObfDereferenceObjectWithTag.c)
- *     WmipCompleteGuidIrpWithError @ 0x1400A1C90 (WmipCompleteGuidIrpWithError.c)
- *     WmipClearIrpObjectList @ 0x1400A2684 (WmipClearIrpObjectList.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x1400122D0 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14001B8C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseMutex @ 0x140055B60 (KeReleaseMutex.c)
+ *     KeWaitForSingleObject @ 0x14005C400 (KeWaitForSingleObject.c)
+ *     ObfDereferenceObjectWithTag @ 0x14006A850 (ObfDereferenceObjectWithTag.c)
+ *     WmipCompleteGuidIrpWithError @ 0x1400A05B8 (WmipCompleteGuidIrpWithError.c)
+ *     WmipClearIrpObjectList @ 0x1400A0FAC (WmipClearIrpObjectList.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     ObReferenceObjectByHandle @ 0x140450D40 (ObReferenceObjectByHandle.c)
- *     WmipCopyFromEventQueues @ 0x1405439E4 (WmipCopyFromEventQueues.c)
+ *     ObReferenceObjectByHandle @ 0x14044FC10 (ObReferenceObjectByHandle.c)
+ *     WmipCopyFromEventQueues @ 0x140543F24 (WmipCopyFromEventQueues.c)
  */
 
 __int64 __fastcall WmipReceiveNotifications(unsigned int *a1, unsigned int *a2, __int64 a3)

@@ -1,11 +1,11 @@
 /*
- * XREFs of NtPulseEvent @ 0x14066CF40
+ * XREFs of NtPulseEvent @ 0x14066E100
  * Callers:
  *     <none>
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     KePulseEvent @ 0x1400F0BC0 (KePulseEvent.c)
- *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
+ *     KePulseEvent @ 0x1400F0C40 (KePulseEvent.c)
+ *     ObReferenceObjectByHandle @ 0x1405E9350 (ObReferenceObjectByHandle.c)
  */
 
 NTSTATUS __stdcall NtPulseEvent(HANDLE EventHandle, PLONG PulseCount)

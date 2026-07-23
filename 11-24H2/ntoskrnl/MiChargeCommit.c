@@ -1,69 +1,69 @@
 /*
- * XREFs of MiChargeCommit @ 0x140211450
+ * XREFs of MiChargeCommit @ 0x14033A7B0
  * Callers:
- *     MiReferenceActiveSubsection @ 0x14020E140 (MiReferenceActiveSubsection.c)
- *     SmAcquireReleaseCharges @ 0x140210CF0 (SmAcquireReleaseCharges.c)
- *     MiAcquireNonPagedResources @ 0x140211200 (MiAcquireNonPagedResources.c)
- *     MiChargeForWriteInProgressPage @ 0x140211300 (MiChargeForWriteInProgressPage.c)
- *     MiChargeForLockedPage @ 0x140211B30 (MiChargeForLockedPage.c)
- *     MmChargeResources @ 0x140212800 (MmChargeResources.c)
- *     MiResolveProtoPteFault @ 0x140214BB0 (MiResolveProtoPteFault.c)
- *     MiLockProtoPoolPageForce @ 0x140215A80 (MiLockProtoPoolPageForce.c)
- *     MiLockProtoPoolPage @ 0x14022E920 (MiLockProtoPoolPage.c)
- *     MiSetProtectionOnSection @ 0x140236630 (MiSetProtectionOnSection.c)
- *     MiCheckProtoPtePageState @ 0x14023BE50 (MiCheckProtoPtePageState.c)
- *     MiPurgeSubsection @ 0x14023C9F0 (MiPurgeSubsection.c)
- *     MiDecommitSharedPageTail @ 0x14023E140 (MiDecommitSharedPageTail.c)
- *     MiProbeLockFrame @ 0x140282AC0 (MiProbeLockFrame.c)
- *     MiCopyOnWrite @ 0x1402E47DC (MiCopyOnWrite.c)
- *     RtlpHpEnvAllocVA @ 0x1402EAA50 (RtlpHpEnvAllocVA.c)
- *     MiHardFaultPageRelease @ 0x1402F303C (MiHardFaultPageRelease.c)
- *     MiCreateUltraThreadContext @ 0x1402F3EF0 (MiCreateUltraThreadContext.c)
- *     MiObtainFaultCharges @ 0x1402F6A70 (MiObtainFaultCharges.c)
- *     MiAddLockedPageCharge @ 0x1402F6F40 (MiAddLockedPageCharge.c)
- *     MiObtainSystemCharges @ 0x1402F779C (MiObtainSystemCharges.c)
- *     MiGetSubsectionCharges @ 0x14036DF10 (MiGetSubsectionCharges.c)
- *     MiGetCloneCharges @ 0x14036E068 (MiGetCloneCharges.c)
- *     MiCreateLargePfnList @ 0x14036E934 (MiCreateLargePfnList.c)
- *     ?SmStMapVirtualRegion@?$SMKM_STORE@USM_TRAITS@@@@SAPEAXPEAU1@KKKK@Z @ 0x14039B930 (-SmStMapVirtualRegion@-$SMKM_STORE@USM_TRAITS@@@@SAPEAXPEAU1@KKKK@Z.c)
- *     MiCreateUltraThreadContextHelper @ 0x1403C6C4C (MiCreateUltraThreadContextHelper.c)
- *     MiReplenishUltraPageTables @ 0x1403C6DB8 (MiReplenishUltraPageTables.c)
- *     MiAttemptPageFileReductionApc @ 0x1403F9310 (MiAttemptPageFileReductionApc.c)
- *     NtLockVirtualMemory @ 0x1403FD910 (NtLockVirtualMemory.c)
- *     MiInsertInSystemSpace @ 0x140415F30 (MiInsertInSystemSpace.c)
- *     MiObtainPoolCharges @ 0x140458B1C (MiObtainPoolCharges.c)
- *     MiMakePartitionActive @ 0x14048A21C (MiMakePartitionActive.c)
- *     MiSetPagesModified @ 0x140492C90 (MiSetPagesModified.c)
- *     MiDecommitPrivatePageTail @ 0x1404F2240 (MiDecommitPrivatePageTail.c)
- *     MiReAcquireOutSwappedProcessCommit @ 0x14066A288 (MiReAcquireOutSwappedProcessCommit.c)
- *     MiInitializeCommitment @ 0x140686338 (MiInitializeCommitment.c)
- *     MiChargeFullProcessCommitment @ 0x1408E3010 (MiChargeFullProcessCommitment.c)
- *     MiChargeSegmentCommit @ 0x1408F7C78 (MiChargeSegmentCommit.c)
- *     MiCreatePagingFileMap @ 0x140942908 (MiCreatePagingFileMap.c)
- *     MiCreateImageFileMap @ 0x140944150 (MiCreateImageFileMap.c)
- *     MiRotateToFrameBuffer @ 0x140A2E9A4 (MiRotateToFrameBuffer.c)
- *     MiAllocatePerSessionProtos @ 0x140A4FFC0 (MiAllocatePerSessionProtos.c)
- *     MiCreateFileOnlyImageFixupList @ 0x140AB861C (MiCreateFileOnlyImageFixupList.c)
- *     MmCreateProcessAddressSpace @ 0x140AE61C8 (MmCreateProcessAddressSpace.c)
+ *     MiPurgeSubsection @ 0x140204780 (MiPurgeSubsection.c)
+ *     MiDecommitSharedPageTail @ 0x140206290 (MiDecommitSharedPageTail.c)
+ *     MiSetProtectionOnSection @ 0x1402107C0 (MiSetProtectionOnSection.c)
+ *     MiObtainSystemCharges @ 0x14021D05C (MiObtainSystemCharges.c)
+ *     MiProbeLockFrame @ 0x140238050 (MiProbeLockFrame.c)
+ *     MiHardFaultPageRelease @ 0x140258B7C (MiHardFaultPageRelease.c)
+ *     MiGetSubsectionCharges @ 0x1402699F8 (MiGetSubsectionCharges.c)
+ *     MiGetCloneCharges @ 0x140269B50 (MiGetCloneCharges.c)
+ *     MiCreateLargePfnList @ 0x14026A8C0 (MiCreateLargePfnList.c)
+ *     ?SmStMapVirtualRegion@?$SMKM_STORE@USM_TRAITS@@@@SAPEAXPEAU1@KKKK@Z @ 0x1402F8C30 (-SmStMapVirtualRegion@-$SMKM_STORE@USM_TRAITS@@@@SAPEAXPEAU1@KKKK@Z.c)
+ *     MiLockProtoPoolPage @ 0x140302230 (MiLockProtoPoolPage.c)
+ *     MiLockProtoPoolPageForce @ 0x140333E20 (MiLockProtoPoolPageForce.c)
+ *     MiResolveProtoPteFault @ 0x140334760 (MiResolveProtoPteFault.c)
+ *     MiReferenceActiveSubsection @ 0x1403374A0 (MiReferenceActiveSubsection.c)
+ *     SmAcquireReleaseCharges @ 0x14033A050 (SmAcquireReleaseCharges.c)
+ *     MiAcquireNonPagedResources @ 0x14033A560 (MiAcquireNonPagedResources.c)
+ *     MiChargeForWriteInProgressPage @ 0x14033A660 (MiChargeForWriteInProgressPage.c)
+ *     MiChargeForLockedPage @ 0x14033AE90 (MiChargeForLockedPage.c)
+ *     MmChargeResources @ 0x14033BB60 (MmChargeResources.c)
+ *     MiCreateUltraThreadContext @ 0x14033BC80 (MiCreateUltraThreadContext.c)
+ *     MiObtainFaultCharges @ 0x14033EB80 (MiObtainFaultCharges.c)
+ *     MiAddLockedPageCharge @ 0x14033F050 (MiAddLockedPageCharge.c)
+ *     MiCheckProtoPtePageState @ 0x140345BB0 (MiCheckProtoPtePageState.c)
+ *     MiCopyOnWrite @ 0x140346A74 (MiCopyOnWrite.c)
+ *     RtlpHpEnvAllocVA @ 0x14034C090 (RtlpHpEnvAllocVA.c)
+ *     MiInsertInSystemSpace @ 0x140393BFC (MiInsertInSystemSpace.c)
+ *     MiSetPagesModified @ 0x1403DA5EC (MiSetPagesModified.c)
+ *     NtLockVirtualMemory @ 0x1403DBC30 (NtLockVirtualMemory.c)
+ *     MiAttemptPageFileReductionApc @ 0x1403EF420 (MiAttemptPageFileReductionApc.c)
+ *     MiCreateUltraThreadContextHelper @ 0x140412880 (MiCreateUltraThreadContextHelper.c)
+ *     MiReplenishUltraPageTables @ 0x1404129EC (MiReplenishUltraPageTables.c)
+ *     MiObtainPoolCharges @ 0x14044DFCC (MiObtainPoolCharges.c)
+ *     MiMakePartitionActive @ 0x140485044 (MiMakePartitionActive.c)
+ *     MiDecommitPrivatePageTail @ 0x1404EFCE0 (MiDecommitPrivatePageTail.c)
+ *     MiReAcquireOutSwappedProcessCommit @ 0x14066B458 (MiReAcquireOutSwappedProcessCommit.c)
+ *     MiInitializeCommitment @ 0x140687468 (MiInitializeCommitment.c)
+ *     MiChargeFullProcessCommitment @ 0x140919BC0 (MiChargeFullProcessCommitment.c)
+ *     MiChargeSegmentCommit @ 0x140974EF8 (MiChargeSegmentCommit.c)
+ *     MiCreatePagingFileMap @ 0x14098CB78 (MiCreatePagingFileMap.c)
+ *     MiCreateImageFileMap @ 0x14098DFC0 (MiCreateImageFileMap.c)
+ *     MiRotateToFrameBuffer @ 0x140A233E4 (MiRotateToFrameBuffer.c)
+ *     MiAllocatePerSessionProtos @ 0x140A46D70 (MiAllocatePerSessionProtos.c)
+ *     MiCreateFileOnlyImageFixupList @ 0x140AB2AE0 (MiCreateFileOnlyImageFixupList.c)
+ *     MmCreateProcessAddressSpace @ 0x140AE7AA8 (MmCreateProcessAddressSpace.c)
  * Callees:
- *     ExAcquireSpinLockSharedAtDpcLevel @ 0x140210120 (ExAcquireSpinLockSharedAtDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140210170 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x140210C80 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     MiReleaseSpinLockShared @ 0x140244830 (MiReleaseSpinLockShared.c)
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     KeResetEvent @ 0x14028EEC0 (KeResetEvent.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     MiFreeExcessSegments @ 0x1402EA170 (MiFreeExcessSegments.c)
- *     ExAcquireSpinLockShared @ 0x14031A1A0 (ExAcquireSpinLockShared.c)
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     MiReplenishLocalCommit @ 0x140434C90 (MiReplenishLocalCommit.c)
- *     MiExtendPageFilesIfNecessary @ 0x14046B3A8 (MiExtendPageFilesIfNecessary.c)
- *     MiIssuePageExtendRequest @ 0x14046B438 (MiIssuePageExtendRequest.c)
- *     MiCauseOverCommitPopup @ 0x140480358 (MiCauseOverCommitPopup.c)
- *     MiConsumeOverCommit @ 0x1404AA12C (MiConsumeOverCommit.c)
- *     MiPulseCommitSignal @ 0x1404D4F60 (MiPulseCommitSignal.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
+ *     MiReleaseSpinLockShared @ 0x14020CFC0 (MiReleaseSpinLockShared.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     KeResetEvent @ 0x14029EAC0 (KeResetEvent.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     ExAcquireSpinLockShared @ 0x1402C2D30 (ExAcquireSpinLockShared.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x140339480 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1403394D0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x140339FE0 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     MiFreeExcessSegments @ 0x14034B7B0 (MiFreeExcessSegments.c)
+ *     MiReplenishLocalCommit @ 0x140427BF0 (MiReplenishLocalCommit.c)
+ *     MiExtendPageFilesIfNecessary @ 0x140463FA8 (MiExtendPageFilesIfNecessary.c)
+ *     MiIssuePageExtendRequest @ 0x140464038 (MiIssuePageExtendRequest.c)
+ *     MiCauseOverCommitPopup @ 0x14047AF98 (MiCauseOverCommitPopup.c)
+ *     MiConsumeOverCommit @ 0x1404A43FC (MiConsumeOverCommit.c)
+ *     MiPulseCommitSignal @ 0x1404CE238 (MiPulseCommitSignal.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall MiChargeCommit(__int64 a1, unsigned __int64 a2, char a3)
@@ -89,29 +89,30 @@ __int64 __fastcall MiChargeCommit(__int64 a1, unsigned __int64 a2, char a3)
   unsigned __int64 v25; // rbp
   unsigned __int64 v26; // rax
   volatile LONG *v27; // rcx
-  __int64 v28; // rdx
-  unsigned __int64 v29; // rcx
-  bool v30; // zf
-  volatile LONG *v31; // rcx
-  int v32; // eax
-  KIRQL v33; // al
-  unsigned __int64 v34; // rcx
-  unsigned __int64 v35; // rdx
-  struct _KEVENT *v36; // rcx
+  __int64 v28; // r8
+  __int64 v29; // r9
+  KIRQL v30; // dl
+  unsigned __int64 v31; // rcx
+  bool v32; // zf
+  volatile signed __int32 *v33; // rcx
+  int v34; // eax
+  unsigned __int64 v35; // rcx
+  unsigned __int64 v36; // rdx
   struct _KEVENT *v37; // rcx
   struct _KEVENT *v38; // rcx
   struct _KEVENT *v39; // rcx
-  KIRQL v40; // r12
-  volatile LONG *v41; // rcx
-  KIRQL v42; // al
-  int v43; // edx
+  struct _KEVENT *v40; // rcx
+  KIRQL v41; // r12
+  volatile LONG *v42; // rcx
+  KIRQL v43; // al
   int v44; // edx
-  KIRQL v45; // al
-  __int64 v46; // [rsp+30h] [rbp-48h]
+  int v45; // edx
+  KIRQL v46; // al
+  __int64 v47; // [rsp+30h] [rbp-48h]
   LARGE_INTEGER Timeout; // [rsp+38h] [rbp-40h] BYREF
-  int v48; // [rsp+80h] [rbp+8h]
-  unsigned __int8 v49; // [rsp+90h] [rbp+18h]
-  int v50; // [rsp+98h] [rbp+20h]
+  int v49; // [rsp+80h] [rbp+8h]
+  unsigned __int8 v50; // [rsp+90h] [rbp+18h]
+  int v51; // [rsp+98h] [rbp+20h]
 
 LABEL_1:
   CurrentPrcb = KeGetCurrentPrcb();
@@ -125,7 +126,7 @@ LABEL_1:
         return 1LL;
     }
   }
-  v48 = 0;
+  v49 = 0;
   v10 = a3 | 2;
   if ( (a3 & 4) == 0 )
     v10 = a3;
@@ -144,36 +145,36 @@ LABEL_1:
     v10 |= 4u;
     v11 = 0LL;
 LABEL_13:
-    v46 = v11;
+    v47 = v11;
     goto LABEL_14;
   }
   v11 = 64LL;
-  v46 = 64LL;
+  v47 = 64LL;
   if ( (ULONG *)a1 != &MiSystemPartition && *(_QWORD *)(a1 + 18512) >> 6 < 0x40uLL )
   {
     v11 = *(_QWORD *)(a1 + 18512) >> 6;
-    v46 = v11;
+    v47 = v11;
   }
 LABEL_14:
   while ( 2 )
   {
     while ( 2 )
     {
-      v50 = v10 & 4;
+      v51 = v10 & 4;
       while ( 1 )
       {
         v12 = *(_QWORD *)(a1 + 19264);
         v13 = a2 + v12;
         if ( a2 + v12 <= v12 )
         {
-          v32 = v50;
+          v34 = v51;
           goto LABEL_57;
         }
         if ( v11 + v13 < v13 )
         {
-          v32 = v10 & 4;
+          v34 = v10 & 4;
 LABEL_57:
-          if ( !v32 )
+          if ( !v34 )
           {
             if ( (v10 & 2) == 0 )
             {
@@ -185,7 +186,7 @@ LABEL_57:
             return 0LL;
           }
           if ( !v11 )
-            ++dword_140E30144;
+            ++dword_140E30284;
 LABEL_73:
           if ( a2 )
           {
@@ -198,7 +199,7 @@ LABEL_73:
         v14 = *(_QWORD *)(a1 + 19608);
         if ( v11 + v13 <= v14 )
         {
-          if ( !v48 && v13 >= *(_QWORD *)(a1 + 16872) )
+          if ( !v49 && v13 >= *(_QWORD *)(a1 + 16872) )
           {
             Timeout.QuadPart = 0LL;
             if ( (v10 & 4) == 0
@@ -207,30 +208,30 @@ LABEL_73:
               && v14 != *(_QWORD *)(a1 + 16840)
               && *(_DWORD *)(a1 + 2444) )
             {
-              v42 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(a1 + 1728));
-              v43 = *(_DWORD *)(a1 + 2440);
-              if ( v43 )
+              v43 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(a1 + 1728));
+              v44 = *(_DWORD *)(a1 + 2440);
+              if ( v44 )
               {
-                v44 = v43 + 1;
+                v45 = v44 + 1;
               }
               else
               {
                 *(_WORD *)(a1 + 2448) = 0;
                 *(_DWORD *)(a1 + 2452) = 0;
-                v44 = 1;
+                v45 = 1;
                 *(_BYTE *)(a1 + 2450) = 6;
                 *(_QWORD *)(a1 + 2464) = a1 + 2456;
                 *(_QWORD *)(a1 + 2456) = a1 + 2456;
               }
-              *(_DWORD *)(a1 + 2440) = v44;
-              MiReleaseSpinLockExclusive(a1 + 1728, v42);
+              *(_DWORD *)(a1 + 2440) = v45;
+              MiReleaseSpinLockExclusive((_DWORD *)(a1 + 1728), v43);
               Timeout = Mi10Milliseconds;
               KeWaitForSingleObject((PVOID)(a1 + 2448), Executive, 0, 0, &Timeout);
-              v45 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(a1 + 1728));
+              v46 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(a1 + 1728));
               --*(_DWORD *)(a1 + 2440);
-              MiReleaseSpinLockExclusive(a1 + 1728, v45);
+              MiReleaseSpinLockExclusive((_DWORD *)(a1 + 1728), v46);
             }
-            v48 = 1;
+            v49 = 1;
           }
 LABEL_22:
           v15 = _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 19264), v13, v12);
@@ -248,56 +249,56 @@ LABEL_22:
             {
               goto LABEL_26;
             }
-            v41 = (volatile LONG *)(a1 + 16888);
+            v42 = (volatile LONG *)(a1 + 16888);
             if ( KeGetCurrentIrql() == 2 )
             {
-              v40 = 17;
-              ExAcquireSpinLockExclusiveAtDpcLevel(v41);
+              v41 = 17;
+              ExAcquireSpinLockExclusiveAtDpcLevel(v42);
             }
             else
             {
-              v40 = ExAcquireSpinLockExclusive(v41);
+              v41 = ExAcquireSpinLockExclusive(v42);
             }
-            v35 = *(_QWORD *)(a1 + 19264);
-            if ( v35 < *(_QWORD *)(a1 + 16856) )
+            v36 = *(_QWORD *)(a1 + 19264);
+            if ( v36 < *(_QWORD *)(a1 + 16856) )
             {
-              v38 = *(struct _KEVENT **)(a1 + 296);
-              if ( !v38->Header.SignalState )
-                KeSetEvent(v38, 0, 0);
-              v39 = *(struct _KEVENT **)(a1 + 304);
-              if ( v39->Header.SignalState != 1 )
+              v39 = *(struct _KEVENT **)(a1 + 296);
+              if ( !v39->Header.SignalState )
+                KeSetEvent(v39, 0, 0);
+              v40 = *(struct _KEVENT **)(a1 + 304);
+              if ( v40->Header.SignalState != 1 )
                 goto LABEL_108;
-              KeResetEvent(v39);
-              v37 = *(struct _KEVENT **)(a1 + 312);
+              KeResetEvent(v40);
+              v38 = *(struct _KEVENT **)(a1 + 312);
             }
             else
             {
-              v36 = *(struct _KEVENT **)(a1 + 304);
-              if ( v35 >= *(_QWORD *)(a1 + 16864) )
+              v37 = *(struct _KEVENT **)(a1 + 304);
+              if ( v36 >= *(_QWORD *)(a1 + 16864) )
               {
-                if ( !v36->Header.SignalState )
-                  KeSetEvent(v36, 0, 0);
+                if ( !v37->Header.SignalState )
+                  KeSetEvent(v37, 0, 0);
                 if ( *(_QWORD *)(a1 + 19608) == *(_QWORD *)(a1 + 16840) )
                   KeSetEvent(*(PRKEVENT *)(a1 + 312), 0, 0);
-                v37 = *(struct _KEVENT **)(a1 + 296);
-                if ( v37->Header.SignalState != 1 )
+                v38 = *(struct _KEVENT **)(a1 + 296);
+                if ( v38->Header.SignalState != 1 )
                   goto LABEL_108;
               }
               else
               {
-                if ( v36->Header.SignalState == 1 )
+                if ( v37->Header.SignalState == 1 )
                 {
-                  KeResetEvent(v36);
+                  KeResetEvent(v37);
                   KeResetEvent(*(PRKEVENT *)(a1 + 312));
                 }
-                v37 = *(struct _KEVENT **)(a1 + 296);
-                if ( v37->Header.SignalState != 1 )
+                v38 = *(struct _KEVENT **)(a1 + 296);
+                if ( v38->Header.SignalState != 1 )
                   goto LABEL_108;
               }
             }
-            KeResetEvent(v37);
+            KeResetEvent(v38);
 LABEL_108:
-            MiReleaseSpinLockExclusive(a1 + 16888, v40);
+            MiReleaseSpinLockExclusive((_DWORD *)(a1 + 16888), v41);
 LABEL_26:
             if ( (v10 & 0x10) == 0 )
             {
@@ -308,10 +309,10 @@ LABEL_26:
               {
                 if ( v21 <= v20 )
                   break;
-                v34 = v20;
+                v35 = v20;
                 v20 = _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 16832), v21, v20);
               }
-              while ( v34 != v20 );
+              while ( v35 != v20 );
             }
             if ( (v10 & 2) == 0 )
             {
@@ -326,68 +327,67 @@ LABEL_26:
                 {
                   v24 = v17;
                   v25 = 256 - CachedCommit + v17;
-                  if ( v25 > v24 && v25 + v46 > v24 && v25 + v46 <= v22 )
+                  if ( v25 > v24 && v25 + v47 > v24 && v25 + v47 <= v22 )
                     MiReplenishLocalCommit(a1, CurrentPrcb);
                 }
               }
             }
             return 1LL;
           }
-          v11 = v46;
+          v11 = v47;
           goto LABEL_14;
         }
         v26 = *(_QWORD *)(a1 + 16864);
         if ( v13 >= v26 && v12 < v26 )
         {
           MiPulseCommitSignal(a1);
-          v11 = v46;
+          v11 = v47;
         }
-        v50 = v10 & 4;
+        v51 = v10 & 4;
         if ( (v10 & 4) != 0 )
         {
           if ( !v11 )
-            ++dword_140E30140;
+            ++dword_140E30280;
           goto LABEL_73;
         }
         v27 = (volatile LONG *)(a1 + 16888);
         if ( KeGetCurrentIrql() == 2 )
         {
-          v49 = 17;
+          v50 = 17;
           ExAcquireSpinLockSharedAtDpcLevel(v27);
-          LOBYTE(v28) = 17;
+          v30 = 17;
         }
         else
         {
-          v33 = ExAcquireSpinLockShared(v27);
-          v28 = v33;
-          v49 = v33;
+          v30 = ExAcquireSpinLockShared(v27);
+          v50 = v30;
         }
         v12 = *(_QWORD *)(a1 + 19264);
-        v29 = *(_QWORD *)(a1 + 19608);
+        v31 = *(_QWORD *)(a1 + 19608);
         v13 = a2 + v12;
-        if ( a2 + v12 > v12 && v13 + v46 >= v13 )
+        if ( a2 + v12 > v12 && v13 + v47 >= v13 )
           break;
-        MiReleaseSpinLockShared(a1 + 16888, v28);
-        v11 = v46;
+        MiReleaseSpinLockShared((volatile signed __int32 *)(a1 + 16888), v30, v28, v29);
+        v11 = v47;
       }
-      if ( v13 + v46 <= v29 )
+      if ( v13 + v47 <= v31 )
       {
-        MiReleaseSpinLockShared(a1 + 16888, v28);
-        v11 = v46;
+        MiReleaseSpinLockShared((volatile signed __int32 *)(a1 + 16888), v30, v28, v29);
+        v11 = v47;
         continue;
       }
       break;
     }
     if ( (v10 & 2) != 0 )
     {
-      MiReleaseSpinLockShared(a1 + 16888, v28);
+      MiReleaseSpinLockShared((volatile signed __int32 *)(a1 + 16888), v30, v28, v29);
       return 0LL;
     }
-    v30 = v29 == *(_QWORD *)(a1 + 16840);
-    v31 = (volatile LONG *)(a1 + 16888);
-    if ( v30 )
+    v32 = v31 == *(_QWORD *)(a1 + 16840);
+    v33 = (volatile signed __int32 *)(a1 + 16888);
+    if ( v32 )
     {
-      MiReleaseSpinLockShared(v31, v28);
+      MiReleaseSpinLockShared(v33, v30, v28, v29);
       ++*(_DWORD *)(a1 + 19700);
       if ( (ULONG *)a1 != &MiSystemPartition )
         return 0LL;
@@ -400,12 +400,12 @@ LABEL_26:
         goto LABEL_84;
       goto LABEL_22;
     }
-    ExReleaseSpinLockSharedFromDpcLevel(v31);
-    if ( v49 != 17 )
+    ExReleaseSpinLockSharedFromDpcLevel(v33);
+    if ( v50 != 17 )
     {
       if ( KiIrqlFlags )
-        KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), v49);
-      __writecr8(v49);
+        KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), v50);
+      __writecr8(v50);
     }
     if ( (v10 & 1) != 0 )
     {
@@ -417,7 +417,7 @@ LABEL_26:
     {
       if ( (unsigned int)MiIssuePageExtendRequest(a1, a2, 0LL, 255LL) )
       {
-        v11 = v46;
+        v11 = v47;
         continue;
       }
       ++*(_DWORD *)(a1 + 19696);

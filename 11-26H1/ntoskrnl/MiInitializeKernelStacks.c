@@ -1,14 +1,14 @@
 /*
- * XREFs of MiInitializeKernelStacks @ 0x140CFC600
+ * XREFs of MiInitializeKernelStacks @ 0x140D02980
  * Callers:
- *     MiInitNucleus @ 0x140CF2CBC (MiInitNucleus.c)
+ *     MiInitNucleus @ 0x140CF903C (MiInitNucleus.c)
  * Callees:
  *     ExGenRandom @ 0x140200C10 (ExGenRandom.c)
- *     KeQueryUnbiasedInterruptTimePrecise @ 0x140207BF0 (KeQueryUnbiasedInterruptTimePrecise.c)
- *     MiMarkBootGuardPage @ 0x1406FF204 (MiMarkBootGuardPage.c)
- *     MiInitializeDynamicRegion @ 0x140CF97C4 (MiInitializeDynamicRegion.c)
- *     MiMarkBootKernelStack @ 0x140CFC7FC (MiMarkBootKernelStack.c)
- *     MiInitializePteInfo @ 0x140CFEE68 (MiInitializePteInfo.c)
+ *     KeQueryUnbiasedInterruptTimePrecise @ 0x140207CD0 (KeQueryUnbiasedInterruptTimePrecise.c)
+ *     MiMarkBootGuardPage @ 0x140703ED4 (MiMarkBootGuardPage.c)
+ *     MiInitializeDynamicRegion @ 0x140CFFB44 (MiInitializeDynamicRegion.c)
+ *     MiMarkBootKernelStack @ 0x140D02B7C (MiMarkBootKernelStack.c)
+ *     MiInitializePteInfo @ 0x140D05208 (MiInitializePteInfo.c)
  */
 
 __int64 MiInitializeKernelStacks()
@@ -43,7 +43,7 @@ __int64 MiInitializeKernelStacks()
   MiMarkBootGuardPage(v3 - 8);
   MiMarkBootGuardPage(v2 - 8);
   v4 = 13;
-  byte_140E34B64 = (unsigned int)KeKernelStackSize >> 12;
+  byte_140E34CE4 = (unsigned int)KeKernelStackSize >> 12;
   v5 = KeQueryUnbiasedInterruptTimePrecise(&QpcTimeStamp);
   CurrentPrcb = KeGetCurrentPrcb();
   v7 = v5;
@@ -54,16 +54,16 @@ __int64 MiInitializeKernelStacks()
   if ( !v12 )
     v12 = 1LL;
   v13 = 0LL;
-  qword_140E34BA0 = v12;
-  v14 = qword_140E349D8 + 216LL * (unsigned __int16)KeNumberNodes;
+  qword_140E34D20 = v12;
+  v14 = qword_140E34B58 + 216LL * (unsigned __int16)KeNumberNodes;
   v15 = 10LL;
   while ( (unsigned int)v13 < 2 )
   {
     v16 = 2 * v15;
-    v17 = qword_140E37B70[v16 + 1];
-    v18 = qword_140E37B70[v16];
+    v17 = qword_140E37CF0[v16 + 1];
+    v18 = qword_140E37CF0[v16];
     if ( !(unsigned int)MiInitializeDynamicRegion(v4)
-      || !(unsigned int)MiInitializePteInfo((unsigned int)&unk_140E34AA0 + 96 * v13, v4, 0, 5, v18, v17, 1, v14) )
+      || !(unsigned int)MiInitializePteInfo((unsigned int)&unk_140E34C20 + 96 * v13, v4, 0, 5, v18, v17, 1, v14) )
     {
       return 0LL;
     }

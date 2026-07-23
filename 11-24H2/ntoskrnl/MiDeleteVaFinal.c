@@ -1,10 +1,10 @@
 /*
- * XREFs of MiDeleteVaFinal @ 0x1403CC460
+ * XREFs of MiDeleteVaFinal @ 0x140266630
  * Callers:
- *     MiDeletePagablePteRange @ 0x1403CC1D4 (MiDeletePagablePteRange.c)
+ *     MiDeletePagablePteRange @ 0x1402663A4 (MiDeletePagablePteRange.c)
  * Callees:
- *     MiFreeLargePages @ 0x1403CC4F0 (MiFreeLargePages.c)
- *     MiFreePhysicalPageChain @ 0x1403CCA3C (MiFreePhysicalPageChain.c)
+ *     MiFreeLargePages @ 0x1402666C0 (MiFreeLargePages.c)
+ *     MiFreePhysicalPageChain @ 0x140266C0C (MiFreePhysicalPageChain.c)
  */
 
 void __fastcall MiDeleteVaFinal(__int64 a1)
@@ -22,7 +22,7 @@ void __fastcall MiDeleteVaFinal(__int64 a1)
   if ( v3 < 0 )
   {
     v2[1] = MiFreeLargePages(
-              *((_QWORD *)qword_140E2FF88 + *(unsigned __int16 *)(*(_QWORD *)(a1 + 32) + 174LL)),
+              *((_QWORD *)qword_140E300C8 + *(unsigned __int16 *)(*(_QWORD *)(a1 + 32) + 174LL)),
               v3,
               (unsigned int)&v5,
               (int)v2 + 16,

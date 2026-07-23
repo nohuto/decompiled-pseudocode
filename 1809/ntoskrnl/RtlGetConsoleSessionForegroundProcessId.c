@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlGetConsoleSessionForegroundProcessId @ 0x1408904D0
+ * XREFs of RtlGetConsoleSessionForegroundProcessId @ 0x140891730
  * Callers:
  *     <none>
  * Callees:
- *     PsIsCurrentThreadInServerSilo @ 0x1400B9C20 (PsIsCurrentThreadInServerSilo.c)
- *     PsGetCurrentServerSiloGlobals @ 0x140109D40 (PsGetCurrentServerSiloGlobals.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x1400B9B60 (PsIsCurrentThreadInServerSilo.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140109DC0 (PsGetCurrentServerSiloGlobals.c)
  */
 
-__int64 RtlGetConsoleSessionForegroundProcessId()
+ULONGLONG RtlGetConsoleSessionForegroundProcessId(void)
 {
   if ( PsIsCurrentThreadInServerSilo() )
     return *(_QWORD *)(*((_QWORD *)PsGetCurrentServerSiloGlobals() + 140) + 8LL);

@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlDecompressBufferDeflateRaw @ 0x18014D090
+ * XREFs of RtlDecompressBufferDeflateRaw @ 0x18014B450
  * Callers:
  *     <none>
  * Callees:
- *     RtlDecompressBufferDeflateInternal @ 0x18014CF88 (RtlDecompressBufferDeflateInternal.c)
+ *     RtlDecompressBufferDeflateInternal @ 0x18014B348 (RtlDecompressBufferDeflateInternal.c)
  */
 
 __int64 __fastcall RtlDecompressBufferDeflateRaw(

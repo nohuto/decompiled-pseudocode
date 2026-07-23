@@ -1,11 +1,11 @@
 /*
- * XREFs of IopCheckHardErrorEmpty @ 0x140554EE0
+ * XREFs of IopCheckHardErrorEmpty @ 0x1405555A0
  * Callers:
- *     IopHardErrorThread @ 0x140944D90 (IopHardErrorThread.c)
+ *     IopHardErrorThread @ 0x140944F90 (IopHardErrorThread.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 char IopCheckHardErrorEmpty()
@@ -29,10 +29,13 @@ char IopCheckHardErrorEmpty()
     v0 = 0;
   }
   KxReleaseSpinLock((volatile signed __int64 *)&qword_140C5DD30);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v2 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v2 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -40,7 +43,7 @@ char IopCheckHardErrorEmpty()
       v7 = (v6 & SchedulerAssist[5]) == 0;
       SchedulerAssist[5] &= v6;
       if ( v7 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
     }
   }
   __writecr8(v2);

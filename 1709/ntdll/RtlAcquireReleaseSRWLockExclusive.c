@@ -9,17 +9,14 @@
  *     RtlAcquireSRWLockExclusive @ 0x180046170 (RtlAcquireSRWLockExclusive.c)
  */
 
-__int64 __fastcall RtlAcquireReleaseSRWLockExclusive(__int64 *a1)
+void __cdecl RtlAcquireReleaseSRWLockExclusive(PRTL_SRWLOCK SRWLock)
 {
-  __int64 result; // rax
-  signed __int32 v3[10]; // [rsp+0h] [rbp-28h] BYREF
+  signed __int32 v2[10]; // [rsp+0h] [rbp-28h] BYREF
 
-  _InterlockedOr(v3, 0);
-  result = *a1;
-  if ( (*a1 & 1) != 0 )
+  _InterlockedOr(v2, 0);
+  if ( (SRWLock->Value & 1) != 0 )
   {
-    RtlAcquireSRWLockExclusive(a1);
-    return RtlReleaseSRWLockExclusive(a1);
+    RtlAcquireSRWLockExclusive(SRWLock);
+    RtlReleaseSRWLockExclusive(SRWLock);
   }
-  return result;
 }

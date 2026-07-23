@@ -69,7 +69,7 @@ unsigned __int64 __fastcall KiDetachProcess(struct _KTHREAD *a1, char a2, _DWORD
     CurrentIrql = KeGetCurrentIrql();
     v42 = CurrentIrql;
     __writecr8(2uLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && (unsigned __int8)CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && (unsigned __int8)CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
       if ( (_BYTE)CurrentIrql == 2 )
@@ -95,10 +95,10 @@ unsigned __int64 __fastcall KiDetachProcess(struct _KTHREAD *a1, char a2, _DWORD
       if ( CurrentThread->SpecialApcDisable || (_BYTE)v4 )
         break;
       CurrentThread->ThreadLock = 0LL;
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v32 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)(v32 - 2) <= 0xDu )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && (unsigned __int8)(v32 - 2) <= 0xDu )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           a4 = (__int64)CurrentPrcb->SchedulerAssist;
@@ -114,7 +114,7 @@ unsigned __int64 __fastcall KiDetachProcess(struct _KTHREAD *a1, char a2, _DWORD
       __writecr8((unsigned __int8)v4);
       SchedulerAssist = (_DWORD *)KeGetCurrentIrql();
       __writecr8(2uLL);
-      if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && (unsigned __int8)SchedulerAssist <= 0xFu )
+      if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && (unsigned __int8)SchedulerAssist <= 0xFu )
       {
         v35 = KeGetCurrentPrcb()->SchedulerAssist;
         if ( (_BYTE)SchedulerAssist == 2 )
@@ -238,10 +238,10 @@ unsigned __int64 __fastcall KiDetachProcess(struct _KTHREAD *a1, char a2, _DWORD
   CurrentThread->MiscFlags &= ~0x800u;
   if ( !v10 )
   {
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v17 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
         && (unsigned __int8)v17 <= 0xFu
         && (unsigned __int8)v4 <= 0xFu
         && (unsigned __int8)v17 >= 2u )
@@ -272,7 +272,7 @@ unsigned __int64 __fastcall KiDetachProcess(struct _KTHREAD *a1, char a2, _DWORD
     {
       v24 = KeGetCurrentIrql();
       __writecr8(2uLL);
-      if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v24 <= 0xFu )
+      if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v24 <= 0xFu )
       {
         v27 = KeGetCurrentPrcb()->SchedulerAssist;
         if ( v24 != 2 )
@@ -312,10 +312,13 @@ LABEL_44:
         if ( !v30 )
           KeSetEvent(&KiSwapEvent, 10, 0);
       }
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v17 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)v17 <= 0xFu && v24 <= 0xFu && (unsigned __int8)v17 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+          && (unsigned __int8)v17 <= 0xFu
+          && v24 <= 0xFu
+          && (unsigned __int8)v17 >= 2u )
         {
           a4 = (__int64)KeGetCurrentPrcb();
           v17 = (unsigned int)v24 + 1;

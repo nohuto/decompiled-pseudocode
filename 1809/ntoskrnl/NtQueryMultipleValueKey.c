@@ -1,5 +1,5 @@
 /*
- * XREFs of NtQueryMultipleValueKey @ 0x1405B7130
+ * XREFs of NtQueryMultipleValueKey @ 0x1405B8130
  * Callers:
  *     <none>
  * Callees:
@@ -8,26 +8,26 @@
  *     ExReleaseRundownProtection_0 @ 0x14004D2F0 (ExReleaseRundownProtection_0.c)
  *     ExAcquireRundownProtection_0 @ 0x14004D320 (ExAcquireRundownProtection_0.c)
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     EtwGetKernelTraceTimestamp @ 0x14010E920 (EtwGetKernelTraceTimestamp.c)
- *     RtlRaiseStatus @ 0x140128E90 (RtlRaiseStatus.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     CmCleanupThreadInfo @ 0x1401B2F3C (CmCleanupThreadInfo.c)
- *     CmpInitializeThreadInfo @ 0x1401B2F7C (CmpInitializeThreadInfo.c)
- *     CmpIsRegistryLockAcquired @ 0x1401B2FB8 (CmpIsRegistryLockAcquired.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     CmpCaptureKeyValueArray @ 0x1405CD130 (CmpCaptureKeyValueArray.c)
- *     CmObReferenceObjectByHandle @ 0x1405CD4CC (CmObReferenceObjectByHandle.c)
- *     CmQueryMultipleValueKey @ 0x1405D0194 (CmQueryMultipleValueKey.c)
- *     CmpBounceContextCopyDataToCallerBuffer @ 0x1405D1B00 (CmpBounceContextCopyDataToCallerBuffer.c)
- *     CmpBounceContextStart @ 0x1405D2F60 (CmpBounceContextStart.c)
- *     CmpBounceContextCleanup @ 0x1405D3F34 (CmpBounceContextCleanup.c)
- *     CmpAttachToRegistryProcess @ 0x1405D4048 (CmpAttachToRegistryProcess.c)
- *     CmpCallCallBacksEx @ 0x1405E5AE0 (CmpCallCallBacksEx.c)
- *     ProbeForWrite @ 0x140629A60 (ProbeForWrite.c)
- *     CmKeyBodyRemapToVirtualForEnum @ 0x14063EDB0 (CmKeyBodyRemapToVirtualForEnum.c)
- *     CmPostCallbackNotificationEx @ 0x14063FAA0 (CmPostCallbackNotificationEx.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     EtwGetKernelTraceTimestamp @ 0x14010E9A0 (EtwGetKernelTraceTimestamp.c)
+ *     RtlRaiseStatus @ 0x140128F60 (RtlRaiseStatus.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     CmCleanupThreadInfo @ 0x1401B307C (CmCleanupThreadInfo.c)
+ *     CmpInitializeThreadInfo @ 0x1401B30BC (CmpInitializeThreadInfo.c)
+ *     CmpIsRegistryLockAcquired @ 0x1401B30F8 (CmpIsRegistryLockAcquired.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     CmpCaptureKeyValueArray @ 0x1405CE130 (CmpCaptureKeyValueArray.c)
+ *     CmObReferenceObjectByHandle @ 0x1405CE4CC (CmObReferenceObjectByHandle.c)
+ *     CmQueryMultipleValueKey @ 0x1405D1194 (CmQueryMultipleValueKey.c)
+ *     CmpBounceContextCopyDataToCallerBuffer @ 0x1405D2B00 (CmpBounceContextCopyDataToCallerBuffer.c)
+ *     CmpBounceContextStart @ 0x1405D3F60 (CmpBounceContextStart.c)
+ *     CmpBounceContextCleanup @ 0x1405D4F34 (CmpBounceContextCleanup.c)
+ *     CmpAttachToRegistryProcess @ 0x1405D5048 (CmpAttachToRegistryProcess.c)
+ *     CmpCallCallBacksEx @ 0x1405E6AE0 (CmpCallCallBacksEx.c)
+ *     ProbeForWrite @ 0x14062AA80 (ProbeForWrite.c)
+ *     CmKeyBodyRemapToVirtualForEnum @ 0x14063FDD0 (CmKeyBodyRemapToVirtualForEnum.c)
+ *     CmPostCallbackNotificationEx @ 0x140640AC0 (CmPostCallbackNotificationEx.c)
  */
 
 NTSTATUS __stdcall NtQueryMultipleValueKey(

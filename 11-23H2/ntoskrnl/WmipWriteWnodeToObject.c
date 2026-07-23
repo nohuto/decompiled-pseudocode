@@ -1,15 +1,15 @@
 /*
- * XREFs of WmipWriteWnodeToObject @ 0x1405FBBB4
+ * XREFs of WmipWriteWnodeToObject @ 0x1405FC124
  * Callers:
- *     WmipProcessEvent @ 0x14086AE10 (WmipProcessEvent.c)
+ *     WmipProcessEvent @ 0x14086B050 (WmipProcessEvent.c)
  * Callees:
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
- *     IofCompleteRequest @ 0x1402C9980 (IofCompleteRequest.c)
- *     WmipClearIrpObjectList @ 0x14036A22C (WmipClearIrpObjectList.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     WmipQueueNotification @ 0x1409E1444 (WmipQueueNotification.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402610F0 (KeAcquireInStackQueuedSpinLock.c)
+ *     IofCompleteRequest @ 0x1402C9C10 (IofCompleteRequest.c)
+ *     WmipClearIrpObjectList @ 0x14036A3CC (WmipClearIrpObjectList.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     WmipQueueNotification @ 0x1409E16C8 (WmipQueueNotification.c)
  */
 
 __int64 __fastcall WmipWriteWnodeToObject(PRKEVENT Event, unsigned int *Src)
@@ -39,10 +39,10 @@ __int64 __fastcall WmipWriteWnodeToObject(PRKEVENT Event, unsigned int *Src)
   KxReleaseQueuedSpinLock((volatile signed __int64 **)v16);
   v6 = 1;
   OldIrql = v16[0].OldIrql;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v16[0].OldIrql <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v16[0].OldIrql <= 0xFu && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

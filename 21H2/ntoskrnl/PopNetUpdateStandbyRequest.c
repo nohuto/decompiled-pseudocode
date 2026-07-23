@@ -1,26 +1,45 @@
 /*
- * XREFs of PopNetUpdateStandbyRequest @ 0x1408F202C
+ * XREFs of PopNetUpdateStandbyRequest @ 0x1408F218C
  * Callers:
- *     PopPowerInformationInternal @ 0x140678DF4 (PopPowerInformationInternal.c)
+ *     PopPowerInformationInternal @ 0x14066C534 (PopPowerInformationInternal.c)
  * Callees:
- *     RtlCheckTokenMembership @ 0x14027F430 (RtlCheckTokenMembership.c)
- *     PopReleasePolicyLock @ 0x14098F590 (PopReleasePolicyLock.c)
- *     PopAcquirePolicyLock @ 0x14098F5D0 (PopAcquirePolicyLock.c)
+ *     RtlCheckTokenMembership @ 0x14026D6E0 (RtlCheckTokenMembership.c)
+ *     PopReleasePolicyLock @ 0x140991044 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140991084 (PopAcquirePolicyLock.c)
  */
 
-__int64 PopNetUpdateStandbyRequest()
+__int64 __fastcall PopNetUpdateStandbyRequest(char a1)
 {
-  int v0; // ebx
+  NTSTATUS v2; // ebx
+  int v3; // ecx
+  __int64 v4; // rdx
+  __int64 v5; // rcx
+  BOOLEAN IsMember; // [rsp+38h] [rbp+10h] BYREF
 
+  IsMember = 0;
   if ( PopNetBIServiceSid )
   {
-    v0 = RtlCheckTokenMembership(0LL, (void *)PopNetBIServiceSid);
-    if ( v0 >= 0 )
+    v2 = RtlCheckTokenMembership(0LL, PopNetBIServiceSid, &IsMember);
+    if ( v2 < 0 )
+      return (unsigned int)v2;
+    if ( !IsMember )
       return (unsigned int)-1073741790;
+    PopAcquirePolicyLock(v3);
+    if ( PopNetBIRequestActive )
+    {
+      if ( !a1 )
+        goto LABEL_8;
+    }
+    else if ( a1 )
+    {
+LABEL_8:
+      PopNetBIRequestActive = a1;
+LABEL_9:
+      PopReleasePolicyLock(v5, v4);
+      return (unsigned int)v2;
+    }
+    v2 = -1073741811;
+    goto LABEL_9;
   }
-  else
-  {
-    return (unsigned int)-1073741823;
-  }
-  return (unsigned int)v0;
+  return (unsigned int)-1073741823;
 }

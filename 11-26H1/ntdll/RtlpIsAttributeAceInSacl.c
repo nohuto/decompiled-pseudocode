@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpIsAttributeAceInSacl @ 0x1800D9A38
+ * XREFs of RtlpIsAttributeAceInSacl @ 0x1800D69F8
  * Callers:
- *     RtlpMergeSecurityAttributeInformation @ 0x1800D9610 (RtlpMergeSecurityAttributeInformation.c)
+ *     RtlpMergeSecurityAttributeInformation @ 0x1800D65D0 (RtlpMergeSecurityAttributeInformation.c)
  * Callees:
- *     memcmp @ 0x1801649D0 (memcmp.c)
+ *     memcmp @ 0x1801648D0 (memcmp.c)
  */
 
 char __fastcall RtlpIsAttributeAceInSacl(__int64 a1, __int64 a2, char a3, _BYTE *a4)

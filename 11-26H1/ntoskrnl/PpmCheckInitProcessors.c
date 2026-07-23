@@ -1,26 +1,26 @@
 /*
- * XREFs of PpmCheckInitProcessors @ 0x140A9CBF0
+ * XREFs of PpmCheckInitProcessors @ 0x140AEB890
  * Callers:
- *     PopNewProcessorCallback @ 0x1407C8540 (PopNewProcessorCallback.c)
- *     PpmReapplyPerfPolicy @ 0x140A9D088 (PpmReapplyPerfPolicy.c)
- *     PoInitSystem @ 0x140CCE870 (PoInitSystem.c)
+ *     PopNewProcessorCallback @ 0x1407CB5A0 (PopNewProcessorCallback.c)
+ *     PpmReapplyPerfPolicy @ 0x140AD8B10 (PpmReapplyPerfPolicy.c)
+ *     PoInitSystem @ 0x140CD49D0 (PoInitSystem.c)
  * Callees:
- *     RtlOrAffinityEx @ 0x14025A978 (RtlOrAffinityEx.c)
- *     RtlSubtractAffinityEx @ 0x14025B408 (RtlSubtractAffinityEx.c)
- *     KeGetPrcb @ 0x1402916D0 (KeGetPrcb.c)
- *     PpmReleaseLock @ 0x14037AFBC (PpmReleaseLock.c)
- *     PpmAcquireLock @ 0x140394F80 (PpmAcquireLock.c)
- *     PopExecuteOnTargetProcessors @ 0x140428780 (PopExecuteOnTargetProcessors.c)
- *     KeEnumerateNextProcessor @ 0x14043BC70 (KeEnumerateNextProcessor.c)
- *     KeQueryActiveProcessorAffinity2 @ 0x140484340 (KeQueryActiveProcessorAffinity2.c)
- *     PpmCheckApplyParkConstraints @ 0x1404BBD54 (PpmCheckApplyParkConstraints.c)
- *     PpmParkRegisterParking @ 0x14060FE58 (PpmParkRegisterParking.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     PpmAllocatePerfCheck @ 0x1407D60C0 (PpmAllocatePerfCheck.c)
- *     PpmHvEnableQosEnlightenment @ 0x140A9CE18 (PpmHvEnableQosEnlightenment.c)
- *     PpmCheckReInit @ 0x140A9D410 (PpmCheckReInit.c)
- *     PpmUpdateProcessorPolicy @ 0x140A9D7C8 (PpmUpdateProcessorPolicy.c)
+ *     PopExecuteOnTargetProcessors @ 0x14021AA60 (PopExecuteOnTargetProcessors.c)
+ *     RtlOrAffinityEx @ 0x14025C158 (RtlOrAffinityEx.c)
+ *     RtlSubtractAffinityEx @ 0x14025CBE8 (RtlSubtractAffinityEx.c)
+ *     KeGetPrcb @ 0x140290C30 (KeGetPrcb.c)
+ *     PpmReleaseLock @ 0x14037CD6C (PpmReleaseLock.c)
+ *     PpmAcquireLock @ 0x140396D00 (PpmAcquireLock.c)
+ *     KeEnumerateNextProcessor @ 0x14042E520 (KeEnumerateNextProcessor.c)
+ *     KeQueryActiveProcessorAffinity2 @ 0x14047DCB0 (KeQueryActiveProcessorAffinity2.c)
+ *     PpmCheckApplyParkConstraints @ 0x1404B5534 (PpmCheckApplyParkConstraints.c)
+ *     PpmParkRegisterParking @ 0x1406130BC (PpmParkRegisterParking.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     PpmAllocatePerfCheck @ 0x1407D9270 (PpmAllocatePerfCheck.c)
+ *     PpmHvEnableQosEnlightenment @ 0x140AEBAB8 (PpmHvEnableQosEnlightenment.c)
+ *     PpmCheckReInit @ 0x140AEBB2C (PpmCheckReInit.c)
+ *     PpmUpdateProcessorPolicy @ 0x140AF0768 (PpmUpdateProcessorPolicy.c)
  */
 
 LONG __fastcall PpmCheckInitProcessors(int a1, int a2)
@@ -45,12 +45,12 @@ LONG __fastcall PpmCheckInitProcessors(int a1, int a2)
   memset_0(&v15.8, 0, sizeof(v15.8));
   if ( !a1 )
   {
-    PpmAcquireLock((struct _KTHREAD **)&stru_140F10070.SchedulerAssistLastYieldBoostTime, v4, v5);
+    PpmAcquireLock((struct _KTHREAD **)&PpmIdlePolicyLock.ThreadLock, v4, v5);
     KeQueryActiveProcessorAffinity2((__int64)&v15);
-    if ( !(unsigned __int8)RtlSubtractAffinityEx(&v15, (struct _KAFFINITY_EX *)PpmCheckRegistered, (__int64)&v15) )
-      return PpmReleaseLock(&stru_140F10070.SchedulerAssistLastYieldBoostTime);
+    if ( !(unsigned __int8)RtlSubtractAffinityEx(&v15, &PpmCheckRegistered, (__int64)&v15) )
+      return PpmReleaseLock((__int64 *)&PpmIdlePolicyLock.ThreadLock);
   }
-  RtlOrAffinityEx((struct _KAFFINITY_EX *)PpmCheckRegistered, &v15, (__int64)PpmCheckRegistered);
+  RtlOrAffinityEx(&PpmCheckRegistered, &v15, (__int64)&PpmCheckRegistered);
   Count = v15.Count;
   for ( i = 0; i < v15.Count; ++i )
   {
@@ -80,7 +80,7 @@ LABEL_23:
 LABEL_11:
   if ( _bittest64((const signed __int64 *)&KeGetCurrentPrcb()->FeatureBits, 0x27u) )
   {
-    stru_140F11D08.SchedulerAssistPriorityFloor |= 0x400u;
+    PpmAllowedActions |= 0x400u;
     v12 = 1024;
     PpmUpdateProcessorPolicy(&v12, 0LL);
   }
@@ -92,7 +92,7 @@ LABEL_11:
   if ( !a2 )
   {
     PpmHvEnableQosEnlightenment();
-    return PpmReleaseLock(&stru_140F10070.SchedulerAssistLastYieldBoostTime);
+    return PpmReleaseLock((__int64 *)&PpmIdlePolicyLock.ThreadLock);
   }
 LABEL_24:
   PpmCheckReInit();

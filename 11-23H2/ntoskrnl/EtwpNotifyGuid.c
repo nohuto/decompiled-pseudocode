@@ -1,29 +1,29 @@
 /*
- * XREFs of EtwpNotifyGuid @ 0x14077F9E8
+ * XREFs of EtwpNotifyGuid @ 0x14077FBD8
  * Callers:
- *     NtTraceControl @ 0x140725BD0 (NtTraceControl.c)
- *     EtwpSendSessionNotification @ 0x14077E820 (EtwpSendSessionNotification.c)
+ *     NtTraceControl @ 0x140725DD0 (NtTraceControl.c)
+ *     EtwpSendSessionNotification @ 0x14077EA10 (EtwpSendSessionNotification.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x140231190 (ExReleasePushLockEx.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     PsGetCurrentThreadProcessId @ 0x1402AF8A0 (PsGetCurrentThreadProcessId.c)
- *     PsGetProcessId @ 0x1402FA490 (PsGetProcessId.c)
- *     memset @ 0x140435A00 (memset.c)
- *     EtwpAccessCheck @ 0x1406BDBDC (EtwpAccessCheck.c)
- *     EtwpFindGuidEntryByGuid @ 0x1406BF820 (EtwpFindGuidEntryByGuid.c)
- *     EtwpUnreferenceGuidEntry @ 0x1406BF954 (EtwpUnreferenceGuidEntry.c)
- *     EtwpCreateUmReplyObject @ 0x14077EACC (EtwpCreateUmReplyObject.c)
- *     EtwpFreeFilterInfo @ 0x140780798 (EtwpFreeFilterInfo.c)
- *     EtwpSendDataBlock @ 0x140780FF0 (EtwpSendDataBlock.c)
- *     EtwpUnreferenceDataBlock @ 0x1407817E8 (EtwpUnreferenceDataBlock.c)
- *     EtwpCheckGuidAccess @ 0x140781B64 (EtwpCheckGuidAccess.c)
- *     EtwpAllocDataBlock @ 0x140781C38 (EtwpAllocDataBlock.c)
- *     EtwpCheckCurrentUserProcessAccess @ 0x1409EC2B0 (EtwpCheckCurrentUserProcessAccess.c)
- *     EtwpDemuxPrivateTraceHandle @ 0x1409EC4D0 (EtwpDemuxPrivateTraceHandle.c)
- *     EtwpApplyTransientFilters @ 0x1409F5118 (EtwpApplyTransientFilters.c)
- *     EtwpValidateTraceControlFilterDescriptors @ 0x1409F52C4 (EtwpValidateTraceControlFilterDescriptors.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140231280 (ExReleasePushLockEx.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     PsGetCurrentThreadProcessId @ 0x1402AFB30 (PsGetCurrentThreadProcessId.c)
+ *     PsGetProcessId @ 0x1402FA720 (PsGetProcessId.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     EtwpAccessCheck @ 0x1406BDC0C (EtwpAccessCheck.c)
+ *     EtwpFindGuidEntryByGuid @ 0x1406BF850 (EtwpFindGuidEntryByGuid.c)
+ *     EtwpUnreferenceGuidEntry @ 0x1406BF984 (EtwpUnreferenceGuidEntry.c)
+ *     EtwpCreateUmReplyObject @ 0x14077ECBC (EtwpCreateUmReplyObject.c)
+ *     EtwpFreeFilterInfo @ 0x140780988 (EtwpFreeFilterInfo.c)
+ *     EtwpSendDataBlock @ 0x1407811E0 (EtwpSendDataBlock.c)
+ *     EtwpUnreferenceDataBlock @ 0x1407819D8 (EtwpUnreferenceDataBlock.c)
+ *     EtwpCheckGuidAccess @ 0x140781D54 (EtwpCheckGuidAccess.c)
+ *     EtwpAllocDataBlock @ 0x140781E28 (EtwpAllocDataBlock.c)
+ *     EtwpCheckCurrentUserProcessAccess @ 0x1409EC540 (EtwpCheckCurrentUserProcessAccess.c)
+ *     EtwpDemuxPrivateTraceHandle @ 0x1409EC760 (EtwpDemuxPrivateTraceHandle.c)
+ *     EtwpApplyTransientFilters @ 0x1409F53A8 (EtwpApplyTransientFilters.c)
+ *     EtwpValidateTraceControlFilterDescriptors @ 0x1409F5554 (EtwpValidateTraceControlFilterDescriptors.c)
  */
 
 __int64 __fastcall EtwpNotifyGuid(__int64 a1, __int64 a2, char a3)
@@ -98,8 +98,8 @@ __int64 __fastcall EtwpNotifyGuid(__int64 a1, __int64 a2, char a3)
       }
       v9 = 128;
       v10 = 0;
-      v25 = EtwpCheckGuidAccess(PrivateLoggerSecurityGuid, 128LL, 0LL);
-      *(_OWORD *)(a2 + 40) = PrivateLoggerNotificationGuid;
+      v25 = EtwpCheckGuidAccess(&PrivateLoggerSecurityGuid, 128LL, 0LL);
+      *(GUID *)(a2 + 40) = PrivateLoggerNotificationGuid;
       v27 = v25 < 0;
     }
     else

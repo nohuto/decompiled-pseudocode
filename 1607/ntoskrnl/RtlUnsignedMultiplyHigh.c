@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlUnsignedMultiplyHigh @ 0x1402163F4
+ * XREFs of RtlUnsignedMultiplyHigh @ 0x140216220
  * Callers:
- *     HvlGetReferenceTimeUsingTscPage @ 0x1401BCD58 (HvlGetReferenceTimeUsingTscPage.c)
+ *     HvlGetReferenceTimeUsingTscPage @ 0x1401BCC3C (HvlGetReferenceTimeUsingTscPage.c)
  * Callees:
  *     <none>
  */

@@ -2,9 +2,9 @@
  * XREFs of RtlStringCbVPrintfA @ 0x14020A6B8
  * Callers:
  *     KsepLogEtwMessage @ 0x14020A5DC (KsepLogEtwMessage.c)
- *     vDbgPrintExWithPrefixInternal @ 0x14032A7B0 (vDbgPrintExWithPrefixInternal.c)
+ *     vDbgPrintExWithPrefixInternal @ 0x14032AA40 (vDbgPrintExWithPrefixInternal.c)
  * Callees:
- *     _vsnprintf @ 0x1403D8AD0 (_vsnprintf.c)
+ *     _vsnprintf @ 0x1403D8CB0 (_vsnprintf.c)
  */
 
 NTSTATUS __stdcall RtlStringCbVPrintfA(

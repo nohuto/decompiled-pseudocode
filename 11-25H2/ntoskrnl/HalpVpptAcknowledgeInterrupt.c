@@ -20,14 +20,14 @@ __int64 __fastcall HalpVpptAcknowledgeInterrupt(__int64 a1)
   __int64 result; // rax
   __int64 v6; // rdx
   __int64 v7; // rax
-  unsigned __int64 InterruptTimePrecise; // rax
-  unsigned __int64 v9; // rcx
+  LARGE_INTEGER InterruptTimePrecise; // rax
+  LARGE_INTEGER v9; // rcx
   int *v10; // r8
   int *i; // rdx
   __int64 v12; // rax
   __int64 v13; // rax
   __int64 v14; // rdx
-  unsigned __int64 v15; // [rsp+30h] [rbp+8h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+30h] [rbp+8h] BYREF
 
   byte_140FC0D38 = HalpAcquireHighLevelLock(&qword_140FC0D30);
   InternalData = HalpTimerGetInternalData(*(__int64 *)&HalpVpptPhysicalTimer);
@@ -47,19 +47,19 @@ __int64 __fastcall HalpVpptAcknowledgeInterrupt(__int64 a1)
       *(_BYTE *)(a1 + 24) = 0;
       goto LABEL_2;
     }
-    InterruptTimePrecise = RtlGetInterruptTimePrecise(&v15);
-    v9 = *(_QWORD *)(a1 + 32);
-    if ( v9 <= InterruptTimePrecise )
+    InterruptTimePrecise = RtlGetInterruptTimePrecise(&PerformanceCounter);
+    v9 = *(LARGE_INTEGER *)(a1 + 32);
+    if ( v9.QuadPart <= (unsigned __int64)InterruptTimePrecise.QuadPart )
     {
       do
-        v9 += *(_QWORD *)(a1 + 40);
-      while ( v9 <= InterruptTimePrecise );
-      *(_QWORD *)(a1 + 32) = v9;
+        v9.QuadPart += *(_QWORD *)(a1 + 40);
+      while ( v9.QuadPart <= (unsigned __int64)InterruptTimePrecise.QuadPart );
+      *(LARGE_INTEGER *)(a1 + 32) = v9;
     }
     v10 = *(int **)&HalpVpptQueue;
     for ( i = &HalpVpptQueue; v10 != &HalpVpptQueue; v10 = *(int **)v10 )
     {
-      if ( v9 < *((_QWORD *)v10 + 4) )
+      if ( v9.QuadPart < *((_QWORD *)v10 + 4) )
         break;
       i = v10;
     }

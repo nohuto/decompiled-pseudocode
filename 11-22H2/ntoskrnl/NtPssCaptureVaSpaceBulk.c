@@ -18,88 +18,108 @@
  *     ProbeForWrite @ 0x1407293F0 (ProbeForWrite.c)
  */
 
-__int64 __fastcall NtPssCaptureVaSpaceBulk(ULONG_PTR a1, unsigned __int64 a2, __int128 *a3, SIZE_T a4, __int64 *a5)
+NTSTATUS __cdecl NtPssCaptureVaSpaceBulk(
+        HANDLE ProcessHandle,
+        PVOID BaseAddress,
+        PNTPSS_MEMORY_BULK_INFORMATION BulkInformation,
+        SIZE_T BulkInformationLength,
+        PSIZE_T ReturnLength)
 {
   ULONG v5; // r10d
-  __int128 *MappedSystemVa; // r14
+  _NTPSS_MEMORY_BULK_INFORMATION *MappedSystemVa; // r14
   unsigned int v7; // ebx
   struct _MDL *v8; // r15
-  int VirtualMemory; // edi
+  NTSTATUS VirtualMemory; // edi
   char PreviousMode; // r12
   __int64 v12; // rcx
   ULONG_PTR v13; // r13
   struct _MDL *Mdl; // rax
   unsigned __int64 v15; // r12
-  _QWORD *v16; // r13
-  unsigned __int64 v17; // [rsp+58h] [rbp-F0h]
-  __int64 v18; // [rsp+60h] [rbp-E8h]
+  _NTPSS_MEMORY_BULK_INFORMATION *v16; // r13
+  char *BaseAddressa; // [rsp+58h] [rbp-F0h]
+  ULONG_PTR v18; // [rsp+60h] [rbp-E8h] BYREF
+  ULONG Length[2]; // [rsp+68h] [rbp-E0h]
+  PMDL MemoryDescriptorList; // [rsp+70h] [rbp-D8h]
+  ULONG_PTR BugCheckParameter1; // [rsp+78h] [rbp-D0h]
+  PSIZE_T v22; // [rsp+80h] [rbp-C8h]
   PVOID Object; // [rsp+88h] [rbp-C0h] BYREF
-  __int64 v22; // [rsp+90h] [rbp-B8h] BYREF
-  __int128 v23; // [rsp+98h] [rbp-B0h]
-  ULONG_PTR v24; // [rsp+A8h] [rbp-A0h]
-  unsigned __int64 v25; // [rsp+B0h] [rbp-98h]
-  __int128 *v26; // [rsp+B8h] [rbp-90h]
-  SIZE_T v27; // [rsp+C0h] [rbp-88h]
+  __int64 v24; // [rsp+90h] [rbp-B8h] BYREF
+  _NTPSS_MEMORY_BULK_INFORMATION v25; // [rsp+98h] [rbp-B0h]
+  HANDLE v26; // [rsp+A8h] [rbp-A0h]
+  PVOID v27; // [rsp+B0h] [rbp-98h]
+  PNTPSS_MEMORY_BULK_INFORMATION v28; // [rsp+B8h] [rbp-90h]
+  SIZE_T v29; // [rsp+C0h] [rbp-88h]
   struct _KTHREAD *CurrentThread; // [rsp+C8h] [rbp-80h]
-  $115DCDF994C6370D29323EAB0E0C9502 v29; // [rsp+D0h] [rbp-78h] BYREF
+  $115DCDF994C6370D29323EAB0E0C9502 v31; // [rsp+D0h] [rbp-78h] BYREF
 
-  v5 = a4;
-  MappedSystemVa = a3;
-  v17 = a2;
-  v24 = a1;
-  v25 = a2;
-  v26 = a3;
-  v27 = a4;
+  v5 = BulkInformationLength;
+  *(_QWORD *)Length = BulkInformationLength;
+  MappedSystemVa = BulkInformation;
+  BaseAddressa = (char *)BaseAddress;
+  BugCheckParameter1 = (ULONG_PTR)ProcessHandle;
+  v26 = ProcessHandle;
+  v27 = BaseAddress;
+  v28 = BulkInformation;
+  v29 = BulkInformationLength;
+  v22 = ReturnLength;
   Object = 0LL;
-  memset(&v29, 0, sizeof(v29));
-  v22 = 0LL;
+  memset(&v31, 0, sizeof(v31));
+  v24 = 0LL;
   v18 = 0LL;
   v7 = 0;
   v8 = 0LL;
+  MemoryDescriptorList = 0LL;
   VirtualMemory = 0;
-  if ( a4 < 0x10 )
-    return 3221225476LL;
+  if ( BulkInformationLength < 0x10 )
+    return -1073741820;
   CurrentThread = KeGetCurrentThread();
   PreviousMode = CurrentThread->PreviousMode;
   if ( PreviousMode )
   {
-    v23 = 0LL;
-    ProbeForWrite(a3, a4, 8u);
-    if ( a5 )
+    v25 = 0LL;
+    ProbeForWrite(BulkInformation, BulkInformationLength, 8u);
+    if ( ReturnLength )
     {
       v12 = 0x7FFFFFFF0000LL;
-      if ( (unsigned __int64)a5 < 0x7FFFFFFF0000LL )
-        v12 = (__int64)a5;
+      if ( (unsigned __int64)ReturnLength < 0x7FFFFFFF0000LL )
+        v12 = (__int64)ReturnLength;
       *(_QWORD *)v12 = *(_QWORD *)v12;
     }
-    v23 = *MappedSystemVa;
-    a2 = v17;
-    v5 = a4;
-    v13 = a1;
+    v25 = *MappedSystemVa;
+    BaseAddress = BaseAddressa;
+    v5 = Length[0];
+    v13 = BugCheckParameter1;
   }
   else
   {
-    v23 = *a3;
-    v13 = a1;
+    v25 = *BulkInformation;
+    v13 = (ULONG_PTR)ProcessHandle;
   }
-  if ( (_DWORD)v23 )
+  if ( v25.QueryFlags )
   {
-    if ( (v23 & 0xFFFFFFFC) != 0 )
+    if ( (v25.QueryFlags & 0xFFFFFFFC) != 0 )
     {
       VirtualMemory = -1073741637;
     }
     else
     {
-      if ( a2 <= 0x7FFFFFFEFFFFLL )
+      if ( (unsigned __int64)BaseAddress <= 0x7FFFFFFEFFFFLL )
       {
         if ( PreviousMode )
         {
           Mdl = IoAllocateMdl(MappedSystemVa, v5, 0, 0, 0LL);
           v8 = Mdl;
+          MemoryDescriptorList = Mdl;
           if ( !Mdl
             || ((MmProbeAndLockPages(Mdl, 0, IoWriteAccess), v7 = 2, (v8->MdlFlags & 5) == 0)
-              ? (MappedSystemVa = (__int128 *)MmMapLockedPagesSpecifyCache(v8, 0, MmCached, 0LL, 0, 0x40000010u))
-              : (MappedSystemVa = (__int128 *)v8->MappedSystemVa),
+              ? (MappedSystemVa = (_NTPSS_MEMORY_BULK_INFORMATION *)MmMapLockedPagesSpecifyCache(
+                                                                      v8,
+                                                                      0,
+                                                                      MmCached,
+                                                                      0LL,
+                                                                      0,
+                                                                      0x40000010u))
+              : (MappedSystemVa = (_NTPSS_MEMORY_BULK_INFORMATION *)v8->MappedSystemVa),
                 !MappedSystemVa) )
           {
             VirtualMemory = -1073741670;
@@ -129,18 +149,23 @@ __int64 __fastcall NtPssCaptureVaSpaceBulk(ULONG_PTR a1, unsigned __int64 a2, __
             VirtualMemory = -1073741790;
             goto LABEL_44;
           }
-          KiStackAttachProcess((_KPROCESS *)Object, 0, (__int64)&v29);
+          KiStackAttachProcess((_KPROCESS *)Object, 0, (__int64)&v31);
           v7 |= 1u;
         }
         if ( PreviousMode )
         {
-          VirtualMemory = ZwPssCaptureVaSpaceBulk(-1LL, v17);
+          VirtualMemory = ZwPssCaptureVaSpaceBulk(
+                            (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+                            BaseAddressa,
+                            MappedSystemVa,
+                            *(SIZE_T *)Length,
+                            &v18);
         }
         else
         {
-          *((_DWORD *)MappedSystemVa + 1) = 0;
+          MappedSystemVa->NumberOfEntries = 0;
           v18 = 16LL;
-          v15 = a4 - 16;
+          v15 = *(_QWORD *)Length - 16LL;
           v16 = MappedSystemVa + 1;
           while ( v15 >= 0x30 )
           {
@@ -151,26 +176,26 @@ __int64 __fastcall NtPssCaptureVaSpaceBulk(ULONG_PTR a1, unsigned __int64 a2, __
             }
             VirtualMemory = MmQueryVirtualMemory(
                               0xFFFFFFFFFFFFFFFFuLL,
-                              v17,
+                              (unsigned __int64)BaseAddressa,
                               0,
                               (unsigned __int64)v16,
                               0x30uLL,
-                              (__int64)&v22,
+                              (__int64)&v24,
                               2);
             if ( VirtualMemory < 0 )
             {
-              if ( *((_DWORD *)MappedSystemVa + 1) )
+              if ( MappedSystemVa->NumberOfEntries )
                 VirtualMemory = 0;
               break;
             }
-            v15 -= v22;
-            v18 += v22;
-            v17 = *v16 + v16[3];
-            v16 += 6;
-            ++*((_DWORD *)MappedSystemVa + 1);
-            *((_QWORD *)MappedSystemVa + 1) = v17;
+            v15 -= v24;
+            v18 += v24;
+            BaseAddressa = (char *)v16[1].NextValidAddress + *(_QWORD *)&v16->QueryFlags;
+            v16 += 3;
+            ++MappedSystemVa->NumberOfEntries;
+            MappedSystemVa->NextValidAddress = BaseAddressa;
           }
-          if ( VirtualMemory >= 0 && *((_QWORD *)MappedSystemVa + 1) != 0x7FFFFFFF0000LL )
+          if ( VirtualMemory >= 0 && MappedSystemVa->NextValidAddress != (PVOID)0x7FFFFFFF0000LL )
             VirtualMemory = 261;
         }
         goto LABEL_44;
@@ -184,14 +209,14 @@ __int64 __fastcall NtPssCaptureVaSpaceBulk(ULONG_PTR a1, unsigned __int64 a2, __
   }
 LABEL_44:
   if ( (v7 & 1) != 0 )
-    KiUnstackDetachProcess(&v29);
+    KiUnstackDetachProcess(&v31);
   if ( v8 )
   {
     if ( v7 >= 2 )
       MmUnlockPages(v8);
     IoFreeMdl(v8);
   }
-  if ( a5 )
-    *a5 = v18;
-  return (unsigned int)VirtualMemory;
+  if ( ReturnLength )
+    *ReturnLength = v18;
+  return VirtualMemory;
 }

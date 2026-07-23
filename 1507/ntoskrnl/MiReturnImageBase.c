@@ -29,8 +29,8 @@ void __fastcall MiReturnImageBase(ULONG *a1)
   signed __int8 v11; // cf
   __int64 v12; // rsi
   __int16 v13; // ax
-  struct _RTL_BITMAP *BitMapHeader; // [rsp+20h] [rbp-28h]
-  struct _RTL_BITMAP *v15; // [rsp+28h] [rbp-20h]
+  _RTL_BITMAP *BitMapHeader; // [rsp+20h] [rbp-28h]
+  _RTL_BITMAP *v15; // [rsp+28h] [rbp-20h]
 
   v1 = *a1;
   if ( (_DWORD)v1 == -1 )
@@ -47,7 +47,7 @@ void __fastcall MiReturnImageBase(ULONG *a1)
         v5 = &dword_14034E940;
         v6 = (__int64)MmHighestUserAddress - 0xFFFF;
 LABEL_7:
-        BitMapHeader = (struct _RTL_BITMAP *)v5;
+        BitMapHeader = (_RTL_BITMAP *)v5;
         MiZeroCfgSystemWideBitmap((__int64)a1, v6 - ((v1 + a1[1]) << 16));
         CurrentThread = KeGetCurrentThread();
         --CurrentThread->SpecialApcDisable;
@@ -80,7 +80,7 @@ LABEL_19:
         v6 = 2013265920LL;
         goto LABEL_7;
       }
-      v15 = (struct _RTL_BITMAP *)&dword_14034E918;
+      v15 = (_RTL_BITMAP *)&dword_14034E918;
     }
     v5 = &dword_14034E930;
     goto LABEL_19;

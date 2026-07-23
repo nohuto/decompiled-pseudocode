@@ -23,26 +23,26 @@ errno_t __cdecl _makepath_s(
   const char *v12; // edi
   errno_t v14; // [esp-4h] [ebp-10h]
 
-  if ( !Buffer || !BufferCount )
+  if ( !Buffer || !(_DWORD)BufferCount )
   {
     v14 = 22;
     goto LABEL_33;
   }
   v6 = 0;
   v7 = Buffer;
-  if ( Drive && *Drive )
+  if ( HIDWORD(BufferCount) && *(_BYTE *)HIDWORD(BufferCount) )
   {
     v6 = 2;
-    if ( BufferCount <= 2 )
+    if ( (unsigned int)BufferCount <= 2 )
       goto LABEL_30;
-    *Buffer = *Drive;
+    *Buffer = *(_BYTE *)HIDWORD(BufferCount);
     Buffer[1] = 58;
     v7 = Buffer + 2;
   }
-  v8 = Dir;
-  if ( Dir && *Dir )
+  v8 = Drive;
+  if ( Drive && *Drive )
   {
-    while ( ++v6 < BufferCount )
+    while ( ++v6 < (unsigned int)BufferCount )
     {
       *v7++ = *v8;
       if ( !*++v8 )
@@ -50,7 +50,7 @@ errno_t __cdecl _makepath_s(
         v9 = *(v8 - 1);
         if ( v9 != 47 && v9 != 92 )
         {
-          if ( ++v6 >= BufferCount )
+          if ( ++v6 >= (unsigned int)BufferCount )
             goto LABEL_30;
           *v7++ = 92;
         }
@@ -60,10 +60,10 @@ errno_t __cdecl _makepath_s(
     goto LABEL_30;
   }
 LABEL_15:
-  if ( Filename && *Filename )
+  if ( Dir && *Dir )
   {
-    v10 = (const char *)(Filename - v7);
-    while ( ++v6 < BufferCount )
+    v10 = (const char *)(Dir - v7);
+    while ( ++v6 < (unsigned int)BufferCount )
     {
       *v7 = v7[(_DWORD)v10];
       if ( !(++v7)[(_DWORD)v10] )
@@ -72,16 +72,16 @@ LABEL_15:
     goto LABEL_30;
   }
 LABEL_20:
-  if ( !Ext )
+  if ( !Filename )
     goto LABEL_29;
-  v11 = *Ext;
-  if ( !*Ext || *Ext == 46 )
+  v11 = *Filename;
+  if ( !*Filename || *Filename == 46 )
   {
 LABEL_25:
     if ( v11 )
     {
-      v12 = (const char *)(Ext - v7);
-      while ( ++v6 < BufferCount )
+      v12 = (const char *)(Filename - v7);
+      while ( ++v6 < (unsigned int)BufferCount )
       {
         *v7 = v7[(_DWORD)v12];
         if ( !(++v7)[(_DWORD)v12] )
@@ -90,17 +90,17 @@ LABEL_25:
       goto LABEL_30;
     }
 LABEL_29:
-    if ( v6 + 1 <= BufferCount )
+    if ( v6 + 1 <= (unsigned int)BufferCount )
     {
       *v7 = 0;
       return 0;
     }
     goto LABEL_30;
   }
-  if ( ++v6 < BufferCount )
+  if ( ++v6 < (unsigned int)BufferCount )
   {
     *v7++ = 46;
-    v11 = *Ext;
+    v11 = *Filename;
     goto LABEL_25;
   }
 LABEL_30:

@@ -1,24 +1,24 @@
 /*
- * XREFs of MiScrubNodeLargePageList @ 0x1401FBCA8
+ * XREFs of MiScrubNodeLargePageList @ 0x1401FBAD4
  * Callers:
- *     MiScrubNodeLargePages @ 0x140664B00 (MiScrubNodeLargePages.c)
+ *     MiScrubNodeLargePages @ 0x140664BE4 (MiScrubNodeLargePages.c)
  * Callees:
- *     MiInsertLargePageInNodeListHelper @ 0x14001B760 (MiInsertLargePageInNodeListHelper.c)
- *     MiLockPageInline @ 0x140022E70 (MiLockPageInline.c)
- *     MiLockPageAtDpcInline @ 0x14002EB30 (MiLockPageAtDpcInline.c)
- *     MiMakeValidKernelPte @ 0x140034D10 (MiMakeValidKernelPte.c)
- *     MiReleasePtes @ 0x1400516D0 (MiReleasePtes.c)
- *     MiUnlinkNodeLargePage @ 0x14008A830 (MiUnlinkNodeLargePage.c)
- *     MiPageListCollision @ 0x14008B178 (MiPageListCollision.c)
- *     MiRemoveFaultNode @ 0x14008B878 (MiRemoveFaultNode.c)
- *     MiReturnSystemVa @ 0x1400C08D0 (MiReturnSystemVa.c)
- *     MiReservePtes @ 0x1400DDB50 (MiReservePtes.c)
- *     MiGetLargePageWorkMapping @ 0x14013ADC0 (MiGetLargePageWorkMapping.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     MmMarkPhysicalMemoryAsBad @ 0x1401E2344 (MmMarkPhysicalMemoryAsBad.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
- *     MiScrubPage @ 0x1401FE864 (MiScrubPage.c)
+ *     MiInsertLargePageInNodeListHelper @ 0x14001B2E0 (MiInsertLargePageInNodeListHelper.c)
+ *     MiLockPageInline @ 0x1400229F0 (MiLockPageInline.c)
+ *     MiLockPageAtDpcInline @ 0x14002E6B0 (MiLockPageAtDpcInline.c)
+ *     MiMakeValidKernelPte @ 0x140034890 (MiMakeValidKernelPte.c)
+ *     MiReleasePtes @ 0x140051250 (MiReleasePtes.c)
+ *     MiUnlinkNodeLargePage @ 0x140089F30 (MiUnlinkNodeLargePage.c)
+ *     MiPageListCollision @ 0x14008A878 (MiPageListCollision.c)
+ *     MiRemoveFaultNode @ 0x14008AF78 (MiRemoveFaultNode.c)
+ *     MiReturnSystemVa @ 0x1400BE760 (MiReturnSystemVa.c)
+ *     MiReservePtes @ 0x1400DB9F0 (MiReservePtes.c)
+ *     MiGetLargePageWorkMapping @ 0x14013B330 (MiGetLargePageWorkMapping.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     MmMarkPhysicalMemoryAsBad @ 0x1401E2170 (MmMarkPhysicalMemoryAsBad.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
+ *     MiScrubPage @ 0x1401FE690 (MiScrubPage.c)
  */
 
 __int64 __fastcall MiScrubNodeLargePageList(
@@ -120,7 +120,7 @@ __int64 __fastcall MiScrubNodeLargePageList(
     }
     if ( !v15 )
     {
-      v20 = MiReservePtes((__int64)&qword_140327870, (unsigned int)v12, v16);
+      v20 = MiReservePtes((__int64)&qword_1403278B0, (unsigned int)v12, v16);
       v15 = v20;
       if ( !v20 )
         return 1LL;
@@ -279,8 +279,8 @@ LABEL_46:
     v22 = a6;
     if ( (unsigned int)v9 > 1 )
     {
-      MiReleasePtes((__int64)&qword_140327870, v15, v12);
-      v52 = MiReservePtes((__int64)&qword_140327870, (unsigned int)v12, v51);
+      MiReleasePtes((__int64)&qword_1403278B0, v15, v12);
+      v52 = MiReservePtes((__int64)&qword_1403278B0, (unsigned int)v12, v51);
       v15 = v52;
       if ( !v52 )
         goto LABEL_58;
@@ -306,7 +306,7 @@ LABEL_59:
       v15 = 0LL;
     }
     if ( v15 )
-      MiReleasePtes((__int64)&qword_140327870, v15, v12);
+      MiReleasePtes((__int64)&qword_1403278B0, v15, v12);
   }
   return v26;
 }

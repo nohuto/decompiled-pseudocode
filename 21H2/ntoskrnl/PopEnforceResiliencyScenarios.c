@@ -1,17 +1,17 @@
 /*
- * XREFs of PopEnforceResiliencyScenarios @ 0x140779BFC
+ * XREFs of PopEnforceResiliencyScenarios @ 0x140779DBC
  * Callers:
- *     NtPowerInformation @ 0x1406777D0 (NtPowerInformation.c)
- *     PopTransitionSystemPowerStateEx @ 0x1409910F4 (PopTransitionSystemPowerStateEx.c)
+ *     NtPowerInformation @ 0x14066AF10 (NtPowerInformation.c)
+ *     PopTransitionSystemPowerStateEx @ 0x1409920F4 (PopTransitionSystemPowerStateEx.c)
  * Callees:
- *     PpmReleaseLock @ 0x14022AB00 (PpmReleaseLock.c)
- *     PopDeepSleepSetDisengageReason @ 0x140281548 (PopDeepSleepSetDisengageReason.c)
- *     PopDeepSleepClearDisengageReason @ 0x1402815D0 (PopDeepSleepClearDisengageReason.c)
- *     PoFxSendSystemLatencyUpdate @ 0x140281818 (PoFxSendSystemLatencyUpdate.c)
- *     PpmAcquireLock @ 0x140281A74 (PpmAcquireLock.c)
- *     PopDeepSleepEnabled @ 0x140281AC0 (PopDeepSleepEnabled.c)
- *     KeSetMaxDynamicTickDuration @ 0x140514948 (KeSetMaxDynamicTickDuration.c)
- *     PopEnsureCoalescingWorkerWillRun @ 0x14056ECF0 (PopEnsureCoalescingWorkerWillRun.c)
+ *     PopDeepSleepSetDisengageReason @ 0x14026F788 (PopDeepSleepSetDisengageReason.c)
+ *     PopDeepSleepClearDisengageReason @ 0x14026F810 (PopDeepSleepClearDisengageReason.c)
+ *     PoFxSendSystemLatencyUpdate @ 0x14026FA58 (PoFxSendSystemLatencyUpdate.c)
+ *     PpmAcquireLock @ 0x14026FCB4 (PpmAcquireLock.c)
+ *     PopDeepSleepEnabled @ 0x14026FD00 (PopDeepSleepEnabled.c)
+ *     PpmReleaseLock @ 0x1402CF3B0 (PpmReleaseLock.c)
+ *     KeSetMaxDynamicTickDuration @ 0x140514B88 (KeSetMaxDynamicTickDuration.c)
+ *     PopEnsureCoalescingWorkerWillRun @ 0x14056EF30 (PopEnsureCoalescingWorkerWillRun.c)
  */
 
 void __fastcall PopEnforceResiliencyScenarios(int *a1)
@@ -37,7 +37,7 @@ LABEL_12:
       KeSetMaxDynamicTickDuration(PopMaxDynamicTickDurationOriginalValue);
       PopDeepSleepEnforced = 0;
       PopDeepSleepSetDisengageReason(0);
-      if ( !byte_140C24074 )
+      if ( !byte_140C23434 )
         PopDeepSleepSetDisengageReason(1u);
     }
     goto LABEL_6;
@@ -50,9 +50,9 @@ LABEL_12:
     PopDeepSleepClearDisengageReason(1u);
   }
 LABEL_6:
-  PpmAcquireLock((struct _KTHREAD **)&PopFxSystemLatencyLock);
+  PpmAcquireLock(&PopFxSystemLatencyLock);
   PoFxSendSystemLatencyUpdate();
-  PpmReleaseLock(&PopFxSystemLatencyLock);
+  PpmReleaseLock((__int64 *)&PopFxSystemLatencyLock);
   v4 = *a1;
   if ( *a1 )
   {

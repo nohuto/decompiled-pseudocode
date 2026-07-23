@@ -1,37 +1,31 @@
 /*
- * XREFs of RtlNotifyFeatureUsage @ 0x1800140B0
+ * XREFs of RtlNotifyFeatureUsage @ 0x18005F7E0
  * Callers:
- *     wil_details_FeatureReporting_ReportUsageToServiceDirect @ 0x1800E3D80 (wil_details_FeatureReporting_ReportUsageToServiceDirect.c)
- *     RtlpFtSendUsageNotification @ 0x180147DB0 (RtlpFtSendUsageNotification.c)
+ *     wil_details_FeatureReporting_ReportUsageToServiceDirect @ 0x1800E52A0 (wil_details_FeatureReporting_ReportUsageToServiceDirect.c)
+ *     RtlpFtSendUsageNotification @ 0x180147C60 (RtlpFtSendUsageNotification.c)
  * Callees:
- *     RtlpFcBufferManagerDereferenceBuffers @ 0x180013B08 (RtlpFcBufferManagerDereferenceBuffers.c)
- *     RtlpFcReferenceFeatureConfigurationBuffers @ 0x180014134 (RtlpFcReferenceFeatureConfigurationBuffers.c)
- *     RtlpFcSendFeatureUsageNotifications @ 0x18001429C (RtlpFcSendFeatureUsageNotifications.c)
+ *     RtlpFcBufferManagerDereferenceBuffers @ 0x18005F238 (RtlpFcBufferManagerDereferenceBuffers.c)
+ *     RtlpFcReferenceFeatureConfigurationBuffers @ 0x18005F864 (RtlpFcReferenceFeatureConfigurationBuffers.c)
+ *     RtlpFcSendFeatureUsageNotifications @ 0x18005F9CC (RtlpFcSendFeatureUsageNotifications.c)
  */
 
-__int64 __fastcall RtlNotifyFeatureUsage(__int64 a1, __int64 a2)
+NTSTATUS __cdecl RtlNotifyFeatureUsage(PRTL_FEATURE_USAGE_REPORT FeatureUsageReport)
 {
-  int v3; // eax
-  __int64 v4; // rdi
-  unsigned int v5; // ebx
-  __int64 v7; // [rsp+38h] [rbp+10h] BYREF
-  __int64 v8; // [rsp+40h] [rbp+18h] BYREF
+  int v2; // eax
+  __int64 v3; // rdi
+  NTSTATUS v4; // ebx
+  __int64 v6; // [rsp+38h] [rbp+10h] BYREF
+  __int64 v7; // [rsp+40h] [rbp+18h] BYREF
 
-  v7 = 0LL;
-  if ( byte_1801CB8C8 )
-  {
-    return (unsigned int)-1073741058;
-  }
-  else
-  {
-    LOBYTE(a2) = 1;
-    v3 = RtlpFcReferenceFeatureConfigurationBuffers(a1, a2, &v8, &v7);
-    v4 = v7;
-    v5 = v3;
-    if ( v3 >= 0 )
-      v5 = RtlpFcSendFeatureUsageNotifications(a1, *(_QWORD *)(v7 + 56), *(_QWORD *)(v7 + 64));
-    if ( v4 )
-      RtlpFcBufferManagerDereferenceBuffers((volatile signed __int64 *)&xmmword_1801CCC48, v4);
-  }
-  return v5;
+  v6 = 0LL;
+  if ( byte_1801CA908 )
+    return -1073741058;
+  v2 = RtlpFcReferenceFeatureConfigurationBuffers(FeatureUsageReport, 1, &v7, &v6);
+  v3 = v6;
+  v4 = v2;
+  if ( v2 >= 0 )
+    v4 = RtlpFcSendFeatureUsageNotifications(FeatureUsageReport, *(_QWORD *)(v6 + 56), *(_QWORD *)(v6 + 64));
+  if ( v3 )
+    RtlpFcBufferManagerDereferenceBuffers((unsigned __int64 *)&xmmword_1801CBC88, v3);
+  return v4;
 }

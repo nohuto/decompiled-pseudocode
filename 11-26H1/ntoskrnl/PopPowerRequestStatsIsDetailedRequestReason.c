@@ -1,9 +1,9 @@
 /*
- * XREFs of PopPowerRequestStatsIsDetailedRequestReason @ 0x14077BD70
+ * XREFs of PopPowerRequestStatsIsDetailedRequestReason @ 0x14077E9B0
  * Callers:
- *     PopPowerRequestStatsGetIdForRequest @ 0x140A891F8 (PopPowerRequestStatsGetIdForRequest.c)
+ *     PopPowerRequestStatsGetIdForRequest @ 0x140A900E8 (PopPowerRequestStatsGetIdForRequest.c)
  * Callees:
- *     strncmp @ 0x14073D360 (strncmp.c)
+ *     strncmp @ 0x140741F60 (strncmp.c)
  */
 
 char __fastcall PopPowerRequestStatsIsDetailedRequestReason(__int64 a1)
@@ -28,7 +28,7 @@ char __fastcall PopPowerRequestStatsIsDetailedRequestReason(__int64 a1)
         while ( v3 < 2 )
         {
           v5 = -1LL;
-          v6 = PopPowerRequestStatsVerboseProcessList[v3];
+          v6 = (&PopPowerRequestStatsVerboseProcessList)[v3];
           do
             ++v5;
           while ( v6[v5] );

@@ -1,10 +1,10 @@
 /*
- * XREFs of PipCreateEntry @ 0x140CC16D4
+ * XREFs of PipCreateEntry @ 0x140CC77A4
  * Callers:
- *     PipLookupGroupName @ 0x140CC2440 (PipLookupGroupName.c)
+ *     PipLookupGroupName @ 0x140CC8510 (PipLookupGroupName.c)
  * Callees:
- *     memmove @ 0x14073D480 (memmove.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 ULONG_PTR __fastcall PipCreateEntry(const void **a1)

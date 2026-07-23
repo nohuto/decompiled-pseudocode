@@ -2,12 +2,12 @@
  * XREFs of IopReferenceDriverObjectByName @ 0x14068C668
  * Callers:
  *     PipCallDriverAddDeviceQueryRoutine @ 0x14068C35C (PipCallDriverAddDeviceQueryRoutine.c)
- *     PiGetDefaultMessageString @ 0x140848B70 (PiGetDefaultMessageString.c)
+ *     PiGetDefaultMessageString @ 0x140848E70 (PiGetDefaultMessageString.c)
  *     IopInitializeSystemDrivers @ 0x140B3CA80 (IopInitializeSystemDrivers.c)
  * Callees:
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
  *     ObOpenObjectByName @ 0x14068C9D0 (ObOpenObjectByName.c)
- *     ObReferenceObjectByHandle @ 0x1406E62C0 (ObReferenceObjectByHandle.c)
+ *     ObReferenceObjectByHandle @ 0x1406E62F0 (ObReferenceObjectByHandle.c)
  */
 
 PVOID __fastcall IopReferenceDriverObjectByName(_WORD *a1)

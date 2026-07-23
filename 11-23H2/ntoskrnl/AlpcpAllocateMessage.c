@@ -1,15 +1,15 @@
 /*
- * XREFs of AlpcpAllocateMessage @ 0x1407168A4
+ * XREFs of AlpcpAllocateMessage @ 0x140716AA4
  * Callers:
- *     AlpcpFormatConnectionRequest @ 0x140716258 (AlpcpFormatConnectionRequest.c)
- *     AlpcpCreateClientPort @ 0x140717744 (AlpcpCreateClientPort.c)
- *     AlpcpSendLegacySynchronousRequest @ 0x14071AC10 (AlpcpSendLegacySynchronousRequest.c)
- *     AlpcpCreateReserve @ 0x1407CFE74 (AlpcpCreateReserve.c)
+ *     AlpcpFormatConnectionRequest @ 0x140716458 (AlpcpFormatConnectionRequest.c)
+ *     AlpcpCreateClientPort @ 0x140717944 (AlpcpCreateClientPort.c)
+ *     AlpcpSendLegacySynchronousRequest @ 0x14071AE10 (AlpcpSendLegacySynchronousRequest.c)
+ *     AlpcpCreateReserve @ 0x1407D0144 (AlpcpCreateReserve.c)
  * Callees:
- *     memset @ 0x140435A00 (memset.c)
- *     AlpcpAllocateBlob @ 0x140739C40 (AlpcpAllocateBlob.c)
- *     AlpcpLockForCachedReferenceBlob @ 0x140739E34 (AlpcpLockForCachedReferenceBlob.c)
- *     AlpcpEnterAllocationEventMessageLog @ 0x14097A8DC (AlpcpEnterAllocationEventMessageLog.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     AlpcpAllocateBlob @ 0x140739E30 (AlpcpAllocateBlob.c)
+ *     AlpcpLockForCachedReferenceBlob @ 0x14073A024 (AlpcpLockForCachedReferenceBlob.c)
+ *     AlpcpEnterAllocationEventMessageLog @ 0x14097AADC (AlpcpEnterAllocationEventMessageLog.c)
  */
 
 __int64 __fastcall AlpcpAllocateMessage(ULONG_PTR *a1, unsigned __int64 a2)

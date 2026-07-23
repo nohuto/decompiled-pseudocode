@@ -1,12 +1,12 @@
 /*
- * XREFs of PpmTracePerfIdleRundown @ 0x140597E80
+ * XREFs of PpmTracePerfIdleRundown @ 0x140598370
  * Callers:
  *     <none>
  * Callees:
  *     EtwTraceKernelEvent @ 0x140211EDC (EtwTraceKernelEvent.c)
- *     PpmPerfGetCurrentState @ 0x14032A5B8 (PpmPerfGetCurrentState.c)
- *     PpmEventIdleStateChange @ 0x14034E968 (PpmEventIdleStateChange.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     PpmPerfGetCurrentState @ 0x14032A848 (PpmPerfGetCurrentState.c)
+ *     PpmEventIdleStateChange @ 0x14034EB08 (PpmEventIdleStateChange.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall PpmTracePerfIdleRundown(_QWORD *a1)

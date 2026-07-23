@@ -1,5 +1,5 @@
 /*
- * XREFs of PsGetProcessCommonJob @ 0x14020F0E0
+ * XREFs of PsGetProcessCommonJob @ 0x14020EF0C
  * Callers:
  *     <none>
  * Callees:

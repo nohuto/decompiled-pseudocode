@@ -1,16 +1,16 @@
 /*
- * XREFs of PoRegisterCoalescingCallback @ 0x140748360
+ * XREFs of PoRegisterCoalescingCallback @ 0x140749550
  * Callers:
- *     CmpCmdInit @ 0x140747E08 (CmpCmdInit.c)
- *     CcInitializeCacheManager @ 0x1409B06D8 (CcInitializeCacheManager.c)
- *     PopCoalescingInitialize @ 0x1409D1E34 (PopCoalescingInitialize.c)
+ *     CmpCmdInit @ 0x140748FF8 (CmpCmdInit.c)
+ *     CcInitializeCacheManager @ 0x1409B16D8 (CcInitializeCacheManager.c)
+ *     PopCoalescingInitialize @ 0x1409D2E34 (PopCoalescingInitialize.c)
  * Callees:
  *     PopAcquireRwLockExclusive @ 0x140003970 (PopAcquireRwLockExclusive.c)
  *     PopReleaseRwLock @ 0x140005EC4 (PopReleaseRwLock.c)
- *     ExInitializePushLock @ 0x14008A400 (ExInitializePushLock.c)
- *     ExCompareExchangeCallBack @ 0x14018667C (ExCompareExchangeCallBack.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
+ *     ExInitializePushLock @ 0x14008A3F0 (ExInitializePushLock.c)
+ *     ExCompareExchangeCallBack @ 0x1401867BC (ExCompareExchangeCallBack.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PoRegisterCoalescingCallback(
@@ -39,14 +39,14 @@ __int64 __fastcall PoRegisterCoalescingCallback(
   if ( !ExCompareExchangeCallBack((signed __int64 *)&v9[8], v9, 0LL) )
     return 3221225485LL;
   PopAcquireRwLockExclusive((ULONG_PTR)&PopCoalRegistrationListLock);
-  v10 = (struct _EX_RUNDOWN_REF **)off_140400C48[0];
+  v10 = (struct _EX_RUNDOWN_REF **)off_140401C48[0];
   v11 = v9 + 6;
-  if ( *(_UNKNOWN ***)off_140400C48[0] != &PopCoalRegistrationList )
+  if ( *(_UNKNOWN ***)off_140401C48[0] != &PopCoalRegistrationList )
     __fastfail(3u);
-  v9[7].Count = (unsigned __int64)off_140400C48[0];
+  v9[7].Count = (unsigned __int64)off_140401C48[0];
   v11->Count = (unsigned __int64)&PopCoalRegistrationList;
   *v10 = v11;
-  off_140400C48[0] = (_UNKNOWN **)&v9[6];
+  off_140401C48[0] = (_UNKNOWN **)&v9[6];
   PopReleaseRwLock((ULONG_PTR)&PopCoalRegistrationListLock);
   result = 0LL;
   *a3 = v9;

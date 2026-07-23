@@ -1,8 +1,8 @@
 /*
  * XREFs of Feature_SleepReliabilityDetailedDiagnostics__private_IsEnabledDeviceUsage @ 0x1403F8354
  * Callers:
- *     PopEnableSystemSleepCheckpoint @ 0x1407749C4 (PopEnableSystemSleepCheckpoint.c)
- *     PopUpdatePowerActionWatchdogTimeouts @ 0x140775730 (PopUpdatePowerActionWatchdogTimeouts.c)
+ *     PopEnableSystemSleepCheckpoint @ 0x140774B84 (PopEnableSystemSleepCheckpoint.c)
+ *     PopUpdatePowerActionWatchdogTimeouts @ 0x1407758F0 (PopUpdatePowerActionWatchdogTimeouts.c)
  * Callees:
  *     Feature_SleepReliabilityDetailedDiagnostics__private_IsEnabledFallback @ 0x1403F838C (Feature_SleepReliabilityDetailedDiagnostics__private_IsEnabledFallback.c)
  */

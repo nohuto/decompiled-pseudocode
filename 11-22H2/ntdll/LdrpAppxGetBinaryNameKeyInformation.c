@@ -8,48 +8,51 @@
  *     NtQueryValueKey @ 0x18009F0D0 (NtQueryValueKey.c)
  */
 
-__int64 __fastcall LdrpAppxGetBinaryNameKeyInformation(__int64 a1, __int64 *a2, __int64 *a3)
+__int64 __fastcall LdrpAppxGetBinaryNameKeyInformation(HANDLE KeyHandle, _QWORD *a2, _QWORD *a3)
 {
-  __int64 v5; // rsi
-  __int64 Heap; // rdi
-  int ValueKey; // eax
-  int v8; // ebx
-  unsigned int v10; // [rsp+98h] [rbp+20h]
+  _DWORD *v6; // rsi
+  _DWORD *v7; // rdi
+  NTSTATUS v8; // eax
+  NTSTATUS v9; // ebx
+  _DWORD *Heap; // rax
+  _UNICODE_STRING ValueName; // [rsp+38h] [rbp-40h] BYREF
+  SIZE_T Size; // [rsp+98h] [rbp+20h] BYREF
 
-  v5 = 0LL;
-  Heap = 0LL;
-  ValueKey = NtQueryValueKey();
-  v8 = ValueKey;
-  if ( ValueKey < 0 )
+  *(_DWORD *)&ValueName.Length = 1441812;
+  ValueName.Buffer = L"BinaryName";
+  v6 = 0LL;
+  v7 = 0LL;
+  v8 = NtQueryValueKey(KeyHandle, &ValueName, KeyValuePartialInformation, 0LL, 0, (PULONG)&Size);
+  v9 = v8;
+  if ( v8 < 0 )
   {
-    if ( ValueKey == -1073741789 )
+    if ( v8 == -1073741789 )
     {
-      Heap = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, v10);
+      Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, (unsigned int)Size);
+      v7 = Heap;
       if ( !Heap )
         return (unsigned int)-1073741801;
-      v8 = NtQueryValueKey();
-      if ( v8 < 0 )
+      v9 = NtQueryValueKey(KeyHandle, &ValueName, KeyValuePartialInformation, Heap, Size, (PULONG)&Size);
+      if ( v9 < 0 )
       {
 LABEL_14:
-        RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, Heap);
-        return (unsigned int)v8;
+        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v7);
+        return (unsigned int)v9;
       }
-      if ( *(_DWORD *)(Heap + 4) != 1
-        || *(_DWORD *)(Heap + 8) < 4u
-        || (v5 = Heap + 12, *(_WORD *)(Heap + 12 + 2 * ((unsigned __int64)*(unsigned int *)(Heap + 8) >> 1) - 2)) )
+      if ( v7[1] != 1 || v7[2] < 4u || (v6 = v7 + 3, *((_WORD *)v7 + ((unsigned __int64)(unsigned int)v7[2] >> 1) + 5)) )
       {
-        v8 = -1073739509;
+        v9 = -1073739509;
         goto LABEL_14;
       }
     }
-    if ( v8 >= 0 )
+    if ( v9 >= 0 )
     {
-      *a2 = v5;
-      *a3 = Heap;
-      return (unsigned int)v8;
+      *a2 = v6;
+      *a3 = v7;
+      return (unsigned int)v9;
     }
-    if ( !Heap )
-      return (unsigned int)v8;
+    if ( !v7 )
+      return (unsigned int)v9;
     goto LABEL_14;
   }
   return (unsigned int)-1073739509;

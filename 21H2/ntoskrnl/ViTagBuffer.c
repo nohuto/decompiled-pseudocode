@@ -1,8 +1,8 @@
 /*
- * XREFs of ViTagBuffer @ 0x1409CFAB0
+ * XREFs of ViTagBuffer @ 0x1409D0AB0
  * Callers:
- *     ViAllocateMapRegistersFromFile @ 0x1409CD7D8 (ViAllocateMapRegistersFromFile.c)
- *     ViInitializePadding @ 0x1409CEFEC (ViInitializePadding.c)
+ *     ViAllocateMapRegistersFromFile @ 0x1409CE7D8 (ViAllocateMapRegistersFromFile.c)
+ *     ViInitializePadding @ 0x1409CFFEC (ViInitializePadding.c)
  * Callees:
  *     <none>
  */

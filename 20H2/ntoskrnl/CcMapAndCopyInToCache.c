@@ -54,7 +54,7 @@ char __fastcall CcMapAndCopyInToCache(
   void *v11; // r15
   bool v12; // bl
   unsigned int v13; // r13d
-  struct _SLIST_ENTRY *v14; // rdi
+  _SLIST_ENTRY *v14; // rdi
   char v15; // si
   unsigned __int64 *v16; // rbx
   int BaseIoPriorityThread; // eax
@@ -86,25 +86,25 @@ char __fastcall CcMapAndCopyInToCache(
   NTSTATUS v43; // eax
   __int64 v44; // rbx
   struct _KEVENT *v45; // rcx
-  int v46; // eax
+  NTSTATUS v46; // eax
   struct _MDL *v47; // r14
   __int64 v48; // rcx
   bool v49; // r8
   void *v50; // r10
   int v51; // ecx
   unsigned int v52; // ecx
-  int v53; // esi
+  signed int v53; // esi
   bool v54; // di
   unsigned int v55; // ecx
   struct _KTHREAD *v56; // rdx
   struct _KTHREAD *v57; // rax
   char v58; // al
   BOOLEAN IsNtstatusExpected; // al
-  __int64 v60; // rcx
+  NTSTATUS v60; // ecx
   __int64 v61; // r8
-  unsigned int v62; // edi
+  NTSTATUS v62; // edi
   BOOLEAN v63; // al
-  __int64 v64; // rcx
+  NTSTATUS v64; // ecx
   unsigned int v65; // ecx
   struct _KTHREAD *v66; // rdx
   unsigned int v68; // r8d
@@ -116,7 +116,7 @@ char __fastcall CcMapAndCopyInToCache(
   unsigned __int64 v74; // rbx
   __int64 v75; // rdi
   _SLIST_ENTRY *Next; // rcx
-  struct _SLIST_ENTRY **v77; // rax
+  _SLIST_ENTRY **v77; // rax
   struct _KEVENT *v78; // rcx
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
@@ -140,7 +140,7 @@ char __fastcall CcMapAndCopyInToCache(
   _DWORD *v98; // r8
   int v99; // eax
   BOOLEAN v100; // al
-  __int64 v101; // rcx
+  NTSTATUS v101; // ecx
   char v102; // [rsp+68h] [rbp-168h]
   bool v103; // [rsp+69h] [rbp-167h]
   char v104; // [rsp+6Ah] [rbp-166h]
@@ -166,8 +166,8 @@ char __fastcall CcMapAndCopyInToCache(
   int v124; // [rsp+B4h] [rbp-11Ch]
   unsigned int v125; // [rsp+B8h] [rbp-118h]
   int v126; // [rsp+BCh] [rbp-114h]
-  unsigned int v127; // [rsp+C0h] [rbp-110h] BYREF
-  int v128; // [rsp+C4h] [rbp-10Ch]
+  NTSTATUS Status; // [rsp+C0h] [rbp-110h] BYREF
+  signed int v128; // [rsp+C4h] [rbp-10Ch]
   NTSTATUS v129[4]; // [rsp+C8h] [rbp-108h] BYREF
   __int64 v130; // [rsp+D8h] [rbp-F8h]
   struct _KTHREAD *CurrentThread; // [rsp+E0h] [rbp-F0h]
@@ -183,7 +183,7 @@ char __fastcall CcMapAndCopyInToCache(
   unsigned __int64 v141; // [rsp+130h] [rbp-A0h]
   struct _KLOCK_QUEUE_HANDLE v142; // [rsp+138h] [rbp-98h] BYREF
   BOOL v143; // [rsp+150h] [rbp-80h]
-  int v144; // [rsp+154h] [rbp-7Ch]
+  NTSTATUS v144; // [rsp+154h] [rbp-7Ch]
   __int64 v145; // [rsp+158h] [rbp-78h]
   __int64 v146; // [rsp+160h] [rbp-70h]
   __int64 v147; // [rsp+168h] [rbp-68h]
@@ -305,16 +305,16 @@ LABEL_9:
       v142.LockQueue.Lock = (unsigned __int64 *volatile)(v20 + 192);
       v142.LockQueue.Next = 0LL;
       KxAcquireQueuedSpinLock((__int64)&v142, (volatile __int64 *)(v20 + 192));
-      v14 = *(struct _SLIST_ENTRY **)(v9 + 496);
+      v14 = *(_SLIST_ENTRY **)(v9 + 496);
       if ( !v14 )
       {
         KeReleaseInStackQueuedSpinLockFromDpcLevel(&v142);
         KeReleaseInStackQueuedSpinLock(&LockHandle);
         KeDelayExecutionThread(0, 0, &Cc5Milliseconds);
-        RtlRaiseStatus(3221225688LL);
+        RtlRaiseStatus(-1073741608);
       }
       Next = v14->Next;
-      v77 = (struct _SLIST_ENTRY **)*((_QWORD *)&v14->Next + 1);
+      v77 = (_SLIST_ENTRY **)*((_QWORD *)&v14->Next + 1);
       if ( *(&v14->Next->Next + 1) != v14 || *v77 != v14 )
         __fastfail(3u);
       *v77 = Next;
@@ -557,9 +557,9 @@ LABEL_20:
         if ( v41 < 0 )
         {
           IsNtstatusExpected = FsRtlIsNtstatusExpected(v41);
-          v60 = 3221225704LL;
+          v60 = -1073741592;
           if ( IsNtstatusExpected )
-            v60 = (unsigned int)v41;
+            v60 = v41;
           RtlRaiseStatus(v60);
         }
         v104 = 1;
@@ -590,19 +590,19 @@ LABEL_20:
         v140 = 0LL;
         v48 = 0LL;
         v145 = 0LL;
-        v127 = 0;
+        Status = 0;
         if ( v46 < 0 )
-          RtlRaiseStatus((unsigned int)v46);
+          RtlRaiseStatus(v46);
         v49 = v106;
         if ( v106 )
         {
           v61 = v32;
           if ( v36 )
             v61 = 4096LL;
-          v48 = CcLockSystemCacheBuffer(v121, &v140, v61, 1LL, &v127);
+          v48 = CcLockSystemCacheBuffer(v121, &v140, v61, 1LL, &Status);
           v145 = v48;
           if ( !v48 )
-            RtlRaiseStatus(v127);
+            RtlRaiseStatus(Status);
           v47 = v140;
           v49 = v106;
         }
@@ -632,7 +632,7 @@ LABEL_20:
         }
         else if ( (*(_DWORD *)(v9 + 152) & 0x40000000) != 0 )
         {
-          v53 = RtlWriteNonVolatileMemory(-1LL, v50, a2, v52, 2);
+          v53 = RtlWriteNonVolatileMemory((PVOID)0xFFFFFFFFFFFFFFFFLL, v50, a2, v52, 2u);
           v128 = v53;
         }
         else
@@ -640,7 +640,7 @@ LABEL_20:
           memmove(v50, a2, v52);
         }
         if ( v53 < 0 )
-          RtlRaiseStatus((unsigned int)v53);
+          RtlRaiseStatus(v53);
         v110 = !v54;
         v104 = 1;
         if ( !v103 )
@@ -707,7 +707,7 @@ LABEL_20:
       if ( v129[0] < 0 )
       {
         v63 = FsRtlIsNtstatusExpected(v129[0]);
-        v64 = 3221225705LL;
+        v64 = -1073741591;
         if ( v63 )
           v64 = v62;
         RtlRaiseStatus(v64);
@@ -795,9 +795,9 @@ LABEL_122:
     if ( (int)v11 < 0 )
     {
       v100 = FsRtlIsNtstatusExpected((NTSTATUS)v11);
-      v101 = 3221225705LL;
+      v101 = -1073741591;
       if ( v100 )
-        v101 = (unsigned int)v11;
+        v101 = (int)v11;
       RtlRaiseStatus(v101);
     }
   }

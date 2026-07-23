@@ -1,16 +1,16 @@
 /*
- * XREFs of AlpcpInitializePort @ 0x1404B58C0
+ * XREFs of AlpcpInitializePort @ 0x14049FCA0
  * Callers:
- *     AlpcpCreateClientPort @ 0x14040849C (AlpcpCreateClientPort.c)
- *     AlpcpCreateConnectionPort @ 0x1404B36C8 (AlpcpCreateConnectionPort.c)
- *     AlpcpAcceptConnectPort @ 0x1404B4A28 (AlpcpAcceptConnectPort.c)
+ *     AlpcpCreateClientPort @ 0x14040735C (AlpcpCreateClientPort.c)
+ *     AlpcpCreateConnectionPort @ 0x14049DAA8 (AlpcpCreateConnectionPort.c)
+ *     AlpcpAcceptConnectPort @ 0x14049EE08 (AlpcpAcceptConnectPort.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExAllocateFromNPagedLookasideList @ 0x14006FEB0 (ExAllocateFromNPagedLookasideList.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
- *     KeInitializeSemaphore @ 0x1400F2030 (KeInitializeSemaphore.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExAllocateFromNPagedLookasideList @ 0x14006FA30 (ExAllocateFromNPagedLookasideList.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
+ *     KeInitializeSemaphore @ 0x1400EFE80 (KeInitializeSemaphore.c)
  */
 
 __int64 __fastcall AlpcpInitializePort(__int64 a1, char a2, char a3)
@@ -63,13 +63,13 @@ __int64 __fastcall AlpcpInitializePort(__int64 a1, char a2, char a3)
     ExfAcquirePushLockExclusiveEx(&AlpcpPortListLock, v4, (ULONG_PTR)&AlpcpPortListLock);
   if ( v6 )
     v6[26] |= 1u;
-  v7 = (__int64 *)qword_1403072D8;
-  if ( *(__int64 **)qword_1403072D8 != &AlpcpPortList )
+  v7 = (__int64 *)qword_140307318;
+  if ( *(__int64 **)qword_140307318 != &AlpcpPortList )
     __fastfail(3u);
-  *(_QWORD *)(a1 + 8) = qword_1403072D8;
+  *(_QWORD *)(a1 + 8) = qword_140307318;
   *(_QWORD *)a1 = &AlpcpPortList;
   *v7 = a1;
-  qword_1403072D8 = a1;
+  qword_140307318 = a1;
   if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&AlpcpPortListLock, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
     ExfTryToWakePushLock((volatile signed __int64 *)&AlpcpPortListLock);
   KeAbPostRelease((ULONG_PTR)&AlpcpPortListLock);

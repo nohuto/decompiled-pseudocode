@@ -1,18 +1,18 @@
 /*
- * XREFs of RtlpCSparseBitmapPageDecommit @ 0x14045CD70
+ * XREFs of RtlpCSparseBitmapPageDecommit @ 0x140451E3C
  * Callers:
- *     RtlCSparseBitmapBitsClear @ 0x1402BC9D8 (RtlCSparseBitmapBitsClear.c)
+ *     RtlCSparseBitmapBitsClear @ 0x140364118 (RtlCSparseBitmapBitsClear.c)
  * Callees:
- *     MmFreePoolMemory @ 0x140243A40 (MmFreePoolMemory.c)
- *     RtlpCSparseBitmapUnlock @ 0x140247650 (RtlpCSparseBitmapUnlock.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     KeLeaveGuardedRegion @ 0x1402BB460 (KeLeaveGuardedRegion.c)
- *     ExpUnblockPushLock @ 0x1402C793C (ExpUnblockPushLock.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     RtlpCSparseBitmapWaitOnAddress @ 0x14045D1A8 (RtlpCSparseBitmapWaitOnAddress.c)
- *     RtlCSparseBitmapEnterLockingRegion @ 0x14045D26C (RtlCSparseBitmapEnterLockingRegion.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
+ *     MmFreePoolMemory @ 0x14020C540 (MmFreePoolMemory.c)
+ *     RtlpCSparseBitmapUnlock @ 0x14021966C (RtlpCSparseBitmapUnlock.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     ExpUnblockPushLock @ 0x1402BC2BC (ExpUnblockPushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeLeaveGuardedRegion @ 0x140362BA0 (KeLeaveGuardedRegion.c)
+ *     RtlpCSparseBitmapWaitOnAddress @ 0x140452274 (RtlpCSparseBitmapWaitOnAddress.c)
+ *     RtlCSparseBitmapEnterLockingRegion @ 0x140452338 (RtlCSparseBitmapEnterLockingRegion.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
  */
 
 void __fastcall RtlpCSparseBitmapPageDecommit(__int64 a1, unsigned __int64 a2, int a3)
@@ -38,9 +38,9 @@ void __fastcall RtlpCSparseBitmapPageDecommit(__int64 a1, unsigned __int64 a2, i
   unsigned __int64 v23; // rax
   bool j; // zf
   struct _KTHREAD *CurrentThread; // rax
-  _QWORD *v26; // rax
+  char *v26; // rax
   signed __int32 v27[8]; // [rsp+0h] [rbp-F8h] BYREF
-  _QWORD *v28; // [rsp+20h] [rbp-D8h] BYREF
+  char *v28; // [rsp+20h] [rbp-D8h] BYREF
   BOOL v29; // [rsp+28h] [rbp-D0h]
   _QWORD *i; // [rsp+30h] [rbp-C8h]
   unsigned __int64 v31; // [rsp+38h] [rbp-C0h]
@@ -140,21 +140,21 @@ LABEL_21:
     {
       CurrentThread = KeGetCurrentThread();
       --CurrentThread->SpecialApcDisable;
-      v26 = KeAbPreAcquire((__int64)v17, 0LL);
+      v26 = (char *)KeAbPreAcquire((__int64)v17, 0LL);
       v28 = v26;
       if ( _interlockedbittestandset64((volatile signed __int32 *)v16, 0LL) )
       {
-        ExfAcquirePushLockExclusiveEx(v16, (__int64)v26, (__int64)v16);
+        ExfAcquirePushLockExclusiveEx(v16, v26, (__int64)v16);
         v26 = v28;
       }
       if ( v26 )
-        *((_BYTE *)v26 + 10) = 1;
+        v26[10] = 1;
       BYTE4(v34) = -1;
     }
     LODWORD(v34) = 1;
     *((_QWORD *)&v34 + 1) = a1;
-    v28 = *(_QWORD **)(a1 + 32);
-    if ( v28 == (_QWORD *)-1LL )
+    v28 = *(char **)(a1 + 32);
+    if ( v28 == (char *)-1LL )
       break;
     RtlpCSparseBitmapUnlock((int *)&v34);
     RtlpCSparseBitmapWaitOnAddress(a1 + 32, &v28, v18, a1);

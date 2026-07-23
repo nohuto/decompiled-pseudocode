@@ -1,9 +1,9 @@
 /*
- * XREFs of PpmHeteroRestrictToFavoredClass @ 0x1402E434C
+ * XREFs of PpmHeteroRestrictToFavoredClass @ 0x1402E453C
  * Callers:
- *     PpmParkChooseCoresToUnpark @ 0x1402E7790 (PpmParkChooseCoresToUnpark.c)
+ *     PpmParkChooseCoresToUnpark @ 0x1402E7980 (PpmParkChooseCoresToUnpark.c)
  * Callees:
- *     KeGetPrcb @ 0x1400A62C4 (KeGetPrcb.c)
+ *     KeGetPrcb @ 0x1400A6204 (KeGetPrcb.c)
  */
 
 __int64 __fastcall PpmHeteroRestrictToFavoredClass(unsigned __int64 a1, unsigned __int16 a2)

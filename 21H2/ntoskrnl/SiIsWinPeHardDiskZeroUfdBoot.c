@@ -1,15 +1,15 @@
 /*
- * XREFs of SiIsWinPeHardDiskZeroUfdBoot @ 0x14077B054
+ * XREFs of SiIsWinPeHardDiskZeroUfdBoot @ 0x14077B214
  * Callers:
- *     SiGetBiosSystemDisk @ 0x14077AEC0 (SiGetBiosSystemDisk.c)
+ *     SiGetBiosSystemDisk @ 0x14077B080 (SiGetBiosSystemDisk.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     _snwscanf_s @ 0x1403D72E0 (_snwscanf_s.c)
- *     SiIsWinPEBoot @ 0x1406A4930 (SiIsWinPEBoot.c)
- *     SiGetBootDeviceNameFromRegistry @ 0x1406A4B58 (SiGetBootDeviceNameFromRegistry.c)
- *     SiTranslateSymbolicLink @ 0x1406A4F0C (SiTranslateSymbolicLink.c)
- *     SiIssueSynchronousIoctl @ 0x14097384C (SiIssueSynchronousIoctl.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     _snwscanf_s @ 0x1403D7450 (_snwscanf_s.c)
+ *     SiIsWinPEBoot @ 0x140602560 (SiIsWinPEBoot.c)
+ *     SiGetBootDeviceNameFromRegistry @ 0x140602788 (SiGetBootDeviceNameFromRegistry.c)
+ *     SiTranslateSymbolicLink @ 0x140602B3C (SiTranslateSymbolicLink.c)
+ *     SiIssueSynchronousIoctl @ 0x140973A2C (SiIssueSynchronousIoctl.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 bool __fastcall SiIsWinPeHardDiskZeroUfdBoot(int a1, __int64 a2, __int64 a3, int a4)

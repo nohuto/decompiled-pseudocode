@@ -1,13 +1,13 @@
 /*
- * XREFs of KiIpiSendRequest @ 0x1400E0AE0
+ * XREFs of KiIpiSendRequest @ 0x1400DE980
  * Callers:
- *     KiIpiSendRequestEx @ 0x140030DC0 (KiIpiSendRequestEx.c)
- *     KiIpiSendPacket @ 0x1400C8A18 (KiIpiSendPacket.c)
- *     MiFlushTbList @ 0x1400E0490 (MiFlushTbList.c)
+ *     KiIpiSendRequestEx @ 0x140030940 (KiIpiSendRequestEx.c)
+ *     KiIpiSendPacket @ 0x1400C68B8 (KiIpiSendPacket.c)
+ *     MiFlushTbList @ 0x1400DE330 (MiFlushTbList.c)
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     memset @ 0x140171AC0 (memset.c)
  */
 
 __int64 __fastcall KiIpiSendRequest(
@@ -97,7 +97,7 @@ __int64 __fastcall KiIpiSendRequest(
       v14 = 0;
       if ( (_WORD)KeSleepingProcessors )
       {
-        while ( !qword_140307BA8[v14] )
+        while ( !qword_140307BE8[v14] )
         {
           if ( ++v14 >= (unsigned __int16)KeSleepingProcessors )
             goto LABEL_20;
@@ -115,7 +115,7 @@ __int64 __fastcall KiIpiSendRequest(
           v13 = (unsigned __int16)v13;
           do
           {
-            v17 = qword_140307BA8[v16++];
+            v17 = qword_140307BE8[v16++];
             *(_QWORD *)((char *)&v55 + v16 * 8) &= ~v17;
             --v13;
           }

@@ -21,7 +21,7 @@ __int64 __fastcall IopPnPDispatch(PDEVICE_OBJECT DeviceObject, IRP *a2)
 {
   struct _IO_STACK_LOCATION *CurrentStackLocation; // r13
   _QWORD *v3; // r12
-  wchar_t *Information; // r14
+  WCHAR *Information; // r14
   unsigned int MinorFunction; // r8d
   unsigned int v8; // r8d
   _QWORD *v9; // rdx
@@ -38,13 +38,13 @@ __int64 __fastcall IopPnPDispatch(PDEVICE_OBJECT DeviceObject, IRP *a2)
   LARGE_INTEGER ByteOffset; // rax
   int Length; // eax
   __int64 v23; // rdx
-  wchar_t *Src; // rdi
-  wchar_t *v25; // rcx
+  WCHAR *Src; // rdi
+  WCHAR *v25; // rcx
   int v26; // r9d
-  wchar_t *v27; // r8
-  wchar_t v28; // dx
-  wchar_t *PoolWithTag; // rax
-  wchar_t *v30; // rbx
+  WCHAR *v27; // r8
+  WCHAR v28; // dx
+  WCHAR *PoolWithTag; // rax
+  WCHAR *v30; // rbx
   LARGE_INTEGER v31; // rdx
   void *v32; // rax
   _DWORD *DeviceNode; // rcx
@@ -107,7 +107,7 @@ LABEL_9:
       }
       if ( CurrentStackLocation->Parameters.Read.Length != 4 )
         goto LABEL_18;
-      PoolWithTag = (wchar_t *)ExAllocatePoolWithTag(PagedPool, 0x10uLL, 0x64647050u);
+      PoolWithTag = (WCHAR *)ExAllocatePoolWithTag(PagedPool, 0x10uLL, 0x64647050u);
       v30 = PoolWithTag;
       if ( !PoolWithTag )
         goto LABEL_76;
@@ -231,7 +231,7 @@ LABEL_126:
     if ( RootDevices == -1073741772 )
       goto LABEL_9;
 LABEL_62:
-    Information = (wchar_t *)v46[0];
+    Information = (WCHAR *)v46[0];
     goto LABEL_19;
   }
   v15 = v14 - 1;
@@ -250,13 +250,13 @@ LABEL_62:
       v42 = DeviceObject->DeviceObjectExtension->DeviceNode;
     else
       v42 = 0LL;
-    PiGetDeviceRegProperty(v42[6], (__int64)a2, 1, 0xEu, 0LL, (int *)&NumberOfBytes);
+    PiGetDeviceRegProperty(v42[6], (__int64)a2, 1, 0xEu, 0LL, (PULONG)&NumberOfBytes);
     if ( (_DWORD)NumberOfBytes )
     {
-      Information = (wchar_t *)ExAllocatePoolWithTag(PagedPool, (unsigned int)NumberOfBytes, 0x64647050u);
+      Information = (WCHAR *)ExAllocatePoolWithTag(PagedPool, (unsigned int)NumberOfBytes, 0x64647050u);
       if ( Information )
       {
-        RootDevices = PiGetDeviceRegProperty(v42[6], v43, 1, 0xEu, Information, (int *)&NumberOfBytes);
+        RootDevices = PiGetDeviceRegProperty(v42[6], v43, 1, 0xEu, Information, (PULONG)&NumberOfBytes);
         if ( RootDevices < 0 )
         {
           if ( RootDevices == -1073741275 )
@@ -278,7 +278,7 @@ LABEL_77:
     if ( v17 == 3 )
       goto LABEL_9;
 LABEL_18:
-    Information = (wchar_t *)a2->IoStatus.Information;
+    Information = (WCHAR *)a2->IoStatus.Information;
     RootDevices = a2->IoStatus.Status;
     goto LABEL_19;
   }
@@ -308,10 +308,10 @@ LABEL_18:
                         7,
                         (unsigned int)(Length != 1) + 2,
                         0LL,
-                        (int *)&NumberOfBytes);
+                        (PULONG)&NumberOfBytes);
         if ( RootDevices == -1073741789 )
         {
-          Src = (wchar_t *)ExAllocatePoolWithTag(PagedPool, (unsigned int)NumberOfBytes, 0x64647050u);
+          Src = (WCHAR *)ExAllocatePoolWithTag(PagedPool, (unsigned int)NumberOfBytes, 0x64647050u);
           if ( Src )
           {
             RootDevices = PiGetDeviceRegProperty(
@@ -320,7 +320,7 @@ LABEL_18:
                             7,
                             (unsigned int)(CurrentStackLocation->Parameters.Read.Length != 1) + 2,
                             Src,
-                            (int *)&NumberOfBytes);
+                            (PULONG)&NumberOfBytes);
             v25 = Src;
             if ( RootDevices < 0 )
             {
@@ -330,7 +330,7 @@ LABEL_18:
             {
               v26 = NumberOfBytes;
               v27 = 0LL;
-              if ( Src < (wchar_t *)((char *)Src + ((unsigned int)NumberOfBytes & 0xFFFFFFFE)) )
+              if ( Src < (WCHAR *)((char *)Src + ((unsigned int)NumberOfBytes & 0xFFFFFFFE)) )
               {
                 do
                 {
@@ -351,7 +351,7 @@ LABEL_18:
                   }
                   ++v25;
                 }
-                while ( v25 < (wchar_t *)((char *)Src + (v26 & 0xFFFFFFFE)) );
+                while ( v25 < (WCHAR *)((char *)Src + (v26 & 0xFFFFFFFE)) );
               }
               Information = Src;
             }
@@ -363,7 +363,7 @@ LABEL_18:
         }
         if ( RootDevices == -1073741275 )
         {
-          Information = (wchar_t *)a2->IoStatus.Information;
+          Information = (WCHAR *)a2->IoStatus.Information;
           RootDevices = a2->IoStatus.Status;
         }
       }
@@ -384,7 +384,7 @@ LABEL_18:
         goto LABEL_76;
       }
 LABEL_95:
-      Information = (wchar_t *)a2->IoStatus.Information;
+      Information = (WCHAR *)a2->IoStatus.Information;
       goto LABEL_19;
     }
   }

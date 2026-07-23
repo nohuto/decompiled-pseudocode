@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpSetAcpiRealTimeClock @ 0x140932F18
+ * XREFs of HalpSetAcpiRealTimeClock @ 0x140933118
  * Callers:
- *     HalSetRealTimeClock @ 0x1404FEC10 (HalSetRealTimeClock.c)
+ *     HalSetRealTimeClock @ 0x1404FF160 (HalSetRealTimeClock.c)
  * Callees:
- *     IofCallDriver @ 0x14022EEF0 (IofCallDriver.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     KeWaitForSingleObject @ 0x140243CE0 (KeWaitForSingleObject.c)
- *     IoBuildDeviceIoControlRequest @ 0x140251550 (IoBuildDeviceIoControlRequest.c)
- *     KeInitializeEvent @ 0x1402AF870 (KeInitializeEvent.c)
- *     HalpGetDynamicDevicePointer @ 0x1409339A4 (HalpGetDynamicDevicePointer.c)
+ *     IofCallDriver @ 0x14022F000 (IofCallDriver.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     KeWaitForSingleObject @ 0x140243DB0 (KeWaitForSingleObject.c)
+ *     IoBuildDeviceIoControlRequest @ 0x140251610 (IoBuildDeviceIoControlRequest.c)
+ *     KeInitializeEvent @ 0x1402AFB00 (KeInitializeEvent.c)
+ *     HalpGetDynamicDevicePointer @ 0x140933BA4 (HalpGetDynamicDevicePointer.c)
  */
 
 __int64 __fastcall HalpSetAcpiRealTimeClock(PVOID InputBuffer)

@@ -1,31 +1,30 @@
 /*
- * XREFs of RtlGuardCheckExceptionHandler @ 0x180081080
+ * XREFs of RtlGuardCheckExceptionHandler @ 0x180078420
  * Callers:
- *     RtlUnwindEx @ 0x180049930 (RtlUnwindEx.c)
- *     RtlGuardRestoreContext @ 0x180080B50 (RtlGuardRestoreContext.c)
- *     RcFrameConsolidation @ 0x180127350 (RcFrameConsolidation.c)
+ *     RtlUnwindEx @ 0x180033EB0 (RtlUnwindEx.c)
+ *     RtlGuardRestoreContext @ 0x180077EF0 (RtlGuardRestoreContext.c)
+ *     RcFrameConsolidation @ 0x1801270C0 (RcFrameConsolidation.c)
  * Callees:
- *     RtlImageNtHeaderEx @ 0x180047040 (RtlImageNtHeaderEx.c)
- *     RtlpxLookupFunctionTable @ 0x18004B2A0 (RtlpxLookupFunctionTable.c)
- *     RtlImageDirectoryEntryToData @ 0x180081250 (RtlImageDirectoryEntryToData.c)
- *     RtlFailFast2 @ 0x180127850 (RtlFailFast2.c)
- *     bsearch_s @ 0x18012A100 (bsearch_s.c)
+ *     RtlImageNtHeaderEx @ 0x1800315B0 (RtlImageNtHeaderEx.c)
+ *     RtlpxLookupFunctionTable @ 0x180035820 (RtlpxLookupFunctionTable.c)
+ *     RtlImageDirectoryEntryToData @ 0x1800785F0 (RtlImageDirectoryEntryToData.c)
+ *     RtlFailFast2 @ 0x1801275C0 (RtlFailFast2.c)
+ *     bsearch_s @ 0x180129E70 (bsearch_s.c)
  */
 
-__int64 __fastcall RtlGuardCheckExceptionHandler(unsigned __int64 a1, char a2, char *a3)
+__int64 __fastcall RtlGuardCheckExceptionHandler(PVOID BaseAddress, char a2, char *a3)
 {
   char v6; // si
-  unsigned __int64 v7; // rbp
-  __int64 v8; // rdx
-  __int64 v9; // rdx
-  rsize_t v11; // r8
+  PVOID v7; // rbp
+  PVOID v8; // rdx
+  rsize_t v10; // r8
   int Key; // [rsp+30h] [rbp-48h] BYREF
-  __int64 v13; // [rsp+38h] [rbp-40h] BYREF
-  __int128 v14; // [rsp+40h] [rbp-38h] BYREF
-  __int64 v15; // [rsp+50h] [rbp-28h]
-  int v16; // [rsp+98h] [rbp+20h] BYREF
+  PIMAGE_NT_HEADERS OutHeaders; // [rsp+38h] [rbp-40h] BYREF
+  PVOID BaseOfImage[2]; // [rsp+40h] [rbp-38h] BYREF
+  __int64 v14; // [rsp+50h] [rbp-28h]
+  ULONG Size; // [rsp+98h] [rbp+20h] BYREF
 
-  if ( !qword_1801E3518 || (dword_1801E34FC & 1) != 0 )
+  if ( !LdrSystemDllInitBlock.CfgBitMap || (LdrSystemDllInitBlock.Flags & 1) != 0 )
   {
     if ( a3 )
       *a3 = 1;
@@ -33,41 +32,41 @@ __int64 __fastcall RtlGuardCheckExceptionHandler(unsigned __int64 a1, char a2, c
   else
   {
     v6 = 0;
-    v15 = 0LL;
     v14 = 0LL;
-    if ( a1 < *((_QWORD *)&xmmword_1801E0450 + 1)
-      || a1 >= *((_QWORD *)&xmmword_1801E0450 + 1) + (unsigned __int64)(unsigned int)qword_1801E0460 )
+    *(_OWORD *)BaseOfImage = 0LL;
+    if ( (unsigned __int64)BaseAddress < *((_QWORD *)&xmmword_1801DF450 + 1)
+      || (unsigned __int64)BaseAddress >= *((_QWORD *)&xmmword_1801DF450 + 1)
+                                        + (unsigned __int64)(unsigned int)qword_1801DF460 )
     {
-      RtlpxLookupFunctionTable(a1, (__int64)&v14);
+      RtlpxLookupFunctionTable(BaseAddress, (char **)BaseOfImage);
     }
     else
     {
-      v14 = xmmword_1801E0450;
+      *(_OWORD *)BaseOfImage = xmmword_1801DF450;
     }
-    v7 = *((_QWORD *)&v14 + 1);
-    if ( *((_QWORD *)&v14 + 1)
-      && (v16 = 0,
-          v13 = 0LL,
-          RtlImageNtHeaderEx(1, *((unsigned __int64 *)&v14 + 1), 0LL, &v13),
-          LOBYTE(v8) = 1,
-          (v9 = RtlImageDirectoryEntryToData(v7, v8, 10LL, &v16)) != 0)
-      && v16
-      && v16 == *(_DWORD *)v9
-      && *(_WORD *)(v13 + 4) == 0x8664
-      && *(_DWORD *)v9 >= 0x118u
-      && (*(_DWORD *)(v9 + 144) & 0x400000) != 0
-      && *(_QWORD *)(v9 + 264) > v7
-      && ((Key = a1 - v7, (v11 = *(_QWORD *)(v9 + 272)) == 0)
+    v7 = BaseOfImage[1];
+    if ( BaseOfImage[1]
+      && (Size = 0,
+          OutHeaders = 0LL,
+          RtlImageNtHeaderEx(1u, BaseOfImage[1], 0LL, &OutHeaders),
+          (v8 = RtlImageDirectoryEntryToData(v7, 1u, 0xAu, &Size)) != 0LL)
+      && Size
+      && Size == *(_DWORD *)v8
+      && OutHeaders->FileHeader.Machine == 0x8664
+      && *(_DWORD *)v8 >= 0x118u
+      && (*((_DWORD *)v8 + 36) & 0x400000) != 0
+      && *((_QWORD *)v8 + 33) > (unsigned __int64)v7
+      && ((Key = (_DWORD)BaseAddress - (_DWORD)v7, (v10 = *((_QWORD *)v8 + 34)) == 0)
        || !bsearch_s(
              &Key,
-             *(const void **)(v9 + 264),
-             v11,
-             (unsigned int)((*(_DWORD *)(v9 + 144) >> 28) + 4),
+             *((const void **)v8 + 33),
+             v10,
+             (unsigned int)((*((_DWORD *)v8 + 36) >> 28) + 4),
              RtlpTargetCompare,
              0LL)) )
     {
       if ( !a2 )
-        RtlFailFast2(38LL, a1);
+        RtlFailFast2(38LL, BaseAddress);
     }
     else
     {

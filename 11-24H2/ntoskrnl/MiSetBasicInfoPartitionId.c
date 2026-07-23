@@ -1,7 +1,7 @@
 /*
- * XREFs of MiSetBasicInfoPartitionId @ 0x14047DAC4
+ * XREFs of MiSetBasicInfoPartitionId @ 0x140478D58
  * Callers:
- *     MmQueryVirtualMemory @ 0x140986420 (MmQueryVirtualMemory.c)
+ *     MmQueryVirtualMemory @ 0x14096EC30 (MmQueryVirtualMemory.c)
  * Callees:
  *     <none>
  */

@@ -1,22 +1,22 @@
 /*
- * XREFs of PnpAllocateResources @ 0x14098DAA8
+ * XREFs of PnpAllocateResources @ 0x140978AE0
  * Callers:
- *     PnpAssignResourcesToDevices @ 0x14098DA30 (PnpAssignResourcesToDevices.c)
- *     IopLegacyResourceAllocation @ 0x140A0FC24 (IopLegacyResourceAllocation.c)
+ *     PnpAssignResourcesToDevices @ 0x140978A68 (PnpAssignResourcesToDevices.c)
+ *     IopLegacyResourceAllocation @ 0x1409BE034 (IopLegacyResourceAllocation.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     KeReleaseSemaphore @ 0x1403D91C0 (KeReleaseSemaphore.c)
- *     qsort @ 0x1404FED20 (qsort.c)
- *     PnpFindBestConfiguration @ 0x1407221B0 (PnpFindBestConfiguration.c)
- *     IopReleaseFilteredBootResources @ 0x140725798 (IopReleaseFilteredBootResources.c)
- *     PnpBuildCmResourceLists @ 0x140734434 (PnpBuildCmResourceLists.c)
- *     PnpFreeResourceRequirementsForAssignTable @ 0x140734668 (PnpFreeResourceRequirementsForAssignTable.c)
- *     PnpRebalance @ 0x1407352B8 (PnpRebalance.c)
- *     PipClearDevNodeFlags @ 0x1408BB57C (PipClearDevNodeFlags.c)
- *     PnpGetResourceRequirementsForAssignTable @ 0x14098DBA0 (PnpGetResourceRequirementsForAssignTable.c)
- *     PipSetDevNodeFlags @ 0x1409905B8 (PipSetDevNodeFlags.c)
- *     IopCommitConfiguration @ 0x140AA6ED4 (IopCommitConfiguration.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     KeReleaseSemaphore @ 0x1402F2490 (KeReleaseSemaphore.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     qsort @ 0x1404FC5E0 (qsort.c)
+ *     PnpFindBestConfiguration @ 0x14071FD40 (PnpFindBestConfiguration.c)
+ *     IopReleaseFilteredBootResources @ 0x140723328 (IopReleaseFilteredBootResources.c)
+ *     PnpBuildCmResourceLists @ 0x140732364 (PnpBuildCmResourceLists.c)
+ *     PnpFreeResourceRequirementsForAssignTable @ 0x140732598 (PnpFreeResourceRequirementsForAssignTable.c)
+ *     PnpRebalance @ 0x1407331E8 (PnpRebalance.c)
+ *     PipClearDevNodeFlags @ 0x1408B8F2C (PipClearDevNodeFlags.c)
+ *     PnpGetResourceRequirementsForAssignTable @ 0x140978BD8 (PnpGetResourceRequirementsForAssignTable.c)
+ *     PipSetDevNodeFlags @ 0x14097B5F8 (PipSetDevNodeFlags.c)
+ *     IopCommitConfiguration @ 0x140AA1FD4 (IopCommitConfiguration.c)
  */
 
 __int64 __fastcall PnpAllocateResources(unsigned int a1, _DWORD *a2, char a3, _BYTE *a4)

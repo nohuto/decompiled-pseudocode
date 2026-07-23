@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpAllocateAdapterChannel @ 0x1404CA3D0
+ * XREFs of HalpAllocateAdapterChannel @ 0x1404CA610
  * Callers:
- *     HalpBuildScatterGatherList @ 0x14039F434 (HalpBuildScatterGatherList.c)
- *     HalAllocateAdapterChannel @ 0x1404B8AA0 (HalAllocateAdapterChannel.c)
- *     HalAllocateAdapterChannelEx @ 0x1404CA240 (HalAllocateAdapterChannelEx.c)
- *     HalRealAllocateAdapterChannelV3 @ 0x1404CA380 (HalRealAllocateAdapterChannelV3.c)
+ *     HalpBuildScatterGatherList @ 0x14039F584 (HalpBuildScatterGatherList.c)
+ *     HalAllocateAdapterChannel @ 0x1404B8CE0 (HalAllocateAdapterChannel.c)
+ *     HalAllocateAdapterChannelEx @ 0x1404CA480 (HalAllocateAdapterChannelEx.c)
+ *     HalRealAllocateAdapterChannelV3 @ 0x1404CA5C0 (HalRealAllocateAdapterChannelV3.c)
  * Callees:
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     HalpDmaStartWcb @ 0x1404B84B0 (HalpDmaStartWcb.c)
- *     HalpAllocateDmaResourcesInternal @ 0x1404CA5DC (HalpAllocateDmaResourcesInternal.c)
+ *     HalpDmaStartWcb @ 0x1404B86F0 (HalpDmaStartWcb.c)
+ *     HalpAllocateDmaResourcesInternal @ 0x1404CA81C (HalpAllocateDmaResourcesInternal.c)
  */
 
 __int64 __fastcall HalpAllocateAdapterChannel(

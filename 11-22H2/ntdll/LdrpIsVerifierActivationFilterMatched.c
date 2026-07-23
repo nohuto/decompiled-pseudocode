@@ -10,7 +10,7 @@
  *     LdrpIsSubstringFound @ 0x1800DEAF4 (LdrpIsSubstringFound.c)
  */
 
-__int64 __fastcall LdrpIsVerifierActivationFilterMatched(__int64 a1, __int64 a2, __int64 a3)
+__int64 __fastcall LdrpIsVerifierActivationFilterMatched(__int64 a1, void *a2, void *a3)
 {
   WCHAR *v4; // rbx
   __int64 v5; // rax
@@ -19,8 +19,8 @@ __int64 __fastcall LdrpIsVerifierActivationFilterMatched(__int64 a1, __int64 a2,
   WCHAR v8; // ax
   const WCHAR *v9; // rdx
   const char *v10; // rax
-  int v12; // [rsp+30h] [rbp-258h]
-  UNICODE_STRING DestinationString; // [rsp+40h] [rbp-248h] BYREF
+  __int64 v12; // [rsp+30h] [rbp-258h]
+  _UNICODE_STRING DestinationString; // [rsp+40h] [rbp-248h] BYREF
   WCHAR SourceString[256]; // [rsp+50h] [rbp-238h] BYREF
 
   SourceString[0] = 0;
@@ -28,7 +28,7 @@ __int64 __fastcall LdrpIsVerifierActivationFilterMatched(__int64 a1, __int64 a2,
               a2,
               a3,
               (__int64)L"VerifierActivationFilter",
-              1u,
+              1LL,
               (__int64)SourceString,
               512,
               v12,
@@ -40,9 +40,9 @@ __int64 __fastcall LdrpIsVerifierActivationFilterMatched(__int64 a1, __int64 a2,
   {
     LdrpLogInternal(
       (unsigned int)"minkernel\\ntdll\\ldrinit.c",
-      8309LL,
+      8309,
       (__int64)"LdrpIsVerifierActivationFilterMatched",
-      2LL,
+      2u,
       "VerifierActivationFilter found, contents = \"%ws\"\n",
       SourceString);
     if ( SourceString[0] == 42 || !SourceString[0] )
@@ -93,14 +93,14 @@ LABEL_18:
         ++v4;
       }
     }
-    v10 = (const char *)&unk_180136DCA;
+    v10 = (const char *)&Flags;
     if ( !v7 )
       v10 = "not ";
     LdrpLogInternal(
       (unsigned int)"minkernel\\ntdll\\ldrinit.c",
-      8363LL,
+      8363,
       (__int64)"LdrpIsVerifierActivationFilterMatched",
-      2LL,
+      2u,
       "VerifierActivationFilter match %sfound.\n",
       v10);
   }

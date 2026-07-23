@@ -1,33 +1,33 @@
 /*
- * XREFs of ObCreateObjectTypeEx @ 0x140552054
+ * XREFs of ObCreateObjectTypeEx @ 0x140552594
  * Callers:
- *     VRegSetup @ 0x140551650 (VRegSetup.c)
- *     ObCreateObjectType @ 0x14055203C (ObCreateObjectType.c)
- *     CmpInitializeLightWeightTransactionType @ 0x140552F14 (CmpInitializeLightWeightTransactionType.c)
- *     AlpcpInitSystem @ 0x14057BD0C (AlpcpInitSystem.c)
- *     TtmInit @ 0x14057FD28 (TtmInit.c)
+ *     VRegSetup @ 0x140551B90 (VRegSetup.c)
+ *     ObCreateObjectType @ 0x14055257C (ObCreateObjectType.c)
+ *     CmpInitializeLightWeightTransactionType @ 0x140553454 (CmpInitializeLightWeightTransactionType.c)
+ *     AlpcpInitSystem @ 0x14057C1B8 (AlpcpInitSystem.c)
+ *     TtmInit @ 0x1405801D4 (TtmInit.c)
  *     IoCreateObjectTypes @ 0x14079E844 (IoCreateObjectTypes.c)
  * Callees:
- *     ObpReleaseLookupContext @ 0x14000BFD0 (ObpReleaseLookupContext.c)
- *     KiLeaveGuardedRegionUnsafe @ 0x140013B70 (KiLeaveGuardedRegionUnsafe.c)
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     RtlCopyUnicodeString @ 0x14002DD60 (RtlCopyUnicodeString.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     DbgPrintEx @ 0x140081B0C (DbgPrintEx.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfReleasePushLock @ 0x1400C8620 (ExfReleasePushLock.c)
- *     ObpLockDirectoryExclusive @ 0x1400D1570 (ObpLockDirectoryExclusive.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     ObpReleaseLookupContext @ 0x14000BB50 (ObpReleaseLookupContext.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1400136F0 (KiLeaveGuardedRegionUnsafe.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     RtlCopyUnicodeString @ 0x14002D8E0 (RtlCopyUnicodeString.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     DbgPrintEx @ 0x140084C90 (DbgPrintEx.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfReleasePushLock @ 0x1400C64C0 (ExfReleasePushLock.c)
+ *     ObpLockDirectoryExclusive @ 0x1400CF410 (ObpLockDirectoryExclusive.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     RtlUnicodeStringToAnsiString @ 0x1403F7370 (RtlUnicodeStringToAnsiString.c)
- *     ObpLookupDirectoryEntryEx @ 0x14040CEF0 (ObpLookupDirectoryEntryEx.c)
- *     ObpAllocateObject @ 0x14041BB10 (ObpAllocateObject.c)
- *     ObpInsertDirectoryEntry @ 0x1404CC0A8 (ObpInsertDirectoryEntry.c)
- *     ObpInitObjectTypeSD @ 0x140552694 (ObpInitObjectTypeSD.c)
- *     RtlxUnicodeStringToOemSize @ 0x140685814 (RtlxUnicodeStringToOemSize.c)
+ *     RtlUnicodeStringToAnsiString @ 0x1403F6230 (RtlUnicodeStringToAnsiString.c)
+ *     ObpLookupDirectoryEntryEx @ 0x14040BDB0 (ObpLookupDirectoryEntryEx.c)
+ *     ObpAllocateObject @ 0x14041A9D0 (ObpAllocateObject.c)
+ *     ObpInsertDirectoryEntry @ 0x1404B1AD4 (ObpInsertDirectoryEntry.c)
+ *     ObpInitObjectTypeSD @ 0x140552BD4 (ObpInitObjectTypeSD.c)
+ *     RtlxUnicodeStringToOemSize @ 0x1406858F8 (RtlxUnicodeStringToOemSize.c)
  */
 
 __int64 __fastcall ObCreateObjectTypeEx(
@@ -90,7 +90,7 @@ __int64 __fastcall ObCreateObjectTypeEx(
   __int64 v59; // [rsp+60h] [rbp-A8h] BYREF
   size_t DestinationString; // [rsp+68h] [rbp-A0h]
   UNICODE_STRING DestinationString_8; // [rsp+70h] [rbp-98h] BYREF
-  STRING v62; // [rsp+80h] [rbp-88h] BYREF
+  _STRING v62; // [rsp+80h] [rbp-88h] BYREF
   __int128 v63; // [rsp+90h] [rbp-78h] BYREF
   __int16 v64; // [rsp+AEh] [rbp-5Ah]
   int v65; // [rsp+B0h] [rbp-58h]

@@ -1,12 +1,12 @@
 /*
- * XREFs of MiGetCcAccessLog @ 0x1406AD20C
+ * XREFs of MiGetCcAccessLog @ 0x14060B8FC
  * Callers:
- *     MmPrefetchForCacheManager @ 0x1406E898C (MmPrefetchForCacheManager.c)
+ *     MmPrefetchForCacheManager @ 0x1406FFD6C (MmPrefetchForCacheManager.c)
  * Callees:
- *     MiAllocatePool @ 0x14025AD70 (MiAllocatePool.c)
- *     MiQueuePageAccessLog @ 0x14025C02C (MiQueuePageAccessLog.c)
- *     MiInitializePageAccessLogging @ 0x140274E20 (MiInitializePageAccessLogging.c)
- *     MiGetAnyMultiplexedVm @ 0x1402FD0FC (MiGetAnyMultiplexedVm.c)
+ *     MiInitializePageAccessLogging @ 0x140262DC0 (MiInitializePageAccessLogging.c)
+ *     MiAllocatePool @ 0x14027C2E0 (MiAllocatePool.c)
+ *     MiQueuePageAccessLog @ 0x14027D59C (MiQueuePageAccessLog.c)
+ *     MiGetAnyMultiplexedVm @ 0x140307E4C (MiGetAnyMultiplexedVm.c)
  */
 
 PVOID __fastcall MiGetCcAccessLog(__int64 a1, __int64 a2)
@@ -22,15 +22,15 @@ PVOID __fastcall MiGetCcAccessLog(__int64 a1, __int64 a2)
   char *AnyMultiplexedVm; // rax
   __int64 v13; // r10
 
-  if ( !qword_140C4E800 )
+  if ( !qword_140C4E840 )
     goto LABEL_12;
-  v4 = _InterlockedExchange64(&qword_140C4E800, 0LL);
+  v4 = _InterlockedExchange64(&qword_140C4E840, 0LL);
   if ( !v4 )
     goto LABEL_12;
   v5 = *(_QWORD *)(v4 + 40);
   if ( *(_QWORD *)(v4 + 32) + 8 * a2 > v5 || (__int64)((*(_QWORD *)(v4 + 48) - v5) & 0xFFFFFFFFFFFFFFF8uLL) >= 4096 )
   {
-    MiQueuePageAccessLog((struct _SLIST_ENTRY *)v4);
+    MiQueuePageAccessLog((_SLIST_ENTRY *)v4);
     v4 = 0LL;
   }
   if ( !v4 )

@@ -1,13 +1,13 @@
 /*
- * XREFs of ExTryToConvertFastResourceSharedToExclusive @ 0x140656A90
+ * XREFs of ExTryToConvertFastResourceSharedToExclusive @ 0x140655190
  * Callers:
- *     DifExTryToConvertFastResourceSharedToExclusiveWrapper @ 0x140621520 (DifExTryToConvertFastResourceSharedToExclusiveWrapper.c)
+ *     DifExTryToConvertFastResourceSharedToExclusiveWrapper @ 0x14061FAE0 (DifExTryToConvertFastResourceSharedToExclusiveWrapper.c)
  * Callees:
- *     KeAbPostReleaseEx @ 0x14025CCE0 (KeAbPostReleaseEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14025E408 (KiRemoveSystemWorkPriorityKick.c)
- *     ExpRemoveFastOwnerEntryFromThreadList @ 0x1403D8640 (ExpRemoveFastOwnerEntryFromThreadList.c)
- *     ExpAddFastOwnerEntryToThreadList @ 0x14040C760 (ExpAddFastOwnerEntryToThreadList.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     KeAbPostReleaseEx @ 0x14028D2F0 (KeAbPostReleaseEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14028EA18 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExpRemoveFastOwnerEntryFromThreadList @ 0x1402F2120 (ExpRemoveFastOwnerEntryFromThreadList.c)
+ *     ExpAddFastOwnerEntryToThreadList @ 0x140404DF0 (ExpAddFastOwnerEntryToThreadList.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 char __fastcall ExTryToConvertFastResourceSharedToExclusive(_QWORD *BugCheckParameter2, ULONG_PTR a2)

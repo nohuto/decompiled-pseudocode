@@ -1,14 +1,14 @@
 /*
- * XREFs of MiSwapStackPageNoDpc @ 0x14012D674
+ * XREFs of MiSwapStackPageNoDpc @ 0x14012D744
  * Callers:
- *     MiSwapStackPage @ 0x14012D180 (MiSwapStackPage.c)
+ *     MiSwapStackPage @ 0x14012D250 (MiSwapStackPage.c)
  * Callees:
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
- *     MiSetOriginalPtePfnFromFreeList @ 0x140097EA0 (MiSetOriginalPtePfnFromFreeList.c)
- *     MiCopyPage @ 0x1400B1C50 (MiCopyPage.c)
- *     KeFlushSingleTb @ 0x1400ECDF4 (KeFlushSingleTb.c)
- *     MiCopyPfnEntryEx @ 0x14010E000 (MiCopyPfnEntryEx.c)
- *     MiLockNestedPageAtDpcInline @ 0x140120F04 (MiLockNestedPageAtDpcInline.c)
+ *     MiSetOriginalPtePfnFromFreeList @ 0x140097DE0 (MiSetOriginalPtePfnFromFreeList.c)
+ *     MiCopyPage @ 0x1400B1B90 (MiCopyPage.c)
+ *     KeFlushSingleTb @ 0x1400ECE74 (KeFlushSingleTb.c)
+ *     MiCopyPfnEntryEx @ 0x14010E080 (MiCopyPfnEntryEx.c)
+ *     MiLockNestedPageAtDpcInline @ 0x140120FD4 (MiLockNestedPageAtDpcInline.c)
  */
 
 __int64 __fastcall MiSwapStackPageNoDpc(unsigned int *a1, __int64 a2, __int64 a3)

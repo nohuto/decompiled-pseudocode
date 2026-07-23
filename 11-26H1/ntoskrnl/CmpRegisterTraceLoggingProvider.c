@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpRegisterTraceLoggingProvider @ 0x14077B3DC
+ * XREFs of CmpRegisterTraceLoggingProvider @ 0x14077E01C
  * Callers:
- *     CmInitSystem2 @ 0x140D0A83C (CmInitSystem2.c)
+ *     CmInitSystem2 @ 0x140D10B0C (CmInitSystem2.c)
  * Callees:
- *     TlgRegisterAggregateProviderEx @ 0x140B6E47C (TlgRegisterAggregateProviderEx.c)
+ *     TlgRegisterAggregateProviderEx @ 0x140B7192C (TlgRegisterAggregateProviderEx.c)
  */
 
 __int64 CmpRegisterTraceLoggingProvider()

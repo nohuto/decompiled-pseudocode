@@ -14,14 +14,14 @@
  *     AslLogCallPrintf @ 0x14072E8A4 (AslLogCallPrintf.c)
  */
 
-__int64 __fastcall AslStringAnsiToUnicode(wchar_t **a1, const char *a2)
+__int64 __fastcall AslStringAnsiToUnicode(wchar_t **a1, const CHAR *a2)
 {
   __int64 v3; // rcx
   ULONG v4; // esi
   wchar_t *Buffer; // rbx
   NTSTATUS v6; // edi
   UNICODE_STRING DestinationString; // [rsp+30h] [rbp-28h] BYREF
-  STRING AnsiString; // [rsp+40h] [rbp-18h] BYREF
+  ANSI_STRING AnsiString; // [rsp+40h] [rbp-18h] BYREF
 
   RtlInitString(&AnsiString, a2);
   if ( (_BYTE)NlsMbCodePageTag )

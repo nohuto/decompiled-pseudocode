@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwTraceProcessSetInPrivateMode @ 0x1405FD37C
+ * XREFs of EtwTraceProcessSetInPrivateMode @ 0x1405FD8EC
  * Callers:
- *     NtSetInformationProcess @ 0x140774540 (NtSetInformationProcess.c)
+ *     NtSetInformationProcess @ 0x140774730 (NtSetInformationProcess.c)
  * Callees:
- *     EtwWriteEx @ 0x1402581E0 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x1402582A0 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall EtwTraceProcessSetInPrivateMode(__int64 a1)

@@ -1,0 +1,12 @@
+/*
+ * XREFs of sub_1407F4F30 @ 0x1407F4F30
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall sub_1407F4F30(__int64 a1)
+{
+  return (unsigned int)(*(_DWORD *)(a1 + 12) - *(_DWORD *)(a1 + 8) + 1);
+}

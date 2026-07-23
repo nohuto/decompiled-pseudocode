@@ -1,16 +1,16 @@
 /*
- * XREFs of MiWalkPageTablesEvaluatePte @ 0x140327B30
+ * XREFs of MiWalkPageTablesEvaluatePte @ 0x140329B60
  * Callers:
- *     MiWalkPageTablesRecursively @ 0x1403270E0 (MiWalkPageTablesRecursively.c)
+ *     MiWalkPageTablesRecursively @ 0x140329110 (MiWalkPageTablesRecursively.c)
  * Callees:
- *     MiWalkLevelCompleted @ 0x140247EA0 (MiWalkLevelCompleted.c)
- *     EtwTraceShouldYieldProcessor @ 0x1403142E8 (EtwTraceShouldYieldProcessor.c)
- *     MiComputePxeWalkAction @ 0x1403283D0 (MiComputePxeWalkAction.c)
- *     MiGetNextPageTablePte @ 0x140328700 (MiGetNextPageTablePte.c)
- *     MiYieldPageTableWalk @ 0x140362E50 (MiYieldPageTableWalk.c)
- *     MiRecomputeWalkHierarchy @ 0x140411D60 (MiRecomputeWalkHierarchy.c)
- *     MiAdvanceToLeapAddress @ 0x14043E080 (MiAdvanceToLeapAddress.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14052FA20 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiWalkLevelCompleted @ 0x140249800 (MiWalkLevelCompleted.c)
+ *     EtwTraceShouldYieldProcessor @ 0x140316318 (EtwTraceShouldYieldProcessor.c)
+ *     MiComputePxeWalkAction @ 0x14032A400 (MiComputePxeWalkAction.c)
+ *     MiGetNextPageTablePte @ 0x14032A730 (MiGetNextPageTablePte.c)
+ *     MiYieldPageTableWalk @ 0x140364BF0 (MiYieldPageTableWalk.c)
+ *     MiRecomputeWalkHierarchy @ 0x140404E80 (MiRecomputeWalkHierarchy.c)
+ *     MiAdvanceToLeapAddress @ 0x140436B90 (MiAdvanceToLeapAddress.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x140531F20 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiWalkPageTablesEvaluatePte(
@@ -183,7 +183,7 @@ LABEL_16:
   if ( v21 == 5 || v21 <= 4u )
   {
     if ( (*(_DWORD *)(v19 + 184) & 0xF) == 1 )
-      v22 = &qword_140E37800;
+      v22 = &qword_140E37980;
     else
       v22 = (__int64 *)(v19 + 192);
     v23 = *v22;
@@ -287,7 +287,7 @@ LABEL_35:
     v28 = (v27 >> 60) & 2;
     goto LABEL_35;
   }
-  if ( ((*(_DWORD *)&stru_140E2D930.PriorityFloorCounts[4
+  if ( ((*(_DWORD *)&stru_140E2DAB0.PriorityFloorCounts[4
                                                       * ((unsigned __int64)(2
                                                                           * (unsigned int)((__int64)(v26 + 0x90482413000LL) >> 3)) >> 5)
                                                       + 4] >> ((2 * ((__int64)(v26 + 0x90482413000LL) >> 3)) & 0x1F)) & 2) != 0 )

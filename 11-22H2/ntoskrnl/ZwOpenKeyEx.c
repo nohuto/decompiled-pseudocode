@@ -8,7 +8,6 @@
  *     <none>
  */
 
-// local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall ZwOpenKeyEx(
         PHANDLE KeyHandle,
         ACCESS_MASK DesiredAccess,
@@ -17,5 +16,5 @@ NTSTATUS __stdcall ZwOpenKeyEx(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(KeyHandle, *(_QWORD *)&DesiredAccess);
+  return KiServiceInternal(KeyHandle);
 }

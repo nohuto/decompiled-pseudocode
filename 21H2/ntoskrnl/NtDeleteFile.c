@@ -1,21 +1,21 @@
 /*
- * XREFs of NtDeleteFile @ 0x14077CC50
+ * XREFs of NtDeleteFile @ 0x14077CE10
  * Callers:
  *     <none>
  * Callees:
- *     PsGetCurrentSilo @ 0x14027C930 (PsGetCurrentSilo.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
- *     ObOpenObjectByNameEx @ 0x140655CD0 (ObOpenObjectByNameEx.c)
- *     IopCleanupExtraCreateParameters @ 0x1406C3DD4 (IopCleanupExtraCreateParameters.c)
+ *     PsGetCurrentSilo @ 0x14026A8D0 (PsGetCurrentSilo.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     IopCleanupExtraCreateParameters @ 0x1406229B4 (IopCleanupExtraCreateParameters.c)
+ *     ObOpenObjectByNameEx @ 0x14064AAF0 (ObOpenObjectByNameEx.c)
  */
 
-__int64 __fastcall NtDeleteFile(__int64 a1)
+NTSTATUS __cdecl NtDeleteFile(POBJECT_ATTRIBUTES ObjectAttributes)
 {
   char PreviousMode; // bl
   struct _KTHREAD *CurrentThread; // rax
-  unsigned int v4; // ebx
-  __int64 result; // rax
+  NTSTATUS v4; // ebx
+  NTSTATUS result; // eax
   __int64 v6; // [rsp+48h] [rbp-C0h] BYREF
   _OWORD v7[14]; // [rsp+58h] [rbp-B0h] BYREF
   _BYTE v8[272]; // [rsp+138h] [rbp+30h] BYREF
@@ -31,14 +31,14 @@ __int64 __fastcall NtDeleteFile(__int64 a1)
   LOWORD(v7[10]) = 40;
   DWORD2(v7[5]) = 1;
   BYTE10(v7[8]) = 1;
-  *(_QWORD *)&v7[3] = a1;
+  *(_QWORD *)&v7[3] = ObjectAttributes;
   DWORD2(v7[9]) = 32;
   *(_QWORD *)&v7[12] = PsGetCurrentSilo();
   CurrentThread = KeGetCurrentThread();
   ++CurrentThread->OtherOperationCount;
   __incgsdword(0x2EE4u);
   v4 = ObOpenObjectByNameEx(
-         a1,
+         (__int64)ObjectAttributes,
          (__int64)IoFileObjectType,
          PreviousMode,
          0LL,
@@ -47,7 +47,7 @@ __int64 __fastcall NtDeleteFile(__int64 a1)
          *(__int64 *)&v7[12],
          &v6);
   IopCleanupExtraCreateParameters((__int64)v7);
-  result = LODWORD(v7[1]);
+  result = v7[1];
   if ( LODWORD(v7[2]) != -1096154543 )
     return v4;
   return result;

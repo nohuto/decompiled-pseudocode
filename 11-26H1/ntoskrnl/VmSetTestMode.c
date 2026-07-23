@@ -1,5 +1,5 @@
 /*
- * XREFs of VmSetTestMode @ 0x1406C08B0
+ * XREFs of VmSetTestMode @ 0x1406C4490
  * Callers:
  *     <none>
  * Callees:

@@ -1,14 +1,14 @@
 /*
- * XREFs of ExInitializePoolHeapManagement @ 0x1406D2B44
+ * XREFs of ExInitializePoolHeapManagement @ 0x1406D6B74
  * Callers:
- *     MiInitNucleus @ 0x140CF2CBC (MiInitNucleus.c)
+ *     MiInitNucleus @ 0x140CF903C (MiInitNucleus.c)
  * Callees:
- *     ExCreateHeap @ 0x1406D2904 (ExCreateHeap.c)
- *     ExpDetermineLargePagePolicy @ 0x1406D2DD8 (ExpDetermineLargePagePolicy.c)
- *     RtlHpKInitializeHeapManager @ 0x1406D308C (RtlHpKInitializeHeapManager.c)
- *     RtlpDynamicLookasideInitialize @ 0x14071F444 (RtlpDynamicLookasideInitialize.c)
- *     ExInitializePoolTracker @ 0x140CE5CA8 (ExInitializePoolTracker.c)
- *     ExpPoolMgrInitialize @ 0x140CE7914 (ExpPoolMgrInitialize.c)
+ *     ExCreateHeap @ 0x1406D6934 (ExCreateHeap.c)
+ *     ExpDetermineLargePagePolicy @ 0x1406D6E08 (ExpDetermineLargePagePolicy.c)
+ *     RtlHpKInitializeHeapManager @ 0x1406D70BC (RtlHpKInitializeHeapManager.c)
+ *     RtlpDynamicLookasideInitialize @ 0x140724064 (RtlpDynamicLookasideInitialize.c)
+ *     ExInitializePoolTracker @ 0x140CEC048 (ExInitializePoolTracker.c)
+ *     ExpPoolMgrInitialize @ 0x140CEDCB4 (ExpPoolMgrInitialize.c)
  */
 
 __int64 __fastcall ExInitializePoolHeapManagement(unsigned __int64 a1)
@@ -34,12 +34,12 @@ __int64 __fastcall ExInitializePoolHeapManagement(unsigned __int64 a1)
   v18 = 0LL;
   v16 = 0LL;
   v17 = 0LL;
-  v2 = byte_140FC7BE8 == 0;
+  v2 = byte_140FC8BD8 == 0;
   result = RtlHpKInitializeHeapManager();
   if ( (int)result >= 0 )
   {
     RtlpHpLfhPerfFlags = 9355;
-    if ( byte_140FC7BE8 )
+    if ( byte_140FC8BD8 )
       RtlpHpLfhPerfFlags = 205963;
     ExpDetermineLargePagePolicy(&v16);
     v4 = v16;
@@ -47,7 +47,7 @@ __int64 __fastcall ExInitializePoolHeapManagement(unsigned __int64 a1)
     {
       v15 = 0LL;
       v6 = 0x400000LL;
-      if ( i >= HIDWORD(stru_140E6BCE8.Header.WaitListHead.Flink) )
+      if ( i >= HIDWORD(stru_140E6BFE8.Header.WaitListHead.Flink) )
         break;
       v7 = 8384LL * i;
       LOWORD(v15) = 259;
@@ -59,12 +59,12 @@ __int64 __fastcall ExInitializePoolHeapManagement(unsigned __int64 a1)
       if ( (int)result < 0 )
         return result;
       v9 = (unsigned __int64)v18;
-      if ( LODWORD(ExSaPageGroupDescriptorArrayLock.FirstArgument) )
+      if ( HIDWORD(ExSaPageGroupDescriptorArrayLock.InitialStack) )
       {
         v18[333] |= 8u;
         *(_BYTE *)(v9 + 525) |= 8u;
       }
-      *(unsigned __int64 *)((char *)&stru_140E6BCE8.QuantumTarget + v7) = v9;
+      *(unsigned __int64 *)((char *)&stru_140E6BFE8.QuantumTarget + v7) = v9;
       if ( *((_QWORD *)&v16 + 1) )
       {
         v10 = v17;
@@ -73,9 +73,9 @@ __int64 __fastcall ExInitializePoolHeapManagement(unsigned __int64 a1)
         *(_BYTE *)(v9 + 333) = *(_BYTE *)(v9 + 333) & 0xF8 | 1;
         *(_BYTE *)(v9 + 525) = *(_BYTE *)(v9 + 525) & 0xF8 | 1;
       }
-      RtlpDynamicLookasideInitialize((char *)&stru_140E6BCE8 + v7 + 4248);
+      RtlpDynamicLookasideInitialize((char *)&stru_140E6BFE8 + v7 + 4248);
       if ( v2 )
-        *(_QWORD *)(v9 + 56) = (char *)&stru_140E6BCE8 + v7 + 4248;
+        *(_QWORD *)(v9 + 56) = (char *)&stru_140E6BFE8 + v7 + 4248;
       if ( (a1 & 0x400) != 0 )
       {
         v11 = 0LL;
@@ -88,13 +88,13 @@ __int64 __fastcall ExInitializePoolHeapManagement(unsigned __int64 a1)
         if ( (int)result < 0 )
           return result;
         v11 = v18;
-        if ( LODWORD(ExSaPageGroupDescriptorArrayLock.FirstArgument) )
+        if ( HIDWORD(ExSaPageGroupDescriptorArrayLock.InitialStack) )
         {
           v18[333] |= 8u;
           v11[525] |= 8u;
         }
       }
-      *(void **)((char *)&stru_140E6BCE8.SListFaultAddress + v7) = v11;
+      *(void **)((char *)&stru_140E6BFE8.SListFaultAddress + v7) = v11;
     }
     *(_WORD *)((char *)&v15 + 1) = 1;
     LOBYTE(v15) = 3;
@@ -105,7 +105,7 @@ __int64 __fastcall ExInitializePoolHeapManagement(unsigned __int64 a1)
       v13 = (__int64)v18;
       v18[333] |= 8u;
       *(_BYTE *)(v13 + 525) |= 8u;
-      qword_140EEED08 = v13;
+      qword_140EEF008 = v13;
       if ( (a1 & 0x400) != 0 )
       {
         v14 = 0LL;
@@ -120,13 +120,13 @@ __int64 __fastcall ExInitializePoolHeapManagement(unsigned __int64 a1)
         v18[333] |= 8u;
         *(_BYTE *)(v14 + 525) |= 8u;
       }
-      qword_140EEED00[0] = v14;
-      *(_QWORD *)&stru_140E28440.SchedulerAssistPriorityFloor = 0LL;
-      stru_140E28440.KernelShadowStack = 0LL;
+      qword_140EEF000[0] = v14;
+      *(_QWORD *)&stru_140E285C0.SchedulerAssistPriorityFloor = 0LL;
+      stru_140E285C0.KernelShadowStack = 0LL;
       result = ExInitializePoolTracker();
       if ( (int)result >= 0 )
       {
-        ExpPoolMgrInitialize(&dword_140E6BC60);
+        ExpPoolMgrInitialize(&dword_140E6BF60);
         _InterlockedOr64(&ExpPoolFlags, a1);
         return 0LL;
       }

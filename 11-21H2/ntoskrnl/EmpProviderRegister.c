@@ -2,17 +2,17 @@
  * XREFs of EmpProviderRegister @ 0x14082D070
  * Callers:
  *     EmProviderRegister @ 0x14082D000 (EmProviderRegister.c)
- *     PoInitSystem @ 0x140B026CC (PoInitSystem.c)
- *     EmInitSystem @ 0x140B0B630 (EmInitSystem.c)
+ *     sub_140B026CC @ 0x140B026CC (sub_140B026CC.c)
+ *     sub_140B0B630 @ 0x140B0B630 (sub_140B0B630.c)
  *     HalRegisterErrataCallbacks @ 0x140B0B970 (HalRegisterErrataCallbacks.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
+ *     sub_1402AFC00 @ 0x1402AFC00 (sub_1402AFC00.c)
  *     ObfReferenceObject @ 0x140347CF0 (ObfReferenceObject.c)
  *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
- *     EmpQueueRuleUpdateState @ 0x1403C45F0 (EmpQueueRuleUpdateState.c)
- *     EmpSearchCallbackDatabase @ 0x1403C47EC (EmpSearchCallbackDatabase.c)
- *     EmpSearchEntryDatabase @ 0x1403C4824 (EmpSearchEntryDatabase.c)
+ *     sub_1403C45F0 @ 0x1403C45F0 (sub_1403C45F0.c)
+ *     sub_1403C47EC @ 0x1403C47EC (sub_1403C47EC.c)
+ *     sub_1403C4824 @ 0x1403C4824 (sub_1403C4824.c)
  *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
  */
@@ -80,7 +80,7 @@ __int64 __fastcall EmpProviderRegister(
   v9 = a4;
   v10 = 0;
   v11 = 0;
-  ExAcquirePushLockExclusiveEx((ULONG_PTR)&EmpDatabaseLock, 0LL);
+  ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_140C48C70, 0LL);
   if ( !a6 || (_DWORD)v7 && !a2 || a5 && !v9 )
   {
     v11 = -1073741811;
@@ -130,7 +130,7 @@ __int64 __fastcall EmpProviderRegister(
           v39 = *(_QWORD **)(a2 + 24 * v37);
           if ( !v39 )
             goto LABEL_53;
-          v40 = EmpSearchEntryDatabase(v39);
+          v40 = sub_1403C4824(v39);
           v42 = v40;
           if ( !v40 )
           {
@@ -177,14 +177,14 @@ LABEL_16:
         v27 = *(_QWORD *)(*(_QWORD *)(v13 + 8) + 8 * i);
         _InterlockedIncrement((volatile signed __int32 *)(v27 + 16));
         for ( j = *(_QWORD **)(v27 + 72); j; j = (_QWORD *)*j )
-          EmpQueueRuleUpdateState(*(j - 1), 0LL);
+          sub_1403C45F0(*(j - 1), 0LL);
       }
       for ( k = 0LL; (unsigned int)k < *(_DWORD *)(v13 + 48); k = (unsigned int)(k + 1) )
       {
         v30 = *(_QWORD *)(*(_QWORD *)(v13 + 40) + 8 * k);
         _InterlockedIncrement((volatile signed __int32 *)(v30 + 24));
         for ( m = *(_QWORD **)(v30 + 48); m; m = (_QWORD *)*m )
-          EmpQueueRuleUpdateState(*(m - 1), 0LL);
+          sub_1403C45F0(*(m - 1), 0LL);
       }
       if ( Object )
         ObfReferenceObject(Object);
@@ -205,7 +205,7 @@ LABEL_16:
         v19 = (_QWORD *)*(v18 - 1);
         if ( !v19 )
           break;
-        v20 = EmpSearchCallbackDatabase(v19);
+        v20 = sub_1403C47EC(v19);
         v23 = v20;
         if ( !v20 )
           goto LABEL_52;
@@ -288,8 +288,8 @@ LABEL_61:
   }
   ExFreePoolWithTag((PVOID)v13, 0x72704D45u);
 LABEL_29:
-  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&EmpDatabaseLock, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock(&EmpDatabaseLock);
-  KeAbPostRelease((ULONG_PTR)&EmpDatabaseLock);
+  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140C48C70, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    ExfTryToWakePushLock(&qword_140C48C70);
+  sub_1402AFC00((ULONG_PTR)&qword_140C48C70);
   return v11;
 }

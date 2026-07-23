@@ -8,10 +8,10 @@
  *     _RtlpChangeQueryDebugBufferTarget@16 @ 0x4B3376D2 (_RtlpChangeQueryDebugBufferTarget@16.c)
  */
 
-int __stdcall RtlDestroyQueryDebugBuffer(HANDLE *a1)
+NTSTATUS __cdecl RtlDestroyQueryDebugBuffer(PRTL_DEBUG_INFORMATION Buffer)
 {
-  RtlpChangeQueryDebugBufferTarget(0, 0);
-  NtClose(*a1);
-  NtUnmapViewOfSection(-1, (int)a1);
+  RtlpChangeQueryDebugBufferTarget(Buffer, 0, 0, 0);
+  NtClose(Buffer->SectionHandleClient);
+  NtUnmapViewOfSection((HANDLE)0xFFFFFFFF, Buffer);
   return 0;
 }

@@ -1,13 +1,13 @@
 /*
- * XREFs of PiDrvDbRegisterNodeCallback @ 0x1407B7038
+ * XREFs of PiDrvDbRegisterNodeCallback @ 0x1407BA098
  * Callers:
- *     PiDrvDbEnumDriverStoreNodes @ 0x1407B5428 (PiDrvDbEnumDriverStoreNodes.c)
+ *     PiDrvDbEnumDriverStoreNodes @ 0x1407B8488 (PiDrvDbEnumDriverStoreNodes.c)
  * Callees:
- *     RtlStringCchPrintfW @ 0x1404B0AA4 (RtlStringCchPrintfW.c)
- *     _wcsicmp @ 0x140536570 (_wcsicmp.c)
- *     PiDrvDbRegisterNode @ 0x1407B6B90 (PiDrvDbRegisterNode.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlStringCchPrintfW @ 0x1404AA134 (RtlStringCchPrintfW.c)
+ *     _wcsicmp @ 0x1405389F0 (_wcsicmp.c)
+ *     PiDrvDbRegisterNode @ 0x1407B9BF0 (PiDrvDbRegisterNode.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 bool __fastcall PiDrvDbRegisterNodeCallback(PCWSTR Source, int *a2)

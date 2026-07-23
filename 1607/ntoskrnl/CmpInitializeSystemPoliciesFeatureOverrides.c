@@ -3,13 +3,13 @@
  * Callers:
  *     CmGetSystemControlValues @ 0x1407B0AC0 (CmGetSystemControlValues.c)
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     reg_FeatureDescriptors_SkipPadding @ 0x1401B2C6C (reg_FeatureDescriptors_SkipPadding.c)
- *     RtlIntegerToUnicodeString @ 0x1403F5E20 (RtlIntegerToUnicodeString.c)
- *     CmpFindValueByName @ 0x140402A28 (CmpFindValueByName.c)
- *     CmpValueToData @ 0x1405601A0 (CmpValueToData.c)
- *     CmpWalkPath @ 0x1405601F8 (CmpWalkPath.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     reg_FeatureDescriptors_SkipPadding @ 0x1401B2B50 (reg_FeatureDescriptors_SkipPadding.c)
+ *     RtlIntegerToUnicodeString @ 0x1403F4CE4 (RtlIntegerToUnicodeString.c)
+ *     CmpFindValueByName @ 0x1404018E8 (CmpFindValueByName.c)
+ *     CmpValueToData @ 0x1405606E0 (CmpValueToData.c)
+ *     CmpWalkPath @ 0x140560738 (CmpWalkPath.c)
  */
 
 _QWORD *__fastcall CmpInitializeSystemPoliciesFeatureOverrides(__int64 a1, unsigned int a2)
@@ -43,7 +43,7 @@ _QWORD *__fastcall CmpInitializeSystemPoliciesFeatureOverrides(__int64 a1, unsig
   v3 = CmpWalkPath((__int64)&CmControlHive, a2, L"Policies\\Microsoft\\FeatureManagement\\Overrides");
   if ( v3 != -1 )
     v2 = qword_140763EF8(&CmControlHive, v3, v15);
-  for ( i = &g_Feature_2544326971_59422651_FeatureDescriptorDetails; ; i = v12 + 5 )
+  for ( i = &reg_FeatureDescriptors_a; ; i = v12 + 5 )
   {
     result = reg_FeatureDescriptors_SkipPadding(i);
     v12 = result;

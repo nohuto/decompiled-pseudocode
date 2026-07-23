@@ -1,11 +1,11 @@
 /*
- * XREFs of KseKPSOHookDriverTargeted @ 0x1405824F0
+ * XREFs of KseKPSOHookDriverTargeted @ 0x1405829E0
  * Callers:
  *     <none>
  * Callees:
  *     KsepLogError @ 0x14020A5AC (KsepLogError.c)
- *     KsepDebugPrint @ 0x140580CD4 (KsepDebugPrint.c)
- *     RtlWriteRegistryValue @ 0x1407D42E0 (RtlWriteRegistryValue.c)
+ *     KsepDebugPrint @ 0x1405811C4 (KsepDebugPrint.c)
+ *     RtlWriteRegistryValue @ 0x1407D45B0 (RtlWriteRegistryValue.c)
  */
 
 __int64 KseKPSOHookDriverTargeted()

@@ -1,20 +1,20 @@
 /*
- * XREFs of RtlpHpLfhSubsegmentFreeBlock @ 0x140315CC0
+ * XREFs of RtlpHpLfhSubsegmentFreeBlock @ 0x140315F50
  * Callers:
- *     RtlpHpFreeHeap @ 0x1402AC4C0 (RtlpHpFreeHeap.c)
- *     RtlpHpLfhSlotAllocate @ 0x1402ADCC0 (RtlpHpLfhSlotAllocate.c)
- *     RtlpHpSegFree @ 0x14031515C (RtlpHpSegFree.c)
- *     ExFreeHeapPool @ 0x1403230B0 (ExFreeHeapPool.c)
+ *     RtlpHpFreeHeap @ 0x1402AC750 (RtlpHpFreeHeap.c)
+ *     RtlpHpLfhSlotAllocate @ 0x1402ADF50 (RtlpHpLfhSlotAllocate.c)
+ *     RtlpHpSegFree @ 0x1403153EC (RtlpHpSegFree.c)
+ *     ExFreeHeapPool @ 0x140323340 (ExFreeHeapPool.c)
  * Callees:
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F820 (KiCheckForKernelApcDelivery.c)
- *     RtlpHpLfhSubsegmentDecommitPages @ 0x140316330 (RtlpHpLfhSubsegmentDecommitPages.c)
- *     RtlpHpLfhBucketAddSubsegment @ 0x1403169A0 (RtlpHpLfhBucketAddSubsegment.c)
- *     RtlpHpAcquireLockExclusive @ 0x140316CC4 (RtlpHpAcquireLockExclusive.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     RtlpLogHeapFailure @ 0x1405B4ACC (RtlpLogHeapFailure.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     KiCheckForKernelApcDelivery @ 0x14030FAB0 (KiCheckForKernelApcDelivery.c)
+ *     RtlpHpLfhSubsegmentDecommitPages @ 0x1403165C0 (RtlpHpLfhSubsegmentDecommitPages.c)
+ *     RtlpHpLfhBucketAddSubsegment @ 0x140316C30 (RtlpHpLfhBucketAddSubsegment.c)
+ *     RtlpHpAcquireLockExclusive @ 0x140316F54 (RtlpHpAcquireLockExclusive.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     RtlpLogHeapFailure @ 0x1405B503C (RtlpLogHeapFailure.c)
  */
 
 __int64 __fastcall RtlpHpLfhSubsegmentFreeBlock(__int64 a1, __int64 a2, __int64 a3, unsigned int a4)
@@ -205,7 +205,9 @@ __int64 __fastcall RtlpHpLfhSubsegmentFreeBlock(__int64 a1, __int64 a2, __int64 
           if ( !v70 )
             break;
           ExReleaseSpinLockExclusiveFromDpcLevel(SpinLock);
-          if ( KiIrqlFlags && (CurrentIrql = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && CurrentIrql <= 0xFu )
+          if ( (_DWORD)KiIrqlFlags
+            && (CurrentIrql = KeGetCurrentIrql(), ((unsigned __int8)KiIrqlFlags & 1) != 0)
+            && CurrentIrql <= 0xFu )
           {
             v60 = v69;
             if ( v69 <= 0xFu && CurrentIrql >= 2u )
@@ -330,7 +332,7 @@ LABEL_43:
   if ( *(_BYTE *)(a1 + 57) )
   {
     ExReleaseSpinLockExclusiveFromDpcLevel(v44);
-    if ( KiIrqlFlags && (v49 = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && v49 <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && (v49 = KeGetCurrentIrql(), ((unsigned __int8)KiIrqlFlags & 1) != 0) && v49 <= 0xFu )
     {
       v45 = v69;
       if ( v69 <= 0xFu && v49 >= 2u )
@@ -377,10 +379,10 @@ LABEL_24:
     if ( *(_BYTE *)(a1 + 57) )
     {
       ExReleaseSpinLockExclusiveFromDpcLevel(v54);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v56 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v56 <= 0xFu && v69 <= 0xFu && v56 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v56 <= 0xFu && v69 <= 0xFu && v56 >= 2u )
         {
           v57 = KeGetCurrentPrcb();
           v58 = ~(unsigned __int16)(-1LL << (v69 + 1));

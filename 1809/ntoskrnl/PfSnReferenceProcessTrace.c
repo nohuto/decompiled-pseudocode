@@ -1,19 +1,19 @@
 /*
- * XREFs of PfSnReferenceProcessTrace @ 0x1400D4AB0
+ * XREFs of PfSnReferenceProcessTrace @ 0x1400D4B30
  * Callers:
  *     MiMakeSystemCacheRangeValid @ 0x14004B5A0 (MiMakeSystemCacheRangeValid.c)
- *     PfFileInfoNotify @ 0x1400D3DE0 (PfFileInfoNotify.c)
- *     PfSnLogPageFault @ 0x1400D74B0 (PfSnLogPageFault.c)
- *     PfSnEndProcessTrace @ 0x140606950 (PfSnEndProcessTrace.c)
- *     PfSnLogHelper @ 0x14064B024 (PfSnLogHelper.c)
- *     PfSnAsyncContextInitialize @ 0x1406C0FA4 (PfSnAsyncContextInitialize.c)
+ *     PfFileInfoNotify @ 0x1400D3E60 (PfFileInfoNotify.c)
+ *     PfSnLogPageFault @ 0x1400D7530 (PfSnLogPageFault.c)
+ *     PfSnEndProcessTrace @ 0x140607950 (PfSnEndProcessTrace.c)
+ *     PfSnLogHelper @ 0x14064C1E4 (PfSnLogHelper.c)
+ *     PfSnAsyncContextInitialize @ 0x1406C2244 (PfSnAsyncContextInitialize.c)
  * Callees:
  *     ExAcquireRundownProtection_0 @ 0x14004D320 (ExAcquireRundownProtection_0.c)
- *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
- *     ExAcquireRundownProtectionEx @ 0x1400D78C0 (ExAcquireRundownProtectionEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1400630D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14008CE80 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeSetEvent @ 0x1400C2A40 (KeSetEvent.c)
+ *     ExAcquireRundownProtectionEx @ 0x1400D7940 (ExAcquireRundownProtectionEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 struct _EX_RUNDOWN_REF *__fastcall PfSnReferenceProcessTrace(__int64 a1)
@@ -96,11 +96,11 @@ LABEL_28:
   else
   {
     v9 = 1;
-    v10 = KeAcquireSpinLockRaiseToDpc(&qword_14043C210);
+    v10 = KeAcquireSpinLockRaiseToDpc(&qword_14043D2D0);
     v3 = (struct _EX_RUNDOWN_REF *)(*(_QWORD *)(a1 + 1192) & 0xFFFFFFFFFFFFFFF0uLL);
     if ( v3 )
       v9 = ExAcquireRundownProtection_0(v3 + 45);
-    KxReleaseSpinLock(&qword_14043C210);
+    KxReleaseSpinLock(&qword_14043D2D0);
     if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && KeGetCurrentIrql() >= 2u && v10 < 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();

@@ -1,12 +1,12 @@
 /*
- * XREFs of Feature_AdminlessElevatedToken__private_IsEnabledDeviceUsageNoInline @ 0x1404DF174
+ * XREFs of Feature_AdminlessElevatedToken__private_IsEnabledDeviceUsageNoInline @ 0x1404D8854
  * Callers:
- *     SepOneWayLinkLogonSessions @ 0x14063AEE8 (SepOneWayLinkLogonSessions.c)
- *     SepOneWayLinkLogonSessionsEx @ 0x14063B1C0 (SepOneWayLinkLogonSessionsEx.c)
- *     SepLogonSystemManagedAdmin @ 0x140B50F90 (SepLogonSystemManagedAdmin.c)
- *     NtQueryInformationToken @ 0x140B79CE0 (NtQueryInformationToken.c)
+ *     SepOneWayLinkLogonSessions @ 0x14063DFB0 (SepOneWayLinkLogonSessions.c)
+ *     SepOneWayLinkLogonSessionsEx @ 0x14063E288 (SepOneWayLinkLogonSessionsEx.c)
+ *     SepLogonSystemManagedAdmin @ 0x140B53828 (SepLogonSystemManagedAdmin.c)
+ *     NtQueryInformationToken @ 0x140B81F50 (NtQueryInformationToken.c)
  * Callees:
- *     Feature_AdminlessElevatedToken__private_IsEnabledFallback @ 0x1405314AC (Feature_AdminlessElevatedToken__private_IsEnabledFallback.c)
+ *     Feature_AdminlessElevatedToken__private_IsEnabledFallback @ 0x1405339AC (Feature_AdminlessElevatedToken__private_IsEnabledFallback.c)
  */
 
 __int64 Feature_AdminlessElevatedToken__private_IsEnabledDeviceUsageNoInline()

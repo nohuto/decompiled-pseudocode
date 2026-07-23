@@ -1,12 +1,12 @@
 /*
- * XREFs of DrvDbSplitDeviceIdDriverInfMatch @ 0x1406F65C0
+ * XREFs of DrvDbSplitDeviceIdDriverInfMatch @ 0x1406F7860
  * Callers:
- *     PiDevCfgFindDeviceDriver @ 0x1406F4B3C (PiDevCfgFindDeviceDriver.c)
- *     DrvDbSetDeviceIdDriverInfMatches @ 0x140902564 (DrvDbSetDeviceIdDriverInfMatches.c)
+ *     PiDevCfgFindDeviceDriver @ 0x1406F5DDC (PiDevCfgFindDeviceDriver.c)
+ *     DrvDbSetDeviceIdDriverInfMatches @ 0x140903824 (DrvDbSetDeviceIdDriverInfMatches.c)
  * Callees:
  *     RtlStringCchCopyNExW @ 0x140015A04 (RtlStringCchCopyNExW.c)
- *     wcschr @ 0x1401976D0 (wcschr.c)
- *     wcstol @ 0x140197C54 (wcstol.c)
+ *     wcschr @ 0x140197810 (wcschr.c)
+ *     wcstol @ 0x140197D94 (wcstol.c)
  */
 
 __int64 __fastcall DrvDbSplitDeviceIdDriverInfMatch(

@@ -1,13 +1,13 @@
 /*
- * XREFs of CcShouldSpinAsyncReadWorkerThread @ 0x14006DFD8
+ * XREFs of CcShouldSpinAsyncReadWorkerThread @ 0x14006DB58
  * Callers:
- *     CcPostWorkQueueAsyncRead @ 0x14006DD38 (CcPostWorkQueueAsyncRead.c)
- *     CcAsyncReadWorker @ 0x14013D91C (CcAsyncReadWorker.c)
+ *     CcPostWorkQueueAsyncRead @ 0x14006D8B8 (CcPostWorkQueueAsyncRead.c)
+ *     CcAsyncReadWorker @ 0x14013DE8C (CcAsyncReadWorker.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfReleasePushLock @ 0x1400C8620 (ExfReleasePushLock.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfReleasePushLock @ 0x1400C64C0 (ExfReleasePushLock.c)
  */
 
 char __fastcall CcShouldSpinAsyncReadWorkerThread(__int64 **a1, unsigned int a2)

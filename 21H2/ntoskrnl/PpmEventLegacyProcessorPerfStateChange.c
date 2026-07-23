@@ -1,11 +1,11 @@
 /*
- * XREFs of PpmEventLegacyProcessorPerfStateChange @ 0x140399034
+ * XREFs of PpmEventLegacyProcessorPerfStateChange @ 0x140399184
  * Callers:
- *     PpmPerfApplyProcessorState @ 0x140398B3C (PpmPerfApplyProcessorState.c)
+ *     PpmPerfApplyProcessorState @ 0x140398C8C (PpmPerfApplyProcessorState.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x1402EAC90 (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     PpmFireWmiEvent @ 0x1405784F8 (PpmFireWmiEvent.c)
+ *     EtwTraceKernelEvent @ 0x14029BFE0 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     PpmFireWmiEvent @ 0x140578738 (PpmFireWmiEvent.c)
  */
 
 __int64 __fastcall PpmEventLegacyProcessorPerfStateChange(__int64 a1)

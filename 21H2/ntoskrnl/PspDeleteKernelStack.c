@@ -1,9 +1,9 @@
 /*
- * XREFs of PspDeleteKernelStack @ 0x1402C2B50
+ * XREFs of PspDeleteKernelStack @ 0x140241070
  * Callers:
  *     <none>
  * Callees:
- *     MmDeleteKernelStack @ 0x14032AB70 (MmDeleteKernelStack.c)
+ *     MmDeleteKernelStack @ 0x1403358C0 (MmDeleteKernelStack.c)
  */
 
 __int64 __fastcall PspDeleteKernelStack(__int64 a1, _QWORD *a2)

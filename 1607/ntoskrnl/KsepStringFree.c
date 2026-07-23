@@ -1,24 +1,24 @@
 /*
- * XREFs of KsepStringFree @ 0x140485BF8
+ * XREFs of KsepStringFree @ 0x140514F80
  * Callers:
- *     KsepLoadShimProvider @ 0x1401DCA88 (KsepLoadShimProvider.c)
- *     KsepCacheHwIdFree @ 0x1401DCF20 (KsepCacheHwIdFree.c)
- *     KsepDbFreeDriverShims @ 0x140484914 (KsepDbFreeDriverShims.c)
- *     KsepRegistryOpenKey @ 0x140485914 (KsepRegistryOpenKey.c)
- *     KseDriverLoadImage @ 0x1404859F4 (KseDriverLoadImage.c)
- *     KsepEngineGetShimsFromRegistry @ 0x140485B50 (KsepEngineGetShimsFromRegistry.c)
- *     KseAddHardwareId @ 0x1404E3884 (KseAddHardwareId.c)
- *     KseShimDriverIoCallbacks @ 0x1404E5818 (KseShimDriverIoCallbacks.c)
- *     KsepDbQueryRegistryDeviceData @ 0x140534EA8 (KsepDbQueryRegistryDeviceData.c)
- *     KsepCacheDeviceFree @ 0x140535148 (KsepCacheDeviceFree.c)
- *     KsepCacheDeviceInsertData @ 0x14057E248 (KsepCacheDeviceInsertData.c)
- *     KseSetDeviceFlags @ 0x140652510 (KseSetDeviceFlags.c)
- *     KsepDbQueryRegistryDeviceDataList @ 0x140652994 (KsepDbQueryRegistryDeviceDataList.c)
- *     KsepStringSplitMultiString @ 0x140653BE4 (KsepStringSplitMultiString.c)
- *     KsepRegistryCreateKey @ 0x140653EAC (KsepRegistryCreateKey.c)
+ *     KsepLoadShimProvider @ 0x1401DC8B4 (KsepLoadShimProvider.c)
+ *     KsepCacheHwIdFree @ 0x1401DCD4C (KsepCacheHwIdFree.c)
+ *     KseAddHardwareId @ 0x14050D830 (KseAddHardwareId.c)
+ *     KsepDbFreeDriverShims @ 0x140513C9C (KsepDbFreeDriverShims.c)
+ *     KsepRegistryOpenKey @ 0x140514C9C (KsepRegistryOpenKey.c)
+ *     KseDriverLoadImage @ 0x140514D7C (KseDriverLoadImage.c)
+ *     KsepEngineGetShimsFromRegistry @ 0x140514ED8 (KsepEngineGetShimsFromRegistry.c)
+ *     KseShimDriverIoCallbacks @ 0x14051525C (KseShimDriverIoCallbacks.c)
+ *     KsepDbQueryRegistryDeviceData @ 0x1405353E8 (KsepDbQueryRegistryDeviceData.c)
+ *     KsepCacheDeviceFree @ 0x140535688 (KsepCacheDeviceFree.c)
+ *     KsepCacheDeviceInsertData @ 0x14057E6F4 (KsepCacheDeviceInsertData.c)
+ *     KseSetDeviceFlags @ 0x1406525F4 (KseSetDeviceFlags.c)
+ *     KsepDbQueryRegistryDeviceDataList @ 0x140652A78 (KsepDbQueryRegistryDeviceDataList.c)
+ *     KsepStringSplitMultiString @ 0x140653CC8 (KsepStringSplitMultiString.c)
+ *     KsepRegistryCreateKey @ 0x140653F90 (KsepRegistryCreateKey.c)
  * Callees:
- *     KsepPoolFreePaged @ 0x140084D54 (KsepPoolFreePaged.c)
- *     RtlAssert @ 0x140213458 (RtlAssert.c)
+ *     KsepPoolFreePaged @ 0x14010B35C (KsepPoolFreePaged.c)
+ *     RtlAssert @ 0x140213284 (RtlAssert.c)
  */
 
 void __fastcall KsepStringFree(_QWORD *a1)

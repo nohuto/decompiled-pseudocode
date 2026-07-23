@@ -1,16 +1,16 @@
 /*
- * XREFs of MiRemoveActivePageTableLinks @ 0x1402EC880
+ * XREFs of MiRemoveActivePageTableLinks @ 0x1402CE8C0
  * Callers:
- *     MiSetVaAgeListEx @ 0x14029D300 (MiSetVaAgeListEx.c)
- *     MiRebuildPageTableAges @ 0x14029E1F0 (MiRebuildPageTableAges.c)
- *     MiRemoveWsleList @ 0x1402EA570 (MiRemoveWsleList.c)
- *     MiUpdateWorkingSetAgeDistribution @ 0x1402EAE10 (MiUpdateWorkingSetAgeDistribution.c)
- *     MiAddWorkingSetEntries @ 0x1402EBAC0 (MiAddWorkingSetEntries.c)
- *     MiLockActivePageTableInList @ 0x14048CC74 (MiLockActivePageTableInList.c)
+ *     MiSetVaAgeListEx @ 0x14029C850 (MiSetVaAgeListEx.c)
+ *     MiRebuildPageTableAges @ 0x14029D740 (MiRebuildPageTableAges.c)
+ *     MiRemoveWsleList @ 0x1402CC5B0 (MiRemoveWsleList.c)
+ *     MiUpdateWorkingSetAgeDistribution @ 0x1402CCE50 (MiUpdateWorkingSetAgeDistribution.c)
+ *     MiAddWorkingSetEntries @ 0x1402CDB00 (MiAddWorkingSetEntries.c)
+ *     MiLockActivePageTableInList @ 0x1404867B4 (MiLockActivePageTableInList.c)
  * Callees:
- *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14021AAD4 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402DED10 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiRevertPfnActivePageTable @ 0x140468A80 (MiRevertPfnActivePageTable.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14021C464 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402C0B20 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiRevertPfnActivePageTable @ 0x140462130 (MiRevertPfnActivePageTable.c)
  */
 
 __int64 __fastcall MiRemoveActivePageTableLinks(__int64 a1, __int64 a2, int a3)
@@ -63,7 +63,7 @@ __int64 __fastcall MiRemoveActivePageTableLinks(__int64 a1, __int64 a2, int a3)
   }
   if ( !a3 )
   {
-    if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+    if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
       *(_DWORD *)(v5 + 80) = 0;
     else
       ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented((_DWORD *)(v5 + 80), retaddr);

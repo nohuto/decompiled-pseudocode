@@ -1,15 +1,15 @@
 /*
- * XREFs of MiLockDynamicMemoryShared @ 0x1402A72BC
+ * XREFs of MiLockDynamicMemoryShared @ 0x1402253FC
  * Callers:
- *     MmMarkPhysicalMemoryAsBad @ 0x14052F930 (MmMarkPhysicalMemoryAsBad.c)
- *     MiAddPartitionHugeRange @ 0x140532798 (MiAddPartitionHugeRange.c)
- *     PfpPfnPrioRequest @ 0x1406F2BB0 (PfpPfnPrioRequest.c)
- *     MiGetPhysicalMemoryRanges @ 0x14076F768 (MiGetPhysicalMemoryRanges.c)
- *     MiAddPhysicalMemory @ 0x1408C4E90 (MiAddPhysicalMemory.c)
- *     MiMapNewPfns @ 0x1408C5CD4 (MiMapNewPfns.c)
- *     MmRelocatePfnList @ 0x1408D1ADC (MmRelocatePfnList.c)
+ *     MmMarkPhysicalMemoryAsBad @ 0x14052FB70 (MmMarkPhysicalMemoryAsBad.c)
+ *     MiAddPartitionHugeRange @ 0x1405329D8 (MiAddPartitionHugeRange.c)
+ *     PfpPfnPrioRequest @ 0x140709F90 (PfpPfnPrioRequest.c)
+ *     MiGetPhysicalMemoryRanges @ 0x14076F928 (MiGetPhysicalMemoryRanges.c)
+ *     MiAddPhysicalMemory @ 0x1408C4FF0 (MiAddPhysicalMemory.c)
+ *     MiMapNewPfns @ 0x1408C5E34 (MiMapNewPfns.c)
+ *     MmRelocatePfnList @ 0x1408D1C3C (MmRelocatePfnList.c)
  * Callees:
- *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
+ *     ExAcquirePushLockSharedEx @ 0x1403558A0 (ExAcquirePushLockSharedEx.c)
  */
 
 __int64 __fastcall MiLockDynamicMemoryShared(__int64 a1, __int64 a2)

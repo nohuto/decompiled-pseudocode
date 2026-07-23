@@ -1,14 +1,14 @@
 /*
- * XREFs of MiValidateSectionMap @ 0x1409CBB1C
+ * XREFs of MiValidateSectionMap @ 0x14099CAFC
  * Callers:
- *     MiValidateSectionCreate @ 0x1409CB8F4 (MiValidateSectionCreate.c)
+ *     MiValidateSectionCreate @ 0x14099C8D4 (MiValidateSectionCreate.c)
  * Callees:
- *     PsSetSystemPagePriorityThread @ 0x140480008 (PsSetSystemPagePriorityThread.c)
- *     PsRevertToUserPagePriorityThread @ 0x140487F60 (PsRevertToUserPagePriorityThread.c)
- *     MiMapImageInSystemSpace @ 0x1409CC82C (MiMapImageInSystemSpace.c)
- *     MiCreatePerSessionProtos @ 0x1409CFA34 (MiCreatePerSessionProtos.c)
- *     MiPrefetchControlArea @ 0x140A4F258 (MiPrefetchControlArea.c)
- *     MiDereferencePerSessionProtos @ 0x140A96D34 (MiDereferencePerSessionProtos.c)
+ *     PsSetSystemPagePriorityThread @ 0x140479948 (PsSetSystemPagePriorityThread.c)
+ *     PsRevertToUserPagePriorityThread @ 0x140481AA0 (PsRevertToUserPagePriorityThread.c)
+ *     MiMapImageInSystemSpace @ 0x14099D80C (MiMapImageInSystemSpace.c)
+ *     MiCreatePerSessionProtos @ 0x1409A0A14 (MiCreatePerSessionProtos.c)
+ *     MiPrefetchControlArea @ 0x140A58548 (MiPrefetchControlArea.c)
+ *     MiDereferencePerSessionProtos @ 0x140A9AEB4 (MiDereferencePerSessionProtos.c)
  */
 
 __int64 __fastcall MiValidateSectionMap(__int64 a1)

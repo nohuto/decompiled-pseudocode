@@ -1,14 +1,14 @@
 /*
- * XREFs of KeSetThreadChargeOnlySchedulingGroup @ 0x1400D2A60
+ * XREFs of KeSetThreadChargeOnlySchedulingGroup @ 0x1400D0900
  * Callers:
- *     PsImpersonateContainerOfThread @ 0x1400D1630 (PsImpersonateContainerOfThread.c)
- *     PspRevertContainerImpersonation @ 0x1400D3D20 (PspRevertContainerImpersonation.c)
- *     NtSetInformationThread @ 0x14050E5D0 (NtSetInformationThread.c)
- *     PspExitThread @ 0x14051611C (PspExitThread.c)
+ *     PsImpersonateContainerOfThread @ 0x1400CF4D0 (PsImpersonateContainerOfThread.c)
+ *     PspRevertContainerImpersonation @ 0x1400D1BC0 (PspRevertContainerImpersonation.c)
+ *     NtSetInformationThread @ 0x1404F1560 (NtSetInformationThread.c)
+ *     PspExitThread @ 0x1404F950C (PspExitThread.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14002ECB0 (KeYieldProcessorEx.c)
- *     KiEndThreadAccountingPeriod @ 0x1400D2750 (KiEndThreadAccountingPeriod.c)
- *     KiStartThreadCycleAccumulation @ 0x1400D37A0 (KiStartThreadCycleAccumulation.c)
+ *     KeYieldProcessorEx @ 0x14002E830 (KeYieldProcessorEx.c)
+ *     KiEndThreadAccountingPeriod @ 0x1400D05F0 (KiEndThreadAccountingPeriod.c)
+ *     KiStartThreadCycleAccumulation @ 0x1400D1640 (KiStartThreadCycleAccumulation.c)
  */
 
 char __fastcall KeSetThreadChargeOnlySchedulingGroup(__int64 a1, __int64 a2)

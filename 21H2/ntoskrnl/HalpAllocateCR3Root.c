@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpAllocateCR3Root @ 0x1403CBAC8
+ * XREFs of HalpAllocateCR3Root @ 0x1403CBC38
  * Callers:
- *     HalpDispatchPnp @ 0x140764F80 (HalpDispatchPnp.c)
- *     HalpMmBuildTiledMemoryMap @ 0x14099A1BC (HalpMmBuildTiledMemoryMap.c)
+ *     HalpDispatchPnp @ 0x140765140 (HalpDispatchPnp.c)
+ *     HalpMmBuildTiledMemoryMap @ 0x14099B1BC (HalpMmBuildTiledMemoryMap.c)
  * Callees:
- *     MmAllocateContiguousNodeMemory @ 0x140294EA0 (MmAllocateContiguousNodeMemory.c)
- *     HalpQueryMaximumRegisteredProcessorCount @ 0x1403A2374 (HalpQueryMaximumRegisteredProcessorCount.c)
+ *     MmAllocateContiguousNodeMemory @ 0x140216B60 (MmAllocateContiguousNodeMemory.c)
+ *     HalpQueryMaximumRegisteredProcessorCount @ 0x1403A24C4 (HalpQueryMaximumRegisteredProcessorCount.c)
  */
 
 __int64 __fastcall HalpAllocateCR3Root(unsigned int a1)

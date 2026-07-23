@@ -7,16 +7,16 @@
  *     _RtlReleaseSRWLockExclusive@4 @ 0x4B2C2480 (_RtlReleaseSRWLockExclusive@4.c)
  */
 
-int __fastcall RtlpFcRemoveChangeRegistration(int a1, _DWORD *a2)
+void __fastcall RtlpFcRemoveChangeRegistration(int a1, _DWORD *a2)
 {
   int v3; // ecx
   _DWORD *v4; // eax
 
-  RtlAcquireSRWLockExclusive(&dword_4B3A4770);
+  RtlAcquireSRWLockExclusive(&SRWLock);
   v3 = *a2;
   if ( *(_DWORD **)(*a2 + 4) != a2 || (v4 = (_DWORD *)a2[1], (_DWORD *)*v4 != a2) )
     __fastfail(3u);
   *v4 = v3;
   *(_DWORD *)(v3 + 4) = v4;
-  return RtlReleaseSRWLockExclusive(&dword_4B3A4770);
+  RtlReleaseSRWLockExclusive(&SRWLock);
 }

@@ -1,13 +1,13 @@
 /*
- * XREFs of MiDeleteVaTail @ 0x140279120
+ * XREFs of MiDeleteVaTail @ 0x1402793B0
  * Callers:
- *     MiDeletePagablePteRange @ 0x14027A160 (MiDeletePagablePteRange.c)
+ *     MiDeletePagablePteRange @ 0x14027A3F0 (MiDeletePagablePteRange.c)
  * Callees:
- *     MiTerminateWsleCluster @ 0x1402791A0 (MiTerminateWsleCluster.c)
- *     MiFlushTbList @ 0x140279880 (MiFlushTbList.c)
- *     MiDeletePteRun @ 0x1402D50F0 (MiDeletePteRun.c)
- *     MiDecayPfnFullyInitialized @ 0x14033EDB4 (MiDecayPfnFullyInitialized.c)
- *     MiFlushGraphicsPtes @ 0x140626428 (MiFlushGraphicsPtes.c)
+ *     MiTerminateWsleCluster @ 0x140279430 (MiTerminateWsleCluster.c)
+ *     MiFlushTbList @ 0x140279B10 (MiFlushTbList.c)
+ *     MiDeletePteRun @ 0x1402D5380 (MiDeletePteRun.c)
+ *     MiDecayPfnFullyInitialized @ 0x14033F044 (MiDecayPfnFullyInitialized.c)
+ *     MiFlushGraphicsPtes @ 0x140626978 (MiFlushGraphicsPtes.c)
  */
 
 __int64 __fastcall MiDeleteVaTail(_QWORD *a1)

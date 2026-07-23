@@ -1,20 +1,20 @@
 /*
- * XREFs of PiDmObjectAcquireExclusiveLock @ 0x140506124
+ * XREFs of PiDmObjectAcquireExclusiveLock @ 0x1404E90B4
  * Callers:
- *     IopProcessSetInterfaceState @ 0x1403F26A4 (IopProcessSetInterfaceState.c)
- *     PiPnpRtlCmActionCallback @ 0x1404FCFB8 (PiPnpRtlCmActionCallback.c)
- *     PiDmObjectGetAggregatedBooleanPropertyData @ 0x1404FECB4 (PiDmObjectGetAggregatedBooleanPropertyData.c)
- *     PiDmObjectUpdateCachedObjectProperty @ 0x1404FFCDC (PiDmObjectUpdateCachedObjectProperty.c)
- *     PiPnpRtlObjectEventWorker @ 0x14050470C (PiPnpRtlObjectEventWorker.c)
- *     PiDmObjectProcessPropertyChange @ 0x14050539C (PiDmObjectProcessPropertyChange.c)
- *     PiDmListAddObject @ 0x140505F64 (PiDmListAddObject.c)
- *     PiPnpRtlEnsureObjectCached @ 0x14062E9D0 (PiPnpRtlEnsureObjectCached.c)
- *     PiDmListAddList @ 0x14062F920 (PiDmListAddList.c)
- *     PiDmListRemoveList @ 0x14062FB14 (PiDmListRemoveList.c)
- *     PiDmListRemoveObject @ 0x14062FD08 (PiDmListRemoveObject.c)
+ *     IopProcessSetInterfaceState @ 0x1403F1568 (IopProcessSetInterfaceState.c)
+ *     PiPnpRtlCmActionCallback @ 0x1404DFF48 (PiPnpRtlCmActionCallback.c)
+ *     PiDmObjectGetAggregatedBooleanPropertyData @ 0x1404E1C44 (PiDmObjectGetAggregatedBooleanPropertyData.c)
+ *     PiDmObjectUpdateCachedObjectProperty @ 0x1404E2C6C (PiDmObjectUpdateCachedObjectProperty.c)
+ *     PiPnpRtlObjectEventWorker @ 0x1404E769C (PiPnpRtlObjectEventWorker.c)
+ *     PiDmObjectProcessPropertyChange @ 0x1404E832C (PiDmObjectProcessPropertyChange.c)
+ *     PiDmListAddObject @ 0x1404E8EF4 (PiDmListAddObject.c)
+ *     PiPnpRtlEnsureObjectCached @ 0x14062EA84 (PiPnpRtlEnsureObjectCached.c)
+ *     PiDmListAddList @ 0x14062F9D4 (PiDmListAddList.c)
+ *     PiDmListRemoveList @ 0x14062FBC8 (PiDmListRemoveList.c)
+ *     PiDmListRemoveObject @ 0x14062FDBC (PiDmListRemoveObject.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
  */
 
 _BYTE *__fastcall PiDmObjectAcquireExclusiveLock(unsigned __int64 *a1)

@@ -1,15 +1,15 @@
 /*
- * XREFs of HvSnapshotHiveToOffsetArray @ 0x140805CE0
+ * XREFs of HvSnapshotHiveToOffsetArray @ 0x140806EE0
  * Callers:
- *     CmpFlushBackupHive @ 0x1407F4050 (CmpFlushBackupHive.c)
- *     CmDumpKey @ 0x140801198 (CmDumpKey.c)
+ *     CmpFlushBackupHive @ 0x1407F5250 (CmpFlushBackupHive.c)
+ *     CmDumpKey @ 0x140802398 (CmDumpKey.c)
  * Callees:
- *     memmove @ 0x1401D1540 (memmove.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     HvpHeaderCheckSum @ 0x1405A64F0 (HvpHeaderCheckSum.c)
- *     HvpGetCellMap @ 0x1405FB04C (HvpGetCellMap.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     HvpHeaderCheckSum @ 0x1405A74F0 (HvpHeaderCheckSum.c)
+ *     HvpGetCellMap @ 0x1405FC04C (HvpGetCellMap.c)
  */
 
 __int64 __fastcall HvSnapshotHiveToOffsetArray(__int64 a1, int *a2, __int64 *a3, unsigned int *a4)

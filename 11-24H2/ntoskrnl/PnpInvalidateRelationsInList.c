@@ -1,20 +1,20 @@
 /*
- * XREFs of PnpInvalidateRelationsInList @ 0x140A0E800
+ * XREFs of PnpInvalidateRelationsInList @ 0x1409BCC04
  * Callers:
- *     PnpProcessCompletedEject @ 0x140723BF0 (PnpProcessCompletedEject.c)
- *     PnpProcessQueryRemoveAndEject @ 0x140A0DB78 (PnpProcessQueryRemoveAndEject.c)
+ *     PnpProcessCompletedEject @ 0x140721780 (PnpProcessCompletedEject.c)
+ *     PnpProcessQueryRemoveAndEject @ 0x1409BBF7C (PnpProcessQueryRemoveAndEject.c)
  * Callees:
- *     PnpRequestDeviceAction @ 0x14046C968 (PnpRequestDeviceAction.c)
- *     PipClearDevNodeFlags @ 0x1408BB57C (PipClearDevNodeFlags.c)
- *     IopAddRelationToList @ 0x140A0C91C (IopAddRelationToList.c)
- *     IopFreeRelationList @ 0x140A0CB00 (IopFreeRelationList.c)
- *     IopAllocateRelationList @ 0x140A0D7B8 (IopAllocateRelationList.c)
- *     IopSetRelationsTag @ 0x140A879BC (IopSetRelationsTag.c)
+ *     PnpRequestDeviceAction @ 0x140467508 (PnpRequestDeviceAction.c)
+ *     PipClearDevNodeFlags @ 0x1408B8F2C (PipClearDevNodeFlags.c)
+ *     IopFreeRelationList @ 0x1409BAF04 (IopFreeRelationList.c)
+ *     IopAllocateRelationList @ 0x1409BBBBC (IopAllocateRelationList.c)
+ *     IopAddRelationToList @ 0x140A54B0C (IopAddRelationToList.c)
+ *     IopSetRelationsTag @ 0x140A83EAC (IopSetRelationsTag.c)
  */
 
 __int64 __fastcall PnpInvalidateRelationsInList(_QWORD *a1, unsigned int a2, char a3, char a4)
 {
-  _BYTE *RelationList; // rsi
+  void **RelationList; // rsi
   _DWORD *v10; // rdx
   unsigned int i; // r8d
   unsigned int v12; // ebp
@@ -27,13 +27,13 @@ __int64 __fastcall PnpInvalidateRelationsInList(_QWORD *a1, unsigned int a2, cha
   __int64 v19; // rdi
   __int64 v20; // rbx
   unsigned int j; // ebx
-  __int64 v22; // rdx
+  _DWORD *v22; // rdx
   __int64 v23; // rax
   __int64 v24; // rax
   int v25; // eax
   unsigned int v26; // edx
 
-  RelationList = (_BYTE *)IopAllocateRelationList(a2);
+  RelationList = (void **)IopAllocateRelationList(a2);
   if ( !RelationList )
     return 3221225626LL;
   v10 = (_DWORD *)*a1;
@@ -74,7 +74,7 @@ LABEL_5:
           if ( (unsigned int)IopSetRelationsTag(a1, v14, v15) )
           {
             if ( v14 )
-              IopAddRelationToList(RelationList, (__int64)v14, 2u, 0LL);
+              IopAddRelationToList(RelationList, v14, 2LL, 0LL);
             goto LABEL_5;
           }
           v18 = v14[39];
@@ -110,11 +110,11 @@ LABEL_14:
   }
   for ( j = 0; ; ++j )
   {
-    v22 = *(_QWORD *)RelationList;
-    if ( j >= **(_DWORD **)RelationList || !v22 )
+    v22 = *RelationList;
+    if ( j >= *(_DWORD *)*RelationList || !v22 )
       break;
     v23 = j;
-    PnpRequestDeviceAction(*(PVOID *)(v22 + 24 * v23 + 16), 9u, 0, 0LL, 0LL, 0LL, 0LL);
+    PnpRequestDeviceAction(*(PVOID *)&v22[6 * v23 + 4], 9u, 0, 0LL, 0LL, 0LL, 0LL);
   }
   IopFreeRelationList(RelationList);
   return 0LL;

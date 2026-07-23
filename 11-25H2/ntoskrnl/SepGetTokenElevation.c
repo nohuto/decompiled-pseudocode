@@ -15,7 +15,7 @@ __int64 __fastcall SepGetTokenElevation(__int64 a1)
 
   v2 = *(_DWORD *)(a1 + 124);
   LOBYTE(result) = (*(_QWORD *)(a1 + 64) & 0x1120160684LL) != 0;
-  for ( i = 0; i < v2; LOBYTE(result) = RtlIsElevatedRid(*(_QWORD *)(a1 + 152) + 16LL * i++) )
+  for ( i = 0; i < v2; LOBYTE(result) = RtlIsElevatedRid((PSID_AND_ATTRIBUTES)(*(_QWORD *)(a1 + 152) + 16LL * i++)) )
   {
     if ( (_BYTE)result )
       break;

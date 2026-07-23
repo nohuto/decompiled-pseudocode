@@ -21,7 +21,7 @@ __int64 __fastcall RtlpInitializeUCRIndex(__int64 a1)
 
   v2 = ((*(_DWORD *)(a1 + 148) >> 8) + 31) & 0xFFFFFFE0;
   v3 = (unsigned __int64)v2 >> 3;
-  result = RtlAllocateHeap(a1, 8388618LL, v3 + 8 * (v2 + 7LL));
+  result = (__int64)RtlAllocateHeap((PVOID)a1, 0x80000Au, v3 + 8 * (v2 + 7LL));
   v5 = result;
   if ( result )
   {

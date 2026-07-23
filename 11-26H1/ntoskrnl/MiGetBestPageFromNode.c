@@ -1,16 +1,16 @@
 /*
- * XREFs of MiGetBestPageFromNode @ 0x140288750
+ * XREFs of MiGetBestPageFromNode @ 0x140287CB0
  * Callers:
- *     MiGetPage @ 0x1402866A0 (MiGetPage.c)
+ *     MiGetPage @ 0x140285C00 (MiGetPage.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     MiColorGetCache @ 0x140289A00 (MiColorGetCache.c)
- *     MiGetPerfectColorHeadPage @ 0x140289A30 (MiGetPerfectColorHeadPage.c)
- *     MiRemovePageAnyColor @ 0x14028A000 (MiRemovePageAnyColor.c)
- *     MiCheckZeroFreeRebalance @ 0x1404A141C (MiCheckZeroFreeRebalance.c)
- *     MiArePageContentsZero @ 0x140520384 (MiArePageContentsZero.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     RtlpInterlockedPopEntrySList @ 0x140730C90 (RtlpInterlockedPopEntrySList.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     MiColorGetCache @ 0x140288F60 (MiColorGetCache.c)
+ *     MiGetPerfectColorHeadPage @ 0x140288F90 (MiGetPerfectColorHeadPage.c)
+ *     MiRemovePageAnyColor @ 0x140289560 (MiRemovePageAnyColor.c)
+ *     MiCheckZeroFreeRebalance @ 0x14049AF4C (MiCheckZeroFreeRebalance.c)
+ *     MiArePageContentsZero @ 0x140522A28 (MiArePageContentsZero.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140735860 (RtlpInterlockedPopEntrySList.c)
  */
 
 unsigned __int64 __fastcall MiGetBestPageFromNode(__int64 a1, unsigned int a2, int a3, unsigned int a4)
@@ -39,7 +39,7 @@ unsigned __int64 __fastcall MiGetBestPageFromNode(__int64 a1, unsigned int a2, i
   unsigned __int64 v28; // rcx
   __int64 *v29; // rcx
   unsigned __int64 v30; // rcx
-  union _SLIST_HEADER *v31; // rcx
+  _SLIST_HEADER *v31; // rcx
   __int64 v32; // rdx
   volatile signed __int32 *v33; // r8
   unsigned __int64 v34; // r9
@@ -93,7 +93,7 @@ unsigned __int64 __fastcall MiGetBestPageFromNode(__int64 a1, unsigned int a2, i
   unsigned __int8 v82; // [rsp+20h] [rbp-59h]
   unsigned __int64 v83; // [rsp+28h] [rbp-51h]
   unsigned __int64 v84; // [rsp+28h] [rbp-51h]
-  union _SLIST_HEADER *ListHead; // [rsp+30h] [rbp-49h]
+  _SLIST_HEADER *ListHead; // [rsp+30h] [rbp-49h]
   PSLIST_HEADER ListHeada; // [rsp+30h] [rbp-49h]
   PSLIST_HEADER ListHeadb; // [rsp+30h] [rbp-49h]
   __int64 v88; // [rsp+38h] [rbp-41h] BYREF
@@ -140,7 +140,7 @@ LABEL_28:
     v80 = (const signed __int64 **)(a1 + 16LL * v7 + 13768);
     if ( !_bittest64(*v80, Cache) )
       goto LABEL_26;
-    ListHead = (union _SLIST_HEADER *)(16 * Cache + *(_QWORD *)(a1 + 8LL * v7 + 13856));
+    ListHead = (_SLIST_HEADER *)(16 * Cache + *(_QWORD *)(a1 + 8LL * v7 + 13856));
     PerfectColorHeadPage = RtlpInterlockedPopEntrySList(ListHead);
     if ( PerfectColorHeadPage )
       goto LABEL_8;
@@ -256,10 +256,10 @@ LABEL_8:
     if ( !Next )
     {
       v14 = *(_QWORD *)&CLFS_LSN_NULL_EXT & 0xFFFFFFFFFFFFFC1FuLL | 0x80;
-      if ( qword_140E2D740 )
+      if ( qword_140E2D8C0 )
       {
-        v15 = qword_140E2D740 | *(_QWORD *)&CLFS_LSN_NULL_EXT & 0xFFFFFFFFFFFFFC9FuLL | 0x80;
-        if ( (qword_140E2D740 & v14) != 0 )
+        v15 = qword_140E2D8C0 | *(_QWORD *)&CLFS_LSN_NULL_EXT & 0xFFFFFFFFFFFFFC9FuLL | 0x80;
+        if ( (qword_140E2D8C0 & v14) != 0 )
           v15 = *(_QWORD *)&CLFS_LSN_NULL_EXT & 0xFFFFFFFFFFFFFC0FuLL | 0x90;
         v14 = v15;
       }
@@ -273,8 +273,8 @@ LABEL_8:
   else
   {
     if ( (MiFlags & 0x80u) == 0LL
-      || (++*(_DWORD *)&stru_140E2EB88.SavedApcStateFill[40],
-          (*(_DWORD *)&stru_140E2EB88.SavedApcStateFill[40] & MmPageValidationFrequency) != 0) )
+      || (++*(_DWORD *)&stru_140E2ED08.SavedApcStateFill[40],
+          (*(_DWORD *)&stru_140E2ED08.SavedApcStateFill[40] & MmPageValidationFrequency) != 0) )
     {
 LABEL_15:
       v4 = 0;
@@ -460,10 +460,10 @@ LABEL_91:
         else
         {
           v55 = *(_QWORD *)&CLFS_LSN_NULL_EXT & 0xFFFFFFFFFFFFFC1FuLL | 0x80;
-          if ( qword_140E2D740 )
+          if ( qword_140E2D8C0 )
           {
-            v56 = qword_140E2D740 | *(_QWORD *)&CLFS_LSN_NULL_EXT & 0xFFFFFFFFFFFFFC9FuLL | 0x80;
-            if ( (qword_140E2D740 & v55) != 0 )
+            v56 = qword_140E2D8C0 | *(_QWORD *)&CLFS_LSN_NULL_EXT & 0xFFFFFFFFFFFFFC9FuLL | 0x80;
+            if ( (qword_140E2D8C0 & v55) != 0 )
               v56 = *(_QWORD *)&CLFS_LSN_NULL_EXT & 0xFFFFFFFFFFFFFC0FuLL | 0x90;
             v55 = v56;
           }
@@ -476,7 +476,7 @@ LABEL_98:
       {
         if ( (MiFlags & 0x80u) == 0LL )
           goto LABEL_98;
-        if ( (++*(_DWORD *)&stru_140E2EB88.SavedApcStateFill[40] & MmPageValidationFrequency) != 0 )
+        if ( (++*(_DWORD *)&stru_140E2ED08.SavedApcStateFill[40] & MmPageValidationFrequency) != 0 )
           goto LABEL_98;
         MiArePageContentsZero((__int64)&v35[0x22000000000LL] / 48);
         v35->Next = 0LL;
@@ -559,7 +559,7 @@ LABEL_66:
     }
     break;
   }
-  v31 = (union _SLIST_HEADER *)(*(_QWORD *)(a1 + 8LL * v4 + 13856) + 16 * v30);
+  v31 = (_SLIST_HEADER *)(*(_QWORD *)(a1 + 8LL * v4 + 13856) + 16 * v30);
   v100 = *(__int64 **)(a1 + 8LL * v4 + 13856);
   v35 = RtlpInterlockedPopEntrySList(v31);
   if ( v35 )
@@ -674,11 +674,11 @@ LABEL_47:
     {
       v34 = *(_QWORD *)&CLFS_LSN_NULL_EXT & 0xFFFFFFFFFFFFFC9FuLL;
       v37 = *(_QWORD *)&CLFS_LSN_NULL_EXT & 0xFFFFFFFFFFFFFC1FuLL | 0x80;
-      if ( qword_140E2D740 )
+      if ( qword_140E2D8C0 )
       {
         v33 = (volatile signed __int32 *)(*(_QWORD *)&CLFS_LSN_NULL_EXT & 0xFFFFFFFFFFFFFC0FuLL | 0x90);
-        v38 = v34 | qword_140E2D740 | 0x80;
-        if ( (qword_140E2D740 & v37) != 0 )
+        v38 = v34 | qword_140E2D8C0 | 0x80;
+        if ( (qword_140E2D8C0 & v37) != 0 )
           v38 = *(_QWORD *)&CLFS_LSN_NULL_EXT & 0xFFFFFFFFFFFFFC0FuLL | 0x90;
         v37 = v38;
       }
@@ -691,7 +691,7 @@ LABEL_54:
   {
     if ( (MiFlags & 0x80u) == 0LL )
       goto LABEL_54;
-    if ( (++*(_DWORD *)&stru_140E2EB88.SavedApcStateFill[40] & MmPageValidationFrequency) != 0 )
+    if ( (++*(_DWORD *)&stru_140E2ED08.SavedApcStateFill[40] & MmPageValidationFrequency) != 0 )
       goto LABEL_54;
     MiArePageContentsZero((__int64)&v35[0x22000000000LL] / 48);
     v35->Next = 0LL;

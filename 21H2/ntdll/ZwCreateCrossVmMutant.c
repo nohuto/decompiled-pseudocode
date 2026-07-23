@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwCreateCrossVmMutant @ 0x18009EAD0
+ * XREFs of ZwCreateCrossVmMutant @ 0x18009EA90
  * Callers:
  *     <none>
  * Callees:

@@ -1,11 +1,11 @@
 /*
- * XREFs of PerfDiagpStartPerfDiagLogger @ 0x14083B57C
+ * XREFs of PerfDiagpStartPerfDiagLogger @ 0x14083B87C
  * Callers:
- *     PerfDiagpProxyWorker @ 0x14083B690 (PerfDiagpProxyWorker.c)
+ *     PerfDiagpProxyWorker @ 0x14083B990 (PerfDiagpProxyWorker.c)
  * Callees:
- *     RtlStringCbCatW @ 0x140371614 (RtlStringCbCatW.c)
- *     PerfDiagpIsTracingAllowed @ 0x14083B7C0 (PerfDiagpIsTracingAllowed.c)
- *     EtwStartAutoLogger @ 0x14083BFA8 (EtwStartAutoLogger.c)
+ *     RtlStringCbCatW @ 0x1403717B4 (RtlStringCbCatW.c)
+ *     PerfDiagpIsTracingAllowed @ 0x14083BAC0 (PerfDiagpIsTracingAllowed.c)
+ *     EtwStartAutoLogger @ 0x14083C2A8 (EtwStartAutoLogger.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
@@ -58,8 +58,8 @@ __int64 __fastcall PerfDiagpStartPerfDiagLogger(NTSTRSAFE_PCWSTR pszSrc)
     RtlStringCbCatW(v5, v3, pszSrc);
     if ( (unsigned int)PerfDiagpIsTracingAllowed() )
     {
-      wcscpy(&xmmword_140C3276C, L"PerfDiag Logger");
-      started = EtwStartAutoLogger(&xmmword_140C3276C);
+      wcscpy(&xmmword_140C326EC, L"PerfDiag Logger");
+      started = EtwStartAutoLogger(&xmmword_140C326EC);
     }
     else
     {

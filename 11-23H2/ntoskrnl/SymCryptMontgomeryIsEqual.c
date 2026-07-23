@@ -1,12 +1,12 @@
 /*
- * XREFs of SymCryptMontgomeryIsEqual @ 0x140400D10
+ * XREFs of SymCryptMontgomeryIsEqual @ 0x140400EF0
  * Callers:
  *     <none>
  * Callees:
- *     SymCryptModElementCreate @ 0x1403F966C (SymCryptModElementCreate.c)
- *     SymCryptModElementIsEqual @ 0x1403F96B8 (SymCryptModElementIsEqual.c)
- *     SymCryptModMul @ 0x1403F98F4 (SymCryptModMul.c)
- *     SymCryptSizeofModElementFromModulus @ 0x1403F9A88 (SymCryptSizeofModElementFromModulus.c)
+ *     SymCryptModElementCreate @ 0x1403F984C (SymCryptModElementCreate.c)
+ *     SymCryptModElementIsEqual @ 0x1403F9898 (SymCryptModElementIsEqual.c)
+ *     SymCryptModMul @ 0x1403F9AD4 (SymCryptModMul.c)
+ *     SymCryptSizeofModElementFromModulus @ 0x1403F9C68 (SymCryptSizeofModElementFromModulus.c)
  */
 
 __int64 __fastcall SymCryptMontgomeryIsEqual(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5, __int64 a6)

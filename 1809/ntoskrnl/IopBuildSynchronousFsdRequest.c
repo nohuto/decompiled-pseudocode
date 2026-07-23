@@ -1,13 +1,13 @@
 /*
- * XREFs of IopBuildSynchronousFsdRequest @ 0x140662EB0
+ * XREFs of IopBuildSynchronousFsdRequest @ 0x140664070
  * Callers:
- *     IoBuildSynchronousFsdRequest @ 0x140662F10 (IoBuildSynchronousFsdRequest.c)
- *     PnpQueryInterface @ 0x1406F9178 (PnpQueryInterface.c)
- *     IopCreateArcName @ 0x14070B408 (IopCreateArcName.c)
- *     RawQueryFileSystemInformation @ 0x14088FD40 (RawQueryFileSystemInformation.c)
+ *     IoBuildSynchronousFsdRequest @ 0x1406640D0 (IoBuildSynchronousFsdRequest.c)
+ *     PnpQueryInterface @ 0x1406FA418 (PnpQueryInterface.c)
+ *     IopCreateArcName @ 0x14070C6A8 (IopCreateArcName.c)
+ *     RawQueryFileSystemInformation @ 0x140890FA0 (RawQueryFileSystemInformation.c)
  * Callees:
- *     IopQueueThreadIrp @ 0x1400BC380 (IopQueueThreadIrp.c)
- *     IopBuildAsynchronousFsdRequest @ 0x1400E0610 (IopBuildAsynchronousFsdRequest.c)
+ *     IopQueueThreadIrp @ 0x1400BC2C0 (IopQueueThreadIrp.c)
+ *     IopBuildAsynchronousFsdRequest @ 0x1400E0690 (IopBuildAsynchronousFsdRequest.c)
  */
 
 __int64 __fastcall IopBuildSynchronousFsdRequest(

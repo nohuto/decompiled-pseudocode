@@ -1,10 +1,10 @@
 /*
- * XREFs of PipIommuValidateDeviceId @ 0x140766104
+ * XREFs of PipIommuValidateDeviceId @ 0x1407662C4
  * Callers:
- *     PipIommuRetrieveDeviceId @ 0x140766020 (PipIommuRetrieveDeviceId.c)
+ *     PipIommuRetrieveDeviceId @ 0x1407661E0 (PipIommuRetrieveDeviceId.c)
  * Callees:
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     IdpValidateAcpiName @ 0x1407C5A34 (IdpValidateAcpiName.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     IdpValidateAcpiName @ 0x1407C5F54 (IdpValidateAcpiName.c)
  */
 
 __int64 __fastcall PipIommuValidateDeviceId(ULONG_PTR a1, ULONG_PTR a2, __int64 a3)

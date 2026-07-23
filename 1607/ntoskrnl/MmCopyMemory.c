@@ -1,18 +1,18 @@
 /*
- * XREFs of MmCopyMemory @ 0x1401E51D4
+ * XREFs of MmCopyMemory @ 0x1401E5000
  * Callers:
  *     <none>
  * Callees:
- *     MiGetEffectivePagePriorityThread @ 0x140026DB4 (MiGetEffectivePagePriorityThread.c)
- *     MiUnlockWorkingSetExclusive @ 0x14002E930 (MiUnlockWorkingSetExclusive.c)
- *     MiUnlockProtoPoolPage @ 0x14004C4E0 (MiUnlockProtoPoolPage.c)
- *     MiReleasePtes @ 0x1400516D0 (MiReleasePtes.c)
- *     MiPrefetchVirtualMemory @ 0x1400BFCA0 (MiPrefetchVirtualMemory.c)
- *     MiReservePtes @ 0x1400DDB50 (MiReservePtes.c)
- *     MiCheckPhysicalAddressRange @ 0x140147220 (MiCheckPhysicalAddressRange.c)
- *     ZwReadVirtualMemory @ 0x14015A460 (ZwReadVirtualMemory.c)
- *     MiCopySinglePage @ 0x1401E49FC (MiCopySinglePage.c)
- *     MiTranslatePageForCopy @ 0x1401E4C54 (MiTranslatePageForCopy.c)
+ *     MiGetEffectivePagePriorityThread @ 0x140026934 (MiGetEffectivePagePriorityThread.c)
+ *     MiUnlockWorkingSetExclusive @ 0x14002E4B0 (MiUnlockWorkingSetExclusive.c)
+ *     MiUnlockProtoPoolPage @ 0x14004C060 (MiUnlockProtoPoolPage.c)
+ *     MiReleasePtes @ 0x140051250 (MiReleasePtes.c)
+ *     MiPrefetchVirtualMemory @ 0x1400BDB30 (MiPrefetchVirtualMemory.c)
+ *     MiReservePtes @ 0x1400DB9F0 (MiReservePtes.c)
+ *     MiCheckPhysicalAddressRange @ 0x140147790 (MiCheckPhysicalAddressRange.c)
+ *     ZwReadVirtualMemory @ 0x14015A9D0 (ZwReadVirtualMemory.c)
+ *     MiCopySinglePage @ 0x1401E4828 (MiCopySinglePage.c)
+ *     MiTranslatePageForCopy @ 0x1401E4A80 (MiTranslatePageForCopy.c)
  */
 
 NTSTATUS __fastcall MmCopyMemory(char *Buffer, char *BaseAddress, SIZE_T NumberOfBytesToRead, int a4, PSIZE_T a5)
@@ -96,7 +96,7 @@ NTSTATUS __fastcall MmCopyMemory(char *Buffer, char *BaseAddress, SIZE_T NumberO
     return -1073741583;
   CurrentThread = KeGetCurrentThread();
   Process = CurrentThread->ApcState.Process;
-  v12 = MiReservePtes((__int64)&qword_140327870, (unsigned int)v11, NumberOfBytesToRead);
+  v12 = MiReservePtes((__int64)&qword_1403278B0, (unsigned int)v11, NumberOfBytesToRead);
   v13 = v43;
   v14 = 0;
   v40 = v12;
@@ -197,7 +197,7 @@ LABEL_44:
     if ( v7 > 0x200000 - (v43 & 0x1FFFFF) )
       v24 = 0x200000 - (v43 & 0x1FFFFF);
     v41[1] = v24;
-    if ( v43 >= qword_140326910 && v43 < qword_140326910 + 0x8000000000LL )
+    if ( v43 >= qword_140326950 && v43 < qword_140326950 + 0x8000000000LL )
     {
       if ( !Process[1].ActiveProcessors.Bitmap[2] || Process == PsInitialSystemProcess )
       {
@@ -208,7 +208,7 @@ LABEL_44:
       v23 = KeGetCurrentThread()->ApcState.Process[1].ActiveProcessors.Bitmap[2] + 3008;
       v32 = v23;
     }
-    if ( v21 >= qword_140327F90 && v21 <= qword_140326CF8 )
+    if ( v21 >= qword_140327FD0 && v21 <= qword_140326D38 )
       break;
     v14 = MiPrefetchVirtualMemory(1uLL, (__int64)v41, v23, v22);
     if ( v14 < 0 )
@@ -225,7 +225,7 @@ LABEL_57:
   NumberOfBytesRead = a5;
 LABEL_58:
   if ( v40 )
-    MiReleasePtes((__int64)&qword_140327870, v40, v11);
+    MiReleasePtes((__int64)&qword_1403278B0, v40, v11);
   *NumberOfBytesRead += v35;
   return v14;
 }

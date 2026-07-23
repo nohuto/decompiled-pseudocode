@@ -11,25 +11,31 @@
  *     _RtlQueryEnvironmentVariable@24 @ 0x4B2BF830 (_RtlQueryEnvironmentVariable@24.c)
  */
 
-int __stdcall RtlQueryEnvironmentVariable_U(_WORD *a1, unsigned __int16 *a2, int a3)
+NTSTATUS __cdecl RtlQueryEnvironmentVariable_U(PVOID Environment, PUNICODE_STRING Name, PUNICODE_STRING Value)
 {
-  int v3; // ecx
-  __int16 v4; // ax
-  int v6; // [esp+8h] [ebp-4h] BYREF
+  NTSTATUS EnvironmentVariable; // ecx
+  unsigned __int16 v4; // ax
+  SIZE_T v6; // [esp-10h] [ebp-1Ch]
+  SIZE_T v7; // [esp-4h] [ebp-10h]
+  ULONG_PTR *v8; // [esp+4h] [ebp-8h]
+  SIZE_T ValueLength; // [esp+8h] [ebp-4h] BYREF
 
-  v3 = RtlQueryEnvironmentVariable(
-         a1,
-         *((wchar_t **)a2 + 1),
-         *a2 >> 1,
-         *(char **)(a3 + 4),
-         *(unsigned __int16 *)(a3 + 2) >> 1,
-         &v6);
-  if ( (unsigned int)v6 > 0x7FFF )
+  LODWORD(v7) = &ValueLength;
+  HIDWORD(v6) = Value->Buffer;
+  LODWORD(v6) = Name->Length >> 1;
+  EnvironmentVariable = RtlQueryEnvironmentVariable(
+                          Environment,
+                          (PCWSTR)Name->Buffer,
+                          v6,
+                          (PWSTR)(Value->MaximumLength >> 1),
+                          v7,
+                          v8);
+  if ( (unsigned int)ValueLength > 0x7FFF )
     return -1073741801;
-  if ( v3 == -1073741789 )
-    v4 = 2 * v6 - 2;
+  if ( EnvironmentVariable == -1073741789 )
+    v4 = 2 * ValueLength - 2;
   else
-    v4 = 2 * v6;
-  *(_WORD *)a3 = v4;
-  return v3;
+    v4 = 2 * ValueLength;
+  Value->Length = v4;
+  return EnvironmentVariable;
 }

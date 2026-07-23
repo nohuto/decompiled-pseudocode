@@ -1,39 +1,39 @@
 /*
- * XREFs of MiAllocateVirtualMemory @ 0x1409F3464
+ * XREFs of MiAllocateVirtualMemory @ 0x1409EFC34
  * Callers:
- *     MmCommitDecommitSecuredMemory @ 0x14086AD74 (MmCommitDecommitSecuredMemory.c)
- *     MmStoreAllocateVirtualMemory @ 0x1409F1A98 (MmStoreAllocateVirtualMemory.c)
- *     MmAllocateUserStack @ 0x1409F2008 (MmAllocateUserStack.c)
- *     MmAllocateVirtualMemory @ 0x1409F22A0 (MmAllocateVirtualMemory.c)
- *     NtAllocateVirtualMemory @ 0x1409F2980 (NtAllocateVirtualMemory.c)
+ *     MmCommitDecommitSecuredMemory @ 0x140871154 (MmCommitDecommitSecuredMemory.c)
+ *     MmStoreAllocateVirtualMemory @ 0x1409EE268 (MmStoreAllocateVirtualMemory.c)
+ *     MmAllocateUserStack @ 0x1409EE7D8 (MmAllocateUserStack.c)
+ *     MmAllocateVirtualMemory @ 0x1409EEA70 (MmAllocateVirtualMemory.c)
+ *     NtAllocateVirtualMemory @ 0x1409EF150 (NtAllocateVirtualMemory.c)
  * Callees:
- *     KiUnstackDetachProcess @ 0x1402307C0 (KiUnstackDetachProcess.c)
- *     KiStackAttachProcess @ 0x140247880 (KiStackAttachProcess.c)
- *     MiUnlockAndDereferenceVad @ 0x14027F600 (MiUnlockAndDereferenceVad.c)
- *     MiObtainReferencedVadEx @ 0x1402D0160 (MiObtainReferencedVadEx.c)
- *     MiAllowProtectionChange @ 0x140306C24 (MiAllowProtectionChange.c)
- *     MiCommitEnclavePages @ 0x140341288 (MiCommitEnclavePages.c)
- *     MiMakeProtectionMask @ 0x140364A40 (MiMakeProtectionMask.c)
- *     MiVadSupportsPrivateCommit @ 0x1403BBFA4 (MiVadSupportsPrivateCommit.c)
- *     MiLocateLockedVadEvent @ 0x1403BCC30 (MiLocateLockedVadEvent.c)
- *     MiGetProcessPartition @ 0x14044C0C0 (MiGetProcessPartition.c)
- *     MiGetVadPageSize @ 0x14044F880 (MiGetVadPageSize.c)
- *     MiGetControlAreaPartition @ 0x140457F60 (MiGetControlAreaPartition.c)
- *     MiReadVadFlags @ 0x1404655D0 (MiReadVadFlags.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     SeSinglePrivilegeCheck @ 0x140932280 (SeSinglePrivilegeCheck.c)
- *     MiReserveUserMemory @ 0x14095B5DC (MiReserveUserMemory.c)
- *     MiCheckSecuredVad @ 0x14095DB28 (MiCheckSecuredVad.c)
- *     MmProtectVirtualMemory @ 0x14095E5D8 (MmProtectVirtualMemory.c)
- *     MiCommitVadMetadataBits @ 0x1409C6E14 (MiCommitVadMetadataBits.c)
- *     MiCommitExistingVad @ 0x1409C7300 (MiCommitExistingVad.c)
- *     MiCommitPagefileBackedSection @ 0x1409C9560 (MiCommitPagefileBackedSection.c)
- *     MiValidateVadMetadataFlags @ 0x1409F3CF0 (MiValidateVadMetadataFlags.c)
- *     EtwTiLogAllocExecVm @ 0x1409F3D60 (EtwTiLogAllocExecVm.c)
- *     MiCommitFileBackedSection @ 0x140A58878 (MiCommitFileBackedSection.c)
- *     MiResetVirtualMemory @ 0x140AB1600 (MiResetVirtualMemory.c)
- *     PerfInfoLogVirtualAlloc @ 0x140ABCEC0 (PerfInfoLogVirtualAlloc.c)
- *     MiLogMemResetInfo @ 0x140B0ABB8 (MiLogMemResetInfo.c)
+ *     KiUnstackDetachProcess @ 0x140232120 (KiUnstackDetachProcess.c)
+ *     KiStackAttachProcess @ 0x1402491E0 (KiStackAttachProcess.c)
+ *     MiUnlockAndDereferenceVad @ 0x14027EB70 (MiUnlockAndDereferenceVad.c)
+ *     MiObtainReferencedVadEx @ 0x1402B1F20 (MiObtainReferencedVadEx.c)
+ *     MiAllowProtectionChange @ 0x1402E8CA4 (MiAllowProtectionChange.c)
+ *     MiCommitEnclavePages @ 0x140343308 (MiCommitEnclavePages.c)
+ *     MiMakeProtectionMask @ 0x1403667E0 (MiMakeProtectionMask.c)
+ *     MiVadSupportsPrivateCommit @ 0x1403C5E14 (MiVadSupportsPrivateCommit.c)
+ *     MiLocateLockedVadEvent @ 0x1403C6AA0 (MiLocateLockedVadEvent.c)
+ *     MiGetProcessPartition @ 0x1404441E0 (MiGetProcessPartition.c)
+ *     MiGetVadPageSize @ 0x1404479B0 (MiGetVadPageSize.c)
+ *     MiGetControlAreaPartition @ 0x14044F7D0 (MiGetControlAreaPartition.c)
+ *     MiReadVadFlags @ 0x14045E590 (MiReadVadFlags.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     SeSinglePrivilegeCheck @ 0x14090DE50 (SeSinglePrivilegeCheck.c)
+ *     MiCommitVadMetadataBits @ 0x140997DF4 (MiCommitVadMetadataBits.c)
+ *     MiCommitExistingVad @ 0x1409982E0 (MiCommitExistingVad.c)
+ *     MiCommitPagefileBackedSection @ 0x14099A540 (MiCommitPagefileBackedSection.c)
+ *     MiValidateVadMetadataFlags @ 0x1409F04C0 (MiValidateVadMetadataFlags.c)
+ *     EtwTiLogAllocExecVm @ 0x1409F0530 (EtwTiLogAllocExecVm.c)
+ *     MiReserveUserMemory @ 0x140A00E9C (MiReserveUserMemory.c)
+ *     MiCheckSecuredVad @ 0x140A033E8 (MiCheckSecuredVad.c)
+ *     MmProtectVirtualMemory @ 0x140A03E98 (MmProtectVirtualMemory.c)
+ *     MiCommitFileBackedSection @ 0x140A65DF8 (MiCommitFileBackedSection.c)
+ *     MiResetVirtualMemory @ 0x140AAF5F0 (MiResetVirtualMemory.c)
+ *     PerfInfoLogVirtualAlloc @ 0x140ABF324 (PerfInfoLogVirtualAlloc.c)
+ *     MiLogMemResetInfo @ 0x140B0C304 (MiLogMemResetInfo.c)
  */
 
 __int64 __fastcall MiAllocateVirtualMemory(__int64 a1, unsigned __int64 a2, __int64 a3, __int64 a4, __int64 *a5)
@@ -62,8 +62,8 @@ __int64 __fastcall MiAllocateVirtualMemory(__int64 a1, unsigned __int64 a2, __in
   int v28; // ecx
   __int64 v29; // r13
   int v30; // ecx
-  unsigned int v31; // edx
-  unsigned int v32; // ecx
+  int v31; // edx
+  int v32; // ecx
   __int64 ProcessPartition; // rax
   _QWORD *v34; // r9
   int v35; // r8d
@@ -178,7 +178,7 @@ LABEL_12:
   v46[0] = v18;
   if ( (v19 & 0x2000) != 0 )
   {
-    v20 = MiReserveUserMemory(a1, (__int64)v51, ProtectionMask, &v48, v46);
+    v20 = MiReserveUserMemory(a1, (_DWORD)v51, ProtectionMask, (unsigned int)&v48, (__int64)v46);
     v8 = v48;
     v45 = v20;
     if ( v20 < 0 )
@@ -353,10 +353,10 @@ LABEL_49:
               MmProtectVirtualMemory(
                 *(_QWORD *)(a1 + 96),
                 *(_QWORD *)(a1 + 88),
-                (unsigned __int64 *)&v48,
-                (__int64 *)&v51,
+                (unsigned int)&v48,
+                (unsigned int)&v51,
                 v32,
-                &ProtectionMask);
+                (__int64)&ProtectionMask);
             }
 LABEL_16:
             v18 = v46[0];
@@ -404,14 +404,14 @@ LABEL_113:
   if ( v45 < 0 )
   {
 LABEL_26:
-    if ( (WORD2(PerfGlobalGroupMask[0]) & 0x8000) != 0 && (*(_DWORD *)(a1 + 40) & 0x1000000) != 0 && v45 == -1073740748 )
+    if ( (WORD2(PerfGlobalGroupMask) & 0x8000) != 0 && (*(_DWORD *)(a1 + 40) & 0x1000000) != 0 && v45 == -1073740748 )
       MiLogMemResetInfo(v8, *(_QWORD *)(a1 + 24), 0LL);
     if ( (v7 & 1) != 0 )
       KiUnstackDetachProcess((__int64)v54, 0);
     return (unsigned int)v45;
   }
 LABEL_17:
-  if ( (WORD2(PerfGlobalGroupMask[0]) & 0x8000) != 0 )
+  if ( (WORD2(PerfGlobalGroupMask) & 0x8000) != 0 )
   {
     v41 = *(unsigned int *)(a1 + 40);
     if ( (v41 & 0x3000) != 0 )

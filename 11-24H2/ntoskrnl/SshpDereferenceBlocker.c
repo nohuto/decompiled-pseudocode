@@ -1,21 +1,21 @@
 /*
- * XREFs of SshpDereferenceBlocker @ 0x14047C6F0
+ * XREFs of SshpDereferenceBlocker @ 0x140477900
  * Callers:
- *     SleepstudyHelperDestroyBlocker @ 0x14047C6C0 (SleepstudyHelperDestroyBlocker.c)
- *     SleepstudyHelperSetBlockerParentHandle @ 0x140485B00 (SleepstudyHelperSetBlockerParentHandle.c)
- *     SleepstudyHelperDestroyBlockerBuilder @ 0x140A252E0 (SleepstudyHelperDestroyBlockerBuilder.c)
- *     SshpPurgeBlockersWorker @ 0x140A41310 (SshpPurgeBlockersWorker.c)
- *     SshNotifySystemSessionChange @ 0x140A4B418 (SshNotifySystemSessionChange.c)
+ *     SleepstudyHelperDestroyBlocker @ 0x1404778D0 (SleepstudyHelperDestroyBlocker.c)
+ *     SleepstudyHelperSetBlockerParentHandle @ 0x1404810F0 (SleepstudyHelperSetBlockerParentHandle.c)
+ *     SleepstudyHelperDestroyBlockerBuilder @ 0x140A192D0 (SleepstudyHelperDestroyBlockerBuilder.c)
+ *     SshpPurgeBlockersWorker @ 0x140A36BF0 (SshpPurgeBlockersWorker.c)
+ *     SshNotifySystemSessionChange @ 0x140A42178 (SshNotifySystemSessionChange.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     SshpBlockerActiveDereference @ 0x14044DC58 (SshpBlockerActiveDereference.c)
- *     SshpWorkItemQueue @ 0x14047C8CC (SshpWorkItemQueue.c)
- *     CmpVolumeManagerLockContextListExclusive @ 0x140A02430 (CmpVolumeManagerLockContextListExclusive.c)
- *     SshpUnlinkBlockerFromLibrary @ 0x140A41548 (SshpUnlinkBlockerFromLibrary.c)
- *     SshpFreeBlockerEntry @ 0x140A415DC (SshpFreeBlockerEntry.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     SshpBlockerActiveDereference @ 0x140444B58 (SshpBlockerActiveDereference.c)
+ *     SshpWorkItemQueue @ 0x140477ADC (SshpWorkItemQueue.c)
+ *     CmpVolumeManagerLockContextListExclusive @ 0x1409FF8F8 (CmpVolumeManagerLockContextListExclusive.c)
+ *     SshpUnlinkBlockerFromLibrary @ 0x140A36E28 (SshpUnlinkBlockerFromLibrary.c)
+ *     SshpFreeBlockerEntry @ 0x140A36EBC (SshpFreeBlockerEntry.c)
  */
 
 void __fastcall SshpDereferenceBlocker(PKSPIN_LOCK SpinLock, int a2, char a3)

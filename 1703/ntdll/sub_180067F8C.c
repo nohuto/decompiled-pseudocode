@@ -16,12 +16,12 @@
 
 __int64 __fastcall sub_180067F8C(__int64 *a1, int a2, int a3, __int64 a4)
 {
-  __int64 (__fastcall *v4)(int, int, int, int, __int64); // rax
+  __int64 (__fastcall *v4)(int, int, int, int, PSIZE_T); // rax
   __int64 v6; // r10
   __int64 result; // rax
-  __int64 v8; // [rsp+40h] [rbp+8h] BYREF
+  ULONG_PTR v8; // [rsp+40h] [rbp+8h] BYREF
 
-  v4 = (__int64 (__fastcall *)(int, int, int, int, __int64))a1[1];
+  v4 = (__int64 (__fastcall *)(int, int, int, int, PSIZE_T))a1[1];
   v6 = *a1;
   if ( (char *)v4 == (char *)sub_180068160 )
   {
@@ -29,7 +29,7 @@ __int64 __fastcall sub_180067F8C(__int64 *a1, int a2, int a3, __int64 a4)
   }
   else if ( v4 == sub_1800681C0 )
   {
-    result = sub_1800681C0(v6, a2, a3, a4, (__int64)&v8);
+    result = sub_1800681C0(v6, a2, a3, a4, &v8);
   }
   else
   {

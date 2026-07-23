@@ -53,7 +53,7 @@ __int64 __fastcall PiCreateDriverRedirectedStateKey(UNICODE_STRING *CreateOption
     StateRootPath = -1073741811;
     goto LABEL_6;
   }
-  StateRootPath = PiGetStateRootPath(L"DriverStatePath", 0LL, 0, &DestinationString);
+  StateRootPath = PiGetStateRootPath(L"DriverStatePath", 0LL, LocationTypeRegistry, &DestinationString);
   if ( StateRootPath < 0 )
     goto LABEL_6;
   v9 = CreateOptions->Length + 2;

@@ -1,5 +1,5 @@
 /*
- * XREFs of DifPluginSimplePerfControl @ 0x1405D4AA0
+ * XREFs of DifPluginSimplePerfControl @ 0x1405D5010
  * Callers:
  *     <none>
  * Callees:

@@ -1,8 +1,8 @@
 /*
- * XREFs of MiMapPageFileHash @ 0x14014FCD8
+ * XREFs of MiMapPageFileHash @ 0x14014FDD8
  * Callers:
- *     MiGatherPagefilePages @ 0x14014EFE0 (MiGatherPagefilePages.c)
- *     MiStoreUpdatePagefileHash @ 0x14014FB2C (MiStoreUpdatePagefileHash.c)
+ *     MiGatherPagefilePages @ 0x14014F0E0 (MiGatherPagefilePages.c)
+ *     MiStoreUpdatePagefileHash @ 0x14014FC2C (MiStoreUpdatePagefileHash.c)
  * Callees:
  *     MiReturnResidentAvailable @ 0x140022D18 (MiReturnResidentAvailable.c)
  *     MiInitializePfnForOtherProcess @ 0x140026C2C (MiInitializePfnForOtherProcess.c)
@@ -17,14 +17,14 @@
  *     MiMakeValidPte @ 0x14003D7F0 (MiMakeValidPte.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  *     MmMapLockedPagesSpecifyCache @ 0x14005C0C0 (MmMapLockedPagesSpecifyCache.c)
- *     MiReturnCommit @ 0x140065D40 (MiReturnCommit.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     MiWritePageFileHash @ 0x1401514B8 (MiWritePageFileHash.c)
- *     MiGetFileHashPage @ 0x14015173C (MiGetFileHashPage.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiReturnCommit @ 0x140065D30 (MiReturnCommit.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14007DE80 (KeAcquireInStackQueuedSpinLock.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     MiWritePageFileHash @ 0x1401515B8 (MiWritePageFileHash.c)
+ *     MiGetFileHashPage @ 0x14015183C (MiGetFileHashPage.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void __fastcall MiMapPageFileHash(__int64 a1, __int64 a2, __int64 a3, unsigned int a4, unsigned int a5)
@@ -132,15 +132,15 @@ void __fastcall MiMapPageFileHash(__int64 a1, __int64 a2, __int64 a3, unsigned i
                       - 0x58000000000LL
                       + 16);
       v37 = v36;
-      if ( qword_14043A0C0 && (v36 & 0x10) == 0 )
-        v37 = v36 & ~qword_14043A0C0;
+      if ( qword_14043B180 && (v36 & 0x10) == 0 )
+        v37 = v36 & ~qword_14043B180;
       updated = MiUpdatePageFileHighInPte(v36, v13 + HIDWORD(v37));
       if ( !MiPteInShadowRange(v38 + 16) )
         goto LABEL_52;
       if ( (unsigned int)MiPteHasShadow() )
       {
         v41 = 1;
-        if ( !HIBYTE(word_14043A1AC) )
+        if ( !HIBYTE(word_14043B26C) )
         {
           v43 = (v42 & 1) == 0;
           goto LABEL_50;
@@ -199,12 +199,12 @@ LABEL_52:
     {
       v22 = MI_READ_PTE_LOCK_FREE(v14);
       HIDWORD(v23) = HIDWORD(v22);
-      if ( qword_14043A0C0 )
+      if ( qword_14043B180 )
       {
         if ( (v22 & 0x10) != 0 )
           HIDWORD(v23) = HIDWORD(v22);
         else
-          v23 = v22 & ~qword_14043A0C0;
+          v23 = v22 & ~qword_14043B180;
       }
       v24 = HIDWORD(v23) + v71;
       if ( v18 != -1LL )
@@ -215,7 +215,7 @@ LABEL_52:
         if ( (unsigned int)MiPteHasShadow() )
         {
           v28 = 1;
-          if ( HIBYTE(word_14043A1AC) )
+          if ( HIBYTE(word_14043B26C) )
             goto LABEL_20;
           v59 = (v58 & 1) == 0;
         }
@@ -239,7 +239,7 @@ LABEL_20:
         if ( (unsigned int)MiPteHasShadow() )
         {
           v31 = 1;
-          if ( !HIBYTE(word_14043A1AC) )
+          if ( !HIBYTE(word_14043B26C) )
           {
             v61 = (v60 & 1) == 0;
             goto LABEL_110;
@@ -301,7 +301,7 @@ LABEL_33:
         if ( (unsigned int)MiPteHasShadow() )
         {
           v53 = 1;
-          if ( !HIBYTE(word_14043A1AC) )
+          if ( !HIBYTE(word_14043B26C) )
           {
             v55 = (v54 & 1) == 0;
             goto LABEL_88;
@@ -361,7 +361,7 @@ LABEL_88:
       else
         _InterlockedExchangeAdd64((volatile signed __int64 *)(v51 + 7360), 1uLL);
       MiReturnCommit(*(_QWORD *)(a1 + 256), 1uLL);
-      _InterlockedDecrement64(&qword_14043B7A8);
+      _InterlockedDecrement64(&qword_14043C868);
     }
     v35 = a5;
     v5 = v72;

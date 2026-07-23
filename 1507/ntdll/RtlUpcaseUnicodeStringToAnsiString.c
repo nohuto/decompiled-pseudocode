@@ -9,45 +9,53 @@
  *     RtlxUnicodeStringToOemSize @ 0x1800D24B0 (RtlxUnicodeStringToOemSize.c)
  */
 
-__int64 __fastcall RtlUpcaseUnicodeStringToAnsiString(unsigned __int16 *a1, unsigned __int16 **a2, char a3)
+NTSTATUS __cdecl RtlUpcaseUnicodeStringToAnsiString(
+        PANSI_STRING DestinationString,
+        PUNICODE_STRING SourceString,
+        BOOLEAN AllocateDestinationString)
 {
   unsigned __int64 v6; // rax
-  __int64 StringRoutine; // rax
+  char *StringRoutine; // rax
   int v9; // edi
-  unsigned int v10; // [rsp+78h] [rbp+20h] BYREF
+  ULONG BytesInMultiByteString; // [rsp+78h] [rbp+20h] BYREF
 
   if ( NlsMbCodePageTag )
-    LODWORD(v6) = RtlxUnicodeStringToOemSize(a2);
+    LODWORD(v6) = RtlxUnicodeStringToOemSize(SourceString);
   else
-    v6 = ((unsigned __int64)*(unsigned __int16 *)a2 + 2) >> 1;
+    v6 = ((unsigned __int64)SourceString->Length + 2) >> 1;
   if ( (unsigned int)v6 > 0xFFFF )
-    return 3221225712LL;
-  *a1 = v6 - 1;
-  if ( a3 )
+    return -1073741584;
+  DestinationString->Length = v6 - 1;
+  if ( AllocateDestinationString )
   {
-    a1[1] = v6;
-    StringRoutine = NtdllpAllocateStringRoutine((unsigned int)v6);
-    *((_QWORD *)a1 + 1) = StringRoutine;
+    DestinationString->MaximumLength = v6;
+    StringRoutine = (char *)NtdllpAllocateStringRoutine((unsigned int)v6);
+    DestinationString->Buffer = StringRoutine;
     if ( !StringRoutine )
-      return 3221225495LL;
+      return -1073741801;
   }
-  else if ( (unsigned __int16)(v6 - 1) >= a1[1] )
+  else if ( (unsigned __int16)(v6 - 1) >= DestinationString->MaximumLength )
   {
-    return 2147483653LL;
+    return -2147483643;
   }
-  v9 = RtlUpcaseUnicodeToMultiByteN(*((_BYTE **)a1 + 1), *a1, &v10, a2[1], *(unsigned __int16 *)a2);
+  v9 = RtlUpcaseUnicodeToMultiByteN(
+         DestinationString->Buffer,
+         DestinationString->Length,
+         &BytesInMultiByteString,
+         SourceString->Buffer,
+         SourceString->Length);
   if ( v9 >= 0 )
   {
-    *(_BYTE *)(v10 + *((_QWORD *)a1 + 1)) = 0;
+    DestinationString->Buffer[BytesInMultiByteString] = 0;
     v9 = 0;
   }
   if ( v9 < 0 )
   {
-    if ( a3 )
+    if ( AllocateDestinationString )
     {
-      NtdllpFreeStringRoutine(*((_QWORD *)a1 + 1));
-      *((_QWORD *)a1 + 1) = 0LL;
+      NtdllpFreeStringRoutine(DestinationString->Buffer);
+      DestinationString->Buffer = 0LL;
     }
   }
-  return (unsigned int)v9;
+  return v9;
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of NtSetDefaultUILanguage @ 0x140548E5C
+ * XREFs of NtSetDefaultUILanguage @ 0x14054939C
  * Callers:
  *     <none>
  * Callees:

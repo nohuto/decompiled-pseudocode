@@ -1,39 +1,39 @@
 /*
- * XREFs of PfSnCleanupPrefetchSectionInfo @ 0x14096BB78
+ * XREFs of PfSnCleanupPrefetchSectionInfo @ 0x1409545D4
  * Callers:
- *     PfSnSectionInfoCleanupWorkItem @ 0x14096A900 (PfSnSectionInfoCleanupWorkItem.c)
- *     PfSnPopulateReadList @ 0x14096A9C0 (PfSnPopulateReadList.c)
+ *     PfSnSectionInfoCleanupWorkItem @ 0x140953390 (PfSnSectionInfoCleanupWorkItem.c)
+ *     PfSnPopulateReadList @ 0x140953450 (PfSnPopulateReadList.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     PfpOpenHandleClose @ 0x14096B934 (PfpOpenHandleClose.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     PfpOpenHandleClose @ 0x140954390 (PfpOpenHandleClose.c)
  */
 
-void __fastcall PfSnCleanupPrefetchSectionInfo(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+void __fastcall PfSnCleanupPrefetchSectionInfo(__int64 a1, __int64 a2, char a3)
 {
-  int v6; // eax
+  int v5; // eax
+  void *v6; // rcx
   void *v7; // rcx
-  void *v8; // rcx
 
-  if ( (_BYTE)a3 )
+  if ( a3 )
   {
-    v6 = *(_DWORD *)(a1 + 48);
-    if ( (v6 & 1) != 0 )
+    v5 = *(_DWORD *)(a1 + 48);
+    if ( (v5 & 1) != 0 )
     {
       ObfDereferenceObject(*(PVOID *)(a1 + 32));
       *(_QWORD *)(a1 + 32) = 0LL;
       *(_DWORD *)(a1 + 48) &= ~1u;
-      v6 = *(_DWORD *)(a1 + 48);
+      v5 = *(_DWORD *)(a1 + 48);
     }
-    if ( (v6 & 2) != 0 )
+    if ( (v5 & 2) != 0 )
     {
       ObfDereferenceObject(*(PVOID *)(a1 + 40));
       *(_QWORD *)(a1 + 40) = 0LL;
       *(_DWORD *)(a1 + 48) &= ~2u;
-      v6 = *(_DWORD *)(a1 + 48);
+      v5 = *(_DWORD *)(a1 + 48);
     }
-    if ( (v6 & 4) != 0 )
+    if ( (v5 & 4) != 0 )
     {
-      PfpOpenHandleClose(a1, *(_QWORD *)(a2 + 8), a3, a4);
+      PfpOpenHandleClose(a1, *(_QWORD *)(a2 + 8));
       *(_QWORD *)a1 = 0LL;
       *(_QWORD *)(a1 + 8) = 0LL;
       *(_QWORD *)(a1 + 16) = 0LL;
@@ -43,13 +43,13 @@ void __fastcall PfSnCleanupPrefetchSectionInfo(__int64 a1, __int64 a2, __int64 a
   }
   else
   {
-    v7 = *(void **)(a1 + 32);
+    v6 = *(void **)(a1 + 32);
+    if ( v6 )
+      ObfDereferenceObject(v6);
+    v7 = *(void **)(a1 + 40);
     if ( v7 )
       ObfDereferenceObject(v7);
-    v8 = *(void **)(a1 + 40);
-    if ( v8 )
-      ObfDereferenceObject(v8);
     if ( _bittest64((const signed __int64 *)(a1 + 24), 0x22u) )
-      PfpOpenHandleClose(a1, *(_QWORD *)(a2 + 8), a3, a4);
+      PfpOpenHandleClose(a1, *(_QWORD *)(a2 + 8));
   }
 }

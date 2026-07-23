@@ -1,5 +1,5 @@
 /*
- * XREFs of NtdllDesktopWndProc_A @ 0x18009FF90
+ * XREFs of NtdllDesktopWndProc_A @ 0x18009FFB0
  * Callers:
  *     <none>
  * Callees:

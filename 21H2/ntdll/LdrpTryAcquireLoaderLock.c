@@ -1,11 +1,11 @@
 /*
- * XREFs of LdrpTryAcquireLoaderLock @ 0x1800CDD80
+ * XREFs of LdrpTryAcquireLoaderLock @ 0x1800CDD40
  * Callers:
  *     LdrLockLoaderLock @ 0x18007DAE0 (LdrLockLoaderLock.c)
  * Callees:
  *     RtlTryEnterCriticalSection @ 0x1800207E0 (RtlTryEnterCriticalSection.c)
  *     RtlGetCurrentServiceSessionId @ 0x180024850 (RtlGetCurrentServiceSessionId.c)
- *     LdrpLogEtwEvent @ 0x1800CF280 (LdrpLogEtwEvent.c)
+ *     LdrpLogEtwEvent @ 0x1800CF240 (LdrpLogEtwEvent.c)
  */
 
 char LdrpTryAcquireLoaderLock()
@@ -22,14 +22,14 @@ char LdrpTryAcquireLoaderLock()
   int v10; // r9d
 
   v0 = 2147353476LL;
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+  if ( RtlGetCurrentServiceSessionId() )
     v1 = (__int64)NtCurrentPeb()->SharedData + 554;
   else
     v1 = 2147353476LL;
   v2 = 2147353477LL;
   if ( *(_BYTE *)v1 && (NtCurrentPeb()->TracingFlags & 4) != 0 )
   {
-    v5 = (unsigned int)RtlGetCurrentServiceSessionId() ? (char *)NtCurrentPeb()->SharedData + 555 : (char *)2147353477;
+    v5 = RtlGetCurrentServiceSessionId() ? (char *)NtCurrentPeb()->SharedData + 555 : (char *)2147353477;
     if ( (*v5 & 0x20) != 0 )
     {
       LOBYTE(v4) = -1;
@@ -37,13 +37,13 @@ char LdrpTryAcquireLoaderLock()
       LdrpLogEtwEvent(5248, -1, v3, v4, 0LL, 0LL);
     }
   }
-  if ( (unsigned int)RtlTryEnterCriticalSection((__int64)&LdrpLoaderLock) )
+  if ( RtlTryEnterCriticalSection(&LdrpLoaderLock) )
   {
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+    if ( RtlGetCurrentServiceSessionId() )
       v0 = (__int64)NtCurrentPeb()->SharedData + 554;
     if ( *(_BYTE *)v0 && (NtCurrentPeb()->TracingFlags & 4) != 0 )
     {
-      if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+      if ( RtlGetCurrentServiceSessionId() )
         v2 = (__int64)NtCurrentPeb()->SharedData + 555;
       if ( (*(_BYTE *)v2 & 0x20) != 0 )
       {
@@ -56,11 +56,11 @@ char LdrpTryAcquireLoaderLock()
   }
   else
   {
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+    if ( RtlGetCurrentServiceSessionId() )
       v0 = (__int64)NtCurrentPeb()->SharedData + 554;
     if ( *(_BYTE *)v0 && (NtCurrentPeb()->TracingFlags & 4) != 0 )
     {
-      if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+      if ( RtlGetCurrentServiceSessionId() )
         v2 = (__int64)NtCurrentPeb()->SharedData + 555;
       if ( (*(_BYTE *)v2 & 0x20) != 0 )
       {

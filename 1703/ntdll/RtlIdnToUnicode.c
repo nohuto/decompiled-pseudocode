@@ -13,12 +13,17 @@
  *     memmove @ 0x1800ABA80 (memmove.c)
  */
 
-__int64 __fastcall RtlIdnToUnicode(int a1, wchar_t *a2, int a3, void *a4, int *a5)
+NTSTATUS __cdecl RtlIdnToUnicode(
+        ULONG Flags,
+        PCWSTR SourceString,
+        LONG SourceStringLength,
+        PWSTR DestinationString,
+        PLONG DestinationStringLength)
 {
   wchar_t *v6; // r11
   __int16 v7; // di
   wchar_t v8; // si
-  __int64 result; // rax
+  NTSTATUS result; // eax
   __int64 v10; // rdx
   __int64 v11; // rcx
   __int64 v12; // r8
@@ -27,30 +32,37 @@ __int64 __fastcall RtlIdnToUnicode(int a1, wchar_t *a2, int a3, void *a4, int *a
   unsigned __int64 v15; // rax
   __int64 v16; // r12
   __int64 v17; // r8
-  int v18; // ebx
-  unsigned __int64 Heap; // rsi
+  LONG v18; // ebx
+  _BYTE *Heap; // rsi
   __int64 i; // rcx
   __int16 v21; // dx
   __int64 j; // rax
-  char v23; // [rsp+40h] [rbp-C0h] BYREF
+  BOOLEAN Normalized; // [rsp+40h] [rbp-C0h] BYREF
   _BYTE v24[15]; // [rsp+41h] [rbp-BFh] BYREF
   __int64 v25; // [rsp+50h] [rbp-B0h] BYREF
-  _WORD Src[512]; // [rsp+60h] [rbp-A0h] BYREF
+  WCHAR Src[512]; // [rsp+60h] [rbp-A0h] BYREF
 
-  v6 = a2;
-  v7 = a1;
-  if ( !a2 || !a5 || *a5 < 0 || a3 < -1 || *a5 > 0 && !a4 || (a1 & 0xFFFFFFF0) != 0 )
-    return 3221225485LL;
-  if ( a3 == -1 )
+  v6 = (wchar_t *)SourceString;
+  v7 = Flags;
+  if ( !SourceString
+    || !DestinationStringLength
+    || *DestinationStringLength < 0
+    || SourceStringLength < -1
+    || *DestinationStringLength > 0 && !DestinationString
+    || (Flags & 0xFFFFFFF0) != 0 )
   {
-    if ( (int)sub_180045280(a2, 0x203uLL, &v24[7]) < 0 )
-      return 3221227286LL;
-    a3 = *(_DWORD *)&v24[7] + 1;
+    return -1073741811;
+  }
+  if ( SourceStringLength == -1 )
+  {
+    if ( (int)sub_180045280(SourceString, 0x203uLL, &v24[7]) < 0 )
+      return -1073740010;
+    SourceStringLength = *(_DWORD *)&v24[7] + 1;
   }
   *(_DWORD *)&v24[3] = 511;
-  v8 = v6[a3 - 1];
+  v8 = v6[SourceStringLength - 1];
   result = sub_18006AAE8(v6, (v7 & 4) != 0, (v7 & 2) != 0, (__int64)v24, (__int64)&v25);
-  if ( (int)result < 0 )
+  if ( result < 0 )
     return result;
   if ( v8 )
   {
@@ -59,7 +71,7 @@ __int64 __fastcall RtlIdnToUnicode(int a1, wchar_t *a2, int a3, void *a4, int *a
   else
   {
     if ( (unsigned __int64)*(int *)&v24[3] >= 0x1FF )
-      return 3221227286LL;
+      return -1073740010;
     v14 = *(_DWORD *)&v24[3] + 1;
     v15 = *(int *)&v24[3];
     ++*(_DWORD *)&v24[3];
@@ -70,49 +82,46 @@ __int64 __fastcall RtlIdnToUnicode(int a1, wchar_t *a2, int a3, void *a4, int *a
   if ( (v7 & 8) == 0 && !v24[0] )
   {
     v16 = v25;
-    if ( (v7 & 4) != 0
-      && ((int)RtlIsNormalizedString(1LL, (__int64)Src, (v25 - (__int64)Src) >> 1, (__int64)&v23) < 0 || !v23) )
-    {
-      return 3221227286LL;
-    }
+    if ( (v7 & 4) != 0 && (RtlIsNormalizedString(1u, Src, (v25 - (__int64)Src) >> 1, &Normalized) < 0 || !Normalized) )
+      return -1073740010;
     v17 = (v16 - (__int64)Src) >> 1;
     if ( v17 < v14 - (v8 == 0) )
     {
       v18 = v14 - (2 - (v8 != 0)) - v17;
-      Heap = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, v18);
+      Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, v18);
       if ( !Heap )
-        return 3221225495LL;
+        return -1073741801;
       for ( i = 0LL; i < v18; ++i )
       {
         v21 = *(_WORD *)(v16 + 2 * i + 2);
         if ( (unsigned __int16)(v21 - 65) <= 0x19u )
         {
           *(_WORD *)(v16 + 2 * i + 2) = v21 + 32;
-          *(_BYTE *)(i + Heap) = 1;
+          Heap[i] = 1;
         }
       }
-      if ( (int)RtlIsNormalizedString(~(v7 << 8) & 0x100 | 0xDu, v16 + 2, v18, (__int64)&v23) >= 0 && v23 )
+      if ( RtlIsNormalizedString(~(v7 << 8) & 0x100 | 0xD, (PCWSTR)(v16 + 2), v18, &Normalized) >= 0 && Normalized )
       {
         for ( j = 0LL; j < v18; ++j )
         {
-          if ( *(_BYTE *)(j + Heap) == 1 )
+          if ( Heap[j] == 1 )
             *(_WORD *)(v16 + 2 * j + 2) -= 32;
         }
-        RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, Heap);
+        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Heap);
         v14 = *(_DWORD *)&v24[3];
         goto LABEL_17;
       }
-      RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, Heap);
-      return 3221227286LL;
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Heap);
+      return -1073740010;
     }
   }
 LABEL_17:
-  if ( a4 && *a5 )
+  if ( DestinationString && *DestinationStringLength )
   {
-    if ( v14 > *a5 )
-      return 3221225507LL;
-    memmove(a4, Src, 2LL * v14);
+    if ( v14 > *DestinationStringLength )
+      return -1073741789;
+    memmove(DestinationString, Src, 2LL * v14);
   }
-  *a5 = v14;
-  return 0LL;
+  *DestinationStringLength = v14;
+  return 0;
 }

@@ -1,14 +1,14 @@
 /*
- * XREFs of KeQueryNodeActiveAffinityEx @ 0x140306B58
+ * XREFs of KeQueryNodeActiveAffinityEx @ 0x140306DE8
  * Callers:
- *     KeQueryLogicalProcessorRelationship @ 0x140305FB0 (KeQueryLogicalProcessorRelationship.c)
- *     ExpWorkQueueManagerThread @ 0x140838DC0 (ExpWorkQueueManagerThread.c)
- *     ExProcessorCounterSetCallback @ 0x14086DBA0 (ExProcessorCounterSetCallback.c)
+ *     KeQueryLogicalProcessorRelationship @ 0x140306240 (KeQueryLogicalProcessorRelationship.c)
+ *     ExpWorkQueueManagerThread @ 0x1408390C0 (ExpWorkQueueManagerThread.c)
+ *     ExProcessorCounterSetCallback @ 0x14086DDE0 (ExProcessorCounterSetCallback.c)
  *     PspCopyNodeRelativeMaskToAffinityEx @ 0x140B969F4 (PspCopyNodeRelativeMaskToAffinityEx.c)
  * Callees:
- *     KeEnumerateNextSchedulerSubNodeInNode @ 0x1402C1BFC (KeEnumerateNextSchedulerSubNodeInNode.c)
- *     KiQuerySubNodeActiveAffinity @ 0x140307E7C (KiQuerySubNodeActiveAffinity.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     KeEnumerateNextSchedulerSubNodeInNode @ 0x1402C1E8C (KeEnumerateNextSchedulerSubNodeInNode.c)
+ *     KiQuerySubNodeActiveAffinity @ 0x14030810C (KiQuerySubNodeActiveAffinity.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 void __fastcall KeQueryNodeActiveAffinityEx(unsigned __int16 a1, unsigned __int16 *a2, _WORD *a3)

@@ -1,21 +1,21 @@
 /*
- * XREFs of MiCfgMarkValidEntries @ 0x1407A474C
+ * XREFs of MiCfgMarkValidEntries @ 0x1407A493C
  * Callers:
- *     NtSetInformationVirtualMemory @ 0x1407A4020 (NtSetInformationVirtualMemory.c)
+ *     NtSetInformationVirtualMemory @ 0x1407A4210 (NtSetInformationVirtualMemory.c)
  * Callees:
- *     MiGetProtoPteAddress @ 0x140272E90 (MiGetProtoPteAddress.c)
- *     MiUnlockAndDereferenceVad @ 0x140274A90 (MiUnlockAndDereferenceVad.c)
- *     MiObtainReferencedVadEx @ 0x140274CB0 (MiObtainReferencedVadEx.c)
- *     MiSectionControlArea @ 0x14029F880 (MiSectionControlArea.c)
- *     MmGetSessionIdEx @ 0x1402A1720 (MmGetSessionIdEx.c)
- *     MiStartingOffset @ 0x1402E2310 (MiStartingOffset.c)
- *     CfgAddressToBitState @ 0x14065667C (CfgAddressToBitState.c)
- *     MiValidateXfgUserCallTarget @ 0x1406566C0 (MiValidateXfgUserCallTarget.c)
- *     MiSelectCfgBitMap @ 0x1406AEA54 (MiSelectCfgBitMap.c)
- *     MiPopulateCfgBitMap @ 0x1407A4970 (MiPopulateCfgBitMap.c)
- *     MiIsProcessCfgExportSuppressionEnabled @ 0x140A43C34 (MiIsProcessCfgExportSuppressionEnabled.c)
- *     MiIsProcessXfgEnabled @ 0x140A43C5C (MiIsProcessXfgEnabled.c)
- *     MiValidateUserCallTarget @ 0x140A43C88 (MiValidateUserCallTarget.c)
+ *     MiGetProtoPteAddress @ 0x140273120 (MiGetProtoPteAddress.c)
+ *     MiUnlockAndDereferenceVad @ 0x140274D20 (MiUnlockAndDereferenceVad.c)
+ *     MiObtainReferencedVadEx @ 0x140274F40 (MiObtainReferencedVadEx.c)
+ *     MiSectionControlArea @ 0x14029FB10 (MiSectionControlArea.c)
+ *     MmGetSessionIdEx @ 0x1402A19B0 (MmGetSessionIdEx.c)
+ *     MiStartingOffset @ 0x1402E25A0 (MiStartingOffset.c)
+ *     CfgAddressToBitState @ 0x140656BCC (CfgAddressToBitState.c)
+ *     MiValidateXfgUserCallTarget @ 0x140656C10 (MiValidateXfgUserCallTarget.c)
+ *     MiSelectCfgBitMap @ 0x1406AEA84 (MiSelectCfgBitMap.c)
+ *     MiPopulateCfgBitMap @ 0x1407A4B60 (MiPopulateCfgBitMap.c)
+ *     MiIsProcessCfgExportSuppressionEnabled @ 0x140A43EE4 (MiIsProcessCfgExportSuppressionEnabled.c)
+ *     MiIsProcessXfgEnabled @ 0x140A43F0C (MiIsProcessXfgEnabled.c)
+ *     MiValidateUserCallTarget @ 0x140A43F38 (MiValidateUserCallTarget.c)
  */
 
 __int64 __fastcall MiCfgMarkValidEntries(

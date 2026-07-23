@@ -68,7 +68,7 @@ __int64 __fastcall KeSetUserGroupAffinityThread(__int64 a1, __int64 a2)
   struct _KPRCB *v36; // r9
   _DWORD *v37; // r8
   int v38; // eax
-  void (__fastcall *v39)(_QWORD, _DWORD *, int *, __int64, struct _PROCESSOR_NUMBER *); // rax
+  void (__fastcall *v39)(_QWORD, _DWORD *, int *, __int64, _PROCESSOR_NUMBER *); // rax
   __int16 v40; // r15
   unsigned int *v41; // rbx
   unsigned __int64 v42; // rdi
@@ -81,7 +81,7 @@ __int64 __fastcall KeSetUserGroupAffinityThread(__int64 a1, __int64 a2)
   __int64 (__fastcall *v49)(_QWORD, _DWORD *, __int128 *, __int64, _DWORD *); // rax
   int v50; // eax
   _DWORD v51[2]; // [rsp+40h] [rbp-438h] BYREF
-  struct _PROCESSOR_NUMBER ProcNumber; // [rsp+48h] [rbp-430h] BYREF
+  _PROCESSOR_NUMBER ProcNumber; // [rsp+48h] [rbp-430h] BYREF
   int v53; // [rsp+4Ch] [rbp-42Ch]
   _QWORD *v54; // [rsp+50h] [rbp-428h] BYREF
   __int128 v55; // [rsp+58h] [rbp-420h] BYREF
@@ -125,7 +125,7 @@ LABEL_6:
   v7 = *(_QWORD *)(a1 + 544);
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 2 )
@@ -289,11 +289,12 @@ LABEL_6:
           else
           {
             v70 = 3;
-            ProcNumber = (struct _PROCESSOR_NUMBER)-1;
+            ProcNumber = (_PROCESSOR_NUMBER)-1;
             v53 = 1;
             v51[1] = *(_DWORD *)(HalpInterruptIpiLines + 20);
             v51[0] = *(_DWORD *)(HalpInterruptIpiLines + 16);
-            v39 = *(void (__fastcall **)(_QWORD, _DWORD *, int *, __int64, struct _PROCESSOR_NUMBER *))(HalpInterruptController + 120);
+            v39 = *(void (__fastcall **)(_QWORD, _DWORD *, int *, __int64, _PROCESSOR_NUMBER *))(HalpInterruptController
+                                                                                               + 120);
             _disable();
             v39(*(_QWORD *)(HalpInterruptController + 16), v51, &v70, 47LL, &ProcNumber);
             if ( (v76 & 0x200) != 0 )
@@ -373,10 +374,10 @@ LABEL_6:
       }
       if ( !v31 )
       {
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v32 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)(v32 - 2) <= 0xDu )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && (unsigned __int8)(v32 - 2) <= 0xDu )
           {
             v33 = KeGetCurrentPrcb();
             v34 = v33->SchedulerAssist;
@@ -390,10 +391,10 @@ LABEL_6:
         *(_DWORD *)(v18 + 116) &= ~0x40u;
         KiDeliverApc(0, 0LL, 0LL);
       }
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v35 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)(v35 - 2) <= 0xDu )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && (unsigned __int8)(v35 - 2) <= 0xDu )
         {
           v36 = KeGetCurrentPrcb();
           v37 = v36->SchedulerAssist;
@@ -409,10 +410,10 @@ LABEL_6:
     return 0LL;
   }
   ExReleaseSpinLockSharedFromDpcLevel((PEX_SPIN_LOCK)(v7 + 64));
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v11 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v11 <= 0xFu && CurrentIrql <= 0xFu && v11 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v11 <= 0xFu && CurrentIrql <= 0xFu && v11 >= 2u )
     {
       v12 = KeGetCurrentPrcb();
       v13 = v12->SchedulerAssist;

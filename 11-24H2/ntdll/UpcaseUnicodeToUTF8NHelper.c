@@ -1,14 +1,19 @@
 /*
- * XREFs of UpcaseUnicodeToUTF8NHelper @ 0x1800B2240
+ * XREFs of UpcaseUnicodeToUTF8NHelper @ 0x18007EAE0
  * Callers:
- *     RtlDnsHostNameToComputerName @ 0x1800D3E90 (RtlDnsHostNameToComputerName.c)
- *     RtlUpcaseUnicodeToOemN @ 0x1800D4410 (RtlUpcaseUnicodeToOemN.c)
+ *     RtlDnsHostNameToComputerName @ 0x1800CF200 (RtlDnsHostNameToComputerName.c)
+ *     RtlUpcaseUnicodeToOemN @ 0x1800CF780 (RtlUpcaseUnicodeToOemN.c)
  * Callees:
- *     RtlUnicodeToUTF8N @ 0x1800B1E90 (RtlUnicodeToUTF8N.c)
- *     __security_check_cookie @ 0x1801659C0 (__security_check_cookie.c)
+ *     RtlUnicodeToUTF8N @ 0x18007E730 (RtlUnicodeToUTF8N.c)
+ *     __security_check_cookie @ 0x180163D80 (__security_check_cookie.c)
  */
 
-__int64 __fastcall UpcaseUnicodeToUTF8NHelper(_BYTE *a1, int a2, _DWORD *a3, __int64 a4, unsigned int a5)
+__int64 __fastcall UpcaseUnicodeToUTF8NHelper(
+        PCHAR UTF8StringDestination,
+        ULONG UTF8StringMaxByteCount,
+        _DWORD *a3,
+        __int64 a4,
+        unsigned int a5)
 {
   unsigned int v5; // esi
   _DWORD *v6; // r15
@@ -17,21 +22,21 @@ __int64 __fastcall UpcaseUnicodeToUTF8NHelper(_BYTE *a1, int a2, _DWORD *a3, __i
   unsigned int v13; // r14d
   __int64 v14; // r15
   __int64 v15; // r11
-  unsigned int *v16; // r9
+  WCHAR *v16; // r9
   unsigned __int64 v17; // r8
-  unsigned int v18; // [rsp+30h] [rbp-E8h] BYREF
+  ULONG UTF8StringActualByteCount; // [rsp+30h] [rbp-E8h] BYREF
   __int64 v19; // [rsp+38h] [rbp-E0h]
   _DWORD *v20; // [rsp+40h] [rbp-D8h]
-  unsigned int v21[32]; // [rsp+50h] [rbp-C8h] BYREF
+  WCHAR UnicodeStringSource[64]; // [rsp+50h] [rbp-C8h] BYREF
 
   v5 = 0;
   v6 = a3;
   v8 = 0;
   v20 = a3;
-  v19 = qword_1801CD038;
-  while ( a5 && a2 )
+  v19 = qword_1801CC038;
+  while ( a5 && UTF8StringMaxByteCount )
   {
-    v18 = 0;
+    UTF8StringActualByteCount = 0;
     if ( a5 >= 0x40 )
     {
       v13 = 64;
@@ -44,10 +49,10 @@ __int64 __fastcall UpcaseUnicodeToUTF8NHelper(_BYTE *a1, int a2, _DWORD *a3, __i
     }
     v14 = v19;
     v15 = v13;
-    v16 = v21;
+    v16 = UnicodeStringSource;
     do
     {
-      v17 = *(unsigned __int16 *)((char *)v16 + a4 - (_QWORD)v21);
+      v17 = *(WCHAR *)((char *)v16 + a4 - (_QWORD)UnicodeStringSource);
       if ( (unsigned int)v17 >= 0x61 )
       {
         if ( (unsigned int)v17 > 0x7A )
@@ -67,21 +72,25 @@ __int64 __fastcall UpcaseUnicodeToUTF8NHelper(_BYTE *a1, int a2, _DWORD *a3, __i
           LOWORD(v17) = v17 - 32;
         }
       }
-      *(_WORD *)v16 = v17;
-      v16 = (unsigned int *)((char *)v16 + 2);
+      *v16++ = v17;
       --v15;
     }
     while ( v15 );
     v6 = v20;
-    if ( (int)RtlUnicodeToUTF8N(a1, a2, &v18, v21, 2 * v13) < 0 )
+    if ( RtlUnicodeToUTF8N(
+           UTF8StringDestination,
+           UTF8StringMaxByteCount,
+           &UTF8StringActualByteCount,
+           UnicodeStringSource,
+           2 * v13) < 0 )
     {
-      v8 += v18;
+      v8 += UTF8StringActualByteCount;
       v5 = -2147483643;
       break;
     }
-    a1 += v18;
-    a2 -= v18;
-    v8 += v18;
+    UTF8StringDestination += UTF8StringActualByteCount;
+    UTF8StringMaxByteCount -= UTF8StringActualByteCount;
+    v8 += UTF8StringActualByteCount;
     a5 -= v13;
     a4 += 2LL * v13;
   }

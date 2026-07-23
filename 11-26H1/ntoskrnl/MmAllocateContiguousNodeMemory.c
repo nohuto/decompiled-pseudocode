@@ -1,22 +1,22 @@
 /*
- * XREFs of MmAllocateContiguousNodeMemory @ 0x14034A0F0
+ * XREFs of MmAllocateContiguousNodeMemory @ 0x14034C170
  * Callers:
- *     MmAllocateContiguousMemorySpecifyCacheNode @ 0x140349920 (MmAllocateContiguousMemorySpecifyCacheNode.c)
- *     HalAllocateCommonBufferExV2 @ 0x14034A060 (HalAllocateCommonBufferExV2.c)
- *     HalpDmaAllocateContiguousMemory @ 0x1405153D0 (HalpDmaAllocateContiguousMemory.c)
- *     HalpInterruptBuildGlobalStartupStub @ 0x14057C69C (HalpInterruptBuildGlobalStartupStub.c)
- *     HalpDmaControllerInitializeController @ 0x14058C908 (HalpDmaControllerInitializeController.c)
- *     HalpAllocateCR3Root @ 0x140593F64 (HalpAllocateCR3Root.c)
- *     IommuHvInitializeSvmLibrary @ 0x14059D61C (IommuHvInitializeSvmLibrary.c)
- *     HvlpAllocateOverlayPages @ 0x1405BFA48 (HvlpAllocateOverlayPages.c)
- *     DifMmAllocateContiguousNodeMemoryWrapper @ 0x1406658F0 (DifMmAllocateContiguousNodeMemoryWrapper.c)
- *     ViAllocateContiguousMemory @ 0x140C25DA4 (ViAllocateContiguousMemory.c)
- *     HalpMiscInitializeAmdSfs @ 0x140CB4660 (HalpMiscInitializeAmdSfs.c)
- *     IopInitializeInMemoryDumpData @ 0x140CBA480 (IopInitializeInMemoryDumpData.c)
+ *     MmAllocateContiguousMemorySpecifyCacheNode @ 0x14034B9A0 (MmAllocateContiguousMemorySpecifyCacheNode.c)
+ *     HalAllocateCommonBufferExV2 @ 0x14034C0E0 (HalAllocateCommonBufferExV2.c)
+ *     HalpDmaAllocateContiguousMemory @ 0x14050EE40 (HalpDmaAllocateContiguousMemory.c)
+ *     HalpInterruptBuildGlobalStartupStub @ 0x14057EBCC (HalpInterruptBuildGlobalStartupStub.c)
+ *     HalpDmaControllerInitializeController @ 0x14058F088 (HalpDmaControllerInitializeController.c)
+ *     HalpAllocateCR3Root @ 0x1405966E4 (HalpAllocateCR3Root.c)
+ *     IommuHvInitializeSvmLibrary @ 0x14059FD9C (IommuHvInitializeSvmLibrary.c)
+ *     HvlpAllocateOverlayPages @ 0x1405C22B8 (HvlpAllocateOverlayPages.c)
+ *     DifMmAllocateContiguousNodeMemoryWrapper @ 0x1406694D0 (DifMmAllocateContiguousNodeMemoryWrapper.c)
+ *     ViAllocateContiguousMemory @ 0x140C2BDB4 (ViAllocateContiguousMemory.c)
+ *     HalpMiscInitializeAmdSfs @ 0x140CBA6A0 (HalpMiscInitializeAmdSfs.c)
+ *     IopInitializeInMemoryDumpData @ 0x140CC04C0 (IopInitializeInMemoryDumpData.c)
  * Callees:
- *     MiConvertContiguousMemoryParameters @ 0x14034A1A8 (MiConvertContiguousMemoryParameters.c)
- *     MiAllocateContiguousMemory @ 0x14034A28C (MiAllocateContiguousMemory.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     MiConvertContiguousMemoryParameters @ 0x14034C228 (MiConvertContiguousMemoryParameters.c)
+ *     MiAllocateContiguousMemory @ 0x14034C30C (MiAllocateContiguousMemory.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall MmAllocateContiguousNodeMemory(__int64 a1, int a2, int a3, int a4, int a5, int a6)

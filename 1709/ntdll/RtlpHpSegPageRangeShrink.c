@@ -15,7 +15,7 @@
  *     RtlpHpTlLogMemStats @ 0x180105F7C (RtlpHpTlLogMemStats.c)
  */
 
-__int64 __fastcall RtlpHpSegPageRangeShrink(__int64 a1, __int64 a2, unsigned int a3, char a4)
+void __fastcall RtlpHpSegPageRangeShrink(__int64 a1, __int64 a2, unsigned int a3, char a4)
 {
   unsigned int v5; // r14d
   __int64 v7; // rsi
@@ -24,33 +24,32 @@ __int64 __fastcall RtlpHpSegPageRangeShrink(__int64 a1, __int64 a2, unsigned int
   int v12; // edi
   __int64 v13; // rax
   __int64 v14; // r8
-  unsigned __int64 v15; // rbx
+  _RTL_BALANCED_NODE *v15; // rbx
   int v16; // edi
   __int64 v17; // rsi
   __int64 v18; // r12
-  unsigned __int64 v19; // rax
-  __int64 result; // rax
-  _BYTE *v21; // rcx
-  __int64 v22; // rdx
-  char v23; // cl
+  _RTL_BALANCED_NODE *v19; // rax
+  _BYTE *v20; // rcx
+  __int64 v21; // rdx
+  char v22; // cl
 
   v5 = *(unsigned __int8 *)(a2 + 31) - a3;
   v7 = a2 + 32LL * a3;
   if ( v5 - 1 > 1 )
   {
-    v21 = (_BYTE *)(v7 + 56);
-    v22 = v5 - 2;
+    v20 = (_BYTE *)(v7 + 56);
+    v21 = v5 - 2;
     do
     {
-      *v21 &= ~1u;
-      v21 += 32;
-      --v22;
+      *v20 &= ~1u;
+      v20 += 32;
+      --v21;
     }
-    while ( v22 );
+    while ( v21 );
   }
   v10 = a4 & 1;
   if ( (a4 & 1) == 0 )
-    RtlAcquireSRWLockExclusive(a1 + 24);
+    RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 24));
   v11 = ~(*(_DWORD *)(a2 + 28) >> 8);
   if ( *(unsigned __int8 *)(a2 + 31) == v5 )
   {
@@ -59,9 +58,9 @@ __int64 __fastcall RtlpHpSegPageRangeShrink(__int64 a1, __int64 a2, unsigned int
   else
   {
     *(_BYTE *)(a2 + 31) = a3;
-    v23 = *(_BYTE *)(a1 + 9);
+    v22 = *(_BYTE *)(a1 + 9);
     *(_DWORD *)(a2 + 28) &= 0xFF0000FF;
-    v12 = a3 << v23;
+    v12 = a3 << v22;
     *(_DWORD *)(a2 + 28) |= (unsigned __int16)~(_WORD)v12 << 8;
   }
   *(_BYTE *)(v7 + 24) |= 2u;
@@ -73,7 +72,7 @@ __int64 __fastcall RtlpHpSegPageRangeShrink(__int64 a1, __int64 a2, unsigned int
   *(_BYTE *)(v7 + 24) &= 0xF3u;
   v13 = RtlpHpSegPageRangeCoalesce(a1, v7, a4, 0);
   LOBYTE(v14) = 0;
-  v15 = *(_QWORD *)(a1 + 56);
+  v15 = *(_RTL_BALANCED_NODE **)(a1 + 56);
   v16 = *(_BYTE *)(a1 + 64) & 1;
   v17 = v13;
   v18 = *(unsigned int *)(v13 + 28);
@@ -83,7 +82,7 @@ __int64 __fastcall RtlpHpSegPageRangeShrink(__int64 a1, __int64 a2, unsigned int
     {
       if ( (int)RtlpHpSegFreeRangeCompare(v18, v15, v14) < 0 )
       {
-        v19 = *(_QWORD *)v15;
+        v19 = v15->Children[0];
         if ( v16 )
         {
           if ( !v19 )
@@ -92,14 +91,14 @@ LABEL_13:
             LOBYTE(v14) = 0;
             break;
           }
-          v19 ^= v15;
+          v19 = (_RTL_BALANCED_NODE *)((unsigned __int64)v15 ^ (unsigned __int64)v19);
         }
         if ( !v19 )
           goto LABEL_13;
       }
       else
       {
-        v19 = *(_QWORD *)(v15 + 8);
+        v19 = v15->Children[1];
         if ( v16 )
         {
           if ( !v19 )
@@ -108,7 +107,7 @@ LABEL_14:
             LOBYTE(v14) = 1;
             break;
           }
-          v19 ^= v15;
+          v19 = (_RTL_BALANCED_NODE *)((unsigned __int64)v15 ^ (unsigned __int64)v19);
         }
         if ( !v19 )
           goto LABEL_14;
@@ -116,12 +115,12 @@ LABEL_14:
       v15 = v19;
     }
   }
-  RtlRbInsertNodeEx(a1 + 56, v15, v14, v17);
-  result = *(_QWORD *)(a1 + 72);
-  _InterlockedExchangeAdd64((volatile signed __int64 *)(result + 16), (unsigned __int16)~(*(_DWORD *)(v17 + 28) >> 8));
+  RtlRbInsertNodeEx((PRTL_RB_TREE)(a1 + 56), v15, v14, (PRTL_BALANCED_NODE)v17);
+  _InterlockedExchangeAdd64(
+    (volatile signed __int64 *)(*(_QWORD *)(a1 + 72) + 16LL),
+    (unsigned __int16)~(*(_DWORD *)(v17 + 28) >> 8));
   if ( (RtlpHpHeapFeatures & 8) != 0 )
-    result = RtlpHpTlLogMemStats(*(_QWORD *)(a1 + 96), *(_QWORD *)(a1 + 72));
+    RtlpHpTlLogMemStats(*(_QWORD *)(a1 + 96), *(_QWORD *)(a1 + 72));
   if ( !v10 )
-    return RtlReleaseSRWLockExclusive(a1 + 24);
-  return result;
+    RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 24));
 }

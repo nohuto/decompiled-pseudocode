@@ -1,23 +1,23 @@
 /*
- * XREFs of ObpCallPreOperationCallbacks @ 0x140511820
+ * XREFs of ObpCallPreOperationCallbacks @ 0x1404F4C10
  * Callers:
- *     ObpCreateHandle @ 0x140419C20 (ObpCreateHandle.c)
- *     ObpPreInterceptHandleDuplicate @ 0x1404CBE14 (ObpPreInterceptHandleDuplicate.c)
+ *     ObpCreateHandle @ 0x140418AE0 (ObpCreateHandle.c)
+ *     ObpPreInterceptHandleDuplicate @ 0x1404B1840 (ObpPreInterceptHandleDuplicate.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KeLeaveCriticalRegion @ 0x140069D00 (KeLeaveCriticalRegion.c)
- *     ObfDereferenceObjectWithTag @ 0x14006ACD0 (ObfDereferenceObjectWithTag.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfAcquireRundownProtection @ 0x14008C5E0 (ExfAcquireRundownProtection.c)
- *     ExfReleaseRundownProtection @ 0x140090D30 (ExfReleaseRundownProtection.c)
- *     KiCheckForKernelApcDelivery @ 0x1400C7DE0 (KiCheckForKernelApcDelivery.c)
- *     ExfAcquirePushLockSharedEx @ 0x1400C8280 (ExfAcquirePushLockSharedEx.c)
- *     ExfReleasePushLock @ 0x1400C8620 (ExfReleasePushLock.c)
- *     ExReleaseRundownProtection @ 0x1400D3F00 (ExReleaseRundownProtection.c)
- *     ObfReferenceObjectWithTag @ 0x1400EE4F0 (ObfReferenceObjectWithTag.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KeLeaveCriticalRegion @ 0x140069880 (KeLeaveCriticalRegion.c)
+ *     ObfDereferenceObjectWithTag @ 0x14006A850 (ObfDereferenceObjectWithTag.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfAcquireRundownProtection @ 0x14008BD40 (ExfAcquireRundownProtection.c)
+ *     ExfReleaseRundownProtection @ 0x140090490 (ExfReleaseRundownProtection.c)
+ *     KiCheckForKernelApcDelivery @ 0x1400C5C80 (KiCheckForKernelApcDelivery.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1400C6120 (ExfAcquirePushLockSharedEx.c)
+ *     ExfReleasePushLock @ 0x1400C64C0 (ExfReleasePushLock.c)
+ *     ExReleaseRundownProtection @ 0x1400D1DA0 (ExReleaseRundownProtection.c)
+ *     ObfReferenceObjectWithTag @ 0x1400EC370 (ObfReferenceObjectWithTag.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     ObpCallPostOperationCallbacks @ 0x140666F08 (ObpCallPostOperationCallbacks.c)
+ *     ObpCallPostOperationCallbacks @ 0x140666FEC (ObpCallPostOperationCallbacks.c)
  */
 
 __int64 __fastcall ObpCallPreOperationCallbacks(__int64 a1, __int64 a2, _QWORD *a3)

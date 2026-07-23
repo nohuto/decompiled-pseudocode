@@ -1,20 +1,20 @@
 /*
- * XREFs of WheapGetErrorSourceFunction @ 0x1404C9C54
+ * XREFs of WheapGetErrorSourceFunction @ 0x1404C3684
  * Callers:
- *     WheapAttemptArchitecturalErrorRecovery @ 0x1406D4C84 (WheapAttemptArchitecturalErrorRecovery.c)
- *     WheapCallErrorSourceCorrect @ 0x1406D67AC (WheapCallErrorSourceCorrect.c)
- *     WheapCallErrorSourceInitialize @ 0x1406D67EC (WheapCallErrorSourceInitialize.c)
- *     WheapCallErrorSourceUninitialize @ 0x1406D6864 (WheapCallErrorSourceUninitialize.c)
+ *     WheapAttemptArchitecturalErrorRecovery @ 0x1406D8D64 (WheapAttemptArchitecturalErrorRecovery.c)
+ *     WheapCallErrorSourceCorrect @ 0x1406DA88C (WheapCallErrorSourceCorrect.c)
+ *     WheapCallErrorSourceInitialize @ 0x1406DA8CC (WheapCallErrorSourceInitialize.c)
+ *     WheapCallErrorSourceUninitialize @ 0x1406DA944 (WheapCallErrorSourceUninitialize.c)
  * Callees:
  *     <none>
  */
 
-void *__fastcall WheapGetErrorSourceFunction(__int64 a1, int a2, char a3)
+struct _LIST_ENTRY *__fastcall WheapGetErrorSourceFunction(__int64 a1, int a2, char a3)
 {
   __int64 v3; // r9
   int *v6; // r11
   bool v7; // zf
-  void *volatile *p_StackLimit; // r8
+  LIST_ENTRY *p_WaitListHead; // r8
   int *v9; // rcx
   signed __int32 v10; // eax
   int v11; // edx
@@ -31,10 +31,10 @@ void *__fastcall WheapGetErrorSourceFunction(__int64 a1, int a2, char a3)
     if ( *(_DWORD *)(a1 + 40) <= 0x12u )
     {
       v7 = (*(_DWORD *)(a1 + 132) & 0x40000000) == 0;
-      p_StackLimit = &WheapInUsePageOfflineNotifyLock.StackLimit;
+      p_WaitListHead = &WheapInUsePageOfflineNotifyLock.Header.WaitListHead;
       v9 = (int *)(a1 + 40);
       if ( !v7 )
-        p_StackLimit = (void *volatile *)&WheapSourceConfigOverride;
+        p_WaitListHead = (LIST_ENTRY *)&WheapSourceConfigOverride;
       if ( a3 )
       {
 LABEL_10:
@@ -53,37 +53,37 @@ LABEL_10:
                 {
                   v15 = *v6;
                   if ( (_DWORD)v15 == 16 )
-                    return *(void **)(a1 + 184);
+                    return *(struct _LIST_ENTRY **)(a1 + 184);
                   else
-                    return p_StackLimit[8 * v15 + 6];
+                    return p_WaitListHead[4 * v15 + 3].Flink;
                 }
               }
               else
               {
-                return p_StackLimit[8 * (__int64)*v9 + 5];
+                return p_WaitListHead[4 * (__int64)*v9 + 2].Blink;
               }
             }
             else
             {
-              return p_StackLimit[8 * (__int64)*v9 + 4];
+              return p_WaitListHead[4 * (__int64)*v9 + 2].Flink;
             }
           }
           else
           {
             v16 = *v9;
             if ( (_DWORD)v16 == 16 )
-              return *(void **)(a1 + 176);
+              return *(struct _LIST_ENTRY **)(a1 + 176);
             else
-              return p_StackLimit[8 * v16 + 3];
+              return p_WaitListHead[4 * v16 + 1].Blink;
           }
         }
         else
         {
           v17 = *v9;
           if ( (_DWORD)v17 == 16 )
-            return *(void **)(a1 + 192);
+            return *(struct _LIST_ENTRY **)(a1 + 192);
           else
-            return p_StackLimit[8 * v17 + 2];
+            return p_WaitListHead[4 * v17 + 1].Flink;
         }
       }
       else if ( *(_DWORD *)(a1 + 108) != 3 )
@@ -102,5 +102,5 @@ LABEL_10:
       }
     }
   }
-  return (void *)v3;
+  return (struct _LIST_ENTRY *)v3;
 }

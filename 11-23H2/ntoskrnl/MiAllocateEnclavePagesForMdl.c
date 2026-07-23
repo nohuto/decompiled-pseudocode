@@ -1,10 +1,10 @@
 /*
- * XREFs of MiAllocateEnclavePagesForMdl @ 0x14062305C
+ * XREFs of MiAllocateEnclavePagesForMdl @ 0x1406235AC
  * Callers:
- *     MiFindPagesForMdl @ 0x1402F91AC (MiFindPagesForMdl.c)
+ *     MiFindPagesForMdl @ 0x1402F943C (MiFindPagesForMdl.c)
  * Callees:
- *     MiSetPfnBlink @ 0x1402DF0B0 (MiSetPfnBlink.c)
- *     MiAllocateEnclavePages @ 0x140646D98 (MiAllocateEnclavePages.c)
+ *     MiSetPfnBlink @ 0x1402DF340 (MiSetPfnBlink.c)
+ *     MiAllocateEnclavePages @ 0x1406472E8 (MiAllocateEnclavePages.c)
  */
 
 __int64 __fastcall MiAllocateEnclavePagesForMdl(__int64 a1, __int64 a2, char a3, __int64 a4, unsigned int a5)

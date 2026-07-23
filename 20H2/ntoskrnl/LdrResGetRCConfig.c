@@ -12,13 +12,13 @@
  *     LdrpResGetMappingSize @ 0x1406AE6EC (LdrpResGetMappingSize.c)
  */
 
-int __fastcall LdrResGetRCConfig(__int64 a1, __int64 a2, unsigned int **a3, int a4, char a5)
+NTSTATUS __fastcall LdrResGetRCConfig(void *a1, ULONG64 a2, unsigned int **a3, int a4, char a5)
 {
   int v8; // edi
   unsigned int *v9; // rax
   __int64 v10; // r13
   int v11; // edi
-  int result; // eax
+  NTSTATUS result; // eax
   __int64 v13; // rsi
   int v14; // ecx
   unsigned int *v15; // r8
@@ -44,13 +44,13 @@ int __fastcall LdrResGetRCConfig(__int64 a1, __int64 a2, unsigned int **a3, int 
   char v35; // r9
   int v36; // ecx
   unsigned int *v37; // [rsp+58h] [rbp-80h] BYREF
-  __int64 v38; // [rsp+60h] [rbp-78h] BYREF
-  __int64 v39; // [rsp+68h] [rbp-70h]
+  ULONG64 v38; // [rsp+60h] [rbp-78h] BYREF
+  void *v39; // [rsp+68h] [rbp-70h]
   __int64 v40[2]; // [rsp+70h] [rbp-68h] BYREF
   _QWORD v41[3]; // [rsp+80h] [rbp-58h] BYREF
 
   v39 = a1;
-  v40[1] = a1;
+  v40[1] = (__int64)a1;
   v41[0] = L"MUI";
   v41[1] = 1LL;
   v41[2] = 0LL;
@@ -65,7 +65,7 @@ int __fastcall LdrResGetRCConfig(__int64 a1, __int64 a2, unsigned int **a3, int 
     v10 = -1LL;
     goto LABEL_10;
   }
-  v9 = LdrpGetFromMUIMemCache(a1, 0, 0LL, 8);
+  v9 = LdrpGetFromMUIMemCache((unsigned __int64)a1, 0, 0LL, 8);
   v37 = v9;
   v10 = -1LL;
   if ( v9 == (unsigned int *)-1LL )
@@ -79,9 +79,9 @@ int __fastcall LdrResGetRCConfig(__int64 a1, __int64 a2, unsigned int **a3, int 
   }
   a1 = v39;
 LABEL_10:
-  if ( a2 || v8 || (result = LdrpResGetMappingSize(a1, (unsigned __int64 *)&v38, a4), result >= 0) )
+  if ( a2 || v8 || (result = LdrpResGetMappingSize((unsigned __int64)a1, &v38, a4), result >= 0) )
   {
-    v13 = v39;
+    v13 = (__int64)v39;
     v14 = LdrpResSearchResourceMappedFile(
             v39,
             v38,

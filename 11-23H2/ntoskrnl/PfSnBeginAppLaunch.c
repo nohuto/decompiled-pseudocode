@@ -1,21 +1,21 @@
 /*
- * XREFs of PfSnBeginAppLaunch @ 0x1407604F8
+ * XREFs of PfSnBeginAppLaunch @ 0x1407606E8
  * Callers:
- *     PfProcessCreateNotification @ 0x140760464 (PfProcessCreateNotification.c)
- *     PfSnAppLaunchScenarioControl @ 0x14097F6E0 (PfSnAppLaunchScenarioControl.c)
+ *     PfProcessCreateNotification @ 0x140760654 (PfProcessCreateNotification.c)
+ *     PfSnAppLaunchScenarioControl @ 0x14097F8E0 (PfSnAppLaunchScenarioControl.c)
  * Callees:
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExfReleasePushLockShared @ 0x1402BD860 (ExfReleasePushLockShared.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     PfSnBeginScenario @ 0x1407503C0 (PfSnBeginScenario.c)
- *     PfSnLogScenarioDecision @ 0x1407529F4 (PfSnLogScenarioDecision.c)
- *     PfSnCheckScenario @ 0x140760750 (PfSnCheckScenario.c)
- *     PfCalculateProcessHash @ 0x140760C10 (PfCalculateProcessHash.c)
- *     PfSnCalculateScenarioNameAndHash @ 0x1407C2520 (PfSnCalculateScenarioNameAndHash.c)
- *     PfSnAltProfileFindByScenarioId @ 0x1407E042C (PfSnAltProfileFindByScenarioId.c)
+ *     ExAcquirePushLockSharedEx @ 0x140230E80 (ExAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x140231550 (KeLeaveCriticalRegion.c)
+ *     ExfReleasePushLockShared @ 0x1402BDAF0 (ExfReleasePushLockShared.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     PfSnBeginScenario @ 0x1407505B0 (PfSnBeginScenario.c)
+ *     PfSnLogScenarioDecision @ 0x140752BE4 (PfSnLogScenarioDecision.c)
+ *     PfSnCheckScenario @ 0x140760940 (PfSnCheckScenario.c)
+ *     PfCalculateProcessHash @ 0x140760E00 (PfCalculateProcessHash.c)
+ *     PfSnCalculateScenarioNameAndHash @ 0x1407C27F0 (PfSnCalculateScenarioNameAndHash.c)
+ *     PfSnAltProfileFindByScenarioId @ 0x1407E06FC (PfSnAltProfileFindByScenarioId.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

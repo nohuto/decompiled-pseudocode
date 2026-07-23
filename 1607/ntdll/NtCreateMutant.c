@@ -1,16 +1,20 @@
 /*
  * XREFs of NtCreateMutant @ 0x1800A7930
  * Callers:
- *     _ResCreateMutex @ 0x180103EBC (_ResCreateMutex.c)
+ *     _ResCreateMutex @ 0x180103DFC (_ResCreateMutex.c)
  * Callees:
  *     <none>
  */
 
-__int64 NtCreateMutant()
+NTSTATUS __cdecl NtCreateMutant(
+        PHANDLE MutantHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        BOOLEAN InitialOwner)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 169LL;
+  result = 169;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

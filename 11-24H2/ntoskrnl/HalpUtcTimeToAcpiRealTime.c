@@ -1,18 +1,18 @@
 /*
- * XREFs of HalpUtcTimeToAcpiRealTime @ 0x140A812AC
+ * XREFs of HalpUtcTimeToAcpiRealTime @ 0x140A7BD0C
  * Callers:
- *     HalSetRealTimeClock @ 0x140425310 (HalSetRealTimeClock.c)
+ *     HalSetRealTimeClock @ 0x1404191C0 (HalSetRealTimeClock.c)
  * Callees:
- *     ExSystemTimeToLocalTime @ 0x140347CE0 (ExSystemTimeToLocalTime.c)
- *     RtlTimeToTimeFields @ 0x1404260F0 (RtlTimeToTimeFields.c)
- *     ExRealTimeIsUniversal @ 0x1404B79E0 (ExRealTimeIsUniversal.c)
- *     HalpQueryAcpiRealTimeClock @ 0x140A813F4 (HalpQueryAcpiRealTimeClock.c)
+ *     ExSystemTimeToLocalTime @ 0x1403266E0 (ExSystemTimeToLocalTime.c)
+ *     RtlTimeToTimeFields @ 0x140419FA0 (RtlTimeToTimeFields.c)
+ *     ExRealTimeIsUniversal @ 0x1404B21C0 (ExRealTimeIsUniversal.c)
+ *     HalpQueryAcpiRealTimeClock @ 0x140A7BE54 (HalpQueryAcpiRealTimeClock.c)
  */
 
 __int64 __fastcall HalpUtcTimeToAcpiRealTime(PLARGE_INTEGER SystemTime, PLARGE_INTEGER Timeout)
 {
   __int64 LowPart_high; // rcx
-  TIME_FIELDS TimeFields; // [rsp+20h] [rbp-10h] BYREF
+  _TIME_FIELDS TimeFields; // [rsp+20h] [rbp-10h] BYREF
   LARGE_INTEGER LocalTime; // [rsp+48h] [rbp+18h] BYREF
 
   HIWORD(Timeout[1].u.LowPart) = 2047;

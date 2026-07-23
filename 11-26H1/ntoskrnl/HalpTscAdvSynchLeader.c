@@ -1,15 +1,15 @@
 /*
- * XREFs of HalpTscAdvSynchLeader @ 0x140583650
+ * XREFs of HalpTscAdvSynchLeader @ 0x140585B70
  * Callers:
- *     HalpTscSynchronizationWorker @ 0x140584040 (HalpTscSynchronizationWorker.c)
+ *     HalpTscSynchronizationWorker @ 0x140586560 (HalpTscSynchronizationWorker.c)
  * Callees:
- *     HalpTscAdvSynchToLeader @ 0x1404C49AC (HalpTscAdvSynchToLeader.c)
- *     HalpFindTimer @ 0x140581834 (HalpFindTimer.c)
- *     HalpTscAdvSynchCalculateRemoteDeltas @ 0x140583564 (HalpTscAdvSynchCalculateRemoteDeltas.c)
- *     HalpTscAdvSynchReadTimeStamp @ 0x140583874 (HalpTscAdvSynchReadTimeStamp.c)
- *     HalpTscAdvSynchToTarget @ 0x140583930 (HalpTscAdvSynchToTarget.c)
- *     HalpTscTraceStatus @ 0x14058430C (HalpTscTraceStatus.c)
- *     HalpTscTraceSynchronizationSummary @ 0x1405843AC (HalpTscTraceSynchronizationSummary.c)
+ *     HalpTscAdvSynchToLeader @ 0x1404BE28C (HalpTscAdvSynchToLeader.c)
+ *     HalpFindTimer @ 0x140583D54 (HalpFindTimer.c)
+ *     HalpTscAdvSynchCalculateRemoteDeltas @ 0x140585A84 (HalpTscAdvSynchCalculateRemoteDeltas.c)
+ *     HalpTscAdvSynchReadTimeStamp @ 0x140585D94 (HalpTscAdvSynchReadTimeStamp.c)
+ *     HalpTscAdvSynchToTarget @ 0x140585E50 (HalpTscAdvSynchToTarget.c)
+ *     HalpTscTraceStatus @ 0x14058682C (HalpTscTraceStatus.c)
+ *     HalpTscTraceSynchronizationSummary @ 0x1405868CC (HalpTscTraceSynchronizationSummary.c)
  */
 
 __int64 __fastcall HalpTscAdvSynchLeader(__int64 a1)

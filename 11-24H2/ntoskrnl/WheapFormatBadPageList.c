@@ -1,10 +1,10 @@
 /*
- * XREFs of WheapFormatBadPageList @ 0x14065D2BC
+ * XREFs of WheapFormatBadPageList @ 0x14065B9DC
  * Callers:
- *     WheapInsertPageToList @ 0x14065D358 (WheapInsertPageToList.c)
+ *     WheapInsertPageToList @ 0x14065BA78 (WheapInsertPageToList.c)
  * Callees:
- *     qsort_s @ 0x1404FF100 (qsort_s.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
+ *     qsort_s @ 0x1404FC9C0 (qsort_s.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
  */
 
 _UNKNOWN **__fastcall WheapFormatBadPageList(char *a1, unsigned int a2, unsigned int *a3)

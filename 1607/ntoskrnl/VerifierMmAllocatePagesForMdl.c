@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     ViTargetAddToCounter @ 0x140710350 (ViTargetAddToCounter.c)
+ *     ViTargetAddToCounter @ 0x140710380 (ViTargetAddToCounter.c)
  *     ViPoolLogStackTrace @ 0x140710BB0 (ViPoolLogStackTrace.c)
  *     VfFaultsInjectResourceFailure @ 0x140710DF0 (VfFaultsInjectResourceFailure.c)
  *     ViMmValidateIrql @ 0x14071C928 (ViMmValidateIrql.c)

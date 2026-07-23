@@ -1,14 +1,14 @@
 /*
- * XREFs of CmpLightWeightCommitSetSecDescUoW @ 0x140803C5C
+ * XREFs of CmpLightWeightCommitSetSecDescUoW @ 0x140804E5C
  * Callers:
- *     CmpProcessLightWeightUOW @ 0x140694A1C (CmpProcessLightWeightUOW.c)
+ *     CmpProcessLightWeightUOW @ 0x140695BDC (CmpProcessLightWeightUOW.c)
  * Callees:
- *     CmpRemoveSecurityCellList @ 0x140137F58 (CmpRemoveSecurityCellList.c)
- *     CmpDereferenceSecurityNode @ 0x1401B33F0 (CmpDereferenceSecurityNode.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     CmpAssignSecurityToKcb @ 0x1405ACAE4 (CmpAssignSecurityToKcb.c)
- *     HvFreeCell @ 0x1405ADBD8 (HvFreeCell.c)
+ *     CmpRemoveSecurityCellList @ 0x140138058 (CmpRemoveSecurityCellList.c)
+ *     CmpDereferenceSecurityNode @ 0x1401B3530 (CmpDereferenceSecurityNode.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     CmpAssignSecurityToKcb @ 0x1405ADAE4 (CmpAssignSecurityToKcb.c)
+ *     HvFreeCell @ 0x1405AEBD8 (HvFreeCell.c)
  */
 
 void __fastcall CmpLightWeightCommitSetSecDescUoW(__int64 a1, _QWORD *a2)

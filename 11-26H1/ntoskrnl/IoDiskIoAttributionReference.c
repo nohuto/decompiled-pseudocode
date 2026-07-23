@@ -1,7 +1,7 @@
 /*
- * XREFs of IoDiskIoAttributionReference @ 0x1404A12C0
+ * XREFs of IoDiskIoAttributionReference @ 0x14049ADF0
  * Callers:
- *     IoDiskIoAttributionAllocate @ 0x140AFB68C (IoDiskIoAttributionAllocate.c)
+ *     IoDiskIoAttributionAllocate @ 0x140ABF1E4 (IoDiskIoAttributionAllocate.c)
  * Callees:
  *     <none>
  */

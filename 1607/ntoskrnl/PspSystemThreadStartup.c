@@ -1,11 +1,11 @@
 /*
- * XREFs of PspSystemThreadStartup @ 0x140002BE4
+ * XREFs of PspSystemThreadStartup @ 0x140002D58
  * Callers:
  *     <none>
  * Callees:
- *     KeBugCheck @ 0x14015D4F0 (KeBugCheck.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     PspDisablePrimaryTokenExchange @ 0x140459688 (PspDisablePrimaryTokenExchange.c)
+ *     KeBugCheck @ 0x14015DA60 (KeBugCheck.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     PspDisablePrimaryTokenExchange @ 0x140458558 (PspDisablePrimaryTokenExchange.c)
  */
 
 __int64 __fastcall PspSystemThreadStartup(void (__fastcall *a1)(__int64), __int64 a2)

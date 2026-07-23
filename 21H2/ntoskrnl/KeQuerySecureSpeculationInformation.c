@@ -1,11 +1,11 @@
 /*
- * XREFs of KeQuerySecureSpeculationInformation @ 0x14051B508
+ * XREFs of KeQuerySecureSpeculationInformation @ 0x14051B748
  * Callers:
- *     ExpQuerySystemInformation @ 0x140651070 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x140645E90 (ExpQuerySystemInformation.c)
  * Callees:
- *     VslGetSecureSpeculationControlInformation @ 0x1403CFAF8 (VslGetSecureSpeculationControlInformation.c)
- *     memset @ 0x140414200 (memset.c)
- *     ExSystemExceptionFilter @ 0x1407D4F10 (ExSystemExceptionFilter.c)
+ *     VslGetSecureSpeculationControlInformation @ 0x1403CFC68 (VslGetSecureSpeculationControlInformation.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     ExSystemExceptionFilter @ 0x1407D5080 (ExSystemExceptionFilter.c)
  */
 
 __int64 __fastcall KeQuerySecureSpeculationInformation(unsigned int *a1, size_t Size, _DWORD *a3)

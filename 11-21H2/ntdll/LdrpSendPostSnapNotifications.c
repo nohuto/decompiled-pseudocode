@@ -44,7 +44,7 @@ __int64 __fastcall LdrpSendPostSnapNotifications(__int64 a1)
   v3 = g_pShimmedModuleList != 0LL;
   v21 = v3;
   NtGlobalFlag = NtCurrentPeb()->NtGlobalFlag;
-  RtlEnterCriticalSection((__int64)&LdrpDllNotificationLock);
+  RtlEnterCriticalSection(&LdrpDllNotificationLock);
   if ( g_ShimsEnabled )
   {
     v5 = MEMORY[0x7FFE0330];
@@ -86,7 +86,7 @@ __int64 __fastcall LdrpSendPostSnapNotifications(__int64 a1)
             v14 = v13 + g_pShimmedModuleListLength + 1;
           else
             v14 = v13 + 2;
-          Heap = (char *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, 2 * v14);
+          Heap = (char *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, 2 * v14);
           if ( Heap )
           {
             if ( g_pShimmedModuleList )
@@ -98,7 +98,7 @@ __int64 __fastcall LdrpSendPostSnapNotifications(__int64 a1)
                 ++v17;
               while ( v10[v17] );
               memmove(&Heap[v16 + 2], v10, 2 * v17);
-              RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (__int64)g_pShimmedModuleList);
+              RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, g_pShimmedModuleList);
               v1 = a1;
             }
             else
@@ -133,6 +133,6 @@ __int64 __fastcall LdrpSendPostSnapNotifications(__int64 a1)
     }
     while ( v6 != v1 );
   }
-  RtlLeaveCriticalSection((__int64)&LdrpDllNotificationLock);
+  RtlLeaveCriticalSection(&LdrpDllNotificationLock);
   return (unsigned int)Notification;
 }

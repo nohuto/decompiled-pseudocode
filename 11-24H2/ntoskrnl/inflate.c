@@ -1,16 +1,16 @@
 /*
- * XREFs of inflate @ 0x1405F3FB0
+ * XREFs of inflate @ 0x1405F15F0
  * Callers:
- *     RtlDecompressBufferDeflateInternal @ 0x1405F24D8 (RtlDecompressBufferDeflateInternal.c)
+ *     RtlDecompressBufferDeflateInternal @ 0x1405EFB18 (RtlDecompressBufferDeflateInternal.c)
  * Callees:
- *     chunkcopy_core @ 0x1405F3E0C (chunkcopy_core.c)
- *     chunkset_core @ 0x1405F3E50 (chunkset_core.c)
- *     inflateStateCheck @ 0x1405F51A8 (inflateStateCheck.c)
- *     updatewindow @ 0x1405F51E8 (updatewindow.c)
- *     inflate_fast_chunk_ @ 0x140601B7C (inflate_fast_chunk_.c)
- *     adler32_z @ 0x140602074 (adler32_z.c)
- *     inflate_table @ 0x140602394 (inflate_table.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
+ *     chunkcopy_core @ 0x1405F144C (chunkcopy_core.c)
+ *     chunkset_core @ 0x1405F1490 (chunkset_core.c)
+ *     inflateStateCheck @ 0x1405F27E8 (inflateStateCheck.c)
+ *     updatewindow @ 0x1405F2828 (updatewindow.c)
+ *     inflate_fast_chunk_ @ 0x1405FF1BC (inflate_fast_chunk_.c)
+ *     adler32_z @ 0x1405FF6B4 (adler32_z.c)
+ *     inflate_table @ 0x1405FF9D4 (inflate_table.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
  */
 
 __int64 __fastcall inflate(unsigned __int8 **a1)
@@ -366,12 +366,12 @@ LABEL_84:
                 }
                 v41 = v11 & 7;
                 v11 >>= 3;
-                *(_WORD *)&v5[2 * *((unsigned __int16 *)qword_140035040 + (unsigned int)(*((_DWORD *)v5 + 33))++) + 144] = v41;
+                *(_WORD *)&v5[2 * *((unsigned __int16 *)qword_140035530 + (unsigned int)(*((_DWORD *)v5 + 33))++) + 144] = v41;
                 v12 -= 3;
               }
               while ( (unsigned int)v40 < 0x13 )
               {
-                *(_WORD *)&v5[2 * *((unsigned __int16 *)qword_140035040 + v40) + 144] = 0;
+                *(_WORD *)&v5[2 * *((unsigned __int16 *)qword_140035530 + v40) + 144] = 0;
                 v40 = (unsigned int)(*((_DWORD *)v5 + 33) + 1);
                 *((_DWORD *)v5 + 33) = v40;
               }
@@ -531,8 +531,8 @@ LABEL_26:
               {
                 case 1u:
                   *v14 = 9;
-                  *((_QWORD *)v5 + 12) = qword_140034840;
-                  *((_QWORD *)v5 + 13) = qword_140035070;
+                  *((_QWORD *)v5 + 12) = qword_140034CB0;
+                  *((_QWORD *)v5 + 13) = qword_1400354B0;
                   *v13 = 5;
                   *((_DWORD *)v5 + 2) = 16199;
                   break;

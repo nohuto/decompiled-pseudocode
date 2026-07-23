@@ -1,14 +1,14 @@
 /*
- * XREFs of ADD_MAP_REGISTERS @ 0x140B84A18
+ * XREFs of ADD_MAP_REGISTERS @ 0x140B86A18
  * Callers:
- *     VfAllocateAdapterChannel @ 0x140B85190 (VfAllocateAdapterChannel.c)
- *     VfAllocateAdapterChannelEx @ 0x140B85370 (VfAllocateAdapterChannelEx.c)
- *     VfAllocateCrashDumpRegisters @ 0x140B85870 (VfAllocateCrashDumpRegisters.c)
- *     VfHalAllocateMapRegisters @ 0x140B870C0 (VfHalAllocateMapRegisters.c)
- *     ViScatterGatherCallback @ 0x140B89B30 (ViScatterGatherCallback.c)
+ *     VfAllocateAdapterChannel @ 0x140B87190 (VfAllocateAdapterChannel.c)
+ *     VfAllocateAdapterChannelEx @ 0x140B87370 (VfAllocateAdapterChannelEx.c)
+ *     VfAllocateCrashDumpRegisters @ 0x140B87870 (VfAllocateCrashDumpRegisters.c)
+ *     VfHalAllocateMapRegisters @ 0x140B890C0 (VfHalAllocateMapRegisters.c)
+ *     ViScatterGatherCallback @ 0x140B8BB30 (ViScatterGatherCallback.c)
  * Callees:
- *     VfReportIssueWithOptions @ 0x140612434 (VfReportIssueWithOptions.c)
- *     ViHalPreprocessOptions @ 0x140B8921C (ViHalPreprocessOptions.c)
+ *     VfReportIssueWithOptions @ 0x1406109F4 (VfReportIssueWithOptions.c)
+ *     ViHalPreprocessOptions @ 0x140B8B21C (ViHalPreprocessOptions.c)
  */
 
 void __fastcall ADD_MAP_REGISTERS(__int64 a1, unsigned int a2, char a3)
@@ -24,7 +24,7 @@ void __fastcall ADD_MAP_REGISTERS(__int64 a1, unsigned int a2, char a3)
   }
   if ( !a3 && v5 > *(_DWORD *)(a1 + 184) )
   {
-    ViHalPreprocessOptions(byte_140E0E91C, "Allocated too many map registers : %x (max %x).", 21, v5);
-    VfReportIssueWithOptions(0xE6u, 0x15uLL, v5, *(unsigned int *)(a1 + 184), 0LL, byte_140E0E91C);
+    ViHalPreprocessOptions(byte_140E0E9D0, "Allocated too many map registers : %x (max %x).", 21, v5);
+    VfReportIssueWithOptions(0xE6u, 0x15uLL, v5, *(unsigned int *)(a1 + 184), 0LL, byte_140E0E9D0);
   }
 }

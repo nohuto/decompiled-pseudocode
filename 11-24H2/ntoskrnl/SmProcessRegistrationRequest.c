@@ -1,11 +1,11 @@
 /*
- * XREFs of SmProcessRegistrationRequest @ 0x1407984BC
+ * XREFs of SmProcessRegistrationRequest @ 0x1407985CC
  * Callers:
- *     SmQueryStoreInformation @ 0x140A18DA0 (SmQueryStoreInformation.c)
+ *     SmQueryStoreInformation @ 0x140A11F10 (SmQueryStoreInformation.c)
  * Callees:
- *     SmpGetProcessPartition @ 0x140498A6C (SmpGetProcessPartition.c)
- *     SmGetRegistrationInfo @ 0x140797444 (SmGetRegistrationInfo.c)
- *     ExRaiseDatatypeMisalignment @ 0x14089B1F0 (ExRaiseDatatypeMisalignment.c)
+ *     SmpGetProcessPartition @ 0x1404933CC (SmpGetProcessPartition.c)
+ *     SmGetRegistrationInfo @ 0x140797554 (SmGetRegistrationInfo.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408A3890 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall SmProcessRegistrationRequest(unsigned __int64 a1, int a2, _DWORD *a3, char a4)

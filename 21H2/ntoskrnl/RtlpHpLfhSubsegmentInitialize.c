@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpHpLfhSubsegmentInitialize @ 0x1402A6A5C
+ * XREFs of RtlpHpLfhSubsegmentInitialize @ 0x140223E9C
  * Callers:
- *     RtlpHpLfhSubsegmentCreate @ 0x1402A66E0 (RtlpHpLfhSubsegmentCreate.c)
+ *     RtlpHpLfhSubsegmentCreate @ 0x140223B20 (RtlpHpLfhSubsegmentCreate.c)
  * Callees:
- *     RtlpHeapGenerateRandomValue64 @ 0x1402A6C9C (RtlpHeapGenerateRandomValue64.c)
- *     memset @ 0x140414200 (memset.c)
+ *     RtlpHeapGenerateRandomValue64 @ 0x1402240DC (RtlpHeapGenerateRandomValue64.c)
+ *     memset @ 0x140414300 (memset.c)
  */
 
 __int64 __fastcall RtlpHpLfhSubsegmentInitialize(

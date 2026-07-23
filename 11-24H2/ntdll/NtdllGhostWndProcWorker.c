@@ -1,5 +1,5 @@
 /*
- * XREFs of NtdllGhostWndProcWorker @ 0x180161C60
+ * XREFs of NtdllGhostWndProcWorker @ 0x180160020
  * Callers:
  *     <none>
  * Callees:
@@ -9,5 +9,5 @@
 // attributes: thunk
 void __noreturn NtdllGhostWndProcWorker()
 {
-  off_1801E72F8();
+  off_1801E62F8();
 }

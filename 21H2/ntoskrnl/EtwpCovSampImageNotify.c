@@ -1,16 +1,16 @@
 /*
- * XREFs of EtwpCovSampImageNotify @ 0x140945050
+ * XREFs of EtwpCovSampImageNotify @ 0x140945220
  * Callers:
- *     EtwpCovSampEnumerateDriver @ 0x140944A20 (EtwpCovSampEnumerateDriver.c)
- *     EtwpCovSampEnumerateProcess @ 0x140944A80 (EtwpCovSampEnumerateProcess.c)
+ *     EtwpCovSampEnumerateDriver @ 0x140944BF0 (EtwpCovSampEnumerateDriver.c)
+ *     EtwpCovSampEnumerateProcess @ 0x140944C50 (EtwpCovSampEnumerateProcess.c)
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x14027C4F0 (ExReleaseRundownProtection_0.c)
- *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
- *     EtwpCovSampAcquireSamplerRundown @ 0x140941E94 (EtwpCovSampAcquireSamplerRundown.c)
- *     EtwpCovSampContextGetModule @ 0x140943420 (EtwpCovSampContextGetModule.c)
- *     EtwpCovSampModuleDereference @ 0x1409452C8 (EtwpCovSampModuleDereference.c)
- *     EtwpCovSampProcessAddModule @ 0x1409454B8 (EtwpCovSampProcessAddModule.c)
- *     EtwpCovSampProcessEnsureContext @ 0x1409457A0 (EtwpCovSampProcessEnsureContext.c)
+ *     ExReleaseRundownProtection @ 0x14026A490 (ExReleaseRundownProtection.c)
+ *     KeLeaveCriticalRegion @ 0x140356100 (KeLeaveCriticalRegion.c)
+ *     EtwpCovSampAcquireSamplerRundown @ 0x140942064 (EtwpCovSampAcquireSamplerRundown.c)
+ *     EtwpCovSampContextGetModule @ 0x1409435F0 (EtwpCovSampContextGetModule.c)
+ *     EtwpCovSampModuleDereference @ 0x140945498 (EtwpCovSampModuleDereference.c)
+ *     EtwpCovSampProcessAddModule @ 0x140945688 (EtwpCovSampProcessAddModule.c)
+ *     EtwpCovSampProcessEnsureContext @ 0x140945970 (EtwpCovSampProcessEnsureContext.c)
  */
 
 void __fastcall EtwpCovSampImageNotify(__int64 FullImageName, HANDLE ProcessId, char *ImageInfo)
@@ -55,7 +55,7 @@ LABEL_9:
     EtwpCovSampModuleDereference(v3);
   if ( v12 )
   {
-    ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)&stru_140C198C0);
+    ExReleaseRundownProtection((PEX_RUNDOWN_REF)&stru_140C198C0);
     KeLeaveCriticalRegion();
   }
 }

@@ -45,18 +45,21 @@ __int64 __fastcall EtwpValidateEnableNotification(
     if ( (v18 & 0x20) == 0 && (v18 & 0x400) == 0 )
     {
       v17 = 0;
-      goto LABEL_27;
+      goto LABEL_28;
     }
     return 3221225485LL;
   }
   if ( v10 == 3 )
     return 3221225506LL;
-  if ( PrivateLoggerNotificationGuid == *(_OWORD *)(a2 + 40) )
+  if ( *(_QWORD *)&PrivateLoggerNotificationGuid.Data1 == *(_QWORD *)(a2 + 40)
+    && *(_QWORD *)PrivateLoggerNotificationGuid.Data4 == *(_QWORD *)(a2 + 48) )
+  {
     return 3221225485LL;
+  }
   v13 = EtwpAcquireLoggerContextByLoggerId(a1, v10, 0);
   v14 = v13;
   if ( !v13 )
-    goto LABEL_22;
+    goto LABEL_23;
   v15 = a1 == EtwpHostSiloState;
   *a5 = v13;
   if ( !v15 && (*(_DWORD *)(a2 + 80) & 0x400) != 0 )
@@ -78,13 +81,13 @@ __int64 __fastcall EtwpValidateEnableNotification(
       v17 = EtwpCheckNotificationAccess(a2 + 40, a4);
     else
       v17 = 0;
-    goto LABEL_23;
+    goto LABEL_24;
   }
-LABEL_22:
-  v17 = -1073741162;
 LABEL_23:
+  v17 = -1073741162;
+LABEL_24:
   v18 = *(_DWORD *)(a2 + 80);
-LABEL_27:
+LABEL_28:
   v19 = v18;
   v20 = v18 | 0x40;
   v21 = v18 & 0xFFFFFFEF;

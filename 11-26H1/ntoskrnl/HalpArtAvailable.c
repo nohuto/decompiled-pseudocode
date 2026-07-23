@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpArtAvailable @ 0x1404B9184
+ * XREFs of HalpArtAvailable @ 0x1404B29B4
  * Callers:
- *     HalpArtInitialize @ 0x1404B90F0 (HalpArtInitialize.c)
- *     HalpArtDiscover @ 0x140598844 (HalpArtDiscover.c)
+ *     HalpArtInitialize @ 0x1404B2920 (HalpArtInitialize.c)
+ *     HalpArtDiscover @ 0x14059AFC4 (HalpArtDiscover.c)
  * Callees:
- *     HalpIsHvPresent @ 0x1404B9338 (HalpIsHvPresent.c)
- *     HalpIsMicrosoftCompatibleHvLoaded @ 0x1404B938C (HalpIsMicrosoftCompatibleHvLoaded.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     HalpIsHvPresent @ 0x1404B2B68 (HalpIsHvPresent.c)
+ *     HalpIsMicrosoftCompatibleHvLoaded @ 0x1404B2BBC (HalpIsMicrosoftCompatibleHvLoaded.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 char HalpArtAvailable()

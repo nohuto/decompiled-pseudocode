@@ -1,7 +1,7 @@
 /*
- * XREFs of ExpCompleteSoftReboot @ 0x14022CBB0
+ * XREFs of ExpCompleteSoftReboot @ 0x14022C9DC
  * Callers:
- *     NtSetSystemInformation @ 0x1403E9F6C (NtSetSystemInformation.c)
+ *     NtSetSystemInformation @ 0x1403EB59C (NtSetSystemInformation.c)
  * Callees:
  *     KsrCleanupPageDatabase_0 @ 0x1400012D0 (KsrCleanupPageDatabase_0.c)
  */

@@ -1,10 +1,10 @@
 /*
- * XREFs of MiReferenceCloneProto @ 0x14036A5A8
+ * XREFs of MiReferenceCloneProto @ 0x14036C348
  * Callers:
- *     MiReferenceExistingCloneProto @ 0x14036AC14 (MiReferenceExistingCloneProto.c)
+ *     MiReferenceExistingCloneProto @ 0x14036C9B4 (MiReferenceExistingCloneProto.c)
  * Callees:
- *     MiGetCloneCharges @ 0x140369494 (MiGetCloneCharges.c)
- *     MiLockCloneBlockAtDpc @ 0x14036A800 (MiLockCloneBlockAtDpc.c)
+ *     MiGetCloneCharges @ 0x14036B234 (MiGetCloneCharges.c)
+ *     MiLockCloneBlockAtDpc @ 0x14036C5A0 (MiLockCloneBlockAtDpc.c)
  */
 
 __int64 __fastcall MiReferenceCloneProto(__int64 a1, __int64 a2, __int64 a3, char a4, _QWORD *a5)
@@ -20,7 +20,7 @@ __int64 __fastcall MiReferenceCloneProto(__int64 a1, __int64 a2, __int64 a3, cha
   if ( !*(_QWORD *)(a3 + 24) )
     goto LABEL_13;
   v10 = 0;
-  v11 = *(_QWORD *)(stru_140E2EB88.ThreadLock + 8LL * *(unsigned __int16 *)(a1 + 174));
+  v11 = *(_QWORD *)(stru_140E2ED08.ThreadLock + 8LL * *(unsigned __int16 *)(a1 + 174));
   if ( v11 != a2 && !*(_QWORD *)(a3 + 8) )
     v10 = 5;
   if ( v7 && (*(_QWORD *)(a3 + 16) & 0xFFFFFFFFFFFFFE0LL) == 0 )

@@ -1,10 +1,10 @@
 /*
- * XREFs of KiSwapProcess @ 0x140207230
+ * XREFs of KiSwapProcess @ 0x1402ABB30
  * Callers:
- *     KiUnstackDetachProcess @ 0x140207000 (KiUnstackDetachProcess.c)
+ *     KiUnstackDetachProcess @ 0x1402AB900 (KiUnstackDetachProcess.c)
  * Callees:
- *     KiSetAddressPolicy @ 0x1402079D0 (KiSetAddressPolicy.c)
- *     HvlSwitchVirtualAddressSpace @ 0x1404FAD60 (HvlSwitchVirtualAddressSpace.c)
+ *     KiSetAddressPolicy @ 0x1402AC2D0 (KiSetAddressPolicy.c)
+ *     HvlSwitchVirtualAddressSpace @ 0x1404FACE0 (HvlSwitchVirtualAddressSpace.c)
  */
 
 unsigned __int64 __fastcall KiSwapProcess(__int64 a1, __int64 a2)

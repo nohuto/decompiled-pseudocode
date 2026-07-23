@@ -1,7 +1,7 @@
 /*
- * XREFs of CmpRecordParseFailure @ 0x1401B3DB4
+ * XREFs of CmpRecordParseFailure @ 0x1401B3C98
  * Callers:
- *     CmpCreateChild @ 0x1403FE088 (CmpCreateChild.c)
+ *     CmpCreateChild @ 0x1403FCF48 (CmpCreateChild.c)
  * Callees:
  *     <none>
  */

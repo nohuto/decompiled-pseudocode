@@ -1,9 +1,9 @@
 /*
- * XREFs of HvpViewMapUnpinViewOfPrimaryFile @ 0x1401B6C7C
+ * XREFs of HvpViewMapUnpinViewOfPrimaryFile @ 0x1401B6B60
  * Callers:
- *     HvpViewMapUnpinForFileOffset @ 0x1401B6B34 (HvpViewMapUnpinForFileOffset.c)
+ *     HvpViewMapUnpinForFileOffset @ 0x1401B6A18 (HvpViewMapUnpinForFileOffset.c)
  * Callees:
- *     MmProtectSystemCacheView @ 0x1401E6EC4 (MmProtectSystemCacheView.c)
+ *     MmProtectSystemCacheView @ 0x1401E6CF0 (MmProtectSystemCacheView.c)
  */
 
 __int64 __fastcall HvpViewMapUnpinViewOfPrimaryFile(__int64 a1, int a2)

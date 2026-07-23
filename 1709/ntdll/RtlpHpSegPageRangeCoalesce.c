@@ -54,7 +54,7 @@ __int64 __fastcall RtlpHpSegPageRangeCoalesce(__int64 a1, __int64 a2, char a3, i
         v12 = v11;
       if ( v12 )
       {
-        RtlRbRemoveNode(a1 + 56, v12);
+        RtlRbRemoveNode((PRTL_RB_TREE)(a1 + 56), (PRTL_BALANCED_NODE)v12);
         *(_QWORD *)v12 = 0LL;
         *(_QWORD *)(v12 + 8) = 0LL;
         *(_QWORD *)(v12 + 16) = 0LL;
@@ -77,7 +77,7 @@ __int64 __fastcall RtlpHpSegPageRangeCoalesce(__int64 a1, __int64 a2, char a3, i
     *(_BYTE *)(a2 + 24) |= 0x11u;
     if ( v8 )
     {
-      RtlRbRemoveNode(a1 + 56, v8);
+      RtlRbRemoveNode((PRTL_RB_TREE)(a1 + 56), (PRTL_BALANCED_NODE)v8);
       *(_QWORD *)v8 = 0LL;
       *(_QWORD *)(v8 + 8) = 0LL;
       *(_QWORD *)(v8 + 16) = 0LL;
@@ -120,7 +120,7 @@ __int64 __fastcall RtlpHpSegPageRangeCoalesce(__int64 a1, __int64 a2, char a3, i
         goto LABEL_31;
       if ( !_InterlockedCompareExchange(&RtlpHpGCTimerScheduled, 1, 0) )
       {
-        TpSetTimerEx(RtlpHpGCTimer, (__int64)&RtlpHpGCInterval, 0, 5000);
+        TpSetTimerEx(RtlpHpGCTimer, &RtlpHpGCInterval, 0, 0x1388u);
         if ( (RtlpHpHeapFeatures & 8) != 0 )
           RtlpHpTlLogGCScheduled();
       }
@@ -129,10 +129,10 @@ __int64 __fastcall RtlpHpSegPageRangeCoalesce(__int64 a1, __int64 a2, char a3, i
       break;
 LABEL_31:
     if ( (a3 & 1) == 0 )
-      RtlReleaseSRWLockExclusive(a1 + 24);
+      RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 24));
     RtlpHpSegPageRangeDecommit(a1, a2, 0LL, *(unsigned __int8 *)(a2 + 31) << *(_BYTE *)(a1 + 9));
     if ( (a3 & 1) == 0 )
-      RtlAcquireSRWLockExclusive(a1 + 24);
+      RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 24));
     *(_BYTE *)(a2 + 24) &= ~0x10u;
   }
   v18 = 32LL * ((unsigned int)*(unsigned __int8 *)(a2 + 31) - 1);

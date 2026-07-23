@@ -1,12 +1,12 @@
 /*
- * XREFs of PspInitializeSystemDlls @ 0x140C35894
+ * XREFs of PspInitializeSystemDlls @ 0x140C379D4
  * Callers:
- *     PspInitPhase2 @ 0x140C3516C (PspInitPhase2.c)
+ *     PspInitPhase2 @ 0x140C372AC (PspInitPhase2.c)
  * Callees:
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     PsQuerySystemDllInfo @ 0x1408FB0A8 (PsQuerySystemDllInfo.c)
- *     PspWow64GetSharedInformation @ 0x140908844 (PspWow64GetSharedInformation.c)
- *     PspLookupEntryPoint @ 0x140C3595C (PspLookupEntryPoint.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     PspWow64GetSharedInformation @ 0x1408DFF60 (PspWow64GetSharedInformation.c)
+ *     PsQuerySystemDllInfo @ 0x14091D988 (PsQuerySystemDllInfo.c)
+ *     PspLookupEntryPoint @ 0x140C37A9C (PspLookupEntryPoint.c)
  */
 
 _UNKNOWN **PspInitializeSystemDlls()
@@ -24,7 +24,7 @@ _UNKNOWN **PspInitializeSystemDlls()
 
   result = &retaddr;
   v9 = 0LL;
-  v1 = &qword_140C720B8;
+  v1 = &qword_140C74218;
   for ( i = 0; i < 6; ++i )
   {
     result = (_UNKNOWN **)PsQuerySystemDllInfo(i);

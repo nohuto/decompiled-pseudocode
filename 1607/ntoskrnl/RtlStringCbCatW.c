@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlStringCbCatW @ 0x1400C49B8
+ * XREFs of RtlStringCbCatW @ 0x1400C2858
  * Callers:
- *     SeSetLearningModeObjectInformation @ 0x14000FB70 (SeSetLearningModeObjectInformation.c)
- *     PnpConcatPWSTR @ 0x140487108 (PnpConcatPWSTR.c)
- *     EtwStartAutoLogger @ 0x1404E0034 (EtwStartAutoLogger.c)
- *     WmipInsertStaticNames @ 0x140504A34 (WmipInsertStaticNames.c)
- *     RtlpGetDynamicTimeZoneInfoHandle @ 0x14055F540 (RtlpGetDynamicTimeZoneInfoHandle.c)
- *     EtwpEnableKeyProviders @ 0x14056366C (EtwpEnableKeyProviders.c)
- *     PfSnParametersRead @ 0x140571EAC (PfSnParametersRead.c)
- *     WmipIncludeStaticNames @ 0x14069E1AC (WmipIncludeStaticNames.c)
+ *     SeSetLearningModeObjectInformation @ 0x14000F6F0 (SeSetLearningModeObjectInformation.c)
+ *     EtwStartAutoLogger @ 0x1404C3638 (EtwStartAutoLogger.c)
+ *     WmipInsertStaticNames @ 0x1404E79C4 (WmipInsertStaticNames.c)
+ *     PnpConcatPWSTR @ 0x140512884 (PnpConcatPWSTR.c)
+ *     RtlpGetDynamicTimeZoneInfoHandle @ 0x14055FA80 (RtlpGetDynamicTimeZoneInfoHandle.c)
+ *     EtwpEnableKeyProviders @ 0x140563BAC (EtwpEnableKeyProviders.c)
+ *     PfSnParametersRead @ 0x1405723EC (PfSnParametersRead.c)
+ *     WmipIncludeStaticNames @ 0x14069E290 (WmipIncludeStaticNames.c)
  * Callees:
  *     <none>
  */

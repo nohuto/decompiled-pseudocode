@@ -1,11 +1,11 @@
 /*
- * XREFs of MiProbeAndLockComplete @ 0x14009A754
+ * XREFs of MiProbeAndLockComplete @ 0x140099F54
  * Callers:
- *     MmProbeAndLockSelectedPages @ 0x14009A5D4 (MmProbeAndLockSelectedPages.c)
+ *     MmProbeAndLockSelectedPages @ 0x140099DD4 (MmProbeAndLockSelectedPages.c)
  * Callees:
- *     MmUnlockPages @ 0x140051A80 (MmUnlockPages.c)
- *     MiUnlockProbePacketWorkingSet @ 0x14009A79C (MiUnlockProbePacketWorkingSet.c)
- *     MiAddMdlTracker @ 0x1401E2B60 (MiAddMdlTracker.c)
+ *     MmUnlockPages @ 0x140051600 (MmUnlockPages.c)
+ *     MiUnlockProbePacketWorkingSet @ 0x140099F9C (MiUnlockProbePacketWorkingSet.c)
+ *     MiAddMdlTracker @ 0x1401E298C (MiAddMdlTracker.c)
  */
 
 __int64 __fastcall MiProbeAndLockComplete(__int64 a1, __int64 a2)
@@ -21,7 +21,7 @@ __int64 __fastcall MiProbeAndLockComplete(__int64 a1, __int64 a2)
   if ( v2 < 0 )
   {
     MmUnlockPages(v4);
-    ++dword_1403270F0;
+    ++dword_140327130;
   }
   return (unsigned int)v2;
 }

@@ -258,7 +258,7 @@ LABEL_11:
     v10 = v9;
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     LODWORD(v38) = 4;
@@ -292,10 +292,10 @@ LABEL_11:
     MiInsertPageInFreeOrZeroedList(0xAAAAAAAAAAAAAAABuLL * ((__int64)v12[0x22000000000LL].m128i_i64 >> 4), v10);
     _InterlockedAnd64(&v12[1].m128i_i64[1], 0x7FFFFFFFFFFFFFFFuLL);
   }
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v39 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v39 <= 0xFu && CurrentIrql <= 0xFu && v39 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v39 <= 0xFu && CurrentIrql <= 0xFu && v39 >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v41 = CurrentPrcb->SchedulerAssist;

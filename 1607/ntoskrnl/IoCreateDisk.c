@@ -1,5 +1,5 @@
 /*
- * XREFs of IoCreateDisk @ 0x14061FF1C
+ * XREFs of IoCreateDisk @ 0x14061FFD0
  * Callers:
  *     <none>
  * Callees:

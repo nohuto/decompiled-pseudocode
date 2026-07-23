@@ -1,16 +1,15 @@
 /*
- * XREFs of AlpcpCaptureSecurityAttribute32 @ 0x140894358
+ * XREFs of AlpcpCaptureSecurityAttribute32 @ 0x140A0C624
  * Callers:
- *     AlpcpCaptureAttributes @ 0x14088F7F0 (AlpcpCaptureAttributes.c)
+ *     AlpcpCaptureAttributes @ 0x140899420 (AlpcpCaptureAttributes.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     RtlCopyVolatileMemory @ 0x1406B5CF0 (RtlCopyVolatileMemory.c)
- *     AlpcpCaptureSecurityAttributeInternal @ 0x1408949C0 (AlpcpCaptureSecurityAttributeInternal.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     RtlCopyVolatileMemory @ 0x1406B6C90 (RtlCopyVolatileMemory.c)
+ *     AlpcpCaptureSecurityAttributeInternal @ 0x14089CE60 (AlpcpCaptureSecurityAttributeInternal.c)
  */
 
 __int64 __fastcall AlpcpCaptureSecurityAttribute32(__int64 a1, int *a2, __int64 a3)
 {
-  int v5; // edi
   unsigned int v6; // eax
   __int64 result; // rax
   int v8; // [rsp+30h] [rbp-48h]
@@ -18,7 +17,6 @@ __int64 __fastcall AlpcpCaptureSecurityAttribute32(__int64 a1, int *a2, __int64 
   __int64 v10; // [rsp+40h] [rbp-38h] BYREF
   int v11; // [rsp+48h] [rbp-30h]
 
-  v5 = a1;
   v10 = 0LL;
   v11 = 0;
   v8 = *a2;
@@ -33,7 +31,7 @@ __int64 __fastcall AlpcpCaptureSecurityAttribute32(__int64 a1, int *a2, __int64 
     v10 = *(_QWORD *)(a1 + 260);
     v11 = *(_DWORD *)(a1 + 268);
   }
-  result = AlpcpCaptureSecurityAttributeInternal(v5, v8, (unsigned int)&v10, (unsigned int)&v9, a3);
+  result = AlpcpCaptureSecurityAttributeInternal(a1, v8, (__int64)&v10, &v9, a3);
   if ( (int)result >= 0 )
     a2[2] = v9;
   return result;

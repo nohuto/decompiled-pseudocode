@@ -1,12 +1,12 @@
 /*
- * XREFs of VrpPostUnloadKey @ 0x140B60EDC
+ * XREFs of VrpPostUnloadKey @ 0x140B63F7C
  * Callers:
- *     VrpRegistryCallback @ 0x140973A30 (VrpRegistryCallback.c)
+ *     VrpRegistryCallback @ 0x140935A40 (VrpRegistryCallback.c)
  * Callees:
- *     EtwActivityIdControl @ 0x140466BF0 (EtwActivityIdControl.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     VrpDestroyNamespaceNode @ 0x140977AF4 (VrpDestroyNamespaceNode.c)
- *     VrpUnlockJobContextExclusive @ 0x1409787A4 (VrpUnlockJobContextExclusive.c)
+ *     EtwActivityIdControl @ 0x140460340 (EtwActivityIdControl.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     VrpDestroyNamespaceNode @ 0x140939B04 (VrpDestroyNamespaceNode.c)
+ *     VrpUnlockJobContextExclusive @ 0x14093A7B4 (VrpUnlockJobContextExclusive.c)
  */
 
 __int64 __fastcall VrpPostUnloadKey(__int64 a1, size_t *a2)

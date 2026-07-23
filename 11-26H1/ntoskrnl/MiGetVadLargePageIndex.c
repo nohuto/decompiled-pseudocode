@@ -1,7 +1,7 @@
 /*
- * XREFs of MiGetVadLargePageIndex @ 0x1404D692C
+ * XREFs of MiGetVadLargePageIndex @ 0x1404D00FC
  * Callers:
- *     MiCommitVadPreparePacket @ 0x1409C7490 (MiCommitVadPreparePacket.c)
+ *     MiCommitVadPreparePacket @ 0x140998470 (MiCommitVadPreparePacket.c)
  * Callees:
  *     <none>
  */

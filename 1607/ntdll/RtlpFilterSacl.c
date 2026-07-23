@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpFilterSacl @ 0x1800E0FAC
+ * XREFs of RtlpFilterSacl @ 0x1800E106C
  * Callers:
- *     RtlQuerySecurityObject @ 0x1800D4BC0 (RtlQuerySecurityObject.c)
+ *     RtlQuerySecurityObject @ 0x1800D4C80 (RtlQuerySecurityObject.c)
  * Callees:
  *     memmove @ 0x1800AC980 (memmove.c)
  */

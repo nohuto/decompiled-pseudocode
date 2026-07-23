@@ -4,7 +4,7 @@
  *     RtlSleepConditionVariableSRW @ 0x1800589C0 (RtlSleepConditionVariableSRW.c)
  *     RtlSleepConditionVariableCS @ 0x180058C40 (RtlSleepConditionVariableCS.c)
  * Callees:
- *     RtlpWakeConditionVariable @ 0x18007F774 (RtlpWakeConditionVariable.c)
+ *     RtlpWakeConditionVariable @ 0x18007F784 (RtlpWakeConditionVariable.c)
  */
 
 bool __fastcall RtlpWakeSingle(volatile signed __int64 *a1, __int64 a2)

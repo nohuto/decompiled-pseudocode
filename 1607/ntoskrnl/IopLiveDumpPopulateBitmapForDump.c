@@ -3,19 +3,19 @@
  * Callers:
  *     IopLiveDumpEndMirroringCallback @ 0x1403DABEC (IopLiveDumpEndMirroringCallback.c)
  * Callees:
- *     RtlSetBitsEx @ 0x1400179FC (RtlSetBitsEx.c)
- *     RtlFindNextForwardRunClearEx @ 0x1401129E8 (RtlFindNextForwardRunClearEx.c)
- *     RtlFindSetBitsEx @ 0x1401129F0 (RtlFindSetBitsEx.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     MmRemoveSystemCacheFromDump @ 0x1401E7ED0 (MmRemoveSystemCacheFromDump.c)
+ *     RtlSetBitsEx @ 0x14001757C (RtlSetBitsEx.c)
+ *     RtlFindNextForwardRunClearEx @ 0x140112F58 (RtlFindNextForwardRunClearEx.c)
+ *     RtlFindSetBitsEx @ 0x140112F60 (RtlFindSetBitsEx.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     MmRemoveSystemCacheFromDump @ 0x1401E7CFC (MmRemoveSystemCacheFromDump.c)
  */
 
 void __fastcall IopLiveDumpPopulateBitmapForDump(__int64 a1)
 {
   __int64 v1; // r15
   unsigned __int64 v2; // rsi
-  unsigned __int64 *v4; // r14
-  unsigned __int64 SetBits; // rdi
+  _RTL_BITMAP_EX *v4; // r14
+  ULONG64 SetBits; // rdi
   unsigned __int64 v6; // rsi
   __int64 v7; // rax
   unsigned __int64 v8; // r15
@@ -25,10 +25,10 @@ void __fastcall IopLiveDumpPopulateBitmapForDump(__int64 a1)
   unsigned __int64 v12; // rax
   _QWORD v13[2]; // [rsp+20h] [rbp-48h] BYREF
   _QWORD v14[7]; // [rsp+30h] [rbp-38h] BYREF
-  unsigned __int64 v15; // [rsp+B0h] [rbp+48h] BYREF
+  ULONG64 v15; // [rsp+B0h] [rbp+48h] BYREF
   unsigned __int64 v16; // [rsp+B8h] [rbp+50h] BYREF
   unsigned __int64 NextForwardRunClear; // [rsp+C0h] [rbp+58h]
-  unsigned __int64 v18; // [rsp+C8h] [rbp+60h]
+  ULONG64 v18; // [rsp+C8h] [rbp+60h]
 
   v1 = a1 + 368;
   v2 = *(_QWORD *)(a1 + 368);
@@ -40,7 +40,7 @@ void __fastcall IopLiveDumpPopulateBitmapForDump(__int64 a1)
   v14[1] = IoFreeDumpRange;
   v14[2] = a1 + 424;
   MmRemoveSystemCacheFromDump((__int64)v14);
-  v4 = (unsigned __int64 *)(a1 + 424);
+  v4 = (_RTL_BITMAP_EX *)(a1 + 424);
   if ( a1 != -424 )
   {
     do
@@ -96,8 +96,8 @@ void __fastcall IopLiveDumpPopulateBitmapForDump(__int64 a1)
         }
         while ( SetBits < v18 );
       }
-      if ( v4 == (unsigned __int64 *)(a1 + 424) && (*(_DWORD *)(a1 + 40) & 4) != 0 )
-        v4 = (unsigned __int64 *)(a1 + 464);
+      if ( v4 == (_RTL_BITMAP_EX *)(a1 + 424) && (*(_DWORD *)(a1 + 40) & 4) != 0 )
+        v4 = (_RTL_BITMAP_EX *)(a1 + 464);
       else
         v4 = 0LL;
     }

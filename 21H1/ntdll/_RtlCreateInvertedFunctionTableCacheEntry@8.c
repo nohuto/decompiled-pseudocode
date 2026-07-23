@@ -8,10 +8,10 @@
  *     _RtlRemoveInvertedFunctionTable@4 @ 0x4B2E680E (_RtlRemoveInvertedFunctionTable@4.c)
  */
 
-signed __int32 __fastcall RtlCreateInvertedFunctionTableCacheEntry(_DWORD *a1, int a2)
+void __usercall RtlCreateInvertedFunctionTableCacheEntry(PVOID BaseAddress@<ecx>, int a2@<edx>, ULONG_PTR *a3@<edi>)
 {
-  int v2; // esi
-  int v3; // edi
+  unsigned int v3; // esi
+  int v4; // edi
   int v5; // [esp+Ch] [ebp-18h] BYREF
   int v6; // [esp+10h] [ebp-14h]
   int v7; // [esp+14h] [ebp-10h]
@@ -22,9 +22,10 @@ signed __int32 __fastcall RtlCreateInvertedFunctionTableCacheEntry(_DWORD *a1, i
 
   v10 = 0;
   v9 = a2;
-  if ( (unsigned int)a1 < dword_4B3A9374[0] || (unsigned int)a1 >= dword_4B3A9374[0] + dword_4B3A9378[0] )
+  if ( (unsigned int)BaseAddress < dword_4B3A9374[0]
+    || (unsigned int)BaseAddress >= dword_4B3A9374[0] + dword_4B3A9378[0] )
   {
-    v2 = RtlpxLookupFunctionTable(&v5, a1, (int)&savedregs);
+    v3 = RtlpxLookupFunctionTable(BaseAddress, (int)&v5, (int)&savedregs, a3);
   }
   else
   {
@@ -32,22 +33,22 @@ signed __int32 __fastcall RtlCreateInvertedFunctionTableCacheEntry(_DWORD *a1, i
     v6 = dword_4B3A9370[1];
     v7 = dword_4B3A9370[2];
     v8 = dword_4B3A9370[3];
-    v2 = dword_4B3A9370[0];
+    v3 = dword_4B3A9370[0];
   }
-  if ( v2 )
+  if ( v3 )
   {
-    v3 = v6;
+    v4 = v6;
     v10 = v8;
   }
   else
   {
-    v3 = v9;
+    v4 = v9;
   }
   LdrProtectMrdata(0);
-  dword_4B3A9370[0] = v2;
+  dword_4B3A9370[0] = v3;
   dword_4B3A937C[0] = v10;
-  dword_4B3A9374[0] = v3;
+  dword_4B3A9374[0] = v4;
   dword_4B3A9378[0] = v9;
   RtlRemoveInvertedFunctionTable();
-  return LdrProtectMrdata(1);
+  LdrProtectMrdata(1);
 }

@@ -1,17 +1,17 @@
 /*
- * XREFs of ObReferenceObjectByPointerWithTag @ 0x14043DAF0
+ * XREFs of ObReferenceObjectByPointerWithTag @ 0x140436600
  * Callers:
- *     PopPushPowerStateTransitionRecordWithCallback @ 0x14060769C (PopPushPowerStateTransitionRecordWithCallback.c)
- *     DifObReferenceObjectByPointerWithTagWrapper @ 0x140692410 (DifObReferenceObjectByPointerWithTagWrapper.c)
- *     DifObReferenceObjectByPointerWrapper @ 0x1406925B0 (DifObReferenceObjectByPointerWrapper.c)
- *     PspCriticalProcessDeathBlamedThreadTryGet @ 0x1407FAA68 (PspCriticalProcessDeathBlamedThreadTryGet.c)
- *     IoRegisterPlugPlayNotification @ 0x140908ED0 (IoRegisterPlugPlayNotification.c)
- *     ObOpenObjectByPointer @ 0x14092AFF0 (ObOpenObjectByPointer.c)
- *     PspSchedulerSharedDataRegionCreate @ 0x1409B7374 (PspSchedulerSharedDataRegionCreate.c)
- *     PspSchedulerSharedDataRegionSlotAllocate @ 0x140A83A6C (PspSchedulerSharedDataRegionSlotAllocate.c)
+ *     PopPushPowerStateTransitionRecordWithCallback @ 0x14060A1F8 (PopPushPowerStateTransitionRecordWithCallback.c)
+ *     DifObReferenceObjectByPointerWithTagWrapper @ 0x140695FF0 (DifObReferenceObjectByPointerWithTagWrapper.c)
+ *     DifObReferenceObjectByPointerWrapper @ 0x140696190 (DifObReferenceObjectByPointerWrapper.c)
+ *     PspCriticalProcessDeathBlamedThreadTryGet @ 0x140800498 (PspCriticalProcessDeathBlamedThreadTryGet.c)
+ *     ObOpenObjectByPointer @ 0x140906B20 (ObOpenObjectByPointer.c)
+ *     PspSchedulerSharedDataRegionSlotAllocate @ 0x14094CB6C (PspSchedulerSharedDataRegionSlotAllocate.c)
+ *     PspSchedulerSharedDataRegionCreate @ 0x140988354 (PspSchedulerSharedDataRegionCreate.c)
+ *     IoRegisterPlugPlayNotification @ 0x1409AAA90 (IoRegisterPlugPlayNotification.c)
  * Callees:
- *     ObpTraceObjectReferenceIfActive @ 0x140278BB0 (ObpTraceObjectReferenceIfActive.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     ObpTraceObjectReferenceIfActive @ 0x140278120 (ObpTraceObjectReferenceIfActive.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 NTSTATUS __stdcall ObReferenceObjectByPointerWithTag(

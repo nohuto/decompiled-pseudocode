@@ -1,7 +1,7 @@
 /*
- * XREFs of KiShouldSearchSharedReadyQueue @ 0x1404344E0
+ * XREFs of KiShouldSearchSharedReadyQueue @ 0x140426AF0
  * Callers:
- *     KiDisarmForceParkDutyCyclingIfNecessary @ 0x1404F9554 (KiDisarmForceParkDutyCyclingIfNecessary.c)
+ *     KiDisarmForceParkDutyCyclingIfNecessary @ 0x1404F6E34 (KiDisarmForceParkDutyCyclingIfNecessary.c)
  * Callees:
  *     <none>
  */

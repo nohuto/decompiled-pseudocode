@@ -1,13 +1,13 @@
 /*
- * XREFs of PopEtEnergyContextProcessStateUpdate @ 0x1406069F0
+ * XREFs of PopEtEnergyContextProcessStateUpdate @ 0x1406079F0
  * Callers:
- *     PoEnergyContextUpdateComponentPower @ 0x140603FCC (PoEnergyContextUpdateComponentPower.c)
- *     PopEtEnergyContextSetState @ 0x14060464C (PopEtEnergyContextSetState.c)
+ *     PoEnergyContextUpdateComponentPower @ 0x140604FCC (PoEnergyContextUpdateComponentPower.c)
+ *     PopEtEnergyContextSetState @ 0x14060564C (PopEtEnergyContextSetState.c)
  * Callees:
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     PopEtEnumEnergyTrackers @ 0x140606A78 (PopEtEnumEnergyTrackers.c)
- *     PsQueryProcessEnergyValues @ 0x1406372A0 (PsQueryProcessEnergyValues.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     PopEtEnumEnergyTrackers @ 0x140607A78 (PopEtEnumEnergyTrackers.c)
+ *     PsQueryProcessEnergyValues @ 0x1406382C0 (PsQueryProcessEnergyValues.c)
  */
 
 __int64 __fastcall PopEtEnergyContextProcessStateUpdate(__int64 a1)

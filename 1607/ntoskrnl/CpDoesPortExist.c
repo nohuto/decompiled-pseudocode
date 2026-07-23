@@ -1,10 +1,10 @@
 /*
- * XREFs of CpDoesPortExist @ 0x14023DA44
+ * XREFs of CpDoesPortExist @ 0x14023D928
  * Callers:
- *     InbvPortInitialize @ 0x14023DE2C (InbvPortInitialize.c)
+ *     InbvPortInitialize @ 0x14023DD10 (InbvPortInitialize.c)
  * Callees:
- *     MY_READ_PORT_UCHAR @ 0x140171A74 (MY_READ_PORT_UCHAR.c)
- *     MY_WRITE_PORT_UCHAR @ 0x140171A80 (MY_WRITE_PORT_UCHAR.c)
+ *     MY_READ_PORT_UCHAR @ 0x140171F74 (MY_READ_PORT_UCHAR.c)
+ *     MY_WRITE_PORT_UCHAR @ 0x140171F80 (MY_WRITE_PORT_UCHAR.c)
  */
 
 bool __fastcall CpDoesPortExist(__int16 a1)

@@ -1,18 +1,18 @@
 /*
- * XREFs of IopLiveDumpCorralProcessors @ 0x14059A660
+ * XREFs of IopLiveDumpCorralProcessors @ 0x1405975E0
  * Callers:
- *     IopLiveDumpEnterCorralledState @ 0x14059A980 (IopLiveDumpEnterCorralledState.c)
+ *     IopLiveDumpEnterCorralledState @ 0x140597900 (IopLiveDumpEnterCorralledState.c)
  * Callees:
- *     KeInsertQueueDpc @ 0x1402542F0 (KeInsertQueueDpc.c)
- *     KeSetSystemGroupAffinityThread @ 0x140339650 (KeSetSystemGroupAffinityThread.c)
- *     KeYieldProcessorEx @ 0x1403F9C60 (KeYieldProcessorEx.c)
- *     KeEnumerateNextProcessor @ 0x14040D4F0 (KeEnumerateNextProcessor.c)
- *     IopLiveDumpGetMillisecondCounter @ 0x14049B5E4 (IopLiveDumpGetMillisecondCounter.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     IopLiveDumpIsTracingEnabled @ 0x1404FA9A4 (IopLiveDumpIsTracingEnabled.c)
- *     IopLiveDumpInitiateCorralStateChange @ 0x14059B99C (IopLiveDumpInitiateCorralStateChange.c)
- *     IopLiveDumpTraceCorralProcessorsDuration @ 0x14059D794 (IopLiveDumpTraceCorralProcessorsDuration.c)
- *     IopLiveDumpTraceNoArgs @ 0x1405A33C0 (IopLiveDumpTraceNoArgs.c)
+ *     KeInsertQueueDpc @ 0x140284900 (KeInsertQueueDpc.c)
+ *     KeSetSystemGroupAffinityThread @ 0x140318B30 (KeSetSystemGroupAffinityThread.c)
+ *     KeYieldProcessorEx @ 0x1403EFB70 (KeYieldProcessorEx.c)
+ *     KeEnumerateNextProcessor @ 0x140405740 (KeEnumerateNextProcessor.c)
+ *     IopLiveDumpGetMillisecondCounter @ 0x140495FD4 (IopLiveDumpGetMillisecondCounter.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     IopLiveDumpIsTracingEnabled @ 0x1404F8284 (IopLiveDumpIsTracingEnabled.c)
+ *     IopLiveDumpInitiateCorralStateChange @ 0x14059891C (IopLiveDumpInitiateCorralStateChange.c)
+ *     IopLiveDumpTraceCorralProcessorsDuration @ 0x14059A714 (IopLiveDumpTraceCorralProcessorsDuration.c)
+ *     IopLiveDumpTraceNoArgs @ 0x1405A0300 (IopLiveDumpTraceNoArgs.c)
  */
 
 __int64 __fastcall IopLiveDumpCorralProcessors(__int64 *a1)
@@ -21,7 +21,7 @@ __int64 __fastcall IopLiveDumpCorralProcessors(__int64 *a1)
   _DWORD *v2; // r12
   int v3; // edi
   volatile signed __int32 *v4; // r14
-  struct _GROUP_AFFINITY *v6; // rdx
+  _GROUP_AFFINITY *v6; // rdx
   unsigned int v7; // ecx
   int v8; // edx
   __int64 *v9; // rcx
@@ -32,7 +32,7 @@ __int64 __fastcall IopLiveDumpCorralProcessors(__int64 *a1)
   __int64 v14; // [rsp+30h] [rbp-48h] BYREF
   __int64 v15; // [rsp+38h] [rbp-40h] BYREF
   volatile signed __int32 *v16; // [rsp+40h] [rbp-38h]
-  struct _GROUP_AFFINITY Affinity; // [rsp+48h] [rbp-30h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+48h] [rbp-30h] BYREF
   unsigned __int16 *v18[2]; // [rsp+58h] [rbp-20h] BYREF
   __int16 v19; // [rsp+68h] [rbp-10h]
   int v20; // [rsp+6Ah] [rbp-Eh]
@@ -52,7 +52,7 @@ __int64 __fastcall IopLiveDumpCorralProcessors(__int64 *a1)
   Affinity = 0LL;
   v22 = 0;
   v23 = 0;
-  v6 = (struct _GROUP_AFFINITY *)(a1 + 12);
+  v6 = (_GROUP_AFFINITY *)(a1 + 12);
   v15 = 0LL;
   v14 = 0LL;
   v25 = 0LL;

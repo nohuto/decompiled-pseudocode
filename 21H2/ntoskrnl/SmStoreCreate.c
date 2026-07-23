@@ -1,22 +1,22 @@
 /*
- * XREFs of SmStoreCreate @ 0x14092A384
+ * XREFs of SmStoreCreate @ 0x14092A4E4
  * Callers:
- *     SmcStoreCreate @ 0x14092DB50 (SmcStoreCreate.c)
+ *     SmcStoreCreate @ 0x14092DCB0 (SmcStoreCreate.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     ZwSetSystemInformation @ 0x1403FD920 (ZwSetSystemInformation.c)
- *     SmStorePhysicalRequestIssue @ 0x14092A508 (SmStorePhysicalRequestIssue.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     ZwSetSystemInformation @ 0x1403FDB00 (ZwSetSystemInformation.c)
+ *     SmStorePhysicalRequestIssue @ 0x14092A668 (SmStorePhysicalRequestIssue.c)
  */
 
-__int64 __fastcall SmStoreCreate(int a1, __int128 *a2, _DWORD *a3)
+NTSTATUS __fastcall SmStoreCreate(int a1, __int128 *a2, _DWORD *a3)
 {
   __int128 v3; // xmm0
   __int128 v4; // xmm1
   __int128 v6; // xmm0
-  __int64 result; // rax
+  NTSTATUS result; // eax
   int v8; // ecx
   __int64 v9; // [rsp+30h] [rbp-39h] BYREF
-  _DWORD v10[2]; // [rsp+38h] [rbp-31h] BYREF
+  _DWORD SystemInformation[2]; // [rsp+38h] [rbp-31h] BYREF
   __int64 *v11; // [rsp+40h] [rbp-29h]
   int v12; // [rsp+48h] [rbp-21h]
   int v13; // [rsp+4Ch] [rbp-1Dh]
@@ -35,8 +35,8 @@ __int64 __fastcall SmStoreCreate(int a1, __int128 *a2, _DWORD *a3)
   v15 = v3;
   v11 = &v14;
   v6 = a2[2];
-  v10[0] = 1;
-  v10[1] = 3;
+  SystemInformation[0] = 1;
+  SystemInformation[1] = 3;
   v12 = 88;
   v14 = 6LL;
   v20 = 0LL;
@@ -47,8 +47,8 @@ __int64 __fastcall SmStoreCreate(int a1, __int128 *a2, _DWORD *a3)
   if ( a1 )
   {
     if ( a1 != 1 )
-      return 3221225485LL;
-    result = ZwSetSystemInformation(109LL, (__int64)v10);
+      return -1073741811;
+    result = ZwSetSystemInformation(SystemStoreInformation, SystemInformation, 0x18u);
     v8 = v20;
   }
   else
@@ -56,10 +56,10 @@ __int64 __fastcall SmStoreCreate(int a1, __int128 *a2, _DWORD *a3)
     result = SmStorePhysicalRequestIssue(DeviceObject, 0, (__int64)&v9);
     v8 = v9;
   }
-  if ( (int)result >= 0 )
+  if ( result >= 0 )
   {
     *a3 = v8;
-    return 0LL;
+    return 0;
   }
   return result;
 }

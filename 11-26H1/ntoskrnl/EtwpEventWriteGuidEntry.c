@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpEventWriteGuidEntry @ 0x140825498
+ * XREFs of EtwpEventWriteGuidEntry @ 0x14082B6D8
  * Callers:
- *     EtwpTracingProvEnableCallback @ 0x140B4C3A0 (EtwpTracingProvEnableCallback.c)
+ *     EtwpTracingProvEnableCallback @ 0x140B4E130 (EtwpTracingProvEnableCallback.c)
  * Callees:
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall EtwpEventWriteGuidEntry(__int64 a1, const EVENT_DESCRIPTOR *a2, __int64 a3)
@@ -21,5 +21,5 @@ NTSTATUS __fastcall EtwpEventWriteGuidEntry(__int64 a1, const EVENT_DESCRIPTOR *
   *(_QWORD *)&v4.Size = 16LL;
   v6 = 4LL;
   v8 = 2LL;
-  return EtwWrite(EtwpEventTracingProvRegHandle, a2, 0LL, 3u, &v4);
+  return EtwWrite((REGHANDLE)stru_140F03830.SavedApcState.ApcListHead[0].Blink, a2, 0LL, 3u, &v4);
 }

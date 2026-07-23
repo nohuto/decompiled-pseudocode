@@ -1,11 +1,11 @@
 /*
- * XREFs of KvfCommitFeatureStates @ 0x14017743C
+ * XREFs of KvfCommitFeatureStates @ 0x14017753C
  * Callers:
- *     CmpAcceptBoot @ 0x14071DD88 (CmpAcceptBoot.c)
+ *     CmpAcceptBoot @ 0x14071F028 (CmpAcceptBoot.c)
  * Callees:
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     ZwCreateKey @ 0x1401B8530 (ZwCreateKey.c)
- *     ZwSetValueKey @ 0x1401B8D90 (ZwSetValueKey.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     ZwCreateKey @ 0x1401B8690 (ZwCreateKey.c)
+ *     ZwSetValueKey @ 0x1401B8EF0 (ZwSetValueKey.c)
  */
 
 int KvfCommitFeatureStates()

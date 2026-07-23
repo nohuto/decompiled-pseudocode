@@ -1,22 +1,22 @@
 /*
- * XREFs of MiUnlinkFreeOrZeroedPage @ 0x140066D00
+ * XREFs of MiUnlinkFreeOrZeroedPage @ 0x140066880
  * Callers:
- *     MiRemoveAnyPage @ 0x140064740 (MiRemoveAnyPage.c)
- *     MiZeroSinglePage @ 0x140066B90 (MiZeroSinglePage.c)
- *     MiCoalesceFreePages @ 0x140067870 (MiCoalesceFreePages.c)
- *     MiAllocateMostlyContiguous @ 0x140105140 (MiAllocateMostlyContiguous.c)
- *     MiClaimPhysicalRun @ 0x1401063DC (MiClaimPhysicalRun.c)
- *     MiPurgeZeroList @ 0x140120600 (MiPurgeZeroList.c)
- *     MiTransferPartitionPageRun @ 0x1401F2058 (MiTransferPartitionPageRun.c)
+ *     MiRemoveAnyPage @ 0x1400642C0 (MiRemoveAnyPage.c)
+ *     MiZeroSinglePage @ 0x140066710 (MiZeroSinglePage.c)
+ *     MiCoalesceFreePages @ 0x1400673F0 (MiCoalesceFreePages.c)
+ *     MiAllocateMostlyContiguous @ 0x140102EC0 (MiAllocateMostlyContiguous.c)
+ *     MiClaimPhysicalRun @ 0x14010415C (MiClaimPhysicalRun.c)
+ *     MiPurgeZeroList @ 0x140120B70 (MiPurgeZeroList.c)
+ *     MiTransferPartitionPageRun @ 0x1401F1E84 (MiTransferPartitionPageRun.c)
  * Callees:
- *     KxWaitForLockOwnerShip @ 0x14001BDA0 (KxWaitForLockOwnerShip.c)
- *     KeSetEvent @ 0x1400562D0 (KeSetEvent.c)
- *     KxReleaseQueuedSpinLock @ 0x140069570 (KxReleaseQueuedSpinLock.c)
- *     MiPageListCollision @ 0x14008B178 (MiPageListCollision.c)
- *     MiUpdateAvailableEvents @ 0x14013C7F8 (MiUpdateAvailableEvents.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x1401D39E0 (KiAcquireQueuedSpinLockInstrumented.c)
- *     MiObtainFreePages @ 0x1401E9B08 (MiObtainFreePages.c)
- *     MiSetFreshPfnFromFreeList @ 0x1401F2FAC (MiSetFreshPfnFromFreeList.c)
+ *     KxWaitForLockOwnerShip @ 0x14001B920 (KxWaitForLockOwnerShip.c)
+ *     KeSetEvent @ 0x140055E50 (KeSetEvent.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400690F0 (KxReleaseQueuedSpinLock.c)
+ *     MiPageListCollision @ 0x14008A878 (MiPageListCollision.c)
+ *     MiUpdateAvailableEvents @ 0x14013CD68 (MiUpdateAvailableEvents.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x1401D380C (KiAcquireQueuedSpinLockInstrumented.c)
+ *     MiObtainFreePages @ 0x1401E9934 (MiObtainFreePages.c)
+ *     MiSetFreshPfnFromFreeList @ 0x1401F2DD8 (MiSetFreshPfnFromFreeList.c)
  */
 
 __int64 __fastcall MiUnlinkFreeOrZeroedPage(unsigned __int64 a1, __int64 a2, unsigned int a3)
@@ -59,12 +59,12 @@ __int64 __fastcall MiUnlinkFreeOrZeroedPage(unsigned __int64 a1, __int64 a2, uns
   v6 = *(_BYTE *)(v5 + 34) & 7;
   v37 = v6;
   v38 = (unsigned __int8)HIBYTE(*(_QWORD *)(v5 + 40)) >> 2;
-  v7 = dword_1403269F8 & (unsigned int)a1 | (v38 << byte_1403269C9) | (((*(_QWORD *)(v5 + 40) >> 36) & 3) << byte_1403269D8);
+  v7 = dword_140326A38 & (unsigned int)a1 | (v38 << byte_140326A09) | (((*(_QWORD *)(v5 + 40) >> 36) & 3) << byte_140326A18);
   v8 = ((unsigned int)HIDWORD(*(_QWORD *)(v5 + 40)) >> 8) & 0x3FF;
   if ( v8 == 1023 )
     v9 = MiSystemPartition;
   else
-    v9 = *(int **)(qword_140326FF8 + 8LL * v8);
+    v9 = *(int **)(qword_140327038 + 8LL * v8);
   if ( a2 )
   {
     v38 = -1;
@@ -89,11 +89,11 @@ __int64 __fastcall MiUnlinkFreeOrZeroedPage(unsigned __int64 a1, __int64 a2, uns
   v12 = v6;
   v13 = 1;
   _InterlockedDecrement64(*(volatile signed __int64 **)&v9[2 * v12 + 938]);
-  if ( dword_140327060 == 1 )
+  if ( dword_1403270A0 == 1 )
   {
     v14 = a1 & 0x1F;
     LOBYTE(v15) = 1;
-    v16 = (volatile signed __int32 *)(qword_140327080 + 4 * (a1 >> 5));
+    v16 = (volatile signed __int32 *)stru_1403270B8.Buffer + (a1 >> 5);
     if ( (unsigned __int64)(v14 + 1) <= 0x20 )
     {
       v17 = 1 << v14;
@@ -181,14 +181,14 @@ LABEL_20:
   v30 = *((_BYTE *)v9 + 4492);
   if ( v38 != -1 )
     KxReleaseQueuedSpinLock(v36);
-  v31 = *((_QWORD *)v9 + 6) + 2184 * ((unsigned __int64)(unsigned int)v7 >> byte_1403269C9);
+  v31 = *((_QWORD *)v9 + 6) + 2184 * ((unsigned __int64)(unsigned int)v7 >> byte_140326A09);
   _InterlockedDecrement64((volatile signed __int64 *)(v31 + 8 * v12 + 2008));
   if ( (unsigned int)MmNumberOfChannels > 1 )
     _InterlockedDecrement64((volatile signed __int64 *)(v31
                                                       + 8
                                                       * (v12
                                                        + 2LL
-                                                       * (unsigned __int8)(MiChannelMaximumPowerOf2Mask & ((unsigned int)v7 >> byte_1403269D8)))
+                                                       * (unsigned __int8)(MiChannelMaximumPowerOf2Mask & ((unsigned int)v7 >> byte_140326A18)))
                                                       + 2072));
   v32 = _InterlockedDecrement64((volatile signed __int64 *)v9 + 808);
   if ( v32 == *((_QWORD *)v9 + 557) || v32 == *((_QWORD *)v9 + 558) )

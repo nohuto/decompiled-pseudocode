@@ -7,17 +7,13 @@
  *     sub_18005F060 @ 0x18005F060 (sub_18005F060.c)
  */
 
-__int64 __fastcall sub_18005F008(__int64 a1, int a2, int a3)
+PVOID __fastcall sub_18005F008(__int64 a1, ULONG_PTR *a2)
 {
-  char v3; // r10
-  int v4; // r9d
-  __int64 v6; // [rsp+50h] [rbp+8h] BYREF
+  int v3; // [rsp+28h] [rbp-20h]
+  int v4; // [rsp+30h] [rbp-18h]
+  PVOID BaseAddress; // [rsp+50h] [rbp+8h] BYREF
 
-  v3 = *(_BYTE *)(a1 + 46);
-  v6 = 0LL;
-  v4 = ((v3 & 6u) < 4 ? 0x2000 : 536883200) | 0x40000;
-  if ( (v3 & 8) == 0 )
-    v4 = (v3 & 6u) < 4 ? 0x2000 : 536883200;
-  sub_18005F060((unsigned int)&v6, a2, a3, v4, 4);
-  return v6;
+  BaseAddress = 0LL;
+  sub_18005F060(&BaseAddress, a2, 4u, v3, v4, *(_QWORD *)(a1 + 32));
+  return BaseAddress;
 }

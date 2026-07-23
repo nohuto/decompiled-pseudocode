@@ -1,15 +1,15 @@
 /*
- * XREFs of KeEtwRundown @ 0x1405E48E8
+ * XREFs of KeEtwRundown @ 0x1405E7258
  * Callers:
- *     EtwpKernelTraceRundown @ 0x140A70518 (EtwpKernelTraceRundown.c)
+ *     EtwpKernelTraceRundown @ 0x140A99DCC (EtwpKernelTraceRundown.c)
  * Callees:
- *     EtwTraceThreadAffinity @ 0x14050D0F8 (EtwTraceThreadAffinity.c)
- *     EtwTraceWorkloadClassUpdate @ 0x14052D120 (EtwTraceWorkloadClassUpdate.c)
- *     KiTraceParkingRundown @ 0x1405F8C7C (KiTraceParkingRundown.c)
- *     KiTraceSchedulingGroupRundown @ 0x1405F92A0 (KiTraceSchedulingGroupRundown.c)
- *     KiTraceCpuPartitionRundown @ 0x1407BB200 (KiTraceCpuPartitionRundown.c)
- *     PsGetNextProcessThread @ 0x1409573A0 (PsGetNextProcessThread.c)
- *     PsGetNextProcess @ 0x14096EE20 (PsGetNextProcess.c)
+ *     EtwTraceThreadAffinity @ 0x140506B68 (EtwTraceThreadAffinity.c)
+ *     EtwTraceWorkloadClassUpdate @ 0x14052F640 (EtwTraceWorkloadClassUpdate.c)
+ *     KiTraceParkingRundown @ 0x1405FB69C (KiTraceParkingRundown.c)
+ *     KiTraceSchedulingGroupRundown @ 0x1405FBCC0 (KiTraceSchedulingGroupRundown.c)
+ *     KiTraceCpuPartitionRundown @ 0x1407BE260 (KiTraceCpuPartitionRundown.c)
+ *     PsGetNextProcessThread @ 0x14094ADD0 (PsGetNextProcessThread.c)
+ *     PsGetNextProcess @ 0x1409BC470 (PsGetNextProcess.c)
  */
 
 __int64 __fastcall KeEtwRundown(struct _ETW_SILODRIVERSTATE *a1, unsigned int a2, char a3, __int64 a4)
@@ -35,7 +35,7 @@ __int64 __fastcall KeEtwRundown(struct _ETW_SILODRIVERSTATE *a1, unsigned int a2
     result = a4 + 20;
     if ( KiHgsPlusEnabled && a3 )
     {
-      if ( (WORD2(xmmword_140FBFC10) & 0x100) == 0 )
+      if ( (WORD2(xmmword_140FC0C10) & 0x100) == 0 )
         goto LABEL_14;
       NextProcess = (void *)PsGetNextProcess(0LL);
       result = (__int64)v4;

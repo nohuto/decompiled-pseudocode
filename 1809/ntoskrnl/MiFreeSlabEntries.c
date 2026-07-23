@@ -1,15 +1,15 @@
 /*
- * XREFs of MiFreeSlabEntries @ 0x1402C21D8
+ * XREFs of MiFreeSlabEntries @ 0x1402C23C8
  * Callers:
- *     MiFreeUnusedSlabPages @ 0x1402C2634 (MiFreeUnusedSlabPages.c)
- *     MiDeletePartitionResources @ 0x1402D0FAC (MiDeletePartitionResources.c)
+ *     MiFreeUnusedSlabPages @ 0x1402C2824 (MiFreeUnusedSlabPages.c)
+ *     MiDeletePartitionResources @ 0x1402D119C (MiDeletePartitionResources.c)
  * Callees:
- *     KiQueryUnbiasedInterruptTime @ 0x14008CF10 (KiQueryUnbiasedInterruptTime.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     MiFreeSlabEntry @ 0x1402C2328 (MiFreeSlabEntry.c)
- *     MiRemoveSlabEntry @ 0x1402C2C54 (MiRemoveSlabEntry.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x14008CE50 (KiQueryUnbiasedInterruptTime.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC420 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC5A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiFreeSlabEntry @ 0x1402C2518 (MiFreeSlabEntry.c)
+ *     MiRemoveSlabEntry @ 0x1402C2E44 (MiRemoveSlabEntry.c)
  */
 
 unsigned __int64 __fastcall MiFreeSlabEntries(__int64 a1, __int64 a2, int a3)

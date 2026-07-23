@@ -1,17 +1,17 @@
 /*
- * XREFs of LdrpAllocateUnicodeString @ 0x180099220
+ * XREFs of LdrpAllocateUnicodeString @ 0x180098350
  * Callers:
- *     LdrpFindKnownDll @ 0x180082BE0 (LdrpFindKnownDll.c)
- *     LdrpSearchPath @ 0x180098BBC (LdrpSearchPath.c)
- *     LdrpResolvePatchDllName @ 0x18009918C (LdrpResolvePatchDllName.c)
+ *     LdrpFindKnownDll @ 0x180079F80 (LdrpFindKnownDll.c)
+ *     LdrpSearchPath @ 0x180097CEC (LdrpSearchPath.c)
+ *     LdrpResolvePatchDllName @ 0x1800982BC (LdrpResolvePatchDllName.c)
  * Callees:
- *     RtlpAllocateAtom @ 0x180037BF0 (RtlpAllocateAtom.c)
+ *     RtlpAllocateAtom @ 0x1800018C0 (RtlpAllocateAtom.c)
  */
 
 __int64 __fastcall LdrpAllocateUnicodeString(__int64 a1, int a2)
 {
   unsigned int v2; // ebx
-  __int64 Atom; // rax
+  PVOID Atom; // rax
 
   v2 = a2 + 2;
   *(_DWORD *)a1 = 0;

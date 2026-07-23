@@ -20,9 +20,9 @@
 void __fastcall ExpSaPageGroupDescriptorFree(unsigned int *a1)
 {
   __int64 MaximumProcessorCount; // rdi
-  _BYTE *v3; // rax
+  PRTL_BALANCED_NODE v3; // rax
   signed __int8 v4; // cf
-  _BYTE *v5; // rbx
+  PRTL_BALANCED_NODE v5; // rbx
   __int64 v6; // r14
   __int64 v7; // rdx
   unsigned int v8; // ecx
@@ -33,7 +33,7 @@ void __fastcall ExpSaPageGroupDescriptorFree(unsigned int *a1)
   struct _KTHREAD *CurrentThread; // rbx
   __int64 SessionId; // rdx
   unsigned __int8 v15; // r14
-  __int64 v16; // r8
+  unsigned int v16; // r8d
   bool v17; // zf
   __int64 v18; // rcx
   int v19; // eax
@@ -47,13 +47,13 @@ void __fastcall ExpSaPageGroupDescriptorFree(unsigned int *a1)
   int v27; // [rsp+88h] [rbp+20h]
 
   MaximumProcessorCount = KeQueryMaximumProcessorCountEx(0xFFFFu);
-  v3 = (_BYTE *)KeAbPreAcquire((ULONG_PTR)&ExSaPageGroupDescriptorArrayLock, 0LL, 0LL);
+  v3 = KeAbPreAcquire((ULONG_PTR)&ExSaPageGroupDescriptorArrayLock, 0LL, 0);
   v4 = _interlockedbittestandset64((volatile signed __int32 *)&ExSaPageGroupDescriptorArrayLock, 0LL);
   v5 = v3;
   if ( v4 )
     ExfAcquirePushLockExclusiveEx(&ExSaPageGroupDescriptorArrayLock, v3, (ULONG_PTR)&ExSaPageGroupDescriptorArrayLock);
   if ( v5 )
-    v5[26] |= 1u;
+    BYTE2(v5[1].Left) |= 1u;
   if ( (_DWORD)MaximumProcessorCount )
   {
     v6 = 0LL;
@@ -84,7 +84,7 @@ void __fastcall ExpSaPageGroupDescriptorFree(unsigned int *a1)
     SessionId = 0xFFFFFFFFLL;
   --CurrentThread->SpecialApcDisable;
   v15 = ++CurrentThread->AbAllocationRegionCount;
-  LODWORD(v16) = ((char)CurrentThread->AbEntrySummary | (char)CurrentThread->AbOrphanedEntrySummary) ^ 0x3F;
+  v16 = ((char)CurrentThread->AbEntrySummary | (char)CurrentThread->AbOrphanedEntrySummary) ^ 0x3F;
   while ( 1 )
   {
     v17 = !_BitScanReverse((unsigned int *)&v18, v16);
@@ -94,7 +94,7 @@ void __fastcall ExpSaPageGroupDescriptorFree(unsigned int *a1)
     v19 = 1 << v18;
     v20 = v18;
     v21 = &CurrentThread->LockEntries[v20];
-    v16 = ~v19 & (unsigned int)v16;
+    v16 &= ~v19;
     if ( (v21->AcquiredByte & 1) != 0
       && (*(_DWORD *)&v21->LockState.0 & 1) == 0
       && (*(_QWORD *)&v21->LockState.0 & 0x7FFFFFFFFFFFFFFCLL) == ((unsigned __int64)&ExSaPageGroupDescriptorArrayLock & 0x7FFFFFFFFFFFFFFCLL)
@@ -107,7 +107,7 @@ void __fastcall ExpSaPageGroupDescriptorFree(unsigned int *a1)
         {
           v21->CrossThreadReleasableAndBusyByte |= 2u;
           if ( (__int64)v21->LockState.LockState < 0 )
-            KiAbEntryRemoveFromTree((__int64)&CurrentThread->LockEntries[v20], SessionId, v16);
+            KiAbEntryRemoveFromTree(&CurrentThread->LockEntries[v20].TreeNode, SessionId);
           v25 = 0;
           v25 = v21->BoostBitmap.AllFields & 0x1FFFF;
           v21->BoostBitmap.AllFields &= 0xFFFE0000;

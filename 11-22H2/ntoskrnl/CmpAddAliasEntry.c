@@ -66,7 +66,7 @@ LABEL_9:
     v6 = ZwCreateKey(&Handle, 0x2001Fu, &ObjectAttributes, 0, 0LL, 0, &Disposition);
     if ( v6 >= 0 )
     {
-      CmpAddDockingInfo((__int64)Handle, a2);
+      CmpAddDockingInfo(Handle, a2);
       Data = a3;
       v6 = ZwSetValueKey(Handle, (PUNICODE_STRING)&CmpStrProfileNumberString, 0, 4u, &Data, 4u);
       goto LABEL_12;

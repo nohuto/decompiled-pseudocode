@@ -9,22 +9,22 @@
  *     LdrpIncrementModuleLoadCount @ 0x180026B34 (LdrpIncrementModuleLoadCount.c)
  *     LdrpDrainWorkQueue @ 0x180028298 (LdrpDrainWorkQueue.c)
  *     LdrpDecrementModuleLoadCountEx @ 0x180042678 (LdrpDecrementModuleLoadCountEx.c)
- *     LdrpDropLastInProgressCount @ 0x180079EDC (LdrpDropLastInProgressCount.c)
+ *     LdrpDropLastInProgressCount @ 0x180079EEC (LdrpDropLastInProgressCount.c)
  */
 
-__int64 __fastcall LdrpFastpthReloadedDll(unsigned __int16 *a1, int a2, __int64 a3, __int64 *a4)
+__int64 __fastcall LdrpFastpthReloadedDll(PUNICODE_STRING a1, unsigned int a2, __int64 a3, char **a4)
 {
   int LoadedDllByName; // ebx
-  int v7; // r8d
-  unsigned __int16 *v8; // rdx
+  __int64 v7; // r8
+  _UNICODE_STRING *v8; // rdx
   __int16 v10; // si
   __int64 v11; // rdx
   __int64 v12; // rcx
   __int64 v13; // r8
   __int64 v14; // r9
-  int v15; // [rsp+48h] [rbp+10h] BYREF
+  __int64 v15; // [rsp+48h] [rbp+10h] BYREF
 
-  v15 = 0;
+  LODWORD(v15) = 0;
   LoadedDllByName = -1073741275;
   if ( (a2 & 0x20) != 0 )
   {
@@ -44,7 +44,7 @@ LABEL_5:
   if ( LoadedDllByName >= 0 )
   {
     LoadedDllByName = -1073741275;
-    if ( v15 == 9 )
+    if ( (_DWORD)v15 == 9 )
     {
       LoadedDllByName = LdrpIncrementModuleLoadCount(*a4);
       if ( LoadedDllByName >= 0 )

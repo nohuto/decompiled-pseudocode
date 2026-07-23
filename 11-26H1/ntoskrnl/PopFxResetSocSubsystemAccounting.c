@@ -1,11 +1,11 @@
 /*
- * XREFs of PopFxResetSocSubsystemAccounting @ 0x1407CDD4C
+ * XREFs of PopFxResetSocSubsystemAccounting @ 0x1407D0DEC
  * Callers:
- *     PopCaptureSleepStudyStatistics @ 0x14042AB54 (PopCaptureSleepStudyStatistics.c)
+ *     PopCaptureSleepStudyStatistics @ 0x140421FC8 (PopCaptureSleepStudyStatistics.c)
  * Callees:
- *     PopFxBugCheck @ 0x1403B0E54 (PopFxBugCheck.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     PopFxLookupSocSubsystemsByPlatformIdleState @ 0x140987D50 (PopFxLookupSocSubsystemsByPlatformIdleState.c)
+ *     PopFxBugCheck @ 0x1403BAB64 (PopFxBugCheck.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     PopFxLookupSocSubsystemsByPlatformIdleState @ 0x140A427E8 (PopFxLookupSocSubsystemsByPlatformIdleState.c)
  */
 
 __int64 __fastcall PopFxResetSocSubsystemAccounting(__int64 a1)
@@ -21,7 +21,7 @@ __int64 __fastcall PopFxResetSocSubsystemAccounting(__int64 a1)
     v4 = v1;
     v5 = 0;
     if ( !(unsigned __int8)guard_dispatch_icall_no_overrides(38LL, (__int64)&v4) )
-      PopFxBugCheck(0x605uLL, 0x26uLL, stru_140E66FF0.Padding[0], 0LL);
+      PopFxBugCheck(0x605uLL, 0x26uLL, qword_140E676E8, 0LL);
   }
   else
   {

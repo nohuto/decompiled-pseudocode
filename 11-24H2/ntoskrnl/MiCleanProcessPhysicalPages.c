@@ -1,10 +1,10 @@
 /*
- * XREFs of MiCleanProcessPhysicalPages @ 0x140A071B8
+ * XREFs of MiCleanProcessPhysicalPages @ 0x140A036E8
  * Callers:
- *     MmCleanProcessAddressSpace @ 0x140A06E44 (MmCleanProcessAddressSpace.c)
+ *     MmCleanProcessAddressSpace @ 0x140A03374 (MmCleanProcessAddressSpace.c)
  * Callees:
- *     MiReturnProcessCommitment @ 0x1404561A4 (MiReturnProcessCommitment.c)
- *     MiDeleteAweInfoPages @ 0x1407F96E0 (MiDeleteAweInfoPages.c)
+ *     MiReturnProcessCommitment @ 0x14044AEE4 (MiReturnProcessCommitment.c)
+ *     MiDeleteAweInfoPages @ 0x1407F9E50 (MiDeleteAweInfoPages.c)
  */
 
 void __fastcall MiCleanProcessPhysicalPages(__int64 a1)

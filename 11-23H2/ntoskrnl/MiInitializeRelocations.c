@@ -3,8 +3,8 @@
  * Callers:
  *     MiInitSystem @ 0x140B44518 (MiInitSystem.c)
  * Callees:
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     ExGenRandom @ 0x1403175D0 (ExGenRandom.c)
+ *     MiAllocatePool @ 0x1402DF430 (MiAllocatePool.c)
+ *     ExGenRandom @ 0x140317860 (ExGenRandom.c)
  */
 
 __int64 MiInitializeRelocations()

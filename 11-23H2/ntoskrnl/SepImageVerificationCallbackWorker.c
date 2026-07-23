@@ -1,9 +1,9 @@
 /*
- * XREFs of SepImageVerificationCallbackWorker @ 0x1407B3D70
+ * XREFs of SepImageVerificationCallbackWorker @ 0x1407B3F60
  * Callers:
  *     <none>
  * Callees:
- *     ExNotifyWithProcessing @ 0x14033BF60 (ExNotifyWithProcessing.c)
+ *     ExNotifyWithProcessing @ 0x14033C1F0 (ExNotifyWithProcessing.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

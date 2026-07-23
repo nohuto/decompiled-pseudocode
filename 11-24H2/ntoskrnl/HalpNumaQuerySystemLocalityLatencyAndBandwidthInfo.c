@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpNumaQuerySystemLocalityLatencyAndBandwidthInfo @ 0x1405583A0
+ * XREFs of HalpNumaQuerySystemLocalityLatencyAndBandwidthInfo @ 0x140555CE0
  * Callers:
  *     <none>
  * Callees:
- *     HalpNumaQueryProximityId @ 0x140558310 (HalpNumaQueryProximityId.c)
- *     HalpNumaQueryProximityNode @ 0x140558350 (HalpNumaQueryProximityNode.c)
- *     HalpNumaSystemLocalityInfoFindInitiatorIndex @ 0x140558B4C (HalpNumaSystemLocalityInfoFindInitiatorIndex.c)
- *     HalpNumaSystemLocalityInfoFindTargetIndex @ 0x140558B9C (HalpNumaSystemLocalityInfoFindTargetIndex.c)
- *     HalpNumaSystemLocalityInfoIncludeQueryDataType @ 0x140558BF4 (HalpNumaSystemLocalityInfoIncludeQueryDataType.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     HalpNumaQueryProximityId @ 0x140555C50 (HalpNumaQueryProximityId.c)
+ *     HalpNumaQueryProximityNode @ 0x140555C90 (HalpNumaQueryProximityNode.c)
+ *     HalpNumaSystemLocalityInfoFindInitiatorIndex @ 0x14055648C (HalpNumaSystemLocalityInfoFindInitiatorIndex.c)
+ *     HalpNumaSystemLocalityInfoFindTargetIndex @ 0x1405564DC (HalpNumaSystemLocalityInfoFindTargetIndex.c)
+ *     HalpNumaSystemLocalityInfoIncludeQueryDataType @ 0x140556534 (HalpNumaSystemLocalityInfoIncludeQueryDataType.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall HalpNumaQuerySystemLocalityLatencyAndBandwidthInfo(

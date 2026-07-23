@@ -1,10 +1,10 @@
 /*
- * XREFs of HalEfiSetEnvironmentVariable @ 0x140443CC8
+ * XREFs of HalEfiSetEnvironmentVariable @ 0x140439768
  * Callers:
- *     HalSetEnvironmentVariableEx @ 0x140443B40 (HalSetEnvironmentVariableEx.c)
+ *     HalSetEnvironmentVariableEx @ 0x1404395E0 (HalSetEnvironmentVariableEx.c)
  * Callees:
- *     HalpEfiStartRuntimeCode @ 0x1404443A4 (HalpEfiStartRuntimeCode.c)
- *     HalpConvertEfiToNtStatus @ 0x1404443FC (HalpConvertEfiToNtStatus.c)
+ *     HalpEfiStartRuntimeCode @ 0x140439E44 (HalpEfiStartRuntimeCode.c)
+ *     HalpConvertEfiToNtStatus @ 0x140439E9C (HalpConvertEfiToNtStatus.c)
  */
 
 __int64 __fastcall HalEfiSetEnvironmentVariable(__int64 a1)

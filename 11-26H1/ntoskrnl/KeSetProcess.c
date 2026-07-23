@@ -1,14 +1,14 @@
 /*
- * XREFs of KeSetProcess @ 0x1404D0E9C
+ * XREFs of KeSetProcess @ 0x1404CA8CC
  * Callers:
- *     PspRundownSingleProcess @ 0x14095918C (PspRundownSingleProcess.c)
+ *     PspRundownSingleProcess @ 0x1409FEA50 (PspRundownSingleProcess.c)
  * Callees:
- *     KiExitDispatcher @ 0x140246C20 (KiExitDispatcher.c)
- *     KiTryUnwaitThread @ 0x1402735B4 (KiTryUnwaitThread.c)
- *     KiInsertQueueInternal @ 0x140274E80 (KiInsertQueueInternal.c)
- *     KiAcquireKobjectLockSafe @ 0x140277760 (KiAcquireKobjectLockSafe.c)
- *     KiInsertQueueDpc @ 0x1402BD330 (KiInsertQueueDpc.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiExitDispatcher @ 0x140248580 (KiExitDispatcher.c)
+ *     KiTryUnwaitThread @ 0x140272B24 (KiTryUnwaitThread.c)
+ *     KiInsertQueueInternal @ 0x1402743F0 (KiInsertQueueInternal.c)
+ *     KiAcquireKobjectLockSafe @ 0x140276CD0 (KiAcquireKobjectLockSafe.c)
+ *     KiInsertQueueDpc @ 0x140307FF0 (KiInsertQueueDpc.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall KeSetProcess(__int64 a1, __int64 a2, __int64 a3)

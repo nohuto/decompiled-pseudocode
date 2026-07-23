@@ -6,18 +6,18 @@
  *     _RtlFindClearRuns@16 @ 0x4B34E950 (_RtlFindClearRuns@16.c)
  */
 
-int __stdcall RtlFindLongestRunClear(_DWORD *a1, _DWORD *a2)
+ULONG __cdecl RtlFindLongestRunClear(PRTL_BITMAP BitMapHeader, PULONG StartingIndex)
 {
-  _DWORD v3[2]; // [esp+0h] [ebp-8h] BYREF
+  _RTL_BITMAP_RUN RunArray; // [esp+0h] [ebp-8h] BYREF
 
-  if ( RtlFindClearRuns(a1, (int)v3, 1u, 1) == 1 )
+  if ( RtlFindClearRuns(BitMapHeader, &RunArray, 1u, 1u) == 1 )
   {
-    *a2 = v3[0];
-    return v3[1];
+    *StartingIndex = RunArray.StartingIndex;
+    return RunArray.NumberOfBits;
   }
   else
   {
-    *a2 = 0;
+    *StartingIndex = 0;
     return 0;
   }
 }

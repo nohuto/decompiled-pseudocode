@@ -3,17 +3,17 @@
  * Callers:
  *     BgDisplayFade @ 0x140AEF4BC (BgDisplayFade.c)
  * Callees:
- *     KeSetCoalescableTimer @ 0x140252560 (KeSetCoalescableTimer.c)
- *     KeResetEvent @ 0x1402AF940 (KeResetEvent.c)
- *     KeInitializeTimerEx @ 0x1402BE660 (KeInitializeTimerEx.c)
- *     KeInitializeDpc @ 0x1402BF9A0 (KeInitializeDpc.c)
- *     BgpGetBitsPerPixel @ 0x140385500 (BgpGetBitsPerPixel.c)
- *     BgpGxConvertRectangleEx @ 0x140385A9C (BgpGxConvertRectangleEx.c)
- *     BgpFwFreeMemory @ 0x1403860A0 (BgpFwFreeMemory.c)
- *     BgpGxRectangleSize @ 0x14038813C (BgpGxRectangleSize.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     BgpClearScreen @ 0x140671AF0 (BgpClearScreen.c)
+ *     KeSetCoalescableTimer @ 0x140252620 (KeSetCoalescableTimer.c)
+ *     KeResetEvent @ 0x1402AFE30 (KeResetEvent.c)
+ *     KeInitializeTimerEx @ 0x1402BE8F0 (KeInitializeTimerEx.c)
+ *     KeInitializeDpc @ 0x1402BFC30 (KeInitializeDpc.c)
+ *     BgpGetBitsPerPixel @ 0x1403856E0 (BgpGetBitsPerPixel.c)
+ *     BgpGxConvertRectangleEx @ 0x140385C7C (BgpGxConvertRectangleEx.c)
+ *     BgpFwFreeMemory @ 0x140386280 (BgpFwFreeMemory.c)
+ *     BgpGxRectangleSize @ 0x14038831C (BgpGxRectangleSize.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     BgpClearScreen @ 0x140672040 (BgpClearScreen.c)
  *     BgpGxParseBitmap @ 0x140AEC42C (BgpGxParseBitmap.c)
  *     BgpGxReadRectangle @ 0x140AEC4D8 (BgpGxReadRectangle.c)
  *     BgpTxtGetRegionContext @ 0x140AEC70C (BgpTxtGetRegionContext.c)
@@ -269,7 +269,7 @@ LABEL_15:
       KeResetEvent(&stru_140D16A00);
       KeInitializeTimerEx(&stru_140D169C0, NotificationTimer);
       KeInitializeDpc(&stru_140D16940, AnFwpFadeAnimationTimer, 0LL);
-      byte_140CF7AF1 = 1;
+      byte_140CF7AE8 = 1;
       LogFwStat(1LL, 7LL, 0LL);
       KeSetCoalescableTimer(&stru_140D169C0, 0LL, 0x1Eu, 0, &stru_140D16940);
       dword_140C0E4B0 |= 0x2000u;

@@ -1,25 +1,25 @@
 /*
  * XREFs of IoRemoveIoCompletion @ 0x1402B7BD0
  * Callers:
- *     NtWaitForWorkViaWorkerFactory @ 0x1402BA130 (NtWaitForWorkViaWorkerFactory.c)
- *     NtRemoveIoCompletion @ 0x140696FE0 (NtRemoveIoCompletion.c)
- *     NtRemoveIoCompletionEx @ 0x1406A1AE0 (NtRemoveIoCompletionEx.c)
+ *     sub_1402BA130 @ 0x1402BA130 (sub_1402BA130.c)
+ *     sub_140696FE0 @ 0x140696FE0 (sub_140696FE0.c)
+ *     sub_1406A1AE0 @ 0x1406A1AE0 (sub_1406A1AE0.c)
  * Callees:
- *     KxAcquireSpinLock @ 0x140211E00 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x14021D070 (KxReleaseSpinLock.c)
- *     IopInterlockedAdd @ 0x14022A6A0 (IopInterlockedAdd.c)
- *     IopDropIrp @ 0x140234D58 (IopDropIrp.c)
+ *     KeAcquireSpinLockAtDpcLevel @ 0x140211E00 (KeAcquireSpinLockAtDpcLevel.c)
+ *     KeReleaseSpinLockFromDpcLevel @ 0x14021D070 (KeReleaseSpinLockFromDpcLevel.c)
+ *     sub_14022A6A0 @ 0x14022A6A0 (sub_14022A6A0.c)
+ *     sub_140234D58 @ 0x140234D58 (sub_140234D58.c)
  *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     ExReleaseRundownProtection @ 0x1402AD030 (ExReleaseRundownProtection.c)
+ *     sub_1402AD030 @ 0x1402AD030 (sub_1402AD030.c)
  *     KeRemoveQueueEx @ 0x1402B7FA0 (KeRemoveQueueEx.c)
- *     KiUnstackDetachProcess @ 0x1402D0930 (KiUnstackDetachProcess.c)
- *     KiStackAttachProcess @ 0x14030D5C0 (KiStackAttachProcess.c)
- *     ExAcquireRundownProtection @ 0x140347810 (ExAcquireRundownProtection.c)
- *     IopCompleteRequest @ 0x140347E10 (IopCompleteRequest.c)
+ *     sub_1402D0930 @ 0x1402D0930 (sub_1402D0930.c)
+ *     sub_14030D5C0 @ 0x14030D5C0 (sub_14030D5C0.c)
+ *     sub_140347810 @ 0x140347810 (sub_140347810.c)
+ *     sub_140347E10 @ 0x140347E10 (sub_140347E10.c)
  *     IoFreeIrp @ 0x140348610 (IoFreeIrp.c)
  *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     IopFreeMiniCompletionPacket @ 0x14074F700 (IopFreeMiniCompletionPacket.c)
+ *     sub_140418E4C @ 0x140418E4C (sub_140418E4C.c)
+ *     sub_14074F700 @ 0x14074F700 (sub_14074F700.c)
  */
 
 __int64 __fastcall IoRemoveIoCompletion(
@@ -45,12 +45,12 @@ __int64 __fastcall IoRemoveIoCompletion(
   struct _LIST_ENTRY **p_Blink; // rbx
   int v19; // eax
   struct _EX_RUNDOWN_REF *v20; // rdi
-  _KPROCESS *Process; // rdx
+  struct _EX_RUNDOWN_REF *v21; // rdx
   unsigned __int8 CurrentIrql; // cl
-  _DWORD *SchedulerAssist; // r9
+  __int64 v23; // r9
   unsigned __int8 v24; // al
   struct _KPRCB *CurrentPrcb; // r10
-  _DWORD *v26; // r9
+  __int64 v26; // r9
   int v27; // eax
   bool v28; // zf
   struct _LIST_ENTRY *Blink; // [rsp+30h] [rbp-E8h]
@@ -104,11 +104,11 @@ __int64 __fastcall IoRemoveIoCompletion(
         v20 = (struct _EX_RUNDOWN_REF *)((unsigned __int64)p_Blink[11] & 0xFFFFFFFFFFFFFFF9uLL);
         memset(v43, 0, sizeof(v43));
         p_Blink[12] = 0LL;
-        Process = KeGetCurrentThread()->ApcState.Process;
+        v21 = (struct _EX_RUNDOWN_REF *)*((_QWORD *)KeGetCurrentThread() + 23);
         Object = p_Blink + 24;
-        if ( v20 == (struct _EX_RUNDOWN_REF *)Process )
+        if ( v20 == v21 )
         {
-          IopCompleteRequest(
+          sub_140347E10(
             (_DWORD)p_Blink + 120,
             (unsigned int)&v37,
             (unsigned int)&v32,
@@ -118,28 +118,23 @@ __int64 __fastcall IoRemoveIoCompletion(
         }
         else
         {
-          if ( ExAcquireRundownProtection(v20 + 139) )
+          if ( (unsigned __int8)sub_140347810(&v20[139]) )
           {
-            KiStackAttachProcess((ULONG_PTR)v20);
-            IopCompleteRequest(
-              (_DWORD)p_Blink + 120,
-              (unsigned int)&v37,
-              (unsigned int)&v32,
-              (_DWORD)Object,
-              (__int64)&v32);
-            KiUnstackDetachProcess(v43, 0LL);
-            ExReleaseRundownProtection(v20 + 139);
+            sub_14030D5C0((ULONG_PTR)v20);
+            sub_140347E10((_DWORD)p_Blink + 120, (unsigned int)&v37, (unsigned int)&v32, (_DWORD)Object, (__int64)&v32);
+            sub_1402D0930(v43, 0LL);
+            sub_1402AD030(v20 + 139);
           }
           else
           {
-            IopDropIrp((PIRP)p_Blink, (ULONG_PTR)p_Blink[24]);
+            sub_140234D58((PIRP)p_Blink, (ULONG_PTR)p_Blink[24]);
             LODWORD(v33) = -1073741536;
             *((_QWORD *)&v33 + 1) = 0LL;
           }
           v9 = a2;
         }
       }
-      else if ( (v19 & 0x8000) == 0 || !(unsigned int)IopInterlockedAdd((volatile signed __int64 *)p_Blink + 11, -1) )
+      else if ( (v19 & 0x8000) == 0 || !(unsigned int)sub_14022A6A0((volatile signed __int64 *)p_Blink + 11, -1) )
       {
         IoFreeIrp((PIRP)p_Blink);
       }
@@ -151,7 +146,7 @@ __int64 __fastcall IoRemoveIoCompletion(
       Blink = v12[1].Blink;
       LODWORD(v33) = v12[2].Blink;
       *((_QWORD *)&v33 + 1) = v12[3].Flink;
-      IopFreeMiniCompletionPacket(v12);
+      sub_14074F700(v12);
 LABEL_9:
       v15 = Blink;
       goto LABEL_10;
@@ -164,29 +159,29 @@ LABEL_9:
     CurrentIrql = KeGetCurrentIrql();
     v30 = CurrentIrql;
     __writecr8(2uLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+    if ( dword_140D06B08 && (dword_140D06B08 & 1) != 0 && CurrentIrql <= 0xFu )
     {
-      SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
-      SchedulerAssist[5] |= (-1 << (CurrentIrql + 1)) & 4;
+      v23 = *((_QWORD *)KeGetCurrentPrcb() + 4375);
+      *(_DWORD *)(v23 + 20) |= (-1 << (CurrentIrql + 1)) & 4;
     }
-    KxAcquireSpinLock((PKSPIN_LOCK)&v12[6]);
+    KeAcquireSpinLockAtDpcLevel((PKSPIN_LOCK)&v12[6]);
     LOBYTE(v12[6].Blink) = 0;
     v12[5].Blink = 0LL;
-    KxReleaseSpinLock((PKSPIN_LOCK)&v12[6]);
-    if ( KiIrqlFlags )
+    KeReleaseSpinLockFromDpcLevel((PKSPIN_LOCK)&v12[6]);
+    if ( dword_140D06B08 )
     {
-      if ( (KiIrqlFlags & 1) != 0 )
+      if ( (dword_140D06B08 & 1) != 0 )
       {
         v24 = KeGetCurrentIrql();
         if ( v24 <= 0xFu && v30 <= 0xFu && v24 >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
-          v26 = CurrentPrcb->SchedulerAssist;
+          v26 = *((_QWORD *)CurrentPrcb + 4375);
           v27 = ~(unsigned __int16)(-1LL << (v30 + 1));
-          v28 = (v27 & v26[5]) == 0;
-          v26[5] &= v27;
+          v28 = (v27 & *(_DWORD *)(v26 + 20)) == 0;
+          *(_DWORD *)(v26 + 20) &= v27;
           if ( v28 )
-            KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+            sub_140418E4C(CurrentPrcb);
         }
       }
     }

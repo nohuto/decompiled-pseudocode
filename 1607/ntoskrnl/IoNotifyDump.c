@@ -1,5 +1,5 @@
 /*
- * XREFs of IoNotifyDump @ 0x1401133B8
+ * XREFs of IoNotifyDump @ 0x140113928
  * Callers:
  *     PopSaveHiberContext @ 0x1403CCB40 (PopSaveHiberContext.c)
  *     PopRestoreHiberContext @ 0x1403CDA38 (PopRestoreHiberContext.c)
@@ -14,7 +14,7 @@ __int64 __fastcall IoNotifyDump(int a1)
   __int64 v3; // rcx
   __int64 result; // rax
 
-  if ( qword_1403289F0 )
+  if ( qword_140328A30 )
   {
     v1 = a1 - 1;
     if ( v1 )
@@ -35,7 +35,7 @@ __int64 __fastcall IoNotifyDump(int a1)
     {
       v3 = 3LL;
     }
-    return qword_1403289F0(v3, 0LL, 0LL);
+    return qword_140328A30(v3, 0LL, 0LL);
   }
   return result;
 }

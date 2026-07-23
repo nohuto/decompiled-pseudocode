@@ -1,21 +1,21 @@
 /*
- * XREFs of MiLockVadCore @ 0x1403FD500
+ * XREFs of MiLockVadCore @ 0x1403DAE20
  * Callers:
- *     MiSetVadFlags @ 0x1402B8D5C (MiSetVadFlags.c)
- *     MiCheckUserVirtualAddress @ 0x1402FF820 (MiCheckUserVirtualAddress.c)
- *     MiClearVadTrimBehind @ 0x1403FD3E0 (MiClearVadTrimBehind.c)
- *     MiWriteVadFlags2 @ 0x1403FD470 (MiWriteVadFlags2.c)
- *     MiGetVadWakeList @ 0x14044CC20 (MiGetVadWakeList.c)
- *     MiInsertVadEvent @ 0x1404F1B48 (MiInsertVadEvent.c)
- *     MiLocateOldestSecure @ 0x1404F1BA4 (MiLocateOldestSecure.c)
- *     MiMakeSecureExclusive @ 0x1404F1BF0 (MiMakeSecureExclusive.c)
- *     MiRemoveSecureEntry @ 0x1404F1C5C (MiRemoveSecureEntry.c)
- *     MiCaptureWriteWatchDirtyBit @ 0x1404F31F8 (MiCaptureWriteWatchDirtyBit.c)
- *     MiRemoveVadEvent @ 0x140678550 (MiRemoveVadEvent.c)
+ *     MiCaptureWriteWatchDirtyBit @ 0x140202774 (MiCaptureWriteWatchDirtyBit.c)
+ *     MiCheckUserVirtualAddress @ 0x140309FA0 (MiCheckUserVirtualAddress.c)
+ *     MiSetVadFlags @ 0x14036049C (MiSetVadFlags.c)
+ *     MiClearVadTrimBehind @ 0x1403DAD00 (MiClearVadTrimBehind.c)
+ *     MiWriteVadFlags2 @ 0x1403DAD90 (MiWriteVadFlags2.c)
+ *     MiGetVadWakeList @ 0x140443B20 (MiGetVadWakeList.c)
+ *     MiInsertVadEvent @ 0x1404EF5E8 (MiInsertVadEvent.c)
+ *     MiLocateOldestSecure @ 0x1404EF644 (MiLocateOldestSecure.c)
+ *     MiMakeSecureExclusive @ 0x1404EF690 (MiMakeSecureExclusive.c)
+ *     MiRemoveSecureEntry @ 0x1404EF6FC (MiRemoveSecureEntry.c)
+ *     MiRemoveVadEvent @ 0x1406796DC (MiRemoveVadEvent.c)
  * Callees:
- *     HvlNotifyLongSpinWait @ 0x140293260 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140293290 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     HvlNotifyLongSpinWait @ 0x1402A2E60 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402A2E90 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall MiLockVadCore(__int64 a1, char a2)

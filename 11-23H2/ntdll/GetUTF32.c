@@ -1,5 +1,5 @@
 /*
- * XREFs of GetUTF32 @ 0x18010D0F0
+ * XREFs of GetUTF32 @ 0x18010D0C0
  * Callers:
  *     punycode_encode @ 0x18008A310 (punycode_encode.c)
  * Callees:

@@ -1,11 +1,11 @@
 /*
- * XREFs of PnprSwapFinalize @ 0x1405DC07C
+ * XREFs of PnprSwapFinalize @ 0x1405DE92C
  * Callers:
- *     PnprSwap @ 0x1405DBE70 (PnprSwap.c)
+ *     PnprSwap @ 0x1405DE720 (PnprSwap.c)
  * Callees:
- *     PnprRecopyMirrorPages @ 0x1405227D4 (PnprRecopyMirrorPages.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     PnprGetMillisecondCounter @ 0x140BF16E4 (PnprGetMillisecondCounter.c)
+ *     PnprRecopyMirrorPages @ 0x140524E40 (PnprRecopyMirrorPages.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     PnprGetMillisecondCounter @ 0x140BF76E4 (PnprGetMillisecondCounter.c)
  */
 
 __int64 PnprSwapFinalize()
@@ -40,7 +40,7 @@ __int64 PnprSwapFinalize()
       v6 = PnprContext;
       v7 = *(_DWORD *)(PnprContext + 33288);
       if ( !v7 )
-        v7 = 2988;
+        v7 = 2758;
       v8 = *(_DWORD *)(PnprContext + 33292);
       *(_DWORD *)(PnprContext + 33288) = v7;
       if ( !v8 )

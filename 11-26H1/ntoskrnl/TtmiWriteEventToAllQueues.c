@@ -1,16 +1,16 @@
 /*
- * XREFs of TtmiWriteEventToAllQueues @ 0x1407E6BDC
+ * XREFs of TtmiWriteEventToAllQueues @ 0x1407EC734
  * Callers:
- *     TtmpPublishDeviceEvent @ 0x1407E5D30 (TtmpPublishDeviceEvent.c)
- *     TtmpWriteDisplayRequiredPowerRequestUpdatedEvent @ 0x1407E7A9C (TtmpWriteDisplayRequiredPowerRequestUpdatedEvent.c)
- *     TtmiSessionTerminalListWorker @ 0x1407EC104 (TtmiSessionTerminalListWorker.c)
+ *     TtmpPublishDeviceEvent @ 0x1407EB890 (TtmpPublishDeviceEvent.c)
+ *     TtmpWriteDisplayRequiredPowerRequestUpdatedEvent @ 0x1407ED5FC (TtmpWriteDisplayRequiredPowerRequestUpdatedEvent.c)
+ *     TtmiSessionTerminalListWorker @ 0x1407F1C68 (TtmiSessionTerminalListWorker.c)
  * Callees:
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     TtmiWriteEventToSingleQueue @ 0x1407ED0EC (TtmiWriteEventToSingleQueue.c)
- *     TtmpAcquireQueueLock @ 0x1407ED230 (TtmpAcquireQueueLock.c)
- *     TtmpReleaseQueueLock @ 0x1407ED3A0 (TtmpReleaseQueueLock.c)
- *     TtmiLogError @ 0x140A3AAD8 (TtmiLogError.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     TtmiWriteEventToSingleQueue @ 0x1407F2C4C (TtmiWriteEventToSingleQueue.c)
+ *     TtmpAcquireQueueLock @ 0x1407F2D90 (TtmpAcquireQueueLock.c)
+ *     TtmpReleaseQueueLock @ 0x1407F2F00 (TtmpReleaseQueueLock.c)
+ *     TtmiLogError @ 0x1409F66D8 (TtmiLogError.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 _UNKNOWN **__fastcall TtmiWriteEventToAllQueues(__int64 a1, __int64 a2)

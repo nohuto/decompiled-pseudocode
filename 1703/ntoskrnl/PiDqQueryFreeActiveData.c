@@ -17,12 +17,12 @@
 
 BOOLEAN __fastcall PiDqQueryFreeActiveData(__int64 a1)
 {
-  struct _RTL_AVL_TABLE *i; // rcx
+  _RTL_AVL_TABLE *i; // rcx
   BOOLEAN result; // al
   __int64 **v4; // rbx
   __int64 v5; // rax
 
-  for ( i = (struct _RTL_AVL_TABLE *)(a1 + 72); ; i = (struct _RTL_AVL_TABLE *)(a1 + 72) )
+  for ( i = (_RTL_AVL_TABLE *)(a1 + 72); ; i = (_RTL_AVL_TABLE *)(a1 + 72) )
   {
     result = RtlIsGenericTableEmptyAvl(i);
     if ( result )

@@ -1,15 +1,15 @@
 /*
- * XREFs of CmpUuidCreate @ 0x140AA1208
+ * XREFs of CmpUuidCreate @ 0x140A9C598
  * Callers:
- *     CmSaveKey @ 0x1407CDBFC (CmSaveKey.c)
- *     CmSaveMergedKeys @ 0x1407CE060 (CmSaveMergedKeys.c)
- *     CmpLoadHiveVolatile @ 0x1407CE610 (CmpLoadHiveVolatile.c)
- *     CmpVolumeContextStart @ 0x1407D89C0 (CmpVolumeContextStart.c)
- *     CmpStartRMLogs @ 0x140A04324 (CmpStartRMLogs.c)
- *     CmpInitCmRM @ 0x140AE4D94 (CmpInitCmRM.c)
+ *     CmSaveKey @ 0x1407CE0EC (CmSaveKey.c)
+ *     CmSaveMergedKeys @ 0x1407CE550 (CmSaveMergedKeys.c)
+ *     CmpLoadHiveVolatile @ 0x1407CEB00 (CmpLoadHiveVolatile.c)
+ *     CmpVolumeContextStart @ 0x1407D8F10 (CmpVolumeContextStart.c)
+ *     CmpStartRMLogs @ 0x140A00854 (CmpStartRMLogs.c)
+ *     CmpInitCmRM @ 0x140AE6674 (CmpInitCmRM.c)
  * Callees:
- *     KeDelayExecutionThread @ 0x14033BC60 (KeDelayExecutionThread.c)
- *     ExUuidCreate @ 0x1408EA880 (ExUuidCreate.c)
+ *     KeDelayExecutionThread @ 0x14031B140 (KeDelayExecutionThread.c)
+ *     ExUuidCreate @ 0x14085C0B0 (ExUuidCreate.c)
  */
 
 NTSTATUS __fastcall CmpUuidCreate(UUID *Uuid)

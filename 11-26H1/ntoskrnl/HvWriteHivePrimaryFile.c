@@ -1,18 +1,18 @@
 /*
- * XREFs of HvWriteHivePrimaryFile @ 0x140AAAADC
+ * XREFs of HvWriteHivePrimaryFile @ 0x140AA80BC
  * Callers:
- *     CmpFlushHive @ 0x1408B321C (CmpFlushHive.c)
- *     HvpPerformLogFileRecovery @ 0x140AEB2A8 (HvpPerformLogFileRecovery.c)
+ *     CmpFlushHive @ 0x1408B97F0 (CmpFlushHive.c)
+ *     HvpPerformLogFileRecovery @ 0x140AEE1B4 (HvpPerformLogFileRecovery.c)
  * Callees:
- *     RtlNumberOfSetBits @ 0x140356570 (RtlNumberOfSetBits.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     HvpFindNextDirtyBlock @ 0x1408B8B70 (HvpFindNextDirtyBlock.c)
- *     HvpFinishPrimaryWrite @ 0x140AAACE8 (HvpFinishPrimaryWrite.c)
- *     CmpFileFlushAndPurge @ 0x140AAAF1C (CmpFileFlushAndPurge.c)
- *     CmpTraceHiveFlushWrotePrimaryFile @ 0x140AAB810 (CmpTraceHiveFlushWrotePrimaryFile.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
- *     HvpHeaderCheckSum @ 0x140C58720 (HvpHeaderCheckSum.c)
+ *     RtlNumberOfSetBits @ 0x140358310 (RtlNumberOfSetBits.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     HvpFindNextDirtyBlock @ 0x1408BF140 (HvpFindNextDirtyBlock.c)
+ *     HvpFinishPrimaryWrite @ 0x140AA82C8 (HvpFinishPrimaryWrite.c)
+ *     CmpFileFlushAndPurge @ 0x140AA84FC (CmpFileFlushAndPurge.c)
+ *     CmpTraceHiveFlushWrotePrimaryFile @ 0x140AA8DBC (CmpTraceHiveFlushWrotePrimaryFile.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
+ *     HvpHeaderCheckSum @ 0x140C5E720 (HvpHeaderCheckSum.c)
  */
 
 __int64 __fastcall HvWriteHivePrimaryFile(__int64 a1, char a2, __int64 a3, __int64 a4)
@@ -62,7 +62,7 @@ LABEL_4:
   v8[2] = v9;
   v8[1] = v9 + 1;
   v10 = HvpHeaderCheckSum(v8);
-  v13 = LODWORD(WheapPfaLock.Timer.TimerListEntry.Flink) == 1;
+  v13 = *(_DWORD *)&WheapPfaLock.WaitBlockFill11[24] == 1;
   *(_DWORD *)(a4 + 508) = v10;
   if ( v13 )
     goto LABEL_26;
@@ -71,7 +71,7 @@ LABEL_4:
   v11 = guard_dispatch_icall_no_overrides(a1, 0LL);
   if ( v11 < 0 )
     goto LABEL_16;
-  if ( LODWORD(WheapPfaLock.Timer.TimerListEntry.Flink) == 2 )
+  if ( *(_DWORD *)&WheapPfaLock.WaitBlockFill11[24] == 2 )
   {
 LABEL_26:
     v11 = -1073741823;
@@ -103,18 +103,18 @@ LABEL_26:
       LODWORD(Pool2[v19 + 2]) = v18;
     }
   }
-  if ( LODWORD(WheapPfaLock.Timer.TimerListEntry.Flink) == 3 )
+  if ( *(_DWORD *)&WheapPfaLock.WaitBlockFill11[24] == 3 )
     goto LABEL_14;
   v20 = v5;
   v11 = guard_dispatch_icall_no_overrides(a1, 0LL);
   if ( v11 < 0 )
     goto LABEL_15;
-  if ( LODWORD(WheapPfaLock.Timer.TimerListEntry.Flink) == 4 )
+  if ( *(_DWORD *)&WheapPfaLock.WaitBlockFill11[24] == 4 )
     goto LABEL_14;
   v11 = CmpFileFlushAndPurge(a1, 0LL);
   if ( v11 < 0 )
     goto LABEL_15;
-  if ( LODWORD(WheapPfaLock.Timer.TimerListEntry.Flink) == 5 )
+  if ( *(_DWORD *)&WheapPfaLock.WaitBlockFill11[24] == 5 )
   {
 LABEL_14:
     v11 = -1073741823;

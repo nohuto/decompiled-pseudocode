@@ -2,20 +2,20 @@
  * XREFs of MiProbeLockFrame @ 0x140041950
  * Callers:
  *     MiProbeAndLockPages @ 0x140040CF0 (MiProbeAndLockPages.c)
- *     MmProbeAndLockSelectedPages @ 0x1400949E0 (MmProbeAndLockSelectedPages.c)
+ *     MmProbeAndLockSelectedPages @ 0x140094920 (MmProbeAndLockSelectedPages.c)
  * Callees:
  *     MiChargePartitionResidentAvailable @ 0x140022F3C (MiChargePartitionResidentAvailable.c)
  *     MiRemoveLockedPageChargeAndDecRef @ 0x140030B20 (MiRemoveLockedPageChargeAndDecRef.c)
  *     MiLockPageTablePage @ 0x1400403C0 (MiLockPageTablePage.c)
  *     MiChargeCommit @ 0x14004CF20 (MiChargeCommit.c)
- *     MiReturnCommit @ 0x140065D40 (MiReturnCommit.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     MiLocateAddress @ 0x140087860 (MiLocateAddress.c)
- *     MI_IS_PHYSICAL_ADDRESS @ 0x14009D910 (MI_IS_PHYSICAL_ADDRESS.c)
- *     MiReferenceIoPages @ 0x1400E5FAC (MiReferenceIoPages.c)
- *     ExAcquireRundownProtectionCacheAware @ 0x140109A40 (ExAcquireRundownProtectionCacheAware.c)
- *     MiLockNonPagedPoolPte @ 0x140162470 (MiLockNonPagedPoolPte.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiReturnCommit @ 0x140065D30 (MiReturnCommit.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     MiLocateAddress @ 0x140087850 (MiLocateAddress.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x14009D850 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     MiReferenceIoPages @ 0x1400E602C (MiReferenceIoPages.c)
+ *     ExAcquireRundownProtectionCacheAware @ 0x140109AC0 (ExAcquireRundownProtectionCacheAware.c)
+ *     MiLockNonPagedPoolPte @ 0x140162570 (MiLockNonPagedPoolPte.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiProbeLockFrame(unsigned __int64 *a1)
@@ -64,12 +64,12 @@ __int64 __fastcall MiProbeLockFrame(unsigned __int64 *a1)
       }
       else
       {
-        ++dword_14043A83C;
+        ++dword_14043B8FC;
       }
     }
     else
     {
-      ++dword_14043A838;
+      ++dword_14043B8F8;
       return 3221225477LL;
     }
     return result;
@@ -94,14 +94,14 @@ __int64 __fastcall MiProbeLockFrame(unsigned __int64 *a1)
   if ( (v4 & 7u) <= 1 || (v5 = *(_WORD *)(v3 + 32)) == 0 )
   {
     _InterlockedAnd64((volatile signed __int64 *)(v3 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-    ++dword_14043A82C;
+    ++dword_14043B8EC;
     return 3221225477LL;
   }
   if ( v5 >= 0x7FFFu )
   {
 LABEL_73:
     _InterlockedAnd64((volatile signed __int64 *)(v3 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-    ++dword_14043A830;
+    ++dword_14043B8F0;
     return 3221225633LL;
   }
   v6 = *(_QWORD *)(v3 + 40);
@@ -126,8 +126,8 @@ LABEL_11:
         v9 = 1;
       }
       v11 = (v6 >> 40) & 0x3FF;
-      v12 = *(ULONG_PTR **)(qword_14043A748 + 8 * v11);
-      if ( v9 && !(unsigned int)MiChargeCommit(*(_QWORD *)(qword_14043A748 + 8 * v11), 1LL, 8LL) )
+      v12 = *(ULONG_PTR **)(qword_14043B808 + 8 * v11);
+      if ( v9 && !(unsigned int)MiChargeCommit(*(_QWORD *)(qword_14043B808 + 8 * v11), 1LL, 8LL) )
         goto LABEL_73;
       if ( v12 == &MiSystemPartition )
       {
@@ -159,7 +159,7 @@ LABEL_20:
     && (*(_QWORD *)(v3 + 16) & 4) != 0
     && (*(_QWORD *)(v3 + 16) & 0x400LL) == 0 )
   {
-    *(_BYTE *)(*(_QWORD *)(qword_14043A748 + 8 * ((*(_QWORD *)(v3 + 40) >> 40) & 0x3FFLL)) + 659LL) = 1;
+    *(_BYTE *)(*(_QWORD *)(qword_14043B808 + 8 * ((*(_QWORD *)(v3 + 40) >> 40) & 0x3FFLL)) + 659LL) = 1;
   }
   v16 = *(_BYTE *)(v3 + 34);
   if ( (v16 & 0x20) != 0 && (v16 & 8) == 0 && (*(_QWORD *)(v3 + 24) & 0x3FFFFFFFFFFFFFFFLL) == 0 )
@@ -196,7 +196,7 @@ LABEL_20:
             }
             MiRemoveLockedPageChargeAndDecRef(v3);
             _InterlockedAnd64((volatile signed __int64 *)(v3 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-            ++dword_14043A834;
+            ++dword_14043B8F4;
             return 3221225633LL;
           }
           a1[17] = *(_QWORD *)(v3 + 40) & 0xFFFFFFFFFLL;
@@ -211,15 +211,15 @@ LABEL_20:
     v24 = *(_QWORD *)(v3 + 16);
     if ( (v24 & 0x400) != 0 )
     {
-      if ( qword_14043A0C0 && (v24 & 0x10) == 0 )
-        v24 &= ~qword_14043A0C0;
+      if ( qword_14043B180 && (v24 & 0x10) == 0 )
+        v24 &= ~qword_14043B180;
       _InterlockedIncrement64((volatile signed __int64 *)(*(_QWORD *)(v24 >> 16) + 112LL));
       v21 = *(_QWORD *)(v3 + 40);
     }
   }
   v22 = v21 >> 40;
   if ( (v22 & 0x3FF) != 0 )
-    ExAcquireRundownProtectionCacheAware(*(PEX_RUNDOWN_REF_CACHE_AWARE *)(*(_QWORD *)(qword_14043A748 + 8 * (v22 & 0x3FF))
+    ExAcquireRundownProtectionCacheAware(*(PEX_RUNDOWN_REF_CACHE_AWARE *)(*(_QWORD *)(qword_14043B808 + 8 * (v22 & 0x3FF))
                                                                         + 2080LL));
   return 0LL;
 }

@@ -1,17 +1,17 @@
 /*
- * XREFs of PipGetRegistrySecurityWithFallback @ 0x1409153D4
+ * XREFs of PipGetRegistrySecurityWithFallback @ 0x14096FE40
  * Callers:
- *     PipChangeDeviceObjectFromRegistryProperties @ 0x140914F6C (PipChangeDeviceObjectFromRegistryProperties.c)
+ *     PipChangeDeviceObjectFromRegistryProperties @ 0x14096F9D8 (PipChangeDeviceObjectFromRegistryProperties.c)
  * Callees:
- *     _CmGetInstallerClassRegProp @ 0x140918E5C (_CmGetInstallerClassRegProp.c)
- *     SeCaptureSecurityDescriptor @ 0x1409263C0 (SeCaptureSecurityDescriptor.c)
- *     RtlValidRelativeSecurityDescriptor @ 0x14094DC20 (RtlValidRelativeSecurityDescriptor.c)
- *     _CmGetDeviceRegProp @ 0x140996210 (_CmGetDeviceRegProp.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     SeCaptureSecurityDescriptor @ 0x140901ED0 (SeCaptureSecurityDescriptor.c)
+ *     _CmGetDeviceRegProp @ 0x140956C70 (_CmGetDeviceRegProp.c)
+ *     _CmGetInstallerClassRegProp @ 0x1409738BC (_CmGetInstallerClassRegProp.c)
+ *     RtlValidRelativeSecurityDescriptor @ 0x1409C9570 (RtlValidRelativeSecurityDescriptor.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall PipGetRegistrySecurityWithFallback(__int64 a1, int a2, int a3, int a4, __int64 a5)
+__int64 __fastcall PipGetRegistrySecurityWithFallback(__int64 a1, __int64 a2, __int64 a3, int a4, __int64 a5)
 {
   bool v8; // di
   void *Pool2; // rbx
@@ -30,10 +30,10 @@ __int64 __fastcall PipGetRegistrySecurityWithFallback(__int64 a1, int a2, int a3
   if ( !Pool2 )
     return 0LL;
   DeviceRegProp = CmGetDeviceRegProp(
-                    PiPnpRtlCtx,
+                    *(__int64 *)&PiPnpRtlCtx,
                     a2,
                     a3,
-                    24,
+                    0x18u,
                     (__int64)&v14,
                     (__int64)Pool2,
                     (__int64)&SecurityDescriptorLength,
@@ -45,10 +45,10 @@ __int64 __fastcall PipGetRegistrySecurityWithFallback(__int64 a1, int a2, int a3
     if ( !Pool2 )
       return 0LL;
     DeviceRegProp = CmGetDeviceRegProp(
-                      PiPnpRtlCtx,
+                      *(__int64 *)&PiPnpRtlCtx,
                       a2,
                       a3,
-                      24,
+                      0x18u,
                       (__int64)&v14,
                       (__int64)Pool2,
                       (__int64)&SecurityDescriptorLength,
@@ -57,7 +57,7 @@ __int64 __fastcall PipGetRegistrySecurityWithFallback(__int64 a1, int a2, int a3
   if ( DeviceRegProp >= 0
     && v14 == 3
     && RtlValidRelativeSecurityDescriptor(Pool2, SecurityDescriptorLength, 0)
-    && (int)SeCaptureSecurityDescriptor(Pool2, (__int64)&v15) >= 0 )
+    && (int)SeCaptureSecurityDescriptor((unsigned __int16 *)Pool2, 0, 1, 1, (unsigned __int16 **)&v15) >= 0 )
   {
     v8 = 1;
   }
@@ -92,7 +92,7 @@ __int64 __fastcall PipGetRegistrySecurityWithFallback(__int64 a1, int a2, int a3
       if ( InstallerClassRegProp >= 0 && v14 == 3 )
       {
         if ( RtlValidRelativeSecurityDescriptor(Pool2, SecurityDescriptorLength, 0) )
-          v8 = (int)SeCaptureSecurityDescriptor(Pool2, (__int64)&v15) >= 0;
+          v8 = (int)SeCaptureSecurityDescriptor((unsigned __int16 *)Pool2, 0, 1, 1, (unsigned __int16 **)&v15) >= 0;
       }
     }
   }

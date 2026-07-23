@@ -1,21 +1,21 @@
 /*
- * XREFs of VfFastIoCheckState @ 0x140C47F24
+ * XREFs of VfFastIoCheckState @ 0x140C4DF34
  * Callers:
- *     IopCompleteUnloadOrDelete @ 0x140437F84 (IopCompleteUnloadOrDelete.c)
- *     IopXxxControlFile @ 0x1408F5EA0 (IopXxxControlFile.c)
- *     IopReadFile @ 0x1408F856C (IopReadFile.c)
- *     IopParseDevice @ 0x1409008C0 (IopParseDevice.c)
- *     IopQueryInformation @ 0x140903288 (IopQueryInformation.c)
- *     NtUnlockFile @ 0x1409B0030 (NtUnlockFile.c)
- *     IopWriteFile @ 0x1409B19A0 (IopWriteFile.c)
- *     IopGetBasicInformationFile @ 0x1409B4538 (IopGetBasicInformationFile.c)
- *     NtQueryInformationFile @ 0x1409B4B00 (NtQueryInformationFile.c)
- *     IopCloseFile @ 0x140A1EFA0 (IopCloseFile.c)
- *     NtLockFile @ 0x140B6ECE0 (NtLockFile.c)
+ *     IopCompleteUnloadOrDelete @ 0x140426EA4 (IopCompleteUnloadOrDelete.c)
+ *     IopXxxControlFile @ 0x140925E30 (IopXxxControlFile.c)
+ *     IopReadFile @ 0x1409284FC (IopReadFile.c)
+ *     IopParseDevice @ 0x140930850 (IopParseDevice.c)
+ *     IopQueryInformation @ 0x140933218 (IopQueryInformation.c)
+ *     NtUnlockFile @ 0x1409810F0 (NtUnlockFile.c)
+ *     IopWriteFile @ 0x140982A60 (IopWriteFile.c)
+ *     IopGetBasicInformationFile @ 0x1409855F8 (IopGetBasicInformationFile.c)
+ *     NtQueryInformationFile @ 0x140985BC0 (NtQueryInformationFile.c)
+ *     IopCloseFile @ 0x140A285C0 (IopCloseFile.c)
+ *     NtLockFile @ 0x140B720D0 (NtLockFile.c)
  * Callees:
- *     KeAreInterruptsEnabled @ 0x1402642E0 (KeAreInterruptsEnabled.c)
- *     ExFreeToNPagedLookasideList @ 0x1403B5A60 (ExFreeToNPagedLookasideList.c)
- *     CarReportRuleViolationFromNt @ 0x140C2BF1C (CarReportRuleViolationFromNt.c)
+ *     KeAreInterruptsEnabled @ 0x140263850 (KeAreInterruptsEnabled.c)
+ *     ExFreeToNPagedLookasideList @ 0x1403BF960 (ExFreeToNPagedLookasideList.c)
+ *     CarReportRuleViolationFromNt @ 0x140C31F2C (CarReportRuleViolationFromNt.c)
  */
 
 void __fastcall VfFastIoCheckState(unsigned int *Entry, ULONG_PTR BugCheckParameter2)

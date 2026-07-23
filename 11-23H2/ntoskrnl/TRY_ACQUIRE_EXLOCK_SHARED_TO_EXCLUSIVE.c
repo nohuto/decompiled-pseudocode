@@ -1,7 +1,7 @@
 /*
- * XREFs of TRY_ACQUIRE_EXLOCK_SHARED_TO_EXCLUSIVE @ 0x14060B1A8
+ * XREFs of TRY_ACQUIRE_EXLOCK_SHARED_TO_EXCLUSIVE @ 0x14060B6F8
  * Callers:
- *     MiInsertLargeVadMapping @ 0x14064615C (MiInsertLargeVadMapping.c)
+ *     MiInsertLargeVadMapping @ 0x1406466AC (MiInsertLargeVadMapping.c)
  * Callees:
  *     <none>
  */

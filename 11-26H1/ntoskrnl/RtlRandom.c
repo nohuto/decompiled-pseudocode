@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlRandom @ 0x140AEAE20
+ * XREFs of RtlRandom @ 0x140AEDBF0
  * Callers:
- *     PspInitPhase2 @ 0x140CD842C (PspInitPhase2.c)
+ *     PspInitPhase2 @ 0x140CDE7AC (PspInitPhase2.c)
  * Callees:
  *     ExGenRandom @ 0x140200C10 (ExGenRandom.c)
  */

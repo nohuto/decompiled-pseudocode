@@ -1,20 +1,20 @@
 /*
- * XREFs of PpmInstallCoordinatedIdleStates @ 0x1407C9BE0
+ * XREFs of PpmInstallCoordinatedIdleStates @ 0x1407CCC80
  * Callers:
  *     <none>
  * Callees:
- *     ?RtlpCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z @ 0x1402518B0 (-RtlpCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z.c)
- *     KeGetPrcb @ 0x1402916D0 (KeGetPrcb.c)
- *     PopReleaseRwLock @ 0x14043630C (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x140436378 (PopAcquireRwLockExclusive.c)
- *     PpmIdleIsStateDisabled @ 0x1404ECBDC (PpmIdleIsStateDisabled.c)
- *     PpmCheckCoordinatedStateInitiator @ 0x140601688 (PpmCheckCoordinatedStateInitiator.c)
- *     PpmResetPlatformIdleAccounting @ 0x1406033C0 (PpmResetPlatformIdleAccounting.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     PpmEnableCoordinatedIdleStates @ 0x1407C967C (PpmEnableCoordinatedIdleStates.c)
- *     PpmIdleUpdateCoordinatedDependencies @ 0x1407E1E74 (PpmIdleUpdateCoordinatedDependencies.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     PopReleaseRwLock @ 0x14021B1A8 (PopReleaseRwLock.c)
+ *     ?RtlpCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z @ 0x140253210 (-RtlpCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z.c)
+ *     KeGetPrcb @ 0x140290C30 (KeGetPrcb.c)
+ *     PopAcquireRwLockExclusive @ 0x140425310 (PopAcquireRwLockExclusive.c)
+ *     PpmIdleIsStateDisabled @ 0x1404E61BC (PpmIdleIsStateDisabled.c)
+ *     PpmCheckCoordinatedStateInitiator @ 0x140604138 (PpmCheckCoordinatedStateInitiator.c)
+ *     PpmResetPlatformIdleAccounting @ 0x140605E70 (PpmResetPlatformIdleAccounting.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     PpmEnableCoordinatedIdleStates @ 0x1407CC71C (PpmEnableCoordinatedIdleStates.c)
+ *     PpmIdleUpdateCoordinatedDependencies @ 0x1407E6F04 (PpmIdleUpdateCoordinatedDependencies.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PpmInstallCoordinatedIdleStates(unsigned int *a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
@@ -32,7 +32,7 @@ __int64 __fastcall PpmInstallCoordinatedIdleStates(unsigned int *a1, __int64 a2,
   int v14; // eax
   int v15; // eax
   int *v16; // rdi
-  unsigned int IptSaveArea; // ebx
+  unsigned int v17; // ebx
   __int64 v18; // r13
   __int64 v19; // rax
   int *v20; // r13
@@ -91,13 +91,13 @@ __int64 __fastcall PpmInstallCoordinatedIdleStates(unsigned int *a1, __int64 a2,
 
   v4 = a1;
   Pool2 = 0LL;
-  PopAcquireRwLockExclusive((unsigned __int64 *)&stru_140F10070.1136, a2, a3, a4);
+  PopAcquireRwLockExclusive((unsigned __int64 *)&PpmIdlePolicyLock, a2, a3, a4);
   v6 = 1;
   if ( PpmPlatformStates && !*((_BYTE *)v4 + 40) )
   {
     updated = -1073741431;
 LABEL_44:
-    PopReleaseRwLock((struct _KTHREAD *)&stru_140F10070.1136);
+    PopReleaseRwLock(&PpmIdlePolicyLock);
     return (unsigned int)updated;
   }
   updated = PpmIdleUpdateCoordinatedDependencies(v4);
@@ -132,17 +132,17 @@ LABEL_43:
     updated = -1073741811;
     goto LABEL_44;
   }
-  IptSaveArea = (unsigned int)stru_140E66FF0.IptSaveArea;
+  v17 = stru_140E67200.Padding[4];
   v74 = (448 * v8 + 71) & 0xFFFFFFF8;
   v66 = v74 + 24 * v10;
   v67 = v66 + 24 * v11;
   v18 = (v67 + 4 * (_DWORD)KeNumberProcessors_0 * (_DWORD)v8 + 7) & 0xFFFFFFF8;
   v68 = (4 * v8 + 15) & 0xFFFFFFF8;
   v69 = (v18 + 1032 * v8 + 47) & 0xFFFFFFF8;
-  if ( stru_140E66FF0.IptSaveArea )
+  if ( stru_140E67200.Padding[4] )
   {
-    IptSaveArea = *((_DWORD *)stru_140E66FF0.IptSaveArea + 1);
-    if ( IptSaveArea )
+    v17 = *(_DWORD *)(stru_140E67200.Padding[4] + 4);
+    if ( v17 )
     {
       Pool2 = (char *)ExAllocatePool2(0x40uLL);
       if ( !Pool2 )
@@ -178,13 +178,13 @@ LABEL_14:
     LOBYTE(v16[v22 + 26]) = 7;
     if ( PpmIdleIsStateDisabled(0, i) )
       *(int *)((char *)v16 + v24 + 80) = 0x80000000;
-    if ( IptSaveArea )
+    if ( v17 )
     {
       if ( v25 == *v4 - 1 )
         *((_BYTE *)v16 + v24 + 105) = 1;
       *(_QWORD *)((char *)v16 + v24 + 112) = Pool2;
-      Pool2 += 64 * (unsigned __int64)IptSaveArea;
-      *(int *)((char *)v16 + v24 + 108) = IptSaveArea;
+      Pool2 += 64 * (unsigned __int64)v17;
+      *(int *)((char *)v16 + v24 + 108) = v17;
       *(_QWORD *)&v20[258 * v26 + 58] = (char *)v16 + v24 + 80;
     }
   }

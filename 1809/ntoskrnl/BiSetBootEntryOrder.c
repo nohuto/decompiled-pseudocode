@@ -1,20 +1,20 @@
 /*
- * XREFs of BiSetBootEntryOrder @ 0x1408F453C
+ * XREFs of BiSetBootEntryOrder @ 0x1408F57FC
  * Callers:
- *     BiAddBootEntryToNvramDisplayOrder @ 0x1408F1E84 (BiAddBootEntryToNvramDisplayOrder.c)
- *     BiExportEfiBootManager @ 0x1408F3688 (BiExportEfiBootManager.c)
- *     BiRemoveBootEntryFromNvramDisplayOrder @ 0x1408F4490 (BiRemoveBootEntryFromNvramDisplayOrder.c)
+ *     BiAddBootEntryToNvramDisplayOrder @ 0x1408F3144 (BiAddBootEntryToNvramDisplayOrder.c)
+ *     BiExportEfiBootManager @ 0x1408F4948 (BiExportEfiBootManager.c)
+ *     BiRemoveBootEntryFromNvramDisplayOrder @ 0x1408F5750 (BiRemoveBootEntryFromNvramDisplayOrder.c)
  * Callees:
- *     ZwSetBootEntryOrder @ 0x1401BB190 (ZwSetBootEntryOrder.c)
- *     BiReleasePrivilege @ 0x1407114A4 (BiReleasePrivilege.c)
- *     BiAcquirePrivilege @ 0x1407114F4 (BiAcquirePrivilege.c)
- *     BiLogMessage @ 0x1407140B4 (BiLogMessage.c)
+ *     ZwSetBootEntryOrder @ 0x1401BB2F0 (ZwSetBootEntryOrder.c)
+ *     BiReleasePrivilege @ 0x140712744 (BiReleasePrivilege.c)
+ *     BiAcquirePrivilege @ 0x140712794 (BiAcquirePrivilege.c)
+ *     BiLogMessage @ 0x140715354 (BiLogMessage.c)
  */
 
 __int64 __fastcall BiSetBootEntryOrder(PULONG Ids, PULONG Count)
 {
   unsigned int v2; // edi
-  int v4; // ebx
+  NTSTATUS v4; // ebx
   NTSTATUS v5; // eax
   unsigned int v7; // [rsp+40h] [rbp+18h] BYREF
 

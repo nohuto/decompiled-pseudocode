@@ -1,10 +1,10 @@
 /*
- * XREFs of VerifierRtlUpcaseUnicodeString @ 0x1409E5BC0
+ * XREFs of VerifierRtlUpcaseUnicodeString @ 0x1409E6BC0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     ViRtlReplaceStringBuffer @ 0x1409E5D3C (ViRtlReplaceStringBuffer.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     ViRtlReplaceStringBuffer @ 0x1409E6D3C (ViRtlReplaceStringBuffer.c)
  */
 
 __int64 __fastcall VerifierRtlUpcaseUnicodeString(__int64 a1, __int64 a2, char a3)

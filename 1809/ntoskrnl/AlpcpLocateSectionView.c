@@ -1,13 +1,13 @@
 /*
- * XREFs of AlpcpLocateSectionView @ 0x140617A28
+ * XREFs of AlpcpLocateSectionView @ 0x140618A28
  * Callers:
- *     AlpcpCaptureViewAttributeInternal @ 0x140617818 (AlpcpCaptureViewAttributeInternal.c)
+ *     AlpcpCaptureViewAttributeInternal @ 0x140618818 (AlpcpCaptureViewAttributeInternal.c)
  * Callees:
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
- *     AlpcpEnumerateResourcesPort @ 0x140617AE8 (AlpcpEnumerateResourcesPort.c)
- *     AlpcpDereferenceView @ 0x140849914 (AlpcpDereferenceView.c)
+ *     ExfReleasePushLockShared @ 0x1400913F0 (ExfReleasePushLockShared.c)
+ *     AlpcpEnumerateResourcesPort @ 0x140618AE8 (AlpcpEnumerateResourcesPort.c)
+ *     AlpcpDereferenceView @ 0x14084AB74 (AlpcpDereferenceView.c)
  */
 
 __int64 __fastcall AlpcpLocateSectionView(__int64 a1, __int64 a2, __int64 a3, _QWORD *a4)

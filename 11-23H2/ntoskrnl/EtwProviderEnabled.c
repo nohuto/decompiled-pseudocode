@@ -1,25 +1,25 @@
 /*
- * XREFs of EtwProviderEnabled @ 0x140304190
+ * XREFs of EtwProviderEnabled @ 0x140304420
  * Callers:
- *     EtwTraceMemoryAcg @ 0x140304138 (EtwTraceMemoryAcg.c)
- *     EtwTiLogInsertQueueUserApc @ 0x140363DF4 (EtwTiLogInsertQueueUserApc.c)
- *     EtwpLogMemNodeInfo @ 0x140467A86 (EtwpLogMemNodeInfo.c)
+ *     EtwTraceMemoryAcg @ 0x1403043C8 (EtwTraceMemoryAcg.c)
+ *     EtwTiLogInsertQueueUserApc @ 0x140363F94 (EtwTiLogInsertQueueUserApc.c)
+ *     EtwpLogMemNodeInfo @ 0x140467E86 (EtwpLogMemNodeInfo.c)
  *     EtwTraceWorkingSetInSwapStoreFail @ 0x14068190C (EtwTraceWorkingSetInSwapStoreFail.c)
  *     EtwTiLogMapExecView @ 0x140682E58 (EtwTiLogMapExecView.c)
- *     EtwTiLogDeviceObjectLoadUnload @ 0x14076BA34 (EtwTiLogDeviceObjectLoadUnload.c)
- *     EtwTiLogAllocExecVm @ 0x14076BB88 (EtwTiLogAllocExecVm.c)
- *     EtwTiLogReadWriteVm @ 0x14076BE3C (EtwTiLogReadWriteVm.c)
- *     EtwTiLogSetContextThread @ 0x1407A2E7C (EtwTiLogSetContextThread.c)
- *     EtwTraceWorkingSetSwap @ 0x1407B71A8 (EtwTraceWorkingSetSwap.c)
- *     EtwTiLogDriverObjectLoad @ 0x1407DEA68 (EtwTiLogDriverObjectLoad.c)
- *     EtwpTiVadQueryEventWriteCallback @ 0x1407E2620 (EtwpTiVadQueryEventWriteCallback.c)
- *     EtwpCrimsonProvEnableCallback @ 0x1407E7B70 (EtwpCrimsonProvEnableCallback.c)
- *     EtwTiLogDriverObjectUnLoad @ 0x140857DC0 (EtwTiLogDriverObjectUnLoad.c)
- *     EtwTiLogProtectExecVm @ 0x1408A75EA (EtwTiLogProtectExecVm.c)
- *     EtwTiLogSuspendResumeThread @ 0x1408A78C4 (EtwTiLogSuspendResumeThread.c)
- *     EtwTiLogSuspendResumeProcess @ 0x1409E8CA4 (EtwTiLogSuspendResumeProcess.c)
+ *     EtwTiLogDeviceObjectLoadUnload @ 0x14076BC24 (EtwTiLogDeviceObjectLoadUnload.c)
+ *     EtwTiLogAllocExecVm @ 0x14076BD78 (EtwTiLogAllocExecVm.c)
+ *     EtwTiLogReadWriteVm @ 0x14076C02C (EtwTiLogReadWriteVm.c)
+ *     EtwTiLogSetContextThread @ 0x1407A306C (EtwTiLogSetContextThread.c)
+ *     EtwTraceWorkingSetSwap @ 0x1407B7488 (EtwTraceWorkingSetSwap.c)
+ *     EtwTiLogDriverObjectLoad @ 0x1407DED38 (EtwTiLogDriverObjectLoad.c)
+ *     EtwpTiVadQueryEventWriteCallback @ 0x1407E28F0 (EtwpTiVadQueryEventWriteCallback.c)
+ *     EtwpCrimsonProvEnableCallback @ 0x1407E7E40 (EtwpCrimsonProvEnableCallback.c)
+ *     EtwTiLogDriverObjectUnLoad @ 0x140858000 (EtwTiLogDriverObjectUnLoad.c)
+ *     EtwTiLogProtectExecVm @ 0x1408A783A (EtwTiLogProtectExecVm.c)
+ *     EtwTiLogSuspendResumeThread @ 0x1408A7B14 (EtwTiLogSuspendResumeThread.c)
+ *     EtwTiLogSuspendResumeProcess @ 0x1409E8F34 (EtwTiLogSuspendResumeProcess.c)
  * Callees:
- *     EtwpLevelKeywordEnabled @ 0x140258520 (EtwpLevelKeywordEnabled.c)
+ *     EtwpLevelKeywordEnabled @ 0x1402585E0 (EtwpLevelKeywordEnabled.c)
  */
 
 BOOLEAN __stdcall EtwProviderEnabled(REGHANDLE RegHandle, UCHAR Level, ULONGLONG Keyword)

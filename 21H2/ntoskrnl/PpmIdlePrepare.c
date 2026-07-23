@@ -1,18 +1,18 @@
 /*
- * XREFs of PpmIdlePrepare @ 0x140224F90
+ * XREFs of PpmIdlePrepare @ 0x1402C9890
  * Callers:
- *     PoIdle @ 0x140221ED0 (PoIdle.c)
+ *     PoIdle @ 0x1402C67D0 (PoIdle.c)
  * Callees:
- *     KiGetNextTimerExpirationDueTime @ 0x1402255A0 (KiGetNextTimerExpirationDueTime.c)
- *     KeGetPrcb @ 0x140228E30 (KeGetPrcb.c)
- *     KeAddProcessorAffinityEx @ 0x140229380 (KeAddProcessorAffinityEx.c)
- *     KeEnumerateNextProcessor @ 0x140229400 (KeEnumerateNextProcessor.c)
- *     KeQueryPerformanceCounter @ 0x14022C340 (KeQueryPerformanceCounter.c)
- *     MmGetNextNode @ 0x1402936D4 (MmGetNextNode.c)
- *     PpmGetIdleConstrainedMask @ 0x1403907C0 (PpmGetIdleConstrainedMask.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     memset @ 0x140414200 (memset.c)
+ *     MmGetNextNode @ 0x140211644 (MmGetNextNode.c)
+ *     KiGetNextTimerExpirationDueTime @ 0x1402C9EA0 (KiGetNextTimerExpirationDueTime.c)
+ *     KeGetPrcb @ 0x1402CD730 (KeGetPrcb.c)
+ *     KeAddProcessorAffinityEx @ 0x1402CDC80 (KeAddProcessorAffinityEx.c)
+ *     KeEnumerateNextProcessor @ 0x1402CDD00 (KeEnumerateNextProcessor.c)
+ *     KeQueryPerformanceCounter @ 0x1402D0BC0 (KeQueryPerformanceCounter.c)
+ *     PpmGetIdleConstrainedMask @ 0x140390910 (PpmGetIdleConstrainedMask.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414300 (memset.c)
  */
 
 __int64 __fastcall PpmIdlePrepare(
@@ -56,7 +56,7 @@ __int64 __fastcall PpmIdlePrepare(
   unsigned int v37; // edx
   unsigned int v38; // ecx
   unsigned int i; // eax
-  unsigned int v40; // eax
+  ULONG v40; // eax
   __int64 v41; // r12
   __int64 v42; // rax
   unsigned int v43; // ebx
@@ -68,7 +68,7 @@ __int64 __fastcall PpmIdlePrepare(
   char v49; // cl
   struct _KPRCB *CurrentPrcb; // r8
   _KNODE *ParentNode; // r9
-  unsigned int v53; // r10d
+  int v53; // r10d
   int NextNode; // eax
   signed __int64 v56; // rax
   unsigned __int64 v57; // rbx
@@ -203,7 +203,7 @@ LABEL_12:
     *(_DWORD *)(v11 + 528) = v21;
     if ( PpmIdleRespectIdleStateMax )
     {
-      v22 = BYTE6(PpmCurrentProfile[342 * dword_140C23E8C + 24]);
+      v22 = BYTE6(PpmCurrentProfile[342 * dword_140C2332C + 24]);
       *(_BYTE *)(v11 + 542) = v22;
       if ( v22 )
         *(_WORD *)(v11 + 48) |= 0x4000u;

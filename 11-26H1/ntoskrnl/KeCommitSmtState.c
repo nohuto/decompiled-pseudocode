@@ -1,13 +1,13 @@
 /*
- * XREFs of KeCommitSmtState @ 0x1405F1790
+ * XREFs of KeCommitSmtState @ 0x1405F4150
  * Callers:
- *     CmpAcceptBoot @ 0x14084E81C (CmpAcceptBoot.c)
+ *     CmpAcceptBoot @ 0x140854B2C (CmpAcceptBoot.c)
  * Callees:
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwOpenKey @ 0x140723630 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x1407236D0 (ZwQueryValueKey.c)
- *     ZwSetValueKey @ 0x140723FF0 (ZwSetValueKey.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140728200 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1407282A0 (ZwQueryValueKey.c)
+ *     ZwSetValueKey @ 0x140728BC0 (ZwSetValueKey.c)
  */
 
 int KeCommitSmtState()

@@ -1,9 +1,9 @@
 /*
- * XREFs of Below4gb_MmAllocateContiguousMemory_Entry @ 0x140C399B0
+ * XREFs of Below4gb_MmAllocateContiguousMemory_Entry @ 0x140C3F9C0
  * Callers:
  *     <none>
  * Callees:
- *     CarReportRuleViolationFromNt @ 0x140C2BF1C (CarReportRuleViolationFromNt.c)
+ *     CarReportRuleViolationFromNt @ 0x140C31F2C (CarReportRuleViolationFromNt.c)
  */
 
 __int64 __fastcall Below4gb_MmAllocateContiguousMemory_Entry(__int64 a1)

@@ -1,10 +1,10 @@
 /*
- * XREFs of FsRtlUninitializeBaseMcb @ 0x1401111B0
+ * XREFs of FsRtlUninitializeBaseMcb @ 0x140111220
  * Callers:
- *     FsRtlUninitializeLargeMcb @ 0x140111170 (FsRtlUninitializeLargeMcb.c)
+ *     FsRtlUninitializeLargeMcb @ 0x1401111E0 (FsRtlUninitializeLargeMcb.c)
  * Callees:
- *     ExFreeToNPagedLookasideList @ 0x1400922D8 (ExFreeToNPagedLookasideList.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     ExFreeToNPagedLookasideList @ 0x140092218 (ExFreeToNPagedLookasideList.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 void __stdcall FsRtlUninitializeBaseMcb(PBASE_MCB Mcb)

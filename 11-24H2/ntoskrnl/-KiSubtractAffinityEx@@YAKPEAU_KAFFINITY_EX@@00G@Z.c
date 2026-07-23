@@ -1,23 +1,23 @@
 /*
- * XREFs of ?KiSubtractAffinityEx@@YAKPEAU_KAFFINITY_EX@@00G@Z @ 0x140354CF8
+ * XREFs of ?KiSubtractAffinityEx@@YAKPEAU_KAFFINITY_EX@@00G@Z @ 0x1402B2A28
  * Callers:
- *     KiIpiSendRequest @ 0x1402928D0 (KiIpiSendRequest.c)
- *     PpmCheckContinueExecution @ 0x140351834 (PpmCheckContinueExecution.c)
- *     PpmParkSteerInterrupts @ 0x140352C70 (PpmParkSteerInterrupts.c)
- *     PpmParkReportUnparkedCores @ 0x1403546E0 (PpmParkReportUnparkedCores.c)
- *     PpmParkReportParkedCores @ 0x1403547C0 (PpmParkReportParkedCores.c)
- *     KeSubtractAffinityEx2 @ 0x140354F10 (KeSubtractAffinityEx2.c)
- *     PpmIdleUpdateSystemLatencyLimit @ 0x1403B5810 (PpmIdleUpdateSystemLatencyLimit.c)
- *     PpmIdleSelectStates @ 0x1404EA518 (PpmIdleSelectStates.c)
- *     KeUpdateProcessorRestrictionsEx @ 0x1405B5474 (KeUpdateProcessorRestrictionsEx.c)
- *     KeSubtractAffinityEx @ 0x1405B81E0 (KeSubtractAffinityEx.c)
- *     PpmHeteroHgsDetectContainmentPresence @ 0x1405D6E5C (PpmHeteroHgsDetectContainmentPresence.c)
- *     PpmHeteroComputeMultiClassUnparkCountEx @ 0x1405E0230 (PpmHeteroComputeMultiClassUnparkCountEx.c)
- *     PpmHeteroDistributeUtilityEx @ 0x1405E07D4 (PpmHeteroDistributeUtilityEx.c)
- *     PpmParkComputeUnparkMaskEx @ 0x1405E2544 (PpmParkComputeUnparkMaskEx.c)
- *     RtlUpdateSwapReference @ 0x140A36190 (RtlUpdateSwapReference.c)
- *     PpmPostProcessMediaBuffering @ 0x140A4737C (PpmPostProcessMediaBuffering.c)
- *     PpmCheckInitProcessors @ 0x140AC75E0 (PpmCheckInitProcessors.c)
+ *     KiIpiSendRequest @ 0x1402A24D0 (KiIpiSendRequest.c)
+ *     PpmIdleUpdateSystemLatencyLimit @ 0x1402AEDA4 (PpmIdleUpdateSystemLatencyLimit.c)
+ *     PpmCheckContinueExecution @ 0x1402B065C (PpmCheckContinueExecution.c)
+ *     PpmParkSteerInterrupts @ 0x1402B0A40 (PpmParkSteerInterrupts.c)
+ *     PpmParkReportUnparkedCores @ 0x1402B2410 (PpmParkReportUnparkedCores.c)
+ *     PpmParkReportParkedCores @ 0x1402B24F0 (PpmParkReportParkedCores.c)
+ *     KeSubtractAffinityEx2 @ 0x1402B2C40 (KeSubtractAffinityEx2.c)
+ *     PpmIdleSelectStates @ 0x1404E1498 (PpmIdleSelectStates.c)
+ *     KeUpdateProcessorRestrictionsEx @ 0x1405B273C (KeUpdateProcessorRestrictionsEx.c)
+ *     KeSubtractAffinityEx @ 0x1405B57C0 (KeSubtractAffinityEx.c)
+ *     PpmHeteroHgsDetectContainmentPresence @ 0x1405D4400 (PpmHeteroHgsDetectContainmentPresence.c)
+ *     PpmHeteroComputeMultiClassUnparkCountEx @ 0x1405DD850 (PpmHeteroComputeMultiClassUnparkCountEx.c)
+ *     PpmHeteroDistributeUtilityEx @ 0x1405DDDF4 (PpmHeteroDistributeUtilityEx.c)
+ *     PpmParkComputeUnparkMaskEx @ 0x1405DFACC (PpmParkComputeUnparkMaskEx.c)
+ *     RtlUpdateSwapReference @ 0x140A2B6A0 (RtlUpdateSwapReference.c)
+ *     PpmPostProcessMediaBuffering @ 0x140A3D2EC (PpmPostProcessMediaBuffering.c)
+ *     PpmCheckInitProcessors @ 0x140AC506C (PpmCheckInitProcessors.c)
  * Callees:
  *     <none>
  */

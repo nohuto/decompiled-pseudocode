@@ -10,13 +10,13 @@
 
 __int64 __fastcall MiClearNonPagedBitMapBits(__int64 a1, __int64 a2, ULONG a3, ULONG a4)
 {
-  struct _RTL_BITMAP *v4; // rsi
+  _RTL_BITMAP *v4; // rsi
   __int64 SharedVm; // rbx
   KIRQL v9; // al
   KIRQL v10; // di
   __int64 v11; // rdx
 
-  v4 = *(struct _RTL_BITMAP **)(a1 + 80);
+  v4 = *(_RTL_BITMAP **)(a1 + 80);
   SharedVm = MiGetSharedVm(a2);
   v9 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)SharedVm);
   *(_DWORD *)(SharedVm + 4) = 0;

@@ -1,11 +1,11 @@
 /*
- * XREFs of ApiSetSchemaExpander_InsertSemverContractEntry @ 0x1406DBB54
+ * XREFs of ApiSetSchemaExpander_InsertSemverContractEntry @ 0x1406DFDEC
  * Callers:
- *     ApiSetCompose_ProcessV7Extension_Phase1 @ 0x1406DAAC4 (ApiSetCompose_ProcessV7Extension_Phase1.c)
- *     ApiSetCompose_V7_ProcessV6Extension_Phase1 @ 0x1406DBF60 (ApiSetCompose_V7_ProcessV6Extension_Phase1.c)
+ *     ApiSetCompose_ProcessV7Extension_Phase1 @ 0x1406DEC64 (ApiSetCompose_ProcessV7Extension_Phase1.c)
+ *     ApiSetCompose_V7_ProcessV6Extension_Phase1 @ 0x1406E01F8 (ApiSetCompose_V7_ProcessV6Extension_Phase1.c)
  * Callees:
- *     ApiSetpGetSemverKeyVersions @ 0x1406DB374 (ApiSetpGetSemverKeyVersions.c)
- *     ApiSetpInsertHashEntry @ 0x1406DC4F0 (ApiSetpInsertHashEntry.c)
+ *     ApiSetpGetSemverKeyVersions @ 0x1406DF60C (ApiSetpGetSemverKeyVersions.c)
+ *     ApiSetpInsertHashEntry @ 0x1406E0788 (ApiSetpInsertHashEntry.c)
  */
 
 __int64 __fastcall ApiSetSchemaExpander_InsertSemverContractEntry(__int64 a1, __int64 *a2, _WORD *a3)

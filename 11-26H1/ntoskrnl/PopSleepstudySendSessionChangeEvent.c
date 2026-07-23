@@ -1,11 +1,11 @@
 /*
- * XREFs of PopSleepstudySendSessionChangeEvent @ 0x140B11E74
+ * XREFs of PopSleepstudySendSessionChangeEvent @ 0x140B13BF4
  * Callers:
- *     PopSleepstudyStartNextSession @ 0x140A39120 (PopSleepstudyStartNextSession.c)
+ *     PopSleepstudyStartNextSession @ 0x1409F4CE0 (PopSleepstudyStartNextSession.c)
  * Callees:
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     PopSleepstudySendSessionChangeWnf @ 0x140B1203C (PopSleepstudySendSessionChangeWnf.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     PopSleepstudySendSessionChangeWnf @ 0x140B13DBC (PopSleepstudySendSessionChangeWnf.c)
  */
 
 __int64 __fastcall PopSleepstudySendSessionChangeEvent(__int64 a1, unsigned int *a2)
@@ -74,14 +74,9 @@ __int64 __fastcall PopSleepstudySendSessionChangeEvent(__int64 a1, unsigned int 
   v33 = 4LL;
   v34 = a2 + 8;
   v35 = 4LL;
-  if ( byte_140E67628 )
-    EtwWrite(
-      *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-      &POP_ETW_SYSTEM_SESSION_SWITCH,
-      0LL,
-      0xDu,
-      &UserData);
-  if ( byte_140E6760C )
-    EtwWrite(qword_140F0F5D8, &SLEEPSTUDY_EVT_SCENARIO_SESSION_SWITCH, 0LL, 0xDu, &UserData);
+  if ( PopDiagHandleRegistered )
+    EtwWrite(PopDiagHandle, &POP_ETW_SYSTEM_SESSION_SWITCH, 0LL, 0xDu, &UserData);
+  if ( PopDiagSleepStudyHandleRegistered )
+    EtwWrite(PopDiagSleepStudyHandle, &SLEEPSTUDY_EVT_SCENARIO_SESSION_SWITCH, 0LL, 0xDu, &UserData);
   return PopSleepstudySendSessionChangeWnf(*v6, *a2, *v4);
 }

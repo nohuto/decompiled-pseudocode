@@ -1,5 +1,5 @@
 /*
- * XREFs of FsRtlRemovePerStreamContext @ 0x1402708C0
+ * XREFs of FsRtlRemovePerStreamContext @ 0x140270AB0
  * Callers:
  *     <none>
  * Callees:
@@ -7,7 +7,7 @@
  *     ExAcquireFastMutex @ 0x14004E530 (ExAcquireFastMutex.c)
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     ExReleasePushLockEx @ 0x14004F160 (ExReleasePushLockEx.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
  */
 
 PFSRTL_PER_STREAM_CONTEXT __stdcall FsRtlRemovePerStreamContext(

@@ -1,21 +1,21 @@
 /*
- * XREFs of PspTeardownPartition @ 0x14090D090
+ * XREFs of PspTeardownPartition @ 0x14090D1F0
  * Callers:
  *     <none>
  * Callees:
- *     PsDereferencePartition @ 0x1402ABFDC (PsDereferencePartition.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
- *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     MiDeletePartition @ 0x1405356DC (MiDeletePartition.c)
- *     ObCloseHandle @ 0x14061AB80 (ObCloseHandle.c)
- *     PsTerminateMinimalProcess @ 0x14090AD0C (PsTerminateMinimalProcess.c)
- *     ExpPartitionDestroy @ 0x140955E74 (ExpPartitionDestroy.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     PsDereferencePartition @ 0x140274588 (PsDereferencePartition.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     KeWaitForSingleObject @ 0x1403504C0 (KeWaitForSingleObject.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
+ *     KeLeaveCriticalRegion @ 0x140356100 (KeLeaveCriticalRegion.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     MiDeletePartition @ 0x14053591C (MiDeletePartition.c)
+ *     ObCloseHandle @ 0x1406847E0 (ObCloseHandle.c)
+ *     PsTerminateMinimalProcess @ 0x14090AE6C (PsTerminateMinimalProcess.c)
+ *     ExpPartitionDestroy @ 0x140956044 (ExpPartitionDestroy.c)
  */
 
 LONG_PTR __fastcall PspTeardownPartition(char *Object)

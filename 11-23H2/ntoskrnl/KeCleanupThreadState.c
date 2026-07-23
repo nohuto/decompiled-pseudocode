@@ -1,12 +1,12 @@
 /*
- * XREFs of KeCleanupThreadState @ 0x1402EAB20
+ * XREFs of KeCleanupThreadState @ 0x1402EADB0
  * Callers:
- *     PspThreadDelete @ 0x1407473C0 (PspThreadDelete.c)
+ *     PspThreadDelete @ 0x1407475B0 (PspThreadDelete.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     KeFlushQueuedDpcs @ 0x14028F9C0 (KeFlushQueuedDpcs.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     KeFlushQueuedDpcs @ 0x14028FC50 (KeFlushQueuedDpcs.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  */
 
 void __fastcall KeCleanupThreadState(ULONG_PTR BugCheckParameter1)
@@ -32,7 +32,7 @@ void __fastcall KeCleanupThreadState(ULONG_PTR BugCheckParameter1)
   __writecr8(2uLL);
   v3 = 4;
   BugCheckParameter4 = 0LL;
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 2 )
@@ -61,10 +61,10 @@ void __fastcall KeCleanupThreadState(ULONG_PTR BugCheckParameter1)
     *(_DWORD *)(BugCheckParameter1 + 1028) = 32;
   }
   *(_QWORD *)(BugCheckParameter1 + 64) = 0LL;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v12 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v12 <= 0xFu && CurrentIrql <= 0xFu && v12 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v12 <= 0xFu && CurrentIrql <= 0xFu && v12 >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v14 = CurrentPrcb->SchedulerAssist;

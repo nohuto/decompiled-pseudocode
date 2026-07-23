@@ -1,33 +1,33 @@
 /*
- * XREFs of ExAllocatePool2 @ 0x1409B41B0
+ * XREFs of ExAllocatePool2 @ 0x1409B51B0
  * Callers:
- *     EtwpAllocateFreeBuffers @ 0x1402ED308 (EtwpAllocateFreeBuffers.c)
- *     KiLogUserCetSetContextIpValidationFailure @ 0x1403F2C04 (KiLogUserCetSetContextIpValidationFailure.c)
- *     SepSetProcessTrustLabelAceForToken @ 0x1403F8C44 (SepSetProcessTrustLabelAceForToken.c)
- *     sub_1405B2E48 @ 0x1405B2E48 (sub_1405B2E48.c)
+ *     EtwpAllocateFreeBuffers @ 0x14029E658 (EtwpAllocateFreeBuffers.c)
+ *     KiLogUserCetSetContextIpValidationFailure @ 0x1403F2C54 (KiLogUserCetSetContextIpValidationFailure.c)
+ *     SepSetProcessTrustLabelAceForToken @ 0x1403F8C74 (SepSetProcessTrustLabelAceForToken.c)
+ *     sub_1405B3078 @ 0x1405B3078 (sub_1405B3078.c)
  *     NtCopyFileChunk @ 0x1405CDD80 (NtCopyFileChunk.c)
  *     RtlAddDynamicEnforcedAddressRange @ 0x1405CFDB0 (RtlAddDynamicEnforcedAddressRange.c)
  *     EtwTimLogControlProtectionUserModeReturnMismatch @ 0x1405D0494 (EtwTimLogControlProtectionUserModeReturnMismatch.c)
  *     EtwTimLogRedirectionTrustPolicy @ 0x1405D09D0 (EtwTimLogRedirectionTrustPolicy.c)
  *     EtwTimLogUserCetSetContextIpValidationFailure @ 0x1405D1528 (EtwTimLogUserCetSetContextIpValidationFailure.c)
  *     VrpPostEnumerateKey @ 0x1405D37A4 (VrpPostEnumerateKey.c)
- *     NtSetInformationProcess @ 0x14070A4B0 (NtSetInformationProcess.c)
- *     CmFcpManagerAllocateChangeSubscription @ 0x14087E4E0 (CmFcpManagerAllocateChangeSubscription.c)
- *     RtlAddDynamicEHContinuationTarget @ 0x14091A8E8 (RtlAddDynamicEHContinuationTarget.c)
- *     SepAddTokenOriginClaim @ 0x140922B50 (SepAddTokenOriginClaim.c)
- *     VerifierExAllocatePool2 @ 0x1409D49E0 (VerifierExAllocatePool2.c)
- *     SepVariableInitialization @ 0x140A48B6C (SepVariableInitialization.c)
- *     VslConnectSwInterrupt @ 0x140A5F044 (VslConnectSwInterrupt.c)
+ *     NtSetInformationProcess @ 0x140721890 (NtSetInformationProcess.c)
+ *     CmFcpManagerAllocateChangeSubscription @ 0x14087E640 (CmFcpManagerAllocateChangeSubscription.c)
+ *     RtlAddDynamicEHContinuationTarget @ 0x14091AA48 (RtlAddDynamicEHContinuationTarget.c)
+ *     SepAddTokenOriginClaim @ 0x140922CB0 (SepAddTokenOriginClaim.c)
+ *     VerifierExAllocatePool2 @ 0x1409D59E0 (VerifierExAllocatePool2.c)
+ *     SepVariableInitialization @ 0x140A49B6C (SepVariableInitialization.c)
+ *     VslConnectSwInterrupt @ 0x140A60044 (VslConnectSwInterrupt.c)
  * Callees:
- *     RtlRaiseStatus @ 0x14029AF80 (RtlRaiseStatus.c)
- *     ExpAllocatePoolWithTagFromNode @ 0x14033C180 (ExpAllocatePoolWithTagFromNode.c)
- *     ExAllocatePoolWithQuotaTag @ 0x140353020 (ExAllocatePoolWithQuotaTag.c)
- *     ExpPoolFlagsToPoolType @ 0x1409B4030 (ExpPoolFlagsToPoolType.c)
+ *     RtlRaiseStatus @ 0x140212910 (RtlRaiseStatus.c)
+ *     ExpAllocatePoolWithTagFromNode @ 0x140346ED0 (ExpAllocatePoolWithTagFromNode.c)
+ *     ExAllocatePoolWithQuotaTag @ 0x14035DD70 (ExAllocatePoolWithQuotaTag.c)
+ *     ExpPoolFlagsToPoolType @ 0x1409B5030 (ExpPoolFlagsToPoolType.c)
  */
 
 PVOID __fastcall ExAllocatePool2(__int64 a1, SIZE_T a2, ULONG a3)
 {
-  signed int v5; // eax
+  NTSTATUS v5; // eax
   POOL_TYPE PoolType[6]; // [rsp+30h] [rbp-18h] BYREF
   char v8; // [rsp+60h] [rbp+18h] BYREF
   char v9; // [rsp+68h] [rbp+20h] BYREF

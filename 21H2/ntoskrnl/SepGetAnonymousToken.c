@@ -1,17 +1,17 @@
 /*
- * XREFs of SepGetAnonymousToken @ 0x14036016C
+ * XREFs of SepGetAnonymousToken @ 0x1402A509C
  * Callers:
- *     SepCreateClientSecurityEx @ 0x14065E160 (SepCreateClientSecurityEx.c)
- *     NtImpersonateAnonymousToken @ 0x140716D30 (NtImpersonateAnonymousToken.c)
- *     SepCopyAnonymousTokenAndSetSilo @ 0x14091C640 (SepCopyAnonymousTokenAndSetSilo.c)
+ *     SepCreateClientSecurityEx @ 0x140652F80 (SepCreateClientSecurityEx.c)
+ *     NtImpersonateAnonymousToken @ 0x1406C5380 (NtImpersonateAnonymousToken.c)
+ *     SepCopyAnonymousTokenAndSetSilo @ 0x14091C7A0 (SepCopyAnonymousTokenAndSetSilo.c)
  * Callees:
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     AuthzBasepDuplicateSecurityAttributes @ 0x1403560E0 (AuthzBasepDuplicateSecurityAttributes.c)
- *     SepSetTokenCapabilities @ 0x1405DD33C (SepSetTokenCapabilities.c)
- *     SepSetTokenSessionById @ 0x140604300 (SepSetTokenSessionById.c)
- *     SepDuplicateToken @ 0x140703E00 (SepDuplicateToken.c)
- *     SepSetTokenLowboxNumber @ 0x140717F5C (SepSetTokenLowboxNumber.c)
- *     SepSetTokenPackage @ 0x1407197A0 (SepSetTokenPackage.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     AuthzBasepDuplicateSecurityAttributes @ 0x140360E30 (AuthzBasepDuplicateSecurityAttributes.c)
+ *     SepSetTokenLowboxNumber @ 0x1406C65AC (SepSetTokenLowboxNumber.c)
+ *     SepSetTokenPackage @ 0x1406C7DF0 (SepSetTokenPackage.c)
+ *     SepSetTokenCapabilities @ 0x1406CCA98 (SepSetTokenCapabilities.c)
+ *     SepSetTokenSessionById @ 0x1406F3A30 (SepSetTokenSessionById.c)
+ *     SepDuplicateToken @ 0x14071B1E0 (SepDuplicateToken.c)
  */
 
 __int64 __fastcall SepGetAnonymousToken(__int64 a1, PADAPTER_OBJECT *a2)
@@ -64,7 +64,7 @@ LABEL_10:
           v5 = *(_DWORD **)(a1 + 776);
           if ( !v5
             || !*v5
-            || (v4 = AuthzBasepDuplicateSecurityAttributes((__int64)v5, &DmaAdapter[48].DmaOperations->Size, 0), v4 >= 0) )
+            || (v4 = AuthzBasepDuplicateSecurityAttributes(v5, DmaAdapter[48].DmaOperations, 0LL), v4 >= 0) )
           {
             DmaAdapter[4].DmaOperations = (_DMA_OPERATIONS *)((unsigned __int64)DmaAdapter[4].DmaOperations & 0x200800000LL);
             *(_QWORD *)&DmaAdapter[5].Version &= 0x200800000uLL;

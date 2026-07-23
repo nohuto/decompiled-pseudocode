@@ -1,11 +1,11 @@
 /*
- * XREFs of PopPowerAdapterIrpComplete @ 0x1405D7DC0
+ * XREFs of PopPowerAdapterIrpComplete @ 0x1405D5340
  * Callers:
  *     <none>
  * Callees:
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     PopBatteryQueueWork @ 0x1404A42EC (PopBatteryQueueWork.c)
- *     PopPowerAdapterTraceFailure @ 0x14075BE98 (PopPowerAdapterTraceFailure.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     PopBatteryQueueWork @ 0x14049F07C (PopBatteryQueueWork.c)
+ *     PopPowerAdapterTraceFailure @ 0x14075AEC8 (PopPowerAdapterTraceFailure.c)
  */
 
 __int64 __fastcall PopPowerAdapterIrpComplete(__int64 a1, __int64 a2, __int64 a3)

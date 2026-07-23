@@ -1,33 +1,32 @@
 /*
- * XREFs of KiAbThreadRemoveBoostsSlow @ 0x140340980
+ * XREFs of KiAbThreadRemoveBoostsSlow @ 0x14031FE60
  * Callers:
- *     KiAbEntryFreeAndEnableInterrupts @ 0x14025CDA0 (KiAbEntryFreeAndEnableInterrupts.c)
- *     KiAbConvertWaiterToOwnerEntry @ 0x140323370 (KiAbConvertWaiterToOwnerEntry.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     KiAbThreadRemoveBoosts @ 0x1403411D0 (KiAbThreadRemoveBoosts.c)
- *     KiAbCrossThreadRelease @ 0x1403D86A8 (KiAbCrossThreadRelease.c)
+ *     KiAbEntryFreeAndEnableInterrupts @ 0x14028D3B0 (KiAbEntryFreeAndEnableInterrupts.c)
+ *     KiAbConvertWaiterToOwnerEntry @ 0x1402CBF00 (KiAbConvertWaiterToOwnerEntry.c)
+ *     KiAbCrossThreadRelease @ 0x1402F2188 (KiAbCrossThreadRelease.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KiAbThreadRemoveBoosts @ 0x1403206B0 (KiAbThreadRemoveBoosts.c)
  * Callees:
- *     PsBoostThreadIoEx @ 0x14024DD90 (PsBoostThreadIoEx.c)
- *     PsBoostThreadIoQoS @ 0x14024E3A0 (PsBoostThreadIoQoS.c)
- *     KiComputeThreadPriority @ 0x14024FA80 (KiComputeThreadPriority.c)
- *     KiSetPriorityThread @ 0x14024FBBC (KiSetPriorityThread.c)
- *     HvlNotifyLongSpinWait @ 0x140293260 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140293290 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     KiCheckForThreadDispatch @ 0x14031D21C (KiCheckForThreadDispatch.c)
- *     KiDeferredReadySingleThread @ 0x14031ED40 (KiDeferredReadySingleThread.c)
- *     KiFlushSoftwareInterruptBatch @ 0x14031FCD0 (KiFlushSoftwareInterruptBatch.c)
- *     EtwTraceAutoBoostClearFloor @ 0x1404CB770 (EtwTraceAutoBoostClearFloor.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     PsBoostThreadIoEx @ 0x14027E3A0 (PsBoostThreadIoEx.c)
+ *     PsBoostThreadIoQoS @ 0x14027E9B0 (PsBoostThreadIoQoS.c)
+ *     KiComputeThreadPriority @ 0x140280090 (KiComputeThreadPriority.c)
+ *     KiSetPriorityThread @ 0x1402801CC (KiSetPriorityThread.c)
+ *     HvlNotifyLongSpinWait @ 0x1402A2E60 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402A2E90 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     KiCheckForThreadDispatch @ 0x1402C5DAC (KiCheckForThreadDispatch.c)
+ *     KiDeferredReadySingleThread @ 0x1402C78D0 (KiDeferredReadySingleThread.c)
+ *     KiFlushSoftwareInterruptBatch @ 0x1402C8860 (KiFlushSoftwareInterruptBatch.c)
+ *     EtwTraceAutoBoostClearFloor @ 0x1403C11EC (EtwTraceAutoBoostClearFloor.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 void __fastcall KiAbThreadRemoveBoostsSlow(
         ULONG_PTR BugCheckParameter1,
         __int64 a2,
-        __int64 a3,
+        int a3,
         struct _SINGLE_LIST_ENTRY *a4)
 {
-  int v4; // ebx
   __int64 v6; // rbp
   unsigned int v8; // esi
   char v9; // bp
@@ -47,22 +46,21 @@ void __fastcall KiAbThreadRemoveBoostsSlow(
   unsigned __int8 v23; // [rsp+30h] [rbp-48h]
   __int64 v24; // [rsp+38h] [rbp-40h] BYREF
 
-  if ( (_DWORD)a3 )
+  if ( a3 )
   {
-    v4 = a3;
     v6 = a2;
     if ( (a3 & 0x40000000) != 0 )
     {
       _InterlockedDecrement((volatile signed __int32 *)(BugCheckParameter1 + 860));
-      PsBoostThreadIoEx(BugCheckParameter1, 1, 0LL, 0LL);
+      PsBoostThreadIoEx(BugCheckParameter1, 1, 0, 0LL);
     }
-    if ( v4 < 0 )
+    if ( a3 < 0 )
     {
       _InterlockedDecrement((volatile signed __int32 *)(BugCheckParameter1 + 864));
-      PsBoostThreadIoQoS(BugCheckParameter1, 1, a3);
+      PsBoostThreadIoQoS(BugCheckParameter1, 1);
     }
-    v8 = v4 & 0x3FFFFFFF;
-    if ( (v4 & 0x3FFFFFFF) != 0 )
+    v8 = a3 & 0x3FFFFFFF;
+    if ( (a3 & 0x3FFFFFFF) != 0 )
     {
       v9 = 0;
       v24 = 0LL;
@@ -144,7 +142,7 @@ void __fastcall KiAbThreadRemoveBoostsSlow(
       }
       v6 = a2;
     }
-    if ( (WORD2(xmmword_140FC5B10) & 0x1000) != 0 )
-      EtwTraceAutoBoostClearFloor(BugCheckParameter1, v6, (unsigned int)v4);
+    if ( (WORD2(xmmword_140FC6B50) & 0x1000) != 0 )
+      EtwTraceAutoBoostClearFloor(BugCheckParameter1, v6, (unsigned int)a3);
   }
 }

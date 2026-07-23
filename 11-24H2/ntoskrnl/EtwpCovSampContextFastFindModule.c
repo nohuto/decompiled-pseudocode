@@ -1,7 +1,7 @@
 /*
- * XREFs of EtwpCovSampContextFastFindModule @ 0x140A2B9BC
+ * XREFs of EtwpCovSampContextFastFindModule @ 0x140A1F87C
  * Callers:
- *     EtwpCovSampContextGetModule @ 0x140901050 (EtwpCovSampContextGetModule.c)
+ *     EtwpCovSampContextGetModule @ 0x140923930 (EtwpCovSampContextGetModule.c)
  * Callees:
  *     <none>
  */

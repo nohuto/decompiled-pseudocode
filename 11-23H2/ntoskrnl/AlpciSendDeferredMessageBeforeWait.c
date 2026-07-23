@@ -1,15 +1,15 @@
 /*
- * XREFs of AlpciSendDeferredMessageBeforeWait @ 0x1402B69C0
+ * XREFs of AlpciSendDeferredMessageBeforeWait @ 0x1402B6C50
  * Callers:
- *     NtWaitForWorkViaWorkerFactory @ 0x1402A91B0 (NtWaitForWorkViaWorkerFactory.c)
+ *     NtWaitForWorkViaWorkerFactory @ 0x1402A9440 (NtWaitForWorkViaWorkerFactory.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     AlpcpSignal @ 0x1402B6C70 (AlpcpSignal.c)
- *     memset @ 0x140435A00 (memset.c)
- *     ObReferenceObjectByHandle @ 0x1406E62C0 (ObReferenceObjectByHandle.c)
- *     AlpcpTrackPortReferences @ 0x140737F80 (AlpcpTrackPortReferences.c)
- *     AlpcpSendMessage @ 0x1407390A0 (AlpcpSendMessage.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     AlpcpSignal @ 0x1402B6F00 (AlpcpSignal.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     ObReferenceObjectByHandle @ 0x1406E62F0 (ObReferenceObjectByHandle.c)
+ *     AlpcpTrackPortReferences @ 0x140738170 (AlpcpTrackPortReferences.c)
+ *     AlpcpSendMessage @ 0x140739290 (AlpcpSendMessage.c)
  */
 
 __int64 __fastcall AlpciSendDeferredMessageBeforeWait(

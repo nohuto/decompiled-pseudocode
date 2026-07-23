@@ -1,10 +1,10 @@
 /*
- * XREFs of strlen @ 0x1406C04D0
+ * XREFs of strlen @ 0x1406C13D0
  * Callers:
- *     RtlInitAnsiString @ 0x1404654C0 (RtlInitAnsiString.c)
- *     HalMatchAcpiOemId @ 0x140478320 (HalMatchAcpiOemId.c)
- *     RtlInitAnsiStringEx @ 0x1404A99C0 (RtlInitAnsiStringEx.c)
- *     RtlAppendAsciizToString @ 0x14077E280 (RtlAppendAsciizToString.c)
+ *     RtlInitAnsiString @ 0x14045BBA0 (RtlInitAnsiString.c)
+ *     HalMatchAcpiOemId @ 0x14045F7B0 (HalMatchAcpiOemId.c)
+ *     RtlInitAnsiStringEx @ 0x1404A3C90 (RtlInitAnsiStringEx.c)
+ *     RtlAppendAsciizToString @ 0x14077E1B0 (RtlAppendAsciizToString.c)
  * Callees:
  *     <none>
  */

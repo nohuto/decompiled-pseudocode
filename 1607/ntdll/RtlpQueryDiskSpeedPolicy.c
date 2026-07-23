@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpQueryDiskSpeedPolicy @ 0x180089FD8
+ * XREFs of RtlpQueryDiskSpeedPolicy @ 0x180089FC8
  * Callers:
- *     RtlQueryResourcePolicy @ 0x180029F60 (RtlQueryResourcePolicy.c)
+ *     RtlQueryResourcePolicy @ 0x180029F50 (RtlQueryResourcePolicy.c)
  * Callees:
- *     RtlRunOnceExecuteOnce @ 0x18002A760 (RtlRunOnceExecuteOnce.c)
- *     RtlGetSuiteMask @ 0x18002CDC0 (RtlGetSuiteMask.c)
+ *     RtlRunOnceExecuteOnce @ 0x18002A750 (RtlRunOnceExecuteOnce.c)
+ *     RtlGetSuiteMask @ 0x18002CDB0 (RtlGetSuiteMask.c)
  */
 
 __int64 __fastcall RtlpQueryDiskSpeedPolicy(_DWORD *a1)
@@ -19,11 +19,7 @@ __int64 __fastcall RtlpQueryDiskSpeedPolicy(_DWORD *a1)
   }
   else
   {
-    RtlRunOnceExecuteOnce(
-      &RtlpDiskSpeedInit,
-      (unsigned int (__fastcall *)(volatile signed __int64 *, __int64, unsigned __int64 *))RtlpDiskSpeedInitialize,
-      0LL,
-      0LL);
+    RtlRunOnceExecuteOnce(&RtlpDiskSpeedInit, RtlpDiskSpeedInitialize, 0LL, 0LL);
     *a1 = RtlpDiskSpeedPolicy;
   }
   return 0LL;

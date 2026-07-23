@@ -1,14 +1,14 @@
 /*
- * XREFs of MiAddLoaderHalIoMappings @ 0x1409BCC18
+ * XREFs of MiAddLoaderHalIoMappings @ 0x1409BDC18
  * Callers:
- *     MiInitSystem @ 0x1409BC5A8 (MiInitSystem.c)
+ *     MiInitSystem @ 0x1409BD5A8 (MiInitSystem.c)
  * Callees:
  *     MiGetAnyMultiplexedVm @ 0x140028884 (MiGetAnyMultiplexedVm.c)
  *     MiUnlockWorkingSetShared @ 0x140046970 (MiUnlockWorkingSetShared.c)
- *     MiWalkPageTables @ 0x14006E940 (MiWalkPageTables.c)
- *     MiLockWorkingSetShared @ 0x140076050 (MiLockWorkingSetShared.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memset @ 0x1401D1880 (memset.c)
+ *     MiWalkPageTables @ 0x14006E930 (MiWalkPageTables.c)
+ *     MiLockWorkingSetShared @ 0x140076040 (MiLockWorkingSetShared.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memset @ 0x1401D1980 (memset.c)
  */
 
 __int64 __fastcall MiAddLoaderHalIoMappings(__int64 a1, __int64 a2)

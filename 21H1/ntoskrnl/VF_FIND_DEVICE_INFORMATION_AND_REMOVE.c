@@ -13,7 +13,7 @@ struct _LIST_ENTRY *__fastcall VF_FIND_DEVICE_INFORMATION_AND_REMOVE(struct _LIS
   struct _LIST_ENTRY *v2; // rdi
   unsigned __int64 v3; // rbx
   struct _LIST_ENTRY *Flink; // rax
-  struct _LIST_ENTRY *v5; // rcx
+  _LIST_ENTRY *v5; // rcx
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9

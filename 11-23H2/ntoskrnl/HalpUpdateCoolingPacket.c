@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpUpdateCoolingPacket @ 0x1405277C0
+ * XREFs of HalpUpdateCoolingPacket @ 0x140527D10
  * Callers:
- *     HalpStartPccCommand @ 0x140935C3C (HalpStartPccCommand.c)
+ *     HalpStartPccCommand @ 0x140935E3C (HalpStartPccCommand.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 char __fastcall HalpUpdateCoolingPacket(__int64 a1)
@@ -36,10 +36,13 @@ char __fastcall HalpUpdateCoolingPacket(__int64 a1)
     qword_140C600A0 = *(_QWORD *)(a1 + 72);
   }
   ExReleaseSpinLockExclusiveFromDpcLevel(&HalpMemoryCoolingPacketLock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v4 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v4 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -47,7 +50,7 @@ char __fastcall HalpUpdateCoolingPacket(__int64 a1)
       v9 = (v8 & SchedulerAssist[5]) == 0;
       SchedulerAssist[5] &= v8;
       if ( v9 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
     }
   }
   __writecr8(v4);

@@ -1,14 +1,14 @@
 /*
- * XREFs of _PnpCtxGetCachedNodeBaseKey @ 0x140642874
+ * XREFs of _PnpCtxGetCachedNodeBaseKey @ 0x140637684
  * Callers:
- *     _PnpCtxGetCachedContextBaseKey @ 0x140642808 (_PnpCtxGetCachedContextBaseKey.c)
- *     PipOpenServiceEnumKeys @ 0x140742BEC (PipOpenServiceEnumKeys.c)
- *     _PnpCtxOpenContextNodeBaseKey @ 0x1409747C0 (_PnpCtxOpenContextNodeBaseKey.c)
+ *     _PnpCtxGetCachedContextBaseKey @ 0x140637618 (_PnpCtxGetCachedContextBaseKey.c)
+ *     PipOpenServiceEnumKeys @ 0x140742DAC (PipOpenServiceEnumKeys.c)
+ *     _PnpCtxOpenContextNodeBaseKey @ 0x1409749A0 (_PnpCtxOpenContextNodeBaseKey.c)
  * Callees:
- *     _SysCtxRegCreateTree @ 0x14063E2D0 (_SysCtxRegCreateTree.c)
- *     _SysCtxGetCachedContextBaseKey @ 0x1406B2D20 (_SysCtxGetCachedContextBaseKey.c)
- *     _PnpGetEnumSecurityDescriptor @ 0x1407CC94C (_PnpGetEnumSecurityDescriptor.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     _SysCtxGetCachedContextBaseKey @ 0x140611DE0 (_SysCtxGetCachedContextBaseKey.c)
+ *     _SysCtxRegCreateTree @ 0x1406330E0 (_SysCtxRegCreateTree.c)
+ *     _PnpGetEnumSecurityDescriptor @ 0x1407CCABC (_PnpGetEnumSecurityDescriptor.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PnpCtxGetCachedNodeBaseKey(__int64 a1, __int64 *a2, int a3, __int64 *a4)
@@ -16,10 +16,10 @@ __int64 __fastcall PnpCtxGetCachedNodeBaseKey(__int64 a1, __int64 *a2, int a3, _
   int Tree; // r14d
   void *EnumSecurityDescriptor; // r13
   __int64 v8; // r10
-  unsigned int v9; // esi
+  int v9; // esi
   int v10; // r11d
   __int64 v11; // rax
-  __int64 v13; // rdx
+  int v13; // edx
   int CachedContextBaseKey; // eax
   __int64 v15; // rcx
   int v16; // ecx
@@ -90,16 +90,16 @@ LABEL_9:
       v11 = a2[11];
       goto LABEL_9;
     case 1:
-      v13 = 1LL;
+      v13 = 1;
       break;
     case 2:
-      v13 = 2LL;
+      v13 = 2;
       break;
     case 3:
-      v13 = 3LL;
+      v13 = 3;
       break;
     case 4:
-      v13 = 4LL;
+      v13 = 4;
       break;
     default:
       switch ( a3 )
@@ -118,7 +118,7 @@ LABEL_9:
       }
       goto LABEL_9;
   }
-  CachedContextBaseKey = SysCtxGetCachedContextBaseKey(a2[7], v13, &v34);
+  CachedContextBaseKey = SysCtxGetCachedContextBaseKey((_QWORD *)a2[7], v13, &v34);
   a4 = v36;
   Tree = CachedContextBaseKey;
 LABEL_18:
@@ -181,7 +181,7 @@ LABEL_10:
         if ( !EnumSecurityDescriptor )
           return (unsigned int)-1073741595;
 LABEL_48:
-        Tree = SysCtxGetCachedContextBaseKey(a2[7], v9, &v35);
+        Tree = SysCtxGetCachedContextBaseKey((_QWORD *)a2[7], v9, &v35);
         if ( Tree >= 0 )
         {
           LODWORD(v32) = 0x2000000;

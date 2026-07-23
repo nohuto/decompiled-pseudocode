@@ -1,11 +1,11 @@
 /*
- * XREFs of ?KiAbTryIncrementIoWaiterCounts@LegacyAutoBoost@@YAKPEAU_KLOCK_ENTRY@@0@Z @ 0x14026F458
+ * XREFs of ?KiAbTryIncrementIoWaiterCounts@LegacyAutoBoost@@YAKPEAU_KLOCK_ENTRY@@0@Z @ 0x14026E9C8
  * Callers:
- *     ?KiAbProcessThreadLocks@LegacyAutoBoost@@YAXPEAU_KTHREAD@@T_KI_AB_BOOST_STRATEGY@1@PEAU_SINGLE_LIST_ENTRY@@22@Z @ 0x14027125C (-KiAbProcessThreadLocks@LegacyAutoBoost@@YAXPEAU_KTHREAD@@T_KI_AB_BOOST_STRATEGY@1@PEAU_SINGLE_L.c)
- *     ?KiAbForceProcessLockEntry@LegacyAutoBoost@@YAXPEAU_KLOCK_ENTRY@@@Z @ 0x1405FD774 (-KiAbForceProcessLockEntry@LegacyAutoBoost@@YAXPEAU_KLOCK_ENTRY@@@Z.c)
+ *     ?KiAbProcessThreadLocks@LegacyAutoBoost@@YAXPEAU_KTHREAD@@T_KI_AB_BOOST_STRATEGY@1@PEAU_SINGLE_LIST_ENTRY@@22@Z @ 0x1402707CC (-KiAbProcessThreadLocks@LegacyAutoBoost@@YAXPEAU_KTHREAD@@T_KI_AB_BOOST_STRATEGY@1@PEAU_SINGLE_L.c)
+ *     ?KiAbForceProcessLockEntry@LegacyAutoBoost@@YAXPEAU_KLOCK_ENTRY@@@Z @ 0x1406001C4 (-KiAbForceProcessLockEntry@LegacyAutoBoost@@YAXPEAU_KLOCK_ENTRY@@@Z.c)
  * Callees:
- *     ?KiAbThreadGetIoQoSPriority@LegacyAutoBoost@@YA?AW4KI_AB_IO_QOS_PRIORITY@1@PEAU_KTHREAD@@@Z @ 0x14026E8D4 (-KiAbThreadGetIoQoSPriority@LegacyAutoBoost@@YA-AW4KI_AB_IO_QOS_PRIORITY@1@PEAU_KTHREAD@@@Z.c)
- *     PsGetIoPriorityThread @ 0x1403750A0 (PsGetIoPriorityThread.c)
+ *     ?KiAbThreadGetIoQoSPriority@LegacyAutoBoost@@YA?AW4KI_AB_IO_QOS_PRIORITY@1@PEAU_KTHREAD@@@Z @ 0x14026DE44 (-KiAbThreadGetIoQoSPriority@LegacyAutoBoost@@YA-AW4KI_AB_IO_QOS_PRIORITY@1@PEAU_KTHREAD@@@Z.c)
+ *     PsGetIoPriorityThread @ 0x140376E50 (PsGetIoPriorityThread.c)
  */
 
 __int64 __fastcall LegacyAutoBoost::KiAbTryIncrementIoWaiterCounts(

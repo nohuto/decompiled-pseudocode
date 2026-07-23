@@ -11,7 +11,7 @@
  *     NtDeleteFile @ 0x140A7D9A0 (NtDeleteFile.c)
  */
 
-__int64 __fastcall DifNtDeleteFileWrapper(__int64 a1)
+__int64 __fastcall DifNtDeleteFileWrapper(POBJECT_ATTRIBUTES ObjectAttributes)
 {
   __int64 *APIThunkContextById; // rax
   __int64 *v3; // rsi
@@ -41,7 +41,7 @@ __int64 __fastcall DifNtDeleteFileWrapper(__int64 a1)
       *(_QWORD *)&v11 = DifGetReturnAddressForWrappers();
     }
     v5 = 0;
-    *((_QWORD *)&v11 + 1) = a1;
+    *((_QWORD *)&v11 + 1) = ObjectAttributes;
     if ( !VfDifRunningWithoutReboot && (VfOptionFlags & 0x800) == 0
       || (v5 = ExAcquireRundownProtection_0(&DifRebootlessRundown)) != 0 )
     {
@@ -54,7 +54,7 @@ __int64 __fastcall DifNtDeleteFileWrapper(__int64 a1)
         ExReleaseRundownProtection_0(&DifRebootlessRundown);
     }
   }
-  LODWORD(v12) = NtDeleteFile(a1);
+  LODWORD(v12) = NtDeleteFile(ObjectAttributes);
   if ( v3 )
   {
     if ( (v7 = 0, !VfDifRunningWithoutReboot) && (VfOptionFlags & 0x800) == 0

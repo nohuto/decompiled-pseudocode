@@ -1,11 +1,11 @@
 /*
- * XREFs of MiPrefetchJumpVad @ 0x140314358
+ * XREFs of MiPrefetchJumpVad @ 0x140316388
  * Callers:
- *     MiZeroFault @ 0x140422AB0 (MiZeroFault.c)
+ *     MiZeroFault @ 0x14041A2F0 (MiZeroFault.c)
  * Callees:
- *     MiIsVadLargePrivate @ 0x14030B6CC (MiIsVadLargePrivate.c)
- *     MiLeapPrefetch @ 0x1403144C4 (MiLeapPrefetch.c)
- *     MiUpdatePrefetchPriority @ 0x1403149AC (MiUpdatePrefetchPriority.c)
+ *     MiIsVadLargePrivate @ 0x1402ED74C (MiIsVadLargePrivate.c)
+ *     MiLeapPrefetch @ 0x1403164F4 (MiLeapPrefetch.c)
+ *     MiUpdatePrefetchPriority @ 0x1403169DC (MiUpdatePrefetchPriority.c)
  */
 
 __int64 __fastcall MiPrefetchJumpVad(__int64 a1, __int64 a2, __int64 a3)
@@ -45,12 +45,12 @@ LABEL_11:
           }
           else
           {
-            if ( qword_140E2D740 )
+            if ( qword_140E2D8C0 )
             {
               if ( (v11 & 0x10) != 0 )
                 LOWORD(v11) = v11 & 0xFFEF;
               else
-                LOWORD(v11) = qword_140E2D748 & v11;
+                LOWORD(v11) = qword_140E2D8C8 & v11;
             }
             if ( (v11 & 0x400) != 0 || (v11 & 0x800) != 0 || (v11 & 8) != 0 )
               break;

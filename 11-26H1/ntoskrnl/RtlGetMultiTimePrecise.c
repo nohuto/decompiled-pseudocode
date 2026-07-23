@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlGetMultiTimePrecise @ 0x1404476B0
+ * XREFs of RtlGetMultiTimePrecise @ 0x1404401A0
  * Callers:
- *     EtwpGetTimeStampAndQpcDelta @ 0x1404475FC (EtwpGetTimeStampAndQpcDelta.c)
- *     RtlConvertHostPerfCounterToPerfCounter @ 0x140617640 (RtlConvertHostPerfCounterToPerfCounter.c)
- *     EtwpInitializeTimeStamp @ 0x140A6DB58 (EtwpInitializeTimeStamp.c)
- *     EtwpFixBootSystemTime @ 0x140CE0810 (EtwpFixBootSystemTime.c)
- *     EtwpInitializeBootTimeStamps @ 0x140CE0F50 (EtwpInitializeBootTimeStamps.c)
+ *     EtwpGetTimeStampAndQpcDelta @ 0x1404400EC (EtwpGetTimeStampAndQpcDelta.c)
+ *     RtlConvertHostPerfCounterToPerfCounter @ 0x14061A690 (RtlConvertHostPerfCounterToPerfCounter.c)
+ *     EtwpInitializeTimeStamp @ 0x140AB2428 (EtwpInitializeTimeStamp.c)
+ *     EtwpFixBootSystemTime @ 0x140CE6BB0 (EtwpFixBootSystemTime.c)
+ *     EtwpInitializeBootTimeStamps @ 0x140CE72F0 (EtwpInitializeBootTimeStamps.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x14021C3F0 (KeQueryPerformanceCounter.c)
- *     RtlBeginReadTickLock @ 0x140447880 (RtlBeginReadTickLock.c)
- *     HvlGetSharedPageVa @ 0x140447898 (HvlGetSharedPageVa.c)
+ *     KeQueryPerformanceCounter @ 0x14021DD80 (KeQueryPerformanceCounter.c)
+ *     RtlBeginReadTickLock @ 0x140440370 (RtlBeginReadTickLock.c)
+ *     HvlGetSharedPageVa @ 0x140440388 (HvlGetSharedPageVa.c)
  */
 
 __int64 __fastcall RtlGetMultiTimePrecise(LARGE_INTEGER *a1, int a2, int *a3)

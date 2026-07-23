@@ -147,7 +147,7 @@ LABEL_16:
       *(_QWORD *)(v16 + 8240) = v17;
       *(_QWORD *)(a1 + 544) = v17;
       *(_QWORD *)(a1 + 552) = v16 + 8248;
-      RtlClearAllBitsEx(a1 + 544);
+      RtlClearAllBitsEx((PRTL_BITMAP_EX)(a1 + 544));
       IopLiveDumpDiscardVirtualAddressRange(a1, *(_QWORD *)(a1 + 560), *(_QWORD *)(a1 + 568));
       v18 = ExAllocatePool2(64LL, (v10 + 4095) & 0xFFFFFFFFFFFFF000uLL, 1886217292LL);
       *(_QWORD *)(a1 + 648) = v18;

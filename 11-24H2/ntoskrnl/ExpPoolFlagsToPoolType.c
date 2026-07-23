@@ -1,17 +1,17 @@
 /*
- * XREFs of ExpPoolFlagsToPoolType @ 0x140B744E0
+ * XREFs of ExpPoolFlagsToPoolType @ 0x140B76080
  * Callers:
- *     ExAllocateHeapPool @ 0x1402ACDB0 (ExAllocateHeapPool.c)
- *     ExFreeHeapPool @ 0x1402B0E50 (ExFreeHeapPool.c)
- *     ExAllocateContiguousHeapPool @ 0x1402C2E9C (ExAllocateContiguousHeapPool.c)
- *     ExInsertPoolTag @ 0x1402C347C (ExInsertPoolTag.c)
- *     ExpInsertPoolTracker @ 0x1402C4BA8 (ExpInsertPoolTracker.c)
- *     ExpFreeHeapSpecialPool @ 0x1403A8B6C (ExpFreeHeapSpecialPool.c)
- *     ExRemovePoolTag @ 0x1403A9924 (ExRemovePoolTag.c)
- *     ExPoolCleanupExpansionTable @ 0x1406541CC (ExPoolCleanupExpansionTable.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
- *     VerifierExAllocatePool2 @ 0x140B91190 (VerifierExAllocatePool2.c)
- *     VfHandlePoolAlloc @ 0x140BA8AA0 (VfHandlePoolAlloc.c)
+ *     ExInsertPoolTag @ 0x14021B9D0 (ExInsertPoolTag.c)
+ *     ExpInsertPoolTracker @ 0x14021BE10 (ExpInsertPoolTracker.c)
+ *     ExAllocateHeapPool @ 0x140277790 (ExAllocateHeapPool.c)
+ *     ExFreeHeapPool @ 0x140359950 (ExFreeHeapPool.c)
+ *     ExAllocateContiguousHeapPool @ 0x140396AFC (ExAllocateContiguousHeapPool.c)
+ *     ExRemovePoolTag @ 0x1403985B4 (ExRemovePoolTag.c)
+ *     ExpFreeHeapSpecialPool @ 0x140398994 (ExpFreeHeapSpecialPool.c)
+ *     ExPoolCleanupExpansionTable @ 0x1406528C4 (ExPoolCleanupExpansionTable.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
+ *     VerifierExAllocatePool2 @ 0x140B93190 (VerifierExAllocatePool2.c)
+ *     VfHandlePoolAlloc @ 0x140BAAAA0 (VfHandlePoolAlloc.c)
  * Callees:
  *     <none>
  */

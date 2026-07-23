@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwpAllocateEventNameFilter @ 0x1409400B8
+ * XREFs of EtwpAllocateEventNameFilter @ 0x140940288
  * Callers:
- *     EtwpAllocateFilter @ 0x1407B8158 (EtwpAllocateFilter.c)
+ *     EtwpAllocateFilter @ 0x1407B8678 (EtwpAllocateFilter.c)
  * Callees:
- *     strnlen @ 0x1403D3BD0 (strnlen.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     EtwpFreeEventNameFilter @ 0x140940B40 (EtwpFreeEventNameFilter.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     strnlen @ 0x1403D3D40 (strnlen.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     EtwpFreeEventNameFilter @ 0x140940D10 (EtwpFreeEventNameFilter.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpAllocateEventNameFilter(_DWORD *a1, _QWORD *a2)

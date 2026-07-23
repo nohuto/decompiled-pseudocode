@@ -1,9 +1,9 @@
 /*
- * XREFs of PoReportDirectedDripsCandidateDevice @ 0x140867AB0
+ * XREFs of PoReportDirectedDripsCandidateDevice @ 0x140868D10
  * Callers:
  *     <none>
  * Callees:
- *     PopReportDirectedDripsCandidateDevice @ 0x140868930 (PopReportDirectedDripsCandidateDevice.c)
+ *     PopReportDirectedDripsCandidateDevice @ 0x140869B90 (PopReportDirectedDripsCandidateDevice.c)
  */
 
 __int64 __fastcall PoReportDirectedDripsCandidateDevice(__int64 a1)

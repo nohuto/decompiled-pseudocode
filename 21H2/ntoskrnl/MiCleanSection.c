@@ -1,17 +1,17 @@
 /*
- * XREFs of MiCleanSection @ 0x14037F28C
+ * XREFs of MiCleanSection @ 0x14037EDDC
  * Callers:
- *     MiAttemptSectionDelete @ 0x1402B9294 (MiAttemptSectionDelete.c)
- *     MiCheckControlArea @ 0x140314AB0 (MiCheckControlArea.c)
+ *     MiAttemptSectionDelete @ 0x1402374A4 (MiAttemptSectionDelete.c)
+ *     MiCheckControlArea @ 0x14031F800 (MiCheckControlArea.c)
  * Callees:
- *     MiFlushSectionInternal @ 0x140219DB0 (MiFlushSectionInternal.c)
- *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiInsertUnusedSegment @ 0x140357560 (MiInsertUnusedSegment.c)
- *     MiDestroySection @ 0x14037F32C (MiDestroySection.c)
+ *     MiFlushSectionInternal @ 0x1402BE6B0 (MiFlushSectionInternal.c)
+ *     ExAcquireSpinLockExclusive @ 0x1402C1960 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140346AD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiInsertUnusedSegment @ 0x1403622B0 (MiInsertUnusedSegment.c)
+ *     MiDestroySection @ 0x14037EE7C (MiDestroySection.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     MiRemoveWakeListEntry @ 0x14052A8DC (MiRemoveWakeListEntry.c)
- *     MiReturnCrossPartitionSectionCharges @ 0x1405550EC (MiReturnCrossPartitionSectionCharges.c)
+ *     MiRemoveWakeListEntry @ 0x14052AB1C (MiRemoveWakeListEntry.c)
+ *     MiReturnCrossPartitionSectionCharges @ 0x14055532C (MiReturnCrossPartitionSectionCharges.c)
  */
 
 __int64 __fastcall MiCleanSection(__int64 a1, __int64 a2, char a3)
@@ -77,7 +77,7 @@ __int64 __fastcall MiCleanSection(__int64 a1, __int64 a2, char a3)
       }
     }
     __writecr8((unsigned __int8)v6);
-    v14 = MiFlushSectionInternal(0LL, 0LL, (_QWORD *)(a1 + 128), 0LL, 0LL, 0x80000000, (unsigned int *)&v23);
+    v14 = MiFlushSectionInternal(0LL, 0LL, (__int64 *)(a1 + 128), 0LL, 0LL, 0x80000000, (unsigned int *)&v23);
     v6 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(a1 + 72));
     MiRemoveWakeListEntry(a1, &v24);
     if ( !HIDWORD(v24) )
@@ -105,7 +105,7 @@ LABEL_17:
     *(_DWORD *)(a1 + 56) |= 0x40000u;
   inserted = 0LL;
   if ( v16 == 2 && (inserted = MiInsertUnusedSegment(a1)) != 0 )
-    v18 = *(_QWORD *)(qword_140C4E648 + 8LL * (*(_WORD *)(a1 + 60) & 0x3FF));
+    v18 = *(_QWORD *)(qword_140C4E688 + 8LL * (*(_WORD *)(a1 + 60) & 0x3FF));
   else
     v18 = 0LL;
   ExReleaseSpinLockExclusiveFromDpcLevel(v9);

@@ -57,17 +57,17 @@
  *     ExRaiseDatatypeMisalignment @ 0x14071ED60 (ExRaiseDatatypeMisalignment.c)
  */
 
-__int64 __fastcall NtWaitForWorkViaWorkerFactory(
-        _DWORD *Handle,
-        volatile void *Address,
-        unsigned int a3,
-        unsigned __int64 a4,
-        unsigned __int64 a5)
+NTSTATUS __cdecl NtWaitForWorkViaWorkerFactory(
+        HANDLE WorkerFactoryHandle,
+        PFILE_IO_COMPLETION_INFORMATION MiniPackets,
+        ULONG Count,
+        PULONG PacketsReturned,
+        PWORKER_FACTORY_DEFERRED_WORK DeferredWork)
 {
-  unsigned int v6; // r12d
+  ULONG v6; // r12d
   KPROCESSOR_MODE PreviousMode; // r14
   __int64 v9; // rcx
-  NTSTATUS v10; // r15d
+  int v10; // r15d
   char *v11; // r14
   unsigned __int64 *volatile *v12; // r13
   unsigned __int64 *v13; // rcx
@@ -93,7 +93,7 @@ __int64 __fastcall NtWaitForWorkViaWorkerFactory(
   signed __int64 v33; // rsi
   bool v34; // cc
   signed __int64 v35; // rsi
-  int v37; // r15d
+  ULONG v37; // r15d
   HANDLE v38; // rdi
   struct _KTHREAD *v39; // rax
   unsigned int v40; // r15d
@@ -115,8 +115,8 @@ __int64 __fastcall NtWaitForWorkViaWorkerFactory(
   int v56; // eax
   char v57; // dl
   __int64 v58; // rdx
-  __int64 v59; // rax
-  __int64 v60; // r14
+  ULONG *v59; // rax
+  ULONG *v60; // r14
   __int64 v61; // rdx
   _QWORD *v62; // rcx
   bool v63; // zf
@@ -129,17 +129,17 @@ __int64 __fastcall NtWaitForWorkViaWorkerFactory(
   struct _KEVENT *v70; // rcx
   ULONG_PTR v71; // rcx
   struct _KTHREAD *v72; // rdi
-  __int64 v73; // r8
   ULONG_PTR SessionId; // r9
-  __int64 v75; // rdx
-  ULONG_PTR v76; // r10
-  unsigned int v77; // r11d
-  __int64 v78; // rcx
+  __int64 v74; // rdx
+  ULONG_PTR v75; // r10
+  unsigned int v76; // r11d
+  __int64 v77; // rcx
+  __int64 v78; // r8
   __int64 v79; // rdx
   unsigned __int8 v80; // al
   __int16 v81; // ax
   __int64 v82; // rdi
-  __int64 v83; // r9
+  ULONG *v83; // r9
   unsigned __int8 IsThreadRunning; // al
   __int64 v85; // r9
   _QWORD *v86; // rcx
@@ -148,18 +148,18 @@ __int64 __fastcall NtWaitForWorkViaWorkerFactory(
   __int64 *v89; // rdx
   __int64 v90; // rax
   int HandleInformation; // [rsp+28h] [rbp-210h]
-  int v92; // [rsp+38h] [rbp-200h]
+  int Timeout; // [rsp+38h] [rbp-200h]
   unsigned __int8 v93; // [rsp+41h] [rbp-1F7h]
   signed __int32 v94; // [rsp+48h] [rbp-1F0h]
   struct _KPRCB *v95; // [rsp+48h] [rbp-1F0h]
   BOOL v96; // [rsp+48h] [rbp-1F0h]
   PVOID Object; // [rsp+50h] [rbp-1E8h] BYREF
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+58h] [rbp-1E0h] BYREF
-  __int64 v99; // [rsp+70h] [rbp-1C8h]
-  ULONG_PTR v100; // [rsp+78h] [rbp-1C0h]
+  PULONG v99; // [rsp+70h] [rbp-1C8h]
+  __int64 v100; // [rsp+78h] [rbp-1C0h]
   ULONG_PTR BugCheckParameter2; // [rsp+80h] [rbp-1B8h]
   int v102; // [rsp+88h] [rbp-1B0h] BYREF
-  int v103; // [rsp+8Ch] [rbp-1ACh] BYREF
+  ULONG v103; // [rsp+8Ch] [rbp-1ACh] BYREF
   unsigned int *v104; // [rsp+90h] [rbp-1A8h]
   PVOID v105; // [rsp+98h] [rbp-1A0h] BYREF
   _DWORD *v106; // [rsp+A0h] [rbp-198h]
@@ -168,59 +168,59 @@ __int64 __fastcall NtWaitForWorkViaWorkerFactory(
   _DWORD *v109; // [rsp+B8h] [rbp-180h]
   PVOID v110; // [rsp+C0h] [rbp-178h] BYREF
   PVOID v111; // [rsp+C8h] [rbp-170h]
-  HANDLE Handlea[2]; // [rsp+D0h] [rbp-168h]
-  __int64 v113; // [rsp+E0h] [rbp-158h]
+  HANDLE Handle[2]; // [rsp+D0h] [rbp-168h]
+  ULONG Flags[2]; // [rsp+E0h] [rbp-158h]
   int v114; // [rsp+E8h] [rbp-150h]
   int v115; // [rsp+ECh] [rbp-14Ch] BYREF
   int v116; // [rsp+F0h] [rbp-148h] BYREF
   int v117; // [rsp+F4h] [rbp-144h] BYREF
-  _DWORD *v118; // [rsp+F8h] [rbp-140h]
+  PULONG v118; // [rsp+F8h] [rbp-140h]
   char *v119; // [rsp+100h] [rbp-138h]
-  volatile void *v120; // [rsp+108h] [rbp-130h]
+  PFILE_IO_COMPLETION_INFORMATION v120; // [rsp+108h] [rbp-130h]
   char *v121; // [rsp+110h] [rbp-128h]
   struct _KTHREAD *CurrentThread; // [rsp+118h] [rbp-120h]
   PVOID v123[10]; // [rsp+120h] [rbp-118h] BYREF
   _BYTE v124[128]; // [rsp+170h] [rbp-C8h] BYREF
   void *retaddr; // [rsp+238h] [rbp+0h]
 
-  v118 = (_DWORD *)a4;
-  v6 = a3;
-  v120 = Address;
-  v109 = Handle;
-  v100 = (ULONG_PTR)Address;
-  v99 = a4;
+  v118 = PacketsReturned;
+  v6 = Count;
+  v120 = MiniPackets;
+  v109 = WorkerFactoryHandle;
+  v100 = (__int64)MiniPackets;
+  v99 = PacketsReturned;
   v103 = 0;
   v108 = 0LL;
   CurrentThread = KeGetCurrentThread();
   PreviousMode = CurrentThread->PreviousMode;
   v93 = PreviousMode;
   P = v124;
-  HIDWORD(v113) = 0;
-  if ( a3 - 1 > 0x7FFFFFE )
+  Flags[1] = 0;
+  if ( Count - 1 > 0x7FFFFFE )
   {
     v10 = -1073741811;
     goto LABEL_54;
   }
   if ( PreviousMode )
   {
-    ProbeForWrite(Address, 32LL * a3, 8u);
-    v9 = a4;
-    if ( a4 >= 0x7FFFFFFF0000LL )
+    ProbeForWrite(MiniPackets, 32LL * Count, 8u);
+    v9 = (__int64)PacketsReturned;
+    if ( (unsigned __int64)PacketsReturned >= 0x7FFFFFFF0000LL )
       v9 = 0x7FFFFFFF0000LL;
     *(_DWORD *)v9 = *(_DWORD *)v9;
-    if ( (a5 & 7) != 0 )
+    if ( ((unsigned __int8)DeferredWork & 7) != 0 )
       ExRaiseDatatypeMisalignment();
-    if ( a5 + 24 > 0x7FFFFFFF0000LL || a5 + 24 < a5 )
+    if ( (unsigned __int64)&DeferredWork[1] > 0x7FFFFFFF0000LL || &DeferredWork[1] < DeferredWork )
       MEMORY[0x7FFFFFFF0000] = 0;
-    *(_OWORD *)Handlea = *(_OWORD *)a5;
-    v113 = *(_QWORD *)(a5 + 16);
+    *(_OWORD *)Handle = *(_OWORD *)&DeferredWork->AlpcSendMessage;
+    *(_QWORD *)Flags = *(_QWORD *)&DeferredWork->AlpcSendMessageFlags;
   }
   else
   {
-    *(_OWORD *)Handlea = *(_OWORD *)a5;
-    v113 = *(_QWORD *)(a5 + 16);
+    *(_OWORD *)Handle = *(_OWORD *)&DeferredWork->AlpcSendMessage;
+    *(_QWORD *)Flags = *(_QWORD *)&DeferredWork->AlpcSendMessageFlags;
   }
-  v10 = ObReferenceObjectByHandle(Handle, 2u, ExpWorkerFactoryObjectType, PreviousMode, &Object, 0LL);
+  v10 = ObReferenceObjectByHandle(WorkerFactoryHandle, 2u, ExpWorkerFactoryObjectType, PreviousMode, &Object, 0LL);
   v11 = (char *)Object;
   v108 = (ULONG_PTR)Object;
   if ( v10 >= 0 )
@@ -369,11 +369,11 @@ LABEL_51:
       KiReleaseQueuedSpinLockInstrumented(&LockHandle, retaddr);
 LABEL_28:
       __writecr8(LockHandle.OldIrql);
-      if ( (v113 & 0x100000000LL) == 0 )
+      if ( (Flags[1] & 1) == 0 )
         goto LABEL_29;
-      v119 = (char *)Handlea[0];
-      v37 = v113;
-      v38 = Handlea[1];
+      v119 = (char *)Handle[0];
+      v37 = Flags[0];
+      v38 = Handle[1];
       memset(v123, 0, 0x40uLL);
       v39 = KeGetCurrentThread();
       --v39->KernelApcDisable;
@@ -410,52 +410,52 @@ LABEL_28:
               SessionId = 0xFFFFFFFFLL;
             --v72->SpecialApcDisable;
             v96 = ++v72->AbAllocationRegionCount == 1;
-            v75 = 0LL;
+            v74 = 0LL;
             v99 = 0LL;
-            v76 = BugCheckParameter2;
+            v75 = BugCheckParameter2;
             v100 = BugCheckParameter2 & 0x7FFFFFFFFFFFFFFCLL;
-            v77 = ((char)v72->AbEntrySummary | (char)v72->AbOrphanedEntrySummary) ^ 0x3F;
-            v63 = !_BitScanReverse((unsigned int *)&v78, v77);
-            v114 = v78;
+            v76 = ((char)v72->AbEntrySummary | (char)v72->AbOrphanedEntrySummary) ^ 0x3F;
+            v63 = !_BitScanReverse((unsigned int *)&v77, v76);
+            v114 = v77;
             if ( !v63 )
             {
               while ( 1 )
               {
-                v77 &= ~(1 << v78);
-                v73 = (__int64)&v72->LockEntries[v78];
-                if ( (*(_BYTE *)(v73 + 26) & 1) != 0
-                  && (*(_DWORD *)(v73 + 32) & 1) == 0
-                  && (*(_QWORD *)(v73 + 32) & 0x7FFFFFFFFFFFFFFCLL) == v100
-                  && *(_DWORD *)(v73 + 40) == (_DWORD)SessionId )
+                v76 &= ~(1 << v77);
+                v78 = (__int64)&v72->LockEntries[v77];
+                if ( (*(_BYTE *)(v78 + 26) & 1) != 0
+                  && (*(_DWORD *)(v78 + 32) & 1) == 0
+                  && (*(_QWORD *)(v78 + 32) & 0x7FFFFFFFFFFFFFFCLL) == v100
+                  && *(_DWORD *)(v78 + 40) == (_DWORD)SessionId )
                 {
-                  *(_BYTE *)(v73 + 26) &= ~1u;
-                  if ( *(_QWORD *)(v73 + 32) )
+                  *(_BYTE *)(v78 + 26) &= ~1u;
+                  if ( *(_QWORD *)(v78 + 32) )
                     break;
                 }
-                v63 = !_BitScanReverse((unsigned int *)&v78, v77);
-                v114 = v78;
+                v63 = !_BitScanReverse((unsigned int *)&v77, v76);
+                v114 = v77;
                 if ( v63 )
                   goto LABEL_159;
               }
-              v75 = (__int64)&v72->LockEntries[v78];
-              v99 = v75;
+              v74 = (__int64)&v72->LockEntries[v77];
+              v99 = (PULONG)v74;
             }
 LABEL_159:
-            if ( v75 )
+            if ( v74 )
             {
-              *(_BYTE *)(v75 + 32) |= 2u;
-              if ( *(__int64 *)(v75 + 32) < 0 )
+              *(_BYTE *)(v74 + 32) |= 2u;
+              if ( *(__int64 *)(v74 + 32) < 0 )
               {
-                KiAbEntryRemoveFromTree(v75, v75, v73);
-                v75 = v99;
-                v76 = BugCheckParameter2;
+                KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v74, v74);
+                v74 = (__int64)v99;
+                v75 = BugCheckParameter2;
               }
               v102 = 0;
-              v102 = *(_DWORD *)(v75 + 88) & 0x1FFFF;
-              *(_DWORD *)(v75 + 88) &= 0xFFFE0000;
-              *(_BYTE *)(v75 + 25) &= ~1u;
-              *(_QWORD *)(v75 + 32) = 0LL;
-              v79 = (__int64)((unsigned __int128)((v75 - (__int64)v72 - 800) * (__int128)0x2AAAAAAAAAAAAAABLL) >> 64) >> 4;
+              v102 = *(_DWORD *)(v74 + 88) & 0x1FFFF;
+              *(_DWORD *)(v74 + 88) &= 0xFFFE0000;
+              *(_BYTE *)(v74 + 25) &= ~1u;
+              *(_QWORD *)(v74 + 32) = 0LL;
+              v79 = (__int64)((unsigned __int128)((v74 - (__int64)v72 - 800) * (__int128)0x2AAAAAAAAAAAAAABLL) >> 64) >> 4;
               v80 = 1 << ((v79 < 0) + v79);
               if ( v96 )
                 v72->AbEntrySummary |= v80;
@@ -464,10 +464,10 @@ LABEL_159:
             }
             else if ( (*((_DWORD *)&v72->0 + 1) & 0x8000) == 0 )
             {
-              KeBugCheckEx(0x162u, (ULONG_PTR)v72, v76, SessionId, 0LL);
+              KeBugCheckEx(0x162u, (ULONG_PTR)v72, v75, SessionId, 0LL);
             }
             --v72->AbAllocationRegionCount;
-            KiAbThreadRemoveBoosts(v72, v76, &v102);
+            KiAbThreadRemoveBoosts(v72, v75, &v102);
             v81 = v72->SpecialApcDisable + 1;
             v72->SpecialApcDisable = v81;
             if ( !v81 && ($69CD3F157F9F39B6F7113F2231989901 *)v72->ApcState.ApcListHead[0].Flink != &v72->152 )
@@ -577,17 +577,17 @@ LABEL_159:
                             _InterlockedIncrement((volatile signed __int32 *)(v58 + 40));
                           }
                         }
-                        v59 = *(_QWORD *)(v54 + 712);
+                        v59 = *(ULONG **)(v54 + 712);
                         v99 = v59;
                         if ( v59 )
                         {
                           v117 = 0;
                           v60 = v59;
-                          while ( _interlockedbittestandset64((volatile signed __int32 *)(v60 + 22800), 0LL) )
+                          while ( _interlockedbittestandset64((volatile signed __int32 *)v60 + 5700, 0LL) )
                           {
                             do
                               KeYieldProcessorEx(&v117);
-                            while ( *(_QWORD *)(v60 + 22800) );
+                            while ( *((_QWORD *)v60 + 2850) );
                           }
                           v44 = v119;
                           if ( *(_QWORD *)(v54 + 712) )
@@ -600,7 +600,7 @@ LABEL_159:
                             *(_QWORD *)(v61 + 8) = v62;
                             *(_QWORD *)(v54 + 712) = 0LL;
                           }
-                          _InterlockedAnd64((volatile signed __int64 *)(v99 + 22800), 0LL);
+                          _InterlockedAnd64((volatile signed __int64 *)v99 + 2850, 0LL);
                         }
                         *(_BYTE *)(v54 + 388) = 7;
                         CurrentPrcb = v95;
@@ -653,8 +653,8 @@ LABEL_135:
                     *(_QWORD *)v50 = 0LL;
                     KeGetCurrentIrql();
                     __writecr8(2uLL);
-                    v100 = (ULONG_PTR)KeGetCurrentPrcb();
-                    v83 = *(_QWORD *)(v100 + 8);
+                    v100 = (__int64)KeGetCurrentPrcb();
+                    v83 = *(ULONG **)(v100 + 8);
                     v99 = v83;
                     if ( (DWORD1(PerfGlobalGroupMask) & 0x1000000) != 0 )
                     {
@@ -665,7 +665,7 @@ LABEL_135:
                     v86 = (_QWORD *)(v82 + 8);
                     if ( (_QWORD *)*v86 != v86 && *(_DWORD *)(v82 + 40) < *(_DWORD *)(v82 + 44) )
                     {
-                      if ( *(_QWORD *)(v99 + 232) != v82 || *(_BYTE *)(v99 + 643) != 15 )
+                      if ( *((_QWORD *)v99 + 29) != v82 || *((_BYTE *)v99 + 643) != 15 )
                       {
                         v87 = KiWakeQueueWaiter(v100, v82, v50);
                         v86 = (_QWORD *)(v82 + 8);
@@ -731,13 +731,13 @@ LABEL_200:
       v17 = v93;
       v11 = (char *)Object;
 LABEL_29:
-      LOBYTE(v92) = 1;
+      LOBYTE(Timeout) = 1;
       LOBYTE(HandleInformation) = v17;
-      v10 = IoRemoveIoCompletion(*((_QWORD *)*v12 + 1), v120, P, v6, &v103, HandleInformation, 0LL, v92);
-      if ( (v113 & 0x100000000LL) != 0 )
+      v10 = IoRemoveIoCompletion(*((_QWORD *)*v12 + 1), v120, P, v6, &v103, HandleInformation, 0LL, Timeout);
+      if ( (Flags[1] & 1) != 0 )
       {
         AlpciDestroyDeferredMessageContext(&v110);
-        HIDWORD(v113) &= ~1u;
+        Flags[1] &= ~1u;
       }
       v19 = (volatile __int64 *)*v12;
       LockHandle.LockQueue.Lock = *v12;
@@ -822,7 +822,7 @@ LABEL_54:
       }
     }
   }
-  if ( (v113 & 0x100000000LL) != 0 )
-    NtAlpcSendWaitReceivePort(Handlea[1], 0LL, 0LL, 0LL, 0LL);
-  return (unsigned int)v10;
+  if ( (Flags[1] & 1) != 0 )
+    NtAlpcSendWaitReceivePort(Handle[1], Flags[0], (PPORT_MESSAGE)Handle[0], 0LL, 0LL, 0LL, 0LL, 0LL);
+  return v10;
 }

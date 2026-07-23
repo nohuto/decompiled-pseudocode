@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpLogCapabilityCheckLatency @ 0x140B2C5E0
+ * XREFs of RtlpLogCapabilityCheckLatency @ 0x140B2E660
  * Callers:
- *     RtlCapabilityCheck @ 0x140A91900 (RtlCapabilityCheck.c)
+ *     RtlCapabilityCheck @ 0x140A96450 (RtlCapabilityCheck.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     RtlRunOnceExecuteOnce @ 0x1409E7CD0 (RtlRunOnceExecuteOnce.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     RtlRunOnceExecuteOnce @ 0x1409D46E0 (RtlRunOnceExecuteOnce.c)
  */
 
 signed __int16 __fastcall RtlpLogCapabilityCheckLatency(_QWORD *a1, _QWORD *a2, char a3, char a4, char a5, char a6)
@@ -70,7 +70,7 @@ signed __int16 __fastcall RtlpLogCapabilityCheckLatency(_QWORD *a1, _QWORD *a2, 
                 v28 = 1LL;
                 tlgWriteTransfer_EtwWriteTransfer(
                   (__int64)&SshpBlockerCollections.ResourceIndex,
-                  (unsigned __int8 *)byte_1400529FD,
+                  (unsigned __int8 *)byte_1400539F0,
                   v11,
                   0LL,
                   7u,

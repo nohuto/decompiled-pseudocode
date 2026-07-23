@@ -1,9 +1,9 @@
 /*
- * XREFs of VerifierKfRaiseIrql @ 0x140712A08
+ * XREFs of VerifierKfRaiseIrql @ 0x1407129C0
  * Callers:
  *     <none>
  * Callees:
- *     ViTargetIncrementCounter @ 0x140710564 (ViTargetIncrementCounter.c)
+ *     ViTargetIncrementCounter @ 0x140710594 (ViTargetIncrementCounter.c)
  *     ViKeRaiseIrqlSanityChecks @ 0x1407130E8 (ViKeRaiseIrqlSanityChecks.c)
  */
 
@@ -18,7 +18,7 @@ __int64 __fastcall VerifierKfRaiseIrql(char a1)
   __int64 retaddr; // [rsp+28h] [rbp+0h]
 
   v1 = (__int64 (__fastcall *)(__int64))pXdvKfRaiseIrql;
-  ++dword_140307204;
+  ++dword_140307244;
   v3 = retaddr;
   if ( (MmVerifierData & 0x1000) != 0 )
     ViTargetIncrementCounter(retaddr, 128LL);

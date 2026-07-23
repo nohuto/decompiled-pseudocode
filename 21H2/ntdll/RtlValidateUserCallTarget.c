@@ -3,7 +3,7 @@
  * Callers:
  *     LdrGetProcedureAddressForCaller @ 0x18002FDC0 (LdrGetProcedureAddressForCaller.c)
  *     LdrpUnsuppressAddressTakenIat @ 0x18005424C (LdrpUnsuppressAddressTakenIat.c)
- *     RtlpUnsuppressForwardReferencingCallTarget @ 0x1800FD9B4 (RtlpUnsuppressForwardReferencingCallTarget.c)
+ *     RtlpUnsuppressForwardReferencingCallTarget @ 0x1800FD974 (RtlpUnsuppressForwardReferencingCallTarget.c)
  * Callees:
  *     LdrControlFlowGuardEnforcedWithExportSuppression @ 0x1800334E8 (LdrControlFlowGuardEnforcedWithExportSuppression.c)
  *     CfgAddressToBitState @ 0x180054498 (CfgAddressToBitState.c)
@@ -13,23 +13,22 @@ __int64 __fastcall RtlValidateUserCallTarget(__int64 a1, _DWORD *a2)
 {
   char v3; // si
   int v4; // eax
-  __int64 v5; // rcx
-  unsigned int v6; // ebx
-  int v7; // eax
-  int v9; // eax
+  unsigned int v5; // ebx
+  int v6; // eax
+  int v8; // eax
 
   v3 = a1;
-  v4 = CfgAddressToBitState(a1, qword_1801813A8);
-  v6 = 0;
+  v4 = CfgAddressToBitState(a1, LdrSystemDllInitBlock.CfgBitMap);
+  v5 = 0;
   if ( !v4 )
     goto LABEL_8;
-  v7 = v4 - 1;
-  if ( v7 )
+  v6 = v4 - 1;
+  if ( v6 )
   {
-    v9 = v7 - 1;
-    if ( v9 )
+    v8 = v6 - 1;
+    if ( v8 )
     {
-      if ( v9 == 1 )
+      if ( v8 == 1 )
       {
         *a2 = 8;
         return 1;
@@ -37,10 +36,10 @@ __int64 __fastcall RtlValidateUserCallTarget(__int64 a1, _DWORD *a2)
     }
     else
     {
-      if ( LdrControlFlowGuardEnforcedWithExportSuppression(v5) )
+      if ( LdrControlFlowGuardEnforcedWithExportSuppression() )
       {
         *a2 = 16;
-        return v6;
+        return v5;
       }
       if ( (v3 & 0xF) == 0 )
       {
@@ -50,9 +49,9 @@ __int64 __fastcall RtlValidateUserCallTarget(__int64 a1, _DWORD *a2)
     }
 LABEL_8:
     *a2 = 2;
-    return v6;
+    return v5;
   }
-  LOBYTE(v6) = (v3 & 0xF) == 0;
-  *a2 = (v6 ^ 1) + 1;
-  return v6;
+  LOBYTE(v5) = (v3 & 0xF) == 0;
+  *a2 = (v5 ^ 1) + 1;
+  return v5;
 }

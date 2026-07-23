@@ -1,16 +1,16 @@
 /*
- * XREFs of PopDiagTraceFxComponentAccounting @ 0x1408EA150
+ * XREFs of PopDiagTraceFxComponentAccounting @ 0x1408EA2B0
  * Callers:
- *     PopFxStopDeviceAccounting @ 0x14056D03C (PopFxStopDeviceAccounting.c)
+ *     PopFxStopDeviceAccounting @ 0x14056D27C (PopFxStopDeviceAccounting.c)
  * Callees:
- *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
- *     EtwWrite @ 0x14025DC90 (EtwWrite.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     PopDiagQueryDevicePropertyString @ 0x1408E80F8 (PopDiagQueryDevicePropertyString.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14027E1A4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     EtwWrite @ 0x14027F7C0 (EtwWrite.c)
+ *     _tlgKeywordOn @ 0x1402864F4 (_tlgKeywordOn.c)
+ *     EtwEventEnabled @ 0x1402C0830 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     PopDiagQueryDevicePropertyString @ 0x1408E8258 (PopDiagQueryDevicePropertyString.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PopDiagTraceFxComponentAccounting(__int64 a1, int a2, __int64 a3, unsigned __int16 *a4, char a5)
@@ -76,8 +76,8 @@ void __fastcall PopDiagTraceFxComponentAccounting(__int64 a1, int a2, __int64 a3
   v18 = a1;
   DestinationString = 0LL;
   v20 = 0LL;
-  RtlInitUnicodeString(&DestinationString, &word_1407D7BA0);
-  RtlInitUnicodeString(&v20, &word_1407D7BA0);
+  RtlInitUnicodeString(&DestinationString, &word_1407D7CE0);
+  RtlInitUnicodeString(&v20, &word_1407D7CE0);
   if ( PopDiagHandleRegistered )
   {
     v7 = PopDiagHandle;
@@ -145,7 +145,7 @@ void __fastcall PopDiagTraceFxComponentAccounting(__int64 a1, int a2, __int64 a3
           v61[1] = 0;
           tlgWriteTransfer_EtwWriteTransfer(
             (__int64)&dword_140C02228,
-            (unsigned __int8 *)byte_140028855,
+            (unsigned __int8 *)word_14002879A,
             0LL,
             0LL,
             0x10u,

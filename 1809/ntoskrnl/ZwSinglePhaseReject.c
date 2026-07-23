@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwSinglePhaseReject @ 0x1401BB790
+ * XREFs of ZwSinglePhaseReject @ 0x1401BB8F0
  * Callers:
  *     <none>
  * Callees:
@@ -8,9 +8,7 @@
 
 NTSTATUS __stdcall ZwSinglePhaseReject(HANDLE EnlistmentHandle, PLARGE_INTEGER TmVirtualClock)
 {
-  __int64 v2; // r8
-
   _disable();
   __readeflags();
-  return KiServiceInternal(EnlistmentHandle, TmVirtualClock, v2);
+  return KiServiceInternal(EnlistmentHandle);
 }

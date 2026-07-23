@@ -6,16 +6,16 @@
  *     RtlCompareUnicodeStrings @ 0x18001A040 (RtlCompareUnicodeStrings.c)
  */
 
-__int64 __fastcall ApiSetpSearchForApiSetHost(__int64 a1, _WORD *a2, unsigned __int16 a3, __int64 a4)
+__int64 __fastcall ApiSetpSearchForApiSetHost(__int64 a1, const WCHAR *a2, unsigned __int16 a3, __int64 a4)
 {
   __int64 v4; // r12
   int v5; // ebp
   int v7; // ebx
-  _WORD *v8; // r10
+  const WCHAR *v8; // r10
   __int64 v9; // rdi
-  unsigned __int64 v10; // r13
+  SIZE_T v10; // r13
   int v11; // esi
-  int v12; // eax
+  LONG v12; // eax
 
   v4 = *(unsigned int *)(a1 + 16);
   v5 = 1;
@@ -31,9 +31,9 @@ __int64 __fastcall ApiSetpSearchForApiSetHost(__int64 a1, _WORD *a2, unsigned __
       v12 = RtlCompareUnicodeStrings(
               v8,
               v10,
-              a4 + *(unsigned int *)(a4 + v4 + 20LL * v11 + 4),
+              (PCWCH)(a4 + *(unsigned int *)(a4 + v4 + 20LL * v11 + 4)),
               (unsigned __int64)*(unsigned int *)(a4 + v4 + 20LL * v11 + 8) >> 1,
-              1);
+              1u);
       if ( v12 < 0 )
       {
         v7 = v11 - 1;

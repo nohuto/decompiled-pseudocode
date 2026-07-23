@@ -14,63 +14,64 @@
  *     _RtlIsAnyDebuggerPresent@0 @ 0x4B3668D0 (_RtlIsAnyDebuggerPresent@0.c)
  */
 
-int __stdcall RtlAssert(const char *a1, const char *a2, int a3, const char *a4)
+void __cdecl __noreturn RtlAssert(PVOID VoidFailedAssertion, PVOID VoidFileName, ULONG LineNumber, PSTR MutableMessage)
 {
-  const char *v4; // eax
-  int result; // eax
-  bool v6; // zf
+  PSTR v4; // eax
+  bool v5; // zf
+  int v6; // eax
   int v7; // eax
   int v8; // eax
-  char v9[4]; // [esp+Ch] [ebp-2DCh] BYREF
-  CONTEXT ContextRecord; // [esp+10h] [ebp-2D8h] BYREF
+  CHAR Response[4]; // [esp+Ch] [ebp-2DCh] BYREF
+  _CONTEXT ContextRecord; // [esp+10h] [ebp-2D8h] BYREF
 
   RtlCaptureContext(&ContextRecord);
   while ( 1 )
   {
-    v4 = a4;
-    if ( !a4 )
-      v4 = (const char *)&dword_4B2850A4;
-    DbgPrintEx(101, 0, "\n*** Assertion failed: %s%s\n***   Source File: %s, line %ld\n\n", v4, a1, a2, a3);
-    result = RtlIsAnyDebuggerPresent();
-    if ( !(_BYTE)result )
-      return result;
+    v4 = MutableMessage;
+    if ( !MutableMessage )
+      v4 = (PSTR)&dword_4B2850A4;
+    DbgPrintEx(0x65u, 0, (int)"\n*** Assertion failed: %s%s\n***   Source File: %s, line %ld\n\n", (int)v4);
+    if ( !RtlIsAnyDebuggerPresent() )
+      break;
     if ( !DbgPrompt(
             "Break repeatedly, break Once, Ignore, terminate Process, or terminate Thread (boipt)? ",
-            (int)v9,
+            Response,
             2u) )
     {
       __debugbreak();
-      return ZwTerminateProcess(-1, -1073741823);
+LABEL_20:
+      ZwTerminateProcess((HANDLE)0xFFFFFFFF, -1073741823);
+      return;
     }
-    if ( v9[0] > 98 )
+    if ( Response[0] > 98 )
     {
-      result = v9[0] - 105;
-      v6 = v9[0] == 105;
+      v6 = Response[0] - 105;
+      v5 = Response[0] == 105;
 LABEL_11:
-      if ( v6 )
-        return result;
-      v7 = result - 6;
+      if ( v5 )
+        return;
+      v7 = v6 - 6;
       if ( !v7 )
         goto LABEL_16;
       v8 = v7 - 1;
       if ( !v8 )
-        return ZwTerminateProcess(-1, -1073741823);
+        goto LABEL_20;
       if ( v8 == 4 )
-        ZwTerminateThread(-2, -1073741823);
+        ZwTerminateThread((HANDLE)0xFFFFFFFE, -1073741823);
     }
     else
     {
-      if ( v9[0] != 98 && v9[0] != 66 )
+      if ( Response[0] != 98 && Response[0] != 66 )
       {
-        result = v9[0] - 73;
-        v6 = v9[0] == 73;
+        v6 = Response[0] - 73;
+        v5 = Response[0] == 73;
         goto LABEL_11;
       }
 LABEL_16:
-      result = DbgPrintEx(101, 0, "Execute '.cxr %p' to dump context\n", &ContextRecord);
+      DbgPrintEx(0x65u, 0, (int)"Execute '.cxr %p' to dump context\n", (int)&ContextRecord);
       __debugbreak();
-      if ( v9[0] == 111 || v9[0] == 79 )
-        return result;
+      if ( Response[0] == 111 || Response[0] == 79 )
+        return;
     }
   }
 }

@@ -1,24 +1,24 @@
 /*
- * XREFs of KiRetireDpcList @ 0x140335700
+ * XREFs of KiRetireDpcList @ 0x140337730
  * Callers:
- *     KiExecuteSmtIsolationThread @ 0x1405F6610 (KiExecuteSmtIsolationThread.c)
- *     KiExecuteDpcDelegate @ 0x1405FAF60 (KiExecuteDpcDelegate.c)
- *     KiIdleLoop @ 0x140728DB0 (KiIdleLoop.c)
- *     KxSwapStacksAndRetireDpcList @ 0x14072C460 (KxSwapStacksAndRetireDpcList.c)
+ *     KiExecuteSmtIsolationThread @ 0x1405F8FD0 (KiExecuteSmtIsolationThread.c)
+ *     KiExecuteDpcDelegate @ 0x1405FD980 (KiExecuteDpcDelegate.c)
+ *     KiIdleLoop @ 0x14072D980 (KiIdleLoop.c)
+ *     KxSwapStacksAndRetireDpcList @ 0x140731030 (KxSwapStacksAndRetireDpcList.c)
  * Callees:
- *     KiRcuCheckQuiescent @ 0x140221E10 (KiRcuCheckQuiescent.c)
- *     KiEndThreadCycleAccumulation @ 0x1402261A0 (KiEndThreadCycleAccumulation.c)
- *     KiExecuteAllDpcs @ 0x14032DD00 (KiExecuteAllDpcs.c)
- *     KiStartThreadCycleAccumulation @ 0x140334EB0 (KiStartThreadCycleAccumulation.c)
- *     KiCheckRuntimeHistoryHashTableCleanup @ 0x140335ADC (KiCheckRuntimeHistoryHashTableCleanup.c)
- *     KiEndPartialDpcProcessing @ 0x140335E84 (KiEndPartialDpcProcessing.c)
- *     KiTimer2Expiration @ 0x140336A40 (KiTimer2Expiration.c)
- *     KiTimerExpiration @ 0x1403AB338 (KiTimerExpiration.c)
- *     KiNormalPriorityReadyScan @ 0x1403BF1A4 (KiNormalPriorityReadyScan.c)
- *     KeSignalGate @ 0x1403C2AD0 (KeSignalGate.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14052FA20 (KiRemoveSystemWorkPriorityKick.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     KiRcuCheckQuiescent @ 0x1402237A0 (KiRcuCheckQuiescent.c)
+ *     KiEndThreadCycleAccumulation @ 0x140227B30 (KiEndThreadCycleAccumulation.c)
+ *     KiExecuteAllDpcs @ 0x14032FD30 (KiExecuteAllDpcs.c)
+ *     KiStartThreadCycleAccumulation @ 0x140336EE0 (KiStartThreadCycleAccumulation.c)
+ *     KiCheckRuntimeHistoryHashTableCleanup @ 0x140337B0C (KiCheckRuntimeHistoryHashTableCleanup.c)
+ *     KiEndPartialDpcProcessing @ 0x140337EB4 (KiEndPartialDpcProcessing.c)
+ *     KiTimer2Expiration @ 0x140338AC0 (KiTimer2Expiration.c)
+ *     KiTimerExpiration @ 0x1403B5048 (KiTimerExpiration.c)
+ *     KiNormalPriorityReadyScan @ 0x1403C90A4 (KiNormalPriorityReadyScan.c)
+ *     KeSignalGate @ 0x1403CC9D0 (KeSignalGate.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x140531F20 (KiRemoveSystemWorkPriorityKick.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 signed __int16 __fastcall KiRetireDpcList(struct _KPRCB *a1)

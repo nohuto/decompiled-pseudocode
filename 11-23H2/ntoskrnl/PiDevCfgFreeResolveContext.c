@@ -1,13 +1,13 @@
 /*
- * XREFs of PiDevCfgFreeResolveContext @ 0x14087D25C
+ * XREFs of PiDevCfgFreeResolveContext @ 0x14087D49C
  * Callers:
- *     PiDevCfgVerifyDeviceAllowed @ 0x140878E1C (PiDevCfgVerifyDeviceAllowed.c)
- *     PiDevCfgConfigureDeviceKeys @ 0x14087CAA4 (PiDevCfgConfigureDeviceKeys.c)
- *     PiDevCfgInitResolveContext @ 0x14087CEB4 (PiDevCfgInitResolveContext.c)
+ *     PiDevCfgVerifyDeviceAllowed @ 0x14087905C (PiDevCfgVerifyDeviceAllowed.c)
+ *     PiDevCfgConfigureDeviceKeys @ 0x14087CCE4 (PiDevCfgConfigureDeviceKeys.c)
+ *     PiDevCfgInitResolveContext @ 0x14087D0F4 (PiDevCfgInitResolveContext.c)
  * Callees:
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     RtlFreeUnicodeString @ 0x14076F3D0 (RtlFreeUnicodeString.c)
- *     _RegRtlDeleteTreeInternal @ 0x14086B268 (_RegRtlDeleteTreeInternal.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     RtlFreeUnicodeString @ 0x14076F5C0 (RtlFreeUnicodeString.c)
+ *     _RegRtlDeleteTreeInternal @ 0x14086B4A8 (_RegRtlDeleteTreeInternal.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

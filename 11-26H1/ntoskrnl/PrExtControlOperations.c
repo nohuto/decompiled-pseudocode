@@ -1,17 +1,17 @@
 /*
- * XREFs of PrExtControlOperations @ 0x1406DCA28
+ * XREFs of PrExtControlOperations @ 0x1406E0CC8
  * Callers:
- *     HalpMcEnumerateAndSetPatchConfig @ 0x1405931E8 (HalpMcEnumerateAndSetPatchConfig.c)
- *     HalpMcGetRollbackRequest @ 0x1405936A8 (HalpMcGetRollbackRequest.c)
- *     HalpMcUpdateInitializeBSP @ 0x140593D68 (HalpMcUpdateInitializeBSP.c)
- *     HalpLoadMicrocode @ 0x140784E40 (HalpLoadMicrocode.c)
- *     HalpProcInitSystem @ 0x140BEB320 (HalpProcInitSystem.c)
- *     HalpMiscInitializeAmdSfs @ 0x140CB4660 (HalpMiscInitializeAmdSfs.c)
+ *     HalpMcEnumerateAndSetPatchConfig @ 0x140595968 (HalpMcEnumerateAndSetPatchConfig.c)
+ *     HalpMcGetRollbackRequest @ 0x140595E28 (HalpMcGetRollbackRequest.c)
+ *     HalpMcUpdateInitializeBSP @ 0x1405964E8 (HalpMcUpdateInitializeBSP.c)
+ *     HalpLoadMicrocode @ 0x140787970 (HalpLoadMicrocode.c)
+ *     HalpProcInitSystem @ 0x140BF1320 (HalpProcInitSystem.c)
+ *     HalpMiscInitializeAmdSfs @ 0x140CBA6A0 (HalpMiscInitializeAmdSfs.c)
  * Callees:
- *     SfsInitialize @ 0x1406DD17C (SfsInitialize.c)
- *     MicrocodeValidate @ 0x1406DDB70 (MicrocodeValidate.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     RtlFindExportedRoutineByName @ 0x140AAF810 (RtlFindExportedRoutineByName.c)
+ *     SfsInitialize @ 0x1406E141C (SfsInitialize.c)
+ *     MicrocodeValidate @ 0x1406E1E10 (MicrocodeValidate.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     RtlFindExportedRoutineByName @ 0x140AAD460 (RtlFindExportedRoutineByName.c)
  */
 
 __int64 __fastcall PrExtControlOperations(int a1, unsigned int *a2, __int64 a3)
@@ -25,9 +25,9 @@ __int64 __fastcall PrExtControlOperations(int a1, unsigned int *a2, __int64 a3)
   int v9; // ecx
   int v10; // eax
   __int64 v11; // rcx
-  __int64 v12; // rax
+  PVOID v12; // rax
   __int64 v13; // rdx
-  __int64 ExportedRoutineByName; // rax
+  PVOID ExportedRoutineByName; // rax
   __int128 v16; // [rsp+20h] [rbp-18h] BYREF
 
   v3 = a1 - 1;
@@ -36,8 +36,8 @@ __int64 __fastcall PrExtControlOperations(int a1, unsigned int *a2, __int64 a3)
     LODWORD(v11) = 0;
     if ( a2 && (_DWORD)a3 == 12 )
     {
-      *(_QWORD *)&CmpCallbackListLock.WaitBlockFill11[16] = a2;
-      CmpCallbackListLock.WaitBlockFill5[35] = 0;
+      *(_QWORD *)&CmpContextListLock.WaitBlockFill11[16] = a2;
+      CmpContextListLock.WaitBlockFill5[27] = 0;
       return (unsigned int)v11;
     }
     goto LABEL_29;
@@ -48,7 +48,7 @@ __int64 __fastcall PrExtControlOperations(int a1, unsigned int *a2, __int64 a3)
     LODWORD(v11) = 0;
     if ( a2 && (_DWORD)a3 == 1 )
     {
-      CmpCallbackListLock.WaitBlockFill5[33] = *(_BYTE *)a2;
+      CmpContextListLock.WaitBlockFill5[24] = *(_BYTE *)a2;
       return (unsigned int)v11;
     }
     goto LABEL_29;
@@ -61,10 +61,10 @@ __int64 __fastcall PrExtControlOperations(int a1, unsigned int *a2, __int64 a3)
       LODWORD(v11) = 0;
       if ( a2 )
       {
-        *(_OWORD *)&CmpCallbackListLock.Queue = *(_OWORD *)a2;
-        *(_OWORD *)&CmpCallbackListLock.RelativeTimerBias = *((_OWORD *)a2 + 1);
-        CmpCallbackListLock.Timer.Header.WaitListHead.Flink = (struct _LIST_ENTRY *)*((_QWORD *)a2 + 4);
-        LODWORD(CmpCallbackListLock.Timer.Header.WaitListHead.Blink) = a2[10];
+        *($9F5D72EF54BCA79AE5AD03946D2C2FEF *)((char *)&CmpContextListLock.216 + 8) = *($9F5D72EF54BCA79AE5AD03946D2C2FEF *)a2;
+        *(_OWORD *)&CmpContextListLock.Teb = *((_OWORD *)a2 + 1);
+        *(_QWORD *)&CmpContextListLock.Timer.Header.Lock = *((_QWORD *)a2 + 4);
+        LODWORD(CmpContextListLock.Timer.Header.WaitListHead.Flink) = a2[10];
         return (unsigned int)v11;
       }
     }
@@ -123,6 +123,6 @@ LABEL_19:
   if ( (_DWORD)a3 != 1 )
     goto LABEL_29;
   LODWORD(v11) = 0;
-  CmpCallbackListLock.WaitBlockFill5[34] = *(_BYTE *)a2;
+  CmpContextListLock.WaitBlockFill5[26] = *(_BYTE *)a2;
   return (unsigned int)v11;
 }

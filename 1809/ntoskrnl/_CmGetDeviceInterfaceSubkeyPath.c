@@ -1,16 +1,16 @@
 /*
- * XREFs of _CmGetDeviceInterfaceSubkeyPath @ 0x1405C65E8
+ * XREFs of _CmGetDeviceInterfaceSubkeyPath @ 0x1405C75E8
  * Callers:
- *     _CmGetDeviceInterfaceClassGuidString @ 0x14059AE1C (_CmGetDeviceInterfaceClassGuidString.c)
- *     _CmGetDeviceInterfaceRegKeyPath @ 0x14059B86C (_CmGetDeviceInterfaceRegKeyPath.c)
+ *     _CmGetDeviceInterfaceClassGuidString @ 0x14059BE1C (_CmGetDeviceInterfaceClassGuidString.c)
+ *     _CmGetDeviceInterfaceRegKeyPath @ 0x14059C86C (_CmGetDeviceInterfaceRegKeyPath.c)
  * Callees:
  *     RtlStringCchCopyNExW @ 0x140015A04 (RtlStringCchCopyNExW.c)
  *     RtlInitUnicodeStringEx @ 0x140015EB0 (RtlInitUnicodeStringEx.c)
- *     RtlStringCchCopyExW @ 0x14013DD50 (RtlStringCchCopyExW.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     wcschr @ 0x1401976D0 (wcschr.c)
- *     RtlGUIDFromString @ 0x14059A5A0 (RtlGUIDFromString.c)
- *     _CmValidateDeviceInterfaceName @ 0x1405C6810 (_CmValidateDeviceInterfaceName.c)
+ *     RtlStringCchCopyExW @ 0x14013DE50 (RtlStringCchCopyExW.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     wcschr @ 0x140197810 (wcschr.c)
+ *     RtlGUIDFromString @ 0x14059B5A0 (RtlGUIDFromString.c)
+ *     _CmValidateDeviceInterfaceName @ 0x1405C7810 (_CmValidateDeviceInterfaceName.c)
  */
 
 signed int __fastcall CmGetDeviceInterfaceSubkeyPath(

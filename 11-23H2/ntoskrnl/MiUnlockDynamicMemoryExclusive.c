@@ -1,18 +1,18 @@
 /*
- * XREFs of MiUnlockDynamicMemoryExclusive @ 0x14061BFAC
+ * XREFs of MiUnlockDynamicMemoryExclusive @ 0x14061C4FC
  * Callers:
- *     MiClearPartitionPageBitMap @ 0x140658FC0 (MiClearPartitionPageBitMap.c)
- *     MiInsertPartitionPages @ 0x14065A480 (MiInsertPartitionPages.c)
- *     MiGetPhysicalMemoryRanges @ 0x140834478 (MiGetPhysicalMemoryRanges.c)
- *     MiAddPhysicalMemory @ 0x140A2B6C8 (MiAddPhysicalMemory.c)
- *     MiRemovePhysicalMemory @ 0x140A2CC4C (MiRemovePhysicalMemory.c)
- *     MiUpdatePartitionLargePfnBitMap @ 0x140A45288 (MiUpdatePartitionLargePfnBitMap.c)
- *     MmDuplicateMemory @ 0x140AAC84C (MmDuplicateMemory.c)
+ *     MiClearPartitionPageBitMap @ 0x140659510 (MiClearPartitionPageBitMap.c)
+ *     MiInsertPartitionPages @ 0x14065A9D0 (MiInsertPartitionPages.c)
+ *     MiGetPhysicalMemoryRanges @ 0x140834778 (MiGetPhysicalMemoryRanges.c)
+ *     MiAddPhysicalMemory @ 0x140A2B978 (MiAddPhysicalMemory.c)
+ *     MiRemovePhysicalMemory @ 0x140A2CEFC (MiRemovePhysicalMemory.c)
+ *     MiUpdatePartitionLargePfnBitMap @ 0x140A45538 (MiUpdatePartitionLargePfnBitMap.c)
+ *     MmDuplicateMemory @ 0x140AAC6BC (MmDuplicateMemory.c)
  *     MiInitializeMirroring @ 0x140B45F30 (MiInitializeMirroring.c)
  * Callees:
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F820 (KiCheckForKernelApcDelivery.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     KiCheckForKernelApcDelivery @ 0x14030FAB0 (KiCheckForKernelApcDelivery.c)
  */
 
 char __fastcall MiUnlockDynamicMemoryExclusive(__int64 a1, __int64 a2)

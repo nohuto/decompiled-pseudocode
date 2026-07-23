@@ -6,11 +6,17 @@
  *     <none>
  */
 
-__int64 ZwAlpcQueryInformationMessage()
+NTSTATUS __cdecl ZwAlpcQueryInformationMessage(
+        HANDLE PortHandle,
+        PPORT_MESSAGE PortMessage,
+        ALPC_MESSAGE_INFORMATION_CLASS MessageInformationClass,
+        PVOID MessageInformation,
+        ULONG Length,
+        PULONG ReturnLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 134LL;
+  result = 134;
   __asm { syscall; Low latency system call }
   return result;
 }

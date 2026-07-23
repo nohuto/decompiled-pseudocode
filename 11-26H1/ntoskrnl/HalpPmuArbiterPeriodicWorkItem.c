@@ -1,18 +1,18 @@
 /*
- * XREFs of HalpPmuArbiterPeriodicWorkItem @ 0x1407816F0
+ * XREFs of HalpPmuArbiterPeriodicWorkItem @ 0x1407841F0
  * Callers:
  *     <none>
  * Callees:
- *     KeQueryPerformanceCounter @ 0x14021C3F0 (KeQueryPerformanceCounter.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     HalpReleasePmuAccessRequest @ 0x1405807A0 (HalpReleasePmuAccessRequest.c)
- *     HalpNotifyActorIfPmuAvailable @ 0x140B110C8 (HalpNotifyActorIfPmuAvailable.c)
- *     HalpRequestPmuAccess @ 0x140B5BF20 (HalpRequestPmuAccess.c)
+ *     KeQueryPerformanceCounter @ 0x14021DD80 (KeQueryPerformanceCounter.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     HalpReleasePmuAccessRequest @ 0x140582CC0 (HalpReleasePmuAccessRequest.c)
+ *     HalpNotifyActorIfPmuAvailable @ 0x140B12E48 (HalpNotifyActorIfPmuAvailable.c)
+ *     HalpRequestPmuAccess @ 0x140B5F240 (HalpRequestPmuAccess.c)
  */
 
 void __fastcall HalpPmuArbiterPeriodicWorkItem(__int64 a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)

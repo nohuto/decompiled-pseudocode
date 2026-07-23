@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlInitializeExceptionLog @ 0x140C369B8
+ * XREFs of RtlInitializeExceptionLog @ 0x140C38AF8
  * Callers:
- *     InitBootProcessor @ 0x140C0AC88 (InitBootProcessor.c)
+ *     InitBootProcessor @ 0x140C0CC88 (InitBootProcessor.c)
  * Callees:
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 void *RtlInitializeExceptionLog()

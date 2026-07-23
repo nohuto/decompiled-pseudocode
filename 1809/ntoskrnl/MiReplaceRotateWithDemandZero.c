@@ -1,23 +1,23 @@
 /*
- * XREFs of MiReplaceRotateWithDemandZero @ 0x1401229F0
+ * XREFs of MiReplaceRotateWithDemandZero @ 0x140122AC0
  * Callers:
- *     MmRotatePhysicalView @ 0x14066B910 (MmRotatePhysicalView.c)
+ *     MmRotatePhysicalView @ 0x14066CAD0 (MmRotatePhysicalView.c)
  * Callees:
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  *     MiUnlockWorkingSetShared @ 0x140046970 (MiUnlockWorkingSetShared.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     MiLockPageTableInternal @ 0x14006CA20 (MiLockPageTableInternal.c)
- *     MiFlushTbList @ 0x1400740C0 (MiFlushTbList.c)
- *     MiLockWorkingSetShared @ 0x140076050 (MiLockWorkingSetShared.c)
- *     MiPageTableLockIsContended @ 0x140096404 (MiPageTableLockIsContended.c)
- *     MiWorkingSetIsContended @ 0x1400992A0 (MiWorkingSetIsContended.c)
- *     MiInsertTbFlushEntry @ 0x1400B3AF0 (MiInsertTbFlushEntry.c)
- *     KeShouldYieldProcessor @ 0x1400F9CE0 (KeShouldYieldProcessor.c)
- *     MiUnlockPageTableInternal @ 0x140104A90 (MiUnlockPageTableInternal.c)
- *     MiUnmapFrameBuffer @ 0x140122D64 (MiUnmapFrameBuffer.c)
- *     MiIsProbeActive @ 0x140122E7C (MiIsProbeActive.c)
- *     MiDereferenceIoPages @ 0x140123634 (MiDereferenceIoPages.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     MiLockPageTableInternal @ 0x14006CA10 (MiLockPageTableInternal.c)
+ *     MiFlushTbList @ 0x1400740B0 (MiFlushTbList.c)
+ *     MiLockWorkingSetShared @ 0x140076040 (MiLockWorkingSetShared.c)
+ *     MiPageTableLockIsContended @ 0x140096344 (MiPageTableLockIsContended.c)
+ *     MiWorkingSetIsContended @ 0x1400991E0 (MiWorkingSetIsContended.c)
+ *     MiInsertTbFlushEntry @ 0x1400B3A30 (MiInsertTbFlushEntry.c)
+ *     KeShouldYieldProcessor @ 0x1400F9D60 (KeShouldYieldProcessor.c)
+ *     MiUnlockPageTableInternal @ 0x140104B10 (MiUnlockPageTableInternal.c)
+ *     MiUnmapFrameBuffer @ 0x140122E34 (MiUnmapFrameBuffer.c)
+ *     MiIsProbeActive @ 0x140122F4C (MiIsProbeActive.c)
+ *     MiDereferenceIoPages @ 0x140123704 (MiDereferenceIoPages.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 __int64 __fastcall MiReplaceRotateWithDemandZero(unsigned __int64 a1, unsigned __int64 a2, unsigned int a3)

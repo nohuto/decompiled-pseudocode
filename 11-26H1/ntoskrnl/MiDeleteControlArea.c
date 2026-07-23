@@ -1,23 +1,23 @@
 /*
- * XREFs of MiDeleteControlArea @ 0x1404881E0
+ * XREFs of MiDeleteControlArea @ 0x140481D20
  * Callers:
- *     MiWaitForInPageComplete @ 0x14038E1F0 (MiWaitForInPageComplete.c)
- *     MiDereferenceControlAreaProbe @ 0x1404881AC (MiDereferenceControlAreaProbe.c)
- *     MiDeleteControlAreaList @ 0x1404A3428 (MiDeleteControlAreaList.c)
- *     MiPrepareToFlushSubsection @ 0x1404EBD20 (MiPrepareToFlushSubsection.c)
+ *     MiWaitForInPageComplete @ 0x14038FFA0 (MiWaitForInPageComplete.c)
+ *     MiDereferenceControlAreaProbe @ 0x140481CEC (MiDereferenceControlAreaProbe.c)
+ *     MiDeleteControlAreaList @ 0x14049CF38 (MiDeleteControlAreaList.c)
+ *     MiPrepareToFlushSubsection @ 0x1404E5300 (MiPrepareToFlushSubsection.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiDecrementSubsectionViewCount @ 0x14036E5D0 (MiDecrementSubsectionViewCount.c)
- *     MiDecrementControlAreaCount @ 0x1404AFCD0 (MiDecrementControlAreaCount.c)
- *     MiReturnCrossPartitionSectionCharges @ 0x1404D1140 (MiReturnCrossPartitionSectionCharges.c)
- *     MiDeleteSubsection @ 0x1404DE398 (MiDeleteSubsection.c)
- *     MiUpdateSubsectionCrossPartitionRefs @ 0x140512248 (MiUpdateSubsectionCrossPartitionRefs.c)
- *     MiFreeRelocations @ 0x140AAA400 (MiFreeRelocations.c)
- *     MiDeleteFileExtents @ 0x140AC35A8 (MiDeleteFileExtents.c)
- *     SeReleaseImageValidationContext @ 0x140AFC790 (SeReleaseImageValidationContext.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiDecrementSubsectionViewCount @ 0x140370370 (MiDecrementSubsectionViewCount.c)
+ *     MiDecrementControlAreaCount @ 0x1404A9360 (MiDecrementControlAreaCount.c)
+ *     MiReturnCrossPartitionSectionCharges @ 0x1404CAB70 (MiReturnCrossPartitionSectionCharges.c)
+ *     MiDeleteSubsection @ 0x1404D7A78 (MiDeleteSubsection.c)
+ *     MiUpdateSubsectionCrossPartitionRefs @ 0x14050BCB8 (MiUpdateSubsectionCrossPartitionRefs.c)
+ *     MiFreeRelocations @ 0x140AA79E0 (MiFreeRelocations.c)
+ *     MiDeleteFileExtents @ 0x140AC5218 (MiDeleteFileExtents.c)
+ *     SeReleaseImageValidationContext @ 0x140AFE304 (SeReleaseImageValidationContext.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiDeleteControlArea(char *P)
@@ -35,7 +35,7 @@ void __fastcall MiDeleteControlArea(char *P)
 
   v1 = 0LL;
   v2 = *((_DWORD *)P + 14);
-  v4 = *(_QWORD *)(stru_140E2EB88.ThreadLock + 8LL * (*((_DWORD *)P + 15) & 0x3FF));
+  v4 = *(_QWORD *)(stru_140E2ED08.ThreadLock + 8LL * (*((_DWORD *)P + 15) & 0x3FF));
   v5 = v4 + 2120;
   if ( (v2 & 0x20) != 0 )
   {

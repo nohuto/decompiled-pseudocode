@@ -1,13 +1,13 @@
 /*
- * XREFs of DbgkLkmdRegisterCallback @ 0x14078B4D0
+ * XREFs of DbgkLkmdRegisterCallback @ 0x14078E000
  * Callers:
  *     <none>
  * Callees:
- *     ExReferenceCallBackBlock @ 0x14029BA90 (ExReferenceCallBackBlock.c)
- *     ExDereferenceCallBackBlock @ 0x140435D80 (ExDereferenceCallBackBlock.c)
- *     ExCompareExchangeCallBack @ 0x140463604 (ExCompareExchangeCallBack.c)
- *     ExAllocateCallBack @ 0x140B30CE4 (ExAllocateCallBack.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExReferenceCallBackBlock @ 0x14029AFF0 (ExReferenceCallBackBlock.c)
+ *     ExDereferenceCallBackBlock @ 0x140424890 (ExDereferenceCallBackBlock.c)
+ *     ExCompareExchangeCallBack @ 0x14045C5C4 (ExCompareExchangeCallBack.c)
+ *     ExAllocateCallBack @ 0x140B32EE4 (ExAllocateCallBack.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall DbgkLkmdRegisterCallback(__int64 a1, signed __int64 a2, int a3)
@@ -22,7 +22,7 @@ __int64 __fastcall DbgkLkmdRegisterCallback(__int64 a1, signed __int64 a2, int a
     return 3221225485LL;
   for ( i = 0; i < 8; ++i )
   {
-    v8 = (signed __int64 *)&stru_140E3E928.SavedApcState.ApcListHead[i + 2];
+    v8 = (signed __int64 *)&stru_140E3EAA8.SavedApcState.ApcListHead[i + 2];
     v9 = ExReferenceCallBackBlock(v8, a2);
     if ( v9 )
     {
@@ -39,9 +39,9 @@ __int64 __fastcall DbgkLkmdRegisterCallback(__int64 a1, signed __int64 a2, int a
     return 3221225495LL;
   for ( j = 0; j < 8; ++j )
   {
-    if ( ExCompareExchangeCallBack((signed __int64 *)&stru_140E3E928.SavedApcState.ApcListHead[j + 2], v10, 0LL) )
+    if ( ExCompareExchangeCallBack((signed __int64 *)&stru_140E3EAA8.SavedApcState.ApcListHead[j + 2], v10, 0LL) )
     {
-      *(_DWORD *)&stru_140E3E928.SavedApcStateFill[16 * j + 40] = a3;
+      *(_DWORD *)&stru_140E3EAA8.SavedApcStateFill[16 * j + 40] = a3;
       return 0LL;
     }
   }

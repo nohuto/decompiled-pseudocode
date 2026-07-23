@@ -1,19 +1,19 @@
 /*
- * XREFs of PipEnumerateDevice @ 0x1403F1CBC
+ * XREFs of PipEnumerateDevice @ 0x1403F0B80
  * Callers:
- *     PipProcessDevNodeTree @ 0x1403F41E0 (PipProcessDevNodeTree.c)
+ *     PipProcessDevNodeTree @ 0x1403F30A4 (PipProcessDevNodeTree.c)
  * Callees:
- *     PnpDeviceCompletionQueueAddDispatchedRequest @ 0x140008010 (PnpDeviceCompletionQueueAddDispatchedRequest.c)
- *     PoFxActivateDevice @ 0x140008080 (PoFxActivateDevice.c)
- *     PnpDeviceCompletionQueueRemoveCompletedRequest @ 0x1400083C4 (PnpDeviceCompletionQueueRemoveCompletedRequest.c)
- *     PoFxIdleDevice @ 0x14000842C (PoFxIdleDevice.c)
- *     PnpDiagnosticTraceObject @ 0x1400084E8 (PnpDiagnosticTraceObject.c)
- *     PnpDeviceCompletionQueueDispatchedEntryCompleted @ 0x14000890C (PnpDeviceCompletionQueueDispatchedEntryCompleted.c)
- *     PipSetDevNodeState @ 0x14000962C (PipSetDevNodeState.c)
- *     PnpDeviceCompletionRequestCreate @ 0x1403F1AE4 (PnpDeviceCompletionRequestCreate.c)
- *     PnpQueryDeviceRelations @ 0x1403F1B44 (PnpQueryDeviceRelations.c)
- *     PnpDeviceCompletionProcessCompletedRequest @ 0x1403F2B90 (PnpDeviceCompletionProcessCompletedRequest.c)
- *     PipClearDevNodeFlags @ 0x1403F3414 (PipClearDevNodeFlags.c)
+ *     PnpDeviceCompletionQueueAddDispatchedRequest @ 0x140007B84 (PnpDeviceCompletionQueueAddDispatchedRequest.c)
+ *     PoFxActivateDevice @ 0x140007BF4 (PoFxActivateDevice.c)
+ *     PnpDeviceCompletionQueueRemoveCompletedRequest @ 0x140007F38 (PnpDeviceCompletionQueueRemoveCompletedRequest.c)
+ *     PoFxIdleDevice @ 0x140007FA0 (PoFxIdleDevice.c)
+ *     PnpDiagnosticTraceObject @ 0x14000805C (PnpDiagnosticTraceObject.c)
+ *     PnpDeviceCompletionQueueDispatchedEntryCompleted @ 0x140008480 (PnpDeviceCompletionQueueDispatchedEntryCompleted.c)
+ *     PipSetDevNodeState @ 0x1400091A0 (PipSetDevNodeState.c)
+ *     PnpDeviceCompletionRequestCreate @ 0x1403F09A8 (PnpDeviceCompletionRequestCreate.c)
+ *     PnpQueryDeviceRelations @ 0x1403F0A08 (PnpQueryDeviceRelations.c)
+ *     PnpDeviceCompletionProcessCompletedRequest @ 0x1403F1A54 (PnpDeviceCompletionProcessCompletedRequest.c)
+ *     PipClearDevNodeFlags @ 0x1403F22D8 (PipClearDevNodeFlags.c)
  */
 
 __int64 __fastcall PipEnumerateDevice(__int64 a1, int a2, int a3)

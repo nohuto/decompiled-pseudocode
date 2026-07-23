@@ -3,8 +3,8 @@
  * Callers:
  *     ViDeadlockCanProceed @ 0x140714D14 (ViDeadlockCanProceed.c)
  * Callees:
- *     IoGetStackLimits @ 0x14004F360 (IoGetStackLimits.c)
- *     DbgPrintEx @ 0x140081B0C (DbgPrintEx.c)
+ *     IoGetStackLimits @ 0x14004EEE0 (IoGetStackLimits.c)
+ *     DbgPrintEx @ 0x140084C90 (DbgPrintEx.c)
  */
 
 ULONG ViDeadlockCheckStackLimits()

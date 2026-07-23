@@ -1,7 +1,7 @@
 /*
- * XREFs of SdbpCheckRuntimePlatformV2Impl @ 0x1409658D0
+ * XREFs of SdbpCheckRuntimePlatformV2Impl @ 0x140965AB0
  * Callers:
- *     SdbpCheckRuntimePlatformImpl @ 0x140965898 (SdbpCheckRuntimePlatformImpl.c)
+ *     SdbpCheckRuntimePlatformImpl @ 0x140965A78 (SdbpCheckRuntimePlatformImpl.c)
  * Callees:
  *     <none>
  */

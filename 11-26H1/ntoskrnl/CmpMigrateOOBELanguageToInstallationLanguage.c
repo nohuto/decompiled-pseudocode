@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpMigrateOOBELanguageToInstallationLanguage @ 0x140CEB820
+ * XREFs of CmpMigrateOOBELanguageToInstallationLanguage @ 0x140CF1BC0
  * Callers:
- *     CmInitSystem1 @ 0x140CE888C (CmInitSystem1.c)
+ *     CmInitSystem1 @ 0x140CEEC2C (CmInitSystem1.c)
  * Callees:
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwOpenKey @ 0x140723630 (ZwOpenKey.c)
- *     ZwSetValueKey @ 0x140723FF0 (ZwSetValueKey.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140728200 (ZwOpenKey.c)
+ *     ZwSetValueKey @ 0x140728BC0 (ZwSetValueKey.c)
  */
 
 __int64 CmpMigrateOOBELanguageToInstallationLanguage()

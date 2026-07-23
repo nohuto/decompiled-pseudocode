@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpUpdateSchematizedFilterData @ 0x1406A931C
+ * XREFs of EtwpUpdateSchematizedFilterData @ 0x1406A9454
  * Callers:
- *     EtwpUpdateFilterData @ 0x140491C98 (EtwpUpdateFilterData.c)
+ *     EtwpUpdateFilterData @ 0x140492728 (EtwpUpdateFilterData.c)
  * Callees:
- *     memmove @ 0x140171280 (memmove.c)
+ *     memmove @ 0x140171780 (memmove.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */

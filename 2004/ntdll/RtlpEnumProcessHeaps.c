@@ -18,9 +18,8 @@
  *     _guard_dispatch_icall_nop @ 0x1800A08F0 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 __fastcall RtlpEnumProcessHeaps(__int64 (__fastcall *a1)(void *, __int64), __int64 a2, __int64 a3)
+__int64 __fastcall RtlpEnumProcessHeaps(__int64 (__fastcall *a1)(void *, __int64), __int64 a2, char a3)
 {
-  char v3; // di
   struct _PEB *v6; // rsi
   __int64 i; // rbx
   __int64 j; // rbx
@@ -29,18 +28,17 @@ __int64 __fastcall RtlpEnumProcessHeaps(__int64 (__fastcall *a1)(void *, __int64
   int v12; // [rsp+20h] [rbp-28h]
   int v13; // [rsp+24h] [rbp-24h]
 
-  v3 = a3;
   v6 = NtCurrentPeb();
   v13 = 0;
   if ( (a3 & 1) == 0 )
-    RtlEnterCriticalSection((__int64)&RtlpProcessHeapsListLock);
+    RtlEnterCriticalSection(&RtlpProcessHeapsListLock);
   for ( i = 0LL; (unsigned int)i < v6->NumberOfHeaps; i = (unsigned int)(i + 1) )
   {
     v13 = a1(v6->ProcessHeaps[i], a2);
     if ( v13 < 0 )
       goto LABEL_18;
   }
-  if ( (v3 & 2) != 0 )
+  if ( (a3 & 2) != 0 )
   {
     for ( j = 0LL; (unsigned int)j < (unsigned __int16)RtlpNumberOfProtectedHeaps; j = (unsigned int)(j + 1) )
     {
@@ -63,7 +61,7 @@ __int64 __fastcall RtlpEnumProcessHeaps(__int64 (__fastcall *a1)(void *, __int64
     }
   }
 LABEL_18:
-  if ( (v3 & 1) == 0 )
-    RtlLeaveCriticalSection((__int64)&RtlpProcessHeapsListLock, a2, a3);
+  if ( (a3 & 1) == 0 )
+    RtlLeaveCriticalSection(&RtlpProcessHeapsListLock);
   return (unsigned int)v13;
 }

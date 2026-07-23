@@ -1,10 +1,10 @@
 /*
- * XREFs of HvInitializeHashLibrary @ 0x14085B974
+ * XREFs of HvInitializeHashLibrary @ 0x140861C68
  * Callers:
- *     CmInitSystem1 @ 0x140CE888C (CmInitSystem1.c)
+ *     CmInitSystem1 @ 0x140CEEC2C (CmInitSystem1.c)
  * Callees:
- *     SymCryptMarvin32ExpandSeed @ 0x14055616C (SymCryptMarvin32ExpandSeed.c)
- *     SymCryptInit @ 0x1405E5590 (SymCryptInit.c)
+ *     SymCryptMarvin32ExpandSeed @ 0x1405585FC (SymCryptMarvin32ExpandSeed.c)
+ *     SymCryptInit @ 0x1405E7F00 (SymCryptInit.c)
  */
 
 __int64 HvInitializeHashLibrary()

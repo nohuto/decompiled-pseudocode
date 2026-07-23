@@ -1,12 +1,12 @@
 /*
- * XREFs of ViSetIoBuildRequestFlag @ 0x1406A40E0
+ * XREFs of ViSetIoBuildRequestFlag @ 0x1406A50E0
  * Callers:
- *     ViIovIoBuildDeviceIoControlRequest_Exit @ 0x1406A4050 (ViIovIoBuildDeviceIoControlRequest_Exit.c)
- *     ViIovIoBuildSynchronousFsdRequest_Exit @ 0x1406A4070 (ViIovIoBuildSynchronousFsdRequest_Exit.c)
- *     ViIovIoBuildAsynchronousFsdRequest_Exit @ 0x140BA52D0 (ViIovIoBuildAsynchronousFsdRequest_Exit.c)
+ *     ViIovIoBuildDeviceIoControlRequest_Exit @ 0x1406A5050 (ViIovIoBuildDeviceIoControlRequest_Exit.c)
+ *     ViIovIoBuildSynchronousFsdRequest_Exit @ 0x1406A5070 (ViIovIoBuildSynchronousFsdRequest_Exit.c)
+ *     ViIovIoBuildAsynchronousFsdRequest_Exit @ 0x140BA72D0 (ViIovIoBuildAsynchronousFsdRequest_Exit.c)
  * Callees:
- *     VfPacketReleaseLock @ 0x140B9B510 (VfPacketReleaseLock.c)
- *     VfPacketFindAndLock @ 0x140BA6750 (VfPacketFindAndLock.c)
+ *     VfPacketReleaseLock @ 0x140B9D510 (VfPacketReleaseLock.c)
+ *     VfPacketFindAndLock @ 0x140BA8750 (VfPacketFindAndLock.c)
  */
 
 __int64 __fastcall ViSetIoBuildRequestFlag(__int64 a1)

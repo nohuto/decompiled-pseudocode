@@ -1,14 +1,14 @@
 /*
- * XREFs of CmpCheckCreateAccess @ 0x1406C0848
+ * XREFs of CmpCheckCreateAccess @ 0x1406C0878
  * Callers:
- *     CmpCheckCreateAccessOnKcbStack @ 0x1406C0730 (CmpCheckCreateAccessOnKcbStack.c)
+ *     CmpCheckCreateAccessOnKcbStack @ 0x1406C0760 (CmpCheckCreateAccessOnKcbStack.c)
  * Callees:
- *     SeAccessCheck @ 0x140231650 (SeAccessCheck.c)
- *     SeOpenObjectAuditAlarm @ 0x1406C04D0 (SeOpenObjectAuditAlarm.c)
- *     SeOpenObjectAuditAlarmWithTransaction @ 0x1406C0530 (SeOpenObjectAuditAlarmWithTransaction.c)
- *     SeUnlockSubjectContext @ 0x1406C3130 (SeUnlockSubjectContext.c)
- *     SeLockSubjectContext @ 0x1406C3170 (SeLockSubjectContext.c)
- *     RtlIsSandboxedToken @ 0x1407F3790 (RtlIsSandboxedToken.c)
+ *     SeAccessCheck @ 0x140231720 (SeAccessCheck.c)
+ *     SeOpenObjectAuditAlarm @ 0x1406C0500 (SeOpenObjectAuditAlarm.c)
+ *     SeOpenObjectAuditAlarmWithTransaction @ 0x1406C0560 (SeOpenObjectAuditAlarmWithTransaction.c)
+ *     SeUnlockSubjectContext @ 0x1406C3160 (SeUnlockSubjectContext.c)
+ *     SeLockSubjectContext @ 0x1406C31A0 (SeLockSubjectContext.c)
+ *     RtlIsSandboxedToken @ 0x1407F3A60 (RtlIsSandboxedToken.c)
  */
 
 BOOLEAN __fastcall CmpCheckCreateAccess(

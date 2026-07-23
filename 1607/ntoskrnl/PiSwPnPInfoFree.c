@@ -1,10 +1,10 @@
 /*
- * XREFs of PiSwPnPInfoFree @ 0x1404C3B28
+ * XREFs of PiSwPnPInfoFree @ 0x140483E58
  * Callers:
- *     PiSwProcessRemove @ 0x1404C36B0 (PiSwProcessRemove.c)
- *     PiSwDeviceFree @ 0x1404C3B98 (PiSwDeviceFree.c)
- *     PiSwIrpStartCreateWorker @ 0x1404C6CB4 (PiSwIrpStartCreateWorker.c)
- *     PiSwQueuedCreateInfoFree @ 0x140645918 (PiSwQueuedCreateInfoFree.c)
+ *     PiSwProcessRemove @ 0x140483A18 (PiSwProcessRemove.c)
+ *     PiSwDeviceFree @ 0x140483DD0 (PiSwDeviceFree.c)
+ *     PiSwIrpStartCreateWorker @ 0x1404880D0 (PiSwIrpStartCreateWorker.c)
+ *     PiSwQueuedCreateInfoFree @ 0x1406459FC (PiSwQueuedCreateInfoFree.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  */

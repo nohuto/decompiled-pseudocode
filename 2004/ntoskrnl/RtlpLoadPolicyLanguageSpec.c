@@ -24,11 +24,11 @@ __int64 __fastcall RtlpLoadPolicyLanguageSpec(HANDLE KeyHandle, __int64 a2, _BYT
   unsigned __int16 v14; // cx
   __int16 v16[2]; // [rsp+30h] [rbp-20h] BYREF
   SIZE_T NumberOfBytes; // [rsp+34h] [rbp-1Ch] BYREF
-  int v18; // [rsp+3Ch] [rbp-14h] BYREF
+  DWORD Lcid; // [rsp+3Ch] [rbp-14h] BYREF
   UNICODE_STRING DestinationString; // [rsp+40h] [rbp-10h] BYREF
   unsigned __int16 v20; // [rsp+88h] [rbp+38h] BYREF
 
-  v18 = 0;
+  Lcid = 0;
   v20 = 0;
   v16[0] = -1;
   v8 = 0LL;
@@ -60,10 +60,10 @@ __int64 __fastcall RtlpLoadPolicyLanguageSpec(HANDLE KeyHandle, __int64 a2, _BYT
     if ( InstalledLanguageIndex >= 0 )
     {
       if ( HIDWORD(NumberOfBytes) == 1
-        && (RtlInitUnicodeString(&DestinationString, (PCWSTR)v8), RtlCultureNameToLCID(&DestinationString.Length, &v18)) )
+        && (RtlInitUnicodeString(&DestinationString, (PCWSTR)v8), RtlCultureNameToLCID(&DestinationString, &Lcid)) )
       {
-        v14 = v18;
-        if ( ((v18 - 4096) & 0xFFFFFBFF) != 0 )
+        v14 = Lcid;
+        if ( ((Lcid - 4096) & 0xFFFFFBFF) != 0 )
           goto LABEL_16;
         InstalledLanguageIndex = RtlpMuiRegGetOrAddString(a2, DestinationString.Buffer, 0LL, (__int16 *)&v20);
         if ( InstalledLanguageIndex >= 0 )

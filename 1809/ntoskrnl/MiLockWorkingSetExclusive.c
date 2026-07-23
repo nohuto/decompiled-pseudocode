@@ -1,10 +1,10 @@
 /*
- * XREFs of MiLockWorkingSetExclusive @ 0x1402BF654
+ * XREFs of MiLockWorkingSetExclusive @ 0x1402BF844
  * Callers:
- *     MiLockWorkingSetForLargeMapping @ 0x1401B5800 (MiLockWorkingSetForLargeMapping.c)
+ *     MiLockWorkingSetForLargeMapping @ 0x1401B5940 (MiLockWorkingSetForLargeMapping.c)
  * Callees:
- *     MiGetSharedVm @ 0x140064D30 (MiGetSharedVm.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
+ *     MiGetSharedVm @ 0x140064D20 (MiGetSharedVm.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC420 (ExAcquireSpinLockExclusive.c)
  */
 
 KIRQL __fastcall MiLockWorkingSetExclusive(__int64 a1)

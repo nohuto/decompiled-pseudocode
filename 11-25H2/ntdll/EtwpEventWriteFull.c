@@ -50,7 +50,7 @@ __int64 __fastcall EtwpEventWriteFull(
   __int64 *v24; // rcx
   __int64 v25; // rdx
   __int128 v26; // xmm0
-  _OWORD v29[4]; // [rsp+70h] [rbp-90h] BYREF
+  _OWORD Fields[4]; // [rsp+70h] [rbp-90h] BYREF
   _GUID v30; // [rsp+B0h] [rbp-50h]
   __int128 v31; // [rsp+C0h] [rbp-40h]
   __int128 v32; // [rsp+D0h] [rbp-30h]
@@ -63,7 +63,7 @@ __int64 __fastcall EtwpEventWriteFull(
   v11 = 0;
   v33 = 0LL;
   v35 = 0LL;
-  memset(v29, 0, sizeof(v29));
+  memset(Fields, 0, sizeof(Fields));
   v30 = 0LL;
   v31 = 0LL;
   v32 = 0LL;
@@ -72,7 +72,7 @@ __int64 __fastcall EtwpEventWriteFull(
   {
     v12 = *a2;
     v13 = ((unsigned int)a1 >> 1) & 7;
-    *(_OWORD *)((char *)&v29[2] + 8) = v12;
+    *(_OWORD *)((char *)&Fields[2] + 8) = v12;
     v14 = qword_1801D02A0[v13];
     if ( ((v14 != 0 && (unsigned int)a1 >> 4 < dword_18019C7E0[v13]) & (unsigned __int8)a1) == 0 )
       return 6LL;
@@ -82,12 +82,12 @@ __int64 __fastcall EtwpEventWriteFull(
       v17 = *(_QWORD *)(v14 + 8 * v16);
     if ( !v17 || WORD2(a1) != *(_WORD *)(v17 + 84) )
       return 6LL;
-    v18 = *(_QWORD *)&v29[3];
+    v18 = *(_QWORD *)&Fields[3];
     if ( *(_BYTE *)(v17 + 236)
-      && ((v19 = *(_BYTE *)(v17 + 237), BYTE12(v29[2]) <= v19) || !v19)
-      && ((*(_BYTE *)(v17 + 232) & 0x40) != 0 && !*(_QWORD *)&v29[3]
-       || (*(_QWORD *)&v29[3] & *(_QWORD *)(v17 + 224)) != 0LL
-       && (*(_QWORD *)&v29[3] & *(_QWORD *)(v17 + 216)) == *(_QWORD *)(v17 + 216)) )
+      && ((v19 = *(_BYTE *)(v17 + 237), BYTE12(Fields[2]) <= v19) || !v19)
+      && ((*(_BYTE *)(v17 + 232) & 0x40) != 0 && !*(_QWORD *)&Fields[3]
+       || (*(_QWORD *)&Fields[3] & *(_QWORD *)(v17 + 224)) != 0LL
+       && (*(_QWORD *)&Fields[3] & *(_QWORD *)(v17 + 216)) == *(_QWORD *)(v17 + 216)) )
     {
       v20 = 1;
       v11 = EtwpWriteToPrivateBuffers(v17, v10, a5, HIDWORD(a3), 0, (__int64)a6, (__int64)a7, a8, a9, (__int64)v34);
@@ -110,7 +110,7 @@ LABEL_29:
         }
         return v11;
       }
-      v18 = *(_QWORD *)&v29[3];
+      v18 = *(_QWORD *)&Fields[3];
     }
     else
     {
@@ -119,13 +119,13 @@ LABEL_29:
     if ( *(_BYTE *)(v17 + 116) )
     {
       v21 = *(_BYTE *)(v17 + 117);
-      if ( (BYTE12(v29[2]) <= v21 || !v21)
+      if ( (BYTE12(Fields[2]) <= v21 || !v21)
         && ((*(_BYTE *)(v17 + 112) & 0x40) != 0 && !v18
          || (v18 & *(_QWORD *)(v17 + 104)) != 0 && (v18 & *(_QWORD *)(v17 + 96)) == *(_QWORD *)(v17 + 96)) )
       {
         *((_QWORD *)&v31 + 1) = a9;
-        WORD2(v29[0]) = 0;
-        WORD3(v29[0]) = a5;
+        WORD2(Fields[0]) = 0;
+        WORD3(Fields[0]) = a5;
         DWORD1(v31) = a8;
         if ( a6 )
           ActivityId = *a6;
@@ -141,7 +141,7 @@ LABEL_29:
         }
         WORD1(v31) = a3;
         LODWORD(v33) = a4;
-        v23 = NtTraceEvent(*(_QWORD *)(v17 + 88), 768LL, 120LL, v29);
+        v23 = NtTraceEvent(*(HANDLE *)(v17 + 88), 0x300u, 0x78u, Fields);
         if ( v23 )
           v11 = RtlNtStatusToDosError(v23);
         else

@@ -1,10 +1,10 @@
 /*
- * XREFs of InbvPortPollOnly @ 0x14032C408
+ * XREFs of InbvPortPollOnly @ 0x14032C5F8
  * Callers:
- *     HdlspDispatch @ 0x14094BE50 (HdlspDispatch.c)
- *     HdlspGetLine @ 0x14094C584 (HdlspGetLine.c)
+ *     HdlspDispatch @ 0x14094CE50 (HdlspDispatch.c)
+ *     HdlspGetLine @ 0x14094D584 (HdlspGetLine.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
  */
 
 char __fastcall InbvPortPollOnly(unsigned int a1)

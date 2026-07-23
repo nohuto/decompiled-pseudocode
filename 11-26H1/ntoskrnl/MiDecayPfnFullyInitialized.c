@@ -1,17 +1,17 @@
 /*
- * XREFs of MiDecayPfnFullyInitialized @ 0x140498358
+ * XREFs of MiDecayPfnFullyInitialized @ 0x140491EA8
  * Callers:
- *     MiFinishHardFault @ 0x14031D830 (MiFinishHardFault.c)
- *     MiDecommitPages @ 0x140360150 (MiDecommitPages.c)
- *     MiDeleteVaTail @ 0x140361270 (MiDeleteVaTail.c)
- *     MiDecommitPagesTail @ 0x14044B7AC (MiDecommitPagesTail.c)
- *     MiWalkEntireImage @ 0x140AC8434 (MiWalkEntireImage.c)
+ *     MiFinishHardFault @ 0x14031F860 (MiFinishHardFault.c)
+ *     MiDecommitPages @ 0x140361EF0 (MiDecommitPages.c)
+ *     MiDeleteVaTail @ 0x140363010 (MiDeleteVaTail.c)
+ *     MiDecommitPagesTail @ 0x1404438DC (MiDecommitPagesTail.c)
+ *     MiWalkEntireImage @ 0x140ACA024 (MiWalkEntireImage.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiActivateDecayNode @ 0x140299994 (MiActivateDecayNode.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     RtlpInterlockedPushEntrySList @ 0x140730CD0 (RtlpInterlockedPushEntrySList.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiActivateDecayNode @ 0x140298EF4 (MiActivateDecayNode.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1407358A0 (RtlpInterlockedPushEntrySList.c)
  */
 
 __int64 __fastcall MiDecayPfnFullyInitialized(PSLIST_ENTRY ListEntry, int a2)
@@ -66,6 +66,6 @@ __int64 __fastcall MiDecayPfnFullyInitialized(PSLIST_ENTRY ListEntry, int a2)
     __writecr8(CurrentIrql);
   }
   if ( !v4 )
-    return (__int64)RtlpInterlockedPushEntrySList(&stru_140E347C0, v2);
+    return (__int64)RtlpInterlockedPushEntrySList(&stru_140E34940, v2);
   return result;
 }

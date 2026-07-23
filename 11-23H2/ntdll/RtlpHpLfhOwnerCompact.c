@@ -13,122 +13,119 @@
  *     _guard_xfg_dispatch_icall_nop @ 0x1800A4B90 (_guard_xfg_dispatch_icall_nop.c)
  */
 
-_QWORD *__fastcall RtlpHpLfhOwnerCompact(__int64 a1, unsigned __int64 a2, unsigned __int64 a3, unsigned __int64 a4)
+void __fastcall RtlpHpLfhOwnerCompact(_RTL_SRWLOCK *a1, __int64 a2, __int64 a3)
 {
-  __int64 v4; // rdi
-  _QWORD *v7; // r15
-  _QWORD *result; // rax
-  unsigned __int64 v9; // r9
+  __int64 v3; // rdi
+  _QWORD *v6; // r15
   _QWORD *i; // r14
-  __int64 v11; // rbp
-  __int64 v12; // rsi
-  unsigned __int8 v13; // cl
-  int v14; // r12d
-  unsigned __int64 v15; // rdx
-  unsigned __int64 v16; // r8
-  _WORD *v17; // rcx
-  __int64 v18; // rsi
-  char v19; // cl
-  unsigned int v20; // edi
-  unsigned int v21; // ebx
-  _WORD *j; // rsi
-  _QWORD *v23; // [rsp+78h] [rbp+10h]
-  unsigned int v24; // [rsp+80h] [rbp+18h]
-  volatile signed __int64 *v25; // [rsp+88h] [rbp+20h]
+  __int64 v8; // rbp
+  __int64 v9; // rsi
+  unsigned __int8 v10; // cl
+  int v11; // r12d
+  char *v12; // rdx
+  unsigned __int64 v13; // r8
+  char *v14; // rcx
+  __int64 v15; // rsi
+  char v16; // cl
+  unsigned int v17; // edi
+  unsigned int v18; // ebx
+  char *j; // rsi
+  _QWORD *v20; // [rsp+78h] [rbp+10h]
+  unsigned int v21; // [rsp+80h] [rbp+18h]
+  _RTL_SRWLOCK *SRWLock; // [rsp+88h] [rbp+20h]
 
-  v24 = a3;
-  v4 = 0LL;
+  v21 = a3;
+  v3 = 0LL;
   if ( (*(_BYTE *)a2 & 1) != 0 && *(_BYTE *)(a2 + 2) )
   {
-    v18 = *(unsigned __int8 *)(a2 + 2);
+    v15 = *(unsigned __int8 *)(a2 + 2);
     do
     {
-      RtlpHpLfhOwnerCompact(a1, *(_QWORD *)(v4 + *(_QWORD *)(a2 + 96)), a3);
-      a3 = v24;
-      v4 += 8LL;
-      --v18;
+      RtlpHpLfhOwnerCompact(a1, *(_QWORD *)(v3 + *(_QWORD *)(a2 + 96)), a3);
+      a3 = v21;
+      v3 += 8LL;
+      --v15;
     }
-    while ( v18 );
+    while ( v15 );
   }
-  v7 = (_QWORD *)(a2 + 24);
-  v23 = v7;
-  if ( (_QWORD *)*v7 != v7 || (result = (_QWORD *)(a2 + 40), (_QWORD *)*result != result) )
+  v6 = (_QWORD *)(a2 + 24);
+  v20 = v6;
+  if ( (_QWORD *)*v6 != v6 || *(_QWORD *)(a2 + 40) != a2 + 40 )
   {
-    v25 = (volatile signed __int64 *)(a2 + 16);
-    RtlAcquireSRWLockShared((volatile signed __int64 *)(a2 + 16), a2, a3, a4);
-    for ( i = (_QWORD *)*v7; i != v7; i = (_QWORD *)*i )
+    SRWLock = (_RTL_SRWLOCK *)(a2 + 16);
+    RtlAcquireSRWLockShared((PRTL_SRWLOCK)(a2 + 16));
+    for ( i = (_QWORD *)*v6; i != v6; i = (_QWORD *)*i )
     {
-      v13 = *((_BYTE *)i + 45);
-      v14 = 0;
-      if ( v13 > 1u )
+      v10 = *((_BYTE *)i + 45);
+      v11 = 0;
+      if ( v10 > 1u )
       {
-        LODWORD(v11) = 1;
+        LODWORD(v8) = 1;
         while ( 1 )
         {
-          v15 = (unsigned __int64)i + *((unsigned __int16 *)i + 23);
-          v16 = v15 + 2LL * v13;
-          v17 = (_WORD *)(v15 + 2LL * (unsigned int)v11);
-          if ( *v17 )
+          v12 = (char *)i + *((unsigned __int16 *)i + 23);
+          v13 = (unsigned __int64)&v12[2 * v10];
+          v14 = &v12[2 * (unsigned int)v8];
+          if ( *(_WORD *)v14 )
             break;
           do
-            --v17;
-          while ( !*v17 );
-          ++v17;
+            v14 -= 2;
+          while ( !*(_WORD *)v14 );
+          v14 += 2;
 LABEL_28:
-          for ( j = (_WORD *)(v15 + 2 * ((unsigned int)v11 + 1LL)); !*j && (unsigned __int64)j < v16; ++j )
+          for ( j = &v12[2 * (unsigned int)v8 + 2]; !*(_WORD *)j && (unsigned __int64)j < v13; j += 2 )
             ;
-          v11 = (__int64)((__int64)v17 - v15) >> 1;
-          v12 = j - v17;
-          if ( (_DWORD)v11 != -1 )
+          v8 = (v14 - v12) >> 1;
+          v9 = (j - v14) >> 1;
+          if ( (_DWORD)v8 != -1 )
           {
-            if ( (_DWORD)v12 )
+            if ( (_DWORD)v9 )
             {
-              if ( v14 )
+              if ( v11 )
               {
-                v19 = *((_BYTE *)i + 44);
-                v20 = (_DWORD)v11 << v19;
-                v21 = (_DWORD)v12 << v19;
-                ((void (__fastcall *)(_QWORD, char *, _QWORD))(a1 ^ RtlpHpHeapGlobals ^ *(_QWORD *)(a1 + 32)))(
-                  *(_QWORD *)a1,
-                  (char *)i + (unsigned int)((_DWORD)v11 << v19),
-                  (unsigned int)((_DWORD)v12 << v19));
-                RtlpHpLfhSubsegmentDecBlockCounts(a1, i, v20, v21);
-                LODWORD(v11) = v12 + v11;
+                v16 = *((_BYTE *)i + 44);
+                v17 = (_DWORD)v8 << v16;
+                v18 = (_DWORD)v9 << v16;
+                ((void (__fastcall *)(unsigned __int64, char *, _QWORD))((unsigned __int64)a1 ^ RtlpHpHeapGlobals ^ a1[4].Value))(
+                  a1->Value,
+                  (char *)i + (unsigned int)((_DWORD)v8 << v16),
+                  (unsigned int)((_DWORD)v9 << v16));
+                RtlpHpLfhSubsegmentDecBlockCounts(a1, i, v17, v18);
+                LODWORD(v8) = v9 + v8;
               }
               else
               {
-                if ( (v24 & 1) == 0 )
-                  RtlAcquireSRWLockShared((volatile signed __int64 *)(a1 + 72), v15, v16, v9);
-                v14 = 2;
-                RtlAcquireSRWLockExclusive(i + 3);
+                if ( (v21 & 1) == 0 )
+                  RtlAcquireSRWLockShared(a1 + 9);
+                v11 = 2;
+                RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)i + 3);
               }
             }
-            v13 = *((_BYTE *)i + 45);
-            if ( (unsigned int)v11 < v13 )
+            v10 = *((_BYTE *)i + 45);
+            if ( (unsigned int)v8 < v10 )
               continue;
           }
           goto LABEL_6;
         }
-        while ( (unsigned __int64)v17 < v16 )
+        while ( (unsigned __int64)v14 < v13 )
         {
-          if ( !*v17 )
+          if ( !*(_WORD *)v14 )
           {
-            v11 = (__int64)((__int64)v17 - v15) >> 1;
+            v8 = (v14 - v12) >> 1;
             goto LABEL_28;
           }
-          ++v17;
+          v14 += 2;
         }
 LABEL_6:
-        v7 = v23;
-        if ( v14 )
+        v6 = v20;
+        if ( v11 )
         {
-          RtlReleaseSRWLockExclusive(i + 3);
-          if ( (v24 & 1) == 0 )
-            RtlReleaseSRWLockShared((volatile signed __int64 *)(a1 + 72));
+          RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)i + 3);
+          if ( (v21 & 1) == 0 )
+            RtlReleaseSRWLockShared(a1 + 9);
         }
       }
     }
-    return (_QWORD *)RtlReleaseSRWLockShared(v25);
+    RtlReleaseSRWLockShared(SRWLock);
   }
-  return result;
 }

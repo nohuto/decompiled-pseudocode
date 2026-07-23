@@ -1,19 +1,19 @@
 /*
- * XREFs of ExpWorkerInitialization @ 0x140CE6768
+ * XREFs of ExpWorkerInitialization @ 0x140CECB08
  * Callers:
- *     ExpInitSystemPhase1 @ 0x140CE4380 (ExpInitSystemPhase1.c)
+ *     ExpInitSystemPhase1 @ 0x140CEA720 (ExpInitSystemPhase1.c)
  * Callees:
- *     KeIsNodeInitialized @ 0x14038227C (KeIsNodeInitialized.c)
- *     KiQueryUnbiasedInterruptTime @ 0x140446880 (KiQueryUnbiasedInterruptTime.c)
- *     ExQueueDebuggerWorker @ 0x1406D0A48 (ExQueueDebuggerWorker.c)
- *     ExpLegacyWorkerInitialization @ 0x1406D0AB4 (ExpLegacyWorkerInitialization.c)
- *     Feature_WorkQueueShardingWithinNodes__private_IsEnabledDeviceUsageNoInline @ 0x1406D0F2C (Feature_WorkQueueShardingWithinNodes__private_IsEnabledDeviceUsageNoInline.c)
- *     ExpNodeInitialize @ 0x14083F9C0 (ExpNodeInitialize.c)
- *     ExpPartitionInitialize @ 0x14083FCA4 (ExpPartitionInitialize.c)
- *     ExpPartitionStart @ 0x14083FE48 (ExpPartitionStart.c)
- *     ExpWorkQueueInitializeHealthMetricsMonitor @ 0x140840160 (ExpWorkQueueInitializeHealthMetricsMonitor.c)
- *     ObpLockObjectTypeExclusive @ 0x1409242F0 (ObpLockObjectTypeExclusive.c)
- *     ObpUnlockObjectType @ 0x140A5AAA0 (ObpUnlockObjectType.c)
+ *     KeIsNodeInitialized @ 0x14038402C (KeIsNodeInitialized.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x14043F380 (KiQueryUnbiasedInterruptTime.c)
+ *     ExQueueDebuggerWorker @ 0x1406D4A78 (ExQueueDebuggerWorker.c)
+ *     ExpLegacyWorkerInitialization @ 0x1406D4AE4 (ExpLegacyWorkerInitialization.c)
+ *     Feature_WorkQueueShardingWithinNodes__private_IsEnabledDeviceUsageNoInline @ 0x1406D4F5C (Feature_WorkQueueShardingWithinNodes__private_IsEnabledDeviceUsageNoInline.c)
+ *     ExpNodeInitialize @ 0x140845C00 (ExpNodeInitialize.c)
+ *     ExpPartitionInitialize @ 0x140845EE4 (ExpPartitionInitialize.c)
+ *     ExpPartitionStart @ 0x140846088 (ExpPartitionStart.c)
+ *     ExpWorkQueueInitializeHealthMetricsMonitor @ 0x1408463A0 (ExpWorkQueueInitializeHealthMetricsMonitor.c)
+ *     ObpLockObjectTypeExclusive @ 0x1408FFE00 (ObpLockObjectTypeExclusive.c)
+ *     ObpUnlockObjectType @ 0x140A67A10 (ObpUnlockObjectType.c)
  */
 
 __int64 ExpWorkerInitialization()
@@ -40,21 +40,21 @@ __int64 ExpWorkerInitialization()
   unsigned int v19; // edi
   __int64 v20; // rax
   _QWORD *v21; // r8
-  const char *v22; // rcx
-  __int64 v23; // rdx
+  const char *j; // rcx
+  char *v23; // rdx
   __int64 v24; // rax
   __int64 v25; // rax
 
-  ExSaPageGroupDescriptorArrayLock.WaitBlockFill7[130] = 6;
-  *(_QWORD *)&ExSaPageGroupDescriptorArrayLock.WaitBlockFill11[112] = 0LL;
-  ExSaPageGroupDescriptorArrayLock.WaitBlock[3].WaitListEntry.Flink = (struct _LIST_ENTRY *)&ExSaPageGroupDescriptorArrayLock.WaitBlockFill11[136];
-  ExSaPageGroupDescriptorArrayLock.WaitBlock[2].SparePtr = &ExSaPageGroupDescriptorArrayLock.WaitBlockFill11[136];
+  ExSaPageGroupDescriptorArrayLock.SavedApcStateFill[18] = 6;
+  ExSaPageGroupDescriptorArrayLock.SavedApcState.ApcListHead[0].Flink = 0LL;
+  ExSaPageGroupDescriptorArrayLock.SavedApcState.Process = (_KPROCESS *)&ExSaPageGroupDescriptorArrayLock.SavedApcStateFill[24];
+  ExSaPageGroupDescriptorArrayLock.SavedApcState.ApcListHead[1].Blink = (struct _LIST_ENTRY *)&ExSaPageGroupDescriptorArrayLock.SavedApcState.ApcListHead[1].Blink;
   v0 = ExpMaximumKernelWorkerThreads;
-  *(_DWORD *)&ExSaPageGroupDescriptorArrayLock.WaitBlockFill11[104] = 1;
-  *(_DWORD *)&ExSaPageGroupDescriptorArrayLock.WaitBlockFill11[120] = 0;
-  *(_WORD *)&ExSaPageGroupDescriptorArrayLock.WaitBlockFill11[128] = 1;
-  *(_DWORD *)&ExSaPageGroupDescriptorArrayLock.WaitBlockFill11[132] = 0;
-  ExSaPageGroupDescriptorArrayLock.WaitBlockFill6[80] = 1;
+  LODWORD(ExSaPageGroupDescriptorArrayLock.NpxState) = 1;
+  *(_DWORD *)&ExSaPageGroupDescriptorArrayLock.SavedApcStateFill[8] = 0;
+  *(_WORD *)&ExSaPageGroupDescriptorArrayLock.SavedApcStateFill[16] = 1;
+  *(_DWORD *)&ExSaPageGroupDescriptorArrayLock.SavedApcStateFill[20] = 0;
+  LOBYTE(ExSaPageGroupDescriptorArrayLock.AffinityVersion) = 1;
   if ( ExpMaximumKernelWorkerThreads > 0x4000 )
   {
     v0 = 0x4000;
@@ -142,54 +142,52 @@ __int64 ExpWorkerInitialization()
       {
         ExpLegacyWorkerInitialization();
         _mm_lfence();
-        if ( !qword_140E623F0 )
+        if ( !*(_QWORD *)&stru_140E62450.WaitBlockFill11[64] )
         {
           v14 = __rdtsc();
-          qword_140E623F0 = (41929663 * (unsigned int)((((unsigned __int64)HIDWORD(v14) << 32) | (unsigned int)v14) >> 4)) ^ 0xB96LL;
-          if ( !qword_140E623F0 )
-            qword_140E623F0 = 1LL;
+          *(_QWORD *)&stru_140E62450.WaitBlockFill11[64] = (41929663
+                                                          * (unsigned int)((((unsigned __int64)HIDWORD(v14) << 32) | (unsigned int)v14) >> 4)) ^ 0xB96LL;
+          if ( !*(_QWORD *)&stru_140E62450.WaitBlockFill11[64] )
+            *(_QWORD *)&stru_140E62450.WaitBlockFill11[64] = 1LL;
           v15 = __rdtsc();
           v16 = (unsigned __int64)HIDWORD(v15) << 32;
-          qword_140E623F8 = (41929663 * (unsigned int)((v16 | (unsigned __int64)(unsigned int)v15) >> 4)) ^ 0x5CBLL;
-          ObpLockObjectTypeExclusive((__int64)ObpTypeObjectType, v16, v12, v13);
+          stru_140E62450.WaitBlock[1].Thread = (struct _KTHREAD *)((41929663
+                                                                  * (unsigned int)((v16 | (unsigned __int64)(unsigned int)v15) >> 4)) ^ 0x5CBLL);
+          ObpLockObjectTypeExclusive(*(__int64 *)&ObpStackTraceLock.PriorityFloorSummary, v16, v12, v13);
           v17 = 0;
           v18 = 64;
-          v19 = *((_DWORD *)ObpTypeObjectType + 11);
-          qword_140E62408 = v19;
+          v19 = *(_DWORD *)(*(_QWORD *)&ObpStackTraceLock.PriorityFloorSummary + 44LL);
+          stru_140E62450.WaitBlock[1].SparePtr = (PVOID)v19;
           while ( v17 < v19 )
           {
-            v20 = *((_QWORD *)&stru_140F132C8.SavedApcState.ApcListHead[2].Flink + v17);
+            v20 = *((_QWORD *)&ObpStackTraceLock.ForegroundLossTime + v17);
             if ( !v20 )
             {
               v19 = v17;
-              qword_140E62408 = v17;
+              stru_140E62450.WaitBlock[1].SparePtr = (PVOID)v17;
               break;
             }
             if ( (*(_BYTE *)(v20 + 66) & 0x40) != 0 )
-              qword_140E62410[(unsigned __int64)v17 >> 3] |= 1 << (v17 & 7);
+              stru_140E62450.WaitBlockFill6[((unsigned __int64)v17 >> 3) + 96] |= 1 << (v17 & 7);
             ++v17;
           }
-          ObpUnlockObjectType((__int64)ObpTypeObjectType);
+          ObpUnlockObjectType(*(__int64 *)&ObpStackTraceLock.PriorityFloorSummary);
           if ( v19 )
           {
-            qword_140E62430 = *((_QWORD *)&stru_140F132C8.SavedApcState.ApcListHead[2].Flink
-                              + 41929663 * (__rdtsc() >> 4) % v19);
-            v21 = (_QWORD *)(qword_140E62430 + 112);
-            v22 = (const char *)(qword_140E62430 + 112);
-            if ( qword_140E62430 + 112 < (unsigned __int64)(qword_140E62430 + 176) )
+            stru_140E62450.WaitBlock[2].Object = (PVOID)*((_QWORD *)&ObpStackTraceLock.ForegroundLossTime
+                                                        + 41929663 * (__rdtsc() >> 4) % v19);
+            v21 = (char *)stru_140E62450.WaitBlock[2].Object + 112;
+            for ( j = (char *)stru_140E62450.WaitBlock[2].Object + 112;
+                  j < (char *)stru_140E62450.WaitBlock[2].Object + 176;
+                  j += 64 )
             {
-              do
-              {
-                _mm_prefetch(v22, 0);
-                v22 += 64;
-              }
-              while ( (unsigned __int64)v22 < qword_140E62430 + 176 );
+              _mm_prefetch(j, 0);
             }
-            v23 = qword_140E623F0;
+            v23 = *(char **)&stru_140E62450.WaitBlockFill11[64];
             v24 = 8LL;
             do
             {
-              v23 = __ROR8__(v23 - *v21++, qword_140E623F8);
+              v23 = (char *)__ROR8__(&v23[-*v21++], stru_140E62450.WaitBlockFill6[72]);
               v18 -= 8;
               --v24;
             }
@@ -198,26 +196,26 @@ __int64 ExpWorkerInitialization()
             {
               v25 = *(unsigned __int8 *)v21;
               v21 = (_QWORD *)((char *)v21 + 1);
-              v23 = __ROR8__(v23 - v25, qword_140E623F8);
+              v23 = (char *)__ROR8__(&v23[-v25], stru_140E62450.WaitBlockFill6[72]);
             }
-            qword_140E62438 = v23;
-            qword_140E62400 = KiQueryUnbiasedInterruptTime()
-                            + 41929663 * (__rdtsc() >> 4) % 0x12A05F2000LL
-                            + 288000000000LL;
+            stru_140E62450.WaitBlock[2].SparePtr = v23;
+            stru_140E62450.WaitBlock[1].Object = (PVOID)(KiQueryUnbiasedInterruptTime()
+                                                       + 41929663 * (__rdtsc() >> 4) % 0x12A05F2000LL
+                                                       + 288000000000LL);
           }
           else
           {
-            qword_140E623F0 = 0LL;
+            *(_QWORD *)&stru_140E62450.WaitBlockFill11[64] = 0LL;
           }
         }
-        *(_DWORD *)&ExSaPageGroupDescriptorArrayLock.SchedulerApcFill5[32] = 275;
-        ExSaPageGroupDescriptorArrayLock.SchedulerApc.NormalContext = ExpDebuggerDpcRoutine;
-        ExSaPageGroupDescriptorArrayLock.SchedulerApc.ApcListEntry.Flink = (struct _LIST_ENTRY *)ExpDebuggerWorker;
-        ExSaPageGroupDescriptorArrayLock.SchedulerApc.SystemArgument1 = 0LL;
+        *(_DWORD *)&ExSaPageGroupDescriptorArrayLock.SchedulerApcFill5[72] = 275;
+        ExSaPageGroupDescriptorArrayLock.SuspendEvent.Header.WaitListHead.Flink = (struct _LIST_ENTRY *)ExpDebuggerDpcRoutine;
+        ExSaPageGroupDescriptorArrayLock.SchedulerApc.NormalContext = ExpDebuggerWorker;
+        ExSaPageGroupDescriptorArrayLock.SuspendEvent.Header.WaitListHead.Blink = 0LL;
+        ExSaPageGroupDescriptorArrayLock.MutantListHead.Flink = 0LL;
         *(_QWORD *)&ExSaPageGroupDescriptorArrayLock.SuspendEvent.Header.Lock = 0LL;
-        ExSaPageGroupDescriptorArrayLock.SchedulerApc.Reserved[2] = 0LL;
-        ExSaPageGroupDescriptorArrayLock.SchedulerApc.ApcListEntry.Blink = 0LL;
-        *(_QWORD *)&ExSaPageGroupDescriptorArrayLock.SchedulerApc.Type = 0LL;
+        ExSaPageGroupDescriptorArrayLock.SchedulerApc.SystemArgument1 = 0LL;
+        ExSaPageGroupDescriptorArrayLock.SchedulerApc.Reserved[1] = 0LL;
         ExpDebuggerWork = 1;
         ExQueueDebuggerWorker();
         return v11;

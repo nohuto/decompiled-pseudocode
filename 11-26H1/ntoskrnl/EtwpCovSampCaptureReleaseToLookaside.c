@@ -1,15 +1,15 @@
 /*
- * XREFs of EtwpCovSampCaptureReleaseToLookaside @ 0x140468120
+ * XREFs of EtwpCovSampCaptureReleaseToLookaside @ 0x140461760
  * Callers:
- *     EtwpCovSampSampleBufferGet @ 0x1402BFF1C (EtwpCovSampSampleBufferGet.c)
- *     EtwpCovSampLookasidePop @ 0x1402C1E48 (EtwpCovSampLookasidePop.c)
- *     EtwpCovSampCaptureWorkerThread @ 0x140830C70 (EtwpCovSampCaptureWorkerThread.c)
+ *     EtwpCovSampSampleBufferGet @ 0x14030ABE0 (EtwpCovSampSampleBufferGet.c)
+ *     EtwpCovSampLookasidePop @ 0x14030CB08 (EtwpCovSampLookasidePop.c)
+ *     EtwpCovSampCaptureWorkerThread @ 0x140836EB0 (EtwpCovSampCaptureWorkerThread.c)
  * Callees:
- *     KiInsertQueueDpc @ 0x1402BD330 (KiInsertQueueDpc.c)
- *     RtlpInterlockedPushEntrySList @ 0x140730CD0 (RtlpInterlockedPushEntrySList.c)
+ *     KiInsertQueueDpc @ 0x140307FF0 (KiInsertQueueDpc.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1407358A0 (RtlpInterlockedPushEntrySList.c)
  */
 
-__int64 __fastcall EtwpCovSampCaptureReleaseToLookaside(__int64 a1, __int64 a2, struct _SLIST_ENTRY *a3)
+__int64 __fastcall EtwpCovSampCaptureReleaseToLookaside(__int64 a1, __int64 a2, _SLIST_ENTRY *a3)
 {
   __int64 v4; // rsi
   __int64 result; // rax

@@ -1,11 +1,11 @@
 /*
- * XREFs of MiWalkResetCommitPte @ 0x14066AA20
+ * XREFs of MiWalkResetCommitPte @ 0x14066BBF0
  * Callers:
  *     <none>
  * Callees:
- *     MiUnlinkPageFromListEx @ 0x140211CD0 (MiUnlinkPageFromListEx.c)
- *     MiLockTransitionLeafPageEx @ 0x14036A520 (MiLockTransitionLeafPageEx.c)
- *     MiDiscardTransitionPteEx @ 0x1403A1C98 (MiDiscardTransitionPteEx.c)
+ *     MiDiscardTransitionPteEx @ 0x1402188CC (MiDiscardTransitionPteEx.c)
+ *     MiLockTransitionLeafPageEx @ 0x1402EC2C0 (MiLockTransitionLeafPageEx.c)
+ *     MiUnlinkPageFromListEx @ 0x14033B030 (MiUnlinkPageFromListEx.c)
  */
 
 __int64 __fastcall MiWalkResetCommitPte(__int64 a1, _QWORD *a2, int a3)
@@ -24,7 +24,7 @@ __int64 __fastcall MiWalkResetCommitPte(__int64 a1, _QWORD *a2, int a3)
         && !(unsigned __int16)*(_DWORD *)(v4 + 32) )
       {
         MiUnlinkPageFromListEx(v4, 0);
-        MiDiscardTransitionPteEx(v5, 0);
+        MiDiscardTransitionPteEx(v5);
         ++**(_QWORD **)(a1 + 184);
       }
       _InterlockedAnd64((volatile signed __int64 *)(v5 + 24), 0x7FFFFFFFFFFFFFFFuLL);

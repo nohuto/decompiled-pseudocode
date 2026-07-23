@@ -1,10 +1,10 @@
 /*
- * XREFs of LZNT1CompressChunk @ 0x140565D20
+ * XREFs of LZNT1CompressChunk @ 0x140566D20
  * Callers:
- *     RtlCompressBufferLZNT1 @ 0x140565C30 (RtlCompressBufferLZNT1.c)
+ *     RtlCompressBufferLZNT1 @ 0x140566C30 (RtlCompressBufferLZNT1.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     memmove @ 0x1401D1540 (memmove.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
  */
 
 __int64 __fastcall LZNT1CompressChunk(
@@ -79,7 +79,7 @@ LABEL_17:
     return v16;
   }
   v35 = (char *)(v8 + 1);
-  v21 = &dword_14057F31C;
+  v21 = &dword_14058031C;
   v22 = v8 + 2;
   while ( 1 )
   {

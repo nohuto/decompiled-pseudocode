@@ -1,25 +1,25 @@
 /*
- * XREFs of ExInitLicenseData @ 0x14080EF78
+ * XREFs of ExInitLicenseData @ 0x14080F248
  * Callers:
- *     sub_1406091E8 @ 0x1406091E8 (sub_1406091E8.c)
+ *     sub_140609738 @ 0x140609738 (sub_140609738.c)
  *     Phase1InitializationIoReady @ 0x140B4DC38 (Phase1InitializationIoReady.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x14022D370 (PsGetCurrentServerSiloGlobals.c)
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     PsGetCurrentServerSilo @ 0x140289F90 (PsGetCurrentServerSilo.c)
- *     PsIsHostSilo @ 0x1402AF900 (PsIsHostSilo.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     ClipInitHandles @ 0x140374A90 (ClipInitHandles.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     memset @ 0x140435A00 (memset.c)
- *     ExpSetKernelDataProtection @ 0x1407AE830 (ExpSetKernelDataProtection.c)
- *     sub_14080FAE0 @ 0x14080FAE0 (sub_14080FAE0.c)
- *     ExGetExpirationDate @ 0x14080FC84 (ExGetExpirationDate.c)
- *     ntoskrnl_24 @ 0x1409F9A10 (ntoskrnl_24.c)
- *     SLUpdateLicenseDataInternal @ 0x1409FA694 (SLUpdateLicenseDataInternal.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x14022D480 (PsGetCurrentServerSiloGlobals.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     PsGetCurrentServerSilo @ 0x14028A220 (PsGetCurrentServerSilo.c)
+ *     PsIsHostSilo @ 0x1402AFB90 (PsIsHostSilo.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     ClipInitHandles @ 0x140374C30 (ClipInitHandles.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     ExpSetKernelDataProtection @ 0x1407AEA20 (ExpSetKernelDataProtection.c)
+ *     sub_14080FDB0 @ 0x14080FDB0 (sub_14080FDB0.c)
+ *     ExGetExpirationDate @ 0x14080FF54 (ExGetExpirationDate.c)
+ *     ntoskrnl_24 @ 0x1409F9CA0 (ntoskrnl_24.c)
+ *     SLUpdateLicenseDataInternal @ 0x1409FA924 (SLUpdateLicenseDataInternal.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     sub_140B38B4C @ 0x140B38B4C (sub_140B38B4C.c)
  */
@@ -79,7 +79,7 @@ _QWORD *ExInitLicenseData()
   memset(v27, 0, 32);
   v27[4] = 10800LL;
   v28 = 1;
-  if ( (_DWORD)InitSafeBootMode || InitIsWinPEMode )
+  if ( InitSafeBootMode || InitIsWinPEMode )
     v28 = 0;
   ExpSetKernelDataProtection((__int64)v0, (__int64)v27, -1, 1);
   v5 = _InterlockedExchangeAdd64(v4, 0xFFFFFFFFFFFFFFFFuLL);
@@ -101,7 +101,7 @@ _QWORD *ExInitLicenseData()
     v9 = KeGetCurrentThread();
     --v9->KernelApcDisable;
     ExAcquirePushLockExclusiveEx((ULONG_PTR)(v0 + 5855), 0LL);
-    v10 = sub_14080FAE0(v0);
+    v10 = sub_14080FDB0(v0);
     if ( v10 == -1073741762 )
       *((_BYTE *)v0 + 46992) = 1;
     v11 = *((_BYTE *)v0 + 46992);

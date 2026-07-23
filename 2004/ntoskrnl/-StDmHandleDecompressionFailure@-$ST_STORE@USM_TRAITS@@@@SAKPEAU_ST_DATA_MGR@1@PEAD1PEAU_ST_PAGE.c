@@ -22,7 +22,7 @@
 __int64 __fastcall ST_STORE<SM_TRAITS>::StDmHandleDecompressionFailure(
         __int64 a1,
         void *a2,
-        void *a3,
+        UCHAR *a3,
         ULONG_PTR a4,
         __int64 a5)
 {
@@ -40,8 +40,8 @@ __int64 __fastcall ST_STORE<SM_TRAITS>::StDmHandleDecompressionFailure(
   struct _KTHREAD *CurrentThread; // rax
   void *v20; // r15
   char fixed; // al
-  __int64 v22; // rax
-  PVOID v23; // r13
+  void *WorkSpace; // rax
+  PUCHAR BaseAddress; // r13
   unsigned int v24; // edx
   struct _KTHREAD *v25; // rax
   __int64 v26; // rcx
@@ -49,18 +49,18 @@ __int64 __fastcall ST_STORE<SM_TRAITS>::StDmHandleDecompressionFailure(
   __int128 v29; // [rsp+48h] [rbp-30h] BYREF
   __int128 v30; // [rsp+58h] [rbp-20h]
   __int64 v31; // [rsp+68h] [rbp-10h]
-  int v32; // [rsp+C0h] [rbp+48h] BYREF
+  ULONG FinalUncompressedSize; // [rsp+C0h] [rbp+48h] BYREF
   int v33; // [rsp+C8h] [rbp+50h]
-  PVOID BaseAddress; // [rsp+D0h] [rbp+58h]
+  PUCHAR UncompressedBuffer; // [rsp+D0h] [rbp+58h]
   int v35; // [rsp+D8h] [rbp+60h]
 
-  BaseAddress = a3;
+  UncompressedBuffer = a3;
   v5 = *(_DWORD *)a4;
   v6 = a5;
   v33 = *(_DWORD *)a4 >> *(_DWORD *)(a1 + 812);
   v35 = v33;
   v9 = v5 & *(_DWORD *)(a1 + 808);
-  v32 = 0;
+  FinalUncompressedSize = 0;
   v28 = (_DWORD)a2 - 16 * v9;
   v31 = 0LL;
   v11 = *(_QWORD *)(a5 + 56);
@@ -120,17 +120,17 @@ LABEL_15:
     v16 = fixed & 1;
     if ( (fixed & 1) != 0 )
     {
-      v22 = *(_QWORD *)(v6 + 16);
-      v23 = BaseAddress;
-      if ( (int)RtlDecompressBufferEx(
-                  *(_WORD *)(a1 + 992),
-                  (__int64)BaseAddress,
-                  0x1000u,
-                  (__int64)v20,
-                  *(unsigned __int16 *)(a4 + 4),
-                  (__int64)&v32,
-                  v22) >= 0
-        && v32 == 4096 )
+      WorkSpace = *(void **)(v6 + 16);
+      BaseAddress = UncompressedBuffer;
+      if ( RtlDecompressBufferEx(
+             *(_WORD *)(a1 + 992),
+             UncompressedBuffer,
+             0x1000u,
+             (PUCHAR)v20,
+             *(unsigned __int16 *)(a4 + 4),
+             &FinalUncompressedSize,
+             WorkSpace) >= 0
+        && FinalUncompressedSize == 4096 )
       {
         _InterlockedIncrement((volatile signed __int32 *)(a1 + 1928));
         v24 = *(unsigned __int16 *)(a4 + 4);
@@ -141,7 +141,7 @@ LABEL_15:
     }
     else
     {
-      v23 = BaseAddress;
+      BaseAddress = UncompressedBuffer;
     }
     v25 = KeGetCurrentThread();
     v26 = *(_QWORD *)(a1 + 800);
@@ -157,7 +157,7 @@ LABEL_15:
         *(unsigned __int16 *)(a1 + 992),
         *(_DWORD *)(a4 + 8),
         (int)a2,
-        v23);
+        BaseAddress);
   }
   else
   {
@@ -169,7 +169,7 @@ LABEL_15:
       *(unsigned __int16 *)(a1 + 992),
       *(_DWORD *)(a4 + 8),
       (int)a2,
-      BaseAddress);
+      UncompressedBuffer);
     SmHpChunkUnprotect(a1 + 192, (__int64)v12);
   }
   return v16 >> 1;

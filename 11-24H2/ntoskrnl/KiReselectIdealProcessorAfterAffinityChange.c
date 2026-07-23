@@ -1,10 +1,10 @@
 /*
- * XREFs of KiReselectIdealProcessorAfterAffinityChange @ 0x1403B3584
+ * XREFs of KiReselectIdealProcessorAfterAffinityChange @ 0x1403A1D94
  * Callers:
- *     KiComputeThreadAffinity @ 0x14029AC34 (KiComputeThreadAffinity.c)
+ *     KiComputeThreadAffinity @ 0x1402A9724 (KiComputeThreadAffinity.c)
  * Callees:
- *     KeSelectIdealProcessor @ 0x1403B289C (KeSelectIdealProcessor.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     KeSelectIdealProcessor @ 0x1403A10AC (KeSelectIdealProcessor.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 __int64 __fastcall KiReselectIdealProcessorAfterAffinityChange(__int64 a1, __int64 a2, __int64 a3, _WORD *a4)

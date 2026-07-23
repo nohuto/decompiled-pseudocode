@@ -1,7 +1,7 @@
 /*
- * XREFs of CmpReorganizeHive @ 0x1405A6F70
+ * XREFs of CmpReorganizeHive @ 0x1405A7F70
  * Callers:
- *     CmpCreateHive @ 0x1405A6574 (CmpCreateHive.c)
+ *     CmpCreateHive @ 0x1405A7574 (CmpCreateHive.c)
  * Callees:
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
@@ -10,23 +10,23 @@
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     CmCheckRegistry @ 0x1405A848C (CmCheckRegistry.c)
- *     CmpLockRegistry @ 0x140645100 (CmpLockRegistry.c)
- *     CmpUnlockRegistry @ 0x140645150 (CmpUnlockRegistry.c)
- *     CmpClearKeyAccessBits @ 0x1406B2B30 (CmpClearKeyAccessBits.c)
- *     HvMarkBaseBlockDirty @ 0x1406CAF34 (HvMarkBaseBlockDirty.c)
- *     CmpCopyKeyPartial @ 0x1406FF8C0 (CmpCopyKeyPartial.c)
- *     CmpUpdateReorganizeRegistryValues @ 0x14075E810 (CmpUpdateReorganizeRegistryValues.c)
- *     CmpLogReorganizeEvent @ 0x1407EC78C (CmpLogReorganizeEvent.c)
- *     CmpCreateEmptyHiveClone @ 0x1407F65D8 (CmpCreateEmptyHiveClone.c)
- *     CmpDestroyHive @ 0x1407F6778 (CmpDestroyHive.c)
- *     CmpSwapHiveStorage @ 0x1407F6900 (CmpSwapHiveStorage.c)
- *     CmpCopySyncTree @ 0x1407FCB60 (CmpCopySyncTree.c)
+ *     ExfReleasePushLockShared @ 0x1400913F0 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     CmCheckRegistry @ 0x1405A948C (CmCheckRegistry.c)
+ *     CmpLockRegistry @ 0x140646120 (CmpLockRegistry.c)
+ *     CmpUnlockRegistry @ 0x140646170 (CmpUnlockRegistry.c)
+ *     CmpClearKeyAccessBits @ 0x1406B3DD0 (CmpClearKeyAccessBits.c)
+ *     HvMarkBaseBlockDirty @ 0x1406CC1D4 (HvMarkBaseBlockDirty.c)
+ *     CmpCopyKeyPartial @ 0x140700B60 (CmpCopyKeyPartial.c)
+ *     CmpUpdateReorganizeRegistryValues @ 0x14075FA00 (CmpUpdateReorganizeRegistryValues.c)
+ *     CmpLogReorganizeEvent @ 0x1407ED98C (CmpLogReorganizeEvent.c)
+ *     CmpCreateEmptyHiveClone @ 0x1407F77D8 (CmpCreateEmptyHiveClone.c)
+ *     CmpDestroyHive @ 0x1407F7978 (CmpDestroyHive.c)
+ *     CmpSwapHiveStorage @ 0x1407F7B00 (CmpSwapHiveStorage.c)
+ *     CmpCopySyncTree @ 0x1407FDD60 (CmpCopySyncTree.c)
  */
 
 __int64 __fastcall CmpReorganizeHive(ULONG_PTR BugCheckParameter2, __int16 *a2)
@@ -191,7 +191,7 @@ LABEL_11:
             v19 = *((_DWORD *)v15 + 68);
             v20 = *(_DWORD *)(BugCheckParameter2 + 272);
             CmpSwapHiveStorage(BugCheckParameter2, v15);
-            if ( stru_1403FFAA0.LevelPlus1 > 5 && TlgKeywordOn(&stru_1403FFAA0, 0x400000000000uLL) )
+            if ( stru_140400AA0.LevelPlus1 > 5 && TlgKeywordOn(&stru_140400AA0, 0x400000000000uLL) )
             {
               v21 = *(_QWORD *)(*(_QWORD *)(BugCheckParameter2 + 64) + 168LL);
               v55 = &v26;
@@ -203,7 +203,7 @@ LABEL_11:
               v56 = 8LL;
               v58 = 4LL;
               v60 = 4LL;
-              TlgWrite(&stru_1403FFAA0, &unk_14036C2DC, 0LL, 0LL, 5u, &v54);
+              TlgWrite(&stru_140400AA0, &unk_14036D26C, 0LL, 0LL, 5u, &v54);
             }
             CmpLockRegistry();
             ExAcquirePushLockSharedEx(BugCheckParameter2 + 72, 0LL);
@@ -233,7 +233,7 @@ LABEL_11:
           }
           else
           {
-            if ( stru_1403FFAA0.LevelPlus1 > 5 && TlgKeywordOn(&stru_1403FFAA0, 0x400000000000uLL) )
+            if ( stru_140400AA0.LevelPlus1 > 5 && TlgKeywordOn(&stru_140400AA0, 0x400000000000uLL) )
             {
               v28 = v17;
               v62 = &v28;
@@ -241,7 +241,7 @@ LABEL_11:
               v29 = v18;
               v63 = 4LL;
               v65 = 4LL;
-              TlgWrite(&stru_1403FFAA0, &unk_14036C322, 0LL, 0LL, 4u, &v61);
+              TlgWrite(&stru_140400AA0, &unk_14036D2B2, 0LL, 0LL, 4u, &v61);
             }
             CmpLockRegistry();
             ExAcquirePushLockSharedEx(BugCheckParameter2 + 72, 0LL);
@@ -260,7 +260,7 @@ LABEL_11:
         }
         else
         {
-          if ( stru_1403FFAA0.LevelPlus1 > 5 && TlgKeywordOn(&stru_1403FFAA0, 0x400000000000uLL) )
+          if ( stru_140400AA0.LevelPlus1 > 5 && TlgKeywordOn(&stru_140400AA0, 0x400000000000uLL) )
           {
             v38 = &v27;
             v40 = &v23;
@@ -281,7 +281,7 @@ LABEL_11:
             v50 = 2LL;
             v51 = &v36[54];
             v53 = 0;
-            TlgWrite(&stru_1403FFAA0, &unk_14036C37A, 0LL, 0LL, 9u, &v37);
+            TlgWrite(&stru_140400AA0, &unk_14036D30A, 0LL, 0LL, 9u, &v37);
           }
           if ( v6 != -1073741492 && v6 != -2147483606 )
             goto LABEL_69;
@@ -314,12 +314,12 @@ LABEL_12:
   KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
   v6 = -1073741431;
 LABEL_23:
-  if ( stru_1403FFAA0.LevelPlus1 > 5 && TlgKeywordOn(&stru_1403FFAA0, 0x400000000000uLL) )
+  if ( stru_140400AA0.LevelPlus1 > 5 && TlgKeywordOn(&stru_140400AA0, 0x400000000000uLL) )
   {
     v32 = v6;
     v67 = &v32;
     v68 = 4LL;
-    TlgWrite(&stru_1403FFAA0, &unk_14036C2AA, 0LL, 0LL, 3u, &pData);
+    TlgWrite(&stru_140400AA0, &unk_14036D23A, 0LL, 0LL, 3u, &pData);
   }
   return (unsigned int)v6;
 }

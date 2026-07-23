@@ -1,20 +1,20 @@
 /*
- * XREFs of AlpcpConnectPort @ 0x1405DF5BC
+ * XREFs of AlpcpConnectPort @ 0x1406CED1C
  * Callers:
- *     NtAlpcConnectPort @ 0x1405DE5A0 (NtAlpcConnectPort.c)
- *     NtAlpcConnectPortEx @ 0x1405DE620 (NtAlpcConnectPortEx.c)
+ *     NtAlpcConnectPort @ 0x1406CDD00 (NtAlpcConnectPort.c)
+ *     NtAlpcConnectPortEx @ 0x1406CDD80 (NtAlpcConnectPortEx.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
- *     SeCaptureSid @ 0x1405DE46C (SeCaptureSid.c)
- *     SeReleaseSid @ 0x1405DE570 (SeReleaseSid.c)
- *     AlpcpProcessConnectionRequest @ 0x1405DECC8 (AlpcpProcessConnectionRequest.c)
- *     AlpcpCreateClientPort @ 0x1405E054C (AlpcpCreateClientPort.c)
- *     SeCaptureSecurityDescriptor @ 0x14065BB60 (SeCaptureSecurityDescriptor.c)
- *     SeReleaseSecurityDescriptor @ 0x14065C750 (SeReleaseSecurityDescriptor.c)
- *     NtClose @ 0x1406F0980 (NtClose.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     SeCaptureSecurityDescriptor @ 0x140650980 (SeCaptureSecurityDescriptor.c)
+ *     SeReleaseSecurityDescriptor @ 0x140651570 (SeReleaseSecurityDescriptor.c)
+ *     SeCaptureSid @ 0x1406CDBCC (SeCaptureSid.c)
+ *     SeReleaseSid @ 0x1406CDCD0 (SeReleaseSid.c)
+ *     AlpcpProcessConnectionRequest @ 0x1406CE428 (AlpcpProcessConnectionRequest.c)
+ *     AlpcpCreateClientPort @ 0x1406CFCAC (AlpcpCreateClientPort.c)
+ *     NtClose @ 0x140707D60 (NtClose.c)
  */
 
 __int64 __fastcall AlpcpConnectPort(
@@ -37,123 +37,118 @@ __int64 __fastcall AlpcpConnectPort(
   struct _KTHREAD *CurrentThread; // rax
   char PreviousMode; // si
   __int64 v18; // rcx
-  __int64 v19; // rdx
-  unsigned __int64 v20; // rax
-  __int64 v21; // r9
-  PADAPTER_OBJECT v22; // rdi
-  int v23; // ebx
-  int v25; // [rsp+20h] [rbp-158h]
+  unsigned __int64 v19; // rax
+  __int64 v20; // rdx
+  __int64 v21; // r8
+  __int64 v22; // r9
+  PADAPTER_OBJECT v23; // rdi
+  int v24; // ebx
+  int v26; // [rsp+20h] [rbp-158h]
   int ClientPort; // [rsp+64h] [rbp-114h]
   PADAPTER_OBJECT DmaAdapter[3]; // [rsp+68h] [rbp-110h] BYREF
   HANDLE Handle; // [rsp+80h] [rbp-F8h] BYREF
-  __int64 v29; // [rsp+88h] [rbp-F0h] BYREF
-  struct _DMA_ADAPTER *v30; // [rsp+90h] [rbp-E8h] BYREF
-  __int64 v31; // [rsp+98h] [rbp-E0h]
-  __int64 v32; // [rsp+A0h] [rbp-D8h]
-  __int64 v33; // [rsp+A8h] [rbp-D0h]
-  PLARGE_INTEGER v34; // [rsp+B0h] [rbp-C8h]
-  int *v35; // [rsp+B8h] [rbp-C0h]
-  __int64 v36; // [rsp+C0h] [rbp-B8h]
-  unsigned __int64 *v37; // [rsp+C8h] [rbp-B0h]
-  _QWORD *v38; // [rsp+D0h] [rbp-A8h]
-  _OWORD v39[5]; // [rsp+E0h] [rbp-98h] BYREF
+  __int64 v30; // [rsp+88h] [rbp-F0h] BYREF
+  struct _DMA_ADAPTER *v31; // [rsp+90h] [rbp-E8h] BYREF
+  __int64 v32; // [rsp+98h] [rbp-E0h]
+  __int64 v33; // [rsp+A0h] [rbp-D8h]
+  __int64 v34; // [rsp+A8h] [rbp-D0h]
+  PLARGE_INTEGER v35; // [rsp+B0h] [rbp-C8h]
+  int *v36; // [rsp+B8h] [rbp-C0h]
+  __int64 v37; // [rsp+C0h] [rbp-B8h]
+  unsigned __int64 *v38; // [rsp+C8h] [rbp-B0h]
+  _QWORD *v39; // [rsp+D0h] [rbp-A8h]
+  _OWORD v40[5]; // [rsp+E0h] [rbp-98h] BYREF
 
-  v31 = a4;
-  v32 = a3;
-  v33 = a2;
-  v38 = a1;
+  v32 = a4;
+  v33 = a3;
+  v34 = a2;
+  v39 = a1;
   DmaAdapter[1] = a7;
   DmaAdapter[2] = Src;
-  v37 = a10;
-  v36 = a11;
-  v35 = a12;
-  v34 = a13;
+  v38 = a10;
+  v37 = a11;
+  v36 = a12;
+  v35 = a13;
   DmaAdapter[0] = 0LL;
   Handle = 0LL;
-  memset(v39, 0, 0x48uLL);
+  memset(v40, 0, 0x48uLL);
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
-  v29 = (__int64)Src;
-  v30 = a7;
+  v30 = (__int64)Src;
+  v31 = a7;
   if ( !PreviousMode )
   {
     if ( a5 )
     {
-      v39[0] = *(_OWORD *)a5;
-      v39[1] = *(_OWORD *)(a5 + 16);
-      v39[2] = *(_OWORD *)(a5 + 32);
-      v39[3] = *(_OWORD *)(a5 + 48);
-      *(_QWORD *)&v39[4] = *(_QWORD *)(a5 + 64);
+      v40[0] = *(_OWORD *)a5;
+      v40[1] = *(_OWORD *)(a5 + 16);
+      v40[2] = *(_OWORD *)(a5 + 32);
+      v40[3] = *(_OWORD *)(a5 + 48);
+      *(_QWORD *)&v40[4] = *(_QWORD *)(a5 + 64);
     }
     goto LABEL_15;
   }
   v18 = (__int64)a1;
-  LODWORD(v19) = -65536;
   if ( (unsigned __int64)a1 >= 0x7FFFFFFF0000LL )
     v18 = 0x7FFFFFFF0000LL;
   *(_QWORD *)v18 = *(_QWORD *)v18;
   if ( a5 )
   {
-    v20 = a5;
+    v19 = a5;
     if ( a5 >= 0x7FFFFFFF0000LL )
-      v20 = 0x7FFFFFFF0000LL;
-    v39[0] = *(_OWORD *)v20;
-    v39[1] = *(_OWORD *)(v20 + 16);
-    v39[2] = *(_OWORD *)(v20 + 32);
-    v39[3] = *(_OWORD *)(v20 + 48);
-    *(_QWORD *)&v39[4] = *(_QWORD *)(v20 + 64);
+      v19 = 0x7FFFFFFF0000LL;
+    v40[0] = *(_OWORD *)v19;
+    v40[1] = *(_OWORD *)(v19 + 16);
+    v40[2] = *(_OWORD *)(v19 + 32);
+    v40[3] = *(_OWORD *)(v19 + 48);
+    *(_QWORD *)&v40[4] = *(_QWORD *)(v19 + 64);
   }
-  if ( !Src || (ClientPort = SeCaptureSid((char *)Src, PreviousMode, v14, v15, v25, 1, (PSID *)&v29), ClientPort >= 0) )
+  if ( !Src || (ClientPort = SeCaptureSid((char *)Src, PreviousMode, v14, v15, v26, 1, (PSID *)&v30), ClientPort >= 0) )
   {
     if ( !a7
-      || (LOBYTE(v19) = PreviousMode,
-          ClientPort = SeCaptureSecurityDescriptor((_DWORD)a7, v19, 1, 0, (__int64)&v30),
-          ClientPort >= 0) )
+      || (ClientPort = SeCaptureSecurityDescriptor((__int64)a7, PreviousMode, PagedPool, 0, &v31), ClientPort >= 0) )
     {
 LABEL_15:
       ClientPort = AlpcpCreateClientPort(
                      (unsigned int)&Handle,
                      (unsigned int)DmaAdapter,
                      a6 & 0xFFFF0000,
+                     v34,
                      v33,
                      v32,
-                     v31,
-                     (unsigned __int64)v39 & -(__int64)(a5 != 0),
-                     (__int64)v30,
-                     v29,
+                     (unsigned __int64)v40 & -(__int64)(a5 != 0),
+                     (__int64)v31,
+                     v30,
                      0LL,
                      0);
       if ( ClientPort >= 0 )
       {
-        v22 = DmaAdapter[0];
-        v23 = AlpcpProcessConnectionRequest(
+        v23 = DmaAdapter[0];
+        v24 = AlpcpProcessConnectionRequest(
                 (__int64)DmaAdapter[0],
                 a6 & 0xFFFF0000,
                 a9,
+                v38,
                 v37,
                 v36,
                 v35,
-                v34,
                 PreviousMode);
-        ClientPort = v23;
-        if ( v23 == -1073741759 && (*(_DWORD *)&v22[26].Version & 0x100) != 0 )
-          *a1 = v22[3].DmaOperations;
-        if ( !v23 )
+        ClientPort = v24;
+        if ( v24 == -1073741759 && (*(_DWORD *)&v23[26].Version & 0x100) != 0 )
+          *a1 = v23[3].DmaOperations;
+        if ( !v24 )
           *a1 = Handle;
-        HalPutDmaAdapter(v22);
-        if ( v23 )
+        HalPutDmaAdapter(v23);
+        if ( v24 )
           NtClose(Handle);
       }
     }
   }
-  if ( v29 && (struct _DMA_ADAPTER *)v29 != Src )
-    SeReleaseSid((void *)v29, PreviousMode, 1);
-  if ( v30 && v30 != a7 )
-  {
-    LOBYTE(v19) = PreviousMode;
-    SeReleaseSecurityDescriptor(v30, v19, 0LL, v21);
-  }
-  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+  if ( v30 && (struct _DMA_ADAPTER *)v30 != Src )
+    SeReleaseSid((void *)v30, PreviousMode, 1);
+  if ( v31 && v31 != a7 )
+    SeReleaseSecurityDescriptor(v31, PreviousMode, 0);
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v20, v21, v22);
   return (unsigned int)ClientPort;
 }

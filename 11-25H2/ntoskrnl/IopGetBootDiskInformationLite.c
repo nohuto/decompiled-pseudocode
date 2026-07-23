@@ -17,7 +17,7 @@ __int64 __fastcall IopGetBootDiskInformationLite(unsigned int **a1)
 {
   __int64 v2; // rdx
   int DiskParameters; // edi
-  const char *v4; // rdx
+  const CHAR *v4; // rdx
   __int64 v5; // rdx
   __int64 v6; // rdx
   __int64 v7; // rax
@@ -66,7 +66,7 @@ __int64 __fastcall IopGetBootDiskInformationLite(unsigned int **a1)
   v28 = 0;
   DiskParameters = 0;
   v25[0] = 0;
-  v4 = *(const char **)(v2 + 184);
+  v4 = *(const CHAR **)(v2 + 184);
   v31 = 0LL;
   RtlInitAnsiString(&DestinationString, v4);
   v5 = *(_QWORD *)&KeNumberProcessorsGroup0[1];

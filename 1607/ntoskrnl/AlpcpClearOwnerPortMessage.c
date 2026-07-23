@@ -1,12 +1,12 @@
 /*
- * XREFs of AlpcpClearOwnerPortMessage @ 0x140409268
+ * XREFs of AlpcpClearOwnerPortMessage @ 0x140408128
  * Callers:
- *     AlpcpCancelMessage @ 0x140408B94 (AlpcpCancelMessage.c)
- *     AlpcpCancelMessagesByRequestor @ 0x14040A38C (AlpcpCancelMessagesByRequestor.c)
- *     AlpcpProcessSynchronousRequest @ 0x140448B60 (AlpcpProcessSynchronousRequest.c)
- *     AlpcpReplyLegacySynchronousRequest @ 0x1404B3C60 (AlpcpReplyLegacySynchronousRequest.c)
+ *     AlpcpCancelMessage @ 0x140407A54 (AlpcpCancelMessage.c)
+ *     AlpcpCancelMessagesByRequestor @ 0x14040924C (AlpcpCancelMessagesByRequestor.c)
+ *     AlpcpProcessSynchronousRequest @ 0x140447A30 (AlpcpProcessSynchronousRequest.c)
+ *     AlpcpReplyLegacySynchronousRequest @ 0x14049E040 (AlpcpReplyLegacySynchronousRequest.c)
  * Callees:
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
  */
 
 LONG_PTR __fastcall AlpcpClearOwnerPortMessage(__int64 a1)

@@ -19,51 +19,52 @@
 int __stdcall RtlpVerifyAndCommitUILanguageSettings(char a1)
 {
   int v1; // ecx
-  int InstallUILanguage; // esi
+  NTSTATUS v2; // esi
   int v3; // esi
   __int16 v4; // ax
-  int v6; // [esp+8h] [ebp-16Ch] BYREF
-  const WCHAR *v7; // [esp+Ch] [ebp-168h]
+  size_t v6; // [esp-4h] [ebp-178h]
+  _UNICODE_STRING String; // [esp+8h] [ebp-16Ch] BYREF
   int v8; // [esp+10h] [ebp-164h] BYREF
-  unsigned __int16 v9; // [esp+14h] [ebp-160h] BYREF
+  LANGID InstallUILanguageId; // [esp+14h] [ebp-160h] BYREF
   _BYTE v10[344]; // [esp+18h] [ebp-15Ch] BYREF
 
-  v9 = 0;
-  memset(v10, 0, sizeof(v10));
-  InstallUILanguage = NtQueryInstallUILanguage((int)&v9);
-  if ( InstallUILanguage >= 0 )
+  LODWORD(v6) = 344;
+  InstallUILanguageId = 0;
+  memset(v10, 0, v6);
+  v2 = NtQueryInstallUILanguage(&InstallUILanguageId);
+  if ( v2 >= 0 )
   {
-    v6 = 11141120;
-    v7 = (const WCHAR *)v10;
-    if ( RtlLCIDToCultureName(v9, (unsigned __int16 *)&v6)
+    *(_DWORD *)&String.Length = 11141120;
+    String.Buffer = (wchar_t *)v10;
+    if ( RtlLCIDToCultureName(InstallUILanguageId, &String)
       && RtlpCreateProcessRegistryInfo(&v8) >= 0
       && (v3 = v8) != 0
-      && (LOWORD(v8) = -1, v7)
-      && RtlpMuiRegGetInstalledLanguageIndexByName(v3, v7, 0, &v8) >= 0
+      && (LOWORD(v8) = -1, String.Buffer)
+      && RtlpMuiRegGetInstalledLanguageIndexByName(v3, (const WCHAR *)String.Buffer, 0, &v8) >= 0
       && (v1 = 28 * (__int16)v8, v4 = *(_WORD *)(v1 + *(_DWORD *)(*(_DWORD *)(v3 + 20) + 12)), v4 >= 0)
       && (v4 & 7) != 4 )
     {
-      InstallUILanguage = ZwFlushInstallUILanguage(v9, 1);
-      if ( InstallUILanguage >= 0 )
+      v2 = ZwFlushInstallUILanguage(InstallUILanguageId, 1u);
+      if ( v2 >= 0 )
       {
-        NtGetMUIRegistryInfo(10, 0, 0);
+        NtGetMUIRegistryInfo(0xAu, 0, 0);
         RtlUpdateProcessRegistryInfo();
       }
     }
     else
     {
-      InstallUILanguage = -1073741811;
+      v2 = -1073741811;
     }
   }
   if ( a1 )
   {
-    if ( InstallUILanguage )
+    if ( v2 )
     {
       RtlpSetPrivilege(v1);
-      InstallUILanguage = ZwShutdownSystem(2);
-      if ( InstallUILanguage < 0 )
+      v2 = ZwShutdownSystem(ShutdownPowerOff);
+      if ( v2 < 0 )
         return -1073741616;
     }
   }
-  return InstallUILanguage;
+  return v2;
 }

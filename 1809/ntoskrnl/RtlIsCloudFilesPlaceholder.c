@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlIsCloudFilesPlaceholder @ 0x1402F4BA0
+ * XREFs of RtlIsCloudFilesPlaceholder @ 0x1402F4D90
  * Callers:
- *     CmpAdjustFileCFSafety @ 0x1401B3274 (CmpAdjustFileCFSafety.c)
+ *     CmpAdjustFileCFSafety @ 0x1401B33B4 (CmpAdjustFileCFSafety.c)
  * Callees:
  *     <none>
  */
 
-bool __fastcall RtlIsCloudFilesPlaceholder(__int16 a1, int a2)
+BOOLEAN __cdecl RtlIsCloudFilesPlaceholder(ULONG FileAttributes, ULONG ReparseTag)
 {
-  return (a1 & 0x400) != 0 && (a2 & 0xFFFF0FFF) == 0x9000001A;
+  return (FileAttributes & 0x400) != 0 && (ReparseTag & 0xFFFF0FFF) == 0x9000001A;
 }

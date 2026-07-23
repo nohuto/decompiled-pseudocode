@@ -1,9 +1,9 @@
 /*
- * XREFs of MiComputePreferredNode @ 0x140547B78
+ * XREFs of MiComputePreferredNode @ 0x140547DB8
  * Callers:
- *     MiCommitExistingVad @ 0x140218D90 (MiCommitExistingVad.c)
- *     MiCreateLargePfnList @ 0x14055DEFC (MiCreateLargePfnList.c)
- *     MiMapUserLargePages @ 0x14055E730 (MiMapUserLargePages.c)
+ *     MiCommitExistingVad @ 0x1402BD690 (MiCommitExistingVad.c)
+ *     MiCreateLargePfnList @ 0x14055E13C (MiCreateLargePfnList.c)
+ *     MiMapUserLargePages @ 0x14055E970 (MiMapUserLargePages.c)
  * Callees:
  *     <none>
  */

@@ -1,71 +1,69 @@
 /*
- * XREFs of KiReleaseQueuedSpinLockInstrumented @ 0x14051648C
+ * XREFs of KiReleaseQueuedSpinLockInstrumented @ 0x1405166CC
  * Callers:
- *     NtWaitForWorkViaWorkerFactory @ 0x140203150 (NtWaitForWorkViaWorkerFactory.c)
- *     MiProcessWorkingSets @ 0x140207BA0 (MiProcessWorkingSets.c)
- *     MiTrimOrAgeWorkingSet @ 0x140208250 (MiTrimOrAgeWorkingSet.c)
- *     MiAgeWorkingSet @ 0x140208B40 (MiAgeWorkingSet.c)
- *     MiAddWorkingSetEntries @ 0x1402123C0 (MiAddWorkingSetEntries.c)
- *     MiUnlinkPageFromList @ 0x1402178B0 (MiUnlinkPageFromList.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x14022D600 (KeReleaseInStackQueuedSpinLock.c)
- *     ExpApplyPriorityBoost @ 0x14022F000 (ExpApplyPriorityBoost.c)
- *     MiInsertPageInFreeOrZeroedList @ 0x140234F10 (MiInsertPageInFreeOrZeroedList.c)
- *     MiUnlinkFreeOrZeroedPage @ 0x1402363C0 (MiUnlinkFreeOrZeroedPage.c)
- *     NtReleaseWorkerFactoryWorker @ 0x140242B70 (NtReleaseWorkerFactoryWorker.c)
- *     ExpWorkerFactoryCheckCreate @ 0x140242EF0 (ExpWorkerFactoryCheckCreate.c)
- *     IopfCompleteRequest @ 0x1402434C0 (IopfCompleteRequest.c)
- *     IopGetMountFlag @ 0x14027C2D0 (IopGetMountFlag.c)
- *     MiUnlockPageTableInternal @ 0x1402855F0 (MiUnlockPageTableInternal.c)
- *     IoReleaseCancelSpinLock @ 0x140285860 (IoReleaseCancelSpinLock.c)
- *     ExpWorkerFactoryCompletionPacketRoutine @ 0x140285AA0 (ExpWorkerFactoryCompletionPacketRoutine.c)
- *     NtSetInformationWorkerFactory @ 0x140285C70 (NtSetInformationWorkerFactory.c)
- *     ExpSetResourceOwnerPointerEx @ 0x140286C70 (ExpSetResourceOwnerPointerEx.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     CcUnpinFileDataEx @ 0x1402F4630 (CcUnpinFileDataEx.c)
- *     KeReleaseQueuedSpinLock @ 0x140310BD0 (KeReleaseQueuedSpinLock.c)
- *     CcCanIWrite @ 0x1403131D0 (CcCanIWrite.c)
- *     CcCanIWriteStreamEx @ 0x1403134D0 (CcCanIWriteStreamEx.c)
- *     ExpAcquireSharedStarveExclusive @ 0x14031E750 (ExpAcquireSharedStarveExclusive.c)
- *     MiInsertPageInList @ 0x140326800 (MiInsertPageInList.c)
- *     MiInsertProtectedStandbyPage @ 0x140329470 (MiInsertProtectedStandbyPage.c)
- *     MiSetVaAgeList @ 0x14032D6B0 (MiSetVaAgeList.c)
- *     CcSetDirtyInMask @ 0x140336470 (CcSetDirtyInMask.c)
- *     MiRemoveWsle @ 0x140338FE0 (MiRemoveWsle.c)
- *     MiAgePte @ 0x140339440 (MiAgePte.c)
- *     MiLogPageAccess @ 0x14033A650 (MiLogPageAccess.c)
- *     ExpReleaseResourceSharedForThreadLite @ 0x14034B5C0 (ExpReleaseResourceSharedForThreadLite.c)
- *     ExpAcquireResourceSharedLite @ 0x14034C060 (ExpAcquireResourceSharedLite.c)
- *     ExpAcquireResourceExclusiveLite @ 0x14034C9B0 (ExpAcquireResourceExclusiveLite.c)
- *     ExpReleaseResourceExclusiveForThreadLite @ 0x14034D1C0 (ExpReleaseResourceExclusiveForThreadLite.c)
- *     IopCheckDeviceAndDriver @ 0x140353340 (IopCheckDeviceAndDriver.c)
- *     IopCheckVpbMounted @ 0x140353920 (IopCheckVpbMounted.c)
- *     IopDecrementDeviceObjectRef @ 0x140353B90 (IopDecrementDeviceObjectRef.c)
- *     IopDecrementVpbRefCount @ 0x140354A90 (IopDecrementVpbRefCount.c)
- *     IopIncrementDeviceObjectRefCount @ 0x140354BA0 (IopIncrementDeviceObjectRefCount.c)
- *     MiZeroLargePageThread @ 0x1403B3D10 (MiZeroLargePageThread.c)
+ *     MiUnlockPageTableInternal @ 0x140202790 (MiUnlockPageTableInternal.c)
+ *     IoReleaseCancelSpinLock @ 0x140202A00 (IoReleaseCancelSpinLock.c)
+ *     ExpWorkerFactoryCompletionPacketRoutine @ 0x140202C40 (ExpWorkerFactoryCompletionPacketRoutine.c)
+ *     NtSetInformationWorkerFactory @ 0x140202E10 (NtSetInformationWorkerFactory.c)
+ *     ExpSetResourceOwnerPointerEx @ 0x140203E10 (ExpSetResourceOwnerPointerEx.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     IopGetMountFlag @ 0x14026A270 (IopGetMountFlag.c)
+ *     NtWaitForWorkViaWorkerFactory @ 0x1402A7A90 (NtWaitForWorkViaWorkerFactory.c)
+ *     MiProcessWorkingSets @ 0x1402AC4A0 (MiProcessWorkingSets.c)
+ *     MiTrimOrAgeWorkingSet @ 0x1402ACB50 (MiTrimOrAgeWorkingSet.c)
+ *     MiAgeWorkingSet @ 0x1402AD440 (MiAgeWorkingSet.c)
+ *     MiAddWorkingSetEntries @ 0x1402B6CC0 (MiAddWorkingSetEntries.c)
+ *     MiUnlinkPageFromList @ 0x1402BC1B0 (MiUnlinkPageFromList.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x1402D1E50 (KeReleaseInStackQueuedSpinLock.c)
+ *     ExpApplyPriorityBoost @ 0x1402D3850 (ExpApplyPriorityBoost.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x1402D9760 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiUnlinkFreeOrZeroedPage @ 0x1402DAC10 (MiUnlinkFreeOrZeroedPage.c)
+ *     NtReleaseWorkerFactoryWorker @ 0x1402E73C0 (NtReleaseWorkerFactoryWorker.c)
+ *     ExpWorkerFactoryCheckCreate @ 0x1402E7740 (ExpWorkerFactoryCheckCreate.c)
+ *     IopfCompleteRequest @ 0x1402E7D10 (IopfCompleteRequest.c)
+ *     CcUnpinFileDataEx @ 0x1402FF380 (CcUnpinFileDataEx.c)
+ *     KeReleaseQueuedSpinLock @ 0x14031B920 (KeReleaseQueuedSpinLock.c)
+ *     CcCanIWrite @ 0x14031DF20 (CcCanIWrite.c)
+ *     CcCanIWriteStreamEx @ 0x14031E220 (CcCanIWriteStreamEx.c)
+ *     ExpAcquireSharedStarveExclusive @ 0x1403294A0 (ExpAcquireSharedStarveExclusive.c)
+ *     MiInsertPageInList @ 0x140331550 (MiInsertPageInList.c)
+ *     MiInsertProtectedStandbyPage @ 0x1403341C0 (MiInsertProtectedStandbyPage.c)
+ *     MiSetVaAgeList @ 0x140338400 (MiSetVaAgeList.c)
+ *     CcSetDirtyInMask @ 0x1403411C0 (CcSetDirtyInMask.c)
+ *     MiRemoveWsle @ 0x140343D30 (MiRemoveWsle.c)
+ *     MiAgePte @ 0x140344190 (MiAgePte.c)
+ *     MiLogPageAccess @ 0x1403453A0 (MiLogPageAccess.c)
+ *     ExpReleaseResourceSharedForThreadLite @ 0x140356310 (ExpReleaseResourceSharedForThreadLite.c)
+ *     ExpAcquireResourceSharedLite @ 0x140356DB0 (ExpAcquireResourceSharedLite.c)
+ *     ExpAcquireResourceExclusiveLite @ 0x140357700 (ExpAcquireResourceExclusiveLite.c)
+ *     ExpReleaseResourceExclusiveForThreadLite @ 0x140357F10 (ExpReleaseResourceExclusiveForThreadLite.c)
+ *     IopCheckDeviceAndDriver @ 0x14035E090 (IopCheckDeviceAndDriver.c)
+ *     IopCheckVpbMounted @ 0x14035E670 (IopCheckVpbMounted.c)
+ *     IopDecrementDeviceObjectRef @ 0x14035E8E0 (IopDecrementDeviceObjectRef.c)
+ *     IopDecrementVpbRefCount @ 0x14035F7E0 (IopDecrementVpbRefCount.c)
+ *     IopIncrementDeviceObjectRefCount @ 0x14035F8F0 (IopIncrementDeviceObjectRefCount.c)
+ *     MiZeroLargePageThread @ 0x1403B3E80 (MiZeroLargePageThread.c)
  * Callees:
- *     KxWaitForLockChainValid @ 0x140287190 (KxWaitForLockChainValid.c)
- *     PerfLogSpinLockRelease @ 0x1405AB448 (PerfLogSpinLockRelease.c)
+ *     KxWaitForLockChainValid @ 0x140204330 (KxWaitForLockChainValid.c)
+ *     PerfLogSpinLockRelease @ 0x1405AB678 (PerfLogSpinLockRelease.c)
  */
 
-__int64 __fastcall KiReleaseQueuedSpinLockInstrumented(_QWORD *a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall KiReleaseQueuedSpinLockInstrumented(volatile signed __int64 **a1, __int64 a2)
 {
-  unsigned __int64 v6; // rsi
-  __int64 v7; // rax
-  volatile signed __int64 *v8; // rdx
+  unsigned __int64 v4; // rsi
+  __int64 v5; // rax
 
-  v6 = __rdtsc();
+  v4 = __rdtsc();
   _m_prefetchw(a1);
-  v7 = *a1;
+  v5 = (__int64)*a1;
   if ( *a1 )
     goto LABEL_4;
-  v8 = (volatile signed __int64 *)a1[1];
-  if ( a1 != (_QWORD *)_InterlockedCompareExchange64(v8, 0LL, (signed __int64)a1) )
+  if ( a1 != (volatile signed __int64 **)_InterlockedCompareExchange64(a1[1], 0LL, (signed __int64)a1) )
   {
-    v7 = KxWaitForLockChainValid(a1, (__int64)v8, a3, a4);
+    v5 = KxWaitForLockChainValid((__int64 *)a1);
 LABEL_4:
     *a1 = 0LL;
-    _InterlockedXor64((volatile signed __int64 *)(v7 + 8), 1uLL);
+    _InterlockedXor64((volatile signed __int64 *)(v5 + 8), 1uLL);
   }
-  return PerfLogSpinLockRelease(a1[1], a2, v6);
+  return PerfLogSpinLockRelease(a1[1], a2, v4);
 }

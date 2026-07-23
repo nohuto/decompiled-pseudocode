@@ -10,9 +10,9 @@ char __fastcall LdrpGetMappingFromCacheEntry(unsigned int a1, unsigned __int64 a
 {
   unsigned __int64 v7; // rcx
   __int64 v8; // rdi
-  __int64 v9; // rdx
+  __int64 SizeOfImage; // rdx
   unsigned __int64 v10; // rbx
-  __int64 v11; // rax
+  PIMAGE_NT_HEADERS v11; // rax
   char result; // al
 
   if ( !a2 )
@@ -23,24 +23,24 @@ char __fastcall LdrpGetMappingFromCacheEntry(unsigned int a1, unsigned __int64 a
     return 0;
   _mm_lfence();
   v7 = (unsigned __int64)a1 << 6;
-  v8 = *(_QWORD *)(v7 + AlternateResourceModules + 32);
-  v9 = *(_QWORD *)(v7 + AlternateResourceModules + 48);
+  v8 = *(_QWORD *)((char *)AlternateResourceModules + v7 + 32);
+  SizeOfImage = *(_QWORD *)((char *)AlternateResourceModules + v7 + 48);
   if ( (unsigned __int64)(v8 - 1) > 0xFFFFFFFFFFFFFFFDuLL )
     return 0;
   v10 = v8 & 0xFFFFFFFFFFFFFFFCuLL;
-  if ( !v9 )
+  if ( !SizeOfImage )
   {
-    v11 = RtlImageNtHeader(v8 & 0xFFFFFFFFFFFFFFFCuLL);
-    if ( !v11 || *(_WORD *)(v11 + 24) != 267 && *(_WORD *)(v11 + 24) != 523 )
+    v11 = RtlImageNtHeader((PVOID)(v8 & 0xFFFFFFFFFFFFFFFCuLL));
+    if ( !v11 || v11->OptionalHeader.Magic != 267 && v11->OptionalHeader.Magic != 523 )
       return 0;
-    v9 = *(unsigned int *)(v11 + 80);
-    if ( !*(_DWORD *)(v11 + 80) )
+    SizeOfImage = v11->OptionalHeader.SizeOfImage;
+    if ( !v11->OptionalHeader.SizeOfImage )
       return 0;
   }
-  if ( a2 < v10 || a2 >= v10 + v9 )
+  if ( a2 < v10 || a2 >= v10 + SizeOfImage )
     return 0;
   *a3 = v8;
   result = 1;
-  *a4 = v9;
+  *a4 = SizeOfImage;
   return result;
 }

@@ -10,28 +10,28 @@
  *     _LdrpTraceLoadMUIDll@8 @ 0x4B33FAF1 (_LdrpTraceLoadMUIDll@8.c)
  */
 
-int __fastcall LdrpResFileSize(int a1, _DWORD *a2)
+NTSTATUS __fastcall LdrpResFileSize(HANDLE FileHandle, _DWORD *StackCookie)
 {
   int v3; // ebx
   int v4; // eax
   int v5; // esi
   int v6; // eax
-  int InformationFile; // edi
-  unsigned __int16 v10[2]; // [esp+10h] [ebp-38h] BYREF
-  const wchar_t *v11; // [esp+14h] [ebp-34h]
-  unsigned __int16 v12[2]; // [esp+18h] [ebp-30h] BYREF
-  const wchar_t *v13; // [esp+1Ch] [ebp-2Ch]
-  _BYTE v14[8]; // [esp+20h] [ebp-28h] BYREF
-  _BYTE v15[8]; // [esp+28h] [ebp-20h] BYREF
-  int v16; // [esp+30h] [ebp-18h]
-  int v17; // [esp+34h] [ebp-14h]
+  NTSTATUS v7; // edi
+  _DWORD *StackCookiea; // [esp+Ch] [ebp-3Ch]
+  uintptr_t StackCookie_4; // [esp+10h] [ebp-38h] BYREF
+  unsigned __int16 v11[2]; // [esp+18h] [ebp-30h] BYREF
+  const wchar_t *v12; // [esp+1Ch] [ebp-2Ch]
+  _IO_STATUS_BLOCK IoStatusBlock; // [esp+20h] [ebp-28h] BYREF
+  _BYTE FileInformation[8]; // [esp+28h] [ebp-20h] BYREF
+  int v15; // [esp+30h] [ebp-18h]
+  int v16; // [esp+34h] [ebp-14h]
 
-  v10[1] = 48;
-  v10[0] = 46;
-  v11 = L"LdrResGetRCConfig Enter";
-  v12[0] = 44;
-  v12[1] = 46;
-  v13 = L"LdrResGetRCConfig Exit";
+  StackCookiea = StackCookie;
+  LODWORD(StackCookie_4) = 3145774;
+  HIDWORD(StackCookie_4) = L"LdrResGetRCConfig Enter";
+  v11[0] = 44;
+  v11[1] = 46;
+  v12 = L"LdrResGetRCConfig Exit";
   v3 = 2147353477;
   if ( RtlGetCurrentServiceSessionId() )
     v4 = (int)NtCurrentPeb()->SharedData + 555;
@@ -44,19 +44,19 @@ int __fastcall LdrpResFileSize(int a1, _DWORD *a2)
       v6 = (int)NtCurrentPeb()->SharedData + 554;
     else
       v6 = 2147353476;
-    LdrpTraceLoadMUIDll(v10, *(unsigned __int8 *)v6);
+    LdrpTraceLoadMUIDll((unsigned __int16 *)&StackCookie_4, (void *)*(unsigned __int8 *)v6);
   }
-  if ( a2 && a1 && a1 != -1 )
+  if ( StackCookiea && FileHandle && FileHandle != (HANDLE)-1 )
   {
-    InformationFile = ZwQueryInformationFile(a1, (int)v14, (int)v15, 24, 5);
-    if ( InformationFile < 0 )
-      return InformationFile;
-    *a2 = v16;
-    a2[1] = v17;
+    v7 = ZwQueryInformationFile(FileHandle, &IoStatusBlock, FileInformation, 0x18u, FileStandardInformation);
+    if ( v7 < 0 )
+      return v7;
+    *StackCookiea = v15;
+    StackCookiea[1] = v16;
   }
   else
   {
-    InformationFile = -1073741811;
+    v7 = -1073741811;
   }
   if ( RtlGetCurrentServiceSessionId() )
     v3 = (int)NtCurrentPeb()->SharedData + 555;
@@ -64,7 +64,7 @@ int __fastcall LdrpResFileSize(int a1, _DWORD *a2)
   {
     if ( RtlGetCurrentServiceSessionId() )
       v5 = (int)NtCurrentPeb()->SharedData + 554;
-    LdrpTraceLoadMUIDll(v12, *(unsigned __int8 *)v5);
+    LdrpTraceLoadMUIDll(v11, (void *)*(unsigned __int8 *)v5);
   }
-  return InformationFile;
+  return v7;
 }

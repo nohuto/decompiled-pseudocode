@@ -32,7 +32,7 @@ __int64 __fastcall WbAddHeapExecutedBlockToCache(__int64 a1, __int64 a2, _QWORD 
   v16 = 0LL;
   --CurrentThread->SpecialApcDisable;
   v7 = (unsigned __int64 *)(a1 + 48);
-  v8 = KeAbPreAcquire(a1 + 48, 0LL, 0LL);
+  v8 = KeAbPreAcquire(a1 + 48, 0LL, 0);
   v9 = v8;
   if ( _interlockedbittestandset64((volatile signed __int32 *)v7, 0LL) )
     ExfAcquirePushLockExclusiveEx(v7, v8, (ULONG_PTR)v7);

@@ -16,11 +16,10 @@ __int64 __fastcall sub_1800831CC(_QWORD *a1)
   char *v4; // rsi
   __int64 v6; // rax
   signed __int64 v7; // rbp
-  struct _RTL_USER_PROCESS_PARAMETERS *ProcessParameters; // rcx
-  unsigned __int64 v9; // [rsp+48h] [rbp+10h] BYREF
+  ULONGLONG RegHandle; // [rsp+48h] [rbp+10h] BYREF
 
   v1 = 0;
-  v9 = 0LL;
+  RegHandle = 0LL;
   pShimData = (char *)NtCurrentPeb()->pShimData;
   if ( pShimData )
   {
@@ -41,26 +40,20 @@ __int64 __fastcall sub_1800831CC(_QWORD *a1)
         }
         else
         {
-          if ( (unsigned int)EtwEventRegister((int)&unk_180113EE0, 0LL, 0LL, (__int64)&v9) )
+          if ( EtwEventRegister(&stru_180113EE0, 0LL, 0LL, &RegHandle) )
             return v1;
-          v7 = _InterlockedCompareExchange64((volatile signed __int64 *)v4 + 2, v9, 0LL);
+          v7 = _InterlockedCompareExchange64((volatile signed __int64 *)v4 + 2, RegHandle, 0LL);
           if ( v7 )
           {
-            EtwNotificationUnregister(v9, 0LL);
+            EtwNotificationUnregister(RegHandle, 0LL);
             if ( a1 )
               *a1 = v7;
           }
           else
           {
             if ( a1 )
-              *a1 = v9;
-            ProcessParameters = NtCurrentPeb()->ProcessParameters;
-            sub_1801063D4(
-              v9,
-              (_DWORD)v4 + 48,
-              0,
-              ProcessParameters->ImagePathName.Length,
-              (__int64)ProcessParameters->ImagePathName.Buffer);
+              *a1 = RegHandle;
+            sub_1801063D4(RegHandle, (__int64)NtCurrentPeb()->ProcessParameters->ImagePathName.Buffer);
           }
         }
         return 1;

@@ -11,7 +11,7 @@
 void __fastcall sub_18007B5B8(__int64 a1, int a2)
 {
   __int64 *i; // rax
-  __int64 Heap; // rax
+  _DWORD *Heap; // rax
   _QWORD *v6; // rdi
   _QWORD *v7; // rbx
 
@@ -22,10 +22,10 @@ void __fastcall sub_18007B5B8(__int64 a1, int a2)
       if ( *((_DWORD *)i + 2) == a2 )
         return;
     }
-    Heap = RtlAllocateHeap(qword_18015C288, 0, 16LL);
+    Heap = RtlAllocateHeap(HeapHandle, 0, 0x10uLL);
     if ( Heap )
     {
-      *(_DWORD *)(Heap + 8) = a2;
+      Heap[2] = a2;
       *(_QWORD *)Heap = *(_QWORD *)(a1 + 16);
       v6 = *(_QWORD **)(a1 + 40);
       *(_QWORD *)(a1 + 16) = Heap;

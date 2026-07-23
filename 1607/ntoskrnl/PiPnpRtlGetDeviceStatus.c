@@ -1,5 +1,5 @@
 /*
- * XREFs of PiPnpRtlGetDeviceStatus @ 0x1404F88D4
+ * XREFs of PiPnpRtlGetDeviceStatus @ 0x1404DB860
  * Callers:
  *     <none>
  * Callees:

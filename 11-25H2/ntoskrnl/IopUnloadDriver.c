@@ -41,7 +41,7 @@
 
 __int64 __fastcall IopUnloadDriver(UNICODE_STRING *a1, char a2)
 {
-  __int16 v4; // r14
+  unsigned __int16 MinorImageVersion; // r14
   char v5; // r12
   KPROCESSOR_MODE PreviousMode; // dl
   __int64 v8; // rax
@@ -73,7 +73,7 @@ __int64 __fastcall IopUnloadDriver(UNICODE_STRING *a1, char a2)
   *(_DWORD *)(&Destination.MaximumLength + 1) = 0;
   v19 = 0LL;
   v26 = 0;
-  LOBYTE(v4) = 0;
+  LOBYTE(MinorImageVersion) = 0;
   v22[0] = 0x20000LL;
   v22[1] = &word_140AD8570;
   v5 = 0;
@@ -116,7 +116,7 @@ __int64 __fastcall IopUnloadDriver(UNICODE_STRING *a1, char a2)
           if ( DriverNameFromKeyNode >= 0 )
           {
             v13 = (unsigned __int16 *)Object;
-            v4 = *(_WORD *)(RtlImageNtHeader(*((_QWORD *)Object + 3)) + 70);
+            MinorImageVersion = RtlImageNtHeader(*((PVOID *)Object + 3))->OptionalHeader.MinorImageVersion;
             if ( !*((_QWORD *)v13 + 13) || !*((_QWORD *)v13 + 5) )
             {
               ObfDereferenceObject(v13);
@@ -181,14 +181,14 @@ LABEL_34:
       &a1->Length,
       DriverNameFromKeyNode,
       (__int64)&Destination,
-      v4);
+      MinorImageVersion);
     if ( DriverNameFromKeyNode < 0 && !v5 )
       PnpDiagnosticTraceDeviceOperation(
         &KMPnPEvt_DriverUnload_Fail,
         (unsigned __int16 *)v22,
         DriverNameFromKeyNode,
         (__int64)&Destination,
-        v4);
+        MinorImageVersion);
     Buffer = Destination.Buffer;
     if ( !Destination.Buffer )
       return (unsigned int)DriverNameFromKeyNode;

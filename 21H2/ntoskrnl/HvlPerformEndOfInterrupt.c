@@ -1,9 +1,9 @@
 /*
- * XREFs of HvlPerformEndOfInterrupt @ 0x1404F5F40
+ * XREFs of HvlPerformEndOfInterrupt @ 0x1404F5EC0
  * Callers:
- *     HvlDummyInterruptCallback @ 0x1404F1840 (HvlDummyInterruptCallback.c)
+ *     HvlDummyInterruptCallback @ 0x1404F17C0 (HvlDummyInterruptCallback.c)
  * Callees:
- *     HalPerformEndOfInterrupt @ 0x1402914D0 (HalPerformEndOfInterrupt.c)
+ *     HalPerformEndOfInterrupt @ 0x14020F440 (HalPerformEndOfInterrupt.c)
  */
 
 __int64 HvlPerformEndOfInterrupt()

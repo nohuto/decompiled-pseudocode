@@ -1,17 +1,17 @@
 /*
- * XREFs of PopDirectedDripsDiagTraceProblemDevice @ 0x14099F43C
+ * XREFs of PopDirectedDripsDiagTraceProblemDevice @ 0x14099F63C
  * Callers:
- *     PopDirectedDripsBuildBroadcastTreeFull @ 0x14099FB50 (PopDirectedDripsBuildBroadcastTreeFull.c)
- *     PopDirectedDripsBuildPs4BroadcastTree @ 0x14099FE9C (PopDirectedDripsBuildPs4BroadcastTree.c)
- *     PopDirectedDripsVisitPs4Device @ 0x1409A0264 (PopDirectedDripsVisitPs4Device.c)
+ *     PopDirectedDripsBuildBroadcastTreeFull @ 0x14099FD50 (PopDirectedDripsBuildBroadcastTreeFull.c)
+ *     PopDirectedDripsBuildPs4BroadcastTree @ 0x1409A009C (PopDirectedDripsBuildPs4BroadcastTree.c)
+ *     PopDirectedDripsVisitPs4Device @ 0x1409A0464 (PopDirectedDripsVisitPs4Device.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     EtwWrite @ 0x1402578A0 (EtwWrite.c)
- *     EtwEventEnabled @ 0x140258420 (EtwEventEnabled.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     PopDirectedDripsDiagInsertErrorRecord @ 0x14099E1F0 (PopDirectedDripsDiagInsertErrorRecord.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     EtwWrite @ 0x140257960 (EtwWrite.c)
+ *     EtwEventEnabled @ 0x1402584E0 (EtwEventEnabled.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     PopDirectedDripsDiagInsertErrorRecord @ 0x14099E3F0 (PopDirectedDripsDiagInsertErrorRecord.c)
  */
 
 signed __int32 __fastcall PopDirectedDripsDiagTraceProblemDevice(__int64 a1, __int64 a2, int a3)

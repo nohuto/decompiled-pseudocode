@@ -1,20 +1,20 @@
 /*
- * XREFs of AlpcpDoPortCleanup @ 0x1408EA5C4
+ * XREFs of AlpcpDoPortCleanup @ 0x1408F0B84
  * Callers:
- *     AlpcpClosePort @ 0x1408EA550 (AlpcpClosePort.c)
+ *     AlpcpClosePort @ 0x1408F0B10 (AlpcpClosePort.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     KeReleaseSemaphore @ 0x1403B1D20 (KeReleaseSemaphore.c)
- *     KeReleaseSemaphoreEx @ 0x1404396D0 (KeReleaseSemaphoreEx.c)
- *     AlpcpFlushResourcesPort @ 0x1408EABB8 (AlpcpFlushResourcesPort.c)
- *     AlpcpFlushMessagesPort @ 0x1408EAD50 (AlpcpFlushMessagesPort.c)
- *     AlpcpDisconnectPort @ 0x1408EAF48 (AlpcpDisconnectPort.c)
- *     AlpcpFreeCompletionList @ 0x140B2392C (AlpcpFreeCompletionList.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     KeReleaseSemaphore @ 0x1403BBA30 (KeReleaseSemaphore.c)
+ *     KeReleaseSemaphoreEx @ 0x14042BF80 (KeReleaseSemaphoreEx.c)
+ *     AlpcpFlushResourcesPort @ 0x1408F1178 (AlpcpFlushResourcesPort.c)
+ *     AlpcpFlushMessagesPort @ 0x1408F1310 (AlpcpFlushMessagesPort.c)
+ *     AlpcpDisconnectPort @ 0x1408F1508 (AlpcpDisconnectPort.c)
+ *     AlpcpFreeCompletionList @ 0x140B25D2C (AlpcpFreeCompletionList.c)
  */
 
 void __fastcall AlpcpDoPortCleanup(__int64 a1)

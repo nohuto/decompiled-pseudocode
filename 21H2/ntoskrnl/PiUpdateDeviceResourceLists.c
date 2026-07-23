@@ -1,14 +1,14 @@
 /*
- * XREFs of PiUpdateDeviceResourceLists @ 0x1408B513C
+ * XREFs of PiUpdateDeviceResourceLists @ 0x1408B529C
  * Callers:
- *     PiProcessQueryDeviceState @ 0x140749A3C (PiProcessQueryDeviceState.c)
+ *     PiProcessQueryDeviceState @ 0x140749BFC (PiProcessQueryDeviceState.c)
  * Callees:
- *     KeReleaseGuardedMutex @ 0x140265CD0 (KeReleaseGuardedMutex.c)
- *     ExAcquireFastMutex @ 0x14034A080 (ExAcquireFastMutex.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     PnpCopyResourceList @ 0x1408B25A0 (PnpCopyResourceList.c)
- *     IopQueryBusResourceUpdateInterface @ 0x1408B2B80 (IopQueryBusResourceUpdateInterface.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     KeReleaseGuardedMutex @ 0x140253C70 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x140354DD0 (ExAcquireFastMutex.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     PnpCopyResourceList @ 0x1408B2700 (PnpCopyResourceList.c)
+ *     IopQueryBusResourceUpdateInterface @ 0x1408B2CE0 (IopQueryBusResourceUpdateInterface.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiUpdateDeviceResourceLists(_QWORD *a1)

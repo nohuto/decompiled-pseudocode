@@ -1,35 +1,35 @@
 /*
- * XREFs of RtlpLookupLowBox @ 0x14025AA58
+ * XREFs of RtlpLookupLowBox @ 0x14027BFC8
  * Callers:
- *     RtlQueryAtomInAtomTable @ 0x14061B790 (RtlQueryAtomInAtomTable.c)
- *     RtlDeleteAtomFromAtomTable @ 0x1406A1480 (RtlDeleteAtomFromAtomTable.c)
- *     RtlPinAtomInAtomTable @ 0x1406B0510 (RtlPinAtomInAtomTable.c)
- *     RtlQueryAtomsInAtomTable @ 0x1409131B8 (RtlQueryAtomsInAtomTable.c)
+ *     RtlDeleteAtomFromAtomTable @ 0x140600C10 (RtlDeleteAtomFromAtomTable.c)
+ *     RtlPinAtomInAtomTable @ 0x14060F540 (RtlPinAtomInAtomTable.c)
+ *     RtlQueryAtomInAtomTable @ 0x1406853F0 (RtlQueryAtomInAtomTable.c)
+ *     RtlQueryAtomsInAtomTable @ 0x140913318 (RtlQueryAtomsInAtomTable.c)
  * Callees:
- *     RtlpQueryLowBoxId @ 0x14025ABE8 (RtlpQueryLowBoxId.c)
- *     RtlpAllowsLowBoxAccess @ 0x1402C7068 (RtlpAllowsLowBoxAccess.c)
+ *     RtlpAllowsLowBoxAccess @ 0x1402457A8 (RtlpAllowsLowBoxAccess.c)
+ *     RtlpQueryLowBoxId @ 0x14027C158 (RtlpQueryLowBoxId.c)
  */
 
-__int64 *__fastcall RtlpLookupLowBox(__int64 a1, __int64 a2, char a3)
+__int64 __fastcall RtlpLookupLowBox(__int64 a1, __int64 a2, char a3)
 {
   int LowBoxId; // ecx
-  __int64 **v6; // rbx
-  __int64 *result; // rax
+  __int64 *v6; // rbx
+  __int64 result; // rax
 
   if ( (*(_DWORD *)(a1 + 24) & 1) != 0 )
     LowBoxId = 0;
   else
     LowBoxId = RtlpQueryLowBoxId();
-  v6 = (__int64 **)(a2 + 16);
+  v6 = (__int64 *)(a2 + 16);
   if ( !LowBoxId )
-    return (__int64 *)(a2 + 16);
-  for ( result = *v6; result != (__int64 *)v6; result = (__int64 *)*result )
+    return a2 + 16;
+  for ( result = *v6; (__int64 *)result != v6; result = *(_QWORD *)result )
   {
-    if ( *((_DWORD *)result + 4) == LowBoxId )
+    if ( *(_DWORD *)(result + 16) == LowBoxId )
       return result;
   }
-  if ( !(unsigned __int8)RtlpAllowsLowBoxAccess(a2) || a3 )
+  if ( !RtlpAllowsLowBoxAccess(a2) || a3 )
     return 0LL;
   else
-    return (__int64 *)(a2 + 16);
+    return a2 + 16;
 }

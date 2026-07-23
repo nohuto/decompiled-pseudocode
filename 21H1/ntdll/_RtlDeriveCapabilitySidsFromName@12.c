@@ -14,52 +14,58 @@
  *     _memset @ 0x4B2F8F30 (_memset.c)
  */
 
-int __stdcall RtlDeriveCapabilitySidsFromName(unsigned __int16 *a1, char *a2, char *a3)
+NTSTATUS __cdecl RtlDeriveCapabilitySidsFromName(
+        PUNICODE_STRING UnicodeString,
+        PSID CapabilityGroupSid,
+        PSID CapabilitySid)
 {
-  int result; // eax
+  NTSTATUS result; // eax
   int v4; // esi
-  unsigned __int16 *v5; // edi
-  unsigned int v6; // [esp+Ch] [ebp-9Ch]
-  UNICODE_STRING UnicodeString; // [esp+10h] [ebp-98h] BYREF
-  _BYTE v8[108]; // [esp+18h] [ebp-90h] BYREF
-  _BYTE v9[32]; // [esp+84h] [ebp-24h] BYREF
+  _UNICODE_STRING *v5; // edi
+  size_t v6; // [esp-4h] [ebp-ACh]
+  size_t v7; // [esp-4h] [ebp-ACh]
+  _DWORD StackCookie[3]; // [esp+Ch] [ebp-9Ch] BYREF
+  _BYTE v9[108]; // [esp+18h] [ebp-90h] BYREF
+  _BYTE v10[32]; // [esp+84h] [ebp-24h] BYREF
 
-  if ( !a1 || !a2 || !a3 )
+  if ( !UnicodeString || !CapabilityGroupSid || !CapabilitySid )
     __fastfail(5u);
-  memset(a3, 0, 0x30u);
-  memset(a2, 0, 0x2Cu);
-  result = RtlUpcaseUnicodeString((int)&UnicodeString, a1, 1);
+  LODWORD(v6) = 48;
+  memset(CapabilitySid, 0, v6);
+  LODWORD(v7) = 44;
+  memset(CapabilityGroupSid, 0, v7);
+  result = RtlUpcaseUnicodeString((PUNICODE_STRING)&StackCookie[1], UnicodeString, 1u);
   if ( result >= 0 )
   {
-    SHA256Init(v8);
-    SHA256Update(UnicodeString.Length);
-    SHA256Final(v8, v9);
-    RtlInitializeSid((int)a2, (int)&RtlpNtAuthority, 9u);
-    *((_DWORD *)a2 + 2) = 32;
-    qmemcpy(a2 + 12, v9, 0x20u);
+    SHA256Init(v9);
+    SHA256Update(LOWORD(StackCookie[1]));
+    SHA256Final(v9, v10);
+    RtlInitializeSid(CapabilityGroupSid, (PSID_IDENTIFIER_AUTHORITY)&RtlpNtAuthority, 9u);
+    *((_DWORD *)CapabilityGroupSid + 2) = 32;
+    qmemcpy((char *)CapabilityGroupSid + 12, v10, 0x20u);
     v4 = 0;
-    v5 = (unsigned __int16 *)&RtlpLegacyApplicationCapabilityNames;
+    v5 = (_UNICODE_STRING *)&RtlpLegacyApplicationCapabilityNames;
     while ( 1 )
     {
-      v6 = v4 + 1;
-      if ( RtlEqualUnicodeString(&UnicodeString.Length, v5, 0) )
+      StackCookie[0] = v4 + 1;
+      if ( RtlEqualUnicodeString((PUNICODE_STRING)&StackCookie[1], v5, 0) )
         break;
       ++v4;
-      v5 += 4;
-      if ( v6 >= 0xC )
+      ++v5;
+      if ( StackCookie[0] >= 0xCu )
         goto LABEL_8;
     }
-    RtlInitializeSid((int)a3, (int)&RtlpAppPackageAuthority, 2u);
-    *((_DWORD *)a3 + 2) = 3;
-    *((_DWORD *)a3 + 3) = v6;
+    RtlInitializeSid(CapabilitySid, (PSID_IDENTIFIER_AUTHORITY)&RtlpAppPackageAuthority, 2u);
+    *((_DWORD *)CapabilitySid + 2) = 3;
+    *((_DWORD *)CapabilitySid + 3) = StackCookie[0];
 LABEL_8:
-    RtlFreeAnsiString(&UnicodeString);
+    RtlFreeAnsiString((PUNICODE_STRING)&StackCookie[1]);
     if ( v4 == 12 )
     {
-      RtlInitializeSid((int)a3, (int)&RtlpAppPackageAuthority, 0xAu);
-      *((_DWORD *)a3 + 2) = 3;
-      *((_DWORD *)a3 + 3) = 1024;
-      qmemcpy(a3 + 16, v9, 0x20u);
+      RtlInitializeSid(CapabilitySid, (PSID_IDENTIFIER_AUTHORITY)&RtlpAppPackageAuthority, 0xAu);
+      *((_DWORD *)CapabilitySid + 2) = 3;
+      *((_DWORD *)CapabilitySid + 3) = 1024;
+      qmemcpy((char *)CapabilitySid + 16, v10, 0x20u);
     }
     return 0;
   }

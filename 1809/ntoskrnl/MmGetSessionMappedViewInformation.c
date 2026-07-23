@@ -1,17 +1,17 @@
 /*
- * XREFs of MmGetSessionMappedViewInformation @ 0x14084C4A0
+ * XREFs of MmGetSessionMappedViewInformation @ 0x14084D700
  * Callers:
- *     ExpQuerySystemInformation @ 0x140626390 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x1406273B0 (ExpQuerySystemInformation.c)
  * Callees:
  *     MmGetNextSession @ 0x140012740 (MmGetNextSession.c)
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     MmGetSessionId @ 0x1400897B0 (MmGetSessionId.c)
- *     MmDetachSession @ 0x14011A5C0 (MmDetachSession.c)
- *     MmAttachSession @ 0x14011A650 (MmAttachSession.c)
- *     ExUnlockUserBuffer @ 0x14011A718 (ExUnlockUserBuffer.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ExLockUserBuffer @ 0x14069E918 (ExLockUserBuffer.c)
- *     MiGetSystemPteStatistics @ 0x14085BFF4 (MiGetSystemPteStatistics.c)
+ *     MmGetSessionId @ 0x1400897A0 (MmGetSessionId.c)
+ *     MmDetachSession @ 0x14011A630 (MmDetachSession.c)
+ *     MmAttachSession @ 0x14011A6C0 (MmAttachSession.c)
+ *     ExUnlockUserBuffer @ 0x14011A788 (ExUnlockUserBuffer.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ExLockUserBuffer @ 0x14069FBD8 (ExLockUserBuffer.c)
+ *     MiGetSystemPteStatistics @ 0x14085D254 (MiGetSystemPteStatistics.c)
  */
 
 __int64 __fastcall MmGetSessionMappedViewInformation(unsigned __int64 a1, unsigned int a2, _DWORD *a3, _DWORD *a4)

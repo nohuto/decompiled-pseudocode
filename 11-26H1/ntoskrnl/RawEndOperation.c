@@ -1,16 +1,16 @@
 /*
- * XREFs of RawEndOperation @ 0x14025769C
+ * XREFs of RawEndOperation @ 0x140258E74
  * Callers:
- *     RawCompletionRoutine @ 0x1402576D0 (RawCompletionRoutine.c)
- *     RawQueryFsDeviceInfo @ 0x140800000 (RawQueryFsDeviceInfo.c)
- *     RawSetInformation @ 0x140800084 (RawSetInformation.c)
- *     RawReadWriteDeviceControl @ 0x140A355B4 (RawReadWriteDeviceControl.c)
- *     RawQueryFsVolumeInfo @ 0x140A35D88 (RawQueryFsVolumeInfo.c)
- *     RawUserFsCtrl @ 0x140A367BC (RawUserFsCtrl.c)
- *     RawQueryInformation @ 0x140A36C34 (RawQueryInformation.c)
- *     RawQueryFsSizeInfo @ 0x140B25EA8 (RawQueryFsSizeInfo.c)
+ *     RawCompletionRoutine @ 0x140258EB0 (RawCompletionRoutine.c)
+ *     RawQueryFsDeviceInfo @ 0x140805A30 (RawQueryFsDeviceInfo.c)
+ *     RawSetInformation @ 0x140805AB4 (RawSetInformation.c)
+ *     RawQueryInformation @ 0x14091992C (RawQueryInformation.c)
+ *     RawUserFsCtrl @ 0x140919C34 (RawUserFsCtrl.c)
+ *     RawReadWriteDeviceControl @ 0x14091A2C4 (RawReadWriteDeviceControl.c)
+ *     RawQueryFsVolumeInfo @ 0x14091AA98 (RawQueryFsVolumeInfo.c)
+ *     RawQueryFsSizeInfo @ 0x140B28108 (RawQueryFsSizeInfo.c)
  * Callees:
- *     ExReleaseRundownProtectionCacheAwareEx @ 0x140257080 (ExReleaseRundownProtectionCacheAwareEx.c)
+ *     ExReleaseRundownProtectionCacheAwareEx @ 0x140258A10 (ExReleaseRundownProtectionCacheAwareEx.c)
  */
 
 void __fastcall RawEndOperation(__int64 a1, __int64 a2)

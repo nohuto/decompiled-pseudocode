@@ -1,18 +1,18 @@
 /*
- * XREFs of KeRcuFreePool @ 0x1405F0010
+ * XREFs of KeRcuFreePool @ 0x1405F2980
  * Callers:
  *     <none>
  * Callees:
- *     KiRcuStartGracePeriod @ 0x1405242A4 (KiRcuStartGracePeriod.c)
+ *     KiRcuStartGracePeriod @ 0x140526914 (KiRcuStartGracePeriod.c)
  */
 
-void __fastcall KeRcuFreePool(_QWORD *a1, __int64 a2)
+void __fastcall KeRcuFreePool(__int64 a1, __int64 a2)
 {
-  *a1 = 0LL;
-  a1[1] = 0LL;
-  a1[2] = 0LL;
-  a1[5] = 0LL;
-  a1[3] = 14LL;
-  a1[4] = a2;
-  KiRcuStartGracePeriod(a1);
+  *(_QWORD *)a1 = 0LL;
+  *(_QWORD *)(a1 + 8) = 0LL;
+  *(_QWORD *)(a1 + 16) = 0LL;
+  *(_QWORD *)(a1 + 40) = 0LL;
+  *(_QWORD *)(a1 + 24) = 14LL;
+  *(_QWORD *)(a1 + 32) = a2;
+  KiRcuStartGracePeriod((PVOID **)a1);
 }

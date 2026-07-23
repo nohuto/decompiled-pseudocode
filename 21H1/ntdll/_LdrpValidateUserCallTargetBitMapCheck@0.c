@@ -22,10 +22,10 @@ LABEL_5:
     result = v4 | 1;
     if ( _bittest(&v3, result) )
       return result;
-    return RtlpHandleInvalidUserCallTarget(a3);
+    return RtlpHandleInvalidUserCallTarget((PVOID)a3);
   }
   v4 &= ~1u;
   if ( _bittest(&v3, v4) )
     goto LABEL_5;
-  return RtlpHandleInvalidUserCallTarget(a3);
+  return RtlpHandleInvalidUserCallTarget((PVOID)a3);
 }

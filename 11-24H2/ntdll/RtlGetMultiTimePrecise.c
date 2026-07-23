@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlGetMultiTimePrecise @ 0x180039870
+ * XREFs of RtlGetMultiTimePrecise @ 0x180019AF0
  * Callers:
- *     EtwpInitLoggerContext @ 0x18008D330 (EtwpInitLoggerContext.c)
- *     RtlConvertHostPerfCounterToPerfCounter @ 0x18010EBE0 (RtlConvertHostPerfCounterToPerfCounter.c)
+ *     EtwpInitLoggerContext @ 0x1800A8DF0 (EtwpInitLoggerContext.c)
+ *     RtlConvertHostPerfCounterToPerfCounter @ 0x180109BC0 (RtlConvertHostPerfCounterToPerfCounter.c)
  * Callees:
- *     RtlBeginReadTickLock @ 0x180039A50 (RtlBeginReadTickLock.c)
- *     RtlQueryPerformanceCounter @ 0x18003A620 (RtlQueryPerformanceCounter.c)
+ *     RtlBeginReadTickLock @ 0x180019CD0 (RtlBeginReadTickLock.c)
+ *     RtlQueryPerformanceCounter @ 0x18001A8A0 (RtlQueryPerformanceCounter.c)
  */
 
-__int64 __fastcall RtlGetMultiTimePrecise(unsigned __int64 *a1, int a2, int *a3)
+__int64 __fastcall RtlGetMultiTimePrecise(LARGE_INTEGER *a1, int a2, int *a3)
 {
   char v3; // r15
   unsigned __int64 v4; // r12
@@ -17,12 +17,12 @@ __int64 __fastcall RtlGetMultiTimePrecise(unsigned __int64 *a1, int a2, int *a3)
   int v7; // esi
   __int64 TickLock; // rdi
   __int64 v9; // rbx
-  unsigned __int64 v10; // rdx
+  LARGE_INTEGER v10; // rdx
   int v11; // r14d
   __int64 v13; // rax
   __int64 v14; // r14
   __int64 v15; // rdx
-  unsigned __int64 v16; // [rsp+20h] [rbp-78h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+20h] [rbp-78h] BYREF
   __int64 v17; // [rsp+28h] [rbp-70h]
   __int64 v18; // [rsp+30h] [rbp-68h]
   unsigned __int64 v19; // [rsp+38h] [rbp-60h]
@@ -31,7 +31,7 @@ __int64 __fastcall RtlGetMultiTimePrecise(unsigned __int64 *a1, int a2, int *a3)
 
   v22 = a2;
   v3 = 0;
-  v16 = 0LL;
+  PerformanceCounter.QuadPart = 0LL;
   v4 = 0LL;
   v20 = 0LL;
   v17 = 0LL;
@@ -62,7 +62,7 @@ __int64 __fastcall RtlGetMultiTimePrecise(unsigned __int64 *a1, int a2, int *a3)
             v14 = MEMORY[0x7FFE03B8];
             v18 = MEMORY[0x7FFE03B8];
             v17 = v13;
-            RtlQueryPerformanceCounter(&v16);
+            RtlQueryPerformanceCounter(&PerformanceCounter);
           }
           while ( v17 != *(_QWORD *)(v5 + 24) );
         }
@@ -70,35 +70,35 @@ __int64 __fastcall RtlGetMultiTimePrecise(unsigned __int64 *a1, int a2, int *a3)
       }
       else
       {
-        RtlQueryPerformanceCounter(&v16);
+        RtlQueryPerformanceCounter(&PerformanceCounter);
       }
       if ( MEMORY[0x7FFE0340] == TickLock )
         break;
       _mm_pause();
     }
     v9 = 0LL;
-    v10 = v16;
+    v10 = PerformanceCounter;
     v11 = 0;
     if ( (v22 & 1) != 0 )
     {
-      *a1 = v16;
+      *a1 = PerformanceCounter;
       v11 = 1;
     }
     if ( v7 && v17 )
     {
-      a1[1] = v10 + v17 - v18;
+      a1[1].QuadPart = v10.QuadPart + v17 - v18;
       v11 |= 2u;
     }
     if ( v6 )
     {
-      if ( v10 > v4 )
+      if ( v10.QuadPart > v4 )
       {
-        v15 = v10 - v4 - 1;
+        v15 = v10.QuadPart - v4 - 1;
         if ( v3 )
           v15 <<= v3;
         v9 = ((unsigned __int64)v15 * (unsigned __int128)v19) >> 64;
       }
-      a1[2] = v9 + v20;
+      a1[2].QuadPart = v9 + v20;
       v11 |= 4u;
     }
     *a3 = v11;

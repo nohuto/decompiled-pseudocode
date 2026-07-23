@@ -7,16 +7,18 @@
  *     ZwQueryInformationFile @ 0x1800A5520 (ZwQueryInformationFile.c)
  */
 
-__int64 __fastcall sub_1800F5294(__int64 a1, _QWORD *a2)
+NTSTATUS __fastcall sub_1800F5294(void *a1, _QWORD *a2)
 {
-  __int64 result; // rax
-  __int64 v4; // [rsp+48h] [rbp-20h]
+  NTSTATUS result; // eax
+  _IO_STATUS_BLOCK IoStatusBlock; // [rsp+30h] [rbp-38h] BYREF
+  _BYTE FileInformation[8]; // [rsp+40h] [rbp-28h] BYREF
+  __int64 v6; // [rsp+48h] [rbp-20h]
 
-  result = ZwQueryInformationFile();
-  if ( (int)result >= 0 )
+  result = ZwQueryInformationFile(a1, &IoStatusBlock, FileInformation, 0x18u, FileStandardInformation);
+  if ( result >= 0 )
   {
-    *a2 = v4;
-    return 0LL;
+    *a2 = v6;
+    return 0;
   }
   return result;
 }

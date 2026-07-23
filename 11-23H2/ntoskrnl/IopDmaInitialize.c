@@ -1,9 +1,9 @@
 /*
- * XREFs of IopDmaInitialize @ 0x1408125F8
+ * XREFs of IopDmaInitialize @ 0x1408128C8
  * Callers:
  *     IopInitializePlugPlayServices @ 0x140B3E904 (IopInitializePlugPlayServices.c)
  * Callees:
- *     ArbInitializeArbiterInstance @ 0x140813748 (ArbInitializeArbiterInstance.c)
+ *     ArbInitializeArbiterInstance @ 0x140813A18 (ArbInitializeArbiterInstance.c)
  */
 
 __int64 __fastcall IopDmaInitialize(__int64 a1, int a2)

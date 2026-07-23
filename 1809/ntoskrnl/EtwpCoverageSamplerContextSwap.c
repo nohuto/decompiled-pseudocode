@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpCoverageSamplerContextSwap @ 0x14031789C
+ * XREFs of EtwpCoverageSamplerContextSwap @ 0x140317A8C
  * Callers:
- *     EtwTraceContextSwap @ 0x14017C900 (EtwTraceContextSwap.c)
+ *     EtwTraceContextSwap @ 0x14017CA40 (EtwTraceContextSwap.c)
  * Callees:
- *     EtwpCovSampCaptureSample @ 0x140316EC4 (EtwpCovSampCaptureSample.c)
+ *     EtwpCovSampCaptureSample @ 0x1403170B4 (EtwpCovSampCaptureSample.c)
  */
 
 void __fastcall EtwpCoverageSamplerContextSwap(_KTHREAD *a1)
@@ -22,10 +22,10 @@ void __fastcall EtwpCoverageSamplerContextSwap(_KTHREAD *a1)
   int v12; // ecx
   int v13; // ecx
 
-  if ( a1 && a1 != *(_KTHREAD **)qword_140409DE8 && a1 != KeGetCurrentPrcb()->IdleThread )
+  if ( a1 && a1 != *(_KTHREAD **)qword_14040AE48 && a1 != KeGetCurrentPrcb()->IdleThread )
   {
-    v1 = (*(_QWORD *)(qword_140409DE8 + 8) >> 4) & 0x1FFLL;
-    v2 = ((unsigned int)*(_QWORD *)(qword_140409DE8 + 8) >> 13) & 0x3FFFF;
+    v1 = (*(_QWORD *)(qword_14040AE48 + 8) >> 4) & 0x1FFLL;
+    v2 = ((unsigned int)*(_QWORD *)(qword_14040AE48 + 8) >> 13) & 0x3FFFF;
     _BitScanReverse(&v3, v2);
     v4 = *(_QWORD *)(*((_QWORD *)KeGetCurrentPrcb()->ExSaPageArray + v3 - 2) + 8LL * (v2 ^ (1 << v3)) + 8);
     if ( !*(_DWORD *)(v4 + 8 * v1 + 184) )

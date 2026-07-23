@@ -1,87 +1,86 @@
 /*
- * XREFs of PsCallImageNotifyRoutines @ 0x140A791A4
+ * XREFs of PsCallImageNotifyRoutines @ 0x1409E6750
  * Callers:
- *     MiHandleInsertedImageVad @ 0x1409CDFA4 (MiHandleInsertedImageVad.c)
- *     DbgkCreateThread @ 0x1409EAD24 (DbgkCreateThread.c)
- *     MiCallImageNotify @ 0x140A790C8 (MiCallImageNotify.c)
+ *     MiHandleInsertedImageVad @ 0x14099EF84 (MiHandleInsertedImageVad.c)
+ *     MiCallImageNotify @ 0x1409E50E8 (MiCallImageNotify.c)
+ *     DbgkCreateThread @ 0x1409E74F4 (DbgkCreateThread.c)
  * Callees:
- *     KeAreAllApcsDisabled @ 0x140263C40 (KeAreAllApcsDisabled.c)
- *     ExReferenceCallBackBlock @ 0x14029BA90 (ExReferenceCallBackBlock.c)
- *     KeLeaveCriticalRegionThread @ 0x1402B8A60 (KeLeaveCriticalRegionThread.c)
- *     ExDereferenceCallBackBlock @ 0x140435D80 (ExDereferenceCallBackBlock.c)
- *     KeCallbackValidationEpilogue @ 0x1404E07B8 (KeCallbackValidationEpilogue.c)
- *     KeCallbackValidationPrologue @ 0x1404E921C (KeCallbackValidationPrologue.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     FsRtlReleaseFileNameInformation @ 0x1409FDA00 (FsRtlReleaseFileNameInformation.c)
- *     PerfLogImageLoad @ 0x140A79674 (PerfLogImageLoad.c)
+ *     KeAreAllApcsDisabled @ 0x1402631B0 (KeAreAllApcsDisabled.c)
+ *     ExReferenceCallBackBlock @ 0x14029AFF0 (ExReferenceCallBackBlock.c)
+ *     KeLeaveCriticalRegionThread @ 0x140303720 (KeLeaveCriticalRegionThread.c)
+ *     ExDereferenceCallBackBlock @ 0x140424890 (ExDereferenceCallBackBlock.c)
+ *     KeCallbackValidationEpilogue @ 0x1404D9E98 (KeCallbackValidationEpilogue.c)
+ *     KeCallbackValidationPrologue @ 0x1404E22FC (KeCallbackValidationPrologue.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     FsRtlReleaseFileNameInformation @ 0x140922600 (FsRtlReleaseFileNameInformation.c)
+ *     PerfLogImageLoad @ 0x140A8B0E0 (PerfLogImageLoad.c)
  */
 
 __int64 __fastcall PsCallImageNotifyRoutines(__int128 *a1, __int64 a2, _QWORD *a3, __int64 a4)
 {
   struct _KTHREAD *CurrentThread; // r12
   signed __int64 v9; // rdx
-  __int64 v10; // r8
-  int v11; // eax
-  __int128 *v12; // rbp
-  __int64 v13; // r13
-  _DWORD *v14; // rbx
-  __int64 v16; // r14
-  union _RTL_RUN_ONCE *v17; // rdi
-  struct _EX_RUNDOWN_REF *v18; // rax
-  struct _EX_RUNDOWN_REF *v19; // rsi
+  int v10; // eax
+  __int128 *v11; // rbp
+  __int64 v12; // r13
+  _DWORD *v13; // rbx
+  __int64 v15; // r14
+  signed __int64 *p_PropagateBoostsEntry; // rdi
+  struct _EX_RUNDOWN_REF *v17; // rax
+  struct _EX_RUNDOWN_REF *v18; // rsi
   ULONG_PTR Count; // r15
-  __int128 v21; // [rsp+38h] [rbp-40h] BYREF
-  __int64 v22; // [rsp+88h] [rbp+10h] BYREF
+  __int128 v20; // [rsp+38h] [rbp-40h] BYREF
+  __int64 v21; // [rsp+88h] [rbp+10h] BYREF
 
-  v22 = 0LL;
   v21 = 0LL;
+  v20 = 0LL;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   if ( KeAreAllApcsDisabled() )
     NT_ASSERT("KeAreAllApcsDisabled() == 0");
   if ( FltMgrCallbacks )
-    v11 = guard_dispatch_icall_no_overrides(a4, 1024LL);
+    v10 = guard_dispatch_icall_no_overrides(a4, 1024LL);
   else
-    v11 = -1073741637;
-  v12 = &v21;
-  if ( v11 < 0 )
-    v12 = a1;
+    v10 = -1073741637;
+  v11 = &v20;
+  if ( v10 < 0 )
+    v11 = a1;
   if ( a2 )
-    v13 = *(_QWORD *)(a2 + 464);
+    v12 = *(_QWORD *)(a2 + 464);
   else
-    v13 = 0LL;
-  v14 = a3 + 1;
-  if ( (PerfGlobalGroupMask[0] & 4) != 0 )
-    PerfLogImageLoad(v12, a2, a3 + 1);
+    v12 = 0LL;
+  v13 = a3 + 1;
+  if ( (PerfGlobalGroupMask & 4) != 0 )
+    PerfLogImageLoad(v11, a2, a3 + 1);
   if ( (PspNotifyEnableMask & 1) != 0 )
   {
-    *v14 |= 0x400u;
+    *v13 |= 0x400u;
     a3[6] = a4;
-    v16 = 64LL;
+    v15 = 64LL;
     *a3 = 56LL;
-    v17 = &PspLoadImageNotifyRoutine;
+    p_PropagateBoostsEntry = (signed __int64 *)&NormalizationListLock.PropagateBoostsEntry;
     do
     {
-      v18 = ExReferenceCallBackBlock((signed __int64 *)v17, v9);
-      v19 = v18;
-      if ( v18 )
+      v17 = ExReferenceCallBackBlock(p_PropagateBoostsEntry, v9);
+      v18 = v17;
+      if ( v17 )
       {
-        Count = v18[1].Count;
-        if ( (*v14 & 0x800) == 0 || (v18[2].Count & 1) != 0 )
+        Count = v17[1].Count;
+        if ( (*v13 & 0x800) == 0 || (v17[2].Count & 1) != 0 )
         {
           if ( Count )
           {
-            KeCallbackValidationPrologue((__int64)&v22);
-            guard_dispatch_icall_no_overrides((__int64)v12, v13);
-            KeCallbackValidationEpilogue((__int64)&v22, Count, 0x109u);
+            KeCallbackValidationPrologue((__int64)&v21);
+            guard_dispatch_icall_no_overrides((__int64)v11, v12);
+            KeCallbackValidationEpilogue((__int64)&v21, Count, 0x109u);
           }
         }
-        ExDereferenceCallBackBlock((signed __int64 *)v17, v19);
+        ExDereferenceCallBackBlock(p_PropagateBoostsEntry, v18);
       }
-      ++v17;
-      --v16;
+      ++p_PropagateBoostsEntry;
+      --v15;
     }
-    while ( v16 );
+    while ( v15 );
   }
-  return KeLeaveCriticalRegionThread((__int64)CurrentThread, v9, v10);
+  return KeLeaveCriticalRegionThread((__int64)CurrentThread);
 }

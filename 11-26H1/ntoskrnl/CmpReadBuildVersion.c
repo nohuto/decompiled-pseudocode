@@ -1,16 +1,16 @@
 /*
- * XREFs of CmpReadBuildVersion @ 0x140854404
+ * XREFs of CmpReadBuildVersion @ 0x14085A714
  * Callers:
- *     CmpRecordShutdownStopTime @ 0x140854628 (CmpRecordShutdownStopTime.c)
+ *     CmpRecordShutdownStopTime @ 0x14085A938 (CmpRecordShutdownStopTime.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     CmpAllocatePool @ 0x140474870 (CmpAllocatePool.c)
- *     CmSiFreeMemory @ 0x140495010 (CmSiFreeMemory.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwOpenKey @ 0x140723630 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x1407236D0 (ZwQueryValueKey.c)
- *     memmove @ 0x14073D480 (memmove.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     CmpAllocatePool @ 0x14046DFF0 (CmpAllocatePool.c)
+ *     CmSiFreeMemory @ 0x14048EB60 (CmSiFreeMemory.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140728200 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1407282A0 (ZwQueryValueKey.c)
+ *     memmove @ 0x140742080 (memmove.c)
  */
 
 __int64 __fastcall CmpReadBuildVersion(struct _PRIVILEGE_SET **a1, ULONG *a2, _DWORD *a3)

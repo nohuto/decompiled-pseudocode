@@ -1,9 +1,9 @@
 /*
- * XREFs of PopDispatchNotifications @ 0x14052AA30
+ * XREFs of PopDispatchNotifications @ 0x14052B680
  * Callers:
  *     <none>
  * Callees:
- *     PopDispatchNotificationsToList @ 0x14052AA70 (PopDispatchNotificationsToList.c)
+ *     PopDispatchNotificationsToList @ 0x14052B6C0 (PopDispatchNotificationsToList.c)
  */
 
 __int64 PopDispatchNotifications()

@@ -1,19 +1,19 @@
 /*
- * XREFs of PnpCallAddDevice @ 0x14079262C
+ * XREFs of PnpCallAddDevice @ 0x14079281C
  * Callers:
- *     PipCallDriverAddDevice @ 0x1406C8234 (PipCallDriverAddDevice.c)
+ *     PipCallDriverAddDevice @ 0x1406C8264 (PipCallDriverAddDevice.c)
  * Callees:
- *     KeRevertToUserGroupAffinityThread @ 0x140305E00 (KeRevertToUserGroupAffinityThread.c)
- *     PpvUtilCallAddDevice @ 0x140322310 (PpvUtilCallAddDevice.c)
- *     PnpSetDeviceAffinityThread @ 0x140322840 (PnpSetDeviceAffinityThread.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     McTemplateK0q_EtwWriteTransfer @ 0x140554980 (McTemplateK0q_EtwWriteTransfer.c)
- *     PnpWatchdogEtwWrite @ 0x140560A70 (PnpWatchdogEtwWrite.c)
- *     McTemplateK0qhzr1z_EtwWriteTransfer @ 0x140561214 (McTemplateK0qhzr1z_EtwWriteTransfer.c)
- *     PnpRecordBlackbox @ 0x1407855CC (PnpRecordBlackbox.c)
- *     PnpWatchdogTimerPause @ 0x140785640 (PnpWatchdogTimerPause.c)
- *     WdtpCancelTimer @ 0x1407856CC (WdtpCancelTimer.c)
- *     PnpEnableWatchdog @ 0x14078601C (PnpEnableWatchdog.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x140306090 (KeRevertToUserGroupAffinityThread.c)
+ *     PpvUtilCallAddDevice @ 0x1403225A0 (PpvUtilCallAddDevice.c)
+ *     PnpSetDeviceAffinityThread @ 0x140322AD0 (PnpSetDeviceAffinityThread.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     McTemplateK0q_EtwWriteTransfer @ 0x140555040 (McTemplateK0q_EtwWriteTransfer.c)
+ *     PnpWatchdogEtwWrite @ 0x140561130 (PnpWatchdogEtwWrite.c)
+ *     McTemplateK0qhzr1z_EtwWriteTransfer @ 0x1405618D4 (McTemplateK0qhzr1z_EtwWriteTransfer.c)
+ *     PnpRecordBlackbox @ 0x1407857BC (PnpRecordBlackbox.c)
+ *     PnpWatchdogTimerPause @ 0x140785830 (PnpWatchdogTimerPause.c)
+ *     WdtpCancelTimer @ 0x1407858BC (WdtpCancelTimer.c)
+ *     PnpEnableWatchdog @ 0x14078620C (PnpEnableWatchdog.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
@@ -31,7 +31,7 @@ __int64 __fastcall PnpCallAddDevice(
   __int64 v12; // r8
   void *v13; // rbx
   _QWORD v15[4]; // [rsp+40h] [rbp-78h] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+60h] [rbp-58h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+60h] [rbp-58h] BYREF
 
   v15[0] = 0LL;
   PreviousAffinity = 0LL;

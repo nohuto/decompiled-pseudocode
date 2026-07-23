@@ -35,7 +35,7 @@ __int64 __fastcall MiFreePagedPoolPages(ULONG_PTR BugCheckParameter2, unsigned _
   ULONG_PTR v9; // rdx
   ULONG_PTR v10; // r13
   unsigned __int64 v11; // r9
-  union _SLIST_HEADER *v12; // rcx
+  _SLIST_HEADER *v12; // rcx
   __int64 v13; // rcx
   struct _KTHREAD *v14; // rdi
   unsigned int AbEntrySummary; // edx

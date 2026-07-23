@@ -1,13 +1,13 @@
 /*
- * XREFs of PopDiagTraceDirectedDripsInitialization @ 0x1407D3440
+ * XREFs of PopDiagTraceDirectedDripsInitialization @ 0x1407D6478
  * Callers:
- *     PopDirectedDripsInitializePhase3 @ 0x140CD0B50 (PopDirectedDripsInitializePhase3.c)
+ *     PopDirectedDripsInitializePhase3 @ 0x140CD6CF8 (PopDirectedDripsInitializePhase3.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void __fastcall PopDiagTraceDirectedDripsInitialization(int a1)
@@ -24,30 +24,25 @@ void __fastcall PopDiagTraceDirectedDripsInitialization(int a1)
   int v10; // [rsp+A0h] [rbp+67h] BYREF
 
   v10 = a1;
-  if ( byte_140E67614 && (unsigned int)dword_140E07598 > 5 && tlgKeywordOn((__int64)&dword_140E07598, 0x400000000000LL) )
+  if ( PopTriggerDiagHandleRegistered
+    && (unsigned int)dword_140E07560 > 5
+    && tlgKeywordOn((__int64)&dword_140E07560, 0x400000000000LL) )
   {
     v2 = v1;
     v8 = &v2;
     v9 = 4LL;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E07598, (unsigned __int8 *)&byte_14004A71F, 0LL, 0LL, 3u, &v7);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E07560, (unsigned __int8 *)word_14004B002, 0LL, 0LL, 3u, &v7);
   }
-  if ( byte_140E67628 )
+  if ( PopDiagHandleRegistered )
   {
-    if ( EtwEventEnabled(
-           *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-           &POP_ETW_EVENT_DIRECTED_DRIPS_INITIALIZATION) )
+    if ( EtwEventEnabled(PopDiagHandle, &POP_ETW_EVENT_DIRECTED_DRIPS_INITIALIZATION) )
     {
       UserData.Ptr = (ULONGLONG)&v3;
       v3 = 0;
       v5 = &v10;
       *(_QWORD *)&UserData.Size = 4LL;
       v6 = 4LL;
-      EtwWrite(
-        *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-        &POP_ETW_EVENT_DIRECTED_DRIPS_ENGAGED,
-        0LL,
-        2u,
-        &UserData);
+      EtwWrite(PopDiagHandle, &POP_ETW_EVENT_DIRECTED_DRIPS_ENGAGED, 0LL, 2u, &UserData);
     }
   }
 }

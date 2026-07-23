@@ -1,14 +1,14 @@
 /*
- * XREFs of ArbRegReadMmConfigRanges @ 0x140789500
+ * XREFs of ArbRegReadMmConfigRanges @ 0x14078C030
  * Callers:
- *     ArbLibraryInitialize @ 0x140788ED0 (ArbLibraryInitialize.c)
+ *     ArbLibraryInitialize @ 0x14078BA00 (ArbLibraryInitialize.c)
  * Callees:
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwOpenKey @ 0x140723630 (ZwOpenKey.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     ArbpGetRegistryValue @ 0x140789E88 (ArbpGetRegistryValue.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140728200 (ZwOpenKey.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     ArbpGetRegistryValue @ 0x14078C9B0 (ArbpGetRegistryValue.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 ArbRegReadMmConfigRanges()

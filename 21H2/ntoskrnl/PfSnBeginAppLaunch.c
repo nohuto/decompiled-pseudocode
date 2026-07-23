@@ -1,21 +1,21 @@
 /*
- * XREFs of PfSnBeginAppLaunch @ 0x1406CC0AC
+ * XREFs of PfSnBeginAppLaunch @ 0x14067A99C
  * Callers:
- *     PfProcessCreateNotification @ 0x1406CC014 (PfProcessCreateNotification.c)
- *     PfSnAppLaunchScenarioControl @ 0x1408E08C0 (PfSnAppLaunchScenarioControl.c)
+ *     PfProcessCreateNotification @ 0x14067A904 (PfProcessCreateNotification.c)
+ *     PfSnAppLaunchScenarioControl @ 0x1408E0A20 (PfSnAppLaunchScenarioControl.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     memset @ 0x140414200 (memset.c)
- *     PfSnFindImageFileName @ 0x1406CB524 (PfSnFindImageFileName.c)
- *     PfSnIsHostingApplication @ 0x1406CB570 (PfSnIsHostingApplication.c)
- *     PfSnScanCommandLine @ 0x1406CB680 (PfSnScanCommandLine.c)
- *     PfSnCheckModernApp @ 0x1406CB998 (PfSnCheckModernApp.c)
- *     PfSnBeginScenario @ 0x1406CBBC4 (PfSnBeginScenario.c)
- *     PfSnLogScenarioDecision @ 0x1406CBE9C (PfSnLogScenarioDecision.c)
- *     PfSnCheckScenario @ 0x1406CC2B8 (PfSnCheckScenario.c)
- *     PfCalculateProcessHash @ 0x1406CC490 (PfCalculateProcessHash.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     PfSnFindImageFileName @ 0x140679E14 (PfSnFindImageFileName.c)
+ *     PfSnIsHostingApplication @ 0x140679E60 (PfSnIsHostingApplication.c)
+ *     PfSnScanCommandLine @ 0x140679F70 (PfSnScanCommandLine.c)
+ *     PfSnCheckModernApp @ 0x14067A288 (PfSnCheckModernApp.c)
+ *     PfSnBeginScenario @ 0x14067A4B4 (PfSnBeginScenario.c)
+ *     PfSnLogScenarioDecision @ 0x14067A78C (PfSnLogScenarioDecision.c)
+ *     PfSnCheckScenario @ 0x14067ABA8 (PfSnCheckScenario.c)
+ *     PfCalculateProcessHash @ 0x14067AD80 (PfCalculateProcessHash.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PfSnBeginAppLaunch(__int64 a1, unsigned __int16 *a2, int a3)
@@ -31,13 +31,13 @@ __int64 __fastcall PfSnBeginAppLaunch(__int64 a1, unsigned __int16 *a2, int a3)
   int v14; // ecx
   int v16; // eax
   int v17; // [rsp+40h] [rbp-C0h] BYREF
-  size_t v18; // [rsp+48h] [rbp-B8h] BYREF
+  ULONG_PTR v18; // [rsp+48h] [rbp-B8h] BYREF
   unsigned int v19; // [rsp+50h] [rbp-B0h] BYREF
   int v20; // [rsp+54h] [rbp-ACh] BYREF
   int v21; // [rsp+58h] [rbp-A8h] BYREF
   __int128 v22; // [rsp+60h] [rbp-A0h] BYREF
   wchar_t SubStr[32]; // [rsp+70h] [rbp-90h] BYREF
-  wchar_t v24[128]; // [rsp+B0h] [rbp-50h] BYREF
+  WCHAR v24[128]; // [rsp+B0h] [rbp-50h] BYREF
 
   v21 = 0;
   v19 = 0;
@@ -97,7 +97,7 @@ LABEL_17:
     WORD1(v22) = v18;
   }
   *(_DWORD *)&SubStr[30] = a3 + v14;
-  if ( (dword_140C50550 & 0x20) != 0 || v21 == 2 )
+  if ( (dword_140C50590 & 0x20) != 0 || v21 == 2 )
     v7 |= 2u;
   v8 = PfSnBeginScenario(a1, (unsigned __int8 *)SubStr, 0, v7, (const void **)&v22);
   if ( v8 >= 0 )

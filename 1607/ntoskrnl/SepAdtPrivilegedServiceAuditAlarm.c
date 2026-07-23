@@ -1,18 +1,18 @@
 /*
- * XREFs of SepAdtPrivilegedServiceAuditAlarm @ 0x140414C0C
+ * XREFs of SepAdtPrivilegedServiceAuditAlarm @ 0x140413ACC
  * Callers:
- *     SePrivilegedServiceAuditAlarm @ 0x14041537C (SePrivilegedServiceAuditAlarm.c)
- *     PfQuerySuperfetchInformation @ 0x140418550 (PfQuerySuperfetchInformation.c)
- *     NtPrivilegedServiceAuditAlarm @ 0x1404B646C (NtPrivilegedServiceAuditAlarm.c)
+ *     SePrivilegedServiceAuditAlarm @ 0x14041423C (SePrivilegedServiceAuditAlarm.c)
+ *     PfQuerySuperfetchInformation @ 0x140417410 (PfQuerySuperfetchInformation.c)
+ *     NtPrivilegedServiceAuditAlarm @ 0x1404A084C (NtPrivilegedServiceAuditAlarm.c)
  * Callees:
- *     PsGetCurrentThreadProcess @ 0x1400B2E10 (PsGetCurrentThreadProcess.c)
- *     SepAdtLogAuditRecord @ 0x140145330 (SepAdtLogAuditRecord.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     PsGetCurrentThreadProcess @ 0x1400B0D5C (PsGetCurrentThreadProcess.c)
+ *     SepAdtLogAuditRecord @ 0x1401458A0 (SepAdtLogAuditRecord.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     PsGetAllocatedFullProcessImageNameEx @ 0x1403E6A00 (PsGetAllocatedFullProcessImageNameEx.c)
- *     SepAdtAuditPrivilegeUseWithContext @ 0x140414CB8 (SepAdtAuditPrivilegeUseWithContext.c)
- *     SepAuditFailed @ 0x140696078 (SepAuditFailed.c)
+ *     PsGetAllocatedFullProcessImageNameEx @ 0x1403E8030 (PsGetAllocatedFullProcessImageNameEx.c)
+ *     SepAdtAuditPrivilegeUseWithContext @ 0x140413B78 (SepAdtAuditPrivilegeUseWithContext.c)
+ *     SepAuditFailed @ 0x14069615C (SepAuditFailed.c)
  */
 
 void __fastcall SepAdtPrivilegedServiceAuditAlarm(

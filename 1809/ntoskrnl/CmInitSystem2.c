@@ -1,11 +1,11 @@
 /*
- * XREFs of CmInitSystem2 @ 0x1409C62F8
+ * XREFs of CmInitSystem2 @ 0x1409C72F8
  * Callers:
- *     Phase1InitializationIoReady @ 0x1409C4788 (Phase1InitializationIoReady.c)
+ *     Phase1InitializationIoReady @ 0x1409C5788 (Phase1InitializationIoReady.c)
  * Callees:
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     CmpRegisterTraceLoggingProvider @ 0x140737900 (CmpRegisterTraceLoggingProvider.c)
- *     IoCreateDriver @ 0x14073A090 (IoCreateDriver.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     CmpRegisterTraceLoggingProvider @ 0x140738AF0 (CmpRegisterTraceLoggingProvider.c)
+ *     IoCreateDriver @ 0x14073B280 (IoCreateDriver.c)
  */
 
 int CmInitSystem2()

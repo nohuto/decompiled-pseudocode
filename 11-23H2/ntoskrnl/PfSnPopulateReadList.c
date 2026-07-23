@@ -1,20 +1,20 @@
 /*
- * XREFs of PfSnPopulateReadList @ 0x14075C380
+ * XREFs of PfSnPopulateReadList @ 0x14075C570
  * Callers:
  *     <none>
  * Callees:
- *     KiStackAttachProcess @ 0x14022D600 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x14022D9C0 (KiUnstackDetachProcess.c)
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExReleaseRundownProtection_0 @ 0x14028B390 (ExReleaseRundownProtection_0.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     NtClose @ 0x1406E44C0 (NtClose.c)
- *     PsSetCurrentThreadPrefetching @ 0x14075C8B0 (PsSetCurrentThreadPrefetching.c)
- *     PfSnFindPrefetchVolumeInfoInList @ 0x14075C914 (PfSnFindPrefetchVolumeInfoInList.c)
- *     PfSnGetSectionObject @ 0x14075C9A0 (PfSnGetSectionObject.c)
- *     NtCreateEvent @ 0x14075CD80 (NtCreateEvent.c)
- *     PfSnCleanupPrefetchSectionInfo @ 0x14075CFB8 (PfSnCleanupPrefetchSectionInfo.c)
+ *     KiStackAttachProcess @ 0x14022D710 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x14022DAD0 (KiUnstackDetachProcess.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseRundownProtection_0 @ 0x14028B620 (ExReleaseRundownProtection_0.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     NtClose @ 0x1406E44F0 (NtClose.c)
+ *     PsSetCurrentThreadPrefetching @ 0x14075CAA0 (PsSetCurrentThreadPrefetching.c)
+ *     PfSnFindPrefetchVolumeInfoInList @ 0x14075CB04 (PfSnFindPrefetchVolumeInfoInList.c)
+ *     PfSnGetSectionObject @ 0x14075CB90 (PfSnGetSectionObject.c)
+ *     NtCreateEvent @ 0x14075CF70 (NtCreateEvent.c)
+ *     PfSnCleanupPrefetchSectionInfo @ 0x14075D1A8 (PfSnCleanupPrefetchSectionInfo.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
@@ -28,7 +28,7 @@ void __fastcall PfSnPopulateReadList(__int64 a1)
   __int64 v5; // r14
   _KPROCESS *v6; // rcx
   struct _KTHREAD *CurrentThread; // rax
-  int v8; // eax
+  NTSTATUS v8; // eax
   __int64 v9; // r8
   unsigned int *v10; // rax
   int v11; // ebx
@@ -65,46 +65,41 @@ void __fastcall PfSnPopulateReadList(__int64 a1)
   __int64 v42; // [rsp+78h] [rbp-90h]
   int v43; // [rsp+80h] [rbp-88h]
   __int64 v44; // [rsp+88h] [rbp-80h] BYREF
-  HANDLE Handle; // [rsp+90h] [rbp-78h] BYREF
+  HANDLE EventHandle; // [rsp+90h] [rbp-78h] BYREF
   __int64 v46; // [rsp+98h] [rbp-70h]
   __int64 v47; // [rsp+A0h] [rbp-68h]
   char *v48; // [rsp+A8h] [rbp-60h]
   __int64 v49; // [rsp+B0h] [rbp-58h]
   char *v50; // [rsp+B8h] [rbp-50h]
   UNICODE_STRING DestinationString; // [rsp+C0h] [rbp-48h] BYREF
-  _DWORD v52[2]; // [rsp+D0h] [rbp-38h] BYREF
-  __int64 v53; // [rsp+D8h] [rbp-30h]
-  __int64 v54; // [rsp+E0h] [rbp-28h]
-  int v55; // [rsp+E8h] [rbp-20h]
-  int v56; // [rsp+ECh] [rbp-1Ch]
-  __int128 v57; // [rsp+F0h] [rbp-18h]
-  $115DCDF994C6370D29323EAB0E0C9502 v58; // [rsp+100h] [rbp-8h] BYREF
+  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+D0h] [rbp-38h] BYREF
+  $115DCDF994C6370D29323EAB0E0C9502 v53; // [rsp+100h] [rbp-8h] BYREF
 
   v1 = *(_QWORD *)(a1 + 32);
   Pool2 = 0LL;
-  memset(&v58, 0, sizeof(v58));
+  memset(&v53, 0, sizeof(v53));
   v3 = a1;
   v49 = a1;
   LODWORD(v4) = 0;
-  v52[1] = 0;
+  *(&ObjectAttributes.Length + 1) = 0;
   DestinationString = 0LL;
   v5 = *(_QWORD *)(v1 + 8);
   v6 = *(_KPROCESS **)(v1 + 16);
   v39 = v5;
-  v56 = 0;
+  *(&ObjectAttributes.Attributes + 1) = 0;
   v42 = v1;
   v36 = 0;
-  Handle = 0LL;
-  KiStackAttachProcess(v6, 0, (__int64)&v58);
+  EventHandle = 0LL;
+  KiStackAttachProcess(v6, 0, (__int64)&v53);
   PsSetCurrentThreadPrefetching(1u);
   CurrentThread = KeGetCurrentThread();
-  v52[0] = 48;
-  v53 = 0LL;
-  v55 = 512;
+  ObjectAttributes.Length = 48;
+  ObjectAttributes.RootDirectory = 0LL;
+  ObjectAttributes.Attributes = 512;
   --CurrentThread->KernelApcDisable;
-  v54 = 0LL;
-  v57 = 0LL;
-  v8 = NtCreateEvent(&Handle, 2031619LL, v52, 0LL, 0);
+  ObjectAttributes.ObjectName = 0LL;
+  *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+  v8 = NtCreateEvent(&EventHandle, 0x1F0003u, &ObjectAttributes, NotificationEvent, 0);
   if ( v8 < 0 )
     goto LABEL_54;
   v10 = *(unsigned int **)v5;
@@ -209,7 +204,7 @@ LABEL_38:
                 v40,
                 v38,
                 v20,
-                (__int64)Handle,
+                (__int64)EventHandle,
                 (__int64)&v44,
                 (__int64)&v36) >= 0 )
     {
@@ -306,10 +301,10 @@ LABEL_3:
     LOBYTE(v9) = 1;
     PfSnCleanupPrefetchSectionInfo(*(_QWORD *)(v5 + 56) + 56LL * (unsigned int)v4, v5, v9);
   }
-  if ( Handle )
-    NtClose(Handle);
+  if ( EventHandle )
+    NtClose(EventHandle);
   KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   PsSetCurrentThreadPrefetching(0);
-  KiUnstackDetachProcess(&v58);
+  KiUnstackDetachProcess(&v53);
   ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)v1);
 }

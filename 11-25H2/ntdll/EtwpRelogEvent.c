@@ -24,8 +24,8 @@ __int64 __fastcall EtwpRelogEvent(__int64 a1, __int64 a2)
   unsigned __int32 v15; // ecx
   void *v16; // rcx
   bool v18; // zf
-  void *v19; // rax
-  void *Heap; // rax
+  PVOID v19; // rax
+  PVOID Heap; // rax
   unsigned int v21; // [rsp+68h] [rbp+10h]
 
   v4 = 0;
@@ -47,7 +47,7 @@ __int64 __fastcall EtwpRelogEvent(__int64 a1, __int64 a2)
   {
     if ( v8 != 82 || v6 || *(_QWORD *)(a1 + 520) || (unsigned int)v7 < 8 || *(_BYTE *)(*(_QWORD *)(a2 + 72) + 7LL) )
       goto LABEL_7;
-    Heap = (void *)RtlAllocateHeap((char *)NtCurrentPeb()->ProcessHeap, 8u, *(unsigned int *)(a2 + 80));
+    Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, *(unsigned int *)(a2 + 80));
     *(_QWORD *)(a1 + 520) = Heap;
     if ( Heap )
     {
@@ -59,7 +59,7 @@ __int64 __fastcall EtwpRelogEvent(__int64 a1, __int64 a2)
   }
   if ( !*(_BYTE *)(*(_QWORD *)(a2 + 72) + 7LL) )
   {
-    v19 = (void *)RtlAllocateHeap((char *)NtCurrentPeb()->ProcessHeap, 8u, *(unsigned int *)(a2 + 80));
+    v19 = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, *(unsigned int *)(a2 + 80));
     *(_QWORD *)(a1 + 504) = v19;
     if ( v19 )
     {

@@ -65,13 +65,13 @@ __int64 __fastcall EtwpRegisterUMGuid(__int64 a1, __int64 a2, unsigned int a3, c
 
   v6 = *(_DWORD *)(a2 + 16);
   v41 = *(_DWORD *)(a2 + 20);
-  v10 = *(_QWORD *)a2 - SecurityProviderGuid;
-  v9 = *(_QWORD *)a2 == (_QWORD)SecurityProviderGuid;
+  v10 = *(_QWORD *)a2 - *(_QWORD *)&SecurityProviderGuid.Data1;
+  v9 = *(_QWORD *)a2 == *(_QWORD *)&SecurityProviderGuid.Data1;
   v43 = 0LL;
   DmaAdapter = 0LL;
   LOBYTE(v45) = 0;
   if ( v9 )
-    v10 = *(_QWORD *)(a2 + 8) - *((_QWORD *)&SecurityProviderGuid + 1);
+    v10 = *(_QWORD *)(a2 + 8) - *(_QWORD *)SecurityProviderGuid.Data4;
   if ( !v10 )
     return 3221225506LL;
   v12 = (unsigned int)(v6 - 2) > 1;

@@ -11,49 +11,49 @@
  *     NtTraceControl @ 0x1800A37D0 (NtTraceControl.c)
  */
 
-_BYTE *__fastcall EtwpNotificationThread(__int64 a1, __int64 a2, __int64 a3)
+void __fastcall EtwpNotificationThread(PTP_CALLBACK_INSTANCE a1, PVOID a2, PTP_WAIT a3)
 {
-  _BYTE *Heap; // rbx
+  _ETW_NOTIFICATION_HEADER *Heap; // rbx
   char v6; // si
-  int v7; // eax
-  int v8; // edi
-  _BYTE *result; // rax
-  unsigned int v10; // [rsp+30h] [rbp-148h]
+  ULONG OutputBufferLength; // ebp
+  NTSTATUS v8; // eax
+  int v9; // edi
+  ULONG ReturnLength; // [rsp+30h] [rbp-148h] BYREF
   __int64 v11; // [rsp+38h] [rbp-140h] BYREF
-  _BYTE v12[256]; // [rsp+40h] [rbp-138h] BYREF
+  _BYTE OutputBuffer[256]; // [rsp+40h] [rbp-138h] BYREF
 
   v11 = -600000000LL;
-  Heap = v12;
+  Heap = (_ETW_NOTIFICATION_HEADER *)OutputBuffer;
   v6 = 0;
+  OutputBufferLength = 256;
   while ( 1 )
   {
-    v7 = NtTraceControl(16LL, 0LL, 0LL);
-    v8 = v7;
-    if ( v7 < 0 )
+    v8 = NtTraceControl(EtwReceiveNotification, 0LL, 0, Heap, OutputBufferLength, &ReturnLength);
+    v9 = v8;
+    if ( v8 < 0 )
       break;
     EtwDeliverDataBlock(Heap);
 LABEL_4:
-    if ( v8 != 261 )
+    if ( v9 != 261 )
       goto LABEL_5;
   }
-  if ( v7 != -1073741789 )
+  if ( v8 != -1073741789 )
     goto LABEL_4;
-  if ( Heap != v12 )
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (unsigned __int64)Heap);
-  Heap = (_BYTE *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, v10);
+  if ( Heap != (_ETW_NOTIFICATION_HEADER *)OutputBuffer )
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Heap);
+  OutputBufferLength = ReturnLength;
+  Heap = (_ETW_NOTIFICATION_HEADER *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, ReturnLength);
   if ( Heap )
   {
-    v8 = 261;
+    v9 = 261;
     goto LABEL_4;
   }
   v6 = 1;
 LABEL_5:
-  TpSetWaitEx(a3, a2, (_QWORD *)((unsigned __int64)&v11 & -(__int64)(v6 != 0)), 0LL);
-  result = v12;
-  if ( Heap != v12 )
+  TpSetWaitEx(a3, a2, (PLARGE_INTEGER)((unsigned __int64)&v11 & -(__int64)(v6 != 0)), 0LL);
+  if ( Heap != (_ETW_NOTIFICATION_HEADER *)OutputBuffer )
   {
     if ( Heap )
-      return (_BYTE *)RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (unsigned __int64)Heap);
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Heap);
   }
-  return result;
 }

@@ -1,14 +1,14 @@
 /*
- * XREFs of PspIumAllocatePartitionState @ 0x1405836F4
+ * XREFs of PspIumAllocatePartitionState @ 0x140583924
  * Callers:
- *     PsDispatchIumService @ 0x140582CF4 (PsDispatchIumService.c)
+ *     PsDispatchIumService @ 0x140582F24 (PsDispatchIumService.c)
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x1402056A0 (ObfReferenceObjectWithTag.c)
- *     MiProbeAndLockPages @ 0x14020A860 (MiProbeAndLockPages.c)
- *     MmUnlockPages @ 0x140244A70 (MmUnlockPages.c)
- *     MmAllocateSecureKernelPages @ 0x1405533D4 (MmAllocateSecureKernelPages.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x1402A9FE0 (ObfReferenceObjectWithTag.c)
+ *     MiProbeAndLockPages @ 0x1402AF160 (MiProbeAndLockPages.c)
+ *     MmUnlockPages @ 0x1402E92C0 (MmUnlockPages.c)
+ *     MmAllocateSecureKernelPages @ 0x140553614 (MmAllocateSecureKernelPages.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PspIumAllocatePartitionState(__int64 a1)

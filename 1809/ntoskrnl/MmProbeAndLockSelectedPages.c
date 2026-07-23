@@ -1,22 +1,22 @@
 /*
- * XREFs of MmProbeAndLockSelectedPages @ 0x1400949E0
+ * XREFs of MmProbeAndLockSelectedPages @ 0x140094920
  * Callers:
- *     NtWriteFileGather @ 0x1406CC860 (NtWriteFileGather.c)
- *     NtReadFileScatter @ 0x1406CD390 (NtReadFileScatter.c)
+ *     NtWriteFileGather @ 0x1406CDB00 (NtWriteFileGather.c)
+ *     NtReadFileScatter @ 0x1406CE630 (NtReadFileScatter.c)
  * Callees:
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  *     MiProbeAndLockPrepare @ 0x140040790 (MiProbeAndLockPrepare.c)
  *     MiProbeLockFrame @ 0x140041950 (MiProbeLockFrame.c)
- *     MiProbeAndLockComplete @ 0x1400936AC (MiProbeAndLockComplete.c)
- *     MiLockProbePacketWorkingSet @ 0x14009380C (MiLockProbePacketWorkingSet.c)
- *     MiUnlockProbePacketWorkingSet @ 0x140093854 (MiUnlockProbePacketWorkingSet.c)
- *     MiProbeLeafFrame @ 0x140094C6C (MiProbeLeafFrame.c)
- *     MiProbePacketContended @ 0x14009659C (MiProbePacketContended.c)
- *     RtlRaiseStatus @ 0x140128E90 (RtlRaiseStatus.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     MiProbeAndLockComplete @ 0x1400935EC (MiProbeAndLockComplete.c)
+ *     MiLockProbePacketWorkingSet @ 0x14009374C (MiLockProbePacketWorkingSet.c)
+ *     MiUnlockProbePacketWorkingSet @ 0x140093794 (MiUnlockProbePacketWorkingSet.c)
+ *     MiProbeLeafFrame @ 0x140094BAC (MiProbeLeafFrame.c)
+ *     MiProbePacketContended @ 0x1400964DC (MiProbePacketContended.c)
+ *     RtlRaiseStatus @ 0x140128F60 (RtlRaiseStatus.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 void __stdcall MmProbeAndLockSelectedPages(
@@ -137,7 +137,7 @@ LABEL_13:
     if ( v16 >= v13 )
       goto LABEL_14;
   }
-  ++dword_14043A818;
+  ++dword_14043B8D8;
   v15 = -1073741819;
 LABEL_14:
   v14 = P;

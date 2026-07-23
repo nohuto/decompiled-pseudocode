@@ -7,9 +7,9 @@
  *     RtlpHpEnvAllocVA @ 0x14000D060 (RtlpHpEnvAllocVA.c)
  *     RtlpHpFreeVA @ 0x14000D214 (RtlpHpFreeVA.c)
  *     RtlpHpVaMgrAlloc @ 0x14000D358 (RtlpHpVaMgrAlloc.c)
- *     RtlCSparseBitmapCleanup @ 0x1401590AC (RtlCSparseBitmapCleanup.c)
+ *     RtlCSparseBitmapCleanup @ 0x1401591AC (RtlCSparseBitmapCleanup.c)
  * Callees:
- *     MmFreePoolMemory @ 0x14007BD58 (MmFreePoolMemory.c)
+ *     MmFreePoolMemory @ 0x14007BD48 (MmFreePoolMemory.c)
  */
 
 __int64 __fastcall RtlpHpEnvFreeVA(unsigned __int64 *a1, unsigned __int64 *a2, __int64 a3)

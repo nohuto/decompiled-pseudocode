@@ -1,5 +1,5 @@
 /*
- * XREFs of ObGetObjectType @ 0x1406B9C50
+ * XREFs of ObGetObjectType @ 0x1406BAEF0
  * Callers:
  *     <none>
  * Callees:

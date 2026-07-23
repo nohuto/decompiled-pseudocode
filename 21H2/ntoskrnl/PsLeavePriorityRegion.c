@@ -1,9 +1,9 @@
 /*
- * XREFs of PsLeavePriorityRegion @ 0x140293FA0
+ * XREFs of PsLeavePriorityRegion @ 0x140211F10
  * Callers:
  *     <none>
  * Callees:
- *     PsBoostThreadIoEx @ 0x14034D800 (PsBoostThreadIoEx.c)
+ *     PsBoostThreadIoEx @ 0x140358550 (PsBoostThreadIoEx.c)
  */
 
 __int64 __fastcall PsLeavePriorityRegion(__int64 a1, __int64 a2)

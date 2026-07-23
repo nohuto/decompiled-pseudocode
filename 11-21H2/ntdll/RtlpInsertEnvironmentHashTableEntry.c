@@ -21,7 +21,7 @@ __int64 __fastcall RtlpInsertEnvironmentHashTableEntry(__int64 a1, __int64 a2)
   __int64 v12; // r15
   _QWORD *v13; // r9
   __int64 v14; // rdx
-  __int64 v15; // rcx
+  void *v15; // rcx
   unsigned int v16; // edi
   __int64 v17; // rdx
   __int64 v18; // rdi
@@ -29,7 +29,7 @@ __int64 __fastcall RtlpInsertEnvironmentHashTableEntry(__int64 a1, __int64 a2)
   __int64 v21; // [rsp+58h] [rbp+10h]
 
   v4 = 0;
-  if ( RtlpFindEnvironmentHashEntry(a1, *(unsigned __int16 **)(a2 + 16), *(_QWORD *)(a2 + 32)) )
+  if ( RtlpFindEnvironmentHashEntry(a1, *(const WCHAR **)(a2 + 16), *(_QWORD *)(a2 + 32)) )
   {
     return (unsigned int)-1073741771;
   }
@@ -93,7 +93,7 @@ __int64 __fastcall RtlpInsertEnvironmentHashTableEntry(__int64 a1, __int64 a2)
           }
           while ( v10 < v9 >> 5 );
         }
-        v15 = *(_QWORD *)(a1 + 8);
+        v15 = *(void **)(a1 + 8);
         *(_QWORD *)(a1 + 8) = EnvironmentHashTable;
         *(_DWORD *)(a1 + 4) = (32 * v5) | v9 & 0x1F;
         if ( v15 )

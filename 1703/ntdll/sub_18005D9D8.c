@@ -16,61 +16,62 @@
  *     sub_180109904 @ 0x180109904 (sub_180109904.c)
  */
 
-unsigned __int64 sub_18005D9D8()
+_DWORD *sub_18005D9D8()
 {
   int v0; // eax
   _WORD *v1; // rdi
-  void *ProcessHeap; // rcx
-  __int64 Heap; // rax
-  int v4; // edx
-  unsigned __int64 v5; // rbx
-  __int64 v6; // rax
-  __int64 v8; // rax
+  PVOID ProcessHeap; // rcx
+  _DWORD *Heap; // rax
+  _DWORD *v4; // rbx
+  __int64 v5; // rax
+  void *v6; // rcx
+  PVOID v8; // rax
   char *v9; // rax
   int v10; // eax
-  unsigned int v11; // ecx
-  _DWORD v12[4]; // [rsp+30h] [rbp-238h] BYREF
+  LONG v11; // ecx
+  __int64 v12; // [rsp+30h] [rbp-238h] BYREF
   _BYTE v13[528]; // [rsp+40h] [rbp-228h] BYREF
 
-  v12[0] = 0;
+  LODWORD(v12) = 0;
   memset(v13, 0, 0x208uLL);
   v0 = sub_18005DC70(v13);
   v1 = v13;
   ProcessHeap = NtCurrentPeb()->ProcessHeap;
   if ( (unsigned int)(v0 - 1) > 0x102 )
     v1 = 0LL;
-  Heap = RtlAllocateHeap((__int64)ProcessHeap, 8u, 48LL);
-  v5 = Heap;
+  Heap = RtlAllocateHeap(ProcessHeap, 8u, 0x30uLL);
+  v4 = Heap;
   if ( !Heap )
   {
     if ( !NtCurrentTeb()->LastErrorValue )
-      RtlSetLastWin32Error(0xEu);
+      RtlSetLastWin32Error(14);
     return 0LL;
   }
-  *(_QWORD *)(Heap + 8) = 0LL;
-  v6 = sub_18005DB48(-1, v4, 0, 0, 0, (__int64)v12);
-  *(_QWORD *)(v5 + 16) = v6;
-  if ( !v6 )
+  *((_QWORD *)Heap + 1) = 0LL;
+  v5 = sub_18005DB48(-1, 0, (__int64)&v12);
+  *((_QWORD *)v4 + 2) = v5;
+  if ( !v5 )
   {
 LABEL_5:
-    if ( *(_QWORD *)(v5 + 16) )
-      sub_180109904();
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v5);
+    v6 = (void *)*((_QWORD *)v4 + 2);
+    if ( v6 )
+      sub_180109904(v6);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v4);
     return 0LL;
   }
-  if ( !*(_DWORD *)(*(_QWORD *)(v6 + 24) + 68LL) )
+  if ( !*(_DWORD *)(*(_QWORD *)(v5 + 24) + 68LL) )
   {
     v11 = 536937730;
 LABEL_18:
     RtlSetLastWin32Error(v11);
     goto LABEL_5;
   }
-  *(_QWORD *)(*(_QWORD *)(v5 + 16) + 64LL) = sub_1800033F0();
+  *(_QWORD *)(*((_QWORD *)v4 + 2) + 64LL) = sub_1800033F0();
   v8 = RtlAllocateHeap(
-         (__int64)NtCurrentPeb()->ProcessHeap,
+         NtCurrentPeb()->ProcessHeap,
          8u,
-         8LL * *(unsigned int *)(*(_QWORD *)(*(_QWORD *)(v5 + 16) + 24LL) + 52LL));
-  *(_QWORD *)(v5 + 24) = v8;
+         8LL * *(unsigned int *)(*(_QWORD *)(*((_QWORD *)v4 + 2) + 24LL) + 52LL));
+  *((_QWORD *)v4 + 3) = v8;
   if ( !v8 )
   {
     if ( NtCurrentTeb()->LastErrorValue )
@@ -82,10 +83,10 @@ LABEL_18:
     v9 = sub_180003048(v1);
   else
     v9 = 0LL;
-  *(_DWORD *)v5 |= 0x80u;
-  *(_QWORD *)(v5 + 32) = v9;
-  v10 = v12[0] & 7;
-  *(_QWORD *)(v5 + 40) = 0LL;
-  *(_DWORD *)(v5 + 4) |= v10;
-  return v5;
+  *v4 |= 0x80u;
+  *((_QWORD *)v4 + 4) = v9;
+  v10 = v12 & 7;
+  *((_QWORD *)v4 + 5) = 0LL;
+  v4[1] |= v10;
+  return v4;
 }

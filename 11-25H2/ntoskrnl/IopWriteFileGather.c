@@ -31,7 +31,7 @@ __int64 __fastcall IopWriteFileGather(
         void *a4,
         unsigned __int64 a5,
         unsigned int a6,
-        union _FILE_SEGMENT_ELEMENT *Src,
+        _FILE_SEGMENT_ELEMENT *Src,
         ULONG Length,
         __int64 a9,
         ULONG *a10,
@@ -73,7 +73,7 @@ __int64 __fastcall IopWriteFileGather(
   char v46; // [rsp+42h] [rbp-86h]
   __int64 v47; // [rsp+48h] [rbp-80h]
   ULONG v48; // [rsp+50h] [rbp-78h]
-  union _FILE_SEGMENT_ELEMENT *P; // [rsp+60h] [rbp-68h]
+  _FILE_SEGMENT_ELEMENT *P; // [rsp+60h] [rbp-68h]
   PDEVICE_OBJECT v50; // [rsp+68h] [rbp-60h]
   PVOID v51; // [rsp+70h] [rbp-58h]
   PVOID Object; // [rsp+78h] [rbp-50h] BYREF
@@ -171,7 +171,7 @@ LABEL_40:
     }
     if ( v20 )
     {
-      P = (union _FILE_SEGMENT_ELEMENT *)ExAllocatePool2(0x123uLL);
+      P = (_FILE_SEGMENT_ELEMENT *)ExAllocatePool2(0x123uLL);
       memmove(P, Src, v28);
       Src = P;
       v20 = Length;

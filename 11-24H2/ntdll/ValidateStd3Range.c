@@ -1,8 +1,8 @@
 /*
- * XREFs of ValidateStd3Range @ 0x1800BD040
+ * XREFs of ValidateStd3Range @ 0x1800B4E00
  * Callers:
- *     punycode_decode @ 0x1800BB890 (punycode_decode.c)
- *     punycode_encode @ 0x1800BDBA8 (punycode_encode.c)
+ *     punycode_decode @ 0x1800B3650 (punycode_decode.c)
+ *     punycode_encode @ 0x1800B5968 (punycode_encode.c)
  * Callees:
  *     <none>
  */

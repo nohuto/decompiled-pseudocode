@@ -1,14 +1,14 @@
 /*
- * XREFs of SepGetLogonSessionAccountInfo @ 0x140A97440
+ * XREFs of SepGetLogonSessionAccountInfo @ 0x140A9B5C0
  * Callers:
- *     AdtpBuildLogonIdStrings @ 0x140A972E4 (AdtpBuildLogonIdStrings.c)
+ *     AdtpBuildLogonIdStrings @ 0x140A9B464 (AdtpBuildLogonIdStrings.c)
  * Callees:
- *     ExAcquireResourceSharedLite @ 0x1402B3C80 (ExAcquireResourceSharedLite.c)
- *     ExReleaseResourceLite @ 0x1402B4CF0 (ExReleaseResourceLite.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExAcquireResourceSharedLite @ 0x1402FE950 (ExAcquireResourceSharedLite.c)
+ *     ExReleaseResourceLite @ 0x1402FF9C0 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SepGetLogonSessionAccountInfo(_DWORD *a1, __int64 a2, __int64 a3, _QWORD *a4)
@@ -31,7 +31,7 @@ __int64 __fastcall SepGetLogonSessionAccountInfo(_DWORD *a1, __int64 a2, __int64
   v10 = 0;
   --CurrentThread->KernelApcDisable;
   v11 = v4 >> 28;
-  v12 = (struct _ERESOURCE *)(&RtlpBootStatHandleLock.InGlobalUpdateVpThreadPriorityList + 13 * (v11 & 3));
+  v12 = (struct _ERESOURCE *)(&RtlpBootStatHandleLock.SystemAffinityTokenListHead + 13 * (v11 & 3));
   ExAcquireResourceSharedLite(v12, 1u);
   for ( i = *(__int64 **)(SepLogonSessions + 8 * v11); ; i = (__int64 *)*i )
   {

@@ -31,11 +31,11 @@ __int64 __fastcall HvlQueryAssociatedProcessors(int a1, unsigned int *a2, void *
   PSLIST_ENTRY ListEntry; // [rsp+30h] [rbp-98h]
   struct _KPRCB *v24; // [rsp+38h] [rbp-90h]
   PSLIST_ENTRY v25; // [rsp+38h] [rbp-90h]
-  union _SLIST_HEADER *v26; // [rsp+48h] [rbp-80h]
-  struct _SLIST_ENTRY *v27; // [rsp+50h] [rbp-78h]
+  _SLIST_HEADER *v26; // [rsp+48h] [rbp-80h]
+  _SLIST_ENTRY *v27; // [rsp+50h] [rbp-78h]
   _SLIST_ENTRY *v28; // [rsp+58h] [rbp-70h]
-  struct _KPRCB *v29; // [rsp+68h] [rbp-60h]
-  struct _SLIST_ENTRY *v30; // [rsp+70h] [rbp-58h]
+  _SLIST_HEADER *v29; // [rsp+68h] [rbp-60h]
+  _SLIST_ENTRY *v30; // [rsp+70h] [rbp-58h]
   _SLIST_ENTRY *v31; // [rsp+78h] [rbp-50h]
   __int16 v32; // [rsp+C0h] [rbp-8h]
   char v35; // [rsp+E8h] [rbp+20h]
@@ -52,7 +52,7 @@ __int64 __fastcall HvlQueryAssociatedProcessors(int a1, unsigned int *a2, void *
     p_Next = &v8->Next;
     if ( v8 )
     {
-      v26 = (union _SLIST_HEADER *)CurrentPrcb;
+      v26 = (_SLIST_HEADER *)CurrentPrcb;
       v9 = BYTE4(CurrentPrcb);
       v35 = 1;
       Next = v8[1].Next;
@@ -104,7 +104,7 @@ LABEL_16:
     goto LABEL_16;
   }
   v3 = 1;
-  v29 = v24;
+  v29 = (_SLIST_HEADER *)v24;
   v12 = v13[1].Next;
   v10 = (char)v24;
   v25 = (PSLIST_ENTRY)v11;
@@ -161,7 +161,7 @@ LABEL_17:
   if ( (v3 & 1) != 0 )
   {
     v25[1].Next = v22;
-    RtlpInterlockedPushEntrySList(&v29->HypercallPageList, v25);
+    RtlpInterlockedPushEntrySList(v29 + 1535, v25);
   }
   else
   {

@@ -1,11 +1,11 @@
 /*
- * XREFs of MiAcquireAddMemoryLocks @ 0x140864F14
+ * XREFs of MiAcquireAddMemoryLocks @ 0x14086B2F4
  * Callers:
- *     MiAddPhysicalMemory @ 0x14086501C (MiAddPhysicalMemory.c)
- *     MiRemovePhysicalMemory @ 0x140866D5C (MiRemovePhysicalMemory.c)
+ *     MiAddPhysicalMemory @ 0x14086B3FC (MiAddPhysicalMemory.c)
+ *     MiRemovePhysicalMemory @ 0x14086D13C (MiRemovePhysicalMemory.c)
  * Callees:
- *     MiLockDynamicMemoryExclusive @ 0x1405278F0 (MiLockDynamicMemoryExclusive.c)
- *     MiLockDynamicMemoryNestedExclusive @ 0x1406E96A4 (MiLockDynamicMemoryNestedExclusive.c)
+ *     MiLockDynamicMemoryExclusive @ 0x140529F60 (MiLockDynamicMemoryExclusive.c)
+ *     MiLockDynamicMemoryNestedExclusive @ 0x1406EE344 (MiLockDynamicMemoryNestedExclusive.c)
  */
 
 void __fastcall MiAcquireAddMemoryLocks(__int64 a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)

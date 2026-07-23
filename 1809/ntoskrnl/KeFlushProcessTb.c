@@ -1,12 +1,12 @@
 /*
- * XREFs of KeFlushProcessTb @ 0x140091B94
+ * XREFs of KeFlushProcessTb @ 0x140091AD4
  * Callers:
- *     MiDeleteProcessShadow @ 0x1400686D0 (MiDeleteProcessShadow.c)
- *     MiDeleteFinalPageTables @ 0x1400918B8 (MiDeleteFinalPageTables.c)
- *     KiOutSwapProcesses @ 0x14010B450 (KiOutSwapProcesses.c)
- *     KeSwapDirectoryTableBase @ 0x140160EB0 (KeSwapDirectoryTableBase.c)
+ *     MiDeleteProcessShadow @ 0x1400686C0 (MiDeleteProcessShadow.c)
+ *     MiDeleteFinalPageTables @ 0x1400917F8 (MiDeleteFinalPageTables.c)
+ *     KiOutSwapProcesses @ 0x14010B4D0 (KiOutSwapProcesses.c)
+ *     KeSwapDirectoryTableBase @ 0x140160FB0 (KeSwapDirectoryTableBase.c)
  * Callees:
- *     HvlFlushAddressSpaceTb @ 0x1402795DC (HvlFlushAddressSpaceTb.c)
+ *     HvlFlushAddressSpaceTb @ 0x1402797CC (HvlFlushAddressSpaceTb.c)
  */
 
 char __fastcall KeFlushProcessTb(__int64 a1)

@@ -1,9 +1,9 @@
 /*
- * XREFs of LdrpSignalModuleMapped @ 0x18002F87C
+ * XREFs of LdrpSignalModuleMapped @ 0x18002F86C
  * Callers:
- *     LdrpProcessMappedModule @ 0x18002F938 (LdrpProcessMappedModule.c)
+ *     LdrpProcessMappedModule @ 0x18002F928 (LdrpProcessMappedModule.c)
  * Callees:
- *     LdrpQueueWork @ 0x18003C7F0 (LdrpQueueWork.c)
+ *     LdrpQueueWork @ 0x18003C7E0 (LdrpQueueWork.c)
  */
 
 __int64 __fastcall LdrpSignalModuleMapped(__int64 a1)

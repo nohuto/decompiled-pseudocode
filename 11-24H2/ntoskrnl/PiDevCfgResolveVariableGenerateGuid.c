@@ -1,49 +1,47 @@
 /*
- * XREFs of PiDevCfgResolveVariableGenerateGuid @ 0x14072BC90
+ * XREFs of PiDevCfgResolveVariableGenerateGuid @ 0x140729C80
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     RtlFreeAnsiString @ 0x1408A4990 (RtlFreeAnsiString.c)
- *     ExUuidCreate @ 0x1408EA880 (ExUuidCreate.c)
- *     RtlUpcaseUnicodeString @ 0x140962470 (RtlUpcaseUnicodeString.c)
- *     RtlStringFromGUIDEx @ 0x1409BCE20 (RtlStringFromGUIDEx.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ExUuidCreate @ 0x14085C0B0 (ExUuidCreate.c)
+ *     RtlFreeAnsiString @ 0x1408B69C0 (RtlFreeAnsiString.c)
+ *     RtlUpcaseUnicodeString @ 0x140949F30 (RtlUpcaseUnicodeString.c)
+ *     RtlStringFromGUIDEx @ 0x1409A3470 (RtlStringFromGUIDEx.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall PiDevCfgResolveVariableGenerateGuid(__int64 a1, __int64 a2, __int64 a3)
 {
   NTSTATUS v4; // ebx
-  __int64 v5; // r8
-  unsigned int v6; // edi
+  unsigned int v5; // edi
   void *Pool2; // rax
-  void *v8; // rsi
-  UNICODE_STRING DestinationString; // [rsp+20h] [rbp-30h] BYREF
+  void *v7; // rsi
+  UNICODE_STRING GuidString; // [rsp+20h] [rbp-30h] BYREF
   UUID Uuid; // [rsp+30h] [rbp-20h] BYREF
 
   Uuid = 0LL;
-  *(_QWORD *)&DestinationString.Length = 0LL;
-  DestinationString.Buffer = 0LL;
+  *(_QWORD *)&GuidString.Length = 0LL;
+  GuidString.Buffer = 0LL;
   v4 = ExUuidCreate(&Uuid);
   if ( v4 >= 0 )
   {
-    LOBYTE(v5) = 1;
-    v4 = RtlStringFromGUIDEx(&Uuid, &DestinationString, v5);
+    v4 = RtlStringFromGUIDEx(&Uuid, &GuidString, 1u);
     if ( v4 >= 0 )
     {
-      v4 = RtlUpcaseUnicodeString(&DestinationString, &DestinationString, 0);
+      v4 = RtlUpcaseUnicodeString(&GuidString, &GuidString, 0);
       if ( v4 >= 0 )
       {
-        v6 = DestinationString.Length + 2;
-        Pool2 = (void *)ExAllocatePool2(0x100uLL);
-        v8 = Pool2;
+        v5 = GuidString.Length + 2;
+        Pool2 = (void *)ExAllocatePool2(0x100uLL, v5, 0x63647050u);
+        v7 = Pool2;
         if ( Pool2 )
         {
-          memmove(Pool2, DestinationString.Buffer, v6);
+          memmove(Pool2, GuidString.Buffer, v5);
           *(_DWORD *)(a3 + 32) = 1;
-          *(_DWORD *)(a3 + 36) = v6;
-          *(_QWORD *)(a3 + 40) = v8;
+          *(_DWORD *)(a3 + 36) = v5;
+          *(_QWORD *)(a3 + 40) = v7;
         }
         else
         {
@@ -52,6 +50,6 @@ __int64 __fastcall PiDevCfgResolveVariableGenerateGuid(__int64 a1, __int64 a2, _
       }
     }
   }
-  RtlFreeAnsiString(&DestinationString);
+  RtlFreeAnsiString(&GuidString);
   return (unsigned int)v4;
 }

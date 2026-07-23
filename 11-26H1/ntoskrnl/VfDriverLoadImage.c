@@ -1,13 +1,13 @@
 /*
- * XREFs of VfDriverLoadImage @ 0x140C46AD0
+ * XREFs of VfDriverLoadImage @ 0x140C4CAE0
  * Callers:
- *     MmLoadSystemImageEx @ 0x140A269D4 (MmLoadSystemImageEx.c)
- *     VfInitBootDriversLoaded @ 0x140CDE91C (VfInitBootDriversLoaded.c)
+ *     MmLoadSystemImageEx @ 0x140A39A74 (MmLoadSystemImageEx.c)
+ *     VfInitBootDriversLoaded @ 0x140CE4CB4 (VfInitBootDriversLoaded.c)
  * Callees:
- *     MiSectionControlArea @ 0x14038A9B0 (MiSectionControlArea.c)
- *     VfTargetDriversAdd @ 0x1403B7B18 (VfTargetDriversAdd.c)
- *     RtlEqualUnicodeString @ 0x14091F0E0 (RtlEqualUnicodeString.c)
- *     VfSuspectDriversLoadCallback @ 0x140C38A50 (VfSuspectDriversLoadCallback.c)
+ *     MiSectionControlArea @ 0x14038C760 (MiSectionControlArea.c)
+ *     VfTargetDriversAdd @ 0x1403C1A18 (VfTargetDriversAdd.c)
+ *     RtlEqualUnicodeString @ 0x140979B40 (RtlEqualUnicodeString.c)
+ *     VfSuspectDriversLoadCallback @ 0x140C3EA60 (VfSuspectDriversLoadCallback.c)
  */
 
 void __fastcall VfDriverLoadImage(__int64 a1, __int64 a2, unsigned __int8 a3)

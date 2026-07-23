@@ -1,9 +1,9 @@
 /*
- * XREFs of ViDeadlockForgetResourceHistory @ 0x140B9956C
+ * XREFs of ViDeadlockForgetResourceHistory @ 0x140B9B56C
  * Callers:
- *     ViDeadlockSearchResource @ 0x140B9A0E0 (ViDeadlockSearchResource.c)
+ *     ViDeadlockSearchResource @ 0x140B9C0E0 (ViDeadlockSearchResource.c)
  * Callees:
- *     ViDeadlockRemoveNode @ 0x140B99CC8 (ViDeadlockRemoveNode.c)
+ *     ViDeadlockRemoveNode @ 0x140B9BCC8 (ViDeadlockRemoveNode.c)
  */
 
 PVOID __fastcall ViDeadlockForgetResourceHistory(__int64 a1, __int64 a2, __int64 a3, _QWORD *a4)

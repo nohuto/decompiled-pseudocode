@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     RtlIsImageFullyRetpolined @ 0x14035FF78 (RtlIsImageFullyRetpolined.c)
+ *     RtlIsImageFullyRetpolined @ 0x140360118 (RtlIsImageFullyRetpolined.c)
  */
 
 __int64 __fastcall MiIsBootImageTargetFullyRetpolined(unsigned __int64 a1)
@@ -19,8 +19,8 @@ __int64 __fastcall MiIsBootImageTargetFullyRetpolined(unsigned __int64 a1)
     if ( a1 >= v4 && a1 < v4 + *((unsigned int *)i + 16) )
     {
       v2 = i;
-      return RtlIsImageFullyRetpolined(v2[6]);
+      return RtlIsImageFullyRetpolined((void *)v2[6]);
     }
   }
-  return RtlIsImageFullyRetpolined(v2[6]);
+  return RtlIsImageFullyRetpolined((void *)v2[6]);
 }

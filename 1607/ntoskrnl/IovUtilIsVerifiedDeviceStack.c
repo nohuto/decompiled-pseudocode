@@ -1,12 +1,12 @@
 /*
- * XREFs of IovUtilIsVerifiedDeviceStack @ 0x14070E158
+ * XREFs of IovUtilIsVerifiedDeviceStack @ 0x14070E188
  * Callers:
- *     VfMajorTestStartedPdoStack @ 0x14070E660 (VfMajorTestStartedPdoStack.c)
+ *     VfMajorTestStartedPdoStack @ 0x14070E690 (VfMajorTestStartedPdoStack.c)
  *     IovpSessionDataCreate @ 0x140717840 (IovpSessionDataCreate.c)
  * Callees:
- *     MmIsDriverVerifying @ 0x1400B4230 (MmIsDriverVerifying.c)
- *     KeAcquireQueuedSpinLock @ 0x1400E8D30 (KeAcquireQueuedSpinLock.c)
- *     KeReleaseQueuedSpinLock @ 0x1400E8DA0 (KeReleaseQueuedSpinLock.c)
+ *     MmIsDriverVerifying @ 0x1400B20B0 (MmIsDriverVerifying.c)
+ *     KeAcquireQueuedSpinLock @ 0x1400E6BD0 (KeAcquireQueuedSpinLock.c)
+ *     KeReleaseQueuedSpinLock @ 0x1400E6C40 (KeReleaseQueuedSpinLock.c)
  */
 
 __int64 __fastcall IovUtilIsVerifiedDeviceStack(__int64 a1)

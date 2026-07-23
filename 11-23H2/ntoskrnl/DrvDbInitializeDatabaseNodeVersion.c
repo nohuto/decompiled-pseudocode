@@ -1,11 +1,11 @@
 /*
- * XREFs of DrvDbInitializeDatabaseNodeVersion @ 0x140A6DD70
+ * XREFs of DrvDbInitializeDatabaseNodeVersion @ 0x140A6E020
  * Callers:
- *     DrvDbLoadDatabaseNode @ 0x140877120 (DrvDbLoadDatabaseNode.c)
+ *     DrvDbLoadDatabaseNode @ 0x140877360 (DrvDbLoadDatabaseNode.c)
  * Callees:
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     _SysCtxRegOpenKey @ 0x1406CED20 (_SysCtxRegOpenKey.c)
- *     DrvDbSetDriverDatabaseMappedProperty @ 0x140866384 (DrvDbSetDriverDatabaseMappedProperty.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     _SysCtxRegOpenKey @ 0x1406CED50 (_SysCtxRegOpenKey.c)
+ *     DrvDbSetDriverDatabaseMappedProperty @ 0x1408665C4 (DrvDbSetDriverDatabaseMappedProperty.c)
  */
 
 __int64 __fastcall DrvDbInitializeDatabaseNodeVersion(__int64 a1, __int64 a2)

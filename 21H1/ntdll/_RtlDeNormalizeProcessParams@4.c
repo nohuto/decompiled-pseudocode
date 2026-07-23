@@ -6,54 +6,54 @@
  *     <none>
  */
 
-_DWORD *__stdcall RtlDeNormalizeProcessParams(_DWORD *a1)
+PRTL_USER_PROCESS_PARAMETERS __cdecl RtlDeNormalizeProcessParams(PRTL_USER_PROCESS_PARAMETERS ProcessParameters)
 {
-  _DWORD *result; // eax
-  int v2; // edx
-  int v3; // ecx
-  int v4; // ecx
-  int v5; // ecx
-  int v6; // ecx
-  int v7; // ecx
-  int v8; // ecx
-  int v9; // ecx
-  int v10; // ecx
-  int v11; // ecx
+  PRTL_USER_PROCESS_PARAMETERS result; // eax
+  unsigned int Flags; // edx
+  wchar_t *Buffer; // ecx
+  wchar_t *v4; // ecx
+  wchar_t *v5; // ecx
+  wchar_t *v6; // ecx
+  wchar_t *v7; // ecx
+  wchar_t *v8; // ecx
+  wchar_t *v9; // ecx
+  wchar_t *v10; // ecx
+  wchar_t *v11; // ecx
 
-  result = a1;
-  if ( a1 )
+  result = ProcessParameters;
+  if ( ProcessParameters )
   {
-    v2 = a1[2];
-    if ( (v2 & 1) != 0 )
+    Flags = ProcessParameters->Flags;
+    if ( (Flags & 1) != 0 )
     {
-      v3 = a1[10];
-      if ( v3 )
-        a1[10] = v3 - (_DWORD)a1;
-      v4 = a1[13];
+      Buffer = ProcessParameters->CurrentDirectory.DosPath.Buffer;
+      if ( Buffer )
+        ProcessParameters->CurrentDirectory.DosPath.Buffer = (wchar_t *)((char *)Buffer - (char *)ProcessParameters);
+      v4 = ProcessParameters->DllPath.Buffer;
       if ( v4 )
-        a1[13] = v4 - (_DWORD)a1;
-      v5 = a1[15];
+        ProcessParameters->DllPath.Buffer = (wchar_t *)((char *)v4 - (char *)ProcessParameters);
+      v5 = ProcessParameters->ImagePathName.Buffer;
       if ( v5 )
-        a1[15] = v5 - (_DWORD)a1;
-      v6 = a1[17];
+        ProcessParameters->ImagePathName.Buffer = (wchar_t *)((char *)v5 - (char *)ProcessParameters);
+      v6 = ProcessParameters->CommandLine.Buffer;
       if ( v6 )
-        a1[17] = v6 - (_DWORD)a1;
-      v7 = a1[29];
+        ProcessParameters->CommandLine.Buffer = (wchar_t *)((char *)v6 - (char *)ProcessParameters);
+      v7 = ProcessParameters->WindowTitle.Buffer;
       if ( v7 )
-        a1[29] = v7 - (_DWORD)a1;
-      v8 = a1[31];
+        ProcessParameters->WindowTitle.Buffer = (wchar_t *)((char *)v7 - (char *)ProcessParameters);
+      v8 = ProcessParameters->DesktopInfo.Buffer;
       if ( v8 )
-        a1[31] = v8 - (_DWORD)a1;
-      v9 = a1[33];
+        ProcessParameters->DesktopInfo.Buffer = (wchar_t *)((char *)v8 - (char *)ProcessParameters);
+      v9 = ProcessParameters->ShellInfo.Buffer;
       if ( v9 )
-        a1[33] = v9 - (_DWORD)a1;
-      v10 = a1[35];
+        ProcessParameters->ShellInfo.Buffer = (wchar_t *)((char *)v9 - (char *)ProcessParameters);
+      v10 = ProcessParameters->RuntimeData.Buffer;
       if ( v10 )
-        a1[35] = v10 - (_DWORD)a1;
-      v11 = a1[170];
+        ProcessParameters->RuntimeData.Buffer = (wchar_t *)((char *)v10 - (char *)ProcessParameters);
+      v11 = ProcessParameters->RedirectionDllName.Buffer;
       if ( v11 )
-        a1[170] = v11 - (_DWORD)a1;
-      a1[2] = v2 & 0xFFFFFFFE;
+        ProcessParameters->RedirectionDllName.Buffer = (wchar_t *)((char *)v11 - (char *)ProcessParameters);
+      ProcessParameters->Flags = Flags & 0xFFFFFFFE;
     }
   }
   return result;

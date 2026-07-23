@@ -1,14 +1,14 @@
 /*
- * XREFs of FsRtlGetVirtualDiskNestingLevel @ 0x1403C40A0
+ * XREFs of FsRtlGetVirtualDiskNestingLevel @ 0x1403C4280
  * Callers:
  *     <none>
  * Callees:
  *     IoSetThreadHardErrorMode @ 0x140208890 (IoSetThreadHardErrorMode.c)
- *     IofCallDriver @ 0x14022EEF0 (IofCallDriver.c)
- *     KeWaitForSingleObject @ 0x140243CE0 (KeWaitForSingleObject.c)
- *     IopBuildDeviceIoControlRequest @ 0x140251210 (IopBuildDeviceIoControlRequest.c)
- *     FsRtlQueryMaximumVirtualDiskNestingLevel @ 0x1403C4240 (FsRtlQueryMaximumVirtualDiskNestingLevel.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     IofCallDriver @ 0x14022F000 (IofCallDriver.c)
+ *     KeWaitForSingleObject @ 0x140243DB0 (KeWaitForSingleObject.c)
+ *     IopBuildDeviceIoControlRequest @ 0x1402512D0 (IopBuildDeviceIoControlRequest.c)
+ *     FsRtlQueryMaximumVirtualDiskNestingLevel @ 0x1403C4420 (FsRtlQueryMaximumVirtualDiskNestingLevel.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 NTSTATUS __stdcall FsRtlGetVirtualDiskNestingLevel(

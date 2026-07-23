@@ -1,18 +1,18 @@
 /*
- * XREFs of RtlpHpVaMgrCtxAllocatorReference @ 0x18008CAE8
+ * XREFs of RtlpHpVaMgrCtxAllocatorReference @ 0x180070444
  * Callers:
- *     RtlpHpVaMgrCtxStart @ 0x18008CA10 (RtlpHpVaMgrCtxStart.c)
- *     RtlpHpRegisterEnvironment @ 0x18008D258 (RtlpHpRegisterEnvironment.c)
+ *     RtlpHpVaMgrCtxStart @ 0x18007036C (RtlpHpVaMgrCtxStart.c)
+ *     RtlpHpRegisterEnvironment @ 0x180070BB8 (RtlpHpRegisterEnvironment.c)
  * Callees:
- *     RtlAcquireSRWLockExclusive @ 0x18003F4D0 (RtlAcquireSRWLockExclusive.c)
- *     RtlReleaseSRWLockExclusive @ 0x18003FAA0 (RtlReleaseSRWLockExclusive.c)
- *     RtlpHpVaMgrCtxAllocatorFind @ 0x18008CC50 (RtlpHpVaMgrCtxAllocatorFind.c)
+ *     RtlAcquireSRWLockExclusive @ 0x180029A40 (RtlAcquireSRWLockExclusive.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18002A010 (RtlReleaseSRWLockExclusive.c)
+ *     RtlpHpVaMgrCtxAllocatorFind @ 0x1800705AC (RtlpHpVaMgrCtxAllocatorFind.c)
  */
 
 __int64 __fastcall RtlpHpVaMgrCtxAllocatorReference(__int64 a1, __int64 a2)
 {
   int v2; // edi
-  volatile signed __int64 *v3; // r15
+  _RTL_SRWLOCK *v3; // r15
   int v6; // ebx
   __int64 v7; // rax
   __int16 v8; // r8
@@ -26,10 +26,10 @@ __int64 __fastcall RtlpHpVaMgrCtxAllocatorReference(__int64 a1, __int64 a2)
   _QWORD *v17; // [rsp+40h] [rbp+8h] BYREF
 
   v2 = *(_DWORD *)(a1 + 2152);
-  v3 = (volatile signed __int64 *)(a1 + 2144);
+  v3 = (_RTL_SRWLOCK *)(a1 + 2144);
   v17 = 0LL;
   v6 = `RtlpHpMemoryTypePageSize'::`2'::PageSize[*(int *)(a2 + 4)] - 1;
-  RtlAcquireSRWLockExclusive((volatile signed __int64 *)(a1 + 2144), a2);
+  RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 2144));
   v7 = RtlpHpVaMgrCtxAllocatorFind(a1, a2, (v2 - (v6 & (unsigned int)(v6 + v2)) + v6) >> 20, &v17);
   v9 = (_QWORD *)v7;
   if ( v7 )

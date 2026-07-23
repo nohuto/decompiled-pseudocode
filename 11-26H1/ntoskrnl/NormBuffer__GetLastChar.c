@@ -1,10 +1,10 @@
 /*
- * XREFs of NormBuffer__GetLastChar @ 0x14061EF8C
+ * XREFs of NormBuffer__GetLastChar @ 0x140621FDC
  * Callers:
- *     Normalization__NormalizeCharacter @ 0x140808518 (Normalization__NormalizeCharacter.c)
+ *     Normalization__NormalizeCharacter @ 0x14080DFB8 (Normalization__NormalizeCharacter.c)
  * Callees:
- *     Normalization__PageLookup @ 0x140808D3C (Normalization__PageLookup.c)
- *     Normalization__TableLookup @ 0x140808D54 (Normalization__TableLookup.c)
+ *     Normalization__PageLookup @ 0x14080E7D4 (Normalization__PageLookup.c)
+ *     Normalization__TableLookup @ 0x14080E7EC (Normalization__TableLookup.c)
  */
 
 __int64 __fastcall NormBuffer__GetLastChar(__int64 a1)

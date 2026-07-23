@@ -9,20 +9,20 @@
  *     SeCompareSigningLevels @ 0x1404F1880 (SeCompareSigningLevels.c)
  */
 
-__int64 __fastcall SeGetImageRequiredSigningLevel(__int64 a1, __int64 a2, char a3, __int64 a4, char *a5)
+__int64 __fastcall SeGetImageRequiredSigningLevel(PVOID Object, __int64 a2, char a3, __int64 a4, char *a5)
 {
-  NTSTATUS IsUntrustedObject; // edi
+  NTSTATUS v5; // edi
   _KPROCESS *Process; // rcx
   char v9; // al
   char v10; // cl
   char v12; // [rsp+30h] [rbp-18h] BYREF
   char v13; // [rsp+31h] [rbp-17h] BYREF
-  char v14[22]; // [rsp+32h] [rbp-16h] BYREF
+  BOOLEAN IsUntrustedObject[22]; // [rsp+32h] [rbp-16h] BYREF
 
-  IsUntrustedObject = 0;
+  v5 = 0;
   if ( qword_1403A5CF0 )
   {
-    return (unsigned int)((__int64 (__fastcall *)(__int64))qword_1403A5CF0)(a1);
+    return (unsigned int)((__int64 (__fastcall *)(PVOID))qword_1403A5CF0)(Object);
   }
   else if ( (unsigned int)SeCompareSigningLevels()
          || (Process = KeGetCurrentThread()->ApcState.Process, (Process[2].ActiveProcessors.Bitmap[0] & 0x70000) != 0)
@@ -36,19 +36,19 @@ __int64 __fastcall SeGetImageRequiredSigningLevel(__int64 a1, __int64 a2, char a
       goto LABEL_22;
     if ( !qword_1403A5CB8 )
       return (unsigned int)-1073741823;
-    IsUntrustedObject = qword_1403A5CB8(a1, &v12, &v13);
-    if ( IsUntrustedObject < 0 )
-      return (unsigned int)IsUntrustedObject;
+    v5 = qword_1403A5CB8(Object, &v12, &v13);
+    if ( v5 < 0 )
+      return (unsigned int)v5;
     if ( v12 || v13 )
       goto LABEL_22;
-    IsUntrustedObject = RtlIsUntrustedObject(0LL, a1, v14);
-    if ( IsUntrustedObject < 0 )
-      return (unsigned int)IsUntrustedObject;
-    if ( v14[0] )
+    v5 = RtlIsUntrustedObject(0LL, Object, IsUntrustedObject);
+    if ( v5 < 0 )
+      return (unsigned int)v5;
+    if ( IsUntrustedObject[0] )
     {
 LABEL_22:
       *a5 = 6;
-      return (unsigned int)IsUntrustedObject;
+      return (unsigned int)v5;
     }
     v9 = SeILSigningPolicy;
     if ( !SeILSigningPolicy )
@@ -65,5 +65,5 @@ LABEL_22:
       *a5 = v10;
     }
   }
-  return (unsigned int)IsUntrustedObject;
+  return (unsigned int)v5;
 }

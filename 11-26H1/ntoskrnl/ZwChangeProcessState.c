@@ -1,14 +1,20 @@
 /*
- * XREFs of ZwChangeProcessState @ 0x1407246F0
+ * XREFs of ZwChangeProcessState @ 0x1407292C0
  * Callers:
- *     DifZwChangeProcessStateWrapper @ 0x14069CDB0 (DifZwChangeProcessStateWrapper.c)
+ *     DifZwChangeProcessStateWrapper @ 0x1406A0990 (DifZwChangeProcessStateWrapper.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwChangeProcessState(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwChangeProcessState(
+        HANDLE ProcessStateChangeHandle,
+        HANDLE ProcessHandle,
+        PROCESS_STATE_CHANGE_TYPE StateChangeType,
+        PVOID ExtendedInformation,
+        SIZE_T ExtendedInformationLength,
+        ULONG64 Reserved)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(ProcessStateChangeHandle);
 }

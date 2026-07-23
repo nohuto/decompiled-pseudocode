@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlEnableHeapGC @ 0x180141920
+ * XREFs of RtlEnableHeapGC @ 0x18013FB10
  * Callers:
- *     _LdrpInitialize @ 0x180066904 (_LdrpInitialize.c)
+ *     _LdrpInitialize @ 0x1800AEAE4 (_LdrpInitialize.c)
  * Callees:
- *     RtlpHpGCTimerEnable @ 0x180142720 (RtlpHpGCTimerEnable.c)
+ *     RtlpHpGCTimerEnable @ 0x1801408D0 (RtlpHpGCTimerEnable.c)
  */
 
 __int64 __fastcall RtlEnableHeapGC(__int64 a1)

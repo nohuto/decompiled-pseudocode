@@ -1,9 +1,9 @@
 /*
- * XREFs of NtCreateCrossVmEvent @ 0x1407BB3C0
+ * XREFs of NtCreateCrossVmEvent @ 0x1407BB810
  * Callers:
  *     <none>
  * Callees:
- *     ExpCreateCrossVmEvent @ 0x1407C5364 (ExpCreateCrossVmEvent.c)
+ *     ExpCreateCrossVmEvent @ 0x1407C57C4 (ExpCreateCrossVmEvent.c)
  */
 
 __int64 __fastcall NtCreateCrossVmEvent(_QWORD *a1, int a2, int a3, int a4, __int64 a5, __int64 a6)

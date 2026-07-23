@@ -1,13 +1,13 @@
 /*
- * XREFs of MiDeleteTopLevelPage @ 0x140292AC4
+ * XREFs of MiDeleteTopLevelPage @ 0x140292D54
  * Callers:
- *     MiDeleteFinalPageTables @ 0x1402915B4 (MiDeleteFinalPageTables.c)
- *     MiDeleteProcessShadow @ 0x14029172C (MiDeleteProcessShadow.c)
+ *     MiDeleteFinalPageTables @ 0x140291844 (MiDeleteFinalPageTables.c)
+ *     MiDeleteProcessShadow @ 0x1402919BC (MiDeleteProcessShadow.c)
  * Callees:
- *     MiDecrementShareCount @ 0x1402807B0 (MiDecrementShareCount.c)
- *     MiClearContainingMapping @ 0x140292B58 (MiClearContainingMapping.c)
- *     MiLockPageInline @ 0x1402EF680 (MiLockPageInline.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiDecrementShareCount @ 0x140280A40 (MiDecrementShareCount.c)
+ *     MiClearContainingMapping @ 0x140292DE8 (MiClearContainingMapping.c)
+ *     MiLockPageInline @ 0x1402EF910 (MiLockPageInline.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiDeleteTopLevelPage(__int64 a1, __int64 a2)
@@ -28,10 +28,13 @@ __int64 __fastcall MiDeleteTopLevelPage(__int64 a1, __int64 a2)
   MiDecrementShareCount(v2);
   v4 = MiDecrementShareCount(v2);
   _InterlockedAnd64((volatile signed __int64 *)(v2 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v3 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v3 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

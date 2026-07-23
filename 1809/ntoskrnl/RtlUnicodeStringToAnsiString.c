@@ -1,25 +1,25 @@
 /*
- * XREFs of RtlUnicodeStringToAnsiString @ 0x14067BAD0
+ * XREFs of RtlUnicodeStringToAnsiString @ 0x14067CC90
  * Callers:
- *     DbgUnicodeStringToAnsiString @ 0x1400F4A7C (DbgUnicodeStringToAnsiString.c)
- *     ExpSystemErrorHandler2 @ 0x14057E930 (ExpSystemErrorHandler2.c)
- *     EtwpBuildProcessEvent @ 0x14066CA2C (EtwpBuildProcessEvent.c)
- *     MmGetSystemRoutineAddress @ 0x14067B890 (MmGetSystemRoutineAddress.c)
- *     ExpQueryModuleInformation @ 0x14067B910 (ExpQueryModuleInformation.c)
- *     AslStringUpcaseToMultiByteN @ 0x14067C3EC (AslStringUpcaseToMultiByteN.c)
- *     ObCreateObjectTypeEx @ 0x1407289DC (ObCreateObjectTypeEx.c)
- *     ExpConvertLdrEntryToModuleInfo @ 0x140748898 (ExpConvertLdrEntryToModuleInfo.c)
- *     KsepGetModuleInfoByName @ 0x140848B8C (KsepGetModuleInfoByName.c)
- *     NtQuerySystemEnvironmentValue @ 0x1408D4F80 (NtQuerySystemEnvironmentValue.c)
- *     NtSetSystemEnvironmentValue @ 0x1408D58C0 (NtSetSystemEnvironmentValue.c)
- *     ViThunkAdjustExportAddressIfHooked @ 0x140936C04 (ViThunkAdjustExportAddressIfHooked.c)
- *     HdlspProcessDumpCommand @ 0x14094CB74 (HdlspProcessDumpCommand.c)
- *     IopReassignSystemRoot @ 0x1409DB7D0 (IopReassignSystemRoot.c)
+ *     DbgUnicodeStringToAnsiString @ 0x1400F4AFC (DbgUnicodeStringToAnsiString.c)
+ *     ExpSystemErrorHandler2 @ 0x14057F930 (ExpSystemErrorHandler2.c)
+ *     EtwpBuildProcessEvent @ 0x14066DBEC (EtwpBuildProcessEvent.c)
+ *     MmGetSystemRoutineAddress @ 0x14067CA50 (MmGetSystemRoutineAddress.c)
+ *     ExpQueryModuleInformation @ 0x14067CAD0 (ExpQueryModuleInformation.c)
+ *     AslStringUpcaseToMultiByteN @ 0x14067D5AC (AslStringUpcaseToMultiByteN.c)
+ *     ObCreateObjectTypeEx @ 0x140729BCC (ObCreateObjectTypeEx.c)
+ *     ExpConvertLdrEntryToModuleInfo @ 0x140749A88 (ExpConvertLdrEntryToModuleInfo.c)
+ *     KsepGetModuleInfoByName @ 0x140849DEC (KsepGetModuleInfoByName.c)
+ *     NtQuerySystemEnvironmentValue @ 0x1408D6240 (NtQuerySystemEnvironmentValue.c)
+ *     NtSetSystemEnvironmentValue @ 0x1408D6B80 (NtSetSystemEnvironmentValue.c)
+ *     ViThunkAdjustExportAddressIfHooked @ 0x140937C04 (ViThunkAdjustExportAddressIfHooked.c)
+ *     HdlspProcessDumpCommand @ 0x14094DB74 (HdlspProcessDumpCommand.c)
+ *     IopReassignSystemRoot @ 0x1409DC7D0 (IopReassignSystemRoot.c)
  * Callees:
- *     CountUnicodeToUTF8 @ 0x14013226C (CountUnicodeToUTF8.c)
- *     ExFreePool @ 0x14034D780 (ExFreePool.c)
- *     ExpAllocateStringRoutine @ 0x1406B2100 (ExpAllocateStringRoutine.c)
- *     RtlUnicodeToUTF8N @ 0x1406BF650 (RtlUnicodeToUTF8N.c)
+ *     CountUnicodeToUTF8 @ 0x14013233C (CountUnicodeToUTF8.c)
+ *     ExFreePool @ 0x14034E780 (ExFreePool.c)
+ *     ExpAllocateStringRoutine @ 0x1406B33A0 (ExpAllocateStringRoutine.c)
+ *     RtlUnicodeToUTF8N @ 0x1406C08F0 (RtlUnicodeToUTF8N.c)
  */
 
 NTSTATUS __stdcall RtlUnicodeStringToAnsiString(

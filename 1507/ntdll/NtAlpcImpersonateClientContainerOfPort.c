@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 NtAlpcImpersonateClientContainerOfPort()
+NTSTATUS __cdecl NtAlpcImpersonateClientContainerOfPort(HANDLE PortHandle, PPORT_MESSAGE Message, ULONG Flags)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 129LL;
+  result = 129;
   __asm { syscall; Low latency system call }
   return result;
 }

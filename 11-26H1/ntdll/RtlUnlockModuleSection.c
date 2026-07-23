@@ -1,49 +1,49 @@
 /*
- * XREFs of RtlUnlockModuleSection @ 0x1800E19F0
+ * XREFs of RtlUnlockModuleSection @ 0x1800DF290
  * Callers:
- *     RtlpUnregisterLockedMemoryZone @ 0x1800E169C (RtlpUnregisterLockedMemoryZone.c)
- *     RtlpUnregisterLockedMemoryBlockLookaside @ 0x1800E18F4 (RtlpUnregisterLockedMemoryBlockLookaside.c)
- *     RtlpRegisterLockedMemoryBlockLookaside @ 0x1800E1950 (RtlpRegisterLockedMemoryBlockLookaside.c)
+ *     RtlpUnregisterLockedMemoryZone @ 0x1800DEF3C (RtlpUnregisterLockedMemoryZone.c)
+ *     RtlpUnregisterLockedMemoryBlockLookaside @ 0x1800DF194 (RtlpUnregisterLockedMemoryBlockLookaside.c)
+ *     RtlpRegisterLockedMemoryBlockLookaside @ 0x1800DF1F0 (RtlpRegisterLockedMemoryBlockLookaside.c)
  * Callees:
- *     RtlAcquireSRWLockExclusive @ 0x18003F4D0 (RtlAcquireSRWLockExclusive.c)
- *     RtlReleaseSRWLockExclusive @ 0x18003FAA0 (RtlReleaseSRWLockExclusive.c)
- *     RtlFreeHeap_0 @ 0x18003FD10 (RtlFreeHeap_0.c)
- *     RtlpLocateModuleSectionInLockedSectionList @ 0x1800E1BD0 (RtlpLocateModuleSectionInLockedSectionList.c)
- *     ZwUnlockVirtualMemory @ 0x180162B10 (ZwUnlockVirtualMemory.c)
+ *     RtlAcquireSRWLockExclusive @ 0x180029A40 (RtlAcquireSRWLockExclusive.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18002A010 (RtlReleaseSRWLockExclusive.c)
+ *     RtlFreeHeap_0 @ 0x18002A280 (RtlFreeHeap_0.c)
+ *     RtlpLocateModuleSectionInLockedSectionList @ 0x1800DF470 (RtlpLocateModuleSectionInLockedSectionList.c)
+ *     ZwUnlockVirtualMemory @ 0x180162A10 (ZwUnlockVirtualMemory.c)
  */
 
-__int64 __fastcall RtlUnlockModuleSection(__int64 a1, __int64 a2)
+NTSTATUS __cdecl RtlUnlockModuleSection(PVOID Address)
 {
   __int64 ModuleSectionInLockedSectionList; // rax
-  unsigned int v4; // edi
-  __int64 v5; // rbx
-  __int64 v7; // rcx
-  _QWORD *v8; // rax
+  NTSTATUS v3; // edi
+  __int64 v4; // rbx
+  __int64 v6; // rcx
+  _QWORD *v7; // rax
 
-  RtlAcquireSRWLockExclusive(&RtlpLockedSectionListLock, a2);
-  ModuleSectionInLockedSectionList = RtlpLocateModuleSectionInLockedSectionList(a1);
-  v4 = 0;
-  v5 = ModuleSectionInLockedSectionList;
+  RtlAcquireSRWLockExclusive(&RtlpLockedSectionListLock);
+  ModuleSectionInLockedSectionList = RtlpLocateModuleSectionInLockedSectionList(Address);
+  v3 = 0;
+  v4 = ModuleSectionInLockedSectionList;
   if ( ModuleSectionInLockedSectionList )
   {
     if ( (*(_DWORD *)(ModuleSectionInLockedSectionList + 32))-- == 1 )
     {
-      v7 = *(_QWORD *)ModuleSectionInLockedSectionList;
+      v6 = *(_QWORD *)ModuleSectionInLockedSectionList;
       if ( *(_QWORD *)(*(_QWORD *)ModuleSectionInLockedSectionList + 8LL) != ModuleSectionInLockedSectionList
-        || (v8 = *(_QWORD **)(ModuleSectionInLockedSectionList + 8), *v8 != v5) )
+        || (v7 = *(_QWORD **)(ModuleSectionInLockedSectionList + 8), *v7 != v4) )
       {
         __fastfail(3u);
       }
-      *v8 = v7;
-      *(_QWORD *)(v7 + 8) = v8;
-      v4 = ZwUnlockVirtualMemory(-1LL, v5 + 16, v5 + 24, 1LL);
-      RtlFreeHeap_0();
+      *v7 = v6;
+      *(_QWORD *)(v6 + 8) = v7;
+      v3 = ZwUnlockVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, (PVOID *)(v4 + 16), (PSIZE_T)(v4 + 24), 1u);
+      RtlFreeHeap_0(NtCurrentPeb()->ProcessHeap, 0, (PVOID)v4);
     }
   }
   else
   {
-    v4 = -1073741782;
+    v3 = -1073741782;
   }
   RtlReleaseSRWLockExclusive(&RtlpLockedSectionListLock);
-  return v4;
+  return v3;
 }

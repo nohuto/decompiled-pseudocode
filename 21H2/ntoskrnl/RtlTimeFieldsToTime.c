@@ -1,18 +1,18 @@
 /*
- * XREFs of RtlTimeFieldsToTime @ 0x1402B5900
+ * XREFs of RtlTimeFieldsToTime @ 0x140233AE0
  * Callers:
- *     ExpRefreshSystemTime @ 0x1407A909C (ExpRefreshSystemTime.c)
- *     ExpRefreshTimeZoneInformation @ 0x1407A9554 (ExpRefreshTimeZoneInformation.c)
- *     RtlCutoverTimeToSystemTime @ 0x1407A9CD0 (RtlCutoverTimeToSystemTime.c)
- *     ExGetExpirationDate @ 0x1407AA820 (ExGetExpirationDate.c)
- *     HalpAcpiRealTimeToUtcTime @ 0x140863E24 (HalpAcpiRealTimeToUtcTime.c)
- *     PiDevCfgSplitDriverConfigurationId @ 0x1408AA62C (PiDevCfgSplitDriverConfigurationId.c)
- *     NtSetSystemTime @ 0x14094BD10 (NtSetSystemTime.c)
- *     ExUpdateSystemTimeFromCmos @ 0x14098FDE4 (ExUpdateSystemTimeFromCmos.c)
- *     HaliSetWakeAlarm @ 0x1409987D0 (HaliSetWakeAlarm.c)
- *     Phase1InitializationDiscard @ 0x140A3B6A4 (Phase1InitializationDiscard.c)
+ *     ExpRefreshSystemTime @ 0x1407A929C (ExpRefreshSystemTime.c)
+ *     ExpRefreshTimeZoneInformation @ 0x1407A9754 (ExpRefreshTimeZoneInformation.c)
+ *     RtlCutoverTimeToSystemTime @ 0x1407A9ED0 (RtlCutoverTimeToSystemTime.c)
+ *     ExGetExpirationDate @ 0x1407AAA20 (ExGetExpirationDate.c)
+ *     HalpAcpiRealTimeToUtcTime @ 0x140863F7C (HalpAcpiRealTimeToUtcTime.c)
+ *     PiDevCfgSplitDriverConfigurationId @ 0x1408AA78C (PiDevCfgSplitDriverConfigurationId.c)
+ *     NtSetSystemTime @ 0x14094BEE0 (NtSetSystemTime.c)
+ *     ExUpdateSystemTimeFromCmos @ 0x1409908C4 (ExUpdateSystemTimeFromCmos.c)
+ *     HaliSetWakeAlarm @ 0x1409997D0 (HaliSetWakeAlarm.c)
+ *     Phase1InitializationDiscard @ 0x140A3C6A4 (Phase1InitializationDiscard.c)
  * Callees:
- *     RtlpTimeFieldsToTimeNoLeapSeconds @ 0x1402B5A04 (RtlpTimeFieldsToTimeNoLeapSeconds.c)
+ *     RtlpTimeFieldsToTimeNoLeapSeconds @ 0x140233BE4 (RtlpTimeFieldsToTimeNoLeapSeconds.c)
  */
 
 BOOLEAN __stdcall RtlTimeFieldsToTime(PTIME_FIELDS TimeFields, PLARGE_INTEGER Time)

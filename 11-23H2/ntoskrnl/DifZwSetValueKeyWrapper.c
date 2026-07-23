@@ -1,12 +1,12 @@
 /*
- * XREFs of DifZwSetValueKeyWrapper @ 0x1405F7BD0
+ * XREFs of DifZwSetValueKeyWrapper @ 0x1405F8140
  * Callers:
  *     <none>
  * Callees:
- *     ZwSetValueKey @ 0x14041B960 (ZwSetValueKey.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     DifGetAPIThunkContextById @ 0x1404664BE (DifGetAPIThunkContextById.c)
- *     DifGetReturnAddressForWrappers @ 0x1405F88C4 (DifGetReturnAddressForWrappers.c)
+ *     ZwSetValueKey @ 0x14041BCF0 (ZwSetValueKey.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x1404668BE (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F8E34 (DifGetReturnAddressForWrappers.c)
  */
 
 NTSTATUS __fastcall DifZwSetValueKeyWrapper(

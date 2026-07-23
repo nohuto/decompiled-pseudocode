@@ -1,14 +1,14 @@
 /*
- * XREFs of HsaUpdateRemappingTableInDeviceTableEntry @ 0x1404E4A94
+ * XREFs of HsaUpdateRemappingTableInDeviceTableEntry @ 0x1404E4CD4
  * Callers:
- *     HsaAllocateRemappingTableEntry @ 0x1404E20C0 (HsaAllocateRemappingTableEntry.c)
- *     HsaFreeRemappingTableEntry @ 0x1404E3590 (HsaFreeRemappingTableEntry.c)
+ *     HsaAllocateRemappingTableEntry @ 0x1404E2300 (HsaAllocateRemappingTableEntry.c)
+ *     HsaFreeRemappingTableEntry @ 0x1404E37D0 (HsaFreeRemappingTableEntry.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     KxAcquireQueuedSpinLock @ 0x140350970 (KxAcquireQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KxAcquireQueuedSpinLock @ 0x14035B6C0 (KxAcquireQueuedSpinLock.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     HsaBuildInterruptRemappingEntry @ 0x1404E2834 (HsaBuildInterruptRemappingEntry.c)
- *     HsaInvalidateRemappingTableEntries @ 0x1404E3C7C (HsaInvalidateRemappingTableEntries.c)
+ *     HsaBuildInterruptRemappingEntry @ 0x1404E2A74 (HsaBuildInterruptRemappingEntry.c)
+ *     HsaInvalidateRemappingTableEntries @ 0x1404E3EBC (HsaInvalidateRemappingTableEntries.c)
  */
 
 __int64 __fastcall HsaUpdateRemappingTableInDeviceTableEntry(__int64 a1, unsigned int *a2, __int64 a3)

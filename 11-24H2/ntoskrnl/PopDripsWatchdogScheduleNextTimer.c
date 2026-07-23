@@ -1,11 +1,11 @@
 /*
- * XREFs of PopDripsWatchdogScheduleNextTimer @ 0x140A27F14
+ * XREFs of PopDripsWatchdogScheduleNextTimer @ 0x140A1C994
  * Callers:
- *     PopDripsWatchdogCallbackWorker @ 0x14075FC80 (PopDripsWatchdogCallbackWorker.c)
- *     PopDripsWatchdogDiagnosticWorker @ 0x14075FF20 (PopDripsWatchdogDiagnosticWorker.c)
- *     PopDripsWatchdogStartWatchdog @ 0x140A27DB4 (PopDripsWatchdogStartWatchdog.c)
+ *     PopDripsWatchdogCallbackWorker @ 0x14075EC80 (PopDripsWatchdogCallbackWorker.c)
+ *     PopDripsWatchdogDiagnosticWorker @ 0x14075EF20 (PopDripsWatchdogDiagnosticWorker.c)
+ *     PopDripsWatchdogStartWatchdog @ 0x140A1C834 (PopDripsWatchdogStartWatchdog.c)
  * Callees:
- *     KeSetTimer2 @ 0x1403C20A0 (KeSetTimer2.c)
+ *     KeSetTimer2 @ 0x1403B0C60 (KeSetTimer2.c)
  */
 
 __int64 __fastcall PopDripsWatchdogScheduleNextTimer(__int64 a1)
@@ -19,7 +19,7 @@ __int64 __fastcall PopDripsWatchdogScheduleNextTimer(__int64 a1)
     v3[0] = 0LL;
     v3[1] = -1LL;
     *(_QWORD *)(a1 + 184) = MEMORY[0xFFFFF78000000008];
-    result = KeSetTimer2(a1, -10000000LL * *(unsigned int *)(a1 + 176), 0LL, (__int64)v3);
+    result = KeSetTimer2(a1, (LARGE_INTEGER)(-10000000LL * *(unsigned int *)(a1 + 176)), 0LL, (__int64)v3);
     *(_DWORD *)(a1 + 180) |= 2u;
   }
   return result;

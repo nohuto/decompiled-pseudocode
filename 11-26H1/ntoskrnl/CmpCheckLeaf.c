@@ -1,22 +1,22 @@
 /*
- * XREFs of CmpCheckLeaf @ 0x140A0A744
+ * XREFs of CmpCheckLeaf @ 0x140A20814
  * Callers:
- *     CmpCheckKey @ 0x140A08360 (CmpCheckKey.c)
+ *     CmpCheckKey @ 0x140A1E430 (CmpCheckKey.c)
  * Callees:
- *     SetFailureLocation @ 0x140494894 (SetFailureLocation.c)
- *     HvpGetCellFlat @ 0x14085EB00 (HvpGetCellFlat.c)
- *     CmpHashUnicodeComponent @ 0x1408D1470 (CmpHashUnicodeComponent.c)
- *     HvpMarkCellDirty @ 0x1408D4AB0 (HvpMarkCellDirty.c)
- *     RtlUpcaseUnicodeChar @ 0x1408D5170 (RtlUpcaseUnicodeChar.c)
- *     HvpReleaseCellFlat @ 0x1408D51E0 (HvpReleaseCellFlat.c)
- *     HvpReleaseCellPaged @ 0x1408D73B0 (HvpReleaseCellPaged.c)
- *     HvpGetCellPaged @ 0x1408D7410 (HvpGetCellPaged.c)
- *     HvpGetCellContextInitialize @ 0x1408D9320 (HvpGetCellContextInitialize.c)
- *     HvpMapEntryIsDiscardable @ 0x1408D9350 (HvpMapEntryIsDiscardable.c)
- *     CmpGenerateFastLeafHintForUnicodeString @ 0x140A0AB74 (CmpGenerateFastLeafHintForUnicodeString.c)
- *     HvpGetCellMap @ 0x140C58690 (HvpGetCellMap.c)
- *     HvpMapEntryGetBinAddress @ 0x140C586F0 (HvpMapEntryGetBinAddress.c)
- *     HvpGetBinContextInitialize @ 0x140C58AA0 (HvpGetBinContextInitialize.c)
+ *     SetFailureLocation @ 0x14048E3E4 (SetFailureLocation.c)
+ *     HvpGetCellFlat @ 0x140864DF0 (HvpGetCellFlat.c)
+ *     CmpHashUnicodeComponent @ 0x1408D7A30 (CmpHashUnicodeComponent.c)
+ *     HvpMarkCellDirty @ 0x1408DB070 (HvpMarkCellDirty.c)
+ *     RtlUpcaseUnicodeChar @ 0x1408DB730 (RtlUpcaseUnicodeChar.c)
+ *     HvpReleaseCellFlat @ 0x1408DB7A0 (HvpReleaseCellFlat.c)
+ *     HvpReleaseCellPaged @ 0x1408DD970 (HvpReleaseCellPaged.c)
+ *     HvpGetCellPaged @ 0x1408DD9D0 (HvpGetCellPaged.c)
+ *     HvpGetCellContextInitialize @ 0x1408DF8E0 (HvpGetCellContextInitialize.c)
+ *     HvpMapEntryIsDiscardable @ 0x1408DF910 (HvpMapEntryIsDiscardable.c)
+ *     CmpGenerateFastLeafHintForUnicodeString @ 0x140A20C44 (CmpGenerateFastLeafHintForUnicodeString.c)
+ *     HvpGetCellMap @ 0x140C5E690 (HvpGetCellMap.c)
+ *     HvpMapEntryGetBinAddress @ 0x140C5E6F0 (HvpMapEntryGetBinAddress.c)
+ *     HvpGetBinContextInitialize @ 0x140C5EAA0 (HvpGetBinContextInitialize.c)
  */
 
 __int64 __fastcall CmpCheckLeaf(ULONG_PTR BugCheckParameter3, int a2, _WORD *a3, int a4, __int64 a5)
@@ -217,7 +217,7 @@ LABEL_24:
   v42 = -1073741492;
   v29 = -1073741492;
   v51 = 1;
-  if ( (a2 & 0x20000) != 0 || !BYTE2(NlsMbOemCodePageTag) && (CmpCallbackListLock.ApcStateFill[28] & 6) == 0 )
+  if ( (a2 & 0x20000) != 0 || !BYTE2(NlsMbOemCodePageTag) && (CmpContextListLock.ApcStateFill[36] & 6) == 0 )
   {
     v43 = 16;
     goto LABEL_68;

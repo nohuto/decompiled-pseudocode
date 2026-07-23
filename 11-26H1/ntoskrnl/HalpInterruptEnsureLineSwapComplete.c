@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpInterruptEnsureLineSwapComplete @ 0x140BEE730
+ * XREFs of HalpInterruptEnsureLineSwapComplete @ 0x140BF4730
  * Callers:
- *     HalpInterruptSwapProcessorIdentifiers @ 0x140BEE7C0 (HalpInterruptSwapProcessorIdentifiers.c)
+ *     HalpInterruptSwapProcessorIdentifiers @ 0x140BF47C0 (HalpInterruptSwapProcessorIdentifiers.c)
  * Callees:
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 ULONG_PTR *HalpInterruptEnsureLineSwapComplete()

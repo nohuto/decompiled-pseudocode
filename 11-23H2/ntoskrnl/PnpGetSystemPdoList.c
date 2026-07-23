@@ -1,10 +1,10 @@
 /*
- * XREFs of PnpGetSystemPdoList @ 0x1407CCF60
+ * XREFs of PnpGetSystemPdoList @ 0x1407CD230
  * Callers:
  *     <none>
  * Callees:
- *     PipForDeviceNodeSubtree @ 0x1407CD0F8 (PipForDeviceNodeSubtree.c)
- *     PiPnpFreePdoDeviceList @ 0x1407CD1D8 (PiPnpFreePdoDeviceList.c)
+ *     PipForDeviceNodeSubtree @ 0x1407CD3C8 (PipForDeviceNodeSubtree.c)
+ *     PiPnpFreePdoDeviceList @ 0x1407CD4A8 (PiPnpFreePdoDeviceList.c)
  */
 
 __int64 __fastcall PnpGetSystemPdoList(__int64 a1, _QWORD *a2)

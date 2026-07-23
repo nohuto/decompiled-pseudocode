@@ -6,8 +6,8 @@
  *     LdrpInitializeShimDllDependencies @ 0x18006CBC4 (LdrpInitializeShimDllDependencies.c)
  *     LdrpInitializeGraphRecurse @ 0x18006D078 (LdrpInitializeGraphRecurse.c)
  *     LdrpInitializeImportRedirection @ 0x180082514 (LdrpInitializeImportRedirection.c)
- *     LdrpInitializeProcess @ 0x1800D1EC0 (LdrpInitializeProcess.c)
- *     AVrfInitializeVerifier @ 0x1800D9948 (AVrfInitializeVerifier.c)
+ *     LdrpInitializeProcess @ 0x1800D1E80 (LdrpInitializeProcess.c)
+ *     AVrfInitializeVerifier @ 0x1800D9908 (AVrfInitializeVerifier.c)
  * Callees:
  *     LdrpInitializeGraphRecurse @ 0x18006D078 (LdrpInitializeGraphRecurse.c)
  *     LdrpInitializeNode @ 0x18006D154 (LdrpInitializeNode.c)

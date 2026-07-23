@@ -1,12 +1,12 @@
 /*
- * XREFs of ExQueueWorkItemExFromIo @ 0x1402030B4
+ * XREFs of ExQueueWorkItemExFromIo @ 0x140203194
  * Callers:
- *     IoQueueWorkItemToNode @ 0x140202EB0 (IoQueueWorkItemToNode.c)
- *     DifExQueueWorkItemExFromIoWrapper @ 0x140652EE0 (DifExQueueWorkItemExFromIoWrapper.c)
+ *     IoQueueWorkItemToNode @ 0x140202F90 (IoQueueWorkItemToNode.c)
+ *     DifExQueueWorkItemExFromIoWrapper @ 0x140656AC0 (DifExQueueWorkItemExFromIoWrapper.c)
  * Callees:
- *     ExpValidateWorkItem @ 0x140203F4C (ExpValidateWorkItem.c)
- *     ExpQueueWorkItem @ 0x140381D74 (ExpQueueWorkItem.c)
- *     ExpTypeToPriority @ 0x1403831D0 (ExpTypeToPriority.c)
+ *     ExpValidateWorkItem @ 0x14020402C (ExpValidateWorkItem.c)
+ *     ExpQueueWorkItem @ 0x140383B24 (ExpQueueWorkItem.c)
+ *     ExpTypeToPriority @ 0x140384F80 (ExpTypeToPriority.c)
  */
 
 __int64 __fastcall ExQueueWorkItemExFromIo(ULONG_PTR a1, unsigned int a2, int a3)

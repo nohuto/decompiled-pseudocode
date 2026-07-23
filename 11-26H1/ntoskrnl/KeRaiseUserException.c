@@ -1,16 +1,16 @@
 /*
- * XREFs of KeRaiseUserException @ 0x140529EA0
+ * XREFs of KeRaiseUserException @ 0x14052C3C0
  * Callers:
- *     ExHandleLogBadReference @ 0x14046C9F0 (ExHandleLogBadReference.c)
- *     ObpCloseHandle @ 0x1408F9C70 (ObpCloseHandle.c)
- *     NtClose @ 0x1408F9F30 (NtClose.c)
- *     ObCloseHandleTableEntry2 @ 0x1408FAF70 (ObCloseHandleTableEntry2.c)
- *     PspInsertThread @ 0x140A026D0 (PspInsertThread.c)
+ *     ExHandleLogBadReference @ 0x140466170 (ExHandleLogBadReference.c)
+ *     ObpCloseHandle @ 0x140929C00 (ObpCloseHandle.c)
+ *     NtClose @ 0x140929EC0 (NtClose.c)
+ *     ObCloseHandleTableEntry2 @ 0x14092AF00 (ObCloseHandleTableEntry2.c)
+ *     PspInsertThread @ 0x140A7B188 (PspInsertThread.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiSetupForInstrumentationReturn @ 0x140488168 (KiSetupForInstrumentationReturn.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     RtlWriteULongToUser @ 0x14077F7A0 (RtlWriteULongToUser.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiSetupForInstrumentationReturn @ 0x140481CA8 (KiSetupForInstrumentationReturn.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     RtlWriteULongToUser @ 0x1407822A0 (RtlWriteULongToUser.c)
  */
 
 __int64 __fastcall KeRaiseUserException(unsigned int a1)
@@ -37,7 +37,7 @@ __int64 __fastcall KeRaiseUserException(unsigned int a1)
     {
       RtlWriteULongToUser((char *)CurrentThread->Teb + 704, a1);
       *(_WORD *)(TrapFrame + 368) = 51;
-      *(_QWORD *)(TrapFrame + 360) = stru_140FC01F0.GlobalUpdateVpThreadPriorityListEntry.Flink;
+      *(_QWORD *)(TrapFrame + 360) = stru_140FC11F0.GlobalUpdateVpThreadPriorityListEntry.Flink;
       if ( *(_BYTE *)(TrapFrame + 43) != 2 )
         KiSetupForInstrumentationReturn(TrapFrame);
     }

@@ -1,14 +1,14 @@
 /*
- * XREFs of CmpInitializeSystemHive @ 0x1409C3B30
+ * XREFs of CmpInitializeSystemHive @ 0x1409C4B30
  * Callers:
- *     CmpInitializePreloadedHives @ 0x1409C3A28 (CmpInitializePreloadedHives.c)
+ *     CmpInitializePreloadedHives @ 0x1409C4A28 (CmpInitializePreloadedHives.c)
  * Callees:
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     CmpCreateHive @ 0x1405A6574 (CmpCreateHive.c)
- *     CmpLinkHiveToMaster @ 0x1405B8C48 (CmpLinkHiveToMaster.c)
- *     CmpSetupLoggingState @ 0x14073255C (CmpSetupLoggingState.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     CmpCreateHive @ 0x1405A7574 (CmpCreateHive.c)
+ *     CmpLinkHiveToMaster @ 0x1405B9C48 (CmpLinkHiveToMaster.c)
+ *     CmpSetupLoggingState @ 0x14073374C (CmpSetupLoggingState.c)
  */
 
 __int64 __fastcall CmpInitializeSystemHive(__int64 a1, __int64 a2)
@@ -62,7 +62,7 @@ __int64 __fastcall CmpInitializeSystemHive(__int64 a1, __int64 a2)
              0LL,
              v6,
              0,
-             dword_1403FF000,
+             dword_140400000,
              0,
              0LL,
              a2,
@@ -71,7 +71,7 @@ __int64 __fastcall CmpInitializeSystemHive(__int64 a1, __int64 a2)
              1);
   if ( (int)result >= 0 )
   {
-    qword_1403FEFF0 = v6;
+    qword_1403FFFF0 = v6;
     return 0LL;
   }
   return result;

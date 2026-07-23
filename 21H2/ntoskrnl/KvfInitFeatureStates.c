@@ -1,7 +1,7 @@
 /*
- * XREFs of KvfInitFeatureStates @ 0x1403CF04C
+ * XREFs of KvfInitFeatureStates @ 0x1403CF1BC
  * Callers:
- *     InitBootProcessor @ 0x140A3AAF4 (InitBootProcessor.c)
+ *     InitBootProcessor @ 0x140A3BAF4 (InitBootProcessor.c)
  * Callees:
  *     <none>
  */

@@ -1,28 +1,28 @@
 /*
- * XREFs of RtlpUninitializeAssemblyStorageMap @ 0x180081494
+ * XREFs of RtlpUninitializeAssemblyStorageMap @ 0x180003314
  * Callers:
- *     RtlpFreeActivationContext @ 0x180080B3C (RtlpFreeActivationContext.c)
- *     RtlpGetActivationContextDataStorageMapAndRosterHeader @ 0x180081010 (RtlpGetActivationContextDataStorageMapAndRosterHeader.c)
+ *     RtlpFreeActivationContext @ 0x1800029B8 (RtlpFreeActivationContext.c)
+ *     RtlpGetActivationContextDataStorageMapAndRosterHeader @ 0x180002E90 (RtlpGetActivationContextDataStorageMapAndRosterHeader.c)
  * Callees:
- *     RtlFreeHeap @ 0x1800269F0 (RtlFreeHeap.c)
- *     NtClose @ 0x180161E70 (NtClose.c)
+ *     RtlFreeHeap @ 0x1800533F0 (RtlFreeHeap.c)
+ *     NtClose @ 0x180160230 (NtClose.c)
  */
 
-__int64 __fastcall RtlpUninitializeAssemblyStorageMap(__int64 a1)
+int __fastcall RtlpUninitializeAssemblyStorageMap(__int64 a1)
 {
-  unsigned __int64 *v1; // rdi
+  PVOID *v1; // rdi
   unsigned int i; // esi
-  __int64 result; // rax
-  unsigned __int64 v5; // rbp
+  PVOID v4; // rax
+  __int64 v5; // rbp
   void *v6; // rcx
 
   if ( a1 )
   {
-    v1 = (unsigned __int64 *)(a1 + 8);
+    v1 = (PVOID *)(a1 + 8);
     for ( i = 0; i < *(_DWORD *)(a1 + 4); ++i )
     {
-      result = *v1;
-      v5 = *(_QWORD *)(*v1 + 8LL * i);
+      v4 = *v1;
+      v5 = *((_QWORD *)*v1 + i);
       if ( v5 )
       {
         v6 = *(void **)(v5 + 24);
@@ -33,14 +33,14 @@ __int64 __fastcall RtlpUninitializeAssemblyStorageMap(__int64 a1)
           NtClose(v6);
           *(_QWORD *)(v5 + 24) = 0LL;
         }
-        *(_QWORD *)(*v1 + 8LL * i) = 0LL;
-        result = RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v5);
+        *((_QWORD *)*v1 + i) = 0LL;
+        LODWORD(v4) = RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, (PVOID)v5);
       }
     }
     if ( (*(_BYTE *)a1 & 1) != 0 )
-      result = RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, *v1);
+      LODWORD(v4) = RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, *v1);
     *(_QWORD *)a1 = 0LL;
     *v1 = 0LL;
   }
-  return result;
+  return (int)v4;
 }

@@ -1,14 +1,14 @@
 /*
  * XREFs of IommupHvInitializeLibrary @ 0x140B92694
  * Callers:
- *     IommuInitializeLibrary @ 0x1403B6268 (IommuInitializeLibrary.c)
+ *     IommuInitializeLibrary @ 0x1403B6448 (IommuInitializeLibrary.c)
  * Callees:
- *     MmGetPhysicalAddress @ 0x14028BEE0 (MmGetPhysicalAddress.c)
- *     HalpInterruptSetIdtEntry @ 0x14037D270 (HalpInterruptSetIdtEntry.c)
- *     MmAllocateContiguousNodeMemory @ 0x1403B9C20 (MmAllocateContiguousNodeMemory.c)
- *     MmFreeContiguousMemory @ 0x1403C3600 (MmFreeContiguousMemory.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     MmGetPhysicalAddress @ 0x14028C170 (MmGetPhysicalAddress.c)
+ *     HalpInterruptSetIdtEntry @ 0x14037D410 (HalpInterruptSetIdtEntry.c)
+ *     MmAllocateContiguousNodeMemory @ 0x1403B9E00 (MmAllocateContiguousNodeMemory.c)
+ *     MmFreeContiguousMemory @ 0x1403C37E0 (MmFreeContiguousMemory.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

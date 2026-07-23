@@ -1,21 +1,21 @@
 /*
- * XREFs of SymCryptInitEnvWindowsKernelmodeWin8_1nLater @ 0x1401AF208
+ * XREFs of SymCryptInitEnvWindowsKernelmodeWin8_1nLater @ 0x1401AF348
  * Callers:
- *     SymCryptInit @ 0x140180D94 (SymCryptInit.c)
- *     KeInitSystem @ 0x1409C4988 (KeInitSystem.c)
+ *     SymCryptInit @ 0x140180ED4 (SymCryptInit.c)
+ *     KeInitSystem @ 0x1409C5988 (KeInitSystem.c)
  * Callees:
- *     RtlGetEnabledExtendedFeatures @ 0x140177FC0 (RtlGetEnabledExtendedFeatures.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     SymCryptDetectCpuFeaturesByCpuid @ 0x1401B2474 (SymCryptDetectCpuFeaturesByCpuid.c)
- *     SymCryptInitEnvCommon @ 0x1401B25DC (SymCryptInitEnvCommon.c)
- *     SymCryptFatal @ 0x14028F78C (SymCryptFatal.c)
- *     RtlGetVersion @ 0x1406B4730 (RtlGetVersion.c)
+ *     RtlGetEnabledExtendedFeatures @ 0x1401780C0 (RtlGetEnabledExtendedFeatures.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     SymCryptDetectCpuFeaturesByCpuid @ 0x1401B25B4 (SymCryptDetectCpuFeaturesByCpuid.c)
+ *     SymCryptInitEnvCommon @ 0x1401B271C (SymCryptInitEnvCommon.c)
+ *     SymCryptFatal @ 0x14028F97C (SymCryptFatal.c)
+ *     RtlGetVersion @ 0x1406B59D0 (RtlGetVersion.c)
  */
 
 __int64 SymCryptInitEnvWindowsKernelmodeWin8_1nLater()
 {
   __int64 result; // rax
-  struct _OSVERSIONINFOW VersionInformation; // [rsp+20h] [rbp-138h] BYREF
+  _OSVERSIONINFOW VersionInformation; // [rsp+20h] [rbp-138h] BYREF
 
   result = (unsigned int)g_SymCryptFlags;
   if ( (g_SymCryptFlags & 1) == 0 )

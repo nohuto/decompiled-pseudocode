@@ -8,24 +8,24 @@
  *     ZwSetInformationObject @ 0x18009B630 (ZwSetInformationObject.c)
  */
 
-__int64 __fastcall sub_180080AE0(__int64 a1)
+NTSTATUS __fastcall sub_180080AE0(void *a1)
 {
-  __int64 result; // rax
-  __int64 v2; // [rsp+30h] [rbp+8h] BYREF
-  __int16 v3; // [rsp+38h] [rbp+10h] BYREF
+  NTSTATUS result; // eax
+  HANDLE ThreadInformation; // [rsp+30h] [rbp+8h] BYREF
+  __int16 ObjectInformation; // [rsp+38h] [rbp+10h] BYREF
   int v4; // [rsp+40h] [rbp+18h] BYREF
 
   if ( a1 )
   {
-    v2 = a1;
-    ZwSetInformationThread(-2LL, 5LL, &v2);
+    ThreadInformation = a1;
+    ZwSetInformationThread((HANDLE)0xFFFFFFFFFFFFFFFELL, ThreadImpersonationToken, &ThreadInformation, 8u);
     v4 = 0;
-    ZwSetInformationThread(-2LL, 18LL, &v4);
-    v3 = 0;
-    ZwSetInformationObject(v2, 4LL, &v3, 2LL);
-    ZwClose(v2);
-    v2 = 0LL;
-    return ZwSetInformationThread(-2LL, 5LL, &v2);
+    ZwSetInformationThread((HANDLE)0xFFFFFFFFFFFFFFFELL, ThreadBreakOnTermination, &v4, 4u);
+    ObjectInformation = 0;
+    ZwSetInformationObject(ThreadInformation, ObjectHandleFlagInformation, &ObjectInformation, 2u);
+    ZwClose(ThreadInformation);
+    ThreadInformation = 0LL;
+    return ZwSetInformationThread((HANDLE)0xFFFFFFFFFFFFFFFELL, ThreadImpersonationToken, &ThreadInformation, 8u);
   }
   return result;
 }

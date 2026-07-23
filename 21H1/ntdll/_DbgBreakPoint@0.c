@@ -6,7 +6,7 @@
  *     <none>
  */
 
-void __stdcall DbgBreakPoint()
+void DbgBreakPoint(void)
 {
   __debugbreak();
 }

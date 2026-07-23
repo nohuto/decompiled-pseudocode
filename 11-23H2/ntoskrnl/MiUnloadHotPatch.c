@@ -1,18 +1,18 @@
 /*
- * XREFs of MiUnloadHotPatch @ 0x140A3BF34
+ * XREFs of MiUnloadHotPatch @ 0x140A3C1E4
  * Callers:
- *     NtManageHotPatch @ 0x1407D3EF0 (NtManageHotPatch.c)
+ *     NtManageHotPatch @ 0x1407D41C0 (NtManageHotPatch.c)
  * Callees:
- *     RtlAvlRemoveNode @ 0x14028AF50 (RtlAvlRemoveNode.c)
- *     memset @ 0x140435A00 (memset.c)
- *     VslRevertHotPatch @ 0x14054C56C (VslRevertHotPatch.c)
- *     MmAcquireLoadLock @ 0x1407045B0 (MmAcquireLoadLock.c)
- *     MmReleaseLoadLock @ 0x140704930 (MmReleaseLoadLock.c)
- *     MiApplyHotPatchToDriver @ 0x140A34E70 (MiApplyHotPatchToDriver.c)
- *     MiCompareHotPatchNodes @ 0x140A36604 (MiCompareHotPatchNodes.c)
- *     MiDeleteHotPatchRecord @ 0x140A36864 (MiDeleteHotPatchRecord.c)
- *     MiHotPatchAllProcesses @ 0x140A37408 (MiHotPatchAllProcesses.c)
- *     MiLogHotPatchOperationStatus @ 0x140A38F58 (MiLogHotPatchOperationStatus.c)
+ *     RtlAvlRemoveNode @ 0x14028B1E0 (RtlAvlRemoveNode.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     VslRevertHotPatch @ 0x14054CC2C (VslRevertHotPatch.c)
+ *     MmAcquireLoadLock @ 0x1407047C0 (MmAcquireLoadLock.c)
+ *     MmReleaseLoadLock @ 0x140704B40 (MmReleaseLoadLock.c)
+ *     MiApplyHotPatchToDriver @ 0x140A35120 (MiApplyHotPatchToDriver.c)
+ *     MiCompareHotPatchNodes @ 0x140A368B4 (MiCompareHotPatchNodes.c)
+ *     MiDeleteHotPatchRecord @ 0x140A36B14 (MiDeleteHotPatchRecord.c)
+ *     MiHotPatchAllProcesses @ 0x140A376B8 (MiHotPatchAllProcesses.c)
+ *     MiLogHotPatchOperationStatus @ 0x140A39208 (MiLogHotPatchOperationStatus.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

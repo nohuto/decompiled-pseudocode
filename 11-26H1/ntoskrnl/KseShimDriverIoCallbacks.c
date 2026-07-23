@@ -1,18 +1,18 @@
 /*
- * XREFs of KseShimDriverIoCallbacks @ 0x140A26360
+ * XREFs of KseShimDriverIoCallbacks @ 0x140A39400
  * Callers:
- *     IopLoadDriver @ 0x140A26FC4 (IopLoadDriver.c)
- *     IopInitializeBuiltinDriver @ 0x140D08E68 (IopInitializeBuiltinDriver.c)
+ *     IopLoadDriver @ 0x140A3A064 (IopLoadDriver.c)
+ *     IopInitializeBuiltinDriver @ 0x140D0F138 (IopInitializeBuiltinDriver.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     KsepLogInfo @ 0x1404CCB84 (KsepLogInfo.c)
- *     KsepPoolAllocateNonPaged @ 0x1404E0384 (KsepPoolAllocateNonPaged.c)
- *     KsepPoolFreePaged @ 0x1404E2A70 (KsepPoolFreePaged.c)
- *     KsepPoolFreeNonPaged @ 0x1404E35A0 (KsepPoolFreeNonPaged.c)
- *     KsepDebugPrint @ 0x14050EC24 (KsepDebugPrint.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     KsepGetShimCallbacksForDriver @ 0x140A25750 (KsepGetShimCallbacksForDriver.c)
- *     KsepStringDuplicateUnicode @ 0x140A25B24 (KsepStringDuplicateUnicode.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     KsepLogInfo @ 0x1404C6324 (KsepLogInfo.c)
+ *     KsepPoolAllocateNonPaged @ 0x1404D9A64 (KsepPoolAllocateNonPaged.c)
+ *     KsepPoolFreePaged @ 0x1404DC150 (KsepPoolFreePaged.c)
+ *     KsepPoolFreeNonPaged @ 0x1404DCB40 (KsepPoolFreeNonPaged.c)
+ *     KsepDebugPrint @ 0x140508694 (KsepDebugPrint.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     KsepGetShimCallbacksForDriver @ 0x140A387F0 (KsepGetShimCallbacksForDriver.c)
+ *     KsepStringDuplicateUnicode @ 0x140A38BC4 (KsepStringDuplicateUnicode.c)
  */
 
 __int64 __fastcall KseShimDriverIoCallbacks(__int64 *a1, __int64 a2, const void **a3)
@@ -52,7 +52,7 @@ __int64 __fastcall KseShimDriverIoCallbacks(__int64 *a1, __int64 a2, const void 
   Buffer = 0LL;
   if ( a3 )
   {
-    if ( dword_140E66B04 == 2 && (KseEngine & 1) == 0 )
+    if ( dword_140E66D14 == 2 && (KseEngine & 1) == 0 )
     {
       v9 = KsepStringDuplicateUnicode((__int64)v27, a3);
       Buffer = v27[0].Buffer;
@@ -143,12 +143,12 @@ LABEL_13:
             while ( v24 );
             *(_QWORD *)(v3 + 56) = NonPaged;
             ShimCallbacksForDriver = 0;
-            *((_QWORD *)&AlpcpMessageLogLock.AbCompletedIoQoSBoostCount
-            + (((unsigned __int8)_InterlockedExchangeAdd(
-                                   (volatile signed __int32 *)&AlpcpMessageLogLock.PriorityFloorCounts[12],
-                                   1u)
-              + 1) & 0x3F)) = 524548LL;
-            if ( ((__int64)stru_140E66B30.StackBase & 1) != 0 )
+            *(_QWORD *)&AlpcpMessageLogLock.PriorityFloorCounts[8
+                                                              * (((unsigned __int8)_InterlockedExchangeAdd(
+                                                                                     &KsepHistoryMessagesIndex,
+                                                                                     1u)
+                                                                + 1) & 0x3F)] = 524548LL;
+            if ( ((__int64)stru_140E66D40.StackBase & 1) != 0 )
               KsepDebugPrint(9LL, (int)"KSE: Hooked callbacks for driver [%ws].\n", Buffer, v23);
             KsepLogInfo(
               9LL,
@@ -168,12 +168,12 @@ LABEL_3:
       KsepPoolFreePaged(Buffer);
     return (unsigned int)ShimCallbacksForDriver;
   }
-  *((_QWORD *)&AlpcpMessageLogLock.AbCompletedIoQoSBoostCount
-  + (((unsigned __int8)_InterlockedExchangeAdd(
-                         (volatile signed __int32 *)&AlpcpMessageLogLock.PriorityFloorCounts[12],
-                         1u)
-    + 1) & 0x3F)) = 524434LL;
-  if ( ((__int64)stru_140E66B30.StackBase & 1) != 0 )
+  *(_QWORD *)&AlpcpMessageLogLock.PriorityFloorCounts[8
+                                                    * (((unsigned __int8)_InterlockedExchangeAdd(
+                                                                           &KsepHistoryMessagesIndex,
+                                                                           1u)
+                                                      + 1) & 0x3F)] = 524434LL;
+  if ( ((__int64)stru_140E66D40.StackBase & 1) != 0 )
     KsepDebugPrint(0LL, (int)"KSE: Callback shimming - missing driver object or driver name.\n");
   KsepLogInfo(0LL, (__int64)"KSE: Callback shimming - missing driver object or driver name.\n");
   return 3221225485LL;

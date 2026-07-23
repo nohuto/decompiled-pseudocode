@@ -1,20 +1,20 @@
 /*
- * XREFs of KiRemoveThreadFromSchedulingGroup @ 0x1402A7194
+ * XREFs of KiRemoveThreadFromSchedulingGroup @ 0x1402D68C4
  * Callers:
- *     KeTerminateThread @ 0x1402A6488 (KeTerminateThread.c)
- *     KiSetThreadSchedulingGroup @ 0x14047C324 (KiSetThreadSchedulingGroup.c)
+ *     KeTerminateThread @ 0x1402D5BB8 (KeTerminateThread.c)
+ *     KiSetThreadSchedulingGroup @ 0x1402D6FE8 (KiSetThreadSchedulingGroup.c)
  * Callees:
- *     KiRemoveSystemWorkPriorityKick @ 0x14025E408 (KiRemoveSystemWorkPriorityKick.c)
- *     KiAcquirePrcbLocksForIsolationUnit @ 0x140293190 (KiAcquirePrcbLocksForIsolationUnit.c)
- *     HvlNotifyLongSpinWait @ 0x140293260 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140293290 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     KiRemoveThreadFromScbQueue @ 0x14030D7C0 (KiRemoveThreadFromScbQueue.c)
- *     KiAddThreadToPrcbQueue @ 0x1403102F0 (KiAddThreadToPrcbQueue.c)
- *     EtwTraceReadyQueueInsertion @ 0x14034A55C (EtwTraceReadyQueueInsertion.c)
- *     KiUpdateTotalCyclesCurrentThread @ 0x14034F060 (KiUpdateTotalCyclesCurrentThread.c)
- *     KiAcquireThreadStateLockForWrite @ 0x1403B1E60 (KiAcquireThreadStateLockForWrite.c)
- *     KiReleaseThreadStateLock @ 0x1403B27B0 (KiReleaseThreadStateLock.c)
- *     KiUpdateThreadSchedulingProperties @ 0x14047C4A8 (KiUpdateThreadSchedulingProperties.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14028EA18 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiAcquirePrcbLocksForIsolationUnit @ 0x1402A2D90 (KiAcquirePrcbLocksForIsolationUnit.c)
+ *     HvlNotifyLongSpinWait @ 0x1402A2E60 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402A2E90 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     KiUpdateThreadSchedulingProperties @ 0x1402D6DAC (KiUpdateThreadSchedulingProperties.c)
+ *     KiAddThreadToPrcbQueue @ 0x1402D7CF0 (KiAddThreadToPrcbQueue.c)
+ *     KiRemoveThreadFromScbQueue @ 0x1402D8F60 (KiRemoveThreadFromScbQueue.c)
+ *     KiUpdateTotalCyclesCurrentThread @ 0x14036D540 (KiUpdateTotalCyclesCurrentThread.c)
+ *     KiAcquireThreadStateLockForWrite @ 0x1403A0670 (KiAcquireThreadStateLockForWrite.c)
+ *     KiReleaseThreadStateLock @ 0x1403A0FC0 (KiReleaseThreadStateLock.c)
+ *     EtwTraceReadyQueueInsertion @ 0x1403C1604 (EtwTraceReadyQueueInsertion.c)
  */
 
 __int64 __fastcall KiRemoveThreadFromSchedulingGroup(__int64 a1)
@@ -88,7 +88,7 @@ __int64 __fastcall KiRemoveThreadFromSchedulingGroup(__int64 a1)
       while ( *(_QWORD *)(a1 + 64) );
     }
     v22 = CurrentPrcb;
-    KiAcquirePrcbLocksForIsolationUnit((__int64)CurrentPrcb, 1, &v23);
+    KiAcquirePrcbLocksForIsolationUnit((__int64)CurrentPrcb, 1LL, &v23);
     _interlockedbittestandreset((volatile signed __int32 *)a1, 0x12u);
     *(_QWORD *)(a1 + 104) = 0LL;
     LOBYTE(v11) = 2;
@@ -142,7 +142,7 @@ __int64 __fastcall KiRemoveThreadFromSchedulingGroup(__int64 a1)
     }
     result = KiReleaseThreadStateLock(v8, (_DWORD)v7, (unsigned int)&v23, v24, (__int64)&v20);
     *(_QWORD *)(a1 + 64) = 0LL;
-    if ( v2 && (WORD2(xmmword_140FC5B10) & 0x800) != 0 )
+    if ( v2 && (WORD2(xmmword_140FC6B50) & 0x800) != 0 )
       return EtwTraceReadyQueueInsertion(a1, v7->Number, v9, 0LL);
   }
   return result;

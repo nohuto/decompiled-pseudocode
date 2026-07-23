@@ -1,7 +1,7 @@
 /*
- * XREFs of MmIsFileMapped @ 0x140858CC0
+ * XREFs of MmIsFileMapped @ 0x140859F20
  * Callers:
- *     IopQueryProcessIdsUsingFile @ 0x14081E708 (IopQueryProcessIdsUsingFile.c)
+ *     IopQueryProcessIdsUsingFile @ 0x14081F908 (IopQueryProcessIdsUsingFile.c)
  * Callees:
  *     KiStackAttachProcess @ 0x140016DB0 (KiStackAttachProcess.c)
  *     KiUnstackDetachProcess @ 0x140017190 (KiUnstackDetachProcess.c)
@@ -9,10 +9,10 @@
  *     MiDereferenceControlAreaFile @ 0x14001CA78 (MiDereferenceControlAreaFile.c)
  *     MiReferenceControlAreaFile @ 0x14001CBB0 (MiReferenceControlAreaFile.c)
  *     UNLOCK_ADDRESS_SPACE_SHARED @ 0x1400531B0 (UNLOCK_ADDRESS_SPACE_SHARED.c)
- *     LOCK_ADDRESS_SPACE_SHARED @ 0x140075460 (LOCK_ADDRESS_SPACE_SHARED.c)
- *     MiVadDeleted @ 0x140075560 (MiVadDeleted.c)
- *     MiLockVadShared @ 0x140075570 (MiLockVadShared.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     LOCK_ADDRESS_SPACE_SHARED @ 0x140075450 (LOCK_ADDRESS_SPACE_SHARED.c)
+ *     MiVadDeleted @ 0x140075550 (MiVadDeleted.c)
+ *     MiLockVadShared @ 0x140075560 (MiLockVadShared.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 __int64 __fastcall MmIsFileMapped(_KPROCESS *a1, __int64 a2)

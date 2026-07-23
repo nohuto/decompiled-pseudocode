@@ -1,10 +1,10 @@
 /*
- * XREFs of PnpPowerStateTransitionWatchdogPushRecord @ 0x140957AAC
+ * XREFs of PnpPowerStateTransitionWatchdogPushRecord @ 0x140957CAC
  * Callers:
- *     PnpSurpriseFailUnsafeDmaDevices @ 0x14096B9B0 (PnpSurpriseFailUnsafeDmaDevices.c)
- *     IoBuildPoDeviceNotifyList @ 0x140A9E0F8 (IoBuildPoDeviceNotifyList.c)
+ *     PnpSurpriseFailUnsafeDmaDevices @ 0x14096BBB0 (PnpSurpriseFailUnsafeDmaDevices.c)
+ *     IoBuildPoDeviceNotifyList @ 0x140A9DF68 (IoBuildPoDeviceNotifyList.c)
  * Callees:
- *     PoPushPowerStateTransitionRecordWithCallback @ 0x14058F104 (PoPushPowerStateTransitionRecordWithCallback.c)
+ *     PoPushPowerStateTransitionRecordWithCallback @ 0x14058F5F4 (PoPushPowerStateTransitionRecordWithCallback.c)
  */
 
 __int64 PnpPowerStateTransitionWatchdogPushRecord()
@@ -13,5 +13,5 @@ __int64 PnpPowerStateTransitionWatchdogPushRecord()
            PsInitialSystemProcess,
            KeGetCurrentThread(),
            0LL,
-           (__int64)PnpPowerStateTransitionWatchdogCallback);
+           (LARGE_INTEGER)PnpPowerStateTransitionWatchdogCallback);
 }

@@ -1,13 +1,13 @@
 /*
- * XREFs of PfSnGetCompletedTrace @ 0x1404D8B44
+ * XREFs of PfSnGetCompletedTrace @ 0x1404BC148
  * Callers:
- *     PfSnQueryPrefetcherInformation @ 0x1404D8920 (PfSnQueryPrefetcherInformation.c)
+ *     PfSnQueryPrefetcherInformation @ 0x1404BBF24 (PfSnQueryPrefetcherInformation.c)
  * Callees:
- *     KeReleaseGuardedMutex @ 0x14000CA40 (KeReleaseGuardedMutex.c)
- *     ExAcquireFastMutex @ 0x14002D0A0 (ExAcquireFastMutex.c)
- *     memmove @ 0x140171280 (memmove.c)
+ *     KeReleaseGuardedMutex @ 0x14000C5C0 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x14002CC20 (ExAcquireFastMutex.c)
+ *     memmove @ 0x140171780 (memmove.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     ProbeForWrite @ 0x14044DAC0 (ProbeForWrite.c)
+ *     ProbeForWrite @ 0x14044C990 (ProbeForWrite.c)
  */
 
 __int64 __fastcall PfSnGetCompletedTrace(void *a1, SIZE_T Length, unsigned int *a3)
@@ -22,15 +22,15 @@ __int64 __fastcall PfSnGetCompletedTrace(void *a1, SIZE_T Length, unsigned int *
   v4 = Length;
   v6 = 1;
   ExAcquireFastMutex(&FastMutex);
-  dword_140328724 = 2;
-  v7 = (unsigned int *)qword_1403286D8;
-  if ( qword_1403286D8 == &qword_1403286D8 )
+  dword_140328764 = 2;
+  v7 = (unsigned int *)qword_140328718;
+  if ( qword_140328718 == &qword_140328718 )
   {
     v10 = -2147483622;
   }
   else
   {
-    v8 = *((_DWORD *)qword_1403286D8 + 6);
+    v8 = *((_DWORD *)qword_140328718 + 6);
     if ( v8 > v4 )
     {
       *a3 = v8;
@@ -38,12 +38,12 @@ __int64 __fastcall PfSnGetCompletedTrace(void *a1, SIZE_T Length, unsigned int *
     }
     else
     {
-      v9 = *(_QWORD *)qword_1403286D8;
-      if ( *((PVOID **)qword_1403286D8 + 1) != &qword_1403286D8 || *(PVOID *)(v9 + 8) != qword_1403286D8 )
+      v9 = *(_QWORD *)qword_140328718;
+      if ( *((PVOID **)qword_140328718 + 1) != &qword_140328718 || *(PVOID *)(v9 + 8) != qword_140328718 )
         __fastfail(3u);
-      qword_1403286D8 = *(PVOID *)qword_1403286D8;
-      *(_QWORD *)(v9 + 8) = &qword_1403286D8;
-      --dword_140328720;
+      qword_140328718 = *(PVOID *)qword_140328718;
+      *(_QWORD *)(v9 + 8) = &qword_140328718;
+      --dword_140328760;
       KeReleaseGuardedMutex(&FastMutex);
       v6 = 0;
       if ( KeGetCurrentThread()->PreviousMode )

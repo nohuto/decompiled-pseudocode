@@ -1,10 +1,10 @@
 /*
- * XREFs of SeAuditingFileEventsWithContextEx @ 0x1404AA390
+ * XREFs of SeAuditingFileEventsWithContextEx @ 0x1404A3A20
  * Callers:
- *     SeAuditingFileEventsWithContext @ 0x1408134C0 (SeAuditingFileEventsWithContext.c)
+ *     SeAuditingFileEventsWithContext @ 0x140819320 (SeAuditingFileEventsWithContext.c)
  * Callees:
- *     SepAdtAuditThisEventWithContext @ 0x140932EA0 (SepAdtAuditThisEventWithContext.c)
- *     SepAdtAuditThisEventByCategoryWithContext @ 0x140A651E0 (SepAdtAuditThisEventByCategoryWithContext.c)
+ *     SepAdtAuditThisEventWithContext @ 0x14090EA50 (SepAdtAuditThisEventWithContext.c)
+ *     SepAdtAuditThisEventByCategoryWithContext @ 0x140A721B0 (SepAdtAuditThisEventByCategoryWithContext.c)
  */
 
 char __fastcall SeAuditingFileEventsWithContextEx(char a1, __int64 a2, __int64 a3, _BYTE *a4)

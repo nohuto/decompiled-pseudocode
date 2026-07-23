@@ -1,19 +1,19 @@
 /*
- * XREFs of CmpCompareNewValueDataAgainstKCBCache @ 0x1405CD560
+ * XREFs of CmpCompareNewValueDataAgainstKCBCache @ 0x1405CE560
  * Callers:
- *     CmSetValueKey @ 0x1405CBE28 (CmSetValueKey.c)
+ *     CmSetValueKey @ 0x1405CCE28 (CmSetValueKey.c)
  * Callees:
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
- *     RtlCompareMemory @ 0x1401C5BD0 (RtlCompareMemory.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     CmpUpdateKeyNodeAccessBits @ 0x1405CF3BC (CmpUpdateKeyNodeAccessBits.c)
- *     CmpTryConvertKcbLockSharedToExclusive @ 0x1405CF40C (CmpTryConvertKcbLockSharedToExclusive.c)
- *     CmpGetValueDataFromCache @ 0x1405CF438 (CmpGetValueDataFromCache.c)
- *     CmpFindNameInListWithStatus @ 0x1405D0670 (CmpFindNameInListWithStatus.c)
- *     CmpCleanUpKcbValueCache @ 0x1405D432C (CmpCleanUpKcbValueCache.c)
+ *     ExfReleasePushLockShared @ 0x1400913F0 (ExfReleasePushLockShared.c)
+ *     RtlCompareMemory @ 0x1401C5D30 (RtlCompareMemory.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     CmpUpdateKeyNodeAccessBits @ 0x1405D03BC (CmpUpdateKeyNodeAccessBits.c)
+ *     CmpTryConvertKcbLockSharedToExclusive @ 0x1405D040C (CmpTryConvertKcbLockSharedToExclusive.c)
+ *     CmpGetValueDataFromCache @ 0x1405D0438 (CmpGetValueDataFromCache.c)
+ *     CmpFindNameInListWithStatus @ 0x1405D1670 (CmpFindNameInListWithStatus.c)
+ *     CmpCleanUpKcbValueCache @ 0x1405D532C (CmpCleanUpKcbValueCache.c)
  */
 
 __int64 __fastcall CmpCompareNewValueDataAgainstKCBCache(__int64 a1, int a2, int a3, void *a4, int a5)

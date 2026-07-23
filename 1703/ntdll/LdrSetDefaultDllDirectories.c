@@ -6,17 +6,17 @@
  *     <none>
  */
 
-__int64 __fastcall LdrSetDefaultDllDirectories(int a1)
+NTSTATUS __cdecl LdrSetDefaultDllDirectories(ULONG DirectoryFlags)
 {
   int v1; // eax
 
-  if ( !a1 )
-    return 3221225485LL;
+  if ( !DirectoryFlags )
+    return -1073741811;
   v1 = 32512;
   if ( (dword_180158674 & 4) == 0 )
     v1 = 31488;
-  if ( ((~v1 | 0x100) & a1) != 0 )
-    return 3221225485LL;
-  dword_18015BF58 = a1;
-  return 0LL;
+  if ( ((~v1 | 0x100) & DirectoryFlags) != 0 )
+    return -1073741811;
+  dword_18015BF58 = DirectoryFlags;
+  return 0;
 }

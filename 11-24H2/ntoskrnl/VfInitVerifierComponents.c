@@ -1,11 +1,11 @@
 /*
- * XREFs of VfInitVerifierComponents @ 0x140B83AD0
+ * XREFs of VfInitVerifierComponents @ 0x140B85AD0
  * Callers:
- *     VfInitSystemNoRebootNeeded @ 0x140B83980 (VfInitSystemNoRebootNeeded.c)
- *     VfInitBootDriversLoaded @ 0x140C3B240 (VfInitBootDriversLoaded.c)
+ *     VfInitSystemNoRebootNeeded @ 0x140B85980 (VfInitSystemNoRebootNeeded.c)
+ *     VfInitBootDriversLoaded @ 0x140C3D398 (VfInitBootDriversLoaded.c)
  * Callees:
- *     VfKeCheckForChanges @ 0x140B95FFC (VfKeCheckForChanges.c)
- *     ViSettingsIoCheckForChanges @ 0x140B9B3CC (ViSettingsIoCheckForChanges.c)
+ *     VfKeCheckForChanges @ 0x140B97FFC (VfKeCheckForChanges.c)
+ *     ViSettingsIoCheckForChanges @ 0x140B9D3CC (ViSettingsIoCheckForChanges.c)
  */
 
 __int64 __fastcall VfInitVerifierComponents(unsigned int a1, __int64 a2, __int64 a3, char a4)

@@ -1,15 +1,15 @@
 /*
- * XREFs of KeCpuSetReportParkedProcessors @ 0x1403C8A00
+ * XREFs of KeCpuSetReportParkedProcessors @ 0x1403A35A0
  * Callers:
- *     KiModifySystemAllowedCpuSetsWithLock @ 0x1403C82C8 (KiModifySystemAllowedCpuSetsWithLock.c)
- *     PpmParkReportMask @ 0x1403C88E0 (PpmParkReportMask.c)
+ *     PpmParkReportMask @ 0x1403A3480 (PpmParkReportMask.c)
+ *     KiModifySystemAllowedCpuSetsWithLock @ 0x14048B680 (KiModifySystemAllowedCpuSetsWithLock.c)
  * Callees:
- *     KxAcquireSpinLock @ 0x140254AE0 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x140279CC0 (KxReleaseSpinLock.c)
- *     KiProcessDeferredReadyList @ 0x14031D3D0 (KiProcessDeferredReadyList.c)
- *     KiUpdateGlobalCpuSetConfiguration @ 0x1403C9208 (KiUpdateGlobalCpuSetConfiguration.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
+ *     KxReleaseSpinLock @ 0x14022F250 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x1402850F0 (KxAcquireSpinLock.c)
+ *     KiProcessDeferredReadyList @ 0x1402C5F60 (KiProcessDeferredReadyList.c)
+ *     KiUpdateGlobalCpuSetConfiguration @ 0x1403A3DA8 (KiUpdateGlobalCpuSetConfiguration.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
  */
 
 char __fastcall KeCpuSetReportParkedProcessors(_QWORD *a1)
@@ -106,7 +106,7 @@ char __fastcall KeCpuSetReportParkedProcessors(_QWORD *a1)
       }
       if ( !v10 )
         goto LABEL_11;
-      v16 = *((_QWORD *)&unk_140FC7808 + 4 * v4);
+      v16 = *((_QWORD *)&unk_140FC8868 + 4 * v4);
       v17 = v16 & -(__int64)((v8 & (v6 ^ v16)) != 0 && (v8 & v16) != 0);
       v18 = (v6 ^ v16) & -(__int64)((v8 & (v6 ^ v16)) != 0 && (v8 & v16) != 0);
       v36 = v18;

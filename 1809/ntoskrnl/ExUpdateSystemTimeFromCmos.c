@@ -1,14 +1,14 @@
 /*
- * XREFs of ExUpdateSystemTimeFromCmos @ 0x140566B6C
+ * XREFs of ExUpdateSystemTimeFromCmos @ 0x140567B6C
  * Callers:
- *     PopTransitionSystemPowerStateEx @ 0x140566D74 (PopTransitionSystemPowerStateEx.c)
- *     ExpTimeRefreshWork @ 0x14056E0E0 (ExpTimeRefreshWork.c)
- *     KdpTimeSlipWork @ 0x140917C10 (KdpTimeSlipWork.c)
+ *     PopTransitionSystemPowerStateEx @ 0x140567D74 (PopTransitionSystemPowerStateEx.c)
+ *     ExpTimeRefreshWork @ 0x14056F0E0 (ExpTimeRefreshWork.c)
+ *     KdpTimeSlipWork @ 0x140918C10 (KdpTimeSlipWork.c)
  * Callees:
- *     RtlTimeFieldsToTime @ 0x140127060 (RtlTimeFieldsToTime.c)
- *     ExLocalTimeToSystemTime @ 0x140160BF0 (ExLocalTimeToSystemTime.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ExpSetSystemTime @ 0x140566AC8 (ExpSetSystemTime.c)
+ *     RtlTimeFieldsToTime @ 0x140127130 (RtlTimeFieldsToTime.c)
+ *     ExLocalTimeToSystemTime @ 0x140160CF0 (ExLocalTimeToSystemTime.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ExpSetSystemTime @ 0x140567AC8 (ExpSetSystemTime.c)
  */
 
 void __fastcall ExUpdateSystemTimeFromCmos(char a1, unsigned int a2)
@@ -18,7 +18,7 @@ void __fastcall ExUpdateSystemTimeFromCmos(char a1, unsigned int a2)
   LARGE_INTEGER Time; // [rsp+30h] [rbp-38h] BYREF
   LARGE_INTEGER SystemTime; // [rsp+38h] [rbp-30h] BYREF
   struct _SINGLE_LIST_ENTRY v7; // [rsp+40h] [rbp-28h] BYREF
-  struct _TIME_FIELDS TimeFields; // [rsp+48h] [rbp-20h] BYREF
+  _TIME_FIELDS TimeFields; // [rsp+48h] [rbp-20h] BYREF
 
   if ( !a2 )
     a2 = ExpMaxTimeSeperationBeforeCorrect;

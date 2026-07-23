@@ -1,19 +1,19 @@
 /*
- * XREFs of EtwpSetSoftRestartInformation @ 0x140949350
+ * XREFs of EtwpSetSoftRestartInformation @ 0x140949520
  * Callers:
- *     EtwSetPerformanceTraceInformation @ 0x140938560 (EtwSetPerformanceTraceInformation.c)
+ *     EtwSetPerformanceTraceInformation @ 0x140938730 (EtwSetPerformanceTraceInformation.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     PsIsCurrentThreadInServerSilo @ 0x140351230 (PsIsCurrentThreadInServerSilo.c)
- *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
- *     EtwpCheckLoggerControlAccess @ 0x140642DDC (EtwpCheckLoggerControlAccess.c)
- *     EtwpReleaseLoggerContext @ 0x140643A38 (EtwpReleaseLoggerContext.c)
- *     EtwpAcquireLoggerContextByLoggerId @ 0x140643A84 (EtwpAcquireLoggerContextByLoggerId.c)
- *     EtwpCaptureString @ 0x1406DF044 (EtwpCaptureString.c)
- *     EtwpCancelMemoryPreservation @ 0x140948510 (EtwpCancelMemoryPreservation.c)
- *     EtwpPreserveLogger @ 0x14094885C (EtwpPreserveLogger.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x14035BF80 (PsIsCurrentThreadInServerSilo.c)
+ *     EtwpCheckLoggerControlAccess @ 0x140637BEC (EtwpCheckLoggerControlAccess.c)
+ *     EtwpReleaseLoggerContext @ 0x140638848 (EtwpReleaseLoggerContext.c)
+ *     EtwpAcquireLoggerContextByLoggerId @ 0x140638894 (EtwpAcquireLoggerContextByLoggerId.c)
+ *     RtlFreeAnsiString @ 0x14063DA40 (RtlFreeAnsiString.c)
+ *     EtwpCaptureString @ 0x1406B6324 (EtwpCaptureString.c)
+ *     EtwpCancelMemoryPreservation @ 0x1409486E0 (EtwpCancelMemoryPreservation.c)
+ *     EtwpPreserveLogger @ 0x140948A2C (EtwpPreserveLogger.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpSetSoftRestartInformation(__int64 a1, __int64 a2)
@@ -26,24 +26,27 @@ __int64 __fastcall EtwpSetSoftRestartInformation(__int64 a1, __int64 a2)
   __int64 v8; // rsi
   int v9; // ebx
   UNICODE_STRING *PoolWithTag; // rdi
-  char v11; // [rsp+20h] [rbp-48h]
+  __int64 v11; // rdx
+  __int64 v12; // r8
+  __int64 v13; // r9
+  char v14; // [rsp+20h] [rbp-48h]
   UNICODE_STRING DestinationString; // [rsp+28h] [rbp-40h] BYREF
-  __int128 v13; // [rsp+38h] [rbp-30h] BYREF
+  __int128 v16; // [rsp+38h] [rbp-30h] BYREF
 
   v2 = a2;
   DestinationString = 0LL;
-  v13 = 0LL;
+  v16 = 0LL;
   if ( !EtwpKsrCallbackObject || PsIsCurrentThreadInServerSilo(a1, a2) )
     return 3221225659LL;
   if ( v2 < 0x18 )
     return 3221225485LL;
   RtlInitUnicodeString(&DestinationString, 0LL);
-  *((_QWORD *)&v13 + 1) = a1 + 18;
-  LOWORD(v13) = v2 - 18;
-  WORD1(v13) = v2 - 18;
-  if ( (_WORD)v2 == 18 || (result = EtwpCaptureString((unsigned __int16 *)&v13, &DestinationString), (int)result >= 0) )
+  *((_QWORD *)&v16 + 1) = a1 + 18;
+  LOWORD(v16) = v2 - 18;
+  WORD1(v16) = v2 - 18;
+  if ( (_WORD)v2 == 18 || (result = EtwpCaptureString((unsigned __int16 *)&v16, &DestinationString), (int)result >= 0) )
   {
-    v11 = *(_BYTE *)(a1 + 16);
+    v14 = *(_BYTE *)(a1 + 16);
     v5 = (unsigned __int16)*(_QWORD *)(a1 + 8);
     if ( v5 == 0xFFFF )
       v5 = *(unsigned __int8 *)(EtwpHostSiloState + 4208);
@@ -60,7 +63,7 @@ __int64 __fastcall EtwpSetSoftRestartInformation(__int64 a1, __int64 a2)
     if ( v9 >= 0 )
     {
       PoolWithTag = *(UNICODE_STRING **)(v8 + 1072);
-      if ( !v11 )
+      if ( !v14 )
       {
         if ( PoolWithTag && LOBYTE(PoolWithTag[2].Length) )
         {
@@ -124,7 +127,7 @@ LABEL_32:
     if ( v8 )
       EtwpReleaseLoggerContext((unsigned int *)v8, 1);
     RtlFreeAnsiString(&DestinationString);
-    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v11, v12, v13);
     return (unsigned int)v9;
   }
   return result;

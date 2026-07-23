@@ -1,5 +1,5 @@
 /*
- * XREFs of NtdllGhostWndProc_W @ 0x18009D4A0
+ * XREFs of NtdllGhostWndProc_W @ 0x18009D460
  * Callers:
  *     <none>
  * Callees:

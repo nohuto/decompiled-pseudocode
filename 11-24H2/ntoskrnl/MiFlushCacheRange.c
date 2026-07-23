@@ -1,20 +1,20 @@
 /*
- * XREFs of MiFlushCacheRange @ 0x14068ECB4
+ * XREFs of MiFlushCacheRange @ 0x14068FD90
  * Callers:
- *     MiHotRemoveHugeRange @ 0x140670540 (MiHotRemoveHugeRange.c)
- *     MiRemovePhysicalMemory @ 0x1407E9DAC (MiRemovePhysicalMemory.c)
+ *     MiHotRemoveHugeRange @ 0x140671710 (MiHotRemoveHugeRange.c)
+ *     MiRemovePhysicalMemory @ 0x1407EA37C (MiRemovePhysicalMemory.c)
  * Callees:
- *     MiFlushCacheForAttributeChange @ 0x1403AE6F8 (MiFlushCacheForAttributeChange.c)
- *     KeInvalidateAllCaches @ 0x1403AEA80 (KeInvalidateAllCaches.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     MiFlushCacheForAttributeChange @ 0x14039CF08 (MiFlushCacheForAttributeChange.c)
+ *     KeInvalidateAllCaches @ 0x14039D290 (KeInvalidateAllCaches.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall MiFlushCacheRange(_QWORD *a1, unsigned __int64 a2)
 {
   unsigned __int8 CurrentIrql; // bl
 
-  if ( a2 < (unsigned int)dword_140E2DB5C )
+  if ( a2 < (unsigned int)dword_140E2DC9C )
   {
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(2uLL);
@@ -28,7 +28,7 @@ __int64 __fastcall MiFlushCacheRange(_QWORD *a1, unsigned __int64 a2)
   }
   else
   {
-    ++dword_140E2DB54;
+    ++dword_140E2DC94;
     KeInvalidateAllCaches();
     return 1LL;
   }

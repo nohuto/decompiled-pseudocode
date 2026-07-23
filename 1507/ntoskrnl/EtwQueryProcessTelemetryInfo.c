@@ -48,12 +48,12 @@ __int64 __fastcall EtwQueryProcessTelemetryInfo(
   size_t Size; // [rsp+30h] [rbp-2A8h] BYREF
   __int64 v26; // [rsp+38h] [rbp-2A0h] BYREF
   PVOID P; // [rsp+40h] [rbp-298h]
-  int v28; // [rsp+48h] [rbp-290h] BYREF
+  int v28; // [rsp+48h] [rbp-290h]
   const void **v29; // [rsp+50h] [rbp-288h]
   unsigned int *v30; // [rsp+58h] [rbp-280h]
   PACCESS_TOKEN v31; // [rsp+60h] [rbp-278h]
   ULONG_PTR v32; // [rsp+68h] [rbp-270h]
-  size_t v33; // [rsp+70h] [rbp-268h] BYREF
+  size_t PackageSize; // [rsp+70h] [rbp-268h] BYREF
   size_t v34; // [rsp+78h] [rbp-260h]
   char v35[256]; // [rsp+80h] [rbp-258h] BYREF
   char v36[144]; // [rsp+180h] [rbp-158h] BYREF
@@ -72,7 +72,7 @@ __int64 __fastcall EtwQueryProcessTelemetryInfo(
   v10 = PsReferencePrimaryToken((PEPROCESS)BugCheckParameter1);
   v31 = v10;
   v28 = 0;
-  EtwpQueryTokenPackageInfo(v10, &v33, &v28);
+  EtwpQueryTokenPackageInfo(v10, &PackageSize);
   UserSidToken = SeQueryUserSidToken((__int64)v10, Src, 0x44u, (ULONG *)&Size);
   if ( UserSidToken >= 0 )
   {
@@ -87,7 +87,7 @@ __int64 __fastcall EtwQueryProcessTelemetryInfo(
       if ( v12 != _InterlockedCompareExchange64((volatile signed __int64 *)(BugCheckParameter1 + 736), v12 - 2, v12) )
         ExfReleaseRundownProtection((PEX_RUNDOWN_REF)(BugCheckParameter1 + 736));
     }
-    v13 = v33 + v34 + *(unsigned __int16 *)v9 + (unsigned __int16)v26;
+    v13 = PackageSize + v34 + *(unsigned __int16 *)v9 + (unsigned __int16)v26;
     v14 = (unsigned int)Size;
     v15 = v13 + Size + 100;
     *v30 = v15;
@@ -125,8 +125,8 @@ __int64 __fastcall EtwQueryProcessTelemetryInfo(
         memmove(v17, v29[1], *(unsigned __int16 *)v29);
         v19 = &v17[*v18 + 2];
         *((_DWORD *)a2 + 20) = (_DWORD)v19 - (_DWORD)a2;
-        memmove(v19, v35, v33);
-        v20 = &v19[v33];
+        memmove(v19, v35, PackageSize);
+        v20 = &v19[PackageSize];
         *((_DWORD *)a2 + 21) = (_DWORD)v20 - (_DWORD)a2;
         memmove(v20, v36, v34);
         v21 = &v20[v34];

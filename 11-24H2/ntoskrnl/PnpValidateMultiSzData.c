@@ -1,13 +1,13 @@
 /*
- * XREFs of PnpValidateMultiSzData @ 0x1404B3254
+ * XREFs of PnpValidateMultiSzData @ 0x1404ADA64
  * Callers:
- *     PnpValidateRegistryMultiSz @ 0x1404D2868 (PnpValidateRegistryMultiSz.c)
- *     PnpValidateRegistryValue @ 0x1405A70B8 (PnpValidateRegistryValue.c)
- *     PiDevCfgQueryDeviceMigrationNode @ 0x140831268 (PiDevCfgQueryDeviceMigrationNode.c)
- *     PiDevCfgQueryObjectProperties @ 0x1409978B4 (PiDevCfgQueryObjectProperties.c)
- *     PiDevCfgResolveMultiSzValue @ 0x14099CA94 (PiDevCfgResolveMultiSzValue.c)
- *     PiDevCfgClearDeviceMigrationNode @ 0x140A6A994 (PiDevCfgClearDeviceMigrationNode.c)
- *     PiDevCfgResolveVariableDeviceProperty @ 0x140A8EF90 (PiDevCfgResolveVariableDeviceProperty.c)
+ *     PnpValidateRegistryMultiSz @ 0x1404CBA24 (PnpValidateRegistryMultiSz.c)
+ *     PnpValidateRegistryValue @ 0x1405A40A8 (PnpValidateRegistryValue.c)
+ *     PiDevCfgQueryObjectProperties @ 0x1409CA030 (PiDevCfgQueryObjectProperties.c)
+ *     PiDevCfgResolveMultiSzValue @ 0x1409CF204 (PiDevCfgResolveMultiSzValue.c)
+ *     PiDevCfgQueryDeviceMigrationNode @ 0x1409D1CC4 (PiDevCfgQueryDeviceMigrationNode.c)
+ *     PiDevCfgClearDeviceMigrationNode @ 0x140A640A4 (PiDevCfgClearDeviceMigrationNode.c)
+ *     PiDevCfgResolveVariableDeviceProperty @ 0x140A8B600 (PiDevCfgResolveVariableDeviceProperty.c)
  * Callees:
  *     <none>
  */

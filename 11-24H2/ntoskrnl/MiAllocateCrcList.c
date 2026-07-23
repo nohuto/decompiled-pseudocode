@@ -1,12 +1,12 @@
 /*
- * XREFs of MiAllocateCrcList @ 0x1409F2EE0
+ * XREFs of MiAllocateCrcList @ 0x1409E7240
  * Callers:
- *     MiCombineAllPhysicalMemory @ 0x1409F24E8 (MiCombineAllPhysicalMemory.c)
+ *     MiCombineAllPhysicalMemory @ 0x1409E6848 (MiCombineAllPhysicalMemory.c)
  * Callees:
- *     MiAllocatePool @ 0x1402ACA70 (MiAllocatePool.c)
- *     MiGetAvailablePagesBelowPriority @ 0x1402D15D0 (MiGetAvailablePagesBelowPriority.c)
- *     MiCommitmentAvailable @ 0x14042F520 (MiCommitmentAvailable.c)
- *     MiGetPrivatePageCount @ 0x14049352C (MiGetPrivatePageCount.c)
+ *     MiAllocatePool @ 0x140277450 (MiAllocatePool.c)
+ *     MiGetAvailablePagesBelowPriority @ 0x1402F51E0 (MiGetAvailablePagesBelowPriority.c)
+ *     MiCommitmentAvailable @ 0x1404216F0 (MiCommitmentAvailable.c)
+ *     MiGetPrivatePageCount @ 0x14048DE5C (MiGetPrivatePageCount.c)
  */
 
 __int64 __fastcall MiAllocateCrcList(__int64 *a1, char a2, ULONG_PTR *a3)
@@ -36,7 +36,7 @@ __int64 __fastcall MiAllocateCrcList(__int64 *a1, char a2, ULONG_PTR *a3)
     v9 = 0LL;
     if ( KeNumberNodes )
     {
-      v10 = qword_140E37600;
+      v10 = qword_140E37740;
       v11 = (unsigned __int16)KeNumberNodes;
       do
       {

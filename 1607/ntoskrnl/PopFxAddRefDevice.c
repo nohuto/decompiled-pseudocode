@@ -1,13 +1,13 @@
 /*
- * XREFs of PopFxAddRefDevice @ 0x1400C16F4
+ * XREFs of PopFxAddRefDevice @ 0x1400BF584
  * Callers:
- *     PopFxActivateDevice @ 0x140008088 (PopFxActivateDevice.c)
- *     PopFxActivateComponentWorker @ 0x1400C1660 (PopFxActivateComponentWorker.c)
- *     PopFxIdleWorkerTail @ 0x1400C1860 (PopFxIdleWorkerTail.c)
- *     PopFxQueueWorkOrder @ 0x1400C3074 (PopFxQueueWorkOrder.c)
+ *     PopFxActivateDevice @ 0x140007BFC (PopFxActivateDevice.c)
+ *     PopFxActivateComponentWorker @ 0x1400BF4F0 (PopFxActivateComponentWorker.c)
+ *     PopFxIdleWorkerTail @ 0x1400BF6F0 (PopFxIdleWorkerTail.c)
+ *     PopFxQueueWorkOrder @ 0x1400C0F04 (PopFxQueueWorkOrder.c)
  * Callees:
- *     IoAcquireRemoveLockEx @ 0x1400C1730 (IoAcquireRemoveLockEx.c)
- *     PopFxBugCheck @ 0x1402022F4 (PopFxBugCheck.c)
+ *     IoAcquireRemoveLockEx @ 0x1400BF5C0 (IoAcquireRemoveLockEx.c)
+ *     PopFxBugCheck @ 0x140202120 (PopFxBugCheck.c)
  */
 
 NTSTATUS __fastcall PopFxAddRefDevice(ULONG_PTR BugCheckParameter2)

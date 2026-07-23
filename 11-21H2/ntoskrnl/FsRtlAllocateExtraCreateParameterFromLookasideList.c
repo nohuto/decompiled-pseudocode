@@ -1,12 +1,12 @@
 /*
  * XREFs of FsRtlAllocateExtraCreateParameterFromLookasideList @ 0x14071E5C0
  * Callers:
- *     IopSymlinkAllocateAndAddECP @ 0x1406B9EA8 (IopSymlinkAllocateAndAddECP.c)
- *     IopParseDevice @ 0x14072B8B0 (IopParseDevice.c)
+ *     sub_1406B9EA8 @ 0x1406B9EA8 (sub_1406B9EA8.c)
+ *     sub_14072B8B0 @ 0x14072B8B0 (sub_14072B8B0.c)
  * Callees:
- *     ExAllocateFromNPagedLookasideList @ 0x140202234 (ExAllocateFromNPagedLookasideList.c)
- *     RtlpInterlockedPopEntrySList @ 0x140429880 (RtlpInterlockedPopEntrySList.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     sub_140202234 @ 0x140202234 (sub_140202234.c)
+ *     ExpInterlockedPopEntrySList @ 0x140429880 (ExpInterlockedPopEntrySList.c)
+ *     sub_14042A5E0 @ 0x14042A5E0 (sub_14042A5E0.c)
  *     FsRtlAllocateExtraCreateParameter @ 0x140797F80 (FsRtlAllocateExtraCreateParameter.c)
  */
 
@@ -20,7 +20,7 @@ NTSTATUS __stdcall FsRtlAllocateExtraCreateParameterFromLookasideList(
 {
   ULONG v6; // esi
   int v8; // edi
-  char *v10; // rax
+  __int64 v10; // rax
   GUID v11; // xmm0
 
   v6 = SizeOfContext + 72;
@@ -37,33 +37,30 @@ NTSTATUS __stdcall FsRtlAllocateExtraCreateParameterFromLookasideList(
              EcpContext);
   if ( (Flags & 2) != 0 )
   {
-    v10 = (char *)ExAllocateFromNPagedLookasideList((PNPAGED_LOOKASIDE_LIST)LookasideList);
+    v10 = (__int64)sub_140202234((__int64)LookasideList);
   }
   else
   {
     ++*((_DWORD *)LookasideList + 5);
-    v10 = (char *)RtlpInterlockedPopEntrySList((PSLIST_HEADER)LookasideList);
+    v10 = (__int64)ExpInterlockedPopEntrySList((PSLIST_HEADER)LookasideList);
     if ( v10 )
     {
 LABEL_6:
       *(_QWORD *)v10 = 1215324997LL;
-      *((_QWORD *)v10 + 2) = 0LL;
-      *((_QWORD *)v10 + 1) = 0LL;
+      *(_QWORD *)(v10 + 16) = 0LL;
+      *(_QWORD *)(v10 + 8) = 0LL;
       v11 = *EcpType;
-      *((_QWORD *)v10 + 8) = 0LL;
-      *((_QWORD *)v10 + 5) = CleanupCallback;
+      *(_QWORD *)(v10 + 64) = 0LL;
+      *(_QWORD *)(v10 + 40) = CleanupCallback;
       *(GUID *)(v10 + 24) = v11;
-      *((_DWORD *)v10 + 12) = v8;
-      *((_DWORD *)v10 + 13) = v6;
-      *((_QWORD *)v10 + 7) = LookasideList;
-      *EcpContext = v10 + 72;
+      *(_DWORD *)(v10 + 48) = v8;
+      *(_DWORD *)(v10 + 52) = v6;
+      *(_QWORD *)(v10 + 56) = LookasideList;
+      *EcpContext = (PVOID)(v10 + 72);
       return 0;
     }
     ++*((_DWORD *)LookasideList + 6);
-    v10 = (char *)(*((__int64 (__fastcall **)(_QWORD, _QWORD, _QWORD))LookasideList + 6))(
-                    *((unsigned int *)LookasideList + 9),
-                    *((unsigned int *)LookasideList + 11),
-                    *((unsigned int *)LookasideList + 10));
+    v10 = sub_14042A5E0(*((unsigned int *)LookasideList + 9), *((unsigned int *)LookasideList + 11));
   }
   if ( v10 )
     goto LABEL_6;

@@ -1,19 +1,19 @@
 /*
- * XREFs of IopErrorLogThread @ 0x140872530
+ * XREFs of IopErrorLogThread @ 0x140872770
  * Callers:
  *     <none>
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     RtlStringCchCopyNW @ 0x1402F7ECC (RtlStringCchCopyNW.c)
- *     IopErrorLogGetEntry @ 0x1403C5A24 (IopErrorLogGetEntry.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     _wcsicmp @ 0x1403D9A50 (_wcsicmp.c)
- *     IopErrorLogRequeueEntry @ 0x14055E9BC (IopErrorLogRequeueEntry.c)
- *     ObQueryNameStringMode @ 0x14075B7F4 (ObQueryNameStringMode.c)
- *     EtwQueryTraceHandleByLoggerName @ 0x1407E5744 (EtwQueryTraceHandleByLoggerName.c)
- *     EtwWriteErrorLogEntry @ 0x140872818 (EtwWriteErrorLogEntry.c)
- *     IopErrorLogQueueRequest @ 0x1409515C4 (IopErrorLogQueueRequest.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     RtlStringCchCopyNW @ 0x1402F815C (RtlStringCchCopyNW.c)
+ *     IopErrorLogGetEntry @ 0x1403C5C04 (IopErrorLogGetEntry.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     _wcsicmp @ 0x1403D9C30 (_wcsicmp.c)
+ *     IopErrorLogRequeueEntry @ 0x14055F07C (IopErrorLogRequeueEntry.c)
+ *     ObQueryNameStringMode @ 0x14075B9E4 (ObQueryNameStringMode.c)
+ *     EtwQueryTraceHandleByLoggerName @ 0x1407E5A14 (EtwQueryTraceHandleByLoggerName.c)
+ *     EtwWriteErrorLogEntry @ 0x140872A58 (EtwWriteErrorLogEntry.c)
+ *     IopErrorLogQueueRequest @ 0x1409517C4 (IopErrorLogQueueRequest.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
@@ -101,7 +101,7 @@ LABEL_12:
           v17 = v23;
           goto LABEL_42;
         }
-        v13 = &word_140887DD0;
+        v13 = &word_140888010;
       }
       else
       {
@@ -137,7 +137,7 @@ LABEL_14:
         v20 = *p_P;
       else
 LABEL_34:
-        RtlInitUnicodeString(&v20, &word_140887DD0);
+        RtlInitUnicodeString(&v20, &word_140888010);
       pszDest[0] = 0;
       v25[0] = 0;
       if ( Buffer )

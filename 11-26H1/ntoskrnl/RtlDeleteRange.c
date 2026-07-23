@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlDeleteRange @ 0x140B4A350
+ * XREFs of RtlDeleteRange @ 0x140B4C0E0
  * Callers:
- *     ArbBacktrackAllocation @ 0x140787F90 (ArbBacktrackAllocation.c)
- *     IopPortBacktrackAllocation @ 0x1407A6C10 (IopPortBacktrackAllocation.c)
+ *     ArbBacktrackAllocation @ 0x14078AAC0 (ArbBacktrackAllocation.c)
+ *     IopPortBacktrackAllocation @ 0x1407A97C0 (IopPortBacktrackAllocation.c)
  * Callees:
- *     RtlpDeleteFromMergedRange @ 0x140800B60 (RtlpDeleteFromMergedRange.c)
- *     RtlpFreeRangeListEntry @ 0x140AE4F68 (RtlpFreeRangeListEntry.c)
+ *     RtlpDeleteFromMergedRange @ 0x140806600 (RtlpDeleteFromMergedRange.c)
+ *     RtlpFreeRangeListEntry @ 0x140AE2D28 (RtlpFreeRangeListEntry.c)
  */
 
 __int64 __fastcall RtlDeleteRange(__int64 **a1, unsigned __int64 a2, unsigned __int64 a3, __int64 a4)

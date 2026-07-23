@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpCompareGuid @ 0x140A5D820
+ * XREFs of EtwpCompareGuid @ 0x140A6A7E0
  * Callers:
  *     <none>
  * Callees:
- *     memcmp @ 0x14073D750 (memcmp.c)
+ *     memcmp @ 0x140742350 (memcmp.c)
  */
 
 int __fastcall EtwpCompareGuid(const void *a1, const void *a2)

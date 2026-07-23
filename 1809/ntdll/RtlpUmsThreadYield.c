@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlpUmsThreadYield @ 0x1800A4F33
+ * XREFs of RtlpUmsThreadYield @ 0x1800A4F53
  * Callers:
  *     RtlUmsThreadYield @ 0x1800F6840 (RtlUmsThreadYield.c)
  * Callees:

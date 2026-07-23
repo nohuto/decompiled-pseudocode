@@ -1,17 +1,17 @@
 /*
- * XREFs of KiGetCpuVendor @ 0x14056F6EC
+ * XREFs of KiGetCpuVendor @ 0x1405706EC
  * Callers:
- *     HvlpProcessIommu @ 0x140278194 (HvlpProcessIommu.c)
- *     KiGetIptInfo @ 0x140294538 (KiGetIptInfo.c)
- *     KiIsNXSupported @ 0x14056F5E0 (KiIsNXSupported.c)
- *     KiGetProcessorSignature @ 0x14056F62C (KiGetProcessorSignature.c)
- *     EtwpAddMicroarchitecturalPmcToRegistry @ 0x1408BA7A0 (EtwpAddMicroarchitecturalPmcToRegistry.c)
- *     EtwpLoadMicroarchitecturalProfileGroup @ 0x1408BB660 (EtwpLoadMicroarchitecturalProfileGroup.c)
- *     EtwpRemoveMicroarchitecturalPmcFromRegistry @ 0x1408BBD74 (EtwpRemoveMicroarchitecturalPmcFromRegistry.c)
- *     KiInitializeNxSupportDiscard @ 0x1409AF820 (KiInitializeNxSupportDiscard.c)
+ *     HvlpProcessIommu @ 0x140278384 (HvlpProcessIommu.c)
+ *     KiGetIptInfo @ 0x140294728 (KiGetIptInfo.c)
+ *     KiIsNXSupported @ 0x1405705E0 (KiIsNXSupported.c)
+ *     KiGetProcessorSignature @ 0x14057062C (KiGetProcessorSignature.c)
+ *     EtwpAddMicroarchitecturalPmcToRegistry @ 0x1408BBA60 (EtwpAddMicroarchitecturalPmcToRegistry.c)
+ *     EtwpLoadMicroarchitecturalProfileGroup @ 0x1408BC920 (EtwpLoadMicroarchitecturalProfileGroup.c)
+ *     EtwpRemoveMicroarchitecturalPmcFromRegistry @ 0x1408BD034 (EtwpRemoveMicroarchitecturalPmcFromRegistry.c)
+ *     KiInitializeNxSupportDiscard @ 0x1409B0820 (KiInitializeNxSupportDiscard.c)
  * Callees:
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     strncmp @ 0x140194E00 (strncmp.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     strncmp @ 0x140194F40 (strncmp.c)
  */
 
 __int64 KiGetCpuVendor()

@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlClearAllBitsEx @ 0x1800EB9E0
+ * XREFs of RtlClearAllBitsEx @ 0x1800EB9A0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-void *__fastcall RtlClearAllBitsEx(__int64 a1)
+void __cdecl RtlClearAllBitsEx(PRTL_BITMAP_EX BitMapHeader)
 {
-  return memset(*(void **)(a1 + 8), 0, 4 * ((*(_QWORD *)a1 >> 5) + ((*(_QWORD *)a1 & 0x1F) != 0)));
+  memset(BitMapHeader->Buffer, 0, 4 * ((BitMapHeader->SizeOfBitMap >> 5) + ((BitMapHeader->SizeOfBitMap & 0x1F) != 0)));
 }

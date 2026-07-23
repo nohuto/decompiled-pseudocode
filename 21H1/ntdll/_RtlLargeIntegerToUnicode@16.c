@@ -16,10 +16,11 @@ int __thiscall RtlLargeIntegerToUnicode(unsigned int *this, int a2, _WORD *a3)
   int v8; // edi
   int i; // esi
   bool v10; // cc
-  _BYTE v12[6]; // [esp+96h] [ebp-1Eh] BYREF
+  size_t v12; // [esp-4h] [ebp-B8h]
+  _BYTE v13[6]; // [esp+96h] [ebp-1Eh] BYREF
   CPPEH_RECORD ms_exc; // [esp+9Ch] [ebp-18h]
 
-  v4 = v12;
+  v4 = v13;
   v5 = *this;
   v6 = this[1];
   do
@@ -30,7 +31,7 @@ int __thiscall RtlLargeIntegerToUnicode(unsigned int *this, int a2, _WORD *a3)
     *--v4 = RtlpIntegerWChars[v7];
   }
   while ( __PAIR64__(v6, v5) );
-  v8 = (v12 - (_BYTE *)v4) >> 1;
+  v8 = (v13 - (_BYTE *)v4) >> 1;
   i = a2;
   if ( a2 >= 0 )
   {
@@ -49,7 +50,8 @@ int __thiscall RtlLargeIntegerToUnicode(unsigned int *this, int a2, _WORD *a3)
   if ( !v10 )
     return -2147483643;
   ms_exc.registration.TryLevel = 0;
-  memcpy(a3, v4, 2 * v8);
+  LODWORD(v12) = 2 * v8;
+  memcpy(a3, v4, v12);
   if ( v8 < i )
     a3[v8] = 0;
   return 0;

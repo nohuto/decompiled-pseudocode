@@ -1,28 +1,28 @@
 /*
- * XREFs of CmpPromoteKey @ 0x1409880D8
+ * XREFs of CmpPromoteKey @ 0x1409708BC
  * Callers:
- *     CmDeleteLayeredKey @ 0x14041AAA8 (CmDeleteLayeredKey.c)
- *     CmRenameKey @ 0x1407D9068 (CmRenameKey.c)
- *     CmSetValueKey @ 0x14086B130 (CmSetValueKey.c)
- *     CmDeleteValueKey @ 0x14086D078 (CmDeleteValueKey.c)
- *     CmpDoParseKey @ 0x14086E7B0 (CmpDoParseKey.c)
- *     CmSetLastWriteTimeKey @ 0x14097A430 (CmSetLastWriteTimeKey.c)
- *     CmSetKeyFlags @ 0x14097AE70 (CmSetKeyFlags.c)
- *     CmpSetKeySecurity @ 0x14099FAEC (CmpSetKeySecurity.c)
+ *     CmDeleteLayeredKey @ 0x14040AAA8 (CmDeleteLayeredKey.c)
+ *     CmRenameKey @ 0x1407D95B8 (CmRenameKey.c)
+ *     CmpSetKeySecurity @ 0x140830A20 (CmpSetKeySecurity.c)
+ *     CmSetValueKey @ 0x14086F460 (CmSetValueKey.c)
+ *     CmDeleteValueKey @ 0x1408713A8 (CmDeleteValueKey.c)
+ *     CmpDoParseKey @ 0x140872AE0 (CmpDoParseKey.c)
+ *     CmSetLastWriteTimeKey @ 0x140962C40 (CmSetLastWriteTimeKey.c)
+ *     CmSetKeyFlags @ 0x140963680 (CmSetKeyFlags.c)
  * Callees:
- *     CmpAllocatePool @ 0x1403E1834 (CmpAllocatePool.c)
- *     CmSiFreeMemory @ 0x14046B8D0 (CmSiFreeMemory.c)
- *     CmpFullPromoteHiveRootFromKcbStack @ 0x1407E3C20 (CmpFullPromoteHiveRootFromKcbStack.c)
- *     HvUnlockHiveFlusherShared @ 0x14086A604 (HvUnlockHiveFlusherShared.c)
- *     CmpLockKcbStackTopExclusiveRestShared @ 0x14086C494 (CmpLockKcbStackTopExclusiveRestShared.c)
- *     CmpStartKcbStack @ 0x14086DDF0 (CmpStartKcbStack.c)
- *     CmpUnlockKcbStack @ 0x14086E6E0 (CmpUnlockKcbStack.c)
- *     HvLockHiveFlusherShared @ 0x14087DD28 (HvLockHiveFlusherShared.c)
- *     CmpPromoteSingleKeyFromKcbStacks @ 0x140914330 (CmpPromoteSingleKeyFromKcbStacks.c)
- *     CmpCleanupKcbStack @ 0x1409172A0 (CmpCleanupKcbStack.c)
- *     CmpGetKcbAtLayerHeight @ 0x140918910 (CmpGetKcbAtLayerHeight.c)
- *     CmpIsKeyStackDeleted @ 0x140988420 (CmpIsKeyStackDeleted.c)
- *     CmpPopulateKcbStack @ 0x1409884F0 (CmpPopulateKcbStack.c)
+ *     CmpAllocatePool @ 0x1403C9EA4 (CmpAllocatePool.c)
+ *     CmSiFreeMemory @ 0x140464550 (CmSiFreeMemory.c)
+ *     CmpFullPromoteHiveRootFromKcbStack @ 0x1407E4170 (CmpFullPromoteHiveRootFromKcbStack.c)
+ *     HvUnlockHiveFlusherShared @ 0x14086E934 (HvUnlockHiveFlusherShared.c)
+ *     CmpLockKcbStackTopExclusiveRestShared @ 0x1408707C4 (CmpLockKcbStackTopExclusiveRestShared.c)
+ *     CmpStartKcbStack @ 0x140872120 (CmpStartKcbStack.c)
+ *     CmpUnlockKcbStack @ 0x140872A10 (CmpUnlockKcbStack.c)
+ *     HvLockHiveFlusherShared @ 0x140881BD8 (HvLockHiveFlusherShared.c)
+ *     CmpPromoteSingleKeyFromKcbStacks @ 0x140907DA0 (CmpPromoteSingleKeyFromKcbStacks.c)
+ *     CmpCleanupKcbStack @ 0x14090AD10 (CmpCleanupKcbStack.c)
+ *     CmpGetKcbAtLayerHeight @ 0x14090C380 (CmpGetKcbAtLayerHeight.c)
+ *     CmpIsKeyStackDeleted @ 0x140970C00 (CmpIsKeyStackDeleted.c)
+ *     CmpPopulateKcbStack @ 0x140970CD0 (CmpPopulateKcbStack.c)
  */
 
 __int64 __fastcall CmpPromoteKey(__int64 a1, char a2, char a3)
@@ -63,7 +63,7 @@ __int64 __fastcall CmpPromoteKey(__int64 a1, char a2, char a3)
       v6 = KcbAtLayerHeight;
       v7 = 1;
       v8 = ((*(_DWORD *)(KcbAtLayerHeight + 8) >> 21) & 0x3FF) + 1;
-      Pool = CmpAllocatePool(0x100uLL);
+      Pool = CmpAllocatePool(0x100uLL, 8LL * v8, 0x37364D43u);
       Privileges = (struct _PRIVILEGE_SET *)Pool;
       if ( !Pool )
       {

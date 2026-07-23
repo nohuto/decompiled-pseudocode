@@ -1,11 +1,11 @@
 /*
- * XREFs of SePrivilegedServiceAuditAlarm @ 0x140932940
+ * XREFs of SePrivilegedServiceAuditAlarm @ 0x14090E4F0
  * Callers:
- *     PspSetQuotaLimits @ 0x1407F0F9C (PspSetQuotaLimits.c)
- *     RtlpNewSecurityObject @ 0x1408E0FD0 (RtlpNewSecurityObject.c)
+ *     PspSetQuotaLimits @ 0x1407F6AFC (PspSetQuotaLimits.c)
+ *     RtlpNewSecurityObject @ 0x1408E7590 (RtlpNewSecurityObject.c)
  * Callees:
- *     RtlEqualSid @ 0x1402604A0 (RtlEqualSid.c)
- *     SepAdtPrivilegedServiceAuditAlarm @ 0x140932AB0 (SepAdtPrivilegedServiceAuditAlarm.c)
+ *     RtlEqualSid @ 0x140406680 (RtlEqualSid.c)
+ *     SepAdtPrivilegedServiceAuditAlarm @ 0x14090E660 (SepAdtPrivilegedServiceAuditAlarm.c)
  */
 
 char __fastcall SePrivilegedServiceAuditAlarm(int a1, __int64 *a2, _DWORD *a3, char a4)
@@ -14,20 +14,20 @@ char __fastcall SePrivilegedServiceAuditAlarm(int a1, __int64 *a2, _DWORD *a3, c
   void *v9; // rdi
   _DWORD *v10; // rax
   PSE_EXPORTS v11; // rbp
-  int v12; // edi
-  _DWORD *v13; // r9
-  __int64 v14; // r11
-  struct _LIST_ENTRY *Blink; // rdx
+  int v12; // r11d
+  _DWORD *v13; // r8
+  __int64 v14; // r10
+  struct _LIST_ENTRY *Blink; // rcx
   struct _LIST_ENTRY *Flink; // rax
-  __int64 v17; // r10
-  _DWORD *v18; // r8
-  _UNKNOWN **v19; // rdx
+  __int64 v17; // r9
+  _DWORD *v18; // rdx
+  _UNKNOWN **v19; // rcx
 
   v4 = *a2;
   if ( !*a2 )
     v4 = a2[2];
   v9 = **(void ***)(v4 + 152);
-  LOBYTE(v10) = RtlEqualSid(*(PSID *)&RtlpBootStatHandleLock.WaitRegister.Flags, v9);
+  LOBYTE(v10) = RtlEqualSid(*(PSID *)((char *)&RtlpBootStatHandleLock.116 + 4), v9);
   if ( !(_BYTE)v10 )
   {
     v11 = SeExports;
@@ -50,7 +50,7 @@ char __fastcall SePrivilegedServiceAuditAlarm(int a1, __int64 *a2, _DWORD *a3, c
         {
           Blink = ExpPlatformBinaryLock.WaitBlock[1].WaitListEntry.Blink;
           Flink = ExpPlatformBinaryLock.WaitBlock[1].WaitListEntry.Blink->Flink;
-          while ( *v13 != LODWORD(Flink->Flink) || v13[1] != HIDWORD(Blink->Flink->Flink) )
+          while ( *v13 != LODWORD(Flink->Flink) || v13[1] != HIDWORD(Flink->Flink) )
           {
             Flink = Blink->Blink;
             Blink = (struct _LIST_ENTRY *)((char *)Blink + 8);
@@ -67,14 +67,14 @@ LABEL_17:
         v18 = a3 + 2;
         do
         {
-          v10 = SepServicesFilterPrivileges;
           v19 = &SepServicesFilterPrivileges;
+          v10 = SepServicesFilterPrivileges;
           while ( 1 )
           {
             if ( *v18 == *v10 )
             {
-              v10 = *v19;
-              if ( v18[1] == *((_DWORD *)*v19 + 1) )
+              LODWORD(v10) = v10[1];
+              if ( v18[1] == (_DWORD)v10 )
                 break;
             }
             v10 = v19[1];

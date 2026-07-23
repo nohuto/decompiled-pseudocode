@@ -1,5 +1,5 @@
 /*
- * XREFs of KiRaiseSecurityCheckFailureShadow @ 0x140BBBD40
+ * XREFs of KiRaiseSecurityCheckFailureShadow @ 0x140BBDD40
  * Callers:
  *     <none>
  * Callees:

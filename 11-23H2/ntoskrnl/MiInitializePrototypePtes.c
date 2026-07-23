@@ -1,16 +1,16 @@
 /*
- * XREFs of MiInitializePrototypePtes @ 0x1406B0EE4
+ * XREFs of MiInitializePrototypePtes @ 0x1406B0F14
  * Callers:
  *     MiCreatePrototypePtes @ 0x14021BA80 (MiCreatePrototypePtes.c)
- *     MiExtendSection @ 0x1407067D4 (MiExtendSection.c)
- *     MiCreatePagingFileMap @ 0x140747994 (MiCreatePagingFileMap.c)
+ *     MiExtendSection @ 0x1407069E4 (MiExtendSection.c)
+ *     MiCreatePagingFileMap @ 0x140747B84 (MiCreatePagingFileMap.c)
  * Callees:
  *     MiMakeSubsectionPte @ 0x14021BEFC (MiMakeSubsectionPte.c)
- *     MmAccessFault @ 0x140235370 (MmAccessFault.c)
- *     MiMakeDemandZeroPte @ 0x140284978 (MiMakeDemandZeroPte.c)
- *     MiEncodeProtoFill @ 0x14034EA60 (MiEncodeProtoFill.c)
- *     memset @ 0x140435A00 (memset.c)
- *     MiInitializeFaultVaListCore @ 0x14046BBA4 (MiInitializeFaultVaListCore.c)
+ *     MmAccessFault @ 0x140235440 (MmAccessFault.c)
+ *     MiMakeDemandZeroPte @ 0x140284C08 (MiMakeDemandZeroPte.c)
+ *     MiEncodeProtoFill @ 0x14034EC00 (MiEncodeProtoFill.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     MiInitializeFaultVaListCore @ 0x14046BFA4 (MiInitializeFaultVaListCore.c)
  */
 
 __int64 __fastcall MiInitializePrototypePtes(ULONG_PTR BugCheckParameter1, __int64 a2, unsigned __int16 *a3, int a4)

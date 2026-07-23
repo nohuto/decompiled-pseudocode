@@ -36,7 +36,7 @@ __int64 __fastcall ViFreeMapRegisterFile(__int64 a1, __int64 a2)
   unsigned int v13; // r9d
   ULONG_PTR v14; // r8
   __int64 v15; // rdx
-  struct _SLIST_ENTRY *v16; // rcx
+  _SLIST_ENTRY *v16; // rcx
   unsigned __int8 v17; // cl
   __int64 retaddr; // [rsp+38h] [rbp+0h]
 
@@ -96,7 +96,7 @@ __int64 __fastcall ViFreeMapRegisterFile(__int64 a1, __int64 a2)
     ++i;
   }
   IoFreeMdl(*(PMDL *)(a2 + 56));
-  v16 = *(struct _SLIST_ENTRY **)(a2 + 72);
+  v16 = *(_SLIST_ENTRY **)(a2 + 72);
   if ( v16 )
     VfPoolDelayFreeIfPossible(v16, KeGetCurrentIrql() != 2);
   *(_QWORD *)a2 = 0LL;

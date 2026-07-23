@@ -1,18 +1,18 @@
 /*
- * XREFs of MiScrubPage @ 0x1401FE864
+ * XREFs of MiScrubPage @ 0x1401FE690
  * Callers:
- *     MiScrubNodeLargePageList @ 0x1401FBCA8 (MiScrubNodeLargePageList.c)
- *     MiScrubAweMappedPage @ 0x1401FE224 (MiScrubAweMappedPage.c)
- *     MiScrubLargeMappedPage @ 0x1401FE334 (MiScrubLargeMappedPage.c)
- *     MiScrubNode @ 0x1401FE660 (MiScrubNode.c)
- *     MiScrubNonPagedPool @ 0x140659E60 (MiScrubNonPagedPool.c)
- *     MiScrubProcesses @ 0x140664E40 (MiScrubProcesses.c)
+ *     MiScrubNodeLargePageList @ 0x1401FBAD4 (MiScrubNodeLargePageList.c)
+ *     MiScrubAweMappedPage @ 0x1401FE050 (MiScrubAweMappedPage.c)
+ *     MiScrubLargeMappedPage @ 0x1401FE160 (MiScrubLargeMappedPage.c)
+ *     MiScrubNode @ 0x1401FE48C (MiScrubNode.c)
+ *     MiScrubNonPagedPool @ 0x140659F44 (MiScrubNonPagedPool.c)
+ *     MiScrubProcesses @ 0x140664F24 (MiScrubProcesses.c)
  * Callees:
- *     MiGetPteFromCopyList @ 0x140034B80 (MiGetPteFromCopyList.c)
- *     KeCopyPage @ 0x140161F20 (KeCopyPage.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
- *     RtlScrubMemory @ 0x140216774 (RtlScrubMemory.c)
+ *     MiGetPteFromCopyList @ 0x140034700 (MiGetPteFromCopyList.c)
+ *     KeCopyPage @ 0x140162490 (KeCopyPage.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
+ *     RtlScrubMemory @ 0x1402165A0 (RtlScrubMemory.c)
  */
 
 __int64 __fastcall MiScrubPage(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

@@ -1,15 +1,15 @@
 /*
- * XREFs of IoRegisterDeviceInterface @ 0x140866DC0
+ * XREFs of IoRegisterDeviceInterface @ 0x140867000
  * Callers:
- *     DifIoRegisterDeviceInterfaceWrapper @ 0x1405E0A00 (DifIoRegisterDeviceInterfaceWrapper.c)
- *     PiSwCompleteCreate @ 0x1408197E4 (PiSwCompleteCreate.c)
+ *     DifIoRegisterDeviceInterfaceWrapper @ 0x1405E0F70 (DifIoRegisterDeviceInterfaceWrapper.c)
+ *     PiSwCompleteCreate @ 0x140819AB4 (PiSwCompleteCreate.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x14022B6C0 (RtlInitUnicodeStringEx.c)
- *     wcspbrk @ 0x1403DC040 (wcspbrk.c)
- *     PnpUnicodeStringToWstrFree @ 0x1406D3F44 (PnpUnicodeStringToWstrFree.c)
- *     PnpUnicodeStringToWstr @ 0x1406D42B4 (PnpUnicodeStringToWstr.c)
- *     ObQueryNameStringMode @ 0x14075B7F4 (ObQueryNameStringMode.c)
- *     IopRegisterDeviceInterface @ 0x1408667FC (IopRegisterDeviceInterface.c)
+ *     RtlInitUnicodeStringEx @ 0x14022B7D0 (RtlInitUnicodeStringEx.c)
+ *     wcspbrk @ 0x1403DC220 (wcspbrk.c)
+ *     PnpUnicodeStringToWstrFree @ 0x1406D3F74 (PnpUnicodeStringToWstrFree.c)
+ *     PnpUnicodeStringToWstr @ 0x1406D42E4 (PnpUnicodeStringToWstr.c)
+ *     ObQueryNameStringMode @ 0x14075B9E4 (ObQueryNameStringMode.c)
+ *     IopRegisterDeviceInterface @ 0x140866A3C (IopRegisterDeviceInterface.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

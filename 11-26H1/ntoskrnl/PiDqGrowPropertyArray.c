@@ -1,13 +1,13 @@
 /*
- * XREFs of PiDqGrowPropertyArray @ 0x140AB49F4
+ * XREFs of PiDqGrowPropertyArray @ 0x140AB5D94
  * Callers:
- *     PiDqActionDataGetAllPropertiesInBestLanguage @ 0x140991870 (PiDqActionDataGetAllPropertiesInBestLanguage.c)
- *     PiDqActionDataGetAllPropertiesInAllLanguages @ 0x140AB34B0 (PiDqActionDataGetAllPropertiesInAllLanguages.c)
- *     PiDqActionDataGetChangedProperties @ 0x140AB458C (PiDqActionDataGetChangedProperties.c)
+ *     PiDqActionDataGetAllPropertiesInBestLanguage @ 0x1409522D0 (PiDqActionDataGetAllPropertiesInBestLanguage.c)
+ *     PiDqActionDataGetAllPropertiesInAllLanguages @ 0x140AB4850 (PiDqActionDataGetAllPropertiesInAllLanguages.c)
+ *     PiDqActionDataGetChangedProperties @ 0x140AB592C (PiDqActionDataGetChangedProperties.c)
  * Callees:
- *     memmove @ 0x14073D480 (memmove.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiDqGrowPropertyArray(const void **a1, unsigned int a2)

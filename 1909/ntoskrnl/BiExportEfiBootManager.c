@@ -21,13 +21,13 @@
  *     BiTranslateObjectIdentifier @ 0x140931FC4 (BiTranslateObjectIdentifier.c)
  */
 
-__int64 __fastcall BiExportEfiBootManager(__int64 a1, __int64 a2)
+__int64 __fastcall BiExportEfiBootManager(void *a1, __int64 a2)
 {
   void *v3; // r13
   ULONG v4; // edi
   ULONG *v5; // r14
   void *v6; // rsi
-  int v7; // eax
+  NTSTATUS v7; // eax
   int v8; // ebx
   void *v9; // r15
   int Element; // eax
@@ -40,7 +40,7 @@ __int64 __fastcall BiExportEfiBootManager(__int64 a1, __int64 a2)
   int v18; // eax
   ULONG v19; // [rsp+20h] [rbp-39h] BYREF
   _DWORD Count[3]; // [rsp+24h] [rbp-35h] BYREF
-  __int64 v21; // [rsp+30h] [rbp-29h] BYREF
+  HANDLE BcdObjectHandle; // [rsp+30h] [rbp-29h] BYREF
   void *Buf1; // [rsp+38h] [rbp-21h] BYREF
   PVOID P; // [rsp+40h] [rbp-19h] BYREF
   ULONG *v24; // [rsp+48h] [rbp-11h] BYREF
@@ -57,12 +57,12 @@ __int64 __fastcall BiExportEfiBootManager(__int64 a1, __int64 a2)
   v4 = 0;
   P = 0LL;
   v5 = 0LL;
-  v21 = 0LL;
+  BcdObjectHandle = 0LL;
   v6 = 0LL;
   v24 = 0LL;
   *(_QWORD *)&Count[1] = 0LL;
   v27 = 0LL;
-  v7 = BcdOpenObject(a1, &GUID_FIRMWARE_BOOTMGR.Data1, &v21);
+  v7 = BcdOpenObject(a1, &GUID_FIRMWARE_BOOTMGR, &BcdObjectHandle);
   v8 = v7;
   if ( v7 < 0 )
   {
@@ -71,7 +71,7 @@ __int64 __fastcall BiExportEfiBootManager(__int64 a1, __int64 a2)
       v8 = 0;
     goto LABEL_10;
   }
-  Element = BiGetElement(v21, 0x24000001u, &P, Count);
+  Element = BiGetElement(BcdObjectHandle, 0x24000001u, &P, Count);
   v8 = Element;
   if ( Element < 0 )
   {
@@ -80,7 +80,7 @@ __int64 __fastcall BiExportEfiBootManager(__int64 a1, __int64 a2)
     Count[0] = 0;
 LABEL_24:
     v13 = BiQueryBootEntryOrder(&Count[1], &v19);
-    v8 = BiHandleFirmwareDefaultEntry(v26, v21, &Buf1, Count);
+    v8 = BiHandleFirmwareDefaultEntry(v26, BcdObjectHandle, &Buf1, Count);
     if ( v8 < 0 )
     {
       v9 = *(void **)&Count[1];
@@ -95,7 +95,7 @@ LABEL_24:
 LABEL_32:
         BootOptions.Length = 24;
         BootOptions.Version = 1;
-        v15 = BiGetElement(v21, 0x25000004u, &v24, &v19);
+        v15 = BiGetElement(BcdObjectHandle, 0x25000004u, &v24, &v19);
         v5 = v24;
         v8 = v15;
         if ( v15 < 0 )
@@ -115,7 +115,7 @@ LABEL_32:
             v16 = *v24;
           BootOptions.Timeout = v16;
         }
-        v17 = BiGetElement(v21, 0x24000002u, &v25, &v19);
+        v17 = BiGetElement(BcdObjectHandle, 0x24000002u, &v25, &v19);
         v3 = v25;
         v8 = v17;
         if ( v17 < 0 )
@@ -184,8 +184,8 @@ LABEL_8:
   if ( P )
     ExFreePoolWithTag(P, 0x4B444342u);
 LABEL_10:
-  if ( v21 )
-    BcdCloseObject(v21);
+  if ( BcdObjectHandle )
+    BcdCloseObject(BcdObjectHandle);
   if ( v5 )
     ExFreePoolWithTag(v5, 0x4B444342u);
   if ( v9 )

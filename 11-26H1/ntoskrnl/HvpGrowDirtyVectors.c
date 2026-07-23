@@ -1,19 +1,19 @@
 /*
- * XREFs of HvpGrowDirtyVectors @ 0x140492E10
+ * XREFs of HvpGrowDirtyVectors @ 0x14048CC48
  * Callers:
- *     HvpPerformLogFileRecovery @ 0x140AEB2A8 (HvpPerformLogFileRecovery.c)
- *     HvpAddBin @ 0x140B7EAA0 (HvpAddBin.c)
+ *     HvpPerformLogFileRecovery @ 0x140AEE1B4 (HvpPerformLogFileRecovery.c)
+ *     HvpAddBin @ 0x140B87980 (HvpAddBin.c)
  * Callees:
- *     RtlClearBits @ 0x1403591A0 (RtlClearBits.c)
- *     RtlCopyBitMap @ 0x140492FF0 (RtlCopyBitMap.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     RtlClearBits @ 0x14035AF40 (RtlClearBits.c)
+ *     RtlCopyBitMap @ 0x14048CE30 (RtlCopyBitMap.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall HvpGrowDirtyVectors(__int64 a1, unsigned int a2)
 {
   unsigned int v2; // esi
-  RTL_BITMAP *v4; // rcx
+  _RTL_BITMAP *v4; // rcx
   unsigned int v5; // r14d
   ULONG SizeOfBitMap; // r12d
   unsigned int v7; // ebx
@@ -25,14 +25,14 @@ __int64 __fastcall HvpGrowDirtyVectors(__int64 a1, unsigned int a2)
   __int64 v13; // rcx
   unsigned int *v15; // rax
   __int64 v16; // rax
-  RTL_BITMAP BitMapHeader; // [rsp+20h] [rbp-20h] BYREF
-  RTL_BITMAP v18; // [rsp+30h] [rbp-10h] BYREF
+  _RTL_BITMAP Destination; // [rsp+20h] [rbp-20h] BYREF
+  _RTL_BITMAP BitMapHeader; // [rsp+30h] [rbp-10h] BYREF
   unsigned int *v19; // [rsp+70h] [rbp+30h]
 
   v2 = 0;
-  v4 = (RTL_BITMAP *)(a1 + 88);
+  v4 = (_RTL_BITMAP *)(a1 + 88);
+  *(&Destination.SizeOfBitMap + 1) = 0;
   *(&BitMapHeader.SizeOfBitMap + 1) = 0;
-  *(&v18.SizeOfBitMap + 1) = 0;
   v5 = a2 >> 9;
   SizeOfBitMap = v4->SizeOfBitMap;
   v7 = ((a2 >> 12) + 3) & 0xFFFFFFFC;
@@ -56,15 +56,15 @@ __int64 __fastcall HvpGrowDirtyVectors(__int64 a1, unsigned int a2)
       v19 = v9;
       if ( v9 )
       {
-        v18.Buffer = v9;
+        BitMapHeader.Buffer = v9;
         v10 = v5 - SizeOfBitMap;
+        Destination.SizeOfBitMap = v5;
+        Destination.Buffer = v8;
         BitMapHeader.SizeOfBitMap = v5;
-        BitMapHeader.Buffer = v8;
-        v18.SizeOfBitMap = v5;
         if ( *(_QWORD *)(a1 + 96) )
         {
-          RtlCopyBitMap(a1 + 88, &BitMapHeader, 0LL);
-          RtlClearBits(&BitMapHeader, SizeOfBitMap, v10);
+          RtlCopyBitMap((PRTL_BITMAP)(a1 + 88), &Destination, 0);
+          RtlClearBits(&Destination, SizeOfBitMap, v10);
         }
         else
         {
@@ -72,8 +72,8 @@ __int64 __fastcall HvpGrowDirtyVectors(__int64 a1, unsigned int a2)
         }
         if ( *(_QWORD *)(a1 + 120) )
         {
-          RtlCopyBitMap(a1 + 112, &v18, 0LL);
-          RtlClearBits(&v18, SizeOfBitMap, v10);
+          RtlCopyBitMap((PRTL_BITMAP)(a1 + 112), &BitMapHeader, 0);
+          RtlClearBits(&BitMapHeader, SizeOfBitMap, v10);
           v11 = v19;
         }
         else

@@ -1,20 +1,20 @@
 /*
- * XREFs of IopCrashDumpPolicyChangeWnfCallback @ 0x140943AA0
+ * XREFs of IopCrashDumpPolicyChangeWnfCallback @ 0x140943CA0
  * Callers:
  *     <none>
  * Callees:
  *     _tlgKeywordOn @ 0x140212E64 (_tlgKeywordOn.c)
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     EtwWrite @ 0x1402578A0 (EtwWrite.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     CmIsStateSeparationEnabled @ 0x140367778 (CmIsStateSeparationEnabled.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ZwCreateKey @ 0x14041B100 (ZwCreateKey.c)
- *     ZwSetValueKey @ 0x14041B960 (ZwSetValueKey.c)
- *     IoConfigureCrashDump @ 0x14054F964 (IoConfigureCrashDump.c)
- *     IopDumpIsTracingEnabled @ 0x140552848 (IopDumpIsTracingEnabled.c)
- *     IopInitializeDumpPolicySettings @ 0x140861344 (IopInitializeDumpPolicySettings.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     EtwWrite @ 0x140257960 (EtwWrite.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6DB4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     CmIsStateSeparationEnabled @ 0x140367918 (CmIsStateSeparationEnabled.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ZwCreateKey @ 0x14041B490 (ZwCreateKey.c)
+ *     ZwSetValueKey @ 0x14041BCF0 (ZwSetValueKey.c)
+ *     IoConfigureCrashDump @ 0x140550024 (IoConfigureCrashDump.c)
+ *     IopDumpIsTracingEnabled @ 0x140552F08 (IopDumpIsTracingEnabled.c)
+ *     IopInitializeDumpPolicySettings @ 0x140861584 (IopInitializeDumpPolicySettings.c)
  */
 
 __int64 __fastcall IopCrashDumpPolicyChangeWnfCallback(__int64 a1, _QWORD *a2)
@@ -74,7 +74,7 @@ __int64 __fastcall IopCrashDumpPolicyChangeWnfCallback(__int64 a1, _QWORD *a2)
       v14 = 4LL;
       EtwWrite(IopDumpEtwRegHandle, &DUMP_EVENT_CRASHDUMP_POLICY_VALUE_CHANGED, 0LL, 2u, &UserData);
     }
-    if ( (unsigned int)dword_140C062E8 > 5 && tlgKeywordOn((__int64)&dword_140C062E8, 0x400000000000LL) )
+    if ( (unsigned int)dword_140C062A8 > 5 && tlgKeywordOn((__int64)&dword_140C062A8, 0x400000000000LL) )
     {
       UserData.Ptr = 0x1000000LL;
       p_UserData = &UserData;
@@ -86,8 +86,8 @@ __int64 __fastcall IopCrashDumpPolicyChangeWnfCallback(__int64 a1, _QWORD *a2)
       v19 = 4LL;
       v21 = 1LL;
       tlgWriteTransfer_EtwWriteTransfer(
-        (__int64)&dword_140C062E8,
-        (unsigned __int8 *)&byte_14002B817,
+        (__int64)&dword_140C062A8,
+        (unsigned __int8 *)&byte_14002B8FF,
         0LL,
         0LL,
         5u,
@@ -105,12 +105,12 @@ __int64 __fastcall IopCrashDumpPolicyChangeWnfCallback(__int64 a1, _QWORD *a2)
       *(_QWORD *)&UserData.Size = 31LL;
       EtwWrite(IopDumpEtwRegHandle, &DUMP_EVENT_CRASHDUMP_POLICY_OPERATION_FAILURE, 0LL, 1u, &UserData);
     }
-    if ( (unsigned int)dword_140C062E8 > 5 && tlgKeywordOn((__int64)&dword_140C062E8, 0x400000000000LL) )
+    if ( (unsigned int)dword_140C062A8 > 5 && tlgKeywordOn((__int64)&dword_140C062A8, 0x400000000000LL) )
     {
       UserData.Ptr = 0x1000000LL;
       p_UserData = &UserData;
       v17 = 8LL;
-      tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C062E8, (unsigned __int8 *)word_14002B7DA, 0LL, 0LL, 3u, v15);
+      tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C062A8, (unsigned __int8 *)word_14002B8C2, 0LL, 0LL, 3u, v15);
     }
     return 3221225485LL;
   }

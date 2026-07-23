@@ -1,7 +1,7 @@
 /*
- * XREFs of HvlpSwitchToVsmVtl1RetpolineHelper @ 0x1403FA330
+ * XREFs of HvlpSwitchToVsmVtl1RetpolineHelper @ 0x1403FA510
  * Callers:
- *     HvlSwitchToVsmVtl1 @ 0x1403FA1E0 (HvlSwitchToVsmVtl1.c)
+ *     HvlSwitchToVsmVtl1 @ 0x1403FA3C0 (HvlSwitchToVsmVtl1.c)
  * Callees:
  *     <none>
  */

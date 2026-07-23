@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpHeapGenerateRandomValue64 @ 0x1402138F0
+ * XREFs of RtlpHeapGenerateRandomValue64 @ 0x14021371C
  * Callers:
- *     RtlCreateHeap @ 0x140540228 (RtlCreateHeap.c)
+ *     RtlCreateHeap @ 0x140540768 (RtlCreateHeap.c)
  * Callees:
- *     ExGenRandom @ 0x1400F0494 (ExGenRandom.c)
+ *     ExGenRandom @ 0x1400EE314 (ExGenRandom.c)
  */
 
 unsigned __int64 RtlpHeapGenerateRandomValue64()

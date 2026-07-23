@@ -1,12 +1,12 @@
 /*
- * XREFs of MiSelectSessionAttachProcess @ 0x14020657C
+ * XREFs of MiSelectSessionAttachProcess @ 0x1402AAEAC
  * Callers:
- *     MmGetSessionById @ 0x140206410 (MmGetSessionById.c)
- *     MiReferenceOwningSession @ 0x14029947C (MiReferenceOwningSession.c)
- *     MiGetNextSession @ 0x1402D5FA8 (MiGetNextSession.c)
- *     MiLockAndSelectSessionAttachProcess @ 0x140538FD0 (MiLockAndSelectSessionAttachProcess.c)
+ *     MiReferenceOwningSession @ 0x140215E5C (MiReferenceOwningSession.c)
+ *     MiGetNextSession @ 0x1402872F8 (MiGetNextSession.c)
+ *     MmGetSessionById @ 0x1402AAD40 (MmGetSessionById.c)
+ *     MiLockAndSelectSessionAttachProcess @ 0x140539210 (MiLockAndSelectSessionAttachProcess.c)
  * Callees:
- *     ObReferenceObjectSafeWithTag @ 0x140348AA0 (ObReferenceObjectSafeWithTag.c)
+ *     ObReferenceObjectSafeWithTag @ 0x1403537F0 (ObReferenceObjectSafeWithTag.c)
  */
 
 _QWORD *__fastcall MiSelectSessionAttachProcess(__int64 a1)

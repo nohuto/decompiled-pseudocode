@@ -1,9 +1,9 @@
 /*
  * XREFs of SeImpersonateClientEx @ 0x1406BFE80
  * Callers:
- *     NtImpersonateThread @ 0x1406BFD10 (NtImpersonateThread.c)
- *     EtwpDelayCreate @ 0x1406F0C9C (EtwpDelayCreate.c)
- *     NtAlpcImpersonateClientOfPort @ 0x1407B0A20 (NtAlpcImpersonateClientOfPort.c)
+ *     sub_1406BFD10 @ 0x1406BFD10 (sub_1406BFD10.c)
+ *     sub_1406F0C9C @ 0x1406F0C9C (sub_1406F0C9C.c)
+ *     sub_1407B0A20 @ 0x1407B0A20 (sub_1407B0A20.c)
  *     SeImpersonateClient @ 0x1409CC010 (SeImpersonateClient.c)
  * Callees:
  *     PsImpersonateClient @ 0x1407AF1B0 (PsImpersonateClient.c)

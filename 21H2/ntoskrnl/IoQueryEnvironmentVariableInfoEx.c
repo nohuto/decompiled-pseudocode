@@ -1,14 +1,14 @@
 /*
- * XREFs of IoQueryEnvironmentVariableInfoEx @ 0x140899BD4
+ * XREFs of IoQueryEnvironmentVariableInfoEx @ 0x140899D34
  * Callers:
- *     NtQueryEnvironmentVariableInfoEx @ 0x140954940 (NtQueryEnvironmentVariableInfoEx.c)
+ *     NtQueryEnvironmentVariableInfoEx @ 0x140954B10 (NtQueryEnvironmentVariableInfoEx.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     IopOpenSystemVariableDevice @ 0x14089AA6C (IopOpenSystemVariableDevice.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14027E1A4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x1402864F4 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     IopOpenSystemVariableDevice @ 0x14089ABCC (IopOpenSystemVariableDevice.c)
  */
 
 __int64 __fastcall IoQueryEnvironmentVariableInfoEx(unsigned int a1, PDEVICE_OBJECT *a2, __int64 *a3, __int64 *a4)
@@ -74,13 +74,7 @@ __int64 __fastcall IoQueryEnvironmentVariableInfoEx(unsigned int a1, PDEVICE_OBJ
     v29 = 4;
     LODWORD(v11) = a1;
     LODWORD(DmaAdapter) = v8;
-    tlgWriteTransfer_EtwWriteTransfer(
-      (__int64)&dword_140C04510,
-      (unsigned __int8 *)&dword_140024F0C,
-      0LL,
-      0LL,
-      7u,
-      &v15);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C04510, (unsigned __int8 *)byte_140024F6D, 0LL, 0LL, 7u, &v15);
   }
   return (unsigned int)v8;
 }

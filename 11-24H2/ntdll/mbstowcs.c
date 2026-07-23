@@ -1,11 +1,11 @@
 /*
- * XREFs of mbstowcs @ 0x180124E90
+ * XREFs of mbstowcs @ 0x1801230C0
  * Callers:
  *     <none>
  * Callees:
- *     RtlMultiByteToUnicodeN @ 0x18000C0D0 (RtlMultiByteToUnicodeN.c)
- *     _errno @ 0x18010D560 (_errno.c)
- *     _mbstrlen @ 0x18012B478 (_mbstrlen.c)
+ *     RtlMultiByteToUnicodeN @ 0x180038AD0 (RtlMultiByteToUnicodeN.c)
+ *     _errno @ 0x180108440 (_errno.c)
+ *     _mbstrlen @ 0x1801296A8 (_mbstrlen.c)
  */
 
 size_t __cdecl mbstowcs(wchar_t *Dest, const char *Source, size_t MaxCount)
@@ -14,7 +14,7 @@ size_t __cdecl mbstowcs(wchar_t *Dest, const char *Source, size_t MaxCount)
   int *v7; // rax
   unsigned __int64 v8; // rdx
   size_t v9; // rdx
-  int v10; // [rsp+40h] [rbp+8h] BYREF
+  ULONG BytesInUnicodeString; // [rsp+40h] [rbp+8h] BYREF
 
   v3 = MaxCount;
   if ( Dest && !MaxCount )
@@ -23,11 +23,11 @@ size_t __cdecl mbstowcs(wchar_t *Dest, const char *Source, size_t MaxCount)
     return -1LL;
   if ( Dest )
   {
-    v10 = mbstrlen(Source);
-    if ( (int)RtlMultiByteToUnicodeN(Dest, 2 * v3, (unsigned int *)&v10, (unsigned __int8 *)Source, v10 + 1) >= 0 )
+    BytesInUnicodeString = mbstrlen(Source);
+    if ( RtlMultiByteToUnicodeN(Dest, 2 * v3, &BytesInUnicodeString, Source, BytesInUnicodeString + 1) >= 0 )
     {
-      v8 = (unsigned __int64)v10 >> 1;
-      v10 = v8;
+      v8 = (unsigned __int64)(int)BytesInUnicodeString >> 1;
+      BytesInUnicodeString = v8;
       if ( !Dest[(int)v8 - 1] )
         LODWORD(v8) = v8 - 1;
     }

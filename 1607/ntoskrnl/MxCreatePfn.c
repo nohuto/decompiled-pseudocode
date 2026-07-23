@@ -3,10 +3,10 @@
  * Callers:
  *     MxCreatePfns @ 0x140797A68 (MxCreatePfns.c)
  * Callees:
- *     MiPageToChannel @ 0x14001BA40 (MiPageToChannel.c)
- *     MiPageToNode @ 0x14001BA54 (MiPageToNode.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     MiMakeDemandZeroPte @ 0x1401F2734 (MiMakeDemandZeroPte.c)
+ *     MiPageToChannel @ 0x14001B5C0 (MiPageToChannel.c)
+ *     MiPageToNode @ 0x14001B5D4 (MiPageToNode.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     MiMakeDemandZeroPte @ 0x1401F2560 (MiMakeDemandZeroPte.c)
  */
 
 __int64 __fastcall MxCreatePfn(unsigned __int64 a1, __int64 a2, __int64 a3, int a4)

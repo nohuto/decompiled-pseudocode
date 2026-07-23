@@ -1,11 +1,11 @@
 /*
- * XREFs of BgQueryBootGraphicsInformation @ 0x140384CD8
+ * XREFs of BgQueryBootGraphicsInformation @ 0x140384EB8
  * Callers:
  *     BgkQueryBootGraphicsInformation @ 0x140AECF90 (BgkQueryBootGraphicsInformation.c)
  * Callees:
- *     BgpFwQueryBootGraphicsInformation @ 0x140384D44 (BgpFwQueryBootGraphicsInformation.c)
- *     BgpFwReleaseLock @ 0x140385660 (BgpFwReleaseLock.c)
- *     BgpFwAcquireLock @ 0x1403856B0 (BgpFwAcquireLock.c)
+ *     BgpFwQueryBootGraphicsInformation @ 0x140384F24 (BgpFwQueryBootGraphicsInformation.c)
+ *     BgpFwReleaseLock @ 0x140385840 (BgpFwReleaseLock.c)
+ *     BgpFwAcquireLock @ 0x140385890 (BgpFwAcquireLock.c)
  */
 
 __int64 __fastcall BgQueryBootGraphicsInformation(int a1, __int64 a2)

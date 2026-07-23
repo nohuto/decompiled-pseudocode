@@ -1,9 +1,9 @@
 /*
- * XREFs of HvlQueryConnection @ 0x140086D9C
+ * XREFs of HvlQueryConnection @ 0x14008868C
  * Callers:
- *     RtlpLookupFunctionEntryForStackWalks @ 0x140051360 (RtlpLookupFunctionEntryForStackWalks.c)
- *     EtwpSysModuleRunDown @ 0x140498DD4 (EtwpSysModuleRunDown.c)
- *     HvlPhase0Initialize @ 0x14057D5D4 (HvlPhase0Initialize.c)
+ *     RtlpLookupFunctionEntryForStackWalks @ 0x140050EE0 (RtlpLookupFunctionEntryForStackWalks.c)
+ *     EtwpSysModuleRunDown @ 0x140499864 (EtwpSysModuleRunDown.c)
+ *     HvlPhase0Initialize @ 0x14057DA80 (HvlPhase0Initialize.c)
  * Callees:
  *     <none>
  */

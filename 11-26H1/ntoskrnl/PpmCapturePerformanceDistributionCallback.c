@@ -1,9 +1,9 @@
 /*
- * XREFs of PpmCapturePerformanceDistributionCallback @ 0x140428DC0
+ * XREFs of PpmCapturePerformanceDistributionCallback @ 0x1404B0470
  * Callers:
- *     PpmCapturePerformanceDistribution @ 0x140428B10 (PpmCapturePerformanceDistribution.c)
+ *     PpmCapturePerformanceDistribution @ 0x1404B01CC (PpmCapturePerformanceDistribution.c)
  * Callees:
- *     PpmSnapPerformanceAccumulation @ 0x140253D2C (PpmSnapPerformanceAccumulation.c)
+ *     PpmSnapPerformanceAccumulation @ 0x14025568C (PpmSnapPerformanceAccumulation.c)
  */
 
 __int64 __fastcall PpmCapturePerformanceDistributionCallback(LARGE_INTEGER *a1, __int64 a2)

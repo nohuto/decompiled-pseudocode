@@ -1,20 +1,20 @@
 /*
- * XREFs of SmcProcessCreateRequest @ 0x14092A7E0
+ * XREFs of SmcProcessCreateRequest @ 0x14092A940
  * Callers:
- *     SmSetStoreInformation @ 0x1406BE524 (SmSetStoreInformation.c)
+ *     SmSetStoreInformation @ 0x14061D784 (SmSetStoreInformation.c)
  * Callees:
- *     CmSiFreeMemory @ 0x140201A30 (CmSiFreeMemory.c)
- *     ExReleaseRundownProtection_0 @ 0x14027C4F0 (ExReleaseRundownProtection_0.c)
- *     SSHSupportAllocateNonPaged @ 0x1402C9AC4 (SSHSupportAllocateNonPaged.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
- *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
- *     SmcCacheCreatePrepare @ 0x14092A714 (SmcCacheCreatePrepare.c)
- *     SmcCacheAdd @ 0x14092D2D4 (SmcCacheAdd.c)
- *     SmcCacheCleanup @ 0x14092D3E8 (SmcCacheCleanup.c)
- *     SmcCacheDelete @ 0x14092D46C (SmcCacheDelete.c)
- *     SmcCacheInitialize @ 0x14092D4C4 (SmcCacheInitialize.c)
- *     SmcCacheStart @ 0x14092D830 (SmcCacheStart.c)
+ *     CmSiFreeMemory @ 0x1402253C0 (CmSiFreeMemory.c)
+ *     SSHSupportAllocateNonPaged @ 0x1402483BC (SSHSupportAllocateNonPaged.c)
+ *     ExReleaseRundownProtection @ 0x14026A490 (ExReleaseRundownProtection.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BFB0 (ExRaiseDatatypeMisalignment.c)
+ *     SmcCacheCreatePrepare @ 0x14092A874 (SmcCacheCreatePrepare.c)
+ *     SmcCacheAdd @ 0x14092D434 (SmcCacheAdd.c)
+ *     SmcCacheCleanup @ 0x14092D548 (SmcCacheCleanup.c)
+ *     SmcCacheDelete @ 0x14092D5CC (SmcCacheDelete.c)
+ *     SmcCacheInitialize @ 0x14092D624 (SmcCacheInitialize.c)
+ *     SmcCacheStart @ 0x14092D990 (SmcCacheStart.c)
  */
 
 __int64 __fastcall SmcProcessCreateRequest(__int64 a1, unsigned __int64 a2, int a3, char a4)
@@ -106,7 +106,7 @@ __int64 __fastcall SmcProcessCreateRequest(__int64 a1, unsigned __int64 a2, int 
     Prepare = -1073741306;
   }
   if ( v16[0] != -1 )
-    ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)(a1 + 32LL * (v16[0] & 0xF) + 8));
+    ExReleaseRundownProtection((PEX_RUNDOWN_REF)(a1 + 32LL * (v16[0] & 0xF) + 8));
   if ( v8 )
   {
     SmcCacheCleanup(v8);

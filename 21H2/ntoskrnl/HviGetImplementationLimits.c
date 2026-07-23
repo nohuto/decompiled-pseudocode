@@ -1,12 +1,12 @@
 /*
- * XREFs of HviGetImplementationLimits @ 0x1405BF090
+ * XREFs of HviGetImplementationLimits @ 0x1405BF2C0
  * Callers:
- *     HvlpSelectLpSet @ 0x1404F3514 (HvlpSelectLpSet.c)
- *     HvlpSelectVpSet @ 0x1404F397C (HvlpSelectVpSet.c)
- *     HvlQueryDetailInfo @ 0x14088E328 (HvlQueryDetailInfo.c)
- *     KiPerformGroupConfiguration @ 0x140A4DDCC (KiPerformGroupConfiguration.c)
+ *     HvlpSelectLpSet @ 0x1404F3494 (HvlpSelectLpSet.c)
+ *     HvlpSelectVpSet @ 0x1404F38FC (HvlpSelectVpSet.c)
+ *     HvlQueryDetailInfo @ 0x14088E488 (HvlQueryDetailInfo.c)
+ *     KiPerformGroupConfiguration @ 0x140A4EDCC (KiPerformGroupConfiguration.c)
  * Callees:
- *     HviIsHypervisorMicrosoftCompatible @ 0x1403AE240 (HviIsHypervisorMicrosoftCompatible.c)
+ *     HviIsHypervisorMicrosoftCompatible @ 0x1403AE390 (HviIsHypervisorMicrosoftCompatible.c)
  */
 
 char __fastcall HviGetImplementationLimits(_DWORD *a1)

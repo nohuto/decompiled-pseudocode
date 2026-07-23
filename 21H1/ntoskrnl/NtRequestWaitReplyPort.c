@@ -10,12 +10,12 @@
  *     ObReferenceObjectByHandle @ 0x14062B200 (ObReferenceObjectByHandle.c)
  */
 
-__int64 __fastcall NtRequestWaitReplyPort(void *a1, __int64 a2, unsigned __int64 a3)
+NTSTATUS __cdecl NtRequestWaitReplyPort(HANDLE PortHandle, PPORT_MESSAGE RequestMessage, PPORT_MESSAGE ReplyMessage)
 {
   struct _KTHREAD *CurrentThread; // rax
   char PreviousMode; // si
   __int64 v7; // rdx
-  int v8; // ebx
+  NTSTATUS v8; // ebx
   __int64 v9; // r8
   __int64 v10; // r9
   PADAPTER_OBJECT DmaAdapter; // [rsp+78h] [rbp+20h] BYREF
@@ -24,12 +24,21 @@ __int64 __fastcall NtRequestWaitReplyPort(void *a1, __int64 a2, unsigned __int64
   --CurrentThread->KernelApcDisable;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   DmaAdapter = 0LL;
-  v8 = ObReferenceObjectByHandle(a1, 1u, AlpcPortObjectType, PreviousMode, (PVOID *)&DmaAdapter, 0LL);
+  v8 = ObReferenceObjectByHandle(PortHandle, 1u, AlpcPortObjectType, PreviousMode, (PVOID *)&DmaAdapter, 0LL);
   if ( v8 >= 0 )
   {
     if ( PreviousMode )
-      AlpcpProbeForWriteMessageHeader(a3, 0);
-    v8 = AlpcpProcessSynchronousRequest((__int64)DmaAdapter, 0x20000u, a2, 0LL, a3, 0LL, 0LL, 0LL, PreviousMode);
+      AlpcpProbeForWriteMessageHeader((unsigned __int64)ReplyMessage, 0);
+    v8 = AlpcpProcessSynchronousRequest(
+           (__int64)DmaAdapter,
+           0x20000u,
+           (__int64)RequestMessage,
+           0LL,
+           (unsigned __int64)ReplyMessage,
+           0LL,
+           0LL,
+           0LL,
+           PreviousMode);
     if ( v8 == -1073740029 )
       v8 = -1073741769;
     if ( v8 == -1073740031 )
@@ -38,5 +47,5 @@ __int64 __fastcall NtRequestWaitReplyPort(void *a1, __int64 a2, unsigned __int64
   if ( DmaAdapter )
     HalPutDmaAdapter(DmaAdapter);
   KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v7, v9, v10);
-  return (unsigned int)v8;
+  return v8;
 }

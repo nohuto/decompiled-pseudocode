@@ -1,7 +1,7 @@
 /*
- * XREFs of CmpIsKcbInsideVirtualStore @ 0x14027EF74
+ * XREFs of CmpIsKcbInsideVirtualStore @ 0x14026CF14
  * Callers:
- *     CmpCreateChild @ 0x140667AD4 (CmpCreateChild.c)
+ *     CmpCreateChild @ 0x14065C8F4 (CmpCreateChild.c)
  * Callees:
  *     <none>
  */

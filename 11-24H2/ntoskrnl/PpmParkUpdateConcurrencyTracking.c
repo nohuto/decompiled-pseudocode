@@ -1,13 +1,13 @@
 /*
- * XREFs of PpmParkUpdateConcurrencyTracking @ 0x140A72528
+ * XREFs of PpmParkUpdateConcurrencyTracking @ 0x140A6B908
  * Callers:
- *     PpmCheckReInit @ 0x140A72240 (PpmCheckReInit.c)
+ *     PpmCheckReInit @ 0x140A6B620 (PpmCheckReInit.c)
  * Callees:
- *     KeAddGroupAffinityEx @ 0x140257100 (KeAddGroupAffinityEx.c)
- *     PopExecuteOnTargetProcessors @ 0x1403529A4 (PopExecuteOnTargetProcessors.c)
- *     Feature_PpmParkEx__private_IsEnabledDeviceUsageNoInline @ 0x1405B4FB0 (Feature_PpmParkEx__private_IsEnabledDeviceUsageNoInline.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     KeAddGroupAffinityEx @ 0x140287710 (KeAddGroupAffinityEx.c)
+ *     PopExecuteOnTargetProcessors @ 0x140370234 (PopExecuteOnTargetProcessors.c)
+ *     Feature_PpmParkEx__private_IsEnabledDeviceUsageNoInline @ 0x1405B2224 (Feature_PpmParkEx__private_IsEnabledDeviceUsageNoInline.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 unsigned __int64 __fastcall PpmParkUpdateConcurrencyTracking(char a1)
@@ -29,7 +29,7 @@ unsigned __int64 __fastcall PpmParkUpdateConcurrencyTracking(char a1)
   result = (unsigned __int64)memset_0(&v12, 0, 0x108uLL);
   for ( i = 0; i < (unsigned int)PpmParkNumNodes; result = i )
   {
-    v4 = PpmParkNodes + 1288LL * i;
+    v4 = PpmParkNodes + 1296LL * i;
     v5 = *(_BYTE *)(v4 + 1184);
     v6 = v5 & 8;
     if ( v1 )
@@ -42,7 +42,7 @@ unsigned __int64 __fastcall PpmParkUpdateConcurrencyTracking(char a1)
         {
           do
           {
-            v9 = *(_QWORD *)(v4 + 1280) + 640LL * v8;
+            v9 = *(_QWORD *)(v4 + 1288) + 640LL * v8;
             if ( *(_WORD *)v9 )
             {
               if ( (unsigned int)Feature_PpmParkEx__private_IsEnabledDeviceUsageNoInline() )

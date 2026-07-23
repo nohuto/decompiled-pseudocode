@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlpSparseBitmapCtxFindRunsFromNullRange @ 0x180100D6C
+ * XREFs of RtlpSparseBitmapCtxFindRunsFromNullRange @ 0x180100CAC
  * Callers:
- *     RtlpSparseBitmapCtxAppendNextRangeToRun @ 0x180100BF4 (RtlpSparseBitmapCtxAppendNextRangeToRun.c)
- *     RtlpSparseBitmapCtxFindRunsInternal @ 0x18010123C (RtlpSparseBitmapCtxFindRunsInternal.c)
+ *     RtlpSparseBitmapCtxAppendNextRangeToRun @ 0x180100B34 (RtlpSparseBitmapCtxAppendNextRangeToRun.c)
+ *     RtlpSparseBitmapCtxFindRunsInternal @ 0x18010117C (RtlpSparseBitmapCtxFindRunsInternal.c)
  * Callees:
  *     memset @ 0x1800ACCC0 (memset.c)
  */

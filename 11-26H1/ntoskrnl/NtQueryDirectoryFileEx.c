@@ -1,28 +1,38 @@
 /*
- * XREFs of NtQueryDirectoryFileEx @ 0x1409B1DA0
+ * XREFs of NtQueryDirectoryFileEx @ 0x140982E60
  * Callers:
- *     DifNtQueryDirectoryFileExWrapper @ 0x140681940 (DifNtQueryDirectoryFileExWrapper.c)
+ *     DifNtQueryDirectoryFileExWrapper @ 0x140685520 (DifNtQueryDirectoryFileExWrapper.c)
  * Callees:
- *     BuildQueryDirectoryIrp @ 0x1409B1E90 (BuildQueryDirectoryIrp.c)
- *     IopSynchronousServiceTail @ 0x1409B2704 (IopSynchronousServiceTail.c)
+ *     BuildQueryDirectoryIrp @ 0x140982F50 (BuildQueryDirectoryIrp.c)
+ *     IopSynchronousServiceTail @ 0x1409837C4 (IopSynchronousServiceTail.c)
  */
 
-__int64 __fastcall NtQueryDirectoryFileEx(
-        __int64 a1,
-        __int64 a2,
-        __int64 a3,
-        __int64 a4,
-        __int64 a5,
-        __int64 a6,
-        int a7,
-        int a8,
-        int a9,
-        __int64 a10)
+NTSTATUS __cdecl NtQueryDirectoryFileEx(
+        HANDLE FileHandle,
+        HANDLE Event,
+        PIO_APC_ROUTINE ApcRoutine,
+        PVOID ApcContext,
+        PIO_STATUS_BLOCK IoStatusBlock,
+        PVOID FileInformation,
+        ULONG Length,
+        FILE_INFORMATION_CLASS FileInformationClass,
+        ULONG QueryFlags,
+        PUNICODE_STRING FileName)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = BuildQueryDirectoryIrp(a1, a2, a3, a4, a5, a6, a7, a8, a9, a10);
-  if ( !(_DWORD)result )
+  result = BuildQueryDirectoryIrp(
+             FileHandle,
+             Event,
+             ApcRoutine,
+             ApcContext,
+             IoStatusBlock,
+             FileInformation,
+             Length,
+             FileInformationClass,
+             QueryFlags,
+             FileName);
+  if ( !result )
     return IopSynchronousServiceTail(0LL, 0LL, 0LL, 0, 0, 2);
   return result;
 }

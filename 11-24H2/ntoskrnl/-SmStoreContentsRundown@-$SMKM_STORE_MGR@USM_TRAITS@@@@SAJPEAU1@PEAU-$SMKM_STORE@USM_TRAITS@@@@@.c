@@ -1,13 +1,13 @@
 /*
- * XREFs of ?SmStoreContentsRundown@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAU?$SMKM_STORE@USM_TRAITS@@@@@Z @ 0x14060EACC
+ * XREFs of ?SmStoreContentsRundown@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAU?$SMKM_STORE@USM_TRAITS@@@@@Z @ 0x14060D08C
  * Callers:
- *     SmEtwEnableCallback @ 0x14079B8B0 (SmEtwEnableCallback.c)
+ *     SmEtwEnableCallback @ 0x14079B9C0 (SmEtwEnableCallback.c)
  * Callees:
- *     SmKmStoreDereference @ 0x14027A498 (SmKmStoreDereference.c)
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     SmAllocEx @ 0x14044AB68 (SmAllocEx.c)
- *     ?SmStoreRequestEx@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAU?$SMKM_STORE@USM_TRAITS@@@@PEAU_SM_WORK_ITEM@1@PEAU_KEVENT@@PEAU_IO_STATUS_BLOCK@@@Z @ 0x140497558 (-SmStoreRequestEx@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAU-$SMKM_STORE@USM_TRAITS@@@@PEAU_SM.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     SmKmStoreDereference @ 0x14022FA28 (SmKmStoreDereference.c)
+ *     SmAllocEx @ 0x1402F5228 (SmAllocEx.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     ?SmStoreRequestEx@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAU?$SMKM_STORE@USM_TRAITS@@@@PEAU_SM_WORK_ITEM@1@PEAU_KEVENT@@PEAU_IO_STATUS_BLOCK@@@Z @ 0x140491EE8 (-SmStoreRequestEx@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAU-$SMKM_STORE@USM_TRAITS@@@@PEAU_SM.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SMKM_STORE_MGR<SM_TRAITS>::SmStoreContentsRundown(__int64 a1, __int64 a2)
@@ -25,7 +25,7 @@ __int64 __fastcall SMKM_STORE_MGR<SM_TRAITS>::SmStoreContentsRundown(__int64 a1,
   Object[0] = 393216;
   v11[0] = v11;
   *(_OWORD *)&v9[0].LowPart = 0LL;
-  v4 = SmAllocEx(40LL, 1683451251LL, -1);
+  v4 = SmAllocEx(0x28uLL, 0x64576D73u, -1);
   v6 = (void *)v4;
   if ( v4 )
   {

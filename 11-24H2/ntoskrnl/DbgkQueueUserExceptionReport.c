@@ -1,20 +1,20 @@
 /*
- * XREFs of DbgkQueueUserExceptionReport @ 0x140707404
+ * XREFs of DbgkQueueUserExceptionReport @ 0x140704FC4
  * Callers:
- *     SepLogLpacAccessFailure @ 0x14027BEC4 (SepLogLpacAccessFailure.c)
- *     MiForceCrashForInvalidAccess @ 0x140AB6F10 (MiForceCrashForInvalidAccess.c)
+ *     SepLogLpacAccessFailure @ 0x140231454 (SepLogLpacAccessFailure.c)
+ *     MiForceCrashForInvalidAccess @ 0x140AB11E8 (MiForceCrashForInvalidAccess.c)
  * Callees:
- *     KeStackAttachProcess @ 0x1402473F0 (KeStackAttachProcess.c)
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     KiUnstackDetachProcess @ 0x140321EC0 (KiUnstackDetachProcess.c)
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     ExQueueWorkItem @ 0x140325850 (ExQueueWorkItem.c)
- *     PsReferenceSiloContext @ 0x14033FA90 (PsReferenceSiloContext.c)
- *     IoThreadToProcess @ 0x140441CC0 (IoThreadToProcess.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     PsSuspendThread @ 0x14093A4F0 (PsSuspendThread.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     KiUnstackDetachProcess @ 0x1402CAA50 (KiUnstackDetachProcess.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     ExQueueWorkItem @ 0x1402CE3E0 (ExQueueWorkItem.c)
+ *     KeStackAttachProcess @ 0x1402E1C90 (KeStackAttachProcess.c)
+ *     PsReferenceSiloContext @ 0x14031EF70 (PsReferenceSiloContext.c)
+ *     IoThreadToProcess @ 0x140438740 (IoThreadToProcess.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     PsSuspendThread @ 0x140A0CF10 (PsSuspendThread.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall DbgkQueueUserExceptionReport(PVOID Object, unsigned int a2, __int64 a3)
@@ -26,6 +26,8 @@ __int64 __fastcall DbgkQueueUserExceptionReport(PVOID Object, unsigned int a2, _
   struct _KPROCESS *v10; // rax
   struct _KTHREAD *CurrentThread; // rax
   int v12; // ebp
+  __int64 v13; // r8
+  __int64 v14; // r9
   struct _KAPC_STATE ApcState; // [rsp+20h] [rbp-58h] BYREF
 
   v3 = a2;
@@ -40,7 +42,7 @@ __int64 __fastcall DbgkQueueUserExceptionReport(PVOID Object, unsigned int a2, _
   }
   if ( _interlockedbittestandset((volatile signed __int32 *)Object + 360, 0x15u) )
     return 3221227268LL;
-  Pool2 = ExAllocatePool2(0x40uLL);
+  Pool2 = ExAllocatePool2(0x40uLL, 0xD0uLL, 0x4B474244u);
   if ( !Pool2 )
     return 3221225626LL;
   PsReferenceSiloContext(Object);
@@ -90,6 +92,6 @@ __int64 __fastcall DbgkQueueUserExceptionReport(PVOID Object, unsigned int a2, _
     KeLeaveCriticalRegion();
   }
   if ( v4 )
-    KiUnstackDetachProcess((__int64)&ApcState, 0);
+    KiUnstackDetachProcess((__int64)&ApcState, 0, v13, v14);
   return (unsigned int)v12;
 }

@@ -14,16 +14,19 @@
  *     _RtlpGetFileSize@8 @ 0x4B36330F (_RtlpGetFileSize@8.c)
  */
 
-int __fastcall RtlpOpenAndMapCustomCultureFile(int a1, _DWORD *a2, _DWORD *a3)
+int __fastcall RtlpOpenAndMapCustomCultureFile(int a1, PVOID *a2, _DWORD *a3)
 {
-  NTSTATUS Section; // esi
-  HANDLE v7; // [esp-4h] [ebp-268h]
-  struct _IO_STATUS_BLOCK IoStatusBlock; // [esp+10h] [ebp-254h] BYREF
-  UNICODE_STRING DestinationString; // [esp+18h] [ebp-24Ch] BYREF
-  OBJECT_ATTRIBUTES ObjectAttributes; // [esp+20h] [ebp-244h] BYREF
-  _DWORD v11[3]; // [esp+38h] [ebp-22Ch] BYREF
-  int v12; // [esp+44h] [ebp-220h] BYREF
-  HANDLE Handle; // [esp+48h] [ebp-21Ch] BYREF
+  NTSTATUS v5; // esi
+  SIZE_T v7; // [esp-14h] [ebp-278h]
+  HANDLE v8; // [esp-4h] [ebp-268h]
+  ULONG v9; // [esp+0h] [ebp-264h]
+  ULONG v10; // [esp+4h] [ebp-260h]
+  _IO_STATUS_BLOCK IoStatusBlock; // [esp+10h] [ebp-254h] BYREF
+  _UNICODE_STRING DestinationString; // [esp+18h] [ebp-24Ch] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [esp+20h] [ebp-244h] BYREF
+  _DWORD v14[3]; // [esp+38h] [ebp-22Ch] BYREF
+  int v15; // [esp+44h] [ebp-220h] BYREF
+  HANDLE SectionHandle; // [esp+48h] [ebp-21Ch] BYREF
   HANDLE FileHandle; // [esp+4Ch] [ebp-218h] BYREF
   WCHAR SourceString[262]; // [esp+50h] [ebp-214h] BYREF
 
@@ -40,27 +43,39 @@ int __fastcall RtlpOpenAndMapCustomCultureFile(int a1, _DWORD *a2, _DWORD *a3)
   ObjectAttributes.Attributes = 64;
   ObjectAttributes.SecurityDescriptor = 0;
   ObjectAttributes.SecurityQualityOfService = 0;
-  Section = NtOpenFile(&FileHandle, 0x80100000, &ObjectAttributes, &IoStatusBlock, 1u, 0);
-  if ( Section >= 0 )
+  v5 = NtOpenFile(&FileHandle, 0x80100000, &ObjectAttributes, &IoStatusBlock, 1u, 0);
+  if ( v5 >= 0 )
   {
-    if ( RtlpGetFileSize((int)FileHandle, v11) < 0 || v11[1] )
+    if ( RtlpGetFileSize(FileHandle, v14) < 0 || v14[1] )
     {
-      Section = -1073741823;
+      v5 = -1073741823;
     }
     else
     {
-      v7 = FileHandle;
-      *a3 = v11[0];
-      Section = NtCreateSection((int)&Handle, 983045, 0, 0, 2, 0x8000000, (int)v7);
-      if ( Section >= 0 )
+      v8 = FileHandle;
+      *a3 = v14[0];
+      v5 = NtCreateSection(&SectionHandle, 0xF0005u, 0, 0, 2u, 0x8000000u, v8);
+      if ( v5 >= 0 )
       {
         *a2 = 0;
-        v12 = 0;
-        Section = ZwMapViewOfSection((int)Handle, -1, (int)a2, 0, 0, 0, (int)&v12, 1, 0, 2);
-        NtClose(Handle);
+        HIDWORD(v7) = &v15;
+        LODWORD(v7) = 0;
+        v15 = 0;
+        v5 = ZwMapViewOfSection(
+               SectionHandle,
+               (HANDLE)0xFFFFFFFF,
+               a2,
+               0LL,
+               v7,
+               (PLARGE_INTEGER)1,
+               0,
+               ViewUnmap,
+               v9,
+               v10);
+        NtClose(SectionHandle);
       }
     }
     NtClose(FileHandle);
   }
-  return Section;
+  return v5;
 }

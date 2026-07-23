@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpDiskProvTraceDisk @ 0x140349D5C
+ * XREFs of EtwpDiskProvTraceDisk @ 0x1403C379C
  * Callers:
- *     EtwpTraceIo @ 0x1403486F0 (EtwpTraceIo.c)
+ *     EtwpTraceIo @ 0x1403C2130 (EtwpTraceIo.c)
  * Callees:
- *     EtwpLevelKeywordEnabled @ 0x1402A2030 (EtwpLevelKeywordEnabled.c)
- *     EtwpEventWriteFull @ 0x140328590 (EtwpEventWriteFull.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     EtwpLevelKeywordEnabled @ 0x1402D1760 (EtwpLevelKeywordEnabled.c)
+ *     EtwpEventWriteFull @ 0x140326D30 (EtwpEventWriteFull.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 void __fastcall EtwpDiskProvTraceDisk(unsigned __int16 a1, __int64 a2, __int64 a3, GUID *a4)
@@ -40,11 +40,11 @@ void __fastcall EtwpDiskProvTraceDisk(unsigned __int16 a1, __int64 a2, __int64 a
     v10 = (void *)((*(_QWORD *)(v4 + 112) + 28LL) & -(__int64)(*(_QWORD *)(v4 + 112) != 0LL));
     if ( *(_WORD *)(v4 + 100) && EtwpLevelKeywordEnabled(*(_QWORD *)(v4 + 32) + 96LL, *((_BYTE *)v9 + 4), v9[1]) )
       EtwpEventWriteFull(
-        *(_QWORD **)(v4 + 32),
+        *(_QWORD *)(v4 + 32),
         *(_WORD *)(v4 + 100),
         0,
         0,
-        (__int64)v9,
+        (unsigned __int16 *)v9,
         0,
         0,
         a4,
@@ -59,11 +59,11 @@ void __fastcall EtwpDiskProvTraceDisk(unsigned __int16 a1, __int64 a2, __int64 a
         &v11);
     if ( *(_WORD *)(v4 + 102) && EtwpLevelKeywordEnabled(*(_QWORD *)(v4 + 40) + 96LL, *((_BYTE *)v9 + 4), v9[1]) )
       EtwpEventWriteFull(
-        *(_QWORD **)(v4 + 32),
+        *(_QWORD *)(v4 + 32),
         *(_WORD *)(v4 + 102),
         0,
         0,
-        (__int64)v9,
+        (unsigned __int16 *)v9,
         0,
         0,
         a4,
@@ -84,11 +84,11 @@ void __fastcall EtwpDiskProvTraceDisk(unsigned __int16 a1, __int64 a2, __int64 a
         && EtwpLevelKeywordEnabled(*(_QWORD *)(*(_QWORD *)(v4 + 32) + 656LL) + 96LL, *((_BYTE *)v9 + 4), v9[1]) )
       {
         EtwpEventWriteFull(
-          *(_QWORD **)(*(_QWORD *)(v4 + 32) + 656LL),
+          *(_QWORD *)(*(_QWORD *)(v4 + 32) + 656LL),
           *(_WORD *)(v4 + 104),
           0,
           0,
-          (__int64)v9,
+          (unsigned __int16 *)v9,
           0,
           0,
           a4,
@@ -106,11 +106,11 @@ void __fastcall EtwpDiskProvTraceDisk(unsigned __int16 a1, __int64 a2, __int64 a
       {
         if ( EtwpLevelKeywordEnabled(*(_QWORD *)(*(_QWORD *)(v4 + 40) + 656LL) + 96LL, *((_BYTE *)v9 + 4), v9[1]) )
           EtwpEventWriteFull(
-            *(_QWORD **)(*(_QWORD *)(v4 + 32) + 656LL),
+            *(_QWORD *)(*(_QWORD *)(v4 + 32) + 656LL),
             *(_WORD *)(v4 + 106),
             0,
             0,
-            (__int64)v9,
+            (unsigned __int16 *)v9,
             0,
             0,
             a4,

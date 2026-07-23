@@ -1,13 +1,13 @@
 /*
- * XREFs of MiCheckSystemTrimEndCriteria @ 0x14053AD2C
+ * XREFs of MiCheckSystemTrimEndCriteria @ 0x14053AF6C
  * Callers:
- *     MiProcessWorkingSets @ 0x140207BA0 (MiProcessWorkingSets.c)
+ *     MiProcessWorkingSets @ 0x1402AC4A0 (MiProcessWorkingSets.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
- *     KeDelayExecutionThread @ 0x140257490 (KeDelayExecutionThread.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KeDelayExecutionThread @ 0x140278A00 (KeDelayExecutionThread.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402D3660 (KeAcquireInStackQueuedSpinLock.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     MiLogContinueTrim @ 0x14053B428 (MiLogContinueTrim.c)
+ *     MiLogContinueTrim @ 0x14053B668 (MiLogContinueTrim.c)
  */
 
 __int64 __fastcall MiCheckSystemTrimEndCriteria(_QWORD *a1, __int64 a2, struct _KLOCK_QUEUE_HANDLE *a3)

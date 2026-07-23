@@ -1,7 +1,7 @@
 /*
  * XREFs of PopDiagTraceZeroHiberFileEnd @ 0x1403DF954
  * Callers:
- *     PopZeroHiberFile @ 0x14066E7DC (PopZeroHiberFile.c)
+ *     PopZeroHiberFile @ 0x14066E8C0 (PopZeroHiberFile.c)
  * Callees:
  *     <none>
  */

@@ -1,11 +1,11 @@
 /*
- * XREFs of RawDeleteVcb @ 0x140B09F94
+ * XREFs of RawDeleteVcb @ 0x140B0BD54
  * Callers:
- *     RawInitiateDeleteVolume @ 0x1404BD434 (RawInitiateDeleteVolume.c)
- *     RawCheckForDeleteVolume @ 0x1404FDAA8 (RawCheckForDeleteVolume.c)
+ *     RawInitiateDeleteVolume @ 0x1404B6C14 (RawInitiateDeleteVolume.c)
+ *     RawCheckForDeleteVolume @ 0x1404F6FE8 (RawCheckForDeleteVolume.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     IoDeleteDevice @ 0x140437BA0 (IoDeleteDevice.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     IoDeleteDevice @ 0x140426AC0 (IoDeleteDevice.c)
  */
 
 void __fastcall RawDeleteVcb(__int64 a1)

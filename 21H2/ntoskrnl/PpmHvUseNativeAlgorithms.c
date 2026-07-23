@@ -1,9 +1,9 @@
 /*
- * XREFs of PpmHvUseNativeAlgorithms @ 0x1403AE35C
+ * XREFs of PpmHvUseNativeAlgorithms @ 0x1403AE4AC
  * Callers:
- *     PpmUpdateIdleStates @ 0x140796560 (PpmUpdateIdleStates.c)
- *     PpmIdleRegisterDefaultStates @ 0x140796658 (PpmIdleRegisterDefaultStates.c)
- *     PoInitializePrcb @ 0x14099E680 (PoInitializePrcb.c)
+ *     PpmUpdateIdleStates @ 0x140796760 (PpmUpdateIdleStates.c)
+ *     PpmIdleRegisterDefaultStates @ 0x140796858 (PpmIdleRegisterDefaultStates.c)
+ *     PoInitializePrcb @ 0x14099F5B0 (PoInitializePrcb.c)
  * Callees:
  *     <none>
  */

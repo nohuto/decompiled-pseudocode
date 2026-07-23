@@ -35,7 +35,7 @@ __int64 __fastcall FsRtlPrivateFastUnlockAll(
   int v8; // r15d
   _RTL_SPLAY_LINKS *v9; // r14
   KIRQL v10; // al
-  RTL_SPLAY_LINKS *v11; // rbp
+  _RTL_SPLAY_LINKS *v11; // rbp
   unsigned __int64 v12; // r12
   __int64 v13; // rdx
   _RTL_SPLAY_LINKS *i; // rax
@@ -60,7 +60,7 @@ __int64 __fastcall FsRtlPrivateFastUnlockAll(
   PVOID v34; // rbx
   _RTL_SPLAY_LINKS *j; // rax
   KIRQL v36; // dl
-  RTL_SPLAY_LINKS *v37; // [rsp+30h] [rbp-78h]
+  _RTL_SPLAY_LINKS *v37; // [rsp+30h] [rbp-78h]
   _RTL_SPLAY_LINKS *v38; // [rsp+38h] [rbp-70h] BYREF
   _RTL_SPLAY_LINKS *v39; // [rsp+40h] [rbp-68h] BYREF
   PVOID Entry; // [rsp+48h] [rbp-60h]
@@ -82,7 +82,7 @@ __int64 __fastcall FsRtlPrivateFastUnlockAll(
     return 3221225598LL;
   a2[5].Parent = 0LL;
   v10 = KeAcquireSpinLockRaiseToDpc(v6 + 3);
-  v11 = (RTL_SPLAY_LINKS *)v6[4];
+  v11 = (_RTL_SPLAY_LINKS *)v6[4];
   v12 = v10;
   if ( !v11 )
   {
@@ -139,7 +139,7 @@ __int64 __fastcall FsRtlPrivateFastUnlockAll(
       *p_Parent = v21->Parent;
       if ( v6[2] )
         break;
-      ExFreeToNPagedLookasideList(&FsRtlSharedLockLookasideList, v21);
+      ExFreeToNPagedLookasideList((PNPAGED_LOOKASIDE_LIST)&FsRtlSharedLockLookasideList, v21);
       p_Parent = (PVOID *)&v37->Parent;
       v20 = v41;
 LABEL_15:
@@ -162,7 +162,7 @@ LABEL_19:
       else
       {
         v6[4] = RtlDelete(v11);
-        ExFreeToNPagedLookasideList(&FsRtlLockTreeNodeLookasideList, &v11[-1]);
+        ExFreeToNPagedLookasideList((PNPAGED_LOOKASIDE_LIST)&FsRtlLockTreeNodeLookasideList, &v11[-1]);
       }
     }
     if ( v22 )
@@ -171,7 +171,7 @@ LABEL_19:
       v34 = Entry;
       guard_dispatch_icall_no_overrides(a6, (char *)Entry + 8);
       LOBYTE(v12) = KeAcquireSpinLockRaiseToDpc(v6 + 3);
-      ExFreeToNPagedLookasideList(&FsRtlSharedLockLookasideList, v34);
+      ExFreeToNPagedLookasideList((PNPAGED_LOOKASIDE_LIST)&FsRtlSharedLockLookasideList, v34);
       v19 = (PRTL_SPLAY_LINKS)v6[4];
       v42 = 0;
       if ( v19 )

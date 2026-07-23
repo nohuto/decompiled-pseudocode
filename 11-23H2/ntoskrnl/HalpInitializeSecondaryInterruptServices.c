@@ -1,11 +1,11 @@
 /*
  * XREFs of HalpInitializeSecondaryInterruptServices @ 0x140B5D878
  * Callers:
- *     HalpPostPnpInitialize @ 0x1408358F0 (HalpPostPnpInitialize.c)
+ *     HalpPostPnpInitialize @ 0x140835BF0 (HalpPostPnpInitialize.c)
  * Callees:
- *     HalpCheckSecondaryInterruptSupported @ 0x1407EB008 (HalpCheckSecondaryInterruptSupported.c)
- *     HalpQueryMaximumGsiv @ 0x140835960 (HalpQueryMaximumGsiv.c)
- *     HalpRecordSecondaryGsivRange @ 0x1408359F4 (HalpRecordSecondaryGsivRange.c)
+ *     HalpCheckSecondaryInterruptSupported @ 0x1407EB2D8 (HalpCheckSecondaryInterruptSupported.c)
+ *     HalpQueryMaximumGsiv @ 0x140835C60 (HalpQueryMaximumGsiv.c)
+ *     HalpRecordSecondaryGsivRange @ 0x140835CF4 (HalpRecordSecondaryGsivRange.c)
  */
 
 __int64 HalpInitializeSecondaryInterruptServices()

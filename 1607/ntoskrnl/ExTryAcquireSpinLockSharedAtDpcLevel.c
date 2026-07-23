@@ -1,7 +1,7 @@
 /*
- * XREFs of ExTryAcquireSpinLockSharedAtDpcLevel @ 0x14022DD08
+ * XREFs of ExTryAcquireSpinLockSharedAtDpcLevel @ 0x14022DB34
  * Callers:
- *     MmReadProcessPageTables @ 0x1401EEF28 (MmReadProcessPageTables.c)
+ *     MmReadProcessPageTables @ 0x1401EED54 (MmReadProcessPageTables.c)
  * Callees:
  *     <none>
  */

@@ -8,7 +8,7 @@
  *     AnFwConfigureProgressResources @ 0x140AEE920 (AnFwConfigureProgressResources.c)
  *     BgpFoDetermineFontInformation @ 0x140B9C9D8 (BgpFoDetermineFontInformation.c)
  * Callees:
- *     _wcsicmp @ 0x1403D9A50 (_wcsicmp.c)
+ *     _wcsicmp @ 0x1403D9C30 (_wcsicmp.c)
  */
 
 __int64 __fastcall BgpFoGetFontHandle(wchar_t *Str2, __int64 **a2)

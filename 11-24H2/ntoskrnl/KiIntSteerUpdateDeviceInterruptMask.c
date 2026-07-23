@@ -1,9 +1,9 @@
 /*
- * XREFs of KiIntSteerUpdateDeviceInterruptMask @ 0x1403B8938
+ * XREFs of KiIntSteerUpdateDeviceInterruptMask @ 0x1402B49C8
  * Callers:
- *     KiIntSteerConnect @ 0x1403B7680 (KiIntSteerConnect.c)
+ *     KiIntSteerConnect @ 0x1402B3934 (KiIntSteerConnect.c)
  * Callees:
- *     KeGetPrcb @ 0x140352980 (KeGetPrcb.c)
+ *     KeGetPrcb @ 0x1402B0A10 (KeGetPrcb.c)
  */
 
 volatile signed __int32 *__fastcall KiIntSteerUpdateDeviceInterruptMask(__int64 a1, int a2)
@@ -28,7 +28,7 @@ LABEL_2:
     {
       _BitScanForward64(&v7, v5);
       v5 &= ~(1LL << v7);
-      result = (volatile signed __int32 *)KeGetPrcb(*((_DWORD *)qword_140F21E78
+      result = (volatile signed __int32 *)KeGetPrcb(*((_DWORD *)qword_140F22998
                                                     + 64 * (unsigned __int16)v3
                                                     + (unsigned __int8)v7));
       if ( a2 )

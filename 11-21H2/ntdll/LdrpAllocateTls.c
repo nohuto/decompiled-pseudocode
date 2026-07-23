@@ -17,13 +17,13 @@
 __int64 LdrpAllocateTls()
 {
   struct _TEB *v0; // r15
-  unsigned int v1; // r14d
+  unsigned int SizeOfBitMap; // r14d
   _DWORD *p_ThreadLocalStoragePointer; // rbx
   _UNKNOWN **v3; // r13
   _UNKNOWN **v4; // rsi
   char v5; // al
   int v6; // r8d
-  __int64 Heap; // rax
+  PVOID Heap; // rax
   _QWORD *v8; // rcx
   __int64 i; // rsi
   __int64 v11; // r8
@@ -33,8 +33,8 @@ __int64 LdrpAllocateTls()
 
   v0 = NtCurrentTeb();
   RtlAcquireSRWLockShared(&LdrpTlsLock);
-  v1 = LdrpTlsBitmap;
-  if ( !LdrpTlsBitmap )
+  SizeOfBitMap = LdrpTlsBitmap.SizeOfBitMap;
+  if ( !LdrpTlsBitmap.SizeOfBitMap )
   {
     p_ThreadLocalStoragePointer = &v0->ThreadLocalStoragePointer;
 LABEL_12:
@@ -43,7 +43,7 @@ LABEL_12:
     RtlReleaseSRWLockShared(&LdrpTlsLock);
     return 0LL;
   }
-  p_ThreadLocalStoragePointer = LdrpGetNewTlsVector(LdrpTlsBitmap);
+  p_ThreadLocalStoragePointer = LdrpGetNewTlsVector(LdrpTlsBitmap.SizeOfBitMap);
   if ( p_ThreadLocalStoragePointer )
   {
     v3 = (_UNKNOWN **)LdrpTlsList;
@@ -64,16 +64,16 @@ LABEL_12:
       if ( !Heap )
       {
         RtlReleaseSRWLockShared(&LdrpTlsLock);
-        for ( i = 0LL; (unsigned int)i < v1; i = (unsigned int)(i + 1) )
+        for ( i = 0LL; (unsigned int)i < SizeOfBitMap; i = (unsigned int)(i + 1) )
         {
           v11 = *(_QWORD *)&p_ThreadLocalStoragePointer[2 * i];
           if ( v11 )
-            RtlFreeHeap(LdrpTlsHeap, 0, *(_QWORD *)(v11 - 8));
+            RtlFreeHeap(LdrpTlsHeap, 0, *(PVOID *)(v11 - 8));
         }
-        RtlFreeHeap(LdrpTlsHeap, 0, (__int64)(p_ThreadLocalStoragePointer - 4));
+        RtlFreeHeap(LdrpTlsHeap, 0, p_ThreadLocalStoragePointer - 4);
         return 3221225495LL;
       }
-      v8 = (_QWORD *)(~v13 & (Heap + v12));
+      v8 = (_QWORD *)(~v13 & ((unsigned __int64)Heap + v12));
       *(v8 - 1) = Heap;
       *(_QWORD *)&p_ThreadLocalStoragePointer[2 * *((unsigned int *)v4 + 16)] = v8;
       memmove(v8, v4[2], Size);

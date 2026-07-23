@@ -1,7 +1,7 @@
 /*
- * XREFs of Amd64GetEventSelectDef @ 0x1405A3E30
+ * XREFs of Amd64GetEventSelectDef @ 0x1405A6640
  * Callers:
- *     Amd64AddProfileSource @ 0x1405A3000 (Amd64AddProfileSource.c)
+ *     Amd64AddProfileSource @ 0x1405A5810 (Amd64AddProfileSource.c)
  * Callees:
  *     <none>
  */

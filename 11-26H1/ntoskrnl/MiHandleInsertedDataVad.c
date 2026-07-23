@@ -1,22 +1,22 @@
 /*
- * XREFs of MiHandleInsertedDataVad @ 0x1409C5754
+ * XREFs of MiHandleInsertedDataVad @ 0x140996734
  * Callers:
- *     MiMapViewOfDataSection @ 0x1409C47B0 (MiMapViewOfDataSection.c)
+ *     MiMapViewOfDataSection @ 0x140995790 (MiMapViewOfDataSection.c)
  * Callees:
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     MiReferenceVad @ 0x14027E890 (MiReferenceVad.c)
- *     MiUnlockAndDereferenceVad @ 0x14027F600 (MiUnlockAndDereferenceVad.c)
- *     MiUnlockVad @ 0x14027F670 (MiUnlockVad.c)
- *     UNLOCK_ADDRESS_SPACE_UNORDERED @ 0x140315540 (UNLOCK_ADDRESS_SPACE_UNORDERED.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     MiUnlockAndDereferenceNestedVad @ 0x14041D518 (MiUnlockAndDereferenceNestedVad.c)
- *     MiReadVadFlags @ 0x1404655D0 (MiReadVadFlags.c)
- *     MiLogPerfMemoryEvent @ 0x14048C8AC (MiLogPerfMemoryEvent.c)
- *     MiUnmapVad @ 0x1409C3B30 (MiUnmapVad.c)
- *     MiFillMapFileInfo @ 0x1409C6BC8 (MiFillMapFileInfo.c)
- *     MiCommitVadMetadataBits @ 0x1409C6E14 (MiCommitVadMetadataBits.c)
- *     MiFinishPlaceholderVadReplacement @ 0x140B05F14 (MiFinishPlaceholderVadReplacement.c)
- *     MiSecureVad @ 0x140B4F310 (MiSecureVad.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     MiReferenceVad @ 0x14027DE00 (MiReferenceVad.c)
+ *     MiUnlockAndDereferenceVad @ 0x14027EB70 (MiUnlockAndDereferenceVad.c)
+ *     MiUnlockVad @ 0x14027EBE0 (MiUnlockVad.c)
+ *     UNLOCK_ADDRESS_SPACE_UNORDERED @ 0x140317570 (UNLOCK_ADDRESS_SPACE_UNORDERED.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     MiUnlockAndDereferenceNestedVad @ 0x140414D68 (MiUnlockAndDereferenceNestedVad.c)
+ *     MiReadVadFlags @ 0x14045E590 (MiReadVadFlags.c)
+ *     MiLogPerfMemoryEvent @ 0x1404863EC (MiLogPerfMemoryEvent.c)
+ *     MiUnmapVad @ 0x140994B10 (MiUnmapVad.c)
+ *     MiFillMapFileInfo @ 0x140997BA8 (MiFillMapFileInfo.c)
+ *     MiCommitVadMetadataBits @ 0x140997DF4 (MiCommitVadMetadataBits.c)
+ *     MiFinishPlaceholderVadReplacement @ 0x140B08044 (MiFinishPlaceholderVadReplacement.c)
+ *     MiSecureVad @ 0x140B51BA0 (MiSecureVad.c)
  */
 
 __int64 __fastcall MiHandleInsertedDataVad(__int64 *a1)
@@ -64,7 +64,7 @@ __int64 __fastcall MiHandleInsertedDataVad(__int64 *a1)
   if ( v8 )
   {
     v9 = (unsigned __int64)a1[15] >> 16;
-    v10 = (unsigned __int64)(-524288 * qword_140E2DE48 + (v8[1] << 19)) >> 16;
+    v10 = (unsigned __int64)(-524288 * qword_140E2DFC8 + (v8[1] << 19)) >> 16;
     v11 = (unsigned __int64)a1[16] >> 16;
     if ( v11 >= v10 )
     {
@@ -73,7 +73,7 @@ __int64 __fastcall MiHandleInsertedDataVad(__int64 *a1)
       {
         v13 = (unsigned __int64)a1[15] >> 16;
         if ( v9 < v10 )
-          v13 = (unsigned __int64)(-524288 * qword_140E2DE48 + (v8[1] << 19)) >> 16;
+          v13 = (unsigned __int64)(-524288 * qword_140E2DFC8 + (v8[1] << 19)) >> 16;
         v14 = v9 < v10;
         if ( v11 >= v12 )
         {
@@ -119,7 +119,7 @@ LABEL_26:
   v22 = *((_DWORD *)a1 + 8);
   if ( (v22 == 4 || v22 == 6) && *((_QWORD *)v3 + 8) )
     _InterlockedIncrement(v3 + 23);
-  if ( (PerfGlobalGroupMask[0] & 0x8000) != 0 )
+  if ( (PerfGlobalGroupMask & 0x8000) != 0 )
   {
     memset(v31, 0, sizeof(v31));
     if ( (MiReadVadFlags((__int64)v5) & 0x1C) != 4 )
@@ -160,7 +160,7 @@ LABEL_63:
     v24 = MiCommitVadMetadataBits(v5, 0LL);
     if ( (v24 & 0x80000000) != 0 )
     {
-      MiUnmapVad((ULONG_PTR)v5, a1[17], 0);
+      MiUnmapVad((ULONG_PTR)v5);
       v26 = a1[17];
       if ( !v26 )
         return v24;
@@ -187,11 +187,11 @@ LABEL_50:
   v29 = MiSecureVad((_DWORD)v5, a1[15], *(_QWORD *)(v4 + 24), v28, 0, (__int64)&v32);
   if ( v29 >= 0 )
   {
-    **(_QWORD **)(v4 + 72) = qword_140E2D640 ^ v32;
+    **(_QWORD **)(v4 + 72) = qword_140E2D7C0 ^ v32;
     goto LABEL_50;
   }
 LABEL_52:
-  MiUnmapVad((ULONG_PTR)v5, a1[17], 0);
+  MiUnmapVad((ULONG_PTR)v5);
   v30 = a1[17];
   if ( v30 )
     MiFinishPlaceholderVadReplacement(v30);

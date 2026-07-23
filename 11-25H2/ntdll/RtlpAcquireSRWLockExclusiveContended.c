@@ -47,11 +47,11 @@
  *     NtWaitForAlertByThreadId @ 0x180166E70 (NtWaitForAlertByThreadId.c)
  */
 
-signed __int64 __fastcall RtlpAcquireSRWLockExclusiveContended(
-        unsigned __int64 UniqueThread,
+__int64 __fastcall RtlpAcquireSRWLockExclusiveContended(
+        unsigned __int64 Address,
         unsigned __int64 a2,
-        _QWORD *a3,
-        unsigned __int64 a4)
+        char *a3,
+        char *a4)
 {
   unsigned __int64 v4; // rdi
   volatile signed __int64 *v5; // r14
@@ -61,7 +61,7 @@ signed __int64 __fastcall RtlpAcquireSRWLockExclusiveContended(
   signed __int64 v9; // rax
   __int64 v11; // rdx
   unsigned __int64 v12; // rax
-  signed __int64 result; // rax
+  __int64 result; // rax
   volatile signed __int64 *v14; // rsi
   __int64 v15; // rax
   signed __int64 v16; // rax
@@ -70,36 +70,36 @@ signed __int64 __fastcall RtlpAcquireSRWLockExclusiveContended(
   signed __int64 v19; // rax
   _QWORD *v20; // rax
   __int64 v21; // rax
-  _QWORD *v22; // rax
+  char *v22; // rax
   __int128 v23; // [rsp+20h] [rbp-58h] BYREF
   __int128 v24; // [rsp+30h] [rbp-48h]
   __int128 v25; // [rsp+40h] [rbp-38h] BYREF
   unsigned __int64 v26; // [rsp+88h] [rbp+10h] BYREF
 
   v26 = a2;
-  v4 = *(_QWORD *)UniqueThread;
-  v5 = (volatile signed __int64 *)UniqueThread;
+  v4 = *(_QWORD *)Address;
+  v5 = (volatile signed __int64 *)Address;
   v23 = 0LL;
   LODWORD(v26) = 0;
   v24 = 0LL;
   v25 = 0LL;
   while ( (v4 & 1) != 0 )
   {
-    if ( (unsigned __int8)RtlpWaitCouldDeadlock(UniqueThread, a2, a3, a4, v23, *((_QWORD *)&v23 + 1)) )
-      ZwTerminateProcess(-1LL, 3221225547LL);
-    UniqueThread = (unsigned __int64)NtCurrentTeb()->ClientId.UniqueThread;
-    *((_QWORD *)&v24 + 1) = UniqueThread;
-    LOBYTE(UniqueThread) = 0;
+    if ( (unsigned __int8)RtlpWaitCouldDeadlock(Address, a2, a3, a4, v23, *((_QWORD *)&v23 + 1)) )
+      ZwTerminateProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, -1073741749);
+    Address = (unsigned __int64)NtCurrentTeb()->ClientId.UniqueThread;
+    *((_QWORD *)&v24 + 1) = Address;
+    LOBYTE(Address) = 0;
     DWORD1(v25) = 3;
     *(_QWORD *)&v24 = 0LL;
     if ( (v4 & 2) != 0 )
     {
       *((_QWORD *)&v23 + 1) = 0LL;
       LODWORD(v25) = -1;
-      UniqueThread = (unsigned __int8)v4;
+      Address = (unsigned __int8)v4;
       *(_QWORD *)&v23 = v4 & 0xFFFFFFFFFFFFFFF0uLL;
       a2 = (unsigned __int64)&v23 | v4 & 8 | 7;
-      LOBYTE(UniqueThread) = (v4 & 4) == 0;
+      LOBYTE(Address) = (v4 & 4) == 0;
     }
     else
     {
@@ -117,7 +117,7 @@ signed __int64 __fastcall RtlpAcquireSRWLockExclusiveContended(
     v4 = v7;
     if ( v6 )
     {
-      if ( (_BYTE)UniqueThread )
+      if ( (_BYTE)Address )
       {
         while ( (a2 & 1) != 0 )
         {
@@ -135,7 +135,7 @@ signed __int64 __fastcall RtlpAcquireSRWLockExclusiveContended(
             if ( v8 != (_QWORD *)(a2 & 0xFFFFFFFFFFFFFFF0uLL) )
               *(_QWORD *)((a2 & 0xFFFFFFFFFFFFFFF0uLL) + 8) = v21;
           }
-          UniqueThread = a2 - 4;
+          Address = a2 - 4;
           v9 = _InterlockedCompareExchange64(v5, a2 - 4, a2);
           v6 = a2 == v9;
           a2 = v9;
@@ -147,31 +147,31 @@ signed __int64 __fastcall RtlpAcquireSRWLockExclusiveContended(
         {
           while ( (a2 & 1) != 0 )
           {
-            UniqueThread = a2 - 4;
+            Address = a2 - 4;
             v19 = _InterlockedCompareExchange64(v5, a2 - 4, a2);
             v6 = a2 == v19;
             a2 = v19;
             if ( v6 )
               goto LABEL_12;
           }
-          a3 = (_QWORD *)(a2 & 0xFFFFFFFFFFFFFFF0uLL);
-          UniqueThread = *(_QWORD *)((a2 & 0xFFFFFFFFFFFFFFF0uLL) + 8);
-          if ( !UniqueThread )
+          a3 = (char *)(a2 & 0xFFFFFFFFFFFFFFF0uLL);
+          Address = *(_QWORD *)((a2 & 0xFFFFFFFFFFFFFFF0uLL) + 8);
+          if ( !Address )
           {
             do
             {
               v22 = a3;
-              a3 = (_QWORD *)*a3;
-              a3[2] = v22;
-              UniqueThread = a3[1];
+              a3 = *(char **)a3;
+              *((_QWORD *)a3 + 2) = v22;
+              Address = *((_QWORD *)a3 + 1);
             }
-            while ( !UniqueThread );
-            if ( a3 != (_QWORD *)(a2 & 0xFFFFFFFFFFFFFFF0uLL) )
-              *(_QWORD *)((a2 & 0xFFFFFFFFFFFFFFF0uLL) + 8) = UniqueThread;
+            while ( !Address );
+            if ( a3 != (char *)(a2 & 0xFFFFFFFFFFFFFFF0uLL) )
+              *(_QWORD *)((a2 & 0xFFFFFFFFFFFFFFF0uLL) + 8) = Address;
           }
-          if ( (*(_DWORD *)(UniqueThread + 36) & 1) != 0 )
+          if ( (*(_DWORD *)(Address + 36) & 1) != 0 )
           {
-            v15 = *(_QWORD *)(UniqueThread + 16);
+            v15 = *(_QWORD *)(Address + 16);
             if ( v15 )
               break;
           }
@@ -183,17 +183,17 @@ signed __int64 __fastcall RtlpAcquireSRWLockExclusiveContended(
             goto LABEL_40;
         }
         *(_QWORD *)((a2 & 0xFFFFFFFFFFFFFFF0uLL) + 8) = v15;
-        *(_QWORD *)(UniqueThread + 16) = 0LL;
+        *(_QWORD *)(Address + 16) = 0LL;
         _InterlockedAnd64(v5, 0xFFFFFFFFFFFFFFFBuLL);
         do
         {
 LABEL_40:
-          v17 = *(_QWORD *)(UniqueThread + 16);
-          v18 = *(_QWORD *)(UniqueThread + 24);
-          _interlockedbittestandset((volatile signed __int32 *)(UniqueThread + 36), 2u);
-          if ( !_interlockedbittestandreset((volatile signed __int32 *)(UniqueThread + 36), 1u) )
+          v17 = *(_QWORD *)(Address + 16);
+          v18 = *(_QWORD *)(Address + 24);
+          _interlockedbittestandset((volatile signed __int32 *)(Address + 36), 2u);
+          if ( !_interlockedbittestandreset((volatile signed __int32 *)(Address + 36), 1u) )
             ZwAlertThreadByThreadIdEx(v18, v14, a3, a4);
-          UniqueThread = v17;
+          Address = v17;
         }
         while ( v17 );
       }
@@ -202,34 +202,31 @@ LABEL_12:
       {
         if ( MEMORY[0x7FFE0297] )
         {
-          a4 = __rdtsc();
-          a3 = (_QWORD *)(a4 + (unsigned int)SRWLockSpinCycleCount);
+          a4 = (char *)__rdtsc();
+          a3 = &a4[SRWLockSpinCycleCount];
           while ( 1 )
           {
             a2 = 0LL;
             __asm { monitorx rax, rcx, rdx }
-            UniqueThread = DWORD1(v25);
+            Address = DWORD1(v25);
             if ( (BYTE4(v25) & 2) == 0 )
               break;
-            UniqueThread = a4;
+            Address = (unsigned __int64)a4;
             v12 = __rdtsc();
             a2 = (unsigned __int64)HIDWORD(v12) << 32;
-            a4 = v12;
-            if ( v12 < UniqueThread || v12 >= (unsigned __int64)a3 )
+            a4 = (char *)v12;
+            if ( v12 < Address || v12 >= (unsigned __int64)a3 )
               break;
             __asm { mwaitx  rax, rcx, rbx }
           }
         }
         else
         {
-          for ( UniqueThread = 0LL; ; UniqueThread = (unsigned int)(UniqueThread + 1) )
+          for ( Address = 0LL; ; Address = (unsigned int)(Address + 1) )
           {
             a2 = DWORD1(v25);
-            if ( (BYTE4(v25) & 2) == 0
-              || (_DWORD)UniqueThread == SRWLockSpinCycleCount / (unsigned int)MEMORY[0x7FFE02D6] )
-            {
+            if ( (BYTE4(v25) & 2) == 0 || (_DWORD)Address == SRWLockSpinCycleCount / (unsigned int)MEMORY[0x7FFE02D6] )
               break;
-            }
             _mm_pause();
           }
         }
@@ -237,7 +234,7 @@ LABEL_12:
       if ( _interlockedbittestandreset((volatile signed __int32 *)&v25 + 1, 1u) )
       {
         do
-          NtWaitForAlertByThreadId(v5, 0LL);
+          NtWaitForAlertByThreadId((PVOID)v5, 0LL);
         while ( (BYTE4(v25) & 4) == 0 );
       }
     }

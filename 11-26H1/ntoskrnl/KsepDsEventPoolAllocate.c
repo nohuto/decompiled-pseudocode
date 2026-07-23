@@ -1,12 +1,12 @@
 /*
- * XREFs of KsepDsEventPoolAllocate @ 0x1405FF3B0
+ * XREFs of KsepDsEventPoolAllocate @ 0x140601E00
  * Callers:
- *     KseDsHookExAllocatePool @ 0x1405FE870 (KseDsHookExAllocatePool.c)
- *     KseDsHookExAllocatePoolWithTag @ 0x1405FE8D0 (KseDsHookExAllocatePoolWithTag.c)
+ *     KseDsHookExAllocatePool @ 0x1406012C0 (KseDsHookExAllocatePool.c)
+ *     KseDsHookExAllocatePoolWithTag @ 0x140601320 (KseDsHookExAllocatePoolWithTag.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 char KsepDsEventPoolAllocate(__int64 a1, __int64 a2, int a3, ...)
@@ -36,9 +36,9 @@ char KsepDsEventPoolAllocate(__int64 a1, __int64 a2, int a3, ...)
   v17 = a3;
   v16 = a2;
   v15 = a1;
-  if ( stru_140E66B30.StackLimit )
+  if ( stru_140E66D40.StackLimit )
   {
-    LOBYTE(v3) = EtwEventEnabled((REGHANDLE)stru_140E66B30.StackLimit, &KseDsEventPoolAllocate);
+    LOBYTE(v3) = EtwEventEnabled((REGHANDLE)stru_140E66D40.StackLimit, &KseDsEventPoolAllocate);
     if ( (_BYTE)v3 )
     {
       UserData.Ptr = (ULONGLONG)&v15;
@@ -52,7 +52,7 @@ char KsepDsEventPoolAllocate(__int64 a1, __int64 a2, int a3, ...)
       v11 = 8LL;
       v13 = 4LL;
       LOBYTE(v3) = EtwWriteEx(
-                     (REGHANDLE)stru_140E66B30.StackLimit,
+                     (REGHANDLE)stru_140E66D40.StackLimit,
                      &KseDsEventPoolAllocate,
                      0LL,
                      0,

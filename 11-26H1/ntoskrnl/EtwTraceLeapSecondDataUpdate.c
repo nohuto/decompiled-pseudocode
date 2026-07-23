@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwTraceLeapSecondDataUpdate @ 0x140827988
+ * XREFs of EtwTraceLeapSecondDataUpdate @ 0x14082DBC8
  * Callers:
- *     ExpReadLeapSecondData @ 0x140835F5C (ExpReadLeapSecondData.c)
- *     IoInitSystemPreDrivers @ 0x140CBACA0 (IoInitSystemPreDrivers.c)
+ *     ExpReadLeapSecondData @ 0x14083C19C (ExpReadLeapSecondData.c)
+ *     IoInitSystemPreDrivers @ 0x140CC0D18 (IoInitSystemPreDrivers.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 char __fastcall EtwTraceLeapSecondDataUpdate(int a1, int a2, int a3, int a4)
@@ -48,9 +48,9 @@ char __fastcall EtwTraceLeapSecondDataUpdate(int a1, int a2, int a3, int a4)
   v33 = a3;
   v32 = a2;
   v31 = a1;
-  if ( (unsigned int)dword_140E08F48 > 5 )
+  if ( (unsigned int)dword_140E08F78 > 5 )
   {
-    LOBYTE(v4) = tlgKeywordOn((__int64)&dword_140E08F48, 0x400000000000LL);
+    LOBYTE(v4) = tlgKeywordOn((__int64)&dword_140E08F78, 0x400000000000LL);
     if ( (_BYTE)v4 )
     {
       v12 = v5;
@@ -66,15 +66,15 @@ char __fastcall EtwTraceLeapSecondDataUpdate(int a1, int a2, int a3, int a4)
       v27 = 4LL;
       v29 = 4LL;
       LOBYTE(v4) = tlgWriteTransfer_EtwWriteTransfer(
-                     (__int64)&dword_140E08F48,
-                     (unsigned __int8 *)byte_1400543E9,
+                     (__int64)&dword_140E08F78,
+                     (unsigned __int8 *)&word_1400549F6,
                      0LL,
                      0LL,
                      6u,
                      &v21);
     }
   }
-  if ( EtwpSecurityLock.MutantListHead.Blink )
+  if ( EtwKernelProvRegHandle )
   {
     *(_QWORD *)&UserData.Size = 4LL;
     UserData.Ptr = (ULONGLONG)&v31;
@@ -84,12 +84,7 @@ char __fastcall EtwTraceLeapSecondDataUpdate(int a1, int a2, int a3, int a4)
     v17 = &v33;
     v20 = 4LL;
     v19 = &v34;
-    LOBYTE(v4) = EtwWrite(
-                   (REGHANDLE)EtwpSecurityLock.MutantListHead.Blink,
-                   &KernelLeapSecondDataUpdate,
-                   0LL,
-                   4u,
-                   &UserData);
+    LOBYTE(v4) = EtwWrite(EtwKernelProvRegHandle, &KernelLeapSecondDataUpdate, 0LL, 4u, &UserData);
   }
   return (char)v4;
 }

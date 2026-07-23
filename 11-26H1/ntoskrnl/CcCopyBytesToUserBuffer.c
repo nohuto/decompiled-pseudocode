@@ -1,16 +1,16 @@
 /*
- * XREFs of CcCopyBytesToUserBuffer @ 0x14046BC40
+ * XREFs of CcCopyBytesToUserBuffer @ 0x1404653C0
  * Callers:
- *     CcMapAndCopyFromCache @ 0x140A64900 (CcMapAndCopyFromCache.c)
+ *     CcMapAndCopyFromCache @ 0x140A718D0 (CcMapAndCopyFromCache.c)
  * Callees:
- *     FsRtlIsNtstatusExpected @ 0x1402E2870 (FsRtlIsNtstatusExpected.c)
- *     IoFreeMdl @ 0x14039F190 (IoFreeMdl.c)
- *     MmUnlockPages @ 0x140410C10 (MmUnlockPages.c)
- *     HviCopyMemory @ 0x14046BDC8 (HviCopyMemory.c)
- *     CcCopyReadExceptionFilter @ 0x1404F4578 (CcCopyReadExceptionFilter.c)
- *     CcLockSystemCacheBuffer @ 0x14052625C (CcLockSystemCacheBuffer.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     RtlCopyToUser @ 0x14077F284 (RtlCopyToUser.c)
+ *     FsRtlIsNtstatusExpected @ 0x1402C4930 (FsRtlIsNtstatusExpected.c)
+ *     IoFreeMdl @ 0x1403A0EF0 (IoFreeMdl.c)
+ *     MmUnlockPages @ 0x140410330 (MmUnlockPages.c)
+ *     HviCopyMemory @ 0x140465548 (HviCopyMemory.c)
+ *     CcCopyReadExceptionFilter @ 0x1404EDB58 (CcCopyReadExceptionFilter.c)
+ *     CcLockSystemCacheBuffer @ 0x1405288CC (CcLockSystemCacheBuffer.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     RtlCopyToUser @ 0x140781D84 (RtlCopyToUser.c)
  */
 
 __int64 __fastcall CcCopyBytesToUserBuffer(char *a1, char *Src, size_t Size, char a4)

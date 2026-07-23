@@ -1,11 +1,11 @@
 /*
- * XREFs of MiSharePageGetFlushList @ 0x140307C58
+ * XREFs of MiSharePageGetFlushList @ 0x1402E9CD8
  * Callers:
- *     MiConvertPrivateToProto @ 0x140307A8C (MiConvertPrivateToProto.c)
- *     MiShareValidPage @ 0x140704A2C (MiShareValidPage.c)
+ *     MiConvertPrivateToProto @ 0x1402E9B0C (MiConvertPrivateToProto.c)
+ *     MiShareValidPage @ 0x1407096FC (MiShareValidPage.c)
  * Callees:
- *     MiGetProcessorFlushList @ 0x1403229E0 (MiGetProcessorFlushList.c)
- *     MiInitializeTbFlushList @ 0x140360920 (MiInitializeTbFlushList.c)
+ *     MiGetProcessorFlushList @ 0x140324A10 (MiGetProcessorFlushList.c)
+ *     MiInitializeTbFlushList @ 0x1403626C0 (MiInitializeTbFlushList.c)
  */
 
 __int64 __fastcall MiSharePageGetFlushList(__int64 *a1, __int64 a2)

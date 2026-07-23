@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpFindMachineHiveByMountPoint @ 0x1407D1E18
+ * XREFs of CmpFindMachineHiveByMountPoint @ 0x1407D2308
  * Callers:
- *     CmRegisterMachineHiveLoadedNotification @ 0x1407D1AB0 (CmRegisterMachineHiveLoadedNotification.c)
+ *     CmRegisterMachineHiveLoadedNotification @ 0x1407D1FA0 (CmRegisterMachineHiveLoadedNotification.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     CmpBuildMachineHiveMountPoint @ 0x1407C9F20 (CmpBuildMachineHiveMountPoint.c)
- *     RtlEqualUnicodeString @ 0x140927050 (RtlEqualUnicodeString.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     CmpBuildMachineHiveMountPoint @ 0x1407CA410 (CmpBuildMachineHiveMountPoint.c)
+ *     RtlEqualUnicodeString @ 0x140929190 (RtlEqualUnicodeString.c)
  */
 
 __int64 __fastcall CmpFindMachineHiveByMountPoint(PCUNICODE_STRING String2, unsigned int *a2)

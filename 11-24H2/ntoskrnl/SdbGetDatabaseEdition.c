@@ -1,12 +1,12 @@
 /*
- * XREFs of SdbGetDatabaseEdition @ 0x14095D294
+ * XREFs of SdbGetDatabaseEdition @ 0x140944D54
  * Callers:
- *     KsepSdbBootInitialize @ 0x14073FF0C (KsepSdbBootInitialize.c)
- *     KsepSdbMapToMemory @ 0x14095CECC (KsepSdbMapToMemory.c)
+ *     KsepSdbBootInitialize @ 0x14073DE3C (KsepSdbBootInitialize.c)
+ *     KsepSdbMapToMemory @ 0x14094498C (KsepSdbMapToMemory.c)
  * Callees:
- *     SdbReadDWORDTag @ 0x14095F0F8 (SdbReadDWORDTag.c)
- *     SdbFindFirstTag @ 0x14096003C (SdbFindFirstTag.c)
- *     AslLogCallPrintf @ 0x1409601DC (AslLogCallPrintf.c)
+ *     SdbReadDWORDTag @ 0x140946BB8 (SdbReadDWORDTag.c)
+ *     SdbFindFirstTag @ 0x140947AFC (SdbFindFirstTag.c)
+ *     AslLogCallPrintf @ 0x140947C9C (AslLogCallPrintf.c)
  */
 
 __int64 __fastcall SdbGetDatabaseEdition(__int64 a1)

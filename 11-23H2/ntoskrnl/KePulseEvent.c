@@ -2,23 +2,23 @@
  * XREFs of KePulseEvent @ 0x1402206A0
  * Callers:
  *     MiWorkingSetManager @ 0x14021D5F0 (MiWorkingSetManager.c)
- *     MmResourcesAvailable @ 0x1402AEED0 (MmResourcesAvailable.c)
- *     KeBalanceSetManager @ 0x140394500 (KeBalanceSetManager.c)
- *     DifKePulseEventWrapper @ 0x1405E40F0 (DifKePulseEventWrapper.c)
- *     MiPulseLowAvailableEvent @ 0x140653820 (MiPulseLowAvailableEvent.c)
- *     MiPulseCommitSignal @ 0x140656474 (MiPulseCommitSignal.c)
- *     NtPulseEvent @ 0x1406B2610 (NtPulseEvent.c)
- *     MiAddPhysicalMemory @ 0x140A2B6C8 (MiAddPhysicalMemory.c)
- *     MiRemovePhysicalMemory @ 0x140A2CC4C (MiRemovePhysicalMemory.c)
+ *     MmResourcesAvailable @ 0x1402AF160 (MmResourcesAvailable.c)
+ *     KeBalanceSetManager @ 0x1403946E0 (KeBalanceSetManager.c)
+ *     DifKePulseEventWrapper @ 0x1405E4660 (DifKePulseEventWrapper.c)
+ *     MiPulseLowAvailableEvent @ 0x140653D70 (MiPulseLowAvailableEvent.c)
+ *     MiPulseCommitSignal @ 0x1406569C4 (MiPulseCommitSignal.c)
+ *     NtPulseEvent @ 0x1406B2640 (NtPulseEvent.c)
+ *     MiAddPhysicalMemory @ 0x140A2B978 (MiAddPhysicalMemory.c)
+ *     MiRemovePhysicalMemory @ 0x140A2CEFC (MiRemovePhysicalMemory.c)
  * Callees:
- *     KiTryUnwaitThread @ 0x140238CD0 (KiTryUnwaitThread.c)
- *     KiExitDispatcher @ 0x14023CD70 (KiExitDispatcher.c)
- *     KiAcquireKobjectLockSafe @ 0x140252030 (KiAcquireKobjectLockSafe.c)
- *     KiInsertQueueDpc @ 0x140254790 (KiInsertQueueDpc.c)
- *     KiWakeQueueWaiter @ 0x1402B8780 (KiWakeQueueWaiter.c)
- *     KiWakeOtherQueueWaiters @ 0x14031AC98 (KiWakeOtherQueueWaiters.c)
- *     KeIsThreadRunning @ 0x14056EDD0 (KeIsThreadRunning.c)
- *     EtwTraceEnqueueWork @ 0x1405FCD0C (EtwTraceEnqueueWork.c)
+ *     KiTryUnwaitThread @ 0x140238DA0 (KiTryUnwaitThread.c)
+ *     KiExitDispatcher @ 0x14023CE40 (KiExitDispatcher.c)
+ *     KiAcquireKobjectLockSafe @ 0x1402520F0 (KiAcquireKobjectLockSafe.c)
+ *     KiInsertQueueDpc @ 0x140254850 (KiInsertQueueDpc.c)
+ *     KiWakeQueueWaiter @ 0x1402B8A10 (KiWakeQueueWaiter.c)
+ *     KiWakeOtherQueueWaiters @ 0x14031AF28 (KiWakeOtherQueueWaiters.c)
+ *     KeIsThreadRunning @ 0x14056F310 (KeIsThreadRunning.c)
+ *     EtwTraceEnqueueWork @ 0x1405FD27C (EtwTraceEnqueueWork.c)
  */
 
 LONG __stdcall KePulseEvent(PRKEVENT Event, KPRIORITY Increment, BOOLEAN Wait)
@@ -66,7 +66,7 @@ LONG __stdcall KePulseEvent(PRKEVENT Event, KPRIORITY Increment, BOOLEAN Wait)
   CurrentIrql = KeGetCurrentIrql();
   v40 = CurrentIrql;
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 2 )
@@ -107,7 +107,7 @@ LONG __stdcall KePulseEvent(PRKEVENT Event, KPRIORITY Increment, BOOLEAN Wait)
           p_Blink = &Blink->Blink;
           v32 = KeGetCurrentIrql();
           __writecr8(2uLL);
-          if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v32 <= 0xFu )
+          if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v32 <= 0xFu )
           {
             v33 = KeGetCurrentPrcb()->SchedulerAssist;
             if ( v32 == 2 )
@@ -190,7 +190,7 @@ LABEL_73:
           v21 = &v20->Blink;
           v22 = KeGetCurrentIrql();
           __writecr8(2uLL);
-          if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v22 <= 0xFu )
+          if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v22 <= 0xFu )
           {
             v23 = KeGetCurrentPrcb()->SchedulerAssist;
             if ( v22 == 2 )

@@ -3,10 +3,10 @@
  * Callers:
  *     <none>
  * Callees:
- *     LpcpRequestWaitReplyPort @ 0x140965F28 (LpcpRequestWaitReplyPort.c)
+ *     sub_140965F28 @ 0x140965F28 (sub_140965F28.c)
  */
 
 __int64 __fastcall LpcRequestWaitReplyPort(__int64 a1)
 {
-  return LpcpRequestWaitReplyPort(a1);
+  return sub_140965F28(a1);
 }

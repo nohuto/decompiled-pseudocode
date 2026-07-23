@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlDecompressFragmentLZNT1 @ 0x18014D110
+ * XREFs of RtlDecompressFragmentLZNT1 @ 0x18014B4D0
  * Callers:
  *     <none>
  * Callees:
- *     LZNT1DecompressChunk @ 0x180166480 (LZNT1DecompressChunk.c)
- *     memmove @ 0x180167400 (memmove.c)
+ *     LZNT1DecompressChunk @ 0x180164840 (LZNT1DecompressChunk.c)
+ *     memmove @ 0x1801657C0 (memmove.c)
  */
 
 __int64 __fastcall RtlDecompressFragmentLZNT1(

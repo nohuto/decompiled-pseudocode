@@ -1,11 +1,11 @@
 /*
- * XREFs of PnpSerializeBoot @ 0x1405D875C
+ * XREFs of PnpSerializeBoot @ 0x1405DAF5C
  * Callers:
- *     NtSerializeBoot @ 0x1408A6EA0 (NtSerializeBoot.c)
- *     IoInitSystem @ 0x140CBAC00 (IoInitSystem.c)
+ *     NtSerializeBoot @ 0x1408AD310 (NtSerializeBoot.c)
+ *     IoInitSystem @ 0x140CC0C78 (IoInitSystem.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     McTemplateK0_EtwWriteTransfer @ 0x1405CA5D0 (McTemplateK0_EtwWriteTransfer.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     McTemplateK0_EtwWriteTransfer @ 0x1405CCEA0 (McTemplateK0_EtwWriteTransfer.c)
  */
 
 __int64 PnpSerializeBoot()

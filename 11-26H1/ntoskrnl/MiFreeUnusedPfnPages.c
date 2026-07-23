@@ -1,11 +1,11 @@
 /*
- * XREFs of MiFreeUnusedPfnPages @ 0x1406E88D0
+ * XREFs of MiFreeUnusedPfnPages @ 0x1406ED570
  * Callers:
- *     MiInitNucleus @ 0x140CF2CBC (MiInitNucleus.c)
+ *     MiInitNucleus @ 0x140CF903C (MiInitNucleus.c)
  * Callees:
- *     KeGenericCallDpcEx @ 0x1403C2284 (KeGenericCallDpcEx.c)
- *     MiLockDynamicMemoryExclusive @ 0x1405278F0 (MiLockDynamicMemoryExclusive.c)
- *     MiUnlockDynamicMemoryExclusive @ 0x14052A718 (MiUnlockDynamicMemoryExclusive.c)
+ *     KeGenericCallDpcEx @ 0x1403CC184 (KeGenericCallDpcEx.c)
+ *     MiLockDynamicMemoryExclusive @ 0x140529F60 (MiLockDynamicMemoryExclusive.c)
+ *     MiUnlockDynamicMemoryExclusive @ 0x14052CC38 (MiUnlockDynamicMemoryExclusive.c)
  */
 
 void __fastcall MiFreeUnusedPfnPages(ULONG *a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)

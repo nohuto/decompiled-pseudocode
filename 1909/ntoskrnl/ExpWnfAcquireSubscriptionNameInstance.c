@@ -14,7 +14,7 @@ __int64 __fastcall ExpWnfAcquireSubscriptionNameInstance(__int64 a1, __int64 a2)
 {
   __int64 v3; // rsi
   unsigned __int64 *v4; // rbx
-  __int64 v5; // rdi
+  PRTL_BALANCED_NODE v5; // rdi
   struct _EX_RUNDOWN_REF *v6; // rcx
 
   v3 = 0LL;
@@ -23,7 +23,7 @@ __int64 __fastcall ExpWnfAcquireSubscriptionNameInstance(__int64 a1, __int64 a2)
   if ( _InterlockedCompareExchange64((volatile signed __int64 *)v4, 17LL, 0LL) )
     ExfAcquirePushLockSharedEx(v4, v5, (ULONG_PTR)v4);
   if ( v5 )
-    *(_BYTE *)(v5 + 26) |= 1u;
+    BYTE2(v5[1].Left) |= 1u;
   v6 = *(struct _EX_RUNDOWN_REF **)(a2 + 48);
   if ( v6 && ExAcquireRundownProtection_0(v6 + 1) )
     v3 = *(_QWORD *)(a2 + 48);

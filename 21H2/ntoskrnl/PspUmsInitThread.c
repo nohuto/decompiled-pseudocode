@@ -1,14 +1,14 @@
 /*
- * XREFs of PspUmsInitThread @ 0x14090A74C
+ * XREFs of PspUmsInitThread @ 0x14090A8AC
  * Callers:
- *     PspAllocateThread @ 0x14064B048 (PspAllocateThread.c)
+ *     PspAllocateThread @ 0x14063FE68 (PspAllocateThread.c)
  * Callees:
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
- *     KeInitializeUmsThread @ 0x1408BD4D4 (KeInitializeUmsThread.c)
- *     KeSetUmsThreadKernelLock @ 0x1408BD618 (KeSetUmsThreadKernelLock.c)
- *     KeUpdateUmsThreadState @ 0x1408BD75C (KeUpdateUmsThreadState.c)
- *     PspUmsInitializeContext @ 0x14090A834 (PspUmsInitializeContext.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     ObReferenceObjectByHandle @ 0x140707FA0 (ObReferenceObjectByHandle.c)
+ *     KeInitializeUmsThread @ 0x1408BD634 (KeInitializeUmsThread.c)
+ *     KeSetUmsThreadKernelLock @ 0x1408BD778 (KeSetUmsThreadKernelLock.c)
+ *     KeUpdateUmsThreadState @ 0x1408BD8BC (KeUpdateUmsThreadState.c)
+ *     PspUmsInitializeContext @ 0x14090A994 (PspUmsInitializeContext.c)
  */
 
 NTSTATUS __fastcall PspUmsInitThread(__int64 a1, KPROCESSOR_MODE a2, __int64 a3, __int64 a4)

@@ -1,15 +1,15 @@
 /*
- * XREFs of PfLockSharedAcquire @ 0x1400064A4
+ * XREFs of PfLockSharedAcquire @ 0x140006614
  * Callers:
- *     PfpRpCHashDeleteEntries @ 0x1403E4C14 (PfpRpCHashDeleteEntries.c)
- *     PfSnGetPrefetchInstructions @ 0x1403E524C (PfSnGetPrefetchInstructions.c)
- *     PfSnIsHostingApplication @ 0x1403E6324 (PfSnIsHostingApplication.c)
- *     PfCheckDeprioritizeImage @ 0x1403E6698 (PfCheckDeprioritizeImage.c)
- *     PfQuerySuperfetchInformation @ 0x140418550 (PfQuerySuperfetchInformation.c)
- *     PfSnQueryPrefetcherInformation @ 0x1404D8920 (PfSnQueryPrefetcherInformation.c)
+ *     PfpRpCHashDeleteEntries @ 0x1403E6240 (PfpRpCHashDeleteEntries.c)
+ *     PfSnGetPrefetchInstructions @ 0x1403E6878 (PfSnGetPrefetchInstructions.c)
+ *     PfSnIsHostingApplication @ 0x1403E7954 (PfSnIsHostingApplication.c)
+ *     PfCheckDeprioritizeImage @ 0x1403E7CC8 (PfCheckDeprioritizeImage.c)
+ *     PfQuerySuperfetchInformation @ 0x140417410 (PfQuerySuperfetchInformation.c)
+ *     PfSnQueryPrefetcherInformation @ 0x1404BBF24 (PfSnQueryPrefetcherInformation.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockSharedEx @ 0x1400C8280 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1400C6120 (ExfAcquirePushLockSharedEx.c)
  */
 
 __int64 __fastcall PfLockSharedAcquire(volatile signed __int64 *a1)

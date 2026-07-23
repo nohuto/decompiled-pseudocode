@@ -1,13 +1,13 @@
 /*
- * XREFs of LdrpResReportResourceAccessInternalInitOnce @ 0x18015DD20
+ * XREFs of LdrpResReportResourceAccessInternalInitOnce @ 0x18015DBE0
  * Callers:
  *     <none>
  * Callees:
- *     TraceLoggingRegisterEx_EtwEventRegister_EtwEventSetInformation @ 0x18016F69C (TraceLoggingRegisterEx_EtwEventRegister_EtwEventSetInformation.c)
+ *     TraceLoggingRegisterEx_EtwEventRegister_EtwEventSetInformation @ 0x18016E69C (TraceLoggingRegisterEx_EtwEventRegister_EtwEventSetInformation.c)
  */
 
-__int64 LdrpResReportResourceAccessInternalInitOnce()
+__int64 __fastcall LdrpResReportResourceAccessInternalInitOnce(PRTL_RUN_ONCE a1, PVOID a2, PVOID *a3)
 {
-  TraceLoggingRegisterEx_EtwEventRegister_EtwEventSetInformation(&dword_1801C5990);
+  TraceLoggingRegisterEx_EtwEventRegister_EtwEventSetInformation(&dword_1801C4990);
   return 1LL;
 }

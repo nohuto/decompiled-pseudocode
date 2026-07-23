@@ -1,9 +1,9 @@
 /*
- * XREFs of VfMiscObReferenceObjectByHandle_Exit @ 0x140AE0560
+ * XREFs of VfMiscObReferenceObjectByHandle_Exit @ 0x140AE0550
  * Callers:
  *     <none>
  * Callees:
- *     VerifierBugCheckIfAppropriate @ 0x140ACD2B4 (VerifierBugCheckIfAppropriate.c)
+ *     VerifierBugCheckIfAppropriate @ 0x140ACD2A4 (VerifierBugCheckIfAppropriate.c)
  */
 
 __int64 __fastcall VfMiscObReferenceObjectByHandle_Exit(__int64 a1)

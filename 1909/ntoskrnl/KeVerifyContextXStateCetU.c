@@ -86,13 +86,7 @@ __int64 __fastcall KeVerifyContextXStateCetU(__int64 a1, _DWORD *a2)
     }
     if ( *(_QWORD *)v6 == 1LL && *((_QWORD *)v6 + 1) >= (unsigned __int64)v14 )
     {
-      ZwQueryVirtualMemory(
-        (HANDLE)0xFFFFFFFFFFFFFFFFLL,
-        v14,
-        MemoryBasicVlmInformation,
-        MemoryInformation,
-        0x28uLL,
-        0LL);
+      ZwQueryVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, v14, MemoryRegionInformation, MemoryInformation, 0x28uLL, 0LL);
       if ( *((_QWORD *)v6 + 1) <= (unsigned __int64)(MemoryInformation[2] + MemoryInformation[0] - 4096LL) )
         return 0LL;
     }

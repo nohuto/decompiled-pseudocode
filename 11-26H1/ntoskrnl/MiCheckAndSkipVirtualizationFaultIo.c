@@ -1,11 +1,11 @@
 /*
- * XREFs of MiCheckAndSkipVirtualizationFaultIo @ 0x1406FF4E8
+ * XREFs of MiCheckAndSkipVirtualizationFaultIo @ 0x1407041B8
  * Callers:
- *     MiResolveMappedFileFaultInitialize @ 0x14036F9B8 (MiResolveMappedFileFaultInitialize.c)
- *     MiEvaluatePageFileRead @ 0x140370440 (MiEvaluatePageFileRead.c)
+ *     MiResolveMappedFileFaultInitialize @ 0x140371768 (MiResolveMappedFileFaultInitialize.c)
+ *     MiEvaluatePageFileRead @ 0x1403721F0 (MiEvaluatePageFileRead.c)
  * Callees:
- *     MiIsVirtualizationFaultPrimaryPage @ 0x1404F650C (MiIsVirtualizationFaultPrimaryPage.c)
- *     MiMarkVirtualizationFaultPageInfoFailed @ 0x1404F9184 (MiMarkVirtualizationFaultPageInfoFailed.c)
+ *     MiIsVirtualizationFaultPrimaryPage @ 0x1404EFB1C (MiIsVirtualizationFaultPrimaryPage.c)
+ *     MiMarkVirtualizationFaultPageInfoFailed @ 0x1404F2794 (MiMarkVirtualizationFaultPageInfoFailed.c)
  */
 
 __int64 __fastcall MiCheckAndSkipVirtualizationFaultIo(__int64 a1, __int64 a2, __int64 a3, unsigned __int16 a4)

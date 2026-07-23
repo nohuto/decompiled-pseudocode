@@ -1,16 +1,16 @@
 /*
- * XREFs of MiUnlockPageTable @ 0x140322DB0
+ * XREFs of MiUnlockPageTable @ 0x1402CB940
  * Callers:
- *     MiProtectLargeKernelHalRange @ 0x1407E7EC0 (MiProtectLargeKernelHalRange.c)
+ *     MiProtectLargeKernelHalRange @ 0x1407E8490 (MiProtectLargeKernelHalRange.c)
  * Callees:
- *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x1402465FC (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14025E408 (KiRemoveSystemWorkPriorityKick.c)
- *     KiReleaseQueuedSpinLockInstrumented @ 0x140321C90 (KiReleaseQueuedSpinLockInstrumented.c)
- *     KxWaitForLockChainValid @ 0x140321D40 (KxWaitForLockChainValid.c)
- *     KiHaltOnAddressWakeEntireList @ 0x140321D94 (KiHaltOnAddressWakeEntireList.c)
- *     KeDisableInterrupts @ 0x140321E80 (KeDisableInterrupts.c)
- *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x140379F24 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x140219638 (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14028EA18 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiReleaseQueuedSpinLockInstrumented @ 0x1402CA820 (KiReleaseQueuedSpinLockInstrumented.c)
+ *     KxWaitForLockChainValid @ 0x1402CA8D0 (KxWaitForLockChainValid.c)
+ *     KiHaltOnAddressWakeEntireList @ 0x1402CA924 (KiHaltOnAddressWakeEntireList.c)
+ *     KeDisableInterrupts @ 0x1402CAA10 (KeDisableInterrupts.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x1402E6E94 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 char __fastcall MiUnlockPageTable(__int64 a1, unsigned __int64 a2)
@@ -80,7 +80,7 @@ char __fastcall MiUnlockPageTable(__int64 a1, unsigned __int64 a2)
       v11 = KeDisableInterrupts();
       LOBYTE(v3) = (unsigned __int8)KiHaltOnAddressWakeEntireList(
                                       v12,
-                                      _InterlockedExchange64((volatile __int64 *)(v10 + 8 * v9 + 15863072), 0LL));
+                                      _InterlockedExchange64((volatile __int64 *)(v10 + 8 * v9 + 15863808), 0LL));
       if ( v11 )
       {
         v13 = KeGetCurrentPrcb();
@@ -111,7 +111,7 @@ char __fastcall MiUnlockPageTable(__int64 a1, unsigned __int64 a2)
     {
       v18 = (2 * ((__int64)(a2 + 0x90482413000LL) >> 3)) & 0x1F;
       v3 = (unsigned __int64)(2 * (unsigned int)((__int64)(a2 + 0x90482413000LL) >> 3)) >> 5;
-      _InterlockedAnd(&dword_140E2F0AC[v3], ~(2 << v18) & ~(1 << v18));
+      _InterlockedAnd(&dword_140E2F1EC[v3], ~(2 << v18) & ~(1 << v18));
     }
     else
     {

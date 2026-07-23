@@ -1,18 +1,18 @@
 /*
- * XREFs of MiPrepareEnclaveMetadataPage @ 0x140700050
+ * XREFs of MiPrepareEnclaveMetadataPage @ 0x140704D20
  * Callers:
- *     MiCreateHardwareEnclave @ 0x1408760F0 (MiCreateHardwareEnclave.c)
+ *     MiCreateHardwareEnclave @ 0x14087C4D4 (MiCreateHardwareEnclave.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     MiReleasePtes @ 0x140281CE0 (MiReleasePtes.c)
- *     MiMakeValidPte @ 0x1402DA020 (MiMakeValidPte.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiAllocateEnclavePages @ 0x1403378DC (MiAllocateEnclavePages.c)
- *     MiReturnEnclavePage @ 0x140341F44 (MiReturnEnclavePage.c)
- *     MiReservePtes @ 0x14035DE50 (MiReservePtes.c)
- *     MiUnlinkPageChainHead @ 0x140365EF0 (MiUnlinkPageChainHead.c)
- *     KeCreateEnclaveMetadataPage @ 0x1405EE900 (KeCreateEnclaveMetadataPage.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     MiReleasePtes @ 0x140281250 (MiReleasePtes.c)
+ *     MiMakeValidPte @ 0x1402BBDE0 (MiMakeValidPte.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiAllocateEnclavePages @ 0x14033995C (MiAllocateEnclavePages.c)
+ *     MiReturnEnclavePage @ 0x140343FC4 (MiReturnEnclavePage.c)
+ *     MiReservePtes @ 0x14035FBF0 (MiReservePtes.c)
+ *     MiUnlinkPageChainHead @ 0x140367C90 (MiUnlinkPageChainHead.c)
+ *     KeCreateEnclaveMetadataPage @ 0x1405F1270 (KeCreateEnclaveMetadataPage.c)
  */
 
 __int64 __fastcall MiPrepareEnclaveMetadataPage(__int64 a1, __int64 a2, __int64 a3, unsigned __int64 a4)
@@ -29,14 +29,14 @@ __int64 __fastcall MiPrepareEnclaveMetadataPage(__int64 a1, __int64 a2, __int64 
   result = 0LL;
   v10 = 0LL;
   v11 = 0LL;
-  if ( !stru_140E36558.StackLimit )
+  if ( !stru_140E366D8.StackLimit )
   {
-    v5 = MiReservePtes((__int64)&stru_140E36558.WaitBlockList, 1u, a3, a4);
+    v5 = MiReservePtes((__int64)&stru_140E366D8.WaitBlockList, 1u, a3, a4);
     if ( v5 )
     {
       v6 = -1LL;
-      v7 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)&stru_140E36558.CycleTime);
-      if ( stru_140E36558.StackLimit )
+      v7 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)&stru_140E366D8.CycleTime);
+      if ( stru_140E366D8.StackLimit )
       {
         EnclaveMetadataPage = 0;
       }
@@ -56,7 +56,7 @@ __int64 __fastcall MiPrepareEnclaveMetadataPage(__int64 a1, __int64 a2, __int64 
           if ( EnclaveMetadataPage >= 0 )
           {
             v6 = -1LL;
-            stru_140E36558.StackLimit = (void *volatile)((__int64)(v5 << 25) >> 16);
+            stru_140E366D8.StackLimit = (void *volatile)((__int64)(v5 << 25) >> 16);
             v5 = 0LL;
           }
         }
@@ -66,11 +66,11 @@ __int64 __fastcall MiPrepareEnclaveMetadataPage(__int64 a1, __int64 a2, __int64 
         }
       }
       if ( v7 == 17 )
-        ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)&stru_140E36558.CycleTime);
+        ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)&stru_140E366D8.CycleTime);
       else
-        ExReleaseSpinLockExclusive((PEX_SPIN_LOCK)&stru_140E36558.CycleTime, v7);
+        ExReleaseSpinLockExclusive((PEX_SPIN_LOCK)&stru_140E366D8.CycleTime, v7);
       if ( v5 )
-        MiReleasePtes((__int64)&stru_140E36558.WaitBlockList, (unsigned __int64 *)v5, 1u);
+        MiReleasePtes((__int64)&stru_140E366D8.WaitBlockList, (unsigned __int64 *)v5, 1u);
       if ( v6 != -1 )
         MiReturnEnclavePage(v6, v9);
       return (unsigned int)EnclaveMetadataPage;

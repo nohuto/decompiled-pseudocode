@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpLogCapabilityCheckLatency @ 0x1407ECBD0
+ * XREFs of RtlpLogCapabilityCheckLatency @ 0x1407ECEA0
  * Callers:
- *     RtlCapabilityCheck @ 0x1407ECD50 (RtlCapabilityCheck.c)
+ *     RtlCapabilityCheck @ 0x1407ED020 (RtlCapabilityCheck.c)
  * Callees:
  *     _tlgKeywordOn @ 0x140212E64 (_tlgKeywordOn.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     RtlRunOnceExecuteOnce @ 0x140757D90 (RtlRunOnceExecuteOnce.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6DB4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     RtlRunOnceExecuteOnce @ 0x140757F80 (RtlRunOnceExecuteOnce.c)
  */
 
 signed __int16 __fastcall RtlpLogCapabilityCheckLatency(_QWORD *a1, _QWORD *a2, char a3, char a4, char a5, char a6)
@@ -67,7 +67,7 @@ signed __int16 __fastcall RtlpLogCapabilityCheckLatency(_QWORD *a1, _QWORD *a2, 
                   v28 = 1LL;
                   tlgWriteTransfer_EtwWriteTransfer(
                     (__int64)&dword_140C042A0,
-                    (unsigned __int8 *)word_1400342D2,
+                    (unsigned __int8 *)word_1400343BA,
                     0LL,
                     v11,
                     7u,

@@ -1,15 +1,15 @@
 /*
- * XREFs of SmDeletePartition @ 0x1409D6AE8
+ * XREFs of SmDeletePartition @ 0x1409D6CE8
  * Callers:
- *     MiDeletePartitionResources @ 0x140659488 (MiDeletePartitionResources.c)
+ *     MiDeletePartitionResources @ 0x1406599D8 (MiDeletePartitionResources.c)
  * Callees:
  *     CmSiFreeMemory @ 0x140208C40 (CmSiFreeMemory.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     ExWaitForRundownProtectionRelease @ 0x14030A340 (ExWaitForRundownProtectionRelease.c)
- *     SmPartitionCleanup @ 0x1409D6BB8 (SmPartitionCleanup.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x140231550 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     ExWaitForRundownProtectionRelease @ 0x14030A5D0 (ExWaitForRundownProtectionRelease.c)
+ *     SmPartitionCleanup @ 0x1409D6DB8 (SmPartitionCleanup.c)
  */
 
 void __fastcall SmDeletePartition(__int64 a1)

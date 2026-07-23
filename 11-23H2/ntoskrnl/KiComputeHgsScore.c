@@ -1,8 +1,8 @@
 /*
- * XREFs of KiComputeHgsScore @ 0x140576F50
+ * XREFs of KiComputeHgsScore @ 0x140577440
  * Callers:
- *     KiConfigureHeteroProcessorsTarget @ 0x14056B650 (KiConfigureHeteroProcessorsTarget.c)
- *     KeConfigureHeteroProcessors @ 0x1409728E8 (KeConfigureHeteroProcessors.c)
+ *     KiConfigureHeteroProcessorsTarget @ 0x14056BD10 (KiConfigureHeteroProcessorsTarget.c)
+ *     KeConfigureHeteroProcessors @ 0x140972AE8 (KeConfigureHeteroProcessors.c)
  * Callees:
  *     <none>
  */

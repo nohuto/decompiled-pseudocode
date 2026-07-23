@@ -1,20 +1,20 @@
 /*
- * XREFs of PopPowerAdapterPublishRecState @ 0x1407D9848
+ * XREFs of PopPowerAdapterPublishRecState @ 0x1407DD4A0
  * Callers:
- *     PopBatteryWorker @ 0x1407D7EF0 (PopBatteryWorker.c)
+ *     PopBatteryWorker @ 0x1407DB910 (PopBatteryWorker.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     ExSystemTimeToLocalTime @ 0x140215090 (ExSystemTimeToLocalTime.c)
- *     _tlgCreate1Sz_char @ 0x1403EEB48 (_tlgCreate1Sz_char.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwUpdateWnfStateData @ 0x140727030 (ZwUpdateWnfStateData.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     ExSystemTimeToLocalTime @ 0x1402153C0 (ExSystemTimeToLocalTime.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     _tlgCreate1Sz_char @ 0x140453678 (_tlgCreate1Sz_char.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwUpdateWnfStateData @ 0x14072BC00 (ZwUpdateWnfStateData.c)
  */
 
 __int64 __fastcall PopPowerAdapterPublishRecState(__int64 a1, LARGE_INTEGER *a2)
 {
   unsigned int HighPart; // r14d
-  ULONG updated; // ebx
+  unsigned int updated; // ebx
   __int64 v5; // rbx
   LARGE_INTEGER v6; // rcx
   LARGE_INTEGER v7; // rax
@@ -27,7 +27,7 @@ __int64 __fastcall PopPowerAdapterPublishRecState(__int64 a1, LARGE_INTEGER *a2)
   LARGE_INTEGER v15; // [rsp+48h] [rbp-B8h] BYREF
   LARGE_INTEGER LocalTime; // [rsp+50h] [rbp-B0h] BYREF
   __int64 v17; // [rsp+58h] [rbp-A8h] BYREF
-  char v18; // [rsp+60h] [rbp-A0h] BYREF
+  char Buffer; // [rsp+60h] [rbp-A0h] BYREF
   __int16 v19; // [rsp+61h] [rbp-9Fh]
   char v20; // [rsp+63h] [rbp-9Dh]
   int v21; // [rsp+64h] [rbp-9Ch]
@@ -54,7 +54,7 @@ __int64 __fastcall PopPowerAdapterPublishRecState(__int64 a1, LARGE_INTEGER *a2)
   v20 = 0;
   if ( (HighPart & 4) != 0 )
   {
-    return (ULONG)-1073741101;
+    return (unsigned int)-1073741101;
   }
   else if ( ((*(_DWORD *)(a1 + 4) >> 1) & 3) != ((HighPart >> 1) & 3)
          || *(_QWORD *)(a1 + 24) != a2[3].QuadPart
@@ -83,11 +83,11 @@ __int64 __fastcall PopPowerAdapterPublishRecState(__int64 a1, LARGE_INTEGER *a2)
     v22 = v8;
     v19 = 0;
     v20 = 0;
-    v18 = 0;
+    Buffer = 0;
     v21 = (HighPart >> 1) & 3;
     v23 = v7;
-    updated = ZwUpdateWnfStateData((__int64)&WNF_PO_POWER_ADAPTER_REC_STATUS, (__int64)&v18);
-    if ( (unsigned int)dword_140E07598 > 5 && tlgKeywordOn((__int64)&dword_140E07598, 0x400000000000LL) )
+    updated = ZwUpdateWnfStateData(&WNF_PO_POWER_ADAPTER_REC_STATUS, &Buffer, 0x18u, 0LL, 0LL, 0, 0);
+    if ( (unsigned int)dword_140E07560 > 5 && tlgKeywordOn((__int64)&dword_140E07560, 0x400000000000LL) )
     {
       v9 = "Power Adapter Online";
       if ( (HighPart & 1) == 0 )
@@ -112,8 +112,8 @@ __int64 __fastcall PopPowerAdapterPublishRecState(__int64 a1, LARGE_INTEGER *a2)
       v17 = 0x1000000LL;
       v35 = 8LL;
       tlgWriteTransfer_EtwWriteTransfer(
-        (__int64)&dword_140E07598,
-        (unsigned __int8 *)byte_14004D2CD,
+        (__int64)&dword_140E07560,
+        (unsigned __int8 *)byte_14004EA45,
         0LL,
         0LL,
         9u,

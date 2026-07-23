@@ -1,24 +1,32 @@
 /*
- * XREFs of ZwAlpcSendWaitReceivePort @ 0x1407245B0
+ * XREFs of ZwAlpcSendWaitReceivePort @ 0x140729180
  * Callers:
- *     PopUmpoSendPowerMessage @ 0x140437684 (PopUmpoSendPowerMessage.c)
- *     SepRmDispatchDataToLsa @ 0x1404DDA94 (SepRmDispatchDataToLsa.c)
- *     CmFcpSendFeatureUsageReportAlpcMessage @ 0x1404E9848 (CmFcpSendFeatureUsageReportAlpcMessage.c)
- *     DifZwAlpcSendWaitReceivePortWrapper @ 0x14069BB30 (DifZwAlpcSendWaitReceivePortWrapper.c)
- *     SshpAlpcMessageCallback @ 0x1407E4760 (SshpAlpcMessageCallback.c)
- *     SshpAlpcProcessAlpcMessage @ 0x1407E48A4 (SshpAlpcProcessAlpcMessage.c)
- *     DbgkpSendErrorMessage @ 0x140954DF4 (DbgkpSendErrorMessage.c)
- *     PopUmpoProcessMessages @ 0x140AAA08C (PopUmpoProcessMessages.c)
- *     SepRmCommandServerThread @ 0x140AF0B10 (SepRmCommandServerThread.c)
- *     PopMonitorProcessLoop @ 0x140B24F78 (PopMonitorProcessLoop.c)
- *     IopSendMessageToTrackService @ 0x140B4EAA4 (IopSendMessageToTrackService.c)
+ *     PopUmpoSendPowerMessage @ 0x140426614 (PopUmpoSendPowerMessage.c)
+ *     SepRmDispatchDataToLsa @ 0x1404D7174 (SepRmDispatchDataToLsa.c)
+ *     CmFcpSendFeatureUsageReportAlpcMessage @ 0x1404E2BF8 (CmFcpSendFeatureUsageReportAlpcMessage.c)
+ *     DifZwAlpcSendWaitReceivePortWrapper @ 0x14069F710 (DifZwAlpcSendWaitReceivePortWrapper.c)
+ *     SshpAlpcMessageCallback @ 0x1407EA2C0 (SshpAlpcMessageCallback.c)
+ *     SshpAlpcProcessAlpcMessage @ 0x1407EA404 (SshpAlpcProcessAlpcMessage.c)
+ *     PopUmpoProcessMessages @ 0x140AA766C (PopUmpoProcessMessages.c)
+ *     SepRmCommandServerThread @ 0x140AF3750 (SepRmCommandServerThread.c)
+ *     PopMonitorProcessLoop @ 0x140B27108 (PopMonitorProcessLoop.c)
+ *     IopSendMessageToTrackService @ 0x140B51334 (IopSendMessageToTrackService.c)
+ *     DbgkpSendErrorMessage @ 0x140B5CE74 (DbgkpSendErrorMessage.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwAlpcSendWaitReceivePort(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwAlpcSendWaitReceivePort(
+        HANDLE PortHandle,
+        ULONG Flags,
+        PPORT_MESSAGE SendMessageA,
+        PALPC_MESSAGE_ATTRIBUTES SendMessageAttributes,
+        PPORT_MESSAGE ReceiveMessage,
+        PSIZE_T BufferLength,
+        PALPC_MESSAGE_ATTRIBUTES ReceiveMessageAttributes,
+        PLARGE_INTEGER Timeout)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(PortHandle);
 }

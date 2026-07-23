@@ -1,14 +1,14 @@
 /*
- * XREFs of PoAllProcessorsDeepIdle @ 0x1405CDADC
+ * XREFs of PoAllProcessorsDeepIdle @ 0x1405CB1F8
  * Callers:
- *     PpmIdleEvaluateConstraints @ 0x1404C1970 (PpmIdleEvaluateConstraints.c)
- *     PpmWakeClockOwnerIfNeeded @ 0x1404C8608 (PpmWakeClockOwnerIfNeeded.c)
- *     KePrepareClockTimerForPlatformIdle @ 0x1405B94A0 (KePrepareClockTimerForPlatformIdle.c)
+ *     PpmIdleEvaluateConstraints @ 0x1404BCF60 (PpmIdleEvaluateConstraints.c)
+ *     PpmWakeClockOwnerIfNeeded @ 0x1404C1C54 (PpmWakeClockOwnerIfNeeded.c)
+ *     KePrepareClockTimerForPlatformIdle @ 0x1405B6AE0 (KePrepareClockTimerForPlatformIdle.c)
  * Callees:
- *     KeEnumerateNextSchedulerSubNodeInNode @ 0x1402088E0 (KeEnumerateNextSchedulerSubNodeInNode.c)
- *     KeInitializeSchedulerSubNodeEnumerationContext @ 0x14041DF40 (KeInitializeSchedulerSubNodeEnumerationContext.c)
- *     MmGetNextNode @ 0x14042FCE0 (MmGetNextNode.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     KeEnumerateNextSchedulerSubNodeInNode @ 0x14032FEC0 (KeEnumerateNextSchedulerSubNodeInNode.c)
+ *     KeInitializeSchedulerSubNodeEnumerationContext @ 0x140412310 (KeInitializeSchedulerSubNodeEnumerationContext.c)
+ *     MmGetNextNode @ 0x140421790 (MmGetNextNode.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 char PoAllProcessorsDeepIdle()

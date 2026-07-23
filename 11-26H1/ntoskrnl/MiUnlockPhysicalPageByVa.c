@@ -1,15 +1,15 @@
 /*
- * XREFs of MiUnlockPhysicalPageByVa @ 0x1406EA3E0
+ * XREFs of MiUnlockPhysicalPageByVa @ 0x1406EF080
  * Callers:
  *     <none>
  * Callees:
- *     MiProbeUnlockPage @ 0x14028B900 (MiProbeUnlockPage.c)
- *     MiPteHasShadow @ 0x1403011E0 (MiPteHasShadow.c)
- *     MiUnlockPageTableCharges @ 0x140318F40 (MiUnlockPageTableCharges.c)
- *     MiGetLeafVa @ 0x140326060 (MiGetLeafVa.c)
- *     MiReleaseWalkLocks @ 0x140362F00 (MiReleaseWalkLocks.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     RtlReadULong64FromUser @ 0x14077F554 (RtlReadULong64FromUser.c)
+ *     MiProbeUnlockPage @ 0x14028AE60 (MiProbeUnlockPage.c)
+ *     MiPteHasShadow @ 0x1402E3260 (MiPteHasShadow.c)
+ *     MiUnlockPageTableCharges @ 0x14031AF70 (MiUnlockPageTableCharges.c)
+ *     MiGetLeafVa @ 0x140328090 (MiGetLeafVa.c)
+ *     MiReleaseWalkLocks @ 0x140364CA0 (MiReleaseWalkLocks.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     RtlReadULong64FromUser @ 0x140782054 (RtlReadULong64FromUser.c)
  */
 
 __int64 __fastcall MiUnlockPhysicalPageByVa(__int64 a1, unsigned __int64 a2, int a3)
@@ -76,12 +76,12 @@ __int64 __fastcall MiUnlockPhysicalPageByVa(__int64 a1, unsigned __int64 a2, int
       return 2LL;
     }
     v23 = v7;
-    if ( qword_140E2D740 )
+    if ( qword_140E2D8C0 )
     {
       if ( (v7 & 0x10) != 0 )
         v23 = v7 & 0xFFFFFFFFFFFFFFEFuLL;
       else
-        v23 = v7 & qword_140E2D748;
+        v23 = v7 & qword_140E2D8C8;
     }
     v13 = (v23 >> 12) & 0xFFFFFFFFFFLL;
     goto LABEL_29;

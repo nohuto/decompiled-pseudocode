@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlpA_SHAInit @ 0x18013B440
+ * XREFs of RtlpA_SHAInit @ 0x18013B1B0
  * Callers:
  *     <none>
  * Callees:
- *     SymCryptSha1Init @ 0x180039D20 (SymCryptSha1Init.c)
- *     SymCryptWipeAsm @ 0x180137990 (SymCryptWipeAsm.c)
- *     ScRsa32Compat_Sha1ExportAndWipe @ 0x180158B08 (ScRsa32Compat_Sha1ExportAndWipe.c)
- *     __security_check_cookie @ 0x180162C90 (__security_check_cookie.c)
- *     memset$thunk$772440563353939046 @ 0x180170030 (memset$thunk$772440563353939046.c)
+ *     SymCryptSha1Init @ 0x180024290 (SymCryptSha1Init.c)
+ *     SymCryptWipeAsm @ 0x180137700 (SymCryptWipeAsm.c)
+ *     ScRsa32Compat_Sha1ExportAndWipe @ 0x1801589D8 (ScRsa32Compat_Sha1ExportAndWipe.c)
+ *     __security_check_cookie @ 0x180162B90 (__security_check_cookie.c)
+ *     memset$thunk$772440563353939046 @ 0x18016F030 (memset$thunk$772440563353939046.c)
  */
 
 __int64 __fastcall RtlpA_SHAInit(__int64 a1)

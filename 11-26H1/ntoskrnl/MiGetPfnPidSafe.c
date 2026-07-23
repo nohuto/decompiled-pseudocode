@@ -1,11 +1,11 @@
 /*
- * XREFs of MiGetPfnPidSafe @ 0x140416120
+ * XREFs of MiGetPfnPidSafe @ 0x14040A730
  * Callers:
- *     MiIdentifyPageType @ 0x1402F15C0 (MiIdentifyPageType.c)
- *     MiIdentifyAwePage @ 0x140415764 (MiIdentifyAwePage.c)
- *     MiLogMdlRangeEvent @ 0x1406EE848 (MiLogMdlRangeEvent.c)
+ *     MiIdentifyPageType @ 0x1402D3640 (MiIdentifyPageType.c)
+ *     MiIdentifyAwePage @ 0x140409D94 (MiIdentifyAwePage.c)
+ *     MiLogMdlRangeEvent @ 0x1406F34E8 (MiLogMdlRangeEvent.c)
  * Callees:
- *     MiGetLeafPfnBuddy @ 0x140416870 (MiGetLeafPfnBuddy.c)
+ *     MiGetLeafPfnBuddy @ 0x14040AE80 (MiGetLeafPfnBuddy.c)
  */
 
 __int64 __fastcall MiGetPfnPidSafe(__int64 a1, unsigned int a2)
@@ -28,7 +28,7 @@ __int64 __fastcall MiGetPfnPidSafe(__int64 a1, unsigned int a2)
     return MEMORY[0x1D0];
   if ( v6 - 0x10000000000LL > 1 )
   {
-    v6 = qword_140E37B90 + 16 * (v6 - 1);
+    v6 = qword_140E37D10 + 16 * (v6 - 1);
     return *(unsigned int *)(v6 + 464);
   }
   if ( v6 != 0x10000000001LL || !PsInitialSystemProcess )

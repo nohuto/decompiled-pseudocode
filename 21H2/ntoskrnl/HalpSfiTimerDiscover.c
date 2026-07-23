@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpSfiTimerDiscover @ 0x1403AA74C
+ * XREFs of HalpSfiTimerDiscover @ 0x1403AB4DC
  * Callers:
- *     HalpTimerRegisterBuiltinPlugins @ 0x1403AA5BC (HalpTimerRegisterBuiltinPlugins.c)
+ *     HalpTimerRegisterBuiltinPlugins @ 0x1403AB34C (HalpTimerRegisterBuiltinPlugins.c)
  * Callees:
- *     HalpTimerRegister @ 0x1403ABC00 (HalpTimerRegister.c)
- *     HalRegisterPermanentAddressUsage @ 0x1403AC030 (HalRegisterPermanentAddressUsage.c)
- *     HalSocGetAcpiTable @ 0x1403AC144 (HalSocGetAcpiTable.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
+ *     HalpTimerRegister @ 0x1403AC990 (HalpTimerRegister.c)
+ *     HalRegisterPermanentAddressUsage @ 0x1403ACDC0 (HalRegisterPermanentAddressUsage.c)
+ *     HalSocGetAcpiTable @ 0x1403ACED4 (HalSocGetAcpiTable.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
  */
 
 __int64 HalpSfiTimerDiscover()

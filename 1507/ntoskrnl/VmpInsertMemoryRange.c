@@ -14,26 +14,26 @@
  *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x140264210 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
  */
 
-__int64 __fastcall VmpInsertMemoryRange(__int64 a1, unsigned __int64 a2, _BOOL8 a3)
+__int64 __fastcall VmpInsertMemoryRange(__int64 a1, _RTL_BALANCED_NODE *a2, __int64 a3)
 {
   __int64 v3; // rsi
   unsigned __int8 CurrentIrql; // bp
   __int64 v7; // rax
   unsigned __int64 v8; // r12
-  _QWORD **v9; // r14
+  _RTL_BALANCED_NODE **v9; // r14
   _QWORD *v10; // rdi
   int v11; // eax
   unsigned int v12; // edi
   signed __int32 v13; // eax
   unsigned int v14; // edi
-  _QWORD **v15; // rbp
+  _RTL_BALANCED_NODE **v15; // rbp
   _QWORD *v16; // rdi
   int v17; // eax
-  _QWORD *v18; // rdi
-  _QWORD *v19; // rax
-  _QWORD *v20; // rdi
-  bool v21; // r8
-  _QWORD *v22; // rax
+  _RTL_BALANCED_NODE *v18; // rdi
+  _RTL_BALANCED_NODE *v19; // rax
+  _RTL_BALANCED_NODE *v20; // rdi
+  BOOLEAN v21; // r8
+  _RTL_BALANCED_NODE *v22; // rax
   void *retaddr; // [rsp+38h] [rbp+0h]
 
   v3 = a3;
@@ -72,7 +72,7 @@ __int64 __fastcall VmpInsertMemoryRange(__int64 a1, unsigned __int64 a2, _BOOL8 
     v14 = -1073740007;
     goto LABEL_46;
   }
-  v9 = (_QWORD **)(a1 + 8);
+  v9 = (_RTL_BALANCED_NODE **)(a1 + 8);
   v10 = *(_QWORD **)(a1 + 8);
   if ( v10 )
   {
@@ -94,7 +94,7 @@ __int64 __fastcall VmpInsertMemoryRange(__int64 a1, unsigned __int64 a2, _BOOL8 
     if ( v10 )
       goto LABEL_23;
   }
-  v15 = (_QWORD **)(a1 + 24);
+  v15 = (_RTL_BALANCED_NODE **)(a1 + 24);
   v16 = *(_QWORD **)(a1 + 24);
   if ( v16 )
   {
@@ -126,10 +126,10 @@ LABEL_23:
   {
     while ( 1 )
     {
-      if ( (int)VmpProcessMemoryRangeCompareGpn(a2 + 48, v18, a3) < 0 )
+      if ( (int)VmpProcessMemoryRangeCompareGpn(&a2[2], v18, a3) < 0 )
       {
-        v19 = (_QWORD *)*v18;
-        if ( !*v18 )
+        v19 = v18->Children[0];
+        if ( !v18->Children[0] )
         {
           LOBYTE(a3) = 0;
           break;
@@ -137,7 +137,7 @@ LABEL_23:
       }
       else
       {
-        v19 = (_QWORD *)v18[1];
+        v19 = v18->Children[1];
         if ( !v19 )
         {
           LOBYTE(a3) = 1;
@@ -147,14 +147,14 @@ LABEL_23:
       v18 = v19;
     }
   }
-  RtlRbInsertNodeEx((unsigned __int64 *)(a1 + 8), (unsigned __int64)v18, a3, a2 + 24);
+  RtlRbInsertNodeEx((PRTL_RB_TREE)(a1 + 8), v18, a3, a2 + 1);
   v20 = *v15;
   v21 = 0;
   if ( !*v15 )
     goto LABEL_45;
-  while ( (int)VmpProcessMemoryRangeCompareVpn(a2 + 64, v20) >= 0 )
+  while ( (int)VmpProcessMemoryRangeCompareVpn(&a2[2].16, v20) >= 0 )
   {
-    v22 = (_QWORD *)v20[1];
+    v22 = v20->Children[1];
     if ( !v22 )
     {
       v21 = 1;
@@ -163,12 +163,12 @@ LABEL_23:
 LABEL_43:
     v20 = v22;
   }
-  v22 = (_QWORD *)*v20;
-  if ( *v20 )
+  v22 = v20->Children[0];
+  if ( v20->Children[0] )
     goto LABEL_43;
   v21 = 0;
 LABEL_45:
-  RtlRbInsertNodeEx((unsigned __int64 *)(a1 + 24), (unsigned __int64)v20, v21, a2);
+  RtlRbInsertNodeEx((PRTL_RB_TREE)(a1 + 24), v20, v21, a2);
   v14 = 0;
 LABEL_46:
   if ( (BYTE6(PerfGlobalGroupMask) & 1) != 0 )

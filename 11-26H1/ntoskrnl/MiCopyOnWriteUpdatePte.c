@@ -1,18 +1,18 @@
 /*
- * XREFs of MiCopyOnWriteUpdatePte @ 0x14036B2E0
+ * XREFs of MiCopyOnWriteUpdatePte @ 0x14036D080
  * Callers:
- *     MiCopyOnWrite @ 0x14036AD38 (MiCopyOnWrite.c)
+ *     MiCopyOnWrite @ 0x14036CAD8 (MiCopyOnWrite.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiFlushSingleTbEntry @ 0x140285050 (MiFlushSingleTbEntry.c)
- *     MiBadShareCount @ 0x1402DC710 (MiBadShareCount.c)
- *     MiPfnShareCountIsZero @ 0x1402DC770 (MiPfnShareCountIsZero.c)
- *     MiChargeCommit @ 0x1402F64A0 (MiChargeCommit.c)
- *     MiPteHasShadow @ 0x1403011E0 (MiPteHasShadow.c)
- *     MiWritePteShadow @ 0x14031C28C (MiWritePteShadow.c)
- *     MiDecrementCombinedPteEx @ 0x14036A1BC (MiDecrementCombinedPteEx.c)
- *     MiLocateCloneAddress @ 0x14036BA4C (MiLocateCloneAddress.c)
- *     MiDecrementCloneBlockReference @ 0x1404AFB30 (MiDecrementCloneBlockReference.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiFlushSingleTbEntry @ 0x1402845B0 (MiFlushSingleTbEntry.c)
+ *     MiBadShareCount @ 0x1402BE4D0 (MiBadShareCount.c)
+ *     MiPfnShareCountIsZero @ 0x1402BE530 (MiPfnShareCountIsZero.c)
+ *     MiChargeCommit @ 0x1402D8520 (MiChargeCommit.c)
+ *     MiPteHasShadow @ 0x1402E3260 (MiPteHasShadow.c)
+ *     MiWritePteShadow @ 0x14031E2BC (MiWritePteShadow.c)
+ *     MiDecrementCombinedPteEx @ 0x14036BF5C (MiDecrementCombinedPteEx.c)
+ *     MiLocateCloneAddress @ 0x14036D7EC (MiLocateCloneAddress.c)
+ *     MiDecrementCloneBlockReference @ 0x1404A91C0 (MiDecrementCloneBlockReference.c)
  */
 
 ULONG_PTR __fastcall MiCopyOnWriteUpdatePte(__int64 a1, __int64 a2, char a3)

@@ -1,13 +1,13 @@
 /*
- * XREFs of CmpInvalidateSubtree @ 0x140B474C4
+ * XREFs of CmpInvalidateSubtree @ 0x140B494F4
  * Callers:
- *     CmpSaveBootControlSet @ 0x14084CBB8 (CmpSaveBootControlSet.c)
- *     CmRenameKey @ 0x140857A3C (CmRenameKey.c)
- *     CmpInvalidateAllHigherLayerKcbsPostCallback @ 0x14085ED40 (CmpInvalidateAllHigherLayerKcbsPostCallback.c)
- *     CmpTransMgrFreeVolatileData @ 0x1408BC6D0 (CmpTransMgrFreeVolatileData.c)
- *     CmRestoreKey @ 0x140986024 (CmRestoreKey.c)
+ *     CmpSaveBootControlSet @ 0x140852EC8 (CmpSaveBootControlSet.c)
+ *     CmRenameKey @ 0x14085DDCC (CmRenameKey.c)
+ *     CmpInvalidateAllHigherLayerKcbsPostCallback @ 0x140865030 (CmpInvalidateAllHigherLayerKcbsPostCallback.c)
+ *     CmpTransMgrFreeVolatileData @ 0x1408C2CA0 (CmpTransMgrFreeVolatileData.c)
+ *     CmRestoreKey @ 0x140947D24 (CmRestoreKey.c)
  * Callees:
- *     CmpEnumerateAllOpenSubKeys @ 0x1408AF75C (CmpEnumerateAllOpenSubKeys.c)
+ *     CmpEnumerateAllOpenSubKeys @ 0x1408B5C5C (CmpEnumerateAllOpenSubKeys.c)
  */
 
 __int64 __fastcall CmpInvalidateSubtree(__int64 a1, int a2, int a3, __int64 a4, unsigned int *a5)

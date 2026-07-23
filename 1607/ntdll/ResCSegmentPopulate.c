@@ -3,7 +3,7 @@
  * Callers:
  *     ResCSegmentCreateAndPopulate @ 0x180106000 (ResCSegmentCreateAndPopulate.c)
  * Callees:
- *     RtlSetLastWin32Error @ 0x18005A470 (RtlSetLastWin32Error.c)
+ *     RtlSetLastWin32Error @ 0x18005A460 (RtlSetLastWin32Error.c)
  */
 
 __int64 __fastcall ResCSegmentPopulate(__int64 a1, __int64 a2, unsigned int a3)
@@ -12,7 +12,7 @@ __int64 __fastcall ResCSegmentPopulate(__int64 a1, __int64 a2, unsigned int a3)
   unsigned int v5; // ecx
   unsigned int v6; // eax
   int v7; // ecx
-  unsigned int v8; // ecx
+  LONG v8; // ecx
 
   v3 = 0;
   if ( a3 - 1 <= 0x105E

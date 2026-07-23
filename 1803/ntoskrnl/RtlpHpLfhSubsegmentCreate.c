@@ -36,7 +36,7 @@ unsigned __int64 __fastcall RtlpHpLfhSubsegmentCreate(__int64 a1, __int64 a2, un
   unsigned int v21; // eax
   unsigned int v22; // eax
   int v23; // r12d
-  union _SLIST_HEADER *v24; // rcx
+  _SLIST_HEADER *v24; // rcx
   PSLIST_ENTRY v25; // rsi
   unsigned int v26; // edx
   unsigned int v27; // ebx
@@ -91,7 +91,7 @@ unsigned __int64 __fastcall RtlpHpLfhSubsegmentCreate(__int64 a1, __int64 a2, un
     v30 = -1;
   else
     v30 = RtlpHpAcquireLockShared((volatile LONG *)(a1 + 96), *(unsigned __int8 *)(a1 + 64));
-  v24 = (union _SLIST_HEADER *)(a1 + 16 * (v12 - 12 + 7LL));
+  v24 = (_SLIST_HEADER *)(a1 + 16 * (v12 - 12 + 7LL));
   if ( LOWORD(v24->Alignment) )
     v25 = RtlpInterlockedPopEntrySList(v24);
   else

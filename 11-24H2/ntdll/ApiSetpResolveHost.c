@@ -1,14 +1,14 @@
 /*
- * XREFs of ApiSetpResolveHost @ 0x180135C7C
+ * XREFs of ApiSetpResolveHost @ 0x180133EAC
  * Callers:
- *     ApiSetResolveToHost @ 0x18005B040 (ApiSetResolveToHost.c)
- *     ApiSetResolveToHostA_V7 @ 0x180135C28 (ApiSetResolveToHostA_V7.c)
+ *     ApiSetResolveToHost @ 0x180070C20 (ApiSetResolveToHost.c)
+ *     ApiSetResolveToHostA_V7 @ 0x180133E58 (ApiSetResolveToHostA_V7.c)
  * Callees:
- *     ApiSetpGetContractKeyInfo @ 0x18013600C (ApiSetpGetContractKeyInfo.c)
- *     ApiSetpGetSearchKeyHash @ 0x180136420 (ApiSetpGetSearchKeyHash.c)
- *     ApiSetpSearchForHostOverrideIndex_V7 @ 0x1801365C4 (ApiSetpSearchForHostOverrideIndex_V7.c)
- *     ApiSetpSearchForSectionIndex_V7 @ 0x18013666C (ApiSetpSearchForSectionIndex_V7.c)
- *     ApiSetpIsFeatureEnabled @ 0x180136718 (ApiSetpIsFeatureEnabled.c)
+ *     ApiSetpGetContractKeyInfo @ 0x18013423C (ApiSetpGetContractKeyInfo.c)
+ *     ApiSetpGetSearchKeyHash @ 0x180134650 (ApiSetpGetSearchKeyHash.c)
+ *     ApiSetpSearchForHostOverrideIndex_V7 @ 0x1801347F4 (ApiSetpSearchForHostOverrideIndex_V7.c)
+ *     ApiSetpSearchForSectionIndex_V7 @ 0x18013489C (ApiSetpSearchForSectionIndex_V7.c)
+ *     ApiSetpIsFeatureEnabled @ 0x180134948 (ApiSetpIsFeatureEnabled.c)
  */
 
 __int64 __fastcall ApiSetpResolveHost(__int64 a1, __int64 a2, __int64 a3, char a4, __int64 a5, char *a6, __int64 a7)
@@ -41,22 +41,23 @@ __int64 __fastcall ApiSetpResolveHost(__int64 a1, __int64 a2, __int64 a3, char a
   unsigned int v33; // eax
   __int64 v34; // rcx
   __int64 v35; // rdx
-  __int128 v37; // [rsp+30h] [rbp-30h] BYREF
-  __int128 v38; // [rsp+40h] [rbp-20h]
-  __int64 v39; // [rsp+50h] [rbp-10h]
+  int v37; // [rsp+20h] [rbp-40h]
+  __int128 v38; // [rsp+30h] [rbp-30h] BYREF
+  __int128 v39; // [rsp+40h] [rbp-20h]
+  __int64 v40; // [rsp+50h] [rbp-10h]
 
   v8 = a3;
-  v39 = 0LL;
+  v40 = 0LL;
   LOBYTE(a3) = a4;
   v9 = 0;
   *(_OWORD *)a7 = 0LL;
-  v37 = 0LL;
   v38 = 0LL;
-  if ( !(unsigned __int8)ApiSetpGetContractKeyInfo(a2, v8, a3, &v37) )
+  v39 = 0LL;
+  if ( !(unsigned __int8)ApiSetpGetContractKeyInfo(a2, v8, a3, &v38) )
     goto LABEL_27;
-  if ( HIDWORD(v37) == 1 )
+  if ( HIDWORD(v38) == 1 )
   {
-    v26 = ApiSetpSearchForSectionIndex_V7(a1, a1 + 44, &v37);
+    v26 = ApiSetpSearchForSectionIndex_V7(a1, a1 + 44, &v38);
     if ( v26 == 0xFFFF )
       goto LABEL_27;
     v13 = *(unsigned __int16 *)(a1 + 18);
@@ -64,7 +65,7 @@ __int64 __fastcall ApiSetpResolveHost(__int64 a1, __int64 a2, __int64 a3, char a
     LOBYTE(v29) = (*(_BYTE *)(a1 + 2) & 0x10) != 0;
     v30 = a1 + *(unsigned __int8 *)(a1 + 52) * (unsigned __int64)v26 - v13 + *(unsigned int *)(a1 + 44);
     LOBYTE(v28) = (*(_BYTE *)(a1 + 2) & 8) != 0;
-    if ( *(_DWORD *)v30 != (unsigned int)ApiSetpGetSearchKeyHash((unsigned int)&v37, v27, v28, v29, *(_BYTE *)(a1 + 55)) )
+    if ( *(_DWORD *)v30 != (unsigned int)ApiSetpGetSearchKeyHash((unsigned int)&v38, v27, v28, v29, *(_BYTE *)(a1 + 55)) )
       goto LABEL_27;
     v16 = *(_WORD *)(v30 + 8);
     v17 = *(_BYTE *)(v30 + 10);
@@ -72,19 +73,19 @@ __int64 __fastcall ApiSetpResolveHost(__int64 a1, __int64 a2, __int64 a3, char a
     v19 = *(_WORD *)(v30 + 6);
     goto LABEL_21;
   }
-  if ( HIDWORD(v37) != 2 )
+  if ( HIDWORD(v38) != 2 )
   {
-    if ( HIDWORD(v37) != 3 )
+    if ( HIDWORD(v38) != 3 )
       goto LABEL_27;
-    v10 = ApiSetpSearchForSectionIndex_V7(a1, a1 + 68, &v37);
+    v10 = ApiSetpSearchForSectionIndex_V7(a1, a1 + 68, &v38);
     if ( v10 == 0xFFFF )
       goto LABEL_27;
     v13 = *(unsigned __int16 *)(a1 + 18);
     LOBYTE(v12) = (*(_BYTE *)(a1 + 2) & 0x10) != 0;
     v14 = a1 + *(unsigned __int8 *)(a1 + 76) * (unsigned __int64)v10 - v13 + *(unsigned int *)(a1 + 68);
     LOBYTE(v11) = (*(_BYTE *)(a1 + 2) & 8) != 0;
-    if ( *(_DWORD *)v14 != (unsigned int)ApiSetpGetSearchKeyHash((unsigned int)&v37, 0, v11, v12, *(_BYTE *)(a1 + 79))
-      || (*(_BYTE *)(v14 + 10) & 4) != 0 && (unsigned int)WORD4(v38) > *(unsigned __int8 *)(v14 + 9) )
+    if ( *(_DWORD *)v14 != (unsigned int)ApiSetpGetSearchKeyHash((unsigned int)&v38, 0, v11, v12, *(_BYTE *)(a1 + 79))
+      || (*(_BYTE *)(v14 + 10) & 4) != 0 && (unsigned int)WORD4(v39) > *(unsigned __int8 *)(v14 + 9) )
     {
       goto LABEL_27;
     }
@@ -99,7 +100,7 @@ __int64 __fastcall ApiSetpResolveHost(__int64 a1, __int64 a2, __int64 a3, char a
     goto LABEL_21;
   }
   v9 = 1;
-  v20 = ApiSetpSearchForSectionIndex_V7(a1, a1 + 56, &v37);
+  v20 = ApiSetpSearchForSectionIndex_V7(a1, a1 + 56, &v38);
   if ( v20 != 0xFFFF )
   {
     LOBYTE(v22) = (*(_BYTE *)(a1 + 2) & 0x10) != 0;
@@ -108,7 +109,7 @@ __int64 __fastcall ApiSetpResolveHost(__int64 a1, __int64 a2, __int64 a3, char a
         + v20 * (unsigned __int64)*(unsigned __int8 *)(a1 + 64)
         - *(unsigned __int16 *)(a1 + 18)
         + *(unsigned int *)(a1 + 56);
-    if ( *(_DWORD *)v23 != (unsigned int)ApiSetpGetSearchKeyHash((unsigned int)&v37, 0, v21, v22, *(_BYTE *)(a1 + 67)) )
+    if ( *(_DWORD *)v23 != (unsigned int)ApiSetpGetSearchKeyHash((unsigned int)&v38, 0, v21, v22, *(_BYTE *)(a1 + 67)) )
     {
       v9 = 0;
       goto LABEL_27;
@@ -145,7 +146,8 @@ LABEL_21:
           {
             if ( v16 )
             {
-              v33 = ApiSetpSearchForHostOverrideIndex_V7(a1, v19, v16, *(_QWORD *)(a5 + 8), *(_WORD *)a5 >> 1);
+              LOWORD(v37) = *(_WORD *)a5 >> 1;
+              v33 = ApiSetpSearchForHostOverrideIndex_V7(a1, v19, v16, *(_QWORD *)(a5 + 8), v37);
               if ( v33 != 0xFFFF )
               {
                 v34 = *(unsigned __int16 *)(a1 + 18);

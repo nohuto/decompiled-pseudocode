@@ -1,21 +1,21 @@
 /*
- * XREFs of SdbResolveDatabaseEx @ 0x140886554
+ * XREFs of SdbResolveDatabaseEx @ 0x14088C954
  * Callers:
- *     SdbpOpenLocalDatabaseEx @ 0x14088620C (SdbpOpenLocalDatabaseEx.c)
+ *     SdbpOpenLocalDatabaseEx @ 0x14088C60C (SdbpOpenLocalDatabaseEx.c)
  * Callees:
- *     RtlAppendUnicodeToString @ 0x140432EB0 (RtlAppendUnicodeToString.c)
- *     RtlAppendUnicodeStringToString @ 0x140432F70 (RtlAppendUnicodeStringToString.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     SdbGuestTargetPlatformFlagsToRuntimePlatformFlags @ 0x140886044 (SdbGuestTargetPlatformFlagsToRuntimePlatformFlags.c)
- *     SdbGetPathCustomSdb @ 0x14088645C (SdbGetPathCustomSdb.c)
- *     SdbGetPathSystemSdb @ 0x14088652C (SdbGetPathSystemSdb.c)
- *     AslGuidToString_UStr @ 0x140887D74 (AslGuidToString_UStr.c)
- *     AslUnicodeStringFree @ 0x140888018 (AslUnicodeStringFree.c)
- *     AslRegistryGetUInt32_UStr @ 0x14088859C (AslRegistryGetUInt32_UStr.c)
- *     AslRegistryOpenKey_UStr @ 0x14088868C (AslRegistryOpenKey_UStr.c)
- *     AslAlloc @ 0x1409E4C90 (AslAlloc.c)
- *     AslFree @ 0x1409E6BD8 (AslFree.c)
- *     AslLogCallPrintf @ 0x1409E8884 (AslLogCallPrintf.c)
+ *     RtlAppendUnicodeToString @ 0x14041FEE0 (RtlAppendUnicodeToString.c)
+ *     RtlAppendUnicodeStringToString @ 0x14041FFA0 (RtlAppendUnicodeStringToString.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     SdbGuestTargetPlatformFlagsToRuntimePlatformFlags @ 0x14088C444 (SdbGuestTargetPlatformFlagsToRuntimePlatformFlags.c)
+ *     SdbGetPathCustomSdb @ 0x14088C85C (SdbGetPathCustomSdb.c)
+ *     SdbGetPathSystemSdb @ 0x14088C92C (SdbGetPathSystemSdb.c)
+ *     AslGuidToString_UStr @ 0x14088E170 (AslGuidToString_UStr.c)
+ *     AslUnicodeStringFree @ 0x14088E414 (AslUnicodeStringFree.c)
+ *     AslRegistryGetUInt32_UStr @ 0x14088E998 (AslRegistryGetUInt32_UStr.c)
+ *     AslRegistryOpenKey_UStr @ 0x14088EA88 (AslRegistryOpenKey_UStr.c)
+ *     AslLogCallPrintf @ 0x1409D5294 (AslLogCallPrintf.c)
+ *     AslFree @ 0x1409D6144 (AslFree.c)
+ *     AslAlloc @ 0x1409D8260 (AslAlloc.c)
  */
 
 __int64 __fastcall SdbResolveDatabaseEx(__int64 a1, _QWORD *a2, int *a3, int *a4, _WORD *a5, int a6)

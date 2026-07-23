@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpCovSampCaptureQueueRebalance @ 0x1402C1874
+ * XREFs of EtwpCovSampCaptureQueueRebalance @ 0x14030C534
  * Callers:
- *     EtwpCovSampSampleBufferGet @ 0x1402BFF1C (EtwpCovSampSampleBufferGet.c)
- *     EtwpCovSampLookasidePop @ 0x1402C1E48 (EtwpCovSampLookasidePop.c)
+ *     EtwpCovSampSampleBufferGet @ 0x14030ABE0 (EtwpCovSampSampleBufferGet.c)
+ *     EtwpCovSampLookasidePop @ 0x14030CB08 (EtwpCovSampLookasidePop.c)
  * Callees:
- *     KiInsertQueueDpc @ 0x1402BD330 (KiInsertQueueDpc.c)
+ *     KiInsertQueueDpc @ 0x140307FF0 (KiInsertQueueDpc.c)
  */
 
 __int64 __fastcall EtwpCovSampCaptureQueueRebalance(__int64 a1)

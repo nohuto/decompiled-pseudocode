@@ -1,15 +1,15 @@
 /*
- * XREFs of CmpLockTwoKcbsShared @ 0x1406BC684
+ * XREFs of CmpLockTwoKcbsShared @ 0x1406BD924
  * Callers:
- *     NtNotifyChangeMultipleKeys @ 0x1405CE180 (NtNotifyChangeMultipleKeys.c)
- *     CmQueryMultipleValueKey @ 0x1405D0194 (CmQueryMultipleValueKey.c)
- *     CmQueryKey @ 0x1405D6900 (CmQueryKey.c)
- *     CmpFindSubkeyInHashByChildCell @ 0x1406F81DC (CmpFindSubkeyInHashByChildCell.c)
- *     CmEnumerateValueKeyFromMergedView @ 0x1407F1544 (CmEnumerateValueKeyFromMergedView.c)
- *     CmSaveMergedKeys @ 0x1408022FC (CmSaveMergedKeys.c)
+ *     NtNotifyChangeMultipleKeys @ 0x1405CF180 (NtNotifyChangeMultipleKeys.c)
+ *     CmQueryMultipleValueKey @ 0x1405D1194 (CmQueryMultipleValueKey.c)
+ *     CmQueryKey @ 0x1405D7900 (CmQueryKey.c)
+ *     CmpFindSubkeyInHashByChildCell @ 0x1406F947C (CmpFindSubkeyInHashByChildCell.c)
+ *     CmEnumerateValueKeyFromMergedView @ 0x1407F2744 (CmEnumerateValueKeyFromMergedView.c)
+ *     CmSaveMergedKeys @ 0x1408034FC (CmSaveMergedKeys.c)
  * Callees:
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
- *     CmpGetCorrectKcbLockOrder @ 0x1406BC708 (CmpGetCorrectKcbLockOrder.c)
+ *     CmpGetCorrectKcbLockOrder @ 0x1406BD9A8 (CmpGetCorrectKcbLockOrder.c)
  */
 
 __int64 __fastcall CmpLockTwoKcbsShared(__int64 a1, __int64 a2)

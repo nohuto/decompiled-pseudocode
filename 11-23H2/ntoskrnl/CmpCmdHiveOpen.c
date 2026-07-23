@@ -2,19 +2,19 @@
  * XREFs of CmpCmdHiveOpen @ 0x14068B2C0
  * Callers:
  *     CmLoadKey @ 0x1406957C0 (CmLoadKey.c)
- *     CmLoadAppKey @ 0x140769640 (CmLoadAppKey.c)
- *     CmReplaceKey @ 0x140A156F4 (CmReplaceKey.c)
- *     CmpFlushBackupHive @ 0x140A1A8E8 (CmpFlushBackupHive.c)
+ *     CmLoadAppKey @ 0x140769830 (CmLoadAppKey.c)
+ *     CmReplaceKey @ 0x140A159A4 (CmReplaceKey.c)
+ *     CmpFlushBackupHive @ 0x140A1AB98 (CmpFlushBackupHive.c)
  * Callees:
  *     IoSetThreadHardErrorMode @ 0x140208890 (IoSetThreadHardErrorMode.c)
  *     _tlgKeywordOn @ 0x140212E64 (_tlgKeywordOn.c)
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6DB4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  *     CmpInitHiveFromFile @ 0x14068B418 (CmpInitHiveFromFile.c)
- *     PsReferenceImpersonationTokenEx @ 0x14071D7A0 (PsReferenceImpersonationTokenEx.c)
- *     PsImpersonateClient @ 0x140734A30 (PsImpersonateClient.c)
- *     RtlImpersonateSelfEx @ 0x1407D2D5C (RtlImpersonateSelfEx.c)
+ *     PsReferenceImpersonationTokenEx @ 0x14071D9A0 (PsReferenceImpersonationTokenEx.c)
+ *     PsImpersonateClient @ 0x140734C20 (PsImpersonateClient.c)
+ *     RtlImpersonateSelfEx @ 0x1407D302C (RtlImpersonateSelfEx.c)
  */
 
 __int64 __fastcall CmpCmdHiveOpen(
@@ -34,12 +34,12 @@ __int64 __fastcall CmpCmdHiveOpen(
   int v15; // ecx
   int v16; // edx
   int v17; // r15d
-  int inited; // eax
-  int v19; // ebx
+  NTSTATUS inited; // eax
+  NTSTATUS v19; // ebx
   unsigned int v20; // eax
   int v21; // ecx
   void *v23; // rdi
-  int v24; // eax
+  NTSTATUS v24; // eax
   struct _KTHREAD *CurrentThread; // rcx
   int v26; // [rsp+30h] [rbp-79h]
   int v27; // [rsp+30h] [rbp-79h]
@@ -98,7 +98,7 @@ __int64 __fastcall CmpCmdHiveOpen(
                       &v30,
                       &ImpersonationLevel,
                       0LL);
-      v19 = RtlImpersonateSelfEx(2LL, 0LL, 0LL);
+      v19 = RtlImpersonateSelfEx(SecurityImpersonation, 0, 0LL);
       if ( v19 >= 0 )
       {
         v24 = CmpInitHiveFromFile(a1, v17, v34[0], a3, a5, 0LL, v27, v29, v36, v35);
@@ -110,15 +110,15 @@ __int64 __fastcall CmpCmdHiveOpen(
           PsImpersonateClient(CurrentThread, 0LL, 0, 0, SecurityImpersonation);
         if ( v19 >= 0
           && (a5 & 0x2000000) != 0
-          && (unsigned int)dword_140C043C8 > 5
-          && tlgKeywordOn((__int64)&dword_140C043C8, 0x400000000008LL) )
+          && (unsigned int)dword_140C04390 > 5
+          && tlgKeywordOn((__int64)&dword_140C04390, 0x400000000008LL) )
         {
           *(_QWORD *)v34 = 0x1000000LL;
           v38 = v34;
           v39 = 8LL;
           tlgWriteTransfer_EtwWriteTransfer(
-            (__int64)&dword_140C043C8,
-            (unsigned __int8 *)byte_14003693D,
+            (__int64)&dword_140C04390,
+            (unsigned __int8 *)byte_140036A25,
             0LL,
             0LL,
             3u,

@@ -1,11 +1,11 @@
 /*
- * XREFs of SleepstudyHelperBlockerActiveDereference @ 0x1402BC8A0
+ * XREFs of SleepstudyHelperBlockerActiveDereference @ 0x14023AE30
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     SshpSetBlockerActive @ 0x1402BC9A0 (SshpSetBlockerActive.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     SshpSetBlockerActive @ 0x14023AF30 (SshpSetBlockerActive.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 

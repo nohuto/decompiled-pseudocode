@@ -1,9 +1,9 @@
 /*
- * XREFs of MmStoreChargeResidentAvailableForRead @ 0x140481F1C
+ * XREFs of MmStoreChargeResidentAvailableForRead @ 0x14047B88C
  * Callers:
- *     ?SmFirstTimeInit@@YAJPEAU_SM_PARTITION@@K@Z @ 0x14063CDAC (-SmFirstTimeInit@@YAJPEAU_SM_PARTITION@@K@Z.c)
+ *     ?SmFirstTimeInit@@YAJPEAU_SM_PARTITION@@K@Z @ 0x14064098C (-SmFirstTimeInit@@YAJPEAU_SM_PARTITION@@K@Z.c)
  * Callees:
- *     MiChargePartitionResidentAvailable @ 0x1402F60D0 (MiChargePartitionResidentAvailable.c)
+ *     MiChargePartitionResidentAvailable @ 0x1402D8150 (MiChargePartitionResidentAvailable.c)
  */
 
 __int64 __fastcall MmStoreChargeResidentAvailableForRead(ULONG **a1, __int64 a2)

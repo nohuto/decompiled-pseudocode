@@ -1,5 +1,5 @@
 /*
- * XREFs of VerifierPsGetVersion @ 0x14070CC74
+ * XREFs of VerifierPsGetVersion @ 0x14070CCA4
  * Callers:
  *     <none>
  * Callees:

@@ -1,38 +1,38 @@
 /*
- * XREFs of MiSystemFault @ 0x1402611A0
+ * XREFs of MiSystemFault @ 0x140261430
  * Callers:
- *     MmAccessFault @ 0x140235370 (MmAccessFault.c)
+ *     MmAccessFault @ 0x140235440 (MmAccessFault.c)
  * Callees:
  *     MiGetSessionVm @ 0x14020B11C (MiGetSessionVm.c)
  *     MiGetAnyMultiplexedVm @ 0x1402146B4 (MiGetAnyMultiplexedVm.c)
- *     MiUnlockWorkingSetShared @ 0x14023C500 (MiUnlockWorkingSetShared.c)
- *     MiCheckVirtualAddress @ 0x14025AB00 (MiCheckVirtualAddress.c)
- *     MiHyperSpaceSize @ 0x14025D514 (MiHyperSpaceSize.c)
- *     MiCheckSystemPageTables @ 0x140261930 (MiCheckSystemPageTables.c)
- *     MiSynchronizeSystemVa @ 0x1402619B0 (MiSynchronizeSystemVa.c)
- *     MiResolveDemandZeroFault @ 0x140269D40 (MiResolveDemandZeroFault.c)
- *     MiCopyOnWrite @ 0x14026FDA0 (MiCopyOnWrite.c)
- *     MiUpdatePfnForPrefetchByPte @ 0x140273080 (MiUpdatePfnForPrefetchByPte.c)
- *     MiIsPrototypePteVadLookup @ 0x14027CF00 (MiIsPrototypePteVadLookup.c)
- *     MiGetSystemRegionType @ 0x140284870 (MiGetSystemRegionType.c)
- *     MiUnlockWorkingSetExclusive @ 0x14028A2F0 (MiUnlockWorkingSetExclusive.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7C00 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     MiUnlockSystemVa @ 0x1402EED60 (MiUnlockSystemVa.c)
- *     ExAcquireSpinLockShared @ 0x140314620 (ExAcquireSpinLockShared.c)
- *     MiUnlockPageTableInternal @ 0x1403195C0 (MiUnlockPageTableInternal.c)
- *     MiEmptyDeferredWorkingSetEntries @ 0x140339CD0 (MiEmptyDeferredWorkingSetEntries.c)
- *     MiNoFaultFound @ 0x14033C430 (MiNoFaultFound.c)
- *     KeInvalidAccessAllowed @ 0x140341CF0 (KeInvalidAccessAllowed.c)
- *     MiIsWorkingSetTrimThread @ 0x1403537E0 (MiIsWorkingSetTrimThread.c)
- *     MiCheckSystemNxFault @ 0x140357488 (MiCheckSystemNxFault.c)
- *     KiRspInIstStack @ 0x14035AB90 (KiRspInIstStack.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     memset @ 0x140435A00 (memset.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiGenerateAccessViolation @ 0x140645F8C (MiGenerateAccessViolation.c)
- *     MiTransientPageListWriter @ 0x14064FF08 (MiTransientPageListWriter.c)
- *     MiCopyOnWriteCheckConditions @ 0x140666E20 (MiCopyOnWriteCheckConditions.c)
+ *     MiUnlockWorkingSetShared @ 0x14023C5D0 (MiUnlockWorkingSetShared.c)
+ *     MiCheckVirtualAddress @ 0x14025AD90 (MiCheckVirtualAddress.c)
+ *     MiHyperSpaceSize @ 0x14025D7A4 (MiHyperSpaceSize.c)
+ *     MiCheckSystemPageTables @ 0x140261BC0 (MiCheckSystemPageTables.c)
+ *     MiSynchronizeSystemVa @ 0x140261C40 (MiSynchronizeSystemVa.c)
+ *     MiResolveDemandZeroFault @ 0x140269FD0 (MiResolveDemandZeroFault.c)
+ *     MiCopyOnWrite @ 0x140270030 (MiCopyOnWrite.c)
+ *     MiUpdatePfnForPrefetchByPte @ 0x140273310 (MiUpdatePfnForPrefetchByPte.c)
+ *     MiIsPrototypePteVadLookup @ 0x14027D190 (MiIsPrototypePteVadLookup.c)
+ *     MiGetSystemRegionType @ 0x140284B00 (MiGetSystemRegionType.c)
+ *     MiUnlockWorkingSetExclusive @ 0x14028A580 (MiUnlockWorkingSetExclusive.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7E90 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     MiUnlockSystemVa @ 0x1402EEFF0 (MiUnlockSystemVa.c)
+ *     ExAcquireSpinLockShared @ 0x1403148B0 (ExAcquireSpinLockShared.c)
+ *     MiUnlockPageTableInternal @ 0x140319850 (MiUnlockPageTableInternal.c)
+ *     MiEmptyDeferredWorkingSetEntries @ 0x140339F60 (MiEmptyDeferredWorkingSetEntries.c)
+ *     MiNoFaultFound @ 0x14033C7D0 (MiNoFaultFound.c)
+ *     KeInvalidAccessAllowed @ 0x140341F80 (KeInvalidAccessAllowed.c)
+ *     MiIsWorkingSetTrimThread @ 0x140353980 (MiIsWorkingSetTrimThread.c)
+ *     MiCheckSystemNxFault @ 0x140357628 (MiCheckSystemNxFault.c)
+ *     KiRspInIstStack @ 0x14035AD30 (KiRspInIstStack.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     MiGenerateAccessViolation @ 0x1406464DC (MiGenerateAccessViolation.c)
+ *     MiTransientPageListWriter @ 0x140650458 (MiTransientPageListWriter.c)
+ *     MiCopyOnWriteCheckConditions @ 0x140667370 (MiCopyOnWriteCheckConditions.c)
  */
 
 __int64 __fastcall MiSystemFault(_QWORD *a1)
@@ -182,10 +182,13 @@ LABEL_5:
         v39 = 0LL;
     }
     ExReleaseSpinLockSharedFromDpcLevel(&dword_140C67240);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v40 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v40 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -238,7 +241,7 @@ LABEL_19:
   }
   v17 = &ExpInterlockedPopEntrySListFault;
   v18 = *(_QWORD *)(v12 + 360);
-  if ( KiDynamicTraceEnabled && v18 >= qword_140D1F2A8 && v18 < qword_140D1F2B0 )
+  if ( KiDynamicTraceEnabled && v18 >= ControlPc && v18 < qword_140D1F2B0 )
   {
     v54 = KeGetCurrentIrql();
     v16 = v54 == 15;

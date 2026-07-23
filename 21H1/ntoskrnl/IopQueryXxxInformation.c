@@ -63,7 +63,7 @@ __int64 __fastcall IopQueryXxxInformation(
   {
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->KernelApcDisable;
-    v24 = KeAbPreAcquire((ULONG_PTR)&DmaAdapter[8], 0LL, 0LL);
+    v24 = KeAbPreAcquire((ULONG_PTR)&DmaAdapter[8], 0LL, 0);
     LOBYTE(v28) = 0;
     if ( _InterlockedExchange((volatile __int32 *)(&DmaAdapter[7].Size + 1), 1) )
     {

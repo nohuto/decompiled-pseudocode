@@ -1,15 +1,15 @@
 /*
- * XREFs of KeTryToAcquireQueuedSpinLock @ 0x140571330
+ * XREFs of KeTryToAcquireQueuedSpinLock @ 0x140571870
  * Callers:
- *     DifKeTryToAcquireQueuedSpinLockWrapper @ 0x1405E6090 (DifKeTryToAcquireQueuedSpinLockWrapper.c)
+ *     DifKeTryToAcquireQueuedSpinLockWrapper @ 0x1405E6600 (DifKeTryToAcquireQueuedSpinLockWrapper.c)
  * Callees:
- *     KxTryToAcquireQueuedSpinLock @ 0x140349138 (KxTryToAcquireQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxTryToAcquireQueuedSpinLock @ 0x1403493C8 (KxTryToAcquireQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 LOGICAL __stdcall KeTryToAcquireQueuedSpinLock(KSPIN_LOCK_QUEUE_NUMBER Number, PKIRQL OldIrql)
 {
-  KIRQL CurrentIrql; // bl
+  UCHAR CurrentIrql; // bl
   _DWORD *SchedulerAssist; // r9
   int v5; // eax
   char *v6; // rcx
@@ -21,7 +21,7 @@ LOGICAL __stdcall KeTryToAcquireQueuedSpinLock(KSPIN_LOCK_QUEUE_NUMBER Number, P
 
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     v5 = 4;
@@ -37,10 +37,10 @@ LOGICAL __stdcall KeTryToAcquireQueuedSpinLock(KSPIN_LOCK_QUEUE_NUMBER Number, P
   }
   else
   {
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v7 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v7 <= 0xFu && CurrentIrql <= 0xFu && v7 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v7 <= 0xFu && CurrentIrql <= 0xFu && v7 >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         v9 = CurrentPrcb->SchedulerAssist;

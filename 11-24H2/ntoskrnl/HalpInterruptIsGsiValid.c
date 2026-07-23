@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpInterruptIsGsiValid @ 0x1406FD910
+ * XREFs of HalpInterruptIsGsiValid @ 0x1406FB550
  * Callers:
  *     <none>
  * Callees:
- *     HalpInterruptGsiToLine @ 0x1403B9678 (HalpInterruptGsiToLine.c)
+ *     HalpInterruptGsiToLine @ 0x1403733E0 (HalpInterruptGsiToLine.c)
  */
 
-bool __fastcall HalpInterruptIsGsiValid(__int64 a1)
+bool __fastcall HalpInterruptIsGsiValid(unsigned int a1)
 {
   int v2; // [rsp+38h] [rbp+10h] BYREF
 

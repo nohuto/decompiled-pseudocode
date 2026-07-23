@@ -1,26 +1,36 @@
 /*
- * XREFs of MmStoreDecommitVirtualMemory @ 0x1402D24B4
+ * XREFs of MmStoreDecommitVirtualMemory @ 0x140250884
  * Callers:
- *     ?SmStReleaseVirtualRegion@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@KK@Z @ 0x1402AD0E8 (-SmStReleaseVirtualRegion@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@KK@Z.c)
- *     ?StCompactionPerformEmergency@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@@Z @ 0x14059A2D8 (-StCompactionPerformEmergency@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@@Z.c)
+ *     ?SmStReleaseVirtualRegion@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@KK@Z @ 0x14022B444 (-SmStReleaseVirtualRegion@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@KK@Z.c)
+ *     ?StCompactionPerformEmergency@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@@Z @ 0x14059A508 (-StCompactionPerformEmergency@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@@Z.c)
  * Callees:
- *     MiUnlockWorkingSetShared @ 0x14020F790 (MiUnlockWorkingSetShared.c)
- *     MiLockWorkingSetShared @ 0x140219CB0 (MiLockWorkingSetShared.c)
- *     MiLocateAddress @ 0x14025B810 (MiLocateAddress.c)
- *     MiDecommitPages @ 0x140334820 (MiDecommitPages.c)
+ *     MiLocateAddress @ 0x14027CD80 (MiLocateAddress.c)
+ *     MiUnlockWorkingSetShared @ 0x1402B4090 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x1402BE5B0 (MiLockWorkingSetShared.c)
+ *     MiDecommitPages @ 0x14033F570 (MiDecommitPages.c)
  */
 
-__int64 __fastcall MmStoreDecommitVirtualMemory(unsigned __int64 a1, __int64 a2, __int64 a3, _DWORD *a4)
+__int64 __fastcall MmStoreDecommitVirtualMemory(__int64 a1, __int64 a2)
 {
   _KPROCESS *Process; // rbp
-  unsigned int Address; // edi
-  unsigned __int8 v8; // r10
+  int Address; // eax
+  char v6; // r10
+  __int64 v7; // rdx
+  int v8; // edi
   _BYTE v10[48]; // [rsp+30h] [rbp-38h] BYREF
 
   memset(v10, 0, sizeof(v10));
   Process = KeGetCurrentThread()->ApcState.Process;
-  MiLockWorkingSetShared((__int64)&Process[1].ActiveProcessorsPadding[6], a2, a3, a4);
-  Address = (unsigned int)MiLocateAddress(a1);
-  MiUnlockWorkingSetShared((__int64)&Process[1].ActiveProcessorsPadding[6], v8);
-  return MiDecommitPages(a1, (unsigned int)((a1 + a2 - 1) >> 9) & 0xFFFFFFF8, (_DWORD)Process, Address, 0, (__int64)v10);
+  MiLockWorkingSetShared(&Process[1].ActiveProcessorsPadding[6]);
+  Address = MiLocateAddress(a1);
+  LOBYTE(v7) = v6;
+  v8 = Address;
+  MiUnlockWorkingSetShared(&Process[1].ActiveProcessorsPadding[6], v7);
+  return MiDecommitPages(
+           a1,
+           (unsigned int)((unsigned __int64)(a1 + a2 - 1) >> 9) & 0xFFFFFFF8,
+           (_DWORD)Process,
+           v8,
+           0,
+           (__int64)v10);
 }

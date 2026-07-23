@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpQueryLayerVersionUlong @ 0x1407D7624
+ * XREFs of CmpQueryLayerVersionUlong @ 0x1407D7BD4
  * Callers:
- *     CmpLoadLayerVersion @ 0x1407D6B20 (CmpLoadLayerVersion.c)
+ *     CmpLoadLayerVersion @ 0x1407D7094 (CmpLoadLayerVersion.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwQueryValueKey @ 0x1406A66F0 (ZwQueryValueKey.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwQueryValueKey @ 0x1406A7690 (ZwQueryValueKey.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 NTSTATUS __fastcall CmpQueryLayerVersionUlong(_DWORD *a1, const WCHAR *a2, void *a3)

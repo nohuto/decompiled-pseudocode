@@ -1,13 +1,13 @@
 /*
- * XREFs of KxFlushSingleTb @ 0x1402EB340
+ * XREFs of KxFlushSingleTb @ 0x1402EB5D0
  * Callers:
- *     KeFlushSingleTb @ 0x1402EB0C4 (KeFlushSingleTb.c)
+ *     KeFlushSingleTb @ 0x1402EB354 (KeFlushSingleTb.c)
  * Callees:
- *     KiCopyAffinityEx @ 0x1402545C0 (KiCopyAffinityEx.c)
- *     KeRemoveProcessorAffinityEx @ 0x1402C02B0 (KeRemoveProcessorAffinityEx.c)
- *     KiIpiSendRequestEx @ 0x1402EB5F0 (KiIpiSendRequestEx.c)
- *     memset @ 0x140435A00 (memset.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiCopyAffinityEx @ 0x140254680 (KiCopyAffinityEx.c)
+ *     KeRemoveProcessorAffinityEx @ 0x1402C0540 (KeRemoveProcessorAffinityEx.c)
+ *     KiIpiSendRequestEx @ 0x1402EB880 (KiIpiSendRequestEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 __int64 __fastcall KxFlushSingleTb(__int64 a1, int a2, int a3)
@@ -39,7 +39,7 @@ __int64 __fastcall KxFlushSingleTb(__int64 a1, int a2, int a3)
     v3 = 2LL;
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(0xCuLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 12 )
@@ -73,10 +73,10 @@ __int64 __fastcall KxFlushSingleTb(__int64 a1, int a2, int a3)
     v7 = 0;
   }
   KiIpiSendRequestEx((_DWORD)CurrentPrcb, v7, v6, (unsigned int)&v18, v3, (__int64)KiFlushSingleTbWorker, (__int64)&v18);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v12 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v12 <= 0xFu && CurrentIrql <= 0xFu && v12 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v12 <= 0xFu && CurrentIrql <= 0xFu && v12 >= 2u )
     {
       v13 = KeGetCurrentPrcb();
       v14 = v13->SchedulerAssist;

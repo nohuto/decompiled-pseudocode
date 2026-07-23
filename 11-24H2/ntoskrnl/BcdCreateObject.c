@@ -1,39 +1,48 @@
 /*
- * XREFs of BcdCreateObject @ 0x14085E224
+ * XREFs of BcdCreateObject @ 0x140859F94
  * Callers:
- *     WheaPersistBadPageToBcd @ 0x14065CE90 (WheaPersistBadPageToBcd.c)
- *     PopBcdRegenerateResumeObject @ 0x140763790 (PopBcdRegenerateResumeObject.c)
+ *     WheaPersistBadPageToBcd @ 0x14065B5B0 (WheaPersistBadPageToBcd.c)
+ *     PopBcdRegenerateResumeObject @ 0x140763154 (PopBcdRegenerateResumeObject.c)
  * Callees:
- *     BiSetFirmwareModified @ 0x1404A7F74 (BiSetFirmwareModified.c)
- *     BiIsOfflineHandle @ 0x1404AB350 (BiIsOfflineHandle.c)
- *     BiIsLinkedToFirmwareVariable @ 0x14085DDCC (BiIsLinkedToFirmwareVariable.c)
- *     BiCreateObject @ 0x14085E04C (BiCreateObject.c)
- *     BiAcquireBcdSyncMutant @ 0x1409BE268 (BiAcquireBcdSyncMutant.c)
- *     BiReleaseBcdSyncMutant @ 0x1409BE32C (BiReleaseBcdSyncMutant.c)
+ *     BiSetFirmwareModified @ 0x1404A29C4 (BiSetFirmwareModified.c)
+ *     BiIsOfflineHandle @ 0x1404A5974 (BiIsOfflineHandle.c)
+ *     BiIsLinkedToFirmwareVariable @ 0x140859B3C (BiIsLinkedToFirmwareVariable.c)
+ *     BiCreateObject @ 0x140859DBC (BiCreateObject.c)
+ *     BiAcquireBcdSyncMutant @ 0x1409A48B8 (BiAcquireBcdSyncMutant.c)
+ *     BiReleaseBcdSyncMutant @ 0x1409A497C (BiReleaseBcdSyncMutant.c)
  */
 
-__int64 __fastcall BcdCreateObject(__int64 a1, __int64 a2, unsigned int *a3, __int64 *a4)
+NTSTATUS __cdecl BcdCreateObject(
+        HANDLE BcdStoreHandle,
+        PGUID Identifier,
+        PBCD_OBJECT_DESCRIPTION Description,
+        PHANDLE BcdObjectHandle)
 {
   __int64 v8; // rcx
   char v9; // bp
-  __int64 result; // rax
+  NTSTATUS result; // eax
   __int64 v11; // rcx
-  NTSTATUS Object; // ebx
+  int Object; // ebx
 
-  LOBYTE(v8) = BiIsOfflineHandle(a1);
+  LOBYTE(v8) = BiIsOfflineHandle((char)BcdStoreHandle);
   v9 = v8;
   result = BiAcquireBcdSyncMutant(v8);
-  if ( (int)result >= 0 )
+  if ( result >= 0 )
   {
-    Object = BiCreateObject(a1, a2, a3, 0LL, a4);
+    Object = BiCreateObject(
+               (__int64)BcdStoreHandle,
+               (__int64)Identifier,
+               (unsigned int *)Description,
+               0LL,
+               BcdObjectHandle);
     if ( Object >= 0 )
     {
-      if ( BiIsLinkedToFirmwareVariable(*a4, 0LL) )
-        BiSetFirmwareModified(a1, 1);
+      if ( BiIsLinkedToFirmwareVariable((__int64)*BcdObjectHandle, 0LL) )
+        BiSetFirmwareModified((__int64)BcdStoreHandle, 1);
     }
     LOBYTE(v11) = v9;
     BiReleaseBcdSyncMutant(v11);
-    return (unsigned int)Object;
+    return Object;
   }
   return result;
 }

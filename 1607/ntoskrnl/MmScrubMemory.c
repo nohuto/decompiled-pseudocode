@@ -1,16 +1,16 @@
 /*
- * XREFs of MmScrubMemory @ 0x14066528C
+ * XREFs of MmScrubMemory @ 0x140665370
  * Callers:
- *     NtSetSystemInformation @ 0x1403E9F6C (NtSetSystemInformation.c)
+ *     NtSetSystemInformation @ 0x1403EB59C (NtSetSystemInformation.c)
  * Callees:
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     KeWaitForGate @ 0x140097C98 (KeWaitForGate.c)
- *     ExQueueWorkItemEx @ 0x1400A8A00 (ExQueueWorkItemEx.c)
- *     KeInitializeGate @ 0x1400AF81C (KeInitializeGate.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     KeWaitForGate @ 0x140097498 (KeWaitForGate.c)
+ *     ExQueueWorkItemEx @ 0x1400A6F80 (ExQueueWorkItemEx.c)
+ *     KeInitializeGate @ 0x1400ADD84 (KeInitializeGate.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     ObReferenceObjectByHandle @ 0x140450D40 (ObReferenceObjectByHandle.c)
- *     MiScrubProcesses @ 0x140664E40 (MiScrubProcesses.c)
+ *     ObReferenceObjectByHandle @ 0x14044FC10 (ObReferenceObjectByHandle.c)
+ *     MiScrubProcesses @ 0x140664F24 (MiScrubProcesses.c)
  */
 
 NTSTATUS __fastcall MmScrubMemory(void *a1, void *a2, _QWORD *a3)
@@ -95,7 +95,7 @@ LABEL_16:
         ObfDereferenceObject(v9);
         return v8;
       }
-      _InterlockedIncrement(&dword_14032712C);
+      _InterlockedIncrement(&dword_14032716C);
     }
     else
     {

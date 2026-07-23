@@ -1,11 +1,11 @@
 /*
- * XREFs of SymCryptSha384Result @ 0x14055EE64
+ * XREFs of SymCryptSha384Result @ 0x140561388
  * Callers:
- *     HashpFinalizeHash @ 0x1408AC1B4 (HashpFinalizeHash.c)
+ *     HashpFinalizeHash @ 0x1408B25F8 (HashpFinalizeHash.c)
  * Callees:
- *     SymCryptSha384Init @ 0x14055EE18 (SymCryptSha384Init.c)
- *     SymCryptSha512Result @ 0x1405605A4 (SymCryptSha512Result.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     SymCryptSha384Init @ 0x14056133C (SymCryptSha384Init.c)
+ *     SymCryptSha512Result @ 0x140562AC0 (SymCryptSha512Result.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall SymCryptSha384Result(__int64 a1, _OWORD *a2)

@@ -1,69 +1,67 @@
 /*
- * XREFs of RtlpLookupUserFunctionTable @ 0x1402E9910
+ * XREFs of RtlpLookupUserFunctionTable @ 0x1402CB950
  * Callers:
- *     RtlpLookupFunctionEntryForStackWalks @ 0x1402E96A0 (RtlpLookupFunctionEntryForStackWalks.c)
+ *     RtlpLookupFunctionEntryForStackWalks @ 0x1402CB6E0 (RtlpLookupFunctionEntryForStackWalks.c)
  * Callees:
- *     RtlImageDirectoryEntryToData @ 0x14040E290 (RtlImageDirectoryEntryToData.c)
- *     RtlpLookupUserFunctionTableInverted @ 0x14043BF20 (RtlpLookupUserFunctionTableInverted.c)
- *     RtlpLookupDynamicUserFunctionTable @ 0x14046B388 (RtlpLookupDynamicUserFunctionTable.c)
- *     ProbeForRead @ 0x1408EF880 (ProbeForRead.c)
- *     MmGetImageInformation @ 0x140942C3C (MmGetImageInformation.c)
+ *     RtlImageDirectoryEntryToData @ 0x14042B1C0 (RtlImageDirectoryEntryToData.c)
+ *     RtlpLookupUserFunctionTableInverted @ 0x14042E7D0 (RtlpLookupUserFunctionTableInverted.c)
+ *     RtlpLookupDynamicUserFunctionTable @ 0x140464B08 (RtlpLookupDynamicUserFunctionTable.c)
+ *     ProbeForRead @ 0x1408F5E40 (ProbeForRead.c)
+ *     MmGetImageInformation @ 0x140A35D4C (MmGetImageInformation.c)
  */
 
 __int64 __fastcall RtlpLookupUserFunctionTable(__int64 a1, __int64 a2)
 {
   __int64 result; // rax
-  volatile void *v5; // rsi
-  __int64 v6; // rdx
-  __int64 v7; // rdi
-  int v8; // eax
-  unsigned int v9; // eax
-  __int64 v10; // [rsp+20h] [rbp-48h] BYREF
-  volatile void *v11; // [rsp+28h] [rbp-40h]
-  char v12; // [rsp+80h] [rbp+18h] BYREF
-  __int64 v13; // [rsp+88h] [rbp+20h] BYREF
+  PVOID v5; // rsi
+  PVOID v6; // rdi
+  int v7; // eax
+  unsigned int v8; // eax
+  __int64 v9; // [rsp+20h] [rbp-48h] BYREF
+  PVOID v10; // [rsp+28h] [rbp-40h]
+  char v11; // [rsp+80h] [rbp+18h] BYREF
+  PVOID BaseOfImage; // [rsp+88h] [rbp+20h] BYREF
 
   result = RtlpLookupUserFunctionTableInverted();
   if ( !result )
   {
     result = RtlpLookupDynamicUserFunctionTable(a1, a2);
-    v5 = (volatile void *)result;
+    v5 = (PVOID)result;
     if ( !result )
     {
-      v13 = 0LL;
-      v10 = 0LL;
-      if ( (int)MmGetImageInformation(a1, &v13, &v10, &v12) >= 0 )
+      BaseOfImage = 0LL;
+      v9 = 0LL;
+      if ( (int)MmGetImageInformation(a1, &BaseOfImage, &v9, &v11) >= 0 )
       {
-        LOBYTE(v6) = 1;
-        v7 = v13;
-        v5 = (volatile void *)RtlImageDirectoryEntryToData(v13, v6, 3LL, a2 + 20);
-        v11 = v5;
+        v6 = BaseOfImage;
+        v5 = RtlImageDirectoryEntryToData(BaseOfImage, 1u, 3u, (PULONG)(a2 + 20));
+        v10 = v5;
         if ( v5 )
         {
-          v9 = *(_DWORD *)(a2 + 20);
-          if ( v9 && v9 == 12 * (v9 / 0xCuLL) )
+          v8 = *(_DWORD *)(a2 + 20);
+          if ( v8 && v8 == 12 * (v8 / 0xCuLL) )
           {
-            ProbeForRead(v5, v9, 4u);
+            ProbeForRead(v5, v8, 4u);
           }
           else
           {
             v5 = 0LL;
-            v11 = 0LL;
+            v10 = 0LL;
           }
         }
         else
         {
           *(_DWORD *)(a2 + 20) = 0;
         }
-        v8 = v10;
+        v7 = v9;
       }
       else
       {
-        v7 = 0LL;
-        v8 = 0;
+        v6 = 0LL;
+        v7 = 0;
       }
-      *(_QWORD *)(a2 + 8) = v7;
-      *(_DWORD *)(a2 + 16) = v8;
+      *(_QWORD *)(a2 + 8) = v6;
+      *(_DWORD *)(a2 + 16) = v7;
       *(_QWORD *)a2 = v5;
       if ( !v5 )
         *(_DWORD *)(a2 + 20) = 0;

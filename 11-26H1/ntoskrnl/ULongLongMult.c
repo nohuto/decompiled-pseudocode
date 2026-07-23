@@ -1,13 +1,13 @@
 /*
- * XREFs of ULongLongMult @ 0x14046FB90
+ * XREFs of ULongLongMult @ 0x140469310
  * Callers:
- *     SdbpCheckApplicationTypeAttributes @ 0x140714174 (SdbpCheckApplicationTypeAttributes.c)
- *     SdbpFreeAppAttributes @ 0x140884194 (SdbpFreeAppAttributes.c)
- *     AslPathWildcardFindFirst @ 0x140889920 (AslPathWildcardFindFirst.c)
- *     AslPathWildcardFindNext @ 0x140889EE8 (AslPathWildcardFindNext.c)
- *     AslpPathWildcardFreeFindContext @ 0x14088AC24 (AslpPathWildcardFreeFindContext.c)
- *     VrpDestroyNamespaceNode @ 0x140977AF4 (VrpDestroyNamespaceNode.c)
- *     VrpAddNamespaceNodeToList @ 0x140977CF4 (VrpAddNamespaceNodeToList.c)
+ *     SdbpCheckApplicationTypeAttributes @ 0x140718E64 (SdbpCheckApplicationTypeAttributes.c)
+ *     SdbpFreeAppAttributes @ 0x14088A594 (SdbpFreeAppAttributes.c)
+ *     AslPathWildcardFindFirst @ 0x14088FD1C (AslPathWildcardFindFirst.c)
+ *     AslPathWildcardFindNext @ 0x1408902E4 (AslPathWildcardFindNext.c)
+ *     AslpPathWildcardFreeFindContext @ 0x140891020 (AslpPathWildcardFreeFindContext.c)
+ *     VrpDestroyNamespaceNode @ 0x140939B04 (VrpDestroyNamespaceNode.c)
+ *     VrpAddNamespaceNodeToList @ 0x140939D04 (VrpAddNamespaceNodeToList.c)
  * Callees:
  *     <none>
  */

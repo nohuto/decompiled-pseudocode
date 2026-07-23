@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlxAnsiStringToUnicodeSize @ 0x1405AAF20
+ * XREFs of RtlxAnsiStringToUnicodeSize @ 0x1405ABF20
  * Callers:
- *     PopAnsiStringToUnicodeString @ 0x140588D18 (PopAnsiStringToUnicodeString.c)
- *     RtlAnsiStringToUnicodeString @ 0x1405AADA0 (RtlAnsiStringToUnicodeString.c)
- *     AslStringAnsiToUnicode @ 0x1408E9264 (AslStringAnsiToUnicode.c)
+ *     PopAnsiStringToUnicodeString @ 0x140589D18 (PopAnsiStringToUnicodeString.c)
+ *     RtlAnsiStringToUnicodeString @ 0x1405ABDA0 (RtlAnsiStringToUnicodeString.c)
+ *     AslStringAnsiToUnicode @ 0x1408EA524 (AslStringAnsiToUnicode.c)
  * Callees:
- *     RtlMultiByteToUnicodeSize @ 0x1405AAF50 (RtlMultiByteToUnicodeSize.c)
+ *     RtlMultiByteToUnicodeSize @ 0x1405ABF50 (RtlMultiByteToUnicodeSize.c)
  */
 
 ULONG __stdcall RtlxAnsiStringToUnicodeSize(PCANSI_STRING AnsiString)

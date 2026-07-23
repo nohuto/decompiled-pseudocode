@@ -1,13 +1,13 @@
 /*
- * XREFs of SepReferenceTokenUsingPseudoHandle @ 0x1400A4B88
+ * XREFs of SepReferenceTokenUsingPseudoHandle @ 0x1400A3100
  * Callers:
- *     SeAccessCheckByType @ 0x14005FEF0 (SeAccessCheckByType.c)
+ *     SeAccessCheckByType @ 0x14005FA70 (SeAccessCheckByType.c)
  * Callees:
- *     SepReconcileTrustSidWithProcessProtection @ 0x14000E7F0 (SepReconcileTrustSidWithProcessProtection.c)
- *     ObfDereferenceObjectWithTag @ 0x14006ACD0 (ObfDereferenceObjectWithTag.c)
- *     PsReferenceImpersonationTokenEx @ 0x140412120 (PsReferenceImpersonationTokenEx.c)
- *     PsReferenceEffectiveToken @ 0x1404124C0 (PsReferenceEffectiveToken.c)
- *     PsReferencePrimaryToken @ 0x140418C20 (PsReferencePrimaryToken.c)
+ *     SepReconcileTrustSidWithProcessProtection @ 0x14000E370 (SepReconcileTrustSidWithProcessProtection.c)
+ *     ObfDereferenceObjectWithTag @ 0x14006A850 (ObfDereferenceObjectWithTag.c)
+ *     PsReferenceImpersonationTokenEx @ 0x140410FE0 (PsReferenceImpersonationTokenEx.c)
+ *     PsReferenceEffectiveToken @ 0x140411380 (PsReferenceEffectiveToken.c)
+ *     PsReferencePrimaryToken @ 0x140417AE0 (PsReferencePrimaryToken.c)
  */
 
 __int64 __fastcall SepReferenceTokenUsingPseudoHandle(__int64 a1, _QWORD *a2, _BYTE *a3, _QWORD *a4)

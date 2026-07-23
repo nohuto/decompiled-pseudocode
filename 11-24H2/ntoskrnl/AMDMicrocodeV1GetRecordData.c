@@ -1,9 +1,9 @@
 /*
- * XREFs of AMDMicrocodeV1GetRecordData @ 0x14066536C
+ * XREFs of AMDMicrocodeV1GetRecordData @ 0x140663C5C
  * Callers:
- *     AMDMicrocodeGetRecordData @ 0x140665138 (AMDMicrocodeGetRecordData.c)
+ *     AMDMicrocodeGetRecordData @ 0x140663A28 (AMDMicrocodeGetRecordData.c)
  * Callees:
- *     PrExtGetRecordDataLength @ 0x140664210 (PrExtGetRecordDataLength.c)
+ *     PrExtGetRecordDataLength @ 0x140662B00 (PrExtGetRecordDataLength.c)
  */
 
 __int64 __fastcall AMDMicrocodeV1GetRecordData(__int64 a1, unsigned __int64 a2, _QWORD *a3, _QWORD *a4)

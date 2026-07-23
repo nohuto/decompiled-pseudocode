@@ -1,17 +1,17 @@
 /*
- * XREFs of mbtowc @ 0x18012C400
+ * XREFs of mbtowc @ 0x18012A630
  * Callers:
- *     _woutput_l @ 0x180129080 (_woutput_l.c)
- *     ReadString @ 0x18012B678 (ReadString.c)
+ *     _woutput_l @ 0x1801272B0 (_woutput_l.c)
+ *     ReadString @ 0x1801298A8 (ReadString.c)
  * Callees:
- *     RtlAnsiCharToUnicodeChar @ 0x1800C5CE0 (RtlAnsiCharToUnicodeChar.c)
+ *     RtlAnsiCharToUnicodeChar @ 0x1800BD8A0 (RtlAnsiCharToUnicodeChar.c)
  */
 
 int __cdecl mbtowc(wchar_t *DstCh, const char *SrcCh, size_t SrcSizeInBytes)
 {
   int result; // eax
   int v4; // ebx
-  char *v5; // [rsp+38h] [rbp+10h] BYREF
+  PUCHAR SourceCharacter; // [rsp+38h] [rbp+10h] BYREF
 
   result = 0;
   v4 = (int)SrcCh;
@@ -19,9 +19,9 @@ int __cdecl mbtowc(wchar_t *DstCh, const char *SrcCh, size_t SrcSizeInBytes)
   {
     if ( *SrcCh )
     {
-      v5 = (char *)SrcCh;
-      *DstCh = RtlAnsiCharToUnicodeChar(&v5);
-      return (_DWORD)v5 - v4;
+      SourceCharacter = (PUCHAR)SrcCh;
+      *DstCh = RtlAnsiCharToUnicodeChar(&SourceCharacter);
+      return (_DWORD)SourceCharacter - v4;
     }
     else if ( DstCh )
     {

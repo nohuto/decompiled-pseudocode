@@ -1,71 +1,68 @@
 /*
- * XREFs of MiInitializeImageHeaderPage @ 0x1402E7B5C
+ * XREFs of MiInitializeImageHeaderPage @ 0x140298EAC
  * Callers:
- *     MiCreateImageFileMap @ 0x1406D33F4 (MiCreateImageFileMap.c)
+ *     MiCreateImageFileMap @ 0x1406AA6D4 (MiCreateImageFileMap.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
- *     MiMapPageInHyperSpaceWorker @ 0x140331AB0 (MiMapPageInHyperSpaceWorker.c)
- *     MiUnmapPageInHyperSpaceWorker @ 0x140348910 (MiUnmapPageInHyperSpaceWorker.c)
+ *     KeYieldProcessorEx @ 0x1402EFAD0 (KeYieldProcessorEx.c)
+ *     MiMapPageInHyperSpaceWorker @ 0x14033C800 (MiMapPageInHyperSpaceWorker.c)
+ *     MiUnmapPageInHyperSpaceWorker @ 0x140353660 (MiUnmapPageInHyperSpaceWorker.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     memset @ 0x140414200 (memset.c)
+ *     memset @ 0x140414300 (memset.c)
  */
 
-__int64 __fastcall MiInitializeImageHeaderPage(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall MiInitializeImageHeaderPage(__int64 a1, __int64 a2)
 {
-  __int64 v6; // rbx
-  __int64 v7; // rdx
-  __int64 v8; // rdx
-  __int64 v9; // r8
-  __int64 v10; // r9
-  unsigned __int8 v11; // bl
+  __int64 v4; // rbx
+  __int64 v5; // rdx
+  unsigned __int8 v6; // bl
   __int64 result; // rax
-  __int64 v13; // rbx
+  __int64 v8; // rbx
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  int v17; // eax
-  bool v18; // zf
-  unsigned __int8 v19; // [rsp+38h] [rbp+10h] BYREF
-  int v20; // [rsp+40h] [rbp+18h] BYREF
+  int v12; // eax
+  bool v13; // zf
+  unsigned __int8 v14; // [rsp+38h] [rbp+10h] BYREF
+  int v15; // [rsp+40h] [rbp+18h] BYREF
 
-  v19 = 0;
-  v6 = MiMapPageInHyperSpaceWorker(a1, &v19, 0x80000000LL, a4);
-  memset((void *)(v6 + a2), 0, 4096 - a2);
-  LOBYTE(v7) = 2;
-  MiUnmapPageInHyperSpaceWorker(v6, v7, 0x80000000LL);
+  v14 = 0;
+  v4 = MiMapPageInHyperSpaceWorker(a1, &v14, 0x80000000LL);
+  memset((void *)(v4 + a2), 0, 4096 - a2);
+  LOBYTE(v5) = 2;
+  MiUnmapPageInHyperSpaceWorker(v4, v5, 0x80000000LL);
   if ( (a2 & 0x1FF) != 0 )
   {
-    v13 = 48 * a1 - 0x58000000000LL;
-    v20 = 0;
-    while ( _interlockedbittestandset64((volatile signed __int32 *)(v13 + 24), 0x3FuLL) )
+    v8 = 48 * a1 - 0x58000000000LL;
+    v15 = 0;
+    while ( _interlockedbittestandset64((volatile signed __int32 *)(v8 + 24), 0x3FuLL) )
     {
       do
-        KeYieldProcessorEx(&v20, v8, v9, v10);
-      while ( *(__int64 *)(v13 + 24) < 0 );
+        KeYieldProcessorEx(&v15);
+      while ( *(__int64 *)(v8 + 24) < 0 );
     }
-    *(_BYTE *)(v13 + 34) |= 0x10u;
-    _InterlockedAnd64((volatile signed __int64 *)(v13 + 24), 0x7FFFFFFFFFFFFFFFuLL);
+    *(_BYTE *)(v8 + 34) |= 0x10u;
+    _InterlockedAnd64((volatile signed __int64 *)(v8 + 24), 0x7FFFFFFFFFFFFFFFuLL);
   }
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && (CurrentIrql = KeGetCurrentIrql(), CurrentIrql <= 0xFu) )
   {
-    v11 = v19;
-    if ( v19 <= 0xFu && CurrentIrql >= 2u )
+    v6 = v14;
+    if ( v14 <= 0xFu && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      v11 = v19;
-      v17 = ~(unsigned __int16)(-1LL << (v19 + 1));
-      v18 = (v17 & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= v17;
-      if ( v18 )
+      v6 = v14;
+      v12 = ~(unsigned __int16)(-1LL << (v14 + 1));
+      v13 = (v12 & SchedulerAssist[5]) == 0;
+      SchedulerAssist[5] &= v12;
+      if ( v13 )
         KiRemoveSystemWorkPriorityKick(CurrentPrcb);
     }
   }
   else
   {
-    v11 = v19;
+    v6 = v14;
   }
-  result = v11;
-  __writecr8(v11);
+  result = v6;
+  __writecr8(v6);
   return result;
 }

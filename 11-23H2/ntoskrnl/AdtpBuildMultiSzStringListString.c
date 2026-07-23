@@ -1,9 +1,9 @@
 /*
- * XREFs of AdtpBuildMultiSzStringListString @ 0x140399BA0
+ * XREFs of AdtpBuildMultiSzStringListString @ 0x140399D80
  * Callers:
- *     AdtpPackageParameters @ 0x140399604 (AdtpPackageParameters.c)
+ *     AdtpPackageParameters @ 0x1403997E4 (AdtpPackageParameters.c)
  * Callees:
- *     AdtpEtwBuildDashString @ 0x1407EA338 (AdtpEtwBuildDashString.c)
+ *     AdtpEtwBuildDashString @ 0x1407EA608 (AdtpEtwBuildDashString.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 

@@ -1,10 +1,10 @@
 /*
- * XREFs of MiInitializeBootKernelShadowStacks @ 0x1403B5FEC
+ * XREFs of MiInitializeBootKernelShadowStacks @ 0x1403B61CC
  * Callers:
  *     MiInitSystem @ 0x140B44518 (MiInitSystem.c)
  * Callees:
- *     MiInitializeBootKernelShadowStack @ 0x140644900 (MiInitializeBootKernelShadowStack.c)
- *     MiInitializeBootShadowStackPage @ 0x140644964 (MiInitializeBootShadowStackPage.c)
+ *     MiInitializeBootKernelShadowStack @ 0x140644E50 (MiInitializeBootKernelShadowStack.c)
+ *     MiInitializeBootShadowStackPage @ 0x140644EB4 (MiInitializeBootShadowStackPage.c)
  */
 
 __int64 __fastcall MiInitializeBootKernelShadowStacks(__int64 a1)

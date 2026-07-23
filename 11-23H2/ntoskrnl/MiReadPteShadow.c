@@ -1,10 +1,10 @@
 /*
- * XREFs of MiReadPteShadow @ 0x14025D3A0
+ * XREFs of MiReadPteShadow @ 0x14025D630
  * Callers:
- *     MiIsRangeFullyCommitted @ 0x1406F6110 (MiIsRangeFullyCommitted.c)
- *     MiPfPrepareReadList @ 0x1406F62A0 (MiPfPrepareReadList.c)
- *     MiPrefetchDriverPages @ 0x1406FA180 (MiPrefetchDriverPages.c)
- *     MiPfPrepareSequentialReadList @ 0x1407446E0 (MiPfPrepareSequentialReadList.c)
+ *     MiIsRangeFullyCommitted @ 0x1406F6320 (MiIsRangeFullyCommitted.c)
+ *     MiPfPrepareReadList @ 0x1406F64B0 (MiPfPrepareReadList.c)
+ *     MiPrefetchDriverPages @ 0x1406FA390 (MiPrefetchDriverPages.c)
+ *     MiPfPrepareSequentialReadList @ 0x1407448D0 (MiPfPrepareSequentialReadList.c)
  * Callees:
  *     <none>
  */

@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwpLockUnlockBufferList @ 0x1402278C4
+ * XREFs of EtwpLockUnlockBufferList @ 0x1402279D4
  * Callers:
- *     EtwpFlushActiveBuffers @ 0x1406BDE18 (EtwpFlushActiveBuffers.c)
- *     EtwpBufferingModeFlush @ 0x1408A7A28 (EtwpBufferingModeFlush.c)
+ *     EtwpFlushActiveBuffers @ 0x1406BDE48 (EtwpFlushActiveBuffers.c)
+ *     EtwpBufferingModeFlush @ 0x1408A7C78 (EtwpBufferingModeFlush.c)
  * Callees:
  *     ExfAcquireReleasePushLockExclusive @ 0x140201DF4 (ExfAcquireReleasePushLockExclusive.c)
- *     KeTestSpinLock @ 0x140226EF0 (KeTestSpinLock.c)
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KxAcquireSpinLock @ 0x1402515B0 (KxAcquireSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeTestSpinLock @ 0x140227000 (KeTestSpinLock.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x140251670 (KxAcquireSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 char __fastcall EtwpLockUnlockBufferList(__int64 a1)
@@ -40,7 +40,7 @@ char __fastcall EtwpLockUnlockBufferList(__int64 a1)
     {
       CurrentIrql = KeGetCurrentIrql();
       __writecr8(0xFuLL);
-      if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+      if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
       {
         SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
         if ( CurrentIrql == 15 )
@@ -51,10 +51,10 @@ char __fastcall EtwpLockUnlockBufferList(__int64 a1)
       }
       KxAcquireSpinLock(v1);
       KxReleaseSpinLock(v1);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v6 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v6 <= 0xFu && CurrentIrql <= 0xFu && v6 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v6 <= 0xFu && CurrentIrql <= 0xFu && v6 >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           v8 = CurrentPrcb->SchedulerAssist;

@@ -1,23 +1,23 @@
 /*
- * XREFs of CmKeyBodyRemapToVirtual @ 0x1405FFE48
+ * XREFs of CmKeyBodyRemapToVirtual @ 0x1405FFEFC
  * Callers:
- *     NtDeleteValueKey @ 0x1403FA9B8 (NtDeleteValueKey.c)
- *     NtDeleteKey @ 0x1403FBA58 (NtDeleteKey.c)
+ *     NtDeleteValueKey @ 0x1403F9878 (NtDeleteValueKey.c)
+ *     NtDeleteKey @ 0x1403FA918 (NtDeleteKey.c)
  * Callees:
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     CmpUnlockRegistry @ 0x14040476C (CmpUnlockRegistry.c)
- *     CmpLockRegistry @ 0x1404047A0 (CmpLockRegistry.c)
- *     CmpIsSystemEntity @ 0x14040F144 (CmpIsSystemEntity.c)
- *     CmpLockKcbShared @ 0x140435440 (CmpLockKcbShared.c)
- *     CmpUnlockKcb @ 0x140438610 (CmpUnlockKcb.c)
- *     CmpIsKeyDeletedForKeyBody @ 0x140439400 (CmpIsKeyDeletedForKeyBody.c)
- *     RtlFreeAnsiString @ 0x140458CF0 (RtlFreeAnsiString.c)
- *     CmpCleanupParseContext @ 0x14046466C (CmpCleanupParseContext.c)
- *     CmpIsMasterHive @ 0x1404D93FC (CmpIsMasterHive.c)
- *     CmpReparseToVirtualPath @ 0x140601758 (CmpReparseToVirtualPath.c)
- *     CmObReferenceObjectByName @ 0x140606CB0 (CmObReferenceObjectByName.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     CmpUnlockRegistry @ 0x14040362C (CmpUnlockRegistry.c)
+ *     CmpLockRegistry @ 0x140403660 (CmpLockRegistry.c)
+ *     CmpIsSystemEntity @ 0x14040E004 (CmpIsSystemEntity.c)
+ *     CmpLockKcbShared @ 0x140434310 (CmpLockKcbShared.c)
+ *     CmpUnlockKcb @ 0x1404374E0 (CmpUnlockKcb.c)
+ *     CmpIsKeyDeletedForKeyBody @ 0x1404382D0 (CmpIsKeyDeletedForKeyBody.c)
+ *     RtlFreeAnsiString @ 0x140457BC0 (RtlFreeAnsiString.c)
+ *     CmpCleanupParseContext @ 0x14046353C (CmpCleanupParseContext.c)
+ *     CmpIsMasterHive @ 0x1404BCA00 (CmpIsMasterHive.c)
+ *     CmpReparseToVirtualPath @ 0x14060180C (CmpReparseToVirtualPath.c)
+ *     CmObReferenceObjectByName @ 0x140606D64 (CmObReferenceObjectByName.c)
  */
 
 __int64 __fastcall CmKeyBodyRemapToVirtual(__int64 *a1, char a2, int a3)

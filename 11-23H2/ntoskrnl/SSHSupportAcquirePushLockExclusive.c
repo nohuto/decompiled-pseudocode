@@ -1,9 +1,9 @@
 /*
- * XREFs of SSHSupportAcquirePushLockExclusive @ 0x14085EA7C
+ * XREFs of SSHSupportAcquirePushLockExclusive @ 0x14085ECBC
  * Callers:
- *     SshpSetCollectionActive @ 0x1403AFC38 (SshpSetCollectionActive.c)
+ *     SshpSetCollectionActive @ 0x1403AFE18 (SshpSetCollectionActive.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
  */
 
 void __fastcall SSHSupportAcquirePushLockExclusive(ULONG_PTR a1)

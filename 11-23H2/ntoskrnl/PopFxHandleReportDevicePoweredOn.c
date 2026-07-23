@@ -1,21 +1,21 @@
 /*
- * XREFs of PopFxHandleReportDevicePoweredOn @ 0x14028D050
+ * XREFs of PopFxHandleReportDevicePoweredOn @ 0x14028D2E0
  * Callers:
- *     PoFxReportDevicePoweredOn @ 0x14028D030 (PoFxReportDevicePoweredOn.c)
- *     DifPoFxReportDevicePoweredOnWrapper @ 0x1405E9A80 (DifPoFxReportDevicePoweredOnWrapper.c)
+ *     PoFxReportDevicePoweredOn @ 0x14028D2C0 (PoFxReportDevicePoweredOn.c)
+ *     DifPoFxReportDevicePoweredOnWrapper @ 0x1405E9FF0 (DifPoFxReportDevicePoweredOnWrapper.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     PopFxQueueWorkItem @ 0x14028C22C (PopFxQueueWorkItem.c)
- *     PopFxGetDeviceDStateReason @ 0x14028DB04 (PopFxGetDeviceDStateReason.c)
- *     PopPepDeviceDState @ 0x14028DB5C (PopPepDeviceDState.c)
- *     PopDiagTraceFxDevicePowerState @ 0x14028DCC4 (PopDiagTraceFxDevicePowerState.c)
- *     PopFxCompleteDevicePowerRequired @ 0x140310AE0 (PopFxCompleteDevicePowerRequired.c)
- *     PoFxIdleComponent @ 0x140312F80 (PoFxIdleComponent.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     PopFxBugCheck @ 0x140588BE0 (PopFxBugCheck.c)
- *     PopFxDerefAndCompleteDirectedPowerTransition @ 0x140589B78 (PopFxDerefAndCompleteDirectedPowerTransition.c)
- *     PopSystemIrpCompletion @ 0x140AA75C0 (PopSystemIrpCompletion.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     PopFxQueueWorkItem @ 0x14028C4BC (PopFxQueueWorkItem.c)
+ *     PopFxGetDeviceDStateReason @ 0x14028DD94 (PopFxGetDeviceDStateReason.c)
+ *     PopPepDeviceDState @ 0x14028DDEC (PopPepDeviceDState.c)
+ *     PopDiagTraceFxDevicePowerState @ 0x14028DF54 (PopDiagTraceFxDevicePowerState.c)
+ *     PopFxCompleteDevicePowerRequired @ 0x140310D70 (PopFxCompleteDevicePowerRequired.c)
+ *     PoFxIdleComponent @ 0x140313210 (PoFxIdleComponent.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     PopFxBugCheck @ 0x1405890D0 (PopFxBugCheck.c)
+ *     PopFxDerefAndCompleteDirectedPowerTransition @ 0x14058A068 (PopFxDerefAndCompleteDirectedPowerTransition.c)
+ *     PopSystemIrpCompletion @ 0x140AA7430 (PopSystemIrpCompletion.c)
  */
 
 void __fastcall PopFxHandleReportDevicePoweredOn(ULONG_PTR BugCheckParameter3)
@@ -61,7 +61,7 @@ void __fastcall PopFxHandleReportDevicePoweredOn(ULONG_PTR BugCheckParameter3)
   while ( v13 != v12 );
   if ( (v12 & 2) != 0 )
   {
-    PopFxQueueWorkItem((__int64)&PopFxSystemWorkPool, (struct _LIST_ENTRY *)(BugCheckParameter3 + 1208));
+    PopFxQueueWorkItem((__int64)&PopFxSystemWorkPool, (_LIST_ENTRY *)(BugCheckParameter3 + 1208));
   }
   else
   {
@@ -121,10 +121,13 @@ LABEL_2:
         v9 = *(_QWORD *)(*(_QWORD *)(BugCheckParameter3 + 48) + 280LL);
     }
     ExReleaseSpinLockExclusiveFromDpcLevel(v6);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v7 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v7 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;

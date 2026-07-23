@@ -1,14 +1,14 @@
 /*
- * XREFs of ZwSetBootOptions @ 0x1403FD4E0
+ * XREFs of ZwSetBootOptions @ 0x1403FD6C0
  * Callers:
- *     BiSetBootOptions @ 0x140972B3C (BiSetBootOptions.c)
+ *     BiSetBootOptions @ 0x140972D1C (BiSetBootOptions.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwSetBootOptions(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwSetBootOptions(PBOOT_OPTIONS BootOptions, ULONG FieldsToChange)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(BootOptions);
 }

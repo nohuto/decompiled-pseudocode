@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpHpVsSlotAddSubsegment @ 0x1800130E0
+ * XREFs of RtlpHpVsSlotAddSubsegment @ 0x18005E810
  * Callers:
- *     RtlpHpVsSlotAllocate @ 0x180012E08 (RtlpHpVsSlotAllocate.c)
+ *     RtlpHpVsSlotAllocate @ 0x18005E538 (RtlpHpVsSlotAllocate.c)
  * Callees:
- *     RtlpHpVsFreeChunkInsert @ 0x1800E797C (RtlpHpVsFreeChunkInsert.c)
- *     RtlpHpVsChunkAlignSplit @ 0x180111E80 (RtlpHpVsChunkAlignSplit.c)
+ *     RtlpHpVsFreeChunkInsert @ 0x1800E63DC (RtlpHpVsFreeChunkInsert.c)
+ *     RtlpHpVsChunkAlignSplit @ 0x180111930 (RtlpHpVsChunkAlignSplit.c)
  */
 
 __int64 __fastcall RtlpHpVsSlotAddSubsegment(__int64 a1, __int64 a2, __int64 a3)

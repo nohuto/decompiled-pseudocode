@@ -1,15 +1,15 @@
 /*
- * XREFs of KsepStringAnsiToUnicode @ 0x14074021C
+ * XREFs of KsepStringAnsiToUnicode @ 0x14073E14C
  * Callers:
- *     KsepMatchInitAcpiOemInfo @ 0x140C2B9B0 (KsepMatchInitAcpiOemInfo.c)
- *     KsepMatchInitCpuInfo @ 0x140C2BD7C (KsepMatchInitCpuInfo.c)
+ *     KsepMatchInitAcpiOemInfo @ 0x140C2DAD0 (KsepMatchInitAcpiOemInfo.c)
+ *     KsepMatchInitCpuInfo @ 0x140C2DE9C (KsepMatchInitCpuInfo.c)
  * Callees:
- *     RtlAnsiStringToUnicodeString @ 0x1408ADC70 (RtlAnsiStringToUnicodeString.c)
+ *     RtlAnsiStringToUnicodeString @ 0x140903ED0 (RtlAnsiStringToUnicodeString.c)
  */
 
 NTSTATUS __fastcall KsepStringAnsiToUnicode(wchar_t *a1, unsigned __int16 a2, char *a3, unsigned __int16 a4)
 {
-  STRING v5; // [rsp+20h] [rbp-28h] BYREF
+  ANSI_STRING v5; // [rsp+20h] [rbp-28h] BYREF
   UNICODE_STRING v6; // [rsp+30h] [rbp-18h] BYREF
 
   *(_DWORD *)(&v5.MaximumLength + 1) = 0;

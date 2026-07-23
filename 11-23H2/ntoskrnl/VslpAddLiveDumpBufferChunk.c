@@ -1,12 +1,12 @@
 /*
- * XREFs of VslpAddLiveDumpBufferChunk @ 0x14054CD1C
+ * XREFs of VslpAddLiveDumpBufferChunk @ 0x14054D3DC
  * Callers:
- *     VslSetupLiveDumpBufferInSk @ 0x14054C8B4 (VslSetupLiveDumpBufferInSk.c)
+ *     VslSetupLiveDumpBufferInSk @ 0x14054CF74 (VslSetupLiveDumpBufferInSk.c)
  * Callees:
- *     MmGetPhysicalAddress @ 0x14028BEE0 (MmGetPhysicalAddress.c)
- *     VslpEnterIumSecureMode @ 0x14033FCF0 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     MmGetPhysicalAddress @ 0x14028C170 (MmGetPhysicalAddress.c)
+ *     VslpEnterIumSecureMode @ 0x14033FF80 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 __int64 __fastcall VslpAddLiveDumpBufferChunk(char *BaseAddress, int a2)

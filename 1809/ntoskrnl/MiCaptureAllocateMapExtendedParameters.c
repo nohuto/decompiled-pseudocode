@@ -1,12 +1,12 @@
 /*
- * XREFs of MiCaptureAllocateMapExtendedParameters @ 0x140675E98
+ * XREFs of MiCaptureAllocateMapExtendedParameters @ 0x140677058
  * Callers:
- *     MmAllocateVirtualMemory @ 0x140675BA0 (MmAllocateVirtualMemory.c)
- *     MiMapViewOfSectionExCommon @ 0x140676C10 (MiMapViewOfSectionExCommon.c)
+ *     MmAllocateVirtualMemory @ 0x140676D60 (MmAllocateVirtualMemory.c)
+ *     MiMapViewOfSectionExCommon @ 0x140677DD0 (MiMapViewOfSectionExCommon.c)
  * Callees:
- *     memset @ 0x1401D1880 (memset.c)
- *     ProbeForWrite @ 0x140629A60 (ProbeForWrite.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ProbeForWrite @ 0x14062AA80 (ProbeForWrite.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D7880 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall MiCaptureAllocateMapExtendedParameters(

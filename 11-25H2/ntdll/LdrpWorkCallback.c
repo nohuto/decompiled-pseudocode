@@ -10,36 +10,36 @@
  *     RtlLeaveCriticalSection @ 0x18007C000 (RtlLeaveCriticalSection.c)
  */
 
-void LdrpWorkCallback()
+void __fastcall LdrpWorkCallback(PTP_CALLBACK_INSTANCE a1, PVOID a2, PTP_WORK a3)
 {
-  bool v0; // di
-  __int64 *v1; // rbx
-  __int64 v2; // rax
+  bool v3; // di
+  __int64 *v4; // rbx
+  __int64 v5; // rax
 
-  v0 = 0;
+  v3 = 0;
   while ( !LdrpDetourExist )
   {
     RtlEnterCriticalSection(&LdrpWorkQueueLock);
-    v1 = (__int64 *)LdrpWorkQueue;
+    v4 = (__int64 *)LdrpWorkQueue;
     if ( *(__int64 **)(LdrpWorkQueue + 8) != &LdrpWorkQueue
-      || (v2 = *(_QWORD *)LdrpWorkQueue, *(_QWORD *)(*(_QWORD *)LdrpWorkQueue + 8LL) != LdrpWorkQueue) )
+      || (v5 = *(_QWORD *)LdrpWorkQueue, *(_QWORD *)(*(_QWORD *)LdrpWorkQueue + 8LL) != LdrpWorkQueue) )
     {
       __fastfail(3u);
     }
     LdrpWorkQueue = *(_QWORD *)LdrpWorkQueue;
-    *(_QWORD *)(v2 + 8) = &LdrpWorkQueue;
-    if ( &LdrpWorkQueue != v1 )
+    *(_QWORD *)(v5 + 8) = &LdrpWorkQueue;
+    if ( &LdrpWorkQueue != v4 )
     {
       ++LdrpWorkInProgress;
       LdrpUpdateStatistics();
     }
     RtlLeaveCriticalSection(&LdrpWorkQueueLock);
-    if ( &LdrpWorkQueue == v1 )
+    if ( &LdrpWorkQueue == v4 )
       break;
-    if ( !v0 && LdrpMainThreadToken )
-      v0 = (int)LdrpThreadTokenSetImpersonationToken(LdrpMainThreadToken) >= 0;
-    LdrpProcessWork((_BYTE)v1 - 64);
+    if ( !v3 && LdrpMainThreadToken )
+      v3 = (int)LdrpThreadTokenSetImpersonationToken(LdrpMainThreadToken) >= 0;
+    LdrpProcessWork(v4 - 8, 0LL);
   }
-  if ( v0 )
+  if ( v3 )
     LdrpThreadTokenSetImpersonationToken(0LL);
 }

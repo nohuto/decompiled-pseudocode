@@ -1,7 +1,7 @@
 /*
- * XREFs of BvgaAcquireDisplayOwnership @ 0x1401C3FF4
+ * XREFs of BvgaAcquireDisplayOwnership @ 0x1401C3ED8
  * Callers:
- *     BvgaNotifyDisplayOwnershipChange @ 0x1401C41A4 (BvgaNotifyDisplayOwnershipChange.c)
+ *     BvgaNotifyDisplayOwnershipChange @ 0x1401C4088 (BvgaNotifyDisplayOwnershipChange.c)
  * Callees:
  *     <none>
  */

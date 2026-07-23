@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpGetLegacyContextLength @ 0x14048CA10
+ * XREFs of RtlpGetLegacyContextLength @ 0x140486550
  * Callers:
- *     PspWow64SetupCpuArea @ 0x1409EA6C0 (PspWow64SetupCpuArea.c)
- *     RtlpWriteExtendedContext @ 0x1409EC994 (RtlpWriteExtendedContext.c)
- *     RtlWow64GetCpuAreaInfo @ 0x140A64E50 (RtlWow64GetCpuAreaInfo.c)
+ *     PspWow64SetupCpuArea @ 0x1409E6E90 (PspWow64SetupCpuArea.c)
+ *     RtlpWriteExtendedContext @ 0x1409E9164 (RtlpWriteExtendedContext.c)
+ *     RtlWow64GetCpuAreaInfo @ 0x140A71E20 (RtlWow64GetCpuAreaInfo.c)
  * Callees:
  *     <none>
  */

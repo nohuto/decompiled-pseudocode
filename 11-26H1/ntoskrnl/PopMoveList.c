@@ -1,7 +1,7 @@
 /*
- * XREFs of PopMoveList @ 0x140C065D8
+ * XREFs of PopMoveList @ 0x140C0C7E8
  * Callers:
- *     PopSetupSleepNotifies @ 0x140C064F0 (PopSetupSleepNotifies.c)
+ *     PopSetupSleepNotifies @ 0x140C0C700 (PopSetupSleepNotifies.c)
  * Callees:
  *     <none>
  */

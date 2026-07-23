@@ -1,11 +1,11 @@
 /*
- * XREFs of IopInsertLegacyBusDeviceNode @ 0x14075829C
+ * XREFs of IopInsertLegacyBusDeviceNode @ 0x14075948C
  * Callers:
- *     PipCallDriverAddDevice @ 0x1406E6C4C (PipCallDriverAddDevice.c)
+ *     PipCallDriverAddDevice @ 0x1406E7EEC (PipCallDriverAddDevice.c)
  * Callees:
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     KeReleaseSemaphore @ 0x1400C5EC0 (KeReleaseSemaphore.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     KeReleaseSemaphore @ 0x1400C5E00 (KeReleaseSemaphore.c)
  */
 
 void __fastcall IopInsertLegacyBusDeviceNode(__int64 a1, unsigned int a2, unsigned int a3)

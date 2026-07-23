@@ -1,10 +1,10 @@
 /*
- * XREFs of MiReplaceActivePageTableLinks @ 0x1403126A4
+ * XREFs of MiReplaceActivePageTableLinks @ 0x1403F37B8
  * Callers:
- *     MiReplacePageTablePage @ 0x140311CD4 (MiReplacePageTablePage.c)
+ *     MiReplacePageTablePage @ 0x1403F2DE8 (MiReplacePageTablePage.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14020FA40 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140210170 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140338DA0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1403394D0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
  */
 
 void __fastcall MiReplaceActivePageTableLinks(__int64 a1, __int64 a2, __int64 a3)

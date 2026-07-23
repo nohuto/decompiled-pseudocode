@@ -3,7 +3,7 @@
  * Callers:
  *     MiInitSystem @ 0x140B44518 (MiInitSystem.c)
  * Callees:
- *     MiActOnLargeKernelHalPages @ 0x14081C178 (MiActOnLargeKernelHalPages.c)
+ *     MiActOnLargeKernelHalPages @ 0x14081C448 (MiActOnLargeKernelHalPages.c)
  */
 
 __int64 MiCreateSlabAllocationsFromKernelHal()
@@ -16,8 +16,8 @@ __int64 MiCreateSlabAllocationsFromKernelHal()
   for ( i = &qword_140C65918; ; ++i )
   {
     result = MiActOnLargeKernelHalPages(
-               *(_QWORD *)(*i + 48),
-               (__int64 (__fastcall *)(unsigned __int64, __int64))MiCreateKernelHalSlabRange);
+               *(char **)(*i + 48),
+               (__int64 (__fastcall *)(char *, char *))MiCreateKernelHalSlabRange);
     if ( (int)result < 0 )
       break;
     if ( ++v0 )

@@ -1,14 +1,14 @@
 /*
- * XREFs of PiAuDoesClientHavePrivilege @ 0x14072F34C
+ * XREFs of PiAuDoesClientHavePrivilege @ 0x14072F518
  * Callers:
- *     PiCMSetDeviceProblem @ 0x14072EC10 (PiCMSetDeviceProblem.c)
- *     PiCMQueryRemove @ 0x14072ED1C (PiCMQueryRemove.c)
- *     PiCMDeviceAction @ 0x14072EF74 (PiCMDeviceAction.c)
+ *     PiCMSetDeviceProblem @ 0x14072EDDC (PiCMSetDeviceProblem.c)
+ *     PiCMQueryRemove @ 0x14072EEE8 (PiCMQueryRemove.c)
+ *     PiCMDeviceAction @ 0x14072F140 (PiCMDeviceAction.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     SePrivilegeCheck @ 0x140654F40 (SePrivilegeCheck.c)
- *     SeCaptureSubjectContext @ 0x140655B30 (SeCaptureSubjectContext.c)
- *     SeReleaseSubjectContext @ 0x1406568F0 (SeReleaseSubjectContext.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     SePrivilegeCheck @ 0x140649D60 (SePrivilegeCheck.c)
+ *     SeCaptureSubjectContext @ 0x14064A950 (SeCaptureSubjectContext.c)
+ *     SeReleaseSubjectContext @ 0x14064B710 (SeReleaseSubjectContext.c)
  */
 
 BOOLEAN __fastcall PiAuDoesClientHavePrivilege(unsigned int a1)

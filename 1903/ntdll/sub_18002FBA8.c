@@ -18,47 +18,42 @@
  *     sub_18010EFC8 @ 0x18010EFC8 (sub_18010EFC8.c)
  */
 
-__int64 __fastcall sub_18002FBA8(
-        volatile signed __int32 **a1,
-        volatile signed __int64 *a2,
-        volatile signed __int32 **a3,
-        unsigned __int64 a4)
+NTSTATUS __fastcall sub_18002FBA8(volatile signed __int32 **a1, _RTL_SRWLOCK *a2, volatile signed __int32 **a3)
 {
-  struct _PEB_LDR_DATA *Ldr; // rdx
-  char v8; // bl
-  __int64 result; // rax
-  int v10; // edx
-  __int64 v11; // rdx
-  __int64 v12; // rbx
-  int v13; // edx
-  __int64 v14; // rdx
-  int v15; // eax
-  int v16; // [rsp+20h] [rbp-28h]
-  __int64 v17; // [rsp+68h] [rbp+20h] BYREF
+  char v6; // bl
+  NTSTATUS result; // eax
+  int v8; // edx
+  ULONG v9; // edx
+  PTP_POOL v10; // rbx
+  int v11; // edx
+  __int64 v12; // rdx
+  NTSTATUS v13; // eax
+  int v14; // [rsp+20h] [rbp-28h]
+  PTP_POOL PoolReturn; // [rsp+68h] [rbp+20h] BYREF
 
-  if ( !a3 || !a1 || !a2 || (Ldr = NtCurrentPeb()->Ldr, Ldr->ShutdownInProgress) )
+  if ( !a3 || !a1 || !a2 || NtCurrentPeb()->Ldr->ShutdownInProgress )
   {
     sub_18010EFC8();
-    return 3221225485LL;
+    return -1073741811;
   }
   if ( *a1 )
   {
-    v8 = 0;
-    RtlAcquireSRWLockShared(a2, (unsigned __int64)Ldr, (unsigned __int64)a3, a4);
+    v6 = 0;
+    RtlAcquireSRWLockShared(a2);
     if ( *a1 )
     {
       _InterlockedIncrement(*a1);
       *a3 = *a1;
-      v8 = 1;
+      v6 = 1;
     }
     RtlReleaseSRWLockShared(a2);
-    if ( v8 )
-      return 0LL;
+    if ( v6 )
+      return 0;
   }
-  v17 = 0LL;
-  result = TpAllocPool(&v17, 0LL);
-  v16 = result;
-  if ( (int)result >= 0 )
+  PoolReturn = 0LL;
+  result = TpAllocPool(&PoolReturn, 0LL);
+  v14 = result;
+  if ( result >= 0 )
   {
     RtlAcquireSRWLockExclusive(a2);
     if ( *a1 )
@@ -68,50 +63,50 @@ __int64 __fastcall sub_18002FBA8(
     }
     if ( a1 == (volatile signed __int32 **)&qword_180166470 )
     {
-      if ( dword_180166588 )
+      if ( MaxThreads )
       {
-        TpSetPoolMaxThreads(v17, (unsigned int)dword_180166588);
+        TpSetPoolMaxThreads(PoolReturn, MaxThreads);
       }
       else
       {
-        if ( !v17 || (v10 = *(_DWORD *)(v17 + 440)) == 0 )
-          v10 = MEMORY[0x7FFE03C0];
-        v11 = (unsigned int)(8 * v10);
-        if ( (unsigned int)v11 < 0x300 )
-          v11 = 768LL;
-        v12 = v17;
-        TpSetPoolMaxThreads(v17, v11);
-        if ( !v12 || (v13 = *(_DWORD *)(v12 + 440)) == 0 )
-          v13 = MEMORY[0x7FFE03C0];
-        v14 = (unsigned int)(4 * v13);
-        if ( (unsigned int)v14 < 0x180 )
-          v14 = 384LL;
-        TpSetPoolMaxThreadsSoftLimit(v17, v14);
+        if ( !PoolReturn || (v8 = *((_DWORD *)PoolReturn + 110)) == 0 )
+          v8 = MEMORY[0x7FFE03C0];
+        v9 = 8 * v8;
+        if ( v9 < 0x300 )
+          v9 = 768;
+        v10 = PoolReturn;
+        TpSetPoolMaxThreads(PoolReturn, v9);
+        if ( !v10 || (v11 = *((_DWORD *)v10 + 110)) == 0 )
+          v11 = MEMORY[0x7FFE03C0];
+        v12 = (unsigned int)(4 * v11);
+        if ( (unsigned int)v12 < 0x180 )
+          v12 = 384LL;
+        TpSetPoolMaxThreadsSoftLimit(PoolReturn, v12);
       }
-      if ( !qword_180166078 )
+      if ( !PoolStackInformation )
         goto LABEL_25;
-      v15 = TpSetPoolStackInformation(v17);
+      v13 = TpSetPoolStackInformation(PoolReturn, PoolStackInformation);
     }
     else
     {
       if ( a1 != (volatile signed __int32 **)&qword_180166458 )
       {
 LABEL_25:
-        *a1 = (volatile signed __int32 *)v17;
-        v17 = 0LL;
+        *a1 = (volatile signed __int32 *)PoolReturn;
+        PoolReturn = 0LL;
 LABEL_37:
         RtlReleaseSRWLockExclusive(a2);
-        if ( v17 )
-          TpReleasePool(v17);
-        if ( v16 >= 0 )
+        if ( PoolReturn )
+          TpReleasePool(PoolReturn);
+        if ( v14 >= 0 )
           *a3 = *a1;
-        return (unsigned int)v16;
+        return v14;
       }
-      TpSetPoolMaxThreads(v17, 1LL);
-      v15 = TpSetPoolMinThreads(v17, 1LL);
+      TpSetPoolMaxThreads(PoolReturn, 1u);
+      v13 = TpSetPoolMinThreads(PoolReturn, 1u);
     }
-    v16 = v15;
-    if ( v15 < 0 )
+    v14 = v13;
+    if ( v13 < 0 )
       goto LABEL_37;
     goto LABEL_25;
   }

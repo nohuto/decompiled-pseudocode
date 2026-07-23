@@ -1,61 +1,61 @@
 /*
- * XREFs of MxInsertFreeZeroMemoryDescriptor @ 0x140CF755C
+ * XREFs of MxInsertFreeZeroMemoryDescriptor @ 0x140CFD8DC
  * Callers:
- *     MxConstructLoaderMemoryTree @ 0x140CF53CC (MxConstructLoaderMemoryTree.c)
- *     MxCreateFreePageNode @ 0x140CF5A8C (MxCreateFreePageNode.c)
+ *     MxConstructLoaderMemoryTree @ 0x140CFB74C (MxConstructLoaderMemoryTree.c)
+ *     MxCreateFreePageNode @ 0x140CFBE0C (MxCreateFreePageNode.c)
  * Callees:
- *     RtlRbInsertNodeEx @ 0x1403774B0 (RtlRbInsertNodeEx.c)
- *     MxUpdateBootNodeFreePageCount @ 0x140CF85D8 (MxUpdateBootNodeFreePageCount.c)
+ *     RtlRbInsertNodeEx @ 0x140379260 (RtlRbInsertNodeEx.c)
+ *     MxUpdateBootNodeFreePageCount @ 0x140CFE958 (MxUpdateBootNodeFreePageCount.c)
  */
 
-__int64 __fastcall MxInsertFreeZeroMemoryDescriptor(unsigned __int64 a1, _QWORD *a2)
+__int64 __fastcall MxInsertFreeZeroMemoryDescriptor(PRTL_RB_TREE Tree, PRTL_BALANCED_NODE Node)
 {
-  unsigned __int64 v2; // r9
-  unsigned __int64 v5; // rdx
-  bool v6; // r8
+  unsigned __int64 ParentValue; // r9
+  unsigned __int64 Root; // rdx
+  BOOLEAN v6; // r8
   int v7; // ecx
   unsigned __int64 v8; // rax
-  _QWORD *v9; // rcx
-  _QWORD *v10; // rax
+  _RTL_BALANCED_NODE *v9; // rcx
+  _RTL_BALANCED_NODE *v10; // rax
 
-  v2 = a2[5];
-  if ( v2 < 0x40000 )
+  ParentValue = Node[1].ParentValue;
+  if ( ParentValue < 0x40000 )
   {
-    v9 = (_QWORD *)((v2 < 0x200 ? 0x20 : 0) + a1 + 16);
-    v10 = (_QWORD *)v9[1];
-    if ( (_QWORD *)*v10 != v9 )
+    v9 = (_RTL_BALANCED_NODE *)((char *)&Tree[1] + (ParentValue < 0x200 ? 0x20 : 0));
+    v10 = v9->Children[1];
+    if ( v10->Children[0] != v9 )
       __fastfail(3u);
-    *a2 = v9;
-    a2[1] = v10;
-    *v10 = a2;
-    v9[1] = a2;
-    ++v9[3];
-    v9[2] += a2[5];
+    Node->Children[0] = v9;
+    Node->Children[1] = v10;
+    v10->Children[0] = Node;
+    v9->Children[1] = Node;
+    ++v9[1].Children[0];
+    v9->ParentValue += Node[1].ParentValue;
   }
   else
   {
-    v5 = *(_QWORD *)a1;
+    Root = (unsigned __int64)Tree->Root;
     v6 = 0;
-    if ( (*(_BYTE *)(a1 + 8) & 1) != 0 )
+    if ( (*(_BYTE *)&Tree->0 & 1) != 0 )
     {
-      if ( v5 )
-        v5 ^= a1;
+      if ( Root )
+        Root ^= (unsigned __int64)Tree;
       else
-        v5 = 0LL;
+        Root = 0LL;
     }
-    v7 = *(_BYTE *)(a1 + 8) & 1;
-    if ( v5 )
+    v7 = *(_BYTE *)&Tree->0 & 1;
+    if ( Root )
     {
       while ( 1 )
       {
-        if ( v2 <= *(_QWORD *)(v5 + 40) )
+        if ( ParentValue <= *(_QWORD *)(Root + 40) )
         {
-          v8 = *(_QWORD *)(v5 + 8);
+          v8 = *(_QWORD *)(Root + 8);
           if ( v7 )
           {
             if ( !v8 )
               goto LABEL_18;
-            v8 ^= v5;
+            v8 ^= Root;
           }
           if ( !v8 )
           {
@@ -66,20 +66,20 @@ LABEL_18:
         }
         else
         {
-          v8 = *(_QWORD *)v5;
+          v8 = *(_QWORD *)Root;
           if ( v7 )
           {
             if ( !v8 )
               break;
-            v8 ^= v5;
+            v8 ^= Root;
           }
           if ( !v8 )
             break;
         }
-        v5 = v8;
+        Root = v8;
       }
     }
-    RtlRbInsertNodeEx(a1, v5, v6, (unsigned __int64)a2);
+    RtlRbInsertNodeEx(Tree, (PRTL_BALANCED_NODE)Root, v6, Node);
   }
-  return MxUpdateBootNodeFreePageCount(a1, a2[5], 1LL);
+  return MxUpdateBootNodeFreePageCount(Tree, Node[1].ParentValue, 1LL);
 }

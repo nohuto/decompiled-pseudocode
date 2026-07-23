@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpKeySecurityIncrementReferenceCount @ 0x1401B34C4
+ * XREFs of CmpKeySecurityIncrementReferenceCount @ 0x1401B3604
  * Callers:
- *     CmpGetSecurityDescriptorNodeEx @ 0x140580AB8 (CmpGetSecurityDescriptorNodeEx.c)
- *     CmpReferenceSecurityNode @ 0x140580C84 (CmpReferenceSecurityNode.c)
- *     CmpSetSecurityDescriptorInfo @ 0x1405B7C5C (CmpSetSecurityDescriptorInfo.c)
- *     CmpCheckKey @ 0x1405DA210 (CmpCheckKey.c)
+ *     CmpGetSecurityDescriptorNodeEx @ 0x140581AB8 (CmpGetSecurityDescriptorNodeEx.c)
+ *     CmpReferenceSecurityNode @ 0x140581C84 (CmpReferenceSecurityNode.c)
+ *     CmpSetSecurityDescriptorInfo @ 0x1405B8C5C (CmpSetSecurityDescriptorInfo.c)
+ *     CmpCheckKey @ 0x1405DB210 (CmpCheckKey.c)
  * Callees:
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall CmpKeySecurityIncrementReferenceCount(__int64 a1, ULONG_PTR a2, unsigned int a3, char a4)

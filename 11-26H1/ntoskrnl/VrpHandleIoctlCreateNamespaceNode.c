@@ -1,20 +1,20 @@
 /*
- * XREFs of VrpHandleIoctlCreateNamespaceNode @ 0x14097854C
+ * XREFs of VrpHandleIoctlCreateNamespaceNode @ 0x14093A55C
  * Callers:
- *     VrpIoctlDeviceDispatch @ 0x140977F10 (VrpIoctlDeviceDispatch.c)
+ *     VrpIoctlDeviceDispatch @ 0x140939F20 (VrpIoctlDeviceDispatch.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     PsGetPermanentSiloContext @ 0x14040B340 (PsGetPermanentSiloContext.c)
- *     PsIsThreadInSilo @ 0x14043D79C (PsIsThreadInSilo.c)
- *     PsGetJobSilo @ 0x14043D7E0 (PsGetJobSilo.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1408FA680 (ObpReferenceObjectByHandleWithTag.c)
- *     VrpDestroyNamespaceNode @ 0x140977AF4 (VrpDestroyNamespaceNode.c)
- *     VrpAddNamespaceNodeToList @ 0x140977CF4 (VrpAddNamespaceNodeToList.c)
- *     VRegEnabledInJob @ 0x14097834C (VRegEnabledInJob.c)
- *     VrpUnlockJobContextExclusive @ 0x1409787A4 (VrpUnlockJobContextExclusive.c)
- *     VrpCreateNamespaceNode @ 0x1409787E0 (VrpCreateNamespaceNode.c)
- *     VrpLockJobContextExclusive @ 0x140978CF4 (VrpLockJobContextExclusive.c)
- *     VrpCreateNamespaceNodePlaceholderKey @ 0x140978D98 (VrpCreateNamespaceNodePlaceholderKey.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     PsGetPermanentSiloContext @ 0x140404430 (PsGetPermanentSiloContext.c)
+ *     PsIsThreadInSilo @ 0x14043004C (PsIsThreadInSilo.c)
+ *     PsGetJobSilo @ 0x140430090 (PsGetJobSilo.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x14092A610 (ObpReferenceObjectByHandleWithTag.c)
+ *     VrpDestroyNamespaceNode @ 0x140939B04 (VrpDestroyNamespaceNode.c)
+ *     VrpAddNamespaceNodeToList @ 0x140939D04 (VrpAddNamespaceNodeToList.c)
+ *     VRegEnabledInJob @ 0x14093A35C (VRegEnabledInJob.c)
+ *     VrpUnlockJobContextExclusive @ 0x14093A7B4 (VrpUnlockJobContextExclusive.c)
+ *     VrpCreateNamespaceNode @ 0x14093A7F0 (VrpCreateNamespaceNode.c)
+ *     VrpLockJobContextExclusive @ 0x14093AD04 (VrpLockJobContextExclusive.c)
+ *     VrpCreateNamespaceNodePlaceholderKey @ 0x14093ADA8 (VrpCreateNamespaceNodePlaceholderKey.c)
  */
 
 __int64 __fastcall VrpHandleIoctlCreateNamespaceNode(
@@ -68,7 +68,7 @@ __int64 __fastcall VrpHandleIoctlCreateNamespaceNode(
   v14 = v12 + 20 + v13;
   if ( v12 + 20 > v14 || a2 < v14 )
     return (unsigned int)-1073741811;
-  v15 = ObpReferenceObjectByHandleWithTag(*(_QWORD *)a1, 6LL, PsJobType, a3, 0x52566D43u, &Object, 0LL, 0LL);
+  v15 = ObpReferenceObjectByHandleWithTag(*(_QWORD *)a1, 6, (__int64)PsJobType, a3, 0x52566D43u, &Object, 0LL, 0LL);
   v8 = Object;
   JobSilo = v15;
   if ( v15 < 0 )

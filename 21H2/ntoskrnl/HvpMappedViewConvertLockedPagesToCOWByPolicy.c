@@ -1,9 +1,9 @@
 /*
- * XREFs of HvpMappedViewConvertLockedPagesToCOWByPolicy @ 0x140725B24
+ * XREFs of HvpMappedViewConvertLockedPagesToCOWByPolicy @ 0x140608610
  * Callers:
- *     HvpViewMapConvertLockedPagesToCOWByPolicy @ 0x140725A88 (HvpViewMapConvertLockedPagesToCOWByPolicy.c)
+ *     HvpViewMapConvertLockedPagesToCOWByPolicy @ 0x140608574 (HvpViewMapConvertLockedPagesToCOWByPolicy.c)
  * Callees:
- *     HvpMappedViewConvertRegionFromLockedToCOWByPolicy @ 0x1407258C0 (HvpMappedViewConvertRegionFromLockedToCOWByPolicy.c)
+ *     HvpMappedViewConvertRegionFromLockedToCOWByPolicy @ 0x1406086BC (HvpMappedViewConvertRegionFromLockedToCOWByPolicy.c)
  */
 
 __int64 __fastcall HvpMappedViewConvertLockedPagesToCOWByPolicy(__int64 a1, _QWORD *a2)
@@ -26,7 +26,7 @@ __int64 __fastcall HvpMappedViewConvertLockedPagesToCOWByPolicy(__int64 a1, _QWO
       {
         if ( v4 != v5 )
         {
-          result = HvpMappedViewConvertRegionFromLockedToCOWByPolicy(a1, a2, v4, v5);
+          result = HvpMappedViewConvertRegionFromLockedToCOWByPolicy(a1, a2);
           if ( (int)result < 0 )
             return result;
         }
@@ -43,7 +43,7 @@ __int64 __fastcall HvpMappedViewConvertLockedPagesToCOWByPolicy(__int64 a1, _QWO
 LABEL_6:
   if ( v4 == v5 )
     return 0LL;
-  result = HvpMappedViewConvertRegionFromLockedToCOWByPolicy(a1, a2, v4, v5);
+  result = HvpMappedViewConvertRegionFromLockedToCOWByPolicy(a1, a2);
   if ( (int)result >= 0 )
     return 0LL;
   return result;

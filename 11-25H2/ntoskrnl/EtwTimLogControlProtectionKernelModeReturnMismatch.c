@@ -24,30 +24,30 @@ char __fastcall EtwTimLogControlProtectionKernelModeReturnMismatch(int a1, __int
   int v9; // ecx
   void *v10; // rsp
   unsigned __int16 v11; // bx
-  __int64 v12; // rax
-  __int64 v13; // rax
+  signed __int64 v12; // rax
+  signed __int64 v13; // rax
   __int64 v14; // r8
   _DWORD v16[16]; // [rsp+20h] [rbp-40h] BYREF
   _WORD v17[2]; // [rsp+60h] [rbp+0h] BYREF
   __int16 v18; // [rsp+64h] [rbp+4h] BYREF
-  __int64 v19; // [rsp+68h] [rbp+8h] BYREF
+  PVOID BaseOfImage; // [rsp+68h] [rbp+8h] BYREF
   int v20; // [rsp+70h] [rbp+10h] BYREF
   int v21; // [rsp+74h] [rbp+14h] BYREF
-  unsigned __int64 v22; // [rsp+78h] [rbp+18h] BYREF
-  unsigned __int64 v23; // [rsp+80h] [rbp+20h] BYREF
+  PVOID PcValue; // [rsp+78h] [rbp+18h] BYREF
+  PVOID v23; // [rsp+80h] [rbp+20h] BYREF
   int v24; // [rsp+88h] [rbp+28h] BYREF
   int v25; // [rsp+8Ch] [rbp+2Ch] BYREF
   int v26; // [rsp+90h] [rbp+30h] BYREF
   int v27; // [rsp+94h] [rbp+34h] BYREF
   int v28; // [rsp+98h] [rbp+38h] BYREF
-  __int64 v29; // [rsp+A0h] [rbp+40h] BYREF
-  __int64 v30; // [rsp+A8h] [rbp+48h] BYREF
+  signed __int64 v29; // [rsp+A0h] [rbp+40h] BYREF
+  signed __int64 v30; // [rsp+A8h] [rbp+48h] BYREF
   UNICODE_STRING v31; // [rsp+B0h] [rbp+50h] BYREF
   UNICODE_STRING v32; // [rsp+C0h] [rbp+60h] BYREF
-  __int64 v33; // [rsp+D0h] [rbp+70h] BYREF
-  __int64 v34; // [rsp+D8h] [rbp+78h] BYREF
-  unsigned __int64 v35; // [rsp+E0h] [rbp+80h] BYREF
-  __int64 v36; // [rsp+E8h] [rbp+88h] BYREF
+  PVOID v33; // [rsp+D0h] [rbp+70h] BYREF
+  signed __int64 v34; // [rsp+D8h] [rbp+78h] BYREF
+  PVOID v35; // [rsp+E0h] [rbp+80h] BYREF
+  signed __int64 v36; // [rsp+E8h] [rbp+88h] BYREF
   __int64 v37; // [rsp+F0h] [rbp+90h] BYREF
   struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+100h] [rbp+A0h] BYREF
   wchar_t *v39; // [rsp+110h] [rbp+B0h]
@@ -60,15 +60,15 @@ char __fastcall EtwTimLogControlProtectionKernelModeReturnMismatch(int a1, __int
   int v46; // [rsp+13Ch] [rbp+DCh]
   int *v47; // [rsp+140h] [rbp+E0h]
   __int64 v48; // [rsp+148h] [rbp+E8h]
-  __int64 *v49; // [rsp+150h] [rbp+F0h]
+  PVOID *p_PcValue; // [rsp+150h] [rbp+F0h]
   __int64 v50; // [rsp+158h] [rbp+F8h]
-  __int64 *v51; // [rsp+160h] [rbp+100h]
+  signed __int64 *v51; // [rsp+160h] [rbp+100h]
   __int64 v52; // [rsp+168h] [rbp+108h]
   int *v53; // [rsp+170h] [rbp+110h]
   __int64 v54; // [rsp+178h] [rbp+118h]
-  unsigned __int64 *v55; // [rsp+180h] [rbp+120h]
+  PVOID *v55; // [rsp+180h] [rbp+120h]
   __int64 v56; // [rsp+188h] [rbp+128h]
-  __int64 *v57; // [rsp+190h] [rbp+130h]
+  signed __int64 *v57; // [rsp+190h] [rbp+130h]
   __int64 v58; // [rsp+198h] [rbp+138h]
   int *v59; // [rsp+1A0h] [rbp+140h]
   __int64 v60; // [rsp+1A8h] [rbp+148h]
@@ -87,29 +87,29 @@ char __fastcall EtwTimLogControlProtectionKernelModeReturnMismatch(int a1, __int
   __int64 v73; // [rsp+228h] [rbp+1C8h]
   __int64 v74; // [rsp+230h] [rbp+1D0h]
   _DWORD v75[2]; // [rsp+238h] [rbp+1D8h] BYREF
-  __int64 *v76; // [rsp+240h] [rbp+1E0h]
+  PVOID *v76; // [rsp+240h] [rbp+1E0h]
   __int64 v77; // [rsp+248h] [rbp+1E8h]
-  __int64 *v78; // [rsp+250h] [rbp+1F0h]
+  signed __int64 *v78; // [rsp+250h] [rbp+1F0h]
   __int64 v79; // [rsp+258h] [rbp+1F8h]
-  unsigned __int64 *v80; // [rsp+260h] [rbp+200h]
+  PVOID *v80; // [rsp+260h] [rbp+200h]
   __int64 v81; // [rsp+268h] [rbp+208h]
-  __int64 *v82; // [rsp+270h] [rbp+210h]
+  signed __int64 *v82; // [rsp+270h] [rbp+210h]
   __int64 v83; // [rsp+278h] [rbp+218h]
   int *v84; // [rsp+280h] [rbp+220h]
   __int64 v85; // [rsp+288h] [rbp+228h]
-  __int64 *v86; // [rsp+290h] [rbp+230h]
+  PVOID *p_BaseOfImage; // [rsp+290h] [rbp+230h]
   __int64 v87; // [rsp+298h] [rbp+238h]
   __int64 *v88; // [rsp+2A0h] [rbp+240h]
   __int64 v89; // [rsp+2A8h] [rbp+248h]
 
-  v22 = *(_QWORD *)a2;
-  v23 = *(_QWORD *)(a2 + 8);
+  PcValue = *(PVOID *)a2;
+  v23 = *(PVOID *)(a2 + 8);
   v21 = *(_DWORD *)(a2 + 16);
   v25 = *(_DWORD *)(a2 + 20);
   v26 = *(_DWORD *)(a2 + 24);
   v2 = *(_DWORD *)(a2 + 28);
   v20 = v2;
-  v19 = 0LL;
+  BaseOfImage = 0LL;
   v31 = 0LL;
   v32 = 0LL;
   if ( a1 == 1 )
@@ -120,7 +120,7 @@ char __fastcall EtwTimLogControlProtectionKernelModeReturnMismatch(int a1, __int
     v31.MaximumLength = 64;
     v31.Buffer = v17;
     Length = 0;
-    if ( (int)RtlPcToFileName(v22, &v31) >= 0 )
+    if ( (int)RtlPcToFileName((__int64)PcValue, &v31) >= 0 )
       Length = v31.Length;
     Buffer = v31.Buffer;
     v6 = 6;
@@ -147,7 +147,7 @@ char __fastcall EtwTimLogControlProtectionKernelModeReturnMismatch(int a1, __int
     v32.Buffer = (wchar_t *)v16;
     v32.MaximumLength = 64;
     v11 = 0;
-    if ( (int)RtlPcToFileName(v23, &v32) >= 0 )
+    if ( (int)RtlPcToFileName((__int64)v23, &v32) >= 0 )
       v11 = v32.Length;
     v42 = &v18;
     v43 = 2LL;
@@ -166,21 +166,21 @@ char __fastcall EtwTimLogControlProtectionKernelModeReturnMismatch(int a1, __int
     v46 = 0;
     v47 = &v24;
     v48 = 4LL;
-    RtlPcToFileHeader(v22, &v19);
-    if ( v19 )
-      v12 = v22 - v19;
+    RtlPcToFileHeader(PcValue, &BaseOfImage);
+    if ( BaseOfImage )
+      v12 = (_BYTE *)PcValue - (_BYTE *)BaseOfImage;
     else
       v12 = 0LL;
     v29 = v12;
-    v49 = (__int64 *)&v22;
+    p_PcValue = &PcValue;
     v51 = &v29;
     v53 = &v25;
     v50 = 8LL;
     v52 = 8LL;
     v54 = 4LL;
-    RtlPcToFileHeader(v23, &v19);
-    if ( v19 )
-      v13 = v23 - v19;
+    RtlPcToFileHeader(v23, &BaseOfImage);
+    if ( BaseOfImage )
+      v13 = (_BYTE *)v23 - (_BYTE *)BaseOfImage;
     else
       v13 = 0LL;
     v30 = v13;
@@ -223,7 +223,7 @@ char __fastcall EtwTimLogControlProtectionKernelModeReturnMismatch(int a1, __int
         v67 = 4LL;
         v72 = v75;
         v75[0] = v11;
-        v33 = v22;
+        v33 = PcValue;
         v76 = &v33;
         v34 = v29;
         v78 = &v34;
@@ -233,8 +233,8 @@ char __fastcall EtwTimLogControlProtectionKernelModeReturnMismatch(int a1, __int
         v82 = &v36;
         v28 = v20;
         v84 = &v28;
-        LODWORD(v19) = v21;
-        v86 = &v19;
+        LODWORD(BaseOfImage) = v21;
+        p_BaseOfImage = &BaseOfImage;
         v88 = &v37;
         v69 = 2LL;
         v70 = Buffer;

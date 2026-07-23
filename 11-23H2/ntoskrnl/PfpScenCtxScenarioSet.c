@@ -1,20 +1,20 @@
 /*
  * XREFs of PfpScenCtxScenarioSet @ 0x140A883D8
  * Callers:
- *     PfpProcessScenarioPhase @ 0x1407D3650 (PfpProcessScenarioPhase.c)
- *     PfPowerActionNotify @ 0x140A9FE74 (PfPowerActionNotify.c)
+ *     PfpProcessScenarioPhase @ 0x1407D3920 (PfpProcessScenarioPhase.c)
+ *     PfPowerActionNotify @ 0x140A9FCE4 (PfPowerActionNotify.c)
  * Callees:
  *     ObDereferenceObjectDeferDelete @ 0x14020B8D0 (ObDereferenceObjectDeferDelete.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     PfpScenCtxWaiterTimedOut @ 0x140582DA0 (PfpScenCtxWaiterTimedOut.c)
- *     PfpServiceMainThreadBoost @ 0x140582DD0 (PfpServiceMainThreadBoost.c)
- *     PfpServiceMainThreadBoostPrep @ 0x14097ECA8 (PfpServiceMainThreadBoostPrep.c)
- *     PfpScenCtxPrefetchAbortSet @ 0x140AA01A0 (PfpScenCtxPrefetchAbortSet.c)
- *     PfpScenCtxPrefetchStateSet @ 0x140AA0270 (PfpScenCtxPrefetchStateSet.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x140231550 (KeLeaveCriticalRegion.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     PfpScenCtxWaiterTimedOut @ 0x140583290 (PfpScenCtxWaiterTimedOut.c)
+ *     PfpServiceMainThreadBoost @ 0x1405832C0 (PfpServiceMainThreadBoost.c)
+ *     PfpServiceMainThreadBoostPrep @ 0x14097EEA8 (PfpServiceMainThreadBoostPrep.c)
+ *     PfpScenCtxPrefetchAbortSet @ 0x140AA0010 (PfpScenCtxPrefetchAbortSet.c)
+ *     PfpScenCtxPrefetchStateSet @ 0x140AA00E0 (PfpScenCtxPrefetchStateSet.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

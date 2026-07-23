@@ -1,9 +1,9 @@
 /*
- * XREFs of PnpFreeVetoInformation @ 0x140642A48
+ * XREFs of PnpFreeVetoInformation @ 0x140642B2C
  * Callers:
- *     PiEventQueryRemoveDevices @ 0x14064CFD0 (PiEventQueryRemoveDevices.c)
+ *     PiEventQueryRemoveDevices @ 0x14064D0B4 (PiEventQueryRemoveDevices.c)
  * Callees:
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  */
 

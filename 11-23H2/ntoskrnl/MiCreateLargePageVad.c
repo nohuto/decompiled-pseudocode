@@ -1,17 +1,17 @@
 /*
- * XREFs of MiCreateLargePageVad @ 0x140A495E8
+ * XREFs of MiCreateLargePageVad @ 0x140A49898
  * Callers:
- *     MiMapViewOfImageSection @ 0x1406AEAC0 (MiMapViewOfImageSection.c)
- *     MiReserveUserMemory @ 0x14071F3E0 (MiReserveUserMemory.c)
- *     MiAllocateChildVads @ 0x140A4837C (MiAllocateChildVads.c)
+ *     MiMapViewOfImageSection @ 0x1406AEAF0 (MiMapViewOfImageSection.c)
+ *     MiReserveUserMemory @ 0x14071F5E0 (MiReserveUserMemory.c)
+ *     MiAllocateChildVads @ 0x140A4862C (MiAllocateChildVads.c)
  * Callees:
- *     UNLOCK_ADDRESS_SPACE_SHARED @ 0x140275250 (UNLOCK_ADDRESS_SPACE_SHARED.c)
- *     LOCK_ADDRESS_SPACE_SHARED @ 0x1402752C0 (LOCK_ADDRESS_SPACE_SHARED.c)
- *     ObfReferenceObjectWithTag @ 0x1402B68C0 (ObfReferenceObjectWithTag.c)
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     MiInsertVadEvent @ 0x1402E326C (MiInsertVadEvent.c)
- *     MiChargeFullProcessCommitment @ 0x1406F7800 (MiChargeFullProcessCommitment.c)
- *     MiChargeProcessPhysicalPages @ 0x140A438A4 (MiChargeProcessPhysicalPages.c)
+ *     UNLOCK_ADDRESS_SPACE_SHARED @ 0x1402754E0 (UNLOCK_ADDRESS_SPACE_SHARED.c)
+ *     LOCK_ADDRESS_SPACE_SHARED @ 0x140275550 (LOCK_ADDRESS_SPACE_SHARED.c)
+ *     ObfReferenceObjectWithTag @ 0x1402B6B50 (ObfReferenceObjectWithTag.c)
+ *     MiAllocatePool @ 0x1402DF430 (MiAllocatePool.c)
+ *     MiInsertVadEvent @ 0x1402E34FC (MiInsertVadEvent.c)
+ *     MiChargeFullProcessCommitment @ 0x1406F7A10 (MiChargeFullProcessCommitment.c)
+ *     MiChargeProcessPhysicalPages @ 0x140A43B54 (MiChargeProcessPhysicalPages.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

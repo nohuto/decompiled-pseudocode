@@ -1,12 +1,12 @@
 /*
- * XREFs of MiUnlockImageSection @ 0x140083B04
+ * XREFs of MiUnlockImageSection @ 0x140081C64
  * Callers:
- *     MiLockPagableImageSection @ 0x140014884 (MiLockPagableImageSection.c)
+ *     MiLockPagableImageSection @ 0x140014404 (MiLockPagableImageSection.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14006A0A0 (KeLeaveCriticalRegionThread.c)
- *     MiUnlockCodePage @ 0x140083BE0 (MiUnlockCodePage.c)
- *     ExpUnblockPushLock @ 0x140087548 (ExpUnblockPushLock.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
+ *     KeLeaveCriticalRegionThread @ 0x140069C20 (KeLeaveCriticalRegionThread.c)
+ *     MiUnlockCodePage @ 0x140081D40 (MiUnlockCodePage.c)
+ *     ExpUnblockPushLock @ 0x14010B740 (ExpUnblockPushLock.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiUnlockImageSection(volatile signed __int32 *a1, __int64 a2, __int64 a3, ULONG_PTR a4)
@@ -30,8 +30,8 @@ __int64 __fastcall MiUnlockImageSection(volatile signed __int32 *a1, __int64 a2,
     result = MiUnlockCodePage(a2, a3);
     _InterlockedAdd(a1, 0xFFFFFFFF);
     _InterlockedOr(v9, 0);
-    if ( qword_140326878 )
-      result = ExpUnblockPushLock(&qword_140326878, 0LL, 0LL);
+    if ( qword_1403268B8 )
+      result = ExpUnblockPushLock(&qword_1403268B8, 0LL, 0LL);
   }
   if ( !CurrentIrql )
     return KeLeaveCriticalRegionThread((__int64)CurrentThread);

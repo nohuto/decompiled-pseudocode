@@ -1,13 +1,13 @@
 /*
- * XREFs of CmpGetStateSepKeysRedirectionPathValue @ 0x140A61390
+ * XREFs of CmpGetStateSepKeysRedirectionPathValue @ 0x140A62390
  * Callers:
- *     CmpFindRedirectedDriverServiceStateNode @ 0x140A61328 (CmpFindRedirectedDriverServiceStateNode.c)
+ *     CmpFindRedirectedDriverServiceStateNode @ 0x140A62328 (CmpFindRedirectedDriverServiceStateNode.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     CmpFindValueByName @ 0x14066963C (CmpFindValueByName.c)
- *     CmpFindSubKeyByName @ 0x1407AC8D4 (CmpFindSubKeyByName.c)
- *     CmpValueToData @ 0x1407ACEF4 (CmpValueToData.c)
- *     CmpFindHiveSubKey @ 0x140A5F704 (CmpFindHiveSubKey.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     CmpFindValueByName @ 0x14065E45C (CmpFindValueByName.c)
+ *     CmpFindSubKeyByName @ 0x1407ACAD4 (CmpFindSubKeyByName.c)
+ *     CmpValueToData @ 0x1407AD0F4 (CmpValueToData.c)
+ *     CmpFindHiveSubKey @ 0x140A60704 (CmpFindHiveSubKey.c)
  */
 
 char __fastcall CmpGetStateSepKeysRedirectionPathValue(

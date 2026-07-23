@@ -1,24 +1,24 @@
 /*
- * XREFs of DbgkWerCaptureLiveKernelDump @ 0x140AA9B20
+ * XREFs of DbgkWerCaptureLiveKernelDump @ 0x140AA4BD0
  * Callers:
- *     PopUserPresentSet @ 0x1403F2C70 (PopUserPresentSet.c)
- *     ExHandleLogBadReference @ 0x14043AC30 (ExHandleLogBadReference.c)
- *     PopIdlePhaseWatchdogCallback @ 0x1404BF450 (PopIdlePhaseWatchdogCallback.c)
- *     PopFxEnforceDirectedPowerTransition @ 0x1405D132C (PopFxEnforceDirectedPowerTransition.c)
- *     PopPowerButtonWorkCallback @ 0x1405D83A0 (PopPowerButtonWorkCallback.c)
- *     CarLiveDump @ 0x140619B20 (CarLiveDump.c)
- *     ExpResourceTimeoutCaptureLiveDump @ 0x14065B110 (ExpResourceTimeoutCaptureLiveDump.c)
- *     UcpGenerateLiveKernelDump @ 0x140694A5C (UcpGenerateLiveKernelDump.c)
- *     PopWin32CalloutWatchdogCallback @ 0x14075FA60 (PopWin32CalloutWatchdogCallback.c)
- *     PopDripsWatchdogCheckHwDivergence @ 0x14075FE54 (PopDripsWatchdogCheckHwDivergence.c)
- *     PopDeepSleepWatchdogTakeAction @ 0x1407663D8 (PopDeepSleepWatchdogTakeAction.c)
- *     PopDripsWatchdogTakeAction @ 0x1407664B0 (PopDripsWatchdogTakeAction.c)
- *     TtmpCalloutWatchdogCallback @ 0x140769020 (TtmpCalloutWatchdogCallback.c)
- *     ExpIoPoolDeadlockWorker @ 0x1407BFBA0 (ExpIoPoolDeadlockWorker.c)
- *     MiForceCrashForInvalidAccess @ 0x140AB6F10 (MiForceCrashForInvalidAccess.c)
- *     VfPtGenerateTraceInformation @ 0x140B8BF6C (VfPtGenerateTraceInformation.c)
+ *     PopUserPresentSet @ 0x1403E6990 (PopUserPresentSet.c)
+ *     ExHandleLogBadReference @ 0x14042D470 (ExHandleLogBadReference.c)
+ *     PopIdlePhaseWatchdogCallback @ 0x1404BA980 (PopIdlePhaseWatchdogCallback.c)
+ *     PopFxEnforceDirectedPowerTransition @ 0x1405CEA4C (PopFxEnforceDirectedPowerTransition.c)
+ *     PopPowerButtonWorkCallback @ 0x1405D58C0 (PopPowerButtonWorkCallback.c)
+ *     CarLiveDump @ 0x1406180E0 (CarLiveDump.c)
+ *     ExpResourceTimeoutCaptureLiveDump @ 0x140659830 (ExpResourceTimeoutCaptureLiveDump.c)
+ *     UcpGenerateLiveKernelDump @ 0x140695B2C (UcpGenerateLiveKernelDump.c)
+ *     PopWin32CalloutWatchdogCallback @ 0x14075EA60 (PopWin32CalloutWatchdogCallback.c)
+ *     PopDripsWatchdogCheckHwDivergence @ 0x14075EE54 (PopDripsWatchdogCheckHwDivergence.c)
+ *     PopDeepSleepWatchdogTakeAction @ 0x140765DA8 (PopDeepSleepWatchdogTakeAction.c)
+ *     PopDripsWatchdogTakeAction @ 0x140765E80 (PopDripsWatchdogTakeAction.c)
+ *     TtmpCalloutWatchdogCallback @ 0x140769240 (TtmpCalloutWatchdogCallback.c)
+ *     ExpIoPoolDeadlockWorker @ 0x1407BFFF0 (ExpIoPoolDeadlockWorker.c)
+ *     MiForceCrashForInvalidAccess @ 0x140AB11E8 (MiForceCrashForInvalidAccess.c)
+ *     VfPtGenerateTraceInformation @ 0x140B8DF6C (VfPtGenerateTraceInformation.c)
  * Callees:
- *     DbgkWerCaptureLiveKernelDump2 @ 0x140AA9BA0 (DbgkWerCaptureLiveKernelDump2.c)
+ *     DbgkWerCaptureLiveKernelDump2 @ 0x140AA4C50 (DbgkWerCaptureLiveKernelDump2.c)
  */
 
 __int64 __fastcall DbgkWerCaptureLiveKernelDump(

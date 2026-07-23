@@ -1,7 +1,7 @@
 /*
- * XREFs of MiHyperPage @ 0x140302F44
+ * XREFs of MiHyperPage @ 0x14030DC94
  * Callers:
- *     MiActivePageClaimCandidate @ 0x140302700 (MiActivePageClaimCandidate.c)
+ *     MiActivePageClaimCandidate @ 0x14030D450 (MiActivePageClaimCandidate.c)
  * Callees:
  *     <none>
  */
@@ -13,13 +13,13 @@ __int64 __fastcall MiHyperPage(__int64 a1)
   unsigned __int64 v3; // rdx
   int v4; // r9d
 
-  v1 = (((unsigned __int64)qword_140C4FB38 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
+  v1 = (((unsigned __int64)qword_140C4FB78 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
   v2 = 0;
   v3 = *(_QWORD *)(a1 + 8) | 0x8000000000000000uLL;
   v4 = 0;
   while ( v3 >= 0xFFFFF68000000000uLL && v3 <= 0xFFFFF6FFFFFFFFFFuLL )
   {
-    if ( v3 >= v1 && v3 <= (((unsigned __int64)qword_140C4E368 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL )
+    if ( v3 >= v1 && v3 <= (((unsigned __int64)qword_140C4E3A8 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL )
       return (unsigned int)(v4 != 0) + 1;
     ++v4;
     v3 = (__int64)(v3 << 25) >> 16;

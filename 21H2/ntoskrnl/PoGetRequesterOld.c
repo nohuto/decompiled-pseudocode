@@ -1,9 +1,9 @@
 /*
  * XREFs of PoGetRequesterOld @ 0x1403F7F10
  * Callers:
- *     PoCaptureReasonContext @ 0x14028363C (PoCaptureReasonContext.c)
+ *     PoCaptureReasonContext @ 0x14027184C (PoCaptureReasonContext.c)
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x1402056A0 (ObfReferenceObjectWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x1402A9FE0 (ObfReferenceObjectWithTag.c)
  */
 
 LONG_PTR __fastcall PoGetRequesterOld(char a1, void *a2, __int64 a3)

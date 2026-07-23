@@ -3,10 +3,10 @@
  * Callers:
  *     <none>
  * Callees:
- *     KiComplementAffinityEx @ 0x1402FF270 (KiComplementAffinityEx.c)
+ *     sub_1402FF270 @ 0x1402FF270 (sub_1402FF270.c)
  */
 
 void __fastcall KeComplementAffinityEx2(__int64 a1, unsigned __int16 *a2)
 {
-  KiComplementAffinityEx(a1, *(_WORD *)(a1 + 2), a2);
+  sub_1402FF270(a1, *(_WORD *)(a1 + 2), a2);
 }

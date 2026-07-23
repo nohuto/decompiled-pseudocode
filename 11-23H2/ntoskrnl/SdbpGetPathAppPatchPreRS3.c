@@ -1,14 +1,14 @@
 /*
- * XREFs of SdbpGetPathAppPatchPreRS3 @ 0x14066E110
+ * XREFs of SdbpGetPathAppPatchPreRS3 @ 0x14066E660
  * Callers:
  *     <none>
  * Callees:
- *     RtlStringCchCopyW @ 0x14022C6B0 (RtlStringCchCopyW.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     RtlStringCchCopyW @ 0x14022C7C0 (RtlStringCchCopyW.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  *     AslLogCallPrintf @ 0x1406956FC (AslLogCallPrintf.c)
- *     SdbpGetPathAppPatch @ 0x140A52C30 (SdbpGetPathAppPatch.c)
- *     SdbpGetProcessHostGuestArchitectures @ 0x140A53040 (SdbpGetProcessHostGuestArchitectures.c)
- *     AslPathCombine @ 0x140A550EC (AslPathCombine.c)
+ *     SdbpGetPathAppPatch @ 0x140A52EE0 (SdbpGetPathAppPatch.c)
+ *     SdbpGetProcessHostGuestArchitectures @ 0x140A532F0 (SdbpGetProcessHostGuestArchitectures.c)
+ *     AslPathCombine @ 0x140A5539C (AslPathCombine.c)
  */
 
 __int64 __fastcall SdbpGetPathAppPatchPreRS3(wchar_t *a1, size_t a2, const wchar_t *a3, __int64 a4)
@@ -43,7 +43,7 @@ __int64 __fastcall SdbpGetPathAppPatchPreRS3(wchar_t *a1, size_t a2, const wchar
     else
     {
       if ( !a3 )
-        a3 = &word_14001F044;
+        a3 = &word_14001F0C4;
       ProcessHostGuestArchitectures = RtlStringCchCopyW(pszDest, 0x104uLL, a3);
       if ( ProcessHostGuestArchitectures < 0 )
       {

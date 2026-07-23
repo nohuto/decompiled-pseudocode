@@ -3,9 +3,9 @@
  * Callers:
  *     <none>
  * Callees:
- *     RealPredecessor @ 0x140253690 (RealPredecessor.c)
- *     FindNodeOrParent_0 @ 0x1402DF210 (FindNodeOrParent_0.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     sub_140253690 @ 0x140253690 (sub_140253690.c)
+ *     sub_1402DF210 @ 0x1402DF210 (sub_1402DF210.c)
+ *     sub_14042A5E0 @ 0x14042A5E0 (sub_14042A5E0.c)
  */
 
 PVOID __stdcall RtlLookupFirstMatchingElementGenericTableAvl(PRTL_AVL_TABLE Table, PVOID Buffer, PVOID *RestartKey)
@@ -13,22 +13,20 @@ PVOID __stdcall RtlLookupFirstMatchingElementGenericTableAvl(PRTL_AVL_TABLE Tabl
   _QWORD *v7; // rbx
   _QWORD *v8; // rsi
   void *v9; // rbp
-  _QWORD *v10; // rax
-  _QWORD *v11; // [rsp+50h] [rbp+18h] BYREF
+  _QWORD *v10; // [rsp+50h] [rbp+18h] BYREF
 
   *RestartKey = 0LL;
-  v11 = 0LL;
-  if ( (unsigned int)FindNodeOrParent_0((__int64)Table, (__int64)Buffer, &v11) != 1 )
+  v10 = 0LL;
+  if ( (unsigned int)sub_1402DF210((__int64)Table, (__int64)Buffer, &v10) != 1 )
     return 0LL;
-  v7 = v11;
+  v7 = v10;
   do
   {
     v8 = v7;
     v9 = v7;
-    v10 = RealPredecessor(v7);
-    v7 = v10;
+    v7 = sub_140253690(v7);
   }
-  while ( v10 && Table->CompareRoutine(Table, Buffer, v10 + 4) == GenericEqual );
+  while ( v7 && (unsigned int)sub_14042A5E0(Table, Buffer) == 2 );
   *RestartKey = v9;
   return v8 + 4;
 }

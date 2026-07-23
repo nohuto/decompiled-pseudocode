@@ -1,10 +1,10 @@
 /*
- * XREFs of HvlpGetLpcbByApicId @ 0x1405BA1DC
+ * XREFs of HvlpGetLpcbByApicId @ 0x1405BCA4C
  * Callers:
- *     HvlGetLpIndexFromApicId @ 0x1405B9260 (HvlGetLpIndexFromApicId.c)
- *     HvlStartBootLogicalProcessors @ 0x1405B9968 (HvlStartBootLogicalProcessors.c)
- *     KiQueryProcessorNode @ 0x1405EFC3C (KiQueryProcessorNode.c)
- *     HvlpEnableRootVirtualProcessor @ 0x140791C18 (HvlpEnableRootVirtualProcessor.c)
+ *     HvlGetLpIndexFromApicId @ 0x1405BBAD0 (HvlGetLpIndexFromApicId.c)
+ *     HvlStartBootLogicalProcessors @ 0x1405BC1D8 (HvlStartBootLogicalProcessors.c)
+ *     KiQueryProcessorNode @ 0x1405F25AC (KiQueryProcessorNode.c)
+ *     HvlpEnableRootVirtualProcessor @ 0x140794748 (HvlpEnableRootVirtualProcessor.c)
  * Callees:
  *     <none>
  */

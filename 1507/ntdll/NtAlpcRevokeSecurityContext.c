@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 NtAlpcRevokeSecurityContext()
+NTSTATUS __cdecl NtAlpcRevokeSecurityContext(HANDLE PortHandle, ULONG Flags, ALPC_HANDLE ContextHandle)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 135LL;
+  result = 135;
   __asm { syscall; Low latency system call }
   return result;
 }

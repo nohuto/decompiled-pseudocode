@@ -1,12 +1,12 @@
 /*
- * XREFs of PopPowerAggregatorRecordIntent @ 0x140775F60
+ * XREFs of PopPowerAggregatorRecordIntent @ 0x140776120
  * Callers:
- *     PopPowerAggregatorHandleIntentUnsafe @ 0x140775E14 (PopPowerAggregatorHandleIntentUnsafe.c)
+ *     PopPowerAggregatorHandleIntentUnsafe @ 0x140775FD4 (PopPowerAggregatorHandleIntentUnsafe.c)
  * Callees:
- *     KeQueryInterruptTimePrecise @ 0x1402BF150 (KeQueryInterruptTimePrecise.c)
- *     PopPowerAggregatorDiagTraceHandleIntent @ 0x140382CA8 (PopPowerAggregatorDiagTraceHandleIntent.c)
- *     PopPowerAggregatorAllocateLogEntry @ 0x1407762A8 (PopPowerAggregatorAllocateLogEntry.c)
- *     PopPowerAggregatorAreTargetStatesEqual @ 0x1408EDFD4 (PopPowerAggregatorAreTargetStatesEqual.c)
+ *     KeQueryInterruptTimePrecise @ 0x14023D5A0 (KeQueryInterruptTimePrecise.c)
+ *     PopPowerAggregatorDiagTraceHandleIntent @ 0x140382E58 (PopPowerAggregatorDiagTraceHandleIntent.c)
+ *     PopPowerAggregatorAllocateLogEntry @ 0x140776468 (PopPowerAggregatorAllocateLogEntry.c)
+ *     PopPowerAggregatorAreTargetStatesEqual @ 0x1408EE134 (PopPowerAggregatorAreTargetStatesEqual.c)
  */
 
 unsigned __int64 __fastcall PopPowerAggregatorRecordIntent(
@@ -30,14 +30,14 @@ unsigned __int64 __fastcall PopPowerAggregatorRecordIntent(
   v9 = a7;
   v11 = a6;
   PopPowerAggregatorDiagTraceHandleIntent(a2, a3, a4, (__int64)a5, (__int64)a6, a7);
-  v13 = (char *)&unk_140C218C0 + 144 * (((unsigned __int8)dword_140C218B8 - 1) & 0x1F);
+  v13 = (char *)&unk_140C21920 + 144 * (((unsigned __int8)dword_140C21918 - 1) & 0x1F);
   if ( *(_DWORD *)v13 != 1
     || *((_DWORD *)v13 + 6) != a2
     || *((_DWORD *)v13 + 8) != a4
     || *((_DWORD *)v13 + 34) != v9
     || !(unsigned __int8)PopPowerAggregatorAreTargetStatesEqual(v13 + 40, v7)
     || !(unsigned __int8)PopPowerAggregatorAreTargetStatesEqual(v13 + 88, v11)
-    || (result = KeQueryInterruptTimePrecise(&v16) - *((_QWORD *)v13 + 1), result >= 0x2FAF080) )
+    || (result = *(_QWORD *)&KeQueryInterruptTimePrecise(&v16) - *((_QWORD *)v13 + 1), result >= 0x2FAF080) )
   {
     result = PopPowerAggregatorAllocateLogEntry(&PopPowerAggregatorContext, 1LL);
     *(_DWORD *)(result + 24) = a2;

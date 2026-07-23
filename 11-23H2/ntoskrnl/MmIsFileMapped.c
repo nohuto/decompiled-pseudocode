@@ -1,18 +1,18 @@
 /*
- * XREFs of MmIsFileMapped @ 0x140A3C5EC
+ * XREFs of MmIsFileMapped @ 0x140A3C89C
  * Callers:
- *     IopQueryProcessIdsUsingFile @ 0x14094B138 (IopQueryProcessIdsUsingFile.c)
+ *     IopQueryProcessIdsUsingFile @ 0x14094B338 (IopQueryProcessIdsUsingFile.c)
  * Callees:
- *     KiStackAttachProcess @ 0x14022D600 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x14022D9C0 (KiUnstackDetachProcess.c)
- *     UNLOCK_ADDRESS_SPACE_SHARED @ 0x140275250 (UNLOCK_ADDRESS_SPACE_SHARED.c)
- *     LOCK_ADDRESS_SPACE_SHARED @ 0x1402752C0 (LOCK_ADDRESS_SPACE_SHARED.c)
- *     MiVadDeleted @ 0x140275410 (MiVadDeleted.c)
- *     MiLockVadShared @ 0x140275530 (MiLockVadShared.c)
- *     MiReferenceControlAreaFile @ 0x1402A23D4 (MiReferenceControlAreaFile.c)
- *     MiDereferenceControlAreaFile @ 0x1402A24E0 (MiDereferenceControlAreaFile.c)
- *     MiUnlockVadShared @ 0x14032A3E4 (MiUnlockVadShared.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     KiStackAttachProcess @ 0x14022D710 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x14022DAD0 (KiUnstackDetachProcess.c)
+ *     UNLOCK_ADDRESS_SPACE_SHARED @ 0x1402754E0 (UNLOCK_ADDRESS_SPACE_SHARED.c)
+ *     LOCK_ADDRESS_SPACE_SHARED @ 0x140275550 (LOCK_ADDRESS_SPACE_SHARED.c)
+ *     MiVadDeleted @ 0x1402756A0 (MiVadDeleted.c)
+ *     MiLockVadShared @ 0x1402757C0 (MiLockVadShared.c)
+ *     MiReferenceControlAreaFile @ 0x1402A2664 (MiReferenceControlAreaFile.c)
+ *     MiDereferenceControlAreaFile @ 0x1402A2770 (MiDereferenceControlAreaFile.c)
+ *     MiUnlockVadShared @ 0x14032A674 (MiUnlockVadShared.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall MmIsFileMapped(_KPROCESS *a1, __int64 a2)

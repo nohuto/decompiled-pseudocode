@@ -68,7 +68,7 @@ __int64 __fastcall EtwpSetProviderTraitsUm(__int64 a1, int a2, int a3)
                v12,
                *(unsigned __int16 *)(a1 + 16),
                (__int64)&EtwpProviderTraitsUmMutex,
-               (__int64)&EtwpProviderTraitsUmTree);
+               &EtwpProviderTraitsUmTree);
       }
       else
       {

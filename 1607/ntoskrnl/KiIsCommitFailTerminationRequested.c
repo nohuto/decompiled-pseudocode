@@ -1,7 +1,7 @@
 /*
- * XREFs of KiIsCommitFailTerminationRequested @ 0x1400C9CE8
+ * XREFs of KiIsCommitFailTerminationRequested @ 0x1400C7B88
  * Callers:
- *     KiSchedulerApcTerminate @ 0x140509A00 (KiSchedulerApcTerminate.c)
+ *     KiSchedulerApcTerminate @ 0x1404EC990 (KiSchedulerApcTerminate.c)
  * Callees:
  *     <none>
  */

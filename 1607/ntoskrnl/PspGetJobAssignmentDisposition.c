@@ -1,12 +1,12 @@
 /*
- * XREFs of PspGetJobAssignmentDisposition @ 0x1404F2B24
+ * XREFs of PspGetJobAssignmentDisposition @ 0x1404D5AB0
  * Callers:
- *     PsAssignProcessToJobObject @ 0x1404F29F0 (PsAssignProcessToJobObject.c)
- *     PspAssignProcessToJob @ 0x1404F2C60 (PspAssignProcessToJob.c)
+ *     PsAssignProcessToJobObject @ 0x1404D597C (PsAssignProcessToJobObject.c)
+ *     PspAssignProcessToJob @ 0x1404D5BEC (PspAssignProcessToJob.c)
  * Callees:
- *     ExAcquireRundownProtection @ 0x1400D3ED0 (ExAcquireRundownProtection.c)
- *     ExReleaseRundownProtection @ 0x1400D3F00 (ExReleaseRundownProtection.c)
- *     PspIsProcessInJob @ 0x1404F287C (PspIsProcessInJob.c)
+ *     ExAcquireRundownProtection @ 0x1400D1D70 (ExAcquireRundownProtection.c)
+ *     ExReleaseRundownProtection @ 0x1400D1DA0 (ExReleaseRundownProtection.c)
+ *     PspIsProcessInJob @ 0x1404D5808 (PspIsProcessInJob.c)
  */
 
 __int64 __fastcall PspGetJobAssignmentDisposition(__int64 a1, struct _EX_RUNDOWN_REF *a2, _DWORD *a3)

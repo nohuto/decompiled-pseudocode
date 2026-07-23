@@ -1,12 +1,12 @@
 /*
- * XREFs of ExpDuplicateSingleHandle @ 0x140606580
+ * XREFs of ExpDuplicateSingleHandle @ 0x140696010
  * Callers:
- *     ExDupHandleTable @ 0x140606160 (ExDupHandleTable.c)
+ *     ExDupHandleTable @ 0x140695BF0 (ExDupHandleTable.c)
  * Callees:
- *     ExfUnblockPushLock @ 0x1403F9560 (ExfUnblockPushLock.c)
- *     ObInheritObjectHandle @ 0x140606624 (ObInheritObjectHandle.c)
- *     ExpGetHandleExtraInfo @ 0x14094CB30 (ExpGetHandleExtraInfo.c)
- *     ExpSetHandleExtraInfo @ 0x14094CB78 (ExpSetHandleExtraInfo.c)
+ *     ExfUnblockPushLock @ 0x1403F96E0 (ExfUnblockPushLock.c)
+ *     ObInheritObjectHandle @ 0x1406960B4 (ObInheritObjectHandle.c)
+ *     ExpGetHandleExtraInfo @ 0x14094CD00 (ExpGetHandleExtraInfo.c)
+ *     ExpSetHandleExtraInfo @ 0x14094CD48 (ExpSetHandleExtraInfo.c)
  */
 
 __int64 __fastcall ExpDuplicateSingleHandle(
@@ -31,12 +31,12 @@ __int64 __fastcall ExpDuplicateSingleHandle(
   *(_QWORD *)a6 |= 1uLL;
   if ( *(_DWORD *)(a3 + 4) )
   {
-    HandleExtraInfo = (_DWORD *)ExpGetHandleExtraInfo(a3);
+    HandleExtraInfo = (_DWORD *)ExpGetHandleExtraInfo(a3, a2);
     if ( HandleExtraInfo )
     {
       if ( *HandleExtraInfo || HandleExtraInfo[1] )
       {
-        v12 = ExpSetHandleExtraInfo(a5, a2, HandleExtraInfo);
+        v12 = ExpSetHandleExtraInfo(a5, a2);
         if ( v12 < 0 )
         {
           _InterlockedExchangeAdd64(a4, 1uLL);

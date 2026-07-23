@@ -4,7 +4,7 @@
  *     PopCaptureReasonContext @ 0x140002318 (PopCaptureReasonContext.c)
  * Callees:
  *     RtlStringCbCopyUnicodeString @ 0x1400026C8 (RtlStringCbCopyUnicodeString.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D7880 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall PopSafeCopyUnicodeString(PCUNICODE_STRING SourceString, wchar_t **a2, __int64 a3, char a4)

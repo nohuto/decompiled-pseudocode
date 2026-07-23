@@ -1,7 +1,7 @@
 /*
- * XREFs of MiGetPteBounds @ 0x1404A4350
+ * XREFs of MiGetPteBounds @ 0x14049D9E0
  * Callers:
- *     MiClearNonPagedPtes @ 0x1403633B8 (MiClearNonPagedPtes.c)
+ *     MiClearNonPagedPtes @ 0x140365158 (MiClearNonPagedPtes.c)
  * Callees:
  *     <none>
  */

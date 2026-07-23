@@ -1,9 +1,9 @@
 /*
- * XREFs of PspCriticalProcessDeathBufferStringTruncateCopy @ 0x1407FABD0
+ * XREFs of PspCriticalProcessDeathBufferStringTruncateCopy @ 0x140800600
  * Callers:
- *     PspCriticalProcessDeathUserModulesCollect @ 0x1407FAEEC (PspCriticalProcessDeathUserModulesCollect.c)
+ *     PspCriticalProcessDeathUserModulesCollect @ 0x14080091C (PspCriticalProcessDeathUserModulesCollect.c)
  * Callees:
- *     RtlCopyFromUser @ 0x140533E38 (RtlCopyFromUser.c)
+ *     RtlCopyFromUser @ 0x1405362B8 (RtlCopyFromUser.c)
  */
 
 __int64 __fastcall PspCriticalProcessDeathBufferStringTruncateCopy(__int64 a1, __int64 a2)

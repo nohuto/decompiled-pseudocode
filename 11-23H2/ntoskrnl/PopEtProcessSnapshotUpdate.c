@@ -1,16 +1,16 @@
 /*
- * XREFs of PopEtProcessSnapshotUpdate @ 0x1407B1CE8
+ * XREFs of PopEtProcessSnapshotUpdate @ 0x1407B1ED8
  * Callers:
- *     PopEtEnergyTrackerEnumSnapshotCallback @ 0x1407B1570 (PopEtEnergyTrackerEnumSnapshotCallback.c)
- *     PopEtProcessEnumSnapshotCallback @ 0x1407B1BE0 (PopEtProcessEnumSnapshotCallback.c)
+ *     PopEtEnergyTrackerEnumSnapshotCallback @ 0x1407B1760 (PopEtEnergyTrackerEnumSnapshotCallback.c)
+ *     PopEtProcessEnumSnapshotCallback @ 0x1407B1DD0 (PopEtProcessEnumSnapshotCallback.c)
  * Callees:
- *     PopReleaseRwLock @ 0x14032C480 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x14032C5E4 (PopAcquireRwLockExclusive.c)
- *     PopEtProcessSnapshotCreate @ 0x1407B1918 (PopEtProcessSnapshotCreate.c)
- *     PopEtProcessSnapshotFind @ 0x1407B1ED0 (PopEtProcessSnapshotFind.c)
- *     PopEtEnergyTrackerUpdateAggregate @ 0x1407B1FE0 (PopEtEnergyTrackerUpdateAggregate.c)
- *     PopEtProcessSnapshotUpdateFromSnapshotContext @ 0x1407B2428 (PopEtProcessSnapshotUpdateFromSnapshotContext.c)
- *     PopEtAggregateKeyCleanup @ 0x1407B29D8 (PopEtAggregateKeyCleanup.c)
+ *     PopReleaseRwLock @ 0x14032C710 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14032C874 (PopAcquireRwLockExclusive.c)
+ *     PopEtProcessSnapshotCreate @ 0x1407B1B08 (PopEtProcessSnapshotCreate.c)
+ *     PopEtProcessSnapshotFind @ 0x1407B20C0 (PopEtProcessSnapshotFind.c)
+ *     PopEtEnergyTrackerUpdateAggregate @ 0x1407B21D0 (PopEtEnergyTrackerUpdateAggregate.c)
+ *     PopEtProcessSnapshotUpdateFromSnapshotContext @ 0x1407B2618 (PopEtProcessSnapshotUpdateFromSnapshotContext.c)
+ *     PopEtAggregateKeyCleanup @ 0x1407B2BC8 (PopEtAggregateKeyCleanup.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

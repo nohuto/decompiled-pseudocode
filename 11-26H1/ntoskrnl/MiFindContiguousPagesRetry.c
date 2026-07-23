@@ -1,11 +1,11 @@
 /*
- * XREFs of MiFindContiguousPagesRetry @ 0x14028F92C
+ * XREFs of MiFindContiguousPagesRetry @ 0x14028EE8C
  * Callers:
- *     MiFindContiguousPagesEx @ 0x14028F100 (MiFindContiguousPagesEx.c)
+ *     MiFindContiguousPagesEx @ 0x14028E660 (MiFindContiguousPagesEx.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x1402DAC90 (EtwTraceKernelEvent.c)
- *     MiTrimNoStealPagesFromWorkingSets @ 0x140531354 (MiTrimNoStealPagesFromWorkingSets.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwTraceKernelEvent @ 0x1402BCA50 (EtwTraceKernelEvent.c)
+ *     MiTrimNoStealPagesFromWorkingSets @ 0x140533854 (MiTrimNoStealPagesFromWorkingSets.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall MiFindContiguousPagesRetry(__int64 *a1)
@@ -29,7 +29,7 @@ __int64 __fastcall MiFindContiguousPagesRetry(__int64 *a1)
     v6[0] = v7;
     EtwTraceKernelEvent((unsigned int)v6, 1, 537919488, 625, 5249538);
   }
-  _InterlockedIncrement(dword_140EF8FAC);
+  _InterlockedIncrement(dword_140EF930C);
   if ( (*(_DWORD *)(v2 + 60) & 0x4000000) == 0 )
     *((_DWORD *)a1 + 8) &= ~1u;
   *((_DWORD *)a1 + 8) |= 2u;

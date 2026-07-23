@@ -1,11 +1,11 @@
 /*
- * XREFs of _CmClassSubkeyCallback @ 0x140562FC0
+ * XREFs of _CmClassSubkeyCallback @ 0x140563500
  * Callers:
  *     <none>
  * Callees:
- *     RtlStringCchCopyExW @ 0x1400C34A8 (RtlStringCchCopyExW.c)
- *     RtlInitUnicodeStringEx @ 0x1400C39C0 (RtlInitUnicodeStringEx.c)
- *     _CmValidateInstallerClassName @ 0x1404F6E60 (_CmValidateInstallerClassName.c)
+ *     RtlStringCchCopyExW @ 0x1400C1338 (RtlStringCchCopyExW.c)
+ *     RtlInitUnicodeStringEx @ 0x1400C1850 (RtlInitUnicodeStringEx.c)
+ *     _CmValidateInstallerClassName @ 0x1404D9DEC (_CmValidateInstallerClassName.c)
  */
 
 __int64 __fastcall CmClassSubkeyCallback(__int64 a1, __int64 a2, const wchar_t *a3, unsigned int *a4)

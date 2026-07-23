@@ -1,13 +1,13 @@
 /*
- * XREFs of MiCaptureTargetedWorkingSetAccessBits @ 0x1403B9D78
+ * XREFs of MiCaptureTargetedWorkingSetAccessBits @ 0x1403C3BE8
  * Callers:
- *     MiWalkAllWorkingSets @ 0x1402A9370 (MiWalkAllWorkingSets.c)
+ *     MiWalkAllWorkingSets @ 0x1402A8780 (MiWalkAllWorkingSets.c)
  * Callees:
- *     MiUnlockWorkingSetShared @ 0x1402EB6C0 (MiUnlockWorkingSetShared.c)
- *     MiLockWorkingSetShared @ 0x1402EDD60 (MiLockWorkingSetShared.c)
- *     MiCheckAndProcessCcAccessLog @ 0x1403BA2D4 (MiCheckAndProcessCcAccessLog.c)
- *     MiDrainOldAccessBuffers @ 0x1403BAF90 (MiDrainOldAccessBuffers.c)
- *     MiCaptureAndResetWorkingSetAccessBits @ 0x1403BB06C (MiCaptureAndResetWorkingSetAccessBits.c)
+ *     MiUnlockWorkingSetShared @ 0x1402CD700 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x1402CFDE0 (MiLockWorkingSetShared.c)
+ *     MiCheckAndProcessCcAccessLog @ 0x1403C4144 (MiCheckAndProcessCcAccessLog.c)
+ *     MiDrainOldAccessBuffers @ 0x1403C4E00 (MiDrainOldAccessBuffers.c)
+ *     MiCaptureAndResetWorkingSetAccessBits @ 0x1403C4EDC (MiCaptureAndResetWorkingSetAccessBits.c)
  */
 
 __int64 __fastcall MiCaptureTargetedWorkingSetAccessBits(__int64 a1, __int64 a2)
@@ -22,7 +22,7 @@ __int64 __fastcall MiCaptureTargetedWorkingSetAccessBits(__int64 a1, __int64 a2)
 
   v2 = *(unsigned __int16 *)(a1 + 174);
   v3 = a2;
-  v5 = *(_QWORD *)(stru_140E2EB88.ThreadLock + 8 * v2);
+  v5 = *(_QWORD *)(stru_140E2ED08.ThreadLock + 8 * v2);
   LOBYTE(v6) = MiLockWorkingSetShared(a1, a2, v2);
   v7 = v6;
   MiCaptureAndResetWorkingSetAccessBits(a1, v6, v3);

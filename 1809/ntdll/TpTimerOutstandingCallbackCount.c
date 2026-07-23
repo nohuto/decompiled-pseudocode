@@ -2,7 +2,7 @@
  * XREFs of TpTimerOutstandingCallbackCount @ 0x18002F520
  * Callers:
  *     RtlDeleteTimer @ 0x18002F570 (RtlDeleteTimer.c)
- *     RtlDeleteTimerQueueEx @ 0x180087090 (RtlDeleteTimerQueueEx.c)
+ *     RtlDeleteTimerQueueEx @ 0x1800870A0 (RtlDeleteTimerQueueEx.c)
  * Callees:
  *     RtlReleaseSRWLockExclusive @ 0x180015B60 (RtlReleaseSRWLockExclusive.c)
  *     RtlAcquireSRWLockExclusive @ 0x180015FF0 (RtlAcquireSRWLockExclusive.c)
@@ -11,17 +11,14 @@
 
 __int64 __fastcall TpTimerOutstandingCallbackCount(__int64 a1)
 {
-  unsigned __int64 v2; // rdx
-  unsigned __int64 *v3; // r8
-  __int64 v4; // r9
-  volatile signed __int64 *v5; // rdi
-  unsigned int v6; // ebx
+  _RTL_SRWLOCK *v2; // rdi
+  unsigned int v3; // ebx
 
   if ( !(unsigned int)TppTimerpValidateTimer((_PEB_LDR_DATA *)a1, 0LL, 0LL) )
     return 0LL;
-  v5 = (volatile signed __int64 *)(a1 + 240);
-  RtlAcquireSRWLockExclusive(a1 + 240, v2, v3, v4);
-  v6 = *(_DWORD *)(a1 + 56);
-  RtlReleaseSRWLockExclusive(v5);
-  return v6;
+  v2 = (_RTL_SRWLOCK *)(a1 + 240);
+  RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 240));
+  v3 = *(_DWORD *)(a1 + 56);
+  RtlReleaseSRWLockExclusive(v2);
+  return v3;
 }

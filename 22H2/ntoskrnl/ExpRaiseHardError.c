@@ -42,21 +42,20 @@ __int64 __fastcall ExpRaiseHardError(
   int v23; // eax
   unsigned int v24; // r15d
   int v25; // r14d
-  __int64 v26; // [rsp+20h] [rbp-358h]
-  int v28; // [rsp+5Ch] [rbp-31Ch]
-  unsigned __int64 v30; // [rsp+78h] [rbp-300h] BYREF
-  __int128 v31[2]; // [rsp+80h] [rbp-2F8h] BYREF
-  unsigned int v32; // [rsp+A8h] [rbp-2D0h]
-  __int64 v33; // [rsp+B0h] [rbp-2C8h]
-  int v34; // [rsp+B8h] [rbp-2C0h]
-  unsigned int v35; // [rsp+BCh] [rbp-2BCh]
-  int v36; // [rsp+C0h] [rbp-2B8h]
-  unsigned int v37; // [rsp+C4h] [rbp-2B4h]
-  char v38[616]; // [rsp+C8h] [rbp-2B0h] BYREF
+  int v27; // [rsp+5Ch] [rbp-31Ch]
+  unsigned __int64 v29; // [rsp+78h] [rbp-300h] BYREF
+  __int128 v30[2]; // [rsp+80h] [rbp-2F8h] BYREF
+  unsigned int v31; // [rsp+A8h] [rbp-2D0h]
+  __int64 v32; // [rsp+B0h] [rbp-2C8h]
+  int v33; // [rsp+B8h] [rbp-2C0h]
+  unsigned int v34; // [rsp+BCh] [rbp-2BCh]
+  int v35; // [rsp+C0h] [rbp-2B8h]
+  unsigned int v36; // [rsp+C4h] [rbp-2B4h]
+  char v37[616]; // [rsp+C8h] [rbp-2B0h] BYREF
 
   v7 = a2;
   v8 = a1;
-  v28 = a2;
+  v27 = a2;
   CurrentServerSiloGlobals = PsGetCurrentServerSiloGlobals(a1, a2);
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   v11 = 0;
@@ -77,17 +76,13 @@ __int64 __fastcall ExpRaiseHardError(
   v17 = *(_DWORD *)(&KeGetCurrentThread()[1].SwapListEntry + 1) & 0x10;
   if ( !v17 && (v8 & 0xC0000000) == 0xC0000000 && (!*((_DWORD *)CurrentServerSiloGlobals + 224) || v13) )
   {
-    LOBYTE(v26) = PreviousMode != 0;
-    ExpSystemErrorHandler(v8, v7, a3, a5, v26);
+    ExpSystemErrorHandler(v8, v7, a3, a5, PreviousMode != 0);
     return 0LL;
   }
   if ( Process == *((_KPROCESS **)CurrentServerSiloGlobals + 110) )
   {
     if ( (v8 & 0xC0000000) == 0xC0000000 )
-    {
-      LOBYTE(v26) = PreviousMode != 0;
-      ExpSystemErrorHandler(v8, v7, a3, a5, v26);
-    }
+      ExpSystemErrorHandler(v8, v7, a3, a5, PreviousMode != 0);
 LABEL_37:
     *a7 = 0;
     return 0LL;
@@ -127,22 +122,22 @@ LABEL_37:
   }
   if ( !v18 )
     goto LABEL_37;
-  *(_QWORD *)&v31[0] = 0x900700048LL;
-  v32 = v8 & 0xEFFFFFFF;
-  v34 = a6;
-  v37 = v24;
-  v36 = v28;
+  *(_QWORD *)&v30[0] = 0x900700048LL;
+  v31 = v8 & 0xEFFFFFFF;
+  v33 = a6;
+  v36 = v24;
+  v35 = v27;
   if ( a4 )
-    memmove(v38, a4, 8LL * v7);
-  v33 = MEMORY[0xFFFFF78000000014];
-  v30 = 688LL;
-  v25 = LpcSendWaitReceivePort((__int64)v18, 0x20000, v31, (unsigned __int64)v31, &v30, 0LL);
+    memmove(v37, a4, 8LL * v7);
+  v32 = MEMORY[0xFFFFF78000000014];
+  v29 = 688LL;
+  v25 = LpcSendWaitReceivePort((__int64)v18, 0x20000, v30, (unsigned __int64)v30, &v29, 0LL);
   if ( v19 == 1 )
     HalPutDmaAdapter(v18);
   if ( v25 >= 0 )
   {
-    if ( v35 <= 0xA )
-      v11 = v35;
+    if ( v34 <= 0xA )
+      v11 = v34;
     *a7 = v11;
   }
   return (unsigned int)v25;

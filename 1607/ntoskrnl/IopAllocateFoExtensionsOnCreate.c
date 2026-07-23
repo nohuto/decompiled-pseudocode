@@ -1,17 +1,17 @@
 /*
- * XREFs of IopAllocateFoExtensionsOnCreate @ 0x14046B43C
+ * XREFs of IopAllocateFoExtensionsOnCreate @ 0x14046A30C
  * Callers:
- *     IopAllocRealFileObject @ 0x140442AB0 (IopAllocRealFileObject.c)
+ *     IopAllocRealFileObject @ 0x140441980 (IopAllocRealFileObject.c)
  * Callees:
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     PsIsHostSilo @ 0x140079F68 (PsIsHostSilo.c)
- *     IopSetFileObjectExtensionFlag @ 0x140079F70 (IopSetFileObjectExtensionFlag.c)
- *     IopGetSetSpecificExtension @ 0x14007AE90 (IopGetSetSpecificExtension.c)
- *     ObReferenceObjectByPointer @ 0x14007F760 (ObReferenceObjectByPointer.c)
- *     ObfReferenceObjectWithTag @ 0x1400EE4F0 (ObfReferenceObjectWithTag.c)
- *     IopCheckStackForTransactionSupport @ 0x1401CA408 (IopCheckStackForTransactionSupport.c)
- *     PsAcquireSiloHardReference @ 0x14020F5B0 (PsAcquireSiloHardReference.c)
- *     PsReleaseSiloHardReference @ 0x14020F62C (PsReleaseSiloHardReference.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     PsIsHostSilo @ 0x140079FE8 (PsIsHostSilo.c)
+ *     IopSetFileObjectExtensionFlag @ 0x140079FF0 (IopSetFileObjectExtensionFlag.c)
+ *     IopGetSetSpecificExtension @ 0x14007AF10 (IopGetSetSpecificExtension.c)
+ *     ObReferenceObjectByPointer @ 0x14007F7E0 (ObReferenceObjectByPointer.c)
+ *     ObfReferenceObjectWithTag @ 0x1400EC370 (ObfReferenceObjectWithTag.c)
+ *     IopCheckStackForTransactionSupport @ 0x1401CA2A8 (IopCheckStackForTransactionSupport.c)
+ *     PsAcquireSiloHardReference @ 0x14020F3DC (PsAcquireSiloHardReference.c)
+ *     PsReleaseSiloHardReference @ 0x14020F458 (PsReleaseSiloHardReference.c)
  */
 
 int __fastcall IopAllocateFoExtensionsOnCreate(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int a5)

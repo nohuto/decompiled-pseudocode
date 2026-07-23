@@ -1,8 +1,8 @@
 /*
- * XREFs of MiIsPoolPteInUse @ 0x1402E6248
+ * XREFs of MiIsPoolPteInUse @ 0x1402E64D8
  * Callers:
- *     MiLinkPoolCommitChain @ 0x1402862A0 (MiLinkPoolCommitChain.c)
- *     MiEvictPageTableLock @ 0x1402E5230 (MiEvictPageTableLock.c)
+ *     MiLinkPoolCommitChain @ 0x140286530 (MiLinkPoolCommitChain.c)
+ *     MiEvictPageTableLock @ 0x1402E54C0 (MiEvictPageTableLock.c)
  * Callees:
  *     <none>
  */

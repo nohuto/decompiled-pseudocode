@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlUnicodeStringToAnsiString @ 0x180018950
+ * XREFs of RtlUnicodeStringToAnsiString @ 0x180018940
  * Callers:
- *     LdrpGetModuleName @ 0x18006D714 (LdrpGetModuleName.c)
+ *     LdrpGetModuleName @ 0x18006D704 (LdrpGetModuleName.c)
  * Callees:
- *     NtdllpFreeStringRoutine @ 0x1800094E0 (NtdllpFreeStringRoutine.c)
- *     RtlUnicodeToMultiByteN @ 0x180018A30 (RtlUnicodeToMultiByteN.c)
- *     NtdllpAllocateStringRoutine @ 0x180018BE8 (NtdllpAllocateStringRoutine.c)
- *     RtlxUnicodeStringToOemSize @ 0x18007E8A0 (RtlxUnicodeStringToOemSize.c)
+ *     NtdllpFreeStringRoutine @ 0x1800094D0 (NtdllpFreeStringRoutine.c)
+ *     RtlUnicodeToMultiByteN @ 0x180018A20 (RtlUnicodeToMultiByteN.c)
+ *     NtdllpAllocateStringRoutine @ 0x180018BD8 (NtdllpAllocateStringRoutine.c)
+ *     RtlxUnicodeStringToOemSize @ 0x18007E890 (RtlxUnicodeStringToOemSize.c)
  */
 
 NTSTATUS __stdcall RtlUnicodeStringToAnsiString(
@@ -18,10 +18,10 @@ NTSTATUS __stdcall RtlUnicodeStringToAnsiString(
   unsigned __int64 v7; // rax
   unsigned __int16 v8; // cx
   char *StringRoutine; // rax
-  NTSTATUS v10; // edi
+  int v10; // edi
   bool v11; // sf
   unsigned __int16 MaximumLength; // ax
-  int v14; // [rsp+88h] [rbp+20h] BYREF
+  ULONG BytesInMultiByteString; // [rsp+88h] [rbp+20h] BYREF
 
   v6 = 0;
   if ( NlsMbCodePageTag )
@@ -54,17 +54,17 @@ NTSTATUS __stdcall RtlUnicodeStringToAnsiString(
   v10 = RtlUnicodeToMultiByteN(
           DestinationString->Buffer,
           DestinationString->Length,
-          (unsigned int)&v14,
+          &BytesInMultiByteString,
           SourceString->Buffer,
           SourceString->Length);
   if ( v10 >= 0 )
-    DestinationString->Buffer[v14] = 0;
+    DestinationString->Buffer[BytesInMultiByteString] = 0;
   v11 = v10 < 0;
   if ( v10 < 0 )
   {
     if ( AllocateDestinationString )
     {
-      NtdllpFreeStringRoutine((__int64)DestinationString->Buffer);
+      NtdllpFreeStringRoutine(DestinationString->Buffer);
       DestinationString->Buffer = 0LL;
     }
     v11 = v10 < 0;

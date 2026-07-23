@@ -16,54 +16,48 @@ __int64 __fastcall sub_140649A2C(__int64 a1)
   _QWORD *ServerSiloGlobals; // rbx
   void *v3; // rsi
   _DWORD *Pool2; // r14
-  int v5; // edi
-  __int64 v6; // rax
+  NTSTATUS v5; // edi
+  _DWORD *v6; // rax
   struct _KTHREAD *CurrentThread; // r9
   struct _LIST_ENTRY *Blink; // rbx
-  void *v10; // [rsp+38h] [rbp-19h] BYREF
-  int v11; // [rsp+40h] [rbp-11h]
-  const wchar_t *v12; // [rsp+48h] [rbp-9h]
-  __int64 v13; // [rsp+50h] [rbp-1h]
-  int v14; // [rsp+58h] [rbp+7h]
-  __int64 v15; // [rsp+60h] [rbp+Fh]
-  int v16; // [rsp+68h] [rbp+17h]
-  __int64 v17; // [rsp+70h] [rbp+1Fh]
-  int v18; // [rsp+78h] [rbp+27h]
-  __int64 v19; // [rsp+80h] [rbp+2Fh]
-  __int64 v20; // [rsp+88h] [rbp+37h]
-  int v21; // [rsp+90h] [rbp+3Fh]
-  __int64 v22; // [rsp+98h] [rbp+47h]
-  int v23; // [rsp+A0h] [rbp+4Fh]
+  _RTL_QUERY_REGISTRY_TABLE QueryTable; // [rsp+38h] [rbp-19h] BYREF
+  __int64 v11; // [rsp+70h] [rbp+1Fh]
+  int v12; // [rsp+78h] [rbp+27h]
+  __int64 v13; // [rsp+80h] [rbp+2Fh]
+  __int64 v14; // [rsp+88h] [rbp+37h]
+  int v15; // [rsp+90h] [rbp+3Fh]
+  __int64 v16; // [rsp+98h] [rbp+47h]
+  int v17; // [rsp+A0h] [rbp+4Fh]
 
   ServerSiloGlobals = PsGetServerSiloGlobals(a1);
   v3 = 0LL;
   Pool2 = (_DWORD *)ExAllocatePool2(0x100uLL);
-  if ( Pool2 && (v6 = ExAllocatePool2(0x100uLL), (v3 = (void *)v6) != 0LL) )
+  if ( Pool2 && (v6 = (_DWORD *)ExAllocatePool2(0x100uLL), (v3 = v6) != 0LL) )
   {
     Pool2[20481] = 0;
-    v15 = 0LL;
-    v17 = 0LL;
-    v18 = 0;
-    v19 = 0LL;
-    v20 = 0LL;
-    v21 = 0;
-    v22 = 0LL;
-    v23 = 0;
+    QueryTable.DefaultData = 0LL;
+    v11 = 0LL;
+    v12 = 0;
+    v13 = 0LL;
+    v14 = 0LL;
+    v15 = 0;
+    v16 = 0LL;
+    v17 = 0;
     Pool2[20480] = 81920;
-    *(_DWORD *)(v6 + 47036) = -1;
+    v6[11759] = -1;
     *(_QWORD *)v6 = Pool2;
     ServerSiloGlobals[109] = v6;
-    v10 = &ExpQueryRegistryRoutine;
-    v16 = 81920;
-    v12 = L"ProductPolicy";
-    v11 = 256;
-    v14 = 50331651;
-    v13 = v6;
+    QueryTable.QueryRoutine = (int (__fastcall *)(wchar_t *, unsigned int, void *, unsigned int, void *, void *))&ExpQueryRegistryRoutine;
+    QueryTable.DefaultLength = 81920;
+    QueryTable.Name = L"ProductPolicy";
+    QueryTable.Flags = 256;
+    QueryTable.DefaultType = 50331651;
+    QueryTable.EntryContext = v6;
     ExpInitLicensing(ServerSiloGlobals);
     CurrentThread = KeGetCurrentThread();
     Blink = CurrentThread[1].WaitBlock[3].WaitListEntry.Blink;
     CurrentThread[1].WaitBlock[3].WaitListEntry.Blink = (struct _LIST_ENTRY *)a1;
-    v5 = RtlQueryRegistryValuesEx(2LL, L"ProductOptions", &v10, 0LL, 0LL);
+    v5 = RtlQueryRegistryValuesEx(2u, L"ProductOptions", &QueryTable, 0LL, 0LL);
     sub_140978BA4();
     KeGetCurrentThread()[1].WaitBlock[3].WaitListEntry.Blink = Blink;
     if ( v5 >= 0 )

@@ -1,12 +1,12 @@
 /*
- * XREFs of AlpcpValidateAndSetPortAttributes @ 0x1404B56B4
+ * XREFs of AlpcpValidateAndSetPortAttributes @ 0x14049FA94
  * Callers:
- *     AlpcpCreateClientPort @ 0x14040849C (AlpcpCreateClientPort.c)
- *     AlpcpCreateConnectionPort @ 0x1404B36C8 (AlpcpCreateConnectionPort.c)
- *     AlpcpAcceptConnectPort @ 0x1404B4A28 (AlpcpAcceptConnectPort.c)
+ *     AlpcpCreateClientPort @ 0x14040735C (AlpcpCreateClientPort.c)
+ *     AlpcpCreateConnectionPort @ 0x14049DAA8 (AlpcpCreateConnectionPort.c)
+ *     AlpcpAcceptConnectPort @ 0x14049EE08 (AlpcpAcceptConnectPort.c)
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     SeValidateSecurityQos @ 0x140413544 (SeValidateSecurityQos.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     SeValidateSecurityQos @ 0x140412404 (SeValidateSecurityQos.c)
  */
 
 __int64 __fastcall AlpcpValidateAndSetPortAttributes(

@@ -1,29 +1,29 @@
 /*
- * XREFs of RtlpValidateHeapHeaders @ 0x18005D300
+ * XREFs of RtlpValidateHeapHeaders @ 0x18005D2F0
  * Callers:
- *     RtlpValidateHeap @ 0x180091244 (RtlpValidateHeap.c)
- *     RtlDebugAllocateHeap @ 0x1800917D4 (RtlDebugAllocateHeap.c)
- *     RtlDebugFreeHeap @ 0x180091B60 (RtlDebugFreeHeap.c)
+ *     RtlpValidateHeap @ 0x180091234 (RtlpValidateHeap.c)
+ *     RtlDebugAllocateHeap @ 0x1800917C4 (RtlDebugAllocateHeap.c)
+ *     RtlDebugFreeHeap @ 0x180091B50 (RtlDebugFreeHeap.c)
  *     RtlDebugCompactHeap @ 0x1800FA14C (RtlDebugCompactHeap.c)
  *     RtlDebugCreateHeap @ 0x1800FA2A0 (RtlDebugCreateHeap.c)
  *     RtlDebugCreateTagHeap @ 0x1800FA590 (RtlDebugCreateTagHeap.c)
  *     RtlDebugReAllocateHeap @ 0x1800FAA84 (RtlDebugReAllocateHeap.c)
  * Callees:
- *     DbgPrint @ 0x18005C3E0 (DbgPrint.c)
+ *     DbgPrint @ 0x18005C3D0 (DbgPrint.c)
  *     ZwAllocateVirtualMemory @ 0x1800A6720 (ZwAllocateVirtualMemory.c)
  *     RtlCompareMemory @ 0x1800AA6B0 (RtlCompareMemory.c)
  *     memmove @ 0x1800AC980 (memmove.c)
  */
 
-char __fastcall RtlpValidateHeapHeaders(void **Src, char a2)
+char __fastcall RtlpValidateHeapHeaders(PVOID *Src, char a2)
 {
-  void **v3; // rdi
+  PVOID *v3; // rdi
   size_t v4; // r8
   SIZE_T v5; // rsi
-  size_t v6; // rax
+  ULONG_PTR v6; // rax
   unsigned int v7; // ebx
   __int64 v8; // rax
-  size_t v10; // [rsp+50h] [rbp+18h] BYREF
+  ULONG_PTR v10; // [rsp+50h] [rbp+18h] BYREF
 
   if ( !RtlpValidateHeapHdrsEnable )
     return 1;
@@ -31,7 +31,7 @@ char __fastcall RtlpValidateHeapHeaders(void **Src, char a2)
   if ( Src[27] )
     goto LABEL_5;
   v10 = *((unsigned __int16 *)Src + 105);
-  if ( (int)ZwAllocateVirtualMemory(-1LL, v3, 0LL, &v10, 4096, 4) < 0 )
+  if ( ZwAllocateVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, v3, 0LL, &v10, 0x1000u, 4u) < 0 )
     return 1;
   a2 = 1;
 LABEL_5:

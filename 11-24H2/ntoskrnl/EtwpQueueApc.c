@@ -1,20 +1,20 @@
 /*
- * XREFs of EtwpQueueApc @ 0x1403EE2B0
+ * XREFs of EtwpQueueApc @ 0x1403DE1A0
  * Callers:
- *     EtwpLogKernelEvent @ 0x140257180 (EtwpLogKernelEvent.c)
- *     EtwpApcPoolDpc @ 0x1403ED0C0 (EtwpApcPoolDpc.c)
- *     EtwpStackTraceDispatcher @ 0x1403ED650 (EtwpStackTraceDispatcher.c)
- *     EtwpQueueStackWalkApc @ 0x1403EE1D0 (EtwpQueueStackWalkApc.c)
- *     EtwpContextRegisterTracingDispatcher @ 0x1404CE964 (EtwpContextRegisterTracingDispatcher.c)
+ *     EtwpLogKernelEvent @ 0x140287790 (EtwpLogKernelEvent.c)
+ *     EtwpEventWriteFull @ 0x140326D30 (EtwpEventWriteFull.c)
+ *     EtwpApcPoolDpc @ 0x1403DD090 (EtwpApcPoolDpc.c)
+ *     EtwpStackTraceDispatcher @ 0x1403DD620 (EtwpStackTraceDispatcher.c)
+ *     EtwpContextRegisterTracingDispatcher @ 0x1404C7B30 (EtwpContextRegisterTracingDispatcher.c)
  * Callees:
- *     KeRemoveQueueApc @ 0x140205700 (KeRemoveQueueApc.c)
- *     KiInsertQueueDpc @ 0x140254310 (KiInsertQueueDpc.c)
- *     ExReleaseRundownProtectionCacheAwareEx @ 0x140259600 (ExReleaseRundownProtectionCacheAwareEx.c)
- *     KeInsertQueueApc @ 0x140337240 (KeInsertQueueApc.c)
- *     KeTryToInsertQueueApc @ 0x1404CD418 (KeTryToInsertQueueApc.c)
- *     RtlpInterlockedPopEntrySList @ 0x1406B3890 (RtlpInterlockedPopEntrySList.c)
- *     RtlpInterlockedPushEntrySList @ 0x1406B38D0 (RtlpInterlockedPushEntrySList.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     KiInsertQueueDpc @ 0x140284920 (KiInsertQueueDpc.c)
+ *     ExReleaseRundownProtectionCacheAwareEx @ 0x140289C10 (ExReleaseRundownProtectionCacheAwareEx.c)
+ *     KeInsertQueueApc @ 0x1402DF360 (KeInsertQueueApc.c)
+ *     KeRemoveQueueApc @ 0x14032CCE0 (KeRemoveQueueApc.c)
+ *     KeTryToInsertQueueApc @ 0x1404C67E8 (KeTryToInsertQueueApc.c)
+ *     RtlpInterlockedPopEntrySList @ 0x1406B4830 (RtlpInterlockedPopEntrySList.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1406B4870 (RtlpInterlockedPushEntrySList.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall EtwpQueueApc(
@@ -34,8 +34,8 @@ __int64 __fastcall EtwpQueueApc(
   signed __int64 v16; // rax
   signed __int64 v17; // rtt
   PSLIST_ENTRY v19; // r14
-  struct _SLIST_ENTRY *Pool2; // rax
-  struct _SLIST_ENTRY *v21; // rdi
+  _SLIST_ENTRY *Pool2; // rax
+  _SLIST_ENTRY *v21; // rdi
   __int64 v22; // rcx
   char inserted; // al
   __int32 v24; // ecx
@@ -86,7 +86,7 @@ LABEL_44:
       return v12;
     }
     if ( (unsigned int)_InterlockedIncrement((volatile signed __int32 *)a1 + 41) > *((_DWORD *)a1 + 43)
-      || (Pool2 = (struct _SLIST_ENTRY *)ExAllocatePool2(0x48uLL), (v21 = Pool2) == 0LL) )
+      || (Pool2 = (_SLIST_ENTRY *)ExAllocatePool2(0x48uLL, 0xA0uLL, 0x41777445u), (v21 = Pool2) == 0LL) )
     {
       _InterlockedDecrement((volatile signed __int32 *)a1 + 41);
       goto LABEL_44;

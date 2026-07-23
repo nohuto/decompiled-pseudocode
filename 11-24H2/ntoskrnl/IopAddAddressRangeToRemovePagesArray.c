@@ -1,9 +1,9 @@
 /*
- * XREFs of IopAddAddressRangeToRemovePagesArray @ 0x1405A0270
+ * XREFs of IopAddAddressRangeToRemovePagesArray @ 0x14059D1A0
  * Callers:
- *     IopRemovePageDumpRange @ 0x140594F58 (IopRemovePageDumpRange.c)
+ *     IopRemovePageDumpRange @ 0x140591F7C (IopRemovePageDumpRange.c)
  * Callees:
- *     IopCompactRemovePagesArray @ 0x1405A0A44 (IopCompactRemovePagesArray.c)
+ *     IopCompactRemovePagesArray @ 0x14059D974 (IopCompactRemovePagesArray.c)
  */
 
 void __fastcall IopAddAddressRangeToRemovePagesArray(unsigned __int64 a1, unsigned __int64 a2)

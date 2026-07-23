@@ -1,11 +1,11 @@
 /*
- * XREFs of SmEtwLogStoreCorruption @ 0x1402204F0
+ * XREFs of SmEtwLogStoreCorruption @ 0x14022031C
  * Callers:
- *     ?StDmPageError@?$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@PEAD1PEAU_ST_PAGE_LOCATION@1@J@Z @ 0x14021ED1C (-StDmPageError@-$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@PEAD1PEAU_ST_PAGE_LOCATION@1@J@Z.c)
+ *     ?StDmPageError@?$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@PEAD1PEAU_ST_PAGE_LOCATION@1@J@Z @ 0x14021EB48 (-StDmPageError@-$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@PEAD1PEAU_ST_PAGE_LOCATION@1@J@Z.c)
  * Callees:
- *     EtwWriteEx @ 0x140013360 (EtwWriteEx.c)
- *     MmGetPhysicalAddress @ 0x14002500C (MmGetPhysicalAddress.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x140012EE0 (EtwWriteEx.c)
+ *     MmGetPhysicalAddress @ 0x140024B8C (MmGetPhysicalAddress.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall SmEtwLogStoreCorruption(REGHANDLE *a1, __int64 a2, __int64 a3, void *a4, char a5, __int64 *a6)

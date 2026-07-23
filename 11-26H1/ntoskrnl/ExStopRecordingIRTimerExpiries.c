@@ -1,11 +1,11 @@
 /*
- * XREFs of ExStopRecordingIRTimerExpiries @ 0x140B190AC
+ * XREFs of ExStopRecordingIRTimerExpiries @ 0x140B1B4F4
  * Callers:
- *     PopCaptureSleepStudyStatistics @ 0x14042AB54 (PopCaptureSleepStudyStatistics.c)
+ *     PopCaptureSleepStudyStatistics @ 0x140421FC8 (PopCaptureSleepStudyStatistics.c)
  * Callees:
- *     ExpGetIRTimerDesc @ 0x1404ED6B0 (ExpGetIRTimerDesc.c)
- *     PoDiagTraceIRTimerSleepStudyRundown @ 0x1404F8504 (PoDiagTraceIRTimerSleepStudyRundown.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExpGetIRTimerDesc @ 0x1404E6C90 (ExpGetIRTimerDesc.c)
+ *     PoDiagTraceIRTimerSleepStudyRundown @ 0x1404F1B14 (PoDiagTraceIRTimerSleepStudyRundown.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void ExStopRecordingIRTimerExpiries()
@@ -17,7 +17,9 @@ void ExStopRecordingIRTimerExpiries()
   __int16 j; // si
   int v5; // ecx
 
-  v0 = (_DWORD *)_InterlockedExchange64((volatile __int64 *)ExSaPageGroupDescriptorArrayLock.TracingPrivate, 0LL);
+  v0 = (_DWORD *)_InterlockedExchange64(
+                   (volatile __int64 *)&ExSaPageGroupDescriptorArrayLock.KernelShadowStackInitial,
+                   0LL);
   if ( v0 )
   {
     v1 = 0;

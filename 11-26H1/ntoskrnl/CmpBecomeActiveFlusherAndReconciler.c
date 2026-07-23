@@ -1,20 +1,20 @@
 /*
- * XREFs of CmpBecomeActiveFlusherAndReconciler @ 0x140856CB8
+ * XREFs of CmpBecomeActiveFlusherAndReconciler @ 0x14085D050
  * Callers:
- *     CmShutdownSystem1 @ 0x1406E2270 (CmShutdownSystem1.c)
- *     CmpLoadHiveThread @ 0x14084B550 (CmpLoadHiveThread.c)
- *     CmpMountPreloadedHives @ 0x14084C298 (CmpMountPreloadedHives.c)
- *     CmpRefreshHive @ 0x14084DD4C (CmpRefreshHive.c)
- *     CmpSaveKeyByFileCopy @ 0x14084E260 (CmpSaveKeyByFileCopy.c)
- *     CmReplaceKey @ 0x140858C90 (CmReplaceKey.c)
+ *     CmShutdownSystem1 @ 0x1406E64F0 (CmShutdownSystem1.c)
+ *     CmpLoadHiveThread @ 0x140851860 (CmpLoadHiveThread.c)
+ *     CmpMountPreloadedHives @ 0x1408525A8 (CmpMountPreloadedHives.c)
+ *     CmpRefreshHive @ 0x140854058 (CmpRefreshHive.c)
+ *     CmpSaveKeyByFileCopy @ 0x140854570 (CmpSaveKeyByFileCopy.c)
+ *     CmReplaceKey @ 0x14085F020 (CmReplaceKey.c)
  * Callees:
- *     CmpIsWriteQueueActive @ 0x1404BCEB0 (CmpIsWriteQueueActive.c)
- *     CmpAcquireWriteQueue @ 0x1404CBF1C (CmpAcquireWriteQueue.c)
- *     CmpLockRegistryFreezeAware @ 0x1408B3FA0 (CmpLockRegistryFreezeAware.c)
- *     CmpWaitOnHiveWriteQueue @ 0x140B332E8 (CmpWaitOnHiveWriteQueue.c)
- *     CmpUnlockRegistry @ 0x140C58970 (CmpUnlockRegistry.c)
- *     HvUnlockHiveFlusherExclusive @ 0x140C58D14 (HvUnlockHiveFlusherExclusive.c)
- *     HvLockHiveFlusherExclusive @ 0x140C58D30 (HvLockHiveFlusherExclusive.c)
+ *     CmpIsWriteQueueActive @ 0x1404B6690 (CmpIsWriteQueueActive.c)
+ *     CmpAcquireWriteQueue @ 0x1404C594C (CmpAcquireWriteQueue.c)
+ *     CmpLockRegistryFreezeAware @ 0x1408BA574 (CmpLockRegistryFreezeAware.c)
+ *     CmpWaitOnHiveWriteQueue @ 0x140B35738 (CmpWaitOnHiveWriteQueue.c)
+ *     CmpUnlockRegistry @ 0x140C5E970 (CmpUnlockRegistry.c)
+ *     HvUnlockHiveFlusherExclusive @ 0x140C5ED14 (HvUnlockHiveFlusherExclusive.c)
+ *     HvLockHiveFlusherExclusive @ 0x140C5ED30 (HvLockHiveFlusherExclusive.c)
  */
 
 __int64 __fastcall CmpBecomeActiveFlusherAndReconciler(__int64 a1)

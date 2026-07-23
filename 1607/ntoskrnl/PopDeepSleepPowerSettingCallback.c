@@ -1,11 +1,11 @@
 /*
- * XREFs of PopDeepSleepPowerSettingCallback @ 0x140580720
+ * XREFs of PopDeepSleepPowerSettingCallback @ 0x140580BCC
  * Callers:
  *     <none>
  * Callees:
  *     PopAcquirePolicyLock @ 0x1403C87E0 (PopAcquirePolicyLock.c)
  *     PopReleasePolicyLock @ 0x1403C8828 (PopReleasePolicyLock.c)
- *     PopCheckResiliencyScenarios @ 0x1403F5C64 (PopCheckResiliencyScenarios.c)
+ *     PopCheckResiliencyScenarios @ 0x1403F4B28 (PopCheckResiliencyScenarios.c)
  */
 
 __int64 __fastcall PopDeepSleepPowerSettingCallback(_QWORD *a1, _DWORD *a2, int a3)

@@ -1,20 +1,20 @@
 /*
- * XREFs of AslStringPatternMatchExW @ 0x1407C686C
+ * XREFs of AslStringPatternMatchExW @ 0x1407C6B3C
  * Callers:
- *     SdbpFindNextIndexedWildCardTag @ 0x1407570E8 (SdbpFindNextIndexedWildCardTag.c)
- *     SdbpFindFirstIndexedWildCardTag @ 0x1407589F0 (SdbpFindFirstIndexedWildCardTag.c)
- *     SdbpCheckAttribute @ 0x140758F80 (SdbpCheckAttribute.c)
- *     AslStringPatternMatchExW @ 0x1407C686C (AslStringPatternMatchExW.c)
- *     AslStringPatternMatchW @ 0x1408AC1E6 (AslStringPatternMatchW.c)
- *     KseLookupHardwareId @ 0x140977388 (KseLookupHardwareId.c)
- *     SdbpCheckMatchingRegistryValue @ 0x140A4FAFC (SdbpCheckMatchingRegistryValue.c)
- *     SdbpFindFirstNamedTagHelper @ 0x140A51B40 (SdbpFindFirstNamedTagHelper.c)
- *     SdbpFindNextNamedTagHelper @ 0x140A51C20 (SdbpFindNextNamedTagHelper.c)
- *     AslpProcessMatchRegNode @ 0x140A56AE0 (AslpProcessMatchRegNode.c)
+ *     SdbpFindNextIndexedWildCardTag @ 0x1407572D8 (SdbpFindNextIndexedWildCardTag.c)
+ *     SdbpFindFirstIndexedWildCardTag @ 0x140758BE0 (SdbpFindFirstIndexedWildCardTag.c)
+ *     SdbpCheckAttribute @ 0x140759170 (SdbpCheckAttribute.c)
+ *     AslStringPatternMatchExW @ 0x1407C6B3C (AslStringPatternMatchExW.c)
+ *     AslStringPatternMatchW @ 0x1408AC436 (AslStringPatternMatchW.c)
+ *     KseLookupHardwareId @ 0x140977588 (KseLookupHardwareId.c)
+ *     SdbpCheckMatchingRegistryValue @ 0x140A4FDAC (SdbpCheckMatchingRegistryValue.c)
+ *     SdbpFindFirstNamedTagHelper @ 0x140A51DF0 (SdbpFindFirstNamedTagHelper.c)
+ *     SdbpFindNextNamedTagHelper @ 0x140A51ED0 (SdbpFindNextNamedTagHelper.c)
+ *     AslpProcessMatchRegNode @ 0x140A56D90 (AslpProcessMatchRegNode.c)
  * Callees:
- *     NLS_UPCASE @ 0x14022D310 (NLS_UPCASE.c)
- *     PsGetCurrentServerSiloGlobals @ 0x14022D370 (PsGetCurrentServerSiloGlobals.c)
- *     AslStringPatternMatchExW @ 0x1407C686C (AslStringPatternMatchExW.c)
+ *     NLS_UPCASE @ 0x14022D420 (NLS_UPCASE.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x14022D480 (PsGetCurrentServerSiloGlobals.c)
+ *     AslStringPatternMatchExW @ 0x1407C6B3C (AslStringPatternMatchExW.c)
  */
 
 __int64 __fastcall AslStringPatternMatchExW(__int16 *a1, _WORD *a2)

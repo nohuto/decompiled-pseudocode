@@ -1,20 +1,20 @@
 /*
- * XREFs of MiWriteEnclavePte @ 0x14054B59C
+ * XREFs of MiWriteEnclavePte @ 0x14054B7DC
  * Callers:
- *     MiAddPagesToEnclave @ 0x140549104 (MiAddPagesToEnclave.c)
- *     MiProtectEnclavePages @ 0x14054AB30 (MiProtectEnclavePages.c)
- *     MiCopyPagesIntoEnclave @ 0x1408D2188 (MiCopyPagesIntoEnclave.c)
+ *     MiAddPagesToEnclave @ 0x140549344 (MiAddPagesToEnclave.c)
+ *     MiProtectEnclavePages @ 0x14054AD70 (MiProtectEnclavePages.c)
+ *     MiCopyPagesIntoEnclave @ 0x1408D22E8 (MiCopyPagesIntoEnclave.c)
  * Callees:
- *     MiUnlockWorkingSetShared @ 0x14020F790 (MiUnlockWorkingSetShared.c)
- *     MiLockWorkingSetShared @ 0x140219CB0 (MiLockWorkingSetShared.c)
- *     MiUnlockPageTableInternal @ 0x1402855F0 (MiUnlockPageTableInternal.c)
- *     MiWritePteShadow @ 0x1402B69BC (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x1402B6A1C (MiPteHasShadow.c)
- *     MiMakeSystemAddressValid @ 0x14030E390 (MiMakeSystemAddressValid.c)
- *     MiWriteValidPteNewProtection @ 0x14030FA00 (MiWriteValidPteNewProtection.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x14032DEC0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiPteInShadowRange @ 0x140348AF0 (MiPteInShadowRange.c)
- *     MiUpdateAwePageTable @ 0x14054E034 (MiUpdateAwePageTable.c)
+ *     MiUnlockPageTableInternal @ 0x140202790 (MiUnlockPageTableInternal.c)
+ *     MiWritePteShadow @ 0x140234B9C (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140234BFC (MiPteHasShadow.c)
+ *     MiUnlockWorkingSetShared @ 0x1402B4090 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x1402BE5B0 (MiLockWorkingSetShared.c)
+ *     MiMakeSystemAddressValid @ 0x1403190E0 (MiMakeSystemAddressValid.c)
+ *     MiWriteValidPteNewProtection @ 0x14031A750 (MiWriteValidPteNewProtection.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140338C10 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x140353840 (MiPteInShadowRange.c)
+ *     MiUpdateAwePageTable @ 0x14054E274 (MiUpdateAwePageTable.c)
  */
 
 char __fastcall MiWriteEnclavePte(ULONG_PTR BugCheckParameter1, __int64 a2, __int64 a3, _DWORD *a4, int a5)
@@ -28,10 +28,9 @@ char __fastcall MiWriteEnclavePte(ULONG_PTR BugCheckParameter1, __int64 a2, __in
   __int64 v13; // rdi
   int v14; // r15d
   BOOL v15; // eax
-  __int64 v16; // r8
-  __int64 v17; // rdx
-  __int64 v18; // r11
-  __int64 v19; // r8
+  __int64 v16; // rdx
+  __int64 v17; // r11
+  __int64 v18; // r8
 
   v5 = (int)a4;
   v7 = a2;
@@ -50,54 +49,54 @@ char __fastcall MiWriteEnclavePte(ULONG_PTR BugCheckParameter1, __int64 a2, __in
   {
     result = MiWriteValidPteNewProtection(BugCheckParameter1, v7);
 LABEL_21:
-    LODWORD(v17) = 0;
+    LODWORD(v16) = 0;
     goto LABEL_22;
   }
   v13 = MI_READ_PTE_LOCK_FREE(BugCheckParameter1);
   v14 = 0;
   v15 = MiPteInShadowRange(BugCheckParameter1);
-  v17 = 0LL;
-  v18 = 1LL;
+  v16 = 0LL;
+  v17 = 1LL;
   if ( v15 )
   {
     if ( (unsigned int)MiPteHasShadow() )
     {
-      v14 = v18;
-      if ( HIBYTE(word_140C4E008) != (_BYTE)v17 )
+      v14 = v17;
+      if ( HIBYTE(word_140C4E048) != (_BYTE)v16 )
         goto LABEL_13;
     }
     else if ( (HIDWORD(KeGetCurrentThread()->ApcState.Process[2].Header.WaitListHead.Flink) & 0x1000) == 0 )
     {
       goto LABEL_13;
     }
-    if ( ((unsigned __int8)v7 & (unsigned __int8)v18) != 0 )
+    if ( ((unsigned __int8)v7 & (unsigned __int8)v17) != 0 )
       v7 |= 0x8000000000000000uLL;
   }
 LABEL_13:
   *(_QWORD *)BugCheckParameter1 = v7;
   if ( v14 )
   {
-    MiWritePteShadow(BugCheckParameter1, v7, v16);
-    v17 = 0LL;
+    MiWritePteShadow(BugCheckParameter1, v7);
+    v16 = 0LL;
   }
-  v19 = (unsigned int)v17;
+  v18 = (unsigned int)v16;
   if ( v13 )
   {
     if ( (v13 & 0xC00) == 0x800 )
-      v18 = v17;
+      v17 = v16;
   }
   else
   {
-    v19 = (unsigned int)v18;
+    v18 = (unsigned int)v17;
   }
-  result = v18 | v19;
-  if ( v18 | (unsigned int)v19 )
+  result = v17 | v18;
+  if ( v17 | (unsigned int)v18 )
   {
-    result = MiUpdateAwePageTable(v10, v18, v19);
+    result = MiUpdateAwePageTable(v10, v17, v18);
     goto LABEL_21;
   }
 LABEL_22:
-  if ( a5 != (_DWORD)v17 )
+  if ( a5 != (_DWORD)v16 )
   {
     MiUnlockPageTableInternal((__int64)v9, v10);
     return MiUnlockWorkingSetShared((__int64)v9, v11);

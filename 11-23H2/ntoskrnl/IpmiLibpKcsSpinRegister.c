@@ -1,14 +1,14 @@
 /*
- * XREFs of IpmiLibpKcsSpinRegister @ 0x1406786C0
+ * XREFs of IpmiLibpKcsSpinRegister @ 0x140678C10
  * Callers:
- *     IpmiLibpKcsHandleError @ 0x14067811C (IpmiLibpKcsHandleError.c)
- *     IpmiLibpKcsReceiveResponseFromBmc @ 0x140678268 (IpmiLibpKcsReceiveResponseFromBmc.c)
- *     IpmiLibpKcsSendRequestToBMC @ 0x1406784D8 (IpmiLibpKcsSendRequestToBMC.c)
+ *     IpmiLibpKcsHandleError @ 0x14067866C (IpmiLibpKcsHandleError.c)
+ *     IpmiLibpKcsReceiveResponseFromBmc @ 0x1406787B8 (IpmiLibpKcsReceiveResponseFromBmc.c)
+ *     IpmiLibpKcsSendRequestToBMC @ 0x140678A28 (IpmiLibpKcsSendRequestToBMC.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x1402C3270 (KeQueryPerformanceCounter.c)
- *     IpmiLibReadOneByte @ 0x140677C6C (IpmiLibReadOneByte.c)
- *     IpmiLibpDelay @ 0x14067802C (IpmiLibpDelay.c)
- *     IpmiLibpTimeAfter @ 0x1406787B8 (IpmiLibpTimeAfter.c)
+ *     KeQueryPerformanceCounter @ 0x1402C3500 (KeQueryPerformanceCounter.c)
+ *     IpmiLibReadOneByte @ 0x1406781BC (IpmiLibReadOneByte.c)
+ *     IpmiLibpDelay @ 0x14067857C (IpmiLibpDelay.c)
+ *     IpmiLibpTimeAfter @ 0x140678D08 (IpmiLibpTimeAfter.c)
  */
 
 __int64 __fastcall IpmiLibpKcsSpinRegister(__int64 a1, __int64 a2, unsigned __int16 a3)
@@ -26,8 +26,8 @@ __int64 __fastcall IpmiLibpKcsSpinRegister(__int64 a1, __int64 a2, unsigned __in
   ULONG v15; // edx
   LARGE_INTEGER v16; // [rsp+40h] [rbp+8h] BYREF
 
-  v3 = dword_140C2CC68;
-  v4 = (unsigned int)dword_140C2CC64;
+  v3 = dword_140C2CC28;
+  v4 = (unsigned int)dword_140C2CC24;
   v5 = 0;
   v16.QuadPart = 0LL;
   v7 = a3;
@@ -53,8 +53,8 @@ __int64 __fastcall IpmiLibpKcsSpinRegister(__int64 a1, __int64 a2, unsigned __in
       break;
     if ( v3 < 0x32 && v5 == 40 )
       v3 += 100;
-    v15 = dword_140C2CC6C;
-    if ( v3 < dword_140C2CC6C )
+    v15 = dword_140C2CC2C;
+    if ( v3 < dword_140C2CC2C )
       v15 = v3;
     IpmiLibpDelay(v14, v15);
   }

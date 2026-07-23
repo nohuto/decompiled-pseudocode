@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpGetBootValueData @ 0x1409CE7FC
+ * XREFs of CmpGetBootValueData @ 0x1409CF7FC
  * Callers:
- *     CmpGetSystemControlValues @ 0x1409CE008 (CmpGetSystemControlValues.c)
+ *     CmpGetSystemControlValues @ 0x1409CF008 (CmpGetSystemControlValues.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     memmove @ 0x1401D1540 (memmove.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
  */
 
 char __fastcall CmpGetBootValueData(__int64 a1, __int64 a2, char *a3, unsigned int a4)
@@ -40,16 +40,16 @@ LABEL_3:
     LOBYTE(v8) = 1;
     return (char)v8;
   }
-  if ( (unsigned int)dword_140A0E084 < 4 || v6 - 16345 > 0x7FFFC026 )
+  if ( (unsigned int)dword_140A0F084 < 4 || v6 - 16345 > 0x7FFFC026 )
   {
-    v8 = (const void *)((__int64 (__fastcall *)(ULONG_PTR *, _QWORD, _DWORD *))qword_140A0DFB8)(
+    v8 = (const void *)((__int64 (__fastcall *)(ULONG_PTR *, _QWORD, _DWORD *))qword_140A0EFB8)(
                          &CmControlHive,
                          *(unsigned int *)(a2 + 8),
                          v20);
     if ( !v8 )
       return (char)v8;
     memmove(a3, v8, v4);
-    ((void (__fastcall *)(ULONG_PTR *, _DWORD *))qword_140A0DFC0)(&CmControlHive, v20);
+    ((void (__fastcall *)(ULONG_PTR *, _DWORD *))qword_140A0EFC0)(&CmControlHive, v20);
     goto LABEL_3;
   }
   v9 = *(unsigned int *)(a2 + 8);
@@ -59,11 +59,11 @@ LABEL_3:
   v24 = 0;
   v22 = 0xFFFFFFFFLL;
   v23 = -1;
-  v11 = ((__int64 (__fastcall *)(ULONG_PTR *, __int64, _DWORD *))qword_140A0DFB8)(&CmControlHive, v9, v19);
+  v11 = ((__int64 (__fastcall *)(ULONG_PTR *, __int64, _DWORD *))qword_140A0EFB8)(&CmControlHive, v9, v19);
   v12 = v11;
   if ( v11 )
   {
-    v13 = ((__int64 (__fastcall *)(ULONG_PTR *, _QWORD, int *))qword_140A0DFB8)(
+    v13 = ((__int64 (__fastcall *)(ULONG_PTR *, _QWORD, int *))qword_140A0EFB8)(
             &CmControlHive,
             *(unsigned int *)(v11 + 4),
             &v23);
@@ -78,7 +78,7 @@ LABEL_3:
       {
         while ( 1 )
         {
-          v16 = (const void *)((__int64 (__fastcall *)(ULONG_PTR *, _QWORD, __int64 *))qword_140A0DFB8)(
+          v16 = (const void *)((__int64 (__fastcall *)(ULONG_PTR *, _QWORD, __int64 *))qword_140A0EFB8)(
                                 &CmControlHive,
                                 *(unsigned int *)(v13 + 4LL * v15),
                                 &v22);
@@ -88,7 +88,7 @@ LABEL_3:
           if ( v14 > 0x3FD8 )
             v17 = 16344LL;
           memmove(&a3[16344 * v15], v16, v17);
-          ((void (__fastcall *)(ULONG_PTR *, __int64 *))qword_140A0DFC0)(&CmControlHive, &v22);
+          ((void (__fastcall *)(ULONG_PTR *, __int64 *))qword_140A0EFC0)(&CmControlHive, &v22);
           if ( v14 > 0x3FD8 )
           {
             v13 = v21;
@@ -101,13 +101,13 @@ LABEL_3:
         v10 = 0;
       }
 LABEL_18:
-      ((void (__fastcall *)(ULONG_PTR *, int *))qword_140A0DFC0)(&CmControlHive, &v23);
+      ((void (__fastcall *)(ULONG_PTR *, int *))qword_140A0EFC0)(&CmControlHive, &v23);
     }
     else
     {
       v10 = 0;
     }
-    ((void (__fastcall *)(ULONG_PTR *, _DWORD *))qword_140A0DFC0)(&CmControlHive, v19);
+    ((void (__fastcall *)(ULONG_PTR *, _DWORD *))qword_140A0EFC0)(&CmControlHive, v19);
   }
   else
   {

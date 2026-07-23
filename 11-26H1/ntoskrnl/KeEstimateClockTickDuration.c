@@ -1,12 +1,12 @@
 /*
- * XREFs of KeEstimateClockTickDuration @ 0x1404FC594
+ * XREFs of KeEstimateClockTickDuration @ 0x1404F5AD4
  * Callers:
- *     PpmEstimateIdleDuration @ 0x1404FC2AC (PpmEstimateIdleDuration.c)
+ *     PpmEstimateIdleDuration @ 0x1404F57EC (PpmEstimateIdleDuration.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     KiGetClockTimerEarliestDeadline @ 0x140419130 (KiGetClockTimerEarliestDeadline.c)
- *     KiGetNextTimerExpirationDueTime @ 0x1404FC8E0 (KiGetNextTimerExpirationDueTime.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     KiGetClockTimerEarliestDeadline @ 0x14040D660 (KiGetClockTimerEarliestDeadline.c)
+ *     KiGetNextTimerExpirationDueTime @ 0x1404F5E20 (KiGetNextTimerExpirationDueTime.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 int *__fastcall KeEstimateClockTickDuration(
@@ -144,7 +144,7 @@ LABEL_17:
     v8 = v15 - a6;
 LABEL_23:
   *v27 = v8;
-  if ( (unsigned int)dword_140E06F58 > 5 )
+  if ( (unsigned int)dword_140E06F90 > 5 )
   {
     v27 = (_QWORD *)v17;
     v33 = 8LL;
@@ -177,8 +177,8 @@ LABEL_23:
     v51 = 1LL;
     v53 = 1LL;
     tlgWriteTransfer_EtwWriteTransfer(
-      (__int64)&dword_140E06F58,
-      (unsigned __int8 *)byte_140048FA0,
+      (__int64)&dword_140E06F90,
+      (unsigned __int8 *)byte_1400495A0,
       0LL,
       0LL,
       0xDu,

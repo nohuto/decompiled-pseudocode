@@ -1,12 +1,12 @@
 /*
- * XREFs of KeAlertThreadByThreadId @ 0x140097320
+ * XREFs of KeAlertThreadByThreadId @ 0x140096B20
  * Callers:
- *     PsDispatchIumService @ 0x14020FC24 (PsDispatchIumService.c)
- *     NtAlertThreadByThreadId @ 0x1404BBC14 (NtAlertThreadByThreadId.c)
+ *     PsDispatchIumService @ 0x14020FA50 (PsDispatchIumService.c)
+ *     NtAlertThreadByThreadId @ 0x1404A7944 (NtAlertThreadByThreadId.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14002ECB0 (KeYieldProcessorEx.c)
- *     KiExitDispatcher @ 0x140056700 (KiExitDispatcher.c)
- *     KiSignalThread @ 0x14005E720 (KiSignalThread.c)
+ *     KeYieldProcessorEx @ 0x14002E830 (KeYieldProcessorEx.c)
+ *     KiExitDispatcher @ 0x140056280 (KiExitDispatcher.c)
+ *     KiSignalThread @ 0x14005E2A0 (KiSignalThread.c)
  */
 
 __int64 __fastcall KeAlertThreadByThreadId(__int64 a1)

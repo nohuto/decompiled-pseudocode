@@ -1,11 +1,11 @@
 /*
- * XREFs of VrpFindDiffHiveEntryForMountPoint @ 0x140979D3C
+ * XREFs of VrpFindDiffHiveEntryForMountPoint @ 0x14093BD4C
  * Callers:
- *     VrpUnloadDifferencingHive @ 0x140979448 (VrpUnloadDifferencingHive.c)
+ *     VrpUnloadDifferencingHive @ 0x14093B458 (VrpUnloadDifferencingHive.c)
  * Callees:
- *     VrpUnlockDiffHiveTable @ 0x140979A98 (VrpUnlockDiffHiveTable.c)
- *     VrpFindDiffHiveEntryForMountPointWithLock @ 0x140979AFC (VrpFindDiffHiveEntryForMountPointWithLock.c)
- *     VrpLockDiffHiveTableShared @ 0x140979D8C (VrpLockDiffHiveTableShared.c)
+ *     VrpUnlockDiffHiveTable @ 0x14093BAA8 (VrpUnlockDiffHiveTable.c)
+ *     VrpFindDiffHiveEntryForMountPointWithLock @ 0x14093BB0C (VrpFindDiffHiveEntryForMountPointWithLock.c)
+ *     VrpLockDiffHiveTableShared @ 0x14093BD9C (VrpLockDiffHiveTableShared.c)
  */
 
 char *__fastcall VrpFindDiffHiveEntryForMountPoint(PCUNICODE_STRING String1)

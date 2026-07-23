@@ -1,13 +1,13 @@
 /*
- * XREFs of DbgkExitThread @ 0x14095559C
+ * XREFs of DbgkExitThread @ 0x140B3C484
  * Callers:
- *     PspExitThread @ 0x14095771C (PspExitThread.c)
+ *     PspExitThread @ 0x14094B14C (PspExitThread.c)
  * Callees:
- *     EtwTraceDebuggerEvent @ 0x1404E5B4C (EtwTraceDebuggerEvent.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     DbgkpResumeProcess @ 0x1409535CC (DbgkpResumeProcess.c)
- *     DbgkpQueueMessage @ 0x140953A1C (DbgkpQueueMessage.c)
- *     DbgkpSuspendProcess @ 0x140953D38 (DbgkpSuspendProcess.c)
+ *     EtwTraceDebuggerEvent @ 0x1404DF0EC (EtwTraceDebuggerEvent.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     DbgkpResumeProcess @ 0x1409CEF0C (DbgkpResumeProcess.c)
+ *     DbgkpQueueMessage @ 0x1409CF35C (DbgkpQueueMessage.c)
+ *     DbgkpSuspendProcess @ 0x1409CF678 (DbgkpSuspendProcess.c)
  */
 
 void __fastcall DbgkExitThread(int a1)
@@ -42,7 +42,7 @@ void __fastcall DbgkExitThread(int a1)
     v10[0] = 3407884;
     v10[1] = 8;
     v14 = 3;
-    if ( (PerfGlobalGroupMask & 0x400000) != 0 )
+    if ( (PerfGlobalGroupMask[0] & 0x400000) != 0 )
       EtwTraceDebuggerEvent((__int64)KeGetCurrentThread()->ApcState.Process, (__int64)CurrentThread, 1);
     do
     {

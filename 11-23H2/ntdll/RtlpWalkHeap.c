@@ -8,8 +8,8 @@
  *     RtlpWalkLFHBlock @ 0x1800B1334 (RtlpWalkLFHBlock.c)
  *     RtlpGetExtraStuffPointerUnsafe @ 0x180100520 (RtlpGetExtraStuffPointerUnsafe.c)
  *     RtlDebugWalkHeap @ 0x180107AE8 (RtlDebugWalkHeap.c)
- *     RtlpLogHeapWalkEvent @ 0x180118F80 (RtlpLogHeapWalkEvent.c)
- *     RtlpWalkLowFragHeapSegment @ 0x18011B158 (RtlpWalkLowFragHeapSegment.c)
+ *     RtlpLogHeapWalkEvent @ 0x180118F50 (RtlpLogHeapWalkEvent.c)
+ *     RtlpWalkLowFragHeapSegment @ 0x18011B128 (RtlpWalkLowFragHeapSegment.c)
  */
 
 __int64 __fastcall RtlpWalkHeap(__int64 a1, __int64 a2, char a3)
@@ -543,7 +543,7 @@ LABEL_77:
   *(_BYTE *)(a2 + 16) = 32;
   *(_QWORD *)(a2 + 36) = 32LL;
 LABEL_182:
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+  if ( RtlGetCurrentServiceSessionId() )
     v60 = (__int64)NtCurrentPeb()->SharedData + 550;
   else
     v60 = 2147353472LL;

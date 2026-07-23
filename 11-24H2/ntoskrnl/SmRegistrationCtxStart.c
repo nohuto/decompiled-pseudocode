@@ -1,12 +1,12 @@
 /*
- * XREFs of SmRegistrationCtxStart @ 0x140AB42E8
+ * XREFs of SmRegistrationCtxStart @ 0x140AAF258
  * Callers:
- *     ?SmFirstTimeInit@@YAJPEAU_SM_PARTITION@@K@Z @ 0x1404A8CB0 (-SmFirstTimeInit@@YAJPEAU_SM_PARTITION@@K@Z.c)
- *     SmGetRegistrationInfo @ 0x140797444 (SmGetRegistrationInfo.c)
- *     SmcCacheCreatePrepare @ 0x140798D7C (SmcCacheCreatePrepare.c)
+ *     ?SmFirstTimeInit@@YAJPEAU_SM_PARTITION@@K@Z @ 0x1404A30D0 (-SmFirstTimeInit@@YAJPEAU_SM_PARTITION@@K@Z.c)
+ *     SmGetRegistrationInfo @ 0x140797554 (SmGetRegistrationInfo.c)
+ *     SmcCacheCreatePrepare @ 0x140798E8C (SmcCacheCreatePrepare.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     SmCreateEvent @ 0x140AB433C (SmCreateEvent.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     SmCreateEvent @ 0x140AAF2AC (SmCreateEvent.c)
  */
 
 __int64 __fastcall SmRegistrationCtxStart(PVOID *a1)

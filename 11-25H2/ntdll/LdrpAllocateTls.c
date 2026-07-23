@@ -17,29 +17,30 @@
 __int64 LdrpAllocateTls()
 {
   struct _TEB *v0; // rsi
-  __int64 NewTlsVector; // rsi
+  void **NewTlsVector; // rsi
   _UNKNOWN **v2; // r13
   _UNKNOWN **v3; // r14
-  size_t v4; // r15
-  char v5; // cl
-  unsigned int v6; // r8d
-  __int64 v7; // r12
-  __int64 v8; // rbx
-  __int64 Heap; // rax
-  _QWORD *v10; // rcx
+  const void **v4; // rdi
+  size_t v5; // r15
+  char v6; // cl
+  unsigned int v7; // r8d
+  __int64 v8; // r12
+  __int64 v9; // rbx
+  PVOID Heap; // rax
+  _QWORD *v11; // rcx
   _QWORD *p_ThreadLocalStoragePointer; // rax
-  _QWORD *v13; // rbx
-  __int64 v14; // rdi
-  struct _TEB *v15; // [rsp+70h] [rbp-48h]
-  unsigned int v16; // [rsp+C8h] [rbp+10h]
+  void **v14; // rbx
+  __int64 v15; // rdi
+  struct _TEB *v16; // [rsp+70h] [rbp-48h]
+  unsigned int SizeOfBitMap; // [rsp+C8h] [rbp+10h]
 
   v0 = NtCurrentTeb();
-  v15 = v0;
+  v16 = v0;
   RtlAcquireSRWLockShared(&LdrpTlsLock);
-  v16 = LdrpTlsBitmap;
-  if ( LdrpTlsBitmap )
+  SizeOfBitMap = LdrpTlsBitmap.SizeOfBitMap;
+  if ( LdrpTlsBitmap.SizeOfBitMap )
   {
-    NewTlsVector = LdrpGetNewTlsVector((unsigned int)LdrpTlsBitmap);
+    NewTlsVector = (void **)LdrpGetNewTlsVector(LdrpTlsBitmap.SizeOfBitMap);
     if ( NewTlsVector )
     {
       v2 = (_UNKNOWN **)LdrpTlsList;
@@ -47,47 +48,52 @@ __int64 LdrpAllocateTls()
       {
         if ( v2 == &LdrpTlsList )
         {
-          p_ThreadLocalStoragePointer = &v15->ThreadLocalStoragePointer;
+          p_ThreadLocalStoragePointer = &v16->ThreadLocalStoragePointer;
           goto LABEL_12;
         }
         v3 = v2;
         v2 = (_UNKNOWN **)*v2;
-        v4 = v3[3] - v3[2];
-        v5 = ((*((_DWORD *)v3 + 13) >> 20) & 0xF) - 1;
+        v4 = (const void **)(v3 + 2);
+        v5 = v3[3] - v3[2];
+        v6 = ((*((_DWORD *)v3 + 13) >> 20) & 0xF) - 1;
         if ( (*((_DWORD *)v3 + 13) & 0xF00000) == 0 )
-          v5 = (*((_DWORD *)v3 + 13) >> 20) & 0xF;
-        v6 = 1 << v5;
-        if ( (unsigned int)(1 << v5) < 0x10 )
-          v6 = 16;
-        v7 = v6;
-        v8 = v6 - 1;
-        Heap = RtlAllocateHeap((void *)LdrpTlsHeap);
+          v6 = (*((_DWORD *)v3 + 13) >> 20) & 0xF;
+        v7 = 1 << v6;
+        if ( (unsigned int)(1 << v6) < 0x10 )
+          v7 = 16;
+        v8 = v7;
+        v9 = v7 - 1;
+        Heap = RtlAllocateHeap(LdrpTlsHeap, NtdllBaseTag + 786432, v9 + v5 + 1);
         if ( !Heap )
           break;
-        v10 = (_QWORD *)(~v8 & (Heap + v7));
-        *(v10 - 1) = Heap;
-        *(_QWORD *)(NewTlsVector + 8LL * *((unsigned int *)v3 + 16)) = v10;
-        memmove(v10, v3[2], v4);
+        v11 = (_QWORD *)(~v9 & ((unsigned __int64)Heap + v8));
+        *(v11 - 1) = Heap;
+        NewTlsVector[*((unsigned int *)v3 + 16)] = v11;
+        memmove(v11, *v4, v5);
         LdrpLogInternal(
-          (int)"minkernel\\ldr\\ldrtls.c",
-          963,
-          (int)"LdrpAllocateTls",
-          2,
+          "minkernel\\ldr\\ldrtls.c",
+          963LL,
+          "LdrpAllocateTls",
+          2LL,
           "TlsVector %p Index %d : %d bytes copied from %p to %p\n",
-          NewTlsVector);
+          NewTlsVector,
+          *((_DWORD *)v3 + 16),
+          *((_DWORD *)v3 + 6) - (unsigned int)*v4,
+          *v4,
+          NewTlsVector[*((unsigned int *)v3 + 16)]);
       }
       RtlReleaseSRWLockShared(&LdrpTlsLock);
-      v13 = (_QWORD *)NewTlsVector;
-      v14 = v16;
+      v14 = NewTlsVector;
+      v15 = SizeOfBitMap;
       do
       {
-        if ( *v13 )
-          RtlFreeHeap(LdrpTlsHeap, 0LL, *(_QWORD *)(*v13 - 8LL));
-        ++v13;
-        --v14;
+        if ( *v14 )
+          RtlFreeHeap(LdrpTlsHeap, 0, *((PVOID *)*v14 - 1));
+        ++v14;
+        --v15;
       }
-      while ( v14 );
-      RtlFreeHeap(LdrpTlsHeap, 0LL, NewTlsVector - 16);
+      while ( v15 );
+      RtlFreeHeap(LdrpTlsHeap, 0, NewTlsVector - 2);
       return 3221225495LL;
     }
     else
@@ -98,8 +104,8 @@ __int64 LdrpAllocateTls()
   }
   else
   {
-    NewTlsVector = (__int64)&v0->ThreadLocalStoragePointer;
-    p_ThreadLocalStoragePointer = (_QWORD *)NewTlsVector;
+    NewTlsVector = &v0->ThreadLocalStoragePointer;
+    p_ThreadLocalStoragePointer = NewTlsVector;
 LABEL_12:
     *p_ThreadLocalStoragePointer = NewTlsVector;
     _InterlockedIncrement(&LdrpActiveThreadCount);

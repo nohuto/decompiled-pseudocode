@@ -1,11 +1,11 @@
 /*
- * XREFs of AslGuidToString @ 0x140723674
+ * XREFs of AslGuidToString @ 0x140724914
  * Callers:
- *     SdbGetEntryFlags @ 0x1407232F8 (SdbGetEntryFlags.c)
- *     SdbpGetCustomSdbFileName @ 0x1408E884C (SdbpGetCustomSdbFileName.c)
+ *     SdbGetEntryFlags @ 0x140724598 (SdbGetEntryFlags.c)
+ *     SdbpGetCustomSdbFileName @ 0x1408E9B0C (SdbpGetCustomSdbFileName.c)
  * Callees:
- *     RtlStringCchPrintfW @ 0x1400923A8 (RtlStringCchPrintfW.c)
- *     AslLogCallPrintf @ 0x140680C60 (AslLogCallPrintf.c)
+ *     RtlStringCchPrintfW @ 0x1400922E8 (RtlStringCchPrintfW.c)
+ *     AslLogCallPrintf @ 0x140681E20 (AslLogCallPrintf.c)
  */
 
 __int64 __fastcall AslGuidToString(wchar_t *a1, unsigned int a2, unsigned int *a3)

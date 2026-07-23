@@ -1,9 +1,9 @@
 /*
- * XREFs of KeInitializeMutantEx @ 0x1402ED1C0
+ * XREFs of KeInitializeMutantEx @ 0x14029E510
  * Callers:
- *     NtCreateMutant @ 0x1406DDC40 (NtCreateMutant.c)
+ *     NtCreateMutant @ 0x1406B4F20 (NtCreateMutant.c)
  * Callees:
- *     KiInitializeMutant @ 0x1402ED1DC (KiInitializeMutant.c)
+ *     KiInitializeMutant @ 0x14029E52C (KiInitializeMutant.c)
  */
 
 __int64 __fastcall KeInitializeMutantEx(ULONG_PTR a1)

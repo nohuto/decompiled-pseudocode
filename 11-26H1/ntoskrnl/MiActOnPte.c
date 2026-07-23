@@ -1,19 +1,19 @@
 /*
- * XREFs of MiActOnPte @ 0x1402D4420
+ * XREFs of MiActOnPte @ 0x1402B61E0
  * Callers:
- *     MiWalkVaRange @ 0x1402D3560 (MiWalkVaRange.c)
+ *     MiWalkVaRange @ 0x1402B5320 (MiWalkVaRange.c)
  * Callees:
- *     MiSharedVaToPartition @ 0x14028370C (MiSharedVaToPartition.c)
- *     MiActOnValidPte @ 0x140297138 (MiActOnValidPte.c)
- *     MiMakePageFilePte @ 0x140298DD0 (MiMakePageFilePte.c)
- *     MiCheckUserVirtualAddress @ 0x1402D1920 (MiCheckUserVirtualAddress.c)
- *     MiReleasePageFileInfo @ 0x1402DAD50 (MiReleasePageFileInfo.c)
- *     MiPteHasShadow @ 0x1403011E0 (MiPteHasShadow.c)
- *     MI_CLEAR_RESET_PTE @ 0x140314F68 (MI_CLEAR_RESET_PTE.c)
- *     MiReadPteShadow @ 0x140314FF0 (MiReadPteShadow.c)
- *     MiActOnTransitionPte @ 0x14033C8B0 (MiActOnTransitionPte.c)
- *     MI_IS_RESET_PTE @ 0x140367DF0 (MI_IS_RESET_PTE.c)
- *     MiUpdatePageTableUseCount @ 0x1403D9FE0 (MiUpdatePageTableUseCount.c)
+ *     MiSharedVaToPartition @ 0x140282C7C (MiSharedVaToPartition.c)
+ *     MiActOnValidPte @ 0x140296698 (MiActOnValidPte.c)
+ *     MiMakePageFilePte @ 0x140298330 (MiMakePageFilePte.c)
+ *     MiCheckUserVirtualAddress @ 0x1402B36E0 (MiCheckUserVirtualAddress.c)
+ *     MiReleasePageFileInfo @ 0x1402BCB10 (MiReleasePageFileInfo.c)
+ *     MiPteHasShadow @ 0x1402E3260 (MiPteHasShadow.c)
+ *     MI_CLEAR_RESET_PTE @ 0x140316F98 (MI_CLEAR_RESET_PTE.c)
+ *     MiReadPteShadow @ 0x140317020 (MiReadPteShadow.c)
+ *     MiActOnTransitionPte @ 0x14033E930 (MiActOnTransitionPte.c)
+ *     MI_IS_RESET_PTE @ 0x140369B90 (MI_IS_RESET_PTE.c)
+ *     MiUpdatePageTableUseCount @ 0x1403DD1D0 (MiUpdatePageTableUseCount.c)
  */
 
 __int64 __fastcall MiActOnPte(
@@ -160,7 +160,7 @@ LABEL_89:
     return 0LL;
   if ( v18 )
   {
-    v19 = *(ULONG **)(stru_140E2EB88.ThreadLock + 8LL * HIWORD(Process[2].ProcessListEntry.Blink));
+    v19 = *(ULONG **)(stru_140E2ED08.ThreadLock + 8LL * HIWORD(Process[2].ProcessListEntry.Blink));
     if ( v12 )
     {
       if ( v57 )
@@ -177,12 +177,12 @@ LABEL_89:
           Blink_high = HIWORD(Process[2].ProcessListEntry.Blink);
         else
           Blink_high = *(_DWORD *)(*(_QWORD *)v32 + 60LL) & 0x3FF;
-        v19 = *(ULONG **)(stru_140E2EB88.ThreadLock + 8 * Blink_high);
+        v19 = *(ULONG **)(stru_140E2ED08.ThreadLock + 8 * Blink_high);
       }
     }
     v20 = v18;
-    if ( qword_140E2D740 && (v18 & 0x10) == 0 )
-      v20 = qword_140E2D748 & v18;
+    if ( qword_140E2D8C0 && (v18 & 0x10) == 0 )
+      v20 = qword_140E2D8C8 & v18;
     if ( (v20 & 0x400) != 0 || (v20 & 0x800) != 0 || (v20 & 8) != 0 )
     {
       if ( v13 != 1 )
@@ -262,22 +262,22 @@ LABEL_89:
         }
         if ( v18 )
         {
-          if ( qword_140E2D740 )
+          if ( qword_140E2D8C0 )
           {
             v23 = v18;
-            v24 = qword_140E2D748 & v18;
+            v24 = qword_140E2D8C8 & v18;
             LODWORD(v18) = v18 & 0xFFFFFFEF;
             if ( (v23 & 0x10) == 0 )
               LODWORD(v18) = v24;
           }
         }
         v25 = (unsigned int)v18 | 0x100000000LL;
-        if ( qword_140E2D740 )
+        if ( qword_140E2D8C0 )
         {
-          if ( (qword_140E2D740 & v25) != 0 )
+          if ( (qword_140E2D8C0 & v25) != 0 )
             v25 = (unsigned int)v18 | 0x100000010LL;
           else
-            v25 |= qword_140E2D740;
+            v25 |= qword_140E2D8C0;
         }
 LABEL_32:
         if ( !v12 )

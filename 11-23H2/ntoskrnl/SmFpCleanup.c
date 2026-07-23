@@ -1,16 +1,16 @@
 /*
- * XREFs of SmFpCleanup @ 0x140344318
+ * XREFs of SmFpCleanup @ 0x1403445A8
  * Callers:
- *     ?SmStCleanup@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x140342DD8 (-SmStCleanup@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@@Z.c)
- *     ?SmStStart@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_SMST_PARAMETERS@@@Z @ 0x140343348 (-SmStStart@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_SMST_PARAMETERS@@@Z.c)
- *     SmFpPreAllocate @ 0x1403A6C04 (SmFpPreAllocate.c)
- *     ?SmCleanup@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x1405BE68C (-SmCleanup@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@@Z.c)
- *     SmFirstTimeInit @ 0x1407B7D14 (SmFirstTimeInit.c)
- *     SmPartitionCleanup @ 0x1409D6BB8 (SmPartitionCleanup.c)
+ *     ?SmStCleanup@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x140343068 (-SmStCleanup@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@@Z.c)
+ *     ?SmStStart@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_SMST_PARAMETERS@@@Z @ 0x1403435D8 (-SmStStart@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_SMST_PARAMETERS@@@Z.c)
+ *     SmFpPreAllocate @ 0x1403A6DE4 (SmFpPreAllocate.c)
+ *     ?SmCleanup@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x1405BEBFC (-SmCleanup@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@@Z.c)
+ *     SmFirstTimeInit @ 0x1407B7FF4 (SmFirstTimeInit.c)
+ *     SmPartitionCleanup @ 0x1409D6DB8 (SmPartitionCleanup.c)
  * Callees:
- *     SmAcquireReleaseCharges @ 0x1403439FC (SmAcquireReleaseCharges.c)
- *     SmKmFreeMdlForLock @ 0x1405CB500 (SmKmFreeMdlForLock.c)
- *     MmFreeMappingAddress @ 0x14086D770 (MmFreeMappingAddress.c)
+ *     SmAcquireReleaseCharges @ 0x140343C8C (SmAcquireReleaseCharges.c)
+ *     SmKmFreeMdlForLock @ 0x1405CBA70 (SmKmFreeMdlForLock.c)
+ *     MmFreeMappingAddress @ 0x14086D9B0 (MmFreeMappingAddress.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

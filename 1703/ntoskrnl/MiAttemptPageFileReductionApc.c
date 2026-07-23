@@ -35,7 +35,7 @@ LONG __fastcall MiAttemptPageFileReductionApc(struct _KEVENT *a1)
   __int16 v14; // ax
   __int64 v15; // rax
   int v16; // r9d
-  struct _RTL_BITMAP *v17; // r10
+  _RTL_BITMAP *v17; // r10
   const signed __int32 *v18; // r8
   unsigned int v19; // ecx
   const signed __int32 *v20; // rdx
@@ -51,7 +51,7 @@ LONG __fastcall MiAttemptPageFileReductionApc(struct _KEVENT *a1)
   __int64 v30; // rdx
   unsigned __int64 v31; // rax
   __int64 v32; // rcx
-  struct _RTL_BITMAP *v33; // rbx
+  _RTL_BITMAP *v33; // rbx
   unsigned int v35; // [rsp+30h] [rbp-59h]
   _DWORD *v36; // [rsp+38h] [rbp-51h]
   unsigned int v37; // [rsp+40h] [rbp-49h]
@@ -63,8 +63,8 @@ LONG __fastcall MiAttemptPageFileReductionApc(struct _KEVENT *a1)
   ULONG StartingRunIndex; // [rsp+80h] [rbp-9h] BYREF
   ULONG v44; // [rsp+84h] [rbp-5h] BYREF
   PRTL_BITMAP v45; // [rsp+88h] [rbp-1h]
-  struct _RTL_BITMAP BitMapHeader; // [rsp+90h] [rbp+7h] BYREF
-  struct _RTL_BITMAP v47; // [rsp+A0h] [rbp+17h] BYREF
+  _RTL_BITMAP BitMapHeader; // [rsp+90h] [rbp+7h] BYREF
+  _RTL_BITMAP v47; // [rsp+A0h] [rbp+17h] BYREF
   struct _KEVENT *Event; // [rsp+F0h] [rbp+67h]
   int v49; // [rsp+108h] [rbp+7Fh]
 
@@ -115,7 +115,7 @@ LONG __fastcall MiAttemptPageFileReductionApc(struct _KEVENT *a1)
         KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(v13 + 232), &LockHandle);
         v15 = *(_QWORD *)(v13 + 112);
         v16 = *(_DWORD *)v13;
-        v17 = (struct _RTL_BITMAP *)(v15 + 8);
+        v17 = (_RTL_BITMAP *)(v15 + 8);
         v18 = *(const signed __int32 **)(v15 + 16);
         v19 = *(_DWORD *)v13 - 1;
         v41 = (PRTL_BITMAP)(v15 + 8);
@@ -203,7 +203,7 @@ LABEL_35:
                 *(_QWORD *)(v13 + 24) += LastBackwardRunClear;
                 *(_QWORD *)(v13 + 48) += LastBackwardRunClear;
                 *(_QWORD *)v13 = v29 + LastBackwardRunClear;
-                v33 = (struct _RTL_BITMAP *)(v32 + 24);
+                v33 = (_RTL_BITMAP *)(v32 + 24);
                 RtlClearBits((PRTL_BITMAP)(v32 + 8), v29, LastBackwardRunClear);
                 RtlClearBits(v33, v29, LastBackwardRunClear);
                 if ( v29 < *(unsigned int *)(v13 + 120) )

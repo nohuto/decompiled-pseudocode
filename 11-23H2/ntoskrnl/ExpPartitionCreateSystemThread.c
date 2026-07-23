@@ -2,7 +2,7 @@
  * XREFs of ExpPartitionCreateSystemThread @ 0x1406835FC
  * Callers:
  *     ExpCreateWorkerThread @ 0x140683520 (ExpCreateWorkerThread.c)
- *     ExpWorkQueueManagerStart @ 0x140849470 (ExpWorkQueueManagerStart.c)
+ *     ExpWorkQueueManagerStart @ 0x140849770 (ExpWorkQueueManagerStart.c)
  * Callees:
  *     ExpNodeCreateSystemThread @ 0x140683660 (ExpNodeCreateSystemThread.c)
  */

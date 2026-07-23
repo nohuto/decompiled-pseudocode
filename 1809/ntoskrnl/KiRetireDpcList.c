@@ -1,21 +1,21 @@
 /*
- * XREFs of KiRetireDpcList @ 0x1400C64C0
+ * XREFs of KiRetireDpcList @ 0x1400C6400
  * Callers:
- *     KiIdleLoop @ 0x1401C0520 (KiIdleLoop.c)
- *     KyRetireDpcList @ 0x1401C42A0 (KyRetireDpcList.c)
+ *     KiIdleLoop @ 0x1401C0680 (KiIdleLoop.c)
+ *     KyRetireDpcList @ 0x1401C4400 (KyRetireDpcList.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     KiExecuteAllDpcs @ 0x1400C6D40 (KiExecuteAllDpcs.c)
- *     KiProcessExpiredTimerList @ 0x1400C7820 (KiProcessExpiredTimerList.c)
- *     PpmPerfGetCurrentFrequency @ 0x1400C8360 (PpmPerfGetCurrentFrequency.c)
- *     EtwTraceKernelEvent @ 0x1400F3710 (EtwTraceKernelEvent.c)
- *     KiTimer2Expiration @ 0x1400FB3F0 (KiTimer2Expiration.c)
- *     KeSignalGate @ 0x1401276B0 (KeSignalGate.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     KiBeginCounterAccumulation @ 0x140295E0C (KiBeginCounterAccumulation.c)
- *     KiSetVpThreadSystemWork @ 0x140299760 (KiSetVpThreadSystemWork.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     KiExecuteAllDpcs @ 0x1400C6C80 (KiExecuteAllDpcs.c)
+ *     KiProcessExpiredTimerList @ 0x1400C7760 (KiProcessExpiredTimerList.c)
+ *     PpmPerfGetCurrentFrequency @ 0x1400C82A0 (PpmPerfGetCurrentFrequency.c)
+ *     EtwTraceKernelEvent @ 0x1400F3790 (EtwTraceKernelEvent.c)
+ *     KiTimer2Expiration @ 0x1400FB470 (KiTimer2Expiration.c)
+ *     KeSignalGate @ 0x140127780 (KeSignalGate.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     KiBeginCounterAccumulation @ 0x140295FFC (KiBeginCounterAccumulation.c)
+ *     KiSetVpThreadSystemWork @ 0x140299950 (KiSetVpThreadSystemWork.c)
  */
 
 signed __int16 __fastcall KiRetireDpcList(__int64 a1)
@@ -426,7 +426,7 @@ LABEL_131:
                         v61 = (unsigned __int64)(unsigned __int8)v41 << 6;
                       }
                       _interlockedbittestandreset64(
-                        (volatile signed __int32 *)(qword_1405424C8[2 * *(unsigned __int8 *)(v36 - 13744)] + v61),
+                        (volatile signed __int32 *)(qword_1405434C8[2 * *(unsigned __int8 *)(v36 - 13744)] + v61),
                         v60);
                       v40 = v88;
                     }

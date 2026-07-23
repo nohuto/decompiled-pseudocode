@@ -1,7 +1,7 @@
 /*
- * XREFs of ExCheckValidIRTimerId @ 0x1404F9468
+ * XREFs of ExCheckValidIRTimerId @ 0x1404F2A78
  * Callers:
- *     ExpCheckIRTimerAccess @ 0x140ABD214 (ExpCheckIRTimerAccess.c)
+ *     ExpCheckIRTimerAccess @ 0x140ABF674 (ExpCheckIRTimerAccess.c)
  * Callees:
  *     <none>
  */

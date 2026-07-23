@@ -1,10 +1,10 @@
 /*
- * XREFs of MiPurgeZeroPage @ 0x14028E7C0
+ * XREFs of MiPurgeZeroPage @ 0x14028DD20
  * Callers:
  *     <none>
  * Callees:
- *     MiUnlinkFreeOrZeroedPage @ 0x14028C8F4 (MiUnlinkFreeOrZeroedPage.c)
- *     MiInsertPageInFreeOrZeroedList @ 0x1402DCDD0 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiUnlinkFreeOrZeroedPage @ 0x14028BE54 (MiUnlinkFreeOrZeroedPage.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x1402BEB90 (MiInsertPageInFreeOrZeroedList.c)
  */
 
 __int64 __fastcall MiPurgeZeroPage(__int64 a1)

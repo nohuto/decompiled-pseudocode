@@ -1,10 +1,10 @@
 /*
- * XREFs of CcUpdateReadHistory @ 0x1402BDD28
+ * XREFs of CcUpdateReadHistory @ 0x1402BDFB8
  * Callers:
- *     CcAsyncReadPrefetch @ 0x1402BDAFC (CcAsyncReadPrefetch.c)
- *     CcMdlRead @ 0x14073E9A0 (CcMdlRead.c)
+ *     CcAsyncReadPrefetch @ 0x1402BDD8C (CcAsyncReadPrefetch.c)
+ *     CcMdlRead @ 0x14073EB90 (CcMdlRead.c)
  * Callees:
- *     CcUpdateSharedCacheMapFlag @ 0x14034C334 (CcUpdateSharedCacheMapFlag.c)
+ *     CcUpdateSharedCacheMapFlag @ 0x14034C4D4 (CcUpdateSharedCacheMapFlag.c)
  */
 
 __int64 __fastcall CcUpdateReadHistory(__int64 a1, __int64 *a2, unsigned int a3)

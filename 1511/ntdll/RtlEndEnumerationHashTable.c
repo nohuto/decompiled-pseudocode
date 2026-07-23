@@ -6,24 +6,27 @@
  *     <none>
  */
 
-_QWORD *__fastcall RtlEndEnumerationHashTable(__int64 a1, __int64 a2)
+void __cdecl RtlEndEnumerationHashTable(
+        PRTL_DYNAMIC_HASH_TABLE HashTable,
+        PRTL_DYNAMIC_HASH_TABLE_ENUMERATOR Enumerator)
 {
-  _QWORD *result; // rax
-  _QWORD *v3; // r8
+  _LIST_ENTRY *Flink; // rax
+  _LIST_ENTRY *Blink; // r8
 
-  --*(_DWORD *)(a1 + 28);
-  result = *(_QWORD **)a2;
-  if ( *(_QWORD *)a2 != a2 )
+  --HashTable->NumEnumerators;
+  Flink = Enumerator->HashEntry.Linkage.Flink;
+  if ( (PRTL_DYNAMIC_HASH_TABLE_ENUMERATOR)Enumerator->HashEntry.Linkage.Flink != Enumerator )
   {
-    v3 = *(_QWORD **)(a2 + 8);
-    if ( result[1] != a2 || *v3 != a2 )
+    Blink = Enumerator->HashEntry.Linkage.Blink;
+    if ( (PRTL_DYNAMIC_HASH_TABLE_ENUMERATOR)Flink->Blink != Enumerator
+      || (PRTL_DYNAMIC_HASH_TABLE_ENUMERATOR)Blink->Flink != Enumerator )
+    {
       __fastfail(3u);
-    *v3 = result;
-    result[1] = v3;
-    result = *(_QWORD **)(a2 + 24);
-    if ( (_QWORD *)*result == result )
-      --*(_DWORD *)(a1 + 24);
+    }
+    Blink->Flink = Flink;
+    Flink->Blink = Blink;
+    if ( Enumerator->ChainHead->Flink == Enumerator->ChainHead )
+      --HashTable->NonEmptyBuckets;
   }
-  *(_QWORD *)(a2 + 24) = 0LL;
-  return result;
+  Enumerator->ChainHead = 0LL;
 }

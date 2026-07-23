@@ -7,16 +7,16 @@
  *     DbgUnLoadImageSymbolsUnicode @ 0x14020B814 (DbgUnLoadImageSymbolsUnicode.c)
  *     RtlImageNtHeader @ 0x140214B30 (RtlImageNtHeader.c)
  *     MiMarkPfnVerified @ 0x140219BD0 (MiMarkPfnVerified.c)
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1402712F0 (MI_READ_PTE_LOCK_FREE.c)
- *     MI_IS_PHYSICAL_ADDRESS @ 0x1402848B0 (MI_IS_PHYSICAL_ADDRESS.c)
- *     MiUpdatePageFileHighInPte @ 0x14028563C (MiUpdatePageFileHighInPte.c)
- *     MiAcquireNonPagedResources @ 0x1402E4314 (MiAcquireNonPagedResources.c)
- *     MiCheckSlabPfnBitmap @ 0x140324730 (MiCheckSlabPfnBitmap.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiAllocateDriverPage @ 0x140706324 (MiAllocateDriverPage.c)
- *     MiUseLargeDriverPage @ 0x1407E2E54 (MiUseLargeDriverPage.c)
- *     MiMapSystemImageWithLargePage @ 0x140A49B64 (MiMapSystemImageWithLargePage.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140271580 (MI_READ_PTE_LOCK_FREE.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x140284B40 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     MiUpdatePageFileHighInPte @ 0x1402858CC (MiUpdatePageFileHighInPte.c)
+ *     MiAcquireNonPagedResources @ 0x1402E45A4 (MiAcquireNonPagedResources.c)
+ *     MiCheckSlabPfnBitmap @ 0x1403249C0 (MiCheckSlabPfnBitmap.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     MiAllocateDriverPage @ 0x140706534 (MiAllocateDriverPage.c)
+ *     MiUseLargeDriverPage @ 0x1407E3124 (MiUseLargeDriverPage.c)
+ *     MiMapSystemImageWithLargePage @ 0x140A49E14 (MiMapSystemImageWithLargePage.c)
  *     MiGetBootImagePageProtection @ 0x140B46D88 (MiGetBootImagePageProtection.c)
  *     MiTradeBootImagePage @ 0x140B46E5C (MiTradeBootImagePage.c)
  *     MiFreeBootDriverPages @ 0x140B47054 (MiFreeBootDriverPages.c)
@@ -32,7 +32,7 @@ __int64 __fastcall MiHandleBootImage(__int64 a1, __int64 a2, __int64 a3)
   int v5; // ebp
   __int64 v6; // r14
   unsigned int v7; // edi
-  __int64 v8; // rax
+  PIMAGE_NT_HEADERS v8; // rax
   unsigned __int64 v9; // r12
   unsigned __int64 v10; // r12
   unsigned __int64 v11; // r13
@@ -47,7 +47,7 @@ __int64 __fastcall MiHandleBootImage(__int64 a1, __int64 a2, __int64 a3)
   int v20; // ecx
   unsigned int v21; // esi
   unsigned __int64 v22; // r15
-  __int64 v23; // r12
+  PIMAGE_NT_HEADERS v23; // r12
   __int64 v24; // rdi
   unsigned int BootImagePageProtection; // eax
   unsigned __int64 v26; // rax
@@ -68,7 +68,7 @@ __int64 __fastcall MiHandleBootImage(__int64 a1, __int64 a2, __int64 a3)
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *v42; // r9
   int v43; // eax
-  __int64 v44; // rcx
+  PVOID v44; // rcx
   int v45; // [rsp+30h] [rbp-98h]
   unsigned __int64 v46; // [rsp+38h] [rbp-90h] BYREF
   unsigned __int64 v47; // [rsp+40h] [rbp-88h]
@@ -77,7 +77,7 @@ __int64 __fastcall MiHandleBootImage(__int64 a1, __int64 a2, __int64 a3)
   unsigned __int64 v50; // [rsp+58h] [rbp-70h]
   __int64 v51; // [rsp+60h] [rbp-68h] BYREF
   unsigned __int64 v52; // [rsp+68h] [rbp-60h]
-  __int64 v53; // [rsp+70h] [rbp-58h]
+  PIMAGE_NT_HEADERS v53; // [rsp+70h] [rbp-58h]
   unsigned __int64 v54; // [rsp+78h] [rbp-50h]
   int v55; // [rsp+D0h] [rbp+8h]
   __int64 v58; // [rsp+E8h] [rbp+20h] BYREF
@@ -90,7 +90,7 @@ __int64 __fastcall MiHandleBootImage(__int64 a1, __int64 a2, __int64 a3)
   LODWORD(v58) = (unsigned int)dword_140C6987C >> 12;
   v45 = dword_140C65844;
   v54 = v3;
-  v8 = RtlImageNtHeader(v3);
+  v8 = RtlImageNtHeader((PVOID)v3);
   v9 = *(unsigned int *)(v6 + 64) + 4095LL;
   v53 = v8;
   v10 = v9 >> 12;
@@ -128,7 +128,7 @@ __int64 __fastcall MiHandleBootImage(__int64 a1, __int64 a2, __int64 a3)
       CurrentIrql = KeGetCurrentIrql();
       v51 = CurrentIrql;
       __writecr8(2uLL);
-      if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && (unsigned __int8)CurrentIrql <= 0xFu )
+      if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && (unsigned __int8)CurrentIrql <= 0xFu )
       {
         SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
         if ( (_BYTE)CurrentIrql == 2 )
@@ -191,10 +191,10 @@ __int64 __fastcall MiHandleBootImage(__int64 a1, __int64 a2, __int64 a3)
         v11 = v50;
         LOBYTE(CurrentIrql) = v51;
       }
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v40 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v40 <= 0xFu && (unsigned __int8)CurrentIrql <= 0xFu && v40 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v40 <= 0xFu && (unsigned __int8)CurrentIrql <= 0xFu && v40 >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           v42 = CurrentPrcb->SchedulerAssist;
@@ -212,7 +212,7 @@ __int64 __fastcall MiHandleBootImage(__int64 a1, __int64 a2, __int64 a3)
         qword_140C6FA18 += v31;
       }
       _InterlockedExchangeAdd64(&qword_140C65BA8, (unsigned int)v14);
-      v44 = *(_QWORD *)(v6 + 48);
+      v44 = *(PVOID *)(v6 + 48);
       if ( v44 == PsNtosImageBase || v44 == PsHalImageBase )
         qword_140C699A8 += v31 - (unsigned int)v14;
       else
@@ -229,15 +229,15 @@ __int64 __fastcall MiHandleBootImage(__int64 a1, __int64 a2, __int64 a3)
   result = (unsigned int)v14;
   v16 = v7 - v14;
   v17 = v12 + 8LL * (unsigned int)v14;
-  if ( v3 != PsNtosImageBase && v3 != PsHalImageBase )
+  if ( (PVOID)v3 != PsNtosImageBase && (PVOID)v3 != PsHalImageBase )
     v16 += v5;
   if ( v16 )
     result = MiFreeBootDriverPages(v3, v17, v16, 1, a3);
-  if ( v3 != PsNtosImageBase && v3 != PsHalImageBase )
+  if ( (PVOID)v3 != PsNtosImageBase && (PVOID)v3 != PsHalImageBase )
   {
-    v18 = v53;
+    v18 = (__int64)v53;
     v19 = 0LL;
-    *(_QWORD *)(v53 + 48) = v3;
+    v53->OptionalHeader.ImageBase = v3;
     if ( (*(_DWORD *)(v6 + 104) & 0x800000) == 0 )
     {
       if ( (*(_BYTE *)(v18 + 22) & 1) != 0

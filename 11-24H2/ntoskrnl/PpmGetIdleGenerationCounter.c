@@ -1,8 +1,8 @@
 /*
- * XREFs of PpmGetIdleGenerationCounter @ 0x140351710
+ * XREFs of PpmGetIdleGenerationCounter @ 0x14036F500
  * Callers:
- *     PpmContinueTimeAccumulation @ 0x14029F2E8 (PpmContinueTimeAccumulation.c)
- *     PpmSnapPerformanceAccumulation @ 0x140350130 (PpmSnapPerformanceAccumulation.c)
+ *     PpmContinueTimeAccumulation @ 0x1402AD8FC (PpmContinueTimeAccumulation.c)
+ *     PpmSnapPerformanceAccumulation @ 0x14036E610 (PpmSnapPerformanceAccumulation.c)
  * Callees:
  *     <none>
  */
@@ -25,7 +25,7 @@ signed __int64 __fastcall PpmGetIdleGenerationCounter(__int64 a1)
     return 0LL;
   if ( result && *(_DWORD *)(a1 + 35104) == 3 )
   {
-    v3 = *(_QWORD *)(*(_QWORD *)(a1 + 35792) + 8LL * DWORD2(xmmword_140E3ECD0));
+    v3 = *(_QWORD *)(*(_QWORD *)(a1 + 35792) + 8LL * DWORD2(xmmword_140E3EE10));
     result = v3 >> 1;
     if ( (v3 & 1) == 0 )
       return 0LL;

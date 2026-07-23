@@ -15,53 +15,53 @@
  *     _DbgPrintEx @ 0x4B33EE00 (_DbgPrintEx.c)
  */
 
-NTSTATUS __stdcall RtlpAssemblyStorageMapResolutionDefaultCallback(int a1, int a2, NTSTATUS *a3)
+int __stdcall RtlpAssemblyStorageMapResolutionDefaultCallback(int a1, int a2, int *a3)
 {
   int v3; // eax
-  NTSTATUS result; // eax
-  size_t v5; // edi
+  int result; // eax
+  int v5; // edi
   wchar_t *Buffer; // ecx
   char *v7; // esi
   char *v8; // edi
   __int16 v9; // ax
-  int v10; // edx
-  int v11; // ecx
+  const WCHAR *v10; // ecx
   const WCHAR *NtSystemRoot; // eax
-  size_t Length; // edx
-  unsigned int v14; // ecx
-  _DWORD *v15; // edi
-  int v16; // eax
-  HANDLE v17; // ecx
-  UNICODE_STRING DestinationString; // [esp+Ch] [ebp-25Ch] BYREF
-  NTSTATUS v19; // [esp+14h] [ebp-254h] BYREF
-  size_t v20; // [esp+18h] [ebp-250h]
-  _WORD v21[2]; // [esp+1Ch] [ebp-24Ch] BYREF
+  int Length; // edx
+  unsigned int v13; // ecx
+  _DWORD *v14; // edi
+  NTSTATUS v15; // eax
+  HANDLE v16; // ecx
+  size_t v17; // [esp-4h] [ebp-26Ch]
+  _UNICODE_STRING DestinationString; // [esp+Ch] [ebp-25Ch] BYREF
+  HANDLE KeyHandle; // [esp+14h] [ebp-254h] BYREF
+  int v20; // [esp+18h] [ebp-250h]
+  int v21; // [esp+1Ch] [ebp-24Ch] BYREF
   char *v22; // [esp+20h] [ebp-248h]
-  int v23; // [esp+24h] [ebp-244h] BYREF
-  _DWORD v24[6]; // [esp+28h] [ebp-240h] BYREF
-  char v25[12]; // [esp+40h] [ebp-228h] BYREF
+  ULONG ResultLength; // [esp+24h] [ebp-244h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [esp+28h] [ebp-240h] BYREF
+  char KeyInformation[12]; // [esp+40h] [ebp-228h] BYREF
   unsigned int v26; // [esp+4Ch] [ebp-21Ch]
   char v27; // [esp+50h] [ebp-218h] BYREF
 
   if ( a1 == 1 )
   {
-    v24[0] = 24;
-    v24[3] = 64;
-    v19 = 0;
-    v24[1] = 0;
-    v24[2] = &dword_4B281338;
-    v24[4] = 0;
-    v24[5] = 0;
-    v16 = ZwOpenKey(&v19, 8, v24);
-    *(_DWORD *)&DestinationString.Length = v16;
-    if ( v16 >= 0 || v16 == -1073741772 || v16 == -1073741431 )
+    ObjectAttributes.Length = 24;
+    ObjectAttributes.Attributes = 64;
+    KeyHandle = 0;
+    ObjectAttributes.RootDirectory = 0;
+    ObjectAttributes.ObjectName = (PUNICODE_STRING)&dword_4B281338;
+    ObjectAttributes.SecurityDescriptor = 0;
+    ObjectAttributes.SecurityQualityOfService = 0;
+    v15 = ZwOpenKey(&KeyHandle, 8u, &ObjectAttributes);
+    *(_DWORD *)&DestinationString.Length = v15;
+    if ( v15 >= 0 || v15 == -1073741772 || v15 == -1073741431 )
     {
-      result = v19;
+      result = (int)KeyHandle;
       *(_DWORD *)(a2 + 24) = -1;
       *(_DWORD *)(a2 + 8) = result;
       return result;
     }
-    result = DbgPrintEx(51, 0, "SXS: Unable to open registry key %wZ Status = 0x%08lx\n", &dword_4B281338, v16);
+    result = DbgPrintEx(51, 0, (int)"SXS: Unable to open registry key %wZ Status = 0x%08lx\n", (int)&dword_4B281338);
     *(_BYTE *)(a2 + 28) = 1;
     goto LABEL_36;
   }
@@ -77,48 +77,44 @@ NTSTATUS __stdcall RtlpAssemblyStorageMapResolutionDefaultCallback(int a1, int a
   {
     if ( v3 == 1 )
     {
-      NtSystemRoot = (const WCHAR *)RtlGetNtSystemRoot();
+      NtSystemRoot = RtlGetNtSystemRoot();
       RtlInitUnicodeString(&DestinationString, NtSystemRoot);
       Length = DestinationString.Length;
-      v14 = *(unsigned __int16 *)(a2 + 14);
+      v13 = *(unsigned __int16 *)(a2 + 14);
       *(_WORD *)(a2 + 12) = 0;
       result = Length + 16;
-      if ( Length + 16 <= v14 )
+      if ( Length + 16 <= v13 )
       {
-        memcpy(*(void **)(a2 + 16), DestinationString.Buffer, Length);
-        v15 = (_DWORD *)(*(_DWORD *)(a2 + 16) + DestinationString.Length);
-        *v15++ = *(_DWORD *)L"\\WinSxS\\";
-        *v15++ = *(_DWORD *)L"inSxS\\";
-        *v15 = *(_DWORD *)L"SxS\\";
-        v15[1] = *(_DWORD *)L"S\\";
+        LODWORD(v17) = Length;
+        memcpy(*(void **)(a2 + 16), DestinationString.Buffer, v17);
+        v14 = (_DWORD *)(*(_DWORD *)(a2 + 16) + DestinationString.Length);
+        *v14++ = *(_DWORD *)L"\\WinSxS\\";
+        *v14++ = *(_DWORD *)L"inSxS\\";
+        *v14 = *(_DWORD *)L"SxS\\";
+        v14[1] = *(_DWORD *)L"S\\";
         result = *(_DWORD *)&DestinationString.Length + 16;
         goto LABEL_10;
       }
       goto LABEL_23;
     }
-    v17 = *(HANDLE *)a2;
+    v16 = *(HANDLE *)a2;
     result = v3 - 2;
-    *(_DWORD *)&DestinationString.Length = v17;
-    v23 = 0;
+    *(_DWORD *)&DestinationString.Length = v16;
+    ResultLength = 0;
     v20 = result;
-    if ( !v17 )
+    if ( !v16 )
       goto LABEL_33;
-    result = ZwEnumerateKey(v17, result, 0, v25, 544, &v23);
-    v19 = result;
+    result = ZwEnumerateKey(v16, result, KeyBasicInformation, KeyInformation, 0x220u, &ResultLength);
+    KeyHandle = (HANDLE)result;
     if ( result < 0 )
     {
       if ( result != -2147483622 )
       {
-        result = DbgPrintEx(
-                   51,
-                   0,
-                   "SXS: Unable to enumerate assembly storage subkey #%lu Status = 0x%08lx\n",
-                   v20,
-                   result);
+        result = DbgPrintEx(51, 0, (int)"SXS: Unable to enumerate assembly storage subkey #%lu Status = 0x%08lx\n", v20);
         *(_BYTE *)(a2 + 8) = 1;
         if ( !a3 )
           return result;
-        result = v19;
+        result = (int)KeyHandle;
         goto LABEL_38;
       }
 LABEL_33:
@@ -134,19 +130,18 @@ LABEL_21:
         *a3 = -1073741562;
       return result;
     }
-    v21[0] = v26;
-    v21[1] = v26;
+    LOWORD(v21) = v26;
+    HIWORD(v21) = v26;
     v22 = &v27;
-    result = RtlpGetAssemblyStorageMapRootLocation(a2 + 12);
+    result = RtlpGetAssemblyStorageMapRootLocation(*(_DWORD *)&DestinationString.Length, &v21, a2 + 12);
     *(_DWORD *)&DestinationString.Length = result;
     if ( result >= 0 )
       return result;
     result = DbgPrintEx(
                51,
                0,
-               "SXS: Attempt to get storage location from subkey %wZ failed; Status = 0x%08lx\n",
-               v21,
-               result);
+               (int)"SXS: Attempt to get storage location from subkey %wZ failed; Status = 0x%08lx\n",
+               (int)&v21);
     *(_BYTE *)(a2 + 8) = 1;
 LABEL_36:
     if ( !a3 )
@@ -156,13 +151,13 @@ LABEL_38:
     *a3 = result;
     return result;
   }
-  result = (NTSTATUS)NtCurrentPeb()->ProcessParameters;
+  result = (int)NtCurrentPeb()->ProcessParameters;
   v5 = *(unsigned __int16 *)(result + 56);
   v20 = v5;
-  if ( v5 + 16 > 0xFFFE )
+  if ( (unsigned int)(v5 + 16) > 0xFFFE )
     goto LABEL_21;
   result = *(unsigned __int16 *)(a2 + 14);
-  if ( v5 + 16 > result )
+  if ( v5 + 16 > (unsigned int)result )
   {
 LABEL_23:
     *(_BYTE *)(a2 + 8) = 1;
@@ -174,19 +169,19 @@ LABEL_23:
   if ( (NtCurrentPeb()->ProcessParameters->Flags & 1) == 0 )
     Buffer = (wchar_t *)((char *)Buffer + (unsigned int)NtCurrentPeb()->ProcessParameters);
   v7 = *(char **)(a2 + 16);
-  memcpy(v7, Buffer, v5);
+  LODWORD(v17) = v5;
+  memcpy(v7, Buffer, v17);
   v8 = &v7[v5];
   v9 = v20 + 14;
-  LOBYTE(v10) = 1;
   *(_DWORD *)v8 = *(_DWORD *)L".Local\\";
   v8 += 4;
   *(_DWORD *)v8 = *(_DWORD *)L"ocal\\";
   v8 += 4;
   *(_DWORD *)v8 = *(_DWORD *)L"al\\";
   *((_DWORD *)v8 + 1) = *(_DWORD *)L"\\";
-  v11 = *(_DWORD *)(a2 + 16);
+  v10 = *(const WCHAR **)(a2 + 16);
   *(_WORD *)(a2 + 12) = v9;
-  result = RtlDoesFileExists_UEx(v11, v10);
+  result = RtlDoesFileExists_UEx(v10);
   if ( !(_BYTE)result )
   {
     result = 0;

@@ -27,21 +27,23 @@
  *     memset @ 0x1800A16C0 (memset.c)
  */
 
-__int64 __fastcall sub_1800DBCC0(unsigned __int16 *a1)
+NTSTATUS __fastcall sub_1800DBCC0(unsigned __int16 *a1, unsigned int a2)
 {
-  unsigned int v2; // edi
-  _QWORD v4[6]; // [rsp+20h] [rbp-278h] BYREF
-  _WORD v5[272]; // [rsp+50h] [rbp-248h] BYREF
+  unsigned __int64 v2; // rbp
+  unsigned int v4; // edi
+  _QWORD Fields[6]; // [rsp+20h] [rbp-278h] BYREF
+  _WORD v7[272]; // [rsp+50h] [rbp-248h] BYREF
 
-  memset(v4, 0, sizeof(v4));
+  v2 = a2;
+  memset(Fields, 0, sizeof(Fields));
   if ( (*a1 & 0xFFFEu) >= 0x212 )
-    v2 = 265;
+    v4 = 265;
   else
-    v2 = *a1 >> 1;
-  memmove(v5, *((const void **)a1 + 1), 2LL * v2);
-  v5[v2] = 0;
-  BYTE4(v4[0]) = 0;
-  LOWORD(v4[0]) = 2 * (v2 + 25);
-  *(_OWORD *)&v4[3] = xmmword_180131588;
-  return ZwTraceEvent();
+    v4 = *a1 >> 1;
+  memmove(v7, *((const void **)a1 + 1), 2LL * v4);
+  v7[v4] = 0;
+  BYTE4(Fields[0]) = 0;
+  LOWORD(Fields[0]) = 2 * (v4 + 25);
+  *(_OWORD *)&Fields[3] = xmmword_180131588;
+  return ZwTraceEvent((HANDLE)v2, 0x100u, 0x30u, Fields);
 }

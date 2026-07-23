@@ -13,30 +13,31 @@
  *     _RtlIsValidLocaleName@8 @ 0x4B3630F0 (_RtlIsValidLocaleName@8.c)
  */
 
-int __fastcall RtlUnicodeStringToLcid(unsigned __int16 *a1, int *a2)
+int __fastcall RtlUnicodeStringToLcid(_UNICODE_STRING *a1, ULONG *a2)
 {
   int v2; // edi
   unsigned int v5; // esi
   int v6; // ebx
-  int v9; // [esp+14h] [ebp-C4h] BYREF
-  PCWSTR SourceString; // [esp+18h] [ebp-C0h]
-  unsigned __int16 *v11; // [esp+1Ch] [ebp-BCh]
+  size_t v8; // [esp-4h] [ebp-DCh]
+  _UNICODE_STRING v10; // [esp+14h] [ebp-C4h] BYREF
+  PUNICODE_STRING String; // [esp+1Ch] [ebp-BCh]
   _BYTE v12[180]; // [esp+20h] [ebp-B8h] BYREF
 
   v2 = 0;
-  v11 = a1;
-  memset(v12, 0, 0xAAu);
+  LODWORD(v8) = 170;
+  String = a1;
+  memset(v12, 0, v8);
   if ( !a1 )
     return -1073741811;
   if ( !a2 )
     return -1073741811;
-  v5 = *a1 >> 1;
+  v5 = a1->Length >> 1;
   if ( v5 > 4 )
     return -1073741811;
   v6 = 0;
   if ( v5 )
   {
-    while ( iswctype(*(_WORD *)(*((_DWORD *)v11 + 1) + 2 * v6), 0x80u) )
+    while ( iswctype(String->Buffer[v6], 0x80u) )
     {
       if ( ++v6 >= v5 )
         goto LABEL_7;
@@ -44,11 +45,11 @@ int __fastcall RtlUnicodeStringToLcid(unsigned __int16 *a1, int *a2)
     return -1073741811;
   }
 LABEL_7:
-  if ( RtlUnicodeStringToInteger(v11, 0x10u, a2) < 0 )
+  if ( RtlUnicodeStringToInteger(String, 0x10u, a2) < 0 )
     return -1073741811;
-  v9 = 11141290;
-  SourceString = (PCWSTR)v12;
-  if ( !RtlLCIDToCultureName(*a2, (unsigned __int16 *)&v9) || !(unsigned __int8)RtlIsValidLocaleName(SourceString, 2) )
+  *(_DWORD *)&v10.Length = 11141290;
+  v10.Buffer = (wchar_t *)v12;
+  if ( !RtlLCIDToCultureName(*a2, &v10) || !RtlIsValidLocaleName((PCWSTR)v10.Buffer, 2u) )
     return -1073741811;
   return v2;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of MiAllocateProcessExtension @ 0x140B24208
+ * XREFs of MiAllocateProcessExtension @ 0x140B26608
  * Callers:
- *     MiInitializeBootProcess @ 0x140CF1DA4 (MiInitializeBootProcess.c)
+ *     MiInitializeBootProcess @ 0x140CF8124 (MiInitializeBootProcess.c)
  * Callees:
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     MmGetCurrentProcessorColor @ 0x14044ADC0 (MmGetCurrentProcessorColor.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     MmGetCurrentProcessorColor @ 0x140442EF0 (MmGetCurrentProcessorColor.c)
  */
 
 __int64 MiAllocateProcessExtension()

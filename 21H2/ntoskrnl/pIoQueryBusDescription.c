@@ -1,23 +1,23 @@
 /*
- * XREFs of pIoQueryBusDescription @ 0x14078B104
+ * XREFs of pIoQueryBusDescription @ 0x14078B2C4
  * Callers:
- *     IoQueryDeviceDescription @ 0x14078AFF0 (IoQueryDeviceDescription.c)
- *     pIoQueryBusDescription @ 0x14078B104 (pIoQueryBusDescription.c)
+ *     IoQueryDeviceDescription @ 0x14078B1B0 (IoQueryDeviceDescription.c)
+ *     pIoQueryBusDescription @ 0x14078B2C4 (pIoQueryBusDescription.c)
  * Callees:
- *     RtlAppendUnicodeToString @ 0x140265A40 (RtlAppendUnicodeToString.c)
- *     RtlAppendUnicodeStringToString @ 0x14027F0B0 (RtlAppendUnicodeStringToString.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     wcsncmp @ 0x1403D4040 (wcsncmp.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     ZwEnumerateKey @ 0x1403FA9E0 (ZwEnumerateKey.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     IopOpenRegistryKey @ 0x140769AA4 (IopOpenRegistryKey.c)
- *     IopGetRegistryKeyInformation @ 0x14076A5E4 (IopGetRegistryKeyInformation.c)
- *     pIoQueryDeviceDescription @ 0x14078AB64 (pIoQueryDeviceDescription.c)
- *     pIoQueryBusDescription @ 0x14078B104 (pIoQueryBusDescription.c)
- *     IopGetRegistryValues @ 0x14078B474 (IopGetRegistryValues.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     RtlAppendUnicodeToString @ 0x1402539E0 (RtlAppendUnicodeToString.c)
+ *     RtlAppendUnicodeStringToString @ 0x14026D4E0 (RtlAppendUnicodeStringToString.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     wcsncmp @ 0x1403D41B0 (wcsncmp.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     ZwEnumerateKey @ 0x1403FABC0 (ZwEnumerateKey.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     IopOpenRegistryKey @ 0x140769C64 (IopOpenRegistryKey.c)
+ *     IopGetRegistryKeyInformation @ 0x14076A7A4 (IopGetRegistryKeyInformation.c)
+ *     pIoQueryDeviceDescription @ 0x14078AD24 (pIoQueryDeviceDescription.c)
+ *     pIoQueryBusDescription @ 0x14078B2C4 (pIoQueryBusDescription.c)
+ *     IopGetRegistryValues @ 0x14078B634 (IopGetRegistryValues.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 NTSTATUS __fastcall pIoQueryBusDescription(unsigned int **a1, UNICODE_STRING *a2, void *a3, unsigned int *a4, char a5)

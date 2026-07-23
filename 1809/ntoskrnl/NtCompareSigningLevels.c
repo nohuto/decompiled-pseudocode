@@ -1,17 +1,17 @@
 /*
- * XREFs of NtCompareSigningLevels @ 0x1406CCF50
+ * XREFs of NtCompareSigningLevels @ 0x1406CE1F0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
  */
 
-__int64 NtCompareSigningLevels()
+NTSTATUS __cdecl NtCompareSigningLevels(SE_SIGNING_LEVEL FirstSigningLevel, SE_SIGNING_LEVEL SecondSigningLevel)
 {
-  int v0; // eax
+  int v2; // eax
 
-  v0 = 0;
-  if ( qword_14040DDA0 )
-    v0 = ((__int64 (*)(void))qword_14040DDA0)();
-  return v0 == 0 ? 0xC0000428 : 0;
+  v2 = 0;
+  if ( qword_14040EE00 )
+    v2 = qword_14040EE00(FirstSigningLevel, SecondSigningLevel);
+  return v2 == 0 ? 0xC0000428 : 0;
 }

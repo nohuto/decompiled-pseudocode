@@ -1,10 +1,10 @@
 /*
- * XREFs of KiFreeIdleSearchStructures @ 0x1405B6E18
+ * XREFs of KiFreeIdleSearchStructures @ 0x1405B40D8
  * Callers:
- *     KiStartDynamicProcessor @ 0x14073B478 (KiStartDynamicProcessor.c)
- *     KeStartAllProcessors @ 0x140C26D58 (KeStartAllProcessors.c)
+ *     KiStartDynamicProcessor @ 0x1407393A8 (KiStartDynamicProcessor.c)
+ *     KeStartAllProcessors @ 0x140C28DA8 (KeStartAllProcessors.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall KiFreeIdleSearchStructures(__int64 a1)

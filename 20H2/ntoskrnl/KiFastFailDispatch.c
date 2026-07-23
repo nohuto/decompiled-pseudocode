@@ -47,7 +47,7 @@
  * 000000014041022F: test    byte ptr [rbp+0F0h], 1
  * 0000000140410236: jz      short loc_14041023D
  * 0000000140410238: call    KiUmsExceptionEntry
- * 000000014041023D: lea     rax, [rsp+1D8h+var_A0]
+ * 000000014041023D: lea     rax, [rsp+1D8h+ExceptionRecord]
  * 0000000140410245: mov     [rax], ecx
  * 0000000140410247: xor     ecx, ecx
  * 0000000140410249: mov     dword ptr [rax+4], 1
@@ -67,10 +67,10 @@
  * 0000000140410282: lea     r8, [rbp-80h]
  * 0000000140410286: mov     ecx, 139h
  * 000000014041028B: call    KiBugCheckDispatch
- * 0000000140410290: mov     [rsp+1D8h+var_1B8], 0
+ * 0000000140410290: mov     [rsp+1D8h+var_1B8], 0; char
  * 0000000140410295: lea     r8, [rbp-80h]
  * 0000000140410299: mov     rdx, rsp
- * 000000014041029C: mov     rcx, rax
+ * 000000014041029C: mov     rcx, rax; ExceptionRecord
  * 000000014041029F: call    KiDispatchException
  * 00000001404102A4: lea     rcx, [rsp+1D8h+var_D8]
  * 00000001404102AC: movaps  xmm6, [rsp+1D8h+var_1A8]

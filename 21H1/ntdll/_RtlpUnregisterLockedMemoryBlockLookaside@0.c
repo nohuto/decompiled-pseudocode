@@ -9,7 +9,7 @@
  *     _RtlReleaseSRWLockExclusive@4 @ 0x4B2C2480 (_RtlReleaseSRWLockExclusive@4.c)
  */
 
-signed __int32 __stdcall RtlpUnregisterLockedMemoryBlockLookaside()
+void __stdcall RtlpUnregisterLockedMemoryBlockLookaside()
 {
   unsigned int i; // esi
 
@@ -17,7 +17,7 @@ signed __int32 __stdcall RtlpUnregisterLockedMemoryBlockLookaside()
   if ( !--RtlpLockedMemoryBlockLookasideCount )
   {
     for ( i = 0; i < 0x10; i += 4 )
-      RtlUnlockModuleSection(*(int *)((char *)&RtlpMemoryBlockLookasideCriticalRoutines + i));
+      RtlUnlockModuleSection(*(const PVOID *)((char *)&RtlpMemoryBlockLookasideCriticalRoutines + i));
   }
-  return RtlReleaseSRWLockExclusive(&RtlpMemoryBlockLookasideLock);
+  RtlReleaseSRWLockExclusive(&RtlpMemoryBlockLookasideLock);
 }

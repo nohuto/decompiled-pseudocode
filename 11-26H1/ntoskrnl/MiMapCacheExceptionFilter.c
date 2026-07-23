@@ -1,11 +1,11 @@
 /*
- * XREFs of MiMapCacheExceptionFilter @ 0x14086A9FC
+ * XREFs of MiMapCacheExceptionFilter @ 0x140870DDC
  * Callers:
- *     MiMakePageAvoidRead @ 0x140282DC0 (MiMakePageAvoidRead.c)
- *     MmCopyToCachedPage @ 0x1402D05F0 (MmCopyToCachedPage.c)
+ *     MiMakePageAvoidRead @ 0x140282330 (MiMakePageAvoidRead.c)
+ *     MmCopyToCachedPage @ 0x1402B23B0 (MmCopyToCachedPage.c)
  * Callees:
- *     MmIsKernelAddress @ 0x1404579F0 (MmIsKernelAddress.c)
- *     MiModeCopyExceptionFilterEx @ 0x1404E5578 (MiModeCopyExceptionFilterEx.c)
+ *     MmIsKernelAddress @ 0x14044F260 (MmIsKernelAddress.c)
+ *     MiModeCopyExceptionFilterEx @ 0x1404DEB18 (MiModeCopyExceptionFilterEx.c)
  */
 
 __int64 __fastcall MiMapCacheExceptionFilter(ULONG_PTR *a1, __int64 a2)

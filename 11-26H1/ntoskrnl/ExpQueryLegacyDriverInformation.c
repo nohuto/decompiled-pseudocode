@@ -1,17 +1,17 @@
 /*
- * XREFs of ExpQueryLegacyDriverInformation @ 0x14077038C
+ * XREFs of ExpQueryLegacyDriverInformation @ 0x14077338C
  * Callers:
- *     ExpQuerySystemInformation @ 0x140B145DC (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x140B169CC (ExpQuerySystemInformation.c)
  * Callees:
- *     ExAcquireResourceSharedLite @ 0x1402B3C80 (ExAcquireResourceSharedLite.c)
- *     ExReleaseResourceLite @ 0x1402B4CF0 (ExReleaseResourceLite.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     IopAppendLegacyVeto @ 0x1407B21C4 (IopAppendLegacyVeto.c)
- *     IopGetLegacyVetoListDrivers @ 0x14094522C (IopGetLegacyVetoListDrivers.c)
- *     IopGetLegacyVetoListDeviceNode @ 0x1409454B0 (IopGetLegacyVetoListDeviceNode.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExAcquireResourceSharedLite @ 0x1402FE950 (ExAcquireResourceSharedLite.c)
+ *     ExReleaseResourceLite @ 0x1402FF9C0 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     IopAppendLegacyVeto @ 0x1407B5224 (IopAppendLegacyVeto.c)
+ *     IopGetLegacyVetoListDrivers @ 0x1409C0B9C (IopGetLegacyVetoListDrivers.c)
+ *     IopGetLegacyVetoListDeviceNode @ 0x1409C0E20 (IopGetLegacyVetoListDeviceNode.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall ExpQueryLegacyDriverInformation(__int64 a1, unsigned int *a2)
@@ -66,7 +66,7 @@ __int64 __fastcall ExpQueryLegacyDriverInformation(__int64 a1, unsigned int *a2)
   if ( v19 )
   {
     v10[0] = 0x20000;
-    v11 = &word_140B814F0;
+    v11 = &word_140B8A320;
     IopAppendLegacyVeto(&p_P, v10);
     v4 = v18;
   }

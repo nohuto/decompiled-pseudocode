@@ -1,26 +1,21 @@
 /*
- * XREFs of RtlGetSessionProperties @ 0x140893E30
+ * XREFs of RtlGetSessionProperties @ 0x140895090
  * Callers:
  *     <none>
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x140109D40 (PsGetCurrentServerSiloGlobals.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140109DC0 (PsGetCurrentServerSiloGlobals.c)
  */
 
-__int64 __fastcall RtlGetSessionProperties(int a1, _DWORD *a2)
+NTSTATUS __cdecl RtlGetSessionProperties(ULONG SessionId, PULONG SharedUserSessionId)
 {
-  unsigned int v2; // ebx
+  NTSTATUS v2; // ebx
 
-  if ( a1 == -1 )
-    return (unsigned int)-1073741811;
+  if ( SessionId == -1 )
+    return -1073741811;
   v2 = 0;
-  if ( !a2 )
-  {
-    return (unsigned int)-1073741811;
-  }
-  else
-  {
-    *a2 = 0;
-    *a2 = *(_DWORD *)(*((_QWORD *)PsGetCurrentServerSiloGlobals() + 140) + 24LL) == a1;
-  }
+  if ( !SharedUserSessionId )
+    return -1073741811;
+  *SharedUserSessionId = 0;
+  *SharedUserSessionId = *(_DWORD *)(*((_QWORD *)PsGetCurrentServerSiloGlobals() + 140) + 24LL) == SessionId;
   return v2;
 }

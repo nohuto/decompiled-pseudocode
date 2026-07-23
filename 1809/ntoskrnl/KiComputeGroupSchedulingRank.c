@@ -1,14 +1,14 @@
 /*
- * XREFs of KiComputeGroupSchedulingRank @ 0x1400D36A0
+ * XREFs of KiComputeGroupSchedulingRank @ 0x1400D3720
  * Callers:
  *     KiSwapThread @ 0x140056210 (KiSwapThread.c)
- *     KiGroupSchedulingQuantumEnd @ 0x1400D0F44 (KiGroupSchedulingQuantumEnd.c)
- *     KiQueueReadyThread @ 0x1400D2370 (KiQueueReadyThread.c)
+ *     KiGroupSchedulingQuantumEnd @ 0x1400D0FC4 (KiGroupSchedulingQuantumEnd.c)
+ *     KiQueueReadyThread @ 0x1400D23F0 (KiQueueReadyThread.c)
  * Callees:
- *     KiChargeSchedulingGroupCycleTime @ 0x1400D362C (KiChargeSchedulingGroupCycleTime.c)
- *     KiCheckForEffectivePriorityChange @ 0x140116894 (KiCheckForEffectivePriorityChange.c)
- *     KiRemoveSchedulingGroupQueue @ 0x140116EE8 (KiRemoveSchedulingGroupQueue.c)
- *     KiResortScbQueue @ 0x1401171B0 (KiResortScbQueue.c)
+ *     KiChargeSchedulingGroupCycleTime @ 0x1400D36AC (KiChargeSchedulingGroupCycleTime.c)
+ *     KiCheckForEffectivePriorityChange @ 0x140116904 (KiCheckForEffectivePriorityChange.c)
+ *     KiRemoveSchedulingGroupQueue @ 0x140116F58 (KiRemoveSchedulingGroupQueue.c)
+ *     KiResortScbQueue @ 0x140117220 (KiResortScbQueue.c)
  */
 
 unsigned __int64 __fastcall KiComputeGroupSchedulingRank(__int64 a1, __int64 a2, __int64 *a3)
@@ -76,7 +76,7 @@ LABEL_3:
   {
     result = (unsigned __int64)(unsigned int)KiProcessorIndexToNumberMappingTable[*(unsigned int *)(a2 + 36)] >> 6;
     _InterlockedOr64(
-      &qword_140403D58[result],
+      &qword_140404D58[result],
       1LL << (KiProcessorIndexToNumberMappingTable[*(unsigned int *)(a2 + 36)] & 0x3F));
     *(_BYTE *)(a2 + 23449) = 1;
   }

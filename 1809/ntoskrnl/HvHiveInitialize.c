@@ -1,10 +1,10 @@
 /*
- * XREFs of HvHiveInitialize @ 0x1405A724C
+ * XREFs of HvHiveInitialize @ 0x1405A824C
  * Callers:
- *     CmpHiveInitialize @ 0x1405A717C (CmpHiveInitialize.c)
- *     CmpGetSystemControlValues @ 0x1409CE008 (CmpGetSystemControlValues.c)
+ *     CmpHiveInitialize @ 0x1405A817C (CmpHiveInitialize.c)
+ *     CmpGetSystemControlValues @ 0x1409CF008 (CmpGetSystemControlValues.c)
  * Callees:
- *     memset @ 0x1401D1880 (memset.c)
+ *     memset @ 0x1401D1980 (memset.c)
  */
 
 void *__fastcall HvHiveInitialize(_QWORD *a1)

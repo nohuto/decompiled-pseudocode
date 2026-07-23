@@ -14,33 +14,33 @@
  *     RtlpValidateHeapHeaders @ 0x180105204 (RtlpValidateHeapHeaders.c)
  */
 
-__int64 __fastcall RtlDebugCompactHeap(_DWORD *Src, int a2)
+SIZE_T __fastcall RtlDebugCompactHeap(__int64 a1, int a2)
 {
   char v4; // si
-  __int64 v6; // rbx
-  int v7; // ebx
+  SIZE_T v6; // rbx
+  ULONG v7; // ebx
 
   v4 = 0;
-  if ( (Src[29] & 0x1000000) != 0 )
-    return (unsigned int)((__int64 (__fastcall *)(_DWORD *))qword_180159488)(Src);
-  if ( RtlpCheckHeapSignature(Src, "RtlCompactHeap") )
+  if ( (*(_DWORD *)(a1 + 116) & 0x1000000) != 0 )
+    return (unsigned int)((__int64 (__fastcall *)(__int64))qword_180159488)(a1);
+  if ( RtlpCheckHeapSignature((_DWORD *)a1, "RtlCompactHeap") )
   {
-    v7 = Src[29] | 0x10000000 | a2;
+    v7 = *(_DWORD *)(a1 + 116) | 0x10000000 | a2;
     if ( (v7 & 1) == 0 )
     {
-      RtlEnterCriticalSection(*((_QWORD *)Src + 44));
+      RtlEnterCriticalSection(*(PRTL_CRITICAL_SECTION *)(a1 + 352));
       v4 = 1;
       v7 |= 1u;
     }
-    RtlpValidateHeap(Src, 0LL);
-    v6 = RtlCompactHeap((__int64)Src, v7);
-    RtlpValidateHeapHeaders(Src);
+    RtlpValidateHeap(a1);
+    v6 = RtlCompactHeap((PVOID)a1, v7);
+    RtlpValidateHeapHeaders((void *)a1);
   }
   else
   {
     v6 = 0LL;
   }
   if ( v4 )
-    RtlLeaveCriticalSection(*((_QWORD *)Src + 44));
+    RtlLeaveCriticalSection(*(PRTL_CRITICAL_SECTION *)(a1 + 352));
   return v6;
 }

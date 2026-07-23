@@ -1,9 +1,9 @@
 /*
- * XREFs of ViThunkFindSharedExports @ 0x140ADBAF0
+ * XREFs of ViThunkFindSharedExports @ 0x140ADBAE0
  * Callers:
- *     ViThunkFindAllSharedExports @ 0x140ADB834 (ViThunkFindAllSharedExports.c)
+ *     ViThunkFindAllSharedExports @ 0x140ADB824 (ViThunkFindAllSharedExports.c)
  * Callees:
- *     VfIsVerifierEnabled @ 0x140293980 (VfIsVerifierEnabled.c)
+ *     VfIsVerifierEnabled @ 0x140293C10 (VfIsVerifierEnabled.c)
  */
 
 void __fastcall ViThunkFindSharedExports(__int64 a1, unsigned int a2, __int64 a3, _DWORD *a4)

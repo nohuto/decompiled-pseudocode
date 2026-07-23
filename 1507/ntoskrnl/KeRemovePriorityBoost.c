@@ -54,14 +54,7 @@ void __fastcall KeRemovePriorityBoost(__int64 a1)
           v19 = 0LL;
           v20 = 0LL;
           v6 = KeGetCurrentPrcb();
-          KiAbProcessThreadLocks(
-            CurrentThread,
-            1u,
-            1,
-            1,
-            (__int64)&v19,
-            (__int64)&v20,
-            (__int64)&v6->AbSelfIoBoostsList);
+          KiAbProcessThreadLocks(CurrentThread, 1, 1, 1, (__int64)&v19, (__int64)&v20, (__int64)&v6->AbSelfIoBoostsList);
           KiAbProcessLocksWorker(&v20, (__int64 *)&v6->AbSelfIoBoostsList, (__int64)&v19, 0);
           v7 = v19;
           while ( v7 )

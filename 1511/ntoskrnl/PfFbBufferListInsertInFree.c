@@ -15,7 +15,7 @@
  *     ExFreePoolWithTag @ 0x1402391D0 (ExFreePoolWithTag.c)
  */
 
-void __fastcall PfFbBufferListInsertInFree(_SLIST_ENTRY *RunRef, struct _SLIST_ENTRY *P, int a3, int a4, int a5)
+void __fastcall PfFbBufferListInsertInFree(_SLIST_ENTRY *RunRef, _SLIST_ENTRY *P, int a3, int a4, int a5)
 {
   _SLIST_ENTRY *v7; // r8
   __int64 v8; // rax
@@ -29,7 +29,7 @@ void __fastcall PfFbBufferListInsertInFree(_SLIST_ENTRY *RunRef, struct _SLIST_E
   else
   {
     P[1].Next = RunRef;
-    v7 = (struct _SLIST_ENTRY *)((char *)P + a3);
+    v7 = (_SLIST_ENTRY *)((char *)P + a3);
     P[2].Next = v7;
     v8 = *((unsigned int *)&RunRef[4].Next + 3);
     *((_DWORD *)&P[2].Next + 2) = 0;

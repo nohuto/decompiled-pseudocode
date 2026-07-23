@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwpEnableDisableSpecialGuids @ 0x140490EE8
+ * XREFs of EtwpEnableDisableSpecialGuids @ 0x140491978
  * Callers:
- *     EtwpEnableGuid @ 0x14048E3D4 (EtwpEnableGuid.c)
+ *     EtwpEnableGuid @ 0x14048EE64 (EtwpEnableGuid.c)
  * Callees:
- *     EtwpCheckGuidAccess @ 0x140491288 (EtwpCheckGuidAccess.c)
- *     WmiTraceRundownNotify @ 0x1404C0B3C (WmiTraceRundownNotify.c)
- *     EtwpEnableDisableUMGL @ 0x14069FD28 (EtwpEnableDisableUMGL.c)
- *     EtwpCheckGuidAccessAndDoRundown @ 0x1406A6B9C (EtwpCheckGuidAccessAndDoRundown.c)
- *     EtwpCheckLoggerAccessAndDoRundown @ 0x1406A6C80 (EtwpCheckLoggerAccessAndDoRundown.c)
+ *     EtwpCheckGuidAccess @ 0x140491D18 (EtwpCheckGuidAccess.c)
+ *     WmiTraceRundownNotify @ 0x1404AC86C (WmiTraceRundownNotify.c)
+ *     EtwpEnableDisableUMGL @ 0x14069FE60 (EtwpEnableDisableUMGL.c)
+ *     EtwpCheckGuidAccessAndDoRundown @ 0x1406A6CD4 (EtwpCheckGuidAccessAndDoRundown.c)
+ *     EtwpCheckLoggerAccessAndDoRundown @ 0x1406A6DB8 (EtwpCheckLoggerAccessAndDoRundown.c)
  */
 
 __int64 __fastcall EtwpEnableDisableSpecialGuids(
@@ -26,10 +26,10 @@ __int64 __fastcall EtwpEnableDisableSpecialGuids(
   char v14; // bl
   char v15; // bp
   __int64 v16; // rcx
-  _UNKNOWN **v17; // r9
+  GUID **v17; // r9
   __int64 v18; // rax
   __int64 v19; // r8
-  unsigned __int64 v20; // rcx
+  __int64 v20; // rcx
   __int64 result; // rax
   __int64 v22; // rcx
   unsigned int v23; // ebx
@@ -47,9 +47,9 @@ __int64 __fastcall EtwpEnableDisableSpecialGuids(
   v13 = 2LL;
   if ( a4 == 2 )
   {
-    v22 = SystemTraceControlGuid - *a2;
-    if ( SystemTraceControlGuid == *a2 )
-      v22 = 0x3969A8086000829ALL - a2[1];
+    v22 = *(_QWORD *)&SystemTraceControlGuid.Data1 - *a2;
+    if ( *(_QWORD *)&SystemTraceControlGuid.Data1 == *a2 )
+      v22 = *(_QWORD *)SystemTraceControlGuid.Data4 - a2[1];
     v23 = 0;
     if ( v22 )
     {
@@ -84,18 +84,18 @@ LABEL_6:
   while ( 1 )
   {
     v18 = *a2;
-    v19 = *(_QWORD *)*v17 - *a2;
+    v19 = *(_QWORD *)&(*v17)->Data1 - *a2;
     if ( !v19 )
-      v19 = *((_QWORD *)*v17 + 1) - a2[1];
+      v19 = *(_QWORD *)(*v17)->Data4 - a2[1];
     if ( !v19 )
       break;
     v16 = (unsigned int)(v16 + 1);
     v17 += 2;
     if ( (unsigned int)v16 >= 0xA )
     {
-      v20 = KernelRundownGuid - v18;
-      if ( KernelRundownGuid == v18 )
-        v20 = 0xCDF584518E9C7793uLL - a2[1];
+      v20 = *(_QWORD *)&KernelRundownGuid.Data1 - v18;
+      if ( *(_QWORD *)&KernelRundownGuid.Data1 == v18 )
+        v20 = *(_QWORD *)KernelRundownGuid.Data4 - a2[1];
       if ( v20 )
       {
         *a7 = 0;
@@ -135,5 +135,5 @@ LABEL_39:
   }
   v24 = (unsigned int)v16;
   LOBYTE(v16) = v15;
-  return EtwpEnableDisableUMGL(v16, a3, (unsigned __int8)a5, *((unsigned __int8 *)&EtwpUmglProviders + 16 * v24 + 8));
+  return EtwpEnableDisableUMGL(v16, a3, (unsigned __int8)a5, *((unsigned __int8 *)&(&EtwpUmglProviders)[2 * v24] + 8));
 }

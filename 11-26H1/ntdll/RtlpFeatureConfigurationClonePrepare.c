@@ -1,19 +1,16 @@
 /*
- * XREFs of RtlpFeatureConfigurationClonePrepare @ 0x180148E9C
+ * XREFs of RtlpFeatureConfigurationClonePrepare @ 0x180148D4C
  * Callers:
- *     RtlCloneUserProcess @ 0x18015C640 (RtlCloneUserProcess.c)
- *     RtlPrepareForProcessCloning @ 0x18015CB00 (RtlPrepareForProcessCloning.c)
+ *     RtlCloneUserProcess @ 0x18015C500 (RtlCloneUserProcess.c)
+ *     RtlPrepareForProcessCloning @ 0x18015C9C0 (RtlPrepareForProcessCloning.c)
  * Callees:
- *     RtlRunOnceBeginInitialize @ 0x18000EC60 (RtlRunOnceBeginInitialize.c)
- *     RtlAcquireSRWLockExclusive @ 0x18003F4D0 (RtlAcquireSRWLockExclusive.c)
+ *     RtlAcquireSRWLockExclusive @ 0x180029A40 (RtlAcquireSRWLockExclusive.c)
+ *     RtlRunOnceBeginInitialize @ 0x18005A390 (RtlRunOnceBeginInitialize.c)
  */
 
-signed __int64 RtlpFeatureConfigurationClonePrepare()
+void RtlpFeatureConfigurationClonePrepare()
 {
-  __int64 v0; // rdx
-  __int64 v1; // rdx
-
-  RtlRunOnceBeginInitialize(&qword_1801CCD30, 0, 0LL);
-  RtlAcquireSRWLockExclusive(RtlpFcProcessManager, v0);
-  return RtlAcquireSRWLockExclusive(&qword_1801CCD40, v1);
+  RtlRunOnceBeginInitialize(&stru_1801CBD70, 0, 0LL);
+  RtlAcquireSRWLockExclusive(&RtlpFcProcessManager);
+  RtlAcquireSRWLockExclusive(&stru_1801CBD80);
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlpSetSegmentInfo @ 0x18007D60C
+ * XREFs of RtlpSetSegmentInfo @ 0x18007D61C
  * Callers:
  *     RtlpLowFragHeapAllocFromContext @ 0x18000FEB0 (RtlpLowFragHeapAllocFromContext.c)
  *     RtlpLocalInfoAllocFromCache @ 0x18006915C (RtlpLocalInfoAllocFromCache.c)
@@ -71,7 +71,7 @@ __int64 __fastcall RtlpSetSegmentInfo(__int64 a1, volatile signed __int64 *a2)
       }
       while ( v13 != _InterlockedCompareExchange64(a2 + 20, v17, v13) );
       *(_QWORD *)a1 = a2;
-      if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+      if ( RtlGetCurrentServiceSessionId() )
         v15 = (__int64)NtCurrentPeb()->SharedData + 550;
       else
         v15 = 2147353472LL;

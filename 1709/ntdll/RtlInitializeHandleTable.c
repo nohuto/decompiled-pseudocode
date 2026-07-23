@@ -6,23 +6,23 @@
  *     memset @ 0x1800A6C80 (memset.c)
  */
 
-__int64 __fastcall RtlInitializeHandleTable(int a1, int a2, _DWORD *a3)
+void __cdecl RtlInitializeHandleTable(
+        ULONG MaximumNumberOfHandles,
+        ULONG SizeOfHandleTableEntry,
+        PRTL_HANDLE_TABLE HandleTable)
 {
   unsigned __int8 v3; // di
-  int v5; // ebx
-  __int64 result; // rax
+  ULONG v5; // ebx
 
   v3 = 0;
-  v5 = a2;
-  if ( a2 < 0 )
+  v5 = SizeOfHandleTableEntry;
+  if ( (SizeOfHandleTableEntry & 0x80000000) != 0 )
   {
-    v5 = a2 & 0x7FFFFFFF;
+    v5 = SizeOfHandleTableEntry & 0x7FFFFFFF;
     v3 = 1;
   }
-  memset(a3, 0, 0x30uLL);
-  *a3 = a1;
-  a3[1] = v5;
-  result = v3;
-  a3[2] = v3;
-  return result;
+  memset(HandleTable, 0, sizeof(_RTL_HANDLE_TABLE));
+  HandleTable->MaximumNumberOfHandles = MaximumNumberOfHandles;
+  HandleTable->SizeOfHandleTableEntry = v5;
+  HandleTable->Reserved[0] = v3;
 }

@@ -1,15 +1,15 @@
 /*
- * XREFs of KsepDbQueryRegistryDeviceData @ 0x14095C824
+ * XREFs of KsepDbQueryRegistryDeviceData @ 0x1409442E4
  * Callers:
- *     KseQueryDeviceData @ 0x14095C660 (KseQueryDeviceData.c)
+ *     KseQueryDeviceData @ 0x140944120 (KseQueryDeviceData.c)
  * Callees:
- *     KsepPoolFreePaged @ 0x1404A6F94 (KsepPoolFreePaged.c)
- *     ZwOpenKey @ 0x1406A6650 (ZwOpenKey.c)
- *     KsepRegistryQueryValue @ 0x140740F18 (KsepRegistryQueryValue.c)
- *     KsepRegistryCloseKey @ 0x14095AB50 (KsepRegistryCloseKey.c)
- *     KsepStringConcatenate @ 0x14095BF50 (KsepStringConcatenate.c)
- *     KsepStringTransform @ 0x14095C9C8 (KsepStringTransform.c)
- *     KsepStringDuplicate @ 0x14095CB04 (KsepStringDuplicate.c)
+ *     KsepPoolFreePaged @ 0x1404A18F4 (KsepPoolFreePaged.c)
+ *     ZwOpenKey @ 0x1406A75F0 (ZwOpenKey.c)
+ *     KsepRegistryQueryValue @ 0x14073EE48 (KsepRegistryQueryValue.c)
+ *     KsepRegistryCloseKey @ 0x140942610 (KsepRegistryCloseKey.c)
+ *     KsepStringConcatenate @ 0x140943A10 (KsepStringConcatenate.c)
+ *     KsepStringTransform @ 0x140944488 (KsepStringTransform.c)
+ *     KsepStringDuplicate @ 0x1409445C4 (KsepStringDuplicate.c)
  */
 
 __int64 __fastcall KsepDbQueryRegistryDeviceData(__int64 a1, const WCHAR *a2, _DWORD *a3, _DWORD *a4, void *a5)
@@ -61,7 +61,7 @@ __int64 __fastcall KsepDbQueryRegistryDeviceData(__int64 a1, const WCHAR *a2, _D
       if ( v14 >= 0 )
       {
         v8 = KeyHandle;
-        _InterlockedIncrement(&dword_140F0F318);
+        _InterlockedIncrement(&dword_140F0F618);
         v10 = v21;
       }
     }

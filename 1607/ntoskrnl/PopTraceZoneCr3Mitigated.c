@@ -1,15 +1,15 @@
 /*
- * XREFs of PopTraceZoneCr3Mitigated @ 0x140209F78
+ * XREFs of PopTraceZoneCr3Mitigated @ 0x140209DA4
  * Callers:
- *     PopCheckAndHandleThermalConditions @ 0x140146EF4 (PopCheckAndHandleThermalConditions.c)
- *     PopThermalZoneRemove @ 0x140670550 (PopThermalZoneRemove.c)
+ *     PopCheckAndHandleThermalConditions @ 0x140147464 (PopCheckAndHandleThermalConditions.c)
+ *     PopThermalZoneRemove @ 0x140670634 (PopThermalZoneRemove.c)
  * Callees:
- *     _TlgWrite @ 0x14000A598 (_TlgWrite.c)
- *     ObfDereferenceObjectWithTag @ 0x14006ACD0 (ObfDereferenceObjectWithTag.c)
- *     _TlgKeywordOn @ 0x140088D98 (_TlgKeywordOn.c)
- *     IoGetDeviceAttachmentBaseRef @ 0x1400FB62C (IoGetDeviceAttachmentBaseRef.c)
- *     _TlgCreateWsz @ 0x140133CE4 (_TlgCreateWsz.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     _TlgWrite @ 0x14000A118 (_TlgWrite.c)
+ *     ObfDereferenceObjectWithTag @ 0x14006A850 (ObfDereferenceObjectWithTag.c)
+ *     IoGetDeviceAttachmentBaseRef @ 0x1400F93B8 (IoGetDeviceAttachmentBaseRef.c)
+ *     _TlgKeywordOn @ 0x14010CF88 (_TlgKeywordOn.c)
+ *     _TlgCreateWsz @ 0x140134254 (_TlgCreateWsz.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 char __fastcall PopTraceZoneCr3Mitigated(int a1, __int64 a2)
@@ -39,9 +39,9 @@ char __fastcall PopTraceZoneCr3Mitigated(int a1, __int64 a2)
     DeviceNode = 0LL;
   if ( DeviceNode )
   {
-    if ( pCallbackContext.LevelPlus1 > 5 )
+    if ( hProvider.LevelPlus1 > 5 )
     {
-      LOBYTE(DeviceAttachmentBaseRef) = TlgKeywordOn(&pCallbackContext, 0x400000000000uLL);
+      LOBYTE(DeviceAttachmentBaseRef) = TlgKeywordOn(&hProvider, 0x400000000000uLL);
       if ( (_BYTE)DeviceAttachmentBaseRef )
       {
         v8 = *(_DWORD *)(a2 + 256);
@@ -55,7 +55,7 @@ char __fastcall PopTraceZoneCr3Mitigated(int a1, __int64 a2)
         v17 = &v12;
         v11 = a1;
         TlgCreateWsz(&pDesc, v9);
-        LOBYTE(DeviceAttachmentBaseRef) = TlgWrite(&pCallbackContext, &unk_14027D014, 0LL, 0LL, 5u, &pData);
+        LOBYTE(DeviceAttachmentBaseRef) = TlgWrite(&hProvider, &unk_14027D114, 0LL, 0LL, 5u, &pData);
       }
     }
   }

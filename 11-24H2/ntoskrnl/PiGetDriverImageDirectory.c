@@ -1,13 +1,13 @@
 /*
- * XREFs of PiGetDriverImageDirectory @ 0x140A58824
+ * XREFs of PiGetDriverImageDirectory @ 0x140A4FFD4
  * Callers:
- *     IoGetDriverDirectory @ 0x140A586E0 (IoGetDriverDirectory.c)
+ *     IoGetDriverDirectory @ 0x140A4FE90 (IoGetDriverDirectory.c)
  * Callees:
- *     IoQueryFullDriverPath @ 0x1403FFD40 (IoQueryFullDriverPath.c)
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwOpenFile @ 0x1406A6A70 (ZwOpenFile.c)
- *     ExFreePool @ 0x140B72CB0 (ExFreePool.c)
+ *     IoQueryFullDriverPath @ 0x1403FA230 (IoQueryFullDriverPath.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwOpenFile @ 0x1406A7A10 (ZwOpenFile.c)
+ *     ExFreePool @ 0x140B74850 (ExFreePool.c)
  */
 
 __int64 __fastcall PiGetDriverImageDirectory(__int64 a1, HANDLE *a2)

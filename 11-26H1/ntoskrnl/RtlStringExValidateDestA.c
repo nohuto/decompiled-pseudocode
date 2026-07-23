@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlStringExValidateDestA @ 0x140576920
+ * XREFs of RtlStringExValidateDestA @ 0x140578DD0
  * Callers:
- *     RtlStringCbPrintfExA @ 0x14057669C (RtlStringCbPrintfExA.c)
- *     InitBootProcessor @ 0x140CAA7CC (InitBootProcessor.c)
+ *     RtlStringCbPrintfExA @ 0x140578B4C (RtlStringCbPrintfExA.c)
+ *     InitBootProcessor @ 0x140CB07CC (InitBootProcessor.c)
  * Callees:
  *     <none>
  */

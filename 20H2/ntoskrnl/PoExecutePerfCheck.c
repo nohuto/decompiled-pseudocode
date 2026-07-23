@@ -23,7 +23,7 @@ __int64 PoExecutePerfCheck()
     if ( (unsigned __int64)(v1 + PpmCheckLastExecutionTime) <= MEMORY[0xFFFFF78000000008] )
     {
       if ( PpmCheckLastExecutionTime != 1
-        && PpmCheckLastExecutionTime + v1 + (unsigned __int64)(unsigned int)KeMaximumIncrement > MEMORY[0xFFFFF78000000008] )
+        && PpmCheckLastExecutionTime + v1 + (unsigned __int64)KeMaximumIncrement > MEMORY[0xFFFFF78000000008] )
       {
         v2 = v1 + PpmCheckLastExecutionTime;
       }

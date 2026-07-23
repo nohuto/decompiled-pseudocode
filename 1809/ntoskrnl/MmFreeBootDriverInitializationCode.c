@@ -1,14 +1,14 @@
 /*
- * XREFs of MmFreeBootDriverInitializationCode @ 0x14074B61C
+ * XREFs of MmFreeBootDriverInitializationCode @ 0x14074C80C
  * Callers:
- *     Phase1Initialization @ 0x14074B5B0 (Phase1Initialization.c)
+ *     Phase1Initialization @ 0x14074C7A0 (Phase1Initialization.c)
  * Callees:
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceExclusiveLite @ 0x1400505F0 (ExAcquireResourceExclusiveLite.c)
  *     KeLeaveCriticalRegionThread @ 0x140051600 (KeLeaveCriticalRegionThread.c)
- *     MmReleaseLoadLock @ 0x140651A20 (MmReleaseLoadLock.c)
- *     MmAcquireLoadLock @ 0x140651A60 (MmAcquireLoadLock.c)
- *     MiFreeDriverInitialization @ 0x1406C778C (MiFreeDriverInitialization.c)
+ *     MmReleaseLoadLock @ 0x140652BE0 (MmReleaseLoadLock.c)
+ *     MmAcquireLoadLock @ 0x140652C20 (MmAcquireLoadLock.c)
+ *     MiFreeDriverInitialization @ 0x1406C8A2C (MiFreeDriverInitialization.c)
  */
 
 _QWORD *MmFreeBootDriverInitializationCode()

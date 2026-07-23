@@ -1,9 +1,9 @@
 /*
- * XREFs of MxCreatePfn @ 0x140CF5E34
+ * XREFs of MxCreatePfn @ 0x140CFC1B4
  * Callers:
- *     MxCreatePfnsForPtes @ 0x140CF6200 (MxCreatePfnsForPtes.c)
+ *     MxCreatePfnsForPtes @ 0x140CFC580 (MxCreatePfnsForPtes.c)
  * Callees:
- *     MiMakeDemandZeroPte @ 0x14028B2D0 (MiMakeDemandZeroPte.c)
+ *     MiMakeDemandZeroPte @ 0x14028A830 (MiMakeDemandZeroPte.c)
  */
 
 __int64 __fastcall MxCreatePfn(__int64 a1)

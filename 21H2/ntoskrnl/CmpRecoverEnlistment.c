@@ -1,22 +1,22 @@
 /*
- * XREFs of CmpRecoverEnlistment @ 0x140874E8C
+ * XREFs of CmpRecoverEnlistment @ 0x140874FEC
  * Callers:
- *     CmKtmNotification @ 0x1406A36F0 (CmKtmNotification.c)
+ *     CmKtmNotification @ 0x1405E11C0 (CmKtmNotification.c)
  * Callees:
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     ZwOpenEnlistment @ 0x1403FC740 (ZwOpenEnlistment.c)
- *     ZwRecoverEnlistment @ 0x1403FD100 (ZwRecoverEnlistment.c)
- *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
- *     RtlStringFromGUIDEx @ 0x14067A7D8 (RtlStringFromGUIDEx.c)
- *     CmpTransSearchAddTransFromRm @ 0x140766DB4 (CmpTransSearchAddTransFromRm.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     ZwOpenEnlistment @ 0x1403FC920 (ZwOpenEnlistment.c)
+ *     ZwRecoverEnlistment @ 0x1403FD2E0 (ZwRecoverEnlistment.c)
+ *     RtlFreeAnsiString @ 0x14063DA40 (RtlFreeAnsiString.c)
+ *     RtlStringFromGUIDEx @ 0x14066DF18 (RtlStringFromGUIDEx.c)
+ *     CmpTransSearchAddTransFromRm @ 0x140766F74 (CmpTransSearchAddTransFromRm.c)
  */
 
-__int64 __fastcall CmpRecoverEnlistment(_QWORD *a1, __int64 a2, GUID *a3)
+NTSTATUS __fastcall CmpRecoverEnlistment(_QWORD *a1, __int64 a2, GUID *a3)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
   int v6; // edi
   void *v7; // r8
-  UNICODE_STRING v8; // [rsp+30h] [rbp-50h] BYREF
+  UNICODE_STRING GuidString; // [rsp+30h] [rbp-50h] BYREF
   UNICODE_STRING UnicodeString; // [rsp+40h] [rbp-40h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+50h] [rbp-30h] BYREF
   HANDLE EnlistmentHandle; // [rsp+B0h] [rbp+30h] BYREF
@@ -24,11 +24,11 @@ __int64 __fastcall CmpRecoverEnlistment(_QWORD *a1, __int64 a2, GUID *a3)
 
   EnlistmentKey = 0LL;
   EnlistmentHandle = 0LL;
-  v8 = 0LL;
+  GuidString = 0LL;
   UnicodeString = 0LL;
   memset(&ObjectAttributes, 0, sizeof(ObjectAttributes));
-  result = RtlStringFromGUIDEx(&a3->Data1, (__int64)&v8, 1);
-  if ( (int)result >= 0 )
+  result = RtlStringFromGUIDEx(a3, &GuidString, 1u);
+  if ( result >= 0 )
   {
     v6 = CmpTransSearchAddTransFromRm(a1, 0LL, (__int64)&a3[1], 1, (__int64)&EnlistmentKey);
     if ( v6 >= 0 )
@@ -47,8 +47,8 @@ __int64 __fastcall CmpRecoverEnlistment(_QWORD *a1, __int64 a2, GUID *a3)
       }
     }
     RtlFreeAnsiString(&UnicodeString);
-    RtlFreeAnsiString(&v8);
-    return (unsigned int)v6;
+    RtlFreeAnsiString(&GuidString);
+    return v6;
   }
   return result;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of HvlpPowerPolicySettingCallback @ 0x140547190
+ * XREFs of HvlpPowerPolicySettingCallback @ 0x140547850
  * Callers:
  *     <none>
  * Callees:
- *     memset @ 0x140435A00 (memset.c)
- *     HvlpSetPowerProperty @ 0x140547250 (HvlpSetPowerProperty.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     HvlpSetPowerProperty @ 0x140547910 (HvlpSetPowerProperty.c)
  */
 
 __int64 __fastcall HvlpPowerPolicySettingCallback(LPCGUID SettingGuid, _DWORD *Value, ULONG ValueLength, PVOID Context)

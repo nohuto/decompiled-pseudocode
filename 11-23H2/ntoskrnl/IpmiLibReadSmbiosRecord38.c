@@ -1,9 +1,9 @@
 /*
- * XREFs of IpmiLibReadSmbiosRecord38 @ 0x140677A94
+ * XREFs of IpmiLibReadSmbiosRecord38 @ 0x140677FE4
  * Callers:
- *     IpmiHwInitializeContext @ 0x1406777A8 (IpmiHwInitializeContext.c)
+ *     IpmiHwInitializeContext @ 0x140677CF8 (IpmiHwInitializeContext.c)
  * Callees:
- *     ExGetSystemFirmwareTable @ 0x140860C70 (ExGetSystemFirmwareTable.c)
+ *     ExGetSystemFirmwareTable @ 0x140860EB0 (ExGetSystemFirmwareTable.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

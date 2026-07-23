@@ -1,9 +1,9 @@
 /*
- * XREFs of WheapAddSectionFromGenericErrorData @ 0x14061267C
+ * XREFs of WheapAddSectionFromGenericErrorData @ 0x140612BCC
  * Callers:
- *     WheapCreateRecordFromGenericErrorData @ 0x140612858 (WheapCreateRecordFromGenericErrorData.c)
+ *     WheapCreateRecordFromGenericErrorData @ 0x140612DA8 (WheapCreateRecordFromGenericErrorData.c)
  * Callees:
- *     memmove @ 0x140435700 (memmove.c)
+ *     memmove @ 0x140435B00 (memmove.c)
  */
 
 __int64 __fastcall WheapAddSectionFromGenericErrorData(

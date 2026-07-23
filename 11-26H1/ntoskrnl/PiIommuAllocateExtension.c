@@ -1,13 +1,13 @@
 /*
- * XREFs of PiIommuAllocateExtension @ 0x140AA4BCC
+ * XREFs of PiIommuAllocateExtension @ 0x140B21D08
  * Callers:
- *     PipDmgInitializeIommuExtension @ 0x140AA4E2C (PipDmgInitializeIommuExtension.c)
+ *     PipDmgInitializeIommuExtension @ 0x140B21C1C (PipDmgInitializeIommuExtension.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     PnpTraceIommuDeviceProperties @ 0x1407B1BC8 (PnpTraceIommuDeviceProperties.c)
- *     PiIommuFreeExtension @ 0x1407B49C8 (PiIommuFreeExtension.c)
- *     PipIommuRetrieveDeviceId @ 0x140AA4D44 (PipIommuRetrieveDeviceId.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     PnpTraceIommuDeviceProperties @ 0x1407B4C28 (PnpTraceIommuDeviceProperties.c)
+ *     PiIommuFreeExtension @ 0x1407B7A28 (PiIommuFreeExtension.c)
+ *     PipIommuRetrieveDeviceId @ 0x140B21E80 (PipIommuRetrieveDeviceId.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall PiIommuAllocateExtension(__int64 a1, ULONG_PTR a2, __int64 *a3)

@@ -30,7 +30,7 @@ __int64 __fastcall PC_RAW::ReadPartitionTable(PC_RAW *this, struct _DRIVE_LAYOUT
       v7->PartitionStyle = 0;
       v7->PartitionCount = 1;
       v7->Mbr.Signature = 1;
-      *(_DWORD *)&v7->Gpt.DiskId.Data2 = MBR::CheckSum(v5);
+      v7->Mbr.CheckSum = MBR::CheckSum(v5);
       v7->PartitionEntry[0].PartitionStyle = PARTITION_STYLE_MBR;
       v7->PartitionEntry[0].StartingOffset.QuadPart = 0LL;
       v9.QuadPart = *(_QWORD *)(*(_QWORD *)this + 32LL) << *(_DWORD *)(*(_QWORD *)this + 40LL);
@@ -46,7 +46,7 @@ __int64 __fastcall PC_RAW::ReadPartitionTable(PC_RAW *this, struct _DRIVE_LAYOUT
     {
       *(_QWORD *)&v7->PartitionStyle = 0LL;
       v7->Mbr.Signature = 0;
-      *(_DWORD *)&v7->Gpt.DiskId.Data2 = MBR::CheckSum(v5);
+      v7->Mbr.CheckSum = MBR::CheckSum(v5);
     }
     *a2 = v7;
   }

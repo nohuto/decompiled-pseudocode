@@ -1,231 +1,225 @@
 /*
- * XREFs of PpmHeteroHgsCalculateContainmentCount @ 0x1404EBB30
+ * XREFs of PpmHeteroHgsCalculateContainmentCount @ 0x1404E2A70
  * Callers:
- *     PpmParkCalculateUnparkCount @ 0x140423BD0 (PpmParkCalculateUnparkCount.c)
+ *     PpmParkCalculateUnparkCount @ 0x140417A80 (PpmParkCalculateUnparkCount.c)
  * Callees:
- *     Feature_Servicing_WpsContainmentFixNoneZone__private_IsEnabledDeviceUsageNoInline @ 0x140457B34 (Feature_Servicing_WpsContainmentFixNoneZone__private_IsEnabledDeviceUsageNoInline.c)
- *     PpmEventHgsContainmentUnparkedCount @ 0x1404B0DD0 (PpmEventHgsContainmentUnparkedCount.c)
- *     Feature_PpmParkEx__private_IsEnabledDeviceUsageNoInline @ 0x1405B4FB0 (Feature_PpmParkEx__private_IsEnabledDeviceUsageNoInline.c)
- *     Feature_WpsHybridToNoneZoneFix__private_IsEnabledDeviceUsageNoInline @ 0x1405D6D5C (Feature_WpsHybridToNoneZoneFix__private_IsEnabledDeviceUsageNoInline.c)
- *     PpmEventHgsContainmentUnparkedCountEx @ 0x1405DD848 (PpmEventHgsContainmentUnparkedCountEx.c)
+ *     PpmEventHgsContainmentUnparkedCount @ 0x1404AB660 (PpmEventHgsContainmentUnparkedCount.c)
+ *     Feature_PpmParkEx__private_IsEnabledDeviceUsageNoInline @ 0x1405B2224 (Feature_PpmParkEx__private_IsEnabledDeviceUsageNoInline.c)
+ *     Feature_WpsHybridToNoneZoneFix__private_IsEnabledDeviceUsageNoInline @ 0x1405D4328 (Feature_WpsHybridToNoneZoneFix__private_IsEnabledDeviceUsageNoInline.c)
+ *     PpmEventHgsContainmentUnparkedCountEx @ 0x1405DA6C8 (PpmEventHgsContainmentUnparkedCountEx.c)
  */
 
 BOOLEAN __fastcall PpmHeteroHgsCalculateContainmentCount(__int64 a1, int *a2, unsigned __int16 a3)
 {
   BOOLEAN result; // al
-  char v6; // r12
-  __int64 v7; // rbx
-  __int64 v8; // rdx
-  unsigned int v9; // eax
-  unsigned int v10; // r14d
-  unsigned int v11; // r13d
-  int v12; // ecx
-  unsigned int v13; // r15d
-  int v14; // ebp
-  int v15; // eax
+  unsigned int v4; // r9d
+  char v7; // r12
+  __int64 v8; // rbx
+  __int64 v9; // rdx
+  unsigned int v10; // eax
+  unsigned int v11; // ebp
+  __int64 v12; // r8
+  unsigned int v13; // r13d
+  int v14; // ecx
+  unsigned int v15; // r15d
+  int v16; // esi
   int IsEnabledDeviceUsageNoInline; // eax
-  __int64 v17; // r9
-  char v18; // r15
-  int v19; // eax
-  int v20; // eax
-  _BYTE *v21; // rcx
-  char v22; // r14
-  int v23; // eax
-  __int64 v24; // rdx
-  __int64 v25; // r8
-  unsigned __int16 v26; // ax
-  unsigned __int16 v27; // [rsp+40h] [rbp-48h]
-  int v28; // [rsp+44h] [rbp-44h]
-  unsigned int v29; // [rsp+48h] [rbp-40h]
-  unsigned __int16 v31; // [rsp+A8h] [rbp+20h]
+  int v18; // eax
+  __int64 v19; // r9
+  char v20; // r15
+  int v21; // eax
+  _BYTE *v22; // rcx
+  char v23; // bp
+  int v24; // eax
+  __int64 v25; // rdx
+  __int64 v26; // rcx
+  unsigned __int16 v27; // ax
+  unsigned __int16 v28; // [rsp+40h] [rbp-48h]
+  unsigned int v29; // [rsp+44h] [rbp-44h]
+  int v30; // [rsp+48h] [rbp-40h]
+  unsigned __int16 v32; // [rsp+A8h] [rbp+20h]
 
   result = PpmHeteroHgsContainmentState;
-  v6 = 0;
-  if ( (PpmHeteroHgsContainmentState & 8) != 0 )
+  v4 = a3;
+  v7 = 0;
+  if ( (PpmHeteroHgsContainmentState & 8) == 0 )
+    return result;
+  v8 = *(_QWORD *)(a1 + 1280);
+  v32 = *(_WORD *)(a1 + 1266);
+  v28 = *(_WORD *)(a1 + 1264);
+  v9 = 61LL * dword_140F0B38C;
+  v10 = PpmCurrentProfile[0][v9 + 64];
+  if ( !v10 )
+    v10 = *(unsigned __int16 *)(v8 + 8);
+  v11 = HIDWORD(PpmCurrentProfile[0][v9 + 64]);
+  if ( !v11 )
+    v11 = *(unsigned __int16 *)(v8 + 10);
+  v12 = LODWORD(PpmCurrentProfile[0][v9 + 63]);
+  v13 = HIDWORD(PpmCurrentProfile[0][v9 + 63]);
+  v30 = *(_DWORD *)(v8 + 4);
+  v14 = *(unsigned __int16 *)(a1 + 1264);
+  v29 = PpmCurrentProfile[0][v9 + 63];
+  if ( (_WORD)v14 )
   {
-    v7 = *(_QWORD *)(a1 + 1272);
-    v31 = *(_WORD *)(a1 + 1258);
-    v27 = *(_WORD *)(a1 + 1256);
-    v8 = 61LL * dword_140F0BA4C;
-    v9 = PpmCurrentProfile[0][v8 + 64];
-    if ( !v9 )
-      v9 = *(unsigned __int16 *)(v7 + 8);
-    v10 = HIDWORD(PpmCurrentProfile[0][v8 + 64]);
-    if ( !v10 )
-      v10 = *(unsigned __int16 *)(v7 + 10);
-    v11 = HIDWORD(PpmCurrentProfile[0][v8 + 63]);
-    v29 = PpmCurrentProfile[0][v8 + 63];
-    v28 = *(_DWORD *)(v7 + 4);
-    v12 = *(unsigned __int16 *)(a1 + 1256);
-    if ( (_WORD)v12 )
+    v16 = ((unsigned __int16)v11 < (unsigned int)*(unsigned __int16 *)(a1 + 1266) + v14) + 1;
+  }
+  else
+  {
+    v15 = v4;
+    if ( v4 > v10 )
     {
-      v14 = ((unsigned __int16)v10 < (unsigned int)*(unsigned __int16 *)(a1 + 1258) + v12) + 1;
+      v16 = 1;
+      IsEnabledDeviceUsageNoInline = Feature_WpsHybridToNoneZoneFix__private_IsEnabledDeviceUsageNoInline();
+      v12 = v29;
+      if ( IsEnabledDeviceUsageNoInline )
+      {
+        v18 = *a2 | 0x2000;
+        *a2 = v18;
+        if ( v15 > v11 )
+        {
+          v16 = 2;
+          *a2 = v18 | 0x4000;
+        }
+      }
     }
     else
     {
-      v13 = a3;
-      if ( a3 > v9 )
+      v16 = 0;
+    }
+  }
+  v19 = 256LL;
+  if ( *(_BYTE *)(v8 + 808) && !v16 && *(_DWORD *)(v8 + 812) == 1 )
+  {
+    *a2 |= 0x100u;
+    v16 = 1;
+  }
+  v20 = v16;
+  if ( !*(_BYTE *)(v8 + 824) )
+  {
+    v21 = *(_DWORD *)(v8 + 4);
+    if ( v21 != v16 )
+    {
+      if ( v21 == 2 || v16 == 2 )
       {
-        v14 = 1;
-        if ( (unsigned int)Feature_WpsHybridToNoneZoneFix__private_IsEnabledDeviceUsageNoInline() )
-        {
-          v15 = *a2 | 0x2000;
-          *a2 = v15;
-          if ( v13 > v10 )
-          {
-            v14 = 2;
-            *a2 = v15 | 0x4000;
-          }
-        }
+        *(_BYTE *)(v8 + 816) = 1;
+        *a2 |= 0x40u;
       }
       else
       {
-        v14 = 0;
-      }
-    }
-    IsEnabledDeviceUsageNoInline = Feature_Servicing_WpsContainmentFixNoneZone__private_IsEnabledDeviceUsageNoInline();
-    v17 = 0LL;
-    if ( IsEnabledDeviceUsageNoInline && *(_BYTE *)(v7 + 808) && !v14 && *(_DWORD *)(v7 + 812) == 1 )
-    {
-      *a2 |= 0x100u;
-      v14 = 1;
-    }
-    v18 = v14;
-    if ( !*(_BYTE *)(v7 + 824) )
-    {
-      v19 = Feature_Servicing_WpsContainmentFixNoneZone__private_IsEnabledDeviceUsageNoInline();
-      v17 = 0LL;
-      if ( !v19 && !*(_DWORD *)(v7 + 4) && *(_BYTE *)(v7 + 808) && *(_DWORD *)(v7 + 812) == 1 )
-      {
-        *a2 |= 0x100u;
-        v14 = 1;
-        v18 = 1;
-      }
-      v20 = *(_DWORD *)(v7 + 4);
-      if ( v20 != v14 )
-      {
-        if ( v20 == 2 || v14 == 2 )
+        *(_BYTE *)(v8 + 824) = 1;
+        if ( v16 == 1 )
         {
-          *(_BYTE *)(v7 + 816) = 1;
-          *a2 |= 0x40u;
+          *(_BYTE *)(v8 + 825) = 1;
+        }
+        else if ( !v16 )
+        {
+          *(_BYTE *)(v8 + 826) = 1;
+        }
+      }
+    }
+  }
+  if ( *(_BYTE *)(v8 + 825) )
+  {
+    if ( ++*(_DWORD *)(v8 + 820) >= v13 )
+    {
+      if ( (unsigned int)(v16 - 1) <= 1 )
+      {
+        *(_BYTE *)(v8 + 816) = 1;
+        *a2 |= 0x10u;
+      }
+      v7 = 1;
+    }
+    v22 = (_BYTE *)(v8 + 826);
+  }
+  else
+  {
+    v22 = (_BYTE *)(v8 + 826);
+    if ( *(_BYTE *)(v8 + 826) )
+    {
+      if ( ++*(_DWORD *)(v8 + 820) >= (unsigned int)v12 )
+      {
+        if ( !v16 )
+        {
+          if ( *(_BYTE *)(v8 + 808) && *(_DWORD *)(v8 + 812) == 1 && *(_DWORD *)(v8 + 4) == 1 )
+          {
+            *a2 |= 0x100u;
+            v20 = 1;
+          }
+          else
+          {
+            *(_BYTE *)(v8 + 816) = 1;
+            *a2 |= 0x20u;
+          }
+        }
+        v7 = 1;
+      }
+    }
+  }
+  v23 = *(_BYTE *)(v8 + 816);
+  if ( v23 )
+  {
+    *(_DWORD *)(v8 + 4) = v16;
+LABEL_44:
+    *a2 |= 0x80u;
+    *(_WORD *)(v8 + 824) = 0;
+    *(_BYTE *)(v8 + 816) = 0;
+    *(_DWORD *)(v8 + 820) = 0;
+    *v22 = 0;
+    goto LABEL_45;
+  }
+  if ( v7 )
+    goto LABEL_44;
+LABEL_45:
+  v24 = *(_DWORD *)(v8 + 4);
+  v25 = *(unsigned __int16 *)(v8 + 10);
+  v26 = *(unsigned __int16 *)(v8 + 8);
+  if ( v24 )
+  {
+    if ( v24 == 1 )
+    {
+      v27 = *(_WORD *)(a1 + 1266);
+      if ( v27 > (unsigned __int16)v25 )
+      {
+        *(_WORD *)(a1 + 1266) = v25;
+        v27 = v25;
+      }
+      v19 = *(unsigned __int16 *)(a1 + 1264);
+      if ( (unsigned __int16)v19 > (unsigned __int16)v25 )
+      {
+        *(_WORD *)(a1 + 1264) = v25;
+        v19 = (unsigned __int16)v25;
+      }
+      v12 = v27;
+      if ( v27 == (_WORD)v25 && (_WORD)v19 == (_WORD)v25 )
+      {
+        LOWORD(v12) = v27 - v25;
+        *(_WORD *)(a1 + 1266) = v27 - v25;
+      }
+      v26 = (unsigned __int16)v19 + (unsigned int)(unsigned __int16)v12;
+      if ( (unsigned int)v26 > (unsigned int)v25 && (_WORD)v19 + (_WORD)v12 - (_WORD)v25 )
+      {
+        if ( (unsigned __int16)v19 <= (unsigned __int16)v12 )
+        {
+          LOWORD(v12) = v25 - v19;
+          *(_WORD *)(a1 + 1266) = v25 - v19;
         }
         else
         {
-          *(_BYTE *)(v7 + 824) = 1;
-          if ( v14 == 1 )
-          {
-            *(_BYTE *)(v7 + 825) = 1;
-          }
-          else if ( !v14 )
-          {
-            *(_BYTE *)(v7 + 826) = 1;
-          }
+          LOWORD(v19) = v25 - v12;
+          *(_WORD *)(a1 + 1264) = v25 - v12;
         }
       }
     }
-    if ( *(_BYTE *)(v7 + 825) )
-    {
-      if ( ++*(_DWORD *)(v7 + 820) >= v11 )
-      {
-        if ( (unsigned int)(v14 - 1) <= 1 )
-        {
-          *(_BYTE *)(v7 + 816) = 1;
-          *a2 |= 0x10u;
-        }
-        v6 = 1;
-      }
-      v21 = (_BYTE *)(v7 + 826);
-    }
-    else
-    {
-      v21 = (_BYTE *)(v7 + 826);
-      if ( *(_BYTE *)(v7 + 826) )
-      {
-        if ( ++*(_DWORD *)(v7 + 820) >= v29 )
-        {
-          if ( !v14 )
-          {
-            if ( *(_BYTE *)(v7 + 808) && *(_DWORD *)(v7 + 812) == 1 && *(_DWORD *)(v7 + 4) == 1 )
-            {
-              *a2 |= 0x100u;
-              v18 = 1;
-            }
-            else
-            {
-              *(_BYTE *)(v7 + 816) = 1;
-              *a2 |= 0x20u;
-            }
-          }
-          v6 = 1;
-        }
-      }
-    }
-    v22 = *(_BYTE *)(v7 + 816);
-    if ( v22 )
-    {
-      *(_DWORD *)(v7 + 4) = v14;
-    }
-    else if ( !v6 )
-    {
-      goto LABEL_51;
-    }
-    *a2 |= 0x80u;
-    *(_WORD *)(v7 + 824) = 0;
-    *(_BYTE *)(v7 + 816) = 0;
-    *(_DWORD *)(v7 + 820) = 0;
-    *v21 = 0;
-LABEL_51:
-    v23 = *(_DWORD *)(v7 + 4);
-    v24 = *(unsigned __int16 *)(v7 + 10);
-    v25 = *(unsigned __int16 *)(v7 + 8);
-    if ( v23 )
-    {
-      if ( v23 != 1 )
-        goto LABEL_68;
-      v26 = *(_WORD *)(a1 + 1258);
-      if ( v26 > (unsigned __int16)v24 )
-      {
-        *(_WORD *)(a1 + 1258) = v24;
-        v26 = v24;
-      }
-      v17 = *(unsigned __int16 *)(a1 + 1256);
-      if ( (unsigned __int16)v17 > (unsigned __int16)v24 )
-      {
-        *(_WORD *)(a1 + 1256) = v24;
-        v17 = (unsigned __int16)v24;
-      }
-      v25 = v26;
-      if ( v26 == (_WORD)v24 && (_WORD)v17 == (_WORD)v24 )
-      {
-        LOWORD(v25) = v26 - v24;
-        *(_WORD *)(a1 + 1258) = v26 - v24;
-      }
-      v21 = (_BYTE *)((unsigned __int16)v25 + (unsigned int)(unsigned __int16)v17);
-      if ( (unsigned int)v21 <= (unsigned int)v24 || !((_WORD)v25 + (_WORD)v17 - (_WORD)v24) )
-        goto LABEL_68;
-      if ( (unsigned __int16)v17 > (unsigned __int16)v25 )
-      {
-        LOWORD(v17) = v24 - v25;
-        *(_WORD *)(a1 + 1256) = v24 - v25;
-        goto LABEL_68;
-      }
-      LOWORD(v25) = v24 - v17;
-    }
-    else
-    {
-      v21 = (_BYTE *)*(unsigned __int16 *)(a1 + 1258);
-      LOWORD(v21) = *(_WORD *)(a1 + 1256) + (_WORD)v21;
-      *(_WORD *)(a1 + 1258) = (_WORD)v21;
-      *(_WORD *)(a1 + 1256) = 0;
-      if ( (unsigned __int16)v21 < (unsigned __int16)v25 )
-        goto LABEL_68;
-    }
-    *(_WORD *)(a1 + 1258) = v25;
-LABEL_68:
-    if ( (unsigned int)Feature_PpmParkEx__private_IsEnabledDeviceUsageNoInline(v21, v24, v25, v17) )
-      return PpmEventHgsContainmentUnparkedCountEx(v27, v31, a3, a1, v28, v18, v22, (__int64)a2);
-    else
-      return PpmEventHgsContainmentUnparkedCount(v27, v31, a3, a1, v28, v18, v22, (__int64)a2);
   }
-  return result;
+  else
+  {
+    *(_WORD *)(a1 + 1266) += *(_WORD *)(a1 + 1264);
+    *(_WORD *)(a1 + 1264) = 0;
+    if ( *(_WORD *)(a1 + 1266) >= (unsigned __int16)v26 )
+      *(_WORD *)(a1 + 1266) = v26;
+  }
+  if ( (unsigned int)Feature_PpmParkEx__private_IsEnabledDeviceUsageNoInline(v26, v25, v12, v19) )
+    return PpmEventHgsContainmentUnparkedCountEx(v28, v32, a3, a1, v30, v20, v23, (__int64)a2);
+  else
+    return PpmEventHgsContainmentUnparkedCount(v28, v32, a3, a1, v30, v20, v23, (__int64)a2);
 }

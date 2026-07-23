@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlAddAccessAllowedAceEx @ 0x14054CEA8
+ * XREFs of RtlAddAccessAllowedAceEx @ 0x14054D3E8
  * Callers:
- *     CmpGenerateAppHiveSecurityDescriptor @ 0x1401B4EE0 (CmpGenerateAppHiveSecurityDescriptor.c)
+ *     CmpGenerateAppHiveSecurityDescriptor @ 0x1401B4DC4 (CmpGenerateAppHiveSecurityDescriptor.c)
  *     PiAuCreateLocalSystemSecurityObject @ 0x1407B33F4 (PiAuCreateLocalSystemSecurityObject.c)
  *     PiAuCreateStandardSecurityObject @ 0x1407B375C (PiAuCreateStandardSecurityObject.c)
  * Callees:
- *     RtlpAddKnownAce @ 0x140421800 (RtlpAddKnownAce.c)
+ *     RtlpAddKnownAce @ 0x1404206C0 (RtlpAddKnownAce.c)
  */
 
 NTSTATUS __stdcall RtlAddAccessAllowedAceEx(

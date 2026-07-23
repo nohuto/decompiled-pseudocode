@@ -1,13 +1,13 @@
 /*
- * XREFs of MmGetDumpRange @ 0x1401E7BA8
+ * XREFs of MmGetDumpRange @ 0x1401E79D4
  * Callers:
- *     IoWriteCrashDump @ 0x1401C65BC (IoWriteCrashDump.c)
+ *     IoWriteCrashDump @ 0x1401C645C (IoWriteCrashDump.c)
  * Callees:
- *     MiAddNonSecuredPagesToDump @ 0x1401E7470 (MiAddNonSecuredPagesToDump.c)
- *     MiAddPhysicalPagesToCrashDump @ 0x1401E7524 (MiAddPhysicalPagesToCrashDump.c)
- *     MmAddRangeToCrashDump @ 0x1401E7A54 (MmAddRangeToCrashDump.c)
- *     MmRemoveSystemCacheFromDump @ 0x1401E7ED0 (MmRemoveSystemCacheFromDump.c)
- *     MiRemoveFreePoolMemoryFromDump @ 0x1401EC878 (MiRemoveFreePoolMemoryFromDump.c)
+ *     MiAddNonSecuredPagesToDump @ 0x1401E729C (MiAddNonSecuredPagesToDump.c)
+ *     MiAddPhysicalPagesToCrashDump @ 0x1401E7350 (MiAddPhysicalPagesToCrashDump.c)
+ *     MmAddRangeToCrashDump @ 0x1401E7880 (MmAddRangeToCrashDump.c)
+ *     MmRemoveSystemCacheFromDump @ 0x1401E7CFC (MmRemoveSystemCacheFromDump.c)
+ *     MiRemoveFreePoolMemoryFromDump @ 0x1401EC6A4 (MiRemoveFreePoolMemoryFromDump.c)
  */
 
 char __fastcall MmGetDumpRange(__int64 a1, int a2, char a3)
@@ -86,9 +86,9 @@ char __fastcall MmGetDumpRange(__int64 a1, int a2, char a3)
   v13 = 0;
   while ( 2 )
   {
-    Buffer = qword_140326FD8->Buffer;
-    v15 = v13 < qword_140326FD8->SizeOfBitMap ? v13 : 0;
-    v16 = qword_140326FD8->SizeOfBitMap - 1;
+    Buffer = qword_140327018->Buffer;
+    v15 = v13 < qword_140327018->SizeOfBitMap ? v13 : 0;
+    v16 = qword_140327018->SizeOfBitMap - 1;
     if ( ((unsigned __int8)Buffer & 4) != 0 )
     {
       v17 = 1LL;
@@ -128,8 +128,8 @@ LABEL_29:
         goto LABEL_34;
       SizeOfBitMap = v13 + 1;
       v15 = 0;
-      if ( v13 + 1 > qword_140326FD8->SizeOfBitMap )
-        SizeOfBitMap = qword_140326FD8->SizeOfBitMap;
+      if ( v13 + 1 > qword_140327018->SizeOfBitMap )
+        SizeOfBitMap = qword_140327018->SizeOfBitMap;
       v16 = SizeOfBitMap - 1;
     }
     v22 = (unsigned int)(v22 - v18);
@@ -137,7 +137,7 @@ LABEL_34:
     if ( (unsigned int)v22 >= v13 && (_DWORD)v22 != -1 )
     {
       v13 = v22 + 1;
-      v25 = *(_QWORD *)(qword_140326FF8 + 8 * v22);
+      v25 = *(_QWORD *)(qword_140327038 + 8 * v22);
       if ( (*(_DWORD *)(v25 + 4) & 4) != 0 )
       {
         for ( k = *(_QWORD *)(v25 + 3664); k != 0xFFFFFFFFFLL; k = *(_QWORD *)(48 * k - 0x58000000000LL) & 0xFFFFFFFFFLL )
@@ -147,7 +147,7 @@ LABEL_34:
     }
     break;
   }
-  if ( byte_140327144 == 1 )
+  if ( byte_140327184 == 1 )
   {
     LOBYTE(j) = 0;
     if ( 48 * BugCheckParameter3 - 0x58000000000LL >= 0xFFFFFA8000000000uLL )

@@ -1,8 +1,8 @@
 /*
- * XREFs of BcpGetDisplayType @ 0x14023A48C
+ * XREFs of BcpGetDisplayType @ 0x14023A370
  * Callers:
- *     BgpFwDisplayBugCheckProgressUpdate @ 0x14023A634 (BgpFwDisplayBugCheckProgressUpdate.c)
- *     BgpFwDisplayBugCheckScreen @ 0x14023A7EC (BgpFwDisplayBugCheckScreen.c)
+ *     BgpFwDisplayBugCheckProgressUpdate @ 0x14023A518 (BgpFwDisplayBugCheckProgressUpdate.c)
+ *     BgpFwDisplayBugCheckScreen @ 0x14023A6D0 (BgpFwDisplayBugCheckScreen.c)
  * Callees:
  *     <none>
  */

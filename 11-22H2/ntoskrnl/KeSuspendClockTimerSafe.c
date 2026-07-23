@@ -46,7 +46,7 @@ __int64 KeSuspendClockTimerSafe()
   {
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(0xDuLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
       if ( CurrentIrql == 13 )
@@ -67,10 +67,10 @@ __int64 KeSuspendClockTimerSafe()
       ++dword_140C41BA8;
     if ( v3->ClockOwner )
       v3->ClockOwner = 0;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v5 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v5 <= 0xFu && CurrentIrql <= 0xFu && v5 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v5 <= 0xFu && CurrentIrql <= 0xFu && v5 >= 2u )
       {
         v6 = KeGetCurrentPrcb();
         v7 = v6->SchedulerAssist;

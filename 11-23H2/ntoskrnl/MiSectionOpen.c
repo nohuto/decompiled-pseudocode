@@ -1,10 +1,10 @@
 /*
- * XREFs of MiSectionOpen @ 0x140721520
+ * XREFs of MiSectionOpen @ 0x140721720
  * Callers:
  *     <none>
  * Callees:
- *     MiSectionControlArea @ 0x14029F880 (MiSectionControlArea.c)
- *     MiInsertSharedCommitNode @ 0x140722020 (MiInsertSharedCommitNode.c)
+ *     MiSectionControlArea @ 0x14029FB10 (MiSectionControlArea.c)
+ *     MiInsertSharedCommitNode @ 0x140722220 (MiInsertSharedCommitNode.c)
  */
 
 __int64 __fastcall MiSectionOpen(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

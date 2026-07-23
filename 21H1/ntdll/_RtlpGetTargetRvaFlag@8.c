@@ -10,32 +10,35 @@
  *     _bsearch_s @ 0x4B2F8220 (_bsearch_s.c)
  */
 
-char __fastcall RtlpGetTargetRvaFlag(unsigned int a1, _BYTE *a2)
+char __fastcall RtlpGetTargetRvaFlag(char *BaseAddress, _BYTE *a2)
 {
-  void *v3; // esi
+  _BYTE *v3; // esi
   _DWORD *Config; // eax
   unsigned int v5; // ecx
-  rsize_t v6; // edx
+  unsigned int v6; // edx
   const void *v7; // eax
-  rsize_t v8; // ecx
+  unsigned int v8; // ecx
   _BYTE *v9; // eax
-  void *v11; // [esp+Ch] [ebp-24h] BYREF
-  char v12; // [esp+14h] [ebp-1Ch]
-  _BYTE *v13; // [esp+18h] [ebp-18h]
+  ULONG_PTR *v11; // [esp+0h] [ebp-30h]
+  int (__cdecl *v12)(void *, const void *, const void *); // [esp+0h] [ebp-30h]
+  void *v13; // [esp+4h] [ebp-2Ch]
+  PVOID MemoryInformation[2]; // [esp+Ch] [ebp-24h] BYREF
+  char v15; // [esp+14h] [ebp-1Ch]
+  _BYTE *v16; // [esp+18h] [ebp-18h]
   _DWORD Key[4]; // [esp+1Ch] [ebp-14h] BYREF
 
-  v13 = a2;
+  v16 = a2;
   memset(Key, 0, sizeof(Key));
-  if ( NtQueryVirtualMemory(-1, a1, 6, (int)&v11, 12, 0) < 0 )
+  if ( NtQueryVirtualMemory((HANDLE)0xFFFFFFFF, BaseAddress, MemoryImageInformation, MemoryInformation, 0xCuLL, v11) < 0 )
     return 0;
-  v3 = v11;
-  if ( !v11 )
+  v3 = MemoryInformation[0];
+  if ( !MemoryInformation[0] )
     return 0;
-  if ( (v12 & 3) != 0 )
+  if ( (v15 & 3) != 0 )
     return 0;
-  if ( a1 < (unsigned int)v11 )
+  if ( BaseAddress < MemoryInformation[0] )
     return 0;
-  Config = LdrImageDirectoryEntryToLoadConfig(v11);
+  Config = LdrImageDirectoryEntryToLoadConfig(MemoryInformation[0]);
   if ( !Config )
     return 0;
   if ( *Config < 0x5Cu )
@@ -50,10 +53,10 @@ char __fastcall RtlpGetTargetRvaFlag(unsigned int a1, _BYTE *a2)
   v8 = (v5 >> 28) + 4;
   if ( v8 <= 4 )
     return 0;
-  Key[0] = a1 - (_DWORD)v3;
-  v9 = bsearch_s(Key, v7, v6, v8, (_CoreCrtSecureSearchSortCompareFunction)RtlpTargetCompare, 0);
+  Key[0] = BaseAddress - v3;
+  v9 = bsearch_s(Key, v7, __PAIR64__(v8, v6), (unsigned int)RtlpTargetCompare, v12, v13);
   if ( !v9 )
     return 0;
-  *v13 = v9[4];
+  *v16 = v9[4];
   return 1;
 }

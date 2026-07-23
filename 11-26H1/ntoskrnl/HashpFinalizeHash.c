@@ -1,13 +1,13 @@
 /*
- * XREFs of HashpFinalizeHash @ 0x1408AC1B4
+ * XREFs of HashpFinalizeHash @ 0x1408B25F8
  * Callers:
- *     HashpHashMemory @ 0x1408ABB4C (HashpHashMemory.c)
+ *     HashpHashMemory @ 0x1408B1F90 (HashpHashMemory.c)
  * Callees:
- *     SymCryptSha256Result @ 0x140554D70 (SymCryptSha256Result.c)
- *     SymCryptSha384Result @ 0x14055EE64 (SymCryptSha384Result.c)
- *     SymCryptSha512Result @ 0x1405605A4 (SymCryptSha512Result.c)
- *     SymCryptSha1Result @ 0x140561950 (SymCryptSha1Result.c)
- *     SymCryptMd5Result @ 0x140562390 (SymCryptMd5Result.c)
+ *     SymCryptSha256Result @ 0x140557200 (SymCryptSha256Result.c)
+ *     SymCryptSha384Result @ 0x140561388 (SymCryptSha384Result.c)
+ *     SymCryptSha512Result @ 0x140562AC0 (SymCryptSha512Result.c)
+ *     SymCryptSha1Result @ 0x140563E60 (SymCryptSha1Result.c)
+ *     SymCryptMd5Result @ 0x1405648A0 (SymCryptMd5Result.c)
  */
 
 __int64 __fastcall HashpFinalizeHash(_DWORD *a1, char *a2)

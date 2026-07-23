@@ -5,8 +5,8 @@
  * Callees:
  *     RtlReleaseSRWLockExclusive @ 0x180015B60 (RtlReleaseSRWLockExclusive.c)
  *     RtlpHpLfhSubsegmentIncBlockCounts @ 0x18006E5D8 (RtlpHpLfhSubsegmentIncBlockCounts.c)
- *     RtlpHpLfhSubsegmentDecBlockCounts @ 0x180077430 (RtlpHpLfhSubsegmentDecBlockCounts.c)
- *     _guard_dispatch_icall_nop @ 0x1800A3CE0 (_guard_dispatch_icall_nop.c)
+ *     RtlpHpLfhSubsegmentDecBlockCounts @ 0x180077440 (RtlpHpLfhSubsegmentDecBlockCounts.c)
+ *     _guard_dispatch_icall_nop @ 0x1800A3D00 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall RtlpHpLfhSubsegmentCommitBlock(__int64 a1, __int64 a2, unsigned int a3)
@@ -35,7 +35,7 @@ __int64 __fastcall RtlpHpLfhSubsegmentCommitBlock(__int64 a1, __int64 a2, unsign
     if ( v11 < 0 )
     {
       RtlpHpLfhSubsegmentDecBlockCounts(a1, a2, a3, v6);
-      RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a2 + 24));
+      RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a2 + 24));
       return (unsigned int)v11;
     }
     RtlpHpLfhSubsegmentIncBlockCounts(a1, a2, v9, v10, &v14, 1, &v13);

@@ -1,7 +1,7 @@
 /*
- * XREFs of ViThunkRemoveImportEntry @ 0x140ADBE1C
+ * XREFs of ViThunkRemoveImportEntry @ 0x140ADBE0C
  * Callers:
- *     VfDriverUnloadImage @ 0x140ABCED4 (VfDriverUnloadImage.c)
+ *     VfDriverUnloadImage @ 0x140ABCEC4 (VfDriverUnloadImage.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */

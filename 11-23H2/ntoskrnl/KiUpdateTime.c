@@ -1,24 +1,24 @@
 /*
- * XREFs of KiUpdateTime @ 0x1402C36A0
+ * XREFs of KiUpdateTime @ 0x1402C3930
  * Callers:
- *     KeClockInterruptNotify @ 0x1402C46A0 (KeClockInterruptNotify.c)
+ *     KeClockInterruptNotify @ 0x1402C4930 (KeClockInterruptNotify.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     KiInsertQueueDpc @ 0x140254790 (KiInsertQueueDpc.c)
- *     KiOrAffinityEx @ 0x1402C2AB0 (KiOrAffinityEx.c)
- *     KeQueryPerformanceCounter @ 0x1402C3270 (KeQueryPerformanceCounter.c)
- *     PoExecutePerfCheck @ 0x1402C3F00 (PoExecutePerfCheck.c)
- *     HalpTimerGetInternalData @ 0x1402C4570 (HalpTimerGetInternalData.c)
- *     KiUpdateRunTime @ 0x1402C74E0 (KiUpdateRunTime.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     HalpTimerScaleCounter @ 0x1403C4524 (HalpTimerScaleCounter.c)
- *     KiForwardTick @ 0x1403CB6E0 (KiForwardTick.c)
- *     PoExecuteIdleCheck @ 0x1403CBAB0 (PoExecuteIdleCheck.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     memset @ 0x140435A00 (memset.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     KiSetForceIdleState @ 0x14057D294 (KiSetForceIdleState.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     KiInsertQueueDpc @ 0x140254850 (KiInsertQueueDpc.c)
+ *     KiOrAffinityEx @ 0x1402C2D40 (KiOrAffinityEx.c)
+ *     KeQueryPerformanceCounter @ 0x1402C3500 (KeQueryPerformanceCounter.c)
+ *     PoExecutePerfCheck @ 0x1402C4190 (PoExecutePerfCheck.c)
+ *     HalpTimerGetInternalData @ 0x1402C4800 (HalpTimerGetInternalData.c)
+ *     KiUpdateRunTime @ 0x1402C7770 (KiUpdateRunTime.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6DB4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     HalpTimerScaleCounter @ 0x1403C4704 (HalpTimerScaleCounter.c)
+ *     KiForwardTick @ 0x1403CB8C0 (KiForwardTick.c)
+ *     PoExecuteIdleCheck @ 0x1403CBC90 (PoExecuteIdleCheck.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     KiSetForceIdleState @ 0x14057D784 (KiSetForceIdleState.c)
  */
 
 __int64 __fastcall KiUpdateTime(unsigned __int8 a1, unsigned __int8 a2, unsigned int a3)
@@ -534,7 +534,7 @@ LABEL_138:
   if ( v30 <= 0 )
   {
     v31 = 1LL;
-    v30 += (unsigned int)KeMaximumIncrement;
+    v30 += KeMaximumIncrement;
     if ( v30 <= 0 )
     {
       v61 = KeNumberProcessorsGroup0[1];
@@ -607,7 +607,7 @@ LABEL_42:
     CurrentIrql = KeGetCurrentIrql();
     v132 = CurrentIrql;
     __writecr8(0xFuLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && (unsigned __int8)CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && (unsigned __int8)CurrentIrql <= 0xFu )
     {
       v109 = KeGetCurrentPrcb()->SchedulerAssist;
       if ( (_BYTE)CurrentIrql == 15 )
@@ -672,7 +672,7 @@ LABEL_42:
       v150 = 4LL;
       v152 = 4LL;
       v119 = 0;
-      tlgWriteTransfer_EtwWriteTransfer(&dword_140C02F60, &byte_14002D617, 0LL, 0LL, 10, v140);
+      tlgWriteTransfer_EtwWriteTransfer(&dword_140C02F60, &byte_14002D6FF, 0LL, 0LL, 10, v140);
     }
     else
     {
@@ -682,10 +682,10 @@ LABEL_42:
     CurrentPrcb->ClockTimerState.ClockTimerEntries[1].TypeFlags |= 3u;
     v35->ClockTimerState.ClockTimerEntries[1].DueTime = v46;
     v35->ClockTimerState.ClockTimerEntries[1].TolerableDelay = v47;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v111 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v111 <= 0xFu && v44 <= 0xFu && v111 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v111 <= 0xFu && v44 <= 0xFu && v111 >= 2u )
       {
         v112 = KeGetCurrentPrcb();
         v113 = v112->SchedulerAssist;

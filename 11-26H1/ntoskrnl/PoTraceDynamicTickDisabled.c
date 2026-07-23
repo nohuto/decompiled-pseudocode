@@ -1,11 +1,11 @@
 /*
- * XREFs of PoTraceDynamicTickDisabled @ 0x140607F90
+ * XREFs of PoTraceDynamicTickDisabled @ 0x14060AB40
  * Callers:
- *     KeInitializeClock @ 0x140D0B7A4 (KeInitializeClock.c)
+ *     KeInitializeClock @ 0x140D117AC (KeInitializeClock.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 BOOLEAN PoTraceDynamicTickDisabled()
@@ -16,24 +16,14 @@ BOOLEAN PoTraceDynamicTickDisabled()
 
   result = KiDynamicTickDisableReason;
   v1 = KiDynamicTickDisableReason;
-  if ( byte_140E67628 )
+  if ( PopDiagHandleRegistered )
   {
-    result = EtwEventEnabled(
-               *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-               &POP_ETW_EVENT_DYNAMIC_TICK_DISABLED);
+    result = EtwEventEnabled(PopDiagHandle, &POP_ETW_EVENT_DYNAMIC_TICK_DISABLED);
     if ( result )
     {
       UserData.Ptr = (ULONGLONG)&v1;
       *(_QWORD *)&UserData.Size = 1LL;
-      return EtwWriteEx(
-               *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-               &POP_ETW_EVENT_DYNAMIC_TICK_DISABLED,
-               0LL,
-               1u,
-               0LL,
-               0LL,
-               1u,
-               &UserData);
+      return EtwWriteEx(PopDiagHandle, &POP_ETW_EVENT_DYNAMIC_TICK_DISABLED, 0LL, 1u, 0LL, 0LL, 1u, &UserData);
     }
   }
   return result;

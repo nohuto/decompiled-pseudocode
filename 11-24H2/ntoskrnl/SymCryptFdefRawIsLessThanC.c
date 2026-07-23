@@ -1,8 +1,8 @@
 /*
- * XREFs of SymCryptFdefRawIsLessThanC @ 0x14052F5E4
+ * XREFs of SymCryptFdefRawIsLessThanC @ 0x140529A8C
  * Callers:
- *     SymCryptFdefIntIsLessThan @ 0x14052EF00 (SymCryptFdefIntIsLessThan.c)
- *     SymCryptFdefRawIsLessThan @ 0x14052F5CC (SymCryptFdefRawIsLessThan.c)
+ *     SymCryptFdefIntIsLessThan @ 0x1405293A8 (SymCryptFdefIntIsLessThan.c)
+ *     SymCryptFdefRawIsLessThan @ 0x140529A74 (SymCryptFdefRawIsLessThan.c)
  * Callees:
  *     <none>
  */

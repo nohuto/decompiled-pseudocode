@@ -1,13 +1,13 @@
 /*
- * XREFs of SmStoreSetProcessVaRanges @ 0x140710A9C
+ * XREFs of SmStoreSetProcessVaRanges @ 0x1406BF0EC
  * Callers:
- *     MmInSwapWorkingSet @ 0x14035C504 (MmInSwapWorkingSet.c)
- *     MmOutSwapWorkingSet @ 0x14035C7D0 (MmOutSwapWorkingSet.c)
+ *     MmInSwapWorkingSet @ 0x1402A1434 (MmInSwapWorkingSet.c)
+ *     MmOutSwapWorkingSet @ 0x1402A1700 (MmOutSwapWorkingSet.c)
  * Callees:
- *     SSHSupportAllocateNonPaged @ 0x1402C9AC4 (SSHSupportAllocateNonPaged.c)
- *     SmpKeyedStoreSetVaRanges @ 0x14035D218 (SmpKeyedStoreSetVaRanges.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     SSHSupportAllocateNonPaged @ 0x1402483BC (SSHSupportAllocateNonPaged.c)
+ *     SmpKeyedStoreSetVaRanges @ 0x1402A2148 (SmpKeyedStoreSetVaRanges.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SmStoreSetProcessVaRanges(void *Src, __int64 a2)

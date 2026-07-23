@@ -1,11 +1,11 @@
 /*
- * XREFs of IopInsertLegacyBusDeviceNode @ 0x1407C6AC8
+ * XREFs of IopInsertLegacyBusDeviceNode @ 0x1407C6DE8
  * Callers:
- *     PipCallDriverAddDevice @ 0x140741988 (PipCallDriverAddDevice.c)
+ *     PipCallDriverAddDevice @ 0x140741B48 (PipCallDriverAddDevice.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     KeReleaseSemaphore @ 0x14029AC70 (KeReleaseSemaphore.c)
- *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
+ *     KeReleaseSemaphore @ 0x140212600 (KeReleaseSemaphore.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     KeWaitForSingleObject @ 0x1403504C0 (KeWaitForSingleObject.c)
  */
 
 void __fastcall IopInsertLegacyBusDeviceNode(__int64 a1, unsigned int a2, unsigned int a3)
@@ -14,6 +14,9 @@ void __fastcall IopInsertLegacyBusDeviceNode(__int64 a1, unsigned int a2, unsign
   int v7; // eax
   _QWORD *v8; // rcx
   _QWORD *i; // rdx
+  __int64 v10; // rdx
+  __int64 v11; // r8
+  __int64 v12; // r9
 
   if ( a2 <= 0x11 && a2 != 15 )
   {
@@ -37,6 +40,6 @@ void __fastcall IopInsertLegacyBusDeviceNode(__int64 a1, unsigned int a2, unsign
     i[1] = a1 + 624;
 LABEL_11:
     KeReleaseSemaphore(&PpRegistrySemaphore, 0, 1, 0);
-    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v10, v11, v12);
   }
 }

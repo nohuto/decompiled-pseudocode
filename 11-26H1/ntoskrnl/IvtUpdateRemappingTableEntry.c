@@ -1,10 +1,10 @@
 /*
- * XREFs of IvtUpdateRemappingTableEntry @ 0x1404C17E0
+ * XREFs of IvtUpdateRemappingTableEntry @ 0x1404BB030
  * Callers:
  *     <none>
  * Callees:
- *     IvtUpdateInterruptDestination @ 0x1404C19D0 (IvtUpdateInterruptDestination.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     IvtUpdateInterruptDestination @ 0x1404BB220 (IvtUpdateInterruptDestination.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 char __fastcall IvtUpdateRemappingTableEntry(__int64 a1, char a2, unsigned int a3, _DWORD *a4)

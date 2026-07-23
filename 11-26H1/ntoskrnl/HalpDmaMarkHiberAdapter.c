@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpDmaMarkHiberAdapter @ 0x14050C790
+ * XREFs of HalpDmaMarkHiberAdapter @ 0x140506200
  * Callers:
- *     HaliLocateHiberRanges @ 0x140C08410 (HaliLocateHiberRanges.c)
+ *     HaliLocateHiberRanges @ 0x140C0E620 (HaliLocateHiberRanges.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeTestSpinLock @ 0x140449B50 (KeTestSpinLock.c)
- *     PoSetHiberRange @ 0x1404AFD60 (PoSetHiberRange.c)
- *     HalpIommuDomainMarkHiberLogicalRange @ 0x14058D8C4 (HalpIommuDomainMarkHiberLogicalRange.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeTestSpinLock @ 0x140441C80 (KeTestSpinLock.c)
+ *     PoSetHiberRange @ 0x1404A93F0 (PoSetHiberRange.c)
+ *     HalpIommuDomainMarkHiberLogicalRange @ 0x140590044 (HalpIommuDomainMarkHiberLogicalRange.c)
  */
 
 void __fastcall HalpDmaMarkHiberAdapter(PVOID MemoryMap)

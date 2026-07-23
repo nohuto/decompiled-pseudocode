@@ -1,11 +1,11 @@
 /*
- * XREFs of PopDiagTraceSessionStateCounted @ 0x140B2CE08
+ * XREFs of PopDiagTraceSessionStateCounted @ 0x140B2EE88
  * Callers:
- *     PopEvaluateGlobalUserStatus @ 0x140A3ECC8 (PopEvaluateGlobalUserStatus.c)
+ *     PopEvaluateGlobalUserStatus @ 0x1409FA6E8 (PopEvaluateGlobalUserStatus.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 BOOLEAN __fastcall PopDiagTraceSessionStateCounted(__int64 a1, __int64 a2, int a3)
@@ -24,11 +24,9 @@ BOOLEAN __fastcall PopDiagTraceSessionStateCounted(__int64 a1, __int64 a2, int a
   result = PopGlobalUserPresenceStateTransitions;
   v5 = PopGlobalUserPresenceStateTransitions;
   v4 = -1;
-  if ( byte_140E67628 )
+  if ( PopDiagHandleRegistered )
   {
-    result = EtwEventEnabled(
-               *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-               &POP_ETW_ADPM_GLOBAL_INPUT_STATE);
+    result = EtwEventEnabled(PopDiagHandle, &POP_ETW_ADPM_GLOBAL_INPUT_STATE);
     if ( result )
     {
       UserData.Ptr = (ULONGLONG)&v4;
@@ -37,12 +35,7 @@ BOOLEAN __fastcall PopDiagTraceSessionStateCounted(__int64 a1, __int64 a2, int a
       v8 = 4LL;
       v9 = &v5;
       v10 = 4LL;
-      return EtwWrite(
-               *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-               &POP_ETW_ADPM_GLOBAL_INPUT_STATE,
-               0LL,
-               3u,
-               &UserData);
+      return EtwWrite(PopDiagHandle, &POP_ETW_ADPM_GLOBAL_INPUT_STATE, 0LL, 3u, &UserData);
     }
   }
   return result;

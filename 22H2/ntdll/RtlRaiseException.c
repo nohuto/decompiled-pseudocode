@@ -42,24 +42,24 @@
 
 void __stdcall RtlRaiseException(PEXCEPTION_RECORD ExceptionRecord)
 {
-  unsigned __int64 v1; // rbx
-  unsigned int v3; // r14d
+  ULONG64 v1; // rbx
+  ULONG v3; // r14d
   unsigned __int64 v4; // rcx
   unsigned __int64 v5; // rcx
   void *v6; // rsp
   void *v7; // rsp
-  unsigned int v8; // ebx
+  NTSTATUS v8; // ebx
   ULONG64 v9; // r14
   struct _IMAGE_RUNTIME_FUNCTION_ENTRY *v10; // rax
   ULONG64 v11; // rbx
   struct _IMAGE_RUNTIME_FUNCTION_ENTRY *v12; // rax
-  __int64 v13; // r8
-  PEXCEPTION_RECORD v14; // rcx
-  unsigned int ContextRecord; // [rsp+40h] [rbp+0h] BYREF
+  EXCEPTION_RECORD *v13; // rcx
+  BOOLEAN v14; // r8
+  ULONG ContextLength; // [rsp+40h] [rbp+0h] BYREF
   unsigned __int64 ImageBase; // [rsp+48h] [rbp+8h] BYREF
   unsigned __int64 EstablisherFrame; // [rsp+50h] [rbp+10h] BYREF
   PVOID HandlerData; // [rsp+58h] [rbp+18h] BYREF
-  _BYTE v19[16]; // [rsp+60h] [rbp+20h] BYREF
+  PCONTEXT_EX ContextEx; // [rsp+60h] [rbp+20h] BYREF
   struct _UNWIND_HISTORY_TABLE HistoryTable; // [rsp+70h] [rbp+30h] BYREF
 
   v1 = 0LL;
@@ -77,15 +77,15 @@ void __stdcall RtlRaiseException(PEXCEPTION_RECORD ExceptionRecord)
       }
     }
   }
-  RtlGetExtendedContextLength2(v3, &ContextRecord, v1);
-  v4 = ContextRecord + 15LL;
-  if ( v4 <= ContextRecord )
+  RtlGetExtendedContextLength2(v3, &ContextLength, v1);
+  v4 = ContextLength + 15LL;
+  if ( v4 <= ContextLength )
     v4 = 0xFFFFFFFFFFFFFF0LL;
   v5 = v4 & 0xFFFFFFFFFFFFFFF0uLL;
   v6 = alloca(v5);
   v7 = alloca(v5);
-  v8 = RtlInitializeExtendedContext2(&ContextRecord, v3, v19, v1);
-  RtlpCaptureContext2(&ContextRecord);
+  v8 = RtlInitializeExtendedContext2((PCONTEXT)&ContextLength, v3, &ContextEx, v1);
+  RtlpCaptureContext2(&ContextLength);
   v9 = HistoryTable.Entry[11].ImageBase;
   HistoryTable.Count = 0;
   HistoryTable.LowAddress = -1LL;
@@ -95,29 +95,29 @@ void __stdcall RtlRaiseException(PEXCEPTION_RECORD ExceptionRecord)
   if ( !v10 )
 LABEL_20:
     RtlRaiseStatus(v8);
-  RtlVirtualUnwind(0, ImageBase, v9, v10, (PCONTEXT)&ContextRecord, &HandlerData, &EstablisherFrame, 0LL);
+  RtlVirtualUnwind(0, ImageBase, v9, v10, (PCONTEXT)&ContextLength, &HandlerData, &EstablisherFrame, 0LL);
   if ( ExceptionRecord->ExceptionCode == -2147483597 )
   {
     v11 = HistoryTable.Entry[11].ImageBase;
     v12 = RtlLookupFunctionEntry(HistoryTable.Entry[11].ImageBase, &ImageBase, &HistoryTable);
     if ( v12 )
-      RtlVirtualUnwind(0, ImageBase, v11, v12, (PCONTEXT)&ContextRecord, &HandlerData, &EstablisherFrame, 0LL);
+      RtlVirtualUnwind(0, ImageBase, v11, v12, (PCONTEXT)&ContextLength, &HandlerData, &EstablisherFrame, 0LL);
   }
   ExceptionRecord->ExceptionAddress = (void *)HistoryTable.Entry[11].ImageBase;
   RtlpGuardSynchronizeRestorePc(HistoryTable.Entry[11].ImageBase);
-  v14 = ExceptionRecord;
+  v13 = ExceptionRecord;
   if ( NtCurrentPeb()->BeingDebugged )
   {
-    LOBYTE(v13) = 1;
+    v14 = 1;
     goto LABEL_19;
   }
-  if ( !(unsigned __int8)RtlDispatchException(ExceptionRecord, &ContextRecord) )
+  if ( !RtlDispatchException(ExceptionRecord, (PCONTEXT)&ContextLength) )
   {
-    v13 = 0LL;
-    v14 = ExceptionRecord;
+    v14 = 0;
+    v13 = ExceptionRecord;
 LABEL_19:
-    v8 = ZwRaiseException(v14, &ContextRecord, v13);
+    v8 = ZwRaiseException(v13, (PCONTEXT)&ContextLength, v14);
     goto LABEL_20;
   }
-  RtlRestoreContext((PCONTEXT)&ContextRecord, ExceptionRecord);
+  RtlRestoreContext((PCONTEXT)&ContextLength, ExceptionRecord);
 }

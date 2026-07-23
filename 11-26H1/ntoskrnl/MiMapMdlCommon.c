@@ -1,25 +1,25 @@
 /*
- * XREFs of MiMapMdlCommon @ 0x140312C2C
+ * XREFs of MiMapMdlCommon @ 0x140314C5C
  * Callers:
- *     MmMapLockedPagesWithReservedMapping @ 0x1404B5970 (MmMapLockedPagesWithReservedMapping.c)
- *     MmMapLockedRestartPages @ 0x140864770 (MmMapLockedRestartPages.c)
+ *     MmMapLockedPagesWithReservedMapping @ 0x1404AECD0 (MmMapLockedPagesWithReservedMapping.c)
+ *     MmMapLockedRestartPages @ 0x14086AB50 (MmMapLockedRestartPages.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     MiAssignInitialPageAttribute @ 0x1402A2C40 (MiAssignInitialPageAttribute.c)
- *     MiLockPageTableInternal @ 0x1402B34E0 (MiLockPageTableInternal.c)
- *     MiUnlockPageTableInternal @ 0x1402D13E0 (MiUnlockPageTableInternal.c)
- *     MiMakeValidPte @ 0x1402DA020 (MiMakeValidPte.c)
- *     MiUnlockWorkingSetShared @ 0x1402EB6C0 (MiUnlockWorkingSetShared.c)
- *     MiLockWorkingSetShared @ 0x1402EDD60 (MiLockWorkingSetShared.c)
- *     MiReferenceIoPages @ 0x1402EFF98 (MiReferenceIoPages.c)
- *     MiIoSpaceGetBounds @ 0x140313748 (MiIoSpaceGetBounds.c)
- *     MiMakeProtectionPfnCompatible @ 0x14033C7D0 (MiMakeProtectionPfnCompatible.c)
- *     MiLockWorkingSetSharedAtDpc @ 0x1403654E4 (MiLockWorkingSetSharedAtDpc.c)
- *     MiIncreaseUsedPtes @ 0x140365F20 (MiIncreaseUsedPtes.c)
- *     MiShowBadMapper @ 0x1403669CC (MiShowBadMapper.c)
- *     MiLookupIoPageNode @ 0x140367E4C (MiLookupIoPageNode.c)
- *     MiMapMdlWithLargePages @ 0x140502900 (MiMapMdlWithLargePages.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     MiAssignInitialPageAttribute @ 0x1402A2190 (MiAssignInitialPageAttribute.c)
+ *     MiUnlockPageTableInternal @ 0x1402B31A0 (MiUnlockPageTableInternal.c)
+ *     MiMakeValidPte @ 0x1402BBDE0 (MiMakeValidPte.c)
+ *     MiUnlockWorkingSetShared @ 0x1402CD700 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x1402CFDE0 (MiLockWorkingSetShared.c)
+ *     MiReferenceIoPages @ 0x1402D2018 (MiReferenceIoPages.c)
+ *     MiLockPageTableInternal @ 0x1402FE1B0 (MiLockPageTableInternal.c)
+ *     MiIoSpaceGetBounds @ 0x140315778 (MiIoSpaceGetBounds.c)
+ *     MiMakeProtectionPfnCompatible @ 0x14033E850 (MiMakeProtectionPfnCompatible.c)
+ *     MiLockWorkingSetSharedAtDpc @ 0x140367284 (MiLockWorkingSetSharedAtDpc.c)
+ *     MiIncreaseUsedPtes @ 0x140367CC0 (MiIncreaseUsedPtes.c)
+ *     MiShowBadMapper @ 0x14036876C (MiShowBadMapper.c)
+ *     MiLookupIoPageNode @ 0x140369BEC (MiLookupIoPageNode.c)
+ *     MiMapMdlWithLargePages @ 0x1404FC1D0 (MiMapMdlWithLargePages.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall MiMapMdlCommon(_DWORD *a1, unsigned __int64 *a2, __int64 a3, unsigned int a4, int a5)
@@ -115,12 +115,12 @@ __int64 __fastcall MiMapMdlCommon(_DWORD *a1, unsigned __int64 *a2, __int64 a3, 
     {
       v57 = v18[1];
       v20 = v57;
-      if ( v57 > qword_140E2D7A0 )
+      if ( v57 > qword_140E2D920 )
         goto LABEL_5;
       if ( ((*(_QWORD *)(48 * v57 - 0x21FFFFFFFFD8LL) >> 54) & 1) == 0 )
         break;
       v45 = 48 * v57 - 0x220000000000LL;
-      if ( !(unsigned __int16)*(_DWORD *)(v45 + 32) && LODWORD(stru_140E2EB88.Timer.TimerListEntry.Flink) == 2 )
+      if ( !(unsigned __int16)*(_DWORD *)(v45 + 32) && LODWORD(stru_140E2ED08.Timer.TimerListEntry.Flink) == 2 )
         MiShowBadMapper(v57, 2uLL);
       if ( (*(_DWORD *)(v45 + 32) & 0xC00000) == 0xC00000 )
         MiAssignInitialPageAttribute(48 * v20 - 0x220000000000LL, a5);
@@ -168,12 +168,12 @@ LABEL_5:
       v11 = (*(_DWORD *)(v19
                        + 4
                        * ((unsigned __int64)(2
-                                           * (((unsigned int)v57 & ((unsigned int)(1LL << ((unsigned __int8)dword_140E2D6F8
+                                           * (((unsigned int)v57 & ((unsigned int)(1LL << ((unsigned __int8)dword_140E2D878
                                                                                          - 12))
                                                                   - 1))
                                             - *(_DWORD *)(v19 + 24))) >> 5)
                        + 44) >> (2
-                               * ((v57 & ((1LL << ((unsigned __int8)dword_140E2D6F8 - 12)) - 1)) - *(_BYTE *)(v19 + 24)))) & 3;
+                               * ((v57 & ((1LL << ((unsigned __int8)dword_140E2D878 - 12)) - 1)) - *(_BYTE *)(v19 + 24)))) & 3;
       --v15;
     }
     else
@@ -225,7 +225,7 @@ LABEL_5:
               v26 = *v25;
               if ( *v25 != *(v25 - 1) + 1
                 || (v26 & 0x1FF) == 0
-                || v26 <= qword_140E2D7A0 && ((*(_QWORD *)(48 * v26 - 0x21FFFFFFFFD8LL) >> 54) & 1) != 0 )
+                || v26 <= qword_140E2D920 && ((*(_QWORD *)(48 * v26 - 0x21FFFFFFFFD8LL) >> 54) & 1) != 0 )
               {
                 break;
               }
@@ -252,12 +252,12 @@ LABEL_5:
           v11 = (*(_DWORD *)(v55
                            + 4
                            * ((unsigned __int64)(2
-                                               * (((unsigned int)v20 & ((unsigned int)(1LL << ((unsigned __int8)dword_140E2D6F8
+                                               * (((unsigned int)v20 & ((unsigned int)(1LL << ((unsigned __int8)dword_140E2D878
                                                                                              - 12))
                                                                       - 1))
                                                 - *(_DWORD *)(v55 + 24))) >> 5)
                            + 44) >> (2
-                                   * ((v20 & ((1LL << ((unsigned __int8)dword_140E2D6F8 - 12)) - 1))
+                                   * ((v20 & ((1LL << ((unsigned __int8)dword_140E2D878 - 12)) - 1))
                                     - *(_BYTE *)(v55 + 24)))) & 3;
         }
         v6 = a4;
@@ -336,7 +336,7 @@ LABEL_116:
     v35 = *(unsigned __int64 *)((char *)v33 + v34 + 48);
     v36 = (int)v13;
     v37 = 6 * v35;
-    if ( v35 <= qword_140E2D7A0 && ((*(_QWORD *)(48 * v35 - 0x21FFFFFFFFD8LL) >> 54) & 1) != 0 )
+    if ( v35 <= qword_140E2D920 && ((*(_QWORD *)(48 * v35 - 0x21FFFFFFFFD8LL) >> 54) & 1) != 0 )
     {
       v41 = MiMakeProtectionPfnCompatible(a4, 48 * v35 - 0x220000000000LL);
       goto LABEL_56;

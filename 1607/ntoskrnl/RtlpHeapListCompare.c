@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpHeapListCompare @ 0x140094D20
+ * XREFs of RtlpHeapListCompare @ 0x140094520
  * Callers:
- *     RtlpHeapAddListEntry @ 0x140093EE8 (RtlpHeapAddListEntry.c)
- *     RtlpHeapRemoveListEntry @ 0x1400949E8 (RtlpHeapRemoveListEntry.c)
- *     RtlpHeapFindListLookupEntry @ 0x140094B44 (RtlpHeapFindListLookupEntry.c)
+ *     RtlpHeapAddListEntry @ 0x1400936E8 (RtlpHeapAddListEntry.c)
+ *     RtlpHeapRemoveListEntry @ 0x1400941E8 (RtlpHeapRemoveListEntry.c)
+ *     RtlpHeapFindListLookupEntry @ 0x140094344 (RtlpHeapFindListLookupEntry.c)
  * Callees:
- *     RtlpLogHeapFailure @ 0x140159514 (RtlpLogHeapFailure.c)
+ *     RtlpLogHeapFailure @ 0x140159A84 (RtlpLogHeapFailure.c)
  */
 
 __int64 __fastcall RtlpHeapListCompare(__int64 a1, __int64 a2, int a3, char a4)

@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpKeyFullNameLength @ 0x140092970
+ * XREFs of CmpKeyFullNameLength @ 0x140092170
  * Callers:
- *     CmpConstructNameFromKeyNodes @ 0x14002D790 (CmpConstructNameFromKeyNodes.c)
- *     CmpConstructNameFromKcbNameBlocks @ 0x1401B49BC (CmpConstructNameFromKcbNameBlocks.c)
- *     CmpCreateKeyControlBlock @ 0x140434610 (CmpCreateKeyControlBlock.c)
+ *     CmpConstructNameFromKeyNodes @ 0x14002D310 (CmpConstructNameFromKeyNodes.c)
+ *     CmpConstructNameFromKcbNameBlocks @ 0x1401B48A0 (CmpConstructNameFromKcbNameBlocks.c)
+ *     CmpCreateKeyControlBlock @ 0x1404334E0 (CmpCreateKeyControlBlock.c)
  * Callees:
  *     <none>
  */

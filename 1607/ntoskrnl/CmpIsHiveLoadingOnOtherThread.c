@@ -1,7 +1,7 @@
 /*
- * XREFs of CmpIsHiveLoadingOnOtherThread @ 0x1404A0EB8
+ * XREFs of CmpIsHiveLoadingOnOtherThread @ 0x1405192C4
  * Callers:
- *     CmpPerformCompleteKcbCacheLookup @ 0x1404A000C (CmpPerformCompleteKcbCacheLookup.c)
+ *     CmpPerformCompleteKcbCacheLookup @ 0x140518418 (CmpPerformCompleteKcbCacheLookup.c)
  * Callees:
  *     <none>
  */

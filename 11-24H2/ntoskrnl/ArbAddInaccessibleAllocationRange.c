@@ -1,13 +1,13 @@
 /*
- * XREFs of ArbAddInaccessibleAllocationRange @ 0x1407047B0
+ * XREFs of ArbAddInaccessibleAllocationRange @ 0x140702370
  * Callers:
- *     IopMemInitialize @ 0x140725C18 (IopMemInitialize.c)
+ *     IopMemInitialize @ 0x1407237A8 (IopMemInitialize.c)
  * Callees:
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwOpenKey @ 0x1406A6650 (ZwOpenKey.c)
- *     ArbpGetRegistryValue @ 0x140706A24 (ArbpGetRegistryValue.c)
- *     RtlAddRange @ 0x140A76A90 (RtlAddRange.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwOpenKey @ 0x1406A75F0 (ZwOpenKey.c)
+ *     ArbpGetRegistryValue @ 0x1407045E4 (ArbpGetRegistryValue.c)
+ *     RtlAddRange @ 0x140A70BB0 (RtlAddRange.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __fastcall ArbAddInaccessibleAllocationRange(__int64 a1, int a2)

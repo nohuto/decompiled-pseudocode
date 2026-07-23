@@ -3,8 +3,8 @@
  * Callers:
  *     LdrpResSearchResourceInsideDirectory @ 0x1800385D8 (LdrpResSearchResourceInsideDirectory.c)
  * Callees:
- *     __security_check_cookie @ 0x18008FEC0 (__security_check_cookie.c)
- *     wcsncmp @ 0x180095B70 (wcsncmp.c)
+ *     __security_check_cookie @ 0x18008FED0 (__security_check_cookie.c)
+ *     wcsncmp @ 0x180095B80 (wcsncmp.c)
  *     LdrpResReadFile @ 0x1800E5768 (LdrpResReadFile.c)
  */
 

@@ -8,16 +8,16 @@
  *     RtlDebugAllocateHeap @ 0x180105270 (RtlDebugAllocateHeap.c)
  *     RtlDebugCreateHeap @ 0x180105A48 (RtlDebugCreateHeap.c)
  *     RtlDebugReAllocateHeap @ 0x180106B14 (RtlDebugReAllocateHeap.c)
- *     RtlLogStackBackTrace @ 0x18010F310 (RtlLogStackBackTrace.c)
+ *     RtlLogStackBackTrace @ 0x18010F2E0 (RtlLogStackBackTrace.c)
  * Callees:
- *     RtlStdLogStackTrace @ 0x18010F5F0 (RtlStdLogStackTrace.c)
- *     RtlStdReleaseStackTrace @ 0x18010F650 (RtlStdReleaseStackTrace.c)
- *     RtlpStdGetRecordedStackTraceIndex @ 0x18010FA1C (RtlpStdGetRecordedStackTraceIndex.c)
+ *     RtlStdLogStackTrace @ 0x18010F5C0 (RtlStdLogStackTrace.c)
+ *     RtlStdReleaseStackTrace @ 0x18010F620 (RtlStdReleaseStackTrace.c)
+ *     RtlpStdGetRecordedStackTraceIndex @ 0x18010F9EC (RtlpStdGetRecordedStackTraceIndex.c)
  */
 
 __int64 __fastcall RtlLogStackBackTraceEx(unsigned int a1)
 {
-  __int64 v1; // rbx
+  PRTL_SRWLOCK v1; // rbx
   __int64 v3; // rax
   __int64 v4; // rsi
   unsigned int RecordedStackTraceIndex; // edi

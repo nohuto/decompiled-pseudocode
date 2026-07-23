@@ -1,9 +1,9 @@
 /*
- * XREFs of ViDeadlockAddThread @ 0x140B98AC8
+ * XREFs of ViDeadlockAddThread @ 0x140B9AAC8
  * Callers:
- *     VfDeadlockAcquireResource @ 0x140BA83C4 (VfDeadlockAcquireResource.c)
+ *     VfDeadlockAcquireResource @ 0x140BAA3C4 (VfDeadlockAcquireResource.c)
  * Callees:
- *     VfUtilAddressRangeAdd @ 0x140B83118 (VfUtilAddressRangeAdd.c)
+ *     VfUtilAddressRangeAdd @ 0x140B85118 (VfUtilAddressRangeAdd.c)
  */
 
 __int64 __fastcall ViDeadlockAddThread(unsigned __int64 a1, __int64 a2)

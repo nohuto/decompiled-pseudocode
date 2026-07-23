@@ -1,31 +1,31 @@
 /*
- * XREFs of PopCheckAndClearBootError @ 0x140C2D62C
+ * XREFs of PopCheckAndClearBootError @ 0x140C2F74C
  * Callers:
- *     PoInitSystem @ 0x140C61990 (PoInitSystem.c)
+ *     PoInitSystem @ 0x140C63AE4 (PoInitSystem.c)
  * Callees:
- *     PopTraceBootError @ 0x1405D5E58 (PopTraceBootError.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     RtlGetSystemBootStatus @ 0x140782DB0 (RtlGetSystemBootStatus.c)
- *     RtlSetSystemBootStatus @ 0x140A6C590 (RtlSetSystemBootStatus.c)
+ *     PopTraceBootError @ 0x1405D346C (PopTraceBootError.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     RtlGetSystemBootStatus @ 0x140782CE0 (RtlGetSystemBootStatus.c)
+ *     RtlSetSystemBootStatus @ 0x140A65AF0 (RtlSetSystemBootStatus.c)
  */
 
-NTSTATUS PopCheckAndClearBootError()
+int PopCheckAndClearBootError()
 {
-  NTSTATUS result; // eax
-  __int128 v1; // [rsp+20h] [rbp-28h] BYREF
+  int result; // eax
+  __int128 DataBuffer; // [rsp+20h] [rbp-28h] BYREF
   int v2; // [rsp+30h] [rbp-18h]
 
   v2 = 0;
-  v1 = 0LL;
-  result = RtlGetSystemBootStatus(13, (__int64)&v1, 20);
+  DataBuffer = 0LL;
+  result = RtlGetSystemBootStatus(RtlBsdItemErrorInfo, &DataBuffer, 0x14u, 0LL);
   if ( result >= 0 )
   {
-    if ( HIDWORD(v1) )
+    if ( HIDWORD(DataBuffer) )
     {
       PopTraceBootError();
       v2 = 0;
-      v1 = 0LL;
-      return RtlSetSystemBootStatus(13, (__int64)&v1, 20, 0LL);
+      DataBuffer = 0LL;
+      return RtlSetSystemBootStatus(RtlBsdItemErrorInfo, &DataBuffer, 0x14u, 0LL);
     }
   }
   return result;

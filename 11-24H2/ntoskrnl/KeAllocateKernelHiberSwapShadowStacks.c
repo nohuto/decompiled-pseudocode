@@ -1,14 +1,14 @@
 /*
- * XREFs of KeAllocateKernelHiberSwapShadowStacks @ 0x1405BC2A8
+ * XREFs of KeAllocateKernelHiberSwapShadowStacks @ 0x1405B98D8
  * Callers:
- *     VslAllocateSecureHibernateResources @ 0x14070F508 (VslAllocateSecureHibernateResources.c)
- *     VslFreeSecureHibernateResources @ 0x14070F864 (VslFreeSecureHibernateResources.c)
+ *     VslAllocateSecureHibernateResources @ 0x14070D098 (VslAllocateSecureHibernateResources.c)
+ *     VslFreeSecureHibernateResources @ 0x14070D3F4 (VslFreeSecureHibernateResources.c)
  * Callees:
- *     KeReleaseGuardedMutex @ 0x14031E470 (KeReleaseGuardedMutex.c)
- *     ExAcquireFastMutex @ 0x14033E850 (ExAcquireFastMutex.c)
- *     KeGetPrcb @ 0x140352980 (KeGetPrcb.c)
- *     KeEnumerateNextProcessor @ 0x14040D4F0 (KeEnumerateNextProcessor.c)
- *     KiAllocateProcessorHiberSwapShadowStacks @ 0x1405BC3A4 (KiAllocateProcessorHiberSwapShadowStacks.c)
+ *     KeGetPrcb @ 0x1402B0A10 (KeGetPrcb.c)
+ *     KeReleaseGuardedMutex @ 0x1402C7000 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x14031DD30 (ExAcquireFastMutex.c)
+ *     KeEnumerateNextProcessor @ 0x140405740 (KeEnumerateNextProcessor.c)
+ *     KiAllocateProcessorHiberSwapShadowStacks @ 0x1405B99D4 (KiAllocateProcessorHiberSwapShadowStacks.c)
  */
 
 __int64 __fastcall KeAllocateKernelHiberSwapShadowStacks(unsigned int a1)

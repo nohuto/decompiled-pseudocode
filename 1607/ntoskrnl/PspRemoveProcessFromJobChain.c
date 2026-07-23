@@ -1,26 +1,26 @@
 /*
- * XREFs of PspRemoveProcessFromJobChain @ 0x140469654
+ * XREFs of PspRemoveProcessFromJobChain @ 0x140468524
  * Callers:
- *     PspTerminateProcessesJobCallback @ 0x1404580A8 (PspTerminateProcessesJobCallback.c)
- *     PspRundownSingleProcess @ 0x14045E0C0 (PspRundownSingleProcess.c)
- *     PspProcessDelete @ 0x140460828 (PspProcessDelete.c)
- *     PspEnforceLimitsJobPostCallback @ 0x1404688C0 (PspEnforceLimitsJobPostCallback.c)
- *     PspAssignProcessToJob @ 0x1404F2C60 (PspAssignProcessToJob.c)
+ *     PspTerminateProcessesJobCallback @ 0x140456F78 (PspTerminateProcessesJobCallback.c)
+ *     PspRundownSingleProcess @ 0x14045CF90 (PspRundownSingleProcess.c)
+ *     PspProcessDelete @ 0x14045F6F8 (PspProcessDelete.c)
+ *     PspEnforceLimitsJobPostCallback @ 0x140467790 (PspEnforceLimitsJobPostCallback.c)
+ *     PspAssignProcessToJob @ 0x1404D5BEC (PspAssignProcessToJob.c)
  * Callees:
- *     PspSendJobNotification @ 0x1400AC040 (PspSendJobNotification.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     PsQueryStatisticsProcess @ 0x14044EBC0 (PsQueryStatisticsProcess.c)
- *     PspLockRootJobFromProcess @ 0x140466F30 (PspLockRootJobFromProcess.c)
- *     PspUnlockJob @ 0x140468EB0 (PspUnlockJob.c)
- *     PspUnlockJobConditionally @ 0x140469924 (PspUnlockJobConditionally.c)
- *     PspLockJobConditionally @ 0x140469940 (PspLockJobConditionally.c)
- *     PspChangeProcessExecutionState @ 0x140469960 (PspChangeProcessExecutionState.c)
- *     PspFoldProcessAccountingIntoJob @ 0x14046A07C (PspFoldProcessAccountingIntoJob.c)
- *     PsTerminateProcess @ 0x1404EC470 (PsTerminateProcess.c)
- *     PspUnlinkJobProcess @ 0x1404F23D8 (PspUnlinkJobProcess.c)
- *     PspWaitForUsermodeExit @ 0x14067FDFC (PspWaitForUsermodeExit.c)
- *     PspSubtractAccountingValues @ 0x140680EB4 (PspSubtractAccountingValues.c)
- *     EtwTraceJobRemoveProcess @ 0x1406A18DC (EtwTraceJobRemoveProcess.c)
+ *     PspSendJobNotification @ 0x1400AA5A8 (PspSendJobNotification.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     PsQueryStatisticsProcess @ 0x14044DA90 (PsQueryStatisticsProcess.c)
+ *     PspLockRootJobFromProcess @ 0x140465E00 (PspLockRootJobFromProcess.c)
+ *     PspUnlockJob @ 0x140467D80 (PspUnlockJob.c)
+ *     PspUnlockJobConditionally @ 0x1404687F4 (PspUnlockJobConditionally.c)
+ *     PspLockJobConditionally @ 0x140468810 (PspLockJobConditionally.c)
+ *     PspChangeProcessExecutionState @ 0x140468830 (PspChangeProcessExecutionState.c)
+ *     PspFoldProcessAccountingIntoJob @ 0x140468F4C (PspFoldProcessAccountingIntoJob.c)
+ *     PsTerminateProcess @ 0x1404CE4F8 (PsTerminateProcess.c)
+ *     PspUnlinkJobProcess @ 0x1404D5364 (PspUnlinkJobProcess.c)
+ *     PspWaitForUsermodeExit @ 0x14067FEE0 (PspWaitForUsermodeExit.c)
+ *     PspSubtractAccountingValues @ 0x140680F98 (PspSubtractAccountingValues.c)
+ *     EtwTraceJobRemoveProcess @ 0x1406A1A14 (EtwTraceJobRemoveProcess.c)
  */
 
 __int64 __fastcall PspRemoveProcessFromJobChain(

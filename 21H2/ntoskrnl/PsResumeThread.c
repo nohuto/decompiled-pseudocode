@@ -1,40 +1,40 @@
 /*
- * XREFs of PsResumeThread @ 0x14064CCE0
+ * XREFs of PsResumeThread @ 0x140641B00
  * Callers:
- *     NtResumeThread @ 0x14064CC20 (NtResumeThread.c)
- *     DbgkpPostFakeThreadMessages @ 0x140884E94 (DbgkpPostFakeThreadMessages.c)
- *     DbgkpWakeTarget @ 0x140885B10 (DbgkpWakeTarget.c)
- *     DbgkQueueUserExceptionReport @ 0x140886810 (DbgkQueueUserExceptionReport.c)
- *     DbgkUserReportWorkRoutine @ 0x140886D50 (DbgkUserReportWorkRoutine.c)
+ *     NtResumeThread @ 0x140641A40 (NtResumeThread.c)
+ *     DbgkpPostFakeThreadMessages @ 0x140884FF4 (DbgkpPostFakeThreadMessages.c)
+ *     DbgkpWakeTarget @ 0x140885C70 (DbgkpWakeTarget.c)
+ *     DbgkQueueUserExceptionReport @ 0x140886970 (DbgkQueueUserExceptionReport.c)
+ *     DbgkUserReportWorkRoutine @ 0x140886EB0 (DbgkUserReportWorkRoutine.c)
  * Callees:
- *     KeResumeThread @ 0x14027A148 (KeResumeThread.c)
- *     EtwTiLogSuspendResumeThread @ 0x14093BC14 (EtwTiLogSuspendResumeThread.c)
+ *     KeResumeThread @ 0x1402680E8 (KeResumeThread.c)
+ *     EtwTiLogSuspendResumeThread @ 0x14093BDE4 (EtwTiLogSuspendResumeThread.c)
  */
 
-__int64 __fastcall PsResumeThread(__int64 a1, _DWORD *a2, __int64 a3, _DWORD *a4)
+__int64 __fastcall PsResumeThread(__int64 a1, _DWORD *a2)
 {
-  int v6; // eax
+  int v4; // eax
   struct _KTHREAD *CurrentThread; // rdx
-  int v8; // esi
-  __int64 v9; // r8
-  int v10; // ecx
+  int v6; // esi
+  __int64 v7; // r8
+  int v8; // ecx
 
-  v6 = KeResumeThread(a1, (__int64)a2, a3, a4);
+  v4 = KeResumeThread(a1);
   CurrentThread = KeGetCurrentThread();
-  v8 = v6;
-  if ( v6 == 1 )
+  v6 = v4;
+  if ( v4 == 1 )
   {
-    v9 = *(_QWORD *)(a1 + 544);
-    v10 = *(_DWORD *)(v9 + 2172);
-    if ( (v10 & 0x8000) == 0 )
+    v7 = *(_QWORD *)(a1 + 544);
+    v8 = *(_DWORD *)(v7 + 2172);
+    if ( (v8 & 0x8000) == 0 )
     {
-      _InterlockedOr((volatile signed __int32 *)(v9 + 2172), 0x8000u);
-      v10 = *(_DWORD *)(v9 + 2172);
+      _InterlockedOr((volatile signed __int32 *)(v7 + 2172), 0x8000u);
+      v8 = *(_DWORD *)(v7 + 2172);
     }
-    if ( (v10 & 0x100000) != 0 )
+    if ( (v8 & 0x100000) != 0 )
       EtwTiLogSuspendResumeThread(0LL, CurrentThread, a1, 0LL);
   }
   if ( a2 )
-    *a2 = v8;
+    *a2 = v6;
   return 0LL;
 }

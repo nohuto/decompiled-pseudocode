@@ -1,11 +1,11 @@
 /*
- * XREFs of swprintf @ 0x14014ED08
+ * XREFs of swprintf @ 0x14014F2C8
  * Callers:
  *     <none>
  * Callees:
- *     xHalFreeMessageTarget @ 0x140130D64 (xHalFreeMessageTarget.c)
- *     _flsbuf @ 0x14014FB84 (_flsbuf.c)
- *     _woutput_l @ 0x14014FB8C (_woutput_l.c)
+ *     xHalFreeMessageTarget @ 0x1401312D4 (xHalFreeMessageTarget.c)
+ *     _woutput_l @ 0x140150144 (_woutput_l.c)
+ *     _flsbuf @ 0x1401569B8 (_flsbuf.c)
  */
 
 int swprintf(wchar_t *a1, const wchar_t *a2, ...)

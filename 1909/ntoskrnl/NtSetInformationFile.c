@@ -84,7 +84,7 @@ NTSTATUS __stdcall NtSetInformationFile(
   struct _DEVICE_OBJECT *i; // rax
   struct _KTHREAD *v21; // rax
   volatile __int32 *v22; // rbx
-  __int64 v23; // r9
+  PRTL_BALANCED_NODE v23; // r9
   LARGE_INTEGER v24; // rax
   struct _KTHREAD *v25; // rcx
   char *v26; // rbx
@@ -327,7 +327,7 @@ LABEL_38:
     else
     {
       if ( v23 )
-        *(_BYTE *)(v23 + 26) |= 1u;
+        BYTE2(v23[1].Left) |= 1u;
       v16 = (struct _FILE_OBJECT *)Object;
       ObfReferenceObject(Object);
       v15 = 0;

@@ -1,26 +1,26 @@
 /*
- * XREFs of EtwpLogSystemEventUnsafe @ 0x1403AEB1C
+ * XREFs of EtwpLogSystemEventUnsafe @ 0x1403AEC8C
  * Callers:
- *     NtTraceEvent @ 0x14025CC60 (NtTraceEvent.c)
- *     EtwpTraceThreadRundown @ 0x1403AE820 (EtwpTraceThreadRundown.c)
- *     EtwpLogRegistryEvent @ 0x140936F04 (EtwpLogRegistryEvent.c)
- *     EtwpSetMark @ 0x1409373DC (EtwpSetMark.c)
+ *     NtTraceEvent @ 0x14027E790 (NtTraceEvent.c)
+ *     EtwpTraceThreadRundown @ 0x1403AE970 (EtwpTraceThreadRundown.c)
+ *     EtwpLogRegistryEvent @ 0x1409370D4 (EtwpLogRegistryEvent.c)
+ *     EtwpSetMark @ 0x1409375AC (EtwpSetMark.c)
  * Callees:
- *     EtwpOpenLogger @ 0x14025DB98 (EtwpOpenLogger.c)
- *     EtwpReleaseTraceBuffer @ 0x14025DC40 (EtwpReleaseTraceBuffer.c)
- *     EtwpReserveTraceBuffer @ 0x1403506F0 (EtwpReserveTraceBuffer.c)
- *     EtwpUpdateEventsLostCount @ 0x14036CD78 (EtwpUpdateEventsLostCount.c)
- *     EtwpCloseLogger @ 0x140379F38 (EtwpCloseLogger.c)
- *     EtwpCopyEventData @ 0x1403AF3D8 (EtwpCopyEventData.c)
- *     memset @ 0x140414200 (memset.c)
- *     EtwpStackTraceDispatcher @ 0x1405A6F00 (EtwpStackTraceDispatcher.c)
- *     EtwpSendTraceEvent @ 0x1405AAB68 (EtwpSendTraceEvent.c)
- *     EtwpInvokeEventCallback @ 0x1405AB678 (EtwpInvokeEventCallback.c)
- *     EtwpTraceLastBranchRecord @ 0x1405B02B4 (EtwpTraceLastBranchRecord.c)
- *     EtwpTraceProcessorTrace @ 0x1405B04B8 (EtwpTraceProcessorTrace.c)
+ *     EtwpOpenLogger @ 0x14027F6C8 (EtwpOpenLogger.c)
+ *     EtwpReleaseTraceBuffer @ 0x14027F770 (EtwpReleaseTraceBuffer.c)
+ *     EtwpReserveTraceBuffer @ 0x14035B440 (EtwpReserveTraceBuffer.c)
+ *     EtwpUpdateEventsLostCount @ 0x14036CF28 (EtwpUpdateEventsLostCount.c)
+ *     EtwpCloseLogger @ 0x140379A88 (EtwpCloseLogger.c)
+ *     EtwpCopyEventData @ 0x1403AF548 (EtwpCopyEventData.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     EtwpStackTraceDispatcher @ 0x1405A7130 (EtwpStackTraceDispatcher.c)
+ *     EtwpSendTraceEvent @ 0x1405AAD98 (EtwpSendTraceEvent.c)
+ *     EtwpInvokeEventCallback @ 0x1405AB8A8 (EtwpInvokeEventCallback.c)
+ *     EtwpTraceLastBranchRecord @ 0x1405B04E4 (EtwpTraceLastBranchRecord.c)
+ *     EtwpTraceProcessorTrace @ 0x1405B06E8 (EtwpTraceProcessorTrace.c)
  */
 
-unsigned int *EtwpLogSystemEventUnsafe(
+unsigned int *__fastcall EtwpLogSystemEventUnsafe(
         __int64 a1,
         __int64 a2,
         _DWORD *a3,
@@ -28,8 +28,7 @@ unsigned int *EtwpLogSystemEventUnsafe(
         unsigned int a5,
         __int16 a6,
         unsigned int a7,
-        char a8,
-        ...)
+        char a8)
 {
   unsigned int v10; // ebx
   unsigned int *result; // rax
@@ -50,7 +49,7 @@ unsigned int *EtwpLogSystemEventUnsafe(
   __int64 v26; // rcx
   char v27[4]; // [rsp+30h] [rbp-88h] BYREF
   unsigned int v28; // [rsp+34h] [rbp-84h]
-  signed __int64 v29; // [rsp+38h] [rbp-80h] BYREF
+  LARGE_INTEGER v29; // [rsp+38h] [rbp-80h] BYREF
   int v30; // [rsp+40h] [rbp-78h]
   unsigned int *v31; // [rsp+48h] [rbp-70h]
   unsigned __int64 v32; // [rsp+50h] [rbp-68h]
@@ -62,7 +61,7 @@ unsigned int *EtwpLogSystemEventUnsafe(
   v35 = 0LL;
   v10 = 0;
   v27[0] = 0;
-  v29 = 0LL;
+  v29.QuadPart = 0LL;
   result = (unsigned int *)EtwpOpenLogger(a4, a1, 1, v27);
   v31 = result;
   v12 = (__int64)result;
@@ -91,7 +90,7 @@ unsigned int *EtwpLogSystemEventUnsafe(
       if ( (a7 & 0xC0000000) != 0x80000000 )
         v17 = -1073610752;
       *(_DWORD *)v16 = (unsigned __int8)a7 | v17;
-      *(_QWORD *)(v16 + 16) = v29;
+      *(LARGE_INTEGER *)(v16 + 16) = v29;
       *(_WORD *)(v16 + 4) = v13 + 32;
       *(_WORD *)(v16 + 6) = a6;
       *(_DWORD *)(v16 + 8) = a3[288];

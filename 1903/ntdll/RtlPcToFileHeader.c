@@ -8,7 +8,7 @@
 
 PVOID __stdcall RtlPcToFileHeader(PVOID PcValue, PVOID *BaseOfImage)
 {
-  unsigned __int64 v2; // r9
+  char *v2; // r9
   PVOID result; // rax
   __int128 v5; // [rsp+20h] [rbp-28h] BYREF
 
@@ -16,7 +16,7 @@ PVOID __stdcall RtlPcToFileHeader(PVOID PcValue, PVOID *BaseOfImage)
     || (unsigned __int64)PcValue >= *((_QWORD *)&xmmword_18017A4E0 + 1)
                                   + (unsigned __int64)(unsigned int)qword_18017A4F0 )
   {
-    sub_18001E620((unsigned __int64)PcValue, (signed __int64)&v5, *((unsigned __int64 *)&xmmword_18017A4E0 + 1), v2);
+    sub_18001E620((unsigned __int64)PcValue, (signed __int64)&v5, *((char **)&xmmword_18017A4E0 + 1), v2);
   }
   else
   {

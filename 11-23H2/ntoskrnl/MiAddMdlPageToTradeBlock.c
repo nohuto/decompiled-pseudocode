@@ -1,7 +1,7 @@
 /*
- * XREFs of MiAddMdlPageToTradeBlock @ 0x1403BC0C8
+ * XREFs of MiAddMdlPageToTradeBlock @ 0x1403BC2A8
  * Callers:
- *     MiTradePage @ 0x1403BA960 (MiTradePage.c)
+ *     MiTradePage @ 0x1403BAB40 (MiTradePage.c)
  * Callees:
  *     <none>
  */

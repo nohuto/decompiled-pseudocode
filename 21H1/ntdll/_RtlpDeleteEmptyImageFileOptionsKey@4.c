@@ -14,18 +14,18 @@ int __thiscall RtlpDeleteEmptyImageFileOptionsKey(unsigned __int16 *this)
   int v2; // esi
   int result; // eax
   char IsEmptyImageFileOptionsKey; // bl
-  HANDLE Handle; // [esp+Ch] [ebp-4h] BYREF
+  HANDLE KeyHandle; // [esp+Ch] [ebp-4h] BYREF
 
   v2 = 0;
   while ( 1 )
   {
-    result = RtlpOpenImageFileOptionsKeyEx(this, 65545, 0, &Handle);
+    result = RtlpOpenImageFileOptionsKeyEx(this, 0x10009u, 0, &KeyHandle);
     if ( result < 0 )
       break;
-    IsEmptyImageFileOptionsKey = RtlpIsEmptyImageFileOptionsKey(Handle);
+    IsEmptyImageFileOptionsKey = RtlpIsEmptyImageFileOptionsKey(KeyHandle);
     if ( IsEmptyImageFileOptionsKey )
-      ZwDeleteKey((int)Handle);
-    NtClose(Handle);
+      ZwDeleteKey(KeyHandle);
+    NtClose(KeyHandle);
     if ( IsEmptyImageFileOptionsKey )
     {
       if ( (unsigned int)++v2 < 2 )

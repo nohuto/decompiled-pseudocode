@@ -1,15 +1,15 @@
 /*
- * XREFs of SepAddTokenLogonSession @ 0x140793570
+ * XREFs of SepAddTokenLogonSession @ 0x140793610
  * Callers:
- *     SepCreateTokenEx @ 0x1403645F4 (SepCreateTokenEx.c)
- *     SepSetServerSiloToken @ 0x14078FC08 (SepSetServerSiloToken.c)
- *     SepDuplicateToken @ 0x140856520 (SepDuplicateToken.c)
- *     SepFilterToken @ 0x140AD2664 (SepFilterToken.c)
+ *     SepCreateTokenEx @ 0x1403E9CAC (SepCreateTokenEx.c)
+ *     SepSetServerSiloToken @ 0x14078FBD8 (SepSetServerSiloToken.c)
+ *     SepDuplicateToken @ 0x1408527E0 (SepDuplicateToken.c)
+ *     SepFilterToken @ 0x140985C1C (SepFilterToken.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x14025A450 (ExReleaseResourceLite.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402769C0 (ExAcquireResourceExclusiveLite.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14022BF50 (ExAcquireResourceExclusiveLite.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x14028AA60 (ExReleaseResourceLite.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 void __fastcall SepAddTokenLogonSession(__int64 a1)
@@ -36,7 +36,7 @@ void __fastcall SepAddTokenLogonSession(__int64 a1)
       && *(_DWORD *)(a1 + 28) == *((_DWORD *)i + 3)
       && *(_QWORD *)(*(_QWORD *)(a1 + 216) + 168LL) == i[21] )
     {
-      Pool2 = (__int64 **)ExAllocatePool2(0x100uLL);
+      Pool2 = (__int64 **)ExAllocatePool2(0x100uLL, 0x18uLL, 0x734C6553u);
       if ( Pool2 )
       {
         *Pool2 = 0LL;

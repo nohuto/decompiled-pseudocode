@@ -1,10 +1,10 @@
 /*
- * XREFs of ExpTryAcquireSpinLockShared @ 0x1400AFC20
+ * XREFs of ExpTryAcquireSpinLockShared @ 0x1400AFB60
  * Callers:
- *     MiOffsetToProtos @ 0x1400AF830 (MiOffsetToProtos.c)
- *     ExTryAcquireSpinLockSharedAtDpcLevel @ 0x14031C020 (ExTryAcquireSpinLockSharedAtDpcLevel.c)
- *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x14031C164 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
- *     ExpTryAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x14031C360 (ExpTryAcquireSpinLockSharedAtDpcLevelInstrumented.c)
+ *     MiOffsetToProtos @ 0x1400AF770 (MiOffsetToProtos.c)
+ *     ExTryAcquireSpinLockSharedAtDpcLevel @ 0x14031C210 (ExTryAcquireSpinLockSharedAtDpcLevel.c)
+ *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x14031C354 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
+ *     ExpTryAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x14031C550 (ExpTryAcquireSpinLockSharedAtDpcLevelInstrumented.c)
  * Callees:
  *     <none>
  */

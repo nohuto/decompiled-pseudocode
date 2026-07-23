@@ -1,9 +1,9 @@
 /*
- * XREFs of ExpDebuggerDpcRoutine @ 0x140193F80
+ * XREFs of ExpDebuggerDpcRoutine @ 0x1401940C0
  * Callers:
  *     <none>
  * Callees:
- *     ExQueueWorkItem @ 0x1400D1A00 (ExQueueWorkItem.c)
+ *     ExQueueWorkItem @ 0x1400D1A80 (ExQueueWorkItem.c)
  */
 
 void ExpDebuggerDpcRoutine()

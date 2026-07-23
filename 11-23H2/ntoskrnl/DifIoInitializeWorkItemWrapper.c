@@ -1,12 +1,12 @@
 /*
- * XREFs of DifIoInitializeWorkItemWrapper @ 0x1405E0070
+ * XREFs of DifIoInitializeWorkItemWrapper @ 0x1405E05E0
  * Callers:
  *     <none>
  * Callees:
- *     IoInitializeWorkItem @ 0x140366480 (IoInitializeWorkItem.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     DifGetAPIThunkContextById @ 0x1404664BE (DifGetAPIThunkContextById.c)
- *     DifGetReturnAddressForWrappers @ 0x1405F88C4 (DifGetReturnAddressForWrappers.c)
+ *     IoInitializeWorkItem @ 0x140366620 (IoInitializeWorkItem.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x1404668BE (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F8E34 (DifGetReturnAddressForWrappers.c)
  */
 
 void __fastcall DifIoInitializeWorkItemWrapper(PVOID IoObject, PIO_WORKITEM IoWorkItem)

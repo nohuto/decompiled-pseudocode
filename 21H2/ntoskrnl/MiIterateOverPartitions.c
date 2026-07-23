@@ -1,12 +1,12 @@
 /*
- * XREFs of MiIterateOverPartitions @ 0x1403841F0
+ * XREFs of MiIterateOverPartitions @ 0x140384340
  * Callers:
- *     MiLockAllMemoryLists @ 0x14038415C (MiLockAllMemoryLists.c)
- *     MiUnlockAllMemoryLists @ 0x140384198 (MiUnlockAllMemoryLists.c)
- *     MiResumeFromHibernate @ 0x1403841D0 (MiResumeFromHibernate.c)
+ *     MiLockAllMemoryLists @ 0x1403842AC (MiLockAllMemoryLists.c)
+ *     MiUnlockAllMemoryLists @ 0x1403842E8 (MiUnlockAllMemoryLists.c)
+ *     MiResumeFromHibernate @ 0x140384320 (MiResumeFromHibernate.c)
  *     MiMirrorBlackPhase @ 0x1403F4064 (MiMirrorBlackPhase.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall MiIterateOverPartitions(void (__fastcall *a1)(__int64, __int64), __int64 a2)
@@ -29,10 +29,10 @@ __int64 __fastcall MiIterateOverPartitions(void (__fastcall *a1)(__int64, __int6
   v2 = 0;
   while ( 1 )
   {
-    v5 = v2 < qword_140C4E628->SizeOfBitMap ? v2 : 0;
-    v6 = qword_140C4E628->SizeOfBitMap - 1;
-    v7 = ((__int64)qword_140C4E628->Buffer & 4) != 0LL ? 0x20 : 0;
-    v8 = (char *)qword_140C4E628->Buffer - (((__int64)qword_140C4E628->Buffer & 4) != 0 ? 4 : 0);
+    v5 = v2 < qword_140C4E668->SizeOfBitMap ? v2 : 0;
+    v6 = qword_140C4E668->SizeOfBitMap - 1;
+    v7 = ((__int64)qword_140C4E668->Buffer & 4) != 0LL ? 0x20 : 0;
+    v8 = (char *)qword_140C4E668->Buffer - (((__int64)qword_140C4E668->Buffer & 4) != 0 ? 4 : 0);
     while ( 1 )
     {
       v9 = v7 + v6;
@@ -60,8 +60,8 @@ LABEL_17:
       if ( !v5 )
         break;
       SizeOfBitMap = v2 + 1;
-      if ( v2 + 1 > qword_140C4E628->SizeOfBitMap )
-        SizeOfBitMap = qword_140C4E628->SizeOfBitMap;
+      if ( v2 + 1 > qword_140C4E668->SizeOfBitMap )
+        SizeOfBitMap = qword_140C4E668->SizeOfBitMap;
       v6 = SizeOfBitMap - 1;
       v5 = 0;
     }
@@ -71,7 +71,7 @@ LABEL_17:
     if ( (unsigned int)result < v2 || (_DWORD)result == -1 )
       return result;
     v2 = result + 1;
-    v16 = *(_QWORD *)(qword_140C4E648 + 8LL * (unsigned int)result);
+    v16 = *(_QWORD *)(qword_140C4E688 + 8LL * (unsigned int)result);
     if ( (*(_DWORD *)(v16 + 4) & 2) != 0 )
       a1(v16, a2);
   }

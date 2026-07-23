@@ -1,21 +1,21 @@
 /*
- * XREFs of NtOpenMutant @ 0x140AC59C0
+ * XREFs of NtOpenMutant @ 0x140AC7630
  * Callers:
- *     DifNtOpenMutantWrapper @ 0x14067DE20 (DifNtOpenMutantWrapper.c)
+ *     DifNtOpenMutantWrapper @ 0x140681A00 (DifNtOpenMutantWrapper.c)
  * Callees:
- *     PsGetCurrentSilo @ 0x14041BBC0 (PsGetCurrentSilo.c)
- *     RtlReadULong64FromUser @ 0x14077F554 (RtlReadULong64FromUser.c)
- *     RtlWriteULong64ToUser @ 0x14077F758 (RtlWriteULong64ToUser.c)
- *     ObOpenObjectByName @ 0x1408FC870 (ObOpenObjectByName.c)
- *     ObOpenObjectByNameEx @ 0x1408FCDF0 (ObOpenObjectByNameEx.c)
+ *     PsGetCurrentSilo @ 0x140413410 (PsGetCurrentSilo.c)
+ *     RtlReadULong64FromUser @ 0x140782054 (RtlReadULong64FromUser.c)
+ *     RtlWriteULong64ToUser @ 0x140782258 (RtlWriteULong64ToUser.c)
+ *     ObOpenObjectByName @ 0x14092C800 (ObOpenObjectByName.c)
+ *     ObOpenObjectByNameEx @ 0x14092CD80 (ObOpenObjectByNameEx.c)
  */
 
-__int64 __fastcall NtOpenMutant(_QWORD *a1, int a2, __int64 a3)
+NTSTATUS __cdecl NtOpenMutant(PHANDLE MutantHandle, ACCESS_MASK DesiredAccess, POBJECT_ATTRIBUTES ObjectAttributes)
 {
   char PreviousMode; // si
   POBJECT_TYPE v7; // rbx
   struct _LIST_ENTRY *CurrentSilo; // rax
-  int v9; // ebx
+  NTSTATUS v9; // ebx
   __int64 ULong64FromUser; // rax
   __int64 v12[4]; // [rsp+48h] [rbp-20h] BYREF
 
@@ -23,27 +23,35 @@ __int64 __fastcall NtOpenMutant(_QWORD *a1, int a2, __int64 a3)
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
   {
-    ULong64FromUser = RtlReadULong64FromUser(a1);
-    RtlWriteULong64ToUser(a1, ULong64FromUser);
+    ULong64FromUser = RtlReadULong64FromUser(MutantHandle);
+    RtlWriteULong64ToUser(MutantHandle, ULong64FromUser);
   }
   v7 = ExMutantObjectType;
   CurrentSilo = PsGetCurrentSilo();
-  v9 = ObOpenObjectByNameEx(a3, (__int64)v7, PreviousMode, 0LL, a2, 0LL, (__int64)CurrentSilo, v12);
-  if ( v9 == -1073741788 && WheapConfigTableLock.WaitBlock[1].WaitListEntry.Blink )
+  v9 = ObOpenObjectByNameEx(
+         (__int64)ObjectAttributes,
+         (__int64)v7,
+         PreviousMode,
+         0LL,
+         DesiredAccess,
+         0LL,
+         (__int64)CurrentSilo,
+         v12);
+  if ( v9 == -1073741788 && *(_QWORD *)&WheapConfigTableLock.WaitBlockFill11[64] )
     v9 = ObOpenObjectByName(
-           a3,
-           (__int64)WheapConfigTableLock.WaitBlock[1].WaitListEntry.Blink,
+           (__int64)ObjectAttributes,
+           *(__int64 *)&WheapConfigTableLock.WaitBlockFill11[64],
            PreviousMode,
            0LL,
-           a2,
+           DesiredAccess,
            0LL,
            (__int64)v12);
   if ( v9 >= 0 )
   {
     if ( PreviousMode )
-      RtlWriteULong64ToUser(a1, v12[0]);
+      RtlWriteULong64ToUser(MutantHandle, v12[0]);
     else
-      *a1 = v12[0];
+      *MutantHandle = (HANDLE)v12[0];
   }
-  return (unsigned int)v9;
+  return v9;
 }

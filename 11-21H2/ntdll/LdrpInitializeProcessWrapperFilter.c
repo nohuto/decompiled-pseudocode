@@ -25,7 +25,7 @@ __int64 __fastcall LdrpInitializeProcessWrapperFilter(const void **a1, _DWORD *a
   v4 = 0;
   if ( g_LdrBreakOnLdrpInitializeProcessFailure )
     __debugbreak();
-  v5 = (int)RtlReportException(*a1, a1[1], 2LL) < 0;
+  v5 = RtlReportException((PEXCEPTION_RECORD)*a1, (PCONTEXT)a1[1], 2u) < 0;
   result = 1LL;
   LOBYTE(v4) = !v5;
   *a2 = v4;

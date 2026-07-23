@@ -1,15 +1,15 @@
 /*
- * XREFs of MiSetGraphicsPtes @ 0x14053463C
+ * XREFs of MiSetGraphicsPtes @ 0x14053487C
  * Callers:
- *     MmSetGraphicsPtes @ 0x1408C6EB0 (MmSetGraphicsPtes.c)
+ *     MmSetGraphicsPtes @ 0x1408C7010 (MmSetGraphicsPtes.c)
  * Callees:
- *     MiUnlockWorkingSetShared @ 0x14020F790 (MiUnlockWorkingSetShared.c)
- *     MiLockWorkingSetShared @ 0x140219CB0 (MiLockWorkingSetShared.c)
- *     MiUnlockPageTableInternal @ 0x1402855F0 (MiUnlockPageTableInternal.c)
- *     KeShouldYieldProcessor @ 0x140293FD0 (KeShouldYieldProcessor.c)
- *     MiLockLowestValidPageTable @ 0x1403055C0 (MiLockLowestValidPageTable.c)
- *     MiWorkingSetIsContended @ 0x14030B7D0 (MiWorkingSetIsContended.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x14032DEC0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiUnlockPageTableInternal @ 0x140202790 (MiUnlockPageTableInternal.c)
+ *     KeShouldYieldProcessor @ 0x140211F40 (KeShouldYieldProcessor.c)
+ *     MiUnlockWorkingSetShared @ 0x1402B4090 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x1402BE5B0 (MiLockWorkingSetShared.c)
+ *     MiLockLowestValidPageTable @ 0x140310310 (MiLockLowestValidPageTable.c)
+ *     MiWorkingSetIsContended @ 0x140316520 (MiWorkingSetIsContended.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140338C10 (MI_READ_PTE_LOCK_FREE.c)
  */
 
 __int64 __fastcall MiSetGraphicsPtes(

@@ -1,10 +1,10 @@
 /*
- * XREFs of PnpLogActionQueueEvent @ 0x140007BFC
+ * XREFs of PnpLogActionQueueEvent @ 0x14008610C
  * Callers:
- *     PnpRequestDeviceAction @ 0x14000794C (PnpRequestDeviceAction.c)
- *     PiProcessReenumeration @ 0x1403EEF7C (PiProcessReenumeration.c)
+ *     PnpRequestDeviceAction @ 0x1400861B8 (PnpRequestDeviceAction.c)
+ *     PiProcessReenumeration @ 0x140488E80 (PiProcessReenumeration.c)
  * Callees:
- *     Template_zq @ 0x1401CFF20 (Template_zq.c)
+ *     Template_zq @ 0x1401CFD4C (Template_zq.c)
  */
 
 __int64 __fastcall PnpLogActionQueueEvent(__int64 a1, int a2, __int64 a3)

@@ -8,35 +8,35 @@
  *     NtSetSystemPowerState @ 0x140999120 (NtSetSystemPowerState.c)
  */
 
-__int64 __fastcall NtShutdownSystem(int a1)
+NTSTATUS __cdecl NtShutdownSystem(SHUTDOWN_ACTION Action)
 {
-  int v1; // ecx
-  int v2; // ecx
+  __int32 v1; // ecx
+  __int32 v2; // ecx
   KPROCESSOR_MODE PreviousMode; // dl
-  __int64 v5; // rcx
+  POWER_ACTION v5; // ecx
 
-  if ( !a1 )
+  if ( Action == ShutdownNoReboot )
   {
-    v5 = 4LL;
-    return NtSetSystemPowerState(v5, 4LL, 3221225476LL);
+    v5 = PowerActionShutdown;
+    return NtSetSystemPowerState(v5, PowerSystemSleeping3, 0xC0000004);
   }
-  v1 = a1 - 1;
+  v1 = Action - 1;
   if ( !v1 )
   {
-    v5 = 5LL;
-    return NtSetSystemPowerState(v5, 4LL, 3221225476LL);
+    v5 = PowerActionShutdownReset;
+    return NtSetSystemPowerState(v5, PowerSystemSleeping3, 0xC0000004);
   }
   v2 = v1 - 1;
   if ( !v2 )
   {
-    v5 = 6LL;
-    return NtSetSystemPowerState(v5, 4LL, 3221225476LL);
+    v5 = PowerActionShutdownOff;
+    return NtSetSystemPowerState(v5, PowerSystemSleeping3, 0xC0000004);
   }
   if ( v2 != 1 )
-    return 3221225485LL;
+    return -1073741811;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode && !SeSinglePrivilegeCheck(SeShutdownPrivilege, PreviousMode) )
-    return 3221225569LL;
+    return -1073741727;
   ExRebootSystemForRecovery(0);
-  return 3221225473LL;
+  return -1073741823;
 }

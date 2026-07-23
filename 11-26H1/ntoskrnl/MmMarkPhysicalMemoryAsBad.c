@@ -1,22 +1,22 @@
 /*
- * XREFs of MmMarkPhysicalMemoryAsBad @ 0x14086A430
+ * XREFs of MmMarkPhysicalMemoryAsBad @ 0x140870810
  * Callers:
- *     WheaAttemptRowOffline @ 0x1406D5AE0 (WheaAttemptRowOffline.c)
- *     MiScrubLargePage @ 0x14070C4BC (MiScrubLargePage.c)
- *     WheapAttemptPhysicalPageOffline @ 0x1408487D0 (WheapAttemptPhysicalPageOffline.c)
+ *     WheaAttemptRowOffline @ 0x1406D9BC0 (WheaAttemptRowOffline.c)
+ *     MiScrubLargePage @ 0x14071116C (MiScrubLargePage.c)
+ *     WheapAttemptPhysicalPageOffline @ 0x14084EAA0 (WheapAttemptPhysicalPageOffline.c)
  * Callees:
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     KiCheckForKernelApcDelivery @ 0x14027DB80 (KiCheckForKernelApcDelivery.c)
- *     MiReleaseNonPagedResources @ 0x14028C070 (MiReleaseNonPagedResources.c)
- *     MiFindContiguousPagesEx @ 0x14028F100 (MiFindContiguousPagesEx.c)
- *     MiIsPageInHugePfn @ 0x1403138E0 (MiIsPageInHugePfn.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     PsDereferencePartition @ 0x140381940 (PsDereferencePartition.c)
- *     MiMarkHugePfnBad @ 0x1406EC7AC (MiMarkHugePfnBad.c)
- *     MiGetBadPageResources @ 0x1406F1108 (MiGetBadPageResources.c)
- *     MiQuarantineBadPage @ 0x1406F15B8 (MiQuarantineBadPage.c)
- *     ZwUpdateWnfStateData @ 0x140727030 (ZwUpdateWnfStateData.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x14027D0F0 (KiCheckForKernelApcDelivery.c)
+ *     MiReleaseNonPagedResources @ 0x14028B5D0 (MiReleaseNonPagedResources.c)
+ *     MiFindContiguousPagesEx @ 0x14028E660 (MiFindContiguousPagesEx.c)
+ *     MiIsPageInHugePfn @ 0x140315910 (MiIsPageInHugePfn.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     PsDereferencePartition @ 0x1403836F0 (PsDereferencePartition.c)
+ *     MiMarkHugePfnBad @ 0x1406F144C (MiMarkHugePfnBad.c)
+ *     MiGetBadPageResources @ 0x1406F5D78 (MiGetBadPageResources.c)
+ *     MiQuarantineBadPage @ 0x1406F6228 (MiQuarantineBadPage.c)
+ *     ZwUpdateWnfStateData @ 0x14072BC00 (ZwUpdateWnfStateData.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MmMarkPhysicalMemoryAsBad(int *a1, _DWORD *a2)
@@ -40,7 +40,7 @@ __int64 __fastcall MmMarkPhysicalMemoryAsBad(int *a1, _DWORD *a2)
   int ContiguousPages; // eax
   __int64 v21; // r8
   struct _KLOCK_ENTRIES *v22; // r9
-  int v23; // [rsp+20h] [rbp-69h]
+  int ExplicitScope; // [rsp+20h] [rbp-69h]
   __int128 v24; // [rsp+70h] [rbp-19h] BYREF
   __int128 v25; // [rsp+80h] [rbp-9h]
   __int128 v26; // [rsp+90h] [rbp+7h]
@@ -82,9 +82,9 @@ __int64 __fastcall MmMarkPhysicalMemoryAsBad(int *a1, _DWORD *a2)
     {
       if ( BYTE12(v24) )
       {
-        if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&stru_140E37DC8, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-          ExfTryToWakePushLock((volatile signed __int64 *)&stru_140E37DC8.Header.Lock);
-        KeAbPostRelease((unsigned __int64)&stru_140E37DC8);
+        if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&stru_140E37F48, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+          ExfTryToWakePushLock((volatile signed __int64 *)&stru_140E37F48.Header.Lock);
+        KeAbPostRelease((unsigned __int64)&stru_140E37F48);
         BYTE12(v24) = 0;
       }
       v16 = MiMarkHugePfnBad(v5, v26, v14, v15);
@@ -123,7 +123,7 @@ LABEL_23:
                             v5,
                             v5,
                             0LL,
-                            v23,
+                            ExplicitScope,
                             1LL,
                             1,
                             0x80000000,
@@ -151,17 +151,17 @@ LABEL_46:
   }
   if ( BYTE12(v24) )
   {
-    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&stru_140E37DC8, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-      ExfTryToWakePushLock((volatile signed __int64 *)&stru_140E37DC8.Header.Lock);
-    KeAbPostRelease((unsigned __int64)&stru_140E37DC8);
+    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&stru_140E37F48, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+      ExfTryToWakePushLock((volatile signed __int64 *)&stru_140E37F48.Header.Lock);
+    KeAbPostRelease((unsigned __int64)&stru_140E37F48);
   }
   v19 = CurrentThread->SpecialApcDisable++ == -1;
-  if ( v19 && ($7A85BAF4F1FA08634C1C4A3E45B775B3 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+  if ( v19 && ($241382875694CED3D471BC5892DE3337 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
     KiCheckForKernelApcDelivery(v7, v12);
   if ( P )
     ExFreePoolWithTag(P, 0);
-  if ( BYTE13(v24) && stru_140E2EAE8.Header.SignalState && ((unsigned __int8)MiFlags & 0x30u) >= 0x20 )
-    ZwUpdateWnfStateData((__int64)&WNF_MM_BAD_MEMORY_PENDING_REMOVAL, 0LL);
+  if ( BYTE13(v24) && stru_140E2EC68.Header.SignalState && ((unsigned __int8)MiFlags & 0x30u) >= 0x20 )
+    ZwUpdateWnfStateData(&WNF_MM_BAD_MEMORY_PENDING_REMOVAL, 0LL, 0, 0LL, 0LL, 0, 0);
   *(_QWORD *)a2 = (v6 + v5 - v29) << 12;
   if ( v6 == 1 )
     return v9;

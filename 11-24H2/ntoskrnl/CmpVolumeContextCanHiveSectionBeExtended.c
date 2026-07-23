@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpVolumeContextCanHiveSectionBeExtended @ 0x140A46274
+ * XREFs of CmpVolumeContextCanHiveSectionBeExtended @ 0x140A3BF34
  * Callers:
- *     CmpRecheckHiveVolumePolicy @ 0x1404648A0 (CmpRecheckHiveVolumePolicy.c)
- *     CmpCreateHive @ 0x14092F538 (CmpCreateHive.c)
+ *     CmpRecheckHiveVolumePolicy @ 0x14045AFD0 (CmpRecheckHiveVolumePolicy.c)
+ *     CmpCreateHive @ 0x140931678 (CmpCreateHive.c)
  * Callees:
- *     CmpVolumeContextLockShared @ 0x140A46300 (CmpVolumeContextLockShared.c)
- *     CmpVolumeContextUnlockShared @ 0x140A46358 (CmpVolumeContextUnlockShared.c)
+ *     CmpVolumeContextLockShared @ 0x140A3BFC0 (CmpVolumeContextLockShared.c)
+ *     CmpVolumeContextUnlockShared @ 0x140A3C018 (CmpVolumeContextUnlockShared.c)
  */
 
 bool __fastcall CmpVolumeContextCanHiveSectionBeExtended(__int64 a1)

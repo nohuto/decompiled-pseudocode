@@ -1,12 +1,12 @@
 /*
- * XREFs of NtQuerySection @ 0x140471AE4
+ * XREFs of NtQuerySection @ 0x1404709B4
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     ProbeForWrite @ 0x14044DAC0 (ProbeForWrite.c)
- *     ObReferenceObjectByHandle @ 0x140450D40 (ObReferenceObjectByHandle.c)
- *     MmGetSectionInformation @ 0x140471C08 (MmGetSectionInformation.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     ProbeForWrite @ 0x14044C990 (ProbeForWrite.c)
+ *     ObReferenceObjectByHandle @ 0x14044FC10 (ObReferenceObjectByHandle.c)
+ *     MmGetSectionInformation @ 0x140470AD8 (MmGetSectionInformation.c)
  */
 
 NTSTATUS __stdcall NtQuerySection(
@@ -44,8 +44,11 @@ NTSTATUS __stdcall NtQuerySection(
     }
     else
     {
-      if ( SectionInformationClass != 2 && SectionInformationClass != 3 )
+      if ( SectionInformationClass != SectionRelocationInformation
+        && SectionInformationClass != SectionOriginalBaseInformation )
+      {
         return -1073741821;
+      }
       v11 = 8LL;
     }
   }

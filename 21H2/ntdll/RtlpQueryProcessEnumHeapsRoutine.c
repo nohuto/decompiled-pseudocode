@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpQueryProcessEnumHeapsRoutine @ 0x1800D8EA0
+ * XREFs of RtlpQueryProcessEnumHeapsRoutine @ 0x1800D8E60
  * Callers:
  *     <none>
  * Callees:
- *     memset @ 0x1800A4780 (memset.c)
- *     RtlpCommitQueryDebugInfo @ 0x1800D8A38 (RtlpCommitQueryDebugInfo.c)
- *     RtlHpQuerySegmentHeapRoutine @ 0x1800F2630 (RtlHpQuerySegmentHeapRoutine.c)
+ *     memset @ 0x1800A4740 (memset.c)
+ *     RtlpCommitQueryDebugInfo @ 0x1800D89F8 (RtlpCommitQueryDebugInfo.c)
+ *     RtlHpQuerySegmentHeapRoutine @ 0x1800F25F0 (RtlHpQuerySegmentHeapRoutine.c)
  */
 
 __int64 __fastcall RtlpQueryProcessEnumHeapsRoutine(__int64 a1, _QWORD *a2)

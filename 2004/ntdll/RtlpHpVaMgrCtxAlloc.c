@@ -8,21 +8,21 @@
  *     RtlReleaseSRWLockShared @ 0x180021920 (RtlReleaseSRWLockShared.c)
  */
 
-__int64 __fastcall RtlpHpVaMgrCtxAlloc(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4)
+__int64 __fastcall RtlpHpVaMgrCtxAlloc(_RTL_SRWLOCK *a1, __int64 a2, __int64 a3, _DWORD *a4)
 {
-  __int64 v8; // rdi
-  __int64 v10; // rbx
+  _RTL_SRWLOCK *v6; // rdi
+  _RTL_SRWLOCK *v8; // rbx
 
   if ( *a4 == -1 )
   {
-    v10 = a1 + 2144;
-    RtlAcquireSRWLockShared(a1 + 2144);
-    v8 = RtlpHpVaMgrCtxAllocatorFind(a1, a4, 0LL, 0LL);
-    RtlReleaseSRWLockShared(v10);
+    v8 = a1 + 268;
+    RtlAcquireSRWLockShared(a1 + 268);
+    v6 = (_RTL_SRWLOCK *)RtlpHpVaMgrCtxAllocatorFind(a1, a4, 0LL, 0LL);
+    RtlReleaseSRWLockShared(v8);
   }
   else
   {
-    v8 = a1 + 48 * ((unsigned int)*a4 + 45LL);
+    v6 = &a1[6 * (unsigned int)*a4 + 270];
   }
-  return RtlpHpVaMgrAlloc(v8, a2, a3);
+  return RtlpHpVaMgrAlloc(v6);
 }

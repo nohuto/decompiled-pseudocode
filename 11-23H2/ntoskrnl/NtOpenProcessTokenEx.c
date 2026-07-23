@@ -1,25 +1,25 @@
 /*
- * XREFs of NtOpenProcessTokenEx @ 0x1407376D0
+ * XREFs of NtOpenProcessTokenEx @ 0x1407378C0
  * Callers:
- *     NtOpenProcessToken @ 0x1407C4F70 (NtOpenProcessToken.c)
- *     RtlpSysVolTakeOwnership @ 0x1409BEB58 (RtlpSysVolTakeOwnership.c)
+ *     NtOpenProcessToken @ 0x1407C5240 (NtOpenProcessToken.c)
+ *     RtlpSysVolTakeOwnership @ 0x1409BED58 (RtlpSysVolTakeOwnership.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     SepDeleteAccessState @ 0x140232270 (SepDeleteAccessState.c)
- *     PsReferencePrimaryTokenWithTag @ 0x1402329C0 (PsReferencePrimaryTokenWithTag.c)
- *     SepCreateAccessStateFromSubjectContext @ 0x140232B40 (SepCreateAccessStateFromSubjectContext.c)
- *     ObReferenceObjectByPointerWithTag @ 0x1402B6840 (ObReferenceObjectByPointerWithTag.c)
- *     ObfReferenceObjectWithTag @ 0x1402B68C0 (ObfReferenceObjectWithTag.c)
- *     ExfReleasePushLockShared @ 0x1402BD860 (ExfReleasePushLockShared.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     ObpPushStackInfo @ 0x140582BD8 (ObpPushStackInfo.c)
- *     ObpCreateHandle @ 0x1406E4510 (ObpCreateHandle.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1406E6300 (ObpReferenceObjectByHandleWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockSharedEx @ 0x140230E80 (ExAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     SepDeleteAccessState @ 0x140232340 (SepDeleteAccessState.c)
+ *     PsReferencePrimaryTokenWithTag @ 0x140232A90 (PsReferencePrimaryTokenWithTag.c)
+ *     SepCreateAccessStateFromSubjectContext @ 0x140232C10 (SepCreateAccessStateFromSubjectContext.c)
+ *     ObReferenceObjectByPointerWithTag @ 0x1402B6AD0 (ObReferenceObjectByPointerWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x1402B6B50 (ObfReferenceObjectWithTag.c)
+ *     ExfReleasePushLockShared @ 0x1402BDAF0 (ExfReleasePushLockShared.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     ObpPushStackInfo @ 0x1405830C8 (ObpPushStackInfo.c)
+ *     ObpCreateHandle @ 0x1406E4540 (ObpCreateHandle.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x1406E6330 (ObpReferenceObjectByHandleWithTag.c)
  */
 
 NTSTATUS __stdcall NtOpenProcessTokenEx(

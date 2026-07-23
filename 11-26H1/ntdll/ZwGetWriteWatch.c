@@ -1,16 +1,23 @@
 /*
- * XREFs of ZwGetWriteWatch @ 0x180160FB0
+ * XREFs of ZwGetWriteWatch @ 0x180160EB0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 ZwGetWriteWatch()
+NTSTATUS __cdecl ZwGetWriteWatch(
+        HANDLE ProcessHandle,
+        ULONG Flags,
+        PVOID BaseAddress,
+        SIZE_T RegionSize,
+        PVOID *UserAddressArray,
+        PULONG_PTR EntriesInUserAddressArray,
+        PULONG Granularity)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 260LL;
+  result = 260;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

@@ -1,15 +1,15 @@
 /*
- * XREFs of SymCryptModElementIsEqual @ 0x1403F96B8
+ * XREFs of SymCryptModElementIsEqual @ 0x1403F9898
  * Callers:
- *     SymCryptEcDsaVerify @ 0x1403F9B90 (SymCryptEcDsaVerify.c)
- *     SymCryptTwistedEdwardsIsEqual @ 0x1404002B0 (SymCryptTwistedEdwardsIsEqual.c)
- *     SymCryptTwistedEdwardsIsZero @ 0x1404004B0 (SymCryptTwistedEdwardsIsZero.c)
- *     SymCryptTwistedEdwardsOnCurve @ 0x1404005F0 (SymCryptTwistedEdwardsOnCurve.c)
- *     SymCryptMontgomeryIsEqual @ 0x140400D10 (SymCryptMontgomeryIsEqual.c)
- *     SymCryptShortWeierstrassIsEqual @ 0x140402640 (SymCryptShortWeierstrassIsEqual.c)
- *     SymCryptShortWeierstrassOnCurve @ 0x140402990 (SymCryptShortWeierstrassOnCurve.c)
+ *     SymCryptEcDsaVerify @ 0x1403F9D70 (SymCryptEcDsaVerify.c)
+ *     SymCryptTwistedEdwardsIsEqual @ 0x140400490 (SymCryptTwistedEdwardsIsEqual.c)
+ *     SymCryptTwistedEdwardsIsZero @ 0x140400690 (SymCryptTwistedEdwardsIsZero.c)
+ *     SymCryptTwistedEdwardsOnCurve @ 0x1404007D0 (SymCryptTwistedEdwardsOnCurve.c)
+ *     SymCryptMontgomeryIsEqual @ 0x140400EF0 (SymCryptMontgomeryIsEqual.c)
+ *     SymCryptShortWeierstrassIsEqual @ 0x140402820 (SymCryptShortWeierstrassIsEqual.c)
+ *     SymCryptShortWeierstrassOnCurve @ 0x140402B70 (SymCryptShortWeierstrassOnCurve.c)
  * Callees:
- *     SymCryptFdefModElementIsEqual @ 0x140404290 (SymCryptFdefModElementIsEqual.c)
+ *     SymCryptFdefModElementIsEqual @ 0x140404470 (SymCryptFdefModElementIsEqual.c)
  */
 
 __int64 SymCryptModElementIsEqual()

@@ -1,7 +1,7 @@
 /*
- * XREFs of MiGetNextDirectFixupProto @ 0x140661738
+ * XREFs of MiGetNextDirectFixupProto @ 0x14066181C
  * Callers:
- *     MiWalkEntireImage @ 0x14004C570 (MiWalkEntireImage.c)
+ *     MiWalkEntireImage @ 0x14004C0F0 (MiWalkEntireImage.c)
  * Callees:
  *     <none>
  */

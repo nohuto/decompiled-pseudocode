@@ -85,7 +85,7 @@ __int64 __fastcall ExpAcquireResourceExclusiveLite(__int64 a1, char a2, __int64 
   v50 = 0LL;
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 2 )
@@ -137,10 +137,10 @@ __int64 __fastcall ExpAcquireResourceExclusiveLite(__int64 a1, char a2, __int64 
     KiReleaseQueuedSpinLockInstrumented(&v50, retaddr);
 LABEL_9:
     v14 = (unsigned __int8)v52;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v30 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v30 <= 0xFu && (unsigned __int8)v52 <= 0xFu && v30 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v30 <= 0xFu && (unsigned __int8)v52 <= 0xFu && v30 >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         v32 = CurrentPrcb->SchedulerAssist;
@@ -185,10 +185,10 @@ LABEL_9:
     KiReleaseQueuedSpinLockInstrumented(&v50, retaddr);
 LABEL_22:
     v21 = (unsigned __int8)v52;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v35 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v35 <= 0xFu && (unsigned __int8)v52 <= 0xFu && v35 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v35 <= 0xFu && (unsigned __int8)v52 <= 0xFu && v35 >= 2u )
       {
         v36 = KeGetCurrentPrcb();
         v37 = v36->SchedulerAssist;
@@ -259,10 +259,10 @@ LABEL_81:
     KiReleaseQueuedSpinLockInstrumented(&v50, retaddr);
 LABEL_31:
     v24 = (unsigned __int8)v52;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v43 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v43 <= 0xFu && (unsigned __int8)v52 <= 0xFu && v43 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v43 <= 0xFu && (unsigned __int8)v52 <= 0xFu && v43 >= 2u )
       {
         v44 = KeGetCurrentPrcb();
         v45 = v44->SchedulerAssist;
@@ -290,10 +290,10 @@ LABEL_31:
   }
   KxReleaseQueuedSpinLock(&v50);
   v27 = (unsigned __int8)v52;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v39 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v39 <= 0xFu && (unsigned __int8)v52 <= 0xFu && v39 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v39 <= 0xFu && (unsigned __int8)v52 <= 0xFu && v39 >= 2u )
     {
       v40 = KeGetCurrentPrcb();
       v41 = v40->SchedulerAssist;

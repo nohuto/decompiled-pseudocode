@@ -1,19 +1,19 @@
 /*
- * XREFs of PopNetWnfLowPowerEpochCallback @ 0x1408F20B0
+ * XREFs of PopNetWnfLowPowerEpochCallback @ 0x1408F2210
  * Callers:
  *     <none>
  * Callees:
- *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
- *     EtwWrite @ 0x14025DC90 (EtwWrite.c)
- *     KeCancelTimer2 @ 0x14027FB40 (KeCancelTimer2.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     ExQueryWnfStateData @ 0x1406BB180 (ExQueryWnfStateData.c)
- *     PopNetArmRefreshTimer @ 0x1408F1C00 (PopNetArmRefreshTimer.c)
- *     PopNetDisengageNetworkRefresh @ 0x1408F1D1C (PopNetDisengageNetworkRefresh.c)
- *     PopNetGetNextDueRefreshTime @ 0x1408F1DB4 (PopNetGetNextDueRefreshTime.c)
- *     PopNetIsNetworkRefreshEnabled @ 0x1408F1EE4 (PopNetIsNetworkRefreshEnabled.c)
- *     PopReleasePolicyLock @ 0x14098F590 (PopReleasePolicyLock.c)
- *     PopAcquirePolicyLock @ 0x14098F5D0 (PopAcquirePolicyLock.c)
+ *     KeCancelTimer2 @ 0x14026DD80 (KeCancelTimer2.c)
+ *     EtwWrite @ 0x14027F7C0 (EtwWrite.c)
+ *     EtwEventEnabled @ 0x1402C0830 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     ExQueryWnfStateData @ 0x14061A450 (ExQueryWnfStateData.c)
+ *     PopNetArmRefreshTimer @ 0x1408F1D60 (PopNetArmRefreshTimer.c)
+ *     PopNetDisengageNetworkRefresh @ 0x1408F1E7C (PopNetDisengageNetworkRefresh.c)
+ *     PopNetGetNextDueRefreshTime @ 0x1408F1F14 (PopNetGetNextDueRefreshTime.c)
+ *     PopNetIsNetworkRefreshEnabled @ 0x1408F2044 (PopNetIsNetworkRefreshEnabled.c)
+ *     PopReleasePolicyLock @ 0x140991044 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140991084 (PopAcquirePolicyLock.c)
  */
 
 __int64 __fastcall PopNetWnfLowPowerEpochCallback(__int64 a1)
@@ -25,11 +25,11 @@ __int64 __fastcall PopNetWnfLowPowerEpochCallback(__int64 a1)
   LARGE_INTEGER NextDueRefreshTime; // rax
   REGHANDLE v6; // rdi
   unsigned int v8; // [rsp+30h] [rbp-28h] BYREF
-  int v9; // [rsp+38h] [rbp-20h] BYREF
+  __int64 v9; // [rsp+38h] [rbp-20h] BYREF
   _BYTE v10[8]; // [rsp+40h] [rbp-18h] BYREF
 
   v8 = 8;
-  v2 = ExQueryWnfStateData(a1, &v9, v10, &v8);
+  v2 = ExQueryWnfStateData(a1, (__int64)&v9, (__int64)v10, &v8);
   if ( v2 >= 0 )
   {
     if ( v8 >= 8 )

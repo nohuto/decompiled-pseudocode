@@ -1,11 +1,11 @@
 /*
- * XREFs of PopAccountCbEnergyChange @ 0x140870928
+ * XREFs of PopAccountCbEnergyChange @ 0x140870B68
  * Callers:
- *     PopBatteryApplyCompositeState @ 0x140870480 (PopBatteryApplyCompositeState.c)
+ *     PopBatteryApplyCompositeState @ 0x1408706C0 (PopBatteryApplyCompositeState.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgCreate1Sz_char @ 0x1403C431C (_tlgCreate1Sz_char.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6DB4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgCreate1Sz_char @ 0x1403C44FC (_tlgCreate1Sz_char.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 int PopAccountCbEnergyChange()
@@ -95,35 +95,35 @@ int PopAccountCbEnergyChange()
   int v83; // [rsp+1D8h] [rbp+D8h]
   int v84; // [rsp+1DCh] [rbp+DCh]
 
-  v0 = (__int64 *)qword_140C3CEC0;
+  v0 = (__int64 *)qword_140C3D060;
   v1 = 0LL;
   v36 = 0uLL;
-  if ( (__int64 *)qword_140C3CEC0 != &qword_140C3CEC0 )
+  if ( (__int64 *)qword_140C3D060 != &qword_140C3D060 )
   {
     do
     {
       v1 += v0[25];
       v0 = (__int64 *)*v0;
     }
-    while ( v0 != &qword_140C3CEC0 );
+    while ( v0 != &qword_140C3D060 );
     *((_QWORD *)&v36 + 1) = v1;
   }
-  v2 = qword_140C3CED0;
+  v2 = qword_140C3D070;
   v3 = 0;
   LODWORD(v36) = 0;
-  if ( (__int64 *)qword_140C3CED0 != &qword_140C3CED0 )
+  if ( (__int64 *)qword_140C3D070 != &qword_140C3D070 )
   {
     do
     {
       v3 |= *(_DWORD *)(v2 + 128);
       v2 = *(_QWORD *)v2;
     }
-    while ( (__int64 *)v2 != &qword_140C3CED0 );
+    while ( (__int64 *)v2 != &qword_140C3D070 );
     LODWORD(v36) = v3;
   }
-  if ( v3 != (_DWORD)xmmword_140C3D0A8 || v1 != *((_QWORD *)&xmmword_140C3D0A8 + 1) )
+  if ( v3 != (_DWORD)xmmword_140C3D248 || v1 != *((_QWORD *)&xmmword_140C3D248 + 1) )
   {
-    xmmword_140C3D0A8 = v36;
+    xmmword_140C3D248 = v36;
     if ( (unsigned int)dword_140C03950 > 5 )
     {
       v48 = 0;
@@ -151,9 +151,9 @@ int PopAccountCbEnergyChange()
       v58 = 0;
       v16 = "AC Power";
       v53 = &v36;
-      v37 = dword_140C3CEB4;
+      v37 = dword_140C3D054;
       v56 = &v37;
-      if ( (unk_140C3CEE0 & v17) == 0 )
+      if ( (unk_140C3D080 & v17) == 0 )
         v16 = "DC Power";
       *(_QWORD *)&v36 = v14;
       v54 = v15;
@@ -184,19 +184,19 @@ int PopAccountCbEnergyChange()
         v30 = "-";
       tlgCreate1Sz_char((__int64)v65, v30);
       v32 = "Platform BCL Enabled";
-      if ( (v31 & (unsigned __int8)byte_140C3D0B8) == 0 )
+      if ( (v31 & (unsigned __int8)byte_140C3D258) == 0 )
         v32 = "-";
       tlgCreate1Sz_char((__int64)v66, v32);
-      if ( HIDWORD(qword_140C3CF00) )
-        v33 = (100 * dword_140C3CEE4 + (HIDWORD(qword_140C3CF00) >> 1)) / HIDWORD(qword_140C3CF00);
+      if ( HIDWORD(qword_140C3D0A0) )
+        v33 = (100 * dword_140C3D084 + (HIDWORD(qword_140C3D0A0) >> 1)) / HIDWORD(qword_140C3D0A0);
       else
         v33 = 0;
       v69 = 0;
       v38 = v33;
       v67 = &v38;
       v68 = v8;
-      if ( HIDWORD(qword_140C3CF00) )
-        v34 = 100000 * (unsigned __int64)dword_140C3CEE4 / HIDWORD(qword_140C3CF00);
+      if ( HIDWORD(qword_140C3D0A0) )
+        v34 = 100000 * (unsigned __int64)dword_140C3D084 / HIDWORD(qword_140C3D0A0);
       else
         LODWORD(v34) = 0;
       v72 = 0;
@@ -206,14 +206,14 @@ int PopAccountCbEnergyChange()
       v84 = 0;
       v39 = v34;
       v70 = &v39;
-      v40 = dword_140C3CEE4;
+      v40 = dword_140C3D084;
       v73 = (int *)&v40;
       v76 = &v41;
-      v42 = unk_140C3CEE8;
+      v42 = unk_140C3D088;
       v79 = &v42;
-      v43 = qword_140C3CEEC;
+      v43 = qword_140C3D08C;
       v82 = &v43;
-      v41 = HIDWORD(qword_140C3CF00);
+      v41 = HIDWORD(qword_140C3D0A0);
       v71 = v8;
       v74 = v8;
       v77 = v8;
@@ -221,7 +221,7 @@ int PopAccountCbEnergyChange()
       v83 = v8;
       LODWORD(v1) = tlgWriteTransfer_EtwWriteTransfer(
                       (__int64)&dword_140C03950,
-                      (unsigned __int8 *)byte_140030D45,
+                      (unsigned __int8 *)&word_1400307CE,
                       0LL,
                       0LL,
                       0x17u,

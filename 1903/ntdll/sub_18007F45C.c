@@ -18,7 +18,7 @@ __int64 __fastcall sub_18007F45C(
         __int64 (__fastcall *a4)(__int64, _QWORD *),
         __int64 (__fastcall *a5)(__int64, const char *),
         __int64 a6,
-        unsigned int a7)
+        NTSTATUS Status)
 {
   __int64 v7; // r12
   __int64 v10; // rdi
@@ -56,7 +56,7 @@ __int64 __fastcall sub_18007F45C(
       v18,
       v20,
       v11 + 88,
-      a7);
+      Status);
     v12 = dword_18015FAB0;
   }
   if ( (v12 & 0x10) != 0 )
@@ -84,7 +84,7 @@ LABEL_7:
   LODWORD(v19[0]) = 72;
   v19[3] = v7;
   v19[6] = v15;
-  LODWORD(v19[8]) = RtlNtStatusToDosErrorNoTeb(a7);
+  LODWORD(v19[8]) = RtlNtStatusToDosErrorNoTeb(Status);
   if ( v14 )
   {
     LODWORD(v19[4]) = 1;

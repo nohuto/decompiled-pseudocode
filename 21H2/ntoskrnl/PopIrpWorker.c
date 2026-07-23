@@ -1,24 +1,24 @@
 /*
- * XREFs of PopIrpWorker @ 0x14039FE70
+ * XREFs of PopIrpWorker @ 0x14039FFC0
  * Callers:
  *     <none>
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x14022D600 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
- *     ExFreeToNPagedLookasideList @ 0x140252DE4 (ExFreeToNPagedLookasideList.c)
- *     KeReleaseSemaphore @ 0x14029AC70 (KeReleaseSemaphore.c)
- *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
- *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
- *     PoDeviceAcquireIrp @ 0x14037C864 (PoDeviceAcquireIrp.c)
- *     PopPepDeviceDState @ 0x1403A0220 (PopPepDeviceDState.c)
- *     PopFxGetDeviceDStateReason @ 0x1403A0514 (PopFxGetDeviceDStateReason.c)
+ *     KeReleaseSemaphore @ 0x140212600 (KeReleaseSemaphore.c)
+ *     ExFreeToNPagedLookasideList @ 0x14021A938 (ExFreeToNPagedLookasideList.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x1402D1E50 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402D3660 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeSetEvent @ 0x14034E2F0 (KeSetEvent.c)
+ *     KeWaitForSingleObject @ 0x1403504C0 (KeWaitForSingleObject.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
+ *     PoDeviceAcquireIrp @ 0x14037C3B4 (PoDeviceAcquireIrp.c)
+ *     PopPepDeviceDState @ 0x1403A0370 (PopPepDeviceDState.c)
+ *     PopFxGetDeviceDStateReason @ 0x1403A0664 (PopFxGetDeviceDStateReason.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     PopAcquireIrpWorkerLock @ 0x140577BD0 (PopAcquireIrpWorkerLock.c)
- *     PopReleaseIrpWorkerLock @ 0x140577BEC (PopReleaseIrpWorkerLock.c)
- *     PsTerminateSystemThread @ 0x1406C0930 (PsTerminateSystemThread.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     PopAcquireIrpWorkerLock @ 0x140577E10 (PopAcquireIrpWorkerLock.c)
+ *     PopReleaseIrpWorkerLock @ 0x140577E2C (PopReleaseIrpWorkerLock.c)
+ *     PsTerminateSystemThread @ 0x14061F840 (PsTerminateSystemThread.c)
  */
 
 NTSTATUS __fastcall PopIrpWorker(struct _KSEMAPHORE **Entry)
@@ -81,13 +81,13 @@ NTSTATUS __fastcall PopIrpWorker(struct _KSEMAPHORE **Entry)
   PopAcquireIrpWorkerLock();
   --PopIrpWorkerPendingCount;
   ++PopIrpWorkerCount;
-  if ( *(__int64 **)qword_140C20BE8 != &PopIrpThreadList )
+  if ( *(__int64 **)qword_140C20C98 != &PopIrpThreadList )
 LABEL_61:
     __fastfail(3u);
   *(_QWORD *)&v33 = &PopIrpThreadList;
-  *((_QWORD *)&v33 + 1) = qword_140C20BE8;
-  *(_QWORD *)qword_140C20BE8 = &v33;
-  qword_140C20BE8 = (__int64)&v33;
+  *((_QWORD *)&v33 + 1) = qword_140C20C98;
+  *(_QWORD *)qword_140C20C98 = &v33;
+  qword_140C20C98 = (__int64)&v33;
 LABEL_7:
   PopReleaseIrpWorkerLock();
   do

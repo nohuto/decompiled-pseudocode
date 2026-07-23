@@ -1,13 +1,13 @@
 /*
- * XREFs of BCryptOpenAlgorithmProvider @ 0x1405505A0
+ * XREFs of BCryptOpenAlgorithmProvider @ 0x140550AE0
  * Callers:
- *     SecureDump_EncryptSymmetricKeyWithPublicKey @ 0x1401CB578 (SecureDump_EncryptSymmetricKeyWithPublicKey.c)
- *     SecureDump_SymmetricEncryptionSetup @ 0x1401CBF4C (SecureDump_SymmetricEncryptionSetup.c)
- *     RtlGenerateClass5Guid @ 0x1405501AC (RtlGenerateClass5Guid.c)
- *     SmCrEncStart @ 0x140699B6C (SmCrEncStart.c)
+ *     SecureDump_EncryptSymmetricKeyWithPublicKey @ 0x1401CB45C (SecureDump_EncryptSymmetricKeyWithPublicKey.c)
+ *     SecureDump_SymmetricEncryptionSetup @ 0x1401CBE30 (SecureDump_SymmetricEncryptionSetup.c)
+ *     RtlGenerateClass5Guid @ 0x1405506EC (RtlGenerateClass5Guid.c)
+ *     SmCrEncStart @ 0x140699C50 (SmCrEncStart.c)
  * Callees:
- *     ExReleaseExtensionTable @ 0x1400B6E88 (ExReleaseExtensionTable.c)
- *     ExGetExtensionTable @ 0x1400B6E94 (ExGetExtensionTable.c)
+ *     ExReleaseExtensionTable @ 0x1400B4CB0 (ExReleaseExtensionTable.c)
+ *     ExGetExtensionTable @ 0x1400B4CBC (ExGetExtensionTable.c)
  */
 
 NTSTATUS __stdcall BCryptOpenAlgorithmProvider(

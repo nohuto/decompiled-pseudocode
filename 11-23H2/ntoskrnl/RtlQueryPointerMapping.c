@@ -1,17 +1,17 @@
 /*
- * XREFs of RtlQueryPointerMapping @ 0x1405AA7F0
+ * XREFs of RtlQueryPointerMapping @ 0x1405AAD60
  * Callers:
  *     <none>
  * Callees:
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7C00 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     RtlpAcquirePropStoreLockShared @ 0x1405AAD24 (RtlpAcquirePropStoreLockShared.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7E90 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     RtlpAcquirePropStoreLockShared @ 0x1405AB294 (RtlpAcquirePropStoreLockShared.c)
  */
 
 __int64 __fastcall RtlQueryPointerMapping(__int64 a1, _QWORD *a2)
 {
   unsigned __int64 v4; // rdi
-  unsigned __int64 v5; // rbx
+  unsigned __int64 Root; // rbx
   unsigned __int64 v6; // rax
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
@@ -20,41 +20,44 @@ __int64 __fastcall RtlQueryPointerMapping(__int64 a1, _QWORD *a2)
   bool v11; // zf
 
   v4 = (unsigned __int8)RtlpAcquirePropStoreLockShared(&RtlpPtrTreeLock);
-  if ( (qword_140C0DC48 & 1) != 0 )
+  if ( (*(_BYTE *)&RtlpPtrTree.0 & 1) != 0 )
   {
-    if ( RtlpPtrTree )
-      v5 = RtlpPtrTree ^ (unsigned __int64)&RtlpPtrTree;
+    if ( RtlpPtrTree.Root )
+      Root = (unsigned __int64)RtlpPtrTree.Root ^ (unsigned __int64)&RtlpPtrTree;
     else
-      v5 = 0LL;
+      Root = 0LL;
   }
   else
   {
-    v5 = RtlpPtrTree;
+    Root = (unsigned __int64)RtlpPtrTree.Root;
   }
-  while ( v5 )
+  while ( Root )
   {
-    if ( a1 - *(_QWORD *)(v5 + 24) >= 0 )
+    if ( a1 - *(_QWORD *)(Root + 24) >= 0 )
     {
-      if ( a1 - *(_QWORD *)(v5 + 24) <= 0 )
+      if ( a1 - *(_QWORD *)(Root + 24) <= 0 )
         break;
-      v6 = *(_QWORD *)(v5 + 8);
+      v6 = *(_QWORD *)(Root + 8);
     }
     else
     {
-      v6 = *(_QWORD *)v5;
+      v6 = *(_QWORD *)Root;
     }
-    if ( (qword_140C0DC48 & 1) != 0 && v6 )
-      v5 ^= v6;
+    if ( (*(_BYTE *)&RtlpPtrTree.0 & 1) != 0 && v6 )
+      Root ^= v6;
     else
-      v5 = v6;
+      Root = v6;
   }
-  if ( v5 )
-    *a2 = *(_QWORD *)(v5 + 32);
+  if ( Root )
+    *a2 = *(_QWORD *)(Root + 32);
   ExReleaseSpinLockSharedFromDpcLevel(&RtlpPtrTreeLock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v4 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v4 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -66,5 +69,5 @@ __int64 __fastcall RtlQueryPointerMapping(__int64 a1, _QWORD *a2)
     }
   }
   __writecr8(v4);
-  return v5 == 0 ? 0xC0000225 : 0;
+  return Root == 0 ? 0xC0000225 : 0;
 }

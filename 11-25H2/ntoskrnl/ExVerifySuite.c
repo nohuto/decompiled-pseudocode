@@ -12,7 +12,7 @@ BOOLEAN __stdcall ExVerifySuite(SUITE_TYPE SuiteType)
 {
   int v2; // eax
 
-  if ( SuiteType > MaxSuiteType )
+  if ( SuiteType > (PhoneNT|BackOffice) )
     return 0;
   v2 = MEMORY[0xFFFFF780000002D0];
   return _bittest(&v2, SuiteType);

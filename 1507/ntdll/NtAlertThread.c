@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 NtAlertThread()
+NTSTATUS __cdecl NtAlertThread(HANDLE ThreadHandle)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 109LL;
+  result = 109;
   __asm { syscall; Low latency system call }
   return result;
 }

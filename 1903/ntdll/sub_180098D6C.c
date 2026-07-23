@@ -6,11 +6,11 @@
  *     RtlAnsiCharToUnicodeChar @ 0x180063760 (RtlAnsiCharToUnicodeChar.c)
  */
 
-__int64 __fastcall sub_180098D6C(_WORD *a1, char *a2, __int64 a3)
+__int64 __fastcall sub_180098D6C(WCHAR *a1, UCHAR *a2, __int64 a3)
 {
   __int64 result; // rax
   int v4; // ebx
-  char *v5; // [rsp+38h] [rbp+10h] BYREF
+  PUCHAR SourceCharacter; // [rsp+38h] [rbp+10h] BYREF
 
   result = 0LL;
   v4 = (int)a2;
@@ -18,9 +18,9 @@ __int64 __fastcall sub_180098D6C(_WORD *a1, char *a2, __int64 a3)
   {
     if ( *a2 )
     {
-      v5 = a2;
-      *a1 = RtlAnsiCharToUnicodeChar(&v5);
-      return (unsigned int)((_DWORD)v5 - v4);
+      SourceCharacter = a2;
+      *a1 = RtlAnsiCharToUnicodeChar(&SourceCharacter);
+      return (unsigned int)((_DWORD)SourceCharacter - v4);
     }
     else if ( a1 )
     {

@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpDmaUseEmergencyLogicalAddressResources @ 0x140500ABC
+ * XREFs of HalpDmaUseEmergencyLogicalAddressResources @ 0x14050100C
  * Callers:
- *     HalpConstructScatterGatherListDmarThin @ 0x140513F14 (HalpConstructScatterGatherListDmarThin.c)
- *     HalpAllocateDmaResourcesInternal @ 0x140514EBC (HalpAllocateDmaResourcesInternal.c)
+ *     HalpConstructScatterGatherListDmarThin @ 0x140514464 (HalpConstructScatterGatherListDmarThin.c)
+ *     HalpAllocateDmaResourcesInternal @ 0x14051540C (HalpAllocateDmaResourcesInternal.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 char __fastcall HalpDmaUseEmergencyLogicalAddressResources(__int64 a1, _QWORD *a2, char a3)
@@ -43,10 +43,13 @@ char __fastcall HalpDmaUseEmergencyLogicalAddressResources(__int64 a1, _QWORD *a
     v8 = 1;
   }
   KxReleaseSpinLock(v3);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v7 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v7 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -54,7 +57,7 @@ char __fastcall HalpDmaUseEmergencyLogicalAddressResources(__int64 a1, _QWORD *a
       v14 = (v13 & SchedulerAssist[5]) == 0;
       SchedulerAssist[5] &= v13;
       if ( v14 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
     }
   }
   __writecr8(v7);

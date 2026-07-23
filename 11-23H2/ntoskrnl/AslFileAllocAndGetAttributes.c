@@ -1,18 +1,18 @@
 /*
- * XREFs of AslFileAllocAndGetAttributes @ 0x140758DE8
+ * XREFs of AslFileAllocAndGetAttributes @ 0x140758FD8
  * Callers:
- *     SdbpCheckAllAttributes @ 0x1407576F4 (SdbpCheckAllAttributes.c)
+ *     SdbpCheckAllAttributes @ 0x1407578E4 (SdbpCheckAllAttributes.c)
  * Callees:
  *     AslLogCallPrintf @ 0x1406956FC (AslLogCallPrintf.c)
- *     AslFileMappingEnsure @ 0x140758EF0 (AslFileMappingEnsure.c)
- *     AslpFileGetVersionAttributes @ 0x140759218 (AslpFileGetVersionAttributes.c)
- *     AslpFileGetChecksumAttributes @ 0x140A57DDC (AslpFileGetChecksumAttributes.c)
- *     AslpFileGetClrVersionAttribute @ 0x140A58158 (AslpFileGetClrVersionAttribute.c)
- *     AslpFileGetFileKindDetailAttribute @ 0x140A585F0 (AslpFileGetFileKindDetailAttribute.c)
- *     AslpFileGetHeaderAttributesNE @ 0x140A58674 (AslpFileGetHeaderAttributesNE.c)
- *     AslpFileGetHeaderAttributesPE @ 0x140A58818 (AslpFileGetHeaderAttributesPE.c)
- *     AslpFileGetPeExportNameExeWrapper @ 0x140A58CE0 (AslpFileGetPeExportNameExeWrapper.c)
- *     AslpFileLargeEnsureLargeFileMapping @ 0x140A594C8 (AslpFileLargeEnsureLargeFileMapping.c)
+ *     AslFileMappingEnsure @ 0x1407590E0 (AslFileMappingEnsure.c)
+ *     AslpFileGetVersionAttributes @ 0x140759408 (AslpFileGetVersionAttributes.c)
+ *     AslpFileGetChecksumAttributes @ 0x140A5808C (AslpFileGetChecksumAttributes.c)
+ *     AslpFileGetClrVersionAttribute @ 0x140A58408 (AslpFileGetClrVersionAttribute.c)
+ *     AslpFileGetFileKindDetailAttribute @ 0x140A588A0 (AslpFileGetFileKindDetailAttribute.c)
+ *     AslpFileGetHeaderAttributesNE @ 0x140A58924 (AslpFileGetHeaderAttributesNE.c)
+ *     AslpFileGetHeaderAttributesPE @ 0x140A58AC8 (AslpFileGetHeaderAttributesPE.c)
+ *     AslpFileGetPeExportNameExeWrapper @ 0x140A58F90 (AslpFileGetPeExportNameExeWrapper.c)
+ *     AslpFileLargeEnsureLargeFileMapping @ 0x140A59778 (AslpFileLargeEnsureLargeFileMapping.c)
  */
 
 __int64 __fastcall AslFileAllocAndGetAttributes(__int64 a1, __int64 a2, unsigned __int64 a3)

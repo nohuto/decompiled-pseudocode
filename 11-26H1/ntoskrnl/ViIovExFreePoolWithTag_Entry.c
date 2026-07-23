@@ -1,9 +1,9 @@
 /*
- * XREFs of ViIovExFreePoolWithTag_Entry @ 0x140642920
+ * XREFs of ViIovExFreePoolWithTag_Entry @ 0x140646500
  * Callers:
  *     <none>
  * Callees:
- *     VfPoolCheckIncorrectFreeApi @ 0x140C385E4 (VfPoolCheckIncorrectFreeApi.c)
+ *     VfPoolCheckIncorrectFreeApi @ 0x140C3E5F4 (VfPoolCheckIncorrectFreeApi.c)
  */
 
 __int64 __fastcall ViIovExFreePoolWithTag_Entry(__int64 a1)

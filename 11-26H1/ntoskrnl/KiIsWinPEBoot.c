@@ -1,10 +1,10 @@
 /*
- * XREFs of KiIsWinPEBoot @ 0x1405F2434
+ * XREFs of KiIsWinPEBoot @ 0x1405F4DF4
  * Callers:
- *     KiDetermineImportOptimizationEnablement @ 0x1405F201C (KiDetermineImportOptimizationEnablement.c)
- *     KiDetermineRetpolineEnablement @ 0x1405F2064 (KiDetermineRetpolineEnablement.c)
+ *     KiDetermineImportOptimizationEnablement @ 0x1405F49DC (KiDetermineImportOptimizationEnablement.c)
+ *     KiDetermineRetpolineEnablement @ 0x1405F4A24 (KiDetermineRetpolineEnablement.c)
  * Callees:
- *     strstr @ 0x140535B20 (strstr.c)
+ *     strstr @ 0x140537FA0 (strstr.c)
  */
 
 bool __fastcall KiIsWinPEBoot(__int64 a1)

@@ -1,7 +1,7 @@
 /*
- * XREFs of HvpViewMapGetStorageLength @ 0x140A6F4B0
+ * XREFs of HvpViewMapGetStorageLength @ 0x140A68934
  * Callers:
- *     HvUnCOWReconciledPages @ 0x140435438 (HvUnCOWReconciledPages.c)
+ *     HvUnCOWReconciledPages @ 0x140427EB0 (HvUnCOWReconciledPages.c)
  * Callees:
  *     <none>
  */

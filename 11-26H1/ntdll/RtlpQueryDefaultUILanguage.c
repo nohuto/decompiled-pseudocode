@@ -1,19 +1,19 @@
 /*
- * XREFs of RtlpQueryDefaultUILanguage @ 0x180009CD0
+ * XREFs of RtlpQueryDefaultUILanguage @ 0x180055400
  * Callers:
  *     <none>
  * Callees:
- *     RtlpMuiRegFreeLanguageList @ 0x180006B20 (RtlpMuiRegFreeLanguageList.c)
- *     RtlpCreateProcessRegistryInfo @ 0x180008370 (RtlpCreateProcessRegistryInfo.c)
- *     InitializeTEBUserLangList @ 0x180008900 (InitializeTEBUserLangList.c)
- *     RtlpSetProcUserMachineLangList @ 0x180008EA0 (RtlpSetProcUserMachineLangList.c)
- *     GetLCIDFromLangListNode @ 0x180009EA0 (GetLCIDFromLangListNode.c)
- *     RtlpGetSystemDefaultUILanguage @ 0x18000A750 (RtlpGetSystemDefaultUILanguage.c)
- *     RtlpMuiRegCreateLanguageList @ 0x18000AF40 (RtlpMuiRegCreateLanguageList.c)
- *     RtlpMuiRegLoadPreferredUILanguages @ 0x18000BB60 (RtlpMuiRegLoadPreferredUILanguages.c)
+ *     RtlpMuiRegFreeLanguageList @ 0x180052250 (RtlpMuiRegFreeLanguageList.c)
+ *     RtlpCreateProcessRegistryInfo @ 0x180053AA0 (RtlpCreateProcessRegistryInfo.c)
+ *     InitializeTEBUserLangList @ 0x180054030 (InitializeTEBUserLangList.c)
+ *     RtlpSetProcUserMachineLangList @ 0x1800545D0 (RtlpSetProcUserMachineLangList.c)
+ *     GetLCIDFromLangListNode @ 0x1800555D0 (GetLCIDFromLangListNode.c)
+ *     RtlpGetSystemDefaultUILanguage @ 0x180055E80 (RtlpGetSystemDefaultUILanguage.c)
+ *     RtlpMuiRegCreateLanguageList @ 0x180056670 (RtlpMuiRegCreateLanguageList.c)
+ *     RtlpMuiRegLoadPreferredUILanguages @ 0x180057290 (RtlpMuiRegLoadPreferredUILanguages.c)
  */
 
-__int64 __fastcall RtlpQueryDefaultUILanguage(_WORD *a1, char a2)
+__int64 __fastcall RtlpQueryDefaultUILanguage(_WORD *DefaultUILanguageId, char a2)
 {
   __int64 v4; // rsi
   __int64 LanguageList; // rdi
@@ -22,7 +22,7 @@ __int64 __fastcall RtlpQueryDefaultUILanguage(_WORD *a1, char a2)
   int PreferredUILanguages; // eax
   __int64 v9; // rdx
   bool v10; // sf
-  int LCIDFromLangListNode; // ebp
+  NTSTATUS LCIDFromLangListNode; // ebp
   __int64 v13; // [rsp+60h] [rbp+8h] BYREF
   __int64 v14; // [rsp+70h] [rbp+18h] BYREF
 
@@ -30,9 +30,9 @@ __int64 __fastcall RtlpQueryDefaultUILanguage(_WORD *a1, char a2)
   v4 = 0LL;
   v14 = 0LL;
   LanguageList = 0LL;
-  if ( a1 )
+  if ( DefaultUILanguageId )
   {
-    *a1 = 0;
+    *DefaultUILanguageId = 0;
     v6 = RtlpCreateProcessRegistryInfo(&v13);
     v4 = v13;
     if ( v6 >= 0 && (int)InitializeTEBUserLangList(a2, v13) >= 0 )
@@ -45,7 +45,7 @@ __int64 __fastcall RtlpQueryDefaultUILanguage(_WORD *a1, char a2)
         {
           if ( *(_WORD *)(LanguageList + 4) )
           {
-            LCIDFromLangListNode = GetLCIDFromLangListNode(v4, *(_QWORD *)(LanguageList + 24), a1);
+            LCIDFromLangListNode = GetLCIDFromLangListNode(v4, *(_QWORD *)(LanguageList + 24), DefaultUILanguageId);
             if ( LCIDFromLangListNode >= 0 )
             {
               LanguageList = 0LL;
@@ -81,7 +81,10 @@ LABEL_21:
                 {
                   if ( *(_WORD *)(LanguageList + 4) )
                   {
-                    LCIDFromLangListNode = GetLCIDFromLangListNode(v4, *(_QWORD *)(LanguageList + 24), a1);
+                    LCIDFromLangListNode = GetLCIDFromLangListNode(
+                                             v4,
+                                             *(_QWORD *)(LanguageList + 24),
+                                             DefaultUILanguageId);
                     if ( LCIDFromLangListNode >= 0 )
                       goto LABEL_25;
                   }
@@ -114,11 +117,11 @@ LABEL_20:
     }
   }
 LABEL_28:
-  LCIDFromLangListNode = RtlpGetSystemDefaultUILanguage(a1, v4);
+  LCIDFromLangListNode = RtlpGetSystemDefaultUILanguage((LANGID)DefaultUILanguageId, (PLCID)v4);
   if ( LCIDFromLangListNode < 0 )
-    *a1 = 0;
+    *DefaultUILanguageId = 0;
 LABEL_25:
   if ( LanguageList )
-    RtlpMuiRegFreeLanguageList(LanguageList);
+    RtlpMuiRegFreeLanguageList((PVOID)LanguageList);
   return (unsigned int)LCIDFromLangListNode;
 }

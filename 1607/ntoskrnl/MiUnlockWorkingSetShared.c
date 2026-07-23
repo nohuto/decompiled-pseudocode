@@ -1,9 +1,9 @@
 /*
- * XREFs of MiUnlockWorkingSetShared @ 0x1400145D8
+ * XREFs of MiUnlockWorkingSetShared @ 0x140014158
  * Callers:
- *     MiComparePteProtections @ 0x1401E9164 (MiComparePteProtections.c)
+ *     MiComparePteProtections @ 0x1401E8F90 (MiComparePteProtections.c)
  * Callees:
- *     MiGetSharedVm @ 0x14002EA30 (MiGetSharedVm.c)
+ *     MiGetSharedVm @ 0x14002E5B0 (MiGetSharedVm.c)
  */
 
 void __fastcall MiUnlockWorkingSetShared(__int64 a1)

@@ -1,12 +1,12 @@
 /*
- * XREFs of MiLogHotPatchPagesLocked @ 0x1408725A0
+ * XREFs of MiLogHotPatchPagesLocked @ 0x140878900
  * Callers:
- *     MiPrepareImagePagesForHotPatch @ 0x1406FC830 (MiPrepareImagePagesForHotPatch.c)
+ *     MiPrepareImagePagesForHotPatch @ 0x140701500 (MiPrepareImagePagesForHotPatch.c)
  * Callees:
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     PsGetProcessId @ 0x140466BE0 (PsGetProcessId.c)
- *     _tlgWriteEx_EtwWriteEx @ 0x1404E33C4 (_tlgWriteEx_EtwWriteEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     PsGetProcessId @ 0x140460330 (PsGetProcessId.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x1404DC958 (_tlgWriteEx_EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 char __fastcall MiLogHotPatchPagesLocked(__int64 a1, __int64 a2, __int64 a3, int a4, int a5, int a6)
@@ -44,11 +44,11 @@ char __fastcall MiLogHotPatchPagesLocked(__int64 a1, __int64 a2, __int64 a3, int
   __int64 v40; // [rsp+110h] [rbp+8h]
 
   CurrentThread = KeGetCurrentThread();
-  FirstArgument = stru_140E36558.FirstArgument;
+  FirstArgument = stru_140E366D8.FirstArgument;
   Process = CurrentThread->ApcState.Process;
-  if ( *(_DWORD *)stru_140E36558.FirstArgument > 5u )
+  if ( *(_DWORD *)stru_140E366D8.FirstArgument > 5u )
   {
-    LOBYTE(CurrentThread) = tlgKeywordOn((__int64)stru_140E36558.FirstArgument, 0x400000000020LL);
+    LOBYTE(CurrentThread) = tlgKeywordOn((__int64)stru_140E366D8.FirstArgument, 0x400000000020LL);
     if ( (_BYTE)CurrentThread )
     {
       ProcessId = (unsigned int)PsGetProcessId(Process);
@@ -77,7 +77,7 @@ char __fastcall MiLogHotPatchPagesLocked(__int64 a1, __int64 a2, __int64 a3, int
       v40 = 8LL;
       LOBYTE(CurrentThread) = tlgWriteEx_EtwWriteEx(
                                 (__int64)FirstArgument,
-                                (unsigned __int8 *)&byte_1400588CF,
+                                (unsigned __int8 *)&byte_1400596DD,
                                 v12,
                                 1u,
                                 v14,

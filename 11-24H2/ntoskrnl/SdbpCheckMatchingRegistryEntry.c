@@ -1,16 +1,16 @@
 /*
- * XREFs of SdbpCheckMatchingRegistryEntry @ 0x14080314C
+ * XREFs of SdbpCheckMatchingRegistryEntry @ 0x14080388C
  * Callers:
- *     SdbpCheckMatchingRegistry @ 0x140803020 (SdbpCheckMatchingRegistry.c)
+ *     SdbpCheckMatchingRegistry @ 0x140803760 (SdbpCheckMatchingRegistry.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     RtlStringCchPrintfW @ 0x140476998 (RtlStringCchPrintfW.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwOpenKey @ 0x1406A6650 (ZwOpenKey.c)
- *     ZwQuerySystemInformation @ 0x1406A6AD0 (ZwQuerySystemInformation.c)
- *     SdbpCheckMatchingRegistryValue @ 0x14080332C (SdbpCheckMatchingRegistryValue.c)
- *     AslLogCallPrintf @ 0x1409601DC (AslLogCallPrintf.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     RtlStringCchPrintfW @ 0x140472F38 (RtlStringCchPrintfW.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwOpenKey @ 0x1406A75F0 (ZwOpenKey.c)
+ *     ZwQuerySystemInformation @ 0x1406A7A70 (ZwQuerySystemInformation.c)
+ *     SdbpCheckMatchingRegistryValue @ 0x140803A6C (SdbpCheckMatchingRegistryValue.c)
+ *     AslLogCallPrintf @ 0x140947C9C (AslLogCallPrintf.c)
  */
 
 __int64 __fastcall SdbpCheckMatchingRegistryEntry(
@@ -28,13 +28,13 @@ __int64 __fastcall SdbpCheckMatchingRegistryEntry(
   HANDLE KeyHandle; // [rsp+50h] [rbp-B0h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+58h] [rbp-A8h] BYREF
   UNICODE_STRING DestinationString; // [rsp+88h] [rbp-78h] BYREF
-  __int64 v15; // [rsp+98h] [rbp-68h] BYREF
+  __int64 SystemInformation; // [rsp+98h] [rbp-68h] BYREF
   int v16; // [rsp+A0h] [rbp-60h]
   wchar_t pszDest[264]; // [rsp+B0h] [rbp-50h] BYREF
 
   pszDest[0] = 0;
   KeyHandle = 0LL;
-  v15 = 0LL;
+  SystemInformation = 0LL;
   *a9 = 0;
   v16 = 0;
   v10 = 0;
@@ -57,7 +57,7 @@ __int64 __fastcall SdbpCheckMatchingRegistryEntry(
   *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
   if ( ZwOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes) >= 0 )
     goto LABEL_9;
-  if ( (int)ZwQuerySystemInformation(1LL, (__int64)&v15) < 0 )
+  if ( ZwQuerySystemInformation(SystemProcessorInformation, &SystemInformation, 0xCu, 0LL) < 0 )
   {
     AslLogCallPrintf(
       1,
@@ -66,7 +66,7 @@ __int64 __fastcall SdbpCheckMatchingRegistryEntry(
       (unsigned int)"Failed to get processor architecture [%x]");
     goto LABEL_10;
   }
-  if ( (_WORD)v15 == 9 && ZwOpenKey(&KeyHandle, 0x20219u, &ObjectAttributes) >= 0 )
+  if ( (_WORD)SystemInformation == 9 && ZwOpenKey(&KeyHandle, 0x20219u, &ObjectAttributes) >= 0 )
 LABEL_9:
     v10 = SdbpCheckMatchingRegistryValue(KeyHandle, a2, a5, a6, Buf1, Size, (__int64)a9);
   else

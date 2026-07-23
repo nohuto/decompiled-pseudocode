@@ -1,17 +1,17 @@
 /*
- * XREFs of IovpCallDriverWithStackBuffer @ 0x1409C54F4
+ * XREFs of IovpCallDriverWithStackBuffer @ 0x1409C64F4
  * Callers:
- *     IovCallDriver @ 0x1409C4CB4 (IovCallDriver.c)
+ *     IovCallDriver @ 0x1409C5CB4 (IovCallDriver.c)
  * Callees:
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
- *     IopfCallDriver @ 0x14036E384 (IopfCallDriver.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
- *     IopPerfCallDriver @ 0x140507FC0 (IopPerfCallDriver.c)
- *     VfBugCheckNoStackUsage @ 0x1405A19A8 (VfBugCheckNoStackUsage.c)
- *     IovpValidateDeviceObject @ 0x1409C5B24 (IovpValidateDeviceObject.c)
- *     VfAfterCallDriver @ 0x1409D0E84 (VfAfterCallDriver.c)
- *     VfBeforeCallDriver @ 0x1409D1078 (VfBeforeCallDriver.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
+ *     IopfCallDriver @ 0x14036E534 (IopfCallDriver.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     IopPerfCallDriver @ 0x140507F40 (IopPerfCallDriver.c)
+ *     VfBugCheckNoStackUsage @ 0x1405A1BD8 (VfBugCheckNoStackUsage.c)
+ *     IovpValidateDeviceObject @ 0x1409C6B24 (IovpValidateDeviceObject.c)
+ *     VfAfterCallDriver @ 0x1409D1E84 (VfAfterCallDriver.c)
+ *     VfBeforeCallDriver @ 0x1409D2078 (VfBeforeCallDriver.c)
  */
 
 __int64 __fastcall IovpCallDriverWithStackBuffer(PADAPTER_OBJECT DmaAdapter, ULONG_PTR a2, __int64 a3)

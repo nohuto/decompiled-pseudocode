@@ -1,11 +1,11 @@
 /*
- * XREFs of IopAcquireReleaseDispatcherLock @ 0x140AABB14
+ * XREFs of IopAcquireReleaseDispatcherLock @ 0x140AA90C4
  * Callers:
- *     IopPassiveInterruptWorker @ 0x1402C4E20 (IopPassiveInterruptWorker.c)
+ *     IopPassiveInterruptWorker @ 0x14030FAE0 (IopPassiveInterruptWorker.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
  */
 
 void __fastcall IopAcquireReleaseDispatcherLock(struct _KEVENT *a1, char a2)

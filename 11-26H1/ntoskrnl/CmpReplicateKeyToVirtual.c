@@ -1,22 +1,22 @@
 /*
- * XREFs of CmpReplicateKeyToVirtual @ 0x140859F40
+ * XREFs of CmpReplicateKeyToVirtual @ 0x140860234
  * Callers:
- *     CmpVEExecuteCreateLogic @ 0x140A9F648 (CmpVEExecuteCreateLogic.c)
- *     CmKeyBodyReplicateToVirtual @ 0x140B3181C (CmKeyBodyReplicateToVirtual.c)
+ *     CmpVEExecuteCreateLogic @ 0x140A9F978 (CmpVEExecuteCreateLogic.c)
+ *     CmKeyBodyReplicateToVirtual @ 0x140B33A1C (CmKeyBodyReplicateToVirtual.c)
  * Callees:
- *     EtwGetKernelTraceTimestamp @ 0x14032D2B0 (EtwGetKernelTraceTimestamp.c)
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     CmpBuildVirtualReplicationStack @ 0x140859660 (CmpBuildVirtualReplicationStack.c)
- *     CmpDoBuildVirtualStack @ 0x140859914 (CmpDoBuildVirtualStack.c)
- *     CmpGetVirtualStoreRoot @ 0x140859E6C (CmpGetVirtualStoreRoot.c)
- *     CmRealKCBToVirtualPath @ 0x1408B1418 (CmRealKCBToVirtualPath.c)
- *     CmpDereferenceKeyControlBlock @ 0x1408C8770 (CmpDereferenceKeyControlBlock.c)
- *     CmpLockKcbExclusive @ 0x1408CEB50 (CmpLockKcbExclusive.c)
- *     RtlFreeAnsiString @ 0x140A007C0 (RtlFreeAnsiString.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
- *     CmpUnlockKcb @ 0x140C582B0 (CmpUnlockKcb.c)
+ *     EtwGetKernelTraceTimestamp @ 0x14032F2E0 (EtwGetKernelTraceTimestamp.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     CmpBuildVirtualReplicationStack @ 0x14085F9F0 (CmpBuildVirtualReplicationStack.c)
+ *     CmpDoBuildVirtualStack @ 0x14085FCA4 (CmpDoBuildVirtualStack.c)
+ *     CmpGetVirtualStoreRoot @ 0x140860160 (CmpGetVirtualStoreRoot.c)
+ *     CmRealKCBToVirtualPath @ 0x1408B7A24 (CmRealKCBToVirtualPath.c)
+ *     CmpDereferenceKeyControlBlock @ 0x1408CED20 (CmpDereferenceKeyControlBlock.c)
+ *     CmpLockKcbExclusive @ 0x1408D5100 (CmpLockKcbExclusive.c)
+ *     RtlFreeAnsiString @ 0x140A169F0 (RtlFreeAnsiString.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
+ *     CmpUnlockKcb @ 0x140C5E2B0 (CmpUnlockKcb.c)
  */
 
 __int64 __fastcall CmpReplicateKeyToVirtual(ULONG_PTR BugCheckParameter2, __int64 a2, __int64 a3, ULONG_PTR *a4)

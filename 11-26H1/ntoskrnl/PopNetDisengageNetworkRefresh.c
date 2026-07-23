@@ -1,11 +1,11 @@
 /*
- * XREFs of PopNetDisengageNetworkRefresh @ 0x1407DA528
+ * XREFs of PopNetDisengageNetworkRefresh @ 0x1407DE418
  * Callers:
- *     PopNetLowPowerEpochCallback @ 0x1407DA660 (PopNetLowPowerEpochCallback.c)
- *     PopNetRefreshTimerWorkerCallback @ 0x1407DA7F0 (PopNetRefreshTimerWorkerCallback.c)
+ *     PopNetLowPowerEpochCallback @ 0x1407DE550 (PopNetLowPowerEpochCallback.c)
+ *     PopNetRefreshTimerWorkerCallback @ 0x1407DE6E0 (PopNetRefreshTimerWorkerCallback.c)
  * Callees:
- *     ZwUpdateWnfStateData @ 0x140727030 (ZwUpdateWnfStateData.c)
- *     PopNetSetResiliencyPhaseBias @ 0x140B4AC80 (PopNetSetResiliencyPhaseBias.c)
+ *     ZwUpdateWnfStateData @ 0x14072BC00 (ZwUpdateWnfStateData.c)
+ *     PopNetSetResiliencyPhaseBias @ 0x140B4CA10 (PopNetSetResiliencyPhaseBias.c)
  */
 
 __int64 PopNetDisengageNetworkRefresh()
@@ -14,8 +14,8 @@ __int64 PopNetDisengageNetworkRefresh()
   char v1; // [rsp+50h] [rbp+8h] BYREF
 
   v1 = 0;
-  ZwUpdateWnfStateData((__int64)&WNF_PO_OPPORTUNISTIC_CS, (__int64)&v1);
+  ZwUpdateWnfStateData(&WNF_PO_OPPORTUNISTIC_CS, &v1, 1u, 0LL, 0LL, 0, 0);
   result = PopNetSetResiliencyPhaseBias(0LL);
-  LOBYTE(stru_140F0C428.SListFaultAddress) = 0;
+  BYTE4(PopPdcDeviceListLock.ReadOperationCount) = 0;
   return result;
 }

@@ -14,7 +14,7 @@ NTSTATUS __fastcall MiApplyDynamicRelocations(char *BaseAddress, ULONGLONG Size,
 {
   unsigned int v6; // ebp
   NTSTATUS v8; // eax
-  struct _IMAGE_NT_HEADERS64 *v9; // r8
+  _IMAGE_NT_HEADERS64 *v9; // r8
   __int64 v10; // r9
   unsigned int *v11; // rcx
   NTSTATUS result; // eax

@@ -1,8 +1,8 @@
 /*
- * XREFs of KeInitializeSchedulerSubNodeEnumerationContext @ 0x14048EFC0
+ * XREFs of KeInitializeSchedulerSubNodeEnumerationContext @ 0x140488B00
  * Callers:
- *     KiSynchNumaCounterSetCallback @ 0x140A67EF0 (KiSynchNumaCounterSetCallback.c)
- *     ExpQuerySystemInformation @ 0x140B145DC (ExpQuerySystemInformation.c)
+ *     KiSynchNumaCounterSetCallback @ 0x140A74EC0 (KiSynchNumaCounterSetCallback.c)
+ *     ExpQuerySystemInformation @ 0x140B169CC (ExpQuerySystemInformation.c)
  * Callees:
  *     <none>
  */

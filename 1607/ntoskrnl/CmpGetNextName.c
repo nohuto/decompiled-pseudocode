@@ -1,7 +1,7 @@
 /*
- * XREFs of CmpGetNextName @ 0x14013FFE8
+ * XREFs of CmpGetNextName @ 0x140140558
  * Callers:
- *     CmpWalkPath @ 0x1405601F8 (CmpWalkPath.c)
+ *     CmpWalkPath @ 0x140560738 (CmpWalkPath.c)
  * Callees:
  *     <none>
  */

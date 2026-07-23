@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpExpandStackAndWalkFrameChain @ 0x1402610A0
+ * XREFs of EtwpExpandStackAndWalkFrameChain @ 0x140260610
  * Callers:
- *     EtwpTraceStackWalk @ 0x14020A5C0 (EtwpTraceStackWalk.c)
+ *     EtwpTraceStackWalk @ 0x14020A6A0 (EtwpTraceStackWalk.c)
  * Callees:
- *     RtlWalkFrameChain @ 0x140262D70 (RtlWalkFrameChain.c)
- *     KeExpandKernelStackAndCalloutInternal @ 0x1402638C0 (KeExpandKernelStackAndCalloutInternal.c)
- *     KeAreInterruptsEnabled @ 0x1402642E0 (KeAreInterruptsEnabled.c)
+ *     RtlWalkFrameChain @ 0x1402622E0 (RtlWalkFrameChain.c)
+ *     KeExpandKernelStackAndCalloutInternal @ 0x140262E30 (KeExpandKernelStackAndCalloutInternal.c)
+ *     KeAreInterruptsEnabled @ 0x140263850 (KeAreInterruptsEnabled.c)
  */
 
 __int64 __fastcall EtwpExpandStackAndWalkFrameChain(PVOID *Callers, __int64 Count, __int64 a3, ULONG a4, ULONG *a5)

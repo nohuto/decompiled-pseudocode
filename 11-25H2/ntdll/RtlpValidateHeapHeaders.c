@@ -15,41 +15,41 @@
  *     memmove @ 0x180168980 (memmove.c)
  */
 
-char __fastcall RtlpValidateHeapHeaders(_QWORD *Src, char a2)
+char __fastcall RtlpValidateHeapHeaders(char *Src, char a2)
 {
   void **v3; // rsi
   unsigned __int16 *v4; // rdi
-  size_t v5; // r8
-  SIZE_T v6; // rdi
-  size_t v7; // rax
+  ULONG_PTR v5; // r8
+  ULONG_PTR v6; // rdi
+  ULONG_PTR v7; // rax
   unsigned int v9; // ecx
   __int64 v10; // rbx
-  SIZE_T v11; // rax
-  size_t v12; // [rsp+50h] [rbp+18h] BYREF
+  ULONG_PTR v11; // rax
+  ULONG_PTR RegionSize; // [rsp+50h] [rbp+18h] BYREF
 
   if ( !RtlpValidateHeapHdrsEnable )
     return 1;
-  v3 = (void **)(Src + 27);
-  v4 = (unsigned __int16 *)Src + 105;
-  if ( Src[27] )
+  v3 = (void **)(Src + 216);
+  v4 = (unsigned __int16 *)(Src + 210);
+  if ( *((_QWORD *)Src + 27) )
     goto LABEL_3;
-  v12 = *v4;
-  if ( (int)ZwAllocateVirtualMemory(-1LL, Src + 27, 0LL, &v12, 4096, 4) < 0 )
+  RegionSize = *v4;
+  if ( ZwAllocateVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, (PVOID *)Src + 27, 0LL, &RegionSize, 0x1000u, 4u) < 0 )
     return 1;
   a2 = 1;
 LABEL_3:
   v5 = *v4;
-  v12 = v5;
+  RegionSize = v5;
   if ( a2 )
   {
     memmove(*v3, Src, v5);
-    v7 = v12;
-    v6 = v12;
+    v7 = RegionSize;
+    v6 = RegionSize;
   }
   else
   {
     v6 = RtlCompareMemory(Src, *v3, v5);
-    v7 = v12;
+    v7 = RegionSize;
   }
   if ( v7 == v6 )
     return 1;
@@ -60,9 +60,9 @@ LABEL_3:
   DbgPrint(
     "Heap %p - headers modified (%p is %lx instead of %lx)\n",
     Src,
-    (char *)Src + v6,
-    *(_DWORD *)((char *)Src + v6),
-    *(_DWORD *)(Src[27] + v6));
+    &Src[v6],
+    *(_DWORD *)&Src[v6],
+    *(_DWORD *)(*((_QWORD *)Src + 27) + v6));
   v9 = 0;
   while ( 1 )
   {

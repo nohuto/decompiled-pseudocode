@@ -1,11 +1,11 @@
 /*
- * XREFs of PspQueryJobHierarchyInterferenceCount @ 0x140889E5C
+ * XREFs of PspQueryJobHierarchyInterferenceCount @ 0x14088B0BC
  * Callers:
- *     NtQueryInformationJobObject @ 0x1405FE8F0 (NtQueryInformationJobObject.c)
+ *     NtQueryInformationJobObject @ 0x1405FF8F0 (NtQueryInformationJobObject.c)
  * Callees:
- *     PspEnumJobsAndProcessesInJobHierarchy @ 0x1405FD9F4 (PspEnumJobsAndProcessesInJobHierarchy.c)
- *     PspUnlockJob @ 0x1405FE0C0 (PspUnlockJob.c)
- *     PspLockJobShared @ 0x1405FE128 (PspLockJobShared.c)
+ *     PspEnumJobsAndProcessesInJobHierarchy @ 0x1405FE9F4 (PspEnumJobsAndProcessesInJobHierarchy.c)
+ *     PspUnlockJob @ 0x1405FF0C0 (PspUnlockJob.c)
+ *     PspLockJobShared @ 0x1405FF128 (PspLockJobShared.c)
  */
 
 __int64 __fastcall PspQueryJobHierarchyInterferenceCount(_QWORD *Object, _QWORD *a2)

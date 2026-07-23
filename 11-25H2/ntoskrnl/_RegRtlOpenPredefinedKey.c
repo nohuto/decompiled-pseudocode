@@ -18,10 +18,10 @@
 __int64 __fastcall RegRtlOpenPredefinedKey(__int64 a1, __int64 a2)
 {
   wchar_t *Buffer; // rdx
-  int v4; // ebx
-  UNICODE_STRING UnicodeString; // [rsp+30h] [rbp-18h] BYREF
+  NTSTATUS v4; // ebx
+  UNICODE_STRING CurrentUserKeyPath; // [rsp+30h] [rbp-18h] BYREF
 
-  UnicodeString = 0LL;
+  CurrentUserKeyPath = 0LL;
   switch ( a1 )
   {
     case 2147483650LL:
@@ -44,13 +44,13 @@ LABEL_12:
     v4 = -1073741816;
     goto LABEL_14;
   }
-  v4 = RtlFormatCurrentUserKeyPath(&UnicodeString);
+  v4 = RtlFormatCurrentUserKeyPath(&CurrentUserKeyPath);
   if ( v4 >= 0 )
   {
-    Buffer = UnicodeString.Buffer;
+    Buffer = CurrentUserKeyPath.Buffer;
     goto LABEL_12;
   }
 LABEL_14:
-  RtlFreeAnsiString(&UnicodeString);
+  RtlFreeAnsiString(&CurrentUserKeyPath);
   return (unsigned int)v4;
 }

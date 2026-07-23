@@ -1,5 +1,5 @@
 /*
- * XREFs of CmpFinishSystemHivesLoad @ 0x140732580
+ * XREFs of CmpFinishSystemHivesLoad @ 0x140733770
  * Callers:
  *     <none>
  * Callees:
@@ -13,30 +13,30 @@
  *     ExReleasePushLockEx @ 0x14004F160 (ExReleasePushLockEx.c)
  *     KeWaitForMultipleObjects @ 0x140053760 (KeWaitForMultipleObjects.c)
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
- *     RtlUnicodeStringValidateDestWorker @ 0x14015D790 (RtlUnicodeStringValidateDestWorker.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     CmCleanupThreadInfo @ 0x1401B2F3C (CmCleanupThreadInfo.c)
- *     CmpInitializeThreadInfo @ 0x1401B2F7C (CmpInitializeThreadInfo.c)
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     ZwCreateKey @ 0x1401B8530 (ZwCreateKey.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     CmpLockRegistryExclusive @ 0x1405B16C8 (CmpLockRegistryExclusive.c)
- *     CmpFlushHive @ 0x1405B2F54 (CmpFlushHive.c)
- *     CmpLinkHiveToMaster @ 0x1405B8C48 (CmpLinkHiveToMaster.c)
- *     CmpUnlockRegistry @ 0x140645150 (CmpUnlockRegistry.c)
- *     CmpInitCmRM @ 0x14067F2E8 (CmpInitCmRM.c)
- *     CmpAddToHiveFileList @ 0x1406CCF80 (CmpAddToHiveFileList.c)
- *     CmRmFinalizeRecovery @ 0x1406CDC28 (CmRmFinalizeRecovery.c)
- *     CmpLinkKeyToHive @ 0x140732D2C (CmpLinkKeyToHive.c)
- *     CmpCreatePerfKeys @ 0x140732E0C (CmpCreatePerfKeys.c)
- *     CmpSetVersionData @ 0x140733078 (CmpSetVersionData.c)
- *     CmpHiveRootSecurityDescriptor @ 0x140733580 (CmpHiveRootSecurityDescriptor.c)
- *     PsBootPhaseComplete @ 0x140733A2C (PsBootPhaseComplete.c)
- *     ExpRefreshSystemTime @ 0x1407341A0 (ExpRefreshSystemTime.c)
- *     CmpInterlockedFunction @ 0x1407356B8 (CmpInterlockedFunction.c)
- *     CmpMountPreloadedHives @ 0x1407357E0 (CmpMountPreloadedHives.c)
+ *     KeSetEvent @ 0x1400C2A40 (KeSetEvent.c)
+ *     RtlUnicodeStringValidateDestWorker @ 0x14015D890 (RtlUnicodeStringValidateDestWorker.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     CmCleanupThreadInfo @ 0x1401B307C (CmCleanupThreadInfo.c)
+ *     CmpInitializeThreadInfo @ 0x1401B30BC (CmpInitializeThreadInfo.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     ZwCreateKey @ 0x1401B8690 (ZwCreateKey.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     CmpLockRegistryExclusive @ 0x1405B26C8 (CmpLockRegistryExclusive.c)
+ *     CmpFlushHive @ 0x1405B3F54 (CmpFlushHive.c)
+ *     CmpLinkHiveToMaster @ 0x1405B9C48 (CmpLinkHiveToMaster.c)
+ *     CmpUnlockRegistry @ 0x140646170 (CmpUnlockRegistry.c)
+ *     CmpInitCmRM @ 0x1406804A8 (CmpInitCmRM.c)
+ *     CmpAddToHiveFileList @ 0x1406CE220 (CmpAddToHiveFileList.c)
+ *     CmRmFinalizeRecovery @ 0x1406CEEC8 (CmRmFinalizeRecovery.c)
+ *     CmpLinkKeyToHive @ 0x140733F1C (CmpLinkKeyToHive.c)
+ *     CmpCreatePerfKeys @ 0x140733FFC (CmpCreatePerfKeys.c)
+ *     CmpSetVersionData @ 0x140734268 (CmpSetVersionData.c)
+ *     CmpHiveRootSecurityDescriptor @ 0x140734770 (CmpHiveRootSecurityDescriptor.c)
+ *     PsBootPhaseComplete @ 0x140734C1C (PsBootPhaseComplete.c)
+ *     ExpRefreshSystemTime @ 0x140735390 (ExpRefreshSystemTime.c)
+ *     CmpInterlockedFunction @ 0x1407368A8 (CmpInterlockedFunction.c)
+ *     CmpMountPreloadedHives @ 0x1407369D0 (CmpMountPreloadedHives.c)
  */
 
 PVOID __fastcall CmpFinishSystemHivesLoad(PRKEVENT Event)
@@ -127,17 +127,17 @@ PVOID __fastcall CmpFinishSystemHivesLoad(PRKEVENT Event)
   if ( !TransientPoolWithTag )
     KeBugCheckEx(0x74u, 2uLL, 6uLL, 0LL, 0xFFFFFFFFC000009AuLL);
   P = (PVOID)CmpHiveRootSecurityDescriptor();
-  *(_QWORD *)&v10->PrivilegeCount = &unk_1403FEE68;
-  v10->Privilege[0].Luid = (LUID)&unk_1403FEF00;
-  *(_QWORD *)&v10->Privilege[0].Attributes = &unk_1403FEF98;
-  *(_QWORD *)&v10[1].Privilege[0].Luid.HighPart = &unk_1403FF0C8;
-  *(_QWORD *)&v10[2].PrivilegeCount = &unk_1403FF160;
-  v10[2].Privilege[0].Luid = (LUID)&unk_1403FF1F8;
-  *(_QWORD *)&v10[1].Control = &stru_1403FF030;
+  *(_QWORD *)&v10->PrivilegeCount = &unk_1403FFE68;
+  v10->Privilege[0].Luid = (LUID)&unk_1403FFF00;
+  *(_QWORD *)&v10->Privilege[0].Attributes = &unk_1403FFF98;
+  *(_QWORD *)&v10[1].Privilege[0].Luid.HighPart = &unk_1404000C8;
+  *(_QWORD *)&v10[2].PrivilegeCount = &unk_140400160;
+  v10[2].Privilege[0].Luid = (LUID)&unk_1404001F8;
+  *(_QWORD *)&v10[1].Control = &stru_140400030;
   if ( !Event )
   {
-    KeWaitForSingleObject(&stru_1403FF030, Executive, 0, 0, 0LL);
-    KeSetEvent(&stru_1403FF030, 0, 0);
+    KeWaitForSingleObject(&stru_140400030, Executive, 0, 0, 0LL);
+    KeSetEvent(&stru_140400030, 0, 0);
     KiStackAttachProcess(PsInitialSystemProcess, 0LL, (__int64)v37);
     CmpInitCmRM(0LL, CmpInitRmLogOnLoad);
     KiUnstackDetachProcess((__int64)v37, 0LL);
@@ -152,7 +152,7 @@ PVOID __fastcall CmpFinishSystemHivesLoad(PRKEVENT Event)
   {
     KeWaitForMultipleObjects(7u, (PVOID *)v10, WaitAny, Executive, 0, 0, 0LL, WaitBlockArray);
     v12 = 0;
-    v13 = (char *)&unk_1403FEE40;
+    v13 = (char *)&unk_1403FFE40;
     for ( i = 0; i < 7; ++i )
     {
       if ( v13[8] )
@@ -191,7 +191,7 @@ PVOID __fastcall CmpFinishSystemHivesLoad(PRKEVENT Event)
           CmpLoadingSystemHivesActive = 0;
           CmpMountThread = 0LL;
           CmpUnlockRegistry();
-          v23 = (char *)&unk_1403FEE48;
+          v23 = (char *)&unk_1403FFE48;
           do
           {
             if ( *((_DWORD *)v23 + 3) && !*v23 )
@@ -207,14 +207,14 @@ PVOID __fastcall CmpFinishSystemHivesLoad(PRKEVENT Event)
           goto LABEL_78;
         }
         ExAcquirePushLockExclusiveEx((ULONG_PTR)&CmpHiveListHeadLock, 0LL);
-        v18 = (_QWORD *)qword_14096E7D0;
+        v18 = (_QWORD *)qword_14096F7D0;
         v19 = (_QWORD *)(*(_QWORD *)v13 + 1600LL);
-        if ( *(__int64 **)qword_14096E7D0 != &CmpHiveListHead )
+        if ( *(__int64 **)qword_14096F7D0 != &CmpHiveListHead )
           __fastfail(3u);
         *v19 = &CmpHiveListHead;
         v19[1] = v18;
         *v18 = v19;
-        qword_14096E7D0 = (__int64)v19;
+        qword_14096F7D0 = (__int64)v19;
         ExReleasePushLockEx((ULONG_PTR)&CmpHiveListHeadLock, 0LL);
         CmpRecheckHiveVolumePolicy(*(_QWORD *)v13);
         if ( v13[11] )
@@ -247,7 +247,7 @@ LABEL_31:
             CmpInterlockedFunction();
             KeSetEvent((PRKEVENT)(v13 + 64), 0, 0);
             v16 = 1;
-            if ( byte_1403FEF78 )
+            if ( byte_1403FFF78 )
             {
               if ( CmFastBoot )
               {
@@ -265,7 +265,7 @@ LABEL_31:
           {
             KeSetEvent((PRKEVENT)(v13 + 64), 0, 0);
             v16 = 1;
-            if ( byte_1403FF010 && CmFastBoot )
+            if ( byte_140400010 && CmFastBoot )
             {
               ExpRefreshSystemTime();
               PsBootPhaseComplete();
@@ -319,7 +319,7 @@ LABEL_52:
     CmpMountPreloadedHives();
     CmpInterlockedFunction();
     CmpUnlockRegistry();
-    v24 = &stru_1403FEE80;
+    v24 = &stru_1403FFE80;
     do
     {
       KeSetEvent(v24, 0, 0);

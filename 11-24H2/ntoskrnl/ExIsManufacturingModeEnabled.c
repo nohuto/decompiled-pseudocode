@@ -1,7 +1,7 @@
 /*
- * XREFs of ExIsManufacturingModeEnabled @ 0x140AAE140
+ * XREFs of ExIsManufacturingModeEnabled @ 0x140AA91C0
  * Callers:
- *     IopInitializeSystemDrivers @ 0x140C629DC (IopInitializeSystemDrivers.c)
+ *     IopInitializeSystemDrivers @ 0x140C64B58 (IopInitializeSystemDrivers.c)
  * Callees:
  *     <none>
  */

@@ -1,35 +1,35 @@
 /*
- * XREFs of PspSetContextThreadInternal @ 0x1407705F0
+ * XREFs of PspSetContextThreadInternal @ 0x1407707E0
  * Callers:
- *     WbSetTrapFrame @ 0x140763048 (WbSetTrapFrame.c)
- *     PspInitializeThunkContext @ 0x1407701FC (PspInitializeThunkContext.c)
- *     PspWow64SetContextThread @ 0x1407A0458 (PspWow64SetContextThread.c)
- *     NtSetContextThread @ 0x1409B3EC0 (NtSetContextThread.c)
- *     PsSetContextThread @ 0x1409B3FF0 (PsSetContextThread.c)
- *     PspPicoSetContextThreadEx @ 0x1409B5B90 (PspPicoSetContextThreadEx.c)
+ *     WbSetTrapFrame @ 0x140763238 (WbSetTrapFrame.c)
+ *     PspInitializeThunkContext @ 0x1407703EC (PspInitializeThunkContext.c)
+ *     PspWow64SetContextThread @ 0x1407A0648 (PspWow64SetContextThread.c)
+ *     NtSetContextThread @ 0x1409B40C0 (NtSetContextThread.c)
+ *     PsSetContextThread @ 0x1409B41F0 (PsSetContextThread.c)
+ *     PspPicoSetContextThreadEx @ 0x1409B5D90 (PspPicoSetContextThreadEx.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140243CE0 (KeWaitForSingleObject.c)
- *     IoThreadToProcess @ 0x140289F80 (IoThreadToProcess.c)
- *     KeInitializeEvent @ 0x1402AF870 (KeInitializeEvent.c)
- *     KeInitializeApc @ 0x1402BE6D0 (KeInitializeApc.c)
- *     KeInsertQueueApc @ 0x1402CC640 (KeInsertQueueApc.c)
- *     RtlInitializeExtendedContext @ 0x14030D3B0 (RtlInitializeExtendedContext.c)
- *     RtlGetExtendedContextLength @ 0x14030D430 (RtlGetExtendedContextLength.c)
- *     RtlpSanitizeContextFlags @ 0x14030D73C (RtlpSanitizeContextFlags.c)
- *     KeVerifyContextRecord @ 0x14030DD74 (KeVerifyContextRecord.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F820 (KiCheckForKernelApcDelivery.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     PspGetSetContextSpecialApc @ 0x140428CA0 (PspGetSetContextSpecialApc.c)
- *     _alloca_probe @ 0x140429B10 (_alloca_probe.c)
- *     memset @ 0x140435A00 (memset.c)
- *     RtlpReadExtendedContext @ 0x14076FEE0 (RtlpReadExtendedContext.c)
- *     EtwTiLogSetContextThread @ 0x1407A2E7C (EtwTiLogSetContextThread.c)
+ *     KeWaitForSingleObject @ 0x140243DB0 (KeWaitForSingleObject.c)
+ *     IoThreadToProcess @ 0x14028A210 (IoThreadToProcess.c)
+ *     KeInitializeEvent @ 0x1402AFB00 (KeInitializeEvent.c)
+ *     KeInitializeApc @ 0x1402BE960 (KeInitializeApc.c)
+ *     KeInsertQueueApc @ 0x1402CC8D0 (KeInsertQueueApc.c)
+ *     RtlInitializeExtendedContext @ 0x14030D640 (RtlInitializeExtendedContext.c)
+ *     RtlGetExtendedContextLength @ 0x14030D6C0 (RtlGetExtendedContextLength.c)
+ *     RtlpSanitizeContextFlags @ 0x14030D9CC (RtlpSanitizeContextFlags.c)
+ *     KeVerifyContextRecord @ 0x14030E004 (KeVerifyContextRecord.c)
+ *     KiCheckForKernelApcDelivery @ 0x14030FAB0 (KiCheckForKernelApcDelivery.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     PspGetSetContextSpecialApc @ 0x140429030 (PspGetSetContextSpecialApc.c)
+ *     _alloca_probe @ 0x140429EA0 (_alloca_probe.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     RtlpReadExtendedContext @ 0x1407700D0 (RtlpReadExtendedContext.c)
+ *     EtwTiLogSetContextThread @ 0x1407A306C (EtwTiLogSetContextThread.c)
  */
 
-__int64 __fastcall PspSetContextThreadInternal(PETHREAD Thread, __int64 a2, char a3, char a4, char a5)
+int __fastcall PspSetContextThreadInternal(PETHREAD Thread, __int64 a2, char a3, char a4, char a5)
 {
   struct _KTHREAD *CurrentThread; // r15
-  __int64 result; // rax
+  int result; // eax
   char v11; // di
   __int64 v12; // rcx
   bool v13; // zf
@@ -37,59 +37,59 @@ __int64 __fastcall PspSetContextThreadInternal(PETHREAD Thread, __int64 a2, char
   struct _KPROCESS *v15; // rbx
   int v16; // r8d
   __int64 v17; // rax
-  unsigned int v18; // edi
+  ULONG v18; // edi
   unsigned __int64 v19; // rax
   void *v20; // rsp
   __int64 v21; // rcx
   struct _KEVENT *v22; // [rsp+20h] [rbp-20h]
-  unsigned int v23; // [rsp+40h] [rbp+0h] BYREF
-  unsigned int v24; // [rsp+44h] [rbp+4h] BYREF
-  __int64 v25; // [rsp+48h] [rbp+8h] BYREF
+  ULONG ContextFlags; // [rsp+40h] [rbp+0h] BYREF
+  ULONG ContextLength; // [rsp+44h] [rbp+4h] BYREF
+  PCONTEXT_EX ContextEx; // [rsp+48h] [rbp+8h] BYREF
   struct _KEVENT v26[16]; // [rsp+50h] [rbp+10h] BYREF
 
-  v25 = 0LL;
+  ContextEx = 0LL;
   memset(v26, 0, sizeof(v26));
-  v24 = 0;
+  ContextLength = 0;
   CurrentThread = KeGetCurrentThread();
   if ( a3 )
   {
     v17 = a2 + 48;
     if ( (unsigned __int64)(a2 + 48) >= 0x7FFFFFFF0000LL )
       v17 = 0x7FFFFFFF0000LL;
-    v23 = *(_DWORD *)v17;
+    ContextFlags = *(_DWORD *)v17;
   }
   else
   {
-    v23 = *(_DWORD *)(a2 + 48);
+    ContextFlags = *(_DWORD *)(a2 + 48);
   }
-  result = RtlpSanitizeContextFlags(&v23, a3);
-  if ( (int)result >= 0 )
+  result = RtlpSanitizeContextFlags(&ContextFlags, a3);
+  if ( result >= 0 )
   {
     if ( !a3 )
     {
       *(_QWORD *)&v26[5].Header.Lock = a2;
       goto LABEL_6;
     }
-    v18 = v23;
-    result = RtlGetExtendedContextLength(v23, (__int64)&v24);
-    if ( (int)result >= 0 )
+    v18 = ContextFlags;
+    result = RtlGetExtendedContextLength(ContextFlags, &ContextLength);
+    if ( result >= 0 )
     {
-      v19 = v24 + 15LL;
-      if ( v19 <= v24 )
+      v19 = ContextLength + 15LL;
+      if ( v19 <= ContextLength )
         v19 = 0xFFFFFFFFFFFFFF0LL;
       v20 = alloca(v19 & 0xFFFFFFFFFFFFFFF0uLL);
-      *(_QWORD *)&v26[5].Header.Lock = &v23;
-      memset(&v23, 0, v24);
-      result = RtlInitializeExtendedContext(*(__int64 *)&v26[5].Header.Lock, v18, (__int64)&v25);
-      if ( (int)result >= 0 )
+      *(_QWORD *)&v26[5].Header.Lock = &ContextFlags;
+      memset(&ContextFlags, 0, ContextLength);
+      result = RtlInitializeExtendedContext(*(PCONTEXT *)&v26[5].Header.Lock, v18, &ContextEx);
+      if ( result >= 0 )
       {
-        *(_QWORD *)&v26[5].Header.Lock = v25 - 1232;
-        result = RtlpReadExtendedContext(v21, 1, v25, v18, a2, 0LL);
-        if ( (int)result >= 0 )
+        *(_QWORD *)&v26[5].Header.Lock = (char *)ContextEx - 1232;
+        result = RtlpReadExtendedContext(v21, 1, (__int64)ContextEx, v18, a2, 0LL);
+        if ( result >= 0 )
         {
 LABEL_6:
           if ( a4 && (Thread->MiscFlags & 0x400) != 0 )
-            return (unsigned int)-1073741776;
+            return -1073741776;
           BYTE1(v26[3].Header.WaitListHead.Blink) &= ~4u;
           v11 = BYTE1(v26[3].Header.WaitListHead.Blink);
           if ( a4 )
@@ -101,7 +101,7 @@ LABEL_6:
               {
                 Blink_high = KeVerifyContextRecord((__int64)Thread, *(__int64 *)&v26[5].Header.Lock, v16, 0, 0LL);
                 if ( Blink_high < 0 )
-                  return (unsigned int)Blink_high;
+                  return Blink_high;
                 v11 = BYTE1(v26[3].Header.WaitListHead.Blink) | 4;
               }
             }
@@ -134,11 +134,11 @@ LABEL_14:
             if ( SHIDWORD(v26[3].Header.WaitListHead.Blink) >= 0 && a3 == 1 && a4 == 1 )
             {
               LOBYTE(v12) = KeGetCurrentThread()->PreviousMode;
-              EtwTiLogSetContextThread(v12, Thread, *(_QWORD *)&v26[5].Header.Lock, v23, v22);
+              EtwTiLogSetContextThread(v12, Thread, *(_QWORD *)&v26[5].Header.Lock, ContextFlags, v22);
             }
-            return (unsigned int)Blink_high;
+            return Blink_high;
           }
-          return (unsigned int)-1073741823;
+          return -1073741823;
         }
       }
     }

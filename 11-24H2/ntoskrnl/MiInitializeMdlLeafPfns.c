@@ -1,11 +1,11 @@
 /*
- * XREFs of MiInitializeMdlLeafPfns @ 0x140412EFC
+ * XREFs of MiInitializeMdlLeafPfns @ 0x140393570
  * Callers:
- *     MiInitializeLargeMdlLeafPfns @ 0x140414A8C (MiInitializeLargeMdlLeafPfns.c)
+ *     MiInitializeLargeMdlLeafPfns @ 0x1404A6B00 (MiInitializeLargeMdlLeafPfns.c)
  * Callees:
- *     HvlNotifyLongSpinWait @ 0x140293260 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140293290 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     MiInitializeMdlSinglePage @ 0x1404132BC (MiInitializeMdlSinglePage.c)
+ *     HvlNotifyLongSpinWait @ 0x1402A2E60 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402A2E90 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     MiInitializeMdlSinglePage @ 0x140393930 (MiInitializeMdlSinglePage.c)
  */
 
 __int64 __fastcall MiInitializeMdlLeafPfns(__int64 a1, __int64 a2, int a3, int a4, int a5)

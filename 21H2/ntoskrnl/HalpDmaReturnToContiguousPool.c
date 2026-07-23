@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpDmaReturnToContiguousPool @ 0x1404C8014
+ * XREFs of HalpDmaReturnToContiguousPool @ 0x1404C8254
  * Callers:
- *     HalpDmaReturnPageToOwner @ 0x1404C7F4C (HalpDmaReturnPageToOwner.c)
- *     HalpDmaReturnPageToSource @ 0x1404C7FC4 (HalpDmaReturnPageToSource.c)
+ *     HalpDmaReturnPageToOwner @ 0x1404C818C (HalpDmaReturnPageToOwner.c)
+ *     HalpDmaReturnPageToSource @ 0x1404C8204 (HalpDmaReturnPageToSource.c)
  * Callees:
- *     RtlClearBits @ 0x140206E00 (RtlClearBits.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     HalpDmaTranslationEntryToIndex @ 0x1403BBF78 (HalpDmaTranslationEntryToIndex.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     RtlClearBits @ 0x1402AB730 (RtlClearBits.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402D3660 (KeAcquireInStackQueuedSpinLock.c)
+ *     HalpDmaTranslationEntryToIndex @ 0x1403BC0E8 (HalpDmaTranslationEntryToIndex.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 

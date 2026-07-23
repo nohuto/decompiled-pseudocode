@@ -1,21 +1,21 @@
 /*
- * XREFs of PiLastGoodRevertLastKnownDirectory @ 0x140CC4AA8
+ * XREFs of PiLastGoodRevertLastKnownDirectory @ 0x140CCAB88
  * Callers:
- *     PpLastGoodDoBootProcessing @ 0x140CC4CEC (PpLastGoodDoBootProcessing.c)
+ *     PpLastGoodDoBootProcessing @ 0x140CCADCC (PpLastGoodDoBootProcessing.c)
  * Callees:
- *     RtlAppendUnicodeToString @ 0x140432EB0 (RtlAppendUnicodeToString.c)
- *     RtlAppendUnicodeStringToString @ 0x140432F70 (RtlAppendUnicodeStringToString.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwOpenKey @ 0x140723630 (ZwOpenKey.c)
- *     ZwEnumerateValueKey @ 0x140723650 (ZwEnumerateValueKey.c)
- *     ZwDeleteFile @ 0x140724F50 (ZwDeleteFile.c)
- *     ZwDeleteKey @ 0x140724F70 (ZwDeleteKey.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     IopFileUtilClearAttributes @ 0x1407B43A0 (IopFileUtilClearAttributes.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
- *     IopFileUtilWalkDirectoryTreeTopDown @ 0x140CC7A6C (IopFileUtilWalkDirectoryTreeTopDown.c)
+ *     RtlAppendUnicodeToString @ 0x14041FEE0 (RtlAppendUnicodeToString.c)
+ *     RtlAppendUnicodeStringToString @ 0x14041FFA0 (RtlAppendUnicodeStringToString.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140728200 (ZwOpenKey.c)
+ *     ZwEnumerateValueKey @ 0x140728220 (ZwEnumerateValueKey.c)
+ *     ZwDeleteFile @ 0x140729B20 (ZwDeleteFile.c)
+ *     ZwDeleteKey @ 0x140729B40 (ZwDeleteKey.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     IopFileUtilClearAttributes @ 0x1407B7400 (IopFileUtilClearAttributes.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
+ *     IopFileUtilWalkDirectoryTreeTopDown @ 0x140CCDB5C (IopFileUtilWalkDirectoryTreeTopDown.c)
  */
 
 void __fastcall PiLastGoodRevertLastKnownDirectory(__int64 a1, UNICODE_STRING *a2)

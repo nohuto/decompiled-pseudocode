@@ -1,25 +1,25 @@
 /*
- * XREFs of HalpInitSystemPhase1 @ 0x140B4B7C4
+ * XREFs of HalpInitSystemPhase1 @ 0x140B4D804
  * Callers:
- *     HalInitSystem @ 0x140B4B6C0 (HalInitSystem.c)
+ *     HalInitSystem @ 0x140B4D700 (HalInitSystem.c)
  * Callees:
- *     HalpInitSystemHelper @ 0x140B4B718 (HalpInitSystemHelper.c)
+ *     HalpInitSystemHelper @ 0x140B4D758 (HalpInitSystemHelper.c)
  */
 
-bool __fastcall HalpInitSystemPhase1(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+bool HalpInitSystemPhase1()
 {
-  unsigned int v5; // ecx
-  int v6; // edx
+  unsigned int v0; // ecx
+  int v1; // edx
 
   if ( KeGetPcr()->Prcb.Number )
   {
-    v5 = 19;
-    v6 = 20;
+    v0 = 19;
+    v1 = 20;
   }
   else
   {
-    v5 = 17;
-    v6 = 18;
+    v0 = 17;
+    v1 = 18;
   }
-  return (int)HalpInitSystemHelper(v5, v6, a1, a4) >= 0;
+  return (int)HalpInitSystemHelper(v0, v1) >= 0;
 }

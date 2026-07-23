@@ -5,8 +5,8 @@
  *     MiInitNucleus @ 0x140B41888 (MiInitNucleus.c)
  *     IopInitCrashDumpDuringSysInit @ 0x140B71660 (IopInitCrashDumpDuringSysInit.c)
  * Callees:
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     memmove @ 0x140435700 (memmove.c)
+ *     MiAllocatePool @ 0x1402DF430 (MiAllocatePool.c)
+ *     memmove @ 0x140435B00 (memmove.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

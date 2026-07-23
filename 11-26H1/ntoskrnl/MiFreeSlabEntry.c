@@ -1,19 +1,19 @@
 /*
- * XREFs of MiFreeSlabEntry @ 0x1402A7A6C
+ * XREFs of MiFreeSlabEntry @ 0x1402A6E7C
  * Callers:
- *     MiReplenishSlabAllocator @ 0x14020607C (MiReplenishSlabAllocator.c)
- *     MiFreeSlabEntries @ 0x1402A76DC (MiFreeSlabEntries.c)
- *     MiDeleteSlabEntriesForIdentity @ 0x1407067E0 (MiDeleteSlabEntriesForIdentity.c)
- *     MiEstablishDefragSlabEntries @ 0x140706AC4 (MiEstablishDefragSlabEntries.c)
+ *     MiReplenishSlabAllocator @ 0x14020615C (MiReplenishSlabAllocator.c)
+ *     MiFreeSlabEntries @ 0x1402A6AEC (MiFreeSlabEntries.c)
+ *     MiDeleteSlabEntriesForIdentity @ 0x14070B4B0 (MiDeleteSlabEntriesForIdentity.c)
+ *     MiEstablishDefragSlabEntries @ 0x14070B794 (MiEstablishDefragSlabEntries.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiReleaseNonPagedResources @ 0x14028C070 (MiReleaseNonPagedResources.c)
- *     MiChangePageAttribute @ 0x1402D8660 (MiChangePageAttribute.c)
- *     MiMakeLinkedListPte @ 0x140365844 (MiMakeLinkedListPte.c)
- *     MiChangePageAttributeBatch @ 0x140368E1C (MiChangePageAttributeBatch.c)
- *     MiUpdateSlabPagePlaceholderState @ 0x140369290 (MiUpdateSlabPagePlaceholderState.c)
- *     MiFreeLargePageMemory @ 0x1403C52E8 (MiFreeLargePageMemory.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiReleaseNonPagedResources @ 0x14028B5D0 (MiReleaseNonPagedResources.c)
+ *     MiChangePageAttribute @ 0x1402BA420 (MiChangePageAttribute.c)
+ *     MiMakeLinkedListPte @ 0x1403675E4 (MiMakeLinkedListPte.c)
+ *     MiChangePageAttributeBatch @ 0x14036ABBC (MiChangePageAttributeBatch.c)
+ *     MiUpdateSlabPagePlaceholderState @ 0x14036B030 (MiUpdateSlabPagePlaceholderState.c)
+ *     MiFreeLargePageMemory @ 0x1403CF1F4 (MiFreeLargePageMemory.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiFreeSlabEntry(__int64 a1, __int64 a2)
@@ -103,7 +103,7 @@ LABEL_4:
         while ( *((__int64 *)v10 - 2) < 0 );
       }
       if ( !v5 )
-        v5 = *(_QWORD *)(stru_140E2EB88.ThreadLock + 8 * (((unsigned __int64)*v10 >> 43) & 0x3FF));
+        v5 = *(_QWORD *)(stru_140E2ED08.ThreadLock + 8 * (((unsigned __int64)*v10 >> 43) & 0x3FF));
       v14 = *v2;
       if ( *v2 >= 0 && v14 <= 4 && v14 != 2 )
       {
@@ -147,8 +147,8 @@ LABEL_11:
     BYTE12(v30) = 0;
     MiChangePageAttributeBatch(&v30, 1LL);
   }
-  v17 = qword_140E3D0C0 + 2 * ((*v15 + v16 - 1) >> 9);
-  v18 = (_WORD *)(qword_140E3D0C0 + 2 * (*v15 >> 9));
+  v17 = qword_140E3D240 + 2 * ((*v15 + v16 - 1) >> 9);
+  v18 = (_WORD *)(qword_140E3D240 + 2 * (*v15 >> 9));
   if ( (unsigned __int64)v18 <= v17 )
   {
     do

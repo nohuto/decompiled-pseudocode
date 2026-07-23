@@ -8,39 +8,43 @@
  *     RtlpStdLockRelease @ 0x18010E588 (RtlpStdLockRelease.c)
  */
 
-__int64 __fastcall RtlpStdExtendUpperWatermark(__int64 a1)
+__int64 __fastcall RtlpStdExtendUpperWatermark(__int64 a1, void *a2)
 {
-  __int64 v2; // rdi
-  __int64 v3; // rsi
-  unsigned __int64 v4; // rcx
-  unsigned __int64 v5; // rax
-  unsigned __int64 v7; // [rsp+48h] [rbp+10h]
+  __int64 v3; // rdi
+  __int64 v4; // rsi
+  char *v5; // rcx
+  unsigned __int64 v6; // rax
+  ULONG_PTR RegionSize; // [rsp+40h] [rbp+8h] BYREF
+  PVOID BaseAddress; // [rsp+48h] [rbp+10h] BYREF
 
-  v2 = 0LL;
+  BaseAddress = a2;
+  v3 = 0LL;
   RtlpStdLockAcquire(a1);
-  v3 = *(_QWORD *)(a1 + 168);
-  v4 = *(_QWORD *)(a1 + 152);
-  v5 = v3 - 8;
+  v4 = *(_QWORD *)(a1 + 168);
+  v5 = *(char **)(a1 + 152);
+  BaseAddress = v5;
+  v6 = v4 - 8;
   if ( !*(_BYTE *)(a1 + 128) )
   {
-    if ( v5 < v4 )
+    if ( v6 < (unsigned __int64)v5 )
     {
-      if ( v4 - 4096 <= *(_QWORD *)(a1 + 144) )
+      RegionSize = 4096LL;
+      if ( (unsigned __int64)(v5 - 4096) <= *(_QWORD *)(a1 + 144) )
         goto LABEL_9;
-      v7 = v4 - 4096;
-      if ( (int)ZwAllocateVirtualMemory() < 0 )
+      BaseAddress = v5 - 4096;
+      if ( ZwAllocateVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, 0LL, &RegionSize, 0x1000u, 4u) < 0 )
         goto LABEL_9;
-      *(_QWORD *)(a1 + 152) = v7;
+      *(_QWORD *)(a1 + 152) = BaseAddress;
     }
 LABEL_8:
     ++*(_DWORD *)(a1 + 180);
-    v2 = v3 - 8;
-    *(_QWORD *)(a1 + 168) = v3 - 8;
+    v3 = v4 - 8;
+    *(_QWORD *)(a1 + 168) = v4 - 8;
     goto LABEL_9;
   }
-  if ( v5 >= *(_QWORD *)(a1 + 160) )
+  if ( v6 >= *(_QWORD *)(a1 + 160) )
     goto LABEL_8;
 LABEL_9:
   RtlpStdLockRelease(a1);
-  return v2;
+  return v3;
 }

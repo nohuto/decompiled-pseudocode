@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlpHashStringToAtom @ 0x1800734F0
+ * XREFs of RtlpHashStringToAtom @ 0x180073500
  * Callers:
  *     RtlpFreeAllAtom @ 0x180072C48 (RtlpFreeAllAtom.c)
- *     RtlAddAtomToAtomTableEx @ 0x18007319C (RtlAddAtomToAtomTableEx.c)
- *     RtlLookupAtomInAtomTable @ 0x1800733B0 (RtlLookupAtomInAtomTable.c)
+ *     RtlAddAtomToAtomTableEx @ 0x1800731AC (RtlAddAtomToAtomTableEx.c)
+ *     RtlLookupAtomInAtomTable @ 0x1800733C0 (RtlLookupAtomInAtomTable.c)
  * Callees:
  *     RtlUpcaseUnicodeChar @ 0x18003AF90 (RtlUpcaseUnicodeChar.c)
- *     RtlpAtomMapAtomToHandleEntry @ 0x180073684 (RtlpAtomMapAtomToHandleEntry.c)
- *     _wcsicmp @ 0x1800918E0 (_wcsicmp.c)
+ *     RtlpAtomMapAtomToHandleEntry @ 0x180073694 (RtlpAtomMapAtomToHandleEntry.c)
+ *     _wcsicmp @ 0x1800918F0 (_wcsicmp.c)
  */
 
 __int64 __fastcall RtlpHashStringToAtom(
@@ -19,8 +19,8 @@ __int64 __fastcall RtlpHashStringToAtom(
         _QWORD *a6,
         __int64 *a7)
 {
-  unsigned __int16 v10; // ax
-  unsigned __int16 *v11; // rsi
+  wchar_t v10; // ax
+  wchar_t *v11; // rsi
   unsigned int v12; // edi
   int v13; // ecx
   __int64 v14; // rsi

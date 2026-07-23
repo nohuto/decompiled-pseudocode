@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpCreateDirectoryFile @ 0x1406E01D0
+ * XREFs of EtwpCreateDirectoryFile @ 0x1406B74B0
  * Callers:
- *     EtwpDelayCreate @ 0x1406E00F0 (EtwpDelayCreate.c)
+ *     EtwpDelayCreate @ 0x1406B73D0 (EtwpDelayCreate.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     ZwCreateFile @ 0x1403FAE40 (ZwCreateFile.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     ZwCreateFile @ 0x1403FB020 (ZwCreateFile.c)
  */
 
 __int64 __fastcall EtwpCreateDirectoryFile(

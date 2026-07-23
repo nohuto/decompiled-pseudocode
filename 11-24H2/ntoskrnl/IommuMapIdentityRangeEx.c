@@ -1,15 +1,15 @@
 /*
- * XREFs of IommuMapIdentityRangeEx @ 0x1403ACCD0
+ * XREFs of IommuMapIdentityRangeEx @ 0x14039B4E0
  * Callers:
  *     <none>
  * Callees:
- *     HalpIommuDomainMapIdentityRange @ 0x1403AC308 (HalpIommuDomainMapIdentityRange.c)
- *     HalpIommuDomainGetLogicalAddressRange @ 0x1403ACF08 (HalpIommuDomainGetLogicalAddressRange.c)
- *     HalpBuddyAllocatorAllocateLogicalAddress @ 0x1403ACFA0 (HalpBuddyAllocatorAllocateLogicalAddress.c)
- *     HalpIommuDomainFreeLogicalAddressRange @ 0x1403AD6EC (HalpIommuDomainFreeLogicalAddressRange.c)
- *     HalpIommuDomainMapLogicalRange @ 0x140553C24 (HalpIommuDomainMapLogicalRange.c)
- *     IommupValidateMdl @ 0x140567674 (IommupValidateMdl.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     HalpIommuDomainMapIdentityRange @ 0x14039AB14 (HalpIommuDomainMapIdentityRange.c)
+ *     HalpIommuDomainGetLogicalAddressRange @ 0x14039B718 (HalpIommuDomainGetLogicalAddressRange.c)
+ *     HalpBuddyAllocatorAllocateLogicalAddress @ 0x14039B7B0 (HalpBuddyAllocatorAllocateLogicalAddress.c)
+ *     HalpIommuDomainFreeLogicalAddressRange @ 0x14039BEFC (HalpIommuDomainFreeLogicalAddressRange.c)
+ *     HalpIommuDomainMapLogicalRange @ 0x140551564 (HalpIommuDomainMapLogicalRange.c)
+ *     IommupValidateMdl @ 0x140565100 (IommupValidateMdl.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall IommuMapIdentityRangeEx(ULONG_PTR a1, int a2, __int64 a3)
@@ -19,7 +19,7 @@ __int64 __fastcall IommuMapIdentityRangeEx(ULONG_PTR a1, int a2, __int64 a3)
   int v5; // r9d
   int v6; // r15d
   int v8; // r9d
-  __int64 v9; // r10
+  int v9; // r10d
   char v10; // r9
   unsigned __int64 v11; // rsi
   _QWORD *v12; // rbx
@@ -48,7 +48,7 @@ __int64 __fastcall IommuMapIdentityRangeEx(ULONG_PTR a1, int a2, __int64 a3)
     if ( v8 != 2 )
       return (unsigned int)-1073741585;
   }
-  v9 = 4096LL;
+  v9 = 4096;
   if ( !*(_DWORD *)a3 )
   {
     if ( !(unsigned __int8)IommupValidateMdl(*(_QWORD *)(a3 + 8)) )
@@ -106,11 +106,11 @@ LABEL_9:
                              0LL,
                              (__int64)v21);
         else
-          LogicalAddress = guard_dispatch_icall_no_overrides(v13, &v24, v9, 0LL);
+          LogicalAddress = guard_dispatch_icall_no_overrides(v13, &v24);
         LogicalAddressRange = LogicalAddress;
         if ( LogicalAddress < 0 )
           goto LABEL_33;
-        v9 = 4096LL;
+        v9 = 4096;
       }
       else
       {

@@ -1,23 +1,23 @@
 /*
- * XREFs of MmMapMdl @ 0x1404E1360
+ * XREFs of MmMapMdl @ 0x1404DAA40
  * Callers:
  *     <none>
  * Callees:
- *     MiMappingHasIoReferences @ 0x14024DE74 (MiMappingHasIoReferences.c)
- *     MiReleasePtes @ 0x140281CE0 (MiReleasePtes.c)
- *     MiClearMappingAndDereferenceIoSpace @ 0x140282A34 (MiClearMappingAndDereferenceIoSpace.c)
- *     MiGetUltraMapping @ 0x1402881D0 (MiGetUltraMapping.c)
- *     MiReservePtes @ 0x14035DE50 (MiReservePtes.c)
- *     MiFillSystemPtes @ 0x14035F448 (MiFillSystemPtes.c)
- *     MiMakeProtectionMask @ 0x140364A40 (MiMakeProtectionMask.c)
- *     MiFreeUltraMdlContext @ 0x1404E15AC (MiFreeUltraMdlContext.c)
- *     MiGetUltraMdlContext @ 0x1404E15F8 (MiGetUltraMdlContext.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     MiMappingHasIoReferences @ 0x14024F7D4 (MiMappingHasIoReferences.c)
+ *     MiReleasePtes @ 0x140281250 (MiReleasePtes.c)
+ *     MiClearMappingAndDereferenceIoSpace @ 0x140281FA4 (MiClearMappingAndDereferenceIoSpace.c)
+ *     MiGetUltraMapping @ 0x140287730 (MiGetUltraMapping.c)
+ *     MiReservePtes @ 0x14035FBF0 (MiReservePtes.c)
+ *     MiFillSystemPtes @ 0x1403611E8 (MiFillSystemPtes.c)
+ *     MiMakeProtectionMask @ 0x1403667E0 (MiMakeProtectionMask.c)
+ *     MiFreeUltraMdlContext @ 0x1404DAC8C (MiFreeUltraMdlContext.c)
+ *     MiGetUltraMdlContext @ 0x1404DACD8 (MiGetUltraMdlContext.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall MmMapMdl(__int64 a1, unsigned int a2, __int64 a3, __int64 a4)
 {
-  struct _SLIST_ENTRY *v5; // r13
+  _SLIST_ENTRY *v5; // r13
   unsigned int ProtectionMask; // esi
   __int64 v7; // r8
   unsigned __int64 v8; // r9
@@ -61,7 +61,7 @@ __int64 __fastcall MmMapMdl(__int64 a1, unsigned int a2, __int64 a3, __int64 a4)
     if ( v11 <= 0x200 )
     {
       UltraMdlContext = MiGetUltraMdlContext();
-      v5 = (struct _SLIST_ENTRY *)UltraMdlContext;
+      v5 = (_SLIST_ENTRY *)UltraMdlContext;
       if ( UltraMdlContext )
       {
         CurrentIrql = KeGetCurrentIrql();
@@ -74,9 +74,9 @@ __int64 __fastcall MmMapMdl(__int64 a1, unsigned int a2, __int64 a3, __int64 a4)
           goto LABEL_20;
       }
     }
-    p_WaitBlockList = (_KWAIT_BLOCK **)&unk_140E34A40;
+    p_WaitBlockList = (_KWAIT_BLOCK **)&unk_140E34BC0;
     if ( (ProtectionMask & 0x18) == 0 )
-      p_WaitBlockList = &stru_140E36558.WaitBlockList;
+      p_WaitBlockList = &stru_140E366D8.WaitBlockList;
     v13 = MiReservePtes((__int64)p_WaitBlockList, v11, v7, v8);
     if ( v13 )
     {
@@ -110,9 +110,9 @@ LABEL_20:
       }
       else
       {
-        v22 = (_KWAIT_BLOCK **)&unk_140E34A40;
+        v22 = (_KWAIT_BLOCK **)&unk_140E34BC0;
         if ( (ProtectionMask & 0x18) == 0 )
-          v22 = &stru_140E36558.WaitBlockList;
+          v22 = &stru_140E366D8.WaitBlockList;
         MiReleasePtes((__int64)v22, (unsigned __int64 *)v13, v11);
       }
       return (unsigned int)v19;

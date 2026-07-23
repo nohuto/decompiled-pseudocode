@@ -8,34 +8,39 @@
  *     ImportTablepInsertFunctionSorted @ 0x1800CA8A4 (ImportTablepInsertFunctionSorted.c)
  */
 
-__int64 __fastcall InsertModuleFunctions<_IMAGE_THUNK_DATA64,unsigned __int64,-9223372036854775808>(__int64 a1)
+__int64 __fastcall InsertModuleFunctions<_IMAGE_THUNK_DATA64,unsigned __int64,-9223372036854775808>(
+        __int64 a1,
+        void *a2,
+        _IMAGE_NT_HEADERS64 *a3,
+        ULONG *a4)
 {
-  __int64 *v2; // rbx
-  unsigned __int64 v3; // rax
-  unsigned __int64 v4; // rdi
+  ULONG *v7; // rbx
+  char *v8; // rax
+  char *v9; // rdi
   _QWORD *Heap; // rax
 
-  v2 = (__int64 *)RtlAddressInSectionTable();
-  if ( v2 )
+  v7 = (ULONG *)RtlAddressInSectionTable(a3, a2, *a4);
+  if ( v7 )
   {
-    while ( *v2 )
+    while ( *(_QWORD *)v7 )
     {
-      if ( *v2 >= 0 )
+      if ( *(__int64 *)v7 >= 0 )
       {
-        v3 = RtlAddressInSectionTable();
-        if ( !v3 )
+        v8 = (char *)RtlAddressInSectionTable(a3, a2, *v7);
+        if ( !v8 )
           return 3221225611LL;
-        v4 = v3 + 2;
-        if ( v3 == -2LL )
+        v9 = v8 + 2;
+        if ( v8 == (char *)-2LL )
           return 3221225611LL;
-        Heap = (_QWORD *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, 16LL);
+        Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, 0x10uLL);
         if ( !Heap )
           return 3221225495LL;
         *Heap = 0LL;
-        Heap[1] = v4;
+        Heap[1] = v9;
         ImportTablepInsertFunctionSorted(Heap, a1 + 16);
       }
-      if ( !++v2 )
+      v7 += 2;
+      if ( !v7 )
         return 0LL;
     }
   }

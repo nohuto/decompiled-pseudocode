@@ -1,12 +1,12 @@
 /*
- * XREFs of MiCheckLargePageOk @ 0x1409D7394
+ * XREFs of MiCheckLargePageOk @ 0x1409D8394
  * Callers:
- *     MiInitNucleus @ 0x1409B9108 (MiInitNucleus.c)
+ *     MiInitNucleus @ 0x1409BA108 (MiInitNucleus.c)
  * Callees:
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
- *     MiVaToPfn @ 0x140099010 (MiVaToPfn.c)
- *     MI_IS_PHYSICAL_ADDRESS @ 0x14009D910 (MI_IS_PHYSICAL_ADDRESS.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     MiVaToPfn @ 0x140098F50 (MiVaToPfn.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x14009D850 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiCheckLargePageOk(_QWORD *BugCheckParameter2)
@@ -16,7 +16,7 @@ __int64 __fastcall MiCheckLargePageOk(_QWORD *BugCheckParameter2)
   __int64 v4; // r8
   __int64 v5; // r15
   __int64 v6; // rsi
-  ULONG_PTR v7; // rax
+  char *v7; // rax
   char *v8; // rax
   bool v9; // cf
   unsigned __int64 v10; // rbp
@@ -44,14 +44,14 @@ __int64 __fastcall MiCheckLargePageOk(_QWORD *BugCheckParameter2)
 
   v1 = BugCheckParameter2[2];
   v3 = BugCheckParameter2[30];
-  qword_140A0A5C0 = v1;
+  qword_140A0B5B8 = v1;
   v4 = *(_QWORD *)v1;
   v5 = *(unsigned int *)(v3 + 3424);
   v6 = v4;
-  PsNtosImageBase = *(_QWORD *)(v1 + 48);
-  v7 = PsNtosImageBase + *(unsigned int *)(v1 + 64);
+  PsNtosImageBase = *(PVOID *)(v1 + 48);
+  v7 = (char *)PsNtosImageBase + *(unsigned int *)(v1 + 64);
   PsHalImageBase = *(PVOID *)(v4 + 48);
-  PsNtosImageEnd = v7;
+  PsNtosImageEnd = (__int64)v7;
   v8 = (char *)PsHalImageBase + *(unsigned int *)(v4 + 64);
   MxHalDataTableEntry = v4;
   v9 = *(_QWORD *)(v1 + 48) < *(_QWORD *)(v4 + 48);

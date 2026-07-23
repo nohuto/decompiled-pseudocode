@@ -1,20 +1,17 @@
 /*
- * XREFs of Feature_Servicing_RemainingPathForLocalKeyName__private_IsEnabledFallback @ 0x140668DA4
+ * XREFs of Feature_Servicing_RemainingPathForLocalKeyName__private_IsEnabledFallback @ 0x140669F7C
  * Callers:
- *     Feature_Servicing_RemainingPathForLocalKeyName__private_IsEnabledDeviceUsageNoInline @ 0x140668D6C (Feature_Servicing_RemainingPathForLocalKeyName__private_IsEnabledDeviceUsageNoInline.c)
+ *     Feature_Servicing_RemainingPathForLocalKeyName__private_IsEnabledDeviceUsageNoInline @ 0x140669F44 (Feature_Servicing_RemainingPathForLocalKeyName__private_IsEnabledDeviceUsageNoInline.c)
  * Callees:
- *     wil_details_IsEnabledFallback @ 0x1404D17E0 (wil_details_IsEnabledFallback.c)
+ *     wil_details_IsEnabledFallback @ 0x1404CA820 (wil_details_IsEnabledFallback.c)
  */
 
 __int64 __fastcall Feature_Servicing_RemainingPathForLocalKeyName__private_IsEnabledFallback(
         __int64 a1,
-        unsigned int a2,
-        __int64 a3,
-        __int64 a4)
+        unsigned int a2)
 {
   return wil_details_IsEnabledFallback(
            a1,
            a2,
-           (volatile signed __int32 **)&Feature_Servicing_RemainingPathForLocalKeyName__private_descriptor,
-           a4);
+           (volatile signed __int32 **)&Feature_Servicing_RemainingPathForLocalKeyName__private_descriptor);
 }

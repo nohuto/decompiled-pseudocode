@@ -26,24 +26,23 @@
  *     RtlpLogSetLastWin32ErrorEvent @ 0x180147B54 (RtlpLogSetLastWin32ErrorEvent.c)
  */
 
-struct _TEB *__fastcall RtlSetLastWin32Error(__int64 a1)
+void __cdecl RtlSetLastWin32Error(LONG Win32Error)
 {
-  struct _TEB *result; // rax
+  struct _TEB *v1; // rax
 
-  result = NtCurrentTeb();
-  if ( g_dwLastErrorToBreakOn && (_DWORD)a1 == g_dwLastErrorToBreakOn )
+  v1 = NtCurrentTeb();
+  if ( g_dwLastErrorToBreakOn && Win32Error == g_dwLastErrorToBreakOn )
     __debugbreak();
-  if ( result->LastErrorValue != (_DWORD)a1 )
+  if ( v1->LastErrorValue != Win32Error )
   {
-    result->LastErrorValue = a1;
-    if ( (_DWORD)a1 )
+    v1->LastErrorValue = Win32Error;
+    if ( Win32Error )
     {
       if ( g_isErrorOriginProviderEnabled )
       {
-        if ( (_DWORD)a1 != 997 )
-          return (struct _TEB *)RtlpLogSetLastWin32ErrorEvent(a1);
+        if ( Win32Error != 997 )
+          RtlpLogSetLastWin32ErrorEvent(Win32Error);
       }
     }
   }
-  return result;
 }

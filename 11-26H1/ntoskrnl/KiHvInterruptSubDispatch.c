@@ -1,14 +1,14 @@
 /*
- * XREFs of KiHvInterruptSubDispatch @ 0x14072E690
+ * XREFs of KiHvInterruptSubDispatch @ 0x140733260
  * Callers:
- *     KiHvInterruptDispatch @ 0x14072DEA0 (KiHvInterruptDispatch.c)
+ *     KiHvInterruptDispatch @ 0x140732A70 (KiHvInterruptDispatch.c)
  * Callees:
- *     KiStartInterruptCycleAccumulation @ 0x140228150 (KiStartInterruptCycleAccumulation.c)
- *     EtwGetKernelTraceTimestamp @ 0x14032D2B0 (EtwGetKernelTraceTimestamp.c)
- *     HvlSharedIsr @ 0x1403E61A0 (HvlSharedIsr.c)
- *     PerfInfoLogInterruptHv @ 0x14047D4E0 (PerfInfoLogInterruptHv.c)
- *     KzSetIrqlUnsafe @ 0x1405EBBF0 (KzSetIrqlUnsafe.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     KiStartInterruptCycleAccumulation @ 0x140229AE0 (KiStartInterruptCycleAccumulation.c)
+ *     HvlSharedIsr @ 0x1402F3080 (HvlSharedIsr.c)
+ *     EtwGetKernelTraceTimestamp @ 0x14032F2E0 (EtwGetKernelTraceTimestamp.c)
+ *     PerfInfoLogInterruptHv @ 0x140476E50 (PerfInfoLogInterruptHv.c)
+ *     KzSetIrqlUnsafe @ 0x1405EE560 (KzSetIrqlUnsafe.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall KiHvInterruptSubDispatch()

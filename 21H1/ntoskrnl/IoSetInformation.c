@@ -75,7 +75,7 @@ NTSTATUS __stdcall IoSetInformation(
     CurrentThread = KeGetCurrentThread();
     v10 = (FileObject->Flags & 4) != 0;
     --CurrentThread->KernelApcDisable;
-    v11 = KeAbPreAcquire((ULONG_PTR)&FileObject->Lock, 0LL, 0LL);
+    v11 = KeAbPreAcquire((ULONG_PTR)&FileObject->Lock, 0LL, 0);
     LOBYTE(v36) = 0;
     if ( _InterlockedExchange((volatile __int32 *)&FileObject->Busy, 1) )
     {

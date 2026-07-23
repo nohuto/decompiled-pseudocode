@@ -1,16 +1,16 @@
 /*
- * XREFs of HvlNotifyPageHeat @ 0x1406A10E8
+ * XREFs of HvlNotifyPageHeat @ 0x1406A2140
  * Callers:
- *     MiIssuePageHeatList @ 0x14043F9FC (MiIssuePageHeatList.c)
+ *     MiIssuePageHeatList @ 0x140435CBC (MiIssuePageHeatList.c)
  * Callees:
- *     HvlpHvToNtStatus @ 0x1403AE3F8 (HvlpHvToNtStatus.c)
- *     HvlpReleaseHypercallPage @ 0x1403AF6A0 (HvlpReleaseHypercallPage.c)
- *     HvcallInitiateHypercall @ 0x1403AF710 (HvcallInitiateHypercall.c)
- *     HvlpAcquireHypercallPage @ 0x140465ED0 (HvlpAcquireHypercallPage.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     KiEpfDrainCompletionQueue @ 0x1405C34CC (KiEpfDrainCompletionQueue.c)
- *     KiEpfStart @ 0x1405C3574 (KiEpfStart.c)
+ *     HvlpHvToNtStatus @ 0x14039CC08 (HvlpHvToNtStatus.c)
+ *     HvlpReleaseHypercallPage @ 0x14039DEB0 (HvlpReleaseHypercallPage.c)
+ *     HvcallInitiateHypercall @ 0x14039DF20 (HvcallInitiateHypercall.c)
+ *     HvlpAcquireHypercallPage @ 0x14045D900 (HvlpAcquireHypercallPage.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiEpfDrainCompletionQueue @ 0x1405C0A9C (KiEpfDrainCompletionQueue.c)
+ *     KiEpfStart @ 0x1405C0B44 (KiEpfStart.c)
  */
 
 __int64 __fastcall HvlNotifyPageHeat(int a1, char a2, unsigned int a3, __int64 a4)
@@ -173,7 +173,7 @@ LABEL_23:
       --v31;
       --v8;
       v32 = *v31;
-      ++dword_140F0FFBC;
+      ++dword_140F102BC;
       CurrentIrql = KeGetCurrentIrql();
       __writecr8(2uLL);
       if ( KiIrqlFlags )

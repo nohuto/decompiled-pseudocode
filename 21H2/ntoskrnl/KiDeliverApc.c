@@ -1,50 +1,50 @@
 /*
- * XREFs of KiDeliverApc @ 0x14024A750
+ * XREFs of KiDeliverApc @ 0x1402EEFA0
  * Callers:
- *     KeRemoveQueueEx @ 0x1402047D0 (KeRemoveQueueEx.c)
- *     PsImpersonateContainerOfThread @ 0x14021BC90 (PsImpersonateContainerOfThread.c)
- *     KiProcessDeferredReadyList @ 0x140230BD0 (KiProcessDeferredReadyList.c)
- *     KiBeginThreadWait @ 0x140242630 (KiBeginThreadWait.c)
- *     KiReadyOutSwappedThreads @ 0x140248460 (KiReadyOutSwappedThreads.c)
- *     KiCheckForKernelApcDelivery @ 0x14024A6E0 (KiCheckForKernelApcDelivery.c)
- *     KeWaitForMultipleObjects @ 0x14024BB90 (KeWaitForMultipleObjects.c)
- *     KeSetBasePriorityThread @ 0x140258E60 (KeSetBasePriorityThread.c)
- *     KiContinueEx @ 0x1402766C0 (KiContinueEx.c)
- *     KiExitThreadWait @ 0x140278330 (KiExitThreadWait.c)
- *     KiCheckForThreadDispatch @ 0x1402783B4 (KiCheckForThreadDispatch.c)
- *     KiSchedulerApc @ 0x140279C00 (KiSchedulerApc.c)
- *     KeSetSchedulingGroupRankBias @ 0x140288488 (KeSetSchedulingGroupRankBias.c)
- *     KiAbThreadUnboostCpuPriority @ 0x140293A50 (KiAbThreadUnboostCpuPriority.c)
- *     KeCpuSetReportParkedProcessors @ 0x1402AAD9C (KeCpuSetReportParkedProcessors.c)
- *     KeBoostPriorityThread @ 0x1402E2510 (KeBoostPriorityThread.c)
- *     KeSetLegacyAffinityThread @ 0x1402ECAF0 (KeSetLegacyAffinityThread.c)
- *     KiExitDispatcher @ 0x140343AC0 (KiExitDispatcher.c)
- *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
- *     KiSwapThread @ 0x1403466D0 (KiSwapThread.c)
- *     KiAbForceProcessLockEntry @ 0x14038FA84 (KiAbForceProcessLockEntry.c)
- *     KeSetAffinityThread @ 0x1403993CC (KeSetAffinityThread.c)
- *     KeSetCpuSetsProcess @ 0x1403C5FB4 (KeSetCpuSetsProcess.c)
- *     KeUpdateThreadCpuSets @ 0x1403C60DC (KeUpdateThreadCpuSets.c)
- *     KiApcInterrupt @ 0x140402EF0 (KiApcInterrupt.c)
- *     KiInitiateUserApc @ 0x140403520 (KiInitiateUserApc.c)
- *     KeRecomputeCpuSetAffinityProcess @ 0x14051C938 (KeRecomputeCpuSetAffinityProcess.c)
- *     KeSetSelectedCpuSetsThread @ 0x14051CBE0 (KeSetSelectedCpuSetsThread.c)
- *     KeSetThreadSchedulerAssist @ 0x14051E5C8 (KeSetThreadSchedulerAssist.c)
- *     KiSetHeteroPolicyThread @ 0x140520364 (KiSetHeteroPolicyThread.c)
- *     KiParkUmsThread @ 0x140525F20 (KiParkUmsThread.c)
+ *     KeSetSchedulingGroupRankBias @ 0x140205628 (KeSetSchedulingGroupRankBias.c)
+ *     KiAbThreadUnboostCpuPriority @ 0x1402119C0 (KiAbThreadUnboostCpuPriority.c)
+ *     KeCpuSetReportParkedProcessors @ 0x140228EDC (KeCpuSetReportParkedProcessors.c)
+ *     KiContinueEx @ 0x140264660 (KiContinueEx.c)
+ *     KiExitThreadWait @ 0x1402662D0 (KiExitThreadWait.c)
+ *     KiCheckForThreadDispatch @ 0x140266354 (KiCheckForThreadDispatch.c)
+ *     KiSchedulerApc @ 0x140267BA0 (KiSchedulerApc.c)
+ *     KeSetBasePriorityThread @ 0x14027A3D0 (KeSetBasePriorityThread.c)
+ *     KeBoostPriorityThread @ 0x140293860 (KeBoostPriorityThread.c)
+ *     KeSetLegacyAffinityThread @ 0x14029DE40 (KeSetLegacyAffinityThread.c)
+ *     KeRemoveQueueEx @ 0x1402A9110 (KeRemoveQueueEx.c)
+ *     PsImpersonateContainerOfThread @ 0x1402C0590 (PsImpersonateContainerOfThread.c)
+ *     KiProcessDeferredReadyList @ 0x1402D5420 (KiProcessDeferredReadyList.c)
+ *     KiBeginThreadWait @ 0x1402E6E80 (KiBeginThreadWait.c)
+ *     KiReadyOutSwappedThreads @ 0x1402ECCB0 (KiReadyOutSwappedThreads.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402EEF30 (KiCheckForKernelApcDelivery.c)
+ *     KeWaitForMultipleObjects @ 0x1402F03E0 (KeWaitForMultipleObjects.c)
+ *     KiExitDispatcher @ 0x14034E810 (KiExitDispatcher.c)
+ *     KeWaitForSingleObject @ 0x1403504C0 (KeWaitForSingleObject.c)
+ *     KiSwapThread @ 0x140351420 (KiSwapThread.c)
+ *     KiAbForceProcessLockEntry @ 0x14038FBD4 (KiAbForceProcessLockEntry.c)
+ *     KeSetAffinityThread @ 0x14039951C (KeSetAffinityThread.c)
+ *     KeSetCpuSetsProcess @ 0x1403C6154 (KeSetCpuSetsProcess.c)
+ *     KeUpdateThreadCpuSets @ 0x1403C627C (KeUpdateThreadCpuSets.c)
+ *     KiApcInterrupt @ 0x1404030D0 (KiApcInterrupt.c)
+ *     KiInitiateUserApc @ 0x140403700 (KiInitiateUserApc.c)
+ *     KeRecomputeCpuSetAffinityProcess @ 0x14051CB78 (KeRecomputeCpuSetAffinityProcess.c)
+ *     KeSetSelectedCpuSetsThread @ 0x14051CE20 (KeSetSelectedCpuSetsThread.c)
+ *     KeSetThreadSchedulerAssist @ 0x14051E808 (KeSetThreadSchedulerAssist.c)
+ *     KiSetHeteroPolicyThread @ 0x1405205A4 (KiSetHeteroPolicyThread.c)
+ *     KiParkUmsThread @ 0x140526160 (KiParkUmsThread.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
- *     KiCheckForSListAddress @ 0x14024D5B0 (KiCheckForSListAddress.c)
- *     KeTestAlertThread @ 0x140277530 (KeTestAlertThread.c)
- *     KiReleaseThreadLockSafe @ 0x14029A860 (KiReleaseThreadLockSafe.c)
- *     KeIsExecutingDpc @ 0x1402AC720 (KeIsExecutingDpc.c)
- *     KiInitializeUserApc @ 0x1402B2594 (KiInitializeUserApc.c)
+ *     KiReleaseThreadLockSafe @ 0x1402121F0 (KiReleaseThreadLockSafe.c)
+ *     KeIsExecutingDpc @ 0x14022A320 (KeIsExecutingDpc.c)
+ *     KiInitializeUserApc @ 0x140230744 (KiInitializeUserApc.c)
+ *     KeTestAlertThread @ 0x1402654D0 (KeTestAlertThread.c)
+ *     KeYieldProcessorEx @ 0x1402EFAD0 (KeYieldProcessorEx.c)
+ *     KiCheckForSListAddress @ 0x1402F1E00 (KiCheckForSListAddress.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
-char __fastcall KiDeliverApc(char a1, int a2, _KTRAP_FRAME *a3)
+char __fastcall KiDeliverApc(char a1, __int64 a2, __int64 a3)
 {
   struct _LIST_ENTRY *v3; // r12
   struct _KTHREAD *CurrentThread; // rbx
@@ -80,7 +80,7 @@ char __fastcall KiDeliverApc(char a1, int a2, _KTRAP_FRAME *a3)
   _DWORD *v36; // rdx
   _LIST_ENTRY *v37; // r14
   _LIST_ENTRY *v38; // rsi
-  int v39; // r15d
+  unsigned int v39; // r15d
   unsigned __int8 v40; // cl
   _DWORD *v41; // r8
   struct _KPRCB *v42; // rdi
@@ -94,47 +94,44 @@ char __fastcall KiDeliverApc(char a1, int a2, _KTRAP_FRAME *a3)
   bool v50; // zf
   struct _KPRCB *v51; // rcx
   _DWORD *v52; // rdx
-  __int64 v53; // rcx
-  char v54; // al
-  int v55; // r9d
-  int v56; // r8d
-  _LIST_ENTRY *v57; // rdx
-  struct _LIST_ENTRY *v58; // rax
+  char v53; // al
+  int v54; // r9d
+  int v55; // r8d
+  _LIST_ENTRY *v56; // rdx
+  struct _LIST_ENTRY *v57; // rax
+  unsigned __int8 v58; // cl
   unsigned __int8 v59; // cl
-  unsigned __int8 v60; // cl
-  _LIST_ENTRY *v61; // rax
-  ULONG_PTR v62; // rdi
-  ULONG_PTR v63; // rsi
+  _LIST_ENTRY *v60; // rax
+  ULONG_PTR v61; // rdi
+  ULONG_PTR v62; // rsi
   unsigned int IsExecutingDpc; // eax
-  signed __int32 v66[8]; // [rsp+0h] [rbp-59h] BYREF
-  int v67; // [rsp+40h] [rbp-19h] BYREF
-  struct _LIST_ENTRY *v68; // [rsp+48h] [rbp-11h] BYREF
-  struct _LIST_ENTRY *v69; // [rsp+50h] [rbp-9h] BYREF
-  struct _LIST_ENTRY *v70; // [rsp+58h] [rbp-1h] BYREF
+  signed __int32 v65[8]; // [rsp+0h] [rbp-59h] BYREF
+  int v66; // [rsp+40h] [rbp-19h] BYREF
+  struct _LIST_ENTRY *v67; // [rsp+48h] [rbp-11h] BYREF
+  struct _LIST_ENTRY *v68; // [rsp+50h] [rbp-9h] BYREF
+  struct _LIST_ENTRY *v69; // [rsp+58h] [rbp-1h] BYREF
   struct _LIST_ENTRY *Blink; // [rsp+60h] [rbp+7h] BYREF
-  _KTRAP_FRAME *v72; // [rsp+68h] [rbp+Fh]
+  _KTRAP_FRAME *v71; // [rsp+68h] [rbp+Fh]
   ULONG_PTR BugCheckParameter1; // [rsp+70h] [rbp+17h]
-  int v75; // [rsp+D0h] [rbp+77h]
-  int v76; // [rsp+D8h] [rbp+7Fh] BYREF
+  int v75; // [rsp+D8h] [rbp+7Fh] BYREF
 
-  v75 = (int)a3;
   v3 = 0LL;
   Blink = 0LL;
-  v68 = 0LL;
-  v70 = 0LL;
+  v67 = 0LL;
   v69 = 0LL;
+  v68 = 0LL;
   if ( a3 )
     KiCheckForSListAddress(a3);
   CurrentThread = KeGetCurrentThread();
   TrapFrame = CurrentThread->TrapFrame;
   Process = (ULONG_PTR)CurrentThread->ApcState.Process;
-  v72 = TrapFrame;
+  v71 = TrapFrame;
   BugCheckParameter1 = Process;
-  CurrentThread->TrapFrame = a3;
+  CurrentThread->TrapFrame = (_KTRAP_FRAME *)a3;
   CurrentThread->ApcState.KernelApcPending = 0;
   if ( !CurrentThread->SpecialApcDisable )
   {
-    _InterlockedOr(v66, 0);
+    _InterlockedOr(v65, 0);
     v9 = &CurrentThread->152;
     while ( ($C459BD0D405E8E46662177FB3D0A143F *)v9->ApcState.ApcListHead[0].Flink != v9 )
     {
@@ -146,7 +143,7 @@ char __fastcall KiDeliverApc(char a1, int a2, _KTRAP_FRAME *a3)
         SchedulerAssist[5] |= (-1 << (CurrentIrql + 1)) & 4;
       }
       CurrentPrcb = KeGetCurrentPrcb();
-      v76 = 0;
+      v75 = 0;
       while ( 1 )
       {
         v13 = CurrentPrcb->SchedulerAssist;
@@ -174,13 +171,13 @@ char __fastcall KiDeliverApc(char a1, int a2, _KTRAP_FRAME *a3)
           }
         }
         do
-          KeYieldProcessorEx(&v76);
+          KeYieldProcessorEx(&v75);
         while ( CurrentThread->ThreadLock );
       }
       Flink = v9->ApcState.ApcListHead[0].Flink;
       if ( ($C459BD0D405E8E46662177FB3D0A143F *)v9->ApcState.ApcListHead[0].Flink == v9 )
       {
-        KiReleaseThreadLockSafe(CurrentThread);
+        KiReleaseThreadLockSafe((__int64)CurrentThread);
         LOBYTE(Process) = KiIrqlFlags;
         if ( KiIrqlFlags )
         {
@@ -206,15 +203,15 @@ char __fastcall KiDeliverApc(char a1, int a2, _KTRAP_FRAME *a3)
       v18 = Flink - 1;
       _m_prefetchw(&Flink[-1]);
       v19 = Flink[1].Flink;
-      v68 = Flink[2].Flink;
+      v67 = Flink[2].Flink;
       Blink = Flink[2].Blink;
-      v70 = Flink[3].Flink;
-      v69 = Flink[3].Blink;
-      if ( v68 )
+      v69 = Flink[3].Flink;
+      v68 = Flink[3].Blink;
+      if ( v67 )
       {
         if ( CurrentThread->ApcState.InProgressFlags || CurrentThread->KernelApcDisable )
         {
-          KiReleaseThreadLockSafe(CurrentThread);
+          KiReleaseThreadLockSafe((__int64)CurrentThread);
           if ( KiIrqlFlags )
           {
             if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)(KeGetCurrentIrql() - 2) <= 0xDu )
@@ -238,7 +235,7 @@ char __fastcall KiDeliverApc(char a1, int a2, _KTRAP_FRAME *a3)
         v28->Flink = v27;
         v27->Blink = v28;
         BYTE2(v18[5].Flink) = 0;
-        KiReleaseThreadLockSafe(CurrentThread);
+        KiReleaseThreadLockSafe((__int64)CurrentThread);
         if ( KiIrqlFlags )
         {
           if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)(KeGetCurrentIrql() - 2) <= 0xDu )
@@ -255,11 +252,11 @@ char __fastcall KiDeliverApc(char a1, int a2, _KTRAP_FRAME *a3)
         CurrentThread->ApcState.InProgressFlags = 1;
         LOBYTE(Process) = ((__int64 (__fastcall *)(struct _LIST_ENTRY *, struct _LIST_ENTRY **, struct _LIST_ENTRY **, struct _LIST_ENTRY **, struct _LIST_ENTRY **))v19)(
                             v18,
-                            &v68,
+                            &v67,
                             &Blink,
-                            &v70,
-                            &v69);
-        if ( v68 )
+                            &v69,
+                            &v68);
+        if ( v67 )
         {
           if ( KiIrqlFlags )
           {
@@ -274,7 +271,7 @@ char __fastcall KiDeliverApc(char a1, int a2, _KTRAP_FRAME *a3)
             }
           }
           __writecr8(0LL);
-          ((void (__fastcall *)(struct _LIST_ENTRY *, struct _LIST_ENTRY *, struct _LIST_ENTRY *))v68)(Blink, v70, v69);
+          ((void (__fastcall *)(struct _LIST_ENTRY *, struct _LIST_ENTRY *, struct _LIST_ENTRY *))v67)(Blink, v69, v68);
           LOBYTE(Process) = KeGetCurrentIrql();
           __writecr8(1uLL);
           CurrentThread->ApcState.InProgressFlags = 0;
@@ -322,10 +319,10 @@ char __fastcall KiDeliverApc(char a1, int a2, _KTRAP_FRAME *a3)
         CurrentThread->ApcState.InProgressFlags |= 2u;
         LOBYTE(Process) = ((__int64 (__fastcall *)(struct _LIST_ENTRY *, struct _LIST_ENTRY **, struct _LIST_ENTRY **, struct _LIST_ENTRY **, struct _LIST_ENTRY **))v19)(
                             v18,
-                            &v68,
+                            &v67,
                             &Blink,
-                            &v70,
-                            &v69);
+                            &v69,
+                            &v68);
         CurrentThread->ApcState.InProgressFlags &= ~2u;
       }
     }
@@ -334,12 +331,12 @@ char __fastcall KiDeliverApc(char a1, int a2, _KTRAP_FRAME *a3)
       v37 = &CurrentThread->ApcState.ApcListHead[1];
       if ( v37->Flink != v37 )
       {
-        v68 = 0LL;
+        v67 = 0LL;
         v38 = 0LL;
         Blink = 0LL;
         v39 = 0;
-        v70 = 0LL;
         v69 = 0LL;
+        v68 = 0LL;
         v40 = KeGetCurrentIrql();
         __writecr8(2uLL);
         if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v40 <= 0xFu )
@@ -348,7 +345,7 @@ char __fastcall KiDeliverApc(char a1, int a2, _KTRAP_FRAME *a3)
           v41[5] |= (-1 << (v40 + 1)) & 4;
         }
         v42 = KeGetCurrentPrcb();
-        v67 = 0;
+        v66 = 0;
         while ( 1 )
         {
           v43 = v42->SchedulerAssist;
@@ -376,7 +373,7 @@ char __fastcall KiDeliverApc(char a1, int a2, _KTRAP_FRAME *a3)
             }
           }
           do
-            KeYieldProcessorEx(&v67);
+            KeYieldProcessorEx(&v66);
           while ( CurrentThread->ThreadLock );
         }
         UserApcPendingAll = CurrentThread->ApcState.UserApcPendingAll;
@@ -402,47 +399,47 @@ char __fastcall KiDeliverApc(char a1, int a2, _KTRAP_FRAME *a3)
             if ( v48 == v37 )
               goto LABEL_87;
           }
-          v54 = BYTE1(v38->Flink);
-          v55 = 2;
+          v53 = BYTE1(v38->Flink);
+          v54 = 2;
           if ( !v50 )
-            v55 = 0;
+            v54 = 0;
           v3 = v48[1].Flink;
-          v56 = v55 | 4;
-          v68 = v38[3].Flink;
-          if ( (v54 & 1) == 0 )
-            v56 = v55;
+          v55 = v54 | 4;
+          v67 = v38[3].Flink;
+          if ( (v53 & 1) == 0 )
+            v55 = v54;
           Blink = v38[3].Blink;
-          v70 = v38[4].Flink;
-          v69 = v38[4].Blink;
-          v57 = v48->Flink;
-          v58 = v48->Blink;
-          if ( v48->Flink->Blink != v48 || v58->Flink != v48 )
+          v69 = v38[4].Flink;
+          v68 = v38[4].Blink;
+          v56 = v48->Flink;
+          v57 = v48->Blink;
+          if ( v48->Flink->Blink != v48 || v57->Flink != v48 )
 LABEL_109:
             __fastfail(3u);
-          v58->Flink = v57;
-          v57->Blink = v58;
+          v57->Flink = v56;
+          v56->Blink = v57;
           BYTE2(v38[5].Flink) = 0;
-          v39 = v56;
-          v59 = CurrentThread->ApcState.UserApcPendingAll;
-          if ( (v59 & 1) != 0 )
+          v39 = v55;
+          v58 = CurrentThread->ApcState.UserApcPendingAll;
+          if ( (v58 & 1) != 0 )
           {
-            v60 = v59 & 0xFE;
-            CurrentThread->ApcState.UserApcPendingAll = v60;
-            v61 = v37->Flink;
+            v59 = v58 & 0xFE;
+            CurrentThread->ApcState.UserApcPendingAll = v59;
+            v60 = v37->Flink;
             if ( v37->Flink != v37 )
             {
-              while ( (__int64 (__fastcall *)(int, int, int, int, __int64))v61[1].Flink != KeSpecialUserApcKernelRoutine )
+              while ( (__int64 (__fastcall *)(int, int, int, int, __int64))v60[1].Flink != KeSpecialUserApcKernelRoutine )
               {
-                v61 = v61->Flink;
-                if ( v61 == v37 )
+                v60 = v60->Flink;
+                if ( v60 == v37 )
                   goto LABEL_87;
               }
-              CurrentThread->ApcState.UserApcPendingAll = v60 | 1;
+              CurrentThread->ApcState.UserApcPendingAll = v59 | 1;
             }
           }
         }
 LABEL_87:
-        KiReleaseThreadLockSafe(CurrentThread);
+        KiReleaseThreadLockSafe((__int64)CurrentThread);
         if ( KiIrqlFlags )
         {
           if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)(KeGetCurrentIrql() - 2) <= 0xDu )
@@ -461,33 +458,32 @@ LABEL_87:
         {
           ((void (__fastcall *)(_LIST_ENTRY *, struct _LIST_ENTRY **, struct _LIST_ENTRY **, struct _LIST_ENTRY **, struct _LIST_ENTRY **))v3)(
             v38,
-            &v68,
+            &v67,
             &Blink,
-            &v70,
-            &v69);
+            &v69,
+            &v68);
           if ( (UserApcPendingAll & 2) != 0 )
           {
-            if ( !v68 )
+            if ( !v67 )
             {
-              LOBYTE(v53) = 1;
-              LOBYTE(Process) = KeTestAlertThread(v53);
+              LOBYTE(Process) = KeTestAlertThread(1);
               goto LABEL_112;
             }
             v39 |= 1u;
           }
-          LOBYTE(Process) = KiInitializeUserApc(a2, v75, (_DWORD)v68, (_DWORD)Blink, (__int64)v70, (__int64)v69, v39);
+          LOBYTE(Process) = KiInitializeUserApc(a2, a3, (__int64)v67, (__int64)Blink, (__int64)v69, (__int64)v68, v39);
         }
       }
     }
 LABEL_112:
-    TrapFrame = v72;
+    TrapFrame = v71;
   }
-  v62 = (ULONG_PTR)CurrentThread->ApcState.Process;
-  v63 = BugCheckParameter1;
-  if ( v62 != BugCheckParameter1 )
+  v61 = (ULONG_PTR)CurrentThread->ApcState.Process;
+  v62 = BugCheckParameter1;
+  if ( v61 != BugCheckParameter1 )
   {
     IsExecutingDpc = KeIsExecutingDpc();
-    KeBugCheckEx(5u, v63, v62, CurrentThread->ApcStateIndex, IsExecutingDpc);
+    KeBugCheckEx(5u, v62, v61, CurrentThread->ApcStateIndex, IsExecutingDpc);
   }
   CurrentThread->TrapFrame = TrapFrame;
   return Process;

@@ -1,9 +1,9 @@
 /*
- * XREFs of __iscsym @ 0x180097080
+ * XREFs of __iscsym @ 0x180097070
  * Callers:
  *     <none>
  * Callees:
- *     __pctype_func @ 0x18009CE70 (__pctype_func.c)
+ *     __pctype_func @ 0x18009CE60 (__pctype_func.c)
  */
 
 int __cdecl _iscsym(int C)

@@ -1,27 +1,27 @@
 /*
- * XREFs of MiLockLeafPage @ 0x140080ED0
+ * XREFs of MiLockLeafPage @ 0x140080EC0
  * Callers:
  *     MmCopyToCachedPage @ 0x140033050 (MmCopyToCachedPage.c)
- *     MiResolveProtoCombine @ 0x14007BF74 (MiResolveProtoCombine.c)
- *     MiZeroCfgSystemWideBitmapWorker @ 0x140080940 (MiZeroCfgSystemWideBitmapWorker.c)
- *     MiReservePageFileSpaceForPage @ 0x140081800 (MiReservePageFileSpaceForPage.c)
- *     MiConvertPrivateToProto @ 0x140082EB0 (MiConvertPrivateToProto.c)
- *     MiActOnPte @ 0x14009410C (MiActOnPte.c)
- *     MiTranslatePageForCopy @ 0x1400E9C30 (MiTranslatePageForCopy.c)
- *     MiReplacePageOfProtoPool @ 0x140124D9C (MiReplacePageOfProtoPool.c)
- *     MiMakeImageReadOnly @ 0x140129318 (MiMakeImageReadOnly.c)
- *     MiDeletePerSessionProtos @ 0x140136FA4 (MiDeletePerSessionProtos.c)
- *     MiPurgeImageSection @ 0x140176620 (MiPurgeImageSection.c)
- *     MiIsSubsectionClean @ 0x1402A2694 (MiIsSubsectionClean.c)
- *     MiPurgeSubsection @ 0x1402A2C28 (MiPurgeSubsection.c)
- *     MiDecrementLargeSubsections @ 0x1402B5814 (MiDecrementLargeSubsections.c)
- *     MiEliminateStaleExtents @ 0x1402B5BF0 (MiEliminateStaleExtents.c)
- *     MiEnableLargeSubsection @ 0x1402B5CC4 (MiEnableLargeSubsection.c)
- *     MiPurgeFileOnlyPfn @ 0x1402B69A8 (MiPurgeFileOnlyPfn.c)
+ *     MiResolveProtoCombine @ 0x14007BF64 (MiResolveProtoCombine.c)
+ *     MiZeroCfgSystemWideBitmapWorker @ 0x140080930 (MiZeroCfgSystemWideBitmapWorker.c)
+ *     MiReservePageFileSpaceForPage @ 0x1400817F0 (MiReservePageFileSpaceForPage.c)
+ *     MiConvertPrivateToProto @ 0x140082EA0 (MiConvertPrivateToProto.c)
+ *     MiActOnPte @ 0x14009404C (MiActOnPte.c)
+ *     MiTranslatePageForCopy @ 0x1400E9CB0 (MiTranslatePageForCopy.c)
+ *     MiReplacePageOfProtoPool @ 0x140124E6C (MiReplacePageOfProtoPool.c)
+ *     MiMakeImageReadOnly @ 0x1401293E8 (MiMakeImageReadOnly.c)
+ *     MiDeletePerSessionProtos @ 0x1401370A4 (MiDeletePerSessionProtos.c)
+ *     MiPurgeImageSection @ 0x140176720 (MiPurgeImageSection.c)
+ *     MiIsSubsectionClean @ 0x1402A2884 (MiIsSubsectionClean.c)
+ *     MiPurgeSubsection @ 0x1402A2E18 (MiPurgeSubsection.c)
+ *     MiDecrementLargeSubsections @ 0x1402B5A04 (MiDecrementLargeSubsections.c)
+ *     MiEliminateStaleExtents @ 0x1402B5DE0 (MiEliminateStaleExtents.c)
+ *     MiEnableLargeSubsection @ 0x1402B5EB4 (MiEnableLargeSubsection.c)
+ *     MiPurgeFileOnlyPfn @ 0x1402B6B98 (MiPurgeFileOnlyPfn.c)
  * Callees:
  *     MiInvalidPteConforms @ 0x140039720 (MiInvalidPteConforms.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     MiLockNestedPageAtDpcInline @ 0x140120F04 (MiLockNestedPageAtDpcInline.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     MiLockNestedPageAtDpcInline @ 0x140120FD4 (MiLockNestedPageAtDpcInline.c)
  */
 
 __int64 __fastcall MiLockLeafPage(__int64 *a1, int a2)
@@ -76,8 +76,8 @@ LABEL_11:
     if ( MiInvalidPteConforms(*a1) )
     {
       v6 = v5;
-      if ( qword_14043A0C0 && (v5 & 0x10) == 0 )
-        v6 = v5 & ~qword_14043A0C0;
+      if ( qword_14043B180 && (v5 & 0x10) == 0 )
+        v6 = v5 & ~qword_14043B180;
       goto LABEL_8;
     }
   }

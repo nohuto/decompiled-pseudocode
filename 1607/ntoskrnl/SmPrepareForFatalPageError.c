@@ -1,16 +1,16 @@
 /*
- * XREFs of SmPrepareForFatalPageError @ 0x140222168
+ * XREFs of SmPrepareForFatalPageError @ 0x140221F94
  * Callers:
- *     ?StDmPageError@?$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@PEAD1PEAU_ST_PAGE_LOCATION@1@J@Z @ 0x14021ED1C (-StDmPageError@-$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@PEAD1PEAU_ST_PAGE_LOCATION@1@J@Z.c)
+ *     ?StDmPageError@?$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@PEAD1PEAU_ST_PAGE_LOCATION@1@J@Z @ 0x14021EB48 (-StDmPageError@-$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@PEAD1PEAU_ST_PAGE_LOCATION@1@J@Z.c)
  * Callees:
- *     MmGetPhysicalAddress @ 0x14002500C (MmGetPhysicalAddress.c)
- *     MmUnmapLockedPages @ 0x140025D10 (MmUnmapLockedPages.c)
- *     MmProbeAndLockPages @ 0x14002F120 (MmProbeAndLockPages.c)
- *     MmUnlockPages @ 0x140051A80 (MmUnlockPages.c)
- *     MmMapLockedPagesSpecifyCache @ 0x1400DE220 (MmMapLockedPagesSpecifyCache.c)
- *     KeRegisterBugCheckReasonCallback @ 0x14012DCB0 (KeRegisterBugCheckReasonCallback.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     MmGetPhysicalAddress @ 0x140024B8C (MmGetPhysicalAddress.c)
+ *     MmUnmapLockedPages @ 0x140025890 (MmUnmapLockedPages.c)
+ *     MmProbeAndLockPages @ 0x14002ECA0 (MmProbeAndLockPages.c)
+ *     MmUnlockPages @ 0x140051600 (MmUnlockPages.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x1400DC0C0 (MmMapLockedPagesSpecifyCache.c)
+ *     KeRegisterBugCheckReasonCallback @ 0x14012E220 (KeRegisterBugCheckReasonCallback.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */

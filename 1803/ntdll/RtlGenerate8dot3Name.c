@@ -9,35 +9,39 @@
  *     sub_1800F1CC8 @ 0x1800F1CC8 (sub_1800F1CC8.c)
  */
 
-__int64 __fastcall RtlGenerate8dot3Name(unsigned __int16 *a1, char a2, __int64 a3, __int64 a4)
+NTSTATUS __cdecl RtlGenerate8dot3Name(
+        PUNICODE_STRING Name,
+        BOOLEAN AllowExtendedCharacters,
+        PGENERATE_NAME_CONTEXT Context,
+        PUNICODE_STRING Name8dot3)
 {
-  unsigned __int8 v4; // si
+  UCHAR v4; // si
   char v8; // r13
   unsigned int v9; // ebp
   char v10; // r8
   __int16 v11; // ax
   unsigned int v12; // edi
   bool v13; // zf
-  unsigned __int16 v14; // ax
-  unsigned __int16 v15; // cx
+  WCHAR v14; // ax
+  WCHAR v15; // cx
   int v16; // eax
-  unsigned __int16 v17; // r11
+  USHORT v17; // r11
   unsigned int i; // r8d
   __int16 v19; // dx
   __int64 v20; // rax
-  __int16 v21; // dx
+  WCHAR v21; // dx
   unsigned int v22; // esi
-  unsigned int j; // edi
-  unsigned __int16 v24; // ax
-  unsigned __int16 v25; // dx
+  ULONG j; // edi
+  WCHAR v24; // ax
+  WCHAR v25; // dx
   __int64 v26; // rcx
   int v27; // eax
-  unsigned int v28; // r9d
-  unsigned __int16 v29; // ax
+  ULONG v28; // r9d
+  USHORT v29; // ax
   int v30; // r11d
-  unsigned __int16 v31; // r9
+  USHORT v31; // r9
   __int64 v32; // r8
-  _WORD *v33; // r10
+  WCHAR *v33; // r10
   __int16 v34; // ax
   unsigned __int16 v35; // cx
   unsigned int v36; // edi
@@ -45,34 +49,34 @@ __int64 __fastcall RtlGenerate8dot3Name(unsigned __int16 *a1, char a2, __int64 a
   __int64 v38; // rax
   char v39; // cl
   __int16 v40; // r8
-  __int64 v41; // rbp
+  PUNICODE_STRING v41; // rbp
   _WORD *v42; // r14
-  unsigned __int16 v43; // cx
-  unsigned __int16 v44; // cx
-  int v45; // eax
-  unsigned __int8 v46; // al
+  USHORT v43; // cx
+  USHORT v44; // cx
+  ULONG ExtensionLength; // eax
+  UCHAR NameLength; // al
   unsigned int v47; // r8d
   unsigned int v48; // ecx
   unsigned int k; // edx
   int v50; // eax
-  char v51; // al
+  UCHAR v51; // al
   unsigned int v53; // [rsp+24h] [rbp-64h] BYREF
-  __int64 v54; // [rsp+28h] [rbp-60h]
+  PUNICODE_STRING v54; // [rsp+28h] [rbp-60h]
   unsigned int v55[6]; // [rsp+30h] [rbp-58h] BYREF
 
   v4 = 0;
-  v54 = a4;
-  if ( !a2 || (v8 = 1, !NlsMbOemCodePageTag) )
+  v54 = Name8dot3;
+  if ( !AllowExtendedCharacters || (v8 = 1, !NlsMbOemCodePageTag) )
     v8 = 0;
-  if ( !*(_BYTE *)(a3 + 3) )
+  if ( !Context->NameLength )
   {
     v9 = -1;
     v53 = 0;
-    if ( !*a1 || (v10 = 1, **((_WORD **)a1 + 1) != 46) )
+    if ( !Name->Length || (v10 = 1, *Name->Buffer != 46) )
       v10 = 0;
     while ( 1 )
     {
-      v11 = sub_1800F1BE4(a1, &v53, v10, a2);
+      v11 = sub_1800F1BE4(&Name->Length, &v53, v10, AllowExtendedCharacters);
       if ( !v11 )
         break;
       v10 = 0;
@@ -80,15 +84,15 @@ __int64 __fastcall RtlGenerate8dot3Name(unsigned __int16 *a1, char a2, __int64 a
         v9 = v53;
     }
     v12 = 0;
-    v13 = v9 == *a1 >> 1;
+    v13 = v9 == Name->Length >> 1;
     v53 = 0;
-    *(_BYTE *)(a3 + 3) = 0;
+    Context->NameLength = 0;
     if ( v13 )
       v9 = -1;
     v55[0] = v9;
     while ( 1 )
     {
-      v14 = sub_1800F1BE4(a1, &v53, 1, a2);
+      v14 = sub_1800F1BE4(&Name->Length, &v53, 1, AllowExtendedCharacters);
       v15 = v14;
       if ( !v14 || v53 >= v9 || v4 >= 6u )
         break;
@@ -100,40 +104,40 @@ __int64 __fastcall RtlGenerate8dot3Name(unsigned __int16 *a1, char a2, __int64 a
         if ( v12 > 6 )
           break;
       }
-      *(_WORD *)(a3 + 2LL * v4 + 4) = v15;
-      v4 = ++*(_BYTE *)(a3 + 3);
+      Context->NameBuffer[v4] = v15;
+      v4 = ++Context->NameLength;
     }
     if ( !v8 )
       v12 = v4;
     if ( v12 <= 2 )
     {
-      v17 = sub_1800F1CC8(a1);
-      *(_WORD *)a3 = v17;
+      v17 = sub_1800F1CC8(&Name->Length);
+      Context->Checksum = v17;
       for ( i = 0; i < 4; ++i )
       {
         v19 = 48;
         if ( (v17 & 0xFu) > 9 )
           v19 = 55;
-        v20 = i + *(unsigned __int8 *)(a3 + 3);
+        v20 = i + Context->NameLength;
         v21 = (v17 & 0xF) + v19;
         v17 >>= 4;
-        *(_WORD *)(a3 + 2 * v20 + 4) = v21;
+        Context->NameBuffer[v20] = v21;
       }
-      *(_BYTE *)(a3 + 3) += 4;
-      *(_BYTE *)(a3 + 2) = 1;
+      Context->NameLength += 4;
+      Context->CheckSumInserted = 1;
     }
     if ( v9 == -1 )
     {
-      *(_DWORD *)(a3 + 20) = 0;
+      Context->ExtensionLength = 0;
     }
     else
     {
-      *(_WORD *)(a3 + 24) = 46;
+      Context->ExtensionBuffer[0] = 46;
       v22 = 1;
-      *(_DWORD *)(a3 + 20) = 1;
-      for ( j = 1; ; j = *(_DWORD *)(a3 + 20) )
+      Context->ExtensionLength = 1;
+      for ( j = 1; ; j = Context->ExtensionLength )
       {
-        v24 = sub_1800F1BE4(a1, v55, 1, a2);
+        v24 = sub_1800F1BE4(&Name->Length, v55, 1, AllowExtendedCharacters);
         v25 = v24;
         if ( !v24 )
           break;
@@ -147,26 +151,26 @@ __int64 __fastcall RtlGenerate8dot3Name(unsigned __int16 *a1, char a2, __int64 a
           if ( v22 > 4 )
           {
 LABEL_41:
-            *(_WORD *)(a3 + 2LL * (j - 1) + 24) = 126;
+            Context->NameBuffer[j + 9] = 126;
             break;
           }
         }
-        *(_WORD *)(a3 + 2LL * j + 24) = v25;
-        ++*(_DWORD *)(a3 + 20);
+        Context->ExtensionBuffer[j] = v25;
+        ++Context->ExtensionLength;
       }
     }
   }
-  v28 = *(_DWORD *)(a3 + 32) + 1;
-  *(_DWORD *)(a3 + 32) = v28;
-  if ( v28 > 4 && !*(_BYTE *)(a3 + 2) )
+  v28 = Context->LastIndexValue + 1;
+  Context->LastIndexValue = v28;
+  if ( v28 > 4 && !Context->CheckSumInserted )
   {
-    v29 = sub_1800F1CC8(a1);
-    *(_WORD *)a3 = v29;
+    v29 = sub_1800F1CC8(&Name->Length);
+    Context->Checksum = v29;
     v31 = v29;
     if ( 2 - v30 < (unsigned int)(6 - v30) )
     {
       v32 = 4LL;
-      v33 = (_WORD *)(a3 + 2 * ((unsigned int)(2 - v30) + 2LL));
+      v33 = &Context->NameBuffer[2 - v30];
       do
       {
         v34 = 48;
@@ -179,10 +183,10 @@ LABEL_41:
       }
       while ( v32 );
     }
-    *(_DWORD *)(a3 + 32) = 1;
-    *(_BYTE *)(a3 + 3) = 6 - v30;
+    Context->LastIndexValue = 1;
+    Context->NameLength = 6 - v30;
     v28 = 1;
-    *(_BYTE *)(a3 + 2) = 1;
+    Context->CheckSumInserted = 1;
   }
   v36 = 1;
   v37 = 1;
@@ -203,39 +207,36 @@ LABEL_41:
   v41 = v54;
   v42 = (_WORD *)&v55[2] + 8 - v36;
   *v42 = 126;
-  if ( (unsigned __int8)(*(_BYTE *)(a3 + 3) - 1) > 0xBu )
+  if ( (unsigned __int8)(Context->NameLength - 1) > 0xBu )
   {
     v43 = 0;
   }
   else
   {
-    memmove(*(void **)(v41 + 8), (const void *)(a3 + 4), 2 * (unsigned int)*(unsigned __int8 *)(a3 + 3));
-    v43 = 2 * *(unsigned __int8 *)(a3 + 3);
+    memmove(v41->Buffer, Context->NameBuffer, 2 * (unsigned int)Context->NameLength);
+    v43 = 2 * Context->NameLength;
   }
-  *(_WORD *)v41 = v43;
-  memmove((void *)(*(_QWORD *)(v41 + 8) + 2 * ((unsigned __int64)v43 >> 1)), v42, 2 * v36);
-  v44 = *(_WORD *)v41 + 2 * v36;
-  *(_WORD *)v41 = v44;
-  v45 = *(_DWORD *)(a3 + 20);
-  if ( v45 )
+  v41->Length = v43;
+  memmove(&v41->Buffer[(unsigned __int64)v43 >> 1], v42, 2 * v36);
+  v44 = v41->Length + 2 * v36;
+  v41->Length = v44;
+  ExtensionLength = Context->ExtensionLength;
+  if ( ExtensionLength )
   {
-    memmove(
-      (void *)(*(_QWORD *)(v41 + 8) + 2 * ((unsigned __int64)v44 >> 1)),
-      (const void *)(a3 + 24),
-      (unsigned int)(2 * v45));
-    *(_WORD *)v41 += 2 * *(_WORD *)(a3 + 20);
+    memmove(&v41->Buffer[(unsigned __int64)v44 >> 1], Context->ExtensionBuffer, 2 * ExtensionLength);
+    v41->Length += 2 * LOWORD(Context->ExtensionLength);
   }
   if ( !v37 )
-    return 0LL;
-  v46 = *(_BYTE *)(a3 + 3);
+    return 0;
+  NameLength = Context->NameLength;
   if ( v8 )
   {
-    v47 = v46;
+    v47 = NameLength;
     v48 = 0;
     for ( k = 0; v48 < v47; ++v48 )
     {
-      if ( *(_WORD *)(a3 + 2LL * v48 + 4) <= 0x7Fu
-        || (v50 = 2, !*(_BYTE *)(qword_18015AFC0 + 2LL * *(unsigned __int16 *)(a3 + 2LL * v48 + 4) + 1)) )
+      if ( Context->NameBuffer[v48] <= 0x7Fu
+        || (v50 = 2, !*(_BYTE *)(qword_18015AFC0 + 2LL * Context->NameBuffer[v48] + 1)) )
       {
         v50 = 1;
       }
@@ -243,16 +244,16 @@ LABEL_41:
       if ( k > 7 - v36 )
         break;
     }
-    *(_BYTE *)(a3 + 3) = v48;
+    Context->NameLength = v48;
     v51 = v48;
   }
   else
   {
-    v51 = v46 - 1;
-    *(_BYTE *)(a3 + 3) = v51;
+    v51 = NameLength - 1;
+    Context->NameLength = v51;
   }
   if ( v51 )
-    return 0LL;
+    return 0;
   else
-    return 3221226535LL;
+    return -1073740761;
 }

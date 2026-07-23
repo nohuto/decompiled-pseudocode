@@ -6,11 +6,16 @@
  *     <none>
  */
 
-__int64 NtQueryInformationResourceManager()
+NTSTATUS __cdecl NtQueryInformationResourceManager(
+        HANDLE ResourceManagerHandle,
+        RESOURCEMANAGER_INFORMATION_CLASS ResourceManagerInformationClass,
+        PVOID ResourceManagerInformation,
+        ULONG ResourceManagerInformationLength,
+        PULONG ReturnLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 313LL;
+  result = 313;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

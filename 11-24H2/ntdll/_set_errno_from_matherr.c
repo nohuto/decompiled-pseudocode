@@ -1,10 +1,10 @@
 /*
- * XREFs of _set_errno_from_matherr @ 0x18012B000
+ * XREFs of _set_errno_from_matherr @ 0x180129230
  * Callers:
- *     _call_matherr @ 0x180129F20 (_call_matherr.c)
- *     _handle_error @ 0x18012A070 (_handle_error.c)
+ *     _call_matherr @ 0x180128150 (_call_matherr.c)
+ *     _handle_error @ 0x1801282A0 (_handle_error.c)
  * Callees:
- *     _errno @ 0x18010D560 (_errno.c)
+ *     _errno @ 0x180108440 (_errno.c)
  */
 
 void __fastcall set_errno_from_matherr(int a1)

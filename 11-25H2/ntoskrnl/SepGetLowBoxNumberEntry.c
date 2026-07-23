@@ -17,8 +17,8 @@
 
 __int64 __fastcall SepGetLowBoxNumberEntry(__int64 a1, unsigned __int8 *a2, __int64 *a3)
 {
-  struct _RTL_DYNAMIC_HASH_TABLE *v3; // r13
-  RTL_BITMAP *v4; // r14
+  _RTL_DYNAMIC_HASH_TABLE *v3; // r13
+  _RTL_BITMAP *v4; // r14
   unsigned int v6; // esi
   unsigned int v8; // ebx
   __int64 Pool2; // rax
@@ -29,10 +29,10 @@ __int64 __fastcall SepGetLowBoxNumberEntry(__int64 a1, unsigned __int8 *a2, __in
   __int64 v15; // rax
   __int64 v16; // rdx
   ULONG_PTR v17; // r8
-  struct _RTL_DYNAMIC_HASH_TABLE *v18; // [rsp+78h] [rbp+20h]
+  _RTL_DYNAMIC_HASH_TABLE *v18; // [rsp+78h] [rbp+20h]
 
-  v3 = *(struct _RTL_DYNAMIC_HASH_TABLE **)(a1 + 24);
-  v4 = (RTL_BITMAP *)(a1 + 8);
+  v3 = *(_RTL_DYNAMIC_HASH_TABLE **)(a1 + 24);
+  v4 = (_RTL_BITMAP *)(a1 + 8);
   v18 = v3;
   v6 = 0;
   SepFindMatchingLowBoxNumberEntry(v3, a2);

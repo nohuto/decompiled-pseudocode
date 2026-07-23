@@ -1,16 +1,16 @@
 /*
- * XREFs of MiInitializeDynamicBitmap @ 0x140715720
+ * XREFs of MiInitializeDynamicBitmap @ 0x1407169C0
  * Callers:
- *     MiBuildDynamicRegion @ 0x14017E8E0 (MiBuildDynamicRegion.c)
- *     MiSessionCreate @ 0x140715008 (MiSessionCreate.c)
- *     MiInitializeSessionPool @ 0x140715684 (MiInitializeSessionPool.c)
- *     MiCreatePfnBitMaps @ 0x14072A8C0 (MiCreatePfnBitMaps.c)
- *     MiInitializeSystemPtes @ 0x1409B68BC (MiInitializeSystemPtes.c)
- *     MiBuildPagedPool @ 0x1409B6A44 (MiBuildPagedPool.c)
- *     MiInitializePteInfo @ 0x1409B74C8 (MiInitializePteInfo.c)
- *     MiInitializeMirroring @ 0x1409BCF88 (MiInitializeMirroring.c)
- *     MiInitializeNonPagedPool @ 0x1409BD0D4 (MiInitializeNonPagedPool.c)
- *     MiCreateRetpolineBitmap @ 0x1409F7060 (MiCreateRetpolineBitmap.c)
+ *     MiBuildDynamicRegion @ 0x14017EA20 (MiBuildDynamicRegion.c)
+ *     MiSessionCreate @ 0x1407162A8 (MiSessionCreate.c)
+ *     MiInitializeSessionPool @ 0x140716924 (MiInitializeSessionPool.c)
+ *     MiCreatePfnBitMaps @ 0x14072BAB0 (MiCreatePfnBitMaps.c)
+ *     MiInitializeSystemPtes @ 0x1409B78BC (MiInitializeSystemPtes.c)
+ *     MiBuildPagedPool @ 0x1409B7A44 (MiBuildPagedPool.c)
+ *     MiInitializePteInfo @ 0x1409B84C8 (MiInitializePteInfo.c)
+ *     MiInitializeMirroring @ 0x1409BDF88 (MiInitializeMirroring.c)
+ *     MiInitializeNonPagedPool @ 0x1409BE0D4 (MiInitializeNonPagedPool.c)
+ *     MiCreateRetpolineBitmap @ 0x1409F8060 (MiCreateRetpolineBitmap.c)
  * Callees:
  *     MiMakeZeroedPageTables @ 0x140026644 (MiMakeZeroedPageTables.c)
  *     MiGetAnyMultiplexedVm @ 0x140028884 (MiGetAnyMultiplexedVm.c)
@@ -19,17 +19,17 @@
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  *     MiUnlockWorkingSetShared @ 0x140046970 (MiUnlockWorkingSetShared.c)
  *     MiGetSystemRegionType @ 0x14004EC30 (MiGetSystemRegionType.c)
- *     MiSetPfnLink @ 0x140065CA4 (MiSetPfnLink.c)
- *     MiGetPteAddress @ 0x140065DE8 (MiGetPteAddress.c)
- *     MiLockWorkingSetShared @ 0x140076050 (MiLockWorkingSetShared.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     MiPartitionIdToPointer @ 0x140134CE8 (MiPartitionIdToPointer.c)
- *     MiTransformValidPteInPlace @ 0x14016A70C (MiTransformValidPteInPlace.c)
- *     MiReturnPfnList @ 0x140185C3C (MiReturnPfnList.c)
- *     MiReturnSplitPageCharges @ 0x1401927D4 (MiReturnSplitPageCharges.c)
- *     MiLockPageTable @ 0x140192848 (MiLockPageTable.c)
- *     MiUnlockPageTable @ 0x140192D28 (MiUnlockPageTable.c)
+ *     MiSetPfnLink @ 0x140065C94 (MiSetPfnLink.c)
+ *     MiGetPteAddress @ 0x140065DD8 (MiGetPteAddress.c)
+ *     MiLockWorkingSetShared @ 0x140076040 (MiLockWorkingSetShared.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     MiPartitionIdToPointer @ 0x140134DB8 (MiPartitionIdToPointer.c)
+ *     MiTransformValidPteInPlace @ 0x14016A80C (MiTransformValidPteInPlace.c)
+ *     MiReturnPfnList @ 0x140185D7C (MiReturnPfnList.c)
+ *     MiReturnSplitPageCharges @ 0x140192914 (MiReturnSplitPageCharges.c)
+ *     MiLockPageTable @ 0x140192988 (MiLockPageTable.c)
+ *     MiUnlockPageTable @ 0x140192E68 (MiUnlockPageTable.c)
  */
 
 __int64 __fastcall MiInitializeDynamicBitmap(_QWORD *a1, unsigned __int64 a2, __int64 a3, char a4)
@@ -81,13 +81,13 @@ __int64 __fastcall MiInitializeDynamicBitmap(_QWORD *a1, unsigned __int64 a2, __
   v31 = 0LL;
   if ( (a4 & 4) != 0 )
   {
-    v12 = qword_14043ADE0;
-    v13 = qword_14043AE50;
+    v12 = qword_14043BEA0;
+    v13 = qword_14043BF10;
   }
   else
   {
-    v12 = qword_14043ADC8;
-    v13 = qword_14043AE60;
+    v12 = qword_14043BE88;
+    v13 = qword_14043BF20;
   }
   AnyMultiplexedVm = 0LL;
   v15 = 0LL;
@@ -136,7 +136,7 @@ LABEL_15:
       if ( (unsigned int)MiPteHasShadow() )
       {
         v24 = 1;
-        if ( HIBYTE(word_14043A1AC) )
+        if ( HIBYTE(word_14043B26C) )
           goto LABEL_17;
         v28 = (ValidPte & 1) == 0;
       }

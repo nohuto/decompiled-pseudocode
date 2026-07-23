@@ -1,11 +1,11 @@
 /*
- * XREFs of SbpWaitForVmbus @ 0x1409FA64C
+ * XREFs of SbpWaitForVmbus @ 0x1409FB64C
  * Callers:
- *     IopInitializeBootDrivers @ 0x1409CB0BC (IopInitializeBootDrivers.c)
+ *     IopInitializeBootDrivers @ 0x1409CC0BC (IopInitializeBootDrivers.c)
  * Callees:
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     IoUnregisterPlugPlayNotification @ 0x1406FF0C0 (IoUnregisterPlugPlayNotification.c)
- *     IoRegisterPlugPlayNotification @ 0x140703140 (IoRegisterPlugPlayNotification.c)
+ *     IoUnregisterPlugPlayNotification @ 0x140700360 (IoUnregisterPlugPlayNotification.c)
+ *     IoRegisterPlugPlayNotification @ 0x1407043E0 (IoRegisterPlugPlayNotification.c)
  */
 
 __int64 SbpWaitForVmbus()

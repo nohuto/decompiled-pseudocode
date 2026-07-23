@@ -13,7 +13,7 @@
 __int64 __fastcall PspStorageFreeSlot(unsigned int a1)
 {
   unsigned int v1; // ebx
-  RTL_BITMAP *v2; // rdi
+  _RTL_BITMAP *v2; // rdi
   unsigned int v3; // ebx
 
   v1 = a1;

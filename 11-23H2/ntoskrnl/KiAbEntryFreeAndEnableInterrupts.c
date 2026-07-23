@@ -1,13 +1,13 @@
 /*
- * XREFs of KiAbEntryFreeAndEnableInterrupts @ 0x1402BD700
+ * XREFs of KiAbEntryFreeAndEnableInterrupts @ 0x1402BD990
  * Callers:
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostReleaseEx @ 0x1402BD4F0 (KeAbPostReleaseEx.c)
- *     ExReleaseCacheAwarePushLockSharedEx @ 0x1402BD590 (ExReleaseCacheAwarePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x140230FD0 (KeAbPreAcquire.c)
+ *     KeAbPostReleaseEx @ 0x1402BD780 (KeAbPostReleaseEx.c)
+ *     ExReleaseCacheAwarePushLockSharedEx @ 0x1402BD820 (ExReleaseCacheAwarePushLockSharedEx.c)
  * Callees:
- *     KiAbEntryRemoveFromTree @ 0x14024B550 (KiAbEntryRemoveFromTree.c)
- *     KiAbThreadRemoveBoostsSlow @ 0x140317E40 (KiAbThreadRemoveBoostsSlow.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiAbEntryRemoveFromTree @ 0x14024B620 (KiAbEntryRemoveFromTree.c)
+ *     KiAbThreadRemoveBoostsSlow @ 0x1403180D0 (KiAbThreadRemoveBoostsSlow.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 _QWORD *__fastcall KiAbEntryFreeAndEnableInterrupts(__int64 a1, ULONG_PTR a2, __int64 a3, int a4, _QWORD *a5)

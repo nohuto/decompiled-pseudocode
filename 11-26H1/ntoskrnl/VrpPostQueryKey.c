@@ -1,17 +1,17 @@
 /*
- * XREFs of VrpPostQueryKey @ 0x140976F10
+ * XREFs of VrpPostQueryKey @ 0x140938F20
  * Callers:
- *     VrpRegistryCallback @ 0x140973A30 (VrpRegistryCallback.c)
+ *     VrpRegistryCallback @ 0x140935A40 (VrpRegistryCallback.c)
  * Callees:
- *     EtwWriteTransfer @ 0x140212F30 (EtwWriteTransfer.c)
- *     EtwActivityIdControl @ 0x140466BF0 (EtwActivityIdControl.c)
- *     ExGetPreviousMode @ 0x140470680 (ExGetPreviousMode.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     VrpInputBufferParameter @ 0x14097747C (VrpInputBufferParameter.c)
- *     VrpOutputBufferParameter @ 0x1409774A8 (VrpOutputBufferParameter.c)
- *     VrpUpdateKeyInformation @ 0x1409774DC (VrpUpdateKeyInformation.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     EtwWriteTransfer @ 0x140213010 (EtwWriteTransfer.c)
+ *     EtwActivityIdControl @ 0x140460340 (EtwActivityIdControl.c)
+ *     ExGetPreviousMode @ 0x140469E00 (ExGetPreviousMode.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     VrpInputBufferParameter @ 0x14093948C (VrpInputBufferParameter.c)
+ *     VrpOutputBufferParameter @ 0x1409394B8 (VrpOutputBufferParameter.c)
+ *     VrpUpdateKeyInformation @ 0x1409394EC (VrpUpdateKeyInformation.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall VrpPostQueryKey(__int64 a1)
@@ -87,7 +87,7 @@ __int64 __fastcall VrpPostQueryKey(__int64 a1)
     *(_DWORD *)&v23.Id = 184549376;
     v23.Keyword = 0LL;
     UserData.Size = *(unsigned __int16 *)off_140E0A5C8;
-    v27 = (__int16 *)((char *)&dword_14005A995 + 1);
+    v27 = (__int16 *)qword_14005BB38;
     UserData.Reserved = 2;
     v28 = 50;
     v29 = 1;
@@ -160,7 +160,7 @@ LABEL_32:
         *(_DWORD *)&EventDescriptor.Id = 184549376;
         EventDescriptor.Keyword = 0LL;
         UserData.Size = *(unsigned __int16 *)off_140E0A5C8;
-        v27 = &word_14005A8EE;
+        v27 = &word_14005BB76;
         UserData.Reserved = 2;
         v28 = 47;
         v29 = 1;
@@ -214,7 +214,7 @@ LABEL_32:
     *(_DWORD *)&EventDescriptor.Id = 184549376;
     EventDescriptor.Keyword = 0LL;
     UserData.Size = *(unsigned __int16 *)off_140E0A5C8;
-    v27 = word_14005AB12;
+    v27 = word_14005B932;
     UserData.Reserved = 2;
     v28 = 83;
     v29 = 1;

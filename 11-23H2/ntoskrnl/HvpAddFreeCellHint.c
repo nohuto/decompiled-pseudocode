@@ -1,10 +1,10 @@
 /*
- * XREFs of HvpAddFreeCellHint @ 0x140745EB4
+ * XREFs of HvpAddFreeCellHint @ 0x1407460A4
  * Callers:
- *     HvpEnlistFreeCell @ 0x140745F70 (HvpEnlistFreeCell.c)
+ *     HvpEnlistFreeCell @ 0x140746160 (HvpEnlistFreeCell.c)
  * Callees:
- *     RtlSetBits @ 0x1402E0530 (RtlSetBits.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
+ *     RtlSetBits @ 0x1402E07C0 (RtlSetBits.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  *     HvpGetBinContextInitialize @ 0x140AF5200 (HvpGetBinContextInitialize.c)
  *     HvpMapEntryGetBinAddress @ 0x140AF5210 (HvpMapEntryGetBinAddress.c)
  *     HvpGetCellMap @ 0x140AF5280 (HvpGetCellMap.c)

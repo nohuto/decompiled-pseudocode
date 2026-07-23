@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlIsServicePackVersionInstalled @ 0x1405AFB60
+ * XREFs of RtlIsServicePackVersionInstalled @ 0x1405B00D0
  * Callers:
  *     <none>
  * Callees:

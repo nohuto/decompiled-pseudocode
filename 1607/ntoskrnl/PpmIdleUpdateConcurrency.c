@@ -1,11 +1,11 @@
 /*
- * XREFs of PpmIdleUpdateConcurrency @ 0x140146564
+ * XREFs of PpmIdleUpdateConcurrency @ 0x140146AD4
  * Callers:
- *     PpmIdleRemoveConcurrency @ 0x1401464DC (PpmIdleRemoveConcurrency.c)
- *     PpmIdleInstallConcurrency @ 0x140146524 (PpmIdleInstallConcurrency.c)
+ *     PpmIdleRemoveConcurrency @ 0x140146A4C (PpmIdleRemoveConcurrency.c)
+ *     PpmIdleInstallConcurrency @ 0x140146A94 (PpmIdleInstallConcurrency.c)
  * Callees:
- *     KxAcquireSpinLock @ 0x140092A60 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x140095BA0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x140092260 (KxAcquireSpinLock.c)
+ *     KxReleaseSpinLock @ 0x1400953A0 (KxReleaseSpinLock.c)
  */
 
 void __fastcall PpmIdleUpdateConcurrency(PKSPIN_LOCK SpinLock, KSPIN_LOCK a2, char a3, char a4)

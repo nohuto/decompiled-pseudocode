@@ -1,12 +1,12 @@
 /*
- * XREFs of PspApiSetCopyToSystemSpace @ 0x140886A98
+ * XREFs of PspApiSetCopyToSystemSpace @ 0x140887CF8
  * Callers:
- *     PspSiloLoadApiSets @ 0x140887C58 (PspSiloLoadApiSets.c)
+ *     PspSiloLoadApiSets @ 0x140888EB8 (PspSiloLoadApiSets.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     MmMapViewInSystemSpace @ 0x1405A23A0 (MmMapViewInSystemSpace.c)
- *     MmCreateSection @ 0x14061B2D0 (MmCreateSection.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     MmMapViewInSystemSpace @ 0x1405A33A0 (MmMapViewInSystemSpace.c)
+ *     MmCreateSection @ 0x14061C2D0 (MmCreateSection.c)
  */
 
 __int64 __fastcall PspApiSetCopyToSystemSpace(void *Src, size_t Size, _QWORD *a3, _QWORD *a4)

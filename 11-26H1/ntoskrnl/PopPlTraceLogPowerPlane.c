@@ -1,11 +1,11 @@
 /*
- * XREFs of PopPlTraceLogPowerPlane @ 0x140612B9C
+ * XREFs of PopPlTraceLogPowerPlane @ 0x1406159DC
  * Callers:
- *     PopPlRegisterPowerPlane @ 0x14050E2BC (PopPlRegisterPowerPlane.c)
- *     PopDiagTraceControlCallback @ 0x140AC0910 (PopDiagTraceControlCallback.c)
+ *     PopPlRegisterPowerPlane @ 0x140507D2C (PopPlRegisterPowerPlane.c)
+ *     PopDiagTraceControlCallback @ 0x140AC29B0 (PopDiagTraceControlCallback.c)
  * Callees:
- *     _tlgWriteEx_EtwWriteEx @ 0x1404E33C4 (_tlgWriteEx_EtwWriteEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x1404DC958 (_tlgWriteEx_EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 int __fastcall PopPlTraceLogPowerPlane(unsigned __int16 *a1, __int64 a2, __int64 a3)
@@ -47,7 +47,7 @@ int __fastcall PopPlTraceLogPowerPlane(unsigned __int16 *a1, __int64 a2, __int64
 
   v3 = (int *)(a1 + 24);
   LOWORD(v17) = 0;
-  if ( (unsigned int)dword_140E07598 > 5 )
+  if ( (unsigned int)dword_140E07560 > 5 )
   {
     LOWORD(v16) = 1;
     v21 = &v16;
@@ -62,7 +62,7 @@ int __fastcall PopPlTraceLogPowerPlane(unsigned __int16 *a1, __int64 a2, __int64
     v24 = 2LL;
     v28 = 4LL;
     v30 = 4LL;
-    tlgWriteEx_EtwWriteEx((__int64)&dword_140E07598, (unsigned __int8 *)&byte_140050518, a3, 1u, v14, v15, 7u, v20);
+    tlgWriteEx_EtwWriteEx((__int64)&dword_140E07560, (unsigned __int8 *)&byte_140051053, a3, 1u, v14, v15, 7u, v20);
   }
   v5 = *(_QWORD *)v3;
   v6 = 0LL;
@@ -72,7 +72,7 @@ int __fastcall PopPlTraceLogPowerPlane(unsigned __int16 *a1, __int64 a2, __int64
     {
       v7 = *(unsigned __int16 **)(*((_QWORD *)a1 + 7) + 8 * v6);
       LOWORD(v17) = 4;
-      if ( (unsigned int)dword_140E07598 > 5 )
+      if ( (unsigned int)dword_140E07560 > 5 )
       {
         LOWORD(v16) = 1;
         v21 = &v16;
@@ -96,8 +96,8 @@ int __fastcall PopPlTraceLogPowerPlane(unsigned __int16 *a1, __int64 a2, __int64
         v36 = 2LL;
         v38 = 32LL;
         tlgWriteEx_EtwWriteEx(
-          (__int64)&dword_140E07598,
-          (unsigned __int8 *)&byte_140050480,
+          (__int64)&dword_140E07560,
+          (unsigned __int8 *)&byte_140050FBB,
           a3,
           1u,
           v14,
@@ -127,7 +127,7 @@ int __fastcall PopPlTraceLogPowerPlane(unsigned __int16 *a1, __int64 a2, __int64
           v11 = *(_QWORD *)(v5 + 8 * v9);
           v12 = *(unsigned __int16 *)(v11 + 24);
           LOWORD(v17) = *(_WORD *)(v11 + 24);
-          if ( (unsigned int)dword_140E07598 > 5 )
+          if ( (unsigned int)dword_140E07560 > 5 )
           {
             v23 = (__int64 *)v11;
             v21 = &v16;
@@ -147,8 +147,8 @@ int __fastcall PopPlTraceLogPowerPlane(unsigned __int16 *a1, __int64 a2, __int64
             v30 = 2LL;
             v34 = 2LL;
             LODWORD(v5) = tlgWriteEx_EtwWriteEx(
-                            (__int64)&dword_140E07598,
-                            (unsigned __int8 *)&byte_1400503F3,
+                            (__int64)&dword_140E07560,
+                            (unsigned __int8 *)&word_140050F2E,
                             a3,
                             1u,
                             v14,

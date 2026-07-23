@@ -1,10 +1,10 @@
 /*
- * XREFs of IopIsKnownGoodLegacyFsFilter @ 0x1401C95EC
+ * XREFs of IopIsKnownGoodLegacyFsFilter @ 0x1401C948C
  * Callers:
- *     IopAttachDeviceToDeviceStackSafe @ 0x1400FAFC0 (IopAttachDeviceToDeviceStackSafe.c)
- *     IoRegisterFsRegistrationChangeMountAware @ 0x1405506D0 (IoRegisterFsRegistrationChangeMountAware.c)
+ *     IopAttachDeviceToDeviceStackSafe @ 0x1400F8D4C (IopAttachDeviceToDeviceStackSafe.c)
+ *     IoRegisterFsRegistrationChangeMountAware @ 0x140550C10 (IoRegisterFsRegistrationChangeMountAware.c)
  * Callees:
- *     memcmp @ 0x14014DE90 (memcmp.c)
+ *     memcmp @ 0x14014E450 (memcmp.c)
  */
 
 bool __fastcall IopIsKnownGoodLegacyFsFilter(const void **a1)

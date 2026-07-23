@@ -1,17 +1,17 @@
 /*
- * XREFs of PiDrvDbUnregisterNode @ 0x140739CA8
+ * XREFs of PiDrvDbUnregisterNode @ 0x140737BD8
  * Callers:
- *     PiDrvDbUnmountNode @ 0x1406FB620 (PiDrvDbUnmountNode.c)
+ *     PiDrvDbUnmountNode @ 0x1406F9260 (PiDrvDbUnmountNode.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwOpenDirectoryObject @ 0x1406A6F10 (ZwOpenDirectoryObject.c)
- *     ZwMakeTemporaryObject @ 0x1406A8730 (ZwMakeTemporaryObject.c)
- *     ZwOpenSymbolicLinkObject @ 0x1406A8B10 (ZwOpenSymbolicLinkObject.c)
- *     PiDrvDbDestroyNode @ 0x140736BA8 (PiDrvDbDestroyNode.c)
- *     PiDrvDbDriverStoreNodesUpdated @ 0x140736C4C (PiDrvDbDriverStoreNodesUpdated.c)
- *     _PnpCtxUnregisterMachineNode @ 0x140817BBC (_PnpCtxUnregisterMachineNode.c)
- *     DrvDbUnregisterDatabase @ 0x1408239A4 (DrvDbUnregisterDatabase.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwOpenDirectoryObject @ 0x1406A7EB0 (ZwOpenDirectoryObject.c)
+ *     ZwMakeTemporaryObject @ 0x1406A96D0 (ZwMakeTemporaryObject.c)
+ *     ZwOpenSymbolicLinkObject @ 0x1406A9AB0 (ZwOpenSymbolicLinkObject.c)
+ *     PiDrvDbDestroyNode @ 0x140734AD8 (PiDrvDbDestroyNode.c)
+ *     PiDrvDbDriverStoreNodesUpdated @ 0x140734B7C (PiDrvDbDriverStoreNodesUpdated.c)
+ *     _PnpCtxUnregisterMachineNode @ 0x1408182FC (_PnpCtxUnregisterMachineNode.c)
+ *     DrvDbUnregisterDatabase @ 0x1408240E4 (DrvDbUnregisterDatabase.c)
  */
 
 __int64 __fastcall PiDrvDbUnregisterNode(char *P)

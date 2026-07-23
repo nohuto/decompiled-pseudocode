@@ -1,12 +1,12 @@
 /*
- * XREFs of MiCheckProtoAccess @ 0x140349FB0
+ * XREFs of MiCheckProtoAccess @ 0x14034A148
  * Callers:
- *     MiDispatchFault @ 0x140237F30 (MiDispatchFault.c)
+ *     MiDispatchFault @ 0x140238000 (MiDispatchFault.c)
  * Callees:
- *     MiCheckVirtualAddress @ 0x14025AB00 (MiCheckVirtualAddress.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1402712F0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiIsPrototypePteVadLookup @ 0x14027CF00 (MiIsPrototypePteVadLookup.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7C00 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     MiCheckVirtualAddress @ 0x14025AD90 (MiCheckVirtualAddress.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140271580 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiIsPrototypePteVadLookup @ 0x14027D190 (MiIsPrototypePteVadLookup.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7E90 (ExReleaseSpinLockSharedFromDpcLevel.c)
  */
 
 __int64 __fastcall MiCheckProtoAccess(unsigned __int64 a1, _DWORD *a2)

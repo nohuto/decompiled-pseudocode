@@ -1,14 +1,14 @@
 /*
- * XREFs of HvValidateOrInvalidatePrimaryFileHeader @ 0x140AAADE0
+ * XREFs of HvValidateOrInvalidatePrimaryFileHeader @ 0x140AA83C0
  * Callers:
- *     CmpFlushHive @ 0x1408B321C (CmpFlushHive.c)
- *     HvpPerformLogFileRecovery @ 0x140AEB2A8 (HvpPerformLogFileRecovery.c)
+ *     CmpFlushHive @ 0x1408B97F0 (CmpFlushHive.c)
+ *     HvpPerformLogFileRecovery @ 0x140AEE1B4 (HvpPerformLogFileRecovery.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     CmpFileFlushAndPurge @ 0x140AAAF1C (CmpFileFlushAndPurge.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
- *     HvpHeaderCheckSum @ 0x140C58720 (HvpHeaderCheckSum.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     CmpFileFlushAndPurge @ 0x140AA84FC (CmpFileFlushAndPurge.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
+ *     HvpHeaderCheckSum @ 0x140C5E720 (HvpHeaderCheckSum.c)
  */
 
 __int64 __fastcall HvValidateOrInvalidatePrimaryFileHeader(__int64 a1, char a2, char a3)

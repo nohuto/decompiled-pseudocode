@@ -1,15 +1,15 @@
 /*
- * XREFs of MiInsertListSentinel @ 0x14044D320
+ * XREFs of MiInsertListSentinel @ 0x140445440
  * Callers:
- *     MiWalkAllWorkingSets @ 0x1402A9370 (MiWalkAllWorkingSets.c)
- *     MiWalkAllHardLimitWorkingSets @ 0x1402A996C (MiWalkAllHardLimitWorkingSets.c)
- *     MiPruneUnusedList @ 0x14048F610 (MiPruneUnusedList.c)
- *     MiDeleteDeleteOnCloseSubsections @ 0x1406E74F0 (MiDeleteDeleteOnCloseSubsections.c)
- *     MiMakeUnusedSegmentDeleteOnClose @ 0x1406E7694 (MiMakeUnusedSegmentDeleteOnClose.c)
- *     MiProcessDeleteOnClose @ 0x1406E7900 (MiProcessDeleteOnClose.c)
+ *     MiWalkAllWorkingSets @ 0x1402A8780 (MiWalkAllWorkingSets.c)
+ *     MiWalkAllHardLimitWorkingSets @ 0x1402A8D7C (MiWalkAllHardLimitWorkingSets.c)
+ *     MiPruneUnusedList @ 0x140488FD0 (MiPruneUnusedList.c)
+ *     MiDeleteDeleteOnCloseSubsections @ 0x1406EC1A0 (MiDeleteDeleteOnCloseSubsections.c)
+ *     MiMakeUnusedSegmentDeleteOnClose @ 0x1406EC344 (MiMakeUnusedSegmentDeleteOnClose.c)
+ *     MiProcessDeleteOnClose @ 0x1406EC5B0 (MiProcessDeleteOnClose.c)
  * Callees:
- *     RtlpTreeDoubleRotateNodes @ 0x14044D5D0 (RtlpTreeDoubleRotateNodes.c)
- *     RtlpRbReportFatalError @ 0x140619BDC (RtlpRbReportFatalError.c)
+ *     RtlpTreeDoubleRotateNodes @ 0x140445700 (RtlpTreeDoubleRotateNodes.c)
+ *     RtlpRbReportFatalError @ 0x14061CC2C (RtlpRbReportFatalError.c)
  */
 
 char __fastcall MiInsertListSentinel(unsigned __int64 *a1, _QWORD *a2, unsigned __int64 a3)
@@ -20,16 +20,16 @@ char __fastcall MiInsertListSentinel(unsigned __int64 *a1, _QWORD *a2, unsigned 
   unsigned __int64 v7; // rbx
   unsigned __int64 *v8; // rdi
   unsigned __int64 v9; // rax
-  bool v10; // cl
+  bool v10; // dl
   _BYTE *v11; // rsi
-  char v12; // dl
+  char v12; // cl
   char v13; // r8
   char v14; // bp
   __int64 v15; // r8
   char v16; // r9
   _BOOL8 v17; // r15
   unsigned __int64 v18; // rcx
-  __int64 v19; // rcx
+  _QWORD *v19; // rcx
   __int64 v20; // rbp
   _QWORD *v21; // rsi
   __int64 v22; // rsi
@@ -46,7 +46,10 @@ char __fastcall MiInsertListSentinel(unsigned __int64 *a1, _QWORD *a2, unsigned 
       {
         v9 = *(_QWORD *)v4;
         if ( !*(_QWORD *)v4 )
-          break;
+        {
+          v6 = (__int64)(a2 + 4);
+          goto LABEL_8;
+        }
       }
       else
       {
@@ -67,23 +70,25 @@ char __fastcall MiInsertListSentinel(unsigned __int64 *a1, _QWORD *a2, unsigned 
         if ( !v9 )
         {
           v10 = 1;
-          goto LABEL_8;
+          v6 = v3 + 32;
+          goto LABEL_9;
         }
       }
       v4 = v9;
     }
   }
-  v10 = 0;
+  v6 = (__int64)(a2 + 4);
 LABEL_8:
-  LOBYTE(v6) = (_BYTE)a2 + 32;
-  a2[5] = a2 + 4;
-  a2[4] = a2 + 4;
-  *a2 = 0LL;
-  a2[1] = 0LL;
-  a2[2] = v4;
+  v10 = 0;
+LABEL_9:
+  *(_QWORD *)(v6 + 8) = v6;
+  *(_QWORD *)v6 = v6;
+  *(_QWORD *)v3 = 0LL;
+  *(_QWORD *)(v3 + 8) = 0LL;
+  *(_QWORD *)(v3 + 16) = v4;
   if ( v4 )
   {
-    *(_QWORD *)(v4 + 8LL * v10) = a2;
+    *(_QWORD *)(v4 + 8LL * v10) = v3;
     while ( 1 )
     {
       v11 = (_BYTE *)(v4 + 16);
@@ -108,10 +113,10 @@ LABEL_8:
         v17 = !v10;
         v18 = *(_QWORD *)(v3 + 16) & 0xFFFFFFFFFFFFFFFCuLL;
         if ( v18 != v4 )
-          RtlpRbReportFatalError(v18, v4, v3);
-        v19 = *(_QWORD *)(v4 + 8 * !v17);
-        if ( v19 != v3 )
-          RtlpRbReportFatalError(v19, v3, v4);
+          RtlpRbReportFatalError(v18, v4);
+        v19 = *(_QWORD **)(v4 + 8LL * v10);
+        if ( v19 != (_QWORD *)v3 )
+          RtlpRbReportFatalError(v19, v3);
         v20 = *(_QWORD *)(v4 + 16);
         v21 = (_QWORD *)(v20 & 0xFFFFFFFFFFFFFFFCuLL);
         if ( (v20 & 0xFFFFFFFFFFFFFFFCuLL) != 0 )
@@ -123,14 +128,14 @@ LABEL_8:
           else
           {
             if ( *v21 != v4 )
-              RtlpRbReportFatalError(*v21, v4, *(_QWORD *)(v4 + 16) & 0xFFFFFFFFFFFFFFFCuLL);
+              RtlpRbReportFatalError(*v21, v4);
             *v21 = v3;
           }
         }
         else
         {
           if ( *a1 != v4 )
-            RtlpRbReportFatalError(*a1, v4, a1);
+            RtlpRbReportFatalError(*a1, v4);
           *a1 = v3;
         }
         *(_QWORD *)(v3 + 16) ^= (v20 ^ *(_QWORD *)(v3 + 16)) & 0xFFFFFFFFFFFFFFFCuLL;
@@ -139,10 +144,10 @@ LABEL_8:
         {
           v23 = *(_QWORD *)(v22 + 16) & 0xFFFFFFFFFFFFFFFCuLL;
           if ( v23 != v3 )
-            RtlpRbReportFatalError(v23, v3, *(_QWORD *)(v3 + 8 * v17));
+            RtlpRbReportFatalError(v23, v3);
           *(_QWORD *)(v22 + 16) = v4 | *(_DWORD *)(v22 + 16) & 3;
         }
-        *(_QWORD *)(v4 + 8 * !v17) = v22;
+        *(_QWORD *)(v4 + 8LL * v10) = v22;
         *(_QWORD *)(v3 + 8 * v17) = v4;
         v6 = v3 | *(_DWORD *)(v4 + 16) & 3;
         *(_QWORD *)(v4 + 16) = v6;
@@ -176,7 +181,7 @@ LABEL_8:
   }
   else
   {
-    *a1 = (unsigned __int64)a2;
+    *a1 = v3;
   }
   return v6;
 }

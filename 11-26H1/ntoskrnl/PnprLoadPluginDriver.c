@@ -1,15 +1,15 @@
 /*
- * XREFs of PnprLoadPluginDriver @ 0x1407AF818
+ * XREFs of PnprLoadPluginDriver @ 0x1407B2878
  * Callers:
- *     PnpReplacePartitionUnit @ 0x1407ADDC0 (PnpReplacePartitionUnit.c)
+ *     PnpReplacePartitionUnit @ 0x1407B0E20 (PnpReplacePartitionUnit.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     PnprGetPluginDriverImagePath @ 0x1407AF130 (PnprGetPluginDriverImagePath.c)
- *     MmLoadSystemImage @ 0x140A26990 (MmLoadSystemImage.c)
- *     MmUnloadSystemImage @ 0x140AC7670 (MmUnloadSystemImage.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     PnprGetPluginDriverImagePath @ 0x1407B2190 (PnprGetPluginDriverImagePath.c)
+ *     MmLoadSystemImage @ 0x140A39A30 (MmLoadSystemImage.c)
+ *     MmUnloadSystemImage @ 0x140AC9260 (MmUnloadSystemImage.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PnprLoadPluginDriver(_QWORD *a1, __int64 a2)
@@ -49,7 +49,7 @@ __int64 __fastcall PnprLoadPluginDriver(_QWORD *a1, __int64 a2)
         PluginDriverImagePath = -1073741637;
         v6 = *(_DWORD *)(PnprContext + 33288);
         if ( !v6 )
-          v6 = 4893;
+          v6 = 4442;
         v7 = 9;
       }
       else
@@ -57,7 +57,7 @@ __int64 __fastcall PnprLoadPluginDriver(_QWORD *a1, __int64 a2)
         v5 = PnprContext;
         v6 = *(_DWORD *)(PnprContext + 33288);
         if ( !v6 )
-          v6 = 4877;
+          v6 = 4426;
         v7 = 8;
       }
     }
@@ -66,7 +66,7 @@ __int64 __fastcall PnprLoadPluginDriver(_QWORD *a1, __int64 a2)
       v5 = PnprContext;
       v6 = *(_DWORD *)(PnprContext + 33288);
       if ( !v6 )
-        v6 = 4863;
+        v6 = 4412;
       v7 = 10;
     }
     *(_DWORD *)(v5 + 33288) = v6;

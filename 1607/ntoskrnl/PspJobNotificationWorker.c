@@ -1,13 +1,13 @@
 /*
- * XREFs of PspJobNotificationWorker @ 0x1404E3A8C
+ * XREFs of PspJobNotificationWorker @ 0x1404C6744
  * Callers:
  *     <none>
  * Callees:
- *     ExAcquireResourceExclusiveLite @ 0x140068160 (ExAcquireResourceExclusiveLite.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     ZwUpdateWnfStateData @ 0x14015D3C0 (ZwUpdateWnfStateData.c)
- *     PspUnlockJob @ 0x140468EB0 (PspUnlockJob.c)
- *     PspSendReliableJobNotification @ 0x14047310C (PspSendReliableJobNotification.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140067CE0 (ExAcquireResourceExclusiveLite.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     ZwUpdateWnfStateData @ 0x14015D930 (ZwUpdateWnfStateData.c)
+ *     PspUnlockJob @ 0x140467D80 (PspUnlockJob.c)
+ *     PspSendReliableJobNotification @ 0x140471FDC (PspSendReliableJobNotification.c)
  */
 
 signed __int64 PspJobNotificationWorker()
@@ -27,7 +27,7 @@ signed __int64 PspJobNotificationWorker()
       _m_prefetchw((const void *)(v0 + 1304));
       v2 = _InterlockedAnd((volatile signed __int32 *)(v0 + 1304), 0xFFFDDFFF);
       if ( (v2 & 0x2000) != 0 )
-        ZwUpdateWnfStateData(v0 + 880, 0LL, 0LL);
+        ZwUpdateWnfStateData((PCWNF_STATE_NAME)(v0 + 880), 0LL, 0, 0LL, 0LL, 0, 0);
       if ( (v2 & 0x20000) != 0 )
       {
         CurrentThread = KeGetCurrentThread();

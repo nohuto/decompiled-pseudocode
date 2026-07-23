@@ -1,22 +1,22 @@
 /*
- * XREFs of HvFreeHivePartial @ 0x1408B7A44
+ * XREFs of HvFreeHivePartial @ 0x1408BE014
  * Callers:
- *     HvpTruncateBins @ 0x1408B8A10 (HvpTruncateBins.c)
- *     HvpPerformLogFileRecovery @ 0x140AEB2A8 (HvpPerformLogFileRecovery.c)
+ *     HvpTruncateBins @ 0x1408BEFE0 (HvpTruncateBins.c)
+ *     HvpPerformLogFileRecovery @ 0x140AEE1B4 (HvpPerformLogFileRecovery.c)
  * Callees:
- *     RtlNumberOfSetBits @ 0x140356570 (RtlNumberOfSetBits.c)
- *     RtlClearBits @ 0x1403591A0 (RtlClearBits.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     HvpViewMapShrinkStorage @ 0x14085CBD8 (HvpViewMapShrinkStorage.c)
- *     HvpFreeBin @ 0x1408B78AC (HvpFreeBin.c)
- *     HvpFreeMap @ 0x1408B79C0 (HvpFreeMap.c)
- *     HvpMapEntryGetFreeBin @ 0x1408B8FF0 (HvpMapEntryGetFreeBin.c)
- *     HvpMapEntryIsPoolBacked @ 0x1408B9254 (HvpMapEntryIsPoolBacked.c)
- *     CmpReleaseGlobalQuota @ 0x1408C8530 (CmpReleaseGlobalQuota.c)
- *     HvpAdjustHiveFreeDisplay @ 0x140A82700 (HvpAdjustHiveFreeDisplay.c)
- *     CmpUpdateSystemHiveHysteresis @ 0x140AFAA28 (CmpUpdateSystemHiveHysteresis.c)
- *     HvpGetCellMap @ 0x140C58690 (HvpGetCellMap.c)
+ *     RtlNumberOfSetBits @ 0x140358310 (RtlNumberOfSetBits.c)
+ *     RtlClearBits @ 0x14035AF40 (RtlClearBits.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     HvpViewMapShrinkStorage @ 0x140862EC8 (HvpViewMapShrinkStorage.c)
+ *     HvpFreeBin @ 0x1408BDE7C (HvpFreeBin.c)
+ *     HvpFreeMap @ 0x1408BDF90 (HvpFreeMap.c)
+ *     HvpMapEntryGetFreeBin @ 0x1408BF5C0 (HvpMapEntryGetFreeBin.c)
+ *     HvpMapEntryIsPoolBacked @ 0x1408BF824 (HvpMapEntryIsPoolBacked.c)
+ *     CmpReleaseGlobalQuota @ 0x1408CEAE4 (CmpReleaseGlobalQuota.c)
+ *     HvpAdjustHiveFreeDisplay @ 0x140A88570 (HvpAdjustHiveFreeDisplay.c)
+ *     CmpUpdateSystemHiveHysteresis @ 0x140AFCC90 (CmpUpdateSystemHiveHysteresis.c)
+ *     HvpGetCellMap @ 0x140C5E690 (HvpGetCellMap.c)
  */
 
 __int64 __fastcall HvFreeHivePartial(ULONG_PTR BugCheckParameter2, unsigned int a2, unsigned int a3)

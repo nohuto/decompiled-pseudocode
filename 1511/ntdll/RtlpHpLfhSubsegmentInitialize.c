@@ -92,15 +92,11 @@ unsigned __int64 __fastcall RtlpHpLfhSubsegmentInitialize(char *a1, unsigned int
     *(_QWORD *)&a1[8 * ((unsigned __int64)(2 * v8) >> 6) + 48] |= ~((1LL << ((2 * v8) & 0x3F)) - 1);
   LowFragHeapDataSlot = NtCurrentTeb()->LowFragHeapDataSlot;
   if ( !dword_180145F48
-    && NtQueryInformationProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, (PROCESSINFOCLASS)36, &dword_180145F48, 4u, 0LL) < 0 )
+    && NtQueryInformationProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, ProcessCookie, &dword_180145F48, 4u, 0LL) < 0 )
   {
     dword_180145F48 = (MEMORY[0x7FFE0320] * (unsigned __int64)MEMORY[0x7FFE0004]) >> 24;
   }
-  RtlRunOnceExecuteOnce(
-    &RtlpRandomExInit,
-    (unsigned int (__fastcall *)(volatile signed __int64 *, __int64, unsigned __int64 *))RtlpInitRandomExVector,
-    0LL,
-    0LL);
+  RtlRunOnceExecuteOnce(&RtlpRandomExInit, RtlpInitRandomExVector, 0LL, 0LL);
   dword_180145F48 = (2147483629 * (unsigned __int64)(unsigned int)dword_180145F48 + 2147483587) % 0x7FFFFFFF;
   v17 = _InterlockedExchange(&RtlpRandomExConstantVector[RtlpRandomExAuxVarY & 0x7F], dword_180145F48);
   if ( MEMORY[0x7FFE0290] )
@@ -124,15 +120,11 @@ LABEL_22:
   _InterlockedExchangeAdd(&RtlpRandomExAuxVarY, v21);
   v22 = (unsigned __int64)v21 << 32;
   if ( !dword_180145F48
-    && NtQueryInformationProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, (PROCESSINFOCLASS)36, &dword_180145F48, 4u, 0LL) < 0 )
+    && NtQueryInformationProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, ProcessCookie, &dword_180145F48, 4u, 0LL) < 0 )
   {
     dword_180145F48 = (MEMORY[0x7FFE0320] * (unsigned __int64)MEMORY[0x7FFE0004]) >> 24;
   }
-  RtlRunOnceExecuteOnce(
-    &RtlpRandomExInit,
-    (unsigned int (__fastcall *)(volatile signed __int64 *, __int64, unsigned __int64 *))RtlpInitRandomExVector,
-    0LL,
-    0LL);
+  RtlRunOnceExecuteOnce(&RtlpRandomExInit, RtlpInitRandomExVector, 0LL, 0LL);
   dword_180145F48 = (2147483629 * (unsigned __int64)(unsigned int)dword_180145F48 + 2147483587) % 0x7FFFFFFF;
   v23 = _InterlockedExchange(&RtlpRandomExConstantVector[RtlpRandomExAuxVarY & 0x7F], dword_180145F48);
   if ( MEMORY[0x7FFE0290] )

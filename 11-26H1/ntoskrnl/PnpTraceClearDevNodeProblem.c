@@ -1,10 +1,10 @@
 /*
- * XREFs of PnpTraceClearDevNodeProblem @ 0x140914E48
+ * XREFs of PnpTraceClearDevNodeProblem @ 0x14096F8B4
  * Callers:
- *     PipClearDevNodeProblem @ 0x140914C5C (PipClearDevNodeProblem.c)
+ *     PipClearDevNodeProblem @ 0x14096F6C8 (PipClearDevNodeProblem.c)
  * Callees:
- *     _tlgWriteAgg @ 0x1404599C0 (_tlgWriteAgg.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     _tlgWriteAgg @ 0x140451240 (_tlgWriteAgg.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall PnpTraceClearDevNodeProblem(unsigned __int16 *a1, unsigned __int16 *a2, __int64 a3, int a4)
@@ -29,10 +29,10 @@ NTSTATUS __fastcall PnpTraceClearDevNodeProblem(unsigned __int16 *a1, unsigned _
   int *v21; // [rsp+C0h] [rbp+37h]
   __int64 v22; // [rsp+C8h] [rbp+3Fh]
 
-  if ( (_DWORD)a3 != 1 && (unsigned int)dword_140E06E38 > 5 && (qword_140E06E48 & 0x800000000000LL) != 0 )
+  if ( (_DWORD)a3 != 1 && (unsigned int)dword_140E06E80 > 5 && (qword_140E06E90 & 0x800000000000LL) != 0 )
   {
     result = 0;
-    if ( (qword_140E06E50 & 0x800000000000LL) == qword_140E06E50 )
+    if ( (qword_140E06E98 & 0x800000000000LL) == qword_140E06E98 )
     {
       v6 = a4;
       v7 = 1LL;
@@ -53,7 +53,7 @@ NTSTATUS __fastcall PnpTraceClearDevNodeProblem(unsigned __int16 *a1, unsigned _
       v5 = a3;
       v20 = 4LL;
       v22 = 4LL;
-      return tlgWriteAgg((__int64)&dword_140E06E38, (unsigned __int8 *)&word_140048336, a3, 9u, &v8);
+      return tlgWriteAgg((__int64)&dword_140E06E80, (unsigned __int8 *)&dword_140048A2C, a3, 9u, &v8);
     }
   }
   return result;

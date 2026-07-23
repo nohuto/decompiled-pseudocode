@@ -1,22 +1,22 @@
 /*
- * XREFs of SeAuditProcessCreation @ 0x140840CC4
+ * XREFs of SeAuditProcessCreation @ 0x140840FC4
  * Callers:
- *     PspInsertProcess @ 0x1406B9FA4 (PspInsertProcess.c)
+ *     PspInsertProcess @ 0x1406B9FD4 (PspInsertProcess.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     PsReferencePrimaryTokenWithTag @ 0x1402329C0 (PsReferencePrimaryTokenWithTag.c)
- *     PsQueryProcessCommandLine @ 0x1403546F0 (PsQueryProcessCommandLine.c)
- *     SepAdtLogAuditRecord @ 0x14039B780 (SepAdtLogAuditRecord.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     PsLookupProcessByProcessId @ 0x1406FA370 (PsLookupProcessByProcessId.c)
- *     RtlCopySid @ 0x140714F70 (RtlCopySid.c)
- *     SeReleaseSubjectContext @ 0x140737BC0 (SeReleaseSubjectContext.c)
- *     SeCaptureSubjectContext @ 0x140737C70 (SeCaptureSubjectContext.c)
- *     PsGetAllocatedFullProcessImageNameEx @ 0x140742774 (PsGetAllocatedFullProcessImageNameEx.c)
- *     SepAuditFailed @ 0x1409D1C40 (SepAuditFailed.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     PsReferencePrimaryTokenWithTag @ 0x140232A90 (PsReferencePrimaryTokenWithTag.c)
+ *     PsQueryProcessCommandLine @ 0x140354890 (PsQueryProcessCommandLine.c)
+ *     SepAdtLogAuditRecord @ 0x14039B960 (SepAdtLogAuditRecord.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     PsLookupProcessByProcessId @ 0x1406FA580 (PsLookupProcessByProcessId.c)
+ *     RtlCopySid @ 0x140715180 (RtlCopySid.c)
+ *     SeReleaseSubjectContext @ 0x140737DB0 (SeReleaseSubjectContext.c)
+ *     SeCaptureSubjectContext @ 0x140737E60 (SeCaptureSubjectContext.c)
+ *     PsGetAllocatedFullProcessImageNameEx @ 0x140742964 (PsGetAllocatedFullProcessImageNameEx.c)
+ *     SepAuditFailed @ 0x1409D1E40 (SepAuditFailed.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
@@ -121,7 +121,7 @@ LABEL_13:
             }
           }
         }
-        RtlInitUnicodeString(&DestinationString, &word_140887DD0);
+        RtlInitUnicodeString(&DestinationString, &word_140888010);
         Pool2 = &DestinationString;
 LABEL_15:
         v3 = 0;

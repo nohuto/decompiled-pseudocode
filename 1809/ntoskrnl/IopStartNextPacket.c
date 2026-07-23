@@ -1,13 +1,13 @@
 /*
- * XREFs of IopStartNextPacket @ 0x140284154
+ * XREFs of IopStartNextPacket @ 0x140284344
  * Callers:
- *     IoStartNextPacket @ 0x140283950 (IoStartNextPacket.c)
- *     IopStartNextPacketByKeyEx @ 0x1402842D8 (IopStartNextPacketByKeyEx.c)
+ *     IoStartNextPacket @ 0x140283B40 (IoStartNextPacket.c)
+ *     IopStartNextPacketByKeyEx @ 0x1402844C8 (IopStartNextPacketByKeyEx.c)
  * Callees:
  *     KeReleaseQueuedSpinLock @ 0x140018930 (KeReleaseQueuedSpinLock.c)
- *     KeAcquireQueuedSpinLock @ 0x1400ACF30 (KeAcquireQueuedSpinLock.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     KeRemoveDeviceQueue @ 0x140294FA0 (KeRemoveDeviceQueue.c)
+ *     KeAcquireQueuedSpinLock @ 0x1400ACE70 (KeAcquireQueuedSpinLock.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     KeRemoveDeviceQueue @ 0x140295190 (KeRemoveDeviceQueue.c)
  */
 
 void __fastcall IopStartNextPacket(__int64 a1, int a2)

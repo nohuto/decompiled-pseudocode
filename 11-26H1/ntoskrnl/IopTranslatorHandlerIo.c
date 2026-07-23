@@ -1,9 +1,9 @@
 /*
- * XREFs of IopTranslatorHandlerIo @ 0x1407AD750
+ * XREFs of IopTranslatorHandlerIo @ 0x1407B07B0
  * Callers:
  *     <none>
  * Callees:
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall IopTranslatorHandlerIo(__int64 a1, _OWORD *a2, __int64 a3, _DWORD *a4, _QWORD *a5)

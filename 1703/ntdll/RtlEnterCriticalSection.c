@@ -9,7 +9,7 @@
  *     sub_18000D844 @ 0x18000D844 (sub_18000D844.c)
  *     sub_180011E90 @ 0x180011E90 (sub_180011E90.c)
  *     sub_1800141D4 @ 0x1800141D4 (sub_1800141D4.c)
- *     sub_180018970 @ 0x180018970 (sub_180018970.c)
+ *     Callback @ 0x180018970 (Callback.c)
  *     sub_180019170 @ 0x180019170 (sub_180019170.c)
  *     sub_180019FC0 @ 0x180019FC0 (sub_180019FC0.c)
  *     sub_18001A2D0 @ 0x18001A2D0 (sub_18001A2D0.c)
@@ -105,26 +105,26 @@
  *     sub_18002FA10 @ 0x18002FA10 (sub_18002FA10.c)
  */
 
-__int64 __fastcall RtlEnterCriticalSection(__int64 a1)
+NTSTATUS __cdecl RtlEnterCriticalSection(PRTL_CRITICAL_SECTION CriticalSection)
 {
   struct _TEB *v1; // rax
   signed __int8 v2; // cf
   HANDLE UniqueThread; // rax
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
   v1 = NtCurrentTeb();
-  v2 = _interlockedbittestandreset((volatile signed __int32 *)(a1 + 8), 0);
+  v2 = _interlockedbittestandreset(&CriticalSection->LockCount, 0);
   UniqueThread = v1->ClientId.UniqueThread;
   if ( v2 )
   {
-    *(_QWORD *)(a1 + 16) = UniqueThread;
-    result = 0LL;
-    *(_DWORD *)(a1 + 12) = 1;
+    CriticalSection->OwningThread = UniqueThread;
+    result = 0;
+    CriticalSection->RecursionCount = 1;
   }
-  else if ( *(HANDLE *)(a1 + 16) == UniqueThread )
+  else if ( CriticalSection->OwningThread == UniqueThread )
   {
-    ++*(_DWORD *)(a1 + 12);
-    return 0LL;
+    ++CriticalSection->RecursionCount;
+    return 0;
   }
   else
   {

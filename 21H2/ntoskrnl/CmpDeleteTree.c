@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpDeleteTree @ 0x14087E99C
+ * XREFs of CmpDeleteTree @ 0x14087EAFC
  * Callers:
- *     CmpSyncSubKeysAfterDelete @ 0x14087A268 (CmpSyncSubKeysAfterDelete.c)
- *     CmRestoreKey @ 0x14087BF30 (CmRestoreKey.c)
+ *     CmpSyncSubKeysAfterDelete @ 0x14087A3C8 (CmpSyncSubKeysAfterDelete.c)
+ *     CmRestoreKey @ 0x14087C090 (CmRestoreKey.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     CmpFindSubKeyByNumber @ 0x1405F34E0 (CmpFindSubKeyByNumber.c)
- *     CmpFreeKeyByCell @ 0x14066B280 (CmpFreeKeyByCell.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     CmpFreeKeyByCell @ 0x1406600A0 (CmpFreeKeyByCell.c)
+ *     CmpFindSubKeyByNumber @ 0x1406E2C40 (CmpFindSubKeyByNumber.c)
  */
 
 char __fastcall CmpDeleteTree(ULONG_PTR a1, unsigned int a2)

@@ -6,11 +6,19 @@
  *     <none>
  */
 
-__int64 ZwCreateMailslotFile()
+NTSTATUS __cdecl ZwCreateMailslotFile(
+        PHANDLE FileHandle,
+        ULONG DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        PIO_STATUS_BLOCK IoStatusBlock,
+        ULONG CreateOptions,
+        ULONG MailslotQuota,
+        ULONG MaximumMessageSize,
+        PLARGE_INTEGER ReadTimeout)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 183LL;
+  result = 183;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

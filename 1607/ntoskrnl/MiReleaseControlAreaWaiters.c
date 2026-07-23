@@ -1,23 +1,23 @@
 /*
- * XREFs of MiReleaseControlAreaWaiters @ 0x140026CE8
+ * XREFs of MiReleaseControlAreaWaiters @ 0x140026868
  * Callers:
- *     MiReferenceControlAreaForCacheManager @ 0x140021518 (MiReferenceControlAreaForCacheManager.c)
- *     MiComputeDataFlushRange @ 0x140021958 (MiComputeDataFlushRange.c)
- *     MiReferenceControlArea @ 0x140026064 (MiReferenceControlArea.c)
- *     MiTrimSharedPage @ 0x14008E6E4 (MiTrimSharedPage.c)
- *     MiWriteComplete @ 0x14008E9E0 (MiWriteComplete.c)
- *     MiUnlockFlushMdl @ 0x14008EFFC (MiUnlockFlushMdl.c)
- *     MiReferencePfBackedSection @ 0x14008FB80 (MiReferencePfBackedSection.c)
- *     MiReleasePageFileSectionInfo @ 0x140115B2C (MiReleasePageFileSectionInfo.c)
- *     MiDeleteCachedSegment @ 0x1401DE4D8 (MiDeleteCachedSegment.c)
- *     MiDeleteCachedSubsection @ 0x1401DE5D0 (MiDeleteCachedSubsection.c)
- *     MiProcessDeleteOnClose @ 0x1401DEEB8 (MiProcessDeleteOnClose.c)
- *     MiFlushComplete @ 0x1401EAD40 (MiFlushComplete.c)
- *     MiCreateSection @ 0x14042CD40 (MiCreateSection.c)
- *     MiSegmentDelete @ 0x1404B81E4 (MiSegmentDelete.c)
- *     MiCreateNewSection @ 0x140522048 (MiCreateNewSection.c)
+ *     MiReferenceControlAreaForCacheManager @ 0x140021098 (MiReferenceControlAreaForCacheManager.c)
+ *     MiComputeDataFlushRange @ 0x1400214D8 (MiComputeDataFlushRange.c)
+ *     MiReferenceControlArea @ 0x140025BE4 (MiReferenceControlArea.c)
+ *     MiTrimSharedPage @ 0x14008DE44 (MiTrimSharedPage.c)
+ *     MiWriteComplete @ 0x14008E140 (MiWriteComplete.c)
+ *     MiUnlockFlushMdl @ 0x14008E75C (MiUnlockFlushMdl.c)
+ *     MiReferencePfBackedSection @ 0x14008F2E0 (MiReferencePfBackedSection.c)
+ *     MiReleasePageFileSectionInfo @ 0x14011609C (MiReleasePageFileSectionInfo.c)
+ *     MiDeleteCachedSegment @ 0x1401DE304 (MiDeleteCachedSegment.c)
+ *     MiDeleteCachedSubsection @ 0x1401DE3FC (MiDeleteCachedSubsection.c)
+ *     MiProcessDeleteOnClose @ 0x1401DECE4 (MiProcessDeleteOnClose.c)
+ *     MiFlushComplete @ 0x1401EAB6C (MiFlushComplete.c)
+ *     MiCreateSection @ 0x14042BC10 (MiCreateSection.c)
+ *     MiSegmentDelete @ 0x1404A25C4 (MiSegmentDelete.c)
+ *     MiCreateNewSection @ 0x1405050A8 (MiCreateNewSection.c)
  * Callees:
- *     KeSignalGate @ 0x1400A889C (KeSignalGate.c)
+ *     KeSignalGate @ 0x1400A6E1C (KeSignalGate.c)
  */
 
 __int64 __fastcall MiReleaseControlAreaWaiters(_QWORD *a1)

@@ -1,7 +1,7 @@
 /*
- * XREFs of MiSessionAddProcess @ 0x1404F15E8
+ * XREFs of MiSessionAddProcess @ 0x1404D36DC
  * Callers:
- *     MiMarkSessionMasterProcess @ 0x14012A370 (MiMarkSessionMasterProcess.c)
+ *     MiMarkSessionMasterProcess @ 0x14012A8E0 (MiMarkSessionMasterProcess.c)
  * Callees:
  *     <none>
  */

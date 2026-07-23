@@ -1,15 +1,26 @@
 /*
- * XREFs of ZwAlpcConnectPortEx @ 0x140724370
+ * XREFs of ZwAlpcConnectPortEx @ 0x140728F40
  * Callers:
- *     DifZwAlpcConnectPortExWrapper @ 0x14069A410 (DifZwAlpcConnectPortExWrapper.c)
- *     CmFcpConnectToAlpcServer @ 0x140B041B8 (CmFcpConnectToAlpcServer.c)
+ *     DifZwAlpcConnectPortExWrapper @ 0x14069DFF0 (DifZwAlpcConnectPortExWrapper.c)
+ *     CmFcpConnectToAlpcServer @ 0x140B05DC8 (CmFcpConnectToAlpcServer.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwAlpcConnectPortEx(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwAlpcConnectPortEx(
+        PHANDLE PortHandle,
+        POBJECT_ATTRIBUTES ConnectionPortObjectAttributes,
+        POBJECT_ATTRIBUTES ClientPortObjectAttributes,
+        PALPC_PORT_ATTRIBUTES PortAttributes,
+        ULONG Flags,
+        PSECURITY_DESCRIPTOR ServerSecurityRequirements,
+        PPORT_MESSAGE ConnectionMessage,
+        PSIZE_T BufferLength,
+        PALPC_MESSAGE_ATTRIBUTES OutMessageAttributes,
+        PALPC_MESSAGE_ATTRIBUTES InMessageAttributes,
+        PLARGE_INTEGER Timeout)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(PortHandle);
 }

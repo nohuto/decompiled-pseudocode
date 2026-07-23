@@ -1,15 +1,15 @@
 /*
- * XREFs of PopDeepSleepSetDisengageReason @ 0x14000A20C
+ * XREFs of PopDeepSleepSetDisengageReason @ 0x140009D8C
  * Callers:
- *     PopIncrementPowerSettingPendingUpdates @ 0x14000A0C0 (PopIncrementPowerSettingPendingUpdates.c)
- *     PopSetPowerActionState @ 0x140114580 (PopSetPowerActionState.c)
- *     PopQueueQuerySetIrp @ 0x14012B068 (PopQueueQuerySetIrp.c)
- *     PopIdleAoAcDozeS4TimerCallback @ 0x14020D480 (PopIdleAoAcDozeS4TimerCallback.c)
- *     PopCheckResiliencyScenarios @ 0x1403F5C64 (PopCheckResiliencyScenarios.c)
- *     PopEnforceResiliencyScenarios @ 0x140534484 (PopEnforceResiliencyScenarios.c)
+ *     PopIncrementPowerSettingPendingUpdates @ 0x140009C40 (PopIncrementPowerSettingPendingUpdates.c)
+ *     PopSetPowerActionState @ 0x140114AF0 (PopSetPowerActionState.c)
+ *     PopQueueQuerySetIrp @ 0x14012B5D8 (PopQueueQuerySetIrp.c)
+ *     PopIdleAoAcDozeS4TimerCallback @ 0x14020D2AC (PopIdleAoAcDozeS4TimerCallback.c)
+ *     PopCheckResiliencyScenarios @ 0x1403F4B28 (PopCheckResiliencyScenarios.c)
+ *     PopEnforceResiliencyScenarios @ 0x1405349C4 (PopEnforceResiliencyScenarios.c)
  * Callees:
- *     ExQueueWorkItem @ 0x14005FE5C (ExQueueWorkItem.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1400EFE30 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ExQueueWorkItem @ 0x14005F9DC (ExQueueWorkItem.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1400EDCB0 (KeAcquireSpinLockRaiseToDpc.c)
  */
 
 void __fastcall PopDeepSleepSetDisengageReason(char a1)

@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpFcSectionTypeToBufferType @ 0x14078D410
+ * XREFs of RtlpFcSectionTypeToBufferType @ 0x14078D340
  * Callers:
- *     CmFcManagerStartRuntimePhase @ 0x140C4D180 (CmFcManagerStartRuntimePhase.c)
+ *     CmFcManagerStartRuntimePhase @ 0x140C4F31C (CmFcManagerStartRuntimePhase.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 __int64 __fastcall RtlpFcSectionTypeToBufferType(int a1)

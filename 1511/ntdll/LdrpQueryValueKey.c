@@ -18,16 +18,16 @@
  *     memmove @ 0x1800AB5C0 (memmove.c)
  */
 
-__int64 __fastcall LdrpQueryValueKey(__int64 a1, __int64 a2, _DWORD *a3, void *a4, unsigned int *a5)
+__int64 __fastcall LdrpQueryValueKey(HANDLE KeyHandle, PUNICODE_STRING ValueName, _DWORD *a3, void *a4, ULONG *a5)
 {
-  unsigned int *v5; // rbx
-  unsigned int v10; // ebp
-  unsigned int v11; // ebp
+  ULONG *v5; // rbx
+  ULONG v10; // ebp
+  ULONG Length; // ebp
   _DWORD *Heap; // rsi
-  int v13; // eax
+  NTSTATUS v13; // eax
   int v14; // edi
-  unsigned int v15; // eax
-  int v17; // [rsp+78h] [rbp+20h] BYREF
+  ULONG v15; // eax
+  ULONG ResultLength; // [rsp+78h] [rbp+20h] BYREF
 
   v5 = a5;
   if ( !a4 )
@@ -36,15 +36,15 @@ __int64 __fastcall LdrpQueryValueKey(__int64 a1, __int64 a2, _DWORD *a3, void *a
     {
       v10 = 0;
 LABEL_4:
-      v17 = 0;
-      v11 = v10 + 12;
-      if ( v11 )
-        Heap = (_DWORD *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8LL, v11);
+      ResultLength = 0;
+      Length = v10 + 12;
+      if ( Length )
+        Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, Length);
       else
         Heap = 0LL;
       if ( !Heap )
         return (unsigned int)-1073741670;
-      v13 = NtQueryValueKey(a1, a2, 2LL, Heap, v11, &v17);
+      v13 = NtQueryValueKey(KeyHandle, ValueName, KeyValuePartialInformation, Heap, Length, &ResultLength);
       v14 = v13;
       if ( v13 != -1073741772 )
       {
@@ -54,7 +54,7 @@ LABEL_15:
           if ( v14 != -2147483643 )
           {
 LABEL_20:
-            RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, Heap);
+            RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Heap);
             return (unsigned int)v14;
           }
 LABEL_16:
@@ -72,7 +72,7 @@ LABEL_16:
             v14 = -2147483643;
             goto LABEL_16;
           }
-          if ( v15 <= v11 )
+          if ( v15 <= Length )
             memmove(a4, Heap + 3, v15);
         }
       }

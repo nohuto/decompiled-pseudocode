@@ -1,13 +1,13 @@
 /*
- * XREFs of PopSetDisplayStatus @ 0x140885168
+ * XREFs of PopSetDisplayStatus @ 0x1408853A8
  * Callers:
- *     NtPowerInformation @ 0x140783F20 (NtPowerInformation.c)
- *     PopPowerInformationInternal @ 0x1407ED06C (PopPowerInformationInternal.c)
+ *     NtPowerInformation @ 0x140784110 (NtPowerInformation.c)
+ *     PopPowerInformationInternal @ 0x1407ED33C (PopPowerInformationInternal.c)
  * Callees:
- *     PsGetProcessSessionIdEx @ 0x14036FA00 (PsGetProcessSessionIdEx.c)
- *     PopSetSessionDisplayStatus @ 0x1407A5B30 (PopSetSessionDisplayStatus.c)
- *     PopAcquireAdaptiveLock @ 0x1407EBE9C (PopAcquireAdaptiveLock.c)
- *     PopReleaseAdaptiveLock @ 0x1407EBF48 (PopReleaseAdaptiveLock.c)
+ *     PsGetProcessSessionIdEx @ 0x14036FBA0 (PsGetProcessSessionIdEx.c)
+ *     PopSetSessionDisplayStatus @ 0x1407A5D20 (PopSetSessionDisplayStatus.c)
+ *     PopAcquireAdaptiveLock @ 0x1407EC16C (PopAcquireAdaptiveLock.c)
+ *     PopReleaseAdaptiveLock @ 0x1407EC218 (PopReleaseAdaptiveLock.c)
  */
 
 void __fastcall PopSetDisplayStatus(int a1)

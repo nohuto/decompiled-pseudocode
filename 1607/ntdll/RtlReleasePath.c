@@ -1,30 +1,28 @@
 /*
- * XREFs of RtlReleasePath @ 0x1800091A0
+ * XREFs of RtlReleasePath @ 0x180009190
  * Callers:
- *     LdrpReleaseDllPath @ 0x18001216C (LdrpReleaseDllPath.c)
- *     LdrGetProcedureAddressForCaller @ 0x180031D60 (LdrGetProcedureAddressForCaller.c)
- *     LdrpHandleProtectedDelayload @ 0x180033840 (LdrpHandleProtectedDelayload.c)
+ *     LdrpReleaseDllPath @ 0x18001215C (LdrpReleaseDllPath.c)
+ *     LdrGetProcedureAddressForCaller @ 0x180031D50 (LdrGetProcedureAddressForCaller.c)
+ *     LdrpHandleProtectedDelayload @ 0x180033830 (LdrpHandleProtectedDelayload.c)
  * Callees:
- *     RtlReleaseSRWLockExclusive @ 0x18001C550 (RtlReleaseSRWLockExclusive.c)
- *     RtlAcquireSRWLockExclusive @ 0x180020BF0 (RtlAcquireSRWLockExclusive.c)
- *     RtlFreeHeap @ 0x1800466F0 (RtlFreeHeap.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18001C540 (RtlReleaseSRWLockExclusive.c)
+ *     RtlAcquireSRWLockExclusive @ 0x180020BE0 (RtlAcquireSRWLockExclusive.c)
+ *     RtlFreeHeap @ 0x1800466E0 (RtlFreeHeap.c)
  */
 
-__int64 __fastcall RtlReleasePath(__int64 a1)
+void __cdecl RtlReleasePath(PWSTR Path)
 {
-  __int64 v1; // rbx
+  PWSTR v1; // rbx
   bool v2; // zf
-  __int64 v3; // rdi
-  __int64 result; // rax
+  PWSTR v3; // rdi
 
-  v1 = a1 - 112;
+  v1 = Path - 56;
   RtlAcquireSRWLockExclusive(&RtlpCachedPathLock);
-  v2 = (*(_QWORD *)(v1 + 80))-- == 1LL;
+  v2 = (*((_QWORD *)v1 + 10))-- == 1LL;
   v3 = 0LL;
   if ( v2 )
     v3 = v1;
-  result = RtlReleaseSRWLockExclusive(&RtlpCachedPathLock);
+  RtlReleaseSRWLockExclusive(&RtlpCachedPathLock);
   if ( v3 )
-    return RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, v3);
-  return result;
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v3);
 }

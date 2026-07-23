@@ -1,8 +1,8 @@
 /*
- * XREFs of SeTokenGetRedirectionTrustPolicy @ 0x1401B704C
+ * XREFs of SeTokenGetRedirectionTrustPolicy @ 0x1401B71B4
  * Callers:
- *     IoCheckRedirectionTrustLevel @ 0x1401B40D0 (IoCheckRedirectionTrustLevel.c)
- *     PspGetRedirectionTrustPolicy @ 0x1405827D4 (PspGetRedirectionTrustPolicy.c)
+ *     IoCheckRedirectionTrustLevel @ 0x1401B4210 (IoCheckRedirectionTrustLevel.c)
+ *     PspGetRedirectionTrustPolicy @ 0x1405837D4 (PspGetRedirectionTrustPolicy.c)
  * Callees:
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)

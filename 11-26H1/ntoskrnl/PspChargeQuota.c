@@ -1,18 +1,18 @@
 /*
- * XREFs of PspChargeQuota @ 0x1403BD5A0
+ * XREFs of PspChargeQuota @ 0x1403C7410
  * Callers:
- *     PsChargeProcessQuota @ 0x1403BD2C4 (PsChargeProcessQuota.c)
- *     ObSetSecurityDescriptorInfo @ 0x1409214E0 (ObSetSecurityDescriptorInfo.c)
- *     SeDefaultObjectMethod @ 0x140921C40 (SeDefaultObjectMethod.c)
- *     ObInsertObjectEx @ 0x14092B470 (ObInsertObjectEx.c)
- *     ObpIncrementHandleCountEx @ 0x14092E8D0 (ObpIncrementHandleCountEx.c)
- *     PsChargeProcessPagedPoolQuota @ 0x140972810 (PsChargeProcessPagedPoolQuota.c)
- *     MiInsertVadCharges @ 0x1409C5DC0 (MiInsertVadCharges.c)
- *     MiChargeFullProcessCommitment @ 0x1409C7944 (MiChargeFullProcessCommitment.c)
- *     PsChargeSharedPoolQuota @ 0x1409E0F20 (PsChargeSharedPoolQuota.c)
- *     RtlpAllocateAtom @ 0x140AA3130 (RtlpAllocateAtom.c)
+ *     PsChargeProcessQuota @ 0x1403C7134 (PsChargeProcessQuota.c)
+ *     ObSetSecurityDescriptorInfo @ 0x1408FCFF0 (ObSetSecurityDescriptorInfo.c)
+ *     SeDefaultObjectMethod @ 0x1408FD750 (SeDefaultObjectMethod.c)
+ *     ObInsertObjectEx @ 0x140906FA0 (ObInsertObjectEx.c)
+ *     ObpIncrementHandleCountEx @ 0x14090A400 (ObpIncrementHandleCountEx.c)
+ *     MiInsertVadCharges @ 0x140996DA0 (MiInsertVadCharges.c)
+ *     MiChargeFullProcessCommitment @ 0x140998924 (MiChargeFullProcessCommitment.c)
+ *     PsChargeSharedPoolQuota @ 0x1409B9190 (PsChargeSharedPoolQuota.c)
+ *     PsChargeProcessPagedPoolQuota @ 0x1409BDB00 (PsChargeProcessPagedPoolQuota.c)
+ *     RtlpAllocateAtom @ 0x140AA4C00 (RtlpAllocateAtom.c)
  * Callees:
- *     PspExpandQuota @ 0x1403BD8E8 (PspExpandQuota.c)
+ *     PspExpandQuota @ 0x1403C7758 (PspExpandQuota.c)
  */
 
 __int64 __fastcall PspChargeQuota(__int64 a1, __int64 a2, int a3, unsigned __int64 a4)
@@ -38,7 +38,7 @@ __int64 __fastcall PspChargeQuota(__int64 a1, __int64 a2, int a3, unsigned __int
   v4 = a3;
   v7 = (unsigned __int64 *)(a1 + ((__int64)a3 << 7));
   v8 = 8LL * a3;
-  v9 = stru_140FC01F0.SchedulerApcFill3[v8 + 48];
+  v9 = stru_140FC11F0.SchedulerApcFill3[v8 + 40];
   _m_prefetchw(v7);
   v10 = *v7;
   _InterlockedOr(v22, 0);
@@ -50,11 +50,11 @@ LABEL_3:
     {
       v12 = v10 + a4;
       if ( v10 + a4 < v10 )
-        return *(unsigned int *)&stru_140FC01F0.SchedulerApcFill5[v8 + 52];
+        return *(unsigned int *)&stru_140FC11F0.SchedulerApcFill5[v8 + 44];
       if ( v12 <= v11 )
         break;
       if ( (v9 & 1) == 0 || !v7[10] )
-        return *(unsigned int *)&stru_140FC01F0.SchedulerApcFill5[v8 + 52];
+        return *(unsigned int *)&stru_140FC11F0.SchedulerApcFill5[v8 + 44];
       v21 = _InterlockedExchange64((volatile __int64 *)v7 + 9, 0LL);
       if ( v21 )
       {
@@ -62,7 +62,7 @@ LABEL_3:
         goto LABEL_3;
       }
       if ( !(unsigned __int8)PspExpandQuota(v4, (_DWORD)v7, v10, a4, (__int64)&i) )
-        return *(unsigned int *)&stru_140FC01F0.SchedulerApcFill5[v8 + 52];
+        return *(unsigned int *)&stru_140FC11F0.SchedulerApcFill5[v8 + 44];
     }
     v14 = _InterlockedCompareExchange64((volatile signed __int64 *)v7, v12, v10);
     v13 = v10 == v14;

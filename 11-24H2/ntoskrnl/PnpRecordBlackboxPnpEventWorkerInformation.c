@@ -1,11 +1,11 @@
 /*
- * XREFs of PnpRecordBlackboxPnpEventWorkerInformation @ 0x1409F0188
+ * XREFs of PnpRecordBlackboxPnpEventWorkerInformation @ 0x1409EDA58
  * Callers:
- *     PnpRecordBlackbox @ 0x1409F00D8 (PnpRecordBlackbox.c)
+ *     PnpRecordBlackbox @ 0x1409ED9A8 (PnpRecordBlackbox.c)
  * Callees:
- *     NtPowerInformation @ 0x1409F0230 (NtPowerInformation.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     NtPowerInformation @ 0x1409EDB00 (NtPowerInformation.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PnpRecordBlackboxPnpEventWorkerInformation(__int64 a1)
@@ -25,7 +25,7 @@ void __fastcall PnpRecordBlackboxPnpEventWorkerInformation(__int64 a1)
   if ( a1 )
   {
     v2 = 72LL;
-    Pool2 = ExAllocatePool2(0x40uLL);
+    Pool2 = ExAllocatePool2(0x40uLL, 0x48uLL, 0x4B706E50u);
     v1 = Pool2;
     if ( Pool2 )
     {

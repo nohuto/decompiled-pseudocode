@@ -1,11 +1,11 @@
 /*
- * XREFs of PnpGetProcessCommandLine @ 0x140B3F148
+ * XREFs of PnpGetProcessCommandLine @ 0x140B41178
  * Callers:
- *     PnpLogVetoInformation @ 0x140B45874 (PnpLogVetoInformation.c)
+ *     PnpLogVetoInformation @ 0x140B478A4 (PnpLogVetoInformation.c)
  * Callees:
- *     PsQueryProcessCommandLine @ 0x1404B54B0 (PsQueryProcessCommandLine.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     PsQueryProcessCommandLine @ 0x1404AE810 (PsQueryProcessCommandLine.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 unsigned __int16 *__fastcall PnpGetProcessCommandLine(PRKPROCESS PROCESS)

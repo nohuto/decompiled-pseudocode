@@ -12,58 +12,64 @@
  *     RtlValidAcl @ 0x14092A320 (RtlValidAcl.c)
  */
 
-__int64 __fastcall RtlAddMandatoryAce(__int64 a1, unsigned int a2, int a3, unsigned __int8 *a4, char a5, int a6)
+NTSTATUS __cdecl RtlAddMandatoryAce(
+        PACL Acl,
+        ULONG AceRevision,
+        ULONG AceFlags,
+        PSID Sid,
+        UCHAR AceType,
+        ACCESS_MASK AccessMask)
 {
-  char v7; // r14
+  UCHAR v7; // r14
   int v9; // ecx
-  char v10; // si
-  unsigned __int64 v11; // rcx
+  UCHAR AclRevision; // si
+  PACL v11; // rcx
   unsigned int i; // edx
-  unsigned __int64 v13; // r8
-  unsigned __int16 v14; // dx
-  __int64 result; // rax
+  ACL *v13; // r8
+  USHORT v14; // dx
+  NTSTATUS result; // eax
 
-  v7 = a3;
-  if ( !a1 )
-    return 3221225591LL;
-  if ( a5 != 17 )
-    return 3221225485LL;
-  if ( (unsigned __int64)a4 <= 0x7FFFFFFF0000LL || (*a4 & 0xF) != 1 || a4[1] > 0xFu )
-    return 3221225592LL;
-  v9 = *(_DWORD *)(a4 + 2);
+  v7 = AceFlags;
+  if ( !Acl )
+    return -1073741705;
+  if ( AceType != 17 )
+    return -1073741811;
+  if ( (unsigned __int64)Sid <= 0x7FFFFFFF0000LL || (*(_BYTE *)Sid & 0xF) != 1 || *((_BYTE *)Sid + 1) > 0xFu )
+    return -1073741704;
+  v9 = *(_DWORD *)((char *)Sid + 2);
   if ( !v9 )
-    v9 = *((unsigned __int16 *)a4 + 3) - 4096;
+    v9 = *((unsigned __int16 *)Sid + 3) - 4096;
   if ( v9 )
-    return 3221225485LL;
-  if ( *(_BYTE *)a1 > 4u || a2 > 4 )
-    return 3221225561LL;
-  v10 = *(_BYTE *)a1;
-  if ( *(_BYTE *)a1 <= (unsigned __int8)a2 )
-    v10 = a2;
-  if ( (a3 & 0xFFFFFFE0) != 0 || (a6 & 0xFFFFFFF8) != 0 )
-    return 3221225485LL;
-  if ( !RtlValidAcl(a1) )
-    return 3221225591LL;
-  v11 = a1 + 8;
-  for ( i = 0; i < *(unsigned __int16 *)(a1 + 4); ++i )
+    return -1073741811;
+  if ( Acl->AclRevision > 4u || AceRevision > 4 )
+    return -1073741735;
+  AclRevision = Acl->AclRevision;
+  if ( Acl->AclRevision <= (unsigned __int8)AceRevision )
+    AclRevision = AceRevision;
+  if ( (AceFlags & 0xFFFFFFE0) != 0 || (AccessMask & 0xFFFFFFF8) != 0 )
+    return -1073741811;
+  if ( !RtlValidAcl(Acl) )
+    return -1073741705;
+  v11 = Acl + 1;
+  for ( i = 0; i < Acl->AceCount; ++i )
   {
-    if ( v11 >= a1 + (unsigned __int64)*(unsigned __int16 *)(a1 + 2) )
-      return 3221225591LL;
-    v11 += *(unsigned __int16 *)(v11 + 2);
+    if ( v11 >= (PACL)((char *)Acl + Acl->AclSize) )
+      return -1073741705;
+    v11 = (PACL)((char *)v11 + v11->AclSize);
   }
-  v13 = a1 + *(unsigned __int16 *)(a1 + 2);
+  v13 = (PACL)((char *)Acl + Acl->AclSize);
   if ( v11 > v13 )
     v11 = 0LL;
-  v14 = 4 * (a4[1] + 4);
-  if ( !v11 || v11 + v14 > v13 )
-    return 3221225625LL;
-  *(_WORD *)(v11 + 2) = v14;
-  *(_BYTE *)(v11 + 1) = v7;
-  *(_BYTE *)v11 = 17;
-  *(_DWORD *)(v11 + 4) = a6;
-  memmove((void *)(v11 + 8), a4, 4LL * a4[1] + 8);
-  ++*(_WORD *)(a1 + 4);
-  result = 0LL;
-  *(_BYTE *)a1 = v10;
+  v14 = 4 * (*((unsigned __int8 *)Sid + 1) + 4);
+  if ( !v11 || (PACL)((char *)v11 + v14) > v13 )
+    return -1073741671;
+  v11->AclSize = v14;
+  v11->Sbz1 = v7;
+  v11->AclRevision = 17;
+  *(_DWORD *)&v11->AceCount = AccessMask;
+  memmove(&v11[1], Sid, 4LL * *((unsigned __int8 *)Sid + 1) + 8);
+  ++Acl->AceCount;
+  result = 0;
+  Acl->AclRevision = AclRevision;
   return result;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpMcUpdatePostUpdate @ 0x1403A7C10
+ * XREFs of HalpMcUpdatePostUpdate @ 0x1403A7D60
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 __int64 HalpMcUpdatePostUpdate()

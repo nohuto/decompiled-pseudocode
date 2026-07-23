@@ -1,17 +1,17 @@
 /*
- * XREFs of MiGetNextSession @ 0x1402D5FA8
+ * XREFs of MiGetNextSession @ 0x1402872F8
  * Callers:
- *     ExpHpCompactSessionPools @ 0x1402D5848 (ExpHpCompactSessionPools.c)
- *     MmGetNextSession @ 0x1402D5F90 (MmGetNextSession.c)
- *     MiEmptyAccessLogs @ 0x1403A3430 (MiEmptyAccessLogs.c)
- *     PsQueryCpuQuotaInformation @ 0x1403CFFB4 (PsQueryCpuQuotaInformation.c)
+ *     ExpHpCompactSessionPools @ 0x140286B94 (ExpHpCompactSessionPools.c)
+ *     MmGetNextSession @ 0x1402872E0 (MmGetNextSession.c)
+ *     MiEmptyAccessLogs @ 0x1403A3580 (MiEmptyAccessLogs.c)
+ *     PsQueryCpuQuotaInformation @ 0x1403D0124 (PsQueryCpuQuotaInformation.c)
  * Callees:
- *     PsGetThreadServerSilo @ 0x140206540 (PsGetThreadServerSilo.c)
- *     MiSelectSessionAttachProcess @ 0x14020657C (MiSelectSessionAttachProcess.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     KeIsExecutingInArbitraryThreadContext @ 0x1403F2D24 (KeIsExecutingInArbitraryThreadContext.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     PsGetThreadServerSilo @ 0x1402AAE70 (PsGetThreadServerSilo.c)
+ *     MiSelectSessionAttachProcess @ 0x1402AAEAC (MiSelectSessionAttachProcess.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402D3660 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeIsExecutingInArbitraryThreadContext @ 0x1403F2D74 (KeIsExecutingInArbitraryThreadContext.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
@@ -39,7 +39,7 @@ struct _DMA_ADAPTER *__fastcall MiGetNextSession(PADAPTER_OBJECT DmaAdapter, __i
   if ( (unsigned int)KeIsExecutingInArbitraryThreadContext(DmaAdapter, a2) )
     ThreadServerSilo = 0LL;
   else
-    ThreadServerSilo = PsGetThreadServerSilo((__int64)KeGetCurrentThread());
+    ThreadServerSilo = PsGetThreadServerSilo(KeGetCurrentThread());
   v4 = 0LL;
   if ( DmaAdapter )
     DmaOperations = DmaAdapter[85].DmaOperations;
@@ -50,9 +50,9 @@ struct _DMA_ADAPTER *__fastcall MiGetNextSession(PADAPTER_OBJECT DmaAdapter, __i
   {
     GetDmaAdapterInfo = (__int64 *)DmaOperations->GetDmaAdapterInfo;
 LABEL_24:
-    while ( GetDmaAdapterInfo != &qword_140C4EF00 )
+    while ( GetDmaAdapterInfo != &qword_140C4EF40 )
     {
-      v14 = (struct _DMA_ADAPTER *)MiSelectSessionAttachProcess((__int64)(GetDmaAdapterInfo - 16));
+      v14 = (struct _DMA_ADAPTER *)MiSelectSessionAttachProcess(GetDmaAdapterInfo - 16);
       v4 = v14;
       if ( v14 )
       {
@@ -89,8 +89,8 @@ LABEL_24:
   }
   else
   {
-    GetDmaAdapterInfo = (__int64 *)qword_140C4EF00;
-    if ( qword_140C4EF00 )
+    GetDmaAdapterInfo = (__int64 *)qword_140C4EF40;
+    if ( qword_140C4EF40 )
       goto LABEL_24;
     KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
     v7 = LockHandle.OldIrql;

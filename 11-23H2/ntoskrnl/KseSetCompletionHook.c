@@ -1,9 +1,9 @@
 /*
- * XREFs of KseSetCompletionHook @ 0x1403A5D70
+ * XREFs of KseSetCompletionHook @ 0x1403A5F50
  * Callers:
  *     <none>
  * Callees:
- *     KsepPoolAllocateNonPaged @ 0x1403A5E04 (KsepPoolAllocateNonPaged.c)
+ *     KsepPoolAllocateNonPaged @ 0x1403A5FE4 (KsepPoolAllocateNonPaged.c)
  */
 
 __int64 __fastcall KseSetCompletionHook(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

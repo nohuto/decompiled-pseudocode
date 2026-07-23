@@ -1,10 +1,10 @@
 /*
- * XREFs of KxSwitchKernelStackCallout @ 0x140423750
+ * XREFs of KxSwitchKernelStackCallout @ 0x140423AE0
  * Callers:
- *     KiSwitchKernelStackAndCallout @ 0x1404236C0 (KiSwitchKernelStackAndCallout.c)
+ *     KiSwitchKernelStackAndCallout @ 0x140423A50 (KiSwitchKernelStackAndCallout.c)
  * Callees:
- *     MmGrowKernelStackEx @ 0x140361350 (MmGrowKernelStackEx.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     MmGrowKernelStackEx @ 0x1403614F0 (MmGrowKernelStackEx.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 void __fastcall KxSwitchKernelStackCallout(
@@ -35,5 +35,5 @@ void __fastcall KxSwitchKernelStackCallout(
   else
     *(_QWORD *)((char *)KeGetPcr()->NtTib.StackBase + 4) = v9;
   __writegsqword(0x1A8u, v9);
-  JUMPOUT(0x14042373CLL);
+  JUMPOUT(0x140423ACCLL);
 }

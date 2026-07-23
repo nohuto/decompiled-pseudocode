@@ -14,10 +14,12 @@
  *     AlpcpEnumerateResourcesPort @ 0x14070A9A4 (AlpcpEnumerateResourcesPort.c)
  */
 
-__int64 __fastcall NtAlpcDeleteSectionView(void *a1, __int64 a2, __int64 a3, __int64 a4)
+// local variable allocation has failed, the output may be wrong!
+NTSTATUS __cdecl NtAlpcDeleteSectionView(HANDLE PortHandle, ULONG Flags, PVOID ViewBase)
 {
+  __int64 v3; // r9
   struct _KTHREAD *CurrentThread; // rax
-  NTSTATUS v6; // ebx
+  signed int v6; // ebx
   PADAPTER_OBJECT v7; // rdi
   signed __int64 *v8; // rbx
   __int64 v9; // rdx
@@ -30,7 +32,7 @@ __int64 __fastcall NtAlpcDeleteSectionView(void *a1, __int64 a2, __int64 a3, __i
   *(_OWORD *)BugCheckParameter2 = 0LL;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  if ( (_DWORD)a2 )
+  if ( Flags )
   {
     v6 = -1073741811;
   }
@@ -38,7 +40,7 @@ __int64 __fastcall NtAlpcDeleteSectionView(void *a1, __int64 a2, __int64 a3, __i
   {
     DmaAdapter = 0LL;
     v6 = ObReferenceObjectByHandle(
-           a1,
+           PortHandle,
            1u,
            AlpcPortObjectType,
            KeGetCurrentThread()->PreviousMode,
@@ -46,7 +48,7 @@ __int64 __fastcall NtAlpcDeleteSectionView(void *a1, __int64 a2, __int64 a3, __i
            0LL);
     if ( v6 >= 0 )
     {
-      BugCheckParameter2[0] = a3;
+      BugCheckParameter2[0] = (ULONG_PTR)ViewBase;
       v7 = DmaAdapter;
       BugCheckParameter2[1] = 0LL;
       v8 = (signed __int64 *)&DmaAdapter[22];
@@ -74,6 +76,6 @@ __int64 __fastcall NtAlpcDeleteSectionView(void *a1, __int64 a2, __int64 a3, __i
       HalPutDmaAdapter(DmaAdapter);
     }
   }
-  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), a2, a3, a4);
-  return (unsigned int)v6;
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), *(__int64 *)&Flags, (__int64)ViewBase, v3);
+  return v6;
 }

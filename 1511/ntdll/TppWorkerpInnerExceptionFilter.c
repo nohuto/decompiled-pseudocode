@@ -7,25 +7,25 @@
  *     TppTerminateProcess @ 0x1800F56FC (TppTerminateProcess.c)
  */
 
-__int64 __fastcall TppWorkerpInnerExceptionFilter(int **a1, __int64 a2, _DWORD *a3)
+LONG __fastcall TppWorkerpInnerExceptionFilter(_EXCEPTION_POINTERS *a1, __int64 a2, _DWORD *a3)
 {
-  __int64 result; // rax
-  int *v6; // rcx
+  LONG result; // eax
+  int *p_ExceptionCode; // rcx
 
-  result = TppExceptionFilter((__int64)a1);
-  if ( !(_DWORD)result )
+  result = TppExceptionFilter(a1);
+  if ( !result )
     *a3 = 1;
-  if ( (_DWORD)result == 1 )
+  if ( result == 1 )
   {
-    v6 = *a1;
-    if ( **a1 != -1073741571 )
+    p_ExceptionCode = &a1->ExceptionRecord->ExceptionCode;
+    if ( a1->ExceptionRecord->ExceptionCode != -1073741571 )
     {
-      if ( *v6 <= -1073740022 || *v6 > -1073740018 && *v6 != -1073740016 )
+      if ( *p_ExceptionCode <= -1073740022 || *p_ExceptionCode > -1073740018 && *p_ExceptionCode != -1073740016 )
       {
-        TppTerminateProcess();
+        TppTerminateProcess((NTSTATUS **)a1);
         JUMPOUT(0x1800F5931LL);
       }
-      return 0xFFFFFFFFLL;
+      return -1;
     }
   }
   return result;

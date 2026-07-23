@@ -1,9 +1,9 @@
 /*
- * XREFs of SymCryptFdefRawGetValue @ 0x140570DB4
+ * XREFs of SymCryptFdefRawGetValue @ 0x14056FF94
  * Callers:
- *     SymCryptFdefDecideModulusType @ 0x14056EF38 (SymCryptFdefDecideModulusType.c)
- *     SymCryptFdefModElementGetValue @ 0x14056F4CC (SymCryptFdefModElementGetValue.c)
- *     SymCryptFdefIntGetValue @ 0x140570BA0 (SymCryptFdefIntGetValue.c)
+ *     SymCryptFdefDecideModulusType @ 0x14056E118 (SymCryptFdefDecideModulusType.c)
+ *     SymCryptFdefModElementGetValue @ 0x14056E6AC (SymCryptFdefModElementGetValue.c)
+ *     SymCryptFdefIntGetValue @ 0x14056FD80 (SymCryptFdefIntGetValue.c)
  * Callees:
  *     <none>
  */

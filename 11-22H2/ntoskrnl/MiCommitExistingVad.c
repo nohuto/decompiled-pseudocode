@@ -443,7 +443,7 @@ LABEL_29:
           v46 = (volatile __int32 *)&v103[1].IdealNode[2];
         CurrentIrql = KeGetCurrentIrql();
         __writecr8(2uLL);
-        if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+        if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
         {
           v94 = KeGetCurrentPrcb()->SchedulerAssist;
           if ( CurrentIrql == 2 )
@@ -470,7 +470,7 @@ LABEL_29:
       v91 = KeGetCurrentIrql();
       v105 = v91;
       __writecr8(2uLL);
-      if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v91 <= 0xFu )
+      if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v91 <= 0xFu )
       {
         v92 = KeGetCurrentPrcb()->SchedulerAssist;
         if ( v91 == 2 )

@@ -1,16 +1,16 @@
 /*
- * XREFs of PspFreezeJobTree @ 0x14085EA8C
+ * XREFs of PspFreezeJobTree @ 0x140A67B30
  * Callers:
- *     PspFreezeJobTree @ 0x14085EA8C (PspFreezeJobTree.c)
- *     NtSetInformationJobObject @ 0x140ACE760 (NtSetInformationJobObject.c)
+ *     PspFreezeJobTree @ 0x140A67B30 (PspFreezeJobTree.c)
+ *     NtSetInformationJobObject @ 0x140ACC7F0 (NtSetInformationJobObject.c)
  * Callees:
- *     ExReleaseResourceLite @ 0x14025A450 (ExReleaseResourceLite.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402769C0 (ExAcquireResourceExclusiveLite.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     PspSendWakeNotification @ 0x14085D9C8 (PspSendWakeNotification.c)
- *     PspFreezeJobTree @ 0x14085EA8C (PspFreezeJobTree.c)
- *     PspEnumJobsAndProcessesInJobHierarchy @ 0x1408EBCAC (PspEnumJobsAndProcessesInJobHierarchy.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14022BF50 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14028AA60 (ExReleaseResourceLite.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     PspSendWakeNotification @ 0x140859738 (PspSendWakeNotification.c)
+ *     PspEnumJobsAndProcessesInJobHierarchy @ 0x14085D4DC (PspEnumJobsAndProcessesInJobHierarchy.c)
+ *     PspFreezeJobTree @ 0x140A67B30 (PspFreezeJobTree.c)
  */
 
 __int64 __fastcall PspFreezeJobTree(__int64 a1, __int64 a2)
@@ -125,12 +125,18 @@ LABEL_3:
     if ( !v4 )
       goto LABEL_14;
   }
-  PspEnumJobsAndProcessesInJobHierarchy((PVOID)a1, (__int64)v20, v6);
+  PspEnumJobsAndProcessesInJobHierarchy(
+    (char *)a1,
+    (int)PspSetJobFreezeCountCallback,
+    0,
+    (int)PspSetProcessFreezeStateCallback,
+    (__int64)v20,
+    v6);
 LABEL_14:
   ExReleaseResourceLite((PERESOURCE)(a1 + 56));
   if ( v6 )
   {
-    PspEnumJobsAndProcessesInJobHierarchy((PVOID)a1, (__int64)&v18, 0);
+    PspEnumJobsAndProcessesInJobHierarchy((char *)a1, 0, (int)PspExecuteJobFreezeThawCallback, 0, (__int64)&v18, 0);
     if ( (int)v18 < 0 )
     {
       *(_DWORD *)a2 &= ~4u;

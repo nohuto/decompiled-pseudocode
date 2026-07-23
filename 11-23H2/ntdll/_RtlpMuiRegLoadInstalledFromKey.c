@@ -1,7 +1,7 @@
 /*
- * XREFs of _RtlpMuiRegLoadInstalledFromKey @ 0x180115234
+ * XREFs of _RtlpMuiRegLoadInstalledFromKey @ 0x180115204
  * Callers:
- *     _RtlpMuiRegLoadInstalled @ 0x180115154 (_RtlpMuiRegLoadInstalled.c)
+ *     _RtlpMuiRegLoadInstalled @ 0x180115124 (_RtlpMuiRegLoadInstalled.c)
  * Callees:
  *     LdrpQueryValueKey @ 0x18000BAC0 (LdrpQueryValueKey.c)
  *     RtlInitUnicodeString @ 0x1800187C0 (RtlInitUnicodeString.c)
@@ -9,24 +9,24 @@
  *     NtClose @ 0x1800A1090 (NtClose.c)
  *     NtOpenKey @ 0x1800A10F0 (NtOpenKey.c)
  *     NtEnumerateKey @ 0x1800A14F0 (NtEnumerateKey.c)
- *     RtlpMuiRegAddLanguageByName @ 0x180112474 (RtlpMuiRegAddLanguageByName.c)
- *     ValidateRegistrLangType @ 0x180114898 (ValidateRegistrLangType.c)
+ *     RtlpMuiRegAddLanguageByName @ 0x180112444 (RtlpMuiRegAddLanguageByName.c)
+ *     ValidateRegistrLangType @ 0x180114868 (ValidateRegistrLangType.c)
  */
 
 __int64 __fastcall RtlpMuiRegLoadInstalledFromKey(_QWORD *a1)
 {
   unsigned __int64 v1; // rbp
-  int v3; // edi
-  int v5; // ebx
+  ULONG v3; // edi
+  NTSTATUS v5; // ebx
   unsigned __int64 v6; // rax
-  __int64 v7; // rcx
+  void *v7; // rcx
   __int16 v8; // cx
   unsigned int v9; // ecx
   char v10; // dl
   int v11; // edx
   void *v12; // rcx
   void *v13; // rcx
-  int v14; // [rsp+20h] [rbp-30h]
+  int Length; // [rsp+20h] [rbp-30h]
   int v15; // [rsp+50h] [rbp+0h] BYREF
 
   v1 = (unsigned __int64)&v15 & 0xFFFFFFFFFFFFFFE0uLL;
@@ -45,11 +45,17 @@ __int64 __fastcall RtlpMuiRegLoadInstalledFromKey(_QWORD *a1)
   *(_QWORD *)(((unsigned __int64)&v15 & 0xFFFFFFFFFFFFFFE0uLL) + 0x40) = 0LL;
   *(_DWORD *)(((unsigned __int64)&v15 & 0xFFFFFFFFFFFFFFE0uLL) + 0x50) = 64;
   *(_OWORD *)(((unsigned __int64)&v15 & 0xFFFFFFFFFFFFFFE0uLL) + 0x58) = 0LL;
-  if ( (int)NtOpenKey() < 0 )
+  if ( NtOpenKey((PHANDLE)(v1 + 24), 0x20019u, (POBJECT_ATTRIBUTES)(v1 + 56)) < 0 )
     return 0LL;
   do
   {
-    v5 = NtEnumerateKey();
+    v5 = NtEnumerateKey(
+           *(HANDLE *)(((unsigned __int64)&v15 & 0xFFFFFFFFFFFFFFE0uLL) + 0x18),
+           v3,
+           KeyBasicInformation,
+           (PVOID)(v1 + 128),
+           0x200u,
+           (PULONG)(v1 + 32));
     if ( v5 < 0 )
     {
       if ( v5 != -2147483622 )
@@ -70,18 +76,18 @@ __int64 __fastcall RtlpMuiRegLoadInstalledFromKey(_QWORD *a1)
         *(_DWORD *)(((unsigned __int64)&v15 & 0xFFFFFFFFFFFFFFE0uLL) + 0x38) = 48;
         *(_DWORD *)(((unsigned __int64)&v15 & 0xFFFFFFFFFFFFFFE0uLL) + 0x50) = 64;
         *(_OWORD *)(((unsigned __int64)&v15 & 0xFFFFFFFFFFFFFFE0uLL) + 0x58) = 0LL;
-        if ( (int)NtOpenKey() >= 0 )
+        if ( NtOpenKey((PHANDLE)(v1 + 8), 0x20019u, (POBJECT_ATTRIBUTES)(v1 + 56)) >= 0 )
         {
           RtlInitUnicodeString((PUNICODE_STRING)(v1 + 40), L"Type");
-          v7 = *(_QWORD *)(((unsigned __int64)&v15 & 0xFFFFFFFFFFFFFFE0uLL) + 8);
+          v7 = *(void **)(((unsigned __int64)&v15 & 0xFFFFFFFFFFFFFFE0uLL) + 8);
           *(_DWORD *)(((unsigned __int64)&v15 & 0xFFFFFFFFFFFFFFE0uLL) + 0x10) = 4;
           *(_DWORD *)(((unsigned __int64)&v15 & 0xFFFFFFFFFFFFFFE0uLL) + 0x24) = 4;
           if ( (int)LdrpQueryValueKey(
                       v7,
-                      v1 + 40,
+                      (PUNICODE_STRING)(v1 + 40),
                       (_DWORD *)(v1 + 16),
                       (void *)((unsigned __int64)&v15 & 0xFFFFFFFFFFFFFFE0uLL),
-                      (unsigned int *)(v1 + 36)) >= 0
+                      (ULONG *)(v1 + 36)) >= 0
             && (int)ValidateRegistrLangType(*(_DWORD *)v1) >= 0 )
           {
             v9 = v8 & 0x419F;
@@ -98,10 +104,10 @@ __int64 __fastcall RtlpMuiRegLoadInstalledFromKey(_QWORD *a1)
               if ( v11 && (v11 & -v11) == v11 && (v9 & 0xC) != 8 )
                 RtlpMuiRegAddLanguageByName(
                   a1,
-                  *(_QWORD *)(((unsigned __int64)&v15 & 0xFFFFFFFFFFFFFFE0uLL) + 8),
+                  *(void **)(((unsigned __int64)&v15 & 0xFFFFFFFFFFFFFFE0uLL) + 8),
                   (wchar_t *)(v1 + 144),
                   v9,
-                  v14,
+                  Length,
                   v1 + 4);
             }
           }

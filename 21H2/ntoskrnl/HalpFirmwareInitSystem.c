@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpFirmwareInitSystem @ 0x1409A1680
+ * XREFs of HalpFirmwareInitSystem @ 0x1409A25B0
  * Callers:
  *     <none>
  * Callees:
- *     HalpFirmwareInitDiscard @ 0x140A6EB60 (HalpFirmwareInitDiscard.c)
+ *     HalpFirmwareInitDiscard @ 0x140A6FB60 (HalpFirmwareInitDiscard.c)
  */
 
 __int64 __fastcall HalpFirmwareInitSystem(int a1, __int64 a2, __int64 a3)

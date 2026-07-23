@@ -1,11 +1,11 @@
 /*
- * XREFs of ExpWorkQueueHealthMetricsAllocate @ 0x14083FF78
+ * XREFs of ExpWorkQueueHealthMetricsAllocate @ 0x1408461B8
  * Callers:
- *     ExpPartitionCreatePoolInternal @ 0x140B6C40C (ExpPartitionCreatePoolInternal.c)
+ *     ExpPartitionCreatePoolInternal @ 0x140B6F508 (ExpPartitionCreatePoolInternal.c)
  * Callees:
- *     ExpWorkQueueHealthMetricsFree @ 0x140840068 (ExpWorkQueueHealthMetricsFree.c)
- *     ExAllocatePool3 @ 0x140C10010 (ExAllocatePool3.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     ExpWorkQueueHealthMetricsFree @ 0x1408462A8 (ExpWorkQueueHealthMetricsFree.c)
+ *     ExAllocatePool3 @ 0x140C16010 (ExAllocatePool3.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall ExpWorkQueueHealthMetricsAllocate(__int64 **a1, unsigned __int16 a2)

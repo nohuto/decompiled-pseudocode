@@ -1,12 +1,12 @@
 /*
- * XREFs of KCBNeedsVirtualImage @ 0x14012950C
+ * XREFs of KCBNeedsVirtualImage @ 0x1401295DC
  * Callers:
- *     CmpVEExecuteCreateLogic @ 0x1406B1DB4 (CmpVEExecuteCreateLogic.c)
- *     CmKeyBodyRemapToVirtual @ 0x1407F19FC (CmKeyBodyRemapToVirtual.c)
- *     CmKeyBodyReplicateToVirtual @ 0x1407F1C74 (CmKeyBodyReplicateToVirtual.c)
+ *     CmpVEExecuteCreateLogic @ 0x1406B3054 (CmpVEExecuteCreateLogic.c)
+ *     CmKeyBodyRemapToVirtual @ 0x1407F2BFC (CmKeyBodyRemapToVirtual.c)
+ *     CmKeyBodyReplicateToVirtual @ 0x1407F2E74 (CmKeyBodyReplicateToVirtual.c)
  * Callees:
- *     KCBIsVirtualizable @ 0x140129540 (KCBIsVirtualizable.c)
- *     CmpIsSystemEntity @ 0x1406B1FD4 (CmpIsSystemEntity.c)
+ *     KCBIsVirtualizable @ 0x140129610 (KCBIsVirtualizable.c)
+ *     CmpIsSystemEntity @ 0x1406B3274 (CmpIsSystemEntity.c)
  */
 
 char KCBNeedsVirtualImage()

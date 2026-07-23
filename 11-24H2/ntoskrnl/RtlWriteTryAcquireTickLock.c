@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlWriteTryAcquireTickLock @ 0x14029D508
+ * XREFs of RtlWriteTryAcquireTickLock @ 0x1402ABFF8
  * Callers:
- *     KiUpdateTime @ 0x14029B7C0 (KiUpdateTime.c)
- *     KiUpdateTimeAssist @ 0x14029EBAC (KiUpdateTimeAssist.c)
- *     KeFreezeExecution @ 0x1404D5B60 (KeFreezeExecution.c)
- *     KiSchedulerDpc @ 0x140695600 (KiSchedulerDpc.c)
+ *     KiUpdateTime @ 0x1402AA2B0 (KiUpdateTime.c)
+ *     KiUpdateTimeAssist @ 0x1402AD69C (KiUpdateTimeAssist.c)
+ *     KeFreezeExecution @ 0x1404CEFB0 (KeFreezeExecution.c)
+ *     KiSchedulerDpc @ 0x1406966D0 (KiSchedulerDpc.c)
  * Callees:
  *     <none>
  */

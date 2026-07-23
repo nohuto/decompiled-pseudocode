@@ -1,9 +1,9 @@
 /*
- * XREFs of PsDereferenceImpersonationToken @ 0x1406AF790
+ * XREFs of PsDereferenceImpersonationToken @ 0x14060E030
  * Callers:
  *     <none>
  * Callees:
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
  */
 
 void __stdcall PsDereferenceImpersonationToken(PACCESS_TOKEN ImpersonationToken)

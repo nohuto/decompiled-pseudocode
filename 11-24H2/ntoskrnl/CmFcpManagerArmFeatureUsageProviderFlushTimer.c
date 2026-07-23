@@ -1,12 +1,12 @@
 /*
- * XREFs of CmFcpManagerArmFeatureUsageProviderFlushTimer @ 0x1404FABB8
+ * XREFs of CmFcpManagerArmFeatureUsageProviderFlushTimer @ 0x1404F8498
  * Callers:
- *     CmFcpManagerArmFeatureUsageProviderFlushNotification @ 0x1403A6B5C (CmFcpManagerArmFeatureUsageProviderFlushNotification.c)
- *     CmFcpManagerArmFeatureUsageProviderFlushTimerDpc @ 0x140668700 (CmFcpManagerArmFeatureUsageProviderFlushTimerDpc.c)
- *     CmFcManagerStartRuntimePhase @ 0x140C4D180 (CmFcManagerStartRuntimePhase.c)
+ *     CmFcpManagerArmFeatureUsageProviderFlushNotification @ 0x14048C7E8 (CmFcpManagerArmFeatureUsageProviderFlushNotification.c)
+ *     CmFcpManagerArmFeatureUsageProviderFlushTimerDpc @ 0x140666FF0 (CmFcpManagerArmFeatureUsageProviderFlushTimerDpc.c)
+ *     CmFcManagerStartRuntimePhase @ 0x140C4F31C (CmFcManagerStartRuntimePhase.c)
  * Callees:
- *     ExSetTimer @ 0x1403C1FC0 (ExSetTimer.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     ExSetTimer @ 0x1403B0B80 (ExSetTimer.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 __int64 __fastcall CmFcpManagerArmFeatureUsageProviderFlushTimer(__int64 a1)
@@ -15,7 +15,7 @@ __int64 __fastcall CmFcpManagerArmFeatureUsageProviderFlushTimer(__int64 a1)
   __int64 result; // rax
   _QWORD v3[2]; // [rsp+20h] [rbp-28h] BYREF
 
-  v1 = *(_QWORD *)(a1 + 1536);
+  v1 = *(_QWORD *)(a1 + 1608);
   if ( v1 )
   {
     v3[0] = 0LL;

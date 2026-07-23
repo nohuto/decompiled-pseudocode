@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlpMuiRegGetInstalledLanguageIndexByLangId @ 0x14073EB00
+ * XREFs of RtlpMuiRegGetInstalledLanguageIndexByLangId @ 0x14073FCF0
  * Callers:
- *     RtlpMuiRegCreateKernelRegistryInfo @ 0x140182860 (RtlpMuiRegCreateKernelRegistryInfo.c)
- *     _RtlpMuiRegValidateInstalled @ 0x14073E4B0 (_RtlpMuiRegValidateInstalled.c)
- *     RtlpMuiRegGetInstalledLanguageIndex @ 0x140906E38 (RtlpMuiRegGetInstalledLanguageIndex.c)
+ *     RtlpMuiRegCreateKernelRegistryInfo @ 0x1401829A0 (RtlpMuiRegCreateKernelRegistryInfo.c)
+ *     _RtlpMuiRegValidateInstalled @ 0x14073F6A0 (_RtlpMuiRegValidateInstalled.c)
+ *     RtlpMuiRegGetInstalledLanguageIndex @ 0x1409080F8 (RtlpMuiRegGetInstalledLanguageIndex.c)
  * Callees:
- *     _MuiRegAllocArray @ 0x14018256C (_MuiRegAllocArray.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     RtlLCIDToCultureName @ 0x1408965F0 (RtlLCIDToCultureName.c)
- *     RtlpMuiRegGetInstalledLanguageIndexByName @ 0x140906F88 (RtlpMuiRegGetInstalledLanguageIndexByName.c)
+ *     _MuiRegAllocArray @ 0x1401826AC (_MuiRegAllocArray.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     RtlLCIDToCultureName @ 0x140897850 (RtlLCIDToCultureName.c)
+ *     RtlpMuiRegGetInstalledLanguageIndexByName @ 0x140908248 (RtlpMuiRegGetInstalledLanguageIndexByName.c)
  */
 
 __int64 __fastcall RtlpMuiRegGetInstalledLanguageIndexByLangId(__int64 a1, unsigned __int16 a2, char a3, _WORD *a4)
@@ -21,11 +21,10 @@ __int64 __fastcall RtlpMuiRegGetInstalledLanguageIndexByLangId(__int64 a1, unsig
   __int64 v13; // r10
   __int64 v14; // rdx
   __int16 v15; // r9
-  PVOID v16; // rax
-  void *v17; // rdi
+  wchar_t *v16; // rax
+  wchar_t *v17; // rdi
   __int64 v18; // r8
-  int v19; // [rsp+20h] [rbp-38h] BYREF
-  PVOID v20; // [rsp+28h] [rbp-30h]
+  UNICODE_STRING String; // [rsp+20h] [rbp-38h] BYREF
 
   result = 3221225524LL;
   InstalledLanguageIndexByName = -1073741772;
@@ -39,18 +38,18 @@ __int64 __fastcall RtlpMuiRegGetInstalledLanguageIndexByLangId(__int64 a1, unsig
     if ( !*(_WORD *)(v11 + 6) )
     {
 LABEL_15:
-      v16 = MuiRegAllocArray(v12, 0x55u);
+      v16 = (wchar_t *)MuiRegAllocArray(v12, 0x55u);
       v17 = v16;
       if ( v16 )
       {
-        v20 = v16;
-        v19 = 11141120;
+        String.Buffer = v16;
+        *(_DWORD *)&String.Length = 11141120;
         if ( a3 )
         {
-          v20 = v16;
-          v19 = 11141120;
-          if ( (unsigned __int8)RtlLCIDToCultureName(a2, &v19) )
-            InstalledLanguageIndexByName = RtlpMuiRegGetInstalledLanguageIndexByName(a1, v20, v18, a4);
+          String.Buffer = v16;
+          *(_DWORD *)&String.Length = 11141120;
+          if ( RtlLCIDToCultureName(a2, &String) )
+            InstalledLanguageIndexByName = RtlpMuiRegGetInstalledLanguageIndexByName(a1, String.Buffer, v18, a4);
         }
         ExFreePoolWithTag(v17, 0);
         if ( v10 && InstalledLanguageIndexByName == -1073741772 )

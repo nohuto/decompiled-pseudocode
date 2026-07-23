@@ -1,16 +1,16 @@
 /*
- * XREFs of _CmEnumDevicesInContainerWithCallbackWorker @ 0x140975E40
+ * XREFs of _CmEnumDevicesInContainerWithCallbackWorker @ 0x140976020
  * Callers:
- *     _CmEnumDevicesInContainerWithCallback @ 0x140975CF0 (_CmEnumDevicesInContainerWithCallback.c)
+ *     _CmEnumDevicesInContainerWithCallback @ 0x140975ED0 (_CmEnumDevicesInContainerWithCallback.c)
  * Callees:
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     _PnpOpenObjectRegKey @ 0x140637864 (_PnpOpenObjectRegKey.c)
- *     _SysCtxRegOpenKey @ 0x1406426AC (_SysCtxRegOpenKey.c)
- *     _PnpCtxRegEnumValue @ 0x1406C4714 (_PnpCtxRegEnumValue.c)
- *     _RegRtlEnumKey @ 0x140766B7C (_RegRtlEnumKey.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     _PnpOpenObjectRegKey @ 0x14062C674 (_PnpOpenObjectRegKey.c)
+ *     _SysCtxRegOpenKey @ 0x1406374BC (_SysCtxRegOpenKey.c)
+ *     _PnpCtxRegEnumValue @ 0x140673004 (_PnpCtxRegEnumValue.c)
+ *     _RegRtlEnumKey @ 0x140766D3C (_RegRtlEnumKey.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall CmEnumDevicesInContainerWithCallbackWorker(

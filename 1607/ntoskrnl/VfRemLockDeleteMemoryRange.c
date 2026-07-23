@@ -1,13 +1,13 @@
 /*
- * XREFs of VfRemLockDeleteMemoryRange @ 0x14070DDD0
+ * XREFs of VfRemLockDeleteMemoryRange @ 0x14070DE00
  * Callers:
- *     VfFreeMemoryNotification @ 0x140702884 (VfFreeMemoryNotification.c)
+ *     VfFreeMemoryNotification @ 0x1407028B4 (VfFreeMemoryNotification.c)
  * Callees:
- *     VfAvlCleanupLockContext @ 0x14008446C (VfAvlCleanupLockContext.c)
- *     VfAvlInitializeLockContext @ 0x1400845E8 (VfAvlInitializeLockContext.c)
- *     VfAvlLookupTreeNode @ 0x14012F004 (VfAvlLookupTreeNode.c)
- *     VfPoolIsInternalFree @ 0x1402238E4 (VfPoolIsInternalFree.c)
- *     ViRemLockDeleteFirstTreeNode @ 0x14070DEAC (ViRemLockDeleteFirstTreeNode.c)
+ *     VfAvlCleanupLockContext @ 0x1400825CC (VfAvlCleanupLockContext.c)
+ *     VfAvlInitializeLockContext @ 0x140082748 (VfAvlInitializeLockContext.c)
+ *     VfAvlLookupTreeNode @ 0x14012F574 (VfAvlLookupTreeNode.c)
+ *     VfPoolIsInternalFree @ 0x140223710 (VfPoolIsInternalFree.c)
+ *     ViRemLockDeleteFirstTreeNode @ 0x14070DEDC (ViRemLockDeleteFirstTreeNode.c)
  */
 
 __int64 __fastcall VfRemLockDeleteMemoryRange(unsigned __int64 a1, __int64 a2)

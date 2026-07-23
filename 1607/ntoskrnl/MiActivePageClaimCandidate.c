@@ -1,15 +1,15 @@
 /*
- * XREFs of MiActivePageClaimCandidate @ 0x140105A60
+ * XREFs of MiActivePageClaimCandidate @ 0x1401037E0
  * Callers:
- *     MiPfnsWorthTrying @ 0x140104C30 (MiPfnsWorthTrying.c)
- *     MiAllocateMostlyContiguous @ 0x140105140 (MiAllocateMostlyContiguous.c)
- *     MiClaimPhysicalRun @ 0x1401063DC (MiClaimPhysicalRun.c)
+ *     MiPfnsWorthTrying @ 0x1401029B0 (MiPfnsWorthTrying.c)
+ *     MiAllocateMostlyContiguous @ 0x140102EC0 (MiAllocateMostlyContiguous.c)
+ *     MiClaimPhysicalRun @ 0x14010415C (MiClaimPhysicalRun.c)
  * Callees:
- *     MiIsPfnFileOnly @ 0x14004E980 (MiIsPfnFileOnly.c)
- *     MiSessionWsMetaPage @ 0x140106070 (MiSessionWsMetaPage.c)
- *     MiPageInRange @ 0x140106150 (MiPageInRange.c)
- *     MiSystemWsMetaPage @ 0x140106250 (MiSystemWsMetaPage.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiIsPfnFileOnly @ 0x14004E500 (MiIsPfnFileOnly.c)
+ *     MiSessionWsMetaPage @ 0x140103DF0 (MiSessionWsMetaPage.c)
+ *     MiPageInRange @ 0x140103ED0 (MiPageInRange.c)
+ *     MiSystemWsMetaPage @ 0x140103FD0 (MiSystemWsMetaPage.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
  */
 
 __int64 __fastcall MiActivePageClaimCandidate(__int64 a1, __int64 a2, int a3)
@@ -58,9 +58,9 @@ __int64 __fastcall MiActivePageClaimCandidate(__int64 a1, __int64 a2, int a3)
   if ( (*(_BYTE *)(a2 + 35) & 8) != 0 )
     return 1;
   v9 = *(_QWORD *)(a2 + 40);
-  v10 = qword_140326FF8;
+  v10 = qword_140327038;
   v11 = (HIDWORD(v9) >> 8) & 0x3FF;
-  v12 = v11 == 1023 ? MiSystemPartition : *(int **)(qword_140326FF8 + 8LL * v11);
+  v12 = v11 == 1023 ? MiSystemPartition : *(int **)(qword_140327038 + 8LL * v11);
   if ( v12 != (int *)a1 )
     return 1;
   v13 = 0;
@@ -70,7 +70,7 @@ LABEL_12:
     if ( (v9 & 0x200000000000000LL) != 0 )
     {
       v17 = *(_QWORD *)(a2 + 24);
-      if ( (v17 & 0x4000000000000000LL) == 0 && v7 != qword_140326988 && v7 != qword_140326990 )
+      if ( (v17 & 0x4000000000000000LL) == 0 && v7 != qword_1403269C8 && v7 != qword_1403269D0 )
       {
         if ( a3 != 1 || (IsPfnFileOnly = MiIsPfnFileOnly(a2), IsPfnFileOnly != v19) )
         {
@@ -86,10 +86,10 @@ LABEL_12:
       }
     }
     else if ( v7 != -8LL
-           && (v7 < qword_140327F20[0] || v7 >= qword_140327F20[0] + 0x100000000000LL)
-           && (!qword_140326C30
-            || v7 < qword_140326C30
-            || v7 >= qword_140326C30 + (qword_140326C10 << 21)
+           && (v7 < qword_140327F60[0] || v7 >= qword_140327F60[0] + 0x100000000000LL)
+           && (!qword_140326C70
+            || v7 < qword_140326C70
+            || v7 >= qword_140326C70 + (qword_140326C50 << 21)
             || (*(_BYTE *)(48 * ((*(_QWORD *)(((v7 >> 18) & 0x3FFFFFF8) - 0x904C0000000LL) >> 12) & 0xFFFFFFFFFLL)
                          - 0x57FFFFFFFDALL) & 0xF0) != 0xD0)
            && ((v9 >> 54) & 7) != 1 )
@@ -128,12 +128,12 @@ LABEL_12:
               v34 = v33 & 0x3FFFFFFFFFFFFFFFLL;
               if ( (v33 & 0x3FFFFFFFFFFFFFFFuLL) > 1 )
               {
-                if ( v22 < qword_140327F30 || v22 >= qword_140327F30 + 0xF8000000000LL )
+                if ( v22 < qword_140327F70 || v22 >= qword_140327F70 + 0xF8000000000LL )
                 {
                   if ( !(unsigned int)MiPageInRange(
                                         a2,
-                                        (((unsigned __int64)qword_140327F90 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL,
-                                        (((unsigned __int64)qword_140326CF8 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL,
+                                        (((unsigned __int64)qword_140327FD0 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL,
+                                        (((unsigned __int64)qword_140326D38 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL,
                                         0LL) )
                     return 1;
                   LOBYTE(v13) = *(_WORD *)(a2 + 32) > 1u;
@@ -146,7 +146,7 @@ LABEL_12:
                 }
                 return v13;
               }
-              if ( (v33 & 0xFFFFFFFFFLL) == 0 || v22 >= qword_140326918 && v22 < qword_140326918 + 0x2000 )
+              if ( (v33 & 0xFFFFFFFFFLL) == 0 || v22 >= qword_140326958 && v22 < qword_140326958 + 0x2000 )
                 return 1;
               v35 = *(_WORD *)(a2 + 32);
               if ( v35 > 1u )
@@ -161,8 +161,8 @@ LABEL_12:
         {
           if ( (unsigned int)MiPageInRange(
                                a2,
-                               (((unsigned __int64)qword_140327F90 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL,
-                               (((unsigned __int64)qword_140326CF8 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL,
+                               (((unsigned __int64)qword_140327FD0 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL,
+                               (((unsigned __int64)qword_140326D38 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL,
                                0LL)
             || (unsigned int)MiSystemWsMetaPage(a2, (unsigned __int64)&v37 & 0xFFFFFFFFFFFFFFE0uLL)
             || (unsigned int)MiSessionWsMetaPage(a2) )
@@ -191,8 +191,8 @@ LABEL_12:
             }
             while ( v25 < v24 );
           }
-          if ( v22 >= qword_140327F20[0]
-            && v22 < qword_140327F20[0] + 0x100000000000LL
+          if ( v22 >= qword_140327F60[0]
+            && v22 < qword_140327F60[0] + 0x100000000000LL
             && *(_WORD *)(a2 + 32) <= 1u
             && (MiFlags & 0x800) == 0 )
           {
@@ -217,7 +217,7 @@ LABEL_12:
     ++v15;
     if ( v14 >= 2 )
     {
-      v10 = qword_140326FF8;
+      v10 = qword_140327038;
       v6 = 0x8000000000000000uLL;
       a3 = v38;
       goto LABEL_12;

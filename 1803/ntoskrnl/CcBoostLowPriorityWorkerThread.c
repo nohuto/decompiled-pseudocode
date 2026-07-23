@@ -93,7 +93,7 @@ $005F0E83B22994B61E86C72E0CE43C71 *__fastcall CcBoostLowPriorityWorkerThread(__i
         {
           v16->CrossThreadReleasableAndBusyByte |= 2u;
           if ( (__int64)v16->LockState.LockState < 0 )
-            KiAbEntryRemoveFromTree(&CurrentThread->LockEntries[v15]);
+            KiAbEntryRemoveFromTree(&CurrentThread->LockEntries[v15].TreeNode);
           v21 = 0;
           v21 = v16->BoostBitmap.AllFields & 0x1FFFF;
           v16->BoostBitmap.AllFields &= 0xFFFE0000;

@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpAdjustWakeSecondsDue @ 0x140BE912C
+ * XREFs of HalpAdjustWakeSecondsDue @ 0x140BEF12C
  * Callers:
- *     HaliSetWakeAlarm @ 0x140C0A6E0 (HaliSetWakeAlarm.c)
+ *     HaliSetWakeAlarm @ 0x140C108F0 (HaliSetWakeAlarm.c)
  * Callees:
  *     <none>
  */

@@ -1,12 +1,12 @@
 /*
- * XREFs of VfRlrsVolatileConfigUpdate @ 0x140648604
+ * XREFs of VfRlrsVolatileConfigUpdate @ 0x14064C1E4
  * Callers:
- *     VfVolatileSetDifRuleClass @ 0x140647B64 (VfVolatileSetDifRuleClass.c)
+ *     VfVolatileSetDifRuleClass @ 0x14064B744 (VfVolatileSetDifRuleClass.c)
  * Callees:
- *     VfFaultsAddAllApps @ 0x140C3441C (VfFaultsAddAllApps.c)
- *     VfFaultsAddAllTags @ 0x140C344D0 (VfFaultsAddAllTags.c)
- *     VfFaultsRemoveAllApps @ 0x140C34968 (VfFaultsRemoveAllApps.c)
- *     VfFaultsRemoveAllTags @ 0x140C34A00 (VfFaultsRemoveAllTags.c)
+ *     VfFaultsAddAllApps @ 0x140C3A42C (VfFaultsAddAllApps.c)
+ *     VfFaultsAddAllTags @ 0x140C3A4E0 (VfFaultsAddAllTags.c)
+ *     VfFaultsRemoveAllApps @ 0x140C3A978 (VfFaultsRemoveAllApps.c)
+ *     VfFaultsRemoveAllTags @ 0x140C3AA10 (VfFaultsRemoveAllTags.c)
  */
 
 __int64 __fastcall VfRlrsVolatileConfigUpdate(__int64 a1, char a2)

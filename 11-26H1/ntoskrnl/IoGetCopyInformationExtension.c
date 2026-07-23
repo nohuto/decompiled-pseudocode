@@ -1,5 +1,5 @@
 /*
- * XREFs of IoGetCopyInformationExtension @ 0x1404D9400
+ * XREFs of IoGetCopyInformationExtension @ 0x1404D2AE0
  * Callers:
  *     <none>
  * Callees:

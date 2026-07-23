@@ -1,5 +1,5 @@
 /*
- * XREFs of VerifierKeReleaseGuardedMutex @ 0x14070CA3C
+ * XREFs of VerifierKeReleaseGuardedMutex @ 0x14070CA6C
  * Callers:
  *     <none>
  * Callees:

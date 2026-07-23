@@ -11,11 +11,11 @@
  *     PerfDiagpInitializeLoggerInfo @ 0x14071DBE8 (PerfDiagpInitializeLoggerInfo.c)
  */
 
-__int64 __fastcall PerfDiagpUpdatePerfDiagLoggerEnableFlags(__int64 a1, __int64 a2)
+NTSTATUS __fastcall PerfDiagpUpdatePerfDiagLoggerEnableFlags(__int64 a1, __int64 a2)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
   unsigned int v4; // ebx
-  _BYTE v5[16]; // [rsp+30h] [rbp-69h] BYREF
+  ULONG ReturnLength[4]; // [rsp+30h] [rbp-69h] BYREF
   _QWORD v6[14]; // [rsp+40h] [rbp-59h] BYREF
   size_t Size[6]; // [rsp+B0h] [rbp+17h] BYREF
 
@@ -27,31 +27,31 @@ __int64 __fastcall PerfDiagpUpdatePerfDiagLoggerEnableFlags(__int64 a1, __int64 
   LODWORD(v6[4]) = 3;
   LODWORD(Size[0]) = 48;
   result = RtlpQueryRegistryValues(2u, L"Diagnostics\\Performance\\BootCKCLSettings", (__int64)v6, 0LL);
-  if ( (int)result >= 0 )
+  if ( result >= 0 )
   {
     if ( HIDWORD(Size[0]) == 3 )
     {
       v4 = Size[0];
       if ( LODWORD(Size[0]) > 0x28 )
       {
-        return 3221225507LL;
+        return -1073741789;
       }
       else
       {
         memmove(&unk_140432FA8, &Size[1], LODWORD(Size[0]));
         PerfDiagpInitializeLoggerInfo(1, v4 >> 2);
         return NtTraceControl(
-                 4u,
-                 (char *)dword_140432EF0,
-                 dword_140432EF0[0],
-                 dword_140432EF0,
-                 dword_140432EF0[0],
-                 (unsigned __int64)v5);
+                 EtwUpdateLoggerCode,
+                 &OutputBuffer,
+                 OutputBuffer,
+                 &OutputBuffer,
+                 OutputBuffer,
+                 ReturnLength);
       }
     }
     else
     {
-      return 3221225485LL;
+      return -1073741811;
     }
   }
   return result;

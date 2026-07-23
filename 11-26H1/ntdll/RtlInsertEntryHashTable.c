@@ -1,76 +1,80 @@
 /*
- * XREFs of RtlInsertEntryHashTable @ 0x1800CC7D0
+ * XREFs of RtlInsertEntryHashTable @ 0x1800C9F40
  * Callers:
  *     <none>
  * Callees:
- *     RtlpPopulateContext @ 0x1800CC990 (RtlpPopulateContext.c)
+ *     RtlpPopulateContext @ 0x1800CA100 (RtlpPopulateContext.c)
  */
 
-char __fastcall RtlInsertEntryHashTable(__int64 a1, _QWORD *a2, unsigned __int64 a3, __int128 *a4)
+BOOLEAN __cdecl RtlInsertEntryHashTable(
+        PRTL_DYNAMIC_HASH_TABLE HashTable,
+        PRTL_DYNAMIC_HASH_TABLE_ENTRY Entry,
+        ULONG_PTR Signature,
+        PRTL_DYNAMIC_HASH_TABLE_CONTEXT Context)
 {
-  __int128 *v4; // rbx
+  PRTL_DYNAMIC_HASH_TABLE_CONTEXT v4; // rbx
   unsigned int v7; // ecx
   unsigned int v8; // edx
-  __int64 v9; // r9
-  _QWORD *v10; // rax
-  _QWORD *v11; // r9
-  _QWORD *i; // rdx
-  unsigned __int64 v13; // rcx
-  __int64 *v14; // rax
-  __int64 v15; // rcx
+  _QWORD *Directory; // r9
+  _LIST_ENTRY *ChainHead; // rax
+  _LIST_ENTRY *v11; // r9
+  _LIST_ENTRY *i; // rdx
+  ULONG_PTR Flink; // rcx
+  _LIST_ENTRY *PrevLinkage; // rax
+  _LIST_ENTRY *v15; // rcx
   unsigned int v16; // ecx
   __int128 v18; // [rsp+20h] [rbp-28h] BYREF
-  unsigned __int64 v19; // [rsp+30h] [rbp-18h]
+  ULONG_PTR v19; // [rsp+30h] [rbp-18h]
 
-  a2[2] = a3;
-  ++*(_DWORD *)(a1 + 20);
+  Entry->Signature = Signature;
+  ++HashTable->NumEntries;
   v19 = 0LL;
-  v4 = a4;
+  v4 = Context;
   v18 = 0LL;
-  if ( a4 )
+  if ( Context )
   {
-    if ( !*(_QWORD *)a4 )
-      RtlpPopulateContext(a1, a4);
-    v10 = *(_QWORD **)v4;
+    if ( !Context->ChainHead )
+      RtlpPopulateContext(HashTable, Context);
+    ChainHead = v4->ChainHead;
   }
   else
   {
-    v7 = (69069 * ((unsigned int)a3 >> *(_DWORD *)(a1 + 4)) + 1) & 0xFFFF0000 | ((1103515245
-                                                                                * ((unsigned int)a3 >> *(_DWORD *)(a1 + 4))
-                                                                                + 12345) >> 16);
-    v8 = v7 & *(_DWORD *)(a1 + 16);
-    if ( v8 < *(_DWORD *)(a1 + 12) )
-      v8 = v7 & ((2 * *(_DWORD *)(a1 + 16)) | 1);
-    v9 = *(_QWORD *)(a1 + 32);
-    if ( *(_DWORD *)(a1 + 8) > 0x80u )
+    v7 = (69069 * ((unsigned int)Signature >> HashTable->Shift) + 1) & 0xFFFF0000 | ((1103515245
+                                                                                    * ((unsigned int)Signature >> HashTable->Shift)
+                                                                                    + 12345) >> 16);
+    v8 = v7 & HashTable->DivisorMask;
+    if ( v8 < HashTable->Pivot )
+      v8 = v7 & ((2 * HashTable->DivisorMask) | 1);
+    Directory = HashTable->Directory;
+    if ( HashTable->TableSize > 0x80 )
     {
       _BitScanReverse(&v16, v8 + 128);
       v8 = (v8 + 128) ^ (1 << v16);
-      v9 = *(_QWORD *)(v9 + 8LL * (v16 - 7));
+      Directory = (_QWORD *)Directory[v16 - 7];
     }
-    v10 = (_QWORD *)(v9 + 16LL * v8);
-    v11 = v10;
-    for ( i = (_QWORD *)*v10; i != v10; i = (_QWORD *)*i )
+    ChainHead = (_LIST_ENTRY *)&Directory[2 * v8];
+    v11 = ChainHead;
+    for ( i = ChainHead->Flink; i != ChainHead; i = i->Flink )
     {
-      v13 = i[2];
-      if ( v13 && v13 >= a3 )
+      Flink = (ULONG_PTR)i[1].Flink;
+      if ( Flink && Flink >= Signature )
         break;
       v11 = i;
     }
-    *(_QWORD *)&v18 = v10;
-    v4 = &v18;
+    *(_QWORD *)&v18 = ChainHead;
+    v4 = (PRTL_DYNAMIC_HASH_TABLE_CONTEXT)&v18;
     *((_QWORD *)&v18 + 1) = v11;
-    v19 = a3;
+    v19 = Signature;
   }
-  if ( (_QWORD *)*v10 == v10 )
-    ++*(_DWORD *)(a1 + 24);
-  v14 = (__int64 *)*((_QWORD *)v4 + 1);
-  v15 = *v14;
-  if ( *(__int64 **)(*v14 + 8) != v14 )
+  if ( ChainHead->Flink == ChainHead )
+    ++HashTable->NonEmptyBuckets;
+  PrevLinkage = v4->PrevLinkage;
+  v15 = PrevLinkage->Flink;
+  if ( PrevLinkage->Flink->Blink != PrevLinkage )
     __fastfail(3u);
-  a2[1] = v14;
-  *a2 = v15;
-  *(_QWORD *)(v15 + 8) = a2;
-  *v14 = (__int64)a2;
+  Entry->Linkage.Blink = PrevLinkage;
+  Entry->Linkage.Flink = v15;
+  v15->Blink = &Entry->Linkage;
+  PrevLinkage->Flink = &Entry->Linkage;
   return 1;
 }

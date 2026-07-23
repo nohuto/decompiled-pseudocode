@@ -1,12 +1,12 @@
 /*
- * XREFs of VslGetSecurePciDeviceAlternateFunctionNumberForVtl0Dma @ 0x1405C3070
+ * XREFs of VslGetSecurePciDeviceAlternateFunctionNumberForVtl0Dma @ 0x1405C58E0
  * Callers:
  *     <none>
  * Callees:
- *     VslpEnterIumSecureMode @ 0x1403685AC (VslpEnterIumSecureMode.c)
- *     HvlQueryVsmConnection @ 0x1404851C8 (HvlQueryVsmConnection.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     VslpEnterIumSecureMode @ 0x14036A34C (VslpEnterIumSecureMode.c)
+ *     HvlQueryVsmConnection @ 0x14047EB38 (HvlQueryVsmConnection.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 char __fastcall VslGetSecurePciDeviceAlternateFunctionNumberForVtl0Dma(int a1, char a2, char a3, char a4)

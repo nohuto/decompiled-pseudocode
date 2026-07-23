@@ -9,14 +9,15 @@
  *     KiRemoveSystemWorkPriorityKick @ 0x14056DF54 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-__int64 PopDeviceIdleCompletion()
+void PopDeviceIdleCompletion()
 {
   KIRQL v0; // al
   bool v1; // zf
   unsigned __int64 v2; // rbx
-  __int64 result; // rax
+  unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
+  int v6; // eax
 
   v0 = KeAcquireSpinLockRaiseToDpc(&PopDopeGlobalLock);
   v1 = dword_140D17BE8-- == 1;
@@ -26,24 +27,23 @@ __int64 PopDeviceIdleCompletion()
     KeSetEvent(PopDeviceIdleSync, 0, 0);
     PopDeviceIdleSync = 0LL;
   }
-  result = KxReleaseSpinLock((volatile signed __int64 *)&PopDopeGlobalLock);
-  if ( KiIrqlFlags )
+  KxReleaseSpinLock((volatile signed __int64 *)&PopDopeGlobalLock);
+  if ( (_DWORD)KiIrqlFlags )
   {
-    result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
-      && (unsigned __int8)result <= 0xFu
+    CurrentIrql = KeGetCurrentIrql();
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
       && (unsigned __int8)v2 <= 0xFu
-      && (unsigned __int8)result >= 2u )
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v2 + 1));
-      v1 = ((unsigned int)result & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= result;
+      v6 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v2 + 1));
+      v1 = (v6 & SchedulerAssist[5]) == 0;
+      SchedulerAssist[5] &= v6;
       if ( v1 )
-        result = KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
     }
   }
   __writecr8(v2);
-  return result;
 }

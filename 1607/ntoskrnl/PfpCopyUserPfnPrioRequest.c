@@ -1,14 +1,14 @@
 /*
- * XREFs of PfpCopyUserPfnPrioRequest @ 0x14041B220
+ * XREFs of PfpCopyUserPfnPrioRequest @ 0x14041A0E0
  * Callers:
- *     PfpPfnPrioRequest @ 0x14041B450 (PfpPfnPrioRequest.c)
+ *     PfpPfnPrioRequest @ 0x14041A310 (PfpPfnPrioRequest.c)
  * Callees:
- *     MmGetHighestPhysicalPage @ 0x14000FB8C (MmGetHighestPhysicalPage.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     MmGetHighestPhysicalPage @ 0x14000F70C (MmGetHighestPhysicalPage.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     ExRaiseDatatypeMisalignment @ 0x1406B6058 (ExRaiseDatatypeMisalignment.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1406B6190 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall PfpCopyUserPfnPrioRequest(unsigned __int64 a1, unsigned int a2, int a3, _QWORD *a4, char a5, int a6)

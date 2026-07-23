@@ -1,15 +1,15 @@
 /*
- * XREFs of ObpDeleteSymbolicLinkName @ 0x140691CBC
+ * XREFs of ObpDeleteSymbolicLinkName @ 0x1405F1B2C
  * Callers:
- *     ObpDeleteNameCheck @ 0x14062CBD0 (ObpDeleteNameCheck.c)
- *     ObpMarkDirectoryObjectsTemporary @ 0x140691AB8 (ObpMarkDirectoryObjectsTemporary.c)
- *     ObCloseHandleTableEntry @ 0x1406F5660 (ObCloseHandleTableEntry.c)
- *     ObShutdownSystem @ 0x1408DC490 (ObShutdownSystem.c)
+ *     ObpMarkDirectoryObjectsTemporary @ 0x1405F1928 (ObpMarkDirectoryObjectsTemporary.c)
+ *     ObpDeleteNameCheck @ 0x140663D60 (ObpDeleteNameCheck.c)
+ *     ObCloseHandleTableEntry @ 0x14070CA40 (ObCloseHandleTableEntry.c)
+ *     ObShutdownSystem @ 0x1408DC5F0 (ObShutdownSystem.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
- *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
- *     PsGetCurrentServerSiloGlobals @ 0x140362150 (PsGetCurrentServerSiloGlobals.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x1402F6FB0 (PsGetCurrentServerSiloGlobals.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x140355AE0 (KiLeaveGuardedRegionUnsafe.c)
+ *     ExReleasePushLockEx @ 0x140355BE0 (ExReleasePushLockEx.c)
  */
 
 char __fastcall ObpDeleteSymbolicLinkName(__int64 a1)

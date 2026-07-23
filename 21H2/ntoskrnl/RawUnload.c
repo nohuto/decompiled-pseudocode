@@ -1,9 +1,9 @@
 /*
- * XREFs of RawUnload @ 0x14090F300
+ * XREFs of RawUnload @ 0x14090F460
  * Callers:
  *     <none>
  * Callees:
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
  */
 
 void RawUnload()

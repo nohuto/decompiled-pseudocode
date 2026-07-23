@@ -15,24 +15,24 @@
  *     _StringCbPrintfW @ 0x4B334D60 (_StringCbPrintfW.c)
  */
 
-void __fastcall LdrpReportError(UNICODE_STRING *a1, const char *a2, int a3)
+void __fastcall LdrpReportError(_UNICODE_STRING *a1, const CHAR *a2, NTSTATUS ErrorStatus)
 {
-  UNICODE_STRING *p_DestinationString; // edi
-  const char *v4; // eax
+  _UNICODE_STRING *p_DestinationString; // edi
+  const CHAR *v4; // eax
   unsigned __int8 v5; // bl
-  int v6; // edx
-  int v7; // ecx
+  ULONG v6; // edx
+  ULONG v7; // ecx
   bool v8; // zf
-  STRING v9; // [esp+10h] [ebp-154h] BYREF
-  UNICODE_STRING DestinationString; // [esp+18h] [ebp-14Ch] BYREF
-  _BYTE v11[4]; // [esp+20h] [ebp-144h] BYREF
-  int v12; // [esp+24h] [ebp-140h]
-  int v13; // [esp+28h] [ebp-13Ch]
-  int v14; // [esp+2Ch] [ebp-138h]
-  UNICODE_STRING v15; // [esp+30h] [ebp-134h] BYREF
+  size_t v9; // [esp-Ch] [ebp-170h]
+  _STRING v10; // [esp+10h] [ebp-154h] BYREF
+  _UNICODE_STRING DestinationString; // [esp+18h] [ebp-14Ch] BYREF
+  ULONG Response; // [esp+20h] [ebp-144h] BYREF
+  int v13; // [esp+24h] [ebp-140h]
+  int v14; // [esp+28h] [ebp-13Ch]
+  int v15; // [esp+2Ch] [ebp-138h]
+  _UNICODE_STRING v16; // [esp+30h] [ebp-134h] BYREF
   PCSZ SourceString; // [esp+38h] [ebp-12Ch]
-  void *v17; // [esp+3Ch] [ebp-128h] BYREF
-  UNICODE_STRING *v18; // [esp+40h] [ebp-124h]
+  unsigned __int64 Parameters; // [esp+3Ch] [ebp-128h] BYREF
   int v19; // [esp+44h] [ebp-120h]
   char v20; // [esp+48h] [ebp-11Ch] BYREF
   wchar_t pszDest[8]; // [esp+14Ch] [ebp-18h] BYREF
@@ -51,24 +51,24 @@ void __fastcall LdrpReportError(UNICODE_STRING *a1, const char *a2, int a3)
     p_DestinationString = &DestinationString;
     v5 = 0;
   }
-  switch ( a3 )
+  switch ( ErrorStatus )
   {
     case -1073741511:
-      RtlInitAnsiString(&v9, v4);
-      v15.Buffer = (wchar_t *)&v20;
-      v15.MaximumLength = 256;
-      if ( RtlAnsiStringToUnicodeString(&v15, &v9, 0) < 0 )
-        v15.Length = 0;
-      v18 = p_DestinationString;
-      v17 = &v15;
+      RtlInitAnsiString(&v10, v4);
+      v16.Buffer = (wchar_t *)&v20;
+      v16.MaximumLength = 256;
+      if ( RtlAnsiStringToUnicodeString(&v16, &v10, 0) < 0 )
+        v16.Length = 0;
+      HIDWORD(Parameters) = p_DestinationString;
+      LODWORD(Parameters) = &v16;
       v19 = -1073741511;
       SourceString = (PCSZ)(v5 ^ 1);
       v6 = 3;
       v7 = 3;
-      v13 = 3;
-      v12 = (int)&LdrpLogLevelStateTable[3 * (_DWORD)SourceString];
       v14 = 3;
-      if ( ((*(_DWORD *)v12 | 1) & ShowSnaps) != 0 )
+      v13 = (int)&LdrpLogLevelStateTable[3 * (_DWORD)SourceString];
+      v15 = 3;
+      if ( ((*(_DWORD *)v13 | 1) & ShowSnaps) != 0 )
       {
         LdrpLogDbgPrint(
           "minkernel\\ntdll\\ldrutil.c",
@@ -76,49 +76,50 @@ void __fastcall LdrpReportError(UNICODE_STRING *a1, const char *a2, int a3)
           "LdrpReportError",
           SourceString,
           "Locating export \"%wZ\" for DLL \"%wZ\" failed with status: 0x%08lx.\n",
-          &v15,
+          &v16,
           p_DestinationString,
           -1073741511);
-        v7 = v14;
-        v6 = v13;
+        v7 = v15;
+        v6 = v14;
       }
-      v8 = (ShowSnaps & *(_DWORD *)(v12 + 4)) == 0;
+      v8 = (ShowSnaps & *(_DWORD *)(v13 + 4)) == 0;
       break;
     case -1073741515:
-      RtlInitUnicodeString(&v15, 0);
-      v17 = p_DestinationString;
+      RtlInitUnicodeString(&v16, 0);
+      LODWORD(Parameters) = p_DestinationString;
       v6 = 1;
       v7 = 1;
       goto LABEL_11;
     case -1073741512:
-      StringCbPrintfW(pszDest, 0xEu, L"#%d", (unsigned __int16)v4);
-      RtlInitUnicodeString(&v15, pszDest);
-      v17 = (void *)SourceString;
-      v18 = p_DestinationString;
-      v12 = v5 ^ 1;
+      HIDWORD(v9) = L"#%d";
+      LODWORD(v9) = 14;
+      StringCbPrintfW(pszDest, v9, (STRSAFE_LPCWSTR)(unsigned __int16)v4);
+      RtlInitUnicodeString(&v16, (PCWSTR)pszDest);
+      Parameters = __PAIR64__((unsigned int)p_DestinationString, (unsigned int)SourceString);
+      v13 = v5 ^ 1;
       v6 = 2;
       v7 = 3;
       v19 = -1073741512;
-      v13 = (int)&LdrpLogLevelStateTable[3 * v12];
-      v14 = 3;
-      if ( ((*(_DWORD *)v13 | 1) & ShowSnaps) != 0 )
+      v14 = (int)&LdrpLogLevelStateTable[3 * v13];
+      v15 = 3;
+      if ( ((*(_DWORD *)v14 | 1) & ShowSnaps) != 0 )
       {
         LdrpLogDbgPrint(
           "minkernel\\ntdll\\ldrutil.c",
           857,
           "LdrpReportError",
-          v12,
+          v13,
           "Locating export at ordinal %d for DLL \"%wZ\" failed with status: 0x%08lx.\n",
           SourceString,
           p_DestinationString,
           -1073741512);
-        v7 = v14;
+        v7 = v15;
         v6 = 2;
       }
-      v8 = (ShowSnaps & *(_DWORD *)(v13 + 4)) == 0;
+      v8 = (ShowSnaps & *(_DWORD *)(v14 + 4)) == 0;
       break;
     default:
-      RtlInitUnicodeString(&v15, 0);
+      RtlInitUnicodeString(&v16, 0);
       v7 = 3;
       v6 = 3;
       goto LABEL_11;
@@ -128,9 +129,9 @@ void __fastcall LdrpReportError(UNICODE_STRING *a1, const char *a2, int a3)
 LABEL_11:
   if ( v5 )
   {
-    if ( (int)ZwRaiseHardError(a3, v7, v6, &v17, 1, v11) >= 0 && LdrInitState != 3 )
+    if ( ZwRaiseHardError(ErrorStatus, v7, v6, &Parameters, 1u, &Response) >= 0 && LdrInitState != 3 )
       ++LdrpFatalHardErrorCount;
-    if ( a3 == -1073741511 || a3 == -1073741512 )
-      RtlRaiseStatus(a3);
+    if ( ErrorStatus == -1073741511 || ErrorStatus == -1073741512 )
+      RtlRaiseStatus(ErrorStatus);
   }
 }

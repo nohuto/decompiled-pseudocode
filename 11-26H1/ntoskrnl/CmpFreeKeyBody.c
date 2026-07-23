@@ -1,13 +1,13 @@
 /*
- * XREFs of CmpFreeKeyBody @ 0x1408BDF54
+ * XREFs of CmpFreeKeyBody @ 0x1408C4524
  * Callers:
- *     CmpFreeKeyByCell @ 0x1408BCC94 (CmpFreeKeyByCell.c)
+ *     CmpFreeKeyByCell @ 0x1408C3264 (CmpFreeKeyByCell.c)
  * Callees:
- *     HvpGetCellFlat @ 0x14085EB00 (HvpGetCellFlat.c)
- *     HvFreeCell @ 0x1408D1528 (HvFreeCell.c)
- *     HvpReleaseCellFlat @ 0x1408D51E0 (HvpReleaseCellFlat.c)
- *     HvpReleaseCellPaged @ 0x1408D73B0 (HvpReleaseCellPaged.c)
- *     HvpGetCellPaged @ 0x1408D7410 (HvpGetCellPaged.c)
+ *     HvpGetCellFlat @ 0x140864DF0 (HvpGetCellFlat.c)
+ *     HvFreeCell @ 0x1408D7AE8 (HvFreeCell.c)
+ *     HvpReleaseCellFlat @ 0x1408DB7A0 (HvpReleaseCellFlat.c)
+ *     HvpReleaseCellPaged @ 0x1408DD970 (HvpReleaseCellPaged.c)
+ *     HvpGetCellPaged @ 0x1408DD9D0 (HvpGetCellPaged.c)
  */
 
 char __fastcall CmpFreeKeyBody(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter3)

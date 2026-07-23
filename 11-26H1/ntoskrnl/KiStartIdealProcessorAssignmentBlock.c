@@ -1,7 +1,7 @@
 /*
  * XREFs of KiStartIdealProcessorAssignmentBlock @ 0x1402013B8
  * Callers:
- *     KeInitializeProcess @ 0x140963BE4 (KeInitializeProcess.c)
+ *     KeInitializeProcess @ 0x140B58704 (KeInitializeProcess.c)
  * Callees:
  *     ?KiSelectIdealProcessorSetsForProcess@@YAXPEAU_KPROCESS@@PEAT_KI_PROCESS_CONCURRENCY_COUNT@@PEAU_KAFFINITY_EX@@PEAU_KI_IDEAL_PROCESSOR_SET_BREAKPOINTS@@@Z @ 0x1402013E4 (-KiSelectIdealProcessorSetsForProcess@@YAXPEAU_KPROCESS@@PEAT_KI_PROCESS_CONCURRENCY_COUNT@@PEAU.c)
  */

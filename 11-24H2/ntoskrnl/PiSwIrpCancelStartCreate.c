@@ -1,13 +1,13 @@
 /*
- * XREFs of PiSwIrpCancelStartCreate @ 0x1405A8D00
+ * XREFs of PiSwIrpCancelStartCreate @ 0x1405A5CF0
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x14025A450 (ExReleaseResourceLite.c)
- *     KeReleaseQueuedSpinLock @ 0x140322C90 (KeReleaseQueuedSpinLock.c)
- *     IofCompleteRequest @ 0x1403DBAD0 (IofCompleteRequest.c)
- *     PiSwLock @ 0x1408B9494 (PiSwLock.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x14028AA60 (ExReleaseResourceLite.c)
+ *     KeReleaseQueuedSpinLock @ 0x1402CB820 (KeReleaseQueuedSpinLock.c)
+ *     IofCompleteRequest @ 0x1403CCDA0 (IofCompleteRequest.c)
+ *     PiSwLock @ 0x1408B6E3C (PiSwLock.c)
  */
 
 void __fastcall PiSwIrpCancelStartCreate(__int64 a1, IRP *a2)

@@ -6,19 +6,19 @@
  *     ZwQuerySection @ 0x1403FA440 (ZwQuerySection.c)
  */
 
-__int64 __fastcall CmSiGetSectionLength(__int64 a1, _QWORD *a2)
+NTSTATUS __fastcall CmSiGetSectionLength(void *a1, _QWORD *a2)
 {
-  __int64 result; // rax
-  __int128 v4; // [rsp+30h] [rbp-28h] BYREF
+  NTSTATUS result; // eax
+  __int128 SectionInformation; // [rsp+30h] [rbp-28h] BYREF
   __int64 v5; // [rsp+40h] [rbp-18h]
 
   v5 = 0LL;
-  v4 = 0LL;
-  result = ZwQuerySection(a1, 0LL, &v4, 24LL, 0LL);
-  if ( (int)result >= 0 )
+  SectionInformation = 0LL;
+  result = ZwQuerySection(a1, SectionBasicInformation, &SectionInformation, 0x18uLL, 0LL);
+  if ( result >= 0 )
   {
     *a2 = v5;
-    return 0LL;
+    return 0;
   }
   return result;
 }

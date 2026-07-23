@@ -1,9 +1,9 @@
 /*
- * XREFs of Feature_ServerQosExcludesWindowState__private_IsEnabledFallback @ 0x140532ED8
+ * XREFs of Feature_ServerQosExcludesWindowState__private_IsEnabledFallback @ 0x140535374
  * Callers:
- *     Feature_ServerQosExcludesWindowState__private_IsEnabledNoReportingNoInline @ 0x140450220 (Feature_ServerQosExcludesWindowState__private_IsEnabledNoReportingNoInline.c)
+ *     Feature_ServerQosExcludesWindowState__private_IsEnabledNoReportingNoInline @ 0x140448350 (Feature_ServerQosExcludesWindowState__private_IsEnabledNoReportingNoInline.c)
  * Callees:
- *     wil_details_IsEnabledFallback @ 0x1405016DC (wil_details_IsEnabledFallback.c)
+ *     wil_details_IsEnabledFallback @ 0x1404FAECC (wil_details_IsEnabledFallback.c)
  */
 
 __int64 __fastcall Feature_ServerQosExcludesWindowState__private_IsEnabledFallback(__int64 a1, unsigned int a2)

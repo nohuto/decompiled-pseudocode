@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlCompressBufferXpressLzStandard @ 0x1800B8F20
+ * XREFs of RtlCompressBufferXpressLzStandard @ 0x1800B6440
  * Callers:
- *     RtlCompressBufferXpressLz @ 0x1800B8E60 (RtlCompressBufferXpressLz.c)
+ *     RtlCompressBufferXpressLz @ 0x1800B6380 (RtlCompressBufferXpressLz.c)
  * Callees:
- *     RtlpMakeXpressCallback @ 0x1800B9EE0 (RtlpMakeXpressCallback.c)
+ *     RtlpMakeXpressCallback @ 0x1800B7400 (RtlpMakeXpressCallback.c)
  */
 
 __int64 __fastcall RtlCompressBufferXpressLzStandard(
@@ -295,7 +295,7 @@ LABEL_33:
     v36 = 8 * ((_WORD)v14 - (_WORD)v19) - 8;
     if ( v35 < 7 )
     {
-      *(_WORD *)v10 = v36 + v35;
+      *(_WORD *)v10 = v35 + v36;
       v10 += 2;
       goto LABEL_35;
     }

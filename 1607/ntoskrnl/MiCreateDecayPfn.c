@@ -1,16 +1,16 @@
 /*
- * XREFs of MiCreateDecayPfn @ 0x1400976F0
+ * XREFs of MiCreateDecayPfn @ 0x140096EF0
  * Callers:
- *     MiCopyDataPageToImagePage @ 0x140023A40 (MiCopyDataPageToImagePage.c)
- *     MiDeleteVirtualAddresses @ 0x140045C00 (MiDeleteVirtualAddresses.c)
- *     MiWalkEntireImage @ 0x14004C570 (MiWalkEntireImage.c)
- *     MiFinishHardFault @ 0x14004D6A0 (MiFinishHardFault.c)
+ *     MiCopyDataPageToImagePage @ 0x1400235C0 (MiCopyDataPageToImagePage.c)
+ *     MiDeleteVirtualAddresses @ 0x140045780 (MiDeleteVirtualAddresses.c)
+ *     MiWalkEntireImage @ 0x14004C0F0 (MiWalkEntireImage.c)
+ *     MiFinishHardFault @ 0x14004D220 (MiFinishHardFault.c)
  * Callees:
- *     MiLockPageAtDpcInline @ 0x14002EB30 (MiLockPageAtDpcInline.c)
- *     MiPartitionIdToPointer @ 0x1400680A0 (MiPartitionIdToPointer.c)
- *     MiInsertPageInList @ 0x1400695D0 (MiInsertPageInList.c)
- *     RtlpInterlockedPopEntrySList @ 0x140166E00 (RtlpInterlockedPopEntrySList.c)
- *     MiMakeTransitionPte @ 0x1401F279C (MiMakeTransitionPte.c)
+ *     MiLockPageAtDpcInline @ 0x14002E6B0 (MiLockPageAtDpcInline.c)
+ *     MiPartitionIdToPointer @ 0x140067C20 (MiPartitionIdToPointer.c)
+ *     MiInsertPageInList @ 0x140069150 (MiInsertPageInList.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140167370 (RtlpInterlockedPopEntrySList.c)
+ *     MiMakeTransitionPte @ 0x1401F25C8 (MiMakeTransitionPte.c)
  */
 
 PSLIST_ENTRY __fastcall MiCreateDecayPfn(unsigned int a1)
@@ -24,7 +24,7 @@ PSLIST_ENTRY __fastcall MiCreateDecayPfn(unsigned int a1)
   __int64 v7; // rcx
 
   v1 = a1;
-  result = RtlpInterlockedPopEntrySList(&stru_140327370);
+  result = RtlpInterlockedPopEntrySList(&stru_1403273B0);
   v3 = (__int64)result;
   if ( result )
   {

@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpTimerWatchdogResetCountdown @ 0x140393A60
+ * XREFs of HalpTimerWatchdogResetCountdown @ 0x140393BB0
  * Callers:
- *     HalpTimerWatchdogPreResetInterrupt @ 0x1404D49D0 (HalpTimerWatchdogPreResetInterrupt.c)
+ *     HalpTimerWatchdogPreResetInterrupt @ 0x1404D4C10 (HalpTimerWatchdogPreResetInterrupt.c)
  * Callees:
- *     HalpSetTimer @ 0x14024E37C (HalpSetTimer.c)
- *     HalpTimerWatchdogWakeSetDueTime @ 0x140393ABC (HalpTimerWatchdogWakeSetDueTime.c)
+ *     HalpSetTimer @ 0x1402F2BCC (HalpSetTimer.c)
+ *     HalpTimerWatchdogWakeSetDueTime @ 0x140393C0C (HalpTimerWatchdogWakeSetDueTime.c)
  */
 
 __int64 HalpTimerWatchdogResetCountdown()

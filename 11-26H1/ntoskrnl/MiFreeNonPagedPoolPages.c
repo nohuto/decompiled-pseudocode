@@ -1,10 +1,10 @@
 /*
- * XREFs of MiFreeNonPagedPoolPages @ 0x1403632E0
+ * XREFs of MiFreeNonPagedPoolPages @ 0x140365080
  * Callers:
- *     MiFinishDeleteNonPagedPtes @ 0x14036332C (MiFinishDeleteNonPagedPtes.c)
+ *     MiFinishDeleteNonPagedPtes @ 0x1403650CC (MiFinishDeleteNonPagedPtes.c)
  * Callees:
- *     MiReturnPhysicalPoolPages @ 0x14051DF40 (MiReturnPhysicalPoolPages.c)
- *     MiLogNonPagedPoolReleaseEvent @ 0x1406FBB5C (MiLogNonPagedPoolReleaseEvent.c)
+ *     MiReturnPhysicalPoolPages @ 0x140520550 (MiReturnPhysicalPoolPages.c)
+ *     MiLogNonPagedPoolReleaseEvent @ 0x14070082C (MiLogNonPagedPoolReleaseEvent.c)
  */
 
 __int64 __fastcall MiFreeNonPagedPoolPages(__int64 a1, __int64 a2)

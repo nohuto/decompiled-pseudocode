@@ -1,80 +1,89 @@
 /*
- * XREFs of RtlUnicodeToUTF8N @ 0x180034960
+ * XREFs of RtlUnicodeToUTF8N @ 0x18001FAC0
  * Callers:
- *     UpcaseUnicodeToUTF8NHelper @ 0x1800339A0 (UpcaseUnicodeToUTF8NHelper.c)
- *     RtlxUnicodeStringToOemSize @ 0x180033B60 (RtlxUnicodeStringToOemSize.c)
- *     RtlUnicodeToMultiByteSize @ 0x180034070 (RtlUnicodeToMultiByteSize.c)
- *     RtlUpcaseUnicodeToMultiByteN @ 0x180034130 (RtlUpcaseUnicodeToMultiByteN.c)
- *     RtlUnicodeStringToAnsiString @ 0x1800344C0 (RtlUnicodeStringToAnsiString.c)
- *     RtlUnicodeToCustomCPN @ 0x180034800 (RtlUnicodeToCustomCPN.c)
- *     RtlUnicodeToMultiByteN @ 0x180036220 (RtlUnicodeToMultiByteN.c)
- *     RtlUnicodeStringToUTF8String @ 0x18014A4F0 (RtlUnicodeStringToUTF8String.c)
+ *     UpcaseUnicodeToUTF8NHelper @ 0x18001EB00 (UpcaseUnicodeToUTF8NHelper.c)
+ *     RtlxUnicodeStringToOemSize @ 0x18001ECC0 (RtlxUnicodeStringToOemSize.c)
+ *     RtlUnicodeToMultiByteSize @ 0x18001F1D0 (RtlUnicodeToMultiByteSize.c)
+ *     RtlUpcaseUnicodeToMultiByteN @ 0x18001F290 (RtlUpcaseUnicodeToMultiByteN.c)
+ *     RtlUnicodeStringToAnsiString @ 0x18001F620 (RtlUnicodeStringToAnsiString.c)
+ *     RtlUnicodeToCustomCPN @ 0x18001F960 (RtlUnicodeToCustomCPN.c)
+ *     RtlUnicodeToMultiByteN @ 0x180021380 (RtlUnicodeToMultiByteN.c)
+ *     RtlUnicodeStringToUTF8String @ 0x18014A3A0 (RtlUnicodeStringToUTF8String.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall RtlUnicodeToUTF8N(_BYTE *a1, int a2, _DWORD *a3, unsigned int *a4, unsigned int a5)
+NTSTATUS __cdecl RtlUnicodeToUTF8N(
+        PCHAR UTF8StringDestination,
+        ULONG UTF8StringMaxByteCount,
+        PULONG UTF8StringActualByteCount,
+        PCWCH UnicodeStringSource,
+        ULONG UnicodeStringByteCount)
 {
-  unsigned int v5; // edi
+  NTSTATUS v5; // edi
   unsigned int v6; // r10d
   int v8; // r11d
-  unsigned int *v9; // rbx
-  _BYTE *v10; // rbp
+  const WCHAR *v9; // rbx
+  CHAR *v10; // rbp
   int v11; // edx
   __int64 v12; // rax
   __int64 v13; // rdx
   unsigned __int64 v14; // rax
   unsigned __int64 v15; // rdx
-  __int64 result; // rax
-  unsigned int *v17; // r10
+  NTSTATUS result; // eax
+  const WCHAR *v17; // r10
   unsigned int v18; // edx
-  unsigned int v19; // r8d
+  int v19; // r8d
   unsigned int v20; // eax
   unsigned int v21; // eax
   unsigned int v22; // edx
-  char v23; // dl
-  _BYTE *v24; // rcx
+  CHAR v23; // dl
+  PCHAR v24; // rcx
   int v25; // r8d
 
   v5 = 0;
   v6 = 0;
-  v8 = (int)a1;
-  if ( !a4 )
-    return 3221225714LL;
-  if ( !a1 )
+  v8 = (int)UTF8StringDestination;
+  if ( !UnicodeStringSource )
+    return -1073741582;
+  if ( !UTF8StringDestination )
   {
-    if ( a3 )
-      return CountUnicodeToUTF8(a4, a5);
+    if ( UTF8StringActualByteCount )
+      return CountUnicodeToUTF8(
+               (PCHAR)UnicodeStringSource,
+               UnicodeStringByteCount,
+               UTF8StringActualByteCount,
+               UnicodeStringSource,
+               UnicodeStringByteCount);
     else
-      return 3221225485LL;
+      return -1073741811;
   }
-  if ( (a5 & 1) != 0 )
-    return 3221225715LL;
-  v9 = (unsigned int *)((char *)a4 + 2 * ((unsigned __int64)a5 >> 1));
-  v10 = &a1[a2];
+  if ( (UnicodeStringByteCount & 1) != 0 )
+    return -1073741581;
+  v9 = &UnicodeStringSource[(unsigned __int64)UnicodeStringByteCount >> 1];
+  v10 = &UTF8StringDestination[UTF8StringMaxByteCount];
   while ( 1 )
   {
     do
     {
 LABEL_5:
-      if ( a4 >= v9 )
+      if ( UnicodeStringSource >= v9 )
       {
         if ( !v6 )
           goto LABEL_21;
         break;
       }
-      v11 = *(unsigned __int16 *)a4;
+      v11 = *UnicodeStringSource;
       if ( v6 )
       {
         if ( (unsigned int)(v11 - 56320) <= 0x3FF )
         {
           v6 = v11 + (v6 << 10) - 56613888;
-          a4 = (unsigned int *)((char *)a4 + 2);
+          ++UnicodeStringSource;
         }
         break;
       }
-      v6 = *(unsigned __int16 *)a4;
-      a4 = (unsigned int *)((char *)a4 + 2);
+      v6 = *UnicodeStringSource++;
 LABEL_8:
       ;
     }
@@ -98,13 +107,13 @@ LABEL_12:
       goto LABEL_11;
     }
 LABEL_14:
-    if ( a1 > &v10[-v13] )
+    if ( UTF8StringDestination > &v10[-v13] )
       break;
     if ( v6 > 0x7F )
     {
       if ( v6 <= 0x7FF )
       {
-        *a1++ = (v6 >> 6) | 0xC0;
+        *UTF8StringDestination++ = (v6 >> 6) | 0xC0;
         LOBYTE(v6) = v6 & 0x3F | 0x80;
       }
       else
@@ -112,63 +121,61 @@ LABEL_14:
         v22 = v6 >> 12;
         if ( v6 > 0xFFFF )
         {
-          *a1++ = (v6 >> 18) | 0xF0;
+          *UTF8StringDestination++ = (v6 >> 18) | 0xF0;
           v23 = v22 & 0x3F | 0x80;
         }
         else
         {
           v23 = v22 | 0xE0;
         }
-        *a1 = v23;
-        v24 = a1 + 1;
+        *UTF8StringDestination = v23;
+        v24 = UTF8StringDestination + 1;
         *v24 = (v6 >> 6) & 0x3F | 0x80;
-        a1 = v24 + 1;
+        UTF8StringDestination = v24 + 1;
         LOBYTE(v6) = v6 & 0x3F | 0x80;
       }
     }
-    *a1++ = v6;
-    v14 = ((char *)v9 - (char *)a4) >> 1;
-    v15 = v10 - a1;
+    *UTF8StringDestination++ = v6;
+    v14 = v9 - UnicodeStringSource;
+    v15 = v10 - UTF8StringDestination;
     if ( v14 > 0xD )
     {
       if ( v15 < v14 )
-        v14 = v10 - a1;
-      v17 = (unsigned int *)((char *)a4 + 2 * v14 - 10);
+        v14 = v10 - UTF8StringDestination;
+      v17 = &UnicodeStringSource[v14 - 5];
 LABEL_26:
-      while ( a4 < v17 )
+      while ( UnicodeStringSource < v17 )
       {
-        v18 = *(unsigned __int16 *)a4;
-        a4 = (unsigned int *)((char *)a4 + 2);
+        v18 = *UnicodeStringSource++;
         if ( v18 <= 0x7F )
         {
-          *a1++ = v18;
-          if ( ((unsigned __int8)a4 & 2) == 0 )
+          *UTF8StringDestination++ = v18;
+          if ( ((unsigned __int8)UnicodeStringSource & 2) == 0 )
             goto LABEL_29;
-          v18 = *(unsigned __int16 *)a4;
-          a4 = (unsigned int *)((char *)a4 + 2);
+          v18 = *UnicodeStringSource++;
           if ( v18 <= 0x7F )
           {
-            *a1++ = v18;
+            *UTF8StringDestination++ = v18;
 LABEL_29:
-            while ( a4 < v17 )
+            while ( UnicodeStringSource < v17 )
             {
-              v19 = a4[1];
-              v18 = *a4;
-              if ( ((*a4 | v19) & 0xFF80FF80) != 0 )
+              v19 = *((_DWORD *)UnicodeStringSource + 1);
+              v18 = *(_DWORD *)UnicodeStringSource;
+              if ( ((*(_DWORD *)UnicodeStringSource | v19) & 0xFF80FF80) != 0 )
               {
                 v18 = (unsigned __int16)v18;
-                a4 = (unsigned int *)((char *)a4 + 2);
+                ++UnicodeStringSource;
                 if ( (unsigned __int16)v18 > 0x7Fu )
                   goto LABEL_41;
-                *a1++ = v18;
+                *UTF8StringDestination++ = v18;
                 goto LABEL_26;
               }
-              *a1 = v18;
-              a4 += 2;
-              a1[2] = v19;
-              a1[1] = BYTE2(v18);
-              a1[3] = BYTE2(v19);
-              a1 += 4;
+              *UTF8StringDestination = v18;
+              UnicodeStringSource += 4;
+              UTF8StringDestination[2] = v19;
+              UTF8StringDestination[1] = BYTE2(v18);
+              UTF8StringDestination[3] = BYTE2(v19);
+              UTF8StringDestination += 4;
             }
             break;
           }
@@ -180,48 +187,46 @@ LABEL_41:
           {
             if ( v18 > 0xDBFF )
             {
-              a4 = (unsigned int *)((char *)a4 - 2);
+              --UnicodeStringSource;
               break;
             }
-            v25 = *(unsigned __int16 *)a4;
-            a4 = (unsigned int *)((char *)a4 + 2);
+            v25 = *UnicodeStringSource++;
             if ( (unsigned int)(v25 - 56320) > 0x3FF )
             {
-              --a4;
+              UnicodeStringSource -= 2;
               v6 = 0;
               goto LABEL_5;
             }
             v18 = v25 + (v18 << 10) - 56613888;
-            *a1++ = (v18 >> 18) | 0xF0;
+            *UTF8StringDestination++ = (v18 >> 18) | 0xF0;
             v21 = v18 & 0x3F000 | 0x80000;
           }
           else
           {
             v21 = v18 | 0xE0000;
           }
-          v17 = (unsigned int *)((char *)v17 - 2);
-          *a1++ = v21 >> 12;
+          --v17;
+          *UTF8StringDestination++ = v21 >> 12;
           v20 = v18 & 0xFC0 | 0x2000;
         }
         else
         {
           v20 = v18 | 0x3000;
         }
-        *a1 = v20 >> 6;
-        v17 = (unsigned int *)((char *)v17 - 2);
-        a1[1] = v18 & 0x3F | 0x80;
-        a1 += 2;
+        *UTF8StringDestination = v20 >> 6;
+        --v17;
+        UTF8StringDestination[1] = v18 & 0x3F | 0x80;
+        UTF8StringDestination += 2;
       }
     }
     else if ( v15 >= v14 )
     {
-      while ( a4 < v9 )
+      while ( UnicodeStringSource < v9 )
       {
-        v6 = *(unsigned __int16 *)a4;
-        a4 = (unsigned int *)((char *)a4 + 2);
+        v6 = *UnicodeStringSource++;
         if ( v6 > 0x7F )
           goto LABEL_8;
-        *a1++ = v6;
+        *UTF8StringDestination++ = v6;
       }
 LABEL_21:
       result = v5;
@@ -229,8 +234,8 @@ LABEL_21:
     }
     v6 = 0;
   }
-  result = 3221225507LL;
+  result = -1073741789;
 LABEL_22:
-  *a3 = (_DWORD)a1 - v8;
+  *UTF8StringActualByteCount = (_DWORD)UTF8StringDestination - v8;
   return result;
 }

@@ -1,14 +1,14 @@
 /*
- * XREFs of WheapPredictiveFailureAnalysis @ 0x1408DCF44
+ * XREFs of WheapPredictiveFailureAnalysis @ 0x1408DE204
  * Callers:
- *     WheapProcessWorkQueueItem @ 0x1403204D0 (WheapProcessWorkQueueItem.c)
+ *     WheapProcessWorkQueueItem @ 0x1403206C0 (WheapProcessWorkQueueItem.c)
  * Callees:
  *     ExfAcquirePushLockExclusiveEx @ 0x140005760 (ExfAcquirePushLockExclusiveEx.c)
  *     KeAbPreAcquire @ 0x14004E270 (KeAbPreAcquire.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     WheaAttemptPhysicalPageOffline @ 0x1408DBA00 (WheaAttemptPhysicalPageOffline.c)
- *     WheapPfaMemoryCheck @ 0x1408DCAB8 (WheapPfaMemoryCheck.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     WheaAttemptPhysicalPageOffline @ 0x1408DCCC0 (WheaAttemptPhysicalPageOffline.c)
+ *     WheapPfaMemoryCheck @ 0x1408DDD78 (WheapPfaMemoryCheck.c)
  */
 
 void __fastcall WheapPredictiveFailureAnalysis(__int64 a1)
@@ -23,10 +23,10 @@ void __fastcall WheapPredictiveFailureAnalysis(__int64 a1)
   __int64 v9; // rax
   int v10; // eax
   __int64 v11; // rbx
-  __int64 v12; // rax
+  _RTL_BALANCED_NODE *v12; // rax
   __int64 v13; // rcx
   signed __int8 v14; // cf
-  __int64 v15; // rdi
+  _RTL_BALANCED_NODE *v15; // rdi
 
   v1 = a1 + 40;
   if ( !WheapPolicyDisableOffline )
@@ -79,7 +79,7 @@ LABEL_12:
               if ( v14 )
                 ExfAcquirePushLockExclusiveEx(&WheapPfaLock, v12, (ULONG_PTR)&WheapPfaLock);
               if ( v15 )
-                *(_BYTE *)(v15 + 26) |= 1u;
+                BYTE2(v15[1].Left) |= 1u;
               WheapPfaMemoryCheck(v13, v11);
               if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&WheapPfaLock, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
                 ExfTryToWakePushLock((volatile signed __int64 *)&WheapPfaLock);

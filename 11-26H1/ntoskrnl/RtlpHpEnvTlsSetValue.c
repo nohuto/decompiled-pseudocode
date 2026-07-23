@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpHpEnvTlsSetValue @ 0x140346E80
+ * XREFs of RtlpHpEnvTlsSetValue @ 0x140348F00
  * Callers:
- *     RtlpHpLfhBucketUpdateAffinityMapping @ 0x14035402C (RtlpHpLfhBucketUpdateAffinityMapping.c)
- *     RtlpHpLfhSlotAllocateSlow @ 0x140402C90 (RtlpHpLfhSlotAllocateSlow.c)
- *     RtlpHpLfhPrivateSlotCreate @ 0x140519814 (RtlpHpLfhPrivateSlotCreate.c)
- *     RtlpHpLfhThreadDataInitializeSet @ 0x14052769C (RtlpHpLfhThreadDataInitializeSet.c)
+ *     RtlpHpLfhSlotAllocateSlow @ 0x1403FBD90 (RtlpHpLfhSlotAllocateSlow.c)
+ *     RtlpHpLfhPrivateSlotCreate @ 0x140513284 (RtlpHpLfhPrivateSlotCreate.c)
+ *     RtlpHpLfhBucketUpdateAffinityMapping @ 0x140519218 (RtlpHpLfhBucketUpdateAffinityMapping.c)
+ *     RtlpHpLfhThreadDataInitializeSet @ 0x140529D0C (RtlpHpLfhThreadDataInitializeSet.c)
  * Callees:
- *     ExSaDecodeHandle @ 0x1402C15D0 (ExSaDecodeHandle.c)
+ *     ExSaDecodeHandle @ 0x14030C290 (ExSaDecodeHandle.c)
  */
 
 __int64 __fastcall RtlpHpEnvTlsSetValue(unsigned int a1)

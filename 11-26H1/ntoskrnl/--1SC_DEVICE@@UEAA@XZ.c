@@ -1,10 +1,10 @@
 /*
- * XREFs of ??1SC_DEVICE@@UEAA@XZ @ 0x14071C1EC
+ * XREFs of ??1SC_DEVICE@@UEAA@XZ @ 0x140720E7C
  * Callers:
- *     ??1SC_DISK@@UEAA@XZ @ 0x14071AD4C (--1SC_DISK@@UEAA@XZ.c)
- *     ??_GSC_DEVICE@@UEAAPEAXI@Z @ 0x14071C2B0 (--_GSC_DEVICE@@UEAAPEAXI@Z.c)
+ *     ??1SC_DISK@@UEAA@XZ @ 0x14071F9DC (--1SC_DISK@@UEAA@XZ.c)
+ *     ??_GSC_DEVICE@@UEAAPEAXI@Z @ 0x140720F40 (--_GSC_DEVICE@@UEAAPEAXI@Z.c)
  * Callees:
- *     PspUserApcKernelRoutine @ 0x140959620 (PspUserApcKernelRoutine.c)
+ *     PspUserApcKernelRoutine @ 0x1409FEEE0 (PspUserApcKernelRoutine.c)
  */
 
 void __fastcall SC_DEVICE::~SC_DEVICE(SC_DEVICE *this)

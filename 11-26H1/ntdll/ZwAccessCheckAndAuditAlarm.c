@@ -1,16 +1,27 @@
 /*
- * XREFs of ZwAccessCheckAndAuditAlarm @ 0x18015F460
+ * XREFs of ZwAccessCheckAndAuditAlarm @ 0x18015F360
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 ZwAccessCheckAndAuditAlarm()
+NTSTATUS __cdecl ZwAccessCheckAndAuditAlarm(
+        PUNICODE_STRING SubsystemName,
+        PVOID HandleId,
+        PUNICODE_STRING ObjectTypeName,
+        PUNICODE_STRING ObjectName,
+        PSECURITY_DESCRIPTOR SecurityDescriptor,
+        ACCESS_MASK DesiredAccess,
+        PGENERIC_MAPPING GenericMapping,
+        BOOLEAN ObjectCreation,
+        PACCESS_MASK GrantedAccess,
+        PNTSTATUS AccessStatus,
+        PBOOLEAN GenerateOnClose)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 41LL;
+  result = 41;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

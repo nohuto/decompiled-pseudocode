@@ -10,22 +10,22 @@
  *     <none>
  */
 
-unsigned __int64 __fastcall RtlFindSetBitsEx(unsigned __int64 *a1, unsigned __int64 a2, unsigned __int64 a3)
+ULONG64 __cdecl RtlFindSetBitsEx(PRTL_BITMAP_EX BitMapHeader, ULONG64 NumberToFind, ULONG64 HintIndex)
 {
-  unsigned __int64 v3; // r15
-  unsigned __int64 v5; // r13
-  unsigned __int64 v7; // r11
-  __int64 v8; // r9
+  unsigned __int64 SizeOfBitMap; // r15
+  unsigned __int64 *Buffer; // r13
+  ULONG64 v7; // r11
+  unsigned __int64 v8; // r9
   unsigned __int64 v9; // r10
-  unsigned __int64 v10; // rbp
-  _QWORD *v11; // r8
+  ULONG64 v10; // rbp
+  unsigned __int64 *v11; // r8
   unsigned __int64 v12; // r9
-  unsigned __int64 v13; // rsi
+  unsigned __int64 *v13; // rsi
   unsigned int v14; // eax
   unsigned __int64 v15; // rax
-  unsigned __int64 v16; // rdx
+  ULONG64 v16; // rdx
   __int64 v19; // rdx
-  _QWORD *v20; // rdi
+  unsigned __int64 *v20; // rdi
   bool v21; // zf
   __int64 v22; // rcx
   unsigned int v23; // r10d
@@ -33,34 +33,34 @@ unsigned __int64 __fastcall RtlFindSetBitsEx(unsigned __int64 *a1, unsigned __in
   __int64 v25; // rax
   __int64 v26; // rdx
   unsigned int v27; // ecx
-  _QWORD *v28; // r9
+  unsigned __int64 *v28; // r9
   __int64 v29; // rcx
-  unsigned __int64 v30; // r10
+  ULONG64 v30; // r10
   __int64 v31; // rcx
   unsigned int v32; // r9d
   __int64 v33; // rcx
   __int64 v34; // rax
-  unsigned __int64 v35; // r9
+  ULONG64 v35; // r9
 
-  v3 = *a1;
-  v5 = a1[1];
-  v7 = a3 & -(__int64)(a3 < *a1);
-  v8 = *a1 - 1;
-  if ( !a2 )
+  SizeOfBitMap = BitMapHeader->SizeOfBitMap;
+  Buffer = BitMapHeader->Buffer;
+  v7 = HintIndex & -(__int64)(HintIndex < BitMapHeader->SizeOfBitMap);
+  v8 = BitMapHeader->SizeOfBitMap - 1;
+  if ( !NumberToFind )
     return v7 & 0xFFFFFFFFFFFFFFF8uLL;
   while ( 1 )
   {
     v9 = v8;
-    if ( v8 - v7 + 1 < a2 )
+    if ( v8 - v7 + 1 < NumberToFind )
       goto LABEL_31;
-    v10 = v8 - a2 + 1;
-    v11 = (_QWORD *)(v5 + 8 * (v7 >> 6));
+    v10 = v8 - NumberToFind + 1;
+    v11 = &Buffer[v7 >> 6];
     v12 = ((1LL << (v7 & 0x3F)) - 1) | ~*v11;
-    v13 = v5 + 8 * ((v9 - a2 + 1) >> 6);
-    if ( a2 > 0x7F )
+    v13 = &Buffer[(v9 - NumberToFind + 1) >> 6];
+    if ( NumberToFind > 0x7F )
       break;
     v14 = 64;
-    if ( a2 >= 0x40 )
+    if ( NumberToFind >= 0x40 )
     {
       while ( 1 )
       {
@@ -68,18 +68,18 @@ unsigned __int64 __fastcall RtlFindSetBitsEx(unsigned __int64 *a1, unsigned __in
         {
           while ( (v12 & 0x8000000000000000uLL) != 0 )
           {
-            if ( (unsigned __int64)++v11 > v13 )
+            if ( ++v11 > v13 )
               goto LABEL_31;
             v12 = ~*v11;
           }
           v21 = !_BitScanReverse64((unsigned __int64 *)&v29, v12);
           if ( !v21 )
             v14 = 63 - v29;
-          v16 = ((((__int64)((__int64)v11 - v5) >> 3) + 1) << 6) - v14;
+          v16 = ((v11 - Buffer + 1) << 6) - v14;
           if ( v16 > v10 )
             goto LABEL_31;
-          v30 = a2 - v14;
-          if ( a2 == v14 )
+          v30 = NumberToFind - v14;
+          if ( NumberToFind == v14 )
             goto LABEL_11;
           ++v11;
           v14 = 64;
@@ -104,24 +104,24 @@ LABEL_56:
         }
       }
     }
-    if ( a2 > 1 )
+    if ( NumberToFind > 1 )
     {
       v19 = 0LL;
-      v20 = (_QWORD *)(v5 + 8 * (v9 >> 6));
+      v20 = &Buffer[v9 >> 6];
       while ( v12 != -1LL )
       {
 LABEL_16:
         v21 = !_BitScanForward64((unsigned __int64 *)&v22, v12);
         if ( v21 )
           LODWORD(v22) = 64;
-        if ( (unsigned int)(v19 + v22) >= a2 )
+        if ( (unsigned int)(v19 + v22) >= NumberToFind )
         {
           v24 = -v19;
 LABEL_23:
-          v16 = ((__int64)((__int64)v11 - v5) >> 3 << 6) + v24;
+          v16 = ((v11 - Buffer) << 6) + v24;
           goto LABEL_10;
         }
-        v23 = a2;
+        v23 = NumberToFind;
         v24 = ~v12;
         while ( 1 )
         {
@@ -144,7 +144,7 @@ LABEL_23:
           v19 = (unsigned int)(63 - v25);
         v12 = ~*++v11;
       }
-      while ( (unsigned __int64)++v11 <= v13 )
+      while ( ++v11 <= v13 )
       {
         v12 = ~*v11;
         if ( *v11 )
@@ -158,12 +158,12 @@ LABEL_23:
     {
       while ( v12 == -1LL )
       {
-        if ( (unsigned __int64)++v11 > v13 )
+        if ( ++v11 > v13 )
           goto LABEL_31;
         v12 = ~*v11;
       }
       _BitScanForward64(&v15, ~v12);
-      v16 = v15 + ((__int64)((__int64)v11 - v5) >> 3 << 6);
+      v16 = v15 + ((v11 - Buffer) << 6);
 LABEL_10:
       if ( v16 <= v10 )
         goto LABEL_11;
@@ -173,14 +173,14 @@ LABEL_31:
 LABEL_32:
     if ( !v7 )
       return v16;
-    v35 = a2 + a3;
+    v35 = NumberToFind + HintIndex;
     v7 = 0LL;
-    if ( a2 + a3 > v3 )
-      v35 = v3;
+    if ( NumberToFind + HintIndex > SizeOfBitMap )
+      v35 = SizeOfBitMap;
     v8 = v35 - 1;
   }
   if ( (v10 & 0x3F) != 0 )
-    v13 += 8LL;
+    ++v13;
   if ( !v12 )
   {
     v27 = 0;
@@ -201,7 +201,7 @@ LABEL_32:
     do
     {
 LABEL_39:
-      if ( (unsigned __int64)v11 > v13 )
+      if ( v11 > v13 )
         goto LABEL_31;
       ++v11;
     }
@@ -213,17 +213,17 @@ LABEL_72:
     else
       v27 = 63 - v26;
 LABEL_43:
-    v16 = ((__int64)((__int64)v11 - v5) >> 3 << 6) - v27;
+    v16 = ((v11 - Buffer) << 6) - v27;
     if ( v16 > v10 )
       goto LABEL_31;
-    v28 = &v11[(a2 - v27) >> 6];
+    v28 = &v11[(NumberToFind - v27) >> 6];
     while ( ++v11 != v28 )
     {
       if ( *v11 != -1LL )
         goto LABEL_39;
     }
-    v32 = ((_BYTE)a2 - (_BYTE)v27) & 0x3F;
-    if ( (((_BYTE)a2 - (_BYTE)v27) & 0x3F) == 0 )
+    v32 = ((_BYTE)NumberToFind - (_BYTE)v27) & 0x3F;
+    if ( (((_BYTE)NumberToFind - (_BYTE)v27) & 0x3F) == 0 )
       break;
     v21 = !_BitScanForward64((unsigned __int64 *)&v33, ~*v11);
     if ( v21 )

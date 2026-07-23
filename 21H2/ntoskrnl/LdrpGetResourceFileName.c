@@ -1,12 +1,12 @@
 /*
- * XREFs of LdrpGetResourceFileName @ 0x140380C48
+ * XREFs of LdrpGetResourceFileName @ 0x140380798
  * Callers:
- *     LdrLoadAlternateResourceModuleEx @ 0x1402A94D4 (LdrLoadAlternateResourceModuleEx.c)
+ *     LdrLoadAlternateResourceModuleEx @ 0x140227614 (LdrLoadAlternateResourceModuleEx.c)
  * Callees:
- *     RtlAppendUnicodeToString @ 0x140265A40 (RtlAppendUnicodeToString.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     __report_rangecheckfailure @ 0x1404B646C (__report_rangecheckfailure.c)
+ *     RtlAppendUnicodeToString @ 0x1402539E0 (RtlAppendUnicodeToString.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     __report_rangecheckfailure @ 0x1404B66AC (__report_rangecheckfailure.c)
  */
 
 int __fastcall LdrpGetResourceFileName(

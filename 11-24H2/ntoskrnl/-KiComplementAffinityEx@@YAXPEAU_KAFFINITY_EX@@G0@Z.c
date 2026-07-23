@@ -1,12 +1,12 @@
 /*
- * XREFs of ?KiComplementAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z @ 0x140205180
+ * XREFs of ?KiComplementAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z @ 0x14032C760
  * Callers:
- *     KiGetDeepIdleProcessors @ 0x140204E08 (KiGetDeepIdleProcessors.c)
- *     KeFlushQueuedDpcs @ 0x140204EA0 (KeFlushQueuedDpcs.c)
- *     KeComplementAffinityEx2 @ 0x140205160 (KeComplementAffinityEx2.c)
- *     KiForwardTick @ 0x14029D53C (KiForwardTick.c)
- *     KeComplementAffinityEx @ 0x1405B8170 (KeComplementAffinityEx.c)
- *     PpmParkComputeUnparkMaskEx @ 0x1405E2544 (PpmParkComputeUnparkMaskEx.c)
+ *     KiForwardTick @ 0x1402AC02C (KiForwardTick.c)
+ *     KiGetDeepIdleProcessors @ 0x14032C3E8 (KiGetDeepIdleProcessors.c)
+ *     KeFlushQueuedDpcs @ 0x14032C480 (KeFlushQueuedDpcs.c)
+ *     KeComplementAffinityEx2 @ 0x14032C740 (KeComplementAffinityEx2.c)
+ *     KeComplementAffinityEx @ 0x1405B5750 (KeComplementAffinityEx.c)
+ *     PpmParkComputeUnparkMaskEx @ 0x1405DFACC (PpmParkComputeUnparkMaskEx.c)
  * Callees:
  *     <none>
  */

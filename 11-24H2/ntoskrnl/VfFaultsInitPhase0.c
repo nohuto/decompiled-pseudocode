@@ -1,14 +1,14 @@
 /*
- * XREFs of VfFaultsInitPhase0 @ 0x140B96338
+ * XREFs of VfFaultsInitPhase0 @ 0x140B98338
  * Callers:
- *     VfRlrsEntry @ 0x140615080 (VfRlrsEntry.c)
- *     VfInitSystemNoRebootNeeded @ 0x140B83980 (VfInitSystemNoRebootNeeded.c)
+ *     VfRlrsEntry @ 0x140613640 (VfRlrsEntry.c)
+ *     VfInitSystemNoRebootNeeded @ 0x140B85980 (VfInitSystemNoRebootNeeded.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     ExAllocatePool3 @ 0x140B746D0 (ExAllocatePool3.c)
- *     VfFaultsAddAllApps @ 0x140B961E0 (VfFaultsAddAllApps.c)
- *     VfFaultsAddAllTags @ 0x140B9628C (VfFaultsAddAllTags.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ExAllocatePool3 @ 0x140B76270 (ExAllocatePool3.c)
+ *     VfFaultsAddAllApps @ 0x140B981E0 (VfFaultsAddAllApps.c)
+ *     VfFaultsAddAllTags @ 0x140B9828C (VfFaultsAddAllTags.c)
  */
 
 void VfFaultsInitPhase0()
@@ -28,13 +28,13 @@ void VfFaultsInitPhase0()
   ViFaultTraces = (PVOID)ExAllocatePool3(0x40uLL, 72 * v0, 0x74746C46u, (__int64)&VfExtendedParameters, 1u);
   v1 = KeAcquireSpinLockRaiseToDpc(&ViFaultInjectionLock);
   ViHaveFaultTags = 0;
-  qword_140F041C8 = (__int64)&ViFaultTagsList;
+  qword_140F04438 = (__int64)&ViFaultTagsList;
   ViFaultTagsList = &ViFaultTagsList;
   KeReleaseSpinLock(&ViFaultInjectionLock, v1);
   if ( VerifierFaultTagsBufferSize != -1 && (unsigned int)(VerifierFaultTagsBufferSize - 2) <= 0xFE )
     VfFaultsAddAllTags(VerifierFaultTagsBuffer, ((unsigned __int64)(unsigned int)VerifierFaultTagsBufferSize - 2) >> 1);
   v2 = KeAcquireSpinLockRaiseToDpc(&ViFaultInjectionLock);
-  qword_140F04098 = (__int64)&ViFaultApplicationsList;
+  qword_140F04418 = (__int64)&ViFaultApplicationsList;
   ViFaultApplicationsList = &ViFaultApplicationsList;
   KeReleaseSpinLock(&ViFaultInjectionLock, v2);
   if ( VerifierFaultApplicationsBufferSize != -1 && (unsigned int)(VerifierFaultApplicationsBufferSize - 2) <= 0xFE )

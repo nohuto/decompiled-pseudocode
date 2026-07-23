@@ -1,11 +1,11 @@
 /*
- * XREFs of NtRegisterThreadTerminatePort @ 0x1406CAC70
+ * XREFs of NtRegisterThreadTerminatePort @ 0x1406CBF10
  * Callers:
  *     <none>
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     ExAllocatePoolWithQuotaTag @ 0x1400B7670 (ExAllocatePoolWithQuotaTag.c)
- *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
+ *     ExAllocatePoolWithQuotaTag @ 0x1400B75B0 (ExAllocatePoolWithQuotaTag.c)
+ *     ObReferenceObjectByHandle @ 0x1405E9350 (ObReferenceObjectByHandle.c)
  */
 
 NTSTATUS __stdcall NtRegisterThreadTerminatePort(HANDLE TerminationPort)

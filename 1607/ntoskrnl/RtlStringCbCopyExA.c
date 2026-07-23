@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlStringCbCopyExA @ 0x14014B79C
+ * XREFs of RtlStringCbCopyExA @ 0x14014BD0C
  * Callers:
  *     InitBootProcessor @ 0x1407937C4 (InitBootProcessor.c)
  * Callees:
- *     RtlStringCopyWorkerA @ 0x1400C9848 (RtlStringCopyWorkerA.c)
- *     RtlStringExValidateDestA @ 0x14014B80C (RtlStringExValidateDestA.c)
+ *     RtlStringCopyWorkerA @ 0x1400C76E8 (RtlStringCopyWorkerA.c)
+ *     RtlStringExValidateDestA @ 0x14014BD7C (RtlStringExValidateDestA.c)
  */
 
 NTSTATUS __stdcall RtlStringCbCopyExA(

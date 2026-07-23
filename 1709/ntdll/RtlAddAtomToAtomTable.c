@@ -7,7 +7,7 @@
  */
 
 // attributes: thunk
-__int64 RtlAddAtomToAtomTable()
+NTSTATUS __cdecl RtlAddAtomToAtomTable(PVOID AtomTableHandle, PWSTR AtomName, PRTL_ATOM Atom)
 {
-  return RtlAddAtomToAtomTableEx();
+  return RtlAddAtomToAtomTableEx(AtomTableHandle, AtomName, Atom);
 }

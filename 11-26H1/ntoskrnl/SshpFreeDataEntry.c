@@ -1,15 +1,15 @@
 /*
- * XREFs of SshpFreeDataEntry @ 0x1407E3AD8
+ * XREFs of SshpFreeDataEntry @ 0x1407E8E24
  * Callers:
- *     SleepstudyHelperDestroyLibrary @ 0x140614000 (SleepstudyHelperDestroyLibrary.c)
- *     SleepstudyHelperDestroyBlockerData @ 0x1407E4390 (SleepstudyHelperDestroyBlockerData.c)
- *     SleepstudyHelperCreateBlockerData @ 0x140B63EF0 (SleepstudyHelperCreateBlockerData.c)
+ *     SleepstudyHelperDestroyLibrary @ 0x140616EC0 (SleepstudyHelperDestroyLibrary.c)
+ *     SleepstudyHelperDestroyBlockerData @ 0x1407E9F00 (SleepstudyHelperDestroyBlockerData.c)
+ *     SleepstudyHelperCreateBlockerData @ 0x140B66F90 (SleepstudyHelperCreateBlockerData.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     CmpFreeTransientPoolWithTag @ 0x140477290 (CmpFreeTransientPoolWithTag.c)
- *     SSHSupportReleasePushLockExclusive @ 0x1404B32FC (SSHSupportReleasePushLockExclusive.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     CmpFreeTransientPoolWithTag @ 0x140470A10 (CmpFreeTransientPoolWithTag.c)
+ *     SSHSupportReleasePushLockExclusive @ 0x1404AC97C (SSHSupportReleasePushLockExclusive.c)
  */
 
 void __fastcall SshpFreeDataEntry(_QWORD *a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)

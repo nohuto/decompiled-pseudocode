@@ -1,7 +1,7 @@
 /*
  * XREFs of ObOpenObjectByPointerWithTag @ 0x140985170
  * Callers:
- *     DbgkCaptureLiveKernelDump @ 0x140540798 (DbgkCaptureLiveKernelDump.c)
+ *     sub_140540798 @ 0x140540798 (sub_140540798.c)
  * Callees:
  *     ObOpenObjectByPointer @ 0x1407277A0 (ObOpenObjectByPointer.c)
  */

@@ -1,15 +1,15 @@
 /*
- * XREFs of EtwpIncrementTraceFile @ 0x1409E7F30
+ * XREFs of EtwpIncrementTraceFile @ 0x1409E81C0
  * Callers:
- *     NtTraceControl @ 0x140725BD0 (NtTraceControl.c)
+ *     NtTraceControl @ 0x140725DD0 (NtTraceControl.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     EtwpReleaseLoggerContext @ 0x1406BE208 (EtwpReleaseLoggerContext.c)
- *     EtwpGenerateFileName @ 0x1407E92A0 (EtwpGenerateFileName.c)
- *     EtwpSynchronizeWithLogger @ 0x1407F5970 (EtwpSynchronizeWithLogger.c)
- *     EtwpValidateLoggerInfo @ 0x1407F8A08 (EtwpValidateLoggerInfo.c)
- *     EtwpAcquireLoggerContext @ 0x1407F8A40 (EtwpAcquireLoggerContext.c)
- *     EtwpGetLoggerInfoFromContext @ 0x1407F8B3C (EtwpGetLoggerInfoFromContext.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     EtwpReleaseLoggerContext @ 0x1406BE238 (EtwpReleaseLoggerContext.c)
+ *     EtwpGenerateFileName @ 0x1407E9570 (EtwpGenerateFileName.c)
+ *     EtwpSynchronizeWithLogger @ 0x1407F5C40 (EtwpSynchronizeWithLogger.c)
+ *     EtwpValidateLoggerInfo @ 0x1407F8CD8 (EtwpValidateLoggerInfo.c)
+ *     EtwpAcquireLoggerContext @ 0x1407F8D10 (EtwpAcquireLoggerContext.c)
+ *     EtwpGetLoggerInfoFromContext @ 0x1407F8E0C (EtwpGetLoggerInfoFromContext.c)
  */
 
 __int64 __fastcall EtwpIncrementTraceFile(__int64 a1, _DWORD *a2)

@@ -1,15 +1,15 @@
 /*
- * XREFs of BcpDisplayCriticalString @ 0x140327D54
+ * XREFs of BcpDisplayCriticalString @ 0x140327F44
  * Callers:
- *     BcpDisplayErrorInformation @ 0x1403280B0 (BcpDisplayErrorInformation.c)
- *     BcpDisplayProgress @ 0x140328330 (BcpDisplayProgress.c)
- *     BgpDisplaySafeToPowerOffScreen @ 0x140328854 (BgpDisplaySafeToPowerOffScreen.c)
- *     BgpFwDisplayBugCheckScreen @ 0x140328B0C (BgpFwDisplayBugCheckScreen.c)
+ *     BcpDisplayErrorInformation @ 0x1403282A0 (BcpDisplayErrorInformation.c)
+ *     BcpDisplayProgress @ 0x140328520 (BcpDisplayProgress.c)
+ *     BgpDisplaySafeToPowerOffScreen @ 0x140328A44 (BgpDisplaySafeToPowerOffScreen.c)
+ *     BgpFwDisplayBugCheckScreen @ 0x140328CFC (BgpFwDisplayBugCheckScreen.c)
  * Callees:
- *     BgpDisplayCharacterEx @ 0x140327874 (BgpDisplayCharacterEx.c)
- *     BgpFoGetStringAdvanceWidth @ 0x1403279E4 (BgpFoGetStringAdvanceWidth.c)
- *     BcpPrintSpaces @ 0x1403286F4 (BcpPrintSpaces.c)
- *     BgpRasGetGlyphAdvanceWidth @ 0x140328EA4 (BgpRasGetGlyphAdvanceWidth.c)
+ *     BgpDisplayCharacterEx @ 0x140327A64 (BgpDisplayCharacterEx.c)
+ *     BgpFoGetStringAdvanceWidth @ 0x140327BD4 (BgpFoGetStringAdvanceWidth.c)
+ *     BcpPrintSpaces @ 0x1403288E4 (BcpPrintSpaces.c)
+ *     BgpRasGetGlyphAdvanceWidth @ 0x140329094 (BgpRasGetGlyphAdvanceWidth.c)
  */
 
 __int64 __fastcall BcpDisplayCriticalString(__int16 *a1, int a2, unsigned int a3, int a4)
@@ -49,18 +49,18 @@ __int64 __fastcall BcpDisplayCriticalString(__int16 *a1, int a2, unsigned int a3
   if ( BcpTextBoxLeftEdgeOverride )
     v6 = *(_DWORD *)BcpTextBoxLeftEdgeOverride;
   else
-    v6 = dword_140403A70[18 * a4 + 8] + dword_140403A70[18 * a4 + 4];
+    v6 = dword_140404A70[18 * a4 + 8] + dword_140404A70[18 * a4 + 4];
   if ( BcpTextBoxRightEdgeOverride )
     v7 = *(_DWORD *)BcpTextBoxRightEdgeOverride;
   else
-    v7 = dword_140403A70[18 * a4 + 8] + dword_140403A70[18 * a4 + 6] + dword_140403A70[18 * a4 + 4];
+    v7 = dword_140404A70[18 * a4 + 8] + dword_140404A70[18 * a4 + 6] + dword_140404A70[18 * a4 + 4];
   v8 = BcpCursor;
   v9 = HIDWORD(BcpCursor);
-  v10 = dword_140438740;
-  v11 = *(_QWORD *)(qword_14043FB70 + 24);
+  v10 = dword_140439800;
+  v11 = *(_QWORD *)(qword_140440C30 + 24);
   v28 = 0;
   *(_DWORD *)(v11 + 56) = a2;
-  *(_DWORD *)(qword_14043FB70 + 8) = a2;
+  *(_DWORD *)(qword_140440C30 + 8) = a2;
   v30 = (int *)(v11 + 40);
   StringAdvanceWidth = BgpFoGetStringAdvanceWidth((int)v11 + 40, a1, &v33);
   if ( StringAdvanceWidth >= 0 )
@@ -105,14 +105,14 @@ __int64 __fastcall BcpDisplayCriticalString(__int16 *a1, int a2, unsigned int a3
             {
               if ( v8 < v7 )
               {
-                StringAdvanceWidth = BcpPrintSpaces(qword_14043FB70, v8, v7, v9, v27, (__int64)&v33);
+                StringAdvanceWidth = BcpPrintSpaces(qword_140440C30, v8, v7, v9, v27, (__int64)&v33);
                 if ( StringAdvanceWidth < 0 )
                   goto LABEL_40;
                 if ( v14 < v33 )
                   v14 = v33;
               }
               v8 = v6;
-              v22 = v14 + dword_140403A70[2 * v5 + 10];
+              v22 = v14 + dword_140404A70[2 * v5 + 10];
               v14 = 0;
               v9 += v22;
               break;
@@ -137,7 +137,7 @@ __int64 __fastcall BcpDisplayCriticalString(__int16 *a1, int a2, unsigned int a3
         break;
       if ( v8 < v7 )
       {
-        StringAdvanceWidth = BcpPrintSpaces(qword_14043FB70, v8, v7, v9, v27, (__int64)&v33);
+        StringAdvanceWidth = BcpPrintSpaces(qword_140440C30, v8, v7, v9, v27, (__int64)&v33);
         if ( StringAdvanceWidth < 0 )
           goto LABEL_40;
         if ( v14 < v33 )
@@ -145,7 +145,7 @@ __int64 __fastcall BcpDisplayCriticalString(__int16 *a1, int a2, unsigned int a3
       }
       v23 = v17;
       v8 = v6;
-      v24 = v14 + dword_140403A70[2 * v5 + 10];
+      v24 = v14 + dword_140404A70[2 * v5 + 10];
       v14 = 0;
       v9 += v24;
       if ( *(_WORD *)(*((_QWORD *)a1 + 1) + 2LL * v17) != 32 )
@@ -162,7 +162,7 @@ LABEL_39:
 LABEL_36:
     StringAdvanceWidth = BgpDisplayCharacterEx(
                            *(_WORD *)(*((_QWORD *)a1 + 1) + 2 * v23),
-                           (__int64 *)qword_14043FB70,
+                           (__int64 *)qword_140440C30,
                            v8,
                            v9,
                            v27,
@@ -179,7 +179,7 @@ LABEL_36:
   }
 LABEL_40:
   LODWORD(BcpCursor) = v8;
-  dword_140438740 = v14 + v9;
+  dword_140439800 = v14 + v9;
   result = (unsigned int)StringAdvanceWidth;
   HIDWORD(BcpCursor) = v9;
   return result;

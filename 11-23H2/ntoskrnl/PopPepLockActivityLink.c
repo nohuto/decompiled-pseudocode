@@ -1,20 +1,20 @@
 /*
- * XREFs of PopPepLockActivityLink @ 0x140313B68
+ * XREFs of PopPepLockActivityLink @ 0x140313DF8
  * Callers:
- *     PopPepUpdateConstraints @ 0x14028D234 (PopPepUpdateConstraints.c)
- *     PopPepTryPowerDownDevice @ 0x140310CD0 (PopPepTryPowerDownDevice.c)
- *     PopPepProcessEvent @ 0x140313900 (PopPepProcessEvent.c)
- *     PopPepComponentSetLatency @ 0x14035B570 (PopPepComponentSetLatency.c)
- *     PopPepComponentSetResidency @ 0x1403B3D44 (PopPepComponentSetResidency.c)
- *     PopPepCompleteComponentIdleState @ 0x14059EBA4 (PopPepCompleteComponentIdleState.c)
- *     PopPepComponentSetWakeHint @ 0x14059ECB0 (PopPepComponentSetWakeHint.c)
- *     PopPepSurprisePowerOn @ 0x14059FDC0 (PopPepSurprisePowerOn.c)
+ *     PopPepUpdateConstraints @ 0x14028D4C4 (PopPepUpdateConstraints.c)
+ *     PopPepTryPowerDownDevice @ 0x140310F60 (PopPepTryPowerDownDevice.c)
+ *     PopPepProcessEvent @ 0x140313B90 (PopPepProcessEvent.c)
+ *     PopPepComponentSetLatency @ 0x14035B710 (PopPepComponentSetLatency.c)
+ *     PopPepComponentSetResidency @ 0x1403B3F24 (PopPepComponentSetResidency.c)
+ *     PopPepCompleteComponentIdleState @ 0x14059F094 (PopPepCompleteComponentIdleState.c)
+ *     PopPepComponentSetWakeHint @ 0x14059F1A0 (PopPepComponentSetWakeHint.c)
+ *     PopPepSurprisePowerOn @ 0x1405A02B0 (PopPepSurprisePowerOn.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14028A930 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7C00 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExAcquireSpinLockShared @ 0x140314620 (ExAcquireSpinLockShared.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14028ABC0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7E90 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockShared @ 0x1403148B0 (ExAcquireSpinLockShared.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 char __fastcall PopPepLockActivityLink(__int64 a1, volatile LONG *a2, unsigned int a3, unsigned int a4, KIRQL *a5)
@@ -55,10 +55,13 @@ LABEL_12:
   if ( v9 )
   {
     ExReleaseSpinLockSharedFromDpcLevel((PEX_SPIN_LOCK)(a1 + 64));
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v10 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v10 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;

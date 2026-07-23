@@ -1,12 +1,12 @@
 /*
- * XREFs of PspCreatePartitionSystemProcess @ 0x1409B6578
+ * XREFs of PspCreatePartitionSystemProcess @ 0x1409B6778
  * Callers:
- *     PspAllocatePartition @ 0x140859010 (PspAllocatePartition.c)
+ *     PspAllocatePartition @ 0x140859250 (PspAllocatePartition.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ObReferenceObjectByHandle @ 0x1406E62C0 (ObReferenceObjectByHandle.c)
- *     ObCloseHandle @ 0x14076B890 (ObCloseHandle.c)
- *     PsCreateMinimalProcess @ 0x140852EAC (PsCreateMinimalProcess.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     ObReferenceObjectByHandle @ 0x1406E62F0 (ObReferenceObjectByHandle.c)
+ *     ObCloseHandle @ 0x14076BA80 (ObCloseHandle.c)
+ *     PsCreateMinimalProcess @ 0x1408531AC (PsCreateMinimalProcess.c)
  */
 
 __int64 __fastcall PspCreatePartitionSystemProcess(PVOID *a1, _QWORD *a2)

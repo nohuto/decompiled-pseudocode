@@ -1,18 +1,18 @@
 /*
- * XREFs of PopCompleteNotifyTransitionCommon @ 0x1403887B8
+ * XREFs of PopCompleteNotifyTransitionCommon @ 0x140388908
  * Callers:
- *     PopCompleteDirectedPowerTransitionCallback @ 0x140576A24 (PopCompleteDirectedPowerTransitionCallback.c)
- *     PopSystemIrpCompletion @ 0x140997040 (PopSystemIrpCompletion.c)
+ *     PopCompleteDirectedPowerTransitionCallback @ 0x140576C64 (PopCompleteDirectedPowerTransitionCallback.c)
+ *     PopSystemIrpCompletion @ 0x140998040 (PopSystemIrpCompletion.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseSemaphoreEx @ 0x1402631F0 (KeReleaseSemaphoreEx.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
- *     PopPrepChildWake @ 0x140388AF4 (PopPrepChildWake.c)
- *     PopReadyParentSleep @ 0x140388B60 (PopReadyParentSleep.c)
- *     PopReadyChildWake @ 0x140388BE0 (PopReadyChildWake.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KeReleaseSemaphoreEx @ 0x140284630 (KeReleaseSemaphoreEx.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402D3660 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeSetEvent @ 0x14034E2F0 (KeSetEvent.c)
+ *     PopPrepChildWake @ 0x140388C44 (PopPrepChildWake.c)
+ *     PopReadyParentSleep @ 0x140388CB0 (PopReadyParentSleep.c)
+ *     PopReadyChildWake @ 0x140388D30 (PopReadyChildWake.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     PopDiagTraceDriverVeto @ 0x1409B1FC4 (PopDiagTraceDriverVeto.c)
+ *     PopDiagTraceDriverVeto @ 0x1409B2EF4 (PopDiagTraceDriverVeto.c)
  */
 
 LONG __fastcall PopCompleteNotifyTransitionCommon(__int64 a1, __int64 *a2, int a3, __int64 a4)
@@ -22,7 +22,7 @@ LONG __fastcall PopCompleteNotifyTransitionCommon(__int64 a1, __int64 *a2, int a
   __int64 v6; // r15
   bool v8; // r12
   char v9; // r13
-  unsigned int v10; // edi
+  int v10; // edi
   __int64 v11; // r8
   __int64 v12; // r9
   __int64 v13; // rbp
@@ -34,7 +34,7 @@ LONG __fastcall PopCompleteNotifyTransitionCommon(__int64 a1, __int64 *a2, int a
   __int64 *v19; // r15
   __int64 *v20; // r11
   __int64 *i; // r10
-  _DWORD *SchedulerAssist; // r9
+  __int64 SchedulerAssist; // r9
   LONG result; // eax
   unsigned __int64 OldIrql; // rbx
   __int64 v25; // rax
@@ -54,7 +54,7 @@ LONG __fastcall PopCompleteNotifyTransitionCommon(__int64 a1, __int64 *a2, int a
     v6 = *(a2 - 18);
   v9 = 0;
   v10 = 0;
-  KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)qword_140C23430 + 1, &LockHandle);
+  KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)qword_140C23A50 + 1, &LockHandle);
   v13 = v5 + 48;
   v14 = (__int64 *)*a2;
   v15 = 9LL * *((unsigned __int8 *)a2 + 56);
@@ -162,10 +162,10 @@ LABEL_15:
       if ( (unsigned __int8)result <= 0xFu && LockHandle.OldIrql <= 0xFu && (unsigned __int8)result >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
-        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        SchedulerAssist = (__int64)CurrentPrcb->SchedulerAssist;
         result = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
-        v30 = (result & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= result;
+        v30 = (result & *(_DWORD *)(SchedulerAssist + 20)) == 0;
+        *(_DWORD *)(SchedulerAssist + 20) &= result;
         if ( v30 )
           result = KiRemoveSystemWorkPriorityKick(CurrentPrcb);
       }
@@ -175,6 +175,6 @@ LABEL_15:
   if ( v9 )
     return KeSetEvent(*(PRKEVENT *)(v5 + 24), 0, 0);
   if ( v10 )
-    return KeReleaseSemaphoreEx(*(_QWORD *)(v5 + 32), 0LL, v10, SchedulerAssist, 0);
+    return KeReleaseSemaphoreEx(*(_QWORD *)(v5 + 32), 0, v10, SchedulerAssist, 0);
   return result;
 }

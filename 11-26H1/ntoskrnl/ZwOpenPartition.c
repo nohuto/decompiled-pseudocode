@@ -1,15 +1,18 @@
 /*
- * XREFs of ZwOpenPartition @ 0x140725A30
+ * XREFs of ZwOpenPartition @ 0x14072A600
  * Callers:
- *     IopLiveDumpOpenVMMemoryPartition @ 0x1405D0C1C (IopLiveDumpOpenVMMemoryPartition.c)
- *     DifZwOpenPartitionWrapper @ 0x1406AC9C0 (DifZwOpenPartitionWrapper.c)
+ *     IopLiveDumpOpenVMMemoryPartition @ 0x1405D3420 (IopLiveDumpOpenVMMemoryPartition.c)
+ *     DifZwOpenPartitionWrapper @ 0x1406B05A0 (DifZwOpenPartitionWrapper.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwOpenPartition(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwOpenPartition(
+        PHANDLE PartitionHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(PartitionHandle);
 }

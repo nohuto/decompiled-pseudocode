@@ -1,10 +1,10 @@
 /*
- * XREFs of SymCryptIntGetValueLsbits64 @ 0x14055C304
+ * XREFs of SymCryptIntGetValueLsbits64 @ 0x14055E7EC
  * Callers:
- *     SymCryptRsakeyCalculatePrimesFromPrivateExponent @ 0x1405598D8 (SymCryptRsakeyCalculatePrimesFromPrivateExponent.c)
- *     SymCryptFdefIntToModulus @ 0x14056F104 (SymCryptFdefIntToModulus.c)
+ *     SymCryptRsakeyCalculatePrimesFromPrivateExponent @ 0x14055BD68 (SymCryptRsakeyCalculatePrimesFromPrivateExponent.c)
+ *     SymCryptFdefIntToModulus @ 0x14056E2E4 (SymCryptFdefIntToModulus.c)
  * Callees:
- *     SymCryptFdefIntGetValueLsbits64 @ 0x140570BCC (SymCryptFdefIntGetValueLsbits64.c)
+ *     SymCryptFdefIntGetValueLsbits64 @ 0x14056FDAC (SymCryptFdefIntGetValueLsbits64.c)
  */
 
 __int64 SymCryptIntGetValueLsbits64()

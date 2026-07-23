@@ -1,8 +1,8 @@
 /*
- * XREFs of MiInitializeGroupAffinity @ 0x1404EEDE0
+ * XREFs of MiInitializeGroupAffinity @ 0x1404E83C0
  * Callers:
- *     MiUpdateEngineAffinities @ 0x1404FDD1C (MiUpdateEngineAffinities.c)
- *     MiInitializeAffinityWalker @ 0x1407116EC (MiInitializeAffinityWalker.c)
+ *     MiUpdateEngineAffinities @ 0x1404F725C (MiUpdateEngineAffinities.c)
+ *     MiInitializeAffinityWalker @ 0x1407163EC (MiInitializeAffinityWalker.c)
  * Callees:
  *     <none>
  */
@@ -37,8 +37,7 @@ void __fastcall MiInitializeGroupAffinity(_OWORD *a1, __int64 a2, unsigned int a
           do
           {
             _BitScanForward64(&v10, v9);
-            v11 = KiProcessorBlock[*((unsigned int *)&KiSupervisorXStateFeaturesLock.WaitBlock[2].Thread->Header.Lock
-                                   + 64 * (unsigned __int16)*(_QWORD *)((char *)v5 + v6 + 8)
+            v11 = KiProcessorBlock[*((unsigned int *)&KiSupervisorXStateFeaturesLock.SchedulerApc.ApcListEntry.Flink[16 * (unsigned __int16)*(_QWORD *)((char *)v5 + v6 + 8)].Flink
                                    + (int)v10)];
             v12 = (_QWORD *)(v11 + 200);
             if ( (*(_BYTE *)(v11 + 35352) != 1) + 1 == a4 )

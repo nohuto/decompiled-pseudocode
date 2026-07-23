@@ -1,10 +1,10 @@
 /*
- * XREFs of PspSyscallProviderServiceDispatch @ 0x140730B10
+ * XREFs of PspSyscallProviderServiceDispatch @ 0x1407356E0
  * Callers:
- *     PsSyscallProviderDispatch @ 0x140B43670 (PsSyscallProviderDispatch.c)
+ *     PsSyscallProviderDispatch @ 0x140B45560 (PsSyscallProviderDispatch.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     PspCaptureSystemServiceInMemoryArgs @ 0x1407ED680 (PspCaptureSystemServiceInMemoryArgs.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     PspCaptureSystemServiceInMemoryArgs @ 0x1407F31E0 (PspCaptureSystemServiceInMemoryArgs.c)
  */
 
 __int64 __fastcall PspSyscallProviderServiceDispatch(_QWORD *a1, __int64 a2, char a3)

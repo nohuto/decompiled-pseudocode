@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpComputeDllPathWithOptions @ 0x180084610
+ * XREFs of RtlpComputeDllPathWithOptions @ 0x1800064C0
  * Callers:
- *     RtlpGetCachedPath @ 0x1800842B0 (RtlpGetCachedPath.c)
+ *     RtlpGetCachedPath @ 0x180006160 (RtlpGetCachedPath.c)
  * Callees:
- *     RtlAcquireSRWLockShared @ 0x180010220 (RtlAcquireSRWLockShared.c)
- *     RtlReleaseSRWLockShared @ 0x180010280 (RtlReleaseSRWLockShared.c)
- *     RtlpComputePath @ 0x180084760 (RtlpComputePath.c)
- *     __security_check_cookie @ 0x1801659C0 (__security_check_cookie.c)
+ *     RtlpComputePath @ 0x180006610 (RtlpComputePath.c)
+ *     RtlAcquireSRWLockShared @ 0x18003CC20 (RtlAcquireSRWLockShared.c)
+ *     RtlReleaseSRWLockShared @ 0x18003CC80 (RtlReleaseSRWLockShared.c)
+ *     __security_check_cookie @ 0x180163D80 (__security_check_cookie.c)
  */
 
 __int64 __fastcall RtlpComputeDllPathWithOptions(__int16 a1, __int64 a2)
@@ -35,7 +35,7 @@ __int64 __fastcall RtlpComputeDllPathWithOptions(__int16 a1, __int64 a2)
   {
     v10 = (unsigned int)v5;
     v5 = (unsigned int)(v5 + 1);
-    v11 = (_WORD)LdrpDllDirectory == 0;
+    v11 = LdrpDllDirectory.Length == 0;
     v12[v10] = 6;
     if ( !v11 )
     {

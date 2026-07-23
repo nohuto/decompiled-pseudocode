@@ -1,7 +1,7 @@
 /*
- * XREFs of MiPurgeImageSection @ 0x140176620
+ * XREFs of MiPurgeImageSection @ 0x140176720
  * Callers:
- *     MiCheckControlArea @ 0x1400764A0 (MiCheckControlArea.c)
+ *     MiCheckControlArea @ 0x140076490 (MiCheckControlArea.c)
  * Callees:
  *     MiReleasePageFileInfo @ 0x14002A628 (MiReleasePageFileInfo.c)
  *     MiLockProtoPoolPage @ 0x14002F030 (MiLockProtoPoolPage.c)
@@ -13,15 +13,15 @@
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  *     MmAccessFault @ 0x140043DA0 (MmAccessFault.c)
  *     MiChargeCommit @ 0x14004CF20 (MiChargeCommit.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     MiLockLeafPage @ 0x140080ED0 (MiLockLeafPage.c)
- *     MiDecrementShareCount @ 0x140081EA0 (MiDecrementShareCount.c)
- *     MiReleasePageFileSpace @ 0x1400823A4 (MiReleasePageFileSpace.c)
- *     MiInvalidateCollidedIos @ 0x140117D48 (MiInvalidateCollidedIos.c)
- *     MiCapturePageFileInfoInline @ 0x140119DD0 (MiCapturePageFileInfoInline.c)
- *     MiDereferenceControlAreaPfnList @ 0x140119E2C (MiDereferenceControlAreaPfnList.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     MiLockLeafPage @ 0x140080EC0 (MiLockLeafPage.c)
+ *     MiDecrementShareCount @ 0x140081E90 (MiDecrementShareCount.c)
+ *     MiReleasePageFileSpace @ 0x140082394 (MiReleasePageFileSpace.c)
+ *     MiInvalidateCollidedIos @ 0x140117DB8 (MiInvalidateCollidedIos.c)
+ *     MiCapturePageFileInfoInline @ 0x140119E40 (MiCapturePageFileInfoInline.c)
+ *     MiDereferenceControlAreaPfnList @ 0x140119E9C (MiDereferenceControlAreaPfnList.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
  */
 
 char __fastcall MiPurgeImageSection(__int64 a1)
@@ -63,13 +63,13 @@ char __fastcall MiPurgeImageSection(__int64 a1)
   unsigned int v37; // [rsp+C8h] [rbp+20h]
 
   v1 = a1 + 128;
-  LOBYTE(CurrentThread) = qword_14043A748;
+  LOBYTE(CurrentThread) = qword_14043B808;
   v3 = *(_WORD *)(a1 + 60) & 0x3FF;
   v4 = 0LL;
   v35 = 17;
   v5 = a1;
   v28 = 0LL;
-  v6 = *(struct _KEVENT **)(qword_14043A748 + 8 * v3);
+  v6 = *(struct _KEVENT **)(qword_14043B808 + 8 * v3);
   v29 = v6;
   while ( 1 )
   {
@@ -132,12 +132,12 @@ LABEL_20:
               MiUnlinkPageFromList(v13, 0);
               if ( (*v16 & 0x400LL) == 0 )
                 v17 = MiCapturePageFileInfoInline((_QWORD *)(v13 + 16), 0, 1);
-              if ( qword_14043A0C0 )
+              if ( qword_14043B180 )
               {
                 if ( (v15 & 0x10) != 0 )
                   v15 &= ~0x10uLL;
                 else
-                  v15 &= ~qword_14043A0C0;
+                  v15 &= ~qword_14043B180;
               }
               MiInsertPageInFreeOrZeroedList((v15 >> 12) & 0xFFFFFFFFFLL, 2);
               goto LABEL_38;
@@ -164,7 +164,7 @@ LABEL_38:
               if ( (unsigned int)MiPteHasShadow() )
               {
                 v19 = 1LL;
-                if ( HIBYTE(word_14043A1AC) == v20 )
+                if ( HIBYTE(word_14043B26C) == v20 )
                 {
                   v21 = (v10 & 1) == 0;
 LABEL_50:
@@ -217,7 +217,7 @@ LABEL_50:
               if ( (_DWORD)CurrentThread )
               {
                 v24 = 1;
-                if ( !HIBYTE(word_14043A1AC) )
+                if ( !HIBYTE(word_14043B26C) )
                 {
                   v25 = (v10 & 1) == 0;
 LABEL_69:

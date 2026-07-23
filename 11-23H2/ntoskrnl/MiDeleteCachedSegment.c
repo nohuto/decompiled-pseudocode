@@ -1,19 +1,19 @@
 /*
- * XREFs of MiDeleteCachedSegment @ 0x140623954
+ * XREFs of MiDeleteCachedSegment @ 0x140623EA4
  * Callers:
- *     MiDereferenceSegmentThread @ 0x1403A7C90 (MiDereferenceSegmentThread.c)
- *     MiRemoveUnusedSegments @ 0x140625B24 (MiRemoveUnusedSegments.c)
+ *     MiDereferenceSegmentThread @ 0x1403A7E70 (MiDereferenceSegmentThread.c)
+ *     MiRemoveUnusedSegments @ 0x140626074 (MiRemoveUnusedSegments.c)
  * Callees:
  *     MiDestroySection @ 0x14020184C (MiDestroySection.c)
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiInsertUnusedSegment @ 0x1402A0C98 (MiInsertUnusedSegment.c)
- *     MiUnlinkUnusedControlArea @ 0x1402A0F98 (MiUnlinkUnusedControlArea.c)
- *     MiReleaseControlAreaWaiters @ 0x1402E3F2C (MiReleaseControlAreaWaiters.c)
- *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x1403121F0 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiFlushControlArea @ 0x140624534 (MiFlushControlArea.c)
- *     MiReturnCrossPartitionSectionCharges @ 0x14066B3B4 (MiReturnCrossPartitionSectionCharges.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiInsertUnusedSegment @ 0x1402A0F28 (MiInsertUnusedSegment.c)
+ *     MiUnlinkUnusedControlArea @ 0x1402A1228 (MiUnlinkUnusedControlArea.c)
+ *     MiReleaseControlAreaWaiters @ 0x1402E41BC (MiReleaseControlAreaWaiters.c)
+ *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x140312480 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     MiFlushControlArea @ 0x140624A84 (MiFlushControlArea.c)
+ *     MiReturnCrossPartitionSectionCharges @ 0x14066B904 (MiReturnCrossPartitionSectionCharges.c)
  */
 
 __int64 __fastcall MiDeleteCachedSegment(__int64 a1)
@@ -51,10 +51,13 @@ __int64 __fastcall MiDeleteCachedSegment(__int64 a1)
   if ( i == v5 )
   {
     ExReleaseSpinLockExclusiveFromDpcLevel(v1);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v6 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v6 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -75,10 +78,10 @@ __int64 __fastcall MiDeleteCachedSegment(__int64 a1)
   {
     inserted = MiInsertUnusedSegment(v4);
     ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v4 + 72));
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v16 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v16 <= 0xFu && (unsigned __int8)v6 <= 0xFu && v16 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v16 <= 0xFu && (unsigned __int8)v6 <= 0xFu && v16 >= 2u )
       {
         v17 = KeGetCurrentPrcb();
         v18 = v17->SchedulerAssist;

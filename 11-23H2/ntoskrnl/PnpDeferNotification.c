@@ -2,10 +2,10 @@
  * XREFs of PnpDeferNotification @ 0x140688310
  * Callers:
  *     IoRegisterPlugPlayNotification @ 0x140687F00 (IoRegisterPlugPlayNotification.c)
- *     PiRegisterKernelSoftRestartNotification @ 0x140863C0C (PiRegisterKernelSoftRestartNotification.c)
+ *     PiRegisterKernelSoftRestartNotification @ 0x140863E4C (PiRegisterKernelSoftRestartNotification.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x140230720 (ExAcquireFastMutex.c)
- *     ExReleaseFastMutex @ 0x140230860 (ExReleaseFastMutex.c)
+ *     ExAcquireFastMutex @ 0x140230810 (ExAcquireFastMutex.c)
+ *     ExReleaseFastMutex @ 0x140230950 (ExReleaseFastMutex.c)
  *     PnpInsertNoopEvent @ 0x140685ED4 (PnpInsertNoopEvent.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

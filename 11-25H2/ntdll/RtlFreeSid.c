@@ -6,12 +6,12 @@
  *     RtlFreeHeap @ 0x180080DD0 (RtlFreeHeap.c)
  */
 
-__int64 __fastcall RtlFreeSid(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+PVOID __cdecl RtlFreeSid(PSID Sid)
 {
-  __int64 v4; // rbx
+  PSID v1; // rbx
 
-  v4 = a1;
-  if ( (unsigned int)RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, a1, a4) )
+  v1 = Sid;
+  if ( RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Sid) )
     return 0LL;
-  return v4;
+  return v1;
 }

@@ -1,14 +1,14 @@
 /*
- * XREFs of VfPoolInitPhase1 @ 0x140938034
+ * XREFs of VfPoolInitPhase1 @ 0x140939034
  * Callers:
- *     VfInitSystemNoRebootNeeded @ 0x1409265A0 (VfInitSystemNoRebootNeeded.c)
- *     VerifierInitSystem @ 0x1409DAED4 (VerifierInitSystem.c)
+ *     VfInitSystemNoRebootNeeded @ 0x1409275A0 (VfInitSystemNoRebootNeeded.c)
+ *     VerifierInitSystem @ 0x1409DBED4 (VerifierInitSystem.c)
  * Callees:
- *     KeInitializeEvent @ 0x1400B8E70 (KeInitializeEvent.c)
- *     InitializeSListHead @ 0x1400F3180 (InitializeSListHead.c)
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
- *     PsCreateSystemThread @ 0x14066AA70 (PsCreateSystemThread.c)
+ *     KeInitializeEvent @ 0x1400B8DB0 (KeInitializeEvent.c)
+ *     InitializeSListHead @ 0x1400F3200 (InitializeSListHead.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     ObReferenceObjectByHandle @ 0x1405E9350 (ObReferenceObjectByHandle.c)
+ *     PsCreateSystemThread @ 0x14066BC30 (PsCreateSystemThread.c)
  */
 
 struct _KTHREAD **VfPoolInitPhase1()
@@ -23,7 +23,7 @@ struct _KTHREAD **VfPoolInitPhase1()
   result = (struct _KTHREAD **)(unsigned int)MmVerifierData;
   if ( (MmVerifierData & 0x400000) == 0 || (MmVerifierData & 1) != 0 )
   {
-    v1 = (struct _KTHREAD **)&unk_1404DA6B8;
+    v1 = (struct _KTHREAD **)&unk_1404DB778;
     do
     {
       KeInitializeEvent((PRKEVENT)v1 - 1, SynchronizationEvent, 0);
@@ -42,9 +42,9 @@ struct _KTHREAD **VfPoolInitPhase1()
         _InterlockedExchange((volatile __int32 *)v1 + 2, 1);
       }
       v1 += 8;
-      result = &qword_1404DA738;
+      result = &qword_1404DB7F8;
     }
-    while ( (__int64)v1 < (__int64)&qword_1404DA738 );
+    while ( (__int64)v1 < (__int64)&qword_1404DB7F8 );
   }
   return result;
 }

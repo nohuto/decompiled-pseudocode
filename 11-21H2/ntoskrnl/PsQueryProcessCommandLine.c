@@ -2,28 +2,28 @@
  * XREFs of PsQueryProcessCommandLine @ 0x140241D20
  * Callers:
  *     NtQueryInformationProcess @ 0x14073DA00 (NtQueryInformationProcess.c)
- *     SeAuditProcessCreation @ 0x140847BB4 (SeAuditProcessCreation.c)
- *     PnpGetProcessCommandLine @ 0x1409506AC (PnpGetProcessCommandLine.c)
+ *     sub_140847BB4 @ 0x140847BB4 (sub_140847BB4.c)
+ *     sub_1409506AC @ 0x1409506AC (sub_1409506AC.c)
  * Callees:
- *     ExReleaseRundownProtection @ 0x1402AD030 (ExReleaseRundownProtection.c)
- *     KiUnstackDetachProcess @ 0x1402D0930 (KiUnstackDetachProcess.c)
- *     KiStackAttachProcess @ 0x14030D5C0 (KiStackAttachProcess.c)
- *     ExAcquireRundownProtection @ 0x140347810 (ExAcquireRundownProtection.c)
+ *     sub_1402AD030 @ 0x1402AD030 (sub_1402AD030.c)
+ *     sub_1402D0930 @ 0x1402D0930 (sub_1402D0930.c)
+ *     sub_14030D5C0 @ 0x14030D5C0 (sub_14030D5C0.c)
+ *     sub_140347810 @ 0x140347810 (sub_140347810.c)
  *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
  *     MmCopyVirtualMemory @ 0x1407BA6D0 (MmCopyVirtualMemory.c)
  *     ExRaiseDatatypeMisalignment @ 0x140A02210 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall PsQueryProcessCommandLine(
-        struct _EX_RUNDOWN_REF *BugCheckParameter1,
+        ULONG_PTR BugCheckParameter1,
         __int64 a2,
         unsigned int a3,
         char a4,
         unsigned int *a5)
 {
   __int64 v7; // rax
-  __int64 *Count; // rcx
-  unsigned __int64 v9; // rax
+  __int64 *v8; // rcx
+  __int64 v9; // rax
   unsigned __int64 v10; // rcx
   unsigned __int64 v11; // r12
   unsigned __int64 v12; // r14
@@ -31,26 +31,26 @@ __int64 __fastcall PsQueryProcessCommandLine(
   int v14; // esi
   unsigned __int64 v15; // rcx
   unsigned int v16; // eax
-  BOOLEAN v18; // [rsp+40h] [rbp-D8h]
+  char v18; // [rsp+40h] [rbp-D8h]
   __int128 v19; // [rsp+48h] [rbp-D0h]
   __int64 v20; // [rsp+80h] [rbp-98h] BYREF
-  PEX_RUNDOWN_REF RunRef; // [rsp+88h] [rbp-90h]
+  ULONG_PTR v21; // [rsp+88h] [rbp-90h]
   __int64 v22; // [rsp+90h] [rbp-88h]
-  unsigned __int64 v23; // [rsp+98h] [rbp-80h]
+  __int64 v23; // [rsp+98h] [rbp-80h]
   _BYTE v24[48]; // [rsp+A0h] [rbp-78h] BYREF
 
   memset(v24, 0, sizeof(v24));
   v20 = 0LL;
-  RunRef = BugCheckParameter1 + 139;
-  v18 = ExAcquireRundownProtection(BugCheckParameter1 + 139);
+  v21 = BugCheckParameter1 + 1112;
+  v18 = sub_140347810(BugCheckParameter1 + 1112);
   if ( v18 )
   {
     v19 = 0LL;
-    KiStackAttachProcess((ULONG_PTR)BugCheckParameter1);
+    sub_14030D5C0(BugCheckParameter1);
     v7 = 0LL;
-    Count = (__int64 *)BugCheckParameter1[176].Count;
-    if ( Count )
-      v7 = *Count;
+    v8 = *(__int64 **)(BugCheckParameter1 + 1408);
+    if ( v8 )
+      v7 = *v8;
     if ( v7 )
     {
       v22 = *(unsigned int *)(v7 + 16);
@@ -63,7 +63,7 @@ __int64 __fastcall PsQueryProcessCommandLine(
     }
     else
     {
-      v9 = BugCheckParameter1[170].Count;
+      v9 = *(_QWORD *)(BugCheckParameter1 + 1360);
       v23 = v9;
       if ( v9 )
       {
@@ -93,7 +93,7 @@ __int64 __fastcall PsQueryProcessCommandLine(
       if ( v15 > 0x7FFFFFFF0000LL || v15 < v11 )
         MEMORY[0x7FFFFFFF0000] = 0;
     }
-    KiUnstackDetachProcess(v24, 0LL);
+    sub_1402D0930(v24, 0LL);
     if ( v14 >= 0 )
     {
       if ( !(_WORD)v13
@@ -122,9 +122,9 @@ __int64 __fastcall PsQueryProcessCommandLine(
           else
             *(_QWORD *)(a2 + 8) = 0LL;
           v14 = MmCopyVirtualMemory(
-                  (_DWORD)BugCheckParameter1,
+                  BugCheckParameter1,
                   DWORD2(v19),
-                  KeGetCurrentThread()->ApcState.Process,
+                  *((_QWORD *)KeGetCurrentThread() + 23),
                   (int)a2 + 16,
                   WORD1(v19),
                   a4,
@@ -140,6 +140,6 @@ __int64 __fastcall PsQueryProcessCommandLine(
     v14 = -1073741558;
   }
   if ( v18 )
-    ExReleaseRundownProtection(RunRef);
+    sub_1402AD030(v21);
   return (unsigned int)v14;
 }

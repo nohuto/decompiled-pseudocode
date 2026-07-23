@@ -67,7 +67,7 @@ void __fastcall CcInitializeCacheMapEx(_BYTE *Object, __int128 *a2, char a3, __i
   __int64 v36; // rcx
   unsigned __int64 v37; // rbx
   unsigned __int64 v38; // rbx
-  int v39; // edi
+  NTSTATUS v39; // edi
   _DWORD *v40; // rax
   unsigned int v41; // eax
   NTSTATUS v42; // eax
@@ -212,7 +212,7 @@ void __fastcall CcInitializeCacheMapEx(_BYTE *Object, __int128 *a2, char a3, __i
   __int64 v181; // [rsp+A0h] [rbp-9h]
   _KPROCESS *Process; // [rsp+A8h] [rbp-1h]
   char v183; // [rsp+100h] [rbp+57h]
-  int VacbArray; // [rsp+108h] [rbp+5Fh]
+  NTSTATUS Status; // [rsp+108h] [rbp+5Fh]
 
   CurrentThread = KeGetCurrentThread();
   v174 = 0;
@@ -225,7 +225,7 @@ void __fastcall CcInitializeCacheMapEx(_BYTE *Object, __int128 *a2, char a3, __i
   v172 = 0;
   v178 = 0;
   v176 = 0LL;
-  VacbArray = 0;
+  Status = 0;
   Objecta = 0LL;
   memset(&LockHandle, 0, sizeof(LockHandle));
   memset(&v171, 0, sizeof(v171));
@@ -274,14 +274,14 @@ void __fastcall CcInitializeCacheMapEx(_BYTE *Object, __int128 *a2, char a3, __i
         v67 = v15[1];
         if ( !v67 || v67 == v15[134] )
         {
-          VacbArray = -1073741608;
+          Status = -1073741608;
           LOBYTE(v66) = 1;
           CcScheduleLazyWriteScan(Partition, v66, 0LL);
           v183 = 1;
         }
         else
         {
-          VacbArray = -1073740277;
+          Status = -1073740277;
         }
         KeReleaseInStackQueuedSpinLockFromDpcLevel(&v171);
         KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
@@ -425,7 +425,7 @@ LABEL_160:
             }
             __writecr8(v103);
             v39 = -1073741670;
-            VacbArray = -1073741670;
+            Status = -1073741670;
 LABEL_245:
             v140 = v172;
 LABEL_246:
@@ -516,7 +516,7 @@ LABEL_45:
               }
               __writecr8(v38);
             }
-            v39 = VacbArray;
+            v39 = Status;
             v8 = P;
 LABEL_51:
             if ( v8 )
@@ -529,7 +529,7 @@ LABEL_51:
             {
               if ( v183 )
                 KeDelayExecutionThread(0, 0, &Cc10Milliseconds);
-              RtlRaiseStatus((unsigned int)v39);
+              RtlRaiseStatus(v39);
             }
             return;
           }
@@ -747,7 +747,7 @@ LABEL_94:
           {
             v39 = -1073741670;
             v140 = 1;
-            VacbArray = -1073741670;
+            Status = -1073741670;
             goto LABEL_246;
           }
         }
@@ -851,9 +851,9 @@ LABEL_94:
           }
           __writecr8(v59);
         }
-        VacbArray = CcCreateVacbArray(v15, v180);
-        v39 = VacbArray;
-        if ( VacbArray >= 0 )
+        Status = CcCreateVacbArray(v15, v180);
+        v39 = Status;
+        if ( Status >= 0 )
         {
           if ( (v175 & 1) != 0 )
           {
@@ -974,7 +974,7 @@ LABEL_59:
     v15 = v40;
     if ( !v40 )
 LABEL_289:
-      RtlRaiseStatus(3221225626LL);
+      RtlRaiseStatus(-1073741670);
     memset(v40, 0, 0x228uLL);
     v8 = v15;
     v41 = v174;
@@ -985,14 +985,14 @@ LABEL_289:
       v174 |= 1u;
     }
     v42 = MmCreateCacheManagerSection(&Objecta, v180, v41, Object);
-    VacbArray = v42;
+    Status = v42;
     if ( v42 == -1073740277 )
     {
       KeAcquireInStackQueuedSpinLock(&CcMasterLock, &LockHandle);
       v145 = -1073740277;
       if ( CcSectionDeletionSequencePhase3 != CcSectionDeletionSequencePhase1 )
         v145 = -1073700856;
-      VacbArray = v145;
+      Status = v145;
       KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
       OldIrql = LockHandle.OldIrql;
       if ( !KiIrqlFlags
@@ -1009,7 +1009,7 @@ LABEL_289:
       {
 LABEL_244:
         __writecr8(OldIrql);
-        v39 = VacbArray;
+        v39 = Status;
         goto LABEL_245;
       }
 LABEL_121:
@@ -1024,7 +1024,7 @@ LABEL_121:
       if ( v54 )
       {
         v39 = -1073741590;
-        VacbArray = -1073741590;
+        Status = -1073741590;
       }
       goto LABEL_246;
     }
@@ -1036,7 +1036,7 @@ LABEL_121:
     if ( !Partition )
     {
       v39 = -1073741670;
-      VacbArray = -1073741670;
+      Status = -1073741670;
       goto LABEL_245;
     }
     v43 = *((_QWORD *)&v180 + 1);
@@ -1048,8 +1048,8 @@ LABEL_121:
     *((_QWORD *)v15 + 6) = v44;
     v15[128] = HIDWORD(Process[1].ActiveProcessors.Bitmap[8]);
     *((_QWORD *)v15 + 66) = Partition;
-    VacbArray = CcInitializeVolumeCacheMap(Object, v15 + 126);
-    if ( VacbArray < 0 )
+    Status = CcInitializeVolumeCacheMap(Object, v15 + 126);
+    if ( Status < 0 )
       goto LABEL_289;
     v15[70] = 1;
     *((_QWORD *)v15 + 36) = 0LL;

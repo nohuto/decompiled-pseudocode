@@ -1,14 +1,14 @@
 /*
- * XREFs of DifZwUnloadDriverWrapper @ 0x1406498F0
+ * XREFs of DifZwUnloadDriverWrapper @ 0x140647EB0
  * Callers:
  *     <none>
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x140245670 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection @ 0x1402792A0 (ExAcquireRundownProtection.c)
- *     DifGetAPIThunkContextById @ 0x140489B90 (DifGetAPIThunkContextById.c)
- *     DifGetReturnAddressForWrappers @ 0x1404C9B7C (DifGetReturnAddressForWrappers.c)
- *     ZwUnloadDriver @ 0x1406A9F30 (ZwUnloadDriver.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     ExReleaseRundownProtection_0 @ 0x14020DE50 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x14022E830 (ExAcquireRundownProtection_0.c)
+ *     DifGetAPIThunkContextById @ 0x1404848A0 (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1404C302C (DifGetReturnAddressForWrappers.c)
+ *     ZwUnloadDriver @ 0x1406AAED0 (ZwUnloadDriver.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall DifZwUnloadDriverWrapper(PUNICODE_STRING DriverServiceName)
@@ -16,66 +16,62 @@ __int64 __fastcall DifZwUnloadDriverWrapper(PUNICODE_STRING DriverServiceName)
   __int64 *APIThunkContextById; // rax
   __int64 v3; // rdx
   unsigned __int8 v4; // cl
-  __int64 v5; // r8
-  __int64 v6; // r9
-  __int64 *v7; // rsi
-  int v8; // eax
-  BOOLEAN v9; // di
+  __int64 *v5; // rsi
+  int v6; // eax
+  BOOLEAN v7; // di
   __int64 *i; // rbx
-  __int64 v11; // rdx
-  __int64 v12; // r8
-  __int64 v13; // r9
-  BOOLEAN v14; // di
-  _QWORD **v15; // rsi
+  __int64 v9; // rdx
+  BOOLEAN v10; // di
+  _QWORD **v11; // rsi
   _QWORD *j; // rbx
-  __int128 v18; // [rsp+20h] [rbp-28h] BYREF
-  __int64 v19; // [rsp+30h] [rbp-18h]
+  __int128 v14; // [rsp+20h] [rbp-28h] BYREF
+  __int64 v15; // [rsp+30h] [rbp-18h]
   _UNKNOWN *retaddr; // [rsp+48h] [rbp+0h]
 
-  v18 = 0LL;
-  v19 = 0LL;
+  v14 = 0LL;
+  v15 = 0LL;
   APIThunkContextById = DifGetAPIThunkContextById(4);
-  v7 = APIThunkContextById;
+  v5 = APIThunkContextById;
   if ( APIThunkContextById )
   {
-    v8 = *((_DWORD *)APIThunkContextById + 3);
-    if ( (v8 & 0x18) != 0 )
+    v6 = *((_DWORD *)APIThunkContextById + 3);
+    if ( (v6 & 0x18) != 0 )
     {
-      *(_QWORD *)&v18 = retaddr;
+      *(_QWORD *)&v14 = retaddr;
     }
-    else if ( ((unsigned __int8)v8 & v4) != 0 )
+    else if ( ((unsigned __int8)v6 & v4) != 0 )
     {
-      *(_QWORD *)&v18 = DifGetReturnAddressForWrappers();
+      *(_QWORD *)&v14 = DifGetReturnAddressForWrappers();
     }
-    v9 = 0;
-    *((_QWORD *)&v18 + 1) = DriverServiceName;
+    v7 = 0;
+    *((_QWORD *)&v14 + 1) = DriverServiceName;
     if ( !VfDifRunningWithoutReboot && (VfOptionFlags & 0x800) == 0
-      || (v9 = ExAcquireRundownProtection(&DifRebootlessRundown)) != 0 )
+      || (v7 = ExAcquireRundownProtection_0(&DifRebootlessRundown)) != 0 )
     {
-      for ( i = (__int64 *)v7[4]; i != v7 + 4; i = (__int64 *)*i )
+      for ( i = (__int64 *)v5[4]; i != v5 + 4; i = (__int64 *)*i )
       {
         if ( i != (__int64 *)16 )
-          guard_dispatch_icall_no_overrides(&v18, v3, v5, v6);
+          guard_dispatch_icall_no_overrides(&v14, v3);
       }
-      if ( v9 )
+      if ( v7 )
         ExReleaseRundownProtection_0(&DifRebootlessRundown);
     }
   }
-  LODWORD(v19) = ZwUnloadDriver(DriverServiceName);
-  if ( v7 )
+  LODWORD(v15) = ZwUnloadDriver(DriverServiceName);
+  if ( v5 )
   {
-    if ( (v14 = 0, !VfDifRunningWithoutReboot) && (VfOptionFlags & 0x800) == 0
-      || (v14 = ExAcquireRundownProtection(&DifRebootlessRundown)) != 0 )
+    if ( (v10 = 0, !VfDifRunningWithoutReboot) && (VfOptionFlags & 0x800) == 0
+      || (v10 = ExAcquireRundownProtection_0(&DifRebootlessRundown)) != 0 )
     {
-      v15 = (_QWORD **)(v7 + 6);
-      for ( j = *v15; j != v15; j = (_QWORD *)*j )
+      v11 = (_QWORD **)(v5 + 6);
+      for ( j = *v11; j != v11; j = (_QWORD *)*j )
       {
         if ( j != (_QWORD *)16 )
-          guard_dispatch_icall_no_overrides(&v18, v11, v12, v13);
+          guard_dispatch_icall_no_overrides(&v14, v9);
       }
-      if ( v14 )
+      if ( v10 )
         ExReleaseRundownProtection_0(&DifRebootlessRundown);
     }
   }
-  return (unsigned int)v19;
+  return (unsigned int)v15;
 }

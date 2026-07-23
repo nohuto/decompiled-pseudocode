@@ -1,50 +1,50 @@
 /*
- * XREFs of RtlpValidFilterAclSubjectContext @ 0x1408955B0
+ * XREFs of RtlpValidFilterAclSubjectContext @ 0x140896810
  * Callers:
- *     RtlpSetSecurityObject @ 0x1405CA240 (RtlpSetSecurityObject.c)
+ *     RtlpSetSecurityObject @ 0x1405CB240 (RtlpSetSecurityObject.c)
  * Callees:
- *     RtlFindAceByType @ 0x1400A8FB0 (RtlFindAceByType.c)
- *     RtlpValidTrustSubjectContext @ 0x14016CABC (RtlpValidTrustSubjectContext.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     RtlFindAceByType @ 0x1400A8EF0 (RtlFindAceByType.c)
+ *     RtlpValidTrustSubjectContext @ 0x14016CBBC (RtlpValidTrustSubjectContext.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
-__int64 __fastcall RtlpValidFilterAclSubjectContext(__int64 a1, __int64 a2)
+__int64 __fastcall RtlpValidFilterAclSubjectContext(PACL Acl, void *a2)
 {
-  unsigned __int8 *AceByType; // rax
+  _DWORD *AceByType; // rax
   __int64 v5; // r8
-  unsigned __int8 *v6; // rbx
+  _DWORD *v6; // rbx
   int v8; // ecx
-  unsigned int v9; // [rsp+20h] [rbp-20h] BYREF
+  ULONG Index; // [rsp+20h] [rbp-20h] BYREF
   unsigned int v10; // [rsp+24h] [rbp-1Ch] BYREF
   int v11; // [rsp+28h] [rbp-18h]
   unsigned __int16 v12; // [rsp+2Ch] [rbp-14h]
 
   v10 = 0;
   v11 = 0;
-  v9 = 0;
+  Index = 0;
   v12 = 256;
   while ( 1 )
   {
-    AceByType = RtlFindAceByType(a1, 21, &v9);
+    AceByType = RtlFindAceByType(Acl, 0x15u, &Index);
     v6 = AceByType;
     if ( AceByType )
     {
-      if ( (*((_DWORD *)AceByType + 1) & 0xFF000000) != 0 )
+      if ( (AceByType[1] & 0xFF000000) != 0 )
         return 3221225485LL;
-      if ( (AceByType[1] & 0x40) != 0 )
+      if ( (*((_BYTE *)AceByType + 1) & 0x40) != 0 )
       {
-        if ( !RtlpValidTrustSubjectContext(a2, (__int64)(AceByType + 8), v5, &v10) )
+        if ( !RtlpValidTrustSubjectContext(a2, AceByType + 2, v5, (NTSTATUS *)&v10) )
           return 3221225506LL;
         goto LABEL_12;
       }
-      v8 = *(_DWORD *)(AceByType + 10) - v11;
+      v8 = *(_DWORD *)((char *)AceByType + 10) - v11;
       if ( !v8 )
         v8 = *((unsigned __int16 *)AceByType + 7) - v12;
-      if ( v8 || AceByType[9] != 1 || *((_DWORD *)AceByType + 4) )
+      if ( v8 || *((_BYTE *)AceByType + 9) != 1 || AceByType[4] )
         return 3221225485LL;
     }
 LABEL_12:
-    ++v9;
+    ++Index;
     if ( !v6 )
       return v10;
   }

@@ -1,23 +1,23 @@
 /*
- * XREFs of MiCreateRotateView @ 0x1406BD8A0
+ * XREFs of MiCreateRotateView @ 0x14061CAB0
  * Callers:
- *     MiDeletePartialVad @ 0x1402FD8DC (MiDeletePartialVad.c)
- *     MiReserveUserMemory @ 0x1406EA4D0 (MiReserveUserMemory.c)
+ *     MiDeletePartialVad @ 0x14030862C (MiDeletePartialVad.c)
+ *     MiReserveUserMemory @ 0x1407018B0 (MiReserveUserMemory.c)
  * Callees:
- *     MiGetInPageSupportBlock @ 0x14023EF24 (MiGetInPageSupportBlock.c)
- *     MiAllocatePool @ 0x14025AD70 (MiAllocatePool.c)
- *     MiInsertVadEvent @ 0x14025B9BC (MiInsertVadEvent.c)
- *     PsChargeProcessNonPagedPoolQuota @ 0x1403169C0 (PsChargeProcessNonPagedPoolQuota.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     MiAllocatePool @ 0x14027C2E0 (MiAllocatePool.c)
+ *     MiInsertVadEvent @ 0x14027CF2C (MiInsertVadEvent.c)
+ *     MiGetInPageSupportBlock @ 0x1402E3774 (MiGetInPageSupportBlock.c)
+ *     PsChargeProcessNonPagedPoolQuota @ 0x140321710 (PsChargeProcessNonPagedPoolQuota.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiCreateRotateView(__int64 a1)
 {
-  struct _SLIST_ENTRY *Pool; // rbx
-  PSLIST_ENTRY v3; // rdi
-  PSLIST_ENTRY v5; // rcx
+  _DWORD *Pool; // rbx
+  ULONG_PTR v3; // rdi
+  void *v5; // rcx
 
-  Pool = (struct _SLIST_ENTRY *)MiAllocatePool(64, 0x48uLL, 0x77776D4Du);
+  Pool = MiAllocatePool(64, 0x48uLL, 0x77776D4Du);
   if ( Pool )
   {
     v3 = MiGetInPageSupportBlock(0);
@@ -25,13 +25,13 @@ __int64 __fastcall MiCreateRotateView(__int64 a1)
     {
       if ( (int)PsChargeProcessNonPagedPoolQuota(KeGetCurrentThread()->ApcState.Process, 0x208uLL) >= 0 )
       {
-        LODWORD(Pool[4].Next) = 8;
-        *((_QWORD *)&Pool->Next + 1) = v3;
-        MiInsertVadEvent(a1, Pool, 0);
+        Pool[16] = 8;
+        *((_QWORD *)Pool + 1) = v3;
+        MiInsertVadEvent(a1, (__int64 *)Pool, 0);
         return 1LL;
       }
       ExFreePoolWithTag(Pool, 0);
-      v5 = v3;
+      v5 = (void *)v3;
     }
     else
     {

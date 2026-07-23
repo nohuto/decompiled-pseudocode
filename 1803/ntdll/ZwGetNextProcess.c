@@ -6,11 +6,16 @@
  *     <none>
  */
 
-__int64 ZwGetNextProcess()
+NTSTATUS __cdecl ZwGetNextProcess(
+        HANDLE ProcessHandle,
+        ACCESS_MASK DesiredAccess,
+        ULONG HandleAttributes,
+        ULONG Flags,
+        PHANDLE NewProcessHandle)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 240LL;
+  result = 240;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

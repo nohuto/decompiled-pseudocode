@@ -17,20 +17,20 @@ char __fastcall IopLiveDumpPopulateBitmapForDump(__int64 a1, __int64 a2)
   int v3; // eax
   __int64 v5; // rsi
   unsigned __int64 v6; // r15
-  unsigned __int64 *v7; // r14
-  unsigned __int64 SetBits; // rdi
+  _RTL_BITMAP_EX *v7; // r14
+  ULONG64 SetBits; // rdi
   unsigned __int64 NextForwardRunClear; // rax
   unsigned __int64 v10; // r8
   unsigned __int64 v11; // r8
-  unsigned __int64 v12; // r15
+  ULONG64 v12; // r15
   unsigned __int64 v13; // rsi
   unsigned __int64 v14; // rax
   unsigned __int64 v15; // rdi
   int v16; // eax
   __int64 v17; // rax
-  unsigned __int64 v19; // [rsp+20h] [rbp-28h]
+  ULONG64 v19; // [rsp+20h] [rbp-28h]
   unsigned __int64 v20[4]; // [rsp+28h] [rbp-20h] BYREF
-  unsigned __int64 v21; // [rsp+90h] [rbp+48h] BYREF
+  ULONG64 v21; // [rsp+90h] [rbp+48h] BYREF
   unsigned __int64 v22; // [rsp+98h] [rbp+50h] BYREF
   __int64 v23; // [rsp+A0h] [rbp+58h] BYREF
   unsigned __int64 v24; // [rsp+A8h] [rbp+60h]
@@ -46,7 +46,7 @@ char __fastcall IopLiveDumpPopulateBitmapForDump(__int64 a1, __int64 a2)
   v6 = *(_QWORD *)(a1 + 544);
   v19 = v6;
   IopLiveDumpRemoveSystemCacheFromDump(a1, a2, &v23);
-  v7 = (unsigned __int64 *)(a1 + 600);
+  v7 = (_RTL_BITMAP_EX *)(a1 + 600);
   if ( a1 != -600 )
   {
     do
@@ -56,7 +56,7 @@ char __fastcall IopLiveDumpPopulateBitmapForDump(__int64 a1, __int64 a2)
       {
         do
         {
-          NextForwardRunClear = RtlFindNextForwardRunClearEx(v7, SetBits, &v22);
+          NextForwardRunClear = RtlFindNextForwardRunClearEx(&v7->SizeOfBitMap, SetBits, &v22);
           v10 = v22;
           v24 = NextForwardRunClear;
           if ( !NextForwardRunClear )
@@ -103,11 +103,11 @@ char __fastcall IopLiveDumpPopulateBitmapForDump(__int64 a1, __int64 a2)
         }
         while ( SetBits < v19 );
       }
-      if ( v7 != (unsigned __int64 *)(a1 + 600) )
+      if ( v7 != (_RTL_BITMAP_EX *)(a1 + 600) )
         break;
       if ( (*(_DWORD *)(a1 + 40) & 4) == 0 )
         break;
-      v7 = (unsigned __int64 *)(a1 + 656);
+      v7 = (_RTL_BITMAP_EX *)(a1 + 656);
     }
     while ( a1 != -656 );
   }

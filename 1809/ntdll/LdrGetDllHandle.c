@@ -6,7 +6,7 @@
  *     LdrGetDllHandleEx @ 0x1800228A0 (LdrGetDllHandleEx.c)
  */
 
-__int64 __fastcall LdrGetDllHandle(int a1, int a2, int a3, __int64 a4)
+NTSTATUS __cdecl LdrGetDllHandle(PWSTR DllPath, PULONG DllCharacteristics, PUNICODE_STRING DllName, PVOID *DllHandle)
 {
-  return LdrGetDllHandleEx(1, a1, a2, a3, a4);
+  return LdrGetDllHandleEx(1u, DllPath, DllCharacteristics, DllName, DllHandle);
 }

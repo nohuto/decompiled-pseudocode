@@ -1,21 +1,21 @@
 /*
- * XREFs of SeAppendPrivileges @ 0x1404C0F9C
+ * XREFs of SeAppendPrivileges @ 0x1404ACCCC
  * Callers:
- *     IopCreateSecurityCheck @ 0x1400AABD8 (IopCreateSecurityCheck.c)
- *     ObpAdjustCreatorAccessState @ 0x140404050 (ObpAdjustCreatorAccessState.c)
- *     ObCheckCreateObjectAccess @ 0x14040412C (ObCheckCreateObjectAccess.c)
- *     ObCheckObjectAccess @ 0x140405810 (ObCheckObjectAccess.c)
- *     ObpCreateHandle @ 0x140419C20 (ObpCreateHandle.c)
- *     IopParseDevice @ 0x1404408F0 (IopParseDevice.c)
- *     CmpDoParseKey @ 0x140453D10 (CmpDoParseKey.c)
- *     CmpCheckKeyBodyAccess @ 0x140601F80 (CmpCheckKeyBodyAccess.c)
- *     ObpCheckTraverseAccess @ 0x140666238 (ObpCheckTraverseAccess.c)
- *     CMFCheckAccess @ 0x1406B8680 (CMFCheckAccess.c)
+ *     IopCreateSecurityCheck @ 0x1400A9158 (IopCreateSecurityCheck.c)
+ *     ObpAdjustCreatorAccessState @ 0x140402F10 (ObpAdjustCreatorAccessState.c)
+ *     ObCheckCreateObjectAccess @ 0x140402FEC (ObCheckCreateObjectAccess.c)
+ *     ObCheckObjectAccess @ 0x1404046D0 (ObCheckObjectAccess.c)
+ *     ObpCreateHandle @ 0x140418AE0 (ObpCreateHandle.c)
+ *     IopParseDevice @ 0x14043F7C0 (IopParseDevice.c)
+ *     CmpDoParseKey @ 0x140452BE0 (CmpDoParseKey.c)
+ *     CmpCheckKeyBodyAccess @ 0x140602034 (CmpCheckKeyBodyAccess.c)
+ *     ObpCheckTraverseAccess @ 0x14066631C (ObpCheckTraverseAccess.c)
+ *     CMFCheckAccess @ 0x1406B87B8 (CMFCheckAccess.c)
  * Callees:
- *     memmove @ 0x140171280 (memmove.c)
+ *     memmove @ 0x140171780 (memmove.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     SepConcatenatePrivileges @ 0x1404C1000 (SepConcatenatePrivileges.c)
+ *     SepConcatenatePrivileges @ 0x1404ACD30 (SepConcatenatePrivileges.c)
  */
 
 NTSTATUS __stdcall SeAppendPrivileges(PACCESS_STATE AccessState, PPRIVILEGE_SET Privileges)

@@ -182,12 +182,12 @@
  *     <none>
  */
 
-unsigned int *RtlGetCurrentServiceSessionId()
+ULONG RtlGetCurrentServiceSessionId(void)
 {
-  unsigned int *result; // rax
+  PSILO_USER_SHARED_DATA SharedData; // rax
 
-  result = (unsigned int *)NtCurrentPeb()->HotpatchInformation;
-  if ( result )
-    return (unsigned int *)*result;
-  return result;
+  SharedData = NtCurrentPeb()->SharedData;
+  if ( SharedData )
+    LODWORD(SharedData) = SharedData->ServiceSessionId;
+  return (unsigned int)SharedData;
 }

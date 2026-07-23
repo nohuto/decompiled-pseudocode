@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpCmciResetStateAMD @ 0x14045480C
+ * XREFs of HalpCmciResetStateAMD @ 0x14044C93C
  * Callers:
- *     HalpCmciHandler @ 0x14052080C (HalpCmciHandler.c)
+ *     HalpCmciHandler @ 0x140522EB0 (HalpCmciHandler.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     HalpCmciSetProcessorConfigAMD @ 0x140454888 (HalpCmciSetProcessorConfigAMD.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     HalpCmciSetProcessorConfigAMD @ 0x14044C9B8 (HalpCmciSetProcessorConfigAMD.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall HalpCmciResetStateAMD(__int64 a1)

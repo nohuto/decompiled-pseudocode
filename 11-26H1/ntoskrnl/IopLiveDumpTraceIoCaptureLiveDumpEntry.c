@@ -1,10 +1,10 @@
 /*
- * XREFs of IopLiveDumpTraceIoCaptureLiveDumpEntry @ 0x1405D7B48
+ * XREFs of IopLiveDumpTraceIoCaptureLiveDumpEntry @ 0x1405DA340
  * Callers:
- *     IoCaptureLiveDump @ 0x14051255C (IoCaptureLiveDump.c)
+ *     IoCaptureLiveDump @ 0x14050BFCC (IoCaptureLiveDump.c)
  * Callees:
- *     IopLiveDumpTraceEventGeneric @ 0x1405D7A30 (IopLiveDumpTraceEventGeneric.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     IopLiveDumpTraceEventGeneric @ 0x1405DA220 (IopLiveDumpTraceEventGeneric.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 char __fastcall IopLiveDumpTraceIoCaptureLiveDumpEntry(unsigned int a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5)

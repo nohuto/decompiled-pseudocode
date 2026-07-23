@@ -9,23 +9,23 @@
  *     <none>
  */
 
-char __fastcall RtlUpperChar(char a1)
+CHAR __cdecl RtlUpperChar(CHAR Character)
 {
-  char result; // al
+  CHAR result; // al
   unsigned __int16 v2; // r9
   unsigned __int16 v3; // r10
 
-  if ( a1 <= 122 )
+  if ( Character <= 122 )
   {
-    if ( a1 >= 97 )
-      return a1 ^ 0x20;
-    return a1;
+    if ( Character >= 97 )
+      return Character ^ 0x20;
+    return Character;
   }
   if ( NlsMbCodePageTag )
   {
-    if ( NlsLeadByteInfoTable[a1] )
-      return a1;
-    v3 = *(_WORD *)(NlsAnsiToUnicodeData + 2LL * (unsigned __int8)a1);
+    if ( NlsLeadByteInfoTable[Character] )
+      return Character;
+    v3 = *(_WORD *)(NlsAnsiToUnicodeData + 2LL * (unsigned __int8)Character);
     if ( v3 >= 0x61u )
     {
       if ( v3 > 0x7Au )
@@ -43,11 +43,11 @@ char __fastcall RtlUpperChar(char a1)
     }
     result = *(_WORD *)(NlsUnicodeToMbAnsiData + 2LL * v3);
     if ( HIBYTE(*(_WORD *)(NlsUnicodeToMbAnsiData + 2LL * v3)) )
-      return a1;
+      return Character;
   }
   else
   {
-    v2 = *(_WORD *)(NlsAnsiToUnicodeData + 2LL * (unsigned __int8)a1);
+    v2 = *(_WORD *)(NlsAnsiToUnicodeData + 2LL * (unsigned __int8)Character);
     if ( v2 >= 0x61u )
     {
       if ( v2 <= 0x7Au )

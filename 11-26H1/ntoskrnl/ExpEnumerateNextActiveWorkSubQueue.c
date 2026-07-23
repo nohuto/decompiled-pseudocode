@@ -1,13 +1,13 @@
 /*
- * XREFs of ExpEnumerateNextActiveWorkSubQueue @ 0x1403822A8
+ * XREFs of ExpEnumerateNextActiveWorkSubQueue @ 0x140384058
  * Callers:
  *     ExpTryQueueWorkItem @ 0x1402020DC (ExpTryQueueWorkItem.c)
- *     ExTryQueueWorkItem @ 0x140382070 (ExTryQueueWorkItem.c)
- *     ExpWorkQueueHealthMetricsMonitorCallback @ 0x1406D0CF0 (ExpWorkQueueHealthMetricsMonitorCallback.c)
- *     ExStartStopWorkQueueProvider @ 0x14083F6BC (ExStartStopWorkQueueProvider.c)
+ *     ExTryQueueWorkItem @ 0x140383E20 (ExTryQueueWorkItem.c)
+ *     ExpWorkQueueHealthMetricsMonitorCallback @ 0x1406D4D20 (ExpWorkQueueHealthMetricsMonitorCallback.c)
+ *     ExStartStopWorkQueueProvider @ 0x1408458FC (ExStartStopWorkQueueProvider.c)
  * Callees:
- *     KeIsNodeInitialized @ 0x14038227C (KeIsNodeInitialized.c)
- *     MmGetNextNode @ 0x14045D380 (MmGetNextNode.c)
+ *     KeIsNodeInitialized @ 0x14038402C (KeIsNodeInitialized.c)
+ *     MmGetNextNode @ 0x140456D80 (MmGetNextNode.c)
  */
 
 __int64 __fastcall ExpEnumerateNextActiveWorkSubQueue(__int64 *a1, _QWORD *a2)
@@ -53,7 +53,7 @@ LABEL_4:
         v17 = *(_QWORD *)(v15
                         + 8LL
                         * (unsigned int)(*((_DWORD *)a1 + 7)
-                                       + *(_DWORD *)&ExSaPageGroupDescriptorArrayLock.SavedApcStateFill[32]
+                                       + *(_DWORD *)&ExSaPageGroupDescriptorArrayLock.WaitBlockFill11[72]
                                        * (*((_DWORD *)a1 + 2) + 8 * v8)));
         if ( (v17 & 1) == 0 )
           v16 = v17;
@@ -67,7 +67,7 @@ LABEL_4:
             v4 = 0LL;
             v19 = *(_QWORD *)(*a1 + 8);
             v20 = *((_DWORD *)a1 + 7)
-                + *(_DWORD *)&ExSaPageGroupDescriptorArrayLock.SavedApcStateFill[32]
+                + *(_DWORD *)&ExSaPageGroupDescriptorArrayLock.WaitBlockFill11[72]
                 * (*((_DWORD *)a1 + 2) + 8 * (unsigned int)*(unsigned __int16 *)a1[2]);
             if ( (*(_QWORD *)(v19 + 8 * v20) & 1) == 0 )
               v4 = *(_QWORD *)(v19 + 8 * v20);

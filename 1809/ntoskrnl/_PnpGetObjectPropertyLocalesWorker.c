@@ -1,12 +1,12 @@
 /*
- * XREFs of _PnpGetObjectPropertyLocalesWorker @ 0x1408FA5C0
+ * XREFs of _PnpGetObjectPropertyLocalesWorker @ 0x1408FB880
  * Callers:
- *     _PnpGetObjectPropertyLocales @ 0x1408FA450 (_PnpGetObjectPropertyLocales.c)
+ *     _PnpGetObjectPropertyLocales @ 0x1408FB710 (_PnpGetObjectPropertyLocales.c)
  * Callees:
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     _PnpOpenObjectRegKey @ 0x140597118 (_PnpOpenObjectRegKey.c)
- *     _PnpGetMappedPropertyLocalesDispatch @ 0x1408FA094 (_PnpGetMappedPropertyLocalesDispatch.c)
- *     _PnpGetGenericStorePropertyLocales @ 0x1408FC7B0 (_PnpGetGenericStorePropertyLocales.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     _PnpOpenObjectRegKey @ 0x140598118 (_PnpOpenObjectRegKey.c)
+ *     _PnpGetMappedPropertyLocalesDispatch @ 0x1408FB354 (_PnpGetMappedPropertyLocalesDispatch.c)
+ *     _PnpGetGenericStorePropertyLocales @ 0x1408FDA70 (_PnpGetGenericStorePropertyLocales.c)
  */
 
 __int64 __fastcall PnpGetObjectPropertyLocalesWorker(

@@ -15,7 +15,7 @@ PVOID __fastcall ExAllocatePool3(__int64 a1, SIZE_T a2, ULONG a3, __int64 a4, un
   char v5; // bp
   char v9; // r15
   EX_POOL_PRIORITY v10; // edi
-  signed int v11; // eax
+  NTSTATUS v11; // eax
   unsigned int i; // edx
   _BYTE v14[4]; // [rsp+30h] [rbp-28h] BYREF
   POOL_TYPE PoolType[9]; // [rsp+34h] [rbp-24h] BYREF

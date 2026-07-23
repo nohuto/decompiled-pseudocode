@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlStringLengthWorkerA @ 0x14053A344
+ * XREFs of RtlStringLengthWorkerA @ 0x140537B84
  * Callers:
- *     RtlStringCbCatExA @ 0x140539F08 (RtlStringCbCatExA.c)
+ *     RtlStringCbCatExA @ 0x140537748 (RtlStringCbCatExA.c)
  * Callees:
  *     <none>
  */

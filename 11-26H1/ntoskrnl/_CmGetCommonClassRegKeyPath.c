@@ -1,15 +1,15 @@
 /*
- * XREFs of _CmGetCommonClassRegKeyPath @ 0x1409A1650
+ * XREFs of _CmGetCommonClassRegKeyPath @ 0x1409620B0
  * Callers:
- *     _CmDeleteCommonClassRegKeyWorker @ 0x14089664C (_CmDeleteCommonClassRegKeyWorker.c)
- *     PiDqGetRelativeObjectRegPath @ 0x1409927A0 (PiDqGetRelativeObjectRegPath.c)
- *     _CmOpenCommonClassRegKeyWorker @ 0x1409A0580 (_CmOpenCommonClassRegKeyWorker.c)
+ *     _CmDeleteCommonClassRegKeyWorker @ 0x14089CA4C (_CmDeleteCommonClassRegKeyWorker.c)
+ *     PiDqGetRelativeObjectRegPath @ 0x140953200 (PiDqGetRelativeObjectRegPath.c)
+ *     _CmOpenCommonClassRegKeyWorker @ 0x140960FE0 (_CmOpenCommonClassRegKeyWorker.c)
  * Callees:
- *     RtlStringCchPrintfExW @ 0x14044E030 (RtlStringCchPrintfExW.c)
- *     RtlInitUnicodeStringEx @ 0x14045D040 (RtlInitUnicodeStringEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     RtlGUIDFromString @ 0x1409A1880 (RtlGUIDFromString.c)
- *     PnpIsValidGuidString @ 0x1409A25C0 (PnpIsValidGuidString.c)
+ *     RtlStringCchPrintfExW @ 0x140446160 (RtlStringCchPrintfExW.c)
+ *     RtlInitUnicodeStringEx @ 0x140456BE0 (RtlInitUnicodeStringEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     RtlGUIDFromString @ 0x1409622E0 (RtlGUIDFromString.c)
+ *     PnpIsValidGuidString @ 0x140963020 (PnpIsValidGuidString.c)
  */
 
 __int64 __fastcall CmGetCommonClassRegKeyPath(

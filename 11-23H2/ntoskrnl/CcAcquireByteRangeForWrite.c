@@ -1,26 +1,26 @@
 /*
- * XREFs of CcAcquireByteRangeForWrite @ 0x14029D030
+ * XREFs of CcAcquireByteRangeForWrite @ 0x14029D2C0
  * Callers:
- *     CcNotifyOfMappedWrite @ 0x140298244 (CcNotifyOfMappedWrite.c)
- *     CcFlushCacheAcquireRange @ 0x14029CEE0 (CcFlushCacheAcquireRange.c)
+ *     CcNotifyOfMappedWrite @ 0x1402984D4 (CcNotifyOfMappedWrite.c)
+ *     CcFlushCacheAcquireRange @ 0x14029D170 (CcFlushCacheAcquireRange.c)
  * Callees:
- *     PsBoostThreadIoEx @ 0x14022FF50 (PsBoostThreadIoEx.c)
- *     ExAcquireFastMutex @ 0x140230720 (ExAcquireFastMutex.c)
- *     ExReleaseFastMutex @ 0x140230860 (ExReleaseFastMutex.c)
- *     ExpAcquireResourceExclusiveLite @ 0x14023B4D0 (ExpAcquireResourceExclusiveLite.c)
- *     CcUnpinFileDataEx @ 0x14025D810 (CcUnpinFileDataEx.c)
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
- *     CcFindBcb @ 0x14029EC90 (CcFindBcb.c)
- *     CcFindBitmapRangeToClean @ 0x1402F0DF4 (CcFindBitmapRangeToClean.c)
- *     CcDeductDirtyPages @ 0x1402F3F80 (CcDeductDirtyPages.c)
- *     DbgPrintEx @ 0x14032A740 (DbgPrintEx.c)
- *     CcInsertIntoCleanSharedCacheMapList @ 0x140346A5C (CcInsertIntoCleanSharedCacheMapList.c)
- *     FsRtlIsNtstatusExpected @ 0x140359D00 (FsRtlIsNtstatusExpected.c)
- *     ExpFastResourceLegacyAcquireExclusive @ 0x1403C9820 (ExpFastResourceLegacyAcquireExclusive.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     PsBoostThreadIoEx @ 0x140230040 (PsBoostThreadIoEx.c)
+ *     ExAcquireFastMutex @ 0x140230810 (ExAcquireFastMutex.c)
+ *     ExReleaseFastMutex @ 0x140230950 (ExReleaseFastMutex.c)
+ *     ExpAcquireResourceExclusiveLite @ 0x14023B5A0 (ExpAcquireResourceExclusiveLite.c)
+ *     CcUnpinFileDataEx @ 0x14025DAA0 (CcUnpinFileDataEx.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402610F0 (KeAcquireInStackQueuedSpinLock.c)
+ *     CcFindBcb @ 0x14029EF20 (CcFindBcb.c)
+ *     CcFindBitmapRangeToClean @ 0x1402F1084 (CcFindBitmapRangeToClean.c)
+ *     CcDeductDirtyPages @ 0x1402F4210 (CcDeductDirtyPages.c)
+ *     DbgPrintEx @ 0x14032A9D0 (DbgPrintEx.c)
+ *     CcInsertIntoCleanSharedCacheMapList @ 0x140346CEC (CcInsertIntoCleanSharedCacheMapList.c)
+ *     FsRtlIsNtstatusExpected @ 0x140359EA0 (FsRtlIsNtstatusExpected.c)
+ *     ExpFastResourceLegacyAcquireExclusive @ 0x1403C9A00 (ExpFastResourceLegacyAcquireExclusive.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 bool __fastcall CcAcquireByteRangeForWrite(
@@ -550,10 +550,10 @@ LABEL_137:
     CcInsertIntoCleanSharedCacheMapList(a1);
   KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
   OldIrql = LockHandle.OldIrql;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v70 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v70 <= 0xFu && LockHandle.OldIrql <= 0xFu && v70 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v70 <= 0xFu && LockHandle.OldIrql <= 0xFu && v70 >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

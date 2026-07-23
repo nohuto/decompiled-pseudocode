@@ -16,7 +16,7 @@ __int64 __fastcall RtlpHpLfhSubsegmentPrefetch(__int64 a1, unsigned __int64 a2, 
   __int64 result; // rax
   unsigned int v5; // ebx
   unsigned int v8; // r10d
-  _QWORD v9[3]; // [rsp+30h] [rbp-18h] BYREF
+  _MEMORY_RANGE_ENTRY v9; // [rsp+30h] [rbp-18h] BYREF
   int v10; // [rsp+60h] [rbp+18h] BYREF
 
   result = 4294901760LL;
@@ -26,16 +26,10 @@ __int64 __fastcall RtlpHpLfhSubsegmentPrefetch(__int64 a1, unsigned __int64 a2, 
   {
     if ( (RtlpHpLfhPerfFlags & 2) != 0 )
     {
-      v9[0] = a2 + v8;
-      v9[1] = v5 - v8;
+      v9.VirtualAddress = (PVOID)(a2 + v8);
+      v9.NumberOfBytes = v5 - v8;
       v10 = 1;
-      ((void (__fastcall *)(__int64, _QWORD, __int64, _QWORD *, int *, int))ZwSetInformationVirtualMemory)(
-        -1LL,
-        0LL,
-        1LL,
-        v9,
-        &v10,
-        4);
+      ZwSetInformationVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, VmPrefetchInformation, 1uLL, &v9, &v10, 4u);
     }
     result = *(unsigned int *)(((unsigned __int64)*(unsigned __int16 *)(a2 + 44) << 6) + a1 + 72);
     *(_WORD *)(a2 + 48) = ((result

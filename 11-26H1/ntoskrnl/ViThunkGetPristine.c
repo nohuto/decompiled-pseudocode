@@ -1,7 +1,7 @@
 /*
- * XREFs of ViThunkGetPristine @ 0x140C35A48
+ * XREFs of ViThunkGetPristine @ 0x140C3BA58
  * Callers:
- *     ViThunkApplyPristineCurrentSession @ 0x140C354B0 (ViThunkApplyPristineCurrentSession.c)
+ *     ViThunkApplyPristineCurrentSession @ 0x140C3B4C0 (ViThunkApplyPristineCurrentSession.c)
  * Callees:
  *     <none>
  */

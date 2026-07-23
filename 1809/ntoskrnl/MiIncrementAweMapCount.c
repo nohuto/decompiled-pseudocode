@@ -1,18 +1,18 @@
 /*
- * XREFs of MiIncrementAweMapCount @ 0x1402B0DB4
+ * XREFs of MiIncrementAweMapCount @ 0x1402B0FA4
  * Callers:
- *     MiReferenceIncomingPhysicalPages @ 0x14084FF3C (MiReferenceIncomingPhysicalPages.c)
+ *     MiReferenceIncomingPhysicalPages @ 0x14085119C (MiReferenceIncomingPhysicalPages.c)
  * Callees:
  *     MiLockPageInline @ 0x14002CE40 (MiLockPageInline.c)
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     MiChangePageAttribute @ 0x1400EF920 (MiChangePageAttribute.c)
- *     KeWaitForGate @ 0x1400FA304 (KeWaitForGate.c)
- *     KeSignalGate @ 0x1401276B0 (KeSignalGate.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     MiChangeAwePageAttributes @ 0x1402AFFB4 (MiChangeAwePageAttributes.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     MiChangePageAttribute @ 0x1400EF9A0 (MiChangePageAttribute.c)
+ *     KeWaitForGate @ 0x1400FA384 (KeWaitForGate.c)
+ *     KeSignalGate @ 0x140127780 (KeSignalGate.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiChangeAwePageAttributes @ 0x1402B01A4 (MiChangeAwePageAttributes.c)
  */
 
 __int64 __fastcall MiIncrementAweMapCount(__int64 a1, __int64 a2, unsigned int a3, __int64 a4)

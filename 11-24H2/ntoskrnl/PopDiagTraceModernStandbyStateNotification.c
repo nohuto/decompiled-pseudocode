@@ -1,11 +1,11 @@
 /*
- * XREFs of PopDiagTraceModernStandbyStateNotification @ 0x1407568E4
+ * XREFs of PopDiagTraceModernStandbyStateNotification @ 0x140754D64
  * Callers:
- *     PopModernStandbyNotificationCallback @ 0x14075E9D0 (PopModernStandbyNotificationCallback.c)
+ *     PopModernStandbyNotificationCallback @ 0x14075D970 (PopModernStandbyNotificationCallback.c)
  * Callees:
- *     EtwEventEnabled @ 0x1402A1BD0 (EtwEventEnabled.c)
- *     EtwWrite @ 0x14041C1B0 (EtwWrite.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x1402D1300 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x14040FFB0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 char __fastcall PopDiagTraceModernStandbyStateNotification(int a1, int a2, int a3, int a4, __int64 a5, char a6)

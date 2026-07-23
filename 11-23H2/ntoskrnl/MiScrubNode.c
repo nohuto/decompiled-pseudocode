@@ -1,15 +1,15 @@
 /*
- * XREFs of MiScrubNode @ 0x140A46670
+ * XREFs of MiScrubNode @ 0x140A46920
  * Callers:
- *     MiScrubMemoryWorker @ 0x140A46600 (MiScrubMemoryWorker.c)
+ *     MiScrubMemoryWorker @ 0x140A468B0 (MiScrubMemoryWorker.c)
  * Callees:
- *     MiClaimPhysicalRun @ 0x1403BA77C (MiClaimPhysicalRun.c)
- *     MiPfnsWorthTrying @ 0x1403BB694 (MiPfnsWorthTrying.c)
- *     MiEmptyKernelStackCache @ 0x140644790 (MiEmptyKernelStackCache.c)
- *     MiMakePageBad @ 0x14065E2B0 (MiMakePageBad.c)
- *     MiScrubInterrupted @ 0x14065E410 (MiScrubInterrupted.c)
- *     MiScrubPage @ 0x14065F0F0 (MiScrubPage.c)
- *     MiScrubLargePageRegions @ 0x140A46410 (MiScrubLargePageRegions.c)
+ *     MiClaimPhysicalRun @ 0x1403BA95C (MiClaimPhysicalRun.c)
+ *     MiPfnsWorthTrying @ 0x1403BB874 (MiPfnsWorthTrying.c)
+ *     MiEmptyKernelStackCache @ 0x140644CE0 (MiEmptyKernelStackCache.c)
+ *     MiMakePageBad @ 0x14065E800 (MiMakePageBad.c)
+ *     MiScrubInterrupted @ 0x14065E960 (MiScrubInterrupted.c)
+ *     MiScrubPage @ 0x14065F640 (MiScrubPage.c)
+ *     MiScrubLargePageRegions @ 0x140A466C0 (MiScrubLargePageRegions.c)
  */
 
 __int64 __fastcall MiScrubNode(__int64 a1)
@@ -35,7 +35,7 @@ __int64 __fastcall MiScrubNode(__int64 a1)
   __int64 v20; // r8
   char v21; // bl
   unsigned int *v22; // [rsp+60h] [rbp-58h]
-  union _SLIST_HEADER *v23; // [rsp+68h] [rbp-50h]
+  _SLIST_HEADER *v23; // [rsp+68h] [rbp-50h]
   int v24; // [rsp+C0h] [rbp+8h] BYREF
   int v25; // [rsp+C8h] [rbp+10h]
   __int64 v26; // [rsp+D0h] [rbp+18h]
@@ -47,7 +47,7 @@ __int64 __fastcall MiScrubNode(__int64 a1)
   v26 = v2;
   v4 = *(unsigned int **)(v2 + 80);
   result = *(_QWORD *)(v2 + 48);
-  v23 = (union _SLIST_HEADER *)result;
+  v23 = (_SLIST_HEADER *)result;
   v6 = *v4;
   v27 = v6;
   LODWORD(v7) = v6;

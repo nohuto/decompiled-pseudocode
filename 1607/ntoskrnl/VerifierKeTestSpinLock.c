@@ -1,5 +1,5 @@
 /*
- * XREFs of VerifierKeTestSpinLock @ 0x14070CB00
+ * XREFs of VerifierKeTestSpinLock @ 0x14070CB30
  * Callers:
  *     <none>
  * Callees:

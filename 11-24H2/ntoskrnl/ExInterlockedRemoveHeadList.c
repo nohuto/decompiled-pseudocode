@@ -1,18 +1,18 @@
 /*
- * XREFs of ExInterlockedRemoveHeadList @ 0x14042ECB0
+ * XREFs of ExInterlockedRemoveHeadList @ 0x1404209E0
  * Callers:
- *     WheapWorkQueueWorkerRoutine @ 0x14042EAE0 (WheapWorkQueueWorkerRoutine.c)
- *     PopFxProcessWorkPool @ 0x1404EB530 (PopFxProcessWorkPool.c)
- *     KiAltReturnWorkerRoutine @ 0x1405C9C30 (KiAltReturnWorkerRoutine.c)
- *     WmipEventNotification @ 0x1409CB790 (WmipEventNotification.c)
+ *     WheapWorkQueueWorkerRoutine @ 0x140420810 (WheapWorkQueueWorkerRoutine.c)
+ *     PopFxProcessWorkPool @ 0x1404E24A0 (PopFxProcessWorkPool.c)
+ *     KiAltReturnWorkerRoutine @ 0x1405C7360 (KiAltReturnWorkerRoutine.c)
+ *     WmipEventNotification @ 0x1409B1EB0 (WmipEventNotification.c)
  * Callees:
- *     KiRemoveSystemWorkPriorityKick @ 0x14025E408 (KiRemoveSystemWorkPriorityKick.c)
- *     ExpAcquireSpinLockDisabled @ 0x14042ED58 (ExpAcquireSpinLockDisabled.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14028EA18 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExpAcquireSpinLockDisabled @ 0x140420A88 (ExpAcquireSpinLockDisabled.c)
  */
 
 PLIST_ENTRY __stdcall ExInterlockedRemoveHeadList(PLIST_ENTRY ListHead, PKSPIN_LOCK Lock)
 {
-  struct _LIST_ENTRY *Flink; // rbx
+  _LIST_ENTRY *Flink; // rbx
   char v5; // cl
   struct _LIST_ENTRY *v6; // rax
   struct _KPRCB *CurrentPrcb; // rcx

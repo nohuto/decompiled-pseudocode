@@ -73,7 +73,7 @@
 
 void __fastcall MiUnloadSystemImage(__int64 BugCheckParameter2, char a2)
 {
-  unsigned __int64 v4; // r12
+  void *v4; // r12
   ULONG_PTR v5; // r15
   __int64 PteAddress; // rax
   __int64 v7; // rcx
@@ -147,11 +147,11 @@ void __fastcall MiUnloadSystemImage(__int64 BugCheckParameter2, char a2)
   v61 = 0LL;
   if ( *(_QWORD *)(BugCheckParameter2 + 136) == 1LL )
     return;
-  v4 = *(_QWORD *)(BugCheckParameter2 + 48);
-  BugCheckParameter2a = v4;
+  v4 = *(void **)(BugCheckParameter2 + 48);
+  BugCheckParameter2a = (ULONG_PTR)v4;
   v5 = (BugCheckParameter2 + 160) & -(__int64)((a2 & 4) != 0);
   *(_QWORD *)&v55 = v5;
-  PteAddress = MiGetPteAddress(v4);
+  PteAddress = MiGetPteAddress((unsigned __int64)v4);
   v7 = *(unsigned int *)(BugCheckParameter2 + 64);
   v8 = 0LL;
   v67 = PteAddress;
@@ -159,7 +159,7 @@ void __fastcall MiUnloadSystemImage(__int64 BugCheckParameter2, char a2)
   v66 = (unsigned __int64)(unsigned int)v7 >> 12;
   v53 = (unsigned __int64)MiBytesToMapSystemImage(v7) >> 12;
   v9 = 0LL;
-  if ( (unsigned int)MiGetSystemRegionType(v4) == 1 )
+  if ( (unsigned int)MiGetSystemRegionType((unsigned __int64)v4) == 1 )
   {
     v64 = 0;
     v11 = (_QWORD *)MiSessionRemoveImage(BugCheckParameter2, (__int64)&v58);
@@ -192,10 +192,10 @@ void __fastcall MiUnloadSystemImage(__int64 BugCheckParameter2, char a2)
         MmGetSessionIdEx((__int64)KeGetCurrentThread()->ApcState.Process);
         MiDereferencePerSessionProtos(v54);
       }
-      MiGetPdeAddress(v4);
+      MiGetPdeAddress((unsigned __int64)v4);
       if ( (_QWORD)v58 && (_QWORD)v58 != -1LL )
         MiGetPdeAddress(v58 + 1);
-      PdeAddress = MiGetPdeAddress(v4 + (unsigned int)(*(_DWORD *)(BugCheckParameter2 + 64) - 1));
+      PdeAddress = MiGetPdeAddress((unsigned __int64)v4 + (unsigned int)(*(_DWORD *)(BugCheckParameter2 + 64) - 1));
       if ( *((_QWORD *)&v58 + 1) )
       {
         v17 = MiGetPdeAddress(*((unsigned __int64 *)&v58 + 1));
@@ -259,7 +259,7 @@ void __fastcall MiUnloadSystemImage(__int64 BugCheckParameter2, char a2)
   }
   KeCleanupImageTracepoints(BugCheckParameter2);
   if ( (int)MiMarkKernelImageCfgBits(BugCheckParameter2, 0LL) < 0 )
-    KeBugCheckEx(0x1Au, 0x1015uLL, v4, BugCheckParameter2, 0LL);
+    KeBugCheckEx(0x1Au, 0x1015uLL, (ULONG_PTR)v4, BugCheckParameter2, 0LL);
   if ( v9 )
   {
     v44 = (__int128 *)v9;
@@ -364,9 +364,9 @@ void __fastcall MiUnloadSystemImage(__int64 BugCheckParameter2, char a2)
   }
   MiFreeLoadedImportList(*(_QWORD *)(BugCheckParameter2 + 136));
   *(_QWORD *)(BugCheckParameter2 + 136) = 1LL;
-  LdrUnloadAlternateResourceModule();
+  LdrUnloadAlternateResourceModule(v4);
   if ( (*(_DWORD *)(BugCheckParameter2 + 104) & 0x100000) != 0 )
-    DbgUnLoadImageSymbolsUnicode((PCUNICODE_STRING)(BugCheckParameter2 + 88), v4, 0xFFFFFFFFLL);
+    DbgUnLoadImageSymbolsUnicode((PCUNICODE_STRING)(BugCheckParameter2 + 88), (__int64)v4, 0xFFFFFFFFLL);
   if ( *(_QWORD *)BugCheckParameter2 && v22 )
   {
     ExCovReadjustUnloadedModuleEntry(BugCheckParameter2, 0LL);
@@ -401,12 +401,12 @@ void __fastcall MiUnloadSystemImage(__int64 BugCheckParameter2, char a2)
       if ( (BYTE4(PerfGlobalGroupMask) & 1) != 0 )
       {
         inited = MiInitPerfMemoryFlags(0, 6);
-        v4 = BugCheckParameter2a;
+        v4 = (void *)BugCheckParameter2a;
         MiLogPerfMemoryRangeEvent(BugCheckParameter2a, 0LL, inited, (v66 + 511) & 0xFFFFFFFFFFFFFE00uLL);
       }
       else
       {
-        v4 = BugCheckParameter2a;
+        v4 = (void *)BugCheckParameter2a;
       }
       MiUnmapLargeDriver(v4, v66);
       v27 = 1;
@@ -439,7 +439,7 @@ void __fastcall MiUnloadSystemImage(__int64 BugCheckParameter2, char a2)
         v28 = 1;
       }
       v5 = v55;
-      v4 = BugCheckParameter2a;
+      v4 = (void *)BugCheckParameter2a;
     }
     goto LABEL_77;
   }
@@ -489,9 +489,9 @@ LABEL_77:
     }
     v38 = MiSectionControlArea(v29);
     v39 = v38;
-    if ( !v27 && v4 != *(_QWORD *)(*(_QWORD *)v38 + 32LL) )
+    if ( !v27 && v4 != *(void **)(*(_QWORD *)v38 + 32LL) )
     {
-      MiFreePrivateFixupEntryForSystemImage(v4, 1);
+      MiFreePrivateFixupEntryForSystemImage((ULONG_PTR)v4, 1);
       MiReturnSystemImageAddress(v4, *(unsigned int *)(BugCheckParameter2 + 64));
     }
     if ( v5 && v64 && (*(_DWORD *)(v5 + 36) & 0x80u) != 0 )

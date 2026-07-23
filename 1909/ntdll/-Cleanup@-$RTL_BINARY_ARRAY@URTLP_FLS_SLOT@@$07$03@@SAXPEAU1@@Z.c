@@ -6,16 +6,16 @@
  *     RtlFreeHeap @ 0x180040690 (RtlFreeHeap.c)
  */
 
-__int64 __fastcall RTL_BINARY_ARRAY<RTLP_FLS_SLOT,8,4>::Cleanup(__int64 *a1)
+LOGICAL __fastcall RTL_BINARY_ARRAY<RTLP_FLS_SLOT,8,4>::Cleanup(PVOID *a1)
 {
   __int64 v2; // rdi
-  __int64 result; // rax
+  LOGICAL result; // eax
 
   v2 = 8LL;
   do
   {
     if ( *a1 )
-      result = RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, *a1);
+      result = RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, *a1);
     ++a1;
     --v2;
   }

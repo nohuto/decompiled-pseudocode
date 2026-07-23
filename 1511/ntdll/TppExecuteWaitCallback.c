@@ -15,7 +15,7 @@
  *     RtlEndStrongEnumerationHashTable @ 0x180081AE0 (RtlEndStrongEnumerationHashTable.c)
  */
 
-__int64 __fastcall TppExecuteWaitCallback(__int64 a1, __int64 a2, unsigned int a3)
+__int64 __fastcall TppExecuteWaitCallback(PTP_CALLBACK_INSTANCE Instance, __int64 a2, unsigned int a3)
 {
   __int64 v6; // rbx
   __int64 result; // rax
@@ -23,7 +23,7 @@ __int64 __fastcall TppExecuteWaitCallback(__int64 a1, __int64 a2, unsigned int a
 
   if ( a3 == 258 )
   {
-    result = TppWorkCallbackPrologRelease(a1, a2, 0LL);
+    result = TppWorkCallbackPrologRelease(Instance);
     if ( !(_DWORD)result )
       return result;
     goto LABEL_4;
@@ -32,7 +32,7 @@ __int64 __fastcall TppExecuteWaitCallback(__int64 a1, __int64 a2, unsigned int a
   if ( !v6 )
   {
 LABEL_3:
-    TppCleanupGroupMemberCallbackProlog(a1, a2);
+    TppCleanupGroupMemberCallbackProlog(Instance);
 LABEL_4:
     if ( MEMORY[0x7FFE0386] )
       RtlpTpETWCallbackStart(
@@ -42,9 +42,13 @@ LABEL_4:
         *(_QWORD *)(a2 + 88),
         *(_QWORD *)(a2 + 104));
     TppStartThreadData(&v8, *(_QWORD *)(a2 + 80), *(_QWORD *)(a2 + 88), *(_QWORD *)(a2 + 104));
-    *(_QWORD *)(a1 + 88) = *(_QWORD *)(a2 + 80);
-    *(_QWORD *)(a1 + 96) = *(_QWORD *)(a2 + 88);
-    (*(void (__fastcall **)(__int64, _QWORD, __int64, _QWORD))(a2 + 80))(a1, *(_QWORD *)(a2 + 88), a2, a3);
+    *((_QWORD *)Instance + 11) = *(_QWORD *)(a2 + 80);
+    *((_QWORD *)Instance + 12) = *(_QWORD *)(a2 + 88);
+    (*(void (__fastcall **)(PTP_CALLBACK_INSTANCE, _QWORD, __int64, _QWORD))(a2 + 80))(
+      Instance,
+      *(_QWORD *)(a2 + 88),
+      a2,
+      a3);
     if ( MEMORY[0x7FFE0386] )
       RtlpTpETWCallbackStop(
         *(_QWORD *)(a2 + 136),
@@ -54,13 +58,13 @@ LABEL_4:
         *(_QWORD *)(a2 + 104));
     return TppCompleteThreadData(v8);
   }
-  if ( (int)LdrAddRefDll(0, *(_QWORD *)(a2 + 128)) >= 0 )
+  if ( LdrAddRefDll(0, *(PVOID *)(a2 + 128)) >= 0 )
   {
-    *(_DWORD *)(a1 + 144) |= 0x100u;
-    *(_QWORD *)(a1 + 168) = v6;
+    *((_DWORD *)Instance + 36) |= 0x100u;
+    *((_QWORD *)Instance + 21) = v6;
     goto LABEL_3;
   }
-  TppBarrierAdjust((unsigned __int64 *)(a2 + 56), -1, 0);
+  TppBarrierAdjust((_RTL_SRWLOCK *)(a2 + 56), -1, 0);
   result = (unsigned int)_InterlockedDecrement((volatile signed __int32 *)a2);
   if ( !(_DWORD)result )
     return (**(__int64 (__fastcall ***)(__int64))(a2 + 8))(a2);

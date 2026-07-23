@@ -1,13 +1,13 @@
 /*
- * XREFs of PopIncrementPowerSettingPendingUpdates @ 0x14031D5FC
+ * XREFs of PopIncrementPowerSettingPendingUpdates @ 0x14031D88C
  * Callers:
- *     PopDispatchPowerSettingCallbacks @ 0x140782750 (PopDispatchPowerSettingCallbacks.c)
- *     PopSetPowerSettingValue @ 0x1407829F8 (PopSetPowerSettingValue.c)
+ *     PopDispatchPowerSettingCallbacks @ 0x140782940 (PopDispatchPowerSettingCallbacks.c)
+ *     PopSetPowerSettingValue @ 0x140782BE8 (PopSetPowerSettingValue.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     PopDeepSleepSetDisengageReason @ 0x14028E848 (PopDeepSleepSetDisengageReason.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PopDeepSleepSetDisengageReason @ 0x14028EAD8 (PopDeepSleepSetDisengageReason.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall PopIncrementPowerSettingPendingUpdates(char a1)
@@ -28,10 +28,10 @@ __int64 __fastcall PopIncrementPowerSettingPendingUpdates(char a1)
     PopDeepSleepSetDisengageReason(3u);
   }
   result = KxReleaseSpinLock((volatile signed __int64 *)&PopPendingPowerSettingUpdateLock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
       && (unsigned __int8)result <= 0xFu
       && (unsigned __int8)v2 <= 0xFu
       && (unsigned __int8)result >= 2u )

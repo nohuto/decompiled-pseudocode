@@ -1,13 +1,13 @@
 /*
- * XREFs of MiEnableNewPfns @ 0x14052E060
+ * XREFs of MiEnableNewPfns @ 0x14052E2A0
  * Callers:
- *     MiAddPhysicalMemory @ 0x1408C4E90 (MiAddPhysicalMemory.c)
+ *     MiAddPhysicalMemory @ 0x1408C4FF0 (MiAddPhysicalMemory.c)
  * Callees:
- *     MiInsertPageInFreeOrZeroedList @ 0x140234F10 (MiInsertPageInFreeOrZeroedList.c)
- *     MiInsertLargePageInNodeList @ 0x1402FEA50 (MiInsertLargePageInNodeList.c)
- *     MiLockPageInline @ 0x1402FFE30 (MiLockPageInline.c)
- *     MiSetFreeZeroPfnCold @ 0x1403B1490 (MiSetFreeZeroPfnCold.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x1402D9760 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiInsertLargePageInNodeList @ 0x1403097A0 (MiInsertLargePageInNodeList.c)
+ *     MiLockPageInline @ 0x14030AB80 (MiLockPageInline.c)
+ *     MiSetFreeZeroPfnCold @ 0x1403B1600 (MiSetFreeZeroPfnCold.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  *     MiDetermineNewPfnHeatState @ 0x1403F7D80 (MiDetermineNewPfnHeatState.c)
  */
@@ -152,6 +152,6 @@ unsigned __int64 __fastcall MiEnableNewPfns(ULONG_PTR BugCheckParameter2, ULONG_
     }
   }
   if ( v6 )
-    _InterlockedExchangeAdd64(&qword_140C52980, v6);
+    _InterlockedExchangeAdd64(&qword_140C529C0, v6);
   return result;
 }

@@ -1,17 +1,17 @@
 /*
- * XREFs of IopIsNotNativeDriverImage @ 0x14081A218
+ * XREFs of IopIsNotNativeDriverImage @ 0x14081B418
  * Callers:
- *     IopCheckIfNotNativeDriver @ 0x140819810 (IopCheckIfNotNativeDriver.c)
+ *     IopCheckIfNotNativeDriver @ 0x14081AA10 (IopCheckIfNotNativeDriver.c)
  * Callees:
  *     KiStackAttachProcess @ 0x140016DB0 (KiStackAttachProcess.c)
  *     KiUnstackDetachProcess @ 0x140017190 (KiUnstackDetachProcess.c)
- *     RtlImageNtHeader @ 0x14009DAE0 (RtlImageNtHeader.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     ZwMapViewOfSection @ 0x1401B8690 (ZwMapViewOfSection.c)
- *     ZwUnmapViewOfSection @ 0x1401B86D0 (ZwUnmapViewOfSection.c)
- *     ZwOpenFile @ 0x1401B87F0 (ZwOpenFile.c)
- *     ZwCreateSection @ 0x1401B8AD0 (ZwCreateSection.c)
+ *     RtlImageNtHeader @ 0x14009DA20 (RtlImageNtHeader.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     ZwMapViewOfSection @ 0x1401B87F0 (ZwMapViewOfSection.c)
+ *     ZwUnmapViewOfSection @ 0x1401B8830 (ZwUnmapViewOfSection.c)
+ *     ZwOpenFile @ 0x1401B8950 (ZwOpenFile.c)
+ *     ZwCreateSection @ 0x1401B8C30 (ZwCreateSection.c)
  */
 
 bool __fastcall IopIsNotNativeDriverImage(UNICODE_STRING *a1)

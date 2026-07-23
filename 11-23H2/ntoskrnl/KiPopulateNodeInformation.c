@@ -3,9 +3,9 @@
  * Callers:
  *     KiPerformGroupConfiguration @ 0x140B69430 (KiPerformGroupConfiguration.c)
  * Callees:
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     MmGetChannelInformation @ 0x140851F90 (MmGetChannelInformation.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     MmGetChannelInformation @ 0x140852290 (MmGetChannelInformation.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

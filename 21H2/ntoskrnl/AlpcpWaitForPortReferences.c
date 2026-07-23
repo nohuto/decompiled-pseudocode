@@ -1,13 +1,13 @@
 /*
- * XREFs of AlpcpWaitForPortReferences @ 0x14068231C
+ * XREFs of AlpcpWaitForPortReferences @ 0x1405DD35C
  * Callers:
- *     NtAlpcQueryInformation @ 0x140681F90 (NtAlpcQueryInformation.c)
+ *     NtAlpcQueryInformation @ 0x1405DCFD0 (NtAlpcQueryInformation.c)
  * Callees:
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     KeInitializeEvent @ 0x1403538F0 (KeInitializeEvent.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     KeWaitForSingleObject @ 0x1403504C0 (KeWaitForSingleObject.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     KeInitializeEvent @ 0x14035E640 (KeInitializeEvent.c)
  */
 
 __int64 __fastcall AlpcpWaitForPortReferences(__int64 a1, _DWORD *a2, int a3, _DWORD *a4, char a5)

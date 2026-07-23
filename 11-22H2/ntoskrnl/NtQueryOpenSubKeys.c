@@ -20,7 +20,7 @@
  *     CmpUnlockRegistry @ 0x140AF64F0 (CmpUnlockRegistry.c)
  */
 
-__int64 __fastcall NtQueryOpenSubKeys(__int64 a1, _DWORD *a2)
+NTSTATUS __cdecl NtQueryOpenSubKeys(POBJECT_ATTRIBUTES TargetKey, PULONG HandleCount)
 {
   char v4; // si
   __int64 v5; // rdx
@@ -31,11 +31,11 @@ __int64 __fastcall NtQueryOpenSubKeys(__int64 a1, _DWORD *a2)
   __int64 v10; // r8
   __int64 v11; // r9
   char v12; // r14
-  int v13; // ebx
+  NTSTATUS v13; // ebx
   char PreviousMode; // dl
   __int64 v15; // rcx
   _QWORD *v16; // rdi
-  int v17; // ebx
+  ULONG v17; // ebx
   __int64 v18; // rdx
   __int64 v19; // rcx
   __int64 v20; // r8
@@ -66,12 +66,12 @@ __int64 __fastcall NtQueryOpenSubKeys(__int64 a1, _DWORD *a2)
     if ( PreviousMode == 1 )
     {
       v15 = 0x7FFFFFFF0000LL;
-      if ( (unsigned __int64)a2 < 0x7FFFFFFF0000LL )
-        v15 = (__int64)a2;
+      if ( (unsigned __int64)HandleCount < 0x7FFFFFFF0000LL )
+        v15 = (__int64)HandleCount;
       *(_DWORD *)v15 = *(_DWORD *)v15;
     }
     v13 = ObReferenceObjectByNameEx(
-            a1,
+            (__int64)TargetKey,
             0LL,
             131097,
             (__int64)CmKeyObjectType,
@@ -93,7 +93,7 @@ __int64 __fastcall NtQueryOpenSubKeys(__int64 a1, _DWORD *a2)
           CmpDetachFromRegistryProcess(v28);
           CmpUnlockRegistry(v19, v18, v20, v21);
           v4 = 0;
-          *a2 = v17;
+          *HandleCount = v17;
           v13 = 0;
         }
         else
@@ -115,5 +115,5 @@ __int64 __fastcall NtQueryOpenSubKeys(__int64 a1, _DWORD *a2)
   if ( Object )
     ObfDereferenceObject(Object);
   CmCleanupThreadInfo((__int64 *)&v27);
-  return (unsigned int)v13;
+  return v13;
 }

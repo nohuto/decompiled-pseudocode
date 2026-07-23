@@ -1,18 +1,18 @@
 /*
- * XREFs of VfIrpSendSynchronousIrp @ 0x14070BF00
+ * XREFs of VfIrpSendSynchronousIrp @ 0x14070BF30
  * Callers:
  *     VfPnpTestStartedPdoStack @ 0x1407186C0 (VfPnpTestStartedPdoStack.c)
  *     VfPowerTestStartedPdoStack @ 0x140718FF4 (VfPowerTestStartedPdoStack.c)
  *     VfWmiTestStartedPdoStack @ 0x1407191FC (VfWmiTestStartedPdoStack.c)
  * Callees:
- *     KeInitializeEvent @ 0x14002DEA0 (KeInitializeEvent.c)
- *     IofCallDriver @ 0x14002E060 (IofCallDriver.c)
- *     IoAllocateIrpEx @ 0x14002E0D4 (IoAllocateIrpEx.c)
- *     IoFreeIrp @ 0x140055DD0 (IoFreeIrp.c)
- *     KeWaitForSingleObject @ 0x14005C880 (KeWaitForSingleObject.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     IoGetAttachedDeviceReference @ 0x1400C48F0 (IoGetAttachedDeviceReference.c)
- *     IovUtilWatermarkIrp @ 0x1400C6014 (IovUtilWatermarkIrp.c)
+ *     KeInitializeEvent @ 0x14002DA20 (KeInitializeEvent.c)
+ *     IofCallDriver @ 0x14002DBE0 (IofCallDriver.c)
+ *     IoAllocateIrpEx @ 0x14002DC54 (IoAllocateIrpEx.c)
+ *     IoFreeIrp @ 0x140055950 (IoFreeIrp.c)
+ *     KeWaitForSingleObject @ 0x14005C400 (KeWaitForSingleObject.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     IoGetAttachedDeviceReference @ 0x1400C2790 (IoGetAttachedDeviceReference.c)
+ *     IovUtilWatermarkIrp @ 0x1400C3EB4 (IovUtilWatermarkIrp.c)
  */
 
 __int64 __fastcall VfIrpSendSynchronousIrp(

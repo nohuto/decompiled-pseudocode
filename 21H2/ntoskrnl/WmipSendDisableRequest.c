@@ -1,9 +1,9 @@
 /*
- * XREFs of WmipSendDisableRequest @ 0x1406C1D50
+ * XREFs of WmipSendDisableRequest @ 0x140620990
  * Callers:
- *     WmipDisableCollectOrEvent @ 0x1406C1CE0 (WmipDisableCollectOrEvent.c)
+ *     WmipDisableCollectOrEvent @ 0x140620920 (WmipDisableCollectOrEvent.c)
  * Callees:
- *     WmipDoDisableRequest @ 0x14077A7EC (WmipDoDisableRequest.c)
+ *     WmipDoDisableRequest @ 0x14077A9AC (WmipDoDisableRequest.c)
  */
 
 __int64 __fastcall WmipSendDisableRequest(_DWORD *a1, char a2)

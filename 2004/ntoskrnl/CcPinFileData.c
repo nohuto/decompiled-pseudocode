@@ -79,7 +79,7 @@ __int64 __fastcall CcPinFileData(
   __int16 v40; // cx
   __int64 v41; // rsi
   struct _KTHREAD *v42; // rdi
-  int v43; // r8d
+  NTSTATUS v43; // r8d
   unsigned __int64 v44; // rdx
   unsigned __int64 v45; // rsi
   unsigned int v46; // r15d
@@ -136,7 +136,7 @@ __int64 __fastcall CcPinFileData(
   int v98; // [rsp+78h] [rbp-90h]
   int v99; // [rsp+7Ch] [rbp-8Ch] BYREF
   int v100; // [rsp+80h] [rbp-88h]
-  int v101; // [rsp+84h] [rbp-84h]
+  NTSTATUS v101; // [rsp+84h] [rbp-84h]
   int v102; // [rsp+88h] [rbp-80h]
   char *v103; // [rsp+90h] [rbp-78h]
   __int64 v104; // [rsp+98h] [rbp-70h]
@@ -365,7 +365,7 @@ LABEL_34:
       if ( !v67 )
       {
         KeReleaseGuardedMutex((PKGUARDED_MUTEX)(v12 + 280));
-        RtlRaiseStatus(3221225626LL);
+        RtlRaiseStatus(-1073741670);
       }
       if ( !v113 )
       {
@@ -591,7 +591,7 @@ LABEL_134:
     BYTE4(v42[1].Queue) = v46 & 3;
     LODWORD(v42[1].WaitListEntry.Flink) = v46 >> 2;
     if ( v43 < 0 )
-      RtlRaiseStatus((unsigned int)v43);
+      RtlRaiseStatus(v43);
     v105 = 0LL;
     v95 = 0;
     v47 = KeGetCurrentThread();

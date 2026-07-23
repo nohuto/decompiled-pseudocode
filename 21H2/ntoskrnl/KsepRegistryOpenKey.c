@@ -1,17 +1,17 @@
 /*
- * XREFs of KsepRegistryOpenKey @ 0x14075B464
+ * XREFs of KsepRegistryOpenKey @ 0x14075B624
  * Callers:
- *     KsepRegistryQueryDriverShims @ 0x14075B1F4 (KsepRegistryQueryDriverShims.c)
- *     KsepDbQueryRegistryDeviceData @ 0x14075F89C (KsepDbQueryRegistryDeviceData.c)
- *     KsepDbQueryRegistryDeviceDataList @ 0x1408BFAC0 (KsepDbQueryRegistryDeviceDataList.c)
- *     KsepMatchInitBiosInfo @ 0x140A6A22C (KsepMatchInitBiosInfo.c)
- *     KsepEngineReadFlags @ 0x140A6A47C (KsepEngineReadFlags.c)
+ *     KsepRegistryQueryDriverShims @ 0x14075B3B4 (KsepRegistryQueryDriverShims.c)
+ *     KsepDbQueryRegistryDeviceData @ 0x14075FA5C (KsepDbQueryRegistryDeviceData.c)
+ *     KsepDbQueryRegistryDeviceDataList @ 0x1408BFC20 (KsepDbQueryRegistryDeviceDataList.c)
+ *     KsepMatchInitBiosInfo @ 0x140A6B22C (KsepMatchInitBiosInfo.c)
+ *     KsepEngineReadFlags @ 0x140A6B47C (KsepEngineReadFlags.c)
  * Callees:
- *     ZwOpenKey @ 0x1403FA5E0 (ZwOpenKey.c)
- *     RtlAssert @ 0x140588810 (RtlAssert.c)
- *     KsepStringDuplicate @ 0x14075B274 (KsepStringDuplicate.c)
- *     KsepStringConcatenate @ 0x14075B324 (KsepStringConcatenate.c)
- *     KsepStringFree @ 0x14075B800 (KsepStringFree.c)
+ *     ZwOpenKey @ 0x1403FA7C0 (ZwOpenKey.c)
+ *     RtlAssert @ 0x140588A40 (RtlAssert.c)
+ *     KsepStringDuplicate @ 0x14075B434 (KsepStringDuplicate.c)
+ *     KsepStringConcatenate @ 0x14075B4E4 (KsepStringConcatenate.c)
+ *     KsepStringFree @ 0x14075B9C0 (KsepStringFree.c)
  */
 
 __int64 __fastcall KsepRegistryOpenKey(_WORD *a1, _WORD *a2, HANDLE *a3)
@@ -60,7 +60,7 @@ __int64 __fastcall KsepRegistryOpenKey(_WORD *a1, _WORD *a2, HANDLE *a3)
     if ( v7 >= 0 )
     {
       *a3 = KeyHandle;
-      _InterlockedIncrement(&dword_140C2AA38);
+      _InterlockedIncrement(&dword_140C2AA78);
     }
   }
   KsepStringFree(v11);

@@ -56,8 +56,8 @@ char ExpRefreshTimeZoneInformation()
   LARGE_INTEGER LocalTime; // [rsp+48h] [rbp-C0h] BYREF
   LARGE_INTEGER Time; // [rsp+50h] [rbp-B8h] BYREF
   LARGE_INTEGER v27; // [rsp+58h] [rbp-B0h] BYREF
-  unsigned __int64 v28; // [rsp+60h] [rbp-A8h] BYREF
-  struct _TIME_FIELDS TimeFields; // [rsp+68h] [rbp-A0h] BYREF
+  unsigned __int64 Buffer; // [rsp+60h] [rbp-A8h] BYREF
+  _TIME_FIELDS TimeFields; // [rsp+68h] [rbp-A0h] BYREF
   LARGE_INTEGER SystemTime; // [rsp+78h] [rbp-90h] BYREF
   LARGE_INTEGER v31; // [rsp+80h] [rbp-88h] BYREF
   _QWORD Buf2[54]; // [rsp+88h] [rbp-80h] BYREF
@@ -68,7 +68,7 @@ char ExpRefreshTimeZoneInformation()
   v27.QuadPart = 0LL;
   *(_QWORD *)&TimeFields.Year = 0LL;
   *(_QWORD *)&TimeFields.Minute = 0LL;
-  v28 = 0LL;
+  Buffer = 0LL;
   if ( !ExpTimeZoneWorkItem.WorkerRoutine )
   {
     KeInitializeDpc(&ExpTimeZoneDpc, (PKDEFERRED_ROUTINE)ExpTimeZoneDpcRoutine, &ExpOkToTimeZoneRefresh);
@@ -162,8 +162,8 @@ LABEL_26:
 LABEL_28:
   if ( ExpLastTimeZoneBias != v4 )
   {
-    v28 = 0xFFFFFFFF00000000uLL;
-    ZwUpdateWnfStateData((__int64)&WNF_SEB_TIME_ZONE_CHANGE, (__int64)&v28, 8LL);
+    Buffer = 0xFFFFFFFF00000000uLL;
+    ZwUpdateWnfStateData(&WNF_SEB_TIME_ZONE_CHANGE, &Buffer, 8u, 0LL, 0LL, 0, 0);
     EtwTraceTimeZoneBiasChange(v4);
   }
   v9 = 3LL;

@@ -1,10 +1,10 @@
 /*
- * XREFs of CcSetLogHandleForFile @ 0x1401B22C0
+ * XREFs of CcSetLogHandleForFile @ 0x1401B21A4
  * Callers:
  *     <none>
  * Callees:
- *     KeAcquireQueuedSpinLock @ 0x1400E8D30 (KeAcquireQueuedSpinLock.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
+ *     KeAcquireQueuedSpinLock @ 0x1400E6BD0 (KeAcquireQueuedSpinLock.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
  */
 
 void __stdcall CcSetLogHandleForFile(PFILE_OBJECT FileObject, PVOID LogHandle, PFLUSH_TO_LSN FlushToLsnRoutine)
@@ -43,23 +43,23 @@ void __stdcall CcSetLogHandleForFile(PFILE_OBJECT FileObject, PVOID LogHandle, P
     v11 = SharedCacheMap + 120;
     if ( *((_DWORD *)SharedCacheMap + 28) )
     {
-      v12 = (_QWORD *)qword_140322FB8;
-      if ( *(__int64 **)qword_140322FB8 != &CcDirtySharedCacheMapWithLogHandleList )
+      v12 = (_QWORD *)qword_140322FD8;
+      if ( *(__int64 **)qword_140322FD8 != &CcDirtySharedCacheMapWithLogHandleList )
         __fastfail(3u);
       *v11 = &CcDirtySharedCacheMapWithLogHandleList;
       *((_QWORD *)SharedCacheMap + 16) = v12;
       *v12 = v11;
-      qword_140322FB8 = (__int64)(SharedCacheMap + 120);
+      qword_140322FD8 = (__int64)(SharedCacheMap + 120);
     }
     else
     {
-      v13 = (_QWORD *)qword_140322F98;
-      if ( *(__int64 **)qword_140322F98 != &CcCleanSharedCacheMapWithLogHandleList )
+      v13 = (_QWORD *)qword_140322FB8;
+      if ( *(__int64 **)qword_140322FB8 != &CcCleanSharedCacheMapWithLogHandleList )
         __fastfail(3u);
       *v11 = &CcCleanSharedCacheMapWithLogHandleList;
       *((_QWORD *)SharedCacheMap + 16) = v13;
       *v13 = v11;
-      qword_140322F98 = (__int64)(SharedCacheMap + 120);
+      qword_140322FB8 = (__int64)(SharedCacheMap + 120);
     }
   }
   *((_QWORD *)SharedCacheMap + 30) = LogHandle;

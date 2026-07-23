@@ -1,17 +1,17 @@
 /*
- * XREFs of KiDetectHardwareSpecControlFeatures @ 0x1401D989C
+ * XREFs of KiDetectHardwareSpecControlFeatures @ 0x1401D96C8
  * Callers:
- *     KiDetectBpbMsr @ 0x1401D980C (KiDetectBpbMsr.c)
- *     KiIsKvaShadowNeededForBranchConfusion @ 0x1401D9CAC (KiIsKvaShadowNeededForBranchConfusion.c)
- *     KiIsKvaShadowNeededForTsa @ 0x1401D9CFC (KiIsKvaShadowNeededForTsa.c)
+ *     KiDetectBpbMsr @ 0x1401D9638 (KiDetectBpbMsr.c)
+ *     KiIsKvaShadowNeededForBranchConfusion @ 0x1401D9AD8 (KiIsKvaShadowNeededForBranchConfusion.c)
+ *     KiIsKvaShadowNeededForTsa @ 0x1401D9B28 (KiIsKvaShadowNeededForTsa.c)
  * Callees:
- *     HviIsAnyHypervisorPresent @ 0x14013123C (HviIsAnyHypervisorPresent.c)
- *     HviGetHypervisorFeatures @ 0x14014AF24 (HviGetHypervisorFeatures.c)
- *     HviIsHypervisorMicrosoftCompatible @ 0x14014AF54 (HviIsHypervisorMicrosoftCompatible.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     KiIsBranchConfusionPresent @ 0x1401D9C44 (KiIsBranchConfusionPresent.c)
- *     KiIsTsaPresent @ 0x1401D9E54 (KiIsTsaPresent.c)
- *     HviGetEnlightenmentInformation @ 0x140231E9C (HviGetEnlightenmentInformation.c)
+ *     HviIsAnyHypervisorPresent @ 0x1401317AC (HviIsAnyHypervisorPresent.c)
+ *     HviGetHypervisorFeatures @ 0x14014B494 (HviGetHypervisorFeatures.c)
+ *     HviIsHypervisorMicrosoftCompatible @ 0x14014B4C4 (HviIsHypervisorMicrosoftCompatible.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     KiIsBranchConfusionPresent @ 0x1401D9A70 (KiIsBranchConfusionPresent.c)
+ *     KiIsTsaPresent @ 0x1401D9C80 (KiIsTsaPresent.c)
+ *     HviGetEnlightenmentInformation @ 0x140231CC8 (HviGetEnlightenmentInformation.c)
  */
 
 int *__fastcall KiDetectHardwareSpecControlFeatures(_BYTE *a1, char a2, __int64 a3, int *a4)

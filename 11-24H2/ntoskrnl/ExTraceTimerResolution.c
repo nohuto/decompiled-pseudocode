@@ -1,14 +1,14 @@
 /*
- * XREFs of ExTraceTimerResolution @ 0x1404A9A08
+ * XREFs of ExTraceTimerResolution @ 0x1404A3CD8
  * Callers:
- *     PopDiagTraceControlCallback @ 0x140A37E50 (PopDiagTraceControlCallback.c)
+ *     PopDiagTraceControlCallback @ 0x140A2CF10 (PopDiagTraceControlCallback.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     PoTraceSystemTimerResolution @ 0x1409B1C30 (PoTraceSystemTimerResolution.c)
- *     ExAcquireTimeRefreshLockShared @ 0x140A13A50 (ExAcquireTimeRefreshLockShared.c)
- *     ExReleaseTimeRefreshLockShared @ 0x140A13ABC (ExReleaseTimeRefreshLockShared.c)
- *     PoRundownSystemTimer @ 0x140A94D4C (PoRundownSystemTimer.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PoTraceSystemTimerResolution @ 0x1409A8F80 (PoTraceSystemTimerResolution.c)
+ *     ExAcquireTimeRefreshLockShared @ 0x140A0C1B0 (ExAcquireTimeRefreshLockShared.c)
+ *     ExReleaseTimeRefreshLockShared @ 0x140A0C21C (ExReleaseTimeRefreshLockShared.c)
+ *     PoRundownSystemTimer @ 0x140A914FC (PoRundownSystemTimer.c)
  */
 
 __int64 ExTraceTimerResolution()
@@ -16,7 +16,7 @@ __int64 ExTraceTimerResolution()
   KIRQL v0; // al
   int v1; // r15d
   int v2; // r14d
-  int v3; // ebp
+  ULONG v3; // ebp
   int v4; // esi
   char v5; // di
   char v6; // bl

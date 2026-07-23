@@ -1,18 +1,18 @@
 /*
- * XREFs of MiInitializeProtoPfn @ 0x1402C4B5C
+ * XREFs of MiInitializeProtoPfn @ 0x1402C4D4C
  * Callers:
- *     MiFillPerSessionProtos @ 0x14085C3FC (MiFillPerSessionProtos.c)
+ *     MiFillPerSessionProtos @ 0x14085D65C (MiFillPerSessionProtos.c)
  * Callees:
  *     MiLockProtoPoolPage @ 0x14002F030 (MiLockProtoPoolPage.c)
  *     MiUnlockProtoPoolPage @ 0x14002F1F0 (MiUnlockProtoPoolPage.c)
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MiMakeValidPte @ 0x14003D7F0 (MiMakeValidPte.c)
  *     MmAccessFault @ 0x140043DA0 (MmAccessFault.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     MiDecrementShareCount @ 0x140081EA0 (MiDecrementShareCount.c)
- *     MiInitializePfn @ 0x140109430 (MiInitializePfn.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     MiDecrementShareCount @ 0x140081E90 (MiDecrementShareCount.c)
+ *     MiInitializePfn @ 0x1401094B0 (MiInitializePfn.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
  */
 
 __int64 __fastcall MiInitializeProtoPfn(__int64 a1, __int64 *a2, unsigned int a3, int a4)
@@ -53,7 +53,7 @@ __int64 __fastcall MiInitializeProtoPfn(__int64 a1, __int64 *a2, unsigned int a3
     if ( (unsigned int)MiPteHasShadow() )
     {
       v13 = v14;
-      if ( HIBYTE(word_14043A1AC) )
+      if ( HIBYTE(word_14043B26C) )
         goto LABEL_14;
     }
     else if ( (KeGetCurrentThread()->ApcState.Process[2].ActiveProcessors.Bitmap[0] & 0x100000000000LL) == 0 )

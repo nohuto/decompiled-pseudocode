@@ -1,11 +1,11 @@
 /*
- * XREFs of SymCryptIntToDivisor @ 0x1403F9544
+ * XREFs of SymCryptIntToDivisor @ 0x1403F9724
  * Callers:
- *     SymCryptRsakeyCalculatePrivateFields @ 0x1403F75C8 (SymCryptRsakeyCalculatePrivateFields.c)
- *     SymCryptIntExtendedGcd @ 0x1403FDD64 (SymCryptIntExtendedGcd.c)
- *     SymCryptFdefIntToModulus @ 0x140403EEC (SymCryptFdefIntToModulus.c)
+ *     SymCryptRsakeyCalculatePrivateFields @ 0x1403F77A8 (SymCryptRsakeyCalculatePrivateFields.c)
+ *     SymCryptIntExtendedGcd @ 0x1403FDF44 (SymCryptIntExtendedGcd.c)
+ *     SymCryptFdefIntToModulus @ 0x1404040CC (SymCryptFdefIntToModulus.c)
  * Callees:
- *     SymCryptFdefIntToDivisor @ 0x14040377C (SymCryptFdefIntToDivisor.c)
+ *     SymCryptFdefIntToDivisor @ 0x14040395C (SymCryptFdefIntToDivisor.c)
  */
 
 __int64 __fastcall SymCryptIntToDivisor(int a1, int a2, int a3, int a4, __int64 a5, __int64 a6)

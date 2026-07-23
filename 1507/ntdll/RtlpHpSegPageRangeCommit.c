@@ -10,31 +10,32 @@
  *     RtlpLogHeapCommit @ 0x1800EF668 (RtlpLogHeapCommit.c)
  */
 
-__int64 __fastcall RtlpHpSegPageRangeCommit(_DWORD *a1, __int64 a2, __int64 a3, unsigned int a4)
+NTSTATUS __fastcall RtlpHpSegPageRangeCommit(_DWORD *BaseAddress, __int64 a2, __int64 a3, unsigned int a4)
 {
   int v6; // edi
-  int HeapProtection; // eax
-  __int64 result; // rax
+  ULONG Protect; // eax
+  NTSTATUS result; // eax
   unsigned int v9; // [rsp+30h] [rbp-28h] BYREF
   unsigned __int64 v10; // [rsp+38h] [rbp-20h] BYREF
-  __int64 v11; // [rsp+40h] [rbp-18h] BYREF
-  unsigned __int64 v12; // [rsp+48h] [rbp-10h] BYREF
+  ULONG_PTR RegionSize; // [rsp+40h] [rbp-18h] BYREF
+  PVOID BaseAddressa; // [rsp+48h] [rbp-10h] BYREF
 
   v6 = RtlpHpSegPageRangeCalcCommitRegion(a3, a4, 1, &v10, &v9);
   if ( v6 )
   {
-    v12 = (v10 & 0xFFFFFFFFFFF00000uLL) + ((unsigned int)((__int64)(v10 - (v10 & 0xFFFFFFFFFFF00000uLL)) >> 5) << 12);
-    v11 = v9 << 12;
-    HeapProtection = RtlpGetHeapProtection(a1, 1);
-    result = ZwAllocateVirtualMemory(-1LL, &v12, 0LL, &v11, 4096, HeapProtection);
-    if ( (int)result < 0 )
+    BaseAddressa = (PVOID)((v10 & 0xFFFFFFFFFFF00000uLL)
+                         + ((unsigned int)((__int64)(v10 - (v10 & 0xFFFFFFFFFFF00000uLL)) >> 5) << 12));
+    RegionSize = v9 << 12;
+    Protect = RtlpGetHeapProtection(BaseAddress, 1);
+    result = ZwAllocateVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddressa, 0LL, &RegionSize, 0x1000u, Protect);
+    if ( result < 0 )
       return result;
-    RtlpHpSegUpdateCommit((__int64)a1, a2, v10, v9, v6);
+    RtlpHpSegUpdateCommit((__int64)BaseAddress, a2, v10, v9, v6);
     if ( MEMORY[0x7FFE0380] )
     {
       if ( (NtCurrentPeb()->TracingFlags & 1) != 0 )
-        RtlpLogHeapCommit(a1, v12, v11, 10LL);
+        RtlpLogHeapCommit(BaseAddress, BaseAddressa, RegionSize, 10LL);
     }
   }
-  return 0LL;
+  return 0;
 }

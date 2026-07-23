@@ -6,7 +6,7 @@
  *     <none>
  */
 
-__int64 DbgUiWaitStateChange()
+NTSTATUS __cdecl DbgUiWaitStateChange(PDBGUI_WAIT_STATE_CHANGE StateChange, PLARGE_INTEGER Timeout)
 {
-  return ZwWaitForDebugEvent();
+  return ZwWaitForDebugEvent(NtCurrentTeb()->DbgSsReserved[1], 1u, Timeout, StateChange);
 }

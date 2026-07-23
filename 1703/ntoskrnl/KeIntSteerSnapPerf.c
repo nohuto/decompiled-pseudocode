@@ -8,12 +8,12 @@
  *     KiReleaseSpinLockInstrumented @ 0x1401FECBC (KiReleaseSpinLockInstrumented.c)
  */
 
-__int64 __fastcall KeIntSteerSnapPerf(_DWORD *a1, __int64 *a2)
+__int64 __fastcall KeIntSteerSnapPerf(_DWORD *a1, LARGE_INTEGER *a2)
 {
   _DWORD *v2; // rbx
-  __int64 InterruptTimePrecise; // rax
-  __int64 v5; // r14
-  __int64 v6; // r15
+  LARGE_INTEGER InterruptTimePrecise; // rax
+  LONGLONG v5; // r14
+  LARGE_INTEGER v6; // r15
   __int64 MHz; // r12
   __int64 v8; // rbp
   unsigned __int8 CurrentIrql; // di
@@ -33,20 +33,20 @@ __int64 __fastcall KeIntSteerSnapPerf(_DWORD *a1, __int64 *a2)
   __int64 result; // rax
   void *retaddr; // [rsp+58h] [rbp+0h]
   unsigned __int8 v26; // [rsp+70h] [rbp+18h]
-  char v27; // [rsp+78h] [rbp+20h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+78h] [rbp+20h] BYREF
 
   v2 = a1;
-  InterruptTimePrecise = RtlGetInterruptTimePrecise(&v27);
-  v5 = InterruptTimePrecise - KiIntSteerPreviousPerfSnap;
+  InterruptTimePrecise = RtlGetInterruptTimePrecise(&PerformanceCounter);
+  v5 = InterruptTimePrecise.QuadPart - KiIntSteerPreviousPerfSnap;
   v6 = InterruptTimePrecise;
   MHz = KeGetCurrentPrcb()->MHz;
-  if ( (unsigned __int64)(InterruptTimePrecise - KiIntSteerPreviousPerfSnap) < 0x186A0 )
+  if ( (unsigned __int64)(InterruptTimePrecise.QuadPart - KiIntSteerPreviousPerfSnap) < 0x186A0 )
   {
     LODWORD(v22) = KiIntSteerLoadPercent;
   }
   else
   {
-    KiIntSteerPreviousPerfSnap = InterruptTimePrecise;
+    KiIntSteerPreviousPerfSnap = InterruptTimePrecise.QuadPart;
     v8 = 0LL;
     CurrentIrql = KeGetCurrentIrql();
     v26 = CurrentIrql;

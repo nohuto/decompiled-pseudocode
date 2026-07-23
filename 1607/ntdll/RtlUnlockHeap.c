@@ -1,41 +1,41 @@
 /*
- * XREFs of RtlUnlockHeap @ 0x180019E50
+ * XREFs of RtlUnlockHeap @ 0x180019E40
  * Callers:
- *     RtlExitUserProcess @ 0x180006E60 (RtlExitUserProcess.c)
- *     RtlUnlockProcessHeapOnProcessTerminate @ 0x18000749C (RtlUnlockProcessHeapOnProcessTerminate.c)
- *     RtlValidateHeap @ 0x180076860 (RtlValidateHeap.c)
- *     RtlpLockUlockAllHeapsCallback @ 0x1800EA680 (RtlpLockUlockAllHeapsCallback.c)
- *     RtlpQueryExtendedHeapInformation @ 0x1800EA6A4 (RtlpQueryExtendedHeapInformation.c)
+ *     RtlExitUserProcess @ 0x180006E50 (RtlExitUserProcess.c)
+ *     RtlUnlockProcessHeapOnProcessTerminate @ 0x18000748C (RtlUnlockProcessHeapOnProcessTerminate.c)
+ *     RtlValidateHeap @ 0x180076850 (RtlValidateHeap.c)
+ *     RtlpLockUlockAllHeapsCallback @ 0x1800EA740 (RtlpLockUlockAllHeapsCallback.c)
+ *     RtlpQueryExtendedHeapInformation @ 0x1800EA764 (RtlpQueryExtendedHeapInformation.c)
  * Callees:
- *     RtlpCheckHeapSignature @ 0x180019D84 (RtlpCheckHeapSignature.c)
- *     RtlLeaveCriticalSection @ 0x180019DC0 (RtlLeaveCriticalSection.c)
- *     RtlpHpHeapUnlock @ 0x18001C4A4 (RtlpHpHeapUnlock.c)
- *     __security_check_cookie @ 0x180096C40 (__security_check_cookie.c)
+ *     RtlpCheckHeapSignature @ 0x180019D74 (RtlpCheckHeapSignature.c)
+ *     RtlLeaveCriticalSection @ 0x180019DB0 (RtlLeaveCriticalSection.c)
+ *     RtlpHpHeapUnlock @ 0x18001C494 (RtlpHpHeapUnlock.c)
+ *     __security_check_cookie @ 0x180096C30 (__security_check_cookie.c)
  *     NtTraceEvent @ 0x1800A6FD0 (NtTraceEvent.c)
  *     _guard_dispatch_icall_nop @ 0x1800A9C80 (_guard_dispatch_icall_nop.c)
  */
 
-char __fastcall RtlUnlockHeap(__int64 a1)
+BOOLEAN __cdecl RtlUnlockHeap(PVOID HeapHandle)
 {
-  __int64 v3; // rcx
-  _BYTE v4[6]; // [rsp+20h] [rbp-38h] BYREF
+  _RTL_CRITICAL_SECTION *v3; // rcx
+  _BYTE Fields[6]; // [rsp+20h] [rbp-38h] BYREF
   __int16 v5; // [rsp+26h] [rbp-32h]
-  __int64 v6; // [rsp+40h] [rbp-18h]
+  PVOID v6; // [rsp+40h] [rbp-18h]
 
-  if ( *(_DWORD *)(a1 + 16) == -571548178 )
+  if ( *((_DWORD *)HeapHandle + 4) == -571548178 )
   {
-    RtlpHpHeapUnlock(a1, 0LL);
+    RtlpHpHeapUnlock(HeapHandle, 0LL);
   }
   else
   {
-    if ( (*(_DWORD *)(a1 + 116) & 0x1000000) != 0 )
+    if ( (*((_DWORD *)HeapHandle + 29) & 0x1000000) != 0 )
       return ((__int64 (*)(void))qword_18014C458)();
-    if ( !RtlpCheckHeapSignature((_DWORD *)a1, "RtlUnlockHeap") )
+    if ( !RtlpCheckHeapSignature(HeapHandle, "RtlUnlockHeap") )
       return 0;
-    if ( (*(_BYTE *)(a1 + 112) & 1) == 0 )
+    if ( (*((_BYTE *)HeapHandle + 112) & 1) == 0 )
     {
-      v3 = *(_QWORD *)(a1 + 352);
-      --*(_WORD *)(a1 + 384);
+      v3 = (_RTL_CRITICAL_SECTION *)*((_QWORD *)HeapHandle + 44);
+      --*((_WORD *)HeapHandle + 192);
       RtlLeaveCriticalSection(v3);
     }
   }
@@ -43,9 +43,9 @@ char __fastcall RtlUnlockHeap(__int64 a1)
   {
     if ( (NtCurrentPeb()->TracingFlags & 1) != 0 )
     {
-      v6 = a1;
+      v6 = HeapHandle;
       v5 = 4140;
-      NtTraceEvent(MEMORY[0x7FFE0380], 1026LL, 8LL, v4);
+      NtTraceEvent((HANDLE)MEMORY[0x7FFE0380], 0x402u, 8u, Fields);
     }
   }
   return 1;

@@ -8,22 +8,22 @@
  *     RtlUnlockModuleSection @ 0x180074110 (RtlUnlockModuleSection.c)
  */
 
-signed __int64 RtlpUnregisterLockedMemoryBlockLookaside()
+void RtlpUnregisterLockedMemoryBlockLookaside()
 {
-  __int64 (__fastcall **v1)(); // rbx
-  __int64 v2; // rdi
+  PVOID *v0; // rbx
+  __int64 v1; // rdi
 
   RtlAcquireSRWLockExclusive(&RtlpMemoryBlockLookasideLock);
   if ( !--RtlpLockedMemoryBlockLookasideCount )
   {
-    v1 = RtlpMemoryBlockLookasideCriticalRoutines;
-    v2 = 4LL;
+    v0 = (PVOID *)RtlpMemoryBlockLookasideCriticalRoutines;
+    v1 = 4LL;
     do
     {
-      RtlUnlockModuleSection(*v1++);
-      --v2;
+      RtlUnlockModuleSection(*v0++);
+      --v1;
     }
-    while ( v2 );
+    while ( v1 );
   }
-  return RtlReleaseSRWLockExclusive(&RtlpMemoryBlockLookasideLock);
+  RtlReleaseSRWLockExclusive(&RtlpMemoryBlockLookasideLock);
 }

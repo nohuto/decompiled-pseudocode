@@ -2,8 +2,8 @@
  * XREFs of IoRemoveIoCompletion @ 0x140058990
  * Callers:
  *     NtWaitForWorkViaWorkerFactory @ 0x140059B50 (NtWaitForWorkViaWorkerFactory.c)
- *     NtRemoveIoCompletionEx @ 0x1405E9CE0 (NtRemoveIoCompletionEx.c)
- *     NtRemoveIoCompletion @ 0x14068EDF0 (NtRemoveIoCompletion.c)
+ *     NtRemoveIoCompletionEx @ 0x1405EACE0 (NtRemoveIoCompletionEx.c)
+ *     NtRemoveIoCompletion @ 0x14068FFB0 (NtRemoveIoCompletion.c)
  * Callees:
  *     KiStackAttachProcess @ 0x140016DB0 (KiStackAttachProcess.c)
  *     KiUnstackDetachProcess @ 0x140017190 (KiUnstackDetachProcess.c)
@@ -11,16 +11,16 @@
  *     ExAcquireRundownProtection_0 @ 0x14004D320 (ExAcquireRundownProtection_0.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
  *     KeRemoveQueueEx @ 0x140058D60 (KeRemoveQueueEx.c)
- *     KxWaitForSpinLockAndAcquire @ 0x14008CFD0 (KxWaitForSpinLockAndAcquire.c)
- *     IoFreeIrp @ 0x1400B9670 (IoFreeIrp.c)
- *     IopCompleteRequest @ 0x1400BFD10 (IopCompleteRequest.c)
- *     IopDropIrp @ 0x1400E099C (IopDropIrp.c)
- *     IopInterlockedAdd @ 0x14012F9BC (IopInterlockedAdd.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KiAcquireSpinLockInstrumented @ 0x140290E28 (KiAcquireSpinLockInstrumented.c)
- *     KiReleaseSpinLockInstrumented @ 0x140290F38 (KiReleaseSpinLockInstrumented.c)
- *     IopFreeMiniCompletionPacket @ 0x1405E9C20 (IopFreeMiniCompletionPacket.c)
+ *     KxWaitForSpinLockAndAcquire @ 0x14008CF10 (KxWaitForSpinLockAndAcquire.c)
+ *     IoFreeIrp @ 0x1400B95B0 (IoFreeIrp.c)
+ *     IopCompleteRequest @ 0x1400BFC50 (IopCompleteRequest.c)
+ *     IopDropIrp @ 0x1400E0A1C (IopDropIrp.c)
+ *     IopInterlockedAdd @ 0x14012FA8C (IopInterlockedAdd.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiAcquireSpinLockInstrumented @ 0x140291018 (KiAcquireSpinLockInstrumented.c)
+ *     KiReleaseSpinLockInstrumented @ 0x140291128 (KiReleaseSpinLockInstrumented.c)
+ *     IopFreeMiniCompletionPacket @ 0x1405EAC20 (IopFreeMiniCompletionPacket.c)
  */
 
 __int64 __fastcall IoRemoveIoCompletion(

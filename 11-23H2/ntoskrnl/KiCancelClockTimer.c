@@ -1,16 +1,16 @@
 /*
- * XREFs of KiCancelClockTimer @ 0x140340C70
+ * XREFs of KiCancelClockTimer @ 0x140340F00
  * Callers:
- *     KeClockInterruptNotify @ 0x1402C46A0 (KeClockInterruptNotify.c)
- *     PpmIdleExecuteTransition @ 0x1402C5320 (PpmIdleExecuteTransition.c)
- *     KiResetClockIntervalOneShot @ 0x140340AE8 (KiResetClockIntervalOneShot.c)
- *     KePrepareClockTimerForIdle @ 0x140347334 (KePrepareClockTimerForIdle.c)
- *     KeUpdatePendingQosRequest @ 0x14046147C (KeUpdatePendingQosRequest.c)
+ *     KeClockInterruptNotify @ 0x1402C4930 (KeClockInterruptNotify.c)
+ *     PpmIdleExecuteTransition @ 0x1402C55B0 (PpmIdleExecuteTransition.c)
+ *     KiResetClockIntervalOneShot @ 0x140340D78 (KiResetClockIntervalOneShot.c)
+ *     KePrepareClockTimerForIdle @ 0x1403475C4 (KePrepareClockTimerForIdle.c)
+ *     KeUpdatePendingQosRequest @ 0x14046187C (KeUpdatePendingQosRequest.c)
  * Callees:
- *     KiSetNextClockTickDueTime @ 0x1402C8510 (KiSetNextClockTickDueTime.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     KiShouldRearmClockTimer @ 0x140340E3C (KiShouldRearmClockTimer.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     KiSetNextClockTickDueTime @ 0x1402C87A0 (KiSetNextClockTickDueTime.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6DB4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     KiShouldRearmClockTimer @ 0x1403410CC (KiShouldRearmClockTimer.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall KiCancelClockTimer(__int64 a1, __int64 a2, char a3)
@@ -40,7 +40,7 @@ NTSTATUS __fastcall KiCancelClockTimer(__int64 a1, __int64 a2, char a3)
     v13 = 1;
     result = tlgWriteTransfer_EtwWriteTransfer(
                (__int64)&dword_140C02F60,
-               (unsigned __int8 *)byte_14002D5DB,
+               (unsigned __int8 *)byte_14002D6C3,
                0LL,
                0LL,
                4u,

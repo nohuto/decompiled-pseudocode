@@ -1,28 +1,28 @@
 /*
- * XREFs of GetImageTuple @ 0x1800AE238
+ * XREFs of GetImageTuple @ 0x1800E39FC
  * Callers:
- *     MicrosoftTelemetryAssertTriggeredWorker @ 0x1800ADB9C (MicrosoftTelemetryAssertTriggeredWorker.c)
+ *     MicrosoftTelemetryAssertTriggeredWorker @ 0x1800E3360 (MicrosoftTelemetryAssertTriggeredWorker.c)
  * Callees:
- *     GetModuleFullPathName @ 0x1800AFB48 (GetModuleFullPathName.c)
- *     memmove @ 0x180167400 (memmove.c)
+ *     GetModuleFullPathName @ 0x18007C3E8 (GetModuleFullPathName.c)
+ *     memmove @ 0x1801657C0 (memmove.c)
  */
 
-char __fastcall GetImageTuple(__int64 a1, _BYTE *a2, __int64 a3, _DWORD *a4, _DWORD *a5)
+char __fastcall GetImageTuple(int *a1, char *a2, __int64 a3, _DWORD *a4, _DWORD *a5)
 {
-  __int64 v7; // rax
+  char *v7; // rax
   int v8; // edx
   int v9; // ecx
-  int ModuleFullPathName; // eax
-  int v12; // edx
-  int i; // ecx
+  unsigned int ModuleFullPathName; // eax
+  unsigned int v12; // edx
+  unsigned int i; // ecx
 
   if ( !a1 )
     return 0;
-  v7 = a1 + *(int *)(a1 + 60);
-  if ( *(_WORD *)(v7 + 24) == 267 || *(_WORD *)(v7 + 24) == 523 )
+  v7 = (char *)a1 + a1[15];
+  if ( *((_WORD *)v7 + 12) == 267 || *((_WORD *)v7 + 12) == 523 )
   {
-    v8 = *(_DWORD *)(v7 + 80);
-    v9 = *(_DWORD *)(v7 + 8);
+    v8 = *((_DWORD *)v7 + 20);
+    v9 = *((_DWORD *)v7 + 2);
   }
   else
   {
@@ -31,7 +31,7 @@ char __fastcall GetImageTuple(__int64 a1, _BYTE *a2, __int64 a3, _DWORD *a4, _DW
   }
   *a4 = v9;
   *a5 = v8;
-  ModuleFullPathName = GetModuleFullPathName(a1, a2);
+  ModuleFullPathName = (unsigned int)GetModuleFullPathName(a1, a2);
   if ( !ModuleFullPathName )
     return 0;
   v12 = ModuleFullPathName - 1;
@@ -44,6 +44,6 @@ char __fastcall GetImageTuple(__int64 a1, _BYTE *a2, __int64 a3, _DWORD *a4, _DW
     }
   }
   if ( v12 != 259 )
-    memmove(a2, &a2[v12 + 1], (unsigned int)(259 - v12));
+    memmove(a2, &a2[v12 + 1], 259 - v12);
   return 1;
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of FsRtlBalanceReads @ 0x140874CF0
+ * XREFs of FsRtlBalanceReads @ 0x140874F30
  * Callers:
  *     <none>
  * Callees:
- *     IofCallDriver @ 0x14022EEF0 (IofCallDriver.c)
- *     KeWaitForSingleObject @ 0x140243CE0 (KeWaitForSingleObject.c)
- *     IoBuildDeviceIoControlRequest @ 0x140251550 (IoBuildDeviceIoControlRequest.c)
- *     KeInitializeEvent @ 0x1402AF870 (KeInitializeEvent.c)
+ *     IofCallDriver @ 0x14022F000 (IofCallDriver.c)
+ *     KeWaitForSingleObject @ 0x140243DB0 (KeWaitForSingleObject.c)
+ *     IoBuildDeviceIoControlRequest @ 0x140251610 (IoBuildDeviceIoControlRequest.c)
+ *     KeInitializeEvent @ 0x1402AFB00 (KeInitializeEvent.c)
  */
 
 NTSTATUS __stdcall FsRtlBalanceReads(PDEVICE_OBJECT TargetDevice)

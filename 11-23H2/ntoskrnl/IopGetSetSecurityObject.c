@@ -3,38 +3,38 @@
  * Callers:
  *     <none>
  * Callees:
- *     IopQueueThreadIrp @ 0x14022ED60 (IopQueueThreadIrp.c)
- *     IofCallDriver @ 0x14022EEF0 (IofCallDriver.c)
- *     IopAllocateIrpExReturn @ 0x14022EF70 (IopAllocateIrpExReturn.c)
- *     IoGetRelatedDeviceObject @ 0x14022F510 (IoGetRelatedDeviceObject.c)
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     IopReleaseFileObjectLock @ 0x1402314E0 (IopReleaseFileObjectLock.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ObfReferenceObject @ 0x140233C40 (ObfReferenceObject.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402390E0 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x14023D410 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x14023D680 (ExAcquireResourceSharedLite.c)
- *     KeWaitForSingleObject @ 0x140243CE0 (KeWaitForSingleObject.c)
- *     KeInitializeEvent @ 0x1402AF870 (KeInitializeEvent.c)
- *     KeResetEvent @ 0x1402AF940 (KeResetEvent.c)
- *     IopGetDevicePDO @ 0x1403029B8 (IopGetDevicePDO.c)
+ *     IopQueueThreadIrp @ 0x14022EE70 (IopQueueThreadIrp.c)
+ *     IofCallDriver @ 0x14022F000 (IofCallDriver.c)
+ *     IopAllocateIrpExReturn @ 0x14022F080 (IopAllocateIrpExReturn.c)
+ *     IoGetRelatedDeviceObject @ 0x14022F620 (IoGetRelatedDeviceObject.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     KeAbPreAcquire @ 0x140230FD0 (KeAbPreAcquire.c)
+ *     IopReleaseFileObjectLock @ 0x1402315D0 (IopReleaseFileObjectLock.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     ObfReferenceObject @ 0x140233D10 (ObfReferenceObject.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402391B0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14023D4E0 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x14023D750 (ExAcquireResourceSharedLite.c)
+ *     KeWaitForSingleObject @ 0x140243DB0 (KeWaitForSingleObject.c)
+ *     KeInitializeEvent @ 0x1402AFB00 (KeInitializeEvent.c)
+ *     KeResetEvent @ 0x1402AFE30 (KeResetEvent.c)
+ *     IopGetDevicePDO @ 0x140302C48 (IopGetDevicePDO.c)
  *     AstLogDeviceSDDLUpdated @ 0x14069C6E8 (AstLogDeviceSDDLUpdated.c)
  *     IopSetDeviceSecurityDescriptors @ 0x14069E604 (IopSetDeviceSecurityDescriptors.c)
  *     IopSetDeviceSecurityDescriptor @ 0x14069E6A4 (IopSetDeviceSecurityDescriptor.c)
- *     SeQuerySecurityDescriptorInfo @ 0x1406D5D40 (SeQuerySecurityDescriptorInfo.c)
- *     ObDereferenceSecurityDescriptor @ 0x140728A50 (ObDereferenceSecurityDescriptor.c)
- *     ObLogSecurityDescriptor @ 0x140728CC0 (ObLogSecurityDescriptor.c)
- *     IopWaitAndAcquireFileObjectLock @ 0x140765200 (IopWaitAndAcquireFileObjectLock.c)
- *     SeAssignWorldSecurityDescriptor @ 0x14081F0F8 (SeAssignWorldSecurityDescriptor.c)
- *     IopAllocateIrpCleanup @ 0x140944144 (IopAllocateIrpCleanup.c)
+ *     SeQuerySecurityDescriptorInfo @ 0x1406D5D70 (SeQuerySecurityDescriptorInfo.c)
+ *     ObDereferenceSecurityDescriptor @ 0x140728C50 (ObDereferenceSecurityDescriptor.c)
+ *     ObLogSecurityDescriptor @ 0x140728EC0 (ObLogSecurityDescriptor.c)
+ *     IopWaitAndAcquireFileObjectLock @ 0x1407653F0 (IopWaitAndAcquireFileObjectLock.c)
+ *     SeAssignWorldSecurityDescriptor @ 0x14081F3F8 (SeAssignWorldSecurityDescriptor.c)
+ *     IopAllocateIrpCleanup @ 0x140944344 (IopAllocateIrpCleanup.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IopGetSetSecurityObject(
         struct _FILE_OBJECT *Object,
         int a2,
-        ULONG *a3,
+        DWORD *a3,
         UNICODE_STRING *a4,
         PULONG Length,
         int a6,
@@ -62,7 +62,7 @@ __int64 __fastcall IopGetSetSecurityObject(
   struct _KTHREAD *v30; // rdi
   PSECURITY_DESCRIPTOR SecurityDescriptor; // rbx
   ULONG *v32; // r8
-  ULONG *v33; // rcx
+  DWORD *v33; // rcx
   _DWORD *DevicePDO; // rax
   void *v35; // rbx
   struct _KTHREAD *v36; // rdi
@@ -71,7 +71,7 @@ __int64 __fastcall IopGetSetSecurityObject(
   __int128 v39; // [rsp+48h] [rbp-50h] BYREF
   struct _KEVENT Event; // [rsp+58h] [rbp-40h] BYREF
   __int64 v41; // [rsp+A0h] [rbp+8h] BYREF
-  ULONG *v42; // [rsp+B0h] [rbp+18h]
+  DWORD *v42; // [rsp+B0h] [rbp+18h]
 
   v42 = a3;
   v38 = 0LL;

@@ -1,15 +1,15 @@
 /*
- * XREFs of WmipBuildInstanceSet @ 0x140A0BFA8
+ * XREFs of WmipBuildInstanceSet @ 0x140A0AF78
  * Callers:
- *     WmipUpdateAddGuid @ 0x140824088 (WmipUpdateAddGuid.c)
- *     WmipUpdateModifyGuid @ 0x140824160 (WmipUpdateModifyGuid.c)
- *     WmipAddDataSource @ 0x140A0BC24 (WmipAddDataSource.c)
+ *     WmipUpdateAddGuid @ 0x14082A2D4 (WmipUpdateAddGuid.c)
+ *     WmipUpdateModifyGuid @ 0x14082A3AC (WmipUpdateModifyGuid.c)
+ *     WmipAddDataSource @ 0x140A0ABF4 (WmipAddDataSource.c)
  * Callees:
- *     RtlStringCchCopyNW @ 0x14048B010 (RtlStringCchCopyNW.c)
- *     WmipDetermineInstanceBaseIndex @ 0x140A0B588 (WmipDetermineInstanceBaseIndex.c)
- *     WmipMangleInstanceName @ 0x140A0C2B0 (WmipMangleInstanceName.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlStringCchCopyNW @ 0x140484B50 (RtlStringCchCopyNW.c)
+ *     WmipDetermineInstanceBaseIndex @ 0x140A0A7B4 (WmipDetermineInstanceBaseIndex.c)
+ *     WmipMangleInstanceName @ 0x140A0B280 (WmipMangleInstanceName.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall WmipBuildInstanceSet(_DWORD *a1, __int64 a2, unsigned int a3, __int64 a4, int a5)

@@ -1,17 +1,17 @@
 /*
- * XREFs of KeInsertDeviceQueue @ 0x14038E850
+ * XREFs of KeInsertDeviceQueue @ 0x140388190
  * Callers:
- *     HalAllocateAdapterChannelV2 @ 0x14038DACC (HalAllocateAdapterChannelV2.c)
- *     HalBuildScatterGatherListV2 @ 0x14038E070 (HalBuildScatterGatherListV2.c)
- *     IoStartPacket @ 0x140393700 (IoStartPacket.c)
- *     IoAllocateController @ 0x1404BE150 (IoAllocateController.c)
- *     DifKeInsertDeviceQueueWrapper @ 0x14062E270 (DifKeInsertDeviceQueueWrapper.c)
+ *     HalAllocateAdapterChannelV2 @ 0x14038740C (HalAllocateAdapterChannelV2.c)
+ *     HalBuildScatterGatherListV2 @ 0x1403879B0 (HalBuildScatterGatherListV2.c)
+ *     IoStartPacket @ 0x14038D030 (IoStartPacket.c)
+ *     IoAllocateController @ 0x1404B9310 (IoAllocateController.c)
+ *     DifKeInsertDeviceQueueWrapper @ 0x14062C830 (DifKeInsertDeviceQueueWrapper.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140275CD0 (KeReleaseInStackQueuedSpinLock.c)
- *     KxWaitForLockOwnerShip @ 0x1402D6990 (KxWaitForLockOwnerShip.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x1402D8540 (KeAcquireInStackQueuedSpinLock.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x1402D85F0 (KiAcquireQueuedSpinLockInstrumented.c)
- *     KxReleaseQueuedSpinLock @ 0x140321BB0 (KxReleaseQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x14022B260 (KeReleaseInStackQueuedSpinLock.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402CA740 (KxReleaseQueuedSpinLock.c)
+ *     KxWaitForLockOwnerShip @ 0x140357C10 (KxWaitForLockOwnerShip.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1403597C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x140359870 (KiAcquireQueuedSpinLockInstrumented.c)
  */
 
 BOOLEAN __stdcall KeInsertDeviceQueue(PKDEVICE_QUEUE DeviceQueue, PKDEVICE_QUEUE_ENTRY DeviceQueueEntry)

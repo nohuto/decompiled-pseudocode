@@ -1,8 +1,8 @@
 /*
- * XREFs of MiPageHasRelocations @ 0x1405A8B14
+ * XREFs of MiPageHasRelocations @ 0x1405A9B14
  * Callers:
  *     MiWalkEntireImage @ 0x14002F290 (MiWalkEntireImage.c)
- *     MiRevertRelocatedImagePfn @ 0x1405A8A60 (MiRevertRelocatedImagePfn.c)
+ *     MiRevertRelocatedImagePfn @ 0x1405A9A60 (MiRevertRelocatedImagePfn.c)
  * Callees:
  *     <none>
  */

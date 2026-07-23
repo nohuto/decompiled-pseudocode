@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlpAnalyzeHeapFailure @ 0x1801163D4
+ * XREFs of RtlpAnalyzeHeapFailure @ 0x1801163A4
  * Callers:
  *     RtlpFreeHeap @ 0x180039680 (RtlpFreeHeap.c)
  *     RtlpAllocateHeap @ 0x18003F1C0 (RtlpAllocateHeap.c)
@@ -24,8 +24,8 @@
  *     RtlpValidateHeap @ 0x180107E20 (RtlpValidateHeap.c)
  *     RtlpValidateHeapSegment @ 0x1801085C0 (RtlpValidateHeapSegment.c)
  * Callees:
- *     RtlpHeapExceptionFilter @ 0x1801228D8 (RtlpHeapExceptionFilter.c)
- *     RtlpLogHeapFailure @ 0x1801229F0 (RtlpLogHeapFailure.c)
+ *     RtlpHeapExceptionFilter @ 0x1801228A8 (RtlpHeapExceptionFilter.c)
+ *     RtlpLogHeapFailure @ 0x1801229C0 (RtlpLogHeapFailure.c)
  */
 
 char __fastcall RtlpAnalyzeHeapFailure(unsigned __int64 a1, unsigned __int64 a2)

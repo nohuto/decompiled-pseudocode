@@ -1,10 +1,10 @@
 /*
- * XREFs of VslSetCodeIntegrityPolicy @ 0x140819290
+ * XREFs of VslSetCodeIntegrityPolicy @ 0x14081A490
  * Callers:
  *     <none>
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140129CB0 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     VslpEnterIumSecureMode @ 0x140129D80 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall VslSetCodeIntegrityPolicy(__int64 a1)

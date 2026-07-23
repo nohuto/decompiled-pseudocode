@@ -1,9 +1,9 @@
 /*
- * XREFs of ExInterlockedPushEntryList @ 0x14022E814
+ * XREFs of ExInterlockedPushEntryList @ 0x14022E640
  * Callers:
  *     <none>
  * Callees:
- *     ExpAcquireSpinLockDisabled @ 0x1400A7BD4 (ExpAcquireSpinLockDisabled.c)
+ *     ExpAcquireSpinLockDisabled @ 0x1400A614C (ExpAcquireSpinLockDisabled.c)
  */
 
 PSINGLE_LIST_ENTRY __stdcall ExInterlockedPushEntryList(
@@ -12,7 +12,7 @@ PSINGLE_LIST_ENTRY __stdcall ExInterlockedPushEntryList(
         PKSPIN_LOCK Lock)
 {
   bool v6; // al
-  struct _SINGLE_LIST_ENTRY *Next; // rcx
+  _SINGLE_LIST_ENTRY *Next; // rcx
 
   v6 = ExpAcquireSpinLockDisabled((volatile signed __int32 *)Lock);
   Next = ListHead->Next;

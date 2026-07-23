@@ -6,11 +6,17 @@
  *     <none>
  */
 
-__int64 ZwWriteRequestData()
+NTSTATUS __cdecl ZwWriteRequestData(
+        HANDLE PortHandle,
+        PPORT_MESSAGE Message,
+        ULONG DataEntryIndex,
+        PVOID Buffer,
+        SIZE_T BufferSize,
+        PSIZE_T NumberOfBytesWritten)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 87LL;
+  result = 87;
   __asm { syscall; Low latency system call }
   return result;
 }

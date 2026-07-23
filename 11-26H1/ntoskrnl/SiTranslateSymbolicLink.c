@@ -1,17 +1,17 @@
 /*
- * XREFs of SiTranslateSymbolicLink @ 0x140894C18
+ * XREFs of SiTranslateSymbolicLink @ 0x14089B018
  * Callers:
- *     SiGetFirmwareSystemPartition @ 0x1408943B0 (SiGetFirmwareSystemPartition.c)
- *     SiGetSystemDisk @ 0x1408944E0 (SiGetSystemDisk.c)
- *     SiIsWinPeHardDiskZeroUfdBoot @ 0x1408959AC (SiIsWinPeHardDiskZeroUfdBoot.c)
- *     SiGetBootDeviceName @ 0x140B07A70 (SiGetBootDeviceName.c)
+ *     SiGetFirmwareSystemPartition @ 0x14089A7B0 (SiGetFirmwareSystemPartition.c)
+ *     SiGetSystemDisk @ 0x14089A8E0 (SiGetSystemDisk.c)
+ *     SiIsWinPeHardDiskZeroUfdBoot @ 0x14089BDAC (SiIsWinPeHardDiskZeroUfdBoot.c)
+ *     SiGetBootDeviceName @ 0x140B09BA0 (SiGetBootDeviceName.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwOpenSymbolicLinkObject @ 0x140725B10 (ZwOpenSymbolicLinkObject.c)
- *     ZwQuerySymbolicLinkObject @ 0x140726170 (ZwQuerySymbolicLinkObject.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwOpenSymbolicLinkObject @ 0x14072A6E0 (ZwOpenSymbolicLinkObject.c)
+ *     ZwQuerySymbolicLinkObject @ 0x14072AD40 (ZwQuerySymbolicLinkObject.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __fastcall SiTranslateSymbolicLink(PCWSTR SourceString, wchar_t **a2)

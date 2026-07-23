@@ -1,10 +1,10 @@
 /*
- * XREFs of ??_GSC_DISK@@UEAAPEAXI@Z @ 0x140675590
+ * XREFs of ??_GSC_DISK@@UEAAPEAXI@Z @ 0x140675AE0
  * Callers:
  *     <none>
  * Callees:
- *     ??1SC_DISK@@UEAA@XZ @ 0x140675490 (--1SC_DISK@@UEAA@XZ.c)
- *     ?Free@SC_ENV@@SAXPEAX@Z @ 0x1407DEA50 (-Free@SC_ENV@@SAXPEAX@Z.c)
+ *     ??1SC_DISK@@UEAA@XZ @ 0x1406759E0 (--1SC_DISK@@UEAA@XZ.c)
+ *     ?Free@SC_ENV@@SAXPEAX@Z @ 0x1407DED20 (-Free@SC_ENV@@SAXPEAX@Z.c)
  */
 
 SC_DISK *__fastcall SC_DISK::`scalar deleting destructor'(SC_DISK *this, char a2)

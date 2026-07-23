@@ -1,7 +1,7 @@
 /*
- * XREFs of KiIntSteerComputeRelevanceForTriageDumps @ 0x1405F7898
+ * XREFs of KiIntSteerComputeRelevanceForTriageDumps @ 0x1405FA2B8
  * Callers:
- *     KiIntSteerCallbackRecordTriageCallbackInterruptObject @ 0x1405F77D4 (KiIntSteerCallbackRecordTriageCallbackInterruptObject.c)
+ *     KiIntSteerCallbackRecordTriageCallbackInterruptObject @ 0x1405FA1F4 (KiIntSteerCallbackRecordTriageCallbackInterruptObject.c)
  * Callees:
  *     <none>
  */

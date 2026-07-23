@@ -1,14 +1,14 @@
 /*
- * XREFs of KiInsertTimer2 @ 0x1400FC800
+ * XREFs of KiInsertTimer2 @ 0x1400FC880
  * Callers:
- *     KiTimer2Expiration @ 0x1400FB3F0 (KiTimer2Expiration.c)
- *     KiExpireTimer2 @ 0x1400FB900 (KiExpireTimer2.c)
- *     KiAdjustTimer2DueTimes @ 0x14016FE34 (KiAdjustTimer2DueTimes.c)
+ *     KiTimer2Expiration @ 0x1400FB470 (KiTimer2Expiration.c)
+ *     KiExpireTimer2 @ 0x1400FB980 (KiExpireTimer2.c)
+ *     KiAdjustTimer2DueTimes @ 0x14016FF34 (KiAdjustTimer2DueTimes.c)
  * Callees:
  *     KxAcquireSpinLock @ 0x140062A90 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
- *     KiHvEnlightenedGuestPriorityKick @ 0x1400CFD98 (KiHvEnlightenedGuestPriorityKick.c)
- *     KiInsertTimer2WithCollectionLockHeld @ 0x1400FC4C0 (KiInsertTimer2WithCollectionLockHeld.c)
+ *     KxReleaseSpinLock @ 0x1400630D0 (KxReleaseSpinLock.c)
+ *     KiHvEnlightenedGuestPriorityKick @ 0x1400CFE18 (KiHvEnlightenedGuestPriorityKick.c)
+ *     KiInsertTimer2WithCollectionLockHeld @ 0x1400FC540 (KiInsertTimer2WithCollectionLockHeld.c)
  */
 
 char __fastcall KiInsertTimer2(__int64 a1, char a2, _BYTE *a3)

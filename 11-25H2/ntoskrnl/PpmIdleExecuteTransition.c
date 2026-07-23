@@ -181,7 +181,14 @@ char __fastcall PpmIdleExecuteTransition(
     }
     else
     {
-      KiSetClockTimer(BugCheckParameter4, a7, v23 + a7, 0, 5, v22, *(_BYTE *)(v14 + 716) == (unsigned __int8)v22);
+      KiSetClockTimer(
+        BugCheckParameter4,
+        (LARGE_INTEGER)a7,
+        v23 + a7,
+        0,
+        5,
+        v22,
+        *(_BYTE *)(v14 + 716) == (unsigned __int8)v22);
       v22 = 0;
     }
   }

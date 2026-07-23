@@ -13,7 +13,7 @@ int __cdecl wcsncmp(const wchar_t *String1, const wchar_t *String2, size_t MaxCo
   int result; // eax
 
   result = MaxCount;
-  if ( MaxCount )
+  if ( (_DWORD)MaxCount )
   {
     while ( --result && *String1 && *String1 == *String2 )
     {

@@ -16,7 +16,7 @@ __int64 __fastcall ExpQueryModuleInformation(__int64 a1, _DWORD *a2, unsigned in
   unsigned int v11; // eax
   NTSTATUS v12; // eax
   char *v13; // rcx
-  STRING DestinationString; // [rsp+40h] [rbp-38h] BYREF
+  _STRING DestinationString; // [rsp+40h] [rbp-38h] BYREF
 
   DestinationString = 0LL;
   v6 = 0;

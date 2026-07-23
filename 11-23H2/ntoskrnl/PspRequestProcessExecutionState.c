@@ -1,10 +1,10 @@
 /*
  * XREFs of PspRequestProcessExecutionState @ 0x1406A70B8
  * Callers:
- *     PspSetProcessFreezeStateCallback @ 0x14036A6B0 (PspSetProcessFreezeStateCallback.c)
+ *     PspSetProcessFreezeStateCallback @ 0x14036A850 (PspSetProcessFreezeStateCallback.c)
  *     PspRemoveProcessFromJobChain @ 0x1406A2DB0 (PspRemoveProcessFromJobChain.c)
  *     PspApplyJobChainLimitsToProcess @ 0x1406A6FC4 (PspApplyJobChainLimitsToProcess.c)
- *     PsSwapProcessWorkingSet @ 0x1409AE6AC (PsSwapProcessWorkingSet.c)
+ *     PsSwapProcessWorkingSet @ 0x1409AE8AC (PsSwapProcessWorkingSet.c)
  * Callees:
  *     <none>
  */

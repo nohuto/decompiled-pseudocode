@@ -1,13 +1,13 @@
 /*
- * XREFs of WmipCompleteGuidIrpWithError @ 0x140264F84
+ * XREFs of WmipCompleteGuidIrpWithError @ 0x140253014
  * Callers:
- *     WmipReceiveNotifications @ 0x1402C05CC (WmipReceiveNotifications.c)
- *     WmipDeleteMethod @ 0x140639520 (WmipDeleteMethod.c)
+ *     WmipReceiveNotifications @ 0x14023EA1C (WmipReceiveNotifications.c)
+ *     WmipDeleteMethod @ 0x14062E330 (WmipDeleteMethod.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
- *     IofCompleteRequest @ 0x140243490 (IofCompleteRequest.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     WmipClearIrpObjectList @ 0x1402D1DEC (WmipClearIrpObjectList.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     WmipClearIrpObjectList @ 0x1402501BC (WmipClearIrpObjectList.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402D3660 (KeAcquireInStackQueuedSpinLock.c)
+ *     IofCompleteRequest @ 0x1402E7CE0 (IofCompleteRequest.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 

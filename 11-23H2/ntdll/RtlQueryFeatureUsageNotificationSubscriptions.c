@@ -8,27 +8,33 @@
  *     RtlpFcQueryAllFeatureUsageSubscriptionNotificationsFromBufferSet @ 0x180130008 (RtlpFcQueryAllFeatureUsageSubscriptionNotificationsFromBufferSet.c)
  */
 
-__int64 __fastcall RtlQueryFeatureUsageNotificationSubscriptions(__int64 a1, __int64 a2)
+NTSTATUS __cdecl RtlQueryFeatureUsageNotificationSubscriptions(
+        PRTL_FEATURE_USAGE_SUBSCRIPTION_DETAILS Subscriptions,
+        PSIZE_T SubscriptionCount)
 {
-  __int64 v2; // rsi
-  int AllFeatureUsageSubscriptionNotificationsFromBufferSet; // ebx
+  PSIZE_T v2; // rsi
+  NTSTATUS AllFeatureUsageSubscriptionNotificationsFromBufferSet; // ebx
   __int64 v6; // [rsp+50h] [rbp+18h] BYREF
   __int64 v7; // [rsp+58h] [rbp+20h] BYREF
 
-  v2 = a2;
-  LOBYTE(a2) = 1;
+  v2 = SubscriptionCount;
+  LOBYTE(SubscriptionCount) = 1;
   v6 = 0LL;
-  AllFeatureUsageSubscriptionNotificationsFromBufferSet = RtlpFcReferenceFeatureConfigurationBuffers(a1, a2, &v7, &v6);
+  AllFeatureUsageSubscriptionNotificationsFromBufferSet = RtlpFcReferenceFeatureConfigurationBuffers(
+                                                            Subscriptions,
+                                                            SubscriptionCount,
+                                                            &v7,
+                                                            &v6);
   if ( AllFeatureUsageSubscriptionNotificationsFromBufferSet >= 0 )
   {
     AllFeatureUsageSubscriptionNotificationsFromBufferSet = RtlpFcQueryAllFeatureUsageSubscriptionNotificationsFromBufferSet(
                                                               v6,
-                                                              a1,
+                                                              Subscriptions,
                                                               v2);
     if ( AllFeatureUsageSubscriptionNotificationsFromBufferSet >= 0 )
       AllFeatureUsageSubscriptionNotificationsFromBufferSet = 0;
   }
   if ( v6 )
     RtlpFcBufferManagerDereferenceBuffers(&unk_180185E28, v6);
-  return (unsigned int)AllFeatureUsageSubscriptionNotificationsFromBufferSet;
+  return AllFeatureUsageSubscriptionNotificationsFromBufferSet;
 }

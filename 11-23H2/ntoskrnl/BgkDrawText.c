@@ -1,9 +1,9 @@
 /*
- * XREFs of BgkDrawText @ 0x140AF100C
+ * XREFs of BgkDrawText @ 0x140AF101C
  * Callers:
- *     NtDrawText @ 0x140606720 (NtDrawText.c)
+ *     NtDrawText @ 0x140606C70 (NtDrawText.c)
  * Callees:
- *     BgDisplayString @ 0x140AF11B8 (BgDisplayString.c)
+ *     BgDisplayString @ 0x140AF11C8 (BgDisplayString.c)
  */
 
 __int64 BgkDrawText()

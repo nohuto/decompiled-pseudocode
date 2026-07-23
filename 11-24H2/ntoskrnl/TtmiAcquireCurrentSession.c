@@ -1,15 +1,15 @@
 /*
- * XREFs of TtmiAcquireCurrentSession @ 0x140769DB0
+ * XREFs of TtmiAcquireCurrentSession @ 0x140769FD0
  * Callers:
- *     TtmNotifyDeviceArrival @ 0x140768290 (TtmNotifyDeviceArrival.c)
- *     TtmNotifyDeviceDeparture @ 0x140768590 (TtmNotifyDeviceDeparture.c)
- *     TtmNotifyDeviceInput @ 0x140768650 (TtmNotifyDeviceInput.c)
- *     TtmiSessionsRundown @ 0x140769F5C (TtmiSessionsRundown.c)
- *     TtmpDispatchOpenTerminal @ 0x14076B858 (TtmpDispatchOpenTerminal.c)
+ *     TtmNotifyDeviceArrival @ 0x1407684B0 (TtmNotifyDeviceArrival.c)
+ *     TtmNotifyDeviceDeparture @ 0x1407687B0 (TtmNotifyDeviceDeparture.c)
+ *     TtmNotifyDeviceInput @ 0x140768870 (TtmNotifyDeviceInput.c)
+ *     TtmiSessionsRundown @ 0x14076A17C (TtmiSessionsRundown.c)
+ *     TtmpDispatchOpenTerminal @ 0x14076BA78 (TtmpDispatchOpenTerminal.c)
  * Callees:
- *     PsGetSessionIdEx @ 0x1403025D0 (PsGetSessionIdEx.c)
- *     TtmiLogError @ 0x140903A9C (TtmiLogError.c)
- *     TtmpAcquireSessionById @ 0x140903BF4 (TtmpAcquireSessionById.c)
+ *     PsGetSessionIdEx @ 0x14030CBE0 (PsGetSessionIdEx.c)
+ *     TtmiLogError @ 0x14099E04C (TtmiLogError.c)
+ *     TtmpAcquireSessionById @ 0x14099E1A4 (TtmpAcquireSessionById.c)
  */
 
 __int64 __fastcall TtmiAcquireCurrentSession(__int64 a1)

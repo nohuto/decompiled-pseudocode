@@ -1,13 +1,13 @@
 /*
- * XREFs of PnprWakeProcessors @ 0x140A9E01C
+ * XREFs of PnprWakeProcessors @ 0x140A9DE8C
  * Callers:
- *     PnprEndMirroring @ 0x140A9C840 (PnprEndMirroring.c)
- *     PnprInitiateReplaceOperation @ 0x140A9C914 (PnprInitiateReplaceOperation.c)
+ *     PnprEndMirroring @ 0x140A9C6B0 (PnprEndMirroring.c)
+ *     PnprInitiateReplaceOperation @ 0x140A9C784 (PnprInitiateReplaceOperation.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     KeResumeClockTimerSafe @ 0x14056F984 (KeResumeClockTimerSafe.c)
- *     KeRestoreMtrrBroadcast @ 0x140A8F8CC (KeRestoreMtrrBroadcast.c)
- *     PnprGetMillisecondCounter @ 0x140A9C8B4 (PnprGetMillisecondCounter.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     KeResumeClockTimerSafe @ 0x14056FEC4 (KeResumeClockTimerSafe.c)
+ *     KeRestoreMtrrBroadcast @ 0x140A8F74C (KeRestoreMtrrBroadcast.c)
+ *     PnprGetMillisecondCounter @ 0x140A9C724 (PnprGetMillisecondCounter.c)
  */
 
 __int64 PnprWakeProcessors()

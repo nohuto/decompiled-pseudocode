@@ -1,15 +1,15 @@
 /*
- * XREFs of PiSwDeviceFree @ 0x140A7B628
+ * XREFs of PiSwDeviceFree @ 0x140A8C768
  * Callers:
- *     PiSwDeviceDereference @ 0x140A7B3F4 (PiSwDeviceDereference.c)
+ *     PiSwDeviceDereference @ 0x140A8C538 (PiSwDeviceDereference.c)
  * Callees:
- *     PnpFreeDevPropertyArray @ 0x140990C90 (PnpFreeDevPropertyArray.c)
- *     PiSwQueuedCreateInfoFree @ 0x140A7AE8C (PiSwQueuedCreateInfoFree.c)
- *     PiSwPnPInfoFree @ 0x140A7B6F0 (PiSwPnPInfoFree.c)
- *     PiSwFreeInterfaceList @ 0x140A7B794 (PiSwFreeInterfaceList.c)
- *     PiSwFreePdoAssociationsList @ 0x140A7B7D8 (PiSwFreePdoAssociationsList.c)
- *     PiSwInstanceInfoFree @ 0x140A7C3A0 (PiSwInstanceInfoFree.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     PnpFreeDevPropertyArray @ 0x1409516F0 (PnpFreeDevPropertyArray.c)
+ *     PiSwQueuedCreateInfoFree @ 0x140A8BFD0 (PiSwQueuedCreateInfoFree.c)
+ *     PiSwPnPInfoFree @ 0x140A8C830 (PiSwPnPInfoFree.c)
+ *     PiSwFreeInterfaceList @ 0x140A8C8D4 (PiSwFreeInterfaceList.c)
+ *     PiSwFreePdoAssociationsList @ 0x140A8C918 (PiSwFreePdoAssociationsList.c)
+ *     PiSwInstanceInfoFree @ 0x140A8D4D0 (PiSwInstanceInfoFree.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiSwDeviceFree(__int64 a1)

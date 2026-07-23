@@ -1,14 +1,14 @@
 /*
- * XREFs of PopEtStringSet @ 0x1406198B0
+ * XREFs of PopEtStringSet @ 0x140683510
  * Callers:
- *     PopEtEnergyContextSetState @ 0x1406057C8 (PopEtEnergyContextSetState.c)
- *     PopEtProcessSnapshotUpdateFromSnapshotContext @ 0x1406197CC (PopEtProcessSnapshotUpdateFromSnapshotContext.c)
- *     PopEtProcessSnapshotCreate @ 0x14069905C (PopEtProcessSnapshotCreate.c)
+ *     PopEtProcessSnapshotCreate @ 0x1405F7D4C (PopEtProcessSnapshotCreate.c)
+ *     PopEtProcessSnapshotUpdateFromSnapshotContext @ 0x14068342C (PopEtProcessSnapshotUpdateFromSnapshotContext.c)
+ *     PopEtEnergyContextSetState @ 0x1406F4EF8 (PopEtEnergyContextSetState.c)
  * Callees:
- *     RtlInternEntryDereference @ 0x140699474 (RtlInternEntryDereference.c)
+ *     RtlInternEntryDereference @ 0x1405F8164 (RtlInternEntryDereference.c)
  */
 
-void __fastcall PopEtStringSet(_QWORD *a1, __int64 a2)
+void __fastcall PopEtStringSet(__int64 *a1, __int64 a2)
 {
   signed __int64 v4; // rax
   unsigned __int64 i; // rcx

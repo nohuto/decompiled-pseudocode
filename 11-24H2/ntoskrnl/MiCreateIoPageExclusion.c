@@ -1,14 +1,14 @@
 /*
- * XREFs of MiCreateIoPageExclusion @ 0x140675738
+ * XREFs of MiCreateIoPageExclusion @ 0x140676908
  * Callers:
- *     MiMapNewPfns @ 0x1407E96AC (MiMapNewPfns.c)
+ *     MiMapNewPfns @ 0x1407E9C7C (MiMapNewPfns.c)
  * Callees:
- *     RtlAvlInsertNodeEx @ 0x14025FDD0 (RtlAvlInsertNodeEx.c)
- *     MiUnlockIoPfnTree @ 0x1403D0468 (MiUnlockIoPfnTree.c)
- *     MiLockIoPfnTree @ 0x1403D0514 (MiLockIoPfnTree.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     MiIoPfnTreeExclusionCompatible @ 0x140675F9C (MiIoPfnTreeExclusionCompatible.c)
+ *     RtlAvlInsertNodeEx @ 0x1402903E0 (RtlAvlInsertNodeEx.c)
+ *     MiUnlockIoPfnTree @ 0x14038F980 (MiUnlockIoPfnTree.c)
+ *     MiLockIoPfnTree @ 0x14038FA2C (MiLockIoPfnTree.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     MiIoPfnTreeExclusionCompatible @ 0x14067716C (MiIoPfnTreeExclusionCompatible.c)
  */
 
 __int64 __fastcall MiCreateIoPageExclusion(_QWORD *a1, unsigned __int64 a2)
@@ -33,8 +33,8 @@ __int64 __fastcall MiCreateIoPageExclusion(_QWORD *a1, unsigned __int64 a2)
   }
   if ( v2 )
     goto LABEL_11;
-  v6 = (_QWORD *)xmmword_140E37200;
-  if ( !(_QWORD)xmmword_140E37200 )
+  v6 = (_QWORD *)xmmword_140E37340;
+  if ( !(_QWORD)xmmword_140E37340 )
     goto LABEL_11;
   a2 = a1[4];
   while ( a2 < v6[3] )
@@ -64,11 +64,11 @@ LABEL_11:
     if ( v8 < 0 )
       goto LABEL_18;
   }
-  v9 = (_QWORD *)*((_QWORD *)&xmmword_140E37200 + 1);
-  if ( !*((_QWORD *)&xmmword_140E37200 + 1) )
+  v9 = (_QWORD *)*((_QWORD *)&xmmword_140E37340 + 1);
+  if ( !*((_QWORD *)&xmmword_140E37340 + 1) )
   {
 LABEL_17:
-    RtlAvlInsertNodeEx((unsigned __int64 *)&xmmword_140E37200 + 1, (unsigned __int64)v9, v5, a1);
+    RtlAvlInsertNodeEx((unsigned __int64 *)&xmmword_140E37340 + 1, (unsigned __int64)v9, v5, a1);
     goto LABEL_18;
   }
   while ( 2 )

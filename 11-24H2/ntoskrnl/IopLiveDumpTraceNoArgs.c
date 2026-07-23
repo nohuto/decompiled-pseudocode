@@ -1,18 +1,18 @@
 /*
- * XREFs of IopLiveDumpTraceNoArgs @ 0x1405A33C0
+ * XREFs of IopLiveDumpTraceNoArgs @ 0x1405A0300
  * Callers:
- *     IoCaptureLiveDump @ 0x1404E6068 (IoCaptureLiveDump.c)
- *     IoWriteDeferredLiveDumpData @ 0x140597C08 (IoWriteDeferredLiveDumpData.c)
- *     IopLiveDumpCallRemovePagesCallbacks @ 0x140599B68 (IopLiveDumpCallRemovePagesCallbacks.c)
- *     IopLiveDumpCollectPages @ 0x14059A264 (IopLiveDumpCollectPages.c)
- *     IopLiveDumpCorralProcessors @ 0x14059A660 (IopLiveDumpCorralProcessors.c)
- *     IopLiveDumpEndMirroringCallback @ 0x14059A8D0 (IopLiveDumpEndMirroringCallback.c)
- *     IopLiveDumpStartMirroringCallback @ 0x14059D190 (IopLiveDumpStartMirroringCallback.c)
- *     IopLiveDumpTraceInterfaceStart @ 0x14059DD4C (IopLiveDumpTraceInterfaceStart.c)
- *     IopLiveDumpUncorralProcessors @ 0x14059E420 (IopLiveDumpUncorralProcessors.c)
+ *     IoCaptureLiveDump @ 0x1404DC764 (IoCaptureLiveDump.c)
+ *     IoWriteDeferredLiveDumpData @ 0x140594B84 (IoWriteDeferredLiveDumpData.c)
+ *     IopLiveDumpCallRemovePagesCallbacks @ 0x140596AE8 (IopLiveDumpCallRemovePagesCallbacks.c)
+ *     IopLiveDumpCollectPages @ 0x1405971E8 (IopLiveDumpCollectPages.c)
+ *     IopLiveDumpCorralProcessors @ 0x1405975E0 (IopLiveDumpCorralProcessors.c)
+ *     IopLiveDumpEndMirroringCallback @ 0x140597850 (IopLiveDumpEndMirroringCallback.c)
+ *     IopLiveDumpStartMirroringCallback @ 0x14059A110 (IopLiveDumpStartMirroringCallback.c)
+ *     IopLiveDumpTraceInterfaceStart @ 0x14059ACCC (IopLiveDumpTraceInterfaceStart.c)
+ *     IopLiveDumpUncorralProcessors @ 0x14059B3A0 (IopLiveDumpUncorralProcessors.c)
  * Callees:
- *     IopLiveDumpIsTracingEnabled @ 0x1404FA9A4 (IopLiveDumpIsTracingEnabled.c)
- *     IopLiveDumpTrace @ 0x1405A3070 (IopLiveDumpTrace.c)
+ *     IopLiveDumpIsTracingEnabled @ 0x1404F8284 (IopLiveDumpIsTracingEnabled.c)
+ *     IopLiveDumpTrace @ 0x14059FFB0 (IopLiveDumpTrace.c)
  */
 
 char IopLiveDumpTraceNoArgs()

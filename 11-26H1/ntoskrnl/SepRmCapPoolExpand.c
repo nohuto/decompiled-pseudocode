@@ -1,11 +1,11 @@
 /*
- * XREFs of SepRmCapPoolExpand @ 0x14063BEF0
+ * XREFs of SepRmCapPoolExpand @ 0x14063FACC
  * Callers:
- *     SepReadAndInsertCaps @ 0x140816E5C (SepReadAndInsertCaps.c)
- *     SepReadAndPopulateCapes @ 0x1408171AC (SepReadAndPopulateCapes.c)
+ *     SepReadAndInsertCaps @ 0x14081D06C (SepReadAndInsertCaps.c)
+ *     SepReadAndPopulateCapes @ 0x14081D3BC (SepReadAndPopulateCapes.c)
  * Callees:
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SepRmCapPoolExpand(void *a1)

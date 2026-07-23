@@ -4,12 +4,12 @@
  *     PipProcessPendingServices @ 0x140B3FEC4 (PipProcessPendingServices.c)
  *     PipProcessPendingOsExtensionResources @ 0x140B3FF50 (PipProcessPendingOsExtensionResources.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     _PnpCtxRegOpenKey @ 0x1408127C0 (_PnpCtxRegOpenKey.c)
- *     _PnpCtxRegEnumKey @ 0x1408127FC (_PnpCtxRegEnumKey.c)
- *     _PnpCtxRegQueryValue @ 0x1408776DC (_PnpCtxRegQueryValue.c)
- *     PnpCheckDriverDependencies @ 0x1409585D8 (PnpCheckDriverDependencies.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     _PnpCtxRegOpenKey @ 0x140812A90 (_PnpCtxRegOpenKey.c)
+ *     _PnpCtxRegEnumKey @ 0x140812ACC (_PnpCtxRegEnumKey.c)
+ *     _PnpCtxRegQueryValue @ 0x14087791C (_PnpCtxRegQueryValue.c)
+ *     PnpCheckDriverDependencies @ 0x1409587D8 (PnpCheckDriverDependencies.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

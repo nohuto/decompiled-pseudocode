@@ -1,20 +1,20 @@
 /*
- * XREFs of EmpParseTargetRules @ 0x140C17B08
+ * XREFs of EmpParseTargetRules @ 0x140C19B08
  * Callers:
- *     EmpParseInfDatabase @ 0x140C167C4 (EmpParseInfDatabase.c)
+ *     EmpParseInfDatabase @ 0x140C187C4 (EmpParseInfDatabase.c)
  * Callees:
- *     EmpSearchTargetRuleList @ 0x14044FA4C (EmpSearchTargetRuleList.c)
- *     EmpSearchRuleDatabase @ 0x14045273C (EmpSearchRuleDatabase.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
- *     EmpInfParseGetGuidFromName @ 0x140C16244 (EmpInfParseGetGuidFromName.c)
- *     EmpInfParseGetSectionLineCount @ 0x140C162F0 (EmpInfParseGetSectionLineCount.c)
- *     EmpParseTargetRuleStringIndexList @ 0x140C177EC (EmpParseTargetRuleStringIndexList.c)
- *     CmpGetKeyName @ 0x140C1821C (CmpGetKeyName.c)
- *     CmpGetSectionLineIndex @ 0x140C18254 (CmpGetSectionLineIndex.c)
- *     CmpGetSectionLineIndexValueCount @ 0x140C182CC (CmpGetSectionLineIndexValueCount.c)
+ *     EmpSearchTargetRuleList @ 0x140445014 (EmpSearchTargetRuleList.c)
+ *     EmpSearchRuleDatabase @ 0x1404477EC (EmpSearchRuleDatabase.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
+ *     EmpInfParseGetGuidFromName @ 0x140C18244 (EmpInfParseGetGuidFromName.c)
+ *     EmpInfParseGetSectionLineCount @ 0x140C182F0 (EmpInfParseGetSectionLineCount.c)
+ *     EmpParseTargetRuleStringIndexList @ 0x140C197EC (EmpParseTargetRuleStringIndexList.c)
+ *     CmpGetKeyName @ 0x140C1A21C (CmpGetKeyName.c)
+ *     CmpGetSectionLineIndex @ 0x140C1A254 (CmpGetSectionLineIndex.c)
+ *     CmpGetSectionLineIndexValueCount @ 0x140C1A2CC (CmpGetSectionLineIndexValueCount.c)
  */
 
 __int64 __fastcall EmpParseTargetRules(__int64 a1)
@@ -36,7 +36,7 @@ __int64 __fastcall EmpParseTargetRules(__int64 a1)
   unsigned int v16; // r13d
   unsigned int v17; // edi
   _BYTE *SectionLineIndex; // rax
-  ULONG_PTR v19; // rax
+  __int64 v19; // rax
   unsigned int v21; // [rsp+40h] [rbp-58h]
   int v22; // [rsp+44h] [rbp-54h] BYREF
   unsigned int SectionLineIndexValueCount; // [rsp+48h] [rbp-50h]

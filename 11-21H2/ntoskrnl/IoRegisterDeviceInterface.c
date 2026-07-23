@@ -1,15 +1,15 @@
 /*
  * XREFs of IoRegisterDeviceInterface @ 0x140769AD0
  * Callers:
- *     DifIoRegisterDeviceInterfaceWrapper @ 0x140610550 (DifIoRegisterDeviceInterfaceWrapper.c)
- *     PiSwCompleteCreate @ 0x14076426C (PiSwCompleteCreate.c)
+ *     sub_140610550 @ 0x140610550 (sub_140610550.c)
+ *     sub_14076426C @ 0x14076426C (sub_14076426C.c)
  * Callees:
  *     RtlInitUnicodeStringEx @ 0x1402DFB70 (RtlInitUnicodeStringEx.c)
- *     wcspbrk @ 0x1403E39D0 (wcspbrk.c)
- *     ObQueryNameStringMode @ 0x1407103B0 (ObQueryNameStringMode.c)
- *     IopRegisterDeviceInterface @ 0x140769C24 (IopRegisterDeviceInterface.c)
- *     PnpUnicodeStringToWstr @ 0x140779CA0 (PnpUnicodeStringToWstr.c)
- *     PnpUnicodeStringToWstrFree @ 0x14077BAB8 (PnpUnicodeStringToWstrFree.c)
+ *     sub_1403E39D0 @ 0x1403E39D0 (sub_1403E39D0.c)
+ *     sub_1407103B0 @ 0x1407103B0 (sub_1407103B0.c)
+ *     sub_140769C24 @ 0x140769C24 (sub_140769C24.c)
+ *     sub_140779CA0 @ 0x140779CA0 (sub_140779CA0.c)
+ *     sub_14077BAB8 @ 0x14077BAB8 (sub_14077BAB8.c)
  *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
  */
 
@@ -20,14 +20,14 @@ NTSTATUS __stdcall IoRegisterDeviceInterface(
         PUNICODE_STRING SymbolicLinkName)
 {
   WCHAR *v4; // rdi
-  wchar_t *v5; // rsi
+  __int16 *v5; // rsi
   _DWORD *DeviceNode; // r14
   __int64 v10; // rcx
   int v11; // eax
   int inited; // ebx
   const WCHAR *v13; // rdx
   int v15; // eax
-  wchar_t *Str; // [rsp+30h] [rbp-10h] BYREF
+  __int16 *v16; // [rsp+30h] [rbp-10h] BYREF
   PCWSTR SourceString; // [rsp+38h] [rbp-8h] BYREF
   unsigned int v18; // [rsp+80h] [rbp+40h] BYREF
   const GUID *v19; // [rsp+88h] [rbp+48h]
@@ -37,7 +37,7 @@ NTSTATUS __stdcall IoRegisterDeviceInterface(
   v4 = 0LL;
   v5 = 0LL;
   SourceString = 0LL;
-  Str = 0LL;
+  v16 = 0LL;
   *SymbolicLinkName = 0LL;
   if ( !PhysicalDeviceObject
     || (DeviceNode = PhysicalDeviceObject->DeviceObjectExtension->DeviceNode) == 0LL
@@ -51,17 +51,17 @@ LABEL_15:
   }
   if ( !*((_QWORD *)DeviceNode + 6) )
     goto LABEL_13;
-  ObQueryNameStringMode((char *)PhysicalDeviceObject, 0LL, 0, &v18, 0);
+  sub_1407103B0((char *)PhysicalDeviceObject, 0LL, 0, &v18);
   if ( v18 <= 0x10 )
     goto LABEL_13;
   if ( ReferenceString && ReferenceString->Length >= 2u )
   {
-    v15 = PnpUnicodeStringToWstr(&Str, 0LL, ReferenceString);
-    v5 = Str;
+    v15 = sub_140779CA0(&v16, 0LL, ReferenceString);
+    v5 = v16;
     inited = v15;
     if ( v15 < 0 )
       goto LABEL_9;
-    if ( wcspbrk(Str, L"\\/") )
+    if ( sub_1403E39D0(v16, L"\\/") )
     {
 LABEL_13:
       inited = -1073741808;
@@ -69,18 +69,18 @@ LABEL_13:
     }
   }
   v10 = *((_QWORD *)DeviceNode + 6);
-  LODWORD(Str) = 0;
-  v11 = IopRegisterDeviceInterface(v10, (_DWORD)v19, (_DWORD)v5, 0, (__int64)&SourceString, (__int64)&Str);
+  LODWORD(v16) = 0;
+  v11 = sub_140769C24(v10, (_DWORD)v19, (_DWORD)v5, 0, (__int64)&SourceString, (__int64)&v16);
   v4 = (WCHAR *)SourceString;
   inited = v11;
   if ( v11 < 0 )
     goto LABEL_15;
   v13 = SourceString;
-  PhysicalDeviceObject->Flags |= (unsigned int)Str;
+  PhysicalDeviceObject->Flags |= (unsigned int)v16;
   inited = RtlInitUnicodeStringEx(SymbolicLinkName, v13);
   if ( inited < 0 )
     goto LABEL_15;
 LABEL_9:
-  PnpUnicodeStringToWstrFree(v5, ReferenceString);
+  sub_14077BAB8(v5, ReferenceString);
   return inited;
 }

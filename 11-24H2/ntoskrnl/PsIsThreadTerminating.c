@@ -1,7 +1,7 @@
 /*
- * XREFs of PsIsThreadTerminating @ 0x1403EDB90
+ * XREFs of PsIsThreadTerminating @ 0x1403DDB60
  * Callers:
- *     EtwpApcPoolThunk @ 0x1403ED870 (EtwpApcPoolThunk.c)
+ *     EtwpApcPoolThunk @ 0x1403DD840 (EtwpApcPoolThunk.c)
  * Callees:
  *     <none>
  */

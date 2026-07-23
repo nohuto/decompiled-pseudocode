@@ -1,33 +1,33 @@
 /*
- * XREFs of IopLegacyResourceAllocation @ 0x140753474
+ * XREFs of IopLegacyResourceAllocation @ 0x140753634
  * Callers:
- *     IopDestroyDeviceNode @ 0x1406B3034 (IopDestroyDeviceNode.c)
- *     IopReleaseDeviceResources @ 0x140738748 (IopReleaseDeviceResources.c)
- *     IoAssignResources @ 0x14089D020 (IoAssignResources.c)
- *     IoReportResourceUsageInternal @ 0x1408A02B8 (IoReportResourceUsageInternal.c)
+ *     IopDestroyDeviceNode @ 0x1406120F4 (IopDestroyDeviceNode.c)
+ *     IopReleaseDeviceResources @ 0x140738908 (IopReleaseDeviceResources.c)
+ *     IoAssignResources @ 0x14089D180 (IoAssignResources.c)
+ *     IoReportResourceUsageInternal @ 0x1408A0418 (IoReportResourceUsageInternal.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     KeReleaseGuardedMutex @ 0x140265CD0 (KeReleaseGuardedMutex.c)
- *     KeReleaseSemaphore @ 0x14029AC70 (KeReleaseSemaphore.c)
- *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
- *     ExAcquireFastMutex @ 0x14034A080 (ExAcquireFastMutex.c)
- *     IoDeleteDevice @ 0x140360D90 (IoDeleteDevice.c)
- *     PipSetDevNodeState @ 0x14036F9E8 (PipSetDevNodeState.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     memset @ 0x140414200 (memset.c)
- *     IopSetLegacyResourcesFlag @ 0x14050DC6C (IopSetLegacyResourcesFlag.c)
- *     IopDestroyDeviceNode @ 0x1406B3034 (IopDestroyDeviceNode.c)
- *     PipSetDevNodeFlags @ 0x14074561C (PipSetDevNodeFlags.c)
- *     PipAllocateDeviceNode @ 0x14074E8E0 (PipAllocateDeviceNode.c)
- *     IopWriteAllocatedResourcesToRegistry @ 0x14074F64C (IopWriteAllocatedResourcesToRegistry.c)
- *     PnpAllocateResources @ 0x14074FCE8 (PnpAllocateResources.c)
- *     PnpDetermineResourceListSize @ 0x140750A1C (PnpDetermineResourceListSize.c)
- *     IopReleaseResources @ 0x1407533CC (IopReleaseResources.c)
- *     IopRemoveLegacyDeviceNode @ 0x1407535A8 (IopRemoveLegacyDeviceNode.c)
- *     IopCreateRootEnumeratedDeviceObject @ 0x1407C8CB8 (IopCreateRootEnumeratedDeviceObject.c)
- *     IopCombineLegacyResources @ 0x1408A2DF0 (IopCombineLegacyResources.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     KeReleaseSemaphore @ 0x140212600 (KeReleaseSemaphore.c)
+ *     KeReleaseGuardedMutex @ 0x140253C70 (KeReleaseGuardedMutex.c)
+ *     IoDeleteDevice @ 0x1402A5DF0 (IoDeleteDevice.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     KeWaitForSingleObject @ 0x1403504C0 (KeWaitForSingleObject.c)
+ *     ExAcquireFastMutex @ 0x140354DD0 (ExAcquireFastMutex.c)
+ *     PipSetDevNodeState @ 0x14036FB98 (PipSetDevNodeState.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     IopSetLegacyResourcesFlag @ 0x14050DEAC (IopSetLegacyResourcesFlag.c)
+ *     IopDestroyDeviceNode @ 0x1406120F4 (IopDestroyDeviceNode.c)
+ *     PipSetDevNodeFlags @ 0x1407457DC (PipSetDevNodeFlags.c)
+ *     PipAllocateDeviceNode @ 0x14074EAA0 (PipAllocateDeviceNode.c)
+ *     IopWriteAllocatedResourcesToRegistry @ 0x14074F80C (IopWriteAllocatedResourcesToRegistry.c)
+ *     PnpAllocateResources @ 0x14074FEA8 (PnpAllocateResources.c)
+ *     PnpDetermineResourceListSize @ 0x140750BDC (PnpDetermineResourceListSize.c)
+ *     IopReleaseResources @ 0x14075358C (IopReleaseResources.c)
+ *     IopRemoveLegacyDeviceNode @ 0x140753768 (IopRemoveLegacyDeviceNode.c)
+ *     IopCreateRootEnumeratedDeviceObject @ 0x1407C8FD8 (IopCreateRootEnumeratedDeviceObject.c)
+ *     IopCombineLegacyResources @ 0x1408A2F50 (IopCombineLegacyResources.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall IopLegacyResourceAllocation(int a1, __int64 a2, __int64 a3, __int64 a4, const void **a5)
@@ -39,22 +39,25 @@ __int64 __fastcall IopLegacyResourceAllocation(int a1, __int64 a2, __int64 a3, _
   int RootEnumeratedDeviceObject; // edi
   size_t v13; // rcx
   __int64 v14; // rsi
+  __int64 v15; // rdx
+  __int64 v16; // r8
+  __int64 v17; // r9
   int DeviceNode; // eax
-  size_t v17; // rsi
-  _QWORD *v18; // rax
-  PDEVICE_OBJECT v19; // r14
-  PDEVICE_OBJECT v20; // rcx
-  _QWORD *v21; // rsi
-  size_t v22; // rcx
-  const void **v23; // r14
-  _DWORD *v24; // rcx
+  size_t v20; // rsi
+  _QWORD *v21; // rax
+  PDEVICE_OBJECT v22; // r14
+  PDEVICE_OBJECT v23; // rcx
+  _QWORD *v24; // rsi
+  size_t v25; // rcx
+  const void **v26; // r14
+  _DWORD *v27; // rcx
   PVOID PoolWithTag; // r12
-  size_t v26; // r8
-  _DWORD *v27; // rax
-  void *v28; // rbx
-  ULONG v29; // eax
+  size_t v29; // r8
+  _DWORD *v30; // rax
+  void *v31; // rbx
+  ULONG v32; // eax
   PDEVICE_OBJECT DeviceObject[2]; // [rsp+30h] [rbp-50h] BYREF
-  _QWORD v31[8]; // [rsp+40h] [rbp-40h] BYREF
+  _QWORD v34[8]; // [rsp+40h] [rbp-40h] BYREF
   size_t Size; // [rsp+D0h] [rbp+50h] BYREF
 
   CurrentThread = KeGetCurrentThread();
@@ -80,7 +83,7 @@ LABEL_5:
     if ( (*(_DWORD *)(a3 + 48) & 0x1000) == 0 )
     {
       DeviceNode = PipAllocateDeviceNode(a3, (void **)&Size);
-      v17 = Size;
+      v20 = Size;
       RootEnumeratedDeviceObject = DeviceNode;
       if ( Size )
       {
@@ -90,7 +93,7 @@ LABEL_5:
           goto LABEL_17;
         }
         PipSetDevNodeFlags(Size, 0x20000);
-        v8 = (_QWORD *)v17;
+        v8 = (_QWORD *)v20;
         goto LABEL_4;
       }
       goto LABEL_35;
@@ -98,22 +101,22 @@ LABEL_5:
   }
   else
   {
-    v18 = (_QWORD *)IopLegacyDeviceNode;
+    v21 = (_QWORD *)IopLegacyDeviceNode;
     Size = IopLegacyDeviceNode;
     if ( IopLegacyDeviceNode )
     {
       do
       {
-        if ( v18[54] == a2 )
+        if ( v21[54] == a2 )
           break;
-        v18 = (_QWORD *)*v18;
+        v21 = (_QWORD *)*v21;
       }
-      while ( v18 );
-      Size = (size_t)v18;
-      if ( v18 )
+      while ( v21 );
+      Size = (size_t)v21;
+      if ( v21 )
       {
-        v7 = v18[4];
-        v8 = v18;
+        v7 = v21[4];
+        v8 = v21;
         goto LABEL_5;
       }
     }
@@ -121,30 +124,30 @@ LABEL_5:
     RootEnumeratedDeviceObject = IopCreateRootEnumeratedDeviceObject(DeviceObject);
     if ( RootEnumeratedDeviceObject >= 0 )
     {
-      v19 = DeviceObject[0];
-      v20 = DeviceObject[0];
+      v22 = DeviceObject[0];
+      v23 = DeviceObject[0];
       DeviceObject[0]->Flags |= 0x1000u;
-      RootEnumeratedDeviceObject = PipAllocateDeviceNode((__int64)v20, (void **)&Size);
-      if ( RootEnumeratedDeviceObject == -1073740946 || (v21 = (_QWORD *)Size) == 0LL )
+      RootEnumeratedDeviceObject = PipAllocateDeviceNode((__int64)v23, (void **)&Size);
+      if ( RootEnumeratedDeviceObject == -1073740946 || (v24 = (_QWORD *)Size) == 0LL )
       {
-        IoDeleteDevice(v19);
+        IoDeleteDevice(v22);
         v6 = a1;
 LABEL_35:
         RootEnumeratedDeviceObject = -1073741670;
         goto LABEL_36;
       }
-      v22 = Size;
-      v19->DriverObject = (struct _DRIVER_OBJECT *)a2;
-      PipSetDevNodeFlags(v22, 131073);
-      PipSetDevNodeState((__int64)v21, 770);
-      v21[54] = a2;
-      *v21 = IopLegacyDeviceNode;
+      v25 = Size;
+      v22->DriverObject = (struct _DRIVER_OBJECT *)a2;
+      PipSetDevNodeFlags(v25, 131073);
+      PipSetDevNodeState((__int64)v24, 770);
+      v24[54] = a2;
+      *v24 = IopLegacyDeviceNode;
       if ( IopLegacyDeviceNode )
-        *(_QWORD *)(IopLegacyDeviceNode + 8) = v21;
-      v7 = (__int64)v19;
-      IopLegacyDeviceNode = (__int64)v21;
+        *(_QWORD *)(IopLegacyDeviceNode + 8) = v24;
+      v7 = (__int64)v22;
+      IopLegacyDeviceNode = (__int64)v24;
       v6 = a1;
-      v8 = v21;
+      v8 = v24;
     }
   }
 LABEL_36:
@@ -178,40 +181,40 @@ LABEL_10:
     v14 = v8[66];
     goto LABEL_12;
   }
-  memset(v31, 0, sizeof(v31));
-  v31[0] = v7;
-  v31[3] = a4;
-  HIDWORD(v31[1]) = v6;
-  LODWORD(v31[1]) = 128;
-  PnpAllocateResources(1u, v31, 1, 0LL);
-  RootEnumeratedDeviceObject = v31[7];
-  if ( SLODWORD(v31[7]) < 0 )
+  memset(v34, 0, sizeof(v34));
+  v34[0] = v7;
+  v34[3] = a4;
+  HIDWORD(v34[1]) = v6;
+  LODWORD(v34[1]) = 128;
+  PnpAllocateResources(1u, v34, 1, 0LL);
+  RootEnumeratedDeviceObject = v34[7];
+  if ( SLODWORD(v34[7]) < 0 )
     goto LABEL_12;
-  v23 = a5;
-  v24 = (_DWORD *)v31[5];
+  v26 = a5;
+  v27 = (_DWORD *)v34[5];
   if ( *a5 )
-    v24 = *a5;
-  Size = (unsigned int)PnpDetermineResourceListSize(v24);
+    v27 = *a5;
+  Size = (unsigned int)PnpDetermineResourceListSize(v27);
   PoolWithTag = ExAllocatePoolWithTag(PagedPool, Size, 0x20207050u);
   if ( PoolWithTag )
   {
-    if ( *v23 )
-      ExFreePoolWithTag((PVOID)v31[5], 0);
+    if ( *v26 )
+      ExFreePoolWithTag((PVOID)v34[5], 0);
     else
-      *v23 = (const void *)v31[5];
+      *v26 = (const void *)v34[5];
     ExAcquireFastMutex(&PiResourceListLock);
-    v26 = Size;
+    v29 = Size;
     v8[52] = PoolWithTag;
-    memmove(PoolWithTag, *v23, v26);
-    v8[53] = v31[6];
+    memmove(PoolWithTag, *v26, v29);
+    v8[53] = v34[6];
     KeReleaseGuardedMutex(&PiResourceListLock);
     v14 = v8[66];
   }
   else
   {
     ExAcquireFastMutex(&PiResourceListLock);
-    v8[52] = v31[5];
-    v8[53] = v31[6];
+    v8[52] = v34[5];
+    v8[53] = v34[6];
     KeReleaseGuardedMutex(&PiResourceListLock);
     IopReleaseResources((__int64)v8);
     RootEnumeratedDeviceObject = -1073741670;
@@ -225,19 +228,19 @@ LABEL_12:
   }
   if ( v14 )
   {
-    v27 = (_DWORD *)IopCombineLegacyResources(v14);
-    v28 = v27;
-    if ( v27 )
+    v30 = (_DWORD *)IopCombineLegacyResources(v14);
+    v31 = v30;
+    if ( v30 )
     {
-      v29 = PnpDetermineResourceListSize(v27);
-      IopWriteAllocatedResourcesToRegistry(v14, v28, v29);
-      ExFreePoolWithTag(v28, 0);
+      v32 = PnpDetermineResourceListSize(v30);
+      IopWriteAllocatedResourcesToRegistry(v14, v31, v32);
+      ExFreePoolWithTag(v31, 0);
     }
   }
   if ( a1 != 3 && a4 )
     IopSetLegacyResourcesFlag(a2);
 LABEL_17:
   KeReleaseSemaphore(&PpRegistrySemaphore, 0, 1, 0);
-  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v15, v16, v17);
   return (unsigned int)RootEnumeratedDeviceObject;
 }

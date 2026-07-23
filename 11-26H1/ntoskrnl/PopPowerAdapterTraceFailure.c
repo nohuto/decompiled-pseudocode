@@ -1,13 +1,14 @@
 /*
- * XREFs of PopPowerAdapterTraceFailure @ 0x14077A9EC
+ * XREFs of PopPowerAdapterTraceFailure @ 0x14077D91C
  * Callers:
- *     PopPowerAdapterIrpComplete @ 0x1404F7900 (PopPowerAdapterIrpComplete.c)
- *     PopBatteryWorker @ 0x1407D7EF0 (PopBatteryWorker.c)
- *     PopPowerAdapterAdd @ 0x1407D94D0 (PopPowerAdapterAdd.c)
+ *     PopPowerAdapterIrpComplete @ 0x1404F0F10 (PopPowerAdapterIrpComplete.c)
+ *     PopBatteryWorker @ 0x1407DB910 (PopBatteryWorker.c)
+ *     PopPowerAdapterAdd @ 0x1407DCEF0 (PopPowerAdapterAdd.c)
+ *     PopPowerAdapterReinitialize @ 0x1407DD830 (PopPowerAdapterReinitialize.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void __fastcall PopPowerAdapterTraceFailure(_DWORD *a1, int a2, int a3)
@@ -36,7 +37,7 @@ void __fastcall PopPowerAdapterTraceFailure(_DWORD *a1, int a2, int a3)
   {
     a1[32] = 3;
     a1[56] = a2;
-    if ( (unsigned int)dword_140E07598 > 5 && tlgKeywordOn((__int64)&dword_140E07598, 0x400000000000LL) )
+    if ( (unsigned int)dword_140E07560 > 5 && tlgKeywordOn((__int64)&dword_140E07560, 0x400000000000LL) )
     {
       v8 = v3;
       v12 = &v6;
@@ -54,8 +55,8 @@ void __fastcall PopPowerAdapterTraceFailure(_DWORD *a1, int a2, int a3)
       v10 = 0x1000000LL;
       v21 = 8LL;
       tlgWriteTransfer_EtwWriteTransfer(
-        (__int64)&dword_140E07598,
-        (unsigned __int8 *)&dword_14004D4D4,
+        (__int64)&dword_140E07560,
+        (unsigned __int8 *)byte_14004E960,
         0LL,
         0LL,
         7u,

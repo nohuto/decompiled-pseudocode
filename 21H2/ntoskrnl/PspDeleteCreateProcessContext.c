@@ -1,17 +1,17 @@
 /*
- * XREFs of PspDeleteCreateProcessContext @ 0x140648A94
+ * XREFs of PspDeleteCreateProcessContext @ 0x14063D884
  * Callers:
- *     PspBuildCreateProcessContext @ 0x140608C44 (PspBuildCreateProcessContext.c)
- *     NtCreateUserProcess @ 0x14060A1D0 (NtCreateUserProcess.c)
- *     NtCreateThreadEx @ 0x1406487D0 (NtCreateThreadEx.c)
+ *     NtCreateThreadEx @ 0x14063D5C0 (NtCreateThreadEx.c)
+ *     PspBuildCreateProcessContext @ 0x1406986F4 (PspBuildCreateProcessContext.c)
+ *     NtCreateUserProcess @ 0x140699C80 (NtCreateUserProcess.c)
  * Callees:
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
- *     memset @ 0x140414200 (memset.c)
- *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
- *     ObCloseHandle @ 0x14061AB80 (ObCloseHandle.c)
- *     PspDestroyProcessParameterOverrides @ 0x140648C30 (PspDestroyProcessParameterOverrides.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     PspDestroyProcessParameterOverrides @ 0x14063DA20 (PspDestroyProcessParameterOverrides.c)
+ *     RtlFreeAnsiString @ 0x14063DA40 (RtlFreeAnsiString.c)
+ *     ObCloseHandle @ 0x1406847E0 (ObCloseHandle.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PspDeleteCreateProcessContext(__int64 a1)

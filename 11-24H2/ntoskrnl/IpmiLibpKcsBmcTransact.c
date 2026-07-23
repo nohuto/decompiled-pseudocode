@@ -1,12 +1,12 @@
 /*
- * XREFs of IpmiLibpKcsBmcTransact @ 0x1406A0030
+ * XREFs of IpmiLibpKcsBmcTransact @ 0x1406A1134
  * Callers:
- *     IpmiLibpKcsRequestAndReceive @ 0x1406A03A0 (IpmiLibpKcsRequestAndReceive.c)
+ *     IpmiLibpKcsRequestAndReceive @ 0x1406A14A4 (IpmiLibpKcsRequestAndReceive.c)
  * Callees:
- *     IpmiLibpKcsHandleError @ 0x1406A00D8 (IpmiLibpKcsHandleError.c)
- *     IpmiLibpKcsReceiveResponseFromBmc @ 0x1406A0228 (IpmiLibpKcsReceiveResponseFromBmc.c)
- *     IpmiLibpKcsSendRequestToBMC @ 0x1406A0448 (IpmiLibpKcsSendRequestToBMC.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     IpmiLibpKcsHandleError @ 0x1406A11DC (IpmiLibpKcsHandleError.c)
+ *     IpmiLibpKcsReceiveResponseFromBmc @ 0x1406A132C (IpmiLibpKcsReceiveResponseFromBmc.c)
+ *     IpmiLibpKcsSendRequestToBMC @ 0x1406A1550 (IpmiLibpKcsSendRequestToBMC.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall IpmiLibpKcsBmcTransact(__int64 a1, unsigned __int16 *a2, __int64 a3)
@@ -16,8 +16,6 @@ __int64 __fastcall IpmiLibpKcsBmcTransact(__int64 a1, unsigned __int16 *a2, __in
   int v7; // edi
   _WORD *v8; // r8
   __int64 v9; // rdx
-  __int64 v10; // r8
-  __int64 v11; // r9
 
   v4 = *a2;
   if ( (unsigned __int16)v4 >= 0x122u )
@@ -35,8 +33,8 @@ __int64 __fastcall IpmiLibpKcsBmcTransact(__int64 a1, unsigned __int16 *a2, __in
     v7 = IpmiLibpKcsHandleError(v6, a3);
     if ( v7 < 0 )
     {
-      if ( qword_140EF9C28 )
-        guard_dispatch_icall_no_overrides(qword_140EF9C38, v9, v10, v11);
+      if ( qword_140EF9F28 )
+        guard_dispatch_icall_no_overrides(qword_140EF9F38, v9);
     }
   }
   return (unsigned int)v7;

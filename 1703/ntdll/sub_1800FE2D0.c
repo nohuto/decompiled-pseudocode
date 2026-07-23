@@ -7,7 +7,7 @@
  *     sub_180095EB0 @ 0x180095EB0 (sub_180095EB0.c)
  */
 
-__int64 __fastcall sub_1800FE2D0(int a1, int a2)
+ULONG __fastcall sub_1800FE2D0(int a1, int a2)
 {
   int *v3; // [rsp+20h] [rbp-38h] BYREF
   int v4; // [rsp+28h] [rbp-30h]
@@ -26,5 +26,5 @@ __int64 __fastcall sub_1800FE2D0(int a1, int a2)
   v6 = &v10;
   v8 = 0;
   v7 = 4;
-  return EtwEventWrite(qword_18015C2F8, (int)&unk_180124730, 2, (__int64)&v3);
+  return EtwEventWrite(qword_18015C2F8, &stru_180124730, 2u, (PEVENT_DATA_DESCRIPTOR)&v3);
 }

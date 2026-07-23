@@ -1,12 +1,17 @@
 /*
- * XREFs of NtCreateDirectoryObjectEx @ 0x1406A1B20
+ * XREFs of NtCreateDirectoryObjectEx @ 0x140601A50
  * Callers:
  *     <none>
  * Callees:
- *     ObpCreateDirectoryObject @ 0x1406A1B60 (ObpCreateDirectoryObject.c)
+ *     ObpCreateDirectoryObject @ 0x140601A90 (ObpCreateDirectoryObject.c)
  */
 
-__int64 __fastcall NtCreateDirectoryObjectEx(__int64 a1)
+NTSTATUS __cdecl NtCreateDirectoryObjectEx(
+        PHANDLE DirectoryHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        HANDLE ShadowDirectoryHandle,
+        ULONG Flags)
 {
-  return ObpCreateDirectoryObject(a1);
+  return ObpCreateDirectoryObject(DirectoryHandle, DesiredAccess, ObjectAttributes, ShadowDirectoryHandle, Flags);
 }

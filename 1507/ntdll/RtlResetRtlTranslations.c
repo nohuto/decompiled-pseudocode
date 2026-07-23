@@ -6,39 +6,38 @@
  *     memset @ 0x180098540 (memset.c)
  */
 
-__int64 __fastcall RtlResetRtlTranslations(__int64 a1)
+void __cdecl RtlResetRtlTranslations(PNLSTABLEINFO TableInfo)
 {
   __int64 v1; // rdi
-  _OWORD *v3; // rax
+  PUSHORT DBCSOffsets; // rax
   __int64 v4; // rdx
   _OWORD *v5; // rcx
   __int128 v6; // xmm1
   __int16 *v7; // rcx
   bool v8; // zf
-  __int64 v9; // rax
-  _OWORD *v10; // rax
+  PVOID WideCharTable; // rax
+  PUSHORT v10; // rax
   __int128 v11; // xmm1
-  __int64 v12; // rax
-  __int64 result; // rax
+  PVOID v12; // rax
 
   v1 = 4LL;
-  if ( *(_WORD *)(a1 + 76) )
+  if ( TableInfo->AnsiTableInfo.DBCSCodePage )
   {
-    v3 = *(_OWORD **)(a1 + 120);
+    DBCSOffsets = TableInfo->AnsiTableInfo.DBCSOffsets;
     v4 = 4LL;
     v5 = NlsLeadByteInfoTable;
     do
     {
-      *v5 = *v3;
-      v5[1] = v3[1];
-      v5[2] = v3[2];
-      v5[3] = v3[3];
-      v5[4] = v3[4];
-      v5[5] = v3[5];
-      v5[6] = v3[6];
+      *v5 = *(_OWORD *)DBCSOffsets;
+      v5[1] = *((_OWORD *)DBCSOffsets + 1);
+      v5[2] = *((_OWORD *)DBCSOffsets + 2);
+      v5[3] = *((_OWORD *)DBCSOffsets + 3);
+      v5[4] = *((_OWORD *)DBCSOffsets + 4);
+      v5[5] = *((_OWORD *)DBCSOffsets + 5);
+      v5[6] = *((_OWORD *)DBCSOffsets + 6);
       v5 += 8;
-      v6 = v3[7];
-      v3 += 8;
+      v6 = *((_OWORD *)DBCSOffsets + 7);
+      DBCSOffsets += 64;
       *(v5 - 1) = v6;
       --v4;
     }
@@ -49,29 +48,29 @@ __int64 __fastcall RtlResetRtlTranslations(__int64 a1)
     memset(NlsLeadByteInfoTable, 0, sizeof(NlsLeadByteInfoTable));
   }
   v7 = NlsOemLeadByteInfoTable;
-  v8 = *(_WORD *)(a1 + 76) == 0;
-  NlsMbAnsiCodePageTables = *(_QWORD *)(a1 + 120);
-  NlsAnsiToUnicodeData = *(_QWORD *)(a1 + 96);
-  v9 = *(_QWORD *)(a1 + 104);
+  v8 = TableInfo->AnsiTableInfo.DBCSCodePage == 0;
+  NlsMbAnsiCodePageTables = (__int64)TableInfo->AnsiTableInfo.DBCSOffsets;
+  NlsAnsiToUnicodeData = (__int64)TableInfo->AnsiTableInfo.MultiByteTable;
+  WideCharTable = TableInfo->AnsiTableInfo.WideCharTable;
   NlsMbCodePageTag = !v8;
-  NlsUnicodeToAnsiData = v9;
-  NlsUnicodeToMbAnsiData = v9;
-  NlsAnsiCodePage = *(_WORD *)(a1 + 64);
-  if ( *(_WORD *)(a1 + 12) )
+  NlsUnicodeToAnsiData = (__int64)WideCharTable;
+  NlsUnicodeToMbAnsiData = (__int64)WideCharTable;
+  NlsAnsiCodePage = TableInfo->AnsiTableInfo.CodePage;
+  if ( TableInfo->OemTableInfo.DBCSCodePage )
   {
-    v10 = *(_OWORD **)(a1 + 56);
+    v10 = TableInfo->OemTableInfo.DBCSOffsets;
     do
     {
-      *(_OWORD *)v7 = *v10;
-      *((_OWORD *)v7 + 1) = v10[1];
-      *((_OWORD *)v7 + 2) = v10[2];
-      *((_OWORD *)v7 + 3) = v10[3];
-      *((_OWORD *)v7 + 4) = v10[4];
-      *((_OWORD *)v7 + 5) = v10[5];
-      *((_OWORD *)v7 + 6) = v10[6];
+      *(_OWORD *)v7 = *(_OWORD *)v10;
+      *((_OWORD *)v7 + 1) = *((_OWORD *)v10 + 1);
+      *((_OWORD *)v7 + 2) = *((_OWORD *)v10 + 2);
+      *((_OWORD *)v7 + 3) = *((_OWORD *)v10 + 3);
+      *((_OWORD *)v7 + 4) = *((_OWORD *)v10 + 4);
+      *((_OWORD *)v7 + 5) = *((_OWORD *)v10 + 5);
+      *((_OWORD *)v7 + 6) = *((_OWORD *)v10 + 6);
       v7 += 64;
-      v11 = v10[7];
-      v10 += 8;
+      v11 = *((_OWORD *)v10 + 7);
+      v10 += 64;
       *((_OWORD *)v7 - 1) = v11;
       --v1;
     }
@@ -81,19 +80,17 @@ __int64 __fastcall RtlResetRtlTranslations(__int64 a1)
   {
     memset(NlsOemLeadByteInfoTable, 0, sizeof(NlsOemLeadByteInfoTable));
   }
-  v8 = *(_WORD *)(a1 + 12) == 0;
-  NlsMbOemCodePageTables = *(_QWORD *)(a1 + 56);
-  NlsOemToUnicodeData = *(_QWORD *)(a1 + 32);
-  v12 = *(_QWORD *)(a1 + 40);
+  v8 = TableInfo->OemTableInfo.DBCSCodePage == 0;
+  NlsMbOemCodePageTables = (__int64)TableInfo->OemTableInfo.DBCSOffsets;
+  NlsOemToUnicodeData = (__int64)TableInfo->OemTableInfo.MultiByteTable;
+  v12 = TableInfo->OemTableInfo.WideCharTable;
   NlsMbOemCodePageTag = !v8;
-  NlsUnicodeToOemData = v12;
-  NlsUnicodeToMbOemData = v12;
-  NlsOemCodePage = *(_WORD *)a1;
-  OemDefaultChar = *(_WORD *)(a1 + 4);
-  OemTransUniDefaultChar = *(_WORD *)(a1 + 8);
-  Nls844UnicodeUpcaseTable = *(_QWORD *)(a1 + 128);
-  Nls844UnicodeLowercaseTable = *(_QWORD *)(a1 + 136);
-  result = *(unsigned __int16 *)(a1 + 70);
-  UnicodeDefaultChar = *(_WORD *)(a1 + 70);
-  return result;
+  NlsUnicodeToOemData = (__int64)v12;
+  NlsUnicodeToMbOemData = (__int64)v12;
+  NlsOemCodePage = TableInfo->OemTableInfo.CodePage;
+  OemDefaultChar = TableInfo->OemTableInfo.DefaultChar;
+  OemTransUniDefaultChar = TableInfo->OemTableInfo.TransDefaultChar;
+  Nls844UnicodeUpcaseTable = (__int64)TableInfo->UpperCaseTable;
+  Nls844UnicodeLowercaseTable = (__int64)TableInfo->LowerCaseTable;
+  UnicodeDefaultChar = TableInfo->AnsiTableInfo.UniDefaultChar;
 }

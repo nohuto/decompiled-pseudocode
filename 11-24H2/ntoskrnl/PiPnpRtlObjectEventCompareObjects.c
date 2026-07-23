@@ -1,19 +1,16 @@
 /*
- * XREFs of PiPnpRtlObjectEventCompareObjects @ 0x1409FF8B0
+ * XREFs of PiPnpRtlObjectEventCompareObjects @ 0x1409F8800
  * Callers:
- *     FindNodeOrParent @ 0x1403EA460 (FindNodeOrParent.c)
- *     RtlInsertElementGenericTableAvl @ 0x1403F03D0 (RtlInsertElementGenericTableAvl.c)
- *     RtlDeleteElementGenericTableAvl @ 0x1403F0610 (RtlDeleteElementGenericTableAvl.c)
- *     RtlLookupElementGenericTableFullAvl @ 0x1403F1320 (RtlLookupElementGenericTableFullAvl.c)
- *     RtlLookupElementGenericTableAvl @ 0x1403FFF00 (RtlLookupElementGenericTableAvl.c)
+ *     FindNodeOrParent @ 0x1403D9E20 (FindNodeOrParent.c)
+ *     RtlInsertElementGenericTableAvl @ 0x1403E40F0 (RtlInsertElementGenericTableAvl.c)
+ *     RtlDeleteElementGenericTableAvl @ 0x1403E4330 (RtlDeleteElementGenericTableAvl.c)
+ *     RtlLookupElementGenericTableFullAvl @ 0x1403E5040 (RtlLookupElementGenericTableFullAvl.c)
+ *     RtlLookupElementGenericTableAvl @ 0x1403FA3F0 (RtlLookupElementGenericTableAvl.c)
  * Callees:
- *     _wcsicmp @ 0x1404FE3B0 (_wcsicmp.c)
+ *     _wcsicmp @ 0x1404FBC70 (_wcsicmp.c)
  */
 
-__int64 __fastcall PiPnpRtlObjectEventCompareObjects(
-        struct _RTL_AVL_TABLE *Table,
-        __int64 *FirstStruct,
-        __int64 *SecondStruct)
+__int64 __fastcall PiPnpRtlObjectEventCompareObjects(_RTL_AVL_TABLE *a1, __int64 *a2, __int64 *a3)
 {
   __int64 v3; // rax
   __int64 v4; // rdx
@@ -26,9 +23,9 @@ __int64 __fastcall PiPnpRtlObjectEventCompareObjects(
   int v11; // ecx
   int v12; // eax
 
-  v3 = *FirstStruct;
-  v4 = *SecondStruct;
-  if ( v3 == *SecondStruct )
+  v3 = *a2;
+  v4 = *a3;
+  if ( v3 == *a3 )
     return 2LL;
   v5 = *(_QWORD *)(v3 + 8);
   v6 = *(_QWORD *)(v4 + 8);

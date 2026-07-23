@@ -1,16 +1,16 @@
 /*
- * XREFs of MiComputeNodeMemory @ 0x1406E7EF4
+ * XREFs of MiComputeNodeMemory @ 0x1406ECB90
  * Callers:
- *     MiPerformMemoryChange @ 0x1406E9974 (MiPerformMemoryChange.c)
- *     MiUpdatePartitionMemory @ 0x140709F1C (MiUpdatePartitionMemory.c)
- *     MiCompleteMemoryAddition @ 0x140865B8C (MiCompleteMemoryAddition.c)
- *     MiInitializePhysicalMemoryBlocks @ 0x140CF36E4 (MiInitializePhysicalMemoryBlocks.c)
+ *     MiPerformMemoryChange @ 0x1406EE614 (MiPerformMemoryChange.c)
+ *     MiUpdatePartitionMemory @ 0x14070EBD0 (MiUpdatePartitionMemory.c)
+ *     MiCompleteMemoryAddition @ 0x14086BF6C (MiCompleteMemoryAddition.c)
+ *     MiInitializePhysicalMemoryBlocks @ 0x140CF9A64 (MiInitializePhysicalMemoryBlocks.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     MiReferencePageRuns @ 0x14028EEEC (MiReferencePageRuns.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiDereferencePageRuns @ 0x1403C9634 (MiDereferencePageRuns.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     MiReferencePageRuns @ 0x14028E44C (MiReferencePageRuns.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiDereferencePageRuns @ 0x1403D34E4 (MiDereferencePageRuns.c)
  */
 
 void __fastcall MiComputeNodeMemory(ULONG *a1, int a2)
@@ -144,13 +144,13 @@ void __fastcall MiComputeNodeMemory(ULONG *a1, int a2)
           }
         }
       }
-      if ( a1 == &MiSystemPartition && byte_140E2D718 )
+      if ( a1 == &MiSystemPartition && byte_140E2D898 )
       {
         v22 = v32;
-        v23 = (unsigned __int8)byte_140E2D718;
+        v23 = (unsigned __int8)byte_140E2D898;
         do
         {
-          *v22 -= *(_QWORD *)((char *)&stru_140E36558.AbCompletedIoQoSBoostCount + 16LL * v11
+          *v22 -= *(_QWORD *)((char *)&stru_140E366D8.AbCompletedIoQoSBoostCount + 16LL * v11
                                                                                  - (_QWORD)v32
                                                                                  + (_QWORD)v22);
           ++v22;
@@ -160,7 +160,7 @@ void __fastcall MiComputeNodeMemory(ULONG *a1, int a2)
       }
       v24 = 0LL;
       v25 = ExAcquireSpinLockExclusive(v13);
-      for ( j = 0; j < (unsigned __int8)byte_140E2D718; *(_QWORD *)(v35 + 8 * v27 + 13872) = v28 )
+      for ( j = 0; j < (unsigned __int8)byte_140E2D898; *(_QWORD *)(v35 + 8 * v27 + 13872) = v28 )
       {
         v27 = j++;
         v28 = *((_QWORD *)v32 + v27);

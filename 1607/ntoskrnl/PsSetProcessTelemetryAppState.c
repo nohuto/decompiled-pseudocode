@@ -1,17 +1,17 @@
 /*
- * XREFs of PsSetProcessTelemetryAppState @ 0x1404A33DC
+ * XREFs of PsSetProcessTelemetryAppState @ 0x14051B7DC
  * Callers:
- *     PspExitProcess @ 0x140460564 (PspExitProcess.c)
- *     PsSetProcessFaultInformation @ 0x1404F09D4 (PsSetProcessFaultInformation.c)
- *     PsThawProcess @ 0x14051DFE8 (PsThawProcess.c)
- *     PsFreezeProcess @ 0x14051E428 (PsFreezeProcess.c)
- *     EtwpPsProvProcessEnumCallback @ 0x1406A7D94 (EtwpPsProvProcessEnumCallback.c)
+ *     PspExitProcess @ 0x14045F434 (PspExitProcess.c)
+ *     PsSetProcessFaultInformation @ 0x1404D2AC8 (PsSetProcessFaultInformation.c)
+ *     PsThawProcess @ 0x140501050 (PsThawProcess.c)
+ *     PsFreezeProcess @ 0x140501490 (PsFreezeProcess.c)
+ *     EtwpPsProvProcessEnumCallback @ 0x1406A7ECC (EtwpPsProvProcessEnumCallback.c)
  * Callees:
- *     PspLockProcessExclusive @ 0x140088FB8 (PspLockProcessExclusive.c)
- *     PspUnlockProcessExclusive @ 0x1400F22D8 (PspUnlockProcessExclusive.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     EtwTraceAppStateChange @ 0x1404A3048 (EtwTraceAppStateChange.c)
- *     PsGetProcessDeepFreezeStats @ 0x1405095EC (PsGetProcessDeepFreezeStats.c)
+ *     PspUnlockProcessExclusive @ 0x1400F0128 (PspUnlockProcessExclusive.c)
+ *     PspLockProcessExclusive @ 0x14010D1A8 (PspLockProcessExclusive.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     PsGetProcessDeepFreezeStats @ 0x1404EC57C (PsGetProcessDeepFreezeStats.c)
+ *     EtwTraceAppStateChange @ 0x14051B448 (EtwTraceAppStateChange.c)
  */
 
 __int64 __fastcall PsSetProcessTelemetryAppState(struct _EX_RUNDOWN_REF *BugCheckParameter1, int a2)
@@ -31,7 +31,7 @@ __int64 __fastcall PsSetProcessTelemetryAppState(struct _EX_RUNDOWN_REF *BugChec
   CurrentThread = KeGetCurrentThread();
   do
   {
-    PsGetProcessDeepFreezeStats(BugCheckParameter1, &v11);
+    PsGetProcessDeepFreezeStats((__int64)BugCheckParameter1, &v11);
     v5 = v12;
     v6 = 0;
     v7 = v12 - v13 - BugCheckParameter1[234].Count;

@@ -1,19 +1,19 @@
 /*
- * XREFs of RtlpHpSegAlloc @ 0x14024DB40
+ * XREFs of RtlpHpSegAlloc @ 0x14024DC10
  * Callers:
- *     RtlpHpAllocateHeap @ 0x14024D420 (RtlpHpAllocateHeap.c)
- *     ExAllocateHeapPool @ 0x1402AD2E0 (ExAllocateHeapPool.c)
- *     RtlpHpMetadataAlloc @ 0x140324528 (RtlpHpMetadataAlloc.c)
- *     RtlpHpSegSubAllocate @ 0x14034FC0C (RtlpHpSegSubAllocate.c)
- *     ExAllocateHeapPages @ 0x1403B9BBC (ExAllocateHeapPages.c)
- *     ExAllocateContiguousHeapPool @ 0x1403BA114 (ExAllocateContiguousHeapPool.c)
- *     ExAllocateHeapSpecialPool @ 0x14060ED30 (ExAllocateHeapSpecialPool.c)
+ *     RtlpHpAllocateHeap @ 0x14024D4F0 (RtlpHpAllocateHeap.c)
+ *     ExAllocateHeapPool @ 0x1402AD570 (ExAllocateHeapPool.c)
+ *     RtlpHpMetadataAlloc @ 0x1403247B8 (RtlpHpMetadataAlloc.c)
+ *     RtlpHpSegSubAllocate @ 0x14034FDAC (RtlpHpSegSubAllocate.c)
+ *     ExAllocateHeapPages @ 0x1403B9D9C (ExAllocateHeapPages.c)
+ *     ExAllocateContiguousHeapPool @ 0x1403BA2F4 (ExAllocateContiguousHeapPool.c)
+ *     ExAllocateHeapSpecialPool @ 0x14060F280 (ExAllocateHeapSpecialPool.c)
  * Callees:
- *     RtlpHpSegPageRangeAllocate @ 0x14024DCF0 (RtlpHpSegPageRangeAllocate.c)
- *     RtlpHpSegPageRangeCommit @ 0x14024E2F0 (RtlpHpSegPageRangeCommit.c)
- *     RtlpHpSegPageRangeComputeLargePageCost @ 0x14024FE90 (RtlpHpSegPageRangeComputeLargePageCost.c)
- *     RtlHeapZero @ 0x1403D8890 (RtlHeapZero.c)
- *     RtlpHpSegPageRangeFree @ 0x1405B6A80 (RtlpHpSegPageRangeFree.c)
+ *     RtlpHpSegPageRangeAllocate @ 0x14024DDC0 (RtlpHpSegPageRangeAllocate.c)
+ *     RtlpHpSegPageRangeCommit @ 0x14024E3C0 (RtlpHpSegPageRangeCommit.c)
+ *     RtlpHpSegPageRangeComputeLargePageCost @ 0x14024FF60 (RtlpHpSegPageRangeComputeLargePageCost.c)
+ *     RtlHeapZero @ 0x1403D8A70 (RtlHeapZero.c)
+ *     RtlpHpSegPageRangeFree @ 0x1405B6FF0 (RtlpHpSegPageRangeFree.c)
  */
 
 __int64 __fastcall RtlpHpSegAlloc(__int64 a1, __int64 a2, __int64 a3, __int64 a4, unsigned int a5)

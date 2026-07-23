@@ -1,12 +1,12 @@
 /*
- * XREFs of ExUpdateTimerResolutionPolicy @ 0x140A6677C
+ * XREFs of ExUpdateTimerResolutionPolicy @ 0x140A7374C
  * Callers:
- *     PspSetProcessTimerResolutionPolicy @ 0x140A66760 (PspSetProcessTimerResolutionPolicy.c)
+ *     PspSetProcessTimerResolutionPolicy @ 0x140A73730 (PspSetProcessTimerResolutionPolicy.c)
  * Callees:
- *     ExpUpdateTimerResolution @ 0x14052E534 (ExpUpdateTimerResolution.c)
- *     PoTraceSystemTimerResolutionIgnore @ 0x14052F4D0 (PoTraceSystemTimerResolutionIgnore.c)
- *     ExAcquireTimeRefreshLockExclusive @ 0x140A66A6C (ExAcquireTimeRefreshLockExclusive.c)
- *     ExReleaseTimeRefreshLockExclusive @ 0x140A66AE4 (ExReleaseTimeRefreshLockExclusive.c)
+ *     ExpUpdateTimerResolution @ 0x140530A54 (ExpUpdateTimerResolution.c)
+ *     PoTraceSystemTimerResolutionIgnore @ 0x1405319F0 (PoTraceSystemTimerResolutionIgnore.c)
+ *     ExAcquireTimeRefreshLockExclusive @ 0x140A73A3C (ExAcquireTimeRefreshLockExclusive.c)
+ *     ExReleaseTimeRefreshLockExclusive @ 0x140A73AB4 (ExReleaseTimeRefreshLockExclusive.c)
  */
 
 void __fastcall ExUpdateTimerResolutionPolicy(__int64 a1, char a2)

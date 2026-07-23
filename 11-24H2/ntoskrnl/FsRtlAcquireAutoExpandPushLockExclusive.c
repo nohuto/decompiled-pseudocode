@@ -1,25 +1,25 @@
 /*
- * XREFs of FsRtlAcquireAutoExpandPushLockExclusive @ 0x1403C576C
+ * XREFs of FsRtlAcquireAutoExpandPushLockExclusive @ 0x1403B432C
  * Callers:
- *     FsRtlRemovePerStreamContext @ 0x1403C5300 (FsRtlRemovePerStreamContext.c)
- *     FsRtlInsertPerStreamContext @ 0x1403C5430 (FsRtlInsertPerStreamContext.c)
- *     FsRtlInsertPerFileObjectContext @ 0x1403C5500 (FsRtlInsertPerFileObjectContext.c)
- *     FsRtlRemovePerFileObjectContext @ 0x1403C5670 (FsRtlRemovePerFileObjectContext.c)
- *     FsRtlInsertPerFileContextWithReserve @ 0x14045B800 (FsRtlInsertPerFileContextWithReserve.c)
- *     FsRtlRemovePerFileContext @ 0x14057FF10 (FsRtlRemovePerFileContext.c)
- *     FsRtlTeardownPerStreamContexts @ 0x1409A4760 (FsRtlTeardownPerStreamContexts.c)
- *     FsRtlTeardownPerFileContexts @ 0x1409FD780 (FsRtlTeardownPerFileContexts.c)
+ *     FsRtlRemovePerStreamContext @ 0x1403B3EC0 (FsRtlRemovePerStreamContext.c)
+ *     FsRtlInsertPerStreamContext @ 0x1403B3FF0 (FsRtlInsertPerStreamContext.c)
+ *     FsRtlInsertPerFileObjectContext @ 0x1403B40C0 (FsRtlInsertPerFileObjectContext.c)
+ *     FsRtlRemovePerFileObjectContext @ 0x1403B4230 (FsRtlRemovePerFileObjectContext.c)
+ *     FsRtlInsertPerFileContextWithReserve @ 0x140450C00 (FsRtlInsertPerFileContextWithReserve.c)
+ *     FsRtlRemovePerFileContext @ 0x14057D350 (FsRtlRemovePerFileContext.c)
+ *     FsRtlTeardownPerStreamContexts @ 0x1408AE450 (FsRtlTeardownPerStreamContexts.c)
+ *     FsRtlTeardownPerFileContexts @ 0x1409F64C0 (FsRtlTeardownPerFileContexts.c)
  * Callees:
- *     KeQueryMaximumProcessorCountEx @ 0x14033E440 (KeQueryMaximumProcessorCountEx.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
+ *     KeQueryMaximumProcessorCountEx @ 0x14031D920 (KeQueryMaximumProcessorCountEx.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
  */
 
 int __fastcall FsRtlAcquireAutoExpandPushLockExclusive(__int64 a1)
 {
   struct _KTHREAD *CurrentThread; // rax
-  _QWORD *v3; // rax
-  __int64 v4; // rdi
+  char *v3; // rax
+  char *v4; // rdi
   unsigned __int64 v5; // rbp
   __int64 v6; // r15
   unsigned int v7; // ecx
@@ -33,10 +33,10 @@ int __fastcall FsRtlAcquireAutoExpandPushLockExclusive(__int64 a1)
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  v3 = KeAbPreAcquire(a1, 0LL);
-  v4 = (__int64)v3;
+  v3 = (char *)KeAbPreAcquire(a1, 0LL);
+  v4 = v3;
   if ( _interlockedbittestandset64((volatile signed __int32 *)a1, 0LL) )
-    LODWORD(v3) = ExfAcquirePushLockExclusiveEx((unsigned __int64 *)a1, (__int64)v3, a1);
+    LODWORD(v3) = ExfAcquirePushLockExclusiveEx((unsigned __int64 *)a1, v3, a1);
   v5 = *(unsigned int *)(a1 + 8);
   if ( (v5 & 1) != 0 )
   {
@@ -57,15 +57,15 @@ int __fastcall FsRtlAcquireAutoExpandPushLockExclusive(__int64 a1)
       do
       {
         _BitScanReverse(&v12, v6);
-        v3 = *(_QWORD **)(*(_QWORD *)(ExSaPageArrays + 8LL * v10) + 8LL * (v12 - 2));
+        v3 = *(char **)(*(_QWORD *)(ExSaPageArrays + 8LL * v10) + 8LL * (v12 - 2));
         if ( _interlockedbittestandset64(
-               (volatile signed __int32 *)(v3[(v6 ^ (unsigned int)(1 << v12)) + 1] + 8 * v8),
+               (volatile signed __int32 *)(*(_QWORD *)&v3[8 * (v6 ^ (unsigned int)(1 << v12)) + 8] + 8 * v8),
                0LL) )
         {
           v11 = (unsigned int)(v11 - 1);
           _BitScanReverse(&v13, v6);
-          v3 = *(_QWORD **)(*(_QWORD *)(ExSaPageArrays + 8 * v11) + 8LL * (v13 - 2));
-          v14 = (unsigned __int64 *)(v3[(v6 ^ (unsigned int)(1 << v13)) + 1] + 8 * v8);
+          v3 = *(char **)(*(_QWORD *)(ExSaPageArrays + 8 * v11) + 8LL * (v13 - 2));
+          v14 = (unsigned __int64 *)(*(_QWORD *)&v3[8 * (v6 ^ (unsigned int)(1 << v13)) + 8] + 8 * v8);
           if ( _interlockedbittestandset64((volatile signed __int32 *)v14, 0LL) )
             LODWORD(v3) = ExfAcquirePushLockExclusiveEx(v14, v4, a1);
         }
@@ -78,6 +78,6 @@ int __fastcall FsRtlAcquireAutoExpandPushLockExclusive(__int64 a1)
     }
   }
   if ( v4 )
-    *(_BYTE *)(v4 + 10) = 1;
+    v4[10] = 1;
   return (int)v3;
 }

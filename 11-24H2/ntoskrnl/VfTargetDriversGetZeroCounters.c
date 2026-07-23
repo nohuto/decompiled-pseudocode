@@ -1,7 +1,7 @@
 /*
- * XREFs of VfTargetDriversGetZeroCounters @ 0x140B8B410
+ * XREFs of VfTargetDriversGetZeroCounters @ 0x140B8D410
  * Callers:
- *     VfSuspectDriversGetVerifierInformation @ 0x140B9A894 (VfSuspectDriversGetVerifierInformation.c)
+ *     VfSuspectDriversGetVerifierInformation @ 0x140B9C894 (VfSuspectDriversGetVerifierInformation.c)
  * Callees:
  *     <none>
  */

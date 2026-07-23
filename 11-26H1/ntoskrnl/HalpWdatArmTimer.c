@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpWdatArmTimer @ 0x1404FCE30
+ * XREFs of HalpWdatArmTimer @ 0x1404F6370
  * Callers:
  *     <none>
  * Callees:
- *     WdInstrExecuteAction @ 0x1404FCF34 (WdInstrExecuteAction.c)
+ *     WdInstrExecuteAction @ 0x1404F6474 (WdInstrExecuteAction.c)
  */
 
 __int64 __fastcall HalpWdatArmTimer(__int64 a1, int a2, unsigned __int64 a3)

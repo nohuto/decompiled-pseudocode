@@ -1,10 +1,10 @@
 /*
- * XREFs of MiFindDescriptorByPfn @ 0x140C4F100
+ * XREFs of MiFindDescriptorByPfn @ 0x140C51290
  * Callers:
- *     MiMarkLargePageRanges @ 0x140C4FF0C (MiMarkLargePageRanges.c)
- *     MiIsRegularMemory @ 0x140C51A28 (MiIsRegularMemory.c)
- *     MiRemoveLargeFreeLoaderDescriptors @ 0x140C51ABC (MiRemoveLargeFreeLoaderDescriptors.c)
- *     MiCheckLargePageSystemImage @ 0x140C55D44 (MiCheckLargePageSystemImage.c)
+ *     MiMarkLargePageRanges @ 0x140C5209C (MiMarkLargePageRanges.c)
+ *     MiIsRegularMemory @ 0x140C53BB8 (MiIsRegularMemory.c)
+ *     MiRemoveLargeFreeLoaderDescriptors @ 0x140C53C4C (MiRemoveLargeFreeLoaderDescriptors.c)
+ *     MiCheckLargePageSystemImage @ 0x140C57ED4 (MiCheckLargePageSystemImage.c)
  * Callees:
  *     <none>
  */

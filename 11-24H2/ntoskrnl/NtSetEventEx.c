@@ -1,14 +1,14 @@
 /*
- * XREFs of NtSetEventEx @ 0x14098A780
+ * XREFs of NtSetEventEx @ 0x140973E70
  * Callers:
- *     NtSetEvent @ 0x14098A760 (NtSetEvent.c)
+ *     NtSetEvent @ 0x140973E50 (NtSetEvent.c)
  * Callees:
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     KeSetEventBoostPriorityEx @ 0x1403D8BE8 (KeSetEventBoostPriorityEx.c)
- *     KeAbIsValidUserModeLockAddress @ 0x140429550 (KeAbIsValidUserModeLockAddress.c)
- *     ObReferenceObjectByHandle @ 0x14084AF40 (ObReferenceObjectByHandle.c)
- *     ExpSetCrossVmEvent @ 0x14098A940 (ExpSetCrossVmEvent.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     KeSetEventBoostPriorityEx @ 0x1402E0738 (KeSetEventBoostPriorityEx.c)
+ *     KeAbIsValidUserModeLockAddress @ 0x14041D6A0 (KeAbIsValidUserModeLockAddress.c)
+ *     ObReferenceObjectByHandle @ 0x140847200 (ObReferenceObjectByHandle.c)
+ *     ExpSetCrossVmEvent @ 0x140974030 (ExpSetCrossVmEvent.c)
  */
 
 __int64 __fastcall NtSetEventEx(HANDLE Handle, _DWORD *a2, __int64 a3)

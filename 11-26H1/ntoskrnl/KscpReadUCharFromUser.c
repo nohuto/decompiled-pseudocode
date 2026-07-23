@@ -1,5 +1,5 @@
 /*
- * XREFs of KscpReadUCharFromUser @ 0x140C5E940
+ * XREFs of KscpReadUCharFromUser @ 0x140C64940
  * Callers:
  *     <none>
  * Callees:

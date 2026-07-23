@@ -1,19 +1,19 @@
 /*
- * XREFs of RtlpHpVsContextAllocateInternal @ 0x14024A0B0
+ * XREFs of RtlpHpVsContextAllocateInternal @ 0x14024A180
  * Callers:
- *     RtlpHpVsContextMultiAlloc @ 0x140249DB0 (RtlpHpVsContextMultiAlloc.c)
- *     RtlpHpAllocateHeap @ 0x14024D420 (RtlpHpAllocateHeap.c)
- *     ExAllocateHeapPool @ 0x1402AD2E0 (ExAllocateHeapPool.c)
- *     RtlpHpVsContextAllocate @ 0x14034CBB4 (RtlpHpVsContextAllocate.c)
+ *     RtlpHpVsContextMultiAlloc @ 0x140249E80 (RtlpHpVsContextMultiAlloc.c)
+ *     RtlpHpAllocateHeap @ 0x14024D4F0 (RtlpHpAllocateHeap.c)
+ *     ExAllocateHeapPool @ 0x1402AD570 (ExAllocateHeapPool.c)
+ *     RtlpHpVsContextAllocate @ 0x14034CD54 (RtlpHpVsContextAllocate.c)
  * Callees:
  *     RtlpHpAcquireQueuedLockExclusive @ 0x140207670 (RtlpHpAcquireQueuedLockExclusive.c)
- *     RtlpHpVsChunkSplit @ 0x14024A480 (RtlpHpVsChunkSplit.c)
- *     RtlpHpReleaseQueuedLockExclusive @ 0x140289BE0 (RtlpHpReleaseQueuedLockExclusive.c)
- *     RtlpHpVsSubsegmentCreate @ 0x140347E04 (RtlpHpVsSubsegmentCreate.c)
- *     RtlpHpVsContextAddSubsegment @ 0x14034F59C (RtlpHpVsContextAddSubsegment.c)
- *     RtlHeapZero @ 0x1403D8890 (RtlHeapZero.c)
- *     memset @ 0x140435A00 (memset.c)
- *     RtlpLogHeapFailure @ 0x1405B4ACC (RtlpLogHeapFailure.c)
+ *     RtlpHpVsChunkSplit @ 0x14024A550 (RtlpHpVsChunkSplit.c)
+ *     RtlpHpReleaseQueuedLockExclusive @ 0x140289E70 (RtlpHpReleaseQueuedLockExclusive.c)
+ *     RtlpHpVsSubsegmentCreate @ 0x140348094 (RtlpHpVsSubsegmentCreate.c)
+ *     RtlpHpVsContextAddSubsegment @ 0x14034F73C (RtlpHpVsContextAddSubsegment.c)
+ *     RtlHeapZero @ 0x1403D8A70 (RtlHeapZero.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     RtlpLogHeapFailure @ 0x1405B503C (RtlpLogHeapFailure.c)
  */
 
 char *__fastcall RtlpHpVsContextAllocateInternal(

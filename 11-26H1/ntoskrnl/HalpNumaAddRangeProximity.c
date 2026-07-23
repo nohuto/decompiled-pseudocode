@@ -1,19 +1,19 @@
 /*
- * XREFs of HalpNumaAddRangeProximity @ 0x140591850
+ * XREFs of HalpNumaAddRangeProximity @ 0x140593FD0
  * Callers:
  *     <none>
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     HalpMmAllocCtxAlloc @ 0x140357FFC (HalpMmAllocCtxAlloc.c)
- *     HalpMmAllocCtxFree @ 0x140359004 (HalpMmAllocCtxFree.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     qsort @ 0x140536F00 (qsort.c)
- *     HalpCheckSratMemoryRanges @ 0x140591680 (HalpCheckSratMemoryRanges.c)
- *     HalpNumaQueryProximityNode @ 0x140592130 (HalpNumaQueryProximityNode.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memmove @ 0x14073D480 (memmove.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     HalpMmAllocCtxAlloc @ 0x140359D9C (HalpMmAllocCtxAlloc.c)
+ *     HalpMmAllocCtxFree @ 0x14035ADA4 (HalpMmAllocCtxFree.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     qsort @ 0x140539380 (qsort.c)
+ *     HalpCheckSratMemoryRanges @ 0x140593E00 (HalpCheckSratMemoryRanges.c)
+ *     HalpNumaQueryProximityNode @ 0x1405948B0 (HalpNumaQueryProximityNode.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memmove @ 0x140742080 (memmove.c)
  */
 
 __int64 __fastcall HalpNumaAddRangeProximity(unsigned __int64 a1, __int64 a2, unsigned int a3)
@@ -50,7 +50,7 @@ __int64 __fastcall HalpNumaAddRangeProximity(unsigned __int64 a1, __int64 a2, un
     v19 = 0x1000000LL;
     v23 = &v19;
     v24 = 8LL;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E024C8, (unsigned __int8 *)&byte_140044877, 0LL, 0LL, 3u, v22);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E024C8, (unsigned __int8 *)&byte_140044E77, 0LL, 0LL, 3u, v22);
   }
   HalpCheckSratMemoryRanges(a1);
   if ( a3 == -1 )
@@ -79,7 +79,7 @@ LABEL_13:
         v30 = 8LL;
         tlgWriteTransfer_EtwWriteTransfer(
           (__int64)&dword_140E024C8,
-          (unsigned __int8 *)&dword_1400447B4,
+          (unsigned __int8 *)&dword_140044DB4,
           0LL,
           0LL,
           6u,

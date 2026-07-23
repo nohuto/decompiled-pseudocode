@@ -35,7 +35,7 @@ char KiComputeNumaCosts()
   __int64 *v10; // rax
   __int64 NodePrimarySubNode; // rax
   int v12; // r10d
-  struct _GROUP_AFFINITY *p_PreviousAffinity_8; // rdx
+  _GROUP_AFFINITY *p_PreviousAffinity_8; // rdx
   unsigned int v14; // r14d
   struct _MDL *PartitionNodePagesForMdl; // rax
   struct _MDL *v16; // r13
@@ -88,8 +88,8 @@ char KiComputeNumaCosts()
   int v64[2]; // [rsp+50h] [rbp-B8h] BYREF
   unsigned __int64 v65; // [rsp+58h] [rbp-B0h] BYREF
   unsigned __int64 Affinity; // [rsp+60h] [rbp-A8h]
-  struct _GROUP_AFFINITY Affinity_8; // [rsp+68h] [rbp-A0h] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity_8; // [rsp+78h] [rbp-90h] BYREF
+  _GROUP_AFFINITY Affinity_8; // [rsp+68h] [rbp-A0h] BYREF
+  _GROUP_AFFINITY PreviousAffinity_8; // [rsp+78h] [rbp-90h] BYREF
   _WORD Base[4]; // [rsp+88h] [rbp-80h] BYREF
   _QWORD v70[127]; // [rsp+90h] [rbp-78h] BYREF
 
@@ -339,7 +339,7 @@ LABEL_52:
                 {
                   CurrentIrql = KeGetCurrentIrql();
                   __writecr8(2uLL);
-                  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+                  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
                   {
                     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
                     if ( CurrentIrql == 2 )
@@ -353,10 +353,10 @@ LABEL_52:
                   while ( v17 < v21 )
                     v17 += 8;
                   v22 = __rdtsc();
-                  if ( KiIrqlFlags )
+                  if ( (_DWORD)KiIrqlFlags )
                   {
                     v23 = KeGetCurrentIrql();
-                    if ( (KiIrqlFlags & 1) != 0 && v23 <= 0xFu && CurrentIrql <= 0xFu && v23 >= 2u )
+                    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v23 <= 0xFu && CurrentIrql <= 0xFu && v23 >= 2u )
                     {
                       CurrentPrcb = KeGetCurrentPrcb();
                       v25 = CurrentPrcb->SchedulerAssist;

@@ -31,15 +31,15 @@ __int64 __fastcall sub_180058D20(__int64 a1, int a2, _QWORD *a3, _DWORD *a4, int
   v20 = 4325440;
   v21 = L"RtlpResUltimateFallbackInfo Exit";
   v9 = 2147353477LL;
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-    v10 = (__int64)NtCurrentPeb()->HotpatchInformation + 555;
+  if ( RtlGetCurrentServiceSessionId() )
+    v10 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[2] + 1;
   else
     v10 = 2147353477LL;
   v11 = 2147353476LL;
   if ( (*(_BYTE *)v10 & 1) != 0 )
   {
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-      v17 = (__int64)NtCurrentPeb()->HotpatchInformation + 554;
+    if ( RtlGetCurrentServiceSessionId() )
+      v17 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[2];
     else
       v17 = 2147353476LL;
     sub_1800E0820(&v18, *(unsigned __int8 *)v17);
@@ -63,12 +63,12 @@ __int64 __fastcall sub_180058D20(__int64 a1, int a2, _QWORD *a3, _DWORD *a4, int
     {
       v16 = -1073741823;
     }
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-      v9 = (__int64)NtCurrentPeb()->HotpatchInformation + 555;
+    if ( RtlGetCurrentServiceSessionId() )
+      v9 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[2] + 1;
     if ( (*(_BYTE *)v9 & 1) != 0 )
     {
-      if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-        v11 = (__int64)NtCurrentPeb()->HotpatchInformation + 554;
+      if ( RtlGetCurrentServiceSessionId() )
+        v11 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[2];
       sub_1800E0820(&v20, *(unsigned __int8 *)v11);
     }
     return v16;

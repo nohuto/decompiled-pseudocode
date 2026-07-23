@@ -1,16 +1,16 @@
 /*
- * XREFs of AslEnvExpandStrings2 @ 0x14088B3B8
+ * XREFs of AslEnvExpandStrings2 @ 0x1408917B4
  * Callers:
- *     SdbpResolveMatchingFile @ 0x140885488 (SdbpResolveMatchingFile.c)
+ *     SdbpResolveMatchingFile @ 0x14088B888 (SdbpResolveMatchingFile.c)
  * Callees:
- *     MmIsUserAddress @ 0x14044E7C0 (MmIsUserAddress.c)
- *     RtlCopyFromUser @ 0x140533E38 (RtlCopyFromUser.c)
- *     RtlWideStringLengthFromUser @ 0x14077F6B4 (RtlWideStringLengthFromUser.c)
- *     AslEnvExpandStrings @ 0x14088B0EC (AslEnvExpandStrings.c)
- *     AslpEnvResolveVars @ 0x14088B994 (AslpEnvResolveVars.c)
- *     AslAlloc @ 0x1409E4C90 (AslAlloc.c)
- *     AslFree @ 0x1409E6BD8 (AslFree.c)
- *     AslLogCallPrintf @ 0x1409E8884 (AslLogCallPrintf.c)
+ *     MmIsUserAddress @ 0x1404468F0 (MmIsUserAddress.c)
+ *     RtlCopyFromUser @ 0x1405362B8 (RtlCopyFromUser.c)
+ *     RtlWideStringLengthFromUser @ 0x1407821B4 (RtlWideStringLengthFromUser.c)
+ *     AslEnvExpandStrings @ 0x1408914E8 (AslEnvExpandStrings.c)
+ *     AslpEnvResolveVars @ 0x140891D90 (AslpEnvResolveVars.c)
+ *     AslLogCallPrintf @ 0x1409D5294 (AslLogCallPrintf.c)
+ *     AslFree @ 0x1409D6144 (AslFree.c)
+ *     AslAlloc @ 0x1409D8260 (AslAlloc.c)
  */
 
 __int64 __fastcall AslEnvExpandStrings2(

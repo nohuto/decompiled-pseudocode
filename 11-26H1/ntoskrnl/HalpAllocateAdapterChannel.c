@@ -1,15 +1,15 @@
 /*
- * XREFs of HalpAllocateAdapterChannel @ 0x140440D84
+ * XREFs of HalpAllocateAdapterChannel @ 0x140439894
  * Callers:
- *     HalpBuildScatterGatherList @ 0x14044050C (HalpBuildScatterGatherList.c)
- *     HalAllocateAdapterChannelEx @ 0x1404412D0 (HalAllocateAdapterChannelEx.c)
- *     HalAllocateAdapterChannel @ 0x1405799D0 (HalAllocateAdapterChannel.c)
- *     HalRealAllocateAdapterChannelV3 @ 0x14058B7D0 (HalRealAllocateAdapterChannelV3.c)
+ *     HalpBuildScatterGatherList @ 0x14043901C (HalpBuildScatterGatherList.c)
+ *     HalAllocateAdapterChannelEx @ 0x140439DE0 (HalAllocateAdapterChannelEx.c)
+ *     HalAllocateAdapterChannel @ 0x14057BF00 (HalAllocateAdapterChannel.c)
+ *     HalRealAllocateAdapterChannelV3 @ 0x14058DF50 (HalRealAllocateAdapterChannelV3.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     HalpAllocateDmaResourcesInternal @ 0x14043E70C (HalpAllocateDmaResourcesInternal.c)
- *     HalpDmaStartWcb @ 0x140440F08 (HalpDmaStartWcb.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     HalpAllocateDmaResourcesInternal @ 0x14043721C (HalpAllocateDmaResourcesInternal.c)
+ *     HalpDmaStartWcb @ 0x140439A18 (HalpDmaStartWcb.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall HalpAllocateAdapterChannel(__int64 a1, __int64 a2, unsigned int a3, int a4, char a5, __int64 a6)

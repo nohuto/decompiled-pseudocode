@@ -1,11 +1,11 @@
 /*
- * XREFs of PfpRpCHashEmpty @ 0x140B44698
+ * XREFs of PfpRpCHashEmpty @ 0x1409BE290
  * Callers:
- *     PfpRpControlRequestReset @ 0x140B4463C (PfpRpControlRequestReset.c)
+ *     PfpRpControlRequestReset @ 0x1409BDEE4 (PfpRpControlRequestReset.c)
  * Callees:
- *     PfLockExclusiveAcquire @ 0x1404C3BA0 (PfLockExclusiveAcquire.c)
- *     PfLockExclusiveRelease @ 0x1404C761C (PfLockExclusiveRelease.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     PfLockExclusiveAcquire @ 0x1404BD3F0 (PfLockExclusiveAcquire.c)
+ *     PfLockExclusiveRelease @ 0x1404C0F38 (PfLockExclusiveRelease.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PfpRpCHashEmpty(__int64 a1, __int64 a2, unsigned __int64 *a3)

@@ -1,16 +1,16 @@
 /*
- * XREFs of PspInitializeSiloStructures @ 0x140A3CBC4
+ * XREFs of PspInitializeSiloStructures @ 0x140A3DBC4
  * Callers:
- *     PspInitPhase0 @ 0x140A3DC68 (PspInitPhase0.c)
+ *     PspInitPhase0 @ 0x140A3EC68 (PspInitPhase0.c)
  * Callees:
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     memset @ 0x140414200 (memset.c)
- *     PspAllocStorage @ 0x1406C2B10 (PspAllocStorage.c)
- *     PspSiloInitializeSharedUserSessionId @ 0x1406C3FD0 (PspSiloInitializeSharedUserSessionId.c)
- *     PspStorageAllocSlot @ 0x140795848 (PspStorageAllocSlot.c)
- *     ObCreateObjectType @ 0x1407958D0 (ObCreateObjectType.c)
- *     PspStorageFreeSlot @ 0x14090EF44 (PspStorageFreeSlot.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     PspAllocStorage @ 0x140621810 (PspAllocStorage.c)
+ *     PspSiloInitializeSharedUserSessionId @ 0x140622B90 (PspSiloInitializeSharedUserSessionId.c)
+ *     PspStorageAllocSlot @ 0x140795A48 (PspStorageAllocSlot.c)
+ *     ObCreateObjectType @ 0x140795AD0 (ObCreateObjectType.c)
+ *     PspStorageFreeSlot @ 0x14090F0A4 (PspStorageFreeSlot.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 char PspInitializeSiloStructures()

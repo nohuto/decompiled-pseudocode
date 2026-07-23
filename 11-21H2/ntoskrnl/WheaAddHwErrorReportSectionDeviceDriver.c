@@ -4,9 +4,9 @@
  *     WheaReportFatalHwErrorDeviceDriverEx @ 0x140644510 (WheaReportFatalHwErrorDeviceDriverEx.c)
  *     WheaReportHwErrorDeviceDriverEx @ 0x140644630 (WheaReportHwErrorDeviceDriverEx.c)
  * Callees:
- *     WheapGetErrorSource @ 0x140643F2C (WheapGetErrorSource.c)
- *     WheapErrDescIsDeviceDriver @ 0x1406447D0 (WheapErrDescIsDeviceDriver.c)
- *     WheapErrorHandleIsValid @ 0x1406447EC (WheapErrorHandleIsValid.c)
+ *     sub_140643F2C @ 0x140643F2C (sub_140643F2C.c)
+ *     sub_1406447D0 @ 0x1406447D0 (sub_1406447D0.c)
+ *     sub_1406447EC @ 0x1406447EC (sub_1406447EC.c)
  */
 
 __int64 __fastcall WheaAddHwErrorReportSectionDeviceDriver(__int64 a1, unsigned int a2, __int64 a3)
@@ -14,15 +14,15 @@ __int64 __fastcall WheaAddHwErrorReportSectionDeviceDriver(__int64 a1, unsigned 
   __int64 v4; // rdi
   __int64 v6; // rcx
   unsigned int v7; // r11d
-  __int64 *ErrorSource; // rax
+  __int64 *v8; // rax
   _DWORD *v9; // rdx
   __int64 v10; // rdx
 
   v4 = a2;
-  if ( (unsigned __int8)WheapErrorHandleIsValid() )
+  if ( (unsigned __int8)sub_1406447EC() )
   {
-    ErrorSource = WheapGetErrorSource((__int64)&WheapErrorSourceTable, *(_DWORD *)(v6 + 12));
-    if ( (unsigned __int8)WheapErrDescIsDeviceDriver((unsigned __int64)(ErrorSource + 12) & ((unsigned __int128)-(__int128)(unsigned __int64)ErrorSource >> 64)) )
+    v8 = sub_140643F2C((__int64)&unk_140CE1A98, *(_DWORD *)(v6 + 12));
+    if ( (unsigned __int8)sub_1406447D0((unsigned __int64)(v8 + 12) & ((unsigned __int128)-(__int128)(unsigned __int64)v8 >> 64)) )
     {
       if ( *(_DWORD *)(a1 + 4) >= v9[35]
         || (unsigned int)v4 > v9[34]

@@ -1,21 +1,21 @@
 /*
- * XREFs of ZwUnmapViewOfSection @ 0x1406A6950
+ * XREFs of ZwUnmapViewOfSection @ 0x1406A78F0
  * Callers:
- *     CmSiUnmapViewOfSection @ 0x140499840 (CmSiUnmapViewOfSection.c)
- *     RtlFileMapFree @ 0x1404B5148 (RtlFileMapFree.c)
- *     RtlFileMapMapView @ 0x1406966E4 (RtlFileMapMapView.c)
- *     IopIsNotNativeDriverImage @ 0x1407125F4 (IopIsNotNativeDriverImage.c)
- *     ExpQueryElamCertInfo @ 0x1407B4C04 (ExpQueryElamCertInfo.c)
- *     CMFReadCompressedSegment @ 0x1407C22EC (CMFReadCompressedSegment.c)
- *     CMFSystemThreadRoutine @ 0x1407C27E0 (CMFSystemThreadRoutine.c)
- *     ApiSetLoadSchemaEx @ 0x1407C9704 (ApiSetLoadSchemaEx.c)
- *     AslpFilePartialViewFree @ 0x1408106D0 (AslpFilePartialViewFree.c)
- *     PiInitializeDDB @ 0x1409C7B30 (PiInitializeDDB.c)
- *     ExpQueryCodeIntegrityCertificateInfo @ 0x140A6E09C (ExpQueryCodeIntegrityCertificateInfo.c)
- *     PiReleaseDDB @ 0x140A9687C (PiReleaseDDB.c)
- *     CmpSetSystemBiosInformation @ 0x140C49AE0 (CmpSetSystemBiosInformation.c)
- *     CmpSetVideoBiosInformation @ 0x140C49E80 (CmpSetVideoBiosInformation.c)
- *     EmpCacheBiosDate @ 0x140C6288C (EmpCacheBiosDate.c)
+ *     CmSiUnmapViewOfSection @ 0x1404941D0 (CmSiUnmapViewOfSection.c)
+ *     RtlFileMapFree @ 0x1404AF948 (RtlFileMapFree.c)
+ *     RtlFileMapMapView @ 0x1406977B4 (RtlFileMapMapView.c)
+ *     IopIsNotNativeDriverImage @ 0x140710184 (IopIsNotNativeDriverImage.c)
+ *     ExpQueryElamCertInfo @ 0x1407B5054 (ExpQueryElamCertInfo.c)
+ *     CMFReadCompressedSegment @ 0x1407C3520 (CMFReadCompressedSegment.c)
+ *     CMFSystemThreadRoutine @ 0x1407C3A10 (CMFSystemThreadRoutine.c)
+ *     ApiSetLoadSchemaEx @ 0x1407C9BF4 (ApiSetLoadSchemaEx.c)
+ *     AslpFilePartialViewFree @ 0x140810E10 (AslpFilePartialViewFree.c)
+ *     PiInitializeDDB @ 0x1409B8DD4 (PiInitializeDDB.c)
+ *     ExpQueryCodeIntegrityCertificateInfo @ 0x140A6759C (ExpQueryCodeIntegrityCertificateInfo.c)
+ *     PiReleaseDDB @ 0x140A930AC (PiReleaseDDB.c)
+ *     CmpSetSystemBiosInformation @ 0x140C4BC04 (CmpSetSystemBiosInformation.c)
+ *     CmpSetVideoBiosInformation @ 0x140C4BFA4 (CmpSetVideoBiosInformation.c)
+ *     EmpCacheBiosDate @ 0x140C64A08 (EmpCacheBiosDate.c)
  * Callees:
  *     <none>
  */
@@ -24,5 +24,5 @@ NTSTATUS __stdcall ZwUnmapViewOfSection(HANDLE ProcessHandle, PVOID BaseAddress)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(ProcessHandle, BaseAddress);
+  return KiServiceInternal(ProcessHandle);
 }

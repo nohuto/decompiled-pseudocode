@@ -19,11 +19,7 @@ __int64 __fastcall sub_180083A4C(_DWORD *a1)
   }
   else
   {
-    RtlRunOnceExecuteOnce(
-      &qword_18015D3D0,
-      (unsigned int (__fastcall *)(volatile signed __int64 *, __int64, unsigned __int64 *))sub_18008A2B0,
-      0LL,
-      0LL);
+    RtlRunOnceExecuteOnce(&stru_18015D3D0, sub_18008A2B0, 0LL, 0LL);
     *a1 = dword_1801596E0;
   }
   return 0LL;

@@ -1,10 +1,10 @@
 /*
- * XREFs of KiCheckPrcbAffinityEx @ 0x1403B44C0
+ * XREFs of KiCheckPrcbAffinityEx @ 0x140370D80
  * Callers:
- *     KiQueueReadyThread @ 0x140295020 (KiQueueReadyThread.c)
- *     ?KiSetIdealProcessorThread@@YAJPEAU_KTHREAD@@KEPEAKE@Z @ 0x1403B4344 (-KiSetIdealProcessorThread@@YAJPEAU_KTHREAD@@KEPEAKE@Z.c)
- *     ?KiForceIdleUpdateSchedulerParkState@@YAXE@Z @ 0x1403CAED4 (-KiForceIdleUpdateSchedulerParkState@@YAXE@Z.c)
- *     KiCpuPartitionCheckDpcEnqueue @ 0x1404FADB8 (KiCpuPartitionCheckDpcEnqueue.c)
+ *     KiQueueReadyThread @ 0x1402A4C20 (KiQueueReadyThread.c)
+ *     ?KiSetIdealProcessorThread@@YAJPEAU_KTHREAD@@KEPEAKE@Z @ 0x140370B7C (-KiSetIdealProcessorThread@@YAJPEAU_KTHREAD@@KEPEAKE@Z.c)
+ *     ?KiForceIdleUpdateSchedulerParkState@@YAXE@Z @ 0x140484B24 (-KiForceIdleUpdateSchedulerParkState@@YAXE@Z.c)
+ *     KiCpuPartitionCheckDpcEnqueue @ 0x1404F8698 (KiCpuPartitionCheckDpcEnqueue.c)
  * Callees:
  *     <none>
  */

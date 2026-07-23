@@ -1,18 +1,18 @@
 /*
- * XREFs of AlpcpAllocateBlob @ 0x14040D624
+ * XREFs of AlpcpAllocateBlob @ 0x14040C4E4
  * Callers:
- *     AlpcpCreateClientPort @ 0x14040849C (AlpcpCreateClientPort.c)
- *     AlpcpCreateRegion @ 0x140409D34 (AlpcpCreateRegion.c)
- *     AlpcpAllocateMessage @ 0x14040B38C (AlpcpAllocateMessage.c)
- *     AlpcpCreateView @ 0x14040D220 (AlpcpCreateView.c)
- *     AlpcpCreateSecurityContext @ 0x14040D720 (AlpcpCreateSecurityContext.c)
- *     AlpcpCreateSection @ 0x140472868 (AlpcpCreateSection.c)
- *     AlpcpCreateConnectionPort @ 0x1404B36C8 (AlpcpCreateConnectionPort.c)
- *     AlpcpCreateReserve @ 0x1404B5F8C (AlpcpCreateReserve.c)
- *     AlpcpCaptureHandleAttributeInternal @ 0x1404CA138 (AlpcpCaptureHandleAttributeInternal.c)
+ *     AlpcpCreateClientPort @ 0x14040735C (AlpcpCreateClientPort.c)
+ *     AlpcpCreateRegion @ 0x140408BF4 (AlpcpCreateRegion.c)
+ *     AlpcpAllocateMessage @ 0x14040A24C (AlpcpAllocateMessage.c)
+ *     AlpcpCreateView @ 0x14040C0E0 (AlpcpCreateView.c)
+ *     AlpcpCreateSecurityContext @ 0x14040C5E0 (AlpcpCreateSecurityContext.c)
+ *     AlpcpCreateSection @ 0x140471738 (AlpcpCreateSection.c)
+ *     AlpcpCreateConnectionPort @ 0x14049DAA8 (AlpcpCreateConnectionPort.c)
+ *     AlpcpCreateReserve @ 0x1404A036C (AlpcpCreateReserve.c)
+ *     AlpcpCaptureHandleAttributeInternal @ 0x1404AFEB8 (AlpcpCaptureHandleAttributeInternal.c)
  * Callees:
- *     ExAllocateFromNPagedLookasideList @ 0x14006FEB0 (ExAllocateFromNPagedLookasideList.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     ExAllocateFromNPagedLookasideList @ 0x14006FA30 (ExAllocateFromNPagedLookasideList.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */
 

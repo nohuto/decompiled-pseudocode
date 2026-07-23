@@ -20,7 +20,7 @@ PRTL_SPLAY_LINKS __stdcall RtlDelete(PRTL_SPLAY_LINKS Links)
   _RTL_SPLAY_LINKS **p_LeftChild; // rax
   _RTL_SPLAY_LINKS *v5; // rcx
   _RTL_SPLAY_LINKS **p_RightChild; // rdx
-  struct _RTL_SPLAY_LINKS *v7; // rcx
+  _RTL_SPLAY_LINKS *v7; // rcx
   PRTL_SPLAY_LINKS v8; // rax
 
   if ( Links->LeftChild && Links->RightChild )

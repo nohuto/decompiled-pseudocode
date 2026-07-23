@@ -1,9 +1,9 @@
 /*
- * XREFs of IvtFindDevice @ 0x1405AF570
+ * XREFs of IvtFindDevice @ 0x1405B1D80
  * Callers:
  *     <none>
  * Callees:
- *     IvtIommuFindDevice @ 0x1405AF5D8 (IvtIommuFindDevice.c)
+ *     IvtIommuFindDevice @ 0x1405B1DE8 (IvtIommuFindDevice.c)
  */
 
 __int64 __fastcall IvtFindDevice(__int64 a1, __int64 a2, char a3, int *a4)

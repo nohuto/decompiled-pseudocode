@@ -1,13 +1,13 @@
 /*
- * XREFs of CmpCheckAdminAccess @ 0x140600994
+ * XREFs of CmpCheckAdminAccess @ 0x140600A48
  * Callers:
- *     CmpVEExecuteCreateLogic @ 0x1404D91F4 (CmpVEExecuteCreateLogic.c)
- *     CmpVEPerformOpenAccessCheck @ 0x1404DB888 (CmpVEPerformOpenAccessCheck.c)
- *     CmKeyBodyReplicateToVirtual @ 0x140600020 (CmKeyBodyReplicateToVirtual.c)
+ *     CmpVEExecuteCreateLogic @ 0x1404BC7F8 (CmpVEExecuteCreateLogic.c)
+ *     CmpVEPerformOpenAccessCheck @ 0x1404BEE8C (CmpVEPerformOpenAccessCheck.c)
+ *     CmKeyBodyReplicateToVirtual @ 0x1406000D4 (CmKeyBodyReplicateToVirtual.c)
  * Callees:
- *     SeAccessCheckFromState @ 0x14000C510 (SeAccessCheckFromState.c)
+ *     SeAccessCheckFromState @ 0x14000C090 (SeAccessCheckFromState.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     CmpBuildAdminInformation @ 0x14060049C (CmpBuildAdminInformation.c)
+ *     CmpBuildAdminInformation @ 0x140600550 (CmpBuildAdminInformation.c)
  */
 
 __int64 __fastcall CmpCheckAdminAccess(ACCESS_MASK DesiredAccess, PSECURITY_DESCRIPTOR SecurityDescriptor, bool *a3)

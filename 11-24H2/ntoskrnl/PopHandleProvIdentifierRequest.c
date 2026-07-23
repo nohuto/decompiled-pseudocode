@@ -1,7 +1,7 @@
 /*
- * XREFs of PopHandleProvIdentifierRequest @ 0x14074CF88
+ * XREFs of PopHandleProvIdentifierRequest @ 0x14074B2B8
  * Callers:
- *     PopPowerInformationInternal @ 0x140AC4A30 (PopPowerInformationInternal.c)
+ *     PopPowerInformationInternal @ 0x140AC2410 (PopPowerInformationInternal.c)
  * Callees:
  *     <none>
  */

@@ -1,16 +1,16 @@
 /*
- * XREFs of IoQueryInformationByName @ 0x1407BEE90
+ * XREFs of IoQueryInformationByName @ 0x1407BF160
  * Callers:
- *     NtQueryInformationByName @ 0x1407BEE60 (NtQueryInformationByName.c)
+ *     NtQueryInformationByName @ 0x1407BF130 (NtQueryInformationByName.c)
  * Callees:
- *     PsGetCurrentSilo @ 0x14022E200 (PsGetCurrentSilo.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     memset @ 0x140435A00 (memset.c)
- *     FsRtlpPrepareExtraCreateParametersForCreate @ 0x1406B9600 (FsRtlpPrepareExtraCreateParametersForCreate.c)
- *     ObOpenObjectByNameEx @ 0x1406ECFE0 (ObOpenObjectByNameEx.c)
- *     IopValidateQueryInformationParameters @ 0x140725A50 (IopValidateQueryInformationParameters.c)
- *     IopCleanupExtraCreateParameters @ 0x1407BF180 (IopCleanupExtraCreateParameters.c)
+ *     PsGetCurrentSilo @ 0x14022E310 (PsGetCurrentSilo.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     FsRtlpPrepareExtraCreateParametersForCreate @ 0x1406B9630 (FsRtlpPrepareExtraCreateParametersForCreate.c)
+ *     ObOpenObjectByNameEx @ 0x1406ED010 (ObOpenObjectByNameEx.c)
+ *     IopValidateQueryInformationParameters @ 0x140725C50 (IopValidateQueryInformationParameters.c)
+ *     IopCleanupExtraCreateParameters @ 0x1407BF450 (IopCleanupExtraCreateParameters.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

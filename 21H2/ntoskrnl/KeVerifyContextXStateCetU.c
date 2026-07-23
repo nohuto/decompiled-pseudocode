@@ -1,11 +1,11 @@
 /*
- * XREFs of KeVerifyContextXStateCetU @ 0x14027794C
+ * XREFs of KeVerifyContextXStateCetU @ 0x1402658EC
  * Callers:
- *     KiRaiseException @ 0x140521E90 (KiRaiseException.c)
- *     PspGetSetContextInternal @ 0x1406498B0 (PspGetSetContextInternal.c)
+ *     KiRaiseException @ 0x1405220D0 (KiRaiseException.c)
+ *     PspGetSetContextInternal @ 0x14063E6D0 (PspGetSetContextInternal.c)
  * Callees:
- *     RtlLocateExtendedFeature2 @ 0x140381600 (RtlLocateExtendedFeature2.c)
- *     KiVerifyContextXStateCetUEnabled @ 0x140516020 (KiVerifyContextXStateCetUEnabled.c)
+ *     RtlLocateExtendedFeature2 @ 0x140381150 (RtlLocateExtendedFeature2.c)
+ *     KiVerifyContextXStateCetUEnabled @ 0x140516260 (KiVerifyContextXStateCetUEnabled.c)
  */
 
 __int64 __fastcall KeVerifyContextXStateCetU(__int64 a1, __int64 a2, unsigned __int64 *a3)

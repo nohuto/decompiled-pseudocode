@@ -1,26 +1,26 @@
 /*
- * XREFs of ExpWorkerFactoryCheckCreate @ 0x1402B8D40
+ * XREFs of ExpWorkerFactoryCheckCreate @ 0x1402B8FD0
  * Callers:
- *     NtWaitForWorkViaWorkerFactory @ 0x1402A91B0 (NtWaitForWorkViaWorkerFactory.c)
- *     NtReleaseWorkerFactoryWorker @ 0x1402B8980 (NtReleaseWorkerFactoryWorker.c)
- *     NtSetInformationWorkerFactory @ 0x140302E90 (NtSetInformationWorkerFactory.c)
- *     ExpWorkerFactoryDeferredThreadCreation @ 0x140366064 (ExpWorkerFactoryDeferredThreadCreation.c)
- *     ExpWorkerFactoryManagerThread @ 0x14038EA40 (ExpWorkerFactoryManagerThread.c)
+ *     NtWaitForWorkViaWorkerFactory @ 0x1402A9440 (NtWaitForWorkViaWorkerFactory.c)
+ *     NtReleaseWorkerFactoryWorker @ 0x1402B8C10 (NtReleaseWorkerFactoryWorker.c)
+ *     NtSetInformationWorkerFactory @ 0x140303120 (NtSetInformationWorkerFactory.c)
+ *     ExpWorkerFactoryDeferredThreadCreation @ 0x140366204 (ExpWorkerFactoryDeferredThreadCreation.c)
+ *     ExpWorkerFactoryManagerThread @ 0x14038EC20 (ExpWorkerFactoryManagerThread.c)
  * Callees:
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
- *     KxWaitForLockOwnerShip @ 0x140260F20 (KxWaitForLockOwnerShip.c)
- *     ObfReferenceObjectWithTag @ 0x1402B68C0 (ObfReferenceObjectWithTag.c)
- *     ExpWorkerFactoryCreateThread @ 0x140303D2C (ExpWorkerFactoryCreateThread.c)
- *     ExpLeaveWorkerFactoryAwayMode @ 0x140304BB4 (ExpLeaveWorkerFactoryAwayMode.c)
- *     KxWaitForLockChainValid @ 0x14031A6D0 (KxWaitForLockChainValid.c)
- *     ExpCheckThreadHistory @ 0x140354F9C (ExpCheckThreadHistory.c)
- *     RtlpInterlockedPushEntrySList @ 0x140428EF0 (RtlpInterlockedPushEntrySList.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x14046018E (KiAcquireQueuedSpinLockInstrumented.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     KiReleaseQueuedSpinLockInstrumented @ 0x140571548 (KiReleaseQueuedSpinLockInstrumented.c)
- *     KiHaltOnAddressWakeEntireList @ 0x14057FF6C (KiHaltOnAddressWakeEntireList.c)
- *     ExpSetWorkerFactoryDeferredCreateTimer @ 0x1407E136C (ExpSetWorkerFactoryDeferredCreateTimer.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402610F0 (KeAcquireInStackQueuedSpinLock.c)
+ *     KxWaitForLockOwnerShip @ 0x1402611B0 (KxWaitForLockOwnerShip.c)
+ *     ObfReferenceObjectWithTag @ 0x1402B6B50 (ObfReferenceObjectWithTag.c)
+ *     ExpWorkerFactoryCreateThread @ 0x140303FBC (ExpWorkerFactoryCreateThread.c)
+ *     ExpLeaveWorkerFactoryAwayMode @ 0x140304E44 (ExpLeaveWorkerFactoryAwayMode.c)
+ *     KxWaitForLockChainValid @ 0x14031A960 (KxWaitForLockChainValid.c)
+ *     ExpCheckThreadHistory @ 0x14035513C (ExpCheckThreadHistory.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     RtlpInterlockedPushEntrySList @ 0x140429280 (RtlpInterlockedPushEntrySList.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x14046058E (KiAcquireQueuedSpinLockInstrumented.c)
+ *     KiReleaseQueuedSpinLockInstrumented @ 0x140571A88 (KiReleaseQueuedSpinLockInstrumented.c)
+ *     KiHaltOnAddressWakeEntireList @ 0x14058045C (KiHaltOnAddressWakeEntireList.c)
+ *     ExpSetWorkerFactoryDeferredCreateTimer @ 0x1407E163C (ExpSetWorkerFactoryDeferredCreateTimer.c)
  */
 
 __int64 __fastcall ExpWorkerFactoryCheckCreate(PSLIST_ENTRY ListEntry, PKLOCK_QUEUE_HANDLE LockHandle, char a3)
@@ -83,7 +83,7 @@ __int64 __fastcall ExpWorkerFactoryCheckCreate(PSLIST_ENTRY ListEntry, PKLOCK_QU
     *(_QWORD *)&v47 = 0LL;
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(2uLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
       if ( CurrentIrql == 2 )
@@ -111,10 +111,10 @@ __int64 __fastcall ExpWorkerFactoryCheckCreate(PSLIST_ENTRY ListEntry, PKLOCK_QU
     {
       result = KxReleaseQueuedSpinLock((volatile signed __int64 **)v4);
       OldIrql = v4->OldIrql;
-      if ( !KiIrqlFlags )
+      if ( !(_DWORD)KiIrqlFlags )
         goto LABEL_14;
       result = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) == 0 || (unsigned __int8)result > 0xFu || (unsigned __int8)OldIrql > 0xFu )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) == 0 || (unsigned __int8)result > 0xFu || (unsigned __int8)OldIrql > 0xFu )
         goto LABEL_14;
       v30 = (unsigned __int8)result < 2u;
       goto LABEL_77;
@@ -152,10 +152,10 @@ __int64 __fastcall ExpWorkerFactoryCheckCreate(PSLIST_ENTRY ListEntry, PKLOCK_QU
 LABEL_13:
     result = (unsigned int)KiIrqlFlags;
     OldIrql = v4->OldIrql;
-    if ( !KiIrqlFlags )
+    if ( !(_DWORD)KiIrqlFlags )
       goto LABEL_14;
     v44 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) == 0 )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) == 0 )
       goto LABEL_14;
     if ( v44 > 0xFu )
       goto LABEL_14;
@@ -196,10 +196,10 @@ LABEL_59:
       KxReleaseQueuedSpinLock((volatile signed __int64 **)v4);
       result = (unsigned int)KiIrqlFlags;
       OldIrql = v4->OldIrql;
-      if ( !KiIrqlFlags )
+      if ( !(_DWORD)KiIrqlFlags )
         goto LABEL_14;
       v43 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) == 0 || v43 > 0xFu || (unsigned __int8)OldIrql > 0xFu )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) == 0 || v43 > 0xFu || (unsigned __int8)OldIrql > 0xFu )
         goto LABEL_14;
       v30 = v43 < 2u;
 LABEL_77:
@@ -273,10 +273,10 @@ LABEL_27:
   *v18 = v20 & 0xFFFFCE0F;
   KxReleaseQueuedSpinLock((volatile signed __int64 **)v4);
   v21 = v4->OldIrql;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v35 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v35 <= 0xFu && (unsigned __int8)v21 <= 0xFu && v35 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v35 <= 0xFu && (unsigned __int8)v21 <= 0xFu && v35 >= 2u )
     {
       v36 = KeGetCurrentPrcb();
       v37 = v36->SchedulerAssist;
@@ -308,10 +308,10 @@ LABEL_47:
       }
       KxReleaseQueuedSpinLock((volatile signed __int64 **)v4);
       v27 = v4->OldIrql;
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v39 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v39 <= 0xFu && (unsigned __int8)v27 <= 0xFu && v39 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v39 <= 0xFu && (unsigned __int8)v27 <= 0xFu && v39 >= 2u )
         {
           v40 = KeGetCurrentPrcb();
           v41 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v27 + 1));

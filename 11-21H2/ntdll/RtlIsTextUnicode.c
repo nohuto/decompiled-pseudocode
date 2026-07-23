@@ -6,7 +6,7 @@
  *     RtlpIsUtf8Process @ 0x18000E12C (RtlpIsUtf8Process.c)
  */
 
-bool __fastcall RtlIsTextUnicode(_WORD *a1, unsigned int a2, int *a3)
+BOOLEAN __cdecl RtlIsTextUnicode(PVOID Buffer, ULONG Size, PULONG Result)
 {
   int v3; // r14d
   int v4; // r15d
@@ -18,9 +18,9 @@ bool __fastcall RtlIsTextUnicode(_WORD *a1, unsigned int a2, int *a3)
   unsigned int v10; // edx
   unsigned int v11; // ecx
   __int64 v12; // r8
-  int *v13; // r9
+  PULONG v13; // r9
   int v14; // r10d
-  unsigned int v15; // r11d
+  ULONG v15; // r11d
   bool v16; // cc
   int v17; // ebx
   _WORD *v18; // r9
@@ -89,7 +89,7 @@ bool __fastcall RtlIsTextUnicode(_WORD *a1, unsigned int a2, int *a3)
   unsigned int v82; // [rsp+84h] [rbp-74h]
   int v83; // [rsp+88h] [rbp-70h]
   int v84; // [rsp+8Ch] [rbp-6Ch]
-  unsigned int v85; // [rsp+90h] [rbp-68h]
+  ULONG v85; // [rsp+90h] [rbp-68h]
   __int64 v86; // [rsp+98h] [rbp-60h]
   __int64 v87; // [rsp+A0h] [rbp-58h]
   bool v91; // [rsp+118h] [rbp+20h]
@@ -118,13 +118,13 @@ bool __fastcall RtlIsTextUnicode(_WORD *a1, unsigned int a2, int *a3)
   v71 = 0;
   v70 = 0;
   v82 = 0;
-  v85 = a2 >> 1;
+  v85 = Size >> 1;
   v91 = 0;
   v87 = 0LL;
   if ( !RtlpIsUtf8Process() )
   {
     _InterlockedOr(v57, 0);
-    v91 = word_18017765C != 0;
+    v91 = GlobalRtlNlsState.DBCSCodePage != 0;
     v87 = qword_1801776E0;
   }
   if ( !v10 )
@@ -284,8 +284,8 @@ LABEL_47:
     v4 = v62;
     v5 = v60;
   }
-  v13 = a3;
-  v15 = a2;
+  v13 = Result;
+  v15 = Size;
   v71 = v19;
   v8 = v82;
   if ( v25 == 13 && v27 == 10 || v25 == 10 && v27 == 13 )
@@ -341,7 +341,7 @@ LABEL_69:
       do
       {
         v43 = v8 + 1;
-        v44 = *(_WORD *)(v87 + 2LL * *((unsigned __int8 *)a1 + v42));
+        v44 = *(_WORD *)(v87 + 2LL * *((unsigned __int8 *)Buffer + v42));
         if ( !v44 )
           v43 = v8;
         v8 = v43;
@@ -351,8 +351,8 @@ LABEL_69:
         v42 = v45 + 1;
       }
       while ( v45 + 1 < v40 );
-      v13 = a3;
-      v15 = a2;
+      v13 = Result;
+      v15 = Size;
       v41 = v91;
     }
   }
@@ -401,11 +401,11 @@ LABEL_85:
   v55 = v54 | 0x1000;
   if ( !v39 )
     v55 = v54;
-  if ( *a1 == 0xFEFF )
+  if ( *(_WORD *)Buffer == 0xFEFF )
   {
     v55 |= 8u;
   }
-  else if ( *a1 == 0xFFFE )
+  else if ( *(_WORD *)Buffer == 0xFFFE )
   {
     v55 |= 0x80u;
   }

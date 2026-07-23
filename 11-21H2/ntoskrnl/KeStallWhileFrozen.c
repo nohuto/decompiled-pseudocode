@@ -3,10 +3,10 @@
  * Callers:
  *     <none>
  * Callees:
- *     KiCheckStall @ 0x140302560 (KiCheckStall.c)
+ *     sub_140302560 @ 0x140302560 (sub_140302560.c)
  */
 
 __int64 KeStallWhileFrozen()
 {
-  return KiCheckStall((__int64)KeGetCurrentPrcb(), 0);
+  return sub_140302560((__int64)KeGetCurrentPrcb(), 0);
 }

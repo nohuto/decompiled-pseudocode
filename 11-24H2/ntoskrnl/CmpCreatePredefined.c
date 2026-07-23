@@ -1,16 +1,16 @@
 /*
- * XREFs of CmpCreatePredefined @ 0x1407CA0EC
+ * XREFs of CmpCreatePredefined @ 0x1407CA5DC
  * Callers:
- *     CmpCreatePerfKeys @ 0x1407C9F90 (CmpCreatePerfKeys.c)
+ *     CmpCreatePerfKeys @ 0x1407CA480 (CmpCreatePerfKeys.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ObReferenceObjectByHandle @ 0x14084AF40 (ObReferenceObjectByHandle.c)
- *     ObOpenObjectByName @ 0x14089B210 (ObOpenObjectByName.c)
- *     CmpInitializeParseContext @ 0x14092D400 (CmpInitializeParseContext.c)
- *     CmpCleanupParseContext @ 0x14092D4B0 (CmpCleanupParseContext.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ObReferenceObjectByHandle @ 0x140847200 (ObReferenceObjectByHandle.c)
+ *     ObOpenObjectByName @ 0x1408A38B0 (ObOpenObjectByName.c)
+ *     CmpInitializeParseContext @ 0x14092F540 (CmpInitializeParseContext.c)
+ *     CmpCleanupParseContext @ 0x14092F5F0 (CmpCleanupParseContext.c)
  */
 
 __int64 __fastcall CmpCreatePredefined(__int64 a1, const WCHAR *a2, __int64 a3)

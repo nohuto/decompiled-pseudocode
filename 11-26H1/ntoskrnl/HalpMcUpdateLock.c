@@ -1,18 +1,18 @@
 /*
- * XREFs of HalpMcUpdateLock @ 0x1404ECD50
+ * XREFs of HalpMcUpdateLock @ 0x1404E6330
  * Callers:
- *     HalpPowerStateCallback @ 0x1404ECC90 (HalpPowerStateCallback.c)
- *     HalStartDynamicProcessor @ 0x14057C560 (HalStartDynamicProcessor.c)
- *     HalpLoadMicrocode @ 0x140784E40 (HalpLoadMicrocode.c)
+ *     HalpPowerStateCallback @ 0x1404E6270 (HalpPowerStateCallback.c)
+ *     HalStartDynamicProcessor @ 0x14057EA90 (HalStartDynamicProcessor.c)
+ *     HalpLoadMicrocode @ 0x140787970 (HalpLoadMicrocode.c)
  * Callees:
- *     MmLockPreChargedPagedPool @ 0x140B60510 (MmLockPreChargedPagedPool.c)
+ *     MmLockPreChargedPagedPool @ 0x140B635B0 (MmLockPreChargedPagedPool.c)
  */
 
 __int64 HalpMcUpdateLock()
 {
-  if ( HalpDeviceBlockUnblockPushLock.WaitBlock[1].WaitListEntry.Blink && McMicrocodePatchRecordCharged )
+  if ( HalpDeviceBlockUnblockPushLock.WaitBlock[0].Thread && McMicrocodePatchRecordCharged )
     MmLockPreChargedPagedPool(
-      HalpDeviceBlockUnblockPushLock.WaitBlock[1].WaitListEntry.Blink,
-      *(unsigned int *)&HalpDeviceBlockUnblockPushLock.WaitBlockFill11[52]);
+      HalpDeviceBlockUnblockPushLock.WaitBlock[0].Thread,
+      *(unsigned int *)&HalpDeviceBlockUnblockPushLock.WaitBlockFill11[16]);
   return 0LL;
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpAllocatePayloadFilterData @ 0x1408C18F0
+ * XREFs of EtwpAllocatePayloadFilterData @ 0x1408C2BB0
  * Callers:
- *     EtwpAllocateFilter @ 0x1408C175C (EtwpAllocateFilter.c)
+ *     EtwpAllocateFilter @ 0x1408C2A1C (EtwpAllocateFilter.c)
  * Callees:
- *     memmove @ 0x1401D1540 (memmove.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     EtwpValidatePayloadFilter @ 0x1408CAD20 (EtwpValidatePayloadFilter.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     EtwpValidatePayloadFilter @ 0x1408CBFE0 (EtwpValidatePayloadFilter.c)
  */
 
 __int64 __fastcall EtwpAllocatePayloadFilterData(__int64 a1, __int64 a2, _QWORD *a3)

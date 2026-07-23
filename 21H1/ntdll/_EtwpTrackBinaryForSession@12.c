@@ -11,11 +11,11 @@
 
 int __fastcall EtwpTrackBinaryForSession(int a1, const void **a2, _DWORD *Buf1)
 {
-  size_t v3; // edi
+  int v3; // edi
   _DWORD *v4; // esi
   _DWORD *v5; // ebx
-  size_t v6; // eax
-  int Heap; // eax
+  int v6; // eax
+  _DWORD *Heap; // eax
   _DWORD *v8; // ebx
   struct _PEB *v9; // eax
   _DWORD *v10; // ecx
@@ -28,9 +28,12 @@ int __fastcall EtwpTrackBinaryForSession(int a1, const void **a2, _DWORD *Buf1)
   _DWORD *v18; // ecx
   _DWORD *v19; // eax
   int v20; // edx
-  const void **v22; // [esp+10h] [ebp-4h]
+  SIZE_T v21; // [esp-4h] [ebp-18h]
+  size_t v22; // [esp-4h] [ebp-18h]
+  SIZE_T v23; // [esp-4h] [ebp-18h]
+  const void **v25; // [esp+10h] [ebp-4h]
 
-  v22 = a2;
+  v25 = a2;
   v3 = *(unsigned __int16 *)a2;
   v4 = (_DWORD *)(a1 + 340);
   v5 = *(_DWORD **)(a1 + 340);
@@ -39,18 +42,21 @@ int __fastcall EtwpTrackBinaryForSession(int a1, const void **a2, _DWORD *Buf1)
   {
     if ( v5 == v4 )
     {
-      Heap = RtlAllocateHeap((int)NtCurrentPeb()->ProcessHeap, 8, v3 + 26);
-      v8 = (_DWORD *)Heap;
+      LODWORD(v21) = v3 + 26;
+      Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, v21);
+      v8 = Heap;
       if ( !Heap )
         return 14;
-      *(_DWORD *)(Heap + 20) = v3 + 2;
-      memcpy((void *)(Heap + 24), v22[1], v3);
+      Heap[5] = v3 + 2;
+      LODWORD(v22) = v3;
+      memcpy(Heap + 6, v25[1], v22);
       *(_WORD *)((char *)v8 + v3 + 24) = 0;
       v8[4] = v8 + 3;
       v8[3] = v8 + 3;
       v9 = NtCurrentPeb();
       v8[2] = 0;
-      v10 = (_DWORD *)RtlAllocateHeap((int)v9->ProcessHeap, 8, 24);
+      LODWORD(v23) = 24;
+      v10 = RtlAllocateHeap(v9->ProcessHeap, 8u, v23);
       if ( !v10 )
         return 14;
       v11 = v8 + 3;
@@ -87,18 +93,21 @@ LABEL_22:
 LABEL_5:
     v5 = (_DWORD *)*v5;
   }
-  if ( RtlCompareMemory(v5 + 6, a2[1], v3) != v3 )
+  LODWORD(v21) = v3;
+  if ( (unsigned int)RtlCompareMemory(v5 + 6, a2[1], v21) != v3 )
   {
-    a2 = v22;
+    a2 = v25;
     v6 = v3 + 2;
     goto LABEL_5;
   }
   for ( i = (_DWORD *)v5[3]; i != v5 + 3; i = (_DWORD *)*i )
   {
-    if ( !memcmp(Buf1, i + 2, 0x10u) )
+    LODWORD(v21) = 16;
+    if ( !memcmp(Buf1, i + 2, v21) )
       return 0;
   }
-  v18 = (_DWORD *)RtlAllocateHeap((int)NtCurrentPeb()->ProcessHeap, 8, 24);
+  LODWORD(v21) = 24;
+  v18 = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, v21);
   if ( !v18 )
     return 14;
   v19 = v5 + 3;

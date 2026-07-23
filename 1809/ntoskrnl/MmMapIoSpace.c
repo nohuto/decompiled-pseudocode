@@ -1,9 +1,9 @@
 /*
- * XREFs of MmMapIoSpace @ 0x1400E5D20
+ * XREFs of MmMapIoSpace @ 0x1400E5DA0
  * Callers:
  *     <none>
  * Callees:
- *     MmMapIoSpaceEx @ 0x1400E5D60 (MmMapIoSpaceEx.c)
+ *     MmMapIoSpaceEx @ 0x1400E5DE0 (MmMapIoSpaceEx.c)
  */
 
 PVOID __stdcall MmMapIoSpace(PHYSICAL_ADDRESS PhysicalAddress, SIZE_T NumberOfBytes, MEMORY_CACHING_TYPE CacheType)

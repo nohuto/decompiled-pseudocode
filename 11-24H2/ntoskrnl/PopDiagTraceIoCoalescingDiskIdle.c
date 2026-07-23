@@ -1,11 +1,11 @@
 /*
- * XREFs of PopDiagTraceIoCoalescingDiskIdle @ 0x1405D5414
+ * XREFs of PopDiagTraceIoCoalescingDiskIdle @ 0x1405D2A28
  * Callers:
- *     PopScanIdleList @ 0x1404EAE90 (PopScanIdleList.c)
+ *     PopScanIdleList @ 0x1404E1E10 (PopScanIdleList.c)
  * Callees:
- *     EtwWriteEx @ 0x140259680 (EtwWriteEx.c)
- *     EtwEventEnabled @ 0x1402A1BD0 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x140289C90 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x1402D1300 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 void __fastcall PopDiagTraceIoCoalescingDiskIdle(__int64 a1)

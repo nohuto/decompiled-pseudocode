@@ -1,7 +1,7 @@
 /*
- * XREFs of BiIsEnumerateMatch @ 0x1408F0E34
+ * XREFs of BiIsEnumerateMatch @ 0x1408F20F4
  * Callers:
- *     BcdEnumerateObjects @ 0x1408F08DC (BcdEnumerateObjects.c)
+ *     BcdEnumerateObjects @ 0x1408F1B9C (BcdEnumerateObjects.c)
  * Callees:
  *     <none>
  */

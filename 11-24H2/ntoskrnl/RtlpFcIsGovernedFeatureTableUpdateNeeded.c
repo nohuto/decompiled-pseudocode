@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpFcIsGovernedFeatureTableUpdateNeeded @ 0x14078D18C
+ * XREFs of RtlpFcIsGovernedFeatureTableUpdateNeeded @ 0x14078D0BC
  * Callers:
- *     RtlpFcUpdateGovernedFeaturesEffectiveStates @ 0x140781DD8 (RtlpFcUpdateGovernedFeaturesEffectiveStates.c)
+ *     RtlpFcUpdateGovernedFeaturesEffectiveStates @ 0x140781D08 (RtlpFcUpdateGovernedFeaturesEffectiveStates.c)
  * Callees:
- *     RtlpFcCompareFeatureIdToGovernedFeature @ 0x1406F51A0 (RtlpFcCompareFeatureIdToGovernedFeature.c)
- *     RtlFindLowerBoundInSortedArray @ 0x1409B0BD0 (RtlFindLowerBoundInSortedArray.c)
+ *     RtlpFcCompareFeatureIdToGovernedFeature @ 0x1406F31A0 (RtlpFcCompareFeatureIdToGovernedFeature.c)
+ *     RtlFindLowerBoundInSortedArray @ 0x14099A690 (RtlFindLowerBoundInSortedArray.c)
  */
 
 char __fastcall RtlpFcIsGovernedFeatureTableUpdateNeeded(__int64 a1, __int64 a2, __int64 a3, unsigned __int64 a4)

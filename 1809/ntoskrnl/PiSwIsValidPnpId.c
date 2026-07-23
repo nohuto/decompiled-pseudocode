@@ -1,7 +1,7 @@
 /*
- * XREFs of PiSwIsValidPnpId @ 0x1406D75F8
+ * XREFs of PiSwIsValidPnpId @ 0x1406D8898
  * Callers:
- *     PiSwValidateCreateData @ 0x1406D7370 (PiSwValidateCreateData.c)
+ *     PiSwValidateCreateData @ 0x1406D8610 (PiSwValidateCreateData.c)
  * Callees:
  *     <none>
  */

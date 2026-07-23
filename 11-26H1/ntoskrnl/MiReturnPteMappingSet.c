@@ -1,14 +1,14 @@
 /*
- * XREFs of MiReturnPteMappingSet @ 0x140457050
+ * XREFs of MiReturnPteMappingSet @ 0x14044E8C0
  * Callers:
- *     MiCopyPage @ 0x140293FA4 (MiCopyPage.c)
- *     MiSlowRotateCopy @ 0x1406F7544 (MiSlowRotateCopy.c)
- *     MiCopyFilePage @ 0x1406F93E0 (MiCopyFilePage.c)
- *     MiFillPageWithImageExtentContents @ 0x1406F9E28 (MiFillPageWithImageExtentContents.c)
- *     MiCopyMemoryPagefileData @ 0x14070C8A0 (MiCopyMemoryPagefileData.c)
+ *     MiCopyPage @ 0x140293504 (MiCopyPage.c)
+ *     MiSlowRotateCopy @ 0x1406FC1B4 (MiSlowRotateCopy.c)
+ *     MiCopyFilePage @ 0x1406FE0B0 (MiCopyFilePage.c)
+ *     MiFillPageWithImageExtentContents @ 0x1406FEAF8 (MiFillPageWithImageExtentContents.c)
+ *     MiCopyMemoryPagefileData @ 0x140711550 (MiCopyMemoryPagefileData.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     MiReleasePtes @ 0x140281CE0 (MiReleasePtes.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     MiReleasePtes @ 0x140281250 (MiReleasePtes.c)
  */
 
 struct _KPRCB *__fastcall MiReturnPteMappingSet(__int64 a1)
@@ -18,7 +18,7 @@ struct _KPRCB *__fastcall MiReturnPteMappingSet(__int64 a1)
 
   if ( *(_BYTE *)(a1 + 8) == 17 )
     return (struct _KPRCB *)MiReleasePtes(
-                              (__int64)&stru_140E36558.WaitBlockList,
+                              (__int64)&stru_140E366D8.WaitBlockList,
                               *(unsigned __int64 **)(a1 + 16),
                               *(_DWORD *)(a1 + 4));
   result = KeGetCurrentPrcb();

@@ -1,15 +1,15 @@
 /*
- * XREFs of PopSqmThermalCriticalEvent @ 0x1409A0C48
+ * XREFs of PopSqmThermalCriticalEvent @ 0x1409A0E48
  * Callers:
- *     PopSqmThermalCriticalShutdown @ 0x1409A0E18 (PopSqmThermalCriticalShutdown.c)
- *     PopSqmThermalHibernate @ 0x1409A0E3C (PopSqmThermalHibernate.c)
+ *     PopSqmThermalCriticalShutdown @ 0x1409A1018 (PopSqmThermalCriticalShutdown.c)
+ *     PopSqmThermalHibernate @ 0x1409A103C (PopSqmThermalHibernate.c)
  * Callees:
  *     _tlgKeywordOn @ 0x140212E64 (_tlgKeywordOn.c)
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgCreate1Sz_wchar_t @ 0x1402F6BE4 (_tlgCreate1Sz_wchar_t.c)
- *     IoGetDeviceAttachmentBaseRefWithTag @ 0x140302A88 (IoGetDeviceAttachmentBaseRefWithTag.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6DB4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgCreate1Sz_wchar_t @ 0x1402F6E74 (_tlgCreate1Sz_wchar_t.c)
+ *     IoGetDeviceAttachmentBaseRefWithTag @ 0x140302D18 (IoGetDeviceAttachmentBaseRefWithTag.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 void *__fastcall PopSqmThermalCriticalEvent(__int64 a1, unsigned int a2, int a3)
@@ -97,7 +97,7 @@ void *__fastcall PopSqmThermalCriticalEvent(__int64 a1, unsigned int a2, int a3)
         tlgCreate1Sz_wchar_t((__int64)v44, v13);
         tlgWriteTransfer_EtwWriteTransfer(
           (__int64)&dword_140C03950,
-          (unsigned __int8 *)&word_14003282E,
+          (unsigned __int8 *)byte_140032A23,
           0LL,
           0LL,
           0xBu,

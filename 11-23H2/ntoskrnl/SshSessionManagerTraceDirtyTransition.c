@@ -1,10 +1,10 @@
 /*
- * XREFs of SshSessionManagerTraceDirtyTransition @ 0x1408000B8
+ * XREFs of SshSessionManagerTraceDirtyTransition @ 0x140800388
  * Callers:
  *     PopDiagTraceDirtyTransition @ 0x140B35190 (PopDiagTraceDirtyTransition.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     SshpSessionManagerSendControlEvent @ 0x1408741A8 (SshpSessionManagerSendControlEvent.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     SshpSessionManagerSendControlEvent @ 0x1408743E8 (SshpSessionManagerSendControlEvent.c)
  */
 
 __int64 SshSessionManagerTraceDirtyTransition()

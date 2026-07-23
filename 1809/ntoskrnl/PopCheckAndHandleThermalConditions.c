@@ -1,28 +1,28 @@
 /*
- * XREFs of PopCheckAndHandleThermalConditions @ 0x14018BEF4
+ * XREFs of PopCheckAndHandleThermalConditions @ 0x14018C034
  * Callers:
- *     PopThermalWorker @ 0x140750F60 (PopThermalWorker.c)
+ *     PopThermalWorker @ 0x140752150 (PopThermalWorker.c)
  * Callees:
  *     IoGetDeviceAttachmentBaseRefWithTag @ 0x140002E2C (IoGetDeviceAttachmentBaseRefWithTag.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     PopThermalStandbyEndTracking @ 0x1401427B4 (PopThermalStandbyEndTracking.c)
- *     PopThermalStandbyNotify @ 0x1402DC3D8 (PopThermalStandbyNotify.c)
- *     PopThermalWriteShutdownToRegistry @ 0x1402DC4F4 (PopThermalWriteShutdownToRegistry.c)
- *     PopDiagTraceThermalStateChange @ 0x1402E1F70 (PopDiagTraceThermalStateChange.c)
- *     PopTraceCr3Mitigated @ 0x1402E2434 (PopTraceCr3Mitigated.c)
- *     PopTraceCr3Tripped @ 0x1402E24CC (PopTraceCr3Tripped.c)
- *     PopTraceZoneCr3Mitigated @ 0x1402E2B04 (PopTraceZoneCr3Mitigated.c)
- *     PopTraceZoneCr3Tripped @ 0x1402E2C30 (PopTraceZoneCr3Tripped.c)
- *     PopReleasePolicyLock @ 0x140565370 (PopReleasePolicyLock.c)
- *     PopAcquirePolicyLock @ 0x140565690 (PopAcquirePolicyLock.c)
- *     PopIsHibernateSupported @ 0x1405B0850 (PopIsHibernateSupported.c)
- *     PopExecutePowerAction @ 0x1406DE0F0 (PopExecutePowerAction.c)
- *     PopCriticalShutdown @ 0x14086BFF0 (PopCriticalShutdown.c)
- *     PopUpdateOverThrottledCount @ 0x14086C7E0 (PopUpdateOverThrottledCount.c)
- *     PopDiagTraceZoneCriticalTripPointExceeded @ 0x140874918 (PopDiagTraceZoneCriticalTripPointExceeded.c)
- *     PopDiagTraceZoneS4TripPointExceeded @ 0x140874A14 (PopDiagTraceZoneS4TripPointExceeded.c)
- *     PopSqmThermalCriticalShutdown @ 0x14087C884 (PopSqmThermalCriticalShutdown.c)
- *     PopSqmThermalHibernate @ 0x14087C8A4 (PopSqmThermalHibernate.c)
+ *     PopThermalStandbyEndTracking @ 0x1401428B4 (PopThermalStandbyEndTracking.c)
+ *     PopThermalStandbyNotify @ 0x1402DC5C8 (PopThermalStandbyNotify.c)
+ *     PopThermalWriteShutdownToRegistry @ 0x1402DC6E4 (PopThermalWriteShutdownToRegistry.c)
+ *     PopDiagTraceThermalStateChange @ 0x1402E2160 (PopDiagTraceThermalStateChange.c)
+ *     PopTraceCr3Mitigated @ 0x1402E2624 (PopTraceCr3Mitigated.c)
+ *     PopTraceCr3Tripped @ 0x1402E26BC (PopTraceCr3Tripped.c)
+ *     PopTraceZoneCr3Mitigated @ 0x1402E2CF4 (PopTraceZoneCr3Mitigated.c)
+ *     PopTraceZoneCr3Tripped @ 0x1402E2E20 (PopTraceZoneCr3Tripped.c)
+ *     PopReleasePolicyLock @ 0x140566370 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140566690 (PopAcquirePolicyLock.c)
+ *     PopIsHibernateSupported @ 0x1405B1850 (PopIsHibernateSupported.c)
+ *     PopExecutePowerAction @ 0x1406DF390 (PopExecutePowerAction.c)
+ *     PopCriticalShutdown @ 0x14086D250 (PopCriticalShutdown.c)
+ *     PopUpdateOverThrottledCount @ 0x14086DA40 (PopUpdateOverThrottledCount.c)
+ *     PopDiagTraceZoneCriticalTripPointExceeded @ 0x140875B78 (PopDiagTraceZoneCriticalTripPointExceeded.c)
+ *     PopDiagTraceZoneS4TripPointExceeded @ 0x140875C74 (PopDiagTraceZoneS4TripPointExceeded.c)
+ *     PopSqmThermalCriticalShutdown @ 0x14087DAE4 (PopSqmThermalCriticalShutdown.c)
+ *     PopSqmThermalHibernate @ 0x14087DB04 (PopSqmThermalHibernate.c)
  */
 
 unsigned __int8 __fastcall PopCheckAndHandleThermalConditions(__int64 a1)
@@ -128,20 +128,20 @@ LABEL_4:
     *(_BYTE *)(a1 + 72) = v16;
     if ( v16 )
     {
-      if ( ++dword_140417244 == 1 )
+      if ( ++dword_140418204 == 1 )
       {
-        byte_14041724C = 1;
-        ++dword_140417248;
+        byte_14041820C = 1;
+        ++dword_140418208;
         PopTraceCr3Tripped();
       }
-      PopTraceZoneCr3Tripped((unsigned int)dword_140417248, a1);
+      PopTraceZoneCr3Tripped((unsigned int)dword_140418208, a1);
     }
     else
     {
-      PopTraceZoneCr3Mitigated((unsigned int)dword_140417248, a1);
-      --dword_140417244;
+      PopTraceZoneCr3Mitigated((unsigned int)dword_140418208, a1);
+      --dword_140418204;
     }
-    if ( dword_140417244 )
+    if ( dword_140418204 )
     {
       v20 = 1;
     }
@@ -149,7 +149,7 @@ LABEL_4:
     {
       v20 = 0;
       PopThermalStandbyEndTracking(0LL, v17, v19);
-      PopTraceCr3Mitigated((unsigned int)dword_140417248);
+      PopTraceCr3Mitigated((unsigned int)dword_140418208);
       if ( HIBYTE(PopSystemThermalInfo) )
       {
         PopThermalStandbyNotify(0LL);

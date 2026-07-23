@@ -20,7 +20,7 @@ __int64 __fastcall AVrfDllLoadNotification(__int64 a1)
   if ( (NtCurrentPeb()->NtGlobalFlag & 0x100) == 0 )
     return 0LL;
   NotificationInternal = 0;
-  RtlEnterCriticalSection((__int64)&AVrfpVerifierLock);
+  RtlEnterCriticalSection(&AVrfpVerifierLock);
   if ( !(unsigned __int8)AVrfpIsVerifierProviderDll(*(_QWORD *)(a1 + 48)) )
   {
     NotificationInternal = AVrfpDllLoadNotificationInternal(a1);
@@ -36,6 +36,6 @@ __int64 __fastcall AVrfDllLoadNotification(__int64 a1)
       }
     }
   }
-  RtlLeaveCriticalSection((__int64)&AVrfpVerifierLock);
+  RtlLeaveCriticalSection(&AVrfpVerifierLock);
   return (unsigned int)NotificationInternal;
 }

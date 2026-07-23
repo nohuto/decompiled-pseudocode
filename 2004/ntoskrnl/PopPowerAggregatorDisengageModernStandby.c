@@ -47,7 +47,7 @@ __int64 __fastcall PopPowerAggregatorDisengageModernStandby(__int64 a1)
   PopPowerAggregatorLockRelease();
   PopSleepstudySnapModernStandbySessionData();
   if ( v3 == 1 )
-    PopSleepstudyStartNextSession(1, v1);
+    PopSleepstudyStartNextSession(1u, v1);
   v14 = 0LL;
   PopDirectedDripsNotify(7, (char *)&v14);
   PopAcquirePolicyLock(v4);

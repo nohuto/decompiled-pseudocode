@@ -1,14 +1,14 @@
 /*
- * XREFs of PopPolicyDeviceTargetChange @ 0x1407D7C00
+ * XREFs of PopPolicyDeviceTargetChange @ 0x1407DB220
  * Callers:
  *     <none>
  * Callees:
- *     PopReleaseRwLock @ 0x14043630C (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x140436378 (PopAcquireRwLockExclusive.c)
- *     PnpUnregisterPlugPlayNotification @ 0x1404ABEF8 (PnpUnregisterPlugPlayNotification.c)
- *     PopConnectToPolicyDevice @ 0x1407D746C (PopConnectToPolicyDevice.c)
- *     PopPolicyDeviceRemove @ 0x1407D7B84 (PopPolicyDeviceRemove.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     PopReleaseRwLock @ 0x14021B1A8 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x140425310 (PopAcquireRwLockExclusive.c)
+ *     PnpUnregisterPlugPlayNotification @ 0x1404A5588 (PnpUnregisterPlugPlayNotification.c)
+ *     PopConnectToPolicyDevice @ 0x1407DAA8C (PopConnectToPolicyDevice.c)
+ *     PopPolicyDeviceRemove @ 0x1407DB1A4 (PopPolicyDeviceRemove.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PopPolicyDeviceTargetChange(
@@ -24,7 +24,7 @@ __int64 __fastcall PopPolicyDeviceTargetChange(
   __int64 v10; // rax
 
   v6 = 0;
-  PopAcquireRwLockExclusive((unsigned __int64 *)&unk_140F10E30, (__int64)Context, a3, a4);
+  PopAcquireRwLockExclusive((unsigned __int64 *)&PopPolicyDeviceLock, (__int64)Context, a3, a4);
   v8 = *(_QWORD *)(NotificationStructure + 4) - *(_QWORD *)&GUID_TARGET_DEVICE_QUERY_REMOVE.Data1;
   if ( !v8 )
     v8 = *(_QWORD *)(NotificationStructure + 12) - *(_QWORD *)GUID_TARGET_DEVICE_QUERY_REMOVE.Data4;
@@ -52,7 +52,7 @@ LABEL_13:
     goto LABEL_13;
   }
 LABEL_14:
-  PopReleaseRwLock(&unk_140F10E30);
+  PopReleaseRwLock((struct _KTHREAD *)&PopPolicyDeviceLock);
   if ( v6 )
   {
     PnpUnregisterPlugPlayNotification(*((struct _LIST_ENTRY **)Context + 3), 1);

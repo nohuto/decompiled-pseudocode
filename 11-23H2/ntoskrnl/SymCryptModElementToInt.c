@@ -1,11 +1,11 @@
 /*
- * XREFs of SymCryptModElementToInt @ 0x1403F97FC
+ * XREFs of SymCryptModElementToInt @ 0x1403F99DC
  * Callers:
- *     SymCryptEckeySetValue @ 0x1403F8A98 (SymCryptEckeySetValue.c)
- *     SymCryptEcDsaVerify @ 0x1403F9B90 (SymCryptEcDsaVerify.c)
- *     SymCryptEcpointGenericSetRandom @ 0x1403FE2D0 (SymCryptEcpointGenericSetRandom.c)
+ *     SymCryptEckeySetValue @ 0x1403F8C78 (SymCryptEckeySetValue.c)
+ *     SymCryptEcDsaVerify @ 0x1403F9D70 (SymCryptEcDsaVerify.c)
+ *     SymCryptEcpointGenericSetRandom @ 0x1403FE4B0 (SymCryptEcpointGenericSetRandom.c)
  * Callees:
- *     SymCryptFdefModElementToIntGeneric @ 0x140404464 (SymCryptFdefModElementToIntGeneric.c)
+ *     SymCryptFdefModElementToIntGeneric @ 0x140404644 (SymCryptFdefModElementToIntGeneric.c)
  */
 
 __int64 __fastcall SymCryptModElementToInt(_DWORD *a1, __int64 a2, int a3, __int64 a4, __int64 a5)

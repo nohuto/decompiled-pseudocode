@@ -1,9 +1,9 @@
 /*
- * XREFs of PpmHvSetVirtualProcessorQos @ 0x14057C494
+ * XREFs of PpmHvSetVirtualProcessorQos @ 0x14057C6D4
  * Callers:
- *     PoSetProcessorQoS @ 0x14056E55C (PoSetProcessorQoS.c)
+ *     PoSetProcessorQoS @ 0x14056E79C (PoSetProcessorQoS.c)
  * Callees:
- *     PpmEventVpQosChange @ 0x14057B238 (PpmEventVpQosChange.c)
+ *     PpmEventVpQosChange @ 0x14057B478 (PpmEventVpQosChange.c)
  */
 
 BOOLEAN __fastcall PpmHvSetVirtualProcessorQos(__int64 a1)

@@ -1,11 +1,11 @@
 /*
- * XREFs of HsaGrowPasidTable @ 0x1404E3B10
+ * XREFs of HsaGrowPasidTable @ 0x1404E3D50
  * Callers:
  *     <none>
  * Callees:
- *     MmGetPhysicalAddress @ 0x1402A8700 (MmGetPhysicalAddress.c)
- *     memset @ 0x140414200 (memset.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     MmGetPhysicalAddress @ 0x140226840 (MmGetPhysicalAddress.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall HsaGrowPasidTable(__int64 a1, __int64 a2, unsigned int a3)

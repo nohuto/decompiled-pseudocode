@@ -40,7 +40,7 @@ __int64 __fastcall IommuBeginDeviceReset(__int64 a1, _DWORD *a2)
   ExAcquirePushLockExclusiveEx(v5 + 416, 0LL);
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(0xFuLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 15 )
@@ -61,10 +61,10 @@ __int64 __fastcall IommuBeginDeviceReset(__int64 a1, _DWORD *a2)
     }
   }
   KxReleaseSpinLock(v10);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v13 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v13 <= 0xFu && CurrentIrql <= 0xFu && v13 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v13 <= 0xFu && CurrentIrql <= 0xFu && v13 >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v15 = CurrentPrcb->SchedulerAssist;

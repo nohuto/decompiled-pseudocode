@@ -1,19 +1,19 @@
 /*
- * XREFs of LdrpResolveDelayloadAddress @ 0x1800DE4C0
+ * XREFs of LdrpResolveDelayloadAddress @ 0x1800D9630
  * Callers:
- *     LdrpHandleUnprotectedDelayLoad @ 0x1800DE380 (LdrpHandleUnprotectedDelayLoad.c)
+ *     LdrpHandleUnprotectedDelayLoad @ 0x1800D94F0 (LdrpHandleUnprotectedDelayLoad.c)
  * Callees:
- *     LdrpResolveProcedureAddress @ 0x180057F30 (LdrpResolveProcedureAddress.c)
- *     AVrfCallAPILookupCallback @ 0x1800DE5CC (AVrfCallAPILookupCallback.c)
- *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180172020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ *     LdrpResolveProcedureAddress @ 0x18006DB10 (LdrpResolveProcedureAddress.c)
+ *     AVrfCallAPILookupCallback @ 0x1800D973C (AVrfCallAPILookupCallback.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180171020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
  */
 
 __int64 __fastcall LdrpResolveDelayloadAddress(
         __int64 a1,
-        __int64 a2,
+        _QWORD *a2,
         __int64 a3,
         __int64 a4,
-        void (__fastcall *a5)(__int64 *, __int64, __int64, __int64, _QWORD),
+        void (__fastcall *a5)(__int64 *, _QWORD *, __int64, __int64, _QWORD),
         int *a6)
 {
   __int64 v6; // r10
@@ -21,7 +21,7 @@ __int64 __fastcall LdrpResolveDelayloadAddress(
   __int64 v9; // r9
   __int64 v11; // rax
   ULONG v12; // r9d
-  char *v13; // r8
+  const char *v13; // r8
   int v14; // eax
   __int64 v16; // r9
   __int64 v17; // rbx
@@ -41,14 +41,14 @@ __int64 __fastcall LdrpResolveDelayloadAddress(
   else
   {
     v12 = 0;
-    v13 = (char *)(v11 + v6 + 2);
+    v13 = (const char *)(v11 + v6 + 2);
   }
   v14 = LdrpResolveProcedureAddress(a1, a2, v13, v12, 0, &v18);
   *a6 = v14;
   if ( v14 < 0 )
     return v18;
   if ( AvrfpAPILookupCallbacksEnabled )
-    AVrfCallAPILookupCallback(*(_QWORD *)(a1 + 48), *(_QWORD *)(a2 + 48), v18, 1, (__int64)&v18);
+    AVrfCallAPILookupCallback(*(_QWORD *)(a1 + 48), a2[6], v18, 1, (__int64)&v18);
   if ( !a5 )
     return v18;
   v16 = *(_QWORD *)(a1 + 48);

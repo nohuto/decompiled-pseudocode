@@ -23,7 +23,7 @@ unsigned __int64 __fastcall ExTryAcquireCacheAwarePushLockSharedEx(
   if ( (BugCheckParameter1 & 2) != 0 )
     v4 = 0LL;
   else
-    v4 = KeAbPreAcquire(BugCheckParameter2, 0LL, 1LL);
+    v4 = KeAbPreAcquire(BugCheckParameter2, 0LL, 1);
   v5 = !_InterlockedCompareExchange64(v3, 17LL, 0LL) || ExfTryAcquirePushLockShared((unsigned __int64 *)v3);
   if ( v4 )
   {

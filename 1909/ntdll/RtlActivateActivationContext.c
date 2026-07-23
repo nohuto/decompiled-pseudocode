@@ -6,16 +6,16 @@
  *     RtlActivateActivationContextEx @ 0x180071190 (RtlActivateActivationContextEx.c)
  */
 
-__int64 __fastcall RtlActivateActivationContext(__int64 a1, __int64 a2, _QWORD *a3)
+NTSTATUS __cdecl RtlActivateActivationContext(ULONG Flags, PACTIVATION_CONTEXT ActivationContext, PULONG_PTR Cookie)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  if ( a3 )
-    *a3 = 0LL;
-  if ( (_DWORD)a1 || !a3 )
-    return 3221225485LL;
-  result = RtlActivateActivationContextEx(a1, NtCurrentTeb(), a2, a3);
-  if ( (int)result >= 0 )
-    return 0LL;
+  if ( Cookie )
+    *Cookie = 0LL;
+  if ( Flags || !Cookie )
+    return -1073741811;
+  result = RtlActivateActivationContextEx(0, NtCurrentTeb(), ActivationContext, Cookie);
+  if ( result >= 0 )
+    return 0;
   return result;
 }

@@ -1,7 +1,7 @@
 /*
- * XREFs of WheapApplyThresholdChecks @ 0x14032011C
+ * XREFs of WheapApplyThresholdChecks @ 0x14032030C
  * Callers:
- *     WheaReportHwError @ 0x14031FD20 (WheaReportHwError.c)
+ *     WheaReportHwError @ 0x14031FF10 (WheaReportHwError.c)
  * Callees:
  *     <none>
  */

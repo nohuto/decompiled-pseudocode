@@ -1,9 +1,9 @@
 /*
- * XREFs of ArbAddAllocation @ 0x140704760
+ * XREFs of ArbAddAllocation @ 0x140702320
  * Callers:
  *     <none>
  * Callees:
- *     RtlAddRange @ 0x140A76A90 (RtlAddRange.c)
+ *     RtlAddRange @ 0x140A70BB0 (RtlAddRange.c)
  */
 
 __int64 __fastcall ArbAddAllocation(__int64 a1, __int64 a2)

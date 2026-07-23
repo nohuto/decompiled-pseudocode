@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpDmaGetIommuInterface @ 0x140578E28
+ * XREFs of HalpDmaGetIommuInterface @ 0x14057B358
  * Callers:
- *     HalpDmaGetReservedRegionsForDeviceResources @ 0x14058A82C (HalpDmaGetReservedRegionsForDeviceResources.c)
- *     HalpDmaAllocateChildAdapterV3 @ 0x14078041C (HalpDmaAllocateChildAdapterV3.c)
- *     IommupDeviceEnableSvm @ 0x14078287C (IommupDeviceEnableSvm.c)
+ *     HalpDmaGetReservedRegionsForDeviceResources @ 0x14058CF5C (HalpDmaGetReservedRegionsForDeviceResources.c)
+ *     HalpDmaAllocateChildAdapterV3 @ 0x140782F1C (HalpDmaAllocateChildAdapterV3.c)
+ *     IommupDeviceEnableSvm @ 0x14078537C (IommupDeviceEnableSvm.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     IoQueryInterface @ 0x140AA8B20 (IoQueryInterface.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     IoQueryInterface @ 0x1409DC050 (IoQueryInterface.c)
  */
 
 __int64 __fastcall HalpDmaGetIommuInterface(__int64 a1, __int64 a2)

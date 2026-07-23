@@ -15,5 +15,5 @@ NTSTATUS __stdcall ZwRemoveIoCompletion(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(IoCompletionHandle, CompletionKey, CompletionContext);
+  return KiServiceInternal(IoCompletionHandle);
 }

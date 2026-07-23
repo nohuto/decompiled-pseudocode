@@ -1,9 +1,9 @@
 /*
- * XREFs of MiDbgCopyFromMemory @ 0x1406FD608
+ * XREFs of MiDbgCopyFromMemory @ 0x1407022D8
  * Callers:
- *     MiDbgCopyMemoryInternal @ 0x1406FD8F0 (MiDbgCopyMemoryInternal.c)
+ *     MiDbgCopyMemoryInternal @ 0x1407025C0 (MiDbgCopyMemoryInternal.c)
  * Callees:
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
  */
 
 __int64 __fastcall MiDbgCopyFromMemory(__int64 a1, _BYTE *a2)

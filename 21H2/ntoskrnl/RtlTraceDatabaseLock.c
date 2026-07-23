@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlTraceDatabaseLock @ 0x14058EBC0
+ * XREFs of RtlTraceDatabaseLock @ 0x14058EDF0
  * Callers:
  *     <none>
  * Callees:
- *     RtlpTraceDatabaseAcquireLock @ 0x14058EC40 (RtlpTraceDatabaseAcquireLock.c)
+ *     RtlpTraceDatabaseAcquireLock @ 0x14058EE70 (RtlpTraceDatabaseAcquireLock.c)
  */
 
 __int64 RtlTraceDatabaseLock()

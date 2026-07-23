@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpGetHeapWalkEntryOverheadBytes @ 0x18008A4C8
+ * XREFs of RtlpGetHeapWalkEntryOverheadBytes @ 0x18008A4B8
  * Callers:
- *     RtlpQueryExtendedInformationHeap @ 0x180095020 (RtlpQueryExtendedInformationHeap.c)
+ *     RtlpQueryExtendedInformationHeap @ 0x180095010 (RtlpQueryExtendedInformationHeap.c)
  * Callees:
  *     <none>
  */

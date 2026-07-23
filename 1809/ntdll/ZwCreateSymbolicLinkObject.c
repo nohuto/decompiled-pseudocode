@@ -1,16 +1,20 @@
 /*
- * XREFs of ZwCreateSymbolicLinkObject @ 0x1800A1A30
+ * XREFs of ZwCreateSymbolicLinkObject @ 0x1800A1A50
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 ZwCreateSymbolicLinkObject()
+NTSTATUS __cdecl ZwCreateSymbolicLinkObject(
+        PHANDLE LinkHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        PUNICODE_STRING LinkTarget)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 187LL;
+  result = 187;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

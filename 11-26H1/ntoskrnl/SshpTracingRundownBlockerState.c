@@ -1,13 +1,13 @@
 /*
- * XREFs of SshpTracingRundownBlockerState @ 0x140B13E44
+ * XREFs of SshpTracingRundownBlockerState @ 0x140B15904
  * Callers:
- *     SshpEtwEnableCallback @ 0x140B13E20 (SshpEtwEnableCallback.c)
+ *     SshpEtwEnableCallback @ 0x140B158E0 (SshpEtwEnableCallback.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     SshpTracingWriteBlockerStateRundown @ 0x1404A8F78 (SshpTracingWriteBlockerStateRundown.c)
- *     SSHSupportReleasePushLockExclusive @ 0x1404B32FC (SSHSupportReleasePushLockExclusive.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     SshpTracingWriteBlockerStateRundown @ 0x1404A2608 (SshpTracingWriteBlockerStateRundown.c)
+ *     SSHSupportReleasePushLockExclusive @ 0x1404AC97C (SSHSupportReleasePushLockExclusive.c)
  */
 
 void __fastcall SshpTracingRundownBlockerState(__int64 a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)

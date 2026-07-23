@@ -1,16 +1,16 @@
 /*
- * XREFs of CmpDeleteHive @ 0x140088098
+ * XREFs of CmpDeleteHive @ 0x14010C288
  * Callers:
- *     CmpDereferenceHive @ 0x1403FCA50 (CmpDereferenceHive.c)
- *     CmpUnlockHashEntry @ 0x140437EC0 (CmpUnlockHashEntry.c)
- *     CmpDoParseKey @ 0x140453D10 (CmpDoParseKey.c)
+ *     CmpDereferenceHive @ 0x1403FB910 (CmpDereferenceHive.c)
+ *     CmpUnlockHashEntry @ 0x140436D90 (CmpUnlockHashEntry.c)
+ *     CmpDoParseKey @ 0x140452BE0 (CmpDoParseKey.c)
  * Callees:
- *     ExDeleteResourceLite @ 0x1400885B0 (ExDeleteResourceLite.c)
+ *     ExDeleteResourceLite @ 0x14010C7A0 (ExDeleteResourceLite.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     CmpUnlockHiveList @ 0x14049FFBC (CmpUnlockHiveList.c)
- *     CmpLockHiveListExclusive @ 0x1404A0FBC (CmpLockHiveListExclusive.c)
- *     HvFreeDirtyData @ 0x1404A1F50 (HvFreeDirtyData.c)
- *     CmpDeleteKcbCache @ 0x1404A1FA0 (CmpDeleteKcbCache.c)
+ *     CmpUnlockHiveList @ 0x1405183C8 (CmpUnlockHiveList.c)
+ *     CmpLockHiveListExclusive @ 0x1405193C8 (CmpLockHiveListExclusive.c)
+ *     HvFreeDirtyData @ 0x14051A35C (HvFreeDirtyData.c)
+ *     CmpDeleteKcbCache @ 0x14051A3AC (CmpDeleteKcbCache.c)
  */
 
 __int64 __fastcall CmpDeleteHive(__int64 a1)

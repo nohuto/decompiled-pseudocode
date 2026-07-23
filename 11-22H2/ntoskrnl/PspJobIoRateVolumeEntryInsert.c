@@ -10,15 +10,15 @@
  *     MiLockTrackerCompare @ 0x1405A4430 (MiLockTrackerCompare.c)
  */
 
-void __fastcall PspJobIoRateVolumeEntryInsert(__int64 a1, unsigned __int64 a2)
+void __fastcall PspJobIoRateVolumeEntryInsert(__int64 a1, _RTL_BALANCED_NODE *a2)
 {
   volatile LONG *v2; // r12
   __int64 v4; // rdi
   KIRQL v5; // al
   unsigned __int64 v6; // r14
-  unsigned __int64 v7; // rbx
+  signed __int64 v7; // rbx
   unsigned __int64 v8; // rbp
-  bool v9; // r8
+  BOOLEAN v9; // r8
   int v10; // esi
   unsigned __int64 v11; // rax
   unsigned __int8 CurrentIrql; // al
@@ -30,7 +30,7 @@ void __fastcall PspJobIoRateVolumeEntryInsert(__int64 a1, unsigned __int64 a2)
   v2 = (volatile LONG *)(a1 + 1672);
   v4 = a1 + 1680;
   v5 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(a1 + 1672));
-  v6 = *(_QWORD *)(a2 + 24);
+  v6 = (unsigned __int64)a2[1].Children[0];
   v7 = *(_QWORD *)v4;
   v8 = v5;
   if ( (*(_BYTE *)(v4 + 8) & 1) != 0 && v7 )
@@ -76,12 +76,15 @@ LABEL_10:
       v7 = v11;
     }
   }
-  RtlRbInsertNodeEx((unsigned __int64 *)v4, v7, v9, a2);
+  RtlRbInsertNodeEx((PRTL_RB_TREE)v4, (PRTL_BALANCED_NODE)v7, v9, a2);
   ExReleaseSpinLockExclusiveFromDpcLevel(v2);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v8 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v8 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

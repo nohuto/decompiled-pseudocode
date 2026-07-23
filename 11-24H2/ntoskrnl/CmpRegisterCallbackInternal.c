@@ -1,17 +1,17 @@
 /*
- * XREFs of CmpRegisterCallbackInternal @ 0x140989A9C
+ * XREFs of CmpRegisterCallbackInternal @ 0x14097354C
  * Callers:
- *     CmRegisterCallback @ 0x1407D1500 (CmRegisterCallback.c)
- *     CmRegisterInternalCallback @ 0x1409899A0 (CmRegisterInternalCallback.c)
- *     EtwpRegTraceEnableCallback @ 0x1409899F0 (EtwpRegTraceEnableCallback.c)
- *     CmRegisterCallbackEx @ 0x140A98060 (CmRegisterCallbackEx.c)
+ *     CmRegisterCallback @ 0x1407D19F0 (CmRegisterCallback.c)
+ *     CmRegisterInternalCallback @ 0x140973450 (CmRegisterInternalCallback.c)
+ *     EtwpRegTraceEnableCallback @ 0x1409734A0 (EtwpRegTraceEnableCallback.c)
+ *     CmRegisterCallbackEx @ 0x140A948B0 (CmRegisterCallbackEx.c)
  * Callees:
- *     CmpInitializeThreadInfo @ 0x1403FA250 (CmpInitializeThreadInfo.c)
- *     CmpCleanupThreadInfo @ 0x14041EE60 (CmpCleanupThreadInfo.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     CmpInsertCallbackInListByAltitude @ 0x140989BD4 (CmpInsertCallbackInListByAltitude.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     CmpInitializeThreadInfo @ 0x1403F0160 (CmpInitializeThreadInfo.c)
+ *     CmpCleanupThreadInfo @ 0x140414BA0 (CmpCleanupThreadInfo.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     CmpInsertCallbackInListByAltitude @ 0x140973684 (CmpInsertCallbackInListByAltitude.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall CmpRegisterCallbackInternal(
@@ -35,7 +35,7 @@ __int64 __fastcall CmpRegisterCallbackInternal(
   v18 = 0LL;
   v19 = 0LL;
   CmpInitializeThreadInfo((_KAFFINITY_EX *)&v18);
-  Pool2 = (_QWORD *)ExAllocatePool2(0x100uLL);
+  Pool2 = (_QWORD *)ExAllocatePool2(0x100uLL, 0x50uLL, 0x62634D43u);
   v11 = Pool2;
   if ( !Pool2 )
   {
@@ -55,7 +55,7 @@ __int64 __fastcall CmpRegisterCallbackInternal(
   LOWORD(v12) = *(_WORD *)a3;
   *((_WORD *)v11 + 25) = *(_WORD *)a3;
   *((_WORD *)v11 + 24) = (_WORD)v12;
-  v13 = (void *)ExAllocatePool2(0x100uLL);
+  v13 = (void *)ExAllocatePool2(0x100uLL, *(unsigned __int16 *)a3, 0x61634D43u);
   v11[7] = v13;
   if ( v13 )
   {

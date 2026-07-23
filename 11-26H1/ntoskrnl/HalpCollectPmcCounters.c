@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpCollectPmcCounters @ 0x1402C7C60
+ * XREFs of HalpCollectPmcCounters @ 0x140312900
  * Callers:
  *     <none>
  * Callees:
- *     HalpDisableInterrupts @ 0x1402C7D00 (HalpDisableInterrupts.c)
+ *     HalpDisableInterrupts @ 0x1403129A0 (HalpDisableInterrupts.c)
  */
 
 __int64 __fastcall HalpCollectPmcCounters(void *a1, __int64 a2)

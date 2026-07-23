@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlpInheritAcl2 @ 0x1408E3180
+ * XREFs of RtlpInheritAcl2 @ 0x1408E9740
  * Callers:
- *     RtlpNewSecurityObject @ 0x1408E0FD0 (RtlpNewSecurityObject.c)
+ *     RtlpNewSecurityObject @ 0x1408E7590 (RtlpNewSecurityObject.c)
  * Callees:
- *     RtlFindAceByType @ 0x1404330E0 (RtlFindAceByType.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     RtlpCopyAces @ 0x1408E3E80 (RtlpCopyAces.c)
- *     RtlpGenerateInheritedAce @ 0x1408E4AA0 (RtlpGenerateInheritedAce.c)
+ *     RtlFindAceByType @ 0x1404281B0 (RtlFindAceByType.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     RtlpCopyAces @ 0x1408EA440 (RtlpCopyAces.c)
+ *     RtlpGenerateInheritedAce @ 0x1408EB060 (RtlpGenerateInheritedAce.c)
  */
 
 __int64 __fastcall RtlpInheritAcl2(
@@ -26,12 +26,12 @@ __int64 __fastcall RtlpInheritAcl2(
         __int64 a13,
         int a14,
         _DWORD *a15,
-        unsigned __int16 *a16,
+        PACL Acl,
         _BYTE *a17,
         int *a18)
 {
   _DWORD *v18; // r13
-  unsigned __int16 *v19; // rdi
+  PACL v19; // rdi
   char v20; // r11
   unsigned int v21; // ebp
   unsigned __int8 *v22; // r10
@@ -48,21 +48,21 @@ __int64 __fastcall RtlpInheritAcl2(
   unsigned __int8 *v35; // rcx
   unsigned int v36; // eax
   char v38; // bl
-  char v39; // bp
+  UCHAR v39; // bp
   unsigned int v40; // edx
   __int64 v41; // rax
   unsigned __int8 *v42; // r14
   char v43; // dl
   unsigned int v44; // r8d
   unsigned int v45; // r15d
-  char *v46; // rdx
-  char *v47; // rcx
+  PACL v46; // rdx
+  PACL v47; // rcx
   unsigned int v48; // r9d
-  char *v49; // r8
+  ACL *v49; // r8
   int InheritedAce; // ecx
-  unsigned int v51; // r9d
+  unsigned int AceCount; // r9d
   unsigned __int16 *v52; // rcx
-  __int64 v53; // r8
+  __int64 AclSize; // r8
   unsigned int v54; // edx
   unsigned __int16 *v55; // r8
   char v56; // [rsp+70h] [rbp-68h]
@@ -78,7 +78,7 @@ __int64 __fastcall RtlpInheritAcl2(
   char v69; // [rsp+100h] [rbp+28h]
 
   v18 = a15;
-  v19 = a16;
+  v19 = Acl;
   v20 = 0;
   v21 = 2;
   v61 = 0;
@@ -96,12 +96,12 @@ __int64 __fastcall RtlpInheritAcl2(
   v59 = 2;
   if ( v23 >= 8 && v23 <= 0xFFFC )
   {
-    memset_0(a16, 0, v23);
+    memset_0(Acl, 0, v23);
     v22 = a2;
-    *v19 = 2;
-    v19[1] = v23 & 0xFFFC;
+    *(_WORD *)&v19->AclRevision = 2;
+    v19->AclSize = v23 & 0xFFFC;
     v20 = 0;
-    *((_DWORD *)v19 + 1) = 0;
+    *(_DWORD *)&v19->AceCount = 0;
     v25 = 2;
   }
   v29 = a17;
@@ -138,13 +138,13 @@ __int64 __fastcall RtlpInheritAcl2(
       return (unsigned int)v33;
     if ( a6 && v61 )
     {
-      v51 = v19[2];
-      v52 = v19 + 4;
-      v53 = v19[1];
+      AceCount = v19->AceCount;
+      v52 = (unsigned __int16 *)&v19[1];
+      AclSize = v19->AclSize;
       v54 = 0;
-      v63 = v51;
-      v55 = (unsigned __int16 *)((char *)v19 + v53);
-      while ( v54 < v51 )
+      v63 = AceCount;
+      v55 = (unsigned __int16 *)((char *)v19 + AclSize);
+      while ( v54 < AceCount )
       {
         if ( v52 >= v55 )
           return 3221225597LL;
@@ -208,7 +208,7 @@ LABEL_21:
     {
       if ( a12 != 3 )
         goto LABEL_56;
-      if ( RtlFindAceByType((__int64)v19, 17, 0LL) )
+      if ( RtlFindAceByType(v19, 0x11u, 0LL) )
       {
         v43 = v69;
         v44 = v60;
@@ -269,23 +269,23 @@ LABEL_30:
     v40 = v58;
     goto LABEL_31;
   }
-  v46 = (char *)(v19 + 4);
+  v46 = v19 + 1;
   v47 = 0LL;
   v48 = 0;
-  v49 = (char *)v19 + v19[1];
-  while ( v48 < v19[2] )
+  v49 = (PACL)((char *)v19 + v19->AclSize);
+  while ( v48 < v19->AceCount )
   {
     if ( v46 >= v49 )
       return 3221225597LL;
     ++v48;
-    v46 += *((unsigned __int16 *)v46 + 1);
+    v46 = (PACL)((char *)v46 + v46->AclSize);
   }
   if ( v46 <= v49 )
     v47 = v46;
   if ( !v47 )
-    LODWORD(v47) = (_DWORD)v19 + v19[1];
-  memmove(v19 + 4, Src, (unsigned int)((_DWORD)v47 - (_DWORD)Src));
-  v19[2] -= v63;
+    LODWORD(v47) = (_DWORD)v19 + v19->AclSize;
+  memmove(&v19[1], Src, (unsigned int)((_DWORD)v47 - (_DWORD)Src));
+  v19->AceCount -= v63;
   v40 = 0;
 LABEL_31:
   v41 = v24 + v40;
@@ -310,8 +310,8 @@ LABEL_32:
   *v18 = v24 + v27 + 8;
   if ( !v38 )
   {
-    *(_BYTE *)v19 = v39;
-    v19[1] = v40 + v24 + 8;
+    v19->AclRevision = v39;
+    v19->AclSize = v40 + v24 + 8;
     return 0LL;
   }
   return 3221225507LL;

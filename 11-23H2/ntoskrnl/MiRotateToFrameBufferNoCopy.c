@@ -1,18 +1,18 @@
 /*
- * XREFs of MiRotateToFrameBufferNoCopy @ 0x140A319A4
+ * XREFs of MiRotateToFrameBufferNoCopy @ 0x140A31C54
  * Callers:
- *     MmRotatePhysicalView @ 0x140A31BD0 (MmRotatePhysicalView.c)
+ *     MmRotatePhysicalView @ 0x140A31E80 (MmRotatePhysicalView.c)
  * Callees:
- *     MiIsPfn @ 0x14023F0C0 (MiIsPfn.c)
- *     MiLegitimatePageForDriversToMap @ 0x1402F14DC (MiLegitimatePageForDriversToMap.c)
- *     MiMapLockedPagesInUserSpaceHelper @ 0x1402F155C (MiMapLockedPagesInUserSpaceHelper.c)
- *     MiSanitizePage @ 0x140335C10 (MiSanitizePage.c)
- *     MiDereferenceIoPages @ 0x1403360F4 (MiDereferenceIoPages.c)
- *     MiReferenceIoPages @ 0x140336500 (MiReferenceIoPages.c)
- *     MiDeleteRotateAndStopFaults @ 0x1406325B8 (MiDeleteRotateAndStopFaults.c)
- *     MiObtainRotateProtectionRanges @ 0x1406328C8 (MiObtainRotateProtectionRanges.c)
- *     MiRotateComplete @ 0x140632DCC (MiRotateComplete.c)
- *     MiGetVadCacheAttribute @ 0x140660BA4 (MiGetVadCacheAttribute.c)
+ *     MiIsPfn @ 0x14023F190 (MiIsPfn.c)
+ *     MiLegitimatePageForDriversToMap @ 0x1402F176C (MiLegitimatePageForDriversToMap.c)
+ *     MiMapLockedPagesInUserSpaceHelper @ 0x1402F17EC (MiMapLockedPagesInUserSpaceHelper.c)
+ *     MiSanitizePage @ 0x140335EA0 (MiSanitizePage.c)
+ *     MiDereferenceIoPages @ 0x140336384 (MiDereferenceIoPages.c)
+ *     MiReferenceIoPages @ 0x140336790 (MiReferenceIoPages.c)
+ *     MiDeleteRotateAndStopFaults @ 0x140632B08 (MiDeleteRotateAndStopFaults.c)
+ *     MiObtainRotateProtectionRanges @ 0x140632E18 (MiObtainRotateProtectionRanges.c)
+ *     MiRotateComplete @ 0x14063331C (MiRotateComplete.c)
+ *     MiGetVadCacheAttribute @ 0x1406610F4 (MiGetVadCacheAttribute.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

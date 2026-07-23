@@ -1,18 +1,18 @@
 /*
- * XREFs of I_MinCryptVerifyAuthenticodeTimeStamp @ 0x1408A250C
+ * XREFs of I_MinCryptVerifyAuthenticodeTimeStamp @ 0x1408A891C
  * Callers:
- *     I_MinCryptGetSigningTime @ 0x1408A23A4 (I_MinCryptGetSigningTime.c)
+ *     I_MinCryptGetSigningTime @ 0x1408A87B4 (I_MinCryptGetSigningTime.c)
  * Callees:
- *     MinCryptHashMemory @ 0x14071C940 (MinCryptHashMemory.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     MinCryptDecodeHashAlgorithmIdentifier @ 0x1408A03B0 (MinCryptDecodeHashAlgorithmIdentifier.c)
- *     MinCryptVerifySignedHash2 @ 0x1408A04B0 (MinCryptVerifySignedHash2.c)
- *     MinCryptVerifyCertificateWithPolicy2 @ 0x1408A0AA4 (MinCryptVerifyCertificateWithPolicy2.c)
- *     I_MinCryptFindSignerCertificateByIssuerAndSerialNumber @ 0x1408A2258 (I_MinCryptFindSignerCertificateByIssuerAndSerialNumber.c)
- *     I_MinCryptVerifySignerAuthenticatedAttributes @ 0x1408A29D8 (I_MinCryptVerifySignerAuthenticatedAttributes.c)
- *     I_MinAsn1ParseSingleAttribute @ 0x1408A308C (I_MinAsn1ParseSingleAttribute.c)
- *     MinAsn1DecodeTime @ 0x1408A4510 (MinAsn1DecodeTime.c)
- *     MinAsn1ExtractValues @ 0x1408A4838 (MinAsn1ExtractValues.c)
+ *     MinCryptHashMemory @ 0x1407215D0 (MinCryptHashMemory.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     MinCryptDecodeHashAlgorithmIdentifier @ 0x1408A67C0 (MinCryptDecodeHashAlgorithmIdentifier.c)
+ *     MinCryptVerifySignedHash2 @ 0x1408A68C0 (MinCryptVerifySignedHash2.c)
+ *     MinCryptVerifyCertificateWithPolicy2 @ 0x1408A6EB4 (MinCryptVerifyCertificateWithPolicy2.c)
+ *     I_MinCryptFindSignerCertificateByIssuerAndSerialNumber @ 0x1408A8668 (I_MinCryptFindSignerCertificateByIssuerAndSerialNumber.c)
+ *     I_MinCryptVerifySignerAuthenticatedAttributes @ 0x1408A8DE8 (I_MinCryptVerifySignerAuthenticatedAttributes.c)
+ *     I_MinAsn1ParseSingleAttribute @ 0x1408A949C (I_MinAsn1ParseSingleAttribute.c)
+ *     MinAsn1DecodeTime @ 0x1408AA920 (MinAsn1DecodeTime.c)
+ *     MinAsn1ExtractValues @ 0x1408AAC48 (MinAsn1ExtractValues.c)
  */
 
 __int64 __fastcall I_MinCryptVerifyAuthenticodeTimeStamp(
@@ -56,7 +56,7 @@ __int64 __fastcall I_MinCryptVerifyAuthenticodeTimeStamp(
   v22[1] = 0;
   v19 = 0;
   v20 = 11;
-  Values = MinAsn1ExtractValues(v10, v9, (unsigned int)&v20, (unsigned int)&qword_14000FFE0, 9, (__int64)v25);
+  Values = MinAsn1ExtractValues(v10, v9, (unsigned int)&v20, (unsigned int)&qword_1400103D0, 9, (__int64)v25);
   if ( Values > 0 )
     Values = v26;
   if ( Values < 0 )
@@ -71,7 +71,7 @@ __int64 __fastcall I_MinCryptVerifyAuthenticodeTimeStamp(
               SignerCertificateByIssuerAndSerialNumber,
               a4,
               a5,
-              (__int64)qword_140BDB400,
+              (__int64)qword_140BE22B0,
               a6,
               0LL) < 0 )
   {
@@ -87,14 +87,14 @@ __int64 __fastcall I_MinCryptVerifyAuthenticodeTimeStamp(
   v16 = MinCryptHashMemory(v15);
   if ( v16 < 0
     || v30[0] && (v16 = I_MinCryptVerifySignerAuthenticatedAttributes(v15, v32, &v19, v30, &v19), v16 < 0)
-    || (v16 = MinCryptVerifySignedHash2(v15, (int)v32, v19, v31, v14 + 176, (__int64)qword_140BDB400), v16 < 0) )
+    || (v16 = MinCryptVerifySignedHash2(v15, (int)v32, v19, v31, v14 + 176, (__int64)qword_140BE22B0), v16 < 0) )
   {
     *a7 |= 0x40000u;
   }
   else
   {
     v22[0] = 9;
-    v23 = qword_140BD9478;
+    v23 = qword_140BE0328;
     if ( !(unsigned __int8)I_MinAsn1ParseSingleAttribute(v22, v30, v17, &v24) )
       return (unsigned int)-1073740760;
     if ( !(unsigned __int8)MinAsn1DecodeTime(&v24, a8) )

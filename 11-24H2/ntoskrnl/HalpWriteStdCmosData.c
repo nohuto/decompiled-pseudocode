@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpWriteStdCmosData @ 0x140425210
+ * XREFs of HalpWriteStdCmosData @ 0x1404190C0
  * Callers:
  *     <none>
  * Callees:
- *     HalpWriteCmosDataByPort @ 0x140425230 (HalpWriteCmosDataByPort.c)
+ *     HalpWriteCmosDataByPort @ 0x1404190E0 (HalpWriteCmosDataByPort.c)
  */
 
 __int64 __fastcall HalpWriteStdCmosData(int a1, int a2, int a3)

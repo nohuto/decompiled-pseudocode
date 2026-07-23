@@ -1,11 +1,11 @@
 /*
- * XREFs of SeAssignSecurity @ 0x140918AC0
+ * XREFs of SeAssignSecurity @ 0x14090C530
  * Callers:
- *     CmpCreateChild @ 0x14091788C (CmpCreateChild.c)
- *     CmpCreateHiveRootCell @ 0x140AA6F78 (CmpCreateHiveRootCell.c)
- *     CmFcInitSystem2 @ 0x140C4A21C (CmFcInitSystem2.c)
+ *     CmpCreateChild @ 0x14090B2FC (CmpCreateChild.c)
+ *     CmpCreateHiveRootCell @ 0x140AA2078 (CmpCreateHiveRootCell.c)
+ *     CmFcInitSystem2 @ 0x140C4C3B8 (CmFcInitSystem2.c)
  * Callees:
- *     RtlpNewSecurityObject @ 0x14091A290 (RtlpNewSecurityObject.c)
+ *     RtlpNewSecurityObject @ 0x14090DD00 (RtlpNewSecurityObject.c)
  */
 
 NTSTATUS __stdcall SeAssignSecurity(

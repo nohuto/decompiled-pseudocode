@@ -16,7 +16,7 @@ __int64 __fastcall HaliSetWakeAlarm(unsigned __int64 a1, unsigned __int64 a2)
   signed __int64 v2; // rdi
   signed __int64 v3; // rbx
   __int64 v5; // rcx
-  TIME_FIELDS TimeFields; // [rsp+30h] [rbp-18h] BYREF
+  _TIME_FIELDS TimeFields; // [rsp+30h] [rbp-18h] BYREF
   LARGE_INTEGER Time; // [rsp+50h] [rbp+8h] BYREF
 
   Time.QuadPart = 0LL;

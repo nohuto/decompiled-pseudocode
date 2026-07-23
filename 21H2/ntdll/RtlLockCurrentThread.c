@@ -4,42 +4,42 @@
  *     <none>
  * Callees:
  *     RtlpLockStack @ 0x180083D58 (RtlpLockStack.c)
- *     ZwQueryVirtualMemory @ 0x18009DAA0 (ZwQueryVirtualMemory.c)
- *     NtLockVirtualMemory @ 0x18009F7F0 (NtLockVirtualMemory.c)
- *     ZwUnlockVirtualMemory @ 0x1800A0FD0 (ZwUnlockVirtualMemory.c)
+ *     ZwQueryVirtualMemory @ 0x18009DA60 (ZwQueryVirtualMemory.c)
+ *     NtLockVirtualMemory @ 0x18009F7B0 (NtLockVirtualMemory.c)
+ *     ZwUnlockVirtualMemory @ 0x1800A0F90 (ZwUnlockVirtualMemory.c)
  */
 
-__int64 RtlLockCurrentThread()
+NTSTATUS RtlLockCurrentThread(void)
 {
   struct _TEB *v0; // rbx
   unsigned int LockCount; // eax
   int VirtualMemory; // edi
-  __int64 result; // rax
+  NTSTATUS result; // eax
   _QWORD v4[6]; // [rsp+30h] [rbp-38h] BYREF
-  __int64 v5; // [rsp+70h] [rbp+8h] BYREF
-  __int64 v6; // [rsp+78h] [rbp+10h] BYREF
+  ULONG_PTR RegionSize; // [rsp+70h] [rbp+8h] BYREF
+  PVOID BaseAddress; // [rsp+78h] [rbp+10h] BYREF
 
   v0 = NtCurrentTeb();
   LockCount = v0->LockCount;
   if ( LockCount )
   {
     v0->LockCount = LockCount + 1;
-    return 0LL;
+    return 0;
   }
-  VirtualMemory = ZwQueryVirtualMemory(-1LL, v0, 0LL, v4, 48LL, 0LL);
+  VirtualMemory = ZwQueryVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, v0, MemoryBasicInformation, v4, 0x30uLL, 0LL);
   if ( VirtualMemory < 0 )
-    return (unsigned int)VirtualMemory;
-  v6 = v4[0];
-  v5 = v4[3];
-  result = NtLockVirtualMemory(-1LL, &v6, &v5, 1LL);
-  if ( (int)result < 0 )
+    return VirtualMemory;
+  BaseAddress = (PVOID)v4[0];
+  RegionSize = v4[3];
+  result = NtLockVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, &RegionSize, 1u);
+  if ( result < 0 )
     return result;
   VirtualMemory = RtlpLockStack();
   if ( VirtualMemory < 0 )
   {
-    ZwUnlockVirtualMemory(-1LL, &v6, &v5, 1LL);
-    return (unsigned int)VirtualMemory;
+    ZwUnlockVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, &RegionSize, 1u);
+    return VirtualMemory;
   }
   v0->LockCount = 1;
-  return 0LL;
+  return 0;
 }

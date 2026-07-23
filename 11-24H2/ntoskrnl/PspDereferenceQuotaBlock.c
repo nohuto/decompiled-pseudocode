@@ -1,11 +1,11 @@
 /*
- * XREFs of PspDereferenceQuotaBlock @ 0x1409D59C0
+ * XREFs of PspDereferenceQuotaBlock @ 0x1409C57F0
  * Callers:
- *     PspDereferenceQuota @ 0x1408A9418 (PspDereferenceQuota.c)
+ *     PspDereferenceQuota @ 0x1408FF678 (PspDereferenceQuota.c)
  * Callees:
- *     PspReturnResourceQuota @ 0x14024B468 (PspReturnResourceQuota.c)
- *     PspRemoveQuotaBlock @ 0x1409D5BC0 (PspRemoveQuotaBlock.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     PspReturnResourceQuota @ 0x14027BA78 (PspReturnResourceQuota.c)
+ *     PspRemoveQuotaBlock @ 0x1409C59F0 (PspRemoveQuotaBlock.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PspDereferenceQuotaBlock(char *P, __int64 a2, __int64 a3, __int64 a4)
@@ -36,7 +36,7 @@ void __fastcall PspDereferenceQuotaBlock(char *P, __int64 a2, __int64 a3, __int6
 LABEL_22:
         PspReturnResourceQuota(0, (__int64)P, a3, a4);
 LABEL_6:
-        if ( (byte_140FC6348 & 3) != 1 )
+        if ( (byte_140FC7398 & 3) != 1 )
           goto LABEL_10;
         a4 = *((_QWORD *)P + 26);
         a3 = *((_QWORD *)P + 24);
@@ -52,7 +52,7 @@ LABEL_6:
 LABEL_26:
             PspReturnResourceQuota(1u, (__int64)(P + 128), a3, a4 != 0);
 LABEL_10:
-            if ( (byte_140FC6350 & 3) != 1 )
+            if ( (byte_140FC73A0 & 3) != 1 )
               goto LABEL_14;
             a4 = *((_QWORD *)P + 42);
             a3 = *((_QWORD *)P + 40);
@@ -69,7 +69,7 @@ LABEL_30:
                 PspReturnResourceQuota(2u, (__int64)(P + 256), a3, a4 != 0);
 LABEL_14:
                 v6 = P + 384;
-                if ( (byte_140FC6358 & 3) != 1 )
+                if ( (byte_140FC73A8 & 3) != 1 )
                 {
 LABEL_18:
                   PspRemoveQuotaBlock(P, v6, a3, a4);

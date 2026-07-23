@@ -1,15 +1,15 @@
 /*
- * XREFs of MiIsPfnCommitNotCharged @ 0x14004F140
+ * XREFs of MiIsPfnCommitNotCharged @ 0x14004ECC0
  * Callers:
- *     MiMigratePfn @ 0x140036E10 (MiMigratePfn.c)
- *     MiWalkEntireImage @ 0x14004C570 (MiWalkEntireImage.c)
- *     MiFinishHardFault @ 0x14004D6A0 (MiFinishHardFault.c)
- *     MiWriteCompletePfn @ 0x14004E5A0 (MiWriteCompletePfn.c)
- *     MiRemoveLockedPageChargeAndDecRef @ 0x14004E740 (MiRemoveLockedPageChargeAndDecRef.c)
- *     MiCheckProtoPtePageState @ 0x14004E9B0 (MiCheckProtoPtePageState.c)
- *     MiLockProtoPoolPage @ 0x14004ED80 (MiLockProtoPoolPage.c)
- *     MiChargeForLockedPage @ 0x140103380 (MiChargeForLockedPage.c)
- *     MiCombineCandidate @ 0x1401F7E78 (MiCombineCandidate.c)
+ *     MiMigratePfn @ 0x140036990 (MiMigratePfn.c)
+ *     MiWalkEntireImage @ 0x14004C0F0 (MiWalkEntireImage.c)
+ *     MiFinishHardFault @ 0x14004D220 (MiFinishHardFault.c)
+ *     MiWriteCompletePfn @ 0x14004E120 (MiWriteCompletePfn.c)
+ *     MiRemoveLockedPageChargeAndDecRef @ 0x14004E2C0 (MiRemoveLockedPageChargeAndDecRef.c)
+ *     MiCheckProtoPtePageState @ 0x14004E530 (MiCheckProtoPtePageState.c)
+ *     MiLockProtoPoolPage @ 0x14004E900 (MiLockProtoPoolPage.c)
+ *     MiChargeForLockedPage @ 0x140101100 (MiChargeForLockedPage.c)
+ *     MiCombineCandidate @ 0x1401F7CA4 (MiCombineCandidate.c)
  * Callees:
  *     <none>
  */

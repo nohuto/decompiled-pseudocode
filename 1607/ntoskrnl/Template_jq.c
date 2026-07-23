@@ -1,11 +1,11 @@
 /*
- * XREFs of Template_jq @ 0x1401B9E0C
+ * XREFs of Template_jq @ 0x1401B9CF0
  * Callers:
- *     McGenControlCallbackV2 @ 0x14014735C (McGenControlCallbackV2.c)
- *     FsRtlpHeatRegisterVolume @ 0x14061F89C (FsRtlpHeatRegisterVolume.c)
+ *     McGenControlCallbackV2 @ 0x1401478CC (McGenControlCallbackV2.c)
+ *     FsRtlpHeatRegisterVolume @ 0x14061F950 (FsRtlpHeatRegisterVolume.c)
  * Callees:
- *     EtwWrite @ 0x140013320 (EtwWrite.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     EtwWrite @ 0x140012EA0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall Template_jq(__int64 a1, __int64 a2, const GUID *a3, ULONGLONG a4, __int64 a5)

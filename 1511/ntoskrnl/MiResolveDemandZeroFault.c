@@ -505,7 +505,9 @@ LABEL_44:
     if ( *(_DWORD *)(((unsigned __int64)v245 & 0xFFFFFFFFFFFFFFE0uLL) + 0x2C)
       || (*(_BYTE *)(a5 + 216) & 7) == 1
       || a2 + 0x80000000000LL <= 0x7FFFFFFFFFLL
-      || PsNtosImageBase && (a2 >= PsNtosImageBase && a2 < PsNtosImageEnd || a2 >= PsHalImageBase && a2 < PsHalImageEnd) )
+      || PsNtosImageBase
+      && (a2 >= (unsigned __int64)PsNtosImageBase && a2 < PsNtosImageEnd
+       || a2 >= (unsigned __int64)PsHalImageBase && a2 < PsHalImageEnd) )
     {
       if ( (unsigned int)v31 >> 3 == 3 && (v31 & 7) != 0 )
       {

@@ -6,13 +6,13 @@
  *     KiFindNextTimerDueTime @ 0x14005FD20 (KiFindNextTimerDueTime.c)
  *     MmGetNextNode @ 0x140061FC0 (MmGetNextNode.c)
  *     KiGetNextTimerExpirationDueTime @ 0x140061FF0 (KiGetNextTimerExpirationDueTime.c)
- *     KeAddProcessorAffinityEx @ 0x140063A40 (KeAddProcessorAffinityEx.c)
- *     KeEnumerateNextProcessor @ 0x140063BE0 (KeEnumerateNextProcessor.c)
- *     KeGetPrcb @ 0x1400A62C4 (KeGetPrcb.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     PpmGetIdleConstrainedMask @ 0x1402D3F3C (PpmGetIdleConstrainedMask.c)
- *     ExGetNextWakeTimeForDeepSleep @ 0x14031C5BC (ExGetNextWakeTimeForDeepSleep.c)
+ *     KeAddProcessorAffinityEx @ 0x140063A30 (KeAddProcessorAffinityEx.c)
+ *     KeEnumerateNextProcessor @ 0x140063BD0 (KeEnumerateNextProcessor.c)
+ *     KeGetPrcb @ 0x1400A6204 (KeGetPrcb.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     PpmGetIdleConstrainedMask @ 0x1402D412C (PpmGetIdleConstrainedMask.c)
+ *     ExGetNextWakeTimeForDeepSleep @ 0x14031C7AC (ExGetNextWakeTimeForDeepSleep.c)
  */
 
 __int64 __fastcall PpmIdlePrepare(
@@ -207,7 +207,7 @@ LABEL_12:
       *(_DWORD *)(v9 + 528) = v19;
       if ( PpmIdleRespectIdleStateMax )
       {
-        v20 = BYTE2(PpmCurrentProfile[341 * dword_1404180CC + 24]);
+        v20 = BYTE2(PpmCurrentProfile[341 * dword_14041918C + 24]);
         *(_BYTE *)(v9 + 542) = v20;
         if ( v20 )
           *(_WORD *)(v9 + 48) |= 0x4000u;
@@ -287,7 +287,7 @@ LABEL_59:
         if ( KiGroupSchedulingEnabled )
         {
           v51 = (unsigned int)KiProcessorIndexToNumberMappingTable[*(unsigned int *)(v6 + 36)];
-          if ( (((unsigned __int64)qword_140403D58[v51 >> 6] >> (v51 & 0x3F)) & 1) != 0
+          if ( (((unsigned __int64)qword_140404D58[v51 >> 6] >> (v51 & 0x3F)) & 1) != 0
             && KiGenerationEndTick * (unsigned __int64)KeMaximumIncrement < v31 )
           {
             v31 = KiGenerationEndTick * KeMaximumIncrement;
@@ -301,10 +301,10 @@ LABEL_59:
         v59 = -1LL;
         do
         {
-          if ( qword_140421D70[3 * v58] < v59 )
+          if ( qword_140422E50[3 * v58] < v59 )
           {
             v34 = (unsigned __int8)v34;
-            v59 = qword_140421D70[3 * v58];
+            v59 = qword_140422E50[3 * v58];
             if ( v58 == 3 )
               v34 = 1LL;
           }
@@ -321,7 +321,7 @@ LABEL_59:
             v32 = 7;
         }
         if ( *(_BYTE *)(v78 + 33)
-          && (v60 = ((__int64 (__fastcall *)(__int64, unsigned __int64, __int64))off_1403FE6A8[0])(v58, v59, v34)) != 0 )
+          && (v60 = ((__int64 (__fastcall *)(__int64, unsigned __int64, __int64))off_1403FF6A8[0])(v58, v59, v34)) != 0 )
         {
           v22 = v71;
           if ( v31 > v60 )

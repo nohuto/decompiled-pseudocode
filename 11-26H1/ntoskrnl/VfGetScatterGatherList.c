@@ -1,25 +1,25 @@
 /*
- * XREFs of VfGetScatterGatherList @ 0x140C24B80
+ * XREFs of VfGetScatterGatherList @ 0x140C2AB90
  * Callers:
  *     <none>
  * Callees:
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     ExAllocateFromNPagedLookasideList @ 0x1402C1770 (ExAllocateFromNPagedLookasideList.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     ExFreeToNPagedLookasideList @ 0x1403B5A60 (ExFreeToNPagedLookasideList.c)
- *     VfReportIssueWithOptions @ 0x140645558 (VfReportIssueWithOptions.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     DECREMENT_SCATTER_GATHER_LISTS @ 0x140C22B9C (DECREMENT_SCATTER_GATHER_LISTS.c)
- *     VERIFY_BUFFER_LOCKED @ 0x140C22E10 (VERIFY_BUFFER_LOCKED.c)
- *     VF_ASSERT_IRQL @ 0x140C22E9C (VF_ASSERT_IRQL.c)
- *     ViAllocateMapRegisterFile @ 0x140C25F78 (ViAllocateMapRegisterFile.c)
- *     ViCheckMdlLength @ 0x140C26518 (ViCheckMdlLength.c)
- *     ViFreeMapRegisterFile @ 0x140C26C90 (ViFreeMapRegisterFile.c)
- *     ViGetAdapterInformationInternal @ 0x140C26F80 (ViGetAdapterInformationInternal.c)
- *     ViGetRealDmaAdapter @ 0x140C271E4 (ViGetRealDmaAdapter.c)
- *     ViHalPreprocessOptions @ 0x140C2731C (ViHalPreprocessOptions.c)
- *     ViMapDoubleBuffer @ 0x140C27768 (ViMapDoubleBuffer.c)
- *     ViSwap @ 0x140C27F8C (ViSwap.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     ExAllocateFromNPagedLookasideList @ 0x14030C430 (ExAllocateFromNPagedLookasideList.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ExFreeToNPagedLookasideList @ 0x1403BF960 (ExFreeToNPagedLookasideList.c)
+ *     VfReportIssueWithOptions @ 0x140649138 (VfReportIssueWithOptions.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     DECREMENT_SCATTER_GATHER_LISTS @ 0x140C28BAC (DECREMENT_SCATTER_GATHER_LISTS.c)
+ *     VERIFY_BUFFER_LOCKED @ 0x140C28E20 (VERIFY_BUFFER_LOCKED.c)
+ *     VF_ASSERT_IRQL @ 0x140C28EAC (VF_ASSERT_IRQL.c)
+ *     ViAllocateMapRegisterFile @ 0x140C2BF88 (ViAllocateMapRegisterFile.c)
+ *     ViCheckMdlLength @ 0x140C2C528 (ViCheckMdlLength.c)
+ *     ViFreeMapRegisterFile @ 0x140C2CCA0 (ViFreeMapRegisterFile.c)
+ *     ViGetAdapterInformationInternal @ 0x140C2CF90 (ViGetAdapterInformationInternal.c)
+ *     ViGetRealDmaAdapter @ 0x140C2D1F4 (ViGetRealDmaAdapter.c)
+ *     ViHalPreprocessOptions @ 0x140C2D32C (ViHalPreprocessOptions.c)
+ *     ViMapDoubleBuffer @ 0x140C2D778 (ViMapDoubleBuffer.c)
+ *     ViSwap @ 0x140C2DF9C (ViSwap.c)
  */
 
 __int64 VfGetScatterGatherList(int a1, __int64 a2, ...)
@@ -98,18 +98,18 @@ __int64 VfGetScatterGatherList(int a1, __int64 a2, ...)
     {
       v11 = v10;
       ViHalPreprocessOptions(
-        byte_140E0EAA8,
+        byte_140E0EAF8,
         "The provided MDL is not sufficient to satisfy the requested length",
         36LL,
         v10,
         0LL,
         0LL);
-      VfReportIssueWithOptions(0xE6u, 0x24uLL, v11, 0LL, 0LL, byte_140E0EAA8);
+      VfReportIssueWithOptions(0xE6u, 0x24uLL, v11, 0LL, 0LL, byte_140E0EAF8);
     }
   }
   if ( !ViDoubleBufferDma )
     goto LABEL_20;
-  v12 = ExAllocateFromNPagedLookasideList((PPAGED_LOOKASIDE_LIST)&stru_140E27B08.AffinityVersion);
+  v12 = ExAllocateFromNPagedLookasideList((PPAGED_LOOKASIDE_LIST)&stru_140E27C48.AffinityVersion);
   v3 = v12;
   if ( !v12 )
     goto LABEL_20;
@@ -140,7 +140,7 @@ __int64 VfGetScatterGatherList(int a1, __int64 a2, ...)
   if ( v17 + 4096 < v14 + v7 )
   {
     DECREMENT_SCATTER_GATHER_LISTS(v8);
-    ExFreeToNPagedLookasideList((PPAGED_LOOKASIDE_LIST)&stru_140E27B08.AffinityVersion, v3);
+    ExFreeToNPagedLookasideList((PPAGED_LOOKASIDE_LIST)&stru_140E27C48.AffinityVersion, v3);
     return 3221225507LL;
   }
   v3[7] = v8;
@@ -161,7 +161,7 @@ __int64 VfGetScatterGatherList(int a1, __int64 a2, ...)
   {
     ViFreeMapRegisterFile(v8);
 LABEL_16:
-    ExFreeToNPagedLookasideList((PPAGED_LOOKASIDE_LIST)&stru_140E27B08.AffinityVersion, v3);
+    ExFreeToNPagedLookasideList((PPAGED_LOOKASIDE_LIST)&stru_140E27C48.AffinityVersion, v3);
     v3 = 0LL;
     goto LABEL_20;
   }
@@ -188,7 +188,7 @@ LABEL_20:
       *v30 = v29;
       *(_QWORD *)(v29 + 8) = v30;
       KeReleaseSpinLock((PKSPIN_LOCK)(v8 + 104), v28);
-      ExFreeToNPagedLookasideList((PPAGED_LOOKASIDE_LIST)&stru_140E27B08.AffinityVersion, v3);
+      ExFreeToNPagedLookasideList((PPAGED_LOOKASIDE_LIST)&stru_140E27C48.AffinityVersion, v3);
     }
   }
   return v27;

@@ -1,11 +1,11 @@
 /*
- * XREFs of ExpDeleteResource @ 0x1403D4A68
+ * XREFs of ExpDeleteResource @ 0x1403D4C48
  * Callers:
- *     ExDeleteFastResource @ 0x1403D49D0 (ExDeleteFastResource.c)
+ *     ExDeleteFastResource @ 0x1403D4BB0 (ExDeleteFastResource.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void __fastcall ExpDeleteResource(_QWORD *a1)
@@ -29,10 +29,13 @@ void __fastcall ExpDeleteResource(_QWORD *a1)
   *v3 = v5;
   *(_QWORD *)(v5 + 8) = v3;
   ExReleaseSpinLockExclusiveFromDpcLevel(&ExpResourceSpinLock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v4 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v4 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

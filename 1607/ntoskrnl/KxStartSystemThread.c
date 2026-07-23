@@ -1,9 +1,9 @@
 /*
- * XREFs of KxStartSystemThread @ 0x140166420
+ * XREFs of KxStartSystemThread @ 0x140166990
  * Callers:
  *     <none>
  * Callees:
- *     KeBugCheck @ 0x14015D4F0 (KeBugCheck.c)
+ *     KeBugCheck @ 0x14015DA60 (KeBugCheck.c)
  */
 
 void __noreturn KxStartSystemThread()

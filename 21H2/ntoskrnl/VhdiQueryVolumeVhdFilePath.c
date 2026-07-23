@@ -1,22 +1,19 @@
 /*
- * XREFs of VhdiQueryVolumeVhdFilePath @ 0x140A951A8
+ * XREFs of VhdiQueryVolumeVhdFilePath @ 0x140A961A8
  * Callers:
- *     VhdiInitializeBootDisk @ 0x140A94990 (VhdiInitializeBootDisk.c)
+ *     VhdiInitializeBootDisk @ 0x140A95990 (VhdiInitializeBootDisk.c)
  * Callees:
- *     ExFreeHeapPool @ 0x140341AC0 (ExFreeHeapPool.c)
- *     ZwDeviceIoControlFile @ 0x1403FA480 (ZwDeviceIoControlFile.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     ExFreeHeapPool @ 0x14034C810 (ExFreeHeapPool.c)
+ *     ZwDeviceIoControlFile @ 0x1403FA660 (ZwDeviceIoControlFile.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 ULONG_PTR __fastcall VhdiQueryVolumeVhdFilePath(HANDLE FileHandle)
 {
   ULONG OutputBufferLength; // edi
   PVOID OutputBuffer; // rax
-  __int64 v5; // rdx
-  __int64 v6; // r8
-  _DWORD *v7; // r9
-  ULONG_PTR v8; // rbx
-  NTSTATUS v9; // eax
+  ULONG_PTR v5; // rbx
+  NTSTATUS v6; // eax
   struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+50h] [rbp-18h] BYREF
 
   IoStatusBlock = 0LL;
@@ -25,10 +22,10 @@ ULONG_PTR __fastcall VhdiQueryVolumeVhdFilePath(HANDLE FileHandle)
   for ( OutputBufferLength = 520; ; OutputBufferLength *= 2 )
   {
     OutputBuffer = ExAllocatePoolWithTag(NonPagedPoolNx, OutputBufferLength, 0x42646856u);
-    v8 = (ULONG_PTR)OutputBuffer;
+    v5 = (ULONG_PTR)OutputBuffer;
     if ( !OutputBuffer )
       break;
-    v9 = ZwDeviceIoControlFile(
+    v6 = ZwDeviceIoControlFile(
            FileHandle,
            0LL,
            0LL,
@@ -39,19 +36,19 @@ ULONG_PTR __fastcall VhdiQueryVolumeVhdFilePath(HANDLE FileHandle)
            0,
            OutputBuffer,
            OutputBufferLength);
-    if ( v9 != -1073741789 )
+    if ( v6 != -1073741789 )
       goto LABEL_8;
-    ExFreeHeapPool(v8, v5, v6, v7);
+    ExFreeHeapPool(v5);
   }
-  v9 = -1073741801;
+  v6 = -1073741801;
 LABEL_8:
-  if ( v9 < 0 )
+  if ( v6 < 0 )
   {
-    if ( v8 )
+    if ( v5 )
     {
-      ExFreeHeapPool(v8, v5, v6, v7);
+      ExFreeHeapPool(v5);
       return 0LL;
     }
   }
-  return v8;
+  return v5;
 }

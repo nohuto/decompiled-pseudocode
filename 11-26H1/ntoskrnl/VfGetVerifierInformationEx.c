@@ -1,10 +1,10 @@
 /*
- * XREFs of VfGetVerifierInformationEx @ 0x140C200F4
+ * XREFs of VfGetVerifierInformationEx @ 0x140C26100
  * Callers:
- *     ExpQuerySystemInformation @ 0x140B145DC (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x140B169CC (ExpQuerySystemInformation.c)
  * Callees:
- *     RtlCopyToUser @ 0x14077F284 (RtlCopyToUser.c)
- *     RtlSetUserMemory @ 0x14077F608 (RtlSetUserMemory.c)
+ *     RtlCopyToUser @ 0x140781D84 (RtlCopyToUser.c)
+ *     RtlSetUserMemory @ 0x140782108 (RtlSetUserMemory.c)
  */
 
 __int64 __fastcall VfGetVerifierInformationEx(char *a1)
@@ -14,7 +14,7 @@ __int64 __fastcall VfGetVerifierInformationEx(char *a1)
   int v5; // [rsp+48h] [rbp+20h] BYREF
 
   Src = VfVerifyMode;
-  v4 = dword_140F08700;
+  v4 = dword_140F08AA0;
   v5 = 1000 * VfWdCancelTimeoutTicks;
   RtlSetUserMemory(a1, 0, 0x28uLL);
   RtlCopyToUser(a1, &Src, 4uLL);

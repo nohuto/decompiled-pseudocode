@@ -1,9 +1,9 @@
 /*
- * XREFs of SeSetSecurityAccessMask @ 0x1405BA00C
+ * XREFs of SeSetSecurityAccessMask @ 0x1405BB00C
  * Callers:
- *     CmpSetKeySecurity @ 0x1405B8548 (CmpSetKeySecurity.c)
- *     NtSetSecurityObject @ 0x1405B9CF0 (NtSetSecurityObject.c)
- *     IoCheckFunctionAccess @ 0x1406F7370 (IoCheckFunctionAccess.c)
+ *     CmpSetKeySecurity @ 0x1405B9548 (CmpSetKeySecurity.c)
+ *     NtSetSecurityObject @ 0x1405BACF0 (NtSetSecurityObject.c)
+ *     IoCheckFunctionAccess @ 0x1406F8610 (IoCheckFunctionAccess.c)
  * Callees:
  *     <none>
  */

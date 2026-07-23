@@ -1,17 +1,17 @@
 /*
- * XREFs of PopPepCompleteComponentIdleStateChangeActivity @ 0x1403B20A0
+ * XREFs of PopPepCompleteComponentIdleStateChangeActivity @ 0x1403BBDB0
  * Callers:
  *     <none>
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KxReleaseSpinLock @ 0x1402BDEF0 (KxReleaseSpinLock.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     PopFxUpdateAccountingActiveTime @ 0x140395DB8 (PopFxUpdateAccountingActiveTime.c)
- *     PopPepTriggerActivity @ 0x1403AFA10 (PopPepTriggerActivity.c)
- *     PopPepGetComponentPreferedIdleState @ 0x1403B1B10 (PopPepGetComponentPreferedIdleState.c)
- *     PopPepUpdateIdleStateRefCount @ 0x1403B2278 (PopPepUpdateIdleStateRefCount.c)
- *     PopFxUpdateComponentPerfStateNominalChange @ 0x140605B54 (PopFxUpdateComponentPerfStateNominalChange.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     KxReleaseSpinLock @ 0x140308BB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PopFxUpdateAccountingActiveTime @ 0x140397B38 (PopFxUpdateAccountingActiveTime.c)
+ *     PopPepTriggerActivity @ 0x1403B9720 (PopPepTriggerActivity.c)
+ *     PopPepGetComponentPreferedIdleState @ 0x1403BB820 (PopPepGetComponentPreferedIdleState.c)
+ *     PopPepUpdateIdleStateRefCount @ 0x1403BBF88 (PopPepUpdateIdleStateRefCount.c)
+ *     PopFxUpdateComponentPerfStateNominalChange @ 0x140608654 (PopFxUpdateComponentPerfStateNominalChange.c)
  */
 
 void __fastcall PopPepCompleteComponentIdleStateChangeActivity(__int64 a1, __int64 a2)

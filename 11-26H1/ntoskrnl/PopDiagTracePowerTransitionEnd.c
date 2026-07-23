@@ -1,12 +1,12 @@
 /*
- * XREFs of PopDiagTracePowerTransitionEnd @ 0x140B623B0
+ * XREFs of PopDiagTracePowerTransitionEnd @ 0x140B65450
  * Callers:
- *     PopIssueActionRequest @ 0x140A37878 (PopIssueActionRequest.c)
+ *     PopIssueActionRequest @ 0x1409F3438 (PopIssueActionRequest.c)
  * Callees:
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     EtwWriteEndScenario @ 0x140ADB480 (EtwWriteEndScenario.c)
- *     PopQueryMostRecentWakeSourceInfo @ 0x140B62680 (PopQueryMostRecentWakeSourceInfo.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     EtwWriteEndScenario @ 0x140AD7F30 (EtwWriteEndScenario.c)
+ *     PopQueryMostRecentWakeSourceInfo @ 0x140B65720 (PopQueryMostRecentWakeSourceInfo.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PopDiagTracePowerTransitionEnd(int a1)
@@ -58,7 +58,7 @@ void __fastcall PopDiagTracePowerTransitionEnd(int a1)
   *(_OWORD *)P = 0LL;
   v12 = 0LL;
   v11 = 0LL;
-  if ( byte_140E67628 )
+  if ( PopDiagHandleRegistered )
   {
     v8[0] = 1441792;
     v10 = MEMORY[0xFFFFF78000000014];
@@ -94,12 +94,7 @@ void __fastcall PopDiagTracePowerTransitionEnd(int a1)
     v34 = 0;
     v35 = v14[1];
     v37 = 0;
-    EtwWriteEndScenario(
-      *(ULONG_PTR **)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-      &POP_ETW_EVENT_POWERTRANSITION_END,
-      &ActivityId,
-      0xAu,
-      &v15);
+    EtwWriteEndScenario((ULONG_PTR *)PopDiagHandle, &POP_ETW_EVENT_POWERTRANSITION_END, &PopDiagActivityId, 0xAu, &v15);
     if ( LOBYTE(v3[0]) )
       ExFreePoolWithTag(v1, 0x67696450u);
     if ( HIBYTE(v3[0]) )

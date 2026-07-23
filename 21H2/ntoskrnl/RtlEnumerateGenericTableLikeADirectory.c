@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlEnumerateGenericTableLikeADirectory @ 0x1402645A0
+ * XREFs of RtlEnumerateGenericTableLikeADirectory @ 0x140252630
  * Callers:
- *     PiDmEnumObjectsWithCallback @ 0x1406350E8 (PiDmEnumObjectsWithCallback.c)
+ *     PiDmEnumObjectsWithCallback @ 0x140629EF8 (PiDmEnumObjectsWithCallback.c)
  * Callees:
- *     RealSuccessor @ 0x1402646C0 (RealSuccessor.c)
- *     FindNodeOrParent @ 0x140264DDC (FindNodeOrParent.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     RealSuccessor @ 0x140252750 (RealSuccessor.c)
+ *     FindNodeOrParent_0 @ 0x140252E6C (FindNodeOrParent_0.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 // local variable allocation has failed, the output may be wrong!
@@ -30,7 +30,7 @@ PVOID __stdcall RtlEnumerateGenericTableLikeADirectory(
   int v18; // ecx
   __int64 v19; // r8
   __int64 v20; // r9
-  int NodeOrParent; // eax
+  int NodeOrParent_0; // eax
 
   v7 = Table->NumberGenericTableElements == 0;
   v8 = NextFlag;
@@ -56,14 +56,14 @@ PVOID __stdcall RtlEnumerateGenericTableLikeADirectory(
   }
   if ( v16 )
     goto LABEL_7;
-  NodeOrParent = FindNodeOrParent(Table, Buffer, &RestartKey);
-  if ( NodeOrParent == 1 )
+  NodeOrParent_0 = FindNodeOrParent_0(Table, Buffer, &RestartKey);
+  if ( NodeOrParent_0 == 1 )
   {
     v12 = (char *)RestartKey;
     goto LABEL_7;
   }
   v8 = 0;
-  if ( NodeOrParent == 3 )
+  if ( NodeOrParent_0 == 3 )
   {
     v12 = (char *)RealSuccessor(RestartKey, MatchFunction, MatchData, *(_QWORD *)&NextFlag);
 LABEL_7:

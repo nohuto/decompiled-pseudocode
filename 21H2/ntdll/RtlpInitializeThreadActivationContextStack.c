@@ -3,7 +3,7 @@
  * Callers:
  *     LdrpInitializeThread @ 0x180017738 (LdrpInitializeThread.c)
  *     RtlFreeThreadActivationContextStack @ 0x1800718F0 (RtlFreeThreadActivationContextStack.c)
- *     LdrpInitializeProcess @ 0x1800D1EC0 (LdrpInitializeProcess.c)
+ *     LdrpInitializeProcess @ 0x1800D1E80 (LdrpInitializeProcess.c)
  * Callees:
  *     <none>
  */

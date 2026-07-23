@@ -1,7 +1,7 @@
 /*
- * XREFs of MiComputeWslePagesNeeded @ 0x1400A1BC4
+ * XREFs of MiComputeWslePagesNeeded @ 0x1400A04EC
  * Callers:
- *     MiConvertToLinkedWsles @ 0x1400A1844 (MiConvertToLinkedWsles.c)
+ *     MiConvertToLinkedWsles @ 0x1400A016C (MiConvertToLinkedWsles.c)
  * Callees:
  *     <none>
  */

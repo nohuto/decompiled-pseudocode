@@ -1,13 +1,13 @@
 /*
  * XREFs of IoRegisterShutdownNotification @ 0x14084DF00
  * Callers:
- *     DifIoRegisterShutdownNotificationWrapper @ 0x1406107C0 (DifIoRegisterShutdownNotificationWrapper.c)
- *     RawInitialize @ 0x140B229D0 (RawInitialize.c)
- *     WmipDriverEntry @ 0x140B22C40 (WmipDriverEntry.c)
+ *     sub_1406107C0 @ 0x1406107C0 (sub_1406107C0.c)
+ *     sub_140B229D0 @ 0x140B229D0 (sub_140B229D0.c)
+ *     sub_140B22C40 @ 0x140B22C40 (sub_140B22C40.c)
  * Callees:
  *     ObfReferenceObject @ 0x140347CF0 (ObfReferenceObject.c)
- *     IopInterlockedInsertHeadList @ 0x1403D23B8 (IopInterlockedInsertHeadList.c)
- *     IopLogAuditIoRegisterNotificationEvent @ 0x14084DF74 (IopLogAuditIoRegisterNotificationEvent.c)
+ *     sub_1403D23B8 @ 0x1403D23B8 (sub_1403D23B8.c)
+ *     sub_14084DF74 @ 0x14084DF74 (sub_14084DF74.c)
  *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)
  */
 
@@ -22,8 +22,8 @@ NTSTATUS __stdcall IoRegisterShutdownNotification(PDEVICE_OBJECT DeviceObject)
     return -1073741670;
   *(_QWORD *)(Pool2 + 16) = DeviceObject;
   ObfReferenceObject(DeviceObject);
-  IopInterlockedInsertHeadList((__int64 *)&IopNotifyShutdownQueueHead, v3);
+  sub_1403D23B8((__int64 *)&qword_140C46F50, v3);
   DeviceObject->Flags |= 0x800u;
-  IopLogAuditIoRegisterNotificationEvent(&KERNEL_AUDIT_API_IOREGISTERSHUTDOWNNOTIFICATION);
+  sub_14084DF74(&stru_140012BF0);
   return 0;
 }

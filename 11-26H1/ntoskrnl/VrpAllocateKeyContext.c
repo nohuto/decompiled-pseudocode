@@ -1,12 +1,12 @@
 /*
- * XREFs of VrpAllocateKeyContext @ 0x140A30984
+ * XREFs of VrpAllocateKeyContext @ 0x140A4B8E4
  * Callers:
- *     VrpPostOpenOrCreate @ 0x1408A5A98 (VrpPostOpenOrCreate.c)
- *     VrpHandleIoctlInitializeJobForVreg @ 0x140A3050C (VrpHandleIoctlInitializeJobForVreg.c)
- *     VrpPreLoadKey @ 0x140B1B118 (VrpPreLoadKey.c)
+ *     VrpPostOpenOrCreate @ 0x1408ABF08 (VrpPostOpenOrCreate.c)
+ *     VrpHandleIoctlInitializeJobForVreg @ 0x140A4B46C (VrpHandleIoctlInitializeJobForVreg.c)
+ *     VrpPreLoadKey @ 0x140B1D3C8 (VrpPreLoadKey.c)
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x140278B30 (ObfReferenceObjectWithTag.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     ObfReferenceObjectWithTag @ 0x1402780A0 (ObfReferenceObjectWithTag.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall VrpAllocateKeyContext(PVOID Object)

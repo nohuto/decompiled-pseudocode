@@ -1,9 +1,9 @@
 /*
- * XREFs of PspHardenMitigationOptions @ 0x140AFD150
+ * XREFs of PspHardenMitigationOptions @ 0x140AFECC0
  * Callers:
- *     PspAllocateProcess @ 0x140964C24 (PspAllocateProcess.c)
+ *     PspAllocateProcess @ 0x140B7E8A8 (PspAllocateProcess.c)
  * Callees:
- *     memcmp @ 0x14073D750 (memcmp.c)
+ *     memcmp @ 0x140742350 (memcmp.c)
  */
 
 char __fastcall PspHardenMitigationOptions(__int128 *a1)
@@ -55,7 +55,7 @@ char __fastcall PspHardenMitigationOptions(__int128 *a1)
     LOBYTE(v2) = (v4 >> 20) & 3;
     if ( (_BYTE)v2 != 1 && (_BYTE)v2 != 2 )
     {
-      LOBYTE(v2) = ((unsigned __int64)stru_140FC01F0.KernelStack >> 20) & 3;
+      LOBYTE(v2) = ((unsigned __int64)stru_140FC11F0.KernelStack >> 20) & 3;
       if ( (_BYTE)v2 != 2 )
         *(_QWORD *)&Buf1 = v4 & 0xFFFFFFFFFFCFFFFFuLL | 0x100000;
     }

@@ -1,16 +1,16 @@
 /*
- * XREFs of PopDripsWatchdogCallbackHandler @ 0x14099BFF0
+ * XREFs of PopDripsWatchdogCallbackHandler @ 0x14099C1F0
  * Callers:
- *     PopDripsWatchdogCallbackWorker @ 0x14099C190 (PopDripsWatchdogCallbackWorker.c)
+ *     PopDripsWatchdogCallbackWorker @ 0x14099C390 (PopDripsWatchdogCallbackWorker.c)
  * Callees:
- *     PopFxBuildDripsBlockingDeviceList @ 0x140588CF4 (PopFxBuildDripsBlockingDeviceList.c)
- *     PopFxIsDirectedPowerTransitionSupported @ 0x14058A998 (PopFxIsDirectedPowerTransitionSupported.c)
- *     PopDripsWatchdogGetDeviceActiveTime @ 0x14059E3D8 (PopDripsWatchdogGetDeviceActiveTime.c)
- *     PopDeviceConstraintsEnforced @ 0x1405A2B20 (PopDeviceConstraintsEnforced.c)
- *     PopDirectedDripsNotify @ 0x1408754E4 (PopDirectedDripsNotify.c)
- *     PopDirectedDripsMarkCandidateDevice @ 0x1409839AC (PopDirectedDripsMarkCandidateDevice.c)
- *     PopFxDestroyDripsBlockingDeviceList @ 0x140984B94 (PopFxDestroyDripsBlockingDeviceList.c)
- *     PopDripsWatchdogInvokeDeviceCallbacks @ 0x1409A10FC (PopDripsWatchdogInvokeDeviceCallbacks.c)
+ *     PopFxBuildDripsBlockingDeviceList @ 0x1405891E4 (PopFxBuildDripsBlockingDeviceList.c)
+ *     PopFxIsDirectedPowerTransitionSupported @ 0x14058AE88 (PopFxIsDirectedPowerTransitionSupported.c)
+ *     PopDripsWatchdogGetDeviceActiveTime @ 0x14059E8C8 (PopDripsWatchdogGetDeviceActiveTime.c)
+ *     PopDeviceConstraintsEnforced @ 0x1405A3010 (PopDeviceConstraintsEnforced.c)
+ *     PopDirectedDripsNotify @ 0x140875724 (PopDirectedDripsNotify.c)
+ *     PopDirectedDripsMarkCandidateDevice @ 0x140983BAC (PopDirectedDripsMarkCandidateDevice.c)
+ *     PopFxDestroyDripsBlockingDeviceList @ 0x140984D94 (PopFxDestroyDripsBlockingDeviceList.c)
+ *     PopDripsWatchdogInvokeDeviceCallbacks @ 0x1409A12FC (PopDripsWatchdogInvokeDeviceCallbacks.c)
  */
 
 void __fastcall PopDripsWatchdogCallbackHandler(

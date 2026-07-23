@@ -1,13 +1,13 @@
 /*
- * XREFs of ExpQueryModuleInformationImage @ 0x14096AA80
+ * XREFs of ExpQueryModuleInformationImage @ 0x14097B3C0
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     RtlCopyToUser @ 0x14077F284 (RtlCopyToUser.c)
- *     RtlUnicodeStringToAnsiString @ 0x14096C2C0 (RtlUnicodeStringToAnsiString.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     RtlCopyToUser @ 0x140781D84 (RtlCopyToUser.c)
+ *     RtlUnicodeStringToAnsiString @ 0x14097CC00 (RtlUnicodeStringToAnsiString.c)
  */
 
 __int64 __fastcall ExpQueryModuleInformationImage(__int64 a1, __int64 a2)
@@ -23,7 +23,7 @@ __int64 __fastcall ExpQueryModuleInformationImage(__int64 a1, __int64 a2)
   __int16 v12; // r10
   char v13; // r8
   __int64 result; // rax
-  STRING DestinationString; // [rsp+28h] [rbp-170h] BYREF
+  _STRING DestinationString; // [rsp+28h] [rbp-170h] BYREF
   __int64 v16; // [rsp+38h] [rbp-160h]
   _BYTE Src[16]; // [rsp+40h] [rbp-158h] BYREF
   __int64 v18; // [rsp+50h] [rbp-148h]

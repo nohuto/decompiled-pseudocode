@@ -1,13 +1,13 @@
 /*
- * XREFs of CmpVerifyLogRecord @ 0x140580E30
+ * XREFs of CmpVerifyLogRecord @ 0x140581E30
  * Callers:
- *     CmpRmReDoPhase @ 0x1407F91E4 (CmpRmReDoPhase.c)
+ *     CmpRmReDoPhase @ 0x1407FA3E4 (CmpRmReDoPhase.c)
  * Callees:
- *     CmpVerifyCreateOrDeleteKeyLogRecord @ 0x140580DC4 (CmpVerifyCreateOrDeleteKeyLogRecord.c)
- *     CmpVerifyRenameKeyLogRecord @ 0x140580F1C (CmpVerifyRenameKeyLogRecord.c)
- *     CmpVerifySetOrDeleteValueLogRecord @ 0x140580F78 (CmpVerifySetOrDeleteValueLogRecord.c)
- *     CmpVerifySetSecurityDescriptorLogRecord @ 0x140580FFC (CmpVerifySetSecurityDescriptorLogRecord.c)
- *     HvBufferCheckSum @ 0x1406F8164 (HvBufferCheckSum.c)
+ *     CmpVerifyCreateOrDeleteKeyLogRecord @ 0x140581DC4 (CmpVerifyCreateOrDeleteKeyLogRecord.c)
+ *     CmpVerifyRenameKeyLogRecord @ 0x140581F1C (CmpVerifyRenameKeyLogRecord.c)
+ *     CmpVerifySetOrDeleteValueLogRecord @ 0x140581F78 (CmpVerifySetOrDeleteValueLogRecord.c)
+ *     CmpVerifySetSecurityDescriptorLogRecord @ 0x140581FFC (CmpVerifySetSecurityDescriptorLogRecord.c)
+ *     HvBufferCheckSum @ 0x1406F9404 (HvBufferCheckSum.c)
  */
 
 __int64 __fastcall CmpVerifyLogRecord(__int64 a1, unsigned int a2)

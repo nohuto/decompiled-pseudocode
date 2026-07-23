@@ -1,17 +1,17 @@
 /*
- * XREFs of RtlpCompareKnownObjectAces @ 0x1800CD30C
+ * XREFs of RtlpCompareKnownObjectAces @ 0x1800C4ECC
  * Callers:
- *     RtlpGenerateInheritedAce @ 0x1800CC000 (RtlpGenerateInheritedAce.c)
- *     RtlpIsDuplicateAce @ 0x1800CD170 (RtlpIsDuplicateAce.c)
- *     RtlpCompareAces @ 0x1800CE000 (RtlpCompareAces.c)
+ *     RtlpGenerateInheritedAce @ 0x1800C3BC0 (RtlpGenerateInheritedAce.c)
+ *     RtlpIsDuplicateAce @ 0x1800C4D30 (RtlpIsDuplicateAce.c)
+ *     RtlpCompareAces @ 0x1800C5BC0 (RtlpCompareAces.c)
  * Callees:
- *     RtlInitializeSid @ 0x180001010 (RtlInitializeSid.c)
- *     RtlEqualPrefixSid @ 0x1800CD560 (RtlEqualPrefixSid.c)
- *     RtlEqualSid @ 0x1800CE210 (RtlEqualSid.c)
- *     __security_check_cookie @ 0x1801659C0 (__security_check_cookie.c)
+ *     RtlEqualPrefixSid @ 0x1800C5120 (RtlEqualPrefixSid.c)
+ *     RtlEqualSid @ 0x1800C5DD0 (RtlEqualSid.c)
+ *     RtlInitializeSid @ 0x1800DF620 (RtlInitializeSid.c)
+ *     __security_check_cookie @ 0x180163D80 (__security_check_cookie.c)
  */
 
-char __fastcall RtlpCompareKnownObjectAces(unsigned __int8 *a1, unsigned __int8 *a2, __int64 a3, __int64 a4)
+char __fastcall RtlpCompareKnownObjectAces(unsigned __int8 *a1, unsigned __int8 *a2, void *a3, void *a4)
 {
   __int64 v6; // rcx
   unsigned int v9; // r11d
@@ -24,15 +24,12 @@ char __fastcall RtlpCompareKnownObjectAces(unsigned __int8 *a1, unsigned __int8 
   int v16; // r15d
   bool v18; // zf
   __int64 v19; // rbp
-  __int64 v20; // rbx
-  __int64 v21; // r8
-  __int64 v22; // r9
-  int v23; // r8d
-  __int64 v24; // rdx
-  int v25; // [rsp+20h] [rbp-78h] BYREF
-  __int16 v26; // [rsp+24h] [rbp-74h]
-  _BYTE v27[8]; // [rsp+28h] [rbp-70h] BYREF
-  int v28; // [rsp+30h] [rbp-68h]
+  unsigned __int8 *v20; // rbx
+  int v21; // r8d
+  void *v22; // rdx
+  _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+20h] [rbp-78h] BYREF
+  _BYTE Sid[8]; // [rsp+28h] [rbp-70h] BYREF
+  int v25; // [rsp+30h] [rbp-68h]
 
   v6 = *a2;
   if ( RtlBaseAceType[v6] != RtlBaseAceType[*a1] || RtlIsSystemAceType[v6] && ((a1[1] ^ a2[1]) & 0xC0) != 0 )
@@ -90,32 +87,32 @@ char __fastcall RtlpCompareKnownObjectAces(unsigned __int8 *a1, unsigned __int8 
   if ( !v18 )
     return 0;
   v19 = 16LL * v14;
-  v20 = (__int64)&a2[16 * v9 + (v11 != 0 ? 28LL : 12LL)];
-  if ( !(unsigned __int8)RtlEqualSid(v20, &a1[(v16 != 0 ? 28LL : 12LL) + v19]) )
+  v20 = &a2[16 * v9 + (v11 != 0 ? 28LL : 12LL)];
+  if ( !RtlEqualSid(v20, &a1[(v16 != 0 ? 28LL : 12LL) + v19]) )
   {
     if ( (a2[1] & 3 | ~a2[1] & 8) != 8 || !a3 && !a4 )
       return 0;
+    *(_DWORD *)IdentifierAuthority.Value = 0;
+    *(_WORD *)&IdentifierAuthority.Value[4] = 768;
+    if ( RtlInitializeSid(Sid, &IdentifierAuthority, 1u) < 0 )
+      return 0;
     v25 = 0;
-    v26 = 768;
-    if ( (int)RtlInitializeSid((__int64)v27, (__int64)&v25, 1u) < 0 )
+    if ( !RtlEqualPrefixSid(&a1[(v16 != 0 ? 28LL : 12LL) + v19], Sid) )
       return 0;
-    v28 = 0;
-    if ( !(unsigned __int8)RtlEqualPrefixSid(&a1[(v16 != 0 ? 28LL : 12LL) + v19], v27, v21, v22) )
-      return 0;
-    v23 = *(_DWORD *)&a1[(v16 != 0 ? 36LL : 20LL) + v19];
-    if ( v23 )
+    v21 = *(_DWORD *)&a1[(v16 != 0 ? 36LL : 20LL) + v19];
+    if ( v21 )
     {
-      if ( v23 != 1 || !a4 )
+      if ( v21 != 1 || !a4 )
         return 0;
-      v24 = a4;
+      v22 = a4;
     }
     else
     {
       if ( !a3 )
         return 0;
-      v24 = a3;
+      v22 = a3;
     }
-    if ( !(unsigned __int8)RtlEqualSid(v20, v24) )
+    if ( !RtlEqualSid(v20, v22) )
       return 0;
   }
   return 1;

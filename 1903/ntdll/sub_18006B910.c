@@ -10,7 +10,7 @@ __int64 __fastcall sub_18006B910(__int64 a1)
 {
   bool v2; // cf
   void *v3; // rcx
-  volatile uint64_t EnvironmentVersion; // rbx
+  ULONG_PTR EnvironmentVersion; // rbx
   __int64 result; // rax
 
   v2 = a1 != 0;

@@ -1,11 +1,11 @@
 /*
- * XREFs of PiDrvDbSetupNodes @ 0x1407B8228
+ * XREFs of PiDrvDbSetupNodes @ 0x1407BB288
  * Callers:
- *     PiDrvDbInit @ 0x1407B583C (PiDrvDbInit.c)
+ *     PiDrvDbInit @ 0x1407B889C (PiDrvDbInit.c)
  * Callees:
- *     PiDrvDbSetupNodeHive @ 0x1407B7DA0 (PiDrvDbSetupNodeHive.c)
- *     _PnpGetObjectProperty @ 0x14099E300 (_PnpGetObjectProperty.c)
- *     _PnpSetObjectProperty @ 0x1409DBEB0 (_PnpSetObjectProperty.c)
+ *     PiDrvDbSetupNodeHive @ 0x1407BAE00 (PiDrvDbSetupNodeHive.c)
+ *     _PnpGetObjectProperty @ 0x14095ED60 (_PnpGetObjectProperty.c)
+ *     _PnpSetObjectProperty @ 0x140A19100 (_PnpSetObjectProperty.c)
  */
 
 __int64 __fastcall PiDrvDbSetupNodes(int a1)
@@ -81,7 +81,6 @@ __int64 __fastcall PiDrvDbSetupNodes(int a1)
             PiPnpRtlCtx,
             *(_QWORD *)(i + 24),
             7,
-            *(_QWORD *)(i + 72),
             0LL,
             (__int64)DEVPKEY_DriverDatabase_SetupStatus,
             24,

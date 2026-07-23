@@ -98,9 +98,16 @@
  *     <none>
  */
 
-__int64 __fastcall ZwUpdateWnfStateData(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwUpdateWnfStateData(
+        PCWNF_STATE_NAME StateName,
+        const void *Buffer,
+        ULONG Length,
+        PCWNF_TYPE_ID TypeId,
+        const void *ExplicitScope,
+        WNF_CHANGE_STAMP MatchingChangeStamp,
+        LOGICAL CheckStamp)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(StateName);
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of VrpShouldOperateOnCall @ 0x140464780
+ * XREFs of VrpShouldOperateOnCall @ 0x140463650
  * Callers:
- *     CmpCallCallBacks @ 0x140452A00 (CmpCallCallBacks.c)
- *     RegistryCallback @ 0x140464700 (RegistryCallback.c)
+ *     CmpCallCallBacks @ 0x1404518D0 (CmpCallCallBacks.c)
+ *     RegistryCallback @ 0x1404635D0 (RegistryCallback.c)
  * Callees:
- *     PspGetJobSilo @ 0x140076728 (PspGetJobSilo.c)
- *     PsGetPermanentSiloContext @ 0x140091EE0 (PsGetPermanentSiloContext.c)
- *     VRegEnabledInJob @ 0x1404E9244 (VRegEnabledInJob.c)
+ *     PspGetJobSilo @ 0x1400767A8 (PspGetJobSilo.c)
+ *     PsGetPermanentSiloContext @ 0x140091640 (PsGetPermanentSiloContext.c)
+ *     VRegEnabledInJob @ 0x1404CB334 (VRegEnabledInJob.c)
  */
 
 __int64 __fastcall VrpShouldOperateOnCall(int a1, _QWORD *a2, _QWORD *a3, unsigned __int64 *a4)

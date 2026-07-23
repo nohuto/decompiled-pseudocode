@@ -1,15 +1,15 @@
 /*
- * XREFs of CmpDeleteTree @ 0x140987238
+ * XREFs of CmpDeleteTree @ 0x140948F38
  * Callers:
- *     CmRestoreKey @ 0x140986024 (CmRestoreKey.c)
- *     CmpSyncSubKeysAfterDelete @ 0x140B50C8C (CmpSyncSubKeysAfterDelete.c)
+ *     CmRestoreKey @ 0x140947D24 (CmRestoreKey.c)
+ *     CmpSyncSubKeysAfterDelete @ 0x140B531EC (CmpSyncSubKeysAfterDelete.c)
  * Callees:
- *     HvpGetCellFlat @ 0x14085EB00 (HvpGetCellFlat.c)
- *     CmpFreeKeyByCell @ 0x1408BCC94 (CmpFreeKeyByCell.c)
- *     HvpReleaseCellFlat @ 0x1408D51E0 (HvpReleaseCellFlat.c)
- *     HvpReleaseCellPaged @ 0x1408D73B0 (HvpReleaseCellPaged.c)
- *     HvpGetCellPaged @ 0x1408D7410 (HvpGetCellPaged.c)
- *     CmpFindSubKeyByNumber @ 0x1408DEDA0 (CmpFindSubKeyByNumber.c)
+ *     HvpGetCellFlat @ 0x140864DF0 (HvpGetCellFlat.c)
+ *     CmpFreeKeyByCell @ 0x1408C3264 (CmpFreeKeyByCell.c)
+ *     HvpReleaseCellFlat @ 0x1408DB7A0 (HvpReleaseCellFlat.c)
+ *     HvpReleaseCellPaged @ 0x1408DD970 (HvpReleaseCellPaged.c)
+ *     HvpGetCellPaged @ 0x1408DD9D0 (HvpGetCellPaged.c)
+ *     CmpFindSubKeyByNumber @ 0x1408E5360 (CmpFindSubKeyByNumber.c)
  */
 
 char __fastcall CmpDeleteTree(ULONG_PTR BugCheckParameter3, unsigned int a2)

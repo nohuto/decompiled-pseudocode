@@ -1,12 +1,12 @@
 /*
- * XREFs of PspGetProperty @ 0x14029284C
+ * XREFs of PspGetProperty @ 0x1402107BC
  * Callers:
- *     PspGetJobProperty @ 0x1402927E4 (PspGetJobProperty.c)
+ *     PspGetJobProperty @ 0x140210754 (PspGetJobProperty.c)
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x1402056A0 (ObfReferenceObjectWithTag.c)
- *     KxAcquireSpinLock @ 0x1402295B0 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     PspFindPropertySetEntry @ 0x140292908 (PspFindPropertySetEntry.c)
+ *     PspFindPropertySetEntry @ 0x140210878 (PspFindPropertySetEntry.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     ObfReferenceObjectWithTag @ 0x1402A9FE0 (ObfReferenceObjectWithTag.c)
+ *     KxAcquireSpinLock @ 0x1402CDEB0 (KxAcquireSpinLock.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 

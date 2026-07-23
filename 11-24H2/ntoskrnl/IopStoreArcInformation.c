@@ -1,12 +1,12 @@
 /*
- * XREFs of IopStoreArcInformation @ 0x140C1D194
+ * XREFs of IopStoreArcInformation @ 0x140C1F1D4
  * Callers:
- *     IoInitSystemPreDrivers @ 0x140C1AA0C (IoInitSystemPreDrivers.c)
+ *     IoInitSystemPreDrivers @ 0x140C1CA4C (IoInitSystemPreDrivers.c)
  * Callees:
- *     RtlStringCbCopyA @ 0x140459248 (RtlStringCbCopyA.c)
- *     _strnicmp @ 0x1404FE160 (_strnicmp.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlStringCbCopyA @ 0x14044E2F8 (RtlStringCbCopyA.c)
+ *     _strnicmp @ 0x1404FBA20 (_strnicmp.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IopStoreArcInformation(__int64 a1)
@@ -28,9 +28,9 @@ __int64 __fastcall IopStoreArcInformation(__int64 a1)
   __int64 m; // rcx
 
   v1 = *(__int64 ***)(a1 + 232);
-  v2 = dword_140EFEAF0;
+  v2 = dword_140EFEE10;
   v3 = 0;
-  qword_140FD8C48 = (__int64)&IoArcTableListHead;
+  qword_140FD9C58 = (__int64)&IoArcTableListHead;
   IoArcTableListHead = (__int64)&IoArcTableListHead;
   for ( i = *v1; ; i = (__int64 *)*i )
   {
@@ -83,14 +83,14 @@ __int64 __fastcall IopStoreArcInformation(__int64 a1)
     Pool2[3] = v9;
     if ( v2 == 1 && v7 >= 9 && !strnicmp(&v9[v7 - 9], "rdisk(0)", 8uLL) )
       *((_BYTE *)Pool2 + 76) = 1;
-    v10 = (PVOID **)qword_140FD8C48;
-    if ( *(__int64 **)qword_140FD8C48 != &IoArcTableListHead )
+    v10 = (PVOID **)qword_140FD9C58;
+    if ( *(__int64 **)qword_140FD9C58 != &IoArcTableListHead )
 LABEL_20:
       __fastfail(3u);
     *Pool2 = &IoArcTableListHead;
     Pool2[1] = v10;
     *v10 = Pool2;
-    qword_140FD8C48 = (__int64)Pool2;
+    qword_140FD9C58 = (__int64)Pool2;
   }
   v3 = -1073741670;
   while ( 1 )

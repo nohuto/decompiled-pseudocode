@@ -1,32 +1,32 @@
 /*
- * XREFs of MiValidateSectionCreate @ 0x140714C70
+ * XREFs of MiValidateSectionCreate @ 0x1406C32C0
  * Callers:
- *     MiValidateSectionSigningPolicy @ 0x140714144 (MiValidateSectionSigningPolicy.c)
- *     MiPromoteControlAreaToStrongCode @ 0x1408CDBF0 (MiPromoteControlAreaToStrongCode.c)
- *     MiMapImageForEnclaveUse @ 0x1408D39BC (MiMapImageForEnclaveUse.c)
+ *     MiValidateSectionSigningPolicy @ 0x1406C2794 (MiValidateSectionSigningPolicy.c)
+ *     MiPromoteControlAreaToStrongCode @ 0x1408CDD50 (MiPromoteControlAreaToStrongCode.c)
+ *     MiMapImageForEnclaveUse @ 0x1408D3B1C (MiMapImageForEnclaveUse.c)
  * Callees:
- *     MiWalkEntireImage @ 0x14023A4B0 (MiWalkEntireImage.c)
- *     MiAllocatePool @ 0x14025AD70 (MiAllocatePool.c)
- *     PsSetSystemPagePriorityThread @ 0x1402DE530 (PsSetSystemPagePriorityThread.c)
- *     PsRevertToUserPagePriorityThread @ 0x1402DE588 (PsRevertToUserPagePriorityThread.c)
- *     MiFlushEntireTbDueToAttributeChange @ 0x14030438C (MiFlushEntireTbDueToAttributeChange.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     KeZeroSinglePage @ 0x140402D70 (KeZeroSinglePage.c)
- *     KeCopyPage @ 0x140402E50 (KeCopyPage.c)
- *     memset @ 0x140414200 (memset.c)
- *     MiImageCantMove @ 0x140554C80 (MiImageCantMove.c)
- *     MiStrongCodeImage @ 0x140554D20 (MiStrongCodeImage.c)
- *     MiDereferencePerSessionProtos @ 0x1406BC7FC (MiDereferencePerSessionProtos.c)
- *     MiCreatePerSessionProtos @ 0x1406BC914 (MiCreatePerSessionProtos.c)
- *     MiUnmapImageInSystemSpace @ 0x1407155A4 (MiUnmapImageInSystemSpace.c)
- *     SeValidateImageHeader @ 0x1407155F4 (SeValidateImageHeader.c)
- *     MiMapImageInSystemSpace @ 0x140715730 (MiMapImageInSystemSpace.c)
- *     MiRevertRelocations @ 0x1407158B8 (MiRevertRelocations.c)
- *     MiPrefetchControlArea @ 0x140715998 (MiPrefetchControlArea.c)
- *     SeReleaseImageValidationContext @ 0x14078E874 (SeReleaseImageValidationContext.c)
- *     MiCaptureSecureImageBaseAddress @ 0x1408D7B60 (MiCaptureSecureImageBaseAddress.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     MiAllocatePool @ 0x14027C2E0 (MiAllocatePool.c)
+ *     PsSetSystemPagePriorityThread @ 0x14028F880 (PsSetSystemPagePriorityThread.c)
+ *     PsRevertToUserPagePriorityThread @ 0x14028F8D8 (PsRevertToUserPagePriorityThread.c)
+ *     MiWalkEntireImage @ 0x1402DED00 (MiWalkEntireImage.c)
+ *     MiFlushEntireTbDueToAttributeChange @ 0x14030F0DC (MiFlushEntireTbDueToAttributeChange.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     KeZeroSinglePage @ 0x140402F50 (KeZeroSinglePage.c)
+ *     KeCopyPage @ 0x140403030 (KeCopyPage.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     MiImageCantMove @ 0x140554EC0 (MiImageCantMove.c)
+ *     MiStrongCodeImage @ 0x140554F60 (MiStrongCodeImage.c)
+ *     MiDereferencePerSessionProtos @ 0x14061B9CC (MiDereferencePerSessionProtos.c)
+ *     MiCreatePerSessionProtos @ 0x14061BAE4 (MiCreatePerSessionProtos.c)
+ *     MiUnmapImageInSystemSpace @ 0x1406C3BF4 (MiUnmapImageInSystemSpace.c)
+ *     SeValidateImageHeader @ 0x1406C3C44 (SeValidateImageHeader.c)
+ *     MiMapImageInSystemSpace @ 0x1406C3D80 (MiMapImageInSystemSpace.c)
+ *     MiRevertRelocations @ 0x1406C3F08 (MiRevertRelocations.c)
+ *     MiPrefetchControlArea @ 0x1406C3FE8 (MiPrefetchControlArea.c)
+ *     SeReleaseImageValidationContext @ 0x14078EA34 (SeReleaseImageValidationContext.c)
+ *     MiCaptureSecureImageBaseAddress @ 0x1408D7CC0 (MiCaptureSecureImageBaseAddress.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiValidateSectionCreate(
@@ -129,7 +129,7 @@ __int64 __fastcall MiValidateSectionCreate(
   {
     if ( (a5 & 0x40000000) != 0 )
     {
-      dword_140C4CC18 = 115;
+      dword_140C4CC58 = 115;
       return 3221226547LL;
     }
     a5 |= 0x10000000u;
@@ -140,7 +140,7 @@ __int64 __fastcall MiValidateSectionCreate(
   }
   if ( (a5 & 0x40000000) != 0 && !*(_QWORD *)(a2 + 144) )
   {
-    dword_140C4CC18 = 116;
+    dword_140C4CC58 = 116;
     return 3221225595LL;
   }
   if ( (a5 & 5) != 0 )
@@ -339,7 +339,7 @@ LABEL_56:
       break;
     if ( (_DWORD)v15 != -1073741789 || v53 >= v42 )
     {
-      dword_140C4CC18 = 117;
+      dword_140C4CC58 = 117;
       return (unsigned int)v15;
     }
     v9 = v43;
@@ -412,7 +412,7 @@ LABEL_93:
         result = MiCaptureSecureImageBaseAddress(a2);
         if ( (int)result < 0 )
         {
-          dword_140C4CC18 = 118;
+          dword_140C4CC58 = 118;
           return result;
         }
       }
@@ -421,7 +421,7 @@ LABEL_93:
     LODWORD(v15) = result;
     if ( (int)result < 0 )
     {
-      dword_140C4CC18 = 119;
+      dword_140C4CC58 = 119;
       return result;
     }
     v39 = v41 & 0xFFFFFFFFFFFFFFFCuLL;

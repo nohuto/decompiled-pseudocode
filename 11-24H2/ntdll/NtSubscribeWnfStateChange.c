@@ -1,17 +1,21 @@
 /*
- * XREFs of NtSubscribeWnfStateChange @ 0x180165620
+ * XREFs of NtSubscribeWnfStateChange @ 0x1801639E0
  * Callers:
- *     RtlpRemoveUserSubFromNameSub @ 0x180099388 (RtlpRemoveUserSubFromNameSub.c)
- *     RtlpAddWnfUserSubToNameSub @ 0x180099C70 (RtlpAddWnfUserSubToNameSub.c)
+ *     RtlpRemoveUserSubFromNameSub @ 0x18002E1D8 (RtlpRemoveUserSubFromNameSub.c)
+ *     RtlpAddWnfUserSubToNameSub @ 0x18002EAC0 (RtlpAddWnfUserSubToNameSub.c)
  * Callees:
  *     <none>
  */
 
-__int64 NtSubscribeWnfStateChange()
+NTSTATUS __cdecl NtSubscribeWnfStateChange(
+        PCWNF_STATE_NAME StateName,
+        WNF_CHANGE_STAMP ChangeStamp,
+        ULONG EventMask,
+        PULONG64 SubscriptionId)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 461LL;
+  result = 461;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

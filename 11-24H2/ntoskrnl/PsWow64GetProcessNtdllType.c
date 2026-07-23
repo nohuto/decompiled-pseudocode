@@ -1,14 +1,14 @@
 /*
- * XREFs of PsWow64GetProcessNtdllType @ 0x140908828
+ * XREFs of PsWow64GetProcessNtdllType @ 0x1408DFF44
  * Callers:
- *     PsThawMultiProcess @ 0x1404EEE60 (PsThawMultiProcess.c)
- *     MiApplyImageHotPatchRequest @ 0x1407F191C (MiApplyImageHotPatchRequest.c)
- *     PsMapSystemDlls @ 0x1408F8E70 (PsMapSystemDlls.c)
- *     DbgkCreateThread @ 0x1408FED24 (DbgkCreateThread.c)
- *     PspPrepareSystemDllInitBlock @ 0x1409084EC (PspPrepareSystemDllInitBlock.c)
- *     DbgkSendSystemDllMessages @ 0x140939F18 (DbgkSendSystemDllMessages.c)
- *     PspWow64InitThread @ 0x1409E600C (PspWow64InitThread.c)
- *     PspAllocateProcess @ 0x140A1C4C0 (PspAllocateProcess.c)
+ *     PsThawMultiProcess @ 0x1404E6564 (PsThawMultiProcess.c)
+ *     MiApplyImageHotPatchRequest @ 0x1407F1EEC (MiApplyImageHotPatchRequest.c)
+ *     PspPrepareSystemDllInitBlock @ 0x1408DFC08 (PspPrepareSystemDllInitBlock.c)
+ *     DbgkSendSystemDllMessages @ 0x1408F541C (DbgkSendSystemDllMessages.c)
+ *     PsMapSystemDlls @ 0x14091B210 (PsMapSystemDlls.c)
+ *     DbgkCreateThread @ 0x140921604 (DbgkCreateThread.c)
+ *     PspWow64InitThread @ 0x1409E089C (PspWow64InitThread.c)
+ *     PspAllocateProcess @ 0x1409FACD0 (PspAllocateProcess.c)
  * Callees:
  *     <none>
  */

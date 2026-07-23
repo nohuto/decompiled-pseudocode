@@ -75,7 +75,7 @@ unsigned __int64 __fastcall MiFreeInitializationCode(unsigned __int64 *a1, ULONG
     a1[25] -= v19[3];
     a1[26] -= result;
     v14 = (PVOID)a1[6];
-    if ( v14 == (PVOID)PsNtosImageBase || v14 == PsHalImageBase )
+    if ( v14 == PsNtosImageBase || v14 == PsHalImageBase )
       qword_1403893D8 -= result;
     else
       _InterlockedExchangeAdd(&dword_140389400, -(int)result);

@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpUpcaseUnicodeStringPrivate @ 0x14030C3E0
+ * XREFs of RtlpUpcaseUnicodeStringPrivate @ 0x14030C670
  * Callers:
- *     RtlIsNameInExpression @ 0x14030C360 (RtlIsNameInExpression.c)
- *     RtlIsNameInUnUpcasedExpression @ 0x14030C4E0 (RtlIsNameInUnUpcasedExpression.c)
- *     RtlAreNamesEqual @ 0x140324840 (RtlAreNamesEqual.c)
+ *     RtlIsNameInExpression @ 0x14030C5F0 (RtlIsNameInExpression.c)
+ *     RtlIsNameInUnUpcasedExpression @ 0x14030C770 (RtlIsNameInUnUpcasedExpression.c)
+ *     RtlAreNamesEqual @ 0x140324AD0 (RtlAreNamesEqual.c)
  * Callees:
- *     PsGetCurrentServerSilo @ 0x140289F90 (PsGetCurrentServerSilo.c)
+ *     PsGetCurrentServerSilo @ 0x14028A220 (PsGetCurrentServerSilo.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

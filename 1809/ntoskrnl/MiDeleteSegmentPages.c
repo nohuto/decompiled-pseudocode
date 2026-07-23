@@ -1,17 +1,17 @@
 /*
- * XREFs of MiDeleteSegmentPages @ 0x140094E38
+ * XREFs of MiDeleteSegmentPages @ 0x140094D78
  * Callers:
- *     MiSegmentDelete @ 0x14061E928 (MiSegmentDelete.c)
- *     MiCopyDirectMapHeader @ 0x140852BA4 (MiCopyDirectMapHeader.c)
- *     MiInitializeImageExtents @ 0x140852EC4 (MiInitializeImageExtents.c)
+ *     MiSegmentDelete @ 0x14061F928 (MiSegmentDelete.c)
+ *     MiCopyDirectMapHeader @ 0x140853E04 (MiCopyDirectMapHeader.c)
+ *     MiInitializeImageExtents @ 0x140854124 (MiInitializeImageExtents.c)
  * Callees:
  *     MiReturnResidentAvailable @ 0x140022D18 (MiReturnResidentAvailable.c)
- *     MiReturnCommit @ 0x140065D40 (MiReturnCommit.c)
- *     MiDeleteSubsectionPages @ 0x140094F80 (MiDeleteSubsectionPages.c)
- *     MiGetCommittedPages @ 0x140095894 (MiGetCommittedPages.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiReturnCommit @ 0x140065D30 (MiReturnCommit.c)
+ *     MiDeleteSubsectionPages @ 0x140094EC0 (MiDeleteSubsectionPages.c)
+ *     MiGetCommittedPages @ 0x1400957D4 (MiGetCommittedPages.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC420 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC5A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiDeleteSegmentPages(__int64 a1)
@@ -30,7 +30,7 @@ __int64 __fastcall MiDeleteSegmentPages(__int64 a1)
 
   v1 = a1 + 128;
   v3 = 0LL;
-  v4 = *(_QWORD *)(qword_14043A748 + 8LL * (*(_WORD *)(a1 + 60) & 0x3FF));
+  v4 = *(_QWORD *)(qword_14043B808 + 8LL * (*(_WORD *)(a1 + 60) & 0x3FF));
   v5 = *(_DWORD *)(*(_QWORD *)a1 + 12LL);
   while ( v1 )
   {

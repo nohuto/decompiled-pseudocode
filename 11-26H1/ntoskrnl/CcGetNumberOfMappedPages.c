@@ -1,12 +1,12 @@
 /*
- * XREFs of CcGetNumberOfMappedPages @ 0x1404E8370
+ * XREFs of CcGetNumberOfMappedPages @ 0x1404E1730
  * Callers:
  *     <none>
  * Callees:
- *     ExfAcquirePushLockSharedEx @ 0x140277CC0 (ExfAcquirePushLockSharedEx.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfReleasePushLock @ 0x1402E3120 (ExfReleasePushLock.c)
+ *     ExfReleasePushLock @ 0x14021B220 (ExfReleasePushLock.c)
+ *     ExfAcquirePushLockSharedEx @ 0x140277230 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
  */
 
 void __fastcall CcGetNumberOfMappedPages(__int64 a1, _QWORD *a2, _QWORD *a3, struct _KLOCK_ENTRIES *a4)

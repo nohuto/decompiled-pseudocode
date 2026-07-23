@@ -1,25 +1,25 @@
 /*
- * XREFs of MiValidateInPage @ 0x140436770
+ * XREFs of MiValidateInPage @ 0x1404291F0
  * Callers:
- *     MiWaitForInPageComplete @ 0x140398598 (MiWaitForInPageComplete.c)
+ *     MiWaitForInPageComplete @ 0x140350CE8 (MiWaitForInPageComplete.c)
  * Callees:
- *     MiMapPageInHyperSpaceWorker @ 0x14021F1A0 (MiMapPageInHyperSpaceWorker.c)
- *     MiFlushSingleTbEntry @ 0x14022A7E0 (MiFlushSingleTbEntry.c)
- *     MiCheckLinearProtectedPteAccessedBit @ 0x140232A20 (MiCheckLinearProtectedPteAccessedBit.c)
- *     MiUnmapPageInHyperSpaceWorker @ 0x140266854 (MiUnmapPageInHyperSpaceWorker.c)
- *     MmUnmapLockedPages @ 0x14028D9C0 (MmUnmapLockedPages.c)
- *     MmMapLockedPagesSpecifyCache @ 0x14028F9F0 (MmMapLockedPagesSpecifyCache.c)
- *     MiInPageSkipPage @ 0x1402F0980 (MiInPageSkipPage.c)
- *     MiCanPageMove @ 0x1402F7730 (MiCanPageMove.c)
- *     MiFlushEntireTbDueToAttributeChange @ 0x1403AE894 (MiFlushEntireTbDueToAttributeChange.c)
- *     MiMarkPfnVerified @ 0x140436D24 (MiMarkPfnVerified.c)
- *     MiControlAreaHasHostRelocationsApplied @ 0x140436E7C (MiControlAreaHasHostRelocationsApplied.c)
- *     MiApplyDebuggerPatches @ 0x1404F6A1C (MiApplyDebuggerPatches.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     MiValidateImagePfn @ 0x140957464 (MiValidateImagePfn.c)
- *     SeValidateImageData @ 0x1409577F4 (SeValidateImageData.c)
- *     MiRelocateImagePfn @ 0x1409587A8 (MiRelocateImagePfn.c)
- *     MiGetSectionStrongImageReference @ 0x1409593FC (MiGetSectionStrongImageReference.c)
+ *     MiCheckLinearProtectedPteAccessedBit @ 0x140203550 (MiCheckLinearProtectedPteAccessedBit.c)
+ *     MiMapPageInHyperSpaceWorker @ 0x14024BEF0 (MiMapPageInHyperSpaceWorker.c)
+ *     MiInPageSkipPage @ 0x140256790 (MiInPageSkipPage.c)
+ *     MmUnmapLockedPages @ 0x14029D5C0 (MmUnmapLockedPages.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x14029F5F0 (MmMapLockedPagesSpecifyCache.c)
+ *     MiUnmapPageInHyperSpaceWorker @ 0x1402EEA94 (MiUnmapPageInHyperSpaceWorker.c)
+ *     MiFlushSingleTbEntry @ 0x1402FDA50 (MiFlushSingleTbEntry.c)
+ *     MiCanPageMove @ 0x14033FB90 (MiCanPageMove.c)
+ *     MiFlushEntireTbDueToAttributeChange @ 0x14039D0A4 (MiFlushEntireTbDueToAttributeChange.c)
+ *     MiMarkPfnVerified @ 0x1404297A4 (MiMarkPfnVerified.c)
+ *     MiControlAreaHasHostRelocationsApplied @ 0x1404298FC (MiControlAreaHasHostRelocationsApplied.c)
+ *     MiApplyDebuggerPatches @ 0x1404F4300 (MiApplyDebuggerPatches.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     MiGetSectionStrongImageReference @ 0x14093AE14 (MiGetSectionStrongImageReference.c)
+ *     MiValidateImagePfn @ 0x14093AE5C (MiValidateImagePfn.c)
+ *     SeValidateImageData @ 0x14093B1EC (SeValidateImageData.c)
+ *     MiRelocateImagePfn @ 0x14093B6F8 (MiRelocateImagePfn.c)
  */
 
 __int64 __fastcall MiValidateInPage(__int64 a1)
@@ -95,7 +95,7 @@ __int64 __fastcall MiValidateInPage(__int64 a1)
         v35 = *v8;
         v36 = *(_DWORD *)(v7 + 56) & 0xFFFLL;
         v43 = 0;
-        v37 = MiMapPageInHyperSpaceWorker(v35, &v43, 0x80000000LL);
+        v37 = MiMapPageInHyperSpaceWorker(v35, &v43, 0x80000000);
         memset_0((void *)(v36 + v37), 0, 4096 - v36);
         MiUnmapPageInHyperSpaceWorker(v37, v43, 0x80000000);
         v6 = v40;
@@ -212,7 +212,7 @@ LABEL_17:
       {
         v27 = *v26 | 0x842;
         if ( _bittest64(&MiFlags, 0x24u) && (*(_BYTE *)v26 & 0x20) == 0 && (unsigned __int64)v26 >= v21 + 0x4000000000LL )
-          MiCheckLinearProtectedPteAccessedBit((ULONG_PTR)v26, *v26 | 0x842, 128);
+          MiCheckLinearProtectedPteAccessedBit((ULONG_PTR)v26, *v26 | 0x842, 128LL);
         v28 = MiFlags;
         *v26 = v27;
         if ( (v28 & 0x100) == 0 && (v28 & 0x200) == 0 )

@@ -1,5 +1,5 @@
 /*
- * XREFs of HalpPnpInitSystem @ 0x140B4D7B0
+ * XREFs of HalpPnpInitSystem @ 0x140B4F800
  * Callers:
  *     <none>
  * Callees:
@@ -9,6 +9,6 @@
 __int64 __fastcall HalpPnpInitSystem(int a1)
 {
   if ( a1 == 7 )
-    off_140E00690[0] = HaliInitPnpDriver;
+    off_140E00760[0] = HaliInitPnpDriver;
   return 0LL;
 }

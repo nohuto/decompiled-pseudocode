@@ -1,12 +1,12 @@
 /*
- * XREFs of MiUpdateWorkingSetAgeDistribution @ 0x1400BC53C
+ * XREFs of MiUpdateWorkingSetAgeDistribution @ 0x1400BA3CC
  * Callers:
- *     MiTrimThisWsle @ 0x140016960 (MiTrimThisWsle.c)
- *     MiUnlockVa @ 0x1400BAA10 (MiUnlockVa.c)
- *     NtLockVirtualMemory @ 0x1400BAEC8 (NtLockVirtualMemory.c)
- *     MiActOnPte @ 0x1400BBC88 (MiActOnPte.c)
- *     MiReplaceWorkingSetEntryLarge @ 0x140100DD4 (MiReplaceWorkingSetEntryLarge.c)
- *     MiReplaceWorkingSetEntrySmall @ 0x1401E9EEC (MiReplaceWorkingSetEntrySmall.c)
+ *     MiTrimThisWsle @ 0x1400164E0 (MiTrimThisWsle.c)
+ *     MiUnlockVa @ 0x1400B88A0 (MiUnlockVa.c)
+ *     NtLockVirtualMemory @ 0x1400B8D58 (NtLockVirtualMemory.c)
+ *     MiActOnPte @ 0x1400B9B18 (MiActOnPte.c)
+ *     MiReplaceWorkingSetEntryLarge @ 0x1400FEB54 (MiReplaceWorkingSetEntryLarge.c)
+ *     MiReplaceWorkingSetEntrySmall @ 0x1401E9D18 (MiReplaceWorkingSetEntrySmall.c)
  * Callees:
  *     <none>
  */

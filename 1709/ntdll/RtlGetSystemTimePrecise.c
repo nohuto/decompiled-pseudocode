@@ -6,7 +6,7 @@
  *     NtQueryPerformanceCounter @ 0x1800A06E0 (NtQueryPerformanceCounter.c)
  */
 
-__int64 RtlGetSystemTimePrecise()
+LARGE_INTEGER RtlGetSystemTimePrecise(void)
 {
   __int64 v0; // rdi
   __int64 v1; // rdx
@@ -16,9 +16,9 @@ __int64 RtlGetSystemTimePrecise()
   unsigned __int64 v5; // rbp
   char v6; // si
   __int64 v7; // r14
-  unsigned __int64 v8; // rdx
+  LARGE_INTEGER v8; // rdx
   __int64 v9; // rdx
-  unsigned __int64 v11; // [rsp+68h] [rbp+10h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+68h] [rbp+10h] BYREF
 
   v0 = 0LL;
   while ( 1 )
@@ -58,23 +58,23 @@ __int64 RtlGetSystemTimePrecise()
       {
         __asm { rdtscp }
       }
-      v8 = (((v1 << 32) | v2) + MEMORY[0x7FFE03B8]) >> MEMORY[0x7FFE03C7];
+      v8.QuadPart = (((v1 << 32) | v2) + MEMORY[0x7FFE03B8]) >> MEMORY[0x7FFE03C7];
     }
     else
     {
-      NtQueryPerformanceCounter(&v11, 0LL);
-      v8 = v11;
+      NtQueryPerformanceCounter(&PerformanceCounter, 0LL);
+      v8 = PerformanceCounter;
     }
     if ( MEMORY[0x7FFE0340] == v3 )
       break;
     _mm_pause();
   }
-  if ( v8 > v5 )
+  if ( v8.QuadPart > v5 )
   {
-    v9 = v8 - v5 - 1;
+    v9 = v8.QuadPart - v5 - 1;
     if ( v6 )
       v9 <<= v6;
     v0 = ((unsigned __int64)v9 * (unsigned __int128)v4) >> 64;
   }
-  return v7 + v0;
+  return (LARGE_INTEGER)(v7 + v0);
 }

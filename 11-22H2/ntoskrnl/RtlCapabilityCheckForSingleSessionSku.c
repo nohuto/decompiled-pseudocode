@@ -7,17 +7,20 @@
  *     RtlCapabilityCheck @ 0x1407ED2D0 (RtlCapabilityCheck.c)
  */
 
-__int64 __fastcall RtlCapabilityCheckForSingleSessionSku(HANDLE ExistingTokenHandle, UNICODE_STRING *String2, char *a3)
+__int64 __fastcall RtlCapabilityCheckForSingleSessionSku(
+        HANDLE TokenHandle,
+        PUNICODE_STRING CapabilityName,
+        PBOOLEAN HasCapability)
 {
   unsigned int v3; // ebx
 
   v3 = 0;
-  if ( a3 )
+  if ( HasCapability )
   {
     if ( RtlIsMultiSessionSku() )
-      *a3 = 0;
+      *HasCapability = 0;
     else
-      return (unsigned int)RtlCapabilityCheck(ExistingTokenHandle, String2, a3);
+      return (unsigned int)RtlCapabilityCheck(TokenHandle, CapabilityName, HasCapability);
   }
   else
   {

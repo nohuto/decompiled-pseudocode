@@ -1,11 +1,11 @@
 /*
- * XREFs of BgkSetCursor @ 0x140AF1120
+ * XREFs of BgkSetCursor @ 0x140AF1130
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     BgkpAcquireConsole @ 0x14054EF88 (BgkpAcquireConsole.c)
- *     BgkpReleaseConsole @ 0x14054EFD4 (BgkpReleaseConsole.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     BgkpAcquireConsole @ 0x14054F648 (BgkpAcquireConsole.c)
+ *     BgkpReleaseConsole @ 0x14054F694 (BgkpReleaseConsole.c)
  */
 
 __int64 __fastcall BgkSetCursor(unsigned int a1, unsigned int a2, unsigned int a3)

@@ -1,19 +1,19 @@
 /*
- * XREFs of MiCheckAndProcessCcAccessLog @ 0x1403A3614
+ * XREFs of MiCheckAndProcessCcAccessLog @ 0x1403A3764
  * Callers:
- *     MiEmptyAccessLogs @ 0x1403A3430 (MiEmptyAccessLogs.c)
+ *     MiEmptyAccessLogs @ 0x1403A3580 (MiEmptyAccessLogs.c)
  * Callees:
- *     MiQueuePageAccessLog @ 0x14025C02C (MiQueuePageAccessLog.c)
- *     MiReturnCcAccessLog @ 0x1402C811C (MiReturnCcAccessLog.c)
+ *     MiReturnCcAccessLog @ 0x14024697C (MiReturnCcAccessLog.c)
+ *     MiQueuePageAccessLog @ 0x14027D59C (MiQueuePageAccessLog.c)
  */
 
 void __fastcall MiCheckAndProcessCcAccessLog(__int64 a1, int a2)
 {
-  struct _SLIST_ENTRY *v3; // rcx
+  _SLIST_ENTRY *v3; // rcx
 
-  if ( qword_140C4E800 )
+  if ( qword_140C4E840 )
   {
-    v3 = (struct _SLIST_ENTRY *)_InterlockedExchange64(&qword_140C4E800, 0LL);
+    v3 = (_SLIST_ENTRY *)_InterlockedExchange64(&qword_140C4E840, 0LL);
     if ( v3 )
     {
       if ( a1 - (unsigned __int64)v3[1].Next > PfKernelGlobals || a2 )

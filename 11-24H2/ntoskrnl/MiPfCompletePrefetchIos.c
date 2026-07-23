@@ -1,12 +1,12 @@
 /*
- * XREFs of MiPfCompletePrefetchIos @ 0x1402A9824
+ * XREFs of MiPfCompletePrefetchIos @ 0x140351AD0
  * Callers:
- *     MmPrefetchPagesEx @ 0x140955430 (MmPrefetchPagesEx.c)
- *     MiPrefetchControlArea @ 0x1409572D4 (MiPrefetchControlArea.c)
+ *     MmPrefetchPagesEx @ 0x140938DE0 (MmPrefetchPagesEx.c)
+ *     MiPrefetchControlArea @ 0x14093AC84 (MiPrefetchControlArea.c)
  * Callees:
- *     MiPfCoalesceAndIssueIOs @ 0x1402AA4C8 (MiPfCoalesceAndIssueIOs.c)
- *     MiPfCompleteInPageSupport @ 0x140397338 (MiPfCompleteInPageSupport.c)
- *     MiPfCompleteCoalescedIo @ 0x140397438 (MiPfCompleteCoalescedIo.c)
+ *     MiPfCompleteCoalescedIo @ 0x140351964 (MiPfCompleteCoalescedIo.c)
+ *     MiPfCoalesceAndIssueIOs @ 0x140352778 (MiPfCoalesceAndIssueIOs.c)
+ *     MiPfCompleteInPageSupport @ 0x140352CB4 (MiPfCompleteInPageSupport.c)
  */
 
 __int64 __fastcall MiPfCompletePrefetchIos(ULONG_PTR *a1, __int64 a2, __int64 a3)
@@ -29,7 +29,7 @@ __int64 __fastcall MiPfCompletePrefetchIos(ULONG_PTR *a1, __int64 a2, __int64 a3
     *a1 = v7;
     *(_QWORD *)(v7 + 8) = a1;
     if ( (*(_DWORD *)(v6 + 192) & 0x1000000) != 0 )
-      v8 = MiPfCompleteCoalescedIo(v6);
+      v8 = MiPfCompleteCoalescedIo(v6, a3);
     else
       v8 = MiPfCompleteInPageSupport(v6, a3);
     if ( ((v8 + 0x80000000) & 0x80000000) == 0 && v8 != -1073740748 )

@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwEventUnregister @ 0x1800596F0
+ * XREFs of EtwEventUnregister @ 0x1800596E0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall EtwEventUnregister(__int64 a1)
+ULONG __cdecl EtwEventUnregister(REGHANDLE RegHandle)
 {
-  return EtwNotificationUnregister(a1, 0LL);
+  return EtwNotificationUnregister(RegHandle, 0LL);
 }

@@ -1,8 +1,8 @@
 /*
  * XREFs of FsRtlAllocateExtraCreateParameter @ 0x140797F80
  * Callers:
- *     PspCreateUserProcessEcp @ 0x14066F248 (PspCreateUserProcessEcp.c)
- *     IopSymlinkEnforceEnabledTypes @ 0x1406EACD8 (IopSymlinkEnforceEnabledTypes.c)
+ *     sub_14066F248 @ 0x14066F248 (sub_14066F248.c)
+ *     sub_1406EACD8 @ 0x1406EACD8 (sub_1406EACD8.c)
  *     FsRtlAllocateExtraCreateParameterFromLookasideList @ 0x14071E5C0 (FsRtlAllocateExtraCreateParameterFromLookasideList.c)
  * Callees:
  *     ExAllocatePool2 @ 0x140A6E430 (ExAllocatePool2.c)

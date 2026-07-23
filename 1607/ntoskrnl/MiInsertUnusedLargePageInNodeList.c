@@ -1,10 +1,10 @@
 /*
- * XREFs of MiInsertUnusedLargePageInNodeList @ 0x1401F58D4
+ * XREFs of MiInsertUnusedLargePageInNodeList @ 0x1401F5700
  * Callers:
- *     MiFreeLargeZeroPages @ 0x140662930 (MiFreeLargeZeroPages.c)
+ *     MiFreeLargeZeroPages @ 0x140662A14 (MiFreeLargeZeroPages.c)
  * Callees:
- *     MiLockPageInline @ 0x140022E70 (MiLockPageInline.c)
- *     MiInsertLargePageInNodeList @ 0x1401FBB4C (MiInsertLargePageInNodeList.c)
+ *     MiLockPageInline @ 0x1400229F0 (MiLockPageInline.c)
+ *     MiInsertLargePageInNodeList @ 0x1401FB978 (MiInsertLargePageInNodeList.c)
  */
 
 __int64 __fastcall MiInsertUnusedLargePageInNodeList(__int64 a1, __int64 a2)

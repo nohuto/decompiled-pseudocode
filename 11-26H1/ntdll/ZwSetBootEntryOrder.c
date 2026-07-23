@@ -1,16 +1,16 @@
 /*
- * XREFs of ZwSetBootEntryOrder @ 0x180162210
+ * XREFs of ZwSetBootEntryOrder @ 0x180162110
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 ZwSetBootEntryOrder()
+NTSTATUS __cdecl ZwSetBootEntryOrder(PULONG Ids, ULONG Count)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 407LL;
+  result = 407;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

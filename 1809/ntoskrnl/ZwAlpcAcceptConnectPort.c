@@ -1,15 +1,24 @@
 /*
- * XREFs of ZwAlpcAcceptConnectPort @ 0x1401B9030
+ * XREFs of ZwAlpcAcceptConnectPort @ 0x1401B9190
  * Callers:
- *     PopUmpoProcessMessage @ 0x14058AF88 (PopUmpoProcessMessage.c)
- *     PopMonitorProcessLoop @ 0x140760518 (PopMonitorProcessLoop.c)
+ *     PopUmpoProcessMessage @ 0x14058BF88 (PopUmpoProcessMessage.c)
+ *     PopMonitorProcessLoop @ 0x140761708 (PopMonitorProcessLoop.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwAlpcAcceptConnectPort(__int64 a1, __int64 a2, __int64 a3)
+NTSTATUS __cdecl ZwAlpcAcceptConnectPort(
+        PHANDLE PortHandle,
+        HANDLE ConnectionPortHandle,
+        ULONG Flags,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        PALPC_PORT_ATTRIBUTES PortAttributes,
+        PVOID PortContext,
+        PPORT_MESSAGE ConnectionRequest,
+        PALPC_MESSAGE_ATTRIBUTES ConnectionMessageAttributes,
+        BOOLEAN AcceptConnection)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2, a3);
+  return KiServiceInternal(PortHandle);
 }

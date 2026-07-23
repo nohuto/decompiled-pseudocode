@@ -1,27 +1,27 @@
 /*
- * XREFs of EmpParseRuleExpression @ 0x140C16900
+ * XREFs of EmpParseRuleExpression @ 0x140C18900
  * Callers:
- *     EmpParseRules @ 0x140C172EC (EmpParseRules.c)
+ *     EmpParseRules @ 0x140C192EC (EmpParseRules.c)
  * Callees:
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
- *     EmpInfParseGetValueFromSectionAndKeyName @ 0x140C16344 (EmpInfParseGetValueFromSectionAndKeyName.c)
- *     EmpInfParseSearchDependencyList @ 0x140C163E8 (EmpInfParseSearchDependencyList.c)
- *     EmpParseRuleTerm @ 0x140C16E50 (EmpParseRuleTerm.c)
- *     EmpRuleParserStackPop @ 0x140C17D64 (EmpRuleParserStackPop.c)
- *     EmpRuleParserStackPush @ 0x140C17DBC (EmpRuleParserStackPush.c)
- *     CmpGetSectionLineIndex @ 0x140C18254 (CmpGetSectionLineIndex.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
+ *     EmpInfParseGetValueFromSectionAndKeyName @ 0x140C18344 (EmpInfParseGetValueFromSectionAndKeyName.c)
+ *     EmpInfParseSearchDependencyList @ 0x140C183E8 (EmpInfParseSearchDependencyList.c)
+ *     EmpParseRuleTerm @ 0x140C18E50 (EmpParseRuleTerm.c)
+ *     EmpRuleParserStackPop @ 0x140C19D64 (EmpRuleParserStackPop.c)
+ *     EmpRuleParserStackPush @ 0x140C19DBC (EmpRuleParserStackPush.c)
+ *     CmpGetSectionLineIndex @ 0x140C1A254 (CmpGetSectionLineIndex.c)
  */
 
 __int64 __fastcall EmpParseRuleExpression(__int64 a1, const char *a2, __int64 a3, __int64 a4)
 {
   int v5; // ebx
-  ULONG_PTR v6; // r14
+  __int64 v6; // r14
   void *v7; // r13
   _BYTE *ValueFromSectionAndKeyName; // r12
-  ULONG_PTR Pool2; // rax
+  __int64 Pool2; // rax
   _QWORD *v10; // rdi
-  ULONG_PTR v11; // rax
+  __int64 v11; // rax
   __int64 v12; // rcx
   __int64 v13; // r15
   unsigned int v14; // edx

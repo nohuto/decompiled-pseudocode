@@ -13,24 +13,24 @@
  *     _RtlCSparseBitmapBitsClear@12 @ 0x4B37DE0D (_RtlCSparseBitmapBitsClear@12.c)
  */
 
-int __fastcall RtlpHpSegSegmentFree(int a1, int a2, int a3, int a4)
+NTSTATUS __fastcall RtlpHpSegSegmentFree(int a1, void *a2, int a3, int a4)
 {
   unsigned int v6; // esi
   int v7; // eax
-  int result; // eax
+  NTSTATUS result; // eax
 
   v6 = -*(_DWORD *)a1;
   if ( a4 )
     RtlCSparseBitmapBitsClear(2 * (v6 >> 20));
   v7 = a3;
   if ( (*(_BYTE *)(a1 + 9) & 7) != 0 && a3 == 0x7FFFFFFF )
-    v7 = RtlpHpSegSegmentComputeCommit(a1, a2);
+    v7 = RtlpHpSegSegmentComputeCommit(a1, (int)a2);
   RtlpHpSegMgrRelease(a1, a2, v7);
   if ( RtlGetCurrentServiceSessionId() )
-    result = (int)NtCurrentPeb()->SharedData + 558;
+    result = (NTSTATUS)NtCurrentPeb()->SharedData + 558;
   else
     result = 2147353480;
   if ( *(_BYTE *)result )
-    return RtlpHeapLogRangeRelease(a1, a2, v6);
+    return RtlpHeapLogRangeRelease(a1, (int)a2, v6);
   return result;
 }

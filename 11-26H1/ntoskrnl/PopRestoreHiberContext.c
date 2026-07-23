@@ -1,19 +1,19 @@
 /*
- * XREFs of PopRestoreHiberContext @ 0x140C03138
+ * XREFs of PopRestoreHiberContext @ 0x140C09348
  * Callers:
- *     PopHandleNextState @ 0x140C02C90 (PopHandleNextState.c)
+ *     PopHandleNextState @ 0x140C08EA0 (PopHandleNextState.c)
  * Callees:
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     IoInitializeDumpStack @ 0x1405C7230 (IoInitializeDumpStack.c)
- *     IoNotifyDump @ 0x1405C7314 (IoNotifyDump.c)
- *     PopInternalAddToDumpFile @ 0x140600824 (PopInternalAddToDumpFile.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     PopDecompressHiberBlocks @ 0x140BFA2A4 (PopDecompressHiberBlocks.c)
- *     PopRequestRead @ 0x140BFB3E8 (PopRequestRead.c)
- *     PopCheckpointSystemSleep @ 0x140C06470 (PopCheckpointSystemSleep.c)
- *     PopHiberReadChecksums @ 0x140C09444 (PopHiberReadChecksums.c)
- *     BgLibraryInitialize @ 0x140C4FAD4 (BgLibraryInitialize.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     IoInitializeDumpStack @ 0x1405C9B00 (IoInitializeDumpStack.c)
+ *     IoNotifyDump @ 0x1405C9BE4 (IoNotifyDump.c)
+ *     PopInternalAddToDumpFile @ 0x1406032D4 (PopInternalAddToDumpFile.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     PopDecompressHiberBlocks @ 0x140C002A4 (PopDecompressHiberBlocks.c)
+ *     PopRequestRead @ 0x140C013E8 (PopRequestRead.c)
+ *     PopCheckpointSystemSleep @ 0x140C0C680 (PopCheckpointSystemSleep.c)
+ *     PopHiberReadChecksums @ 0x140C0F654 (PopHiberReadChecksums.c)
+ *     BgLibraryInitialize @ 0x140C55AD4 (BgLibraryInitialize.c)
  */
 
 struct _KPRCB *__fastcall PopRestoreHiberContext(ULONG_PTR BugCheckParameter3)
@@ -45,7 +45,7 @@ struct _KPRCB *__fastcall PopRestoreHiberContext(ULONG_PTR BugCheckParameter3)
   __int64 v26; // r11
   __int64 v27; // rdi
   unsigned __int64 v28; // rax
-  unsigned __int64 v29; // rax
+  __int64 v29; // rax
   unsigned int v30; // ebp
   unsigned int v31; // r9d
   __int64 v32; // rcx
@@ -71,18 +71,16 @@ struct _KPRCB *__fastcall PopRestoreHiberContext(ULONG_PTR BugCheckParameter3)
     *(_QWORD *)(v5 + 80) = 0LL;
     if ( (_DWORD)Number == *(_DWORD *)(BugCheckParameter3 + 208) )
     {
-      byte_140E65D3E = 0;
+      byte_140E65F58 = 0;
       v6 = __rdtsc();
-      if ( qword_140E65D30 )
-        byte_140E65D3E = (int)BgLibraryInitialize(qword_140E65D30, 0xFFFFFFFFLL) >= 0;
+      if ( qword_140E65F38 )
+        byte_140E65F58 = (int)BgLibraryInitialize(qword_140E65F38, 0xFFFFFFFFLL) >= 0;
       v7 = __rdtsc();
-      stru_140F10070.SchedulerApc.Reserved[2] = (char *)stru_140F10070.SchedulerApc.Reserved[2]
-                                              + (((unsigned __int64)HIDWORD(v7) << 32) | (unsigned int)v7)
-                                              - v6;
+      qword_140F10BC8 += (((unsigned __int64)HIDWORD(v7) << 32) | (unsigned int)v7) - v6;
     }
     if ( !(_DWORD)Number )
     {
-      v42 = qword_140F0FE08;
+      v42 = qword_140F10988;
       v8 = *(_QWORD **)(BugCheckParameter3 + 216);
       v41 = __rdtsc();
       if ( v8[11] == v8[70] )
@@ -90,10 +88,10 @@ struct _KPRCB *__fastcall PopRestoreHiberContext(ULONG_PTR BugCheckParameter3)
       else
         v9 = 0LL;
       *(_QWORD *)(BugCheckParameter3 + 432) = v9;
-      v10 = qword_140F0FE08;
+      v10 = qword_140F10988;
       v11 = *(_DWORD *)(BugCheckParameter3 + 312);
       v12 = *(_QWORD *)(BugCheckParameter3 + 304);
-      memset_0(qword_140F0FE08, 0, 0x40uLL);
+      memset_0(qword_140F10988, 0, 0x40uLL);
       v10[6] = 0;
       *(_QWORD *)v10 = v12;
       v10[2] = v11;
@@ -104,13 +102,13 @@ struct _KPRCB *__fastcall PopRestoreHiberContext(ULONG_PTR BugCheckParameter3)
       {
         *(_DWORD *)(BugCheckParameter3 + 200) = 9;
         *(_QWORD *)(BugCheckParameter3 + 176) = &v39;
-        *(_QWORD *)&v39 = qword_140F0FD78;
-        *((_QWORD *)&v39 + 1) = qword_140F0FD78;
+        *(_QWORD *)&v39 = qword_140F108F8;
+        *((_QWORD *)&v39 + 1) = qword_140F108F8;
         v40 = 0LL;
         guard_dispatch_icall_no_overrides(0LL, v14);
         v15 = IoInitializeDumpStack(*(_QWORD *)(BugCheckParameter3 + 184));
         v16 = v15;
-        if ( v15 < 0 || dword_140F0FD40 == 4 )
+        if ( v15 < 0 || PopSimulateHiberBugcheck == 4 )
         {
           PopCheckpointSystemSleep(28LL);
           PopInternalAddToDumpFile(*(_QWORD *)(BugCheckParameter3 + 184), 0x178u, 0LL);
@@ -118,8 +116,7 @@ struct _KPRCB *__fastcall PopRestoreHiberContext(ULONG_PTR BugCheckParameter3)
         }
         v17 = __rdtsc();
         v18 = v41;
-        stru_140F10070.SchedulerApc.ApcListEntry.Flink = (struct _LIST_ENTRY *)((((unsigned __int64)HIDWORD(v17) << 32) | (unsigned int)v17)
-                                                                              - v41);
+        qword_140F10BA8 = (((unsigned __int64)HIDWORD(v17) << 32) | (unsigned int)v17) - v41;
         v19 = *(_QWORD *)(BugCheckParameter3 + 184);
         *(_DWORD *)(BugCheckParameter3 + 360) = 0;
         *(_QWORD *)(BugCheckParameter3 + 376) = 0LL;
@@ -160,7 +157,7 @@ struct _KPRCB *__fastcall PopRestoreHiberContext(ULONG_PTR BugCheckParameter3)
       v28 = __rdtsc();
       v29 = (((unsigned __int64)HIDWORD(v28) << 32) | (unsigned int)v28) - v21;
       v30 = 0;
-      stru_140F10070.ExtendedFeatureDisableMask = v29;
+      qword_140F10D38 = v29;
       v31 = *(_DWORD *)(BugCheckParameter3 + 288);
       if ( v31 )
       {
@@ -169,11 +166,9 @@ struct _KPRCB *__fastcall PopRestoreHiberContext(ULONG_PTR BugCheckParameter3)
         {
           v33 = v4;
           v34 = 168LL * v30;
-          stru_140F10070.SavedApcState.Process = (_KPROCESS *)((char *)stru_140F10070.SavedApcState.Process
-                                                             + *(_QWORD *)(v34 + v32 + 64));
-          *(_QWORD *)&stru_140F10070.SchedulerApc.Type += *(_QWORD *)(*(_QWORD *)(BugCheckParameter3 + 296) + v34 + 72);
-          stru_140F10070.SchedulerApc.Reserved[1] = (char *)stru_140F10070.SchedulerApc.Reserved[1]
-                                                  + *(_QWORD *)(*(_QWORD *)(BugCheckParameter3 + 296) + v34 + 80);
+          qword_140F10B88 += *(_QWORD *)(v34 + v32 + 64);
+          qword_140F10B98 += *(_QWORD *)(*(_QWORD *)(BugCheckParameter3 + 296) + v34 + 72);
+          qword_140F10BC0 += *(_QWORD *)(*(_QWORD *)(BugCheckParameter3 + 296) + v34 + 80);
           v32 = *(_QWORD *)(BugCheckParameter3 + 296);
           v31 = *(_DWORD *)(BugCheckParameter3 + 288);
           v4 = *(_QWORD *)(v34 + v32 + 64) + *(_QWORD *)(v34 + v32 + 72);
@@ -191,25 +186,22 @@ struct _KPRCB *__fastcall PopRestoreHiberContext(ULONG_PTR BugCheckParameter3)
       v36 = v25 / (v27 + 1);
       if ( v36 > v35 )
       {
-        v37 = 100 * (*(_QWORD *)&stru_140F10070.SavedApcStateFill[40] * v31 / (v26 + v27 + 1) - v35) / (v36 - v35);
+        v37 = 100 * (qword_140F10B90 * v31 / (v26 + v27 + 1) - v35) / (v36 - v35);
         if ( v37 > 99 )
         {
-          dword_140F0FDA4 = 99;
+          dword_140F10924 = 99;
 LABEL_40:
           v38 = __rdtsc();
-          stru_140F10070.SchedulerApc.ApcListEntry.Blink = (struct _LIST_ENTRY *)((((unsigned __int64)HIDWORD(v38) << 32) | (unsigned int)v38)
-                                                                                - v18);
-          result = (struct _KPRCB *)((char *)stru_140F10070.SchedulerApc.ApcListEntry.Blink
-                                   - (char *)stru_140F10070.SchedulerApc.ApcListEntry.Flink
-                                   - v4);
-          stru_140F10070.SavedApcState.ApcListHead[1].Blink = (struct _LIST_ENTRY *)result;
+          qword_140F10BB0 = (((unsigned __int64)HIDWORD(v38) << 32) | (unsigned int)v38) - v18;
+          result = (struct _KPRCB *)(qword_140F10BB0 - qword_140F10BA8 - v4);
+          qword_140F10B80 = (__int64)result;
           return result;
         }
-        dword_140F0FDA4 = v37;
+        dword_140F10924 = v37;
         if ( (int)v37 >= 1 )
           goto LABEL_40;
       }
-      dword_140F0FDA4 = 1;
+      dword_140F10924 = 1;
       goto LABEL_40;
     }
     while ( !*(_BYTE *)(BugCheckParameter3 + 3) )

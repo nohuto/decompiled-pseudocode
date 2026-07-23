@@ -1,9 +1,9 @@
 /*
- * XREFs of MiCheckSameSlabType @ 0x140430B10
+ * XREFs of MiCheckSameSlabType @ 0x1404224C0
  * Callers:
- *     MiStealPage @ 0x1402263B0 (MiStealPage.c)
- *     MiSwapStackPage @ 0x1404303C4 (MiSwapStackPage.c)
- *     MiJumpStackTarget @ 0x140480E20 (MiJumpStackTarget.c)
+ *     MiStealPage @ 0x140253D10 (MiStealPage.c)
+ *     MiSwapStackPage @ 0x140421D74 (MiSwapStackPage.c)
+ *     MiJumpStackTarget @ 0x14047B8F0 (MiJumpStackTarget.c)
  * Callees:
  *     <none>
  */
@@ -16,15 +16,15 @@ _BOOL8 __fastcall MiCheckSameSlabType(__int64 a1, int a2, __int64 a3, int a4, in
 
   if ( a2 != a4 )
     return 0LL;
-  if ( !byte_140E3CAE6 )
+  if ( !byte_140E3CC26 )
     return 1LL;
   v5 = (0xAAAAAAAAAAAAAAABuLL * ((a1 + 0x220000000000LL) >> 4)) >> 9;
-  if ( !*(_BYTE *)(qword_140E3D140 + 2 * v5) )
+  if ( !*(_BYTE *)(qword_140E3D280 + 2 * v5) )
     return 1LL;
-  if ( *(_BYTE *)(qword_140E3D140 + 2 * v5) != 9 )
+  if ( *(_BYTE *)(qword_140E3D280 + 2 * v5) != 9 )
     return 1LL;
-  v7 = *(_BYTE *)(qword_140E3D140 + 2 * v5 + 1) & 0x7F;
-  v8 = *(_BYTE *)(qword_140E3D140 + 2 * ((0xAAAAAAAAAAAAAAABuLL * ((a3 + 0x220000000000LL) >> 4)) >> 9) + 1) & 0x7F;
+  v7 = *(_BYTE *)(qword_140E3D280 + 2 * v5 + 1) & 0x7F;
+  v8 = *(_BYTE *)(qword_140E3D280 + 2 * ((0xAAAAAAAAAAAAAAABuLL * ((a3 + 0x220000000000LL) >> 4)) >> 9) + 1) & 0x7F;
   if ( v7 == v8 )
     return 1LL;
   if ( !a5 )

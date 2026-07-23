@@ -1,18 +1,18 @@
 /*
- * XREFs of ExRegisterBootDevice @ 0x140655BF0
+ * XREFs of ExRegisterBootDevice @ 0x1406542F0
  * Callers:
  *     <none>
  * Callees:
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     ObfReferenceObjectWithTag @ 0x1403403E0 (ObfReferenceObjectWithTag.c)
- *     KeSetPriorityThread @ 0x1403F96D0 (KeSetPriorityThread.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ObReferenceObjectByHandle @ 0x14084AF40 (ObReferenceObjectByHandle.c)
- *     PsCreateSystemThread @ 0x140A22450 (PsCreateSystemThread.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     ObfReferenceObjectWithTag @ 0x14031F8C0 (ObfReferenceObjectWithTag.c)
+ *     KeSetPriorityThread @ 0x140371FE0 (KeSetPriorityThread.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ObReferenceObjectByHandle @ 0x140847200 (ObReferenceObjectByHandle.c)
+ *     PsCreateSystemThread @ 0x1408F8C00 (PsCreateSystemThread.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall ExRegisterBootDevice(__int64 a1, __int64 *a2)
@@ -54,7 +54,7 @@ __int64 __fastcall ExRegisterBootDevice(__int64 a1, __int64 *a2)
   {
     if ( *(_DWORD *)a1 == 1 && *(_QWORD *)(a1 + 8) && !*(_DWORD *)(a1 + 4) && *(_QWORD *)(a1 + 24) )
     {
-      Pool2 = ExAllocatePool2(0x40uLL);
+      Pool2 = ExAllocatePool2(0x40uLL, 0x40uLL, 0x504E4442u);
       if ( Pool2 )
       {
         ObfReferenceObjectWithTag(*(PVOID *)(a1 + 8), 0x746C6644u);
@@ -66,14 +66,14 @@ __int64 __fastcall ExRegisterBootDevice(__int64 a1, __int64 *a2)
         *(_OWORD *)(Pool2 + 40) = *(_OWORD *)(a1 + 16);
         *(_QWORD *)(Pool2 + 56) = *(_QWORD *)(a1 + 32);
         v7 = KeAcquireSpinLockRaiseToDpc(&ExBootDeviceListSpinLock);
-        v8 = (_QWORD *)qword_140EFA6F8;
+        v8 = (_QWORD *)qword_140EFAA68;
         v9 = (_QWORD *)(Pool2 + 8);
-        if ( *(__int64 **)qword_140EFA6F8 != &ExBootDeviceList )
+        if ( *(__int64 **)qword_140EFAA68 != &ExBootDeviceList )
           __fastfail(3u);
-        *(_QWORD *)(Pool2 + 16) = qword_140EFA6F8;
+        *(_QWORD *)(Pool2 + 16) = qword_140EFAA68;
         *v9 = &ExBootDeviceList;
         *v8 = v9;
-        qword_140EFA6F8 = Pool2 + 8;
+        qword_140EFAA68 = Pool2 + 8;
         KeReleaseSpinLock(&ExBootDeviceListSpinLock, v7);
         *a2 = Pool2;
       }

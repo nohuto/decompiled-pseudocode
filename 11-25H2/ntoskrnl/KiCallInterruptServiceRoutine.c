@@ -71,11 +71,11 @@ char __fastcall KiCallInterruptServiceRoutine(struct _KINTERRUPT *a1, __int64 a2
   signed __int32 v37; // eax
   signed __int32 v38; // ett
   unsigned __int64 v39; // [rsp+20h] [rbp-48h]
-  char v40[8]; // [rsp+28h] [rbp-40h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+28h] [rbp-40h] BYREF
   void *retaddr; // [rsp+68h] [rbp+0h]
   unsigned __int8 PreviousIrql; // [rsp+70h] [rbp+8h]
   int v43; // [rsp+80h] [rbp+18h] BYREF
-  __int64 v44; // [rsp+88h] [rbp+20h] BYREF
+  LARGE_INTEGER v44; // [rsp+88h] [rbp+20h] BYREF
 
   Vector = a1->Vector;
   v4 = a2;
@@ -83,7 +83,7 @@ char __fastcall KiCallInterruptServiceRoutine(struct _KINTERRUPT *a1, __int64 a2
   {
     if ( KiForceIdleState == 4 )
     {
-      v44 = 0LL;
+      v44.QuadPart = 0LL;
       v34 = KeDisableInterrupts(a1, a2, a3);
       v43 = 0;
       while ( _interlockedbittestandset64((volatile signed __int32 *)&KiForceIdleLock, 0LL) )
@@ -95,7 +95,8 @@ char __fastcall KiCallInterruptServiceRoutine(struct _KINTERRUPT *a1, __int64 a2
       if ( (unsigned __int8)KeIsForceIdleEngaged() )
       {
         KiSetForceIdleState(3LL);
-        KiForceIdleStartTime = 10000000LL * (unsigned int)KiForceIdleGracePeriodInSec + RtlGetInterruptTimePrecise(&v44);
+        KiForceIdleStartTime = 10000000LL * (unsigned int)KiForceIdleGracePeriodInSec
+                             + *(_QWORD *)&RtlGetInterruptTimePrecise(&v44);
         if ( !KiForceIdleStopDpc.DpcData )
           KiForceIdleStopDpc.Number = KiClockTimerOwner + 2048;
         KeInsertQueueDpc(&KiForceIdleStopDpc, 0LL, 0LL);
@@ -178,7 +179,7 @@ char __fastcall KiCallInterruptServiceRoutine(struct _KINTERRUPT *a1, __int64 a2
       guard_dispatch_icall_no_overrides(InternalData, v17);
     v18 = (unsigned int)_InterlockedExchangeAdd(&HalpClockTickLogIndex, 1u);
     v19 = (char *)&HalpClockTickLog + 24 * (((unsigned __int8)v18 + 1) & 0xF);
-    *(_QWORD *)v19 = RtlGetInterruptTimePrecise(v40);
+    *(LARGE_INTEGER *)v19 = RtlGetInterruptTimePrecise(&PerformanceCounter);
     *((_DWORD *)v19 + 2) = KeGetPcr()->Prcb.Number;
     *((_DWORD *)v19 + 3) = KiClockTimerOwner;
     v19[16] = 0;

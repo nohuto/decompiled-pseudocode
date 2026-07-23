@@ -1,21 +1,21 @@
 /*
- * XREFs of PopBatteryAdd @ 0x1407D7CF0
+ * XREFs of PopBatteryAdd @ 0x1407DB310
  * Callers:
  *     <none>
  * Callees:
- *     ExQueueWorkItem @ 0x140381C70 (ExQueueWorkItem.c)
- *     PopReleaseRwLock @ 0x14043630C (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x140436378 (PopAcquireRwLockExclusive.c)
- *     KeInitializeEvent @ 0x140466F30 (KeInitializeEvent.c)
- *     IoSynchronousCallDriver @ 0x1404B2910 (IoSynchronousCallDriver.c)
- *     PopBatteryQueueWork @ 0x1404E0BBC (PopBatteryQueueWork.c)
- *     Feature_AdapterAndNewBatteryIoctlSupport__private_IsEnabledDeviceUsageNoInline @ 0x1404E11C4 (Feature_AdapterAndNewBatteryIoctlSupport__private_IsEnabledDeviceUsageNoInline.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     PopChangeCapability @ 0x140943114 (PopChangeCapability.c)
- *     PopPrepareIoctl @ 0x140AFBC84 (PopPrepareIoctl.c)
- *     PopBatteryWaitTag @ 0x140B625D0 (PopBatteryWaitTag.c)
- *     PopAcquirePolicyLock @ 0x140C04BF0 (PopAcquirePolicyLock.c)
- *     PopReleasePolicyLock @ 0x140C04C40 (PopReleasePolicyLock.c)
+ *     PopReleaseRwLock @ 0x14021B1A8 (PopReleaseRwLock.c)
+ *     ExQueueWorkItem @ 0x140383A20 (ExQueueWorkItem.c)
+ *     PopAcquireRwLockExclusive @ 0x140425310 (PopAcquireRwLockExclusive.c)
+ *     KeInitializeEvent @ 0x140460680 (KeInitializeEvent.c)
+ *     IoSynchronousCallDriver @ 0x1404ABE20 (IoSynchronousCallDriver.c)
+ *     PopBatteryQueueWork @ 0x1404DA29C (PopBatteryQueueWork.c)
+ *     Feature_AdapterAndNewBatteryIoctlSupport__private_IsEnabledDeviceUsageNoInline @ 0x1404DA8A4 (Feature_AdapterAndNewBatteryIoctlSupport__private_IsEnabledDeviceUsageNoInline.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     PopChangeCapability @ 0x1409BEA8C (PopChangeCapability.c)
+ *     PopPrepareIoctl @ 0x140AFD904 (PopPrepareIoctl.c)
+ *     PopBatteryWaitTag @ 0x140B65670 (PopBatteryWaitTag.c)
+ *     PopAcquirePolicyLock @ 0x140C0AE00 (PopAcquirePolicyLock.c)
+ *     PopReleasePolicyLock @ 0x140C0AE50 (PopReleasePolicyLock.c)
  */
 
 __int64 __fastcall PopBatteryAdd(__int64 a1)
@@ -35,11 +35,11 @@ __int64 __fastcall PopBatteryAdd(__int64 a1)
 
   v14 = 0LL;
   KeInitializeEvent((PRKEVENT)(a1 + 80), SynchronizationEvent, 0);
-  if ( ++dword_140F0FE70 == 1 )
+  if ( ++dword_140F10630 == 1 )
   {
     PopAcquirePolicyLock(v3, v2);
     LOBYTE(v4) = 1;
-    PopChangeCapability(&stru_140F10828.WaitBlockFill11[54], v4);
+    PopChangeCapability((char *)&PpmIdlePolicyLock.Padding[4] + 6, v4);
     PopReleasePolicyLock(v6, v5, v7, v8, v13);
     _m_prefetchw(&PopCadLoadReason);
     if ( !_InterlockedOr(&PopCadLoadReason, 1u) )
@@ -52,9 +52,9 @@ __int64 __fastcall PopBatteryAdd(__int64 a1)
     if ( IoSynchronousCallDriver(*(struct _DEVICE_OBJECT **)(a1 + 48), *(IRP **)(a1 + 56)) >= 0 )
       *(_DWORD *)(a1 + 248) = HIDWORD(v14);
   }
-  PopAcquireRwLockExclusive((unsigned __int64 *)&qword_140F0FE60, v9, v10, v11);
-  byte_140F0FE78 = 1;
+  PopAcquireRwLockExclusive((unsigned __int64 *)&PopCB, v9, v10, v11);
+  byte_140F10638 = 1;
   PopBatteryWaitTag(a1);
   PopBatteryQueueWork(8u);
-  return PopReleaseRwLock((struct _KTHREAD *)&qword_140F0FE60);
+  return PopReleaseRwLock((struct _KTHREAD *)&PopCB);
 }

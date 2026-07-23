@@ -1,21 +1,21 @@
 /*
- * XREFs of EtwpUpdateGlobalGroupMasks @ 0x140959E60
+ * XREFs of EtwpUpdateGlobalGroupMasks @ 0x1409FF720
  * Callers:
- *     EtwpUpdateSelectedGroupMasks @ 0x1404CCCE8 (EtwpUpdateSelectedGroupMasks.c)
- *     EtwDereferenceSpinLockCounters @ 0x14082C880 (EtwDereferenceSpinLockCounters.c)
- *     EtwReferenceSpinLockCounters @ 0x14082C8E0 (EtwReferenceSpinLockCounters.c)
- *     EtwpCoverageSamplerStart @ 0x1408314FC (EtwpCoverageSamplerStart.c)
- *     EtwpCoverageSamplerStop @ 0x140A84B18 (EtwpCoverageSamplerStop.c)
- *     EtwpUpdateKernelGroupsWork @ 0x140B3EA30 (EtwpUpdateKernelGroupsWork.c)
+ *     EtwpUpdateSelectedGroupMasks @ 0x1404C6488 (EtwpUpdateSelectedGroupMasks.c)
+ *     EtwDereferenceSpinLockCounters @ 0x140832AC0 (EtwDereferenceSpinLockCounters.c)
+ *     EtwReferenceSpinLockCounters @ 0x140832B20 (EtwReferenceSpinLockCounters.c)
+ *     EtwpCoverageSamplerStart @ 0x14083773C (EtwpCoverageSamplerStart.c)
+ *     EtwpCoverageSamplerStop @ 0x1409BDF40 (EtwpCoverageSamplerStop.c)
+ *     EtwpUpdateKernelGroupsWork @ 0x140B40A60 (EtwpUpdateKernelGroupsWork.c)
  * Callees:
- *     PsIsServerSilo @ 0x140216838 (PsIsServerSilo.c)
- *     PsGetServerSiloGlobals @ 0x140216B70 (PsGetServerSiloGlobals.c)
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     KeReleaseMutex @ 0x1403DD0F0 (KeReleaseMutex.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     PspGetNextJob @ 0x14095A1E0 (PspGetNextJob.c)
- *     EtwpDisableKernelTrace @ 0x14095A8C0 (EtwpDisableKernelTrace.c)
- *     EtwpEnableKernelTrace @ 0x14095ACA0 (EtwpEnableKernelTrace.c)
+ *     PsIsServerSilo @ 0x140216B68 (PsIsServerSilo.c)
+ *     PsGetServerSiloGlobals @ 0x140216EA0 (PsGetServerSiloGlobals.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     KeReleaseMutex @ 0x1403E02E0 (KeReleaseMutex.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     PspGetNextJob @ 0x1409FFAA0 (PspGetNextJob.c)
+ *     EtwpDisableKernelTrace @ 0x140A00180 (EtwpDisableKernelTrace.c)
+ *     EtwpEnableKernelTrace @ 0x140A00560 (EtwpEnableKernelTrace.c)
  */
 
 __int64 __fastcall EtwpUpdateGlobalGroupMasks(__int64 a1, unsigned int a2, unsigned int a3)
@@ -57,7 +57,7 @@ __int64 __fastcall EtwpUpdateGlobalGroupMasks(__int64 a1, unsigned int a2, unsig
   v33 = 0LL;
   v34 = 0LL;
   memset(v35, 0, sizeof(v35));
-  KeWaitForSingleObject(&EtwpSecurityLock.SchedulerApcFill5[72], Executive, 0, 0, 0LL);
+  KeWaitForSingleObject(&stru_140F03830.880, Executive, 0, 0, 0LL);
   v6 = 8LL;
   if ( (unsigned int)v3 < 8
     && ((unsigned int)v4 >= *(_DWORD *)(a1 + 16) || (*(_BYTE *)(*(_QWORD *)(a1 + 712) + 8 * v4) & 1) != 0) )
@@ -85,7 +85,7 @@ __int64 __fastcall EtwpUpdateGlobalGroupMasks(__int64 a1, unsigned int a2, unsig
       --v7;
     }
     while ( v7 );
-    v11 = EtwpBootPhase == 0;
+    v11 = LOBYTE(stru_140F03830.CycleTime) == 0;
     v12 = (_DWORD *)(a1 + 4524);
     v13 = v32;
     *(_OWORD *)(a1 + 4524) = v31;
@@ -165,12 +165,12 @@ LABEL_16:
       while ( v6 );
     }
     PerfGlobalGroupMask[0] = v31;
-    xmmword_140FBFC10 = v32;
+    xmmword_140FC0C10 = v32;
     if ( (BYTE4(v31) & 4) != 0 )
       _interlockedbittestandset(&KiCpuTracingFlags, 0);
     else
       _interlockedbittestandreset(&KiCpuTracingFlags, 0);
   }
-  KeReleaseMutex((PRKMUTEX)&EtwpSecurityLock.SchedulerApcFill5[72], 0);
+  KeReleaseMutex((PRKMUTEX)&stru_140F03830.880, 0);
   return (unsigned int)v25;
 }

@@ -14,8 +14,8 @@ __int64 __fastcall HalpQueryCapsuleCapabilities(__int64 a1)
   char v3; // bl
   unsigned int v4; // edx
   unsigned int CapsuleCapabilities; // edi
-  struct _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-58h] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+30h] [rbp-48h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-58h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+30h] [rbp-48h] BYREF
 
   Affinity = 0LL;
   PreviousAffinity = 0LL;

@@ -106,10 +106,10 @@ LABEL_9:
   if ( v9 )
   {
     _InterlockedAnd64(v15, 0x7FFFFFFFFFFFFFFFuLL);
-    if ( !KiIrqlFlags )
+    if ( !(_DWORD)KiIrqlFlags )
       goto LABEL_38;
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) == 0 )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) == 0 )
       goto LABEL_38;
     if ( CurrentIrql > 0xFu )
       goto LABEL_38;
@@ -131,10 +131,10 @@ LABEL_9:
     _InterlockedAnd(
       (volatile signed __int32 *)(qword_140C67EF8 + 4 * (((((__int64)v13 - qword_140C67EF0) >> 3) & 0x3FFFFFuLL) >> 5)),
       ~(1 << ((((__int64)v13 - qword_140C67EF0) >> 3) & 0x1F)));
-    if ( !KiIrqlFlags )
+    if ( !(_DWORD)KiIrqlFlags )
       goto LABEL_38;
     v26 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) == 0 )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) == 0 )
       goto LABEL_38;
     if ( v26 > 0xFu )
       goto LABEL_38;

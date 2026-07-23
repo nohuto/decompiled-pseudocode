@@ -1,24 +1,24 @@
 /*
- * XREFs of ObpParseSymbolicLinkEx @ 0x14090BD40
+ * XREFs of ObpParseSymbolicLinkEx @ 0x1408E3460
  * Callers:
- *     ObpLookupObjectName @ 0x14089D210 (ObpLookupObjectName.c)
+ *     ObpLookupObjectName @ 0x1408A58B0 (ObpLookupObjectName.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     PsIsCurrentThreadInServerSilo @ 0x14042F240 (PsIsCurrentThreadInServerSilo.c)
- *     ObReferenceObjectByPointer @ 0x140432520 (ObReferenceObjectByPointer.c)
- *     PdcCreateWatchdogAroundClientCall @ 0x140484160 (PdcCreateWatchdogAroundClientCall.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     SeReleaseSubjectContext @ 0x14084D7E0 (SeReleaseSubjectContext.c)
- *     SeCaptureSubjectContext @ 0x14084D8F0 (SeCaptureSubjectContext.c)
- *     RtlIsSandboxedToken @ 0x14090C230 (RtlIsSandboxedToken.c)
- *     SeQueryInformationToken @ 0x14090D870 (SeQueryInformationToken.c)
- *     ObQueryNameStringMode @ 0x140969A30 (ObQueryNameStringMode.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x140421410 (PsIsCurrentThreadInServerSilo.c)
+ *     ObReferenceObjectByPointer @ 0x140424A50 (ObReferenceObjectByPointer.c)
+ *     PdcCreateWatchdogAroundClientCall @ 0x14047F700 (PdcCreateWatchdogAroundClientCall.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     SeReleaseSubjectContext @ 0x140849AA0 (SeReleaseSubjectContext.c)
+ *     SeCaptureSubjectContext @ 0x140849BB0 (SeCaptureSubjectContext.c)
+ *     RtlIsSandboxedToken @ 0x1408E3950 (RtlIsSandboxedToken.c)
+ *     SeQueryInformationToken @ 0x1408E4F90 (SeQueryInformationToken.c)
+ *     ObQueryNameStringMode @ 0x1409524C0 (ObQueryNameStringMode.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall ObpParseSymbolicLinkEx(
@@ -62,7 +62,7 @@ __int64 __fastcall ObpParseSymbolicLinkEx(
   int v39; // [rsp+50h] [rbp-B0h] BYREF
   POBJECT_TYPE v40; // [rsp+58h] [rbp-A8h] BYREF
   unsigned __int16 **v41; // [rsp+60h] [rbp-A0h]
-  PVOID Objecta; // [rsp+68h] [rbp-98h] BYREF
+  PVOID Objecta; // [rsp+68h] [rbp-98h]
   __int64 v43; // [rsp+70h] [rbp-90h]
   __int128 v44; // [rsp+78h] [rbp-88h] BYREF
   struct _SECURITY_SUBJECT_CONTEXT SubjectContext; // [rsp+88h] [rbp-78h] BYREF
@@ -153,7 +153,7 @@ __int64 __fastcall ObpParseSymbolicLinkEx(
       v38[0] = 1048590LL;
       if ( (unsigned int)ObQueryNameStringMode((_DWORD)Object, 0, 0, (unsigned int)&TokenInformation + 4, 0) == -1073741820 )
       {
-        Pool2 = ExAllocatePool2(0x100uLL);
+        Pool2 = ExAllocatePool2(0x100uLL, HIDWORD(TokenInformation), 0x6D4E624Fu);
         v31 = (void *)Pool2;
         if ( Pool2 )
           ObQueryNameStringMode(
@@ -184,7 +184,7 @@ __int64 __fastcall ObpParseSymbolicLinkEx(
         v58 = 8LL;
         tlgWriteTransfer_EtwWriteTransfer(
           (__int64)&dword_140E07480,
-          (unsigned __int8 *)byte_140047F73,
+          (unsigned __int8 *)byte_140048373,
           0LL,
           0LL,
           8u,
@@ -227,7 +227,7 @@ __int64 __fastcall ObpParseSymbolicLinkEx(
   v18 = Object + 4;
   if ( (*((_DWORD *)Object + 7) & 0x10) != 0 )
   {
-    v27 = guard_dispatch_icall_no_overrides(Object, *((_QWORD *)Object + 2), &v44, &Objecta);
+    v27 = guard_dispatch_icall_no_overrides(Object, *((_QWORD *)Object + 2));
     if ( v27 < 0 )
       goto LABEL_40;
     v18 = (unsigned __int16 *)&v44;
@@ -279,7 +279,7 @@ LABEL_20:
       }
     }
     v36 = v20 + 2;
-    v21 = (char *)ExAllocatePool2(0x100uLL);
+    v21 = (char *)ExAllocatePool2(0x100uLL, (unsigned __int16)(v20 + 2), 0x6D4E624Fu);
     if ( v21 )
       goto LABEL_20;
     v27 = -1073741670;

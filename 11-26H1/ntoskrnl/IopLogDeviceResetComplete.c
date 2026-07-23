@@ -1,11 +1,11 @@
 /*
- * XREFs of IopLogDeviceResetComplete @ 0x1407A27D4
+ * XREFs of IopLogDeviceResetComplete @ 0x1407A5314
  * Callers:
- *     PiProcessDeviceResetAction @ 0x1405D9548 (PiProcessDeviceResetAction.c)
- *     PnpFinalizeDeviceRemovalForReset @ 0x1407A2BCC (PnpFinalizeDeviceRemovalForReset.c)
+ *     PiProcessDeviceResetAction @ 0x1405DBD48 (PiProcessDeviceResetAction.c)
+ *     PnpFinalizeDeviceRemovalForReset @ 0x1407A570C (PnpFinalizeDeviceRemovalForReset.c)
  * Callees:
- *     McTemplateK0hzr0qqhzr4_EtwWriteTransfer @ 0x1405D9478 (McTemplateK0hzr0qqhzr4_EtwWriteTransfer.c)
- *     PnpTraceDeviceRemovalForResetComplete @ 0x1407B1760 (PnpTraceDeviceRemovalForResetComplete.c)
+ *     McTemplateK0hzr0qqhzr4_EtwWriteTransfer @ 0x1405DBC78 (McTemplateK0hzr0qqhzr4_EtwWriteTransfer.c)
+ *     PnpTraceDeviceRemovalForResetComplete @ 0x1407B47C0 (PnpTraceDeviceRemovalForResetComplete.c)
  */
 
 NTSTATUS __fastcall IopLogDeviceResetComplete(__int64 a1, char a2)
@@ -20,11 +20,11 @@ NTSTATUS __fastcall IopLogDeviceResetComplete(__int64 a1, char a2)
 
   v9[0] = 0x20000LL;
   v2 = v9;
-  v9[1] = &word_140B814F0;
+  v9[1] = &word_140B8A320;
   if ( a1 != -40 )
     v2 = (_QWORD *)(a1 + 40);
   result = PnpTraceDeviceRemovalForResetComplete();
-  if ( (byte_140EF3DCC & 8) != 0 )
+  if ( (byte_140EF412C & 8) != 0 )
     return McTemplateK0hzr0qqhzr4_EtwWriteTransfer(
              v6,
              v5,
@@ -34,6 +34,6 @@ NTSTATUS __fastcall IopLogDeviceResetComplete(__int64 a1, char a2)
              a2,
              v8,
              0,
-             (__int64)&word_140B814F0);
+             (__int64)&word_140B8A320);
   return result;
 }

@@ -1,23 +1,23 @@
 /*
- * XREFs of CcPrepareMdlWrite @ 0x1404CDA40
+ * XREFs of CcPrepareMdlWrite @ 0x1404C7470
  * Callers:
- *     FsRtlPrepareMdlWriteDev @ 0x14078DB20 (FsRtlPrepareMdlWriteDev.c)
+ *     FsRtlPrepareMdlWriteDev @ 0x140790650 (FsRtlPrepareMdlWriteDev.c)
  * Callees:
- *     CcForceWriteThrough @ 0x140222070 (CcForceWriteThrough.c)
- *     ExAcquireFastMutex @ 0x140278070 (ExAcquireFastMutex.c)
- *     KeReleaseGuardedMutex @ 0x140278D40 (KeReleaseGuardedMutex.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x1402B4730 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x1402B98C0 (KeReleaseInStackQueuedSpinLock.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     CcGetVirtualAddress @ 0x1402E0F50 (CcGetVirtualAddress.c)
- *     CcMapAndRead @ 0x1402E6670 (CcMapAndRead.c)
- *     RtlRaiseStatus @ 0x1402E84A0 (RtlRaiseStatus.c)
- *     CcSetDirtyInMask @ 0x14039D5F0 (CcSetDirtyInMask.c)
- *     IopAllocateMdl @ 0x14039EBE0 (IopAllocateMdl.c)
- *     IoFreeMdl @ 0x14039F190 (IoFreeMdl.c)
- *     MiProbeAndLockPages @ 0x1403A016C (MiProbeAndLockPages.c)
- *     MmUnlockPages @ 0x140410C10 (MmUnlockPages.c)
- *     CcIncrementOpenCount @ 0x14049AF30 (CcIncrementOpenCount.c)
+ *     CcForceWriteThrough @ 0x140223A00 (CcForceWriteThrough.c)
+ *     ExAcquireFastMutex @ 0x1402775E0 (ExAcquireFastMutex.c)
+ *     KeReleaseGuardedMutex @ 0x1402782B0 (KeReleaseGuardedMutex.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     CcGetVirtualAddress @ 0x1402C2D60 (CcGetVirtualAddress.c)
+ *     CcMapAndRead @ 0x1402C86B0 (CcMapAndRead.c)
+ *     RtlRaiseStatus @ 0x1402CA4E0 (RtlRaiseStatus.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402FF400 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x140304580 (KeReleaseInStackQueuedSpinLock.c)
+ *     CcSetDirtyInMask @ 0x14039F350 (CcSetDirtyInMask.c)
+ *     IopAllocateMdl @ 0x1403A0940 (IopAllocateMdl.c)
+ *     IoFreeMdl @ 0x1403A0EF0 (IoFreeMdl.c)
+ *     MiProbeAndLockPages @ 0x1403A1ECC (MiProbeAndLockPages.c)
+ *     MmUnlockPages @ 0x140410330 (MmUnlockPages.c)
+ *     CcIncrementOpenCount @ 0x140494A80 (CcIncrementOpenCount.c)
  */
 
 void __stdcall CcPrepareMdlWrite(
@@ -40,7 +40,7 @@ void __stdcall CcPrepareMdlWrite(
   __int64 v16; // r9
   __int64 Mdl; // rdi
   char v18; // bl
-  int v19; // eax
+  NTSTATUS v19; // eax
   __int64 v20; // rbx
   struct _KEVENT *v21; // rcx
   _QWORD *v22; // rax

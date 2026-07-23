@@ -1,15 +1,15 @@
 /*
- * XREFs of MiAllocatePoolPages @ 0x140162B10
+ * XREFs of MiAllocatePoolPages @ 0x140162C10
  * Callers:
- *     ExAllocateHeapPages @ 0x14015C890 (ExAllocateHeapPages.c)
+ *     ExAllocateHeapPages @ 0x14015C990 (ExAllocateHeapPages.c)
  * Callees:
- *     MmAllocatePoolMemory @ 0x140099140 (MmAllocatePoolMemory.c)
- *     MiReturnNonPagedPoolVa @ 0x140161634 (MiReturnNonPagedPoolVa.c)
- *     MiAllocatePagedPoolPages @ 0x140162C70 (MiAllocatePagedPoolPages.c)
- *     MiFindNonPagedPoolVa @ 0x1401634BC (MiFindNonPagedPoolVa.c)
- *     MiFreeExcessSegments @ 0x1401643D4 (MiFreeExcessSegments.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     RtlpInterlockedPopEntrySList @ 0x1401C53D0 (RtlpInterlockedPopEntrySList.c)
+ *     MmAllocatePoolMemory @ 0x140099080 (MmAllocatePoolMemory.c)
+ *     MiReturnNonPagedPoolVa @ 0x140161734 (MiReturnNonPagedPoolVa.c)
+ *     MiAllocatePagedPoolPages @ 0x140162D70 (MiAllocatePagedPoolPages.c)
+ *     MiFindNonPagedPoolVa @ 0x1401635BC (MiFindNonPagedPoolVa.c)
+ *     MiFreeExcessSegments @ 0x1401644D4 (MiFreeExcessSegments.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     RtlpInterlockedPopEntrySList @ 0x1401C5530 (RtlpInterlockedPopEntrySList.c)
  */
 
 ULONG_PTR __fastcall MiAllocatePoolPages(unsigned int a1, unsigned __int64 a2)
@@ -17,7 +17,7 @@ ULONG_PTR __fastcall MiAllocatePoolPages(unsigned int a1, unsigned __int64 a2)
   unsigned __int64 v3; // rbx
   __int64 v4; // rsi
   unsigned __int64 v5; // rcx
-  union _SLIST_HEADER *v6; // rcx
+  _SLIST_HEADER *v6; // rcx
   PSLIST_ENTRY v7; // rax
   ULONG_PTR result; // rax
   __int64 v9; // rcx
@@ -40,12 +40,12 @@ ULONG_PTR __fastcall MiAllocatePoolPages(unsigned int a1, unsigned __int64 a2)
   v5 = v3 + 25 * v4;
   if ( (a1 & 0x200) != 0 )
     v5 += 3LL;
-  v6 = &qword_14043A058[v5];
+  v6 = &qword_14043B118[v5];
   if ( LOWORD(v6->Alignment) && (v7 = RtlpInterlockedPopEntrySList(v6)) != 0LL )
   {
     result = (ULONG_PTR)&v7[-1];
-    if ( *(_QWORD *)result != (result ^ qword_14043AEC0) )
-      KeBugCheckEx(0x1Au, 0x5200uLL, result, *(_QWORD *)result, result ^ qword_14043AEC0);
+    if ( *(_QWORD *)result != (result ^ qword_14043BF80) )
+      KeBugCheckEx(0x1Au, 0x5200uLL, result, *(_QWORD *)result, result ^ qword_14043BF80);
   }
   else
   {
@@ -63,7 +63,7 @@ LABEL_11:
         v11 = 64;
       if ( (int)MmAllocatePoolMemory((ULONG_PTR *)&v16, &v15, (v4 + 1) | 0x1000, v11, a1) < 0 )
       {
-        ++dword_140438A70;
+        ++dword_140439B30;
         MiFreeExcessSegments(v12);
         MiReturnNonPagedPoolVa(NonPagedPoolVa, v3);
         return 0LL;
@@ -75,8 +75,8 @@ LABEL_11:
     }
     else
     {
-      ++dword_140438A70;
-      ++dword_140438A94;
+      ++dword_140439B30;
+      ++dword_140439B54;
       MiFreeExcessSegments(v13);
       return 0LL;
     }

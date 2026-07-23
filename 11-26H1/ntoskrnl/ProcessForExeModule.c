@@ -1,9 +1,9 @@
 /*
- * XREFs of ProcessForExeModule @ 0x1404C91E4
+ * XREFs of ProcessForExeModule @ 0x1404C2C04
  * Callers:
- *     EtwpCovSampContextGetModule @ 0x140941058 (EtwpCovSampContextGetModule.c)
+ *     EtwpCovSampContextGetModule @ 0x140A34168 (EtwpCovSampContextGetModule.c)
  * Callees:
- *     EtwpCovSampModuleReference @ 0x140942504 (EtwpCovSampModuleReference.c)
+ *     EtwpCovSampModuleReference @ 0x140A35614 (EtwpCovSampModuleReference.c)
  */
 
 __int64 __fastcall ProcessForExeModule(__int64 a1, __int64 a2, __int64 a3, int a4)

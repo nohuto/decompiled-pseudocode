@@ -1,11 +1,11 @@
 /*
- * XREFs of RamdiskInitialize @ 0x140C5E628
+ * XREFs of RamdiskInitialize @ 0x140C60778
  * Callers:
- *     IopInitializeBootDrivers @ 0x140C1E4C4 (IopInitializeBootDrivers.c)
+ *     IopInitializeBootDrivers @ 0x140C20504 (IopInitializeBootDrivers.c)
  * Callees:
- *     _memicmp @ 0x140520FD0 (_memicmp.c)
- *     RamdiskCreateSymbolicLink @ 0x140C5E4D8 (RamdiskCreateSymbolicLink.c)
- *     RamdiskStart @ 0x140C5E688 (RamdiskStart.c)
+ *     _memicmp @ 0x14051E8A0 (_memicmp.c)
+ *     RamdiskCreateSymbolicLink @ 0x140C60628 (RamdiskCreateSymbolicLink.c)
+ *     RamdiskStart @ 0x140C607D8 (RamdiskStart.c)
  */
 
 __int64 __fastcall RamdiskInitialize(int a1, __int64 a2, __int64 a3)

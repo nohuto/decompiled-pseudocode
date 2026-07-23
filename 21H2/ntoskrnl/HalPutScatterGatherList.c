@@ -1,16 +1,16 @@
 /*
- * XREFs of HalPutScatterGatherList @ 0x14029E020
+ * XREFs of HalPutScatterGatherList @ 0x14021B580
  * Callers:
  *     <none>
  * Callees:
- *     IoFreeMdl @ 0x1402E9600 (IoFreeMdl.c)
- *     MmUnmapLockedPages @ 0x14031CA30 (MmUnmapLockedPages.c)
- *     IoFlushAdapterBuffers @ 0x140389E20 (IoFlushAdapterBuffers.c)
- *     HalPutScatterGatherListV3 @ 0x1403A2C20 (HalPutScatterGatherListV3.c)
- *     IoFreeMapRegisters @ 0x1403A2CA0 (IoFreeMapRegisters.c)
- *     HalpDmaGetAdapterCacheAlignment @ 0x1404B8C50 (HalpDmaGetAdapterCacheAlignment.c)
- *     HalpDmaNextContiguousPiece @ 0x1404B8CB0 (HalpDmaNextContiguousPiece.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     IoFreeMdl @ 0x14029A950 (IoFreeMdl.c)
+ *     MmUnmapLockedPages @ 0x140327780 (MmUnmapLockedPages.c)
+ *     IoFlushAdapterBuffers @ 0x140389F70 (IoFlushAdapterBuffers.c)
+ *     HalPutScatterGatherListV3 @ 0x1403A2D70 (HalPutScatterGatherListV3.c)
+ *     IoFreeMapRegisters @ 0x1403A2DF0 (IoFreeMapRegisters.c)
+ *     HalpDmaGetAdapterCacheAlignment @ 0x1404B8E90 (HalpDmaGetAdapterCacheAlignment.c)
+ *     HalpDmaNextContiguousPiece @ 0x1404B8EF0 (HalpDmaNextContiguousPiece.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 void __stdcall HalPutScatterGatherList(

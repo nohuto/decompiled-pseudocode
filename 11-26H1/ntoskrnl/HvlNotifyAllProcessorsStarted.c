@@ -1,13 +1,13 @@
 /*
- * XREFs of HvlNotifyAllProcessorsStarted @ 0x1405BD8F8
+ * XREFs of HvlNotifyAllProcessorsStarted @ 0x1405C0168
  * Callers:
- *     HvlStartBootLogicalProcessors @ 0x1405B9968 (HvlStartBootLogicalProcessors.c)
+ *     HvlStartBootLogicalProcessors @ 0x1405BC1D8 (HvlStartBootLogicalProcessors.c)
  * Callees:
- *     HvlpReleaseHypercallPage @ 0x14032B890 (HvlpReleaseHypercallPage.c)
- *     HvlpAcquireHypercallPage @ 0x14032B970 (HvlpAcquireHypercallPage.c)
- *     HvcallInitiateHypercall @ 0x14032BB00 (HvcallInitiateHypercall.c)
- *     HvlpHvToNtStatus @ 0x1403E7DC0 (HvlpHvToNtStatus.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     HvlpHvToNtStatus @ 0x1402F4CA0 (HvlpHvToNtStatus.c)
+ *     HvlpReleaseHypercallPage @ 0x14032D8C0 (HvlpReleaseHypercallPage.c)
+ *     HvlpAcquireHypercallPage @ 0x14032D9A0 (HvlpAcquireHypercallPage.c)
+ *     HvcallInitiateHypercall @ 0x14032DB30 (HvcallInitiateHypercall.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 __int64 HvlNotifyAllProcessorsStarted()

@@ -1,10 +1,10 @@
 /*
- * XREFs of WheapEtwEnableCallback @ 0x1407C8340
+ * XREFs of WheapEtwEnableCallback @ 0x1407C87E0
  * Callers:
  *     <none>
  * Callees:
- *     WheaFlushETWEventsDpcWorkerInit @ 0x14065DED4 (WheaFlushETWEventsDpcWorkerInit.c)
- *     WheapProcessWaitingETWEvents @ 0x1407C8690 (WheapProcessWaitingETWEvents.c)
+ *     WheaFlushETWEventsDpcWorkerInit @ 0x14065C6A4 (WheaFlushETWEventsDpcWorkerInit.c)
+ *     WheapProcessWaitingETWEvents @ 0x1407C8B80 (WheapProcessWaitingETWEvents.c)
  */
 
 void __fastcall WheapEtwEnableCallback(LPCGUID SourceId, int ControlCode, UCHAR Level, ULONGLONG MatchAnyKeyword)

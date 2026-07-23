@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpTraceNetwork @ 0x14047D720
+ * XREFs of EtwpTraceNetwork @ 0x140477090
  * Callers:
  *     <none>
  * Callees:
- *     EtwTraceKernelEvent @ 0x1402DAC90 (EtwTraceKernelEvent.c)
- *     EtwpNetProvTraceNetwork @ 0x14047D7AC (EtwpNetProvTraceNetwork.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwTraceKernelEvent @ 0x1402BCA50 (EtwTraceKernelEvent.c)
+ *     EtwpNetProvTraceNetwork @ 0x14047711C (EtwpNetProvTraceNetwork.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall EtwpTraceNetwork(__int16 a1, ULONGLONG a2, ULONG a3)

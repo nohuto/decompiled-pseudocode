@@ -13,7 +13,7 @@ __int64 __fastcall KiAbCrossThreadRelease(__int64 a1, __int64 a2, ULONG_PTR a3, 
   int v7; // r8d
   __int64 result; // rax
 
-  KiAbEntryRemoveFromTree((__int64 *)a2, a2, a3, a4);
+  KiAbEntryRemoveFromTree((char *)a2, a2, a3, a4);
   v7 = *(_DWORD *)(a2 + 80);
   *(_DWORD *)(a2 + 80) = 0;
   *(_BYTE *)(a2 + 10) = 0;

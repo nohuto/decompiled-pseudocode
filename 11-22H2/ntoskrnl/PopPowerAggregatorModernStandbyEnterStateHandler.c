@@ -11,7 +11,7 @@ __int64 __fastcall PopPowerAggregatorModernStandbyEnterStateHandler(__int64 a1)
 {
   if ( *(_BYTE *)(a1 + 72) )
   {
-    PopPowerAggregatorDisengageModernStandby(a1);
+    PopPowerAggregatorDisengageModernStandby();
   }
   else if ( *(_QWORD *)(a1 + 64) != *(_QWORD *)(a1 + 32) && !*(_BYTE *)(a1 + 88) )
   {

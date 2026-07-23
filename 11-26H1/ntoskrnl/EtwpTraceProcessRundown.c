@@ -1,22 +1,22 @@
 /*
- * XREFs of EtwpTraceProcessRundown @ 0x14096D72C
+ * XREFs of EtwpTraceProcessRundown @ 0x1409BC8DC
  * Callers:
- *     EtwpProcessEnumCallback @ 0x14096EA90 (EtwpProcessEnumCallback.c)
+ *     EtwpProcessEnumCallback @ 0x1409BC0E0 (EtwpProcessEnumCallback.c)
  * Callees:
- *     EtwpLogKernelEvent @ 0x14032CDC0 (EtwpLogKernelEvent.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     EtwpBuildProcessEvent @ 0x14096D8A8 (EtwpBuildProcessEvent.c)
- *     ExFreePool @ 0x140C10E30 (ExFreePool.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     EtwpLogKernelEvent @ 0x14032EDF0 (EtwpLogKernelEvent.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     EtwpBuildProcessEvent @ 0x1408FBCAC (EtwpBuildProcessEvent.c)
+ *     ExFreePool @ 0x140C16E30 (ExFreePool.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall EtwpTraceProcessRundown(int a1, __int64 a2, unsigned __int16 a3, __int64 a4)
+__int64 __fastcall EtwpTraceProcessRundown(__int64 a1, __int64 a2, __int16 a3, __int64 a4)
 {
-  int v8; // r8d
+  char v8; // r8
   __int64 v10; // [rsp+60h] [rbp-A0h] BYREF
   PVOID v11; // [rsp+68h] [rbp-98h] BYREF
-  _WORD v12[2]; // [rsp+70h] [rbp-90h] BYREF
+  unsigned __int16 v12[2]; // [rsp+70h] [rbp-90h] BYREF
   int v13; // [rsp+74h] [rbp-8Ch]
   PVOID v14; // [rsp+78h] [rbp-88h]
   __int64 v15; // [rsp+80h] [rbp-80h] BYREF
@@ -32,7 +32,7 @@ __int64 __fastcall EtwpTraceProcessRundown(int a1, __int64 a2, unsigned __int16 
   v11 = 0LL;
   *(_OWORD *)P = 0LL;
   memset_0(v20, 0, sizeof(v20));
-  LOBYTE(v8) = *(_BYTE *)(a4 + 65);
+  v8 = *(_BYTE *)(a4 + 65);
   v15 = 0LL;
   v19 = 0LL;
   v14 = *(PVOID *)(a4 + 16);
@@ -44,14 +44,14 @@ __int64 __fastcall EtwpTraceProcessRundown(int a1, __int64 a2, unsigned __int16 
     a1,
     a3,
     v8,
-    (int)v17,
-    (__int64)&v15,
-    (__int64)v21,
-    (__int64)&v10,
-    (__int64)v20,
+    (__int64)v17,
+    &v15,
+    v21,
+    (unsigned int *)&v10,
+    (ULONG_PTR *)v20,
     (PSTRING)P,
-    (__int64)v12,
-    (__int64)&v11);
+    v12,
+    &v11);
   EtwpLogKernelEvent((__int64)v21, *(_QWORD *)(a2 + 1360), *(_DWORD *)a2, v10, a3, 6297605 - (a3 != 807));
   if ( v14 != *(PVOID *)(a4 + 16) )
     ExFreePoolWithTag(v14, 0);

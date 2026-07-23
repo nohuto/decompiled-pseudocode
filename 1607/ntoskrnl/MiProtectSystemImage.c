@@ -1,15 +1,15 @@
 /*
- * XREFs of MiProtectSystemImage @ 0x140553CC4
+ * XREFs of MiProtectSystemImage @ 0x140554204
  * Callers:
- *     MiDriverLoadSucceeded @ 0x140484174 (MiDriverLoadSucceeded.c)
- *     MiWriteProtectSystemImages @ 0x140553C60 (MiWriteProtectSystemImages.c)
+ *     MiDriverLoadSucceeded @ 0x140482EC8 (MiDriverLoadSucceeded.c)
+ *     MiWriteProtectSystemImages @ 0x1405541A0 (MiWriteProtectSystemImages.c)
  * Callees:
- *     RtlImageNtHeader @ 0x140014238 (RtlImageNtHeader.c)
- *     MI_IS_PHYSICAL_ADDRESS @ 0x140025FB0 (MI_IS_PHYSICAL_ADDRESS.c)
- *     MiGetPteAddress @ 0x14002BA64 (MiGetPteAddress.c)
- *     MiSetSystemCodeProtection @ 0x1400FE0F4 (MiSetSystemCodeProtection.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     MiComputeDriverProtection @ 0x140553FB8 (MiComputeDriverProtection.c)
+ *     RtlImageNtHeader @ 0x140013DB8 (RtlImageNtHeader.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x140025B30 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     MiGetPteAddress @ 0x14002B5E4 (MiGetPteAddress.c)
+ *     MiSetSystemCodeProtection @ 0x1400FBE74 (MiSetSystemCodeProtection.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     MiComputeDriverProtection @ 0x1405544F8 (MiComputeDriverProtection.c)
  */
 
 __int64 __fastcall MiProtectSystemImage(__int64 a1)
@@ -71,7 +71,7 @@ __int64 __fastcall MiProtectSystemImage(__int64 a1)
     v40 = 0;
     v5 = RtlImageNtHeader(v1);
     v48 = v5;
-    if ( (unsigned __int64)v1 >= qword_140326910 && (unsigned __int64)v1 < qword_140326910 + 0x8000000000LL )
+    if ( (unsigned __int64)v1 >= qword_140326950 && (unsigned __int64)v1 < qword_140326950 + 0x8000000000LL )
     {
       v40 = 1;
     }

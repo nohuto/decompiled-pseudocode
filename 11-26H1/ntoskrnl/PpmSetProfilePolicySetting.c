@@ -1,15 +1,15 @@
 /*
- * XREFs of PpmSetProfilePolicySetting @ 0x140A3FC14
+ * XREFs of PpmSetProfilePolicySetting @ 0x1409FB634
  * Callers:
- *     PopSetNewPolicyValue @ 0x140A3DED8 (PopSetNewPolicyValue.c)
+ *     PopSetNewPolicyValue @ 0x1409F98F8 (PopSetNewPolicyValue.c)
  * Callees:
- *     PpmAcquireLock @ 0x140394F80 (PpmAcquireLock.c)
- *     PopAcquireRwLockExclusive @ 0x140436378 (PopAcquireRwLockExclusive.c)
- *     PpmInfoApplySettingUpdate @ 0x140A9C928 (PpmInfoApplySettingUpdate.c)
- *     PpmInfoReleaseLocks @ 0x140A9C9D4 (PpmInfoReleaseLocks.c)
- *     PpmInfoAdjustSetting @ 0x140ABDCD8 (PpmInfoAdjustSetting.c)
- *     PpmEventTraceProfileSetting @ 0x140AF6160 (PpmEventTraceProfileSetting.c)
- *     PpmCalculatePropagateClassMax @ 0x140B0A4EC (PpmCalculatePropagateClassMax.c)
+ *     PpmAcquireLock @ 0x140396D00 (PpmAcquireLock.c)
+ *     PopAcquireRwLockExclusive @ 0x140425310 (PopAcquireRwLockExclusive.c)
+ *     PpmInfoAdjustSetting @ 0x140AC02C8 (PpmInfoAdjustSetting.c)
+ *     PpmInfoApplySettingUpdate @ 0x140AD873C (PpmInfoApplySettingUpdate.c)
+ *     PpmInfoReleaseLocks @ 0x140AD87EC (PpmInfoReleaseLocks.c)
+ *     PpmEventTraceProfileSetting @ 0x140AF8800 (PpmEventTraceProfileSetting.c)
+ *     PpmCalculatePropagateClassMax @ 0x140B0C2AC (PpmCalculatePropagateClassMax.c)
  */
 
 __int64 __fastcall PpmSetProfilePolicySetting(_QWORD *a1, _QWORD *a2, int a3, struct _KLOCK_ENTRIES *a4, int a5)
@@ -23,9 +23,9 @@ __int64 __fastcall PpmSetProfilePolicySetting(_QWORD *a1, _QWORD *a2, int a3, st
   unsigned int v13; // ebp
   __int64 v14; // rdx
   __int64 v16; // rax
-  __int64 v17; // rsi
+  __int64 Next_high; // rsi
   __int64 v18; // rax
-  __int64 *v19; // rbx
+  int *v19; // rbx
   char v20; // al
   int v21; // r9d
   unsigned __int64 v22; // rcx
@@ -58,7 +58,7 @@ __int64 __fastcall PpmSetProfilePolicySetting(_QWORD *a1, _QWORD *a2, int a3, st
   __int64 v49; // [rsp+50h] [rbp-58h]
   __int64 v50; // [rsp+60h] [rbp-48h]
   __int64 v51; // [rsp+60h] [rbp-48h]
-  __int64 *v52; // [rsp+68h] [rbp-40h]
+  struct _KTHREAD *v52; // [rsp+68h] [rbp-40h]
   __int64 v53; // [rsp+70h] [rbp-38h]
   __int64 v54; // [rsp+C8h] [rbp+20h]
 
@@ -78,7 +78,7 @@ __int64 __fastcall PpmSetProfilePolicySetting(_QWORD *a1, _QWORD *a2, int a3, st
     {
 LABEL_4:
       v10 = 0LL;
-      v11 = &off_140FBEF78;
+      v11 = &off_140FBFF78;
       while ( 2 )
       {
         v12 = v11 - 1;
@@ -93,13 +93,13 @@ LABEL_4:
           if ( !v14 )
           {
             if ( (*((_BYTE *)v12 + 37) & 1) != 0 )
-              PpmAcquireLock((struct _KTHREAD **)&stru_140F10070.SchedulerAssistLastYieldBoostTime, 0LL, v10);
+              PpmAcquireLock((struct _KTHREAD **)&PpmIdlePolicyLock.ThreadLock, 0LL, v10);
             else
-              PopAcquireRwLockExclusive((unsigned __int64 *)&stru_140F10070.1136, 0LL, v10, a4);
-            v17 = dword_140F106CC;
-            v52 = PpmCurrentProfile;
+              PopAcquireRwLockExclusive((unsigned __int64 *)&PpmIdlePolicyLock, 0LL, v10, a4);
+            Next_high = SHIDWORD(PpmIdlePolicyLock.PropagateBoostsEntry.Next);
+            v52 = (struct _KTHREAD *)PpmCurrentProfile;
             v18 = *a1 - *(_QWORD *)&GUID_POWER_POLICY_PROFILE_DEFAULT.Data1;
-            v43 = dword_140F106CC;
+            v43 = HIDWORD(PpmIdlePolicyLock.PropagateBoostsEntry.Next);
             if ( *a1 == *(_QWORD *)&GUID_POWER_POLICY_PROFILE_DEFAULT.Data1 )
               v18 = a1[1] - *(_QWORD *)GUID_POWER_POLICY_PROFILE_DEFAULT.Data4;
             if ( v18 )
@@ -132,13 +132,13 @@ LABEL_4:
                 LOBYTE(v32) = *(_BYTE *)(v26 + 8);
                 PpmEventTraceProfileSetting(v32, (unsigned int)*v12, (unsigned int)*v11, v31, v49, v46, v6, 0);
                 v23 = 1LL;
-                if ( v52 == (__int64 *)v26 && v43 == (_DWORD)v6 )
+                if ( v52 == (struct _KTHREAD *)v26 && v43 == (_DWORD)v6 )
                   v9 = 1;
-                if ( PpmEntryLevelPerfProfile == v26
-                  || PpmBackgroundProfile == v26
-                  || PpmUtilityQosProfile == v26
-                  || PpmEcoQosProfile == v26
-                  || PpmMultimediaQosProfile == v26 )
+                if ( *(_QWORD *)&PopDirectedDripsDiagLock.ThreadTimerDelay == v26
+                  || PopDirectedDripsDiagLock.WriteTransferCount == v26
+                  || PopDirectedDripsDiagLock.ReadTransferCount == v26
+                  || PopDirectedDripsDiagLock.QueuedScb == (_KSCB *)v26
+                  || PopDirectedDripsDiagLock.OtherTransferCount == v26 )
                 {
                   v24 = v43 == (_DWORD)v6;
                   goto LABEL_26;
@@ -149,25 +149,34 @@ LABEL_4:
             {
               v48 = v6;
               v53 = 712 * v6;
-              v19 = &qword_140F0B0E0[89 * v6 + 5];
+              v19 = &PopDirectedDripsDiagLock.SchedulerAssistPriorityFloor + 178 * v6;
               v44 = *((_DWORD *)v12 + 8);
               v50 = (__int64)v12[3] + v13 * v44 + (_QWORD)v19;
               v45 = PpmCalculatePropagateClassMax(v11 - 1, v19, v13, 2LL);
-              v20 = PpmInfoAdjustSetting((int)v11 - 8, 712 * v6 + (unsigned int)&qword_140F0B0E0[5], v13, v45, v54, a5);
+              v20 = PpmInfoAdjustSetting(
+                      (int)v11 - 8,
+                      712 * v6 + (unsigned int)&PopDirectedDripsDiagLock.SchedulerAssistPriorityFloor,
+                      v13,
+                      v45,
+                      v54,
+                      a5);
               v22 = 2LL * v13 + ((unsigned __int64)*((unsigned __int8 *)v12 + 36) >> 6);
               v23 = *((_BYTE *)v12 + 36) & 0x3F;
-              v19[v22] |= 1LL << v23;
+              *(_QWORD *)&v19[2 * v22] |= 1LL << v23;
               if ( v20 )
               {
                 LOBYTE(v21) = v13;
-                LOBYTE(v22) = byte_140F0B0E8;
+                LOBYTE(v22) = PopDirectedDripsDiagLock.KernelWaitTime;
                 PpmEventTraceProfileSetting(v22, (unsigned int)*v12, (unsigned int)*v11, v21, v50, v44, v6, 0);
-                if ( v52 == qword_140F0B0E0 && (_DWORD)v17 == (_DWORD)v6 )
+                if ( v52 == (struct _KTHREAD *)&PopDirectedDripsDiagLock.ReservedPreviousReadyTimeValue
+                  && (_DWORD)Next_high == (_DWORD)v6 )
+                {
                   v9 = 1;
+                }
                 v33 = 0;
                 if ( PpmProfileCount )
                 {
-                  v51 = v17;
+                  v51 = Next_high;
                   do
                   {
                     v34 = PpmProfiles + 1504LL * v33;
@@ -200,7 +209,7 @@ LABEL_4:
 LABEL_45:
                         v40 = PpmCalculatePropagateClassMax(v12, v36 + 40, v13, v45);
                         PpmInfoAdjustSetting((_DWORD)v12, v36 + 40, v13, v40, v54, a5);
-                        if ( v52 == (__int64 *)v34 && v51 == v48 )
+                        if ( v52 == (struct _KTHREAD *)v34 && v51 == v48 )
                           v9 = 1;
                       }
                     }

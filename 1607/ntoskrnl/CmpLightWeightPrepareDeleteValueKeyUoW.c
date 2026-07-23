@@ -1,17 +1,17 @@
 /*
- * XREFs of CmpLightWeightPrepareDeleteValueKeyUoW @ 0x14060F08C
+ * XREFs of CmpLightWeightPrepareDeleteValueKeyUoW @ 0x14060F140
  * Callers:
- *     CmpProcessLightWeightUOW @ 0x14053AD0C (CmpProcessLightWeightUOW.c)
+ *     CmpProcessLightWeightUOW @ 0x14053B24C (CmpProcessLightWeightUOW.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     CmpMarkValueDataDirty @ 0x140400474 (CmpMarkValueDataDirty.c)
- *     CmpFindNameInList @ 0x140402A54 (CmpFindNameInList.c)
- *     CmpRemoveValueFromList @ 0x1404DC880 (CmpRemoveValueFromList.c)
- *     HvpMarkCellDirty @ 0x1405136F0 (HvpMarkCellDirty.c)
- *     CmpInitializeValueNameString @ 0x14053B414 (CmpInitializeValueNameString.c)
- *     CmpLightWeightUpdateSharedSetValueData @ 0x14053B4A0 (CmpLightWeightUpdateSharedSetValueData.c)
- *     CmpLightWeightCreateSetValueData @ 0x14053B4E8 (CmpLightWeightCreateSetValueData.c)
+ *     CmpMarkValueDataDirty @ 0x1403FF334 (CmpMarkValueDataDirty.c)
+ *     CmpFindNameInList @ 0x140401914 (CmpFindNameInList.c)
+ *     CmpRemoveValueFromList @ 0x1404BFE84 (CmpRemoveValueFromList.c)
+ *     HvpMarkCellDirty @ 0x1404F6AE0 (HvpMarkCellDirty.c)
+ *     CmpInitializeValueNameString @ 0x14053B954 (CmpInitializeValueNameString.c)
+ *     CmpLightWeightUpdateSharedSetValueData @ 0x14053B9E0 (CmpLightWeightUpdateSharedSetValueData.c)
+ *     CmpLightWeightCreateSetValueData @ 0x14053BA28 (CmpLightWeightCreateSetValueData.c)
  */
 
 __int64 __fastcall CmpLightWeightPrepareDeleteValueKeyUoW(__int64 a1)

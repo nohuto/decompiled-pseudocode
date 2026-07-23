@@ -1,21 +1,21 @@
 /*
- * XREFs of MiTrimSharedPage @ 0x140370B4C
+ * XREFs of MiTrimSharedPage @ 0x14025A33C
  * Callers:
- *     MiTradePage @ 0x14022B650 (MiTradePage.c)
- *     MiWalkEntireImage @ 0x1402E85C0 (MiWalkEntireImage.c)
- *     MiMarkFileOnlyPfnBad @ 0x14067B474 (MiMarkFileOnlyPfnBad.c)
+ *     MiTradePage @ 0x1402FEF60 (MiTradePage.c)
+ *     MiWalkEntireImage @ 0x140349C00 (MiWalkEntireImage.c)
+ *     MiMarkFileOnlyPfnBad @ 0x14067C654 (MiMarkFileOnlyPfnBad.c)
  * Callees:
- *     MiReleaseControlAreaWaiters @ 0x14020F410 (MiReleaseControlAreaWaiters.c)
- *     MiReferencePfBackedSection @ 0x14022EFF8 (MiReferencePfBackedSection.c)
- *     MiPreventControlAreaDeletion @ 0x14022F600 (MiPreventControlAreaDeletion.c)
- *     MiUnlockPage @ 0x1402915F0 (MiUnlockPage.c)
- *     MiTrimSection @ 0x1402B9B70 (MiTrimSection.c)
- *     MiDecrementModifiedWriteCount @ 0x140370FD4 (MiDecrementModifiedWriteCount.c)
- *     MiDecrementSubsection @ 0x140371D7C (MiDecrementSubsection.c)
- *     MiClusterVadFull @ 0x140454E04 (MiClusterVadFull.c)
+ *     MiDecrementModifiedWriteCount @ 0x140259314 (MiDecrementModifiedWriteCount.c)
+ *     MiDecrementSubsection @ 0x14025A644 (MiDecrementSubsection.c)
+ *     MiUnlockPage @ 0x1402A11F0 (MiUnlockPage.c)
+ *     MiReferencePfBackedSection @ 0x140302908 (MiReferencePfBackedSection.c)
+ *     MiPreventControlAreaDeletion @ 0x140302F10 (MiPreventControlAreaDeletion.c)
+ *     MiReleaseControlAreaWaiters @ 0x140338770 (MiReleaseControlAreaWaiters.c)
+ *     MiTrimSection @ 0x1403612B0 (MiTrimSection.c)
+ *     MiClusterVadFull @ 0x140449CA4 (MiClusterVadFull.c)
  */
 
-__int64 __fastcall MiTrimSharedPage(__int64 a1, unsigned __int8 a2, unsigned int a3)
+__int64 __fastcall MiTrimSharedPage(__int64 a1, char a2, unsigned int a3)
 {
   __int64 v3; // r12
   int v7; // edx
@@ -23,34 +23,29 @@ __int64 __fastcall MiTrimSharedPage(__int64 a1, unsigned __int8 a2, unsigned int
   unsigned __int64 v9; // r12
   int v10; // ecx
   int v11; // edx
-  int v12; // eax
+  unsigned int v12; // eax
   int v13; // r13d
-  int v14; // edx
-  int v15; // r14d
-  __int64 v16; // rsi
-  __int64 v17; // rbx
+  __int64 v14; // rdx
+  unsigned int v15; // r14d
+  __int64 v16; // rdx
+  __int64 v17; // rsi
   __int64 v18; // rbx
-  __int64 v19; // rdx
-  __int64 v20; // r8
-  int v21; // edx
-  int v22; // ecx
-  _QWORD *v23; // rax
-  __int64 v24; // rdx
-  __int64 v25; // r8
-  __int64 *v27; // rax
-  _QWORD *v28; // rax
-  __int64 v29; // rdx
-  __int64 v30; // r8
-  _QWORD v31[5]; // [rsp+20h] [rbp-30h] BYREF
-  int v32; // [rsp+48h] [rbp-8h]
-  int v33; // [rsp+4Ch] [rbp-4h]
-  _QWORD *v34; // [rsp+90h] [rbp+40h] BYREF
+  __int64 v19; // rbx
+  int v20; // edx
+  int v21; // ecx
+  __int64 *v22; // rax
+  __int64 *v24; // rax
+  __int64 *v25; // rax
+  _QWORD v26[5]; // [rsp+20h] [rbp-30h] BYREF
+  int v27; // [rsp+48h] [rbp-8h]
+  int v28; // [rsp+4Ch] [rbp-4h]
+  __int64 v29; // [rsp+90h] [rbp+40h] BYREF
   ULONG_PTR BugCheckParameter2; // [rsp+A8h] [rbp+58h] BYREF
 
   v3 = *(_QWORD *)(a1 + 8);
-  v33 = 0;
+  v28 = 0;
   v7 = (a3 >> 18) & 1;
-  v34 = 0LL;
+  v29 = 0LL;
   BugCheckParameter2 = 0LL;
   v8 = v7 | 2;
   v9 = v3 | 0x8000000000000000uLL;
@@ -74,93 +69,96 @@ __int64 __fastcall MiTrimSharedPage(__int64 a1, unsigned __int8 a2, unsigned int
     v15 = v14;
   if ( (*(_DWORD *)(a1 + 16) & 0x400LL) != 0 )
   {
-    v16 = MiPreventControlAreaDeletion(a1, (__int64 *)&BugCheckParameter2, &v34);
-    if ( !v16 )
+    v17 = MiPreventControlAreaDeletion(a1, &BugCheckParameter2, &v29);
+    if ( !v17 )
     {
-      MiUnlockPage(a1, a2);
-      ++dword_140EF4E10;
+      LOBYTE(v16) = a2;
+      MiUnlockPage(a1, v16);
+      ++dword_140EF5030;
       return 0LL;
     }
-    v17 = *(_QWORD *)(a1 + 16);
-    if ( qword_140E2DB80 && (v17 & 0x10) == 0 )
-      v17 &= ~qword_140E2DB80;
-    v18 = v17 >> 16;
-    MiUnlockPage(a1, a2);
-    MiReleaseControlAreaWaiters(v34, v19, v20);
+    v18 = *(_QWORD *)(a1 + 16);
+    if ( qword_140E2DCC0 && (v18 & 0x10) == 0 )
+      v18 &= ~qword_140E2DCC0;
+    LOBYTE(v16) = a2;
+    v19 = v18 >> 16;
+    MiUnlockPage(a1, v16);
+    MiReleaseControlAreaWaiters(v29);
   }
   else
   {
-    MiUnlockPage(a1, a2);
-    v27 = (__int64 *)MiReferencePfBackedSection(v9);
-    v18 = (__int64)v27;
-    if ( !v27 )
+    LOBYTE(v14) = a2;
+    MiUnlockPage(a1, v14);
+    v24 = (__int64 *)MiReferencePfBackedSection(v9);
+    v19 = (__int64)v24;
+    if ( !v24 )
     {
-      ++dword_140EF4E14;
+      ++dword_140EF5034;
       return 0LL;
     }
-    v16 = *v27;
-    if ( v13 && *(int *)(v16 + 56) < 0 && (unsigned int)MiClusterVadFull(a1, 16LL, v27) )
+    v17 = *v24;
+    if ( v13 && *(int *)(v17 + 56) < 0 && (unsigned int)MiClusterVadFull(a1, 16LL, v24) )
     {
-      ++dword_140EF4DEC;
-      v28 = (_QWORD *)MiDecrementModifiedWriteCount(v16, 0LL);
-      if ( v28 )
-        MiReleaseControlAreaWaiters(v28, v29, v30);
+      ++dword_140EF500C;
+      v25 = MiDecrementModifiedWriteCount(v17, 0);
+      if ( v25 )
+        MiReleaseControlAreaWaiters(v25);
       return 0LL;
     }
   }
-  v32 = 0;
-  v31[3] = v18;
-  v31[4] = v18;
-  v31[0] = v16;
-  v31[1] = v9;
-  v31[2] = v9;
-  v21 = MiTrimSection(v31, 0LL, 1, v15);
-  if ( v21 || (HIWORD(*(_DWORD *)(a1 + 32)) & 7) == 6 )
+  v27 = 0;
+  v26[3] = v19;
+  v26[4] = v19;
+  v26[0] = v17;
+  v26[1] = v9;
+  v26[2] = v9;
+  v20 = ((__int64 (__fastcall *)(_QWORD *, _QWORD, __int64, _QWORD))MiTrimSection)(v26, 0LL, 1LL, v15);
+  if ( v20 || (HIWORD(*(_DWORD *)(a1 + 32)) & 7) == 6 )
   {
-    v21 = MiTrimSection(v31, 0LL, 1, v15);
-    if ( v21 || (HIWORD(*(_DWORD *)(a1 + 32)) & 7) == 6 )
-      ++dword_140EF4E24;
+    v20 = ((__int64 (__fastcall *)(_QWORD *, _QWORD, __int64, _QWORD))MiTrimSection)(v26, 0LL, 1LL, v15);
+    if ( v20 || (HIWORD(*(_DWORD *)(a1 + 32)) & 7) == 6 )
+      ++dword_140EF5044;
     else
-      ++dword_140EF4D7C;
+      ++dword_140EF4F9C;
   }
-  v22 = *(_DWORD *)(v16 + 56);
-  if ( v21 )
+  v21 = *(_DWORD *)(v17 + 56);
+  if ( v20 )
   {
-    if ( (v22 & 0x20) != 0 )
+    if ( (v21 & 0x20) != 0 )
     {
-      ++dword_140EF4E18;
+      ++dword_140EF5038;
     }
-    else if ( (v22 & 0x80u) == 0 )
+    else if ( (v21 & 0x80u) == 0 )
     {
-      ++dword_140EF4E20;
+      ++dword_140EF5040;
     }
     else
     {
-      ++dword_140EF4E1C;
+      ++dword_140EF503C;
     }
   }
-  else if ( (v22 & 0x20) != 0 )
+  else if ( (v21 & 0x20) != 0 )
   {
-    ++dword_140EF4D74;
+    ++dword_140EF4F94;
   }
-  else if ( (v22 & 0x80u) != 0 )
+  else if ( (v21 & 0x80u) != 0 )
   {
-    ++dword_140EF4D78;
+    ++dword_140EF4F98;
   }
   else
   {
-    ++dword_140EF4D80;
+    ++dword_140EF4FA0;
   }
   if ( BugCheckParameter2 )
     MiDecrementSubsection(BugCheckParameter2);
-  v23 = (_QWORD *)MiDecrementModifiedWriteCount(v16, 0LL);
-  if ( v23 )
-    MiReleaseControlAreaWaiters(v23, v24, v25);
+  v22 = MiDecrementModifiedWriteCount(v17, 0);
+  if ( v22 )
+    MiReleaseControlAreaWaiters(v22);
   if ( (HIWORD(*(_DWORD *)(a1 + 32)) & 7) != 6 )
   {
-    ++dword_140EF4D6C;
+    ++dword_140EF4F8C;
     return 2LL;
   }
-  ++dword_140EF4E28;
+  ++dword_140EF5048;
   return 0LL;
 }

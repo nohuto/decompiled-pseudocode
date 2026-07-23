@@ -39,11 +39,11 @@ NTSTATUS __stdcall NtSetUuidSeed(PUCHAR UuidSeed)
   int v12; // eax
   int v13; // eax
   struct _KTHREAD *CurrentThread; // r15
-  _BYTE *v15; // rax
-  _BYTE *v16; // rsi
+  PRTL_BALANCED_NODE v15; // rax
+  PRTL_BALANCED_NODE v16; // rsi
   NTSTATUS v18; // ebx
   NTSTATUS AccessStatus; // [rsp+54h] [rbp-B4h] BYREF
-  struct _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+58h] [rbp-B0h] BYREF
+  _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+58h] [rbp-B0h] BYREF
   int v23; // [rsp+64h] [rbp-A4h]
   __int16 v24; // [rsp+68h] [rbp-A0h]
   int v25; // [rsp+6Ch] [rbp-9Ch]
@@ -129,12 +129,12 @@ NTSTATUS __stdcall NtSetUuidSeed(PUCHAR UuidSeed)
     ExFreePoolWithTag(v28, 0);
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  v15 = (_BYTE *)KeAbPreAcquire((ULONG_PTR)&ExpUuidLock, 0LL, 0LL);
+  v15 = KeAbPreAcquire((ULONG_PTR)&ExpUuidLock, 0LL, 0);
   v16 = v15;
   if ( _interlockedbittestandset64((volatile signed __int32 *)&ExpUuidLock, 0LL) )
     ExfAcquirePushLockExclusiveEx(&ExpUuidLock, v15, (ULONG_PTR)&ExpUuidLock);
   if ( v16 )
-    v16[26] |= 1u;
+    BYTE2(v16[1].Left) |= 1u;
   *(int *)((char *)&dword_1407AC2AC + 2) = v23;
   word_1407AC2B2 = v24;
   ExpUuidCacheValid = (unsigned __int8)v23 >> 7 == 0;

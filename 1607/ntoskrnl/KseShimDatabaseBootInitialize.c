@@ -3,13 +3,13 @@
  * Callers:
  *     KseInitialize @ 0x14079DAE8 (KseInitialize.c)
  * Callees:
- *     KsepPoolFreePaged @ 0x140084D54 (KsepPoolFreePaged.c)
- *     KsepPoolAllocatePaged @ 0x140084D74 (KsepPoolAllocatePaged.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     KsepDebugPrint @ 0x1401DCC3C (KsepDebugPrint.c)
- *     KsepLogError @ 0x1401DCEA4 (KsepLogError.c)
- *     RtlAssert @ 0x140213458 (RtlAssert.c)
- *     SdbInitDatabaseInMemory @ 0x1404951FC (SdbInitDatabaseInMemory.c)
+ *     KsepPoolFreePaged @ 0x14010B35C (KsepPoolFreePaged.c)
+ *     KsepPoolAllocatePaged @ 0x14010B37C (KsepPoolAllocatePaged.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     KsepDebugPrint @ 0x1401DCA68 (KsepDebugPrint.c)
+ *     KsepLogError @ 0x1401DCCD0 (KsepLogError.c)
+ *     RtlAssert @ 0x140213284 (RtlAssert.c)
+ *     SdbInitDatabaseInMemory @ 0x140495C8C (SdbInitDatabaseInMemory.c)
  */
 
 __int64 __fastcall KseShimDatabaseBootInitialize(void *Src, size_t Size)
@@ -70,7 +70,7 @@ __int64 __fastcall KseShimDatabaseBootInitialize(void *Src, size_t Size)
   if ( Paged )
   {
     memmove(Paged, Src, v3);
-    KsepShimDbHandle = (__int64)SdbInitDatabaseInMemory(v6, v3);
+    KsepShimDbHandle = SdbInitDatabaseInMemory(v6, v3);
     if ( KsepShimDbHandle )
     {
       ++KsepShimDbRefCount;

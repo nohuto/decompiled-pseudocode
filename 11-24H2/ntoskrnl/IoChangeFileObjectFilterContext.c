@@ -1,7 +1,7 @@
 /*
- * XREFs of IoChangeFileObjectFilterContext @ 0x1404446F0
+ * XREFs of IoChangeFileObjectFilterContext @ 0x14043A190
  * Callers:
- *     IopDeleteFile @ 0x140841DB0 (IopDeleteFile.c)
+ *     IopDeleteFile @ 0x14083E070 (IopDeleteFile.c)
  * Callees:
  *     <none>
  */
@@ -12,7 +12,7 @@ __int64 __fastcall IoChangeFileObjectFilterContext(__int64 a1, signed __int64 a2
   unsigned int v6; // edx
 
   v3 = *(_QWORD *)(a1 + 208);
-  if ( !v3 || (__int64 *)v3 == qword_140014770 )
+  if ( !v3 || (__int64 *)v3 == &qword_1400145A0 )
     return 3221225485LL;
   if ( a3 )
   {

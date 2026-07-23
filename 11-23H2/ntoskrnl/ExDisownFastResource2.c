@@ -1,17 +1,17 @@
 /*
- * XREFs of ExDisownFastResource2 @ 0x14041351C
+ * XREFs of ExDisownFastResource2 @ 0x1404138B0
  * Callers:
- *     ExDisownFastResource @ 0x1403CC400 (ExDisownFastResource.c)
- *     ExMoveFastResourceOwnershipWithFlags @ 0x140412750 (ExMoveFastResourceOwnershipWithFlags.c)
+ *     ExDisownFastResource @ 0x1403CC5E0 (ExDisownFastResource.c)
+ *     ExMoveFastResourceOwnershipWithFlags @ 0x140412A90 (ExMoveFastResourceOwnershipWithFlags.c)
  * Callees:
- *     ObfReferenceObject @ 0x140233C40 (ObfReferenceObject.c)
- *     KxAcquireSpinLock @ 0x1402515B0 (KxAcquireSpinLock.c)
- *     KeReleaseSpinLockFromDpcLevel @ 0x14032FB40 (KeReleaseSpinLockFromDpcLevel.c)
- *     KeAbMarkCrossThreadReleasable @ 0x1403CCA30 (KeAbMarkCrossThreadReleasable.c)
- *     ExpAddFastOwnerEntryToThreadList2 @ 0x140415270 (ExpAddFastOwnerEntryToThreadList2.c)
- *     ExpRemoveEntryListAndClear2 @ 0x14041676C (ExpRemoveEntryListAndClear2.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     ObfReferenceObject @ 0x140233D10 (ObfReferenceObject.c)
+ *     KxAcquireSpinLock @ 0x140251670 (KxAcquireSpinLock.c)
+ *     KeReleaseSpinLockFromDpcLevel @ 0x14032FDD0 (KeReleaseSpinLockFromDpcLevel.c)
+ *     KeAbMarkCrossThreadReleasable @ 0x1403CCC10 (KeAbMarkCrossThreadReleasable.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     ExpAddFastOwnerEntryToThreadList2 @ 0x140415604 (ExpAddFastOwnerEntryToThreadList2.c)
+ *     ExpRemoveEntryListAndClear2 @ 0x140416B00 (ExpRemoveEntryListAndClear2.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  */
 
 LONG_PTR __fastcall ExDisownFastResource2(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter3)
@@ -77,7 +77,7 @@ LONG_PTR __fastcall ExDisownFastResource2(ULONG_PTR BugCheckParameter2, ULONG_PT
     }
     while ( v14 != v13 );
     if ( (v13 & 0x200000) != 0 )
-      KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
   }
   _enable();
   if ( (_BYTE)v8 )

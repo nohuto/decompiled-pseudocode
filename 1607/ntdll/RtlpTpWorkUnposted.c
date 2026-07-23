@@ -1,21 +1,21 @@
 /*
- * XREFs of RtlpTpWorkUnposted @ 0x18003A050
+ * XREFs of RtlpTpWorkUnposted @ 0x18003A040
  * Callers:
- *     RtlQueueWorkItem @ 0x180039CF0 (RtlQueueWorkItem.c)
- *     RtlpTpWorkCallback @ 0x18003A1C0 (RtlpTpWorkCallback.c)
+ *     RtlQueueWorkItem @ 0x180039CE0 (RtlQueueWorkItem.c)
+ *     RtlpTpWorkCallback @ 0x18003A1B0 (RtlpTpWorkCallback.c)
  * Callees:
  *     RtlTpETWCallbackDequeue @ 0x1800024E0 (RtlTpETWCallbackDequeue.c)
- *     LdrUnloadDll @ 0x18002EF70 (LdrUnloadDll.c)
- *     RtlpTpDeleteData @ 0x18003A148 (RtlpTpDeleteData.c)
- *     TpUnreserveTaskPost @ 0x18003A15C (TpUnreserveTaskPost.c)
- *     RtlReleaseActivationContext @ 0x18003B790 (RtlReleaseActivationContext.c)
+ *     LdrUnloadDll @ 0x18002EF60 (LdrUnloadDll.c)
+ *     RtlpTpDeleteData @ 0x18003A138 (RtlpTpDeleteData.c)
+ *     TpUnreserveTaskPost @ 0x18003A14C (TpUnreserveTaskPost.c)
+ *     RtlReleaseActivationContext @ 0x18003B780 (RtlReleaseActivationContext.c)
  */
 
-__int64 __fastcall RtlpTpWorkUnposted(__int64 a1, __int64 a2)
+LOGICAL __fastcall RtlpTpWorkUnposted(__int64 a1, __int64 a2)
 {
   int v4; // eax
-  __int64 v5; // rcx
-  __int64 v6; // rcx
+  _ACTIVATION_CONTEXT *v5; // rcx
+  void *v6; // rcx
   int v8; // [rsp+30h] [rbp-58h] BYREF
   __int64 v9; // [rsp+38h] [rbp-50h]
   __int64 v10; // [rsp+40h] [rbp-48h]
@@ -46,11 +46,11 @@ __int64 __fastcall RtlpTpWorkUnposted(__int64 a1, __int64 a2)
   }
   TpUnreserveTaskPost(*(_QWORD *)(a1 + 32), &v8);
   RtlpTpDeleteData(a1 + 40);
-  v5 = *(_QWORD *)(a1 + 72);
-  if ( v5 != -1 )
+  v5 = *(_ACTIVATION_CONTEXT **)(a1 + 72);
+  if ( v5 != (_ACTIVATION_CONTEXT *)-1LL )
     RtlReleaseActivationContext(v5);
-  v6 = *(_QWORD *)(a1 + 80);
+  v6 = *(void **)(a1 + 80);
   if ( v6 )
     LdrUnloadDll(v6);
-  return RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, a1);
+  return RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, (PVOID)a1);
 }

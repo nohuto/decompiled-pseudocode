@@ -1,10 +1,10 @@
 /*
- * XREFs of MiConfigureMemoryInsertion @ 0x14084CEA0
+ * XREFs of MiConfigureMemoryInsertion @ 0x14084E100
  * Callers:
- *     MiAddPhysicalMemory @ 0x14084C894 (MiAddPhysicalMemory.c)
+ *     MiAddPhysicalMemory @ 0x14084DAF4 (MiAddPhysicalMemory.c)
  * Callees:
- *     memmove @ 0x1401D1540 (memmove.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall MiConfigureMemoryInsertion(_QWORD *a1, unsigned int *a2, __int64 a3)

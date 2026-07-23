@@ -14,25 +14,25 @@
 
 void __fastcall PspWriteTebIdealProcessor(__int64 a1, __int64 a2)
 {
-  struct _PROCESSOR_NUMBER *v4; // r15
-  struct _PROCESSOR_NUMBER *v5; // r13
+  _PROCESSOR_NUMBER *v4; // r15
+  _PROCESSOR_NUMBER *v5; // r13
   _KPROCESS *v6; // r9
   unsigned __int64 v7; // rcx
   char v8; // di
   char v9; // si
-  struct _PROCESSOR_NUMBER *i; // r12
-  struct _PROCESSOR_NUMBER v11; // eax
+  _PROCESSOR_NUMBER *i; // r12
+  _PROCESSOR_NUMBER v11; // eax
   __int16 v12; // ax
   signed __int32 v13[8]; // [rsp+0h] [rbp-C8h] BYREF
   char v14; // [rsp+20h] [rbp-A8h]
   char v15; // [rsp+21h] [rbp-A7h]
-  struct _PROCESSOR_NUMBER ProcNumber; // [rsp+24h] [rbp-A4h] BYREF
+  _PROCESSOR_NUMBER ProcNumber; // [rsp+24h] [rbp-A4h] BYREF
   _KPROCESS *v17; // [rsp+28h] [rbp-A0h]
-  struct _PROCESSOR_NUMBER v18; // [rsp+30h] [rbp-98h] BYREF
-  struct _PROCESSOR_NUMBER *v19; // [rsp+38h] [rbp-90h]
+  _PROCESSOR_NUMBER v18; // [rsp+30h] [rbp-98h] BYREF
+  _PROCESSOR_NUMBER *v19; // [rsp+38h] [rbp-90h]
   __int64 v20; // [rsp+40h] [rbp-88h]
-  struct _PROCESSOR_NUMBER *p_ProcNumber; // [rsp+48h] [rbp-80h]
-  struct _PROCESSOR_NUMBER *v22; // [rsp+50h] [rbp-78h]
+  _PROCESSOR_NUMBER *p_ProcNumber; // [rsp+48h] [rbp-80h]
+  _PROCESSOR_NUMBER *v22; // [rsp+50h] [rbp-78h]
   __int64 v23; // [rsp+58h] [rbp-70h]
   $709EDFC2F9E0D4565D6AA3C4377BC643 v24; // [rsp+60h] [rbp-68h] BYREF
 
@@ -41,7 +41,7 @@ void __fastcall PspWriteTebIdealProcessor(__int64 a1, __int64 a2)
   v4 = 0LL;
   v19 = 0LL;
   v20 = 0LL;
-  v5 = *(struct _PROCESSOR_NUMBER **)(a2 + 240);
+  v5 = *(_PROCESSOR_NUMBER **)(a2 + 240);
   v22 = v5;
   v6 = *(_KPROCESS **)(a2 + 544);
   v17 = v6;
@@ -85,7 +85,7 @@ void __fastcall PspWriteTebIdealProcessor(__int64 a1, __int64 a2)
       LOWORD(v17) = v11.Group;
       BYTE2(v17) = v11.Number & 0x1F;
       BYTE3(v17) = v11.Reserved & 0x1F;
-      v4[989] = (struct _PROCESSOR_NUMBER)v17;
+      v4[989] = (_PROCESSOR_NUMBER)v17;
     }
     _InterlockedOr(v13, 0);
     KeGetProcessorNumberFromIndex(*(_DWORD *)(a2 + 196), &v18);

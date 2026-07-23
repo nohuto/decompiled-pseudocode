@@ -1,17 +1,17 @@
 /*
- * XREFs of AslStringPatternMatchW @ 0x140721394
+ * XREFs of AslStringPatternMatchW @ 0x140722634
  * Callers:
- *     SdbpFindFirstIndexedWildCardTag @ 0x14067C7C8 (SdbpFindFirstIndexedWildCardTag.c)
- *     SdbpCheckAttribute @ 0x140720580 (SdbpCheckAttribute.c)
- *     SdbpFindNextIndexedWildCardTag @ 0x140721158 (SdbpFindNextIndexedWildCardTag.c)
- *     AslStringPatternMatchW @ 0x140721394 (AslStringPatternMatchW.c)
- *     KseLookupHardwareId @ 0x140848A34 (KseLookupHardwareId.c)
- *     SdbpCheckMatchingRegistryValue @ 0x1408E6168 (SdbpCheckMatchingRegistryValue.c)
- *     SdbpCheckPackageAttributes @ 0x1408E6F40 (SdbpCheckPackageAttributes.c)
- *     AslpProcessMatchRegNode @ 0x1408EBD04 (AslpProcessMatchRegNode.c)
+ *     SdbpFindFirstIndexedWildCardTag @ 0x14067D988 (SdbpFindFirstIndexedWildCardTag.c)
+ *     SdbpCheckAttribute @ 0x140721820 (SdbpCheckAttribute.c)
+ *     SdbpFindNextIndexedWildCardTag @ 0x1407223F8 (SdbpFindNextIndexedWildCardTag.c)
+ *     AslStringPatternMatchW @ 0x140722634 (AslStringPatternMatchW.c)
+ *     KseLookupHardwareId @ 0x140849C94 (KseLookupHardwareId.c)
+ *     SdbpCheckMatchingRegistryValue @ 0x1408E7428 (SdbpCheckMatchingRegistryValue.c)
+ *     SdbpCheckPackageAttributes @ 0x1408E8200 (SdbpCheckPackageAttributes.c)
+ *     AslpProcessMatchRegNode @ 0x1408ECFC4 (AslpProcessMatchRegNode.c)
  * Callees:
- *     RtlUpcaseUnicodeChar @ 0x1405D5C10 (RtlUpcaseUnicodeChar.c)
- *     AslStringPatternMatchW @ 0x140721394 (AslStringPatternMatchW.c)
+ *     RtlUpcaseUnicodeChar @ 0x1405D6C10 (RtlUpcaseUnicodeChar.c)
+ *     AslStringPatternMatchW @ 0x140722634 (AslStringPatternMatchW.c)
  */
 
 __int64 __fastcall AslStringPatternMatchW(WCHAR *a1, WCHAR *a2)

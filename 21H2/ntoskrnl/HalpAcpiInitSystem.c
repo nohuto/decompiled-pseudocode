@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpAcpiInitSystem @ 0x1409A03F0
+ * XREFs of HalpAcpiInitSystem @ 0x1409A1320
  * Callers:
  *     <none>
  * Callees:
- *     HalpNumaSwapP0NodeToFront @ 0x1403BBCD4 (HalpNumaSwapP0NodeToFront.c)
- *     HalpAcpiInitDiscard @ 0x140A63B68 (HalpAcpiInitDiscard.c)
- *     HalpAuditAcpiTables @ 0x140A65350 (HalpAuditAcpiTables.c)
- *     HalpAcpiPopulateTableCache @ 0x140A6597C (HalpAcpiPopulateTableCache.c)
+ *     HalpNumaSwapP0NodeToFront @ 0x1403BBE44 (HalpNumaSwapP0NodeToFront.c)
+ *     HalpAcpiInitDiscard @ 0x140A64B68 (HalpAcpiInitDiscard.c)
+ *     HalpAuditAcpiTables @ 0x140A66350 (HalpAuditAcpiTables.c)
+ *     HalpAcpiPopulateTableCache @ 0x140A6697C (HalpAcpiPopulateTableCache.c)
  */
 
 __int64 __fastcall HalpAcpiInitSystem(int a1, __int64 a2, __int64 a3)

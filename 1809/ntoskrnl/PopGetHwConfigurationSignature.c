@@ -1,14 +1,14 @@
 /*
- * XREFs of PopGetHwConfigurationSignature @ 0x14056BF24
+ * XREFs of PopGetHwConfigurationSignature @ 0x14056CF24
  * Callers:
- *     PopAllocateHiberContext @ 0x1406DF534 (PopAllocateHiberContext.c)
+ *     PopAllocateHiberContext @ 0x1406E07D4 (PopAllocateHiberContext.c)
  * Callees:
- *     MmMapIoSpaceEx @ 0x1400E5D60 (MmMapIoSpaceEx.c)
- *     MmUnmapIoSpace @ 0x140123220 (MmUnmapIoSpace.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ZwQuerySystemInformation @ 0x1401B8850 (ZwQuerySystemInformation.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     MmMapIoSpaceEx @ 0x1400E5DE0 (MmMapIoSpaceEx.c)
+ *     MmUnmapIoSpace @ 0x1401232F0 (MmUnmapIoSpace.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ZwQuerySystemInformation @ 0x1401B89B0 (ZwQuerySystemInformation.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 __int64 PopGetHwConfigurationSignature()

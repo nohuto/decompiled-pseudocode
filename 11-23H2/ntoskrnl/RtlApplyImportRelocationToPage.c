@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlApplyImportRelocationToPage @ 0x140325098
+ * XREFs of RtlApplyImportRelocationToPage @ 0x140325328
  * Callers:
- *     MiUpdateRetpolineImportFixups @ 0x140325478 (MiUpdateRetpolineImportFixups.c)
- *     MiApplyRetpolineFixups @ 0x140325600 (MiApplyRetpolineFixups.c)
+ *     MiUpdateRetpolineImportFixups @ 0x140325708 (MiUpdateRetpolineImportFixups.c)
+ *     MiApplyRetpolineFixups @ 0x140325890 (MiApplyRetpolineFixups.c)
  * Callees:
- *     RtlpApplyGenericRetpolineFixup @ 0x140325590 (RtlpApplyGenericRetpolineFixup.c)
- *     RtlpConstructImportRelocationFixup @ 0x1403257E0 (RtlpConstructImportRelocationFixup.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     RtlpApplyGenericRetpolineFixup @ 0x140325820 (RtlpApplyGenericRetpolineFixup.c)
+ *     RtlpConstructImportRelocationFixup @ 0x140325A70 (RtlpConstructImportRelocationFixup.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall RtlApplyImportRelocationToPage(

@@ -8,7 +8,7 @@
  *     sub_18007DDA4 @ 0x18007DDA4 (sub_18007DDA4.c)
  */
 
-__int64 sub_18007DCD4()
+void sub_18007DCD4()
 {
   unsigned int i; // ebx
   void (__stdcall *v1)(PEXCEPTION_RECORD); // rax
@@ -17,10 +17,10 @@ __int64 sub_18007DCD4()
   unsigned __int64 v4; // rcx
   __int64 v5; // rdi
   __int64 EndAddress; // r8
-  unsigned __int64 v7; // rdx
-  unsigned __int64 v8; // r8
-  __int64 v9; // rax
-  __int64 v10; // rax
+  ULONG_PTR v7; // rdx
+  ULONG_PTR v8; // r8
+  ULONG_PTR ScpArm64EcCfgCheckFunction; // rax
+  ULONG_PTR ScpArm64EcCfgCheckESFunction; // rax
   unsigned __int64 ImageBase; // [rsp+30h] [rbp+8h] BYREF
 
   sub_18001DEA8(0);
@@ -29,27 +29,27 @@ __int64 sub_18007DCD4()
     v1 = (void (__stdcall *)(PEXCEPTION_RECORD))sub_18007DDA4(i);
     if ( !v1 )
       break;
-    v2 = byte_18016B3D5;
+    v2 = BYTE5(LdrSystemDllInitBlock.ScpArm64EcCallCheck);
     if ( v1 == RtlRaiseException )
       v2 = i;
-    byte_18016B3D5 = v2;
+    BYTE5(LdrSystemDllInitBlock.ScpArm64EcCallCheck) = v2;
     v3 = RtlLookupFunctionEntry((ULONG64)v1, &ImageBase, 0LL);
     v4 = ImageBase;
     v5 = 2LL * i;
     EndAddress = v3->EndAddress;
     v7 = ImageBase + v3->BeginAddress;
-    *(_QWORD *)&dword_18016B3D0[2 * v5 + 8] = v3;
+    *((_QWORD *)&LdrSystemDllInitBlock + v5 + 38) = v3;
     v8 = v4 + EndAddress;
-    *(_QWORD *)&dword_18016B3D0[2 * v5 + 6] = v4;
-    v9 = qword_18016B3D8;
-    if ( v7 < qword_18016B3D8 )
-      v9 = v7;
-    qword_18016B3D8 = v9;
-    v10 = qword_18016B3E0;
-    if ( v8 > qword_18016B3E0 )
-      v10 = v8;
-    qword_18016B3E0 = v10;
+    *((_QWORD *)&LdrSystemDllInitBlock + v5 + 37) = v4;
+    ScpArm64EcCfgCheckFunction = LdrSystemDllInitBlock.ScpArm64EcCfgCheckFunction;
+    if ( v7 < LdrSystemDllInitBlock.ScpArm64EcCfgCheckFunction )
+      ScpArm64EcCfgCheckFunction = v7;
+    LdrSystemDllInitBlock.ScpArm64EcCfgCheckFunction = ScpArm64EcCfgCheckFunction;
+    ScpArm64EcCfgCheckESFunction = LdrSystemDllInitBlock.ScpArm64EcCfgCheckESFunction;
+    if ( v8 > LdrSystemDllInitBlock.ScpArm64EcCfgCheckESFunction )
+      ScpArm64EcCfgCheckESFunction = v8;
+    LdrSystemDllInitBlock.ScpArm64EcCfgCheckESFunction = ScpArm64EcCfgCheckESFunction;
   }
-  dword_18016B3D0[0] = i;
-  return sub_18001DEA8(1);
+  LODWORD(LdrSystemDllInitBlock.ScpArm64EcCallCheck) = i;
+  sub_18001DEA8(1);
 }

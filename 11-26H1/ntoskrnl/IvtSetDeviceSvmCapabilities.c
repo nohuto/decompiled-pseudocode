@@ -1,11 +1,11 @@
 /*
- * XREFs of IvtSetDeviceSvmCapabilities @ 0x1405A7980
+ * XREFs of IvtSetDeviceSvmCapabilities @ 0x1405AA190
  * Callers:
  *     <none>
  * Callees:
- *     IvtAllocateContextTable @ 0x14050F398 (IvtAllocateContextTable.c)
- *     ExtEnvAllocateMemory @ 0x140597BA0 (ExtEnvAllocateMemory.c)
- *     ExtEnvFreeMemory @ 0x140597DF0 (ExtEnvFreeMemory.c)
+ *     IvtAllocateContextTable @ 0x140508E08 (IvtAllocateContextTable.c)
+ *     ExtEnvAllocateMemory @ 0x14059A320 (ExtEnvAllocateMemory.c)
+ *     ExtEnvFreeMemory @ 0x14059A570 (ExtEnvFreeMemory.c)
  */
 
 __int64 __fastcall IvtSetDeviceSvmCapabilities(__int64 a1, __int64 a2, int a3, char a4)

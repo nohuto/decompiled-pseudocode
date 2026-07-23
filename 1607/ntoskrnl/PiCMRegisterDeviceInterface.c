@@ -1,16 +1,16 @@
 /*
- * XREFs of PiCMRegisterDeviceInterface @ 0x140648420
+ * XREFs of PiCMRegisterDeviceInterface @ 0x140648504
  * Callers:
- *     PiCMHandleIoctl @ 0x1404FC77C (PiCMHandleIoctl.c)
+ *     PiCMHandleIoctl @ 0x1404DF70C (PiCMHandleIoctl.c)
  * Callees:
- *     PiControlFreeUserModeCallersBuffer @ 0x1400C38B0 (PiControlFreeUserModeCallersBuffer.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     PiControlFreeUserModeCallersBuffer @ 0x1400C1740 (PiControlFreeUserModeCallersBuffer.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     IopRegisterDeviceInterface @ 0x14048756C (IopRegisterDeviceInterface.c)
- *     PiAuDoesClientHaveAccess @ 0x1404F6100 (PiAuDoesClientHaveAccess.c)
- *     PiCMReturnBufferResultData @ 0x1404FCC2C (PiCMReturnBufferResultData.c)
- *     _CmValidateDeviceName @ 0x1404FD9C0 (_CmValidateDeviceName.c)
- *     PiCMCaptureRegisterInterfaceInputData @ 0x140645EF0 (PiCMCaptureRegisterInterfaceInputData.c)
+ *     PiAuDoesClientHaveAccess @ 0x1404D908C (PiAuDoesClientHaveAccess.c)
+ *     PiCMReturnBufferResultData @ 0x1404DFBBC (PiCMReturnBufferResultData.c)
+ *     _CmValidateDeviceName @ 0x1404E0950 (_CmValidateDeviceName.c)
+ *     IopRegisterDeviceInterface @ 0x14050FDE8 (IopRegisterDeviceInterface.c)
+ *     PiCMCaptureRegisterInterfaceInputData @ 0x140645FD4 (PiCMCaptureRegisterInterfaceInputData.c)
  */
 
 __int64 __fastcall PiCMRegisterDeviceInterface(
@@ -27,8 +27,8 @@ __int64 __fastcall PiCMRegisterDeviceInterface(
   int v11; // esi
   __int64 v12; // rcx
   signed int v13; // r10d
-  const wchar_t *v14; // rsi
-  const wchar_t *v15; // r14
+  wchar_t *v14; // rsi
+  __int64 v15; // r14
   int v16; // eax
   struct _KTHREAD *CurrentThread; // rax
   char PreviousMode; // bl
@@ -38,9 +38,9 @@ __int64 __fastcall PiCMRegisterDeviceInterface(
   _DWORD *v23; // [rsp+58h] [rbp-31h]
   char v24[4]; // [rsp+60h] [rbp-29h] BYREF
   int v25; // [rsp+64h] [rbp-25h]
-  _BYTE v26[16]; // [rsp+68h] [rbp-21h] BYREF
+  int v26[4]; // [rsp+68h] [rbp-21h] BYREF
   wchar_t *v27; // [rsp+78h] [rbp-11h]
-  wchar_t *v28; // [rsp+88h] [rbp-1h]
+  void *v28; // [rsp+88h] [rbp-1h]
   unsigned int v29; // [rsp+90h] [rbp+7h]
   int v30; // [rsp+94h] [rbp+Bh]
 
@@ -67,7 +67,7 @@ LABEL_13:
   }
   else
   {
-    v15 = v28;
+    v15 = (__int64)v28;
     if ( v28 && v29 < 2 || !a3 || a4 < 0x14 )
     {
       v13 = -1073741811;
@@ -81,7 +81,7 @@ LABEL_13:
     v13 = CmValidateDeviceName(v12, v27);
     if ( v13 < 0 )
       goto LABEL_13;
-    v20 = IopRegisterDeviceInterface(v14, (__int64)v26, v15, 1, (PVOID *)&v22, 0LL);
+    v20 = IopRegisterDeviceInterface(v14, v26, v15, 1, (PVOID *)&v22, 0LL);
     v10 = v22;
     v13 = v20;
     if ( v20 < 0 )

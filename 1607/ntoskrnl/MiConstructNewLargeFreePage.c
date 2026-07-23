@@ -1,12 +1,12 @@
 /*
- * XREFs of MiConstructNewLargeFreePage @ 0x1401FD0F0
+ * XREFs of MiConstructNewLargeFreePage @ 0x1401FCF1C
  * Callers:
- *     MiCoalesceFreeLargePages @ 0x1401FCC90 (MiCoalesceFreeLargePages.c)
- *     MiRebuildLargePage @ 0x1401FD8CC (MiRebuildLargePage.c)
+ *     MiCoalesceFreeLargePages @ 0x1401FCABC (MiCoalesceFreeLargePages.c)
+ *     MiRebuildLargePage @ 0x1401FD6F8 (MiRebuildLargePage.c)
  * Callees:
- *     MiInsertLargePageInNodeListHelper @ 0x14001B760 (MiInsertLargePageInNodeListHelper.c)
- *     MiLockPageInline @ 0x140022E70 (MiLockPageInline.c)
- *     MiInitializeLargePageSubPage @ 0x1401FD4E8 (MiInitializeLargePageSubPage.c)
+ *     MiInsertLargePageInNodeListHelper @ 0x14001B2E0 (MiInsertLargePageInNodeListHelper.c)
+ *     MiLockPageInline @ 0x1400229F0 (MiLockPageInline.c)
+ *     MiInitializeLargePageSubPage @ 0x1401FD314 (MiInitializeLargePageSubPage.c)
  */
 
 __int64 __fastcall MiConstructNewLargeFreePage(unsigned __int64 a1, unsigned int a2, unsigned int a3)

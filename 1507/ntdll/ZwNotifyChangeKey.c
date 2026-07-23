@@ -6,11 +6,21 @@
  *     <none>
  */
 
-__int64 ZwNotifyChangeKey()
+NTSTATUS __cdecl ZwNotifyChangeKey(
+        HANDLE KeyHandle,
+        HANDLE Event,
+        PIO_APC_ROUTINE ApcRoutine,
+        PVOID ApcContext,
+        PIO_STATUS_BLOCK IoStatusBlock,
+        ULONG CompletionFilter,
+        BOOLEAN WatchTree,
+        PVOID Buffer,
+        ULONG BufferSize,
+        BOOLEAN Asynchronous)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 261LL;
+  result = 261;
   __asm { syscall; Low latency system call }
   return result;
 }

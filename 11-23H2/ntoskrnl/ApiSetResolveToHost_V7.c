@@ -1,11 +1,11 @@
 /*
- * XREFs of ApiSetResolveToHost_V7 @ 0x140416CCC
+ * XREFs of ApiSetResolveToHost_V7 @ 0x14041705C
  * Callers:
- *     ApiSetResolveToHost @ 0x14035F438 (ApiSetResolveToHost.c)
+ *     ApiSetResolveToHost @ 0x14035F5D8 (ApiSetResolveToHost.c)
  * Callees:
- *     ApiSetpGetSearchKeyInfo_V7 @ 0x140417F64 (ApiSetpGetSearchKeyInfo_V7.c)
- *     ApiSetpSearchForHostOverrideIndex_V7 @ 0x140418034 (ApiSetpSearchForHostOverrideIndex_V7.c)
- *     ApiSetpSearchForSectionIndex_V7 @ 0x1404180EC (ApiSetpSearchForSectionIndex_V7.c)
+ *     ApiSetpGetSearchKeyInfo_V7 @ 0x1404182F4 (ApiSetpGetSearchKeyInfo_V7.c)
+ *     ApiSetpSearchForHostOverrideIndex_V7 @ 0x1404183C4 (ApiSetpSearchForHostOverrideIndex_V7.c)
+ *     ApiSetpSearchForSectionIndex_V7 @ 0x14041847C (ApiSetpSearchForSectionIndex_V7.c)
  */
 
 __int64 __fastcall ApiSetResolveToHost_V7(__int64 a1, unsigned __int16 *a2, __int64 a3, char *a4, _OWORD *a5)

@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpDpOfflineProcessorForReplace @ 0x140A97398
+ * XREFs of HalpDpOfflineProcessorForReplace @ 0x140A97208
  * Callers:
- *     HalpDpReplaceTarget @ 0x140A97A70 (HalpDpReplaceTarget.c)
+ *     HalpDpReplaceTarget @ 0x140A978E0 (HalpDpReplaceTarget.c)
  * Callees:
- *     KeSweepLocalCaches @ 0x140372600 (KeSweepLocalCaches.c)
- *     KeSaveStateForHibernate @ 0x14041FAF0 (KeSaveStateForHibernate.c)
- *     HalpInterruptOfflineProcessor @ 0x140520EC0 (HalpInterruptOfflineProcessor.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     HalpDpPostReplaceInitialization @ 0x140A975F4 (HalpDpPostReplaceInitialization.c)
+ *     KeSweepLocalCaches @ 0x1403727A0 (KeSweepLocalCaches.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeSaveStateForHibernate @ 0x14041FE80 (KeSaveStateForHibernate.c)
+ *     HalpInterruptOfflineProcessor @ 0x140521410 (HalpInterruptOfflineProcessor.c)
+ *     HalpDpPostReplaceInitialization @ 0x140A97464 (HalpDpPostReplaceInitialization.c)
  */
 
 __int64 __fastcall HalpDpOfflineProcessorForReplace(__int64 a1)
@@ -38,10 +38,10 @@ __int64 __fastcall HalpDpOfflineProcessorForReplace(__int64 a1)
     HalpInterruptOfflineProcessor((volatile signed __int32 *)(a1 + 56));
   }
   HalpDpPostReplaceInitialization(a1, &v13);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v6 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v6 <= 0xFu && CurrentIrql <= 0xFu && v6 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v6 <= 0xFu && CurrentIrql <= 0xFu && v6 >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

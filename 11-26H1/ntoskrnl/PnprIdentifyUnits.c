@@ -1,10 +1,10 @@
 /*
- * XREFs of PnprIdentifyUnits @ 0x1407AF35C
+ * XREFs of PnprIdentifyUnits @ 0x1407B23BC
  * Callers:
- *     PnpReplacePartitionUnit @ 0x1407ADDC0 (PnpReplacePartitionUnit.c)
+ *     PnpReplacePartitionUnit @ 0x1407B0E20 (PnpReplacePartitionUnit.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     PnpQueryInterface @ 0x140AA8480 (PnpQueryInterface.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     PnpQueryInterface @ 0x1409DB9B4 (PnpQueryInterface.c)
  */
 
 __int64 __fastcall PnprIdentifyUnits(PVOID Object, PVOID a2, __int64 *a3, __int64 a4)
@@ -38,7 +38,7 @@ __int64 __fastcall PnprIdentifyUnits(PVOID Object, PVOID a2, __int64 *a3, __int6
     v8 = PnprContext;
     v9 = *(_DWORD *)(PnprContext + 33288);
     if ( !v9 )
-      v9 = 1293;
+      v9 = 1192;
     v10 = *(_DWORD *)(PnprContext + 33292);
     *(_DWORD *)(PnprContext + 33288) = v9;
     if ( !v10 )
@@ -54,13 +54,13 @@ __int64 __fastcall PnprIdentifyUnits(PVOID Object, PVOID a2, __int64 *a3, __int6
       Interface = guard_dispatch_icall_no_overrides(*((__int64 *)&v21[0] + 1), (__int64)a3);
       if ( Interface < 0 )
       {
-        v8 = 1325LL;
+        v8 = 1224LL;
         goto LABEL_9;
       }
       Interface = guard_dispatch_icall_no_overrides(*((__int64 *)&v18[0] + 1), a4);
       if ( Interface < 0 )
       {
-        v8 = 1333LL;
+        v8 = 1232LL;
         goto LABEL_9;
       }
       if ( (unsigned __int8)guard_dispatch_icall_no_overrides(*((__int64 *)&v18[0] + 1), *a3) )
@@ -71,7 +71,7 @@ __int64 __fastcall PnprIdentifyUnits(PVOID Object, PVOID a2, __int64 *a3, __int6
       v14 = PnprContext;
       v15 = *(_DWORD *)(PnprContext + 33288);
       if ( !v15 )
-        v15 = 1346;
+        v15 = 1245;
       v8 = 4LL;
       *(_DWORD *)(PnprContext + 33288) = v15;
       v16 = *(_DWORD *)(v14 + 33292);
@@ -82,7 +82,7 @@ __int64 __fastcall PnprIdentifyUnits(PVOID Object, PVOID a2, __int64 *a3, __int6
     Interface = -1073741811;
     goto LABEL_28;
   }
-  v8 = 1305LL;
+  v8 = 1204LL;
 LABEL_9:
   v11 = PnprContext;
   v12 = *(_DWORD *)(PnprContext + 33288);

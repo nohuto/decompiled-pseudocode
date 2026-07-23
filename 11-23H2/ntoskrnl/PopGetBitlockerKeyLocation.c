@@ -1,14 +1,14 @@
 /*
- * XREFs of PopGetBitlockerKeyLocation @ 0x140AA0798
+ * XREFs of PopGetBitlockerKeyLocation @ 0x140AA0608
  * Callers:
- *     PopAllocateHiberContext @ 0x140987D38 (PopAllocateHiberContext.c)
+ *     PopAllocateHiberContext @ 0x140987F38 (PopAllocateHiberContext.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     wcsstr @ 0x1403DBBA0 (wcsstr.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ZwOpenKey @ 0x14041AFA0 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x14041B040 (ZwQueryValueKey.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     wcsstr @ 0x1403DBD80 (wcsstr.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ZwOpenKey @ 0x14041B330 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x14041B3D0 (ZwQueryValueKey.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

@@ -1,10 +1,10 @@
 /*
- * XREFs of MiZeroPageCalibrateLastDpcProcessorDone @ 0x14038DE7C
+ * XREFs of MiZeroPageCalibrateLastDpcProcessorDone @ 0x14038E05C
  * Callers:
- *     MiZeroPageCalibrateDpc @ 0x14038DCB0 (MiZeroPageCalibrateDpc.c)
+ *     MiZeroPageCalibrateDpc @ 0x14038DE90 (MiZeroPageCalibrateDpc.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x1402C3270 (KeQueryPerformanceCounter.c)
- *     MiZeroInflectionPointReached @ 0x14038DFCC (MiZeroInflectionPointReached.c)
+ *     KeQueryPerformanceCounter @ 0x1402C3500 (KeQueryPerformanceCounter.c)
+ *     MiZeroInflectionPointReached @ 0x14038E1AC (MiZeroInflectionPointReached.c)
  */
 
 __int64 __fastcall MiZeroPageCalibrateLastDpcProcessorDone(__int64 a1)

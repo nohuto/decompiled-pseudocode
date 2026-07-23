@@ -1,14 +1,14 @@
 /*
- * XREFs of KiIdleSchedule @ 0x1402C7E00
+ * XREFs of KiIdleSchedule @ 0x140312AA0
  * Callers:
- *     KiIdleLoop @ 0x140728DB0 (KiIdleLoop.c)
+ *     KiIdleLoop @ 0x14072D980 (KiIdleLoop.c)
  * Callees:
- *     KiSendHeteroRescheduleIntRequest @ 0x14021E410 (KiSendHeteroRescheduleIntRequest.c)
- *     KiCaptureTotalCyclesCurrentThread @ 0x140225340 (KiCaptureTotalCyclesCurrentThread.c)
- *     KiSearchForNewThread @ 0x14023E3D0 (KiSearchForNewThread.c)
- *     KiAcquirePrcbLocksForIsolationUnit @ 0x1402BBDD0 (KiAcquirePrcbLocksForIsolationUnit.c)
- *     KiUpdatePriorityMatrixForRunningTransition @ 0x1402C7F20 (KiUpdatePriorityMatrixForRunningTransition.c)
- *     KiResumeThreadCycleAccumulation @ 0x140334E5C (KiResumeThreadCycleAccumulation.c)
+ *     KiSendHeteroRescheduleIntRequest @ 0x14021FDA0 (KiSendHeteroRescheduleIntRequest.c)
+ *     KiCaptureTotalCyclesCurrentThread @ 0x140226CD0 (KiCaptureTotalCyclesCurrentThread.c)
+ *     KiSearchForNewThread @ 0x14023FD30 (KiSearchForNewThread.c)
+ *     KiAcquirePrcbLocksForIsolationUnit @ 0x140306A90 (KiAcquirePrcbLocksForIsolationUnit.c)
+ *     KiUpdatePriorityMatrixForRunningTransition @ 0x140312BC0 (KiUpdatePriorityMatrixForRunningTransition.c)
+ *     KiResumeThreadCycleAccumulation @ 0x140336E8C (KiResumeThreadCycleAccumulation.c)
  */
 
 _KTHREAD *__fastcall KiIdleSchedule(__int64 a1)

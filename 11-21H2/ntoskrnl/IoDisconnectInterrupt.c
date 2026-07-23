@@ -1,25 +1,25 @@
 /*
  * XREFs of IoDisconnectInterrupt @ 0x140816AA0
  * Callers:
- *     DifIoDisconnectInterruptWrapper @ 0x14060EBB0 (DifIoDisconnectInterruptWrapper.c)
- *     IopConnectLineBasedInterrupt @ 0x140816798 (IopConnectLineBasedInterrupt.c)
+ *     sub_14060EBB0 @ 0x14060EBB0 (sub_14060EBB0.c)
+ *     sub_140816798 @ 0x140816798 (sub_140816798.c)
  *     IoDisconnectInterruptEx @ 0x140816A20 (IoDisconnectInterruptEx.c)
- *     IopConnectMessageBasedInterrupt @ 0x140816C88 (IopConnectMessageBasedInterrupt.c)
+ *     sub_140816C88 @ 0x140816C88 (sub_140816C88.c)
  * Callees:
  *     KeRemoveQueueDpc @ 0x14024E180 (KeRemoveQueueDpc.c)
  *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
  *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     KeFreeInterrupt @ 0x1403AEB30 (KeFreeInterrupt.c)
- *     KeDisconnectInterrupt @ 0x1403AEB58 (KeDisconnectInterrupt.c)
- *     IoAddTriageDumpDataBlock @ 0x1403D99B4 (IoAddTriageDumpDataBlock.c)
+ *     sub_1402F9540 @ 0x1402F9540 (sub_1402F9540.c)
+ *     sub_1403AEB30 @ 0x1403AEB30 (sub_1403AEB30.c)
+ *     sub_1403AEB58 @ 0x1403AEB58 (sub_1403AEB58.c)
+ *     sub_1403D99B4 @ 0x1403D99B4 (sub_1403D99B4.c)
  *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
  *     memset @ 0x140435E00 (memset.c)
- *     IopDestroyActiveConnectBlock @ 0x1408176BC (IopDestroyActiveConnectBlock.c)
- *     IopInitializeActiveConnectBlock @ 0x1408177B8 (IopInitializeActiveConnectBlock.c)
- *     IopAcquireReleaseConnectLockInternal @ 0x14081788C (IopAcquireReleaseConnectLockInternal.c)
- *     PnpTraceInterruptConnection @ 0x1408178F8 (PnpTraceInterruptConnection.c)
- *     IopDestroyPassiveInterruptBlock @ 0x1409467F8 (IopDestroyPassiveInterruptBlock.c)
+ *     sub_1408176BC @ 0x1408176BC (sub_1408176BC.c)
+ *     sub_1408177B8 @ 0x1408177B8 (sub_1408177B8.c)
+ *     sub_14081788C @ 0x14081788C (sub_14081788C.c)
+ *     sub_1408178F8 @ 0x1408178F8 (sub_1408178F8.c)
+ *     sub_1409467F8 @ 0x1409467F8 (sub_1409467F8.c)
  *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
  */
 
@@ -28,7 +28,7 @@ void __stdcall IoDisconnectInterrupt(PKINTERRUPT InterruptObject)
   unsigned __int64 v2; // rax
   __int64 v3; // rdx
   unsigned __int64 v4; // rsi
-  unsigned int *p_Number; // rbx
+  __int64 *v5; // rbx
   struct _KTHREAD *CurrentThread; // rax
   char i; // bp
   __int64 v8; // r14
@@ -51,10 +51,9 @@ void __stdcall IoDisconnectInterrupt(PKINTERRUPT InterruptObject)
   _QWORD v25[10]; // [rsp+30h] [rbp-78h] BYREF
 
   memset(v25, 0, sizeof(v25));
-  KeRemoveQueueDpc((PRKDPC)&InterruptObject[1].MessageServiceRoutine);
-  IopInitializeActiveConnectBlock(&InterruptObject[-1].IsrDpcStats.IsrCount, v25);
-  v2 = InterruptObject[-1].IsrDpcStats.IsrTimeStart
-     - ((InterruptObject[-1].IsrDpcStats.IsrTimeStart >> 1) & 0x5555555555555555LL);
+  KeRemoveQueueDpc((PRKDPC)InterruptObject + 5);
+  sub_1408177B8((char *)InterruptObject - 96, v25);
+  v2 = *((_QWORD *)InterruptObject - 13) - ((*((_QWORD *)InterruptObject - 13) >> 1) & 0x5555555555555555LL);
   v3 = v2 & 0x3333333333333333LL;
   v4 = (0x101010101010101LL
       * (((v2 & 0x3333333333333333LL)
@@ -63,18 +62,18 @@ void __stdcall IoDisconnectInterrupt(PKINTERRUPT InterruptObject)
   if ( v25[3] )
   {
     LOBYTE(v3) = 1;
-    IopAcquireReleaseConnectLockInternal(v25, v3, 0LL);
+    sub_14081788C(v25, v3, 0LL);
   }
-  p_Number = &InterruptObject[1].Number;
+  v5 = (__int64 *)((char *)InterruptObject + 384);
   LOBYTE(v3) = v4;
-  KeDisconnectInterrupt((__int64 *)&InterruptObject[1].Number, v3, (__int64)&InterruptObject[-1].IsrDpcStats.IsrCount);
+  sub_1403AEB58((__int64 *)InterruptObject + 48, v3, (__int64)InterruptObject - 96);
   if ( v25[3] )
-    IopAcquireReleaseConnectLockInternal(v25, 0LL, 0LL);
-  if ( LOBYTE(InterruptObject[1].Type) )
-    IopDestroyPassiveInterruptBlock(HIDWORD(InterruptObject[-1].IsrDpcStats.DpcTime));
+    sub_14081788C(v25, 0LL, 0LL);
+  if ( *((_BYTE *)InterruptObject + 288) )
+    sub_1409467F8(*((unsigned int *)InterruptObject - 21));
   CurrentThread = KeGetCurrentThread();
-  --CurrentThread->KernelApcDisable;
-  if ( LOBYTE(InterruptObject[1].Type) )
+  --*((_WORD *)CurrentThread + 242);
+  if ( *((_BYTE *)InterruptObject + 288) )
   {
     v12 = KeGetCurrentThread();
     v13 = 0;
@@ -83,8 +82,7 @@ void __stdcall IoDisconnectInterrupt(PKINTERRUPT InterruptObject)
     v14 = v4;
     do
     {
-      v15 = *(_QWORD *)p_Number;
-      p_Number += 2;
+      v15 = *v5++;
       if ( *(struct _KTHREAD **)(v15 + 152) == v12 )
         v13 = 1;
       --v14;
@@ -92,12 +90,12 @@ void __stdcall IoDisconnectInterrupt(PKINTERRUPT InterruptObject)
     while ( v14 );
     if ( !v13 )
 LABEL_21:
-      KeWaitForSingleObject(&InterruptObject[1].InterruptListEntry, Executive, 0, 0, 0LL);
+      KeWaitForSingleObject((char *)InterruptObject + 296, Executive, 0, 0, 0LL);
   }
-  KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+  sub_1402F9540((__int64)KeGetCurrentThread());
   for ( i = 0; i < (char)v4; ++i )
   {
-    v8 = *((_QWORD *)&InterruptObject[1].Number + (unsigned __int8)i);
+    v8 = *((_QWORD *)InterruptObject + (unsigned __int8)i + 48);
     v9 = *(_QWORD *)(v8 + 280);
     if ( v9 )
     {
@@ -105,16 +103,16 @@ LABEL_21:
       v11 = *(_QWORD *)(v10 + 40);
       if ( !v11 || (*(_DWORD *)(v11 + 396) & 0x20000) != 0 )
       {
-        IoAddTriageDumpDataBlock(*(_QWORD *)(v8 + 280), (PVOID)*(unsigned __int16 *)(v9 + 2));
+        sub_1403D99B4(*(_QWORD *)(v8 + 280), (PVOID)*(unsigned __int16 *)(v9 + 2));
         v16 = *(_QWORD *)(v9 + 8);
         if ( v16 )
         {
-          IoAddTriageDumpDataBlock(v16, (PVOID)(unsigned int)*(__int16 *)(v16 + 2));
+          sub_1403D99B4(v16, (PVOID)(unsigned int)*(__int16 *)(v16 + 2));
           v17 = (_WORD *)(*(_QWORD *)(v9 + 8) + 56LL);
           if ( *v17 )
           {
-            IoAddTriageDumpDataBlock((ULONG)v17, (PVOID)2);
-            IoAddTriageDumpDataBlock(
+            sub_1403D99B4((ULONG)v17, (PVOID)2);
+            sub_1403D99B4(
               *(_QWORD *)(*(_QWORD *)(v9 + 8) + 64LL),
               (PVOID)*(unsigned __int16 *)(*(_QWORD *)(v9 + 8) + 56LL));
           }
@@ -123,18 +121,18 @@ LABEL_21:
         if ( v18 )
         {
           v19 = (unsigned __int16 *)(v18 + 40);
-          IoAddTriageDumpDataBlock(v18, (PVOID)0x310);
+          sub_1403D99B4(v18, (PVOID)0x310);
           if ( *v19 )
           {
-            IoAddTriageDumpDataBlock((ULONG)v19, (PVOID)2);
-            IoAddTriageDumpDataBlock(*((_QWORD *)v19 + 1), (PVOID)*v19);
+            sub_1403D99B4((ULONG)v19, (PVOID)2);
+            sub_1403D99B4(*((_QWORD *)v19 + 1), (PVOID)*v19);
           }
           v20 = *(_QWORD *)(v9 + 312);
           v21 = (_WORD *)(*(_QWORD *)(v20 + 40) + 56LL);
           if ( *v21 )
           {
-            IoAddTriageDumpDataBlock((ULONG)v21, (PVOID)2);
-            IoAddTriageDumpDataBlock(
+            sub_1403D99B4((ULONG)v21, (PVOID)2);
+            sub_1403D99B4(
               *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v9 + 312) + 40LL) + 64LL),
               (PVOID)*(unsigned __int16 *)(*(_QWORD *)(*(_QWORD *)(v9 + 312) + 40LL) + 56LL));
             v20 = *(_QWORD *)(v9 + 312);
@@ -145,9 +143,9 @@ LABEL_21:
             v23 = (_WORD *)(v22 + 56);
             if ( *v23 )
             {
-              IoAddTriageDumpDataBlock((ULONG)v23, (PVOID)2);
+              sub_1403D99B4((ULONG)v23, (PVOID)2);
               v24 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v9 + 312) + 40LL) + 16LL);
-              IoAddTriageDumpDataBlock(*(_QWORD *)(v24 + 64), (PVOID)*(unsigned __int16 *)(v24 + 56));
+              sub_1403D99B4(*(_QWORD *)(v24 + 64), (PVOID)*(unsigned __int16 *)(v24 + 56));
             }
           }
         }
@@ -157,9 +155,9 @@ LABEL_21:
       ObfDereferenceObjectWithTag((PVOID)v9, 0x54706E50u);
       *(_QWORD *)(v8 + 280) = 0LL;
     }
-    KeFreeInterrupt((PSLIST_ENTRY)v8);
+    sub_1403AEB30((PSLIST_ENTRY)v8);
   }
-  IopDestroyActiveConnectBlock(v25);
-  ExFreePoolWithTag(&InterruptObject[-1].IsrDpcStats, 0);
-  PnpTraceInterruptConnection(0LL);
+  sub_1408176BC(v25);
+  ExFreePoolWithTag((char *)InterruptObject - 112, 0);
+  sub_1408178F8(0LL);
 }

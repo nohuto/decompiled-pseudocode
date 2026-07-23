@@ -46,7 +46,7 @@ ULONG __fastcall EtwpStartUmLogger(__int64 a1, _DWORD *a2, _DWORD *a3, __int64 a
   NTSTATUS v27; // eax
   void *v28; // rcx
   char v29[8]; // [rsp+30h] [rbp-59h] BYREF
-  __int64 inited; // [rsp+38h] [rbp-51h] BYREF
+  __int64 inited; // [rsp+38h] [rbp-51h]
   unsigned int v31; // [rsp+40h] [rbp-49h] BYREF
   __int64 v32; // [rsp+48h] [rbp-41h] BYREF
   _DWORD *v33; // [rsp+50h] [rbp-39h]
@@ -93,7 +93,7 @@ LABEL_4:
   {
     return 87;
   }
-  if ( !(unsigned int)EtwpGetPrivateLoggerContextByName(a4 + 144, &inited) )
+  if ( !(unsigned int)EtwpGetPrivateLoggerContextByName((PUNICODE_STRING)(a4 + 144)) )
   {
     _InterlockedDecrement((volatile signed __int32 *)(EtwpLoggerArray + 16LL * *(unsigned int *)(inited + 20) + 8));
     return 183;
@@ -127,7 +127,7 @@ LABEL_4:
     v16 = NtQuerySystemInformation(SystemBasicInformation, SystemInformation, 0x40u, 0LL);
     if ( v16 < 0 )
       return RtlNtStatusToDosError(v16);
-    *(_DWORD *)(v15 + 192) = ~(v35 - 1) & (*(_DWORD *)(v15 + 192) + v35 - 1);
+    *(_DWORD *)(inited + 192) = ~(v35 - 1) & (*(_DWORD *)(inited + 192) + v35 - 1);
     if ( (*(_DWORD *)(v15 + 308) & 0x4000000) != 0 )
     {
       v27 = EtwpInitializeCompression(v15);
@@ -197,7 +197,7 @@ LABEL_54:
       NtClose(v28);
       *(_QWORD *)(v15 + 128) = 0LL;
     }
-    EtwpFreeLoggerContext(v15);
+    EtwpFreeLoggerContext((unsigned int *)v15);
     return TraceBufferPool;
   }
   return result;

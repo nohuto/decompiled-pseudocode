@@ -1,30 +1,30 @@
 /*
- * XREFs of MiLockStealUserVm @ 0x1403BDF18
+ * XREFs of MiLockStealUserVm @ 0x1403BE0F8
  * Callers:
- *     MiStealPage @ 0x1403BC3DC (MiStealPage.c)
+ *     MiStealPage @ 0x1403BC5BC (MiStealPage.c)
  * Callees:
  *     MiGetTopLevelPfn @ 0x140215FA0 (MiGetTopLevelPfn.c)
  *     MiLocateAddress @ 0x140217240 (MiLocateAddress.c)
  *     MiPrepareAttachThread @ 0x1402178B0 (MiPrepareAttachThread.c)
- *     MiFastLockLeafPageTable @ 0x140237280 (MiFastLockLeafPageTable.c)
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     MiLockLowestValidPageTable @ 0x14025A290 (MiLockLowestValidPageTable.c)
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1402712F0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiLockWorkingSetShared @ 0x140283C90 (MiLockWorkingSetShared.c)
- *     MiGetSharedVm @ 0x140286E74 (MiGetSharedVm.c)
- *     MiUnlockVadTree @ 0x140287878 (MiUnlockVadTree.c)
- *     MiLockVadTree @ 0x14028A8C0 (MiLockVadTree.c)
- *     MiFillPteHierarchy @ 0x14028AEF0 (MiFillPteHierarchy.c)
- *     MiCheckSlabPfnBitmap @ 0x140324730 (MiCheckSlabPfnBitmap.c)
- *     MiTryToAcquireExpansionLockAtDpc @ 0x1403490E8 (MiTryToAcquireExpansionLockAtDpc.c)
- *     MiVadPagesTradable @ 0x140351F3C (MiVadPagesTradable.c)
- *     KeForceAttachProcess @ 0x140353538 (KeForceAttachProcess.c)
- *     MiSmallVaStillMapsFrame @ 0x1403A8F90 (MiSmallVaStillMapsFrame.c)
- *     MiUnlockStealVm @ 0x1403BDA80 (MiUnlockStealVm.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiRotatedToFrameBuffer @ 0x140632E54 (MiRotatedToFrameBuffer.c)
- *     MiClusterVadActive @ 0x140669EA8 (MiClusterVadActive.c)
+ *     MiFastLockLeafPageTable @ 0x140237350 (MiFastLockLeafPageTable.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     MiLockLowestValidPageTable @ 0x14025A520 (MiLockLowestValidPageTable.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140271580 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiLockWorkingSetShared @ 0x140283F20 (MiLockWorkingSetShared.c)
+ *     MiGetSharedVm @ 0x140287104 (MiGetSharedVm.c)
+ *     MiUnlockVadTree @ 0x140287B08 (MiUnlockVadTree.c)
+ *     MiLockVadTree @ 0x14028AB50 (MiLockVadTree.c)
+ *     MiFillPteHierarchy @ 0x14028B180 (MiFillPteHierarchy.c)
+ *     MiCheckSlabPfnBitmap @ 0x1403249C0 (MiCheckSlabPfnBitmap.c)
+ *     MiTryToAcquireExpansionLockAtDpc @ 0x140349378 (MiTryToAcquireExpansionLockAtDpc.c)
+ *     MiVadPagesTradable @ 0x1403520DC (MiVadPagesTradable.c)
+ *     KeForceAttachProcess @ 0x1403536D8 (KeForceAttachProcess.c)
+ *     MiSmallVaStillMapsFrame @ 0x1403A9170 (MiSmallVaStillMapsFrame.c)
+ *     MiUnlockStealVm @ 0x1403BDC60 (MiUnlockStealVm.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     MiRotatedToFrameBuffer @ 0x1406333A4 (MiRotatedToFrameBuffer.c)
+ *     MiClusterVadActive @ 0x14066A3F8 (MiClusterVadActive.c)
  */
 
 __int64 MiLockStealUserVm(__int64 a1, ULONG_PTR a2, unsigned __int8 a3, ...)
@@ -107,10 +107,13 @@ LABEL_49:
   if ( (_KPROCESS *)v10 == KeGetCurrentThread()->ApcState.Process )
   {
     _InterlockedAnd64((volatile signed __int64 *)(a2 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v4 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v4 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -241,10 +244,10 @@ LABEL_77:
     ++dword_140C13698;
     _InterlockedAnd64((volatile signed __int64 *)(a2 + 24), 0x7FFFFFFFFFFFFFFFuLL);
 LABEL_51:
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v21 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v21 <= 0xFu && (unsigned __int8)v4 <= 0xFu && v21 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v21 <= 0xFu && (unsigned __int8)v4 <= 0xFu && v21 >= 2u )
       {
         v22 = KeGetCurrentPrcb();
         v23 = v22->SchedulerAssist;
@@ -261,10 +264,10 @@ LABEL_51:
   v41 = MiPrepareAttachThread(v10, v10 + 1664);
   _InterlockedAnd64((volatile signed __int64 *)(a2 + 24), 0x7FFFFFFFFFFFFFFFuLL);
   KxReleaseQueuedSpinLock((volatile signed __int64 **)&v37);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v26 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v26 <= 0xFu && (unsigned __int8)v4 <= 0xFu && v26 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v26 <= 0xFu && (unsigned __int8)v4 <= 0xFu && v26 >= 2u )
     {
       v27 = KeGetCurrentPrcb();
       v28 = v27->SchedulerAssist;

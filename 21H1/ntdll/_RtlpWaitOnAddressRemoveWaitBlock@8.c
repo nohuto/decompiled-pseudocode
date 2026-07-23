@@ -10,7 +10,7 @@
  *     _ZwWaitForAlertByThreadId@8 @ 0x4B2F4680 (_ZwWaitForAlertByThreadId@8.c)
  */
 
-unsigned int __fastcall RtlpWaitOnAddressRemoveWaitBlock(int a1, _DWORD *a2)
+int __fastcall RtlpWaitOnAddressRemoveWaitBlock(int a1, _DWORD *a2)
 {
   _DWORD *v2; // edi
   int v3; // esi
@@ -23,7 +23,7 @@ unsigned int __fastcall RtlpWaitOnAddressRemoveWaitBlock(int a1, _DWORD *a2)
   unsigned int v10; // eax
   unsigned int v11; // edi
   signed __int32 v12; // ecx
-  unsigned int result; // eax
+  int result; // eax
   volatile signed __int32 *v14; // [esp+Ch] [ebp-14h]
   unsigned int v16; // [esp+14h] [ebp-Ch]
   unsigned int v17; // [esp+18h] [ebp-8h]
@@ -37,21 +37,21 @@ unsigned int __fastcall RtlpWaitOnAddressRemoveWaitBlock(int a1, _DWORD *a2)
   if ( !*v4 )
   {
 LABEL_25:
-    result = (unsigned int)(v2 + 5);
+    result = (int)(v2 + 5);
     if ( _InterlockedExchange(v2 + 5, 1) == 2 )
       return result;
     a1 = v3;
-    return RtlpWaitOnAddressWithTimeout(a1, v2, 0, RtlpWaitOnAddressSpinCycleCount);
+    return RtlpWaitOnAddressWithTimeout(a1, (PVOID *)v2, 0, RtlpWaitOnAddressSpinCycleCount);
   }
   while ( (v5 & 2) != 0 )
   {
     v7 = _InterlockedCompareExchange(v14, v5 | 1, v5);
     if ( v7 == v5 )
     {
-      result = (unsigned int)(v2 + 5);
+      result = (int)(v2 + 5);
       if ( _InterlockedExchange(v2 + 5, 1) == 2 )
         return result;
-      return RtlpWaitOnAddressWithTimeout(a1, v2, 0, RtlpWaitOnAddressSpinCycleCount);
+      return RtlpWaitOnAddressWithTimeout(a1, (PVOID *)v2, 0, RtlpWaitOnAddressSpinCycleCount);
     }
 LABEL_29:
     v5 = v7;
@@ -119,7 +119,7 @@ LABEL_13:
   }
   while ( v8 );
   if ( !v18 && _InterlockedExchange(v9 + 5, 0) != 2 )
-    ZwWaitForAlertByThreadId(*v9, 0);
+    ZwWaitForAlertByThreadId((PVOID)*v9, 0);
   *(_DWORD *)(v11 + 16) = v16;
   while ( 1 )
   {

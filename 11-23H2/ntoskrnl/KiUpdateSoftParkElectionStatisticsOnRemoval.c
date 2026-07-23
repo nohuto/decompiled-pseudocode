@@ -1,12 +1,12 @@
 /*
- * XREFs of KiUpdateSoftParkElectionStatisticsOnRemoval @ 0x140243C20
+ * XREFs of KiUpdateSoftParkElectionStatisticsOnRemoval @ 0x140243CF0
  * Callers:
- *     KiRemoveCurrentlyEnumeratedThreadFromReadyQueue @ 0x1402435C0 (KiRemoveCurrentlyEnumeratedThreadFromReadyQueue.c)
- *     KiRemoveThreadFromSharedReadyQueue @ 0x140243BA0 (KiRemoveThreadFromSharedReadyQueue.c)
- *     KiUpdateLocalReadyQueueStatisticsOnRemoval @ 0x140410E44 (KiUpdateLocalReadyQueueStatisticsOnRemoval.c)
- *     KiFlushReadyLists @ 0x14057DDB4 (KiFlushReadyLists.c)
+ *     KiRemoveCurrentlyEnumeratedThreadFromReadyQueue @ 0x140243690 (KiRemoveCurrentlyEnumeratedThreadFromReadyQueue.c)
+ *     KiRemoveThreadFromSharedReadyQueue @ 0x140243C70 (KiRemoveThreadFromSharedReadyQueue.c)
+ *     KiUpdateLocalReadyQueueStatisticsOnRemoval @ 0x140411050 (KiUpdateLocalReadyQueueStatisticsOnRemoval.c)
+ *     KiFlushReadyLists @ 0x14057E2A4 (KiFlushReadyLists.c)
  * Callees:
- *     KiAcquireSoftParkElectionLock @ 0x140410348 (KiAcquireSoftParkElectionLock.c)
+ *     KiAcquireSoftParkElectionLock @ 0x140410424 (KiAcquireSoftParkElectionLock.c)
  */
 
 __int64 __fastcall KiUpdateSoftParkElectionStatisticsOnRemoval(__int64 a1, __int64 a2, char a3)

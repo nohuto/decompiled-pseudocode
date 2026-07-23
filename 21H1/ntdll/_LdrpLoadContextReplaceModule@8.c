@@ -15,7 +15,7 @@
  *     _LdrpQueueWork@4 @ 0x4B2DE91E (_LdrpQueueWork@4.c)
  */
 
-signed __int32 __fastcall LdrpLoadContextReplaceModule(int a1, int a2)
+void __fastcall LdrpLoadContextReplaceModule(int a1, int a2)
 {
   int v4; // edi
   _DWORD *v5; // ebx
@@ -25,11 +25,11 @@ signed __int32 __fastcall LdrpLoadContextReplaceModule(int a1, int a2)
   _DWORD *v9; // edi
   _DWORD *v10; // ecx
   _DWORD *v11; // esi
-  _DWORD **v14; // ecx
+  _DWORD **v13; // ecx
   _DWORD *i; // edx
-  int v16; // eax
-  int v17; // [esp+10h] [ebp-8h]
-  _DWORD *v19; // [esp+14h] [ebp-4h]
+  int v15; // eax
+  int v16; // [esp+10h] [ebp-8h]
+  _DWORD *BaseAddressa; // [esp+14h] [ebp-4h]
 
   RtlAcquireSRWLockExclusive(&LdrpModuleDatatableLock);
   v4 = *(_DWORD *)(*(_DWORD *)(a1 + 32) + 80);
@@ -47,23 +47,23 @@ signed __int32 __fastcall LdrpLoadContextReplaceModule(int a1, int a2)
       *(_DWORD *)(v4 + 28) = 0;
     else
       *v7 = (_DWORD *)*v8;
-    LdrpDereferenceModule(a2);
+    LdrpDereferenceModule((char *)a2);
     v9 = v8 - 2;
-    v19 = (_DWORD *)(v8[1] & 0xFFFFFFF8);
-    v17 = *(_DWORD *)(*v19 + 8);
-    if ( LdrpDependencyExist(v19, v5) )
+    BaseAddressa = (_DWORD *)(v8[1] & 0xFFFFFFF8);
+    v16 = *(_DWORD *)(*BaseAddressa + 8);
+    if ( LdrpDependencyExist(BaseAddressa, v5) )
     {
-      v11 = v19;
-      v14 = (_DWORD **)v19[6];
-      for ( i = *v14; i != v9; i = (_DWORD *)*i )
-        v14 = (_DWORD **)i;
-      *v14 = (_DWORD *)*v9;
-      if ( (_DWORD *)v19[6] == v9 )
-        v19[6] = v9 != v14 ? v14 : 0;
-      v16 = v5[3];
-      if ( v16 != -1 )
-        v5[3] = v16 - 1;
-      RtlFreeHeap(LdrpHeap, 0, (int)v9);
+      v11 = BaseAddressa;
+      v13 = (_DWORD **)BaseAddressa[6];
+      for ( i = *v13; i != v9; i = (_DWORD *)*i )
+        v13 = (_DWORD **)i;
+      *v13 = (_DWORD *)*v9;
+      if ( (_DWORD *)BaseAddressa[6] == v9 )
+        BaseAddressa[6] = v9 != v13 ? v13 : 0;
+      v15 = v5[3];
+      if ( v15 != -1 )
+        v5[3] = v15 - 1;
+      RtlFreeHeap(LdrpHeap, 0, v9);
       v9 = 0;
     }
     else
@@ -80,13 +80,13 @@ signed __int32 __fastcall LdrpLoadContextReplaceModule(int a1, int a2)
         *v8 = v8;
       }
       v5[7] = v8;
-      v11 = v19;
+      v11 = BaseAddressa;
     }
-    if ( v17 && ((int)v5[8] >= 2 || !v9) && (*(_DWORD *)(v17 + 56))-- == 1 )
+    if ( v16 && ((int)v5[8] >= 2 || !v9) && (*(_DWORD *)(v16 + 56))-- == 1 )
     {
       v11[8] = 4;
-      LdrpQueueWork(v17);
+      LdrpQueueWork(v16);
     }
   }
-  return RtlReleaseSRWLockExclusive(&LdrpModuleDatatableLock);
+  RtlReleaseSRWLockExclusive(&LdrpModuleDatatableLock);
 }

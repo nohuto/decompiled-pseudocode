@@ -10,32 +10,35 @@
  *     <none>
  */
 
-unsigned __int64 __fastcall RtlSectionTableFromVirtualAddress(unsigned __int64 a1, __int64 a2, unsigned int a3)
+PIMAGE_SECTION_HEADER __cdecl RtlSectionTableFromVirtualAddress(
+        PIMAGE_NT_HEADERS NtHeaders,
+        PVOID BaseOfImage,
+        ULONG VirtualAddress)
 {
-  unsigned __int64 v3; // r9
+  _IMAGE_SECTION_HEADER *v3; // r9
   int v4; // r10d
-  unsigned int v5; // eax
-  unsigned __int64 v7; // rax
+  ULONG v5; // eax
+  unsigned __int64 Name; // rax
 
-  v3 = *(unsigned __int16 *)(a1 + 20) + a1 + 24;
-  if ( a1 <= 0x7FFFFFFEFFFFLL )
+  v3 = (_IMAGE_SECTION_HEADER *)((char *)&NtHeaders->OptionalHeader + NtHeaders->FileHeader.SizeOfOptionalHeader);
+  if ( (unsigned __int64)NtHeaders <= 0x7FFFFFFEFFFFLL )
   {
-    if ( v3 > 0x7FFFFFFEFFFFLL )
+    if ( (unsigned __int64)v3 > 0x7FFFFFFEFFFFLL )
       return 0LL;
-    v7 = v3 + 40LL * *(unsigned __int16 *)(a1 + 6);
-    if ( v7 < v3 || v7 >= 0x7FFFFFFEFFFFLL )
+    Name = (unsigned __int64)v3[NtHeaders->FileHeader.NumberOfSections].Name;
+    if ( Name < (unsigned __int64)v3 || Name >= 0x7FFFFFFEFFFFLL )
       return 0LL;
   }
   v4 = 0;
-  if ( !*(_WORD *)(a1 + 6) )
+  if ( !NtHeaders->FileHeader.NumberOfSections )
     return 0LL;
   while ( 1 )
   {
-    v5 = *(_DWORD *)(v3 + 12);
-    if ( a3 >= v5 && a3 < v5 + *(_DWORD *)(v3 + 16) )
+    v5 = v3->VirtualAddress;
+    if ( VirtualAddress >= v5 && VirtualAddress < v5 + v3->SizeOfRawData )
       break;
-    v3 += 40LL;
-    if ( ++v4 >= (unsigned int)*(unsigned __int16 *)(a1 + 6) )
+    ++v3;
+    if ( ++v4 >= (unsigned int)NtHeaders->FileHeader.NumberOfSections )
       return 0LL;
   }
   return v3;

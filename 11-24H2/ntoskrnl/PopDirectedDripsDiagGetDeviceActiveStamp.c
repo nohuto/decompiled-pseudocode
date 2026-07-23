@@ -1,10 +1,10 @@
 /*
- * XREFs of PopDirectedDripsDiagGetDeviceActiveStamp @ 0x1404CB43C
+ * XREFs of PopDirectedDripsDiagGetDeviceActiveStamp @ 0x1404C495C
  * Callers:
- *     PopDirectedDripsDiagBroadcastTreeBegin @ 0x140A7EA5C (PopDirectedDripsDiagBroadcastTreeBegin.c)
+ *     PopDirectedDripsDiagBroadcastTreeBegin @ 0x140A7820C (PopDirectedDripsDiagBroadcastTreeBegin.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
  */
 
 __int64 __fastcall PopDirectedDripsDiagGetDeviceActiveStamp(__int64 a1)

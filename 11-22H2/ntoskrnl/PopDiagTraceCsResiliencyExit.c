@@ -10,7 +10,7 @@
  *     PopBatteryGetEnergyDrainFromDischage @ 0x140598C90 (PopBatteryGetEnergyDrainFromDischage.c)
  */
 
-__int64 __fastcall PopDiagTraceCsResiliencyExit(
+void __fastcall PopDiagTraceCsResiliencyExit(
         __int64 a1,
         __int64 a2,
         char a3,
@@ -36,13 +36,14 @@ __int64 __fastcall PopDiagTraceCsResiliencyExit(
   __int64 v25; // rdi
   unsigned __int64 v26; // rax
   __int64 v27; // r11
-  __int64 result; // rax
+  unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  bool v31; // zf
-  __int128 v32; // [rsp+20h] [rbp-18h]
+  int v31; // eax
+  bool v32; // zf
+  __int128 v33; // [rsp+20h] [rbp-18h]
 
-  DWORD1(v32) = 0;
+  DWORD1(v33) = 0;
   v12 = KeAcquireSpinLockRaiseToDpc(&PopCsResiliencyStatsLock);
   v13 = byte_140C3CAE8;
   v14 = v12;
@@ -55,14 +56,14 @@ __int64 __fastcall PopDiagTraceCsResiliencyExit(
     EnergyDrainFromDischage = PopBatteryGetEnergyDrainFromDischage(
                                 (unsigned int)dword_140C3CAE4,
                                 *(unsigned int *)(a2 + 12));
-    LODWORD(v32) = xmmword_140C3CAF0 | *(_DWORD *)a4;
-    *((_QWORD *)&v32 + 1) = *((_QWORD *)&xmmword_140C3CAF0 + 1) - *(_QWORD *)(a4 + 8);
+    LODWORD(v33) = xmmword_140C3CAF0 | *(_DWORD *)a4;
+    *((_QWORD *)&v33 + 1) = *((_QWORD *)&xmmword_140C3CAF0 + 1) - *(_QWORD *)(a4 + 8);
   }
   else
   {
     EnergyDrainFromDischage = 0;
-    *((_QWORD *)&v32 + 1) = 0LL;
-    LODWORD(v32) = xmmword_140C3CAF0;
+    *((_QWORD *)&v33 + 1) = 0LL;
+    LODWORD(v33) = xmmword_140C3CAF0;
   }
   v17 = 0;
   if ( byte_140C3CAE2 )
@@ -88,7 +89,7 @@ __int64 __fastcall PopDiagTraceCsResiliencyExit(
   *(_QWORD *)(a1 + 24) = a7;
   *(_DWORD *)a1 = v17;
   *(_QWORD *)(a1 + 8) = v15;
-  *(_OWORD *)(a1 + 40) = v32;
+  *(_OWORD *)(a1 + 40) = v33;
   v19 = PpmConvertTime(qword_140C3CB60, v18, 0xF4240uLL);
   v20 = PopQpcFrequency;
   *(_QWORD *)(a1 + 120) = v19;
@@ -112,24 +113,23 @@ __int64 __fastcall PopDiagTraceCsResiliencyExit(
   }
   while ( v24 );
   PopCsResiliencyStats[0] = 0;
-  result = KxReleaseSpinLock((volatile signed __int64 *)&PopCsResiliencyStatsLock);
-  if ( KiIrqlFlags )
+  KxReleaseSpinLock((volatile signed __int64 *)&PopCsResiliencyStatsLock);
+  if ( (_DWORD)KiIrqlFlags )
   {
-    result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
-      && (unsigned __int8)result <= 0xFu
+    CurrentIrql = KeGetCurrentIrql();
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
       && (unsigned __int8)v14 <= 0xFu
-      && (unsigned __int8)result >= 2u )
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v14 + 1));
-      v31 = ((unsigned int)result & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= result;
-      if ( v31 )
-        result = KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      v31 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v14 + 1));
+      v32 = (v31 & SchedulerAssist[5]) == 0;
+      SchedulerAssist[5] &= v31;
+      if ( v32 )
+        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
     }
   }
   __writecr8(v14);
-  return result;
 }

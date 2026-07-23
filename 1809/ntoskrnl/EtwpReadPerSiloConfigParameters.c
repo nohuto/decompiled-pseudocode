@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwpReadPerSiloConfigParameters @ 0x140185FF8
+ * XREFs of EtwpReadPerSiloConfigParameters @ 0x140186138
  * Callers:
- *     EtwInitializeSiloState @ 0x140741434 (EtwInitializeSiloState.c)
+ *     EtwInitializeSiloState @ 0x140742624 (EtwInitializeSiloState.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     ZwOpenKey @ 0x1401B83D0 (ZwOpenKey.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     RtlQueryRegistryValuesEx @ 0x1406C7640 (RtlQueryRegistryValuesEx.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     ZwOpenKey @ 0x1401B8530 (ZwOpenKey.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     RtlQueryRegistryValuesEx @ 0x1406C88E0 (RtlQueryRegistryValuesEx.c)
  */
 
 NTSTATUS __fastcall EtwpReadPerSiloConfigParameters(__int64 a1)
@@ -18,7 +18,7 @@ NTSTATUS __fastcall EtwpReadPerSiloConfigParameters(__int64 a1)
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+40h] [rbp-69h] BYREF
   int v6; // [rsp+70h] [rbp-39h] BYREF
   unsigned int *v7; // [rsp+78h] [rbp-31h]
-  _QWORD v8[14]; // [rsp+90h] [rbp-19h] BYREF
+  _RTL_QUERY_REGISTRY_TABLE QueryTable[2]; // [rsp+90h] [rbp-19h] BYREF
   unsigned int v9; // [rsp+110h] [rbp+67h] BYREF
   HANDLE KeyHandle; // [rsp+118h] [rbp+6Fh] BYREF
 
@@ -30,14 +30,14 @@ NTSTATUS __fastcall EtwpReadPerSiloConfigParameters(__int64 a1)
   ObjectAttributes.Attributes = 576;
   *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
   if ( ZwOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes) < 0
-    || (memset(v8, 0, sizeof(v8)),
-        v8[0] = &EtwpQueryRegistryCallback,
-        v8[3] = &v6,
-        v8[2] = L"EtwMaxLoggers",
-        LODWORD(v8[4]) = 4,
+    || (memset(QueryTable, 0, sizeof(QueryTable)),
+        QueryTable[0].QueryRoutine = (PRTL_QUERY_REGISTRY_ROUTINE)&EtwpQueryRegistryCallback,
+        QueryTable[0].EntryContext = &v6,
+        QueryTable[0].Name = L"EtwMaxLoggers",
+        QueryTable[0].DefaultType = 4,
         v6 = 4,
         v7 = &v9,
-        (int)RtlQueryRegistryValuesEx(0x40000000LL, KeyHandle, v8, 0LL, 0LL) < 0) )
+        RtlQueryRegistryValuesEx(0x40000000u, (PCWSTR)KeyHandle, QueryTable, 0LL, 0LL) < 0) )
   {
     result = v9;
   }

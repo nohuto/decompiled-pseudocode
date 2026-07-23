@@ -1,15 +1,15 @@
 /*
- * XREFs of ObpDeleteDeviceMap @ 0x140B5C818
+ * XREFs of ObpDeleteDeviceMap @ 0x140B5F738
  * Callers:
- *     ObDereferenceDeviceMap @ 0x1409007F4 (ObDereferenceDeviceMap.c)
- *     ObpSetDeviceMap @ 0x140A18D3C (ObpSetDeviceMap.c)
+ *     ObDereferenceDeviceMap @ 0x140930784 (ObDereferenceDeviceMap.c)
+ *     ObpSetDeviceMap @ 0x140A2236C (ObpSetDeviceMap.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     ObFastReplaceObject @ 0x1404819D8 (ObFastReplaceObject.c)
- *     ObDereferenceDeviceMap @ 0x1409007F4 (ObDereferenceDeviceMap.c)
- *     ObCloseHandle @ 0x140A00740 (ObCloseHandle.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     ObFastReplaceObject @ 0x14047B348 (ObFastReplaceObject.c)
+ *     ObCloseHandle @ 0x14091D2C0 (ObCloseHandle.c)
+ *     ObDereferenceDeviceMap @ 0x140930784 (ObDereferenceDeviceMap.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall ObpDeleteDeviceMap(char *P)

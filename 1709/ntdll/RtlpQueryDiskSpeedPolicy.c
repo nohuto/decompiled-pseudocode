@@ -7,23 +7,19 @@
  *     RtlRunOnceExecuteOnce @ 0x1800367D0 (RtlRunOnceExecuteOnce.c)
  */
 
-__int64 __fastcall RtlpQueryDiskSpeedPolicy(_DWORD *a1, __int64 a2)
+__int64 __fastcall RtlpQueryDiskSpeedPolicy(_DWORD *a1)
 {
   if ( BYTE1(RtlpUserPolicies) )
   {
     *a1 = BYTE1(RtlpUserPolicies);
   }
-  else if ( (RtlGetSuiteMask((__int64)a1, a2) & 0x10000) != 0 )
+  else if ( (RtlGetSuiteMask() & 0x10000) != 0 )
   {
     *a1 = 20;
   }
   else
   {
-    RtlRunOnceExecuteOnce(
-      &RtlpDiskSpeedInit,
-      (unsigned int (__fastcall *)(volatile signed __int64 *, __int64, unsigned __int64 *))RtlpDiskSpeedInitialize,
-      0LL,
-      0LL);
+    RtlRunOnceExecuteOnce(&RtlpDiskSpeedInit, RtlpDiskSpeedInitialize, 0LL, 0LL);
     *a1 = RtlpDiskSpeedPolicy;
   }
   return 0LL;

@@ -1,21 +1,21 @@
 /*
- * XREFs of RtlVirtualUnwind @ 0x1401376A0
+ * XREFs of RtlVirtualUnwind @ 0x1401377A0
  * Callers:
- *     RtlUnwindEx @ 0x14009DF30 (RtlUnwindEx.c)
- *     RtlDispatchException @ 0x1400A0F40 (RtlDispatchException.c)
- *     RtlRaiseException @ 0x1402ED840 (RtlRaiseException.c)
+ *     RtlUnwindEx @ 0x14009DE70 (RtlUnwindEx.c)
+ *     RtlDispatchException @ 0x1400A0E80 (RtlDispatchException.c)
+ *     RtlRaiseException @ 0x1402EDA30 (RtlRaiseException.c)
  * Callees:
- *     RtlRaiseStatus @ 0x140128E90 (RtlRaiseStatus.c)
- *     RtlpUnwindEpilogue @ 0x14013A394 (RtlpUnwindEpilogue.c)
- *     RtlpUnwindOpSlots @ 0x14013A54C (RtlpUnwindOpSlots.c)
- *     RtlpSameFunction @ 0x140184F84 (RtlpSameFunction.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
+ *     RtlRaiseStatus @ 0x140128F60 (RtlRaiseStatus.c)
+ *     RtlpUnwindEpilogue @ 0x14013A494 (RtlpUnwindEpilogue.c)
+ *     RtlpUnwindOpSlots @ 0x14013A64C (RtlpUnwindOpSlots.c)
+ *     RtlpSameFunction @ 0x1401850C4 (RtlpSameFunction.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D7880 (ExRaiseDatatypeMisalignment.c)
  */
 
 PEXCEPTION_ROUTINE __stdcall RtlVirtualUnwind(DWORD HandlerType, DWORD64 ImageBase, DWORD64 ControlPc, PRUNTIME_FUNCTION FunctionEntry, struct _CONTEXT *ContextRecord, PVOID *HandlerData, PDWORD64 EstablisherFrame, PKNONVOLATILE_CONTEXT_POINTERS ContextPointers)
 {
   PRUNTIME_FUNCTION v8; // r11
-  EXCEPTION_ROUTINE *v9; // rbp
+  EXCEPTION_DISPOSITION (__cdecl *v9)(_EXCEPTION_RECORD *, PVOID, _CONTEXT *, PVOID); // rbp
   DWORD64 v10; // rdi
   DWORD64 v11; // r10
   int v13; // r12d
@@ -105,7 +105,7 @@ PEXCEPTION_ROUTINE __stdcall RtlVirtualUnwind(DWORD HandlerType, DWORD64 ImageBa
   int v98; // eax
   unsigned __int64 v99; // rax
   unsigned __int64 v100; // [rsp+40h] [rbp-58h]
-  EXCEPTION_ROUTINE *v101; // [rsp+48h] [rbp-50h]
+  EXCEPTION_DISPOSITION (__cdecl *v101)(_EXCEPTION_RECORD *, PVOID, _CONTEXT *, PVOID); // [rsp+48h] [rbp-50h]
   DWORD v102; // [rsp+A0h] [rbp+8h]
   DWORD64 v103; // [rsp+A8h] [rbp+10h]
   char v104; // [rsp+B0h] [rbp+18h]

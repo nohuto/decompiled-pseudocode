@@ -1,39 +1,45 @@
 /*
- * XREFs of NtCreateKeyedEvent @ 0x140841C70
+ * XREFs of NtCreateKeyedEvent @ 0x14084BCB0
  * Callers:
- *     DifNtCreateKeyedEventWrapper @ 0x1406719E0 (DifNtCreateKeyedEventWrapper.c)
+ *     DifNtCreateKeyedEventWrapper @ 0x1406755C0 (DifNtCreateKeyedEventWrapper.c)
  * Callees:
- *     ProbeForRead @ 0x1408EF880 (ProbeForRead.c)
- *     ObCreateObjectEx @ 0x1408FD7D0 (ObCreateObjectEx.c)
- *     ObInsertObjectEx @ 0x14092B470 (ObInsertObjectEx.c)
+ *     ProbeForRead @ 0x1408F5E40 (ProbeForRead.c)
+ *     ObInsertObjectEx @ 0x140906FA0 (ObInsertObjectEx.c)
+ *     ObCreateObjectEx @ 0x14092D760 (ObCreateObjectEx.c)
  */
 
-__int64 __fastcall NtCreateKeyedEvent(_QWORD *a1, unsigned int a2, int a3, int a4)
+NTSTATUS __cdecl NtCreateKeyedEvent(
+        PHANDLE KeyedEventHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        ULONG Flags)
 {
-  int v4; // esi
-  _QWORD *v7; // rbx
+  ULONG v4; // esi
+  int v5; // r14d
+  PHANDLE v7; // rbx
   char PreviousMode; // di
-  __int64 result; // rax
+  NTSTATUS result; // eax
   __int64 v10; // rax
   __int64 v11; // rdx
   _QWORD v12[5]; // [rsp+68h] [rbp-30h] BYREF
 
-  v4 = a4;
-  v7 = a1;
+  v4 = Flags;
+  v5 = (int)ObjectAttributes;
+  v7 = KeyedEventHandle;
   v12[0] = 0LL;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
   {
     v12[1] = 1LL;
-    ProbeForRead(a1, 1uLL, 8u);
+    ProbeForRead(KeyedEventHandle, 1uLL, 8u);
   }
   *v7 = 0LL;
   if ( v4 )
-    return 3221225714LL;
-  LOBYTE(a4) = PreviousMode;
-  LOBYTE(a1) = PreviousMode;
-  result = ObCreateObjectEx((_DWORD)a1, (_DWORD)ExpKeyedEventObjectType, a3, a4);
-  if ( (int)result >= 0 )
+    return -1073741582;
+  LOBYTE(Flags) = PreviousMode;
+  LOBYTE(KeyedEventHandle) = PreviousMode;
+  result = ObCreateObjectEx((_DWORD)KeyedEventHandle, (_DWORD)ExpKeyedEventObjectType, v5, Flags);
+  if ( result >= 0 )
   {
     v10 = 8LL;
     v11 = 64LL;
@@ -46,12 +52,9 @@ __int64 __fastcall NtCreateKeyedEvent(_QWORD *a1, unsigned int a2, int a3, int a
       --v11;
     }
     while ( v11 );
-    result = ObInsertObjectEx(0LL, 0LL, a2, 0LL, 0, 0LL, v12);
-    if ( (int)result >= 0 )
-    {
-      *v7 = v12[0];
-      return (unsigned int)result;
-    }
+    result = ObInsertObjectEx(0LL, 0LL, DesiredAccess, 0LL, 0, 0LL, v12);
+    if ( result >= 0 )
+      *v7 = (HANDLE)v12[0];
   }
   return result;
 }

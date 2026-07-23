@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpCoalescingCallback @ 0x1401B51AC
+ * XREFs of CmpCoalescingCallback @ 0x1401B5090
  * Callers:
  *     <none>
  * Callees:
- *     CmpForceFlushForCoalescing @ 0x1406036B8 (CmpForceFlushForCoalescing.c)
+ *     CmpForceFlushForCoalescing @ 0x14060376C (CmpForceFlushForCoalescing.c)
  */
 
 void __fastcall CmpCoalescingCallback(int a1)

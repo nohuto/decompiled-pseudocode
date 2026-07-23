@@ -8,15 +8,15 @@
  *     _RtlpStdExtendUpperWatermark@8 @ 0x4B3692D9 (_RtlpStdExtendUpperWatermark@8.c)
  */
 
-int __fastcall RtlpStdGetRecordedStackTraceIndex(int a1, unsigned __int16 *a2)
+int __fastcall RtlpStdGetRecordedStackTraceIndex(PRTL_SRWLOCK SRWLock, unsigned __int16 *a2)
 {
-  int v3; // esi
+  signed int v3; // esi
   unsigned int v5; // ecx
   int v6; // eax
   _DWORD *v7; // edx
-  int v8; // eax
-  unsigned __int16 **v9; // eax
-  int v11; // [esp+Ch] [ebp-4h]
+  _RTL_SRWLOCK *v8; // eax
+  _DWORD *v9; // eax
+  _RTL_SRWLOCK *v11; // [esp+Ch] [ebp-4h]
 
   v3 = 0;
   v5 = 0;
@@ -31,26 +31,26 @@ int __fastcall RtlpStdGetRecordedStackTraceIndex(int a1, unsigned __int16 *a2)
     }
     while ( v6 );
   }
-  v8 = a1 + 8 * (v5 % *(_DWORD *)(a1 + 376));
+  v8 = &SRWLock[2 * (v5 % SRWLock[94].Value)];
   v11 = v8;
   if ( !byte_4B3A5DA8 )
-    RtlAcquireSRWLockExclusive((volatile signed __int32 *)(v8 + 384));
+    RtlAcquireSRWLockExclusive(v8 + 96);
   if ( *(_DWORD *)(a2 + 3) )
   {
     v3 = a2[4] + (a2[3] << 16);
   }
   else
   {
-    v9 = (unsigned __int16 **)RtlpStdExtendUpperWatermark(a1);
+    v9 = (_DWORD *)RtlpStdExtendUpperWatermark(SRWLock);
     if ( v9 )
     {
       *v9 = a2;
-      v3 = (*(_DWORD *)(a1 + 100) - (int)v9) >> 2;
+      v3 = (signed int)(SRWLock[25].Value - (int)v9) >> 2;
       a2[4] = v3;
       a2[3] = HIWORD(v3);
     }
   }
   if ( !byte_4B3A5DA8 )
-    RtlReleaseSRWLockExclusive((volatile signed __int32 *)(v11 + 384));
+    RtlReleaseSRWLockExclusive(v11 + 96);
   return v3;
 }

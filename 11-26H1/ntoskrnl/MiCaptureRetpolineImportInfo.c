@@ -1,20 +1,20 @@
 /*
- * XREFs of MiCaptureRetpolineImportInfo @ 0x140B3C58C
+ * XREFs of MiCaptureRetpolineImportInfo @ 0x140B3E80C
  * Callers:
- *     MiApplyImportOptimizationToRuntimeDriver @ 0x140B3C35C (MiApplyImportOptimizationToRuntimeDriver.c)
+ *     MiApplyImportOptimizationToRuntimeDriver @ 0x140B3E5DC (MiApplyImportOptimizationToRuntimeDriver.c)
  * Callees:
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     RtlCaptureRetpolineImportRvas @ 0x14040C620 (RtlCaptureRetpolineImportRvas.c)
- *     MmGetCurrentProcessorColor @ 0x14044ADC0 (MmGetCurrentProcessorColor.c)
- *     MiIsRetpolineEnabled @ 0x14047FA5C (MiIsRetpolineEnabled.c)
- *     MI_LOCK_RELOCATIONS_EXCLUSIVE @ 0x1404A7214 (MI_LOCK_RELOCATIONS_EXCLUSIVE.c)
- *     MI_UNLOCK_RELOCATIONS_EXCLUSIVE @ 0x1404AE6C4 (MI_UNLOCK_RELOCATIONS_EXCLUSIVE.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     RtlCaptureRetpolineImportRvas @ 0x140429D68 (RtlCaptureRetpolineImportRvas.c)
+ *     MmGetCurrentProcessorColor @ 0x140442EF0 (MmGetCurrentProcessorColor.c)
+ *     MiIsRetpolineEnabled @ 0x1404793CC (MiIsRetpolineEnabled.c)
+ *     MI_LOCK_RELOCATIONS_EXCLUSIVE @ 0x1404A08A4 (MI_LOCK_RELOCATIONS_EXCLUSIVE.c)
+ *     MI_UNLOCK_RELOCATIONS_EXCLUSIVE @ 0x1404A7D54 (MI_UNLOCK_RELOCATIONS_EXCLUSIVE.c)
  */
 
 __int64 __fastcall MiCaptureRetpolineImportInfo(__int64 a1, __int64 a2)
 {
   struct _KTHREAD *CurrentThread; // rsi
-  _DWORD *PoolMm; // rbx
+  __int64 PoolMm; // rbx
   unsigned __int64 v5; // rax
   __int64 v6; // rdi
   __int64 v7; // rcx
@@ -32,7 +32,7 @@ __int64 __fastcall MiCaptureRetpolineImportInfo(__int64 a1, __int64 a2)
   v6 = *(_QWORD *)(v5 + 32);
   v8 = (unsigned __int64)MiIsTargetFullyRetpolined & -(__int64)MiIsRetpolineEnabled();
   result = RtlCaptureRetpolineImportRvas(
-             *(_QWORD *)(v7 + 48),
+             *(void **)(v7 + 48),
              *(_QWORD *)(v7 + 48),
              *(unsigned int *)(a1 + 64),
              v8,
@@ -43,11 +43,11 @@ __int64 __fastcall MiCaptureRetpolineImportInfo(__int64 a1, __int64 a2)
   if ( (_DWORD)result != -1073741789 )
     return result;
   CurrentProcessorColor = MmGetCurrentProcessorColor();
-  PoolMm = (_DWORD *)ExAllocatePoolMm(256LL, v13, 1767009613, CurrentProcessorColor | 0x80000000);
+  PoolMm = ExAllocatePoolMm(256LL, v13, 1767009613, CurrentProcessorColor | 0x80000000);
   if ( !PoolMm )
     return 3221225495LL;
   result = RtlCaptureRetpolineImportRvas(
-             *(_QWORD *)(a1 + 48),
+             *(void **)(a1 + 48),
              *(_QWORD *)(a1 + 48),
              *(unsigned int *)(a1 + 64),
              v8,

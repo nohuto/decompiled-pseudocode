@@ -1,13 +1,13 @@
 /*
- * XREFs of PpmPerfGetBrandedFrequency @ 0x1408E620C
+ * XREFs of PpmPerfGetBrandedFrequency @ 0x1408E636C
  * Callers:
- *     PopPowerInformationInternal @ 0x140678DF4 (PopPowerInformationInternal.c)
+ *     PopPowerInformationInternal @ 0x14066C534 (PopPowerInformationInternal.c)
  * Callees:
- *     KeEnumerateNextProcessor @ 0x140229400 (KeEnumerateNextProcessor.c)
- *     PpmReleaseLock @ 0x14022AB00 (PpmReleaseLock.c)
- *     KeGetProcessorIndexFromNumber @ 0x14027BE80 (KeGetProcessorIndexFromNumber.c)
- *     PpmAcquireLock @ 0x140281A74 (PpmAcquireLock.c)
- *     PpmPerfAccumulateBrandedFrequency @ 0x1408E61CC (PpmPerfAccumulateBrandedFrequency.c)
+ *     KeGetProcessorIndexFromNumber @ 0x140269E20 (KeGetProcessorIndexFromNumber.c)
+ *     PpmAcquireLock @ 0x14026FCB4 (PpmAcquireLock.c)
+ *     KeEnumerateNextProcessor @ 0x1402CDD00 (KeEnumerateNextProcessor.c)
+ *     PpmReleaseLock @ 0x1402CF3B0 (PpmReleaseLock.c)
+ *     PpmPerfAccumulateBrandedFrequency @ 0x1408E632C (PpmPerfAccumulateBrandedFrequency.c)
  */
 
 __int64 __fastcall PpmPerfGetBrandedFrequency(PPROCESSOR_NUMBER ProcNumber, _DWORD *a2)
@@ -40,7 +40,7 @@ __int64 __fastcall PpmPerfGetBrandedFrequency(PPROCESSOR_NUMBER ProcNumber, _DWO
   }
   else
   {
-    v7[1] = (unsigned __int16 *)qword_140C113E8[0];
+    v7[1] = (unsigned __int16 *)qword_140C113C8[0];
     v7[0] = (unsigned __int16 *)PpmCheckRegistered;
     v8 = 0;
     while ( !(unsigned int)KeEnumerateNextProcessor(&v11, v7) )

@@ -63,7 +63,7 @@
  *     memset$thunk$772440563353939046 @ 0x180174030 (memset$thunk$772440563353939046.c)
  */
 
-void TppRaiseInvalidParameter()
+void __fastcall TppRaiseInvalidParameter()
 {
   struct _TEB *v0; // rax
   EXCEPTION_RECORD ExceptionRecord; // [rsp+20h] [rbp-B8h] BYREF

@@ -66,7 +66,7 @@ __int64 __fastcall AlpcpReceiveMessage(__int64 *a1, unsigned __int64 a2, unsigne
   signed __int64 BugCheckParameter4; // rcx
   __int64 v45; // rbx
   int (__fastcall *v46)(ULONG_PTR); // rax
-  union _SLIST_HEADER *v47; // rcx
+  _SLIST_HEADER *v47; // rcx
   unsigned int v49; // [rsp+30h] [rbp-98h]
   int v50; // [rsp+34h] [rbp-94h]
   unsigned int v51; // [rsp+38h] [rbp-90h]

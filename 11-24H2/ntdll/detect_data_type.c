@@ -1,7 +1,7 @@
 /*
- * XREFs of detect_data_type @ 0x1801565B0
+ * XREFs of detect_data_type @ 0x180154970
  * Callers:
- *     _tr_flush_block @ 0x180155AC0 (_tr_flush_block.c)
+ *     _tr_flush_block @ 0x180153E80 (_tr_flush_block.c)
  * Callees:
  *     <none>
  */

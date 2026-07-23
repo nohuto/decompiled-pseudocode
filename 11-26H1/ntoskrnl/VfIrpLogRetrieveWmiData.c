@@ -1,18 +1,18 @@
 /*
- * XREFs of VfIrpLogRetrieveWmiData @ 0x140C3B91C
+ * XREFs of VfIrpLogRetrieveWmiData @ 0x140C4192C
  * Callers:
- *     ViDdiDispatchWmiQueryAllData @ 0x140C42DF4 (ViDdiDispatchWmiQueryAllData.c)
+ *     ViDdiDispatchWmiQueryAllData @ 0x140C48E04 (ViDdiDispatchWmiQueryAllData.c)
  * Callees:
- *     memmove @ 0x14073D480 (memmove.c)
- *     ObQueryNameString @ 0x1409FDA20 (ObQueryNameString.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     ObQueryNameString @ 0x140922620 (ObQueryNameString.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall VfIrpLogRetrieveWmiData(unsigned int a1, __int64 a2, int *a3, _DWORD *a4, _DWORD *a5, ULONG *a6)
 {
   __int64 v6; // rbx
-  struct _OBJECT_NAME_INFORMATION *Pool2; // rsi
+  _OBJECT_NAME_INFORMATION *Pool2; // rsi
   int v10; // ecx
   _QWORD *v11; // r12
   _QWORD *v12; // rdi
@@ -52,7 +52,7 @@ __int64 __fastcall VfIrpLogRetrieveWmiData(unsigned int a1, __int64 a2, int *a3,
   *a5 = 0;
   *a6 = 0;
   *(_QWORD *)Length = 16LL;
-  Pool2 = (struct _OBJECT_NAME_INFORMATION *)ExAllocatePool2(256LL, 0x10uLL, 0x74496656u);
+  Pool2 = (_OBJECT_NAME_INFORMATION *)ExAllocatePool2(256LL, 0x10uLL, 0x74496656u);
   if ( !Pool2 )
     return 3221225626LL;
   v40 = 3 * v6;
@@ -82,7 +82,7 @@ __int64 __fastcall VfIrpLogRetrieveWmiData(unsigned int a1, __int64 a2, int *a3,
     if ( v17 == -1073741820 )
     {
       ExFreePoolWithTag(Pool2, 0);
-      Pool2 = (struct _OBJECT_NAME_INFORMATION *)ExAllocatePool2(256LL, ReturnLength, 0x74496656u);
+      Pool2 = (_OBJECT_NAME_INFORMATION *)ExAllocatePool2(256LL, ReturnLength, 0x74496656u);
       if ( !Pool2 )
         return (unsigned int)-1073741670;
       v18 = (void *)*(v12 - 1);

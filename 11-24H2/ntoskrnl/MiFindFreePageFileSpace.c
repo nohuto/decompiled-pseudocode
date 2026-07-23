@@ -1,33 +1,33 @@
 /*
- * XREFs of MiFindFreePageFileSpace @ 0x140367D88
+ * XREFs of MiFindFreePageFileSpace @ 0x1403C438C
  * Callers:
- *     MiTrimUnusedPageFileRegionsApc @ 0x140366180 (MiTrimUnusedPageFileRegionsApc.c)
- *     MiGetKernelStackSwapSupport @ 0x1403679DC (MiGetKernelStackSwapSupport.c)
- *     MiFindPageFileWriteCluster @ 0x140367BDC (MiFindPageFileWriteCluster.c)
- *     MiReservePageFileSpace @ 0x140368314 (MiReservePageFileSpace.c)
- *     MiGatherPagefilePages @ 0x14039C8C8 (MiGatherPagefilePages.c)
- *     MiReserveWorkingSetSwapSpaceRuns @ 0x140A6C718 (MiReserveWorkingSetSwapSpaceRuns.c)
+ *     MiReservePageFileSpace @ 0x140202948 (MiReservePageFileSpace.c)
+ *     MiGatherPagefilePages @ 0x1402F9BC8 (MiGatherPagefilePages.c)
+ *     MiTrimUnusedPageFileRegionsApc @ 0x1403C3E30 (MiTrimUnusedPageFileRegionsApc.c)
+ *     MiGetKernelStackSwapSupport @ 0x1403C3FE0 (MiGetKernelStackSwapSupport.c)
+ *     MiFindPageFileWriteCluster @ 0x1403C41E0 (MiFindPageFileWriteCluster.c)
+ *     MiReserveWorkingSetSwapSpaceRuns @ 0x140A65F60 (MiReserveWorkingSetSwapSpaceRuns.c)
  * Callees:
- *     ExAcquireSpinLockSharedAtDpcLevel @ 0x140210120 (ExAcquireSpinLockSharedAtDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140210170 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x14021A250 (MI_READ_PTE_LOCK_FREE.c)
- *     MiReleaseSpinLockShared @ 0x140244830 (MiReleaseSpinLockShared.c)
- *     RtlSetBits @ 0x14024BCC0 (RtlSetBits.c)
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     ExAcquireSpinLockShared @ 0x14031A1A0 (ExAcquireSpinLockShared.c)
- *     MiPageFileLargestBitmapsRun @ 0x1403664F0 (MiPageFileLargestBitmapsRun.c)
- *     MiRescanPagefileBitmaps @ 0x14036660C (MiRescanPagefileBitmaps.c)
- *     MiFindFreePageFileSpaceForward @ 0x1403666C4 (MiFindFreePageFileSpaceForward.c)
- *     RtlLengthCurrentClearRunForward @ 0x140366E90 (RtlLengthCurrentClearRunForward.c)
- *     MiSetPageFileAllocationBits @ 0x140367504 (MiSetPageFileAllocationBits.c)
- *     MiInvalidatePageFileBitmapsCache @ 0x140367598 (MiInvalidatePageFileBitmapsCache.c)
- *     MiTransferSoftwarePte @ 0x14039F300 (MiTransferSoftwarePte.c)
+ *     MiReleaseSpinLockShared @ 0x14020CFC0 (MiReleaseSpinLockShared.c)
+ *     MiTransferSoftwarePte @ 0x140215AA0 (MiTransferSoftwarePte.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140246FA0 (MI_READ_PTE_LOCK_FREE.c)
+ *     RtlSetBits @ 0x14027C2D0 (RtlSetBits.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     ExAcquireSpinLockShared @ 0x1402C2D30 (ExAcquireSpinLockShared.c)
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x140339480 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1403394D0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiRescanPagefileBitmaps @ 0x1403C3F28 (MiRescanPagefileBitmaps.c)
+ *     MiInvalidatePageFileBitmapsCache @ 0x1403C4918 (MiInvalidatePageFileBitmapsCache.c)
+ *     MiSetPageFileAllocationBits @ 0x1403C4D5C (MiSetPageFileAllocationBits.c)
+ *     MiFindFreePageFileSpaceForward @ 0x1403C4D94 (MiFindFreePageFileSpaceForward.c)
+ *     RtlLengthCurrentClearRunForward @ 0x1403C5560 (RtlLengthCurrentClearRunForward.c)
+ *     MiPageFileLargestBitmapsRun @ 0x1403C5B54 (MiPageFileLargestBitmapsRun.c)
  */
 
-__int64 __fastcall MiFindFreePageFileSpace(__int64 a1, unsigned __int64 *a2, unsigned __int64 a3, char a4)
+__int64 __fastcall MiFindFreePageFileSpace(__int64 a1, __int64 *a2, unsigned __int64 a3, __int64 a4)
 {
-  char v4; // r13
+  unsigned int v4; // r13d
   unsigned __int64 v5; // r14
   unsigned __int64 v8; // rbx
   __int64 v9; // rsi
@@ -50,7 +50,7 @@ __int64 __fastcall MiFindFreePageFileSpace(__int64 a1, unsigned __int64 *a2, uns
   unsigned __int64 v26; // rax
   unsigned __int64 v27; // rcx
   unsigned __int64 v28; // rax
-  unsigned int v30; // r14d
+  int v30; // r14d
   unsigned __int8 CurrentIrql; // dl
   volatile signed __int32 *v32; // rcx
   unsigned __int64 v33; // rax
@@ -82,8 +82,8 @@ __int64 __fastcall MiFindFreePageFileSpace(__int64 a1, unsigned __int64 *a2, uns
     else
     {
       v17 = *a2;
-      if ( qword_140E2DB80 && (v17 & 0x10) == 0 )
-        v17 &= ~qword_140E2DB80;
+      if ( qword_140E2DCC0 && (v17 & 0x10) == 0 )
+        v17 &= ~qword_140E2DCC0;
       v8 = HIDWORD(v17);
     }
     if ( (v4 & 0x10) == 0 )
@@ -162,21 +162,23 @@ LABEL_18:
     v22 = v37;
 LABEL_21:
     if ( (*(_BYTE *)(v9 + 175) & 1) != 0 )
-      goto LABEL_54;
+      goto LABEL_55;
+    a4 = 0xFFFFFFFFLL;
     if ( (_DWORD)v8 != -1 )
     {
       v23 = *(_QWORD *)(v9 + 80);
       if ( (unsigned int)v8 >= *(_DWORD *)(v23 + 24) )
       {
         if ( (v4 & 0x48) != 0 )
-          goto LABEL_54;
+          goto LABEL_55;
       }
       else
       {
         if ( _bittest64(*(const signed __int64 **)(v23 + 32), (unsigned int)v8)
           || _bittest64(*(const signed __int64 **)(v23 + 16), (unsigned int)v8)
-          || (v24 = RtlLengthCurrentClearRunForward((int *)(v23 + 24), v8, v5), v24 != (_DWORD)v5) && (v4 & 0x40) == 0
-          || (v25 = RtlLengthCurrentClearRunForward((int *)(*(_QWORD *)(v9 + 80) + 8LL), v8, v24), v25 != (_DWORD)v5)
+          || (v24 = RtlLengthCurrentClearRunForward(v23 + 24, (unsigned int)v8, (unsigned int)v5), v24 != (_DWORD)v5)
+          && (v4 & 0x40) == 0
+          || (v25 = RtlLengthCurrentClearRunForward(*(_QWORD *)(v9 + 80) + 8LL, (unsigned int)v8, v24), v25 != (_DWORD)v5)
           && (v4 & 0x40) == 0 )
         {
           v25 = 0;
@@ -184,40 +186,42 @@ LABEL_21:
         if ( v25 == v5 || (v4 & 0x40) != 0 )
         {
           LODWORD(v45) = v8;
-          goto LABEL_57;
+          goto LABEL_58;
         }
+        a4 = 0xFFFFFFFFLL;
       }
     }
     if ( (v4 & 8) != 0 )
     {
       LODWORD(v45) = v8;
-      FreePageFileSpaceForward = MiFindFreePageFileSpaceForward(v9, &v45, v5, v4);
+      FreePageFileSpaceForward = MiFindFreePageFileSpaceForward(v9, &v45, (unsigned int)v5, v4);
       LODWORD(v8) = v45;
       v25 = FreePageFileSpaceForward;
-      goto LABEL_57;
+      goto LABEL_58;
     }
-LABEL_35:
+LABEL_36:
     v26 = *(_QWORD *)(v9 + 112);
     if ( (*(_BYTE *)(v9 + 120) & 1) != 0 && v26 )
       v26 ^= v9 + 112;
+    a3 = *(_BYTE *)(v9 + 120) & 1;
     v21 = 0LL;
     while ( 1 )
     {
       if ( !v26 )
-        goto LABEL_48;
+        goto LABEL_49;
       if ( (unsigned int)v5 >= *(_DWORD *)(v26 + 52) )
       {
         if ( (unsigned int)v5 > *(_DWORD *)(v26 + 52) )
         {
           v27 = *(_QWORD *)(v26 + 8);
-          goto LABEL_41;
+          goto LABEL_42;
         }
         if ( !*(_DWORD *)(v26 + 48) )
           break;
       }
       v27 = *(_QWORD *)v26;
       v21 = v26;
-LABEL_41:
+LABEL_42:
       if ( (*(_BYTE *)(v9 + 120) & 1) != 0 && v27 )
         v26 ^= v27;
       else
@@ -233,11 +237,11 @@ LABEL_41:
       while ( 1 )
       {
         if ( (unsigned int)v5 < *(_DWORD *)(v38 + 52) )
-          goto LABEL_104;
+          goto LABEL_105;
         if ( (unsigned int)v5 <= *(_DWORD *)(v38 + 52) )
           break;
         v40 = *(_QWORD *)(v38 + 8);
-LABEL_105:
+LABEL_106:
         if ( (*(_BYTE *)(v9 + 120) & 1) != 0 && v40 )
           v38 ^= v40;
         else
@@ -246,34 +250,35 @@ LABEL_105:
         {
           if ( v39 )
             v21 = v39;
-          goto LABEL_48;
+          goto LABEL_49;
         }
       }
       if ( !*(_DWORD *)(v38 + 48) )
         v39 = v38;
-LABEL_104:
+LABEL_105:
       v40 = *(_QWORD *)v38;
-      goto LABEL_105;
+      goto LABEL_106;
     }
-LABEL_48:
+LABEL_49:
     if ( *(_DWORD *)(v21 + 52) != -1 )
-      goto LABEL_70;
+      goto LABEL_71;
     v28 = *(unsigned int *)(v9 + 108);
     if ( v28 < v5 || (unsigned int)v28 < 0x20 )
       break;
-LABEL_51:
+LABEL_52:
     if ( !v43 )
     {
       MiRescanPagefileBitmaps(v9);
-      goto LABEL_35;
+      a4 = 0xFFFFFFFFLL;
+      goto LABEL_36;
     }
-    MiReleaseSpinLockShared((volatile signed __int32 *)(v9 + 200), v22);
+    MiReleaseSpinLockShared((volatile signed __int32 *)(v9 + 200), v22, a3, 0xFFFFFFFFLL);
     v20 = v45;
     v18 = 1;
     v19 = (volatile LONG *)(v9 + 200);
   }
-  if ( v4 < 0 )
-    goto LABEL_54;
+  if ( (v4 & 0x80u) != 0 )
+    goto LABEL_55;
   v33 = *(_QWORD *)v21;
   v34 = v21;
   if ( *(_QWORD *)v21 )
@@ -300,25 +305,25 @@ LABEL_51:
   if ( !v21 )
   {
     if ( v35 < 0x20 )
-      goto LABEL_54;
-    goto LABEL_51;
+      goto LABEL_55;
+    goto LABEL_52;
   }
   if ( v35 >= 0x20 && v35 > *(_DWORD *)(v21 + 52) )
-    goto LABEL_51;
+    goto LABEL_52;
   LODWORD(v5) = *(_DWORD *)(v21 + 52);
-LABEL_70:
+LABEL_71:
   LODWORD(v8) = *(_DWORD *)(v21 + 48);
   v25 = v5;
   LODWORD(v45) = v8;
-LABEL_57:
+LABEL_58:
   if ( !v25 )
   {
-LABEL_54:
+LABEL_55:
     if ( (v4 & 4) == 0 )
     {
       v36 = (volatile signed __int32 *)(v9 + 200);
       if ( v43 )
-        MiReleaseSpinLockShared(v36, v22);
+        MiReleaseSpinLockShared(v36, v22, a3, a4);
       else
         MiReleaseSpinLockExclusive(v36, v22);
     }
@@ -335,18 +340,18 @@ LABEL_54:
   if ( (v4 & 2) != 0 )
   {
     v30 |= 1u;
-    MiSetPageFileAllocationBits(v9, v8, v25);
+    MiSetPageFileAllocationBits(v9, (unsigned int)v8, v25);
   }
   if ( v30 )
-    MiInvalidatePageFileBitmapsCache(v9, v8, v25, v21);
+    MiInvalidatePageFileBitmapsCache(v9, (unsigned int)v8, v25, v21);
   if ( (v4 & 4) == 0 )
   {
     v32 = (volatile signed __int32 *)(v9 + 200);
     if ( v43 )
-      MiReleaseSpinLockShared(v32, v22);
+      MiReleaseSpinLockShared(v32, v22, a3, a4);
     else
       MiReleaseSpinLockExclusive(v32, v22);
   }
-  *a2 = MiTransferSoftwarePte(*a2, v9, (unsigned int)v8, v30);
+  *a2 = MiTransferSoftwarePte(*a2, v9, v8, v30);
   return v25;
 }

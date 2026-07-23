@@ -8,7 +8,7 @@
  *     __SEH_prolog4 @ 0x4B307AC4 (__SEH_prolog4.c)
  */
 
-void __stdcall __noreturn DbgUiRemoteBreakin(int a1)
+void __cdecl __noreturn DbgUiRemoteBreakin(PVOID Context)
 {
   if ( (NtCurrentPeb()->BeingDebugged || (MEMORY[0x7FFE02D4] & 2) != 0) && (NtCurrentTeb()->SameTebFlags & 0x20) == 0 )
     DbgBreakPoint();

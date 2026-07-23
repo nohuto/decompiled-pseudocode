@@ -1,11 +1,11 @@
 /*
- * XREFs of ExpGetHandleInformation @ 0x1408CB75C
+ * XREFs of ExpGetHandleInformation @ 0x1408CCA1C
  * Callers:
- *     ExpQuerySystemInformation @ 0x140626390 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x1406273B0 (ExpQuerySystemInformation.c)
  * Callees:
- *     ExUnlockUserBuffer @ 0x14011A718 (ExUnlockUserBuffer.c)
- *     ExLockUserBuffer @ 0x14069E918 (ExLockUserBuffer.c)
- *     ExpSnapShotHandleTables @ 0x1408CE214 (ExpSnapShotHandleTables.c)
+ *     ExUnlockUserBuffer @ 0x14011A788 (ExUnlockUserBuffer.c)
+ *     ExLockUserBuffer @ 0x14069FBD8 (ExLockUserBuffer.c)
+ *     ExpSnapShotHandleTables @ 0x1408CF4D4 (ExpSnapShotHandleTables.c)
  */
 
 __int64 __fastcall ExpGetHandleInformation(unsigned __int64 a1, unsigned int a2, _DWORD *a3)

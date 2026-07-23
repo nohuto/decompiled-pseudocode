@@ -1,14 +1,14 @@
 /*
- * XREFs of MiClearPteAccessedBitRange @ 0x140394414
+ * XREFs of MiClearPteAccessedBitRange @ 0x14038DA30
  * Callers:
- *     MiInitializeSystemPageTable @ 0x140395744 (MiInitializeSystemPageTable.c)
+ *     MiInitializeSystemPageTable @ 0x14038F158 (MiInitializeSystemPageTable.c)
  * Callees:
- *     MiCheckLinearProtectedPteAccessedBit @ 0x140232A20 (MiCheckLinearProtectedPteAccessedBit.c)
- *     MiInitializeTbFlushList @ 0x140233BB0 (MiInitializeTbFlushList.c)
- *     MiReleaseProcessorFlushList @ 0x14023FFD0 (MiReleaseProcessorFlushList.c)
- *     MiInsertTbFlushEntry @ 0x1402432E0 (MiInsertTbFlushEntry.c)
- *     MiGetProcessorFlushList @ 0x1402894BC (MiGetProcessorFlushList.c)
- *     MiFlushTbList @ 0x140291730 (MiFlushTbList.c)
+ *     MiCheckLinearProtectedPteAccessedBit @ 0x140203550 (MiCheckLinearProtectedPteAccessedBit.c)
+ *     MiReleaseProcessorFlushList @ 0x140208120 (MiReleaseProcessorFlushList.c)
+ *     MiInsertTbFlushEntry @ 0x1402137F0 (MiInsertTbFlushEntry.c)
+ *     MiInitializeTbFlushList @ 0x140214780 (MiInitializeTbFlushList.c)
+ *     MiGetProcessorFlushList @ 0x1402990BC (MiGetProcessorFlushList.c)
+ *     MiFlushTbList @ 0x1402A1330 (MiFlushTbList.c)
  */
 
 void __fastcall MiClearPteAccessedBitRange(__int64 a1, int a2, unsigned __int64 a3)
@@ -40,7 +40,7 @@ void __fastcall MiClearPteAccessedBitRange(__int64 a1, int a2, unsigned __int64 
         if ( (MiFlags & 0x2000000) != 0 )
           _mm_lfence();
         if ( _bittest64(&MiFlags, 0x24u) && (v8 & 1) == 1 && (unsigned __int64)v3 >= 0xFFFFF6C000000000uLL )
-          MiCheckLinearProtectedPteAccessedBit((ULONG_PTR)v3, v8 & 0xFFFFFFFFFFFFFFDFuLL, 128);
+          MiCheckLinearProtectedPteAccessedBit((ULONG_PTR)v3, v8 & 0xFFFFFFFFFFFFFFDFuLL, 128LL);
         _InterlockedCompareExchange64(v3, v8 & 0xFFFFFFFFFFFFFFDFuLL, v8);
         ++v7;
         ++v3;

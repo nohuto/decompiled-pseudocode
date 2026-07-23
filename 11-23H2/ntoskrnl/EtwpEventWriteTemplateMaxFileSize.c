@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpEventWriteTemplateMaxFileSize @ 0x1409E3B24
+ * XREFs of EtwpEventWriteTemplateMaxFileSize @ 0x1409E3DB4
  * Callers:
- *     EtwpFlushBufferToLogfile @ 0x1406BB3D0 (EtwpFlushBufferToLogfile.c)
+ *     EtwpFlushBufferToLogfile @ 0x1406BB400 (EtwpFlushBufferToLogfile.c)
  * Callees:
- *     EtwWrite @ 0x1402578A0 (EtwWrite.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     EtwWrite @ 0x140257960 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall EtwpEventWriteTemplateMaxFileSize(

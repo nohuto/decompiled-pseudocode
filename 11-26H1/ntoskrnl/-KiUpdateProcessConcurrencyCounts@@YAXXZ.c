@@ -1,23 +1,23 @@
 /*
- * XREFs of ?KiUpdateProcessConcurrencyCounts@@YAXXZ @ 0x14021BA80
+ * XREFs of ?KiUpdateProcessConcurrencyCounts@@YAXXZ @ 0x14021D410
  * Callers:
- *     ?KiIdealProcessorRebalancerWorker@@YAXPEAX@Z @ 0x14021AB10 (-KiIdealProcessorRebalancerWorker@@YAXPEAX@Z.c)
+ *     ?KiIdealProcessorRebalancerWorker@@YAXPEAX@Z @ 0x14021C4A0 (-KiIdealProcessorRebalancerWorker@@YAXPEAX@Z.c)
  * Callees:
  *     ExGenRandom @ 0x140200C10 (ExGenRandom.c)
  *     ?KiAdaptThreadIdealProcessorForProcessIdealSetChange@@YAXPEAU_KPROCESS@@PEAU_KTHREAD@@PEAU_KAFFINITY_EX@@2PEAE3PEAK@Z @ 0x140200F50 (-KiAdaptThreadIdealProcessorForProcessIdealSetChange@@YAXPEAU_KPROCESS@@PEAU_KTHREAD@@PEAU_KAFFI.c)
  *     ?KiSelectIdealProcessorSetsForProcess@@YAXPEAU_KPROCESS@@PEAT_KI_PROCESS_CONCURRENCY_COUNT@@PEAU_KAFFINITY_EX@@PEAU_KI_IDEAL_PROCESSOR_SET_BREAKPOINTS@@@Z @ 0x1402013E4 (-KiSelectIdealProcessorSetsForProcess@@YAXPEAU_KPROCESS@@PEAT_KI_PROCESS_CONCURRENCY_COUNT@@PEAU.c)
- *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14021AAD4 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
- *     KeQueryPerformanceCounter @ 0x14021C3F0 (KeQueryPerformanceCounter.c)
- *     KiUnstackDetachProcess @ 0x1402307C0 (KiUnstackDetachProcess.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiStackAttachProcess @ 0x140247880 (KiStackAttachProcess.c)
- *     ?RtlpCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z @ 0x1402518B0 (-RtlpCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402DED10 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MmAdjustWorkingSetSizeEx @ 0x1403BC3E8 (MmAdjustWorkingSetSizeEx.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     PsGetNextProcess @ 0x14096EE20 (PsGetNextProcess.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14021C464 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     KeQueryPerformanceCounter @ 0x14021DD80 (KeQueryPerformanceCounter.c)
+ *     KiUnstackDetachProcess @ 0x140232120 (KiUnstackDetachProcess.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiStackAttachProcess @ 0x1402491E0 (KiStackAttachProcess.c)
+ *     ?RtlpCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z @ 0x140253210 (-RtlpCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402C0B20 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MmAdjustWorkingSetSizeEx @ 0x1403C6258 (MmAdjustWorkingSetSizeEx.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     PsGetNextProcess @ 0x1409BC470 (PsGetNextProcess.c)
  */
 
 void KiUpdateProcessConcurrencyCounts(void)
@@ -76,7 +76,10 @@ void KiUpdateProcessConcurrencyCounts(void)
           _BitScanReverse(&v7, v6);
           v8 = ((unsigned __int64)i->PerProcessorCycleTimes >> 4) & 0x1FF;
           v29.AllFields = 0;
-          v9 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v4 * 8 + ExSaPageArrays - 8) + 8LL * (v7 - 2))
+          v9 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)((char *)ExSaPageGroupDescriptorArrayLock.SListFaultAddress
+                                                 + v4 * 8
+                                                 - 8)
+                                     + 8LL * (v7 - 2))
                          + 8LL * (v6 ^ (1 << v7))
                          + 8);
           v10 = *(_QWORD *)(v9 + 8 * v8);
@@ -108,7 +111,7 @@ void KiUpdateProcessConcurrencyCounts(void)
         ExAcquireSpinLockExclusiveAtDpcLevel((PEX_SPIN_LOCK)&i->ProcessLock);
         if ( (p_ExpectedConcurrencyCount[3].AllFields & 1) != 0 )
         {
-          if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+          if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
             *p_ProcessLock = 0;
           else
             ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(&i->ProcessLock, retaddr);
@@ -174,7 +177,7 @@ void KiUpdateProcessConcurrencyCounts(void)
             IdealProcessorAssignmentBlock->Breakpoints = (_KI_IDEAL_PROCESSOR_SET_BREAKPOINTS)PerformanceFrequency;
             v23 &= (KiCacheAwareScheduling & 0x10) != 0;
           }
-          if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+          if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
             *p_ProcessLock = 0;
           else
             ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(p_ProcessLock, retaddr);

@@ -1,10 +1,10 @@
 /*
- * XREFs of PopEtGetProcessVersionInfo @ 0x140908980
+ * XREFs of PopEtGetProcessVersionInfo @ 0x1408E009C
  * Callers:
- *     PopEtGetProcessAppId @ 0x14090754C (PopEtGetProcessAppId.c)
+ *     PopEtGetProcessAppId @ 0x1408DEC68 (PopEtGetProcessAppId.c)
  * Callees:
- *     PsGetProcessSectionBaseAddress @ 0x140480C00 (PsGetProcessSectionBaseAddress.c)
- *     LdrResSearchResource @ 0x140908A90 (LdrResSearchResource.c)
+ *     PsGetProcessSectionBaseAddress @ 0x14047B6D0 (PsGetProcessSectionBaseAddress.c)
+ *     LdrResSearchResource @ 0x1408E01B0 (LdrResSearchResource.c)
  */
 
 __int64 __fastcall PopEtGetProcessVersionInfo(__int64 a1, __int64 a2)

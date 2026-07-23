@@ -1,18 +1,18 @@
 /*
- * XREFs of HsaAllocateRemappingTableEntry @ 0x1405A8C60
+ * XREFs of HsaAllocateRemappingTableEntry @ 0x1405AB470
  * Callers:
  *     <none>
  * Callees:
- *     HalpReleaseHighLevelLock @ 0x1402C4DEC (HalpReleaseHighLevelLock.c)
- *     RtlClearBits @ 0x1403591A0 (RtlClearBits.c)
- *     HalpAcquireHighLevelLock @ 0x140426EEC (HalpAcquireHighLevelLock.c)
- *     HsaGetDeviceAperture @ 0x14052DBAC (HsaGetDeviceAperture.c)
- *     ExtEnvAllocateMemory @ 0x140597BA0 (ExtEnvAllocateMemory.c)
- *     ExtEnvAllocatePhysicalMemory @ 0x140597C14 (ExtEnvAllocatePhysicalMemory.c)
- *     ExtEnvFreeMemory @ 0x140597DF0 (ExtEnvFreeMemory.c)
- *     ExtEnvFreePhysicalMemory @ 0x140597E30 (ExtEnvFreePhysicalMemory.c)
- *     HsaUpdateRemappingTableInDeviceTableEntry @ 0x1405AAF8C (HsaUpdateRemappingTableInDeviceTableEntry.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     HalpReleaseHighLevelLock @ 0x14030FAAC (HalpReleaseHighLevelLock.c)
+ *     RtlClearBits @ 0x14035AF40 (RtlClearBits.c)
+ *     HalpAcquireHighLevelLock @ 0x140433FFC (HalpAcquireHighLevelLock.c)
+ *     HsaGetDeviceAperture @ 0x1405300CC (HsaGetDeviceAperture.c)
+ *     ExtEnvAllocateMemory @ 0x14059A320 (ExtEnvAllocateMemory.c)
+ *     ExtEnvAllocatePhysicalMemory @ 0x14059A394 (ExtEnvAllocatePhysicalMemory.c)
+ *     ExtEnvFreeMemory @ 0x14059A570 (ExtEnvFreeMemory.c)
+ *     ExtEnvFreePhysicalMemory @ 0x14059A5B0 (ExtEnvFreePhysicalMemory.c)
+ *     HsaUpdateRemappingTableInDeviceTableEntry @ 0x1405AD79C (HsaUpdateRemappingTableInDeviceTableEntry.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall HsaAllocateRemappingTableEntry(
@@ -69,13 +69,13 @@ __int64 __fastcall HsaAllocateRemappingTableEntry(
           ((*(char *)(((unsigned __int64)v15 >> 3) + v16) >> (v15 & 7)) & 1) != 0) )
     {
       v17 = HIWORD(a2);
-      if ( (unsigned int)v17 >= 0x20 || a2 >> 9 >= dword_140F87360 || a3 + (a2 & 0x1FF) > 0x200 )
+      if ( (unsigned int)v17 >= 0x20 || a2 >> 9 >= dword_140F87748 || a3 + (a2 & 0x1FF) > 0x200 )
       {
         return (unsigned int)-1073741811;
       }
       else
       {
-        byte_140F87358 = HalpAcquireHighLevelLock(&unk_140F87350);
+        LOBYTE(EmpParseLock.Padding[4]) = HalpAcquireHighLevelLock(&EmpParseLock.Padding[3]);
         DeviceAperture = HsaGetDeviceAperture(a2);
         v19 = DeviceAperture;
         if ( DeviceAperture && *(_QWORD *)(DeviceAperture + 16) )
@@ -87,7 +87,7 @@ __int64 __fastcall HsaAllocateRemappingTableEntry(
         {
           v34 = 1;
         }
-        HalpReleaseHighLevelLock(&unk_140F87350, byte_140F87358);
+        HalpReleaseHighLevelLock(&EmpParseLock.Padding[3], EmpParseLock.Padding[4]);
         if ( v34 )
         {
           if ( v19 )
@@ -113,12 +113,12 @@ LABEL_21:
               *(_DWORD *)&Size[8] = *(_DWORD *)&Size[4];
               *(_QWORD *)&Size[16] = v29;
               RtlClearBits((PRTL_BITMAP)&Size[8], 0, *(ULONG *)&Size[4]);
-              byte_140F87358 = HalpAcquireHighLevelLock(&unk_140F87350);
-              if ( !qword_140F873A0[v17] )
+              LOBYTE(EmpParseLock.Padding[4]) = HalpAcquireHighLevelLock(&EmpParseLock.Padding[3]);
+              if ( !qword_140F87760[v17] )
               {
-                qword_140F873A0[v17] = v12;
+                qword_140F87760[v17] = v12;
                 v23 = HsaGetDeviceAperture(a2);
-                dword_140F87388 += 128;
+                dword_140F8774C += 128;
                 v19 = v23;
                 v13 = 0;
               }
@@ -136,7 +136,7 @@ LABEL_21:
                 v35 = 0;
               }
               *(_DWORD *)(v19 + 48) += a3;
-              HalpReleaseHighLevelLock(&unk_140F87350, byte_140F87358);
+              HalpReleaseHighLevelLock(&EmpParseLock.Padding[3], EmpParseLock.Padding[4]);
               if ( v35 )
               {
 LABEL_28:

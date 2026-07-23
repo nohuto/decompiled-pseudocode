@@ -1,22 +1,22 @@
 /*
- * XREFs of PopPowerAggregatorHandleIntentUnsafe @ 0x140775E14
+ * XREFs of PopPowerAggregatorHandleIntentUnsafe @ 0x140775FD4
  * Callers:
- *     PopPowerAggregatorNotifySuspendResume @ 0x140775D28 (PopPowerAggregatorNotifySuspendResume.c)
- *     PopPowerAggregatorForceSessionSwitch @ 0x1408EE214 (PopPowerAggregatorForceSessionSwitch.c)
- *     PopPowerAggregatorHandleIntent @ 0x1408EE308 (PopPowerAggregatorHandleIntent.c)
+ *     PopPowerAggregatorNotifySuspendResume @ 0x140775EE8 (PopPowerAggregatorNotifySuspendResume.c)
+ *     PopPowerAggregatorForceSessionSwitch @ 0x1408EE374 (PopPowerAggregatorForceSessionSwitch.c)
+ *     PopPowerAggregatorHandleIntent @ 0x1408EE468 (PopPowerAggregatorHandleIntent.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     PopPowerAggregatorHandleSystemTransitionStartIntent @ 0x140726470 (PopPowerAggregatorHandleSystemTransitionStartIntent.c)
- *     PopPowerAggregatorRecordIntent @ 0x140775F60 (PopPowerAggregatorRecordIntent.c)
- *     PopPowerAggregatorScheduleWorker @ 0x140776390 (PopPowerAggregatorScheduleWorker.c)
- *     PopPowerAggregatorIsAtTargetState @ 0x1407763C4 (PopPowerAggregatorIsAtTargetState.c)
- *     PopPowerAggregatorHandleSystemTransitionEndIntent @ 0x14077A620 (PopPowerAggregatorHandleSystemTransitionEndIntent.c)
- *     PopPowerAggregatorCachePoPolicy @ 0x14078E37C (PopPowerAggregatorCachePoPolicy.c)
- *     PopPowerAggregatorHandleActiveIntent @ 0x1408EE290 (PopPowerAggregatorHandleActiveIntent.c)
- *     PopPowerAggregatorHandleDirectedDripsIntent @ 0x1408EE2D0 (PopPowerAggregatorHandleDirectedDripsIntent.c)
- *     PopPowerAggregatorHandleModernStandbyIntent @ 0x1408EE360 (PopPowerAggregatorHandleModernStandbyIntent.c)
- *     PopPowerAggregatorHandleModernStandbyResumeIntent @ 0x1408EE420 (PopPowerAggregatorHandleModernStandbyResumeIntent.c)
- *     PopPowerAggregatorHandleModernStandbySuspendIntent @ 0x1408EE480 (PopPowerAggregatorHandleModernStandbySuspendIntent.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     PopPowerAggregatorHandleSystemTransitionStartIntent @ 0x140726640 (PopPowerAggregatorHandleSystemTransitionStartIntent.c)
+ *     PopPowerAggregatorRecordIntent @ 0x140776120 (PopPowerAggregatorRecordIntent.c)
+ *     PopPowerAggregatorScheduleWorker @ 0x140776550 (PopPowerAggregatorScheduleWorker.c)
+ *     PopPowerAggregatorIsAtTargetState @ 0x140776584 (PopPowerAggregatorIsAtTargetState.c)
+ *     PopPowerAggregatorHandleSystemTransitionEndIntent @ 0x14077A7E0 (PopPowerAggregatorHandleSystemTransitionEndIntent.c)
+ *     PopPowerAggregatorCachePoPolicy @ 0x14078E53C (PopPowerAggregatorCachePoPolicy.c)
+ *     PopPowerAggregatorHandleActiveIntent @ 0x1408EE3F0 (PopPowerAggregatorHandleActiveIntent.c)
+ *     PopPowerAggregatorHandleDirectedDripsIntent @ 0x1408EE430 (PopPowerAggregatorHandleDirectedDripsIntent.c)
+ *     PopPowerAggregatorHandleModernStandbyIntent @ 0x1408EE4C0 (PopPowerAggregatorHandleModernStandbyIntent.c)
+ *     PopPowerAggregatorHandleModernStandbyResumeIntent @ 0x1408EE580 (PopPowerAggregatorHandleModernStandbyResumeIntent.c)
+ *     PopPowerAggregatorHandleModernStandbySuspendIntent @ 0x1408EE5E0 (PopPowerAggregatorHandleModernStandbySuspendIntent.c)
  */
 
 __int64 __fastcall PopPowerAggregatorHandleIntentUnsafe(_QWORD *a1, unsigned int a2, unsigned int a3)
@@ -29,10 +29,10 @@ __int64 __fastcall PopPowerAggregatorHandleIntentUnsafe(_QWORD *a1, unsigned int
   __int128 v11; // [rsp+78h] [rbp+27h] BYREF
   __m256 v12; // [rsp+88h] [rbp+37h]
 
-  v11 = xmmword_140C21798;
+  v11 = xmmword_140C217F8;
   v5 = (int)a1;
   *(_QWORD *)v10.m256_f32 = ++PopPowerAggregatorContext;
-  v12 = ymmword_140C217A8;
+  v12 = ymmword_140C21808;
   LODWORD(v9) = 4;
   *((_QWORD *)&v9 + 1) = a3;
   DWORD1(v9) = (_DWORD)a1;
@@ -46,8 +46,8 @@ __int64 __fastcall PopPowerAggregatorHandleIntentUnsafe(_QWORD *a1, unsigned int
     v7 = v6(&PopPowerAggregatorContext, &v9, (unsigned int)v5);
     if ( v7 >= 0 )
     {
-      xmmword_140C21798 = v9;
-      ymmword_140C217A8 = v10;
+      xmmword_140C217F8 = v9;
+      ymmword_140C21808 = v10;
       if ( (unsigned __int8)PopPowerAggregatorIsAtTargetState() )
       {
         v7 = 0;

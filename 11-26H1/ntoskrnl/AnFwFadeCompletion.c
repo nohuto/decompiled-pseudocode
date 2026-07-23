@@ -1,57 +1,57 @@
 /*
- * XREFs of AnFwFadeCompletion @ 0x140C52980
+ * XREFs of AnFwFadeCompletion @ 0x140C58980
  * Callers:
- *     BgpConsoleDisplayCharacter @ 0x140C4FE00 (BgpConsoleDisplayCharacter.c)
- *     BgpConsoleDisplayString @ 0x140C501C0 (BgpConsoleDisplayString.c)
- *     BgpFwLibraryDisable @ 0x140C50AAC (BgpFwLibraryDisable.c)
- *     ResFwFreeContext @ 0x140C528B8 (ResFwFreeContext.c)
+ *     BgpConsoleDisplayCharacter @ 0x140C55E00 (BgpConsoleDisplayCharacter.c)
+ *     BgpConsoleDisplayString @ 0x140C561C0 (BgpConsoleDisplayString.c)
+ *     BgpFwLibraryDisable @ 0x140C56AAC (BgpFwLibraryDisable.c)
+ *     ResFwFreeContext @ 0x140C588B8 (ResFwFreeContext.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     BgpFwAcquireLock @ 0x1404E7E04 (BgpFwAcquireLock.c)
- *     BgpFwReleaseLock @ 0x1404E81BC (BgpFwReleaseLock.c)
- *     BgpFwQueryPerformanceCounter @ 0x1404F84EC (BgpFwQueryPerformanceCounter.c)
- *     BgpGxRectangleDestroy @ 0x140C53414 (BgpGxRectangleDestroy.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     BgpFwAcquireLock @ 0x1404E11C4 (BgpFwAcquireLock.c)
+ *     BgpFwReleaseLock @ 0x1404E157C (BgpFwReleaseLock.c)
+ *     BgpFwQueryPerformanceCounter @ 0x1404F1AFC (BgpFwQueryPerformanceCounter.c)
+ *     BgpGxRectangleDestroy @ 0x140C59414 (BgpGxRectangleDestroy.c)
  */
 
 void AnFwFadeCompletion()
 {
   if ( (*(_WORD *)&gLoadedDiffHivesLock.WaitBlockFill11[80] & 0xC00) != 0xC00 )
   {
-    WheapPfaLock.ThreadListEntry.Blink = (struct _LIST_ENTRY *)BgpFwQueryPerformanceCounter(0LL).QuadPart;
-    *(_QWORD *)&WheapPfaLock.PriorityFloorCounts[24] = *(_QWORD *)&BgpFwQueryPerformanceCounter(0LL) - qword_140E64FC8;
-    WheapPfaLock.SchedulerApc.SystemArgument1 = *(PVOID *)&WheapPfaLock.PriorityFloorCounts[24];
+    *(LARGE_INTEGER *)&WheapPfaLock.PriorityFloorSummary = BgpFwQueryPerformanceCounter(0LL);
+    WheapPfaLock.OtherTransferCount = *(_QWORD *)&BgpFwQueryPerformanceCounter(0LL) - qword_140E651C8;
+    WheapPfaLock.SchedulerSharedSystemSlot = (void *)WheapPfaLock.OtherTransferCount;
     BgpFwReleaseLock();
-    KeWaitForSingleObject(&stru_140E64F70, Executive, 0, 0, 0LL);
+    KeWaitForSingleObject(&stru_140E65170, Executive, 0, 0, 0LL);
     BgpFwAcquireLock();
-    if ( qword_140E0EF88 )
+    if ( qword_140E0F018 )
     {
-      BgpGxRectangleDestroy(qword_140E0EF88);
-      qword_140E0EF88 = 0LL;
+      BgpGxRectangleDestroy(qword_140E0F018);
+      qword_140E0F018 = 0LL;
     }
-    if ( qword_140E0EFB8 )
+    if ( qword_140E0F048 )
     {
-      BgpGxRectangleDestroy(qword_140E0EFB8);
-      qword_140E0EFB8 = 0LL;
+      BgpGxRectangleDestroy(qword_140E0F048);
+      qword_140E0F048 = 0LL;
     }
-    if ( qword_140E0EFC0 )
+    if ( qword_140E0F050 )
     {
-      BgpGxRectangleDestroy(qword_140E0EFC0);
-      qword_140E0EFC0 = 0LL;
+      BgpGxRectangleDestroy(qword_140E0F050);
+      qword_140E0F050 = 0LL;
     }
-    if ( qword_140E0EFC8 )
+    if ( qword_140E0F058 )
     {
-      BgpGxRectangleDestroy(qword_140E0EFC8);
-      qword_140E0EFC8 = 0LL;
+      BgpGxRectangleDestroy(qword_140E0F058);
+      qword_140E0F058 = 0LL;
     }
-    if ( qword_140E0EFF8 )
+    if ( qword_140E0F088 )
     {
-      BgpGxRectangleDestroy(qword_140E0EFF8);
-      qword_140E0EFF8 = 0LL;
+      BgpGxRectangleDestroy(qword_140E0F088);
+      qword_140E0F088 = 0LL;
     }
-    if ( qword_140E0F000 )
+    if ( qword_140E0F090 )
     {
-      BgpGxRectangleDestroy(qword_140E0F000);
-      qword_140E0F000 = 0LL;
+      BgpGxRectangleDestroy(qword_140E0F090);
+      qword_140E0F090 = 0LL;
     }
   }
 }

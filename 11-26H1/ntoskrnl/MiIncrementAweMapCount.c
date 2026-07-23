@@ -1,10 +1,10 @@
 /*
- * XREFs of MiIncrementAweMapCount @ 0x140701B48
+ * XREFs of MiIncrementAweMapCount @ 0x140706818
  * Callers:
- *     MiReferenceIncomingPhysicalPages @ 0x140702580 (MiReferenceIncomingPhysicalPages.c)
+ *     MiReferenceIncomingPhysicalPages @ 0x140707250 (MiReferenceIncomingPhysicalPages.c)
  * Callees:
- *     MiValidateAndLockAweMapCountPage @ 0x14048033C (MiValidateAndLockAweMapCountPage.c)
- *     MiResolveAwePageConflict @ 0x1407029E4 (MiResolveAwePageConflict.c)
+ *     MiValidateAndLockAweMapCountPage @ 0x140479C7C (MiValidateAndLockAweMapCountPage.c)
+ *     MiResolveAwePageConflict @ 0x1407076B4 (MiResolveAwePageConflict.c)
  */
 
 __int64 __fastcall MiIncrementAweMapCount(__int64 a1, unsigned __int64 a2, char a3, unsigned int a4, __int64 a5)
@@ -31,22 +31,22 @@ __int64 __fastcall MiIncrementAweMapCount(__int64 a1, unsigned __int64 a2, char 
         {
           *(_QWORD *)v15 = ((*(_QWORD *)v15 & 0xFFFFFFFFFFFE0000uLL) + 0x20000) ^ (*(_QWORD *)v15 ^ ((*(_QWORD *)v15 & 0xFFFFFFFFFFFE0000uLL) + 0x20000)) & 0xFFFFFF800001FFFFuLL;
           _InterlockedAnd(
-            (volatile signed __int32 *)(*(_QWORD *)&stru_140E2EB88.SystemCallNumber
+            (volatile signed __int32 *)(*(_QWORD *)&stru_140E2ED08.SystemCallNumber
                                       + 4
-                                      * ((((v14 - *(_QWORD *)((char *)&stru_140E2EB88.116 + 4)) >> 3) & 0x3FFFFFuLL) >> 5)),
-            ~(1 << ((v14 - *(_QWORD *)((char *)&stru_140E2EB88.116 + 4)) >> 3)));
+                                      * ((((v14 - *(_QWORD *)((char *)&stru_140E2ED08.116 + 4)) >> 3) & 0x3FFFFFuLL) >> 5)),
+            ~(1 << ((v14 - *(_QWORD *)((char *)&stru_140E2ED08.116 + 4)) >> 3)));
           return 0LL;
         }
-        v12 = ((__int64)(v15 - *(_QWORD *)((char *)&stru_140E2EB88.116 + 4)) >> 3) & 0x3FFFFF;
+        v12 = ((__int64)(v15 - *(_QWORD *)((char *)&stru_140E2ED08.116 + 4)) >> 3) & 0x3FFFFF;
         v13 = v12;
       }
       else
       {
-        v12 = ((__int64)(v15 - *(_QWORD *)((char *)&stru_140E2EB88.116 + 4)) >> 3) & 0x3FFFFF;
+        v12 = ((__int64)(v15 - *(_QWORD *)((char *)&stru_140E2ED08.116 + 4)) >> 3) & 0x3FFFFF;
         v13 = v12;
       }
       _InterlockedAnd(
-        (volatile signed __int32 *)(*(_QWORD *)&stru_140E2EB88.SystemCallNumber + 4 * (v12 >> 5)),
+        (volatile signed __int32 *)(*(_QWORD *)&stru_140E2ED08.SystemCallNumber + 4 * (v12 >> 5)),
         ~(1 << v13));
       return 3221225496LL;
     }

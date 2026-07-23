@@ -1,12 +1,12 @@
 /*
- * XREFs of PpmEventTraceProcessorPerformance @ 0x140B0E9B8
+ * XREFs of PpmEventTraceProcessorPerformance @ 0x140B101E8
  * Callers:
- *     PpmEventTraceControlCallback @ 0x1407DCAD0 (PpmEventTraceControlCallback.c)
+ *     PpmEventTraceControlCallback @ 0x1407E0E70 (PpmEventTraceControlCallback.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     PpmEventHiddenProcessorPerformance @ 0x1407DC9CC (PpmEventHiddenProcessorPerformance.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     PpmEventHiddenProcessorPerformance @ 0x1407E0D64 (PpmEventHiddenProcessorPerformance.c)
  */
 
 void __fastcall PpmEventTraceProcessorPerformance(__int64 a1)
@@ -87,10 +87,7 @@ void __fastcall PpmEventTraceProcessorPerformance(__int64 a1)
   __int64 v75; // [rsp+1E8h] [rbp+E8h]
 
   v1 = 0;
-  if ( PpmEtwRegistered
-    && EtwEventEnabled(
-         (REGHANDLE)PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink,
-         &PPM_ETW_CURRENT_PERF_RUNDOWN) )
+  if ( PpmEtwRegistered && EtwEventEnabled(PpmEtwHandle, &PPM_ETW_CURRENT_PERF_RUNDOWN) )
   {
     v3 = *(_QWORD *)(a1 + 35264);
     v4 = *(_DWORD **)(a1 + 35272);
@@ -193,12 +190,7 @@ void __fastcall PpmEventTraceProcessorPerformance(__int64 a1)
     v71 = 4LL;
     v73 = 4LL;
     v75 = 4LL;
-    EtwWrite(
-      (REGHANDLE)PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink,
-      &PPM_ETW_CURRENT_PERF_RUNDOWN,
-      0LL,
-      0x17u,
-      &UserData);
+    EtwWrite(PpmEtwHandle, &PPM_ETW_CURRENT_PERF_RUNDOWN, 0LL, 0x17u, &UserData);
     if ( v3 )
     {
       if ( *(_QWORD *)(v3 + 16) == a1 + 35264 && *(_DWORD *)(v3 + 296) )

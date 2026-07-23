@@ -1,10 +1,10 @@
 /*
- * XREFs of SeDeassignSecurity @ 0x1404D88A4
+ * XREFs of SeDeassignSecurity @ 0x1404BBEA8
  * Callers:
- *     SepDeleteAccessState @ 0x14000F6E0 (SepDeleteAccessState.c)
- *     CmpCreateHiveRootCell @ 0x140140F24 (CmpCreateHiveRootCell.c)
- *     CmpCreateChild @ 0x1403FE088 (CmpCreateChild.c)
- *     ObpAssignSecurity @ 0x14041FA10 (ObpAssignSecurity.c)
+ *     SepDeleteAccessState @ 0x14000F260 (SepDeleteAccessState.c)
+ *     CmpCreateHiveRootCell @ 0x140141494 (CmpCreateHiveRootCell.c)
+ *     CmpCreateChild @ 0x1403FCF48 (CmpCreateChild.c)
+ *     ObpAssignSecurity @ 0x14041E8D0 (ObpAssignSecurity.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  */

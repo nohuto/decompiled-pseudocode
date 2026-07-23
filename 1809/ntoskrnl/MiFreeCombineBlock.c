@@ -1,17 +1,17 @@
 /*
- * XREFs of MiFreeCombineBlock @ 0x14011FAA4
+ * XREFs of MiFreeCombineBlock @ 0x14011FB14
  * Callers:
- *     MiDemoteCombinedPte @ 0x14006C200 (MiDemoteCombinedPte.c)
- *     MiDecrementCombinedPte @ 0x14011F9F4 (MiDecrementCombinedPte.c)
- *     MiProcessCrcList @ 0x14061F320 (MiProcessCrcList.c)
+ *     MiDemoteCombinedPte @ 0x14006C1F0 (MiDemoteCombinedPte.c)
+ *     MiDecrementCombinedPte @ 0x14011FA64 (MiDecrementCombinedPte.c)
+ *     MiProcessCrcList @ 0x140620320 (MiProcessCrcList.c)
  * Callees:
  *     RtlAvlRemoveNode @ 0x140037250 (RtlAvlRemoveNode.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     ExQueueWorkItem @ 0x1400D1A00 (ExQueueWorkItem.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14007DE80 (KeAcquireInStackQueuedSpinLock.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC420 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC5A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     ExQueueWorkItem @ 0x1400D1A80 (ExQueueWorkItem.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiFreeCombineBlock(__int64 a1)

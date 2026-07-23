@@ -1,15 +1,15 @@
 /*
- * XREFs of MiMakeTransitionPteValid @ 0x1401F27C4
+ * XREFs of MiMakeTransitionPteValid @ 0x1401F25F0
  * Callers:
- *     MiIssueHardFault @ 0x140024930 (MiIssueHardFault.c)
- *     MiResolveTransitionFault @ 0x140035F90 (MiResolveTransitionFault.c)
- *     MiCompleteProtoPteFault @ 0x140039AF0 (MiCompleteProtoPteFault.c)
- *     MiFinishHardFault @ 0x14004D6A0 (MiFinishHardFault.c)
- *     MiResolveProtoCombine @ 0x1401FA48C (MiResolveProtoCombine.c)
+ *     MiIssueHardFault @ 0x1400244B0 (MiIssueHardFault.c)
+ *     MiResolveTransitionFault @ 0x140035B10 (MiResolveTransitionFault.c)
+ *     MiCompleteProtoPteFault @ 0x140039670 (MiCompleteProtoPteFault.c)
+ *     MiFinishHardFault @ 0x14004D220 (MiFinishHardFault.c)
+ *     MiResolveProtoCombine @ 0x1401FA2B8 (MiResolveProtoCombine.c)
  * Callees:
- *     MI_SHOULD_PTE_BE_GLOBAL @ 0x140036D30 (MI_SHOULD_PTE_BE_GLOBAL.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiReverseSwizzleInvalidPte @ 0x1401F2934 (MiReverseSwizzleInvalidPte.c)
+ *     MI_SHOULD_PTE_BE_GLOBAL @ 0x1400368B0 (MI_SHOULD_PTE_BE_GLOBAL.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
+ *     MiReverseSwizzleInvalidPte @ 0x1401F2760 (MiReverseSwizzleInvalidPte.c)
  */
 
 __int64 __fastcall MiMakeTransitionPteValid(unsigned __int64 a1)

@@ -1,12 +1,12 @@
 /*
- * XREFs of PspSetMinimalProcessName @ 0x14077A124
+ * XREFs of PspSetMinimalProcessName @ 0x14077A224
  * Callers:
- *     PsCreateMinimalProcess @ 0x1407797C4 (PsCreateMinimalProcess.c)
+ *     PsCreateMinimalProcess @ 0x1407798C4 (PsCreateMinimalProcess.c)
  * Callees:
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     PspSetProcessShortName @ 0x140A348C4 (PspSetProcessShortName.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     PspSetProcessShortName @ 0x140A288D4 (PspSetProcessShortName.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PspSetMinimalProcessName(__int64 a1, const void **a2)
@@ -15,7 +15,7 @@ __int64 __fastcall PspSetMinimalProcessName(__int64 a1, const void **a2)
   __int64 v5; // rdi
   void *v7; // rcx
 
-  Pool2 = ExAllocatePool2(0x40uLL);
+  Pool2 = ExAllocatePool2(0x40uLL, *(unsigned __int16 *)a2 + 16LL, 0x6E497350u);
   v5 = Pool2;
   if ( !Pool2 )
     return 3221225495LL;

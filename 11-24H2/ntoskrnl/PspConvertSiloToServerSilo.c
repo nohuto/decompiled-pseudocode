@@ -1,20 +1,20 @@
 /*
- * XREFs of PspConvertSiloToServerSilo @ 0x140772754
+ * XREFs of PspConvertSiloToServerSilo @ 0x140772974
  * Callers:
- *     NtSetInformationJobObject @ 0x140ACE760 (NtSetInformationJobObject.c)
+ *     NtSetInformationJobObject @ 0x140ACC7F0 (NtSetInformationJobObject.c)
  * Callees:
- *     PsIsServerSilo @ 0x140349B68 (PsIsServerSilo.c)
- *     PsIsCurrentThreadInServerSilo @ 0x14042F240 (PsIsCurrentThreadInServerSilo.c)
- *     PspJobHasChildren @ 0x1406FBA54 (PspJobHasChildren.c)
- *     PspDeleteServerSiloGlobals @ 0x1407729F4 (PspDeleteServerSiloGlobals.c)
- *     PspQueueDeferredWorkAndWait @ 0x140772EE8 (PspQueueDeferredWorkAndWait.c)
- *     EtwTraceJobServerSiloStateChange @ 0x1407A95D8 (EtwTraceJobServerSiloStateChange.c)
- *     ObGetSiloRootDirectoryPath @ 0x14082AF14 (ObGetSiloRootDirectoryPath.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x14084B7E0 (ObpReferenceObjectByHandleWithTag.c)
- *     PspLockJobExclusive @ 0x1408EB430 (PspLockJobExclusive.c)
- *     PspUnlockJob @ 0x1408ED360 (PspUnlockJob.c)
- *     PsGetParentSilo @ 0x140A59700 (PsGetParentSilo.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     PsIsServerSilo @ 0x1403C35A8 (PsIsServerSilo.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x140421410 (PsIsCurrentThreadInServerSilo.c)
+ *     PspJobHasChildren @ 0x1406F9694 (PspJobHasChildren.c)
+ *     PspDeleteServerSiloGlobals @ 0x140772C14 (PspDeleteServerSiloGlobals.c)
+ *     PspQueueDeferredWorkAndWait @ 0x140773108 (PspQueueDeferredWorkAndWait.c)
+ *     EtwTraceJobServerSiloStateChange @ 0x1407A9718 (EtwTraceJobServerSiloStateChange.c)
+ *     ObGetSiloRootDirectoryPath @ 0x14082B744 (ObGetSiloRootDirectoryPath.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x140847AA0 (ObpReferenceObjectByHandleWithTag.c)
+ *     PspLockJobExclusive @ 0x14085CC60 (PspLockJobExclusive.c)
+ *     PspUnlockJob @ 0x14085EB90 (PspUnlockJob.c)
+ *     PsGetParentSilo @ 0x140A50EA0 (PsGetParentSilo.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall PspConvertSiloToServerSilo(__int64 a1, __int64 a2, ULONG_PTR a3, int a4)
@@ -29,7 +29,7 @@ __int64 __fastcall PspConvertSiloToServerSilo(__int64 a1, __int64 a2, ULONG_PTR 
   v7 = 0;
   if ( PsIsCurrentThreadInServerSilo() )
     return 3221225569LL;
-  Pool2 = (char *)ExAllocatePool2(0x48uLL);
+  Pool2 = (char *)ExAllocatePool2(0x48uLL, 0x598uLL, 0x476C6953u);
   v10 = Pool2;
   if ( !Pool2 )
     return 3221225626LL;

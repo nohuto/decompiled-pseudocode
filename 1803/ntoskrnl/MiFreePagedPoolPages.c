@@ -34,7 +34,7 @@ PSLIST_ENTRY __fastcall MiFreePagedPoolPages(ULONG_PTR BugCheckParameter2, unsig
   unsigned __int64 *v11; // r12
   unsigned __int64 v12; // r14
   unsigned __int64 v13; // rdx
-  union _SLIST_HEADER *v14; // rcx
+  _SLIST_HEADER *v14; // rcx
   unsigned __int64 v15; // r11
   unsigned __int64 v16; // r9
   unsigned __int64 v17; // r8
@@ -89,7 +89,7 @@ PSLIST_ENTRY __fastcall MiFreePagedPoolPages(ULONG_PTR BugCheckParameter2, unsig
   unsigned __int64 v66; // rcx
   _QWORD *v67; // rdi
   __int64 i; // rax
-  struct _SLIST_ENTRY *v69; // rdx
+  _SLIST_ENTRY *v69; // rdx
   unsigned __int64 v70; // rcx
   unsigned __int64 v71; // [rsp+30h] [rbp-29h]
   int v72; // [rsp+38h] [rbp-21h] BYREF
@@ -189,7 +189,7 @@ LABEL_9:
     v14 = &qword_1403CB6A8[25 * KeGetCurrentPrcb()->ParentNode->Affinity.Reserved[0]];
     if ( LOWORD(v14->Alignment) < (unsigned int)dword_1403CB190 )
     {
-      v69 = (struct _SLIST_ENTRY *)BugCheckParameter2a;
+      v69 = (_SLIST_ENTRY *)BugCheckParameter2a;
       *(_QWORD *)BugCheckParameter2a = BugCheckParameter2a ^ qword_1403CC500;
       return RtlpInterlockedPushEntrySList(v14, v69 + 1);
     }
@@ -378,7 +378,7 @@ LABEL_99:
     {
       v54->CrossThreadReleasableAndBusyByte |= 2u;
       if ( (__int64)v54->LockState.LockState < 0 )
-        KiAbEntryRemoveFromTree(&v47->LockEntries[v53]);
+        KiAbEntryRemoveFromTree(&v47->LockEntries[v53].TreeNode);
       v72 = 0;
       v72 = v54->BoostBitmap.AllFields & 0x1FFFF;
       v54->BoostBitmap.AllFields &= 0xFFFE0000;
@@ -462,7 +462,7 @@ LABEL_92:
     {
       v38->CrossThreadReleasableAndBusyByte |= 2u;
       if ( (__int64)v38->LockState.LockState < 0 )
-        KiAbEntryRemoveFromTree(&v31->LockEntries[v37]);
+        KiAbEntryRemoveFromTree(&v31->LockEntries[v37].TreeNode);
       v73 = 0;
       v73 = v38->BoostBitmap.AllFields & 0x1FFFF;
       v38->BoostBitmap.AllFields &= 0xFFFE0000;

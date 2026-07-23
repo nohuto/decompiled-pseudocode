@@ -1,10 +1,10 @@
 /*
- * XREFs of WheapAttemptPhysicalPageOfflineWorker @ 0x140A08380
+ * XREFs of WheapAttemptPhysicalPageOfflineWorker @ 0x140A08630
  * Callers:
  *     <none>
  * Callees:
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
- *     WheapAttemptPhysicalPageOffline @ 0x140A0819C (WheapAttemptPhysicalPageOffline.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
+ *     WheapAttemptPhysicalPageOffline @ 0x140A0844C (WheapAttemptPhysicalPageOffline.c)
  */
 
 LONG __fastcall WheapAttemptPhysicalPageOfflineWorker(__int64 a1)

@@ -1,15 +1,15 @@
 /*
- * XREFs of PopCaptureReasonContext @ 0x1402838E0
+ * XREFs of PopCaptureReasonContext @ 0x140271AF0
  * Callers:
- *     PoCaptureReasonContext @ 0x14028363C (PoCaptureReasonContext.c)
+ *     PoCaptureReasonContext @ 0x14027184C (PoCaptureReasonContext.c)
  * Callees:
- *     PopSafeCopyUnicodeString @ 0x140283BB8 (PopSafeCopyUnicodeString.c)
- *     ExAllocatePoolWithQuotaTag @ 0x140353020 (ExAllocatePoolWithQuotaTag.c)
+ *     PopSafeCopyUnicodeString @ 0x140271DC8 (PopSafeCopyUnicodeString.c)
+ *     ExAllocatePoolWithQuotaTag @ 0x14035DD70 (ExAllocatePoolWithQuotaTag.c)
  *     Feature_3401902395__private_IsEnabledDeviceUsage @ 0x1403F7E54 (Feature_3401902395__private_IsEnabledDeviceUsage.c)
- *     memset @ 0x140414200 (memset.c)
- *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BFB0 (ExRaiseDatatypeMisalignment.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PopCaptureReasonContext(__int64 a1, char a2, bool *a3, _QWORD *a4)

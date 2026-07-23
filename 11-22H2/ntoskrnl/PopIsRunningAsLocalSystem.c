@@ -7,11 +7,11 @@
  *     RtlCheckTokenMembership @ 0x14036FA40 (RtlCheckTokenMembership.c)
  */
 
-char PopIsRunningAsLocalSystem()
+BOOLEAN PopIsRunningAsLocalSystem()
 {
-  char v1; // [rsp+30h] [rbp+8h] BYREF
+  BOOLEAN IsMember; // [rsp+30h] [rbp+8h] BYREF
 
-  v1 = 0;
-  RtlCheckTokenMembership(0LL, SeLocalSystemSid, &v1);
-  return v1;
+  IsMember = 0;
+  RtlCheckTokenMembership(0LL, SeLocalSystemSid, &IsMember);
+  return IsMember;
 }

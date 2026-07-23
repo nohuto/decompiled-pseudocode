@@ -56,7 +56,7 @@ __int64 __fastcall MiCommitPoolMemory(_QWORD *a1)
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
   LODWORD(v4) = 4;
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 2 )
@@ -83,7 +83,7 @@ __int64 __fastcall MiCommitPoolMemory(_QWORD *a1)
       MiUnlockPoolCommitWs(a1);
       v23 = KeGetCurrentIrql();
       __writecr8(2uLL);
-      if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v23 <= 0xFu )
+      if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v23 <= 0xFu )
       {
         v27 = KeGetCurrentPrcb()->SchedulerAssist;
         if ( v23 == 2 )
@@ -118,7 +118,7 @@ __int64 __fastcall MiCommitPoolMemory(_QWORD *a1)
       {
         *((_WORD *)a1 + 39) |= 1u;
         __writecr8(2uLL);
-        if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v21 <= 0xFu )
+        if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v21 <= 0xFu )
         {
           v29 = KeGetCurrentPrcb()->SchedulerAssist;
           if ( v21 != 2 )
@@ -131,7 +131,7 @@ __int64 __fastcall MiCommitPoolMemory(_QWORD *a1)
         break;
       }
       __writecr8(2uLL);
-      if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v21 <= 0xFu )
+      if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v21 <= 0xFu )
       {
         v25 = KeGetCurrentPrcb()->SchedulerAssist;
         if ( v21 == 2 )

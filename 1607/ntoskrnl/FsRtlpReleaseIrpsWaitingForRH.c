@@ -1,15 +1,15 @@
 /*
- * XREFs of FsRtlpReleaseIrpsWaitingForRH @ 0x1400A258C
+ * XREFs of FsRtlpReleaseIrpsWaitingForRH @ 0x1400A0EB4
  * Callers:
- *     FsRtlpOplockBreakByCacheFlags @ 0x1400785F4 (FsRtlpOplockBreakByCacheFlags.c)
- *     FsRtlCheckOplockEx @ 0x14007A080 (FsRtlCheckOplockEx.c)
- *     FsRtlpOplockCleanup @ 0x14007AA74 (FsRtlpOplockCleanup.c)
- *     FsRtlpCancelOplockRHIrp @ 0x1400A2450 (FsRtlpCancelOplockRHIrp.c)
- *     FsRtlpAcknowledgeOplockBreakByCacheFlags @ 0x1401343CC (FsRtlpAcknowledgeOplockBreakByCacheFlags.c)
- *     FsRtlpOplockFsctrlInternal @ 0x14046A818 (FsRtlpOplockFsctrlInternal.c)
+ *     FsRtlpOplockBreakByCacheFlags @ 0x140078674 (FsRtlpOplockBreakByCacheFlags.c)
+ *     FsRtlCheckOplockEx @ 0x14007A100 (FsRtlCheckOplockEx.c)
+ *     FsRtlpOplockCleanup @ 0x14007AAF4 (FsRtlpOplockCleanup.c)
+ *     FsRtlpCancelOplockRHIrp @ 0x1400A0D78 (FsRtlpCancelOplockRHIrp.c)
+ *     FsRtlpAcknowledgeOplockBreakByCacheFlags @ 0x14013493C (FsRtlpAcknowledgeOplockBreakByCacheFlags.c)
+ *     FsRtlpOplockFsctrlInternal @ 0x1404696E8 (FsRtlpOplockFsctrlInternal.c)
  * Callees:
- *     FsRtlpOplockKeysEqual @ 0x14007B1D8 (FsRtlpOplockKeysEqual.c)
- *     FsRtlpRemoveAndCompleteWaitingIrp @ 0x1400A26C4 (FsRtlpRemoveAndCompleteWaitingIrp.c)
+ *     FsRtlpOplockKeysEqual @ 0x14007B258 (FsRtlpOplockKeysEqual.c)
+ *     FsRtlpRemoveAndCompleteWaitingIrp @ 0x1400A0FEC (FsRtlpRemoveAndCompleteWaitingIrp.c)
  */
 
 void __fastcall FsRtlpReleaseIrpsWaitingForRH(__int64 a1)

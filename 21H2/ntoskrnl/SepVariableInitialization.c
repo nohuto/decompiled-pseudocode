@@ -1,16 +1,16 @@
 /*
- * XREFs of SepVariableInitialization @ 0x140A48B6C
+ * XREFs of SepVariableInitialization @ 0x140A49B6C
  * Callers:
- *     SepInitializationPhase0 @ 0x140A47920 (SepInitializationPhase0.c)
+ *     SepInitializationPhase0 @ 0x140A48920 (SepInitializationPhase0.c)
  * Callees:
- *     RtlDeriveCapabilitySidsFromName @ 0x1402ED600 (RtlDeriveCapabilitySidsFromName.c)
- *     memset @ 0x140414200 (memset.c)
- *     RtlLengthRequiredSid @ 0x1405DC260 (RtlLengthRequiredSid.c)
- *     RtlInitializeSid @ 0x1406E52A0 (RtlInitializeSid.c)
- *     SepInitializeSharedSidMap @ 0x14079DEDC (SepInitializeSharedSidMap.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
- *     ExAllocatePool2 @ 0x1409B41B0 (ExAllocatePool2.c)
- *     SepInitSystemDacls @ 0x140A4A880 (SepInitSystemDacls.c)
+ *     RtlDeriveCapabilitySidsFromName @ 0x14029E950 (RtlDeriveCapabilitySidsFromName.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     RtlInitializeSid @ 0x1406BC580 (RtlInitializeSid.c)
+ *     RtlLengthRequiredSid @ 0x1406CB9E0 (RtlLengthRequiredSid.c)
+ *     SepInitializeSharedSidMap @ 0x14079E0DC (SepInitializeSharedSidMap.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
+ *     ExAllocatePool2 @ 0x1409B51B0 (ExAllocatePool2.c)
+ *     SepInitSystemDacls @ 0x140A4B880 (SepInitSystemDacls.c)
  */
 
 bool SepVariableInitialization()
@@ -36,10 +36,10 @@ bool SepVariableInitialization()
   __int64 v18; // rdx
   __int64 v19; // rcx
   __int64 v20; // rax
-  _OWORD *v21; // rdx
+  PSID v21; // rdx
   _DWORD *v22; // rax
   _DWORD *v23; // rbx
-  __int64 v24; // rax
+  _DWORD *v24; // rax
   __int64 v25; // rax
   __int64 v26; // rax
   __int64 v27; // rax
@@ -47,8 +47,8 @@ bool SepVariableInitialization()
   __int64 v29; // rax
   __int64 v30; // rax
   _DWORD *v31; // rax
-  _OWORD *v32; // r8
-  _OWORD *v33; // rdx
+  PSID v32; // r8
+  PSID v33; // rdx
   __int64 v34; // rdx
   char *v35; // rcx
   _DWORD *v37; // [rsp+20h] [rbp-E0h]
@@ -80,7 +80,7 @@ bool SepVariableInitialization()
   UNICODE_STRING v63; // [rsp+E8h] [rbp-18h] BYREF
   UNICODE_STRING v64; // [rsp+F8h] [rbp-8h] BYREF
   UNICODE_STRING v65; // [rsp+108h] [rbp+8h] BYREF
-  UNICODE_STRING SourceString; // [rsp+118h] [rbp+18h] BYREF
+  UNICODE_STRING UnicodeString; // [rsp+118h] [rbp+18h] BYREF
   UNICODE_STRING v67; // [rsp+128h] [rbp+28h] BYREF
   UNICODE_STRING v68; // [rsp+138h] [rbp+38h] BYREF
   UNICODE_STRING v69; // [rsp+148h] [rbp+48h] BYREF
@@ -101,7 +101,7 @@ bool SepVariableInitialization()
   PSID v84; // [rsp+230h] [rbp+130h]
   PSID v85; // [rsp+238h] [rbp+138h]
   PSID v86; // [rsp+240h] [rbp+140h]
-  PSID v87; // [rsp+248h] [rbp+148h]
+  PSID CapabilityGroupSid; // [rsp+248h] [rbp+148h]
   PSID v88; // [rsp+250h] [rbp+150h]
   PSID v89; // [rsp+258h] [rbp+158h]
   PSID v90; // [rsp+260h] [rbp+160h]
@@ -115,8 +115,8 @@ bool SepVariableInitialization()
   ULONG v98; // [rsp+2E8h] [rbp+1E8h]
   _DWORD *v99; // [rsp+2E8h] [rbp+1E8h]
 
-  *(_QWORD *)&SourceString.Length = 2359330LL;
-  SourceString.Buffer = L"lpacAppExperience";
+  *(_QWORD *)&UnicodeString.Length = 2359330LL;
+  UnicodeString.Buffer = L"lpacAppExperience";
   v67.Buffer = L"lpacCom";
   v68.Buffer = L"lpacCryptoServices";
   v69.Buffer = L"lpacIdentityServices";
@@ -239,7 +239,7 @@ bool SepVariableInitialization()
   SeServiceSid = ExAllocatePoolWithTag((POOL_TYPE)17, v2, 0x69536553u);
   SeLocalSystemSid = ExAllocatePoolWithTag((POOL_TYPE)528, v2, 0x69536553u);
   SeAuthenticatedUsersSid = (__int64)ExAllocatePoolWithTag((POOL_TYPE)17, v2, 0x69536553u);
-  SeRestrictedSid = ExAllocatePoolWithTag((POOL_TYPE)17, v2, 0x69536553u);
+  *(_QWORD *)&SeRestrictedSid = ExAllocatePoolWithTag((POOL_TYPE)17, v2, 0x69536553u);
   SeAnonymousLogonSid = ExAllocatePoolWithTag((POOL_TYPE)17, v2, 0x69536553u);
   SeLocalServiceSid = ExAllocatePoolWithTag((POOL_TYPE)17, v2, 0x69536553u);
   SeNetworkServiceSid = ExAllocatePoolWithTag((POOL_TYPE)17, v2, 0x69536553u);
@@ -281,7 +281,7 @@ bool SepVariableInitialization()
   SeLpacDeviceAccessCapabilitySid = ExAllocatePool2(288LL, v96, 0x69536553u);
   SeUserModeDriversSid = ExAllocatePoolWithTag((POOL_TYPE)528, Size, 0x69536553u);
   SeTrustedInstallerSid = ExAllocatePoolWithTag((POOL_TYPE)528, Size, 0x69536553u);
-  SeProcTrustWinTcbSid = (__int64)ExAllocatePoolWithTag((POOL_TYPE)528, NumberOfBytes, 0x69536553u);
+  SeProcTrustWinTcbSid = ExAllocatePoolWithTag((POOL_TYPE)528, NumberOfBytes, 0x69536553u);
   SeProcTrustWinSid = (__int64)ExAllocatePoolWithTag((POOL_TYPE)528, NumberOfBytes, 0x69536553u);
   SeProcTrustAuthenticodeSid = (__int64)ExAllocatePoolWithTag((POOL_TYPE)528, NumberOfBytes, 0x69536553u);
   SeProcTrustLiteAntimalwareSid = (__int64)ExAllocatePoolWithTag((POOL_TYPE)528, NumberOfBytes, 0x69536553u);
@@ -320,8 +320,8 @@ bool SepVariableInitialization()
   v53 = (PSID)SeAuthenticatedUsersSid;
   if ( !SeAuthenticatedUsersSid )
     return 0;
-  v52 = SeRestrictedSid;
-  if ( !SeRestrictedSid )
+  v52 = *(PSID *)&SeRestrictedSid;
+  if ( !*(_QWORD *)&SeRestrictedSid )
     return 0;
   v51 = SeAnonymousLogonSid;
   if ( !SeAnonymousLogonSid )
@@ -425,7 +425,7 @@ bool SepVariableInitialization()
   v16 = SeUserModeDriversSid;
   if ( !SeUserModeDriversSid )
     return 0;
-  v86 = (PSID)SeProcTrustWinTcbSid;
+  v86 = SeProcTrustWinTcbSid;
   if ( !SeProcTrustWinTcbSid )
     return 0;
   v88 = (PSID)SeProcTrustWinSid;
@@ -456,7 +456,7 @@ bool SepVariableInitialization()
     return 0;
   if ( !SeConstrainedImpersonationCapabilitySid )
     return 0;
-  v87 = SeConstrainedImpersonationCapabilityGroupSid;
+  CapabilityGroupSid = SeConstrainedImpersonationCapabilityGroupSid;
   if ( !SeConstrainedImpersonationCapabilityGroupSid )
     return 0;
   if ( !SeSessionImpersonationCapabilitySid )
@@ -532,7 +532,7 @@ bool SepVariableInitialization()
   v13[2] = 32;
   *(_DWORD *)(v17 + 12) = 544;
   *(_DWORD *)(v18 + 12) = 545;
-  v21 = v87;
+  v21 = CapabilityGroupSid;
   *(_DWORD *)(v19 + 12) = 546;
   *(_DWORD *)(v20 + 12) = 547;
   v22 = v57;
@@ -551,7 +551,7 @@ bool SepVariableInitialization()
   v14[3] = 1;
   v15[2] = 2;
   v15[3] = 2;
-  if ( RtlDeriveCapabilitySidsFromName(&SourceString, v21, SeLpacAppExperienceCapabilitySid) < 0 )
+  if ( RtlDeriveCapabilitySidsFromName(&UnicodeString, v21, SeLpacAppExperienceCapabilitySid) < 0 )
     return 0;
   if ( RtlDeriveCapabilitySidsFromName(&v67, SeConstrainedImpersonationCapabilityGroupSid, SeLpacComCapabilitySid) < 0 )
     return 0;
@@ -621,8 +621,8 @@ bool SepVariableInitialization()
   *((_DWORD *)SeUserModeDriversSid + 2) = 84;
   *(_QWORD *)(SeProcTrustNoneSid + 8) = 0LL;
   v24 = SeProcTrustWinTcbSid;
-  *(_DWORD *)(SeProcTrustWinTcbSid + 8) = 1024;
-  *(_DWORD *)(v24 + 12) = 0x2000;
+  *((_DWORD *)SeProcTrustWinTcbSid + 2) = 1024;
+  v24[3] = 0x2000;
   v25 = SeProcTrustWinSid;
   *(_DWORD *)(SeProcTrustWinSid + 8) = 1024;
   *(_DWORD *)(v25 + 12) = 4096;
@@ -718,7 +718,7 @@ bool SepVariableInitialization()
   qword_140D2ED60 = SeInteractiveSid;
   qword_140D2ED68 = (__int64)SeLocalSystemSid;
   qword_140D2EDB0 = SeAuthenticatedUsersSid;
-  qword_140D2EDB8 = (__int64)SeRestrictedSid;
+  qword_140D2EDB8 = *(_QWORD *)&SeRestrictedSid;
   qword_140D2EDC0 = (__int64)SeAnonymousLogonSid;
   qword_140D2EDE0 = (__int64)SeLocalServiceSid;
   qword_140D2EDE8 = (__int64)SeNetworkServiceSid;
@@ -747,7 +747,7 @@ bool SepVariableInitialization()
   qword_140D2EE58 = SeSystemMandatorySid;
   qword_140D2EE68 = (__int64)SeAllAppPackagesSid;
   qword_140D2EE70 = (__int64)SeUserModeDriversSid;
-  qword_140D2EE78 = SeProcTrustWinTcbSid;
+  qword_140D2EE78 = (__int64)SeProcTrustWinTcbSid;
   qword_140D2EE80 = (__int64)SeTrustedInstallerSid;
   SepExports = 2LL;
   qword_140D2EC68 = 3LL;
@@ -775,7 +775,7 @@ bool SepVariableInitialization()
   qword_140D2EE20 = 34LL;
   v34 = 5LL;
   qword_140D2EE28 = 35LL;
-  v35 = (char *)&unk_140C25ED8;
+  v35 = (char *)&unk_140C25EF8;
   qword_140D2ED08 = 23LL;
   qword_140D2ED10 = 24LL;
   qword_140D2EDC8 = 25LL;

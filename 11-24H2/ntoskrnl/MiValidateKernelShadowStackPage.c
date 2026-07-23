@@ -1,13 +1,13 @@
 /*
- * XREFs of MiValidateKernelShadowStackPage @ 0x14026C2A8
+ * XREFs of MiValidateKernelShadowStackPage @ 0x140221838
  * Callers:
- *     MiDeleteShadowStackPtes @ 0x140269284 (MiDeleteShadowStackPtes.c)
- *     MiUpdateKernelShadowStackOwnerData @ 0x140269D0C (MiUpdateKernelShadowStackOwnerData.c)
- *     MmCreateKernelStack @ 0x14026B230 (MmCreateKernelStack.c)
- *     MiAddKernelStackToPrcbCache @ 0x14026BC20 (MiAddKernelStackToPrcbCache.c)
- *     MiKernelShadowStackIdealForCaching @ 0x140477930 (MiKernelShadowStackIdealForCaching.c)
+ *     MiDeleteShadowStackPtes @ 0x14021EA48 (MiDeleteShadowStackPtes.c)
+ *     MiUpdateKernelShadowStackOwnerData @ 0x14021F29C (MiUpdateKernelShadowStackOwnerData.c)
+ *     MmCreateKernelStack @ 0x1402207C0 (MmCreateKernelStack.c)
+ *     MiAddKernelStackToPrcbCache @ 0x1402211B0 (MiAddKernelStackToPrcbCache.c)
+ *     MiKernelShadowStackIdealForCaching @ 0x140473F28 (MiKernelShadowStackIdealForCaching.c)
  * Callees:
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiValidateKernelShadowStackPage(ULONG_PTR BugCheckParameter2, __int64 a2)

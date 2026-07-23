@@ -1,8 +1,8 @@
 /*
- * XREFs of HalpCallEfiGetTime @ 0x14054CA34
+ * XREFs of HalpCallEfiGetTime @ 0x14054A2F4
  * Callers:
- *     HalEfiGetTime @ 0x14054C53C (HalEfiGetTime.c)
- *     HalEfiSetTime @ 0x14054C754 (HalEfiSetTime.c)
+ *     HalEfiGetTime @ 0x140549DFC (HalEfiGetTime.c)
+ *     HalEfiSetTime @ 0x14054A014 (HalEfiSetTime.c)
  * Callees:
  *     <none>
  */

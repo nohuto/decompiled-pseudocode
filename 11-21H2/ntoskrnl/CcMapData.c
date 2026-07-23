@@ -3,10 +3,10 @@
  * Callers:
  *     <none>
  * Callees:
- *     CcUnpinFileDataEx @ 0x14028A370 (CcUnpinFileDataEx.c)
- *     CcGetVirtualAddress @ 0x140328180 (CcGetVirtualAddress.c)
- *     CcMapAndRead @ 0x140328510 (CcMapAndRead.c)
- *     CcPinFileData @ 0x14032AD00 (CcPinFileData.c)
+ *     sub_14028A370 @ 0x14028A370 (sub_14028A370.c)
+ *     sub_140328180 @ 0x140328180 (sub_140328180.c)
+ *     sub_140328510 @ 0x140328510 (sub_140328510.c)
+ *     sub_14032AD00 @ 0x14032AD00 (sub_14032AD00.c)
  */
 
 BOOLEAN __stdcall CcMapData(
@@ -36,11 +36,11 @@ BOOLEAN __stdcall CcMapData(
   else
     v10 = 33868;
   __incgsdword(v10);
-  KeGetCurrentThread()[1].Timer.DueTime.HighPart = 0;
+  *((_DWORD *)KeGetCurrentThread() + 359) = 0;
   if ( v9 )
   {
     v11 = (__int64 *)Buffer;
-    *Buffer = (PVOID)CcGetVirtualAddress(
+    *Buffer = (PVOID)sub_140328180(
                        (__int64)FileObject->SectionObjectPointer->SharedCacheMap,
                        FileOffset->QuadPart,
                        &v15,
@@ -51,7 +51,7 @@ BOOLEAN __stdcall CcMapData(
   else
   {
     v11 = (__int64 *)Buffer;
-    result = CcPinFileData(
+    result = sub_14032AD00(
                (__int64)FileObject,
                (__int64 *)FileOffset,
                Length,
@@ -72,14 +72,14 @@ BOOLEAN __stdcall CcMapData(
     v12 = Flags & 0x100;
     if ( v12 )
     {
-      v8 = BYTE5(KeGetCurrentThread()[1].Queue) + 2;
-      BYTE5(KeGetCurrentThread()[1].Queue) = 1;
+      v8 = *((_BYTE *)KeGetCurrentThread() + 1389) + 2;
+      *((_BYTE *)KeGetCurrentThread() + 1389) = 1;
     }
-    CcMapAndRead(Length, 0, 1, *v11);
+    sub_140328510(Length, 0, 1, *v11);
     if ( v12 )
-      BYTE5(KeGetCurrentThread()[1].Queue) = v8 - 2;
+      *((_BYTE *)KeGetCurrentThread() + 1389) = v8 - 2;
   }
-  __addgsdword(0x8490u, KeGetCurrentThread()[1].Timer.DueTime.HighPart);
+  __addgsdword(0x8490u, *((_DWORD *)KeGetCurrentThread() + 359));
   *Bcb = (char *)v15 + 1;
   return 1;
 }

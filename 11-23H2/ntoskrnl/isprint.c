@@ -1,7 +1,7 @@
 /*
- * XREFs of isprint @ 0x1403DA0B0
+ * XREFs of isprint @ 0x1403DA290
  * Callers:
- *     SmSanitizeString @ 0x1405CA73C (SmSanitizeString.c)
+ *     SmSanitizeString @ 0x1405CACAC (SmSanitizeString.c)
  * Callees:
  *     <none>
  */

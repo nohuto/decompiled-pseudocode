@@ -1,9 +1,9 @@
 /*
- * XREFs of PopCheckPowerSourceAfterRtcWakeInitialize @ 0x1403C9D70
+ * XREFs of PopCheckPowerSourceAfterRtcWakeInitialize @ 0x1403C9F10
  * Callers:
- *     PoInitSystem @ 0x140A3F948 (PoInitSystem.c)
+ *     PoInitSystem @ 0x140A40948 (PoInitSystem.c)
  * Callees:
- *     PopInitializeTimer @ 0x1407C870C (PopInitializeTimer.c)
+ *     PopInitializeTimer @ 0x1407C8A2C (PopInitializeTimer.c)
  */
 
 __int64 PopCheckPowerSourceAfterRtcWakeInitialize()

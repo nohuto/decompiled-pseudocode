@@ -1,21 +1,21 @@
 /*
- * XREFs of _PnpGetObjectPropertyWorker @ 0x14099C0F0
+ * XREFs of _PnpGetObjectPropertyWorker @ 0x14095CB50
  * Callers:
- *     PiCMHandleIoctl @ 0x140997F20 (PiCMHandleIoctl.c)
- *     PiPnpRtlApplyMandatoryDeviceInterfaceFilters @ 0x14099AF14 (PiPnpRtlApplyMandatoryDeviceInterfaceFilters.c)
- *     PiPnpRtlApplyMandatoryFilters @ 0x14099B1B0 (PiPnpRtlApplyMandatoryFilters.c)
- *     PiDqPnPGetObjectPropertyInBestLocale @ 0x14099C628 (PiDqPnPGetObjectPropertyInBestLocale.c)
- *     PiPnpRtlInterfaceFilterCallback @ 0x14099D360 (PiPnpRtlInterfaceFilterCallback.c)
+ *     PiCMHandleIoctl @ 0x140958980 (PiCMHandleIoctl.c)
+ *     PiPnpRtlApplyMandatoryDeviceInterfaceFilters @ 0x14095B974 (PiPnpRtlApplyMandatoryDeviceInterfaceFilters.c)
+ *     PiPnpRtlApplyMandatoryFilters @ 0x14095BC10 (PiPnpRtlApplyMandatoryFilters.c)
+ *     PiDqPnPGetObjectPropertyInBestLocale @ 0x14095D088 (PiDqPnPGetObjectPropertyInBestLocale.c)
+ *     PiPnpRtlInterfaceFilterCallback @ 0x14095DDC0 (PiPnpRtlInterfaceFilterCallback.c)
  * Callees:
- *     RtlStringCchPrintfExW @ 0x14044E030 (RtlStringCchPrintfExW.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     _RegRtlOpenKeyTransacted @ 0x140997950 (_RegRtlOpenKeyTransacted.c)
- *     _PnpOpenObjectRegKey @ 0x14099E110 (_PnpOpenObjectRegKey.c)
- *     _PnpValidatePropertyData @ 0x1409DC3B4 (_PnpValidatePropertyData.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlStringCchPrintfExW @ 0x140446160 (RtlStringCchPrintfExW.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     _RegRtlOpenKeyTransacted @ 0x1409583B0 (_RegRtlOpenKeyTransacted.c)
+ *     _PnpOpenObjectRegKey @ 0x14095EB70 (_PnpOpenObjectRegKey.c)
+ *     _PnpValidatePropertyData @ 0x140A19604 (_PnpValidatePropertyData.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PnpGetObjectPropertyWorker(

@@ -2,12 +2,12 @@
  * XREFs of KiRemoveThreadFromReadyQueue @ 0x140206BE0
  * Callers:
  *     KiRemoveThreadFromAnyReadyQueue @ 0x14020666C (KiRemoveThreadFromAnyReadyQueue.c)
- *     KiSearchForNewThreadOnProcessor @ 0x140240C90 (KiSearchForNewThreadOnProcessor.c)
- *     KiRemoveCurrentlyEnumeratedThreadFromReadyQueue @ 0x1402435C0 (KiRemoveCurrentlyEnumeratedThreadFromReadyQueue.c)
- *     KiQuantumEnd @ 0x1402486F0 (KiQuantumEnd.c)
- *     KiNormalPriorityReadyScan @ 0x140306DF0 (KiNormalPriorityReadyScan.c)
+ *     KiSearchForNewThreadOnProcessor @ 0x140240D60 (KiSearchForNewThreadOnProcessor.c)
+ *     KiRemoveCurrentlyEnumeratedThreadFromReadyQueue @ 0x140243690 (KiRemoveCurrentlyEnumeratedThreadFromReadyQueue.c)
+ *     KiQuantumEnd @ 0x1402487C0 (KiQuantumEnd.c)
+ *     KiNormalPriorityReadyScan @ 0x140307080 (KiNormalPriorityReadyScan.c)
  * Callees:
- *     KiUpdateLocalReadyQueueStatisticsOnRemoval @ 0x140410E44 (KiUpdateLocalReadyQueueStatisticsOnRemoval.c)
+ *     KiUpdateLocalReadyQueueStatisticsOnRemoval @ 0x140411050 (KiUpdateLocalReadyQueueStatisticsOnRemoval.c)
  */
 
 __int64 __fastcall KiRemoveThreadFromReadyQueue(__int64 a1, __int64 a2, char a3)

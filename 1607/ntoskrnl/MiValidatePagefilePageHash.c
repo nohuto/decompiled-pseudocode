@@ -1,18 +1,18 @@
 /*
- * XREFs of MiValidatePagefilePageHash @ 0x140114E00
+ * XREFs of MiValidatePagefilePageHash @ 0x140115370
  * Callers:
- *     MiWaitForInPageComplete @ 0x1400251B0 (MiWaitForInPageComplete.c)
- *     MiMakeOutswappedPageResident @ 0x1401DFDE0 (MiMakeOutswappedPageResident.c)
+ *     MiWaitForInPageComplete @ 0x140024D30 (MiWaitForInPageComplete.c)
+ *     MiMakeOutswappedPageResident @ 0x1401DFC0C (MiMakeOutswappedPageResident.c)
  * Callees:
- *     MiLockPageInline @ 0x140022E70 (MiLockPageInline.c)
- *     MiPartitionIdToPointer @ 0x1400680A0 (MiPartitionIdToPointer.c)
- *     MiGetPagingFileOffset @ 0x1400B9780 (MiGetPagingFileOffset.c)
- *     MmMapLockedPagesSpecifyCache @ 0x1400DE220 (MmMapLockedPagesSpecifyCache.c)
- *     MiComputePageHash @ 0x1401151E0 (MiComputePageHash.c)
- *     MiObtainPagefileHashes @ 0x14011527C (MiObtainPagefileHashes.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     MiComparePageHash @ 0x1401FB610 (MiComparePageHash.c)
+ *     MiLockPageInline @ 0x1400229F0 (MiLockPageInline.c)
+ *     MiPartitionIdToPointer @ 0x140067C20 (MiPartitionIdToPointer.c)
+ *     MiGetPagingFileOffset @ 0x1400B7610 (MiGetPagingFileOffset.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x1400DC0C0 (MmMapLockedPagesSpecifyCache.c)
+ *     MiComputePageHash @ 0x140115750 (MiComputePageHash.c)
+ *     MiObtainPagefileHashes @ 0x1401157EC (MiObtainPagefileHashes.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     MiComparePageHash @ 0x1401FB43C (MiComparePageHash.c)
  */
 
 __int64 __fastcall MiValidatePagefilePageHash(__int64 a1)
@@ -59,7 +59,7 @@ __int64 __fastcall MiValidatePagefilePageHash(__int64 a1)
     for ( i = v6 - (_QWORD)v5; ; i -= 8LL )
     {
       v9 = 48LL * *v5 - 0x58000000000LL;
-      if ( v9 != qword_140327690 )
+      if ( v9 != qword_1403276D0 )
         break;
 LABEL_20:
       v4 = (unsigned int)(v4 + 1);
@@ -99,14 +99,14 @@ LABEL_20:
             v18 = MiComparePageHash(v21, (unsigned int)v14, (unsigned int)v11);
             goto LABEL_37;
           }
-          if ( byte_140327200 != 1 )
+          if ( byte_140327240 != 1 )
           {
             v18 = -1073741761;
 LABEL_37:
             if ( v18 < 0 )
             {
               BugCheckParameter4 = v23[v4];
-              ++dword_14032711C;
+              ++dword_14032715C;
               KeBugCheckEx(0x1Au, 0x3FuLL, v14, v11, BugCheckParameter4);
             }
           }

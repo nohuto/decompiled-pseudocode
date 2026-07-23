@@ -1,9 +1,9 @@
 /*
- * XREFs of MiRemovePendingBadPagesFromDump @ 0x1406742DC
+ * XREFs of MiRemovePendingBadPagesFromDump @ 0x1406754AC
  * Callers:
- *     MmGetDumpRange @ 0x140677B48 (MmGetDumpRange.c)
+ *     MmGetDumpRange @ 0x140678D28 (MmGetDumpRange.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 void __fastcall MiRemovePendingBadPagesFromDump(__int64 a1)
@@ -23,10 +23,10 @@ void __fastcall MiRemovePendingBadPagesFromDump(__int64 a1)
   char *v13; // r12
 
   v1 = a1;
-  if ( qword_140E2FEC8 )
+  if ( qword_140E30008 )
   {
     v2 = 0LL;
-    if ( qword_140E2FED8 )
+    if ( qword_140E30018 )
     {
       v9 = (unsigned int *)MmPhysicalMemoryBlock;
       if ( MmPhysicalMemoryBlock )
@@ -45,10 +45,10 @@ void __fastcall MiRemovePendingBadPagesFromDump(__int64 a1)
               {
                 if ( *v13 < 0 )
                 {
-                  guard_dispatch_icall_no_overrides(v1, v11, 1LL, 2LL);
+                  guard_dispatch_icall_no_overrides(v1, v11);
                   v1 = a1;
                 }
-                if ( ++v2 == qword_140E2FEC8 )
+                if ( ++v2 == qword_140E30008 )
                 {
                   v10 = *v9 - 1;
                   break;
@@ -66,7 +66,7 @@ void __fastcall MiRemovePendingBadPagesFromDump(__int64 a1)
     }
     else
     {
-      v3 = (_QWORD *)qword_140E2FEC0;
+      v3 = (_QWORD *)qword_140E30000;
       i = 0LL;
       while ( v3 )
       {
@@ -78,7 +78,7 @@ void __fastcall MiRemovePendingBadPagesFromDump(__int64 a1)
         v5 = i[3];
         if ( *(char *)(v5 + 35) < 0 )
         {
-          guard_dispatch_icall_no_overrides(v1, 0xAAAAAAAAAAAAAAABuLL * ((v5 + 0x220000000000LL) >> 4), 1LL, 2LL);
+          guard_dispatch_icall_no_overrides(v1, 0xAAAAAAAAAAAAAAABuLL * ((v5 + 0x220000000000LL) >> 4));
           v1 = a1;
         }
         v6 = (_QWORD **)i[1];

@@ -1,16 +1,16 @@
 /*
- * XREFs of CmInitializeProcessor @ 0x1407D4BCC
+ * XREFs of CmInitializeProcessor @ 0x1407D50BC
  * Callers:
- *     KiStartDynamicProcessor @ 0x14073B478 (KiStartDynamicProcessor.c)
+ *     KiStartDynamicProcessor @ 0x1407393A8 (KiStartDynamicProcessor.c)
  * Callees:
- *     KeSetSystemGroupAffinityThread @ 0x140339650 (KeSetSystemGroupAffinityThread.c)
- *     KeRevertToUserGroupAffinityThread @ 0x14033A250 (KeRevertToUserGroupAffinityThread.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwCreateKey @ 0x1406A67B0 (ZwCreateKey.c)
- *     CmpAddProcessorConfigurationEntry @ 0x1407D4D18 (CmpAddProcessorConfigurationEntry.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeSetSystemGroupAffinityThread @ 0x140318B30 (KeSetSystemGroupAffinityThread.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x140319730 (KeRevertToUserGroupAffinityThread.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwCreateKey @ 0x1406A7750 (ZwCreateKey.c)
+ *     CmpAddProcessorConfigurationEntry @ 0x1407D5208 (CmpAddProcessorConfigurationEntry.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __fastcall CmInitializeProcessor(__int64 a1)
@@ -19,9 +19,9 @@ NTSTATUS __fastcall CmInitializeProcessor(__int64 a1)
   NTSTATUS result; // eax
   unsigned int v4; // ecx
   HANDLE KeyHandle; // [rsp+48h] [rbp-9h] BYREF
-  struct _GROUP_AFFINITY Affinity; // [rsp+50h] [rbp-1h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+50h] [rbp-1h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+60h] [rbp+Fh] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+90h] [rbp+3Fh] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+90h] [rbp+3Fh] BYREF
 
   v1 = 0;
   *(_QWORD *)&ObjectAttributes.Length = 48LL;
@@ -35,7 +35,7 @@ NTSTATUS __fastcall CmInitializeProcessor(__int64 a1)
   result = ZwCreateKey(&KeyHandle, 0x20019u, &ObjectAttributes, 0, 0LL, 0, 0LL);
   if ( result >= 0 )
   {
-    CmpConfigurationData = (PVOID)ExAllocatePool2(0x100uLL);
+    CmpConfigurationData = (PVOID)ExAllocatePool2(0x100uLL, (unsigned int)CmpConfigurationAreaSize, 0x20204D43u);
     if ( CmpConfigurationData )
     {
       v4 = *((_DWORD *)KiGlobalState + *(unsigned int *)(a1 + 36));

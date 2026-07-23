@@ -1,5 +1,5 @@
 /*
- * XREFs of VfUtilAddressRangeAdd @ 0x140702B58
+ * XREFs of VfUtilAddressRangeAdd @ 0x140702B88
  * Callers:
  *     ViDeadlockAddResource @ 0x14071474C (ViDeadlockAddResource.c)
  *     ViDeadlockAddThread @ 0x140714984 (ViDeadlockAddThread.c)

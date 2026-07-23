@@ -141,7 +141,7 @@ LABEL_37:
         appended = RtlAppendUnicodeStringToString(&Destination, &DestinationString);
         if ( appended >= 0 )
         {
-          v11 = PiDrvDbLoadHive(&Destination, (__int64)&UnicodeString, 0x2000LL, &KeyHandle);
+          v11 = PiDrvDbLoadHive(&Destination, &UnicodeString, 0x2000, &KeyHandle);
           appended = v11;
           if ( v11 != -1073741772 )
           {
@@ -172,7 +172,7 @@ LABEL_38:
   if ( KeyHandle )
     ZwClose(KeyHandle);
   if ( v3 )
-    PiDrvDbUnloadHive((__int64)&Destination, 0LL);
+    PiDrvDbUnloadHive(&Destination, 0LL);
   RtlFreeAnsiString(&UnicodeString);
   RtlFreeAnsiString(&Destination);
   return (unsigned int)appended;

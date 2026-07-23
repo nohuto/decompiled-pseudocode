@@ -1,13 +1,13 @@
 /*
- * XREFs of SmKmKeyGenKeyDelete @ 0x14069833C
+ * XREFs of SmKmKeyGenKeyDelete @ 0x140698420
  * Callers:
- *     SmKmKeyGenGenerate @ 0x140698200 (SmKmKeyGenGenerate.c)
+ *     SmKmKeyGenGenerate @ 0x1406982E4 (SmKmKeyGenGenerate.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     MiDeleteSubsection @ 0x140087410 (MiDeleteSubsection.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     MiDeleteSubsection @ 0x1400A6E14 (MiDeleteSubsection.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
  */
 
 void __fastcall SmKmKeyGenKeyDelete(unsigned __int64 *BugCheckParameter2, PPRIVILEGE_SET Privileges)

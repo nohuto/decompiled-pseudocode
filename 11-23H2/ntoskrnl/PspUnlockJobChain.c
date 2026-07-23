@@ -3,11 +3,11 @@
  * Callers:
  *     PspUnlockJobsAndProcessExclusive @ 0x14069F5E8 (PspUnlockJobsAndProcessExclusive.c)
  *     NtSetInformationJobObject @ 0x1406A4040 (NtSetInformationJobObject.c)
- *     PspImplicitAssignProcessToJob @ 0x1407E5FBC (PspImplicitAssignProcessToJob.c)
- *     PspGetMemoryPartitionImplicit @ 0x1407E6EE4 (PspGetMemoryPartitionImplicit.c)
+ *     PspImplicitAssignProcessToJob @ 0x1407E628C (PspImplicitAssignProcessToJob.c)
+ *     PspGetMemoryPartitionImplicit @ 0x1407E71B4 (PspGetMemoryPartitionImplicit.c)
  * Callees:
- *     ExReleaseResourceLite @ 0x14023D410 (ExReleaseResourceLite.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F820 (KiCheckForKernelApcDelivery.c)
+ *     ExReleaseResourceLite @ 0x14023D4E0 (ExReleaseResourceLite.c)
+ *     KiCheckForKernelApcDelivery @ 0x14030FAB0 (KiCheckForKernelApcDelivery.c)
  */
 
 void __fastcall PspUnlockJobChain(__int64 a1, __int64 a2, char a3)

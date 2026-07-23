@@ -1,10 +1,10 @@
 /*
- * XREFs of MiPrepareDecayNodeForReuse @ 0x14022B350
+ * XREFs of MiPrepareDecayNodeForReuse @ 0x1402FEC64
  * Callers:
- *     MiCreateDecayPfn @ 0x14022AFD8 (MiCreateDecayPfn.c)
+ *     MiCreateDecayPfn @ 0x1402FE8EC (MiCreateDecayPfn.c)
  * Callees:
- *     MiUnlinkPageFromListEx @ 0x140211CD0 (MiUnlinkPageFromListEx.c)
- *     MiSwizzleInvalidPte @ 0x14022A3B0 (MiSwizzleInvalidPte.c)
+ *     MiSwizzleInvalidPte @ 0x1402FD620 (MiSwizzleInvalidPte.c)
+ *     MiUnlinkPageFromListEx @ 0x14033B030 (MiUnlinkPageFromListEx.c)
  */
 
 __int64 __fastcall MiPrepareDecayNodeForReuse(__int64 a1)
@@ -30,5 +30,5 @@ __int64 __fastcall MiPrepareDecayNodeForReuse(__int64 a1)
   {
     v4 = i;
   }
-  return MiUnlinkPageFromListEx(v2, 0);
+  return MiUnlinkPageFromListEx(v2);
 }

@@ -18,7 +18,7 @@ __int64 __fastcall sub_18005575C(__int64 a1, _DWORD *a2)
   int v8; // eax
 
   v3 = a1;
-  v4 = sub_1800557EC(a1, qword_18017A380);
+  v4 = sub_1800557EC(a1, LdrSystemDllInitBlock.MitigationOptionsMap.Map[2]);
   v5 = 0;
   if ( !v4 )
     goto LABEL_8;

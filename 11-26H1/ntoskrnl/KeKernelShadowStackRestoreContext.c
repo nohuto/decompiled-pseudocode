@@ -1,13 +1,13 @@
 /*
- * XREFs of KeKernelShadowStackRestoreContext @ 0x140368410
+ * XREFs of KeKernelShadowStackRestoreContext @ 0x14036A1B0
  * Callers:
- *     RtlRestoreContext @ 0x140534CC0 (RtlRestoreContext.c)
- *     RcFrameConsolidation @ 0x140535010 (RcFrameConsolidation.c)
+ *     RtlRestoreContext @ 0x140537140 (RtlRestoreContext.c)
+ *     RcFrameConsolidation @ 0x140537490 (RcFrameConsolidation.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x1403685AC (VslpEnterIumSecureMode.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     VslpEnterIumSecureMode @ 0x14036A34C (VslpEnterIumSecureMode.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall KeKernelShadowStackRestoreContext(__int64 a1, __int64 a2, _DWORD *a3)

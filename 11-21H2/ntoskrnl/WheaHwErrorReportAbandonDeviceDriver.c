@@ -4,16 +4,16 @@
  *     WheaReportFatalHwErrorDeviceDriverEx @ 0x140644510 (WheaReportFatalHwErrorDeviceDriverEx.c)
  *     WheaReportHwErrorDeviceDriverEx @ 0x140644630 (WheaReportHwErrorDeviceDriverEx.c)
  * Callees:
- *     WheapErrorHandleIsValid @ 0x1406447EC (WheapErrorHandleIsValid.c)
- *     WheapFreeDriverPacketBuffer @ 0x140644808 (WheapFreeDriverPacketBuffer.c)
+ *     sub_1406447EC @ 0x1406447EC (sub_1406447EC.c)
+ *     sub_140644808 @ 0x140644808 (sub_140644808.c)
  */
 
 __int64 WheaHwErrorReportAbandonDeviceDriver()
 {
   ULONG_PTR v0; // rcx
 
-  if ( !(unsigned __int8)WheapErrorHandleIsValid() )
+  if ( !(unsigned __int8)sub_1406447EC() )
     return 3221225480LL;
-  WheapFreeDriverPacketBuffer(v0);
+  sub_140644808(v0);
   return 0LL;
 }

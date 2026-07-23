@@ -1,18 +1,18 @@
 /*
- * XREFs of PspNotifyEmptyJobsInJobChain @ 0x140959924
+ * XREFs of PspNotifyEmptyJobsInJobChain @ 0x1409FF1E4
  * Callers:
- *     PspRundownSingleProcess @ 0x14095918C (PspRundownSingleProcess.c)
+ *     PspRundownSingleProcess @ 0x1409FEA50 (PspRundownSingleProcess.c)
  * Callees:
- *     PspEvaluateAndNotifyEmptyJob @ 0x140959B30 (PspEvaluateAndNotifyEmptyJob.c)
+ *     PspEvaluateAndNotifyEmptyJob @ 0x1409FF3F0 (PspEvaluateAndNotifyEmptyJob.c)
  */
 
 __int64 __fastcall PspNotifyEmptyJobsInJobChain(__int64 a1)
 {
-  _QWORD *i; // rbx
+  struct _KEVENT *i; // rbx
   __int64 result; // rax
 
   _interlockedbittestandset((volatile signed __int32 *)(a1 + 496), 0xBu);
-  for ( i = *(_QWORD **)(a1 + 672); i; i = (_QWORD *)i[163] )
+  for ( i = *(struct _KEVENT **)(a1 + 672); i; i = (struct _KEVENT *)i[54].Header.WaitListHead.Flink )
     result = PspEvaluateAndNotifyEmptyJob(i);
   return result;
 }

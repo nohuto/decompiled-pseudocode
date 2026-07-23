@@ -25,7 +25,7 @@ __int64 __fastcall SmcStorePlacementGet(__int64 a1, ULONG a2, __int64 a3)
   signed int v17; // ebx
   int v18; // esi
   signed int v19; // eax
-  struct _RTL_BITMAP BitMapHeader; // [rsp+20h] [rbp-18h] BYREF
+  _RTL_BITMAP BitMapHeader; // [rsp+20h] [rbp-18h] BYREF
 
   v3 = *(unsigned int *)(a1 + 8);
   v5 = *(unsigned int **)(a3 + 8);

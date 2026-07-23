@@ -139,7 +139,7 @@ __int64 __fastcall EtwpCovSampCaptureContextStart(_DWORD *a1)
       ThreadInformation[0] = 1;
       ThreadInformation[1] = 1;
       ThreadInformation[2] = 1;
-      ZwSetInformationThread(Handle, ThreadIdealProcessorEx|ThreadIsIoPending, ThreadInformation, 0xCu);
+      ZwSetInformationThread(Handle, ThreadPowerThrottlingState, ThreadInformation, 0xCu);
       goto LABEL_19;
     }
 LABEL_12:

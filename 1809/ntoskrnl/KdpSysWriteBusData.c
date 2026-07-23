@@ -1,10 +1,10 @@
 /*
- * XREFs of KdpSysWriteBusData @ 0x140917B68
+ * XREFs of KdpSysWriteBusData @ 0x140918B68
  * Callers:
- *     KdSystemDebugControl @ 0x1408422B0 (KdSystemDebugControl.c)
- *     KdpSendWaitContinue @ 0x140917100 (KdpSendWaitContinue.c)
+ *     KdSystemDebugControl @ 0x140843510 (KdSystemDebugControl.c)
+ *     KdpSendWaitContinue @ 0x140918100 (KdpSendWaitContinue.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall KdpSysWriteBusData(
@@ -19,7 +19,7 @@ __int64 __fastcall KdpSysWriteBusData(
   ULONG v7; // eax
 
   if ( a1 == PCIConfiguration )
-    v7 = ((__int64 (__fastcall *)(_QWORD, _QWORD, PVOID))qword_1403FE378)(a2, a3, Buffer);
+    v7 = ((__int64 (__fastcall *)(_QWORD, _QWORD, PVOID))qword_1403FF378)(a2, a3, Buffer);
   else
     v7 = HalSetBusDataByOffset(a1, a2, a3, Buffer, Offset, Length);
   *a7 = v7;

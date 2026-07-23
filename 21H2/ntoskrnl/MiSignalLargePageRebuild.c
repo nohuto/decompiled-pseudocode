@@ -1,14 +1,14 @@
 /*
- * XREFs of MiSignalLargePageRebuild @ 0x140272FE0
+ * XREFs of MiSignalLargePageRebuild @ 0x140260F80
  * Callers:
- *     MiWorkingSetManager @ 0x140272C60 (MiWorkingSetManager.c)
+ *     MiWorkingSetManager @ 0x140260C00 (MiWorkingSetManager.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     MiPageCombiningActive @ 0x140303820 (MiPageCombiningActive.c)
- *     MiNodeFreeZeroPages @ 0x140318CA4 (MiNodeFreeZeroPages.c)
- *     MiNodeLargeFreeZeroPages @ 0x140318E40 (MiNodeLargeFreeZeroPages.c)
- *     KxAcquireQueuedSpinLock @ 0x140350970 (KxAcquireQueuedSpinLock.c)
- *     MiWakeLargePageRebuild @ 0x14038D600 (MiWakeLargePageRebuild.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     MiPageCombiningActive @ 0x14030E570 (MiPageCombiningActive.c)
+ *     MiNodeFreeZeroPages @ 0x1403239F4 (MiNodeFreeZeroPages.c)
+ *     MiNodeLargeFreeZeroPages @ 0x140323B90 (MiNodeLargeFreeZeroPages.c)
+ *     KxAcquireQueuedSpinLock @ 0x14035B6C0 (KxAcquireQueuedSpinLock.c)
+ *     MiWakeLargePageRebuild @ 0x14038D750 (MiWakeLargePageRebuild.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
@@ -16,15 +16,15 @@ __int64 __fastcall MiSignalLargePageRebuild(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 result; // rax
   __int64 v5; // r8
+  _DWORD *SchedulerAssist; // r9
   unsigned __int8 CurrentIrql; // si
   unsigned int i; // ebx
-  __int64 v8; // rdi
-  bool v9; // zf
-  unsigned __int64 v10; // r12
-  unsigned int v11; // r13d
-  unsigned __int64 v12; // r14
-  unsigned int v13; // r15d
-  _DWORD *SchedulerAssist; // r9
+  __int64 v9; // rdi
+  bool v10; // zf
+  unsigned __int64 v11; // r12
+  unsigned int v12; // r13d
+  unsigned __int64 v13; // r14
+  unsigned int v14; // r15d
   unsigned __int8 v15; // al
   struct _KPRCB *CurrentPrcb; // r9
   _DWORD *v17; // r8
@@ -49,31 +49,31 @@ __int64 __fastcall MiSignalLargePageRebuild(__int64 a1, __int64 a2, __int64 a3)
       for ( i = 0; i < (unsigned __int16)KeNumberNodes; ++i )
       {
         LockHandle.LockQueue.Next = 0LL;
-        v8 = *(_QWORD *)(a1 + 16) + 4544LL * i;
-        LockHandle.LockQueue.Lock = (unsigned __int64 *volatile)(v8 + 4328);
-        KxAcquireQueuedSpinLock(&LockHandle, v8 + 4328, v5);
-        if ( !*(_BYTE *)(v8 + 3249) )
+        v9 = *(_QWORD *)(a1 + 16) + 4544LL * i;
+        LockHandle.LockQueue.Lock = (unsigned __int64 *volatile)(v9 + 4328);
+        KxAcquireQueuedSpinLock(&LockHandle, v9 + 4328, v5, SchedulerAssist);
+        if ( !*(_BYTE *)(v9 + 3249) )
         {
-          v9 = (*(_BYTE *)(v8 + 3248))-- == 1;
-          if ( v9 )
+          v10 = (*(_BYTE *)(v9 + 3248))-- == 1;
+          if ( v10 )
           {
-            v10 = 0LL;
-            v11 = 0;
-            v12 = (-(__int64)(*(_BYTE *)(v8 + 3251) != 0) & 0xFFFFFFFFFFFFE100uLL) + 0x2000;
+            v11 = 0LL;
+            v12 = 0;
+            v13 = (-(__int64)(*(_BYTE *)(v9 + 3251) != 0) & 0xFFFFFFFFFFFFE100uLL) + 0x2000;
             if ( MmNumberOfChannels )
             {
-              v13 = MmNumberOfChannels;
+              v14 = MmNumberOfChannels;
               do
-                v10 += MiNodeFreeZeroPages(v8, v11++, 0LL);
-              while ( v11 < v13 );
+                v11 += MiNodeFreeZeroPages(v9, v12++, 0LL);
+              while ( v12 < v14 );
             }
-            if ( v10 < v12
+            if ( v11 < v13
               || (MiFlags & 0x30) == 0
-              || (unsigned __int64)MiNodeLargeFreeZeroPages(v8, 4LL, 2LL) >> 3 >= v10
+              || (unsigned __int64)MiNodeLargeFreeZeroPages(v9, 4LL, 2LL) >> 3 >= v11
               || !(unsigned int)MiWakeLargePageRebuild(a1, i, 1LL) )
             {
-              *(_BYTE *)(v8 + 3250) = 8;
-              *(_BYTE *)(v8 + 3248) = 8;
+              *(_BYTE *)(v9 + 3250) = 8;
+              *(_BYTE *)(v9 + 3248) = 8;
             }
           }
         }
@@ -89,9 +89,9 @@ __int64 __fastcall MiSignalLargePageRebuild(__int64 a1, __int64 a2, __int64 a3)
             CurrentPrcb = KeGetCurrentPrcb();
             v17 = CurrentPrcb->SchedulerAssist;
             v18 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-            v9 = (v18 & v17[5]) == 0;
+            v10 = (v18 & v17[5]) == 0;
             v17[5] &= v18;
-            if ( v9 )
+            if ( v10 )
               KiRemoveSystemWorkPriorityKick(CurrentPrcb);
           }
         }

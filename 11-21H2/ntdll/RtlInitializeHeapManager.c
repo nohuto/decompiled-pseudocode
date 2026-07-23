@@ -23,11 +23,10 @@ __int64 __fastcall RtlInitializeHeapManager(__int64 a1)
   int v3; // eax
   struct _PEB *v4; // rdi
   void (*v5)(void); // rax
-  __int64 v6; // r9
-  int v7; // eax
-  int v8; // ecx
-  char v9; // al
-  unsigned int v11; // [rsp+38h] [rbp+10h] BYREF
+  int v6; // eax
+  int v7; // ecx
+  char v8; // al
+  unsigned int v10; // [rsp+38h] [rbp+10h] BYREF
 
   memset(&RtlpHpHeapGlobals, 0, 0x40uLL);
   RtlpHpHeapGlobals = RtlpHeapGenerateRandomValue64();
@@ -39,8 +38,8 @@ __int64 __fastcall RtlInitializeHeapManager(__int64 a1)
     v3 = qword_18017AC38 | 1;
   LODWORD(qword_18017AC38) = v3 | 2;
   v4 = NtCurrentPeb();
-  v11 = 0;
-  if ( (RtlpLowFragHeapGlobalFlags & 0x10) != 0 || (unsigned int)RtlpHpOptIntoSegmentHeap(a1, &v11) )
+  v10 = 0;
+  if ( (RtlpLowFragHeapGlobalFlags & 0x10) != 0 || (unsigned int)RtlpHpOptIntoSegmentHeap(a1, &v10) )
   {
     RtlpHpHeapFeatures |= 1u;
     v5 = (void (*)(void))qword_18017B618;
@@ -53,31 +52,31 @@ __int64 __fastcall RtlInitializeHeapManager(__int64 a1)
   }
   if ( (RtlpHpLfhPerfFlags & 0x40) != 0 )
   {
-    RtlpHpGCInterval = -10000000LL;
+    RtlpHpGCInterval.QuadPart = -10000000LL;
     RtlpHpOverrideGCInterval(a1);
   }
-  RtlpHpInitializePerfPolicies(v11);
+  RtlpHpInitializePerfPolicies(v10);
   if ( (RtlpLowFragHeapGlobalFlags & 8) != 0 )
     RtlpHpHeapFeatures &= ~1u;
   RtlpDisableBreakOnFailureCookie = RtlpGetModifiedProcessCookie();
   if ( (NtCurrentPeb()->NtGlobalFlag & 0x100000) != 0 )
   {
-    v7 = RtlpHeapErrorHandlerThreshold;
+    v6 = RtlpHeapErrorHandlerThreshold;
     if ( RtlpHeapErrorHandlerThreshold <= 1 )
-      v7 = 2;
-    v8 = 0;
-    RtlpHeapErrorHandlerThreshold = v7;
+      v6 = 2;
+    v7 = 0;
+    RtlpHeapErrorHandlerThreshold = v6;
   }
   else
   {
-    v8 = RtlpDisableBreakOnFailureCookie;
+    v7 = RtlpDisableBreakOnFailureCookie;
   }
-  v9 = RtlpDisableHeapLookaside & 1;
+  v8 = RtlpDisableHeapLookaside & 1;
   v4->MaximumNumberOfHeaps = 16;
   v4->NumberOfHeaps = 0;
-  RtlpDisableBreakOnFailureCookie = v9 != 0 ? v8 : 0;
+  RtlpDisableBreakOnFailureCookie = v8 != 0 ? v7 : 0;
   v4->ProcessHeaps = (void **)&RtlpProcessHeapsListBuffer;
-  RtlInitializeCriticalSectionEx((__int64)&RtlpProcessHeapsListLock, 0LL, 0x10000000LL, v6);
+  RtlInitializeCriticalSectionEx(&RtlpProcessHeapsListLock, 0, 0x10000000u);
   RtlpHeapKey = RtlpHeapGenerateRandomValue64();
   if ( (RtlGetSuiteMask() & 0x10000) != 0 )
   {

@@ -1,19 +1,19 @@
 /*
- * XREFs of FsRtlpCancelExclusiveIrp @ 0x14013F71C
+ * XREFs of FsRtlpCancelExclusiveIrp @ 0x14013F81C
  * Callers:
- *     FsRtlpExclusiveIrpCancelRoutine @ 0x14013F700 (FsRtlpExclusiveIrpCancelRoutine.c)
- *     FsRtlpRequestExclusiveOplock @ 0x14015E10C (FsRtlpRequestExclusiveOplock.c)
- *     FsRtlpAcknowledgeOplockBreakByCacheFlags @ 0x140168DA0 (FsRtlpAcknowledgeOplockBreakByCacheFlags.c)
- *     FsRtlpGrantAnyOplockFromExclusive @ 0x14026FD2C (FsRtlpGrantAnyOplockFromExclusive.c)
+ *     FsRtlpExclusiveIrpCancelRoutine @ 0x14013F800 (FsRtlpExclusiveIrpCancelRoutine.c)
+ *     FsRtlpRequestExclusiveOplock @ 0x14015E20C (FsRtlpRequestExclusiveOplock.c)
+ *     FsRtlpAcknowledgeOplockBreakByCacheFlags @ 0x140168EA0 (FsRtlpAcknowledgeOplockBreakByCacheFlags.c)
+ *     FsRtlpGrantAnyOplockFromExclusive @ 0x14026FF1C (FsRtlpGrantAnyOplockFromExclusive.c)
  * Callees:
  *     KeReleaseGuardedMutex @ 0x140014E30 (KeReleaseGuardedMutex.c)
  *     KeReleaseQueuedSpinLock @ 0x140018930 (KeReleaseQueuedSpinLock.c)
  *     ExAcquireFastMutex @ 0x14004E530 (ExAcquireFastMutex.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     IofCompleteRequest @ 0x1400C10C0 (IofCompleteRequest.c)
- *     FsRtlpModifyThreadPriorities @ 0x140107DA0 (FsRtlpModifyThreadPriorities.c)
- *     FsRtlpClearOwner @ 0x14012173C (FsRtlpClearOwner.c)
- *     FsRtlpRemoveAndCompleteWaitingIrp @ 0x1402700D0 (FsRtlpRemoveAndCompleteWaitingIrp.c)
+ *     IofCompleteRequest @ 0x1400C1000 (IofCompleteRequest.c)
+ *     FsRtlpModifyThreadPriorities @ 0x140107E20 (FsRtlpModifyThreadPriorities.c)
+ *     FsRtlpClearOwner @ 0x14012180C (FsRtlpClearOwner.c)
+ *     FsRtlpRemoveAndCompleteWaitingIrp @ 0x1402702C0 (FsRtlpRemoveAndCompleteWaitingIrp.c)
  */
 
 void __fastcall FsRtlpCancelExclusiveIrp(__int64 a1, char a2, char a3)

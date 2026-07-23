@@ -1,33 +1,33 @@
 /*
- * XREFs of MiMakeSystemCacheRangeValid @ 0x140031890
+ * XREFs of MiMakeSystemCacheRangeValid @ 0x140031410
  * Callers:
- *     MmCheckCachedPageStates @ 0x140033AB0 (MmCheckCachedPageStates.c)
+ *     MmCheckCachedPageStates @ 0x140033630 (MmCheckCachedPageStates.c)
  * Callees:
- *     MiGetSystemCacheReverseMap @ 0x140019B10 (MiGetSystemCacheReverseMap.c)
- *     MiLockPageInline @ 0x140022E70 (MiLockPageInline.c)
- *     MiUnlockWorkingSetExclusive @ 0x14002E930 (MiUnlockWorkingSetExclusive.c)
- *     MiLockPageAtDpcInline @ 0x14002EB30 (MiLockPageAtDpcInline.c)
- *     ExpAcquireSpinLockExclusive @ 0x14002EC30 (ExpAcquireSpinLockExclusive.c)
- *     MiStartingOffset @ 0x140031D40 (MiStartingOffset.c)
- *     MiAllocateWsle @ 0x14003C0F0 (MiAllocateWsle.c)
- *     ObDereferenceObjectDeferDelete @ 0x14005DB70 (ObDereferenceObjectDeferDelete.c)
- *     ObReferenceObjectExWithTag @ 0x140096540 (ObReferenceObjectExWithTag.c)
- *     ObpDeferObjectDeletion @ 0x1400A7FB4 (ObpDeferObjectDeletion.c)
- *     ObFastReferenceObjectLocked @ 0x1400D1534 (ObFastReferenceObjectLocked.c)
- *     ExReleaseRundownProtection @ 0x1400D3F00 (ExReleaseRundownProtection.c)
- *     MiDecrementShareCount @ 0x1400E50A0 (MiDecrementShareCount.c)
- *     ExReleaseSpinLockShared @ 0x1400EA240 (ExReleaseSpinLockShared.c)
- *     ExAcquireSpinLockShared @ 0x1400EB1D0 (ExAcquireSpinLockShared.c)
- *     PfSnCheckLoggingForThread @ 0x1400EBCE0 (PfSnCheckLoggingForThread.c)
- *     PfSnLogPageFaultCommon @ 0x1400EF560 (PfSnLogPageFaultCommon.c)
- *     PfSnReferenceProcessTrace @ 0x1400F0910 (PfSnReferenceProcessTrace.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     MI_GET_PFN_FROM_PTE @ 0x1401F2594 (MI_GET_PFN_FROM_PTE.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiGetPrototypePteDirect @ 0x1401F26B0 (MiGetPrototypePteDirect.c)
- *     ObpPushStackInfo @ 0x1401FEDC0 (ObpPushStackInfo.c)
- *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14022DD30 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
+ *     MiGetSystemCacheReverseMap @ 0x140019690 (MiGetSystemCacheReverseMap.c)
+ *     MiLockPageInline @ 0x1400229F0 (MiLockPageInline.c)
+ *     MiUnlockWorkingSetExclusive @ 0x14002E4B0 (MiUnlockWorkingSetExclusive.c)
+ *     MiLockPageAtDpcInline @ 0x14002E6B0 (MiLockPageAtDpcInline.c)
+ *     ExpAcquireSpinLockExclusive @ 0x14002E7B0 (ExpAcquireSpinLockExclusive.c)
+ *     MiStartingOffset @ 0x1400318C0 (MiStartingOffset.c)
+ *     MiAllocateWsle @ 0x14003BC70 (MiAllocateWsle.c)
+ *     ObDereferenceObjectDeferDelete @ 0x14005D6F0 (ObDereferenceObjectDeferDelete.c)
+ *     ObReferenceObjectExWithTag @ 0x140095D40 (ObReferenceObjectExWithTag.c)
+ *     ObpDeferObjectDeletion @ 0x1400A652C (ObpDeferObjectDeletion.c)
+ *     ObFastReferenceObjectLocked @ 0x1400CF3D4 (ObFastReferenceObjectLocked.c)
+ *     ExReleaseRundownProtection @ 0x1400D1DA0 (ExReleaseRundownProtection.c)
+ *     MiDecrementShareCount @ 0x1400E2F40 (MiDecrementShareCount.c)
+ *     ExReleaseSpinLockShared @ 0x1400E80B0 (ExReleaseSpinLockShared.c)
+ *     ExAcquireSpinLockShared @ 0x1400E9040 (ExAcquireSpinLockShared.c)
+ *     PfSnCheckLoggingForThread @ 0x1400E9B50 (PfSnCheckLoggingForThread.c)
+ *     PfSnLogPageFaultCommon @ 0x1400ED3E0 (PfSnLogPageFaultCommon.c)
+ *     PfSnReferenceProcessTrace @ 0x1400EE760 (PfSnReferenceProcessTrace.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     MI_GET_PFN_FROM_PTE @ 0x1401F23C0 (MI_GET_PFN_FROM_PTE.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
+ *     MiGetPrototypePteDirect @ 0x1401F24DC (MiGetPrototypePteDirect.c)
+ *     ObpPushStackInfo @ 0x1401FEBEC (ObpPushStackInfo.c)
+ *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14022DB5C (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
  */
 
 __int64 __fastcall MiMakeSystemCacheRangeValid(__int64 a1, _QWORD *a2, unsigned int a3, __int64 a4)
@@ -83,10 +83,10 @@ __int64 __fastcall MiMakeSystemCacheRangeValid(__int64 a1, _QWORD *a2, unsigned 
   v50 = a4;
   v52[0] = 0LL;
   v5 = a4;
-  v8 = &dword_140327C80;
+  v8 = &dword_140327CC0;
   v9 = a1 << 25 >> 16;
-  if ( (byte_140324FB8 & 7) != 2 )
-    v8 = (LONG *)&unk_140324FC0;
+  if ( (byte_140324FF8 & 7) != 2 )
+    v8 = (LONG *)&unk_140325000;
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
   if ( (BYTE6(PerfGlobalGroupMask) & 0x21) != 0 )
@@ -101,7 +101,7 @@ __int64 __fastcall MiMakeSystemCacheRangeValid(__int64 a1, _QWORD *a2, unsigned 
   if ( v12 == 1023 )
     v13 = MiSystemPartition;
   else
-    v13 = *(int **)(qword_140326FF8 + 8LL * v12);
+    v13 = *(int **)(qword_140327038 + 8LL * v12);
   v14 = (__int64)(v13 + 1648);
   if ( a3 )
   {

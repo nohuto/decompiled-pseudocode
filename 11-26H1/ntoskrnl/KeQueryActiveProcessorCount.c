@@ -1,5 +1,5 @@
 /*
- * XREFs of KeQueryActiveProcessorCount @ 0x1404B69B0
+ * XREFs of KeQueryActiveProcessorCount @ 0x1404AFE00
  * Callers:
  *     <none>
  * Callees:
@@ -14,13 +14,13 @@ ULONG __stdcall KeQueryActiveProcessorCount(PKAFFINITY ActiveProcessors)
   result = 0;
   if ( ActiveProcessors )
   {
-    v2 = *(unsigned __int64 *)((char *)&stru_140FC01F0.116 + 4);
-    *ActiveProcessors = *(KAFFINITY *)((char *)&stru_140FC01F0.116 + 4);
+    v2 = *(unsigned __int64 *)((char *)&stru_140FC11F0.116 + 4);
+    *ActiveProcessors = *(KAFFINITY *)((char *)&stru_140FC11F0.116 + 4);
     return __popcnt(v2);
   }
   if ( KiActiveGroups )
   {
-    v2 = *(unsigned __int64 *)((char *)&stru_140FC01F0.116 + 4);
+    v2 = *(unsigned __int64 *)((char *)&stru_140FC11F0.116 + 4);
     return __popcnt(v2);
   }
   return result;

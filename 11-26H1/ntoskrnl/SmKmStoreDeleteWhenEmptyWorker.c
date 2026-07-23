@@ -1,12 +1,12 @@
 /*
- * XREFs of SmKmStoreDeleteWhenEmptyWorker @ 0x1404E0280
+ * XREFs of SmKmStoreDeleteWhenEmptyWorker @ 0x1404D9960
  * Callers:
  *     <none>
  * Callees:
- *     SmKmStoreRefFromStoreIndex @ 0x140204B30 (SmKmStoreRefFromStoreIndex.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     SmKmStoreDelete @ 0x140B20310 (SmKmStoreDelete.c)
+ *     SmKmStoreRefFromStoreIndex @ 0x140204C10 (SmKmStoreRefFromStoreIndex.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     SmKmStoreDelete @ 0x140B22710 (SmKmStoreDelete.c)
  */
 
 __int64 __fastcall SmKmStoreDeleteWhenEmptyWorker(__int64 a1)

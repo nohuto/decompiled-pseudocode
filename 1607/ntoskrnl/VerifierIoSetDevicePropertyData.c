@@ -1,5 +1,5 @@
 /*
- * XREFs of VerifierIoSetDevicePropertyData @ 0x14070C8BC
+ * XREFs of VerifierIoSetDevicePropertyData @ 0x14070C8EC
  * Callers:
  *     <none>
  * Callees:

@@ -1,30 +1,30 @@
 /*
- * XREFs of NtQueryObject @ 0x1409FC830
+ * XREFs of NtQueryObject @ 0x140921430
  * Callers:
- *     DifNtQueryObjectWrapper @ 0x1406849A0 (DifNtQueryObjectWrapper.c)
- *     IopLoadDriver @ 0x140A26FC4 (IopLoadDriver.c)
- *     IopQueryRegistryKeySystemPath @ 0x140A27D00 (IopQueryRegistryKeySystemPath.c)
+ *     DifNtQueryObjectWrapper @ 0x140688580 (DifNtQueryObjectWrapper.c)
+ *     IopLoadDriver @ 0x140A3A064 (IopLoadDriver.c)
+ *     IopQueryRegistryKeySystemPath @ 0x140A3ADA0 (IopQueryRegistryKeySystemPath.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     PsReferenceSiloContext @ 0x140277800 (PsReferenceSiloContext.c)
- *     ExfAcquirePushLockSharedEx @ 0x140277CC0 (ExfAcquirePushLockSharedEx.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ExfReleasePushLockShared @ 0x140278BD0 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     OBJECT_HEADER_TO_QUOTA_INFO @ 0x14042DA20 (OBJECT_HEADER_TO_QUOTA_INFO.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     RtlCopyToUser @ 0x14077F284 (RtlCopyToUser.c)
- *     RtlReadULongFromUser @ 0x14077F590 (RtlReadULongFromUser.c)
- *     RtlWriteUCharToUser @ 0x14077F710 (RtlWriteUCharToUser.c)
- *     RtlWriteULongToUser @ 0x14077F7A0 (RtlWriteULongToUser.c)
- *     ProbeForWrite @ 0x1408F5D00 (ProbeForWrite.c)
- *     ObReferenceObjectByHandle @ 0x1408F9550 (ObReferenceObjectByHandle.c)
- *     ObQueryNameStringMode @ 0x1409FDA40 (ObQueryNameStringMode.c)
- *     ObQueryTypeInfo @ 0x1409FE660 (ObQueryTypeInfo.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     PsReferenceSiloContext @ 0x140276D70 (PsReferenceSiloContext.c)
+ *     ExfAcquirePushLockSharedEx @ 0x140277230 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ExfReleasePushLockShared @ 0x140278140 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     OBJECT_HEADER_TO_QUOTA_INFO @ 0x14041A930 (OBJECT_HEADER_TO_QUOTA_INFO.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     RtlCopyToUser @ 0x140781D84 (RtlCopyToUser.c)
+ *     RtlReadULongFromUser @ 0x140782090 (RtlReadULongFromUser.c)
+ *     RtlWriteUCharToUser @ 0x140782210 (RtlWriteUCharToUser.c)
+ *     RtlWriteULongToUser @ 0x1407822A0 (RtlWriteULongToUser.c)
+ *     ObQueryNameStringMode @ 0x140922640 (ObQueryNameStringMode.c)
+ *     ObQueryTypeInfo @ 0x140923260 (ObQueryTypeInfo.c)
+ *     ProbeForWrite @ 0x140925C90 (ProbeForWrite.c)
+ *     ObReferenceObjectByHandle @ 0x1409294E0 (ObReferenceObjectByHandle.c)
  */
 
 NTSTATUS __stdcall NtQueryObject(
@@ -362,7 +362,7 @@ LABEL_81:
     for ( i = 0; ; ++i )
     {
       v65 = i;
-      if ( i >= 0x100 || !*((_QWORD *)&stru_140F132C8.SavedApcState.ApcListHead[2].Flink + i) )
+      if ( i >= 0x100 || !*((_QWORD *)&ObpStackTraceLock.ForegroundLossTime + i) )
         break;
       v73 = ++v53;
     }
@@ -381,7 +381,7 @@ LABEL_81:
     v65 = 0;
     while ( v56 < 0x100 )
     {
-      v57 = *((_QWORD *)&stru_140F132C8.SavedApcState.ApcListHead[2].Flink + v56);
+      v57 = *((_QWORD *)&ObpStackTraceLock.ForegroundLossTime + v56);
       if ( !v57 )
         break;
       LOBYTE(Object) = PreviousMode;

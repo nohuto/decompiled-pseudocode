@@ -51,7 +51,7 @@ __int64 __fastcall PopSaveHiberContext(ULONG_PTR BugCheckParameter3)
   unsigned int v10; // r8d
   _DWORD *v11; // rcx
   _DWORD *v12; // rdx
-  struct _RTL_BITMAP *v13; // rcx
+  _RTL_BITMAP *v13; // rcx
   __int64 v14; // rdx
   __int64 v15; // rcx
   unsigned __int64 v16; // rdi
@@ -228,12 +228,12 @@ __int64 __fastcall PopSaveHiberContext(ULONG_PTR BugCheckParameter3)
       }
       if ( byte_1402DE321 )
       {
-        v13 = (struct _RTL_BITMAP *)(BugCheckParameter3 + 32);
+        v13 = (_RTL_BITMAP *)(BugCheckParameter3 + 32);
       }
       else
       {
-        RtlCopyBitMap((unsigned int *)(BugCheckParameter3 + 48), BugCheckParameter3 + 32, 0);
-        v13 = (struct _RTL_BITMAP *)(BugCheckParameter3 + 48);
+        RtlCopyBitMap((PRTL_BITMAP)(BugCheckParameter3 + 48), (PRTL_BITMAP)(BugCheckParameter3 + 32), 0);
+        v13 = (_RTL_BITMAP *)(BugCheckParameter3 + 48);
       }
       RtlSetAllBits(v13);
       v14 = *(_QWORD *)(BugCheckParameter3 + 168);

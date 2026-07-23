@@ -1,34 +1,34 @@
 /*
- * XREFs of IopQueryResourceHandlerInterface @ 0x140A6C444
+ * XREFs of IopQueryResourceHandlerInterface @ 0x140A659A4
  * Callers:
- *     IoTranslateBusAddress @ 0x1405A4F60 (IoTranslateBusAddress.c)
- *     IopDuplicateDetection @ 0x14072504C (IopDuplicateDetection.c)
- *     IopSetupArbiterAndTranslators @ 0x140A6C1C8 (IopSetupArbiterAndTranslators.c)
+ *     IoTranslateBusAddress @ 0x1405A1EA0 (IoTranslateBusAddress.c)
+ *     IopDuplicateDetection @ 0x140722BDC (IopDuplicateDetection.c)
+ *     IopSetupArbiterAndTranslators @ 0x140A65728 (IopSetupArbiterAndTranslators.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     IopSynchronousCall @ 0x1408BBC08 (IopSynchronousCall.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     IopSynchronousCall @ 0x1408B9564 (IopSynchronousCall.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall IopQueryResourceHandlerInterface(int a1, __int64 a2, unsigned __int8 a3, __int16 **a4)
+__int64 __fastcall IopQueryResourceHandlerInterface(int a1, __int64 a2, unsigned __int8 a3, unsigned __int16 **a4)
 {
   __int64 v4; // rax
   __int64 v6; // r12
   int v9; // ecx
   GUID v10; // xmm0
-  __int16 v11; // bx
-  __int16 *Pool2; // rax
-  __int16 *v13; // rsi
+  unsigned __int16 v11; // bx
+  unsigned __int16 *Pool2; // rax
+  unsigned __int16 *v13; // rsi
   int v15; // ecx
   int v16; // ebx
   int v17; // edi
   __int16 v18; // [rsp+30h] [rbp-39h] BYREF
   GUID *v19; // [rsp+38h] [rbp-31h]
-  __int16 v20; // [rsp+40h] [rbp-29h]
+  unsigned __int16 v20; // [rsp+40h] [rbp-29h]
   __int16 v21; // [rsp+42h] [rbp-27h]
-  __int16 *v22; // [rsp+48h] [rbp-21h]
+  unsigned __int16 *v22; // [rsp+48h] [rbp-21h]
   __int64 v23; // [rsp+50h] [rbp-19h]
   GUID v24; // [rsp+78h] [rbp+Fh] BYREF
 
@@ -60,7 +60,7 @@ __int64 __fastcall IopQueryResourceHandlerInterface(int a1, __int64 a2, unsigned
     v11 = 52;
   }
   v24 = v10;
-  Pool2 = (__int16 *)ExAllocatePool2(0x100uLL);
+  Pool2 = (unsigned __int16 *)ExAllocatePool2(0x100uLL, v11, 0x20207050u);
   v13 = Pool2;
   if ( !Pool2 )
     return 3221225626LL;

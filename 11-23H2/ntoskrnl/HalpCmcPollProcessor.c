@@ -1,19 +1,19 @@
 /*
- * XREFs of HalpCmcPollProcessor @ 0x140380398
+ * XREFs of HalpCmcPollProcessor @ 0x140380538
  * Callers:
- *     HalpCmciPollProcessor @ 0x140380298 (HalpCmciPollProcessor.c)
- *     HalpCmcWorkerRoutine @ 0x14081E6F0 (HalpCmcWorkerRoutine.c)
+ *     HalpCmciPollProcessor @ 0x140380438 (HalpCmciPollProcessor.c)
+ *     HalpCmcWorkerRoutine @ 0x14081E9C0 (HalpCmcWorkerRoutine.c)
  * Callees:
- *     KeQueryDpcWatchdogInformation @ 0x1403247B0 (KeQueryDpcWatchdogInformation.c)
- *     HalpMcaReadErrorPresence @ 0x140380524 (HalpMcaReadErrorPresence.c)
- *     HalpGetCpuVendor @ 0x1403805F4 (HalpGetCpuVendor.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     HalpCmcIsDpcTimeRunningLow @ 0x1405025CC (HalpCmcIsDpcTimeRunningLow.c)
- *     HalpCmcLogPollingTimeoutEvent @ 0x140502624 (HalpCmcLogPollingTimeoutEvent.c)
- *     HalpMcaClearError @ 0x140502F90 (HalpMcaClearError.c)
- *     HalpMcaReadError @ 0x1405034B0 (HalpMcaReadError.c)
- *     HalpMcaReportError @ 0x140503748 (HalpMcaReportError.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeQueryDpcWatchdogInformation @ 0x140324A40 (KeQueryDpcWatchdogInformation.c)
+ *     HalpMcaReadErrorPresence @ 0x1403806C4 (HalpMcaReadErrorPresence.c)
+ *     HalpGetCpuVendor @ 0x140380794 (HalpGetCpuVendor.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     HalpCmcIsDpcTimeRunningLow @ 0x140502B1C (HalpCmcIsDpcTimeRunningLow.c)
+ *     HalpCmcLogPollingTimeoutEvent @ 0x140502B74 (HalpCmcLogPollingTimeoutEvent.c)
+ *     HalpMcaClearError @ 0x1405034E0 (HalpMcaClearError.c)
+ *     HalpMcaReadError @ 0x140503A00 (HalpMcaReadError.c)
+ *     HalpMcaReportError @ 0x140503C98 (HalpMcaReportError.c)
  */
 
 __int64 __fastcall HalpCmcPollProcessor(__int64 a1, char a2, __int64 a3, __int64 a4)
@@ -68,9 +68,9 @@ __int64 __fastcall HalpCmcPollProcessor(__int64 a1, char a2, __int64 a3, __int64
       v12 = 1;
       CurrentIrql = KeGetCurrentIrql();
       __writecr8(2uLL);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
         {
           SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
           if ( CurrentIrql == 2 )
@@ -90,10 +90,13 @@ __int64 __fastcall HalpCmcPollProcessor(__int64 a1, char a2, __int64 a3, __int64
     {
       if ( v12 )
       {
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v9 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)v9 <= 0xFu && CurrentIrql <= 0xFu && (unsigned __int8)v9 >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+            && (unsigned __int8)v9 <= 0xFu
+            && CurrentIrql <= 0xFu
+            && (unsigned __int8)v9 >= 2u )
           {
             CurrentPrcb = KeGetCurrentPrcb();
             v9 = (unsigned int)CurrentIrql + 1;
@@ -120,10 +123,10 @@ LABEL_25:
             result = (unsigned int)_InterlockedExchange(&HalpCmcLock, 0);
           if ( v12 )
           {
-            if ( KiIrqlFlags )
+            if ( (_DWORD)KiIrqlFlags )
             {
               v25 = KeGetCurrentIrql();
-              if ( (KiIrqlFlags & 1) != 0 && v25 <= 0xFu && CurrentIrql <= 0xFu && v25 >= 2u )
+              if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v25 <= 0xFu && CurrentIrql <= 0xFu && v25 >= 2u )
               {
                 v26 = KeGetCurrentPrcb();
                 v27 = v26->SchedulerAssist;
@@ -157,10 +160,10 @@ LABEL_25:
           _InterlockedExchange(&HalpCmcLock, 0);
         if ( v12 )
         {
-          if ( KiIrqlFlags )
+          if ( (_DWORD)KiIrqlFlags )
           {
             v9 = KeGetCurrentIrql();
-            if ( (KiIrqlFlags & 1) != 0
+            if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
               && (unsigned __int8)v9 <= 0xFu
               && CurrentIrql <= 0xFu
               && (unsigned __int8)v9 >= 2u )

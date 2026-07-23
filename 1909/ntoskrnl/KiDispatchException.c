@@ -43,7 +43,7 @@ int __fastcall KiDispatchException(
 {
   char v5; // r15
   _KPROCESS *Process; // rax
-  unsigned int v9; // r12d
+  ULONG v9; // r12d
   unsigned __int64 v10; // rax
   void *v11; // rsp
   __int64 v12; // r8
@@ -63,11 +63,11 @@ int __fastcall KiDispatchException(
   ULONG_PTR BugCheckParameter4; // [rsp+20h] [rbp-10h]
   int v29; // [rsp+30h] [rbp+0h] BYREF
   int v30; // [rsp+34h] [rbp+4h]
-  unsigned int v31; // [rsp+38h] [rbp+8h] BYREF
+  ULONG ContextLength; // [rsp+38h] [rbp+8h] BYREF
   __int64 v32; // [rsp+40h] [rbp+10h]
   unsigned __int64 v33; // [rsp+48h] [rbp+18h]
   unsigned __int64 v34; // [rsp+50h] [rbp+20h]
-  __int64 v35; // [rsp+58h] [rbp+28h] BYREF
+  PCONTEXT_EX ContextEx; // [rsp+58h] [rbp+28h] BYREF
   unsigned __int64 v36; // [rsp+60h] [rbp+30h]
   PEXCEPTION_RECORD v37; // [rsp+68h] [rbp+38h]
   _QWORD *v38; // [rsp+70h] [rbp+40h]
@@ -132,15 +132,15 @@ int __fastcall KiDispatchException(
       v9 = 1048671;
     v30 = v9;
   }
-  RtlGetExtendedContextLength(v9, &v31);
-  v10 = v31 + 15LL;
-  if ( v10 <= v31 )
+  RtlGetExtendedContextLength(v9, &ContextLength);
+  v10 = ContextLength + 15LL;
+  if ( v10 <= ContextLength )
     v10 = 0xFFFFFFFFFFFFFF0LL;
   v11 = alloca(v10 & 0xFFFFFFFFFFFFFFF0uLL);
   v42 = &v29;
   if ( v5 )
-    memset(&v29, 0, v31);
-  RtlInitializeExtendedContext(&v29, v9, &v35);
+    memset(&v29, 0, ContextLength);
+  RtlInitializeExtendedContext((PCONTEXT)&v29, v9, &ContextEx);
   KeContextFromKframes(a3, v32, &v29);
   if ( ExceptionRecord->ExceptionCode == -2147483645 )
   {
@@ -231,7 +231,7 @@ LABEL_14:
       v34 = v16;
       if ( (v9 & 0x100040) == 0x100040 )
       {
-        v19 = (v16 - *(unsigned int *)(v35 + 20)) & 0xFFFFFFFFFFFFFFC0uLL;
+        v19 = (v16 - ContextEx->XState.Length) & 0xFFFFFFFFFFFFFFC0uLL;
         v34 = v19;
       }
       v33 = (v19 - 40) & 0xFFFFFFFFFFFFFFF0uLL;
@@ -265,7 +265,7 @@ LABEL_14:
       KeCopyExceptionRecord(v40, ExceptionRecord);
       v23 = v41;
       LOBYTE(v24) = 1;
-      RtlpCopyExtendedContext(v24, v41, (unsigned int)&v46, v30, v35, 0LL);
+      RtlpCopyExtendedContext(v24, v41, (unsigned int)&v46, v30, (__int64)ContextEx, 0LL);
       *(_OWORD *)v23 = v46;
       *(_QWORD *)(v23 + 16) = v47;
       _disable();

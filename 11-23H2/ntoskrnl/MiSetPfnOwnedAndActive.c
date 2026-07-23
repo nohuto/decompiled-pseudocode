@@ -1,15 +1,15 @@
 /*
- * XREFs of MiSetPfnOwnedAndActive @ 0x1402E2D3C
+ * XREFs of MiSetPfnOwnedAndActive @ 0x1402E2FCC
  * Callers:
- *     MiAssignNonPagedPoolPte @ 0x1402E2990 (MiAssignNonPagedPoolPte.c)
- *     MiFindContiguousPagesEx @ 0x1403BB018 (MiFindContiguousPagesEx.c)
- *     MiFindLargeNodePage @ 0x14061D668 (MiFindLargeNodePage.c)
- *     MiRemoveMdlPages @ 0x140A2E53C (MiRemoveMdlPages.c)
+ *     MiAssignNonPagedPoolPte @ 0x1402E2C20 (MiAssignNonPagedPoolPte.c)
+ *     MiFindContiguousPagesEx @ 0x1403BB1F8 (MiFindContiguousPagesEx.c)
+ *     MiFindLargeNodePage @ 0x14061DBB8 (MiFindLargeNodePage.c)
+ *     MiRemoveMdlPages @ 0x140A2E7EC (MiRemoveMdlPages.c)
  * Callees:
- *     MiSwizzleInvalidPte @ 0x1402857A0 (MiSwizzleInvalidPte.c)
- *     MiLockPageInline @ 0x1402EF680 (MiLockPageInline.c)
- *     MiChangePageAttribute @ 0x14036F3BC (MiChangePageAttribute.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiSwizzleInvalidPte @ 0x140285A30 (MiSwizzleInvalidPte.c)
+ *     MiLockPageInline @ 0x1402EF910 (MiLockPageInline.c)
+ *     MiChangePageAttribute @ 0x14036F55C (MiChangePageAttribute.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiSetPfnOwnedAndActive(__int64 a1, char a2, __int64 a3, unsigned int a4, unsigned int a5)
@@ -47,10 +47,10 @@ __int64 __fastcall MiSetPfnOwnedAndActive(__int64 a1, char a2, __int64 a3, unsig
     *(_QWORD *)(a1 + 24) |= 0x4000000000000000uLL;
   }
   _InterlockedAnd64((volatile signed __int64 *)(a1 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
       && (unsigned __int8)result <= 0xFu
       && (unsigned __int8)v11 <= 0xFu
       && (unsigned __int8)result >= 2u )

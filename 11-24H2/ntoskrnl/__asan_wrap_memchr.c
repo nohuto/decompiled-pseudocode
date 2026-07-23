@@ -1,11 +1,11 @@
 /*
- * XREFs of __asan_wrap_memchr @ 0x1405AD460
+ * XREFs of __asan_wrap_memchr @ 0x1405AA3D0
  * Callers:
  *     <none>
  * Callees:
- *     memchr @ 0x1404FEC80 (memchr.c)
- *     KasaniReport @ 0x1405AA0B0 (KasaniReport.c)
- *     KcsanValidateAddress @ 0x1405AE5E0 (KcsanValidateAddress.c)
+ *     memchr @ 0x1404FC540 (memchr.c)
+ *     KasaniReport @ 0x1405A7020 (KasaniReport.c)
+ *     KcsanValidateAddress @ 0x1405AB550 (KcsanValidateAddress.c)
  */
 
 void *__fastcall _asan_wrap_memchr(ULONG_PTR BugCheckParameter1, int Val, ULONG_PTR BugCheckParameter2)
@@ -15,7 +15,7 @@ void *__fastcall _asan_wrap_memchr(ULONG_PTR BugCheckParameter1, int Val, ULONG_
   signed __int8 v8; // cl
   __int64 retaddr; // [rsp+38h] [rbp+0h]
 
-  if ( byte_140FCDC2A && BugCheckParameter1 >= 0xFFFF800000000000uLL )
+  if ( byte_140FCECAA && BugCheckParameter1 >= 0xFFFF800000000000uLL )
   {
     if ( BugCheckParameter2 )
     {

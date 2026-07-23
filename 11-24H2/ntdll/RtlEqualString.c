@@ -1,67 +1,69 @@
 /*
- * XREFs of RtlEqualString @ 0x1800E2230
+ * XREFs of RtlEqualString @ 0x1800DD800
  * Callers:
  *     <none>
  * Callees:
- *     RtlUpperChar @ 0x1800708F0 (RtlUpperChar.c)
- *     RtlCompareMemory @ 0x180165F10 (RtlCompareMemory.c)
+ *     RtlUpperChar @ 0x18008D1D0 (RtlUpperChar.c)
+ *     RtlCompareMemory @ 0x1801642D0 (RtlCompareMemory.c)
  */
 
-bool __fastcall RtlEqualString(unsigned __int16 *a1, unsigned __int16 *a2, char a3)
+BOOLEAN __cdecl RtlEqualString(PSTRING String1, PSTRING String2, BOOLEAN CaseInSensitive)
 {
-  unsigned int v3; // r9d
+  unsigned int Length; // r9d
   unsigned int v4; // eax
   int v6; // ebx
   int v7; // ebp
   bool v8; // cc
-  _BYTE *v9; // rsi
+  char *Buffer; // rsi
   __int64 v10; // rax
-  _BYTE *v11; // rdi
+  char *v11; // rdi
   SIZE_T v12; // r14
-  _BYTE *v13; // r15
+  char *v13; // r15
   SIZE_T v14; // rax
   int v15; // ebx
-  int v16; // r12d
-  unsigned __int8 v17; // al
+  CHAR v16; // r14
+  int v17; // r12d
+  unsigned __int8 v18; // al
 
-  v3 = *a1;
-  v4 = *a2;
-  if ( (_WORD)v3 != (_WORD)v4 )
+  Length = String1->Length;
+  v4 = String2->Length;
+  if ( (_WORD)Length != (_WORD)v4 )
     return 0;
-  v6 = *a1;
-  v7 = *a2;
-  v8 = v3 <= v4;
-  v9 = (_BYTE *)*((_QWORD *)a2 + 1);
-  v10 = *a1;
+  v6 = String1->Length;
+  v7 = String2->Length;
+  v8 = Length <= v4;
+  Buffer = String2->Buffer;
+  v10 = String1->Length;
   if ( !v8 )
-    v10 = *a2;
-  v11 = (_BYTE *)*((_QWORD *)a1 + 1);
+    v10 = String2->Length;
+  v11 = String1->Buffer;
   v12 = (unsigned int)v10;
   v13 = &v11[v10];
-  if ( a3 )
+  if ( CaseInSensitive )
   {
     while ( v11 < v13 )
     {
-      if ( *v11 != *v9 )
+      v16 = *Buffer;
+      if ( *v11 != *Buffer )
       {
-        v16 = (unsigned __int8)RtlUpperChar();
-        v17 = RtlUpperChar();
-        if ( (_BYTE)v16 != v17 )
+        v17 = (unsigned __int8)RtlUpperChar(*v11);
+        v18 = RtlUpperChar(v16);
+        if ( (_BYTE)v17 != v18 )
         {
-          v15 = v16 - v17;
+          v15 = v17 - v18;
           return v15 == 0;
         }
       }
       ++v11;
-      ++v9;
+      ++Buffer;
     }
   }
   else
   {
-    v14 = RtlCompareMemory(v11, v9, (unsigned int)v10);
+    v14 = RtlCompareMemory(v11, Buffer, (unsigned int)v10);
     if ( v14 < v12 )
     {
-      v15 = (unsigned __int8)v11[v14] - (unsigned __int8)v9[v14];
+      v15 = (unsigned __int8)v11[v14] - (unsigned __int8)Buffer[v14];
       return v15 == 0;
     }
   }

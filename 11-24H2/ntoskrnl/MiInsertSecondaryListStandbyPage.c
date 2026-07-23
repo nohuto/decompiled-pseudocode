@@ -1,18 +1,18 @@
 /*
- * XREFs of MiInsertSecondaryListStandbyPage @ 0x14026F190
+ * XREFs of MiInsertSecondaryListStandbyPage @ 0x140224720
  * Callers:
- *     MiInsertPageInList @ 0x14022CB10 (MiInsertPageInList.c)
- *     MiReplaceSecondaryListStandbyPage @ 0x1402F0DB0 (MiReplaceSecondaryListStandbyPage.c)
- *     MiSwapNumaStandbyPage @ 0x14039474C (MiSwapNumaStandbyPage.c)
+ *     MiReplaceSecondaryListStandbyPage @ 0x1402568F0 (MiReplaceSecondaryListStandbyPage.c)
+ *     MiInsertPageInList @ 0x140300420 (MiInsertPageInList.c)
+ *     MiSwapNumaStandbyPage @ 0x1403F7A6C (MiSwapNumaStandbyPage.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14020FA40 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140210170 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiGetPfnSlabType @ 0x14022D610 (MiGetPfnSlabType.c)
- *     MiSearchChannelTable @ 0x14026F0D4 (MiSearchChannelTable.c)
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     MiSetNextStandbyPageSecondaryNoLockAsserts @ 0x1403EF800 (MiSetNextStandbyPageSecondaryNoLockAsserts.c)
- *     MiSetPfnNodeFlinkHigh @ 0x14040AE90 (MiSetPfnNodeFlinkHigh.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     MiSearchChannelTable @ 0x140224664 (MiSearchChannelTable.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     MiGetPfnSlabType @ 0x140300F20 (MiGetPfnSlabType.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140338DA0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1403394D0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiSetNextStandbyPageSecondaryNoLockAsserts @ 0x1403E2780 (MiSetNextStandbyPageSecondaryNoLockAsserts.c)
+ *     MiSetPfnNodeFlinkHigh @ 0x140403370 (MiSetPfnNodeFlinkHigh.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 unsigned __int64 __fastcall MiInsertSecondaryListStandbyPage(__int64 a1, int a2, _QWORD *a3)
@@ -81,11 +81,11 @@ unsigned __int64 __fastcall MiInsertSecondaryListStandbyPage(__int64 a1, int a2,
   v8 = 0xAAAAAAAAAAAAAAABuLL * ((a1 + 0x220000000000LL) >> 4);
   v9 = 16 * ((a1 + 0x220000000000LL) >> 4);
   v10 = v9 - 0x220000000000LL;
-  v56 = *((_QWORD *)qword_140E2FF88 + ((*(_QWORD *)(v9 - 0x220000000000LL + 40) >> 43) & 0x3FFLL));
-  v11 = dword_140E2DAC4;
-  if ( dword_140E2DAC0 > (unsigned int)dword_140E2DAC4
-    || (v12 = (char *)qword_140E2DB20 + 16 * dword_140E2DAC0, v8 < *(_QWORD *)v12)
-    || dword_140E2DAC0 != dword_140E2DAC4 && v8 >= *((_QWORD *)v12 + 2) )
+  v56 = *((_QWORD *)qword_140E300C8 + ((*(_QWORD *)(v9 - 0x220000000000LL + 40) >> 43) & 0x3FFLL));
+  v11 = dword_140E2DC04;
+  if ( dword_140E2DC00 > (unsigned int)dword_140E2DC04
+    || (v12 = (char *)qword_140E2DC60 + 16 * dword_140E2DC00, v8 < *(_QWORD *)v12)
+    || dword_140E2DC00 != dword_140E2DC04 && v8 >= *((_QWORD *)v12 + 2) )
   {
     for ( i = 0; ; i = v14 + 1 )
     {
@@ -94,25 +94,25 @@ unsigned __int64 __fastcall MiInsertSecondaryListStandbyPage(__int64 a1, int a2,
         if ( v11 < i )
           KeBugCheckEx(0x1Au, 0x5180uLL, v8, 0LL, 0LL);
         v14 = (i + v11) >> 1;
-        v12 = (char *)qword_140E2DB20 + 16 * v14;
+        v12 = (char *)qword_140E2DC60 + 16 * v14;
         if ( v8 >= *(_QWORD *)v12 )
           break;
         if ( !v14 )
-          KeBugCheckEx(0x1Au, 0x5180uLL, v8, (ULONG_PTR)qword_140E2DB20, 0LL);
+          KeBugCheckEx(0x1Au, 0x5180uLL, v8, (ULONG_PTR)qword_140E2DC60, 0LL);
         v11 = v14 - 1;
       }
-      if ( v14 == dword_140E2DAC4 || v8 < *((_QWORD *)v12 + 2) )
+      if ( v14 == dword_140E2DC04 || v8 < *((_QWORD *)v12 + 2) )
         break;
     }
-    dword_140E2DAC0 = (i + v11) >> 1;
+    dword_140E2DC00 = (i + v11) >> 1;
   }
   v58 = *((_DWORD *)v12 + 2);
   v15 = *(_DWORD *)(v10 + 32);
   v60 = HIBYTE(v15);
   if ( (v15 & 0x8000000) != 0
     && (v10 < 0xFFFFDE0000000000uLL
-     || v10 >= 48 * qword_140E2DBE0 - 0x21FFFFFFFFD0LL
-     || (v40 = 0xAAAAAAAAAAAAAAABuLL * (v9 >> 4), v40 >= qword_140E35B00) && v40 < qword_140E35B00 + 2048
+     || v10 >= 48 * qword_140E2DD20 - 0x21FFFFFFFFD0LL
+     || (v40 = 0xAAAAAAAAAAAAAAABuLL * (v9 >> 4), v40 >= qword_140E35C40) && v40 < qword_140E35C40 + 2048
      || (BYTE2(v15) & 7) != 6 && (unsigned int)MiGetPfnSlabType(v9 - 0x220000000000LL) == 9) )
   {
     v16 = 5;
@@ -121,7 +121,7 @@ unsigned __int64 __fastcall MiInsertSecondaryListStandbyPage(__int64 a1, int a2,
   {
     v16 = v60 & 7;
   }
-  if ( qword_140E2DB28 )
+  if ( qword_140E2DC68 )
   {
     v39 = MiSearchChannelTable(v7 * (v9 >> 4));
     v4 = 0xFFFFDE0000000000uLL;
@@ -137,7 +137,7 @@ unsigned __int64 __fastcall MiInsertSecondaryListStandbyPage(__int64 a1, int a2,
   {
     if ( (_DWORD)v3 == 8 )
     {
-      v49 = *(_BYTE *)(qword_140E3D140 + 2 * ((v7 * ((__int64)(v10 - v4) >> 4)) >> 9) + 1) & 0x7F;
+      v49 = *(_BYTE *)(qword_140E3D280 + 2 * ((v7 * ((__int64)(v10 - v4) >> 4)) >> 9) + 1) & 0x7F;
       BYTE8(v59) = v49;
     }
     else

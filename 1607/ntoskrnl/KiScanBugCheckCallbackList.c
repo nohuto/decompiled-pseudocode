@@ -1,10 +1,10 @@
 /*
- * XREFs of KiScanBugCheckCallbackList @ 0x1401D5888
+ * XREFs of KiScanBugCheckCallbackList @ 0x1401D56B4
  * Callers:
- *     IopWriteTriageDumpToFirmware @ 0x1401C8154 (IopWriteTriageDumpToFirmware.c)
- *     KeBugCheck2 @ 0x1401D40EC (KeBugCheck2.c)
+ *     IopWriteTriageDumpToFirmware @ 0x1401C7FF4 (IopWriteTriageDumpToFirmware.c)
+ *     KeBugCheck2 @ 0x1401D3F18 (KeBugCheck2.c)
  * Callees:
- *     MiIsAddressValid @ 0x140037540 (MiIsAddressValid.c)
+ *     MiIsAddressValid @ 0x1400370C0 (MiIsAddressValid.c)
  */
 
 void KiScanBugCheckCallbackList()
@@ -16,7 +16,7 @@ void KiScanBugCheckCallbackList()
   void (*v4)(void); // r8
 
   v0 = KeBugCheckCallbackListHead;
-  if ( KeBugCheckCallbackListHead && qword_14030E5D8 )
+  if ( KeBugCheckCallbackListHead && qword_14030E618 )
   {
     v1 = &KeBugCheckCallbackListHead;
     while ( (__int64 *)v0 != &KeBugCheckCallbackListHead && (v0 & 7) == 0 )

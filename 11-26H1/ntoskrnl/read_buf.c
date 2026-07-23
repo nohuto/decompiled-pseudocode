@@ -1,11 +1,11 @@
 /*
- * XREFs of read_buf @ 0x1406297F8
+ * XREFs of read_buf @ 0x14062C848
  * Callers:
- *     deflate_stored @ 0x140628D40 (deflate_stored.c)
- *     fill_window @ 0x1406291A4 (fill_window.c)
+ *     deflate_stored @ 0x14062BD90 (deflate_stored.c)
+ *     fill_window @ 0x14062C1F4 (fill_window.c)
  * Callees:
- *     adler32_z @ 0x140635164 (adler32_z.c)
- *     memmove @ 0x14073D480 (memmove.c)
+ *     adler32_z @ 0x14063816C (adler32_z.c)
+ *     memmove @ 0x140742080 (memmove.c)
  */
 
 __int64 __fastcall read_buf(__int64 a1, void *a2, unsigned int a3)

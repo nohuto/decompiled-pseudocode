@@ -1,18 +1,18 @@
 /*
- * XREFs of MiLargePagePromote @ 0x1402D77D0
+ * XREFs of MiLargePagePromote @ 0x1402D7A60
  * Callers:
- *     MiCoalesceFreeLargePages @ 0x140332DC0 (MiCoalesceFreeLargePages.c)
- *     MiCoalesceActivePagesIntoFree @ 0x14065D4EC (MiCoalesceActivePagesIntoFree.c)
+ *     MiCoalesceFreeLargePages @ 0x140333050 (MiCoalesceFreeLargePages.c)
+ *     MiCoalesceActivePagesIntoFree @ 0x14065DA3C (MiCoalesceActivePagesIntoFree.c)
  * Callees:
- *     MiSearchNumaNodeTable @ 0x14026EAD0 (MiSearchNumaNodeTable.c)
- *     MiUpdatePageFileHighInPte @ 0x14028563C (MiUpdatePageFileHighInPte.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14028A930 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiInsertLargePageInNodeList @ 0x1402D6BE0 (MiInsertLargePageInNodeList.c)
- *     MiUnlinkNodeLargePageHelper @ 0x1402D89C0 (MiUnlinkNodeLargePageHelper.c)
- *     MiDetermineCoalescedLargePageHeatState @ 0x1403478A8 (MiDetermineCoalescedLargePageHeatState.c)
- *     MiPageToChannel @ 0x140375870 (MiPageToChannel.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     MiSearchNumaNodeTable @ 0x14026ED60 (MiSearchNumaNodeTable.c)
+ *     MiUpdatePageFileHighInPte @ 0x1402858CC (MiUpdatePageFileHighInPte.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14028ABC0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiInsertLargePageInNodeList @ 0x1402D6E70 (MiInsertLargePageInNodeList.c)
+ *     MiUnlinkNodeLargePageHelper @ 0x1402D8C50 (MiUnlinkNodeLargePageHelper.c)
+ *     MiDetermineCoalescedLargePageHeatState @ 0x140347B38 (MiDetermineCoalescedLargePageHeatState.c)
+ *     MiPageToChannel @ 0x140375A10 (MiPageToChannel.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall MiLargePagePromote(__int64 a1, unsigned int a2, __int64 a3, int a4, _DWORD *a5)

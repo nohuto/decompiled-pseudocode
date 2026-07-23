@@ -1,24 +1,24 @@
 /*
- * XREFs of RtlpTimeFieldsToTime @ 0x1404522F8
+ * XREFs of RtlpTimeFieldsToTime @ 0x14044A428
  * Callers:
- *     HalQueryRealTimeClock @ 0x140451480 (HalQueryRealTimeClock.c)
- *     RtlTimeFieldsToTime @ 0x1404522E0 (RtlTimeFieldsToTime.c)
- *     HalEfiGetTime @ 0x140533554 (HalEfiGetTime.c)
- *     HalSetRealTimeClock @ 0x140578300 (HalSetRealTimeClock.c)
- *     HalpCheckWakeupTimeAndAdjust @ 0x140594734 (HalpCheckWakeupTimeAndAdjust.c)
- *     GetBootSystemTime @ 0x140CAA5C4 (GetBootSystemTime.c)
- *     Phase1InitializationDiscard @ 0x140CABD00 (Phase1InitializationDiscard.c)
- *     SeMakeAnonymousLogonToken @ 0x140CDD2F0 (SeMakeAnonymousLogonToken.c)
- *     SeMakeAnonymousLogonTokenNoEveryone @ 0x140CDD570 (SeMakeAnonymousLogonTokenNoEveryone.c)
- *     SeMakeSystemToken @ 0x140CDD7D0 (SeMakeSystemToken.c)
+ *     HalQueryRealTimeClock @ 0x1404495B0 (HalQueryRealTimeClock.c)
+ *     RtlTimeFieldsToTime @ 0x14044A410 (RtlTimeFieldsToTime.c)
+ *     HalEfiGetTime @ 0x1405359D4 (HalEfiGetTime.c)
+ *     HalSetRealTimeClock @ 0x14057A830 (HalSetRealTimeClock.c)
+ *     HalpCheckWakeupTimeAndAdjust @ 0x140596EB4 (HalpCheckWakeupTimeAndAdjust.c)
+ *     GetBootSystemTime @ 0x140CB05C4 (GetBootSystemTime.c)
+ *     Phase1InitializationDiscard @ 0x140CB1D40 (Phase1InitializationDiscard.c)
+ *     SeMakeAnonymousLogonToken @ 0x140CE3688 (SeMakeAnonymousLogonToken.c)
+ *     SeMakeAnonymousLogonTokenNoEveryone @ 0x140CE3908 (SeMakeAnonymousLogonTokenNoEveryone.c)
+ *     SeMakeSystemToken @ 0x140CE3B68 (SeMakeSystemToken.c)
  * Callees:
- *     RtlpTimeFieldsToTimeNoLeapSeconds @ 0x14045239C (RtlpTimeFieldsToTimeNoLeapSeconds.c)
+ *     RtlpTimeFieldsToTimeNoLeapSeconds @ 0x14044A4CC (RtlpTimeFieldsToTimeNoLeapSeconds.c)
  */
 
 char __fastcall RtlpTimeFieldsToTime(__int64 a1, __int64 *a2)
 {
-  _KPROCESS *Process; // rbx
-  unsigned int SignalState; // esi
+  _KWAIT_BLOCK *WaitBlockList; // rbx
+  unsigned int Flink_high; // esi
   __int64 v5; // rax
   __int64 i; // r8
   __int64 v8; // rdx
@@ -26,20 +26,20 @@ char __fastcall RtlpTimeFieldsToTime(__int64 a1, __int64 *a2)
   signed __int32 v10[10]; // [rsp+0h] [rbp-28h] BYREF
   __int64 v11; // [rsp+40h] [rbp+18h] BYREF
 
-  Process = ExpSysDbgLock.ApcState.Process;
+  WaitBlockList = ExpSysDbgLock.WaitBlockList;
   v11 = 0LL;
-  if ( !ExpSysDbgLock.ApcState.Process || !ExpSysDbgLock.ApcState.Process->Header.Lock )
+  if ( !ExpSysDbgLock.WaitBlockList || !ExpSysDbgLock.WaitBlockList->WaitListEntry.Flink )
     return ((__int64 (*)(void))RtlpTimeFieldsToTimeNoLeapSeconds)();
-  SignalState = ExpSysDbgLock.ApcState.Process->Header.SignalState;
+  Flink_high = HIDWORD(ExpSysDbgLock.WaitBlockList->WaitListEntry.Flink);
   _InterlockedOr(v10, 0);
   if ( !(unsigned __int8)RtlpTimeFieldsToTimeNoLeapSeconds(a1, &v11) )
     return 0;
   v5 = v11;
   for ( i = 0LL; ; i = (unsigned int)(i + 1) )
   {
-    if ( (unsigned int)i >= SignalState )
+    if ( (unsigned int)i >= Flink_high )
       goto LABEL_6;
-    v8 = *((_QWORD *)&Process->Header.WaitListHead.Flink + i);
+    v8 = *((_QWORD *)&WaitBlockList->WaitListEntry.Blink + i);
     if ( v8 < 0 )
       break;
     if ( v5 < v8 + 10000000 )

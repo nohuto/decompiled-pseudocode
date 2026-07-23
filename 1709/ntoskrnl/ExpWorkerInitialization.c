@@ -28,8 +28,8 @@ __int64 ExpWorkerInitialization()
   __int64 v7; // rcx
   struct _KTHREAD *CurrentThread; // rax
   unsigned __int64 *v9; // rdi
-  unsigned __int64 v10; // rax
-  unsigned __int64 v11; // rbx
+  PRTL_BALANCED_NODE v10; // rax
+  PRTL_BALANCED_NODE v11; // rbx
   unsigned int v12; // ecx
   int v13; // ebx
   __int64 v14; // rsi
@@ -99,9 +99,9 @@ __int64 ExpWorkerInitialization()
         v10 = KeAbPreAcquire((ULONG_PTR)ObpTypeObjectType + 184, 0LL, 0);
         v11 = v10;
         if ( _interlockedbittestandset64((volatile signed __int32 *)v9, 0LL) )
-          ExfAcquirePushLockExclusiveEx(v9, v10, (__int16 *)v9);
+          ExfAcquirePushLockExclusiveEx(v9, (__int64)v10, (__int16 *)v9);
         if ( v11 )
-          *(_BYTE *)(v11 + 26) |= 1u;
+          BYTE2(v11[1].Left) |= 1u;
         v12 = 0;
         v13 = 64;
         v14 = *((unsigned int *)ObpTypeObjectType + 11);

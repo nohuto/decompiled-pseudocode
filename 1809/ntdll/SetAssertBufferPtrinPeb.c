@@ -3,7 +3,7 @@
  * Callers:
  *     GetShipAssertBuffer @ 0x1800DF044 (GetShipAssertBuffer.c)
  * Callees:
- *     NtQueryInformationProcess @ 0x1800A0600 (NtQueryInformationProcess.c)
+ *     NtQueryInformationProcess @ 0x1800A0620 (NtQueryInformationProcess.c)
  */
 
 __int64 __fastcall SetAssertBufferPtrinPeb(void *a1)

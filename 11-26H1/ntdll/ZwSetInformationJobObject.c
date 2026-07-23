@@ -1,17 +1,21 @@
 /*
- * XREFs of ZwSetInformationJobObject @ 0x180162470
+ * XREFs of ZwSetInformationJobObject @ 0x180162370
  * Callers:
- *     TppJobpRundownJob @ 0x1800C9BD0 (TppJobpRundownJob.c)
- *     TpAllocJobNotification @ 0x1800FB800 (TpAllocJobNotification.c)
+ *     TppJobpRundownJob @ 0x1800C7350 (TppJobpRundownJob.c)
+ *     TpAllocJobNotification @ 0x1800FAF50 (TpAllocJobNotification.c)
  * Callees:
  *     <none>
  */
 
-__int64 ZwSetInformationJobObject()
+NTSTATUS __cdecl ZwSetInformationJobObject(
+        HANDLE JobHandle,
+        JOBOBJECTINFOCLASS JobObjectInformationClass,
+        PVOID JobObjectInformation,
+        ULONG JobObjectInformationLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 426LL;
+  result = 426;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

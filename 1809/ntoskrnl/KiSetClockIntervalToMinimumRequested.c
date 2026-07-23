@@ -1,53 +1,55 @@
 /*
- * XREFs of KiSetClockIntervalToMinimumRequested @ 0x1400FCD10
+ * XREFs of KiSetClockIntervalToMinimumRequested @ 0x1400FCD90
  * Callers:
  *     KiCheckForTimerExpiration @ 0x1400605D0 (KiCheckForTimerExpiration.c)
  *     KeClockInterruptNotify @ 0x140060C40 (KeClockInterruptNotify.c)
- *     KiSetClockInterval @ 0x14012EAF8 (KiSetClockInterval.c)
- *     KiResetClockInterval @ 0x140190BEC (KiResetClockInterval.c)
+ *     KiSetClockInterval @ 0x14012EBC8 (KiSetClockInterval.c)
+ *     KiResetClockInterval @ 0x140190D2C (KiResetClockInterval.c)
  * Callees:
- *     RtlGetInterruptTimePrecise @ 0x14008BAA0 (RtlGetInterruptTimePrecise.c)
- *     KiSetClockTickRate @ 0x1400FCDD4 (KiSetClockTickRate.c)
- *     KiGetClockIntervalOneShot @ 0x1400FCFA4 (KiGetClockIntervalOneShot.c)
+ *     RtlGetInterruptTimePrecise @ 0x14008BA90 (RtlGetInterruptTimePrecise.c)
+ *     KiSetClockTickRate @ 0x1400FCE54 (KiSetClockTickRate.c)
+ *     KiGetClockIntervalOneShot @ 0x1400FD024 (KiGetClockIntervalOneShot.c)
  */
 
 __int64 __fastcall KiSetClockIntervalToMinimumRequested(__int64 a1, __int64 a2)
 {
-  unsigned __int64 v2; // rax
+  unsigned __int64 Min; // rax
   __int64 v3; // rbp
   bool v4; // di
   unsigned int v5; // ebx
   char v6; // si
-  __int64 InterruptTimePrecise; // rax
-  unsigned int ClockIntervalOneShot; // eax
+  LARGE_INTEGER InterruptTimePrecise; // rax
+  unsigned int v8; // eax
   __int64 result; // rax
   __int16 v10; // [rsp+30h] [rbp-8h]
-  LARGE_INTEGER v11; // [rsp+40h] [rbp+8h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+40h] [rbp+8h] BYREF
 
-  if ( (qword_1404D9830 & 1) != 0 )
+  if ( (*(_BYTE *)&KiClockIntervalRequests.0 & 1) != 0 )
   {
-    if ( qword_1404D9830 == 1 )
-      v2 = 0LL;
+    if ( KiClockIntervalRequests.Min == (_RTL_BALANCED_NODE *)1 )
+      Min = 0LL;
     else
-      v2 = qword_1404D9830 ^ ((unsigned __int64)&KiClockIntervalRequests + 1);
+      Min = (unsigned __int64)KiClockIntervalRequests.Min ^ ((unsigned __int64)&KiClockIntervalRequests.Root + 1);
   }
   else
   {
-    v2 = qword_1404D9830;
+    Min = (unsigned __int64)KiClockIntervalRequests.Min;
   }
   v3 = KiClockOwnerOneShotRequest;
   v4 = 0;
-  v5 = *(_DWORD *)(v2 + 28);
+  v5 = *(_DWORD *)(Min + 28);
   v6 = 0;
   if ( KiClockOwnerOneShotRequest )
   {
     _disable();
     v4 = (v10 & 0x200) != 0;
-    InterruptTimePrecise = RtlGetInterruptTimePrecise(&v11);
-    ClockIntervalOneShot = KiGetClockIntervalOneShot(v3, InterruptTimePrecise);
-    if ( ClockIntervalOneShot < v5 )
+    InterruptTimePrecise = RtlGetInterruptTimePrecise(&PerformanceCounter);
+    v8 = ((__int64 (__fastcall *)(_QWORD, _QWORD))KiGetClockIntervalOneShot)(
+           v3,
+           (LARGE_INTEGER)InterruptTimePrecise.QuadPart);
+    if ( v8 < v5 )
     {
-      v5 = ClockIntervalOneShot;
+      v5 = v8;
       v6 = 1;
     }
   }

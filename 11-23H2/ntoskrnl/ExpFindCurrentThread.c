@@ -1,13 +1,13 @@
 /*
- * XREFs of ExpFindCurrentThread @ 0x140260200
+ * XREFs of ExpFindCurrentThread @ 0x140260490
  * Callers:
- *     ExReleaseResourceForThreadLite @ 0x14025FD60 (ExReleaseResourceForThreadLite.c)
- *     ExpAcquireSharedStarveExclusive @ 0x1402633E0 (ExpAcquireSharedStarveExclusive.c)
- *     ExpBoostIoAfterAcquire @ 0x14031AEB0 (ExpBoostIoAfterAcquire.c)
- *     ExAcquireSharedWaitForExclusive @ 0x1403C8950 (ExAcquireSharedWaitForExclusive.c)
- *     ExpTryConvertSharedToExclusiveLite @ 0x14060AE0C (ExpTryConvertSharedToExclusiveLite.c)
+ *     ExReleaseResourceForThreadLite @ 0x14025FFF0 (ExReleaseResourceForThreadLite.c)
+ *     ExpAcquireSharedStarveExclusive @ 0x140263670 (ExpAcquireSharedStarveExclusive.c)
+ *     ExpBoostIoAfterAcquire @ 0x14031B140 (ExpBoostIoAfterAcquire.c)
+ *     ExAcquireSharedWaitForExclusive @ 0x1403C8B30 (ExAcquireSharedWaitForExclusive.c)
+ *     ExpTryConvertSharedToExclusiveLite @ 0x14060B35C (ExpTryConvertSharedToExclusiveLite.c)
  * Callees:
- *     ExpExpandResourceOwnerTable @ 0x1403416F0 (ExpExpandResourceOwnerTable.c)
+ *     ExpExpandResourceOwnerTable @ 0x140341980 (ExpExpandResourceOwnerTable.c)
  */
 
 _QWORD *__fastcall ExpFindCurrentThread(__int64 a1, __int64 a2, __int64 a3, int a4, int a5, unsigned int a6)

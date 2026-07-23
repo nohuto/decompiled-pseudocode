@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlDeleteOwnersRanges @ 0x140B10130
+ * XREFs of RtlDeleteOwnersRanges @ 0x140B11B70
  * Callers:
- *     ArbDeleteOwnerRanges @ 0x1407886F0 (ArbDeleteOwnerRanges.c)
- *     ArbQueryConflict @ 0x140789170 (ArbQueryConflict.c)
- *     ArbRetestAllocation @ 0x140789690 (ArbRetestAllocation.c)
+ *     ArbDeleteOwnerRanges @ 0x14078B220 (ArbDeleteOwnerRanges.c)
+ *     ArbQueryConflict @ 0x14078BCA0 (ArbQueryConflict.c)
+ *     ArbRetestAllocation @ 0x14078C1C0 (ArbRetestAllocation.c)
  * Callees:
- *     RtlpDeleteFromMergedRange @ 0x140800B60 (RtlpDeleteFromMergedRange.c)
- *     RtlpFreeRangeListEntry @ 0x140AE4F68 (RtlpFreeRangeListEntry.c)
+ *     RtlpDeleteFromMergedRange @ 0x140806600 (RtlpDeleteFromMergedRange.c)
+ *     RtlpFreeRangeListEntry @ 0x140AE2D28 (RtlpFreeRangeListEntry.c)
  */
 
 __int64 __fastcall RtlDeleteOwnersRanges(__int64 **a1, __int64 a2)

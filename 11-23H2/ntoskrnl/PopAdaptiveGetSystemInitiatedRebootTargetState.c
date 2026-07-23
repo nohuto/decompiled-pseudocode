@@ -1,11 +1,11 @@
 /*
- * XREFs of PopAdaptiveGetSystemInitiatedRebootTargetState @ 0x14099B8C4
+ * XREFs of PopAdaptiveGetSystemInitiatedRebootTargetState @ 0x14099BAC4
  * Callers:
- *     PopPowerInformationInternal @ 0x1407ED06C (PopPowerInformationInternal.c)
+ *     PopPowerInformationInternal @ 0x1407ED33C (PopPowerInformationInternal.c)
  * Callees:
- *     PopAcquireAdaptiveLock @ 0x1407EBE9C (PopAcquireAdaptiveLock.c)
- *     PopReleaseAdaptiveLock @ 0x1407EBF48 (PopReleaseAdaptiveLock.c)
- *     PopPowerAggregatorGetCurrentTargetState @ 0x1409938D8 (PopPowerAggregatorGetCurrentTargetState.c)
+ *     PopAcquireAdaptiveLock @ 0x1407EC16C (PopAcquireAdaptiveLock.c)
+ *     PopReleaseAdaptiveLock @ 0x1407EC218 (PopReleaseAdaptiveLock.c)
+ *     PopPowerAggregatorGetCurrentTargetState @ 0x140993AD8 (PopPowerAggregatorGetCurrentTargetState.c)
  */
 
 unsigned __int64 PopAdaptiveGetSystemInitiatedRebootTargetState()

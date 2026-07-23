@@ -1,16 +1,16 @@
 /*
- * XREFs of ExRemovePoolTag @ 0x1403447D0
+ * XREFs of ExRemovePoolTag @ 0x140346850
  * Callers:
- *     MmFreeContiguousMemory @ 0x140344580 (MmFreeContiguousMemory.c)
+ *     MmFreeContiguousMemory @ 0x140346600 (MmFreeContiguousMemory.c)
  * Callees:
- *     ExReleaseSpinLockShared @ 0x14026CEE0 (ExReleaseSpinLockShared.c)
- *     ExAcquireSpinLockShared @ 0x1402EDF10 (ExAcquireSpinLockShared.c)
- *     ExpFreePoolChecks @ 0x140344A90 (ExpFreePoolChecks.c)
- *     ExpPoolTrackerReturnLimit @ 0x140344FF0 (ExpPoolTrackerReturnLimit.c)
- *     ExpRemovePoolTrackerExpansion @ 0x1403450B0 (ExpRemovePoolTrackerExpansion.c)
- *     EtwTracePool @ 0x1403C0B34 (EtwTracePool.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     ExpPoolFlagsToPoolType @ 0x140C10F50 (ExpPoolFlagsToPoolType.c)
+ *     ExReleaseSpinLockShared @ 0x14026C450 (ExReleaseSpinLockShared.c)
+ *     ExAcquireSpinLockShared @ 0x1402CFF90 (ExAcquireSpinLockShared.c)
+ *     ExpFreePoolChecks @ 0x140346B10 (ExpFreePoolChecks.c)
+ *     ExpPoolTrackerReturnLimit @ 0x140347070 (ExpPoolTrackerReturnLimit.c)
+ *     ExpRemovePoolTrackerExpansion @ 0x140347130 (ExpRemovePoolTrackerExpansion.c)
+ *     EtwTracePool @ 0x1403CAA34 (EtwTracePool.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     ExpPoolFlagsToPoolType @ 0x140C16F50 (ExpPoolFlagsToPoolType.c)
  */
 
 __int64 __fastcall ExRemovePoolTag(ULONG_PTR BugCheckParameter2, _DWORD *a2, __int64 *a3, _DWORD *a4)
@@ -47,17 +47,16 @@ __int64 __fastcall ExRemovePoolTag(ULONG_PTR BugCheckParameter2, _DWORD *a2, __i
 
   v36 = a2;
   v34 = *a4 & 0x1C0;
-  v8 = ExAcquireSpinLockShared((PEX_SPIN_LOCK)&stru_140EFEF90.Header.WaitListHead.Flink + 1);
+  v8 = ExAcquireSpinLockShared(&ExpLargePoolTableLock);
   v9 = 1;
-  v10 = (LODWORD(stru_140EFEF90.SListFaultAddress) - 1) & ((40543 * (BugCheckParameter2 >> 12)) ^ ((40543
-                                                                                                  * (BugCheckParameter2 >> 12)) >> 32));
+  v10 = (PoolBigPageTableSize - 1) & ((40543 * (BugCheckParameter2 >> 12)) ^ ((40543 * (BugCheckParameter2 >> 12)) >> 32));
   v11 = 0;
   while ( 1 )
   {
     v12 = 32LL * v10;
-    if ( *(_QWORD *)((char *)stru_140EFEF90.StackLimit + v12) == BugCheckParameter2 )
+    if ( *(_QWORD *)((char *)PoolBigPageTable + v12) == BugCheckParameter2 )
       break;
-    if ( (void *)++v10 >= stru_140EFEF90.SListFaultAddress )
+    if ( ++v10 >= (unsigned __int64)PoolBigPageTableSize )
     {
       if ( !v9 )
         goto LABEL_24;
@@ -65,8 +64,8 @@ __int64 __fastcall ExRemovePoolTag(ULONG_PTR BugCheckParameter2, _DWORD *a2, __i
       v9 = 0;
     }
   }
-  v13 = (char *)stru_140EFEF90.StackLimit + v12;
-  if ( !((char *)stru_140EFEF90.StackLimit + v12) )
+  v13 = (char *)PoolBigPageTable + v12;
+  if ( !((char *)PoolBigPageTable + v12) )
 LABEL_24:
     KeBugCheckEx(0x19u, 0x22uLL, BugCheckParameter2, (unsigned int)*a4, 0LL);
   v14 = *((_DWORD *)v13 + 2);
@@ -87,7 +86,7 @@ LABEL_24:
   }
   _InterlockedDecrement(&ExpPoolBigEntriesInUse);
   _InterlockedIncrement64((volatile signed __int64 *)v13);
-  ExReleaseSpinLockShared((PEX_SPIN_LOCK)&stru_140EFEF90.Header.WaitListHead.Flink + 1, v8);
+  ExReleaseSpinLockShared(&ExpLargePoolTableLock, v8);
   v19 = (unsigned int)*a2;
   v20 = *(_QWORD *)a4;
   v33 = 0;
@@ -107,10 +106,10 @@ LABEL_24:
     }
   }
   LODWORD(v21) = KeGetPcr()->Prcb.Number;
-  StackBase = (int)stru_140EFEF90.StackBase;
+  StackBase = (int)stru_140EFF2C0.StackBase;
   v23 = v20 & 0xFFFFFFFFFFFFFFFBuLL;
-  v24 = *((_QWORD *)&stru_140EFEF90.CurrentRunTime + v21);
-  v25 = LODWORD(stru_140EFEF90.StackBase) & ((40543 * v19) ^ ((unsigned __int64)(40543 * v19) >> 32));
+  v24 = *(&stru_140EFF2C0.ThreadLock + v21);
+  v25 = LODWORD(stru_140EFF2C0.StackBase) & ((40543 * v19) ^ ((unsigned __int64)(40543 * v19) >> 32));
   v26 = v25;
   do
   {
@@ -124,11 +123,11 @@ LABEL_24:
       }
       if ( *(_DWORD *)v27 )
         break;
-      v29 = *(_DWORD *)(PoolTrackTable + 80LL * v25);
+      v29 = *(_DWORD *)(stru_140EFF2C0.QuantumTarget + 80LL * v25);
       if ( !v29 )
         break;
       *(_DWORD *)v27 = v29;
-      v30 = *(_QWORD *)(PoolTrackTable + 80LL * v25 + 72);
+      v30 = *(_QWORD *)(stru_140EFF2C0.QuantumTarget + 80LL * v25 + 72);
       if ( v30 )
         *(_QWORD *)(v27 + 72) = v30;
     }

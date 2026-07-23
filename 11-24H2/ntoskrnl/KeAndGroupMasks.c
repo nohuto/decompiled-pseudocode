@@ -1,9 +1,9 @@
 /*
- * XREFs of KeAndGroupMasks @ 0x1404ABEF4
+ * XREFs of KeAndGroupMasks @ 0x1404A63E0
  * Callers:
- *     KeInitializeProcess @ 0x140A4EB18 (KeInitializeProcess.c)
+ *     KeInitializeProcess @ 0x140A45798 (KeInitializeProcess.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 unsigned __int64 __fastcall KeAndGroupMasks(__int128 *a1, _QWORD *a2, _OWORD *a3)

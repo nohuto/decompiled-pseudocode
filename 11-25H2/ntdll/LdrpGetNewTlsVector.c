@@ -15,7 +15,7 @@ _DWORD *__fastcall LdrpGetNewTlsVector(unsigned int a1)
   _DWORD *v3; // rbx
 
   v1 = a1;
-  result = (_DWORD *)RtlAllocateHeap((void *)LdrpTlsHeap);
+  result = RtlAllocateHeap(LdrpTlsHeap, NtdllBaseTag + 786432, 8LL * a1 + 16);
   v3 = result;
   if ( result )
   {

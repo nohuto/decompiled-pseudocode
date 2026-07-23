@@ -1,23 +1,23 @@
 /*
- * XREFs of EtwpEnableAutoLoggerProvider @ 0x1407949F4
+ * XREFs of EtwpEnableAutoLoggerProvider @ 0x14079484C
  * Callers:
- *     EtwpEnumerateKeyProviders @ 0x140794898 (EtwpEnumerateKeyProviders.c)
+ *     EtwpEnumerateKeyProviders @ 0x1407946F0 (EtwpEnumerateKeyProviders.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     RtlStringCbPrintfW @ 0x14027EB50 (RtlStringCbPrintfW.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     ZwOpenKey @ 0x1403FA5E0 (ZwOpenKey.c)
- *     memset @ 0x140414200 (memset.c)
- *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
- *     RtlpQueryRegistryValues @ 0x140640A68 (RtlpQueryRegistryValues.c)
- *     RtlGUIDFromString @ 0x140644870 (RtlGUIDFromString.c)
- *     RtlNtStatusToDosError @ 0x14068A4C0 (RtlNtStatusToDosError.c)
- *     RtlWriteRegistryValue @ 0x1406B4930 (RtlWriteRegistryValue.c)
- *     EtwpEnableTrace @ 0x140789CE4 (EtwpEnableTrace.c)
- *     EtwpGetAutoLoggerProviderFilter @ 0x140795014 (EtwpGetAutoLoggerProviderFilter.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     RtlStringCbPrintfW @ 0x14026CAF0 (RtlStringCbPrintfW.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403FA7C0 (ZwOpenKey.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     RtlNtStatusToDosError @ 0x1405E9950 (RtlNtStatusToDosError.c)
+ *     RtlWriteRegistryValue @ 0x140613DB0 (RtlWriteRegistryValue.c)
+ *     RtlpQueryRegistryValues @ 0x140635878 (RtlpQueryRegistryValues.c)
+ *     RtlGUIDFromString @ 0x140639680 (RtlGUIDFromString.c)
+ *     RtlFreeAnsiString @ 0x14063DA40 (RtlFreeAnsiString.c)
+ *     EtwpEnableTrace @ 0x140789EA4 (EtwpEnableTrace.c)
+ *     EtwpGetAutoLoggerProviderFilter @ 0x140794E6C (EtwpGetAutoLoggerProviderFilter.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 void __fastcall EtwpEnableAutoLoggerProvider(

@@ -1,23 +1,23 @@
 /*
- * XREFs of IopLiveDumpWriteDumpFileWithExtraPages @ 0x1405D304C
+ * XREFs of IopLiveDumpWriteDumpFileWithExtraPages @ 0x1405D583C
  * Callers:
- *     IoCaptureLiveDump @ 0x14051255C (IoCaptureLiveDump.c)
+ *     IoCaptureLiveDump @ 0x14050BFCC (IoCaptureLiveDump.c)
  * Callees:
  *     RtlNumberOfSetBitsEx @ 0x140200820 (RtlNumberOfSetBitsEx.c)
- *     MmFreeIndependentPages @ 0x140308D40 (MmFreeIndependentPages.c)
- *     IopLiveDumpCheckTermination @ 0x140344064 (IopLiveDumpCheckTermination.c)
- *     IopLiveDumpWriteBuffer @ 0x140344094 (IopLiveDumpWriteBuffer.c)
- *     MiFreePagesFromMdl @ 0x1403454C0 (MiFreePagesFromMdl.c)
- *     IopLiveDumpFreeDumpBuffers @ 0x1404E4914 (IopLiveDumpFreeDumpBuffers.c)
- *     IopLiveDumpGetExtraMergePages @ 0x1405CFBD4 (IopLiveDumpGetExtraMergePages.c)
- *     IopLiveDumpGetNtMergePages @ 0x1405CFEC8 (IopLiveDumpGetNtMergePages.c)
- *     SecureDump_Get_SecureDumpHeader @ 0x1405D6680 (SecureDump_Get_SecureDumpHeader.c)
- *     RtlMergeBitMapsEx @ 0x140618AE0 (RtlMergeBitMapsEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     MmFreeIndependentPages @ 0x1402EADC0 (MmFreeIndependentPages.c)
+ *     IopLiveDumpCheckTermination @ 0x1403460E4 (IopLiveDumpCheckTermination.c)
+ *     IopLiveDumpWriteBuffer @ 0x140346114 (IopLiveDumpWriteBuffer.c)
+ *     MiFreePagesFromMdl @ 0x140347540 (MiFreePagesFromMdl.c)
+ *     IopLiveDumpFreeDumpBuffers @ 0x1404DDEB4 (IopLiveDumpFreeDumpBuffers.c)
+ *     IopLiveDumpGetExtraMergePages @ 0x1405D23E4 (IopLiveDumpGetExtraMergePages.c)
+ *     IopLiveDumpGetNtMergePages @ 0x1405D26D8 (IopLiveDumpGetNtMergePages.c)
+ *     SecureDump_Get_SecureDumpHeader @ 0x1405D8E70 (SecureDump_Get_SecureDumpHeader.c)
+ *     RtlMergeBitMapsEx @ 0x14061BB30 (RtlMergeBitMapsEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IopLiveDumpWriteDumpFileWithExtraPages(__int64 a1)

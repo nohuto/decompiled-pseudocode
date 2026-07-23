@@ -1,14 +1,14 @@
 /*
- * XREFs of VmpFlushTbVaRange @ 0x1405F9210
+ * XREFs of VmpFlushTbVaRange @ 0x1405F9780
  * Callers:
- *     VmpFlushTb @ 0x140466B2A (VmpFlushTb.c)
+ *     VmpFlushTb @ 0x140466F2A (VmpFlushTb.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     VmpProcessContextLockExclusive @ 0x140466D1E (VmpProcessContextLockExclusive.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     VmpConvertPortionVpnRangeToGpnRange @ 0x1405F8CDC (VmpConvertPortionVpnRangeToGpnRange.c)
- *     VmpInvalidateOutstandingFaults @ 0x1405F96A8 (VmpInvalidateOutstandingFaults.c)
- *     VmpProcessInvalidateSlat @ 0x1405FAA64 (VmpProcessInvalidateSlat.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     VmpProcessContextLockExclusive @ 0x14046711E (VmpProcessContextLockExclusive.c)
+ *     VmpConvertPortionVpnRangeToGpnRange @ 0x1405F924C (VmpConvertPortionVpnRangeToGpnRange.c)
+ *     VmpInvalidateOutstandingFaults @ 0x1405F9C18 (VmpInvalidateOutstandingFaults.c)
+ *     VmpProcessInvalidateSlat @ 0x1405FAFD4 (VmpProcessInvalidateSlat.c)
  */
 
 unsigned __int64 __fastcall VmpFlushTbVaRange(
@@ -56,10 +56,13 @@ unsigned __int64 __fastcall VmpFlushTbVaRange(
         v12 = *((_QWORD *)SpinLock + 5);
         v13 = *a6;
         ExReleaseSpinLockExclusiveFromDpcLevel(SpinLock);
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           CurrentIrql = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v13 <= 0xFu && CurrentIrql >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+            && CurrentIrql <= 0xFu
+            && (unsigned __int8)v13 <= 0xFu
+            && CurrentIrql >= 2u )
           {
             CurrentPrcb = KeGetCurrentPrcb();
             SchedulerAssist = CurrentPrcb->SchedulerAssist;

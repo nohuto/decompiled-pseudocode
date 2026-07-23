@@ -1,11 +1,11 @@
 /*
- * XREFs of ExpCopyProcessInfo @ 0x1405FE390
+ * XREFs of ExpCopyProcessInfo @ 0x1405FF390
  * Callers:
- *     ExpGetProcessInformation @ 0x1405E6B60 (ExpGetProcessInformation.c)
+ *     ExpGetProcessInformation @ 0x1405E7B60 (ExpGetProcessInformation.c)
  * Callees:
  *     ExReleaseRundownProtection_0 @ 0x14004D2F0 (ExReleaseRundownProtection_0.c)
  *     ExAcquireRundownProtection_0 @ 0x14004D320 (ExAcquireRundownProtection_0.c)
- *     PsQueryStatisticsProcess @ 0x1405FE700 (PsQueryStatisticsProcess.c)
+ *     PsQueryStatisticsProcess @ 0x1405FF700 (PsQueryStatisticsProcess.c)
  */
 
 __int64 __fastcall ExpCopyProcessInfo(__int64 a1, __int64 a2, char a3, _QWORD *a4)

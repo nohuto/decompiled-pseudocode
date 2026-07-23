@@ -1,18 +1,18 @@
 /*
- * XREFs of PsReferenceImpersonationTokenEx @ 0x1408B6C40
+ * XREFs of PsReferenceImpersonationTokenEx @ 0x1408BD210
  * Callers:
- *     SepReferenceTokenByHandle @ 0x1402AC430 (SepReferenceTokenByHandle.c)
- *     FsRtlpOplockGetThreadIntegrityLevel @ 0x14078F03C (FsRtlpOplockGetThreadIntegrityLevel.c)
- *     CmpCmdHiveOpen @ 0x1408B4674 (CmpCmdHiveOpen.c)
- *     CmpOpenHiveFile @ 0x1408B51B0 (CmpOpenHiveFile.c)
+ *     SepReferenceTokenByHandle @ 0x1403ABB50 (SepReferenceTokenByHandle.c)
+ *     FsRtlpOplockGetThreadIntegrityLevel @ 0x140791B6C (FsRtlpOplockGetThreadIntegrityLevel.c)
+ *     CmpCmdHiveOpen @ 0x1408BAC48 (CmpCmdHiveOpen.c)
+ *     CmpOpenHiveFile @ 0x1408BB784 (CmpOpenHiveFile.c)
  * Callees:
- *     ExfAcquirePushLockSharedEx @ 0x140277CC0 (ExfAcquirePushLockSharedEx.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ObfReferenceObjectWithTag @ 0x140278B30 (ObfReferenceObjectWithTag.c)
- *     ExfReleasePushLockShared @ 0x140278BD0 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KeLeaveCriticalRegionThread @ 0x1402B8A60 (KeLeaveCriticalRegionThread.c)
+ *     ExfAcquirePushLockSharedEx @ 0x140277230 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ObfReferenceObjectWithTag @ 0x1402780A0 (ObfReferenceObjectWithTag.c)
+ *     ExfReleasePushLockShared @ 0x140278140 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeLeaveCriticalRegionThread @ 0x140303720 (KeLeaveCriticalRegionThread.c)
  */
 
 void *__fastcall PsReferenceImpersonationTokenEx(
@@ -31,8 +31,6 @@ void *__fastcall PsReferenceImpersonationTokenEx(
   LegacyAutoBoost *v15; // rsi
   void *v16; // rdi
   char v17; // al
-  __int64 v19; // rdx
-  __int64 v20; // r8
 
   if ( (*(_DWORD *)(a1 + 1440) & 8) == 0 )
     return 0LL;
@@ -75,6 +73,6 @@ void *__fastcall PsReferenceImpersonationTokenEx(
   if ( _InterlockedCompareExchange64(v13, 0LL, 17LL) != 17 )
     ExfReleasePushLockShared(v13);
   KeAbPostRelease((unsigned __int64)v13);
-  KeLeaveCriticalRegionThread((__int64)CurrentThread, v19, v20);
+  KeLeaveCriticalRegionThread((__int64)CurrentThread);
   return v16;
 }

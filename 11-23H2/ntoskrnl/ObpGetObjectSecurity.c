@@ -1,21 +1,21 @@
 /*
- * XREFs of ObpGetObjectSecurity @ 0x140736220
+ * XREFs of ObpGetObjectSecurity @ 0x140736410
  * Callers:
  *     PspAllocateAndQueryNotificationChannel @ 0x14069F068 (PspAllocateAndQueryNotificationChannel.c)
- *     MiAllowImageMap @ 0x1406AF6A4 (MiAllowImageMap.c)
- *     ObpInsertOrLocateNamedObject @ 0x1406C0ABC (ObpInsertOrLocateNamedObject.c)
- *     ObpCheckObjectReference @ 0x1406C2F6C (ObpCheckObjectReference.c)
- *     ObCheckCreateObjectAccess @ 0x1406C4F10 (ObCheckCreateObjectAccess.c)
- *     ObGetObjectSecurity @ 0x140736200 (ObGetObjectSecurity.c)
- *     ObCheckObjectAccess @ 0x1407B6260 (ObCheckObjectAccess.c)
- *     PopBootStatAccessCheck @ 0x1407EBB54 (PopBootStatAccessCheck.c)
- *     ObpCheckTraverseAccess @ 0x14097B718 (ObpCheckTraverseAccess.c)
- *     PspCheckJobAccessState @ 0x1409B209C (PspCheckJobAccessState.c)
- *     EtwpCheckCurrentUserProcessAccess @ 0x1409EC2B0 (EtwpCheckCurrentUserProcessAccess.c)
+ *     MiAllowImageMap @ 0x1406AF6D4 (MiAllowImageMap.c)
+ *     ObpInsertOrLocateNamedObject @ 0x1406C0AEC (ObpInsertOrLocateNamedObject.c)
+ *     ObpCheckObjectReference @ 0x1406C2F9C (ObpCheckObjectReference.c)
+ *     ObCheckCreateObjectAccess @ 0x1406C4F40 (ObCheckCreateObjectAccess.c)
+ *     ObGetObjectSecurity @ 0x1407363F0 (ObGetObjectSecurity.c)
+ *     ObCheckObjectAccess @ 0x1407B6540 (ObCheckObjectAccess.c)
+ *     PopBootStatAccessCheck @ 0x1407EBE24 (PopBootStatAccessCheck.c)
+ *     ObpCheckTraverseAccess @ 0x14097B918 (ObpCheckTraverseAccess.c)
+ *     PspCheckJobAccessState @ 0x1409B229C (PspCheckJobAccessState.c)
+ *     EtwpCheckCurrentUserProcessAccess @ 0x1409EC540 (EtwpCheckCurrentUserProcessAccess.c)
  * Callees:
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     ObpReferenceSecurityDescriptorSlow @ 0x140884E14 (ObpReferenceSecurityDescriptorSlow.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     ObpReferenceSecurityDescriptorSlow @ 0x140885054 (ObpReferenceSecurityDescriptorSlow.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
@@ -38,7 +38,7 @@ __int64 __fastcall ObpGetObjectSecurity(__int64 a1, PVOID *a2, _BYTE *a3, char a
   unsigned int v22; // [rsp+90h] [rbp+8h] BYREF
 
   v8 = ObTypeIndexTable[(unsigned __int8)ObHeaderCookie ^ *(unsigned __int8 *)(a1 - 24) ^ (unsigned __int64)(unsigned __int8)((unsigned __int16)(a1 - 48) >> 8)];
-  if ( *(__int64 (__fastcall **)(__int64, int, ULONG *, void *, ULONG *, __int64 *, int, __int64))(v8 + 152) == SeDefaultObjectMethod )
+  if ( *(__int64 (__fastcall **)(__int64, int, DWORD *, void *, ULONG *, __int64 *, int, __int64))(v8 + 152) == SeDefaultObjectMethod )
   {
     _m_prefetchw((const void *)(a1 - 8));
     v9 = *(_QWORD *)(a1 - 8);

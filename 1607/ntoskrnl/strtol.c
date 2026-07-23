@@ -1,9 +1,9 @@
 /*
- * XREFs of strtol @ 0x14014F7E8
+ * XREFs of strtol @ 0x14014FDA8
  * Callers:
- *     RtlIpv6StringToAddressA @ 0x140144AA4 (RtlIpv6StringToAddressA.c)
+ *     RtlIpv6StringToAddressA @ 0x140145014 (RtlIpv6StringToAddressA.c)
  * Callees:
- *     strtoxlX @ 0x14014F5B0 (strtoxlX.c)
+ *     strtoxlX @ 0x14014FB70 (strtoxlX.c)
  */
 
 int __cdecl strtol(const char *Str, char **EndPtr, int Radix)

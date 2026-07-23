@@ -1,10 +1,10 @@
 /*
- * XREFs of MmTrimFilePagesFromWorkingSets @ 0x140678F08
+ * XREFs of MmTrimFilePagesFromWorkingSets @ 0x14067A0E8
  * Callers:
- *     PopTransitionToSleep @ 0x140B65430 (PopTransitionToSleep.c)
+ *     PopTransitionToSleep @ 0x140B67570 (PopTransitionToSleep.c)
  * Callees:
- *     PsGetNextPartition @ 0x1403D42FC (PsGetNextPartition.c)
- *     MiQueueWorkingSetRequest @ 0x1404F62CC (MiQueueWorkingSetRequest.c)
+ *     PsGetNextPartition @ 0x14026227C (PsGetNextPartition.c)
+ *     MiQueueWorkingSetRequest @ 0x1404F3BCC (MiQueueWorkingSetRequest.c)
  */
 
 void MmTrimFilePagesFromWorkingSets()
@@ -13,7 +13,7 @@ void MmTrimFilePagesFromWorkingSets()
   __int64 *NextPartition; // rax
   __int64 *v2; // rbx
 
-  if ( byte_140E37514 )
+  if ( byte_140E37654 )
   {
     for ( i = 0LL; ; i = v2 )
     {

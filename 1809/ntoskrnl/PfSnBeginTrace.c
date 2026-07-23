@@ -1,20 +1,20 @@
 /*
- * XREFs of PfSnBeginTrace @ 0x140668524
+ * XREFs of PfSnBeginTrace @ 0x1406696E4
  * Callers:
- *     PfSnBeginScenario @ 0x140667284 (PfSnBeginScenario.c)
+ *     PfSnBeginScenario @ 0x140668444 (PfSnBeginScenario.c)
  * Callees:
  *     ExAcquireRundownProtection_0 @ 0x14004D320 (ExAcquireRundownProtection_0.c)
- *     KeInitializeTimerEx @ 0x140089FF0 (KeInitializeTimerEx.c)
- *     ExInitializePushLock @ 0x14008A400 (ExInitializePushLock.c)
- *     KeInitializeDpc @ 0x1400A56F0 (KeInitializeDpc.c)
- *     ObfReferenceObjectWithTag @ 0x1400ACDF0 (ObfReferenceObjectWithTag.c)
- *     PfSnActivateTrace @ 0x1400E21A8 (PfSnActivateTrace.c)
- *     PfSnTraceBufferAllocate @ 0x1400E22D8 (PfSnTraceBufferAllocate.c)
- *     PsGetThreadId @ 0x1401228D0 (PsGetThreadId.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     PfSnCleanupTrace @ 0x1406695A4 (PfSnCleanupTrace.c)
+ *     KeInitializeTimerEx @ 0x140089FE0 (KeInitializeTimerEx.c)
+ *     ExInitializePushLock @ 0x14008A3F0 (ExInitializePushLock.c)
+ *     KeInitializeDpc @ 0x1400A5630 (KeInitializeDpc.c)
+ *     ObfReferenceObjectWithTag @ 0x1400ACD30 (ObfReferenceObjectWithTag.c)
+ *     PfSnActivateTrace @ 0x1400E2228 (PfSnActivateTrace.c)
+ *     PfSnTraceBufferAllocate @ 0x1400E2358 (PfSnTraceBufferAllocate.c)
+ *     PsGetThreadId @ 0x1401229A0 (PsGetThreadId.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     PfSnCleanupTrace @ 0x14066A764 (PfSnCleanupTrace.c)
  */
 
 __int64 __fastcall PfSnBeginTrace(_OWORD *a1, int a2, void *a3, struct _KTHREAD *a4, int a5, __int64 *a6)
@@ -32,7 +32,7 @@ __int64 __fastcall PfSnBeginTrace(_OWORD *a1, int a2, void *a3, struct _KTHREAD 
   int v19; // ebx
 
   v8 = a2;
-  if ( PfSnNumActiveTraces >= (unsigned int)dword_14043BF08 )
+  if ( PfSnNumActiveTraces >= (unsigned int)dword_14043CFC8 )
   {
     return (unsigned int)-1073741618;
   }
@@ -69,7 +69,7 @@ __int64 __fastcall PfSnBeginTrace(_OWORD *a1, int a2, void *a3, struct _KTHREAD 
       *(_OWORD *)(v11 + 56) = a1[2];
       v14 = a1[3];
       *(_WORD *)(v11 + 486) = v13 & 0xFFFE | (a5 != 0);
-      v15 = (char *)&unk_14043BEE8 + 16 * v8;
+      v15 = (char *)&unk_14043CFA8 + 16 * v8;
       *(_DWORD *)(v11 + 88) = v8;
       *(_OWORD *)(v11 + 72) = v14;
       v16 = *(_DWORD *)v15;

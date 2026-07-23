@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpHpSegReportPageRange @ 0x18011D290
+ * XREFs of RtlpHpSegReportPageRange @ 0x18011B4C0
  * Callers:
- *     RtlpHpSegWalk @ 0x1800478F0 (RtlpHpSegWalk.c)
+ *     RtlpHpSegWalk @ 0x18002B478 (RtlpHpSegWalk.c)
  * Callees:
- *     RtlpHpVsChunkSize @ 0x1800A40A0 (RtlpHpVsChunkSize.c)
- *     RtlpHpLfhSubsegmentSizeBlock @ 0x1800BEB30 (RtlpHpLfhSubsegmentSizeBlock.c)
- *     RtlpHpSegReportBusyBlock @ 0x1800F0AF4 (RtlpHpSegReportBusyBlock.c)
+ *     RtlpHpVsChunkSize @ 0x18005DE50 (RtlpHpVsChunkSize.c)
+ *     RtlpHpLfhSubsegmentSizeBlock @ 0x1800B68F0 (RtlpHpLfhSubsegmentSizeBlock.c)
+ *     RtlpHpSegReportBusyBlock @ 0x1800EB774 (RtlpHpSegReportBusyBlock.c)
  */
 
 __int64 __fastcall RtlpHpSegReportPageRange(__int64 a1, __int64 *a2)

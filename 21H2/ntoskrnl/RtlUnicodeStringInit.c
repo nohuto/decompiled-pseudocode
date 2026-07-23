@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlUnicodeStringInit @ 0x1404EC7D0
+ * XREFs of RtlUnicodeStringInit @ 0x1404ECA10
  * Callers:
- *     CmpLoadHiveThread @ 0x14079ED50 (CmpLoadHiveThread.c)
+ *     CmpLoadHiveThread @ 0x14079EF50 (CmpLoadHiveThread.c)
  * Callees:
  *     <none>
  */

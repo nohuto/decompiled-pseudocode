@@ -1,21 +1,21 @@
 /*
- * XREFs of KiExitThreadWait @ 0x1400F9E90
+ * XREFs of KiExitThreadWait @ 0x1400F9F10
  * Callers:
  *     KiCommitThreadWait @ 0x140055AD0 (KiCommitThreadWait.c)
- *     KiFastExitThreadWait @ 0x1400F9DAC (KiFastExitThreadWait.c)
- *     KiSatisfyThreadWait @ 0x14029AC68 (KiSatisfyThreadWait.c)
+ *     KiFastExitThreadWait @ 0x1400F9E2C (KiFastExitThreadWait.c)
+ *     KiSatisfyThreadWait @ 0x14029AE58 (KiSatisfyThreadWait.c)
  * Callees:
  *     KiRequestSoftwareInterrupt @ 0x140005AC0 (KiRequestSoftwareInterrupt.c)
  *     KiAbProcessContextSwitch @ 0x140057DC0 (KiAbProcessContextSwitch.c)
  *     KiDeliverApc @ 0x140058490 (KiDeliverApc.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     KiReadyDeferredReadyList @ 0x1400CDC24 (KiReadyDeferredReadyList.c)
- *     KiEndThreadCycleAccumulation @ 0x1400D1FA0 (KiEndThreadCycleAccumulation.c)
- *     KiQueueReadyThread @ 0x1400D2370 (KiQueueReadyThread.c)
- *     KiSelectNextThread @ 0x1400D7168 (KiSelectNextThread.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KiUpdatePriorityMatrixThreadState @ 0x1401B4B9C (KiUpdatePriorityMatrixThreadState.c)
- *     KiSwapContext @ 0x1401C3F70 (KiSwapContext.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     KiReadyDeferredReadyList @ 0x1400CDCA4 (KiReadyDeferredReadyList.c)
+ *     KiEndThreadCycleAccumulation @ 0x1400D2020 (KiEndThreadCycleAccumulation.c)
+ *     KiQueueReadyThread @ 0x1400D23F0 (KiQueueReadyThread.c)
+ *     KiSelectNextThread @ 0x1400D71E8 (KiSelectNextThread.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiUpdatePriorityMatrixThreadState @ 0x1401B4CDC (KiUpdatePriorityMatrixThreadState.c)
+ *     KiSwapContext @ 0x1401C40D0 (KiSwapContext.c)
  */
 
 char __fastcall KiExitThreadWait(__int64 a1, __int64 a2, __int64 a3, unsigned __int64 a4)

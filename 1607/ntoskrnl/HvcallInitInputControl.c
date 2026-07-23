@@ -1,7 +1,7 @@
 /*
- * XREFs of HvcallInitInputControl @ 0x140171A60
+ * XREFs of HvcallInitInputControl @ 0x140171F60
  * Callers:
- *     HvlpCreateRootVirtualProcessor @ 0x140620478 (HvlpCreateRootVirtualProcessor.c)
+ *     HvlpCreateRootVirtualProcessor @ 0x14062052C (HvlpCreateRootVirtualProcessor.c)
  * Callees:
  *     <none>
  */

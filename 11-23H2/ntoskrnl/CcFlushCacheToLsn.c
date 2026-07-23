@@ -1,9 +1,9 @@
 /*
- * XREFs of CcFlushCacheToLsn @ 0x1403D4530
+ * XREFs of CcFlushCacheToLsn @ 0x1403D4710
  * Callers:
  *     <none>
  * Callees:
- *     CcFlushCachePriv @ 0x14029CD34 (CcFlushCachePriv.c)
+ *     CcFlushCachePriv @ 0x14029CFC4 (CcFlushCachePriv.c)
  */
 
 void __fastcall CcFlushCacheToLsn(const void *a1, _QWORD *a2, __int128 *a3)

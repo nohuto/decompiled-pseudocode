@@ -1,12 +1,12 @@
 /*
- * XREFs of NtIsSystemResumeAutomatic @ 0x14098B600
+ * XREFs of NtIsSystemResumeAutomatic @ 0x14098B800
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-bool NtIsSystemResumeAutomatic()
+BOOLEAN NtIsSystemResumeAutomatic(void)
 {
   return (PopFullWake & 3) == 0;
 }

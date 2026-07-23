@@ -1,12 +1,12 @@
 /*
- * XREFs of VfPoolDelayFreeIfPossible @ 0x14016C330
+ * XREFs of VfPoolDelayFreeIfPossible @ 0x14016C430
  * Callers:
- *     VfUtilFreePoolCheckIRQL @ 0x14016C310 (VfUtilFreePoolCheckIRQL.c)
- *     VfUtilFreePoolDispatchLevel @ 0x140309AA0 (VfUtilFreePoolDispatchLevel.c)
+ *     VfUtilFreePoolCheckIRQL @ 0x14016C410 (VfUtilFreePoolCheckIRQL.c)
+ *     VfUtilFreePoolDispatchLevel @ 0x140309C90 (VfUtilFreePoolDispatchLevel.c)
  * Callees:
- *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
- *     RtlpInterlockedPushEntrySList @ 0x1401C5410 (RtlpInterlockedPushEntrySList.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     KeSetEvent @ 0x1400C2A40 (KeSetEvent.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1401C5570 (RtlpInterlockedPushEntrySList.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 void __fastcall VfPoolDelayFreeIfPossible(PSLIST_ENTRY ListEntry, unsigned int a2)

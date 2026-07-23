@@ -1,13 +1,13 @@
 /*
- * XREFs of KiUnmaskSecondaryInterruptInternal @ 0x140293AF8
+ * XREFs of KiUnmaskSecondaryInterruptInternal @ 0x140293CE8
  * Callers:
- *     KeUnmaskInterrupt @ 0x140158AA0 (KeUnmaskInterrupt.c)
- *     KeConnectInterrupt @ 0x14016DB40 (KeConnectInterrupt.c)
+ *     KeUnmaskInterrupt @ 0x140158BA0 (KeUnmaskInterrupt.c)
+ *     KeConnectInterrupt @ 0x14016DC40 (KeConnectInterrupt.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     KiAcquireSecondaryInterruptConnectLock @ 0x14029336C (KiAcquireSecondaryInterruptConnectLock.c)
+ *     KxReleaseSpinLock @ 0x1400630D0 (KxReleaseSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     KiAcquireSecondaryInterruptConnectLock @ 0x14029355C (KiAcquireSecondaryInterruptConnectLock.c)
  */
 
 __int64 __fastcall KiUnmaskSecondaryInterruptInternal(int a1, unsigned int a2)
@@ -78,6 +78,6 @@ LABEL_20:
   }
   __writecr8(v15);
   if ( !v12 )
-    return ((unsigned int (__fastcall *)(_QWORD, _QWORD))off_1403FE4B8[0])(a2, 0LL);
+    return ((unsigned int (__fastcall *)(_QWORD, _QWORD))off_1403FF4B8[0])(a2, 0LL);
   return v5;
 }

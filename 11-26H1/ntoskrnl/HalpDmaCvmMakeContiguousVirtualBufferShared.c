@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpDmaCvmMakeContiguousVirtualBufferShared @ 0x140782F78
+ * XREFs of HalpDmaCvmMakeContiguousVirtualBufferShared @ 0x140785AAC
  * Callers:
- *     HalpAllocateDomainCommonBufferInternal @ 0x140589FC0 (HalpAllocateDomainCommonBufferInternal.c)
+ *     HalpAllocateDomainCommonBufferInternal @ 0x14058C6F0 (HalpAllocateDomainCommonBufferInternal.c)
  * Callees:
- *     MmGetPhysicalAddress @ 0x14024D8F0 (MmGetPhysicalAddress.c)
- *     MmMapIoSpaceEx @ 0x140363DC0 (MmMapIoSpaceEx.c)
- *     HalpDmaCvmSetPageShareability @ 0x140783234 (HalpDmaCvmSetPageShareability.c)
+ *     MmGetPhysicalAddress @ 0x14024F250 (MmGetPhysicalAddress.c)
+ *     MmMapIoSpaceEx @ 0x140365B60 (MmMapIoSpaceEx.c)
+ *     HalpDmaCvmSetPageShareability @ 0x140785D68 (HalpDmaCvmSetPageShareability.c)
  */
 
 __int64 __fastcall HalpDmaCvmMakeContiguousVirtualBufferShared(
@@ -16,7 +16,7 @@ __int64 __fastcall HalpDmaCvmMakeContiguousVirtualBufferShared(
 {
   PHYSICAL_ADDRESS v4; // rbx
   unsigned __int64 v5; // rdi
-  PHYSICAL_ADDRESS v6; // r14
+  PHYSICAL_ADDRESS v6; // rsi
   unsigned __int64 v8; // r15
   __int64 *v9; // r13
   void *v12; // rcx
@@ -37,12 +37,19 @@ __int64 __fastcall HalpDmaCvmMakeContiguousVirtualBufferShared(
     if ( (unsigned __int64)v12 < a1 )
       return 3221225712LL;
     PhysicalAddress = MmGetPhysicalAddress(v12);
-    if ( !PhysicalAddress.QuadPart || v5 && v6.QuadPart + 4096 != PhysicalAddress.QuadPart )
+    if ( !PhysicalAddress.QuadPart )
       return 3221225711LL;
-    v6 = PhysicalAddress;
-    if ( !v5 )
+    if ( v5 )
+    {
+      if ( v6.QuadPart + 4096 != PhysicalAddress.QuadPart )
+        return 3221225711LL;
+    }
+    else
+    {
       v4 = PhysicalAddress;
+    }
     ++v5;
+    v6 = PhysicalAddress;
   }
   QuadPart = v4.QuadPart;
   if ( !v4.QuadPart )

@@ -1,9 +1,9 @@
 /*
- * XREFs of VfUtilGetDriverName @ 0x140AC26E0
+ * XREFs of VfUtilGetDriverName @ 0x140AC26D0
  * Callers:
- *     CarInitializeTelemetryData @ 0x1405D3D90 (CarInitializeTelemetryData.c)
+ *     CarInitializeTelemetryData @ 0x1405D4300 (CarInitializeTelemetryData.c)
  * Callees:
- *     VfTargetDriversGetVerifierData @ 0x140ACB558 (VfTargetDriversGetVerifierData.c)
+ *     VfTargetDriversGetVerifierData @ 0x140ACB548 (VfTargetDriversGetVerifierData.c)
  */
 
 __int64 __fastcall VfUtilGetDriverName(__int64 a1)

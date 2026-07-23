@@ -1,17 +1,17 @@
 /*
- * XREFs of SeAuditSystemTimeChange @ 0x14068E50C
+ * XREFs of SeAuditSystemTimeChange @ 0x14068E5F0
  * Callers:
- *     NtSetSystemTime @ 0x1406AD104 (NtSetSystemTime.c)
+ *     NtSetSystemTime @ 0x1406AD23C (NtSetSystemTime.c)
  * Callees:
- *     PsGetCurrentThreadProcess @ 0x1400B2E10 (PsGetCurrentThreadProcess.c)
- *     SepAdtLogAuditRecord @ 0x140145330 (SepAdtLogAuditRecord.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     PsGetCurrentThreadProcess @ 0x1400B0D5C (PsGetCurrentThreadProcess.c)
+ *     SepAdtLogAuditRecord @ 0x1401458A0 (SepAdtLogAuditRecord.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     PsGetAllocatedFullProcessImageNameEx @ 0x1403E6A00 (PsGetAllocatedFullProcessImageNameEx.c)
- *     SeCaptureSubjectContext @ 0x140412030 (SeCaptureSubjectContext.c)
- *     SeReleaseSubjectContext @ 0x14041F9B0 (SeReleaseSubjectContext.c)
- *     SepAuditFailed @ 0x140696078 (SepAuditFailed.c)
+ *     PsGetAllocatedFullProcessImageNameEx @ 0x1403E8030 (PsGetAllocatedFullProcessImageNameEx.c)
+ *     SeCaptureSubjectContext @ 0x140410EF0 (SeCaptureSubjectContext.c)
+ *     SeReleaseSubjectContext @ 0x14041E870 (SeReleaseSubjectContext.c)
+ *     SepAuditFailed @ 0x14069615C (SepAuditFailed.c)
  */
 
 void __fastcall SeAuditSystemTimeChange(__int64 a1, __int64 a2)

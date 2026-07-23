@@ -1,24 +1,24 @@
 /*
- * XREFs of IopCopyCompleteReadIrp @ 0x140268580
+ * XREFs of IopCopyCompleteReadIrp @ 0x14025FA30
  * Callers:
  *     <none>
  * Callees:
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeGetEffectiveIrql @ 0x140257DC0 (KeGetEffectiveIrql.c)
- *     IopUnlockAndFreeMdl @ 0x140268818 (IopUnlockAndFreeMdl.c)
- *     IopCopyCompleteReadRequest @ 0x140268870 (IopCopyCompleteReadRequest.c)
- *     KeAcquireQueuedSpinLock @ 0x1402D6AF0 (KeAcquireQueuedSpinLock.c)
- *     IopFreeIrpExtension @ 0x14031B360 (IopFreeIrpExtension.c)
- *     KeReleaseQueuedSpinLock @ 0x140322C90 (KeReleaseQueuedSpinLock.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     ExQueueWorkItem @ 0x140325850 (ExQueueWorkItem.c)
- *     KeInsertQueueApc @ 0x140337240 (KeInsertQueueApc.c)
- *     IopDropIrp @ 0x1403C5110 (IopDropIrp.c)
- *     KeInitializeApc @ 0x140422520 (KeInitializeApc.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     IopUnlockAndFreeMdl @ 0x14025FCC8 (IopUnlockAndFreeMdl.c)
+ *     IopCopyCompleteReadRequest @ 0x14025FD20 (IopCopyCompleteReadRequest.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeGetEffectiveIrql @ 0x1402883D0 (KeGetEffectiveIrql.c)
+ *     IopFreeIrpExtension @ 0x1402C3EF0 (IopFreeIrpExtension.c)
+ *     KeReleaseQueuedSpinLock @ 0x1402CB820 (KeReleaseQueuedSpinLock.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     ExQueueWorkItem @ 0x1402CE3E0 (ExQueueWorkItem.c)
+ *     KeInsertQueueApc @ 0x1402DF360 (KeInsertQueueApc.c)
+ *     KeAcquireQueuedSpinLock @ 0x140357D70 (KeAcquireQueuedSpinLock.c)
+ *     IopDropIrp @ 0x1403B3CD0 (IopDropIrp.c)
+ *     KeInitializeApc @ 0x1404163D0 (KeInitializeApc.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 char __fastcall IopCopyCompleteReadIrp(_QWORD *a1, __int64 a2, unsigned int a3)
@@ -40,7 +40,7 @@ char __fastcall IopCopyCompleteReadIrp(_QWORD *a1, __int64 a2, unsigned int a3)
   __int64 v17; // r9
   __int64 v18; // rbp
   unsigned int v19; // ebx
-  unsigned __int8 EffectiveIrql; // al
+  char EffectiveIrql; // al
   __int64 v22; // rdx
   __int64 v23; // rcx
   unsigned __int8 CurrentIrql; // bl
@@ -171,7 +171,7 @@ LABEL_38:
 LABEL_10:
   if ( v36 < 0 || v10 )
   {
-    v26 = *(_QWORD *)(v12 - 40);
+    v26 = *(_QWORD *)(v12 - 48);
     v27 = *(_QWORD *)(v26 + 88);
     if ( (v27 & 1) != 0 )
     {
@@ -180,20 +180,20 @@ LABEL_10:
     }
     LOBYTE(v16) = 1;
     v28 = v40;
-    *(_DWORD *)(*(_QWORD *)(v12 - 40) + 48LL) = v36;
-    *(_BYTE *)(*(_QWORD *)(v12 - 40) + 65LL) = v28;
-    v29 = *(_QWORD *)(v12 - 40);
+    *(_DWORD *)(*(_QWORD *)(v12 - 48) + 48LL) = v36;
+    *(_BYTE *)(*(_QWORD *)(v12 - 48) + 65LL) = v28;
+    v29 = *(_QWORD *)(v12 - 48);
     *v4 = v29;
     IopFreeIrpExtension(v29, 9LL, v16);
   }
   else
   {
-    v17 = *(_QWORD *)(v12 - 40);
+    v17 = *(_QWORD *)(v12 - 48);
     v18 = *(_QWORD *)(v17 + 184);
-    if ( (*(_DWORD *)(*(_QWORD *)(v12 - 24) + 80LL) & 8) != 0 )
+    if ( (*(_DWORD *)(*(_QWORD *)(v12 - 32) + 80LL) & 8) != 0 )
     {
       v19 = *(_DWORD *)(v18 - 64);
-      v33 = *(unsigned __int16 *)(*(_QWORD *)(v12 - 32) + 304LL);
+      v33 = *(unsigned __int16 *)(*(_QWORD *)(v12 - 40) + 304LL);
       if ( !(_WORD)v33 )
         v33 = 4096;
       if ( v33 + v19 - 1 - (v33 + v19 - 1) % v33 < v19 )
@@ -206,10 +206,10 @@ LABEL_10:
       v19 = v9;
     }
     *(_DWORD *)(v18 - 64) = v19;
-    *(_QWORD *)(v12 - 56) = IopQueueCopyWrite;
-    *(_QWORD *)(v12 - 48) = v12 - 40;
-    *(_QWORD *)(v12 - 72) = 0LL;
-    ExQueueWorkItem((PWORK_QUEUE_ITEM)(v12 - 72), CriticalWorkQueue);
+    *(_QWORD *)(v12 - 64) = IopQueueCopyWrite;
+    *(_QWORD *)(v12 - 56) = v12 - 48;
+    *(_QWORD *)(v12 - 80) = 0LL;
+    ExQueueWorkItem((PWORK_QUEUE_ITEM)(v12 - 80), CriticalWorkQueue);
     return 1;
   }
   return v5;

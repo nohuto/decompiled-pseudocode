@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlpTpIoCallback @ 0x1800661C0
+ * XREFs of RtlpTpIoCallback @ 0x180086610
  * Callers:
  *     <none>
  * Callees:
- *     RtlGetCurrentServiceSessionId @ 0x180028160 (RtlGetCurrentServiceSessionId.c)
- *     RtlSetThreadSubProcessTag @ 0x180054220 (RtlSetThreadSubProcessTag.c)
- *     RtlpTpETWCallbackStart @ 0x180067100 (RtlpTpETWCallbackStart.c)
- *     RtlpTpETWCallbackStop @ 0x18006737C (RtlpTpETWCallbackStop.c)
- *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180170020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ *     RtlGetCurrentServiceSessionId @ 0x180013230 (RtlGetCurrentServiceSessionId.c)
+ *     RtlSetThreadSubProcessTag @ 0x18003E7A0 (RtlSetThreadSubProcessTag.c)
+ *     RtlpTpETWCallbackStart @ 0x180087550 (RtlpTpETWCallbackStart.c)
+ *     RtlpTpETWCallbackStop @ 0x1800877CC (RtlpTpETWCallbackStop.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x18016F020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
  */
 
 void __fastcall RtlpTpIoCallback(__int64 a1, __int64 a2, __int64 a3, unsigned int *a4)
@@ -29,7 +29,7 @@ void __fastcall RtlpTpIoCallback(__int64 a1, __int64 a2, __int64 a3, unsigned in
     RtlSetThreadSubProcessTag(v4);
   NtCurrentTeb()->ActivityId = *(_GUID *)(a2 + 160);
   v8 = 2147353478LL;
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+  if ( RtlGetCurrentServiceSessionId() )
     v9 = (__int64)NtCurrentPeb()->SharedData + 556;
   else
     v9 = 2147353478LL;
@@ -56,7 +56,7 @@ void __fastcall RtlpTpIoCallback(__int64 a1, __int64 a2, __int64 a3, unsigned in
     v15 = 0LL;
   }
   (*(void (__fastcall **)(_QWORD, _QWORD, __int64))(a2 - 8))(*a4, *((_QWORD *)a4 + 1), a3);
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+  if ( RtlGetCurrentServiceSessionId() )
     v8 = (__int64)NtCurrentPeb()->SharedData + 556;
   v16 = *(_BYTE *)v8 == 0;
   v17 = (__int64 *)(a2 + 152);

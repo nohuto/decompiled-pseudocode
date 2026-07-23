@@ -1,10 +1,10 @@
 /*
  * XREFs of KdpGetContext @ 0x1406F3240
  * Callers:
- *     KdpGetContextEx @ 0x14012E1CC (KdpGetContextEx.c)
- *     KdpSendWaitContinue @ 0x1406F2AAC (KdpSendWaitContinue.c)
+ *     KdpGetContextEx @ 0x14012E73C (KdpGetContextEx.c)
+ *     KdpSendWaitContinue @ 0x1406F2744 (KdpSendWaitContinue.c)
  * Callees:
- *     KdpCopyContext @ 0x1406F26AC (KdpCopyContext.c)
+ *     KdpCopyContext @ 0x1406F2344 (KdpCopyContext.c)
  *     KdpInitializeExtendedContext @ 0x1406F3330 (KdpInitializeExtendedContext.c)
  */
 

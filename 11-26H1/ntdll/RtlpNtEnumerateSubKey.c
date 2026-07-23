@@ -1,29 +1,31 @@
 /*
- * XREFs of RtlpNtEnumerateSubKey @ 0x1800E8AD0
+ * XREFs of RtlpNtEnumerateSubKey @ 0x1800E7CE0
  * Callers:
  *     <none>
  * Callees:
- *     RtlFreeHeap_0 @ 0x18003FD10 (RtlFreeHeap_0.c)
- *     RtlAllocateHeap_0 @ 0x1800439E0 (RtlAllocateHeap_0.c)
- *     NtEnumerateKey @ 0x18015F580 (NtEnumerateKey.c)
- *     memmove @ 0x180164700 (memmove.c)
+ *     RtlFreeHeap_0 @ 0x18002A280 (RtlFreeHeap_0.c)
+ *     RtlAllocateHeap_0 @ 0x18002DF50 (RtlAllocateHeap_0.c)
+ *     NtEnumerateKey @ 0x18015F480 (NtEnumerateKey.c)
+ *     memmove @ 0x180164600 (memmove.c)
  */
 
-__int64 __fastcall RtlpNtEnumerateSubKey(__int64 a1, __int64 a2, unsigned int a3)
+__int64 __fastcall RtlpNtEnumerateSubKey(HANDLE KeyHandle, __int64 a2, ULONG a3)
 {
-  __int64 Heap_0; // rbx
-  int v7; // edi
-  int v8; // eax
+  unsigned __int16 *Heap_0; // rbx
+  ULONG Length; // edi
+  NTSTATUS v8; // eax
   unsigned int v9; // edi
   unsigned int v10; // ecx
-  int v12; // [rsp+68h] [rbp+10h] BYREF
+  ULONG ResultLength; // [rsp+68h] [rbp+10h] BYREF
 
   Heap_0 = 0LL;
-  v12 = 0;
-  v7 = 0;
-  if ( !*(_WORD *)(a2 + 2) || (v7 = *(unsigned __int16 *)(a2 + 2) + 16, (Heap_0 = RtlAllocateHeap_0()) != 0) )
+  ResultLength = 0;
+  Length = 0;
+  if ( !*(_WORD *)(a2 + 2)
+    || (Length = *(unsigned __int16 *)(a2 + 2) + 16,
+        (Heap_0 = (unsigned __int16 *)RtlAllocateHeap_0(NtCurrentPeb()->ProcessHeap, 0, Length)) != 0LL) )
   {
-    v8 = NtEnumerateKey(a1, a3, 0LL, Heap_0, v7, &v12);
+    v8 = NtEnumerateKey(KeyHandle, a3, KeyBasicInformation, Heap_0, Length, &ResultLength);
     v9 = v8;
     if ( v8 < 0 )
     {
@@ -34,18 +36,18 @@ __int64 __fastcall RtlpNtEnumerateSubKey(__int64 a1, __int64 a2, unsigned int a3
     {
       if ( !Heap_0 )
         return v9;
-      if ( (unsigned int)*(unsigned __int16 *)(a2 + 2) >= *(_DWORD *)(Heap_0 + 12) )
+      if ( (unsigned int)*(unsigned __int16 *)(a2 + 2) >= *((_DWORD *)Heap_0 + 3) )
       {
-        v10 = *(unsigned __int16 *)(Heap_0 + 12);
+        v10 = Heap_0[6];
         *(_WORD *)a2 = v10;
-        memmove(*(void **)(a2 + 8), (const void *)(Heap_0 + 16), v10);
+        memmove(*(void **)(a2 + 8), Heap_0 + 8, v10);
 LABEL_10:
-        RtlFreeHeap_0();
+        RtlFreeHeap_0(NtCurrentPeb()->ProcessHeap, 0, Heap_0);
         return v9;
       }
       v9 = -2147483643;
     }
-    *(_WORD *)a2 = v12 - 16;
+    *(_WORD *)a2 = ResultLength - 16;
 LABEL_9:
     if ( Heap_0 )
       goto LABEL_10;

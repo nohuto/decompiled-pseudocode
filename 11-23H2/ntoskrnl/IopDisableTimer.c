@@ -1,13 +1,13 @@
 /*
- * XREFs of IopDisableTimer @ 0x140555034
+ * XREFs of IopDisableTimer @ 0x1405556F4
  * Callers:
- *     IoStopTimer @ 0x1405574C0 (IoStopTimer.c)
+ *     IoStopTimer @ 0x140557B80 (IoStopTimer.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeCancelTimer @ 0x140252AA0 (KeCancelTimer.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     EtwTraceIoTimerEvent @ 0x1405FCE90 (EtwTraceIoTimerEvent.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeCancelTimer @ 0x140252B60 (KeCancelTimer.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     EtwTraceIoTimerEvent @ 0x1405FD400 (EtwTraceIoTimerEvent.c)
  */
 
 char __fastcall IopDisableTimer(__int64 a1)
@@ -27,10 +27,10 @@ char __fastcall IopDisableTimer(__int64 a1)
     v2 = --IopTimerCount == 0;
   }
   LOBYTE(v4) = KxReleaseSpinLock((volatile signed __int64 *)&IopTimerLock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     LOBYTE(v4) = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
       && (unsigned __int8)v4 <= 0xFu
       && (unsigned __int8)v3 <= 0xFu
       && (unsigned __int8)v4 >= 2u )
@@ -41,7 +41,7 @@ char __fastcall IopDisableTimer(__int64 a1)
       v7 = (v4 & SchedulerAssist[5]) == 0;
       SchedulerAssist[5] &= v4;
       if ( v7 )
-        LOBYTE(v4) = KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        LOBYTE(v4) = KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
     }
   }
   __writecr8(v3);

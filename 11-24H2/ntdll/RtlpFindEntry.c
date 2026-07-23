@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlpFindEntry @ 0x1800B7440
+ * XREFs of RtlpFindEntry @ 0x18000C880
  * Callers:
- *     RtlpFreeHeap @ 0x18002D620 (RtlpFreeHeap.c)
- *     RtlpCreateSplitBlock @ 0x18002FC50 (RtlpCreateSplitBlock.c)
- *     RtlpValidateHeapSegment @ 0x180041A64 (RtlpValidateHeapSegment.c)
- *     RtlpAllocateHeap @ 0x18009D360 (RtlpAllocateHeap.c)
- *     RtlZeroHeap @ 0x180143F70 (RtlZeroHeap.c)
+ *     RtlpCreateSplitBlock @ 0x18000DD00 (RtlpCreateSplitBlock.c)
+ *     RtlpValidateHeapSegment @ 0x1800222F8 (RtlpValidateHeapSegment.c)
+ *     RtlpFreeHeap @ 0x18005A020 (RtlpFreeHeap.c)
+ *     RtlpAllocateHeap @ 0x1801159A0 (RtlpAllocateHeap.c)
+ *     RtlZeroHeap @ 0x180142320 (RtlZeroHeap.c)
  * Callees:
- *     RtlpLogHeapFailure @ 0x18002A380 (RtlpLogHeapFailure.c)
+ *     RtlpLogHeapFailure @ 0x180056D80 (RtlpLogHeapFailure.c)
  */
 
 _QWORD *__fastcall RtlpFindEntry(__int64 a1, unsigned __int64 a2)
@@ -66,7 +66,7 @@ LABEL_6:
       v12 = v11;
       if ( HIBYTE(v11) != ((unsigned __int8)v11 ^ (unsigned __int8)(BYTE1(v11) ^ BYTE2(v11))) )
       {
-        RtlpLogHeapFailure(3, a1, (__int64)(v10 - 2), 0LL, 0LL, 0LL);
+        RtlpLogHeapFailure(3, a1, (_DWORD)v10 - 16, 0, 0LL, 0LL);
         LOWORD(v11) = v12;
       }
     }
@@ -80,7 +80,7 @@ LABEL_6:
       v15 = v14;
       if ( HIBYTE(v14) != ((unsigned __int8)v14 ^ (unsigned __int8)(BYTE1(v14) ^ BYTE2(v14))) )
       {
-        RtlpLogHeapFailure(3, a1, v13, 0LL, 0LL, 0LL);
+        RtlpLogHeapFailure(3, a1, v13, 0, 0LL, 0LL);
         LOWORD(v14) = v15;
       }
     }
@@ -102,7 +102,7 @@ LABEL_6:
           v26 = v25;
           if ( HIBYTE(v25) != ((unsigned __int8)v25 ^ (unsigned __int8)(BYTE1(v25) ^ BYTE2(v25))) )
           {
-            RtlpLogHeapFailure(3, a1, (__int64)(j - 2), 0LL, 0LL, 0LL);
+            RtlpLogHeapFailure(3, a1, (_DWORD)j - 16, 0, 0LL, 0LL);
             LOWORD(v25) = v26;
           }
         }

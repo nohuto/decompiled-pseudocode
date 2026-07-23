@@ -1,20 +1,20 @@
 /*
- * XREFs of NtThawRegistry @ 0x140850440
+ * XREFs of NtThawRegistry @ 0x140856750
  * Callers:
  *     <none>
  * Callees:
- *     CmpInitializeThreadInfo @ 0x14043CF00 (CmpInitializeThreadInfo.c)
- *     CmCleanupThreadInfo @ 0x14044C0A0 (CmCleanupThreadInfo.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     CmThawRegistry @ 0x1408571F0 (CmThawRegistry.c)
- *     SeSinglePrivilegeCheck @ 0x140932280 (SeSinglePrivilegeCheck.c)
- *     CmpAttachToRegistryProcess @ 0x140C58930 (CmpAttachToRegistryProcess.c)
- *     CmpDetachFromRegistryProcess @ 0x140C58A50 (CmpDetachFromRegistryProcess.c)
+ *     CmpInitializeThreadInfo @ 0x14042F7B0 (CmpInitializeThreadInfo.c)
+ *     CmCleanupThreadInfo @ 0x1404441C0 (CmCleanupThreadInfo.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     CmThawRegistry @ 0x14085D580 (CmThawRegistry.c)
+ *     SeSinglePrivilegeCheck @ 0x14090DE50 (SeSinglePrivilegeCheck.c)
+ *     CmpAttachToRegistryProcess @ 0x140C5E930 (CmpAttachToRegistryProcess.c)
+ *     CmpDetachFromRegistryProcess @ 0x140C5EA50 (CmpDetachFromRegistryProcess.c)
  */
 
-__int64 NtThawRegistry()
+NTSTATUS NtThawRegistry(void)
 {
-  unsigned int v0; // ebx
+  NTSTATUS v0; // ebx
   __int128 v2; // [rsp+20h] [rbp-58h] BYREF
   __int64 v3; // [rsp+30h] [rbp-48h]
   struct _KAPC_STATE ApcState; // [rsp+38h] [rbp-40h] BYREF

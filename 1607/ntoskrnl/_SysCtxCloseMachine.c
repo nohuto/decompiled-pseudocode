@@ -1,10 +1,10 @@
 /*
- * XREFs of _SysCtxCloseMachine @ 0x1406DF8EC
+ * XREFs of _SysCtxCloseMachine @ 0x1406DFA24
  * Callers:
- *     _PnpCtxOpenMachine @ 0x140579548 (_PnpCtxOpenMachine.c)
- *     _PnpCtxCloseMachine @ 0x1406D6EA4 (_PnpCtxCloseMachine.c)
+ *     _PnpCtxOpenMachine @ 0x140579A88 (_PnpCtxOpenMachine.c)
+ *     _PnpCtxCloseMachine @ 0x1406D6FDC (_PnpCtxCloseMachine.c)
  * Callees:
- *     ZwClose @ 0x140159E60 (ZwClose.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  */
 

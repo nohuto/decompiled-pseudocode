@@ -23,12 +23,13 @@
  *     CmpReleaseHiveLoadUnloadRundown @ 0x140BA9B98 (CmpReleaseHiveLoadUnloadRundown.c)
  */
 
-__int64 __fastcall NtReplaceKey(__int64 a1, int a2, __int64 a3)
+NTSTATUS __cdecl NtReplaceKey(POBJECT_ATTRIBUTES NewFile, HANDLE TargetHandle, POBJECT_ATTRIBUTES OldFile)
 {
+  int v5; // r12d
   char v6; // si
   KPROCESSOR_MODE PreviousMode; // di
   char UnloadRundown; // r13
-  int v9; // ebx
+  NTSTATUS v9; // ebx
   __int64 v10; // rdx
   struct _KTHREAD *CurrentThread; // rax
   __int64 v12; // rdx
@@ -58,6 +59,7 @@ __int64 __fastcall NtReplaceKey(__int64 a1, int a2, __int64 a3)
 
   Object = 0LL;
   v28 = 0LL;
+  v5 = (int)TargetHandle;
   v6 = 0;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   v25[1] = v25;
@@ -80,15 +82,15 @@ __int64 __fastcall NtReplaceKey(__int64 a1, int a2, __int64 a3)
         LOBYTE(v10) = PreviousMode;
         v6 = 1;
         --CurrentThread->KernelApcDisable;
-        v9 = CmpNameFromAttributes(a1, v10, v27);
+        v9 = CmpNameFromAttributes(NewFile, v10, v27);
         if ( v9 >= 0 )
         {
           LOBYTE(v12) = PreviousMode;
-          v9 = CmpNameFromAttributes(a3, v12, P);
+          v9 = CmpNameFromAttributes(OldFile, v12, P);
           if ( v9 >= 0 )
           {
             LOBYTE(v14) = PreviousMode;
-            v15 = CmObReferenceObjectByHandle(a2, 0, v13, v14, (__int64)&Object, 0LL);
+            v15 = CmObReferenceObjectByHandle(v5, 0, v13, v14, (__int64)&Object, 0LL);
             v16 = Object;
             v9 = v15;
             if ( v15 >= 0 )
@@ -169,5 +171,5 @@ LABEL_36:
     v24 = 0x1000000LL;
     tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E09E08, (unsigned __int8 *)v20, 0LL, 0LL, v22, &v32);
   }
-  return (unsigned int)v9;
+  return v9;
 }

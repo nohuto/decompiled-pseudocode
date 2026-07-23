@@ -22,7 +22,7 @@ NTSTATUS __fastcall WmipDriverEntry(PDRIVER_OBJECT DriverObject)
   NTSTATUS result; // eax
   NTSTATUS v3; // ebx
   UNICODE_STRING DeviceName; // [rsp+40h] [rbp-38h] BYREF
-  STRING DestinationString; // [rsp+50h] [rbp-28h] BYREF
+  _STRING DestinationString; // [rsp+50h] [rbp-28h] BYREF
   UNICODE_STRING SymbolicLinkName; // [rsp+60h] [rbp-18h] BYREF
 
   KiInitializeMutant((__int64)&WmipSMMutex, 0, 1);

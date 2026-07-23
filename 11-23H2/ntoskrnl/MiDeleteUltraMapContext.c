@@ -1,16 +1,16 @@
 /*
- * XREFs of MiDeleteUltraMapContext @ 0x1402E92DC
+ * XREFs of MiDeleteUltraMapContext @ 0x1402E956C
  * Callers:
  *     MiReclaimUnusedUltraMdlMaps @ 0x14021DA18 (MiReclaimUnusedUltraMdlMaps.c)
- *     MiDeleteUltraThreadContext @ 0x1402E92A4 (MiDeleteUltraThreadContext.c)
- *     MiGetUltraMdlContext @ 0x1406619CC (MiGetUltraMdlContext.c)
+ *     MiDeleteUltraThreadContext @ 0x1402E9534 (MiDeleteUltraThreadContext.c)
+ *     MiGetUltraMdlContext @ 0x140661F1C (MiGetUltraMdlContext.c)
  * Callees:
- *     MiSearchNumaNodeTable @ 0x14026EAD0 (MiSearchNumaNodeTable.c)
- *     MiGetPfnChannel @ 0x1402871D0 (MiGetPfnChannel.c)
- *     MiGetUltraMapping @ 0x1402D1A10 (MiGetUltraMapping.c)
- *     MiReturnCommit @ 0x1402DC250 (MiReturnCommit.c)
- *     MiReleaseFreshPage @ 0x1402E7F20 (MiReleaseFreshPage.c)
- *     MiManageUltraSpacePageTable @ 0x14046EC9C (MiManageUltraSpacePageTable.c)
+ *     MiSearchNumaNodeTable @ 0x14026ED60 (MiSearchNumaNodeTable.c)
+ *     MiGetPfnChannel @ 0x140287460 (MiGetPfnChannel.c)
+ *     MiGetUltraMapping @ 0x1402D1CA0 (MiGetUltraMapping.c)
+ *     MiReturnCommit @ 0x1402DC4E0 (MiReturnCommit.c)
+ *     MiReleaseFreshPage @ 0x1402E81B0 (MiReleaseFreshPage.c)
+ *     MiManageUltraSpacePageTable @ 0x14046F09C (MiManageUltraSpacePageTable.c)
  */
 
 void __fastcall MiDeleteUltraMapContext(__int64 a1, unsigned int a2)

@@ -1,19 +1,19 @@
 /*
- * XREFs of PnprQuiesceProcessorDpc @ 0x14057A350
+ * XREFs of PnprQuiesceProcessorDpc @ 0x14057B350
  * Callers:
  *     <none>
  * Callees:
- *     KeGetProcessorNumberFromIndex @ 0x1400897F0 (KeGetProcessorNumberFromIndex.c)
- *     KeSaveExtendedAndSupervisorState @ 0x14012E5AC (KeSaveExtendedAndSupervisorState.c)
- *     KeRestoreExtendedAndSupervisorState @ 0x14012F7C4 (KeRestoreExtendedAndSupervisorState.c)
- *     KeRestoreIptStateAfterProcessorComesOnline @ 0x1401436A8 (KeRestoreIptStateAfterProcessorComesOnline.c)
- *     KeSaveIptStateBeforeProcessorGoesOffline @ 0x1401436C4 (KeSaveIptStateBeforeProcessorGoesOffline.c)
- *     KeRestoreProcessorSpecificFeatures @ 0x140143744 (KeRestoreProcessorSpecificFeatures.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     PnprGetStackLimits @ 0x14028A3E8 (PnprGetStackLimits.c)
- *     KeResumeClockTimerSafe @ 0x14028E904 (KeResumeClockTimerSafe.c)
- *     KeSuspendClockTimerSafe @ 0x14028E9A0 (KeSuspendClockTimerSafe.c)
- *     PnprMirrorMarkedPages @ 0x140579FFC (PnprMirrorMarkedPages.c)
+ *     KeGetProcessorNumberFromIndex @ 0x1400897E0 (KeGetProcessorNumberFromIndex.c)
+ *     KeSaveExtendedAndSupervisorState @ 0x14012E67C (KeSaveExtendedAndSupervisorState.c)
+ *     KeRestoreExtendedAndSupervisorState @ 0x14012F894 (KeRestoreExtendedAndSupervisorState.c)
+ *     KeRestoreIptStateAfterProcessorComesOnline @ 0x1401437A8 (KeRestoreIptStateAfterProcessorComesOnline.c)
+ *     KeSaveIptStateBeforeProcessorGoesOffline @ 0x1401437C4 (KeSaveIptStateBeforeProcessorGoesOffline.c)
+ *     KeRestoreProcessorSpecificFeatures @ 0x140143844 (KeRestoreProcessorSpecificFeatures.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     PnprGetStackLimits @ 0x14028A5D8 (PnprGetStackLimits.c)
+ *     KeResumeClockTimerSafe @ 0x14028EAF4 (KeResumeClockTimerSafe.c)
+ *     KeSuspendClockTimerSafe @ 0x14028EB90 (KeSuspendClockTimerSafe.c)
+ *     PnprMirrorMarkedPages @ 0x14057AFFC (PnprMirrorMarkedPages.c)
  */
 
 void __fastcall PnprQuiesceProcessorDpc(
@@ -35,7 +35,7 @@ void __fastcall PnprQuiesceProcessorDpc(
   int v14; // eax
   PVOID v15[14]; // [rsp+20h] [rbp-78h] BYREF
   int v16; // [rsp+90h] [rbp-8h]
-  struct _PROCESSOR_NUMBER ProcNumber; // [rsp+A8h] [rbp+10h] BYREF
+  _PROCESSOR_NUMBER ProcNumber; // [rsp+A8h] [rbp+10h] BYREF
   unsigned int v18; // [rsp+B0h] [rbp+18h] BYREF
   __int64 v19; // [rsp+B8h] [rbp+20h] BYREF
 
@@ -81,8 +81,8 @@ LABEL_53:
     (*(void (__fastcall **)(_QWORD, _QWORD, __int64))(PnprContext + 20936))(*(_QWORD *)(PnprContext + 20880), v18, v11);
   }
   if ( (*(_DWORD *)(PnprContext + 64) & 0x20) != 0 )
-    ((void (__fastcall *)(_QWORD, __int64 *))off_1403FE428[0])(*(_QWORD *)(PnprContext + 20872), &v19);
-  ((void (__fastcall *)(_QWORD))off_1403FE3C0[0])(*(_QWORD *)(PnprContext + 20872));
+    ((void (__fastcall *)(_QWORD, __int64 *))off_1403FF428[0])(*(_QWORD *)(PnprContext + 20872), &v19);
+  ((void (__fastcall *)(_QWORD))off_1403FF3C0[0])(*(_QWORD *)(PnprContext + 20872));
   if ( (*(_DWORD *)(PnprContext + 20896) & 2) != 0 )
     (*(void (__fastcall **)(_QWORD, _QWORD, _QWORD))(PnprContext + 20936))(*(_QWORD *)(PnprContext + 20880), v18, 0LL);
   KeResumeClockTimerSafe();
@@ -124,7 +124,7 @@ LABEL_26:
       _mm_pause();
     if ( (v9 & *(_QWORD *)(**(_QWORD **)(PnprContext + 16) + 8 * Group)) != 0 )
     {
-      ((void (__fastcall *)(__int64))off_1403FE430[0])(v19);
+      ((void (__fastcall *)(__int64))off_1403FF430[0])(v19);
     }
     else if ( v7 )
     {

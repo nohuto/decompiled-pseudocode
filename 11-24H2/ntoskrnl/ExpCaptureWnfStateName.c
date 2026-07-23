@@ -1,14 +1,14 @@
 /*
- * XREFs of ExpCaptureWnfStateName @ 0x1408AB180
+ * XREFs of ExpCaptureWnfStateName @ 0x1409013E0
  * Callers:
- *     ExpNtDeleteWnfStateData @ 0x1407BF7A8 (ExpNtDeleteWnfStateData.c)
- *     NtDeleteWnfStateName @ 0x1408AAC70 (NtDeleteWnfStateName.c)
- *     NtUnsubscribeWnfStateChange @ 0x1408AB0C0 (NtUnsubscribeWnfStateChange.c)
- *     ExpWnfCompleteThreadSubscriptions @ 0x1408AB7FC (ExpWnfCompleteThreadSubscriptions.c)
- *     ExpWnfSubscribeWnfStateChange @ 0x140A1946C (ExpWnfSubscribeWnfStateChange.c)
- *     NtQueryWnfStateNameInformation @ 0x140AE3050 (NtQueryWnfStateNameInformation.c)
+ *     ExpNtDeleteWnfStateData @ 0x1407BFBF8 (ExpNtDeleteWnfStateData.c)
+ *     NtDeleteWnfStateName @ 0x140900ED0 (NtDeleteWnfStateName.c)
+ *     NtUnsubscribeWnfStateChange @ 0x140901320 (NtUnsubscribeWnfStateChange.c)
+ *     ExpWnfCompleteThreadSubscriptions @ 0x140901A5C (ExpWnfCompleteThreadSubscriptions.c)
+ *     ExpWnfSubscribeWnfStateChange @ 0x140A125DC (ExpWnfSubscribeWnfStateChange.c)
+ *     NtQueryWnfStateNameInformation @ 0x140AE4930 (NtQueryWnfStateNameInformation.c)
  * Callees:
- *     RtlCopyVolatileMemory @ 0x1406B5CF0 (RtlCopyVolatileMemory.c)
+ *     RtlCopyVolatileMemory @ 0x1406B6C90 (RtlCopyVolatileMemory.c)
  */
 
 __int64 __fastcall ExpCaptureWnfStateName(__int64 *Src, unsigned __int64 *a2, char a3)

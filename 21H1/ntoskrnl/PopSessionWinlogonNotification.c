@@ -39,7 +39,7 @@ __int64 __fastcall PopSessionWinlogonNotification(unsigned int a1, __int64 a2)
   v8 = "Console";
   if ( !v4 )
     v8 = "Remote";
-  result = PopPrintEx(3LL, (__int64)"PopAdaptive:>>>>> %s session %u is %s\n", v8, a1, v7);
+  result = PopPrintEx(3u, (__int64)"PopAdaptive:>>>>> %s session %u is %s\n", v8, a1, v7);
   if ( v4 )
   {
     PopAcquireAdaptiveLock(0LL);

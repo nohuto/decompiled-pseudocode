@@ -1,17 +1,17 @@
 /*
- * XREFs of IoRegisterDeviceInterface @ 0x1408B2B20
+ * XREFs of IoRegisterDeviceInterface @ 0x1408B0410
  * Callers:
- *     DifIoRegisterDeviceInterfaceWrapper @ 0x14062A200 (DifIoRegisterDeviceInterfaceWrapper.c)
- *     PiSwCompleteCreate @ 0x1409F8538 (PiSwCompleteCreate.c)
+ *     DifIoRegisterDeviceInterfaceWrapper @ 0x1406287C0 (DifIoRegisterDeviceInterfaceWrapper.c)
+ *     PiSwCompleteCreate @ 0x1409F0EA8 (PiSwCompleteCreate.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x14045AA10 (RtlInitUnicodeStringEx.c)
- *     wcspbrk @ 0x140500920 (wcspbrk.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     IopRegisterDeviceInterface @ 0x1408B3B2C (IopRegisterDeviceInterface.c)
- *     PnpUnicodeStringToWstrFree @ 0x1408B7510 (PnpUnicodeStringToWstrFree.c)
- *     ObQueryNameStringMode @ 0x140969A30 (ObQueryNameStringMode.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeStringEx @ 0x14044FE60 (RtlInitUnicodeStringEx.c)
+ *     wcspbrk @ 0x1404FE1E0 (wcspbrk.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     IopRegisterDeviceInterface @ 0x1408B141C (IopRegisterDeviceInterface.c)
+ *     PnpUnicodeStringToWstrFree @ 0x1408B4E80 (PnpUnicodeStringToWstrFree.c)
+ *     ObQueryNameStringMode @ 0x1409524C0 (ObQueryNameStringMode.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __stdcall IoRegisterDeviceInterface(
@@ -78,7 +78,7 @@ LABEL_9:
             && ((_WORD)Length != (_WORD)MaximumLength || Buffer[((unsigned __int64)ReferenceString->Length >> 1) - 1])
             && (Length > MaximumLength - 2 || Buffer[(Length >> 1) - 1] && Buffer[Length >> 1]) )
           {
-            Pool2 = (wchar_t *)ExAllocatePool2(0x100uLL);
+            Pool2 = (wchar_t *)ExAllocatePool2(0x100uLL, Length + 2, 0x75737050u);
             v20 = Pool2;
             if ( !Pool2 )
             {

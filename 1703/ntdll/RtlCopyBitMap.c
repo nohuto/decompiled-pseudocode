@@ -7,13 +7,13 @@
  *     sub_1800EACCC @ 0x1800EACCC (sub_1800EACCC.c)
  */
 
-unsigned __int64 __fastcall RtlCopyBitMap(unsigned int *a1, __int64 a2, unsigned int a3)
+void __cdecl RtlCopyBitMap(PRTL_BITMAP Source, PRTL_BITMAP Destination, ULONG TargetBit)
 {
-  unsigned __int64 result; // rax
-  unsigned __int64 v6; // rbx
-  __int64 v7; // rcx
-  int *v8; // r11
-  int *v9; // r10
+  ULONG v4; // eax
+  unsigned __int64 SizeOfBitMap; // rbx
+  PULONG Buffer; // rcx
+  PULONG v8; // r11
+  ULONG *v9; // r10
   unsigned __int64 v10; // rbp
   unsigned __int64 v11; // rdi
   unsigned __int64 v12; // rbx
@@ -25,74 +25,69 @@ unsigned __int64 __fastcall RtlCopyBitMap(unsigned int *a1, __int64 a2, unsigned
   unsigned int v18; // edx
   char v19; // di
 
-  result = *(_DWORD *)a2 - a3;
-  v6 = (unsigned int)result;
-  if ( *a1 <= (unsigned int)result )
-    v6 = *a1;
-  if ( v6 )
+  v4 = Destination->SizeOfBitMap - TargetBit;
+  SizeOfBitMap = v4;
+  if ( Source->SizeOfBitMap <= v4 )
+    SizeOfBitMap = Source->SizeOfBitMap;
+  if ( SizeOfBitMap )
   {
-    v7 = *(_QWORD *)(a2 + 8);
-    v8 = (int *)*((_QWORD *)a1 + 1);
-    result = (unsigned __int64)a3 >> 5;
-    v9 = (int *)(v7 + 4 * result);
-    if ( v8 > v9 || (result = (unsigned __int64)&v8[(v6 - 1) >> 5], (unsigned __int64)v9 > result) )
+    Buffer = Destination->Buffer;
+    v8 = Source->Buffer;
+    v9 = &Buffer[(unsigned __int64)TargetBit >> 5];
+    if ( v8 > v9 || v9 > &v8[(SizeOfBitMap - 1) >> 5] )
     {
-      v10 = (unsigned __int64)a3 >> 3;
-      if ( (a3 & 7) != 0 )
+      v10 = (unsigned __int64)TargetBit >> 3;
+      if ( (TargetBit & 7) != 0 )
       {
-        v15 = a3 & 0x1F;
-        if ( v6 >= 0x20 )
+        v15 = TargetBit & 0x1F;
+        if ( SizeOfBitMap >= 0x20 )
         {
-          v16 = v6 >> 5;
+          v16 = SizeOfBitMap >> 5;
           v17 = 1 << (32 - v15);
-          v6 += -32LL * (v6 >> 5);
+          SizeOfBitMap += -32LL * (SizeOfBitMap >> 5);
           do
           {
             *v9 = ((*v8 & (v17 - 1)) << v15) | ((1 << v15) - 1) & *v9;
             ++v9;
             v18 = *v8++ & ~(v17 - 1);
-            result = (v18 >> (32 - v15)) | ~((1 << v15) - 1) & *v9;
-            *v9 = result;
+            *v9 = (v18 >> (32 - v15)) | ~((1 << v15) - 1) & *v9;
             --v16;
           }
           while ( v16 );
         }
-        if ( v6 )
+        if ( SizeOfBitMap )
         {
           v19 = 32 - v15;
-          if ( v6 > 32 - v15 )
+          if ( SizeOfBitMap > 32 - v15 )
           {
             *v9 = ((*v8 & ((1 << v19) - 1)) << v15) | *v9 & ((1 << v15) - 1);
-            result = ((*v8 & (unsigned int)(((1 << (v6 + v15 - 32)) - 1) << v19)) >> v19) | v9[1] & ~((1 << (v6 + v15 - 32)) - 1);
-            v9[1] = result;
+            v9[1] = ((*v8 & (((1 << (SizeOfBitMap + v15 - 32)) - 1) << v19)) >> v19) | v9[1] & ~((1 << (SizeOfBitMap + v15 - 32))
+                                                                                               - 1);
           }
           else
           {
-            result = ((*v8 & ((1 << v6) - 1)) << v15) | *v9 & (unsigned int)~(((1 << v6) - 1) << v15);
-            *v9 = result;
+            *v9 = ((*v8 & ((1 << SizeOfBitMap) - 1)) << v15) | *v9 & ~(((1 << SizeOfBitMap) - 1) << v15);
           }
         }
       }
       else
       {
-        v11 = v6;
-        v12 = v6 & 7;
+        v11 = SizeOfBitMap;
+        v12 = SizeOfBitMap & 7;
         v13 = v11 >> 3;
         if ( v13 )
-          result = (unsigned __int64)memmove((void *)(v10 + v7), *((const void **)a1 + 1), v13);
+          memmove((char *)Buffer + v10, Source->Buffer, v13);
         if ( v12 )
         {
-          v14 = (_BYTE *)(*(_QWORD *)(a2 + 8) + v13 + v10);
+          v14 = (char *)Destination->Buffer + v13 + v10;
           *v14 &= ~((1 << v12) - 1);
-          result = *((_QWORD *)a1 + 1);
-          *v14 |= (unsigned __int8)((1 << v12) - 1) & *(_BYTE *)(v13 + result);
+          *v14 |= (unsigned __int8)((1 << v12) - 1) & *((_BYTE *)Source->Buffer + v13);
         }
       }
     }
     else
     {
-      return sub_1800EACCC(a1, a2, a3, (unsigned int)v6);
+      sub_1800EACCC(Source, Destination, TargetBit, (unsigned int)SizeOfBitMap);
     }
   }
-  return result;
 }

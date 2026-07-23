@@ -3,8 +3,8 @@
  * Callers:
  *     HalpIommuInitSystem @ 0x140A89BC0 (HalpIommuInitSystem.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     HviGetHardwareFeatures @ 0x1406153A0 (HviGetHardwareFeatures.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     HviGetHardwareFeatures @ 0x1406158F0 (HviGetHardwareFeatures.c)
  *     HalpIommuIvtDiscover @ 0x140B65294 (HalpIommuIvtDiscover.c)
  *     HalpIommuHsaDiscover @ 0x140B652F0 (HalpIommuHsaDiscover.c)
  */

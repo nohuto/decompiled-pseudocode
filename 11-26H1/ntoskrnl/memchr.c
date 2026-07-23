@@ -1,7 +1,7 @@
 /*
- * XREFs of memchr @ 0x140536E60
+ * XREFs of memchr @ 0x1405392E0
  * Callers:
- *     __asan_wrap_memchr @ 0x1405E1690 (__asan_wrap_memchr.c)
+ *     __asan_wrap_memchr @ 0x1405E4000 (__asan_wrap_memchr.c)
  * Callees:
  *     <none>
  */

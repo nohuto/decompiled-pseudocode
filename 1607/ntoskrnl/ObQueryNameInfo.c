@@ -1,5 +1,5 @@
 /*
- * XREFs of ObQueryNameInfo @ 0x1404D27CC
+ * XREFs of ObQueryNameInfo @ 0x1404B626C
  * Callers:
  *     <none>
  * Callees:

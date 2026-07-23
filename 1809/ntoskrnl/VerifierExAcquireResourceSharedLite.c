@@ -1,11 +1,11 @@
 /*
- * XREFs of VerifierExAcquireResourceSharedLite @ 0x14093F5F0
+ * XREFs of VerifierExAcquireResourceSharedLite @ 0x1409405F0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     VfDeadlockAcquireResource @ 0x14093B514 (VfDeadlockAcquireResource.c)
- *     ViResourceAcquireSanityChecks @ 0x140940008 (ViResourceAcquireSanityChecks.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     VfDeadlockAcquireResource @ 0x14093C514 (VfDeadlockAcquireResource.c)
+ *     ViResourceAcquireSanityChecks @ 0x140941008 (ViResourceAcquireSanityChecks.c)
  */
 
 char __fastcall VerifierExAcquireResourceSharedLite(ULONG_PTR a1, char a2)

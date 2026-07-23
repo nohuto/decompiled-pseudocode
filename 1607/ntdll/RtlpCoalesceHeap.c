@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlpCoalesceHeap @ 0x180090B44
+ * XREFs of RtlpCoalesceHeap @ 0x180090B34
  * Callers:
- *     RtlpExtendHeap @ 0x180027790 (RtlpExtendHeap.c)
- *     RtlCompactHeap @ 0x180090A00 (RtlCompactHeap.c)
+ *     RtlpExtendHeap @ 0x180027780 (RtlpExtendHeap.c)
+ *     RtlCompactHeap @ 0x1800909F0 (RtlCompactHeap.c)
  * Callees:
- *     RtlpHeapRemoveListEntry @ 0x1800289EC (RtlpHeapRemoveListEntry.c)
- *     RtlpCommitBlock @ 0x180028B34 (RtlpCommitBlock.c)
- *     RtlpDeCommitFreeBlock @ 0x18004A810 (RtlpDeCommitFreeBlock.c)
- *     RtlpInsertFreeBlock @ 0x18004AE00 (RtlpInsertFreeBlock.c)
- *     RtlpCoalesceFreeBlocks @ 0x18004B4AC (RtlpCoalesceFreeBlocks.c)
+ *     RtlpHeapRemoveListEntry @ 0x1800289DC (RtlpHeapRemoveListEntry.c)
+ *     RtlpCommitBlock @ 0x180028B24 (RtlpCommitBlock.c)
+ *     RtlpDeCommitFreeBlock @ 0x18004A800 (RtlpDeCommitFreeBlock.c)
+ *     RtlpInsertFreeBlock @ 0x18004ADF0 (RtlpInsertFreeBlock.c)
+ *     RtlpCoalesceFreeBlocks @ 0x18004B49C (RtlpCoalesceFreeBlocks.c)
  *     RtlpLogHeapFailure @ 0x1800A5E64 (RtlpLogHeapFailure.c)
  *     RtlpAnalyzeHeapFailure @ 0x1800F79F4 (RtlpAnalyzeHeapFailure.c)
  */
@@ -88,7 +88,7 @@ LABEL_26:
       *v12 = v14;
       *(_QWORD *)(v14 + 8) = v12;
       if ( (*(_BYTE *)(v5 + 10) & 8) != 0 )
-        RtlpCommitBlock(a1, v5);
+        RtlpCommitBlock((PVOID)a1, v5);
       v9 = *(unsigned __int16 *)(v5 + 8);
       v10 = v5;
 LABEL_30:

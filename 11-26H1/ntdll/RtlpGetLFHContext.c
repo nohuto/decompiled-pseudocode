@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpGetLFHContext @ 0x180071FD4
+ * XREFs of RtlpGetLFHContext @ 0x180095488
  * Callers:
- *     RtlpAllocateHeap @ 0x18001E7C0 (RtlpAllocateHeap.c)
+ *     RtlpAllocateHeap @ 0x180009890 (RtlpAllocateHeap.c)
  * Callees:
- *     RtlpInitializeSegmentInfoForBucket @ 0x180072038 (RtlpInitializeSegmentInfoForBucket.c)
+ *     RtlpInitializeSegmentInfoForBucket @ 0x1800954EC (RtlpInitializeSegmentInfoForBucket.c)
  */
 
 __int64 __fastcall RtlpGetLFHContext(__int64 a1, unsigned __int64 a2)

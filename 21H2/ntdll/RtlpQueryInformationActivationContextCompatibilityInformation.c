@@ -4,7 +4,7 @@
  *     RtlQueryInformationActivationContext @ 0x180012DE0 (RtlQueryInformationActivationContext.c)
  * Callees:
  *     RtlpLocateActivationContextSectionForQuery @ 0x180079368 (RtlpLocateActivationContextSectionForQuery.c)
- *     memmove @ 0x1800A44C0 (memmove.c)
+ *     memmove @ 0x1800A4480 (memmove.c)
  */
 
 __int64 __fastcall RtlpQueryInformationActivationContextCompatibilityInformation(

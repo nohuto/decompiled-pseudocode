@@ -1,13 +1,13 @@
 /*
- * XREFs of MiReplicatePfnDatabaseMappings @ 0x14052EF2C
+ * XREFs of MiReplicatePfnDatabaseMappings @ 0x14052F16C
  * Callers:
- *     MiPfnRangeIsZero @ 0x1403B9BE8 (MiPfnRangeIsZero.c)
+ *     MiPfnRangeIsZero @ 0x1403B9D58 (MiPfnRangeIsZero.c)
  * Callees:
- *     MiInsertRecursiveTbFlushEntries @ 0x1402974A8 (MiInsertRecursiveTbFlushEntries.c)
- *     MiFlushTbList @ 0x14033B520 (MiFlushTbList.c)
- *     MiReplicatePteChange @ 0x1403A4544 (MiReplicatePteChange.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
+ *     MiInsertRecursiveTbFlushEntries @ 0x14021B470 (MiInsertRecursiveTbFlushEntries.c)
+ *     MiFlushTbList @ 0x140346270 (MiFlushTbList.c)
+ *     MiReplicatePteChange @ 0x1403A4694 (MiReplicatePteChange.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
  */
 
 void __fastcall MiReplicatePfnDatabaseMappings(unsigned __int64 a1, unsigned __int64 a2)

@@ -1,7 +1,7 @@
 /*
- * XREFs of MiIsSectionActive @ 0x1404899D4
+ * XREFs of MiIsSectionActive @ 0x1404846E4
  * Callers:
- *     MmIsFileSectionActive @ 0x140489910 (MmIsFileSectionActive.c)
+ *     MmIsFileSectionActive @ 0x140484620 (MmIsFileSectionActive.c)
  * Callees:
  *     <none>
  */

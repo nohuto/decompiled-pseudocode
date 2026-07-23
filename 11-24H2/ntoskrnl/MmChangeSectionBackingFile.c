@@ -1,14 +1,14 @@
 /*
- * XREFs of MmChangeSectionBackingFile @ 0x1404511DC
+ * XREFs of MmChangeSectionBackingFile @ 0x14044663C
  * Callers:
- *     FsRtlChangeBackingFileObject @ 0x140451190 (FsRtlChangeBackingFileObject.c)
- *     MiShareExistingControlArea @ 0x1409425C0 (MiShareExistingControlArea.c)
+ *     FsRtlChangeBackingFileObject @ 0x1404465F0 (FsRtlChangeBackingFileObject.c)
+ *     MiShareExistingControlArea @ 0x14098C830 (MiShareExistingControlArea.c)
  * Callees:
- *     ObDereferenceObjectDeferDeleteWithTag @ 0x14025E950 (ObDereferenceObjectDeferDeleteWithTag.c)
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     MiLockSectionControlArea @ 0x140316190 (MiLockSectionControlArea.c)
- *     ObfReferenceObjectWithTag @ 0x1403403E0 (ObfReferenceObjectWithTag.c)
- *     ObFastReplaceObject @ 0x1404512EC (ObFastReplaceObject.c)
+ *     ObDereferenceObjectDeferDeleteWithTag @ 0x14028EF60 (ObDereferenceObjectDeferDeleteWithTag.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     MiLockSectionControlArea @ 0x1402BED40 (MiLockSectionControlArea.c)
+ *     ObfReferenceObjectWithTag @ 0x14031F8C0 (ObfReferenceObjectWithTag.c)
+ *     ObFastReplaceObject @ 0x14044674C (ObFastReplaceObject.c)
  */
 
 __int64 __fastcall MmChangeSectionBackingFile(_QWORD **a1, _QWORD **a2, int a3)

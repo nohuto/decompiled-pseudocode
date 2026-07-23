@@ -1,14 +1,14 @@
 /*
- * XREFs of ZwAlertThreadByThreadId @ 0x1401B8F70
+ * XREFs of ZwAlertThreadByThreadId @ 0x1401B90D0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwAlertThreadByThreadId(__int64 a1, __int64 a2, __int64 a3)
+NTSTATUS __cdecl ZwAlertThreadByThreadId(HANDLE ThreadId)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2, a3);
+  return KiServiceInternal(ThreadId);
 }

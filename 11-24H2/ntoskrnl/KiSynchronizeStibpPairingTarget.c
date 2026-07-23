@@ -1,7 +1,7 @@
 /*
- * XREFs of KiSynchronizeStibpPairingTarget @ 0x1403FF1E0
+ * XREFs of KiSynchronizeStibpPairingTarget @ 0x1403F9830
  * Callers:
- *     KiIpiProcessRequests @ 0x1403FEB60 (KiIpiProcessRequests.c)
+ *     KiIpiProcessRequests @ 0x1403F91B0 (KiIpiProcessRequests.c)
  * Callees:
  *     <none>
  */

@@ -1,12 +1,12 @@
 /*
- * XREFs of PspSelectNodeForProcess @ 0x1407F2DF0
+ * XREFs of PspSelectNodeForProcess @ 0x1407F8950
  * Callers:
- *     PspAllocateProcess @ 0x140964C24 (PspAllocateProcess.c)
+ *     PspAllocateProcess @ 0x140B7E8A8 (PspAllocateProcess.c)
  * Callees:
- *     KeQueryCpuPartitionAffinityEx @ 0x14052B518 (KeQueryCpuPartitionAffinityEx.c)
- *     KeSelectNodeForAffinityAndPartition @ 0x1405EEAC4 (KeSelectNodeForAffinityAndPartition.c)
- *     KeIsSystemCpuPartitionRestricted @ 0x1405F3CB8 (KeIsSystemCpuPartitionRestricted.c)
- *     PspSelectNodeForProcessNoRestrictions @ 0x1407F2E5C (PspSelectNodeForProcessNoRestrictions.c)
+ *     KeQueryCpuPartitionAffinityEx @ 0x14052DA38 (KeQueryCpuPartitionAffinityEx.c)
+ *     KeSelectNodeForAffinityAndPartition @ 0x1405F1434 (KeSelectNodeForAffinityAndPartition.c)
+ *     KeIsSystemCpuPartitionRestricted @ 0x1405F6678 (KeIsSystemCpuPartitionRestricted.c)
+ *     PspSelectNodeForProcessNoRestrictions @ 0x1407F89BC (PspSelectNodeForProcessNoRestrictions.c)
  */
 
 __int64 __fastcall PspSelectNodeForProcess(__int64 a1, __int64 a2, struct _KAFFINITY_EX *a3)

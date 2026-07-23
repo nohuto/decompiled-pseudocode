@@ -1,11 +1,11 @@
 /*
- * XREFs of AuthzBasepObjectInTypeList @ 0x140234488
+ * XREFs of AuthzBasepObjectInTypeList @ 0x1402342B4
  * Callers:
- *     SepMaximumAccessCheck @ 0x1400616A0 (SepMaximumAccessCheck.c)
- *     SepNormalAccessCheck @ 0x140062440 (SepNormalAccessCheck.c)
- *     SepMaximumAccessCheckEx @ 0x140132FC4 (SepMaximumAccessCheckEx.c)
- *     SepNormalAccessCheckEx @ 0x140136148 (SepNormalAccessCheckEx.c)
- *     SepExamineSaclEx @ 0x140691D50 (SepExamineSaclEx.c)
+ *     SepMaximumAccessCheck @ 0x140061220 (SepMaximumAccessCheck.c)
+ *     SepNormalAccessCheck @ 0x140061FC0 (SepNormalAccessCheck.c)
+ *     SepMaximumAccessCheckEx @ 0x140133534 (SepMaximumAccessCheckEx.c)
+ *     SepNormalAccessCheckEx @ 0x1401366B8 (SepNormalAccessCheckEx.c)
+ *     SepExamineSaclEx @ 0x140691E34 (SepExamineSaclEx.c)
  * Callees:
  *     <none>
  */

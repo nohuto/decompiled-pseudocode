@@ -3,16 +3,22 @@
  * Callers:
  *     sub_180049F90 @ 0x180049F90 (sub_180049F90.c)
  *     sub_18004A0A0 @ 0x18004A0A0 (sub_18004A0A0.c)
- *     sub_1800D8F60 @ 0x1800D8F60 (sub_1800D8F60.c)
+ *     Callback @ 0x1800D8F60 (Callback.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwGetCompleteWnfStateSubscription()
+NTSTATUS __cdecl ZwGetCompleteWnfStateSubscription(
+        PWNF_STATE_NAME OldDescriptorStateName,
+        ULONG64 *OldSubscriptionId,
+        ULONG OldDescriptorEventMask,
+        ULONG OldDescriptorStatus,
+        PWNF_DELIVERY_DESCRIPTOR NewDeliveryDescriptor,
+        ULONG DescriptorSize)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 234LL;
+  result = 234;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

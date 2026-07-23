@@ -15,11 +15,11 @@ __int64 __fastcall ApiSetpResolveHost(
         unsigned __int16 *a2,
         __int64 a3,
         __int64 a4,
-        __int64 a5,
+        ULONGLONG a5,
         char *a6,
         __int64 a7)
 {
-  __int64 v7; // r15
+  ULONGLONG v7; // r15
   unsigned __int16 v9; // ax
   unsigned __int16 *v10; // r14
   char v11; // r13
@@ -42,7 +42,7 @@ __int64 __fastcall ApiSetpResolveHost(
   __int64 v28; // r9
   unsigned __int16 v29; // dx
   unsigned __int16 v30; // cx
-  unsigned int v31; // ecx
+  RTL_FEATURE_ID v31; // ecx
   __int64 v32; // rcx
   unsigned __int16 v33; // ax
   int v34; // r9d
@@ -56,15 +56,14 @@ __int64 __fastcall ApiSetpResolveHost(
   unsigned int v42; // eax
   __int64 v43; // rdx
   __int64 v44; // r8
-  __int64 v46; // [rsp+30h] [rbp-50h] BYREF
+  ULONGLONG ChangeStamp; // [rsp+30h] [rbp-50h] BYREF
   __int128 v47; // [rsp+38h] [rbp-48h] BYREF
   __int128 v48; // [rsp+48h] [rbp-38h]
   char *v49; // [rsp+58h] [rbp-28h]
-  __int64 v50; // [rsp+60h] [rbp-20h] BYREF
-  int v51; // [rsp+68h] [rbp-18h]
+  _RTL_FEATURE_CONFIGURATION FeatureConfiguration; // [rsp+60h] [rbp-20h] BYREF
 
   v7 = a5;
-  v46 = a5;
+  ChangeStamp = a5;
   v9 = a3;
   v10 = a2;
   v49 = a6;
@@ -137,10 +136,13 @@ __int64 __fastcall ApiSetpResolveHost(
         {
           if ( (*(_BYTE *)(v27 + 6) & 4) == 0
             || (v31 = *(_DWORD *)(v27 + 8)) == 0
-            || (v46 = 0LL, v50 = 0LL, v51 = 0, !(unsigned int)RtlQueryFeatureConfiguration(v31, 0, &v46, (__int64)&v50))
-            && v46
-            && (_DWORD)v50 == *(_DWORD *)(v27 + 8)
-            && (BYTE4(v50) & 0x30) == 0x20 )
+            || (ChangeStamp = 0LL,
+                *(_QWORD *)&FeatureConfiguration.FeatureId = 0LL,
+                FeatureConfiguration.VariantPayload = 0,
+                !RtlQueryFeatureConfiguration(v31, RtlFeatureConfigurationBoot, &ChangeStamp, &FeatureConfiguration))
+            && ChangeStamp
+            && FeatureConfiguration.FeatureId == *(_DWORD *)(v27 + 8)
+            && (*((_BYTE *)&FeatureConfiguration + 4) & 0x30) == 0x20 )
           {
             v32 = a1
                 + *(unsigned int *)(a1 + 44)
@@ -182,7 +184,7 @@ __int64 __fastcall ApiSetpResolveHost(
           v19 = *(unsigned int *)(a1 + 44)
               + *(unsigned __int16 *)(v15 + 4) * (unsigned __int64)*(unsigned __int8 *)(a1 + 52)
               - v13;
-          v7 = v46;
+          v7 = ChangeStamp;
           v20 = a1 + v19;
           v21 = *(_WORD *)(v20 + 8);
           v22 = *(_BYTE *)(v20 + 10);

@@ -1,15 +1,15 @@
 /*
- * XREFs of GetModuleFullPathName @ 0x1800AFB48
+ * XREFs of GetModuleFullPathName @ 0x18007C3E8
  * Callers:
- *     GetImageTuple @ 0x1800AE238 (GetImageTuple.c)
+ *     GetImageTuple @ 0x1800E39FC (GetImageTuple.c)
  * Callees:
- *     RtlAllocateHeap @ 0x180011260 (RtlAllocateHeap.c)
- *     RtlFreeHeap @ 0x1800269F0 (RtlFreeHeap.c)
- *     GetModuleFullPathNameUnicode @ 0x1800AFAD0 (GetModuleFullPathNameUnicode.c)
- *     RtlUnicodeStringToAnsiString @ 0x1800B1570 (RtlUnicodeStringToAnsiString.c)
+ *     RtlAllocateHeap @ 0x18003DC60 (RtlAllocateHeap.c)
+ *     RtlFreeHeap @ 0x1800533F0 (RtlFreeHeap.c)
+ *     GetModuleFullPathNameUnicode @ 0x18007C370 (GetModuleFullPathNameUnicode.c)
+ *     RtlUnicodeStringToAnsiString @ 0x18007DE10 (RtlUnicodeStringToAnsiString.c)
  */
 
-wchar_t *__fastcall GetModuleFullPathName(unsigned __int64 a1, char *a2)
+wchar_t *__fastcall GetModuleFullPathName(void *a1, char *a2)
 {
   void *ProcessHeap; // rcx
   wchar_t *result; // rax
@@ -17,17 +17,17 @@ wchar_t *__fastcall GetModuleFullPathName(unsigned __int64 a1, char *a2)
   unsigned int Length; // ebx
   NTSTATUS v8; // eax
   UNICODE_STRING SourceString; // [rsp+20h] [rbp-28h] BYREF
-  STRING DestinationString; // [rsp+30h] [rbp-18h] BYREF
+  _STRING DestinationString; // [rsp+30h] [rbp-18h] BYREF
 
   DestinationString = 0LL;
   ProcessHeap = NtCurrentPeb()->ProcessHeap;
   *(_QWORD *)&SourceString.Length = 0LL;
-  result = (wchar_t *)RtlAllocateHeap((__int64)ProcessHeap, 8u, 0x208uLL);
+  result = (wchar_t *)RtlAllocateHeap(ProcessHeap, 8u, 0x208uLL);
   SourceString.Buffer = result;
   if ( result )
   {
     SourceString.MaximumLength = 520;
-    ModuleFullPathNameUnicode = GetModuleFullPathNameUnicode(a1, (__int64)result, 0x104u);
+    ModuleFullPathNameUnicode = GetModuleFullPathNameUnicode(a1, result, 0x104u);
     Length = ModuleFullPathNameUnicode;
     if ( ModuleFullPathNameUnicode )
     {
@@ -50,7 +50,7 @@ wchar_t *__fastcall GetModuleFullPathName(unsigned __int64 a1, char *a2)
         Length = 0;
       }
     }
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (unsigned __int64)SourceString.Buffer);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, SourceString.Buffer);
     return (wchar_t *)Length;
   }
   return result;

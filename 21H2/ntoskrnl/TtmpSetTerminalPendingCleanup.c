@@ -1,11 +1,11 @@
 /*
- * XREFs of TtmpSetTerminalPendingCleanup @ 0x1408FE0C0
+ * XREFs of TtmpSetTerminalPendingCleanup @ 0x1408FE220
  * Callers:
- *     TtmiCreateTerminal @ 0x1408FD52C (TtmiCreateTerminal.c)
- *     TtmpCloseTerminalHandle @ 0x1408FDDF0 (TtmpCloseTerminalHandle.c)
+ *     TtmiCreateTerminal @ 0x1408FD68C (TtmiCreateTerminal.c)
+ *     TtmpCloseTerminalHandle @ 0x1408FDF50 (TtmpCloseTerminalHandle.c)
  * Callees:
- *     TtmpResetEvaluationTimer @ 0x1408FDFC4 (TtmpResetEvaluationTimer.c)
- *     TtmiScheduleSessionWorker @ 0x1408FF140 (TtmiScheduleSessionWorker.c)
+ *     TtmpResetEvaluationTimer @ 0x1408FE124 (TtmpResetEvaluationTimer.c)
+ *     TtmiScheduleSessionWorker @ 0x1408FF2A0 (TtmiScheduleSessionWorker.c)
  */
 
 void __fastcall TtmpSetTerminalPendingCleanup(__int64 a1, __int64 a2)

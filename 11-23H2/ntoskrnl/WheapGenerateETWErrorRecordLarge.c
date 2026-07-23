@@ -1,10 +1,10 @@
 /*
- * XREFs of WheapGenerateETWErrorRecordLarge @ 0x1406131B0
+ * XREFs of WheapGenerateETWErrorRecordLarge @ 0x140613700
  * Callers:
- *     WheapGenerateETWEvents @ 0x1406132C8 (WheapGenerateETWEvents.c)
+ *     WheapGenerateETWEvents @ 0x140613818 (WheapGenerateETWEvents.c)
  * Callees:
- *     EtwWriteEx @ 0x1402581E0 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x1402582A0 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 unsigned __int64 __fastcall WheapGenerateETWErrorRecordLarge(__int64 a1)
@@ -57,7 +57,7 @@ unsigned __int64 __fastcall WheapGenerateETWErrorRecordLarge(__int64 a1)
       v14 = 4;
       v16 = v4;
       EtwWriteEx(
-        (REGHANDLE)WheapDispatchPtr.Queue.ListEntry.Flink,
+        (REGHANDLE)WheapDispatchPtr.Queue.Wcb.DeviceRoutine,
         &EVENT_WHEA_ERROR_PART,
         0LL,
         0,

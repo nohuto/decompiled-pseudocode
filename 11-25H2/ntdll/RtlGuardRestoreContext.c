@@ -21,32 +21,36 @@ void __cdecl RtlGuardRestoreContext(PCONTEXT ContextRecord, struct _EXCEPTION_RE
 {
   int ExceptionCode; // eax
   unsigned __int64 v5; // rdi
-  __int64 v6; // rdx
-  unsigned __int64 v7; // rbp
-  int v8; // r14d
-  __int64 v9; // rax
-  rsize_t v10; // r8
-  unsigned __int64 v11; // rdi
+  ULONG_PTR CfgBitMap; // rdx
+  void *v7; // rbp
+  __int64 v8; // rax
+  rsize_t v9; // r8
+  unsigned __int64 v10; // rdi
+  int v11; // eax
   __int64 v12; // rdx
   __int64 v13; // rcx
   __int64 v14; // r8
-  DWORD64 Rip; // rbp
-  unsigned __int64 v16; // rdi
+  void *Rip; // rbp
+  int v16; // eax
   __int64 Config; // rax
   __int64 v18; // rdx
   rsize_t v19; // r8
   unsigned int v20; // eax
   __int64 v21; // rdi
   _QWORD *v22; // rax
-  __int128 v23; // [rsp+30h] [rbp-38h] BYREF
-  __int64 v24; // [rsp+40h] [rbp-28h]
+  __int128 v23; // [rsp+30h] [rbp-38h]
+  __int128 v24; // [rsp+30h] [rbp-38h]
   int Key; // [rsp+78h] [rbp+10h] BYREF
 
   if ( !ExceptionRecord )
   {
 LABEL_23:
-    if ( !qword_1801EC4F8 || (dword_1801EC4DC & 1) != 0 || (unsigned int)RtlGuardIsValidStackPointer(ContextRecord->Rsp) )
+    if ( !LdrSystemDllInitBlock.CfgBitMap
+      || (LdrSystemDllInitBlock.Flags & 1) != 0
+      || (unsigned int)RtlGuardIsValidStackPointer(ContextRecord->Rsp) )
+    {
       goto LABEL_26;
+    }
     goto LABEL_45;
   }
   ExceptionCode = ExceptionRecord->ExceptionCode;
@@ -56,46 +60,47 @@ LABEL_23:
     {
       if ( ExceptionRecord->NumberParameters )
       {
-        v11 = ExceptionRecord->ExceptionInformation[0];
-        if ( (unsigned int)LdrControlFlowGuardEnforced(ContextRecord, ExceptionRecord) )
+        v10 = ExceptionRecord->ExceptionInformation[0];
+        LOBYTE(v11) = LdrControlFlowGuardEnforced();
+        if ( v11 )
         {
           if ( (unsigned int)LdrControlFlowGuardEnforcedWithExportSuppression(v13, v12, v14) )
-            LdrpValidateUserCallTargetES(v11);
+            LdrpValidateUserCallTargetES(v10);
           else
-            LdrpValidateUserCallTarget(v11);
+            LdrpValidateUserCallTarget(v10);
         }
       }
     }
     else if ( ExceptionCode == -1073741785 )
     {
-      if ( ((*((_QWORD *)&xmmword_1801EC4E0 + 1) >> 60) & 3) != 1 )
+      if ( ((LdrSystemDllInitBlock.MitigationOptionsMap.Map[1] >> 60) & 3) != 1 )
       {
-        Rip = ContextRecord->Rip;
-        if ( (unsigned int)LdrControlFlowGuardEnforced(ContextRecord, ExceptionRecord) )
+        Rip = (void *)ContextRecord->Rip;
+        LOBYTE(v16) = LdrControlFlowGuardEnforced();
+        if ( v16 )
         {
           v24 = 0LL;
-          v23 = 0LL;
-          if ( Rip < *((_QWORD *)&xmmword_1801E9430 + 1)
-            || Rip >= *((_QWORD *)&xmmword_1801E9430 + 1) + (unsigned __int64)(unsigned int)qword_1801E9440 )
+          if ( (unsigned __int64)Rip < *((_QWORD *)&xmmword_1801E9430 + 1)
+            || (unsigned __int64)Rip >= *((_QWORD *)&xmmword_1801E9430 + 1)
+                                      + (unsigned __int64)(unsigned int)qword_1801E9440 )
           {
-            RtlpxLookupFunctionTable(Rip, &v23);
+            RtlpxLookupFunctionTable(Rip);
           }
           else
           {
-            v23 = xmmword_1801E9430;
+            *((_QWORD *)&v24 + 1) = *((_QWORD *)&xmmword_1801E9430 + 1);
           }
-          v16 = *((_QWORD *)&v23 + 1);
-          if ( *((_QWORD *)&v23 + 1) )
+          if ( *((_QWORD *)&v24 + 1) )
           {
-            Config = LdrImageDirectoryEntryToLoadConfig(*((_QWORD *)&v23 + 1));
+            Config = LdrImageDirectoryEntryToLoadConfig(*((_QWORD *)&v24 + 1));
             v18 = Config;
             if ( Config )
             {
               if ( *(_DWORD *)Config >= 0x118u
                 && (*(_DWORD *)(Config + 144) & 0x400000) != 0
-                && *(_QWORD *)(Config + 264) > v16 )
+                && *(_QWORD *)(Config + 264) > *((_QWORD *)&v24 + 1) )
               {
-                Key = Rip - v16;
+                Key = (_DWORD)Rip - DWORD2(v24);
                 v19 = *(_QWORD *)(Config + 272);
                 v20 = (*(_DWORD *)(Config + 144) >> 28) + 4;
                 if ( !v19 || !bsearch_s(&Key, *(const void **)(v18 + 264), v19, v20, RtlpTargetCompare, 0LL) )
@@ -110,53 +115,52 @@ LABEL_23:
     goto LABEL_23;
   }
   v5 = ExceptionRecord->ExceptionInformation[0];
-  v6 = qword_1801EC4F8;
-  if ( qword_1801EC4F8 && (dword_1801EC4DC & 1) == 0 )
+  CfgBitMap = LdrSystemDllInitBlock.CfgBitMap;
+  if ( LdrSystemDllInitBlock.CfgBitMap && (LdrSystemDllInitBlock.Flags & 1) == 0 )
   {
     if ( (unsigned int)RtlGuardIsValidStackPointer(*(_QWORD *)(v5 + 16)) )
     {
-      v6 = qword_1801EC4F8;
+      CfgBitMap = LdrSystemDllInitBlock.CfgBitMap;
       goto LABEL_7;
     }
 LABEL_45:
     __fastfail(0xDu);
   }
 LABEL_7:
-  if ( ((*((_QWORD *)&xmmword_1801EC4E0 + 1) >> 60) & 3) != 1 )
+  if ( ((LdrSystemDllInitBlock.MitigationOptionsMap.Map[1] >> 60) & 3) != 1 )
   {
-    v7 = *(_QWORD *)(v5 + 80);
+    v7 = *(void **)(v5 + 80);
     Key = 0;
-    if ( v6 )
+    if ( CfgBitMap )
     {
-      if ( (dword_1801EC4DC & 1) == 0 )
+      if ( (LdrSystemDllInitBlock.Flags & 1) == 0 )
       {
-        v24 = 0LL;
         v23 = 0LL;
-        if ( v7 < *((_QWORD *)&xmmword_1801E9430 + 1)
-          || v7 >= *((_QWORD *)&xmmword_1801E9430 + 1) + (unsigned __int64)(unsigned int)qword_1801E9440 )
+        if ( (unsigned __int64)v7 < *((_QWORD *)&xmmword_1801E9430 + 1)
+          || (unsigned __int64)v7 >= *((_QWORD *)&xmmword_1801E9430 + 1)
+                                   + (unsigned __int64)(unsigned int)qword_1801E9440 )
         {
-          RtlpxLookupFunctionTable(v7, &v23);
+          RtlpxLookupFunctionTable(v7);
         }
         else
         {
-          v23 = xmmword_1801E9430;
+          *((_QWORD *)&v23 + 1) = *((_QWORD *)&xmmword_1801E9430 + 1);
         }
-        v8 = DWORD2(v23);
         if ( *((_QWORD *)&v23 + 1) )
         {
-          v9 = LdrImageDirectoryEntryToLoadConfig(*((_QWORD *)&v23 + 1));
-          if ( v9 )
+          v8 = LdrImageDirectoryEntryToLoadConfig(*((_QWORD *)&v23 + 1));
+          if ( v8 )
           {
-            if ( *(_DWORD *)v9 >= 0xC0u && (*(_DWORD *)(v9 + 144) & 0x10000) != 0 )
+            if ( *(_DWORD *)v8 >= 0xC0u && (*(_DWORD *)(v8 + 144) & 0x10000) != 0 )
             {
-              Key = v7 - v8;
-              v10 = *(_QWORD *)(v9 + 184);
-              if ( !v10
+              Key = (_DWORD)v7 - DWORD2(v23);
+              v9 = *(_QWORD *)(v8 + 184);
+              if ( !v9
                 || !bsearch_s(
                       &Key,
-                      *(const void **)(v9 + 176),
-                      v10,
-                      (unsigned int)((*(_DWORD *)(v9 + 144) >> 28) + 4),
+                      *(const void **)(v8 + 176),
+                      v9,
+                      (unsigned int)((*(_DWORD *)(v8 + 144) >> 28) + 4),
                       RtlpTargetCompare,
                       0LL) )
               {

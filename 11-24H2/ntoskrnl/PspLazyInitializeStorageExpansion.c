@@ -1,10 +1,10 @@
 /*
- * XREFs of PspLazyInitializeStorageExpansion @ 0x1409E2664
+ * XREFs of PspLazyInitializeStorageExpansion @ 0x1409DC414
  * Callers:
- *     PspGetStorageArray @ 0x1409E23B8 (PspGetStorageArray.c)
+ *     PspGetStorageArray @ 0x1409DC168 (PspGetStorageArray.c)
  * Callees:
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PspLazyInitializeStorageExpansion(__int64 a1)
@@ -13,7 +13,7 @@ __int64 __fastcall PspLazyInitializeStorageExpansion(__int64 a1)
   void *v3; // rcx
   __int64 v5; // r8
 
-  Pool2 = (_QWORD *)ExAllocatePool2(0x48uLL);
+  Pool2 = (_QWORD *)ExAllocatePool2(0x48uLL, 0x1000uLL, 0x78457350u);
   v3 = Pool2;
   if ( !Pool2 )
     return 3221225626LL;

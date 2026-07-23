@@ -11,7 +11,7 @@
  *     _guard_dispatch_icall_no_overrides @ 0x1406A8B20 (_guard_dispatch_icall_no_overrides.c)
  */
 
-void __fastcall __noreturn DifExRaiseStatusWrapper(int a1)
+void __fastcall __noreturn DifExRaiseStatusWrapper(NTSTATUS Status)
 {
   __int64 *APIThunkContextById; // rax
   __int64 *v3; // rbx
@@ -37,7 +37,7 @@ void __fastcall __noreturn DifExRaiseStatusWrapper(int a1)
       *(_QWORD *)&v8 = DifGetReturnAddressForWrappers();
     }
     v5 = 0;
-    DWORD2(v8) = a1;
+    DWORD2(v8) = Status;
     if ( !VfDifRunningWithoutReboot && (VfOptionFlags & 0x800) == 0
       || (v5 = ExAcquireRundownProtection_0(&DifRebootlessRundown)) != 0 )
     {
@@ -51,5 +51,5 @@ void __fastcall __noreturn DifExRaiseStatusWrapper(int a1)
         ExReleaseRundownProtection_0(&DifRebootlessRundown);
     }
   }
-  RtlRaiseStatus(a1);
+  RtlRaiseStatus(Status);
 }

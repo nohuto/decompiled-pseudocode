@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpIvtProcessDmarTable @ 0x1405780FC
+ * XREFs of HalpIvtProcessDmarTable @ 0x14057558C
  * Callers:
- *     HalpIommuRegisterBuiltinPlugins @ 0x140567690 (HalpIommuRegisterBuiltinPlugins.c)
+ *     HalpIommuRegisterBuiltinPlugins @ 0x14056511C (HalpIommuRegisterBuiltinPlugins.c)
  * Callees:
- *     Feature_Test57481295__private_IsEnabledDeviceUsageNoInline @ 0x14053C180 (Feature_Test57481295__private_IsEnabledDeviceUsageNoInline.c)
- *     HalpIvtLegacyProcessDrhdEntry @ 0x140577968 (HalpIvtLegacyProcessDrhdEntry.c)
- *     HalpIvtProcessDrhdEntry @ 0x1405781C8 (HalpIvtProcessDrhdEntry.c)
- *     DmrEnumerateSatcDevices @ 0x1405795E0 (DmrEnumerateSatcDevices.c)
- *     DmrGetNextRemappingStructure @ 0x140579788 (DmrGetNextRemappingStructure.c)
+ *     Feature_Test57481295__private_IsEnabledDeviceUsageNoInline @ 0x140539A0C (Feature_Test57481295__private_IsEnabledDeviceUsageNoInline.c)
+ *     HalpIvtLegacyProcessDrhdEntry @ 0x140574DF8 (HalpIvtLegacyProcessDrhdEntry.c)
+ *     HalpIvtProcessDrhdEntry @ 0x140575658 (HalpIvtProcessDrhdEntry.c)
+ *     DmrEnumerateSatcDevices @ 0x140576A70 (DmrEnumerateSatcDevices.c)
+ *     DmrGetNextRemappingStructure @ 0x140576C18 (DmrGetNextRemappingStructure.c)
  */
 
 __int64 __fastcall HalpIvtProcessDmarTable(__int64 a1, _BYTE *a2)
@@ -31,7 +31,7 @@ __int64 __fastcall HalpIvtProcessDmarTable(__int64 a1, _BYTE *a2)
     if ( *(_DWORD *)(a1 + 4) >= 0x40u )
     {
       v5 = (*(_BYTE *)(a1 + 37) & 4) == 0;
-      qword_140E65990 = a1;
+      qword_140E65B10 = a1;
       if ( !v5 )
       {
         v6 = 0LL;

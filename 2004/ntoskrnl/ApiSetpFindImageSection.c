@@ -7,10 +7,10 @@
  *     strncmp @ 0x1403CDF40 (strncmp.c)
  */
 
-const char *__fastcall ApiSetpFindImageSection(__int64 a1)
+const char *__fastcall ApiSetpFindImageSection(void *a1)
 {
-  __int64 v1; // rax
-  __int64 v2; // rdi
+  PIMAGE_NT_HEADERS v1; // rax
+  PIMAGE_NT_HEADERS v2; // rdi
   const char *v3; // rbx
   __int64 v4; // rsi
 
@@ -18,14 +18,14 @@ const char *__fastcall ApiSetpFindImageSection(__int64 a1)
   v2 = v1;
   if ( !v1 )
     return 0LL;
-  v3 = (const char *)(*(unsigned __int16 *)(v1 + 20) + v1 + 24);
+  v3 = (char *)&v1->OptionalHeader + v1->FileHeader.SizeOfOptionalHeader;
   v4 = 0LL;
-  if ( !*(_WORD *)(v1 + 6) )
+  if ( !v1->FileHeader.NumberOfSections )
     return 0LL;
   while ( strncmp(v3, ".apiset", 8uLL) )
   {
     v3 += 40;
-    if ( ++v4 >= (unsigned __int64)*(unsigned __int16 *)(v2 + 6) )
+    if ( ++v4 >= (unsigned __int64)v2->FileHeader.NumberOfSections )
       return 0LL;
   }
   return v3;

@@ -13,143 +13,144 @@
  *     TppGetCurrentThreadNumaNode @ 0x18002E53C (TppGetCurrentThreadNumaNode.c)
  *     TppInitializeTimerQueue @ 0x1800301C4 (TppInitializeTimerQueue.c)
  *     TppPoolUpdateNodeRelation @ 0x180030CB0 (TppPoolUpdateNodeRelation.c)
- *     NtClose @ 0x1800A04C0 (NtClose.c)
- *     NtCreateIoCompletion @ 0x1800A17B0 (NtCreateIoCompletion.c)
- *     NtCreateWorkerFactory @ 0x1800A1BB0 (NtCreateWorkerFactory.c)
- *     NtSetInformationWorkerFactory @ 0x1800A35D0 (NtSetInformationWorkerFactory.c)
+ *     NtClose @ 0x1800A04E0 (NtClose.c)
+ *     NtCreateIoCompletion @ 0x1800A17D0 (NtCreateIoCompletion.c)
+ *     NtCreateWorkerFactory @ 0x1800A1BD0 (NtCreateWorkerFactory.c)
+ *     NtSetInformationWorkerFactory @ 0x1800A35F0 (NtSetInformationWorkerFactory.c)
  *     TppETWPoolCreate @ 0x180110D54 (TppETWPoolCreate.c)
  */
 
-__int64 __fastcall TpAllocPoolInternal(__int64 *a1, char a2)
+__int64 __fastcall TpAllocPoolInternal(_QWORD *a1, char a2)
 {
-  __int64 v3; // rax
-  __int64 v4; // r12
-  unsigned __int64 v5; // rsi
+  PIMAGE_NT_HEADERS v3; // rax
+  SIZE_T StackReserve; // r12
+  SIZE_T StackCommit; // rsi
   struct _PEB *v6; // rax
-  unsigned __int64 MinimumStackCommit; // rcx
-  __int64 Heap; // rdi
+  SIZE_T MinimumStackCommit; // rcx
+  _DWORD *StartParameter; // rdi
   __int64 v9; // r8
-  unsigned __int64 v10; // r10
+  _QWORD *v10; // r10
   __int64 v11; // r9
   __int64 i; // r8
   _QWORD *v13; // rdx
-  __int64 v14; // rax
-  __int64 v15; // rax
+  PVOID Heap; // rax
+  PVOID v15; // rax
   unsigned int v16; // r14d
   int updated; // ebx
-  __int64 v18; // r9
+  ULONG v18; // r9d
   HANDLE *v19; // r15
-  int v20; // eax
+  ULONG MaxThreadCount; // eax
   HANDLE *v21; // r14
-  unsigned __int64 v22; // rdx
-  unsigned __int64 *v23; // r8
-  __int64 v24; // r9
-  _QWORD *v25; // rax
-  _QWORD *v26; // rdx
-  __int64 v27; // rcx
-  unsigned __int64 v29; // r8
-  unsigned __int64 v30; // r8
-  int v31; // [rsp+50h] [rbp-68h]
-  int v32; // [rsp+60h] [rbp-58h] BYREF
-  __int64 v33; // [rsp+68h] [rbp-50h]
-  unsigned __int64 v34; // [rsp+70h] [rbp-48h]
-  __int64 v35; // [rsp+78h] [rbp-40h]
+  _QWORD *v22; // rax
+  _QWORD *v23; // rdx
+  __int64 v24; // rcx
+  void *v26; // r8
+  void *v27; // r8
+  int v28; // [rsp+50h] [rbp-68h]
+  int v29; // [rsp+60h] [rbp-58h] BYREF
+  PVOID v30; // [rsp+68h] [rbp-50h]
+  PVOID BaseAddress; // [rsp+70h] [rbp-48h]
+  __int64 v32; // [rsp+78h] [rbp-40h]
   _UNKNOWN *retaddr; // [rsp+B8h] [rbp+0h]
-  int v37; // [rsp+C8h] [rbp+10h] BYREF
+  int WorkerFactoryInformation; // [rsp+C8h] [rbp+10h] BYREF
 
-  v34 = 0LL;
+  BaseAddress = 0LL;
   *a1 = 0LL;
-  v37 = a2 & 1;
-  v3 = RtlImageNtHeader((unsigned __int64)NtCurrentPeb()->ImageBaseAddress);
+  WorkerFactoryInformation = a2 & 1;
+  v3 = RtlImageNtHeader(NtCurrentPeb()->ImageBaseAddress);
   if ( !v3 )
     return (unsigned int)-1073741701;
-  if ( *(_WORD *)(v3 + 24) == 523 )
+  if ( v3->OptionalHeader.Magic == 523 )
   {
-    v4 = *(_QWORD *)(v3 + 96);
-    v5 = *(_QWORD *)(v3 + 104);
+    StackReserve = v3->OptionalHeader.SizeOfStackReserve;
+    StackCommit = v3->OptionalHeader.SizeOfStackCommit;
   }
   else
   {
-    v4 = *(unsigned int *)(v3 + 96);
-    v5 = *(unsigned int *)(v3 + 100);
+    StackReserve = LODWORD(v3->OptionalHeader.SizeOfStackReserve);
+    StackCommit = HIDWORD(v3->OptionalHeader.SizeOfStackReserve);
   }
   v6 = NtCurrentPeb();
   MinimumStackCommit = v6->MinimumStackCommit;
-  if ( MinimumStackCommit && v5 < MinimumStackCommit )
-    v5 = v6->MinimumStackCommit;
-  Heap = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, (TppHeapTag + 786432) | 8u, 464LL);
-  v33 = Heap;
-  if ( Heap )
+  if ( MinimumStackCommit && StackCommit < MinimumStackCommit )
+    StackCommit = v6->MinimumStackCommit;
+  StartParameter = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, (TppHeapTag + 786432) | 8, 0x1D0uLL);
+  v30 = StartParameter;
+  if ( StartParameter )
   {
-    v34 = RtlAllocateHeap(
-            (__int64)NtCurrentPeb()->ProcessHeap,
-            TppHeapTag + 786432,
-            72LL * (unsigned int)TppNumberNodes);
-    if ( !v34 )
+    BaseAddress = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, TppHeapTag + 786432, 72LL * (unsigned int)TppNumberNodes);
+    if ( !BaseAddress )
     {
       updated = -1073741801;
-      v31 = -1073741801;
-      Heap = v33;
+      v28 = -1073741801;
+      StartParameter = v30;
       goto LABEL_34;
     }
     v9 = 0LL;
-    v10 = v33;
+    v10 = v30;
     v11 = (unsigned int)TppNumberNodes;
     while ( (unsigned int)v9 < 3 )
     {
-      *(_QWORD *)(v10 + 8 * v9 + 16) = v34 + 24LL * (unsigned int)(v9 * v11);
+      v10[v9 + 2] = (char *)BaseAddress + 24 * (unsigned int)(v9 * v11);
       v9 = (unsigned int)(v9 + 1);
     }
     for ( i = 0LL; (unsigned int)i < 3 * (int)v11; i = (unsigned int)(i + 1) )
     {
-      v13 = (_QWORD *)(v34 + 24 * i);
+      v13 = (char *)BaseAddress + 24 * i;
       v13[2] = 0LL;
       v13[1] = v13;
       *v13 = v13;
     }
-    v14 = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, (TppHeapTag + 786432) | 8u, 4 * v11);
-    Heap = v33;
-    *(_QWORD *)(v33 + 40) = v14;
-    if ( v14 )
+    Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, (TppHeapTag + 786432) | 8, 4 * v11);
+    StartParameter = v30;
+    *((_QWORD *)v30 + 5) = Heap;
+    if ( Heap )
     {
-      v15 = RtlAllocateHeap(
-              (__int64)NtCurrentPeb()->ProcessHeap,
-              (TppHeapTag + 786432) | 8u,
-              16LL * (unsigned int)TppNumberNodes);
-      Heap = v33;
-      *(_QWORD *)(v33 + 48) = v15;
+      v15 = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, (TppHeapTag + 786432) | 8, 16LL * (unsigned int)TppNumberNodes);
+      StartParameter = v30;
+      *((_QWORD *)v30 + 6) = v15;
       if ( v15 )
       {
         v16 = MEMORY[0x7FFE03C0];
-        *(_DWORD *)(Heap + 424) = MEMORY[0x7FFE03C0];
-        updated = TppPoolUpdateNodeRelation(Heap);
-        v31 = updated;
+        StartParameter[106] = MEMORY[0x7FFE03C0];
+        updated = TppPoolUpdateNodeRelation(StartParameter);
+        v28 = updated;
         if ( updated < 0 )
           goto LABEL_34;
-        *(_DWORD *)(Heap + 428) = -2;
-        v35 = (unsigned __int16)v16;
-        *(_QWORD *)(Heap + 8) = (unsigned __int16)v16;
-        *(_DWORD *)Heap = 1;
+        StartParameter[107] = -2;
+        v32 = (unsigned __int16)v16;
+        *((_QWORD *)StartParameter + 1) = (unsigned __int16)v16;
+        *StartParameter = 1;
         v18 = v16 + 1;
         if ( v16 < 4 )
-          v18 = 4LL;
-        v19 = (HANDLE *)(Heap + 64);
-        updated = NtCreateIoCompletion(Heap + 64, 2031619LL, 0LL, v18);
-        v31 = updated;
+          v18 = 4;
+        v19 = (HANDLE *)(StartParameter + 16);
+        updated = NtCreateIoCompletion((PHANDLE)StartParameter + 8, 0x1F0003u, 0LL, v18);
+        v28 = updated;
         if ( updated < 0 )
           goto LABEL_34;
-        v20 = 4 * MEMORY[0x7FFE03C0];
+        MaxThreadCount = 4 * MEMORY[0x7FFE03C0];
         if ( (unsigned int)(4 * MEMORY[0x7FFE03C0]) < 0x200 )
-          v20 = 512;
-        v21 = (HANDLE *)(Heap + 56);
-        updated = NtCreateWorkerFactory(Heap + 56, 983295LL, 0LL, *v19, -1LL, TppWorkerThread, Heap, v20, v4, v5);
-        v31 = updated;
+          MaxThreadCount = 512;
+        v21 = (HANDLE *)(StartParameter + 14);
+        updated = NtCreateWorkerFactory(
+                    (PHANDLE)StartParameter + 7,
+                    0xF00FFu,
+                    0LL,
+                    *v19,
+                    (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+                    TppWorkerThread,
+                    StartParameter,
+                    MaxThreadCount,
+                    StackReserve,
+                    StackCommit);
+        v28 = updated;
         if ( updated < 0 )
           goto LABEL_29;
-        if ( v37 )
+        if ( WorkerFactoryInformation )
         {
-          updated = NtSetInformationWorkerFactory(*v21, 13LL, &v37);
-          v31 = updated;
+          updated = NtSetInformationWorkerFactory(*v21, WorkerFactoryFlags, &WorkerFactoryInformation, 4u);
+          v28 = updated;
           if ( updated < 0 )
           {
 LABEL_29:
@@ -164,35 +165,35 @@ LABEL_29:
             }
             goto LABEL_34;
           }
-          *(_WORD *)(Heap + 378) = v37;
+          *((_WORD *)StartParameter + 189) = WorkerFactoryInformation;
         }
-        *(_QWORD *)(Heap + 72) = 0LL;
-        *(_QWORD *)(Heap + 368) = 0LL;
-        *(_QWORD *)(Heap + 440) = 0LL;
-        *(_WORD *)(Heap + 376) = 0;
-        *(_QWORD *)(Heap + 88) = Heap + 80;
-        *(_QWORD *)(Heap + 80) = Heap + 80;
-        *(_QWORD *)(Heap + 104) = Heap + 96;
-        *(_QWORD *)(Heap + 96) = Heap + 96;
-        *(_QWORD *)(Heap + 456) = Heap + 448;
-        *(_QWORD *)(Heap + 448) = Heap + 448;
-        TppGetCurrentThreadNumaNode(Heap, &v32, 0LL);
-        *(_QWORD *)(Heap + 400) = retaddr;
-        updated = TppInitializeTimerQueue(Heap + 112, Heap);
-        v31 = updated;
+        *((_QWORD *)StartParameter + 9) = 0LL;
+        *((_QWORD *)StartParameter + 46) = 0LL;
+        *((_QWORD *)StartParameter + 55) = 0LL;
+        *((_WORD *)StartParameter + 188) = 0;
+        *((_QWORD *)StartParameter + 11) = StartParameter + 20;
+        *((_QWORD *)StartParameter + 10) = StartParameter + 20;
+        *((_QWORD *)StartParameter + 13) = StartParameter + 24;
+        *((_QWORD *)StartParameter + 12) = StartParameter + 24;
+        *((_QWORD *)StartParameter + 57) = StartParameter + 112;
+        *((_QWORD *)StartParameter + 56) = StartParameter + 112;
+        TppGetCurrentThreadNumaNode((__int64)StartParameter, &v29, 0LL);
+        *((_QWORD *)StartParameter + 50) = retaddr;
+        updated = TppInitializeTimerQueue((__int64)(StartParameter + 28), (__int64)StartParameter);
+        v28 = updated;
         if ( updated >= 0 )
         {
           updated = 0;
-          v31 = 0;
-          RtlAcquireSRWLockExclusive((unsigned __int64)&TppPoolpListLock, v22, v23, v24);
-          v25 = (_QWORD *)(Heap + 384);
-          v26 = off_18015F6E8;
+          v28 = 0;
+          RtlAcquireSRWLockExclusive(&TppPoolpListLock);
+          v22 = StartParameter + 96;
+          v23 = off_18015F6E8;
           if ( *off_18015F6E8 != (_UNKNOWN *)&TppPoolpList )
             __fastfail(3u);
-          *v25 = &TppPoolpList;
-          *(_QWORD *)(Heap + 392) = v26;
-          *v26 = v25;
-          off_18015F6E8 = (_UNKNOWN **)(Heap + 384);
+          *v22 = &TppPoolpList;
+          *((_QWORD *)StartParameter + 49) = v23;
+          *v23 = v22;
+          off_18015F6E8 = (_UNKNOWN **)(StartParameter + 96);
           RtlReleaseSRWLockExclusive(&TppPoolpListLock);
         }
         goto LABEL_29;
@@ -200,47 +201,47 @@ LABEL_29:
     }
   }
   updated = -1073741801;
-  v31 = -1073741801;
+  v28 = -1073741801;
 LABEL_34:
   if ( updated >= 0 )
     goto LABEL_35;
-  if ( Heap )
+  if ( StartParameter )
   {
-    if ( v34 )
+    if ( BaseAddress )
     {
-      RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, TppHeapTag + 786432, v34);
-      Heap = v33;
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, TppHeapTag + 786432, BaseAddress);
+      StartParameter = v30;
     }
-    v29 = *(_QWORD *)(Heap + 40);
-    if ( v29 )
+    v26 = (void *)*((_QWORD *)StartParameter + 5);
+    if ( v26 )
     {
-      RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, TppHeapTag + 786432, v29);
-      Heap = v33;
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, TppHeapTag + 786432, v26);
+      StartParameter = v30;
     }
-    v30 = *(_QWORD *)(Heap + 48);
-    if ( v30 )
-      RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, TppHeapTag + 786432, v30);
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, TppHeapTag + 786432, v33);
-    Heap = 0LL;
-    v33 = 0LL;
-    updated = v31;
+    v27 = (void *)*((_QWORD *)StartParameter + 6);
+    if ( v27 )
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, TppHeapTag + 786432, v27);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, TppHeapTag + 786432, v30);
+    StartParameter = 0LL;
+    v30 = 0LL;
+    updated = v28;
   }
   if ( updated >= 0 )
   {
 LABEL_35:
-    *a1 = Heap;
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+    *a1 = StartParameter;
+    if ( RtlGetCurrentServiceSessionId() )
     {
-      v27 = (__int64)NtCurrentPeb()->SharedData + 556;
-      updated = v31;
-      Heap = v33;
+      v24 = (__int64)NtCurrentPeb()->SharedData + 556;
+      updated = v28;
+      StartParameter = v30;
     }
     else
     {
-      v27 = 2147353478LL;
+      v24 = 2147353478LL;
     }
-    if ( *(_BYTE *)v27 )
-      TppETWPoolCreate(Heap);
+    if ( *(_BYTE *)v24 )
+      TppETWPoolCreate(StartParameter);
   }
   return (unsigned int)updated;
 }

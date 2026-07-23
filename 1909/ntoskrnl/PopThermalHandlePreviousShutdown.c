@@ -106,7 +106,7 @@ void PopThermalHandlePreviousShutdown()
             ZwSetValueKey(v6, &ValueName, 0, 4u, &Data, 4u);
           ZwClose(v6);
         }
-        ZwUpdateWnfStateData((__int64)&WNF_PO_THERMAL_SHUTDOWN_OCCURRED, 0LL, 0LL);
+        ZwUpdateWnfStateData(&WNF_PO_THERMAL_SHUTDOWN_OCCURRED, 0LL, 0, 0LL, 0LL, 0, 0);
         if ( pCallbackContext.LevelPlus1 > 5 && TlgKeywordOn(&pCallbackContext, 0x400000000000uLL) )
         {
           LODWORD(KeyHandle) = Data;

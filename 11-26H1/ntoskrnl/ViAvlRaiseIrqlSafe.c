@@ -1,15 +1,15 @@
 /*
- * XREFs of ViAvlRaiseIrqlSafe @ 0x1403B8438
+ * XREFs of ViAvlRaiseIrqlSafe @ 0x1403C2338
  * Callers:
- *     VfAvlDeleteTreeNode @ 0x1403B7A64 (VfAvlDeleteTreeNode.c)
- *     VfTargetDriversRemove @ 0x1403B7C48 (VfTargetDriversRemove.c)
- *     VfAvlLookupTreeNode @ 0x1403B7E8C (VfAvlLookupTreeNode.c)
- *     VfAvlInsertReservedTreeNode @ 0x1403B86F4 (VfAvlInsertReservedTreeNode.c)
- *     DifEnumeratePluginData @ 0x140640A60 (DifEnumeratePluginData.c)
- *     VfAvlDeleteAllTreeNodes @ 0x140C21FA0 (VfAvlDeleteAllTreeNodes.c)
- *     VfAvlEnumerateNodes @ 0x140C22018 (VfAvlEnumerateNodes.c)
+ *     VfAvlDeleteTreeNode @ 0x1403C1964 (VfAvlDeleteTreeNode.c)
+ *     VfTargetDriversRemove @ 0x1403C1B48 (VfTargetDriversRemove.c)
+ *     VfAvlLookupTreeNode @ 0x1403C1D8C (VfAvlLookupTreeNode.c)
+ *     VfAvlInsertReservedTreeNode @ 0x1403C25F4 (VfAvlInsertReservedTreeNode.c)
+ *     DifEnumeratePluginData @ 0x140644640 (DifEnumeratePluginData.c)
+ *     VfAvlDeleteAllTreeNodes @ 0x140C27FB0 (VfAvlDeleteAllTreeNodes.c)
+ *     VfAvlEnumerateNodes @ 0x140C28028 (VfAvlEnumerateNodes.c)
  * Callees:
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall ViAvlRaiseIrqlSafe(__int64 a1)

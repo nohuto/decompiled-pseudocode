@@ -92,7 +92,7 @@ LABEL_10:
   CcBcbTrimNotificationListLock.Owner = 0LL;
   CcBcbTrimNotificationListLock.Contention = 0;
   LOWORD(CcBcbTrimNotificationListLock.Event.Header.Lock) = 1;
-  CcIdleDelayTick = 0x989680u / KeMaximumIncrement;
+  CcIdleDelayTick = 0x989680 / KeMaximumIncrement;
   qword_140C486D8 = (__int64)&CcVolumeCacheMapList;
   CcVolumeCacheMapList = (__int64)&CcVolumeCacheMapList;
   CcBcbTrimNotificationListLock.Event.Header.WaitListHead.Blink = &CcBcbTrimNotificationListLock.Event.Header.WaitListHead;

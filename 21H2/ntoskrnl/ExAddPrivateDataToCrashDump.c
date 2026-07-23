@@ -1,10 +1,10 @@
 /*
- * XREFs of ExAddPrivateDataToCrashDump @ 0x1405B3550
+ * XREFs of ExAddPrivateDataToCrashDump @ 0x1405B3780
  * Callers:
- *     IopAddLiveDumpPagesToPartialKernelDump @ 0x14050B798 (IopAddLiveDumpPagesToPartialKernelDump.c)
- *     IopLiveDumpMarkImportantDumpData @ 0x1409ACA58 (IopLiveDumpMarkImportantDumpData.c)
+ *     IopAddLiveDumpPagesToPartialKernelDump @ 0x14050B9D8 (IopAddLiveDumpPagesToPartialKernelDump.c)
+ *     IopLiveDumpMarkImportantDumpData @ 0x1409AD988 (IopLiveDumpMarkImportantDumpData.c)
  * Callees:
- *     MmAddRangeToCrashDump @ 0x1405385D8 (MmAddRangeToCrashDump.c)
+ *     MmAddRangeToCrashDump @ 0x140538818 (MmAddRangeToCrashDump.c)
  */
 
 __int64 __fastcall ExAddPrivateDataToCrashDump(__int64 (__fastcall **a1)(_QWORD, __int64, __int64))

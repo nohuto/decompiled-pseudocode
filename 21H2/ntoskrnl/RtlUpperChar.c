@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlUpperChar @ 0x1405ED5E0
+ * XREFs of RtlUpperChar @ 0x1406DCD40
  * Callers:
- *     RtlEqualString @ 0x1402AF280 (RtlEqualString.c)
- *     RtlCompareString @ 0x1405EC6B0 (RtlCompareString.c)
- *     RtlPrefixString @ 0x140695210 (RtlPrefixString.c)
+ *     RtlEqualString @ 0x14022D5E0 (RtlEqualString.c)
+ *     RtlPrefixString @ 0x1405F4760 (RtlPrefixString.c)
+ *     RtlCompareString @ 0x1406DBE10 (RtlCompareString.c)
  * Callees:
- *     RtlpIsUtf8Process @ 0x1405EE580 (RtlpIsUtf8Process.c)
+ *     RtlpIsUtf8Process @ 0x1406DDCE0 (RtlpIsUtf8Process.c)
  */
 
 CHAR __stdcall RtlUpperChar(CHAR Character)

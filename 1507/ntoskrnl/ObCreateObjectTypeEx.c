@@ -136,7 +136,7 @@ __int64 __fastcall ObCreateObjectTypeEx(
   int v109; // [rsp+80h] [rbp-88h]
   UNICODE_STRING DestinationString; // [rsp+88h] [rbp-80h] BYREF
   __int64 v111; // [rsp+98h] [rbp-70h] BYREF
-  STRING v112; // [rsp+A0h] [rbp-68h] BYREF
+  _STRING v112; // [rsp+A0h] [rbp-68h] BYREF
   _DWORD v113[16]; // [rsp+B8h] [rbp-50h] BYREF
   _OWORD v114[14]; // [rsp+F8h] [rbp-10h] BYREF
 

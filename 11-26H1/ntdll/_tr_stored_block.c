@@ -1,12 +1,12 @@
 /*
- * XREFs of _tr_stored_block @ 0x180156C70
+ * XREFs of _tr_stored_block @ 0x180156B40
  * Callers:
- *     deflate @ 0x180154430 (deflate.c)
- *     deflate_stored @ 0x180155380 (deflate_stored.c)
- *     _tr_flush_block @ 0x1801569B4 (_tr_flush_block.c)
+ *     deflate @ 0x180154300 (deflate.c)
+ *     deflate_stored @ 0x180155250 (deflate_stored.c)
+ *     _tr_flush_block @ 0x180156884 (_tr_flush_block.c)
  * Callees:
- *     bi_windup @ 0x180156DF8 (bi_windup.c)
- *     memmove @ 0x180164700 (memmove.c)
+ *     bi_windup @ 0x180156CC8 (bi_windup.c)
+ *     memmove @ 0x180164600 (memmove.c)
  */
 
 unsigned __int64 __fastcall tr_stored_block(__int64 a1, __int64 a2, unsigned int a3, unsigned __int16 a4)

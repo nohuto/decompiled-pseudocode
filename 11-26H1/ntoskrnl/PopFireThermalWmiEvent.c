@@ -1,11 +1,11 @@
 /*
- * XREFs of PopFireThermalWmiEvent @ 0x140607A94
+ * XREFs of PopFireThermalWmiEvent @ 0x14060A650
  * Callers:
- *     PopThermalWorker @ 0x140AC3C50 (PopThermalWorker.c)
+ *     PopThermalWorker @ 0x140AC58C0 (PopThermalWorker.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     PpmFireWmiEvent @ 0x14060C8C8 (PpmFireWmiEvent.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     PpmFireWmiEvent @ 0x14060FA28 (PpmFireWmiEvent.c)
  */
 
 __int64 __fastcall PopFireThermalWmiEvent(char a1)

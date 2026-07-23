@@ -1,7 +1,7 @@
 /*
- * XREFs of CcAdjustThrottleForExternalCache @ 0x14038A35C
+ * XREFs of CcAdjustThrottleForExternalCache @ 0x14038C10C
  * Callers:
- *     CcAdjustThrottleForVolume @ 0x14038A264 (CcAdjustThrottleForVolume.c)
+ *     CcAdjustThrottleForVolume @ 0x14038C014 (CcAdjustThrottleForVolume.c)
  * Callees:
  *     <none>
  */
@@ -17,7 +17,7 @@ __int64 __fastcall CcAdjustThrottleForExternalCache(__int64 a1)
   unsigned __int64 v8; // rdx
   unsigned __int64 v9; // rcx
 
-  v1 = dword_140FBE22C;
+  v1 = dword_140FBF22C;
   v3 = *(_QWORD *)(a1 + 1080) + *(_QWORD *)(a1 + 1088);
   *(_QWORD *)(a1 + 1096) = 0LL;
   v4 = v3 >> 2;

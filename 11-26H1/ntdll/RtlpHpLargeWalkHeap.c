@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpHpLargeWalkHeap @ 0x180074C98
+ * XREFs of RtlpHpLargeWalkHeap @ 0x180095248
  * Callers:
- *     RtlpHpHeapWalk @ 0x1800744FC (RtlpHpHeapWalk.c)
+ *     RtlpHpHeapWalk @ 0x180094AEC (RtlpHpHeapWalk.c)
  * Callees:
- *     RtlpHpLargeAllocGetMetadata @ 0x180074A54 (RtlpHpLargeAllocGetMetadata.c)
- *     RtlpHpLargeAllocReport @ 0x180121664 (RtlpHpLargeAllocReport.c)
+ *     RtlpHpLargeAllocGetMetadata @ 0x180095038 (RtlpHpLargeAllocGetMetadata.c)
+ *     RtlpHpLargeAllocReport @ 0x180121400 (RtlpHpLargeAllocReport.c)
  */
 
 __int64 __fastcall RtlpHpLargeWalkHeap(__int64 a1, unsigned __int64 *a2)

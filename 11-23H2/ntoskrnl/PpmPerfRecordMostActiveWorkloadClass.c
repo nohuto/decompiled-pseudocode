@@ -1,13 +1,13 @@
 /*
- * XREFs of PpmPerfRecordMostActiveWorkloadClass @ 0x14033C818
+ * XREFs of PpmPerfRecordMostActiveWorkloadClass @ 0x14033CAA8
  * Callers:
- *     PpmParkRecordNodeStatistics @ 0x14033C6A0 (PpmParkRecordNodeStatistics.c)
+ *     PpmParkRecordNodeStatistics @ 0x14033C930 (PpmParkRecordNodeStatistics.c)
  * Callees:
- *     KeEnumerateNextProcessor @ 0x1402572B0 (KeEnumerateNextProcessor.c)
- *     KeGetPrcb @ 0x140257330 (KeGetPrcb.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     PpmEventHgsActiveWorkloadClass @ 0x14059A198 (PpmEventHgsActiveWorkloadClass.c)
+ *     KeEnumerateNextProcessor @ 0x140257370 (KeEnumerateNextProcessor.c)
+ *     KeGetPrcb @ 0x1402573F0 (KeGetPrcb.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     PpmEventHgsActiveWorkloadClass @ 0x14059A688 (PpmEventHgsActiveWorkloadClass.c)
  */
 
 _UNKNOWN **__fastcall PpmPerfRecordMostActiveWorkloadClass(__int64 a1)

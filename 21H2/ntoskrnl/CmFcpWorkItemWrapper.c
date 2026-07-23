@@ -1,10 +1,10 @@
 /*
- * XREFs of CmFcpWorkItemWrapper @ 0x1404EDA10
+ * XREFs of CmFcpWorkItemWrapper @ 0x1404EDC50
  * Callers:
  *     <none>
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x14027C4F0 (ExReleaseRundownProtection_0.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     ExReleaseRundownProtection @ 0x14026A490 (ExReleaseRundownProtection.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 void __fastcall CmFcpWorkItemWrapper(__int64 a1)
@@ -23,5 +23,5 @@ void __fastcall CmFcpWorkItemWrapper(__int64 a1)
     }
   }
   while ( v2 != _InterlockedCompareExchange((volatile signed __int32 *)(a1 + 40), v2 & 0xFFFFFFFE, v2) );
-  ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)(a1 + 32));
+  ExReleaseRundownProtection((PEX_RUNDOWN_REF)(a1 + 32));
 }

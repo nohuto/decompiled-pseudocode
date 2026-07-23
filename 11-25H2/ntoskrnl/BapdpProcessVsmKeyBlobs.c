@@ -37,7 +37,7 @@ void __fastcall BapdpProcessVsmKeyBlobs(int a1)
   __int64 *v10; // r13
   int v11; // eax
   NTSTATUS v12; // eax
-  bool IsStateSeparationEnabled; // al
+  BOOLEAN IsStateSeparationEnabled; // al
   const wchar_t *v14; // r8
   char v15; // r11
   HANDLE FileHandle; // [rsp+60h] [rbp-49h] BYREF

@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlpMuiRegGetFallbackLanguageInfoByLangId @ 0x18010AC8C
+ * XREFs of RtlpMuiRegGetFallbackLanguageInfoByLangId @ 0x18010A5FC
  * Callers:
- *     RtlGetUILanguageInfo @ 0x18000A1D0 (RtlGetUILanguageInfo.c)
- *     RtlpMuiRegGetFallbackLanguageInfoByName @ 0x18010EB40 (RtlpMuiRegGetFallbackLanguageInfoByName.c)
+ *     RtlGetUILanguageInfo @ 0x180055900 (RtlGetUILanguageInfo.c)
+ *     RtlpMuiRegGetFallbackLanguageInfoByName @ 0x18010E690 (RtlpMuiRegGetFallbackLanguageInfoByName.c)
  * Callees:
- *     RtlpInitAndCallLcidToCultureName @ 0x180004E70 (RtlpInitAndCallLcidToCultureName.c)
- *     RtlFreeHeap_0 @ 0x18003FD10 (RtlFreeHeap_0.c)
- *     RtlAllocateHeap_0 @ 0x1800439E0 (RtlAllocateHeap_0.c)
- *     RtlpMuiRegGetFallbackLanguageInfoByName @ 0x18010EB40 (RtlpMuiRegGetFallbackLanguageInfoByName.c)
+ *     RtlFreeHeap_0 @ 0x18002A280 (RtlFreeHeap_0.c)
+ *     RtlAllocateHeap_0 @ 0x18002DF50 (RtlAllocateHeap_0.c)
+ *     RtlpInitAndCallLcidToCultureName @ 0x1800505A0 (RtlpInitAndCallLcidToCultureName.c)
+ *     RtlpMuiRegGetFallbackLanguageInfoByName @ 0x18010E690 (RtlpMuiRegGetFallbackLanguageInfoByName.c)
  */
 
 __int64 __fastcall RtlpMuiRegGetFallbackLanguageInfoByLangId(
@@ -17,7 +17,7 @@ __int64 __fastcall RtlpMuiRegGetFallbackLanguageInfoByLangId(
         char a4,
         __int64 a5)
 {
-  unsigned int v5; // ebp
+  LCID v5; // ebp
   __int16 v9; // r9
   __int16 i; // dx
   __int16 v11; // r8
@@ -25,12 +25,13 @@ __int64 __fastcall RtlpMuiRegGetFallbackLanguageInfoByLangId(
   __int64 v13; // rcx
   __int64 v14; // rax
   __int64 result; // rax
-  __int64 Heap_0; // rax
+  wchar_t *Heap_0; // rax
+  wchar_t *v17; // rdi
   unsigned int FallbackLanguageInfoByName; // ebx
-  __int128 v18; // [rsp+30h] [rbp-28h] BYREF
+  _UNICODE_STRING v19; // [rsp+30h] [rbp-28h] BYREF
 
   v5 = a3;
-  v18 = 0LL;
+  v19 = 0LL;
   if ( !a1 || !a2 || !a5 )
     return 3221225485LL;
   v9 = 0;
@@ -62,18 +63,19 @@ __int64 __fastcall RtlpMuiRegGetFallbackLanguageInfoByLangId(
     }
     ++v9;
   }
-  Heap_0 = RtlAllocateHeap_0();
+  Heap_0 = (wchar_t *)RtlAllocateHeap_0(NtCurrentPeb()->ProcessHeap, 8u, 0xAAuLL);
+  v17 = Heap_0;
   if ( !Heap_0 )
     return 3221225495LL;
-  if ( a4 && *(__int16 *)(a2 + 6) > 0 && (unsigned __int8)RtlpInitAndCallLcidToCultureName((__int64)&v18, Heap_0, v5) )
+  if ( a4 && *(__int16 *)(a2 + 6) > 0 && RtlpInitAndCallLcidToCultureName(&v19, Heap_0, v5) )
   {
-    FallbackLanguageInfoByName = RtlpMuiRegGetFallbackLanguageInfoByName(a1, a2, *((_QWORD *)&v18 + 1), 0LL, a5);
-    RtlFreeHeap_0();
+    FallbackLanguageInfoByName = RtlpMuiRegGetFallbackLanguageInfoByName(a1, a2, v19.Buffer, 0LL, a5);
+    RtlFreeHeap_0(NtCurrentPeb()->ProcessHeap, 0, v17);
     return FallbackLanguageInfoByName;
   }
   else
   {
-    RtlFreeHeap_0();
+    RtlFreeHeap_0(NtCurrentPeb()->ProcessHeap, 0, v17);
     return 3221225524LL;
   }
 }

@@ -1,19 +1,19 @@
 /*
- * XREFs of PfpProcessScenarioPhase @ 0x140B1CEB8
+ * XREFs of PfpProcessScenarioPhase @ 0x140B1F0C8
  * Callers:
- *     PfSnSetPrefetcherInformation @ 0x140ACA1BC (PfSnSetPrefetcherInformation.c)
- *     PfSetSuperfetchInformation @ 0x140B5DB14 (PfSetSuperfetchInformation.c)
+ *     PfSnSetPrefetcherInformation @ 0x140ACC2CC (PfSnSetPrefetcherInformation.c)
+ *     PfSetSuperfetchInformation @ 0x140B60C94 (PfSetSuperfetchInformation.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     PfpPartitionIterate @ 0x140382630 (PfpPartitionIterate.c)
- *     PsGetCurrentProcessSessionId @ 0x140437260 (PsGetCurrentProcessSessionId.c)
- *     RtlGetActiveConsoleId @ 0x140450F30 (RtlGetActiveConsoleId.c)
- *     PfpPartitionIterateAndCheckCanAnyDoAccessLogging @ 0x1406002C4 (PfpPartitionIterateAndCheckCanAnyDoAccessLogging.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     PsGetNextSession @ 0x140A7D980 (PsGetNextSession.c)
- *     PfpScenCtxPrefetchWait @ 0x140BF8AD8 (PfpScenCtxPrefetchWait.c)
- *     PfPowerActionNotify @ 0x140C071B0 (PfPowerActionNotify.c)
- *     PfpScenCtxScenarioSet @ 0x140C09F08 (PfpScenCtxScenarioSet.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     PfpPartitionIterate @ 0x1403843E0 (PfpPartitionIterate.c)
+ *     PsGetCurrentProcessSessionId @ 0x1404261F0 (PsGetCurrentProcessSessionId.c)
+ *     RtlGetActiveConsoleId @ 0x140449060 (RtlGetActiveConsoleId.c)
+ *     PfpPartitionIterateAndCheckCanAnyDoAccessLogging @ 0x140602D74 (PfpPartitionIterateAndCheckCanAnyDoAccessLogging.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     PsGetNextSession @ 0x140A837F0 (PsGetNextSession.c)
+ *     PfpScenCtxPrefetchWait @ 0x140BFEAD8 (PfpScenCtxPrefetchWait.c)
+ *     PfPowerActionNotify @ 0x140C0D3C0 (PfPowerActionNotify.c)
+ *     PfpScenCtxScenarioSet @ 0x140C10118 (PfpScenCtxScenarioSet.c)
  */
 
 __int64 __fastcall PfpProcessScenarioPhase(_DWORD *a1, char a2)
@@ -22,9 +22,9 @@ __int64 __fastcall PfpProcessScenarioPhase(_DWORD *a1, char a2)
   int v3; // r9d
   __int64 v4; // rdx
   int v6; // ecx
-  int ActiveConsoleId; // ebx
+  ULONG ActiveConsoleId; // ebx
   int v8; // ecx
-  int v9; // ebx
+  ULONG v9; // ebx
   int v10; // r14d
   _QWORD *NextSession; // rax
   __int128 v12; // [rsp+20h] [rbp-20h] BYREF
@@ -70,8 +70,8 @@ LABEL_8:
         ActiveConsoleId = RtlGetActiveConsoleId();
         if ( (unsigned int)PsGetCurrentProcessSessionId() == ActiveConsoleId )
         {
-          PfpScenCtxScenarioSet((struct _KTHREAD *)&stru_140E66B30.OtherOperationCount);
-          HIDWORD(v12) = HIDWORD(stru_140E66B30.TracingPrivate[0]);
+          PfpScenCtxScenarioSet((struct _KTHREAD *)&stru_140E66D40.OtherOperationCount);
+          HIDWORD(v12) = HIDWORD(stru_140E66D40.TracingPrivate[0]);
           LODWORD(v12) = 5;
           *(_QWORD *)((char *)&v12 + 4) = 0x300000002LL;
           v13 = 1;
@@ -81,16 +81,16 @@ LABEL_8:
       return v2;
     }
 LABEL_31:
-    PfpScenCtxScenarioSet((struct _KTHREAD *)&stru_140E66B30.OtherOperationCount);
+    PfpScenCtxScenarioSet((struct _KTHREAD *)&stru_140E66D40.OtherOperationCount);
     return v2;
   }
   v8 = a1[2];
   if ( v8 )
   {
-    if ( v8 != 1 || LODWORD(stru_140E66B30.TracingPrivate[0]) != 3 )
+    if ( v8 != 1 || LODWORD(stru_140E66D40.TracingPrivate[0]) != 3 )
       return v2;
-    PfpScenCtxPrefetchWait((struct _KTHREAD *)&stru_140E66B30.OtherOperationCount);
-    HIDWORD(v12) = HIDWORD(stru_140E66B30.TracingPrivate[0]);
+    PfpScenCtxPrefetchWait((struct _KTHREAD *)&stru_140E66D40.OtherOperationCount);
+    HIDWORD(v12) = HIDWORD(stru_140E66D40.TracingPrivate[0]);
     *(_QWORD *)&v12 = 3LL;
     DWORD2(v12) = 0;
     v13 = 0;

@@ -1,11 +1,11 @@
 /*
- * XREFs of NtCreateFile @ 0x14060BA30
+ * XREFs of NtCreateFile @ 0x14060CA30
  * Callers:
- *     PfpVolumeOpenAndVerify @ 0x14065C414 (PfpVolumeOpenAndVerify.c)
- *     PfSnIsVolumeMounted @ 0x14065E214 (PfSnIsVolumeMounted.c)
- *     RtlCreateSystemVolumeInformationFolder @ 0x1406D62C0 (RtlCreateSystemVolumeInformationFolder.c)
+ *     PfpVolumeOpenAndVerify @ 0x14065D5D4 (PfpVolumeOpenAndVerify.c)
+ *     PfSnIsVolumeMounted @ 0x14065F3D4 (PfSnIsVolumeMounted.c)
+ *     RtlCreateSystemVolumeInformationFolder @ 0x1406D7560 (RtlCreateSystemVolumeInformationFolder.c)
  * Callees:
- *     IopCreateFile @ 0x14060BAC0 (IopCreateFile.c)
+ *     IopCreateFile @ 0x14060CAC0 (IopCreateFile.c)
  */
 
 NTSTATUS __stdcall NtCreateFile(

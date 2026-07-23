@@ -1,10 +1,10 @@
 /*
- * XREFs of VfFaultsIsSystemSufficientlyBooted @ 0x140AD6118
+ * XREFs of VfFaultsIsSystemSufficientlyBooted @ 0x140AD6108
  * Callers:
- *     VfHandlePoolAlloc @ 0x140AD0FE0 (VfHandlePoolAlloc.c)
- *     VfFaultsInjectResourceFailure @ 0x140AD5FDC (VfFaultsInjectResourceFailure.c)
- *     VerifierMmMapLockedPages @ 0x140AE31B0 (VerifierMmMapLockedPages.c)
- *     VerifierMmMapLockedPagesSpecifyCache @ 0x140AE3280 (VerifierMmMapLockedPagesSpecifyCache.c)
+ *     VfHandlePoolAlloc @ 0x140AD0FD0 (VfHandlePoolAlloc.c)
+ *     VfFaultsInjectResourceFailure @ 0x140AD5FCC (VfFaultsInjectResourceFailure.c)
+ *     VerifierMmMapLockedPages @ 0x140AE31A0 (VerifierMmMapLockedPages.c)
+ *     VerifierMmMapLockedPagesSpecifyCache @ 0x140AE3270 (VerifierMmMapLockedPagesSpecifyCache.c)
  * Callees:
  *     <none>
  */

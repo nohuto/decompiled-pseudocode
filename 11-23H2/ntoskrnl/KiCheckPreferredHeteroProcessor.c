@@ -1,18 +1,18 @@
 /*
- * XREFs of KiCheckPreferredHeteroProcessor @ 0x1402C8490
+ * XREFs of KiCheckPreferredHeteroProcessor @ 0x1402C8720
  * Callers:
- *     KiQuantumEnd @ 0x1402486F0 (KiQuantumEnd.c)
- *     KiUpdateRunTime @ 0x1402C74E0 (KiUpdateRunTime.c)
- *     KeUpdateThreadTag @ 0x140366BD0 (KeUpdateThreadTag.c)
- *     KiSendHeteroRescheduleIntRequestHelper @ 0x140462244 (KiSendHeteroRescheduleIntRequestHelper.c)
+ *     KiQuantumEnd @ 0x1402487C0 (KiQuantumEnd.c)
+ *     KiUpdateRunTime @ 0x1402C7770 (KiUpdateRunTime.c)
+ *     KeUpdateThreadTag @ 0x140366D70 (KeUpdateThreadTag.c)
+ *     KiSendHeteroRescheduleIntRequestHelper @ 0x140462644 (KiSendHeteroRescheduleIntRequestHelper.c)
  * Callees:
- *     KiIsQosGroupingActive @ 0x14034F2E8 (KiIsQosGroupingActive.c)
- *     KiFindBiasedSetMember @ 0x14045FE0C (KiFindBiasedSetMember.c)
- *     KiGenerateHeteroSets @ 0x1404616A0 (KiGenerateHeteroSets.c)
- *     KiGetProcessorClassForPolicy @ 0x140461766 (KiGetProcessorClassForPolicy.c)
- *     KiHeteroComputeThreadWorkloadProperties @ 0x140461C9C (KiHeteroComputeThreadWorkloadProperties.c)
- *     KiIsThreadEligibleForPreemptionSwap @ 0x140461F46 (KiIsThreadEligibleForPreemptionSwap.c)
- *     KiHeteroScanQueueForPreemptionSwapTarget @ 0x14057739C (KiHeteroScanQueueForPreemptionSwapTarget.c)
+ *     KiIsQosGroupingActive @ 0x14034F488 (KiIsQosGroupingActive.c)
+ *     KiFindBiasedSetMember @ 0x14046020C (KiFindBiasedSetMember.c)
+ *     KiGenerateHeteroSets @ 0x140461AA0 (KiGenerateHeteroSets.c)
+ *     KiGetProcessorClassForPolicy @ 0x140461B66 (KiGetProcessorClassForPolicy.c)
+ *     KiHeteroComputeThreadWorkloadProperties @ 0x14046209C (KiHeteroComputeThreadWorkloadProperties.c)
+ *     KiIsThreadEligibleForPreemptionSwap @ 0x140462346 (KiIsThreadEligibleForPreemptionSwap.c)
+ *     KiHeteroScanQueueForPreemptionSwapTarget @ 0x14057788C (KiHeteroScanQueueForPreemptionSwapTarget.c)
  */
 
 _BOOL8 __fastcall KiCheckPreferredHeteroProcessor(__int64 a1, __int64 a2, int a3)

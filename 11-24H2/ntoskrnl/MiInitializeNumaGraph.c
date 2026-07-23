@@ -1,10 +1,10 @@
 /*
- * XREFs of MiInitializeNumaGraph @ 0x140C4D820
+ * XREFs of MiInitializeNumaGraph @ 0x140C4F9BC
  * Callers:
- *     MiCreatePfnDatabase @ 0x140C4EE90 (MiCreatePfnDatabase.c)
+ *     MiCreatePfnDatabase @ 0x140C51020 (MiCreatePfnDatabase.c)
  * Callees:
- *     qsort @ 0x1404FED20 (qsort.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     qsort @ 0x1404FC5E0 (qsort.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 __int64 __fastcall MiInitializeNumaGraph(__int64 a1)
@@ -96,7 +96,7 @@ __int64 __fastcall MiInitializeNumaGraph(__int64 a1)
           v17 = (unsigned int)(v15 + result);
           p_Base += 4;
           result = (unsigned int)(result + 1);
-          *(_DWORD *)(qword_140E2DAD0 + 4 * v17) = v16;
+          *(_DWORD *)(qword_140E2DC10 + 4 * v17) = v16;
         }
         while ( (unsigned int)result < v5 );
       }
@@ -111,12 +111,12 @@ LABEL_22:
   v18 = (unsigned __int16)KeNumberNodes;
   while ( i < v18 )
   {
-    for ( k = i; k < v18 + i; *(_DWORD *)(qword_140E2DAD0 + 4 * v20) = v22 & 0x3F )
+    for ( k = i; k < v18 + i; *(_DWORD *)(qword_140E2DC10 + 4 * v20) = v22 & 0x3F )
     {
       v20 = i * (v18 - 1) + k;
       v21 = k++;
       v22 = v21 % v18;
-      result = qword_140E2DAD0;
+      result = qword_140E2DC10;
     }
     ++i;
   }

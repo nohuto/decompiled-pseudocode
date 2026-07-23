@@ -1,28 +1,28 @@
 /*
- * XREFs of NtReleaseWorkerFactoryWorker @ 0x1402B8980
+ * XREFs of NtReleaseWorkerFactoryWorker @ 0x1402B8C10
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     KiExitDispatcher @ 0x14023CD70 (KiExitDispatcher.c)
- *     KiAcquireKobjectLockSafe @ 0x140252030 (KiAcquireKobjectLockSafe.c)
- *     KxWaitForLockOwnerShip @ 0x140260F20 (KxWaitForLockOwnerShip.c)
- *     KiWakeQueueWaiter @ 0x1402B8780 (KiWakeQueueWaiter.c)
- *     ExpWorkerFactoryCheckCreate @ 0x1402B8D40 (ExpWorkerFactoryCheckCreate.c)
- *     ExpLeaveWorkerFactoryAwayMode @ 0x140304BB4 (ExpLeaveWorkerFactoryAwayMode.c)
- *     KxWaitForLockChainValid @ 0x14031A6D0 (KxWaitForLockChainValid.c)
- *     KiWakeOtherQueueWaiters @ 0x14031AC98 (KiWakeOtherQueueWaiters.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x14046018E (KiAcquireQueuedSpinLockInstrumented.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     KeIsThreadRunning @ 0x14056EDD0 (KeIsThreadRunning.c)
- *     KiReleaseQueuedSpinLockInstrumented @ 0x140571548 (KiReleaseQueuedSpinLockInstrumented.c)
- *     KiHaltOnAddressWakeEntireList @ 0x14057FF6C (KiHaltOnAddressWakeEntireList.c)
- *     EtwTraceEnqueueWork @ 0x1405FCD0C (EtwTraceEnqueueWork.c)
- *     ObReferenceObjectByHandle @ 0x1406E62C0 (ObReferenceObjectByHandle.c)
- *     IopAllocateMiniCompletionPacket @ 0x14073DFC8 (IopAllocateMiniCompletionPacket.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     KiExitDispatcher @ 0x14023CE40 (KiExitDispatcher.c)
+ *     KiAcquireKobjectLockSafe @ 0x1402520F0 (KiAcquireKobjectLockSafe.c)
+ *     KxWaitForLockOwnerShip @ 0x1402611B0 (KxWaitForLockOwnerShip.c)
+ *     KiWakeQueueWaiter @ 0x1402B8A10 (KiWakeQueueWaiter.c)
+ *     ExpWorkerFactoryCheckCreate @ 0x1402B8FD0 (ExpWorkerFactoryCheckCreate.c)
+ *     ExpLeaveWorkerFactoryAwayMode @ 0x140304E44 (ExpLeaveWorkerFactoryAwayMode.c)
+ *     KxWaitForLockChainValid @ 0x14031A960 (KxWaitForLockChainValid.c)
+ *     KiWakeOtherQueueWaiters @ 0x14031AF28 (KiWakeOtherQueueWaiters.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x14046058E (KiAcquireQueuedSpinLockInstrumented.c)
+ *     KeIsThreadRunning @ 0x14056F310 (KeIsThreadRunning.c)
+ *     KiReleaseQueuedSpinLockInstrumented @ 0x140571A88 (KiReleaseQueuedSpinLockInstrumented.c)
+ *     KiHaltOnAddressWakeEntireList @ 0x14058045C (KiHaltOnAddressWakeEntireList.c)
+ *     EtwTraceEnqueueWork @ 0x1405FD27C (EtwTraceEnqueueWork.c)
+ *     ObReferenceObjectByHandle @ 0x1406E62F0 (ObReferenceObjectByHandle.c)
+ *     IopAllocateMiniCompletionPacket @ 0x14073E1B8 (IopAllocateMiniCompletionPacket.c)
  */
 
-NTSTATUS __fastcall NtReleaseWorkerFactoryWorker(void *a1)
+NTSTATUS __cdecl NtReleaseWorkerFactoryWorker(HANDLE WorkerFactoryHandle)
 {
   NTSTATUS result; // eax
   volatile __int64 *v2; // r8
@@ -33,7 +33,7 @@ NTSTATUS __fastcall NtReleaseWorkerFactoryWorker(void *a1)
   char v7; // bl
   __int64 v8; // rcx
   int v9; // eax
-  int v10; // r12d
+  NTSTATUS v10; // r12d
   __int64 v11; // rax
   __int64 v12; // rax
   __int128 *v13; // rcx
@@ -65,7 +65,7 @@ NTSTATUS __fastcall NtReleaseWorkerFactoryWorker(void *a1)
   v33 = 0LL;
   Object = 0LL;
   result = ObReferenceObjectByHandle(
-             a1,
+             WorkerFactoryHandle,
              1u,
              ExpWorkerFactoryObjectType,
              KeGetCurrentThread()->PreviousMode,
@@ -79,7 +79,7 @@ NTSTATUS __fastcall NtReleaseWorkerFactoryWorker(void *a1)
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
   LODWORD(v4) = 4;
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 2 )
@@ -152,10 +152,10 @@ NTSTATUS __fastcall NtReleaseWorkerFactoryWorker(void *a1)
   KiReleaseQueuedSpinLockInstrumented(&v33, retaddr);
 LABEL_14:
   v14 = (unsigned __int8)v34;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v13 = (__int128 *)KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
       && (unsigned __int8)v13 <= 0xFu
       && (unsigned __int8)v34 <= 0xFu
       && (unsigned __int8)v13 >= 2u )
@@ -186,7 +186,7 @@ LABEL_14:
       v18 = (_QWORD *)(v17 + 8);
       v19 = KeGetCurrentIrql();
       __writecr8(2uLL);
-      if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v19 <= 0xFu )
+      if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v19 <= 0xFu )
       {
         v24 = KeGetCurrentPrcb()->SchedulerAssist;
         if ( v19 != 2 )
@@ -223,7 +223,7 @@ LABEL_14:
         *(_QWORD *)MiniCompletionPacket = 0LL;
       }
       _InterlockedAnd((volatile signed __int32 *)v17, 0xFFFFFF7F);
-      KiExitDispatcher((__int64)v20, 0, (struct _PROCESSOR_NUMBER)1, 0, v19);
+      KiExitDispatcher((__int64)v20, 0, (_PROCESSOR_NUMBER)1, 0, v19);
     }
     ExpWorkerFactoryCheckCreate((PSLIST_ENTRY)Object, 0LL);
   }

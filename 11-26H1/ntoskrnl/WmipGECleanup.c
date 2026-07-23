@@ -1,10 +1,10 @@
 /*
- * XREFs of WmipGECleanup @ 0x140B63DD0
+ * XREFs of WmipGECleanup @ 0x140B66E70
  * Callers:
  *     <none>
  * Callees:
- *     EtwUnregister @ 0x140A84ED0 (EtwUnregister.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     EtwUnregister @ 0x1409BE550 (EtwUnregister.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall WmipGECleanup(__int64 a1)

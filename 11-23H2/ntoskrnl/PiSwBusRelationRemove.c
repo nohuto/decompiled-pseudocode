@@ -1,13 +1,13 @@
 /*
- * XREFs of PiSwBusRelationRemove @ 0x140967008
+ * XREFs of PiSwBusRelationRemove @ 0x140967208
  * Callers:
- *     PiSwIrpStartCreateWorker @ 0x14081904C (PiSwIrpStartCreateWorker.c)
- *     PiSwCloseDevice @ 0x1409670C0 (PiSwCloseDevice.c)
- *     PiSwProcessRemove @ 0x1409676D0 (PiSwProcessRemove.c)
+ *     PiSwIrpStartCreateWorker @ 0x14081931C (PiSwIrpStartCreateWorker.c)
+ *     PiSwCloseDevice @ 0x1409672C0 (PiSwCloseDevice.c)
+ *     PiSwProcessRemove @ 0x1409678D0 (PiSwProcessRemove.c)
  * Callees:
- *     RtlDeleteElementGenericTableAvl @ 0x14031E9D0 (RtlDeleteElementGenericTableAvl.c)
- *     McTemplateK0zzz_EtwWriteTransfer @ 0x140563C60 (McTemplateK0zzz_EtwWriteTransfer.c)
- *     PiSwDeviceDereference @ 0x14081A5C4 (PiSwDeviceDereference.c)
+ *     RtlDeleteElementGenericTableAvl @ 0x14031EC60 (RtlDeleteElementGenericTableAvl.c)
+ *     McTemplateK0zzz_EtwWriteTransfer @ 0x140564320 (McTemplateK0zzz_EtwWriteTransfer.c)
+ *     PiSwDeviceDereference @ 0x14081A894 (PiSwDeviceDereference.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

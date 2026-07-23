@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlFailFast2 @ 0x140535240
+ * XREFs of RtlFailFast2 @ 0x1405376C0
  * Callers:
- *     RtlGuardCheckExceptionHandler @ 0x1404570C0 (RtlGuardCheckExceptionHandler.c)
- *     RtlGuardCheckLongJumpTarget @ 0x140530D10 (RtlGuardCheckLongJumpTarget.c)
- *     MiCallDllUnload @ 0x140874FA0 (MiCallDllUnload.c)
- *     MiIssueDllInitializeCall @ 0x1408752E8 (MiIssueDllInitializeCall.c)
+ *     RtlGuardCheckExceptionHandler @ 0x14044E930 (RtlGuardCheckExceptionHandler.c)
+ *     RtlGuardCheckLongJumpTarget @ 0x140533210 (RtlGuardCheckLongJumpTarget.c)
+ *     MiCallDllUnload @ 0x14087B384 (MiCallDllUnload.c)
+ *     MiIssueDllInitializeCall @ 0x14087B6CC (MiIssueDllInitializeCall.c)
  * Callees:
  *     <none>
  */

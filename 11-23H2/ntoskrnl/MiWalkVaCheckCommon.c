@@ -1,14 +1,14 @@
 /*
- * XREFs of MiWalkVaCheckCommon @ 0x1402E3860
+ * XREFs of MiWalkVaCheckCommon @ 0x1402E3AF0
  * Callers:
- *     MiTrimPte @ 0x1402E3630 (MiTrimPte.c)
- *     MiEmptyWorkingSetHelper @ 0x1403491EC (MiEmptyWorkingSetHelper.c)
- *     MiUpdateOldPte @ 0x14046C280 (MiUpdateOldPte.c)
- *     MiSimpleAgePte @ 0x140635090 (MiSimpleAgePte.c)
+ *     MiTrimPte @ 0x1402E38C0 (MiTrimPte.c)
+ *     MiEmptyWorkingSetHelper @ 0x14034947C (MiEmptyWorkingSetHelper.c)
+ *     MiUpdateOldPte @ 0x14046C680 (MiUpdateOldPte.c)
+ *     MiSimpleAgePte @ 0x1406355E0 (MiSimpleAgePte.c)
  * Callees:
- *     MI_READ_PTE_LOCK_FREE @ 0x1402712F0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiDemoteCombinedPte @ 0x1402F37B4 (MiDemoteCombinedPte.c)
- *     MiIsPageTableLocked @ 0x14035E09C (MiIsPageTableLocked.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140271580 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiDemoteCombinedPte @ 0x1402F3A44 (MiDemoteCombinedPte.c)
+ *     MiIsPageTableLocked @ 0x14035E23C (MiIsPageTableLocked.c)
  */
 
 __int64 __fastcall MiWalkVaCheckCommon(__int64 a1, unsigned __int64 a2, __int64 a3, int a4, __int64 *a5)

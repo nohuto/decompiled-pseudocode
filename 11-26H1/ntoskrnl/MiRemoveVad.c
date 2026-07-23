@@ -1,29 +1,29 @@
 /*
- * XREFs of MiRemoveVad @ 0x140455D20
+ * XREFs of MiRemoveVad @ 0x14044DF80
  * Callers:
- *     MiDeleteVad @ 0x14095BF10 (MiDeleteVad.c)
- *     MiCoalescePlaceholderAllocations @ 0x14095FF68 (MiCoalescePlaceholderAllocations.c)
- *     MiPreparePlaceholderVadReplacement @ 0x140AEA978 (MiPreparePlaceholderVadReplacement.c)
+ *     MiDeleteVad @ 0x140A017D0 (MiDeleteVad.c)
+ *     MiCoalescePlaceholderAllocations @ 0x140A05828 (MiCoalescePlaceholderAllocations.c)
+ *     MiPreparePlaceholderVadReplacement @ 0x140AED468 (MiPreparePlaceholderVadReplacement.c)
  * Callees:
- *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14021AAD4 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     KiCheckForKernelApcDelivery @ 0x14027DB80 (KiCheckForKernelApcDelivery.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiUnlockWorkingSetShared @ 0x1402EB6C0 (MiUnlockWorkingSetShared.c)
- *     MiLockWorkingSetShared @ 0x1402EDD60 (MiLockWorkingSetShared.c)
- *     MiCaptureDeleteHierarchy @ 0x140303880 (MiCaptureDeleteHierarchy.c)
- *     RtlAvlRemoveNode @ 0x14030C5E0 (RtlAvlRemoveNode.c)
- *     MiInsertVad @ 0x140316000 (MiInsertVad.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     MiLockVadTree @ 0x1403265D0 (MiLockVadTree.c)
- *     MiClearVadCellBits @ 0x140442760 (MiClearVadCellBits.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     MiFreePhysicalView @ 0x140A8F4FC (MiFreePhysicalView.c)
- *     MiReturnPageTablePageCommitment @ 0x140B23EB8 (MiReturnPageTablePageCommitment.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14021C464 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x14027D0F0 (KiCheckForKernelApcDelivery.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiUnlockWorkingSetShared @ 0x1402CD700 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x1402CFDE0 (MiLockWorkingSetShared.c)
+ *     MiCaptureDeleteHierarchy @ 0x1402E5900 (MiCaptureDeleteHierarchy.c)
+ *     RtlAvlRemoveNode @ 0x1402EE660 (RtlAvlRemoveNode.c)
+ *     MiInsertVad @ 0x140318030 (MiInsertVad.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     MiLockVadTree @ 0x140328600 (MiLockVadTree.c)
+ *     MiClearVadCellBits @ 0x14043B270 (MiClearVadCellBits.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     MiFreePhysicalView @ 0x140A941CC (MiFreePhysicalView.c)
+ *     MiReturnPageTablePageCommitment @ 0x140B262B8 (MiReturnPageTablePageCommitment.c)
  */
 
 char __fastcall MiRemoveVad(ULONG_PTR BugCheckParameter2, int a2, ULONG_PTR a3)
@@ -191,14 +191,14 @@ char __fastcall MiRemoveVad(ULONG_PTR BugCheckParameter2, int a2, ULONG_PTR a3)
   }
   else if ( (_BYTE)v21 == 17 )
   {
-    if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+    if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
       *v25 = 0;
     else
       ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(v25, retaddr);
   }
   else
   {
-    if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+    if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
       *v25 = 0;
     else
       ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(v25, retaddr);
@@ -266,7 +266,7 @@ LABEL_66:
     ExfTryToWakePushLock((volatile signed __int64 *)p_EntryLock);
   KeAbPostRelease((unsigned __int64)p_EntryLock);
   v34 = CurrentThread->SpecialApcDisable++ == -1;
-  if ( v34 && ($7A85BAF4F1FA08634C1C4A3E45B775B3 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+  if ( v34 && ($241382875694CED3D471BC5892DE3337 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
     KiCheckForKernelApcDelivery((__int64)CurrentThread, v33);
   v35 = *(_DWORD *)(BugCheckParameter2 + 48);
   if ( (v35 & 0x80000) != 0 && ((v35 & 0x200000) != 0 || (v35 & 0x60000u) >= 0x40000)

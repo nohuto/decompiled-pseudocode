@@ -15,19 +15,21 @@
  *     _memset @ 0x4B2F8F30 (_memset.c)
  */
 
-NTSTATUS __fastcall EtwpSetProviderTraits(int a1, __int16 a2, int a3, __int16 a4)
+LONG __fastcall EtwpSetProviderTraits(int a1, __int16 a2, int a3, __int16 a4)
 {
-  int v4; // esi
+  ULONG v4; // esi
   _BYTE *Heap; // edi
   NTSTATUS v6; // eax
-  NTSTATUS v7; // esi
-  int v10; // [esp+10h] [ebp-A0h] BYREF
-  int v11; // [esp+14h] [ebp-9Ch]
-  _BYTE v12[120]; // [esp+18h] [ebp-98h] BYREF
-  _DWORD v13[4]; // [esp+90h] [ebp-20h] BYREF
-  __int16 v14; // [esp+A0h] [ebp-10h]
+  LONG v7; // esi
+  size_t v9; // [esp-4h] [ebp-B4h]
+  SIZE_T v10; // [esp-4h] [ebp-B4h]
+  ULONG ReturnLength; // [esp+10h] [ebp-A0h] BYREF
+  int v13; // [esp+14h] [ebp-9Ch]
+  _BYTE OutputBuffer[120]; // [esp+18h] [ebp-98h] BYREF
+  _DWORD InputBuffer[4]; // [esp+90h] [ebp-20h] BYREF
+  __int16 v16; // [esp+A0h] [ebp-10h]
 
-  HIWORD(v11) = a2;
+  HIWORD(v13) = a2;
   if ( !a4 || (a3 & 1) != 0 || a4 != *(_WORD *)(a3 + 52) )
   {
     v7 = 6;
@@ -35,34 +37,36 @@ LABEL_14:
     RtlSetLastWin32Error(v7);
     return v7;
   }
-  RtlAcquireSRWLockExclusive(a3 + 36);
+  RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a3 + 36));
   v4 = 120;
+  LODWORD(v9) = 120;
   *(_DWORD *)(a3 + 44) = NtCurrentTeb()->ClientId.UniqueThread;
-  memset(v12, 0, sizeof(v12));
-  Heap = v12;
-  v13[0] = *(_DWORD *)(a3 + 48);
-  v13[2] = a1;
-  v13[1] = 0;
-  v13[3] = 0;
-  v14 = HIWORD(v11);
-  v11 = 0;
+  memset(OutputBuffer, 0, v9);
+  Heap = OutputBuffer;
+  InputBuffer[0] = *(_DWORD *)(a3 + 48);
+  InputBuffer[2] = a1;
+  InputBuffer[1] = 0;
+  InputBuffer[3] = 0;
+  v16 = HIWORD(v13);
+  v13 = 0;
   while ( 1 )
   {
-    v6 = ZwTraceControl(30, v13, 24, Heap, v4, &v10);
+    v6 = ZwTraceControl(EtwSetProviderTraitsCode, InputBuffer, 0x18u, Heap, v4, &ReturnLength);
     v7 = v6;
     if ( v6 != -1073741789 )
       break;
-    if ( Heap != v12 )
+    if ( Heap != OutputBuffer )
       RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Heap);
-    Heap = (_BYTE *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8, v10);
+    LODWORD(v10) = ReturnLength;
+    Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, v10);
     if ( !Heap )
     {
       v7 = -1073741801;
       goto LABEL_21;
     }
-    if ( (unsigned int)++v11 >= 0x10 )
+    if ( (unsigned int)++v13 >= 0x10 )
       goto LABEL_21;
-    v4 = v10;
+    v4 = ReturnLength;
   }
   if ( !v6 )
     goto LABEL_7;
@@ -72,12 +76,12 @@ LABEL_21:
     goto LABEL_9;
 LABEL_7:
   *(_WORD *)(a3 + 54) |= 0x4000u;
-  if ( v10 )
+  if ( ReturnLength )
     EtwpUpdateEnableInfoAndCallback(a3, Heap);
 LABEL_9:
   *(_DWORD *)(a3 + 44) = 0;
-  RtlReleaseSRWLockExclusive(a3 + 36);
-  if ( Heap && Heap != v12 )
+  RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a3 + 36));
+  if ( Heap && Heap != OutputBuffer )
     RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Heap);
   if ( v7 )
     goto LABEL_14;

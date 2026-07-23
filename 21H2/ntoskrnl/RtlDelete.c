@@ -1,17 +1,17 @@
 /*
- * XREFs of RtlDelete @ 0x140359960
+ * XREFs of RtlDelete @ 0x1403646B0
  * Callers:
- *     FsRtlPrivateFastUnlockAll @ 0x14029FA64 (FsRtlPrivateFastUnlockAll.c)
- *     FsRtlRemoveNodeFromTunnel @ 0x14029FE0C (FsRtlRemoveNodeFromTunnel.c)
- *     RtlDeleteElementGenericTable @ 0x1402B8D50 (RtlDeleteElementGenericTable.c)
- *     FsRtlFastUnlockSingleExclusive @ 0x140358CEC (FsRtlFastUnlockSingleExclusive.c)
- *     FsRtlFastUnlockSingleShared @ 0x140359208 (FsRtlFastUnlockSingleShared.c)
- *     RtlRemoveUnicodePrefix @ 0x1406BA500 (RtlRemoveUnicodePrefix.c)
- *     PfxRemovePrefix @ 0x140911F00 (PfxRemovePrefix.c)
+ *     FsRtlPrivateFastUnlockAll @ 0x14021CFE4 (FsRtlPrivateFastUnlockAll.c)
+ *     FsRtlRemoveNodeFromTunnel @ 0x14021D38C (FsRtlRemoveNodeFromTunnel.c)
+ *     RtlDeleteElementGenericTable @ 0x140236F60 (RtlDeleteElementGenericTable.c)
+ *     FsRtlFastUnlockSingleExclusive @ 0x140363A3C (FsRtlFastUnlockSingleExclusive.c)
+ *     FsRtlFastUnlockSingleShared @ 0x140363F58 (FsRtlFastUnlockSingleShared.c)
+ *     RtlRemoveUnicodePrefix @ 0x1406196A0 (RtlRemoveUnicodePrefix.c)
+ *     PfxRemovePrefix @ 0x140912060 (PfxRemovePrefix.c)
  * Callees:
- *     SwapSplayLinks @ 0x1402A0094 (SwapSplayLinks.c)
- *     RtlSubtreePredecessor @ 0x1402A0200 (RtlSubtreePredecessor.c)
- *     RtlSplay @ 0x140359770 (RtlSplay.c)
+ *     SwapSplayLinks @ 0x14021D614 (SwapSplayLinks.c)
+ *     RtlSubtreePredecessor @ 0x14021D780 (RtlSubtreePredecessor.c)
+ *     RtlSplay @ 0x1403644C0 (RtlSplay.c)
  */
 
 PRTL_SPLAY_LINKS __stdcall RtlDelete(PRTL_SPLAY_LINKS Links)

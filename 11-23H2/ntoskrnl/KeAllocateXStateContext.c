@@ -2,7 +2,7 @@
  * XREFs of KeAllocateXStateContext @ 0x14020DF50
  * Callers:
  *     KeSaveExtendedAndSupervisorState @ 0x14020DDDC (KeSaveExtendedAndSupervisorState.c)
- *     VfCtxInit @ 0x140AE49E4 (VfCtxInit.c)
+ *     VfCtxInit @ 0x140AE49D4 (VfCtxInit.c)
  * Callees:
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

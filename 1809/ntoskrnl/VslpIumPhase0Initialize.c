@@ -1,21 +1,21 @@
 /*
- * XREFs of VslpIumPhase0Initialize @ 0x1409F4600
+ * XREFs of VslpIumPhase0Initialize @ 0x1409F5600
  * Callers:
- *     HvlPhase1Initialize @ 0x1401939F4 (HvlPhase1Initialize.c)
- *     VslInitSystem @ 0x1409DE5F0 (VslInitSystem.c)
+ *     HvlPhase1Initialize @ 0x140193B34 (HvlPhase1Initialize.c)
+ *     VslInitSystem @ 0x1409DF5F0 (VslInitSystem.c)
  * Callees:
- *     MmBuildMdlForNonPagedPool @ 0x140101FC0 (MmBuildMdlForNonPagedPool.c)
- *     MmGetPhysicalAddress @ 0x1401210D0 (MmGetPhysicalAddress.c)
- *     VslpEnterIumSecureMode @ 0x140129CB0 (VslpEnterIumSecureMode.c)
- *     HvlQueryVsmConnection @ 0x14012A014 (HvlQueryVsmConnection.c)
- *     MmSetPageProtection @ 0x140133580 (MmSetPageProtection.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KeIsTsxDisabled @ 0x1401B4314 (KeIsTsxDisabled.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     KeQueryKvaShadowInformation @ 0x1408447E8 (KeQueryKvaShadowInformation.c)
- *     VslpIumPhase0InitializeNtKd @ 0x1409F4928 (VslpIumPhase0InitializeNtKd.c)
+ *     MmBuildMdlForNonPagedPool @ 0x140102040 (MmBuildMdlForNonPagedPool.c)
+ *     MmGetPhysicalAddress @ 0x1401211A0 (MmGetPhysicalAddress.c)
+ *     VslpEnterIumSecureMode @ 0x140129D80 (VslpEnterIumSecureMode.c)
+ *     HvlQueryVsmConnection @ 0x14012A0E4 (HvlQueryVsmConnection.c)
+ *     MmSetPageProtection @ 0x140133650 (MmSetPageProtection.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KeIsTsxDisabled @ 0x1401B4454 (KeIsTsxDisabled.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     KeQueryKvaShadowInformation @ 0x140845A48 (KeQueryKvaShadowInformation.c)
+ *     VslpIumPhase0InitializeNtKd @ 0x1409F5928 (VslpIumPhase0InitializeNtKd.c)
  */
 
 __int64 __fastcall VslpIumPhase0Initialize(__int64 a1)
@@ -56,7 +56,7 @@ __int64 __fastcall VslpIumPhase0Initialize(__int64 a1)
     v21 = MmGetPhysicalAddress(KeGetPcr()->NtTib.ExceptionList);
     v23 = MmGetPhysicalAddress(IdtBase);
     MmSetPageProtection((unsigned __int64)IdtBase, 0x1000uLL, 2u);
-    ((void (__fastcall *)(__int64, __int64, _BYTE *, int *))off_140400458[0])(45LL, 8LL, v22, &v9);
+    ((void (__fastcall *)(__int64, __int64, _BYTE *, int *))off_140401458[0])(45LL, 8LL, v22, &v9);
     MEMORY[0xFFFFF7800000036C] |= 0x100u;
     if ( KiKvaShadowMode )
       v18 |= 1u;
@@ -80,7 +80,7 @@ __int64 __fastcall VslpIumPhase0Initialize(__int64 a1)
     v12 = VslpNestedPageProtectionFlags & 2;
     if ( (v7 & 1) != 0 && (v7 & 2) == 0 && (VslpNestedPageProtectionFlags & 2) != 0 )
     {
-      ((void (__fastcall *)(__int64, __int64, __int64 *, int *))off_140400458[0])(48LL, 16LL, &v13, &v9);
+      ((void (__fastcall *)(__int64, __int64, __int64 *, int *))off_140401458[0])(48LL, 16LL, &v13, &v9);
       MemoryDescriptorList.Next = 0LL;
       MemoryDescriptorList.MdlFlags = 0;
       MemoryDescriptorList.ByteCount = v14;
@@ -95,16 +95,16 @@ __int64 __fastcall VslpIumPhase0Initialize(__int64 a1)
       KeBugCheckEx(0x6Fu, v8, 0LL, 1uLL, 0LL);
     if ( PhysicalAddress.LowPart != 167772166 )
       KeBugCheckEx(0x6Fu, 0xFFFFFFFFC0000059uLL, 0LL, 2uLL, 0LL);
-    dword_1404373E4 = PhysicalAddress.HighPart;
-    qword_1404373F0 = (__int64)&qword_1404373E8;
-    qword_1404373E8 = (__int64)&qword_1404373E8;
-    dword_1404373F8 = PhysicalAddress.HighPart;
+    dword_140438484 = PhysicalAddress.HighPart;
+    qword_140438490 = (__int64)&qword_140438488;
+    qword_140438488 = (__int64)&qword_140438488;
+    dword_140438498 = PhysicalAddress.HighPart;
     VslpIumThreadSemaphore = 5;
-    byte_1404373E2 = 8;
+    byte_140438482 = 8;
     VslVsmEnabled = 1;
     v11 = 0;
-    ((void (__fastcall *)(__int64, __int64, int *))off_140400460[0])(16LL, 4LL, &v11);
-    return ((__int64 (__fastcall *)(__int64, __int64, int *))off_140400460[0])(18LL, 4LL, &v12);
+    ((void (__fastcall *)(__int64, __int64, int *))off_140401460[0])(16LL, 4LL, &v11);
+    return ((__int64 (__fastcall *)(__int64, __int64, int *))off_140401460[0])(18LL, 4LL, &v12);
   }
   return result;
 }

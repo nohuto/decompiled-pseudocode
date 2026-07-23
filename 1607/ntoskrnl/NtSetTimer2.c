@@ -1,15 +1,19 @@
 /*
- * XREFs of NtSetTimer2 @ 0x1400EE798
+ * XREFs of NtSetTimer2 @ 0x1400EC618
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-NTSTATUS __fastcall NtSetTimer2(void *a1, unsigned __int64 a2, __int64 a3, unsigned __int64 a4)
+NTSTATUS __cdecl NtSetTimer2(
+        HANDLE TimerHandle,
+        PLARGE_INTEGER DueTime,
+        PLARGE_INTEGER Period,
+        PT2_SET_PARAMETERS Parameters)
 {
-  if ( a3 )
+  if ( Period )
     return -1073741822;
   else
-    return ExpSetTimer2(a1, a2, a4);
+    return ExpSetTimer2(TimerHandle, (unsigned __int64)DueTime, (unsigned __int64)Parameters);
 }

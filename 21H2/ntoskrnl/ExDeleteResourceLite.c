@@ -1,34 +1,34 @@
 /*
- * XREFs of ExDeleteResourceLite @ 0x1402F50A0
+ * XREFs of ExDeleteResourceLite @ 0x1402FFDF0
  * Callers:
- *     PspJobDelete @ 0x140287530 (PspJobDelete.c)
- *     CcDeallocateBcb @ 0x1402F5060 (CcDeallocateBcb.c)
- *     CmpDelayFreeRMWorker @ 0x1406BF540 (CmpDelayFreeRMWorker.c)
- *     PnpDereferenceNotify @ 0x1406E5E00 (PnpDereferenceNotify.c)
- *     SepTokenDeleteMethod @ 0x1406E7CF0 (SepTokenDeleteMethod.c)
- *     CmpInitCmRM @ 0x140716078 (CmpInitCmRM.c)
- *     RtlCreateHeap @ 0x140768B60 (RtlCreateHeap.c)
- *     RtlDestroyHeap @ 0x140772B30 (RtlDestroyHeap.c)
- *     DrvDbOpenContext @ 0x1407A400C (DrvDbOpenContext.c)
- *     DrvDbCreateDatabaseNode @ 0x1407A4268 (DrvDbCreateDatabaseNode.c)
- *     MUIInitializeResourceLock @ 0x1407CFB6C (MUIInitializeResourceLock.c)
- *     PiDrvDbDestroyNode @ 0x1408B5CF4 (PiDrvDbDestroyNode.c)
- *     TtmpDeleteQueue @ 0x1409058C0 (TtmpDeleteQueue.c)
- *     _PnpCtxCloseMachine @ 0x140974534 (_PnpCtxCloseMachine.c)
- *     DrvDbDestroyDatabaseNode @ 0x14097E86C (DrvDbDestroyDatabaseNode.c)
+ *     PspJobDelete @ 0x1402046D0 (PspJobDelete.c)
+ *     CcDeallocateBcb @ 0x1402FFDB0 (CcDeallocateBcb.c)
+ *     CmpDelayFreeRMWorker @ 0x14061E450 (CmpDelayFreeRMWorker.c)
+ *     CmpInitCmRM @ 0x1406C46C8 (CmpInitCmRM.c)
+ *     PnpDereferenceNotify @ 0x1406FD1E8 (PnpDereferenceNotify.c)
+ *     SepTokenDeleteMethod @ 0x1406FF0D0 (SepTokenDeleteMethod.c)
+ *     RtlCreateHeap @ 0x140768D20 (RtlCreateHeap.c)
+ *     RtlDestroyHeap @ 0x140772CF0 (RtlDestroyHeap.c)
+ *     DrvDbOpenContext @ 0x1407A420C (DrvDbOpenContext.c)
+ *     DrvDbCreateDatabaseNode @ 0x1407A4468 (DrvDbCreateDatabaseNode.c)
+ *     MUIInitializeResourceLock @ 0x1407CFCDC (MUIInitializeResourceLock.c)
+ *     PiDrvDbDestroyNode @ 0x1408B5E54 (PiDrvDbDestroyNode.c)
+ *     TtmpDeleteQueue @ 0x140905A20 (TtmpDeleteQueue.c)
+ *     _PnpCtxCloseMachine @ 0x140974714 (_PnpCtxCloseMachine.c)
+ *     DrvDbDestroyDatabaseNode @ 0x14097EA4C (DrvDbDestroyDatabaseNode.c)
  * Callees:
- *     ExpWaitForSpinLockExclusiveAndAcquire @ 0x1402315C0 (ExpWaitForSpinLockExclusiveAndAcquire.c)
- *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
- *     PsBoostThreadIoQoS @ 0x140287458 (PsBoostThreadIoQoS.c)
- *     ExpOwnerEntryToThread @ 0x1402F7A88 (ExpOwnerEntryToThread.c)
- *     ExFreeHeapPool @ 0x140341AC0 (ExFreeHeapPool.c)
- *     ObDereferenceObjectDeferDeleteWithTag @ 0x140342370 (ObDereferenceObjectDeferDeleteWithTag.c)
- *     ExpResourceEnforcesOwnershipTransfer @ 0x14034D1A0 (ExpResourceEnforcesOwnershipTransfer.c)
- *     PsBoostThreadIoEx @ 0x14034D800 (PsBoostThreadIoEx.c)
+ *     PsBoostThreadIoQoS @ 0x1402045F8 (PsBoostThreadIoQoS.c)
+ *     ExpWaitForSpinLockExclusiveAndAcquire @ 0x1402D5E10 (ExpWaitForSpinLockExclusiveAndAcquire.c)
+ *     KeYieldProcessorEx @ 0x1402EFAD0 (KeYieldProcessorEx.c)
+ *     ExpOwnerEntryToThread @ 0x1403027D8 (ExpOwnerEntryToThread.c)
+ *     ExFreeHeapPool @ 0x14034C810 (ExFreeHeapPool.c)
+ *     ObDereferenceObjectDeferDeleteWithTag @ 0x14034D0C0 (ObDereferenceObjectDeferDeleteWithTag.c)
+ *     ExpResourceEnforcesOwnershipTransfer @ 0x140357EF0 (ExpResourceEnforcesOwnershipTransfer.c)
+ *     PsBoostThreadIoEx @ 0x140358550 (PsBoostThreadIoEx.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x1405B5BA8 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
- *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x1405B5D8C (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x1405B5DD8 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x1405B5FBC (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
  */
 
 NTSTATUS __stdcall ExDeleteResourceLite(PERESOURCE Resource)
@@ -201,7 +201,7 @@ NTSTATUS __stdcall ExDeleteResourceLite(PERESOURCE Resource)
     }
     if ( (*(_BYTE *)&TableSize & 4) != 0 )
     {
-      PsBoostThreadIoQoS(OwnerThread, 1LL);
+      PsBoostThreadIoQoS(OwnerThread, 1);
       TableSize = (struct _OWNER_ENTRY::$818A6BB8E639852A52D20A2B257A1D60::$E71B718CD8428E7C8AA4A0868051E710)Resource->OwnerEntry.TableSize;
     }
     if ( (*(_BYTE *)&TableSize & 2) != 0 )
@@ -233,7 +233,7 @@ LABEL_16:
         }
         if ( (v31 & 4) != 0 )
         {
-          PsBoostThreadIoQoS((__int64)v19, 1LL);
+          PsBoostThreadIoQoS((__int64)v19, 1);
           v31 = *i;
         }
         if ( (v31 & 2) != 0 )

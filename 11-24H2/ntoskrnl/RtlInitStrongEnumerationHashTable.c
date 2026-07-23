@@ -1,23 +1,25 @@
 /*
- * XREFs of RtlInitStrongEnumerationHashTable @ 0x1403FD0F0
+ * XREFs of RtlInitStrongEnumerationHashTable @ 0x1403F8B70
  * Callers:
  *     <none>
  * Callees:
- *     RtlpPopulateContext @ 0x1403FD140 (RtlpPopulateContext.c)
+ *     RtlpPopulateContext @ 0x1403F8BC0 (RtlpPopulateContext.c)
  */
 
-char __fastcall RtlInitStrongEnumerationHashTable(__int64 a1, _QWORD *a2)
+BOOLEAN __cdecl RtlInitStrongEnumerationHashTable(
+        PRTL_DYNAMIC_HASH_TABLE HashTable,
+        PRTL_DYNAMIC_HASH_TABLE_ENUMERATOR Enumerator)
 {
-  __int64 v3; // rax
+  struct _LIST_ENTRY *v3; // rax
   __int128 v5; // [rsp+20h] [rbp-28h] BYREF
 
   v5 = 0LL;
-  RtlpPopulateContext(a1, &v5, 0LL);
-  a2[1] = 0LL;
-  a2[2] = 0LL;
-  a2[4] = 0LL;
-  v3 = v5;
-  a2[3] = v5;
-  *a2 = v3;
+  RtlpPopulateContext(HashTable, &v5, 0LL);
+  Enumerator->HashEntry.Linkage.Blink = 0LL;
+  Enumerator->HashEntry.Signature = 0LL;
+  *(_QWORD *)&Enumerator->BucketIndex = 0LL;
+  v3 = (struct _LIST_ENTRY *)v5;
+  Enumerator->ChainHead = (_LIST_ENTRY *)v5;
+  Enumerator->HashEntry.Linkage.Flink = v3;
   return 1;
 }

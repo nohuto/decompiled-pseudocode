@@ -1,21 +1,21 @@
 /*
- * XREFs of CMFFlushHitsFile @ 0x1408D8BE8
+ * XREFs of CMFFlushHitsFile @ 0x1408D9EA8
  * Callers:
- *     NtMapCMFModule @ 0x1407067A0 (NtMapCMFModule.c)
+ *     NtMapCMFModule @ 0x140707A40 (NtMapCMFModule.c)
  * Callees:
- *     RtlStringCchPrintfW @ 0x1400923A8 (RtlStringCchPrintfW.c)
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ZwWaitForSingleObject @ 0x1401B8210 (ZwWaitForSingleObject.c)
- *     ZwWriteFile @ 0x1401B8290 (ZwWriteFile.c)
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     ZwOpenFile @ 0x1401B87F0 (ZwOpenFile.c)
- *     ZwCreateEvent @ 0x1401B8A90 (ZwCreateEvent.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     MmFlushVirtualMemory @ 0x1406B6C1C (MmFlushVirtualMemory.c)
- *     CMFGetFileSizeEx @ 0x1408D8ED4 (CMFGetFileSizeEx.c)
+ *     RtlStringCchPrintfW @ 0x1400922E8 (RtlStringCchPrintfW.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ZwWaitForSingleObject @ 0x1401B8370 (ZwWaitForSingleObject.c)
+ *     ZwWriteFile @ 0x1401B83F0 (ZwWriteFile.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     ZwOpenFile @ 0x1401B8950 (ZwOpenFile.c)
+ *     ZwCreateEvent @ 0x1401B8BF0 (ZwCreateEvent.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     MmFlushVirtualMemory @ 0x1406B7EBC (MmFlushVirtualMemory.c)
+ *     CMFGetFileSizeEx @ 0x1408DA194 (CMFGetFileSizeEx.c)
  */
 
 __int64 __fastcall CMFFlushHitsFile(void *Src, unsigned __int64 Length)

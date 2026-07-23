@@ -1,14 +1,14 @@
 /*
- * XREFs of ?KiSetIdealProcessorThread@@YAJPEAU_KTHREAD@@KEPEAKE@Z @ 0x140202D20
+ * XREFs of ?KiSetIdealProcessorThread@@YAJPEAU_KTHREAD@@KEPEAKE@Z @ 0x140202DF8
  * Callers:
  *     ?KiAdaptThreadIdealProcessorForProcessIdealSetChange@@YAXPEAU_KPROCESS@@PEAU_KTHREAD@@PEAU_KAFFINITY_EX@@2PEAE3PEAK@Z @ 0x140200F50 (-KiAdaptThreadIdealProcessorForProcessIdealSetChange@@YAXPEAU_KPROCESS@@PEAU_KTHREAD@@PEAU_KAFFI.c)
- *     KeSetIdealProcessorThreadEx @ 0x140204850 (KeSetIdealProcessorThreadEx.c)
+ *     KeSetIdealProcessorThreadEx @ 0x140204930 (KeSetIdealProcessorThreadEx.c)
  * Callees:
- *     KiUpdateSharedReadyQueueAffinityThread @ 0x1402043F0 (KiUpdateSharedReadyQueueAffinityThread.c)
- *     KiQueueTebUpdateApc @ 0x1402093E4 (KiQueueTebUpdateApc.c)
- *     KiReleaseThreadStateLock @ 0x1402BA4C0 (KiReleaseThreadStateLock.c)
- *     KiCheckPrcbAffinityEx @ 0x1402BDFC0 (KiCheckPrcbAffinityEx.c)
- *     KiAcquireThreadStateLockForWrite @ 0x1403322B0 (KiAcquireThreadStateLockForWrite.c)
+ *     KiUpdateSharedReadyQueueAffinityThread @ 0x1402044D0 (KiUpdateSharedReadyQueueAffinityThread.c)
+ *     KiQueueTebUpdateApc @ 0x1402094C4 (KiQueueTebUpdateApc.c)
+ *     KiReleaseThreadStateLock @ 0x140305180 (KiReleaseThreadStateLock.c)
+ *     KiCheckPrcbAffinityEx @ 0x140308C80 (KiCheckPrcbAffinityEx.c)
+ *     KiAcquireThreadStateLockForWrite @ 0x1403342E0 (KiAcquireThreadStateLockForWrite.c)
  */
 
 __int64 __fastcall KiSetIdealProcessorThread(

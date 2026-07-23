@@ -1,12 +1,12 @@
 /*
- * XREFs of KiWaitSatisfyOther @ 0x1403DF924
+ * XREFs of KiWaitSatisfyOther @ 0x1403E2B14
  * Callers:
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     KeWaitForMultipleObjects @ 0x140396440 (KeWaitForMultipleObjects.c)
- *     ExpTryEnterWorkerFactoryAwayMode @ 0x1403DF6B0 (ExpTryEnterWorkerFactoryAwayMode.c)
- *     KeRegisterObjectNotification @ 0x1403DF824 (KeRegisterObjectNotification.c)
- *     KeRegisterObjectDpc @ 0x1405E55DC (KeRegisterObjectDpc.c)
- *     KiWaitSatisfyAny @ 0x1405F7F18 (KiWaitSatisfyAny.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     KeWaitForMultipleObjects @ 0x1403981C0 (KeWaitForMultipleObjects.c)
+ *     ExpTryEnterWorkerFactoryAwayMode @ 0x1403E28A0 (ExpTryEnterWorkerFactoryAwayMode.c)
+ *     KeRegisterObjectNotification @ 0x1403E2A14 (KeRegisterObjectNotification.c)
+ *     KeRegisterObjectDpc @ 0x1405E7F4C (KeRegisterObjectDpc.c)
+ *     KiWaitSatisfyAny @ 0x1405FA938 (KiWaitSatisfyAny.c)
  * Callees:
  *     <none>
  */

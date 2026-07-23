@@ -1,13 +1,13 @@
 /*
- * XREFs of MmAreMdlPagesLocked @ 0x140924CC8
+ * XREFs of MmAreMdlPagesLocked @ 0x140925CC8
  * Callers:
- *     VERIFY_BUFFER_LOCKED @ 0x140929614 (VERIFY_BUFFER_LOCKED.c)
- *     VerifierMmBuildMdlForNonPagedPool @ 0x140944540 (VerifierMmBuildMdlForNonPagedPool.c)
+ *     VERIFY_BUFFER_LOCKED @ 0x14092A614 (VERIFY_BUFFER_LOCKED.c)
+ *     VerifierMmBuildMdlForNonPagedPool @ 0x140945540 (VerifierMmBuildMdlForNonPagedPool.c)
  * Callees:
- *     MiIsPfn @ 0x1400A88E0 (MiIsPfn.c)
- *     MiIsPfnLocked @ 0x14013B198 (MiIsPfnLocked.c)
- *     MiLockPage @ 0x1402BF6F0 (MiLockPage.c)
- *     MiUnlockPage @ 0x1402BF704 (MiUnlockPage.c)
+ *     MiIsPfn @ 0x1400A8820 (MiIsPfn.c)
+ *     MiIsPfnLocked @ 0x14013B298 (MiIsPfnLocked.c)
+ *     MiLockPage @ 0x1402BF8E0 (MiLockPage.c)
+ *     MiUnlockPage @ 0x1402BF8F4 (MiUnlockPage.c)
  */
 
 __int64 __fastcall MmAreMdlPagesLocked(_DWORD *a1)
@@ -26,7 +26,7 @@ __int64 __fastcall MmAreMdlPagesLocked(_DWORD *a1)
     if ( (unsigned int)MiIsPfn(*v1) )
     {
       v4 = 48 * v3 - 0x58000000000LL;
-      if ( dword_14043A76C != 2 )
+      if ( dword_14043B82C != 2 )
         MiLockPage(48 * v3 - 0x58000000000LL);
       IsPfnLocked = MiIsPfnLocked(v4);
       if ( v6 != 17 )

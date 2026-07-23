@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpWow64CtxToAmd64 @ 0x140A50968
+ * XREFs of RtlpWow64CtxToAmd64 @ 0x140A47CC4
  * Callers:
- *     PspWow64SetContextThread @ 0x140913174 (PspWow64SetContextThread.c)
+ *     PspWow64SetContextThread @ 0x1408EA8C4 (PspWow64SetContextThread.c)
  * Callees:
- *     RtlpCopyXStateChunk @ 0x1403E76D0 (RtlpCopyXStateChunk.c)
- *     RtlFnToFxFrame @ 0x1404676C8 (RtlFnToFxFrame.c)
+ *     RtlpCopyXStateChunk @ 0x1403D5270 (RtlpCopyXStateChunk.c)
+ *     RtlFnToFxFrame @ 0x14045F168 (RtlFnToFxFrame.c)
  */
 
 __int64 __fastcall RtlpWow64CtxToAmd64(unsigned int a1, _DWORD *a2, __int64 a3)

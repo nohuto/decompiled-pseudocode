@@ -1,12 +1,12 @@
 /*
- * XREFs of WdipSemMarkInstanceForDeletion @ 0x140717614
+ * XREFs of WdipSemMarkInstanceForDeletion @ 0x1407188B4
  * Callers:
- *     WdipSemDisableScenario @ 0x1407174C4 (WdipSemDisableScenario.c)
+ *     WdipSemDisableScenario @ 0x140718764 (WdipSemDisableScenario.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     ExReleasePushLockEx @ 0x14004F160 (ExReleasePushLockEx.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     WdipSemQueryEnabledInstanceTable @ 0x140717698 (WdipSemQueryEnabledInstanceTable.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     WdipSemQueryEnabledInstanceTable @ 0x140718938 (WdipSemQueryEnabledInstanceTable.c)
  */
 
 __int64 __fastcall WdipSemMarkInstanceForDeletion(__int64 a1)
@@ -18,7 +18,7 @@ __int64 __fastcall WdipSemMarkInstanceForDeletion(__int64 a1)
   CurrentThread = KeGetCurrentThread();
   v2 = 0LL;
   --CurrentThread->KernelApcDisable;
-  ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_14040CAF8, 0LL);
+  ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_14040B958, 0LL);
   if ( a1 )
   {
     EnabledInstanceTable = WdipSemQueryEnabledInstanceTable(a1);
@@ -31,7 +31,7 @@ __int64 __fastcall WdipSemMarkInstanceForDeletion(__int64 a1)
         *(_DWORD *)(EnabledInstanceTable + 44) = 1;
     }
   }
-  ExReleasePushLockEx((ULONG_PTR)&qword_14040CAF8, 0LL);
+  ExReleasePushLockEx((ULONG_PTR)&qword_14040B958, 0LL);
   KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
   return v2;
 }

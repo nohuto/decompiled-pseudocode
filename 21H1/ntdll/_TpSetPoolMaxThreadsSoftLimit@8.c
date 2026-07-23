@@ -8,9 +8,13 @@
  *     _TppRaiseInvalidParameter@0 @ 0x4B3848BD (_TppRaiseInvalidParameter@0.c)
  */
 
-int __stdcall TpSetPoolMaxThreadsSoftLimit(int a1, int a2)
+NTSTATUS __stdcall TpSetPoolMaxThreadsSoftLimit(int a1, int WorkerFactoryInformation)
 {
-  if ( !a1 || a2 < 0 || NtCurrentPeb()->Ldr->ShutdownInProgress )
+  if ( !a1 || WorkerFactoryInformation < 0 || NtCurrentPeb()->Ldr->ShutdownInProgress )
     TppRaiseInvalidParameter();
-  return ZwSetInformationWorkerFactory(*(_DWORD *)(a1 + 36), 14, &a2, 4);
+  return ZwSetInformationWorkerFactory(
+           *(HANDLE *)(a1 + 36),
+           WorkerFactoryThreadSoftMaximum,
+           &WorkerFactoryInformation,
+           4u);
 }

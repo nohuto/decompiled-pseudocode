@@ -12,7 +12,7 @@
  *     ExFreePoolWithTag @ 0x140B62CD0 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall PfSnNameRemove(__int64 a1, unsigned __int64 a2)
+__int64 __fastcall PfSnNameRemove(__int64 a1, _RTL_BALANCED_NODE *a2)
 {
   unsigned int v4; // esi
   unsigned __int64 v5; // rbp
@@ -20,7 +20,7 @@ __int64 __fastcall PfSnNameRemove(__int64 a1, unsigned __int64 a2)
   unsigned __int64 v7; // rbx
   int v8; // ecx
   unsigned __int64 v9; // rax
-  _QWORD *v11; // rcx
+  _RTL_BALANCED_NODE **v11; // rcx
   __int64 retaddr; // [rsp+48h] [rbp+0h]
 
   v4 = 0;
@@ -48,7 +48,7 @@ LABEL_13:
   }
   do
   {
-    if ( *(_QWORD *)(v7 + 24) > a2 )
+    if ( *(_QWORD *)(v7 + 24) > (unsigned __int64)a2 )
     {
       v9 = *(_QWORD *)v7;
       if ( v8 && v9 )
@@ -56,7 +56,7 @@ LABEL_13:
     }
     else
     {
-      if ( *(_QWORD *)(v7 + 24) >= a2 )
+      if ( *(_QWORD *)(v7 + 24) >= (unsigned __int64)a2 )
         break;
       v9 = *(_QWORD *)(v7 + 8);
       if ( v8 && v9 )
@@ -71,11 +71,11 @@ LABEL_7:
   while ( v7 );
   if ( !v7 )
     goto LABEL_13;
-  RtlRbRemoveNode(a1 + 520, (unsigned __int64 *)v7);
+  RtlRbRemoveNode((PRTL_RB_TREE)(a1 + 520), (PRTL_BALANCED_NODE)v7);
   ExReleaseSpinLockExclusive((PEX_SPIN_LOCK)(a1 + 576), v5);
   if ( *(_QWORD *)(v7 + 32) != 10LL )
     KeBugCheckEx(0x191u, 0x72DuLL, 0LL, 0LL, 0LL);
-  v11 = (_QWORD *)(a1 + 488);
+  v11 = (_RTL_BALANCED_NODE **)(a1 + 488);
   if ( a1 + 488 < (unsigned __int64)(a1 + 520) )
   {
     do

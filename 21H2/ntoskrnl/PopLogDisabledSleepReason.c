@@ -1,14 +1,14 @@
 /*
- * XREFs of PopLogDisabledSleepReason @ 0x14067B38C
+ * XREFs of PopLogDisabledSleepReason @ 0x14066EACC
  * Callers:
- *     PopFilterCapabilities @ 0x14067B484 (PopFilterCapabilities.c)
+ *     PopFilterCapabilities @ 0x14066EBC4 (PopFilterCapabilities.c)
  * Callees:
- *     KeReleaseGuardedMutex @ 0x140265CD0 (KeReleaseGuardedMutex.c)
- *     ExAcquireFastMutex @ 0x14034A080 (ExAcquireFastMutex.c)
- *     PopRemoveReasonRecordByReasonCode @ 0x14067B62C (PopRemoveReasonRecordByReasonCode.c)
- *     PopLogSleepDisabled @ 0x14077EC0C (PopLogSleepDisabled.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     KeReleaseGuardedMutex @ 0x140253C70 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x140354DD0 (ExAcquireFastMutex.c)
+ *     PopRemoveReasonRecordByReasonCode @ 0x14066ED6C (PopRemoveReasonRecordByReasonCode.c)
+ *     PopLogSleepDisabled @ 0x14077EDCC (PopLogSleepDisabled.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 PopLogDisabledSleepReason()

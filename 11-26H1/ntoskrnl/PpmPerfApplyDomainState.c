@@ -1,15 +1,15 @@
 /*
- * XREFs of PpmPerfApplyDomainState @ 0x14048A450
+ * XREFs of PpmPerfApplyDomainState @ 0x140483F90
  * Callers:
- *     PpmPerfApplyDomainStates @ 0x14048A2C0 (PpmPerfApplyDomainStates.c)
+ *     PpmPerfApplyDomainStates @ 0x140483E00 (PpmPerfApplyDomainStates.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x14021C3F0 (KeQueryPerformanceCounter.c)
- *     PpmEventDomainPerfStateChange @ 0x140468D90 (PpmEventDomainPerfStateChange.c)
- *     PpmGetPerfPolicyClass @ 0x14048ACEC (PpmGetPerfPolicyClass.c)
- *     PpmEventQosClassPerfSelection @ 0x1404B5804 (PpmEventQosClassPerfSelection.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     KeQueryPerformanceCounter @ 0x14021DD80 (KeQueryPerformanceCounter.c)
+ *     PpmEventDomainPerfStateChange @ 0x140462364 (PpmEventDomainPerfStateChange.c)
+ *     PpmGetPerfPolicyClass @ 0x14048482C (PpmGetPerfPolicyClass.c)
+ *     PpmEventQosClassPerfSelection @ 0x1404AEB64 (PpmEventQosClassPerfSelection.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 char __fastcall PpmPerfApplyDomainState(__int64 a1)
@@ -97,7 +97,7 @@ char __fastcall PpmPerfApplyDomainState(__int64 a1)
   unsigned int v83; // [rsp+5Ch] [rbp-65h]
   unsigned int v84; // [rsp+60h] [rbp-61h]
   unsigned int v85; // [rsp+64h] [rbp-5Dh]
-  __int64 *v86; // [rsp+68h] [rbp-59h]
+  char *v86; // [rsp+68h] [rbp-59h]
   __int64 v87; // [rsp+78h] [rbp-49h]
   __int64 v88; // [rsp+80h] [rbp-41h]
   __int64 v89; // [rsp+88h] [rbp-39h]
@@ -117,7 +117,7 @@ char __fastcall PpmPerfApplyDomainState(__int64 a1)
   v2 = *(_QWORD *)(a1 + 16);
   v77 = 0;
   v87 = *(_QWORD *)(*(_QWORD *)(a1 + 312) + 8LL);
-  v86 = &PpmCurrentProfile[89 * dword_140F106CC + 5];
+  v86 = (char *)PpmCurrentProfile + 712 * SHIDWORD(PpmIdlePolicyLock.PropagateBoostsEntry.Next) + 40;
   PerfPolicyClass = PpmGetPerfPolicyClass(v2);
   v5 = *(_DWORD *)(a1 + 468);
   v6 = (unsigned int)(v4 + 1);
@@ -363,9 +363,9 @@ LABEL_50:
     v52 = *(_DWORD *)(a1 + 40 * v39 + 548);
     if ( v50 < v52 )
       v52 = v50;
-    if ( !LOBYTE(stru_140F11D08.RealtimePriorityFloor) )
+    if ( !PpmPerfMaxOverrideEnabled )
     {
-      if ( *(_DWORD *)&PopSleepstudySessionLock.WaitRegister.Flags )
+      if ( PpmCheckLatencyBoostActive )
       {
         v49 = *(unsigned __int8 *)(a1 + 40 * v39 + 571);
         if ( v49 <= *(_DWORD *)(a1 + 40 * v39 + 572) )
@@ -373,7 +373,7 @@ LABEL_50:
       }
       else if ( v76 )
       {
-        v49 = *((_DWORD *)v86 + v79 + 51);
+        v49 = *(_DWORD *)&v86[4 * v79 + 204];
       }
       else
       {
@@ -484,7 +484,7 @@ LABEL_50:
         v46 = v52;
       }
     }
-    if ( LOBYTE(stru_140F11D08.RealtimePriorityFloor) )
+    if ( PpmPerfMaxOverrideEnabled )
     {
       v64 = v46;
       v65 = v46;
@@ -530,7 +530,7 @@ LABEL_168:
         v65 = v46;
     }
     v67 = 0;
-    if ( !LOBYTE(stru_140F11D08.RealtimePriorityFloor) )
+    if ( !PpmPerfMaxOverrideEnabled )
       v67 = *((_DWORD *)v86 + 29);
     if ( v67 >= v64 )
       v68 = 0;
@@ -540,14 +540,14 @@ LABEL_168:
       v68 = v60;
     if ( v68 > v9 )
       v68 = v9;
-    if ( LOBYTE(stru_140F11D08.RealtimePriorityFloor) || HIDWORD(PopSleepstudySessionLock.SchedulingGroup) )
+    if ( PpmPerfMaxOverrideEnabled || PpmCheckDeadlineBoostActive )
       v69 = 0;
     else
       v69 = *(_DWORD *)(a1 + 8 * v42 + 564);
-    if ( *(_DWORD *)&PopSleepstudySessionLock.WaitRegister.Flags && v69 >= *(unsigned __int8 *)(a1 + 8 * v42 + 576) )
+    if ( PpmCheckLatencyBoostActive && v69 >= *(unsigned __int8 *)(a1 + 8 * v42 + 576) )
       v69 = *(unsigned __int8 *)(a1 + 8 * v42 + 576);
-    if ( v76 && v69 >= *((_DWORD *)v86 + v79 + 48) )
-      v69 = *((_DWORD *)v86 + v79 + 48);
+    if ( v76 && v69 >= *(_DWORD *)&v86[4 * v79 + 192] )
+      v69 = *(_DWORD *)&v86[4 * v79 + 192];
     memset_0(v90, 0, 0x50uLL);
     v70 = guard_dispatch_icall_no_overrides(v87, v65);
     v39 = v89;

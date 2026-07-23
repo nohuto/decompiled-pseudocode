@@ -14,52 +14,52 @@
  *     memset$thunk$772440563353939046 @ 0x180130010 (memset$thunk$772440563353939046.c)
  */
 
-__int64 __fastcall RtlpGetPolicyValueForSystemCapability(_WORD *a1, UNICODE_STRING *a2)
+__int64 __fastcall RtlpGetPolicyValueForSystemCapability(PCUNICODE_STRING Source, PUNICODE_STRING UnicodeString)
 {
-  const void *Heap; // r14
+  PVOID Heap; // r14
   unsigned __int16 v5; // bx
   wchar_t *StringRoutine; // rax
   wchar_t *v7; // r15
-  int appended; // ebx
-  int v9; // eax
-  unsigned int v11; // esi
-  unsigned int v12; // r15d
+  NTSTATUS appended; // ebx
+  NTSTATUS v9; // eax
+  ULONG v11; // esi
+  ULONG v12; // r15d
   __int64 v13; // rdx
   wchar_t *v14; // rax
   wchar_t *v15; // rsi
   unsigned __int16 v16; // ax
-  UNICODE_STRING UnicodeString; // [rsp+30h] [rbp-10h] BYREF
-  size_t Size; // [rsp+80h] [rbp+40h] BYREF
-  int v19; // [rsp+90h] [rbp+50h] BYREF
+  _UNICODE_STRING Destination; // [rsp+30h] [rbp-10h] BYREF
+  ULONG DataSize; // [rsp+80h] [rbp+40h] BYREF
+  ULONG Type; // [rsp+90h] [rbp+50h] BYREF
   __int16 v20; // [rsp+98h] [rbp+58h] BYREF
 
   Heap = 0LL;
-  LODWORD(Size) = 0;
-  v19 = 0;
-  UnicodeString = 0LL;
-  if ( !a1 || !a2 )
+  DataSize = 0;
+  Type = 0;
+  Destination = 0LL;
+  if ( !Source || !UnicodeString )
   {
     appended = -1073741811;
 LABEL_8:
-    if ( !a2 )
+    if ( !UnicodeString )
       goto LABEL_12;
     goto LABEL_9;
   }
-  v5 = *a1 + 56;
-  StringRoutine = (wchar_t *)NtdllpAllocateStringRoutine(v5, a2);
+  v5 = Source->Length + 56;
+  StringRoutine = (wchar_t *)NtdllpAllocateStringRoutine(v5, UnicodeString);
   v7 = StringRoutine;
   if ( !StringRoutine )
     goto LABEL_13;
   memset_thunk_772440563353939046(StringRoutine, 0, v5);
-  UnicodeString.MaximumLength = v5;
-  UnicodeString.Buffer = v7;
-  appended = RtlAppendUnicodeStringToString(&UnicodeString, L"68");
+  Destination.MaximumLength = v5;
+  Destination.Buffer = v7;
+  appended = RtlAppendUnicodeStringToString(&Destination, &stru_1801311B0);
   if ( appended < 0 )
     goto LABEL_9;
-  appended = RtlAppendUnicodeStringToString(&UnicodeString, a1);
+  appended = RtlAppendUnicodeStringToString(&Destination, Source);
   if ( appended < 0 )
     goto LABEL_9;
-  v9 = ZwQueryLicenseValue(&UnicodeString, &v19, 0LL, 0LL, &Size);
+  v9 = ZwQueryLicenseValue(&Destination, &Type, 0LL, 0, &DataSize);
   appended = v9;
   if ( v9 != -1073741789 )
   {
@@ -67,20 +67,17 @@ LABEL_8:
       goto LABEL_12;
     goto LABEL_8;
   }
-  v11 = Size;
-  v12 = Size;
-  Heap = (const void *)RtlAllocateHeap(
-                         NtCurrentPeb()->ProcessHeap,
-                         (unsigned int)(NtdllBaseTag + 1310720),
-                         (unsigned int)Size);
-  appended = ZwQueryLicenseValue(&UnicodeString, &v19, Heap, v11, &Size);
+  v11 = DataSize;
+  v12 = DataSize;
+  Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, NtdllBaseTag + 1310720, DataSize);
+  appended = ZwQueryLicenseValue(&Destination, &Type, Heap, v11, &DataSize);
   if ( appended < 0 )
   {
 LABEL_9:
-    RtlFreeUnicodeString(a2);
+    RtlFreeUnicodeString(UnicodeString);
     goto LABEL_10;
   }
-  if ( v19 != 1 || !v11 || (v11 & 1) != 0 )
+  if ( Type != 1 || !v11 || (v11 & 1) != 0 )
   {
     appended = -1073741823;
     goto LABEL_9;
@@ -94,19 +91,19 @@ LABEL_13:
     goto LABEL_9;
   }
   memmove(v14, Heap, v12);
-  *a2 = 0LL;
+  *UnicodeString = 0LL;
   appended = RtlStringLengthWorkerW(v15, 0x7FFFLL, &v20);
   if ( appended < 0 )
     goto LABEL_9;
   v16 = 2 * v20;
-  a2->Buffer = v15;
-  a2->Length = v16;
-  a2->MaximumLength = v16 + 2;
+  UnicodeString->Buffer = v15;
+  UnicodeString->Length = v16;
+  UnicodeString->MaximumLength = v16 + 2;
   appended = 0;
 LABEL_10:
   if ( Heap )
-    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, Heap);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Heap);
 LABEL_12:
-  RtlFreeUnicodeString(&UnicodeString);
+  RtlFreeUnicodeString(&Destination);
   return (unsigned int)appended;
 }

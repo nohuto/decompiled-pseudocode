@@ -6,11 +6,14 @@
  *     <none>
  */
 
-__int64 ZwOpenIoCompletion()
+NTSTATUS __cdecl ZwOpenIoCompletion(
+        PHANDLE IoCompletionHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 275LL;
+  result = 275;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

@@ -46,28 +46,25 @@ __int64 __fastcall HvlStartBootLogicalProcessors(int a1)
   int *v21; // r14
   __int64 v22; // rcx
   _DWORD *v23; // rax
-  __int64 v24; // rdx
-  __int64 v25; // r9
-  unsigned __int16 v26; // bx
-  __int128 v27; // [rsp+38h] [rbp-D0h] BYREF
-  __int128 v28; // [rsp+48h] [rbp-C0h]
-  _QWORD v29[8]; // [rsp+58h] [rbp-B0h] BYREF
-  _DWORD v30[816]; // [rsp+98h] [rbp-70h] BYREF
-  int v31; // [rsp+D88h] [rbp+C80h] BYREF
+  unsigned __int16 v24; // bx
+  _BYTE v25[40]; // [rsp+30h] [rbp-D8h] BYREF
+  _QWORD v26[8]; // [rsp+58h] [rbp-B0h] BYREF
+  _DWORD v27[816]; // [rsp+98h] [rbp-70h] BYREF
+  int v28; // [rsp+D88h] [rbp+C80h] BYREF
 
-  v31 = a1;
+  v28 = a1;
   v1 = KiMaximumGroupSize;
-  memset(v29, 0, sizeof(v29));
+  memset(v26, 0, sizeof(v26));
   if ( (HvlpFlags & 2) == 0 )
     return 0LL;
-  v31 = 0;
-  if ( ((int (__fastcall *)(__int64, __int64, _QWORD *, int *))off_140C00A68[0])(11LL, 64LL, v29, &v31) >= 0
-    && v31 == 64 )
+  v28 = 0;
+  if ( ((int (__fastcall *)(__int64, __int64, _QWORD *, int *))off_140C00A68[0])(11LL, 64LL, v26, &v28) >= 0
+    && v28 == 64 )
   {
-    HvlpQueryProcessorNode = v29[1];
-    HvlpQueryProximityId = v29[5];
-    HvlpQueryProximityNode = v29[3];
-    HvlpQueryNodeDistance = v29[7];
+    HvlpQueryProcessorNode = v26[1];
+    HvlpQueryProximityId = v26[5];
+    HvlpQueryProximityNode = v26[3];
+    HvlpQueryNodeDistance = v26[7];
   }
   else
   {
@@ -162,14 +159,14 @@ __int64 __fastcall HvlStartBootLogicalProcessors(int a1)
       {
         do
         {
-          memset(v30, 0, 0xCB8uLL);
+          memset(v27, 0, 0xCB8uLL);
           ApicIdAndNumaNode = 0;
           v21 = &dword_140D042A4[30 * v20];
           v22 = (unsigned int)*v21;
           if ( (_DWORD)v22 != v20 )
           {
-            v30[0] = v20;
-            ApicIdAndNumaNode = HvlpSetLogicalProcessorProperty(v22, 6LL, v30);
+            v27[0] = v20;
+            ApicIdAndNumaNode = HvlpSetLogicalProcessorProperty(v22, 6LL, v27);
             if ( ApicIdAndNumaNode >= 0 )
               *v21 = v20;
           }
@@ -179,18 +176,16 @@ __int64 __fastcall HvlStartBootLogicalProcessors(int a1)
         while ( ++v20 < (unsigned int)HvlpLogicalProcessorCount );
       }
     }
-    v27 = 0LL;
-    v28 = 0LL;
-    v23 = (_DWORD *)HvlpAcquireHypercallPage(&v27, 1LL, 0LL, 8LL);
-    v24 = *((_QWORD *)&v28 + 1);
+    memset(&v25[8], 0, 32);
+    v23 = (_DWORD *)HvlpAcquireHypercallPage(&v25[8], 1LL, 0LL, 8LL);
     v23[1] = *(_DWORD *)((char *)&Mm64BitPhysicalAddress + 6);
     *v23 = 5;
-    v26 = HvcallInitiateHypercall(135, v24, 0LL, v25);
-    HvlpReleaseHypercallPage(&v27);
-    v14 = v26;
-    LOWORD(v14) = -v26;
-    ApicIdAndNumaNode = v26 != 0 ? 0xC0000001 : 0;
-    if ( v26 )
+    v24 = HvcallInitiateHypercall(135);
+    HvlpReleaseHypercallPage(&v25[8]);
+    v14 = v24;
+    LOWORD(v14) = -v24;
+    ApicIdAndNumaNode = v24 != 0 ? 0xC0000001 : 0;
+    if ( v24 )
     {
 LABEL_39:
       MmFreeIndependentPages(v8, v6);

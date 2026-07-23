@@ -1,46 +1,47 @@
 /*
- * XREFs of MiInsertChildVads @ 0x1409C407C
+ * XREFs of MiInsertChildVads @ 0x14091A854
  * Callers:
- *     MiAllocateChildVads @ 0x1409C2580 (MiAllocateChildVads.c)
+ *     MiAllocateChildVads @ 0x140A47718 (MiAllocateChildVads.c)
  * Callees:
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     MiInsertVad @ 0x14025FB40 (MiInsertVad.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     KiCheckForKernelApcDelivery @ 0x1402BB4D0 (KiCheckForKernelApcDelivery.c)
- *     KiStackAttachProcess @ 0x1403209E0 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x140321EC0 (KiUnstackDetachProcess.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ObfReferenceObjectWithTag @ 0x1403403E0 (ObfReferenceObjectWithTag.c)
- *     MiCommitPageTableRangesForVad @ 0x1404050D8 (MiCommitPageTableRangesForVad.c)
- *     MiUpControlAreaRefs @ 0x1404172CC (MiUpControlAreaRefs.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     MiDeletePartialCloneVads @ 0x1408003E4 (MiDeletePartialCloneVads.c)
- *     MiInsertVadCharges @ 0x1408E2418 (MiInsertVadCharges.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     MiInsertVad @ 0x140290150 (MiInsertVad.c)
+ *     KiStackAttachProcess @ 0x1402C9570 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x1402CAA50 (KiUnstackDetachProcess.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     ObfReferenceObjectWithTag @ 0x14031F8C0 (ObfReferenceObjectWithTag.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x140362C10 (KiCheckForKernelApcDelivery.c)
+ *     MiCommitPageTableRangesForVad @ 0x1403C7634 (MiCommitPageTableRangesForVad.c)
+ *     MiUpControlAreaRefs @ 0x1404B355C (MiUpControlAreaRefs.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     MiDeletePartialCloneVads @ 0x140800B24 (MiDeletePartialCloneVads.c)
+ *     MiInsertVadCharges @ 0x140918FC8 (MiInsertVadCharges.c)
  */
 
 __int64 __fastcall MiInsertChildVads(_KPROCESS *a1, __int64 a2)
 {
   int inserted; // edi
-  __int64 v5; // rsi
-  int v6; // eax
-  void *v7; // rcx
+  __int64 v5; // r8
+  __int64 v6; // r9
+  __int64 v7; // rsi
+  __int64 v8; // r9
+  int v9; // eax
+  void *v10; // rcx
   struct _KTHREAD *CurrentThread; // rbp
-  _QWORD *v9; // rax
-  signed __int8 v10; // cf
-  _QWORD *v11; // r14
-  bool v12; // zf
-  __int64 v14; // rcx
-  __int64 v15; // rdx
-  __int64 v16; // rcx
-  _OWORD v17[3]; // [rsp+20h] [rbp-78h] BYREF
+  char *v12; // rax
+  signed __int8 v13; // cf
+  char *v14; // r14
+  bool v15; // zf
+  __int64 v17; // rcx
+  _OWORD v18[3]; // [rsp+20h] [rbp-78h] BYREF
 
   inserted = 0;
-  memset(v17, 0, sizeof(v17));
-  KiStackAttachProcess(a1, 0, (__int64)v17);
+  memset(v18, 0, sizeof(v18));
+  KiStackAttachProcess(a1, 0, (__int64)v18);
   while ( 1 )
   {
-    v5 = a2;
+    v7 = a2;
     if ( !a2 )
       break;
     if ( (*(_DWORD *)(a2 + 48) & 0x200000) == 0 )
@@ -52,54 +53,54 @@ __int64 __fastcall MiInsertChildVads(_KPROCESS *a1, __int64 a2)
     inserted = MiCommitPageTableRangesForVad(a2);
     if ( inserted < 0 )
     {
-      v12 = (*(_DWORD *)(a2 + 48) & 0x200000) == 0;
+      v15 = (*(_DWORD *)(a2 + 48) & 0x200000) == 0;
 LABEL_17:
-      if ( v12 )
+      if ( v15 )
         MiUpControlAreaRefs(a2, 0);
 LABEL_19:
       MiDeletePartialCloneVads((_QWORD *)a2);
       break;
     }
     inserted = MiInsertVadCharges(a2, (__int64)a1);
-    v6 = *(_DWORD *)(a2 + 48) & 0x200000;
+    v9 = *(_DWORD *)(a2 + 48) & 0x200000;
     if ( inserted < 0 )
     {
-      v12 = v6 == 0;
+      v15 = v9 == 0;
       goto LABEL_17;
     }
     a2 = *(_QWORD *)a2;
-    if ( !v6 )
+    if ( !v9 )
     {
-      v7 = *(void **)(v5 + 128);
-      if ( v7 )
-        ObfReferenceObjectWithTag(v7, 0x63536D4Du);
+      v10 = *(void **)(v7 + 128);
+      if ( v10 )
+        ObfReferenceObjectWithTag(v10, 0x63536D4Du);
     }
-    if ( (*(_DWORD *)(v5 + 48) & 0x200000) == 0 && *(__int64 *)(v5 + 120) < 0 )
+    if ( (*(_DWORD *)(v7 + 48) & 0x200000) == 0 && *(__int64 *)(v7 + 120) < 0 )
     {
       CurrentThread = KeGetCurrentThread();
       --CurrentThread->SpecialApcDisable;
-      v9 = KeAbPreAcquire((__int64)&qword_140E2CC10, 0LL);
-      v10 = _interlockedbittestandset64((volatile signed __int32 *)&qword_140E2CC10, 0LL);
-      v11 = v9;
-      if ( v10 )
-        ExfAcquirePushLockExclusiveEx(&qword_140E2CC10, (__int64)v9, (__int64)&qword_140E2CC10);
-      if ( v11 )
-        *((_BYTE *)v11 + 10) = 1;
-      v14 = *(_QWORD *)(***(_QWORD ***)(v5 + 72) + 32LL);
-      ++*(_DWORD *)(v14 + 8);
-      if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140E2CC10, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-        ExfTryToWakePushLock((volatile signed __int64 *)&qword_140E2CC10);
-      KeAbPostRelease((ULONG_PTR)&qword_140E2CC10);
-      v12 = CurrentThread->SpecialApcDisable++ == -1;
-      if ( v12
-        && ($81B80DCEA5A02D890AB7B2872B48AC01 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+      v12 = (char *)KeAbPreAcquire((__int64)&qword_140E2CD50, 0LL);
+      v13 = _interlockedbittestandset64((volatile signed __int32 *)&qword_140E2CD50, 0LL);
+      v14 = v12;
+      if ( v13 )
+        ExfAcquirePushLockExclusiveEx(&qword_140E2CD50, v12, (__int64)&qword_140E2CD50);
+      if ( v14 )
+        v14[10] = 1;
+      v17 = *(_QWORD *)(***(_QWORD ***)(v7 + 72) + 32LL);
+      ++*(_DWORD *)(v17 + 8);
+      if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140E2CD50, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+        ExfTryToWakePushLock((volatile signed __int64 *)&qword_140E2CD50);
+      KeAbPostRelease((ULONG_PTR)&qword_140E2CD50);
+      v15 = CurrentThread->SpecialApcDisable++ == -1;
+      if ( v15
+        && ($727077A9B6E167EAE1398C74674DC5A5 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
       {
-        KiCheckForKernelApcDelivery(v16, v15);
+        KiCheckForKernelApcDelivery();
       }
     }
-    *(_QWORD *)(v5 + 16) = -2LL;
-    MiInsertVad(v5, (__int64)a1, 0);
+    *(_QWORD *)(v7 + 16) = -2LL;
+    MiInsertVad(v7, (__int64)a1, 0LL, v8);
   }
-  KiUnstackDetachProcess((__int64)v17, 0);
+  KiUnstackDetachProcess((__int64)v18, 0, v5, v6);
   return (unsigned int)inserted;
 }

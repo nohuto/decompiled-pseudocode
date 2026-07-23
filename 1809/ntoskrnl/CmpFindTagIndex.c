@@ -1,13 +1,13 @@
 /*
- * XREFs of CmpFindTagIndex @ 0x1409CD830
+ * XREFs of CmpFindTagIndex @ 0x1409CE830
  * Callers:
- *     CmpAddDriverToList @ 0x1409CD9F8 (CmpAddDriverToList.c)
+ *     CmpAddDriverToList @ 0x1409CE9F8 (CmpAddDriverToList.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     CmpGetValueData @ 0x1405D20A0 (CmpGetValueData.c)
- *     CmpFindValueByName @ 0x14073D858 (CmpFindValueByName.c)
- *     CmpValueToData @ 0x14073D888 (CmpValueToData.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     CmpGetValueData @ 0x1405D30A0 (CmpGetValueData.c)
+ *     CmpFindValueByName @ 0x14073EA48 (CmpFindValueByName.c)
+ *     CmpValueToData @ 0x14073EA78 (CmpValueToData.c)
  */
 
 __int64 __fastcall CmpFindTagIndex(ULONG_PTR BugCheckParameter3, __int64 a2, unsigned int a3, int a4)

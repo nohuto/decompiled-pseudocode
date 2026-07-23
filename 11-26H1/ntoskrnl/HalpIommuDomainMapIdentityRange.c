@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpIommuDomainMapIdentityRange @ 0x1404A9B54
+ * XREFs of HalpIommuDomainMapIdentityRange @ 0x1404A31E4
  * Callers:
- *     IommuMapIdentityRangeEx @ 0x1404A9940 (IommuMapIdentityRangeEx.c)
- *     IommuMapIdentityRange @ 0x14059F1C0 (IommuMapIdentityRange.c)
+ *     IommuMapIdentityRangeEx @ 0x1404A2FD0 (IommuMapIdentityRangeEx.c)
+ *     IommuMapIdentityRange @ 0x1405A19B0 (IommuMapIdentityRange.c)
  * Callees:
- *     HalpIommuFlushDomainTbs @ 0x14047B168 (HalpIommuFlushDomainTbs.c)
- *     HalpIommuUnmapLogicalRange @ 0x14047B208 (HalpIommuUnmapLogicalRange.c)
- *     HalpIommuMapLogicalRange @ 0x14047BE6C (HalpIommuMapLogicalRange.c)
- *     IommupHvMapDeviceIdentityRange @ 0x1404A9BD0 (IommupHvMapDeviceIdentityRange.c)
+ *     HalpIommuFlushDomainTbs @ 0x140474AD8 (HalpIommuFlushDomainTbs.c)
+ *     HalpIommuUnmapLogicalRange @ 0x140474B78 (HalpIommuUnmapLogicalRange.c)
+ *     HalpIommuMapLogicalRange @ 0x1404757DC (HalpIommuMapLogicalRange.c)
+ *     IommupHvMapDeviceIdentityRange @ 0x1404A3260 (IommupHvMapDeviceIdentityRange.c)
  */
 
 __int64 __fastcall HalpIommuDomainMapIdentityRange(ULONG_PTR a1, int a2, __int64 a3, unsigned __int64 a4)

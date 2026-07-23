@@ -13,15 +13,20 @@
  *     ViDeadlockEmptyDatabase @ 0x140AD9E40 (ViDeadlockEmptyDatabase.c)
  */
 
-__int64 __fastcall ViDeadlockDetectionApplySettings(int a1)
+void __fastcall ViDeadlockDetectionApplySettings(int a1)
 {
   unsigned __int8 v1; // bl
 
-  if ( !a1 )
-    return ViDeadlockEmptyDatabase();
-  v1 = ViRaiseIrqlToDpcLevel();
-  ViDeadlockDetectionLock(1LL);
-  ViDeadlockDetectionEnabled = 1;
-  ViDeadlockDetectionUnlock(1LL);
-  return ViLowerIrql(v1);
+  if ( a1 )
+  {
+    v1 = ViRaiseIrqlToDpcLevel();
+    ViDeadlockDetectionLock(1LL);
+    ViDeadlockDetectionEnabled = 1;
+    ViDeadlockDetectionUnlock(1LL);
+    ViLowerIrql(v1);
+  }
+  else
+  {
+    ViDeadlockEmptyDatabase();
+  }
 }

@@ -1,84 +1,81 @@
 /*
- * XREFs of RtlpActivateLowFragmentationHeap @ 0x18007DF18
+ * XREFs of RtlpActivateLowFragmentationHeap @ 0x18006C604
  * Callers:
- *     RtlpPerformHeapMaintenance @ 0x180021680 (RtlpPerformHeapMaintenance.c)
- *     RtlpSetHeapDebuggingInformation @ 0x180145520 (RtlpSetHeapDebuggingInformation.c)
+ *     RtlpPerformHeapMaintenance @ 0x18000C750 (RtlpPerformHeapMaintenance.c)
+ *     RtlpSetHeapDebuggingInformation @ 0x1801453D0 (RtlpSetHeapDebuggingInformation.c)
  * Callees:
- *     RtlEnterCriticalSection @ 0x180048D70 (RtlEnterCriticalSection.c)
- *     RtlLeaveCriticalSection @ 0x18004A3E0 (RtlLeaveCriticalSection.c)
- *     RtlGetSuiteMask @ 0x180063C60 (RtlGetSuiteMask.c)
- *     RtlpExtendListLookup @ 0x18007DDA4 (RtlpExtendListLookup.c)
- *     RtlpExtendFrontEndUsageArray @ 0x18007E120 (RtlpExtendFrontEndUsageArray.c)
- *     RtlpCreateLowFragHeap @ 0x18007EE98 (RtlpCreateLowFragHeap.c)
+ *     RtlEnterCriticalSection @ 0x1800332F0 (RtlEnterCriticalSection.c)
+ *     RtlLeaveCriticalSection @ 0x180034960 (RtlLeaveCriticalSection.c)
+ *     RtlpExtendFrontEndUsageArray @ 0x18006C80C (RtlpExtendFrontEndUsageArray.c)
+ *     RtlpCreateLowFragHeap @ 0x18006CC20 (RtlpCreateLowFragHeap.c)
+ *     RtlpExtendListLookup @ 0x18006CE74 (RtlpExtendListLookup.c)
+ *     RtlGetSuiteMask @ 0x1800840B0 (RtlGetSuiteMask.c)
  */
 
-__int64 __fastcall RtlpActivateLowFragmentationHeap(__int64 a1)
+__int64 __fastcall RtlpActivateLowFragmentationHeap(PRTL_CRITICAL_SECTION *HeapHandle)
 {
   char v2; // r15
   char v3; // r14
-  __int64 v5; // rax
-  unsigned __int64 v6; // rdx
-  int v7; // edi
+  PRTL_CRITICAL_SECTION v5; // rax
+  int v6; // edi
   __int64 LowFragHeap; // r14
 
   v2 = 0;
   v3 = 0;
-  if ( (*(_DWORD *)(a1 + 112) & 0x75010F63) == 2 && (NtCurrentPeb()->NtGlobalFlag & 0x800) == 0 )
+  if ( ((_DWORD)HeapHandle[14] & 0x75010F63) == 2 && (NtCurrentPeb()->NtGlobalFlag & 0x800) == 0 )
   {
-    RtlEnterCriticalSection(*(_QWORD *)(a1 + 352));
+    RtlEnterCriticalSection(HeapHandle[44]);
     v3 = 1;
-    if ( *(_BYTE *)(a1 + 418) == 2 )
-      v5 = *(_QWORD *)(a1 + 408);
+    if ( *((_BYTE *)HeapHandle + 418) == 2 )
+      v5 = HeapHandle[51];
     else
       v5 = 0LL;
     if ( v5 )
     {
-      v7 = 0;
+      v6 = 0;
     }
-    else if ( *(_WORD *)(a1 + 416) )
+    else if ( *((_WORD *)HeapHandle + 208) )
     {
-      v7 = -1073741794;
+      v6 = -1073741794;
     }
     else
     {
-      *(_WORD *)(a1 + 416) = 1;
+      *((_WORD *)HeapHandle + 208) = 1;
       v2 = 1;
-      v6 = (unsigned __int64)RtlpLargestLfhBlock >> 4;
-      LOWORD(v6) = ((unsigned __int64)RtlpLargestLfhBlock >> 4) + 2;
-      v7 = RtlpExtendFrontEndUsageArray(a1, v6);
-      if ( v7 >= 0 )
+      v6 = RtlpExtendFrontEndUsageArray(HeapHandle);
+      if ( v6 >= 0 )
       {
-        RtlpExtendListLookup(a1, *(_QWORD *)(a1 + 312));
-        *(_QWORD *)(a1 + 408) = 0LL;
-        *(_BYTE *)(a1 + 418) = 0;
-        RtlLeaveCriticalSection(*(_QWORD *)(a1 + 352));
-        LowFragHeap = RtlpCreateLowFragHeap(a1);
-        RtlEnterCriticalSection(*(_QWORD *)(a1 + 352));
+        RtlpExtendListLookup(HeapHandle);
+        HeapHandle[51] = 0LL;
+        *((_BYTE *)HeapHandle + 418) = 0;
+        RtlLeaveCriticalSection(HeapHandle[44]);
+        LowFragHeap = RtlpCreateLowFragHeap(HeapHandle);
+        RtlEnterCriticalSection(HeapHandle[44]);
         if ( LowFragHeap )
         {
-          *(_QWORD *)(a1 + 408) = LowFragHeap;
-          *(_WORD *)(a1 + 418) = 514;
+          HeapHandle[51] = (PRTL_CRITICAL_SECTION)LowFragHeap;
+          *((_WORD *)HeapHandle + 209) = 514;
           if ( (RtlGetSuiteMask() & 0x10000) == 0 )
-            *(_QWORD *)(a1 + 176) = (unsigned __int64)RtlpLargestLfhBlock >> 4;
+            HeapHandle[22] = (PRTL_CRITICAL_SECTION)((unsigned __int64)RtlpLargestLfhBlock >> 4);
         }
         else
         {
-          v7 = -1073741801;
+          v6 = -1073741801;
         }
-        --*(_WORD *)(a1 + 416);
+        --*((_WORD *)HeapHandle + 208);
         v2 = 0;
         v3 = 0;
-        RtlLeaveCriticalSection(*(_QWORD *)(a1 + 352));
+        RtlLeaveCriticalSection(HeapHandle[44]);
       }
     }
   }
   else
   {
-    v7 = -1073741811;
+    v6 = -1073741811;
   }
   if ( v3 )
-    RtlLeaveCriticalSection(*(_QWORD *)(a1 + 352));
+    RtlLeaveCriticalSection(HeapHandle[44]);
   if ( v2 )
-    --*(_WORD *)(a1 + 416);
-  return (unsigned int)v7;
+    --*((_WORD *)HeapHandle + 208);
+  return (unsigned int)v6;
 }

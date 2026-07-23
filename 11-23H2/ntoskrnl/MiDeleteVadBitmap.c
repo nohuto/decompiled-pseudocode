@@ -1,17 +1,17 @@
 /*
- * XREFs of MiDeleteVadBitmap @ 0x140706BB4
+ * XREFs of MiDeleteVadBitmap @ 0x140706DC4
  * Callers:
- *     MiDeleteFinalPageTables @ 0x1402915B4 (MiDeleteFinalPageTables.c)
+ *     MiDeleteFinalPageTables @ 0x140291844 (MiDeleteFinalPageTables.c)
  * Callees:
- *     MiHyperSpaceSize @ 0x14025D514 (MiHyperSpaceSize.c)
- *     MiGetProcessPartition @ 0x140275694 (MiGetProcessPartition.c)
- *     MiDeletePagablePteRange @ 0x14027A160 (MiDeletePagablePteRange.c)
- *     PdcCreateWatchdogAroundClientCall @ 0x140293450 (PdcCreateWatchdogAroundClientCall.c)
- *     MiReturnCommit @ 0x1402DC250 (MiReturnCommit.c)
- *     MiReturnFullProcessCharges @ 0x1402DF130 (MiReturnFullProcessCharges.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     MiUpdateChargedWsles @ 0x140661EC4 (MiUpdateChargedWsles.c)
- *     MiReturnFullProcessCommitment @ 0x140764E54 (MiReturnFullProcessCommitment.c)
+ *     MiHyperSpaceSize @ 0x14025D7A4 (MiHyperSpaceSize.c)
+ *     MiGetProcessPartition @ 0x140275924 (MiGetProcessPartition.c)
+ *     MiDeletePagablePteRange @ 0x14027A3F0 (MiDeletePagablePteRange.c)
+ *     PdcCreateWatchdogAroundClientCall @ 0x1402936E0 (PdcCreateWatchdogAroundClientCall.c)
+ *     MiReturnCommit @ 0x1402DC4E0 (MiReturnCommit.c)
+ *     MiReturnFullProcessCharges @ 0x1402DF3C0 (MiReturnFullProcessCharges.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     MiUpdateChargedWsles @ 0x140662414 (MiUpdateChargedWsles.c)
+ *     MiReturnFullProcessCommitment @ 0x140765044 (MiReturnFullProcessCommitment.c)
  */
 
 __int64 __fastcall MiDeleteVadBitmap(_QWORD *BugCheckParameter2)

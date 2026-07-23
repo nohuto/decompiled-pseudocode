@@ -1,14 +1,14 @@
 /*
- * XREFs of PopFxDeactivateComponentDependencies @ 0x14027B544
+ * XREFs of PopFxDeactivateComponentDependencies @ 0x140230AD4
  * Callers:
- *     PopFxIdleWorkerTail @ 0x1404EB37C (PopFxIdleWorkerTail.c)
+ *     PopFxIdleWorkerTail @ 0x1404E22FC (PopFxIdleWorkerTail.c)
  * Callees:
- *     KxAcquireSpinLock @ 0x140254AE0 (KxAcquireSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     KxReleaseSpinLock @ 0x140279CC0 (KxReleaseSpinLock.c)
- *     PopFxIdleComponent @ 0x1403B4888 (PopFxIdleComponent.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KxReleaseSpinLock @ 0x14022F250 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x1402850F0 (KxAcquireSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PopFxIdleComponent @ 0x1403A8D58 (PopFxIdleComponent.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PopFxDeactivateComponentDependencies(__int64 a1)

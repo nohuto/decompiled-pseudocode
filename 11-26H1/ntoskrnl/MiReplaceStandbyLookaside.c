@@ -1,15 +1,15 @@
 /*
- * XREFs of MiReplaceStandbyLookaside @ 0x1402FBC30
+ * XREFs of MiReplaceStandbyLookaside @ 0x1402DDCB0
  * Callers:
- *     MiSwapNumaStandbyPage @ 0x1402C8D30 (MiSwapNumaStandbyPage.c)
- *     MiUnlinkSingleBatchPage @ 0x1402F80B0 (MiUnlinkSingleBatchPage.c)
- *     MiRemoveLowestPriorityStandbyPage @ 0x1402FA410 (MiRemoveLowestPriorityStandbyPage.c)
- *     MiReplaceTransitionPageInList @ 0x1402FC830 (MiReplaceTransitionPageInList.c)
+ *     MiSwapNumaStandbyPage @ 0x1402AAAF0 (MiSwapNumaStandbyPage.c)
+ *     MiUnlinkSingleBatchPage @ 0x1402DA130 (MiUnlinkSingleBatchPage.c)
+ *     MiRemoveLowestPriorityStandbyPage @ 0x1402DC490 (MiRemoveLowestPriorityStandbyPage.c)
+ *     MiReplaceTransitionPageInList @ 0x1402DE8B0 (MiReplaceTransitionPageInList.c)
  * Callees:
- *     MiSearchChannelTable @ 0x1402CBEE8 (MiSearchChannelTable.c)
- *     MiFindSuitableLookasideReplacement @ 0x1402FC2A0 (MiFindSuitableLookasideReplacement.c)
- *     MiGetPfnSlabType @ 0x1402FDC40 (MiGetPfnSlabType.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     MiSearchChannelTable @ 0x1402ADCA8 (MiSearchChannelTable.c)
+ *     MiFindSuitableLookasideReplacement @ 0x1402DE320 (MiFindSuitableLookasideReplacement.c)
+ *     MiGetPfnSlabType @ 0x1402DFCC0 (MiGetPfnSlabType.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 ULONG_PTR __fastcall MiReplaceStandbyLookaside(ULONG_PTR BugCheckParameter2, ULONG_PTR a2, int a3, int a4)
@@ -56,7 +56,7 @@ ULONG_PTR __fastcall MiReplaceStandbyLookaside(ULONG_PTR BugCheckParameter2, ULO
   v5 = a4;
   v6 = 48 * BugCheckParameter2;
   v9 = 48 * BugCheckParameter2 - 0x220000000000LL;
-  if ( BugCheckParameter2 < qword_140E347B0 || BugCheckParameter2 >= qword_140E347B0 + 2048 )
+  if ( BugCheckParameter2 < qword_140E34930 || BugCheckParameter2 >= qword_140E34930 + 2048 )
   {
     result = *(_QWORD *)(v6 - 0x21FFFFFFFFF0LL);
     if ( (result & 0x400) != 0 )
@@ -69,12 +69,12 @@ ULONG_PTR __fastcall MiReplaceStandbyLookaside(ULONG_PTR BugCheckParameter2, ULO
       return result;
     }
   }
-  v11 = dword_140E2D684;
-  v12 = *(_QWORD *)(stru_140E2EB88.ThreadLock + 8 * ((*(_QWORD *)(v9 + 40) >> 43) & 0x3FFLL));
+  v11 = dword_140E2D804;
+  v12 = *(_QWORD *)(stru_140E2ED08.ThreadLock + 8 * ((*(_QWORD *)(v9 + 40) >> 43) & 0x3FFLL));
   v41 = v12;
-  if ( dword_140E2D680 > (unsigned int)dword_140E2D684
-    || (v13 = (char *)qword_140E2D6E0 + 16 * dword_140E2D680, BugCheckParameter2 < *(_QWORD *)v13)
-    || dword_140E2D680 != dword_140E2D684 && BugCheckParameter2 >= *((_QWORD *)v13 + 2) )
+  if ( dword_140E2D800 > (unsigned int)dword_140E2D804
+    || (v13 = (char *)qword_140E2D860 + 16 * dword_140E2D800, BugCheckParameter2 < *(_QWORD *)v13)
+    || dword_140E2D800 != dword_140E2D804 && BugCheckParameter2 >= *((_QWORD *)v13 + 2) )
   {
     for ( i = 0; ; i = v36 + 1 )
     {
@@ -83,17 +83,17 @@ ULONG_PTR __fastcall MiReplaceStandbyLookaside(ULONG_PTR BugCheckParameter2, ULO
         if ( v11 < i )
           KeBugCheckEx(0x1Au, 0x5180uLL, BugCheckParameter2, 0LL, 0LL);
         v36 = (i + v11) >> 1;
-        v13 = (char *)qword_140E2D6E0 + 16 * v36;
+        v13 = (char *)qword_140E2D860 + 16 * v36;
         if ( BugCheckParameter2 >= *(_QWORD *)v13 )
           break;
         if ( !v36 )
-          KeBugCheckEx(0x1Au, 0x5180uLL, BugCheckParameter2, (ULONG_PTR)qword_140E2D6E0, 0LL);
+          KeBugCheckEx(0x1Au, 0x5180uLL, BugCheckParameter2, (ULONG_PTR)qword_140E2D860, 0LL);
         v11 = v36 - 1;
       }
-      if ( v36 == dword_140E2D684 || BugCheckParameter2 < *((_QWORD *)v13 + 2) )
+      if ( v36 == dword_140E2D804 || BugCheckParameter2 < *((_QWORD *)v13 + 2) )
         break;
     }
-    dword_140E2D680 = (i + v11) >> 1;
+    dword_140E2D800 = (i + v11) >> 1;
   }
   v14 = *((unsigned int *)v13 + 2);
   v15 = *(_DWORD *)(v9 + 32);
@@ -102,8 +102,8 @@ ULONG_PTR __fastcall MiReplaceStandbyLookaside(ULONG_PTR BugCheckParameter2, ULO
   if ( (*(_DWORD *)(v9 + 32) & 0x8000000) == 0 )
     goto LABEL_11;
   if ( v9 < 0xFFFFDE0000000000uLL
-    || v9 >= 48 * qword_140E2D7A0 - 0x21FFFFFFFFD0LL
-    || v6 / 48 >= qword_140E347B0 && v6 / 48 < qword_140E347B0 + 2048 )
+    || v9 >= 48 * qword_140E2D920 - 0x21FFFFFFFFD0LL
+    || v6 / 48 >= qword_140E34930 && v6 / 48 < qword_140E34930 + 2048 )
   {
 LABEL_90:
     v16 = 5;
@@ -118,7 +118,7 @@ LABEL_11:
   v16 = HIBYTE(v15) & 7;
 LABEL_12:
   v40 = v16;
-  if ( qword_140E2D6E8 )
+  if ( qword_140E2D868 )
   {
     v38 = MiSearchChannelTable(BugCheckParameter2);
     v5 = a4;
@@ -133,7 +133,7 @@ LABEL_12:
   if ( (int)v4 < 9 )
   {
     if ( (_DWORD)v4 == 8 )
-      v18 = *(_BYTE *)(qword_140E3D0C0 + 2 * ((unsigned __int64)(v6 / 48) >> 9) + 1) & 0x7F;
+      v18 = *(_BYTE *)(qword_140E3D240 + 2 * ((unsigned __int64)(v6 / 48) >> 9) + 1) & 0x7F;
     else
       v18 = 0;
   }
@@ -191,7 +191,7 @@ LABEL_22:
       *(_QWORD *)(v21 + 8 * v22) = a2;
       if ( v24 != -1LL )
       {
-        if ( v24 < qword_140E347B0 || (result = qword_140E347B0 + 2048, v24 >= qword_140E347B0 + 2048) )
+        if ( v24 < qword_140E34930 || (result = qword_140E34930 + 2048, v24 >= qword_140E34930 + 2048) )
         {
           v25 = 6 * v24;
           v26 = *(_QWORD *)(48 * v24 - 0x21FFFFFFFFF0LL);
@@ -199,10 +199,10 @@ LABEL_22:
           if ( (v26 & 0x400) == 0 )
             v27 = -268435457LL;
           v28 = v26 & v27;
-          v29 = dword_140E2D684;
-          if ( dword_140E2D680 > (unsigned int)dword_140E2D684
-            || v24 < *((_QWORD *)qword_140E2D6E0 + 2 * dword_140E2D680)
-            || dword_140E2D680 != dword_140E2D684 && v24 >= *((_QWORD *)qword_140E2D6E0 + 2 * dword_140E2D680 + 2) )
+          v29 = dword_140E2D804;
+          if ( dword_140E2D800 > (unsigned int)dword_140E2D804
+            || v24 < *((_QWORD *)qword_140E2D860 + 2 * dword_140E2D800)
+            || dword_140E2D800 != dword_140E2D804 && v24 >= *((_QWORD *)qword_140E2D860 + 2 * dword_140E2D800 + 2) )
           {
             for ( j = 0; ; j = v33 + 1 )
             {
@@ -212,18 +212,18 @@ LABEL_22:
                   KeBugCheckEx(0x1Au, 0x5180uLL, v24, 0LL, 0LL);
                 v33 = (j + v29) >> 1;
                 v34 = 16LL * v33;
-                if ( v24 >= *(_QWORD *)((char *)qword_140E2D6E0 + v34) )
+                if ( v24 >= *(_QWORD *)((char *)qword_140E2D860 + v34) )
                   break;
                 if ( !v33 )
-                  KeBugCheckEx(0x1Au, 0x5180uLL, v24, (ULONG_PTR)qword_140E2D6E0 + v34, 0LL);
+                  KeBugCheckEx(0x1Au, 0x5180uLL, v24, (ULONG_PTR)qword_140E2D860 + v34, 0LL);
                 v29 = v33 - 1;
               }
-              if ( v33 == dword_140E2D684 || v24 < *(_QWORD *)((char *)qword_140E2D6E0 + v34 + 16) )
+              if ( v33 == dword_140E2D804 || v24 < *(_QWORD *)((char *)qword_140E2D860 + v34 + 16) )
                 break;
             }
-            dword_140E2D680 = (j + v29) >> 1;
+            dword_140E2D800 = (j + v29) >> 1;
           }
-          if ( qword_140E2D6E8 )
+          if ( qword_140E2D868 )
             MiSearchChannelTable(v24);
           result = 0xFFFFDE0000000010uLL;
           *(_QWORD *)(8 * v25 - 0x21FFFFFFFFF0LL) = v28;
@@ -231,7 +231,7 @@ LABEL_22:
       }
       if ( a2 != -1LL )
       {
-        if ( a2 < qword_140E347B0 || (result = qword_140E347B0 + 2048, a2 >= qword_140E347B0 + 2048) )
+        if ( a2 < qword_140E34930 || (result = qword_140E34930 + 2048, a2 >= qword_140E34930 + 2048) )
         {
           v30 = *(_QWORD *)(48 * a2 - 0x21FFFFFFFFF0LL);
           v31 = 8LL;

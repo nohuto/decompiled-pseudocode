@@ -1,27 +1,27 @@
 /*
- * XREFs of MmAdjustWorkingSetSizeEx @ 0x14013C064
+ * XREFs of MmAdjustWorkingSetSizeEx @ 0x14013C164
  * Callers:
- *     MmAdjustWorkingSetSize @ 0x14018ED30 (MmAdjustWorkingSetSize.c)
- *     SmKmVirtualLockContextIncreaseWsMin @ 0x140307AF8 (SmKmVirtualLockContextIncreaseWsMin.c)
- *     SmKmVirtualLockCtxMemoryUnlocked @ 0x140307EDC (SmKmVirtualLockCtxMemoryUnlocked.c)
- *     NtSetSystemInformation @ 0x140663DF0 (NtSetSystemInformation.c)
- *     PspSetQuotaLimits @ 0x1406D10F8 (PspSetQuotaLimits.c)
+ *     MmAdjustWorkingSetSize @ 0x14018EE70 (MmAdjustWorkingSetSize.c)
+ *     SmKmVirtualLockContextIncreaseWsMin @ 0x140307CE8 (SmKmVirtualLockContextIncreaseWsMin.c)
+ *     SmKmVirtualLockCtxMemoryUnlocked @ 0x1403080CC (SmKmVirtualLockCtxMemoryUnlocked.c)
+ *     NtSetSystemInformation @ 0x140664FB0 (NtSetSystemInformation.c)
+ *     PspSetQuotaLimits @ 0x1406D2398 (PspSetQuotaLimits.c)
  * Callees:
  *     MiReturnResidentAvailable @ 0x140022D18 (MiReturnResidentAvailable.c)
  *     MiGetAnyMultiplexedVm @ 0x140028884 (MiGetAnyMultiplexedVm.c)
  *     MiChargeResident @ 0x14002DF50 (MiChargeResident.c)
- *     MiUnlockWorkingSetExclusive @ 0x140063CE0 (MiUnlockWorkingSetExclusive.c)
- *     MiGetSharedVm @ 0x140064D30 (MiGetSharedVm.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14007B720 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     PsReturnProcessQuota @ 0x140091888 (PsReturnProcessQuota.c)
- *     KxAcquireQueuedSpinLock @ 0x1400AC9B0 (KxAcquireQueuedSpinLock.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     MiGetCurrentMultiplexedVm @ 0x1400EF4E4 (MiGetCurrentMultiplexedVm.c)
- *     MiCheckWsLimits @ 0x14013C2F8 (MiCheckWsLimits.c)
- *     PsChargeProcessQuota @ 0x14013DA78 (PsChargeProcessQuota.c)
- *     MiEmptyWorkingSetInitiate @ 0x140142220 (MiEmptyWorkingSetInitiate.c)
+ *     MiUnlockWorkingSetExclusive @ 0x140063CD0 (MiUnlockWorkingSetExclusive.c)
+ *     MiGetSharedVm @ 0x140064D20 (MiGetSharedVm.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14007B710 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     PsReturnProcessQuota @ 0x1400917C8 (PsReturnProcessQuota.c)
+ *     KxAcquireQueuedSpinLock @ 0x1400AC8F0 (KxAcquireQueuedSpinLock.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC420 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC5A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     MiGetCurrentMultiplexedVm @ 0x1400EF564 (MiGetCurrentMultiplexedVm.c)
+ *     MiCheckWsLimits @ 0x14013C3F8 (MiCheckWsLimits.c)
+ *     PsChargeProcessQuota @ 0x14013DB78 (PsChargeProcessQuota.c)
+ *     MiEmptyWorkingSetInitiate @ 0x140142320 (MiEmptyWorkingSetInitiate.c)
  */
 
 __int64 __fastcall MmAdjustWorkingSetSizeEx(
@@ -70,7 +70,7 @@ __int64 __fastcall MmAdjustWorkingSetSizeEx(
 LABEL_3:
     if ( a1 == -1LL && a2 == -1LL )
       return MiEmptyWorkingSetInitiate(CurrentMultiplexedVm, 0LL, 0LL, -1LL);
-    v11 = *(_QWORD *)(qword_14043A748 + 8LL * *(unsigned __int16 *)(CurrentMultiplexedVm + 174));
+    v11 = *(_QWORD *)(qword_14043B808 + 8LL * *(unsigned __int16 *)(CurrentMultiplexedVm + 174));
     SharedVm = MiGetSharedVm(CurrentMultiplexedVm);
     v13 = ExAcquireSpinLockExclusive(SharedVm);
     SharedVm[1] = 0;
@@ -180,8 +180,8 @@ LABEL_29:
     }
     v24 = 0;
     v35[0] = 0LL;
-    v35[1] = (volatile signed __int64 *)&qword_14043AE80;
-    KxAcquireQueuedSpinLock((__int64)v35, (volatile __int64 *)&qword_14043AE80, v18);
+    v35[1] = (volatile signed __int64 *)&qword_14043BF40;
+    KxAcquireQueuedSpinLock((__int64)v35, (volatile __int64 *)&qword_14043BF40, v18);
     v25 = *(_DWORD *)(CurrentMultiplexedVm + 184);
     v38 = v25;
     if ( (a5 & 4) != 0 )

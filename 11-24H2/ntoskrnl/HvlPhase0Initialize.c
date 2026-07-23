@@ -1,18 +1,18 @@
 /*
- * XREFs of HvlPhase0Initialize @ 0x14070E848
+ * XREFs of HvlPhase0Initialize @ 0x14070C3D8
  * Callers:
- *     KiInitializeKernel @ 0x140B588B0 (KiInitializeKernel.c)
+ *     KiInitializeKernel @ 0x140B5A930 (KiInitializeKernel.c)
  * Callees:
- *     HvlQueryConnection @ 0x140461030 (HvlQueryConnection.c)
- *     PdcCreateWatchdogAroundClientCall @ 0x140484160 (PdcCreateWatchdogAroundClientCall.c)
- *     HviIsAnyHypervisorPresent @ 0x1404A37D0 (HviIsAnyHypervisorPresent.c)
- *     strstr @ 0x1404FD9B0 (strstr.c)
- *     HvlpInitializeBootProcessor @ 0x140584624 (HvlpInitializeBootProcessor.c)
- *     HvlpSetupBootProcessorEarlyHypercallPages @ 0x14058548C (HvlpSetupBootProcessorEarlyHypercallPages.c)
- *     HvlpTryConfigureInterface @ 0x14058B81C (HvlpTryConfigureInterface.c)
- *     HvlpDetermineEnlightenments @ 0x14058B9FC (HvlpDetermineEnlightenments.c)
- *     HvlpPhase0Enlightenments @ 0x14058BF18 (HvlpPhase0Enlightenments.c)
- *     HviGetHypervisorVersion @ 0x140663B40 (HviGetHypervisorVersion.c)
+ *     HvlQueryConnection @ 0x1404564C0 (HvlQueryConnection.c)
+ *     PdcCreateWatchdogAroundClientCall @ 0x14047F700 (PdcCreateWatchdogAroundClientCall.c)
+ *     HviIsAnyHypervisorPresent @ 0x14049E730 (HviIsAnyHypervisorPresent.c)
+ *     strstr @ 0x1404FB270 (strstr.c)
+ *     HvlpInitializeBootProcessor @ 0x1405819A4 (HvlpInitializeBootProcessor.c)
+ *     HvlpSetupBootProcessorEarlyHypercallPages @ 0x14058280C (HvlpSetupBootProcessorEarlyHypercallPages.c)
+ *     HvlpTryConfigureInterface @ 0x140588B0C (HvlpTryConfigureInterface.c)
+ *     HvlpDetermineEnlightenments @ 0x140588CEC (HvlpDetermineEnlightenments.c)
+ *     HvlpPhase0Enlightenments @ 0x140589208 (HvlpPhase0Enlightenments.c)
+ *     HviGetHypervisorVersion @ 0x140662430 (HviGetHypervisorVersion.c)
  */
 
 __int64 __fastcall HvlPhase0Initialize(__int64 a1)

@@ -7,8 +7,8 @@
  *     VfZwReadFile @ 0x1407200A8 (VfZwReadFile.c)
  *     VfZwWriteFile @ 0x140720BC4 (VfZwWriteFile.c)
  * Callees:
- *     KeAreAllApcsDisabled @ 0x14004F260 (KeAreAllApcsDisabled.c)
- *     VerifierBugCheckIfAppropriate @ 0x14070C2E8 (VerifierBugCheckIfAppropriate.c)
+ *     KeAreAllApcsDisabled @ 0x14004EDE0 (KeAreAllApcsDisabled.c)
+ *     VerifierBugCheckIfAppropriate @ 0x14070C318 (VerifierBugCheckIfAppropriate.c)
  */
 
 BOOLEAN __fastcall ViZwCheckApcRequirement(ULONG_PTR a1)

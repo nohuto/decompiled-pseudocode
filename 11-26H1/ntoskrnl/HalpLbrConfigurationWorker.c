@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpLbrConfigurationWorker @ 0x1407876A8
+ * XREFs of HalpLbrConfigurationWorker @ 0x14078A1D8
  * Callers:
- *     HalpLbrConfigureRecording @ 0x1407877B0 (HalpLbrConfigureRecording.c)
- *     HalpLbrStartRecording @ 0x1407877F0 (HalpLbrStartRecording.c)
- *     HalpLbrStopRecording @ 0x140787900 (HalpLbrStopRecording.c)
+ *     HalpLbrConfigureRecording @ 0x14078A2E0 (HalpLbrConfigureRecording.c)
+ *     HalpLbrStartRecording @ 0x14078A320 (HalpLbrStartRecording.c)
+ *     HalpLbrStopRecording @ 0x14078A430 (HalpLbrStopRecording.c)
  * Callees:
- *     KeQueryActiveProcessorCountEx @ 0x140211EA0 (KeQueryActiveProcessorCountEx.c)
- *     KeIpiGenericCall @ 0x1404AAD60 (KeIpiGenericCall.c)
+ *     KeQueryActiveProcessorCountEx @ 0x140211F80 (KeQueryActiveProcessorCountEx.c)
+ *     KeIpiGenericCall @ 0x1404A43F0 (KeIpiGenericCall.c)
  */
 
 __int64 __fastcall HalpLbrConfigurationWorker(int a1, unsigned __int8 a2)
@@ -25,11 +25,11 @@ __int64 __fastcall HalpLbrConfigurationWorker(int a1, unsigned __int8 a2)
   __int64 result; // rax
 
   v3 = a2;
-  dword_140F8765C = KeQueryActiveProcessorCountEx(0xFFFFu);
+  dword_140F87A3C = KeQueryActiveProcessorCountEx(0xFFFFu);
   v4 = a1 | 0x1C4;
   if ( (a1 & 0x200) == 0 )
     v4 = a1;
-  if ( dword_140F87664 == 2 )
+  if ( dword_140F87A40 == 2 )
   {
     v5 = (2 * ((v4 & 1) == 0) + 8323084) & 0xFFFFFFFB;
     if ( (v4 & 2) == 0 )
@@ -58,17 +58,17 @@ __int64 __fastcall HalpLbrConfigurationWorker(int a1, unsigned __int8 a2)
     v13 = v12 & 0xFFFFFFF7;
     if ( (v4 & 0x200) != 0 )
       v13 = v12;
-    dword_140F8764C = v13;
+    dword_140F87A38 = v13;
   }
   else
   {
-    dword_140F87648 = v4;
+    dword_140F87A28 = v4;
   }
   KeIpiGenericCall((PKIPI_BROADCAST_WORKER)HalpLbrConfigureProcessor, v3);
   while ( 1 )
   {
-    result = (unsigned int)dword_140F8765C;
-    if ( dword_140F8765C <= 0 )
+    result = (unsigned int)dword_140F87A3C;
+    if ( dword_140F87A3C <= 0 )
       break;
     _mm_pause();
   }

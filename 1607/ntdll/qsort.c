@@ -1,12 +1,12 @@
 /*
- * XREFs of qsort @ 0x18009A780
+ * XREFs of qsort @ 0x18009A770
  * Callers:
- *     RtlSetProtectedPolicy @ 0x180083130 (RtlSetProtectedPolicy.c)
+ *     RtlSetProtectedPolicy @ 0x180083120 (RtlSetProtectedPolicy.c)
  * Callees:
- *     _invalid_parameter @ 0x180096B68 (_invalid_parameter.c)
- *     __security_check_cookie @ 0x180096C40 (__security_check_cookie.c)
- *     shortsort @ 0x18009AAA0 (shortsort.c)
- *     _guard_check_icall @ 0x18009D0E0 (_guard_check_icall.c)
+ *     _invalid_parameter @ 0x180096B58 (_invalid_parameter.c)
+ *     __security_check_cookie @ 0x180096C30 (__security_check_cookie.c)
+ *     shortsort @ 0x18009AA90 (shortsort.c)
+ *     _guard_check_icall @ 0x18009D0D0 (_guard_check_icall.c)
  */
 
 void __cdecl qsort(

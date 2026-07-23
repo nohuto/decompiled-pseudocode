@@ -1,14 +1,14 @@
 /*
- * XREFs of _PnpDeviceRaisePropertyChangeEventWorker @ 0x1407461B0
+ * XREFs of _PnpDeviceRaisePropertyChangeEventWorker @ 0x140746370
  * Callers:
- *     _PnpObjectRaisePropertyChangeEvent @ 0x1407460B4 (_PnpObjectRaisePropertyChangeEvent.c)
+ *     _PnpObjectRaisePropertyChangeEvent @ 0x140746274 (_PnpObjectRaisePropertyChangeEvent.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     RtlCompareMemory @ 0x1404081B0 (RtlCompareMemory.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     _PnpGetObjectProperty @ 0x140637B7C (_PnpGetObjectProperty.c)
- *     _PnpStringFromGuid @ 0x140638420 (_PnpStringFromGuid.c)
- *     _CmGetMatchingFilteredDeviceInterfaceList @ 0x1406B1B50 (_CmGetMatchingFilteredDeviceInterfaceList.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     RtlCompareMemory @ 0x140408390 (RtlCompareMemory.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     _CmGetMatchingFilteredDeviceInterfaceList @ 0x140610B90 (_CmGetMatchingFilteredDeviceInterfaceList.c)
+ *     _PnpGetObjectProperty @ 0x14062C98C (_PnpGetObjectProperty.c)
+ *     _PnpStringFromGuid @ 0x14062D230 (_PnpStringFromGuid.c)
  */
 
 char __fastcall PnpDeviceRaisePropertyChangeEventWorker(
@@ -101,7 +101,7 @@ LABEL_69:
   *(_QWORD *)&v43[16] = a5;
   a6(a1, a2, 1LL);
   v12 = v45;
-  v13 = &qword_140005228;
+  v13 = &qword_140004E88;
   v14 = 12LL;
   do
   {
@@ -131,7 +131,7 @@ LABEL_9:
     --v14;
   }
   while ( v14 );
-  v17 = &off_1400051C0;
+  v17 = &off_140004E20;
   v18 = 0;
   while ( 1 )
   {
@@ -184,7 +184,7 @@ LABEL_16:
       goto LABEL_19;
     if ( ObjectProperty < 0 )
       goto LABEL_70;
-    if ( RtlCompareMemory(qword_14000B920, Source2, 0x10uLL) == 16 )
+    if ( RtlCompareMemory(qword_14000B7C0, Source2, 0x10uLL) == 16 )
       goto LABEL_19;
     if ( PnpStringFromGuid(Source2, v50) < 0 )
     {
@@ -200,7 +200,7 @@ LABEL_70:
     }
     if ( v22 )
     {
-      v34 = &qword_1400051C8;
+      v34 = &qword_140004E28;
       *(_OWORD *)v43 = 0LL;
       v35 = 3LL;
       do
@@ -239,7 +239,7 @@ LABEL_52:
   }
 LABEL_19:
   v24 = 0;
-  v25 = &off_140005208;
+  v25 = &off_140004E68;
   while ( 1 )
   {
     v26 = *((_DWORD *)v25 + 2);
@@ -279,7 +279,7 @@ LABEL_25:
     if ( (_BYTE)MatchingFilteredDeviceInterfaceList )
     {
       *((_QWORD *)&v47 + 1) = a5;
-      *(_QWORD *)&v48 = &off_140005208;
+      *(_QWORD *)&v48 = &off_140004E68;
       DWORD2(v48) = 1;
     }
     MatchingFilteredDeviceInterfaceList = CmGetMatchingFilteredDeviceInterfaceList(

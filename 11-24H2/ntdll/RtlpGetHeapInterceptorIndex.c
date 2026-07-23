@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpGetHeapInterceptorIndex @ 0x18011D844
+ * XREFs of RtlpGetHeapInterceptorIndex @ 0x18011BA74
  * Callers:
- *     RtlpHpHeapCreate @ 0x1800A6374 (RtlpHpHeapCreate.c)
- *     RtlpCreateHeap @ 0x1800A7550 (RtlpCreateHeap.c)
- *     RtlpSetHeapDebuggingInformation @ 0x180142AE0 (RtlpSetHeapDebuggingInformation.c)
+ *     RtlpCreateHeap @ 0x1800248B0 (RtlpCreateHeap.c)
+ *     RtlpHpHeapCreate @ 0x180026120 (RtlpHpHeapCreate.c)
+ *     RtlpSetHeapDebuggingInformation @ 0x180140E90 (RtlpSetHeapDebuggingInformation.c)
  * Callees:
  *     <none>
  */

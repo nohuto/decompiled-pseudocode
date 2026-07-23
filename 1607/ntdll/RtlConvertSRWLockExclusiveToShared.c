@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlConvertSRWLockExclusiveToShared @ 0x1800E12D0
+ * XREFs of RtlConvertSRWLockExclusiveToShared @ 0x1800E1390
  * Callers:
  *     <none>
  * Callees:
- *     RtlpWakeSRWLock @ 0x1800761DC (RtlpWakeSRWLock.c)
+ *     RtlpWakeSRWLock @ 0x1800761CC (RtlpWakeSRWLock.c)
  *     RtlRaiseStatus @ 0x1800A5DE0 (RtlRaiseStatus.c)
  */
 

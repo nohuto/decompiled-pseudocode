@@ -1,17 +1,17 @@
 /*
- * XREFs of PfSnQueryPrefetcherInformation @ 0x140AF7B7C
+ * XREFs of PfSnQueryPrefetcherInformation @ 0x140AFA21C
  * Callers:
- *     ExpQuerySystemInformation @ 0x140B145DC (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x140B169CC (ExpQuerySystemInformation.c)
  * Callees:
- *     PfLockSharedAcquire @ 0x1404B2990 (PfLockSharedAcquire.c)
- *     PfLockSharedRelease @ 0x1404B5064 (PfLockSharedRelease.c)
- *     RtlCopyFromUser @ 0x140533E38 (RtlCopyFromUser.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     RtlCopyToUser @ 0x14077F284 (RtlCopyToUser.c)
- *     ProbeForWrite @ 0x1408F5D00 (ProbeForWrite.c)
- *     SeSinglePrivilegeCheck @ 0x140932280 (SeSinglePrivilegeCheck.c)
- *     PfSnGetCompletedTrace @ 0x140AF7C90 (PfSnGetCompletedTrace.c)
+ *     PfLockSharedAcquire @ 0x1404ABEA0 (PfLockSharedAcquire.c)
+ *     PfLockSharedRelease @ 0x1404AE4B4 (PfLockSharedRelease.c)
+ *     RtlCopyFromUser @ 0x1405362B8 (RtlCopyFromUser.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     RtlCopyToUser @ 0x140781D84 (RtlCopyToUser.c)
+ *     SeSinglePrivilegeCheck @ 0x14090DE50 (SeSinglePrivilegeCheck.c)
+ *     ProbeForWrite @ 0x140925C90 (ProbeForWrite.c)
+ *     PfSnGetCompletedTrace @ 0x140AFA330 (PfSnGetCompletedTrace.c)
  */
 
 __int64 __fastcall PfSnQueryPrefetcherInformation(__int64 a1, void *a2, int a3, KPROCESSOR_MODE a4, _DWORD *a5)
@@ -50,9 +50,9 @@ __int64 __fastcall PfSnQueryPrefetcherInformation(__int64 a1, void *a2, int a3, 
     return (unsigned int)-1073741821;
   if ( LODWORD(Address[1]) != 408 )
     return (unsigned int)-1073741811;
-  PfLockSharedAcquire((volatile signed __int64 *)&stru_140E66B30.ForegroundLossTime, v9, v10, v11);
+  PfLockSharedAcquire((volatile signed __int64 *)&stru_140E66D40.ForegroundLossTime, v9, v10, v11);
   v13 = (LIST_ENTRY *)Src;
-  v14 = &stru_140E66B30.WaitBlock[3];
+  v14 = &stru_140E66D40.WaitBlock[3];
   v15 = 3LL;
   do
   {
@@ -71,7 +71,7 @@ __int64 __fastcall PfSnQueryPrefetcherInformation(__int64 a1, void *a2, int a3, 
   while ( v15 );
   *v13 = v14->WaitListEntry;
   v13[1].Flink = *(struct _LIST_ENTRY **)&v14->WaitType;
-  PfLockSharedRelease((struct _KTHREAD *)&stru_140E66B30.ForegroundLossTime);
+  PfLockSharedRelease((struct _KTHREAD *)&stru_140E66D40.ForegroundLossTime);
   if ( a4 )
   {
     ProbeForWrite(Address[0], 0x198uLL, 8u);

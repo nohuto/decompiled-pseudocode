@@ -1,11 +1,11 @@
 /*
- * XREFs of A_SHAInit @ 0x180119BF0
+ * XREFs of A_SHAInit @ 0x180117E20
  * Callers:
  *     <none>
  * Callees:
- *     SymCryptWipeAsm @ 0x180131590 (SymCryptWipeAsm.c)
- *     SymCryptSha1Init @ 0x18015A0D0 (SymCryptSha1Init.c)
- *     __security_check_cookie @ 0x1801659C0 (__security_check_cookie.c)
+ *     SymCryptWipeAsm @ 0x18012F7C0 (SymCryptWipeAsm.c)
+ *     SymCryptSha1Init @ 0x180158490 (SymCryptSha1Init.c)
+ *     __security_check_cookie @ 0x180163D80 (__security_check_cookie.c)
  */
 
 __int64 __fastcall A_SHAInit(__int64 a1)

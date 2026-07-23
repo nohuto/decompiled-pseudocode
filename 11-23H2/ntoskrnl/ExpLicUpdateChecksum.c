@@ -1,9 +1,9 @@
 /*
- * XREFs of ExpLicUpdateChecksum @ 0x1406091C8
+ * XREFs of ExpLicUpdateChecksum @ 0x140609718
  * Callers:
- *     ExpGetLicenseTamperState @ 0x14060905C (ExpGetLicenseTamperState.c)
- *     sub_1409F9A40 @ 0x1409F9A40 (sub_1409F9A40.c)
- *     SLUpdateLicenseDataInternal @ 0x1409FA694 (SLUpdateLicenseDataInternal.c)
+ *     ExpGetLicenseTamperState @ 0x1406095AC (ExpGetLicenseTamperState.c)
+ *     sub_1409F9CD0 @ 0x1409F9CD0 (sub_1409F9CD0.c)
+ *     SLUpdateLicenseDataInternal @ 0x1409FA924 (SLUpdateLicenseDataInternal.c)
  * Callees:
  *     <none>
  */

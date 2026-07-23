@@ -1,27 +1,27 @@
 /*
- * XREFs of MiDeleteVa @ 0x140322AC0
+ * XREFs of MiDeleteVa @ 0x140324AF0
  * Callers:
  *     <none>
  * Callees:
- *     MiLockNestedPageTable @ 0x14029EBE0 (MiLockNestedPageTable.c)
- *     MiUnlockPageTableInternal @ 0x1402D13E0 (MiUnlockPageTableInternal.c)
- *     MiGetPagePrivilege @ 0x1402F9878 (MiGetPagePrivilege.c)
- *     MiPteHasShadow @ 0x1403011E0 (MiPteHasShadow.c)
- *     MiDeleteRotateVa @ 0x140312450 (MiDeleteRotateVa.c)
- *     MiLogPageAccess @ 0x140320930 (MiLogPageAccess.c)
- *     MiGetProcessorFlushList @ 0x1403229E0 (MiGetProcessorFlushList.c)
- *     MiDecommitAddToList @ 0x140323520 (MiDecommitAddToList.c)
- *     MiDecommitHandleTransitionPte @ 0x14033DDD4 (MiDecommitHandleTransitionPte.c)
- *     MiDecommitLargePte @ 0x14033EDBC (MiDecommitLargePte.c)
- *     MiDecommitAddTbFlushEntries @ 0x140342738 (MiDecommitAddTbFlushEntries.c)
- *     MiInitializeTbFlushList @ 0x140360920 (MiInitializeTbFlushList.c)
- *     MiDecommitHandlePageFileFormatPte @ 0x140360BD0 (MiDecommitHandlePageFileFormatPte.c)
- *     MiDecommitHandleProtoFormatPte @ 0x140360F60 (MiDecommitHandleProtoFormatPte.c)
- *     MiReturnPagedPoolLockCharge @ 0x14043CF44 (MiReturnPagedPoolLockCharge.c)
- *     MiDeleteLargeUserPde @ 0x140477A60 (MiDeleteLargeUserPde.c)
- *     MiDeleteVadAwePtes @ 0x140477BFC (MiDeleteVadAwePtes.c)
- *     MiIsLazyStampedPte @ 0x1404893A8 (MiIsLazyStampedPte.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     MiLockNestedPageTable @ 0x14029E130 (MiLockNestedPageTable.c)
+ *     MiUnlockPageTableInternal @ 0x1402B31A0 (MiUnlockPageTableInternal.c)
+ *     MiGetPagePrivilege @ 0x1402DB8F8 (MiGetPagePrivilege.c)
+ *     MiPteHasShadow @ 0x1402E3260 (MiPteHasShadow.c)
+ *     MiDeleteRotateVa @ 0x140314480 (MiDeleteRotateVa.c)
+ *     MiLogPageAccess @ 0x140322960 (MiLogPageAccess.c)
+ *     MiGetProcessorFlushList @ 0x140324A10 (MiGetProcessorFlushList.c)
+ *     MiDecommitAddToList @ 0x140325550 (MiDecommitAddToList.c)
+ *     MiDecommitHandleTransitionPte @ 0x14033FE54 (MiDecommitHandleTransitionPte.c)
+ *     MiDecommitLargePte @ 0x140340E3C (MiDecommitLargePte.c)
+ *     MiDecommitAddTbFlushEntries @ 0x1403447B8 (MiDecommitAddTbFlushEntries.c)
+ *     MiInitializeTbFlushList @ 0x1403626C0 (MiInitializeTbFlushList.c)
+ *     MiDecommitHandlePageFileFormatPte @ 0x140362970 (MiDecommitHandlePageFileFormatPte.c)
+ *     MiDecommitHandleProtoFormatPte @ 0x140362D00 (MiDecommitHandleProtoFormatPte.c)
+ *     MiReturnPagedPoolLockCharge @ 0x14042F7F4 (MiReturnPagedPoolLockCharge.c)
+ *     MiDeleteLargeUserPde @ 0x1404711E0 (MiDeleteLargeUserPde.c)
+ *     MiDeleteVadAwePtes @ 0x14047137C (MiDeleteVadAwePtes.c)
+ *     MiIsLazyStampedPte @ 0x140482EE8 (MiIsLazyStampedPte.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiDeleteVa(__int64 a1, unsigned __int64 KernelWaitTime, __int64 a3)
@@ -180,9 +180,9 @@ __int64 __fastcall MiDeleteVa(__int64 a1, unsigned __int64 KernelWaitTime, __int
     MmInternal = (__int64 *)CurrentPrcb->MmInternal;
     if ( !MmInternal )
     {
-      dword_141031C94 = 512;
+      dword_141032C94 = 512;
       MmInternal = MxTempPrcb;
-      dword_14102EE18 = 1;
+      dword_14102FE18 = 1;
     }
     v32 = *((unsigned int *)MmInternal + 85);
     if ( (_DWORD)v32 == *((_DWORD *)MmInternal + 86) )
@@ -318,7 +318,7 @@ LABEL_63:
         goto LABEL_55;
       v4 = 0xFFFFFFFFFFLL;
       v17 = (v12 >> 12) & 0xFFFFFFFFFFLL;
-      if ( v17 > qword_140E2D7A0
+      if ( v17 > qword_140E2D920
         || (*(_QWORD *)(48 * v17 - 0x21FFFFFFFFD8LL) & 0x40000000000000LL) == 0
         || (v7 & 2) == 0
         || (*(_DWORD *)(v10 + 184) & 0x1000000) != 0 )
@@ -327,7 +327,7 @@ LABEL_63:
       }
       v18 = (*(_DWORD *)(v10 + 184) & 0xF) == 1
           ? &MiSystemPartition
-          : *(ULONG **)(stru_140E2EB88.ThreadLock + 8LL * *(unsigned __int16 *)(v10 + 174));
+          : *(ULONG **)(stru_140E2ED08.ThreadLock + 8LL * *(unsigned __int16 *)(v10 + 174));
       if ( !v18[4539] )
         goto LABEL_55;
       LODWORD(v19) = -1;
@@ -439,7 +439,7 @@ LABEL_37:
           goto LABEL_55;
       }
 LABEL_54:
-      MiLogPageAccess(v10, v3);
+      MiLogPageAccess(v10, v3, v15);
       goto LABEL_55;
     }
     if ( !v11 )

@@ -27,13 +27,13 @@ NTSTATUS __fastcall EtwpFinalizeHeader(__int64 a1, char a2)
   NTSTATUS result; // eax
   ULONG Length; // r15d
   unsigned int v7; // esi
-  char *Buffer; // rdi
+  LARGE_INTEGER *Buffer; // rdi
   void *v9; // rcx
   NTSTATUS v10; // r14d
   LARGE_INTEGER v11; // rax
   int v12; // edx
-  unsigned int v13; // r15d
-  unsigned int v14; // eax
+  unsigned int HighPart; // r15d
+  ULONG LowPart; // eax
   NTSTATUS v15; // eax
   int v16; // ecx
   unsigned int v17; // ecx
@@ -73,7 +73,7 @@ NTSTATUS __fastcall EtwpFinalizeHeader(__int64 a1, char a2)
     v7 = Length;
     if ( v4 )
       v7 = *(_DWORD *)(a1 + 4);
-    Buffer = (char *)ExAllocatePoolWithTag(PagedPool, (v7 + 4095LL) & 0xFFFFFFFFFFFFF000uLL, 0x50777445u);
+    Buffer = (LARGE_INTEGER *)ExAllocatePoolWithTag(PagedPool, (v7 + 4095LL) & 0xFFFFFFFFFFFFF000uLL, 0x50777445u);
     if ( !Buffer )
       return -1073741801;
     v9 = *(void **)(a1 + 816);
@@ -85,27 +85,27 @@ NTSTATUS __fastcall EtwpFinalizeHeader(__int64 a1, char a2)
     ByteOffset.QuadPart = Length;
     if ( !a2 )
     {
-      *((_DWORD *)Buffer + 35) = *(_DWORD *)(a1 + 264);
-      *((_DWORD *)Buffer + 29) = EtwpQueryUsedProcessorCount(a1);
-      *((_DWORD *)Buffer + 38) += *(_DWORD *)(a1 + 256);
-      KeQuerySystemTimePrecise((__int64 *)Buffer + 15);
+      Buffer[17].HighPart = *(_DWORD *)(a1 + 264);
+      Buffer[14].HighPart = EtwpQueryUsedProcessorCount(a1);
+      Buffer[19].LowPart += *(_DWORD *)(a1 + 256);
+      KeQuerySystemTimePrecise(Buffer + 15);
       if ( (unsigned __int8)EtwpIsWow64Logger(a1, *(unsigned int *)(a1 + 268)) )
-        *((_DWORD *)Buffer + 93) += v12;
+        Buffer[46].HighPart += v12;
       else
-        *((_DWORD *)Buffer + 95) += v12;
-      *((_DWORD *)Buffer + 28) = (unsigned __int16)NtBuildNumber;
+        Buffer[47].HighPart += v12;
+      Buffer[14].LowPart = (unsigned __int16)NtBuildNumber;
       v11 = ByteOffset;
     }
-    v13 = *((_DWORD *)Buffer + 1);
-    if ( v13 > v11.LowPart )
+    HighPart = Buffer->HighPart;
+    if ( HighPart > v11.LowPart )
     {
       if ( !v4 )
       {
 LABEL_16:
         ByteOffset.QuadPart = 0LL;
-        v14 = *((_DWORD *)Buffer + 12);
-        if ( v14 >= v7 )
-          v14 = v7;
+        LowPart = Buffer[6].LowPart;
+        if ( LowPart >= v7 )
+          LowPart = v7;
         v15 = ZwWriteFile(
                 *(HANDLE *)(a1 + 816),
                 0LL,
@@ -113,7 +113,7 @@ LABEL_16:
                 0LL,
                 &IoStatusBlock,
                 Buffer,
-                v23 & (v14 + v22 - 1),
+                v23 & (LowPart + v22 - 1),
                 &ByteOffset,
                 0LL);
         v10 = v15;
@@ -137,8 +137,8 @@ LABEL_21:
         ExFreePoolWithTag(Buffer, 0);
         return v10;
       }
-      v17 = *((_DWORD *)Buffer + 1);
-      if ( v13 >= v7 )
+      v17 = Buffer->HighPart;
+      if ( HighPart >= v7 )
         v17 = v7;
       v10 = ZwReadFile(
               *(HANDLE *)(a1 + 816),
@@ -146,16 +146,16 @@ LABEL_21:
               0LL,
               0LL,
               &IoStatusBlock,
-              &Buffer[v11.QuadPart],
+              (char *)Buffer + v11.QuadPart,
               v23 & (v17 - v11.LowPart + v22 - 1),
               &ByteOffset,
               0LL);
       if ( v10 < 0 )
         goto LABEL_21;
     }
-    if ( v4 && v13 < v7 && v13 >= 0x178 )
+    if ( v4 && HighPart < v7 && HighPart >= 0x178 )
     {
-      *((_DWORD *)Buffer + 12) = v13;
+      Buffer[6].LowPart = HighPart;
       if ( *(_QWORD *)(a1 + 1320) )
         EtwpAddLastDroppedEvent(a1, (__int64)Buffer, v7);
       if ( (_QWORD *)*v2 != v2 || *(_DWORD *)(a1 + 136) )

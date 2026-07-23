@@ -3,10 +3,10 @@
  * Callers:
  *     <none>
  * Callees:
- *     MiIsPfn @ 0x14000FBA0 (MiIsPfn.c)
- *     PoSetHiberRange @ 0x140112E60 (PoSetHiberRange.c)
- *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F2550 (MI_GET_PAGE_FRAME_FROM_PTE.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiIsPfn @ 0x14000F720 (MiIsPfn.c)
+ *     PoSetHiberRange @ 0x1401133D0 (PoSetHiberRange.c)
+ *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F237C (MI_GET_PAGE_FRAME_FROM_PTE.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
  */
 
 void __fastcall MiMarkNonPagedHiberPhasePages(__int64 a1, unsigned __int64 a2, unsigned __int64 a3, unsigned int a4)

@@ -1,9 +1,9 @@
 /*
- * XREFs of CmEnumerateKeyCallout @ 0x1406F5100
+ * XREFs of CmEnumerateKeyCallout @ 0x1406F3100
  * Callers:
  *     <none>
  * Callees:
- *     CmEnumerateKey @ 0x14087C950 (CmEnumerateKey.c)
+ *     CmEnumerateKey @ 0x140880800 (CmEnumerateKey.c)
  */
 
 void __fastcall CmEnumerateKeyCallout(_QWORD *Parameter)

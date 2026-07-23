@@ -11,21 +11,21 @@
  *     RtlFreeHeap @ 0x180080DD0 (RtlFreeHeap.c)
  */
 
-__int64 __fastcall LdrpDestroyNode(__int64 a1)
+LOGICAL __fastcall LdrpDestroyNode(_QWORD *a1)
 {
   _QWORD *v1; // r8
   _QWORD *v4; // rbx
 
-  v1 = *(_QWORD **)(a1 + 16);
+  v1 = (_QWORD *)a1[2];
   if ( v1 )
   {
     do
     {
       v4 = (_QWORD *)*v1;
-      RtlFreeHeap(LdrpHeap, 0LL, v1);
+      RtlFreeHeap(LdrpHeap, 0, v1);
       v1 = v4;
     }
     while ( v4 );
   }
-  return RtlFreeHeap(LdrpHeap, 0LL, a1);
+  return RtlFreeHeap(LdrpHeap, 0, a1);
 }

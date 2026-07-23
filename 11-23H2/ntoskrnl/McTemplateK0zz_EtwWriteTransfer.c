@@ -1,18 +1,18 @@
 /*
- * XREFs of McTemplateK0zz_EtwWriteTransfer @ 0x1405637D4
+ * XREFs of McTemplateK0zz_EtwWriteTransfer @ 0x140563E94
  * Callers:
- *     PiSwIrpPropertySet @ 0x14079C6F8 (PiSwIrpPropertySet.c)
- *     PiSwIrpStartCreateWorker @ 0x14081904C (PiSwIrpStartCreateWorker.c)
- *     PiSwIrpCleanup @ 0x14081A4B4 (PiSwIrpCleanup.c)
- *     PiSwIrpInterfaceRegister @ 0x14081AD94 (PiSwIrpInterfaceRegister.c)
- *     PiSwIrpInterfacePropertySet @ 0x14081B124 (PiSwIrpInterfacePropertySet.c)
- *     PiSwIrpInterfaceSetState @ 0x14081B698 (PiSwIrpInterfaceSetState.c)
- *     PiSwIrpSetLifetime @ 0x14085C0F4 (PiSwIrpSetLifetime.c)
- *     PiSwCloseDevice @ 0x1409670C0 (PiSwCloseDevice.c)
- *     PiSwProcessRemove @ 0x1409676D0 (PiSwProcessRemove.c)
+ *     PiSwIrpPropertySet @ 0x14079C8E8 (PiSwIrpPropertySet.c)
+ *     PiSwIrpStartCreateWorker @ 0x14081931C (PiSwIrpStartCreateWorker.c)
+ *     PiSwIrpCleanup @ 0x14081A784 (PiSwIrpCleanup.c)
+ *     PiSwIrpInterfaceRegister @ 0x14081B064 (PiSwIrpInterfaceRegister.c)
+ *     PiSwIrpInterfacePropertySet @ 0x14081B3F4 (PiSwIrpInterfacePropertySet.c)
+ *     PiSwIrpInterfaceSetState @ 0x14081B968 (PiSwIrpInterfaceSetState.c)
+ *     PiSwIrpSetLifetime @ 0x14085C334 (PiSwIrpSetLifetime.c)
+ *     PiSwCloseDevice @ 0x1409672C0 (PiSwCloseDevice.c)
+ *     PiSwProcessRemove @ 0x1409678D0 (PiSwProcessRemove.c)
  * Callees:
- *     McGenEventWrite_EtwWriteTransfer @ 0x1403C42C0 (McGenEventWrite_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1403C44A0 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall McTemplateK0zz_EtwWriteTransfer(

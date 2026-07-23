@@ -3,7 +3,7 @@
  * Callers:
  *     PspInitPhase0 @ 0x14079E090 (PspInitPhase0.c)
  * Callees:
- *     ExCreateHandleTable @ 0x1404C11BC (ExCreateHandleTable.c)
+ *     ExCreateHandleTable @ 0x1404ACEEC (ExCreateHandleTable.c)
  */
 
 char PspInitializeJobStructures()

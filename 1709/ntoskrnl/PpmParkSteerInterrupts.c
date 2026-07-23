@@ -27,13 +27,13 @@ char PpmParkSteerInterrupts()
   unsigned int v1; // edi
   unsigned int v2; // ebx
   unsigned __int64 v3; // r8
-  __int64 v4; // r11
+  LARGE_INTEGER v4; // r11
   unsigned __int16 v5; // si
   unsigned __int64 v6; // rdx
   unsigned int v7; // eax
   unsigned int v8; // r9d
-  __int64 *v9; // rdx
-  __int64 v10; // rcx
+  LARGE_INTEGER *v9; // rdx
+  LARGE_INTEGER v10; // rcx
   __int64 v11; // rax
   __int64 v12; // rcx
   unsigned int v13; // edi
@@ -47,7 +47,7 @@ char PpmParkSteerInterrupts()
   unsigned __int16 *v22; // [rsp+48h] [rbp-B8h] BYREF
   __int64 v23; // [rsp+50h] [rbp-B0h]
   __int16 v24; // [rsp+58h] [rbp-A8h]
-  __int64 v25; // [rsp+60h] [rbp-A0h] BYREF
+  LARGE_INTEGER v25[2]; // [rsp+60h] [rbp-A0h] BYREF
   int v26; // [rsp+70h] [rbp-90h] BYREF
   _DWORD v27[43]; // [rsp+74h] [rbp-8Ch] BYREF
   _QWORD v28[22]; // [rsp+120h] [rbp+20h] BYREF
@@ -67,7 +67,7 @@ char PpmParkSteerInterrupts()
       return 1;
     memset(PoolWithTag, 0, (unsigned int)v16);
   }
-  KeIntSteerSnapPerf(&v21, &v25);
+  KeIntSteerSnapPerf(&v21, v25);
   KeComplementAffinityEx((__int64)v29, PpmPerfCoreParkingMask);
   KeQuerySystemAllowedCpuSetAffinity(KiCachedSystemAllowedCpuSet, &KiCachedSystemAllowedCpuSetVersion);
   KeAndAffinityEx(v29, KiCachedSystemAllowedCpuSet, v29);
@@ -77,7 +77,7 @@ char PpmParkSteerInterrupts()
   v2 = 0;
   memset((char *)v28 + 4, 0, 0xA4uLL);
   v3 = qword_140401408[0];
-  v4 = v25;
+  v4 = v25[0];
   v22 = (unsigned __int16 *)KeActiveProcessors;
   v5 = 0;
   while ( v3 )
@@ -92,14 +92,14 @@ LABEL_6:
     if ( ((*(_QWORD *)&v29[4 * ((unsigned __int64)v7 >> 6) + 4] >> (KiProcessorIndexToNumberMappingTable[v20] & 0x3F)) & 1) != 0 )
     {
       ++v2;
-      v9 = (__int64 *)(PpmIntSteerTrigger + 8LL * v20);
+      v9 = (LARGE_INTEGER *)(PpmIntSteerTrigger + 8LL * v20);
       v10 = *v9;
-      if ( !*v9 )
+      if ( !v9->QuadPart )
       {
         v10 = v4;
         *v9 = v4;
       }
-      if ( v4 - v10 >= (unsigned __int64)(10000 * PpmIntSteerTriggerMax) )
+      if ( v4.QuadPart - v10.QuadPart >= (unsigned __int64)(10000 * PpmIntSteerTriggerMax) )
       {
         v11 = v7 >> 6;
         if ( LOWORD(v28[0]) <= (unsigned int)v11 )

@@ -1,9 +1,9 @@
 /*
- * XREFs of PdcPoSleepStudyHelperSetPhaseActive @ 0x14085EA50
+ * XREFs of PdcPoSleepStudyHelperSetPhaseActive @ 0x14085EC90
  * Callers:
  *     <none>
  * Callees:
- *     SshpSetCollectionActive @ 0x1403AFC38 (SshpSetCollectionActive.c)
+ *     SshpSetCollectionActive @ 0x1403AFE18 (SshpSetCollectionActive.c)
  */
 
 void __fastcall PdcPoSleepStudyHelperSetPhaseActive(int a1, char a2)

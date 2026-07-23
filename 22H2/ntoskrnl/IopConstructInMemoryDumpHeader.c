@@ -21,7 +21,7 @@ __int64 IopConstructInMemoryDumpHeader()
       && (result = qword_140C50C10 & 1, (v1 = *(_DWORD **)&InMemData[2 * result + 2]) != 0LL)
       && (v2 = *(_QWORD *)&InMemData[2 * (((_BYTE)qword_140C50C10 - 1) & 1) + 2]) != 0 )
     {
-      IoFillDumpHeader((_DWORD *)(v2 + 24), 1, 332, 0LL, 0LL, 0LL, 0LL, (__int64)KeGetCurrentThread());
+      IoFillDumpHeader((_NT_PRODUCT_TYPE *)(v2 + 24), 1, 332, 0LL, 0LL, 0LL, 0LL, (__int64)KeGetCurrentThread());
       *(_QWORD *)(v2 + 4040) = qword_140C50C18;
       *(_QWORD *)(v2 + 40) = PsInitialSystemProcess->DirectoryTableBase & 0xFFFFFFFFFFFFF000uLL;
       result = (unsigned int)_InterlockedExchange((volatile __int32 *)v2, 1397967163);

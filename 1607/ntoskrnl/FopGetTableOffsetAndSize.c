@@ -5,7 +5,7 @@
  *     BgpRasInitializeRasterizer @ 0x1407D44FC (BgpRasInitializeRasterizer.c)
  *     FopValidateFontNameTable @ 0x1407D49E4 (FopValidateFontNameTable.c)
  * Callees:
- *     FioFwReadBytesAtOffset @ 0x140128F34 (FioFwReadBytesAtOffset.c)
+ *     FioFwReadBytesAtOffset @ 0x1401294A4 (FioFwReadBytesAtOffset.c)
  */
 
 __int64 __fastcall FopGetTableOffsetAndSize(

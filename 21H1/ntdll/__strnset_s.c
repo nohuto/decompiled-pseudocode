@@ -8,24 +8,24 @@
 
 errno_t __cdecl _strnset_s(char *String, size_t SizeInBytes, int Value, size_t MaxCount)
 {
-  size_t v4; // esi
-  size_t v6; // edx
+  int v4; // esi
+  int v6; // edx
   char *i; // eax
 
-  v4 = MaxCount;
-  if ( MaxCount )
+  v4 = Value;
+  if ( Value )
   {
     if ( !String )
       goto LABEL_18;
   }
   else if ( !String )
   {
-    if ( !SizeInBytes )
+    if ( !(_DWORD)SizeInBytes )
       return 0;
     goto LABEL_18;
   }
   v6 = SizeInBytes;
-  if ( SizeInBytes )
+  if ( (_DWORD)SizeInBytes )
   {
     for ( i = String; *i; --v4 )
     {
@@ -33,7 +33,7 @@ errno_t __cdecl _strnset_s(char *String, size_t SizeInBytes, int Value, size_t M
         break;
       if ( !--v6 )
         break;
-      *i++ = Value;
+      *i++ = BYTE4(SizeInBytes);
     }
     if ( !v4 )
     {

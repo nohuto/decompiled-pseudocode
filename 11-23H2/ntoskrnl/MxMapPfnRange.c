@@ -3,8 +3,8 @@
  * Callers:
  *     MiCreateSparsePfnDatabase @ 0x140B42C90 (MiCreateSparsePfnDatabase.c)
  * Callees:
- *     MiSearchNumaNodeTable @ 0x14026EAD0 (MiSearchNumaNodeTable.c)
- *     MiRestrictRangeToNode @ 0x140375714 (MiRestrictRangeToNode.c)
+ *     MiSearchNumaNodeTable @ 0x14026ED60 (MiSearchNumaNodeTable.c)
+ *     MiRestrictRangeToNode @ 0x1403758B4 (MiRestrictRangeToNode.c)
  *     MxMapVa @ 0x140B431AC (MxMapVa.c)
  */
 

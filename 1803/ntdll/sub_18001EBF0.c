@@ -19,16 +19,19 @@
 
 __int64 sub_18001EBF0()
 {
-  int v0; // eax
+  NTSTATUS v0; // eax
   __int32 v1; // ecx
   int v2; // r8d
   unsigned int v5; // ecx
   char v7; // [rsp+40h] [rbp+8h] BYREF
   __int64 v8; // [rsp+48h] [rbp+10h]
 
-  if ( !dword_18015D358 && (int)ZwQueryInformationProcess(-1LL, 36LL, &dword_18015D358) < 0 )
+  if ( !dword_18015D358
+    && ZwQueryInformationProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, ProcessCookie, &dword_18015D358, 4u, 0LL) < 0 )
+  {
     dword_18015D358 = (MEMORY[0x7FFE0320] * (unsigned __int64)MEMORY[0x7FFE0004]) >> 24;
-  v0 = RtlRunOnceBeginInitialize(&unk_18015D350, 0LL, 0LL);
+  }
+  v0 = RtlRunOnceBeginInitialize(&RunOnce, 0, 0LL);
   if ( v0 < 0 )
   {
     v7 = 0;
@@ -37,16 +40,16 @@ __int64 sub_18001EBF0()
   {
     if ( v0 != 259 )
       goto LABEL_4;
-    if ( (unsigned int)sub_1800F7760(&unk_18015D350, 0LL, 0LL) )
+    if ( sub_1800F7760(&RunOnce, 0LL, 0LL) )
     {
-      v0 = RtlRunOnceComplete(&unk_18015D350, 0LL, 0LL);
+      v0 = RtlRunOnceComplete(&RunOnce, 0, 0LL);
       if ( v0 >= 0 )
         goto LABEL_4;
       v7 = 1;
     }
     else
     {
-      v0 = RtlRunOnceComplete(&unk_18015D350, 4LL, 0LL);
+      v0 = RtlRunOnceComplete(&RunOnce, 4u, 0LL);
       if ( v0 >= 0 )
         goto LABEL_4;
       v7 = 2;

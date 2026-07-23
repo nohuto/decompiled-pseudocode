@@ -16,7 +16,7 @@ __int64 __fastcall PnprMarkOrMirrorPages(unsigned __int64 a1, unsigned __int64 a
   __int64 v3; // r9
   unsigned __int64 v4; // r14
   __int64 v6; // rax
-  struct _RTL_BITMAP *v7; // rsi
+  _RTL_BITMAP *v7; // rsi
   unsigned __int64 v8; // r13
   unsigned __int64 v9; // r15
   unsigned __int64 v10; // rbp
@@ -33,10 +33,10 @@ __int64 __fastcall PnprMarkOrMirrorPages(unsigned __int64 a1, unsigned __int64 a
   v3 = PnprContext;
   v4 = a1 >> 12;
   v6 = PnprContext + 152;
-  v7 = *(struct _RTL_BITMAP **)(PnprContext + 152);
+  v7 = *(_RTL_BITMAP **)(PnprContext + 152);
   v8 = (a2 >> 12) + (a1 >> 12);
   v9 = v8 - 1;
-  while ( v7 != (struct _RTL_BITMAP *)v6 )
+  while ( v7 != (_RTL_BITMAP *)v6 )
   {
     v10 = *(_QWORD *)&v7[1].SizeOfBitMap;
     v11 = (unsigned __int64)v7[1].Buffer + v10;
@@ -82,7 +82,7 @@ __int64 __fastcall PnprMarkOrMirrorPages(unsigned __int64 a1, unsigned __int64 a
       }
     }
     v3 = PnprContext;
-    v7 = *(struct _RTL_BITMAP **)&v7->SizeOfBitMap;
+    v7 = *(_RTL_BITMAP **)&v7->SizeOfBitMap;
     v6 = PnprContext + 152;
   }
   return 0LL;

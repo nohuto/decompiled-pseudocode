@@ -76,14 +76,14 @@ __int64 __fastcall CmpCreateHive(
   __int64 v22; // rcx
   __int64 v23; // rax
   ULONG_PTR v24; // rdi
-  __int64 v26; // rcx
+  void *v26; // rcx
   void *v27; // rdx
-  __int64 v28; // rcx
+  void *v28; // rcx
   void *v29; // rdx
   __int64 *v30; // r13
   void *v31; // rdx
-  __int64 v32; // rcx
-  __int64 v33; // rcx
+  void *v32; // rcx
+  void *v33; // rcx
   __int64 v34; // r8
   void *v35; // rax
   unsigned int v36; // eax
@@ -110,7 +110,7 @@ __int64 __fastcall CmpCreateHive(
   int v57; // [rsp+20h] [rbp-E0h]
   int v58; // [rsp+20h] [rbp-E0h]
   int v59; // [rsp+30h] [rbp-D0h]
-  __int16 v60; // [rsp+80h] [rbp-80h] BYREF
+  _WORD ObjectInformation[2]; // [rsp+80h] [rbp-80h] BYREF
   char v61; // [rsp+84h] [rbp-7Ch]
   char v62; // [rsp+85h] [rbp-7Bh]
   int v63; // [rsp+88h] [rbp-78h] BYREF
@@ -132,7 +132,7 @@ __int64 __fastcall CmpCreateHive(
   struct _EVENT_DATA_DESCRIPTOR v79; // [rsp+150h] [rbp+50h] BYREF
   int *v80; // [rsp+170h] [rbp+70h]
   __int64 v81; // [rsp+178h] [rbp+78h]
-  __int16 *v82; // [rsp+180h] [rbp+80h]
+  _WORD *v82; // [rsp+180h] [rbp+80h]
   __int64 v83; // [rsp+188h] [rbp+88h]
   int *v84; // [rsp+190h] [rbp+90h]
   __int64 v85; // [rsp+198h] [rbp+98h]
@@ -283,9 +283,9 @@ LABEL_49:
                            0);
         if ( ContextForFile < 0 )
           goto LABEL_46;
-        v26 = *(_QWORD *)(v24 + 1544);
-        v60 = 256;
-        ZwSetInformationObject(v26, 4LL);
+        v26 = *(void **)(v24 + 1544);
+        ObjectInformation[0] = 256;
+        ZwSetInformationObject(v26, ObjectHandleFlagInformation, ObjectInformation, 2u);
       }
       v27 = *(void **)(a6 + 24);
       if ( v27 )
@@ -301,9 +301,9 @@ LABEL_49:
                            0);
         if ( ContextForFile < 0 )
           goto LABEL_46;
-        v28 = *(_QWORD *)(v24 + 1560);
-        v60 = 256;
-        ZwSetInformationObject(v28, 4LL);
+        v28 = *(void **)(v24 + 1560);
+        ObjectInformation[0] = 256;
+        ZwSetInformationObject(v28, ObjectHandleFlagInformation, ObjectInformation, 2u);
       }
       if ( v63 == 1 )
       {
@@ -315,9 +315,9 @@ LABEL_67:
           ContextForFile = ObDuplicateObject((__int64)PsInitialSystemProcess, v29, 0LL, v30, 0, 512, 2, 0);
           if ( ContextForFile < 0 )
             goto LABEL_46;
-          v33 = *v30;
-          v60 = 256;
-          ZwSetInformationObject(v33, 4LL);
+          v33 = (void *)*v30;
+          ObjectInformation[0] = 256;
+          ZwSetInformationObject(v33, ObjectHandleFlagInformation, ObjectInformation, 2u);
         }
       }
       else if ( v63 == 2 )
@@ -336,9 +336,9 @@ LABEL_67:
                              0);
           if ( ContextForFile < 0 )
             goto LABEL_46;
-          v32 = *(_QWORD *)(v24 + 1576);
-          v60 = 256;
-          ZwSetInformationObject(v32, 4LL);
+          v32 = *(void **)(v24 + 1576);
+          ObjectInformation[0] = 256;
+          ZwSetInformationObject(v32, ObjectHandleFlagInformation, ObjectInformation, 2u);
         }
         v29 = *(void **)(a6 + 16);
         if ( v29 )
@@ -475,7 +475,7 @@ LABEL_99:
           {
             v63 = v45;
             v80 = &v63;
-            v82 = &v60;
+            v82 = ObjectInformation;
             v46 = *(unsigned __int16 *)(a13 + 8);
             v47 = *(unsigned __int16 *)(a13 + 10);
             v88 = a13 + 8;
@@ -488,7 +488,7 @@ LABEL_99:
             v100 = a13 + 396;
             v103 = &v67;
             LOWORD(v65) = v48;
-            v60 = v46;
+            ObjectInformation[0] = v46;
             LOWORD(v64) = v47;
             v93 = a13 + 10;
             v98 = a13 + 394;

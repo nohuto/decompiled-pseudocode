@@ -26,11 +26,11 @@ __int64 __fastcall MiPrepareToHotPatchImage(__int64 a1, __int64 a2, _BYTE *a3)
   _BYTE *v3; // r14
   __int64 v4; // rsi
   unsigned __int8 v6; // r12
-  struct _RTL_BITMAP *PoolWithTag; // rax
-  struct _RTL_BITMAP *v8; // rdx
+  _RTL_BITMAP *PoolWithTag; // rax
+  _RTL_BITMAP *v8; // rdx
   int v9; // esi
   unsigned int *v10; // r13
-  struct _RTL_BITMAP *v11; // rdx
+  _RTL_BITMAP *v11; // rdx
   int v12; // r9d
   int v13; // r9d
   __int64 v14; // r8
@@ -39,8 +39,8 @@ __int64 __fastcall MiPrepareToHotPatchImage(__int64 a1, __int64 a2, _BYTE *a3)
   _BYTE *v17; // rax
   const void *v18; // rdx
   void *v19; // rsi
-  struct _RTL_BITMAP *v20; // rax
-  struct _RTL_BITMAP *v21; // rcx
+  _RTL_BITMAP *v20; // rax
+  _RTL_BITMAP *v21; // rcx
   __int64 v22; // r8
   unsigned int v23; // r11d
   __int64 v24; // r15
@@ -77,20 +77,20 @@ __int64 __fastcall MiPrepareToHotPatchImage(__int64 a1, __int64 a2, _BYTE *a3)
     v6 = 1;
   }
   v41 = v6;
-  PoolWithTag = (struct _RTL_BITMAP *)ExAllocatePoolWithTag(
-                                        PagedPool,
-                                        8
-                                      * ((unsigned int)((*(_DWORD *)(a1 + 32) & 0x3F000) != 0)
-                                       + 2
-                                       + (*(_DWORD *)(a1 + 32) >> 18)),
-                                        0x20206D4Du);
+  PoolWithTag = (_RTL_BITMAP *)ExAllocatePoolWithTag(
+                                 PagedPool,
+                                 8
+                               * ((unsigned int)((*(_DWORD *)(a1 + 32) & 0x3F000) != 0)
+                                + 2
+                                + (*(_DWORD *)(a1 + 32) >> 18)),
+                                 0x20206D4Du);
   v8 = PoolWithTag;
   *(_QWORD *)(a1 + 48) = PoolWithTag;
   if ( PoolWithTag )
   {
     PoolWithTag->SizeOfBitMap = *(_DWORD *)(a1 + 32) >> 12;
     PoolWithTag->Buffer = &PoolWithTag[1].SizeOfBitMap;
-    v8 = *(struct _RTL_BITMAP **)(a1 + 48);
+    v8 = *(_RTL_BITMAP **)(a1 + 48);
   }
   if ( !v8 )
     return (unsigned int)-1073741670;
@@ -100,16 +100,16 @@ __int64 __fastcall MiPrepareToHotPatchImage(__int64 a1, __int64 a2, _BYTE *a3)
   *(_DWORD *)(a1 + 36) = 8 * *((_DWORD *)v3 + 8);
   if ( !v4 )
   {
-    v11 = (struct _RTL_BITMAP *)ExAllocatePoolWithTag(
-                                  NonPagedPoolNx,
-                                  8 * (((*v10 & 0x3F) != 0) + 2 + (*v10 >> 6)),
-                                  0x20206D4Du);
+    v11 = (_RTL_BITMAP *)ExAllocatePoolWithTag(
+                           NonPagedPoolNx,
+                           8 * (((*v10 & 0x3F) != 0) + 2 + (*v10 >> 6)),
+                           0x20206D4Du);
     *(_QWORD *)(a1 + 40) = v11;
     if ( v11 )
     {
       v11->SizeOfBitMap = *v10;
       v11->Buffer = &v11[1].SizeOfBitMap;
-      v11 = *(struct _RTL_BITMAP **)(a1 + 40);
+      v11 = *(_RTL_BITMAP **)(a1 + 40);
     }
     if ( !v11 )
       return (unsigned int)-1073741670;
@@ -231,17 +231,14 @@ LABEL_34:
       }
       *((_QWORD *)v3 + 5) = v19;
     }
-    v20 = (struct _RTL_BITMAP *)ExAllocatePoolWithTag(
-                                  NonPagedPoolNx,
-                                  8 * ((v15 >> 6) + ((v15 & 0x3F) != 0) + 2),
-                                  0x20206D4Du);
+    v20 = (_RTL_BITMAP *)ExAllocatePoolWithTag(NonPagedPoolNx, 8 * ((v15 >> 6) + ((v15 & 0x3F) != 0) + 2), 0x20206D4Du);
     v21 = v20;
     *(_QWORD *)(a1 + 40) = v20;
     if ( v20 )
     {
       v20->SizeOfBitMap = v15;
       v20->Buffer = &v20[1].SizeOfBitMap;
-      v21 = *(struct _RTL_BITMAP **)(a1 + 40);
+      v21 = *(_RTL_BITMAP **)(a1 + 40);
     }
     if ( !v21 )
       return (unsigned int)-1073741670;

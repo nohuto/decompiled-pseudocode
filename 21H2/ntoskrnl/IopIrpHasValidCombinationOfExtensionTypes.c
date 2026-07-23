@@ -1,11 +1,11 @@
 /*
- * XREFs of IopIrpHasValidCombinationOfExtensionTypes @ 0x140507D60
+ * XREFs of IopIrpHasValidCombinationOfExtensionTypes @ 0x140507CE0
  * Callers:
- *     IopSetCopyInformationExtension @ 0x1403F15CC (IopSetCopyInformationExtension.c)
- *     IoSetAdapterCryptoEngineExtension @ 0x140507BF0 (IoSetAdapterCryptoEngineExtension.c)
- *     IoSetFsTrackOffsetState @ 0x140507C50 (IoSetFsTrackOffsetState.c)
- *     IoSetFsZeroingOffsetRequired @ 0x140507CF0 (IoSetFsZeroingOffsetRequired.c)
- *     IopPerfCallDriver @ 0x140507FC0 (IopPerfCallDriver.c)
+ *     IopSetCopyInformationExtension @ 0x1403F149C (IopSetCopyInformationExtension.c)
+ *     IoSetAdapterCryptoEngineExtension @ 0x140507B70 (IoSetAdapterCryptoEngineExtension.c)
+ *     IoSetFsTrackOffsetState @ 0x140507BD0 (IoSetFsTrackOffsetState.c)
+ *     IoSetFsZeroingOffsetRequired @ 0x140507C70 (IoSetFsZeroingOffsetRequired.c)
+ *     IopPerfCallDriver @ 0x140507F40 (IopPerfCallDriver.c)
  * Callees:
  *     <none>
  */

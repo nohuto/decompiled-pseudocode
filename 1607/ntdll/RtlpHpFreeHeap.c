@@ -1,24 +1,24 @@
 /*
- * XREFs of RtlpHpFreeHeap @ 0x180047A70
+ * XREFs of RtlpHpFreeHeap @ 0x180047A60
  * Callers:
- *     RtlpHpReallocMove @ 0x1800430B0 (RtlpHpReallocMove.c)
- *     RtlpHpFreeWithExceptionProtection @ 0x180046F90 (RtlpHpFreeWithExceptionProtection.c)
- *     RtlpHpMetadataFree @ 0x18004F71C (RtlpHpMetadataFree.c)
+ *     RtlpHpReallocMove @ 0x1800430A0 (RtlpHpReallocMove.c)
+ *     RtlpHpFreeWithExceptionProtection @ 0x180046F80 (RtlpHpFreeWithExceptionProtection.c)
+ *     RtlpHpMetadataFree @ 0x18004F70C (RtlpHpMetadataFree.c)
  * Callees:
- *     RtlReleaseSRWLockExclusive @ 0x18001C550 (RtlReleaseSRWLockExclusive.c)
- *     RtlpHpVsContextFree @ 0x18001CC40 (RtlpHpVsContextFree.c)
- *     RtlpHpLfhSubsegmentLockOwner @ 0x18001D3C8 (RtlpHpLfhSubsegmentLockOwner.c)
- *     RtlpHpExtrasGet @ 0x18002926C (RtlpHpExtrasGet.c)
- *     RtlpHpSegPageRangeShrink @ 0x18003E92C (RtlpHpSegPageRangeShrink.c)
- *     RtlpLfhBucketUsageUpdate @ 0x1800444EC (RtlpLfhBucketUsageUpdate.c)
- *     RtlpHpSizeHeap @ 0x180046370 (RtlpHpSizeHeap.c)
- *     RtlpHpLfhSubsegmentDecommitPages @ 0x18004B97C (RtlpHpLfhSubsegmentDecommitPages.c)
- *     RtlpHpLfhOwnerMoveSubsegment @ 0x18004BB90 (RtlpHpLfhOwnerMoveSubsegment.c)
- *     RtlpHpLfhBucketAddSubsegment @ 0x18004BCB4 (RtlpHpLfhBucketAddSubsegment.c)
- *     RtlpHpLargeFree @ 0x18004F630 (RtlpHpLargeFree.c)
- *     RtlSparseBitmapCtxCheckBitsInternal @ 0x18004FCB4 (RtlSparseBitmapCtxCheckBitsInternal.c)
- *     RtlpHpSizeHeapInternal @ 0x1800519EC (RtlpHpSizeHeapInternal.c)
- *     RtlpCallInterceptRoutine @ 0x180090F54 (RtlpCallInterceptRoutine.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18001C540 (RtlReleaseSRWLockExclusive.c)
+ *     RtlpHpVsContextFree @ 0x18001CC30 (RtlpHpVsContextFree.c)
+ *     RtlpHpLfhSubsegmentLockOwner @ 0x18001D3B8 (RtlpHpLfhSubsegmentLockOwner.c)
+ *     RtlpHpExtrasGet @ 0x18002925C (RtlpHpExtrasGet.c)
+ *     RtlpHpSegPageRangeShrink @ 0x18003E91C (RtlpHpSegPageRangeShrink.c)
+ *     RtlpLfhBucketUsageUpdate @ 0x1800444DC (RtlpLfhBucketUsageUpdate.c)
+ *     RtlpHpSizeHeap @ 0x180046360 (RtlpHpSizeHeap.c)
+ *     RtlpHpLfhSubsegmentDecommitPages @ 0x18004B96C (RtlpHpLfhSubsegmentDecommitPages.c)
+ *     RtlpHpLfhOwnerMoveSubsegment @ 0x18004BB80 (RtlpHpLfhOwnerMoveSubsegment.c)
+ *     RtlpHpLfhBucketAddSubsegment @ 0x18004BCA4 (RtlpHpLfhBucketAddSubsegment.c)
+ *     RtlpHpLargeFree @ 0x18004F620 (RtlpHpLargeFree.c)
+ *     RtlSparseBitmapCtxCheckBitsInternal @ 0x18004FCA4 (RtlSparseBitmapCtxCheckBitsInternal.c)
+ *     RtlpHpSizeHeapInternal @ 0x1800519DC (RtlpHpSizeHeapInternal.c)
+ *     RtlpCallInterceptRoutine @ 0x180090F44 (RtlpCallInterceptRoutine.c)
  *     RtlpLogHeapFailure @ 0x1800A5E64 (RtlpLogHeapFailure.c)
  *     RtlpLogHeapFreeEvent @ 0x1800F93BC (RtlpLogHeapFreeEvent.c)
  *     RtlpHpSegGetDescriptorValidateSafe @ 0x1800F9FB4 (RtlpHpSegGetDescriptorValidateSafe.c)
@@ -34,7 +34,7 @@ __int64 __fastcall RtlpHpFreeHeap(__int64 a1, unsigned __int64 a2, int a3, __int
   unsigned int v13; // ebx
   __int64 DescriptorValidateSafe; // rbx
   unsigned __int64 v15; // rdi
-  signed __int64 v16; // rcx
+  _RTL_SRWLOCK *v16; // rcx
   int v17; // eax
   int v18; // r11d
   __int64 v19; // rcx
@@ -54,7 +54,7 @@ __int64 __fastcall RtlpHpFreeHeap(__int64 a1, unsigned __int64 a2, int a3, __int
   int v33; // r13d
   int v34; // esi
   int v35; // ecx
-  signed __int64 v36; // rdi
+  _RTL_SRWLOCK *v36; // rdi
   char v38; // cl
   __int64 v39; // rdx
   unsigned int v40; // eax
@@ -62,9 +62,9 @@ __int64 __fastcall RtlpHpFreeHeap(__int64 a1, unsigned __int64 a2, int a3, __int
   int v42; // r8d
   _WORD *v43; // rax
   int v44; // eax
-  unsigned int v45[18]; // [rsp+30h] [rbp-48h] BYREF
+  __int64 v45[9]; // [rsp+30h] [rbp-48h] BYREF
   unsigned __int16 v46; // [rsp+80h] [rbp+8h]
-  signed __int64 v47; // [rsp+A0h] [rbp+28h]
+  _RTL_SRWLOCK *v47; // [rsp+A0h] [rbp+28h]
 
   v5 = *(_DWORD *)(a1 + 20) & 0x11000001;
   v7 = *(_DWORD *)(a1 + 40);
@@ -154,7 +154,7 @@ __int64 __fastcall RtlpHpFreeHeap(__int64 a1, unsigned __int64 a2, int a3, __int
           + ((unsigned int)((__int64)(DescriptorValidateSafe - (DescriptorValidateSafe & 0xFFFFFFFFFFF00000uLL)) >> 5) << 12);
       if ( a2 <= v15 )
       {
-        RtlpHpSegPageRangeShrink(a1, DescriptorValidateSafe, 0LL, v8);
+        RtlpHpSegPageRangeShrink(a1, DescriptorValidateSafe, 0, v8);
         v11 = 1;
         if ( MEMORY[0x7FFE0380] && (NtCurrentPeb()->TracingFlags & 1) != 0 )
           RtlpLogHeapFreeEvent(a1, a2, 3LL);
@@ -171,9 +171,9 @@ __int64 __fastcall RtlpHpFreeHeap(__int64 a1, unsigned __int64 a2, int a3, __int
                 v45);
         if ( v11 )
         {
-          if ( v45[0] <= 0x3FF0 )
+          if ( LODWORD(v45[0]) <= 0x3FF0 )
           {
-            v39 = (unsigned __int8)RtlpLfhBucketIndexMap[(unsigned __int64)(v45[0] + 15) >> 4];
+            v39 = (unsigned __int8)RtlpLfhBucketIndexMap[(unsigned __int64)(unsigned int)(LODWORD(v45[0]) + 15) >> 4];
             if ( (*(_QWORD *)(a1 + 288 + 8 * v39 + 192) & 1) != 0 )
               RtlpLfhBucketUsageUpdate(a1 + 288, v39, 0);
           }
@@ -314,7 +314,7 @@ LABEL_36:
 LABEL_44:
           v11 = 1;
           if ( v36 )
-            RtlReleaseSRWLockExclusive((volatile signed __int64 *)(v36 + 16));
+            RtlReleaseSRWLockExclusive(v36 + 2);
           goto LABEL_46;
         }
         v40 = 2;
@@ -328,7 +328,7 @@ LABEL_44:
               (DescriptorValidateSafe & 0xFFFFFFFFFFF00000uLL)
             + ((unsigned int)((__int64)(DescriptorValidateSafe - (DescriptorValidateSafe & 0xFFFFFFFFFFF00000uLL)) >> 5) << 12),
               v40);
-      RtlReleaseSRWLockExclusive((volatile signed __int64 *)(v47 + 16));
+      RtlReleaseSRWLockExclusive(v47 + 2);
       v36 = 0LL;
       if ( v41 )
         RtlpHpLfhBucketAddSubsegment(

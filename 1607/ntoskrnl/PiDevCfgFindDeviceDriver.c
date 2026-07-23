@@ -1,22 +1,22 @@
 /*
- * XREFs of PiDevCfgFindDeviceDriver @ 0x140637AD4
+ * XREFs of PiDevCfgFindDeviceDriver @ 0x140637B88
  * Callers:
- *     PiDevCfgCheckDeviceNeedsUpdate @ 0x140632B70 (PiDevCfgCheckDeviceNeedsUpdate.c)
- *     PiDevCfgProcessDevice @ 0x14063B128 (PiDevCfgProcessDevice.c)
- *     PpDevCfgProcessDeviceExtensions @ 0x140641684 (PpDevCfgProcessDeviceExtensions.c)
+ *     PiDevCfgCheckDeviceNeedsUpdate @ 0x140632C24 (PiDevCfgCheckDeviceNeedsUpdate.c)
+ *     PiDevCfgProcessDevice @ 0x14063B1DC (PiDevCfgProcessDevice.c)
+ *     PpDevCfgProcessDeviceExtensions @ 0x140641768 (PpDevCfgProcessDeviceExtensions.c)
  * Callees:
- *     wcschr @ 0x14014EF44 (wcschr.c)
- *     PiDevCfgCompareDrivers @ 0x1401CEAE4 (PiDevCfgCompareDrivers.c)
- *     PiDevCfgMatchDriverConfigurationId @ 0x1401CEDA4 (PiDevCfgMatchDriverConfigurationId.c)
- *     PnpMultiSzContainsString @ 0x1401CF4C4 (PnpMultiSzContainsString.c)
+ *     wcschr @ 0x14014F504 (wcschr.c)
+ *     PiDevCfgCompareDrivers @ 0x1401CE878 (PiDevCfgCompareDrivers.c)
+ *     PiDevCfgMatchDriverConfigurationId @ 0x1401CEB38 (PiDevCfgMatchDriverConfigurationId.c)
+ *     PnpMultiSzContainsString @ 0x1401CF258 (PnpMultiSzContainsString.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     RtlEqualUnicodeString @ 0x14040F720 (RtlEqualUnicodeString.c)
- *     PnpIsNullGuid @ 0x14048C348 (PnpIsNullGuid.c)
- *     _PnpGetObjectProperty @ 0x1404FE7B0 (_PnpGetObjectProperty.c)
- *     PiDevCfgFreeDriverNode @ 0x140638D1C (PiDevCfgFreeDriverNode.c)
- *     PiDevCfgQueryDriverNode @ 0x14063C23C (PiDevCfgQueryDriverNode.c)
- *     DrvDbSplitDeviceIdDriverInfMatch @ 0x1406E334C (DrvDbSplitDeviceIdDriverInfMatch.c)
+ *     RtlEqualUnicodeString @ 0x14040E5E0 (RtlEqualUnicodeString.c)
+ *     PnpIsNullGuid @ 0x14048C8AC (PnpIsNullGuid.c)
+ *     _PnpGetObjectProperty @ 0x1404E1740 (_PnpGetObjectProperty.c)
+ *     PiDevCfgFreeDriverNode @ 0x140638DD0 (PiDevCfgFreeDriverNode.c)
+ *     PiDevCfgQueryDriverNode @ 0x14063C2F0 (PiDevCfgQueryDriverNode.c)
+ *     DrvDbSplitDeviceIdDriverInfMatch @ 0x1406E3484 (DrvDbSplitDeviceIdDriverInfMatch.c)
  */
 
 __int64 __fastcall PiDevCfgFindDeviceDriver(__int64 a1, const wchar_t *a2, __int64 *a3)

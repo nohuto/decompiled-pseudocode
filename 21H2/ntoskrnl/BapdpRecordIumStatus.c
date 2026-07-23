@@ -1,12 +1,12 @@
 /*
- * XREFs of BapdpRecordIumStatus @ 0x140A41AAC
+ * XREFs of BapdpRecordIumStatus @ 0x140A42AAC
  * Callers:
- *     BootApplicationPersistentDataProcess @ 0x140A4117C (BootApplicationPersistentDataProcess.c)
+ *     BootApplicationPersistentDataProcess @ 0x140A4217C (BootApplicationPersistentDataProcess.c)
  * Callees:
- *     EtwWriteEx @ 0x14025DD10 (EtwWriteEx.c)
- *     BapdRegisterEtwProvider @ 0x14039B414 (BapdRegisterEtwProvider.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     EtwUnregister @ 0x1407601D0 (EtwUnregister.c)
+ *     EtwWriteEx @ 0x14027F840 (EtwWriteEx.c)
+ *     BapdRegisterEtwProvider @ 0x14039B564 (BapdRegisterEtwProvider.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     EtwUnregister @ 0x140760390 (EtwUnregister.c)
  */
 
 int BapdpRecordIumStatus()

@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpRemoveInvertedFunctionTableEntry @ 0x1800DB758
+ * XREFs of RtlpRemoveInvertedFunctionTableEntry @ 0x1800D8718
  * Callers:
- *     RtlxRemoveInvertedFunctionTable @ 0x1800DB700 (RtlxRemoveInvertedFunctionTable.c)
+ *     RtlxRemoveInvertedFunctionTable @ 0x1800D86C0 (RtlxRemoveInvertedFunctionTable.c)
  * Callees:
- *     memmove @ 0x180164700 (memmove.c)
+ *     memmove @ 0x180164600 (memmove.c)
  */
 
 __int64 __fastcall RtlpRemoveInvertedFunctionTableEntry(__int64 a1, int a2)
@@ -11,7 +11,7 @@ __int64 __fastcall RtlpRemoveInvertedFunctionTableEntry(__int64 a1, int a2)
   int v2; // eax
   __int64 result; // rax
 
-  _InterlockedIncrement(&dword_1801E0448);
+  _InterlockedIncrement(&dword_1801DF448);
   v2 = LdrpInvertedFunctionTables[0];
   if ( LdrpInvertedFunctionTables[0] != 2 )
   {
@@ -23,6 +23,6 @@ __int64 __fastcall RtlpRemoveInvertedFunctionTableEntry(__int64 a1, int a2)
   }
   result = (unsigned int)(v2 - 1);
   LdrpInvertedFunctionTables[0] = result;
-  _InterlockedIncrement(&dword_1801E0448);
+  _InterlockedIncrement(&dword_1801DF448);
   return result;
 }

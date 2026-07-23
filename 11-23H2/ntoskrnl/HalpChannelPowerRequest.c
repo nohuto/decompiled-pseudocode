@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpChannelPowerRequest @ 0x14093595C
+ * XREFs of HalpChannelPowerRequest @ 0x140935B5C
  * Callers:
- *     HaliSetSystemInformation @ 0x14085ED18 (HaliSetSystemInformation.c)
+ *     HaliSetSystemInformation @ 0x14085EF58 (HaliSetSystemInformation.c)
  *     HaliQuerySystemInformation @ 0x140A88510 (HaliQuerySystemInformation.c)
  * Callees:
- *     HalpSendPccCommand @ 0x140935BD0 (HalpSendPccCommand.c)
+ *     HalpSendPccCommand @ 0x140935DD0 (HalpSendPccCommand.c)
  */
 
 __int64 __fastcall HalpChannelPowerRequest(__int16 *a1, int a2, _DWORD *a3)

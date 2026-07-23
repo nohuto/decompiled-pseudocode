@@ -6,11 +6,20 @@
  *     ZwPowerInformation @ 0x18009B690 (ZwPowerInformation.c)
  */
 
-__int64 __fastcall RtlUnlockBootStatusData(__int64 a1)
+NTSTATUS __cdecl RtlUnlockBootStatusData(HANDLE FileHandle)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
+  _DWORD v2[2]; // [rsp+30h] [rbp-28h] BYREF
+  __int64 v3; // [rsp+38h] [rbp-20h]
+  __int64 v4; // [rsp+40h] [rbp-18h]
 
-  if ( !a1 )
-    return ZwPowerInformation();
+  if ( !FileHandle )
+  {
+    v2[1] = 0;
+    v3 = 0LL;
+    v2[0] = 38;
+    v4 = 0LL;
+    return ZwPowerInformation(PowerInformationInternal, v2, 0x18u, 0LL, 0);
+  }
   return result;
 }

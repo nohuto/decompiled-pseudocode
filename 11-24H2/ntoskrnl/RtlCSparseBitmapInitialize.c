@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlCSparseBitmapInitialize @ 0x140607034
+ * XREFs of RtlCSparseBitmapInitialize @ 0x140604634
  * Callers:
- *     RtlHpHeapManagerInitialize @ 0x1405F27A0 (RtlHpHeapManagerInitialize.c)
+ *     RtlHpHeapManagerInitialize @ 0x1405EFDE0 (RtlHpHeapManagerInitialize.c)
  * Callees:
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall RtlCSparseBitmapInitialize(__int64 a1, unsigned int a2)

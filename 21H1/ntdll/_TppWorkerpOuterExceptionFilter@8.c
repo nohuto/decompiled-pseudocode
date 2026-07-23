@@ -8,10 +8,10 @@
  *     _TppTerminateProcess@4 @ 0x4B38492C (_TppTerminateProcess@4.c)
  */
 
-int __fastcall TppWorkerpOuterExceptionFilter(int a1, _DWORD *a2)
+LONG __fastcall TppWorkerpOuterExceptionFilter(_EXCEPTION_POINTERS *a1, _DWORD *a2)
 {
-  int v3; // esi
-  const void *v4; // eax
+  LONG v3; // esi
+  EXCEPTION_RECORD *ExceptionRecord; // eax
 
   if ( *a2 )
   {
@@ -20,13 +20,13 @@ int __fastcall TppWorkerpOuterExceptionFilter(int a1, _DWORD *a2)
   }
   else
   {
-    v3 = TppExceptionFilter((const void **)a1);
+    v3 = TppExceptionFilter(a1);
     if ( v3 == 1 )
     {
-      v4 = *(const void **)a1;
-      if ( **(_DWORD **)a1 != -1073741571 )
-        v4 = (const void *)TppTerminateProcess((int **)a1);
-      RtlReportException((int)v4, *(_DWORD *)(a1 + 4), 3);
+      ExceptionRecord = a1->ExceptionRecord;
+      if ( a1->ExceptionRecord->ExceptionCode != -1073741571 )
+        ExceptionRecord = (EXCEPTION_RECORD *)TppTerminateProcess((NTSTATUS **)a1);
+      RtlReportException(ExceptionRecord, a1->ContextRecord, 3u);
     }
   }
   return v3;

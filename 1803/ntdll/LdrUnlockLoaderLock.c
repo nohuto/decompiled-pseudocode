@@ -10,25 +10,25 @@
  *     sub_1800D0B18 @ 0x1800D0B18 (sub_1800D0B18.c)
  */
 
-__int64 __fastcall LdrUnlockLoaderLock(int a1, unsigned __int64 a2)
+NTSTATUS __cdecl LdrUnlockLoaderLock(ULONG Flags, PVOID Cookie)
 {
-  unsigned int v2; // ebx
+  NTSTATUS v2; // ebx
   __int64 v4; // rcx
 
-  if ( (a1 & 0xFFFFFFFE) == 0 )
+  if ( (Flags & 0xFFFFFFFE) == 0 )
   {
     v2 = 0;
-    if ( !a2 )
+    if ( !Cookie )
       return v2;
-    v4 = a1 & 1;
-    if ( a2 >= 0x1000000000000000LL )
+    v4 = Flags & 1;
+    if ( (unsigned __int64)Cookie >= 0x1000000000000000LL )
     {
       if ( (_DWORD)v4 )
-        RtlRaiseStatus(3221225712LL);
+        RtlRaiseStatus(-1073741584);
     }
     else
     {
-      if ( ((LODWORD(NtCurrentTeb()->ClientId.UniqueThread) ^ HIWORD(a2)) & 0xFFF) == 0 )
+      if ( ((LODWORD(NtCurrentTeb()->ClientId.UniqueThread) ^ ((unsigned __int64)Cookie >> 48)) & 0xFFF) == 0 )
       {
         if ( (_DWORD)v4 )
           sub_180046F60(v4, 13, 0);
@@ -37,11 +37,11 @@ __int64 __fastcall LdrUnlockLoaderLock(int a1, unsigned __int64 a2)
         return v2;
       }
       if ( (_DWORD)v4 )
-        RtlRaiseStatus(3221225712LL);
+        RtlRaiseStatus(-1073741584);
     }
-    return (unsigned int)-1073741584;
+    return -1073741584;
   }
-  if ( (a1 & 1) != 0 )
-    RtlRaiseStatus(3221225711LL);
-  return (unsigned int)-1073741585;
+  if ( (Flags & 1) != 0 )
+    RtlRaiseStatus(-1073741585);
+  return -1073741585;
 }

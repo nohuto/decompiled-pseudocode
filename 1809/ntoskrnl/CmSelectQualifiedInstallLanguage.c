@@ -1,22 +1,22 @@
 /*
- * XREFs of CmSelectQualifiedInstallLanguage @ 0x1409CD3F0
+ * XREFs of CmSelectQualifiedInstallLanguage @ 0x1409CE3F0
  * Callers:
- *     CmpGetSystemControlValues @ 0x1409CE008 (CmpGetSystemControlValues.c)
+ *     CmpGetSystemControlValues @ 0x1409CF008 (CmpGetSystemControlValues.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     DownLevelLangIDToLanguageName @ 0x140161030 (DownLevelLangIDToLanguageName.c)
- *     DownLevelLanguageNameToLangID @ 0x140182F00 (DownLevelLanguageNameToLangID.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     _wcsicmp @ 0x140195930 (_wcsicmp.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     __report_rangecheckfailure @ 0x140268DCC (__report_rangecheckfailure.c)
- *     CmpCopyCompressedName @ 0x1405AF298 (CmpCopyCompressedName.c)
- *     CmpFindSubKeyByNumber @ 0x1406B2C88 (CmpFindSubKeyByNumber.c)
- *     CmpWalkPath @ 0x14073D690 (CmpWalkPath.c)
- *     CmpFindValueByName @ 0x14073D858 (CmpFindValueByName.c)
- *     CmpValueToData @ 0x14073D888 (CmpValueToData.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     DownLevelLangIDToLanguageName @ 0x140161130 (DownLevelLangIDToLanguageName.c)
+ *     DownLevelLanguageNameToLangID @ 0x140183040 (DownLevelLanguageNameToLangID.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     _wcsicmp @ 0x140195A70 (_wcsicmp.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     __report_rangecheckfailure @ 0x140268FBC (__report_rangecheckfailure.c)
+ *     CmpCopyCompressedName @ 0x1405B0298 (CmpCopyCompressedName.c)
+ *     CmpFindSubKeyByNumber @ 0x1406B3F28 (CmpFindSubKeyByNumber.c)
+ *     CmpWalkPath @ 0x14073E880 (CmpWalkPath.c)
+ *     CmpFindValueByName @ 0x14073EA48 (CmpFindValueByName.c)
+ *     CmpValueToData @ 0x14073EA78 (CmpValueToData.c)
  */
 
 __int64 __fastcall CmSelectQualifiedInstallLanguage(__int64 a1, unsigned int a2, _DWORD *a3, int a4)
@@ -98,14 +98,14 @@ __int64 __fastcall CmSelectQualifiedInstallLanguage(__int64 a1, unsigned int a2,
     v11 = CmpWalkPath((__int64)&CmControlHive, a2, L"MUI\\Settings");
     if ( v11 != -1 )
     {
-      v12 = ((__int64 (__fastcall *)(ULONG_PTR *, _QWORD, _DWORD *))qword_140A0DFB8)(&CmControlHive, v11, v39);
+      v12 = ((__int64 (__fastcall *)(ULONG_PTR *, _QWORD, _DWORD *))qword_140A0EFB8)(&CmControlHive, v11, v39);
       if ( v12 )
       {
         RtlInitUnicodeString(&DestinationString, L"PreferredUILanguages");
         ValueByName = CmpFindValueByName((int)&CmControlHive, v12, (int)&DestinationString);
         if ( ValueByName != -1 )
         {
-          v26 = ((__int64 (__fastcall *)(ULONG_PTR *, _QWORD, _DWORD *))qword_140A0DFB8)(
+          v26 = ((__int64 (__fastcall *)(ULONG_PTR *, _QWORD, _DWORD *))qword_140A0EFB8)(
                   &CmControlHive,
                   ValueByName,
                   v36);
@@ -121,19 +121,19 @@ __int64 __fastcall CmSelectQualifiedInstallLanguage(__int64 a1, unsigned int a2,
                   memmove(v45, v27, Size);
                   PsMachineUILanguageId = DownLevelLanguageNameToLangID(v45, 0);
                 }
-                ((void (__fastcall *)(ULONG_PTR *, __int64 *))qword_140A0DFC0)(&CmControlHive, &v38);
+                ((void (__fastcall *)(ULONG_PTR *, __int64 *))qword_140A0EFC0)(&CmControlHive, &v38);
               }
             }
-            ((void (__fastcall *)(ULONG_PTR *, _DWORD *))qword_140A0DFC0)(&CmControlHive, v36);
+            ((void (__fastcall *)(ULONG_PTR *, _DWORD *))qword_140A0EFC0)(&CmControlHive, v36);
           }
         }
-        ((void (__fastcall *)(ULONG_PTR *, _DWORD *))qword_140A0DFC0)(&CmControlHive, v39);
+        ((void (__fastcall *)(ULONG_PTR *, _DWORD *))qword_140A0EFC0)(&CmControlHive, v39);
       }
     }
     v14 = CmpWalkPath((__int64)&CmControlHive, a2, L"MUI\\UILanguages");
     if ( v14 == -1 )
       return v10;
-    v15 = (_DWORD *)((__int64 (__fastcall *)(ULONG_PTR *, _QWORD, _DWORD *))qword_140A0DFB8)(&CmControlHive, v14, v41);
+    v15 = (_DWORD *)((__int64 (__fastcall *)(ULONG_PTR *, _QWORD, _DWORD *))qword_140A0EFB8)(&CmControlHive, v14, v41);
     v31 = v15;
     if ( !v15 )
       return v10;
@@ -146,7 +146,7 @@ LABEL_12:
       v30 = v4;
       if ( v37 == -1 )
         break;
-      v18 = ((__int64 (__fastcall *)(ULONG_PTR *, _QWORD, _DWORD *))qword_140A0DFB8)(&CmControlHive, v37, v35);
+      v18 = ((__int64 (__fastcall *)(ULONG_PTR *, _QWORD, _DWORD *))qword_140A0EFB8)(&CmControlHive, v37, v35);
       v15 = v31;
       if ( v18 )
       {
@@ -154,7 +154,7 @@ LABEL_12:
         v19 = CmpFindValueByName((int)&CmControlHive, v18, (int)&DestinationString);
         if ( v19 == -1 )
           goto LABEL_58;
-        v20 = ((__int64 (__fastcall *)(ULONG_PTR *, _QWORD, _DWORD *))qword_140A0DFB8)(&CmControlHive, v19, v36);
+        v20 = ((__int64 (__fastcall *)(ULONG_PTR *, _QWORD, _DWORD *))qword_140A0EFB8)(&CmControlHive, v19, v36);
         if ( !v20 )
           goto LABEL_58;
         if ( *(_DWORD *)(v20 + 12) == 4 )
@@ -163,9 +163,9 @@ LABEL_12:
           Size_4 = v21;
           if ( (v21 & 3) != 0 )
             v16 = (v21 & 0x10) != 0;
-          ((void (__fastcall *)(ULONG_PTR *, __int64 *))qword_140A0DFC0)(&CmControlHive, &v40);
+          ((void (__fastcall *)(ULONG_PTR *, __int64 *))qword_140A0EFC0)(&CmControlHive, &v40);
         }
-        ((void (__fastcall *)(ULONG_PTR *, _DWORD *))qword_140A0DFC0)(&CmControlHive, v36);
+        ((void (__fastcall *)(ULONG_PTR *, _DWORD *))qword_140A0EFC0)(&CmControlHive, v36);
         if ( !v16 )
           goto LABEL_58;
         v22 = *(_WORD *)(v18 + 72);
@@ -178,7 +178,7 @@ LABEL_12:
             goto LABEL_31;
           }
 LABEL_58:
-          ((void (__fastcall *)(ULONG_PTR *, _DWORD *))qword_140A0DFC0)(&CmControlHive, v35);
+          ((void (__fastcall *)(ULONG_PTR *, _DWORD *))qword_140A0EFC0)(&CmControlHive, v35);
           v15 = v31;
           v4 = v30;
           v8 = v28;
@@ -190,7 +190,7 @@ LABEL_58:
             goto LABEL_58;
           memmove(Str2, (const void *)(v18 + 76), v22);
 LABEL_31:
-          ((void (__fastcall *)(ULONG_PTR *, _DWORD *))qword_140A0DFC0)(&CmControlHive, v35);
+          ((void (__fastcall *)(ULONG_PTR *, _DWORD *))qword_140A0EFC0)(&CmControlHive, v35);
           v24 = v23 & 0xFFFFFFFE;
           if ( v24 >= 0xAA )
             _report_rangecheckfailure();
@@ -235,7 +235,7 @@ LABEL_42:
       }
       v8 = v28;
     }
-    ((void (__fastcall *)(ULONG_PTR *, _DWORD *))qword_140A0DFC0)(&CmControlHive, v41);
+    ((void (__fastcall *)(ULONG_PTR *, _DWORD *))qword_140A0EFC0)(&CmControlHive, v41);
     if ( v8 || v9 )
       v10 &= ~4u;
     if ( v29 )

@@ -1,13 +1,13 @@
 /*
- * XREFs of CmpKeyEnumStackStart @ 0x14091554C
+ * XREFs of CmpKeyEnumStackStart @ 0x140908FBC
  * Callers:
- *     CmpKeyEnumStackStartFromKeyNodeStack @ 0x1409152F4 (CmpKeyEnumStackStartFromKeyNodeStack.c)
- *     CmpSubtreeEnumeratorStart @ 0x140915340 (CmpSubtreeEnumeratorStart.c)
- *     CmpGetSubKeyCountForKeyNodeStack @ 0x140915814 (CmpGetSubKeyCountForKeyNodeStack.c)
+ *     CmpKeyEnumStackStartFromKeyNodeStack @ 0x140908D64 (CmpKeyEnumStackStartFromKeyNodeStack.c)
+ *     CmpSubtreeEnumeratorStart @ 0x140908DB0 (CmpSubtreeEnumeratorStart.c)
+ *     CmpGetSubKeyCountForKeyNodeStack @ 0x140909284 (CmpGetSubKeyCountForKeyNodeStack.c)
  * Callees:
- *     CmpAllocatePool @ 0x1403E1834 (CmpAllocatePool.c)
- *     CmpStartKeyNodeStack @ 0x1409155E4 (CmpStartKeyNodeStack.c)
- *     CmpKeyEnumStackEntryInitialize @ 0x140916F84 (CmpKeyEnumStackEntryInitialize.c)
+ *     CmpAllocatePool @ 0x1403C9EA4 (CmpAllocatePool.c)
+ *     CmpStartKeyNodeStack @ 0x140909054 (CmpStartKeyNodeStack.c)
+ *     CmpKeyEnumStackEntryInitialize @ 0x14090A9F4 (CmpKeyEnumStackEntryInitialize.c)
  */
 
 __int64 __fastcall CmpKeyEnumStackStart(__int64 a1, unsigned __int16 a2)
@@ -19,7 +19,7 @@ __int64 __fastcall CmpKeyEnumStackStart(__int64 a1, unsigned __int16 a2)
   if ( (__int16)a2 < 2 )
     goto LABEL_2;
   LOWORD(v5) = a2 - 1;
-  Pool = CmpAllocatePool(0x100uLL);
+  Pool = CmpAllocatePool(0x100uLL, ((__int64)(__int16)a2 << 7) - 128, 0x38364D43u);
   v7 = 0LL;
   *(_QWORD *)(a1 + 344) = Pool;
   if ( Pool )

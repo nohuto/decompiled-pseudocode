@@ -1,26 +1,26 @@
 /*
- * XREFs of PiCMQueryRemove @ 0x140648028
+ * XREFs of PiCMQueryRemove @ 0x14064810C
  * Callers:
- *     PiCMHandleIoctl @ 0x1404FC77C (PiCMHandleIoctl.c)
+ *     PiCMHandleIoctl @ 0x1404DF70C (PiCMHandleIoctl.c)
  * Callees:
- *     RtlGetActiveConsoleId @ 0x140008ADC (RtlGetActiveConsoleId.c)
- *     RtlInitUnicodeStringEx @ 0x1400C39C0 (RtlInitUnicodeStringEx.c)
- *     Template_z @ 0x1401CDFD0 (Template_z.c)
- *     Template_qz @ 0x1401D0DAC (Template_qz.c)
+ *     RtlGetActiveConsoleId @ 0x140008650 (RtlGetActiveConsoleId.c)
+ *     RtlInitUnicodeStringEx @ 0x1400C1850 (RtlInitUnicodeStringEx.c)
+ *     Template_z @ 0x1401CDE1C (Template_z.c)
+ *     Template_qz @ 0x1401D0BD8 (Template_qz.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     _CmIsRootDevice @ 0x1404CFC28 (_CmIsRootDevice.c)
- *     PiAuDoesClientHaveAccess @ 0x1404F6100 (PiAuDoesClientHaveAccess.c)
- *     _CmGetDeviceStatus @ 0x1404F78AC (_CmGetDeviceStatus.c)
- *     PiCMCaptureObjectInputData @ 0x1404F8E1C (PiCMCaptureObjectInputData.c)
- *     PiCMReleaseObjectInputData @ 0x1404F921C (PiCMReleaseObjectInputData.c)
- *     PiCMReturnBufferResultData @ 0x1404FCC2C (PiCMReturnBufferResultData.c)
- *     _CmGetDeviceRegProp @ 0x1404FCE4C (_CmGetDeviceRegProp.c)
- *     _CmValidateDeviceName @ 0x1404FD9C0 (_CmValidateDeviceName.c)
- *     PnpGetCallerSessionId @ 0x14062D7D8 (PnpGetCallerSessionId.c)
- *     PiAuCheckClientInteractive @ 0x140630CB8 (PiAuCheckClientInteractive.c)
- *     PiAuDoesClientHavePrivilege @ 0x140630F04 (PiAuDoesClientHavePrivilege.c)
- *     PnpQueueQueryAndRemoveEvent @ 0x14064B3CC (PnpQueueQueryAndRemoveEvent.c)
+ *     PiAuDoesClientHaveAccess @ 0x1404D908C (PiAuDoesClientHaveAccess.c)
+ *     _CmGetDeviceStatus @ 0x1404DA838 (_CmGetDeviceStatus.c)
+ *     PiCMCaptureObjectInputData @ 0x1404DBDA8 (PiCMCaptureObjectInputData.c)
+ *     PiCMReleaseObjectInputData @ 0x1404DC1A8 (PiCMReleaseObjectInputData.c)
+ *     PiCMReturnBufferResultData @ 0x1404DFBBC (PiCMReturnBufferResultData.c)
+ *     _CmGetDeviceRegProp @ 0x1404DFDDC (_CmGetDeviceRegProp.c)
+ *     _CmValidateDeviceName @ 0x1404E0950 (_CmValidateDeviceName.c)
+ *     _CmIsRootDevice @ 0x14050CCF4 (_CmIsRootDevice.c)
+ *     PnpGetCallerSessionId @ 0x14062D88C (PnpGetCallerSessionId.c)
+ *     PiAuCheckClientInteractive @ 0x140630D6C (PiAuCheckClientInteractive.c)
+ *     PiAuDoesClientHavePrivilege @ 0x140630FB8 (PiAuDoesClientHavePrivilege.c)
+ *     PnpQueueQueryAndRemoveEvent @ 0x14064B4B0 (PnpQueueQueryAndRemoveEvent.c)
  */
 
 __int64 __fastcall PiCMQueryRemove(
@@ -151,7 +151,7 @@ LABEL_11:
     else
     {
       DeviceRegProp = PnpGetCallerSessionId(&SessionId);
-      if ( DeviceRegProp < 0 || SessionId != (unsigned int)RtlGetActiveConsoleId() )
+      if ( DeviceRegProp < 0 || SessionId != RtlGetActiveConsoleId() )
       {
         DeviceRegProp = PiAuCheckClientInteractive(v23);
         if ( DeviceRegProp < 0 || !v23[0] )

@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpEventWriteTemplateMaxFileSize @ 0x1407A7810
+ * XREFs of EtwpEventWriteTemplateMaxFileSize @ 0x1407A7950
  * Callers:
- *     EtwpFlushBufferToLogfile @ 0x1409DA118 (EtwpFlushBufferToLogfile.c)
+ *     EtwpFlushBufferToLogfile @ 0x1409D4C28 (EtwpFlushBufferToLogfile.c)
  * Callees:
- *     EtwWrite @ 0x14041C1B0 (EtwWrite.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     EtwWrite @ 0x14040FFB0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall EtwpEventWriteTemplateMaxFileSize(
@@ -19,12 +19,12 @@ NTSTATUS __fastcall EtwpEventWriteTemplateMaxFileSize(
 {
   int v9; // [rsp+30h] [rbp-59h] BYREF
   struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+40h] [rbp-49h] BYREF
-  __int64 *v11; // [rsp+50h] [rbp-39h]
+  int *v11; // [rsp+50h] [rbp-39h]
   __int64 v12; // [rsp+58h] [rbp-31h]
   __int64 v13; // [rsp+60h] [rbp-29h]
   int v14; // [rsp+68h] [rbp-21h]
   int v15; // [rsp+6Ch] [rbp-1Dh]
-  __int64 *v16; // [rsp+70h] [rbp-19h]
+  int *v16; // [rsp+70h] [rbp-19h]
   __int64 v17; // [rsp+78h] [rbp-11h]
   int *v18; // [rsp+80h] [rbp-9h]
   __int64 v19; // [rsp+88h] [rbp-1h]

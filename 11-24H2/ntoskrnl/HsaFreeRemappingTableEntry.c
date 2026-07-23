@@ -1,16 +1,16 @@
 /*
- * XREFs of HsaFreeRemappingTableEntry @ 0x140572DC0
+ * XREFs of HsaFreeRemappingTableEntry @ 0x140570250
  * Callers:
  *     <none>
  * Callees:
- *     HalpReleaseHighLevelLock @ 0x1403B9898 (HalpReleaseHighLevelLock.c)
- *     HalpAcquireHighLevelLock @ 0x1403B9FD0 (HalpAcquireHighLevelLock.c)
- *     ExtEnvCriticalFailure @ 0x14055FC80 (ExtEnvCriticalFailure.c)
- *     ExtEnvFreeMemory @ 0x14055FCA0 (ExtEnvFreeMemory.c)
- *     ExtEnvFreePhysicalMemory @ 0x14055FCE0 (ExtEnvFreePhysicalMemory.c)
- *     HsaGetDeviceAperture @ 0x140572F08 (HsaGetDeviceAperture.c)
- *     HsaUpdateRemappingTableInDeviceTableEntry @ 0x140573E5C (HsaUpdateRemappingTableInDeviceTableEntry.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     HalpReleaseHighLevelLock @ 0x140372268 (HalpReleaseHighLevelLock.c)
+ *     HalpAcquireHighLevelLock @ 0x1403729A0 (HalpAcquireHighLevelLock.c)
+ *     ExtEnvCriticalFailure @ 0x14055D8B0 (ExtEnvCriticalFailure.c)
+ *     ExtEnvFreeMemory @ 0x14055D8D0 (ExtEnvFreeMemory.c)
+ *     ExtEnvFreePhysicalMemory @ 0x14055D910 (ExtEnvFreePhysicalMemory.c)
+ *     HsaGetDeviceAperture @ 0x140570398 (HsaGetDeviceAperture.c)
+ *     HsaUpdateRemappingTableInDeviceTableEntry @ 0x1405712EC (HsaUpdateRemappingTableInDeviceTableEntry.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall HsaFreeRemappingTableEntry(__int64 a1, unsigned int a2, int a3)
@@ -40,7 +40,7 @@ __int64 __fastcall HsaFreeRemappingTableEntry(__int64 a1, unsigned int a2, int a
     DeviceAperture = (_QWORD *)HsaGetDeviceAperture(a2);
     if ( *DeviceAperture == a1 )
     {
-      byte_140F8E878 = HalpAcquireHighLevelLock(&qword_140F8E870);
+      byte_140F8EA58 = HalpAcquireHighLevelLock(&qword_140F8EA50);
       v9 = *((_DWORD *)DeviceAperture + 12) == a3;
       *((_DWORD *)DeviceAperture + 12) -= a3;
       if ( v9 )
@@ -53,7 +53,7 @@ __int64 __fastcall HsaFreeRemappingTableEntry(__int64 a1, unsigned int a2, int a
         v4 = v15;
         v7 = 1;
       }
-      HalpReleaseHighLevelLock((volatile signed __int64 *)&qword_140F8E870, byte_140F8E878);
+      HalpReleaseHighLevelLock((volatile signed __int64 *)&qword_140F8EA50, byte_140F8EA58);
       if ( v7 )
       {
         if ( *((_QWORD *)&v13 + 1) == *((_QWORD *)&HsaSharedRemappingTable + 1) )

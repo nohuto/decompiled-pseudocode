@@ -1,7 +1,7 @@
 /*
- * XREFs of MiCommittedVadsInRegion @ 0x1404B3C60
+ * XREFs of MiCommittedVadsInRegion @ 0x1404AD22C
  * Callers:
- *     MiReturnPageTablePageCommitment @ 0x140B23EB8 (MiReturnPageTablePageCommitment.c)
+ *     MiReturnPageTablePageCommitment @ 0x140B262B8 (MiReturnPageTablePageCommitment.c)
  * Callees:
  *     <none>
  */

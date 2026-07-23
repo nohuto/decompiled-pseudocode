@@ -15,17 +15,17 @@ __int64 HvlNotifyDebugDeviceAvailable()
 {
   char v0; // r15
   char v1; // bp
-  union _SLIST_HEADER *CurrentPrcb; // rdi
+  _SLIST_HEADER *CurrentPrcb; // rdi
   _QWORD *p_Next; // rbx
   PHYSICAL_ADDRESS Next; // rsi
   PSLIST_ENTRY v5; // rax
-  struct _SLIST_ENTRY *v6; // r14
+  _SLIST_ENTRY *v6; // r14
   __int16 v7; // ax
   __int64 HypercallCachedPages; // rcx
   __int16 v9; // bx
   struct _KPRCB *v10; // rax
-  union _SLIST_HEADER *v12; // [rsp+28h] [rbp-D0h]
-  struct _SLIST_ENTRY *v13; // [rsp+30h] [rbp-C8h]
+  _SLIST_HEADER *v12; // [rsp+28h] [rbp-D0h]
+  _SLIST_ENTRY *v13; // [rsp+30h] [rbp-C8h]
   _QWORD v14[14]; // [rsp+40h] [rbp-B8h] BYREF
   _BYTE v15[7]; // [rsp+B0h] [rbp-48h] BYREF
   _BYTE v16[9]; // [rsp+B7h] [rbp-41h] BYREF
@@ -33,7 +33,7 @@ __int64 HvlNotifyDebugDeviceAvailable()
 
   if ( (HvlpFlags & 0x10) != 0 )
   {
-    CurrentPrcb = (union _SLIST_HEADER *)KeGetCurrentPrcb();
+    CurrentPrcb = (_SLIST_HEADER *)KeGetCurrentPrcb();
     v5 = RtlpInterlockedPopEntrySList(CurrentPrcb + 1535);
     p_Next = &v5->Next;
     if ( v5 )

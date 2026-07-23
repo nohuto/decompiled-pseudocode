@@ -13,21 +13,29 @@
  *     BiCreateObject @ 0x14096BAE0 (BiCreateObject.c)
  */
 
-int __fastcall BcdCreateObject(__int64 a1, int a2, int a3, __int64 *a4)
+NTSTATUS __cdecl BcdCreateObject(
+        HANDLE BcdStoreHandle,
+        PGUID Identifier,
+        PBCD_OBJECT_DESCRIPTION Description,
+        PHANDLE BcdObjectHandle)
 {
+  int v5; // ebx
+  int v6; // r14d
   char IsOfflineHandle; // bp
-  int result; // eax
-  int Object; // ebx
+  NTSTATUS result; // eax
+  NTSTATUS Object; // ebx
 
-  IsOfflineHandle = BiIsOfflineHandle(a1);
+  v5 = (int)Description;
+  v6 = (int)Identifier;
+  IsOfflineHandle = BiIsOfflineHandle((char)BcdStoreHandle);
   result = BiAcquireBcdSyncMutant(IsOfflineHandle);
   if ( result >= 0 )
   {
-    Object = BiCreateObject(a1, a2, a3, 0, (__int64)a4);
+    Object = BiCreateObject((_DWORD)BcdStoreHandle, v6, v5, 0, (__int64)BcdObjectHandle);
     if ( Object >= 0 )
     {
-      if ( BiIsLinkedToFirmwareVariable(*a4, 0LL) )
-        BiSetFirmwareModified(a1, 1);
+      if ( BiIsLinkedToFirmwareVariable((__int64)*BcdObjectHandle, 0LL) )
+        BiSetFirmwareModified((__int64)BcdStoreHandle, 1);
     }
     BiReleaseBcdSyncMutant(IsOfflineHandle);
     return Object;

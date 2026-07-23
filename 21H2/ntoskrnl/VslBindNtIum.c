@@ -1,13 +1,13 @@
 /*
- * XREFs of VslBindNtIum @ 0x140A8F470
+ * XREFs of VslBindNtIum @ 0x140A90470
  * Callers:
- *     HvlEnableVsmCalls @ 0x140A74220 (HvlEnableVsmCalls.c)
+ *     HvlEnableVsmCalls @ 0x140A75220 (HvlEnableVsmCalls.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140262C90 (VslpEnterIumSecureMode.c)
- *     MmGetPhysicalAddress @ 0x1402A8700 (MmGetPhysicalAddress.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     memset @ 0x140414200 (memset.c)
+ *     MmGetPhysicalAddress @ 0x140226840 (MmGetPhysicalAddress.c)
+ *     VslpEnterIumSecureMode @ 0x1402840D0 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     memset @ 0x140414300 (memset.c)
  */
 
 NTSTATUS VslBindNtIum()

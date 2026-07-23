@@ -14,106 +14,102 @@
  *     EtwpUpdateUmLogger @ 0x180111380 (EtwpUpdateUmLogger.c)
  */
 
-__int64 __fastcall EtwProcessPrivateLoggerRequest(
-        char *a1,
-        unsigned __int64 a2,
-        unsigned __int64 a3,
-        unsigned __int64 a4)
+__int64 __fastcall EtwProcessPrivateLoggerRequest(char *a1)
 {
-  __int128 v5; // xmm6
-  int *v6; // rdi
-  unsigned int v7; // r14d
-  __int64 v8; // rax
-  int v9; // ebx
-  __int64 v10; // rdx
-  __int64 v11; // rcx
-  __int64 v12; // r8
-  int v13; // ebx
+  __int128 v2; // xmm6
+  int *v3; // rdi
+  unsigned int v4; // r14d
+  __int64 v5; // rax
+  int v6; // ebx
+  __int64 v7; // rdx
+  __int64 v8; // rcx
+  __int64 v9; // r8
+  int v10; // ebx
   ULONG started; // eax
+  int v12; // ebx
+  int v13; // r14d
   int v15; // ebx
-  int v16; // r14d
+  int v16; // ebx
+  int v17; // ebx
   int v18; // ebx
-  int v19; // ebx
-  int v20; // ebx
-  int v21; // ebx
-  int v22; // [rsp+50h] [rbp+20h] BYREF
-  int v23; // [rsp+58h] [rbp+28h] BYREF
+  int v19; // [rsp+50h] [rbp+20h] BYREF
+  int v20; // [rsp+58h] [rbp+28h] BYREF
 
   if ( *((_DWORD *)a1 + 1) < 0xF8u )
     return 4209LL;
-  v5 = *(_OWORD *)(a1 + 56);
-  v6 = (int *)(a1 + 72);
-  v7 = *((_DWORD *)a1 + 18);
+  v2 = *(_OWORD *)(a1 + 56);
+  v3 = (int *)(a1 + 72);
+  v4 = *((_DWORD *)a1 + 18);
   *((_DWORD *)a1 + 42) = *((_DWORD *)a1 + 5);
-  if ( v7 < 0xB0 || (*((_DWORD *)a1 + 29) & 0x20000) == 0 )
+  if ( v4 < 0xB0 || (*((_DWORD *)a1 + 29) & 0x20000) == 0 )
     goto LABEL_24;
-  v8 = *((_QWORD *)a1 + 12) - *(_QWORD *)&SystemTraceControlGuid.Data1;
-  if ( !v8 )
-    v8 = *((_QWORD *)a1 + 13) - *(_QWORD *)SystemTraceControlGuid.Data4;
-  if ( !v8 )
+  v5 = *((_QWORD *)a1 + 12) - *(_QWORD *)&SystemTraceControlGuid.Data1;
+  if ( !v5 )
+    v5 = *((_QWORD *)a1 + 13) - *(_QWORD *)SystemTraceControlGuid.Data4;
+  if ( !v5 )
   {
 LABEL_24:
-    v15 = 13;
+    v12 = 13;
     goto LABEL_21;
   }
-  v9 = *((_DWORD *)a1 + 19);
-  v23 = 0;
-  v22 = 0;
-  RtlAcquireSRWLockExclusive((unsigned __int64)&EtwpPrivSessionLock, a2, a3, a4);
-  v13 = v9 - 1;
-  if ( !v13 )
+  v6 = *((_DWORD *)a1 + 19);
+  v20 = 0;
+  v19 = 0;
+  RtlAcquireSRWLockExclusive(&EtwpPrivSessionLock);
+  v10 = v6 - 1;
+  if ( !v10 )
   {
-    started = EtwpStartUmLogger(v11, &v23, &v22, (__int64)v6);
+    started = EtwpStartUmLogger(v8, &v20, &v19, (__int64)v3);
 LABEL_9:
-    v15 = started;
+    v12 = started;
     goto LABEL_10;
   }
-  v18 = v13 - 1;
+  v15 = v10 - 1;
+  if ( !v15 )
+  {
+    started = EtwpStopUmLogger(v8, v7, v9, v3);
+    goto LABEL_9;
+  }
+  v16 = v15 - 1;
+  if ( !v16 )
+  {
+    started = EtwpQueryUmLogger(v4, &v20, &v19, v3);
+    goto LABEL_9;
+  }
+  v17 = v16 - 1;
+  if ( !v17 )
+  {
+    started = EtwpUpdateUmLogger(v4, &v20, &v19, v3);
+    goto LABEL_9;
+  }
+  v18 = v17 - 1;
   if ( !v18 )
   {
-    started = EtwpStopUmLogger(v11, v10, v12, v6);
+    started = EtwpFlushUmLogger(v4, &v20, &v19, v3);
     goto LABEL_9;
   }
-  v19 = v18 - 1;
-  if ( !v19 )
+  if ( v18 == 1 )
   {
-    started = EtwpQueryUmLogger(v7, &v23, &v22, v6);
+    started = EtwpIncrementUmLoggerFile(v4, &v20, &v19, v3);
     goto LABEL_9;
   }
-  v20 = v19 - 1;
-  if ( !v20 )
-  {
-    started = EtwpUpdateUmLogger(v7, &v23, &v22, v6);
-    goto LABEL_9;
-  }
-  v21 = v20 - 1;
-  if ( !v21 )
-  {
-    started = EtwpFlushUmLogger(v7, &v23, &v22, v6);
-    goto LABEL_9;
-  }
-  if ( v21 == 1 )
-  {
-    started = EtwpIncrementUmLoggerFile(v7, &v23, &v22, v6);
-    goto LABEL_9;
-  }
-  v15 = 87;
+  v12 = 87;
 LABEL_10:
   RtlReleaseSRWLockExclusive(&EtwpPrivSessionLock);
-  if ( v15 )
+  if ( v12 )
   {
 LABEL_21:
-    v16 = 76;
+    v13 = 76;
     goto LABEL_12;
   }
-  v16 = *v6 + 72;
+  v13 = *v3 + 72;
 LABEL_12:
   memset(a1, 0, 0x48uLL);
-  *((_DWORD *)a1 + 1) = v16;
+  *((_DWORD *)a1 + 1) = v13;
   *(_DWORD *)a1 = 4;
-  *(_OWORD *)(a1 + 40) = v5;
+  *(_OWORD *)(a1 + 40) = v2;
   *((_DWORD *)a1 + 8) = NtCurrentTeb()->ClientId.UniqueProcess;
-  if ( v15 )
-    *v6 = v15;
+  if ( v12 )
+    *v3 = v12;
   return 0LL;
 }

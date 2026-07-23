@@ -1,11 +1,11 @@
 /*
- * XREFs of VerifierIoConnectInterrupt @ 0x140AE4740
+ * XREFs of VerifierIoConnectInterrupt @ 0x140AE4730
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
- *     ViCtxAllocateIsrContext @ 0x140AE4A94 (ViCtxAllocateIsrContext.c)
+ *     ViCtxAllocateIsrContext @ 0x140AE4A84 (ViCtxAllocateIsrContext.c)
  */
 
 __int64 __fastcall VerifierIoConnectInterrupt(

@@ -1,22 +1,22 @@
 /*
- * XREFs of PiControlGetPropertyData @ 0x140A8E690
+ * XREFs of PiControlGetPropertyData @ 0x140A93360
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     ExAcquireResourceSharedLite @ 0x1402B3C80 (ExAcquireResourceSharedLite.c)
- *     ExReleaseResourceLite @ 0x1402B4CF0 (ExReleaseResourceLite.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     PnpGetDeviceDependencyList @ 0x140910630 (PnpGetDeviceDependencyList.c)
- *     IoGetDeviceProperty @ 0x140994C70 (IoGetDeviceProperty.c)
- *     _CmGetDeviceRegProp @ 0x140996210 (_CmGetDeviceRegProp.c)
- *     PnpDeviceObjectFromDeviceInstanceWithTag @ 0x140999B20 (PnpDeviceObjectFromDeviceInstanceWithTag.c)
- *     PiControlCopyUserModeCallersBuffer @ 0x1409A6B58 (PiControlCopyUserModeCallersBuffer.c)
- *     PiControlGetDevicePowerData @ 0x140A8EAB8 (PiControlGetDevicePowerData.c)
- *     PiControlGetDeviceStack @ 0x140A8ED78 (PiControlGetDeviceStack.c)
- *     PpHotSwapGetDevnodeRemovalPolicy @ 0x140A8F0D4 (PpHotSwapGetDevnodeRemovalPolicy.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     ExAcquireResourceSharedLite @ 0x1402FE950 (ExAcquireResourceSharedLite.c)
+ *     ExReleaseResourceLite @ 0x1402FF9C0 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     IoGetDeviceProperty @ 0x1409556D0 (IoGetDeviceProperty.c)
+ *     _CmGetDeviceRegProp @ 0x140956C70 (_CmGetDeviceRegProp.c)
+ *     PnpDeviceObjectFromDeviceInstanceWithTag @ 0x14095A580 (PnpDeviceObjectFromDeviceInstanceWithTag.c)
+ *     PiControlCopyUserModeCallersBuffer @ 0x1409675B8 (PiControlCopyUserModeCallersBuffer.c)
+ *     PnpGetDeviceDependencyList @ 0x1409B2710 (PnpGetDeviceDependencyList.c)
+ *     PiControlGetDevicePowerData @ 0x140A93788 (PiControlGetDevicePowerData.c)
+ *     PiControlGetDeviceStack @ 0x140A93A48 (PiControlGetDeviceStack.c)
+ *     PpHotSwapGetDevnodeRemovalPolicy @ 0x140A93DA4 (PpHotSwapGetDevnodeRemovalPolicy.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiControlGetPropertyData(__int64 a1, unsigned __int16 *a2, __int64 a3, char a4)

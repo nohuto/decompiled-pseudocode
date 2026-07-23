@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpHpEnvCompactionIsScheduled @ 0x140494D94
+ * XREFs of RtlpHpEnvCompactionIsScheduled @ 0x14048E8E4
  * Callers:
- *     RtlpHpAllocateHeapInternal @ 0x140520DB8 (RtlpHpAllocateHeapInternal.c)
+ *     RtlpHpAllocateHeapInternal @ 0x14052345C (RtlpHpAllocateHeapInternal.c)
  * Callees:
  *     <none>
  */
@@ -9,7 +9,7 @@
 __int64 __fastcall RtlpHpEnvCompactionIsScheduled(_QWORD *a1)
 {
   if ( BYTE1(*a1) == 1 )
-    return *(unsigned int *)&ExSaPageGroupDescriptorArrayLock.Tag;
+    return HIDWORD(ExSaPageGroupDescriptorArrayLock.StackBase);
   else
-    return ExSaPageGroupDescriptorArrayLock.SystemCallNumber;
+    return LODWORD(ExSaPageGroupDescriptorArrayLock.ThreadLock);
 }

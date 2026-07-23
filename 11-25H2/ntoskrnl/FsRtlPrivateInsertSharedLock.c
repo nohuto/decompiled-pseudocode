@@ -24,17 +24,17 @@ char __fastcall FsRtlPrivateInsertSharedLock(__int64 a1, _RTL_SPLAY_LINKS *a2)
   _RTL_SPLAY_LINKS *Parent; // r10
   unsigned __int64 v12; // rax
   _RTL_SPLAY_LINKS *v13; // rcx
-  RTL_SPLAY_LINKS *v14; // rbp
-  RTL_SPLAY_LINKS *v15; // rax
+  _RTL_SPLAY_LINKS *v14; // rbp
+  _RTL_SPLAY_LINKS *v15; // rax
   PRTL_SPLAY_LINKS v16; // rcx
-  RTL_SPLAY_LINKS *v17; // rbx
+  _RTL_SPLAY_LINKS *v17; // rbx
   _RTL_SPLAY_LINKS *v18; // rax
-  RTL_SPLAY_LINKS *v19; // rcx
+  _RTL_SPLAY_LINKS *v19; // rcx
   _RTL_SPLAY_LINKS *v20; // r8
   _RTL_SPLAY_LINKS *v21; // rax
   PRTL_SPLAY_LINKS v22; // rdi
   PRTL_SPLAY_LINKS v23; // rax
-  RTL_SPLAY_LINKS *v24; // rsi
+  _RTL_SPLAY_LINKS *v24; // rsi
 
   v3 = *(_RTL_SPLAY_LINKS **)(a1 + 8);
   v5 = 0LL;
@@ -80,7 +80,7 @@ LABEL_8:
   }
   if ( !v9 )
     v8 = v5;
-  v14 = (RTL_SPLAY_LINKS *)((unsigned __int64)&v8[1] & -(__int64)(v8 != 0LL));
+  v14 = (_RTL_SPLAY_LINKS *)((unsigned __int64)&v8[1] & -(__int64)(v8 != 0LL));
   if ( v14 )
   {
     v17 = v14 - 1;
@@ -127,7 +127,7 @@ LABEL_8:
           v17->RightChild = v22->RightChild;
         }
         RtlDeleteNoSplay(v24, (PRTL_SPLAY_LINKS *)(a1 + 8));
-        ExFreeToNPagedLookasideList(&FsRtlLockTreeNodeLookasideList, &v24[-1]);
+        ExFreeToNPagedLookasideList((PNPAGED_LOOKASIDE_LIST)&FsRtlLockTreeNodeLookasideList, &v24[-1]);
       }
     }
     if ( LOBYTE(v17->LeftChild) )
@@ -135,7 +135,7 @@ LABEL_8:
   }
   else
   {
-    v15 = (RTL_SPLAY_LINKS *)ExAllocateFromNPagedLookasideList(&FsRtlLockTreeNodeLookasideList);
+    v15 = (_RTL_SPLAY_LINKS *)ExAllocateFromNPagedLookasideList((PNPAGED_LOOKASIDE_LIST)&FsRtlLockTreeNodeLookasideList);
     if ( !v15 )
       return (char)v15;
     v16 = v15 + 1;

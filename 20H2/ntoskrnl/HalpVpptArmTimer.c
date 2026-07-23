@@ -18,7 +18,7 @@ __int64 __fastcall HalpVpptArmTimer(__int64 *a1, int a2, unsigned __int64 a3)
   int v8; // esi
   __int64 *v9; // rcx
   __int64 **v10; // rax
-  unsigned __int64 v11; // r8
+  LARGE_INTEGER v11; // r8
   unsigned __int64 v12; // rax
   int *v13; // rax
   int *i; // rdx
@@ -29,7 +29,7 @@ __int64 __fastcall HalpVpptArmTimer(__int64 *a1, int a2, unsigned __int64 a3)
   _DWORD *SchedulerAssist; // r9
   int v20; // eax
   bool v21; // zf
-  LARGE_INTEGER v22; // [rsp+40h] [rbp+8h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+40h] [rbp+8h] BYREF
 
   v3 = a3;
   if ( ((a2 - 1) & 0xFFFFFFFD) != 0 )
@@ -56,15 +56,15 @@ __int64 __fastcall HalpVpptArmTimer(__int64 *a1, int a2, unsigned __int64 a3)
     *v10 = v9;
     v9[1] = (__int64)v10;
   }
-  v22.QuadPart = 0LL;
-  v11 = RtlGetInterruptTimePrecise(&v22) + v3;
+  PerformanceCounter.QuadPart = 0LL;
+  v11.QuadPart = *(_QWORD *)&RtlGetInterruptTimePrecise(&PerformanceCounter) + v3;
   v12 = 0LL;
-  a1[4] = v11;
+  a1[4] = v11.QuadPart;
   if ( a2 != 3 )
     v12 = v3;
   a1[5] = v12;
   v13 = &HalpVpptQueue;
-  for ( i = *(int **)&HalpVpptQueue; i != &HalpVpptQueue && v11 >= *((_QWORD *)i + 4); i = *(int **)i )
+  for ( i = *(int **)&HalpVpptQueue; i != &HalpVpptQueue && v11.QuadPart >= *((_QWORD *)i + 4); i = *(int **)i )
     v13 = i;
   v15 = *(_QWORD *)v13;
   if ( *(int **)(*(_QWORD *)v13 + 8LL) != v13 )

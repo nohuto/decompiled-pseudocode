@@ -1,16 +1,16 @@
 /*
- * XREFs of MiGetCurrentSlabIdentity @ 0x1403FC210
+ * XREFs of MiGetCurrentSlabIdentity @ 0x1402619D0
  * Callers:
- *     MiFreePageToSlabAllocator @ 0x1402241C8 (MiFreePageToSlabAllocator.c)
- *     MiWalkVaRange @ 0x14028A740 (MiWalkVaRange.c)
- *     MiCopyOnWrite @ 0x1402E47DC (MiCopyOnWrite.c)
- *     MiResolvePageFileFault @ 0x1402F783C (MiResolvePageFileFault.c)
- *     MiUserFault @ 0x1402FD560 (MiUserFault.c)
- *     MiCreateSlabEntry @ 0x1403A112C (MiCreateSlabEntry.c)
- *     MiGetPageFromSlabAllocator @ 0x1403A2ED0 (MiGetPageFromSlabAllocator.c)
- *     MiCheckAvailablePagesForFaultDelay @ 0x1403FC0A0 (MiCheckAvailablePagesForFaultDelay.c)
- *     MiCopyOnWriteCheckConditions @ 0x140406AD8 (MiCopyOnWriteCheckConditions.c)
- *     MiReplenishSlabAllocatorByIdentity @ 0x1404143E8 (MiReplenishSlabAllocatorByIdentity.c)
+ *     MiCreateSlabEntry @ 0x140217C8C (MiCreateSlabEntry.c)
+ *     MiGetPageFromSlabAllocator @ 0x14021D5AC (MiGetPageFromSlabAllocator.c)
+ *     MiFreePageToSlabAllocator @ 0x140250F18 (MiFreePageToSlabAllocator.c)
+ *     MiCheckAvailablePagesForFaultDelay @ 0x140260E00 (MiCheckAvailablePagesForFaultDelay.c)
+ *     MiWalkVaRange @ 0x14029A340 (MiWalkVaRange.c)
+ *     MiUserFault @ 0x140307CE0 (MiUserFault.c)
+ *     MiResolvePageFileFault @ 0x14033FD3C (MiResolvePageFileFault.c)
+ *     MiCopyOnWrite @ 0x140346A74 (MiCopyOnWrite.c)
+ *     MiCopyOnWriteCheckConditions @ 0x1403C927C (MiCopyOnWriteCheckConditions.c)
+ *     MiReplenishSlabAllocatorByIdentity @ 0x1404B74A4 (MiReplenishSlabAllocatorByIdentity.c)
  * Callees:
  *     <none>
  */

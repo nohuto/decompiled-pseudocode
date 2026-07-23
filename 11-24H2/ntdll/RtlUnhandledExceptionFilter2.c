@@ -1,34 +1,34 @@
 /*
- * XREFs of RtlUnhandledExceptionFilter2 @ 0x18011F650
+ * XREFs of RtlUnhandledExceptionFilter2 @ 0x18011D880
  * Callers:
- *     RtlUserThreadStart @ 0x180004250 (RtlUserThreadStart.c)
- *     RtlUnhandledExceptionFilter @ 0x180147170 (RtlUnhandledExceptionFilter.c)
- *     TppExceptionFilter @ 0x18015C77C (TppExceptionFilter.c)
- *     LdrpFatalExceptionFilter @ 0x18015E390 (LdrpFatalExceptionFilter.c)
- *     LdrpLogFatalUserCallbackException @ 0x1801602F0 (LdrpLogFatalUserCallbackException.c)
+ *     RtlUserThreadStart @ 0x1800AAD40 (RtlUserThreadStart.c)
+ *     RtlUnhandledExceptionFilter @ 0x180145520 (RtlUnhandledExceptionFilter.c)
+ *     TppExceptionFilter @ 0x18015AB3C (TppExceptionFilter.c)
+ *     LdrpFatalExceptionFilter @ 0x18015C750 (LdrpFatalExceptionFilter.c)
+ *     LdrpLogFatalUserCallbackException @ 0x18015E6B0 (LdrpLogFatalUserCallbackException.c)
  * Callees:
- *     RtlReportException @ 0x180001490 (RtlReportException.c)
- *     DbgPrintEx @ 0x18005EA90 (DbgPrintEx.c)
- *     RtlIsAnyDebuggerPresent @ 0x1800F2A08 (RtlIsAnyDebuggerPresent.c)
+ *     DbgPrintEx @ 0x180074670 (DbgPrintEx.c)
+ *     RtlIsAnyDebuggerPresent @ 0x1800ED2F8 (RtlIsAnyDebuggerPresent.c)
+ *     RtlReportException @ 0x18010B4F0 (RtlReportException.c)
  */
 
-__int64 __fastcall RtlUnhandledExceptionFilter2(const void **a1)
+LONG __cdecl RtlUnhandledExceptionFilter2(PEXCEPTION_POINTERS ExceptionPointers, ULONG Flags)
 {
-  int v2; // edi
+  int v3; // edi
   _RTL_USER_PROCESS_PARAMETERS *ProcessParameters; // r15
   const wchar_t *Buffer; // r15
-  __int64 v5; // rdx
-  unsigned int **v6; // rcx
-  unsigned int *v7; // r12
-  __int64 v8; // r12
-  int v9; // r9d
-  const void *v10; // r9
-  __int64 v11; // rcx
-  const char *v12; // rax
-  const void *v13; // r9
-  _WORD *v15; // [rsp+30h] [rbp-48h]
+  __int64 v6; // rdx
+  unsigned int **v7; // rcx
+  unsigned int *v8; // r12
+  __int64 v9; // r12
+  int v10; // r9d
+  const void *v11; // r9
+  unsigned __int64 v12; // rcx
+  const char *v13; // rax
+  const void *v14; // r9
+  _WORD *v16; // [rsp+30h] [rbp-48h]
 
-  v2 = 0;
+  v3 = 0;
   ProcessParameters = NtCurrentPeb()->ProcessParameters;
   if ( ProcessParameters )
     Buffer = ProcessParameters->CommandLine.Buffer;
@@ -36,91 +36,100 @@ __int64 __fastcall RtlUnhandledExceptionFilter2(const void **a1)
     Buffer = L"<unknown>";
   if ( RtlIsAnyDebuggerPresent() )
   {
-    v7 = *v6;
-    if ( **v6 == -1073741819 )
+    v8 = *v7;
+    if ( **v7 == -1073741819 )
     {
-      DbgPrintEx(101, 0, "\n\n *** An Access Violation occurred in %ws:%s\n\n", Buffer, v5);
-      v12 = "write to";
-      if ( !*((_QWORD *)*a1 + 4) )
-        v12 = "read from";
-      DbgPrintEx(101, 0, "The instruction at %p tried to %s ", *((const void **)*a1 + 2), v12);
-      v13 = (const void *)*((_QWORD *)*a1 + 5);
-      if ( v13 )
-        DbgPrintEx(101, 0, "an invalid address, %p\n\n", v13);
+      DbgPrintEx(0x65u, 0, "\n\n *** An Access Violation occurred in %ws:%s\n\n", Buffer, v6);
+      v13 = "write to";
+      if ( !ExceptionPointers->ExceptionRecord->ExceptionInformation[0] )
+        v13 = "read from";
+      DbgPrintEx(
+        0x65u,
+        0,
+        "The instruction at %p tried to %s ",
+        ExceptionPointers->ExceptionRecord->ExceptionAddress,
+        v13);
+      v14 = (const void *)ExceptionPointers->ExceptionRecord->ExceptionInformation[1];
+      if ( v14 )
+        DbgPrintEx(0x65u, 0, "an invalid address, %p\n\n", v14);
       else
-        DbgPrintEx(101, 0, "a NULL pointer\n\n");
+        DbgPrintEx(0x65u, 0, "a NULL pointer\n\n");
     }
     else
     {
-      switch ( *v7 )
+      switch ( *v8 )
       {
         case 0xC0000006:
-          DbgPrintEx(101, 0, "\n\n *** Inpage error in %ws:%s\n\n", Buffer, v5);
+          DbgPrintEx(0x65u, 0, "\n\n *** Inpage error in %ws:%s\n\n", Buffer, v6);
           DbgPrintEx(
-            101,
+            0x65u,
             0,
             "The instruction at %p referenced memory at %p.\n",
-            *((const void **)*a1 + 2),
-            *((const void **)*a1 + 5));
-          DbgPrintEx(101, 0, "This failed because of error %Ix.\n\n", *((_QWORD *)*a1 + 6));
-          v11 = *((_QWORD *)*a1 + 6);
-          switch ( v11 )
+            ExceptionPointers->ExceptionRecord->ExceptionAddress,
+            (const void *)ExceptionPointers->ExceptionRecord->ExceptionInformation[1]);
+          DbgPrintEx(
+            0x65u,
+            0,
+            "This failed because of error %Ix.\n\n",
+            ExceptionPointers->ExceptionRecord->ExceptionInformation[2]);
+          v12 = ExceptionPointers->ExceptionRecord->ExceptionInformation[2];
+          switch ( v12 )
           {
-            case -1073741670LL:
+            case 0xFFFFFFFFC000009AuLL:
               DbgPrintEx(
-                101,
+                0x65u,
                 0,
                 "This means the machine is out of memory.  Use !vm to see where all the memory is being used.\n\n");
               break;
-            case -1073741668LL:
-            case -1073741462LL:
+            case 0xFFFFFFFFC000009CuLL:
+            case 0xFFFFFFFFC000016AuLL:
               DbgPrintEx(
-                101,
+                0x65u,
                 0,
                 "This means the data could not be read, typically because of a bad block on the disk.  Check your hardware.\n\n");
               break;
-            case -1073741435LL:
-              DbgPrintEx(101, 0, "This means that the I/O device reported an I/O error.  Check your hardware.");
+            case 0xFFFFFFFFC0000185uLL:
+              DbgPrintEx(0x65u, 0, "This means that the I/O device reported an I/O error.  Check your hardware.");
               break;
           }
           break;
         case 0xC0000194:
-          v8 = *((_QWORD *)v7 + 4);
-          if ( v8 )
+          v9 = *((_QWORD *)v8 + 4);
+          if ( v9 )
           {
-            v15 = *(_WORD **)v8;
-            if ( *(_QWORD *)v8 && **(_WORD **)v8 == 1 )
+            v16 = *(_WORD **)v9;
+            if ( *(_QWORD *)v9 && **(_WORD **)v9 == 1 )
             {
-              DbgPrintEx(101, 0, "\n\n *** Resource timeout (%p) in %ws:%s\n\n", v8, Buffer, v5, v15);
-              v9 = *(_DWORD *)(v8 + 68);
-              if ( v9 >= 0 )
+              DbgPrintEx(0x65u, 0, "\n\n *** Resource timeout (%p) in %ws:%s\n\n", v9, Buffer, v6, v16);
+              v10 = *(_DWORD *)(v9 + 68);
+              if ( v10 >= 0 )
               {
-                if ( v9 <= 0 )
+                if ( v10 <= 0 )
                   DbgPrintEx(
-                    101,
+                    0x65u,
                     0,
                     "The resource is unowned.  This usually implies a slow-moving machine due to memory pressure\n\n");
                 else
-                  DbgPrintEx(101, 0, "The resource is owned shared by %d threads\n", v9);
+                  DbgPrintEx(0x65u, 0, "The resource is owned shared by %d threads\n", v10);
               }
               else
               {
-                DbgPrintEx(101, 0, "The resource is owned exclusively by thread %p\n", *(const void **)(v8 + 72));
+                DbgPrintEx(0x65u, 0, "The resource is owned exclusively by thread %p\n", *(const void **)(v9 + 72));
               }
             }
             else
             {
-              DbgPrintEx(101, 0, "\n\n *** Critical Section Timeout (%p) in %ws:%s\n\n", v8, Buffer, v5, v15);
-              v10 = *(const void **)(v8 + 16);
-              if ( v10 )
+              DbgPrintEx(0x65u, 0, "\n\n *** Critical Section Timeout (%p) in %ws:%s\n\n", v9, Buffer, v6, v16);
+              v11 = *(const void **)(v9 + 16);
+              if ( v11 )
               {
-                DbgPrintEx(101, 0, "The critical section is owned by thread %p.\n", v10);
-                DbgPrintEx(101, 0, "Go determine why that thread has not released the critical section.\n\n");
+                DbgPrintEx(0x65u, 0, "The critical section is owned by thread %p.\n", v11);
+                DbgPrintEx(0x65u, 0, "Go determine why that thread has not released the critical section.\n\n");
               }
               else
               {
                 DbgPrintEx(
-                  101,
+                  0x65u,
                   0,
                   "The critical section is unowned.  This usually implies a slow-moving machine due to memory pressure\n"
                   "\n");
@@ -129,31 +138,31 @@ __int64 __fastcall RtlUnhandledExceptionFilter2(const void **a1)
           }
           break;
         case 0xC0000409:
-          DbgPrintEx(101, 0, "\n\n *** A stack buffer overrun occurred in %ws:%s\n\n", Buffer, v5);
+          DbgPrintEx(0x65u, 0, "\n\n *** A stack buffer overrun occurred in %ws:%s\n\n", Buffer, v6);
           DbgPrintEx(
-            101,
+            0x65u,
             0,
             "This is usually the result of a memory copy to a local buffer or structure where the size is not properly ca"
             "lculated/checked.\n");
-          DbgPrintEx(101, 0, "If this bug ends up in the shipping product, it could be a severe security hole.\n");
+          DbgPrintEx(0x65u, 0, "If this bug ends up in the shipping product, it could be a severe security hole.\n");
           DbgPrintEx(
-            101,
+            0x65u,
             0,
             "The stack trace should show the guilty function (the function directly above __report_gsfailure).\n");
           break;
         default:
-          DbgPrintEx(101, 0, "\n\n *** Unhandled exception 0x%08lx, hit in %ws:%s\n\n", *v7, Buffer, v5);
+          DbgPrintEx(0x65u, 0, "\n\n *** Unhandled exception 0x%08lx, hit in %ws:%s\n\n", *v8, Buffer, v6);
           break;
       }
     }
-    DbgPrintEx(101, 0, " *** enter .exr %p for the exception record\n", *a1);
-    if ( *(_DWORD *)*a1 != -1073740791 )
-      DbgPrintEx(101, 0, " ***  enter .cxr %p for the context\n", a1[1]);
-    DbgPrintEx(101, 0, " *** then kb to get the faulting stack\n\n");
+    DbgPrintEx(0x65u, 0, " *** enter .exr %p for the exception record\n", ExceptionPointers->ExceptionRecord);
+    if ( ExceptionPointers->ExceptionRecord->ExceptionCode != -1073740791 )
+      DbgPrintEx(0x65u, 0, " ***  enter .cxr %p for the context\n", ExceptionPointers->ContextRecord);
+    DbgPrintEx(0x65u, 0, " *** then kb to get the faulting stack\n\n");
     __debugbreak();
   }
-  if ( *(_DWORD *)*a1 == -1073740791 )
-    RtlReportException((__int64)*a1, (__int64)a1[1], 0);
-  LOBYTE(v2) = *(_DWORD *)*a1 != -1073741420;
-  return (unsigned int)(v2 - 1);
+  if ( ExceptionPointers->ExceptionRecord->ExceptionCode == -1073740791 )
+    RtlReportException(ExceptionPointers->ExceptionRecord, ExceptionPointers->ContextRecord, 0);
+  LOBYTE(v3) = ExceptionPointers->ExceptionRecord->ExceptionCode != -1073741420;
+  return v3 - 1;
 }

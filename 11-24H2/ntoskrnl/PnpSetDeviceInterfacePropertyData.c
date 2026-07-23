@@ -1,18 +1,18 @@
 /*
- * XREFs of PnpSetDeviceInterfacePropertyData @ 0x1408B6E48
+ * XREFs of PnpSetDeviceInterfacePropertyData @ 0x1408B47B8
  * Callers:
- *     IoSetDeviceInterfacePropertyData @ 0x1408B6E00 (IoSetDeviceInterfacePropertyData.c)
+ *     IoSetDeviceInterfacePropertyData @ 0x1408B4770 (IoSetDeviceInterfacePropertyData.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     PnpUnicodeStringToWstrFree @ 0x1408B7510 (PnpUnicodeStringToWstrFree.c)
- *     PiPnpRtlSetObjectProperty @ 0x1408B84A0 (PiPnpRtlSetObjectProperty.c)
- *     RtlLCIDToCultureName @ 0x140ABA1E0 (RtlLCIDToCultureName.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     PnpUnicodeStringToWstrFree @ 0x1408B4E80 (PnpUnicodeStringToWstrFree.c)
+ *     PiPnpRtlSetObjectProperty @ 0x1408B5E10 (PiPnpRtlSetObjectProperty.c)
+ *     RtlLCIDToCultureName @ 0x140AB5200 (RtlLCIDToCultureName.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
-__int64 __fastcall PnpSetDeviceInterfacePropertyData(unsigned __int16 *a1, __int64 a2, unsigned int a3)
+__int64 __fastcall PnpSetDeviceInterfacePropertyData(unsigned __int16 *a1, __int64 a2, LCID a3)
 {
   _WORD *v5; // rsi
   __int64 v6; // r8
@@ -22,19 +22,19 @@ __int64 __fastcall PnpSetDeviceInterfacePropertyData(unsigned __int16 *a1, __int
   _WORD *v10; // rbx
   unsigned int v11; // ebx
   _WORD *v13; // rax
-  _QWORD v14[2]; // [rsp+50h] [rbp-108h] BYREF
+  UNICODE_STRING String; // [rsp+50h] [rbp-108h] BYREF
   _BYTE v15[176]; // [rsp+60h] [rbp-F8h] BYREF
 
   memset_0(v15, 0, 0xAAuLL);
-  v14[0] = 0LL;
+  *(_QWORD *)&String.Length = 0LL;
   v5 = 0LL;
   if ( !a1 || !*((_QWORD *)a1 + 1) || !*a1 )
     return (unsigned int)-1073741811;
   if ( a3 )
   {
-    WORD1(v14[0]) = 170;
-    v14[1] = v15;
-    if ( !(unsigned __int8)RtlLCIDToCultureName(a3, v14) )
+    String.MaximumLength = 170;
+    String.Buffer = (wchar_t *)v15;
+    if ( !RtlLCIDToCultureName(a3, &String) )
       return (unsigned int)-1073741823;
   }
   v6 = a1[1];
@@ -58,7 +58,7 @@ __int64 __fastcall PnpSetDeviceInterfacePropertyData(unsigned __int16 *a1, __int
       {
         goto LABEL_25;
       }
-      Pool2 = (_WORD *)ExAllocatePool2(0x100uLL);
+      Pool2 = (_WORD *)ExAllocatePool2(0x100uLL, v8 + 2, 0x75737050u);
       v10 = Pool2;
       if ( Pool2 )
       {
@@ -78,7 +78,7 @@ LABEL_25:
         v5 = (_WORD *)*((_QWORD *)a1 + 1);
         goto LABEL_15;
       }
-      v13 = (_WORD *)ExAllocatePool2(0x100uLL);
+      v13 = (_WORD *)ExAllocatePool2(0x100uLL, 2uLL, 0x75737050u);
       if ( v13 )
       {
         *v13 = 0;

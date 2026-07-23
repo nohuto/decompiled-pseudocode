@@ -1,11 +1,11 @@
 /*
- * XREFs of ReadStringDelimited_0 @ 0x14053F288
+ * XREFs of ReadStringDelimited_0 @ 0x14054170C
  * Callers:
- *     _winput_s @ 0x14053F4EC (_winput_s.c)
+ *     _winput_s @ 0x140541970 (_winput_s.c)
  * Callees:
- *     ReadString_0 @ 0x14053F054 (ReadString_0.c)
- *     _alloca_probe @ 0x140731080 (_alloca_probe.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     ReadString_0 @ 0x1405414D8 (ReadString_0.c)
+ *     _alloca_probe @ 0x140735C50 (_alloca_probe.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall ReadStringDelimited_0(

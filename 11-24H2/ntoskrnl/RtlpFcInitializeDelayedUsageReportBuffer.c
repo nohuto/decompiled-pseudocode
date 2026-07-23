@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpFcInitializeDelayedUsageReportBuffer @ 0x14078D16C
+ * XREFs of RtlpFcInitializeDelayedUsageReportBuffer @ 0x14078D09C
  * Callers:
- *     CmFcManagerStartRuntimePhase @ 0x140C4D180 (CmFcManagerStartRuntimePhase.c)
+ *     CmFcManagerStartRuntimePhase @ 0x140C4F31C (CmFcManagerStartRuntimePhase.c)
  * Callees:
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 void *__fastcall RtlpFcInitializeDelayedUsageReportBuffer(void *a1)

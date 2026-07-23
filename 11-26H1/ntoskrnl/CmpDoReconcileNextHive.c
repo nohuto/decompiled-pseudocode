@@ -1,87 +1,70 @@
 /*
- * XREFs of CmpDoReconcileNextHive @ 0x140AAB490
+ * XREFs of CmpDoReconcileNextHive @ 0x140AA8A70
  * Callers:
  *     <none>
  * Callees:
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     CmpGetNextActiveHive @ 0x1408B3048 (CmpGetNextActiveHive.c)
- *     CmpLockHiveListShared @ 0x1408B31AC (CmpLockHiveListShared.c)
- *     CmpFlushHive @ 0x1408B321C (CmpFlushHive.c)
- *     CmpUnlockHiveList @ 0x1408C8634 (CmpUnlockHiveList.c)
- *     CmpIsHiveEligibleForLazyReconcile @ 0x140AAB620 (CmpIsHiveEligibleForLazyReconcile.c)
- *     HvGetEffectiveLogSizeCapForHive @ 0x140AAB6F8 (HvGetEffectiveLogSizeCapForHive.c)
- *     CmpFlushUnsupportedOperationTelemetry @ 0x140AAB984 (CmpFlushUnsupportedOperationTelemetry.c)
+ *     CmpGetNextActiveHive @ 0x1408B95EC (CmpGetNextActiveHive.c)
+ *     CmpFlushHive @ 0x1408B97F0 (CmpFlushHive.c)
+ *     CmpIsHiveEligibleForLazyReconcile @ 0x140AA8BCC (CmpIsHiveEligibleForLazyReconcile.c)
+ *     HvGetEffectiveLogSizeCapForHive @ 0x140AA8CA4 (HvGetEffectiveLogSizeCapForHive.c)
+ *     CmpFlushUnsupportedOperationTelemetry @ 0x140AA8F30 (CmpFlushUnsupportedOperationTelemetry.c)
  */
 
-char __fastcall CmpDoReconcileNextHive(_BYTE *a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
+char __fastcall CmpDoReconcileNextHive(_BYTE *a1, unsigned __int64 *a2)
 {
-  char v4; // r14
-  unsigned __int64 v5; // rsi
-  _QWORD *v6; // r15
-  struct _KTHREAD *v9; // rdi
-  unsigned __int8 *PriorityFloorCounts; // rbx
-  unsigned __int64 v11; // rdi
-  unsigned __int64 v12; // rbp
-  unsigned __int64 v13; // rdx
-  __int64 v14; // r8
-  __int64 v15; // r9
+  char v2; // r14
+  unsigned __int64 v3; // rsi
+  unsigned __int64 *v4; // r15
+  unsigned __int8 *NextActiveHive; // rbx
+  unsigned __int64 v8; // rdi
+  unsigned __int64 v9; // rbp
+  unsigned __int64 v10; // rdx
   unsigned int EffectiveLogSizeCapForHive; // eax
 
-  v4 = 0;
-  v5 = 10000000LL * (unsigned int)dword_140E02224;
-  v6 = (_QWORD *)a2;
+  v2 = 0;
+  v3 = 10000000LL * (unsigned int)dword_140E02224;
+  v4 = a2;
   if ( !BYTE1(NlsMbOemCodePageTag) )
   {
-    v9 = (struct _KTHREAD *)&PspSiloMonitorLock.WaitBlockFill11[112];
-    CmpLockHiveListShared((__int64)a1, a2, a3, a4);
-    do
-    {
-      v9 = *(struct _KTHREAD **)&v9->Header.Lock;
-      PriorityFloorCounts = 0LL;
-      if ( v9 == (struct _KTHREAD *)&PspSiloMonitorLock.WaitBlockFill11[112] )
-        break;
-      PriorityFloorCounts = v9[-2].PriorityFloorCounts;
-    }
-    while ( !ExAcquireRundownProtection_0((PEX_RUNDOWN_REF)&v9->QuantumTarget) );
-    CmpUnlockHiveList();
-    if ( PriorityFloorCounts )
+    NextActiveHive = CmpGetNextActiveHive(0LL);
+    if ( NextActiveHive )
     {
       do
       {
-        v11 = -1LL;
-        v12 = MEMORY[0xFFFFF78000000008] - MEMORY[0xFFFFF780000003B0];
-        if ( (unsigned __int8)CmpIsHiveEligibleForLazyReconcile(PriorityFloorCounts) )
+        v8 = -1LL;
+        v9 = MEMORY[0xFFFFF78000000008] - MEMORY[0xFFFFF780000003B0];
+        if ( (unsigned __int8)CmpIsHiveEligibleForLazyReconcile(NextActiveHive) )
         {
-          EffectiveLogSizeCapForHive = HvGetEffectiveLogSizeCapForHive(PriorityFloorCounts);
+          EffectiveLogSizeCapForHive = HvGetEffectiveLogSizeCapForHive(NextActiveHive);
           if ( (int)CmpFlushHive(
-                      (ULONG_PTR)PriorityFloorCounts,
-                      *((_DWORD *)PriorityFloorCounts + 45) < EffectiveLogSizeCapForHive ? 22 : 6) < 0 )
+                      (ULONG_PTR)NextActiveHive,
+                      *((_DWORD *)NextActiveHive + 45) < EffectiveLogSizeCapForHive ? 22 : 6) < 0 )
           {
             *a1 = 1;
-            v11 = v12 + 10000000LL * (unsigned int)dword_140E0222C;
+            v8 = v9 + 10000000LL * (unsigned int)dword_140E0222C;
           }
         }
-        else if ( *((_DWORD *)PriorityFloorCounts + 32) )
+        else if ( *((_DWORD *)NextActiveHive + 32) )
         {
-          if ( (*((_DWORD *)PriorityFloorCounts + 40) & 0x8001) == 0 )
+          if ( (*((_DWORD *)NextActiveHive + 40) & 0x8001) == 0 )
           {
-            v4 = 1;
-            v13 = *((_QWORD *)PriorityFloorCounts + 519) + 10000000LL * (unsigned int)dword_140E02220;
-            if ( v12 < v13 )
-              v11 = v13 - v12;
+            v2 = 1;
+            v10 = *((_QWORD *)NextActiveHive + 519) + 10000000LL * (unsigned int)dword_140E02220;
+            if ( v9 < v10 )
+              v8 = v10 - v9;
           }
         }
-        if ( v11 >= v5 )
-          v11 = v5;
-        v5 = v11;
-        PriorityFloorCounts = CmpGetNextActiveHive((struct _EX_RUNDOWN_REF *)PriorityFloorCounts, v13, v14, v15);
+        if ( v8 >= v3 )
+          v8 = v3;
+        v3 = v8;
+        NextActiveHive = CmpGetNextActiveHive((struct _EX_RUNDOWN_REF *)NextActiveHive);
       }
-      while ( PriorityFloorCounts );
-      v6 = (_QWORD *)a2;
+      while ( NextActiveHive );
+      v4 = a2;
     }
     CmpFlushUnsupportedOperationTelemetry();
-    if ( v4 )
-      *v6 = v5;
+    if ( v2 )
+      *v4 = v3;
   }
-  return v4;
+  return v2;
 }

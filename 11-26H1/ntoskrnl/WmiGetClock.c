@@ -1,11 +1,11 @@
 /*
- * XREFs of WmiGetClock @ 0x1406C66F0
+ * XREFs of WmiGetClock @ 0x1406CA3F0
  * Callers:
  *     <none>
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x1402150C0 (PsGetCurrentServerSiloGlobals.c)
- *     RtlGetSystemTimePrecise @ 0x14021C830 (RtlGetSystemTimePrecise.c)
- *     EtwpGetPerfCounter @ 0x14032D3B0 (EtwpGetPerfCounter.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x1402153F0 (PsGetCurrentServerSiloGlobals.c)
+ *     RtlGetSystemTimePrecise @ 0x14021E1C0 (RtlGetSystemTimePrecise.c)
+ *     EtwpGetPerfCounter @ 0x14032F3E0 (EtwpGetPerfCounter.c)
  */
 
 unsigned __int64 WmiGetClock()
@@ -29,7 +29,7 @@ unsigned __int64 WmiGetClock()
     {
       v8 = v7 - 1;
       if ( !v8 )
-        return RtlGetSystemTimePrecise();
+        return RtlGetSystemTimePrecise().QuadPart;
       if ( v8 == 1 )
         return __rdtsc();
     }
@@ -37,7 +37,7 @@ unsigned __int64 WmiGetClock()
   }
   v3 = v0 - 1;
   if ( !v3 )
-    return RtlGetSystemTimePrecise();
+    return RtlGetSystemTimePrecise().QuadPart;
   v4 = v3 - 1;
   if ( !v4 )
     return EtwpGetPerfCounter();
@@ -48,7 +48,7 @@ unsigned __int64 WmiGetClock()
     if ( v6 )
     {
       if ( v6 != 1 )
-        return RtlGetSystemTimePrecise();
+        return RtlGetSystemTimePrecise().QuadPart;
       return __rdtsc();
     }
   }

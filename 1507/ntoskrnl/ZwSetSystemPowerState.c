@@ -12,5 +12,5 @@ NTSTATUS __stdcall ZwSetSystemPowerState(POWER_ACTION SystemAction, SYSTEM_POWER
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(*(_QWORD *)&SystemAction, *(_QWORD *)&MinSystemState, *(_QWORD *)&Flags);
+  return KiServiceInternal(*(_QWORD *)&SystemAction);
 }

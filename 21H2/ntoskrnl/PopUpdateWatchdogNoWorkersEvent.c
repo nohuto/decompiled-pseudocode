@@ -1,12 +1,12 @@
 /*
- * XREFs of PopUpdateWatchdogNoWorkersEvent @ 0x140280840
+ * XREFs of PopUpdateWatchdogNoWorkersEvent @ 0x14026EA80
  * Callers:
- *     PopSetWatchdog @ 0x140280568 (PopSetWatchdog.c)
- *     PopWatchdogDpc @ 0x140578D90 (PopWatchdogDpc.c)
- *     PopWatchdogWorker @ 0x140578E70 (PopWatchdogWorker.c)
+ *     PopSetWatchdog @ 0x14026E7A8 (PopSetWatchdog.c)
+ *     PopWatchdogDpc @ 0x140578FD0 (PopWatchdogDpc.c)
+ *     PopWatchdogWorker @ 0x1405790B0 (PopWatchdogWorker.c)
  * Callees:
- *     KeResetEvent @ 0x14027BC40 (KeResetEvent.c)
- *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
+ *     KeResetEvent @ 0x140269BE0 (KeResetEvent.c)
+ *     KeSetEvent @ 0x14034E2F0 (KeSetEvent.c)
  */
 
 LONG __fastcall PopUpdateWatchdogNoWorkersEvent(__int64 a1)

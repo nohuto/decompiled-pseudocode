@@ -1,10 +1,10 @@
 /*
- * XREFs of MiClearCommitReleaseState @ 0x1406E4244
+ * XREFs of MiClearCommitReleaseState @ 0x1406E8EF4
  * Callers:
- *     MmCleanProcessAddressSpace @ 0x14095B2A4 (MmCleanProcessAddressSpace.c)
+ *     MmCleanProcessAddressSpace @ 0x140A00B64 (MmCleanProcessAddressSpace.c)
  * Callees:
- *     MiLockWorkingSetExclusive @ 0x14027E5A0 (MiLockWorkingSetExclusive.c)
- *     MiUnlockWorkingSetExclusive @ 0x14027E758 (MiUnlockWorkingSetExclusive.c)
+ *     MiLockWorkingSetExclusive @ 0x14027DB10 (MiLockWorkingSetExclusive.c)
+ *     MiUnlockWorkingSetExclusive @ 0x14027DCC8 (MiUnlockWorkingSetExclusive.c)
  */
 
 void __fastcall MiClearCommitReleaseState(__int64 a1, __int64 a2, __int64 a3)

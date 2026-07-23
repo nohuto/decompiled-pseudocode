@@ -1,5 +1,5 @@
 /*
- * XREFs of PsUpdateDiskCounters @ 0x1402B7CB0
+ * XREFs of PsUpdateDiskCounters @ 0x140235E90
  * Callers:
  *     <none>
  * Callees:

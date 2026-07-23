@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlpHpHeapCompact @ 0x1401B6244
+ * XREFs of RtlpHpHeapCompact @ 0x1401B63AC
  * Callers:
- *     ExpHpCompactSessionPools @ 0x1401B7628 (ExpHpCompactSessionPools.c)
- *     ExpHpCompactionRoutine @ 0x1401B7770 (ExpHpCompactionRoutine.c)
+ *     ExpHpCompactSessionPools @ 0x1401B7788 (ExpHpCompactSessionPools.c)
+ *     ExpHpCompactionRoutine @ 0x1401B78D0 (ExpHpCompactionRoutine.c)
  * Callees:
- *     RtlpHpSegContextCompact @ 0x1401B63C8 (RtlpHpSegContextCompact.c)
- *     RtlpHpLfhContextCompact @ 0x1401B6554 (RtlpHpLfhContextCompact.c)
- *     RtlpHpVsContextFreeList @ 0x1401B6BB0 (RtlpHpVsContextFreeList.c)
- *     RtlpInterlockedFlushSList @ 0x1401C5450 (RtlpInterlockedFlushSList.c)
+ *     RtlpHpSegContextCompact @ 0x1401B6530 (RtlpHpSegContextCompact.c)
+ *     RtlpHpLfhContextCompact @ 0x1401B66BC (RtlpHpLfhContextCompact.c)
+ *     RtlpHpVsContextFreeList @ 0x1401B6D18 (RtlpHpVsContextFreeList.c)
+ *     RtlpInterlockedFlushSList @ 0x1401C55B0 (RtlpInterlockedFlushSList.c)
  */
 
 __int64 __fastcall RtlpHpHeapCompact(__int64 a1)

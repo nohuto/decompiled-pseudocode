@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlCmDecodeMemIoResource @ 0x1400B2110
+ * XREFs of RtlCmDecodeMemIoResource @ 0x1400B0050
  * Callers:
- *     PnpCmResourcesToIoResources @ 0x1405579DC (PnpCmResourcesToIoResources.c)
- *     PnpFilterResourceRequirementsList @ 0x1405583E4 (PnpFilterResourceRequirementsList.c)
- *     PnpIsRangeWithin @ 0x14055B56C (PnpIsRangeWithin.c)
- *     IopGenericUnpackResource @ 0x14062E754 (IopGenericUnpackResource.c)
- *     PnprAddMemoryResources @ 0x140643C5C (PnprAddMemoryResources.c)
+ *     PnpCmResourcesToIoResources @ 0x140557F1C (PnpCmResourcesToIoResources.c)
+ *     PnpFilterResourceRequirementsList @ 0x140558924 (PnpFilterResourceRequirementsList.c)
+ *     PnpIsRangeWithin @ 0x14055BAAC (PnpIsRangeWithin.c)
+ *     IopGenericUnpackResource @ 0x14062E808 (IopGenericUnpackResource.c)
+ *     PnprAddMemoryResources @ 0x140643D40 (PnprAddMemoryResources.c)
  * Callees:
  *     <none>
  */

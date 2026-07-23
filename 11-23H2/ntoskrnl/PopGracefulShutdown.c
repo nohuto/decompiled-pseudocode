@@ -1,40 +1,40 @@
 /*
- * XREFs of PopGracefulShutdown @ 0x140AA0A60
+ * XREFs of PopGracefulShutdown @ 0x140AA08D0
  * Callers:
- *     PopTransitionSystemPowerStateEx @ 0x140AA90F0 (PopTransitionSystemPowerStateEx.c)
+ *     PopTransitionSystemPowerStateEx @ 0x140AA8F60 (PopTransitionSystemPowerStateEx.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     ExAcquireFastMutex @ 0x140230720 (ExAcquireFastMutex.c)
- *     ExReleaseFastMutex @ 0x140230860 (ExReleaseFastMutex.c)
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
- *     KeWaitForSingleObject @ 0x140243CE0 (KeWaitForSingleObject.c)
- *     KeAttachProcess @ 0x140364370 (KeAttachProcess.c)
- *     PopDiagTraceEventNoPayload @ 0x140367640 (PopDiagTraceEventNoPayload.c)
- *     IoAddTriageDumpDataBlock @ 0x1403882BC (IoAddTriageDumpDataBlock.c)
- *     CcWaitForCurrentLazyWriterActivity @ 0x1403D7030 (CcWaitForCurrentLazyWriterActivity.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     PopAdaptivePersistSystemInitatedRebootState @ 0x14059DE68 (PopAdaptivePersistSystemInitatedRebootState.c)
- *     VfShutdownScheduleWatchdog @ 0x1405D17B8 (VfShutdownScheduleWatchdog.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     ExAcquireFastMutex @ 0x140230810 (ExAcquireFastMutex.c)
+ *     ExReleaseFastMutex @ 0x140230950 (ExReleaseFastMutex.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
+ *     KeWaitForSingleObject @ 0x140243DB0 (KeWaitForSingleObject.c)
+ *     KeAttachProcess @ 0x140364510 (KeAttachProcess.c)
+ *     PopDiagTraceEventNoPayload @ 0x1403677E0 (PopDiagTraceEventNoPayload.c)
+ *     IoAddTriageDumpDataBlock @ 0x14038849C (IoAddTriageDumpDataBlock.c)
+ *     CcWaitForCurrentLazyWriterActivity @ 0x1403D7210 (CcWaitForCurrentLazyWriterActivity.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     PopAdaptivePersistSystemInitatedRebootState @ 0x14059E358 (PopAdaptivePersistSystemInitatedRebootState.c)
+ *     VfShutdownScheduleWatchdog @ 0x1405D1D28 (VfShutdownScheduleWatchdog.c)
  *     PopTransitionCheckpoint @ 0x1406825AC (PopTransitionCheckpoint.c)
- *     PopCurrentPowerState @ 0x1407A6D48 (PopCurrentPowerState.c)
- *     PnpWaitForEmptyDeviceActionQueue @ 0x1408110E4 (PnpWaitForEmptyDeviceActionQueue.c)
- *     EtwWriteEndScenario @ 0x1408439D0 (EtwWriteEndScenario.c)
- *     ObShutdownSystem @ 0x14097AE00 (ObShutdownSystem.c)
- *     PopSetCleanShutdownMarker @ 0x140981450 (PopSetCleanShutdownMarker.c)
- *     SshSessionManagerFlushBuffers @ 0x1409A1798 (SshSessionManagerFlushBuffers.c)
- *     SshSessionManagerTraceSystemStop @ 0x1409A1C10 (SshSessionManagerTraceSystemStop.c)
- *     PsShutdownSystem @ 0x1409B3544 (PsShutdownSystem.c)
- *     PsWaitForAllProcesses @ 0x1409B393C (PsWaitForAllProcesses.c)
- *     EtwShutdown @ 0x1409E2B1C (EtwShutdown.c)
- *     CmShutdownSystem @ 0x140A112D8 (CmShutdownSystem.c)
- *     MmZeroPageFileAtShutdown @ 0x140A2B524 (MmZeroPageFileAtShutdown.c)
- *     IoShutdownSystem @ 0x140A99B34 (IoShutdownSystem.c)
- *     PopBuildDeviceNotifyList @ 0x140AA713C (PopBuildDeviceNotifyList.c)
- *     PopSetDevicesSystemState @ 0x140AA7440 (PopSetDevicesSystemState.c)
- *     PopShutdownSystem @ 0x140AA8F14 (PopShutdownSystem.c)
- *     ExShutdownSystem @ 0x140AAAB58 (ExShutdownSystem.c)
- *     MmShutdownSystem @ 0x140AABFD0 (MmShutdownSystem.c)
+ *     PopCurrentPowerState @ 0x1407A6F38 (PopCurrentPowerState.c)
+ *     PnpWaitForEmptyDeviceActionQueue @ 0x1408113B4 (PnpWaitForEmptyDeviceActionQueue.c)
+ *     EtwWriteEndScenario @ 0x140843CD0 (EtwWriteEndScenario.c)
+ *     ObShutdownSystem @ 0x14097B000 (ObShutdownSystem.c)
+ *     PopSetCleanShutdownMarker @ 0x140981650 (PopSetCleanShutdownMarker.c)
+ *     SshSessionManagerFlushBuffers @ 0x1409A1998 (SshSessionManagerFlushBuffers.c)
+ *     SshSessionManagerTraceSystemStop @ 0x1409A1E10 (SshSessionManagerTraceSystemStop.c)
+ *     PsShutdownSystem @ 0x1409B3744 (PsShutdownSystem.c)
+ *     PsWaitForAllProcesses @ 0x1409B3B3C (PsWaitForAllProcesses.c)
+ *     EtwShutdown @ 0x1409E2DAC (EtwShutdown.c)
+ *     CmShutdownSystem @ 0x140A11588 (CmShutdownSystem.c)
+ *     MmZeroPageFileAtShutdown @ 0x140A2B7D4 (MmZeroPageFileAtShutdown.c)
+ *     IoShutdownSystem @ 0x140A999A4 (IoShutdownSystem.c)
+ *     PopBuildDeviceNotifyList @ 0x140AA6FAC (PopBuildDeviceNotifyList.c)
+ *     PopSetDevicesSystemState @ 0x140AA72B0 (PopSetDevicesSystemState.c)
+ *     PopShutdownSystem @ 0x140AA8D84 (PopShutdownSystem.c)
+ *     ExShutdownSystem @ 0x140AAA9C8 (ExShutdownSystem.c)
+ *     MmShutdownSystem @ 0x140AABE40 (MmShutdownSystem.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
@@ -54,11 +54,11 @@ void __noreturn PopGracefulShutdown()
   PopCurrentPowerState(&v6);
   SshSessionManagerTraceSystemStop(SHIDWORD(v6), SDWORD2(v6));
   PopAdaptivePersistSystemInitatedRebootState(v1, v0);
-  *(_QWORD *)(*(_QWORD *)&qword_140C3D0F8 + 16LL) = KeGetCurrentThread();
+  *(_QWORD *)(*(_QWORD *)&qword_140C3CDB8 + 16LL) = KeGetCurrentThread();
   PopDiagTraceEventNoPayload(&POP_ETW_EVENT_ZEROPAGEFILE_START);
   MmZeroPageFileAtShutdown();
   PopDiagTraceEventNoPayload(&POP_ETW_EVENT_ZEROPAGEFILE_STOP);
-  if ( !*(_QWORD *)&qword_140C3D0F0 )
+  if ( !*(_QWORD *)&qword_140C3CDB0 )
     off_140C02178[0]();
   VfShutdownScheduleWatchdog();
   if ( PopShutdownCleanly )
@@ -129,26 +129,26 @@ void __noreturn PopGracefulShutdown()
   IoShutdownSystem(1);
   PopDiagTraceEventNoPayload(&POP_ETW_EVENT_IOSHUTDOWN_FILE_SYSTEMS_STOP);
   CcWaitForCurrentLazyWriterActivity();
-  if ( *(_QWORD *)&qword_140C3D0F0 )
+  if ( *(_QWORD *)&qword_140C3CDB0 )
   {
-    v5 = *(struct _KPROCESS **)(*(_QWORD *)&qword_140C3D0F0 + 8LL);
+    v5 = *(struct _KPROCESS **)(*(_QWORD *)&qword_140C3CDB0 + 8LL);
     if ( v5 )
       KeAttachProcess(v5);
-    IoAddTriageDumpDataBlock(qword_140C3D0F0, (PVOID)0x48);
+    IoAddTriageDumpDataBlock(qword_140C3CDB0, (PVOID)0x48);
     KeBugCheckEx(
-      *(_DWORD *)(*(_QWORD *)&qword_140C3D0F0 + 32LL),
-      *(_QWORD *)(*(_QWORD *)&qword_140C3D0F0 + 40LL),
-      *(_QWORD *)(*(_QWORD *)&qword_140C3D0F0 + 48LL),
-      *(_QWORD *)(*(_QWORD *)&qword_140C3D0F0 + 56LL),
-      *(_QWORD *)(*(_QWORD *)&qword_140C3D0F0 + 64LL));
+      *(_DWORD *)(*(_QWORD *)&qword_140C3CDB0 + 32LL),
+      *(_QWORD *)(*(_QWORD *)&qword_140C3CDB0 + 40LL),
+      *(_QWORD *)(*(_QWORD *)&qword_140C3CDB0 + 48LL),
+      *(_QWORD *)(*(_QWORD *)&qword_140C3CDB0 + 56LL),
+      *(_QWORD *)(*(_QWORD *)&qword_140C3CDB0 + 64LL));
   }
   PopBootStatCheckpointAvailable = 0;
-  *(_DWORD *)(*(_QWORD *)&qword_140C3D0F8 + 448LL) = 0;
-  PopBuildDeviceNotifyList((void *)(*(_QWORD *)&qword_140C3D0F8 + 48LL));
+  *(_DWORD *)(*(_QWORD *)&qword_140C3CDB8 + 448LL) = 0;
+  PopBuildDeviceNotifyList((void *)(*(_QWORD *)&qword_140C3CDB8 + 48LL));
   PopSetDevicesSystemState();
   ExShutdownSystem(2LL);
   if ( (PopShutdownCleanly & 0x10) != 0 )
     ObShutdownSystem(2);
   MmShutdownSystem(2LL);
-  PopShutdownSystem((unsigned int)qword_140C3D0C4);
+  PopShutdownSystem((unsigned int)qword_140C3CD84);
 }

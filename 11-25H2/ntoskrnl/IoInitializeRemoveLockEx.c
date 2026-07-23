@@ -28,7 +28,7 @@ void __stdcall IoInitializeRemoveLockEx(
       Lock[1].Common.IoCount = HighWatermark;
       *(_QWORD *)&Lock[1].Common.RemoveEvent.Header.Lock = 600000000
                                                          * MaxLockedMinutes
-                                                         * (unsigned __int64)(unsigned int)KeMaximumIncrement;
+                                                         * (unsigned __int64)KeMaximumIncrement;
       v5 = 1919970896;
       if ( AllocateTag )
         v5 = AllocateTag;

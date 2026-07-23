@@ -1,14 +1,14 @@
 /*
- * XREFs of PopAvlGetPowerRequestKey @ 0x14062BAEC
+ * XREFs of PopAvlGetPowerRequestKey @ 0x1406706C4
  * Callers:
- *     PopAvlFindOrMakeStatsForPowerRequest @ 0x14062B9E4 (PopAvlFindOrMakeStatsForPowerRequest.c)
+ *     PopAvlFindOrMakeStatsForPowerRequest @ 0x1406705BC (PopAvlFindOrMakeStatsForPowerRequest.c)
  * Callees:
- *     RtlInitAnsiString @ 0x1402502B0 (RtlInitAnsiString.c)
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     PsGetCurrentProcess @ 0x14033B600 (PsGetCurrentProcess.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     RtlInitAnsiString @ 0x1402713E0 (RtlInitAnsiString.c)
+ *     PsGetCurrentProcess @ 0x140346350 (PsGetCurrentProcess.c)
  *     Feature_3401902395__private_IsEnabledDeviceUsage @ 0x1403F7E54 (Feature_3401902395__private_IsEnabledDeviceUsage.c)
- *     PopAnsiStringToUnicodeString @ 0x14062BF48 (PopAnsiStringToUnicodeString.c)
- *     PopUnicodeStringDeepCopy @ 0x1406C1BA0 (PopUnicodeStringDeepCopy.c)
+ *     PopAnsiStringToUnicodeString @ 0x140670B70 (PopAnsiStringToUnicodeString.c)
+ *     PopUnicodeStringDeepCopy @ 0x140671F50 (PopUnicodeStringDeepCopy.c)
  */
 
 __int64 __fastcall PopAvlGetPowerRequestKey(__int64 a1, UNICODE_STRING *a2)
@@ -19,7 +19,7 @@ __int64 __fastcall PopAvlGetPowerRequestKey(__int64 a1, UNICODE_STRING *a2)
   __int64 v6; // rdx
   UNICODE_STRING *p_SourceString; // rdx
   const WCHAR *v8; // rdx
-  const char *p_ActiveProcessors; // rdx
+  const CHAR *p_ActiveProcessors; // rdx
   __int64 v10; // rdx
   STRING DestinationString; // [rsp+20h] [rbp-28h] BYREF
   UNICODE_STRING SourceString; // [rsp+30h] [rbp-18h] BYREF
@@ -32,7 +32,7 @@ __int64 __fastcall PopAvlGetPowerRequestKey(__int64 a1, UNICODE_STRING *a2)
   {
     if ( (unsigned int)Feature_3401902395__private_IsEnabledDeviceUsage() )
     {
-      p_ActiveProcessors = (const char *)&PsGetCurrentProcess()[1].ActiveProcessors;
+      p_ActiveProcessors = (const CHAR *)&PsGetCurrentProcess()[1].ActiveProcessors;
     }
     else
     {
@@ -42,7 +42,7 @@ __int64 __fastcall PopAvlGetPowerRequestKey(__int64 a1, UNICODE_STRING *a2)
         v8 = UNIDENTIFIED_PROCESS;
         goto LABEL_12;
       }
-      p_ActiveProcessors = (const char *)(v10 + 1448);
+      p_ActiveProcessors = (const CHAR *)(v10 + 1448);
     }
     RtlInitAnsiString(&DestinationString, p_ActiveProcessors);
     return PopAnsiStringToUnicodeString(a2, &DestinationString);

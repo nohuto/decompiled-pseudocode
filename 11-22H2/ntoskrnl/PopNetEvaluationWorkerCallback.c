@@ -78,10 +78,13 @@ LABEL_7:
         dword_140C3CB0C = v9;
       KxReleaseSpinLock((volatile signed __int64 *)&PopCsResiliencyStatsLock);
       v7 = (unsigned int)KiIrqlFlags;
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v10 <= 0xFu && CurrentIrql >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+          && CurrentIrql <= 0xFu
+          && (unsigned __int8)v10 <= 0xFu
+          && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           v7 = (unsigned int)(v10 + 1);

@@ -1,7 +1,7 @@
 /*
- * XREFs of ScRsa32Compat_Md5ExportAndWipe @ 0x18015BCF4
+ * XREFs of ScRsa32Compat_Md5ExportAndWipe @ 0x18015A0B4
  * Callers:
- *     MD5Init @ 0x180119F20 (MD5Init.c)
+ *     MD5Init @ 0x180118150 (MD5Init.c)
  * Callees:
  *     <none>
  */

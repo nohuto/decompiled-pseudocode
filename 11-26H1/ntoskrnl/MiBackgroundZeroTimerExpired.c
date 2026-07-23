@@ -1,13 +1,13 @@
 /*
- * XREFs of MiBackgroundZeroTimerExpired @ 0x14070E284
+ * XREFs of MiBackgroundZeroTimerExpired @ 0x140712F84
  * Callers:
- *     MiNodeZeroConductor @ 0x140B27510 (MiNodeZeroConductor.c)
+ *     MiNodeZeroConductor @ 0x140B29DD0 (MiNodeZeroConductor.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     MiPeriodicZeroingNeeded @ 0x1402A64FC (MiPeriodicZeroingNeeded.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiResumeBackgroundZeroing @ 0x14051F69C (MiResumeBackgroundZeroing.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     MiPeriodicZeroingNeeded @ 0x1402A58F4 (MiPeriodicZeroingNeeded.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiResumeBackgroundZeroing @ 0x140521D40 (MiResumeBackgroundZeroing.c)
  */
 
 void __fastcall MiBackgroundZeroTimerExpired(__int64 a1)

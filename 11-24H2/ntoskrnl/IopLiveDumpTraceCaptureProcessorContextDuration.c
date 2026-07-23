@@ -1,13 +1,13 @@
 /*
- * XREFs of IopLiveDumpTraceCaptureProcessorContextDuration @ 0x14059D658
+ * XREFs of IopLiveDumpTraceCaptureProcessorContextDuration @ 0x14059A5D8
  * Callers:
- *     IopLiveDumpCollectPages @ 0x14059A264 (IopLiveDumpCollectPages.c)
+ *     IopLiveDumpCollectPages @ 0x1405971E8 (IopLiveDumpCollectPages.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     IopLiveDumpIsTracingEnabled @ 0x1404FA9A4 (IopLiveDumpIsTracingEnabled.c)
- *     IopLiveDumpTrace @ 0x1405A3070 (IopLiveDumpTrace.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     IopLiveDumpIsTracingEnabled @ 0x1404F8284 (IopLiveDumpIsTracingEnabled.c)
+ *     IopLiveDumpTrace @ 0x14059FFB0 (IopLiveDumpTrace.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 char __fastcall IopLiveDumpTraceCaptureProcessorContextDuration(__int64 a1, __int64 a2)
@@ -62,7 +62,7 @@ char __fastcall IopLiveDumpTraceCaptureProcessorContextDuration(__int64 a1, __in
             v18 = 8;
             LOBYTE(v3) = tlgWriteTransfer_EtwWriteTransfer(
                            (__int64)&dword_140E06E80,
-                           (unsigned __int8 *)byte_140045BA9,
+                           (unsigned __int8 *)word_140045D82,
                            (const GUID *)(a1 + 968),
                            (const GUID *)(a1 + 952),
                            4u,

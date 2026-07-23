@@ -1,89 +1,90 @@
 /*
  * XREFs of RtlIsUntrustedObject @ 0x140206A00
  * Callers:
- *     SeGetImageRequiredSigningLevel @ 0x1407010C8 (SeGetImageRequiredSigningLevel.c)
+ *     sub_1407010C8 @ 0x1407010C8 (sub_1407010C8.c)
  * Callees:
  *     RtlFindAceByType @ 0x140349610 (RtlFindAceByType.c)
  *     ExAllocatePoolWithQuotaTag @ 0x140367B10 (ExAllocatePoolWithQuotaTag.c)
  *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
  *     ZwQuerySecurityObject @ 0x14041E3C0 (ZwQuerySecurityObject.c)
- *     ObQuerySecurityObject @ 0x140673A24 (ObQuerySecurityObject.c)
+ *     sub_140673A24 @ 0x140673A24 (sub_140673A24.c)
  *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
  */
 
-NTSTATUS __fastcall RtlIsUntrustedObject(HANDLE Handle, __int64 a2, _BYTE *a3)
+NTSTATUS __cdecl RtlIsUntrustedObject(HANDLE Handle, PVOID Object, PBOOLEAN IsUntrustedObject)
 {
-  __int16 *PoolWithQuotaTag; // rdi
+  _BYTE *PoolWithQuotaTag; // rdi
   int v4; // r15d
   char v6; // r13
   NTSTATUS result; // eax
   NTSTATUS v8; // ebx
   __int16 v9; // ax
   __int64 v10; // rax
-  _BYTE *v11; // rsi
-  __int64 AceByType; // rax
-  NTSTATUS SecurityObject; // eax
+  ACL *v11; // rsi
+  _DWORD *AceByType; // rax
+  NTSTATUS v13; // eax
   int v14; // ecx
-  ULONG LengthNeeded[2]; // [rsp+30h] [rbp-69h] BYREF
-  _BYTE *v16; // [rsp+38h] [rbp-61h]
+  ULONG LengthNeeded; // [rsp+30h] [rbp-69h] BYREF
+  ULONG Index; // [rsp+34h] [rbp-65h] BYREF
+  PBOOLEAN v17; // [rsp+38h] [rbp-61h]
   _BYTE SecurityDescriptor[128]; // [rsp+40h] [rbp-59h] BYREF
 
-  LengthNeeded[0] = 0;
-  PoolWithQuotaTag = (__int16 *)SecurityDescriptor;
-  v16 = a3;
-  v4 = a2;
-  *a3 = 1;
-  if ( a2 )
+  LengthNeeded = 0;
+  PoolWithQuotaTag = SecurityDescriptor;
+  v17 = IsUntrustedObject;
+  v4 = (int)Object;
+  *IsUntrustedObject = 1;
+  if ( Object )
   {
     if ( !Handle )
     {
       v6 = 0;
-      result = ObQuerySecurityObject(a2, 16, (unsigned int)SecurityDescriptor, 124, (__int64)LengthNeeded);
+      result = sub_140673A24((_DWORD)Object, 16, (unsigned int)SecurityDescriptor, 124, (__int64)&LengthNeeded);
       v8 = result;
       if ( result >= 0 )
         goto LABEL_4;
       if ( result == -1073741789 )
       {
-        PoolWithQuotaTag = (__int16 *)ExAllocatePoolWithQuotaTag((POOL_TYPE)520, LengthNeeded[0], 0x62507452u);
+        PoolWithQuotaTag = ExAllocatePoolWithQuotaTag((POOL_TYPE)520, LengthNeeded, 0x62507452u);
         if ( !PoolWithQuotaTag )
           return -1073741801;
         v6 = 1;
-        SecurityObject = ObQuerySecurityObject(v4, 16, (_DWORD)PoolWithQuotaTag, 124, (__int64)LengthNeeded);
+        v13 = sub_140673A24(v4, 16, (_DWORD)PoolWithQuotaTag, 124, (__int64)&LengthNeeded);
 LABEL_22:
-        v8 = SecurityObject;
-        if ( SecurityObject < 0 )
+        v8 = v13;
+        if ( v13 < 0 )
         {
 LABEL_23:
           ExFreePoolWithTag(PoolWithQuotaTag, 0);
           return v8;
         }
 LABEL_4:
-        v9 = PoolWithQuotaTag[1];
+        v9 = *((_WORD *)PoolWithQuotaTag + 1);
         if ( (v9 & 0x10) != 0 )
         {
           if ( v9 >= 0 )
           {
-            v11 = (_BYTE *)*((_QWORD *)PoolWithQuotaTag + 3);
+            v11 = (ACL *)*((_QWORD *)PoolWithQuotaTag + 3);
           }
           else
           {
             v10 = *((unsigned int *)PoolWithQuotaTag + 3);
             if ( !(_DWORD)v10 )
               goto LABEL_11;
-            v11 = (char *)PoolWithQuotaTag + v10;
+            v11 = (ACL *)&PoolWithQuotaTag[v10];
           }
           if ( v11 )
           {
-            LengthNeeded[1] = 0;
+            Index = 0;
             while ( 1 )
             {
-              AceByType = RtlFindAceByType(v11, 17LL);
+              AceByType = RtlFindAceByType(v11, 0x11u, &Index);
               if ( !AceByType )
                 break;
-              if ( (*(_BYTE *)(AceByType + 1) & 8) == 0 )
+              if ( (*((_BYTE *)AceByType + 1) & 8) == 0 )
               {
-                v14 = *(unsigned __int8 *)(AceByType + 9);
-                if ( !(_BYTE)v14 || *(_DWORD *)(AceByType + 4LL * (unsigned int)(v14 - 1) + 16) < 0x2000u )
+                v14 = *((unsigned __int8 *)AceByType + 9);
+                if ( !(_BYTE)v14 || AceByType[v14 - 1 + 4] < 0x2000u )
                   goto LABEL_12;
                 break;
               }
@@ -91,7 +92,7 @@ LABEL_4:
           }
         }
 LABEL_11:
-        *v16 = 0;
+        *v17 = 0;
 LABEL_12:
         if ( !v6 )
           return v8;
@@ -103,18 +104,18 @@ LABEL_12:
   }
   if ( !Handle )
     return -1073741811;
-  result = ZwQuerySecurityObject(Handle, 0x10u, SecurityDescriptor, 0x7Cu, LengthNeeded);
+  result = ZwQuerySecurityObject(Handle, 0x10u, SecurityDescriptor, 0x7Cu, &LengthNeeded);
   v8 = result;
   v6 = 0;
   if ( result >= 0 )
     goto LABEL_4;
   if ( result == -1073741789 )
   {
-    PoolWithQuotaTag = (__int16 *)ExAllocatePoolWithQuotaTag((POOL_TYPE)520, LengthNeeded[0], 0x62507452u);
+    PoolWithQuotaTag = ExAllocatePoolWithQuotaTag((POOL_TYPE)520, LengthNeeded, 0x62507452u);
     if ( !PoolWithQuotaTag )
       return -1073741801;
     v6 = 1;
-    SecurityObject = ZwQuerySecurityObject(Handle, 0x10u, PoolWithQuotaTag, 0x7Cu, LengthNeeded);
+    v13 = ZwQuerySecurityObject(Handle, 0x10u, PoolWithQuotaTag, 0x7Cu, &LengthNeeded);
     goto LABEL_22;
   }
   return result;

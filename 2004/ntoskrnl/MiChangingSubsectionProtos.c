@@ -113,7 +113,7 @@ __int64 __fastcall MiChangingSubsectionProtos(_QWORD *BugCheckParameter2, char a
         while ( v12 );
         if ( v12 )
         {
-          v37 = KeAbPreAcquire((ULONG_PTR)BugCheckParameter2, 0LL, 0LL);
+          v37 = KeAbPreAcquire((ULONG_PTR)BugCheckParameter2, 0LL, 0);
           if ( v37 )
             KeAbPreWait(v37);
           v11 = a2 & 8;
@@ -162,7 +162,7 @@ __int64 __fastcall MiChangingSubsectionProtos(_QWORD *BugCheckParameter2, char a
     }
     if ( !v12 )
     {
-      v25 = KeAbPreAcquire((ULONG_PTR)BugCheckParameter2, 0LL, 0LL);
+      v25 = KeAbPreAcquire((ULONG_PTR)BugCheckParameter2, 0LL, 0);
       if ( v25 )
         *(_BYTE *)(v25 + 26) |= 1u;
       ExReleaseSpinLockExclusiveFromDpcLevel(v8);
@@ -213,7 +213,7 @@ LABEL_67:
     v4 = v39;
     if ( v37 )
     {
-      KeAbPreAcquire((ULONG_PTR)BugCheckParameter2, v37, 0LL);
+      KeAbPreAcquire((ULONG_PTR)BugCheckParameter2, v37, 0);
       KeAbPostReleaseEx((ULONG_PTR)BugCheckParameter2, v37);
     }
   }

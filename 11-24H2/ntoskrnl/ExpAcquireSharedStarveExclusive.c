@@ -1,24 +1,24 @@
 /*
- * XREFs of ExpAcquireSharedStarveExclusive @ 0x1402744C0
+ * XREFs of ExpAcquireSharedStarveExclusive @ 0x140229A50
  * Callers:
- *     CcPinFileData @ 0x140272D30 (CcPinFileData.c)
- *     ExAcquireSharedStarveExclusive @ 0x1403DCB50 (ExAcquireSharedStarveExclusive.c)
+ *     CcPinFileData @ 0x1402282C0 (CcPinFileData.c)
+ *     ExAcquireSharedStarveExclusive @ 0x1403BC840 (ExAcquireSharedStarveExclusive.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140275CD0 (KeReleaseInStackQueuedSpinLock.c)
- *     ExpWaitForResource @ 0x140277840 (ExpWaitForResource.c)
- *     ExpApplyPrewaitBoost @ 0x140277950 (ExpApplyPrewaitBoost.c)
- *     ExpBoostIoAfterAcquire @ 0x140278960 (ExpBoostIoAfterAcquire.c)
- *     KxWaitForLockOwnerShip @ 0x1402D6990 (KxWaitForLockOwnerShip.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x1402D85F0 (KiAcquireQueuedSpinLockInstrumented.c)
- *     ExpGetThreadResourceHint @ 0x140343720 (ExpGetThreadResourceHint.c)
- *     ExpFindEmptyEntry @ 0x1403E90D0 (ExpFindEmptyEntry.c)
- *     ExpExpandResourceOwnerTable @ 0x1403E912C (ExpExpandResourceOwnerTable.c)
- *     RtlInsertHeadCircularList @ 0x1404296B0 (RtlInsertHeadCircularList.c)
- *     PerfLogExecutiveResourceAcquire @ 0x14046E140 (PerfLogExecutiveResourceAcquire.c)
- *     PerfLogExecutiveResourceWait @ 0x1404AF714 (PerfLogExecutiveResourceWait.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x14022B260 (KeReleaseInStackQueuedSpinLock.c)
+ *     ExpWaitForResource @ 0x14022CDD0 (ExpWaitForResource.c)
+ *     ExpApplyPrewaitBoost @ 0x14022CEE0 (ExpApplyPrewaitBoost.c)
+ *     ExpBoostIoAfterAcquire @ 0x14022DEF0 (ExpBoostIoAfterAcquire.c)
+ *     ExpGetThreadResourceHint @ 0x140322C00 (ExpGetThreadResourceHint.c)
+ *     KxWaitForLockOwnerShip @ 0x140357C10 (KxWaitForLockOwnerShip.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x140359870 (KiAcquireQueuedSpinLockInstrumented.c)
+ *     ExpFindEmptyEntry @ 0x1403D6C70 (ExpFindEmptyEntry.c)
+ *     ExpExpandResourceOwnerTable @ 0x1403D6CCC (ExpExpandResourceOwnerTable.c)
+ *     RtlInsertHeadCircularList @ 0x14041D800 (RtlInsertHeadCircularList.c)
+ *     PerfLogExecutiveResourceAcquire @ 0x14046891C (PerfLogExecutiveResourceAcquire.c)
+ *     PerfLogExecutiveResourceWait @ 0x1404AA110 (PerfLogExecutiveResourceWait.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 char __fastcall ExpAcquireSharedStarveExclusive(__int64 a1, char a2, unsigned __int64 a3)
@@ -86,7 +86,7 @@ char __fastcall ExpAcquireSharedStarveExclusive(__int64 a1, char a2, unsigned __
   {
     EmptyEntry = _InterlockedExchange64(v7, (__int64)&LockHandle);
     if ( EmptyEntry )
-      KxWaitForLockOwnerShip(&LockHandle);
+      KxWaitForLockOwnerShip(&LockHandle, EmptyEntry);
   }
   else
   {
@@ -125,7 +125,7 @@ char __fastcall ExpAcquireSharedStarveExclusive(__int64 a1, char a2, unsigned __
               v16 = EtwpEthreadSyncTrackingSequence;
               if ( Object )
                 goto LABEL_13;
-              Pool2 = ExAllocatePool2(0x48uLL);
+              Pool2 = ExAllocatePool2(0x48uLL, 0x200uLL, 0x72546552u);
               v18 = Pool2;
               if ( Pool2 )
               {

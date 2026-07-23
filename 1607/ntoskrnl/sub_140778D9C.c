@@ -4,39 +4,39 @@
  *     KiVerifyXcpt15 @ 0x1407772E0 (KiVerifyXcpt15.c)
  *     KiFilterFiberContext @ 0x140777A80 (KiFilterFiberContext.c)
  * Callees:
- *     RtlDecompressBufferEx @ 0x140005984 (RtlDecompressBufferEx.c)
- *     RtlGetCompressionWorkSpaceSize @ 0x14000634C (RtlGetCompressionWorkSpaceSize.c)
- *     RtlImageNtHeader @ 0x140014238 (RtlImageNtHeader.c)
- *     MmGetPhysicalAddress @ 0x14002500C (MmGetPhysicalAddress.c)
- *     KeInitializeEvent @ 0x14002DEA0 (KeInitializeEvent.c)
- *     KeSetEvent @ 0x1400562D0 (KeSetEvent.c)
- *     RtlImageDirectoryEntryToData @ 0x14007BAEC (RtlImageDirectoryEntryToData.c)
- *     RtlCaptureImageExceptionValues @ 0x140084CD8 (RtlCaptureImageExceptionValues.c)
- *     RtlPcToFileHeader @ 0x1400A5558 (RtlPcToFileHeader.c)
- *     MmSetPageProtection @ 0x1400B23C0 (MmSetPageProtection.c)
- *     MmQueryApiSetSchema @ 0x1400B2E24 (MmQueryApiSetSchema.c)
- *     RtlLookupFunctionTable @ 0x1400B5AC0 (RtlLookupFunctionTable.c)
- *     KeGetPrcb @ 0x1400D3FF8 (KeGetPrcb.c)
- *     KeReleaseSpinLock @ 0x1400E9A70 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1400EFE30 (KeAcquireSpinLockRaiseToDpc.c)
- *     ExProtectPool @ 0x1400F0300 (ExProtectPool.c)
- *     ExGenRandom @ 0x1400F0494 (ExGenRandom.c)
- *     KeInitializeTimer @ 0x1400F0C34 (KeInitializeTimer.c)
- *     RtlLookupFunctionEntry @ 0x1400F6220 (RtlLookupFunctionEntry.c)
- *     ExSetTimer @ 0x1400F9D24 (ExSetTimer.c)
- *     RtlSectionTableFromVirtualAddress @ 0x1400FA514 (RtlSectionTableFromVirtualAddress.c)
- *     RtlGetEnabledExtendedFeatures @ 0x140131EA4 (RtlGetEnabledExtendedFeatures.c)
- *     ExAllocateTimer @ 0x140132AA0 (ExAllocateTimer.c)
- *     RtlpConvertFunctionEntry @ 0x140140D44 (RtlpConvertFunctionEntry.c)
- *     sub_140158348 @ 0x140158348 (sub_140158348.c)
- *     RtlpSameFunction @ 0x1401593E8 (RtlpSameFunction.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     HvlIsHypercallOverlayLocked @ 0x1401BAB40 (HvlIsHypercallOverlayLocked.c)
- *     KeComputeParallelSha256StateSize @ 0x1401D2750 (KeComputeParallelSha256StateSize.c)
- *     KeKvaShadowingActive @ 0x1401D8DB4 (KeKvaShadowingActive.c)
- *     ExQueryPoolBlockSize @ 0x14022D01C (ExQueryPoolBlockSize.c)
+ *     RtlDecompressBufferEx @ 0x140005AF8 (RtlDecompressBufferEx.c)
+ *     RtlGetCompressionWorkSpaceSize @ 0x1400064BC (RtlGetCompressionWorkSpaceSize.c)
+ *     RtlImageNtHeader @ 0x140013DB8 (RtlImageNtHeader.c)
+ *     MmGetPhysicalAddress @ 0x140024B8C (MmGetPhysicalAddress.c)
+ *     KeInitializeEvent @ 0x14002DA20 (KeInitializeEvent.c)
+ *     KeSetEvent @ 0x140055E50 (KeSetEvent.c)
+ *     RtlImageDirectoryEntryToData @ 0x14007BB6C (RtlImageDirectoryEntryToData.c)
+ *     RtlCaptureImageExceptionValues @ 0x140082E38 (RtlCaptureImageExceptionValues.c)
+ *     RtlPcToFileHeader @ 0x1400A3AD0 (RtlPcToFileHeader.c)
+ *     MmSetPageProtection @ 0x1400B0300 (MmSetPageProtection.c)
+ *     MmQueryApiSetSchema @ 0x1400B0D70 (MmQueryApiSetSchema.c)
+ *     RtlLookupFunctionTable @ 0x1400B38E8 (RtlLookupFunctionTable.c)
+ *     KeGetPrcb @ 0x1400D1E98 (KeGetPrcb.c)
+ *     KeReleaseSpinLock @ 0x1400EB600 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1400EDCB0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ExProtectPool @ 0x1400EE180 (ExProtectPool.c)
+ *     ExGenRandom @ 0x1400EE314 (ExGenRandom.c)
+ *     KeInitializeTimer @ 0x1400EEA84 (KeInitializeTimer.c)
+ *     RtlLookupFunctionEntry @ 0x1400F4070 (RtlLookupFunctionEntry.c)
+ *     ExSetTimer @ 0x1400F7AB0 (ExSetTimer.c)
+ *     RtlSectionTableFromVirtualAddress @ 0x1400F82A0 (RtlSectionTableFromVirtualAddress.c)
+ *     RtlGetEnabledExtendedFeatures @ 0x140132414 (RtlGetEnabledExtendedFeatures.c)
+ *     ExAllocateTimer @ 0x140133010 (ExAllocateTimer.c)
+ *     RtlpConvertFunctionEntry @ 0x1401412B4 (RtlpConvertFunctionEntry.c)
+ *     sub_1401588B8 @ 0x1401588B8 (sub_1401588B8.c)
+ *     RtlpSameFunction @ 0x140159958 (RtlpSameFunction.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     HvlIsHypercallOverlayLocked @ 0x1401BAA24 (HvlIsHypercallOverlayLocked.c)
+ *     KeComputeParallelSha256StateSize @ 0x1401D257C (KeComputeParallelSha256StateSize.c)
+ *     KeKvaShadowingActive @ 0x1401D8BE0 (KeKvaShadowingActive.c)
+ *     ExQueryPoolBlockSize @ 0x14022CE48 (ExQueryPoolBlockSize.c)
  *     sub_14024FE34 @ 0x14024FE34 (sub_14024FE34.c)
  *     sub_140251E08 @ 0x140251E08 (sub_140251E08.c)
  *     $$c1 @ 0x1402528A4 ($$c1.c)
@@ -45,11 +45,11 @@
  *     SdbpCheckDll @ 0x1402534D0 (SdbpCheckDll.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  *     ExFreePool @ 0x140255B30 (ExFreePool.c)
- *     RtlEqualUnicodeString @ 0x14040F720 (RtlEqualUnicodeString.c)
- *     PsEnumProcessThreads @ 0x14045A8A4 (PsEnumProcessThreads.c)
- *     MmImageSectionPagable @ 0x14047DC20 (MmImageSectionPagable.c)
- *     LdrResFindResource @ 0x140544444 (LdrResFindResource.c)
- *     xHalSetSystemInformation @ 0x140581940 (xHalSetSystemInformation.c)
+ *     RtlEqualUnicodeString @ 0x14040E5E0 (RtlEqualUnicodeString.c)
+ *     PsEnumProcessThreads @ 0x140459774 (PsEnumProcessThreads.c)
+ *     MmImageSectionPagable @ 0x14047C974 (MmImageSectionPagable.c)
+ *     LdrResFindResource @ 0x140544984 (LdrResFindResource.c)
+ *     xHalSetSystemInformation @ 0x140581DF0 (xHalSetSystemInformation.c)
  *     sub_140777D18 @ 0x140777D18 (sub_140777D18.c)
  *     $$5e @ 0x140778B84 ($$5e.c)
  *     sub_14078D96C @ 0x14078D96C (sub_14078D96C.c)
@@ -151,14 +151,14 @@
  * 0000000140778EB1: lea     r8, aFunctionextent; "FUNCTIONEXTENTLIST"
  * 0000000140778EB8: mov     qword ptr [rsp+1D70h+var_1D38], rax
  * 0000000140778EBD: lea     edx, [rdi+4]
- * 0000000140778EC0: mov     [rsp+1D70h+var_1D40], rax
+ * 0000000140778EC0: mov     [rsp+1D70h+WorkSpace], rax
  * 0000000140778EC5: xor     r9d, r9d
  * 0000000140778EC8: lea     rax, [rbp+1C70h+var_1538]
  * 0000000140778ECF: mov     [rbp+1C70h+var_E88], r12
- * 0000000140778ED6: mov     [rsp+1D70h+var_1D48], rax
+ * 0000000140778ED6: mov     [rsp+1D70h+FinalUncompressedSize], rax
  * 0000000140778EDB: mov     rcx, r12
  * 0000000140778EDE: lea     rax, [rbp+1C70h+BugCheckParameter2]
- * 0000000140778EE5: mov     [rsp+1D70h+BugCheckParameter4], rax
+ * 0000000140778EE5: mov     qword ptr [rsp+1D70h+CompressedBufferSize], rax
  * 0000000140778EEA: call    LdrResFindResource
  * 0000000140778EEF: xor     ebx, ebx
  * 0000000140778EF1: lea     r13d, [rdi-5]
@@ -169,7 +169,7 @@
  * 0000000140778F09: lea     rax, [rcx-8]
  * 0000000140778F0D: cmp     rax, rdx
  * 0000000140778F10: ja      loc_140778F96
- * 0000000140778F16: mov     dword ptr [rbp+1C70h+var_1AB4], ecx
+ * 0000000140778F16: mov     [rbp+1C70h+var_1AB4], ecx
  * 0000000140778F1C: mov     rcx, r12; BaseAddress
  * 0000000140778F1F: call    RtlImageNtHeader
  * 0000000140778F24: test    rax, rax
@@ -502,17 +502,17 @@
  * 00000001407793EC: mov     rbx, rax
  * 00000001407793EF: test    rax, rax
  * 00000001407793F2: jz      loc_1407796B5
- * 00000001407793F8: mov     eax, dword ptr [rbp+1C70h+var_1AB4]
+ * 00000001407793F8: mov     eax, [rbp+1C70h+var_1AB4]
  * 00000001407793FE: lea     rdx, [rbp+1C70h+var_1AB4]
  * 0000000140779405: mov     r9, [rbp+1C70h+BugCheckParameter2]
  * 000000014077940C: add     eax, 0FFFFFFF8h
- * 000000014077940F: mov     [rsp+1D70h+var_1D40], rsi
- * 0000000140779414: add     r9, 8
- * 0000000140779418: mov     [rsp+1D70h+var_1D48], rdx
- * 000000014077941D: mov     ecx, 4
- * 0000000140779422: mov     rdx, rbx
- * 0000000140779425: mov     dword ptr [rsp+1D70h+BugCheckParameter4], eax
- * 0000000140779429: mov     r8d, r14d
+ * 000000014077940F: mov     [rsp+1D70h+WorkSpace], rsi; WorkSpace
+ * 0000000140779414: add     r9, 8; CompressedBuffer
+ * 0000000140779418: mov     [rsp+1D70h+FinalUncompressedSize], rdx; FinalUncompressedSize
+ * 000000014077941D: mov     ecx, 4; CompressionFormat
+ * 0000000140779422: mov     rdx, rbx; UncompressedBuffer
+ * 0000000140779425: mov     [rsp+1D70h+CompressedBufferSize], eax; CompressedBufferSize
+ * 0000000140779429: mov     r8d, r14d; UncompressedBufferSize
  * 000000014077942C: call    RtlDecompressBufferEx
  * 0000000140779431: test    eax, eax
  * 0000000140779433: js      loc_14078D431
@@ -649,7 +649,7 @@
  * 0000000140779609: mov     eax, [rbp+1C70h+var_1C24]
  * 000000014077960C: xor     edi, eax
  * 000000014077960E: ror     edi, 18h
- * 0000000140779611: mov     edx, dword ptr [rbp+1C70h+var_1AB4]
+ * 0000000140779611: mov     edx, [rbp+1C70h+var_1AB4]
  * 0000000140779617: mov     r8d, edi; Tag
  * 000000014077961A: sub     rdx, r14; NumberOfBytes
  * 000000014077961D: mov     ecx, 200h; PoolType
@@ -657,7 +657,7 @@
  * 0000000140779627: mov     rbx, rax
  * 000000014077962A: test    rax, rax
  * 000000014077962D: jz      loc_1407796B5
- * 0000000140779633: mov     r8d, dword ptr [rbp+1C70h+var_1AB4]
+ * 0000000140779633: mov     r8d, [rbp+1C70h+var_1AB4]
  * 000000014077963A: mov     rcx, rax; void *
  * 000000014077963D: mov     rdx, [rbp+1C70h+BugCheckParameter2]
  * 0000000140779644: sub     r8, r14; Size
@@ -683,7 +683,7 @@
  * 0000000140779687: mov     edx, [rbx]
  * 0000000140779689: cmp     edx, 1FFFFFFFh
  * 000000014077968F: jnb     loc_14078D486
- * 0000000140779695: mov     edi, dword ptr [rbp+1C70h+var_1AB4]
+ * 0000000140779695: mov     edi, [rbp+1C70h+var_1AB4]
  * 000000014077969B: mov     ecx, edx
  * 000000014077969D: shl     rcx, 3
  * 00000001407796A1: cmp     rcx, rdi
@@ -733,10 +733,10 @@
  * 000000014077974C: call    RtlImageNtHeader
  * 0000000140779751: test    rax, rax
  * 0000000140779754: jz      loc_14077C9F7
- * 000000014077975A: mov     rdx, [rbp+1C70h+BaseOfImage]
+ * 000000014077975A: mov     rdx, [rbp+1C70h+BaseOfImage]; BaseOfImage
  * 0000000140779761: mov     r8d, ebx
- * 0000000140779764: sub     r8d, edx
- * 0000000140779767: mov     rcx, rax
+ * 0000000140779764: sub     r8d, edx; VirtualAddress
+ * 0000000140779767: mov     rcx, rax; NtHeaders
  * 000000014077976A: call    RtlSectionTableFromVirtualAddress
  * 000000014077976F: test    rax, rax
  * 0000000140779772: jz      loc_14077C9F7
@@ -757,7 +757,7 @@
  * 00000001407797A9: lea     rdx, RtlLookupFunctionEntryEx
  * 00000001407797B0: sub     eax, ecx
  * 00000001407797B2: sub     edx, ecx
- * 00000001407797B4: mov     [rsp+1D70h+var_1D18], rax
+ * 00000001407797B4: mov     [rsp+1D70h+NtHeaders], rax
  * 00000001407797B9: mov     [rbp+1C70h+var_1CF0], rdx
  * 00000001407797BD: cmp     edx, 7FFFFFFFh
  * 00000001407797C3: ja      loc_14078D4A9
@@ -2625,7 +2625,7 @@
  * 000000014077B48F: mov     rax, [rsp+1D70h+var_1D08]
  * 000000014077B494: add     eax, ecx
  * 000000014077B496: mov     [r14+5A8h], eax
- * 000000014077B49D: mov     rax, [rsp+1D70h+var_1D18]
+ * 000000014077B49D: mov     rax, [rsp+1D70h+NtHeaders]
  * 000000014077B4A2: add     eax, ecx
  * 000000014077B4A4: mov     [r14+5A0h], eax
  * 000000014077B4AB: mov     rax, [rbp+1C70h+var_1CF0]
@@ -2755,7 +2755,7 @@
  * 000000014077B7EB: mov     [r14+2C0h], rax
  * 000000014077B7F2: lea     rax, ExDereferenceCallBackBlock
  * 000000014077B7F9: mov     [r14+2C8h], rax
- * 000000014077B800: lea     rax, sub_140157334
+ * 000000014077B800: lea     rax, sub_1401578A4
  * 000000014077B807: mov     [r14+2D0h], rax
  * 000000014077B80E: lea     rax, PspEnumerateCallback
  * 000000014077B815: mov     [r14+2D8h], rax
@@ -2775,7 +2775,7 @@
  * 000000014077B877: mov     [r14+310h], rax
  * 000000014077B87E: lea     rax, xHalFreeMessageTarget
  * 000000014077B885: mov     [r14+318h], rax
- * 000000014077B88C: lea     rax, sub_140157EF8
+ * 000000014077B88C: lea     rax, sub_140158468
  * 000000014077B893: mov     [r14+320h], rax
  * 000000014077B89A: lea     rax, MmAllocatePagesForMdlEx
  * 000000014077B8A1: mov     [r14+328h], rax
@@ -2785,9 +2785,9 @@
  * 000000014077B8BD: mov     [r14+338h], rax
  * 000000014077B8C4: lea     rax, MmUnmapReservedMapping
  * 000000014077B8CB: mov     [r14+340h], rax
- * 000000014077B8D2: lea     rax, sub_1401581C8
+ * 000000014077B8D2: lea     rax, sub_140158738
  * 000000014077B8D9: mov     [r14+348h], rax
- * 000000014077B8E0: lea     rax, sub_140158230
+ * 000000014077B8E0: lea     rax, sub_1401587A0
  * 000000014077B8E7: mov     [r14+350h], rax
  * 000000014077B8EE: lea     rax, MmAcquireLoadLock
  * 000000014077B8F5: mov     [r14+358h], rax
@@ -4626,7 +4626,7 @@
  * 000000014077D543: call    KeAcquireSpinLockRaiseToDpc
  * 000000014077D548: mov     dl, al; NewIrql
  * 000000014077D54A: lea     rcx, KiHardwareTriggerLock; SpinLock
- * 000000014077D551: lea     rax, sub_1401580F0
+ * 000000014077D551: lea     rax, sub_140158660
  * 000000014077D558: xchg    rax, [rbx+18h]
  * 000000014077D55C: mov     [rbx+20h], rdi
  * 000000014077D560: call    KeReleaseSpinLock
@@ -4986,7 +4986,7 @@
  * 000000014077DB0B: xor     eax, eax
  * 000000014077DB0D: mov     [rbp+1C70h+var_890], rax
  * 000000014077DB14: mov     [rbp+1C70h+var_888], rax
- * 000000014077DB1B: lea     rax, sub_140157EF8
+ * 000000014077DB1B: lea     rax, sub_140158468
  * 000000014077DB22: mov     [rbp+1C70h+var_880], rax
  * 000000014077DB29: lea     rax, KeAcquireSpinLockRaiseToDpc
  * 000000014077DB30: mov     [rbp+1C70h+var_878], rax
@@ -5000,13 +5000,13 @@
  * 000000014077DB68: mov     [rbp+1C70h+var_858], rax
  * 000000014077DB6F: lea     rax, MmGetSessionIdEx
  * 000000014077DB76: mov     [rbp+1C70h+var_850], rax
- * 000000014077DB7D: lea     rax, sub_14023207C
+ * 000000014077DB7D: lea     rax, sub_140231EA8
  * 000000014077DB84: mov     [rbp+1C70h+var_848], rax
- * 000000014077DB8B: lea     rax, sub_140157334
+ * 000000014077DB8B: lea     rax, sub_1401578A4
  * 000000014077DB92: mov     [rbp+1C70h+var_840], rax
  * 000000014077DB99: lea     rax, memmove
  * 000000014077DBA0: mov     [rbp+1C70h+var_838], rax
- * 000000014077DBA7: lea     rax, qword_140158198
+ * 000000014077DBA7: lea     rax, qword_140158708
  * 000000014077DBAE: mov     [rbp+1C70h+var_830], rax
  * 000000014077DBB5: lea     rax, KiCommitThreadWait
  * 000000014077DBBC: mov     [rbp+1C70h+var_828], rax
@@ -6102,7 +6102,7 @@
  * 000000014077ECFF: mov     r15d, eax
  * 000000014077ED02: mov     ebx, [rbp+1C70h+var_1AC4]
  * 000000014077ED08: mov     dword ptr [rbp+1C70h+var_1CF0], eax
- * 000000014077ED0B: mov     dword ptr [rsp+1D70h+var_1D18], ebx
+ * 000000014077ED0B: mov     dword ptr [rsp+1D70h+NtHeaders], ebx
  * 000000014077ED0F: test    cl, 2
  * 000000014077ED12: jz      short loc_14077ED1C
  * 000000014077ED14: test    eax, eax
@@ -6225,7 +6225,7 @@
  * 000000014077EEF7: add     ecx, 0FFFFFFFFh
  * 000000014077EEFA: jnz     short loc_14077EEF1
  * 000000014077EEFC: mov     r10, [rbp+1C70h+var_1CE0]
- * 000000014077EF00: mov     ebx, dword ptr [rsp+1D70h+var_1D18]
+ * 000000014077EF00: mov     ebx, dword ptr [rsp+1D70h+NtHeaders]
  * 000000014077EF04: mov     [r14], r12d
  * 000000014077EF07: mov     [r14+8], r10
  * 000000014077EF0B: cmp     r12d, 20h ; ' '
@@ -6236,7 +6236,7 @@
  * 000000014077EF19: mov     r8d, ebx
  * 000000014077EF1C: mov     rdx, r10
  * 000000014077EF1F: mov     rcx, r15
- * 000000014077EF22: call    sub_140158348
+ * 000000014077EF22: call    sub_1401588B8
  * 000000014077EF27: mov     r10, [rbp+1C70h+var_1CE0]
  * 000000014077EF2B: mov     [r14+10h], ebx
  * 000000014077EF2F: lea     rcx, [r10+rdi]
@@ -6262,7 +6262,7 @@
  * 000000014077EF77: add     edi, 0FFFFFFF8h
  * 000000014077EF7A: sub     rbx, r13
  * 000000014077EF7D: jnz     short loc_14077EF6A
- * 000000014077EF7F: mov     ebx, dword ptr [rsp+1D70h+var_1D18]
+ * 000000014077EF7F: mov     ebx, dword ptr [rsp+1D70h+NtHeaders]
  * 000000014077EF83: test    edi, edi
  * 000000014077EF85: jz      short loc_14077EF9C
  * 000000014077EF87: movzx   eax, byte ptr [r8]
@@ -6744,7 +6744,7 @@
  * 000000014077F6E9: mov     r8d, r15d
  * 000000014077F6EC: mov     rdx, rdi
  * 000000014077F6EF: mov     rcx, r14
- * 000000014077F6F2: call    sub_140158348
+ * 000000014077F6F2: call    sub_1401588B8
  * 000000014077F6F7: mov     r10, [rbp+1C70h+var_1CE8]
  * 000000014077F6FB: mov     r11, [rsp+78h]
  * 000000014077F700: mov     [rbx+10h], r15d
@@ -6908,7 +6908,7 @@
  * 000000014077F960: mov     r8d, r15d
  * 000000014077F963: mov     rdx, r12
  * 000000014077F966: mov     rcx, rbx
- * 000000014077F969: call    sub_140158348
+ * 000000014077F969: call    sub_1401588B8
  * 000000014077F96E: mov     [r14+10h], r15d
  * 000000014077F972: mov     r8, r12
  * 000000014077F975: add     [rbx+5E0h], r15d
@@ -6970,7 +6970,7 @@
  * 000000014077FA40: add     r9, 1Ch
  * 000000014077FA44: mov     rdx, r12
  * 000000014077FA47: mov     rcx, r14
- * 000000014077FA4A: call    sub_140158348
+ * 000000014077FA4A: call    sub_1401588B8
  * 000000014077FA4F: mov     rax, [rbp+1C70h+var_1550]
  * 000000014077FA56: xor     ecx, ecx
  * 000000014077FA58: mov     [rax+18h], ecx
@@ -7031,7 +7031,7 @@
  * 000000014077FB57: jnz     short loc_14077FB63
  * 000000014077FB59: mov     ecx, 0C000007Bh
  * 000000014077FB5E: jmp     loc_14077F428
- * 000000014077FB63: mov     ecx, dword ptr [rsp+1D70h+var_1D18]
+ * 000000014077FB63: mov     ecx, dword ptr [rsp+1D70h+NtHeaders]
  * 000000014077FB67: mov     rax, 0AAAAAAAAAAAAAAABh
  * 000000014077FB71: mul     rcx
  * 000000014077FB74: xor     eax, eax
@@ -7266,7 +7266,7 @@
  * 000000014077FF5A: mov     r12, [rbp+1C70h+var_1CE0]
  * 000000014077FF5E: mov     [rax+20h], ecx
  * 000000014077FF61: mov     rax, [rbp+1C70h+var_1528]
- * 000000014077FF68: mov     ecx, dword ptr [rsp+1D70h+var_1D18]
+ * 000000014077FF68: mov     ecx, dword ptr [rsp+1D70h+NtHeaders]
  * 000000014077FF6C: mov     [rax+24h], ecx
  * 000000014077FF6F: mov     rax, [rbp+1C70h+var_1528]
  * 000000014077FF76: movzx   ecx, word ptr [rbp+1C70h+var_1CC8]
@@ -7432,7 +7432,7 @@
  * 00000001407801F0: mov     rax, [rbp+1C70h+var_1CD0]
  * 00000001407801F4: add     ecx, r9d
  * 00000001407801F7: mov     dword ptr [rsp+1D70h+var_1D08], r9d
- * 00000001407801FC: mov     dword ptr [rsp+1D70h+var_1D18], ecx
+ * 00000001407801FC: mov     dword ptr [rsp+1D70h+NtHeaders], ecx
  * 0000000140780200: cmp     r12, rax
  * 0000000140780203: jz      short loc_140780215
  * 0000000140780205: mov     r11d, [r12]
@@ -7519,13 +7519,13 @@
  * 0000000140780317: mov     rax, [rbp+1C70h+var_1CD8]
  * 000000014078031B: btr     edx, 1Fh
  * 000000014078031F: mov     r10d, dword ptr [rsp+1D70h+Src]
- * 0000000140780324: mov     ecx, dword ptr [rsp+1D70h+var_1D18]
+ * 0000000140780324: mov     ecx, dword ptr [rsp+1D70h+NtHeaders]
  * 0000000140780328: mov     [rax+8], edx
  * 000000014078032B: mov     rax, [rbp+1C70h+var_1CD0]
  * 000000014078032F: mov     rdx, [rbp+1C70h+var_1CE0]
  * 0000000140780333: jmp     short loc_14078034D
  * 0000000140780335: mov     r10d, dword ptr [rsp+1D70h+Src]
- * 000000014078033A: mov     ecx, dword ptr [rsp+1D70h+var_1D18]
+ * 000000014078033A: mov     ecx, dword ptr [rsp+1D70h+NtHeaders]
  * 000000014078033E: mov     rax, [rbp+1C70h+var_1CD0]
  * 0000000140780342: mov     rdx, [rbp+1C70h+var_1CE0]
  * 0000000140780346: mov     r9, [rsp+78h]
@@ -7638,7 +7638,7 @@
  * 00000001407804DF: mov     r9, [rsp+78h]
  * 00000001407804E4: mov     byte ptr [rcx], 80h
  * 00000001407804E7: mov     r10d, dword ptr [rsp+1D70h+Src]
- * 00000001407804EC: mov     ecx, dword ptr [rsp+1D70h+var_1D18]
+ * 00000001407804EC: mov     ecx, dword ptr [rsp+1D70h+NtHeaders]
  * 00000001407804F0: mov     rax, [rbp+1C70h+var_1CE8]
  * 00000001407804F4: mov     rdx, [rbp+1C70h+var_1CD0]
  * 00000001407804F8: mov     rbx, [rbp+1C70h+var_1CE0]
@@ -7735,7 +7735,7 @@
  * 0000000140780631: mov     ecx, [r12+4]
  * 0000000140780636: cmp     eax, dword ptr [rsp+1D70h+var_1D08]
  * 000000014078063A: jb      short loc_140780665
- * 000000014078063C: cmp     ecx, dword ptr [rsp+1D70h+var_1D18]
+ * 000000014078063C: cmp     ecx, dword ptr [rsp+1D70h+NtHeaders]
  * 0000000140780640: ja      short loc_140780665
  * 0000000140780642: cmp     r15, rdx
  * 0000000140780645: jz      short loc_14078065D
@@ -7818,7 +7818,7 @@
  * 000000014078076F: jz      loc_1407822FC
  * 0000000140780775: sti
  * 0000000140780776: mov     r12, [rbp+1C70h+var_1590]
- * 000000014078077D: lea     r8, [rbp+1C70h+var_1AB4+4]
+ * 000000014078077D: lea     r8, [rbp+1C70h+var_1AB0]
  * 0000000140780784: mov     rcx, r12
  * 0000000140780787: mov     [rsp+1D70h+var_1D00], r12
  * 000000014078078C: lea     rdx, [rbp+1C70h+var_1520]
@@ -7828,7 +7828,7 @@
  * 00000001407807A1: jz      loc_14077C9F7
  * 00000001407807A7: mov     r11, [rbp+1C70h+var_1520]
  * 00000001407807AE: xor     eax, eax
- * 00000001407807B0: mov     r15d, dword ptr [rbp+1C70h+var_1AB4+4]
+ * 00000001407807B0: mov     r15d, [rbp+1C70h+var_1AB0]
  * 00000001407807B7: mov     ecx, 4
  * 00000001407807BC: mov     [rbp+1C70h+var_1048], rax
  * 00000001407807C3: xor     edx, edx
@@ -7975,7 +7975,7 @@
  * 00000001407809BE: call    qword ptr [r14+288h]
  * 00000001407809C5: mov     ecx, dword ptr [rbp+1C70h+var_1CA8]
  * 00000001407809C8: mov     r15d, eax
- * 00000001407809CB: mov     ebx, dword ptr [rbp+1C70h+var_1AB4+4]
+ * 00000001407809CB: mov     ebx, [rbp+1C70h+var_1AB0]
  * 00000001407809D1: mov     dword ptr [rsp+1D70h+Src], eax
  * 00000001407809D5: mov     dword ptr [rsp+1D70h+var_1D08], ebx
  * 00000001407809D9: test    cl, 2
@@ -8012,7 +8012,7 @@
  * 0000000140780A6D: shl     ecx, 2
  * 0000000140780A70: mov     eax, r15d
  * 0000000140780A73: neg     eax
- * 0000000140780A75: mov     dword ptr [rsp+1D70h+var_1D18], ecx
+ * 0000000140780A75: mov     dword ptr [rsp+1D70h+NtHeaders], ecx
  * 0000000140780A79: sbb     ebx, ebx
  * 0000000140780A7B: and     ebx, 0Bh
  * 0000000140780A7E: lea     eax, [rcx+30h]
@@ -8109,7 +8109,7 @@
  * 0000000140780BD8: mov     r8d, ebx
  * 0000000140780BDB: mov     rdx, r10
  * 0000000140780BDE: mov     rcx, r15
- * 0000000140780BE1: call    sub_140158348
+ * 0000000140780BE1: call    sub_1401588B8
  * 0000000140780BE6: mov     r10, [rbp+1C70h+var_1CD0]
  * 0000000140780BEA: mov     [r12+10h], ebx
  * 0000000140780BEF: lea     rcx, [r10+rdi]
@@ -8208,7 +8208,7 @@
  * 0000000140780D4B: mov     rax, [rbp+1C70h+var_1508]
  * 0000000140780D52: mov     [rax+18h], r13
  * 0000000140780D56: mov     rax, [rbp+1C70h+var_1508]
- * 0000000140780D5D: mov     edx, dword ptr [rsp+1D70h+var_1D18]
+ * 0000000140780D5D: mov     edx, dword ptr [rsp+1D70h+NtHeaders]
  * 0000000140780D61: add     rax, 30h ; '0'
  * 0000000140780D65: mov     [rbp+1C70h+var_1CE8], rax
  * 0000000140780D69: cmp     edx, 8
@@ -8230,7 +8230,7 @@
  * 0000000140780D9A: or      ebx, 0FFFFFFFFh
  * 0000000140780D9D: mov     eax, dword ptr [rbp+1C70h+var_1CE0]
  * 0000000140780DA0: mov     r12, rdx
- * 0000000140780DA3: mov     dword ptr [rsp+1D70h+var_1D18], ebx
+ * 0000000140780DA3: mov     dword ptr [rsp+1D70h+NtHeaders], ebx
  * 0000000140780DA7: mov     r8d, [rdx]
  * 0000000140780DAA: lea     rcx, [rax+rax*2]
  * 0000000140780DAE: lea     rax, [rdx+rcx*4]
@@ -8339,7 +8339,7 @@
  * 0000000140780F4B: jnz     short loc_140780F39
  * 0000000140780F4D: mov     r14d, r13d
  * 0000000140780F50: mov     edi, dword ptr [rbp+1C70h+var_1CF0]
- * 0000000140780F53: mov     ebx, dword ptr [rsp+1D70h+var_1D18]
+ * 0000000140780F53: mov     ebx, dword ptr [rsp+1D70h+NtHeaders]
  * 0000000140780F57: mov     r8d, 80000000h
  * 0000000140780F5D: test    [r10+24h], r8d
  * 0000000140780F61: cmovnz  r14d, r13d
@@ -8364,7 +8364,7 @@
  * 0000000140780FB1: cmp     eax, ebx
  * 0000000140780FB3: cmovb   ebx, eax
  * 0000000140780FB6: cmp     eax, edi
- * 0000000140780FB8: mov     dword ptr [rsp+1D70h+var_1D18], ebx
+ * 0000000140780FB8: mov     dword ptr [rsp+1D70h+NtHeaders], ebx
  * 0000000140780FBC: cmova   edi, eax
  * 0000000140780FBF: mov     dword ptr [rbp+1C70h+var_1CF0], edi
  * 0000000140780FC2: mov     eax, [r12]
@@ -8430,7 +8430,7 @@
  * 0000000140781090: cmp     [r12], eax
  * 0000000140781094: jb      short loc_1407810B1
  * 0000000140781096: mov     ecx, [r12+4]
- * 000000014078109B: mov     ebx, dword ptr [rsp+1D70h+var_1D18]
+ * 000000014078109B: mov     ebx, dword ptr [rsp+1D70h+NtHeaders]
  * 000000014078109F: add     rcx, r9
  * 00000001407810A2: mov     edi, dword ptr [rbp+1C70h+var_1CF0]
  * 00000001407810A5: mov     eax, r11d
@@ -8440,7 +8440,7 @@
  * 00000001407810B5: mov     rdx, r9
  * 00000001407810B8: mov     rcx, [rsp+1D70h+var_1D20]
  * 00000001407810BD: call    qword ptr [r15+1F8h]
- * 00000001407810C4: mov     ebx, dword ptr [rsp+1D70h+var_1D18]
+ * 00000001407810C4: mov     ebx, dword ptr [rsp+1D70h+NtHeaders]
  * 00000001407810C8: mov     r10, rax
  * 00000001407810CB: mov     edi, dword ptr [rbp+1C70h+var_1CF0]
  * 00000001407810CE: xor     eax, eax
@@ -8463,7 +8463,7 @@
  * 0000000140781116: mov     edi, dword ptr [rbp+1C70h+var_1CB0]
  * 0000000140781119: mov     r10d, 80000000h
  * 000000014078111F: jmp     loc_14077E694
- * 0000000140781124: mov     edx, dword ptr [rsp+1D70h+var_1D18]
+ * 0000000140781124: mov     edx, dword ptr [rsp+1D70h+NtHeaders]
  * 0000000140781128: or      edi, 0FFFFFFFFh
  * 000000014078112B: mov     ebx, dword ptr [rbp+1C70h+var_1CF0]
  * 000000014078112E: cmp     edx, edi
@@ -8473,7 +8473,7 @@
  * 0000000140781136: jnz     short loc_14078113A
  * 0000000140781138: mov     edx, eax
  * 000000014078113A: mov     rcx, [rbp+1C70h+var_1520]
- * 0000000140781141: lea     r9, [rbp+1C70h+var_1AB4+4]
+ * 0000000140781141: lea     r9, [rbp+1C70h+var_1AB0]
  * 0000000140781148: mov     eax, edx
  * 000000014078114A: sub     ebx, edx
  * 000000014078114C: add     rax, rcx
@@ -8484,28 +8484,28 @@
  * 0000000140781163: mov     [rbp+1C70h+var_FF8], ebx
  * 0000000140781169: call    qword ptr [r15+1D8h]
  * 0000000140781170: mov     r8d, 0Ch
- * 0000000140781176: lea     r9, [rbp+1C70h+var_1AB4+4]
+ * 0000000140781176: lea     r9, [rbp+1C70h+var_1AB0]
  * 000000014078117D: mov     rdx, rax
  * 0000000140781180: neg     rax
  * 0000000140781183: mov     [rbp+1C70h+var_D28], rdx
  * 000000014078118A: mov     dl, r13b
  * 000000014078118D: sbb     ecx, ecx
- * 000000014078118F: and     ecx, dword ptr [rbp+1C70h+var_1AB4+4]
- * 0000000140781195: mov     dword ptr [rbp+1C70h+var_1AB4+4], ecx
+ * 000000014078118F: and     ecx, [rbp+1C70h+var_1AB0]
+ * 0000000140781195: mov     [rbp+1C70h+var_1AB0], ecx
  * 000000014078119B: mov     [rbp+1C70h+var_FF4], ecx
  * 00000001407811A1: mov     rcx, [rbp+1C70h+var_1520]
  * 00000001407811A8: call    qword ptr [r15+1D8h]
  * 00000001407811AF: mov     [rsp+1D70h+var_1D00], rax
  * 00000001407811B4: mov     r8d, 0Ah
  * 00000001407811BA: mov     rdx, rax
- * 00000001407811BD: lea     r9, [rbp+1C70h+var_1AB4+4]
+ * 00000001407811BD: lea     r9, [rbp+1C70h+var_1AB0]
  * 00000001407811C4: neg     rax
  * 00000001407811C7: mov     [rbp+1C70h+var_D20], rdx
  * 00000001407811CE: mov     dl, r13b
  * 00000001407811D1: sbb     ecx, ecx
- * 00000001407811D3: and     ecx, dword ptr [rbp+1C70h+var_1AB4+4]
- * 00000001407811D9: mov     dword ptr [rsp+1D70h+var_1D18], ecx
- * 00000001407811DD: mov     dword ptr [rbp+1C70h+var_1AB4+4], ecx
+ * 00000001407811D3: and     ecx, [rbp+1C70h+var_1AB0]
+ * 00000001407811D9: mov     dword ptr [rsp+1D70h+NtHeaders], ecx
+ * 00000001407811DD: mov     [rbp+1C70h+var_1AB0], ecx
  * 00000001407811E3: mov     [rbp+1C70h+var_FF0], ecx
  * 00000001407811E9: mov     rcx, [rbp+1C70h+var_1520]
  * 00000001407811F0: call    qword ptr [r15+1D8h]
@@ -8514,8 +8514,8 @@
  * 00000001407811FD: mov     eax, dword ptr [rsp+1D70h+Src]
  * 0000000140781201: sbb     ecx, ecx
  * 0000000140781203: mov     [rbp+1C70h+var_D18], rdx
- * 000000014078120A: and     ecx, dword ptr [rbp+1C70h+var_1AB4+4]
- * 0000000140781210: mov     dword ptr [rbp+1C70h+var_1AB4+4], ecx
+ * 000000014078120A: and     ecx, [rbp+1C70h+var_1AB0]
+ * 0000000140781210: mov     [rbp+1C70h+var_1AB0], ecx
  * 0000000140781216: neg     eax
  * 0000000140781218: mov     r14d, [r15+59Ch]
  * 000000014078121F: mov     r8d, [r15+67Ch]
@@ -8620,7 +8620,7 @@
  * 000000014078139E: mov     r8d, r15d
  * 00000001407813A1: mov     rdx, r14
  * 00000001407813A4: mov     rcx, rbx
- * 00000001407813A7: call    sub_140158348
+ * 00000001407813A7: call    sub_1401588B8
  * 00000001407813AC: mov     r10, [rsp+1D70h+var_1D20]
  * 00000001407813B1: mov     r11, [rbp+1C70h+var_1CE8]
  * 00000001407813B5: mov     [rdi+10h], r15d
@@ -8773,7 +8773,7 @@
  * 00000001407815E9: mov     rbx, [rsp+1D70h+var_1D00]
  * 00000001407815EE: cmp     r12d, 20h ; ' '
  * 00000001407815F2: mov     [r15], r12d
- * 00000001407815F5: mov     r12d, dword ptr [rsp+1D70h+var_1D18]
+ * 00000001407815F5: mov     r12d, dword ptr [rsp+1D70h+NtHeaders]
  * 00000001407815FA: mov     [r15+8], rbx
  * 00000001407815FE: jnz     short loc_140781617
  * 0000000140781600: test    r12d, r12d
@@ -8782,7 +8782,7 @@
  * 0000000140781609: mov     r8d, r12d
  * 000000014078160C: mov     rdx, rbx
  * 000000014078160F: mov     rcx, r14
- * 0000000140781612: call    sub_140158348
+ * 0000000140781612: call    sub_1401588B8
  * 0000000140781617: mov     [r15+10h], r12d
  * 000000014078161B: mov     rdi, rbx
  * 000000014078161E: add     [r14+5E0h], r12d
@@ -8834,7 +8834,7 @@
  * 00000001407816BF: jmp     short loc_1407816CC
  * 00000001407816C1: mov     [rcx], r12d
  * 00000001407816C4: mov     r14, rbx
- * 00000001407816C7: mov     r12d, dword ptr [rsp+1D70h+var_1D18]
+ * 00000001407816C7: mov     r12d, dword ptr [rsp+1D70h+NtHeaders]
  * 00000001407816CC: test    dword ptr [r14+6D8h], 40000000h
  * 00000001407816D7: jz      short loc_1407816F9
  * 00000001407816D9: test    r12d, r12d
@@ -8844,7 +8844,7 @@
  * 00000001407816E8: mov     rdx, [rsp+1D70h+var_1D00]
  * 00000001407816ED: add     r9, 1Ch
  * 00000001407816F1: mov     rcx, r14
- * 00000001407816F4: call    sub_140158348
+ * 00000001407816F4: call    sub_1401588B8
  * 00000001407816F9: mov     rax, [rbp+1C70h+var_14F8]
  * 0000000140781700: xor     ecx, ecx
  * 0000000140781702: mov     [rax+18h], ecx
@@ -8931,7 +8931,7 @@
  * 000000014078188F: add     r8, r12
  * 0000000140781892: movzx   r10d, dx
  * 0000000140781896: mov     [rsp+78h], r8
- * 000000014078189B: mov     dword ptr [rsp+1D70h+var_1D18], r10d
+ * 000000014078189B: mov     dword ptr [rsp+1D70h+NtHeaders], r10d
  * 00000001407818A0: lea     rcx, [rax+rax*2]
  * 00000001407818A4: xor     eax, eax
  * 00000001407818A6: lea     r11, [rdi+rcx*4]
@@ -8977,7 +8977,7 @@
  * 0000000140781933: mov     r8, [rsp+78h]
  * 0000000140781938: cmp     rbx, r11
  * 000000014078193B: jnz     short loc_1407818EF
- * 000000014078193D: mov     r10d, dword ptr [rsp+1D70h+var_1D18]
+ * 000000014078193D: mov     r10d, dword ptr [rsp+1D70h+NtHeaders]
  * 0000000140781942: add     edi, r13d
  * 0000000140781945: add     r15, 28h ; '('
  * 0000000140781949: cmp     edi, r10d
@@ -9075,7 +9075,7 @@
  * 0000000140781AEB: mov     [r8+67Ch], ebx
  * 0000000140781AF2: and     dword ptr [r8+6D8h], 0FFFFFFFBh
  * 0000000140781AFA: mov     r9, [rbp+1C70h+var_1CE8]
- * 0000000140781AFE: mov     r10d, dword ptr [rsp+1D70h+var_1D18]
+ * 0000000140781AFE: mov     r10d, dword ptr [rsp+1D70h+NtHeaders]
  * 0000000140781B03: mov     r11, [rbp+1C70h+var_1CE0]
  * 0000000140781B07: jmp     short loc_140781B22
  * 0000000140781B09: mov     ecx, 0C000009Ah
@@ -9294,7 +9294,7 @@
  * 0000000140781E54: cmova   ecx, [r10+10h]
  * 0000000140781E59: add     ecx, r8d
  * 0000000140781E5C: mov     dword ptr [rsp+1D70h+var_1D08], r8d
- * 0000000140781E61: mov     dword ptr [rsp+1D70h+var_1D18], ecx
+ * 0000000140781E61: mov     dword ptr [rsp+1D70h+NtHeaders], ecx
  * 0000000140781E65: cmp     r12, r11
  * 0000000140781E68: jz      short loc_140781E7A
  * 0000000140781E6A: mov     r11d, [r12]
@@ -9383,13 +9383,13 @@
  * 0000000140781F81: mov     rax, [rbp+1C70h+var_1CD8]
  * 0000000140781F85: btr     edx, 1Fh
  * 0000000140781F89: mov     r9d, dword ptr [rsp+1D70h+Src]
- * 0000000140781F8E: mov     ecx, dword ptr [rsp+1D70h+var_1D18]
+ * 0000000140781F8E: mov     ecx, dword ptr [rsp+1D70h+NtHeaders]
  * 0000000140781F92: mov     [rax+8], edx
  * 0000000140781F95: mov     rax, [rbp+1C70h+var_1CD0]
  * 0000000140781F99: jmp     short loc_140781FAF
  * 0000000140781F9B: mov     r9d, dword ptr [rsp+1D70h+Src]
  * 0000000140781FA0: xor     edi, edi
- * 0000000140781FA2: mov     ecx, dword ptr [rsp+1D70h+var_1D18]
+ * 0000000140781FA2: mov     ecx, dword ptr [rsp+1D70h+NtHeaders]
  * 0000000140781FA6: mov     rax, [rbp+1C70h+var_1CD0]
  * 0000000140781FAA: mov     r8, [rsp+1D70h+var_1D20]
  * 0000000140781FAF: cmp     r11d, dword ptr [rsp+1D70h+var_1D08]
@@ -9501,7 +9501,7 @@
  * 0000000140782144: mov     r8, [rsp+1D70h+var_1D20]
  * 0000000140782149: mov     byte ptr [rcx], 80h
  * 000000014078214C: mov     r9d, dword ptr [rsp+1D70h+Src]
- * 0000000140782151: mov     ecx, dword ptr [rsp+1D70h+var_1D18]
+ * 0000000140782151: mov     ecx, dword ptr [rsp+1D70h+NtHeaders]
  * 0000000140782155: mov     rax, [rbp+1C70h+var_1CE8]
  * 0000000140782159: mov     rdx, [rbp+1C70h+var_1CE0]
  * 000000014078215D: mov     rbx, [rbp+1C70h+var_1CD0]
@@ -9598,7 +9598,7 @@
  * 0000000140782298: mov     ecx, [r12+4]
  * 000000014078229D: cmp     eax, dword ptr [rsp+1D70h+var_1D08]
  * 00000001407822A1: jb      short loc_1407822CC
- * 00000001407822A3: cmp     ecx, dword ptr [rsp+1D70h+var_1D18]
+ * 00000001407822A3: cmp     ecx, dword ptr [rsp+1D70h+NtHeaders]
  * 00000001407822A7: ja      short loc_1407822CC
  * 00000001407822A9: cmp     r15, r11
  * 00000001407822AC: jz      short loc_1407822C4
@@ -10009,7 +10009,7 @@
  * 00000001407828E4: shl     ecx, 2
  * 00000001407828E7: mov     eax, edi
  * 00000001407828E9: neg     eax
- * 00000001407828EB: mov     dword ptr [rsp+1D70h+var_1D18], ecx
+ * 00000001407828EB: mov     dword ptr [rsp+1D70h+NtHeaders], ecx
  * 00000001407828EF: sbb     r12d, r12d
  * 00000001407828F2: and     r12d, 0Bh
  * 00000001407828F6: lea     eax, [rcx+30h]
@@ -10105,7 +10105,7 @@
  * 0000000140782A43: mov     r8d, ebx
  * 0000000140782A46: mov     rdx, r11
  * 0000000140782A49: mov     rcx, rdi
- * 0000000140782A4C: call    sub_140158348
+ * 0000000140782A4C: call    sub_1401588B8
  * 0000000140782A51: mov     r11, [rbp+1C70h+var_1CE8]
  * 0000000140782A55: mov     [r15+10h], ebx
  * 0000000140782A59: mov     r9, r11
@@ -10205,7 +10205,7 @@
  * 0000000140782BB8: mov     rax, [rbp+1C70h+var_14B0]
  * 0000000140782BBF: mov     [rax+18h], r13
  * 0000000140782BC3: mov     rax, [rbp+1C70h+var_14B0]
- * 0000000140782BCA: mov     edx, dword ptr [rsp+1D70h+var_1D18]
+ * 0000000140782BCA: mov     edx, dword ptr [rsp+1D70h+NtHeaders]
  * 0000000140782BCE: add     rax, 30h ; '0'
  * 0000000140782BD2: mov     [rbp+1C70h+var_1CD8], rax
  * 0000000140782BD6: cmp     edx, 8
@@ -10227,7 +10227,7 @@
  * 0000000140782C07: or      ebx, 0FFFFFFFFh
  * 0000000140782C0A: mov     eax, [rsp+78h]
  * 0000000140782C0E: mov     r12, rdx
- * 0000000140782C11: mov     dword ptr [rsp+1D70h+var_1D18], ebx
+ * 0000000140782C11: mov     dword ptr [rsp+1D70h+NtHeaders], ebx
  * 0000000140782C15: mov     r8d, [rdx]
  * 0000000140782C18: lea     rcx, [rax+rax*2]
  * 0000000140782C1C: lea     rax, [rdx+rcx*4]
@@ -10334,7 +10334,7 @@
  * 0000000140782DB7: add     r9d, r11d
  * 0000000140782DBA: jnz     short loc_140782DA7
  * 0000000140782DBC: mov     r15d, r13d
- * 0000000140782DBF: mov     ebx, dword ptr [rsp+1D70h+var_1D18]
+ * 0000000140782DBF: mov     ebx, dword ptr [rsp+1D70h+NtHeaders]
  * 0000000140782DC3: mov     r9d, 80000000h
  * 0000000140782DC9: test    [r10+24h], r9d
  * 0000000140782DCD: cmovnz  r15d, r13d
@@ -10360,7 +10360,7 @@
  * 0000000140782E1F: cmp     eax, ebx
  * 0000000140782E21: cmovb   ebx, eax
  * 0000000140782E24: cmp     eax, ecx
- * 0000000140782E26: mov     dword ptr [rsp+1D70h+var_1D18], ebx
+ * 0000000140782E26: mov     dword ptr [rsp+1D70h+NtHeaders], ebx
  * 0000000140782E2A: cmova   ecx, eax
  * 0000000140782E2D: mov     dword ptr [rbp+1C70h+var_1CF0], ecx
  * 0000000140782E30: mov     eax, [r12]
@@ -10426,7 +10426,7 @@
  * 0000000140782EFF: cmp     [r12], eax
  * 0000000140782F03: jb      short loc_140782F1D
  * 0000000140782F05: mov     ecx, [r12+4]
- * 0000000140782F0A: mov     ebx, dword ptr [rsp+1D70h+var_1D18]
+ * 0000000140782F0A: mov     ebx, dword ptr [rsp+1D70h+NtHeaders]
  * 0000000140782F0E: add     rcx, rdx
  * 0000000140782F11: mov     eax, r14d
  * 0000000140782F14: cmp     rcx, rax
@@ -10434,7 +10434,7 @@
  * 0000000140782F1D: mov     r8d, [r12]
  * 0000000140782F21: mov     rcx, [rbp+1C70h+var_1CE0]
  * 0000000140782F25: call    qword ptr [rdi+1F8h]
- * 0000000140782F2B: mov     ebx, dword ptr [rsp+1D70h+var_1D18]
+ * 0000000140782F2B: mov     ebx, dword ptr [rsp+1D70h+NtHeaders]
  * 0000000140782F2F: mov     r10, rax
  * 0000000140782F32: xor     eax, eax
  * 0000000140782F34: test    r10, r10
@@ -10543,7 +10543,7 @@
  * 00000001407830DF: mov     rdx, [rcx]
  * 00000001407830E2: call    qword ptr [rdi+210h]
  * 00000001407830E8: jmp     loc_1407842CC
- * 00000001407830ED: mov     edx, dword ptr [rsp+1D70h+var_1D18]
+ * 00000001407830ED: mov     edx, dword ptr [rsp+1D70h+NtHeaders]
  * 00000001407830F1: or      r12d, 0FFFFFFFFh
  * 00000001407830F5: mov     r8d, dword ptr [rbp+1C70h+var_1CF0]
  * 00000001407830F9: cmp     edx, r12d
@@ -10585,7 +10585,7 @@
  * 000000014078319E: mov     dl, r13b
  * 00000001407831A1: sbb     ecx, ecx
  * 00000001407831A3: and     ecx, [rbp+1C70h+var_1A80]
- * 00000001407831A9: mov     dword ptr [rsp+1D70h+var_1D18], ecx
+ * 00000001407831A9: mov     dword ptr [rsp+1D70h+NtHeaders], ecx
  * 00000001407831AD: mov     [rbp+1C70h+var_1A80], ecx
  * 00000001407831B3: mov     [rbp+1C70h+var_FE0], ecx
  * 00000001407831B9: mov     rcx, [rbp+1C70h+var_14C8]
@@ -10700,7 +10700,7 @@
  * 000000014078336A: mov     r8d, r15d
  * 000000014078336D: mov     rdx, r14
  * 0000000140783370: mov     rcx, rbx
- * 0000000140783373: call    sub_140158348
+ * 0000000140783373: call    sub_1401588B8
  * 0000000140783378: mov     r10, [rbp+1C70h+var_1CE0]
  * 000000014078337C: mov     r11, [rsp+78h]
  * 0000000140783381: mov     [rdi+10h], r15d
@@ -10849,7 +10849,7 @@
  * 00000001407835A7: mov     r12, [rsp+1D70h+var_1D20]
  * 00000001407835AC: cmp     r15d, 20h ; ' '
  * 00000001407835B0: mov     [r14], r15d
- * 00000001407835B3: mov     r15d, dword ptr [rsp+1D70h+var_1D18]
+ * 00000001407835B3: mov     r15d, dword ptr [rsp+1D70h+NtHeaders]
  * 00000001407835B8: mov     [r14+8], r12
  * 00000001407835BC: jnz     short loc_1407835D5
  * 00000001407835BE: test    r15d, r15d
@@ -10858,7 +10858,7 @@
  * 00000001407835C7: mov     r8d, r15d
  * 00000001407835CA: mov     rdx, r12
  * 00000001407835CD: mov     rcx, rdi
- * 00000001407835D0: call    sub_140158348
+ * 00000001407835D0: call    sub_1401588B8
  * 00000001407835D5: mov     [r14+10h], r15d
  * 00000001407835D9: mov     r8, r12
  * 00000001407835DC: add     [rdi+5E0h], r15d
@@ -10909,7 +10909,7 @@
  * 0000000140783678: mov     r12, [rsp+1D70h+var_1D20]
  * 000000014078367D: mov     rdi, rbx
  * 0000000140783680: mov     [rcx], r15d
- * 0000000140783683: mov     r15d, dword ptr [rsp+1D70h+var_1D18]
+ * 0000000140783683: mov     r15d, dword ptr [rsp+1D70h+NtHeaders]
  * 0000000140783688: test    dword ptr [rdi+6D8h], 40000000h
  * 0000000140783692: jz      short loc_1407836B2
  * 0000000140783694: test    r15d, r15d
@@ -10919,7 +10919,7 @@
  * 00000001407836A3: add     r9, 1Ch
  * 00000001407836A7: mov     rdx, r12
  * 00000001407836AA: mov     rcx, rdi
- * 00000001407836AD: call    sub_140158348
+ * 00000001407836AD: call    sub_1401588B8
  * 00000001407836B2: mov     rax, [rbp+1C70h+var_14A0]
  * 00000001407836B9: xor     ecx, ecx
  * 00000001407836BB: mov     r14, rdi
@@ -11003,7 +11003,7 @@
  * 000000014078383F: add     r11, r12
  * 0000000140783842: movzx   r10d, dx
  * 0000000140783846: mov     [rbp+1C70h+var_1CB0], r11
- * 000000014078384A: mov     dword ptr [rsp+1D70h+var_1D18], r10d
+ * 000000014078384A: mov     dword ptr [rsp+1D70h+NtHeaders], r10d
  * 000000014078384F: lea     rcx, [rax+rax*2]
  * 0000000140783853: lea     rax, [r8+rcx*4]
  * 0000000140783857: mov     [rbp+1C70h+var_1CD8], rax
@@ -11050,7 +11050,7 @@
  * 00000001407838EF: mov     r11, [rbp+1C70h+var_1CB0]
  * 00000001407838F3: cmp     rbx, [rbp+1C70h+var_1CD8]
  * 00000001407838F7: jnz     short loc_1407838AA
- * 00000001407838F9: mov     r10d, dword ptr [rsp+1D70h+var_1D18]
+ * 00000001407838F9: mov     r10d, dword ptr [rsp+1D70h+NtHeaders]
  * 00000001407838FE: add     r15d, r13d
  * 0000000140783901: add     r12, 28h ; '('
  * 0000000140783905: cmp     r15d, r10d
@@ -11147,7 +11147,7 @@
  * 0000000140783A90: mov     [r11+67Ch], ebx
  * 0000000140783A97: and     dword ptr [r11+6D8h], 0FFFFFFFBh
  * 0000000140783A9F: mov     r9, [rsp+78h]
- * 0000000140783AA4: mov     r10d, dword ptr [rsp+1D70h+var_1D18]
+ * 0000000140783AA4: mov     r10d, dword ptr [rsp+1D70h+NtHeaders]
  * 0000000140783AA9: jmp     short loc_140783AC2
  * 0000000140783AAB: mov     ecx, 0C000009Ah
  * 0000000140783AB0: jmp     loc_140782F49
@@ -11364,7 +11364,7 @@
  * 0000000140783DF6: mov     rax, [rbp+1C70h+var_1CD8]
  * 0000000140783DFA: add     ecx, edx
  * 0000000140783DFC: mov     dword ptr [rsp+1D70h+var_1D08], edx
- * 0000000140783E00: mov     dword ptr [rsp+1D70h+var_1D18], ecx
+ * 0000000140783E00: mov     dword ptr [rsp+1D70h+NtHeaders], ecx
  * 0000000140783E04: cmp     r12, rax
  * 0000000140783E07: jz      short loc_140783E19
  * 0000000140783E09: mov     r14d, [r12]
@@ -11453,7 +11453,7 @@
  * 0000000140783F21: btr     edx, 1Fh
  * 0000000140783F25: mov     r11, [rbp+1C70h+var_1CE0]
  * 0000000140783F29: mov     r10d, dword ptr [rsp+1D70h+Src]
- * 0000000140783F2E: mov     ecx, dword ptr [rsp+1D70h+var_1D18]
+ * 0000000140783F2E: mov     ecx, dword ptr [rsp+1D70h+NtHeaders]
  * 0000000140783F32: mov     r8, [rbp+1C70h+var_1CE8]
  * 0000000140783F36: mov     [rax+8], edx
  * 0000000140783F39: mov     edx, dword ptr [rsp+1D70h+var_1D08]
@@ -11461,7 +11461,7 @@
  * 0000000140783F41: jmp     short loc_140783F5E
  * 0000000140783F43: mov     r11, [rbp+1C70h+var_1CE0]
  * 0000000140783F47: mov     r10d, dword ptr [rsp+1D70h+Src]
- * 0000000140783F4C: mov     ecx, dword ptr [rsp+1D70h+var_1D18]
+ * 0000000140783F4C: mov     ecx, dword ptr [rsp+1D70h+NtHeaders]
  * 0000000140783F50: mov     edx, dword ptr [rsp+1D70h+var_1D08]
  * 0000000140783F54: mov     rax, [rbp+1C70h+var_1CD8]
  * 0000000140783F58: mov     r8, [rbp+1C70h+var_1CE8]
@@ -11573,7 +11573,7 @@
  * 00000001407840ED: xor     ebx, ebx
  * 00000001407840EF: mov     byte ptr [rcx], 80h
  * 00000001407840F2: mov     r10d, dword ptr [rsp+1D70h+Src]
- * 00000001407840F7: mov     ecx, dword ptr [rsp+1D70h+var_1D18]
+ * 00000001407840F7: mov     ecx, dword ptr [rsp+1D70h+NtHeaders]
  * 00000001407840FB: mov     rax, [rsp+78h]
  * 0000000140784100: mov     r8, [rbp+1C70h+var_1CE8]
  * 0000000140784104: add     r8, 0Ch
@@ -11668,7 +11668,7 @@
  * 000000014078423A: mov     ecx, [r12+4]
  * 000000014078423F: cmp     eax, dword ptr [rsp+1D70h+var_1D08]
  * 0000000140784243: jb      short loc_140784270
- * 0000000140784245: cmp     ecx, dword ptr [rsp+1D70h+var_1D18]
+ * 0000000140784245: cmp     ecx, dword ptr [rsp+1D70h+NtHeaders]
  * 0000000140784249: ja      short loc_140784270
  * 000000014078424B: cmp     r15, rdx
  * 000000014078424E: jz      short loc_140784268
@@ -11739,7 +11739,7 @@
  * 0000000140784347: mov     r8d, r12d
  * 000000014078434A: mov     rdx, r15
  * 000000014078434D: mov     rcx, rdi
- * 0000000140784350: call    sub_140158348
+ * 0000000140784350: call    sub_1401588B8
  * 0000000140784355: mov     r11d, 20h ; ' '
  * 000000014078435B: mov     [rbx+10h], r12d
  * 000000014078435F: mov     rax, r15
@@ -11901,7 +11901,7 @@
  * 00000001407845D9: mov     r8d, r15d
  * 00000001407845DC: mov     rdx, r14
  * 00000001407845DF: mov     rcx, rbx
- * 00000001407845E2: call    sub_140158348
+ * 00000001407845E2: call    sub_1401588B8
  * 00000001407845E7: mov     r11, [rbp+1C70h+var_1CD0]
  * 00000001407845EB: mov     [rdi+10h], r15d
  * 00000001407845EF: lea     rcx, [r14+r15]
@@ -13683,7 +13683,7 @@
  * 000000014078615A: mov     r8d, r15d
  * 000000014078615D: mov     rdx, r14
  * 0000000140786160: mov     rcx, rdi
- * 0000000140786163: call    sub_140158348
+ * 0000000140786163: call    sub_1401588B8
  * 0000000140786168: xor     r10d, r10d
  * 000000014078616B: mov     [rbx+10h], r15d
  * 000000014078616F: lea     rcx, [r14+r15]
@@ -13839,7 +13839,7 @@
  * 00000001407863B4: mov     r8d, r14d
  * 00000001407863B7: lea     rdx, ObpObjectTypes
  * 00000001407863BE: mov     rcx, rdi
- * 00000001407863C1: call    sub_140158348
+ * 00000001407863C1: call    sub_1401588B8
  * 00000001407863C6: lea     r8, ObpObjectTypes
  * 00000001407863CD: mov     [rbx+10h], r14d
  * 00000001407863D1: mov     r9, r8
@@ -13906,7 +13906,7 @@
  * 00000001407864AA: movzx   eax, al
  * 00000001407864AD: lea     rbx, cs:140000000h
  * 00000001407864B4: and     eax, 3
- * 00000001407864B7: movzx   eax, byte ptr [rax+rbx+306C00h]
+ * 00000001407864B7: movzx   eax, byte ptr [rax+rbx+306C40h]
  * 00000001407864BF: sub     r15, rax
  * 00000001407864C2: jmp     short loc_1407864C7
  * 00000001407864C4: mov     r15, r11
@@ -13921,7 +13921,7 @@
  * 00000001407864EF: lea     r14, [r10+70h]
  * 00000001407864F3: movzx   r11d, ax
  * 00000001407864F7: add     r11d, 1Ah
- * 00000001407864FB: mov     dword ptr [rsp+1D70h+var_1D18], r11d
+ * 00000001407864FB: mov     dword ptr [rsp+1D70h+NtHeaders], r11d
  * 0000000140786500: lea     ecx, [r11+7]
  * 0000000140786504: and     ecx, r12d
  * 0000000140786507: mov     r12d, [rdi+59Ch]
@@ -13981,7 +13981,7 @@
  * 00000001407865DB: mov     [rbx+67Ch], edi
  * 00000001407865E1: and     dword ptr [rbx+6D8h], 0FFFFFFFBh
  * 00000001407865E8: mov     r10, [rbp+1C70h+var_1CD0]
- * 00000001407865EC: mov     r11d, dword ptr [rsp+1D70h+var_1D18]
+ * 00000001407865EC: mov     r11d, dword ptr [rsp+1D70h+NtHeaders]
  * 00000001407865F1: jmp     short loc_1407865FC
  * 00000001407865F3: mov     rbx, rdi
  * 00000001407865F6: mov     [rdi+59Ch], ecx
@@ -14189,7 +14189,7 @@
  * 0000000140786901: mov     r8d, r15d
  * 0000000140786904: mov     rdx, r14
  * 0000000140786907: mov     rcx, rdi
- * 000000014078690A: call    sub_140158348
+ * 000000014078690A: call    sub_1401588B8
  * 000000014078690F: xor     r11d, r11d
  * 0000000140786912: mov     [rbx+10h], r15d
  * 0000000140786916: lea     rcx, [r14+r15]
@@ -14630,7 +14630,7 @@
  * 0000000140787014: mov     [r12+rbx*8], rcx
  * 0000000140787018: mov     dword ptr [r15+rbx*4], 18h
  * 0000000140787020: add     ebx, r13d
- * 0000000140787023: mov     dword ptr [rsp+1D70h+var_1D18], ebx
+ * 0000000140787023: mov     dword ptr [rsp+1D70h+NtHeaders], ebx
  * 0000000140787027: test    r9d, r9d
  * 000000014078702A: jnz     loc_1407872BC
  * 0000000140787030: lea     rdx, [rbp+1C70h+var_1348]
@@ -14647,7 +14647,7 @@
  * 0000000140787073: mov     rax, [rsp+1D70h+var_1D00]
  * 0000000140787078: mov     dword ptr [r15+rbx*4], 8
  * 0000000140787080: add     ebx, r13d
- * 0000000140787083: mov     dword ptr [rsp+1D70h+var_1D18], ebx
+ * 0000000140787083: mov     dword ptr [rsp+1D70h+NtHeaders], ebx
  * 0000000140787087: mov     eax, [rax+6D8h]
  * 000000014078708D: bt      eax, 1Eh
  * 0000000140787091: jb      short loc_1407870B5
@@ -14658,7 +14658,7 @@
  * 00000001407870A8: mov     ecx, [rax]
  * 00000001407870AA: mov     [r15+rbx*4], ecx
  * 00000001407870AE: add     ebx, r13d
- * 00000001407870B1: mov     dword ptr [rsp+1D70h+var_1D18], ebx
+ * 00000001407870B1: mov     dword ptr [rsp+1D70h+NtHeaders], ebx
  * 00000001407870B5: xor     r10d, r10d
  * 00000001407870B8: mov     r8d, r10d
  * 00000001407870BB: cmp     [rbp+1C70h+var_FC0], r10
@@ -14676,7 +14676,7 @@
  * 00000001407870EE: mov     edi, r8d
  * 00000001407870F1: cmp     rdi, [rbp+1C70h+var_FC0]
  * 00000001407870F8: jb      short loc_1407870C7
- * 00000001407870FA: mov     dword ptr [rsp+1D70h+var_1D18], ebx
+ * 00000001407870FA: mov     dword ptr [rsp+1D70h+NtHeaders], ebx
  * 00000001407870FE: test    r9d, r9d
  * 0000000140787101: jnz     loc_14078719F
  * 0000000140787107: mov     rax, cs:PspPicoProviderRanges
@@ -14700,7 +14700,7 @@
  * 000000014078714C: mov     edi, r8d
  * 000000014078714F: cmp     rdi, [rax+8]
  * 0000000140787153: jb      short loc_14078711F
- * 0000000140787155: mov     dword ptr [rsp+1D70h+var_1D18], ebx
+ * 0000000140787155: mov     dword ptr [rsp+1D70h+NtHeaders], ebx
  * 0000000140787159: cmp     cs:qword_1402F3FC8, r10
  * 0000000140787160: mov     r8d, r10d
  * 0000000140787163: jbe     short loc_14078719F
@@ -14717,7 +14717,7 @@
  * 000000014078718F: mov     edi, r8d
  * 0000000140787192: cmp     rdi, cs:qword_1402F3FC8
  * 0000000140787199: jb      short loc_140787168
- * 000000014078719B: mov     dword ptr [rsp+1D70h+var_1D18], ebx
+ * 000000014078719B: mov     dword ptr [rsp+1D70h+NtHeaders], ebx
  * 000000014078719F: mov     rax, [rbp+1C70h+var_15F0]
  * 00000001407871A6: mov     ecx, [rax+6ACh]
  * 00000001407871AC: mov     eax, 0BC2A27DBh
@@ -14844,7 +14844,7 @@
  * 000000014078738B: mov     r8d, r12d
  * 000000014078738E: mov     rdx, r15
  * 0000000140787391: mov     rcx, rdi
- * 0000000140787394: call    sub_140158348
+ * 0000000140787394: call    sub_1401588B8
  * 0000000140787399: mov     r11, [rsp+1D70h+var_1D00]
  * 000000014078739E: mov     [r14+10h], r12d
  * 00000001407873A2: lea     rcx, [r15+r12]
@@ -14901,7 +14901,7 @@
  * 000000014078745D: jnz     loc_140787347
  * 0000000140787463: mov     r14, [rbp+1C70h+var_1330]
  * 000000014078746A: mov     rsi, 0FFFFFFFFB8797400h
- * 0000000140787471: mov     ebx, dword ptr [rsp+1D70h+var_1D18]
+ * 0000000140787471: mov     ebx, dword ptr [rsp+1D70h+NtHeaders]
  * 0000000140787475: mov     r15, [rsp+1D70h+var_1D20]
  * 000000014078747A: mov     r12, [rbp+1C70h+var_1CD0]
  * 000000014078747E: mov     eax, 20h ; ' '
@@ -14937,7 +14937,7 @@
  * 0000000140787509: cmovz   r12d, r9d
  * 000000014078750D: mov     r15d, [rax]
  * 0000000140787510: mov     eax, [rdi+59Ch]
- * 0000000140787516: mov     dword ptr [rsp+1D70h+var_1D18], eax
+ * 0000000140787516: mov     dword ptr [rsp+1D70h+NtHeaders], eax
  * 000000014078751A: add     eax, 30h ; '0'
  * 000000014078751D: cmp     eax, [rdi+75Ch]
  * 0000000140787523: jbe     loc_1407875FC
@@ -14999,7 +14999,7 @@
  * 00000001407875FF: mov     [rdi+59Ch], eax
  * 0000000140787605: add     [rbx+5C4h], r13d
  * 000000014078760C: mov     ecx, 30h ; '0'
- * 0000000140787611: mov     edi, dword ptr [rsp+1D70h+var_1D18]
+ * 0000000140787611: mov     edi, dword ptr [rsp+1D70h+NtHeaders]
  * 0000000140787615: add     rdi, rbx
  * 0000000140787618: mov     [rbp+1C70h+var_1328], rdi
  * 000000014078761F: mov     rax, rdi
@@ -15025,7 +15025,7 @@
  * 0000000140787658: mov     r8d, r15d
  * 000000014078765B: mov     rdx, r14
  * 000000014078765E: mov     rcx, rbx
- * 0000000140787661: call    sub_140158348
+ * 0000000140787661: call    sub_1401588B8
  * 0000000140787666: xor     r11d, r11d
  * 0000000140787669: mov     [rdi+10h], r15d
  * 000000014078766D: lea     rcx, [r14+r15]
@@ -15076,7 +15076,7 @@
  * 000000014078770B: jnz     short loc_14078770F
  * 000000014078770D: jmp     short loc_14078770D
  * 000000014078770F: sti
- * 0000000140787710: or      dword ptr [rsp+1D70h+var_1D18], 0FFFFFFFFh
+ * 0000000140787710: or      dword ptr [rsp+1D70h+NtHeaders], 0FFFFFFFFh
  * 0000000140787715: lea     rax, HvlpHypercallCodeVa
  * 000000014078771C: mov     [rbp+1C70h+var_C70], rax
  * 0000000140787723: mov     r12d, r13d
@@ -15137,7 +15137,7 @@
  * 000000014078781B: mov     eax, 4
  * 0000000140787820: jmp     short loc_140787827
  * 0000000140787822: mov     eax, 1000h
- * 0000000140787827: mov     dword ptr [rsp+1D70h+var_1D18], r13d
+ * 0000000140787827: mov     dword ptr [rsp+1D70h+NtHeaders], r13d
  * 000000014078782C: jmp     short loc_140787842
  * 000000014078782E: lea     rax, HvlpInterruptCallback
  * 0000000140787835: mov     [rbp+1C70h+var_C68], rax
@@ -15258,7 +15258,7 @@
  * 0000000140787A16: mov     r8d, r15d
  * 0000000140787A19: mov     rdx, rdi
  * 0000000140787A1C: mov     rcx, r14
- * 0000000140787A1F: call    sub_140158348
+ * 0000000140787A1F: call    sub_1401588B8
  * 0000000140787A24: mov     r10, [rsp+1D70h+var_1D00]
  * 0000000140787A29: mov     r11, [rbp+1C70h+var_1CD0]
  * 0000000140787A2D: mov     [rbx+10h], r15d
@@ -15330,7 +15330,7 @@
  * 0000000140787B2F: add     r12d, 0FFFFFFFFh
  * 0000000140787B33: jnz     short loc_140787B19
  * 0000000140787B35: mov     rbx, [rbp+1C70h+var_1310]
- * 0000000140787B3C: mov     eax, dword ptr [rsp+1D70h+var_1D18]
+ * 0000000140787B3C: mov     eax, dword ptr [rsp+1D70h+NtHeaders]
  * 0000000140787B40: cmp     eax, 0FFFFFFFFh
  * 0000000140787B43: jz      short loc_140787B56
  * 0000000140787B45: lea     rcx, [rax+rax*2]
@@ -15685,7 +15685,7 @@
  * 00000001407880F5: mov     r10d, 20h ; ' '
  * 00000001407880FB: mov     r8d, [r14+67Ch]
  * 0000000140788102: cmovz   eax, r10d
- * 0000000140788106: mov     dword ptr [rsp+1D70h+var_1D18], eax
+ * 0000000140788106: mov     dword ptr [rsp+1D70h+NtHeaders], eax
  * 000000014078810A: lea     eax, [r12+r12*2]
  * 000000014078810E: shl     eax, 4
  * 0000000140788111: add     eax, edi
@@ -15760,7 +15760,7 @@
  * 000000014078822C: mov     r11, [rsp+1D70h+var_1D00]
  * 0000000140788231: mov     rsi, r15
  * 0000000140788234: mov     eax, r12d
- * 0000000140788237: mov     r12d, dword ptr [rsp+1D70h+var_1D18]
+ * 0000000140788237: mov     r12d, dword ptr [rsp+1D70h+NtHeaders]
  * 000000014078823C: mov     [rsp+1D70h+var_1D20], r11
  * 0000000140788241: mov     [rbp+1C70h+var_1CE8], rax
  * 0000000140788245: mov     r15d, [rsi]
@@ -15789,7 +15789,7 @@
  * 0000000140788289: mov     r8d, r15d
  * 000000014078828C: mov     rdx, r14
  * 000000014078828F: mov     rcx, rbx
- * 0000000140788292: call    sub_140158348
+ * 0000000140788292: call    sub_1401588B8
  * 0000000140788297: mov     r11, [rsp+1D70h+var_1D20]
  * 000000014078829C: xor     r9d, r9d
  * 000000014078829F: mov     [rdi+10h], r15d
@@ -15848,7 +15848,7 @@
  * 000000014078836A: mov     r12d, dword ptr [rsp+1D70h+var_1D08]
  * 000000014078836F: mov     r15, [rbp+1C70h+var_1CD0]
  * 0000000140788373: mov     eax, 20h ; ' '
- * 0000000140788378: cmp     dword ptr [rsp+1D70h+var_1D18], eax
+ * 0000000140788378: cmp     dword ptr [rsp+1D70h+NtHeaders], eax
  * 000000014078837C: jnz     short loc_140788398
  * 000000014078837E: test    r12d, r12d
  * 0000000140788381: jz      short loc_140788398
@@ -16166,7 +16166,7 @@
  * 0000000140788858: mov     r8d, r14d
  * 000000014078885B: mov     rdx, r10
  * 000000014078885E: mov     rcx, rdi
- * 0000000140788861: call    sub_140158348
+ * 0000000140788861: call    sub_1401588B8
  * 0000000140788866: mov     r10, [rsp+1D70h+var_1D00]
  * 000000014078886B: xor     r11d, r11d
  * 000000014078886E: mov     [rbx+10h], r14d
@@ -17306,7 +17306,7 @@
  * 0000000140789B2E: mov     r8d, 8
  * 0000000140789B34: mov     rdx, r14
  * 0000000140789B37: mov     rcx, rdi
- * 0000000140789B3A: call    sub_140158348
+ * 0000000140789B3A: call    sub_1401588B8
  * 0000000140789B3F: xor     r11d, r11d
  * 0000000140789B42: mov     dword ptr [rbx+10h], 8
  * 0000000140789B49: lea     rdx, [r14+8]
@@ -18747,7 +18747,7 @@
  * 000000014078B1A0: mov     edx, [rdi+59Ch]
  * 000000014078B1A6: mov     r9d, [rdi+5CCh]
  * 000000014078B1AD: mov     rbx, [rdi+5D0h]
- * 000000014078B1B4: mov     dword ptr [rsp+1D70h+var_1D18], r9d
+ * 000000014078B1B4: mov     dword ptr [rsp+1D70h+NtHeaders], r9d
  * 000000014078B1B9: lea     rcx, [rdi+rdx]
  * 000000014078B1BD: cmp     rdi, rcx
  * 000000014078B1C0: jnb     short loc_14078B1CE
@@ -18757,7 +18757,7 @@
  * 000000014078B1CC: jb      short loc_14078B1C2
  * 000000014078B1CE: cmp     edx, 8
  * 000000014078B1D1: jb      short loc_14078B1F3
- * 000000014078B1D3: mov     ecx, dword ptr [rsp+1D70h+var_1D18]
+ * 000000014078B1D3: mov     ecx, dword ptr [rsp+1D70h+NtHeaders]
  * 000000014078B1D7: mov     r9, rdx
  * 000000014078B1DA: shr     r9, 3
  * 000000014078B1DE: xor     rbx, [r8]
@@ -19916,7 +19916,7 @@
  * 000000014078C33C: mov     [rdx+r14+18h], di
  * 000000014078C342: mov     r8d, [rdx+r14+10h]
  * 000000014078C347: mov     rdx, [rdx+r14+8]
- * 000000014078C34C: call    sub_140158348
+ * 000000014078C34C: call    sub_1401588B8
  * 000000014078C351: mov     r11, [rbp+1C70h+var_1CE0]
  * 000000014078C355: add     r12d, r13d
  * 000000014078C358: mov     r10, [rsp+78h]
@@ -19991,11 +19991,11 @@
  * 000000014078C458: jz      short loc_14078C4AA
  * 000000014078C45A: call    qword ptr [r15+1E0h]
  * 000000014078C461: mov     r8d, [rdi+8]
- * 000000014078C465: mov     rcx, rax
+ * 000000014078C465: mov     rcx, rax; NtHeaders
  * 000000014078C468: mov     rdi, [rbp+1C70h+var_1CD8]
- * 000000014078C46C: sub     r8d, edi
+ * 000000014078C46C: sub     r8d, edi; VirtualAddress
  * 000000014078C46F: mov     [rsp+78h], rax
- * 000000014078C474: mov     rdx, rdi
+ * 000000014078C474: mov     rdx, rdi; BaseOfImage
  * 000000014078C477: call    RtlSectionTableFromVirtualAddress
  * 000000014078C47C: test    rax, rax
  * 000000014078C47F: jz      short loc_14078C490
@@ -20055,7 +20055,7 @@
  * 000000014078C562: mov     [rdx+r14+18h], di
  * 000000014078C568: mov     r8d, [rdx+r14+10h]
  * 000000014078C56D: mov     rdx, [rdx+r14+8]
- * 000000014078C572: call    sub_140158348
+ * 000000014078C572: call    sub_1401588B8
  * 000000014078C577: mov     rax, cs:qword_1403AA200
  * 000000014078C57E: lea     r9, [r14+20h]
  * 000000014078C582: mov     ecx, 0FFFFF000h
@@ -20071,7 +20071,7 @@
  * 000000014078C5AB: mov     [rdx+r14+18h], di
  * 000000014078C5B1: mov     r8d, [rdx+r14+10h]
  * 000000014078C5B6: mov     rdx, [rdx+r14+8]
- * 000000014078C5BB: call    sub_140158348
+ * 000000014078C5BB: call    sub_1401588B8
  * 000000014078C5C0: lea     edx, [r12+r13]
  * 000000014078C5C4: mov     rcx, r15
  * 000000014078C5C7: shl     rdx, 6
@@ -20084,7 +20084,7 @@
  * 000000014078C5E9: mov     [rdx+r14+18h], di
  * 000000014078C5EF: mov     r8d, [rdx+r14+10h]
  * 000000014078C5F4: mov     rdx, [rdx+r14+8]
- * 000000014078C5F9: call    sub_140158348
+ * 000000014078C5F9: call    sub_1401588B8
  * 000000014078C5FE: mov     r9d, dword ptr [rbp+1C70h+arg_18]
  * 000000014078C605: test    r9d, r9d
  * 000000014078C608: jz      loc_14078C6BA
@@ -20408,7 +20408,7 @@
  * 000000014078CAD3: call    qword ptr [r15+1E0h]
  * 000000014078CADA: mov     rdx, [rbp+1C70h+var_1CE0]
  * 000000014078CADE: lea     r8, [rbp+1C70h+var_1968]
- * 000000014078CAE5: mov     [rsp+1D70h+var_1D18], rax
+ * 000000014078CAE5: mov     [rsp+1D70h+NtHeaders], rax
  * 000000014078CAEA: mov     rcx, r15
  * 000000014078CAED: xor     eax, eax
  * 000000014078CAEF: mov     [rbp+1C70h+var_1CF0], rax
@@ -20487,13 +20487,13 @@
  * 000000014078CBFE: jnz     short loc_14078CBF1
  * 000000014078CC00: mov     r8d, [rbx+38h]
  * 000000014078CC04: xor     ecx, ecx
- * 000000014078CC06: shl     r8d, 0Ch
+ * 000000014078CC06: shl     r8d, 0Ch; VirtualAddress
  * 000000014078CC0A: test    rsi, rsi
  * 000000014078CC0D: jz      short loc_14078CC16
  * 000000014078CC0F: cmp     r8d, dword ptr [rsp+1D70h+Src]
  * 000000014078CC14: jb      short loc_14078CC48
- * 000000014078CC16: mov     rcx, [rsp+1D70h+var_1D18]
- * 000000014078CC1B: mov     rdx, r11
+ * 000000014078CC16: mov     rcx, [rsp+1D70h+NtHeaders]; NtHeaders
+ * 000000014078CC1B: mov     rdx, r11; BaseOfImage
  * 000000014078CC1E: call    RtlSectionTableFromVirtualAddress
  * 000000014078CC23: mov     r11, [rbp+1C70h+var_1CE0]
  * 000000014078CC27: mov     rsi, rax
@@ -20502,7 +20502,7 @@
  * 000000014078CC2F: mov     eax, [rax+0Ch]
  * 000000014078CC32: add     eax, [rsi+8]
  * 000000014078CC35: jmp     short loc_14078CC44
- * 000000014078CC37: mov     rcx, [rsp+1D70h+var_1D18]
+ * 000000014078CC37: mov     rcx, [rsp+1D70h+NtHeaders]
  * 000000014078CC3C: movzx   eax, word ptr [rcx+14h]
  * 000000014078CC40: mov     eax, [rax+rcx+24h]
  * 000000014078CC44: mov     dword ptr [rsp+1D70h+Src], eax
@@ -20566,7 +20566,7 @@
  * 000000014078CD2F: mov     [rdx+r14+34h], ax
  * 000000014078CD35: mov     r8d, [rdx+r14+10h]
  * 000000014078CD3A: mov     rdx, [rdx+r14+8]
- * 000000014078CD3F: call    sub_140158348
+ * 000000014078CD3F: call    sub_1401588B8
  * 000000014078CD44: mov     r11, [rbp+1C70h+var_1CE0]
  * 000000014078CD48: add     r12d, r13d
  * 000000014078CD4B: mov     r10, [rsp+78h]
@@ -20746,7 +20746,7 @@
  * 000000014078D05D: shl     rdx, 20h
  * 000000014078D061: xor     r8d, r8d
  * 000000014078D064: or      rax, rdx
- * 000000014078D067: mov     [rsp+1D70h+BugCheckParameter4], rdi
+ * 000000014078D067: mov     qword ptr [rsp+1D70h+CompressedBufferSize], rdi
  * 000000014078D06C: mov     rcx, rax
  * 000000014078D06F: mov     rdx, rax
  * 000000014078D072: ror     rcx, 3
@@ -20952,7 +20952,7 @@
  * 000000014078D3AB: mov     [rbp+1C70h+var_1ABC], 9E800h
  * 000000014078D3B5: mov     ecx, [rbp+1C70h+var_1ABC]
  * 000000014078D3BB: ror     ecx, 0Bh; BugCheckCode
- * 000000014078D3BE: mov     [rsp+1D70h+BugCheckParameter4], 0Bh; BugCheckParameter4
+ * 000000014078D3BE: mov     qword ptr [rsp+1D70h+CompressedBufferSize], 0Bh; BugCheckParameter4
  * 000000014078D3C7: lea     edx, [r8+2]; BugCheckParameter1
  * 000000014078D3CB: call    KeBugCheckEx
  * 000000014078D3D1: mov     [rbp+1C70h+var_1AB8], 9E800h
@@ -20961,16 +20961,16 @@
  * 000000014078D3E4: mov     edx, 0Ch; BugCheckParameter1
  * 000000014078D3E9: ror     ecx, 0Bh; BugCheckCode
  * 000000014078D3EC: movsxd  r8, ebx; BugCheckParameter2
- * 000000014078D3EF: mov     [rsp+1D70h+BugCheckParameter4], rax; BugCheckParameter4
+ * 000000014078D3EF: mov     qword ptr [rsp+1D70h+CompressedBufferSize], rax; BugCheckParameter4
  * 000000014078D3F4: call    KeBugCheckEx
- * 000000014078D3FA: mov     eax, dword ptr [rbp+1C70h+var_1AB4]
+ * 000000014078D3FA: mov     eax, [rbp+1C70h+var_1AB4]
  * 000000014078D400: lea     r9, cs:140000000h; BugCheckParameter3
  * 000000014078D407: mov     [rbp+1C70h+var_1958], 9E800h
  * 000000014078D411: mov     edx, 0Eh; BugCheckParameter1
  * 000000014078D416: mov     ecx, [rbp+1C70h+var_1958]
  * 000000014078D41C: mov     r8, [rbp+1C70h+BugCheckParameter2]; BugCheckParameter2
  * 000000014078D423: ror     ecx, 0Bh; BugCheckCode
- * 000000014078D426: mov     [rsp+1D70h+BugCheckParameter4], rax; BugCheckParameter4
+ * 000000014078D426: mov     qword ptr [rsp+1D70h+CompressedBufferSize], rax; BugCheckParameter4
  * 000000014078D42B: call    KeBugCheckEx
  * 000000014078D431: mov     [rbp+1C70h+var_1C4C], 9E800h
  * 000000014078D438: lea     r9, cs:140000000h; BugCheckParameter3
@@ -20979,7 +20979,7 @@
  * 000000014078D447: mov     r8, [rbp+1C70h+BugCheckParameter2]; BugCheckParameter2
  * 000000014078D44E: cdqe
  * 000000014078D450: ror     ecx, 0Bh; BugCheckCode
- * 000000014078D453: mov     [rsp+1D70h+BugCheckParameter4], rax; BugCheckParameter4
+ * 000000014078D453: mov     qword ptr [rsp+1D70h+CompressedBufferSize], rax; BugCheckParameter4
  * 000000014078D458: call    KeBugCheckEx
  * 000000014078D45E: mov     edx, ecx
  * 000000014078D460: mov     r9, r8; BugCheckParameter3
@@ -20987,7 +20987,7 @@
  * 000000014078D466: mov     [rbp+1C70h+var_1C20], 9E800h
  * 000000014078D46D: mov     ecx, [rbp+1C70h+var_1C20]
  * 000000014078D470: mov     r8, rbx; BugCheckParameter2
- * 000000014078D473: mov     [rsp+1D70h+BugCheckParameter4], rdx; BugCheckParameter4
+ * 000000014078D473: mov     qword ptr [rsp+1D70h+CompressedBufferSize], rdx; BugCheckParameter4
  * 000000014078D478: mov     edx, 10h; BugCheckParameter1
  * 000000014078D47D: ror     ecx, 0Bh; BugCheckCode
  * 000000014078D480: call    KeBugCheckEx
@@ -20995,7 +20995,7 @@
  * 000000014078D48D: mov     r9, r8; BugCheckParameter3
  * 000000014078D490: mov     ecx, [rbp+1C70h+var_1C1C]
  * 000000014078D493: mov     r8, rbx; BugCheckParameter2
- * 000000014078D496: mov     [rsp+1D70h+BugCheckParameter4], rdx; BugCheckParameter4
+ * 000000014078D496: mov     qword ptr [rsp+1D70h+CompressedBufferSize], rdx; BugCheckParameter4
  * 000000014078D49B: mov     edx, 11h; BugCheckParameter1
  * 000000014078D4A0: ror     ecx, 0Bh; BugCheckCode
  * 000000014078D4A3: call    KeBugCheckEx
@@ -21006,7 +21006,7 @@
  * 000000014078D4B8: mov     r8d, edx; BugCheckParameter2
  * 000000014078D4BB: mov     edx, 9; BugCheckParameter1
  * 000000014078D4C0: ror     ecx, 0Bh; BugCheckCode
- * 000000014078D4C3: mov     [rsp+1D70h+BugCheckParameter4], rax; BugCheckParameter4
+ * 000000014078D4C3: mov     qword ptr [rsp+1D70h+CompressedBufferSize], rax; BugCheckParameter4
  * 000000014078D4C8: call    KeBugCheckEx
  * 000000014078D4CE: mov     eax, edx
  * 000000014078D4D0: mov     edx, 12h; BugCheckParameter1
@@ -21015,7 +21015,7 @@
  * 000000014078D4E5: mov     r9, [rbp+1C70h+ImageBase]; BugCheckParameter3
  * 000000014078D4EC: mov     r8, [rbp+1C70h+var_BB0]; BugCheckParameter2
  * 000000014078D4F3: ror     ecx, 0Bh; BugCheckCode
- * 000000014078D4F6: mov     [rsp+1D70h+BugCheckParameter4], rax; BugCheckParameter4
+ * 000000014078D4F6: mov     qword ptr [rsp+1D70h+CompressedBufferSize], rax; BugCheckParameter4
  * 000000014078D4FB: call    KeBugCheckEx
  * 000000014078D501: mov     eax, edx
  * 000000014078D503: mov     edx, 12h; BugCheckParameter1
@@ -21024,13 +21024,13 @@
  * 000000014078D518: mov     r9, [rbp+1C70h+BugCheckParameter3]; BugCheckParameter3
  * 000000014078D51F: mov     r8, [rbp+1C70h+var_B60]; BugCheckParameter2
  * 000000014078D526: ror     ecx, 0Bh; BugCheckCode
- * 000000014078D529: mov     [rsp+1D70h+BugCheckParameter4], rax; BugCheckParameter4
+ * 000000014078D529: mov     qword ptr [rsp+1D70h+CompressedBufferSize], rax; BugCheckParameter4
  * 000000014078D52E: call    KeBugCheckEx
  * 000000014078D534: xor     edx, edx
  * 000000014078D536: mov     [rbp+1C70h+var_1B38], 9E800h
  * 000000014078D540: mov     ecx, [rbp+1C70h+var_1B38]
  * 000000014078D546: mov     r9, rax; BugCheckParameter3
- * 000000014078D549: mov     [rsp+1D70h+BugCheckParameter4], rdx; BugCheckParameter4
+ * 000000014078D549: mov     qword ptr [rsp+1D70h+CompressedBufferSize], rdx; BugCheckParameter4
  * 000000014078D54E: xor     r8d, r8d; BugCheckParameter2
  * 000000014078D551: ror     ecx, 0Bh; BugCheckCode
  * 000000014078D554: mov     rdx, r15; BugCheckParameter1
@@ -21042,13 +21042,13 @@
  * 000000014078D572: ror     ecx, 0Bh; BugCheckCode
  * 000000014078D575: xor     r8d, r8d; BugCheckParameter2
  * 000000014078D578: xor     edx, edx; BugCheckParameter1
- * 000000014078D57A: mov     [rsp+1D70h+BugCheckParameter4], rax; BugCheckParameter4
+ * 000000014078D57A: mov     qword ptr [rsp+1D70h+CompressedBufferSize], rax; BugCheckParameter4
  * 000000014078D57F: call    KeBugCheckEx
  * 000000014078D585: xor     r8d, r8d; BugCheckParameter2
  * 000000014078D588: mov     [rbp+1C70h+var_1ADC], 9E800h
  * 000000014078D592: mov     ecx, [rbp+1C70h+var_1ADC]
  * 000000014078D598: ror     ecx, 0Bh; BugCheckCode
- * 000000014078D59B: mov     [rsp+1D70h+BugCheckParameter4], r12; BugCheckParameter4
+ * 000000014078D59B: mov     qword ptr [rsp+1D70h+CompressedBufferSize], r12; BugCheckParameter4
  * 000000014078D5A0: lea     edx, [r8+4]; BugCheckParameter1
  * 000000014078D5A4: call    KeBugCheckEx
  * 000000014078D5AA: mov     r8d, r15d; BugCheckParameter2
@@ -21058,7 +21058,7 @@
  * 000000014078D5C0: mov     rax, [rbp+1C70h+BaseAddress]
  * 000000014078D5C7: mov     r9, [rbp+r8*8+1C70h+PcValue]; BugCheckParameter3
  * 000000014078D5CF: ror     ecx, 0Bh; BugCheckCode
- * 000000014078D5D2: mov     [rsp+1D70h+BugCheckParameter4], rax; BugCheckParameter4
+ * 000000014078D5D2: mov     qword ptr [rsp+1D70h+CompressedBufferSize], rax; BugCheckParameter4
  * 000000014078D5D7: call    KeBugCheckEx
  * 000000014078D5DD: mov     eax, edx
  * 000000014078D5DF: mov     edx, 12h; BugCheckParameter1
@@ -21067,14 +21067,14 @@
  * 000000014078D5F4: mov     r9, [rbp+1C70h+var_AD8]; BugCheckParameter3
  * 000000014078D5FB: mov     r8, [rbp+1C70h+var_AC0]; BugCheckParameter2
  * 000000014078D602: ror     ecx, 0Bh; BugCheckCode
- * 000000014078D605: mov     [rsp+1D70h+BugCheckParameter4], rax; BugCheckParameter4
+ * 000000014078D605: mov     qword ptr [rsp+1D70h+CompressedBufferSize], rax; BugCheckParameter4
  * 000000014078D60A: call    KeBugCheckEx
  * 000000014078D610: mov     r9, [rbx]; BugCheckParameter3
  * 000000014078D613: mov     edx, 13h; BugCheckParameter1
  * 000000014078D618: mov     [rbp+1C70h+var_1AAC], 9E800h
  * 000000014078D622: mov     ecx, [rbp+1C70h+var_1AAC]
  * 000000014078D628: ror     ecx, 0Bh; BugCheckCode
- * 000000014078D62B: mov     [rsp+1D70h+BugCheckParameter4], rbx; BugCheckParameter4
+ * 000000014078D62B: mov     qword ptr [rsp+1D70h+CompressedBufferSize], rbx; BugCheckParameter4
  * 000000014078D630: call    KeBugCheckEx
  * 000000014078D636: mov     r8, [rsp+1D70h+var_1D20]; BugCheckParameter2
  * 000000014078D63B: mov     r9d, 2; BugCheckParameter3
@@ -21082,14 +21082,14 @@
  * 000000014078D64B: mov     ecx, [rbp+1C70h+var_1AA0]
  * 000000014078D651: ror     ecx, 0Bh; BugCheckCode
  * 000000014078D654: lea     edx, [r9+8]; BugCheckParameter1
- * 000000014078D658: mov     [rsp+1D70h+BugCheckParameter4], rax; BugCheckParameter4
+ * 000000014078D658: mov     qword ptr [rsp+1D70h+CompressedBufferSize], rax; BugCheckParameter4
  * 000000014078D65D: call    KeBugCheckEx
  * 000000014078D663: mov     r9d, 3; BugCheckParameter3
  * 000000014078D669: mov     [rbp+1C70h+var_1A88], 9E800h
  * 000000014078D673: mov     ecx, [rbp+1C70h+var_1A88]
  * 000000014078D679: mov     r8, r15; BugCheckParameter2
  * 000000014078D67C: ror     ecx, 0Bh; BugCheckCode
- * 000000014078D67F: mov     [rsp+1D70h+BugCheckParameter4], rax; BugCheckParameter4
+ * 000000014078D67F: mov     qword ptr [rsp+1D70h+CompressedBufferSize], rax; BugCheckParameter4
  * 000000014078D684: lea     edx, [r9+7]; BugCheckParameter1
  * 000000014078D688: call    KeBugCheckEx
  * 000000014078D68E: mov     r8, [rsp+1D70h+var_1D00]; BugCheckParameter2
@@ -21098,14 +21098,14 @@
  * 000000014078D6A3: mov     ecx, [rbp+1C70h+var_1A8C]
  * 000000014078D6A9: ror     ecx, 0Bh; BugCheckCode
  * 000000014078D6AC: lea     edx, [r9+8]; BugCheckParameter1
- * 000000014078D6B0: mov     [rsp+1D70h+BugCheckParameter4], rax; BugCheckParameter4
+ * 000000014078D6B0: mov     qword ptr [rsp+1D70h+CompressedBufferSize], rax; BugCheckParameter4
  * 000000014078D6B5: call    KeBugCheckEx
  * 000000014078D6BB: xor     r9d, r9d; BugCheckParameter3
  * 000000014078D6BE: mov     [rbp+1C70h+var_1AA8], 9E800h
  * 000000014078D6C8: mov     ecx, [rbp+1C70h+var_1AA8]
  * 000000014078D6CE: mov     r8, r15; BugCheckParameter2
  * 000000014078D6D1: ror     ecx, 0Bh; BugCheckCode
- * 000000014078D6D4: mov     [rsp+1D70h+BugCheckParameter4], rax; BugCheckParameter4
+ * 000000014078D6D4: mov     qword ptr [rsp+1D70h+CompressedBufferSize], rax; BugCheckParameter4
  * 000000014078D6D9: lea     edx, [r9+0Ah]; BugCheckParameter1
  * 000000014078D6DD: call    KeBugCheckEx
  * 000000014078D6E3: mov     r8, [rsp+1D70h+var_1D20]; BugCheckParameter2
@@ -21114,14 +21114,14 @@
  * 000000014078D6F5: mov     edx, 0Ah; BugCheckParameter1
  * 000000014078D6FA: mov     ecx, [rbp+1C70h+var_1AA4]
  * 000000014078D700: ror     ecx, 0Bh; BugCheckCode
- * 000000014078D703: mov     [rsp+1D70h+BugCheckParameter4], rax; BugCheckParameter4
+ * 000000014078D703: mov     qword ptr [rsp+1D70h+CompressedBufferSize], rax; BugCheckParameter4
  * 000000014078D708: call    KeBugCheckEx
  * 000000014078D70E: mov     r9d, 3; BugCheckParameter3
  * 000000014078D714: mov     [rbp+1C70h+var_1A9C], 9E800h
  * 000000014078D71E: mov     ecx, [rbp+1C70h+var_1A9C]
  * 000000014078D724: mov     r8, r15; BugCheckParameter2
  * 000000014078D727: ror     ecx, 0Bh; BugCheckCode
- * 000000014078D72A: mov     [rsp+1D70h+BugCheckParameter4], rax; BugCheckParameter4
+ * 000000014078D72A: mov     qword ptr [rsp+1D70h+CompressedBufferSize], rax; BugCheckParameter4
  * 000000014078D72F: lea     edx, [r9+7]; BugCheckParameter1
  * 000000014078D733: call    KeBugCheckEx
  * 000000014078D739: mov     r8, [rsp+1D70h+var_1D20]; BugCheckParameter2
@@ -21130,14 +21130,14 @@
  * 000000014078D74E: mov     ecx, [rbp+1C70h+var_1A98]
  * 000000014078D754: ror     ecx, 0Bh; BugCheckCode
  * 000000014078D757: lea     edx, [r9+4]; BugCheckParameter1
- * 000000014078D75B: mov     [rsp+1D70h+BugCheckParameter4], rax; BugCheckParameter4
+ * 000000014078D75B: mov     qword ptr [rsp+1D70h+CompressedBufferSize], rax; BugCheckParameter4
  * 000000014078D760: call    KeBugCheckEx
  * 000000014078D766: xor     r9d, r9d; BugCheckParameter3
  * 000000014078D769: mov     [rbp+1C70h+var_1A94], 9E800h
  * 000000014078D773: mov     ecx, [rbp+1C70h+var_1A94]
  * 000000014078D779: mov     r8, r15; BugCheckParameter2
  * 000000014078D77C: ror     ecx, 0Bh; BugCheckCode
- * 000000014078D77F: mov     [rsp+1D70h+BugCheckParameter4], rax; BugCheckParameter4
+ * 000000014078D77F: mov     qword ptr [rsp+1D70h+CompressedBufferSize], rax; BugCheckParameter4
  * 000000014078D784: lea     edx, [r9+0Ah]; BugCheckParameter1
  * 000000014078D788: call    KeBugCheckEx
  * 000000014078D78E: mov     r8, [rsp+1D70h+var_1D00]; BugCheckParameter2
@@ -21146,7 +21146,7 @@
  * 000000014078D7A0: mov     edx, 0Ah; BugCheckParameter1
  * 000000014078D7A5: mov     ecx, [rbp+1C70h+var_1A90]
  * 000000014078D7AB: ror     ecx, 0Bh; BugCheckCode
- * 000000014078D7AE: mov     [rsp+1D70h+BugCheckParameter4], rax; BugCheckParameter4
+ * 000000014078D7AE: mov     qword ptr [rsp+1D70h+CompressedBufferSize], rax; BugCheckParameter4
  * 000000014078D7B3: call    KeBugCheckEx
  * 000000014078D7B9: mov     r8, [rsp+1D70h+var_1D00]; BugCheckParameter2
  * 000000014078D7BE: mov     r9d, 6; BugCheckParameter3
@@ -21154,7 +21154,7 @@
  * 000000014078D7CE: mov     ecx, [rbp+1C70h+var_1A84]
  * 000000014078D7D4: ror     ecx, 0Bh; BugCheckCode
  * 000000014078D7D7: lea     edx, [r9+4]; BugCheckParameter1
- * 000000014078D7DB: mov     [rsp+1D70h+BugCheckParameter4], rax; BugCheckParameter4
+ * 000000014078D7DB: mov     qword ptr [rsp+1D70h+CompressedBufferSize], rax; BugCheckParameter4
  * 000000014078D7E0: call    KeBugCheckEx
  * 000000014078D7E6: mov     r8, [rsp+1D70h+var_1D20]; BugCheckParameter2
  * 000000014078D7EB: mov     r9d, 3; BugCheckParameter3
@@ -21162,7 +21162,7 @@
  * 000000014078D7FB: mov     ecx, [rbp+1C70h+var_1A70]
  * 000000014078D801: ror     ecx, 0Bh; BugCheckCode
  * 000000014078D804: lea     edx, [r9+7]; BugCheckParameter1
- * 000000014078D808: mov     [rsp+1D70h+BugCheckParameter4], rax; BugCheckParameter4
+ * 000000014078D808: mov     qword ptr [rsp+1D70h+CompressedBufferSize], rax; BugCheckParameter4
  * 000000014078D80D: call    KeBugCheckEx
  * 000000014078D813: mov     r8, [rsp+1D70h+var_1D20]; BugCheckParameter2
  * 000000014078D818: mov     r9d, 2; BugCheckParameter3
@@ -21170,14 +21170,14 @@
  * 000000014078D828: mov     ecx, [rbp+1C70h+var_1A74]
  * 000000014078D82E: ror     ecx, 0Bh; BugCheckCode
  * 000000014078D831: lea     edx, [r9+8]; BugCheckParameter1
- * 000000014078D835: mov     [rsp+1D70h+BugCheckParameter4], rax; BugCheckParameter4
+ * 000000014078D835: mov     qword ptr [rsp+1D70h+CompressedBufferSize], rax; BugCheckParameter4
  * 000000014078D83A: call    KeBugCheckEx
  * 000000014078D840: xor     r9d, r9d; BugCheckParameter3
  * 000000014078D843: mov     [rbp+1C70h+var_1A7C], 9E800h
  * 000000014078D84D: mov     ecx, [rbp+1C70h+var_1A7C]
  * 000000014078D853: mov     r8, rbx; BugCheckParameter2
  * 000000014078D856: ror     ecx, 0Bh; BugCheckCode
- * 000000014078D859: mov     [rsp+1D70h+BugCheckParameter4], rax; BugCheckParameter4
+ * 000000014078D859: mov     qword ptr [rsp+1D70h+CompressedBufferSize], rax; BugCheckParameter4
  * 000000014078D85E: lea     edx, [r9+0Ah]; BugCheckParameter1
  * 000000014078D862: call    KeBugCheckEx
  * 000000014078D868: mov     r8, [rsp+1D70h+var_1D20]; BugCheckParameter2
@@ -21186,7 +21186,7 @@
  * 000000014078D87A: mov     edx, 0Ah; BugCheckParameter1
  * 000000014078D87F: mov     ecx, [rbp+1C70h+var_1A78]
  * 000000014078D885: ror     ecx, 0Bh; BugCheckCode
- * 000000014078D888: mov     [rsp+1D70h+BugCheckParameter4], rax; BugCheckParameter4
+ * 000000014078D888: mov     qword ptr [rsp+1D70h+CompressedBufferSize], rax; BugCheckParameter4
  * 000000014078D88D: call    KeBugCheckEx
  * 000000014078D893: mov     r8, [rsp+1D70h+var_1D20]; BugCheckParameter2
  * 000000014078D898: mov     r9d, 6; BugCheckParameter3
@@ -21194,7 +21194,7 @@
  * 000000014078D8A8: mov     ecx, [rbp+1C70h+var_1A6C]
  * 000000014078D8AE: ror     ecx, 0Bh; BugCheckCode
  * 000000014078D8B1: lea     edx, [r9+4]; BugCheckParameter1
- * 000000014078D8B5: mov     [rsp+1D70h+BugCheckParameter4], rax; BugCheckParameter4
+ * 000000014078D8B5: mov     qword ptr [rsp+1D70h+CompressedBufferSize], rax; BugCheckParameter4
  * 000000014078D8BA: call    KeBugCheckEx
  * 000000014078D8C0: mov     eax, edx
  * 000000014078D8C2: mov     edx, 12h; BugCheckParameter1
@@ -21203,7 +21203,7 @@
  * 000000014078D8D7: mov     r9, [rbp+1C70h+var_A88]; BugCheckParameter3
  * 000000014078D8DE: mov     r8, [rbp+1C70h+var_A70]; BugCheckParameter2
  * 000000014078D8E5: ror     ecx, 0Bh; BugCheckCode
- * 000000014078D8E8: mov     [rsp+1D70h+BugCheckParameter4], rax; BugCheckParameter4
+ * 000000014078D8E8: mov     qword ptr [rsp+1D70h+CompressedBufferSize], rax; BugCheckParameter4
  * 000000014078D8ED: call    KeBugCheckEx
  * 000000014078D8F3: mov     eax, [rdi+10h]
  * 000000014078D8F6: mov     r8, r15; BugCheckParameter2
@@ -21212,7 +21212,7 @@
  * 000000014078D902: mov     [rbp+1C70h+var_1964], 9E800h
  * 000000014078D90C: mov     ecx, [rbp+1C70h+var_1964]
  * 000000014078D912: ror     ecx, 0Bh; BugCheckCode
- * 000000014078D915: mov     [rsp+1D70h+BugCheckParameter4], rax; BugCheckParameter4
+ * 000000014078D915: mov     qword ptr [rsp+1D70h+CompressedBufferSize], rax; BugCheckParameter4
  * 000000014078D91A: call    KeBugCheckEx
  * 000000014078D920: mov     rax, [rdx+490h]
  * 000000014078D927: lock bts qword ptr [rax], 0
@@ -21221,10 +21221,10 @@
  * 000000014078D937: mov     [r15+688h], r9
  * 000000014078D93E: mov     r9, rdi
  * 000000014078D941: mov     rax, [rbp+1C70h+var_10B0]
- * 000000014078D948: mov     [rsp+1D70h+var_1D40], r14
+ * 000000014078D948: mov     [rsp+1D70h+WorkSpace], r14
  * 000000014078D94D: mov     rcx, [rax+140h]
- * 000000014078D954: mov     [rsp+1D70h+var_1D48], rcx
+ * 000000014078D954: mov     [rsp+1D70h+FinalUncompressedSize], rcx
  * 000000014078D959: mov     ecx, 109h
- * 000000014078D95E: mov     [rsp+1D70h+BugCheckParameter4], rbx
+ * 000000014078D95E: mov     qword ptr [rsp+1D70h+CompressedBufferSize], rbx
  * 000000014078D963: call    SdbpCheckDll
  */

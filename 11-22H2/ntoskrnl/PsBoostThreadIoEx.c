@@ -158,10 +158,10 @@ LABEL_4:
     {
 LABEL_10:
       KxReleaseSpinLock(v11);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v5 <= 0xFu && CurrentIrql >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v5 <= 0xFu && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -198,7 +198,7 @@ LABEL_13:
   {
     v18 = KeGetCurrentIrql();
     __writecr8(2uLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v18 <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v18 <= 0xFu )
     {
       v29 = KeGetCurrentPrcb()->SchedulerAssist;
       if ( v18 == 2 )
@@ -210,10 +210,10 @@ LABEL_13:
     v19 = KeGetCurrentPrcb();
     if ( (unsigned int)KiAbThreadInsertList(a1, &v19->AbPropagateBoostsList, a1 + 808) )
       KiAbQueueAutoBoostDpc(v19);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v31 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v31 <= 0xFu && v18 <= 0xFu && v31 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v31 <= 0xFu && v18 <= 0xFu && v31 >= 2u )
       {
         v32 = KeGetCurrentPrcb();
         v33 = v32->SchedulerAssist;

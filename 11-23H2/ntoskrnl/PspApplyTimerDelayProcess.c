@@ -1,12 +1,12 @@
 /*
- * XREFs of PspApplyTimerDelayProcess @ 0x1405A41A8
+ * XREFs of PspApplyTimerDelayProcess @ 0x1405A4718
  * Callers:
- *     PspTimerDelayProcess @ 0x1405A4AB0 (PspTimerDelayProcess.c)
- *     PspTimerDelayWorkerRoutine @ 0x1405A4B20 (PspTimerDelayWorkerRoutine.c)
+ *     PspTimerDelayProcess @ 0x1405A5020 (PspTimerDelayProcess.c)
+ *     PspTimerDelayWorkerRoutine @ 0x1405A5090 (PspTimerDelayWorkerRoutine.c)
  * Callees:
- *     KiCheckForKernelApcDelivery @ 0x14030F820 (KiCheckForKernelApcDelivery.c)
- *     PspSetProcessTimerDelayForKTimers @ 0x1405A47B0 (PspSetProcessTimerDelayForKTimers.c)
- *     PspSetProcessTimerDelayForWin32 @ 0x1405A49F4 (PspSetProcessTimerDelayForWin32.c)
+ *     KiCheckForKernelApcDelivery @ 0x14030FAB0 (KiCheckForKernelApcDelivery.c)
+ *     PspSetProcessTimerDelayForKTimers @ 0x1405A4D20 (PspSetProcessTimerDelayForKTimers.c)
+ *     PspSetProcessTimerDelayForWin32 @ 0x1405A4F64 (PspSetProcessTimerDelayForWin32.c)
  */
 
 __int64 __fastcall PspApplyTimerDelayProcess(__int64 a1, _DWORD *a2, __int64 a3)

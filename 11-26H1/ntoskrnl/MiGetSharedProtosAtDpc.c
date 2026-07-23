@@ -1,12 +1,12 @@
 /*
- * XREFs of MiGetSharedProtosAtDpc @ 0x14046A430
+ * XREFs of MiGetSharedProtosAtDpc @ 0x140463BB0
  * Callers:
- *     MiDecommitHandleProtoFormatPte @ 0x140360F60 (MiDecommitHandleProtoFormatPte.c)
- *     MiGetSharedProtos @ 0x140372BD8 (MiGetSharedProtos.c)
+ *     MiDecommitHandleProtoFormatPte @ 0x140362D00 (MiDecommitHandleProtoFormatPte.c)
+ *     MiGetSharedProtos @ 0x140374988 (MiGetSharedProtos.c)
  * Callees:
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402DC6D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExAcquireSpinLockSharedAtDpcLevel @ 0x1402EDFB0 (ExAcquireSpinLockSharedAtDpcLevel.c)
- *     MiLocateSessionProtosInSubsection @ 0x14036CFCC (MiLocateSessionProtosInSubsection.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402BE490 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x1402D0030 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     MiLocateSessionProtosInSubsection @ 0x14036ED6C (MiLocateSessionProtosInSubsection.c)
  */
 
 __int64 *__fastcall MiGetSharedProtosAtDpc(__int64 a1, unsigned int a2, __int64 a3)

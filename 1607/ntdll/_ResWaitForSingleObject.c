@@ -1,10 +1,10 @@
 /*
- * XREFs of _ResWaitForSingleObject @ 0x180104E4C
+ * XREFs of _ResWaitForSingleObject @ 0x180104D8C
  * Callers:
- *     ResCRequestInitMutex @ 0x180103374 (ResCRequestInitMutex.c)
+ *     ResCRequestInitMutex @ 0x1801032B4 (ResCRequestInitMutex.c)
  * Callees:
- *     RtlSetLastWin32Error @ 0x18005A470 (RtlSetLastWin32Error.c)
- *     RtlNtStatusToDosError @ 0x18005A4E0 (RtlNtStatusToDosError.c)
+ *     RtlSetLastWin32Error @ 0x18005A460 (RtlSetLastWin32Error.c)
+ *     RtlNtStatusToDosError @ 0x18005A4D0 (RtlNtStatusToDosError.c)
  *     NtWaitForSingleObject @ 0x1800A64A0 (NtWaitForSingleObject.c)
  */
 
@@ -12,7 +12,7 @@ __int64 __fastcall ResWaitForSingleObject(void *a1)
 {
   int v2; // eax
   unsigned int v3; // ebx
-  ULONG v4; // eax
+  LONG v4; // eax
   LARGE_INTEGER Timeout; // [rsp+30h] [rbp+8h] BYREF
 
   if ( ((unsigned int)a1 & 0x10000003) == 3LL )

@@ -3,9 +3,9 @@
  * Callers:
  *     MiInitNucleus @ 0x140B41888 (MiInitNucleus.c)
  * Callees:
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     MiAddPartitionHugeRange @ 0x14061F204 (MiAddPartitionHugeRange.c)
- *     MiInitializeHugePfnDatabase @ 0x140620D50 (MiInitializeHugePfnDatabase.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     MiAddPartitionHugeRange @ 0x14061F754 (MiAddPartitionHugeRange.c)
+ *     MiInitializeHugePfnDatabase @ 0x1406212A0 (MiInitializeHugePfnDatabase.c)
  */
 
 unsigned __int64 __fastcall MiCreateHugeIoRanges(__int64 a1)

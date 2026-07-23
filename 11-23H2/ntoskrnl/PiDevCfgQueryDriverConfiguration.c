@@ -1,22 +1,22 @@
 /*
- * XREFs of PiDevCfgQueryDriverConfiguration @ 0x140879374
+ * XREFs of PiDevCfgQueryDriverConfiguration @ 0x1408795B4
  * Callers:
- *     PiDevCfgQueryIncludedDriverConfigurations @ 0x1408797E4 (PiDevCfgQueryIncludedDriverConfigurations.c)
- *     PiDevCfgConfigureDevice @ 0x14087A734 (PiDevCfgConfigureDevice.c)
- *     PiDevCfgCheckDeviceNeedsUpdate @ 0x14095C8D0 (PiDevCfgCheckDeviceNeedsUpdate.c)
- *     PiDevCfgRequestDriverConfigurations @ 0x14095FA08 (PiDevCfgRequestDriverConfigurations.c)
- *     PpDevCfgProcessDeviceExtensions @ 0x140962C74 (PpDevCfgProcessDeviceExtensions.c)
+ *     PiDevCfgQueryIncludedDriverConfigurations @ 0x140879A24 (PiDevCfgQueryIncludedDriverConfigurations.c)
+ *     PiDevCfgConfigureDevice @ 0x14087A974 (PiDevCfgConfigureDevice.c)
+ *     PiDevCfgCheckDeviceNeedsUpdate @ 0x14095CAD0 (PiDevCfgCheckDeviceNeedsUpdate.c)
+ *     PiDevCfgRequestDriverConfigurations @ 0x14095FC08 (PiDevCfgRequestDriverConfigurations.c)
+ *     PpDevCfgProcessDeviceExtensions @ 0x140962E74 (PpDevCfgProcessDeviceExtensions.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
  *     RtlStringFromGUIDEx @ 0x1406852B0 (RtlStringFromGUIDEx.c)
- *     RtlpQueryRegistryValues @ 0x1406C59D0 (RtlpQueryRegistryValues.c)
- *     RtlFreeUnicodeString @ 0x14076F3D0 (RtlFreeUnicodeString.c)
- *     PiDevCfgQueryObjectProperties @ 0x14086CC64 (PiDevCfgQueryObjectProperties.c)
- *     PiDevCfgQueryIncludedDriverConfigurations @ 0x1408797E4 (PiDevCfgQueryIncludedDriverConfigurations.c)
- *     PiDevCfgVerifyService @ 0x14087985C (PiDevCfgVerifyService.c)
- *     PiDevCfgBuildDriverConfigurationId @ 0x14087BA90 (PiDevCfgBuildDriverConfigurationId.c)
+ *     RtlpQueryRegistryValues @ 0x1406C5A00 (RtlpQueryRegistryValues.c)
+ *     RtlFreeUnicodeString @ 0x14076F5C0 (RtlFreeUnicodeString.c)
+ *     PiDevCfgQueryObjectProperties @ 0x14086CEA4 (PiDevCfgQueryObjectProperties.c)
+ *     PiDevCfgQueryIncludedDriverConfigurations @ 0x140879A24 (PiDevCfgQueryIncludedDriverConfigurations.c)
+ *     PiDevCfgVerifyService @ 0x140879A9C (PiDevCfgVerifyService.c)
+ *     PiDevCfgBuildDriverConfigurationId @ 0x14087BCD0 (PiDevCfgBuildDriverConfigurationId.c)
  */
 
 __int64 __fastcall PiDevCfgQueryDriverConfiguration(__int64 a1)
@@ -210,7 +210,7 @@ LABEL_43:
     }
     else
     {
-      ObjectProperties = RtlStringFromGUIDEx((unsigned int *)(a1 + 240), a1 + 256, 1);
+      ObjectProperties = RtlStringFromGUIDEx((PGUID)(a1 + 240), (PUNICODE_STRING)(a1 + 256), 1u);
       if ( ObjectProperties < 0 )
         goto LABEL_44;
     }

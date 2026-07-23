@@ -1,11 +1,11 @@
 /*
- * XREFs of PopHaltDeviceIdle @ 0x1404FA45C
+ * XREFs of PopHaltDeviceIdle @ 0x1404F3A6C
  * Callers:
- *     PoInitializeBroadcast @ 0x140AC58BC (PoInitializeBroadcast.c)
+ *     PoInitializeBroadcast @ 0x140AC752C (PoInitializeBroadcast.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
  */
 
 void PopHaltDeviceIdle()
@@ -18,9 +18,9 @@ void PopHaltDeviceIdle()
   v0 = 0LL;
   v2 = 0LL;
   v3 = 0LL;
-  v1 = KeAcquireSpinLockRaiseToDpc(&qword_140F10808);
-  BYTE4(stru_140E66FF0.KcsanThread) = 1;
-  if ( LODWORD(stru_140E66FF0.KcsanThread) )
+  v1 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)&PpmIdlePolicyLock.WaitBlockFill11[160]);
+  byte_140E676D4 = 1;
+  if ( dword_140E676D0 )
   {
     LOWORD(v2) = 1;
     v3 = (char *)&v2 + 8;
@@ -28,9 +28,9 @@ void PopHaltDeviceIdle()
     *((_QWORD *)&v2 + 1) = (char *)&v2 + 8;
     v0 = &v2;
     DWORD1(v2) = 0;
-    stru_140E66FF0.Spare32 = &v2;
+    qword_140E676C8 = (PRKEVENT)&v2;
   }
-  KeReleaseSpinLock(&qword_140F10808, v1);
+  KeReleaseSpinLock((PKSPIN_LOCK)&PpmIdlePolicyLock.WaitBlockFill11[160], v1);
   if ( v0 )
     KeWaitForSingleObject(v0, Executive, 0, 0, 0LL);
 }

@@ -1,24 +1,24 @@
 /*
- * XREFs of EtwpTraceMessageVa @ 0x140226F10
+ * XREFs of EtwpTraceMessageVa @ 0x140227020
  * Callers:
- *     WmiTraceMessage @ 0x140226940 (WmiTraceMessage.c)
- *     NtTraceEvent @ 0x1402578E0 (NtTraceEvent.c)
- *     WmiTraceMessageVa @ 0x140468870 (WmiTraceMessageVa.c)
+ *     WmiTraceMessage @ 0x140226A50 (WmiTraceMessage.c)
+ *     NtTraceEvent @ 0x1402579A0 (NtTraceEvent.c)
+ *     WmiTraceMessageVa @ 0x140468C70 (WmiTraceMessageVa.c)
  * Callees:
- *     EtwpOpenLogger @ 0x1402275F0 (EtwpOpenLogger.c)
- *     EtwpReleaseTraceBuffer @ 0x140227698 (EtwpReleaseTraceBuffer.c)
- *     PsGetCurrentServerSiloGlobals @ 0x14022D370 (PsGetCurrentServerSiloGlobals.c)
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     EtwpReserveTraceBuffer @ 0x140234100 (EtwpReserveTraceBuffer.c)
- *     EtwEventEnabled @ 0x140258420 (EtwEventEnabled.c)
- *     ExReleaseRundownProtectionCacheAwareEx @ 0x140259CD0 (ExReleaseRundownProtectionCacheAwareEx.c)
- *     EtwpUpdateEventsLostCount @ 0x140366664 (EtwpUpdateEventsLostCount.c)
- *     EtwpGetReserveTraceBufferStatus @ 0x14036AB98 (EtwpGetReserveTraceBufferStatus.c)
- *     EtwpSendTraceEvent @ 0x1403A2088 (EtwpSendTraceEvent.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     EtwpTraceLostWppEvent @ 0x1405FC7C8 (EtwpTraceLostWppEvent.c)
- *     EtwpInvokeEventCallback @ 0x140600F98 (EtwpInvokeEventCallback.c)
+ *     EtwpOpenLogger @ 0x140227700 (EtwpOpenLogger.c)
+ *     EtwpReleaseTraceBuffer @ 0x1402277A8 (EtwpReleaseTraceBuffer.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x14022D480 (PsGetCurrentServerSiloGlobals.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     EtwpReserveTraceBuffer @ 0x1402341D0 (EtwpReserveTraceBuffer.c)
+ *     EtwEventEnabled @ 0x1402584E0 (EtwEventEnabled.c)
+ *     ExReleaseRundownProtectionCacheAwareEx @ 0x140259F60 (ExReleaseRundownProtectionCacheAwareEx.c)
+ *     EtwpUpdateEventsLostCount @ 0x140366804 (EtwpUpdateEventsLostCount.c)
+ *     EtwpGetReserveTraceBufferStatus @ 0x14036AD38 (EtwpGetReserveTraceBufferStatus.c)
+ *     EtwpSendTraceEvent @ 0x1403A2268 (EtwpSendTraceEvent.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     EtwpTraceLostWppEvent @ 0x1405FCD38 (EtwpTraceLostWppEvent.c)
+ *     EtwpInvokeEventCallback @ 0x1406014E8 (EtwpInvokeEventCallback.c)
  */
 
 __int64 __fastcall EtwpTraceMessageVa(

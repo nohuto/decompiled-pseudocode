@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwpInitializeTimeStamp @ 0x140A6DB58
+ * XREFs of EtwpInitializeTimeStamp @ 0x140AB2428
  * Callers:
- *     EtwpStartLogger @ 0x140A6E1B4 (EtwpStartLogger.c)
+ *     EtwpStartLogger @ 0x140AB0F2C (EtwpStartLogger.c)
  * Callees:
- *     KeQuerySystemTimePrecise @ 0x14021B070 (KeQuerySystemTimePrecise.c)
- *     EtwpGetLoggerTimeStamp @ 0x14021BEC0 (EtwpGetLoggerTimeStamp.c)
- *     RtlGetMultiTimePrecise @ 0x1404476B0 (RtlGetMultiTimePrecise.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     KeQuerySystemTimePrecise @ 0x14021CA00 (KeQuerySystemTimePrecise.c)
+ *     EtwpGetLoggerTimeStamp @ 0x14021D850 (EtwpGetLoggerTimeStamp.c)
+ *     RtlGetMultiTimePrecise @ 0x1404401A0 (RtlGetMultiTimePrecise.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall EtwpInitializeTimeStamp(__int64 a1, __int64 a2)
@@ -22,7 +22,7 @@ __int64 __fastcall EtwpInitializeTimeStamp(__int64 a1, __int64 a2)
   __int64 v11; // rcx
   __int64 result; // rax
   int v13; // edx
-  __int64 v14; // rcx
+  _KAFFINITY_EX *UserAffinity; // rcx
   __int128 v15; // [rsp+20h] [rbp-38h] BYREF
   __int64 v16; // [rsp+30h] [rbp-28h]
   __int64 v17; // [rsp+60h] [rbp+8h] BYREF
@@ -60,20 +60,20 @@ LABEL_6:
   if ( (*(_DWORD *)(a1 + 816) & 2) != 0 )
   {
     v13 = *(_DWORD *)(a1 + 200);
-    *v7 = EtwpRefTimeSystem;
-    result = EtwpRefQpcDelta;
-    *(_QWORD *)(a1 + 1544) = EtwpRefQpcDelta;
+    *v7 = *(_QWORD *)&stru_140F03830.NextProcessor;
+    result = *(_QWORD *)&stru_140F03830.UserAffinityPrimaryGroup;
+    *(_QWORD *)(a1 + 1544) = *(_QWORD *)&stru_140F03830.UserAffinityPrimaryGroup;
     if ( v13 == 3 )
     {
-      result = EtwpRefTimeCycle;
-      *(_QWORD *)(a1 + 312) = EtwpRefTimeCycle;
+      result = (__int64)stru_140F03830.Process;
+      *(_QWORD *)(a1 + 312) = stru_140F03830.Process;
     }
     else
     {
-      v14 = EtwpRefTimePerfCounter;
+      UserAffinity = stru_140F03830.UserAffinity;
       if ( v13 == 2 )
-        v14 = EtwpRefTimeSystem;
-      *(_QWORD *)(a1 + 312) = v14;
+        UserAffinity = *(_KAFFINITY_EX **)&stru_140F03830.NextProcessor;
+      *(_QWORD *)(a1 + 312) = UserAffinity;
     }
   }
   else if ( *(_DWORD *)(a1 + 200) == 3 )

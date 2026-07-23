@@ -1,9 +1,9 @@
 /*
- * XREFs of KiInitializeMutant @ 0x140085B84
+ * XREFs of KiInitializeMutant @ 0x140087474
  * Callers:
- *     KeInitializeMutex @ 0x140085B70 (KeInitializeMutex.c)
- *     KeInitializeMutant @ 0x140085B7C (KeInitializeMutant.c)
- *     LdrpInitMuiCrits @ 0x1400FAE3C (LdrpInitMuiCrits.c)
+ *     KeInitializeMutex @ 0x140087460 (KeInitializeMutex.c)
+ *     KeInitializeMutant @ 0x14008746C (KeInitializeMutant.c)
+ *     LdrpInitMuiCrits @ 0x1400F8BC8 (LdrpInitMuiCrits.c)
  *     MiInitializeBootDefaults @ 0x14078E68C (MiInitializeBootDefaults.c)
  *     PoInitSystem @ 0x140795530 (PoInitSystem.c)
  *     WmipDriverEntry @ 0x14079CA30 (WmipDriverEntry.c)
@@ -14,7 +14,7 @@
  *     ViInitSystemPhase0 @ 0x1407B9E64 (ViInitSystemPhase0.c)
  *     PnpInitializeDeviceEvents @ 0x1407BBB2C (PnpInitializeDeviceEvents.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14002ECB0 (KeYieldProcessorEx.c)
+ *     KeYieldProcessorEx @ 0x14002E830 (KeYieldProcessorEx.c)
  */
 
 __int64 __fastcall KiInitializeMutant(__int64 a1, char a2, char a3)

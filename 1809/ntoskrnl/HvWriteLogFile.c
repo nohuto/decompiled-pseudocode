@@ -1,13 +1,13 @@
 /*
- * XREFs of HvWriteLogFile @ 0x1406B85DC
+ * XREFs of HvWriteLogFile @ 0x1406B987C
  * Callers:
- *     CmpFlushHive @ 0x1405B2F54 (CmpFlushHive.c)
+ *     CmpFlushHive @ 0x1405B3F54 (CmpFlushHive.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     HvpLogTypeToLogArrayIndex @ 0x1405A62AC (HvpLogTypeToLogArrayIndex.c)
- *     CmpTraceHiveFlushWroteLogFile @ 0x1406B871C (CmpTraceHiveFlushWroteLogFile.c)
- *     CmpFileFlushAndPurge @ 0x1406B878C (CmpFileFlushAndPurge.c)
- *     CmpDoFileSetSizeEx @ 0x1406B8940 (CmpDoFileSetSizeEx.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     HvpLogTypeToLogArrayIndex @ 0x1405A72AC (HvpLogTypeToLogArrayIndex.c)
+ *     CmpTraceHiveFlushWroteLogFile @ 0x1406B99BC (CmpTraceHiveFlushWroteLogFile.c)
+ *     CmpFileFlushAndPurge @ 0x1406B9A2C (CmpFileFlushAndPurge.c)
+ *     CmpDoFileSetSizeEx @ 0x1406B9BE0 (CmpDoFileSetSizeEx.c)
  */
 
 __int64 __fastcall HvWriteLogFile(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4)

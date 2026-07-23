@@ -3,7 +3,7 @@
  * Callers:
  *     EtwpWriteToPrivateBuffers @ 0x18004DFCC (EtwpWriteToPrivateBuffers.c)
  * Callees:
- *     __security_check_cookie @ 0x18008FEC0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x18008FED0 (__security_check_cookie.c)
  *     RtlResetStackOverflow @ 0x1800DFABC (RtlResetStackOverflow.c)
  */
 

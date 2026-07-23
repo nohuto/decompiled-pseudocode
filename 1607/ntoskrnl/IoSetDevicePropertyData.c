@@ -1,10 +1,10 @@
 /*
- * XREFs of IoSetDevicePropertyData @ 0x14054D30C
+ * XREFs of IoSetDevicePropertyData @ 0x14054D6AC
  * Callers:
  *     <none>
  * Callees:
- *     IoAddTriageDumpDataBlock @ 0x14014B3B4 (IoAddTriageDumpDataBlock.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
+ *     IoAddTriageDumpDataBlock @ 0x14014B924 (IoAddTriageDumpDataBlock.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
  */
 
 NTSTATUS __stdcall IoSetDevicePropertyData(

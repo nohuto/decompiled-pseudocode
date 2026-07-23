@@ -1,14 +1,14 @@
 /*
- * XREFs of IopMcAddMdlPagesToTable @ 0x14055EB30
+ * XREFs of IopMcAddMdlPagesToTable @ 0x14055F1F0
  * Callers:
- *     IopMcCreateBufferEntryMdl @ 0x140951640 (IopMcCreateBufferEntryMdl.c)
+ *     IopMcCreateBufferEntryMdl @ 0x140951840 (IopMcCreateBufferEntryMdl.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     RtlAvlInsertNodeEx @ 0x1402880C0 (RtlAvlInsertNodeEx.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     IopMcShouldYield @ 0x14055F3D0 (IopMcShouldYield.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     RtlAvlInsertNodeEx @ 0x140288350 (RtlAvlInsertNodeEx.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     IopMcShouldYield @ 0x14055FA90 (IopMcShouldYield.c)
  */
 
 __int64 __fastcall IopMcAddMdlPagesToTable(__int64 a1, __int64 a2)
@@ -69,10 +69,10 @@ __int64 __fastcall IopMcAddMdlPagesToTable(__int64 a1, __int64 a2)
     if ( (unsigned __int8)IopMcShouldYield(v8, v9) )
     {
       ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C5D6A4);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v10 <= 0xFu && CurrentIrql >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v10 <= 0xFu && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -80,7 +80,7 @@ __int64 __fastcall IopMcAddMdlPagesToTable(__int64 a1, __int64 a2)
           v16 = (v15 & SchedulerAssist[5]) == 0;
           SchedulerAssist[5] &= v15;
           if ( v16 )
-            KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+            KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
         }
       }
       __writecr8(v10);
@@ -130,10 +130,10 @@ LABEL_27:
   while ( v8 < (unsigned int)v5 );
 LABEL_28:
   ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C5D6A4);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v25 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v25 <= 0xFu && v10 <= 0xFu && v25 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v25 <= 0xFu && v10 <= 0xFu && v25 >= 2u )
     {
       v26 = KeGetCurrentPrcb();
       v27 = v26->SchedulerAssist;
@@ -141,7 +141,7 @@ LABEL_28:
       v16 = (v28 & v27[5]) == 0;
       v27[5] &= v28;
       if ( v16 )
-        KiRemoveSystemWorkPriorityKick(v26);
+        KiRemoveSystemWorkPriorityKick((__int64)v26);
     }
   }
   result = v10;

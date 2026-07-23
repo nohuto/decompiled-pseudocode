@@ -1,20 +1,20 @@
 /*
- * XREFs of SdbResolveDatabaseEx @ 0x140A52770
+ * XREFs of SdbResolveDatabaseEx @ 0x140A52A20
  * Callers:
- *     SdbpOpenLocalDatabaseEx @ 0x140A524CC (SdbpOpenLocalDatabaseEx.c)
+ *     SdbpOpenLocalDatabaseEx @ 0x140A5277C (SdbpOpenLocalDatabaseEx.c)
  * Callees:
  *     RtlAppendUnicodeStringToString @ 0x140208A00 (RtlAppendUnicodeStringToString.c)
- *     RtlAppendUnicodeToString @ 0x14022A860 (RtlAppendUnicodeToString.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ZwOpenKey @ 0x14041AFA0 (ZwOpenKey.c)
+ *     RtlAppendUnicodeToString @ 0x14022A970 (RtlAppendUnicodeToString.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ZwOpenKey @ 0x14041B330 (ZwOpenKey.c)
  *     AslLogCallPrintf @ 0x1406956FC (AslLogCallPrintf.c)
- *     AslAlloc @ 0x140758498 (AslAlloc.c)
- *     SdbGuestTargetPlatformFlagsToRuntimePlatformFlags @ 0x140A52384 (SdbGuestTargetPlatformFlagsToRuntimePlatformFlags.c)
- *     SdbGetPathCustomSdb @ 0x140A526A0 (SdbGetPathCustomSdb.c)
- *     SdbpGetSystemSdbFilePath @ 0x140A530E4 (SdbpGetSystemSdbFilePath.c)
- *     AslGuidToString_UStr @ 0x140A53C58 (AslGuidToString_UStr.c)
- *     AslUnicodeStringFree @ 0x140A54000 (AslUnicodeStringFree.c)
- *     AslRegistryGetUInt32_UStr @ 0x140A54500 (AslRegistryGetUInt32_UStr.c)
+ *     AslAlloc @ 0x140758688 (AslAlloc.c)
+ *     SdbGuestTargetPlatformFlagsToRuntimePlatformFlags @ 0x140A52634 (SdbGuestTargetPlatformFlagsToRuntimePlatformFlags.c)
+ *     SdbGetPathCustomSdb @ 0x140A52950 (SdbGetPathCustomSdb.c)
+ *     SdbpGetSystemSdbFilePath @ 0x140A53394 (SdbpGetSystemSdbFilePath.c)
+ *     AslGuidToString_UStr @ 0x140A53F08 (AslGuidToString_UStr.c)
+ *     AslUnicodeStringFree @ 0x140A542B0 (AslUnicodeStringFree.c)
+ *     AslRegistryGetUInt32_UStr @ 0x140A547B0 (AslRegistryGetUInt32_UStr.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
@@ -51,7 +51,7 @@ __int64 __fastcall SdbResolveDatabaseEx(__int64 a1, _QWORD *a2, int *a3, int *a4
   if ( !a5 )
     return 0LL;
   *a5 = 0;
-  v13 = &off_140C094D0;
+  v13 = &off_140C094C0;
   v14 = 0;
   while ( 1 )
   {
@@ -66,9 +66,9 @@ __int64 __fastcall SdbResolveDatabaseEx(__int64 a1, _QWORD *a2, int *a3, int *a4
     if ( v14 >= 3 )
       goto LABEL_20;
   }
-  v13 = (GUID **)*((unsigned int *)&off_140C094D0 + 6 * (int)v14 + 4);
-  v17 = *((_DWORD *)&off_140C094D0 + 6 * (int)v14 + 2);
-  v18 = *((_DWORD *)&off_140C094D0 + 6 * (int)v14 + 3);
+  v13 = (GUID **)*((unsigned int *)&off_140C094C0 + 6 * (int)v14 + 4);
+  v17 = *((_DWORD *)&off_140C094C0 + 6 * (int)v14 + 2);
+  v18 = *((_DWORD *)&off_140C094C0 + 6 * (int)v14 + 3);
   a6 = v17;
   v32 = v18;
   if ( !(_DWORD)v13 )

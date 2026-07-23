@@ -1,10 +1,10 @@
 /*
- * XREFs of SepModifyTokenPolicyCounter @ 0x14091CB90
+ * XREFs of SepModifyTokenPolicyCounter @ 0x14091CCF0
  * Callers:
- *     SepFilterToken @ 0x1405DB0FC (SepFilterToken.c)
- *     NtSetInformationToken @ 0x1406749A0 (NtSetInformationToken.c)
- *     SepTokenDeleteMethod @ 0x1406E7CF0 (SepTokenDeleteMethod.c)
- *     SepDuplicateToken @ 0x140703E00 (SepDuplicateToken.c)
+ *     NtSetInformationToken @ 0x140694530 (NtSetInformationToken.c)
+ *     SepFilterToken @ 0x1406CA87C (SepFilterToken.c)
+ *     SepTokenDeleteMethod @ 0x1406FF0D0 (SepTokenDeleteMethod.c)
+ *     SepDuplicateToken @ 0x14071B1E0 (SepDuplicateToken.c)
  * Callees:
  *     <none>
  */

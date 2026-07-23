@@ -1,12 +1,12 @@
 /*
- * XREFs of PiProfileUpdateDeviceTreeWorker @ 0x14072D3C0
+ * XREFs of PiProfileUpdateDeviceTreeWorker @ 0x14072B3D0
  * Callers:
  *     <none>
  * Callees:
- *     PpDevNodeLockTree @ 0x140A08C10 (PpDevNodeLockTree.c)
- *     PpDevNodeUnlockTree @ 0x140A145FC (PpDevNodeUnlockTree.c)
- *     PipForDeviceNodeSubtree @ 0x140A438E0 (PipForDeviceNodeSubtree.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     PpDevNodeLockTree @ 0x140A05140 (PpDevNodeLockTree.c)
+ *     PpDevNodeUnlockTree @ 0x140A0D4DC (PpDevNodeUnlockTree.c)
+ *     PipForDeviceNodeSubtree @ 0x140A39170 (PipForDeviceNodeSubtree.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PiProfileUpdateDeviceTreeWorker(PVOID P)

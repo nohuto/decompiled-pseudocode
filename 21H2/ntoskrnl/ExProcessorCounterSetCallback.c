@@ -1,18 +1,18 @@
 /*
- * XREFs of ExProcessorCounterSetCallback @ 0x14064DC60
+ * XREFs of ExProcessorCounterSetCallback @ 0x140642A80
  * Callers:
  *     <none>
  * Callees:
- *     KeFindFirstSetRightGroupAffinity @ 0x14027B530 (KeFindFirstSetRightGroupAffinity.c)
- *     KeQueryActiveProcessorCountEx @ 0x14027B610 (KeQueryActiveProcessorCountEx.c)
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     RtlStringCbPrintfW @ 0x14027EB50 (RtlStringCbPrintfW.c)
- *     KeQueryNodeActiveAffinity @ 0x1402E2F80 (KeQueryNodeActiveAffinity.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     swscanf_s @ 0x1403D8170 (swscanf_s.c)
- *     memset @ 0x140414200 (memset.c)
- *     ExpQueryProcessorInformationCounters @ 0x14064E480 (ExpQueryProcessorInformationCounters.c)
- *     PcwAddInstance @ 0x140687F00 (PcwAddInstance.c)
+ *     KeFindFirstSetRightGroupAffinity @ 0x1402694D0 (KeFindFirstSetRightGroupAffinity.c)
+ *     KeQueryActiveProcessorCountEx @ 0x1402695B0 (KeQueryActiveProcessorCountEx.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     RtlStringCbPrintfW @ 0x14026CAF0 (RtlStringCbPrintfW.c)
+ *     KeQueryNodeActiveAffinity @ 0x1402942D0 (KeQueryNodeActiveAffinity.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     swscanf_s @ 0x1403D82E0 (swscanf_s.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     PcwAddInstance @ 0x1405E7060 (PcwAddInstance.c)
+ *     ExpQueryProcessorInformationCounters @ 0x1406432A0 (ExpQueryProcessorInformationCounters.c)
  */
 
 int __fastcall ExProcessorCounterSetCallback(int a1, __int64 *a2)
@@ -59,7 +59,7 @@ int __fastcall ExProcessorCounterSetCallback(int a1, __int64 *a2)
   struct _PCW_DATA v43; // [rsp+68h] [rbp-A0h] BYREF
   UNICODE_STRING Name; // [rsp+78h] [rbp-90h] BYREF
   struct _PCW_DATA v45; // [rsp+88h] [rbp-80h] BYREF
-  struct _GROUP_AFFINITY Affinity; // [rsp+98h] [rbp-70h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+98h] [rbp-70h] BYREF
   struct _PCW_DATA v47; // [rsp+A8h] [rbp-60h] BYREF
   struct _PCW_DATA v48; // [rsp+B8h] [rbp-50h] BYREF
   _QWORD v49[26]; // [rsp+C8h] [rbp-40h] BYREF

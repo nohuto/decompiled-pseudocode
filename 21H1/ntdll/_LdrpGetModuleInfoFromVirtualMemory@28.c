@@ -11,8 +11,8 @@
  *     _wcsrchr @ 0x4B2FA900 (_wcsrchr.c)
  */
 
-int __fastcall LdrpGetModuleInfoFromVirtualMemory(
-        int a1,
+NTSTATUS __fastcall LdrpGetModuleInfoFromVirtualMemory(
+        PVOID BaseAddress,
         wchar_t *a2,
         unsigned __int16 a3,
         unsigned int *a4,
@@ -20,12 +20,12 @@ int __fastcall LdrpGetModuleInfoFromVirtualMemory(
         int *a6,
         _BYTE *a7)
 {
-  int Heap; // ebx
-  int VirtualMemory; // edi
+  const void **Heap; // ebx
+  NTSTATUS VirtualMemory; // edi
   __int16 *v10; // ecx
   _WORD *v11; // edx
   __int16 v12; // ax
-  size_t v13; // ecx
+  unsigned int v13; // ecx
   wchar_t *v14; // esi
   wchar_t *v15; // eax
   const void *v17; // esi
@@ -33,28 +33,40 @@ int __fastcall LdrpGetModuleInfoFromVirtualMemory(
   wchar_t *v19; // edx
   __int16 v20; // ax
   int v21; // ecx
-  void *v22; // eax
+  PVOID v22; // eax
   void *ProcessHeap; // [esp-Ch] [ebp-24h]
-  size_t v24; // [esp+Ch] [ebp-Ch] BYREF
+  SIZE_T v24; // [esp-4h] [ebp-1Ch]
+  size_t v25; // [esp-4h] [ebp-1Ch]
+  SIZE_T v26; // [esp-4h] [ebp-1Ch]
+  size_t v27; // [esp-4h] [ebp-1Ch]
+  ULONG_PTR *v28; // [esp+0h] [ebp-18h]
+  unsigned int v29; // [esp+Ch] [ebp-Ch] BYREF
   wchar_t *Str; // [esp+10h] [ebp-8h]
-  int v26; // [esp+14h] [ebp-4h]
+  int v31; // [esp+14h] [ebp-4h]
 
+  LODWORD(v24) = a3;
   ProcessHeap = NtCurrentPeb()->ProcessHeap;
   Str = a2;
-  Heap = RtlAllocateHeap((int)ProcessHeap, 8, a3);
-  v26 = 0;
+  Heap = (const void **)RtlAllocateHeap(ProcessHeap, 8u, v24);
+  v31 = 0;
   if ( Heap )
   {
-    VirtualMemory = NtQueryVirtualMemory(-1, a1, 2, Heap, a3, (int)&v24);
+    VirtualMemory = NtQueryVirtualMemory(
+                      (HANDLE)0xFFFFFFFF,
+                      BaseAddress,
+                      MemoryMappedFilenameInformation,
+                      Heap,
+                      __PAIR64__(&v29, a3),
+                      v28);
     if ( VirtualMemory < 0 )
       goto LABEL_8;
-    v10 = *(__int16 **)(Heap + 4);
+    v10 = (__int16 *)Heap[1];
     v11 = v10 + 1;
     do
       v12 = *v10++;
-    while ( v12 != (_WORD)v26 );
+    while ( v12 != (_WORD)v31 );
     v13 = 2 * (v10 - v11) + 2;
-    v24 = v13;
+    v29 = v13;
     if ( v13 >= a3 )
     {
       VirtualMemory = -2147483643;
@@ -62,7 +74,8 @@ int __fastcall LdrpGetModuleInfoFromVirtualMemory(
     else
     {
       v14 = Str;
-      memcpy(Str, *(const void **)(Heap + 4), v13);
+      LODWORD(v25) = v13;
+      memcpy(Str, Heap[1], v25);
       v15 = wcsrchr(v14, 0x5Cu);
       if ( !v15 )
       {
@@ -74,20 +87,22 @@ int __fastcall LdrpGetModuleInfoFromVirtualMemory(
       v19 = v15 + 2;
       do
         v20 = *v18++;
-      while ( v20 != (_WORD)v26 );
+      while ( v20 != (_WORD)v31 );
       v21 = 2 * (((char *)v18 - (char *)v19) >> 1);
-      v26 = v21;
+      v31 = v21;
       if ( a5 )
       {
-        v22 = (void *)RtlAllocateHeap((int)NtCurrentPeb()->ProcessHeap, 8, v21 + 2);
+        LODWORD(v26) = v21 + 2;
+        v22 = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, v26);
         *a5 = v22;
         if ( !v22 )
         {
           VirtualMemory = -1073741801;
           goto LABEL_8;
         }
-        memcpy(v22, v17, v26 + 2);
-        v21 = v26;
+        LODWORD(v27) = v31 + 2;
+        memcpy(v22, v17, v27);
+        v21 = v31;
       }
       if ( a6 )
         *a6 = v21;
@@ -103,6 +118,6 @@ int __fastcall LdrpGetModuleInfoFromVirtualMemory(
   }
 LABEL_8:
   if ( Heap )
-    RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, Heap);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Heap);
   return VirtualMemory;
 }

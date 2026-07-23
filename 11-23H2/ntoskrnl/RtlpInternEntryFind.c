@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpInternEntryFind @ 0x1407B2E40
+ * XREFs of RtlpInternEntryFind @ 0x1407B3030
  * Callers:
- *     RtlInternTableIntern @ 0x1407B159C (RtlInternTableIntern.c)
+ *     RtlInternTableIntern @ 0x1407B178C (RtlInternTableIntern.c)
  * Callees:
- *     RtlpInternEntryMatch @ 0x1407B3304 (RtlpInternEntryMatch.c)
+ *     RtlpInternEntryMatch @ 0x1407B34F4 (RtlpInternEntryMatch.c)
  */
 
 __int64 __fastcall RtlpInternEntryFind(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

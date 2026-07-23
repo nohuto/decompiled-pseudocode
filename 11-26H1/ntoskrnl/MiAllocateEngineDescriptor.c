@@ -1,15 +1,15 @@
 /*
- * XREFs of MiAllocateEngineDescriptor @ 0x140514C38
+ * XREFs of MiAllocateEngineDescriptor @ 0x14050E6A8
  * Callers:
- *     MiTryZeroMemory @ 0x14045D534 (MiTryZeroMemory.c)
- *     MiComputeCacheAttributeSpeeds @ 0x1407102D0 (MiComputeCacheAttributeSpeeds.c)
+ *     MiTryZeroMemory @ 0x140456F34 (MiTryZeroMemory.c)
+ *     MiComputeCacheAttributeSpeeds @ 0x140714FCC (MiComputeCacheAttributeSpeeds.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402DED10 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiAllocateAcceleratorDescriptor @ 0x1405319C8 (MiAllocateAcceleratorDescriptor.c)
- *     MiDeleteAcceleratorDescriptor @ 0x14070F474 (MiDeleteAcceleratorDescriptor.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402C0B20 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiAllocateAcceleratorDescriptor @ 0x140533E70 (MiAllocateAcceleratorDescriptor.c)
+ *     MiDeleteAcceleratorDescriptor @ 0x140714170 (MiDeleteAcceleratorDescriptor.c)
  */
 
 __int64 __fastcall MiAllocateEngineDescriptor(__int64 a1)
@@ -52,7 +52,7 @@ __int64 __fastcall MiAllocateEngineDescriptor(__int64 a1)
       ExReleaseSpinLockExclusive(v8, CurrentIrql);
     if ( !v6 )
       break;
-    if ( (*(_DWORD *)(v6[2] + 52LL) & 1) == 0 && !byte_140E36504 )
+    if ( (*(_DWORD *)(v6[2] + 52LL) & 1) == 0 && !byte_140E36684 )
       return (__int64)(v6 + 4);
     MiDeleteAcceleratorDescriptor(v6 + 4);
   }

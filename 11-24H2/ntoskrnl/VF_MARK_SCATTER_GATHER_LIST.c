@@ -1,8 +1,8 @@
 /*
- * XREFs of VF_MARK_SCATTER_GATHER_LIST @ 0x140B85150
+ * XREFs of VF_MARK_SCATTER_GATHER_LIST @ 0x140B87150
  * Callers:
- *     VfBuildMdlFromScatterGatherList @ 0x140B85950 (VfBuildMdlFromScatterGatherList.c)
- *     ViScatterGatherCallback @ 0x140B89B30 (ViScatterGatherCallback.c)
+ *     VfBuildMdlFromScatterGatherList @ 0x140B87950 (VfBuildMdlFromScatterGatherList.c)
+ *     ViScatterGatherCallback @ 0x140B8BB30 (ViScatterGatherCallback.c)
  * Callees:
  *     <none>
  */

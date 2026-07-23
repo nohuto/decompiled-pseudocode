@@ -1,31 +1,31 @@
 /*
- * XREFs of PnpNotifyHwProfileChange @ 0x140B6A1EC
+ * XREFs of PnpNotifyHwProfileChange @ 0x140B6D3FC
  * Callers:
- *     PnpRequestHwProfileChangeNotification @ 0x1407A1E04 (PnpRequestHwProfileChangeNotification.c)
- *     PnpDeviceEventWorker @ 0x1409DCD90 (PnpDeviceEventWorker.c)
+ *     PnpRequestHwProfileChangeNotification @ 0x1407A4944 (PnpRequestHwProfileChangeNotification.c)
+ *     PnpDeviceEventWorker @ 0x140A1A040 (PnpDeviceEventWorker.c)
  * Callees:
- *     ExAcquireResourceExclusiveLite @ 0x140275200 (ExAcquireResourceExclusiveLite.c)
- *     ExAcquireFastMutex @ 0x140278070 (ExAcquireFastMutex.c)
- *     KeReleaseGuardedMutex @ 0x140278D40 (KeReleaseGuardedMutex.c)
- *     ExReleaseResourceLite @ 0x1402B4CF0 (ExReleaseResourceLite.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     RtlCopyUnicodeString @ 0x140419A90 (RtlCopyUnicodeString.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     RtlCompareMemory @ 0x140730D90 (RtlCompareMemory.c)
- *     PnpDereferenceNotify @ 0x1409DD548 (PnpDereferenceNotify.c)
- *     PnpNotifyDriverCallback @ 0x1409DD5EC (PnpNotifyDriverCallback.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140274770 (ExAcquireResourceExclusiveLite.c)
+ *     ExAcquireFastMutex @ 0x1402775E0 (ExAcquireFastMutex.c)
+ *     KeReleaseGuardedMutex @ 0x1402782B0 (KeReleaseGuardedMutex.c)
+ *     ExReleaseResourceLite @ 0x1402FF9C0 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     RtlCopyUnicodeString @ 0x14040DFC0 (RtlCopyUnicodeString.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     RtlCompareMemory @ 0x140735960 (RtlCompareMemory.c)
+ *     PnpDereferenceNotify @ 0x140A1A800 (PnpDereferenceNotify.c)
+ *     PnpNotifyDriverCallback @ 0x140A1A8A4 (PnpNotifyDriverCallback.c)
  */
 
 __int64 __fastcall PnpNotifyHwProfileChange(GUID *Source1, _DWORD *a2, UNICODE_STRING *a3)
 {
   int v4; // r14d
-  $AA7B8230874764A53E1F7A8CE5E032EC *Spare32; // rdi
-  $AA7B8230874764A53E1F7A8CE5E032EC *v8; // r13
+  $C4B476A2C3C06CA2C7794EC3358E8686 *Spare32; // rdi
+  $C4B476A2C3C06CA2C7794EC3358E8686 *v8; // r13
   struct _KTHREAD *CurrentThread; // rax
   GUID v10; // xmm0
   int v11; // ebx
-  $AA7B8230874764A53E1F7A8CE5E032EC *v12; // rsi
-  $AA7B8230874764A53E1F7A8CE5E032EC *v13; // rbx
+  $C4B476A2C3C06CA2C7794EC3358E8686 *v12; // rsi
+  $C4B476A2C3C06CA2C7794EC3358E8686 *v13; // rbx
   struct _KTHREAD *v14; // rax
   int v16; // [rsp+20h] [rbp-30h] BYREF
   _BYTE v17[20]; // [rsp+28h] [rbp-28h] BYREF
@@ -34,7 +34,7 @@ __int64 __fastcall PnpNotifyHwProfileChange(GUID *Source1, _DWORD *a2, UNICODE_S
   memset(v17, 0, sizeof(v17));
   v4 = 0;
   ExAcquireFastMutex(&PnpHwProfileNotifyLock);
-  Spare32 = ($AA7B8230874764A53E1F7A8CE5E032EC *)PspSiloMonitorLock.Spare32;
+  Spare32 = ($C4B476A2C3C06CA2C7794EC3358E8686 *)PspSiloMonitorLock.Spare32;
   while ( Spare32 != &PspSiloMonitorLock.1144 )
   {
     ++LOWORD(Spare32[7].Spare32);
@@ -88,7 +88,7 @@ __int64 __fastcall PnpNotifyHwProfileChange(GUID *Source1, _DWORD *a2, UNICODE_S
           ExReleaseResourceLite((PERESOURCE)Spare32[9].Spare32);
           KeLeaveCriticalRegion();
           ExAcquireFastMutex(&PnpHwProfileNotifyLock);
-          Spare32 = ($AA7B8230874764A53E1F7A8CE5E032EC *)Spare32[1].Spare32;
+          Spare32 = ($C4B476A2C3C06CA2C7794EC3358E8686 *)Spare32[1].Spare32;
           PnpDereferenceNotify(v13);
           if ( v13 == v12 )
             PnpDereferenceNotify(v13);
@@ -99,7 +99,7 @@ __int64 __fastcall PnpNotifyHwProfileChange(GUID *Source1, _DWORD *a2, UNICODE_S
       }
     }
     ExAcquireFastMutex(&PnpHwProfileNotifyLock);
-    Spare32 = ($AA7B8230874764A53E1F7A8CE5E032EC *)Spare32->Spare32;
+    Spare32 = ($C4B476A2C3C06CA2C7794EC3358E8686 *)Spare32->Spare32;
     PnpDereferenceNotify(v8);
   }
   KeReleaseGuardedMutex(&PnpHwProfileNotifyLock);

@@ -1,14 +1,14 @@
 /*
- * XREFs of CmpDoAccessCheckOnKCB @ 0x140600AC8
+ * XREFs of CmpDoAccessCheckOnKCB @ 0x140600B7C
  * Callers:
- *     CmpVEExecuteCreateLogic @ 0x1404D91F4 (CmpVEExecuteCreateLogic.c)
+ *     CmpVEExecuteCreateLogic @ 0x1404BC7F8 (CmpVEExecuteCreateLogic.c)
  * Callees:
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     SeDeleteAccessState @ 0x140405E08 (SeDeleteAccessState.c)
- *     SeCreateAccessState @ 0x1404063B0 (SeCreateAccessState.c)
- *     ObCreateObject @ 0x14047181C (ObCreateObject.c)
- *     CmpCheckKeyBodyAccess @ 0x140601F80 (CmpCheckKeyBodyAccess.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     SeDeleteAccessState @ 0x140404CC8 (SeDeleteAccessState.c)
+ *     SeCreateAccessState @ 0x140405270 (SeCreateAccessState.c)
+ *     ObCreateObject @ 0x1404706EC (ObCreateObject.c)
+ *     CmpCheckKeyBodyAccess @ 0x140602034 (CmpCheckKeyBodyAccess.c)
  */
 
 char __fastcall CmpDoAccessCheckOnKCB(__int64 a1, __int64 a2, ACCESS_MASK a3, char a4)

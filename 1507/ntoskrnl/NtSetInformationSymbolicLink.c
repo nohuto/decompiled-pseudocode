@@ -8,21 +8,25 @@
  *     ObReferenceObjectByHandle @ 0x140496770 (ObReferenceObjectByHandle.c)
  */
 
-__int64 __fastcall NtSetInformationSymbolicLink(void *a1, int a2, __int64 a3, int a4)
+NTSTATUS __cdecl NtSetInformationSymbolicLink(
+        HANDLE LinkHandle,
+        SYMBOLIC_LINK_INFO_CLASS SymbolicLinkInformationClass,
+        PVOID SymbolicLinkInformation,
+        ULONG SymbolicLinkInformationLength)
 {
   KPROCESSOR_MODE PreviousMode; // si
-  NTSTATUS v7; // ebx
+  int v7; // ebx
   _DWORD *v8; // rdi
   PVOID Object; // [rsp+30h] [rbp-18h] BYREF
 
   PreviousMode = KeGetCurrentThread()->PreviousMode;
-  v7 = ObReferenceObjectByHandle(a1, 1u, ObpSymbolicLinkObjectType, PreviousMode, &Object, 0LL);
+  v7 = ObReferenceObjectByHandle(LinkHandle, 1u, ObpSymbolicLinkObjectType, PreviousMode, &Object, 0LL);
   if ( v7 >= 0 )
   {
     v8 = Object;
-    if ( a2 == 1 )
+    if ( SymbolicLinkInformationClass == SymbolicLinkGlobalInformation )
     {
-      if ( a4 )
+      if ( SymbolicLinkInformationLength )
       {
         v7 = -1073741820;
       }
@@ -42,5 +46,5 @@ __int64 __fastcall NtSetInformationSymbolicLink(void *a1, int a2, __int64 a3, in
     }
     ObfDereferenceObject(v8);
   }
-  return (unsigned int)v7;
+  return v7;
 }

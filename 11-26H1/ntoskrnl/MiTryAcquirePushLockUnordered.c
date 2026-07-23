@@ -1,12 +1,12 @@
 /*
- * XREFs of MiTryAcquirePushLockUnordered @ 0x1406F381C
+ * XREFs of MiTryAcquirePushLockUnordered @ 0x1406F848C
  * Callers:
- *     MiIssuePageHeatList @ 0x1402F383C (MiIssuePageHeatList.c)
+ *     MiIssuePageHeatList @ 0x1402D58BC (MiIssuePageHeatList.c)
  * Callees:
- *     KeAbPostReleaseEx @ 0x140272670 (KeAbPostReleaseEx.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ?KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z @ 0x140444460 (-KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z.c)
- *     ExfTryAcquirePushLockSharedEx @ 0x1404AB574 (ExfTryAcquirePushLockSharedEx.c)
+ *     KeAbPostReleaseEx @ 0x140271BE0 (KeAbPostReleaseEx.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ?KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z @ 0x14043CF70 (-KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z.c)
+ *     ExfTryAcquirePushLockSharedEx @ 0x1404A4C04 (ExfTryAcquirePushLockSharedEx.c)
  */
 
 char __fastcall MiTryAcquirePushLockUnordered(struct _KTHREAD *a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)

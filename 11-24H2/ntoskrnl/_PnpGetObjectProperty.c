@@ -1,91 +1,91 @@
 /*
- * XREFs of _PnpGetObjectProperty @ 0x1408CDFD0
+ * XREFs of _PnpGetObjectProperty @ 0x1408CB9C0
  * Callers:
- *     PiRebalanceOptOut @ 0x1405A9664 (PiRebalanceOptOut.c)
- *     PipGetDeviceObjectLocation @ 0x14071BA24 (PipGetDeviceObjectLocation.c)
- *     PnpLogDeviceRequiresReboot @ 0x14072337C (PnpLogDeviceRequiresReboot.c)
- *     PnpUpdateRebootRequiredReason @ 0x1407239C8 (PnpUpdateRebootRequiredReason.c)
- *     PiPnpRtlGatherInterfaceDeleteInfo @ 0x1407268E8 (PiPnpRtlGatherInterfaceDeleteInfo.c)
- *     PiDmListInitEnumCallback @ 0x140726E80 (PiDmListInitEnumCallback.c)
- *     PiDcResetChildDeviceContainerCallback @ 0x140727980 (PiDcResetChildDeviceContainerCallback.c)
- *     PiDevCfgGetDeviceClassDriverConfigurable @ 0x140729EB8 (PiDevCfgGetDeviceClassDriverConfigurable.c)
- *     PiDevCfgGetFailedInstallProblemStatus @ 0x14072A0E4 (PiDevCfgGetFailedInstallProblemStatus.c)
- *     PiDrvDbGetNodeSystemRoot @ 0x140736F54 (PiDrvDbGetNodeSystemRoot.c)
- *     PiDrvDbQuerySyncNodesUpdated @ 0x140737D20 (PiDrvDbQuerySyncNodesUpdated.c)
- *     PiDrvDbRegisterNode @ 0x140738408 (PiDrvDbRegisterNode.c)
- *     PiDrvDbSetupNodes @ 0x140739ABC (PiDrvDbSetupNodes.c)
- *     _CmGetContainerBooleanPropertyCallback @ 0x14081A040 (_CmGetContainerBooleanPropertyCallback.c)
- *     _CmGetInstallerClassCompoundFiltersWorker @ 0x14081E810 (_CmGetInstallerClassCompoundFiltersWorker.c)
- *     _CmGetInterfaceClassMappedPropertyFromComposite @ 0x14081F244 (_CmGetInterfaceClassMappedPropertyFromComposite.c)
- *     PiUEventProcessBroadcastNotifications @ 0x14085C13C (PiUEventProcessBroadcastNotifications.c)
- *     IopRegisterDeviceInterface @ 0x1408B3B2C (IopRegisterDeviceInterface.c)
- *     IopProcessSetInterfaceState @ 0x1408B42D4 (IopProcessSetInterfaceState.c)
- *     PnpGetDeviceInterfacePropertyData @ 0x1408B5D94 (PnpGetDeviceInterfacePropertyData.c)
- *     _CmGetDeviceInterfaceMappedPropertyFromComposite @ 0x1408B6638 (_CmGetDeviceInterfaceMappedPropertyFromComposite.c)
- *     IoGetDeviceInterfaceAlias @ 0x1408B7090 (IoGetDeviceInterfaceAlias.c)
- *     PiPnpRtlSetObjectProperty @ 0x1408B84A0 (PiPnpRtlSetObjectProperty.c)
- *     _PnpDeviceRaisePropertyChangeEventWorker @ 0x1408B97F8 (_PnpDeviceRaisePropertyChangeEventWorker.c)
- *     _CmIsDeviceSafeRemovalRequired @ 0x1408BC37C (_CmIsDeviceSafeRemovalRequired.c)
- *     _CmGetDeviceRegPropWorker @ 0x1408C5D70 (_CmGetDeviceRegPropWorker.c)
- *     IopGetDeviceInterfaces @ 0x1408C8470 (IopGetDeviceInterfaces.c)
- *     PiPnpRtlObjectActionCallback @ 0x1408CE6A0 (PiPnpRtlObjectActionCallback.c)
- *     PiPnpRtlInterfaceFilterCallback @ 0x1408D0AE0 (PiPnpRtlInterfaceFilterCallback.c)
- *     _CmGetDeviceParent @ 0x140926998 (_CmGetDeviceParent.c)
- *     PnpAssignResourcesToDevices @ 0x14098DA30 (PnpAssignResourcesToDevices.c)
- *     _CmUpdateDevicePanelInterface @ 0x14098EC58 (_CmUpdateDevicePanelInterface.c)
- *     _CmUpdateDevicePanel @ 0x14098EE00 (_CmUpdateDevicePanel.c)
- *     _CmQueryDevicePanelPldProperty @ 0x14098F8FC (_CmQueryDevicePanelPldProperty.c)
- *     PipSetDevNodeProblem @ 0x14098FC24 (PipSetDevNodeProblem.c)
- *     PiAuditDeviceStart @ 0x140990640 (PiAuditDeviceStart.c)
- *     PiDevCfgFindDeviceDriver @ 0x140995E90 (PiDevCfgFindDeviceDriver.c)
- *     PiDevCfgProcessDevice @ 0x140996E44 (PiDevCfgProcessDevice.c)
- *     PiDevCfgQueryObjectProperties @ 0x1409978B4 (PiDevCfgQueryObjectProperties.c)
- *     PiDevCfgConfigureDevice @ 0x140997CFC (PiDevCfgConfigureDevice.c)
- *     PiDevCfgMigrateDevice @ 0x14099A6AC (PiDevCfgMigrateDevice.c)
- *     PiDevCfgCopyObjectProperties @ 0x14099AE24 (PiDevCfgCopyObjectProperties.c)
- *     PiDevCfgCopyDeviceKey @ 0x14099BA04 (PiDevCfgCopyDeviceKey.c)
- *     _CmDeleteDeviceWorker @ 0x1409B2CB8 (_CmDeleteDeviceWorker.c)
- *     _CmGetDeviceMappedPropertyFromComposite @ 0x1409B4770 (_CmGetDeviceMappedPropertyFromComposite.c)
- *     _CmGetInstallerClassMappedPropertyFromComposite @ 0x1409B6A7C (_CmGetInstallerClassMappedPropertyFromComposite.c)
- *     PnpCallDriverQueryServiceHelper @ 0x1409C5A04 (PnpCallDriverQueryServiceHelper.c)
- *     PipCallDriverAddDevice @ 0x1409C6228 (PipCallDriverAddDevice.c)
- *     PiUEventDeviceNeedsInstall @ 0x1409ED440 (PiUEventDeviceNeedsInstall.c)
- *     PiUEventCacheObjectProperties @ 0x1409EF508 (PiUEventCacheObjectProperties.c)
- *     PiPnpRtlServiceFilterCallback @ 0x1409FD9D0 (PiPnpRtlServiceFilterCallback.c)
- *     PpForEachDeviceInstanceDriver @ 0x140A0CE90 (PpForEachDeviceInstanceDriver.c)
- *     PnpGetDevicePropertyData @ 0x140A12000 (PnpGetDevicePropertyData.c)
- *     PiDcHandleDeviceEvent @ 0x140A424AC (PiDcHandleDeviceEvent.c)
- *     PiDcHandleInterfaceEvent @ 0x140A4267C (PiDcHandleInterfaceEvent.c)
- *     PiDcGenerateConfigNotificationIfContainerRequiresConfiguration @ 0x140A427EC (PiDcGenerateConfigNotificationIfContainerRequiresConfiguration.c)
- *     PiAuditDeviceOperation @ 0x140A6F4C0 (PiAuditDeviceOperation.c)
- *     _CmMatchLastKnownParentCallback @ 0x140A73D70 (_CmMatchLastKnownParentCallback.c)
- *     PiDrvDbLoadNodeWorkerCallback @ 0x140A79530 (PiDrvDbLoadNodeWorkerCallback.c)
- *     PiDevCfgQueryDriverConfiguration @ 0x140A7DF0C (PiDevCfgQueryDriverConfiguration.c)
- *     _CmGetDeviceCompoundFiltersWorker @ 0x140A80898 (_CmGetDeviceCompoundFiltersWorker.c)
- *     PiDevCfgResetDeviceDriverSettings @ 0x140A847DC (PiDevCfgResetDeviceDriverSettings.c)
- *     PiDcContainerRequiresConfiguration @ 0x140A9E6E0 (PiDcContainerRequiresConfiguration.c)
- *     PiDevCfgGetDeviceClassConfigFlags @ 0x140AAF1F8 (PiDevCfgGetDeviceClassConfigFlags.c)
- *     PnpGetDeviceInstancePropertyData @ 0x140AB1650 (PnpGetDeviceInstancePropertyData.c)
- *     _CmGetParentDeviceContainerId @ 0x140AB65B0 (_CmGetParentDeviceContainerId.c)
- *     PiPnpRtlGatherInstallerClassChangeInfo @ 0x140AB97D4 (PiPnpRtlGatherInstallerClassChangeInfo.c)
- *     IopDeviceObjectFromSymbolicName @ 0x140ABCB94 (IopDeviceObjectFromSymbolicName.c)
- *     PiCMUnregisterDeviceInterface @ 0x140AC00A8 (PiCMUnregisterDeviceInterface.c)
+ *     PiRebalanceOptOut @ 0x1405A65D4 (PiRebalanceOptOut.c)
+ *     PipGetDeviceObjectLocation @ 0x1407195B4 (PipGetDeviceObjectLocation.c)
+ *     PnpLogDeviceRequiresReboot @ 0x140720F0C (PnpLogDeviceRequiresReboot.c)
+ *     PnpUpdateRebootRequiredReason @ 0x140721558 (PnpUpdateRebootRequiredReason.c)
+ *     PiPnpRtlGatherInterfaceDeleteInfo @ 0x140724478 (PiPnpRtlGatherInterfaceDeleteInfo.c)
+ *     PiDmListInitEnumCallback @ 0x140724A10 (PiDmListInitEnumCallback.c)
+ *     PiDcResetChildDeviceContainerCallback @ 0x140725510 (PiDcResetChildDeviceContainerCallback.c)
+ *     PiDevCfgGetDeviceClassDriverConfigurable @ 0x140727B14 (PiDevCfgGetDeviceClassDriverConfigurable.c)
+ *     PiDevCfgGetFailedInstallProblemStatus @ 0x140727D40 (PiDevCfgGetFailedInstallProblemStatus.c)
+ *     PiDrvDbGetNodeSystemRoot @ 0x140734E84 (PiDrvDbGetNodeSystemRoot.c)
+ *     PiDrvDbQuerySyncNodesUpdated @ 0x140735C50 (PiDrvDbQuerySyncNodesUpdated.c)
+ *     PiDrvDbRegisterNode @ 0x140736338 (PiDrvDbRegisterNode.c)
+ *     PiDrvDbSetupNodes @ 0x1407379EC (PiDrvDbSetupNodes.c)
+ *     _CmGetContainerBooleanPropertyCallback @ 0x14081A780 (_CmGetContainerBooleanPropertyCallback.c)
+ *     _CmGetInstallerClassCompoundFiltersWorker @ 0x14081EF50 (_CmGetInstallerClassCompoundFiltersWorker.c)
+ *     _CmGetInterfaceClassMappedPropertyFromComposite @ 0x14081F984 (_CmGetInterfaceClassMappedPropertyFromComposite.c)
+ *     PiUEventProcessBroadcastNotifications @ 0x140857EAC (PiUEventProcessBroadcastNotifications.c)
+ *     IopRegisterDeviceInterface @ 0x1408B141C (IopRegisterDeviceInterface.c)
+ *     IopProcessSetInterfaceState @ 0x1408B1BC4 (IopProcessSetInterfaceState.c)
+ *     PnpGetDeviceInterfacePropertyData @ 0x1408B3704 (PnpGetDeviceInterfacePropertyData.c)
+ *     _CmGetDeviceInterfaceMappedPropertyFromComposite @ 0x1408B3FA8 (_CmGetDeviceInterfaceMappedPropertyFromComposite.c)
+ *     IoGetDeviceInterfaceAlias @ 0x1408B4A00 (IoGetDeviceInterfaceAlias.c)
+ *     PiPnpRtlSetObjectProperty @ 0x1408B5E10 (PiPnpRtlSetObjectProperty.c)
+ *     _PnpDeviceRaisePropertyChangeEventWorker @ 0x1408B71A0 (_PnpDeviceRaisePropertyChangeEventWorker.c)
+ *     _CmIsDeviceSafeRemovalRequired @ 0x1408B9CCC (_CmIsDeviceSafeRemovalRequired.c)
+ *     _CmGetDeviceRegPropWorker @ 0x1408C37A0 (_CmGetDeviceRegPropWorker.c)
+ *     IopGetDeviceInterfaces @ 0x1408C5EA0 (IopGetDeviceInterfaces.c)
+ *     PiPnpRtlObjectActionCallback @ 0x1408CC090 (PiPnpRtlObjectActionCallback.c)
+ *     PiPnpRtlInterfaceFilterCallback @ 0x1408CE4D0 (PiPnpRtlInterfaceFilterCallback.c)
+ *     _CmGetDeviceParent @ 0x140928AD8 (_CmGetDeviceParent.c)
+ *     PnpAssignResourcesToDevices @ 0x140978A68 (PnpAssignResourcesToDevices.c)
+ *     _CmUpdateDevicePanelInterface @ 0x140979C90 (_CmUpdateDevicePanelInterface.c)
+ *     _CmUpdateDevicePanel @ 0x140979E38 (_CmUpdateDevicePanel.c)
+ *     _CmQueryDevicePanelPldProperty @ 0x14097A934 (_CmQueryDevicePanelPldProperty.c)
+ *     PipSetDevNodeProblem @ 0x14097AC5C (PipSetDevNodeProblem.c)
+ *     PiAuditDeviceStart @ 0x14097B680 (PiAuditDeviceStart.c)
+ *     PipCallDriverAddDevice @ 0x140980ED0 (PipCallDriverAddDevice.c)
+ *     PnpCallDriverQueryServiceHelper @ 0x140982CA8 (PnpCallDriverQueryServiceHelper.c)
+ *     _CmDeleteDeviceWorker @ 0x1409AA048 (_CmDeleteDeviceWorker.c)
+ *     _CmGetDeviceMappedPropertyFromComposite @ 0x1409ABB00 (_CmGetDeviceMappedPropertyFromComposite.c)
+ *     _CmGetInstallerClassMappedPropertyFromComposite @ 0x1409ADE0C (_CmGetInstallerClassMappedPropertyFromComposite.c)
+ *     PpForEachDeviceInstanceDriver @ 0x1409BB294 (PpForEachDeviceInstanceDriver.c)
+ *     PnpGetDevicePropertyData @ 0x1409C0410 (PnpGetDevicePropertyData.c)
+ *     PiDevCfgQueryDriverConfiguration @ 0x1409C7EF4 (PiDevCfgQueryDriverConfiguration.c)
+ *     PiDevCfgFindDeviceDriver @ 0x1409C86B4 (PiDevCfgFindDeviceDriver.c)
+ *     PiDevCfgProcessDevice @ 0x1409C9598 (PiDevCfgProcessDevice.c)
+ *     PiDevCfgQueryObjectProperties @ 0x1409CA030 (PiDevCfgQueryObjectProperties.c)
+ *     PiDevCfgConfigureDevice @ 0x1409CA478 (PiDevCfgConfigureDevice.c)
+ *     PiDevCfgMigrateDevice @ 0x1409CCE1C (PiDevCfgMigrateDevice.c)
+ *     PiDevCfgCopyObjectProperties @ 0x1409CD594 (PiDevCfgCopyObjectProperties.c)
+ *     PiDevCfgCopyDeviceKey @ 0x1409CE174 (PiDevCfgCopyDeviceKey.c)
+ *     PiPnpRtlServiceFilterCallback @ 0x1409F6C40 (PiPnpRtlServiceFilterCallback.c)
+ *     PiUEventCacheObjectProperties @ 0x140A16710 (PiUEventCacheObjectProperties.c)
+ *     PiDcHandleDeviceEvent @ 0x140A37CEC (PiDcHandleDeviceEvent.c)
+ *     PiDcHandleInterfaceEvent @ 0x140A37EBC (PiDcHandleInterfaceEvent.c)
+ *     PiDcGenerateConfigNotificationIfContainerRequiresConfiguration @ 0x140A3802C (PiDcGenerateConfigNotificationIfContainerRequiresConfiguration.c)
+ *     PiAuditDeviceOperation @ 0x140A68944 (PiAuditDeviceOperation.c)
+ *     _CmMatchLastKnownParentCallback @ 0x140A6D6D0 (_CmMatchLastKnownParentCallback.c)
+ *     PiUEventDeviceNeedsInstall @ 0x140A6F6E8 (PiUEventDeviceNeedsInstall.c)
+ *     PiDrvDbLoadNodeWorkerCallback @ 0x140A73830 (PiDrvDbLoadNodeWorkerCallback.c)
+ *     _CmGetDeviceCompoundFiltersWorker @ 0x140A7B2F8 (_CmGetDeviceCompoundFiltersWorker.c)
+ *     PiDevCfgResetDeviceDriverSettings @ 0x140A7F31C (PiDevCfgResetDeviceDriverSettings.c)
+ *     PiDcContainerRequiresConfiguration @ 0x140A99C50 (PiDcContainerRequiresConfiguration.c)
+ *     PiDevCfgGetDeviceClassConfigFlags @ 0x140AAA0D8 (PiDevCfgGetDeviceClassConfigFlags.c)
+ *     PnpGetDeviceInstancePropertyData @ 0x140AAC5C0 (PnpGetDeviceInstancePropertyData.c)
+ *     _CmGetParentDeviceContainerId @ 0x140AB0634 (_CmGetParentDeviceContainerId.c)
+ *     PiPnpRtlGatherInstallerClassChangeInfo @ 0x140AB4894 (PiPnpRtlGatherInstallerClassChangeInfo.c)
+ *     IopDeviceObjectFromSymbolicName @ 0x140AB7C00 (IopDeviceObjectFromSymbolicName.c)
+ *     PiCMUnregisterDeviceInterface @ 0x140ABB188 (PiCMUnregisterDeviceInterface.c)
  * Callees:
- *     RtlStringCchPrintfExW @ 0x140424CB0 (RtlStringCchPrintfExW.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     _PnpValidatePropertyData @ 0x1408B8DD0 (_PnpValidatePropertyData.c)
- *     _PnpRegQueryValueIndirect @ 0x1408C6550 (_PnpRegQueryValueIndirect.c)
- *     _RegRtlOpenKeyTransacted @ 0x1408C7B60 (_RegRtlOpenKeyTransacted.c)
- *     _PnpDispatchDeviceInterface @ 0x1408CCC00 (_PnpDispatchDeviceInterface.c)
- *     _PnpOpenObjectRegKey @ 0x1408CD438 (_PnpOpenObjectRegKey.c)
- *     _PnpDispatchDevice @ 0x1408CDBB0 (_PnpDispatchDevice.c)
- *     PiPnpRtlObjectActionCallback @ 0x1408CE6A0 (PiPnpRtlObjectActionCallback.c)
- *     DrvDbDispatchDriverPackage @ 0x1409240F0 (DrvDbDispatchDriverPackage.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlStringCchPrintfExW @ 0x140418B60 (RtlStringCchPrintfExW.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     _PnpValidatePropertyData @ 0x1408B6740 (_PnpValidatePropertyData.c)
+ *     _PnpRegQueryValueIndirect @ 0x1408C3F80 (_PnpRegQueryValueIndirect.c)
+ *     _RegRtlOpenKeyTransacted @ 0x1408C5590 (_RegRtlOpenKeyTransacted.c)
+ *     _PnpDispatchDeviceInterface @ 0x1408CA5F0 (_PnpDispatchDeviceInterface.c)
+ *     _PnpOpenObjectRegKey @ 0x1408CAE28 (_PnpOpenObjectRegKey.c)
+ *     _PnpDispatchDevice @ 0x1408CB5A0 (_PnpDispatchDevice.c)
+ *     PiPnpRtlObjectActionCallback @ 0x1408CC090 (PiPnpRtlObjectActionCallback.c)
+ *     DrvDbDispatchDriverPackage @ 0x140926230 (DrvDbDispatchDriverPackage.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PnpGetObjectProperty(
@@ -184,7 +184,7 @@ __int64 __fastcall PnpGetObjectProperty(
     if ( v16 == PiPnpRtlObjectActionCallback )
       v17 = PiPnpRtlObjectActionCallback(a1, a2, a3, 8LL, 1, v55);
     else
-      v17 = guard_dispatch_icall_no_overrides(a1, a2, a3, 8LL);
+      v17 = guard_dispatch_icall_no_overrides(a1, a2);
     if ( v17 == -1073741822 )
     {
       v16 = 0LL;
@@ -259,7 +259,7 @@ LABEL_63:
         }
         else
         {
-          v24 = guard_dispatch_icall_no_overrides(a1, a2, (unsigned int)v15, 8LL);
+          v24 = guard_dispatch_icall_no_overrides(a1, a2);
         }
         v25 = v24;
         if ( v24 != -1073741802 )
@@ -325,7 +325,7 @@ LABEL_33:
           if ( (unsigned __int64)(512 - v28) >= 0x30 )
           {
             v31 = 512 - v28 + 12;
-            Pool2 = (wchar_t *)ExAllocatePool2(0x100uLL);
+            Pool2 = (wchar_t *)ExAllocatePool2(0x100uLL, 2LL * v31, 0x52504E50u);
             if ( !Pool2 )
             {
               v25 = -1073741801;
@@ -360,7 +360,7 @@ LABEL_33:
           if ( !v37 || v37 == PnpRegQueryValueIndirect )
             v39 = PnpRegQueryValueIndirect((__int64)a1, v48, v51, (int *)&v42 + 1, (void *)psz, &v45, (bool *)&v42);
           else
-            v39 = guard_dispatch_icall_no_overrides(a1, v48, v51, (char *)&v42 + 4);
+            v39 = guard_dispatch_icall_no_overrides(a1, v48);
           v40 = v39;
           if ( v39 == -1073741772 || v39 == -1073741444 )
           {
@@ -416,7 +416,7 @@ LABEL_22:
     LODWORD(v55[0]) = v25;
     v26 = v16 == PiPnpRtlObjectActionCallback
         ? PiPnpRtlObjectActionCallback(a1, v54, (unsigned int)v15, 8LL, 2, v55)
-        : guard_dispatch_icall_no_overrides(a1, v54, (unsigned int)v15, 8LL);
+        : guard_dispatch_icall_no_overrides(a1, v54);
     if ( v26 != -1073741822 )
     {
       if ( v26 == -1073741536 )

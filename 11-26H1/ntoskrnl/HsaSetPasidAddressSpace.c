@@ -1,10 +1,10 @@
 /*
- * XREFs of HsaSetPasidAddressSpace @ 0x1405AA990
+ * XREFs of HsaSetPasidAddressSpace @ 0x1405AD1A0
  * Callers:
  *     <none>
  * Callees:
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     HsaEnsureNoPendingFaults @ 0x1405A95AC (HsaEnsureNoPendingFaults.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     HsaEnsureNoPendingFaults @ 0x1405ABDBC (HsaEnsureNoPendingFaults.c)
  */
 
 __int64 __fastcall HsaSetPasidAddressSpace(__int64 *a1, __int64 a2, __int64 a3, unsigned int a4, char *a5)

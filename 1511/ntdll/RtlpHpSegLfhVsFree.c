@@ -6,7 +6,7 @@
  *     <none>
  */
 
-__int64 __fastcall RtlpHpSegLfhVsFree(__int64 a1, unsigned __int64 a2, char a3)
+__int64 __fastcall RtlpHpSegLfhVsFree(_RTL_SRWLOCK *a1, unsigned __int64 a2, char a3)
 {
   return RtlpHpSegFree(a1, a2, a3 & 1);
 }

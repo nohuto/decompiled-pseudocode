@@ -1,32 +1,32 @@
 /*
- * XREFs of PiGetDefaultMessageString @ 0x1409C8444
+ * XREFs of PiGetDefaultMessageString @ 0x1409B8860
  * Callers:
- *     PiNormalizeDeviceText @ 0x1409C8004 (PiNormalizeDeviceText.c)
+ *     PiNormalizeDeviceText @ 0x1409B8420 (PiNormalizeDeviceText.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     RtlInitUTF8String @ 0x1404654A0 (RtlInitUTF8String.c)
- *     RtlInitAnsiString @ 0x1404654C0 (RtlInitAnsiString.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     RtlUTF8StringToUnicodeString @ 0x140787330 (RtlUTF8StringToUnicodeString.c)
- *     RtlCreateUnicodeString @ 0x140833010 (RtlCreateUnicodeString.c)
- *     RtlAnsiStringToUnicodeString @ 0x1408ADC70 (RtlAnsiStringToUnicodeString.c)
- *     IopReferenceDriverObjectByName @ 0x1409C711C (IopReferenceDriverObjectByName.c)
- *     IopGetDriverNameFromKeyNode @ 0x1409CA314 (IopGetDriverNameFromKeyNode.c)
- *     RtlFindMessage @ 0x140A02480 (RtlFindMessage.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePool @ 0x140B72CB0 (ExFreePool.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     RtlInitUTF8String @ 0x14045BB80 (RtlInitUTF8String.c)
+ *     RtlInitAnsiString @ 0x14045BBA0 (RtlInitAnsiString.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     RtlUTF8StringToUnicodeString @ 0x140787260 (RtlUTF8StringToUnicodeString.c)
+ *     RtlAnsiStringToUnicodeString @ 0x140903ED0 (RtlAnsiStringToUnicodeString.c)
+ *     IopGetDriverNameFromKeyNode @ 0x1409B6410 (IopGetDriverNameFromKeyNode.c)
+ *     RtlFindMessage @ 0x1409B98E0 (RtlFindMessage.c)
+ *     IopReferenceDriverObjectByName @ 0x1409BA838 (IopReferenceDriverObjectByName.c)
+ *     RtlCreateUnicodeString @ 0x1409D2A00 (RtlCreateUnicodeString.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePool @ 0x140B74850 (ExFreePool.c)
  */
 
-__int64 __fastcall PiGetDefaultMessageString(HANDLE KeyHandle, int a2, _QWORD *a3)
+__int64 __fastcall PiGetDefaultMessageString(HANDLE KeyHandle, ULONG MessageId, _QWORD *a3)
 {
   void *v6; // rsi
-  int DriverNameFromKeyNode; // ebx
-  PVOID v8; // rax
+  NTSTATUS DriverNameFromKeyNode; // ebx
+  __int64 v8; // rax
   wchar_t *Buffer; // rdi
-  __int16 v11; // ax
-  const WCHAR *v12; // rdx
-  int v13; // eax
+  WORD Flags; // ax
+  BYTE *Text; // rdx
+  NTSTATUS v13; // eax
   unsigned __int16 Length; // ax
   size_t v15; // rbx
   _WORD *Pool2; // rax
@@ -34,9 +34,9 @@ __int64 __fastcall PiGetDefaultMessageString(HANDLE KeyHandle, int a2, _QWORD *a
   UNICODE_STRING v18; // [rsp+30h] [rbp-30h] BYREF
   UNICODE_STRING DestinationString; // [rsp+40h] [rbp-20h] BYREF
   STRING SourceString; // [rsp+50h] [rbp-10h] BYREF
-  __int64 v21; // [rsp+A8h] [rbp+48h] BYREF
+  PMESSAGE_RESOURCE_ENTRY MessageEntry; // [rsp+A8h] [rbp+48h] BYREF
 
-  v21 = 0LL;
+  MessageEntry = 0LL;
   SourceString = 0LL;
   DestinationString = 0LL;
   v18 = 0LL;
@@ -47,24 +47,24 @@ __int64 __fastcall PiGetDefaultMessageString(HANDLE KeyHandle, int a2, _QWORD *a
   if ( DriverNameFromKeyNode < 0 )
     goto LABEL_4;
   v8 = IopReferenceDriverObjectByName(&DestinationString);
-  v6 = v8;
+  v6 = (void *)v8;
   if ( !v8 )
   {
     DriverNameFromKeyNode = -1073741823;
     goto LABEL_4;
   }
-  DriverNameFromKeyNode = RtlFindMessage(*((_QWORD *)v8 + 3), 11, 0, a2, (__int64)&v21);
+  DriverNameFromKeyNode = RtlFindMessage(*(PVOID *)(v8 + 24), 0xBu, 0, MessageId, &MessageEntry);
   if ( DriverNameFromKeyNode < 0 )
   {
 LABEL_4:
     Buffer = v18.Buffer;
     goto LABEL_5;
   }
-  v11 = *(_WORD *)(v21 + 2);
-  v12 = (const WCHAR *)(v21 + 4);
-  if ( (v11 & 1) != 0 )
+  Flags = MessageEntry->Flags;
+  Text = MessageEntry->Text;
+  if ( (Flags & 1) != 0 )
   {
-    if ( !RtlCreateUnicodeString(&v18, v12) )
+    if ( !RtlCreateUnicodeString(&v18, (PCWSTR)Text) )
     {
       DriverNameFromKeyNode = -1073741670;
       goto LABEL_4;
@@ -72,15 +72,15 @@ LABEL_4:
   }
   else
   {
-    if ( (v11 & 2) != 0 )
+    if ( (Flags & 2) != 0 )
     {
       SourceString = 0LL;
-      RtlInitUTF8String(&SourceString, (const char *)v12);
-      v13 = RtlUTF8StringToUnicodeString((__int64)&v18, (char **)&SourceString, 1);
+      RtlInitUTF8String(&SourceString, (PCSZ)Text);
+      v13 = RtlUTF8StringToUnicodeString(&v18, &SourceString, 1u);
     }
     else
     {
-      RtlInitAnsiString(&SourceString, (PCSZ)v12);
+      RtlInitAnsiString(&SourceString, (PCSZ)Text);
       v13 = RtlAnsiStringToUnicodeString(&v18, &SourceString, 1u);
     }
     DriverNameFromKeyNode = v13;
@@ -95,7 +95,7 @@ LABEL_4:
     Length -= 4;
   }
   v15 = Length;
-  Pool2 = (_WORD *)ExAllocatePool2(0x100uLL);
+  Pool2 = (_WORD *)ExAllocatePool2(0x100uLL, Length + 2LL, 0x20207050u);
   v17 = Pool2;
   if ( Pool2 )
   {

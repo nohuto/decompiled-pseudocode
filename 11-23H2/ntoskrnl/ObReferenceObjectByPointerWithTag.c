@@ -1,15 +1,15 @@
 /*
- * XREFs of ObReferenceObjectByPointerWithTag @ 0x1402B6840
+ * XREFs of ObReferenceObjectByPointerWithTag @ 0x1402B6AD0
  * Callers:
- *     PoPushPowerStateTransitionRecordWithCallback @ 0x14058F104 (PoPushPowerStateTransitionRecordWithCallback.c)
- *     DifObReferenceObjectByPointerWithTagWrapper @ 0x1405E87C0 (DifObReferenceObjectByPointerWithTagWrapper.c)
- *     DifObReferenceObjectByPointerWrapper @ 0x1405E8910 (DifObReferenceObjectByPointerWrapper.c)
+ *     PoPushPowerStateTransitionRecordWithCallback @ 0x14058F5F4 (PoPushPowerStateTransitionRecordWithCallback.c)
+ *     DifObReferenceObjectByPointerWithTagWrapper @ 0x1405E8D30 (DifObReferenceObjectByPointerWithTagWrapper.c)
+ *     DifObReferenceObjectByPointerWrapper @ 0x1405E8E80 (DifObReferenceObjectByPointerWrapper.c)
  *     IoRegisterPlugPlayNotification @ 0x140687F00 (IoRegisterPlugPlayNotification.c)
- *     ObOpenObjectByPointer @ 0x1407374D0 (ObOpenObjectByPointer.c)
- *     NtOpenProcessTokenEx @ 0x1407376D0 (NtOpenProcessTokenEx.c)
+ *     ObOpenObjectByPointer @ 0x1407376C0 (ObOpenObjectByPointer.c)
+ *     NtOpenProcessTokenEx @ 0x1407378C0 (NtOpenProcessTokenEx.c)
  * Callees:
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     ObpPushStackInfo @ 0x140582BD8 (ObpPushStackInfo.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     ObpPushStackInfo @ 0x1405830C8 (ObpPushStackInfo.c)
  */
 
 NTSTATUS __stdcall ObReferenceObjectByPointerWithTag(

@@ -109,7 +109,7 @@ __int64 __fastcall PiDevCfgConfigureDevice(__int64 a1, __int64 a2, __int64 a3, i
   __int64 v71; // rax
   const WCHAR *v72; // r14
   __int64 v73; // rax
-  PVOID P; // [rsp+20h] [rbp-E0h]
+  PGUID Guid; // [rsp+20h] [rbp-E0h]
   int v75; // [rsp+28h] [rbp-D8h]
   int v76; // [rsp+28h] [rbp-D8h]
   int v77; // [rsp+28h] [rbp-D8h]
@@ -126,7 +126,7 @@ __int64 __fastcall PiDevCfgConfigureDevice(__int64 a1, __int64 a2, __int64 a3, i
   char v88; // [rsp+61h] [rbp-9Fh]
   char v89; // [rsp+62h] [rbp-9Eh] BYREF
   char v90; // [rsp+63h] [rbp-9Dh] BYREF
-  int v91; // [rsp+64h] [rbp-9Ch] BYREF
+  int P; // [rsp+64h] [rbp-9Ch] BYREF
   __int64 v92; // [rsp+68h] [rbp-98h] BYREF
   int v93; // [rsp+70h] [rbp-90h]
   int v94; // [rsp+74h] [rbp-8Ch]
@@ -218,7 +218,7 @@ __int64 __fastcall PiDevCfgConfigureDevice(__int64 a1, __int64 a2, __int64 a3, i
   v88 = 0;
   *(_DWORD *)&v112.Length = 0;
   v112.Buffer = 0LL;
-  v91 = 1024;
+  P = 1024;
   v117.Buffer = (wchar_t *)ExAllocatePoolWithTag(PagedPool, 0x410uLL, 0x63647050u);
   if ( !v117.Buffer )
     goto LABEL_14;
@@ -289,7 +289,7 @@ LABEL_31:
   v18 = *(__int64 **)(a3 + 192);
   v19 = *(_DWORD *)(a3 + 168);
   v93 = *(_DWORD *)(a3 + 368);
-  v91 = v93;
+  P = v93;
   v95 = *(_DWORD *)(a3 + 372);
   v94 = v19;
   if ( v18 != (__int64 *)(a3 + 192) )
@@ -331,7 +331,7 @@ LABEL_31:
               goto LABEL_4;
           }
           v93 |= *((_DWORD *)v18 + 92);
-          v91 = v93;
+          P = v93;
           v95 |= *((_DWORD *)v18 + 93);
           v94 |= *((_DWORD *)v18 + 42);
           DriverConfiguration = PiDevCfgAppendMultiSz(&v123);
@@ -350,7 +350,7 @@ LABEL_31:
           goto LABEL_5;
         DriverConfiguration = 0;
         v93 |= 0x400u;
-        v91 = v93;
+        P = v93;
       }
       v18 = (__int64 *)*v18;
     }
@@ -375,7 +375,7 @@ LABEL_31:
     if ( !PnpBootMode )
       goto LABEL_55;
     v9 = v93 | 0x400;
-    v91 = v93 | 0x400;
+    P = v93 | 0x400;
   }
   memset(v130, 0, 0xA8uLL);
   LODWORD(v130[1]) = 288;
@@ -606,7 +606,7 @@ LABEL_143:
         if ( (int)PiDevCfgMigrateDevice(v33, a2, v41, v39, (__int64)&v104, (__int64)&v105) >= 0 )
         {
           v9 |= v104;
-          v91 = v9;
+          P = v9;
           LODWORD(v92) = v105;
         }
         if ( (*(_DWORD *)a2 & 1) == 0 )
@@ -618,8 +618,8 @@ LABEL_143:
             v33,
             a2,
             v42,
-            (_DWORD)Handle,
-            (unsigned __int64)&Source2 & -(__int64)(v36 != 0));
+            (int)Handle,
+            (PGUID)((unsigned __int64)&Source2 & -(__int64)(v36 != 0)));
           PnpCtxRegDeleteTree(*(_QWORD *)&PiPnpRtlCtx, v10, L"Devices");
         }
         if ( !a3 || PnpIsNullGuid((void *)(a3 + 224)) )
@@ -901,10 +901,10 @@ LABEL_205:
                     goto LABEL_4;
                   v55 = *(unsigned __int16 *)(a3 + 124);
                   v76 = *(unsigned __int16 *)(a3 + 120);
-                  LODWORD(P) = *(unsigned __int16 *)(a3 + 122);
+                  LODWORD(Guid) = *(unsigned __int16 *)(a3 + 122);
                   v56 = (unsigned __int16)HIWORD(*(_DWORD *)(a3 + 124));
                   v117.Length = 0;
-                  DriverConfiguration = RtlUnicodeStringPrintf(&v117, L"%u.%u.%u.%u", v56, v55, P);
+                  DriverConfiguration = RtlUnicodeStringPrintf(&v117, L"%u.%u.%u.%u", v56, v55, Guid);
                   if ( DriverConfiguration < 0 )
                     goto LABEL_4;
                   DriverConfiguration = PiDevCfgSetObjectProperty(
@@ -1242,10 +1242,10 @@ LABEL_205:
                   *v108 = v9;
                   if ( (*(_BYTE *)(a3 + 168) & 8) != 0 && (PiDevCfgFlags & 2) != 0 )
                     *v62 = v9 | 0x400;
-                  DriverConfiguration = PiDevCfgConfigureDeviceDriver(a1, a2, a3, (unsigned int)&v91, (__int64)&v92);
+                  DriverConfiguration = PiDevCfgConfigureDeviceDriver(a1, a2, a3, (unsigned int)&P, (__int64)&v92);
                   if ( DriverConfiguration < 0 )
                     goto LABEL_4;
-                  *v62 |= v91;
+                  *v62 |= P;
                   *v98 |= v92;
                   for ( i = *(__int64 **)(a3 + 192); i != (__int64 *)(a3 + 192); i = (__int64 *)*i )
                   {
@@ -1255,22 +1255,22 @@ LABEL_205:
                                               a1,
                                               a2,
                                               (_DWORD)i,
-                                              (unsigned int)&v91,
+                                              (unsigned int)&P,
                                               (__int64)&v92);
                       if ( DriverConfiguration < 0 )
                         goto LABEL_4;
-                      *v108 |= v91;
+                      *v108 |= P;
                       *v98 |= v92;
                     }
                   }
-                  v64 = PiDevCfgConfigureDeviceLocation(a1, a2, &v91, &v92);
+                  v64 = PiDevCfgConfigureDeviceLocation(a1, a2, &P, &v92);
                   v44 = 0;
                   DriverConfiguration = v64;
                   if ( v64 < 0 )
                     goto LABEL_4;
                   v62 = v108;
                   v65 = v98;
-                  *v108 |= v91;
+                  *v108 |= P;
                   *v65 |= v92;
                 }
                 else
@@ -1295,10 +1295,10 @@ LABEL_272:
                   *v65 |= 1u;
                 if ( KeyHandle )
                 {
-                  DriverConfiguration = PiDevCfgConfigureDeviceKeys(v66, a2, (int)KeyHandle, -1, &v91, (__int64)&v92);
+                  DriverConfiguration = PiDevCfgConfigureDeviceKeys(v66, a2, (int)KeyHandle, -1, &P, (__int64)&v92);
                   if ( DriverConfiguration < 0 )
                     goto LABEL_4;
-                  *v62 |= v91;
+                  *v62 |= P;
                   *v65 |= v92;
                 }
                 if ( a3 )
@@ -1506,7 +1506,7 @@ LABEL_203:
   if ( PnpBootMode )
   {
     v9 |= 0x400u;
-    v91 = v9;
+    P = v9;
     goto LABEL_82;
   }
 LABEL_55:

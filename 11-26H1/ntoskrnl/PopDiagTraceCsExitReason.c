@@ -1,17 +1,17 @@
 /*
- * XREFs of PopDiagTraceCsExitReason @ 0x140B58D58
+ * XREFs of PopDiagTraceCsExitReason @ 0x140B5BB78
  * Callers:
- *     PopCaptureSleepStudyStatistics @ 0x14042AB54 (PopCaptureSleepStudyStatistics.c)
+ *     PopCaptureSleepStudyStatistics @ 0x140421FC8 (PopCaptureSleepStudyStatistics.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     SSHSupportIsPlatformAoAc @ 0x1404C9760 (SSHSupportIsPlatformAoAc.c)
- *     Feature_Servicing_SWDripsDiagnostics__private_IsEnabledDeviceUsageNoInline @ 0x140526BA0 (Feature_Servicing_SWDripsDiagnostics__private_IsEnabledDeviceUsageNoInline.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     SSHSupportIsPlatformAoAc @ 0x1404C3180 (SSHSupportIsPlatformAoAc.c)
+ *     Feature_Servicing_SWDripsDiagnostics__private_IsEnabledDeviceUsageNoInline @ 0x140529210 (Feature_Servicing_SWDripsDiagnostics__private_IsEnabledDeviceUsageNoInline.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 char __fastcall PopDiagTraceCsExitReason(int *a1, __int64 a2)
@@ -316,7 +316,7 @@ char __fastcall PopDiagTraceCsExitReason(int *a1, __int64 a2)
     *(_QWORD *)&Pool2[24].Size = 4LL;
     Pool2[25].Ptr = (ULONGLONG)&v33;
     *(_QWORD *)&Pool2[25].Size = 4LL;
-    Pool2[26].Ptr = (ULONGLONG)&qword_140F0F5D0;
+    Pool2[26].Ptr = (ULONGLONG)&PopWnfCsEnterScenarioId;
     *(_QWORD *)&Pool2[26].Size = 8LL;
     *(_QWORD *)&Pool2[27].Size = 4LL;
     Pool2[27].Ptr = 0xFFFFF780000002C4uLL;
@@ -371,7 +371,7 @@ char __fastcall PopDiagTraceCsExitReason(int *a1, __int64 a2)
     *(_QWORD *)&Pool2[51].Size = 8LL;
     Pool2[52].Ptr = (ULONGLONG)(a1 + 108);
     *(_QWORD *)&Pool2[52].Size = 4LL;
-    v15 = byte_140E67628 == 0;
+    v15 = PopDiagHandleRegistered == 0;
     Pool2[53].Ptr = (ULONGLONG)(a1 + 109);
     *(_QWORD *)&Pool2[53].Size = 4LL;
     Pool2[54].Ptr = (ULONGLONG)(a1 + 110);
@@ -380,29 +380,22 @@ char __fastcall PopDiagTraceCsExitReason(int *a1, __int64 a2)
     *(_QWORD *)&Pool2[55].Size = 4LL;
     if ( !v15 )
     {
-      v16 = EtwEventEnabled(
-              *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-              &POP_ETW_EVENT_CS_EXIT_REASON);
+      v16 = EtwEventEnabled(PopDiagHandle, &POP_ETW_EVENT_CS_EXIT_REASON);
       LOBYTE(v13) = 0;
       if ( v16 )
       {
         if ( SSHSupportIsPlatformAoAc() )
         {
-          EtwWrite(
-            *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-            &POP_ETW_EVENT_CS_EXIT_REASON,
-            0LL,
-            v13 + 56,
-            UserData);
+          EtwWrite(PopDiagHandle, &POP_ETW_EVENT_CS_EXIT_REASON, 0LL, v13 + 56, UserData);
           LOBYTE(v13) = 0;
         }
       }
     }
-    if ( byte_140E6760C != (_BYTE)v13
-      && EtwEventEnabled(qword_140F0F5D8, &SLEEPSTUDY_EVT_SCENARIO_EXIT_REASON)
+    if ( PopDiagSleepStudyHandleRegistered != (_BYTE)v13
+      && EtwEventEnabled(PopDiagSleepStudyHandle, &SLEEPSTUDY_EVT_SCENARIO_EXIT_REASON)
       && SSHSupportIsPlatformAoAc() )
     {
-      EtwWrite(qword_140F0F5D8, &SLEEPSTUDY_EVT_SCENARIO_EXIT_REASON, 0LL, 0x38u, UserData);
+      EtwWrite(PopDiagSleepStudyHandle, &SLEEPSTUDY_EVT_SCENARIO_EXIT_REASON, 0LL, 0x38u, UserData);
     }
     ExFreePoolWithTag(UserData, 0x50455654u);
   }
@@ -413,12 +406,12 @@ char __fastcall PopDiagTraceCsExitReason(int *a1, __int64 a2)
   IsEnabledDeviceUsageNoInline = Feature_Servicing_SWDripsDiagnostics__private_IsEnabledDeviceUsageNoInline();
   if ( IsEnabledDeviceUsageNoInline )
   {
-    if ( (unsigned int)dword_140E07598 > 5 )
+    if ( (unsigned int)dword_140E07560 > 5 )
     {
-      LOBYTE(IsEnabledDeviceUsageNoInline) = tlgKeywordOn((__int64)&dword_140E07598, 0x400000000000LL);
+      LOBYTE(IsEnabledDeviceUsageNoInline) = tlgKeywordOn((__int64)&dword_140E07560, 0x400000000000LL);
       if ( (_BYTE)IsEnabledDeviceUsageNoInline )
       {
-        v89 = qword_140F0F5D0;
+        v89 = PopWnfCsEnterScenarioId;
         v95 = &v89;
         v61 = v23;
         v97 = (__int64 *)&v61;
@@ -541,8 +534,8 @@ char __fastcall PopDiagTraceCsExitReason(int *a1, __int64 a2)
         v174 = 4LL;
         v176 = 1LL;
         LOBYTE(IsEnabledDeviceUsageNoInline) = tlgWriteTransfer_EtwWriteTransfer(
-                                                 (__int64)&dword_140E07598,
-                                                 (unsigned __int8 *)&dword_14004BABC,
+                                                 (__int64)&dword_140E07560,
+                                                 (unsigned __int8 *)byte_14004BEC1,
                                                  0LL,
                                                  0LL,
                                                  0x2Bu,
@@ -550,12 +543,12 @@ char __fastcall PopDiagTraceCsExitReason(int *a1, __int64 a2)
       }
     }
   }
-  else if ( (unsigned int)dword_140E07598 > 5 )
+  else if ( (unsigned int)dword_140E07560 > 5 )
   {
-    LOBYTE(IsEnabledDeviceUsageNoInline) = tlgKeywordOn((__int64)&dword_140E07598, 0x400000000000LL);
+    LOBYTE(IsEnabledDeviceUsageNoInline) = tlgKeywordOn((__int64)&dword_140E07560, 0x400000000000LL);
     if ( (_BYTE)IsEnabledDeviceUsageNoInline )
     {
-      v75 = qword_140F0F5D0;
+      v75 = PopWnfCsEnterScenarioId;
       v95 = &v75;
       LODWORD(v50) = v23;
       v97 = &v50;
@@ -655,8 +648,8 @@ char __fastcall PopDiagTraceCsExitReason(int *a1, __int64 a2)
       v159 = (__int64 *)&v38;
       v160 = 4LL;
       LOBYTE(IsEnabledDeviceUsageNoInline) = tlgWriteTransfer_EtwWriteTransfer(
-                                               (__int64)&dword_140E07598,
-                                               (unsigned __int8 *)&dword_14004BE04,
+                                               (__int64)&dword_140E07560,
+                                               (unsigned __int8 *)byte_14004C209,
                                                0LL,
                                                0LL,
                                                0x23u,

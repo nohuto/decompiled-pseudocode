@@ -1,28 +1,28 @@
 /*
- * XREFs of CmpTransMgrFreeVolatileData @ 0x1403FD614
+ * XREFs of CmpTransMgrFreeVolatileData @ 0x1403FC4D4
  * Callers:
- *     CmpCleanupTransactionState @ 0x1404DA1C8 (CmpCleanupTransactionState.c)
- *     CmpCleanupLightWeightTransaction @ 0x1404E9890 (CmpCleanupLightWeightTransaction.c)
- *     CmRmFinalizeRecovery @ 0x1404EC2F0 (CmRmFinalizeRecovery.c)
- *     CmpRmUnDoPhase @ 0x14060597C (CmpRmUnDoPhase.c)
+ *     CmpCleanupTransactionState @ 0x1404BD7CC (CmpCleanupTransactionState.c)
+ *     CmpCleanupLightWeightTransaction @ 0x1404CB980 (CmpCleanupLightWeightTransaction.c)
+ *     CmRmFinalizeRecovery @ 0x1404CE378 (CmRmFinalizeRecovery.c)
+ *     CmpRmUnDoPhase @ 0x140605A30 (CmpRmUnDoPhase.c)
  * Callees:
- *     CmpDiscardKcb @ 0x14000ADEC (CmpDiscardKcb.c)
- *     CmpRemoveSecurityCellList @ 0x1400AB604 (CmpRemoveSecurityCellList.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
+ *     CmpDiscardKcb @ 0x14000A96C (CmpDiscardKcb.c)
+ *     CmpRemoveSecurityCellList @ 0x1400A9B6C (CmpRemoveSecurityCellList.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     CmpRundownUnitOfWork @ 0x1403FD8BC (CmpRundownUnitOfWork.c)
- *     CmEqualTrans @ 0x1403FD9D0 (CmEqualTrans.c)
- *     CmpLockRegistryExclusive @ 0x1403FD9E8 (CmpLockRegistryExclusive.c)
- *     CmpRebuildKcbCache @ 0x1403FDA60 (CmpRebuildKcbCache.c)
- *     CmpFreeKeyByCell @ 0x1404005C8 (CmpFreeKeyByCell.c)
- *     CmpFreeValue @ 0x140401680 (CmpFreeValue.c)
- *     HvFreeCell @ 0x1404016EC (HvFreeCell.c)
- *     CmpUnlockRegistry @ 0x14040476C (CmpUnlockRegistry.c)
- *     CmpSearchForOpenSubKeys @ 0x14049ACE4 (CmpSearchForOpenSubKeys.c)
- *     CmpMarkKeyUnbacked @ 0x14049FE7C (CmpMarkKeyUnbacked.c)
- *     CmpFlushNotifiesOnKeyBodyList @ 0x14049FEF8 (CmpFlushNotifiesOnKeyBodyList.c)
- *     HvpMarkCellDirty @ 0x1405136F0 (HvpMarkCellDirty.c)
- *     CmpForceInvalidateAllHigherLayerKcbs @ 0x14060BBC0 (CmpForceInvalidateAllHigherLayerKcbs.c)
+ *     CmpSearchForOpenSubKeys @ 0x1403E3C04 (CmpSearchForOpenSubKeys.c)
+ *     CmpRundownUnitOfWork @ 0x1403FC77C (CmpRundownUnitOfWork.c)
+ *     CmEqualTrans @ 0x1403FC890 (CmEqualTrans.c)
+ *     CmpLockRegistryExclusive @ 0x1403FC8A8 (CmpLockRegistryExclusive.c)
+ *     CmpRebuildKcbCache @ 0x1403FC920 (CmpRebuildKcbCache.c)
+ *     CmpFreeKeyByCell @ 0x1403FF488 (CmpFreeKeyByCell.c)
+ *     CmpFreeValue @ 0x140400540 (CmpFreeValue.c)
+ *     HvFreeCell @ 0x1404005AC (HvFreeCell.c)
+ *     CmpUnlockRegistry @ 0x14040362C (CmpUnlockRegistry.c)
+ *     HvpMarkCellDirty @ 0x1404F6AE0 (HvpMarkCellDirty.c)
+ *     CmpMarkKeyUnbacked @ 0x140518288 (CmpMarkKeyUnbacked.c)
+ *     CmpFlushNotifiesOnKeyBodyList @ 0x140518304 (CmpFlushNotifiesOnKeyBodyList.c)
+ *     CmpForceInvalidateAllHigherLayerKcbs @ 0x14060BC74 (CmpForceInvalidateAllHigherLayerKcbs.c)
  */
 
 void __fastcall CmpTransMgrFreeVolatileData(ULONG_PTR BugCheckParameter2, int a2)
@@ -38,7 +38,7 @@ void __fastcall CmpTransMgrFreeVolatileData(ULONG_PTR BugCheckParameter2, int a2
   int v12; // eax
   ULONG_PTR v13; // rbx
   ULONG_PTR v14; // rdx
-  __int64 v15; // r8
+  char v15; // r8
   ULONG_PTR v16; // rdx
   _QWORD v17[2]; // [rsp+30h] [rbp-20h] BYREF
   int v18; // [rsp+40h] [rbp-10h]
@@ -127,7 +127,7 @@ LABEL_16:
         v17[0] = 0LL;
         v17[1] = 0LL;
         v18 = 4;
-        if ( (unsigned int)CmpSearchForOpenSubKeys(v13, 1LL, v15, v17) )
+        if ( (unsigned int)CmpSearchForOpenSubKeys(v13, 1, v15, v17) )
           KeBugCheckEx(0x51u, 0x33uLL, BugCheckParameter2, v13, 0x10100uLL);
         CmpFlushNotifiesOnKeyBodyList(v13, 8LL);
         *(_WORD *)(v13 + 4) |= 0x20u;

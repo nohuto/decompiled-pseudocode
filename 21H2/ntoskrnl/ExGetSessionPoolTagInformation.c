@@ -1,28 +1,29 @@
 /*
- * XREFs of ExGetSessionPoolTagInformation @ 0x1406832BC
+ * XREFs of ExGetSessionPoolTagInformation @ 0x1405E413C
  * Callers:
- *     ExpQuerySystemInformation @ 0x140651070 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x140645E90 (ExpQuerySystemInformation.c)
  * Callees:
- *     MmDetachSession @ 0x140298F40 (MmDetachSession.c)
- *     MmAttachSession @ 0x140298FE0 (MmAttachSession.c)
- *     ExUnlockUserBuffer @ 0x1402997FC (ExUnlockUserBuffer.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     MmGetNextSession @ 0x1402D5F90 (MmGetNextSession.c)
- *     MmGetSessionIdEx @ 0x14034AE60 (MmGetSessionIdEx.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     ExLockUserBuffer @ 0x140683180 (ExLockUserBuffer.c)
- *     ExGetAttachedSessionPoolTagInfo @ 0x1406834A8 (ExGetAttachedSessionPoolTagInfo.c)
+ *     MmDetachSession @ 0x140215920 (MmDetachSession.c)
+ *     MmAttachSession @ 0x1402159C0 (MmAttachSession.c)
+ *     ExUnlockUserBuffer @ 0x1402161DC (ExUnlockUserBuffer.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     MmGetNextSession @ 0x1402872E0 (MmGetNextSession.c)
+ *     MmGetSessionIdEx @ 0x140355BB0 (MmGetSessionIdEx.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     ExGetAttachedSessionPoolTagInfo @ 0x1405E4328 (ExGetAttachedSessionPoolTagInfo.c)
+ *     ExLockUserBuffer @ 0x1405E45FC (ExLockUserBuffer.c)
  */
 
-__int64 __fastcall ExGetSessionPoolTagInformation(unsigned __int64 a1, unsigned int a2, _DWORD *a3, _DWORD *a4)
+__int64 __fastcall ExGetSessionPoolTagInformation(__int64 a1, __int64 a2, _DWORD *a3, _DWORD *a4)
 {
   int AttachedSessionPoolTagInfo; // ebx
   _QWORD *v5; // r14
+  _DWORD *v7; // r12
   unsigned int v8; // esi
   __int64 result; // rax
   unsigned int SessionId; // eax
   int v11; // r12d
-  _KPROCESS *NextSession; // rdi
+  struct _DMA_ADAPTER *NextSession; // rdi
   _QWORD *v13; // r15
   unsigned int v14; // r13d
   unsigned int v15; // [rsp+30h] [rbp-39h] BYREF
@@ -39,12 +40,14 @@ __int64 __fastcall ExGetSessionPoolTagInformation(unsigned __int64 a1, unsigned 
   v5 = 0LL;
   v15 = 0;
   v17 = a4;
+  v7 = a3;
   v19 = a3;
   v8 = a2;
   memset(v20, 0, sizeof(v20));
-  if ( a2 )
+  if ( (_DWORD)a2 )
   {
-    result = ExLockUserBuffer(a1, a2, KeGetCurrentThread()->PreviousMode, IoWriteAccess, &v16, (struct _MDL **)&P);
+    LOBYTE(a3) = KeGetCurrentThread()->PreviousMode;
+    result = ExLockUserBuffer(a1, a2, a3, 1LL, &v16, &P);
     AttachedSessionPoolTagInfo = result;
     if ( (int)result < 0 )
       return result;
@@ -53,13 +56,13 @@ __int64 __fastcall ExGetSessionPoolTagInformation(unsigned __int64 a1, unsigned 
   if ( *a4 != -1 && *a4 == SessionId )
   {
     v5 = v16;
-    AttachedSessionPoolTagInfo = ExGetAttachedSessionPoolTagInfo(v16, v8, a3, SessionId);
+    AttachedSessionPoolTagInfo = ExGetAttachedSessionPoolTagInfo(v16, v8, v7, SessionId);
     if ( AttachedSessionPoolTagInfo >= 0 )
       goto LABEL_15;
     goto LABEL_18;
   }
   v11 = 0;
-  NextSession = (_KPROCESS *)MmGetNextSession(0LL);
+  NextSession = (struct _DMA_ADAPTER *)MmGetNextSession(0LL);
   if ( !NextSession )
     goto LABEL_14;
   v13 = v16;
@@ -68,7 +71,7 @@ __int64 __fastcall ExGetSessionPoolTagInformation(unsigned __int64 a1, unsigned 
     v14 = MmGetSessionIdEx((__int64)NextSession);
     if ( *v17 != -1 && *v17 != v14 )
       goto LABEL_13;
-    AttachedSessionPoolTagInfo = MmAttachSession(NextSession, (__int64)v20);
+    AttachedSessionPoolTagInfo = MmAttachSession((ULONG_PTR)NextSession);
     if ( AttachedSessionPoolTagInfo < 0 )
       goto LABEL_14;
     AttachedSessionPoolTagInfo = ExGetAttachedSessionPoolTagInfo(v13, v8, &v15, v14);
@@ -90,13 +93,13 @@ LABEL_12:
     if ( *v17 != -1 )
       goto LABEL_30;
 LABEL_13:
-    NextSession = (_KPROCESS *)MmGetNextSession((struct _DMA_ADAPTER *)NextSession);
+    NextSession = (struct _DMA_ADAPTER *)MmGetNextSession(NextSession);
     if ( !NextSession )
       goto LABEL_14;
   }
   AttachedSessionPoolTagInfo = -1073741675;
 LABEL_30:
-  HalPutDmaAdapter((PADAPTER_OBJECT)NextSession);
+  HalPutDmaAdapter(NextSession);
 LABEL_14:
   *v19 = v11;
 LABEL_15:

@@ -1,7 +1,7 @@
 /*
- * XREFs of PpmHeteroReevaluateMultiCoreFeatures @ 0x14050B9B8
+ * XREFs of PpmHeteroReevaluateMultiCoreFeatures @ 0x140505428
  * Callers:
- *     PopInitializeHeteroProcessors @ 0x140A9DA10 (PopInitializeHeteroProcessors.c)
+ *     PopInitializeHeteroProcessors @ 0x140B76758 (PopInitializeHeteroProcessors.c)
  * Callees:
  *     <none>
  */

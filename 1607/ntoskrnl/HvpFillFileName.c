@@ -1,10 +1,10 @@
 /*
- * XREFs of HvpFillFileName @ 0x140480230
+ * XREFs of HvpFillFileName @ 0x14047EF84
  * Callers:
- *     HvInitializeHive @ 0x14047FBA4 (HvInitializeHive.c)
+ *     HvInitializeHive @ 0x14047E8F8 (HvInitializeHive.c)
  * Callees:
- *     memmove @ 0x140171280 (memmove.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     memset @ 0x140171AC0 (memset.c)
  */
 
 void *__fastcall HvpFillFileName(__int64 a1, unsigned __int16 *a2)

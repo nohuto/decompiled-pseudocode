@@ -1,20 +1,20 @@
 /*
- * XREFs of WmipDriverEntry @ 0x140A69AA0
+ * XREFs of WmipDriverEntry @ 0x140A6AAA0
  * Callers:
  *     <none>
  * Callees:
- *     RtlInitAnsiString @ 0x1402502B0 (RtlInitAnsiString.c)
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     KeInitializeMutex @ 0x1402ED1A0 (KeInitializeMutex.c)
- *     IoDeleteDevice @ 0x140360D90 (IoDeleteDevice.c)
- *     RtlAnsiStringToUnicodeString @ 0x14062C640 (RtlAnsiStringToUnicodeString.c)
- *     IoCreateDevice @ 0x14071B4E0 (IoCreateDevice.c)
- *     IoWMIRegistrationControl @ 0x140754F30 (IoWMIRegistrationControl.c)
- *     IoCreateSymbolicLink @ 0x14076DC20 (IoCreateSymbolicLink.c)
- *     IoRegisterShutdownNotification @ 0x1407BE1E0 (IoRegisterShutdownNotification.c)
- *     WmipInitializeSecurity @ 0x140A69C2C (WmipInitializeSecurity.c)
- *     WmipInitializeDataStructs @ 0x140A69EBC (WmipInitializeDataStructs.c)
- *     WmipInitializeRegistration @ 0x140A6A038 (WmipInitializeRegistration.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     RtlInitAnsiString @ 0x1402713E0 (RtlInitAnsiString.c)
+ *     KeInitializeMutex @ 0x14029E4F0 (KeInitializeMutex.c)
+ *     IoDeleteDevice @ 0x1402A5DF0 (IoDeleteDevice.c)
+ *     RtlAnsiStringToUnicodeString @ 0x1406637D0 (RtlAnsiStringToUnicodeString.c)
+ *     IoCreateDevice @ 0x1406C9950 (IoCreateDevice.c)
+ *     IoWMIRegistrationControl @ 0x1407550F0 (IoWMIRegistrationControl.c)
+ *     IoCreateSymbolicLink @ 0x14076DDE0 (IoCreateSymbolicLink.c)
+ *     IoRegisterShutdownNotification @ 0x1407BE970 (IoRegisterShutdownNotification.c)
+ *     WmipInitializeSecurity @ 0x140A6AC2C (WmipInitializeSecurity.c)
+ *     WmipInitializeDataStructs @ 0x140A6AEBC (WmipInitializeDataStructs.c)
+ *     WmipInitializeRegistration @ 0x140A6B038 (WmipInitializeRegistration.c)
  */
 
 NTSTATUS __fastcall WmipDriverEntry(PDRIVER_OBJECT DriverObject)

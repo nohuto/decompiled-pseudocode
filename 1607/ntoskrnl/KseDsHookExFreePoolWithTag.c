@@ -1,5 +1,5 @@
 /*
- * XREFs of KseDsHookExFreePoolWithTag @ 0x1401DD410
+ * XREFs of KseDsHookExFreePoolWithTag @ 0x1401DD23C
  * Callers:
  *     <none>
  * Callees:

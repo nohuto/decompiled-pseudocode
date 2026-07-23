@@ -1,9 +1,9 @@
 /*
- * XREFs of _ltow_s @ 0x140151CD0
+ * XREFs of _ltow_s @ 0x140152290
  * Callers:
  *     <none>
  * Callees:
- *     xtow_s @ 0x140151E40 (xtow_s.c)
+ *     xtow_s @ 0x140152400 (xtow_s.c)
  */
 
 errno_t __cdecl ltow_s(int Val, wchar_t *DstBuf, size_t SizeInWords, int Radix)

@@ -1,14 +1,14 @@
 /*
- * XREFs of PpmInitPolicyConfiguration @ 0x140CD2D80
+ * XREFs of PpmInitPolicyConfiguration @ 0x140CD8F20
  * Callers:
- *     PoInitSystem @ 0x140CCE870 (PoInitSystem.c)
+ *     PoInitSystem @ 0x140CD49D0 (PoInitSystem.c)
  * Callees:
- *     PpmReleaseLock @ 0x14037AFBC (PpmReleaseLock.c)
- *     PpmAcquireLock @ 0x140394F80 (PpmAcquireLock.c)
- *     PpmPolicySettingsMaskMerge @ 0x1404D2F88 (PpmPolicySettingsMaskMerge.c)
- *     qsort @ 0x140536F00 (qsort.c)
- *     PpmBeginProfileAccumulation @ 0x14077793C (PpmBeginProfileAccumulation.c)
- *     PpmEnableProfile @ 0x140A9C6CC (PpmEnableProfile.c)
+ *     PpmReleaseLock @ 0x14037CD6C (PpmReleaseLock.c)
+ *     PpmAcquireLock @ 0x140396D00 (PpmAcquireLock.c)
+ *     PpmPolicySettingsMaskMerge @ 0x1404CC7F8 (PpmPolicySettingsMaskMerge.c)
+ *     qsort @ 0x140539380 (qsort.c)
+ *     PpmBeginProfileAccumulation @ 0x14077A7DC (PpmBeginProfileAccumulation.c)
+ *     PpmEnableProfile @ 0x140AD850C (PpmEnableProfile.c)
  */
 
 LONG __fastcall PpmInitPolicyConfiguration(__int64 a1, __int64 a2, unsigned int a3)
@@ -38,8 +38,8 @@ LONG __fastcall PpmInitPolicyConfiguration(__int64 a1, __int64 a2, unsigned int 
   v14[0] = &PpmPolicyClassSpecificQosSettingsMask;
   v15[9] = &PpmPolicyClassAgnosticQosSettingsMask;
   v14[1] = &PpmPolicyClassAgnosticQosSettingsMask;
-  PpmAcquireLock((struct _KTHREAD **)&stru_140F10070.SchedulerAssistLastYieldBoostTime, a2, a3);
-  v3 = (unsigned __int8 *)&unk_140FBEF90;
+  PpmAcquireLock((struct _KTHREAD **)&PpmIdlePolicyLock.ThreadLock, a2, a3);
+  v3 = (unsigned __int8 *)&unk_140FBFF90;
   v4 = 75LL;
   do
   {
@@ -50,37 +50,33 @@ LONG __fastcall PpmInitPolicyConfiguration(__int64 a1, __int64 a2, unsigned int 
     v6 = v5;
     LOBYTE(v5) = v5 & 0x3F;
     v6 >>= 6;
-    qword_140F0B0E0[v6 + 5] |= 1LL << v5;
-    qword_140F0B0E0[v6 + 94] |= 1LL << v5;
+    *((_QWORD *)&PopDirectedDripsDiagLock.SchedulerAssistPriorityFloor + v6) |= 1LL << v5;
+    *((_QWORD *)&PopDirectedDripsDiagLock + v6 + 217) |= 1LL << v5;
     --v4;
   }
   while ( v4 );
   v7 = (_QWORD **)v15;
   do
   {
-    PpmPolicySettingsMaskMerge(
-      (__int64)&PopSleepstudySessionLock.QuantumTarget,
-      (__int64)&PopSleepstudySessionLock.QuantumTarget,
-      *v7);
+    PpmPolicySettingsMaskMerge((__int64)&PpmPolicySettingGlobalMask, (__int64)&PpmPolicySettingGlobalMask, *v7);
     v7 = (_QWORD **)(v8 + 8);
   }
   while ( v9 != 1 );
   v10 = (_QWORD **)v14;
   do
   {
-    PpmPolicySettingsMaskMerge(
-      (__int64)&PopSleepstudySessionLock.Header.WaitListHead.Blink,
-      (__int64)&PopSleepstudySessionLock.Header.WaitListHead.Blink,
-      *v10);
+    PpmPolicySettingsMaskMerge((__int64)&PpmPolicyQosSettingsMask, (__int64)&PpmPolicyQosSettingsMask, *v10);
     v10 = (_QWORD **)(v11 + 8);
   }
   while ( v12 != 1 );
-  dword_140F0B0FC = 2;
-  qword_140F0B0E0[0] = (__int64)PpmInfoDefaultProfileName;
-  xmmword_140F0B0EC = (__int128)GUID_POWER_POLICY_PROFILE_DEFAULT;
-  qword_140F0B6B0 = -1LL;
-  PpmEnableProfile((__int64)qword_140F0B0E0);
-  PpmBeginProfileAccumulation((__int64)qword_140F0B0E0, MEMORY[0xFFFFF78000000008]);
+  HIDWORD(PopDirectedDripsDiagLock.UpdateVpThreadPriorityDpcStackListEntry.Next) = 2;
+  *(_QWORD *)&PopDirectedDripsDiagLock.ReservedPreviousReadyTimeValue = PpmInfoDefaultProfileName;
+  *(GUID *)((char *)&PopDirectedDripsDiagLock.KernelWaitTime + 4) = GUID_POWER_POLICY_PROFILE_DEFAULT;
+  qword_140F0BA70 = -1LL;
+  PpmEnableProfile((__int64)&PopDirectedDripsDiagLock.ReservedPreviousReadyTimeValue);
+  PpmBeginProfileAccumulation(
+    (__int64)&PopDirectedDripsDiagLock.ReservedPreviousReadyTimeValue,
+    MEMORY[0xFFFFF78000000008]);
   qsort(&PpmPolicyConfigTable, 0x4BuLL, 0x28uLL, (int (__cdecl *)(const void *, const void *))PpmInfoConfigComparer);
-  return PpmReleaseLock(&stru_140F10070.SchedulerAssistLastYieldBoostTime);
+  return PpmReleaseLock((__int64 *)&PpmIdlePolicyLock.ThreadLock);
 }

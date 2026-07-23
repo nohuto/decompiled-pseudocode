@@ -9,17 +9,17 @@
 char __fastcall sub_18007A324(__int64 a1)
 {
   char v1; // bl
-  unsigned __int16 v3[12]; // [rsp+20h] [rbp-18h] BYREF
+  _UNICODE_STRING String1; // [rsp+20h] [rbp-18h] BYREF
 
-  *(_OWORD *)v3 = *(_OWORD *)(a1 + 72);
-  v3[0] = xmmword_180165330;
-  if ( *(unsigned __int16 *)(a1 + 72) - (unsigned int)*(unsigned __int16 *)(a1 + 88) <= (unsigned int)(unsigned __int16)xmmword_180165330
+  String1 = *(_UNICODE_STRING *)(a1 + 72);
+  String1.Length = stru_180165330.Length;
+  if ( *(unsigned __int16 *)(a1 + 72) - (unsigned int)*(unsigned __int16 *)(a1 + 88) <= (unsigned int)stru_180165330.Length
                                                                                       + 2 )
     return 0;
-  if ( *(_WORD *)(*(_QWORD *)(a1 + 80) + 2 * ((unsigned __int64)(unsigned __int16)xmmword_180165330 >> 1)) != 92 )
+  if ( *(_WORD *)(*(_QWORD *)(a1 + 80) + 2 * ((unsigned __int64)stru_180165330.Length >> 1)) != 92 )
     return 0;
   v1 = 1;
-  if ( (unsigned int)RtlCompareUnicodeString(v3, (unsigned __int16 *)&xmmword_180165330, 1) )
+  if ( RtlCompareUnicodeString(&String1, &stru_180165330, 1u) )
     return 0;
   return v1;
 }

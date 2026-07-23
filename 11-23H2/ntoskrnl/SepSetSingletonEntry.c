@@ -1,13 +1,13 @@
 /*
- * XREFs of SepSetSingletonEntry @ 0x1403A1FA4
+ * XREFs of SepSetSingletonEntry @ 0x1403A2184
  * Callers:
- *     SeSetSecurityAttributesTokenEx @ 0x1403A1E40 (SeSetSecurityAttributesTokenEx.c)
+ *     SeSetSecurityAttributesTokenEx @ 0x1403A2020 (SeSetSecurityAttributesTokenEx.c)
  * Callees:
- *     AuthzBasepSetSecurityAttributesToken @ 0x140224CF0 (AuthzBasepSetSecurityAttributesToken.c)
- *     SepGetSingletonEntryFromIndexNumber @ 0x140226558 (SepGetSingletonEntryFromIndexNumber.c)
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     AuthzBasepSetSecurityAttributesToken @ 0x140224DF8 (AuthzBasepSetSecurityAttributesToken.c)
+ *     SepGetSingletonEntryFromIndexNumber @ 0x140226668 (SepGetSingletonEntryFromIndexNumber.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 
@@ -42,10 +42,10 @@ __int64 __fastcall SepSetSingletonEntry(unsigned int a1, int *a2, __int64 a3)
       {
         v5 = -1073741801;
         ExReleaseSpinLockExclusiveFromDpcLevel(v7);
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           CurrentIrql = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v8 <= 0xFu )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v8 <= 0xFu )
           {
             v14 = CurrentIrql < 2u;
 LABEL_17:
@@ -77,10 +77,10 @@ LABEL_6:
     v5 = AuthzBasepSetSecurityAttributesToken(*((_QWORD *)v7 + 2), a2, a3);
     *((_DWORD *)SepSingletonGlobal + 4) |= 1u;
     ExReleaseSpinLockExclusiveFromDpcLevel(v7);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v15 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v15 <= 0xFu && (unsigned __int8)v8 <= 0xFu )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v15 <= 0xFu && (unsigned __int8)v8 <= 0xFu )
       {
         v14 = v15 < 2u;
         goto LABEL_17;

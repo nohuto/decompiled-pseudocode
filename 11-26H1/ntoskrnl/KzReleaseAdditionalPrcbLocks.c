@@ -1,8 +1,8 @@
 /*
- * XREFs of KzReleaseAdditionalPrcbLocks @ 0x14022F6B0
+ * XREFs of KzReleaseAdditionalPrcbLocks @ 0x140231040
  * Callers:
- *     KiHandleDeferredPreemption @ 0x14022E730 (KiHandleDeferredPreemption.c)
- *     KiTryAcquireAdditionalPrcbLocks @ 0x1404D4FAC (KiTryAcquireAdditionalPrcbLocks.c)
+ *     KiHandleDeferredPreemption @ 0x1402300C0 (KiHandleDeferredPreemption.c)
+ *     KiTryAcquireAdditionalPrcbLocks @ 0x1404CE81C (KiTryAcquireAdditionalPrcbLocks.c)
  * Callees:
  *     <none>
  */

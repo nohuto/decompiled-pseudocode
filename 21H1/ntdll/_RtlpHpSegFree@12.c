@@ -23,7 +23,7 @@ int __fastcall RtlpHpSegFree(int a1, unsigned int a2, int a3)
   int v9; // eax
   int v10; // eax
   int v12; // [esp+Ch] [ebp-8h]
-  unsigned int v13; // [esp+10h] [ebp-4h] BYREF
+  int v13; // [esp+10h] [ebp-4h] BYREF
 
   v5 = RtlpHpSegDescriptorValidate(a1, a2);
   v6 = v5;
@@ -46,16 +46,16 @@ int __fastcall RtlpHpSegFree(int a1, unsigned int a2, int a3)
     {
       if ( (*(_BYTE *)(v5 + 12) & 0xC) == 8 )
       {
-        v6 = RtlpHpLfhSubsegmentFreeBlock(*(int **)(a1 + 20), v7, a2, a3);
+        v6 = RtlpHpLfhSubsegmentFreeBlock(*(_RTL_SRWLOCK **)(a1 + 20), v7, a2, a3);
       }
       else
       {
-        v6 = RtlpHpVsContextFree(a2, a3, &v13);
+        v6 = RtlpHpVsContextFree(*(PRTL_SRWLOCK *)(a1 + 24), a2, a3, (int)&v13);
         if ( v6 )
         {
           v8 = *(_DWORD *)(a1 + 20);
           if ( v13 <= (unsigned int)*(unsigned __int16 *)(v8 + 32) - 8 )
-            RtlpHpLfhBucketUpdateStats(v8, v13, 0);
+            RtlpHpLfhBucketUpdateStats(v13, v8, a2, 0);
         }
       }
       if ( RtlGetCurrentServiceSessionId() )

@@ -1,13 +1,13 @@
 /*
- * XREFs of CmpIsMasterHive @ 0x1404D93FC
+ * XREFs of CmpIsMasterHive @ 0x1404BCA00
  * Callers:
- *     CmQueryLayeredKey @ 0x1401B3DE4 (CmQueryLayeredKey.c)
- *     CmQueryKey @ 0x14043A810 (CmQueryKey.c)
- *     CmpVEExecuteCreateLogic @ 0x1404D91F4 (CmpVEExecuteCreateLogic.c)
- *     CmKeyBodyRemapToVirtual @ 0x1405FFE48 (CmKeyBodyRemapToVirtual.c)
- *     CmKeyBodyReplicateToVirtual @ 0x140600020 (CmKeyBodyReplicateToVirtual.c)
+ *     CmQueryLayeredKey @ 0x1401B3CC8 (CmQueryLayeredKey.c)
+ *     CmQueryKey @ 0x1404396E0 (CmQueryKey.c)
+ *     CmpVEExecuteCreateLogic @ 0x1404BC7F8 (CmpVEExecuteCreateLogic.c)
+ *     CmKeyBodyRemapToVirtual @ 0x1405FFEFC (CmKeyBodyRemapToVirtual.c)
+ *     CmKeyBodyReplicateToVirtual @ 0x1406000D4 (CmKeyBodyReplicateToVirtual.c)
  * Callees:
- *     CmpIsKeyDeleted @ 0x140405030 (CmpIsKeyDeleted.c)
+ *     CmpIsKeyDeleted @ 0x140403EF0 (CmpIsKeyDeleted.c)
  */
 
 bool __fastcall CmpIsMasterHive(__int64 a1)

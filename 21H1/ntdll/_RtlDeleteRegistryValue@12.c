@@ -9,20 +9,20 @@
  *     _RtlInitUnicodeString@8 @ 0x4B2F5020 (_RtlInitUnicodeString@8.c)
  */
 
-int __stdcall RtlDeleteRegistryValue(int a1, const unsigned __int16 *a2, PCWSTR SourceString)
+NTSTATUS __cdecl RtlDeleteRegistryValue(ULONG RelativeTo, PCWSTR Path, PCWSTR ValueName)
 {
-  int result; // eax
-  int v4; // esi
-  UNICODE_STRING DestinationString; // [esp+0h] [ebp-Ch] BYREF
-  HANDLE Handle; // [esp+8h] [ebp-4h] BYREF
+  NTSTATUS result; // eax
+  NTSTATUS v4; // esi
+  _UNICODE_STRING DestinationString; // [esp+0h] [ebp-Ch] BYREF
+  HANDLE KeyHandle; // [esp+8h] [ebp-4h] BYREF
 
-  result = RtlpGetRegistryHandle(a1, a2, 1, (const unsigned __int16 **)&Handle);
+  result = RtlpGetRegistryHandle(RelativeTo, Path, 1, &KeyHandle);
   if ( result >= 0 )
   {
-    RtlInitUnicodeString(&DestinationString, SourceString);
-    v4 = NtDeleteValueKey((int)Handle, (int)&DestinationString);
-    if ( (a1 & 0x40000000) == 0 )
-      NtClose(Handle);
+    RtlInitUnicodeString(&DestinationString, ValueName);
+    v4 = NtDeleteValueKey(KeyHandle, &DestinationString);
+    if ( (RelativeTo & 0x40000000) == 0 )
+      NtClose(KeyHandle);
     return v4;
   }
   return result;

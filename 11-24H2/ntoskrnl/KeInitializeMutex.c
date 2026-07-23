@@ -1,11 +1,11 @@
 /*
- * XREFs of KeInitializeMutex @ 0x140476AE0
+ * XREFs of KeInitializeMutex @ 0x140473080
  * Callers:
- *     Pdcv2ActivationClientRegister @ 0x14078D95C (Pdcv2ActivationClientRegister.c)
- *     EtwpPreInitializeSiloState @ 0x1407A8DDC (EtwpPreInitializeSiloState.c)
- *     EtwpInitLoggerContext @ 0x1408309D4 (EtwpInitLoggerContext.c)
- *     KeAllocateCalloutStackEx @ 0x140A67B60 (KeAllocateCalloutStackEx.c)
- *     HalpInitGenericErrorSourcePollingRoutine @ 0x140B4E208 (HalpInitGenericErrorSourcePollingRoutine.c)
+ *     Pdcv2ActivationClientRegister @ 0x14078D88C (Pdcv2ActivationClientRegister.c)
+ *     EtwpPreInitializeSiloState @ 0x1407A8F1C (EtwpPreInitializeSiloState.c)
+ *     EtwpInitLoggerContext @ 0x1409CFDB8 (EtwpInitLoggerContext.c)
+ *     KeAllocateCalloutStackEx @ 0x140A61060 (KeAllocateCalloutStackEx.c)
+ *     HalpInitGenericErrorSourcePollingRoutine @ 0x140B50258 (HalpInitGenericErrorSourcePollingRoutine.c)
  * Callees:
  *     <none>
  */

@@ -1,41 +1,41 @@
 /*
- * XREFs of KiTpIsExcludedKernelTracepointLocation @ 0x140976540
+ * XREFs of KiTpIsExcludedKernelTracepointLocation @ 0x140976740
  * Callers:
- *     KiTpIsSupportedKernelTracepointLocation @ 0x140976630 (KiTpIsSupportedKernelTracepointLocation.c)
+ *     KiTpIsSupportedKernelTracepointLocation @ 0x140976830 (KiTpIsSupportedKernelTracepointLocation.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     RtlNumberOfSetBitsInRange @ 0x1405A8D10 (RtlNumberOfSetBitsInRange.c)
- *     KiTpBuildExcludedKernelTracepointBitmap @ 0x140976320 (KiTpBuildExcludedKernelTracepointBitmap.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     RtlNumberOfSetBitsInRange @ 0x1405A9280 (RtlNumberOfSetBitsInRange.c)
+ *     KiTpBuildExcludedKernelTracepointBitmap @ 0x140976520 (KiTpBuildExcludedKernelTracepointBitmap.c)
  */
 
 __int64 __fastcall KiTpIsExcludedKernelTracepointLocation(__int64 a1)
 {
   unsigned int v1; // edi
   struct _KTHREAD *CurrentThread; // rax
-  RTL_BITMAP BitMapHeader; // [rsp+20h] [rbp-18h] BYREF
+  _RTL_BITMAP BitMapHeader; // [rsp+20h] [rbp-18h] BYREF
 
   v1 = 0;
-  if ( !qword_140C411E8 )
+  if ( !KiTpExcludedRangeBitMap.Buffer )
   {
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->KernelApcDisable;
     ExAcquirePushLockExclusiveEx((ULONG_PTR)&KiTpStateLock, 0LL);
-    if ( !qword_140C411E8 )
+    if ( !KiTpExcludedRangeBitMap.Buffer )
       KiTpExcludedRangeBitMap = *KiTpBuildExcludedKernelTracepointBitmap(&BitMapHeader);
     if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&KiTpStateLock, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
       ExfTryToWakePushLock((volatile signed __int64 *)&KiTpStateLock);
     KeAbPostRelease((ULONG_PTR)&KiTpStateLock);
     KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-    if ( !qword_140C411E8 )
+    if ( !KiTpExcludedRangeBitMap.Buffer )
       return 1LL;
   }
-  LOBYTE(v1) = (unsigned int)RtlNumberOfSetBitsInRange(
-                               (__int64)&KiTpExcludedRangeBitMap,
-                               (a1 - PsNtosImageBase) >> 4,
-                               (unsigned int)((a1 - PsNtosImageBase + 16) >> 4)
-                             - (unsigned int)((a1 - PsNtosImageBase) >> 4)) != 0;
+  LOBYTE(v1) = RtlNumberOfSetBitsInRange(
+                 &KiTpExcludedRangeBitMap,
+                 (unsigned __int64)(a1 - (_QWORD)PsNtosImageBase) >> 4,
+                 ((unsigned __int64)(a1 - (_QWORD)PsNtosImageBase + 16) >> 4)
+               - ((unsigned __int64)(a1 - (_QWORD)PsNtosImageBase) >> 4)) != 0;
   return v1;
 }

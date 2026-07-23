@@ -1,14 +1,14 @@
 /*
- * XREFs of PopPowerAggregatorScheduleWorker @ 0x140ABB41C
+ * XREFs of PopPowerAggregatorScheduleWorker @ 0x140ABC8DC
  * Callers:
- *     PopUmpoProcessPowerMessage @ 0x14077595C (PopUmpoProcessPowerMessage.c)
- *     PopPowerAggregatorSessionSwitchWorker @ 0x1407D6EB0 (PopPowerAggregatorSessionSwitchWorker.c)
- *     PopPowerAggregatorHandleIntentUnsafe @ 0x140A3F1C4 (PopPowerAggregatorHandleIntentUnsafe.c)
- *     PopNotifyCsStateExited @ 0x140ABB270 (PopNotifyCsStateExited.c)
- *     PopPowerAggregatorNotifyPdcSleepTransition @ 0x140B41C58 (PopPowerAggregatorNotifyPdcSleepTransition.c)
- *     PopPowerAggregatorNotifyDisplayPoweredOn @ 0x140B462E8 (PopPowerAggregatorNotifyDisplayPoweredOn.c)
+ *     PopPowerAggregatorSessionSwitchWorker @ 0x1407D9FE0 (PopPowerAggregatorSessionSwitchWorker.c)
+ *     PopUmpoProcessPowerMessage @ 0x1407DF428 (PopUmpoProcessPowerMessage.c)
+ *     PopPowerAggregatorHandleIntentUnsafe @ 0x1409FABE4 (PopPowerAggregatorHandleIntentUnsafe.c)
+ *     PopNotifyCsStateExited @ 0x140ABC730 (PopNotifyCsStateExited.c)
+ *     PopPowerAggregatorNotifyPdcSleepTransition @ 0x140B43B48 (PopPowerAggregatorNotifyPdcSleepTransition.c)
+ *     PopPowerAggregatorNotifyDisplayPoweredOn @ 0x140B48318 (PopPowerAggregatorNotifyDisplayPoweredOn.c)
  * Callees:
- *     ExQueueWorkItem @ 0x140381C70 (ExQueueWorkItem.c)
+ *     ExQueueWorkItem @ 0x140383A20 (ExQueueWorkItem.c)
  */
 
 void __fastcall PopPowerAggregatorScheduleWorker(__int64 a1)

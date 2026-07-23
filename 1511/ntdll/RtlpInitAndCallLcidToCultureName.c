@@ -12,12 +12,12 @@
  *     <none>
  */
 
-char __fastcall RtlpInitAndCallLcidToCultureName(__int64 a1, __int64 a2, unsigned int a3)
+BOOLEAN __fastcall RtlpInitAndCallLcidToCultureName(_UNICODE_STRING *a1, unsigned __int16 *a2, LCID a3)
 {
   if ( a1 )
   {
-    *(_QWORD *)(a1 + 8) = a2;
-    *(_DWORD *)a1 = 11141120;
+    a1->Buffer = a2;
+    *(_DWORD *)&a1->Length = 11141120;
   }
   return RtlLCIDToCultureName(a3, a1);
 }

@@ -1,7 +1,7 @@
 /*
- * XREFs of HvViewMapContainsLockedPages @ 0x14071CA30
+ * XREFs of HvViewMapContainsLockedPages @ 0x1406644E8
  * Callers:
- *     CmpRecheckHiveVolumePolicy @ 0x140362080 (CmpRecheckHiveVolumePolicy.c)
+ *     CmpRecheckHiveVolumePolicy @ 0x1402F73C0 (CmpRecheckHiveVolumePolicy.c)
  * Callees:
  *     <none>
  */

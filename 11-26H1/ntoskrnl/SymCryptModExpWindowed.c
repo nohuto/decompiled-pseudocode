@@ -1,21 +1,21 @@
 /*
- * XREFs of SymCryptModExpWindowed @ 0x14057116C
+ * XREFs of SymCryptModExpWindowed @ 0x14057034C
  * Callers:
- *     SymCryptModExpGeneric @ 0x140570FD4 (SymCryptModExpGeneric.c)
+ *     SymCryptModExpGeneric @ 0x1405701B4 (SymCryptModExpGeneric.c)
  * Callees:
- *     MiWriteCloneFlags @ 0x1404B6674 (MiWriteCloneFlags.c)
- *     SymCryptIntBitsizeOfObject @ 0x14055C160 (SymCryptIntBitsizeOfObject.c)
- *     SymCryptIntGetBits @ 0x14055C2BC (SymCryptIntGetBits.c)
- *     SymCryptModElementCopy @ 0x14055C56C (SymCryptModElementCopy.c)
- *     SymCryptModElementCreate @ 0x14055C584 (SymCryptModElementCreate.c)
- *     SymCryptModElementSetValueUint32 @ 0x14055C6C4 (SymCryptModElementSetValueUint32.c)
- *     SymCryptModMul @ 0x14055C82C (SymCryptModMul.c)
- *     SymCryptModSquare @ 0x14055C908 (SymCryptModSquare.c)
- *     SymCryptSizeofModElementFromModulus @ 0x14055C9C0 (SymCryptSizeofModElementFromModulus.c)
- *     SymCryptScsTableInit @ 0x140574EB8 (SymCryptScsTableInit.c)
- *     SymCryptScsTableLoad @ 0x140574EFC (SymCryptScsTableLoad.c)
- *     SymCryptScsTableStore @ 0x1405752F0 (SymCryptScsTableStore.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     MiWriteCloneFlags @ 0x1404AFAC4 (MiWriteCloneFlags.c)
+ *     SymCryptIntBitsizeOfObject @ 0x14055E648 (SymCryptIntBitsizeOfObject.c)
+ *     SymCryptIntGetBits @ 0x14055E7A4 (SymCryptIntGetBits.c)
+ *     SymCryptModElementCopy @ 0x14055EA54 (SymCryptModElementCopy.c)
+ *     SymCryptModElementCreate @ 0x14055EA6C (SymCryptModElementCreate.c)
+ *     SymCryptModElementSetValueUint32 @ 0x14055EBAC (SymCryptModElementSetValueUint32.c)
+ *     SymCryptModMul @ 0x14055ED14 (SymCryptModMul.c)
+ *     SymCryptModSquare @ 0x14055EDF0 (SymCryptModSquare.c)
+ *     SymCryptSizeofModElementFromModulus @ 0x14055EEA8 (SymCryptSizeofModElementFromModulus.c)
+ *     SymCryptScsTableInit @ 0x14057736C (SymCryptScsTableInit.c)
+ *     SymCryptScsTableLoad @ 0x1405773B0 (SymCryptScsTableLoad.c)
+ *     SymCryptScsTableStore @ 0x1405777A4 (SymCryptScsTableStore.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall SymCryptModExpWindowed(
@@ -69,7 +69,7 @@ __int64 __fastcall SymCryptModExpWindowed(
   v12 = 0LL;
   do
   {
-    if ( *((_DWORD *)qword_140026580 + v12) >= v7 )
+    if ( *((_DWORD *)qword_140025E40 + v12) >= v7 )
       break;
     ++v11;
     v12 = (unsigned int)(v12 + 1);

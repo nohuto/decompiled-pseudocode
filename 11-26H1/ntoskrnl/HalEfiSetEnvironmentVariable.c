@@ -1,10 +1,10 @@
 /*
- * XREFs of HalEfiSetEnvironmentVariable @ 0x140471C74
+ * XREFs of HalEfiSetEnvironmentVariable @ 0x14046B3F4
  * Callers:
- *     HalSetEnvironmentVariableEx @ 0x140471AF0 (HalSetEnvironmentVariableEx.c)
+ *     HalSetEnvironmentVariableEx @ 0x14046B270 (HalSetEnvironmentVariableEx.c)
  * Callees:
- *     HalpEfiStartRuntimeCode @ 0x140472300 (HalpEfiStartRuntimeCode.c)
- *     HalpConvertEfiToNtStatus @ 0x140472358 (HalpConvertEfiToNtStatus.c)
+ *     HalpEfiStartRuntimeCode @ 0x14046BA80 (HalpEfiStartRuntimeCode.c)
+ *     HalpConvertEfiToNtStatus @ 0x14046BAD8 (HalpConvertEfiToNtStatus.c)
  */
 
 __int64 __fastcall HalEfiSetEnvironmentVariable(__int64 a1)
@@ -15,16 +15,16 @@ __int64 __fastcall HalEfiSetEnvironmentVariable(__int64 a1)
 
   if ( !HalEfiRuntimeServicesTable || !HalEfiRuntimeServicesTable[5] )
     return 3221225474LL;
-  _InterlockedIncrement((_DWORD *)&HalpDeviceBlockUnblockPushLock.OtherTransferCount + 1);
-  _InterlockedIncrement((volatile signed __int32 *)HalpDeviceBlockUnblockPushLock.TracingPrivate);
-  _InterlockedIncrement((_DWORD *)&HalpDeviceBlockUnblockPushLock.OtherTransferCount + 1);
-  _InterlockedIncrement((volatile signed __int32 *)&HalpDeviceBlockUnblockPushLock.OtherTransferCount);
+  _InterlockedIncrement((_DWORD *)&HalpDeviceBlockUnblockPushLock.WriteOperationCount + 1);
+  _InterlockedIncrement((volatile signed __int32 *)&HalpDeviceBlockUnblockPushLock.ReadTransferCount);
+  _InterlockedIncrement((_DWORD *)&HalpDeviceBlockUnblockPushLock.WriteOperationCount + 1);
+  _InterlockedIncrement((volatile signed __int32 *)&HalpDeviceBlockUnblockPushLock.WriteOperationCount);
   HalpEfiStartRuntimeCode(32LL);
   v4 = ((__int64 (__fastcall *)(__int64, __int64, _QWORD))HalEfiRuntimeServicesTable[5])(a1, v3, v2);
   _InterlockedAnd((volatile signed __int32 *)&KeGetPcr()->HalReserved[8], 0xFFFFFFDF);
-  _InterlockedDecrement((_DWORD *)&HalpDeviceBlockUnblockPushLock.OtherTransferCount + 1);
-  _InterlockedDecrement((volatile signed __int32 *)&HalpDeviceBlockUnblockPushLock.OtherTransferCount);
-  _InterlockedDecrement((_DWORD *)&HalpDeviceBlockUnblockPushLock.OtherTransferCount + 1);
-  _InterlockedDecrement((volatile signed __int32 *)HalpDeviceBlockUnblockPushLock.TracingPrivate);
+  _InterlockedDecrement((_DWORD *)&HalpDeviceBlockUnblockPushLock.WriteOperationCount + 1);
+  _InterlockedDecrement((volatile signed __int32 *)&HalpDeviceBlockUnblockPushLock.WriteOperationCount);
+  _InterlockedDecrement((_DWORD *)&HalpDeviceBlockUnblockPushLock.WriteOperationCount + 1);
+  _InterlockedDecrement((volatile signed __int32 *)&HalpDeviceBlockUnblockPushLock.ReadTransferCount);
   return HalpConvertEfiToNtStatus(v4);
 }

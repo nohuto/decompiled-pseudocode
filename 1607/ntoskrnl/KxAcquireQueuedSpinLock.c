@@ -1,11 +1,11 @@
 /*
- * XREFs of KxAcquireQueuedSpinLock @ 0x1400708F8
+ * XREFs of KxAcquireQueuedSpinLock @ 0x140070478
  * Callers:
- *     KeAcquireQueuedSpinLockAtDpcLevel @ 0x14006E6C0 (KeAcquireQueuedSpinLockAtDpcLevel.c)
- *     MiInsertAndUnlockStandbyPages @ 0x14006FEF0 (MiInsertAndUnlockStandbyPages.c)
- *     CcUninitializeCacheMap @ 0x1400705C0 (CcUninitializeCacheMap.c)
- *     KeAcquireInStackQueuedSpinLockRaiseToSynch @ 0x1401D38D0 (KeAcquireInStackQueuedSpinLockRaiseToSynch.c)
- *     KeAcquireQueuedSpinLockRaiseToSynch @ 0x1401D38F8 (KeAcquireQueuedSpinLockRaiseToSynch.c)
+ *     KeAcquireQueuedSpinLockAtDpcLevel @ 0x14006E240 (KeAcquireQueuedSpinLockAtDpcLevel.c)
+ *     MiInsertAndUnlockStandbyPages @ 0x14006FA70 (MiInsertAndUnlockStandbyPages.c)
+ *     CcUninitializeCacheMap @ 0x140070140 (CcUninitializeCacheMap.c)
+ *     KeAcquireInStackQueuedSpinLockRaiseToSynch @ 0x1401D36FC (KeAcquireInStackQueuedSpinLockRaiseToSynch.c)
+ *     KeAcquireQueuedSpinLockRaiseToSynch @ 0x1401D3724 (KeAcquireQueuedSpinLockRaiseToSynch.c)
  * Callees:
  *     <none>
  */

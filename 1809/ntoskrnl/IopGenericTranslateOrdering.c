@@ -1,9 +1,9 @@
 /*
- * XREFs of IopGenericTranslateOrdering @ 0x140750E30
+ * XREFs of IopGenericTranslateOrdering @ 0x140752020
  * Callers:
  *     <none>
  * Callees:
- *     IopTranslateBusAddress @ 0x140750EBC (IopTranslateBusAddress.c)
+ *     IopTranslateBusAddress @ 0x1407520AC (IopTranslateBusAddress.c)
  */
 
 __int64 __fastcall IopGenericTranslateOrdering(__int64 a1, __int64 a2)

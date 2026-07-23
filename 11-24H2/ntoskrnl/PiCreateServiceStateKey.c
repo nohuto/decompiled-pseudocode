@@ -1,15 +1,15 @@
 /*
- * XREFs of PiCreateServiceStateKey @ 0x1409CB050
+ * XREFs of PiCreateServiceStateKey @ 0x1409B569C
  * Callers:
- *     IoOpenDriverRegistryKey @ 0x1409CA820 (IoOpenDriverRegistryKey.c)
+ *     IoOpenDriverRegistryKey @ 0x1409B5A60 (IoOpenDriverRegistryKey.c)
  * Callees:
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwOpenKey @ 0x1406A6650 (ZwOpenKey.c)
- *     ZwCreateKey @ 0x1406A67B0 (ZwCreateKey.c)
- *     PiCreateServiceKeyUnderPath @ 0x14071F96C (PiCreateServiceKeyUnderPath.c)
- *     PiAuGetServiceStateSecurityObject @ 0x140728090 (PiAuGetServiceStateSecurityObject.c)
- *     PiCreateDriverRedirectedStateKey @ 0x1409CB1EC (PiCreateDriverRedirectedStateKey.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwOpenKey @ 0x1406A75F0 (ZwOpenKey.c)
+ *     ZwCreateKey @ 0x1406A7750 (ZwCreateKey.c)
+ *     PiCreateServiceKeyUnderPath @ 0x14071D4FC (PiCreateServiceKeyUnderPath.c)
+ *     PiAuGetServiceStateSecurityObject @ 0x140725C20 (PiAuGetServiceStateSecurityObject.c)
+ *     PiCreateDriverRedirectedStateKey @ 0x1409B5838 (PiCreateDriverRedirectedStateKey.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiCreateServiceStateKey(

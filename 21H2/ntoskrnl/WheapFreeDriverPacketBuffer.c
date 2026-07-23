@@ -1,44 +1,39 @@
 /*
- * XREFs of WheapFreeDriverPacketBuffer @ 0x1405BC36C
+ * XREFs of WheapFreeDriverPacketBuffer @ 0x1405BC59C
  * Callers:
- *     WheaHwErrorReportAbandonDeviceDriver @ 0x1405BBDE0 (WheaHwErrorReportAbandonDeviceDriver.c)
- *     WheaHwErrorReportSubmitDeviceDriver @ 0x1405BBF80 (WheaHwErrorReportSubmitDeviceDriver.c)
+ *     WheaHwErrorReportAbandonDeviceDriver @ 0x1405BC010 (WheaHwErrorReportAbandonDeviceDriver.c)
+ *     WheaHwErrorReportSubmitDeviceDriver @ 0x1405BC1B0 (WheaHwErrorReportSubmitDeviceDriver.c)
  * Callees:
- *     ExFreeHeapPool @ 0x140341AC0 (ExFreeHeapPool.c)
- *     WheapGetErrorSource @ 0x1405BBACC (WheapGetErrorSource.c)
+ *     ExFreeHeapPool @ 0x14034C810 (ExFreeHeapPool.c)
+ *     WheapGetErrorSource @ 0x1405BBCFC (WheapGetErrorSource.c)
  */
 
 PSLIST_ENTRY __fastcall WheapFreeDriverPacketBuffer(ULONG_PTR BugCheckParameter2)
 {
   __int64 *ErrorSource; // rax
-  __int64 v3; // r8
-  _DWORD *v4; // r9
-  __int64 v5; // rdx
+  unsigned __int64 v3; // rdx
   PSLIST_ENTRY result; // rax
-  __int64 v7; // rdi
-  volatile __int32 *v8; // rcx
-  __int64 v9; // rdx
-  __int64 v10; // r8
-  _DWORD *v11; // r9
+  __int64 v5; // rdi
+  volatile __int32 *v6; // rcx
 
   ErrorSource = WheapGetErrorSource((__int64)&WheapErrorSourceTable, *(_DWORD *)(BugCheckParameter2 + 12));
-  v5 = (__int64)(ErrorSource + 12);
+  v3 = (unsigned __int64)(ErrorSource + 12);
   result = (PSLIST_ENTRY)-(__int64)ErrorSource;
-  v7 = v5 & -(__int64)(result != 0LL);
-  if ( v7 )
+  v5 = v3 & -(__int64)(result != 0LL);
+  if ( v5 )
   {
-    v8 = *(volatile __int32 **)(BugCheckParameter2 + 32);
+    v6 = *(volatile __int32 **)(BugCheckParameter2 + 32);
     *(_DWORD *)BugCheckParameter2 = 0;
     if ( *(_BYTE *)(BugCheckParameter2 + 48) )
     {
-      result = (PSLIST_ENTRY)(unsigned int)_InterlockedExchange(v8, 0);
+      result = (PSLIST_ENTRY)(unsigned int)_InterlockedExchange(v6, 0);
     }
     else
     {
-      ExFreeHeapPool((ULONG_PTR)v8, v5, v3, v4);
-      result = ExFreeHeapPool(BugCheckParameter2, v9, v10, v11);
+      ExFreeHeapPool((ULONG_PTR)v6);
+      result = ExFreeHeapPool(BugCheckParameter2);
     }
-    _InterlockedDecrement((volatile signed __int32 *)(v7 + 152));
+    _InterlockedDecrement((volatile signed __int32 *)(v5 + 152));
   }
   return result;
 }

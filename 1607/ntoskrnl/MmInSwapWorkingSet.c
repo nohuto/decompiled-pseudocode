@@ -1,22 +1,22 @@
 /*
- * XREFs of MmInSwapWorkingSet @ 0x1400B72AC
+ * XREFs of MmInSwapWorkingSet @ 0x1400B5144
  * Callers:
- *     PspChangeProcessExecutionState @ 0x140469960 (PspChangeProcessExecutionState.c)
+ *     PspChangeProcessExecutionState @ 0x140468830 (PspChangeProcessExecutionState.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14002E9A0 (ExReleaseSpinLockExclusive.c)
- *     MiGetSharedVm @ 0x14002EA30 (MiGetSharedVm.c)
- *     ExAcquireSpinLockExclusive @ 0x14002EB90 (ExAcquireSpinLockExclusive.c)
- *     ExQueueWorkItem @ 0x14005FE5C (ExQueueWorkItem.c)
- *     MiPartitionIdToPointer @ 0x1400680A0 (MiPartitionIdToPointer.c)
- *     MiGetWorkingSetSwapSupport @ 0x140075E5C (MiGetWorkingSetSwapSupport.c)
- *     MiProcessWsInSwapSupport @ 0x1400B6F90 (MiProcessWsInSwapSupport.c)
- *     ObfReferenceObjectWithTag @ 0x1400EE4F0 (ObfReferenceObjectWithTag.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     SmStoreSetProcessVaRanges @ 0x1403E34A8 (SmStoreSetProcessVaRanges.c)
- *     MiFreeWorkingSetSwapContext @ 0x1404F16CC (MiFreeWorkingSetSwapContext.c)
- *     MiInSwapStore @ 0x1404F17D0 (MiInSwapStore.c)
- *     MiContractWsSwapPageFile @ 0x1404F1C0C (MiContractWsSwapPageFile.c)
- *     EtwTraceWorkingSetSwap @ 0x1404F271C (EtwTraceWorkingSetSwap.c)
+ *     ExReleaseSpinLockExclusive @ 0x14002E520 (ExReleaseSpinLockExclusive.c)
+ *     MiGetSharedVm @ 0x14002E5B0 (MiGetSharedVm.c)
+ *     ExAcquireSpinLockExclusive @ 0x14002E710 (ExAcquireSpinLockExclusive.c)
+ *     ExQueueWorkItem @ 0x14005F9DC (ExQueueWorkItem.c)
+ *     MiPartitionIdToPointer @ 0x140067C20 (MiPartitionIdToPointer.c)
+ *     MiGetWorkingSetSwapSupport @ 0x140075EDC (MiGetWorkingSetSwapSupport.c)
+ *     MiProcessWsInSwapSupport @ 0x1400B4DB8 (MiProcessWsInSwapSupport.c)
+ *     ObfReferenceObjectWithTag @ 0x1400EC370 (ObfReferenceObjectWithTag.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     SmStoreSetProcessVaRanges @ 0x1403E4AD4 (SmStoreSetProcessVaRanges.c)
+ *     MiFreeWorkingSetSwapContext @ 0x1404D37C0 (MiFreeWorkingSetSwapContext.c)
+ *     MiInSwapStore @ 0x1404D38C4 (MiInSwapStore.c)
+ *     MiContractWsSwapPageFile @ 0x1404D43A0 (MiContractWsSwapPageFile.c)
+ *     EtwTraceWorkingSetSwap @ 0x1404D56A8 (EtwTraceWorkingSetSwap.c)
  */
 
 __int64 __fastcall MmInSwapWorkingSet(char *Object)

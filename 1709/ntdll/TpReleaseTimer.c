@@ -13,35 +13,27 @@
  *     _guard_dispatch_icall_nop @ 0x1800A3A60 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 __fastcall TpReleaseTimer(__int64 a1)
+void __cdecl TpReleaseTimer(PTP_TIMER Timer)
 {
   int v2; // edi
-  __int64 result; // rax
-  __int64 (__fastcall *v4)(__int64); // rax
+  LOGICAL (__fastcall *v3)(void *); // rax
   _UNKNOWN *retaddr; // [rsp+28h] [rbp+0h]
 
   v2 = 1;
-  result = TppTimerpValidateTimer(a1, 1LL);
-  if ( (_DWORD)result )
+  if ( (unsigned int)TppTimerpValidateTimer(Timer, 1LL) && (unsigned int)TppCleanupGroupMemberRelease(Timer, 1LL) )
   {
-    result = TppCleanupGroupMemberRelease(a1, 1LL);
-    if ( (_DWORD)result )
+    *((_QWORD *)Timer + 23) = retaddr;
+    RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)Timer + 30);
+    ++*((_BYTE *)Timer + 355);
+    if ( (unsigned __int8)TppCancelTimer(Timer, *((_QWORD *)Timer + 18) + 112LL, 0LL) )
+      v2 = 2;
+    if ( _InterlockedExchangeAdd((volatile signed __int32 *)Timer, -v2) == v2 )
     {
-      *(_QWORD *)(a1 + 184) = retaddr;
-      RtlAcquireSRWLockExclusive(a1 + 240);
-      ++*(_BYTE *)(a1 + 355);
-      if ( (unsigned __int8)TppCancelTimer(a1, *(_QWORD *)(a1 + 144) + 112LL, 0LL) )
-        v2 = 2;
-      result = (unsigned int)_InterlockedExchangeAdd((volatile signed __int32 *)a1, -v2);
-      if ( (_DWORD)result == v2 )
-      {
-        v4 = **(__int64 (__fastcall ***)(__int64))(a1 + 8);
-        if ( v4 == TppTimerpFree )
-          return TppTimerpFree(a1);
-        else
-          return v4(a1);
-      }
+      v3 = (LOGICAL (__fastcall *)(void *))**((_QWORD **)Timer + 1);
+      if ( v3 == TppTimerpFree )
+        TppTimerpFree(Timer);
+      else
+        v3(Timer);
     }
   }
-  return result;
 }

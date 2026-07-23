@@ -1,11 +1,11 @@
 /*
- * XREFs of VslRelaxQuotas @ 0x140818CF0
+ * XREFs of VslRelaxQuotas @ 0x140819EF0
  * Callers:
- *     NtSetSystemInformation @ 0x140663DF0 (NtSetSystemInformation.c)
+ *     NtSetSystemInformation @ 0x140664FB0 (NtSetSystemInformation.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140129CB0 (VslpEnterIumSecureMode.c)
- *     HvlQueryVsmConnection @ 0x14012A014 (HvlQueryVsmConnection.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     VslpEnterIumSecureMode @ 0x140129D80 (VslpEnterIumSecureMode.c)
+ *     HvlQueryVsmConnection @ 0x14012A0E4 (HvlQueryVsmConnection.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 NTSTATUS VslRelaxQuotas()

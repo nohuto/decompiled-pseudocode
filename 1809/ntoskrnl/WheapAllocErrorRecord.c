@@ -1,13 +1,13 @@
 /*
- * XREFs of WheapAllocErrorRecord @ 0x140320088
+ * XREFs of WheapAllocErrorRecord @ 0x140320278
  * Callers:
- *     WheapReportBootError @ 0x14031FAEC (WheapReportBootError.c)
- *     WheaReportHwError @ 0x14031FD20 (WheaReportHwError.c)
+ *     WheapReportBootError @ 0x14031FCDC (WheapReportBootError.c)
+ *     WheaReportHwError @ 0x14031FF10 (WheaReportHwError.c)
  * Callees:
- *     WheapInitializeErrorRecordWrapper @ 0x14017D254 (WheapInitializeErrorRecordWrapper.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     WheapGetPreallocatedErrorRecord @ 0x140320484 (WheapGetPreallocatedErrorRecord.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
+ *     WheapInitializeErrorRecordWrapper @ 0x14017D394 (WheapInitializeErrorRecordWrapper.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     WheapGetPreallocatedErrorRecord @ 0x140320674 (WheapGetPreallocatedErrorRecord.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall WheapAllocErrorRecord(__int64 a1, unsigned int *a2)

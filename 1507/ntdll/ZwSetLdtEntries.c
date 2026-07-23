@@ -6,11 +6,17 @@
  *     <none>
  */
 
-__int64 ZwSetLdtEntries()
+NTSTATUS __cdecl ZwSetLdtEntries(
+        ULONG Selector0,
+        ULONG Entry0Low,
+        ULONG Entry0Hi,
+        ULONG Selector1,
+        ULONG Entry1Low,
+        ULONG Entry1Hi)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 391LL;
+  result = 391;
   __asm { syscall; Low latency system call }
   return result;
 }

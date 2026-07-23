@@ -1,13 +1,13 @@
 /*
- * XREFs of IoGetIoRateControl @ 0x14028A420
+ * XREFs of IoGetIoRateControl @ 0x1402075C0
  * Callers:
  *     <none>
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x14027C4F0 (ExReleaseRundownProtection_0.c)
- *     IoDiskIoAttributionQuery @ 0x14028A33C (IoDiskIoAttributionQuery.c)
- *     IopAcquireReferencesFromIoAttributionHandle @ 0x14028A5C4 (IopAcquireReferencesFromIoAttributionHandle.c)
- *     IoDiskIoAttributionDereference @ 0x14028A7B4 (IoDiskIoAttributionDereference.c)
- *     PsIoRateControlReference @ 0x14028A9C8 (PsIoRateControlReference.c)
+ *     IoDiskIoAttributionQuery @ 0x1402074DC (IoDiskIoAttributionQuery.c)
+ *     IopAcquireReferencesFromIoAttributionHandle @ 0x140207764 (IopAcquireReferencesFromIoAttributionHandle.c)
+ *     IoDiskIoAttributionDereference @ 0x140207954 (IoDiskIoAttributionDereference.c)
+ *     PsIoRateControlReference @ 0x140207B68 (PsIoRateControlReference.c)
+ *     ExReleaseRundownProtection @ 0x14026A490 (ExReleaseRundownProtection.c)
  */
 
 __int64 __fastcall IoGetIoRateControl(
@@ -100,7 +100,7 @@ LABEL_12:
 LABEL_13:
   if ( v16 )
   {
-    ExReleaseRundownProtection_0(v16 + 21);
+    ExReleaseRundownProtection(v16 + 21);
     IoDiskIoAttributionDereference(v16);
   }
   return v10;

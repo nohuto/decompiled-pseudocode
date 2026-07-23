@@ -1,11 +1,11 @@
 /*
- * XREFs of PopMeasureEnergyChange @ 0x140B21570
+ * XREFs of PopMeasureEnergyChange @ 0x140B23970
  * Callers:
- *     PopCalculateCsSummary @ 0x14042A4C8 (PopCalculateCsSummary.c)
- *     PopTransitionTelemetryOsState @ 0x140B20D08 (PopTransitionTelemetryOsState.c)
+ *     PopCalculateCsSummary @ 0x140422F4C (PopCalculateCsSummary.c)
+ *     PopTransitionTelemetryOsState @ 0x140B23108 (PopTransitionTelemetryOsState.c)
  * Callees:
- *     PopAcquireRwLockShared @ 0x140436298 (PopAcquireRwLockShared.c)
- *     PopReleaseRwLock @ 0x14043630C (PopReleaseRwLock.c)
+ *     PopReleaseRwLock @ 0x14021B1A8 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockShared @ 0x140424A28 (PopAcquireRwLockShared.c)
  */
 
 unsigned __int64 __fastcall PopMeasureEnergyChange(__int64 a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
@@ -13,9 +13,9 @@ unsigned __int64 __fastcall PopMeasureEnergyChange(__int64 a1, __int64 a2, __int
   __m128i v6; // xmm6
   unsigned __int64 result; // rax
 
-  PopAcquireRwLockShared((volatile signed __int64 *)&stru_140F10070.Header.Lock, a2, a3, a4);
-  v6 = *(__m128i *)(&stru_140F10070.MiscFlags + 1);
-  PopReleaseRwLock(&stru_140F10070);
+  PopAcquireRwLockShared((volatile signed __int64 *)&xmmword_140F10830, a2, a3, a4);
+  v6 = (__m128i)xmmword_140F108A8;
+  PopReleaseRwLock((struct _KTHREAD *)&xmmword_140F10830);
   result = 0LL;
   if ( *(_QWORD *)(a2 + 8) )
   {

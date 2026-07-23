@@ -1,17 +1,17 @@
 /*
- * XREFs of PpmInstallCoordinatedIdleStates @ 0x140981DD0
+ * XREFs of PpmInstallCoordinatedIdleStates @ 0x140981FD0
  * Callers:
  *     <none>
  * Callees:
- *     KiCopyAffinityEx @ 0x1402545C0 (KiCopyAffinityEx.c)
- *     KeGetPrcb @ 0x140257330 (KeGetPrcb.c)
- *     PopReleaseRwLock @ 0x14032C480 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x14032C5E4 (PopAcquireRwLockExclusive.c)
- *     memset @ 0x140435A00 (memset.c)
- *     PpmCheckCoordinatedStateInitiator @ 0x140583F20 (PpmCheckCoordinatedStateInitiator.c)
- *     PpmResetPlatformIdleAccounting @ 0x140585AF8 (PpmResetPlatformIdleAccounting.c)
- *     PpmEnableCoordinatedIdleStates @ 0x140981B2C (PpmEnableCoordinatedIdleStates.c)
- *     PpmIdleUpdateCoordinatedDependencies @ 0x14099DB24 (PpmIdleUpdateCoordinatedDependencies.c)
+ *     KiCopyAffinityEx @ 0x140254680 (KiCopyAffinityEx.c)
+ *     KeGetPrcb @ 0x1402573F0 (KeGetPrcb.c)
+ *     PopReleaseRwLock @ 0x14032C710 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14032C874 (PopAcquireRwLockExclusive.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     PpmCheckCoordinatedStateInitiator @ 0x140584410 (PpmCheckCoordinatedStateInitiator.c)
+ *     PpmResetPlatformIdleAccounting @ 0x140585FE8 (PpmResetPlatformIdleAccounting.c)
+ *     PpmEnableCoordinatedIdleStates @ 0x140981D2C (PpmEnableCoordinatedIdleStates.c)
+ *     PpmIdleUpdateCoordinatedDependencies @ 0x14099DD24 (PpmIdleUpdateCoordinatedDependencies.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

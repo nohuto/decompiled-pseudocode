@@ -1,16 +1,16 @@
 /*
- * XREFs of AlpcpSignalPortAndUnlock @ 0x1404D0C84
+ * XREFs of AlpcpSignalPortAndUnlock @ 0x1404B4724
  * Callers:
- *     AlpcpCancelMessage @ 0x140408B94 (AlpcpCancelMessage.c)
- *     AlpcpDisconnectPort @ 0x140409FEC (AlpcpDisconnectPort.c)
+ *     AlpcpCancelMessage @ 0x140407A54 (AlpcpCancelMessage.c)
+ *     AlpcpDisconnectPort @ 0x140408EAC (AlpcpDisconnectPort.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     AlpcpQueueIoCompletionPort @ 0x1400A5470 (AlpcpQueueIoCompletionPort.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfReleasePushLockShared @ 0x1400C8640 (ExfReleasePushLockShared.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
- *     KeReleaseSemaphoreEx @ 0x1400CF090 (KeReleaseSemaphoreEx.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     AlpcpQueueIoCompletionPort @ 0x1400A39E8 (AlpcpQueueIoCompletionPort.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfReleasePushLockShared @ 0x1400C64E0 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
+ *     KeReleaseSemaphoreEx @ 0x1400CCF30 (KeReleaseSemaphoreEx.c)
  */
 
 void __fastcall AlpcpSignalPortAndUnlock(__int64 a1)

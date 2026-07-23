@@ -1,13 +1,13 @@
 /*
- * XREFs of PopFxConvertV1Components @ 0x140ABCCB0
+ * XREFs of PopFxConvertV1Components @ 0x140AB7D1C
  * Callers:
- *     PoFxRegisterCoreDevice @ 0x14074D5D0 (PoFxRegisterCoreDevice.c)
- *     PoFxRegisterDevice @ 0x14074D710 (PoFxRegisterDevice.c)
- *     PoFxRegisterPrimaryDevice @ 0x14074D9F0 (PoFxRegisterPrimaryDevice.c)
+ *     PoFxRegisterCoreDevice @ 0x14074B900 (PoFxRegisterCoreDevice.c)
+ *     PoFxRegisterDevice @ 0x14074BA40 (PoFxRegisterDevice.c)
+ *     PoFxRegisterPrimaryDevice @ 0x14074BD20 (PoFxRegisterPrimaryDevice.c)
  * Callees:
- *     RtlULongLongMult @ 0x140437830 (RtlULongLongMult.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlULongLongMult @ 0x14042A2B0 (RtlULongLongMult.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 char *__fastcall PopFxConvertV1Components(__int64 a1, unsigned int a2)
@@ -51,7 +51,7 @@ char *__fastcall PopFxConvertV1Components(__int64 a1, unsigned int a2)
         v11 = v9 + (unsigned int)v10;
         if ( v11 >= (unsigned int)v10 )
         {
-          Pool2 = (char *)ExAllocatePool2(0x40uLL);
+          Pool2 = (char *)ExAllocatePool2(0x40uLL, v9 + (unsigned int)v10, 0x4D584650u);
           if ( Pool2 )
           {
             v13 = &Pool2[v9];

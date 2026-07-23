@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlDecompressBufferXpressHuff @ 0x1403BE580
+ * XREFs of RtlDecompressBufferXpressHuff @ 0x1403C8480
  * Callers:
  *     <none>
  * Callees:
- *     XpressBuildHuffmanDecodingTable @ 0x1403BEB30 (XpressBuildHuffmanDecodingTable.c)
+ *     XpressBuildHuffmanDecodingTable @ 0x1403C8A30 (XpressBuildHuffmanDecodingTable.c)
  */
 
 __int64 __fastcall RtlDecompressBufferXpressHuff(

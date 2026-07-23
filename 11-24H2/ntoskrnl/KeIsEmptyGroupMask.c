@@ -1,20 +1,20 @@
 /*
- * XREFs of KeIsEmptyGroupMask @ 0x140208940
+ * XREFs of KeIsEmptyGroupMask @ 0x14032FF20
  * Callers:
- *     PoCopyDeepIdleMask @ 0x140205068 (PoCopyDeepIdleMask.c)
- *     KeEnumerateNextSchedulerSubNodeInNode @ 0x1402088E0 (KeEnumerateNextSchedulerSubNodeInNode.c)
- *     KeGetNodePrimarySubNode @ 0x1403A86B4 (KeGetNodePrimarySubNode.c)
- *     PpmEventTraceHeteroSets @ 0x140439268 (PpmEventTraceHeteroSets.c)
- *     PpmGetIdleConstrainedMask @ 0x1404B2AEC (PpmGetIdleConstrainedMask.c)
- *     KiChooseTargetProcessor @ 0x1404E7710 (KiChooseTargetProcessor.c)
- *     KeQueryActiveNodeCount @ 0x1405BA964 (KeQueryActiveNodeCount.c)
- *     PspBuildCreateProcessContext @ 0x1408A2E70 (PspBuildCreateProcessContext.c)
- *     NtQueryInformationProcess @ 0x1409AB830 (NtQueryInformationProcess.c)
- *     PspReadIFEONodeOptions @ 0x140A22D58 (PspReadIFEONodeOptions.c)
- *     KeInitializeProcess @ 0x140A4EB18 (KeInitializeProcess.c)
- *     PspSelectNodeForProcess @ 0x140A74410 (PspSelectNodeForProcess.c)
- *     KiConfigureProcessorBlock @ 0x140B55FA8 (KiConfigureProcessorBlock.c)
- *     KiComputeNumaCosts @ 0x140C278AC (KiComputeNumaCosts.c)
+ *     KeGetNodePrimarySubNode @ 0x14026FD94 (KeGetNodePrimarySubNode.c)
+ *     PoCopyDeepIdleMask @ 0x14032C648 (PoCopyDeepIdleMask.c)
+ *     KeEnumerateNextSchedulerSubNodeInNode @ 0x14032FEC0 (KeEnumerateNextSchedulerSubNodeInNode.c)
+ *     PpmEventTraceHeteroSets @ 0x14042BE28 (PpmEventTraceHeteroSets.c)
+ *     PpmGetIdleConstrainedMask @ 0x1404AD2F4 (PpmGetIdleConstrainedMask.c)
+ *     KiChooseTargetProcessor @ 0x1404DE410 (KiChooseTargetProcessor.c)
+ *     KeQueryActiveNodeCount @ 0x1405B7F94 (KeQueryActiveNodeCount.c)
+ *     PspBuildCreateProcessContext @ 0x1408F9210 (PspBuildCreateProcessContext.c)
+ *     NtQueryInformationProcess @ 0x140995530 (NtQueryInformationProcess.c)
+ *     PspReadIFEONodeOptions @ 0x140A17168 (PspReadIFEONodeOptions.c)
+ *     KeInitializeProcess @ 0x140A45798 (KeInitializeProcess.c)
+ *     PspSelectNodeForProcess @ 0x140A6DD70 (PspSelectNodeForProcess.c)
+ *     KiConfigureProcessorBlock @ 0x140B57FF8 (KiConfigureProcessorBlock.c)
+ *     KiComputeNumaCosts @ 0x140C29888 (KiComputeNumaCosts.c)
  * Callees:
  *     <none>
  */

@@ -1,15 +1,15 @@
 /*
- * XREFs of ViIovInitialization @ 0x140ADC388
+ * XREFs of ViIovInitialization @ 0x140ADC378
  * Callers:
- *     VfIovPluginEntry @ 0x1405D1C30 (VfIovPluginEntry.c)
+ *     VfIovPluginEntry @ 0x1405D21A0 (VfIovPluginEntry.c)
  * Callees:
- *     ExInitializeNPagedLookasideListInternal @ 0x1403C32D0 (ExInitializeNPagedLookasideListInternal.c)
- *     VfAvlInitializeTree @ 0x1405D1C10 (VfAvlInitializeTree.c)
- *     ExSetPoolFlags @ 0x140607A98 (ExSetPoolFlags.c)
+ *     ExInitializeNPagedLookasideListInternal @ 0x1403C34B0 (ExInitializeNPagedLookasideListInternal.c)
+ *     VfAvlInitializeTree @ 0x1405D2180 (VfAvlInitializeTree.c)
+ *     ExSetPoolFlags @ 0x140607FE8 (ExSetPoolFlags.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
- *     IoVerifierInit @ 0x140AC0CAC (IoVerifierInit.c)
- *     VfMajorRegisterHandlers @ 0x140AD3104 (VfMajorRegisterHandlers.c)
- *     VfWdInit @ 0x140ADE0E8 (VfWdInit.c)
+ *     IoVerifierInit @ 0x140AC0C9C (IoVerifierInit.c)
+ *     VfMajorRegisterHandlers @ 0x140AD30F4 (VfMajorRegisterHandlers.c)
+ *     VfWdInit @ 0x140ADE0D8 (VfWdInit.c)
  */
 
 void ViIovInitialization()
@@ -137,14 +137,22 @@ void ViIovInitialization()
     (__int64)ViGenericBuildIrpLogEntry);
   if ( !ViRemLockInitialized )
   {
-    if ( (int)VfAvlInitializeTree(&ViRemLockAvl, 32LL, 136LL, (RTL_AVL_FREE_ROUTINE *)ViRemLockDelayFreeAvlNode) < 0 )
+    if ( (int)VfAvlInitializeTree(
+                &ViRemLockAvl,
+                32LL,
+                136LL,
+                (void (__cdecl *)(_RTL_AVL_TABLE *, PVOID))ViRemLockDelayFreeAvlNode) < 0 )
       _InterlockedExchange(&ViRemLockAllocationFailures, 1);
     else
       _InterlockedExchange(&ViRemLockInitialized, 1);
   }
   if ( !ViDevObjInitialized )
   {
-    if ( (int)VfAvlInitializeTree(ViDevObjAvl, 336LL, 24LL, (RTL_AVL_FREE_ROUTINE *)ViRemLockDelayFreeAvlNode) < 0 )
+    if ( (int)VfAvlInitializeTree(
+                ViDevObjAvl,
+                336LL,
+                24LL,
+                (void (__cdecl *)(_RTL_AVL_TABLE *, PVOID))ViRemLockDelayFreeAvlNode) < 0 )
       _InterlockedExchange(&ViDevObjAllocationFailures, 1);
     else
       _InterlockedExchange(&ViDevObjInitialized, 1);

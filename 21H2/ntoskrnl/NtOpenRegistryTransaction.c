@@ -1,61 +1,77 @@
 /*
- * XREFs of NtOpenRegistryTransaction @ 0x140868580
+ * XREFs of NtOpenRegistryTransaction @ 0x1408686E0
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     ExReleaseRundownProtection_0 @ 0x14027C4F0 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection_0 @ 0x14027C9B0 (ExAcquireRundownProtection_0.c)
- *     ObOpenObjectByName @ 0x140655C50 (ObOpenObjectByName.c)
- *     NtClose @ 0x1406F0980 (NtClose.c)
+ *     ExReleaseRundownProtection @ 0x14026A490 (ExReleaseRundownProtection.c)
+ *     ExAcquireRundownProtection @ 0x14026A950 (ExAcquireRundownProtection.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ObOpenObjectByName @ 0x14064AA70 (ObOpenObjectByName.c)
+ *     NtClose @ 0x140707D60 (NtClose.c)
  */
 
-__int64 __fastcall NtOpenRegistryTransaction(HANDLE *a1, int a2, __int64 a3)
+NTSTATUS __cdecl NtOpenRegistryTransaction(
+        HANDLE *RegistryTransactionHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjAttributes)
 {
   struct _KTHREAD *CurrentThread; // rax
-  BOOLEAN v7; // di
-  int v8; // ebx
+  __int64 v7; // rdx
+  BOOLEAN v8; // di
+  __int64 v9; // r8
+  __int64 v10; // r9
+  NTSTATUS v11; // ebx
   char PreviousMode; // r14
-  __int64 v10; // rax
+  __int64 v13; // rax
+  __int64 v14; // rdx
+  __int64 v15; // r8
+  __int64 v16; // r9
   HANDLE Handle[5]; // [rsp+40h] [rbp-28h] BYREF
 
   Handle[0] = 0LL;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  v7 = ExAcquireRundownProtection_0((PEX_RUNDOWN_REF)&CmpShutdownRundown);
-  if ( v7 )
+  v8 = ExAcquireRundownProtection((PEX_RUNDOWN_REF)&CmpShutdownRundown);
+  if ( v8 )
   {
     PreviousMode = KeGetCurrentThread()->PreviousMode;
     if ( PreviousMode == 1 )
     {
-      v10 = 0x7FFFFFFF0000LL;
-      if ( (unsigned __int64)a1 < 0x7FFFFFFF0000LL )
-        v10 = (__int64)a1;
-      *(_QWORD *)v10 = 0LL;
+      v13 = 0x7FFFFFFF0000LL;
+      if ( (unsigned __int64)RegistryTransactionHandle < 0x7FFFFFFF0000LL )
+        v13 = (__int64)RegistryTransactionHandle;
+      *(_QWORD *)v13 = 0LL;
     }
     else
     {
-      *a1 = 0LL;
+      *RegistryTransactionHandle = 0LL;
     }
-    v8 = ObOpenObjectByName(a3, (__int64)CmRegistryTransactionType, PreviousMode, 0LL, a2, 0LL, (__int64)Handle);
-    if ( v8 >= 0 )
+    v11 = ObOpenObjectByName(
+            (__int64)ObjAttributes,
+            (__int64)CmRegistryTransactionType,
+            PreviousMode,
+            0LL,
+            DesiredAccess,
+            0LL,
+            (__int64)Handle);
+    if ( v11 >= 0 )
     {
-      *a1 = Handle[0];
+      *RegistryTransactionHandle = Handle[0];
       Handle[0] = 0LL;
-      v8 = 0;
+      v11 = 0;
     }
   }
   else
   {
-    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-    v8 = -1073741431;
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v7, v9, v10);
+    v11 = -1073741431;
   }
   if ( Handle[0] )
     NtClose(Handle[0]);
-  if ( v7 )
+  if ( v8 )
   {
-    ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)&CmpShutdownRundown);
-    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+    ExReleaseRundownProtection((PEX_RUNDOWN_REF)&CmpShutdownRundown);
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v14, v15, v16);
   }
-  return (unsigned int)v8;
+  return v11;
 }

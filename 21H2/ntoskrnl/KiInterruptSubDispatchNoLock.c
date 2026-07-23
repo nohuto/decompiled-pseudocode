@@ -1,15 +1,15 @@
 /*
- * XREFs of KiInterruptSubDispatchNoLock @ 0x1403FFCE0
+ * XREFs of KiInterruptSubDispatchNoLock @ 0x1403FFEC0
  * Callers:
- *     KiInterruptDispatchNoLock @ 0x140400330 (KiInterruptDispatchNoLock.c)
- *     KiInterruptDispatchNoEOI @ 0x140400B10 (KiInterruptDispatchNoEOI.c)
+ *     KiInterruptDispatchNoLock @ 0x140400510 (KiInterruptDispatchNoLock.c)
+ *     KiInterruptDispatchNoEOI @ 0x140400CF0 (KiInterruptDispatchNoEOI.c)
  * Callees:
- *     KiEndThreadAccountingPeriod @ 0x140231380 (KiEndThreadAccountingPeriod.c)
- *     KiCallInterruptServiceRoutine @ 0x14027A9B0 (KiCallInterruptServiceRoutine.c)
- *     EtwGetKernelTraceTimestamp @ 0x14029B060 (EtwGetKernelTraceTimestamp.c)
- *     PerfInfoLogInterrupt @ 0x14029BD60 (PerfInfoLogInterrupt.c)
- *     KiEntropyQueueDpc @ 0x1402C4130 (KiEntropyQueueDpc.c)
- *     KzSetIrqlUnsafe @ 0x140512C40 (KzSetIrqlUnsafe.c)
+ *     EtwGetKernelTraceTimestamp @ 0x1402129F0 (EtwGetKernelTraceTimestamp.c)
+ *     PerfInfoLogInterrupt @ 0x140213730 (PerfInfoLogInterrupt.c)
+ *     KiEntropyQueueDpc @ 0x1402426B0 (KiEntropyQueueDpc.c)
+ *     KiCallInterruptServiceRoutine @ 0x140268950 (KiCallInterruptServiceRoutine.c)
+ *     KiEndThreadAccountingPeriod @ 0x1402D5BD0 (KiEndThreadAccountingPeriod.c)
+ *     KzSetIrqlUnsafe @ 0x140512E80 (KzSetIrqlUnsafe.c)
  */
 
 unsigned __int8 __fastcall KiInterruptSubDispatchNoLock()

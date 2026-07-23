@@ -6,11 +6,17 @@
  *     <none>
  */
 
-__int64 NtPrivilegeObjectAuditAlarm()
+NTSTATUS __cdecl NtPrivilegeObjectAuditAlarm(
+        PUNICODE_STRING SubsystemName,
+        PVOID HandleId,
+        HANDLE ClientToken,
+        ACCESS_MASK DesiredAccess,
+        PPRIVILEGE_SET Privileges,
+        BOOLEAN AccessGranted)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 291LL;
+  result = 291;
   __asm { syscall; Low latency system call }
   return result;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of KiIsFlushEntire @ 0x14046059C
+ * XREFs of KiIsFlushEntire @ 0x14046099C
  * Callers:
- *     KeFlushTb @ 0x140279970 (KeFlushTb.c)
- *     KiPreprocessFlushTb @ 0x1402EB29C (KiPreprocessFlushTb.c)
- *     KeFlushCurrentTbOnly @ 0x14038C840 (KeFlushCurrentTbOnly.c)
- *     KeFlushEntireTb @ 0x1403B2A40 (KeFlushEntireTb.c)
+ *     KeFlushTb @ 0x140279C00 (KeFlushTb.c)
+ *     KiPreprocessFlushTb @ 0x1402EB52C (KiPreprocessFlushTb.c)
+ *     KeFlushCurrentTbOnly @ 0x14038CA20 (KeFlushCurrentTbOnly.c)
+ *     KeFlushEntireTb @ 0x1403B2C20 (KeFlushEntireTb.c)
  * Callees:
  *     <none>
  */

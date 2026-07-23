@@ -1,11 +1,11 @@
 /*
- * XREFs of ExpPulseCrossVmEvent @ 0x140846514
+ * XREFs of ExpPulseCrossVmEvent @ 0x14084C774
  * Callers:
- *     NtPulseEvent @ 0x140A90D30 (NtPulseEvent.c)
+ *     NtPulseEvent @ 0x140A95880 (NtPulseEvent.c)
  * Callees:
- *     ExReleaseExtensionTable @ 0x14048FC18 (ExReleaseExtensionTable.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     ExpGetExtensionHostForCrossVmObject @ 0x140B6A608 (ExpGetExtensionHostForCrossVmObject.c)
+ *     ExReleaseExtensionTable @ 0x1404896C4 (ExReleaseExtensionTable.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     ExpGetExtensionHostForCrossVmObject @ 0x140B6D818 (ExpGetExtensionHostForCrossVmObject.c)
  */
 
 __int64 __fastcall ExpPulseCrossVmEvent(__int64 a1, __int64 a2)

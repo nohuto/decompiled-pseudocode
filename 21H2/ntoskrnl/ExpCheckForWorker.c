@@ -1,13 +1,13 @@
 /*
- * XREFs of ExpCheckForWorker @ 0x1405B6FC4
+ * XREFs of ExpCheckForWorker @ 0x1405B71F4
  * Callers:
- *     ExpFreePoolChecks @ 0x140297F0C (ExpFreePoolChecks.c)
- *     ExFreeHeapPool @ 0x140341AC0 (ExFreeHeapPool.c)
+ *     ExpFreePoolChecks @ 0x14021898C (ExpFreePoolChecks.c)
+ *     ExFreeHeapPool @ 0x14034C810 (ExFreeHeapPool.c)
  * Callees:
- *     KiAcquireKobjectLockSafe @ 0x14024C4A0 (KiAcquireKobjectLockSafe.c)
- *     PsGetNextPartition @ 0x1402ABF88 (PsGetNextPartition.c)
+ *     PsGetNextPartition @ 0x140250E68 (PsGetNextPartition.c)
+ *     KiAcquireKobjectLockSafe @ 0x1402F0CF0 (KiAcquireKobjectLockSafe.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
  */
 
 _QWORD *__fastcall ExpCheckForWorker(ULONG_PTR BugCheckParameter3, __int64 a2)

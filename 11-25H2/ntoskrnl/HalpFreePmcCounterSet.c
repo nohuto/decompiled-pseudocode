@@ -22,8 +22,8 @@ void *__fastcall HalpFreePmcCounterSet(_QWORD *a1)
   void **v6; // rax
   __int64 v7; // rsi
   __int64 v8; // rcx
-  struct _GROUP_AFFINITY v9; // [rsp+20h] [rbp-38h] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+30h] [rbp-28h] BYREF
+  _GROUP_AFFINITY v9; // [rsp+20h] [rbp-38h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+30h] [rbp-28h] BYREF
 
   result = &HalpSampleProfilingCounters;
   v9 = 0LL;

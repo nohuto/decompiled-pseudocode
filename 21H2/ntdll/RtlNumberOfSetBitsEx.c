@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlNumberOfSetBitsEx @ 0x1800ED120
+ * XREFs of RtlNumberOfSetBitsEx @ 0x1800ED0E0
  * Callers:
- *     RtlNumberOfClearBitsEx @ 0x1800ED0C0 (RtlNumberOfClearBitsEx.c)
+ *     RtlNumberOfClearBitsEx @ 0x1800ED080 (RtlNumberOfClearBitsEx.c)
  * Callees:
  *     <none>
  */

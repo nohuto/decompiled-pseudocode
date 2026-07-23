@@ -1,14 +1,14 @@
 /*
- * XREFs of CmFcpChangeSubscriptionWrapper @ 0x140A27AF0
+ * XREFs of CmFcpChangeSubscriptionWrapper @ 0x140A27DA0
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     MmGetSessionById @ 0x1402C1E30 (MmGetSessionById.c)
- *     MmDetachSession @ 0x1403562B0 (MmDetachSession.c)
- *     MmAttachSession @ 0x140356350 (MmAttachSession.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     MmGetSessionById @ 0x1402C20C0 (MmGetSessionById.c)
+ *     MmDetachSession @ 0x140356450 (MmDetachSession.c)
+ *     MmAttachSession @ 0x1403564F0 (MmAttachSession.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 _KPROCESS *__fastcall CmFcpChangeSubscriptionWrapper(__int64 a1, __int64 a2)

@@ -1,9 +1,9 @@
 /*
- * XREFs of MiBitmapRangeZeroEx @ 0x140314E24
+ * XREFs of MiBitmapRangeZeroEx @ 0x140316E54
  * Callers:
- *     MiReturnVadBitmapCommit @ 0x140AE6210 (MiReturnVadBitmapCommit.c)
+ *     MiReturnVadBitmapCommit @ 0x140AE3FD0 (MiReturnVadBitmapCommit.c)
  * Callees:
- *     MiReadPteShadow @ 0x140314FF0 (MiReadPteShadow.c)
+ *     MiReadPteShadow @ 0x140317020 (MiReadPteShadow.c)
  */
 
 __int64 __fastcall MiBitmapRangeZeroEx(__int64 a1, __int64 a2, _QWORD *a3)

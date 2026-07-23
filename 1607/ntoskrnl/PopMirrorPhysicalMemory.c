@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     RtlClearBits @ 0x14002D6E0 (RtlClearBits.c)
+ *     RtlClearBits @ 0x14002D260 (RtlClearBits.c)
  */
 
 __int64 __fastcall PopMirrorPhysicalMemory(unsigned __int64 a1, __int64 a2)
@@ -12,12 +12,12 @@ __int64 __fastcall PopMirrorPhysicalMemory(unsigned __int64 a1, __int64 a2)
   unsigned __int64 v3; // rdx
 
   v2 = 0;
-  if ( qword_1403034A0 )
+  if ( qword_1403033E0 )
   {
     v3 = (unsigned __int64)(a2 + 4095) >> 12;
     if ( !v3 )
       LODWORD(v3) = 1;
-    RtlClearBits((PRTL_BITMAP)(qword_1403034A0 + 48), a1 >> 12, v3);
+    RtlClearBits((PRTL_BITMAP)(qword_1403033E0 + 48), a1 >> 12, v3);
   }
   else
   {

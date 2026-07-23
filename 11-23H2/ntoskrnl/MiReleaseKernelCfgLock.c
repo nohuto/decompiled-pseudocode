@@ -1,12 +1,12 @@
 /*
- * XREFs of MiReleaseKernelCfgLock @ 0x140A440B4
+ * XREFs of MiReleaseKernelCfgLock @ 0x140A44364
  * Callers:
  *     MiMarkKernelImageCfgBits @ 0x1406970A4 (MiMarkKernelImageCfgBits.c)
- *     MiAllocateKernelCfgBitmapPageTables @ 0x140A43E4C (MiAllocateKernelCfgBitmapPageTables.c)
+ *     MiAllocateKernelCfgBitmapPageTables @ 0x140A440FC (MiAllocateKernelCfgBitmapPageTables.c)
  * Callees:
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F820 (KiCheckForKernelApcDelivery.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     KiCheckForKernelApcDelivery @ 0x14030FAB0 (KiCheckForKernelApcDelivery.c)
  */
 
 char MiReleaseKernelCfgLock()

@@ -1,14 +1,14 @@
 /*
- * XREFs of PpmApplyProfile @ 0x140675A3C
+ * XREFs of PpmApplyProfile @ 0x140675B20
  * Callers:
- *     PdcPoPpmApplyProfile @ 0x14066FADC (PdcPoPpmApplyProfile.c)
+ *     PdcPoPpmApplyProfile @ 0x14066FBC0 (PdcPoPpmApplyProfile.c)
  * Callees:
- *     PpmAcquireLock @ 0x14000A528 (PpmAcquireLock.c)
- *     PopAcquireRwLockExclusive @ 0x1400FBFA8 (PopAcquireRwLockExclusive.c)
- *     PpmCompareAndApplyPolicySettings @ 0x1406729B0 (PpmCompareAndApplyPolicySettings.c)
- *     PpmEventTraceProfileChange @ 0x14067477C (PpmEventTraceProfileChange.c)
- *     PpmEndProfileAccumulation @ 0x140675BC0 (PpmEndProfileAccumulation.c)
- *     PpmPostProcessMediaBuffering @ 0x140675C18 (PpmPostProcessMediaBuffering.c)
+ *     PpmAcquireLock @ 0x14000A0A8 (PpmAcquireLock.c)
+ *     PopAcquireRwLockExclusive @ 0x1400F9D28 (PopAcquireRwLockExclusive.c)
+ *     PpmCompareAndApplyPolicySettings @ 0x140672A94 (PpmCompareAndApplyPolicySettings.c)
+ *     PpmEventTraceProfileChange @ 0x140674860 (PpmEventTraceProfileChange.c)
+ *     PpmEndProfileAccumulation @ 0x140675CA4 (PpmEndProfileAccumulation.c)
+ *     PpmPostProcessMediaBuffering @ 0x140675CFC (PpmPostProcessMediaBuffering.c)
  */
 
 __int64 __fastcall PpmApplyProfile(__int64 *a1)
@@ -25,7 +25,7 @@ __int64 __fastcall PpmApplyProfile(__int64 *a1)
   __int64 v11; // [rsp+40h] [rbp+8h] BYREF
 
   v11 = 0LL;
-  v2 = dword_140303E0C;
+  v2 = dword_140303D4C;
   v3 = 0LL;
   PpmAcquireLock((struct _KTHREAD **)&PpmPerfPolicyLock);
   PopAcquireRwLockExclusive((unsigned __int64 *)&PpmIdlePolicyLock);

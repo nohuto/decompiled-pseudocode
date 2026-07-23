@@ -1,10 +1,10 @@
 /*
- * XREFs of VmPinMemoryRange @ 0x14081D1A0
+ * XREFs of VmPinMemoryRange @ 0x1408233B0
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     VmPinMemoryRanges @ 0x14081D290 (VmPinMemoryRanges.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     VmPinMemoryRanges @ 0x1408234A0 (VmPinMemoryRanges.c)
  */
 
 __int64 __fastcall VmPinMemoryRange(unsigned __int64 a1, unsigned __int64 a2, __int64 a3, int a4, __int64 a5)
@@ -16,7 +16,7 @@ __int64 __fastcall VmPinMemoryRange(unsigned __int64 a1, unsigned __int64 a2, __
   if ( a5 == -1 )
   {
     v5 = -1073741811;
-    if ( _bittest64(*(const signed __int64 **)(stru_140F066E8.ThreadLock + 8), 0) )
+    if ( _bittest64(*((const signed __int64 **)stru_140F06A28.StackBase + 1), 0) )
       return (unsigned int)-1073741776;
   }
   else if ( (a2 & 0xFFF) != 0 || (a1 & 0xFFF) != 0 || !a3 || (a4 & 0xFFFFFF78) != 0 || (a4 & 0xFFFFFF7F) == 0 )

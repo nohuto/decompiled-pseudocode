@@ -9,5 +9,5 @@
 
 bool __fastcall KiIsTraceMemoryAccess(unsigned __int64 a1)
 {
-  return a1 < qword_140FC6450 && a1 >= qword_140FC6448 && KiDynamicTraceEnabled && KeGetCurrentIrql() == 15;
+  return a1 < qword_140FC6450 && a1 >= ControlPc && KiDynamicTraceEnabled && KeGetCurrentIrql() == 15;
 }

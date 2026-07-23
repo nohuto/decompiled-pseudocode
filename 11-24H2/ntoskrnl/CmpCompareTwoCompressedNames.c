@@ -1,17 +1,17 @@
 /*
- * XREFs of CmpCompareTwoCompressedNames @ 0x14086CFA0
+ * XREFs of CmpCompareTwoCompressedNames @ 0x1408712D0
  * Callers:
- *     CmpFindSubKeyInRoot @ 0x140842980 (CmpFindSubKeyInRoot.c)
- *     CmpFindNameInListWithStatus @ 0x14086C510 (CmpFindNameInListWithStatus.c)
- *     CmpFindSubKeyInLeafWithStatus @ 0x1408734B0 (CmpFindSubKeyInLeafWithStatus.c)
- *     CmpDoCompareKeyName @ 0x140874690 (CmpDoCompareKeyName.c)
- *     CmpFindNameInListCellWithStatus @ 0x1408757B0 (CmpFindNameInListCellWithStatus.c)
- *     CmpCompareInIndex @ 0x140884480 (CmpCompareInIndex.c)
- *     CmpSortedValueEnumStackValueCompareFunction @ 0x140A285D0 (CmpSortedValueEnumStackValueCompareFunction.c)
- *     CmpCompareKeysByName @ 0x140A4D6E4 (CmpCompareKeysByName.c)
- *     CmpFindKcbInHashEntryByCompressedName @ 0x140AA463C (CmpFindKcbInHashEntryByCompressedName.c)
+ *     CmpFindSubKeyInRoot @ 0x14083EC40 (CmpFindSubKeyInRoot.c)
+ *     CmpFindNameInListWithStatus @ 0x140870840 (CmpFindNameInListWithStatus.c)
+ *     CmpFindSubKeyInLeafWithStatus @ 0x1408777E0 (CmpFindSubKeyInLeafWithStatus.c)
+ *     CmpDoCompareKeyName @ 0x1408789C0 (CmpDoCompareKeyName.c)
+ *     CmpFindNameInListCellWithStatus @ 0x140879AE0 (CmpFindNameInListCellWithStatus.c)
+ *     CmpCompareInIndex @ 0x140888330 (CmpCompareInIndex.c)
+ *     CmpSortedValueEnumStackValueCompareFunction @ 0x140A1D050 (CmpSortedValueEnumStackValueCompareFunction.c)
+ *     CmpCompareKeysByName @ 0x140A44274 (CmpCompareKeysByName.c)
+ *     CmpFindKcbInHashEntryByCompressedName @ 0x140A9F9CC (CmpFindKcbInHashEntryByCompressedName.c)
  * Callees:
- *     RtlUpcaseUnicodeChar @ 0x1408441F0 (RtlUpcaseUnicodeChar.c)
+ *     RtlUpcaseUnicodeChar @ 0x1408404B0 (RtlUpcaseUnicodeChar.c)
  */
 
 __int64 __fastcall CmpCompareTwoCompressedNames(

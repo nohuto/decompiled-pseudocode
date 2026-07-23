@@ -39,51 +39,51 @@
  *     memmove @ 0x180168980 (memmove.c)
  */
 
-__int64 __fastcall RtlLCIDToCultureName(unsigned int a1, __int64 a2)
+BOOLEAN __cdecl RtlLCIDToCultureName(LCID Lcid, PUNICODE_STRING String)
 {
   int inited; // r14d
-  unsigned __int8 v3; // bp
-  unsigned int v5; // ebx
+  BOOLEAN v3; // bp
+  LCID v5; // ebx
   __int64 v6; // rdx
   __int64 v7; // r8
   __int64 v8; // rdx
   __int64 v9; // rbx
   size_t v10; // rax
   unsigned __int16 Length; // r9
-  unsigned __int64 v12; // rdx
+  unsigned __int64 MaximumLength; // rdx
   unsigned __int64 v13; // rdx
-  _WORD *v14; // rcx
+  wchar_t *Buffer; // rcx
   unsigned __int64 v15; // r8
   __int64 v16; // rbx
-  __int16 v17; // ax
-  _WORD *v18; // rax
+  wchar_t v17; // ax
+  wchar_t *v18; // rax
   int LcidIndex; // eax
   __int64 v21; // rcx
-  wchar_t *Buffer; // rdx
+  wchar_t *v22; // rdx
   _WORD *v23; // rax
   __int64 v24; // rcx
   __int64 v25; // r8
   unsigned __int64 v26; // rdi
-  __int16 v27; // bx
+  unsigned __int16 v27; // bx
   __int16 v28; // [rsp+20h] [rbp-F8h] BYREF
   __int64 v29; // [rsp+28h] [rbp-F0h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+30h] [rbp-E8h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+30h] [rbp-E8h] BYREF
   _BYTE Src[176]; // [rsp+40h] [rbp-D8h] BYREF
 
   inited = 0;
   v3 = 0;
   v28 = 0;
-  v5 = a1;
-  if ( !a1 || !a2 || a1 == 4096 )
+  v5 = Lcid;
+  if ( !Lcid || !String || Lcid == 4096 )
     return v3;
   if ( g_RegInfo )
   {
-    if ( (int)RtlpMuiRegGetInstalledLanguageIndexByLangId(g_RegInfo, (unsigned __int16)a1, 0LL, &v28) >= 0 )
+    if ( (int)RtlpMuiRegGetInstalledLanguageIndexByLangId(g_RegInfo, (unsigned __int16)Lcid, 0LL, &v28) >= 0 )
     {
-      v6 = *(__int16 *)(*(_QWORD *)(*(_QWORD *)(g_RegInfo + 24) + 16LL) + 28LL * v28 + 6);
+      v6 = *(__int16 *)(*(_QWORD *)(*((_QWORD *)g_RegInfo + 3) + 16LL) + 28LL * v28 + 6);
       if ( (__int16)v6 > 0 )
       {
-        v7 = *(_QWORD *)(g_RegInfo + 32);
+        v7 = *((_QWORD *)g_RegInfo + 4);
         DestinationString = 0LL;
         v8 = *(__int16 *)(*(_QWORD *)(v7 + 16) + 2 * v6);
         v9 = *(_QWORD *)(v7 + 24) + 2 * v8;
@@ -99,55 +99,55 @@ __int64 __fastcall RtlLCIDToCultureName(unsigned int a1, __int64 a2)
         {
           Length = DestinationString.Length;
         }
-        v12 = *(unsigned __int16 *)(a2 + 2);
-        if ( (unsigned __int16)v10 > (unsigned __int16)v12 )
+        MaximumLength = String->MaximumLength;
+        if ( (unsigned __int16)v10 > (unsigned __int16)MaximumLength )
           return v3;
-        v13 = v12 >> 1;
-        v14 = *(_WORD **)(a2 + 8);
+        v13 = MaximumLength >> 1;
+        Buffer = String->Buffer;
         if ( !v13 )
           return v3;
         v15 = 2147483646 - v13;
-        v16 = v9 - (_QWORD)v14;
+        v16 = v9 - (_QWORD)Buffer;
         do
         {
           if ( !(v15 + v13) )
             break;
-          v17 = *(_WORD *)((char *)v14 + v16);
+          v17 = *(wchar_t *)((char *)Buffer + v16);
           if ( !v17 )
             break;
-          *v14++ = v17;
+          *Buffer++ = v17;
           --v13;
         }
         while ( v13 );
-        v18 = v14 - 1;
+        v18 = Buffer - 1;
         if ( v13 )
-          v18 = v14;
+          v18 = Buffer;
         *v18 = 0;
         if ( !v13 )
           return v3;
-        *(_WORD *)a2 = Length;
+        String->Length = Length;
         return 1;
       }
     }
   }
   v29 = 85LL;
   DestinationString = 0LL;
-  if ( !*(_QWORD *)(a2 + 8) )
+  if ( !String->Buffer )
     return v3;
   if ( v5 == 5120 )
   {
     if ( (int)RtlpGetUserOrMachineUILanguage4NLS(1LL, Src, &v29) < 0 )
       return v3;
-    if ( (unsigned int)v29 >= 0x55 || (v26 = 2LL * (unsigned int)v29, *(unsigned __int16 *)(a2 + 2) <= v26) )
+    if ( (unsigned int)v29 >= 0x55 || (v26 = 2LL * (unsigned int)v29, String->MaximumLength <= v26) )
     {
       inited = -1073741789;
     }
     else
     {
       v27 = 2 * v29;
-      memmove(*(void **)(a2 + 8), Src, (unsigned __int16)(2 * v29));
-      *(_WORD *)(v26 + *(_QWORD *)(a2 + 8)) = 0;
-      *(_WORD *)a2 = v27;
+      memmove(String->Buffer, Src, (unsigned __int16)(2 * v29));
+      String->Buffer[v26 / 2] = 0;
+      String->Length = v27;
     }
 LABEL_35:
     if ( inited < 0 )
@@ -160,7 +160,7 @@ LABEL_35:
     DestinationString.MaximumLength = 170;
     if ( (int)RtlpGetUserLocaleName(&DestinationString) < 0 )
       return v3;
-    Buffer = DestinationString.Buffer;
+    v22 = DestinationString.Buffer;
     v25 = DestinationString.Length >> 1;
     goto LABEL_34;
   }
@@ -173,8 +173,8 @@ LABEL_35:
     {
       _mm_lfence();
       v21 = *(unsigned __int16 *)(*(_QWORD *)(pTblPtrs + 16) + 8LL * LcidIndex + 6);
-      Buffer = (wchar_t *)(*(_QWORD *)(pTblPtrs + 32) + 2LL + 2 * v21);
-      if ( Buffer )
+      v22 = (wchar_t *)(*(_QWORD *)(pTblPtrs + 32) + 2LL + 2 * v21);
+      if ( v22 )
       {
         v23 = (_WORD *)(*(_QWORD *)(pTblPtrs + 32) + 2LL + 2 * v21);
         v24 = 84LL;
@@ -190,7 +190,7 @@ LABEL_35:
         {
           v25 = 84 - v24;
 LABEL_34:
-          inited = RtlpInitUnicodeStringUsingBuffer(0LL, Buffer, v25, a2);
+          inited = RtlpInitUnicodeStringUsingBuffer(0LL, v22, v25, String);
           goto LABEL_35;
         }
       }

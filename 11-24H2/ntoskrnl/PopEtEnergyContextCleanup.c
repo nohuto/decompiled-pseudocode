@@ -1,19 +1,21 @@
 /*
- * XREFs of PopEtEnergyContextCleanup @ 0x14090488C
+ * XREFs of PopEtEnergyContextCleanup @ 0x14099B510
  * Callers:
- *     PoEnergyContextCleanup @ 0x1408A9850 (PoEnergyContextCleanup.c)
+ *     PoEnergyContextCleanup @ 0x1408FFAB0 (PoEnergyContextCleanup.c)
  * Callees:
- *     PopEtAppIdDereference @ 0x140905224 (PopEtAppIdDereference.c)
- *     RtlInternEntryDereference @ 0x140905B7C (RtlInternEntryDereference.c)
+ *     PopEtAppIdDereference @ 0x14099BEA8 (PopEtAppIdDereference.c)
+ *     RtlInternEntryDereference @ 0x14099C800 (RtlInternEntryDereference.c)
  */
 
 __int64 __fastcall PopEtEnergyContextCleanup(__int64 a1)
 {
+  __int64 v2; // rcx
   __int64 result; // rax
 
-  if ( *(_QWORD *)(a1 + 456) )
+  v2 = *(_QWORD *)(a1 + 456);
+  if ( v2 )
   {
-    result = PopEtAppIdDereference();
+    result = PopEtAppIdDereference(v2);
     *(_QWORD *)(a1 + 456) = 0LL;
   }
   if ( *(_QWORD *)(a1 + 464) )

@@ -1,17 +1,17 @@
 /*
- * XREFs of HalpInterruptReinitialize @ 0x140A9544C
+ * XREFs of HalpInterruptReinitialize @ 0x140A952BC
  * Callers:
- *     HalpAcpiPostSleep @ 0x140A96600 (HalpAcpiPostSleep.c)
+ *     HalpAcpiPostSleep @ 0x140A96470 (HalpAcpiPostSleep.c)
  * Callees:
- *     KeGetProcessorIndexFromNumber @ 0x1402551B0 (KeGetProcessorIndexFromNumber.c)
- *     HalStartNextProcessor @ 0x140376AB0 (HalStartNextProcessor.c)
- *     HalpInterruptInitializeController @ 0x14037E5EC (HalpInterruptInitializeController.c)
- *     HalGetProcessorIdByNtNumber @ 0x140384B00 (HalGetProcessorIdByNtNumber.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     HalStartDynamicProcessor @ 0x140504BF0 (HalStartDynamicProcessor.c)
- *     HalpInterruptControllerInUse @ 0x14051A70C (HalpInterruptControllerInUse.c)
- *     HalpInterruptStartBlockedProcessors @ 0x14051AA54 (HalpInterruptStartBlockedProcessors.c)
- *     HalpIommuInitializeAll @ 0x140A90F0C (HalpIommuInitializeAll.c)
+ *     KeGetProcessorIndexFromNumber @ 0x140255270 (KeGetProcessorIndexFromNumber.c)
+ *     HalStartNextProcessor @ 0x140376C50 (HalStartNextProcessor.c)
+ *     HalpInterruptInitializeController @ 0x14037E78C (HalpInterruptInitializeController.c)
+ *     HalGetProcessorIdByNtNumber @ 0x140384CE0 (HalGetProcessorIdByNtNumber.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     HalStartDynamicProcessor @ 0x140505140 (HalStartDynamicProcessor.c)
+ *     HalpInterruptControllerInUse @ 0x14051AC5C (HalpInterruptControllerInUse.c)
+ *     HalpInterruptStartBlockedProcessors @ 0x14051AFA4 (HalpInterruptStartBlockedProcessors.c)
+ *     HalpIommuInitializeAll @ 0x140A90D8C (HalpIommuInitializeAll.c)
  */
 
 __int64 __fastcall HalpInterruptReinitialize(int a1, __int64 a2, __int64 a3, __int64 a4)
@@ -63,7 +63,7 @@ __int64 __fastcall HalpInterruptReinitialize(int a1, __int64 a2, __int64 a3, __i
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(0xFuLL);
   result = (unsigned int)KiIrqlFlags;
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     result = (__int64)KeGetCurrentPrcb();
     if ( CurrentIrql == 15 )

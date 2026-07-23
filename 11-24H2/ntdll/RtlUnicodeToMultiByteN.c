@@ -1,118 +1,117 @@
 /*
- * XREFs of RtlUnicodeToMultiByteN @ 0x1800B2430
+ * XREFs of RtlUnicodeToMultiByteN @ 0x18007ECD0
  * Callers:
- *     EtwpAddDebugInfoEvents @ 0x1800B4BBC (EtwpAddDebugInfoEvents.c)
- *     wcstombs @ 0x180128270 (wcstombs.c)
- *     _wctomb_s_l @ 0x18012C2D8 (_wctomb_s_l.c)
- *     _safecrt_wctomb_s @ 0x18012EBB8 (_safecrt_wctomb_s.c)
+ *     EtwpAddDebugInfoEvents @ 0x18008145C (EtwpAddDebugInfoEvents.c)
+ *     wcstombs @ 0x1801264A0 (wcstombs.c)
+ *     _wctomb_s_l @ 0x18012A508 (_wctomb_s_l.c)
+ *     _safecrt_wctomb_s @ 0x18012CDE8 (_safecrt_wctomb_s.c)
  * Callees:
- *     RtlUnicodeToUTF8N @ 0x1800B1E90 (RtlUnicodeToUTF8N.c)
+ *     RtlUnicodeToUTF8N @ 0x18007E730 (RtlUnicodeToUTF8N.c)
  */
 
-__int64 __fastcall RtlUnicodeToMultiByteN(
-        _BYTE *a1,
-        unsigned int a2,
-        unsigned int *a3,
-        unsigned int *a4,
-        unsigned int a5)
+NTSTATUS __cdecl RtlUnicodeToMultiByteN(
+        PCHAR MultiByteString,
+        ULONG MaxBytesInMultiByteString,
+        PULONG BytesInMultiByteString,
+        PCWCH UnicodeString,
+        ULONG BytesInUnicodeString)
 {
-  __int16 v7; // ax
-  __int64 *v8; // rbx
-  __int16 v9; // cx
-  __int64 v10; // rsi
-  _BYTE *v11; // r8
-  unsigned int v12; // eax
-  __int64 v13; // r11
-  __int64 result; // rax
+  unsigned __int16 CodePage; // ax
+  void **p_WideCharTable; // rbx
+  unsigned __int16 DBCSCodePage; // cx
+  _WORD *WideCharTable; // rsi
+  PCHAR v11; // r8
+  ULONG v12; // eax
+  _BYTE *v13; // r11
+  NTSTATUS result; // eax
   __int64 v15; // rcx
   __int16 v16; // di
   __int64 v17; // r8
   __int64 v18; // rax
-  unsigned int *v19; // r8
-  unsigned int v20; // ecx
+  ULONG *v19; // r8
+  ULONG v20; // ecx
   signed __int32 v21[8]; // [rsp+0h] [rbp-38h] BYREF
   char v22; // [rsp+48h] [rbp+10h] BYREF
 
   _InterlockedOr(v21, 0);
-  if ( word_1801CCFD0 == -535 || GlobalRtlNlsState == -535 )
+  if ( CodePageTable.CodePage == 0xFDE9 || GlobalRtlNlsState.CodePage == 0xFDE9 )
   {
-    v7 = Utf8TableInfo;
-    v8 = (__int64 *)&xmmword_1801CD070 + 1;
-    v9 = WORD6(Utf8TableInfo);
-    v10 = *((_QWORD *)&xmmword_1801CD070 + 1);
+    CodePage = LOWORD(Utf8TableInfo.m512_f32[0]);
+    p_WideCharTable = (void **)&Utf8TableInfo.m512_f32[10];
+    DBCSCodePage = LOWORD(Utf8TableInfo.m512_f32[3]);
+    WideCharTable = *(_WORD **)&Utf8TableInfo.m512_f32[10];
   }
   else
   {
     _InterlockedOr(v21, 0);
-    v7 = GlobalRtlNlsState;
-    v8 = &qword_1801CCFB8;
-    v9 = word_1801CCF9C;
-    v10 = qword_1801CCFB8;
+    CodePage = GlobalRtlNlsState.CodePage;
+    p_WideCharTable = &GlobalRtlNlsState.WideCharTable;
+    DBCSCodePage = GlobalRtlNlsState.DBCSCodePage;
+    WideCharTable = GlobalRtlNlsState.WideCharTable;
   }
-  v11 = a1;
-  if ( v7 == -535 )
+  v11 = MultiByteString;
+  if ( CodePage == 0xFDE9 )
   {
-    v19 = (unsigned int *)&v22;
-    if ( a3 )
-      v19 = a3;
-    if ( a5 )
+    v19 = (ULONG *)&v22;
+    if ( BytesInMultiByteString )
+      v19 = BytesInMultiByteString;
+    if ( BytesInUnicodeString )
     {
-      RtlUnicodeToUTF8N(a1, a2, v19, a4, a5);
-      return 0LL;
+      RtlUnicodeToUTF8N(MultiByteString, MaxBytesInMultiByteString, v19, UnicodeString, BytesInUnicodeString);
+      return 0;
     }
-    result = 0LL;
+    result = 0;
     *v19 = 0;
   }
   else
   {
-    v12 = a5 >> 1;
-    if ( !v9 )
+    v12 = BytesInUnicodeString >> 1;
+    if ( !DBCSCodePage )
     {
-      if ( v12 < a2 )
-        a2 = a5 >> 1;
-      if ( a3 )
-        *a3 = a2;
-      v13 = *v8;
-      if ( a2 )
+      if ( v12 < MaxBytesInMultiByteString )
+        MaxBytesInMultiByteString = BytesInUnicodeString >> 1;
+      if ( BytesInMultiByteString )
+        *BytesInMultiByteString = MaxBytesInMultiByteString;
+      v13 = *p_WideCharTable;
+      if ( MaxBytesInMultiByteString )
       {
-        v17 = a2;
+        v17 = MaxBytesInMultiByteString;
         do
         {
-          v18 = *(unsigned __int16 *)a4;
-          ++a1;
-          a4 = (unsigned int *)((char *)a4 + 2);
-          *(a1 - 1) = *(_BYTE *)(v18 + v13);
+          v18 = *UnicodeString;
+          ++MultiByteString;
+          ++UnicodeString;
+          *(MultiByteString - 1) = v13[v18];
           --v17;
         }
         while ( v17 );
       }
-      return 0LL;
+      return 0;
     }
     if ( v12 )
     {
-      while ( a2 )
+      while ( MaxBytesInMultiByteString )
       {
-        v15 = *(unsigned __int16 *)a4;
-        a4 = (unsigned int *)((char *)a4 + 2);
-        v16 = *(_WORD *)(v10 + 2 * v15);
+        v15 = *UnicodeString++;
+        v16 = WideCharTable[v15];
         if ( HIBYTE(v16) )
         {
-          v20 = a2--;
+          v20 = MaxBytesInMultiByteString--;
           if ( v20 < 2 )
             break;
           *v11++ = HIBYTE(v16);
         }
         *v11 = v16;
-        --a2;
+        --MaxBytesInMultiByteString;
         ++v11;
         if ( !--v12 )
           break;
       }
     }
-    if ( !a3 )
-      return 0LL;
-    *a3 = (_DWORD)v11 - (_DWORD)a1;
-    return 0LL;
+    if ( !BytesInMultiByteString )
+      return 0;
+    *BytesInMultiByteString = (_DWORD)v11 - (_DWORD)MultiByteString;
+    return 0;
   }
   return result;
 }

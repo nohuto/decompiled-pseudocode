@@ -6,9 +6,15 @@
  *     <none>
  */
 
-__int64 __fastcall ZwPrivilegeObjectAuditAlarm(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwPrivilegeObjectAuditAlarm(
+        PUNICODE_STRING SubsystemName,
+        PVOID HandleId,
+        HANDLE ClientToken,
+        ACCESS_MASK DesiredAccess,
+        PPRIVILEGE_SET Privileges,
+        BOOLEAN AccessGranted)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(SubsystemName);
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of SleepstudyHelperCreateBlockerFromComponent @ 0x1407677F0
+ * XREFs of SleepstudyHelperCreateBlockerFromComponent @ 0x140767A20
  * Callers:
  *     <none>
  * Callees:
- *     SleepstudyHelperDestroyBlockerBuilder @ 0x140A252E0 (SleepstudyHelperDestroyBlockerBuilder.c)
- *     SshpGenerateDeviceFriendlyName @ 0x140A255E4 (SshpGenerateDeviceFriendlyName.c)
- *     SshpGenerateDeviceVerboseDescription @ 0x140A258A8 (SshpGenerateDeviceVerboseDescription.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     SleepstudyHelperDestroyBlockerBuilder @ 0x140A192D0 (SleepstudyHelperDestroyBlockerBuilder.c)
+ *     SshpGenerateDeviceFriendlyName @ 0x140A195D4 (SshpGenerateDeviceFriendlyName.c)
+ *     SshpGenerateDeviceVerboseDescription @ 0x140A19898 (SshpGenerateDeviceVerboseDescription.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall SleepstudyHelperCreateBlockerFromComponent(
@@ -23,7 +23,7 @@ __int64 __fastcall SleepstudyHelperCreateBlockerFromComponent(
 
   if ( a1 && a2 && a3 && a5 )
   {
-    Pool2 = ExAllocatePool2(0x100uLL);
+    Pool2 = ExAllocatePool2(0x100uLL, 0x60uLL, *(_DWORD *)(a1 + 24));
     v10 = Pool2;
     if ( Pool2 )
     {

@@ -1,9 +1,9 @@
 /*
- * XREFs of PopNotifyTelemetryOsState @ 0x140B50FFC
+ * XREFs of PopNotifyTelemetryOsState @ 0x140B53894
  * Callers:
- *     PopTransitionSystemPowerStateEx @ 0x140C0B0A0 (PopTransitionSystemPowerStateEx.c)
+ *     PopTransitionSystemPowerStateEx @ 0x140C112B0 (PopTransitionSystemPowerStateEx.c)
  * Callees:
- *     PopTransitionTelemetryOsState @ 0x140B20D08 (PopTransitionTelemetryOsState.c)
+ *     PopTransitionTelemetryOsState @ 0x140B23108 (PopTransitionTelemetryOsState.c)
  */
 
 __int64 __fastcall PopNotifyTelemetryOsState(int a1, int a2, int a3, struct _KLOCK_ENTRIES *a4, char a5)
@@ -13,9 +13,9 @@ __int64 __fastcall PopNotifyTelemetryOsState(int a1, int a2, int a3, struct _KLO
   __int64 v9; // r8
 
   v7 = 0;
-  if ( dword_140E07598
-    && (qword_140E075A8 & 0x800000000000LL) != 0
-    && (qword_140E075B0 & 0x800000000000LL) == qword_140E075B0 )
+  if ( dword_140E07560
+    && (qword_140E07570 & 0x800000000000LL) != 0
+    && (qword_140E07578 & 0x800000000000LL) == qword_140E07578 )
   {
     if ( (unsigned int)(a1 - 4) <= 2 )
     {

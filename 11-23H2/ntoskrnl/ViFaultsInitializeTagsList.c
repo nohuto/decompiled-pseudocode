@@ -1,12 +1,12 @@
 /*
- * XREFs of ViFaultsInitializeTagsList @ 0x140AD68AC
+ * XREFs of ViFaultsInitializeTagsList @ 0x140AD689C
  * Callers:
- *     VfFaultsInitPhase0 @ 0x140AD5E48 (VfFaultsInitPhase0.c)
+ *     VfFaultsInitPhase0 @ 0x140AD5E38 (VfFaultsInitPhase0.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     ViFaultsAddAllTags @ 0x140AD6430 (ViFaultsAddAllTags.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     ViFaultsAddAllTags @ 0x140AD6420 (ViFaultsAddAllTags.c)
  */
 
 __int64 ViFaultsInitializeTagsList()
@@ -22,13 +22,16 @@ __int64 ViFaultsInitializeTagsList()
   v0 = 0;
   v1 = KeAcquireSpinLockRaiseToDpc(&ViFaultInjectionLock);
   ViHaveFaultTags = 0;
-  qword_140C36E08 = (__int64)&ViFaultTagsList;
+  qword_140C36B48 = (__int64)&ViFaultTagsList;
   ViFaultTagsList = &ViFaultTagsList;
   KxReleaseSpinLock((volatile signed __int64 *)&ViFaultInjectionLock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v1 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v1 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

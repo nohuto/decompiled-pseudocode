@@ -1,19 +1,19 @@
 /*
- * XREFs of CmpWaitOnHiveWriteQueue @ 0x140B332E8
+ * XREFs of CmpWaitOnHiveWriteQueue @ 0x140B35738
  * Callers:
- *     NtCompressKey @ 0x14084EBA0 (NtCompressKey.c)
- *     CmpBecomeActiveFlusherAndReconciler @ 0x140856CB8 (CmpBecomeActiveFlusherAndReconciler.c)
- *     CmpFlushHive @ 0x1408B321C (CmpFlushHive.c)
+ *     NtCompressKey @ 0x140854EB0 (NtCompressKey.c)
+ *     CmpBecomeActiveFlusherAndReconciler @ 0x14085D050 (CmpBecomeActiveFlusherAndReconciler.c)
+ *     CmpFlushHive @ 0x1408B97F0 (CmpFlushHive.c)
  * Callees:
- *     KeAbPostReleaseEx @ 0x140272670 (KeAbPostReleaseEx.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     KeAbPreWait @ 0x140278AE0 (KeAbPreWait.c)
- *     KeInitializeEvent @ 0x140466F30 (KeInitializeEvent.c)
- *     CmpTraceHiveFlushStartWaitForActive @ 0x140B333BC (CmpTraceHiveFlushStartWaitForActive.c)
- *     CmpTraceHiveFlushFinishWaitForActive @ 0x140B3342C (CmpTraceHiveFlushFinishWaitForActive.c)
- *     CmpUnlockRegistry @ 0x140C58970 (CmpUnlockRegistry.c)
- *     HvUnlockHiveFlusherExclusive @ 0x140C58D14 (HvUnlockHiveFlusherExclusive.c)
+ *     KeAbPostReleaseEx @ 0x140271BE0 (KeAbPostReleaseEx.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     KeAbPreWait @ 0x140278050 (KeAbPreWait.c)
+ *     KeInitializeEvent @ 0x140460680 (KeInitializeEvent.c)
+ *     CmpTraceHiveFlushStartWaitForActive @ 0x140B3580C (CmpTraceHiveFlushStartWaitForActive.c)
+ *     CmpTraceHiveFlushFinishWaitForActive @ 0x140B3587C (CmpTraceHiveFlushFinishWaitForActive.c)
+ *     CmpUnlockRegistry @ 0x140C5E970 (CmpUnlockRegistry.c)
+ *     HvUnlockHiveFlusherExclusive @ 0x140C5ED14 (HvUnlockHiveFlusherExclusive.c)
  */
 
 __int64 __fastcall CmpWaitOnHiveWriteQueue(__int64 a1, struct _KTHREAD *a2)

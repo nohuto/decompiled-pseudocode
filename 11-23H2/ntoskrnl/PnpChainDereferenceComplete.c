@@ -1,16 +1,16 @@
 /*
- * XREFs of PnpChainDereferenceComplete @ 0x1408813A8
+ * XREFs of PnpChainDereferenceComplete @ 0x1408815E8
  * Callers:
- *     IopCompleteUnloadOrDelete @ 0x140305300 (IopCompleteUnloadOrDelete.c)
- *     PnpIsChainDereferenced @ 0x1403D42E0 (PnpIsChainDereferenced.c)
+ *     IopCompleteUnloadOrDelete @ 0x140305590 (IopCompleteUnloadOrDelete.c)
+ *     PnpIsChainDereferenced @ 0x1403D44C0 (PnpIsChainDereferenced.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402390E0 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x14023D410 (ExReleaseResourceLite.c)
- *     ExQueueWorkItem @ 0x1402B7C30 (ExQueueWorkItem.c)
- *     IopSetRelationsTag @ 0x140881638 (IopSetRelationsTag.c)
- *     PnpDelayedRemoveWorker @ 0x140881690 (PnpDelayedRemoveWorker.c)
- *     PnpDelayedRemoveWorkerContextCreate @ 0x140958F94 (PnpDelayedRemoveWorkerContextCreate.c)
+ *     KeLeaveCriticalRegion @ 0x140231550 (KeLeaveCriticalRegion.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402391B0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14023D4E0 (ExReleaseResourceLite.c)
+ *     ExQueueWorkItem @ 0x1402B7EC0 (ExQueueWorkItem.c)
+ *     IopSetRelationsTag @ 0x140881878 (IopSetRelationsTag.c)
+ *     PnpDelayedRemoveWorker @ 0x1408818D0 (PnpDelayedRemoveWorker.c)
+ *     PnpDelayedRemoveWorkerContextCreate @ 0x140959194 (PnpDelayedRemoveWorkerContextCreate.c)
  */
 
 void __fastcall PnpChainDereferenceComplete(__int64 a1, int a2)

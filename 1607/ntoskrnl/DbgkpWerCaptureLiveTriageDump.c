@@ -1,17 +1,17 @@
 /*
- * XREFs of DbgkpWerCaptureLiveTriageDump @ 0x14061BEB4
+ * XREFs of DbgkpWerCaptureLiveTriageDump @ 0x14061BF68
  * Callers:
- *     DbgkpWerProcessPolicyResult @ 0x14061C4CC (DbgkpWerProcessPolicyResult.c)
+ *     DbgkpWerProcessPolicyResult @ 0x14061C580 (DbgkpWerProcessPolicyResult.c)
  * Callees:
  *     WerLiveKernelSubmitReport_0 @ 0x140001310 (WerLiveKernelSubmitReport_0.c)
- *     DbgPrintEx @ 0x140081B0C (DbgPrintEx.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     RtlCaptureContext @ 0x140166F20 (RtlCaptureContext.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     KeCapturePersistentThreadState @ 0x1401C8248 (KeCapturePersistentThreadState.c)
+ *     DbgPrintEx @ 0x140084C90 (DbgPrintEx.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     RtlCaptureContext @ 0x140167490 (RtlCaptureContext.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     KeCapturePersistentThreadState @ 0x1401C80E8 (KeCapturePersistentThreadState.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     DbgkpWerInvokeCallbacks @ 0x14061C420 (DbgkpWerInvokeCallbacks.c)
- *     DbgkpWerWriteTriageDump @ 0x14061C6FC (DbgkpWerWriteTriageDump.c)
+ *     DbgkpWerInvokeCallbacks @ 0x14061C4D4 (DbgkpWerInvokeCallbacks.c)
+ *     DbgkpWerWriteTriageDump @ 0x14061C7B0 (DbgkpWerWriteTriageDump.c)
  */
 
 __int64 __fastcall DbgkpWerCaptureLiveTriageDump(__int64 a1)

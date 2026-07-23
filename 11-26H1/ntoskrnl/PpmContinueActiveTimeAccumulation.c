@@ -1,12 +1,12 @@
 /*
- * XREFs of PpmContinueActiveTimeAccumulation @ 0x1403ECDB0
+ * XREFs of PpmContinueActiveTimeAccumulation @ 0x1402F7C90
  * Callers:
- *     PpmContinueTimeAccumulation @ 0x140252628 (PpmContinueTimeAccumulation.c)
- *     PopGetIdleTimesCallback @ 0x140428440 (PopGetIdleTimesCallback.c)
- *     PpmInstallFeedbackCounters @ 0x140602A90 (PpmInstallFeedbackCounters.c)
+ *     PopGetIdleTimesCallback @ 0x14021A720 (PopGetIdleTimesCallback.c)
+ *     PpmContinueTimeAccumulation @ 0x140253F88 (PpmContinueTimeAccumulation.c)
+ *     PpmInstallFeedbackCounters @ 0x140605540 (PpmInstallFeedbackCounters.c)
  * Callees:
- *     PpmUpdatePerformanceFeedback @ 0x1403ECDF0 (PpmUpdatePerformanceFeedback.c)
- *     PpmUpdateTimeAccumulation @ 0x1403ED358 (PpmUpdateTimeAccumulation.c)
+ *     PpmUpdatePerformanceFeedback @ 0x1402F7CD0 (PpmUpdatePerformanceFeedback.c)
+ *     PpmUpdateTimeAccumulation @ 0x1402F8238 (PpmUpdateTimeAccumulation.c)
  */
 
 __int64 __fastcall PpmContinueActiveTimeAccumulation(__int64 a1, __int64 a2, __int64 a3)

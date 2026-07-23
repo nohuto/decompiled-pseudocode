@@ -1,11 +1,11 @@
 /*
- * XREFs of KsepDbReadKFlag @ 0x14073EB24
+ * XREFs of KsepDbReadKFlag @ 0x14073CA54
  * Callers:
- *     KsepDbCacheReadDeviceInternal @ 0x14095CE24 (KsepDbCacheReadDeviceInternal.c)
+ *     KsepDbCacheReadDeviceInternal @ 0x1409448E4 (KsepDbCacheReadDeviceInternal.c)
  * Callees:
- *     SdbReadQWORDTag @ 0x140805BDC (SdbReadQWORDTag.c)
- *     SdbGetStringTagPtr @ 0x14095FA98 (SdbGetStringTagPtr.c)
- *     SdbFindFirstTag @ 0x14096003C (SdbFindFirstTag.c)
+ *     SdbReadQWORDTag @ 0x14080631C (SdbReadQWORDTag.c)
+ *     SdbGetStringTagPtr @ 0x140947558 (SdbGetStringTagPtr.c)
+ *     SdbFindFirstTag @ 0x140947AFC (SdbFindFirstTag.c)
  */
 
 __int64 __fastcall KsepDbReadKFlag(__int64 a1, __int64 a2, __int64 a3)

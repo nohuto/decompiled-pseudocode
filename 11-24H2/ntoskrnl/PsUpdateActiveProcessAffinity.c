@@ -1,24 +1,24 @@
 /*
- * XREFs of PsUpdateActiveProcessAffinity @ 0x140774758
+ * XREFs of PsUpdateActiveProcessAffinity @ 0x140774978
  * Callers:
- *     KeStartDynamicProcessor @ 0x14073C4E0 (KeStartDynamicProcessor.c)
+ *     KeStartDynamicProcessor @ 0x14073A410 (KeStartDynamicProcessor.c)
  * Callees:
- *     KiLeaveCriticalRegionUnsafe @ 0x1402595C0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     KeIsSubsetAffinityEx @ 0x1403B34F0 (KeIsSubsetAffinityEx.c)
- *     PspUpdateSingleProcessAffinity @ 0x1407754B0 (PspUpdateSingleProcessAffinity.c)
- *     PsGetNextProcess @ 0x1408EEB70 (PsGetNextProcess.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140289BD0 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     KeIsSubsetAffinityEx @ 0x1403A1D00 (KeIsSubsetAffinityEx.c)
+ *     PspUpdateSingleProcessAffinity @ 0x1407756D0 (PspUpdateSingleProcessAffinity.c)
+ *     PsGetNextProcess @ 0x1408603A0 (PsGetNextProcess.c)
  */
 
 _QWORD *PsUpdateActiveProcessAffinity()
 {
   struct _KTHREAD *CurrentThread; // rsi
-  _QWORD *v1; // rax
+  char *v1; // rax
   signed __int8 v2; // cf
-  _QWORD *v3; // rdi
+  char *v3; // rdi
   unsigned __int16 *v4; // rdi
   __int64 v5; // rcx
   struct _KAFFINITY_EX *v6; // rax
@@ -31,19 +31,16 @@ _QWORD *PsUpdateActiveProcessAffinity()
   __int128 v13; // xmm1
   __int64 NextProcess; // rax
   __int64 v15; // rdi
-  __int64 v16; // rdx
-  __int64 v17; // r8
-  __int64 v18; // r9
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  v1 = KeAbPreAcquire((__int64)&PspAffinityUpdateLock, 0LL);
+  v1 = (char *)KeAbPreAcquire((__int64)&PspAffinityUpdateLock, 0LL);
   v2 = _interlockedbittestandset64((volatile signed __int32 *)&PspAffinityUpdateLock, 0LL);
   v3 = v1;
   if ( v2 )
-    ExfAcquirePushLockExclusiveEx(&PspAffinityUpdateLock, (__int64)v1, (__int64)&PspAffinityUpdateLock);
+    ExfAcquirePushLockExclusiveEx(&PspAffinityUpdateLock, v1, (__int64)&PspAffinityUpdateLock);
   if ( v3 )
-    *((_BYTE *)v3 + 10) = 1;
+    v3[10] = 1;
   v4 = PspLastUpdateAffinityMask;
   if ( !(unsigned int)KeIsSubsetAffinityEx(&KeActiveProcessors.Count, PspLastUpdateAffinityMask) )
   {
@@ -85,5 +82,5 @@ _QWORD *PsUpdateActiveProcessAffinity()
   if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&PspAffinityUpdateLock, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
     ExfTryToWakePushLock((volatile signed __int64 *)&PspAffinityUpdateLock);
   KeAbPostRelease((ULONG_PTR)&PspAffinityUpdateLock);
-  return KiLeaveCriticalRegionUnsafe((__int64)CurrentThread, v16, v17, v18);
+  return KiLeaveCriticalRegionUnsafe((__int64)CurrentThread);
 }

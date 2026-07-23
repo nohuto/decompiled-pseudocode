@@ -14,77 +14,73 @@
  *     memmove @ 0x180168980 (memmove.c)
  */
 
-__int64 __fastcall RtlpCreateNewDirectoryReference(unsigned __int16 *a1, unsigned int a2, __int64 *a3)
+__int64 __fastcall RtlpCreateNewDirectoryReference(unsigned __int16 *a1, unsigned int a2, _QWORD *a3)
 {
   __int64 v3; // rsi
   __int64 result; // rax
   int v7; // r15d
   NTSTATUS v8; // ebx
-  __int64 v9; // r9
-  __int64 Heap; // rax
-  __int64 v11; // rbx
-  int v12; // edx
-  unsigned __int64 v13; // rdx
-  __int64 v14; // r9
-  ULONG ShareAccess[2]; // [rsp+20h] [rbp-49h]
-  __int64 v16; // [rsp+40h] [rbp-29h] BYREF
-  __int128 v17; // [rsp+48h] [rbp-21h] BYREF
-  struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+58h] [rbp-11h] BYREF
-  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+68h] [rbp-1h] BYREF
+  _QWORD *Heap; // rax
+  _QWORD *v10; // rbx
+  int v11; // edx
+  unsigned __int64 v12; // rdx
+  __int64 FsInformation; // [rsp+40h] [rbp-29h] BYREF
+  PVOID BaseAddress[2]; // [rsp+48h] [rbp-21h] BYREF
+  _IO_STATUS_BLOCK IoStatusBlock; // [rsp+58h] [rbp-11h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+68h] [rbp-1h] BYREF
   HANDLE FileHandle; // [rsp+E8h] [rbp+7Fh] BYREF
 
   v3 = a2;
   *(&ObjectAttributes.Length + 1) = 0;
   *(&ObjectAttributes.Attributes + 1) = 0;
   FileHandle = 0LL;
-  v16 = 0LL;
-  v17 = 0LL;
+  FsInformation = 0LL;
+  *(_OWORD *)BaseAddress = 0LL;
   IoStatusBlock = 0LL;
-  result = RtlpDosPathNameToRelativeNtPathName(0, a1, 0LL, (unsigned __int16 *)&v17, 0LL, 0LL, 0LL);
+  result = RtlpDosPathNameToRelativeNtPathName(0, a1, 0LL, (unsigned __int16 *)BaseAddress, 0LL, 0LL, 0LL);
   if ( (int)result >= 0 )
   {
     v7 = MEMORY[0x7FFE02DC];
     ObjectAttributes.Length = 48;
     ObjectAttributes.RootDirectory = 0LL;
     ObjectAttributes.Attributes = 64;
-    ObjectAttributes.ObjectName = (PUNICODE_STRING)&v17;
+    ObjectAttributes.ObjectName = (PUNICODE_STRING)BaseAddress;
     *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
     v8 = NtOpenFile(&FileHandle, 0x100020u, &ObjectAttributes, &IoStatusBlock, 3u, 0x21u);
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, *((__int64 *)&v17 + 1), v9);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, BaseAddress[1]);
     if ( v8 >= 0 )
     {
-      ShareAccess[0] = 4;
-      v8 = ZwQueryVolumeInformationFile(FileHandle, &IoStatusBlock, &v16, 8LL, *(_QWORD *)ShareAccess);
+      v8 = ZwQueryVolumeInformationFile(FileHandle, &IoStatusBlock, &FsInformation, 8u, FileFsDeviceInformation);
       if ( v8 >= 0 )
       {
-        Heap = RtlAllocateHeap((char *)NtCurrentPeb()->ProcessHeap, 0, v3 + 48);
-        v11 = Heap;
+        Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, v3 + 48);
+        v10 = Heap;
         if ( Heap )
         {
-          v12 = HIDWORD(v16);
-          *(_QWORD *)(Heap + 8) = FileHandle;
-          *(_QWORD *)(Heap + 32) = Heap + 48;
+          v11 = HIDWORD(FsInformation);
+          Heap[1] = FileHandle;
+          Heap[4] = Heap + 6;
           *(_DWORD *)Heap = 1;
-          *(_WORD *)(Heap + 26) = v3;
-          *(_DWORD *)(Heap + 16) = v7;
-          *(_DWORD *)(Heap + 40) = v12;
-          memmove((void *)(Heap + 48), *((const void **)a1 + 1), *a1);
-          *(_WORD *)(*(_QWORD *)(v11 + 32) + 2 * ((unsigned __int64)*a1 >> 1)) = 0;
-          *(_WORD *)(v11 + 24) = *a1;
-          v13 = (unsigned __int64)*a1 >> 1;
-          if ( *(_WORD *)(*((_QWORD *)a1 + 1) + 2 * v13 - 2) != 92 )
+          *((_WORD *)Heap + 13) = v3;
+          *((_DWORD *)Heap + 4) = v7;
+          *((_DWORD *)Heap + 10) = v11;
+          memmove(Heap + 6, *((const void **)a1 + 1), *a1);
+          *(_WORD *)(v10[4] + 2 * ((unsigned __int64)*a1 >> 1)) = 0;
+          *((_WORD *)v10 + 12) = *a1;
+          v12 = (unsigned __int64)*a1 >> 1;
+          if ( *(_WORD *)(*((_QWORD *)a1 + 1) + 2 * v12 - 2) != 92 )
           {
-            if ( (unsigned __int64)*a1 + 4 > *(unsigned __int16 *)(v11 + 26) )
+            if ( (unsigned __int64)*a1 + 4 > *((unsigned __int16 *)v10 + 13) )
             {
               NtClose(FileHandle);
-              RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v11, v14);
+              RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v10);
               return 3221225734LL;
             }
-            *(_WORD *)(*(_QWORD *)(v11 + 32) + 2 * v13) = 92;
-            *(_WORD *)(*(_QWORD *)(v11 + 32) + 2 * ((unsigned __int64)*a1 >> 1) + 2) = 0;
-            *(_WORD *)(v11 + 24) += 2;
+            *(_WORD *)(v10[4] + 2 * v12) = 92;
+            *(_WORD *)(v10[4] + 2 * ((unsigned __int64)*a1 >> 1) + 2) = 0;
+            *((_WORD *)v10 + 12) += 2;
           }
-          *a3 = v11;
+          *a3 = v10;
           return 0LL;
         }
         v8 = -1073741801;

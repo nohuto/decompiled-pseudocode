@@ -1,36 +1,36 @@
 /*
- * XREFs of DbgkpSendErrorMessage @ 0x140887370
+ * XREFs of DbgkpSendErrorMessage @ 0x1408874D0
  * Callers:
- *     PsDispatchIumService @ 0x140582CF4 (PsDispatchIumService.c)
- *     DbgkForwardException @ 0x1407321F0 (DbgkForwardException.c)
+ *     PsDispatchIumService @ 0x140582F24 (PsDispatchIumService.c)
+ *     DbgkForwardException @ 0x1407323B0 (DbgkForwardException.c)
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x1402056A0 (ObfReferenceObjectWithTag.c)
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     PsGetServerSiloGlobals @ 0x140252E18 (PsGetServerSiloGlobals.c)
- *     PsGetProcessServerSilo @ 0x14025CA80 (PsGetProcessServerSilo.c)
- *     PsGetServerSiloServiceSessionId @ 0x140264460 (PsGetServerSiloServiceSessionId.c)
- *     KeTestAlertThread @ 0x140277530 (KeTestAlertThread.c)
- *     AlpcGetMessageAttribute @ 0x140281330 (AlpcGetMessageAttribute.c)
- *     AlpcInitializeMessageAttribute @ 0x140281370 (AlpcInitializeMessageAttribute.c)
- *     KeCopyExceptionRecord @ 0x1402D3BE8 (KeCopyExceptionRecord.c)
- *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
- *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
- *     MmGetSessionIdEx @ 0x14034AE60 (MmGetSessionIdEx.c)
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
- *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     ZwAlpcSendWaitReceivePort @ 0x1403FB520 (ZwAlpcSendWaitReceivePort.c)
- *     memset @ 0x140414200 (memset.c)
- *     PsTestProtectedProcessIncompatibility @ 0x140607578 (PsTestProtectedProcessIncompatibility.c)
- *     MmGetSectionInformation @ 0x140620F30 (MmGetSectionInformation.c)
- *     PsThawProcess @ 0x14067D0F8 (PsThawProcess.c)
- *     DbgkForwardException @ 0x1407321F0 (DbgkForwardException.c)
- *     DbgkpDeleteErrorPort @ 0x140887048 (DbgkpDeleteErrorPort.c)
- *     DbgkpRemoveErrorPort @ 0x140887074 (DbgkpRemoveErrorPort.c)
- *     DbgkpStartSystemErrorHandler @ 0x140887850 (DbgkpStartSystemErrorHandler.c)
- *     DbgkpSuspendProcess @ 0x140887CE0 (DbgkpSuspendProcess.c)
+ *     KeCopyExceptionRecord @ 0x140251E58 (KeCopyExceptionRecord.c)
+ *     KeTestAlertThread @ 0x1402654D0 (KeTestAlertThread.c)
+ *     AlpcGetMessageAttribute @ 0x14026F570 (AlpcGetMessageAttribute.c)
+ *     AlpcInitializeMessageAttribute @ 0x14026F5B0 (AlpcInitializeMessageAttribute.c)
+ *     PsGetProcessServerSilo @ 0x14027DFF0 (PsGetProcessServerSilo.c)
+ *     PsGetServerSiloServiceSessionId @ 0x14027E130 (PsGetServerSiloServiceSessionId.c)
+ *     PsGetServerSiloGlobals @ 0x140285C94 (PsGetServerSiloGlobals.c)
+ *     ObfReferenceObjectWithTag @ 0x1402A9FE0 (ObfReferenceObjectWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExfReleasePushLockShared @ 0x1402FC1C0 (ExfReleasePushLockShared.c)
+ *     KeWaitForSingleObject @ 0x1403504C0 (KeWaitForSingleObject.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x1403558A0 (ExAcquirePushLockSharedEx.c)
+ *     MmGetSessionIdEx @ 0x140355BB0 (MmGetSessionIdEx.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
+ *     KeLeaveCriticalRegion @ 0x140356100 (KeLeaveCriticalRegion.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     ZwAlpcSendWaitReceivePort @ 0x1403FB700 (ZwAlpcSendWaitReceivePort.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     PsThawProcess @ 0x1406001EC (PsThawProcess.c)
+ *     MmGetSectionInformation @ 0x14068ABA0 (MmGetSectionInformation.c)
+ *     PsTestProtectedProcessIncompatibility @ 0x140697008 (PsTestProtectedProcessIncompatibility.c)
+ *     DbgkForwardException @ 0x1407323B0 (DbgkForwardException.c)
+ *     DbgkpDeleteErrorPort @ 0x1408871A8 (DbgkpDeleteErrorPort.c)
+ *     DbgkpRemoveErrorPort @ 0x1408871D4 (DbgkpRemoveErrorPort.c)
+ *     DbgkpStartSystemErrorHandler @ 0x1408879B0 (DbgkpStartSystemErrorHandler.c)
+ *     DbgkpSuspendProcess @ 0x140887E40 (DbgkpSuspendProcess.c)
  */
 
 __int64 __fastcall DbgkpSendErrorMessage(__int64 a1, char a2, __int64 a3)
@@ -46,33 +46,33 @@ __int64 __fastcall DbgkpSendErrorMessage(__int64 a1, char a2, __int64 a3)
   PVOID v13; // r14
   PVOID v14; // rax
   __int64 v15; // rdx
-  __int128 v16; // xmm0
-  __int128 v17; // xmm1
-  __int128 v18; // xmm0
-  __int128 v19; // xmm1
-  __int64 v20; // rcx
-  __int64 v21; // rax
-  __int16 v22; // dx
-  char v23; // r13
-  int v24; // ebx
-  char *MessageAttribute; // rax
-  __int64 v26; // rdx
-  __int64 v27; // r8
-  _DWORD *v28; // r9
+  __int64 v16; // r8
+  __int64 v17; // r9
+  __int64 v18; // rdx
+  __int128 v19; // xmm0
+  __int128 v20; // xmm1
+  __int128 v21; // xmm0
+  __int128 v22; // xmm1
+  __int64 v23; // rcx
+  __int64 v24; // rax
+  __int16 v25; // dx
+  char v26; // r13
+  int v27; // ebx
+  _DWORD *MessageAttribute; // rax
   __int64 v29; // rcx
-  int v30; // eax
+  NTSTATUS v30; // eax
   char v31; // bl
   char v33; // [rsp+40h] [rbp-C0h]
-  __int64 v35; // [rsp+48h] [rbp-B8h] BYREF
+  ULONG_PTR RequiredBufferSize; // [rsp+48h] [rbp-B8h] BYREF
   PVOID Object; // [rsp+50h] [rbp-B0h]
   LARGE_INTEGER v37; // [rsp+58h] [rbp-A8h] BYREF
   __int64 v38; // [rsp+60h] [rbp-A0h]
   struct _KTHREAD *v39; // [rsp+68h] [rbp-98h]
-  _OWORD v40[10]; // [rsp+80h] [rbp-80h] BYREF
+  _ALPC_MESSAGE_ATTRIBUTES Buffer[20]; // [rsp+80h] [rbp-80h] BYREF
 
   v38 = a1;
-  memset(&v40[4], 0, 0x60uLL);
-  v35 = 0LL;
+  memset(&Buffer[8], 0, 0x60uLL);
+  RequiredBufferSize = 0LL;
   CurrentThread = KeGetCurrentThread();
   v37.QuadPart = 0LL;
   v33 = 0;
@@ -80,13 +80,17 @@ __int64 __fastcall DbgkpSendErrorMessage(__int64 a1, char a2, __int64 a3)
   Process = (ULONG_PTR)CurrentThread->Process;
   ProcessServerSilo = PsGetProcessServerSilo(Process);
   v8 = (PVOID *)((char *)PsGetServerSiloGlobals(ProcessServerSilo) + 968);
-  memset(v40, 0, 0x40uLL);
+  memset(Buffer, 0, 0x40uLL);
   if ( (*(_DWORD *)(Process + 2172) & 1) != 0 )
     return (unsigned int)-1073741637;
-  MmGetSectionInformation(*(_QWORD *)(Process + 1304), 1, (__int64)v40);
+  MmGetSectionInformation(*(_QWORD *)(Process + 1304), 1, (__int64)Buffer);
   ServerSiloServiceSessionId = PsGetServerSiloServiceSessionId(ProcessServerSilo);
-  if ( (unsigned int)MmGetSessionIdEx(Process) != ServerSiloServiceSessionId && LODWORD(v40[2]) != 1 && (a2 & 2) != 0 )
+  if ( (unsigned int)MmGetSessionIdEx(Process) != ServerSiloServiceSessionId
+    && Buffer[4].AllocatedAttributes != 1
+    && (a2 & 2) != 0 )
+  {
     v33 = DbgkpSuspendProcess(Process);
+  }
   started = DbgkpStartSystemErrorHandler();
   if ( started >= 0 )
   {
@@ -137,10 +141,10 @@ __int64 __fastcall DbgkpSendErrorMessage(__int64 a1, char a2, __int64 a3)
       if ( _InterlockedCompareExchange64((volatile signed __int64 *)v8, 0LL, 17LL) != 17 )
         ExfReleasePushLockShared((signed __int64 *)v8);
       KeAbPostRelease((ULONG_PTR)v8);
-      KeLeaveCriticalRegionThread((__int64)CurrentThread);
+      KeLeaveCriticalRegionThread((__int64)CurrentThread, v15, v16, v17);
       if ( started >= 0 )
       {
-        v15 = v38;
+        v18 = v38;
         *(_QWORD *)(a3 + 8) = 0LL;
         *(_QWORD *)(a3 + 16) = 0LL;
         *(_QWORD *)(a3 + 24) = 0LL;
@@ -150,67 +154,75 @@ __int64 __fastcall DbgkpSendErrorMessage(__int64 a1, char a2, __int64 a3)
         *(_DWORD *)a3 = 17826024;
         *(_DWORD *)(a3 + 40) = 7;
         *(_DWORD *)(a3 + 44) = -2147418111;
-        KeCopyExceptionRecord((_OWORD *)(a3 + 48), v15);
-        v16 = v40[0];
-        v17 = v40[1];
+        KeCopyExceptionRecord((_OWORD *)(a3 + 48), v18);
+        v19 = *(_OWORD *)&Buffer[0].AllocatedAttributes;
+        v20 = *(_OWORD *)&Buffer[2].AllocatedAttributes;
         *(_DWORD *)(a3 + 264) = 0;
-        *(_OWORD *)(a3 + 200) = v16;
-        v18 = v40[2];
-        *(_OWORD *)(a3 + 216) = v17;
-        v19 = v40[3];
-        *(_OWORD *)(a3 + 232) = v18;
-        *(_OWORD *)(a3 + 248) = v19;
+        *(_OWORD *)(a3 + 200) = v19;
+        v21 = *(_OWORD *)&Buffer[4].AllocatedAttributes;
+        *(_OWORD *)(a3 + 216) = v20;
+        v22 = *(_OWORD *)&Buffer[6].AllocatedAttributes;
+        *(_OWORD *)(a3 + 232) = v21;
+        *(_OWORD *)(a3 + 248) = v22;
         if ( (*(_BYTE *)(Process + 2170) & 7) != 0 )
         {
           *(_DWORD *)(a3 + 264) = 1;
-          v20 = 1LL;
+          v23 = 1LL;
         }
         else
         {
-          v20 = 0LL;
+          v23 = 0LL;
         }
         if ( (*(_BYTE *)(Process + 992) & 1) != 0 )
         {
-          v20 = (unsigned int)v20 | 8;
-          *(_DWORD *)(a3 + 264) = v20;
+          v23 = (unsigned int)v23 | 8;
+          *(_DWORD *)(a3 + 264) = v23;
         }
-        v21 = *(_QWORD *)(Process + 1408);
-        if ( v21 )
+        v24 = *(_QWORD *)(Process + 1408);
+        if ( v24 )
         {
-          v22 = *(_WORD *)(v21 + 8);
-          if ( v22 == 332 || v22 == 452 )
+          v25 = *(_WORD *)(v24 + 8);
+          if ( v25 == 332 || v25 == 452 )
           {
-            v20 = (unsigned int)v20 | 2;
-            *(_DWORD *)(a3 + 264) = v20;
+            v23 = (unsigned int)v23 | 2;
+            *(_DWORD *)(a3 + 264) = v23;
           }
         }
         if ( (a2 & 1) != 0 )
         {
-          v20 = (unsigned int)v20 | 4;
-          v23 = 1;
-          *(_DWORD *)(a3 + 264) = v20;
+          v23 = (unsigned int)v23 | 4;
+          v26 = 1;
+          *(_DWORD *)(a3 + 264) = v23;
         }
         else
         {
-          v23 = 0;
+          v26 = 0;
         }
-        LOBYTE(v20) = 1;
-        v24 = PsTestProtectedProcessIncompatibility(v20, (__int64)Object, Process) ? 1055744 : 0x1FFFFF;
-        AlpcInitializeMessageAttribute(0x10000000LL, v40, 0xA0uLL, &v35);
-        DWORD1(v40[0]) = 0x10000000;
-        MessageAttribute = AlpcGetMessageAttribute(v40, 0x10000000);
-        *(_DWORD *)MessageAttribute = 0;
-        *((_DWORD *)MessageAttribute + 5) = v24;
-        *((_DWORD *)MessageAttribute + 4) = 4;
+        LOBYTE(v23) = 1;
+        v27 = PsTestProtectedProcessIncompatibility(v23, (__int64)Object, Process) ? 1055744 : 0x1FFFFF;
+        AlpcInitializeMessageAttribute(0x10000000u, Buffer, 0xA0uLL, &RequiredBufferSize);
+        Buffer[0].ValidAttributes = 0x10000000;
+        MessageAttribute = AlpcGetMessageAttribute(Buffer, 0x10000000u);
+        *MessageAttribute = 0;
+        MessageAttribute[5] = v27;
+        MessageAttribute[4] = 4;
         *((_QWORD *)MessageAttribute + 1) = -2LL;
-        v35 = 272LL;
-        KeTestAlertThread(0, v26, v27, v28);
+        RequiredBufferSize = 272LL;
+        KeTestAlertThread(0);
         v29 = (__int64)v39;
         if ( (*(_DWORD *)(&v39[1].SwapListEntry + 1) & 1) != 0 )
           started = -1073741749;
         if ( started >= 0 )
         {
-          v30 = ZwAlpcSendWaitReceivePort(*((_QWORD *)v13 + 1), 2228224LL);
+          v30 = ZwAlpcSendWaitReceivePort(
+                  *((HANDLE *)v13 + 1),
+                  0x220000u,
+                  (PPORT_MESSAGE)a3,
+                  Buffer,
+                  (PPORT_MESSAGE)a3,
+                  &RequiredBufferSize,
+                  0LL,
+                  0LL);
           started = v30;
           if ( v30 >= 0 )
           {
@@ -221,9 +233,9 @@ __int64 __fastcall DbgkpSendErrorMessage(__int64 a1, char a2, __int64 a3)
             else
             {
               if ( (*(_WORD *)(a3 + 4) & 0x2000) != 0 )
-                ZwAlpcSendWaitReceivePort(*((_QWORD *)v13 + 1), 0x10000LL);
+                ZwAlpcSendWaitReceivePort(*((HANDLE *)v13 + 1), 0x10000u, (PPORT_MESSAGE)a3, 0LL, 0LL, 0LL, 0LL, 0LL);
               started = *(_DWORD *)(a3 + 44);
-              if ( started >= 0 && !v23 && started == 65538 )
+              if ( started >= 0 && !v26 && started == 65538 )
               {
                 v31 = v33;
                 if ( v33 )

@@ -12,33 +12,36 @@
  *     sub_1800FC524 @ 0x1800FC524 (sub_1800FC524.c)
  */
 
-unsigned int *__fastcall sub_180062960(__int64 a1, unsigned __int64 a2, int a3)
+int __fastcall sub_180062960(__int64 a1, void *a2, int a3)
 {
-  unsigned __int64 v4; // rcx
-  unsigned int *result; // rax
+  ULONG_PTR v4; // rcx
+  struct _PEB *v5; // rax
   __int64 v6; // rcx
-  __int128 v7; // [rsp+20h] [rbp-18h] BYREF
-  unsigned __int64 v8; // [rsp+40h] [rbp+8h] BYREF
-  unsigned __int64 v9; // [rsp+48h] [rbp+10h] BYREF
+  __int128 v8; // [rsp+20h] [rbp-18h] BYREF
+  ULONG_PTR RegionSize; // [rsp+40h] [rbp+8h] BYREF
+  PVOID BaseAddress; // [rsp+48h] [rbp+10h] BYREF
 
-  v9 = a2;
+  BaseAddress = a2;
   v4 = (unsigned int)-*(_DWORD *)a1;
-  v8 = v4;
+  RegionSize = v4;
   if ( a3 )
-    sub_180062AA4(&unk_18015D838, 2 * ((a2 - qword_18015D878) >> 20), 2 * ((unsigned __int64)(unsigned int)v4 >> 20));
-  v7 = *(_OWORD *)(a1 + 96);
-  sub_1800624DC(&v9, &v8, 0x8000, &v7);
-  result = RtlGetCurrentServiceSessionId();
-  if ( (_DWORD)result )
+    sub_180062AA4(
+      &unk_18015D838,
+      2 * (((unsigned __int64)a2 - qword_18015D878) >> 20),
+      2 * ((unsigned __int64)(unsigned int)v4 >> 20));
+  v8 = *(_OWORD *)(a1 + 96);
+  sub_1800624DC(&BaseAddress, &RegionSize, 0x8000, &v8);
+  LODWORD(v5) = RtlGetCurrentServiceSessionId();
+  if ( (_DWORD)v5 )
   {
-    result = (unsigned int *)NtCurrentPeb();
-    v6 = *((_QWORD *)result + 18) + 558LL;
+    v5 = NtCurrentPeb();
+    v6 = (__int64)&v5->SharedData->UserModeGlobalLogger[4];
   }
   else
   {
     v6 = 2147353480LL;
   }
   if ( *(_BYTE *)v6 )
-    return (unsigned int *)sub_1800FC524(a1, v9, v8);
-  return result;
+    LODWORD(v5) = sub_1800FC524(a1, BaseAddress, RegionSize);
+  return (int)v5;
 }

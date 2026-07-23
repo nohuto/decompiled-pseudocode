@@ -1,11 +1,11 @@
 /*
- * XREFs of MiValidateMdlTracker @ 0x14061D018
+ * XREFs of MiValidateMdlTracker @ 0x14061D568
  * Callers:
- *     MiFreeMdlTracker @ 0x14061C82C (MiFreeMdlTracker.c)
- *     MmUpdateMdlTrackerForMdlSwitch @ 0x14061D3E8 (MmUpdateMdlTrackerForMdlSwitch.c)
+ *     MiFreeMdlTracker @ 0x14061CD7C (MiFreeMdlTracker.c)
+ *     MmUpdateMdlTrackerForMdlSwitch @ 0x14061D938 (MmUpdateMdlTrackerForMdlSwitch.c)
  * Callees:
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     ?Hash@MetroHash64@@SAXPEBE_KQEAE1@Z @ 0x14067BD90 (-Hash@MetroHash64@@SAXPEBE_KQEAE1@Z.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     ?Hash@MetroHash64@@SAXPEBE_KQEAE1@Z @ 0x14067C2E0 (-Hash@MetroHash64@@SAXPEBE_KQEAE1@Z.c)
  */
 
 __int64 __fastcall MiValidateMdlTracker(ULONG_PTR BugCheckParameter3, int a2)

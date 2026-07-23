@@ -1,15 +1,15 @@
 /*
- * XREFs of PopCallPowerSettingCallback @ 0x1405B03B8
+ * XREFs of PopCallPowerSettingCallback @ 0x1405B13B8
  * Callers:
- *     PopDispatchPowerSettingCallbacks @ 0x14058AAC0 (PopDispatchPowerSettingCallbacks.c)
+ *     PopDispatchPowerSettingCallbacks @ 0x14058BAC0 (PopDispatchPowerSettingCallbacks.c)
  * Callees:
  *     KeReleaseGuardedMutex @ 0x140014E30 (KeReleaseGuardedMutex.c)
  *     ExAcquireFastMutex @ 0x14004E530 (ExAcquireFastMutex.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     PopDiagTracePowerSettingStart @ 0x1405B0220 (PopDiagTracePowerSettingStart.c)
- *     PopDiagTracePowerSettingStop @ 0x1405B0308 (PopDiagTracePowerSettingStop.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     PopDiagTracePowerSettingStart @ 0x1405B1220 (PopDiagTracePowerSettingStart.c)
+ *     PopDiagTracePowerSettingStop @ 0x1405B1308 (PopDiagTracePowerSettingStop.c)
  */
 
 void __fastcall PopCallPowerSettingCallback(_QWORD *a1, __int64 a2)

@@ -1,16 +1,16 @@
 /*
- * XREFs of BiGetNtPartitionPathCallback @ 0x1408924F0
+ * XREFs of BiGetNtPartitionPathCallback @ 0x1408988F0
  * Callers:
  *     <none>
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     _wcsicmp @ 0x140536570 (_wcsicmp.c)
- *     swprintf_s @ 0x14053B0E0 (swprintf_s.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwOpenFile @ 0x140723A50 (ZwOpenFile.c)
- *     BiGetDriveLayoutBlock @ 0x1408922C0 (BiGetDriveLayoutBlock.c)
- *     BiGetPartitionVhdFilePath @ 0x140B1C230 (BiGetPartitionVhdFilePath.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     _wcsicmp @ 0x1405389F0 (_wcsicmp.c)
+ *     swprintf_s @ 0x14053D560 (swprintf_s.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwOpenFile @ 0x140728620 (ZwOpenFile.c)
+ *     BiGetDriveLayoutBlock @ 0x1408986BC (BiGetDriveLayoutBlock.c)
+ *     BiGetPartitionVhdFilePath @ 0x140B1E440 (BiGetPartitionVhdFilePath.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 char __fastcall BiGetNtPartitionPathCallback(const WCHAR *a1, unsigned int a2, __int64 a3)

@@ -18,7 +18,7 @@ __int64 __fastcall SepInitQuerySigningPolicyExt(PRTL_RUN_ONCE a1, PVOID a2, PVOI
   v3 = 0;
   SeQuerySigningPolicyExtAllowed = 0;
   SeFailIfExtensionNotSupported = 0;
-  v4 = ZwQuerySystemInformation(SystemNonPagedPoolInformation|0x80, SystemInformation, 0x18u, 0LL);
+  v4 = ZwQuerySystemInformation(SystemSecureBootPolicyInformation, SystemInformation, 0x18u, 0LL);
   if ( v4 >= 0 )
   {
     if ( (SystemInformation[20] & 0x40) != 0 )

@@ -1,49 +1,47 @@
 /*
- * XREFs of TppSetTimer @ 0x18006B410
+ * XREFs of TppSetTimer @ 0x180087CF0
  * Callers:
- *     TpSetWaitEx @ 0x1800200E0 (TpSetWaitEx.c)
- *     TppSetupNextWait @ 0x18006A8C0 (TppSetupNextWait.c)
- *     TpSetTimerEx @ 0x18006AF80 (TpSetTimerEx.c)
+ *     TpSetWaitEx @ 0x18004CAE0 (TpSetWaitEx.c)
+ *     TppSetupNextWait @ 0x180086FB0 (TppSetupNextWait.c)
+ *     TpSetTimerEx @ 0x180087860 (TpSetTimerEx.c)
  * Callees:
- *     RtlSetLastWin32Error @ 0x18001C5D0 (RtlSetLastWin32Error.c)
- *     RtlAcquireSRWLockExclusive @ 0x180055AE0 (RtlAcquireSRWLockExclusive.c)
- *     TppETWTimerSet @ 0x18006B718 (TppETWTimerSet.c)
- *     TppUpdateSubQueueTimer @ 0x18006C700 (TppUpdateSubQueueTimer.c)
- *     RtlNtStatusToDosErrorNoTeb @ 0x18009F9E0 (RtlNtStatusToDosErrorNoTeb.c)
+ *     RtlSetLastWin32Error @ 0x180048FD0 (RtlSetLastWin32Error.c)
+ *     RtlAcquireSRWLockExclusive @ 0x18006B6C0 (RtlAcquireSRWLockExclusive.c)
+ *     RtlNtStatusToDosErrorNoTeb @ 0x1800872D0 (RtlNtStatusToDosErrorNoTeb.c)
+ *     TppETWTimerSet @ 0x180087FF8 (TppETWTimerSet.c)
+ *     TppUpdateSubQueueTimer @ 0x180088FE0 (TppUpdateSubQueueTimer.c)
  */
 
-__int64 __fastcall TppSetTimer(__int64 a1, volatile signed __int32 **a2, __int64 *a3, __int64 a4, int a5)
+void __fastcall TppSetTimer(__int64 a1, _RTL_SRWLOCK *a2, __int64 *a3, __int64 a4, int a5)
 {
   bool v5; // sf
-  volatile signed __int32 *v6; // r15
   __int64 *v8; // rbx
   __int64 *v9; // r14
   unsigned __int8 v10; // r12
-  volatile signed __int32 **v11; // rbp
+  _RTL_SRWLOCK *v11; // rbp
   __int64 v12; // rcx
   _DWORD *SharedData; // rcx
   __int64 v14; // rcx
   __int64 v15; // rcx
-  volatile signed __int32 *v16; // rdx
+  _QWORD *v16; // rdx
   __int64 v17; // rax
   __int64 v18; // r9
   bool v19; // of
-  volatile signed __int32 **v20; // rcx
-  volatile signed __int32 *v21; // r8
+  __int64 *v20; // rcx
+  _QWORD *Value; // r8
   __int64 v22; // rcx
-  volatile signed __int32 **v23; // rax
-  volatile signed __int32 *v24; // rax
-  volatile signed __int32 *v25; // rax
-  volatile signed __int32 **v26; // rdx
-  volatile signed __int32 *v27; // r8
+  _QWORD *v23; // rax
+  __int64 v24; // rax
+  _QWORD *v25; // rax
+  __int64 *v26; // rdx
+  _QWORD *v27; // r8
   __int64 v28; // rcx
-  volatile signed __int32 **v29; // r8
+  _QWORD *v29; // r8
   __int64 v30; // rax
-  volatile signed __int32 *v31; // r9
-  unsigned int v33; // eax
+  __int64 v31; // r9
+  LONG v32; // eax
 
   v5 = *a3 < 0;
-  v6 = (volatile signed __int32 *)a2;
   v8 = (__int64 *)(a1 + 328);
   v9 = a3;
   *(_DWORD *)(a1 + 344) = a5;
@@ -54,13 +52,12 @@ __int64 __fastcall TppSetTimer(__int64 a1, volatile signed __int32 **a2, __int64
     v11 = a2 + 16;
     if ( a1 == -328 )
     {
-      v33 = RtlNtStatusToDosErrorNoTeb(3221225485LL);
-      RtlSetLastWin32Error(v33);
+      v32 = RtlNtStatusToDosErrorNoTeb(-1073741811);
+      RtlSetLastWin32Error(v32);
     }
     else
     {
       a4 = 2147353520LL;
-      a2 = (volatile signed __int32 **)RtlpFreezeTimeBias;
       a3 = (__int64 *)MEMORY[0x7FFE03B0];
       *v8 = MEMORY[0x7FFE0008] - RtlpFreezeTimeBias - MEMORY[0x7FFE03B0];
     }
@@ -86,76 +83,76 @@ __int64 __fastcall TppSetTimer(__int64 a1, volatile signed __int32 **a2, __int64
     v14 = 2147353478LL;
   if ( *(_BYTE *)v14 )
     TppETWTimerSet(v11, a1, a3, a4);
-  RtlAcquireSRWLockExclusive(v6, a2, (unsigned __int64)a3);
+  RtlAcquireSRWLockExclusive(a2);
   v15 = *v8;
-  v16 = (volatile signed __int32 *)(a1 + 288);
+  v16 = (_QWORD *)(a1 + 288);
   v17 = *(unsigned int *)(a1 + 344);
   *(_QWORD *)(a1 + 320) = *v8;
   v18 = v15 + 10000 * v17;
   v19 = __OFSUB__(v18, v15);
-  v20 = (volatile signed __int32 **)(a1 + 304);
+  v20 = (__int64 *)(a1 + 304);
   *(_QWORD *)(a1 + 312) = a1 + 304;
   *(_QWORD *)(a1 + 304) = a1 + 304;
   if ( 10000 * v17 < 0 != v19 )
     v18 = 0x7FFFFFFFFFFFFFFFLL;
   *(_QWORD *)(a1 + 296) = a1 + 288;
-  *(_QWORD *)v16 = v16;
-  v21 = v11[1];
-  if ( !v21 )
+  *v16 = v16;
+  Value = (_QWORD *)v11[1].Value;
+  if ( !Value )
   {
 LABEL_19:
-    v11[1] = v16;
+    v11[1].Value = (unsigned __int64)v16;
     goto LABEL_20;
   }
-  if ( *((_QWORD *)v21 + 4) >= *(_QWORD *)(a1 + 320) )
+  if ( Value[4] >= *(_QWORD *)(a1 + 320) )
   {
     v24 = *v20;
-    if ( *((volatile signed __int32 ***)*v20 + 1) != v20 )
+    if ( *(__int64 **)(*v20 + 8) != v20 )
       goto LABEL_16;
-    *(_QWORD *)v21 = v24;
-    *((_QWORD *)v21 + 1) = v20;
-    *((_QWORD *)v24 + 1) = v21;
-    *v20 = v21;
+    *Value = v24;
+    Value[1] = v20;
+    *(_QWORD *)(v24 + 8) = Value;
+    *v20 = (__int64)Value;
     goto LABEL_19;
   }
-  v22 = *((_QWORD *)v21 + 2);
-  v23 = (volatile signed __int32 **)(v21 + 4);
-  if ( *(volatile signed __int32 **)(v22 + 8) != v21 + 4 )
+  v22 = Value[2];
+  v23 = Value + 2;
+  if ( *(_QWORD **)(v22 + 8) != Value + 2 )
     goto LABEL_16;
-  *(_QWORD *)v16 = v22;
+  *v16 = v22;
   *(_QWORD *)(a1 + 296) = v23;
   *(_QWORD *)(v22 + 8) = v16;
   *v23 = v16;
 LABEL_20:
-  v25 = (volatile signed __int32 *)(a1 + 248);
+  v25 = (_QWORD *)(a1 + 248);
   *(_QWORD *)(a1 + 280) = v18;
-  v26 = (volatile signed __int32 **)(a1 + 264);
+  v26 = (__int64 *)(a1 + 264);
   *(_QWORD *)(a1 + 272) = a1 + 264;
   *(_QWORD *)(a1 + 264) = a1 + 264;
   *(_QWORD *)(a1 + 256) = a1 + 248;
   *(_QWORD *)(a1 + 248) = a1 + 248;
-  v27 = v11[2];
+  v27 = (_QWORD *)v11[2].Value;
   if ( !v27 )
     goto LABEL_28;
-  if ( *((_QWORD *)v27 + 4) >= *(_QWORD *)(a1 + 280) )
+  if ( v27[4] >= *(_QWORD *)(a1 + 280) )
   {
     v31 = *v26;
-    if ( *((volatile signed __int32 ***)*v26 + 1) != v26 )
+    if ( *(__int64 **)(*v26 + 8) != v26 )
 LABEL_16:
       __fastfail(3u);
-    *(_QWORD *)v27 = v31;
-    *((_QWORD *)v27 + 1) = v26;
-    *((_QWORD *)v31 + 1) = v27;
-    *v26 = v27;
+    *v27 = v31;
+    v27[1] = v26;
+    *(_QWORD *)(v31 + 8) = v27;
+    *v26 = (__int64)v27;
 LABEL_28:
-    v11[2] = v25;
+    v11[2].Value = (unsigned __int64)v25;
     goto LABEL_29;
   }
-  v28 = *((_QWORD *)v27 + 2);
-  v29 = (volatile signed __int32 **)(v27 + 4);
-  if ( *(volatile signed __int32 ***)(v28 + 8) != v29 )
+  v28 = v27[2];
+  v29 = v27 + 2;
+  if ( *(_QWORD **)(v28 + 8) != v29 )
     goto LABEL_16;
-  *(_QWORD *)v25 = v28;
+  *v25 = v28;
   *(_QWORD *)(a1 + 256) = v29;
   *(_QWORD *)(v28 + 8) = v25;
   *v29 = v25;
@@ -163,5 +160,5 @@ LABEL_29:
   *(_BYTE *)(a1 + 354) |= 1u;
   *(_BYTE *)(a1 + 352) = 1;
   TppUpdateSubQueueTimer(v11, v10);
-  return RtlReleaseSRWLockExclusive((volatile signed __int64 *)v6);
+  RtlReleaseSRWLockExclusive(a2);
 }

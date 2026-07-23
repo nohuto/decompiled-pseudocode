@@ -13,14 +13,14 @@ __int64 __fastcall RtlpHpLfhSubsegmentIncBlockCounts(__int64 a1, unsigned int a2
   int v7; // ebp
   __int64 v8; // r11
   __int64 v9; // r14
-  _WORD *v10; // rdi
+  signed __int16 *v10; // rdi
   unsigned int v11; // esi
   __int64 v12; // rbx
   int v13; // r15d
-  _WORD *v14; // r12
-  unsigned __int64 v15; // rdx
+  signed __int16 *v14; // r12
+  signed __int16 v15; // dx
   bool v16; // zf
-  unsigned __int16 v17; // ax
+  signed __int16 v17; // ax
   unsigned int v18; // eax
   _DWORD *v20; // [rsp+68h] [rbp+20h]
 
@@ -29,7 +29,7 @@ __int64 __fastcall RtlpHpLfhSubsegmentIncBlockCounts(__int64 a1, unsigned int a2
   v7 = 0;
   v8 = a2 >> v6;
   v9 = 2 * v8;
-  v10 = (_WORD *)(2 * v8 + a1 + *(unsigned __int16 *)(a1 + 46));
+  v10 = (signed __int16 *)(2 * v8 + a1 + *(unsigned __int16 *)(a1 + 46));
   _m_prefetchw(v10);
   v11 = -1;
   LODWORD(v12) = 0;
@@ -41,11 +41,11 @@ __int64 __fastcall RtlpHpLfhSubsegmentIncBlockCounts(__int64 a1, unsigned int a2
     {
       while ( 1 )
       {
-        v15 = (unsigned __int16)*v10;
-        while ( (__int16)v15 > 0 )
+        v15 = *v10;
+        while ( v15 > 0 )
         {
           v17 = _InterlockedCompareExchange16(v10, v15 + 1, v15);
-          v16 = (_WORD)v15 == v17;
+          v16 = v15 == v17;
           v15 = v17;
           if ( v16 )
             goto LABEL_14;
@@ -53,9 +53,9 @@ __int64 __fastcall RtlpHpLfhSubsegmentIncBlockCounts(__int64 a1, unsigned int a2
         if ( v7 )
           break;
         v7 = 1;
-        RtlAcquireSRWLockExclusive(a1 + 24, v15, (unsigned __int64 *)1, (__int64)a4);
+        RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 24));
       }
-      if ( (_WORD)v15 == 0xFFFF )
+      if ( v15 == -1 )
       {
         v12 = v9 >> 1;
         v18 = v9 >> 1;
@@ -83,6 +83,6 @@ LABEL_14:
     *a4 = v12 - v11 + 1;
   }
   if ( v7 )
-    RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a1 + 24));
+    RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 24));
   return v11;
 }

@@ -18,10 +18,10 @@ __int64 __fastcall KiTpIsExcludedKernelTracepointLocation(__int64 a1)
   signed __int8 v4; // cf
   __int64 *v5; // rdi
   __int64 v7; // rt1
-  RTL_BITMAP BitMapHeader; // [rsp+20h] [rbp-18h] BYREF
+  _RTL_BITMAP BitMapHeader; // [rsp+20h] [rbp-18h] BYREF
 
   v1 = 0;
-  if ( !qword_140F0F288 )
+  if ( !KiTpExcludedRangeBitMap.Buffer )
   {
     v3 = KeAbPreAcquire((__int64)&KiTpStateLock, 0LL);
     v4 = _interlockedbittestandset64((volatile signed __int32 *)&KiTpStateLock, 0LL);
@@ -30,19 +30,18 @@ __int64 __fastcall KiTpIsExcludedKernelTracepointLocation(__int64 a1)
       ExfAcquirePushLockExclusiveEx(&KiTpStateLock, v3, (__int64)&KiTpStateLock);
     if ( v5 )
       *((_BYTE *)v5 + 10) = 1;
-    if ( !qword_140F0F288 )
+    if ( !KiTpExcludedRangeBitMap.Buffer )
       KiTpExcludedRangeBitMap = *KiTpBuildExcludedKernelTracepointBitmap(&BitMapHeader);
     if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&KiTpStateLock, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
       ExfTryToWakePushLock((volatile signed __int64 *)&KiTpStateLock);
     KeAbPostRelease((ULONG_PTR)&KiTpStateLock);
-    if ( !qword_140F0F288 )
+    if ( !KiTpExcludedRangeBitMap.Buffer )
       return 1LL;
   }
   v7 = *(_QWORD *)&KeNumberProcessorsGroup0[9];
-  LOBYTE(v1) = (unsigned int)RtlNumberOfSetBitsInRange(
-                               (__int64)&KiTpExcludedRangeBitMap,
-                               (unsigned __int64)(a1 - v7) >> 4,
-                               (unsigned int)((unsigned __int64)(a1 - v7 + 16) >> 4)
-                             - (unsigned int)((unsigned __int64)(a1 - v7) >> 4)) != 0;
+  LOBYTE(v1) = RtlNumberOfSetBitsInRange(
+                 &KiTpExcludedRangeBitMap,
+                 (unsigned __int64)(a1 - v7) >> 4,
+                 ((unsigned __int64)(a1 - v7 + 16) >> 4) - ((unsigned __int64)(a1 - v7) >> 4)) != 0;
   return v1;
 }

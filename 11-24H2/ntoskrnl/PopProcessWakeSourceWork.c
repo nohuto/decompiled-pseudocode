@@ -1,17 +1,17 @@
 /*
- * XREFs of PopProcessWakeSourceWork @ 0x140B6CA78
+ * XREFs of PopProcessWakeSourceWork @ 0x140B6E318
  * Callers:
- *     PopProcessDeviceWakeSource @ 0x140B5C0F4 (PopProcessDeviceWakeSource.c)
+ *     PopProcessDeviceWakeSource @ 0x140B5E164 (PopProcessDeviceWakeSource.c)
  * Callees:
- *     RtlCopyUnicodeString @ 0x1403FFE80 (RtlCopyUnicodeString.c)
- *     PopNewWakeSource @ 0x1406F9544 (PopNewWakeSource.c)
- *     PopWakeSourceGetDeviceProperty @ 0x1407518C8 (PopWakeSourceGetDeviceProperty.c)
- *     PopWakeSourceIsChild @ 0x140751990 (PopWakeSourceIsChild.c)
- *     PopWakeSourceIsParent @ 0x140751A00 (PopWakeSourceIsParent.c)
- *     RtlGUIDFromString @ 0x1408CA240 (RtlGUIDFromString.c)
- *     PopFreeWakeSource @ 0x140AA03DC (PopFreeWakeSource.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlCopyUnicodeString @ 0x1403FA370 (RtlCopyUnicodeString.c)
+ *     PopNewWakeSource @ 0x1406F7184 (PopNewWakeSource.c)
+ *     PopWakeSourceGetDeviceProperty @ 0x14074FBE8 (PopWakeSourceGetDeviceProperty.c)
+ *     PopWakeSourceIsChild @ 0x14074FCB0 (PopWakeSourceIsChild.c)
+ *     PopWakeSourceIsParent @ 0x14074FD20 (PopWakeSourceIsParent.c)
+ *     RtlGUIDFromString @ 0x1408C7C70 (RtlGUIDFromString.c)
+ *     PopFreeWakeSource @ 0x140A9B76C (PopFreeWakeSource.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PopProcessWakeSourceWork(struct _DEVICE_OBJECT *a1, __int64 *a2, _QWORD *a3)
@@ -72,7 +72,7 @@ LABEL_18:
     goto LABEL_20;
   }
   *(_DWORD *)(v12 + 72) = v8;
-  Pool2 = ExAllocatePool2(0x100uLL);
+  Pool2 = ExAllocatePool2(0x100uLL, *(unsigned __int16 *)(DeviceNode + 40), 0x206D654Du);
   *(_QWORD *)(v13 + 32) = Pool2;
   if ( !Pool2 )
   {

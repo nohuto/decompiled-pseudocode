@@ -1,23 +1,23 @@
 /*
- * XREFs of MxCreateFreePfns @ 0x1409BAD10
+ * XREFs of MxCreateFreePfns @ 0x1409BBD10
  * Callers:
- *     MxReleaseFreeDescriptor @ 0x1409BA8A4 (MxReleaseFreeDescriptor.c)
- *     MiSwitchToPfns @ 0x1409BA954 (MiSwitchToPfns.c)
- *     MiCreateFreePfns @ 0x1409BABA8 (MiCreateFreePfns.c)
+ *     MxReleaseFreeDescriptor @ 0x1409BB8A4 (MxReleaseFreeDescriptor.c)
+ *     MiSwitchToPfns @ 0x1409BB954 (MiSwitchToPfns.c)
+ *     MiCreateFreePfns @ 0x1409BBBA8 (MiCreateFreePfns.c)
  * Callees:
  *     MiLockPageInline @ 0x14002CE40 (MiLockPageInline.c)
  *     MiInsertPageInFreeOrZeroedList @ 0x1400387F0 (MiInsertPageInFreeOrZeroedList.c)
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     MiInsertLargePageInNodeListHelper @ 0x14009BAC0 (MiInsertLargePageInNodeListHelper.c)
- *     MiPageToChannel @ 0x14009CFEC (MiPageToChannel.c)
- *     MiPageToNode @ 0x14009D010 (MiPageToNode.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     MiRestrictRangeToNode @ 0x14017F2AC (MiRestrictRangeToNode.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     MiInitializeBlankPfns @ 0x1409BB160 (MiInitializeBlankPfns.c)
- *     MiFreeEmptyBootPageTable @ 0x1409F7BF4 (MiFreeEmptyBootPageTable.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     MiInsertLargePageInNodeListHelper @ 0x14009BA00 (MiInsertLargePageInNodeListHelper.c)
+ *     MiPageToChannel @ 0x14009CF2C (MiPageToChannel.c)
+ *     MiPageToNode @ 0x14009CF50 (MiPageToNode.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     MiRestrictRangeToNode @ 0x14017F3EC (MiRestrictRangeToNode.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiInitializeBlankPfns @ 0x1409BC160 (MiInitializeBlankPfns.c)
+ *     MiFreeEmptyBootPageTable @ 0x1409F8BF4 (MiFreeEmptyBootPageTable.c)
  */
 
 void __fastcall MxCreateFreePfns(__int64 a1)
@@ -203,7 +203,7 @@ LABEL_24:
     if ( (unsigned int)MiPteHasShadow() )
     {
       v19 = 1;
-      if ( HIBYTE(word_14043A1AC) )
+      if ( HIBYTE(word_14043B26C) )
         goto LABEL_24;
     }
     else if ( (KeGetCurrentThread()->ApcState.Process[2].ActiveProcessors.Bitmap[0] & 0x100000000000LL) == 0 )

@@ -1,11 +1,11 @@
 /*
  * XREFs of ExpTimeZoneCleanupSiloState @ 0x1405D1AD0
  * Callers:
- *     PspDeleteExternalServerSiloState @ 0x140906238 (PspDeleteExternalServerSiloState.c)
+ *     PspDeleteExternalServerSiloState @ 0x140906398 (PspDeleteExternalServerSiloState.c)
  * Callees:
- *     PsGetServerSiloGlobals @ 0x140252E18 (PsGetServerSiloGlobals.c)
- *     KeCancelTimer @ 0x140260240 (KeCancelTimer.c)
- *     KeFlushQueuedDpcs @ 0x1402EC6E0 (KeFlushQueuedDpcs.c)
+ *     KeCancelTimer @ 0x1402819B0 (KeCancelTimer.c)
+ *     PsGetServerSiloGlobals @ 0x140285C94 (PsGetServerSiloGlobals.c)
+ *     KeFlushQueuedDpcs @ 0x14029DA30 (KeFlushQueuedDpcs.c)
  */
 
 __int64 __fastcall ExpTimeZoneCleanupSiloState(__int64 a1)

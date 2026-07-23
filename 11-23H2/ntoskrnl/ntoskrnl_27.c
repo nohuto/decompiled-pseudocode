@@ -1,11 +1,11 @@
 /*
- * XREFs of ntoskrnl_27 @ 0x1407AF260
+ * XREFs of ntoskrnl_27 @ 0x1407AF450
  * Callers:
- *     NtQueryLicenseValue @ 0x1407AEF90 (NtQueryLicenseValue.c)
+ *     NtQueryLicenseValue @ 0x1407AF180 (NtQueryLicenseValue.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x14022D370 (PsGetCurrentServerSiloGlobals.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     SLQueryLicenseValueInternal @ 0x14080F294 (SLQueryLicenseValueInternal.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x14022D480 (PsGetCurrentServerSiloGlobals.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     SLQueryLicenseValueInternal @ 0x14080F564 (SLQueryLicenseValueInternal.c)
  */
 
 __int64 __fastcall ntoskrnl_27(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5)

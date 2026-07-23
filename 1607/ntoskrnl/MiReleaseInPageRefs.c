@@ -1,11 +1,11 @@
 /*
- * XREFs of MiReleaseInPageRefs @ 0x1400B2A10
+ * XREFs of MiReleaseInPageRefs @ 0x1400B0950
  * Callers:
- *     MiInvalidateCollidedIos @ 0x1400B27C4 (MiInvalidateCollidedIos.c)
+ *     MiInvalidateCollidedIos @ 0x1400B0704 (MiInvalidateCollidedIos.c)
  * Callees:
- *     MiLockPageInline @ 0x140022E70 (MiLockPageInline.c)
- *     MiLockAndDecrementShareCount @ 0x140075DFC (MiLockAndDecrementShareCount.c)
- *     MiGetPrototypePteDirect @ 0x1401F26B0 (MiGetPrototypePteDirect.c)
+ *     MiLockPageInline @ 0x1400229F0 (MiLockPageInline.c)
+ *     MiLockAndDecrementShareCount @ 0x140075E7C (MiLockAndDecrementShareCount.c)
+ *     MiGetPrototypePteDirect @ 0x1401F24DC (MiGetPrototypePteDirect.c)
  */
 
 void __fastcall MiReleaseInPageRefs(__int64 a1)

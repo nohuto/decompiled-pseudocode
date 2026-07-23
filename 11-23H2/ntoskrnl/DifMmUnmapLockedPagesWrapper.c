@@ -1,12 +1,12 @@
 /*
- * XREFs of DifMmUnmapLockedPagesWrapper @ 0x1405E7BE0
+ * XREFs of DifMmUnmapLockedPagesWrapper @ 0x1405E8150
  * Callers:
  *     <none>
  * Callees:
- *     MmUnmapLockedPages @ 0x1402CB700 (MmUnmapLockedPages.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     DifGetAPIThunkContextById @ 0x1404664BE (DifGetAPIThunkContextById.c)
- *     DifGetReturnAddressForWrappers @ 0x1405F88C4 (DifGetReturnAddressForWrappers.c)
+ *     MmUnmapLockedPages @ 0x1402CB990 (MmUnmapLockedPages.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x1404668BE (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F8E34 (DifGetReturnAddressForWrappers.c)
  */
 
 void __fastcall DifMmUnmapLockedPagesWrapper(PVOID BaseAddress, PMDL MemoryDescriptorList)

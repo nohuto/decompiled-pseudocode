@@ -12,9 +12,9 @@ size_t __cdecl mbstowcs(wchar_t *Dest, const char *Source, size_t MaxCount)
 {
   int v3; // edi
   int *v7; // rax
-  int v8; // ecx
+  signed int v8; // ecx
   size_t v9; // rcx
-  int v10; // [rsp+40h] [rbp+8h] BYREF
+  ULONG BytesInUnicodeString; // [rsp+40h] [rbp+8h] BYREF
 
   v3 = MaxCount;
   if ( Dest && !MaxCount )
@@ -23,13 +23,13 @@ size_t __cdecl mbstowcs(wchar_t *Dest, const char *Source, size_t MaxCount)
     return -1LL;
   if ( Dest )
   {
-    v10 = mbstrlen(Source);
-    if ( (int)RtlMultiByteToUnicodeN(Dest, 2 * v3, &v10, (unsigned __int8 *)Source, v10 + 1) >= 0 )
+    BytesInUnicodeString = mbstrlen(Source);
+    if ( RtlMultiByteToUnicodeN(Dest, 2 * v3, &BytesInUnicodeString, Source, BytesInUnicodeString + 1) >= 0 )
     {
-      v10 = (unsigned __int64)v10 >> 1;
-      v8 = v10;
-      if ( !Dest[v10 - 1] )
-        return v10 - 1;
+      BytesInUnicodeString = (unsigned __int64)(int)BytesInUnicodeString >> 1;
+      v8 = BytesInUnicodeString;
+      if ( !Dest[BytesInUnicodeString - 1] )
+        return (signed int)(BytesInUnicodeString - 1);
     }
     else
     {

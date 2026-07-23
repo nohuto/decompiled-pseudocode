@@ -1,10 +1,10 @@
 /*
- * XREFs of DrpGetRecord @ 0x1406DE258
+ * XREFs of DrpGetRecord @ 0x1406E24F8
  * Callers:
- *     SfsFwpGetRecord @ 0x1406DCEE4 (SfsFwpGetRecord.c)
- *     MicrocodeGetRecord @ 0x1406DD618 (MicrocodeGetRecord.c)
+ *     SfsFwpGetRecord @ 0x1406E1184 (SfsFwpGetRecord.c)
+ *     MicrocodeGetRecord @ 0x1406E18B8 (MicrocodeGetRecord.c)
  * Callees:
- *     DrpVerifyData @ 0x1406DE320 (DrpVerifyData.c)
+ *     DrpVerifyData @ 0x1406E25C0 (DrpVerifyData.c)
  */
 
 __int64 DrpGetRecord()

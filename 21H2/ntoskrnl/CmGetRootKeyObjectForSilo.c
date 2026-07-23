@@ -3,8 +3,8 @@
  * Callers:
  *     VrpHandleIoctlInitializeJobForVreg @ 0x1405D268C (VrpHandleIoctlInitializeJobForVreg.c)
  * Callees:
- *     ObfReferenceObject @ 0x14034B230 (ObfReferenceObject.c)
- *     PsGetPermanentSiloContext @ 0x14035FF90 (PsGetPermanentSiloContext.c)
+ *     PsGetPermanentSiloContext @ 0x1402A4EC0 (PsGetPermanentSiloContext.c)
+ *     ObfReferenceObject @ 0x140355F80 (ObfReferenceObject.c)
  */
 
 PVOID __fastcall CmGetRootKeyObjectForSilo(__int64 a1)

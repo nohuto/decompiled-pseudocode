@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpHpVsChunkCompare @ 0x18001D3A0
+ * XREFs of RtlpHpVsChunkCompare @ 0x18001D390
  * Callers:
- *     RtlpHpVsFreeChunkInsert @ 0x18006E608 (RtlpHpVsFreeChunkInsert.c)
+ *     RtlpHpVsFreeChunkInsert @ 0x18006E5F8 (RtlpHpVsFreeChunkInsert.c)
  * Callees:
  *     <none>
  */

@@ -1,8 +1,8 @@
 /*
- * XREFs of HalpMceMemoryErrorRecovery @ 0x14058E528
+ * XREFs of HalpMceMemoryErrorRecovery @ 0x140590CA8
  * Callers:
- *     HalpMceRecoveryMemoryErrorAmd @ 0x14058E840 (HalpMceRecoveryMemoryErrorAmd.c)
- *     HalpMceRecoveryMemoryErrorIntel @ 0x14058E964 (HalpMceRecoveryMemoryErrorIntel.c)
+ *     HalpMceRecoveryMemoryErrorAmd @ 0x140590FC0 (HalpMceRecoveryMemoryErrorAmd.c)
+ *     HalpMceRecoveryMemoryErrorIntel @ 0x1405910E4 (HalpMceRecoveryMemoryErrorIntel.c)
  * Callees:
  *     <none>
  */

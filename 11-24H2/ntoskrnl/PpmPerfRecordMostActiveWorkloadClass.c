@@ -1,15 +1,15 @@
 /*
- * XREFs of PpmPerfRecordMostActiveWorkloadClass @ 0x1404EB798
+ * XREFs of PpmPerfRecordMostActiveWorkloadClass @ 0x1404E26D8
  * Callers:
- *     PpmParkRecordNodeStatistics @ 0x140409AE4 (PpmParkRecordNodeStatistics.c)
+ *     PpmParkRecordNodeStatistics @ 0x140401FC4 (PpmParkRecordNodeStatistics.c)
  * Callees:
- *     KeGetPrcb @ 0x140352980 (KeGetPrcb.c)
- *     KeEnumerateNextProcessor @ 0x14040D4F0 (KeEnumerateNextProcessor.c)
- *     Feature_NewWpsAssignmentAlgorithm__private_IsEnabledPreCheck @ 0x1404A4E58 (Feature_NewWpsAssignmentAlgorithm__private_IsEnabledPreCheck.c)
- *     PpmEventHgsActiveWorkloadClass @ 0x1404ECDC0 (PpmEventHgsActiveWorkloadClass.c)
- *     Feature_PpmParkEx__private_IsEnabledDeviceUsageNoInline @ 0x1405B4FB0 (Feature_PpmParkEx__private_IsEnabledDeviceUsageNoInline.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     KeGetPrcb @ 0x1402B0A10 (KeGetPrcb.c)
+ *     KeEnumerateNextProcessor @ 0x140405740 (KeEnumerateNextProcessor.c)
+ *     Feature_NewWpsAssignmentAlgorithm__private_IsEnabledPreCheck @ 0x14049FBE8 (Feature_NewWpsAssignmentAlgorithm__private_IsEnabledPreCheck.c)
+ *     PpmEventHgsActiveWorkloadClass @ 0x1404E4500 (PpmEventHgsActiveWorkloadClass.c)
+ *     Feature_PpmParkEx__private_IsEnabledDeviceUsageNoInline @ 0x1405B2224 (Feature_PpmParkEx__private_IsEnabledDeviceUsageNoInline.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 _UNKNOWN **__fastcall PpmPerfRecordMostActiveWorkloadClass(__int64 a1)
@@ -134,8 +134,8 @@ _UNKNOWN **__fastcall PpmPerfRecordMostActiveWorkloadClass(__int64 a1)
       {
         v8 = 8;
       }
-      *(_BYTE *)(v2 + 1263) = v14;
-      *(_BYTE *)(v2 + 1262) = v15;
+      *(_BYTE *)(v2 + 1271) = v14;
+      *(_BYTE *)(v2 + 1270) = v15;
       return (_UNKNOWN **)PpmEventHgsActiveWorkloadClass(v2, v25, v24, v8);
     }
   }

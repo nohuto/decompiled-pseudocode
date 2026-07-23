@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpInitializeInterruptsBspLate @ 0x1405420B0
+ * XREFs of HalpInitializeInterruptsBspLate @ 0x14053FA00
  * Callers:
- *     HalpInterruptInitSystem @ 0x140B4D2D0 (HalpInterruptInitSystem.c)
+ *     HalpInterruptInitSystem @ 0x140B4F310 (HalpInterruptInitSystem.c)
  * Callees:
- *     HalpInterruptModel @ 0x1403BAB3C (HalpInterruptModel.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     HalpInterruptRemapFixedLines @ 0x140542550 (HalpInterruptRemapFixedLines.c)
- *     HalpIsHvRemappingInterrupts @ 0x1406FD994 (HalpIsHvRemappingInterrupts.c)
- *     HalpInitializeInterruptRemappingBspLate @ 0x140700F88 (HalpInitializeInterruptRemappingBspLate.c)
+ *     HalpInterruptModel @ 0x1403744A8 (HalpInterruptModel.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     HalpInterruptRemapFixedLines @ 0x14053FEA0 (HalpInterruptRemapFixedLines.c)
+ *     HalpIsHvRemappingInterrupts @ 0x1406FB5D4 (HalpIsHvRemappingInterrupts.c)
+ *     HalpInitializeInterruptRemappingBspLate @ 0x1406FEBC8 (HalpInitializeInterruptRemappingBspLate.c)
  */
 
 __int64 __fastcall HalpInitializeInterruptsBspLate(__int64 a1)

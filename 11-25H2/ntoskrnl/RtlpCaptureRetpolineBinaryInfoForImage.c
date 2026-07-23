@@ -9,7 +9,7 @@
  */
 
 __int64 __fastcall RtlpCaptureRetpolineBinaryInfoForImage(
-        unsigned __int64 a1,
+        unsigned __int64 BaseOfImage,
         __int64 a2,
         unsigned int a3,
         __int64 a4,
@@ -27,7 +27,7 @@ __int64 __fastcall RtlpCaptureRetpolineBinaryInfoForImage(
   unsigned int v17; // ecx
   unsigned int v18; // eax
   __int64 v19; // rcx
-  int v21; // [rsp+30h] [rbp-28h] BYREF
+  unsigned int v21; // [rsp+30h] [rbp-28h] BYREF
   __int64 v22[4]; // [rsp+38h] [rbp-20h] BYREF
 
   v6 = 0;
@@ -37,14 +37,14 @@ __int64 __fastcall RtlpCaptureRetpolineBinaryInfoForImage(
   *(_OWORD *)(a6 + 16) = 0LL;
   *(_OWORD *)(a6 + 32) = 0LL;
   *(_QWORD *)(a6 + 48) = 0LL;
-  Config = (_DWORD *)LdrImageDirectoryEntryToLoadConfig(a1);
+  Config = (_DWORD *)LdrImageDirectoryEntryToLoadConfig(BaseOfImage);
   if ( Config && *Config >= 0xC8u )
   {
     if ( *((_QWORD *)Config + 15) )
       *(_DWORD *)a6 = Config[30] - a2;
-    RtlpImageDirectoryEntryToDataEx(a1, 1u, 0xCu, &v21, v22);
+    RtlpImageDirectoryEntryToDataEx(BaseOfImage, 1, 0xCu, &v21, v22);
     if ( v22[0] )
-      *(_DWORD *)(a6 + 4) = LODWORD(v22[0]) - a1;
+      *(_DWORD *)(a6 + 4) = LODWORD(v22[0]) - BaseOfImage;
     if ( a4 )
     {
       v12 = a5;

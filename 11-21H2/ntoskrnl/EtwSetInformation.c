@@ -1,14 +1,14 @@
 /*
  * XREFs of EtwSetInformation @ 0x1406DEBF0
  * Callers:
- *     BapdWriteEtwEvents @ 0x1403B6E4C (BapdWriteEtwEvents.c)
- *     BapdRegisterEtwProvider @ 0x1403B7244 (BapdRegisterEtwProvider.c)
- *     HvlpEtwRegister @ 0x14054B7B4 (HvlpEtwRegister.c)
- *     PsDispatchIumService @ 0x1405E1764 (PsDispatchIumService.c)
- *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x1406D2264 (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
- *     PopDiagInitialize @ 0x140B1BC34 (PopDiagInitialize.c)
+ *     sub_1403B6E4C @ 0x1403B6E4C (sub_1403B6E4C.c)
+ *     sub_1403B7244 @ 0x1403B7244 (sub_1403B7244.c)
+ *     sub_14054B7B4 @ 0x14054B7B4 (sub_14054B7B4.c)
+ *     sub_1405E1764 @ 0x1405E1764 (sub_1405E1764.c)
+ *     sub_1406D2264 @ 0x1406D2264 (sub_1406D2264.c)
+ *     sub_140B1BC34 @ 0x140B1BC34 (sub_140B1BC34.c)
  * Callees:
- *     EtwpSetProviderTraitsKm @ 0x1406DEC48 (EtwpSetProviderTraitsKm.c)
+ *     sub_1406DEC48 @ 0x1406DEC48 (sub_1406DEC48.c)
  */
 
 NTSTATUS __stdcall EtwSetInformation(
@@ -44,7 +44,7 @@ NTSTATUS __stdcall EtwSetInformation(
     }
     else if ( EventInformation && InformationLength - 3 <= 0x7FFC )
     {
-      return EtwpSetProviderTraitsKm(RegHandle, EventInformation, (unsigned __int16)InformationLength);
+      return sub_1406DEC48(RegHandle, EventInformation);
     }
     return -1073741811;
   }

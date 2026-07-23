@@ -1,12 +1,12 @@
 /*
- * XREFs of BgLibraryDisable @ 0x1409F3ED0
+ * XREFs of BgLibraryDisable @ 0x1409F4ED0
  * Callers:
- *     BgkNotifyDisplayOwnershipChange @ 0x14039BB40 (BgkNotifyDisplayOwnershipChange.c)
+ *     BgkNotifyDisplayOwnershipChange @ 0x14039BC90 (BgkNotifyDisplayOwnershipChange.c)
  * Callees:
- *     KeGetCurrentIrql @ 0x14021FAD0 (KeGetCurrentIrql.c)
- *     BgpFwReleaseLock @ 0x14039C2A8 (BgpFwReleaseLock.c)
- *     BgpFwAcquireLock @ 0x14039C2F8 (BgpFwAcquireLock.c)
- *     BgpFwLibraryDisable @ 0x1409F3FE8 (BgpFwLibraryDisable.c)
+ *     KeGetCurrentIrql @ 0x1402C43D0 (KeGetCurrentIrql.c)
+ *     BgpFwReleaseLock @ 0x14039C3F8 (BgpFwReleaseLock.c)
+ *     BgpFwAcquireLock @ 0x14039C448 (BgpFwAcquireLock.c)
+ *     BgpFwLibraryDisable @ 0x1409F4FE8 (BgpFwLibraryDisable.c)
  */
 
 __int64 BgLibraryDisable()

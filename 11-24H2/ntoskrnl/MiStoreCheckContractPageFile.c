@@ -1,8 +1,8 @@
 /*
- * XREFs of MiStoreCheckContractPageFile @ 0x140365FDC
+ * XREFs of MiStoreCheckContractPageFile @ 0x1404771DC
  * Callers:
- *     MiStoreContractVirtualPagefileApc @ 0x1403659B0 (MiStoreContractVirtualPagefileApc.c)
- *     MiStoreAttemptContractPageFile @ 0x140365ED4 (MiStoreAttemptContractPageFile.c)
+ *     MiStoreContractVirtualPagefileApc @ 0x140476BB0 (MiStoreContractVirtualPagefileApc.c)
+ *     MiStoreAttemptContractPageFile @ 0x1404770D4 (MiStoreAttemptContractPageFile.c)
  * Callees:
  *     <none>
  */

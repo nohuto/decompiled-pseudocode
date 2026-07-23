@@ -1,10 +1,10 @@
 /*
- * XREFs of MiGetSystemPteStatistics @ 0x14066156C
+ * XREFs of MiGetSystemPteStatistics @ 0x140661650
  * Callers:
- *     MmGetSessionMappedViewInformation @ 0x140657244 (MmGetSessionMappedViewInformation.c)
+ *     MmGetSessionMappedViewInformation @ 0x140657328 (MmGetSessionMappedViewInformation.c)
  * Callees:
- *     MiGetNumberOfCachedPtes @ 0x1400BEED4 (MiGetNumberOfCachedPtes.c)
- *     RtlFindLongestRunClearEx @ 0x140212B0C (RtlFindLongestRunClearEx.c)
+ *     MiGetNumberOfCachedPtes @ 0x1400BCD64 (MiGetNumberOfCachedPtes.c)
+ *     RtlFindLongestRunClearEx @ 0x140212938 (RtlFindLongestRunClearEx.c)
  */
 
 __int64 __fastcall MiGetSystemPteStatistics(__int64 a1, _QWORD *a2, unsigned __int64 *a3)

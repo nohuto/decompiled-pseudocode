@@ -1,12 +1,12 @@
 /*
- * XREFs of PopDripsWatchdogUpdateMetrics @ 0x14099C8E4
+ * XREFs of PopDripsWatchdogUpdateMetrics @ 0x14099CAE4
  * Callers:
- *     PopDripsWatchdogDiagnosticWorker @ 0x14099C470 (PopDripsWatchdogDiagnosticWorker.c)
+ *     PopDripsWatchdogDiagnosticWorker @ 0x14099C670 (PopDripsWatchdogDiagnosticWorker.c)
  * Callees:
- *     PopDeepSleepEnabled @ 0x14028E748 (PopDeepSleepEnabled.c)
- *     PpmConvertTimeTo @ 0x1403A7204 (PpmConvertTimeTo.c)
- *     PopBatteryCapacityToRate @ 0x140598BDC (PopBatteryCapacityToRate.c)
- *     PopAccumulateNonActivatedCpuTime @ 0x140599880 (PopAccumulateNonActivatedCpuTime.c)
+ *     PopDeepSleepEnabled @ 0x14028E9D8 (PopDeepSleepEnabled.c)
+ *     PpmConvertTimeTo @ 0x1403A73E4 (PpmConvertTimeTo.c)
+ *     PopBatteryCapacityToRate @ 0x1405990CC (PopBatteryCapacityToRate.c)
+ *     PopAccumulateNonActivatedCpuTime @ 0x140599D70 (PopAccumulateNonActivatedCpuTime.c)
  */
 
 __int64 __fastcall PopDripsWatchdogUpdateMetrics(
@@ -37,7 +37,7 @@ __int64 __fastcall PopDripsWatchdogUpdateMetrics(
   unsigned __int64 v24; // [rsp+30h] [rbp+8h] BYREF
 
   v7 = *(_DWORD *)(a3 + 28);
-  v8 = dword_140C3CEE4;
+  v8 = dword_140C3D084;
   v9 = *(_QWORD *)(a3 + 8);
   v10 = *(_DWORD *)(a3 + 24);
   v24 = 0LL;
@@ -66,7 +66,7 @@ __int64 __fastcall PopDripsWatchdogUpdateMetrics(
     v17 = (_DWORD)v15 + v16 == 0;
     v18 = v15 + v16;
     *(_DWORD *)(a1 + 568) = v18;
-    if ( !v17 && (unk_140C3CEF4 & 0x40000000) == 0 )
+    if ( !v17 && (unk_140C3D094 & 0x40000000) == 0 )
     {
       v19 = *(_DWORD *)(a1 + 596);
       if ( v8 < v19 )

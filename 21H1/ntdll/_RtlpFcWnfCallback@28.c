@@ -7,11 +7,11 @@
  *     _RtlpFcCallChangeCallbacks@4 @ 0x4B369846 (_RtlpFcCallChangeCallbacks@4.c)
  */
 
-int __stdcall RtlpFcWnfCallback(int a1, int a2, int a3, int a4, int a5, int a6, int a7)
+int __stdcall RtlpFcWnfCallback(int a1, int a2, int a3, int a4, PRTL_SRWLOCK SRWLock, int a6, int a7)
 {
   while ( MEMORY[0x7FFE0714] != MEMORY[0x7FFE0718] )
     _mm_pause();
-  RtlpFcUpdateLocalConfiguration(a5, 1, MEMORY[0x7FFE0710]);
-  RtlpFcCallChangeCallbacks(a5);
+  RtlpFcUpdateLocalConfiguration(SRWLock, 1, MEMORY[0x7FFE0710]);
+  RtlpFcCallChangeCallbacks(SRWLock);
   return 0;
 }

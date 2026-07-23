@@ -1,12 +1,11 @@
 /*
- * XREFs of ZwQueryMultipleValueKey @ 0x1401BAB30
+ * XREFs of ZwQueryMultipleValueKey @ 0x1401BAC90
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-// local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall ZwQueryMultipleValueKey(
         HANDLE KeyHandle,
         PKEY_VALUE_ENTRY ValueList,
@@ -17,5 +16,5 @@ NTSTATUS __stdcall ZwQueryMultipleValueKey(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(KeyHandle, ValueList, *(_QWORD *)&NumberOfValues);
+  return KiServiceInternal(KeyHandle);
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of PspFindPropertySetEntry @ 0x140292908
+ * XREFs of PspFindPropertySetEntry @ 0x140210878
  * Callers:
- *     PspRemoveProperty @ 0x1402922F8 (PspRemoveProperty.c)
- *     PspInsertProperty @ 0x140292490 (PspInsertProperty.c)
- *     PspGetProperty @ 0x14029284C (PspGetProperty.c)
+ *     PspRemoveProperty @ 0x140210268 (PspRemoveProperty.c)
+ *     PspInsertProperty @ 0x140210400 (PspInsertProperty.c)
+ *     PspGetProperty @ 0x1402107BC (PspGetProperty.c)
  * Callees:
  *     <none>
  */

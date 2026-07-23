@@ -6,12 +6,12 @@
  *     RtlComputeCrc32 @ 0x14032D240 (RtlComputeCrc32.c)
  */
 
-__int64 PopUpdateBsdPowerTransitionReferenceTime()
+ULONG32 PopUpdateBsdPowerTransitionReferenceTime()
 {
-  __int64 result; // rax
+  ULONG32 result; // eax
 
   *(_QWORD *)&xmmword_140C6A850 = MEMORY[0xFFFFF78000000014];
-  result = RtlComputeCrc32(0, (char *)&xmmword_140C6A850, 8LL);
+  result = RtlComputeCrc32(0, &xmmword_140C6A850, 8u);
   DWORD2(xmmword_140C6A850) = result;
   return result;
 }

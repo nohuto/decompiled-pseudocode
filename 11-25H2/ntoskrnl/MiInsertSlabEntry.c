@@ -17,15 +17,15 @@
  *     MiGetSlabCurrentTime @ 0x14045CB68 (MiGetSlabCurrentTime.c)
  */
 
-__int64 __fastcall MiInsertSlabEntry(__int64 a1, __int64 a2, unsigned __int64 a3, char a4)
+__int64 __fastcall MiInsertSlabEntry(__int64 a1, __int64 a2, __int64 a3, char a4)
 {
   unsigned int v4; // ebp
   volatile LONG *v6; // rcx
   unsigned __int64 v10; // r12
   KIRQL v11; // r14
   unsigned __int64 v12; // rdx
-  bool v13; // r8
-  unsigned __int64 v14; // r8
+  BOOLEAN v13; // r8
+  _RTL_BALANCED_NODE *v14; // r8
   unsigned __int64 v15; // rax
   unsigned __int64 v16; // rcx
   __int64 v17; // r8
@@ -58,10 +58,10 @@ LABEL_5:
     v13 = 0;
     if ( v12 )
     {
-      v14 = *(_QWORD *)(a3 + 40);
+      v14 = *(_RTL_BALANCED_NODE **)(a3 + 40);
       while ( 1 )
       {
-        if ( v14 > *(_QWORD *)(v12 + 48) || v14 >= *(_QWORD *)(v12 + 40) )
+        if ( (unsigned __int64)v14 > *(_QWORD *)(v12 + 48) || (unsigned __int64)v14 >= *(_QWORD *)(v12 + 40) )
         {
           v15 = *(_QWORD *)(v12 + 8);
           if ( (*(_BYTE *)(a2 + 8) & 1) != 0 )
@@ -96,7 +96,7 @@ LABEL_33:
         v12 = v15;
       }
     }
-    RtlRbInsertNodeEx((__int64 *)a2, v12, v13, a3);
+    RtlRbInsertNodeEx((PRTL_RB_TREE)a2, (PRTL_BALANCED_NODE)v12, v13, (PRTL_BALANCED_NODE)a3);
     if ( *(_DWORD *)(a2 + 128) == 8 )
     {
       v23 = (__int64 *)(a3 + 24);

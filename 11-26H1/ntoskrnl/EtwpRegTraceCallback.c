@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwpRegTraceCallback @ 0x140A24380
+ * XREFs of EtwpRegTraceCallback @ 0x140A36E90
  * Callers:
  *     <none>
  * Callees:
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     CmCallbackGetKeyObjectID @ 0x1408C0E90 (CmCallbackGetKeyObjectID.c)
- *     EtwpCapturePreviousRegistryData @ 0x140A24B9C (EtwpCapturePreviousRegistryData.c)
- *     EtwpCaptureRegistryData @ 0x140A24CB4 (EtwpCaptureRegistryData.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     CmCallbackGetKeyObjectID @ 0x1408C7460 (CmCallbackGetKeyObjectID.c)
+ *     EtwpCapturePreviousRegistryData @ 0x140A376AC (EtwpCapturePreviousRegistryData.c)
+ *     EtwpCaptureRegistryData @ 0x140A377C4 (EtwpCaptureRegistryData.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpRegTraceCallback(__int64 a1, __int64 a2, __int64 a3)

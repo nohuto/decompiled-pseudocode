@@ -19,12 +19,12 @@ __int64 __fastcall PspCopyNtdllExport(
   __int64 result; // rax
   char *v10; // rdx
   char *v11; // rcx
-  unsigned __int64 v12; // [rsp+30h] [rbp+8h] BYREF
+  __int64 v12; // [rsp+30h] [rbp+8h] BYREF
 
   v6 = a2;
   v12 = 0LL;
   v8 = *((_QWORD *)a1 + 4);
-  result = PspLookupEntryPoint((__int64)a1, (unsigned __int8 *)a3, &v12);
+  result = PspLookupEntryPoint((__int64)a1, a3, &v12);
   if ( (int)result >= 0 )
   {
     v10 = (char *)(v12 + *((_QWORD *)a1 + 4) - *((_QWORD *)a1 + 3));

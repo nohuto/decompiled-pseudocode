@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpEnumProcessHeaps @ 0x18007B33C
+ * XREFs of RtlpEnumProcessHeaps @ 0x18007B34C
  * Callers:
- *     RtlFlushHeaps @ 0x18007B020 (RtlFlushHeaps.c)
- *     RtlpQueryExtendedInformationAllHeaps @ 0x18007B24C (RtlpQueryExtendedInformationAllHeaps.c)
- *     RtlpHpGCCallback @ 0x18007B300 (RtlpHpGCCallback.c)
- *     RtlSetHeapInformation @ 0x18007E690 (RtlSetHeapInformation.c)
+ *     RtlFlushHeaps @ 0x18007B030 (RtlFlushHeaps.c)
+ *     RtlpQueryExtendedInformationAllHeaps @ 0x18007B25C (RtlpQueryExtendedInformationAllHeaps.c)
+ *     RtlpHpGCCallback @ 0x18007B310 (RtlpHpGCCallback.c)
+ *     RtlSetHeapInformation @ 0x18007E6A0 (RtlSetHeapInformation.c)
  *     RtlQueryProcessHeapInformation @ 0x1800D9600 (RtlQueryProcessHeapInformation.c)
  *     RtlEnumProcessHeaps @ 0x1800F1EB0 (RtlEnumProcessHeaps.c)
  *     RtlGetProcessHeaps @ 0x1800F1EC0 (RtlGetProcessHeaps.c)
@@ -15,7 +15,7 @@
  * Callees:
  *     RtlLeaveCriticalSection @ 0x180014020 (RtlLeaveCriticalSection.c)
  *     RtlEnterCriticalSection @ 0x180014370 (RtlEnterCriticalSection.c)
- *     _guard_dispatch_icall_nop @ 0x1800A3CE0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800A3D00 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall RtlpEnumProcessHeaps(__int64 a1, __int64 a2, char a3)
@@ -30,7 +30,7 @@ __int64 __fastcall RtlpEnumProcessHeaps(__int64 a1, __int64 a2, char a3)
   v4 = NtCurrentPeb();
   v10 = 0;
   if ( (a3 & 1) == 0 )
-    RtlEnterCriticalSection((__int64)&RtlpProcessHeapsListLock);
+    RtlEnterCriticalSection(&RtlpProcessHeapsListLock);
   for ( i = 0; i < v4->NumberOfHeaps; ++i )
   {
     v10 = _guard_dispatch_icall_fptr();
@@ -60,6 +60,6 @@ __int64 __fastcall RtlpEnumProcessHeaps(__int64 a1, __int64 a2, char a3)
   }
 LABEL_18:
   if ( (a3 & 1) == 0 )
-    RtlLeaveCriticalSection((__int64)&RtlpProcessHeapsListLock);
+    RtlLeaveCriticalSection(&RtlpProcessHeapsListLock);
   return (unsigned int)v10;
 }

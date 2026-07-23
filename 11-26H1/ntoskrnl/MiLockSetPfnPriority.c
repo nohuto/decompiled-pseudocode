@@ -1,12 +1,12 @@
 /*
- * XREFs of MiLockSetPfnPriority @ 0x140457A10
+ * XREFs of MiLockSetPfnPriority @ 0x14044F280
  * Callers:
- *     MiUpdateOldPteWorker @ 0x14029C38C (MiUpdateOldPteWorker.c)
- *     MiAllocateWsle @ 0x1402D7F18 (MiAllocateWsle.c)
- *     MmUnmapViewInSystemCache @ 0x14031E380 (MmUnmapViewInSystemCache.c)
+ *     MiUpdateOldPteWorker @ 0x14029B8EC (MiUpdateOldPteWorker.c)
+ *     MiAllocateWsle @ 0x1402B9CD8 (MiAllocateWsle.c)
+ *     MmUnmapViewInSystemCache @ 0x1403203B0 (MmUnmapViewInSystemCache.c)
  * Callees:
- *     HvlNotifyLongSpinWait @ 0x1402BBF00 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402BC760 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     HvlNotifyLongSpinWait @ 0x140306BC0 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140307420 (KiCheckVpBackingLongSpinWaitHypercall.c)
  */
 
 __int64 __fastcall MiLockSetPfnPriority(__int64 a1, char a2)

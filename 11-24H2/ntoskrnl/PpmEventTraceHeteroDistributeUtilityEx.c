@@ -1,12 +1,12 @@
 /*
- * XREFs of PpmEventTraceHeteroDistributeUtilityEx @ 0x1405DEC14
+ * XREFs of PpmEventTraceHeteroDistributeUtilityEx @ 0x1405DBA94
  * Callers:
- *     PpmEventTraceHeteroDistributeUtility @ 0x1405D9CF8 (PpmEventTraceHeteroDistributeUtility.c)
+ *     PpmEventTraceHeteroDistributeUtility @ 0x1405D7014 (PpmEventTraceHeteroDistributeUtility.c)
  * Callees:
- *     EtwWriteEx @ 0x140259680 (EtwWriteEx.c)
- *     EtwEventEnabled @ 0x1402A1BD0 (EtwEventEnabled.c)
- *     PpmEventAddAffinityMaskAsSubset @ 0x1405DD440 (PpmEventAddAffinityMaskAsSubset.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x140289C90 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x1402D1300 (EtwEventEnabled.c)
+ *     PpmEventAddAffinityMaskAsSubset @ 0x1405DA2C0 (PpmEventAddAffinityMaskAsSubset.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 void __fastcall PpmEventTraceHeteroDistributeUtilityEx(__int64 a1, char a2, char a3)

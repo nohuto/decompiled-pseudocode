@@ -1,16 +1,16 @@
 /*
- * XREFs of BcpDisplayCriticalStringCentered @ 0x140716B84
+ * XREFs of BcpDisplayCriticalStringCentered @ 0x14071B874
  * Callers:
- *     BcpDisplayErrorInformationModernized @ 0x1407171A0 (BcpDisplayErrorInformationModernized.c)
- *     BcpDisplayProgressModernized @ 0x14071774C (BcpDisplayProgressModernized.c)
- *     BgpFwDisplayBugCheckScreenModernized @ 0x14071840C (BgpFwDisplayBugCheckScreenModernized.c)
+ *     BcpDisplayErrorInformationModernized @ 0x14071BE90 (BcpDisplayErrorInformationModernized.c)
+ *     BcpDisplayProgressModernized @ 0x14071C43C (BcpDisplayProgressModernized.c)
+ *     BgpFwDisplayBugCheckScreenModernized @ 0x14071D0FC (BgpFwDisplayBugCheckScreenModernized.c)
  * Callees:
- *     RtlULongSub @ 0x1404D5F4C (RtlULongSub.c)
- *     BgpDisplayCharacterEx @ 0x140715C90 (BgpDisplayCharacterEx.c)
- *     BgpFoGetStringAdvanceWidth @ 0x14071642C (BgpFoGetStringAdvanceWidth.c)
- *     BcpPrintSpaces @ 0x140717CB8 (BcpPrintSpaces.c)
- *     BcpSetCursorPosition @ 0x140717E1C (BcpSetCursorPosition.c)
- *     BgpRasGetGlyphAdvanceWidth @ 0x140718964 (BgpRasGetGlyphAdvanceWidth.c)
+ *     RtlULongSub @ 0x1404CF71C (RtlULongSub.c)
+ *     BgpDisplayCharacterEx @ 0x14071A980 (BgpDisplayCharacterEx.c)
+ *     BgpFoGetStringAdvanceWidth @ 0x14071B11C (BgpFoGetStringAdvanceWidth.c)
+ *     BcpPrintSpaces @ 0x14071C9A8 (BcpPrintSpaces.c)
+ *     BcpSetCursorPosition @ 0x14071CB0C (BcpSetCursorPosition.c)
+ *     BgpRasGetGlyphAdvanceWidth @ 0x14071D654 (BgpRasGetGlyphAdvanceWidth.c)
  */
 
 __int64 __fastcall BcpDisplayCriticalStringCentered(unsigned __int16 *a1, int a2, unsigned int a3, int a4)
@@ -18,10 +18,10 @@ __int64 __fastcall BcpDisplayCriticalStringCentered(unsigned __int16 *a1, int a2
   __int64 v4; // r15
   _WORD *v5; // r12
   int v6; // ecx
-  volatile LONG Lock; // r8d
+  unsigned int Flink; // r8d
   int v8; // eax
   unsigned int v9; // r14d
-  int v10; // ebx
+  int Blink; // ebx
   __int64 v11; // r9
   unsigned int v12; // edi
   __int64 v13; // r9
@@ -48,7 +48,7 @@ __int64 __fastcall BcpDisplayCriticalStringCentered(unsigned __int16 *a1, int a2
   unsigned int v34; // r9d
   unsigned __int64 v36; // [rsp+40h] [rbp-29h]
   unsigned int v37; // [rsp+50h] [rbp-19h]
-  volatile LONG v38; // [rsp+54h] [rbp-15h]
+  unsigned int v38; // [rsp+54h] [rbp-15h]
   unsigned int v39; // [rsp+58h] [rbp-11h] BYREF
   ULONG pulResult[2]; // [rsp+60h] [rbp-9h] BYREF
   int v41; // [rsp+68h] [rbp-1h]
@@ -63,30 +63,30 @@ __int64 __fastcall BcpDisplayCriticalStringCentered(unsigned __int16 *a1, int a2
   v5 = a1;
   v44 = 0;
   v39 = 0;
-  v6 = *(_DWORD *)((char *)&unk_140E0F020 + v4 + 16);
-  if ( WheapPfaLock.SchedulerApc.Thread )
+  v6 = *(_DWORD *)((char *)&unk_140E0F0A0 + v4 + 16);
+  if ( WheapPfaLock.MutantListHead.Flink )
   {
-    Lock = WheapPfaLock.SchedulerApc.Thread->Header.Lock;
-    v8 = *(_DWORD *)((char *)&unk_140E0F020 + v4 + 80);
+    Flink = (unsigned int)WheapPfaLock.MutantListHead.Flink->Flink;
+    v8 = *(_DWORD *)((char *)&unk_140E0F0A0 + v4 + 80);
   }
   else
   {
-    v8 = *(_DWORD *)((char *)&unk_140E0F020 + v4 + 80);
-    Lock = v6 + v8;
+    v8 = *(_DWORD *)((char *)&unk_140E0F0A0 + v4 + 80);
+    Flink = v6 + v8;
   }
-  v38 = Lock;
-  if ( WheapPfaLock.SchedulerApc.Reserved[2] )
-    v9 = *(_DWORD *)WheapPfaLock.SchedulerApc.Reserved[2];
+  v38 = Flink;
+  if ( WheapPfaLock.MutantListHead.Blink )
+    v9 = (unsigned int)WheapPfaLock.MutantListHead.Blink->Flink;
   else
-    v9 = v8 + v6 + *(_DWORD *)((char *)&unk_140E0F020 + v4 + 24);
-  v10 = *(_DWORD *)&WheapPfaLock.SchedulerApcFill5[24];
-  *(_QWORD *)pulResult = WheapPfaLock.SchedulerApc.ApcListEntry.Flink;
-  v11 = *(_QWORD *)(*(_QWORD *)&stru_140E3E928.Timer.Processor + 24LL);
-  v41 = *(_DWORD *)&WheapPfaLock.SchedulerApcFill5[24];
+    v9 = v8 + v6 + *(_DWORD *)((char *)&unk_140E0F0A0 + v4 + 24);
+  Blink = (int)WheapPfaLock.ThreadListEntry.Blink;
+  *(_QWORD *)pulResult = WheapPfaLock.ThreadListEntry.Flink;
+  v11 = *(_QWORD *)(*(_QWORD *)&stru_140E3EAA8.Timer.Processor + 24LL);
+  v41 = (int)WheapPfaLock.ThreadListEntry.Blink;
   *(_DWORD *)(v11 + 56) = a2;
-  *(_DWORD *)(*(_QWORD *)&stru_140E3E928.Timer.Processor + 8LL) = a2;
-  v12 = *(_DWORD *)((char *)&unk_140E0F020 + v4 + 16) + *(_DWORD *)((char *)&unk_140E0F020 + v4 + 80);
-  BcpSetCursorPosition(v12, *(unsigned int *)&WheapPfaLock.SchedulerApcFill5[20], 0LL);
+  *(_DWORD *)(*(_QWORD *)&stru_140E3EAA8.Timer.Processor + 8LL) = a2;
+  v12 = *(_DWORD *)((char *)&unk_140E0F0A0 + v4 + 16) + *(_DWORD *)((char *)&unk_140E0F0A0 + v4 + 80);
+  BcpSetCursorPosition(v12, HIDWORD(WheapPfaLock.ThreadListEntry.Flink), 0LL);
   v14 = (unsigned int *)(v13 + 40);
   LOBYTE(v45) = 0;
   v42 = v13 + 40;
@@ -94,7 +94,7 @@ __int64 __fastcall BcpDisplayCriticalStringCentered(unsigned __int16 *a1, int a2
   {
     v15 = RtlULongSub(pulResult[0], v39 >> 1, pulResult);
     v12 = pulResult[0];
-    v10 = v41;
+    Blink = v41;
     if ( v15 < 0 )
     {
       v16 = pulResult[1];
@@ -108,7 +108,7 @@ __int64 __fastcall BcpDisplayCriticalStringCentered(unsigned __int16 *a1, int a2
   }
   v16 = pulResult[1];
   BcpSetCursorPosition(v12, pulResult[1], 0LL);
-  v17 = v10 - v16;
+  v17 = Blink - v16;
   v39 = *v14;
   v20 = v18;
   if ( (int)v17 <= 0 )
@@ -155,7 +155,7 @@ __int64 __fastcall BcpDisplayCriticalStringCentered(unsigned __int16 *a1, int a2
               if ( v12 < v9 )
               {
                 LODWORD(p_InProgressFlags) = BcpPrintSpaces(
-                                               *(_DWORD *)&stru_140E3E928.Timer.Processor,
+                                               *(_DWORD *)&stru_140E3EAA8.Timer.Processor,
                                                v12,
                                                v9,
                                                v16,
@@ -167,7 +167,7 @@ __int64 __fastcall BcpDisplayCriticalStringCentered(unsigned __int16 *a1, int a2
                   v17 = v44;
               }
               v12 = v38;
-              v28 = v17 + *(_DWORD *)((char *)&unk_140E0F020 + v4 + 40);
+              v28 = v17 + *(_DWORD *)((char *)&unk_140E0F0A0 + v4 + 40);
               v17 = 0;
               v16 += v28;
               break;
@@ -191,7 +191,7 @@ __int64 __fastcall BcpDisplayCriticalStringCentered(unsigned __int16 *a1, int a2
         break;
       if ( v12 < v9 )
       {
-        v31 = BcpPrintSpaces(*(_DWORD *)&stru_140E3E928.Timer.Processor, v12, v9, v16, v39, (__int64)&v44);
+        v31 = BcpPrintSpaces(*(_DWORD *)&stru_140E3EAA8.Timer.Processor, v12, v9, v16, v39, (__int64)&v44);
         v18 = 0;
         if ( v31 < 0 )
           goto LABEL_43;
@@ -199,7 +199,7 @@ __int64 __fastcall BcpDisplayCriticalStringCentered(unsigned __int16 *a1, int a2
           v17 = v44;
       }
       v12 = v38;
-      v16 += v17 + *(_DWORD *)((char *)&unk_140E0F020 + v4 + 40);
+      v16 += v17 + *(_DWORD *)((char *)&unk_140E0F0A0 + v4 + 40);
       v17 = 0;
       if ( *(_WORD *)(*v29 + 2LL * v21) != 32 )
       {
@@ -207,7 +207,7 @@ __int64 __fastcall BcpDisplayCriticalStringCentered(unsigned __int16 *a1, int a2
 LABEL_39:
         v33 = BgpDisplayCharacterEx(
                 *(_WORD *)(*v32 + 2LL * v21),
-                *(__int64 **)&stru_140E3E928.Timer.Processor,
+                *(__int64 **)&stru_140E3EAA8.Timer.Processor,
                 v12,
                 v16,
                 v39,

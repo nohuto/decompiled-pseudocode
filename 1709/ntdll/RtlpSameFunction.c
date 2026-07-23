@@ -11,10 +11,10 @@
  *     RtlpLookupPrimaryFunctionEntry @ 0x18007C7D4 (RtlpLookupPrimaryFunctionEntry.c)
  */
 
-__int64 __fastcall RtlpSameFunction(__int64 a1, __int64 a2, unsigned __int64 a3)
+unsigned int *__fastcall RtlpSameFunction(__int64 a1, __int64 a2, char *a3)
 {
   _DWORD *v4; // rdi
-  __int64 result; // rax
+  unsigned int *result; // rax
   __int64 v6; // rbx
   __int64 v7; // [rsp+20h] [rbp-28h] BYREF
   __int64 v8; // [rsp+28h] [rbp-20h]
@@ -29,8 +29,8 @@ __int64 __fastcall RtlpSameFunction(__int64 a1, __int64 a2, unsigned __int64 a3)
   if ( result )
   {
     if ( *v4 == *(_DWORD *)RtlpLookupPrimaryFunctionEntry(result, v8) )
-      return (__int64)v4;
-    return v6;
+      return v4;
+    return (unsigned int *)v6;
   }
   return result;
 }

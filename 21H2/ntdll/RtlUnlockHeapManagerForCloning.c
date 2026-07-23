@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlUnlockHeapManagerForCloning @ 0x1800F3218
+ * XREFs of RtlUnlockHeapManagerForCloning @ 0x1800F31D8
  * Callers:
  *     RtlCompleteProcessCloning @ 0x18009BA70 (RtlCompleteProcessCloning.c)
- *     RtlCloneUserProcess @ 0x1800D64B0 (RtlCloneUserProcess.c)
+ *     RtlCloneUserProcess @ 0x1800D6470 (RtlCloneUserProcess.c)
  * Callees:
- *     ZwQueryVirtualMemory @ 0x18009DAA0 (ZwQueryVirtualMemory.c)
- *     RtlpUnlockHeapManagerForCloning @ 0x1800F4BC4 (RtlpUnlockHeapManagerForCloning.c)
+ *     ZwQueryVirtualMemory @ 0x18009DA60 (ZwQueryVirtualMemory.c)
+ *     RtlpUnlockHeapManagerForCloning @ 0x1800F4B84 (RtlpUnlockHeapManagerForCloning.c)
  */
 
 __int64 __fastcall RtlUnlockHeapManagerForCloning(unsigned int a1)
@@ -16,7 +16,8 @@ __int64 __fastcall RtlUnlockHeapManagerForCloning(unsigned int a1)
   __int64 v5; // r14
   int v6; // r15d
   _DWORD *v7; // rcx
-  int v9; // [rsp+58h] [rbp-50h]
+  char MemoryInformation[32]; // [rsp+38h] [rbp-70h] BYREF
+  int v10; // [rsp+58h] [rbp-50h]
 
   v2 = NtCurrentPeb();
   if ( a1 )
@@ -28,8 +29,14 @@ __int64 __fastcall RtlUnlockHeapManagerForCloning(unsigned int a1)
     v6 = 0;
     while ( (unsigned int)v5 < v2->NumberOfHeaps )
     {
-      ZwQueryVirtualMemory();
-      if ( v9 == 4096 && ((v7 = ProcessHeaps[v5], v7[38] == -285217025) || v7[4] == -571548178) )
+      ZwQueryVirtualMemory(
+        (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+        ProcessHeaps[v5],
+        MemoryBasicInformation,
+        MemoryInformation,
+        0x30uLL,
+        0LL);
+      if ( v10 == 4096 && ((v7 = ProcessHeaps[v5], v7[38] == -285217025) || v7[4] == -571548178) )
         ProcessHeaps[v6++] = v7;
       else
         --NumberOfHeaps;

@@ -1,14 +1,14 @@
 /*
- * XREFs of IoRequestDeviceEjectEx @ 0x1405A49D0
+ * XREFs of IoRequestDeviceEjectEx @ 0x1405A1910
  * Callers:
- *     IoRequestDeviceEject @ 0x1405A49B0 (IoRequestDeviceEject.c)
+ *     IoRequestDeviceEject @ 0x1405A18F0 (IoRequestDeviceEject.c)
  * Callees:
- *     ExQueueWorkItem @ 0x140325850 (ExQueueWorkItem.c)
- *     ObfReferenceObjectWithTag @ 0x1403403E0 (ObfReferenceObjectWithTag.c)
- *     IoAddTriageDumpDataBlock @ 0x1403F2880 (IoAddTriageDumpDataBlock.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     ExQueueWorkItem @ 0x1402CE3E0 (ExQueueWorkItem.c)
+ *     ObfReferenceObjectWithTag @ 0x14031F8C0 (ObfReferenceObjectWithTag.c)
+ *     IoAddTriageDumpDataBlock @ 0x1403E65A0 (IoAddTriageDumpDataBlock.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 NTSTATUS __stdcall IoRequestDeviceEjectEx(
@@ -76,7 +76,7 @@ NTSTATUS __stdcall IoRequestDeviceEjectEx(
 LABEL_20:
     KeBugCheckEx(0xCAu, 2uLL, (ULONG_PTR)PhysicalDeviceObject, 0LL, 0LL);
   }
-  Pool2 = ExAllocatePool2(0x40uLL);
+  Pool2 = ExAllocatePool2(0x40uLL, 0x5D8uLL, 0x46706E50u);
   if ( !Pool2 )
     return -1073741670;
   v11 = (const void **)PhysicalDeviceObject->DeviceObjectExtension->DeviceNode;

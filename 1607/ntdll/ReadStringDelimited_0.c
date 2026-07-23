@@ -3,7 +3,7 @@
  * Callers:
  *     _input_s @ 0x1800A3754 (_input_s.c)
  * Callees:
- *     __security_check_cookie @ 0x180096C40 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x180096C30 (__security_check_cookie.c)
  *     ReadString_0 @ 0x1800A340C (ReadString_0.c)
  *     memset @ 0x1800ACCC0 (memset.c)
  */

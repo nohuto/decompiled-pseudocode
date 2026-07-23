@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpCovSampCaptureContextSetPaused @ 0x140942248
+ * XREFs of EtwpCovSampCaptureContextSetPaused @ 0x140942418
  * Callers:
- *     EtwpCovSampContextAddSamples @ 0x140942DEC (EtwpCovSampContextAddSamples.c)
- *     EtwpCoverageSamplerQuery @ 0x140946424 (EtwpCoverageSamplerQuery.c)
+ *     EtwpCovSampContextAddSamples @ 0x140942FBC (EtwpCovSampContextAddSamples.c)
+ *     EtwpCoverageSamplerQuery @ 0x1409465F4 (EtwpCoverageSamplerQuery.c)
  * Callees:
- *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
+ *     KeSetEvent @ 0x14034E2F0 (KeSetEvent.c)
  */
 
 LONG __fastcall EtwpCovSampCaptureContextSetPaused(__int64 a1, __int64 a2, int a3)

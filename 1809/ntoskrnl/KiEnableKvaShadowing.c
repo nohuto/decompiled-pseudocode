@@ -1,17 +1,17 @@
 /*
- * XREFs of KiEnableKvaShadowing @ 0x140572BD8
+ * XREFs of KiEnableKvaShadowing @ 0x140573BD8
  * Callers:
- *     KiInitializeBootStructures @ 0x14056FE10 (KiInitializeBootStructures.c)
- *     KxInitializeProcessorState @ 0x140729E04 (KxInitializeProcessorState.c)
+ *     KiInitializeBootStructures @ 0x140570E10 (KiInitializeBootStructures.c)
+ *     KxInitializeProcessorState @ 0x14072AFF4 (KxInitializeProcessorState.c)
  * Callees:
- *     KeGetPrcb @ 0x1400A62C4 (KeGetPrcb.c)
- *     KiSetAddressPolicy @ 0x1400BA140 (KiSetAddressPolicy.c)
- *     HvlRescindEnlightenments @ 0x14013BB5C (HvlRescindEnlightenments.c)
- *     KiInitializeDescriptorIst @ 0x14017E464 (KiInitializeDescriptorIst.c)
- *     KiIsKvaLeakSimulated @ 0x14017E4B0 (KiIsKvaLeakSimulated.c)
- *     KiIsKvaShadowDisabled @ 0x14017E4C4 (KiIsKvaShadowDisabled.c)
- *     KiShadowProcessorAllocation @ 0x140572D84 (KiShadowProcessorAllocation.c)
- *     KiInitializeIdt @ 0x140572E58 (KiInitializeIdt.c)
+ *     KeGetPrcb @ 0x1400A6204 (KeGetPrcb.c)
+ *     KiSetAddressPolicy @ 0x1400BA080 (KiSetAddressPolicy.c)
+ *     HvlRescindEnlightenments @ 0x14013BC5C (HvlRescindEnlightenments.c)
+ *     KiInitializeDescriptorIst @ 0x14017E5A4 (KiInitializeDescriptorIst.c)
+ *     KiIsKvaLeakSimulated @ 0x14017E5F0 (KiIsKvaLeakSimulated.c)
+ *     KiIsKvaShadowDisabled @ 0x14017E604 (KiIsKvaShadowDisabled.c)
+ *     KiShadowProcessorAllocation @ 0x140573D84 (KiShadowProcessorAllocation.c)
+ *     KiInitializeIdt @ 0x140573E58 (KiInitializeIdt.c)
  */
 
 __int64 __fastcall KiEnableKvaShadowing(__int64 a1)
@@ -59,8 +59,8 @@ __int64 __fastcall KiEnableKvaShadowing(__int64 a1)
         LOBYTE(v6) = 1;
         KiInitializeIdt(v7, v6);
         KeGetCurrentThread()->ApcState.Process->AddressPolicy = 1;
-        byte_14055BCC0 = 1;
-        _InterlockedOr(dword_14055C10C, 0x4000u);
+        byte_14055CCC0 = 1;
+        _InterlockedOr(dword_14055D10C, 0x4000u);
         KiSetAddressPolicy();
         *(_WORD *)(a1 + 28316) = 24;
         v8 = *(_QWORD *)(a1 + 25248);

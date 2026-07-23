@@ -1,21 +1,21 @@
 /*
- * XREFs of PiCMReturnBufferResultData @ 0x1409993B0
+ * XREFs of PiCMReturnBufferResultData @ 0x140959E10
  * Callers:
- *     PiCMEnumerateSubKeys @ 0x140919E14 (PiCMEnumerateSubKeys.c)
- *     PiCMRegisterDeviceInterface @ 0x14098C74C (PiCMRegisterDeviceInterface.c)
- *     PiCMHandleIoctl @ 0x140997F20 (PiCMHandleIoctl.c)
- *     PiCMGetRelatedDeviceInstance @ 0x140998C60 (PiCMGetRelatedDeviceInstance.c)
- *     PiCMGetDeviceInterfaceList @ 0x140999BB0 (PiCMGetDeviceInterfaceList.c)
- *     PiCMGetObjectList @ 0x140999DA8 (PiCMGetObjectList.c)
- *     PiCMGetDeviceInterfaceAlias @ 0x1409DA8FC (PiCMGetDeviceInterfaceAlias.c)
- *     PiCMGetDeviceIdList @ 0x140AA01F0 (PiCMGetDeviceIdList.c)
- *     PiCMGetObjectPropertyKeys @ 0x140AB3DA8 (PiCMGetObjectPropertyKeys.c)
- *     PiCMQueryRemove @ 0x140B2D27C (PiCMQueryRemove.c)
- *     PiCMCreateDevice @ 0x140B5A67C (PiCMCreateDevice.c)
+ *     PiCMRegisterDeviceInterface @ 0x14094D1B4 (PiCMRegisterDeviceInterface.c)
+ *     PiCMHandleIoctl @ 0x140958980 (PiCMHandleIoctl.c)
+ *     PiCMGetRelatedDeviceInstance @ 0x1409596C0 (PiCMGetRelatedDeviceInstance.c)
+ *     PiCMGetDeviceInterfaceList @ 0x14095A610 (PiCMGetDeviceInterfaceList.c)
+ *     PiCMGetObjectList @ 0x14095A808 (PiCMGetObjectList.c)
+ *     PiCMEnumerateSubKeys @ 0x140974874 (PiCMEnumerateSubKeys.c)
+ *     PiCMGetDeviceInterfaceAlias @ 0x140A17B4C (PiCMGetDeviceInterfaceAlias.c)
+ *     PiCMGetDeviceIdList @ 0x140AA1B80 (PiCMGetDeviceIdList.c)
+ *     PiCMGetObjectPropertyKeys @ 0x140AB5148 (PiCMGetObjectPropertyKeys.c)
+ *     PiCMQueryRemove @ 0x140B2F2FC (PiCMQueryRemove.c)
+ *     PiCMCreateDevice @ 0x140B5D998 (PiCMCreateDevice.c)
  * Callees:
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     RtlCopyToUser @ 0x14077F284 (RtlCopyToUser.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408F29F0 (ExRaiseDatatypeMisalignment.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     RtlCopyToUser @ 0x140781D84 (RtlCopyToUser.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408F8FB0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall PiCMReturnBufferResultData(

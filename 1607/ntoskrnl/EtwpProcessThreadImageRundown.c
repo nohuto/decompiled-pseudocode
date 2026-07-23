@@ -1,20 +1,20 @@
 /*
- * XREFs of EtwpProcessThreadImageRundown @ 0x1404987E4
+ * XREFs of EtwpProcessThreadImageRundown @ 0x140499274
  * Callers:
- *     EtwpKernelTraceRundown @ 0x140495B04 (EtwpKernelTraceRundown.c)
+ *     EtwpKernelTraceRundown @ 0x140496594 (EtwpKernelTraceRundown.c)
  * Callees:
- *     _TlgWrite @ 0x14000A598 (_TlgWrite.c)
- *     KeQueryTimeIncrement @ 0x140086090 (KeQueryTimeIncrement.c)
- *     _TlgKeywordOn @ 0x140088D98 (_TlgKeywordOn.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     _TlgWrite @ 0x14000A118 (_TlgWrite.c)
+ *     KeQueryTimeIncrement @ 0x140087980 (KeQueryTimeIncrement.c)
+ *     _TlgKeywordOn @ 0x14010CF88 (_TlgKeywordOn.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     EtwpAcquireLoggerContextByLoggerId @ 0x1404900BC (EtwpAcquireLoggerContextByLoggerId.c)
- *     EtwpReleaseLoggerContext @ 0x140490180 (EtwpReleaseLoggerContext.c)
- *     PsEnumProcesses @ 0x14049895C (PsEnumProcesses.c)
- *     EtwpProcessEnumCallback @ 0x1404989B4 (EtwpProcessEnumCallback.c)
- *     EtwpIsStackWalkingEnabled @ 0x140499988 (EtwpIsStackWalkingEnabled.c)
+ *     EtwpAcquireLoggerContextByLoggerId @ 0x140490B4C (EtwpAcquireLoggerContextByLoggerId.c)
+ *     EtwpReleaseLoggerContext @ 0x140490C10 (EtwpReleaseLoggerContext.c)
+ *     PsEnumProcesses @ 0x1404993EC (PsEnumProcesses.c)
+ *     EtwpProcessEnumCallback @ 0x140499444 (EtwpProcessEnumCallback.c)
+ *     EtwpIsStackWalkingEnabled @ 0x14049A418 (EtwpIsStackWalkingEnabled.c)
  */
 
 __int64 __fastcall EtwpProcessThreadImageRundown(__int64 a1, unsigned int a2, char a3)
@@ -102,7 +102,7 @@ __int64 __fastcall EtwpProcessThreadImageRundown(__int64 a1, unsigned int a2, ch
     v34 = 4LL;
     v36 = 8LL;
     v38 = 8LL;
-    TlgWrite(&stru_1402F3680, &unk_14027EF95, 0LL, 0LL, 0xBu, &pData);
+    TlgWrite(&stru_1402F3680, &unk_14027F095, 0LL, 0LL, 0xBu, &pData);
   }
   if ( v19[2] )
     ExFreePoolWithTag((PVOID)v19[2], 0);

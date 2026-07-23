@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlNotifyFeatureUsage @ 0x14058E130
+ * XREFs of RtlNotifyFeatureUsage @ 0x14058E360
  * Callers:
- *     wil_details_FeatureReporting_ReportUsageToServiceDirect @ 0x14025304C (wil_details_FeatureReporting_ReportUsageToServiceDirect.c)
+ *     wil_details_FeatureReporting_ReportUsageToServiceDirect @ 0x140285EBC (wil_details_FeatureReporting_ReportUsageToServiceDirect.c)
  * Callees:
- *     CmFcManagerNotifyFeatureUsage @ 0x1404ED834 (CmFcManagerNotifyFeatureUsage.c)
+ *     CmFcManagerNotifyFeatureUsage @ 0x1404EDA74 (CmFcManagerNotifyFeatureUsage.c)
  */
 
-__int64 __fastcall RtlNotifyFeatureUsage(__int64 a1)
+NTSTATUS __cdecl RtlNotifyFeatureUsage(PRTL_FEATURE_USAGE_REPORT FeatureUsageReport)
 {
-  return CmFcManagerNotifyFeatureUsage(a1, a1);
+  return CmFcManagerNotifyFeatureUsage((__int64)FeatureUsageReport, (__int64)FeatureUsageReport);
 }

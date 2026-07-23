@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlStringCchVPrintfW @ 0x140715980
+ * XREFs of RtlStringCchVPrintfW @ 0x14071A670
  * Callers:
- *     SiLogMessage @ 0x140771464 (SiLogMessage.c)
+ *     SiLogMessage @ 0x140774464 (SiLogMessage.c)
  * Callees:
- *     _vsnwprintf @ 0x1405353B0 (_vsnwprintf.c)
+ *     _vsnwprintf @ 0x140537830 (_vsnwprintf.c)
  */
 
 NTSTATUS __stdcall RtlStringCchVPrintfW(

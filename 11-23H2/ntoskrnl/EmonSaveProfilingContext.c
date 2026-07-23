@@ -1,9 +1,9 @@
 /*
- * XREFs of EmonSaveProfilingContext @ 0x140A972C0
+ * XREFs of EmonSaveProfilingContext @ 0x140A97130
  * Callers:
  *     <none>
  * Callees:
- *     EmonReadCounter @ 0x14051DFD4 (EmonReadCounter.c)
+ *     EmonReadCounter @ 0x14051E524 (EmonReadCounter.c)
  */
 
 __int64 (__fastcall **EmonSaveProfilingContext())()

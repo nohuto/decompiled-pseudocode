@@ -1,7 +1,7 @@
 /*
- * XREFs of ExRecordOneTimerExpiry @ 0x14060B9E4
+ * XREFs of ExRecordOneTimerExpiry @ 0x14060BF34
  * Callers:
- *     KeResumeClockTimerFromIdle @ 0x1402C7060 (KeResumeClockTimerFromIdle.c)
+ *     KeResumeClockTimerFromIdle @ 0x1402C72F0 (KeResumeClockTimerFromIdle.c)
  * Callees:
  *     <none>
  */

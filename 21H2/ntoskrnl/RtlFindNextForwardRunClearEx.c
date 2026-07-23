@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlFindNextForwardRunClearEx @ 0x1405874F0
+ * XREFs of RtlFindNextForwardRunClearEx @ 0x140587720
  * Callers:
  *     MiDeleteEmptyPageTableTail @ 0x1403F4E40 (MiDeleteEmptyPageTableTail.c)
- *     MiDeleteAweInfoPages @ 0x1408D5E8C (MiDeleteAweInfoPages.c)
- *     IopLiveDumpMirrorPhysicalMemoryCallback @ 0x1409ACFE0 (IopLiveDumpMirrorPhysicalMemoryCallback.c)
- *     IopLiveDumpPopulateBitmapForDump @ 0x1409AD1C8 (IopLiveDumpPopulateBitmapForDump.c)
+ *     MiDeleteAweInfoPages @ 0x1408D5FEC (MiDeleteAweInfoPages.c)
+ *     IopLiveDumpMirrorPhysicalMemoryCallback @ 0x1409ADF10 (IopLiveDumpMirrorPhysicalMemoryCallback.c)
+ *     IopLiveDumpPopulateBitmapForDump @ 0x1409AE0F8 (IopLiveDumpPopulateBitmapForDump.c)
  * Callees:
  *     <none>
  */
@@ -28,7 +28,7 @@ unsigned __int64 __fastcall RtlFindNextForwardRunClearEx(__int64 a1, unsigned __
     v8 = *(_QWORD *)(a1 + 8);
     v9 = (_DWORD *)(v8 + 4 * ((v3 - 1) >> 5));
     v10 = (_DWORD *)(v8 + 4 * (a2 >> 5));
-    if ( v10 != v9 && (*v10 | *((_DWORD *)qword_140011C70 + (a2 & 0x1F))) == -1 )
+    if ( v10 != v9 && (*v10 | *((_DWORD *)qword_140012120 + (a2 & 0x1F))) == -1 )
     {
       v5 = (a2 & 0xFFFFFFFFFFFFFFE0uLL) + 32;
       for ( ++v10; v10 < v9 && *v10 == -1; ++v10 )
@@ -43,7 +43,7 @@ unsigned __int64 __fastcall RtlFindNextForwardRunClearEx(__int64 a1, unsigned __
     if ( v10 != v9 )
     {
       v12 = v5 & 0x1F;
-      if ( (~*((_DWORD *)qword_140011C70 + v12) & *v10) == 0 )
+      if ( (~*((_DWORD *)qword_140012120 + v12) & *v10) == 0 )
       {
         v11 = 32 - v12;
         if ( v12 == 33 )

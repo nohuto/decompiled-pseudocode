@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     RtlpIsUtf8Process @ 0x1407CDA20 (RtlpIsUtf8Process.c)
+ *     sub_1407CDA20 @ 0x1407CDA20 (sub_1407CDA20.c)
  */
 
 void __stdcall RtlUpperString(PSTRING DestinationString, const STRING *SourceString)
@@ -22,7 +22,7 @@ void __stdcall RtlUpperString(PSTRING DestinationString, const STRING *SourceStr
   for ( DestinationString->Length = MaximumLength; MaximumLength; --MaximumLength )
   {
     v5 = *Buffer;
-    RtlpIsUtf8Process(0LL);
+    sub_1407CDA20(0LL);
     ++v4;
     v6 = v5 ^ 0x20;
     ++Buffer;

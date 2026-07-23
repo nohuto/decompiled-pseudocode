@@ -6,7 +6,7 @@
  *     <none>
  */
 
-char __fastcall RtlCreateHashTable(__int64 *a1, int a2, int a3)
+BOOLEAN __cdecl RtlCreateHashTable(PRTL_DYNAMIC_HASH_TABLE *HashTable, ULONG Shift, ULONG Flags)
 {
-  return RtlpCreateHashTable(a1, 0x80u, a2, a3);
+  return RtlpCreateHashTable((PVOID *)HashTable, 0x80u, Shift, Flags);
 }

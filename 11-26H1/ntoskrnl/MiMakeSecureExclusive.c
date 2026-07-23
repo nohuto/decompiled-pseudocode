@@ -1,7 +1,7 @@
 /*
- * XREFs of MiMakeSecureExclusive @ 0x1404CCC78
+ * XREFs of MiMakeSecureExclusive @ 0x1404C6418
  * Callers:
- *     MmStoreAllocateVirtualMemory @ 0x1409F1A98 (MmStoreAllocateVirtualMemory.c)
+ *     MmStoreAllocateVirtualMemory @ 0x1409EE268 (MmStoreAllocateVirtualMemory.c)
  * Callees:
  *     <none>
  */

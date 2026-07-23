@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwTraceCpuCacheFlush @ 0x140225A4C
+ * XREFs of EtwTraceCpuCacheFlush @ 0x140225878
  * Callers:
- *     KeFlushIoBuffers @ 0x14009D3F0 (KeFlushIoBuffers.c)
+ *     KeFlushIoBuffers @ 0x14009CBF0 (KeFlushIoBuffers.c)
  * Callees:
- *     EtwTraceTimedEvent @ 0x14009E50C (EtwTraceTimedEvent.c)
+ *     EtwTraceTimedEvent @ 0x14009DEB8 (EtwTraceTimedEvent.c)
  */
 
 void __fastcall EtwTraceCpuCacheFlush(__int64 a1, __int64 a2, __int64 a3, char a4)

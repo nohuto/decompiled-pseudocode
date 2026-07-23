@@ -1,10 +1,10 @@
 /*
- * XREFs of MiPrefetchRestOfCluster @ 0x1400B2664
+ * XREFs of MiPrefetchRestOfCluster @ 0x1400B05A4
  * Callers:
- *     MiWaitForInPageComplete @ 0x1400251B0 (MiWaitForInPageComplete.c)
+ *     MiWaitForInPageComplete @ 0x140024D30 (MiWaitForInPageComplete.c)
  * Callees:
- *     MiGetEffectivePagePriorityThread @ 0x140026DB4 (MiGetEffectivePagePriorityThread.c)
- *     MiPrefetchVirtualMemory @ 0x1400BFCA0 (MiPrefetchVirtualMemory.c)
+ *     MiGetEffectivePagePriorityThread @ 0x140026934 (MiGetEffectivePagePriorityThread.c)
+ *     MiPrefetchVirtualMemory @ 0x1400BDB30 (MiPrefetchVirtualMemory.c)
  */
 
 void __fastcall MiPrefetchRestOfCluster(__int64 a1, _QWORD *a2)

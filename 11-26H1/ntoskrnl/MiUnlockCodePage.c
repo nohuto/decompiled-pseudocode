@@ -1,21 +1,21 @@
 /*
- * XREFs of MiUnlockCodePage @ 0x140367FA8
+ * XREFs of MiUnlockCodePage @ 0x140369D48
  * Callers:
- *     MiUnlockImageSection @ 0x140366FC8 (MiUnlockImageSection.c)
- *     MiUnlockDriverPages @ 0x140AC7404 (MiUnlockDriverPages.c)
- *     MiUnlockDriverCode @ 0x140AC7FD8 (MiUnlockDriverCode.c)
- *     MiHandleDriverNonPagedSections @ 0x140AC8ED0 (MiHandleDriverNonPagedSections.c)
- *     MmUnlockPreChargedPagedPool @ 0x140B1AE60 (MmUnlockPreChargedPagedPool.c)
+ *     MiUnlockImageSection @ 0x140368D68 (MiUnlockImageSection.c)
+ *     MiUnlockDriverPages @ 0x140AC8FF4 (MiUnlockDriverPages.c)
+ *     MiUnlockDriverCode @ 0x140AC9BC8 (MiUnlockDriverCode.c)
+ *     MiHandleDriverNonPagedSections @ 0x140ACAFE8 (MiHandleDriverNonPagedSections.c)
+ *     MmUnlockPreChargedPagedPool @ 0x140B1D110 (MmUnlockPreChargedPagedPool.c)
  * Callees:
- *     MiVaToFlushVm @ 0x1402843F8 (MiVaToFlushVm.c)
- *     MiLockPageTableInternal @ 0x1402B34E0 (MiLockPageTableInternal.c)
- *     HvlNotifyLongSpinWait @ 0x1402BBF00 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402BC760 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     MiUnlockPageTableInternal @ 0x1402D13E0 (MiUnlockPageTableInternal.c)
- *     MiRemoveLockedPageChargeAndDecRef @ 0x1402E8BF0 (MiRemoveLockedPageChargeAndDecRef.c)
- *     MiUnlockWorkingSetShared @ 0x1402EB6C0 (MiUnlockWorkingSetShared.c)
- *     MiLockWorkingSetShared @ 0x1402EDD60 (MiLockWorkingSetShared.c)
- *     MiGetLeafVa @ 0x140326060 (MiGetLeafVa.c)
+ *     MiVaToFlushVm @ 0x140283968 (MiVaToFlushVm.c)
+ *     MiUnlockPageTableInternal @ 0x1402B31A0 (MiUnlockPageTableInternal.c)
+ *     MiRemoveLockedPageChargeAndDecRef @ 0x1402CAC30 (MiRemoveLockedPageChargeAndDecRef.c)
+ *     MiUnlockWorkingSetShared @ 0x1402CD700 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x1402CFDE0 (MiLockWorkingSetShared.c)
+ *     MiLockPageTableInternal @ 0x1402FE1B0 (MiLockPageTableInternal.c)
+ *     HvlNotifyLongSpinWait @ 0x140306BC0 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140307420 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     MiGetLeafVa @ 0x140328090 (MiGetLeafVa.c)
  */
 
 void __fastcall MiUnlockCodePage(unsigned __int64 a1, unsigned __int64 a2, int a3)

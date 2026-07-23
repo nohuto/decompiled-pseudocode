@@ -3,7 +3,7 @@
  * Callers:
  *     RtlpHpAllocateHeap @ 0x1800649F0 (RtlpHpAllocateHeap.c)
  * Callees:
- *     RtlpLogHeapFailure @ 0x18009F7AC (RtlpLogHeapFailure.c)
+ *     RtlpLogHeapFailure @ 0x18009F7CC (RtlpLogHeapFailure.c)
  */
 
 __int64 __fastcall RtlpHpCheckAllocationSizeLimit(unsigned __int64 a1, int a2, __int64 a3)

@@ -13,9 +13,9 @@
 
 char WheapPfaReset()
 {
-  unsigned __int64 v0; // rax
+  PRTL_BALANCED_NODE v0; // rax
   signed __int8 v1; // cf
-  unsigned __int64 v2; // rbx
+  PRTL_BALANCED_NODE v2; // rbx
   PVOID *v3; // rbx
   PVOID *v4; // rcx
   PVOID *v5; // rax
@@ -25,9 +25,9 @@ char WheapPfaReset()
   v1 = _interlockedbittestandset64((volatile signed __int32 *)&WheapPfaLock, 0LL);
   v2 = v0;
   if ( v1 )
-    ExfAcquirePushLockExclusiveEx(&WheapPfaLock, v0, (__int16 *)&WheapPfaLock);
+    ExfAcquirePushLockExclusiveEx(&WheapPfaLock, (__int64)v0, (__int16 *)&WheapPfaLock);
   if ( v2 )
-    *(_BYTE *)(v2 + 26) |= 1u;
+    BYTE2(v2[1].Left) |= 1u;
   WheapApplyPolicyChanges();
   v3 = (PVOID *)WheapPfaList;
   while ( v3 != &WheapPfaList )

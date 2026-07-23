@@ -1,14 +1,14 @@
 /*
- * XREFs of ZwReplaceKey @ 0x1406A9470
+ * XREFs of ZwReplaceKey @ 0x1406AA410
  * Callers:
- *     DifZwReplaceKeyWrapper @ 0x1406472A0 (DifZwReplaceKeyWrapper.c)
+ *     DifZwReplaceKeyWrapper @ 0x140645860 (DifZwReplaceKeyWrapper.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwReplaceKey(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwReplaceKey(POBJECT_ATTRIBUTES NewFile, HANDLE TargetHandle, POBJECT_ATTRIBUTES OldFile)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(NewFile);
 }

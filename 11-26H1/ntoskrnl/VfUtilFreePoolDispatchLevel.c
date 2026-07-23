@@ -1,14 +1,14 @@
 /*
- * XREFs of VfUtilFreePoolDispatchLevel @ 0x1406407E0
+ * XREFs of VfUtilFreePoolDispatchLevel @ 0x1406443C0
  * Callers:
- *     ViTargetFreeContiguousMemoryFromNode @ 0x140C296F8 (ViTargetFreeContiguousMemoryFromNode.c)
- *     ViTargetRemovingCheckContiguousMemory @ 0x140C297E4 (ViTargetRemovingCheckContiguousMemory.c)
- *     IovpSessionDataDereference @ 0x140C3A558 (IovpSessionDataDereference.c)
+ *     ViTargetFreeContiguousMemoryFromNode @ 0x140C2F708 (ViTargetFreeContiguousMemoryFromNode.c)
+ *     ViTargetRemovingCheckContiguousMemory @ 0x140C2F7F4 (ViTargetRemovingCheckContiguousMemory.c)
+ *     IovpSessionDataDereference @ 0x140C40568 (IovpSessionDataDereference.c)
  * Callees:
- *     VfPoolDelayFreeIfPossible @ 0x1403B7760 (VfPoolDelayFreeIfPossible.c)
+ *     VfPoolDelayFreeIfPossible @ 0x1403C1660 (VfPoolDelayFreeIfPossible.c)
  */
 
-void __fastcall VfUtilFreePoolDispatchLevel(struct _SLIST_ENTRY *a1)
+void __fastcall VfUtilFreePoolDispatchLevel(_SLIST_ENTRY *a1)
 {
   VfPoolDelayFreeIfPossible(a1, 0);
 }

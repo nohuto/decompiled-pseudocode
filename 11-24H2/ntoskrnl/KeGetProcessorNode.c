@@ -1,8 +1,8 @@
 /*
- * XREFs of KeGetProcessorNode @ 0x1405BA92C
+ * XREFs of KeGetProcessorNode @ 0x1405B7F5C
  * Callers:
- *     KiInitializeTopologyStructures @ 0x140B59298 (KiInitializeTopologyStructures.c)
- *     KiSetCacheInformationAmd @ 0x140B59874 (KiSetCacheInformationAmd.c)
+ *     KiInitializeTopologyStructures @ 0x140B5B318 (KiInitializeTopologyStructures.c)
+ *     KiSetCacheInformationAmd @ 0x140B5B8F4 (KiSetCacheInformationAmd.c)
  * Callees:
  *     <none>
  */

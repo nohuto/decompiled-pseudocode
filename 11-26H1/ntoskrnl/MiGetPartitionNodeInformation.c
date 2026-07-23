@@ -1,17 +1,17 @@
 /*
- * XREFs of MiGetPartitionNodeInformation @ 0x140258FD8
+ * XREFs of MiGetPartitionNodeInformation @ 0x14025A7B8
  * Callers:
- *     MmFillEtwNodeInformation @ 0x140258494 (MmFillEtwNodeInformation.c)
- *     MmManagePartitionNodeInformation @ 0x14087D38C (MmManagePartitionNodeInformation.c)
+ *     MmFillEtwNodeInformation @ 0x140259C74 (MmFillEtwNodeInformation.c)
+ *     MmManagePartitionNodeInformation @ 0x14088378C (MmManagePartitionNodeInformation.c)
  * Callees:
- *     ExReleaseSpinLockShared @ 0x14026CEE0 (ExReleaseSpinLockShared.c)
- *     MiPageToNode @ 0x140289710 (MiPageToNode.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402DC6D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExAcquireSpinLockShared @ 0x1402EDF10 (ExAcquireSpinLockShared.c)
- *     ExAcquireSpinLockSharedAtDpcLevel @ 0x1402EDFB0 (ExAcquireSpinLockSharedAtDpcLevel.c)
- *     MiGetPartitionNodePageCounts @ 0x1403C84E0 (MiGetPartitionNodePageCounts.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     ExReleaseSpinLockShared @ 0x14026C450 (ExReleaseSpinLockShared.c)
+ *     MiPageToNode @ 0x140288C70 (MiPageToNode.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402BE490 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockShared @ 0x1402CFF90 (ExAcquireSpinLockShared.c)
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x1402D0030 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     MiGetPartitionNodePageCounts @ 0x1403D23D0 (MiGetPartitionNodePageCounts.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 unsigned __int64 __fastcall MiGetPartitionNodeInformation(__int64 a1, unsigned int a2, unsigned __int64 *a3)

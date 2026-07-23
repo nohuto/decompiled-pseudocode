@@ -1,7 +1,7 @@
 /*
- * XREFs of KiPollFreezeExecution @ 0x14052C910
+ * XREFs of KiPollFreezeExecution @ 0x14052EE30
  * Callers:
- *     KiCalibrateTimeAdjustment @ 0x140C078A0 (KiCalibrateTimeAdjustment.c)
+ *     KiCalibrateTimeAdjustment @ 0x140C0DAB0 (KiCalibrateTimeAdjustment.c)
  * Callees:
  *     <none>
  */

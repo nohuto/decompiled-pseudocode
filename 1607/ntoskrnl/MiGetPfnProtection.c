@@ -1,12 +1,12 @@
 /*
- * XREFs of MiGetPfnProtection @ 0x1400B8AB0
+ * XREFs of MiGetPfnProtection @ 0x1400B6940
  * Callers:
- *     MiGetWorkingSetInfoList @ 0x1400B79E0 (MiGetWorkingSetInfoList.c)
- *     MmRemoveExecuteGrants @ 0x1400B88A0 (MmRemoveExecuteGrants.c)
- *     MiGetWorkingSetInfoEx @ 0x14010F4B0 (MiGetWorkingSetInfoEx.c)
+ *     MiGetWorkingSetInfoList @ 0x1400B5870 (MiGetWorkingSetInfoList.c)
+ *     MmRemoveExecuteGrants @ 0x1400B6730 (MmRemoveExecuteGrants.c)
+ *     MiGetWorkingSetInfoEx @ 0x14010FA14 (MiGetWorkingSetInfoEx.c)
  * Callees:
- *     MiLocateCloneAddress @ 0x1400BDB00 (MiLocateCloneAddress.c)
- *     MI_GET_PROTECTION_FROM_SOFT_PROTOTYPE_PTE @ 0x1401F25B8 (MI_GET_PROTECTION_FROM_SOFT_PROTOTYPE_PTE.c)
+ *     MiLocateCloneAddress @ 0x1400BB990 (MiLocateCloneAddress.c)
+ *     MI_GET_PROTECTION_FROM_SOFT_PROTOTYPE_PTE @ 0x1401F23E4 (MI_GET_PROTECTION_FROM_SOFT_PROTOTYPE_PTE.c)
  */
 
 __int64 __fastcall MiGetPfnProtection(__int64 a1, _DWORD *a2)

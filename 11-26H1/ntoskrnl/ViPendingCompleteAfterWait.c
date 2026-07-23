@@ -1,19 +1,19 @@
 /*
- * XREFs of ViPendingCompleteAfterWait @ 0x140C301B4
+ * XREFs of ViPendingCompleteAfterWait @ 0x140C361C4
  * Callers:
- *     ViPendingCompleteAtDPC @ 0x140C302F0 (ViPendingCompleteAtDPC.c)
- *     ViPendingWorkerThread @ 0x140C30560 (ViPendingWorkerThread.c)
+ *     ViPendingCompleteAtDPC @ 0x140C36300 (ViPendingCompleteAtDPC.c)
+ *     ViPendingWorkerThread @ 0x140C36570 (ViPendingWorkerThread.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     IofCompleteRequest @ 0x1403FD9D0 (IofCompleteRequest.c)
- *     ViIrpDatabaseAcquireLockExclusive @ 0x140647E5C (ViIrpDatabaseAcquireLockExclusive.c)
- *     ViIrpDatabaseReleaseLockExclusive @ 0x140647EA4 (ViIrpDatabaseReleaseLockExclusive.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
- *     VfUtilAddressRangeRemoveCheckEmpty @ 0x140C216B8 (VfUtilAddressRangeRemoveCheckEmpty.c)
- *     VfIrpDatabaseEntryReleaseLock @ 0x140C39D70 (VfIrpDatabaseEntryReleaseLock.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     IofCompleteRequest @ 0x1403FA1C0 (IofCompleteRequest.c)
+ *     ViIrpDatabaseAcquireLockExclusive @ 0x14064BA3C (ViIrpDatabaseAcquireLockExclusive.c)
+ *     ViIrpDatabaseReleaseLockExclusive @ 0x14064BA84 (ViIrpDatabaseReleaseLockExclusive.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
+ *     VfUtilAddressRangeRemoveCheckEmpty @ 0x140C276C8 (VfUtilAddressRangeRemoveCheckEmpty.c)
+ *     VfIrpDatabaseEntryReleaseLock @ 0x140C3FD80 (VfIrpDatabaseEntryReleaseLock.c)
  */
 
 void __fastcall ViPendingCompleteAfterWait(char *P)

@@ -1,10 +1,10 @@
 /*
- * XREFs of MiPreInitializeSystemImagePage @ 0x1400DBDA8
+ * XREFs of MiPreInitializeSystemImagePage @ 0x1400DBE28
  * Callers:
- *     MiAllocateDriverPage @ 0x140653A14 (MiAllocateDriverPage.c)
+ *     MiAllocateDriverPage @ 0x140654BD4 (MiAllocateDriverPage.c)
  * Callees:
  *     MiLockPageInline @ 0x14002CE40 (MiLockPageInline.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiPreInitializeSystemImagePage(__int64 a1)

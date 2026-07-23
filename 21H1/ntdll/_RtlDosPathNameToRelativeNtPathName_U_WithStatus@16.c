@@ -6,17 +6,21 @@
  *     _RtlpDosPathNameToRelativeNtPathName@28 @ 0x4B2C5860 (_RtlpDosPathNameToRelativeNtPathName@28.c)
  */
 
-int __stdcall RtlDosPathNameToRelativeNtPathName_U_WithStatus(_WORD *a1, int a2, int a3, int a4)
+NTSTATUS __cdecl RtlDosPathNameToRelativeNtPathName_U_WithStatus(
+        PCWSTR DosFileName,
+        PUNICODE_STRING NtFileName,
+        PWSTR *FilePart,
+        PRTL_RELATIVE_NAME_U RelativeName)
 {
-  _WORD *v4; // ecx
+  PCWSTR v4; // ecx
 
-  v4 = a1;
-  if ( !a1 )
-    return RtlpDosPathNameToRelativeNtPathName(0, a2, 0, a3, a4);
+  v4 = DosFileName;
+  if ( !DosFileName )
+    return RtlpDosPathNameToRelativeNtPathName(0, NtFileName, 0, (int)FilePart, (int)RelativeName);
   while ( *v4++ )
     ;
-  if ( (unsigned int)(v4 - (a1 + 1)) > 0x7FFE )
+  if ( (unsigned int)(v4 - (DosFileName + 1)) > 0x7FFE )
     return -1073741562;
   else
-    return RtlpDosPathNameToRelativeNtPathName(0, a2, 0, a3, a4);
+    return RtlpDosPathNameToRelativeNtPathName(0, NtFileName, 0, (int)FilePart, (int)RelativeName);
 }

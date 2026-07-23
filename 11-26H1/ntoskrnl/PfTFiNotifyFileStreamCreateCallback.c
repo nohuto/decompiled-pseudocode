@@ -1,12 +1,12 @@
 /*
- * XREFs of PfTFiNotifyFileStreamCreateCallback @ 0x14048B2E0
+ * XREFs of PfTFiNotifyFileStreamCreateCallback @ 0x140484E20
  * Callers:
  *     <none>
  * Callees:
- *     PfFbLogEntryReserve @ 0x14048B598 (PfFbLogEntryReserve.c)
- *     PfFbLogEntryComplete @ 0x14048B690 (PfFbLogEntryComplete.c)
- *     _wcsupr @ 0x140536890 (_wcsupr.c)
- *     memmove @ 0x14073D480 (memmove.c)
+ *     PfFbLogEntryReserve @ 0x1404850D8 (PfFbLogEntryReserve.c)
+ *     PfFbLogEntryComplete @ 0x1404851D0 (PfFbLogEntryComplete.c)
+ *     _wcsupr @ 0x140538D10 (_wcsupr.c)
+ *     memmove @ 0x140742080 (memmove.c)
  */
 
 __int64 __fastcall PfTFiNotifyFileStreamCreateCallback(__int64 a1, __int64 a2)

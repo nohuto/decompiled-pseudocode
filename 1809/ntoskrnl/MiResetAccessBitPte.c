@@ -1,18 +1,18 @@
 /*
- * XREFs of MiResetAccessBitPte @ 0x14016E830
+ * XREFs of MiResetAccessBitPte @ 0x14016E930
  * Callers:
  *     <none>
  * Callees:
  *     MiSetVaAgeList @ 0x14003E2D0 (MiSetVaAgeList.c)
- *     MiClearPteAccessed @ 0x14006B780 (MiClearPteAccessed.c)
- *     MiLogPageAccess @ 0x14006BDB0 (MiLogPageAccess.c)
- *     MiDemoteCombinedPte @ 0x14006C200 (MiDemoteCombinedPte.c)
- *     MiFlushTbList @ 0x1400740C0 (MiFlushTbList.c)
- *     MiGetPfnPriority @ 0x140082B70 (MiGetPfnPriority.c)
- *     MiGetVaAge @ 0x1400880B0 (MiGetVaAge.c)
- *     MiIsPageTableLocked @ 0x14012DA1C (MiIsPageTableLocked.c)
- *     MiResetAccessBitsTail @ 0x14016F9B0 (MiResetAccessBitsTail.c)
- *     MiInsertVmAccessedEntry @ 0x1402B315C (MiInsertVmAccessedEntry.c)
+ *     MiClearPteAccessed @ 0x14006B770 (MiClearPteAccessed.c)
+ *     MiLogPageAccess @ 0x14006BDA0 (MiLogPageAccess.c)
+ *     MiDemoteCombinedPte @ 0x14006C1F0 (MiDemoteCombinedPte.c)
+ *     MiFlushTbList @ 0x1400740B0 (MiFlushTbList.c)
+ *     MiGetPfnPriority @ 0x140082B60 (MiGetPfnPriority.c)
+ *     MiGetVaAge @ 0x1400880A0 (MiGetVaAge.c)
+ *     MiIsPageTableLocked @ 0x14012DAEC (MiIsPageTableLocked.c)
+ *     MiResetAccessBitsTail @ 0x14016FAB0 (MiResetAccessBitsTail.c)
+ *     MiInsertVmAccessedEntry @ 0x1402B334C (MiInsertVmAccessedEntry.c)
  */
 
 __int64 __fastcall MiResetAccessBitPte(__int64 a1, unsigned __int64 a2, int a3)
@@ -95,7 +95,7 @@ __int64 __fastcall MiResetAccessBitPte(__int64 a1, unsigned __int64 a2, int a3)
   if ( !v11 || (unsigned __int64)((__int64)(a2 << 25) >> 16) > 0x7FFFFFFEFFFFLL )
   {
     VaAge = (unsigned __int8)MiGetVaAge(v11, (__int64)(a2 << 25) >> 16);
-    if ( VaAge == 7 && (unsigned int)MiGetPfnPriority(v9) < dword_14043A8EC )
+    if ( VaAge == 7 && (unsigned int)MiGetPfnPriority(v9) < dword_14043B9AC )
     {
       v14 = 0;
     }
@@ -120,7 +120,7 @@ __int64 __fastcall MiResetAccessBitPte(__int64 a1, unsigned __int64 a2, int a3)
     {
       return 0LL;
     }
-    v18 = qword_14043A110;
+    v18 = qword_14043B1D0;
     if ( (*(_BYTE *)(v15 + 4) & 2) == 0
       && *(_DWORD *)v15 == 1
       && KeGetCurrentThread()->ApcState.Process[2].ActiveProcessors.Bitmap[15] )

@@ -1,21 +1,21 @@
 /*
- * XREFs of MiIssueSegmentDereferenceWork @ 0x1403F7920
+ * XREFs of MiIssueSegmentDereferenceWork @ 0x1403ED890
  * Callers:
- *     MiDereferenceSegmentThread @ 0x1403F7700 (MiDereferenceSegmentThread.c)
+ *     MiDereferenceSegmentThread @ 0x1403ED670 (MiDereferenceSegmentThread.c)
  * Callees:
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     MiAllocatePool @ 0x1402ACA70 (MiAllocatePool.c)
- *     ExQueueWorkItem @ 0x140325850 (ExQueueWorkItem.c)
- *     KeWaitForMultipleObjects @ 0x14033D720 (KeWaitForMultipleObjects.c)
- *     KeQueryPerformanceCounter @ 0x14034FA10 (KeQueryPerformanceCounter.c)
- *     MiSegmentDereferenceWorker @ 0x1403F7BB0 (MiSegmentDereferenceWorker.c)
- *     MiComputeUnusedSegmentReduction @ 0x1403F7C6C (MiComputeUnusedSegmentReduction.c)
- *     MiSaveUnusedSegmentCalibration @ 0x1403F7E48 (MiSaveUnusedSegmentCalibration.c)
- *     MiPrepareDeleteOnClose @ 0x140672500 (MiPrepareDeleteOnClose.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     MiAllocatePool @ 0x140277450 (MiAllocatePool.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     ExQueueWorkItem @ 0x1402CE3E0 (ExQueueWorkItem.c)
+ *     KeWaitForMultipleObjects @ 0x14031CC00 (KeWaitForMultipleObjects.c)
+ *     KeQueryPerformanceCounter @ 0x14036DEF0 (KeQueryPerformanceCounter.c)
+ *     MiSegmentDereferenceWorker @ 0x1403EDB20 (MiSegmentDereferenceWorker.c)
+ *     MiComputeUnusedSegmentReduction @ 0x1403EDBDC (MiComputeUnusedSegmentReduction.c)
+ *     MiSaveUnusedSegmentCalibration @ 0x1403EDDB8 (MiSaveUnusedSegmentCalibration.c)
+ *     MiPrepareDeleteOnClose @ 0x1406736D0 (MiPrepareDeleteOnClose.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiIssueSegmentDereferenceWork(__int64 a1, unsigned int a2)

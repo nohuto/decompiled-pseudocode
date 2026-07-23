@@ -1,18 +1,18 @@
 /*
- * XREFs of RtlpIcEmulateGroup0Instruction @ 0x140C564D4
+ * XREFs of RtlpIcEmulateGroup0Instruction @ 0x140C5C4D4
  * Callers:
- *     RtlpIcEmulateInstruction @ 0x140C569F8 (RtlpIcEmulateInstruction.c)
+ *     RtlpIcEmulateInstruction @ 0x140C5C9F8 (RtlpIcEmulateInstruction.c)
  * Callees:
- *     RtlpIcAccessMemory @ 0x140C56198 (RtlpIcAccessMemory.c)
- *     RtlpIcDecodeModRm @ 0x140C56290 (RtlpIcDecodeModRm.c)
- *     RtlpIcDecodeModRmOperand @ 0x140C5637C (RtlpIcDecodeModRmOperand.c)
- *     RtlpIcGetRegisterAddressByIndex @ 0x140C574A0 (RtlpIcGetRegisterAddressByIndex.c)
- *     RtlpIcReadOperandValue @ 0x140C5763C (RtlpIcReadOperandValue.c)
- *     RtlpIcSetFlagsAdd @ 0x140C576A0 (RtlpIcSetFlagsAdd.c)
- *     RtlpIcSetFlagsSub @ 0x140C5778C (RtlpIcSetFlagsSub.c)
- *     RtlpIcSetFlagsZeroSignParity @ 0x140C57870 (RtlpIcSetFlagsZeroSignParity.c)
- *     RtlpIcSignExtendOperandValue @ 0x140C57910 (RtlpIcSignExtendOperandValue.c)
- *     RtlpIcWriteRegisterValue @ 0x140C5793C (RtlpIcWriteRegisterValue.c)
+ *     RtlpIcAccessMemory @ 0x140C5C198 (RtlpIcAccessMemory.c)
+ *     RtlpIcDecodeModRm @ 0x140C5C290 (RtlpIcDecodeModRm.c)
+ *     RtlpIcDecodeModRmOperand @ 0x140C5C37C (RtlpIcDecodeModRmOperand.c)
+ *     RtlpIcGetRegisterAddressByIndex @ 0x140C5D4A0 (RtlpIcGetRegisterAddressByIndex.c)
+ *     RtlpIcReadOperandValue @ 0x140C5D63C (RtlpIcReadOperandValue.c)
+ *     RtlpIcSetFlagsAdd @ 0x140C5D6A0 (RtlpIcSetFlagsAdd.c)
+ *     RtlpIcSetFlagsSub @ 0x140C5D78C (RtlpIcSetFlagsSub.c)
+ *     RtlpIcSetFlagsZeroSignParity @ 0x140C5D870 (RtlpIcSetFlagsZeroSignParity.c)
+ *     RtlpIcSignExtendOperandValue @ 0x140C5D910 (RtlpIcSignExtendOperandValue.c)
+ *     RtlpIcWriteRegisterValue @ 0x140C5D93C (RtlpIcWriteRegisterValue.c)
  */
 
 __int64 __fastcall RtlpIcEmulateGroup0Instruction(_BYTE *a1, __int64 a2, char a3, int *a4)

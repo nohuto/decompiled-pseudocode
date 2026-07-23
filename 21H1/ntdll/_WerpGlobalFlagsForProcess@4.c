@@ -14,29 +14,32 @@
  *     _WerpPathTail@4 @ 0x4B33B28F (_WerpPathTail@4.c)
  */
 
-int __thiscall WerpGlobalFlagsForProcess(void *this)
+ULONG __thiscall WerpGlobalFlagsForProcess(HANDLE ProcessHandle)
 {
   int v2; // eax
-  const unsigned __int16 *v3; // esi
+  const WCHAR *v3; // esi
   _WORD *v4; // ecx
   int v5; // edx
   int v7; // edi
-  _DWORD v9[134]; // [esp+10h] [ebp-240h] BYREF
-  _DWORD v10[6]; // [esp+228h] [ebp-28h] BYREF
-  int v11; // [esp+240h] [ebp-10h] BYREF
-  int v12; // [esp+244h] [ebp-Ch] BYREF
-  int Heap; // [esp+248h] [ebp-8h]
-  HANDLE Handle; // [esp+24Ch] [ebp-4h] BYREF
+  size_t v9; // [esp-4h] [ebp-254h]
+  SIZE_T v10; // [esp-4h] [ebp-254h]
+  _BYTE ProcessInformation[4]; // [esp+10h] [ebp-240h] BYREF
+  int v12; // [esp+14h] [ebp-23Ch]
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [esp+228h] [ebp-28h] BYREF
+  ULONG Value; // [esp+240h] [ebp-10h] BYREF
+  _UNICODE_STRING Destination; // [esp+244h] [ebp-Ch] BYREF
+  HANDLE KeyHandle; // [esp+24Ch] [ebp-4h] BYREF
 
-  Handle = 0;
-  memset(v9, 0, 0x214u);
-  v11 = 0;
-  v12 = 0;
-  Heap = 0;
-  if ( (ZwQueryInformationProcess((int)this, 43, (int)v9, 528, 0) & 0xC0000000) != 0xC0000000 )
+  LODWORD(v9) = 532;
+  KeyHandle = 0;
+  memset(ProcessInformation, 0, v9);
+  Value = 0;
+  *(_DWORD *)&Destination.Length = 0;
+  Destination.Buffer = 0;
+  if ( (ZwQueryInformationProcess(ProcessHandle, ProcessImageFileNameWin32, ProcessInformation, 0x210u, 0) & 0xC0000000) != 0xC0000000 )
   {
-    v2 = WerpPathTail(v9[1]);
-    v3 = (const unsigned __int16 *)v2;
+    v2 = WerpPathTail(v12);
+    v3 = (const WCHAR *)v2;
     if ( v2 )
     {
       v4 = (_WORD *)v2;
@@ -44,33 +47,34 @@ int __thiscall WerpGlobalFlagsForProcess(void *this)
       while ( *v4++ )
         ;
       v7 = 2 * (((int)v4 - v5) >> 1) + 194;
-      Heap = RtlAllocateHeap((int)NtCurrentPeb()->ProcessHeap, 0, v7);
-      if ( Heap )
+      LODWORD(v10) = v7;
+      Destination.Buffer = (wchar_t *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, v10);
+      if ( Destination.Buffer )
       {
-        HIWORD(v12) = v7;
+        Destination.MaximumLength = v7;
         if ( RtlAppendUnicodeToString(
-               (unsigned __int16 *)&v12,
+               &Destination,
                L"\\Registry\\Machine\\Software\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\") >= 0
-          && RtlAppendUnicodeToString((unsigned __int16 *)&v12, v3) >= 0 )
+          && RtlAppendUnicodeToString(&Destination, v3) >= 0 )
         {
-          v10[0] = 24;
-          v10[2] = &v12;
-          v10[1] = 0;
-          v10[3] = 64;
-          v10[4] = 0;
-          v10[5] = 0;
-          if ( ZwOpenKey((int)&Handle, 1, (int)v10) >= 0 )
-            RtlQueryImageFileKeyOption((int)Handle, (int)L"GlobalFlag", 4, &v11, 4u, 0);
+          ObjectAttributes.Length = 24;
+          ObjectAttributes.ObjectName = &Destination;
+          ObjectAttributes.RootDirectory = 0;
+          ObjectAttributes.Attributes = 64;
+          ObjectAttributes.SecurityDescriptor = 0;
+          ObjectAttributes.SecurityQualityOfService = 0;
+          if ( ZwOpenKey(&KeyHandle, 1u, &ObjectAttributes) >= 0 )
+            RtlQueryImageFileKeyOption(KeyHandle, L"GlobalFlag", 4, &Value, 4u, 0);
         }
       }
     }
   }
-  if ( Handle )
+  if ( KeyHandle )
   {
-    NtClose(Handle);
-    Handle = 0;
+    NtClose(KeyHandle);
+    KeyHandle = 0;
   }
-  if ( Heap )
-    RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, Heap);
-  return v11;
+  if ( Destination.Buffer )
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Destination.Buffer);
+  return Value;
 }

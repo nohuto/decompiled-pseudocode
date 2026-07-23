@@ -1,15 +1,15 @@
 /*
- * XREFs of MiScrubNode @ 0x140A38DD4
+ * XREFs of MiScrubNode @ 0x140A2DE94
  * Callers:
- *     MiScrubMemoryWorker @ 0x1407FDAD0 (MiScrubMemoryWorker.c)
+ *     MiScrubMemoryWorker @ 0x1407FE240 (MiScrubMemoryWorker.c)
  * Callees:
- *     MiClaimPhysicalRun @ 0x14022B3F0 (MiClaimPhysicalRun.c)
- *     MiAdjustCachedStacks @ 0x140269740 (MiAdjustCachedStacks.c)
- *     MiPfnsWorthTrying @ 0x140305B00 (MiPfnsWorthTrying.c)
- *     MiScrubPage @ 0x1403F5970 (MiScrubPage.c)
- *     MiMakePageBad @ 0x14047C9DC (MiMakePageBad.c)
- *     MiScrubInterrupted @ 0x1404898E0 (MiScrubInterrupted.c)
- *     MiScrubLargePageRegions @ 0x1406F80D4 (MiScrubLargePageRegions.c)
+ *     MiAdjustCachedStacks @ 0x1402AF604 (MiAdjustCachedStacks.c)
+ *     MiClaimPhysicalRun @ 0x1402FED00 (MiClaimPhysicalRun.c)
+ *     MiPfnsWorthTrying @ 0x14030F9E0 (MiPfnsWorthTrying.c)
+ *     MiScrubPage @ 0x1403EBDB0 (MiScrubPage.c)
+ *     MiMakePageBad @ 0x140477B64 (MiMakePageBad.c)
+ *     MiScrubInterrupted @ 0x1404845F4 (MiScrubInterrupted.c)
+ *     MiScrubLargePageRegions @ 0x1406F60D4 (MiScrubLargePageRegions.c)
  */
 
 void __fastcall MiScrubNode(__int64 a1)
@@ -138,7 +138,7 @@ LABEL_34:
         {
           if ( (v23 & 1) != 0 )
             MiAdjustCachedStacks(v24, 1);
-          if ( !MiClaimPhysicalRun(v24, v13, 1LL, qword_140E2DBE0, a1 + 48, 117440512, 0, 0LL, 0LL, &v23) )
+          if ( !MiClaimPhysicalRun(v24, v13, 1LL, qword_140E2DD20, a1 + 48, 117440512, 0, 0LL, 0LL, &v23) )
           {
             v17 = MiScrubPage(a1, j, 0LL, 0);
             MiMakePageBad(v13, ((v17 >> 31) & 1) + 2);

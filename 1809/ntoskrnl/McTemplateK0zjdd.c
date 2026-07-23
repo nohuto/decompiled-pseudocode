@@ -1,10 +1,10 @@
 /*
- * XREFs of McTemplateK0zjdd @ 0x140288B70
+ * XREFs of McTemplateK0zjdd @ 0x140288D60
  * Callers:
- *     PiPnpRtlCmActionCallback @ 0x140599080 (PiPnpRtlCmActionCallback.c)
+ *     PiPnpRtlCmActionCallback @ 0x14059A080 (PiPnpRtlCmActionCallback.c)
  * Callees:
- *     McGenEventWrite @ 0x14015D6C0 (McGenEventWrite.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     McGenEventWrite @ 0x14015D7C0 (McGenEventWrite.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 ULONG __fastcall McTemplateK0zjdd(

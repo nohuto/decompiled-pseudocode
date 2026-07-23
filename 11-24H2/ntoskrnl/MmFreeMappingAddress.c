@@ -1,20 +1,20 @@
 /*
- * XREFs of MmFreeMappingAddress @ 0x140A5DAA0
+ * XREFs of MmFreeMappingAddress @ 0x140A55EC0
  * Callers:
- *     SmFpCleanup @ 0x14037E384 (SmFpCleanup.c)
- *     DifMmFreeMappingAddressWrapper @ 0x140633340 (DifMmFreeMappingAddressWrapper.c)
- *     PnprFreeMappingReserve @ 0x14072F56C (PnprFreeMappingReserve.c)
- *     PnprInitializeMappingReserve @ 0x14072F9F4 (PnprInitializeMappingReserve.c)
- *     EtwpSavePersistedLogger @ 0x1407AFE60 (EtwpSavePersistedLogger.c)
- *     HalpDmaAllocateEmergencyResources @ 0x140C1007C (HalpDmaAllocateEmergencyResources.c)
- *     HalpDmaAllocateMappingResources @ 0x140C1019C (HalpDmaAllocateMappingResources.c)
+ *     SmFpCleanup @ 0x1403780A4 (SmFpCleanup.c)
+ *     DifMmFreeMappingAddressWrapper @ 0x140631900 (DifMmFreeMappingAddressWrapper.c)
+ *     PnprFreeMappingReserve @ 0x14072D57C (PnprFreeMappingReserve.c)
+ *     PnprInitializeMappingReserve @ 0x14072DA04 (PnprInitializeMappingReserve.c)
+ *     EtwpSavePersistedLogger @ 0x1407B02B0 (EtwpSavePersistedLogger.c)
+ *     HalpDmaAllocateEmergencyResources @ 0x140C1207C (HalpDmaAllocateEmergencyResources.c)
+ *     HalpDmaAllocateMappingResources @ 0x140C1219C (HalpDmaAllocateMappingResources.c)
  * Callees:
- *     MiReleasePtes @ 0x14028DDA0 (MiReleasePtes.c)
- *     MiGetPteAddress @ 0x140437550 (MiGetPteAddress.c)
- *     MiRemoveMappingNode @ 0x1404A2BAC (MiRemoveMappingNode.c)
- *     MiRemovePteTracker @ 0x1404CE770 (MiRemovePteTracker.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     MiReleasePtes @ 0x14029D9A0 (MiReleasePtes.c)
+ *     MiGetPteAddress @ 0x140429FD0 (MiGetPteAddress.c)
+ *     MiRemoveMappingNode @ 0x14049DACC (MiRemoveMappingNode.c)
+ *     MiRemovePteTracker @ 0x1404C793C (MiRemovePteTracker.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 // local variable allocation has failed, the output may be wrong!
@@ -46,8 +46,8 @@ void __stdcall MmFreeMappingAddress(PVOID BaseAddress, ULONG PoolTag)
       KeBugCheckEx(0xDAu, 0x103uLL, v7, v2, BugCheckParameter4);
     v9 += 8LL;
   }
-  if ( (dword_140FC41FC & 1) != 0 )
+  if ( (dword_140FC51FC & 1) != 0 )
     MiRemovePteTracker(0LL, v7, BugCheckParameter4);
-  MiReleasePtes((__int64)&qword_140E37568, PteAddress, BugCheckParameter4);
+  MiReleasePtes((__int64)&qword_140E376A8, PteAddress, BugCheckParameter4);
   ExFreePoolWithTag(v5, 0);
 }

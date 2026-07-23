@@ -1,10 +1,10 @@
 /*
- * XREFs of PsGetThreadTeb @ 0x1404851F0
+ * XREFs of PsGetThreadTeb @ 0x14047EB60
  * Callers:
- *     PspCriticalProcessDeathInfoCollectScheduleApc @ 0x1407FAD64 (PspCriticalProcessDeathInfoCollectScheduleApc.c)
- *     PspFindFirstThreadByTebValue @ 0x140955E54 (PspFindFirstThreadByTebValue.c)
- *     PspWow64ReadOrWriteThreadCpuArea @ 0x140B792F0 (PspWow64ReadOrWriteThreadCpuArea.c)
- *     PspWow64SetContextThread @ 0x140B796B0 (PspWow64SetContextThread.c)
+ *     PspCriticalProcessDeathInfoCollectScheduleApc @ 0x140800794 (PspCriticalProcessDeathInfoCollectScheduleApc.c)
+ *     PspFindFirstThreadByTebValue @ 0x140949C14 (PspFindFirstThreadByTebValue.c)
+ *     PspWow64ReadOrWriteThreadCpuArea @ 0x140B81560 (PspWow64ReadOrWriteThreadCpuArea.c)
+ *     PspWow64SetContextThread @ 0x140B81920 (PspWow64SetContextThread.c)
  * Callees:
  *     <none>
  */

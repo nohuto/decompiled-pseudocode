@@ -1,12 +1,12 @@
 /*
- * XREFs of IopWaitForSynchronousIo @ 0x1400CA4C0
+ * XREFs of IopWaitForSynchronousIo @ 0x1400C8360
  * Callers:
- *     NtSetInformationFile @ 0x140079360 (NtSetInformationFile.c)
- *     NtQueryInformationFile @ 0x140444D30 (NtQueryInformationFile.c)
- *     IopQueryXxxInformation @ 0x14050A128 (IopQueryXxxInformation.c)
+ *     NtSetInformationFile @ 0x1400793E0 (NtSetInformationFile.c)
+ *     NtQueryInformationFile @ 0x140443C00 (NtQueryInformationFile.c)
+ *     IopQueryXxxInformation @ 0x1404ED0B8 (IopQueryXxxInformation.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x14005C880 (KeWaitForSingleObject.c)
- *     IopCancelAlertedRequest @ 0x1404F0BD8 (IopCancelAlertedRequest.c)
+ *     KeWaitForSingleObject @ 0x14005C400 (KeWaitForSingleObject.c)
+ *     IopCancelAlertedRequest @ 0x1404D2CCC (IopCancelAlertedRequest.c)
  */
 
 __int64 __fastcall IopWaitForSynchronousIo(PIRP Irp, __int64 a2, char a3)

@@ -1,35 +1,35 @@
 /*
- * XREFs of RtlpFlsAlloc @ 0x180092FE8
+ * XREFs of RtlpFlsAlloc @ 0x180072548
  * Callers:
- *     RtlpHpEnvTlsAlloc @ 0x180092F08 (RtlpHpEnvTlsAlloc.c)
- *     RtlFlsAlloc @ 0x180092FC0 (RtlFlsAlloc.c)
- *     RtlFlsAllocEx @ 0x180094B40 (RtlFlsAllocEx.c)
+ *     RtlFlsAllocEx @ 0x180071D20 (RtlFlsAllocEx.c)
+ *     RtlpHpEnvTlsAlloc @ 0x180072460 (RtlpHpEnvTlsAlloc.c)
+ *     RtlFlsAlloc @ 0x180072520 (RtlFlsAlloc.c)
  * Callees:
- *     RtlAcquireSRWLockExclusive @ 0x18003F4D0 (RtlAcquireSRWLockExclusive.c)
- *     RtlReleaseSRWLockExclusive @ 0x18003FAA0 (RtlReleaseSRWLockExclusive.c)
- *     ?ChunkAllocate@?$RTL_BINARY_ARRAY@URTLP_FLS_CALLBACK_ENTRY@@$07$03@@SAPEAURTL_BINARY_ARRAY_CHUNK@1@PEAU1@K@Z @ 0x1800931A8 (-ChunkAllocate@-$RTL_BINARY_ARRAY@URTLP_FLS_CALLBACK_ENTRY@@$07$03@@SAPEAURTL_BINARY_ARRAY_CHUNK.c)
- *     ?SlotFree@?$RTL_BINARY_ARRAY@URTLP_FLS_CALLBACK_ENTRY@@$07$03@@SAXPEAU1@K@Z @ 0x180094490 (-SlotFree@-$RTL_BINARY_ARRAY@URTLP_FLS_CALLBACK_ENTRY@@$07$03@@SAXPEAU1@K@Z.c)
+ *     RtlAcquireSRWLockExclusive @ 0x180029A40 (RtlAcquireSRWLockExclusive.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18002A010 (RtlReleaseSRWLockExclusive.c)
+ *     ?ChunkAllocate@?$RTL_BINARY_ARRAY@URTLP_FLS_CALLBACK_ENTRY@@$07$03@@SAPEAURTL_BINARY_ARRAY_CHUNK@1@PEAU1@K@Z @ 0x180072708 (-ChunkAllocate@-$RTL_BINARY_ARRAY@URTLP_FLS_CALLBACK_ENTRY@@$07$03@@SAPEAURTL_BINARY_ARRAY_CHUNK.c)
+ *     ?SlotFree@?$RTL_BINARY_ARRAY@URTLP_FLS_CALLBACK_ENTRY@@$07$03@@SAXPEAU1@K@Z @ 0x180073660 (-SlotFree@-$RTL_BINARY_ARRAY@URTLP_FLS_CALLBACK_ENTRY@@$07$03@@SAXPEAU1@K@Z.c)
  */
 
-__int64 __fastcall RtlpFlsAlloc(__int64 a1, __int64 a2, __int64 a3, __int64 a4, unsigned int *a5)
+__int64 __fastcall RtlpFlsAlloc(PRTL_SRWLOCK SRWLock, __int64 a2, __int64 a3, __int64 a4, unsigned int *a5)
 {
   unsigned int v8; // ebx
   __int64 v9; // r14
   unsigned int i; // esi
-  unsigned int *v11; // rdx
+  unsigned int *Value; // rdx
   unsigned int v12; // r8d
   unsigned int v13; // r9d
   unsigned int v14; // edx
   unsigned int v15; // esi
   unsigned int v16; // ecx
   __int64 v17; // rbp
-  __int64 v18; // rdx
+  unsigned __int64 v18; // rdx
   __int64 v19; // rax
   int v21; // ecx
-  __int64 v22; // rdx
+  unsigned __int64 v22; // rdx
   __int64 v23; // rax
 
-  RtlAcquireSRWLockExclusive((volatile signed __int64 *)a1, a2);
+  RtlAcquireSRWLockExclusive(SRWLock);
   v8 = 0;
   v9 = 8LL;
   while ( 1 )
@@ -38,35 +38,35 @@ __int64 __fastcall RtlpFlsAlloc(__int64 a1, __int64 a2, __int64 a3, __int64 a4, 
     {
       if ( i >= 8 )
         goto LABEL_21;
-      v11 = *(unsigned int **)(a1 + 8LL * i + 8);
-      if ( !v11 )
+      Value = (unsigned int *)SRWLock[i + 1].Value;
+      if ( !Value )
       {
-        v11 = (unsigned int *)RTL_BINARY_ARRAY<RTLP_FLS_CALLBACK_ENTRY,8,4>::ChunkAllocate(a1 + 8, i);
-        if ( !v11 )
+        Value = (unsigned int *)RTL_BINARY_ARRAY<RTLP_FLS_CALLBACK_ENTRY,8,4>::ChunkAllocate(&SRWLock[1], i);
+        if ( !Value )
           goto LABEL_21;
       }
-      v12 = *v11;
+      v12 = *Value;
       v13 = 1 << (i + 4);
-      if ( *v11 < v13 )
+      if ( *Value < v13 )
         break;
     }
-    while ( *(_QWORD *)&v11[6 * v12 + 4] )
+    while ( *(_QWORD *)&Value[6 * v12 + 4] )
       v12 = (v13 - 1) & (v12 + 1);
-    ++*v11;
+    ++*Value;
     v14 = v12 | (1 << (i + 4));
     if ( v14 == -1 )
     {
 LABEL_21:
       v8 = -1073741801;
 LABEL_22:
-      RtlReleaseSRWLockExclusive((volatile signed __int64 *)a1);
+      RtlReleaseSRWLockExclusive(SRWLock);
       return v8;
     }
     v15 = v14 - 16;
     if ( v14 != 16 )
       break;
     _BitScanReverse((unsigned int *)&v21, 0x10u);
-    v22 = *(_QWORD *)(a1 + 8LL * (unsigned int)(v21 - 4) + 8);
+    v22 = SRWLock[(unsigned int)(v21 - 4) + 1].Value;
     if ( v22 )
       v23 = v22 + 8 * (((1 << v21) ^ 0x10u) + 2 * (((1 << v21) ^ 0x10u) + 1LL));
     else
@@ -76,12 +76,12 @@ LABEL_22:
   if ( v15 >= 0xFF0 )
   {
     v8 = -1073741801;
-    RTL_BINARY_ARRAY<RTLP_FLS_CALLBACK_ENTRY,8,4>::SlotFree(a1 + 8);
+    RTL_BINARY_ARRAY<RTLP_FLS_CALLBACK_ENTRY,8,4>::SlotFree(&SRWLock[1]);
     goto LABEL_22;
   }
   _BitScanReverse(&v16, v14);
   v17 = v14 ^ (1 << v16);
-  v18 = *(_QWORD *)(a1 + 8LL * (v16 - 4) + 8);
+  v18 = SRWLock[v16 - 3].Value;
   if ( v18 )
   {
     v19 = v18 + 8 * (v17 + 2 * v17 + 3);
@@ -95,9 +95,9 @@ LABEL_22:
     a3 = -1LL;
   *(_QWORD *)v9 = a3;
   *(_QWORD *)v19 = a4;
-  if ( v15 > *(_DWORD *)(a1 + 88) )
-    *(_DWORD *)(a1 + 88) = v15;
-  RtlReleaseSRWLockExclusive((volatile signed __int64 *)a1);
+  if ( v15 > *(_DWORD *)&SRWLock[11].0 )
+    *(_DWORD *)&SRWLock[11].0 = v15;
+  RtlReleaseSRWLockExclusive(SRWLock);
   *a5 = v15;
   return v8;
 }

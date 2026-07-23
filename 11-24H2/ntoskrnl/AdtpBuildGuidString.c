@@ -1,11 +1,11 @@
 /*
- * XREFs of AdtpBuildGuidString @ 0x140810878
+ * XREFs of AdtpBuildGuidString @ 0x140810FB8
  * Callers:
- *     AdtpBuildObjectTypeStrings @ 0x140AB7ED0 (AdtpBuildObjectTypeStrings.c)
+ *     AdtpBuildObjectTypeStrings @ 0x140AB2284 (AdtpBuildObjectTypeStrings.c)
  * Callees:
- *     StringCchPrintfW @ 0x14046FE5C (StringCchPrintfW.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     StringCchPrintfW @ 0x14046A284 (StringCchPrintfW.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall AdtpBuildGuidString(unsigned int *a1, __int64 a2, __int64 a3, __int64 a4, int a5, _BYTE *a6)
@@ -15,7 +15,7 @@ __int64 __fastcall AdtpBuildGuidString(unsigned int *a1, __int64 a2, __int64 a3,
 
   if ( !a2 )
     return 3221225485LL;
-  Pool2 = (void *)ExAllocatePool2(0x100uLL);
+  Pool2 = (void *)ExAllocatePool2(0x100uLL, 0x4EuLL, 0x6B416553u);
   if ( !Pool2 )
     return 3221225495LL;
   *a6 = 1;

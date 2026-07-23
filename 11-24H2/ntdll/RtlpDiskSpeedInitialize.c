@@ -1,32 +1,32 @@
 /*
- * XREFs of RtlpDiskSpeedInitialize @ 0x180111540
+ * XREFs of RtlpDiskSpeedInitialize @ 0x18010C950
  * Callers:
  *     <none>
  * Callees:
- *     RtlGetNtSystemRoot @ 0x1800B2C70 (RtlGetNtSystemRoot.c)
- *     RtlpGetVolumeHandle @ 0x1801115B4 (RtlpGetVolumeHandle.c)
- *     RtlQueryVolumeDiskSpeedPolicy @ 0x1801117F8 (RtlQueryVolumeDiskSpeedPolicy.c)
- *     NtClose @ 0x180161E70 (NtClose.c)
+ *     RtlGetNtSystemRoot @ 0x18007F510 (RtlGetNtSystemRoot.c)
+ *     RtlpGetVolumeHandle @ 0x18010C9C4 (RtlpGetVolumeHandle.c)
+ *     RtlQueryVolumeDiskSpeedPolicy @ 0x18010CC08 (RtlQueryVolumeDiskSpeedPolicy.c)
+ *     NtClose @ 0x180160230 (NtClose.c)
  */
 
-_BOOL8 RtlpDiskSpeedInitialize()
+_BOOL8 __fastcall RtlpDiskSpeedInitialize(PRTL_RUN_ONCE a1, PVOID a2, PVOID *a3)
 {
-  __int64 NtSystemRoot; // rax
+  PWSTR NtSystemRoot; // rax
   int VolumeHandle; // ebx
   HANDLE Handle[3]; // [rsp+20h] [rbp-18h] BYREF
-  int v4; // [rsp+58h] [rbp+20h] BYREF
+  int v7; // [rsp+58h] [rbp+20h] BYREF
 
-  v4 = 0;
+  v7 = 0;
   Handle[0] = 0LL;
   NtSystemRoot = RtlGetNtSystemRoot();
   VolumeHandle = RtlpGetVolumeHandle(NtSystemRoot, Handle);
   if ( VolumeHandle >= 0 )
   {
-    VolumeHandle = RtlQueryVolumeDiskSpeedPolicy(Handle[0], &v4);
+    VolumeHandle = RtlQueryVolumeDiskSpeedPolicy(Handle[0], &v7);
     if ( VolumeHandle >= 0 )
     {
       VolumeHandle = 0;
-      RtlpDiskSpeedPolicy = v4;
+      RtlpDiskSpeedPolicy = v7;
     }
   }
   if ( Handle[0] )

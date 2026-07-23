@@ -142,7 +142,7 @@ LABEL_21:
             {
               v33 = (unsigned __int64)v17[6];
               v34 = v18 + v33 + (unsigned int)(*((_DWORD *)v17 + 16) - 1);
-              if ( v33 != PsNtosImageBase && v33 != PsHalImageBase )
+              if ( (PVOID)v33 != PsNtosImageBase && (PVOID)v33 != PsHalImageBase )
                 v34 += (unsigned __int64)(unsigned int)dword_140C65944 << 12;
               v35 = ((v34 >> 18) & 0x3FFFFFF8) - 0x904C0000000LL;
               if ( v5 >= ((v33 >> 18) & 0x3FFFFFF8) - 0x904C0000000LL && v5 <= v35 )

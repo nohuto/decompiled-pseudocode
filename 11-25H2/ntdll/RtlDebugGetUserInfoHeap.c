@@ -14,11 +14,11 @@
  *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180174020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
  */
 
-char __fastcall RtlDebugGetUserInfoHeap(unsigned __int64 a1, int a2, __int64 a3, _QWORD *a4, _DWORD *a5)
+BOOLEAN __fastcall RtlDebugGetUserInfoHeap(unsigned __int64 a1, int a2, char *a3, PVOID *a4, PULONG UserFlags)
 {
-  char UserInfoHeap; // di
+  BOOLEAN UserInfoHeap; // di
   char v10; // r14
-  unsigned int v11; // esi
+  ULONG v11; // esi
   unsigned __int64 v12; // rdx
 
   UserInfoHeap = 0;
@@ -30,23 +30,23 @@ char __fastcall RtlDebugGetUserInfoHeap(unsigned __int64 a1, int a2, __int64 a3,
     v11 = *(_DWORD *)(a1 + 116) | 0x10000000 | a2;
     if ( (v11 & 1) == 0 )
     {
-      RtlEnterCriticalSection(*(_QWORD *)(a1 + 352));
+      RtlEnterCriticalSection(*(PRTL_CRITICAL_SECTION *)(a1 + 352));
       v10 = 1;
       v11 |= 1u;
     }
     RtlpValidateHeap(a1, 0);
-    v12 = a3 - 16;
-    _m_prefetchw((const void *)(a3 - 16));
-    if ( *(_BYTE *)(a3 - 16 + 15) == 5 )
+    v12 = (unsigned __int64)(a3 - 16);
+    _m_prefetchw(a3 - 16);
+    if ( *(a3 - 1) == 5 )
       v12 -= 16LL * *(unsigned __int8 *)(v12 + 14);
     if ( RtlpValidateHeapEntry(a1, v12, "RtlGetUserInfoHeap") )
-      UserInfoHeap = RtlGetUserInfoHeap(a1, v11, a3, a4, a5);
+      UserInfoHeap = RtlGetUserInfoHeap((PVOID)a1, v11, a3, a4, UserFlags);
   }
   else
   {
     UserInfoHeap = 0;
   }
   if ( v10 )
-    RtlLeaveCriticalSection(*(_QWORD *)(a1 + 352));
+    RtlLeaveCriticalSection(*(PRTL_CRITICAL_SECTION *)(a1 + 352));
   return UserInfoHeap;
 }

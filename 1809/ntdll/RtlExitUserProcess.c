@@ -13,39 +13,35 @@
  *     RtlUnlockProcessHeapOnProcessTerminate @ 0x18006D1EC (RtlUnlockProcessHeapOnProcessTerminate.c)
  *     RtlLockHeap @ 0x18006D5A0 (RtlLockHeap.c)
  *     RtlUnlockHeap @ 0x18006D640 (RtlUnlockHeap.c)
- *     EtwpShutdownPrivateLoggers @ 0x180086170 (EtwpShutdownPrivateLoggers.c)
- *     ZwTerminateProcess @ 0x1800A0860 (ZwTerminateProcess.c)
- *     NtTerminateThread @ 0x1800A0D40 (NtTerminateThread.c)
+ *     EtwpShutdownPrivateLoggers @ 0x180086180 (EtwpShutdownPrivateLoggers.c)
+ *     ZwTerminateProcess @ 0x1800A0880 (ZwTerminateProcess.c)
+ *     NtTerminateThread @ 0x1800A0D60 (NtTerminateThread.c)
  */
 
-__int64 __fastcall RtlExitUserProcess(unsigned int a1)
+void __cdecl __noreturn RtlExitUserProcess(NTSTATUS ExitStatus)
 {
   void *UniqueThread; // rdx
-  __int64 v4; // rcx
+  __int64 v3; // rcx
 
   EtwpShutdownPrivateLoggers();
   LdrpDrainWorkQueue((NtCurrentTeb()->SameTebFlags >> 12) & 1);
   LdrpAcquireLoaderLock();
-  RtlEnterCriticalSection((__int64)&FastPebLock);
+  RtlEnterCriticalSection(&FastPebLock);
   RtlLockHeap(NtCurrentPeb()->ProcessHeap);
-  if ( (int)ZwTerminateProcess(0LL, a1) < 0 )
-  {
-    RtlUnlockHeap(NtCurrentPeb()->ProcessHeap);
-    RtlLeaveCriticalSection((__int64)&FastPebLock);
-    LdrpReleaseLoaderLock(v4, 18, 0);
-    return NtTerminateThread(-2LL, a1);
-  }
-  else
+  if ( ZwTerminateProcess(0LL, ExitStatus) >= 0 )
   {
     RtlUnlockProcessHeapOnProcessTerminate();
     UniqueThread = NtCurrentTeb()->ClientId.UniqueThread;
-    qword_180164FD8 = 0LL;
-    qword_180164FD0 = (__int64)UniqueThread;
-    dword_180164FC8 = -2;
-    dword_180164FCC = 1;
-    RtlLeaveCriticalSection((__int64)&FastPebLock);
-    RtlReportSilentProcessExit(-1LL, a1);
+    FastPebLock.LockSemaphore = 0LL;
+    FastPebLock.OwningThread = UniqueThread;
+    FastPebLock.LockCount = -2;
+    FastPebLock.RecursionCount = 1;
+    RtlLeaveCriticalSection(&FastPebLock);
+    RtlReportSilentProcessExit((HANDLE)0xFFFFFFFFFFFFFFFFLL, ExitStatus);
     LdrShutdownProcess();
-    return ZwTerminateProcess(-1LL, a1);
   }
+  RtlUnlockHeap(NtCurrentPeb()->ProcessHeap);
+  RtlLeaveCriticalSection(&FastPebLock);
+  LdrpReleaseLoaderLock(v3, 18, 0);
+  NtTerminateThread((HANDLE)0xFFFFFFFFFFFFFFFELL, ExitStatus);
 }

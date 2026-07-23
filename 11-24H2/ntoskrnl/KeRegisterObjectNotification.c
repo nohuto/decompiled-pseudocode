@@ -1,19 +1,19 @@
 /*
- * XREFs of KeRegisterObjectNotification @ 0x140205AB0
+ * XREFs of KeRegisterObjectNotification @ 0x14032D090
  * Callers:
- *     ExpTryEnterWorkerFactoryAwayMode @ 0x140205A00 (ExpTryEnterWorkerFactoryAwayMode.c)
- *     NtWaitForWorkViaWorkerFactory @ 0x1402A3010 (NtWaitForWorkViaWorkerFactory.c)
- *     NtAssociateWaitCompletionPacket @ 0x1404E5C30 (NtAssociateWaitCompletionPacket.c)
- *     ExpWorkerFactoryManagerThread @ 0x14065AA40 (ExpWorkerFactoryManagerThread.c)
- *     NtCreateWorkerFactory @ 0x1409A6CF0 (NtCreateWorkerFactory.c)
- *     ExpWorkerFactoryInitialization @ 0x140C436D8 (ExpWorkerFactoryInitialization.c)
+ *     NtWaitForWorkViaWorkerFactory @ 0x1402D2740 (NtWaitForWorkViaWorkerFactory.c)
+ *     ExpTryEnterWorkerFactoryAwayMode @ 0x14032CFE0 (ExpTryEnterWorkerFactoryAwayMode.c)
+ *     NtAssociateWaitCompletionPacket @ 0x1404DC340 (NtAssociateWaitCompletionPacket.c)
+ *     ExpWorkerFactoryManagerThread @ 0x140659160 (ExpWorkerFactoryManagerThread.c)
+ *     NtCreateWorkerFactory @ 0x1409901C0 (NtCreateWorkerFactory.c)
+ *     ExpWorkerFactoryInitialization @ 0x140C45D44 (ExpWorkerFactoryInitialization.c)
  * Callees:
- *     KiWaitSatisfyOther @ 0x140205BC0 (KiWaitSatisfyOther.c)
- *     KiAcquireKobjectLockSafe @ 0x14031E740 (KiAcquireKobjectLockSafe.c)
- *     KiExitDispatcher @ 0x14031E7A0 (KiExitDispatcher.c)
- *     KiInsertQueueInternal @ 0x140323B94 (KiInsertQueueInternal.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiAcquireKobjectLockSafe @ 0x1402C72D0 (KiAcquireKobjectLockSafe.c)
+ *     KiExitDispatcher @ 0x1402C7330 (KiExitDispatcher.c)
+ *     KiInsertQueueInternal @ 0x1402CC724 (KiInsertQueueInternal.c)
+ *     KiWaitSatisfyOther @ 0x14032D1A0 (KiWaitSatisfyOther.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 char __fastcall KeRegisterObjectNotification(__int64 a1, __int64 a2, __int64 a3)
@@ -21,7 +21,9 @@ char __fastcall KeRegisterObjectNotification(__int64 a1, __int64 a2, __int64 a3)
   __int64 v5; // rdi
   unsigned __int8 CurrentIrql; // si
   __int64 v7; // rdx
-  _QWORD *v8; // rcx
+  __int64 v8; // r8
+  __int64 v9; // r9
+  _QWORD *v10; // rcx
 
   *(_WORD *)(a3 + 16) = 1026;
   *(_QWORD *)(a3 + 24) = a2;
@@ -32,26 +34,26 @@ char __fastcall KeRegisterObjectNotification(__int64 a1, __int64 a2, __int64 a3)
   if ( KiIrqlFlags )
   {
     LOBYTE(a1) = CurrentIrql;
-    KiRaiseIrqlProcessIrqlFlags(a1, 2LL, a3);
+    KiRaiseIrqlProcessIrqlFlags(a1, 2LL);
   }
-  KiAcquireKobjectLockSafe(v5);
+  KiAcquireKobjectLockSafe((volatile signed __int32 *)v5);
   if ( *(int *)(v5 + 4) > 0 )
   {
-    KiWaitSatisfyOther(v5);
+    KiWaitSatisfyOther(v5, v7, v8, v9);
     *(_BYTE *)(a3 + 17) = 5;
-    KiInsertQueueInternal(a2, a3);
+    KiInsertQueueInternal(a2, (__int64 *)a3);
     _InterlockedAnd((volatile signed __int32 *)v5, 0xFFFFFF7F);
-    KiExitDispatcher(KeGetCurrentPrcb(), CurrentIrql);
+    KiExitDispatcher((unsigned __int64)KeGetCurrentPrcb(), 0LL, 1u, 0, CurrentIrql);
     return 1;
   }
   else
   {
-    v8 = *(_QWORD **)(v5 + 16);
-    if ( *v8 != v5 + 8 )
+    v10 = *(_QWORD **)(v5 + 16);
+    if ( *v10 != v5 + 8 )
       __fastfail(3u);
     *(_QWORD *)a3 = v5 + 8;
-    *(_QWORD *)(a3 + 8) = v8;
-    *v8 = a3;
+    *(_QWORD *)(a3 + 8) = v10;
+    *v10 = a3;
     *(_QWORD *)(v5 + 16) = a3;
     _InterlockedAnd((volatile signed __int32 *)v5, 0xFFFFFF7F);
     if ( KiIrqlFlags )

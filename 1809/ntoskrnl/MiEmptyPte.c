@@ -1,10 +1,10 @@
 /*
- * XREFs of MiEmptyPte @ 0x14013FFA0
+ * XREFs of MiEmptyPte @ 0x1401400A0
  * Callers:
  *     <none>
  * Callees:
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
- *     MiEmptyWorkingSetHelper @ 0x14013FFE8 (MiEmptyWorkingSetHelper.c)
+ *     MiEmptyWorkingSetHelper @ 0x1401400E8 (MiEmptyWorkingSetHelper.c)
  */
 
 __int64 __fastcall MiEmptyPte(__int64 a1, unsigned __int64 a2, int a3)

@@ -1,13 +1,13 @@
 /*
- * XREFs of CcPostPVCMForDeleteToPartition @ 0x1403C4410
+ * XREFs of CcPostPVCMForDeleteToPartition @ 0x1403C45F0
  * Callers:
- *     CcDeleteSharedCacheMap @ 0x140299FC0 (CcDeleteSharedCacheMap.c)
- *     CcForEachPrivateVolumeCacheMap @ 0x1403D0E70 (CcForEachPrivateVolumeCacheMap.c)
+ *     CcDeleteSharedCacheMap @ 0x14029A250 (CcDeleteSharedCacheMap.c)
+ *     CcForEachPrivateVolumeCacheMap @ 0x1403D1050 (CcForEachPrivateVolumeCacheMap.c)
  * Callees:
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
- *     ExQueueWorkItemToPartition @ 0x1402B959C (ExQueueWorkItemToPartition.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402610F0 (KeAcquireInStackQueuedSpinLock.c)
+ *     ExQueueWorkItemToPartition @ 0x1402B982C (ExQueueWorkItemToPartition.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall CcPostPVCMForDeleteToPartition(__int64 a1, char a2)
@@ -58,10 +58,10 @@ LABEL_8:
   {
     result = KxReleaseQueuedSpinLock((volatile signed __int64 **)&v15);
     OldIrql = v15.OldIrql;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       result = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
         && (unsigned __int8)result <= 0xFu
         && v15.OldIrql <= 0xFu
         && (unsigned __int8)result >= 2u )

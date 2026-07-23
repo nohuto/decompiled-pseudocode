@@ -1,8 +1,8 @@
 /*
- * XREFs of VmpConvertInvalidateFlagsToMapFlags @ 0x1406C0DDC
+ * XREFs of VmpConvertInvalidateFlagsToMapFlags @ 0x1406C49BC
  * Callers:
- *     VmpProcessInvalidateList @ 0x140518B00 (VmpProcessInvalidateList.c)
- *     VmpInvalidateSingleGpaRange @ 0x1406C13D4 (VmpInvalidateSingleGpaRange.c)
+ *     VmpProcessInvalidateList @ 0x140512570 (VmpProcessInvalidateList.c)
+ *     VmpInvalidateSingleGpaRange @ 0x1406C4FB4 (VmpInvalidateSingleGpaRange.c)
  * Callees:
  *     <none>
  */

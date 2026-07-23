@@ -3,7 +3,7 @@
  * Callers:
  *     HalpAuditAcpiTables @ 0x140B65A08 (HalpAuditAcpiTables.c)
  * Callees:
- *     RtlCompareMemory @ 0x140429820 (RtlCompareMemory.c)
+ *     RtlCompareMemory @ 0x140429BB0 (RtlCompareMemory.c)
  */
 
 __int64 __fastcall HalpAuditSlicTables(__int64 a1)

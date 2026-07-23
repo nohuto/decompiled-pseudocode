@@ -1,13 +1,13 @@
 /*
- * XREFs of AllocateOrValidateUnicodeStringBuffer @ 0x1404621F0
+ * XREFs of AllocateOrValidateUnicodeStringBuffer @ 0x14045B1B0
  * Callers:
- *     RtlAnsiStringToUnicodeString @ 0x14096BA30 (RtlAnsiStringToUnicodeString.c)
- *     RtlOemStringToCountedUnicodeString @ 0x14096F2D0 (RtlOemStringToCountedUnicodeString.c)
- *     RtlUpcaseUnicodeString @ 0x1409E9B60 (RtlUpcaseUnicodeString.c)
- *     RtlDowncaseUnicodeString @ 0x140A47B20 (RtlDowncaseUnicodeString.c)
- *     RtlOemStringToUnicodeString @ 0x140B1D890 (RtlOemStringToUnicodeString.c)
+ *     RtlAnsiStringToUnicodeString @ 0x14097C370 (RtlAnsiStringToUnicodeString.c)
+ *     RtlOemStringToCountedUnicodeString @ 0x14097E170 (RtlOemStringToCountedUnicodeString.c)
+ *     RtlOemStringToUnicodeString @ 0x14097E860 (RtlOemStringToUnicodeString.c)
+ *     RtlUpcaseUnicodeString @ 0x1409D2F80 (RtlUpcaseUnicodeString.c)
+ *     RtlDowncaseUnicodeString @ 0x140A50E10 (RtlDowncaseUnicodeString.c)
  * Callees:
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall AllocateOrValidateUnicodeStringBuffer(char a1, unsigned int a2, __int64 *a3, _WORD *a4)

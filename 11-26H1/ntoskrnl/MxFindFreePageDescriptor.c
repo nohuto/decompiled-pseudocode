@@ -1,8 +1,8 @@
 /*
- * XREFs of MxFindFreePageDescriptor @ 0x140CF6A30
+ * XREFs of MxFindFreePageDescriptor @ 0x140CFCDB0
  * Callers:
- *     MxCreateNodeFreeZeroList @ 0x140CF5D60 (MxCreateNodeFreeZeroList.c)
- *     MxGetFreePageDescriptor @ 0x140CF6CA0 (MxGetFreePageDescriptor.c)
+ *     MxCreateNodeFreeZeroList @ 0x140CFC0E0 (MxCreateNodeFreeZeroList.c)
+ *     MxGetFreePageDescriptor @ 0x140CFD020 (MxGetFreePageDescriptor.c)
  * Callees:
  *     <none>
  */

@@ -1,10 +1,10 @@
 /*
- * XREFs of Feature_OpocksAndMappedSections__private_ReportDeviceUsage @ 0x14049200C
+ * XREFs of Feature_OpocksAndMappedSections__private_ReportDeviceUsage @ 0x14048BB5C
  * Callers:
- *     FsRtlCheckOplockForFsFilterCallback @ 0x140B3D1C0 (FsRtlCheckOplockForFsFilterCallback.c)
+ *     FsRtlCheckOplockForFsFilterCallback @ 0x140B3F290 (FsRtlCheckOplockForFsFilterCallback.c)
  * Callees:
- *     wil_details_FeatureReporting_ReportUsageToService @ 0x14052D25C (wil_details_FeatureReporting_ReportUsageToService.c)
- *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x140532A10 (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
+ *     wil_details_FeatureReporting_ReportUsageToService @ 0x14052F77C (wil_details_FeatureReporting_ReportUsageToService.c)
+ *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x140534EB0 (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
  */
 
 __int64 Feature_OpocksAndMappedSections__private_ReportDeviceUsage()

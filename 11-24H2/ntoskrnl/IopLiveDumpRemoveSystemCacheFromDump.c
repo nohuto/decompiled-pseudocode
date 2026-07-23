@@ -1,10 +1,10 @@
 /*
- * XREFs of IopLiveDumpRemoveSystemCacheFromDump @ 0x14059D0F0
+ * XREFs of IopLiveDumpRemoveSystemCacheFromDump @ 0x14059A070
  * Callers:
- *     IopLiveDumpPopulateBitmapForDump @ 0x14059C8F0 (IopLiveDumpPopulateBitmapForDump.c)
+ *     IopLiveDumpPopulateBitmapForDump @ 0x140599870 (IopLiveDumpPopulateBitmapForDump.c)
  * Callees:
- *     IopLiveDumpGetMillisecondCounter @ 0x14049B5E4 (IopLiveDumpGetMillisecondCounter.c)
- *     MmRemoveSystemCacheFromDump @ 0x140677E38 (MmRemoveSystemCacheFromDump.c)
+ *     IopLiveDumpGetMillisecondCounter @ 0x140495FD4 (IopLiveDumpGetMillisecondCounter.c)
+ *     MmRemoveSystemCacheFromDump @ 0x140679018 (MmRemoveSystemCacheFromDump.c)
  */
 
 __int64 __fastcall IopLiveDumpRemoveSystemCacheFromDump(__int64 a1, __int64 a2, __int64 *a3)

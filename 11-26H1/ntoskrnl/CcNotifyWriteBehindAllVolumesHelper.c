@@ -1,9 +1,9 @@
 /*
- * XREFs of CcNotifyWriteBehindAllVolumesHelper @ 0x1403E0600
+ * XREFs of CcNotifyWriteBehindAllVolumesHelper @ 0x1403E37F0
  * Callers:
  *     <none>
  * Callees:
- *     CcNotifyWriteBehindVolume @ 0x1403E0844 (CcNotifyWriteBehindVolume.c)
+ *     CcNotifyWriteBehindVolume @ 0x1403E3A34 (CcNotifyWriteBehindVolume.c)
  */
 
 char __fastcall CcNotifyWriteBehindAllVolumesHelper(__int64 a1, __int64 a2, unsigned int *a3)

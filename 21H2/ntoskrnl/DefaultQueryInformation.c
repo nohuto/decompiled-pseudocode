@@ -1,10 +1,10 @@
 /*
- * XREFs of DefaultQueryInformation @ 0x1408647F0
+ * XREFs of DefaultQueryInformation @ 0x140864950
  * Callers:
  *     <none>
  * Callees:
- *     HalpQueryProfileSourceList @ 0x1404BF010 (HalpQueryProfileSourceList.c)
- *     HalpTimerQueryProfileAvailability @ 0x1404C18A4 (HalpTimerQueryProfileAvailability.c)
+ *     HalpQueryProfileSourceList @ 0x1404BF250 (HalpQueryProfileSourceList.c)
+ *     HalpTimerQueryProfileAvailability @ 0x1404C1AE4 (HalpTimerQueryProfileAvailability.c)
  */
 
 __int64 __fastcall DefaultQueryInformation(int a1, unsigned int a2, __int64 a3, unsigned int *a4)
@@ -24,8 +24,8 @@ __int64 __fastcall DefaultQueryInformation(int a1, unsigned int a2, __int64 a3, 
     if ( !*(_DWORD *)a3 )
     {
       *(_BYTE *)(a3 + 4) = 1;
-      *(_DWORD *)(a3 + 8) = dword_140C054E8;
-      *(_QWORD *)(a3 + 16) = off_140C05598;
+      *(_DWORD *)(a3 + 8) = dword_140C054F8;
+      *(_QWORD *)(a3 + 16) = off_140C055A8;
       *a4 = 24;
       return v7;
     }

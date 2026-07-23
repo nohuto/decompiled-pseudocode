@@ -1,9 +1,9 @@
 /*
- * XREFs of IopGenericScoreRequirement @ 0x1407C8240
+ * XREFs of IopGenericScoreRequirement @ 0x1407C8560
  * Callers:
  *     <none>
  * Callees:
- *     RtlIoDecodeMemIoResource @ 0x14037D250 (RtlIoDecodeMemIoResource.c)
+ *     RtlIoDecodeMemIoResource @ 0x14037CDA0 (RtlIoDecodeMemIoResource.c)
  */
 
 signed __int64 __fastcall IopGenericScoreRequirement(struct _IO_RESOURCE_DESCRIPTOR *a1)

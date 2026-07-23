@@ -1,7 +1,7 @@
 /*
  * XREFs of sub_140B120E0 @ 0x140B120E0
  * Callers:
- *     sub_1403E5840 @ 0x1403E5840 (sub_1403E5840.c)
+ *     sub_1403E5A20 @ 0x1403E5A20 (sub_1403E5A20.c)
  *     FsRtlMdlReadCompleteDevEx @ 0x140AFA010 (FsRtlMdlReadCompleteDevEx.c)
  *     sub_140B0D7A8 @ 0x140B0D7A8 (sub_140B0D7A8.c)
  *     sub_140B19730 @ 0x140B19730 (sub_140B19730.c)

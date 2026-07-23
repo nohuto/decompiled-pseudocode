@@ -1,17 +1,17 @@
 /*
- * XREFs of IopProcessIoTracking @ 0x1405CBDF0
+ * XREFs of IopProcessIoTracking @ 0x1405CE660
  * Callers:
- *     IopPerfCompleteRequest @ 0x1403FEBF8 (IopPerfCompleteRequest.c)
+ *     IopPerfCompleteRequest @ 0x1403FB3E8 (IopPerfCompleteRequest.c)
  * Callees:
- *     KeAbPostReleaseEx @ 0x140272670 (KeAbPostReleaseEx.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ExfReleasePushLockShared @ 0x140278BD0 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     KiCheckForKernelApcDelivery @ 0x14027DB80 (KiCheckForKernelApcDelivery.c)
- *     ?KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z @ 0x140444460 (-KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z.c)
- *     ExfTryAcquirePushLockSharedEx @ 0x1404AB574 (ExfTryAcquirePushLockSharedEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     KeAbPostReleaseEx @ 0x140271BE0 (KeAbPostReleaseEx.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ExfReleasePushLockShared @ 0x140278140 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x14027D0F0 (KiCheckForKernelApcDelivery.c)
+ *     ?KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z @ 0x14043CF70 (-KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z.c)
+ *     ExfTryAcquirePushLockSharedEx @ 0x1404A4C04 (ExfTryAcquirePushLockSharedEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 void __fastcall IopProcessIoTracking(__int64 a1, int a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
@@ -23,7 +23,7 @@ void __fastcall IopProcessIoTracking(__int64 a1, int a2, __int64 a3, struct _KLO
   __int64 v8; // r8
   __int64 v9; // r9
   struct _KTHREAD *v10; // rcx
-  struct _KTHREAD *i; // rbx
+  __int64 *i; // rbx
   __int16 v13; // [rsp+30h] [rbp-48h] BYREF
   int v14; // [rsp+32h] [rbp-46h]
   __int16 v15; // [rsp+36h] [rbp-42h]
@@ -42,12 +42,9 @@ void __fastcall IopProcessIoTracking(__int64 a1, int a2, __int64 a3, struct _KLO
     v4 = 1;
     --CurrentThread->SpecialApcDisable;
   }
-  v7 = KeAbPreAcquire((__int64)&IopSessionNotificationLock.Timer.DueTime, 0LL, 1LL, a4);
-  if ( !_InterlockedCompareExchange64(
-          (volatile signed __int64 *)&IopSessionNotificationLock.Timer.DueTime.QuadPart,
-          17LL,
-          0LL)
-    || ExfTryAcquirePushLockSharedEx((signed __int64 *)&IopSessionNotificationLock.Timer.DueTime, 0) )
+  v7 = KeAbPreAcquire((__int64)&IopPerfIoTrackingLock, 0LL, 1LL, a4);
+  if ( !_InterlockedCompareExchange64((volatile signed __int64 *)&IopPerfIoTrackingLock, 17LL, 0LL)
+    || ExfTryAcquirePushLockSharedEx((signed __int64 *)&IopPerfIoTrackingLock.Header.Lock, 0) )
   {
     if ( v7 )
     {
@@ -61,28 +58,21 @@ void __fastcall IopProcessIoTracking(__int64 a1, int a2, __int64 a3, struct _KLO
         *(_BYTE *)(v7 + 10) = 1;
       }
     }
-    for ( i = (struct _KTHREAD *)IopSessionNotificationLock.Timer.TimerListEntry.Blink;
-          i != (struct _KTHREAD *)&IopSessionNotificationLock.Timer.TimerListEntry.Blink;
-          i = *(struct _KTHREAD **)&i->Header.Lock )
-    {
+    for ( i = (__int64 *)IopPerfIoTrackingListHead; i != &IopPerfIoTrackingListHead; i = (__int64 *)*i )
       guard_dispatch_icall_no_overrides(&v13, v6);
-    }
-    if ( _InterlockedCompareExchange64(
-           (volatile signed __int64 *)&IopSessionNotificationLock.Timer.DueTime.QuadPart,
-           0LL,
-           17LL) != 17 )
-      ExfReleasePushLockShared((signed __int64 *)&IopSessionNotificationLock.Timer.DueTime);
-    KeAbPostRelease((unsigned __int64)&IopSessionNotificationLock.Timer.DueTime);
+    if ( _InterlockedCompareExchange64((volatile signed __int64 *)&IopPerfIoTrackingLock, 0LL, 17LL) != 17 )
+      ExfReleasePushLockShared((signed __int64 *)&IopPerfIoTrackingLock.Header.Lock);
+    KeAbPostRelease((unsigned __int64)&IopPerfIoTrackingLock);
   }
   else if ( v7 )
   {
-    KeAbPostReleaseEx((struct _KTHREAD *)&IopSessionNotificationLock.Timer.DueTime, v7, v8, v9);
+    KeAbPostReleaseEx(&IopPerfIoTrackingLock, v7, v8, v9);
   }
   if ( v4 == 1 )
   {
     v10 = KeGetCurrentThread();
     if ( v10->SpecialApcDisable++ == -1
-      && ($7A85BAF4F1FA08634C1C4A3E45B775B3 *)v10->ApcState.ApcListHead[0].Flink != &v10->152 )
+      && ($241382875694CED3D471BC5892DE3337 *)v10->ApcState.ApcListHead[0].Flink != &v10->152 )
     {
       KiCheckForKernelApcDelivery((__int64)v10, (__int64)v6);
     }

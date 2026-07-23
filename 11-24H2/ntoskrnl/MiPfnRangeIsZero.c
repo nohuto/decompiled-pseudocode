@@ -1,19 +1,19 @@
 /*
- * XREFs of MiPfnRangeIsZero @ 0x14066E2AC
+ * XREFs of MiPfnRangeIsZero @ 0x14066F480
  * Callers:
- *     MiFreedUnusedPfnPagesDpc @ 0x14066D068 (MiFreedUnusedPfnPagesDpc.c)
+ *     MiFreedUnusedPfnPagesDpc @ 0x14066E238 (MiFreedUnusedPfnPagesDpc.c)
  * Callees:
- *     MiReleaseNonPagedResources @ 0x14020C57C (MiReleaseNonPagedResources.c)
- *     MiMakeValidPte @ 0x1402383C0 (MiMakeValidPte.c)
- *     MI_IS_PHYSICAL_ADDRESS @ 0x1402637E0 (MI_IS_PHYSICAL_ADDRESS.c)
- *     MiGetLeafVa @ 0x1402DEE20 (MiGetLeafVa.c)
- *     MiTransformValidPteInPlace @ 0x14039404C (MiTransformValidPteInPlace.c)
- *     MiFreeLargeZeroPages @ 0x1403A67F0 (MiFreeLargeZeroPages.c)
- *     MiPreparePfnDatabasePageForFree @ 0x14066E794 (MiPreparePfnDatabasePageForFree.c)
- *     MiClearSystemAccessBits @ 0x140683974 (MiClearSystemAccessBits.c)
- *     MiDemoteValidLargePageOneLevel @ 0x140683AC8 (MiDemoteValidLargePageOneLevel.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     MiMakeValidPte @ 0x140212550 (MiMakeValidPte.c)
+ *     MiGetLeafVa @ 0x140240700 (MiGetLeafVa.c)
+ *     MiFreeLargeZeroPages @ 0x14026DAE0 (MiFreeLargeZeroPages.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x140293050 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     MiReleaseNonPagedResources @ 0x1403358DC (MiReleaseNonPagedResources.c)
+ *     MiTransformValidPteInPlace @ 0x14038D668 (MiTransformValidPteInPlace.c)
+ *     MiPreparePfnDatabasePageForFree @ 0x14066F968 (MiPreparePfnDatabasePageForFree.c)
+ *     MiClearSystemAccessBits @ 0x140684AD0 (MiClearSystemAccessBits.c)
+ *     MiDemoteValidLargePageOneLevel @ 0x140684C24 (MiDemoteValidLargePageOneLevel.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 void __fastcall MiPfnRangeIsZero(unsigned __int64 a1, unsigned __int64 a2)
@@ -92,13 +92,13 @@ LABEL_37:
       }
       if ( a1 >= a2 )
       {
-        MiFreeLargeZeroPages((__int64)&MiSystemPartition, (__int64)v26, 0);
+        MiFreeLargeZeroPages((unsigned __int64)&MiSystemPartition, (__int64)v26, 0);
         MiReleaseNonPagedResources((__int64)&MiSystemPartition, v6);
-        _InterlockedAdd64(&qword_140E375F8, -(__int64)v6);
+        _InterlockedAdd64(&qword_140E37738, -(__int64)v6);
         return;
       }
     }
-    if ( (*(_QWORD *)v9 & 0x20) != 0 && ((unsigned __int8)(1 << v7) & (unsigned __int8)byte_140E2DAC9) != 0 )
+    if ( (*(_QWORD *)v9 & 0x20) != 0 && ((unsigned __int8)(1 << v7) & (unsigned __int8)byte_140E2DC09) != 0 )
     {
       v13 = ((a2 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
       if ( v7 > 0 )
@@ -115,12 +115,12 @@ LABEL_37:
     }
     v15 = v8;
     v25 = v8;
-    v16 = (__int64 *)&qword_140E37340[v8];
+    v16 = (__int64 *)&qword_140E37480[v8];
 LABEL_21:
     if ( (int)v8 < 3 )
     {
       v17 = *(_QWORD *)v9;
-      if ( (_DWORD)v8 != v15 && (v17 & 0x20) != 0 && ((unsigned __int8)(1 << v8) & (unsigned __int8)byte_140E2DAC9) != 0 )
+      if ( (_DWORD)v8 != v15 && (v17 & 0x20) != 0 && ((unsigned __int8)(1 << v8) & (unsigned __int8)byte_140E2DC09) != 0 )
         MiClearSystemAccessBits(v9);
       MiPreparePfnDatabasePageForFree(v9, (unsigned int)v8, (unsigned int)v11);
       v6 += v10;

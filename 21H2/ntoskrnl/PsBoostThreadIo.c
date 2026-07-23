@@ -1,15 +1,15 @@
 /*
- * XREFs of PsBoostThreadIo @ 0x14034D7E0
+ * XREFs of PsBoostThreadIo @ 0x140358530
  * Callers:
- *     CmEnumerateValueKey @ 0x1405F4EF0 (CmEnumerateValueKey.c)
- *     CmQueryValueKey @ 0x1405F7700 (CmQueryValueKey.c)
- *     CmpLockRegistryExclusive @ 0x14067278C (CmpLockRegistryExclusive.c)
- *     CmpUnlockRegistry @ 0x1406F5ED0 (CmpUnlockRegistry.c)
- *     CmpLockRegistry @ 0x1406F5F10 (CmpLockRegistry.c)
- *     PopReleasePolicyLock @ 0x14098F590 (PopReleasePolicyLock.c)
- *     PopAcquirePolicyLock @ 0x14098F5D0 (PopAcquirePolicyLock.c)
+ *     CmpLockRegistryExclusive @ 0x1406679BC (CmpLockRegistryExclusive.c)
+ *     CmEnumerateValueKey @ 0x1406E4650 (CmEnumerateValueKey.c)
+ *     CmQueryValueKey @ 0x1406E6E60 (CmQueryValueKey.c)
+ *     CmpUnlockRegistry @ 0x14070D2B0 (CmpUnlockRegistry.c)
+ *     CmpLockRegistry @ 0x14070D2F0 (CmpLockRegistry.c)
+ *     PopReleasePolicyLock @ 0x140991044 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140991084 (PopAcquirePolicyLock.c)
  * Callees:
- *     PsBoostThreadIoEx @ 0x14034D800 (PsBoostThreadIoEx.c)
+ *     PsBoostThreadIoEx @ 0x140358550 (PsBoostThreadIoEx.c)
  */
 
 __int64 __fastcall PsBoostThreadIo(__int64 a1, __int64 a2)

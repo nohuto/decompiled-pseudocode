@@ -8,36 +8,36 @@
  *     memcmp @ 0x180099A70 (memcmp.c)
  */
 
-signed __int64 __fastcall sub_180052B08(unsigned __int64 a1)
+void __fastcall sub_180052B08(PRTL_BALANCED_NODE Node)
 {
-  bool v2; // bl
-  unsigned __int64 v3; // rdi
+  BOOLEAN v2; // bl
+  PRTL_BALANCED_NODE Root; // rdi
   int v4; // esi
-  unsigned __int64 v5; // rax
+  _RTL_BALANCED_NODE *v5; // rax
 
-  RtlAcquireSRWLockExclusive(&qword_18015C348);
+  RtlAcquireSRWLockExclusive(&stru_18015C348);
   v2 = 0;
-  v3 = qword_18015C328;
-  v4 = byte_18015C330 & 1;
-  if ( qword_18015C328 )
+  Root = stru_18015C328.Root;
+  v4 = (__int64)stru_18015C328.Min & 1;
+  if ( stru_18015C328.Root )
   {
     while ( 1 )
     {
-      if ( memcmp((const void *)(a1 + 24), (const void *)(v3 + 24), 0x10uLL) < 0 )
+      if ( memcmp(&Node[1], &Root[1], 0x10uLL) < 0 )
       {
-        v5 = *(_QWORD *)v3;
+        v5 = Root->Children[0];
         if ( v4 )
         {
           if ( !v5 )
             break;
-          v5 ^= v3;
+          v5 = (_RTL_BALANCED_NODE *)((unsigned __int64)Root ^ (unsigned __int64)v5);
         }
         if ( !v5 )
           break;
       }
       else
       {
-        v5 = *(_QWORD *)(v3 + 8);
+        v5 = Root->Children[1];
         if ( v4 )
         {
           if ( !v5 )
@@ -46,14 +46,14 @@ LABEL_9:
             v2 = 1;
             break;
           }
-          v5 ^= v3;
+          v5 = (_RTL_BALANCED_NODE *)((unsigned __int64)Root ^ (unsigned __int64)v5);
         }
         if ( !v5 )
           goto LABEL_9;
       }
-      v3 = v5;
+      Root = v5;
     }
   }
-  RtlRbInsertNodeEx((__int64)&qword_18015C328, v3, v2, a1);
-  return RtlReleaseSRWLockExclusive(&qword_18015C348);
+  RtlRbInsertNodeEx(&stru_18015C328, Root, v2, Node);
+  RtlReleaseSRWLockExclusive(&stru_18015C348);
 }

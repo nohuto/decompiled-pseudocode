@@ -3,7 +3,7 @@
  * Callers:
  *     MiInitNucleus @ 0x140B41888 (MiInitNucleus.c)
  * Callees:
- *     MiUpdateLargePageBitMap @ 0x1402E890C (MiUpdateLargePageBitMap.c)
+ *     MiUpdateLargePageBitMap @ 0x1402E8B9C (MiUpdateLargePageBitMap.c)
  *     MiMarkLargePageMappings @ 0x140B57F98 (MiMarkLargePageMappings.c)
  */
 

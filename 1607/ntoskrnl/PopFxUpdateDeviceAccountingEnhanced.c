@@ -1,9 +1,9 @@
 /*
- * XREFs of PopFxUpdateDeviceAccountingEnhanced @ 0x1402042A0
+ * XREFs of PopFxUpdateDeviceAccountingEnhanced @ 0x1402040CC
  * Callers:
- *     PopPepDeviceDState @ 0x14012C2A0 (PopPepDeviceDState.c)
+ *     PopPepDeviceDState @ 0x14012C810 (PopPepDeviceDState.c)
  * Callees:
- *     KeAcquireSpinLockRaiseToDpc @ 0x1400EFE30 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1400EDCB0 (KeAcquireSpinLockRaiseToDpc.c)
  */
 
 void __fastcall PopFxUpdateDeviceAccountingEnhanced(__int64 a1, unsigned int a2, int a3)

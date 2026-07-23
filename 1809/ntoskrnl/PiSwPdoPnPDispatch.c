@@ -1,22 +1,22 @@
 /*
- * XREFs of PiSwPdoPnPDispatch @ 0x1406D8330
+ * XREFs of PiSwPdoPnPDispatch @ 0x1406D95D0
  * Callers:
  *     <none>
  * Callees:
  *     ObfReferenceObject @ 0x14004E220 (ObfReferenceObject.c)
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceExclusiveLite @ 0x1400505F0 (ExAcquireResourceExclusiveLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     IofCompleteRequest @ 0x1400C10C0 (IofCompleteRequest.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     PnpAllocatePWSTR @ 0x14059A42C (PnpAllocatePWSTR.c)
- *     _PnpStringFromGuid @ 0x14059ACE4 (_PnpStringFromGuid.c)
- *     PnpAllocateMultiSZ @ 0x1406D7FA4 (PnpAllocateMultiSZ.c)
- *     PiSwCompleteCreate @ 0x1406D806C (PiSwCompleteCreate.c)
- *     PiSwDeviceMakeCompatibleIds @ 0x1406D87C0 (PiSwDeviceMakeCompatibleIds.c)
- *     PiSwDeviceInterfacesUpdateState @ 0x1406D8940 (PiSwDeviceInterfacesUpdateState.c)
- *     PiSwProcessRemove @ 0x1406D8B4C (PiSwProcessRemove.c)
- *     PiSwDestroyDeviceObject @ 0x1406D90DC (PiSwDestroyDeviceObject.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     IofCompleteRequest @ 0x1400C1000 (IofCompleteRequest.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     PnpAllocatePWSTR @ 0x14059B42C (PnpAllocatePWSTR.c)
+ *     _PnpStringFromGuid @ 0x14059BCE4 (_PnpStringFromGuid.c)
+ *     PnpAllocateMultiSZ @ 0x1406D9244 (PnpAllocateMultiSZ.c)
+ *     PiSwCompleteCreate @ 0x1406D930C (PiSwCompleteCreate.c)
+ *     PiSwDeviceMakeCompatibleIds @ 0x1406D9A60 (PiSwDeviceMakeCompatibleIds.c)
+ *     PiSwDeviceInterfacesUpdateState @ 0x1406D9BE0 (PiSwDeviceInterfacesUpdateState.c)
+ *     PiSwProcessRemove @ 0x1406D9DEC (PiSwProcessRemove.c)
+ *     PiSwDestroyDeviceObject @ 0x1406DA37C (PiSwDestroyDeviceObject.c)
  */
 
 __int64 __fastcall PiSwPdoPnPDispatch(struct _DEVICE_OBJECT *Object, PIRP Irp)

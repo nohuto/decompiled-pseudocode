@@ -26,7 +26,7 @@ NTSTATUS RtlHpInitializeHeapManager()
   v6 = 0x4000LL;
   RtlHpHeapManagerInitialize(v0, &v6);
   memset_thunk_772440563353939046(&xmmword_1801CFF48, 0, 0x58uLL);
-  RtlpHpEnvFlsContext = 0LL;
+  RtlpHpEnvFlsContext.0 = 0LL;
   qword_1801CFF90 = (__int64)&qword_1801CFF88;
   qword_1801CFF88 = (__int64)&qword_1801CFF88;
   xmmword_1801CFF48 = 0LL;

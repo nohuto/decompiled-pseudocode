@@ -63,11 +63,11 @@ __int64 __fastcall ST_STORE<SM_TRAITS>::StDmpSinglePageAdd(__int64 a1, __int64 a
   unsigned int v37; // ecx
   __int64 v38; // r9
   __int64 v39; // rcx
-  int v40; // eax
-  ULONG FinalCompressedSize; // [rsp+40h] [rbp-49h] BYREF
+  ULONG32 v40; // eax
+  ULONG Length; // [rsp+40h] [rbp-49h] BYREF
   ULONG_PTR v42; // [rsp+44h] [rbp-45h] BYREF
   int v43; // [rsp+4Ch] [rbp-3Dh] BYREF
-  _DWORD *v44; // [rsp+50h] [rbp-39h] BYREF
+  ULONG32 *v44; // [rsp+50h] [rbp-39h] BYREF
   __int64 v45; // [rsp+58h] [rbp-31h]
   unsigned __int8 v46[8]; // [rsp+60h] [rbp-29h] BYREF
   int v47; // [rsp+68h] [rbp-21h]
@@ -88,7 +88,7 @@ __int64 __fastcall ST_STORE<SM_TRAITS>::StDmpSinglePageAdd(__int64 a1, __int64 a
   LODWORD(v42) = 0;
   v9 = 0;
   v47 = 0;
-  FinalCompressedSize = 0;
+  Length = 0;
   if ( ((unsigned __int8)v7 == 0 ? 7 : 0) < v8 )
     v8 = v7 == 0 ? 7 : 0;
   Space = ST_STORE<SM_TRAITS>::StDmpSinglePageFindSpace(a1, v8, *a4, (unsigned int)&v44, (__int64)&v42);
@@ -129,7 +129,7 @@ __int64 __fastcall ST_STORE<SM_TRAITS>::StDmpSinglePageAdd(__int64 a1, __int64 a
           {
             *(_BYTE *)(v19 + 32) |= 2u;
             if ( *(__int64 *)(v19 + 32) < 0 )
-              KiAbEntryRemoveFromTree(v19);
+              KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v19);
             v43 = *(_DWORD *)(v19 + 88) & 0x1FFFF;
             *(_DWORD *)(v19 + 88) &= 0xFFFE0000;
             *(_BYTE *)(v19 + 25) &= ~1u;
@@ -182,7 +182,7 @@ LABEL_21:
     v24 = *(_DWORD *)(*(_QWORD *)(v45 + 16) + 40LL);
   }
   v25 = *(_DWORD *)(a1 + 816) - (v42 & *(_DWORD *)(a1 + 808));
-  FinalCompressedSize = v24;
+  Length = v24;
   if ( v21 < 0 )
   {
     v26 = v24;
@@ -197,22 +197,14 @@ LABEL_29:
     v36 = *(UCHAR **)(a1 + 1784);
   if ( !v24 )
   {
-    if ( RtlCompressBuffer(
-           *(_WORD *)(a1 + 992),
-           v23,
-           0x1000u,
-           v36,
-           0x1000u,
-           0x1000u,
-           &FinalCompressedSize,
-           *(PVOID *)(a1 + 896)) >= 0 )
+    if ( RtlCompressBuffer(*(_WORD *)(a1 + 992), v23, 0x1000u, v36, 0x1000u, 0x1000u, &Length, *(PVOID *)(a1 + 896)) >= 0 )
     {
-      v24 = FinalCompressedSize;
+      v24 = Length;
     }
     else
     {
       v24 = 4096;
-      FinalCompressedSize = 4096;
+      Length = 4096;
     }
   }
   if ( v36 != v22 )
@@ -234,7 +226,7 @@ LABEL_29:
     }
     v24 = 4096;
     v36 = v23;
-    FinalCompressedSize = 4096;
+    Length = 4096;
   }
   if ( v36 != v22 )
   {
@@ -257,11 +249,11 @@ LABEL_30:
     ST_STORE<SM_TRAITS>::StDmPageRecordUnprotect(a1, v28);
     *(_QWORD *)(v6 + 4) = 0LL;
     *(_DWORD *)v6 = v42;
-    v30 = FinalCompressedSize;
-    if ( FinalCompressedSize < 0x1000 )
+    v30 = Length;
+    if ( Length < 0x1000 )
     {
-      *(_DWORD *)(v6 + 4) ^= FinalCompressedSize & 0xFFF;
-      v30 = FinalCompressedSize;
+      *(_DWORD *)(v6 + 4) ^= Length & 0xFFF;
+      v30 = Length;
     }
     v31 = v49;
     if ( *v49 >= 0 )
@@ -278,11 +270,11 @@ LABEL_30:
     v33 = *(_QWORD *)(a1 + 1016);
     if ( *(_DWORD *)(v33 + 24) )
     {
-      v38 = -*(_DWORD *)(v33 + 8) & (*(_DWORD *)(v33 + 8) + FinalCompressedSize - 1);
+      v38 = -*(_DWORD *)(v33 + 8) & (*(_DWORD *)(v33 + 8) + Length - 1);
       ++*(_QWORD *)(a1 + 1024);
       *(_DWORD *)(v6 + 12) = *(_DWORD *)(a1 + 1024);
       *(_WORD *)(v6 + 6) = *(_WORD *)(a1 + 1028);
-      LODWORD(v50) = FinalCompressedSize;
+      LODWORD(v50) = Length;
       HIDWORD(v50) = *(_DWORD *)(v6 + 12);
       v39 = *(_QWORD *)(a1 + 1016);
       v51 = *(unsigned __int16 *)(v6 + 6);
@@ -294,7 +286,7 @@ LABEL_30:
     }
     else if ( *(_BYTE *)(a1 + 776) )
     {
-      v40 = RtlComputeCrc32(0LL, v22, FinalCompressedSize);
+      v40 = RtlComputeCrc32(0, v22, Length);
       *v44 = v40;
     }
     Space = ST_STORE<SM_TRAITS>::StDmpSinglePageInsert(a1, v31, v6);

@@ -53,10 +53,10 @@ __int64 __fastcall MiPfPutPagesInTransition(__int64 a1, int a2, int a3, int a4)
   __int64 v10; // r9
   BOOL v11; // r14d
   char v12; // r10
-  struct _SLIST_ENTRY *v13; // r12
+  _SLIST_ENTRY *v13; // r12
   unsigned int v14; // esi
   __int64 v15; // r11
-  struct _SLIST_ENTRY *v16; // r13
+  _SLIST_ENTRY *v16; // r13
   int v17; // edi
   _DWORD *SchedulerAssist; // r9
   _SLIST_ENTRY *Next; // rbx
@@ -91,14 +91,14 @@ __int64 __fastcall MiPfPutPagesInTransition(__int64 a1, int a2, int a3, int a4)
   unsigned __int64 v48; // rbx
   __int64 v49; // r12
   _QWORD *v50; // r14
-  struct _SLIST_ENTRY *v51; // r14
+  _SLIST_ENTRY *v51; // r14
   __int64 v53; // rcx
   _DWORD *v54; // rdx
   __int64 v55; // r14
   unsigned __int64 v56; // rax
   int v57; // r9d
   _SLIST_ENTRY *v58; // rax
-  struct _SLIST_ENTRY *v59; // rcx
+  _SLIST_ENTRY *v59; // rcx
   PSLIST_ENTRY *v60; // rdx
   __int64 v61; // r15
   unsigned __int64 PageForHeader; // rax
@@ -133,7 +133,7 @@ __int64 __fastcall MiPfPutPagesInTransition(__int64 a1, int a2, int a3, int a4)
   int v91; // [rsp+30h] [rbp-D0h]
   __int64 v92; // [rsp+38h] [rbp-C8h]
   int v93; // [rsp+40h] [rbp-C0h]
-  struct _SLIST_ENTRY *v94; // [rsp+48h] [rbp-B8h]
+  _SLIST_ENTRY *v94; // [rsp+48h] [rbp-B8h]
   __int64 v95; // [rsp+50h] [rbp-B0h]
   __int64 v96; // [rsp+58h] [rbp-A8h]
   unsigned int v97; // [rsp+60h] [rbp-A0h] BYREF
@@ -193,10 +193,10 @@ __int64 __fastcall MiPfPutPagesInTransition(__int64 a1, int a2, int a3, int a4)
   v98 = v12 & 7 | 0x18;
   v14 = (*(_DWORD *)(*(_QWORD *)(v4 + 8) + 56LL) >> 20) & 0x7F;
   MiInitializePageColorBase(v10 + 1664, v14, &v119);
-  v16 = *(struct _SLIST_ENTRY **)(v4 + 120);
+  v16 = *(_SLIST_ENTRY **)(v4 + 120);
   v121 = (__int64 *)(v4 + 120);
   v94 = v16;
-  if ( v16 == (struct _SLIST_ENTRY *)(v4 + 120) )
+  if ( v16 == (_SLIST_ENTRY *)(v4 + 120) )
     goto LABEL_69;
   v17 = v98;
   while ( 2 )
@@ -498,7 +498,7 @@ LABEL_33:
                 v45 = v101;
               CurrentIrql = KeGetCurrentIrql();
               __writecr8(2uLL);
-              if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+              if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
               {
                 SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
                 if ( CurrentIrql == 2 )
@@ -540,10 +540,10 @@ LABEL_33:
                 Flink = 0LL;
                 *(_DWORD *)(v44 + 72) = 0;
               }
-              if ( KiIrqlFlags )
+              if ( (_DWORD)KiIrqlFlags )
               {
                 v47 = KeGetCurrentIrql();
-                if ( (KiIrqlFlags & 1) != 0
+                if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
                   && (unsigned __int8)v47 <= 0xFu
                   && CurrentIrql <= 0xFu
                   && (unsigned __int8)v47 >= 2u )
@@ -716,7 +716,7 @@ LABEL_62:
     }
     if ( v25 )
     {
-      v51 = (struct _SLIST_ENTRY *)Src;
+      v51 = (_SLIST_ENTRY *)Src;
       MiReduceMdl(Src, Flink, v24, SchedulerAssist);
       if ( v51 != &v16[17] && *((_DWORD *)&v51[2].Next + 2) <= 0x10000u )
       {
@@ -743,8 +743,8 @@ LABEL_185:
     --*(_DWORD *)(a1 + 108);
     MiFreeInPageSupportBlock(v59);
 LABEL_68:
-    v13 = (struct _SLIST_ENTRY *)v95;
-    if ( v16 != (struct _SLIST_ENTRY *)(v4 + 120) )
+    v13 = (_SLIST_ENTRY *)v95;
+    if ( v16 != (_SLIST_ENTRY *)(v4 + 120) )
     {
       v15 = v92;
       v11 = v106;

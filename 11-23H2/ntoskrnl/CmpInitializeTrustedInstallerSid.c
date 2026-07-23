@@ -3,8 +3,8 @@
  * Callers:
  *     CmInitSystem1 @ 0x140B3626C (CmInitSystem1.c)
  * Callees:
- *     RtlInitializeSid @ 0x140782050 (RtlInitializeSid.c)
- *     RtlLengthRequiredSid @ 0x1407D1670 (RtlLengthRequiredSid.c)
+ *     RtlInitializeSid @ 0x140782240 (RtlInitializeSid.c)
+ *     RtlLengthRequiredSid @ 0x1407D1940 (RtlLengthRequiredSid.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 
@@ -13,7 +13,7 @@ int CmpInitializeTrustedInstallerSid()
   ULONG v0; // eax
   void *Pool2; // rax
   _DWORD *v2; // rbx
-  struct _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+30h] [rbp+8h] BYREF
+  _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+30h] [rbp+8h] BYREF
 
   *(_DWORD *)IdentifierAuthority.Value = 0;
   *(_WORD *)&IdentifierAuthority.Value[4] = 1280;

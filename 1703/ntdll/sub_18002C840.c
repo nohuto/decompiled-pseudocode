@@ -10,14 +10,14 @@
  *     sub_1800F22CC @ 0x1800F22CC (sub_1800F22CC.c)
  */
 
-unsigned __int64 __fastcall sub_18002C840(__int64 a1, size_t a2, int a3)
+__int64 __fastcall sub_18002C840(_DWORD *BaseAddress, size_t a2, int a3)
 {
-  void *SubProcessTag; // rax
+  PVOID SubProcessTag; // rax
   __int64 v7; // rcx
   __int64 v8; // r8
   __int64 v9; // rcx
   unsigned __int16 v10; // r14
-  unsigned __int64 v11; // r8
+  __int64 v11; // r8
   unsigned __int8 *v12; // r9
   __int64 v13; // r8
   __int64 v14; // r15
@@ -26,14 +26,14 @@ unsigned __int64 __fastcall sub_18002C840(__int64 a1, size_t a2, int a3)
   __int128 v18; // [rsp+70h] [rbp-48h] BYREF
 
   if ( (byte_18015BFBC & 2) == 0 )
-    return sub_180029FC0(a1, a2, a3, 0);
-  if ( *(_DWORD *)(a1 + 16) != -571548178 || a1 == *(_QWORD *)&qword_18015BFE0 )
+    return sub_180029FC0(BaseAddress, a2, a3, 0);
+  if ( BaseAddress[4] != -571548178 || BaseAddress == qword_18015BFE0 )
     goto LABEL_23;
   v18 = 0uLL;
   SubProcessTag = NtCurrentTeb()->SubProcessTag;
   *(_QWORD *)&v18 = SubProcessTag;
   v7 = (__int64)SubProcessTag - qword_18015C308;
-  if ( SubProcessTag == (void *)qword_18015C308 )
+  if ( SubProcessTag == (PVOID)qword_18015C308 )
     v7 = -qword_18015C310;
   if ( !v7 )
   {
@@ -97,7 +97,7 @@ LABEL_33:
           break;
       }
     }
-    v15 = sub_180008B20((__int64)&unk_1801598C0, (__int64)&v18, v14);
+    v15 = sub_180008B20((__int64)&Parameter, (__int64)&v18, v14);
     if ( v15 )
     {
       v16 = _InterlockedExchangeAdd64((volatile signed __int64 *)(v15 + 32), a2);
@@ -116,7 +116,7 @@ LABEL_33:
 LABEL_13:
     word_1801598E4 = v10;
 LABEL_14:
-  v11 = sub_180029FC0(a1, a2, a3, v10);
+  v11 = sub_180029FC0(BaseAddress, a2, a3, v10);
   if ( !v11 && v10 )
     _InterlockedExchangeAdd64(
       (volatile signed __int64 *)(*(_QWORD *)(qword_1801598D8 + 8LL * (v10 - 1)) + 32LL),

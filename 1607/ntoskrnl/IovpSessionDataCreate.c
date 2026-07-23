@@ -1,12 +1,12 @@
 /*
  * XREFs of IovpSessionDataCreate @ 0x140717840
  * Callers:
- *     IovpCallDriver1 @ 0x14070A890 (IovpCallDriver1.c)
+ *     IovpCallDriver1 @ 0x14070A8C0 (IovpCallDriver1.c)
  * Callees:
- *     ExAllocateFromNPagedLookasideList @ 0x14006FEB0 (ExAllocateFromNPagedLookasideList.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     ExAllocateFromNPagedLookasideList @ 0x14006FA30 (ExAllocateFromNPagedLookasideList.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     IovUtilIsVerifiedDeviceStack @ 0x14070E158 (IovUtilIsVerifiedDeviceStack.c)
+ *     IovUtilIsVerifiedDeviceStack @ 0x14070E188 (IovUtilIsVerifiedDeviceStack.c)
  */
 
 char *__fastcall IovpSessionDataCreate(__int64 a1, __int64 *a2, int a3)

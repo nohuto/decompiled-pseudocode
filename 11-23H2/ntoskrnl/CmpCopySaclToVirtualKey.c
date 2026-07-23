@@ -1,27 +1,27 @@
 /*
- * XREFs of CmpCopySaclToVirtualKey @ 0x140A1B38C
+ * XREFs of CmpCopySaclToVirtualKey @ 0x140A1B63C
  * Callers:
- *     CmpDoBuildVirtualStack @ 0x140A190BC (CmpDoBuildVirtualStack.c)
+ *     CmpDoBuildVirtualStack @ 0x140A1936C (CmpDoBuildVirtualStack.c)
  * Callees:
- *     CmpDereferenceSecurityNode @ 0x140297450 (CmpDereferenceSecurityNode.c)
- *     RtlGetDaclSecurityDescriptor @ 0x140297640 (RtlGetDaclSecurityDescriptor.c)
+ *     CmpDereferenceSecurityNode @ 0x1402976E0 (CmpDereferenceSecurityNode.c)
+ *     RtlGetDaclSecurityDescriptor @ 0x1402978D0 (RtlGetDaclSecurityDescriptor.c)
  *     CmpGetSecurityDescriptorNodeEx @ 0x14067F1B8 (CmpGetSecurityDescriptorNodeEx.c)
  *     RtlGetOwnerSecurityDescriptor @ 0x14069E340 (RtlGetOwnerSecurityDescriptor.c)
  *     RtlGetGroupSecurityDescriptor @ 0x14069E380 (RtlGetGroupSecurityDescriptor.c)
- *     RtlSetDaclSecurityDescriptor @ 0x1406BD500 (RtlSetDaclSecurityDescriptor.c)
- *     HvpGetCellPaged @ 0x1406E0150 (HvpGetCellPaged.c)
- *     HvpReleaseCellPaged @ 0x1406E0260 (HvpReleaseCellPaged.c)
- *     CmpFreeSecurityDescriptor @ 0x14070BFD0 (CmpFreeSecurityDescriptor.c)
- *     RtlGetSaclSecurityDescriptor @ 0x1407117A0 (RtlGetSaclSecurityDescriptor.c)
- *     RtlCreateSecurityDescriptor @ 0x140736580 (RtlCreateSecurityDescriptor.c)
- *     RtlSetSaclSecurityDescriptor @ 0x1407365B0 (RtlSetSaclSecurityDescriptor.c)
- *     SeCaptureSecurityDescriptor @ 0x140736B50 (SeCaptureSecurityDescriptor.c)
- *     SeReleaseSecurityDescriptor @ 0x1407373D0 (SeReleaseSecurityDescriptor.c)
- *     HvpMarkCellDirty @ 0x140746FA0 (HvpMarkCellDirty.c)
- *     RtlSetOwnerSecurityDescriptor @ 0x140781FF0 (RtlSetOwnerSecurityDescriptor.c)
- *     HvpReleaseCellFlat @ 0x1407D9470 (HvpReleaseCellFlat.c)
- *     RtlSetGroupSecurityDescriptor @ 0x1407EF0C0 (RtlSetGroupSecurityDescriptor.c)
- *     HvpGetCellFlat @ 0x1407FD9F0 (HvpGetCellFlat.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x1406BD530 (RtlSetDaclSecurityDescriptor.c)
+ *     HvpGetCellPaged @ 0x1406E0180 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x1406E0290 (HvpReleaseCellPaged.c)
+ *     CmpFreeSecurityDescriptor @ 0x14070C1E0 (CmpFreeSecurityDescriptor.c)
+ *     RtlGetSaclSecurityDescriptor @ 0x1407119B0 (RtlGetSaclSecurityDescriptor.c)
+ *     RtlCreateSecurityDescriptor @ 0x140736770 (RtlCreateSecurityDescriptor.c)
+ *     RtlSetSaclSecurityDescriptor @ 0x1407367A0 (RtlSetSaclSecurityDescriptor.c)
+ *     SeCaptureSecurityDescriptor @ 0x140736D40 (SeCaptureSecurityDescriptor.c)
+ *     SeReleaseSecurityDescriptor @ 0x1407375C0 (SeReleaseSecurityDescriptor.c)
+ *     HvpMarkCellDirty @ 0x140747190 (HvpMarkCellDirty.c)
+ *     RtlSetOwnerSecurityDescriptor @ 0x1407821E0 (RtlSetOwnerSecurityDescriptor.c)
+ *     HvpReleaseCellFlat @ 0x1407D9740 (HvpReleaseCellFlat.c)
+ *     RtlSetGroupSecurityDescriptor @ 0x1407EF390 (RtlSetGroupSecurityDescriptor.c)
+ *     HvpGetCellFlat @ 0x1407FDCC0 (HvpGetCellFlat.c)
  */
 
 __int64 __fastcall CmpCopySaclToVirtualKey(
@@ -107,11 +107,7 @@ __int64 __fastcall CmpCopySaclToVirtualKey(
   if ( SaclSecurityDescriptor >= 0 )
   {
     WORD1(SecurityDescriptor[0]) = v15[1] & 0x7FFF;
-    SaclSecurityDescriptor = RtlSetSaclSecurityDescriptor(
-                               (__int64)SecurityDescriptor,
-                               SaclPresent,
-                               (__int64)Sacl,
-                               SaclDefaulted);
+    SaclSecurityDescriptor = RtlSetSaclSecurityDescriptor(SecurityDescriptor, SaclPresent, Sacl, SaclDefaulted);
     if ( SaclSecurityDescriptor >= 0 )
     {
       SaclSecurityDescriptor = RtlGetOwnerSecurityDescriptor(v15, &Owner, &SaclDefaulted);

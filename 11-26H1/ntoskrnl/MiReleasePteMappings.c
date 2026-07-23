@@ -1,20 +1,20 @@
 /*
- * XREFs of MiReleasePteMappings @ 0x1402A3B00
+ * XREFs of MiReleasePteMappings @ 0x1402A3050
  * Callers:
- *     MiInsertCachedPte @ 0x1402821D0 (MiInsertCachedPte.c)
- *     MiEmptyPteBins @ 0x14035F190 (MiEmptyPteBins.c)
+ *     MiInsertCachedPte @ 0x140281740 (MiInsertCachedPte.c)
+ *     MiEmptyPteBins @ 0x140360F30 (MiEmptyPteBins.c)
  * Callees:
- *     MiVaToFlushVm @ 0x1402843F8 (MiVaToFlushVm.c)
- *     MiReleaseLargePdeMappings @ 0x1402A2D84 (MiReleaseLargePdeMappings.c)
- *     MiReturnSystemVa @ 0x1402A4238 (MiReturnSystemVa.c)
- *     MiAttemptCoalesce @ 0x1402A42E8 (MiAttemptCoalesce.c)
- *     MiTbFlushListPromoteThreshold @ 0x1402A4C50 (MiTbFlushListPromoteThreshold.c)
- *     MiFlushTbList @ 0x140329040 (MiFlushTbList.c)
- *     MiInsertTbFlushEntry @ 0x14035E7E0 (MiInsertTbFlushEntry.c)
- *     MiInitializeTbFlushList @ 0x140360920 (MiInitializeTbFlushList.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     MiVaToFlushVm @ 0x140283968 (MiVaToFlushVm.c)
+ *     MiReleaseLargePdeMappings @ 0x1402A22D4 (MiReleaseLargePdeMappings.c)
+ *     MiReturnSystemVa @ 0x1402A3788 (MiReturnSystemVa.c)
+ *     MiAttemptCoalesce @ 0x1402A3838 (MiAttemptCoalesce.c)
+ *     MiTbFlushListPromoteThreshold @ 0x1402A41A0 (MiTbFlushListPromoteThreshold.c)
+ *     MiFlushTbList @ 0x14032B070 (MiFlushTbList.c)
+ *     MiInsertTbFlushEntry @ 0x140360580 (MiInsertTbFlushEntry.c)
+ *     MiInitializeTbFlushList @ 0x1403626C0 (MiInitializeTbFlushList.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall MiReleasePteMappings(__int64 a1, unsigned __int64 *a2, BOOL a3, int a4)
@@ -126,24 +126,24 @@ __int64 __fastcall MiReleasePteMappings(__int64 a1, unsigned __int64 *a2, BOOL a
         else
         {
           v44 = *(_QWORD *)(v21 + 8);
-          if ( qword_140E2D740 )
+          if ( qword_140E2D8C0 )
           {
             if ( (v44 & 0x10) != 0 )
               v44 &= ~0x10uLL;
             else
-              v44 &= qword_140E2D748;
+              v44 &= qword_140E2D8C8;
           }
           v22 = HIDWORD(v44);
         }
         v9 += v22;
         if ( !v20 )
           goto LABEL_23;
-        if ( qword_140E2D740 )
+        if ( qword_140E2D8C0 )
         {
           if ( (v20 & 0x10) != 0 )
             v20 &= ~0x10uLL;
           else
-            v20 &= qword_140E2D748;
+            v20 &= qword_140E2D8C8;
         }
         v20 = (v20 >> 24) & 0x7FFFFFFFFFLL;
         if ( !v20 )
@@ -156,12 +156,12 @@ __int64 __fastcall MiReleasePteMappings(__int64 a1, unsigned __int64 *a2, BOOL a
         else
         {
           v43 = v23[1];
-          if ( qword_140E2D740 )
+          if ( qword_140E2D8C0 )
           {
             if ( (v43 & 0x10) != 0 )
               v43 &= ~0x10uLL;
             else
-              v43 &= qword_140E2D748;
+              v43 &= qword_140E2D8C8;
           }
           v24 = HIDWORD(v43);
         }
@@ -226,12 +226,12 @@ LABEL_56:
               if ( v28 )
               {
                 v29 = *(_QWORD *)(*(_QWORD *)(a1 + 32) + 8 * v20);
-                if ( qword_140E2D740 )
+                if ( qword_140E2D8C0 )
                 {
                   if ( (v28 & 0x10) != 0 )
                     v29 = v28 & 0xFFFFFFFFFFFFFFEFuLL;
                   else
-                    v29 = qword_140E2D748 & v28;
+                    v29 = qword_140E2D8C8 & v28;
                 }
                 v30 = (v29 >> 24) & 0x7FFFFFFFFFLL;
               }

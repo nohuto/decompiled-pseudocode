@@ -12,27 +12,27 @@
 BOOL __stdcall WerpEscalationIsWMRSendStringSet()
 {
   int v0; // esi
-  _DWORD v2[6]; // [esp+8h] [ebp-28h] BYREF
-  UNICODE_STRING DestinationString; // [esp+20h] [ebp-10h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [esp+8h] [ebp-28h] BYREF
+  _UNICODE_STRING DestinationString; // [esp+20h] [ebp-10h] BYREF
   int v4; // [esp+28h] [ebp-8h] BYREF
-  HANDLE Handle; // [esp+2Ch] [ebp-4h] BYREF
+  HANDLE KeyHandle; // [esp+2Ch] [ebp-4h] BYREF
 
   v0 = 0;
-  Handle = 0;
+  KeyHandle = 0;
   v4 = 0;
   RtlInitUnicodeString(&DestinationString, L"\\Registry\\Machine\\Software\\Microsoft\\SQMClient\\Windows\\WMR");
-  v2[0] = 24;
-  v2[2] = &DestinationString;
-  v2[1] = 0;
-  v2[3] = 64;
-  v2[4] = 0;
-  v2[5] = 0;
-  if ( ZwOpenKey((int)&Handle, 131353, (int)v2) >= 0
-    && WerpEscalationReadUlongFromKey(Handle, L"WMRSendMessageString", &v4) >= 0 )
+  ObjectAttributes.Length = 24;
+  ObjectAttributes.ObjectName = &DestinationString;
+  ObjectAttributes.RootDirectory = 0;
+  ObjectAttributes.Attributes = 64;
+  ObjectAttributes.SecurityDescriptor = 0;
+  ObjectAttributes.SecurityQualityOfService = 0;
+  if ( ZwOpenKey(&KeyHandle, 0x20119u, &ObjectAttributes) >= 0
+    && WerpEscalationReadUlongFromKey(KeyHandle, L"WMRSendMessageString", (int)&v4) >= 0 )
   {
     v0 = v4;
   }
-  if ( Handle )
-    NtClose(Handle);
+  if ( KeyHandle )
+    NtClose(KeyHandle);
   return v0 != 0;
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of KiInitializeProcessConcurrencyCount @ 0x140576B00
+ * XREFs of KiInitializeProcessConcurrencyCount @ 0x140576FF0
  * Callers:
  *     KeStartIdealProcessorAssignmentBlock @ 0x140223D00 (KeStartIdealProcessorAssignmentBlock.c)
  * Callees:

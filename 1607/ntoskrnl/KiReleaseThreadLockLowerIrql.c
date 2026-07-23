@@ -1,7 +1,7 @@
 /*
- * XREFs of KiReleaseThreadLockLowerIrql @ 0x1400CD0FC
+ * XREFs of KiReleaseThreadLockLowerIrql @ 0x1400CAF9C
  * Callers:
- *     ExpWaitForResource @ 0x14005CE30 (ExpWaitForResource.c)
+ *     ExpWaitForResource @ 0x14005C9B0 (ExpWaitForResource.c)
  * Callees:
  *     <none>
  */

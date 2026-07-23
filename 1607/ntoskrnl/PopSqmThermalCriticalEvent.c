@@ -1,15 +1,15 @@
 /*
- * XREFs of PopSqmThermalCriticalEvent @ 0x14067687C
+ * XREFs of PopSqmThermalCriticalEvent @ 0x140676960
  * Callers:
- *     PopSqmThermalCriticalShutdown @ 0x140676A40 (PopSqmThermalCriticalShutdown.c)
- *     PopSqmThermalHibernate @ 0x140676A54 (PopSqmThermalHibernate.c)
+ *     PopSqmThermalCriticalShutdown @ 0x140676B24 (PopSqmThermalCriticalShutdown.c)
+ *     PopSqmThermalHibernate @ 0x140676B38 (PopSqmThermalHibernate.c)
  * Callees:
- *     _TlgWrite @ 0x14000A598 (_TlgWrite.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     _TlgKeywordOn @ 0x140088D98 (_TlgKeywordOn.c)
- *     IoGetDeviceAttachmentBaseRef @ 0x1400FB62C (IoGetDeviceAttachmentBaseRef.c)
- *     _TlgCreateWsz @ 0x140133CE4 (_TlgCreateWsz.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     _TlgWrite @ 0x14000A118 (_TlgWrite.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     IoGetDeviceAttachmentBaseRef @ 0x1400F93B8 (IoGetDeviceAttachmentBaseRef.c)
+ *     _TlgKeywordOn @ 0x14010CF88 (_TlgKeywordOn.c)
+ *     _TlgCreateWsz @ 0x140134254 (_TlgCreateWsz.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 char __fastcall PopSqmThermalCriticalEvent(__int64 a1, unsigned int a2, int a3)
@@ -64,9 +64,9 @@ char __fastcall PopSqmThermalCriticalEvent(__int64 a1, unsigned int a2, int a3)
   if ( DeviceNode )
   {
     DeviceAttachmentBaseRef = *(PDEVICE_OBJECT *)(a1 + 848);
-    if ( pCallbackContext.LevelPlus1 > 5 )
+    if ( hProvider.LevelPlus1 > 5 )
     {
-      LOBYTE(DeviceAttachmentBaseRef) = TlgKeywordOn(&pCallbackContext, 0x800000000000uLL);
+      LOBYTE(DeviceAttachmentBaseRef) = TlgKeywordOn(&hProvider, 0x800000000000uLL);
       if ( (_BYTE)DeviceAttachmentBaseRef )
       {
         v11 = *(_BYTE *)(a1 + 65);
@@ -102,7 +102,7 @@ char __fastcall PopSqmThermalCriticalEvent(__int64 a1, unsigned int a2, int a3)
         v22 = a2;
         TlgCreateWsz(&pDesc, v13);
         TlgCreateWsz(&v46, v14);
-        LOBYTE(DeviceAttachmentBaseRef) = TlgWrite(&pCallbackContext, &unk_14027D53B, 0LL, 0LL, 0xBu, &pData);
+        LOBYTE(DeviceAttachmentBaseRef) = TlgWrite(&hProvider, &unk_14027D63B, 0LL, 0LL, 0xBu, &pData);
       }
     }
   }

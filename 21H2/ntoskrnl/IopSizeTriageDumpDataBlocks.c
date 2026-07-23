@@ -1,7 +1,7 @@
 /*
- * XREFs of IopSizeTriageDumpDataBlocks @ 0x140504764
+ * XREFs of IopSizeTriageDumpDataBlocks @ 0x1405046E4
  * Callers:
- *     IoFillTriageDumpBuffer @ 0x140501DC0 (IoFillTriageDumpBuffer.c)
+ *     IoFillTriageDumpBuffer @ 0x140501D40 (IoFillTriageDumpBuffer.c)
  * Callees:
  *     <none>
  */

@@ -1,114 +1,114 @@
 /*
- * XREFs of LdrUnloadAlternateResourceModuleEx @ 0x180061800
+ * XREFs of LdrUnloadAlternateResourceModuleEx @ 0x1800773E0
  * Callers:
- *     LdrpUnloadNode @ 0x18001CA60 (LdrpUnloadNode.c)
- *     LdrpGetFromMUIMemCache @ 0x1800615D0 (LdrpGetFromMUIMemCache.c)
- *     LdrUnloadAlternateResourceModule @ 0x1800FB340 (LdrUnloadAlternateResourceModule.c)
- *     LdrResRelease @ 0x18010BB50 (LdrResRelease.c)
+ *     LdrpUnloadNode @ 0x180049460 (LdrpUnloadNode.c)
+ *     LdrpGetFromMUIMemCache @ 0x1800771B0 (LdrpGetFromMUIMemCache.c)
+ *     LdrUnloadAlternateResourceModule @ 0x1800F6270 (LdrUnloadAlternateResourceModule.c)
+ *     LdrResRelease @ 0x180106520 (LdrResRelease.c)
  * Callees:
- *     RtlFreeHeap @ 0x1800269F0 (RtlFreeHeap.c)
- *     RtlAcquireSRWLockExclusive @ 0x180055AE0 (RtlAcquireSRWLockExclusive.c)
- *     RtlReleaseSRWLockExclusive @ 0x1800567B0 (RtlReleaseSRWLockExclusive.c)
- *     RtlReAllocateHeap @ 0x1800A0E30 (RtlReAllocateHeap.c)
- *     LdrpRemoveAlternateModuleCacheItem @ 0x1800F9E3C (LdrpRemoveAlternateModuleCacheItem.c)
- *     NtClose @ 0x180161E70 (NtClose.c)
- *     NtUnmapViewOfSection @ 0x1801621D0 (NtUnmapViewOfSection.c)
+ *     RtlFreeHeap @ 0x1800533F0 (RtlFreeHeap.c)
+ *     RtlAcquireSRWLockExclusive @ 0x18006B6C0 (RtlAcquireSRWLockExclusive.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18006C390 (RtlReleaseSRWLockExclusive.c)
+ *     RtlReAllocateHeap @ 0x18007A7D0 (RtlReAllocateHeap.c)
+ *     LdrpRemoveAlternateModuleCacheItem @ 0x1800F4B9C (LdrpRemoveAlternateModuleCacheItem.c)
+ *     NtClose @ 0x180160230 (NtClose.c)
+ *     NtUnmapViewOfSection @ 0x180160590 (NtUnmapViewOfSection.c)
  */
 
-char __fastcall LdrUnloadAlternateResourceModuleEx(__int64 a1, volatile signed __int32 **a2, unsigned __int64 a3)
+BOOLEAN __cdecl LdrUnloadAlternateResourceModuleEx(PVOID DllHandle, ULONG Flags)
 {
-  __int16 v3; // r12
-  char v5; // r15
-  int v6; // edi
-  int v7; // ebx
-  __int64 v8; // rsi
-  _QWORD *v9; // r15
-  __int64 v10; // rdx
-  unsigned __int64 v11; // rdx
-  void *v12; // rcx
-  unsigned int v13; // ecx
-  __int64 Heap; // rax
-  int v16; // [rsp+24h] [rbp-24h]
-  __int64 v17; // [rsp+50h] [rbp+8h]
+  __int16 v2; // r12
+  BOOLEAN v4; // r15
+  int v5; // edi
+  int v6; // ebx
+  char *v7; // rsi
+  _QWORD *v8; // r15
+  __int64 v9; // rdx
+  void *v10; // rdx
+  void *v11; // rcx
+  unsigned int v12; // ecx
+  PVOID Heap; // rax
+  int v15; // [rsp+24h] [rbp-24h]
+  char *v16; // [rsp+50h] [rbp+8h]
 
-  v3 = (__int16)a2;
-  v5 = 0;
-  if ( !a1 )
+  v2 = Flags;
+  v4 = 0;
+  if ( !DllHandle )
     return 0;
-  RtlAcquireSRWLockExclusive((volatile signed __int32 *)&MuiCacheSWRLock, a2, a3);
+  RtlAcquireSRWLockExclusive(&MuiCacheSWRLock);
   if ( AlternateResourceModuleCount )
   {
-    v6 = AlternateResourceModuleCount;
-    v16 = AlternateResourceModuleCount;
-    while ( v6 > 0 )
+    v5 = AlternateResourceModuleCount;
+    v15 = AlternateResourceModuleCount;
+    while ( v5 > 0 )
     {
-      v7 = v6 - 1;
-      v8 = AlternateResourceModules + ((__int64)(v6 - 1) << 6);
-      if ( *(_QWORD *)(v8 + 8) == a1 )
+      v6 = v5 - 1;
+      v7 = (char *)AlternateResourceModules + 64 * (__int64)(v5 - 1);
+      if ( *((PVOID *)v7 + 1) == DllHandle )
       {
-        v17 = AlternateResourceModules + ((__int64)v7 << 6);
-        v9 = (_QWORD *)(v8 + 32);
-        v10 = *(_QWORD *)(v8 + 32);
-        if ( v10 && (!v3 || v3 == *(_WORD *)v8) && v10 != -1 )
+        v16 = (char *)AlternateResourceModules + 64 * (__int64)v6;
+        v8 = v7 + 32;
+        v9 = *((_QWORD *)v7 + 4);
+        if ( v9 && (!v2 || v2 == *(_WORD *)v7) && v9 != -1 )
         {
-          v11 = v10 & 0xFFFFFFFFFFFFFFFCuLL;
-          if ( *(_DWORD *)(v8 + 56) == -1073741799 )
+          v10 = (void *)(v9 & 0xFFFFFFFFFFFFFFFCuLL);
+          if ( *((_DWORD *)v7 + 14) == -1073741799 )
           {
-            RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v11);
-            v6 = v16;
-            v8 = v17;
+            RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v10);
+            v5 = v15;
+            v7 = v16;
           }
           else
           {
-            NtUnmapViewOfSection(-1LL);
+            NtUnmapViewOfSection((HANDLE)0xFFFFFFFFFFFFFFFFLL, v10);
           }
-          v12 = *(void **)(v8 + 40);
-          if ( v12 )
+          v11 = (void *)*((_QWORD *)v7 + 5);
+          if ( v11 )
           {
-            NtClose(v12);
-            *(_QWORD *)(v8 + 40) = 0LL;
+            NtClose(v11);
+            *((_QWORD *)v7 + 5) = 0LL;
           }
-          *v9 = 0LL;
+          *v8 = 0LL;
         }
-        if ( v6 != AlternateResourceModuleCount )
-          LdrpRemoveAlternateModuleCacheItem((unsigned int)(v6 - 1));
-        v13 = AlternateResourceModuleCount - 1;
-        AlternateResourceModuleCount = v13;
-        if ( v13 )
+        if ( v5 != AlternateResourceModuleCount )
+          LdrpRemoveAlternateModuleCacheItem((unsigned int)(v5 - 1));
+        v12 = AlternateResourceModuleCount - 1;
+        AlternateResourceModuleCount = v12;
+        if ( v12 )
         {
-          if ( v13 < AltResMemBlockCount - 32 )
+          if ( v12 < AltResMemBlockCount - 32 )
           {
             Heap = RtlReAllocateHeap(
                      NtCurrentPeb()->ProcessHeap,
-                     0LL,
+                     0,
                      AlternateResourceModules,
                      (unsigned __int64)(unsigned int)(AltResMemBlockCount - 32) << 6);
             if ( !Heap )
             {
-              v5 = 0;
+              v4 = 0;
               break;
             }
             AlternateResourceModules = Heap;
             AltResMemBlockCount -= 32;
           }
-          v5 = 1;
+          v4 = 1;
         }
         else
         {
-          RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, AlternateResourceModules);
+          RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, AlternateResourceModules);
           AlternateResourceModules = 0LL;
           AltResMemBlockCount = 0;
-          v5 = 1;
+          v4 = 1;
         }
       }
-      v6 = v7;
-      v16 = v7;
+      v5 = v6;
+      v15 = v6;
     }
   }
   else
   {
-    v5 = 1;
+    v4 = 1;
   }
   RtlReleaseSRWLockExclusive(&MuiCacheSWRLock);
-  return v5;
+  return v4;
 }

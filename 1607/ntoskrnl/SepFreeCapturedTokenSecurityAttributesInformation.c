@@ -1,9 +1,9 @@
 /*
- * XREFs of SepFreeCapturedTokenSecurityAttributesInformation @ 0x14047C21C
+ * XREFs of SepFreeCapturedTokenSecurityAttributesInformation @ 0x14047B0EC
  * Callers:
- *     NtCreateTokenEx @ 0x140477BDC (NtCreateTokenEx.c)
- *     NtSetInformationToken @ 0x1404797D0 (NtSetInformationToken.c)
- *     SepCaptureTokenSecurityAttributesAndOperationsInformation @ 0x14047C310 (SepCaptureTokenSecurityAttributesAndOperationsInformation.c)
+ *     NtCreateTokenEx @ 0x140476AAC (NtCreateTokenEx.c)
+ *     NtSetInformationToken @ 0x1404786A0 (NtSetInformationToken.c)
+ *     SepCaptureTokenSecurityAttributesAndOperationsInformation @ 0x14047B1E0 (SepCaptureTokenSecurityAttributesAndOperationsInformation.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  */

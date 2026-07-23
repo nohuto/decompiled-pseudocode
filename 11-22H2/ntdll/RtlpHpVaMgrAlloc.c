@@ -16,24 +16,24 @@
  *     __security_check_cookie @ 0x18008E790 (__security_check_cookie.c)
  */
 
-__int64 __fastcall RtlpHpVaMgrAlloc(__int64 a1, unsigned __int64 *a2, unsigned __int64 a3)
+PVOID __fastcall RtlpHpVaMgrAlloc(PRTL_SRWLOCK SRWLock, unsigned __int64 *a2, unsigned __int64 a3)
 {
   unsigned __int64 v3; // r14
   unsigned __int64 v5; // rdi
   unsigned __int64 v7; // r14
-  unsigned __int64 v8; // rax
+  _RTL_BALANCED_NODE *v8; // rax
   __int64 v9; // rdi
   __int64 v10; // rsi
-  unsigned __int64 v11; // rsi
-  __int64 result; // rax
+  void *v11; // rsi
+  PVOID result; // rax
   __int64 v13; // rax
   char v14; // cl
-  unsigned __int64 v15; // [rsp+30h] [rbp-40h] BYREF
-  __int64 v16; // [rsp+38h] [rbp-38h] BYREF
+  ULONG_PTR RegionSize; // [rsp+30h] [rbp-40h] BYREF
+  PVOID BaseAddress; // [rsp+38h] [rbp-38h] BYREF
   __int64 v17; // [rsp+40h] [rbp-30h] BYREF
   __int128 v18; // [rsp+48h] [rbp-28h] BYREF
   __int64 v19; // [rsp+58h] [rbp-18h]
-  unsigned __int64 v20; // [rsp+60h] [rbp-10h]
+  ULONG_PTR v20; // [rsp+60h] [rbp-10h]
 
   v3 = *a2;
   HIDWORD(v18) = 0x200000;
@@ -43,75 +43,70 @@ __int64 __fastcall RtlpHpVaMgrAlloc(__int64 a1, unsigned __int64 *a2, unsigned _
   v19 = 0x10000040000000LL;
   if ( !v3 )
     __int2c();
-  if ( v3 <= (unsigned __int64)(*(unsigned __int16 *)(a1 + 40) << 20) >> 1 )
+  if ( v3 <= (unsigned __int64)(LOWORD(SRWLock[5].Value) << 20) >> 1 )
   {
     v7 = v3 >> 20;
-    RtlAcquireSRWLockExclusive((volatile signed __int64 *)a1);
-    v8 = RtlpHpVaMgrRangeFind(a1, (unsigned __int16)v7, (unsigned __int16)(v5 >> 20), &v17);
-    v9 = v8;
+    RtlAcquireSRWLockExclusive(SRWLock);
+    v8 = (_RTL_BALANCED_NODE *)RtlpHpVaMgrRangeFind(SRWLock, (unsigned __int16)v7, (unsigned __int16)(v5 >> 20), &v17);
+    v9 = (__int64)v8;
     if ( v8 )
     {
-      RtlRbRemoveNode(a1 + 8, v8);
+      RtlRbRemoveNode((PRTL_RB_TREE)&SRWLock[1], v8);
       v10 = v17;
       if ( v17 != v9 )
       {
         *(_OWORD *)v9 = 0LL;
         *(_QWORD *)(v9 + 16) = 0LL;
         *(_BYTE *)v9 = 1;
-        *(_BYTE *)(v9 + 1) = *(_BYTE *)(a1 + 44);
-        RtlpHpVaMgrRangeSplit(a1, v9, (v10 - v9) >> 5);
-        RtlpHpVaMgrFree(a1, v9);
+        *(_BYTE *)(v9 + 1) = BYTE4(SRWLock[5].Ptr);
+        RtlpHpVaMgrRangeSplit(SRWLock, v9, (v10 - v9) >> 5);
+        RtlpHpVaMgrFree(SRWLock, v9);
         v9 = v10;
       }
       goto LABEL_7;
     }
-    RtlReleaseSRWLockExclusive((volatile signed __int64 *)a1);
-    v9 = RtlpHpVaMgrRegionAllocate(a1);
+    RtlReleaseSRWLockExclusive(SRWLock);
+    v9 = RtlpHpVaMgrRegionAllocate(SRWLock);
     if ( v9 )
     {
-      RtlAcquireSRWLockExclusive((volatile signed __int64 *)a1);
+      RtlAcquireSRWLockExclusive(SRWLock);
 LABEL_7:
-      v11 = *(_QWORD *)(*(_QWORD *)(a1 + 24) + 8LL)
-          + ((unsigned __int64)(v9 - *(_QWORD *)(*(_QWORD *)(a1 + 24) + 40LL)) >> *(_DWORD *)(*(_QWORD *)(a1 + 24) + 24LL) << 20);
+      v11 = (void *)(*(_QWORD *)(SRWLock[3].Value + 8)
+                   + ((unsigned __int64)(v9 - *(_QWORD *)(SRWLock[3].Value + 40)) >> *(_DWORD *)(SRWLock[3].Value + 24) << 20));
       *(_OWORD *)v9 = 0LL;
       *(_QWORD *)(v9 + 16) = 0LL;
       *(_BYTE *)v9 = 1;
-      *(_BYTE *)(v9 + 1) = *(_BYTE *)(a1 + 44);
+      *(_BYTE *)(v9 + 1) = BYTE4(SRWLock[5].Ptr);
       if ( *(_WORD *)(v9 + 24) > (unsigned __int16)v7 )
       {
-        v13 = RtlpHpVaMgrRangeSplit(a1, v9, (unsigned __int16)v7);
-        RtlpHpVaMgrFree(a1, v13);
+        v13 = RtlpHpVaMgrRangeSplit(SRWLock, v9, (unsigned __int16)v7);
+        RtlpHpVaMgrFree(SRWLock, v13);
       }
-      v16 = v11;
-      RtlReleaseSRWLockExclusive((volatile signed __int64 *)a1);
-      return v16;
+      BaseAddress = v11;
+      RtlReleaseSRWLockExclusive(SRWLock);
+      return BaseAddress;
     }
     return 0LL;
   }
-  if ( a3 <= *((unsigned int *)&v18 + (((unsigned __int64)*(unsigned __int8 *)(a1 + 46) >> 1) & 7)) )
-    v5 = *((unsigned int *)&v18 + (((unsigned __int64)*(unsigned __int8 *)(a1 + 46) >> 1) & 7));
-  v15 = v3 - ((v5 - 1) & (v5 + v3 - 1)) + v5 - 1;
-  result = RtlpHpVaMgrAllocAligned(a1, &v15, v5);
-  v16 = result;
+  if ( a3 <= *((unsigned int *)&v18 + (((unsigned __int64)BYTE6(SRWLock[5].Ptr) >> 1) & 7)) )
+    v5 = *((unsigned int *)&v18 + (((unsigned __int64)BYTE6(SRWLock[5].Ptr) >> 1) & 7));
+  RegionSize = v3 - ((v5 - 1) & (v5 + v3 - 1)) + v5 - 1;
+  result = (PVOID)RtlpHpVaMgrAllocAligned(SRWLock, &RegionSize, v5);
+  BaseAddress = result;
   if ( result )
   {
     v19 = 0LL;
-    v14 = *(_BYTE *)(a1 + 44);
+    v14 = BYTE4(SRWLock[5].Ptr);
     v18 = 0LL;
     BYTE1(v18) = v14;
-    v20 = v15 >> 20;
+    v20 = RegionSize >> 20;
     LOBYTE(v18) = 5;
-    if ( RtlpHpVaMgrRangeCreate(a1, result, &v18) )
+    if ( RtlpHpVaMgrRangeCreate(SRWLock, result, &v18) )
     {
-      *a2 = v15;
-      return v16;
+      *a2 = RegionSize;
+      return BaseAddress;
     }
-    RtlpHpEnvFreeVA(
-      (__int64)&v16,
-      (__int64)&v15,
-      0x8000,
-      (*(unsigned __int8 *)(a1 + 46) >> 1) & 7,
-      *(_QWORD *)(a1 + 32));
+    RtlpHpEnvFreeVA(&BaseAddress, &RegionSize, 0x8000, (BYTE6(SRWLock[5].Ptr) >> 1) & 7, SRWLock[4].Value);
     return 0LL;
   }
   return result;

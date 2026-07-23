@@ -1,10 +1,10 @@
 /*
- * XREFs of MiReduceMappedFileReadBehind @ 0x1402C5E1C
+ * XREFs of MiReduceMappedFileReadBehind @ 0x1402445FC
  * Callers:
- *     MiBuildMdlForMappedFileFault @ 0x14023DDD0 (MiBuildMdlForMappedFileFault.c)
+ *     MiBuildMdlForMappedFileFault @ 0x1402E2620 (MiBuildMdlForMappedFileFault.c)
  * Callees:
- *     RtlClearBits @ 0x140206E00 (RtlClearBits.c)
- *     RtlSetBits @ 0x140358F70 (RtlSetBits.c)
+ *     RtlClearBits @ 0x1402AB730 (RtlClearBits.c)
+ *     RtlSetBits @ 0x140363CC0 (RtlSetBits.c)
  */
 
 __int64 __fastcall MiReduceMappedFileReadBehind(PRTL_BITMAP BitMapHeader, ULONG StartingIndex, int a3)
@@ -34,7 +34,7 @@ __int64 __fastcall MiReduceMappedFileReadBehind(PRTL_BITMAP BitMapHeader, ULONG 
       Buffer = BitMapHeader->Buffer;
       v10 = &Buffer[(unsigned __int64)(SizeOfBitMap - 1) >> 5];
       v11 = &Buffer[(unsigned __int64)v7 >> 5];
-      if ( v11 != v10 && (*v11 | *((_DWORD *)qword_140011C70 + (v7 & 0x1F))) == 0xFFFFFFFF )
+      if ( v11 != v10 && (*v11 | *((_DWORD *)qword_140012120 + (v7 & 0x1F))) == 0xFFFFFFFF )
       {
         v7 = v7 - (v7 & 0x1F) + 32;
         for ( ++v11; v11 < v10 && *v11 == -1; ++v11 )
@@ -49,7 +49,7 @@ __int64 __fastcall MiReduceMappedFileReadBehind(PRTL_BITMAP BitMapHeader, ULONG 
       if ( v11 == v10 )
         goto LABEL_14;
       v13 = v7 & 0x1F;
-      if ( (*v11 & ~*((_DWORD *)qword_140011C70 + (v7 & 0x1F))) != 0 )
+      if ( (*v11 & ~*((_DWORD *)qword_140012120 + (v7 & 0x1F))) != 0 )
         goto LABEL_14;
       v12 = 32 - v13;
       if ( v13 != 33 )

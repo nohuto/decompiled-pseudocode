@@ -1,22 +1,22 @@
 /*
- * XREFs of MiRebuildLargePage @ 0x1405526D8
+ * XREFs of MiRebuildLargePage @ 0x140552918
  * Callers:
- *     MiRebuildLargePages @ 0x14038D6C0 (MiRebuildLargePages.c)
- *     MmBuildLargePages @ 0x1408D76D4 (MmBuildLargePages.c)
- *     MmManagePartitionCreateLargePages @ 0x1408DB8D4 (MmManagePartitionCreateLargePages.c)
+ *     MiRebuildLargePages @ 0x14038D810 (MiRebuildLargePages.c)
+ *     MmBuildLargePages @ 0x1408D7834 (MmBuildLargePages.c)
+ *     MmManagePartitionCreateLargePages @ 0x1408DBA34 (MmManagePartitionCreateLargePages.c)
  * Callees:
- *     MiReferencePageRuns @ 0x14022FB90 (MiReferencePageRuns.c)
- *     MiDereferencePageRunsEx @ 0x1402C34F8 (MiDereferencePageRunsEx.c)
- *     MiInsertLargePageInNodeList @ 0x1402FEA50 (MiInsertLargePageInNodeList.c)
- *     MiUpdateLargePageBitMap @ 0x140300090 (MiUpdateLargePageBitMap.c)
- *     MiFindContiguousPages @ 0x1403016E0 (MiFindContiguousPages.c)
- *     MiReturnCommit @ 0x1403182A0 (MiReturnCommit.c)
- *     MiNodeFreeZeroPages @ 0x140318CA4 (MiNodeFreeZeroPages.c)
+ *     MiDereferencePageRunsEx @ 0x140241A18 (MiDereferencePageRunsEx.c)
+ *     MiReferencePageRuns @ 0x1402D43E0 (MiReferencePageRuns.c)
+ *     MiInsertLargePageInNodeList @ 0x1403097A0 (MiInsertLargePageInNodeList.c)
+ *     MiUpdateLargePageBitMap @ 0x14030ADE0 (MiUpdateLargePageBitMap.c)
+ *     MiFindContiguousPages @ 0x14030C430 (MiFindContiguousPages.c)
+ *     MiReturnCommit @ 0x140322FF0 (MiReturnCommit.c)
+ *     MiNodeFreeZeroPages @ 0x1403239F4 (MiNodeFreeZeroPages.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  *     MiConvertSmallPageRangeToLarge @ 0x1403F6180 (MiConvertSmallPageRangeToLarge.c)
- *     MiLockPageAtDpc @ 0x14054F91C (MiLockPageAtDpc.c)
- *     MiGetNodeStandbyPageCount @ 0x140550758 (MiGetNodeStandbyPageCount.c)
- *     MiFindRebuildCandidate @ 0x140551E0C (MiFindRebuildCandidate.c)
+ *     MiLockPageAtDpc @ 0x14054FB5C (MiLockPageAtDpc.c)
+ *     MiGetNodeStandbyPageCount @ 0x140550998 (MiGetNodeStandbyPageCount.c)
+ *     MiFindRebuildCandidate @ 0x14055204C (MiFindRebuildCandidate.c)
  */
 
 unsigned __int64 __fastcall MiRebuildLargePage(__int64 a1, unsigned int a2, __int64 a3, _DWORD *a4)

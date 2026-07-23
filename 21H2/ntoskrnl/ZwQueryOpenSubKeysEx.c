@@ -1,14 +1,18 @@
 /*
- * XREFs of ZwQueryOpenSubKeysEx @ 0x1403FCEA0
+ * XREFs of ZwQueryOpenSubKeysEx @ 0x1403FD080
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwQueryOpenSubKeysEx(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwQueryOpenSubKeysEx(
+        POBJECT_ATTRIBUTES TargetKey,
+        ULONG BufferLength,
+        PVOID Buffer,
+        PULONG RequiredSize)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(TargetKey);
 }

@@ -1,35 +1,35 @@
 /*
- * XREFs of CmFcManagerUpdateFeatureUsageSubscriptions @ 0x140ABEC64
+ * XREFs of CmFcManagerUpdateFeatureUsageSubscriptions @ 0x140AC0D04
  * Callers:
- *     CmUpdateFeatureUsageSubscription @ 0x140854F40 (CmUpdateFeatureUsageSubscription.c)
+ *     CmUpdateFeatureUsageSubscription @ 0x14085B25C (CmUpdateFeatureUsageSubscription.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     RtlpFcBufferManagerDereferenceBuffers @ 0x1404CC294 (RtlpFcBufferManagerDereferenceBuffers.c)
- *     RtlpFcBufferManagerReferenceBuffers @ 0x1404D88A8 (RtlpFcBufferManagerReferenceBuffers.c)
- *     RtlpFcWriteHighLowHigh @ 0x1404FDC3C (RtlpFcWriteHighLowHigh.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     RtlpFcValidateFeatureUsageSubscriptionBuffer @ 0x14080A188 (RtlpFcValidateFeatureUsageSubscriptionBuffer.c)
- *     CmFcpUnmapSection @ 0x140ABEF18 (CmFcpUnmapSection.c)
- *     RtlpFcUpdateUsageTriggers @ 0x140ABEF38 (RtlpFcUpdateUsageTriggers.c)
- *     RtlpFcBufferManagerUpdateBuffers @ 0x140ABF140 (RtlpFcBufferManagerUpdateBuffers.c)
- *     CmFcpManagerPublishChangeNotifications @ 0x140ABF21C (CmFcpManagerPublishChangeNotifications.c)
- *     CmFcpManagerCreateSection @ 0x140B3B4C8 (CmFcpManagerCreateSection.c)
- *     CmFcpMapSection @ 0x140B4CA88 (CmFcpMapSection.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     RtlpFcBufferManagerDereferenceBuffers @ 0x1404C5CC4 (RtlpFcBufferManagerDereferenceBuffers.c)
+ *     RtlpFcBufferManagerReferenceBuffers @ 0x1404D2078 (RtlpFcBufferManagerReferenceBuffers.c)
+ *     RtlpFcWriteHighLowHigh @ 0x1404F717C (RtlpFcWriteHighLowHigh.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     RtlpFcValidateFeatureUsageSubscriptionBuffer @ 0x14080FC18 (RtlpFcValidateFeatureUsageSubscriptionBuffer.c)
+ *     CmFcpUnmapSection @ 0x140AC0FB8 (CmFcpUnmapSection.c)
+ *     RtlpFcUpdateUsageTriggers @ 0x140AC0FD8 (RtlpFcUpdateUsageTriggers.c)
+ *     RtlpFcBufferManagerUpdateBuffers @ 0x140AC11E0 (RtlpFcBufferManagerUpdateBuffers.c)
+ *     CmFcpManagerPublishChangeNotifications @ 0x140AC12BC (CmFcpManagerPublishChangeNotifications.c)
+ *     CmFcpManagerCreateSection @ 0x140B3D748 (CmFcpManagerCreateSection.c)
+ *     CmFcpMapSection @ 0x140B4E818 (CmFcpMapSection.c)
  */
 
 __int64 __fastcall CmFcManagerUpdateFeatureUsageSubscriptions(__int64 a1, __int64 a2, unsigned int a3)
 {
   void *v3; // rsi
-  unsigned __int64 v4; // r12
+  struct _KTHREAD *v4; // r12
   struct _KTHREAD *CurrentThread; // rax
   struct _KLOCK_ENTRIES *v6; // r9
   AutoBoost *v7; // rax
@@ -39,7 +39,7 @@ __int64 __fastcall CmFcManagerUpdateFeatureUsageSubscriptions(__int64 a1, __int6
   __int64 v11; // rdx
   __int64 v12; // r15
   __int64 v13; // r14
-  _KAFFINITY_EX *v14; // r13
+  struct _LIST_ENTRY *v14; // r13
   __int64 v15; // rcx
   int updated; // eax
   __int64 v17; // r8
@@ -57,9 +57,9 @@ __int64 __fastcall CmFcManagerUpdateFeatureUsageSubscriptions(__int64 a1, __int6
   __int64 v30; // r8
   __int64 v32; // [rsp+38h] [rbp-C8h] BYREF
   __int64 v33; // [rsp+40h] [rbp-C0h] BYREF
-  _KAFFINITY_EX *v34; // [rsp+48h] [rbp-B8h] BYREF
+  struct _LIST_ENTRY *v34; // [rsp+48h] [rbp-B8h] BYREF
   void *v35; // [rsp+50h] [rbp-B0h]
-  unsigned __int64 v36; // [rsp+58h] [rbp-A8h]
+  struct _KTHREAD *v36; // [rsp+58h] [rbp-A8h]
   __int64 v37; // [rsp+60h] [rbp-A0h] BYREF
   _BYTE v38[48]; // [rsp+70h] [rbp-90h] BYREF
   __int64 v39; // [rsp+A0h] [rbp-60h] BYREF
@@ -79,14 +79,14 @@ __int64 __fastcall CmFcManagerUpdateFeatureUsageSubscriptions(__int64 a1, __int6
   memset_0(v38, 0, 0x60uLL);
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  v7 = (AutoBoost *)KeAbPreAcquire((__int64)&CmpFreezeListLock.WaitBlockFill11[160], 0LL, 0LL, v6);
-  v9 = _interlockedbittestandset64((volatile signed __int32 *)&CmpFreezeListLock.WaitBlockFill11[160], 0LL);
+  v7 = (AutoBoost *)KeAbPreAcquire((__int64)&CmpFreezeListLock.Timer.Dpc, 0LL, 0LL, v6);
+  v9 = _interlockedbittestandset64((volatile signed __int32 *)&CmpFreezeListLock.Timer.Dpc, 0LL);
   v10 = v7;
   if ( v9 )
     ExfAcquirePushLockExclusiveEx(
-      (unsigned __int64 *)&CmpFreezeListLock.WaitBlockFill11[160],
+      (unsigned __int64 *)&CmpFreezeListLock.Timer.Dpc,
       v7,
-      (__int64)&CmpFreezeListLock.WaitBlockFill11[160]);
+      (__int64)&CmpFreezeListLock.Timer.Dpc);
   if ( v10 )
   {
     if ( (KiAbpGlobalState & 1) != 0 )
@@ -94,14 +94,14 @@ __int64 __fastcall CmFcManagerUpdateFeatureUsageSubscriptions(__int64 a1, __int6
     else
       *((_BYTE *)v10 + 10) = 1;
   }
-  RtlpFcBufferManagerReferenceBuffers((__int64)&CmpFreezeListLock.600, (__int64)&v32, &v37);
+  RtlpFcBufferManagerReferenceBuffers((__int64)&CmpFreezeListLock.WaitBlock[2].WaitListEntry.Blink, (__int64)&v32, &v37);
   v12 = v37;
   v13 = v32 + 1;
   if ( v32 == -1 )
     v13 = 1LL;
-  v14 = (_KAFFINITY_EX *)v13;
+  v14 = (struct _LIST_ENTRY *)v13;
   v15 = *(_QWORD *)(v37 + 56);
-  v34 = (_KAFFINITY_EX *)v13;
+  v34 = (struct _LIST_ENTRY *)v13;
   v39 = v13;
   v32 = 0LL;
   updated = RtlpFcUpdateUsageTriggers(v15, v11, v33, a3, 0LL, &v32);
@@ -110,7 +110,7 @@ __int64 __fastcall CmFcManagerUpdateFeatureUsageSubscriptions(__int64 a1, __int6
     goto LABEL_9;
   if ( updated == -2147483643 )
   {
-    v18 = CmFcpManagerCreateSection(v32, v13, CmpFreezeListLock.WaitBlock[3].WaitListEntry.Flink, &v34);
+    v18 = CmFcpManagerCreateSection(v32, v13, CmpFreezeListLock.Timer.TimerListEntry.Flink, &v34);
     if ( v18 >= 0 )
     {
       v18 = CmFcpMapSection(&v34, &v39);
@@ -125,19 +125,20 @@ __int64 __fastcall CmFcManagerUpdateFeatureUsageSubscriptions(__int64 a1, __int6
             v3 = v35;
             v14 = v34;
 LABEL_9:
-            RtlpFcBufferManagerDereferenceBuffers((unsigned __int64 *)&CmpFreezeListLock.600, v12, v17);
-            v20 = (AutoBoost *)KeAbPreAcquire(
-                                 (__int64)&CmpFreezeListLock.WaitBlock[3].WaitListEntry.Blink,
-                                 0LL,
-                                 0LL,
-                                 v19);
-            v9 = _interlockedbittestandset64((volatile signed __int32 *)&CmpFreezeListLock.WaitBlockFill11[152], 0LL);
+            RtlpFcBufferManagerDereferenceBuffers(
+              (unsigned __int64 *)&CmpFreezeListLock.WaitBlock[2].WaitListEntry.Blink,
+              v12,
+              v17);
+            v20 = (AutoBoost *)KeAbPreAcquire((__int64)&CmpFreezeListLock.Timer.TimerListEntry.Blink, 0LL, 0LL, v19);
+            v9 = _interlockedbittestandset64(
+                   (volatile signed __int32 *)&CmpFreezeListLock.Timer.TimerListEntry.Blink,
+                   0LL);
             v22 = v20;
             if ( v9 )
               ExfAcquirePushLockExclusiveEx(
-                (unsigned __int64 *)&CmpFreezeListLock.WaitBlock[3].WaitListEntry.Blink,
+                (unsigned __int64 *)&CmpFreezeListLock.Timer.TimerListEntry.Blink,
                 v20,
-                (__int64)&CmpFreezeListLock.WaitBlock[3].WaitListEntry.Blink);
+                (__int64)&CmpFreezeListLock.Timer.TimerListEntry.Blink);
             if ( v22 )
             {
               if ( (KiAbpGlobalState & 1) != 0 )
@@ -145,24 +146,24 @@ LABEL_9:
               else
                 *((_BYTE *)v22 + 10) = 1;
             }
-            v23 = *(void **)&CmpFreezeListLock.UserAffinityPrimaryGroup;
-            *(_QWORD *)&CmpFreezeListLock.UserAffinityPrimaryGroup = v3;
-            CmpFreezeListLock.UserAffinity = v14;
+            v23 = *(void **)&CmpFreezeListLock.WaitBlockFill11[64];
+            *(_QWORD *)&CmpFreezeListLock.WaitBlockFill11[64] = v3;
+            CmpFreezeListLock.WaitBlock[1].WaitListEntry.Blink = v14;
             v3 = v23;
-            CmpFreezeListLock.AffinityVersion = v4;
-            RtlpFcBufferManagerUpdateBuffers(&CmpFreezeListLock.600, v13, v38);
-            RtlpFcWriteHighLowHigh((__int64)&CmpFreezeListLock.WaitBlock[3].Thread, v13);
+            CmpFreezeListLock.WaitBlock[1].Thread = v4;
+            RtlpFcBufferManagerUpdateBuffers(&CmpFreezeListLock.WaitBlockFill11[104], v13, v38);
+            RtlpFcWriteHighLowHigh((__int64)&CmpFreezeListLock.Timer.Processor, v13);
             RtlpFcWriteHighLowHigh(MmWriteableSharedUserData + 2704, v13);
             if ( (_InterlockedExchangeAdd64(
-                    (volatile signed __int64 *)&CmpFreezeListLock.WaitBlock[3].WaitListEntry.Blink,
+                    (volatile signed __int64 *)&CmpFreezeListLock.Timer.TimerListEntry.Blink,
                     0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-              ExfTryToWakePushLock((volatile signed __int64 *)&CmpFreezeListLock.WaitBlock[3].WaitListEntry.Blink);
-            KeAbPostRelease((unsigned __int64)&CmpFreezeListLock.WaitBlock[3].WaitListEntry.Blink);
+              ExfTryToWakePushLock((volatile signed __int64 *)&CmpFreezeListLock.Timer.TimerListEntry.Blink);
+            KeAbPostRelease((unsigned __int64)&CmpFreezeListLock.Timer.TimerListEntry.Blink);
             if ( (_InterlockedExchangeAdd64(
-                    (volatile signed __int64 *)&CmpFreezeListLock.WaitBlockFill11[160],
+                    (volatile signed __int64 *)&CmpFreezeListLock.Timer.Dpc,
                     0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-              ExfTryToWakePushLock((volatile signed __int64 *)&CmpFreezeListLock.WaitBlockFill11[160]);
-            KeAbPostRelease((unsigned __int64)&CmpFreezeListLock.WaitBlockFill11[160]);
+              ExfTryToWakePushLock((volatile signed __int64 *)&CmpFreezeListLock.Timer.Dpc);
+            KeAbPostRelease((unsigned __int64)&CmpFreezeListLock.Timer.Dpc);
             CmFcpManagerPublishChangeNotifications(v24, v13);
             v18 = 0;
             goto LABEL_19;
@@ -174,7 +175,7 @@ LABEL_9:
             v44 = 8LL;
             tlgWriteTransfer_EtwWriteTransfer(
               (__int64)&dword_140E09EB0,
-              (unsigned __int8 *)&word_14005713E,
+              (unsigned __int8 *)byte_140058131,
               0LL,
               0LL,
               3u,
@@ -186,13 +187,14 @@ LABEL_9:
     }
     v3 = v35;
   }
-  if ( (_InterlockedExchangeAdd64(
-          (volatile signed __int64 *)&CmpFreezeListLock.WaitBlockFill11[160],
-          0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock((volatile signed __int64 *)&CmpFreezeListLock.WaitBlockFill11[160]);
-  KeAbPostRelease((unsigned __int64)&CmpFreezeListLock.WaitBlockFill11[160]);
+  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&CmpFreezeListLock.Timer.Dpc, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    ExfTryToWakePushLock((volatile signed __int64 *)&CmpFreezeListLock.Timer.Dpc);
+  KeAbPostRelease((unsigned __int64)&CmpFreezeListLock.Timer.Dpc);
   if ( v12 )
-    RtlpFcBufferManagerDereferenceBuffers((unsigned __int64 *)&CmpFreezeListLock.600, v12, v30);
+    RtlpFcBufferManagerDereferenceBuffers(
+      (unsigned __int64 *)&CmpFreezeListLock.WaitBlock[2].WaitListEntry.Blink,
+      v12,
+      v30);
 LABEL_19:
   v26 = v38;
   v27 = 4LL;

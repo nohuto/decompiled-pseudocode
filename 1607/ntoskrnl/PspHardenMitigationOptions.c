@@ -1,7 +1,7 @@
 /*
- * XREFs of PspHardenMitigationOptions @ 0x1404EC218
+ * XREFs of PspHardenMitigationOptions @ 0x1404CE2A0
  * Callers:
- *     PspAllocateProcess @ 0x14046F030 (PspAllocateProcess.c)
+ *     PspAllocateProcess @ 0x14046DF00 (PspAllocateProcess.c)
  * Callees:
  *     <none>
  */

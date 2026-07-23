@@ -8,22 +8,41 @@
  *     LdrpCreateSoftwareEnclave @ 0x1800D0568 (LdrpCreateSoftwareEnclave.c)
  */
 
-__int64 __fastcall LdrCreateEnclave(__int64 a1, __int64 *a2, __int64 a3, __int64 a4, __int64 a5, int a6)
+// local variable allocation has failed, the output may be wrong!
+NTSTATUS __cdecl LdrCreateEnclave(
+        HANDLE ProcessHandle,
+        PVOID *BaseAddress,
+        ULONG Reserved,
+        SIZE_T Size,
+        SIZE_T InitialCommitment,
+        ULONG EnclaveType,
+        PVOID EnclaveInformation,
+        ULONG EnclaveInformationLength,
+        PULONG EnclaveError)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
   int SoftwareEnclave; // ebx
-  __int64 v10; // [rsp+58h] [rbp-10h]
+  PVOID BaseAddressa; // [rsp+58h] [rbp-10h] BYREF
 
-  v10 = *a2;
-  result = ZwCreateEnclave();
+  BaseAddressa = *BaseAddress;
+  result = ZwCreateEnclave(
+             ProcessHandle,
+             &BaseAddressa,
+             *(ULONG_PTR *)&Reserved,
+             Size,
+             InitialCommitment,
+             EnclaveType,
+             EnclaveInformation,
+             EnclaveInformationLength,
+             EnclaveError);
   SoftwareEnclave = result;
-  if ( (int)result >= 0 )
+  if ( result >= 0 )
   {
-    if ( a6 == 16 && (SoftwareEnclave = LdrpCreateSoftwareEnclave(v10, a4), SoftwareEnclave < 0) )
-      ZwFreeVirtualMemory();
+    if ( EnclaveType == 16 && (SoftwareEnclave = LdrpCreateSoftwareEnclave(BaseAddressa, Size), SoftwareEnclave < 0) )
+      ZwFreeVirtualMemory(ProcessHandle, &BaseAddressa, 0LL, 0x8000u);
     else
-      *a2 = v10;
-    return (unsigned int)SoftwareEnclave;
+      *BaseAddress = BaseAddressa;
+    return SoftwareEnclave;
   }
   return result;
 }

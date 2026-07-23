@@ -1,7 +1,7 @@
 /*
- * XREFs of MiVadExtentCommitted @ 0x14044E770
+ * XREFs of MiVadExtentCommitted @ 0x1404468A0
  * Callers:
- *     MiGetPageProtection @ 0x1403061E4 (MiGetPageProtection.c)
+ *     MiGetPageProtection @ 0x1402E8264 (MiGetPageProtection.c)
  * Callees:
  *     <none>
  */

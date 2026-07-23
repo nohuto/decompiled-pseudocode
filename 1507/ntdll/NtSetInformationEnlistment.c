@@ -6,11 +6,15 @@
  *     <none>
  */
 
-__int64 NtSetInformationEnlistment()
+NTSTATUS __cdecl NtSetInformationEnlistment(
+        HANDLE EnlistmentHandle,
+        ENLISTMENT_INFORMATION_CLASS EnlistmentInformationClass,
+        PVOID EnlistmentInformation,
+        ULONG EnlistmentInformationLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 378LL;
+  result = 378;
   __asm { syscall; Low latency system call }
   return result;
 }

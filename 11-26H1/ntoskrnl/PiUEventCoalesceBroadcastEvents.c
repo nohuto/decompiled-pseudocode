@@ -1,10 +1,10 @@
 /*
- * XREFs of PiUEventCoalesceBroadcastEvents @ 0x140B03D90
+ * XREFs of PiUEventCoalesceBroadcastEvents @ 0x140B059A0
  * Callers:
- *     PiUEventQueueBroadcastEventEntry @ 0x140B03CCC (PiUEventQueueBroadcastEventEntry.c)
+ *     PiUEventQueueBroadcastEventEntry @ 0x140B058DC (PiUEventQueueBroadcastEventEntry.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     RtlEqualUnicodeString @ 0x14091F0E0 (RtlEqualUnicodeString.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     RtlEqualUnicodeString @ 0x140979B40 (RtlEqualUnicodeString.c)
  */
 
 char __fastcall PiUEventCoalesceBroadcastEvents(__int64 a1)

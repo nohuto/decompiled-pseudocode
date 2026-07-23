@@ -1,16 +1,16 @@
 /*
- * XREFs of NtDeleteBootEntry @ 0x1800A1C30
+ * XREFs of NtDeleteBootEntry @ 0x1800A1C50
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 NtDeleteBootEntry()
+NTSTATUS __cdecl NtDeleteBootEntry(ULONG Id)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 203LL;
+  result = 203;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

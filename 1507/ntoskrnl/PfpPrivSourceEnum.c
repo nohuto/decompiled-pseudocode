@@ -227,7 +227,7 @@ LABEL_43:
         memset(v39, 0, 0x60uLL);
         LODWORD(v39[0]) = 0;
         RtlStringCbCopyA((NTSTRSAFE_PSTR)&v39[6] + 4, 0x10uLL, "KernelSpace");
-        v16 = ZwQuerySystemInformation(MaxSystemInfoClass|SystemFileCacheInformation, SystemInformation, 0x40u, 0LL);
+        v16 = ZwQuerySystemInformation(SystemPagedPoolInformationEx, SystemInformation, 0x40u, 0LL);
         if ( v16 >= 0 )
         {
           v16 = MmQuerySystemMemoryInformation(&v48);

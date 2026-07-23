@@ -1,15 +1,15 @@
 /*
- * XREFs of MiGetControlAreaPartition @ 0x140026D5C
+ * XREFs of MiGetControlAreaPartition @ 0x1400268DC
  * Callers:
- *     MiRemoveUnusedSegment @ 0x140026D14 (MiRemoveUnusedSegment.c)
- *     MiReduceUnusedSubsectionCount @ 0x140090524 (MiReduceUnusedSubsectionCount.c)
- *     MmDoesFileHaveUserWritableReferences @ 0x140096CF0 (MmDoesFileHaveUserWritableReferences.c)
- *     MiDeleteCachedSubsection @ 0x1401DE5D0 (MiDeleteCachedSubsection.c)
- *     MiFlushControlArea @ 0x1401DEA98 (MiFlushControlArea.c)
- *     MiPfPrepareSequentialReadList @ 0x1404302F0 (MiPfPrepareSequentialReadList.c)
- *     MiPfPrepareReadList @ 0x140445CF0 (MiPfPrepareReadList.c)
- *     MiCreateSectionForDriver @ 0x14047D2C8 (MiCreateSectionForDriver.c)
- *     MiRelocateImage @ 0x140524330 (MiRelocateImage.c)
+ *     MiRemoveUnusedSegment @ 0x140026894 (MiRemoveUnusedSegment.c)
+ *     MiReduceUnusedSubsectionCount @ 0x14008FC84 (MiReduceUnusedSubsectionCount.c)
+ *     MmDoesFileHaveUserWritableReferences @ 0x1400964F0 (MmDoesFileHaveUserWritableReferences.c)
+ *     MiDeleteCachedSubsection @ 0x1401DE3FC (MiDeleteCachedSubsection.c)
+ *     MiFlushControlArea @ 0x1401DE8C4 (MiFlushControlArea.c)
+ *     MiPfPrepareSequentialReadList @ 0x14042F1C0 (MiPfPrepareSequentialReadList.c)
+ *     MiPfPrepareReadList @ 0x140444BC0 (MiPfPrepareReadList.c)
+ *     MiCreateSectionForDriver @ 0x14048338C (MiCreateSectionForDriver.c)
+ *     MiRelocateImage @ 0x140507390 (MiRelocateImage.c)
  * Callees:
  *     <none>
  */

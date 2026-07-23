@@ -1,29 +1,29 @@
 /*
- * XREFs of RtlpComputeMergedAcl @ 0x1800E74F0
+ * XREFs of RtlpComputeMergedAcl @ 0x1800E74B0
  * Callers:
  *     RtlpSetSecurityObject @ 0x1800777DC (RtlpSetSecurityObject.c)
  * Callees:
  *     RtlFreeHeap @ 0x180024760 (RtlFreeHeap.c)
  *     RtlAllocateHeap @ 0x18002A9A0 (RtlAllocateHeap.c)
- *     RtlpComputeMergedAcl2 @ 0x1800E7628 (RtlpComputeMergedAcl2.c)
+ *     RtlpComputeMergedAcl2 @ 0x1800E75E8 (RtlpComputeMergedAcl2.c)
  */
 
 __int64 __fastcall RtlpComputeMergedAcl(
-        int a1,
-        int a2,
-        int a3,
-        int a4,
+        __int64 a1,
+        unsigned int a2,
+        __int64 a3,
+        unsigned int a4,
         __int64 a5,
         __int64 a6,
         __int64 a7,
         int a8,
-        __int64 *a9,
+        PVOID *a9,
         __int64 a10)
 {
   int v14; // ebp
   void *ProcessHeap; // rsi
   unsigned int v16; // eax
-  __int64 Heap; // rax
+  PVOID Heap; // rax
   unsigned int v18; // edi
   int v20[4]; // [rsp+60h] [rbp-38h] BYREF
 
@@ -32,21 +32,21 @@ __int64 __fastcall RtlpComputeMergedAcl(
   v16 = 1024;
   for ( v20[0] = 1024; ; v16 = v20[0] )
   {
-    Heap = RtlAllocateHeap((__int64)ProcessHeap, 0, v16);
+    Heap = RtlAllocateHeap(ProcessHeap, 0, v16);
     *a9 = Heap;
     if ( !Heap )
       break;
-    v18 = RtlpComputeMergedAcl2(a1, a2, a3, a4, a5, a6, a7, a8, (__int64)v20, Heap, a10);
+    v18 = RtlpComputeMergedAcl2(a1, a2, a3, a4, a5, a6, a7, a8, v20, Heap, a10);
     if ( (v18 & 0x80000000) == 0 )
     {
       if ( !v20[0] )
       {
-        RtlFreeHeap((__int64)ProcessHeap, 0, *a9);
+        RtlFreeHeap(ProcessHeap, 0, *a9);
         *a9 = 0LL;
       }
       return v18;
     }
-    RtlFreeHeap((__int64)ProcessHeap, 0, *a9);
+    RtlFreeHeap(ProcessHeap, 0, *a9);
     *a9 = 0LL;
     if ( v18 != -1073741789 )
       return v18;

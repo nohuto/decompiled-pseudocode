@@ -11,8 +11,8 @@
  *     LdrpLoadShimEngine @ 0x1800703EC (LdrpLoadShimEngine.c)
  *     LdrpMapDllSearchPath @ 0x180071120 (LdrpMapDllSearchPath.c)
  *     LdrpReleaseDllPath @ 0x1800716E4 (LdrpReleaseDllPath.c)
- *     LdrpInitializeImportRedirection @ 0x180084E3C (LdrpInitializeImportRedirection.c)
- *     LdrpLoadWow64 @ 0x1800869A0 (LdrpLoadWow64.c)
+ *     LdrpInitializeImportRedirection @ 0x180084E4C (LdrpInitializeImportRedirection.c)
+ *     LdrpLoadWow64 @ 0x1800869B0 (LdrpLoadWow64.c)
  *     LdrLoadEnclaveModule @ 0x1800CEEC0 (LdrLoadEnclaveModule.c)
  *     LdrpGetProcApphelpCheckModule @ 0x1800D28CC (LdrpGetProcApphelpCheckModule.c)
  * Callees:
@@ -21,18 +21,16 @@
  *     RtlFreeHeap @ 0x180017E40 (RtlFreeHeap.c)
  */
 
-signed __int64 __fastcall RtlReleasePath(__int64 a1, unsigned __int64 a2, unsigned __int64 *a3, __int64 a4)
+void __cdecl RtlReleasePath(PWSTR Path)
 {
-  unsigned __int64 v5; // rdi
-  signed __int64 result; // rax
+  PWSTR v2; // rdi
 
-  RtlAcquireSRWLockExclusive((unsigned __int64)&RtlpCachedPathLock, a2, a3, a4);
-  --*(_QWORD *)(a1 - 32);
-  v5 = a1 - 112;
-  if ( *(_QWORD *)(a1 - 32) )
-    v5 = 0LL;
-  result = RtlReleaseSRWLockExclusive(&RtlpCachedPathLock);
-  if ( v5 )
-    return RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v5);
-  return result;
+  RtlAcquireSRWLockExclusive(&RtlpCachedPathLock);
+  --*((_QWORD *)Path - 4);
+  v2 = Path - 56;
+  if ( *((_QWORD *)Path - 4) )
+    v2 = 0LL;
+  RtlReleaseSRWLockExclusive(&RtlpCachedPathLock);
+  if ( v2 )
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v2);
 }

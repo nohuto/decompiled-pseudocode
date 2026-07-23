@@ -1,19 +1,19 @@
 /*
- * XREFs of MiObtainTransitionPage @ 0x140107214
+ * XREFs of MiObtainTransitionPage @ 0x140104F94
  * Callers:
- *     MiAllocateMostlyContiguous @ 0x140105140 (MiAllocateMostlyContiguous.c)
- *     MiClaimPhysicalRun @ 0x1401063DC (MiClaimPhysicalRun.c)
+ *     MiAllocateMostlyContiguous @ 0x140102EC0 (MiAllocateMostlyContiguous.c)
+ *     MiClaimPhysicalRun @ 0x14010415C (MiClaimPhysicalRun.c)
  * Callees:
- *     MiPageToNode @ 0x14001BA54 (MiPageToNode.c)
- *     MiLockPageInline @ 0x140022E70 (MiLockPageInline.c)
- *     MiIsPfnInline @ 0x140030920 (MiIsPfnInline.c)
- *     MiGetPage @ 0x14003DA50 (MiGetPage.c)
- *     MiIsPfnFileOnly @ 0x14004E980 (MiIsPfnFileOnly.c)
- *     MiPartitionIdToPointer @ 0x1400680A0 (MiPartitionIdToPointer.c)
- *     MiReleaseFreshPage @ 0x1400AC5F4 (MiReleaseFreshPage.c)
- *     MiCanPageMove @ 0x14010745C (MiCanPageMove.c)
- *     MiReplaceTransitionPage @ 0x1401074C4 (MiReplaceTransitionPage.c)
- *     MiSetOriginalPtePfnFromFreeList @ 0x1401F2FB8 (MiSetOriginalPtePfnFromFreeList.c)
+ *     MiPageToNode @ 0x14001B5D4 (MiPageToNode.c)
+ *     MiLockPageInline @ 0x1400229F0 (MiLockPageInline.c)
+ *     MiIsPfnInline @ 0x1400304A0 (MiIsPfnInline.c)
+ *     MiGetPage @ 0x14003D5D0 (MiGetPage.c)
+ *     MiIsPfnFileOnly @ 0x14004E500 (MiIsPfnFileOnly.c)
+ *     MiPartitionIdToPointer @ 0x140067C20 (MiPartitionIdToPointer.c)
+ *     MiReleaseFreshPage @ 0x1400AAB5C (MiReleaseFreshPage.c)
+ *     MiCanPageMove @ 0x1401051DC (MiCanPageMove.c)
+ *     MiReplaceTransitionPage @ 0x140105244 (MiReplaceTransitionPage.c)
+ *     MiSetOriginalPtePfnFromFreeList @ 0x1401F2DE4 (MiSetOriginalPtePfnFromFreeList.c)
  */
 
 __int64 __fastcall MiObtainTransitionPage(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int a5, __int64 *a6)
@@ -58,14 +58,14 @@ LABEL_3:
     v15 = (*(_QWORD *)(a1 + 40) >> 36) & 3LL;
     v16 = MiPageToNode((a1 + 0x58000000000LL) / 48, 0);
     v13 = 32;
-    v14 = (v16 << byte_1403269C9) | v12 & dword_1403269F8 | ((_DWORD)v15 << byte_1403269D8);
+    v14 = (v16 << byte_140326A09) | v12 & dword_140326A38 | ((_DWORD)v15 << byte_140326A18);
     if ( (a5 & 0x3000000) != 0 )
       v13 = 16416;
   }
   else
   {
     v13 = 16;
-    v14 = v12 & dword_1403269F8 | v9 & ~dword_1403269F8;
+    v14 = v12 & dword_140326A38 | v9 & ~dword_140326A38;
   }
   Page = MiGetPage((__int64)v10, v14, v13);
   v18 = Page;

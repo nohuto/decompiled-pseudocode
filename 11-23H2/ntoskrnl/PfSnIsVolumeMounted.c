@@ -3,10 +3,10 @@
  * Callers:
  *     PfSnOpenVolumesForPrefetch @ 0x140686328 (PfSnOpenVolumesForPrefetch.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
  *     NtQueryVolumeInformationFile @ 0x140686AF0 (NtQueryVolumeInformationFile.c)
- *     NtClose @ 0x1406E44C0 (NtClose.c)
- *     NtCreateFile @ 0x14073C600 (NtCreateFile.c)
+ *     NtClose @ 0x1406E44F0 (NtClose.c)
+ *     NtCreateFile @ 0x14073C7F0 (NtCreateFile.c)
  */
 
 __int64 __fastcall PfSnIsVolumeMounted(PCWSTR SourceString, int *a2, int *a3)

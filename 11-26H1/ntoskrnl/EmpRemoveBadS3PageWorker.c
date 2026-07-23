@@ -1,12 +1,12 @@
 /*
- * XREFs of EmpRemoveBadS3PageWorker @ 0x14078D7C0
+ * XREFs of EmpRemoveBadS3PageWorker @ 0x1407902F0
  * Callers:
  *     <none>
  * Callees:
- *     WheaPersistBadPageToBcd @ 0x1406D5E6C (WheaPersistBadPageToBcd.c)
+ *     WheaPersistBadPageToBcd @ 0x1406D9F4C (WheaPersistBadPageToBcd.c)
  */
 
 __int64 EmpRemoveBadS3PageWorker()
 {
-  return WheaPersistBadPageToBcd((unsigned int)EmpBadS3Page);
+  return WheaPersistBadPageToBcd((UNICODE_STRING *)(unsigned int)EmpBadS3Page);
 }

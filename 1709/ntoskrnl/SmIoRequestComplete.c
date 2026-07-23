@@ -11,7 +11,7 @@
 
 void __fastcall SmIoRequestComplete(__int64 a1, _DWORD *a2, __int64 a3, __int64 a4)
 {
-  struct _SLIST_ENTRY *v4; // rbx
+  _SLIST_ENTRY *v4; // rbx
 
   if ( (*a2 & 7) != 0 )
   {
@@ -28,8 +28,8 @@ void __fastcall SmIoRequestComplete(__int64 a1, _DWORD *a2, __int64 a3, __int64 
   }
   else
   {
-    v4 = (struct _SLIST_ENTRY *)(a3 | 0x8000000000000000uLL);
+    v4 = (_SLIST_ENTRY *)(a3 | 0x8000000000000000uLL);
     MiStoreModifiedWriteComplete(a3 | 0x8000000000000000uLL);
-    MiStoreFreeWriteSupport(v4, (union _SLIST_HEADER *)&MiSystemPartition);
+    MiStoreFreeWriteSupport(v4, (_SLIST_HEADER *)&MiSystemPartition);
   }
 }

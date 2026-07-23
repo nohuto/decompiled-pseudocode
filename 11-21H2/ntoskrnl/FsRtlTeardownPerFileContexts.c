@@ -6,8 +6,8 @@
  *     ExAcquireAutoExpandPushLockExclusive @ 0x1402A3C30 (ExAcquireAutoExpandPushLockExclusive.c)
  *     ExCleanupAutoExpandPushLock @ 0x1402A3D50 (ExCleanupAutoExpandPushLock.c)
  *     ExReleaseAutoExpandPushLockExclusive @ 0x1402AC890 (ExReleaseAutoExpandPushLockExclusive.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ *     sub_1402F9540 @ 0x1402F9540 (sub_1402F9540.c)
+ *     sub_14042A5E0 @ 0x14042A5E0 (sub_14042A5E0.c)
  *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
  */
 
@@ -18,7 +18,8 @@ void __stdcall FsRtlTeardownPerFileContexts(PVOID *PerFileContextPointer)
   struct _KTHREAD *CurrentThread; // rax
   __int64 *v4; // rsi
   __int64 v5; // rax
-  struct _KTHREAD *v6; // rax
+  __int64 v6; // rdx
+  struct _KTHREAD *v7; // rax
 
   v1 = (__int64 **)_InterlockedExchange64((volatile __int64 *)PerFileContextPointer, 0LL);
   if ( v1 )
@@ -27,7 +28,7 @@ void __stdcall FsRtlTeardownPerFileContexts(PVOID *PerFileContextPointer)
     if ( *v2 != (__int64 *)v2 )
     {
       CurrentThread = KeGetCurrentThread();
-      --CurrentThread->KernelApcDisable;
+      --*((_WORD *)CurrentThread + 242);
       ExAcquireAutoExpandPushLockExclusive((ULONG_PTR)v1, 0LL);
       while ( 1 )
       {
@@ -40,14 +41,14 @@ void __stdcall FsRtlTeardownPerFileContexts(PVOID *PerFileContextPointer)
         *v2 = (__int64 *)v5;
         *(_QWORD *)(v5 + 8) = v2;
         ExReleaseAutoExpandPushLockExclusive((ULONG_PTR)v1, 0LL);
-        KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
-        ((void (__fastcall *)(__int64 *))v4[4])(v4);
-        v6 = KeGetCurrentThread();
-        --v6->KernelApcDisable;
+        sub_1402F9540((__int64)KeGetCurrentThread());
+        sub_14042A5E0(v4, v6);
+        v7 = KeGetCurrentThread();
+        --*((_WORD *)v7 + 242);
         ExAcquireAutoExpandPushLockExclusive((ULONG_PTR)v1, 0LL);
       }
       ExReleaseAutoExpandPushLockExclusive((ULONG_PTR)v1, 0LL);
-      KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
+      sub_1402F9540((__int64)KeGetCurrentThread());
     }
     ExCleanupAutoExpandPushLock((__int64)v1);
     ExFreePoolWithTag(v1, 0x63665346u);

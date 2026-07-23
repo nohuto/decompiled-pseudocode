@@ -1,16 +1,16 @@
 /*
- * XREFs of EtwpRealtimeDisconnectConsumer @ 0x1404929B0
+ * XREFs of EtwpRealtimeDisconnectConsumer @ 0x140493440
  * Callers:
- *     EtwpCloseRealTimeConnectionObject @ 0x140492B78 (EtwpCloseRealTimeConnectionObject.c)
- *     EtwpRealtimeDisconnectConsumerByHandle @ 0x140492BD0 (EtwpRealtimeDisconnectConsumerByHandle.c)
+ *     EtwpCloseRealTimeConnectionObject @ 0x140493608 (EtwpCloseRealTimeConnectionObject.c)
+ *     EtwpRealtimeDisconnectConsumerByHandle @ 0x140493660 (EtwpRealtimeDisconnectConsumerByHandle.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfReleasePushLock @ 0x1400C8620 (ExfReleasePushLock.c)
- *     EtwpAcquireLoggerContextByLoggerId @ 0x1404900BC (EtwpAcquireLoggerContextByLoggerId.c)
- *     EtwpReleaseLoggerContext @ 0x140490180 (EtwpReleaseLoggerContext.c)
- *     EtwpSynchronizeWithLogger @ 0x140492AB0 (EtwpSynchronizeWithLogger.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfReleasePushLock @ 0x1400C64C0 (ExfReleasePushLock.c)
+ *     EtwpAcquireLoggerContextByLoggerId @ 0x140490B4C (EtwpAcquireLoggerContextByLoggerId.c)
+ *     EtwpReleaseLoggerContext @ 0x140490C10 (EtwpReleaseLoggerContext.c)
+ *     EtwpSynchronizeWithLogger @ 0x140493540 (EtwpSynchronizeWithLogger.c)
  */
 
 __int64 __fastcall EtwpRealtimeDisconnectConsumer(__int64 a1)

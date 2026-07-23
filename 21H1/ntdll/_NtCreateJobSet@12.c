@@ -6,7 +6,7 @@
  *     _Wow64SystemServiceCall@0 @ 0x4B308730 (_Wow64SystemServiceCall@0.c)
  */
 
-int __stdcall NtCreateJobSet(int a1, int a2, int a3)
+NTSTATUS __cdecl NtCreateJobSet(ULONG NumJob, PJOB_SET_ARRAY UserJobSet, ULONG Flags)
 {
   return Wow64SystemServiceCall();
 }

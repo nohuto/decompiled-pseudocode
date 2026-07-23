@@ -73,7 +73,7 @@ __int64 __fastcall PipCallDriverAddDevice(ULONG_PTR BugCheckParameter2, __int64 
   __int64 v28; // rdx
   __int64 v29; // rdx
   int v30; // eax
-  char *v31; // rbx
+  const WNF_STATE_NAME *v31; // rbx
   ULONG v32; // esi
   int v33; // eax
   int v34; // eax
@@ -104,7 +104,7 @@ __int64 __fastcall PipCallDriverAddDevice(ULONG_PTR BugCheckParameter2, __int64 
   _WORD v60[2]; // [rsp+90h] [rbp-70h] BYREF
   int v61; // [rsp+94h] [rbp-6Ch] BYREF
   HANDLE v62; // [rsp+98h] [rbp-68h] BYREF
-  int v63; // [rsp+A0h] [rbp-60h] BYREF
+  LOGICAL v63; // [rsp+A0h] [rbp-60h] BYREF
   _QWORD *AttachedDeviceReferenceWithTag; // [rsp+A8h] [rbp-58h] BYREF
   PVOID Object; // [rsp+B0h] [rbp-50h]
   UNICODE_STRING DestinationString; // [rsp+B8h] [rbp-48h] BYREF
@@ -254,7 +254,7 @@ LABEL_24:
       && v52 )
     {
       RtlInitUnicodeStringEx(&DestinationString, (PCWSTR)SourceString);
-      if ( (_DWORD)InitSafeBootMode )
+      if ( InitSafeBootMode )
       {
         if ( !(unsigned __int8)IopSafebootDriverLoad(&DestinationString) )
         {
@@ -343,7 +343,7 @@ LABEL_42:
                   2,
                   (_DWORD)v62,
                   0LL,
-                  (__int64)DEVPKEY_DeviceClass_ConfigNotifyWnfTriggers,
+                  (__int64)&DEVPKEY_DeviceClass_ConfigNotifyWnfTriggers,
                   (__int64)&v63,
                   (__int64)P,
                   v52,
@@ -370,12 +370,11 @@ LABEL_42:
         {
           if ( v63 == 4099 && (v53 & 7) == 0 && v53 )
           {
-            v31 = (char *)P;
+            v31 = (const WNF_STATE_NAME *)P;
             v32 = v53 >> 3;
             do
             {
-              ZwUpdateWnfStateData((__int64)v31, 0LL);
-              v31 += 8;
+              ZwUpdateWnfStateData(v31++, 0LL, 0, 0LL, 0LL, 0, 0);
               --v32;
             }
             while ( v32 );

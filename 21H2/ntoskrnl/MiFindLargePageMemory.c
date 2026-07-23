@@ -1,20 +1,20 @@
 /*
- * XREFs of MiFindLargePageMemory @ 0x1408DA0E4
+ * XREFs of MiFindLargePageMemory @ 0x1408DA244
  * Callers:
- *     MiAllocateLargeZeroPages @ 0x14055DA5C (MiAllocateLargeZeroPages.c)
+ *     MiAllocateLargeZeroPages @ 0x14055DC9C (MiAllocateLargeZeroPages.c)
  * Callees:
- *     MiProtectionToCacheAttribute @ 0x140241E40 (MiProtectionToCacheAttribute.c)
- *     MiAllocatePool @ 0x14025AD70 (MiAllocatePool.c)
- *     MiSufficientAvailablePages @ 0x140275470 (MiSufficientAvailablePages.c)
- *     MiGetLargestPageIndex @ 0x1402C9DE0 (MiGetLargestPageIndex.c)
- *     MiCreateColorAnchors @ 0x1402E2394 (MiCreateColorAnchors.c)
- *     MiZeroInParallel @ 0x1402E2D60 (MiZeroInParallel.c)
- *     MiDeleteColorAnchors @ 0x1402E40AC (MiDeleteColorAnchors.c)
- *     MiFindContiguousPages @ 0x1403016E0 (MiFindContiguousPages.c)
- *     RtlAvlInsertNodeEx @ 0x140316550 (RtlAvlInsertNodeEx.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     MiUpdateLargePagePfns @ 0x14055EBFC (MiUpdateLargePagePfns.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     MiGetLargestPageIndex @ 0x1402486D0 (MiGetLargestPageIndex.c)
+ *     MiSufficientAvailablePages @ 0x140263410 (MiSufficientAvailablePages.c)
+ *     MiAllocatePool @ 0x14027C2E0 (MiAllocatePool.c)
+ *     MiCreateColorAnchors @ 0x1402936E4 (MiCreateColorAnchors.c)
+ *     MiZeroInParallel @ 0x1402940B0 (MiZeroInParallel.c)
+ *     MiDeleteColorAnchors @ 0x1402953FC (MiDeleteColorAnchors.c)
+ *     MiProtectionToCacheAttribute @ 0x1402E6690 (MiProtectionToCacheAttribute.c)
+ *     MiFindContiguousPages @ 0x14030C430 (MiFindContiguousPages.c)
+ *     RtlAvlInsertNodeEx @ 0x1403212A0 (RtlAvlInsertNodeEx.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     MiUpdateLargePagePfns @ 0x14055EE3C (MiUpdateLargePagePfns.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiFindLargePageMemory(

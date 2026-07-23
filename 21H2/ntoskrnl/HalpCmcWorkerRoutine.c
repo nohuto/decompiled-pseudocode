@@ -1,16 +1,16 @@
 /*
- * XREFs of HalpCmcWorkerRoutine @ 0x140864440
+ * XREFs of HalpCmcWorkerRoutine @ 0x1408645A0
  * Callers:
  *     <none>
  * Callees:
- *     KeCancelTimer @ 0x140260240 (KeCancelTimer.c)
- *     KeQueryActiveProcessorCountEx @ 0x14027B610 (KeQueryActiveProcessorCountEx.c)
- *     KeRevertToUserGroupAffinityThread @ 0x1402EB390 (KeRevertToUserGroupAffinityThread.c)
- *     KeSetSystemGroupAffinityThread @ 0x1402EB4F0 (KeSetSystemGroupAffinityThread.c)
- *     HalpCmcPollProcessor @ 0x1403A0B10 (HalpCmcPollProcessor.c)
- *     WheaLogInternalEvent @ 0x1403BAD50 (WheaLogInternalEvent.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     HalpCmciInit @ 0x1409A1244 (HalpCmciInit.c)
+ *     KeQueryActiveProcessorCountEx @ 0x1402695B0 (KeQueryActiveProcessorCountEx.c)
+ *     KeCancelTimer @ 0x1402819B0 (KeCancelTimer.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x14029C6E0 (KeRevertToUserGroupAffinityThread.c)
+ *     KeSetSystemGroupAffinityThread @ 0x14029C840 (KeSetSystemGroupAffinityThread.c)
+ *     HalpCmcPollProcessor @ 0x1403A0C60 (HalpCmcPollProcessor.c)
+ *     WheaLogInternalEvent @ 0x1403BAEC0 (WheaLogInternalEvent.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     HalpCmciInit @ 0x1409A2174 (HalpCmciInit.c)
  */
 
 void __fastcall HalpCmcWorkerRoutine(__int64 a1)
@@ -22,18 +22,18 @@ void __fastcall HalpCmcWorkerRoutine(__int64 a1)
   int *v5; // r12
   ULONG v6; // edi
   unsigned int v7; // edx
-  struct _GROUP_AFFINITY *p_PreviousAffinity; // rdx
+  _GROUP_AFFINITY *p_PreviousAffinity; // rdx
   __int64 v9; // r13
   unsigned int v10; // ebx
   unsigned int v11; // eax
   unsigned int v12; // edx
   bool v13; // cf
-  struct _GROUP_AFFINITY Affinity; // [rsp+30h] [rbp-31h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+30h] [rbp-31h] BYREF
   __int64 v15; // [rsp+40h] [rbp-21h]
   __int128 Src; // [rsp+48h] [rbp-19h] BYREF
   __int128 v17; // [rsp+58h] [rbp-9h]
   __int128 v18; // [rsp+68h] [rbp+7h]
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+78h] [rbp+17h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+78h] [rbp+17h] BYREF
 
   ++*(_DWORD *)(a1 + 184);
   v1 = a1;

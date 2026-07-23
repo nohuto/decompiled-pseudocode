@@ -1,11 +1,11 @@
 /*
- * XREFs of PopPowerRequestStatsCleanup @ 0x1407A78C8
+ * XREFs of PopPowerRequestStatsCleanup @ 0x1407A7AB8
  * Callers:
- *     PopPowerRequestStatsCreate @ 0x1407A77DC (PopPowerRequestStatsCreate.c)
- *     PopPowerRequestStatsOnSleepstudySessionChange @ 0x140875AA0 (PopPowerRequestStatsOnSleepstudySessionChange.c)
+ *     PopPowerRequestStatsCreate @ 0x1407A79CC (PopPowerRequestStatsCreate.c)
+ *     PopPowerRequestStatsOnSleepstudySessionChange @ 0x140875CE0 (PopPowerRequestStatsOnSleepstudySessionChange.c)
  * Callees:
- *     SleepstudyHelperDestroyBlocker @ 0x1403B5110 (SleepstudyHelperDestroyBlocker.c)
- *     PopPowerRequestStatsFreeId @ 0x1407A8504 (PopPowerRequestStatsFreeId.c)
+ *     SleepstudyHelperDestroyBlocker @ 0x1403B52F0 (SleepstudyHelperDestroyBlocker.c)
+ *     PopPowerRequestStatsFreeId @ 0x1407A86F4 (PopPowerRequestStatsFreeId.c)
  */
 
 __int64 __fastcall PopPowerRequestStatsCleanup(__int64 a1)

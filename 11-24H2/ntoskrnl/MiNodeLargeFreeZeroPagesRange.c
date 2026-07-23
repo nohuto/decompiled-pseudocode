@@ -1,7 +1,7 @@
 /*
- * XREFs of MiNodeLargeFreeZeroPagesRange @ 0x140482F64
+ * XREFs of MiNodeLargeFreeZeroPagesRange @ 0x14047E154
  * Callers:
- *     MiRebuildLargePage @ 0x1403D2BAC (MiRebuildLargePage.c)
+ *     MiRebuildLargePage @ 0x1403F7120 (MiRebuildLargePage.c)
  * Callees:
  *     <none>
  */

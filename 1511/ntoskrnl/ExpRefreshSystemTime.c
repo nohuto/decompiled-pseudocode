@@ -25,7 +25,7 @@ void ExpRefreshSystemTime()
   LARGE_INTEGER v3; // [rsp+20h] [rbp-30h] BYREF
   LARGE_INTEGER SystemTime; // [rsp+28h] [rbp-28h] BYREF
   LARGE_INTEGER Time; // [rsp+30h] [rbp-20h] BYREF
-  struct _TIME_FIELDS TimeFields; // [rsp+38h] [rbp-18h] BYREF
+  _TIME_FIELDS TimeFields; // [rsp+38h] [rbp-18h] BYREF
 
   ExAcquireTimeRefreshLock(1u);
   v0 = ExpSystemIsInCmosMode;

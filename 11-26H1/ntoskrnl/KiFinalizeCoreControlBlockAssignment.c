@@ -1,22 +1,22 @@
 /*
- * XREFs of KiFinalizeCoreControlBlockAssignment @ 0x1405EB014
+ * XREFs of KiFinalizeCoreControlBlockAssignment @ 0x1405ED984
  * Callers:
- *     KiInitializeDynamicProcessorDpc @ 0x140BF5030 (KiInitializeDynamicProcessorDpc.c)
- *     KiConfigureAllSchedulingInformation @ 0x140CC99F0 (KiConfigureAllSchedulingInformation.c)
+ *     KiInitializeDynamicProcessorDpc @ 0x140BFB030 (KiInitializeDynamicProcessorDpc.c)
+ *     KiConfigureAllSchedulingInformation @ 0x140CCFA80 (KiConfigureAllSchedulingInformation.c)
  * Callees:
- *     ?KiCompleteRescheduleContextEntry@@YAXPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KPRCB@@PEAU_KTHREAD@@PEAU_KTHREAD_SCHEDULE_REASON_DATA@@@Z @ 0x14022DEE0 (-KiCompleteRescheduleContextEntry@@YAXPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KPRCB@@PEAU_KTHREAD.c)
- *     KiReleasePrcbLocksForIsolationUnit @ 0x140237A80 (KiReleasePrcbLocksForIsolationUnit.c)
- *     KiCommitRescheduleContext @ 0x14023F070 (KiCommitRescheduleContext.c)
- *     KiFlushSoftwareInterruptBatch @ 0x1402436D0 (KiFlushSoftwareInterruptBatch.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     KiAcquirePrcbLocksForIsolationUnit @ 0x1402BBDD0 (KiAcquirePrcbLocksForIsolationUnit.c)
- *     KiStartRescheduleContext @ 0x14032F5E0 (KiStartRescheduleContext.c)
- *     KiProcessDeferredReadyList @ 0x14037C920 (KiProcessDeferredReadyList.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     KiAddProcessorToCoreControlBlock @ 0x1405EEC18 (KiAddProcessorToCoreControlBlock.c)
- *     KiRemoveProcessorFromCoreControlBlock @ 0x1405EFDBC (KiRemoveProcessorFromCoreControlBlock.c)
- *     KiAdjustRescheduleContextForProcessorAddition @ 0x1405FB550 (KiAdjustRescheduleContextForProcessorAddition.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     ?KiCompleteRescheduleContextEntry@@YAXPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KPRCB@@PEAU_KTHREAD@@PEAU_KTHREAD_SCHEDULE_REASON_DATA@@@Z @ 0x14022F870 (-KiCompleteRescheduleContextEntry@@YAXPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KPRCB@@PEAU_KTHREAD.c)
+ *     KiReleasePrcbLocksForIsolationUnit @ 0x1402393E0 (KiReleasePrcbLocksForIsolationUnit.c)
+ *     KiCommitRescheduleContext @ 0x1402409D0 (KiCommitRescheduleContext.c)
+ *     KiFlushSoftwareInterruptBatch @ 0x140245030 (KiFlushSoftwareInterruptBatch.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     KiAcquirePrcbLocksForIsolationUnit @ 0x140306A90 (KiAcquirePrcbLocksForIsolationUnit.c)
+ *     KiStartRescheduleContext @ 0x140331610 (KiStartRescheduleContext.c)
+ *     KiProcessDeferredReadyList @ 0x14037E6D0 (KiProcessDeferredReadyList.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiAddProcessorToCoreControlBlock @ 0x1405F1588 (KiAddProcessorToCoreControlBlock.c)
+ *     KiRemoveProcessorFromCoreControlBlock @ 0x1405F272C (KiRemoveProcessorFromCoreControlBlock.c)
+ *     KiAdjustRescheduleContextForProcessorAddition @ 0x1405FDFAC (KiAdjustRescheduleContextForProcessorAddition.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall KiFinalizeCoreControlBlockAssignment(__int64 a1, char a2)

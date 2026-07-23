@@ -1,12 +1,12 @@
 /*
  * XREFs of VfDifCaptureDriverEntry @ 0x140209F44
  * Callers:
- *     IopLoadDriver @ 0x1407945D8 (IopLoadDriver.c)
+ *     IopLoadDriver @ 0x1407947C8 (IopLoadDriver.c)
  *     IopInitializeBuiltinDriver @ 0x140B3DB64 (IopInitializeBuiltinDriver.c)
  * Callees:
  *     VfTargetDriversGetNode @ 0x140209F84 (VfTargetDriversGetNode.c)
  *     ViDifCheckCallbackInterception @ 0x14020A524 (ViDifCheckCallbackInterception.c)
- *     ViDifCaptureDriverEntry @ 0x1405CEF4C (ViDifCaptureDriverEntry.c)
+ *     ViDifCaptureDriverEntry @ 0x1405CF4BC (ViDifCaptureDriverEntry.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 

@@ -48,7 +48,7 @@ PSLIST_ENTRY __fastcall CmpFreeKeyControlBlock(ULONG_PTR BugCheckParameter2)
   if ( LOWORD(CmpKcbLookaside.Alignment) >= (unsigned __int16)word_140CDB210 )
   {
     ++dword_140CDB220;
-    result = (PSLIST_ENTRY)((__int64 (__fastcall *)(ULONG_PTR, union _SLIST_HEADER *))qword_140CDB238)(
+    result = (PSLIST_ENTRY)((__int64 (__fastcall *)(ULONG_PTR, _SLIST_HEADER *))qword_140CDB238)(
                              BugCheckParameter2,
                              &CmpKcbLookaside);
   }

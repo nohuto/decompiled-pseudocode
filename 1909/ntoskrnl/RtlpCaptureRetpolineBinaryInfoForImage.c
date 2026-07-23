@@ -10,7 +10,7 @@
  */
 
 __int64 __fastcall RtlpCaptureRetpolineBinaryInfoForImage(
-        PVOID BaseAddress,
+        PVOID BaseOfImage,
         __int64 a2,
         unsigned int a3,
         __int64 a4,
@@ -19,63 +19,67 @@ __int64 __fastcall RtlpCaptureRetpolineBinaryInfoForImage(
 {
   __int64 v7; // r15
   _DWORD *Config; // rax
-  unsigned int v11; // ebx
-  NTSTATUS v12; // eax
-  __int64 v13; // rcx
-  __int64 v14; // rdi
-  unsigned int v15; // ecx
-  unsigned int v16; // r8d
-  unsigned int *v17; // rdx
-  __int64 v18; // rcx
-  unsigned int v19; // eax
+  __int64 v11; // rdx
+  __int64 v12; // r8
+  unsigned int v13; // ebx
+  NTSTATUS v14; // eax
+  __int64 v15; // rcx
+  __int64 v16; // rdi
+  unsigned int v17; // ecx
+  unsigned int v18; // r8d
+  unsigned int *v19; // rdx
   __int64 v20; // rcx
-  char v22; // [rsp+30h] [rbp-28h] BYREF
-  __int64 v23[4]; // [rsp+38h] [rbp-20h] BYREF
+  unsigned int v21; // eax
+  __int64 v22; // rcx
+  _BYTE v24[8]; // [rsp+30h] [rbp-28h] BYREF
+  __int64 v25[4]; // [rsp+38h] [rbp-20h] BYREF
 
   v7 = a3;
   memset(a6, 0, 0x30uLL);
-  Config = (_DWORD *)LdrImageDirectoryEntryToLoadConfig(BaseAddress);
-  v11 = 0;
+  Config = (_DWORD *)LdrImageDirectoryEntryToLoadConfig(BaseOfImage);
+  v13 = 0;
   if ( Config && *Config >= 0xC8u )
   {
     if ( *((_QWORD *)Config + 15) )
       a6[1] = Config[30] - a2;
-    v12 = RtlpImageDirectoryEntryToDataEx((unsigned __int64)BaseAddress, 1, 0xCu, (int)&v22, v23);
-    v13 = v23[0];
-    if ( v12 < 0 )
-      v13 = 0LL;
-    if ( v13 )
-      a6[2] = v13 - (_DWORD)BaseAddress;
+    LOWORD(v12) = 12;
+    LOBYTE(v11) = 1;
+    v14 = RtlpImageDirectoryEntryToDataEx((unsigned __int64)BaseOfImage, v11, v12, (__int64)v24, v25);
+    v15 = v25[0];
+    if ( v14 < 0 )
+      v15 = 0LL;
+    if ( v15 )
+      a6[2] = v15 - (_DWORD)BaseOfImage;
     if ( a4 )
     {
-      v14 = a4 - a2;
-      v15 = a5[18];
-      v16 = a5[19];
-      if ( v15 <= a5[17] )
-        v15 = a5[17];
-      if ( v16 <= v15 )
-        v16 = v15;
-      v17 = a5 + 1;
-      v18 = 16LL;
+      v16 = a4 - a2;
+      v17 = a5[18];
+      v18 = a5[19];
+      if ( v17 <= a5[17] )
+        v17 = a5[17];
+      if ( v18 <= v17 )
+        v18 = v17;
+      v19 = a5 + 1;
+      v20 = 16LL;
       do
       {
-        v19 = v16;
-        v16 = *v17++;
-        if ( v16 <= v19 )
-          v16 = v19;
-        --v18;
+        v21 = v18;
+        v18 = *v19++;
+        if ( v18 <= v21 )
+          v18 = v21;
+        --v20;
       }
-      while ( v18 );
-      v20 = v14 + v16;
-      if ( __OFSUB__(v20, v14) || v20 > 0x7FFFFFFF || v14 - v7 < (__int64)0xFFFFFFFF80000000uLL )
+      while ( v20 );
+      v22 = v16 + v18;
+      if ( __OFSUB__(v22, v16) || v22 > 0x7FFFFFFF || v16 - v7 < (__int64)0xFFFFFFFF80000000uLL )
         return (unsigned int)-1073741776;
       else
-        *a6 = v14;
+        *a6 = v16;
     }
   }
   else
   {
     return (unsigned int)-1073741637;
   }
-  return v11;
+  return v13;
 }

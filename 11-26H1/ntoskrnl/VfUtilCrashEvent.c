@@ -1,7 +1,7 @@
 /*
- * XREFs of VfUtilCrashEvent @ 0x14064073C
+ * XREFs of VfUtilCrashEvent @ 0x14064431C
  * Callers:
- *     Phase1InitializationIoReady @ 0x140CAD020 (Phase1InitializationIoReady.c)
+ *     Phase1InitializationIoReady @ 0x140CB3060 (Phase1InitializationIoReady.c)
  * Callees:
  *     <none>
  */
@@ -20,9 +20,9 @@ char __fastcall VfUtilCrashEvent(__int64 a1)
   *(_DWORD *)a1 = VfBugcheckTmpData;
   v3 = 1;
   *(_QWORD *)(a1 + 8) = BugCheckParameter1;
-  *(_QWORD *)(a1 + 16) = qword_140FEFED8;
+  *(_QWORD *)(a1 + 16) = qword_140FF0ED8;
   v4 = 2LL;
-  *(_OWORD *)(a1 + 24) = *(_OWORD *)&xmmword_140FEFEE0;
+  *(_OWORD *)(a1 + 24) = *(_OWORD *)&xmmword_140FF0EE0;
   do
   {
     *(_DWORD *)(v1 + *(_QWORD *)(a1 + 40)) = *(_DWORD *)((char *)&VfRuleClassesRecord + v1);

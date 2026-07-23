@@ -1,12 +1,12 @@
 /*
- * XREFs of HalMatchAcpiOemTableId @ 0x1403A0F80
+ * XREFs of HalMatchAcpiOemTableId @ 0x1403A1160
  * Callers:
  *     <none>
  * Callees:
- *     HalpAcpiGetTable @ 0x140336FF0 (HalpAcpiGetTable.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memcmp @ 0x1403DA350 (memcmp.c)
- *     memmove @ 0x140435700 (memmove.c)
+ *     HalpAcpiGetTable @ 0x140337280 (HalpAcpiGetTable.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memcmp @ 0x1403DA530 (memcmp.c)
+ *     memmove @ 0x140435B00 (memmove.c)
  */
 
 __int64 __fastcall HalMatchAcpiOemTableId(__int64 a1, __int64 a2, __int64 a3, int a4)

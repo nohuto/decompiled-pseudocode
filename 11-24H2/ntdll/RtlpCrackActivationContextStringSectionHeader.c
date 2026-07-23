@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpCrackActivationContextStringSectionHeader @ 0x180108C64
+ * XREFs of RtlpCrackActivationContextStringSectionHeader @ 0x180103B94
  * Callers:
- *     RtlpQueryInformationActivationContextDetailedInformation @ 0x18001BFD0 (RtlpQueryInformationActivationContextDetailedInformation.c)
- *     RtlpQueryInformationActivationContextManifestResourceName @ 0x18011699C (RtlpQueryInformationActivationContextManifestResourceName.c)
+ *     RtlpQueryInformationActivationContextDetailedInformation @ 0x1800489D0 (RtlpQueryInformationActivationContextDetailedInformation.c)
+ *     RtlpQueryInformationActivationContextManifestResourceName @ 0x180111BD0 (RtlpQueryInformationActivationContextManifestResourceName.c)
  * Callees:
- *     DbgPrintEx @ 0x18005EA90 (DbgPrintEx.c)
+ *     DbgPrintEx @ 0x180074670 (DbgPrintEx.c)
  */
 
 __int64 __fastcall RtlpCrackActivationContextStringSectionHeader(
@@ -26,8 +26,8 @@ __int64 __fastcall RtlpCrackActivationContextStringSectionHeader(
   unsigned int v16; // eax
   unsigned int v17; // r9d
   unsigned int v18; // edi
-  const char *v20; // r8
-  const char *v21; // r8
+  const CHAR *v20; // r8
+  const CHAR *v21; // r8
   int v22; // [rsp+20h] [rbp-28h]
   unsigned __int64 v23; // [rsp+28h] [rbp-20h]
   int v24; // [rsp+28h] [rbp-20h]
@@ -49,7 +49,7 @@ __int64 __fastcall RtlpCrackActivationContextStringSectionHeader(
     v20 = "SXS: %s() passed string section at %p only %Iu bytes long; that's not even enough for the 4-byte magic and 4-b"
           "yte header length!\n";
 LABEL_27:
-    DbgPrintEx(51, 0, v20, "RtlpCrackActivationContextStringSectionHeader", a1, v23);
+    DbgPrintEx(0x33u, 0, v20, "RtlpCrackActivationContextStringSectionHeader", a1, v23);
     return (unsigned int)-1072365565;
   }
   if ( *a1 != 1682469715 )
@@ -57,7 +57,7 @@ LABEL_27:
     v25 = *a1;
     v22 = 1682469715;
     DbgPrintEx(
-      51,
+      0x33u,
       0,
       "SXS: %s() found assembly information section with wrong magic value\n   Expected %lu; got %lu\n",
       "RtlpCrackActivationContextStringSectionHeader",
@@ -98,7 +98,7 @@ LABEL_27:
           "   SearchStructureOffset: %lu\n";
 LABEL_32:
     v24 = v14;
-    DbgPrintEx(51, 0, v21, "RtlpCrackActivationContextStringSectionHeader", a1, v24, v27);
+    DbgPrintEx(0x33u, 0, v21, "RtlpCrackActivationContextStringSectionHeader", a1, v24, v27);
     return (unsigned int)-1072365565;
   }
   v17 = a1[9];
@@ -117,7 +117,7 @@ LABEL_32:
     v28 = 56;
     v26 = a1[10];
     DbgPrintEx(
-      51,
+      0x33u,
       0,
       "SXS: %s() found assembly information section with user data too small\n"
       "   Section header: %p\n"
@@ -131,7 +131,7 @@ LABEL_32:
   if ( v18 + v17 > a2 )
   {
     DbgPrintEx(
-      51,
+      0x33u,
       0,
       "SXS: %s() found assembly information section with user data extending beyond section data\n"
       "   Section header: %p\n"

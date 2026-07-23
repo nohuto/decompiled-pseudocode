@@ -17,7 +17,7 @@ __int64 __fastcall ExReleasePushLockExclusiveEx(ULONG_PTR BugCheckParameter2, UL
   char v2; // bl
   __int64 result; // rax
   struct _KTHREAD *CurrentThread; // rdi
-  __int64 SessionId; // r8
+  unsigned int SessionId; // r8d
   BOOL v7; // r14d
   __int64 v8; // rdx
   bool v9; // zf
@@ -42,9 +42,9 @@ __int64 __fastcall ExReleasePushLockExclusiveEx(ULONG_PTR BugCheckParameter2, UL
     CurrentThread = KeGetCurrentThread();
     v17 = 0;
     if ( (unsigned int)MiGetSystemRegionType(BugCheckParameter2) == 1 )
-      SessionId = (unsigned int)MmGetSessionIdEx(CurrentThread->ApcState.Process);
+      SessionId = MmGetSessionIdEx(CurrentThread->ApcState.Process);
     else
-      SessionId = 0xFFFFFFFFLL;
+      SessionId = -1;
     --CurrentThread->SpecialApcDisable;
     v7 = ++CurrentThread->AbAllocationRegionCount == 1;
     LODWORD(v8) = ((char)CurrentThread->AbEntrySummary | (char)CurrentThread->AbOrphanedEntrySummary) ^ 0x3F;
@@ -61,7 +61,7 @@ __int64 __fastcall ExReleasePushLockExclusiveEx(ULONG_PTR BugCheckParameter2, UL
       if ( (v13->AcquiredByte & 1) != 0
         && (*(_DWORD *)&v13->LockState.0 & 1) == 0
         && (*(_QWORD *)&v13->LockState.0 & 0x7FFFFFFFFFFFFFFCLL) == (BugCheckParameter2 & 0x7FFFFFFFFFFFFFFCLL)
-        && v13->LockState.SessionId == (_DWORD)SessionId )
+        && v13->LockState.SessionId == SessionId )
       {
         v13->AcquiredByte &= ~1u;
         if ( v13->LockState.0 )
@@ -76,13 +76,13 @@ __int64 __fastcall ExReleasePushLockExclusiveEx(ULONG_PTR BugCheckParameter2, UL
     {
 LABEL_23:
       if ( (*((_DWORD *)&CurrentThread->0 + 1) & 0x8000) == 0 )
-        KeBugCheckEx(0x162u, (ULONG_PTR)CurrentThread, BugCheckParameter2, (unsigned int)SessionId, 0LL);
+        KeBugCheckEx(0x162u, (ULONG_PTR)CurrentThread, BugCheckParameter2, SessionId, 0LL);
     }
     else
     {
       v13->CrossThreadReleasableAndBusyByte |= 2u;
       if ( (__int64)v13->LockState.LockState < 0 )
-        KiAbEntryRemoveFromTree((__int64)&CurrentThread->LockEntries[v12], v8, SessionId);
+        KiAbEntryRemoveFromTree(&CurrentThread->LockEntries[v12].TreeNode, v8);
       v14 = v13->BoostBitmap.AllFields & 0x1FFFF;
       v15 = v13->BoostBitmap.AllFields & 0xFFFE0000;
       v13->ThreadLocalFlags &= ~1u;

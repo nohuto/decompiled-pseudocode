@@ -1,20 +1,20 @@
 /*
- * XREFs of MiAllocatePerSessionProtos @ 0x140B11CA8
+ * XREFs of MiAllocatePerSessionProtos @ 0x140B13A28
  * Callers:
- *     MiCreatePerSessionProtos @ 0x1409CFA34 (MiCreatePerSessionProtos.c)
+ *     MiCreatePerSessionProtos @ 0x1409A0A14 (MiCreatePerSessionProtos.c)
  * Callees:
- *     MiChargeCommit @ 0x1402F64A0 (MiChargeCommit.c)
- *     MiReturnCommit @ 0x14036D2B0 (MiReturnCommit.c)
- *     MiAllocateProtoPool @ 0x140396B20 (MiAllocateProtoPool.c)
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     MiReverseSwizzleInvalidPte @ 0x140449070 (MiReverseSwizzleInvalidPte.c)
- *     MmGetCurrentProcessorColor @ 0x14044ADC0 (MmGetCurrentProcessorColor.c)
- *     MiGetControlAreaPartition @ 0x140457F60 (MiGetControlAreaPartition.c)
- *     MiFreeProtoPool @ 0x140458808 (MiFreeProtoPool.c)
- *     MiUpdateSystemProtoPtesTree @ 0x140458D20 (MiUpdateSystemProtoPtesTree.c)
- *     MiMakeSubsectionPte @ 0x1404B5EF8 (MiMakeSubsectionPte.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     MiChargeCommit @ 0x1402D8520 (MiChargeCommit.c)
+ *     MiReturnCommit @ 0x14036F050 (MiReturnCommit.c)
+ *     MiAllocateProtoPool @ 0x1403988A0 (MiAllocateProtoPool.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     MiReverseSwizzleInvalidPte @ 0x140441B60 (MiReverseSwizzleInvalidPte.c)
+ *     MmGetCurrentProcessorColor @ 0x140442EF0 (MmGetCurrentProcessorColor.c)
+ *     MiGetControlAreaPartition @ 0x14044F7D0 (MiGetControlAreaPartition.c)
+ *     MiFreeProtoPool @ 0x140450078 (MiFreeProtoPool.c)
+ *     MiUpdateSystemProtoPtesTree @ 0x140450590 (MiUpdateSystemProtoPtesTree.c)
+ *     MiMakeSubsectionPte @ 0x1404AF348 (MiMakeSubsectionPte.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiAllocatePerSessionProtos(__int64 a1, _QWORD *a2)

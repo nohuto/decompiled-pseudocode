@@ -1,5 +1,5 @@
 /*
- * XREFs of CmCallbackReleaseKeyObjectIDEx @ 0x1404DD060
+ * XREFs of CmCallbackReleaseKeyObjectIDEx @ 0x1404C0664
  * Callers:
  *     <none>
  * Callees:

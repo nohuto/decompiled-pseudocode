@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpPopulateListIndex @ 0x18004CB3C
+ * XREFs of RtlpPopulateListIndex @ 0x18004CB2C
  * Callers:
- *     RtlCreateHeap @ 0x18002BA20 (RtlCreateHeap.c)
- *     RtlpExtendListLookup @ 0x18004D1E4 (RtlpExtendListLookup.c)
+ *     RtlCreateHeap @ 0x18002BA10 (RtlCreateHeap.c)
+ *     RtlpExtendListLookup @ 0x18004D1D4 (RtlpExtendListLookup.c)
  * Callees:
- *     RtlpHeapRemoveListEntry @ 0x1800289EC (RtlpHeapRemoveListEntry.c)
- *     RtlpHeapAddListEntry @ 0x18004C2F4 (RtlpHeapAddListEntry.c)
- *     DbgPrint @ 0x18005C3E0 (DbgPrint.c)
+ *     RtlpHeapRemoveListEntry @ 0x1800289DC (RtlpHeapRemoveListEntry.c)
+ *     RtlpHeapAddListEntry @ 0x18004C2E4 (RtlpHeapAddListEntry.c)
+ *     DbgPrint @ 0x18005C3D0 (DbgPrint.c)
  *     RtlpAnalyzeHeapFailure @ 0x1800F79F4 (RtlpAnalyzeHeapFailure.c)
  *     RtlpHeapHandleError @ 0x1800F7D80 (RtlpHeapHandleError.c)
  */

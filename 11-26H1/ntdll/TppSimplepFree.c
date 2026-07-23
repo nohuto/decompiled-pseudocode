@@ -1,13 +1,13 @@
 /*
- * XREFs of TppSimplepFree @ 0x1800E2CB0
+ * XREFs of TppSimplepFree @ 0x1800E1510
  * Callers:
  *     <none>
  * Callees:
- *     TppCleanupGroupMemberDestroy @ 0x18004D650 (TppCleanupGroupMemberDestroy.c)
+ *     TppCleanupGroupMemberDestroy @ 0x180037BD0 (TppCleanupGroupMemberDestroy.c)
  */
 
-__int64 __fastcall TppSimplepFree(__int64 a1)
+LOGICAL __fastcall TppSimplepFree(_QWORD *BaseAddress)
 {
-  TppCleanupGroupMemberDestroy(a1);
-  return RtlFreeHeap_0();
+  TppCleanupGroupMemberDestroy(BaseAddress);
+  return RtlFreeHeap_0(NtCurrentPeb()->ProcessHeap, TppHeapTag + 0x200000, BaseAddress);
 }

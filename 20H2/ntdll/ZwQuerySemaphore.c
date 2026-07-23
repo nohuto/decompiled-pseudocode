@@ -6,11 +6,16 @@
  *     <none>
  */
 
-__int64 ZwQuerySemaphore()
+NTSTATUS __cdecl ZwQuerySemaphore(
+        HANDLE SemaphoreHandle,
+        SEMAPHORE_INFORMATION_CLASS SemaphoreInformationClass,
+        PVOID SemaphoreInformation,
+        ULONG SemaphoreInformationLength,
+        PULONG ReturnLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 349LL;
+  result = 349;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

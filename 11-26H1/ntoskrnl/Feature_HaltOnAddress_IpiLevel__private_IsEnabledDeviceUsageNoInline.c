@@ -1,9 +1,9 @@
 /*
- * XREFs of Feature_HaltOnAddress_IpiLevel__private_IsEnabledDeviceUsageNoInline @ 0x140526BFC
+ * XREFs of Feature_HaltOnAddress_IpiLevel__private_IsEnabledDeviceUsageNoInline @ 0x14052926C
  * Callers:
- *     KiInitializeVelocity @ 0x140CCA1CC (KiInitializeVelocity.c)
+ *     KiInitializeVelocity @ 0x140CD02B4 (KiInitializeVelocity.c)
  * Callees:
- *     Feature_HaltOnAddress_IpiLevel__private_IsEnabledFallback @ 0x140526C38 (Feature_HaltOnAddress_IpiLevel__private_IsEnabledFallback.c)
+ *     Feature_HaltOnAddress_IpiLevel__private_IsEnabledFallback @ 0x1405292A8 (Feature_HaltOnAddress_IpiLevel__private_IsEnabledFallback.c)
  */
 
 __int64 Feature_HaltOnAddress_IpiLevel__private_IsEnabledDeviceUsageNoInline()

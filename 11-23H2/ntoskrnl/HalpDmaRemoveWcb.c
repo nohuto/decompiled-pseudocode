@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpDmaRemoveWcb @ 0x140500778
+ * XREFs of HalpDmaRemoveWcb @ 0x140500CC8
  * Callers:
- *     HalCancelAdapterChannel @ 0x14050EEA0 (HalCancelAdapterChannel.c)
- *     HalCancelAdapterChannelDmaThin @ 0x140512F30 (HalCancelAdapterChannelDmaThin.c)
- *     HalCancelAdapterChannelDmarThin @ 0x140513720 (HalCancelAdapterChannelDmarThin.c)
+ *     HalCancelAdapterChannel @ 0x14050F3F0 (HalCancelAdapterChannel.c)
+ *     HalCancelAdapterChannelDmaThin @ 0x140513480 (HalCancelAdapterChannelDmaThin.c)
+ *     HalCancelAdapterChannelDmarThin @ 0x140513C70 (HalCancelAdapterChannelDmarThin.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 char __fastcall HalpDmaRemoveWcb(__int64 a1, _QWORD *a2)
@@ -50,10 +50,13 @@ char __fastcall HalpDmaRemoveWcb(__int64 a1, _QWORD *a2)
   }
 LABEL_4:
   KxReleaseSpinLock(v2);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v6 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v6 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -61,7 +64,7 @@ LABEL_4:
       v13 = (v12 & SchedulerAssist[5]) == 0;
       SchedulerAssist[5] &= v12;
       if ( v13 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
     }
   }
   __writecr8(v6);

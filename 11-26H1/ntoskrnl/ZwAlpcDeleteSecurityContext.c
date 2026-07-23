@@ -1,14 +1,14 @@
 /*
- * XREFs of ZwAlpcDeleteSecurityContext @ 0x140724490
+ * XREFs of ZwAlpcDeleteSecurityContext @ 0x140729060
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwAlpcDeleteSecurityContext(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwAlpcDeleteSecurityContext(HANDLE PortHandle, ULONG Flags, ALPC_HANDLE ContextHandle)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(PortHandle);
 }

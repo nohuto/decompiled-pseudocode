@@ -1,9 +1,9 @@
 /*
- * XREFs of CcFastCopyWrite @ 0x1401B1ADC
+ * XREFs of CcFastCopyWrite @ 0x1401B19C0
  * Callers:
  *     <none>
  * Callees:
- *     CcCopyWriteEx @ 0x1400EBDE0 (CcCopyWriteEx.c)
+ *     CcCopyWriteEx @ 0x1400E9C50 (CcCopyWriteEx.c)
  */
 
 // local variable allocation has failed, the output may be wrong!

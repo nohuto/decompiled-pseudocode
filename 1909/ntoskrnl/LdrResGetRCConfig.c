@@ -64,7 +64,7 @@ NTSTATUS __fastcall LdrResGetRCConfig(void *a1, ULONGLONG a2, unsigned int **a3,
     v10 = -1LL;
     goto LABEL_10;
   }
-  v9 = LdrpGetFromMUIMemCache((__int64)a1, 0, 0LL, 8);
+  v9 = LdrpGetFromMUIMemCache((unsigned __int64)a1, 0, 0LL, 8);
   v37 = v9;
   v10 = -1LL;
   if ( v9 == (unsigned int *)-1LL )

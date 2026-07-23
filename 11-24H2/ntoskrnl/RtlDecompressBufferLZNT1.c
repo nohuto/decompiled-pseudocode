@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlDecompressBufferLZNT1 @ 0x1409EC6A0
+ * XREFs of RtlDecompressBufferLZNT1 @ 0x1409E59D0
  * Callers:
- *     RtlDecompressBuffer @ 0x14045A970 (RtlDecompressBuffer.c)
+ *     RtlDecompressBuffer @ 0x14044FDC0 (RtlDecompressBuffer.c)
  * Callees:
- *     LZNT1DecompressChunkNewThread @ 0x1402482A4 (LZNT1DecompressChunkNewThread.c)
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     KeInitializeEvent @ 0x140409D80 (KeInitializeEvent.c)
- *     LZNT1DecompressChunk @ 0x1406B4370 (LZNT1DecompressChunk.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     LZNT1DecompressChunkNewThread @ 0x1402E24E4 (LZNT1DecompressChunkNewThread.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     KeInitializeEvent @ 0x140402260 (KeInitializeEvent.c)
+ *     LZNT1DecompressChunk @ 0x1406B5310 (LZNT1DecompressChunk.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall RtlDecompressBufferLZNT1(

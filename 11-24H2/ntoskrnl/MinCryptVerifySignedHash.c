@@ -1,9 +1,9 @@
 /*
- * XREFs of MinCryptVerifySignedHash @ 0x140824928
+ * XREFs of MinCryptVerifySignedHash @ 0x1408250FC
  * Callers:
- *     MinCryptCheckCertsAndKeys @ 0x14069F3E8 (MinCryptCheckCertsAndKeys.c)
+ *     MinCryptCheckCertsAndKeys @ 0x1406A04EC (MinCryptCheckCertsAndKeys.c)
  * Callees:
- *     MinCryptVerifySignedHash2 @ 0x140824950 (MinCryptVerifySignedHash2.c)
+ *     MinCryptVerifySignedHash2 @ 0x140825124 (MinCryptVerifySignedHash2.c)
  */
 
 __int64 __fastcall MinCryptVerifySignedHash(int a1, int a2, int a3, int a4, __int64 a5)

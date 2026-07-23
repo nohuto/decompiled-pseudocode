@@ -1,14 +1,19 @@
 /*
- * XREFs of ZwQuerySection @ 0x1403FADC0
+ * XREFs of ZwQuerySection @ 0x1403FAFA0
  * Callers:
- *     CmSiGetSectionLength @ 0x140362A2C (CmSiGetSectionLength.c)
+ *     CmSiGetSectionLength @ 0x1402F7C1C (CmSiGetSectionLength.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwQuerySection(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwQuerySection(
+        HANDLE SectionHandle,
+        SECTION_INFORMATION_CLASS SectionInformationClass,
+        PVOID SectionInformation,
+        SIZE_T SectionInformationLength,
+        PSIZE_T ReturnLength)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(SectionHandle);
 }

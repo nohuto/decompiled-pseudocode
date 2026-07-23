@@ -1,9 +1,9 @@
 /*
- * XREFs of ViDeadlockExReleaseFastMutex_Entry @ 0x140C37790
+ * XREFs of ViDeadlockExReleaseFastMutex_Entry @ 0x140C3D7A0
  * Callers:
  *     <none>
  * Callees:
- *     VfDeadlockReleaseResource @ 0x140C4493C (VfDeadlockReleaseResource.c)
+ *     VfDeadlockReleaseResource @ 0x140C4A94C (VfDeadlockReleaseResource.c)
  */
 
 __int64 __fastcall ViDeadlockExReleaseFastMutex_Entry(__int64 a1)

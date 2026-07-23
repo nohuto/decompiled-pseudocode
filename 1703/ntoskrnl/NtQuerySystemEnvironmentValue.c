@@ -31,7 +31,7 @@ NTSTATUS __stdcall NtQuerySystemEnvironmentValue(PUNICODE_STRING Name, PWSTR Val
   NTSTATUS v16; // ebx
   char PreviousMode; // [rsp+20h] [rbp-68h]
   UNICODE_STRING UnicodeString; // [rsp+28h] [rbp-60h] BYREF
-  STRING DestinationString; // [rsp+38h] [rbp-50h] BYREF
+  _STRING DestinationString; // [rsp+38h] [rbp-50h] BYREF
   int v20; // [rsp+48h] [rbp-40h]
   int v21; // [rsp+4Ch] [rbp-3Ch]
   PVOID P; // [rsp+58h] [rbp-30h]

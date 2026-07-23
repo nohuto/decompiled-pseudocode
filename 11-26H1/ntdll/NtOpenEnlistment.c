@@ -1,16 +1,21 @@
 /*
- * XREFs of NtOpenEnlistment @ 0x180161430
+ * XREFs of NtOpenEnlistment @ 0x180161330
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 NtOpenEnlistment()
+NTSTATUS __cdecl NtOpenEnlistment(
+        PHANDLE EnlistmentHandle,
+        ACCESS_MASK DesiredAccess,
+        HANDLE ResourceManagerHandle,
+        LPGUID EnlistmentGuid,
+        POBJECT_ATTRIBUTES ObjectAttributes)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 296LL;
+  result = 296;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

@@ -6,7 +6,7 @@
  *     RtlCreateVirtualAccountSid @ 0x180084530 (RtlCreateVirtualAccountSid.c)
  * Callees:
  *     SHATransform @ 0x180041180 (SHATransform.c)
- *     memmove @ 0x1800A44C0 (memmove.c)
+ *     memmove @ 0x1800A4480 (memmove.c)
  */
 
 __int64 __fastcall A_SHAUpdate(__int64 a1, char *a2, unsigned int a3)

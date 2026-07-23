@@ -1,9 +1,9 @@
 /*
- * XREFs of strncat_s @ 0x14019B850
+ * XREFs of strncat_s @ 0x14019B990
  * Callers:
  *     <none>
  * Callees:
- *     xHalTimerWatchdogStop @ 0x140176800 (xHalTimerWatchdogStop.c)
+ *     xHalTimerWatchdogStop @ 0x140176900 (xHalTimerWatchdogStop.c)
  */
 
 errno_t __cdecl strncat_s(char *a1, rsize_t SizeInBytes, const char *Src, rsize_t MaxCount)

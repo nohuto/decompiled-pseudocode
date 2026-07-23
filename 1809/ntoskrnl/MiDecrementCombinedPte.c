@@ -1,21 +1,21 @@
 /*
- * XREFs of MiDecrementCombinedPte @ 0x14011F9F4
+ * XREFs of MiDecrementCombinedPte @ 0x14011FA64
  * Callers:
  *     MiDeletePteList @ 0x140035B80 (MiDeletePteList.c)
  *     MiDeletePteRun @ 0x140037620 (MiDeletePteRun.c)
- *     MiDecommitPages @ 0x140068950 (MiDecommitPages.c)
- *     MiDeleteVa @ 0x140069700 (MiDeleteVa.c)
- *     MiDeleteSystemPagableVm @ 0x140079F10 (MiDeleteSystemPagableVm.c)
- *     MiDeleteValidSystemPage @ 0x14007A860 (MiDeleteValidSystemPage.c)
- *     MiCopyOnWrite @ 0x1400B45E0 (MiCopyOnWrite.c)
- *     MiDereferenceCombineBlock @ 0x14011F9AC (MiDereferenceCombineBlock.c)
- *     MiProcessCrcList @ 0x14061F320 (MiProcessCrcList.c)
- *     MiDereferenceCombineCrc @ 0x14085EFD4 (MiDereferenceCombineCrc.c)
+ *     MiDecommitPages @ 0x140068940 (MiDecommitPages.c)
+ *     MiDeleteVa @ 0x1400696F0 (MiDeleteVa.c)
+ *     MiDeleteSystemPagableVm @ 0x140079F00 (MiDeleteSystemPagableVm.c)
+ *     MiDeleteValidSystemPage @ 0x14007A850 (MiDeleteValidSystemPage.c)
+ *     MiCopyOnWrite @ 0x1400B4520 (MiCopyOnWrite.c)
+ *     MiDereferenceCombineBlock @ 0x14011FA1C (MiDereferenceCombineBlock.c)
+ *     MiProcessCrcList @ 0x140620320 (MiProcessCrcList.c)
+ *     MiDereferenceCombineCrc @ 0x140860234 (MiDereferenceCombineCrc.c)
  * Callees:
- *     MiFreeCombineBlock @ 0x14011FAA4 (MiFreeCombineBlock.c)
- *     MiDeleteMergedPte @ 0x14011FC20 (MiDeleteMergedPte.c)
- *     MiLogCombinedPteDelete @ 0x1402CC078 (MiLogCombinedPteDelete.c)
- *     MiReturnCrossPartitionCombineCharges @ 0x1402CC0F0 (MiReturnCrossPartitionCombineCharges.c)
+ *     MiFreeCombineBlock @ 0x14011FB14 (MiFreeCombineBlock.c)
+ *     MiDeleteMergedPte @ 0x14011FC90 (MiDeleteMergedPte.c)
+ *     MiLogCombinedPteDelete @ 0x1402CC268 (MiLogCombinedPteDelete.c)
+ *     MiReturnCrossPartitionCombineCharges @ 0x1402CC2E0 (MiReturnCrossPartitionCombineCharges.c)
  */
 
 __int64 __fastcall MiDecrementCombinedPte(__int64 a1, __int64 a2)
@@ -29,7 +29,7 @@ __int64 __fastcall MiDecrementCombinedPte(__int64 a1, __int64 a2)
   _InterlockedExchangeAdd(v3 + 96, 0xFFFFFFFF);
   v5 = 0;
   if ( a1
-    && *(_QWORD *)(qword_14043A748 + 8LL * *(unsigned __int16 *)(a1 + 174)) != v4
+    && *(_QWORD *)(qword_14043B808 + 8LL * *(unsigned __int16 *)(a1 + 174)) != v4
     && _InterlockedExchangeAdd64((volatile signed __int64 *)(a2 + 8), 0xFFFFFFFFFFFFFFFFuLL) == 1 )
   {
     MiReturnCrossPartitionCombineCharges(v4, 1LL);

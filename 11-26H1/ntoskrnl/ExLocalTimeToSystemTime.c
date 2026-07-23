@@ -1,14 +1,14 @@
 /*
- * XREFs of ExLocalTimeToSystemTime @ 0x1404C6E60
+ * XREFs of ExLocalTimeToSystemTime @ 0x1404C0810
  * Callers:
- *     HalpAcpiRealTimeToUtcTime @ 0x1407801E4 (HalpAcpiRealTimeToUtcTime.c)
- *     PopNetGetNextDueRefreshTime @ 0x1407DA57C (PopNetGetNextDueRefreshTime.c)
- *     ExpRefreshSystemTime @ 0x140836324 (ExpRefreshSystemTime.c)
- *     NtSetSystemTime @ 0x1408366B0 (NtSetSystemTime.c)
- *     ExpRefreshTimeZoneInformation @ 0x140B1209C (ExpRefreshTimeZoneInformation.c)
- *     ExUpdateSystemTimeFromCmos @ 0x140C08734 (ExUpdateSystemTimeFromCmos.c)
+ *     HalpAcpiRealTimeToUtcTime @ 0x140782CE4 (HalpAcpiRealTimeToUtcTime.c)
+ *     PopNetGetNextDueRefreshTime @ 0x1407DE46C (PopNetGetNextDueRefreshTime.c)
+ *     ExpRefreshSystemTime @ 0x14083C564 (ExpRefreshSystemTime.c)
+ *     NtSetSystemTime @ 0x14083C8F0 (NtSetSystemTime.c)
+ *     ExpRefreshTimeZoneInformation @ 0x140B13E1C (ExpRefreshTimeZoneInformation.c)
+ *     ExUpdateSystemTimeFromCmos @ 0x140C0E944 (ExUpdateSystemTimeFromCmos.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x1402150C0 (PsGetCurrentServerSiloGlobals.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x1402153F0 (PsGetCurrentServerSiloGlobals.c)
  */
 
 void __stdcall ExLocalTimeToSystemTime(PLARGE_INTEGER LocalTime, PLARGE_INTEGER SystemTime)

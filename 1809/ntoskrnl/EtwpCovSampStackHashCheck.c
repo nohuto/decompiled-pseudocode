@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwpCovSampStackHashCheck @ 0x1408C7734
+ * XREFs of EtwpCovSampStackHashCheck @ 0x1408C89F4
  * Callers:
- *     EtwpCovSampCaptureBufferMapAddressesAndQueue @ 0x1408C3B48 (EtwpCovSampCaptureBufferMapAddressesAndQueue.c)
- *     EtwpCovSampCaptureBufferProcess @ 0x1408C3C5C (EtwpCovSampCaptureBufferProcess.c)
- *     EtwpCovSampSampleBufferProcess @ 0x1408C7564 (EtwpCovSampSampleBufferProcess.c)
+ *     EtwpCovSampCaptureBufferMapAddressesAndQueue @ 0x1408C4E08 (EtwpCovSampCaptureBufferMapAddressesAndQueue.c)
+ *     EtwpCovSampCaptureBufferProcess @ 0x1408C4F1C (EtwpCovSampCaptureBufferProcess.c)
+ *     EtwpCovSampSampleBufferProcess @ 0x1408C8824 (EtwpCovSampSampleBufferProcess.c)
  * Callees:
- *     memset @ 0x1401D1880 (memset.c)
- *     EtwpCovSampStackHashLookup @ 0x1408C7968 (EtwpCovSampStackHashLookup.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     EtwpCovSampStackHashLookup @ 0x1408C8C28 (EtwpCovSampStackHashLookup.c)
  */
 
 __int64 __fastcall EtwpCovSampStackHashCheck(__int64 a1, volatile signed __int32 *a2, unsigned __int8 *a3, __int64 a4)

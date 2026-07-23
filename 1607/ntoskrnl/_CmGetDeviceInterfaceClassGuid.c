@@ -1,14 +1,14 @@
 /*
- * XREFs of _CmGetDeviceInterfaceClassGuid @ 0x1404F8A48
+ * XREFs of _CmGetDeviceInterfaceClassGuid @ 0x1404DB9D4
  * Callers:
- *     IopProcessSetInterfaceState @ 0x1403F26A4 (IopProcessSetInterfaceState.c)
- *     PiSwCompleteCreate @ 0x1404C6A1C (PiSwCompleteCreate.c)
- *     _CmGetDeviceInterfaceMappedPropertyFromComposite @ 0x140503538 (_CmGetDeviceInterfaceMappedPropertyFromComposite.c)
+ *     IopProcessSetInterfaceState @ 0x1403F1568 (IopProcessSetInterfaceState.c)
+ *     PiSwCompleteCreate @ 0x140487650 (PiSwCompleteCreate.c)
+ *     _CmGetDeviceInterfaceMappedPropertyFromComposite @ 0x1404E64C8 (_CmGetDeviceInterfaceMappedPropertyFromComposite.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x1400C39C0 (RtlInitUnicodeStringEx.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     _CmGetDeviceInterfaceClassGuidString @ 0x1404F8AB0 (_CmGetDeviceInterfaceClassGuidString.c)
- *     RtlGUIDFromString @ 0x1404FB370 (RtlGUIDFromString.c)
+ *     RtlInitUnicodeStringEx @ 0x1400C1850 (RtlInitUnicodeStringEx.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     _CmGetDeviceInterfaceClassGuidString @ 0x1404DBA3C (_CmGetDeviceInterfaceClassGuidString.c)
+ *     RtlGUIDFromString @ 0x1404DE2FC (RtlGUIDFromString.c)
  */
 
 int __fastcall CmGetDeviceInterfaceClassGuid(__int64 a1, __int64 a2, GUID *a3)

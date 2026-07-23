@@ -1,8 +1,8 @@
 /*
- * XREFs of MiSystemVaPreserveGuardPage @ 0x1406F57D8
+ * XREFs of MiSystemVaPreserveGuardPage @ 0x1406FA448
  * Callers:
- *     MiExtendDynamicBitMap @ 0x1404FFA5C (MiExtendDynamicBitMap.c)
- *     MiMarkSystemVaAllocated @ 0x14050AA78 (MiMarkSystemVaAllocated.c)
+ *     MiExtendDynamicBitMap @ 0x1404F924C (MiExtendDynamicBitMap.c)
+ *     MiMarkSystemVaAllocated @ 0x1405044E8 (MiMarkSystemVaAllocated.c)
  * Callees:
  *     <none>
  */
@@ -14,7 +14,7 @@ __int64 __fastcall MiSystemVaPreserveGuardPage(__int64 a1, int a2)
   v2 = 0;
   if ( a2 == 4 )
   {
-    LOBYTE(v2) = a1 == qword_140E2D6B8 - 384 + 384LL * (unsigned __int16)KeNumberNodes;
+    LOBYTE(v2) = a1 == qword_140E2D838 - 384 + 384LL * (unsigned __int16)KeNumberNodes;
   }
   else if ( a2 == 5 || a2 == 14 )
   {

@@ -1,9 +1,9 @@
 /*
- * XREFs of Feature_LookasideDepthManager__private_IsEnabledFallback @ 0x1405764AC
+ * XREFs of Feature_LookasideDepthManager__private_IsEnabledFallback @ 0x14057895C
  * Callers:
- *     Feature_LookasideDepthManager__private_IsEnabledDeviceUsageNoInline @ 0x140576470 (Feature_LookasideDepthManager__private_IsEnabledDeviceUsageNoInline.c)
+ *     Feature_LookasideDepthManager__private_IsEnabledDeviceUsageNoInline @ 0x140578920 (Feature_LookasideDepthManager__private_IsEnabledDeviceUsageNoInline.c)
  * Callees:
- *     wil_details_IsEnabledFallback @ 0x1405016DC (wil_details_IsEnabledFallback.c)
+ *     wil_details_IsEnabledFallback @ 0x1404FAECC (wil_details_IsEnabledFallback.c)
  */
 
 __int64 __fastcall Feature_LookasideDepthManager__private_IsEnabledFallback(__int64 a1, unsigned int a2)

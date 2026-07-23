@@ -1,12 +1,12 @@
 /*
- * XREFs of _fgetwc_nolock @ 0x18013146C
+ * XREFs of _fgetwc_nolock @ 0x18012F69C
  * Callers:
- *     ReadString_1 @ 0x1801305DC (ReadString_1.c)
- *     _whiteout @ 0x180130A4C (_whiteout.c)
- *     _winput_s @ 0x180130AA4 (_winput_s.c)
+ *     ReadString_1 @ 0x18012E80C (ReadString_1.c)
+ *     _whiteout @ 0x18012EC7C (_whiteout.c)
+ *     _winput_s @ 0x18012ECD4 (_winput_s.c)
  * Callees:
- *     _filwbuf_s @ 0x18010AB20 (_filwbuf_s.c)
- *     _invalid_parameter @ 0x180120778 (_invalid_parameter.c)
+ *     _filwbuf_s @ 0x180105690 (_filwbuf_s.c)
+ *     _invalid_parameter @ 0x18011E9A8 (_invalid_parameter.c)
  */
 
 wint_t __cdecl fgetwc_nolock(FILE *Stream)

@@ -1,9 +1,9 @@
 /*
- * XREFs of HsaDismissPageFault @ 0x1405A94E0
+ * XREFs of HsaDismissPageFault @ 0x1405ABCF0
  * Callers:
  *     <none>
  * Callees:
- *     HsaIommuSendCommand @ 0x14047E698 (HsaIommuSendCommand.c)
+ *     HsaIommuSendCommand @ 0x140478008 (HsaIommuSendCommand.c)
  */
 
 unsigned __int64 __fastcall HsaDismissPageFault(

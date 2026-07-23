@@ -1,11 +1,11 @@
 /*
- * XREFs of VfNotifyOfHibernate @ 0x14092BDCC
+ * XREFs of VfNotifyOfHibernate @ 0x14092CDCC
  * Callers:
- *     PopInvokeSystemStateHandler @ 0x140568DB8 (PopInvokeSystemStateHandler.c)
+ *     PopInvokeSystemStateHandler @ 0x140569DB8 (PopInvokeSystemStateHandler.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     VfIsVerifierExtensionEnabled @ 0x140309A3C (VfIsVerifierExtensionEnabled.c)
- *     VfDisableHalVerifier @ 0x14030A088 (VfDisableHalVerifier.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     VfIsVerifierExtensionEnabled @ 0x140309C2C (VfIsVerifierExtensionEnabled.c)
+ *     VfDisableHalVerifier @ 0x14030A278 (VfDisableHalVerifier.c)
  */
 
 void __fastcall VfNotifyOfHibernate(char a1)

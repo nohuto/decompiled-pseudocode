@@ -1,21 +1,21 @@
 /*
- * XREFs of EtwTiLogInsertQueueUserApc @ 0x1402C57E0
+ * XREFs of EtwTiLogInsertQueueUserApc @ 0x140243FC0
  * Callers:
- *     IopfCompleteRequest @ 0x1402434C0 (IopfCompleteRequest.c)
- *     KeInsertQueueApc @ 0x14025F8C0 (KeInsertQueueApc.c)
+ *     KeInsertQueueApc @ 0x14027E260 (KeInsertQueueApc.c)
+ *     IopfCompleteRequest @ 0x1402E7D10 (IopfCompleteRequest.c)
  * Callees:
- *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
- *     EtwpTiFillProcessIdentity @ 0x14025F604 (EtwpTiFillProcessIdentity.c)
- *     EtwProviderEnabled @ 0x14025F840 (EtwProviderEnabled.c)
- *     EtwpTiVadQueryEventWrite @ 0x1402C5AA8 (EtwpTiVadQueryEventWrite.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     EtwpTiVadQueryEventWrite @ 0x140244288 (EtwpTiVadQueryEventWrite.c)
+ *     EtwpTiFillProcessIdentity @ 0x14027E4B8 (EtwpTiFillProcessIdentity.c)
+ *     EtwProviderEnabled @ 0x14027E6F0 (EtwProviderEnabled.c)
+ *     EtwEventEnabled @ 0x1402C0830 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 void EtwTiLogInsertQueueUserApc(char a1, __int64 a2, __int64 a3, ...)
 {
-  __int64 v6; // r14
+  _KPROCESS *v6; // r14
   _KPROCESS *Process; // rbx
   _KPROCESS *v8; // r12
   int v9; // eax
@@ -46,9 +46,9 @@ void EtwTiLogInsertQueueUserApc(char a1, __int64 a2, __int64 a3, ...)
   __int64 v34; // [rsp+40h] [rbp-40h] BYREF
   unsigned __int64 v35; // [rsp+48h] [rbp-38h] BYREF
   __int64 v36; // [rsp+50h] [rbp-30h]
-  unsigned __int64 v37; // [rsp+58h] [rbp-28h] BYREF
-  unsigned __int64 v38; // [rsp+60h] [rbp-20h] BYREF
-  unsigned __int64 v39; // [rsp+68h] [rbp-18h] BYREF
+  char v37[8]; // [rsp+58h] [rbp-28h] BYREF
+  char v38[8]; // [rsp+60h] [rbp-20h] BYREF
+  char v39[8]; // [rsp+68h] [rbp-18h] BYREF
   __int64 v40; // [rsp+D8h] [rbp+58h] BYREF
   va_list va; // [rsp+D8h] [rbp+58h]
   __int64 v42; // [rsp+E0h] [rbp+60h] BYREF
@@ -71,11 +71,11 @@ void EtwTiLogInsertQueueUserApc(char a1, __int64 a2, __int64 a3, ...)
   v36 = 0LL;
   if ( EtwProviderEnabled(EtwThreatIntProvRegHandle, 0, 0x3000uLL) )
   {
-    v6 = *(_QWORD *)(a2 + 544);
+    v6 = *(_KPROCESS **)(a2 + 544);
     Process = KeGetCurrentThread()->ApcState.Process;
     v8 = KeGetCurrentThread()->Process;
     v9 = 0;
-    v10 = (_BYTE)v46 ? v8 == (_KPROCESS *)v6 : Process == (_KPROCESS *)v6;
+    v10 = (_BYTE)v46 ? v8 == v6 : Process == v6;
     LOBYTE(v9) = !v10;
     if ( v9 )
     {
@@ -88,14 +88,14 @@ void EtwTiLogInsertQueueUserApc(char a1, __int64 a2, __int64 a3, ...)
         v13 = PoolWithTag;
         if ( PoolWithTag )
         {
-          v14 = EtwpTiFillProcessIdentity(PoolWithTag, (__int64)Process, &v37);
+          v14 = EtwpTiFillProcessIdentity(PoolWithTag, Process, v37);
           CurrentThread = KeGetCurrentThread();
           v17 = (_QWORD *)(v16 + 16LL * v14);
           *v17 = (char *)CurrentThread + 1152;
           v17[1] = 4LL;
           v17[2] = CurrentThread + 1;
           v17[3] = 8LL;
-          v18 = EtwpTiFillProcessIdentity(&v13[2 * v14 + 4], v6, &v38) + v14 + 2;
+          v18 = EtwpTiFillProcessIdentity(&v13[2 * v14 + 4], v6, v38) + v14 + 2;
           v19 = 2LL * v18;
           v18 += 2;
           v20 = &v13[v19];
@@ -103,7 +103,7 @@ void EtwTiLogInsertQueueUserApc(char a1, __int64 a2, __int64 a3, ...)
           v20[1] = 4LL;
           v20[2] = a2 + 1072;
           v20[3] = 8LL;
-          v21 = EtwpTiFillProcessIdentity(&v13[2 * v18], (__int64)v8, &v39);
+          v21 = EtwpTiFillProcessIdentity(&v13[2 * v18], v8, v39);
           LOBYTE(v34) = (*(_DWORD *)(a2 + 116) & 0x10) != 0;
           v22 = v21 + v18;
           v23 = v22 + 1;
@@ -134,7 +134,7 @@ void EtwTiLogInsertQueueUserApc(char a1, __int64 a2, __int64 a3, ...)
           if ( v32 )
             v33 = v40;
           v36 = v33;
-          EtwpTiVadQueryEventWrite((_DWORD)v13, 42, v31, v6, (__int64)&v35, 2, (__int64)v11, v32, v34);
+          EtwpTiVadQueryEventWrite((_DWORD)v13, 42, v31, (_DWORD)v6, (__int64)&v35, 2, (__int64)v11, v32, v34);
           ExFreePoolWithTag(v13, 0);
         }
       }

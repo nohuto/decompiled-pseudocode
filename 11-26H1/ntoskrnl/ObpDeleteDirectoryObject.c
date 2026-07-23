@@ -1,11 +1,11 @@
 /*
- * XREFs of ObpDeleteDirectoryObject @ 0x140AF6E20
+ * XREFs of ObpDeleteDirectoryObject @ 0x140AF94C0
  * Callers:
  *     <none>
  * Callees:
- *     ObDereferenceObjectDeferDelete @ 0x140265670 (ObDereferenceObjectDeferDelete.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     ExfAcquireReleasePushLockExclusive @ 0x140449B6C (ExfAcquireReleasePushLockExclusive.c)
+ *     ObDereferenceObjectDeferDelete @ 0x140264BE0 (ObDereferenceObjectDeferDelete.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     ExfAcquireReleasePushLockExclusive @ 0x140441C9C (ExfAcquireReleasePushLockExclusive.c)
  */
 
 void __fastcall ObpDeleteDirectoryObject(__int64 a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)

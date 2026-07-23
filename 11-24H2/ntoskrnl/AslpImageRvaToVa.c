@@ -1,13 +1,13 @@
 /*
- * XREFs of AslpImageRvaToVa @ 0x14080FE44
+ * XREFs of AslpImageRvaToVa @ 0x140810584
  * Callers:
- *     AslFileMappingGetImageTypeEx @ 0x1408094C0 (AslFileMappingGetImageTypeEx.c)
- *     AslpFileGetClrVersion @ 0x14080CEF8 (AslpFileGetClrVersion.c)
- *     AslpFileGetCrcChecksumBoot @ 0x14080D344 (AslpFileGetCrcChecksumBoot.c)
- *     AslpFileGetImageResourceDirectoryRoot @ 0x14080E06C (AslpFileGetImageResourceDirectoryRoot.c)
- *     AslpFileGetVersionBlockFromResourceRoot @ 0x14080EB1C (AslpFileGetVersionBlockFromResourceRoot.c)
- *     AslpFileIsArm64XBinary @ 0x14080F1D8 (AslpFileIsArm64XBinary.c)
- *     AslpFileQueryExportName @ 0x14080F898 (AslpFileQueryExportName.c)
+ *     AslFileMappingGetImageTypeEx @ 0x140809C00 (AslFileMappingGetImageTypeEx.c)
+ *     AslpFileGetClrVersion @ 0x14080D638 (AslpFileGetClrVersion.c)
+ *     AslpFileGetCrcChecksumBoot @ 0x14080DA84 (AslpFileGetCrcChecksumBoot.c)
+ *     AslpFileGetImageResourceDirectoryRoot @ 0x14080E7AC (AslpFileGetImageResourceDirectoryRoot.c)
+ *     AslpFileGetVersionBlockFromResourceRoot @ 0x14080F25C (AslpFileGetVersionBlockFromResourceRoot.c)
+ *     AslpFileIsArm64XBinary @ 0x14080F918 (AslpFileIsArm64XBinary.c)
+ *     AslpFileQueryExportName @ 0x14080FFD8 (AslpFileQueryExportName.c)
  * Callees:
  *     <none>
  */

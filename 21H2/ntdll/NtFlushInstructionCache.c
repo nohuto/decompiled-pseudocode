@@ -1,16 +1,16 @@
 /*
- * XREFs of NtFlushInstructionCache @ 0x18009F350
+ * XREFs of NtFlushInstructionCache @ 0x18009F310
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 NtFlushInstructionCache()
+NTSTATUS __cdecl NtFlushInstructionCache(HANDLE ProcessHandle, PVOID BaseAddress, SIZE_T Length)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 233LL;
+  result = 233;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

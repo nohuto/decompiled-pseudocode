@@ -1,12 +1,12 @@
 /*
- * XREFs of SepIsSystemAppTCB @ 0x140A1C030
+ * XREFs of SepIsSystemAppTCB @ 0x1409FA5A0
  * Callers:
- *     SeQuerySigningPolicy @ 0x140A1BB40 (SeQuerySigningPolicy.c)
+ *     SeQuerySigningPolicy @ 0x1409FA0B0 (SeQuerySigningPolicy.c)
  * Callees:
- *     PsGetServerSiloGlobals @ 0x140349380 (PsGetServerSiloGlobals.c)
- *     PsGetCurrentServerSilo @ 0x140349A50 (PsGetCurrentServerSilo.c)
- *     RtlPrefixUnicodeString @ 0x14086E3C0 (RtlPrefixUnicodeString.c)
- *     SepIsImageInMinTcbList @ 0x140A1B9DC (SepIsImageInMinTcbList.c)
+ *     PsGetServerSiloGlobals @ 0x1403C2DC0 (PsGetServerSiloGlobals.c)
+ *     PsGetCurrentServerSilo @ 0x1403C3490 (PsGetCurrentServerSilo.c)
+ *     RtlPrefixUnicodeString @ 0x1408726F0 (RtlPrefixUnicodeString.c)
+ *     SepIsImageInMinTcbList @ 0x1409F9F4C (SepIsImageInMinTcbList.c)
  */
 
 __int64 __fastcall SepIsSystemAppTCB(
@@ -48,7 +48,7 @@ __int64 __fastcall SepIsSystemAppTCB(
       return 3221226021LL;
     v15 = v13[96][3].Length;
   }
-  else if ( !RtlPrefixUnicodeString(&stru_140002F30, String2, 1u) )
+  else if ( !RtlPrefixUnicodeString(&stru_140002F18, String2, 1u) )
   {
     return 3221226021LL;
   }

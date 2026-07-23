@@ -1,21 +1,21 @@
 /*
- * XREFs of MiObtainFaultCharges @ 0x14002B530
+ * XREFs of MiObtainFaultCharges @ 0x14002B0B0
  * Callers:
- *     MiMigratePfn @ 0x140036E10 (MiMigratePfn.c)
- *     MiPickClusterForMappedFileFault @ 0x140097890 (MiPickClusterForMappedFileFault.c)
- *     MiPfPutPagesInTransition @ 0x1400E5100 (MiPfPutPagesInTransition.c)
- *     MiResolveMappedFileFault @ 0x1400E68A0 (MiResolveMappedFileFault.c)
- *     MiGetPageForHeader @ 0x1400FDB48 (MiGetPageForHeader.c)
- *     MiPrivateFixup @ 0x14010B3F0 (MiPrivateFixup.c)
- *     MiResolvePageFileFault @ 0x140121360 (MiResolvePageFileFault.c)
- *     MiSwitchToTransition @ 0x1401E8B48 (MiSwitchToTransition.c)
- *     MiPfPrepareSequentialReadList @ 0x1404302F0 (MiPfPrepareSequentialReadList.c)
- *     MiPfPrepareReadList @ 0x140445CF0 (MiPfPrepareReadList.c)
+ *     MiMigratePfn @ 0x140036990 (MiMigratePfn.c)
+ *     MiPickClusterForMappedFileFault @ 0x140097090 (MiPickClusterForMappedFileFault.c)
+ *     MiPfPutPagesInTransition @ 0x1400E2FA0 (MiPfPutPagesInTransition.c)
+ *     MiResolveMappedFileFault @ 0x1400E4740 (MiResolveMappedFileFault.c)
+ *     MiGetPageForHeader @ 0x1400FB8C8 (MiGetPageForHeader.c)
+ *     MiPrivateFixup @ 0x140109170 (MiPrivateFixup.c)
+ *     MiResolvePageFileFault @ 0x1401218D0 (MiResolvePageFileFault.c)
+ *     MiSwitchToTransition @ 0x1401E8974 (MiSwitchToTransition.c)
+ *     MiPfPrepareSequentialReadList @ 0x14042F1C0 (MiPfPrepareSequentialReadList.c)
+ *     MiPfPrepareReadList @ 0x140444BC0 (MiPfPrepareReadList.c)
  * Callees:
- *     MiChargeCommit @ 0x14002B650 (MiChargeCommit.c)
- *     MiReturnFaultCharges @ 0x1400B2F88 (MiReturnFaultCharges.c)
- *     MiChargeResident @ 0x140103450 (MiChargeResident.c)
- *     MiChargePartitionResidentAvailable @ 0x1401034A4 (MiChargePartitionResidentAvailable.c)
+ *     MiChargeCommit @ 0x14002B1D0 (MiChargeCommit.c)
+ *     MiReturnFaultCharges @ 0x1400B0E08 (MiReturnFaultCharges.c)
+ *     MiChargeResident @ 0x1401011D0 (MiChargeResident.c)
+ *     MiChargePartitionResidentAvailable @ 0x140101224 (MiChargePartitionResidentAvailable.c)
  */
 
 __int64 __fastcall MiObtainFaultCharges(int *a1, unsigned int a2, char a3)

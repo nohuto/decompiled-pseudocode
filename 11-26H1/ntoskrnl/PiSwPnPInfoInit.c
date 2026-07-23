@@ -1,12 +1,12 @@
 /*
- * XREFs of PiSwPnPInfoInit @ 0x140A7C254
+ * XREFs of PiSwPnPInfoInit @ 0x140A8D384
  * Callers:
- *     PiSwQueuedCreateInfoCreate @ 0x1407B05E8 (PiSwQueuedCreateInfoCreate.c)
- *     PiSwIrpStartCreateWorker @ 0x140A7B9C8 (PiSwIrpStartCreateWorker.c)
+ *     PiSwQueuedCreateInfoCreate @ 0x1407B3648 (PiSwQueuedCreateInfoCreate.c)
+ *     PiSwIrpStartCreateWorker @ 0x140A8CB08 (PiSwIrpStartCreateWorker.c)
  * Callees:
- *     PnpAllocatePWSTR @ 0x140990AC0 (PnpAllocatePWSTR.c)
- *     PnpAllocateMultiSZ @ 0x140A7C784 (PnpAllocateMultiSZ.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     PnpAllocatePWSTR @ 0x140951520 (PnpAllocatePWSTR.c)
+ *     PnpAllocateMultiSZ @ 0x140A8D8B4 (PnpAllocateMultiSZ.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall PiSwPnPInfoInit(__int64 a1, __int64 a2)

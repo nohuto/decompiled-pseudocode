@@ -1,10 +1,10 @@
 /*
- * XREFs of PfpSectInfoHandleFullBuffer @ 0x140AF5EA0
+ * XREFs of PfpSectInfoHandleFullBuffer @ 0x140AF8540
  * Callers:
  *     <none>
  * Callees:
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     PfTTraceListAdd @ 0x140AF5F5C (PfTTraceListAdd.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     PfTTraceListAdd @ 0x140AF85FC (PfTTraceListAdd.c)
  */
 
 __int64 __fastcall PfpSectInfoHandleFullBuffer(__int64 a1, _DWORD *a2)

@@ -1,15 +1,15 @@
 /*
- * XREFs of PiSwGetChildPdo @ 0x1403F1528
+ * XREFs of PiSwGetChildPdo @ 0x1403F03EC
  * Callers:
- *     PipEnumerateCompleted @ 0x1403F30EC (PipEnumerateCompleted.c)
+ *     PipEnumerateCompleted @ 0x1403F1FB0 (PipEnumerateCompleted.c)
  * Callees:
- *     ObfReferenceObject @ 0x14006A060 (ObfReferenceObject.c)
- *     IoDeleteDevice @ 0x14007F30C (IoDeleteDevice.c)
- *     PiSwFindPdoAssociation @ 0x1403F1654 (PiSwFindPdoAssociation.c)
- *     ObSetSecurityObjectByPointer @ 0x1404072C4 (ObSetSecurityObjectByPointer.c)
- *     IoCreateDevice @ 0x1404734C0 (IoCreateDevice.c)
- *     PiSwMakePdoInactive @ 0x1404C3698 (PiSwMakePdoInactive.c)
- *     PiSwAddPdoAssociation @ 0x1404EFBEC (PiSwAddPdoAssociation.c)
+ *     ObfReferenceObject @ 0x140069BE0 (ObfReferenceObject.c)
+ *     IoDeleteDevice @ 0x14007F38C (IoDeleteDevice.c)
+ *     PiSwFindPdoAssociation @ 0x1403F0518 (PiSwFindPdoAssociation.c)
+ *     ObSetSecurityObjectByPointer @ 0x140406184 (ObSetSecurityObjectByPointer.c)
+ *     IoCreateDevice @ 0x140472390 (IoCreateDevice.c)
+ *     PiSwMakePdoInactive @ 0x140483A00 (PiSwMakePdoInactive.c)
+ *     PiSwAddPdoAssociation @ 0x1404D1C08 (PiSwAddPdoAssociation.c)
  */
 
 PDEVICE_OBJECT __fastcall PiSwGetChildPdo(__int64 a1, __int64 a2, __int64 a3)

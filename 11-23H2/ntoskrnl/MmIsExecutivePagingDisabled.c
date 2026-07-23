@@ -1,8 +1,8 @@
 /*
- * XREFs of MmIsExecutivePagingDisabled @ 0x140282D40
+ * XREFs of MmIsExecutivePagingDisabled @ 0x140282FD0
  * Callers:
- *     MiLockCode @ 0x140282330 (MiLockCode.c)
- *     RtlpWalkFrameChain @ 0x1402A42A0 (RtlpWalkFrameChain.c)
+ *     MiLockCode @ 0x1402825C0 (MiLockCode.c)
+ *     RtlpWalkFrameChain @ 0x1402A4530 (RtlpWalkFrameChain.c)
  * Callees:
  *     <none>
  */

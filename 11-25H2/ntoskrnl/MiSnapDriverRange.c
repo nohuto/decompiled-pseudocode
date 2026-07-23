@@ -29,13 +29,13 @@ __int64 __fastcall MiSnapDriverRange(
         unsigned __int64 *a6)
 {
   unsigned int v6; // esi
-  unsigned __int64 v10; // rbx
-  unsigned __int64 v11; // rdx
+  void *v10; // rbx
+  PIMAGE_NT_HEADERS v11; // rdx
   unsigned __int64 v12; // r10
-  unsigned __int64 v13; // r11
-  __int64 v14; // r9
+  unsigned __int64 SectionAlignment; // r11
+  __int64 NumberOfSections; // r9
   unsigned __int64 v15; // r14
-  __int64 v16; // r8
+  __int64 SizeOfOptionalHeader; // r8
   unsigned __int64 PteAddress; // rbp
   unsigned __int64 v18; // r13
   __int64 *v19; // rdi
@@ -50,14 +50,14 @@ __int64 __fastcall MiSnapDriverRange(
   unsigned int v29; // ecx
   unsigned __int64 v30; // rax
   unsigned __int64 v31; // rax
-  __int64 v32; // rax
-  __int64 v33; // rt1
+  PVOID v32; // rax
+  PVOID v33; // rt1
   bool v34; // zf
   unsigned int v35; // [rsp+20h] [rbp-B8h]
   int v36; // [rsp+24h] [rbp-B4h]
   unsigned __int64 v37; // [rsp+28h] [rbp-B0h]
-  unsigned __int64 v40; // [rsp+58h] [rbp-80h]
-  unsigned __int64 v41; // [rsp+60h] [rbp-78h]
+  void *v40; // [rsp+58h] [rbp-80h]
+  _IMAGE_NT_HEADERS64 *v41; // [rsp+60h] [rbp-78h]
   __int64 v42; // [rsp+68h] [rbp-70h]
   __int64 v43; // [rsp+70h] [rbp-68h] BYREF
   int v44; // [rsp+78h] [rbp-60h]
@@ -70,33 +70,33 @@ __int64 __fastcall MiSnapDriverRange(
   *a5 = 0LL;
   *a6 = 0LL;
   v45 = 0LL;
-  v10 = *(_QWORD *)(a1 + 48);
+  v10 = *(void **)(a1 + 48);
   v46 = 0LL;
   v40 = v10;
   v11 = RtlImageNtHeader(v10);
   v41 = v11;
-  v12 = a4 - v10;
-  v13 = *(unsigned int *)(v11 + 56);
-  v14 = *(unsigned __int16 *)(v11 + 6);
-  v15 = (unsigned int)v13;
-  v37 = a4 - v10;
-  if ( v13 > 0x1000 )
+  v12 = a4 - (_QWORD)v10;
+  SectionAlignment = v11->OptionalHeader.SectionAlignment;
+  NumberOfSections = v11->FileHeader.NumberOfSections;
+  v15 = (unsigned int)SectionAlignment;
+  v37 = a4 - (_QWORD)v10;
+  if ( SectionAlignment > 0x1000 )
     v15 = 4096LL;
-  v36 = *(unsigned __int16 *)(v11 + 6);
-  if ( a2 > (unsigned int)v14 )
+  v36 = v11->FileHeader.NumberOfSections;
+  if ( a2 > (unsigned int)NumberOfSections )
     return 0LL;
-  v16 = *(unsigned __int16 *)(v11 + 20);
-  v42 = v16;
+  SizeOfOptionalHeader = v11->FileHeader.SizeOfOptionalHeader;
+  v42 = SizeOfOptionalHeader;
   v47 = 0x40000000;
   PteAddress = 0LL;
   v18 = 0LL;
-  v19 = (__int64 *)(v11 + v16 + 8 * (v14 + 4 * v14 + 3));
-  DWORD1(v45) = v11 + v16 + 8 * (v14 + 4 * v14 + 3) - v10;
+  v19 = (__int64 *)((char *)&v11->OptionalHeader + 32 * NumberOfSections + 8 * NumberOfSections + SizeOfOptionalHeader);
+  DWORD1(v45) = (_DWORD)v11 + SizeOfOptionalHeader + 8 * (NumberOfSections + 4 * NumberOfSections + 3) - (_DWORD)v10;
   v44 = DWORD1(v45);
-  while ( a2 <= (unsigned int)v14 )
+  while ( a2 <= (unsigned int)NumberOfSections )
   {
     if ( a2 )
-      v19 = (__int64 *)(v11 + v16 + 8 * (a2 - 1 + 4LL * (a2 - 1) + 3));
+      v19 = (__int64 *)((char *)&v11->OptionalHeader + 32 * a2 + 8 * a2 + SizeOfOptionalHeader - 40);
     else
       v19 = &v43;
     v20 = *((_DWORD *)v19 + 4);
@@ -112,8 +112,8 @@ __int64 __fastcall MiSnapDriverRange(
           return 0LL;
 LABEL_28:
         if ( !PteAddress )
-          PteAddress = MiGetPteAddress((v10 + *((unsigned int *)v19 + 3) + 4095LL) & 0xFFFFFFFFFFFFF000uLL);
-        v26 = MiGetPteAddress(-(__int64)v15 & (v10 + v15 + v20 + *((_DWORD *)v19 + 3) - 1LL));
+          PteAddress = MiGetPteAddress(((unsigned __int64)v10 + *((unsigned int *)v19 + 3) + 4095) & 0xFFFFFFFFFFFFF000uLL);
+        v26 = MiGetPteAddress(-(__int64)v15 & ((unsigned __int64)v10 + v15 + v20 + *((_DWORD *)v19 + 3) - 1));
         v18 = v26;
         if ( (v28 & 0xFFF) == 0 || (a3 & 0xC) == 0 || v15 >= 0x1000 )
           v18 = v26 - 8;
@@ -142,7 +142,7 @@ LABEL_28:
         v25 = v24 && v23 == 0;
 LABEL_26:
         v20 = v35;
-        LODWORD(v14) = v36;
+        LODWORD(NumberOfSections) = v36;
         v12 = v37;
         goto LABEL_27;
       }
@@ -189,8 +189,8 @@ LABEL_27:
         {
           goto LABEL_20;
         }
-        v32 = *(_QWORD *)(a1 + 48);
-        v33 = *(_QWORD *)&KeNumberProcessorsGroup0[9];
+        v32 = *(PVOID *)(a1 + 48);
+        v33 = *(PVOID *)&KeNumberProcessorsGroup0[9];
         if ( v32 != v33 && v32 != PsHalImageBase )
           goto LABEL_28;
         v34 = !MiIsKernelHalPadSection((__int64)v19);
@@ -205,7 +205,7 @@ LABEL_20:
       {
         *a5 = PteAddress;
         *a6 = v18;
-        if ( a2 + 1 <= (unsigned int)v14 )
+        if ( a2 + 1 <= (unsigned int)NumberOfSections )
           return a2 + 1;
         return v6;
       }
@@ -214,14 +214,14 @@ LABEL_20:
 LABEL_35:
     v11 = v41;
     ++a2;
-    v16 = v42;
+    SizeOfOptionalHeader = v42;
   }
   if ( PteAddress )
   {
     v29 = *((_DWORD *)v19 + 4);
     if ( v29 < *((_DWORD *)v19 + 2) )
       v29 = *((_DWORD *)v19 + 2);
-    v30 = MiGetPteAddress(((-(__int64)v15 & (v10 + v15 + *((_DWORD *)v19 + 3) + v29 - 1LL)) + 4095) & 0xFFFFFFFFFFFFF000uLL)
+    v30 = MiGetPteAddress(((-(__int64)v15 & ((unsigned __int64)v10 + v15 + *((_DWORD *)v19 + 3) + v29 - 1)) + 4095) & 0xFFFFFFFFFFFFF000uLL)
         - 8;
     if ( PteAddress <= v30 )
     {

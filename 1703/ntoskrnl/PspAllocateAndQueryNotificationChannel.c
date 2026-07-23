@@ -36,15 +36,15 @@ __int64 __fastcall PspAllocateAndQueryNotificationChannel(__int64 a1, __int64 a2
   bool v5; // zf
   char v9; // r15
   __int64 v10; // rdi
-  __int64 v11; // rdx
-  __int64 v12; // r8
   int ObjectSecurity; // edi
-  PSECURITY_DESCRIPTOR v15; // r12
-  void *v16; // r15
-  unsigned __int8 **v17; // r15
+  PSECURITY_DESCRIPTOR v13; // r12
+  void *v14; // r15
+  unsigned __int8 **v15; // r15
   ACL *PoolWithTag; // rax
-  ACL *v19; // rdi
-  char *v20; // rcx
+  ACL *v17; // rdi
+  __int64 v18; // r9
+  char *v19; // rcx
+  PCWNF_TYPE_ID TypeId; // [rsp+20h] [rbp-79h]
   BOOLEAN MemoryAllocated; // [rsp+40h] [rbp-59h] BYREF
   BOOLEAN OwnerDefaulted; // [rsp+41h] [rbp-58h] BYREF
   bool v23; // [rsp+42h] [rbp-57h] BYREF
@@ -57,13 +57,13 @@ __int64 __fastcall PspAllocateAndQueryNotificationChannel(__int64 a1, __int64 a2
   PSECURITY_DESCRIPTOR SecurityDescriptor; // [rsp+78h] [rbp-21h] BYREF
   PVOID TokenInformation; // [rsp+80h] [rbp-19h] BYREF
   _BYTE v32[40]; // [rsp+88h] [rbp-11h] BYREF
-  __int64 v33; // [rsp+B0h] [rbp+17h] BYREF
+  _WNF_STATE_NAME StateName; // [rsp+B0h] [rbp+17h] BYREF
 
   v3 = 0LL;
   v4 = 0;
   v26 = 0LL;
   v5 = (*(_DWORD *)(a2 + 1304) & 0x800) == 0;
-  v33 = 0LL;
+  StateName = 0LL;
   if ( !v5 )
   {
     v9 = 1;
@@ -79,47 +79,47 @@ __int64 __fastcall PspAllocateAndQueryNotificationChannel(__int64 a1, __int64 a2
   ObjectSecurity = ObpGetObjectSecurity(a2, &SecurityDescriptor, &MemoryAllocated, 0);
   if ( ObjectSecurity < 0 )
     return (unsigned int)ObjectSecurity;
-  v15 = SecurityDescriptor;
+  v13 = SecurityDescriptor;
   if ( !SecurityDescriptor )
   {
     ObjectSecurity = -1073741790;
 LABEL_25:
-    ObReleaseObjectSecurity(v15, MemoryAllocated);
+    ObReleaseObjectSecurity(v13, MemoryAllocated);
     return (unsigned int)ObjectSecurity;
   }
   ObjectSecurity = RtlGetOwnerSecurityDescriptor(SecurityDescriptor, &Owner, &OwnerDefaulted);
   if ( ObjectSecurity < 0 )
     goto LABEL_25;
-  v16 = PsReferenceEffectiveToken(a1, &v25, &v23, &v29, 0LL);
-  ObjectSecurity = SeQueryInformationToken(v16, TokenUser, &TokenInformation);
+  v14 = PsReferenceEffectiveToken(a1, &v25, &v23, &v29, 0LL);
+  ObjectSecurity = SeQueryInformationToken(v14, TokenUser, &TokenInformation);
   if ( v25 == 1 )
   {
-    ObFastDereferenceObject((signed __int64 *)(*(_QWORD *)(a1 + 184) + 856LL), (unsigned __int64)v16);
+    ObFastDereferenceObject((signed __int64 *)(*(_QWORD *)(a1 + 184) + 856LL), (unsigned __int64)v14);
   }
-  else if ( v16 )
+  else if ( v14 )
   {
-    ObfDereferenceObject(v16);
+    ObfDereferenceObject(v14);
   }
   if ( ObjectSecurity < 0 )
     goto LABEL_25;
-  v17 = (unsigned __int8 **)TokenInformation;
+  v15 = (unsigned __int8 **)TokenInformation;
   AclLength[0] = 4 * (*((unsigned __int8 *)Owner + 1) + *(unsigned __int8 *)(*(_QWORD *)TokenInformation + 1LL)) + 48;
   PoolWithTag = (ACL *)ExAllocatePoolWithTag(NonPagedPoolNx, AclLength[0], 0x66577350u);
   Dacl = PoolWithTag;
   if ( !PoolWithTag )
     goto LABEL_24;
   RtlCreateAcl(PoolWithTag, AclLength[0], 2u);
-  v19 = Dacl;
+  v17 = Dacl;
   RtlpAddKnownAce(Dacl, 2u, 0, 0x80000000, (unsigned __int8 *)Owner, 0);
-  RtlpAddKnownAce(v19, 2u, 0, 0x80000000, *v17, 0);
+  RtlpAddKnownAce(v17, 2u, 0, 0x80000000, *v15, 0);
   RtlCreateSecurityDescriptor(v32, 1u);
-  RtlSetDaclSecurityDescriptor(v32, 1u, v19, 0);
-  ObjectSecurity = ZwCreateWnfStateName((__int64)&v33, 3LL, 4LL);
+  RtlSetDaclSecurityDescriptor(v32, 1u, v17, 0);
+  ObjectSecurity = ZwCreateWnfStateName(&StateName, WnfTemporaryStateName, WnfDataScopeMachine, 0, 0LL, 0, v32);
   ExFreePoolWithTag(Dacl, 0x66577350u);
   if ( ObjectSecurity < 0 )
   {
 LABEL_24:
-    ExFreePoolWithTag(v17, 0);
+    ExFreePoolWithTag(v15, 0);
     goto LABEL_25;
   }
   v9 = 0;
@@ -132,10 +132,16 @@ LABEL_24:
   }
   else
   {
-    *(_QWORD *)(a2 + 880) = v33;
+    *(_WNF_STATE_NAME *)(a2 + 880) = StateName;
     v3 = &v26;
     PspComputeReportWakeFilter(a2, &v26, a2 + 952, 0LL);
-    PspEnumJobsAndProcessesInJobHierarchy(v20, 0, (int)PspEnableWakeCounters, (int)PspEnableProcessWakeCounters, 0LL, 2);
+    PspEnumJobsAndProcessesInJobHierarchy(
+      v19,
+      0,
+      (int)PspEnableWakeCounters,
+      (int)PspEnableProcessWakeCounters,
+      v18 & (unsigned __int64)TypeId,
+      2);
     _interlockedbittestandset((volatile signed __int32 *)(a2 + 1304), 0xBu);
     _InterlockedIncrement64(&PspJobTimeLimitsRequest);
     v10 = *(_QWORD *)AclLength;
@@ -150,7 +156,7 @@ LABEL_4:
   PspUnlockJob(v10, a1);
   if ( v4 )
   {
-    ZwDeleteWnfStateName((__int64)&v33, v11, v12);
+    ZwDeleteWnfStateName(&StateName);
   }
   else if ( !v9 )
   {

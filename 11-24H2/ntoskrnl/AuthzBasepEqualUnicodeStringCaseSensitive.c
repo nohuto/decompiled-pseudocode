@@ -1,17 +1,17 @@
 /*
- * XREFs of AuthzBasepEqualUnicodeStringCaseSensitive @ 0x140357F14
+ * XREFs of AuthzBasepEqualUnicodeStringCaseSensitive @ 0x1403B88F4
  * Callers:
- *     SeSecurityAttributePresent @ 0x1403438C0 (SeSecurityAttributePresent.c)
- *     AuthzBasepQuerySecurityAttributeAndValues @ 0x1403442B0 (AuthzBasepQuerySecurityAttributeAndValues.c)
- *     AuthzBasepCompareUnicodeStringOperands @ 0x1403468F4 (AuthzBasepCompareUnicodeStringOperands.c)
- *     AuthzBasepEqualUnicodeString @ 0x140357D50 (AuthzBasepEqualUnicodeString.c)
- *     AuthzBasepSecurityAttributePresent @ 0x140357D80 (AuthzBasepSecurityAttributePresent.c)
- *     AuthzBasepFindSecurityAttribute @ 0x140357E50 (AuthzBasepFindSecurityAttribute.c)
- *     SepInternalQuerySecurityAttributesTokenEx @ 0x140358240 (SepInternalQuerySecurityAttributesTokenEx.c)
- *     AuthzBasepQuerySecurityAttributesToken @ 0x140358820 (AuthzBasepQuerySecurityAttributesToken.c)
- *     AuthzBasepCopyoutSecurityAttributes @ 0x140358BA0 (AuthzBasepCopyoutSecurityAttributes.c)
+ *     SeSecurityAttributePresent @ 0x140322DA0 (SeSecurityAttributePresent.c)
+ *     AuthzBasepQuerySecurityAttributeAndValues @ 0x140323790 (AuthzBasepQuerySecurityAttributeAndValues.c)
+ *     AuthzBasepCompareUnicodeStringOperands @ 0x140325368 (AuthzBasepCompareUnicodeStringOperands.c)
+ *     SepInternalQuerySecurityAttributesTokenEx @ 0x1403B7650 (SepInternalQuerySecurityAttributesTokenEx.c)
+ *     AuthzBasepQuerySecurityAttributesToken @ 0x1403B7C30 (AuthzBasepQuerySecurityAttributesToken.c)
+ *     AuthzBasepCopyoutSecurityAttributes @ 0x1403B7FB0 (AuthzBasepCopyoutSecurityAttributes.c)
+ *     AuthzBasepSecurityAttributePresent @ 0x1403B8760 (AuthzBasepSecurityAttributePresent.c)
+ *     AuthzBasepFindSecurityAttribute @ 0x1403B8830 (AuthzBasepFindSecurityAttribute.c)
+ *     AuthzBasepEqualUnicodeString @ 0x1403B8930 (AuthzBasepEqualUnicodeString.c)
  * Callees:
- *     memcmp @ 0x1406BFF10 (memcmp.c)
+ *     memcmp @ 0x1406C0E10 (memcmp.c)
  */
 
 bool __fastcall AuthzBasepEqualUnicodeStringCaseSensitive(const void **a1, __int64 a2)

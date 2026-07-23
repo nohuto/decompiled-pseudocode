@@ -1,13 +1,13 @@
 /*
- * XREFs of MiGetPteMappingSet @ 0x1402841F0
+ * XREFs of MiGetPteMappingSet @ 0x140284480
  * Callers:
- *     MiCopyPage @ 0x140283E10 (MiCopyPage.c)
- *     MiSlowRotateCopy @ 0x140632F64 (MiSlowRotateCopy.c)
- *     MiFillPageWithImageExtentContents @ 0x14063D090 (MiFillPageWithImageExtentContents.c)
- *     MiCopyMemoryPagefileData @ 0x14065FB28 (MiCopyMemoryPagefileData.c)
+ *     MiCopyPage @ 0x1402840A0 (MiCopyPage.c)
+ *     MiSlowRotateCopy @ 0x1406334B4 (MiSlowRotateCopy.c)
+ *     MiFillPageWithImageExtentContents @ 0x14063D5E0 (MiFillPageWithImageExtentContents.c)
+ *     MiCopyMemoryPagefileData @ 0x140660078 (MiCopyMemoryPagefileData.c)
  * Callees:
- *     MiGetUltraMapping @ 0x1402D1A10 (MiGetUltraMapping.c)
- *     MiCreatePteCopyList @ 0x1403608B0 (MiCreatePteCopyList.c)
+ *     MiGetUltraMapping @ 0x1402D1CA0 (MiGetUltraMapping.c)
+ *     MiCreatePteCopyList @ 0x140360A50 (MiCreatePteCopyList.c)
  */
 
 unsigned __int64 __fastcall MiGetPteMappingSet(int a1, __int64 a2, __int64 a3)
@@ -22,7 +22,7 @@ unsigned __int64 __fastcall MiGetPteMappingSet(int a1, __int64 a2, __int64 a3)
   {
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(2uLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
       if ( CurrentIrql == 2 )

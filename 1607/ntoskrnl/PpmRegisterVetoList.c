@@ -1,10 +1,10 @@
 /*
- * XREFs of PpmRegisterVetoList @ 0x14066B6F0
+ * XREFs of PpmRegisterVetoList @ 0x14066B7D4
  * Callers:
  *     <none>
  * Callees:
- *     PopReleaseRwLock @ 0x14000DCD8 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x1400FBFA8 (PopAcquireRwLockExclusive.c)
+ *     PopReleaseRwLock @ 0x14000D858 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x1400F9D28 (PopAcquireRwLockExclusive.c)
  */
 
 __int64 __fastcall PpmRegisterVetoList(__int64 a1)

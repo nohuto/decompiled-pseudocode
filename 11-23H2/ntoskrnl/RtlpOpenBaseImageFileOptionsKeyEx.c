@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpOpenBaseImageFileOptionsKeyEx @ 0x140860254
+ * XREFs of RtlpOpenBaseImageFileOptionsKeyEx @ 0x140860494
  * Callers:
- *     RtlpOpenBaseImageFileOptionsKey @ 0x1407CE1DC (RtlpOpenBaseImageFileOptionsKey.c)
+ *     RtlpOpenBaseImageFileOptionsKey @ 0x1407CE4AC (RtlpOpenBaseImageFileOptionsKey.c)
  * Callees:
- *     ZwOpenKey @ 0x14041AFA0 (ZwOpenKey.c)
+ *     ZwOpenKey @ 0x14041B330 (ZwOpenKey.c)
  */
 
 NTSTATUS __fastcall RtlpOpenBaseImageFileOptionsKeyEx(HANDLE *a1)

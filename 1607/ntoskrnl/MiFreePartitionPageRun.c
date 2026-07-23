@@ -1,11 +1,11 @@
 /*
- * XREFs of MiFreePartitionPageRun @ 0x1401F1A20
+ * XREFs of MiFreePartitionPageRun @ 0x1401F184C
  * Callers:
- *     MiActOnPartitionNodePages @ 0x1401F07A4 (MiActOnPartitionNodePages.c)
- *     MiAllocatePartitionPhysicalPages @ 0x1401F0FD8 (MiAllocatePartitionPhysicalPages.c)
+ *     MiActOnPartitionNodePages @ 0x1401F05D0 (MiActOnPartitionNodePages.c)
+ *     MiAllocatePartitionPhysicalPages @ 0x1401F0E04 (MiAllocatePartitionPhysicalPages.c)
  * Callees:
- *     MiFreeMdlPageRun @ 0x140022A34 (MiFreeMdlPageRun.c)
- *     MiReleaseNonPagedResources @ 0x14013EB1C (MiReleaseNonPagedResources.c)
+ *     MiFreeMdlPageRun @ 0x1400225B4 (MiFreeMdlPageRun.c)
+ *     MiReleaseNonPagedResources @ 0x14013F08C (MiReleaseNonPagedResources.c)
  */
 
 int *__fastcall MiFreePartitionPageRun(int *a1, ULONG_PTR a2, unsigned __int64 a3, int a4)
@@ -20,7 +20,7 @@ int *__fastcall MiFreePartitionPageRun(int *a1, ULONG_PTR a2, unsigned __int64 a
     MiReleaseNonPagedResources((__int64)a1, (unsigned __int64)result);
     result = MiSystemPartition;
     if ( a1 == MiSystemPartition )
-      _InterlockedExchangeAdd64(&qword_1403278E8, -(__int64)v6);
+      _InterlockedExchangeAdd64(&qword_140327928, -(__int64)v6);
   }
   return result;
 }

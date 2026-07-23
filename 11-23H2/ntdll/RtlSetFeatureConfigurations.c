@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlSetFeatureConfigurations @ 0x18010FDD0
+ * XREFs of RtlSetFeatureConfigurations @ 0x18010FDA0
  * Callers:
  *     <none>
  * Callees:
@@ -9,48 +9,37 @@
  *     memmove @ 0x1800A7A40 (memmove.c)
  */
 
-__int64 __fastcall RtlSetFeatureConfigurations(_QWORD *a1, int a2, const void *a3, unsigned __int64 a4)
+NTSTATUS __cdecl RtlSetFeatureConfigurations(
+        PRTL_FEATURE_CHANGE_STAMP PreviousChangeStamp,
+        RTL_FEATURE_CONFIGURATION_TYPE ConfigurationType,
+        PRTL_FEATURE_CONFIGURATION_UPDATE ConfigurationUpdates,
+        SIZE_T ConfigurationUpdateCount)
 {
   int v7; // ebx
   unsigned __int64 v8; // rbx
   int v9; // ebp
-  __int64 Heap; // rax
-  __int64 v11; // rdi
+  char *Heap; // rax
+  void *v11; // rdi
 
-  if ( a4 <= 0xFFFFFFFF )
-  {
-    v8 = 32LL * (unsigned int)a4;
-    v9 = a4;
-    if ( v8 > 0xFFFFFFFF || (unsigned int)v8 >= 0xFFFFFFE8 )
-    {
-      return (unsigned int)-1073741675;
-    }
-    else
-    {
-      Heap = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, (unsigned int)(v8 + 24));
-      v11 = Heap;
-      if ( Heap )
-      {
-        *(_DWORD *)Heap = 0;
-        *(_DWORD *)(Heap + 16) = a2;
-        if ( a1 )
-          *(_QWORD *)(Heap + 8) = *a1;
-        *(_DWORD *)(Heap + 20) = v9;
-        memmove((void *)(Heap + 24), a3, (unsigned int)v8);
-        v7 = ZwSetSystemInformation();
-        if ( v7 >= 0 )
-          v7 = 0;
-        RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v11);
-      }
-      else
-      {
-        return (unsigned int)-1073741670;
-      }
-    }
-  }
-  else
-  {
-    return (unsigned int)-1073741811;
-  }
-  return (unsigned int)v7;
+  if ( ConfigurationUpdateCount > 0xFFFFFFFF )
+    return -1073741811;
+  v8 = 32LL * (unsigned int)ConfigurationUpdateCount;
+  v9 = ConfigurationUpdateCount;
+  if ( v8 > 0xFFFFFFFF || (unsigned int)v8 >= 0xFFFFFFE8 )
+    return -1073741675;
+  Heap = (char *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, (unsigned int)(v8 + 24));
+  v11 = Heap;
+  if ( !Heap )
+    return -1073741670;
+  *(_DWORD *)Heap = 0;
+  *((_DWORD *)Heap + 4) = ConfigurationType;
+  if ( PreviousChangeStamp )
+    *((_QWORD *)Heap + 1) = *PreviousChangeStamp;
+  *((_DWORD *)Heap + 5) = v9;
+  memmove(Heap + 24, ConfigurationUpdates, (unsigned int)v8);
+  v7 = ZwSetSystemInformation(SystemFeatureConfigurationInformation, v11, v8 + 24);
+  if ( v7 >= 0 )
+    v7 = 0;
+  RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v11);
+  return v7;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of MiPageCombiningActive @ 0x140459878
+ * XREFs of MiPageCombiningActive @ 0x14044E5A8
  * Callers:
- *     MiChangePageAttribute @ 0x14021F58C (MiChangePageAttribute.c)
- *     MiSignalLargePageRebuild @ 0x1402D34E0 (MiSignalLargePageRebuild.c)
- *     MiInitializeDynamicPfns @ 0x14066D8BC (MiInitializeDynamicPfns.c)
+ *     MiChangePageAttribute @ 0x14024C2DC (MiChangePageAttribute.c)
+ *     MiSignalLargePageRebuild @ 0x140354758 (MiSignalLargePageRebuild.c)
+ *     MiInitializeDynamicPfns @ 0x14066EA90 (MiInitializeDynamicPfns.c)
  * Callees:
  *     <none>
  */
@@ -14,7 +14,7 @@ bool __fastcall MiPageCombiningActive(__int64 a1)
 
   result = 0;
   if ( !a1 )
-    return dword_140E2FE04 != 0;
+    return dword_140E2FF44 != 0;
   if ( *(_DWORD *)(a1 + 17048) )
     return 1;
   return result;

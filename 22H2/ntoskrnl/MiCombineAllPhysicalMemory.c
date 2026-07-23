@@ -39,7 +39,7 @@ __int64 __fastcall MiCombineAllPhysicalMemory(__int64 a1, __int64 a2, __int64 a3
   __int64 *v16; // r14
   __int64 *v17; // r15
   unsigned __int64 Mask; // rcx
-  struct _GROUP_AFFINITY *p_PreviousAffinity; // rdx
+  _GROUP_AFFINITY *p_PreviousAffinity; // rdx
   _DWORD *v20; // r9
   unsigned int v21; // r8d
   unsigned int *v22; // rdx
@@ -72,7 +72,7 @@ __int64 __fastcall MiCombineAllPhysicalMemory(__int64 a1, __int64 a2, __int64 a3
   __int64 *v51; // [rsp+68h] [rbp-C0h]
   int v52; // [rsp+70h] [rbp-B8h] BYREF
   __int64 *v53; // [rsp+78h] [rbp-B0h]
-  struct _GROUP_AFFINITY Affinity; // [rsp+80h] [rbp-A8h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+80h] [rbp-A8h] BYREF
   unsigned __int64 v55; // [rsp+90h] [rbp-98h] BYREF
   _QWORD *v56; // [rsp+98h] [rbp-90h]
   unsigned int *v57; // [rsp+A0h] [rbp-88h]
@@ -82,7 +82,7 @@ __int64 __fastcall MiCombineAllPhysicalMemory(__int64 a1, __int64 a2, __int64 a3
   __int64 *v61; // [rsp+C0h] [rbp-68h]
   __int64 v62; // [rsp+C8h] [rbp-60h]
   __int128 v63; // [rsp+D0h] [rbp-58h] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+E0h] [rbp-48h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+E0h] [rbp-48h] BYREF
 
   v4 = *(__int64 **)a1;
   v5 = a1;

@@ -1,64 +1,63 @@
 /*
- * XREFs of RtlpWnfRetryTimerCallback @ 0x180113BB0
+ * XREFs of RtlpWnfRetryTimerCallback @ 0x18010EEB0
  * Callers:
  *     <none>
  * Callees:
- *     RtlAcquireSRWLockShared @ 0x180010220 (RtlAcquireSRWLockShared.c)
- *     RtlReleaseSRWLockShared @ 0x180010280 (RtlReleaseSRWLockShared.c)
- *     RtlpWnfProcessCurrentDescriptor @ 0x180020CB0 (RtlpWnfProcessCurrentDescriptor.c)
- *     RtlFreeHeap @ 0x1800269F0 (RtlFreeHeap.c)
- *     RtlAcquireSRWLockExclusive @ 0x180055AE0 (RtlAcquireSRWLockExclusive.c)
- *     RtlReleaseSRWLockExclusive @ 0x1800567B0 (RtlReleaseSRWLockExclusive.c)
- *     RtlpGetFirstWnfNameSubscription @ 0x180113B70 (RtlpGetFirstWnfNameSubscription.c)
- *     RtlpGetNextWnfNameSubscription @ 0x180113D10 (RtlpGetNextWnfNameSubscription.c)
+ *     RtlAcquireSRWLockShared @ 0x18003CC20 (RtlAcquireSRWLockShared.c)
+ *     RtlReleaseSRWLockShared @ 0x18003CC80 (RtlReleaseSRWLockShared.c)
+ *     RtlpWnfProcessCurrentDescriptor @ 0x18004D6B0 (RtlpWnfProcessCurrentDescriptor.c)
+ *     RtlFreeHeap @ 0x1800533F0 (RtlFreeHeap.c)
+ *     RtlAcquireSRWLockExclusive @ 0x18006B6C0 (RtlAcquireSRWLockExclusive.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18006C390 (RtlReleaseSRWLockExclusive.c)
+ *     RtlpGetFirstWnfNameSubscription @ 0x18010EE70 (RtlpGetFirstWnfNameSubscription.c)
+ *     RtlpGetNextWnfNameSubscription @ 0x18010F010 (RtlpGetNextWnfNameSubscription.c)
  */
 
-__int64 RtlpWnfRetryTimerCallback()
+void __fastcall RtlpWnfRetryTimerCallback(PTP_CALLBACK_INSTANCE a1, PVOID a2, PTP_TIMER a3)
 {
-  __int64 v0; // rcx
-  unsigned __int64 v1; // rdi
-  unsigned __int64 v2; // rsi
-  __int64 i; // rax
-  volatile signed __int32 **v4; // rdx
-  unsigned __int64 v5; // r8
-  __int64 v6; // rbx
-  volatile signed __int64 *v7; // rbp
+  _RTL_SRWLOCK *v3; // rcx
+  _WNF_STATE_NAME *Value; // rdi
+  unsigned __int64 v5; // rsi
+  _RTL_SRWLOCK *i; // rax
+  _RTL_SRWLOCK *v7; // rbx
+  _RTL_SRWLOCK *v8; // rbp
   _DWORD v9[10]; // [rsp+20h] [rbp-28h] BYREF
   int v10; // [rsp+68h] [rbp+20h] BYREF
 
   v10 = 0;
   v9[0] = 0;
-  RtlAcquireSRWLockShared((volatile signed __int64 *)(qword_1801CE200 + 8));
-  v0 = qword_1801CE200;
-  *(_QWORD *)(qword_1801CE200 + 80) = 0LL;
-  RtlReleaseSRWLockShared((volatile signed __int64 *)(v0 + 8));
+  RtlAcquireSRWLockShared((PRTL_SRWLOCK)(qword_1801CD200 + 8));
+  v3 = (_RTL_SRWLOCK *)qword_1801CD200;
+  *(_QWORD *)(qword_1801CD200 + 80) = 0LL;
+  RtlReleaseSRWLockShared(v3 + 1);
   while ( 1 )
   {
-    v1 = 0LL;
-    v2 = MEMORY[0x7FFE0008] - RtlpFreezeTimeBias - MEMORY[0x7FFE03B0] + 500000;
-    RtlAcquireSRWLockShared((volatile signed __int64 *)(qword_1801CE200 + 8));
-    for ( i = RtlpGetFirstWnfNameSubscription(); ; i = RtlpGetNextWnfNameSubscription(v6) )
+    Value = 0LL;
+    v5 = MEMORY[0x7FFE0008] - RtlpFreezeTimeBias - MEMORY[0x7FFE03B0] + 500000;
+    RtlAcquireSRWLockShared((PRTL_SRWLOCK)(qword_1801CD200 + 8));
+    for ( i = (_RTL_SRWLOCK *)RtlpGetFirstWnfNameSubscription(); ; i = (_RTL_SRWLOCK *)RtlpGetNextWnfNameSubscription(v7) )
     {
-      v6 = i;
+      v7 = i;
       if ( !i )
         break;
-      v7 = (volatile signed __int64 *)(i + 64);
-      RtlAcquireSRWLockExclusive((volatile signed __int32 *)(i + 64), v4, v5);
-      if ( *(_DWORD *)(v6 + 124) == 2 && v2 >= *(_QWORD *)(v6 + 136) )
+      v8 = i + 8;
+      RtlAcquireSRWLockExclusive(i + 8);
+      if ( HIDWORD(v7[15].Ptr) == 2 && v5 >= v7[17].Value )
       {
-        v1 = *(_QWORD *)(v6 + 128);
-        *(_QWORD *)(v6 + 128) = 0LL;
-        *(_DWORD *)(v6 + 124) = 0;
-        RtlReleaseSRWLockExclusive(v7);
+        Value = (_WNF_STATE_NAME *)v7[16].Value;
+        v7[16].Value = 0LL;
+        HIDWORD(v7[15].Ptr) = 0;
+        RtlReleaseSRWLockExclusive(v8);
         break;
       }
-      RtlReleaseSRWLockExclusive(v7);
+      RtlReleaseSRWLockExclusive(v8);
     }
-    RtlReleaseSRWLockShared((volatile signed __int64 *)(qword_1801CE200 + 8));
-    if ( !v1 )
-      return RtlpWnfCalculateAndSetNextTimer();
-    RtlpWnfProcessCurrentDescriptor(v1, 1, &v10, v9);
+    RtlReleaseSRWLockShared((PRTL_SRWLOCK)(qword_1801CD200 + 8));
+    if ( !Value )
+      break;
+    RtlpWnfProcessCurrentDescriptor(Value, 1, &v10, v9);
     if ( v10 )
-      RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v1);
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Value);
   }
+  RtlpWnfCalculateAndSetNextTimer();
 }

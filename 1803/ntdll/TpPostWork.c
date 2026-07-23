@@ -7,20 +7,22 @@
  *     sub_18002601C @ 0x18002601C (sub_18002601C.c)
  */
 
-__int64 __fastcall TpPostWork(struct _PEB_LDR_DATA *Ldr, __int64 a2, __int64 a3)
+void __cdecl TpPostWork(PTP_WORK Work)
 {
-  struct _PEB_LDR_DATA *v3; // r9
+  __int64 v1; // rdx
+  __int64 v2; // r8
+  PTP_WORK v3; // r9
 
-  v3 = Ldr;
-  if ( Ldr
-    && (unsigned int)sub_18002601C(Ldr, 0LL, a3, Ldr)
-    && v3->SsHandle == off_180110190
-    && (Ldr = NtCurrentPeb()->Ldr, Ldr->ShutdownInProgress == (_BYTE)a2) )
+  v3 = Work;
+  if ( Work
+    && (unsigned int)sub_18002601C(Work, 0LL, v2)
+    && *((__int64 (__fastcall ***)(PVOID))v3 + 1) == &off_180110190
+    && (Work = (PTP_WORK)NtCurrentPeb()->Ldr, *((_BYTE *)Work + 72) == (_BYTE)v1) )
   {
-    return sub_180026040(v3);
+    sub_180026040(v3);
   }
   else
   {
-    return sub_1801086C8(Ldr, a2, a3, v3);
+    sub_1801086C8(Work, v1, v2, v3);
   }
 }

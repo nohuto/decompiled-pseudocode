@@ -1,12 +1,12 @@
 /*
- * XREFs of KiPopulateTrivialProcessorSelectionResult @ 0x140293580
+ * XREFs of KiPopulateTrivialProcessorSelectionResult @ 0x1402A3180
  * Callers:
- *     KiDeferredReadySingleThread @ 0x14031ED40 (KiDeferredReadySingleThread.c)
+ *     KiDeferredReadySingleThread @ 0x1402C78D0 (KiDeferredReadySingleThread.c)
  * Callees:
- *     HvlNotifyLongSpinWait @ 0x140293260 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140293290 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     KiIsIsolationUnitIdleByHandle @ 0x140293BF0 (KiIsIsolationUnitIdleByHandle.c)
- *     KiAcquirePrcbLocksForPreemptionAttemptSlowPath @ 0x1404CC7A8 (KiAcquirePrcbLocksForPreemptionAttemptSlowPath.c)
+ *     HvlNotifyLongSpinWait @ 0x1402A2E60 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402A2E90 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     KiIsIsolationUnitIdleByHandle @ 0x1402A37F0 (KiIsIsolationUnitIdleByHandle.c)
+ *     KiAcquirePrcbLocksForPreemptionAttemptSlowPath @ 0x1402A6534 (KiAcquirePrcbLocksForPreemptionAttemptSlowPath.c)
  */
 
 __int64 __fastcall KiPopulateTrivialProcessorSelectionResult(unsigned __int64 *a1, __int64 a2, __int64 a3)

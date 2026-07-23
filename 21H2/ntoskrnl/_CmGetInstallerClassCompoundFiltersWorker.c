@@ -1,16 +1,16 @@
 /*
- * XREFs of _CmGetInstallerClassCompoundFiltersWorker @ 0x14097A8F0
+ * XREFs of _CmGetInstallerClassCompoundFiltersWorker @ 0x14097AAD0
  * Callers:
- *     _CmGetInstallerClassCompoundFilters @ 0x14073F41C (_CmGetInstallerClassCompoundFilters.c)
+ *     _CmGetInstallerClassCompoundFilters @ 0x14073F5DC (_CmGetInstallerClassCompoundFilters.c)
  * Callees:
- *     _PnpGetObjectProperty @ 0x140637B7C (_PnpGetObjectProperty.c)
- *     _PnpCtxRegQueryInfoKey @ 0x1406C484C (_PnpCtxRegQueryInfoKey.c)
- *     _CmGetInstallerClassMappedPropertyFromRegProp @ 0x14073F5AC (_CmGetInstallerClassMappedPropertyFromRegProp.c)
- *     _PnpSetObjectProperty @ 0x140745C24 (_PnpSetObjectProperty.c)
- *     _CmGetDeclarativeFilterList @ 0x140979BC4 (_CmGetDeclarativeFilterList.c)
- *     _CmMergeFilterLists @ 0x14097B76C (_CmMergeFilterLists.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     _PnpGetObjectProperty @ 0x14062C98C (_PnpGetObjectProperty.c)
+ *     _PnpCtxRegQueryInfoKey @ 0x14067313C (_PnpCtxRegQueryInfoKey.c)
+ *     _CmGetInstallerClassMappedPropertyFromRegProp @ 0x14073F76C (_CmGetInstallerClassMappedPropertyFromRegProp.c)
+ *     _PnpSetObjectProperty @ 0x140745DE4 (_PnpSetObjectProperty.c)
+ *     _CmGetDeclarativeFilterList @ 0x140979DA4 (_CmGetDeclarativeFilterList.c)
+ *     _CmMergeFilterLists @ 0x14097B94C (_CmMergeFilterLists.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall CmGetInstallerClassCompoundFiltersWorker(

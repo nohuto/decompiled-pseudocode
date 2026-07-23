@@ -1,16 +1,16 @@
 /*
- * XREFs of PsSetCpuQuotaInformation @ 0x1405E4F54
+ * XREFs of PsSetCpuQuotaInformation @ 0x1405E247C
  * Callers:
- *     NtSetSystemInformation @ 0x140AE1300 (NtSetSystemInformation.c)
+ *     NtSetSystemInformation @ 0x140AE2BE0 (NtSetSystemInformation.c)
  * Callees:
- *     KeSetSchedulingGroupWeights @ 0x140310E70 (KeSetSchedulingGroupWeights.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     PsGetSessionSchedulingGroup @ 0x1406FBD38 (PsGetSessionSchedulingGroup.c)
- *     ObReferenceObjectByHandle @ 0x14084AF40 (ObReferenceObjectByHandle.c)
- *     SeSinglePrivilegeCheck @ 0x140853E90 (SeSinglePrivilegeCheck.c)
- *     ExRaiseDatatypeMisalignment @ 0x14089B1F0 (ExRaiseDatatypeMisalignment.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     KeSetSchedulingGroupWeights @ 0x14045C2E8 (KeSetSchedulingGroupWeights.c)
+ *     PsGetSessionSchedulingGroup @ 0x1406F9978 (PsGetSessionSchedulingGroup.c)
+ *     ObReferenceObjectByHandle @ 0x140847200 (ObReferenceObjectByHandle.c)
+ *     SeSinglePrivilegeCheck @ 0x140850150 (SeSinglePrivilegeCheck.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408A3890 (ExRaiseDatatypeMisalignment.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PsSetCpuQuotaInformation(__int64 a1, unsigned int a2, KPROCESSOR_MODE a3)
@@ -43,7 +43,7 @@ __int64 __fastcall PsSetCpuQuotaInformation(__int64 a1, unsigned int a2, KPROCES
   v7 = a2 >> 4;
   if ( (unsigned __int64)(24 * v7) > 0xFFFFFFFF )
     return 3221225621LL;
-  Pool2 = (char *)ExAllocatePool2(0x41uLL);
+  Pool2 = (char *)ExAllocatePool2(0x41uLL, (unsigned int)(24 * v7), 0x63537350u);
   v9 = Pool2;
   Object = Pool2;
   if ( !Pool2 )

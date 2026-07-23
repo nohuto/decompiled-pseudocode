@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpPowerInitSystem @ 0x140A90A30
+ * XREFs of HalpPowerInitSystem @ 0x140A908B0
  * Callers:
  *     <none>
  * Callees:
- *     MmUnlockPagableImageSection @ 0x14025A440 (MmUnlockPagableImageSection.c)
- *     MmLockPagableDataSection @ 0x1406AD5B0 (MmLockPagableDataSection.c)
+ *     MmUnlockPagableImageSection @ 0x14025A6D0 (MmUnlockPagableImageSection.c)
+ *     MmLockPagableDataSection @ 0x1406AD5E0 (MmLockPagableDataSection.c)
  *     HalpPowerInitDiscard @ 0x140B61E20 (HalpPowerInitDiscard.c)
  *     HalpPowerInitFwPerformanceTableMappings @ 0x140B61F18 (HalpPowerInitFwPerformanceTableMappings.c)
  */

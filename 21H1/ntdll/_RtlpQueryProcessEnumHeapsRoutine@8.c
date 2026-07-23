@@ -8,57 +8,65 @@
  *     _RtlHpQuerySegmentHeapRoutine@8 @ 0x4B3569F1 (_RtlHpQuerySegmentHeapRoutine@8.c)
  */
 
-int __stdcall RtlpQueryProcessEnumHeapsRoutine(int a1, _DWORD *a2)
+int __userpurge RtlpQueryProcessEnumHeapsRoutine@<eax>(int a1@<edi>, int a2, _DWORD *a3)
 {
-  _DWORD *v2; // ebx
+  _DWORD *v3; // ebx
   char *DebugInfo; // eax
-  char *v4; // esi
+  char *v5; // esi
   int result; // eax
-  int v6; // edi
-  int v7; // edx
-  _DWORD *v8; // ecx
-  int v9; // ecx
-  int v10; // eax
+  int v7; // edi
+  int v8; // edx
+  _DWORD *v9; // ecx
+  int v10; // ecx
+  int v11; // eax
+  size_t v12; // [esp-8h] [ebp-14h]
 
-  v2 = (_DWORD *)a2[14];
-  DebugInfo = RtlpCommitQueryDebugInfo(a2, 0x40u);
-  v4 = DebugInfo;
+  v3 = (_DWORD *)a3[14];
+  DebugInfo = RtlpCommitQueryDebugInfo(a3, 0x40u);
+  v5 = DebugInfo;
   if ( !DebugInfo )
     return -1073741801;
-  memset(DebugInfo, 0, 0x40u);
-  v6 = a1;
-  result = RtlHpQuerySegmentHeapRoutine(a1, v4);
+  HIDWORD(v12) = a1;
+  LODWORD(v12) = 64;
+  memset(DebugInfo, 0, v12);
+  v7 = a2;
+  result = RtlHpQuerySegmentHeapRoutine(a2, v5);
   if ( result < 0 )
   {
-    v7 = *((_DWORD *)v4 + 4);
-    *(_DWORD *)v4 = a1;
-    *((_DWORD *)v4 + 1) = *(_DWORD *)(a1 + 64);
-    *((_WORD *)v4 + 4) = 8;
-    *((_WORD *)v4 + 5) = *(_WORD *)(a1 + 172);
-    v8 = *(_DWORD **)(a1 + 164);
-    if ( v8 != (_DWORD *)(a1 + 164) )
+    v8 = *((_DWORD *)v5 + 4);
+    *(_DWORD *)v5 = a2;
+    *((_DWORD *)v5 + 1) = *(_DWORD *)(a2 + 64);
+    *((_WORD *)v5 + 4) = 8;
+    *((_WORD *)v5 + 5) = *(_WORD *)(a2 + 172);
+    v9 = *(_DWORD **)(a2 + 164);
+    if ( v9 != (_DWORD *)(a2 + 164) )
     {
       do
       {
-        v7 += (v8[4] - v8[7]) << 12;
-        *((_DWORD *)v4 + 4) = v7;
-        v8 = (_DWORD *)*v8;
+        v8 += (v9[4] - v9[7]) << 12;
+        *((_DWORD *)v5 + 4) = v8;
+        v9 = (_DWORD *)*v9;
       }
-      while ( v8 != (_DWORD *)(a1 + 164) );
-      v6 = a1;
+      while ( v9 != (_DWORD *)(a2 + 164) );
+      v7 = a2;
     }
-    if ( *(_DWORD *)(v6 + 8) == -571548178 || (*(_BYTE *)(v6 + 234) != 2 ? (v9 = 0) : (v9 = *(_DWORD *)(v6 + 228)), !v9) )
-      v10 = 0;
+    if ( *(_DWORD *)(v7 + 8) == -571548178
+      || (*(_BYTE *)(v7 + 234) != 2 ? (v10 = 0) : (v10 = *(_DWORD *)(v7 + 228)), !v10) )
+    {
+      v11 = 0;
+    }
     else
-      v10 = *(_DWORD *)(v9 + 20) - v9;
-    *((_DWORD *)v4 + 4) = v7 + v10;
-    *((_DWORD *)v4 + 3) = v7 + v10 - 8 * *(_DWORD *)(v6 + 116);
-    ++*v2;
+    {
+      v11 = *(_DWORD *)(v10 + 20) - v10;
+    }
+    *((_DWORD *)v5 + 4) = v8 + v11;
+    *((_DWORD *)v5 + 3) = v8 + v11 - 8 * *(_DWORD *)(v7 + 116);
+    ++*v3;
     return 0;
   }
   else
   {
-    ++*v2;
+    ++*v3;
   }
   return result;
 }

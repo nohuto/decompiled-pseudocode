@@ -4,19 +4,19 @@
  *     MiInitSystem @ 0x140B44518 (MiInitSystem.c)
  * Callees:
  *     MiFlushCacheForAttributeChange @ 0x14021AB84 (MiFlushCacheForAttributeChange.c)
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     MiGetPage @ 0x14026D360 (MiGetPage.c)
- *     KeQueryPerformanceCounter @ 0x1402C3270 (KeQueryPerformanceCounter.c)
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     MiFinalizePageAttribute @ 0x1402E15E4 (MiFinalizePageAttribute.c)
- *     MiReleaseFreshPage @ 0x1402E7F20 (MiReleaseFreshPage.c)
- *     MiZeroPhysicalPage @ 0x1403391FC (MiZeroPhysicalPage.c)
- *     KeInvalidateAllCaches @ 0x14036DB40 (KeInvalidateAllCaches.c)
- *     MiFlushEntireTbDueToAttributeChange @ 0x14036F59C (MiFlushEntireTbDueToAttributeChange.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     ZwQuerySystemInformation @ 0x14041B420 (ZwQuerySystemInformation.c)
- *     memset @ 0x140435A00 (memset.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     MiGetPage @ 0x14026D5F0 (MiGetPage.c)
+ *     KeQueryPerformanceCounter @ 0x1402C3500 (KeQueryPerformanceCounter.c)
+ *     MiAllocatePool @ 0x1402DF430 (MiAllocatePool.c)
+ *     MiFinalizePageAttribute @ 0x1402E1874 (MiFinalizePageAttribute.c)
+ *     MiReleaseFreshPage @ 0x1402E81B0 (MiReleaseFreshPage.c)
+ *     MiZeroPhysicalPage @ 0x14033948C (MiZeroPhysicalPage.c)
+ *     KeInvalidateAllCaches @ 0x14036DCE0 (KeInvalidateAllCaches.c)
+ *     MiFlushEntireTbDueToAttributeChange @ 0x14036F73C (MiFlushEntireTbDueToAttributeChange.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     ZwQuerySystemInformation @ 0x14041B7B0 (ZwQuerySystemInformation.c)
+ *     memset @ 0x140435E00 (memset.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
@@ -49,11 +49,14 @@ __int64 MiInitializeCacheFlushing()
   int v24; // [rsp+30h] [rbp-40h] BYREF
   int v25; // [rsp+34h] [rbp-3Ch] BYREF
   LARGE_INTEGER PerformanceFrequency; // [rsp+38h] [rbp-38h] BYREF
-  _OWORD v27[2]; // [rsp+40h] [rbp-30h] BYREF
+  _OWORD SystemInformation[2]; // [rsp+40h] [rbp-30h] BYREF
 
-  memset(v27, 0, sizeof(v27));
-  if ( (int)ZwQuerySystemInformation(192LL, (__int64)v27) >= 0 && (BYTE8(v27[0]) & 1) != 0 )
+  memset(SystemInformation, 0, sizeof(SystemInformation));
+  if ( ZwQuerySystemInformation(SystemFlushInformation, SystemInformation, 0x20u, 0LL) >= 0
+    && (BYTE8(SystemInformation[0]) & 1) != 0 )
+  {
     byte_140C65AE8 = 1;
+  }
   result = MiGetPage((__int64)MiSystemPartition, 0, 0);
   v1 = result;
   if ( result != -1 )
@@ -66,7 +69,7 @@ __int64 MiInitializeCacheFlushing()
     v5 = 2LL;
     __writecr8(2uLL);
     v6 = 4LL;
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
       if ( CurrentIrql == 2 )
@@ -145,10 +148,10 @@ __int64 MiInitializeCacheFlushing()
         LOBYTE(v5) = 2;
       }
     }
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v16 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v16 <= 0xFu && CurrentIrql <= 0xFu && v16 >= (unsigned __int8)v5 )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v16 <= 0xFu && CurrentIrql <= 0xFu && v16 >= (unsigned __int8)v5 )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         v18 = CurrentPrcb->SchedulerAssist;

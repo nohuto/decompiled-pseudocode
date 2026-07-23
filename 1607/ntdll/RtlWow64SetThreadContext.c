@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlWow64SetThreadContext @ 0x1800D81D0
+ * XREFs of RtlWow64SetThreadContext @ 0x1800D8290
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 RtlWow64SetThreadContext()
+NTSTATUS __cdecl RtlWow64SetThreadContext(HANDLE ThreadHandle, PWOW64_CONTEXT ThreadContext)
 {
-  return NtSetInformationThread();
+  return NtSetInformationThread(ThreadHandle, ThreadWow64Context, ThreadContext, 0x2CCu);
 }

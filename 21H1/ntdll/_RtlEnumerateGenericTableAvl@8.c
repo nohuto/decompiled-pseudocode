@@ -6,12 +6,12 @@
  *     _RtlEnumerateGenericTableWithoutSplayingAvl@8 @ 0x4B2AB850 (_RtlEnumerateGenericTableWithoutSplayingAvl@8.c)
  */
 
-int __stdcall RtlEnumerateGenericTableAvl(int a1, char a2)
+PVOID __cdecl RtlEnumerateGenericTableAvl(PRTL_AVL_TABLE Table, BOOLEAN Restart)
 {
-  _DWORD *v2; // eax
+  PVOID *p_RestartKey; // eax
 
-  v2 = (_DWORD *)(a1 + 32);
-  if ( a2 )
-    *v2 = 0;
-  return RtlEnumerateGenericTableWithoutSplayingAvl(a1, v2);
+  p_RestartKey = (PVOID *)&Table->RestartKey;
+  if ( Restart )
+    *p_RestartKey = 0;
+  return RtlEnumerateGenericTableWithoutSplayingAvl(Table, p_RestartKey);
 }

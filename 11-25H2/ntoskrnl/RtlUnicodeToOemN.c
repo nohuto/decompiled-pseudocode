@@ -16,7 +16,7 @@ NTSTATUS __stdcall RtlUnicodeToOemN(
         PCWCH UnicodeString,
         ULONG BytesInUnicodeString)
 {
-  struct _CPTABLEINFO *p_Blink; // rcx
+  _CPTABLEINFO *p_Blink; // rcx
   signed __int32 v11[8]; // [rsp+0h] [rbp-38h] BYREF
 
   if ( RtlpIsUtf8Process() )
@@ -26,7 +26,7 @@ NTSTATUS __stdcall RtlUnicodeToOemN(
   else
   {
     _InterlockedOr(v11, 0);
-    p_Blink = (struct _CPTABLEINFO *)&PsGetCurrentServerSiloGlobals()[64].Blink;
+    p_Blink = (_CPTABLEINFO *)&PsGetCurrentServerSiloGlobals()[64].Blink;
   }
   return RtlUnicodeToCustomCPN(
            p_Blink,

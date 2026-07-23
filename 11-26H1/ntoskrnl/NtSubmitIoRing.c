@@ -1,26 +1,26 @@
 /*
- * XREFs of NtSubmitIoRing @ 0x1404DCF60
+ * XREFs of NtSubmitIoRing @ 0x1404D6640
  * Callers:
- *     DifNtSubmitIoRingWrapper @ 0x14068F020 (DifNtSubmitIoRingWrapper.c)
+ *     DifNtSubmitIoRingWrapper @ 0x140692C00 (DifNtSubmitIoRingWrapper.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     IopIoRingSetupCompletionWait @ 0x1404DD230 (IopIoRingSetupCompletionWait.c)
- *     IopIoRingGetAvailableCqSlots @ 0x14052A660 (IopIoRingGetAvailableCqSlots.c)
- *     IopIoRingWaitForCompletionEvent @ 0x14052B580 (IopIoRingWaitForCompletionEvent.c)
- *     IopExceptionFilter @ 0x1405CA834 (IopExceptionFilter.c)
- *     RtlReadULong64FromUser @ 0x14077F554 (RtlReadULong64FromUser.c)
- *     ObReferenceObjectByHandle @ 0x1408F9550 (ObReferenceObjectByHandle.c)
- *     IopProcessIoRingEntry @ 0x140B00D00 (IopProcessIoRingEntry.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     IopIoRingSetupCompletionWait @ 0x1404D6910 (IopIoRingSetupCompletionWait.c)
+ *     IopIoRingGetAvailableCqSlots @ 0x14052CB80 (IopIoRingGetAvailableCqSlots.c)
+ *     IopIoRingWaitForCompletionEvent @ 0x14052DAA0 (IopIoRingWaitForCompletionEvent.c)
+ *     IopExceptionFilter @ 0x1405CD104 (IopExceptionFilter.c)
+ *     RtlReadULong64FromUser @ 0x140782054 (RtlReadULong64FromUser.c)
+ *     ObReferenceObjectByHandle @ 0x1409294E0 (ObReferenceObjectByHandle.c)
+ *     IopProcessIoRingEntry @ 0x140B02A30 (IopProcessIoRingEntry.c)
  */
 
-__int64 __fastcall NtSubmitIoRing(HANDLE Handle, unsigned int a2, int a3, __int64 *a4)
+NTSTATUS __cdecl NtSubmitIoRing(HANDLE IoRingHandle, ULONG Flags, ULONG WaitOperations, PLARGE_INTEGER Timeout)
 {
-  __int64 *p_ULong64FromUser; // r12
+  PLARGE_INTEGER p_ULong64FromUser; // r12
   KPROCESSOR_MODE PreviousMode; // si
   unsigned int *v7; // rdi
   char v8; // r13
   __int64 v9; // rdx
-  NTSTATUS v10; // esi
+  int v10; // esi
   int v11; // r9d
   int *v12; // r15
   unsigned int v13; // r14d
@@ -41,14 +41,14 @@ __int64 __fastcall NtSubmitIoRing(HANDLE Handle, unsigned int a2, int a3, __int6
   int v29; // [rsp+40h] [rbp-98h]
   int v30; // [rsp+44h] [rbp-94h]
   __int64 ULong64FromUser; // [rsp+48h] [rbp-90h] BYREF
-  __int64 *v32; // [rsp+50h] [rbp-88h]
+  PLARGE_INTEGER v32; // [rsp+50h] [rbp-88h]
   __int128 v33; // [rsp+60h] [rbp-78h]
   __int128 v34; // [rsp+70h] [rbp-68h]
   __int128 v35; // [rsp+80h] [rbp-58h]
   __int128 v36; // [rsp+90h] [rbp-48h]
 
-  p_ULong64FromUser = a4;
-  v32 = a4;
+  p_ULong64FromUser = Timeout;
+  v32 = Timeout;
   v29 = 0;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   v27 = PreviousMode;
@@ -56,19 +56,19 @@ __int64 __fastcall NtSubmitIoRing(HANDLE Handle, unsigned int a2, int a3, __int6
   v8 = 0;
   ULong64FromUser = 0LL;
   v24 = 0;
-  if ( (_WORD)a2 )
+  if ( (_WORD)Flags )
   {
     v10 = -1069154303;
     goto LABEL_13;
   }
-  if ( a3 && a4 && PreviousMode )
+  if ( WaitOperations && Timeout && PreviousMode )
   {
-    ULong64FromUser = RtlReadULong64FromUser(a4);
-    p_ULong64FromUser = &ULong64FromUser;
-    v32 = &ULong64FromUser;
+    ULong64FromUser = RtlReadULong64FromUser(Timeout);
+    p_ULong64FromUser = (PLARGE_INTEGER)&ULong64FromUser;
+    v32 = (PLARGE_INTEGER)&ULong64FromUser;
   }
   Object = 0LL;
-  v10 = ObReferenceObjectByHandle(Handle, 0, IoRingObjectType, PreviousMode, &Object, 0LL);
+  v10 = ObReferenceObjectByHandle(IoRingHandle, 0, IoRingObjectType, PreviousMode, &Object, 0LL);
   v7 = (unsigned int *)Object;
   if ( v10 >= 0 )
   {
@@ -90,9 +90,9 @@ __int64 __fastcall NtSubmitIoRing(HANDLE Handle, unsigned int a2, int a3, __int6
       }
       else
       {
-        if ( a3 )
+        if ( WaitOperations )
         {
-          v10 = IopIoRingSetupCompletionWait((_DWORD)v7, v13, a3, 0, (__int64)&v24);
+          v10 = IopIoRingSetupCompletionWait((_DWORD)v7, v13, WaitOperations, 0, (__int64)&v24);
           if ( v10 < 0 )
             goto LABEL_13;
         }
@@ -137,12 +137,14 @@ __int64 __fastcall NtSubmitIoRing(HANDLE Handle, unsigned int a2, int a3, __int6
         if ( v24 )
         {
           if ( !v19
-            || (LOBYTE(v11) = 1, v10 = IopIoRingSetupCompletionWait((_DWORD)v7, 0, a3, v11, (__int64)&v24), v10 >= 0) )
+            || (LOBYTE(v11) = 1,
+                v10 = IopIoRingSetupCompletionWait((_DWORD)v7, 0, WaitOperations, v11, (__int64)&v24),
+                v10 >= 0) )
           {
             if ( v24 )
             {
-              v23 = a2;
-              LOBYTE(v23) = a2 & 1;
+              v23 = Flags;
+              LOBYTE(v23) = Flags & 1;
               LOBYTE(v9) = v27;
               v10 = IopIoRingWaitForCompletionEvent(v7, v9, v23, p_ULong64FromUser);
             }
@@ -156,5 +158,5 @@ LABEL_13:
     _InterlockedExchange((volatile __int32 *)v7 + 24, 0);
   if ( v7 )
     ObfDereferenceObjectWithTag(v7, 0x746C6644u);
-  return (unsigned int)v10;
+  return v10;
 }

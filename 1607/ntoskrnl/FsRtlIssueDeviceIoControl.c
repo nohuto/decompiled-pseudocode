@@ -1,13 +1,13 @@
 /*
- * XREFs of FsRtlIssueDeviceIoControl @ 0x14052CB78
+ * XREFs of FsRtlIssueDeviceIoControl @ 0x14052D0B8
  * Callers:
- *     FsRtlVolumeDeviceToCorrelationId @ 0x14052C794 (FsRtlVolumeDeviceToCorrelationId.c)
- *     FsRtlGetSectorSizeInformation @ 0x14052C80C (FsRtlGetSectorSizeInformation.c)
+ *     FsRtlVolumeDeviceToCorrelationId @ 0x14052CCD4 (FsRtlVolumeDeviceToCorrelationId.c)
+ *     FsRtlGetSectorSizeInformation @ 0x14052CD4C (FsRtlGetSectorSizeInformation.c)
  * Callees:
- *     KeInitializeEvent @ 0x14002DEA0 (KeInitializeEvent.c)
- *     IofCallDriver @ 0x14002E060 (IofCallDriver.c)
- *     KeWaitForSingleObject @ 0x14005C880 (KeWaitForSingleObject.c)
- *     IoBuildDeviceIoControlRequest @ 0x1400ED0DC (IoBuildDeviceIoControlRequest.c)
+ *     KeInitializeEvent @ 0x14002DA20 (KeInitializeEvent.c)
+ *     IofCallDriver @ 0x14002DBE0 (IofCallDriver.c)
+ *     KeWaitForSingleObject @ 0x14005C400 (KeWaitForSingleObject.c)
+ *     IoBuildDeviceIoControlRequest @ 0x1400EAF4C (IoBuildDeviceIoControlRequest.c)
  */
 
 __int64 __fastcall FsRtlIssueDeviceIoControl(

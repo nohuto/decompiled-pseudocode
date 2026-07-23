@@ -1,9 +1,9 @@
 /*
- * XREFs of IoSetIoPriorityHintIntoFileObject @ 0x140506320
+ * XREFs of IoSetIoPriorityHintIntoFileObject @ 0x1405062A0
  * Callers:
  *     <none>
  * Callees:
- *     IopAllocateFileObjectExtension @ 0x14022C1D0 (IopAllocateFileObjectExtension.c)
+ *     IopAllocateFileObjectExtension @ 0x1402D0A50 (IopAllocateFileObjectExtension.c)
  */
 
 __int64 __fastcall IoSetIoPriorityHintIntoFileObject(__int64 a1, unsigned int a2)

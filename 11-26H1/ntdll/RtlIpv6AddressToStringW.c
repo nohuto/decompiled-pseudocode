@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlIpv6AddressToStringW @ 0x1800ABCF0
+ * XREFs of RtlIpv6AddressToStringW @ 0x1800AAE20
  * Callers:
- *     RtlIpv6AddressToStringExW @ 0x1800ABA50 (RtlIpv6AddressToStringExW.c)
- *     RtlCanonicalizeDomainName @ 0x1800AC4D0 (RtlCanonicalizeDomainName.c)
+ *     RtlIpv6AddressToStringExW @ 0x1800AAB80 (RtlIpv6AddressToStringExW.c)
+ *     RtlCanonicalizeDomainName @ 0x1800AB600 (RtlCanonicalizeDomainName.c)
  * Callees:
- *     swprintf_s @ 0x180134190 (swprintf_s.c)
+ *     swprintf_s @ 0x180133F00 (swprintf_s.c)
  */
 
 PWSTR __stdcall RtlIpv6AddressToStringW(const struct in6_addr *Addr, PWSTR S)
@@ -28,38 +28,38 @@ PWSTR __stdcall RtlIpv6AddressToStringW(const struct in6_addr *Addr, PWSTR S)
   int v20; // edx
   int v21; // eax
   int v22; // eax
-  USHORT v23; // r8
-  USHORT v24; // ax
-  USHORT v25; // r10
+  __int16 v23; // r8
+  __int16 v24; // ax
+  __int16 v25; // r10
   const char *v26; // r9
 
   v2 = S + 46;
   v3 = S;
   v5 = 8;
-  if ( *(_DWORD *)Addr->u.Byte )
+  if ( *(_DWORD *)Addr )
     goto LABEL_2;
-  if ( Addr->u.Word[2] )
+  if ( *((_WORD *)Addr + 2) )
     goto LABEL_2;
-  if ( Addr->u.Word[3] )
+  if ( *((_WORD *)Addr + 3) )
     goto LABEL_2;
-  v23 = Addr->u.Word[6];
+  v23 = *((_WORD *)Addr + 6);
   if ( !v23 )
     goto LABEL_2;
-  v24 = Addr->u.Word[4];
+  v24 = *((_WORD *)Addr + 4);
   if ( v24 )
   {
-    if ( v24 == 0xFFFF && !Addr->u.Word[5] )
+    if ( v24 == -1 && !*((_WORD *)Addr + 5) )
       return &S[swprintf_s(
                   S,
                   0x2EuLL,
                   L"::ffff:0:%u.%u.%u.%u",
                   (unsigned __int8)v23,
                   HIBYTE(v23),
-                  Addr->u.Byte[14],
-                  Addr->u.Byte[15])];
+                  *((unsigned __int8 *)Addr + 14),
+                  *((unsigned __int8 *)Addr + 15))];
     goto LABEL_2;
   }
-  v25 = Addr->u.Word[5];
+  v25 = *((_WORD *)Addr + 5);
   if ( ((v25 + 1) & 0xFFFE) != 0 )
   {
 LABEL_2:
@@ -67,13 +67,13 @@ LABEL_2:
     v7 = 0;
     v8 = 0;
     v9 = 0;
-    if ( (Addr->u.Word[4] & 0xFFFD) == 0 && Addr->u.Word[5] == 0xFE5E )
+    if ( (*((_WORD *)Addr + 4) & 0xFFFD) == 0 && *((_WORD *)Addr + 5) == 0xFE5E )
       v5 = 6;
     v10 = 0;
     for ( i = 0LL; i < v5; ++i )
     {
       v12 = v10 + 1;
-      if ( Addr->u.Word[i] )
+      if ( *((_WORD *)Addr + i) )
       {
         v9 = v10 + 1;
       }
@@ -106,7 +106,7 @@ LABEL_2:
       {
         if ( v6 && v6 != v14 )
           v3 += swprintf_s(v3, v2 - v3, L":");
-        v17 = swprintf_s(v3, v2 - v3, L"%x", (unsigned __int16)__ROR2__(Addr->u.Word[v6], 8));
+        v17 = swprintf_s(v3, v2 - v3, L"%x", (unsigned __int16)__ROR2__(*((_WORD *)Addr + v6), 8));
       }
       else
       {
@@ -122,13 +122,13 @@ LABEL_2:
               v3,
               v2 - v3,
               L":%u.%u.%u.%u",
-              Addr->u.Byte[12],
-              Addr->u.Byte[13],
-              Addr->u.Byte[14],
-              Addr->u.Byte[15]);
+              *((unsigned __int8 *)Addr + 12),
+              *((unsigned __int8 *)Addr + 13),
+              *((unsigned __int8 *)Addr + 14),
+              *((unsigned __int8 *)Addr + 15));
     return v3;
   }
-  v26 = (const char *)&unk_180176D3C;
+  v26 = (const char *)&Flags;
   if ( v25 )
     v26 = "ffff:";
   return &S[swprintf_s(
@@ -138,6 +138,6 @@ LABEL_2:
               v26,
               (unsigned __int8)v23,
               HIBYTE(v23),
-              Addr->u.Byte[14],
-              Addr->u.Byte[15])];
+              *((unsigned __int8 *)Addr + 14),
+              *((unsigned __int8 *)Addr + 15))];
 }

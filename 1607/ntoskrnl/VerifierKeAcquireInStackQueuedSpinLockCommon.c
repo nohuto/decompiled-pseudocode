@@ -4,8 +4,8 @@
  *     VerifierKeAcquireInStackQueuedSpinLock @ 0x140711AC8 (VerifierKeAcquireInStackQueuedSpinLock.c)
  *     VerifierKeAcquireInStackQueuedSpinLockNoReboot @ 0x140711D18 (VerifierKeAcquireInStackQueuedSpinLockNoReboot.c)
  * Callees:
- *     VfUtilCheckKernelAddress @ 0x140702C44 (VfUtilCheckKernelAddress.c)
- *     ViTargetIncrementCounter @ 0x140710564 (ViTargetIncrementCounter.c)
+ *     VfUtilCheckKernelAddress @ 0x140702C74 (VfUtilCheckKernelAddress.c)
+ *     ViTargetIncrementCounter @ 0x140710594 (ViTargetIncrementCounter.c)
  *     ViKeRaiseIrqlSanityChecks @ 0x1407130E8 (ViKeRaiseIrqlSanityChecks.c)
  */
 
@@ -15,7 +15,7 @@ __int64 __fastcall VerifierKeAcquireInStackQueuedSpinLockCommon(unsigned __int64
   __int64 v6; // rbx
   __int64 result; // rax
 
-  ++dword_140307208;
+  ++dword_140307248;
   if ( (MmVerifierData & 0x1000) != 0 )
     ViTargetIncrementCounter(a2, 132LL);
   VfUtilCheckKernelAddress(a1, 8LL);

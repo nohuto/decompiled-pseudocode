@@ -1,9 +1,9 @@
 /*
- * XREFs of MiUnlinkHotAddFlight @ 0x140867064
+ * XREFs of MiUnlinkHotAddFlight @ 0x14086D444
  * Callers:
- *     MiPerformMemoryChange @ 0x1406E9974 (MiPerformMemoryChange.c)
- *     MiReturnAddMemoryResources @ 0x1406EA170 (MiReturnAddMemoryResources.c)
- *     MiHonorExistingHotMemoryFlights @ 0x14086654C (MiHonorExistingHotMemoryFlights.c)
+ *     MiPerformMemoryChange @ 0x1406EE614 (MiPerformMemoryChange.c)
+ *     MiReturnAddMemoryResources @ 0x1406EEE10 (MiReturnAddMemoryResources.c)
+ *     MiHonorExistingHotMemoryFlights @ 0x14086C92C (MiHonorExistingHotMemoryFlights.c)
  * Callees:
  *     <none>
  */
@@ -15,8 +15,8 @@ void __fastcall MiUnlinkHotAddFlight(__int64 *a1)
 
   if ( *a1 )
   {
-    --dword_140E2D7E8;
-    dword_140E2D7EC -= *((_DWORD *)a1 + 38);
+    --dword_140E2D968;
+    dword_140E2D96C -= *((_DWORD *)a1 + 38);
     v1 = (__int64 *)*a1;
     if ( *(__int64 **)(*a1 + 8) != a1 || (v2 = (__int64 **)a1[1], *v2 != a1) )
       __fastfail(3u);

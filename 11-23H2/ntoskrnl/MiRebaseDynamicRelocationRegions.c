@@ -3,11 +3,11 @@
  * Callers:
  *     MiInitializeSystemVa @ 0x140B5FA88 (MiInitializeSystemVa.c)
  * Callees:
- *     MI_READ_PTE_LOCK_FREE @ 0x1402712F0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiPteInShadowRange @ 0x140271360 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x14035734C (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x1403573AC (MiPteHasShadow.c)
- *     KeFlushEntireTb @ 0x1403B2A40 (KeFlushEntireTb.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140271580 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x1402715F0 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1403574EC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x14035754C (MiPteHasShadow.c)
+ *     KeFlushEntireTb @ 0x1403B2C20 (KeFlushEntireTb.c)
  *     MiApplyDynamicRelocations @ 0x140B44144 (MiApplyDynamicRelocations.c)
  *     MiApplyRetpolineFixupsToKernelAndHal @ 0x140B457F0 (MiApplyRetpolineFixupsToKernelAndHal.c)
  */
@@ -110,13 +110,9 @@ LABEL_12:
   v17 = v5;
   for ( i = 39LL; ; i -= 9LL )
   {
-    MiApplyDynamicRelocations(*(_QWORD *)(v2 + 48), *(unsigned int *)(v2 + 64), v3, v17);
+    MiApplyDynamicRelocations(*(PVOID *)(v2 + 48), *(unsigned int *)(v2 + 64));
     if ( i >= 0xC )
-      MiApplyDynamicRelocations(
-        *(_QWORD *)(v2 + 48),
-        *(unsigned int *)(v2 + 64),
-        v3 + (1LL << i) - 1,
-        v17 + (1LL << i) - 1);
+      MiApplyDynamicRelocations(*(PVOID *)(v2 + 48), *(unsigned int *)(v2 + 64));
     if ( (unsigned int)++v7 > 4 )
       break;
     v3 = ((v3 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
@@ -126,7 +122,7 @@ LABEL_12:
 LABEL_18:
   v19 = 0xFFFFDE0000000000uLL;
   if ( (MiFlags & 0x4000) != 0 || v4 != 0xFFFFDE0000000000uLL )
-    MiApplyDynamicRelocations(*(_QWORD *)(v2 + 48), *(unsigned int *)(v2 + 64), 0xFFFFDE0000000000uLL, v4);
+    MiApplyDynamicRelocations(*(PVOID *)(v2 + 48), *(unsigned int *)(v2 + 64));
   result = MiApplyRetpolineFixupsToKernelAndHal(a1, v19);
   MmPteBase = v5;
   qword_140C02500 = v5;

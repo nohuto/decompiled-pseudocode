@@ -17,7 +17,7 @@ __int64 __fastcall LdrpCheckRedirection(__int64 a1, __int64 a2, __int64 a3)
   __int64 v6; // rsi
   int v7; // eax
   __int128 v8; // xmm0
-  unsigned __int64 i; // rbx
+  unsigned __int64 Root; // rbx
   __int64 v10; // r8
   int v11; // edi
   int v12; // eax
@@ -37,37 +37,37 @@ __int64 __fastcall LdrpCheckRedirection(__int64 a1, __int64 a2, __int64 a3)
   v6 = -4530927LL;
   v7 = LdrpHashAsciizString(a3, a2, a3);
   v8 = *(_OWORD *)(a2 + 88);
-  i = LdrpRedirectionTree;
+  Root = (unsigned __int64)LdrpRedirectionTree.Root;
   v23[0] = v7;
   v23[1] = *(_DWORD *)(a2 + 264);
   v24 = v10;
   v25 = v8;
-  if ( (qword_18016D390 & 1) != 0 && LdrpRedirectionTree )
-    i = (unsigned __int64)&LdrpRedirectionTree ^ LdrpRedirectionTree;
-  v11 = qword_18016D390 & 1;
-  while ( i )
+  if ( (*(_BYTE *)&LdrpRedirectionTree.0 & 1) != 0 && LdrpRedirectionTree.Root )
+    Root = (unsigned __int64)&LdrpRedirectionTree ^ (unsigned __int64)LdrpRedirectionTree.Root;
+  v11 = *(_BYTE *)&LdrpRedirectionTree.0 & 1;
+  while ( Root )
   {
-    v12 = LdrpCompareRedirectedFunction(v23, i);
+    v12 = LdrpCompareRedirectedFunction(v23, Root);
     if ( v12 < 0 )
     {
-      v13 = *(_QWORD *)i;
+      v13 = *(_QWORD *)Root;
       goto LABEL_9;
     }
     if ( v12 <= 0 )
       break;
-    v13 = *(_QWORD *)(i + 8);
+    v13 = *(_QWORD *)(Root + 8);
 LABEL_9:
     if ( v11 && v13 )
-      i ^= v13;
+      Root ^= v13;
     else
-      i = v13;
+      Root = v13;
   }
-  while ( i && !(unsigned int)LdrpCompareRedirectedFunction(v23, i) )
+  while ( Root && !(unsigned int)LdrpCompareRedirectedFunction(v23, Root) )
   {
     if ( !LdrpRedirectionByFunctionCalloutFunc
-      || (unsigned __int8)LdrpRedirectionByFunctionCalloutFunc(*(_QWORD *)(a1 + 80), *(unsigned int *)(i + 64)) )
+      || (unsigned __int8)LdrpRedirectionByFunctionCalloutFunc(*(_QWORD *)(a1 + 80), *(unsigned int *)(Root + 64)) )
     {
-      v6 = *(_QWORD *)(i + 56);
+      v6 = *(_QWORD *)(Root + 56);
       if ( (LdrpDebugFlags & 5) != 0 )
       {
         v17 = *(_OWORD *)(a2 + 88);
@@ -88,22 +88,22 @@ LABEL_9:
       }
       return v6;
     }
-    v14 = *(_QWORD ***)(i + 8);
-    v15 = i;
+    v14 = *(_QWORD ***)(Root + 8);
+    v15 = Root;
     if ( v14 )
     {
       v16 = *v14;
-      for ( i = *(_QWORD *)(i + 8); v16; v16 = (_QWORD *)*v16 )
-        i = (unsigned __int64)v16;
+      for ( Root = *(_QWORD *)(Root + 8); v16; v16 = (_QWORD *)*v16 )
+        Root = (unsigned __int64)v16;
     }
     else
     {
       while ( 1 )
       {
-        i = *(_QWORD *)(i + 16) & 0xFFFFFFFFFFFFFFFCuLL;
-        if ( !i || *(_QWORD *)i == v15 )
+        Root = *(_QWORD *)(Root + 16) & 0xFFFFFFFFFFFFFFFCuLL;
+        if ( !Root || *(_QWORD *)Root == v15 )
           break;
-        v15 = i;
+        v15 = Root;
       }
     }
   }

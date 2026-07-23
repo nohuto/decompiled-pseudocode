@@ -17,33 +17,33 @@
  *     TppPoolpFree @ 0x180081CD0 (TppPoolpFree.c)
  */
 
-__int64 __fastcall TppCleanupGroupMemberInitialize(__int64 a1, __int64 a2, __int64 a3, unsigned __int64 a4, __int64 a5)
+__int64 __fastcall TppCleanupGroupMemberInitialize(__int64 a1, __int64 a2, __int64 a3, int a4, __int64 a5)
 {
   volatile signed __int32 **v6; // rsi
   volatile signed __int32 *v7; // rcx
   unsigned int v8; // eax
   int v9; // r15d
-  volatile signed __int32 *v10; // rcx
-  int InformationActivationContext; // edi
+  _ACTIVATION_CONTEXT *v10; // rcx
+  NTSTATUS v11; // edi
   __int64 *v12; // rcx
   __int64 v13; // rax
   __int64 **v14; // rdx
   volatile signed __int64 *v15; // rcx
   signed __int64 v16; // rax
   volatile signed __int32 *v17; // rax
-  volatile signed __int64 *v18; // rdx
-  __int64 *v19; // rcx
+  _RTL_SRWLOCK *v18; // rdx
+  volatile signed __int32 **v19; // rcx
   signed __int64 v20; // r8
   __int64 v21; // rdx
   signed __int64 v22; // rdx
   signed __int64 v23; // rtt
   _QWORD *v24; // rax
   _QWORD *v25; // rcx
-  volatile signed __int32 *v27; // rcx
-  __int64 v28; // [rsp+48h] [rbp-40h] BYREF
+  _ACTIVATION_CONTEXT *v27; // rcx
+  PACTIVATION_CONTEXT ActivationContext; // [rsp+48h] [rbp-40h] BYREF
   __int64 v29; // [rsp+50h] [rbp-38h]
 
-  v28 = 0LL;
+  ActivationContext = 0LL;
   v29 = 0LL;
   *(_DWORD *)a1 = 1;
   *(_QWORD *)(a1 + 8) = a5;
@@ -92,32 +92,39 @@ __int64 __fastcall TppCleanupGroupMemberInitialize(__int64 a1, __int64 a2, __int
   *(_GUID *)(a1 + 112) = NtCurrentTeb()->ActivityId;
   *(_QWORD *)(a1 + 48) = a1 + 40;
   *(_QWORD *)(a1 + 40) = a1 + 40;
-  v10 = *(volatile signed __int32 **)(a1 + 96);
+  v10 = *(_ACTIVATION_CONTEXT **)(a1 + 96);
   if ( v10 )
   {
-    if ( v10 != (volatile signed __int32 *)-1LL )
+    if ( v10 != (_ACTIVATION_CONTEXT *)-1LL )
       RtlAddRefActivationContext(v10);
   }
   else
   {
-    InformationActivationContext = RtlQueryInformationActivationContext(1, 0LL, 0LL, 1, (__int64)&v28, 0x10uLL, 0LL);
-    if ( InformationActivationContext < 0 )
-      return (unsigned int)InformationActivationContext;
+    v11 = RtlQueryInformationActivationContext(
+            1u,
+            0LL,
+            0LL,
+            ActivationContextBasicInformation,
+            &ActivationContext,
+            0x10uLL,
+            0LL);
+    if ( v11 < 0 )
+      return (unsigned int)v11;
     if ( (v29 & 1) != 0 )
     {
-      RtlReleaseActivationContext((volatile signed __int32 *)v28);
-      v28 = -1LL;
+      RtlReleaseActivationContext(ActivationContext);
+      ActivationContext = (PACTIVATION_CONTEXT)-1LL;
     }
-    *(_QWORD *)(a1 + 96) = v28;
+    *(_QWORD *)(a1 + 96) = ActivationContext;
   }
   if ( *v6 )
   {
     _InterlockedAdd(*v6, 1u);
 LABEL_13:
-    InformationActivationContext = 0;
+    v11 = 0;
     if ( *v6 )
     {
-      RtlAcquireSRWLockExclusive(*v6 + 18);
+      RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)*v6 + 9);
       v12 = (__int64 *)(a1 + 152);
       v13 = (__int64)(*v6 + 20);
       v14 = (__int64 **)*((_QWORD *)*v6 + 11);
@@ -145,7 +152,7 @@ LABEL_13:
         if ( v20 == 2 )
           RtlpWakeSRWLock(v15, v22, 0);
       }
-      InformationActivationContext = 0;
+      v11 = 0;
     }
     else
     {
@@ -164,29 +171,29 @@ LABEL_13:
     if ( v17 )
     {
       _InterlockedAdd(v17, 1u);
-      InformationActivationContext = 0;
+      v11 = 0;
     }
     goto LABEL_35;
   }
   if ( v9 )
   {
-    v18 = (volatile signed __int64 *)&TppPoolpSerializedPoolLock;
-    v19 = &TppPoolpSerializedPool;
+    v18 = &TppPoolpSerializedPoolLock;
+    v19 = (volatile signed __int32 **)&TppPoolpSerializedPool;
   }
   else
   {
-    v18 = (volatile signed __int64 *)&TppPoolpGlobalPoolLock;
-    v19 = &TppPoolpGlobalPool;
+    v18 = &TppPoolpGlobalPoolLock;
+    v19 = (volatile signed __int32 **)&TppPoolpGlobalPool;
   }
-  InformationActivationContext = TppPoolpReferenceGlobalPool((volatile signed __int32 **)v19, v18, v6, a4);
-  if ( InformationActivationContext >= 0 )
+  v11 = TppPoolpReferenceGlobalPool(v19, v18, v6);
+  if ( v11 >= 0 )
     goto LABEL_13;
 LABEL_35:
-  if ( InformationActivationContext < 0 )
+  if ( v11 < 0 )
   {
-    v27 = *(volatile signed __int32 **)(a1 + 96);
-    if ( (unsigned __int64)v27 - 1 <= 0xFFFFFFFFFFFFFFFDuLL )
+    v27 = *(_ACTIVATION_CONTEXT **)(a1 + 96);
+    if ( (unsigned __int64)&v27[-1].InlineStorageMapEntries[31] + 7 <= 0xFFFFFFFFFFFFFFFDuLL )
       RtlReleaseActivationContext(v27);
   }
-  return (unsigned int)InformationActivationContext;
+  return (unsigned int)v11;
 }

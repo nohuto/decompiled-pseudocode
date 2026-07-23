@@ -1,12 +1,12 @@
 /*
- * XREFs of LdrpLogVsmEnclaveLdrCreateEnclaveTelemetry @ 0x180114C04
+ * XREFs of LdrpLogVsmEnclaveLdrCreateEnclaveTelemetry @ 0x18010FFD4
  * Callers:
- *     LdrCreateEnclave @ 0x180111AD0 (LdrCreateEnclave.c)
+ *     LdrCreateEnclave @ 0x18010CEE0 (LdrCreateEnclave.c)
  * Callees:
- *     _tlgWriteTransfer_EtwEventWriteTransfer @ 0x180051AD4 (_tlgWriteTransfer_EtwEventWriteTransfer.c)
- *     RtlRunOnceExecuteOnce @ 0x180098200 (RtlRunOnceExecuteOnce.c)
- *     _tlgKeywordOn @ 0x18010D208 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x1801659C0 (__security_check_cookie.c)
+ *     RtlRunOnceExecuteOnce @ 0x18002D050 (RtlRunOnceExecuteOnce.c)
+ *     _tlgWriteTransfer_EtwEventWriteTransfer @ 0x1800676B4 (_tlgWriteTransfer_EtwEventWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x1801081C8 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x180163D80 (__security_check_cookie.c)
  */
 
 char __fastcall LdrpLogVsmEnclaveLdrCreateEnclaveTelemetry(__int64 a1, int a2)
@@ -17,7 +17,7 @@ char __fastcall LdrpLogVsmEnclaveLdrCreateEnclaveTelemetry(__int64 a1, int a2)
   __int64 v7; // r9
   int v9; // [rsp+30h] [rbp-19h] BYREF
   __int64 v10; // [rsp+38h] [rbp-11h] BYREF
-  _BYTE v11[32]; // [rsp+40h] [rbp-9h] BYREF
+  _EVENT_DATA_DESCRIPTOR v11; // [rsp+40h] [rbp-9h] BYREF
   const char *v12; // [rsp+60h] [rbp+17h]
   int v13; // [rsp+68h] [rbp+1Fh]
   int v14; // [rsp+6Ch] [rbp+23h]
@@ -31,14 +31,10 @@ char __fastcall LdrpLogVsmEnclaveLdrCreateEnclaveTelemetry(__int64 a1, int a2)
   v2 = NtCurrentPeb();
   if ( v2->ProcessHeap )
   {
-    LOBYTE(v2) = RtlRunOnceExecuteOnce(
-                   &VsmEnclaveTelemetryInitRunOnce,
-                   (unsigned int (__fastcall *)(volatile signed __int64 *, __int64, unsigned __int64 *))VsmEnclaveTelemetryInitOnce,
-                   0LL,
-                   0LL);
-    if ( (unsigned int)dword_1801CC9F0 > 4 )
+    LOBYTE(v2) = RtlRunOnceExecuteOnce(&VsmEnclaveTelemetryInitRunOnce, VsmEnclaveTelemetryInitOnce, 0LL, 0LL);
+    if ( (unsigned int)dword_1801CB9B8 > 4 )
     {
-      LOBYTE(v2) = tlgKeywordOn((__int64)&dword_1801CC9F0, 0x400000000000LL);
+      LOBYTE(v2) = tlgKeywordOn((__int64)&dword_1801CB9B8, 0x400000000000LL);
       if ( (_BYTE)v2 )
       {
         v14 = 0;
@@ -52,7 +48,7 @@ char __fastcall LdrpLogVsmEnclaveLdrCreateEnclaveTelemetry(__int64 a1, int a2)
         v16 = 8;
         v9 = a2;
         v19 = 4;
-        LOBYTE(v2) = tlgWriteTransfer_EtwEventWriteTransfer(v5, byte_1801A2A75, v6, v7, 5, (__int64)v11);
+        LOBYTE(v2) = tlgWriteTransfer_EtwEventWriteTransfer(v5, (unsigned __int8 *)dword_1801A1C15, v6, v7, 5u, &v11);
       }
     }
   }

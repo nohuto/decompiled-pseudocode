@@ -1,17 +1,17 @@
 /*
- * XREFs of MmCommitSessionMappedView @ 0x1407483A0
+ * XREFs of MmCommitSessionMappedView @ 0x140748590
  * Callers:
  *     <none>
  * Callees:
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     MiLocatePagefileSubsection @ 0x140273840 (MiLocatePagefileSubsection.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     MiGetPteAddress @ 0x1402DE00C (MiGetPteAddress.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F820 (KiCheckForKernelApcDelivery.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     MiChargeSegmentCommit @ 0x140748008 (MiChargeSegmentCommit.c)
+ *     KeAbPreAcquire @ 0x140230FD0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     MiLocatePagefileSubsection @ 0x140273AD0 (MiLocatePagefileSubsection.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     MiGetPteAddress @ 0x1402DE29C (MiGetPteAddress.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402FD0A0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KiCheckForKernelApcDelivery @ 0x14030FAB0 (KiCheckForKernelApcDelivery.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     MiChargeSegmentCommit @ 0x1407481F8 (MiChargeSegmentCommit.c)
  */
 
 __int64 __fastcall MmCommitSessionMappedView(unsigned __int64 a1, __int64 a2)

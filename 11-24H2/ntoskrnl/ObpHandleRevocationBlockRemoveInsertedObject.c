@@ -1,15 +1,15 @@
 /*
- * XREFs of ObpHandleRevocationBlockRemoveInsertedObject @ 0x1409D2948
+ * XREFs of ObpHandleRevocationBlockRemoveInsertedObject @ 0x1409C2778
  * Callers:
- *     ObRevokeHandles @ 0x140743F58 (ObRevokeHandles.c)
- *     ObpHandleRevocationBlockRemoveObject @ 0x1409D2920 (ObpHandleRevocationBlockRemoveObject.c)
+ *     ObRevokeHandles @ 0x140741E88 (ObRevokeHandles.c)
+ *     ObpHandleRevocationBlockRemoveObject @ 0x1409C2750 (ObpHandleRevocationBlockRemoveObject.c)
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x140245670 (ExReleaseRundownProtection_0.c)
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExfReleasePushLock @ 0x14025E260 (ExfReleasePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
+ *     ExReleaseRundownProtection_0 @ 0x14020DE50 (ExReleaseRundownProtection_0.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExfReleasePushLock @ 0x14028E870 (ExfReleasePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
  */
 
 void __fastcall ObpHandleRevocationBlockRemoveInsertedObject(
@@ -20,8 +20,8 @@ void __fastcall ObpHandleRevocationBlockRemoveInsertedObject(
 {
   struct _KTHREAD *CurrentThread; // rax
   unsigned __int64 *p_Count; // rsi
-  _QWORD *v10; // rax
-  _QWORD *v11; // rbx
+  char *v10; // rax
+  char *v11; // rbx
   __int64 *v12; // rcx
   __int64 **v13; // rax
   signed __int64 Count; // rax
@@ -35,12 +35,12 @@ void __fastcall ObpHandleRevocationBlockRemoveInsertedObject(
       CurrentThread = KeGetCurrentThread();
       p_Count = &a2[2].Count;
       --CurrentThread->KernelApcDisable;
-      v10 = KeAbPreAcquire((__int64)&a2[2], 0LL);
+      v10 = (char *)KeAbPreAcquire((__int64)&a2[2], 0LL);
       v11 = v10;
       if ( _interlockedbittestandset64((volatile signed __int32 *)p_Count, 0LL) )
-        ExfAcquirePushLockExclusiveEx(p_Count, (__int64)v10, (__int64)p_Count);
+        ExfAcquirePushLockExclusiveEx(p_Count, v10, (__int64)p_Count);
       if ( v11 )
-        *((_BYTE *)v11 + 10) = 1;
+        v11[10] = 1;
     }
     v12 = (__int64 *)*a1;
     if ( *(__int64 **)(*a1 + 8) != a1 || (v13 = (__int64 **)a1[1], *v13 != a1) )

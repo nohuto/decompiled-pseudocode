@@ -1,13 +1,13 @@
 /*
- * XREFs of IopRecordIoAttribution @ 0x140244F60
+ * XREFs of IopRecordIoAttribution @ 0x14020D740
  * Callers:
- *     IoRecordIoAttribution @ 0x140244DD0 (IoRecordIoAttribution.c)
- *     IoDiskIoAttributionQuery @ 0x14030A994 (IoDiskIoAttributionQuery.c)
+ *     IoRecordIoAttribution @ 0x14020D5B0 (IoRecordIoAttribution.c)
+ *     IoDiskIoAttributionQuery @ 0x140314874 (IoDiskIoAttributionQuery.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140275CD0 (KeReleaseInStackQueuedSpinLock.c)
- *     KxWaitForLockOwnerShip @ 0x1402D6990 (KxWaitForLockOwnerShip.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x1402D85F0 (KiAcquireQueuedSpinLockInstrumented.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x14022B260 (KeReleaseInStackQueuedSpinLock.c)
+ *     KxWaitForLockOwnerShip @ 0x140357C10 (KxWaitForLockOwnerShip.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x140359870 (KiAcquireQueuedSpinLockInstrumented.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall IopRecordIoAttribution(unsigned __int64 *a1, __int64 a2, char a3)
@@ -20,10 +20,11 @@ __int64 __fastcall IopRecordIoAttribution(unsigned __int64 *a1, __int64 a2, char
   unsigned __int64 v11; // r15
   unsigned __int64 v12; // rdx
   unsigned __int8 CurrentIrql; // r12
-  unsigned __int64 v14; // rax
-  unsigned int v15; // ebx
-  unsigned __int64 v17; // rcx
+  __int64 v14; // rdx
+  unsigned __int64 v15; // rax
+  unsigned int v16; // ebx
   unsigned __int64 v18; // rcx
+  unsigned __int64 v19; // rcx
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-58h] BYREF
 
   v5 = *(_DWORD *)(a2 + 4);
@@ -64,19 +65,20 @@ __int64 __fastcall IopRecordIoAttribution(unsigned __int64 *a1, __int64 a2, char
     {
       LOBYTE(v12) = 2;
       LOBYTE(v8) = CurrentIrql;
-      KiRaiseIrqlProcessIrqlFlags(v8, v12, 1LL);
+      KiRaiseIrqlProcessIrqlFlags(v8, v12);
       v6 = 1;
     }
     LockHandle.OldIrql = CurrentIrql;
     if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
     {
-      if ( !_InterlockedExchange64((volatile __int64 *)a1 + 5, (__int64)&LockHandle) )
+      v14 = _InterlockedExchange64((volatile __int64 *)a1 + 5, (__int64)&LockHandle);
+      if ( !v14 )
       {
 LABEL_8:
         v12 = 0LL;
         goto LABEL_9;
       }
-      KxWaitForLockOwnerShip(&LockHandle);
+      KxWaitForLockOwnerShip(&LockHandle, v14);
     }
     else
     {
@@ -88,10 +90,10 @@ LABEL_8:
 LABEL_9:
   if ( (*(_DWORD *)(a2 + 4) & 0x100) != 0 )
   {
-    v14 = a1[9];
-    if ( !v14 || v10 < a1[8] )
+    v15 = a1[9];
+    if ( !v15 || v10 < a1[8] )
       a1[8] = v10;
-    a1[9] = v14 + 1;
+    a1[9] = v15 + 1;
     ++*v9;
   }
   else
@@ -103,23 +105,23 @@ LABEL_9:
     }
     if ( !_bittest((const signed __int32 *)(a2 + 4), 9u) )
     {
-      v17 = a1[6];
-      if ( v17 <= *(_QWORD *)(a2 + 16) )
-        v17 = *(_QWORD *)(a2 + 16);
-      if ( v10 >= v17 )
+      v18 = a1[6];
+      if ( v18 <= *(_QWORD *)(a2 + 16) )
+        v18 = *(_QWORD *)(a2 + 16);
+      if ( v10 >= v18 )
       {
         a1[6] = v10;
-        v12 = v10 - v17;
+        v12 = v10 - v18;
       }
       v10 = *(_QWORD *)(a2 + 16);
     }
-    v18 = a1[7];
-    if ( v18 <= a1[8] )
-      v18 = a1[8];
-    if ( v10 >= v18 )
+    v19 = a1[7];
+    if ( v19 <= a1[8] )
+      v19 = a1[8];
+    if ( v10 >= v19 )
     {
       a1[7] = v10;
-      v11 = v10 - v18;
+      v11 = v10 - v19;
     }
     v9[1] += v11;
     if ( !_bittest((const signed __int32 *)(a2 + 4), 9u) )
@@ -129,8 +131,8 @@ LABEL_9:
       v9[4] += (IopDiskIoAttributionBaseIoSize + *(_DWORD *)(a2 + 8) - 1) / (unsigned int)IopDiskIoAttributionBaseIoSize;
     }
   }
-  v15 = 0;
+  v16 = 0;
   if ( v6 )
     KeReleaseInStackQueuedSpinLock(&LockHandle);
-  return v15;
+  return v16;
 }

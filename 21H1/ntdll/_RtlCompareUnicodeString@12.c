@@ -21,7 +21,26 @@
  *     _RtlCompareUnicodeStrings@20 @ 0x4B2D04C0 (_RtlCompareUnicodeStrings@20.c)
  */
 
-int __stdcall RtlCompareUnicodeString(unsigned __int16 *a1, unsigned __int16 *a2, char a3)
-{
-  return RtlCompareUnicodeStrings(*((_DWORD *)a1 + 1), *a1 >> 1, *((_DWORD *)a2 + 1), *a2 >> 1, a3);
-}
+/*
+ * Hex-Rays decompilation failed for _RtlCompareUnicodeString@12 @ 0x4B2D0490
+ * Reason: Hex-Rays returned no pseudocode for 0x4B2D0490
+ * Fallback: raw IDA disassembly follows.
+ *
+ * 000000004B2D0490: mov     edi, edi
+ * 000000004B2D0492: push    ebp
+ * 000000004B2D0493: mov     ebp, esp
+ * 000000004B2D0495: mov     ecx, [ebp+String2]
+ * 000000004B2D0498: push    dword ptr [ebp+CaseInSensitive]; String2Length
+ * 000000004B2D049B: movzx   eax, word ptr [ecx]
+ * 000000004B2D049E: shr     eax, 1
+ * 000000004B2D04A0: push    eax; String2
+ * 000000004B2D04A1: push    dword ptr [ecx+4]
+ * 000000004B2D04A4: mov     ecx, [ebp+String1]
+ * 000000004B2D04A7: movzx   eax, word ptr [ecx]
+ * 000000004B2D04AA: shr     eax, 1
+ * 000000004B2D04AC: push    eax; String1Length
+ * 000000004B2D04AD: push    dword ptr [ecx+4]; String1
+ * 000000004B2D04B0: call    _RtlCompareUnicodeStrings@20; RtlCompareUnicodeStrings(x,x,x,x,x)
+ * 000000004B2D04B5: pop     ebp
+ * 000000004B2D04B6: retn    0Ch
+ */

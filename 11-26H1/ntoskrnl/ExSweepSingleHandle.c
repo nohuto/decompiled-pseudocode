@@ -1,9 +1,9 @@
 /*
- * XREFs of ExSweepSingleHandle @ 0x140368260
+ * XREFs of ExSweepSingleHandle @ 0x14036A000
  * Callers:
- *     ObCloseHandleTableEntry2 @ 0x1408FAF70 (ObCloseHandleTableEntry2.c)
+ *     ObCloseHandleTableEntry2 @ 0x14092AF00 (ObCloseHandleTableEntry2.c)
  * Callees:
- *     ExpUnblockPushLock @ 0x1403682A0 (ExpUnblockPushLock.c)
+ *     ExpUnblockPushLock @ 0x14036A040 (ExpUnblockPushLock.c)
  */
 
 __int64 __fastcall ExSweepSingleHandle(__int64 a1, _QWORD *a2)

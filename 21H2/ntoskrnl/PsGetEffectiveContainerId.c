@@ -1,15 +1,15 @@
 /*
- * XREFs of PsGetEffectiveContainerId @ 0x1402B6CE0
+ * XREFs of PsGetEffectiveContainerId @ 0x140234EC0
  * Callers:
- *     NtQueryInformationThread @ 0x1405FB940 (NtQueryInformationThread.c)
+ *     NtQueryInformationThread @ 0x1406EB0A0 (NtQueryInformationThread.c)
  * Callees:
- *     PsGetWorkOnBehalfThread @ 0x1402055CC (PsGetWorkOnBehalfThread.c)
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
+ *     PsGetWorkOnBehalfThread @ 0x1402A9F0C (PsGetWorkOnBehalfThread.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
  */
 
 __int64 __fastcall PsGetEffectiveContainerId(int a1, struct _KTHREAD *a2, __int64 a3)
 {
-  PVOID WorkOnBehalfThread; // rax
+  __int64 WorkOnBehalfThread; // rax
   void *v8; // r8
   unsigned __int64 v9; // rdx
   int v10; // ebx
@@ -28,10 +28,10 @@ __int64 __fastcall PsGetEffectiveContainerId(int a1, struct _KTHREAD *a2, __int6
     if ( (KeGetPcr()->Prcb.DpcRequestSummary & 0x10001) != 0 && a2 == KeGetCurrentThread() )
       return 0LL;
     WorkOnBehalfThread = PsGetWorkOnBehalfThread(a2, &v14);
-    v8 = WorkOnBehalfThread;
+    v8 = (void *)WorkOnBehalfThread;
     if ( WorkOnBehalfThread )
     {
-      v9 = *(_QWORD *)(*((_QWORD *)WorkOnBehalfThread + 68) + 1296LL);
+      v9 = *(_QWORD *)(*(_QWORD *)(WorkOnBehalfThread + 544) + 1296LL);
       *(_DWORD *)(a3 + 16) |= 1u;
     }
     else

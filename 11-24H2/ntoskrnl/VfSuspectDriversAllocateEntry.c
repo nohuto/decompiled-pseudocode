@@ -1,21 +1,21 @@
 /*
- * XREFs of VfSuspectDriversAllocateEntry @ 0x140B9A6A0
+ * XREFs of VfSuspectDriversAllocateEntry @ 0x140B9C6A0
  * Callers:
- *     VfVolatileApplyDifVerification @ 0x140614864 (VfVolatileApplyDifVerification.c)
- *     VfSuspectDriversLoadCallback @ 0x140B9AB3C (VfSuspectDriversLoadCallback.c)
- *     VfAddVerifierEntry @ 0x140B9C32C (VfAddVerifierEntry.c)
- *     VfSuspectDriversParseRegistryString @ 0x140C3BD54 (VfSuspectDriversParseRegistryString.c)
+ *     VfVolatileApplyDifVerification @ 0x140612E24 (VfVolatileApplyDifVerification.c)
+ *     VfSuspectDriversLoadCallback @ 0x140B9CB3C (VfSuspectDriversLoadCallback.c)
+ *     VfAddVerifierEntry @ 0x140B9E32C (VfAddVerifierEntry.c)
+ *     VfSuspectDriversParseRegistryString @ 0x140C3DEAC (VfSuspectDriversParseRegistryString.c)
  * Callees:
- *     RtlUShortAdd @ 0x14046B240 (RtlUShortAdd.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     RtlUShortAdd @ 0x140463CC0 (RtlUShortAdd.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
-ULONG_PTR __fastcall VfSuspectDriversAllocateEntry(const void **a1)
+__int64 __fastcall VfSuspectDriversAllocateEntry(const void **a1)
 {
   USHORT v2; // ax
-  ULONG_PTR Pool2; // rax
-  ULONG_PTR v4; // rbx
+  __int64 Pool2; // rax
+  __int64 v4; // rbx
   USHORT pusResult; // [rsp+30h] [rbp+8h] BYREF
 
   pusResult = *(_WORD *)a1 + 2;

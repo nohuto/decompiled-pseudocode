@@ -1,9 +1,9 @@
 /*
- * XREFs of IopQueueDeviceResetEvent @ 0x1408A094C
+ * XREFs of IopQueueDeviceResetEvent @ 0x1408A0AAC
  * Callers:
- *     IoRequestDeviceRemovalForReset @ 0x1408A05B0 (IoRequestDeviceRemovalForReset.c)
+ *     IoRequestDeviceRemovalForReset @ 0x1408A0710 (IoRequestDeviceRemovalForReset.c)
  * Callees:
- *     PnpSetTargetDeviceRemove @ 0x140738FD4 (PnpSetTargetDeviceRemove.c)
+ *     PnpSetTargetDeviceRemove @ 0x140739194 (PnpSetTargetDeviceRemove.c)
  */
 
 __int64 __fastcall IopQueueDeviceResetEvent(__int64 a1)

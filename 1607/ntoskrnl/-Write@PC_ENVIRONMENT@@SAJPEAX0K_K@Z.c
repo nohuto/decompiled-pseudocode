@@ -1,13 +1,13 @@
 /*
- * XREFs of ?Write@PC_ENVIRONMENT@@SAJPEAX0K_K@Z @ 0x14061FE98
+ * XREFs of ?Write@PC_ENVIRONMENT@@SAJPEAX0K_K@Z @ 0x14061FF4C
  * Callers:
- *     ?WriteSectors@PC_DISK@@QEAAJK_KPEAX@Z @ 0x14023CCBC (-WriteSectors@PC_DISK@@QEAAJK_KPEAX@Z.c)
+ *     ?WriteSectors@PC_DISK@@QEAAJK_KPEAX@Z @ 0x14023CBA0 (-WriteSectors@PC_DISK@@QEAAJK_KPEAX@Z.c)
  * Callees:
- *     MmUnlockPages @ 0x140051A80 (MmUnlockPages.c)
- *     IoFreeIrp @ 0x140055DD0 (IoFreeIrp.c)
- *     IoFreeMdl @ 0x140072230 (IoFreeMdl.c)
- *     IoBuildAsynchronousFsdRequest @ 0x1400A4568 (IoBuildAsynchronousFsdRequest.c)
- *     IoSynchronousCallDriver @ 0x1400AC630 (IoSynchronousCallDriver.c)
+ *     MmUnlockPages @ 0x140051600 (MmUnlockPages.c)
+ *     IoFreeIrp @ 0x140055950 (IoFreeIrp.c)
+ *     IoFreeMdl @ 0x140071DB0 (IoFreeMdl.c)
+ *     IoSynchronousCallDriver @ 0x1400AAB98 (IoSynchronousCallDriver.c)
+ *     IoBuildAsynchronousFsdRequest @ 0x14010AE94 (IoBuildAsynchronousFsdRequest.c)
  */
 
 __int64 __fastcall PC_ENVIRONMENT::Write(PDEVICE_OBJECT DeviceObject, PVOID Buffer, ULONG Length, LARGE_INTEGER a4)

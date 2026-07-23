@@ -1,11 +1,11 @@
 /*
- * XREFs of PoRegisterCoalescingCallback @ 0x14056F390
+ * XREFs of PoRegisterCoalescingCallback @ 0x14056F8D0
  * Callers:
- *     CmpCmdInit @ 0x14056F1EC (CmpCmdInit.c)
+ *     CmpCmdInit @ 0x14056F72C (CmpCmdInit.c)
  *     CcInitializeCacheManager @ 0x14079FAB0 (CcInitializeCacheManager.c)
  *     PopCoalescingInitialize @ 0x1407B2BF4 (PopCoalescingInitialize.c)
  * Callees:
- *     ExCompareExchangeCallBack @ 0x140136688 (ExCompareExchangeCallBack.c)
+ *     ExCompareExchangeCallBack @ 0x140136BF8 (ExCompareExchangeCallBack.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */

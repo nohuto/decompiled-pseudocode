@@ -1,18 +1,18 @@
 /*
- * XREFs of LdrpIncrementModuleLoadCount @ 0x180019B00
+ * XREFs of LdrpIncrementModuleLoadCount @ 0x180046500
  * Callers:
- *     LdrGetDllHandleEx @ 0x18000A960 (LdrGetDllHandleEx.c)
- *     LdrpLoadDependentModuleInternal @ 0x18000D2E0 (LdrpLoadDependentModuleInternal.c)
- *     LdrpFindOrPrepareLoadingModule @ 0x18000FA80 (LdrpFindOrPrepareLoadingModule.c)
- *     LdrpFastpthReloadedDll @ 0x180019870 (LdrpFastpthReloadedDll.c)
- *     TppAlpcpExecuteCallback @ 0x1800258C0 (TppAlpcpExecuteCallback.c)
- *     LdrAddRefDll @ 0x18006F1D0 (LdrAddRefDll.c)
- *     LdrGetDllHandleByName @ 0x1800EDDB0 (LdrGetDllHandleByName.c)
- *     LdrGetDllHandleByMapping @ 0x1800EF240 (LdrGetDllHandleByMapping.c)
+ *     LdrGetDllHandleEx @ 0x180037360 (LdrGetDllHandleEx.c)
+ *     LdrpLoadDependentModuleInternal @ 0x180039CE0 (LdrpLoadDependentModuleInternal.c)
+ *     LdrpFindOrPrepareLoadingModule @ 0x18003C480 (LdrpFindOrPrepareLoadingModule.c)
+ *     LdrpFastpthReloadedDll @ 0x180046270 (LdrpFastpthReloadedDll.c)
+ *     TppAlpcpExecuteCallback @ 0x1800522C0 (TppAlpcpExecuteCallback.c)
+ *     LdrAddRefDll @ 0x18008BAB0 (LdrAddRefDll.c)
+ *     LdrGetDllHandleByName @ 0x1800E8F90 (LdrGetDllHandleByName.c)
+ *     LdrGetDllHandleByMapping @ 0x1800EA420 (LdrGetDllHandleByMapping.c)
  * Callees:
- *     RtlpAbFreeKernelEntry @ 0x180019D70 (RtlpAbFreeKernelEntry.c)
- *     RtlpAcquireSRWLockExclusiveContended @ 0x18004A470 (RtlpAcquireSRWLockExclusiveContended.c)
- *     ZwAlertThreadByThreadIdEx @ 0x180162AC0 (ZwAlertThreadByThreadIdEx.c)
+ *     RtlpAbFreeKernelEntry @ 0x180046770 (RtlpAbFreeKernelEntry.c)
+ *     RtlpAcquireSRWLockExclusiveContended @ 0x180060050 (RtlpAcquireSRWLockExclusiveContended.c)
+ *     ZwAlertThreadByThreadIdEx @ 0x180160E80 (ZwAlertThreadByThreadIdEx.c)
  */
 
 __int64 __fastcall LdrpIncrementModuleLoadCount(__int64 a1)
@@ -31,7 +31,7 @@ __int64 __fastcall LdrpIncrementModuleLoadCount(__int64 a1)
   signed __int64 v15; // rcx
   signed __int64 v16; // rdx
   signed __int64 v17; // rtt
-  __int64 *v18; // rbp
+  _RTL_SRWLOCK *v18; // rbp
   unsigned __int64 v19; // r9
   _QWORD *v20; // r8
   __int64 v21; // rcx
@@ -77,7 +77,7 @@ __int64 __fastcall LdrpIncrementModuleLoadCount(__int64 a1)
       v2 = -1073741515;
     }
   }
-  v9 = _InterlockedCompareExchange64(&LdrpModuleDatatableLock, 0LL, 1LL);
+  v9 = _InterlockedCompareExchange64((volatile signed __int64 *)&LdrpModuleDatatableLock, 0LL, 1LL);
   if ( v9 != 1 )
   {
     do
@@ -88,7 +88,7 @@ __int64 __fastcall LdrpIncrementModuleLoadCount(__int64 a1)
         v14 = -1LL;
       v16 = v9 + v14;
       v17 = v9;
-      v9 = _InterlockedCompareExchange64(&LdrpModuleDatatableLock, v16, v9);
+      v9 = _InterlockedCompareExchange64((volatile signed __int64 *)&LdrpModuleDatatableLock, v16, v9);
     }
     while ( v17 != v9 );
     if ( v15 == 2 )
@@ -98,7 +98,7 @@ __int64 __fastcall LdrpIncrementModuleLoadCount(__int64 a1)
       {
         while ( (v16 & 1) != 0 )
         {
-          v27 = _InterlockedCompareExchange64(&LdrpModuleDatatableLock, v16 - 4, v16);
+          v27 = _InterlockedCompareExchange64((volatile signed __int64 *)&LdrpModuleDatatableLock, v16 - 4, v16);
           v23 = v16 == v27;
           v16 = v27;
           if ( v23 )
@@ -127,7 +127,7 @@ __int64 __fastcall LdrpIncrementModuleLoadCount(__int64 a1)
             break;
         }
         v18 = 0LL;
-        v24 = _InterlockedCompareExchange64(&LdrpModuleDatatableLock, 0LL, v16);
+        v24 = _InterlockedCompareExchange64((volatile signed __int64 *)&LdrpModuleDatatableLock, 0LL, v16);
         v23 = v16 == v24;
         v16 = v24;
         if ( v23 )
@@ -135,7 +135,7 @@ __int64 __fastcall LdrpIncrementModuleLoadCount(__int64 a1)
       }
       *(_QWORD *)((v16 & 0xFFFFFFFFFFFFFFF0uLL) + 8) = v22;
       *(_QWORD *)(v21 + 16) = 0LL;
-      _InterlockedAnd64(&LdrpModuleDatatableLock, 0xFFFFFFFFFFFFFFFBuLL);
+      _InterlockedAnd64((volatile signed __int64 *)&LdrpModuleDatatableLock, 0xFFFFFFFFFFFFFFFBuLL);
       do
       {
 LABEL_33:

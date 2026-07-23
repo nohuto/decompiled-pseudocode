@@ -1,12 +1,12 @@
 /*
- * XREFs of PopFxRemoveDevice @ 0x14058B6F0
+ * XREFs of PopFxRemoveDevice @ 0x14058BBE0
  * Callers:
- *     PopFxUnregisterDevice @ 0x140985DC4 (PopFxUnregisterDevice.c)
+ *     PopFxUnregisterDevice @ 0x140985FC4 (PopFxUnregisterDevice.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x140231550 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
  */
 
 void __fastcall PopFxRemoveDevice(__int64 a1, _QWORD *a2)

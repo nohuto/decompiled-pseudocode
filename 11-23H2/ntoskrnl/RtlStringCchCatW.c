@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlStringCchCatW @ 0x14022BC94
+ * XREFs of RtlStringCchCatW @ 0x14022BDA4
  * Callers:
- *     AslpFileQueryVersionString @ 0x1406D4564 (AslpFileQueryVersionString.c)
- *     SdbpCreateSearchDBContext @ 0x140758244 (SdbpCreateSearchDBContext.c)
- *     SdbGetMergeRedirectPath @ 0x140A4E100 (SdbGetMergeRedirectPath.c)
- *     AslPathCombine @ 0x140A550EC (AslPathCombine.c)
- *     AslPathToSystemPathBuf @ 0x140A553E8 (AslPathToSystemPathBuf.c)
- *     AslpEnvResolveVars @ 0x140A577C4 (AslpEnvResolveVars.c)
+ *     AslpFileQueryVersionString @ 0x1406D4594 (AslpFileQueryVersionString.c)
+ *     SdbpCreateSearchDBContext @ 0x140758434 (SdbpCreateSearchDBContext.c)
+ *     SdbGetMergeRedirectPath @ 0x140A4E3B0 (SdbGetMergeRedirectPath.c)
+ *     AslPathCombine @ 0x140A5539C (AslPathCombine.c)
+ *     AslPathToSystemPathBuf @ 0x140A55698 (AslPathToSystemPathBuf.c)
+ *     AslpEnvResolveVars @ 0x140A57A74 (AslpEnvResolveVars.c)
  *     BapdpProcessVsmKeyBlobs @ 0x140B4FA18 (BapdpProcessVsmKeyBlobs.c)
  * Callees:
  *     <none>

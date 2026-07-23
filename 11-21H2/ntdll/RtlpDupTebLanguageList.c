@@ -9,19 +9,19 @@
  *     RtlpMuiRegDupLanguageConfigList @ 0x180111178 (RtlpMuiRegDupLanguageConfigList.c)
  */
 
-__int64 *__fastcall RtlpDupTebLanguageList(__int64 *a1)
+void **__fastcall RtlpDupTebLanguageList(__int64 *a1)
 {
-  __int64 *Heap; // rbx
+  void **Heap; // rbx
   __int64 v3; // rax
   __int64 v5; // rax
 
   if ( !a1 )
     return 0LL;
-  Heap = (__int64 *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, 16LL);
+  Heap = (void **)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, 0x10uLL);
   if ( !Heap )
     return 0LL;
-  if ( *a1 && (v3 = RtlpMuiRegDupLanguageList(*a1), (*Heap = v3) == 0)
-    || a1[1] && (v5 = RtlpMuiRegDupLanguageConfigList(), (Heap[1] = v5) == 0) )
+  if ( *a1 && (v3 = RtlpMuiRegDupLanguageList(*a1), (*Heap = (void *)v3) == 0LL)
+    || a1[1] && (v5 = RtlpMuiRegDupLanguageConfigList(), (Heap[1] = (void *)v5) == 0LL) )
   {
     RtlpFreeTebLanguageList(Heap);
     return 0LL;

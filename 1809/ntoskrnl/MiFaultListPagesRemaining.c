@@ -1,8 +1,8 @@
 /*
- * XREFs of MiFaultListPagesRemaining @ 0x1401206AC
+ * XREFs of MiFaultListPagesRemaining @ 0x140120778
  * Callers:
  *     MiDispatchFault @ 0x140045FD0 (MiDispatchFault.c)
- *     MiComputeMaximumFaultCluster @ 0x140168C38 (MiComputeMaximumFaultCluster.c)
+ *     MiComputeMaximumFaultCluster @ 0x140168D38 (MiComputeMaximumFaultCluster.c)
  * Callees:
  *     <none>
  */

@@ -1,12 +1,12 @@
 /*
- * XREFs of PopFxDeviceWork @ 0x1405054E0
+ * XREFs of PopFxDeviceWork @ 0x1404FEE20
  * Callers:
  *     <none>
  * Callees:
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     PopFxDeliverDevicePowerRequired @ 0x1403B3CC4 (PopFxDeliverDevicePowerRequired.c)
- *     PopFxDereferenceDevice @ 0x1403B61F4 (PopFxDereferenceDevice.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PopFxDeliverDevicePowerRequired @ 0x1403BDBD0 (PopFxDeliverDevicePowerRequired.c)
+ *     PopFxDereferenceDevice @ 0x1403C00F4 (PopFxDereferenceDevice.c)
  */
 
 LONG __fastcall PopFxDeviceWork(ULONG_PTR BugCheckParameter2)

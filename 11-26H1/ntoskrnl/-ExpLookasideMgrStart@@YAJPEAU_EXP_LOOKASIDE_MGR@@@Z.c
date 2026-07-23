@@ -1,13 +1,13 @@
 /*
- * XREFs of ?ExpLookasideMgrStart@@YAJPEAU_EXP_LOOKASIDE_MGR@@@Z @ 0x140846D5C
+ * XREFs of ?ExpLookasideMgrStart@@YAJPEAU_EXP_LOOKASIDE_MGR@@@Z @ 0x14084CFBC
  * Callers:
- *     ExLookasideMgrsStart @ 0x14083A910 (ExLookasideMgrsStart.c)
+ *     ExLookasideMgrsStart @ 0x140840B50 (ExLookasideMgrsStart.c)
  * Callees:
- *     KiQueryUnbiasedInterruptTime @ 0x140446880 (KiQueryUnbiasedInterruptTime.c)
- *     ExAllocateTimer @ 0x140456CE0 (ExAllocateTimer.c)
- *     KeQueryNodeActiveProcessorCount @ 0x1404DFF50 (KeQueryNodeActiveProcessorCount.c)
- *     ?ExpLookasideMgrWorkerSetAllocate@@YAJPEAU_EXP_LOOKASIDE_MGR_WORKER_SET@@PEAU_EXP_LOOKASIDE_MGR@@KK@Z @ 0x140846E58 (-ExpLookasideMgrWorkerSetAllocate@@YAJPEAU_EXP_LOOKASIDE_MGR_WORKER_SET@@PEAU_EXP_LOOKASIDE_MGR@.c)
- *     ?ExpLookasideMgrSetTimer@@YAXPEAU_EXP_LOOKASIDE_MGR@@_K@Z @ 0x140B2C780 (-ExpLookasideMgrSetTimer@@YAXPEAU_EXP_LOOKASIDE_MGR@@_K@Z.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x14043F380 (KiQueryUnbiasedInterruptTime.c)
+ *     ExAllocateTimer @ 0x14044E550 (ExAllocateTimer.c)
+ *     KeQueryNodeActiveProcessorCount @ 0x1404D9630 (KeQueryNodeActiveProcessorCount.c)
+ *     ?ExpLookasideMgrWorkerSetAllocate@@YAJPEAU_EXP_LOOKASIDE_MGR_WORKER_SET@@PEAU_EXP_LOOKASIDE_MGR@@KK@Z @ 0x14084D0B8 (-ExpLookasideMgrWorkerSetAllocate@@YAJPEAU_EXP_LOOKASIDE_MGR_WORKER_SET@@PEAU_EXP_LOOKASIDE_MGR@.c)
+ *     ?ExpLookasideMgrSetTimer@@YAXPEAU_EXP_LOOKASIDE_MGR@@_K@Z @ 0x140B2E800 (-ExpLookasideMgrSetTimer@@YAXPEAU_EXP_LOOKASIDE_MGR@@_K@Z.c)
  */
 
 __int64 __fastcall ExpLookasideMgrStart(struct _EXP_LOOKASIDE_MGR *a1)

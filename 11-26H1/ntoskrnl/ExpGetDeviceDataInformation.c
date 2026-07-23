@@ -1,19 +1,19 @@
 /*
- * XREFs of ExpGetDeviceDataInformation @ 0x140B2C1AC
+ * XREFs of ExpGetDeviceDataInformation @ 0x140B2E22C
  * Callers:
- *     ExpQuerySystemInformation @ 0x140B145DC (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x140B169CC (ExpQuerySystemInformation.c)
  * Callees:
- *     RtlCopyFromUser @ 0x140533E38 (RtlCopyFromUser.c)
- *     ExpStringCapture @ 0x140779C94 (ExpStringCapture.c)
- *     RtlCopyToUser @ 0x14077F284 (RtlCopyToUser.c)
- *     RtlWriteULongToUser @ 0x14077F7A0 (RtlWriteULongToUser.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408F29F0 (ExRaiseDatatypeMisalignment.c)
- *     ProbeForWrite @ 0x1408F5D00 (ProbeForWrite.c)
- *     KseQueryDeviceData @ 0x1409E5A00 (KseQueryDeviceData.c)
- *     ExpStringFree @ 0x140B2C38C (ExpStringFree.c)
- *     KseQueryDeviceDataList @ 0x140B2C3B0 (KseQueryDeviceDataList.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlCopyFromUser @ 0x1405362B8 (RtlCopyFromUser.c)
+ *     ExpStringCapture @ 0x14077CBC4 (ExpStringCapture.c)
+ *     RtlCopyToUser @ 0x140781D84 (RtlCopyToUser.c)
+ *     RtlWriteULongToUser @ 0x1407822A0 (RtlWriteULongToUser.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408F8FB0 (ExRaiseDatatypeMisalignment.c)
+ *     ProbeForWrite @ 0x140925C90 (ProbeForWrite.c)
+ *     KseQueryDeviceData @ 0x1409D6F80 (KseQueryDeviceData.c)
+ *     ExpStringFree @ 0x140B2E40C (ExpStringFree.c)
+ *     KseQueryDeviceDataList @ 0x140B2E430 (KseQueryDeviceDataList.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall ExpGetDeviceDataInformation(int a1, _DWORD *a2, int a3)
@@ -58,7 +58,12 @@ __int64 __fastcall ExpGetDeviceDataInformation(int a1, _DWORD *a2, int a3)
       if ( Pool2 )
       {
         if ( a1 == 136 )
-          DeviceData = KseQueryDeviceData(SourceString, *(const WCHAR **)v10, v13, (unsigned int *)&v13[1], Pool2);
+          DeviceData = KseQueryDeviceData(
+                         SourceString,
+                         *(const WCHAR **)v10,
+                         v13,
+                         (struct _KLOCK_ENTRIES *)&v13[1],
+                         Pool2);
         else
           DeviceData = KseQueryDeviceDataList(SourceString);
         v6 = DeviceData;

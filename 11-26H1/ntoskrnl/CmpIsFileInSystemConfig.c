@@ -1,18 +1,18 @@
 /*
- * XREFs of CmpIsFileInSystemConfig @ 0x140A77570
+ * XREFs of CmpIsFileInSystemConfig @ 0x140A80290
  * Callers:
- *     CmpStartRMLog @ 0x1408AC340 (CmpStartRMLog.c)
- *     CmpInitCmRM @ 0x140A75780 (CmpInitCmRM.c)
+ *     CmpStartRMLog @ 0x1408B2784 (CmpStartRMLog.c)
+ *     CmpInitCmRM @ 0x140A7E4A0 (CmpInitCmRM.c)
  * Callees:
- *     RtlUnicodeStringCat @ 0x1403E4700 (RtlUnicodeStringCat.c)
- *     RtlUnicodeStringValidateWorker @ 0x140439150 (RtlUnicodeStringValidateWorker.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwCreateFile @ 0x140723E90 (ZwCreateFile.c)
- *     RtlFreeAnsiString @ 0x140A007C0 (RtlFreeAnsiString.c)
- *     RtlPrefixUnicodeString @ 0x140A29BF0 (RtlPrefixUnicodeString.c)
- *     CmpQueryNameString @ 0x140A77968 (CmpQueryNameString.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePool @ 0x140C10E30 (ExFreePool.c)
+ *     RtlUnicodeStringCat @ 0x1403E78F0 (RtlUnicodeStringCat.c)
+ *     RtlUnicodeStringValidateWorker @ 0x140427DB0 (RtlUnicodeStringValidateWorker.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwCreateFile @ 0x140728A60 (ZwCreateFile.c)
+ *     RtlFreeAnsiString @ 0x140A169F0 (RtlFreeAnsiString.c)
+ *     RtlPrefixUnicodeString @ 0x140A3CC90 (RtlPrefixUnicodeString.c)
+ *     CmpQueryNameString @ 0x140A80688 (CmpQueryNameString.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePool @ 0x140C16E30 (ExFreePool.c)
  */
 
 __int64 __fastcall CmpIsFileInSystemConfig(PCUNICODE_STRING String2, BOOLEAN *a2)

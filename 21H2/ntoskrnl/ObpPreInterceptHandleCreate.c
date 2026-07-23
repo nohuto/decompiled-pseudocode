@@ -1,9 +1,9 @@
 /*
- * XREFs of ObpPreInterceptHandleCreate @ 0x1405E9930
+ * XREFs of ObpPreInterceptHandleCreate @ 0x1406D9090
  * Callers:
- *     ObpCreateHandle @ 0x1406F6550 (ObpCreateHandle.c)
+ *     ObpCreateHandle @ 0x14070D930 (ObpCreateHandle.c)
  * Callees:
- *     ObpCallPreOperationCallbacks @ 0x1405E9760 (ObpCallPreOperationCallbacks.c)
+ *     ObpCallPreOperationCallbacks @ 0x1406D8EC0 (ObpCallPreOperationCallbacks.c)
  */
 
 __int64 __fastcall ObpPreInterceptHandleCreate(__int64 a1, char a2, int *a3, _QWORD *a4)

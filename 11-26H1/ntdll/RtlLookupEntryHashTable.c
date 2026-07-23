@@ -1,57 +1,67 @@
 /*
- * XREFs of RtlLookupEntryHashTable @ 0x1800D1750
+ * XREFs of RtlLookupEntryHashTable @ 0x1800CEEC0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-_QWORD *__fastcall RtlLookupEntryHashTable(__int64 a1, unsigned __int64 a2, char *a3)
+PRTL_DYNAMIC_HASH_TABLE_ENTRY __cdecl RtlLookupEntryHashTable(
+        PRTL_DYNAMIC_HASH_TABLE HashTable,
+        ULONG_PTR Signature,
+        PRTL_DYNAMIC_HASH_TABLE_CONTEXT Context)
 {
-  char *v4; // r11
-  int v5; // ecx
+  PRTL_DYNAMIC_HASH_TABLE_CONTEXT v4; // r11
+  unsigned int Shift; // ecx
   unsigned int v7; // ecx
   unsigned int v8; // edx
-  __int64 v9; // r8
-  __int64 v10; // rbx
-  _QWORD *v11; // rcx
-  _QWORD *v12; // r8
-  _QWORD *i; // rdx
-  unsigned __int64 v14; // rax
+  _QWORD *Directory; // r8
+  _RTL_DYNAMIC_HASH_TABLE_ENTRY *v10; // rbx
+  PRTL_DYNAMIC_HASH_TABLE_ENTRY *v11; // rcx
+  PRTL_DYNAMIC_HASH_TABLE_ENTRY *v12; // r8
+  _QWORD *v13; // rdx
+  ULONG_PTR v14; // rax
   unsigned int v16; // ecx
   char v17; // [rsp+0h] [rbp-28h] BYREF
 
-  v4 = &v17;
-  v5 = *(_DWORD *)(a1 + 4);
-  if ( a3 )
-    v4 = a3;
-  v7 = (69069 * ((unsigned int)a2 >> v5) + 1) & 0xFFFF0000 | ((1103515245 * ((unsigned int)a2 >> v5) + 12345) >> 16);
-  v8 = v7 & *(_DWORD *)(a1 + 16);
-  if ( v8 < *(_DWORD *)(a1 + 12) )
-    v8 = v7 & ((2 * *(_DWORD *)(a1 + 16)) | 1);
-  v9 = *(_QWORD *)(a1 + 32);
+  v4 = (PRTL_DYNAMIC_HASH_TABLE_CONTEXT)&v17;
+  Shift = HashTable->Shift;
+  if ( Context )
+    v4 = Context;
+  v7 = (69069 * ((unsigned int)Signature >> Shift) + 1) & 0xFFFF0000 | ((1103515245 * ((unsigned int)Signature >> Shift)
+                                                                       + 12345) >> 16);
+  v8 = v7 & HashTable->DivisorMask;
+  if ( v8 < HashTable->Pivot )
+    v8 = v7 & ((2 * HashTable->DivisorMask) | 1);
+  Directory = HashTable->Directory;
   v10 = 0LL;
-  if ( *(_DWORD *)(a1 + 8) > 0x80u )
+  if ( HashTable->TableSize > 0x80 )
   {
     _BitScanReverse(&v16, v8 + 128);
     v8 = (v8 + 128) ^ (1 << v16);
-    v9 = *(_QWORD *)(v9 + 8LL * (v16 - 7));
+    Directory = (_QWORD *)Directory[v16 - 7];
   }
-  v11 = (_QWORD *)(v9 + 16LL * v8);
+  v11 = (PRTL_DYNAMIC_HASH_TABLE_ENTRY *)&Directory[2 * v8];
   v12 = v11;
-  for ( i = (_QWORD *)*v11; i != v11; i = (_QWORD *)*i )
+  v13 = *v11;
+  if ( *v11 != (PRTL_DYNAMIC_HASH_TABLE_ENTRY)v11 )
   {
-    v14 = i[2];
-    if ( v14 && v14 >= a2 )
-      break;
-    v12 = i;
+    do
+    {
+      v14 = v13[2];
+      if ( v14 && v14 >= Signature )
+        break;
+      v12 = (PRTL_DYNAMIC_HASH_TABLE_ENTRY *)v13;
+      v13 = (_QWORD *)*v13;
+    }
+    while ( v13 != v11 );
   }
-  *(_QWORD *)v4 = v11;
-  *((_QWORD *)v4 + 1) = v12;
-  *((_QWORD *)v4 + 2) = a2;
-  if ( v11 == (_QWORD *)*v12 )
+  v4->ChainHead = (_LIST_ENTRY *)v11;
+  v4->PrevLinkage = (_LIST_ENTRY *)v12;
+  v4->Signature = Signature;
+  if ( v11 == (PRTL_DYNAMIC_HASH_TABLE_ENTRY *)*v12 )
     return 0LL;
-  if ( *(_QWORD *)(*v12 + 16LL) == a2 )
-    return (_QWORD *)*v12;
-  return (_QWORD *)v10;
+  if ( (*v12)->Signature == Signature )
+    return *v12;
+  return v10;
 }

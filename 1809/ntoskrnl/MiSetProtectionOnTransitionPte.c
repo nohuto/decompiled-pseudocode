@@ -1,16 +1,16 @@
 /*
- * XREFs of MiSetProtectionOnTransitionPte @ 0x140093BB8
+ * XREFs of MiSetProtectionOnTransitionPte @ 0x140093AF8
  * Callers:
- *     MiProtectPrivateMemory @ 0x140070DC0 (MiProtectPrivateMemory.c)
- *     MiSetProtectionOnSection @ 0x140071E80 (MiSetProtectionOnSection.c)
- *     MiSetReadOnlyOnSectionView @ 0x140085B00 (MiSetReadOnlyOnSectionView.c)
+ *     MiProtectPrivateMemory @ 0x140070DB0 (MiProtectPrivateMemory.c)
+ *     MiSetProtectionOnSection @ 0x140071E70 (MiSetProtectionOnSection.c)
+ *     MiSetReadOnlyOnSectionView @ 0x140085AF0 (MiSetReadOnlyOnSectionView.c)
  * Callees:
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
- *     MiSanitizePfnProtection @ 0x140074050 (MiSanitizePfnProtection.c)
- *     MiLockTransitionLeafPage @ 0x140095744 (MiLockTransitionLeafPage.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
+ *     MiSanitizePfnProtection @ 0x140074040 (MiSanitizePfnProtection.c)
+ *     MiLockTransitionLeafPage @ 0x140095684 (MiLockTransitionLeafPage.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
  */
 
 __int64 __fastcall MiSetProtectionOnTransitionPte(__int64 a1, _QWORD *a2, unsigned int a3, int a4)
@@ -49,7 +49,7 @@ LABEL_4:
     if ( (unsigned int)MiPteHasShadow(v14, v13) )
     {
       LODWORD(v13) = 1;
-      if ( HIBYTE(word_14043A1AC) )
+      if ( HIBYTE(word_14043B26C) )
         goto LABEL_4;
       v17 = (v15 & 1) == 0;
     }

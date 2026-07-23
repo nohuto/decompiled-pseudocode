@@ -13,7 +13,7 @@
  *     RtlInterlockedPopEntrySList @ 0x1800A8D80 (RtlInterlockedPopEntrySList.c)
  */
 
-PSLIST_ENTRY __fastcall sub_18000EF18(unsigned __int64 a1, __int64 a2, __int64 a3)
+PSLIST_ENTRY __fastcall sub_18000EF18(_RTL_SRWLOCK *a1, __int64 a2, __int64 a3)
 {
   unsigned int v4; // r10d
   unsigned int v6; // r15d
@@ -23,7 +23,7 @@ PSLIST_ENTRY __fastcall sub_18000EF18(unsigned __int64 a1, __int64 a2, __int64 a
   int v10; // ecx
   unsigned int v11; // ebx
   unsigned int v12; // ebp
-  union _SLIST_HEADER *v13; // rcx
+  _SLIST_HEADER *v13; // rcx
   PSLIST_ENTRY v14; // rbx
   unsigned int v15; // eax
   unsigned int v16; // r9d
@@ -47,23 +47,23 @@ PSLIST_ENTRY __fastcall sub_18000EF18(unsigned __int64 a1, __int64 a2, __int64 a
     v11 = 12;
   v12 = 1 << v11;
   if ( (v6 & 1) == 0 )
-    RtlAcquireSRWLockShared(a1 + 48);
-  v13 = (union _SLIST_HEADER *)(a1 + 16 * (v11 - 12 + 5LL));
+    RtlAcquireSRWLockShared(a1 + 6);
+  v13 = (_SLIST_HEADER *)&a1[2 * v11 - 14];
   if ( LOWORD(v13->Alignment) )
     v14 = RtlInterlockedPopEntrySList(v13);
   else
     v14 = 0LL;
   if ( v14
-    || (v14 = (PSLIST_ENTRY)((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD, _QWORD))(a1 ^ qword_18015BFA8 ^ *(_QWORD *)(a1 + 8)))(
-                              *(_QWORD *)a1,
+    || (v14 = (PSLIST_ENTRY)((__int64 (__fastcall *)(PVOID, _QWORD, _QWORD, _QWORD))((unsigned __int64)a1 ^ qword_18015BFA8 ^ (__int64)a1[1].Ptr))(
+                              a1->Ptr,
                               v12,
                               0LL,
                               v6)) != 0LL )
   {
     v15 = sub_18000F0DC(v12, v7);
     if ( v16 >= v15
-      || ((int (__fastcall *)(_QWORD, PSLIST_ENTRY, _QWORD))(a1 ^ qword_18015BFA8 ^ *(_QWORD *)(a1 + 24)))(
-           *(_QWORD *)a1,
+      || ((int (__fastcall *)(PVOID, PSLIST_ENTRY, _QWORD))((unsigned __int64)a1 ^ qword_18015BFA8 ^ (__int64)a1[3].Ptr))(
+           a1->Ptr,
            v14,
            v15) >= 0 )
     {
@@ -78,8 +78,8 @@ PSLIST_ENTRY __fastcall sub_18000EF18(unsigned __int64 a1, __int64 a2, __int64 a
       v17 = 0LL;
     }
     if ( v14 )
-      ((void (__fastcall *)(_QWORD, PSLIST_ENTRY, _QWORD))(a1 ^ qword_18015BFA8 ^ *(_QWORD *)(a1 + 16)))(
-        *(_QWORD *)a1,
+      ((void (__fastcall *)(PVOID, PSLIST_ENTRY, _QWORD))((unsigned __int64)a1 ^ qword_18015BFA8 ^ (__int64)a1[2].Ptr))(
+        a1->Ptr,
         v14,
         v6);
   }
@@ -88,6 +88,6 @@ PSLIST_ENTRY __fastcall sub_18000EF18(unsigned __int64 a1, __int64 a2, __int64 a
     v17 = 0LL;
   }
   if ( (v6 & 1) == 0 )
-    RtlReleaseSRWLockShared(a1 + 48);
+    RtlReleaseSRWLockShared(a1 + 6);
   return v17;
 }

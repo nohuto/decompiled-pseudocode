@@ -1,15 +1,15 @@
 /*
- * XREFs of MmAllocateContiguousMemoryEx @ 0x140391220
+ * XREFs of MmAllocateContiguousMemoryEx @ 0x140391400
  * Callers:
- *     HalpAllocateCommonBufferDmaThin @ 0x140390EC4 (HalpAllocateCommonBufferDmaThin.c)
- *     HalpAllocateDomainCommonBufferInternal @ 0x1405123D0 (HalpAllocateDomainCommonBufferInternal.c)
- *     DifMmAllocateContiguousMemoryExWrapper @ 0x1405E6710 (DifMmAllocateContiguousMemoryExWrapper.c)
+ *     HalpAllocateCommonBufferDmaThin @ 0x1403910A4 (HalpAllocateCommonBufferDmaThin.c)
+ *     HalpAllocateDomainCommonBufferInternal @ 0x140512920 (HalpAllocateDomainCommonBufferInternal.c)
+ *     DifMmAllocateContiguousMemoryExWrapper @ 0x1405E6C80 (DifMmAllocateContiguousMemoryExWrapper.c)
  * Callees:
- *     MiPartitionObjectToPartition @ 0x1402F8AA4 (MiPartitionObjectToPartition.c)
- *     PsDereferencePartition @ 0x1402F9C4C (PsDereferencePartition.c)
- *     MiAllocateContiguousMemory @ 0x1403B9CD4 (MiAllocateContiguousMemory.c)
- *     MiConvertContiguousMemoryParameters @ 0x1403BA438 (MiConvertContiguousMemoryParameters.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     MiPartitionObjectToPartition @ 0x1402F8D34 (MiPartitionObjectToPartition.c)
+ *     PsDereferencePartition @ 0x1402F9EDC (PsDereferencePartition.c)
+ *     MiAllocateContiguousMemory @ 0x1403B9EB4 (MiAllocateContiguousMemory.c)
+ *     MiConvertContiguousMemoryParameters @ 0x1403BA618 (MiConvertContiguousMemoryParameters.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall MmAllocateContiguousMemoryEx(

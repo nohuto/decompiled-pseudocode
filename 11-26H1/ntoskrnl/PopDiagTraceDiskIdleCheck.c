@@ -1,11 +1,11 @@
 /*
- * XREFs of PopDiagTraceDiskIdleCheck @ 0x1404F66E0
+ * XREFs of PopDiagTraceDiskIdleCheck @ 0x1404EFCF0
  * Callers:
- *     PopScanIdleList @ 0x1404C65A0 (PopScanIdleList.c)
+ *     PopScanIdleList @ 0x1404BFF50 (PopScanIdleList.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 char __fastcall PopDiagTraceDiskIdleCheck(__int64 a1, int a2, int a3)
@@ -27,11 +27,9 @@ char __fastcall PopDiagTraceDiskIdleCheck(__int64 a1, int a2, int a3)
   v3 = &retaddr;
   v17 = a3;
   v16 = a2;
-  if ( byte_140E67628 )
+  if ( PopDiagHandleRegistered )
   {
-    LOBYTE(v3) = EtwEventEnabled(
-                   *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-                   &POP_ETW_EVENT_DISK_IDLE_CHECK);
+    LOBYTE(v3) = EtwEventEnabled(PopDiagHandle, &POP_ETW_EVENT_DISK_IDLE_CHECK);
     if ( (_BYTE)v3 )
     {
       UserData.Ptr = a1 + 24;
@@ -44,15 +42,7 @@ char __fastcall PopDiagTraceDiskIdleCheck(__int64 a1, int a2, int a3)
       v13 = a1 + 100;
       v12 = 4LL;
       v14 = 4LL;
-      LOBYTE(v3) = EtwWriteEx(
-                     *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-                     &POP_ETW_EVENT_DISK_IDLE_CHECK,
-                     0LL,
-                     0,
-                     0LL,
-                     0LL,
-                     5u,
-                     &UserData);
+      LOBYTE(v3) = EtwWriteEx(PopDiagHandle, &POP_ETW_EVENT_DISK_IDLE_CHECK, 0LL, 0, 0LL, 0LL, 5u, &UserData);
     }
   }
   return (char)v3;

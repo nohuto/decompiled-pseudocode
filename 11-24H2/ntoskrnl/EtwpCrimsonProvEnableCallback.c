@@ -1,16 +1,16 @@
 /*
- * XREFs of EtwpCrimsonProvEnableCallback @ 0x140A690F0
+ * XREFs of EtwpCrimsonProvEnableCallback @ 0x140A624A0
  * Callers:
  *     <none>
  * Callees:
- *     EtwEventEnabled @ 0x1402A1BD0 (EtwEventEnabled.c)
- *     ExQueueWorkItem @ 0x140325850 (ExQueueWorkItem.c)
- *     KeReleaseMutex @ 0x1403379B0 (KeReleaseMutex.c)
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     EtwProviderEnabled @ 0x1403D47F0 (EtwProviderEnabled.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     EtwpPsProvCaptureState @ 0x1407B15C4 (EtwpPsProvCaptureState.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     EtwProviderEnabled @ 0x140262770 (EtwProviderEnabled.c)
+ *     ExQueueWorkItem @ 0x1402CE3E0 (ExQueueWorkItem.c)
+ *     EtwEventEnabled @ 0x1402D1300 (EtwEventEnabled.c)
+ *     KeReleaseMutex @ 0x1402DEA60 (KeReleaseMutex.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     EtwpPsProvCaptureState @ 0x1407B1A14 (EtwpPsProvCaptureState.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 void __fastcall EtwpCrimsonProvEnableCallback(
@@ -122,7 +122,7 @@ LABEL_6:
   }
   while ( v9 );
   KeReleaseMutex(&EtwpCrimsonMaskMutex, 0);
-  Pool2 = (struct _WORK_QUEUE_ITEM *)ExAllocatePool2(0x40uLL);
+  Pool2 = (struct _WORK_QUEUE_ITEM *)ExAllocatePool2(0x40uLL, 0x20uLL, 0x57777445u);
   if ( Pool2 )
   {
     Pool2->List.Flink = 0LL;

@@ -1,7 +1,7 @@
 /*
- * XREFs of MiInitializeIoPageNodeArray @ 0x140489C60
+ * XREFs of MiInitializeIoPageNodeArray @ 0x140484F5C
  * Callers:
- *     MiReferenceIoPages @ 0x140283108 (MiReferenceIoPages.c)
+ *     MiReferenceIoPages @ 0x140238698 (MiReferenceIoPages.c)
  * Callees:
  *     <none>
  */
@@ -19,7 +19,7 @@ __int64 __fastcall MiInitializeIoPageNodeArray(__int64 a1)
   v2 = 512LL;
   do
   {
-    v3 = v1++ & ((1LL << ((unsigned __int8)dword_140E2DB38 - 12)) - 1);
+    v3 = v1++ & ((1LL << ((unsigned __int8)dword_140E2DC78 - 12)) - 1);
     v4 = 2 * (v3 - *(_DWORD *)(a1 + 24));
     v5 = (unsigned __int64)v4 >> 5;
     result = (3 << (v4 & 0x1F)) | *(_DWORD *)(a1 + 4 * v5 + 44) & (unsigned int)~(3 << (v4 & 0x1F));

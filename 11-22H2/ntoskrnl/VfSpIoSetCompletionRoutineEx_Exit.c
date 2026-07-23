@@ -32,7 +32,7 @@ void __fastcall VfSpIoSetCompletionRoutineEx_Exit(__int64 a1)
       *v2 = *(_OWORD *)v4;
       v2[1] = *(_OWORD *)(v4 + 16);
       *(_QWORD *)(v3 - 8) = v2;
-      VfUtilFreePoolCheckIRQL((struct _SLIST_ENTRY *)v4);
+      VfUtilFreePoolCheckIRQL((_SLIST_ENTRY *)v4);
     }
   }
 }

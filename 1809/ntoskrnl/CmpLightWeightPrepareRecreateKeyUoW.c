@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpLightWeightPrepareRecreateKeyUoW @ 0x1405818C4
+ * XREFs of CmpLightWeightPrepareRecreateKeyUoW @ 0x1405828C4
  * Callers:
- *     CmpProcessLightWeightUOW @ 0x140694A1C (CmpProcessLightWeightUOW.c)
+ *     CmpProcessLightWeightUOW @ 0x140695BDC (CmpProcessLightWeightUOW.c)
  * Callees:
- *     HvpMarkCellDirty @ 0x1405FAC04 (HvpMarkCellDirty.c)
+ *     HvpMarkCellDirty @ 0x1405FBC04 (HvpMarkCellDirty.c)
  */
 
 __int64 __fastcall CmpLightWeightPrepareRecreateKeyUoW(__int64 a1)

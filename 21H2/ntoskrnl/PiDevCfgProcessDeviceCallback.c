@@ -1,22 +1,22 @@
 /*
- * XREFs of PiDevCfgProcessDeviceCallback @ 0x1407BDD10
+ * XREFs of PiDevCfgProcessDeviceCallback @ 0x1407BE4A0
  * Callers:
  *     <none>
  * Callees:
- *     PipAreDriversLoaded @ 0x140265224 (PipAreDriversLoaded.c)
- *     PnpDuplicateUnicodeString @ 0x14036EEA0 (PnpDuplicateUnicodeString.c)
- *     PnpRequestDeviceAction @ 0x140370854 (PnpRequestDeviceAction.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     memset @ 0x140414200 (memset.c)
- *     _CmGetDeviceRegProp @ 0x14064146C (_CmGetDeviceRegProp.c)
- *     _CmOpenDeviceRegKey @ 0x140641B70 (_CmOpenDeviceRegKey.c)
- *     PnpSetTargetDeviceRemove @ 0x140738FD4 (PnpSetTargetDeviceRemove.c)
- *     PiDevCfgSetDeviceRegProp @ 0x140739C50 (PiDevCfgSetDeviceRegProp.c)
- *     PiDevCfgFreeDeviceContext @ 0x14073A394 (PiDevCfgFreeDeviceContext.c)
- *     PiDevCfgInitDeviceContext @ 0x14073BA30 (PiDevCfgInitDeviceContext.c)
- *     PiDevCfgCheckDeviceNeedsUpdate @ 0x1408A4F1C (PiDevCfgCheckDeviceNeedsUpdate.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     PipAreDriversLoaded @ 0x1402532B4 (PipAreDriversLoaded.c)
+ *     PnpDuplicateUnicodeString @ 0x14036F050 (PnpDuplicateUnicodeString.c)
+ *     PnpRequestDeviceAction @ 0x1403703A4 (PnpRequestDeviceAction.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     _CmGetDeviceRegProp @ 0x14063627C (_CmGetDeviceRegProp.c)
+ *     _CmOpenDeviceRegKey @ 0x140636980 (_CmOpenDeviceRegKey.c)
+ *     PnpSetTargetDeviceRemove @ 0x140739194 (PnpSetTargetDeviceRemove.c)
+ *     PiDevCfgSetDeviceRegProp @ 0x140739E10 (PiDevCfgSetDeviceRegProp.c)
+ *     PiDevCfgFreeDeviceContext @ 0x14073A554 (PiDevCfgFreeDeviceContext.c)
+ *     PiDevCfgInitDeviceContext @ 0x14073BBF0 (PiDevCfgInitDeviceContext.c)
+ *     PiDevCfgCheckDeviceNeedsUpdate @ 0x1408A507C (PiDevCfgCheckDeviceNeedsUpdate.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PiDevCfgProcessDeviceCallback(__int64 a1, __int64 a2)

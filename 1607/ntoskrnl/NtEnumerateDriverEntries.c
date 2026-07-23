@@ -1,22 +1,22 @@
 /*
- * XREFs of NtEnumerateDriverEntries @ 0x1406B3D2C
+ * XREFs of NtEnumerateDriverEntries @ 0x1406B3E64
  * Callers:
  *     <none>
  * Callees:
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExUnlockUserBuffer @ 0x140086998 (ExUnlockUserBuffer.c)
- *     ExAcquireFastMutexUnsafe @ 0x1400F05A0 (ExAcquireFastMutexUnsafe.c)
- *     ExReleaseFastMutexUnsafe @ 0x1400F0700 (ExReleaseFastMutexUnsafe.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExUnlockUserBuffer @ 0x140088288 (ExUnlockUserBuffer.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1400EE420 (ExAcquireFastMutexUnsafe.c)
+ *     ExReleaseFastMutexUnsafe @ 0x1400EE580 (ExReleaseFastMutexUnsafe.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     SeSinglePrivilegeCheck @ 0x140413F70 (SeSinglePrivilegeCheck.c)
- *     ProbeForWrite @ 0x14044DAC0 (ProbeForWrite.c)
- *     ExLockUserBuffer @ 0x140499420 (ExLockUserBuffer.c)
- *     IoEnumerateEnvironmentVariablesEx @ 0x1406280BC (IoEnumerateEnvironmentVariablesEx.c)
- *     ExpSafeWcslen @ 0x1406B1694 (ExpSafeWcslen.c)
- *     ExpTranslateDriverEntryNameToId @ 0x1406B2694 (ExpTranslateDriverEntryNameToId.c)
+ *     SeSinglePrivilegeCheck @ 0x140412E30 (SeSinglePrivilegeCheck.c)
+ *     ProbeForWrite @ 0x14044C990 (ProbeForWrite.c)
+ *     ExLockUserBuffer @ 0x140499EB0 (ExLockUserBuffer.c)
+ *     IoEnumerateEnvironmentVariablesEx @ 0x140628170 (IoEnumerateEnvironmentVariablesEx.c)
+ *     ExpSafeWcslen @ 0x1406B17CC (ExpSafeWcslen.c)
+ *     ExpTranslateDriverEntryNameToId @ 0x1406B27CC (ExpTranslateDriverEntryNameToId.c)
  */
 
 NTSTATUS __stdcall NtEnumerateDriverEntries(PVOID Buffer, PULONG BufferLength)
@@ -69,7 +69,7 @@ NTSTATUS __stdcall NtEnumerateDriverEntries(PVOID Buffer, PULONG BufferLength)
   v2 = BufferLength;
   v40 = BufferLength;
   v4 = 0LL;
-  if ( dword_1402FD0D0 != 2 )
+  if ( dword_1402FD030 != 2 )
     return -1073741822;
   if ( (PVOID)((unsigned __int64)Buffer & 0xFFFFFFFFFFFFFFFCuLL) != Buffer )
     return -1073741811;

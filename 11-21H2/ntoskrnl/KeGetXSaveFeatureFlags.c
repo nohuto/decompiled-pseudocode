@@ -1,7 +1,7 @@
 /*
  * XREFs of KeGetXSaveFeatureFlags @ 0x1403C1DC0
  * Callers:
- *     KiInitializeKernel @ 0x140A580F0 (KiInitializeKernel.c)
+ *     sub_140A580F0 @ 0x140A580F0 (sub_140A580F0.c)
  * Callees:
  *     <none>
  */

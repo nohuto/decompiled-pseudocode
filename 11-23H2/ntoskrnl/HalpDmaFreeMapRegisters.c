@@ -1,19 +1,19 @@
 /*
- * XREFs of HalpDmaFreeMapRegisters @ 0x14045C4F6
+ * XREFs of HalpDmaFreeMapRegisters @ 0x14045C8F6
  * Callers:
- *     HalDmaAllocateCrashDumpRegistersEx @ 0x1403AEEB0 (HalDmaAllocateCrashDumpRegistersEx.c)
- *     HalpDmaProcessMapRegisterQueueV2 @ 0x14045D7EE (HalpDmaProcessMapRegisterQueueV2.c)
- *     IoFreeMapRegistersV2 @ 0x14045DAC0 (IoFreeMapRegistersV2.c)
- *     HalDmaFreeCrashDumpRegistersEx @ 0x140501240 (HalDmaFreeCrashDumpRegistersEx.c)
- *     HalpDmaFreeCrashDumpRegisters @ 0x140501500 (HalpDmaFreeCrashDumpRegisters.c)
- *     IoFreeMapRegistersV3 @ 0x1405102D0 (IoFreeMapRegistersV3.c)
+ *     HalDmaAllocateCrashDumpRegistersEx @ 0x1403AF090 (HalDmaAllocateCrashDumpRegistersEx.c)
+ *     HalpDmaProcessMapRegisterQueueV2 @ 0x14045DBEE (HalpDmaProcessMapRegisterQueueV2.c)
+ *     IoFreeMapRegistersV2 @ 0x14045DEC0 (IoFreeMapRegistersV2.c)
+ *     HalDmaFreeCrashDumpRegistersEx @ 0x140501790 (HalDmaFreeCrashDumpRegistersEx.c)
+ *     HalpDmaFreeCrashDumpRegisters @ 0x140501A50 (HalpDmaFreeCrashDumpRegisters.c)
+ *     IoFreeMapRegistersV3 @ 0x140510820 (IoFreeMapRegistersV3.c)
  * Callees:
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     memset @ 0x140435A00 (memset.c)
- *     HalpDmaAcquireBufferMappings @ 0x14045BD64 (HalpDmaAcquireBufferMappings.c)
- *     HalpDmaReleaseBufferMappings @ 0x14045C7D8 (HalpDmaReleaseBufferMappings.c)
- *     HalpDmaReturnPageToOwner @ 0x14045C896 (HalpDmaReturnPageToOwner.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     HalpDmaAcquireBufferMappings @ 0x14045C164 (HalpDmaAcquireBufferMappings.c)
+ *     HalpDmaReleaseBufferMappings @ 0x14045CBD8 (HalpDmaReleaseBufferMappings.c)
+ *     HalpDmaReturnPageToOwner @ 0x14045CC96 (HalpDmaReturnPageToOwner.c)
  */
 
 __int64 __fastcall HalpDmaFreeMapRegisters(__int64 a1, _QWORD *a2, unsigned int a3)
@@ -67,7 +67,7 @@ __int64 __fastcall HalpDmaFreeMapRegisters(__int64 a1, _QWORD *a2, unsigned int 
           {
             CurrentIrql = KeGetCurrentIrql();
             __writecr8(2uLL);
-            if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+            if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
             {
               SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
               if ( CurrentIrql == 2 )
@@ -93,10 +93,10 @@ __int64 __fastcall HalpDmaFreeMapRegisters(__int64 a1, _QWORD *a2, unsigned int 
           HalpDmaReleaseBufferMappings(v17, a2, 1LL, v23);
         if ( v13 )
         {
-          if ( KiIrqlFlags )
+          if ( (_DWORD)KiIrqlFlags )
           {
             v18 = KeGetCurrentIrql();
-            if ( (KiIrqlFlags & 1) != 0 && v18 <= 0xFu && CurrentIrql <= 0xFu && v18 >= 2u )
+            if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v18 <= 0xFu && CurrentIrql <= 0xFu && v18 >= 2u )
             {
               CurrentPrcb = KeGetCurrentPrcb();
               v20 = CurrentPrcb->SchedulerAssist;
@@ -104,7 +104,7 @@ __int64 __fastcall HalpDmaFreeMapRegisters(__int64 a1, _QWORD *a2, unsigned int 
               v22 = (v21 & v20[5]) == 0;
               v20[5] &= v21;
               if ( v22 )
-                KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+                KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
             }
           }
           __writecr8(CurrentIrql);

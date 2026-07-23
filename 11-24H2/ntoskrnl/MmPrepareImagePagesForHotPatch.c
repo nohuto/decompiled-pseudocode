@@ -1,61 +1,62 @@
 /*
- * XREFs of MmPrepareImagePagesForHotPatch @ 0x1407F6184
+ * XREFs of MmPrepareImagePagesForHotPatch @ 0x1407F68F8
  * Callers:
- *     PsDispatchIumService @ 0x14048D020 (PsDispatchIumService.c)
+ *     PsDispatchIumService @ 0x1404E66B4 (PsDispatchIumService.c)
  * Callees:
- *     MiUnlockAndDereferenceVad @ 0x1402BAFA0 (MiUnlockAndDereferenceVad.c)
- *     MiObtainReferencedVadEx @ 0x1402FBE30 (MiObtainReferencedVadEx.c)
- *     MiPrepareImagePagesForHotPatch @ 0x14067D29C (MiPrepareImagePagesForHotPatch.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     MiImageVadHotPatchEligible @ 0x1407F30E4 (MiImageVadHotPatchEligible.c)
- *     MiReleaseHotPatchResources @ 0x140AB45B8 (MiReleaseHotPatchResources.c)
- *     MiInitializeImageHotPatchContext @ 0x140AC0C7C (MiInitializeImageHotPatchContext.c)
+ *     MiObtainReferencedVadEx @ 0x140344D30 (MiObtainReferencedVadEx.c)
+ *     MiUnlockAndDereferenceVad @ 0x1403626E0 (MiUnlockAndDereferenceVad.c)
+ *     MiPrepareImagePagesForHotPatch @ 0x14067E494 (MiPrepareImagePagesForHotPatch.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     MiImageVadHotPatchEligible @ 0x1407F3718 (MiImageVadHotPatchEligible.c)
+ *     MiReleaseHotPatchResources @ 0x140AAF528 (MiReleaseHotPatchResources.c)
+ *     MiInitializeImageHotPatchContext @ 0x140ABBDDC (MiInitializeImageHotPatchContext.c)
  */
 
 __int64 __fastcall MmPrepareImagePagesForHotPatch(unsigned __int64 a1, __int64 a2, _QWORD *a3)
 {
-  __int64 v6; // rax
-  __int64 v7; // rbx
-  __int64 v8; // rax
-  __int64 v10[7]; // [rsp+20h] [rbp-59h] BYREF
-  __int64 v11; // [rsp+58h] [rbp-21h]
-  unsigned int v12; // [rsp+F0h] [rbp+77h] BYREF
+  __int64 v6; // r9
+  __int64 v7; // rax
+  __int64 v8; // rbx
+  __int64 v9; // rax
+  __int64 v11[7]; // [rsp+20h] [rbp-59h] BYREF
+  __int64 v12; // [rsp+58h] [rbp-21h]
+  unsigned int v13; // [rsp+F0h] [rbp+77h] BYREF
 
-  v12 = 0;
-  memset_0(v10, 0, 0xA0uLL);
+  v13 = 0;
+  memset_0(v11, 0, 0xA0uLL);
   *a3 = 0LL;
-  MiInitializeImageHotPatchContext(v10, 0LL, 0LL);
-  v6 = MiObtainReferencedVadEx(a1, 0LL, (int *)&v12);
-  v7 = v6;
-  if ( v6 )
+  MiInitializeImageHotPatchContext(v11, 0LL, 0LL);
+  v7 = MiObtainReferencedVadEx(a1, 0LL, (int *)&v13, v6);
+  v8 = v7;
+  if ( v7 )
   {
-    if ( (*(_DWORD *)(v6 + 48) & 0x70) == 0x20 )
+    if ( (*(_DWORD *)(v7 + 48) & 0x70) == 0x20 )
     {
-      if ( !MiImageVadHotPatchEligible(v6) )
+      if ( !MiImageVadHotPatchEligible(v7) )
       {
-        v12 = -1073741637;
+        v13 = -1073741637;
 LABEL_9:
-        MiUnlockAndDereferenceVad((PVOID)v7);
+        MiUnlockAndDereferenceVad((PVOID)v8);
         goto LABEL_10;
       }
-      if ( (((*(unsigned int *)(v7 + 28) | ((unsigned __int64)*(unsigned __int8 *)(v7 + 33) << 32)) << 12) | 0xFFF) >= a1 + (a2 << 12) - 1 )
+      if ( (((*(unsigned int *)(v8 + 28) | ((unsigned __int64)*(unsigned __int8 *)(v8 + 33) << 32)) << 12) | 0xFFF) >= a1 + (a2 << 12) - 1 )
       {
-        MiInitializeImageHotPatchContext(v10, 34404LL, v7);
-        v12 = MiPrepareImagePagesForHotPatch(v10, a1, a2);
-        if ( (v12 & 0x80000000) == 0 )
+        MiInitializeImageHotPatchContext(v11, 34404LL, v8);
+        v13 = MiPrepareImagePagesForHotPatch(v11, a1, a2);
+        if ( (v13 & 0x80000000) == 0 )
         {
-          v8 = v11;
-          v11 = 0LL;
-          v12 = 0;
-          *a3 = v8;
+          v9 = v12;
+          v12 = 0LL;
+          v13 = 0;
+          *a3 = v9;
         }
         goto LABEL_9;
       }
     }
-    v12 = -1073741800;
+    v13 = -1073741800;
     goto LABEL_9;
   }
 LABEL_10:
-  MiReleaseHotPatchResources(v10);
-  return v12;
+  MiReleaseHotPatchResources(v11);
+  return v13;
 }

@@ -1,21 +1,21 @@
 /*
- * XREFs of MiLogFailedDriverLoad @ 0x140A30284
+ * XREFs of MiLogFailedDriverLoad @ 0x140A30534
  * Callers:
- *     MiResolveImageReferences @ 0x1406AE044 (MiResolveImageReferences.c)
- *     MmLoadSystemImageEx @ 0x140703DC0 (MmLoadSystemImageEx.c)
- *     MiCreateSectionForDriver @ 0x1407D4148 (MiCreateSectionForDriver.c)
+ *     MiResolveImageReferences @ 0x1406AE074 (MiResolveImageReferences.c)
+ *     MmLoadSystemImageEx @ 0x140703FD0 (MmLoadSystemImageEx.c)
+ *     MiCreateSectionForDriver @ 0x1407D4418 (MiCreateSectionForDriver.c)
  * Callees:
- *     MiIsRetryIoStatus @ 0x1402F4998 (MiIsRetryIoStatus.c)
- *     RtlInitAnsiString @ 0x1402F6C50 (RtlInitAnsiString.c)
- *     IoWriteErrorLogEntry @ 0x1403C7310 (IoWriteErrorLogEntry.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     IoAllocateGenericErrorLogEntry @ 0x140556748 (IoAllocateGenericErrorLogEntry.c)
- *     RtlFreeUnicodeString @ 0x14076F3D0 (RtlFreeUnicodeString.c)
- *     RtlAnsiStringToUnicodeString @ 0x140773C00 (RtlAnsiStringToUnicodeString.c)
+ *     MiIsRetryIoStatus @ 0x1402F4C28 (MiIsRetryIoStatus.c)
+ *     RtlInitAnsiString @ 0x1402F6EE0 (RtlInitAnsiString.c)
+ *     IoWriteErrorLogEntry @ 0x1403C74F0 (IoWriteErrorLogEntry.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     IoAllocateGenericErrorLogEntry @ 0x140556E08 (IoAllocateGenericErrorLogEntry.c)
+ *     RtlFreeUnicodeString @ 0x14076F5C0 (RtlFreeUnicodeString.c)
+ *     RtlAnsiStringToUnicodeString @ 0x140773DF0 (RtlAnsiStringToUnicodeString.c)
  */
 
-void __fastcall MiLogFailedDriverLoad(unsigned __int16 *a1, unsigned __int16 *a2, const char *a3, NTSTATUS a4)
+void __fastcall MiLogFailedDriverLoad(unsigned __int16 *a1, unsigned __int16 *a2, const CHAR *a3, NTSTATUS a4)
 {
   int v4; // r15d
   __int64 v5; // rdi

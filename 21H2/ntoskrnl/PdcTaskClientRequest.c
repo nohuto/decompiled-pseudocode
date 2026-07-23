@@ -1,14 +1,14 @@
 /*
- * XREFs of PdcTaskClientRequest @ 0x14091B9A0
+ * XREFs of PdcTaskClientRequest @ 0x14091BB00
  * Callers:
- *     PopPowerAggregatorSessionSwitchWorker @ 0x1408EEA60 (PopPowerAggregatorSessionSwitchWorker.c)
+ *     PopPowerAggregatorSessionSwitchWorker @ 0x1408EEBC0 (PopPowerAggregatorSessionSwitchWorker.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     ExfReleasePushLock @ 0x1402F1440 (ExfReleasePushLock.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     memset @ 0x140414200 (memset.c)
- *     PdcPortSendMessageSynchronously @ 0x14059585C (PdcPortSendMessageSynchronously.c)
- *     PdcAcquireRwLockExclusive @ 0x14091BACC (PdcAcquireRwLockExclusive.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExfReleasePushLock @ 0x1402FC190 (ExfReleasePushLock.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     PdcPortSendMessageSynchronously @ 0x140595A8C (PdcPortSendMessageSynchronously.c)
+ *     PdcAcquireRwLockExclusive @ 0x14091BC2C (PdcAcquireRwLockExclusive.c)
  */
 
 __int64 __fastcall PdcTaskClientRequest(__int64 a1, char a2)
@@ -22,10 +22,13 @@ __int64 __fastcall PdcTaskClientRequest(__int64 a1, char a2)
   signed __int64 v9; // rax
   signed __int64 v10; // rdx
   signed __int64 v11; // rtt
-  _DWORD v13[200]; // [rsp+20h] [rbp-328h] BYREF
+  __int64 v12; // rdx
+  __int64 v13; // r8
+  __int64 v14; // r9
+  _DWORD v16[200]; // [rsp+20h] [rbp-328h] BYREF
 
   v2 = PopSleepStudyTaskClientActivator;
-  memset(v13, 0, sizeof(v13));
+  memset(v16, 0, sizeof(v16));
   if ( !PopSleepStudyTaskClientActivator || *(_DWORD *)PopSleepStudyTaskClientActivator != 1667458128 )
     return (unsigned int)-1073741585;
   v5 = (signed __int64 *)(PopSleepStudyTaskClientActivator + 8);
@@ -43,9 +46,9 @@ __int64 __fastcall PdcTaskClientRequest(__int64 a1, char a2)
     {
       goto LABEL_12;
     }
-    v13[10] = 7;
-    LOBYTE(v13[14]) = a2 != 0;
-    PdcPortSendMessageSynchronously(*(_QWORD *)(v2 + 40), (__int64)v13);
+    v16[10] = 7;
+    LOBYTE(v16[14]) = a2 != 0;
+    PdcPortSendMessageSynchronously(*(_QWORD *)(v2 + 40), (__int64)v16);
     v4 = *(_DWORD *)(v2 + 52);
     if ( v4 < 0 )
       goto LABEL_16;
@@ -69,6 +72,6 @@ LABEL_16:
   if ( (v9 & 2) != 0 || (v11 = *v5, v11 != _InterlockedCompareExchange64(v5, v10, v9)) )
     ExfReleasePushLock((_QWORD *)(v2 + 8));
   KeAbPostRelease(v2 + 8);
-  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v12, v13, v14);
   return (unsigned int)v4;
 }

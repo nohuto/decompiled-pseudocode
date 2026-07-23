@@ -1,14 +1,14 @@
 /*
- * XREFs of CmpAcceptBoot @ 0x14078D570
+ * XREFs of CmpAcceptBoot @ 0x14078D730
  * Callers:
- *     NtInitializeRegistry @ 0x14078D500 (NtInitializeRegistry.c)
+ *     NtInitializeRegistry @ 0x14078D6C0 (NtInitializeRegistry.c)
  * Callees:
- *     PsIsCurrentThreadInServerSilo @ 0x140351230 (PsIsCurrentThreadInServerSilo.c)
- *     KvfCommitFeatureStates @ 0x1403A62DC (KvfCommitFeatureStates.c)
- *     KeCommitSmtState @ 0x1403CD93C (KeCommitSmtState.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     CmpUpdatePhaseAccessBit @ 0x1407CEF3C (CmpUpdatePhaseAccessBit.c)
- *     CmpSaveBootControlSet @ 0x140867A80 (CmpSaveBootControlSet.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x14035BF80 (PsIsCurrentThreadInServerSilo.c)
+ *     KvfCommitFeatureStates @ 0x1403A642C (KvfCommitFeatureStates.c)
+ *     KeCommitSmtState @ 0x1403CDAAC (KeCommitSmtState.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     CmpUpdatePhaseAccessBit @ 0x1407CF0AC (CmpUpdatePhaseAccessBit.c)
+ *     CmpSaveBootControlSet @ 0x140867BE0 (CmpSaveBootControlSet.c)
  */
 
 __int64 __fastcall CmpAcceptBoot(__int16 a1)

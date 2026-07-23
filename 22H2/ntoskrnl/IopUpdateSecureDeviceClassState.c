@@ -19,12 +19,12 @@
  *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall IopUpdateSecureDeviceClassState(unsigned int *a1, __int64 a2)
+__int64 __fastcall IopUpdateSecureDeviceClassState(PGUID Guid, __int64 a2)
 {
   void *v2; // r14
   void *v3; // r15
-  SIZE_T v6; // rsi
-  PVOID PoolWithTag; // rdi
+  SIZE_T BufferLengthIn; // rsi
+  WCHAR *TargetPath; // rdi
   int PersistedStateLocation; // ebx
   int v9; // eax
   ULONG v10; // ebx
@@ -32,10 +32,10 @@ __int64 __fastcall IopUpdateSecureDeviceClassState(unsigned int *a1, __int64 a2)
   HANDLE Handle; // [rsp+48h] [rbp-71h] BYREF
   UNICODE_STRING DestinationString; // [rsp+50h] [rbp-69h] BYREF
   void *v15; // [rsp+60h] [rbp-59h] BYREF
-  UNICODE_STRING UnicodeString; // [rsp+68h] [rbp-51h] BYREF
+  UNICODE_STRING GuidString; // [rsp+68h] [rbp-51h] BYREF
   OBJECT_ATTRIBUTES v17; // [rsp+78h] [rbp-41h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+A8h] [rbp-11h] BYREF
-  __int64 v19; // [rsp+130h] [rbp+77h] BYREF
+  ULONG BufferLengthOut; // [rsp+130h] [rbp+77h] BYREF
   void *v20; // [rsp+138h] [rbp+7Fh] BYREF
 
   v20 = 0LL;
@@ -46,13 +46,13 @@ __int64 __fastcall IopUpdateSecureDeviceClassState(unsigned int *a1, __int64 a2)
   v3 = 0LL;
   v15 = 0LL;
   DestinationString = 0LL;
-  LODWORD(v19) = 0;
-  UnicodeString = 0LL;
-  v6 = 256LL;
+  BufferLengthOut = 0;
+  GuidString = 0LL;
+  BufferLengthIn = 256LL;
   while ( 1 )
   {
-    PoolWithTag = ExAllocatePoolWithTag(PagedPool, v6, 0x63466F49u);
-    if ( !PoolWithTag )
+    TargetPath = (WCHAR *)ExAllocatePoolWithTag(PagedPool, BufferLengthIn, 0x63466F49u);
+    if ( !TargetPath )
     {
       PersistedStateLocation = -1073741670;
       goto LABEL_28;
@@ -61,23 +61,23 @@ __int64 __fastcall IopUpdateSecureDeviceClassState(unsigned int *a1, __int64 a2)
                                L"SecureDeviceClass",
                                0LL,
                                L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\Class",
-                               0,
-                               PoolWithTag,
-                               v6,
-                               (unsigned int *)&v19);
+                               LocationTypeRegistry,
+                               TargetPath,
+                               BufferLengthIn,
+                               &BufferLengthOut);
     if ( PersistedStateLocation != -2147483643 )
       break;
-    if ( (unsigned int)v19 <= (unsigned int)v6 )
+    if ( BufferLengthOut <= (unsigned int)BufferLengthIn )
     {
       PersistedStateLocation = -1073741595;
       break;
     }
-    v6 = (unsigned int)v19;
-    ExFreePoolWithTag(PoolWithTag, 0);
+    BufferLengthIn = BufferLengthOut;
+    ExFreePoolWithTag(TargetPath, 0);
   }
   if ( PersistedStateLocation >= 0 )
   {
-    PersistedStateLocation = RtlInitUnicodeStringEx(&DestinationString, (PCWSTR)PoolWithTag);
+    PersistedStateLocation = RtlInitUnicodeStringEx(&DestinationString, TargetPath);
     if ( PersistedStateLocation >= 0 )
     {
       *(_QWORD *)&ObjectAttributes.Length = 48LL;
@@ -88,10 +88,10 @@ __int64 __fastcall IopUpdateSecureDeviceClassState(unsigned int *a1, __int64 a2)
       PersistedStateLocation = ZwOpenKey(&KeyHandle, 0xF003Fu, &ObjectAttributes);
       if ( PersistedStateLocation >= 0 )
       {
-        PersistedStateLocation = RtlStringFromGUIDEx(a1, (__int64)&UnicodeString, 1);
+        PersistedStateLocation = RtlStringFromGUIDEx(Guid, &GuidString, 1u);
         if ( PersistedStateLocation >= 0 )
         {
-          PersistedStateLocation = IopCreateRegistryKeyEx(&v20, KeyHandle, &UnicodeString, 0xF003Fu, 0, 0LL);
+          PersistedStateLocation = IopCreateRegistryKeyEx(&v20, KeyHandle, &GuidString, 0xF003Fu, 0, 0LL);
           if ( PersistedStateLocation < 0 )
           {
             v2 = v20;
@@ -128,10 +128,10 @@ __int64 __fastcall IopUpdateSecureDeviceClassState(unsigned int *a1, __int64 a2)
     goto LABEL_13;
   }
 LABEL_28:
-  if ( PoolWithTag )
+  if ( TargetPath )
   {
-    ExFreePoolWithTag(PoolWithTag, 0);
-    PoolWithTag = 0LL;
+    ExFreePoolWithTag(TargetPath, 0);
+    TargetPath = 0LL;
   }
 LABEL_13:
   if ( KeyHandle )
@@ -140,10 +140,10 @@ LABEL_13:
     ZwClose(v2);
   if ( Handle )
     ZwClose(Handle);
-  if ( PoolWithTag )
-    ExFreePoolWithTag(PoolWithTag, 0);
+  if ( TargetPath )
+    ExFreePoolWithTag(TargetPath, 0);
   if ( v3 )
     ExFreePoolWithTag(v3, 0);
-  RtlFreeAnsiString(&UnicodeString);
+  RtlFreeAnsiString(&GuidString);
   return (unsigned int)PersistedStateLocation;
 }

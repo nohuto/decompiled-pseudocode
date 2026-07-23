@@ -1,24 +1,24 @@
 /*
- * XREFs of _CmGetDeviceRegKeySecurityDescriptor @ 0x1406FD788
+ * XREFs of _CmGetDeviceRegKeySecurityDescriptor @ 0x1406FEA28
  * Callers:
- *     _CmOpenDeviceRegKeyWorker @ 0x1405C7030 (_CmOpenDeviceRegKeyWorker.c)
+ *     _CmOpenDeviceRegKeyWorker @ 0x1405C8030 (_CmOpenDeviceRegKeyWorker.c)
  * Callees:
  *     RtlLengthSid @ 0x1400162C0 (RtlLengthSid.c)
- *     RtlSubAuthoritySid @ 0x1400DCAF0 (RtlSubAuthoritySid.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     RtlLengthSecurityDescriptor @ 0x1405CA090 (RtlLengthSecurityDescriptor.c)
- *     RtlSetDaclSecurityDescriptor @ 0x1405CADE0 (RtlSetDaclSecurityDescriptor.c)
- *     RtlCreateAcl @ 0x1405CAF70 (RtlCreateAcl.c)
- *     RtlValidSid @ 0x140631570 (RtlValidSid.c)
- *     RtlpAddKnownAce @ 0x1406315A0 (RtlpAddKnownAce.c)
- *     RtlCreateSecurityDescriptor @ 0x14064FE90 (RtlCreateSecurityDescriptor.c)
- *     RtlSetGroupSecurityDescriptor @ 0x1406555B0 (RtlSetGroupSecurityDescriptor.c)
- *     RtlSetOwnerSecurityDescriptor @ 0x140655610 (RtlSetOwnerSecurityDescriptor.c)
- *     RtlInitializeSid @ 0x140655670 (RtlInitializeSid.c)
- *     RtlValidSecurityDescriptor @ 0x14069B990 (RtlValidSecurityDescriptor.c)
- *     RtlAbsoluteToSelfRelativeSD @ 0x1406AFA10 (RtlAbsoluteToSelfRelativeSD.c)
+ *     RtlSubAuthoritySid @ 0x1400DCB70 (RtlSubAuthoritySid.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     RtlLengthSecurityDescriptor @ 0x1405CB090 (RtlLengthSecurityDescriptor.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x1405CBDE0 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateAcl @ 0x1405CBF70 (RtlCreateAcl.c)
+ *     RtlValidSid @ 0x140632590 (RtlValidSid.c)
+ *     RtlpAddKnownAce @ 0x1406325C0 (RtlpAddKnownAce.c)
+ *     RtlCreateSecurityDescriptor @ 0x140651050 (RtlCreateSecurityDescriptor.c)
+ *     RtlSetGroupSecurityDescriptor @ 0x140656770 (RtlSetGroupSecurityDescriptor.c)
+ *     RtlSetOwnerSecurityDescriptor @ 0x1406567D0 (RtlSetOwnerSecurityDescriptor.c)
+ *     RtlInitializeSid @ 0x140656830 (RtlInitializeSid.c)
+ *     RtlValidSecurityDescriptor @ 0x14069CB50 (RtlValidSecurityDescriptor.c)
+ *     RtlAbsoluteToSelfRelativeSD @ 0x1406B0CB0 (RtlAbsoluteToSelfRelativeSD.c)
  */
 
 __int64 __fastcall CmGetDeviceRegKeySecurityDescriptor(__int64 a1, int a2, _QWORD *a3)
@@ -34,9 +34,9 @@ __int64 __fastcall CmGetDeviceRegKeySecurityDescriptor(__int64 a1, int a2, _QWOR
   ACL *PoolWithTag; // rax
   ULONG v13; // eax
   PVOID v14; // rax
-  struct _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+38h] [rbp-49h] BYREF
-  struct _SID_IDENTIFIER_AUTHORITY v17; // [rsp+40h] [rbp-41h] BYREF
-  struct _SID_IDENTIFIER_AUTHORITY v18; // [rsp+48h] [rbp-39h] BYREF
+  _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+38h] [rbp-49h] BYREF
+  _SID_IDENTIFIER_AUTHORITY v17; // [rsp+40h] [rbp-41h] BYREF
+  _SID_IDENTIFIER_AUTHORITY v18; // [rsp+48h] [rbp-39h] BYREF
   _BYTE SecurityDescriptor[2]; // [rsp+50h] [rbp-31h] BYREF
   __int16 v20; // [rsp+52h] [rbp-2Fh]
   unsigned __int8 Owner[16]; // [rsp+78h] [rbp-9h] BYREF

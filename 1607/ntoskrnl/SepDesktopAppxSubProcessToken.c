@@ -1,16 +1,16 @@
 /*
- * XREFs of SepDesktopAppxSubProcessToken @ 0x14007BF38
+ * XREFs of SepDesktopAppxSubProcessToken @ 0x14007BFB8
  * Callers:
- *     SeSubProcessToken @ 0x14046EA48 (SeSubProcessToken.c)
+ *     SeSubProcessToken @ 0x14046D918 (SeSubProcessToken.c)
  * Callees:
- *     RtlQueryPackageClaims @ 0x14000CCEC (RtlQueryPackageClaims.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExAcquireResourceExclusiveLite @ 0x140068160 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x140068940 (ExReleaseResourceLite.c)
- *     AuthzBasepSetSecurityAttributesToken @ 0x14007C264 (AuthzBasepSetSecurityAttributesToken.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     SepVerifyDesktopAppxImage @ 0x140219CAC (SepVerifyDesktopAppxImage.c)
- *     SeSinglePrivilegeCheck @ 0x140413F70 (SeSinglePrivilegeCheck.c)
+ *     RtlQueryPackageClaims @ 0x14000C86C (RtlQueryPackageClaims.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140067CE0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x1400684C0 (ExReleaseResourceLite.c)
+ *     AuthzBasepSetSecurityAttributesToken @ 0x14007C2E4 (AuthzBasepSetSecurityAttributesToken.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     SepVerifyDesktopAppxImage @ 0x140219AD8 (SepVerifyDesktopAppxImage.c)
+ *     SeSinglePrivilegeCheck @ 0x140412E30 (SeSinglePrivilegeCheck.c)
  */
 
 __int64 __fastcall SepDesktopAppxSubProcessToken(__int64 a1, __int64 a2, char a3, _BYTE *a4, _BYTE *a5)
@@ -23,12 +23,12 @@ __int64 __fastcall SepDesktopAppxSubProcessToken(__int64 a1, __int64 a2, char a3
   __int64 v15; // r8
   __int64 v16; // r9
   signed __int32 v17[8]; // [rsp+0h] [rbp-E1h] BYREF
-  size_t *v18; // [rsp+20h] [rbp-C1h]
-  GUID *v19; // [rsp+28h] [rbp-B9h]
-  __int64 *v20; // [rsp+30h] [rbp-B1h]
-  __int64 v21; // [rsp+38h] [rbp-A9h]
+  PSIZE_T AppIdSize; // [rsp+20h] [rbp-C1h]
+  PGUID DynamicId; // [rsp+28h] [rbp-B9h]
+  PPS_PKG_CLAIM PkgClaim; // [rsp+30h] [rbp-B1h]
+  PULONG64 AttributesPresent; // [rsp+38h] [rbp-A9h]
   _BYTE v22[8]; // [rsp+40h] [rbp-A1h] BYREF
-  __int64 v23; // [rsp+48h] [rbp-99h] BYREF
+  _PS_PKG_CLAIM v23; // [rsp+48h] [rbp-99h] BYREF
   _DWORD v24[2]; // [rsp+50h] [rbp-91h] BYREF
   int *v25; // [rsp+58h] [rbp-89h]
   _DWORD v26[4]; // [rsp+60h] [rbp-81h] BYREF
@@ -49,7 +49,7 @@ __int64 __fastcall SepDesktopAppxSubProcessToken(__int64 a1, __int64 a2, char a3
   __int64 v41; // [rsp+E0h] [rbp-1h]
 
   v28 = L"WIN://SYSAPPID";
-  v21 = 0LL;
+  AttributesPresent = 0LL;
   v29 = 0LL;
   v30 = 0LL;
   v31 = 0LL;
@@ -64,24 +64,24 @@ __int64 __fastcall SepDesktopAppxSubProcessToken(__int64 a1, __int64 a2, char a3
   v39 = 0LL;
   v40 = 0LL;
   v41 = 0LL;
-  v20 = &v23;
-  v19 = 0LL;
-  v18 = 0LL;
+  PkgClaim = &v23;
+  DynamicId = 0LL;
+  AppIdSize = 0LL;
   v27 = 1966108;
   v32 = 1310738;
   v37 = 2097182;
   *a5 = 0;
-  PackageClaims = RtlQueryPackageClaims(a1, 0LL, 0LL, 0LL, v18, v19, (__int64)v20, v21);
+  PackageClaims = RtlQueryPackageClaims((HANDLE)a1, 0LL, 0LL, 0LL, AppIdSize, DynamicId, PkgClaim, AttributesPresent);
   v10 = PackageClaims;
   if ( PackageClaims >= 0 )
   {
-    if ( (v23 & 4) != 0 )
+    if ( (v23.Flags & 4) != 0 )
     {
       *a5 = 1;
       PreviousMode = KeGetCurrentThread()->PreviousMode;
       if ( (a3 & 4) == 0 || !SeSinglePrivilegeCheck(SeTcbPrivilege, PreviousMode) )
       {
-        v10 = SepVerifyDesktopAppxImage(a2, a1, (v23 & 0xFF0000) == 196608, v22);
+        v10 = SepVerifyDesktopAppxImage(a2, a1, (v23.Flags & 0xFF0000) == 196608LL, v22);
         if ( v10 < 0 )
           goto LABEL_8;
         if ( !v22[0] )

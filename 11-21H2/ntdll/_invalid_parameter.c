@@ -85,7 +85,7 @@
  *     RtlCaptureContext @ 0x1800A82D0 (RtlCaptureContext.c)
  */
 
-__int64 invalid_parameter()
+ULONG invalid_parameter()
 {
   ULONG64 Rip; // rbx
   struct _IMAGE_RUNTIME_FUNCTION_ENTRY *v1; // rax

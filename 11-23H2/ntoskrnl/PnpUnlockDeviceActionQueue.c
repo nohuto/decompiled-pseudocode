@@ -1,17 +1,17 @@
 /*
- * XREFs of PnpUnlockDeviceActionQueue @ 0x1403C3F14
+ * XREFs of PnpUnlockDeviceActionQueue @ 0x1403C40F4
  * Callers:
- *     IoControlPnpDeviceActionQueue @ 0x1403C3E7C (IoControlPnpDeviceActionQueue.c)
- *     IoFreePoDeviceNotifyList @ 0x140A9E754 (IoFreePoDeviceNotifyList.c)
+ *     IoControlPnpDeviceActionQueue @ 0x1403C405C (IoControlPnpDeviceActionQueue.c)
+ *     IoFreePoDeviceNotifyList @ 0x140A9E5C4 (IoFreePoDeviceNotifyList.c)
  *     PipInitializeCoreDriversByGroup @ 0x140B3C748 (PipInitializeCoreDriversByGroup.c)
  *     IopInitializeBootDrivers @ 0x140B3CEB4 (IopInitializeBootDrivers.c)
  * Callees:
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     ExQueueWorkItem @ 0x1402B7C30 (ExQueueWorkItem.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     PpDevNodeUnlockTree @ 0x1406C98FC (PpDevNodeUnlockTree.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ExQueueWorkItem @ 0x1402B7EC0 (ExQueueWorkItem.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     PpDevNodeUnlockTree @ 0x1406C992C (PpDevNodeUnlockTree.c)
  */
 
 __int64 PnpUnlockDeviceActionQueue()
@@ -37,10 +37,13 @@ __int64 PnpUnlockDeviceActionQueue()
     ExQueueWorkItem(&PnpDeviceEnumerationWorkItem, DelayedWorkQueue);
   }
   KxReleaseSpinLock((volatile signed __int64 *)&PnpSpinLock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v0 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v0 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

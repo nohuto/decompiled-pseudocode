@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwpCoverageRecordAtHighIrql @ 0x1405FF984
+ * XREFs of EtwpCoverageRecordAtHighIrql @ 0x1405FFEF4
  * Callers:
- *     EtwSetProcessTelemetryCoverage @ 0x140873E68 (EtwSetProcessTelemetryCoverage.c)
+ *     EtwSetProcessTelemetryCoverage @ 0x1408740A8 (EtwSetProcessTelemetryCoverage.c)
  * Callees:
- *     EtwTelemetryCoverageReport @ 0x140365240 (EtwTelemetryCoverageReport.c)
- *     EtwpCoverageValidateCP @ 0x14036536C (EtwpCoverageValidateCP.c)
- *     RtlStringCchCopyA @ 0x1403C342C (RtlStringCchCopyA.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     EtwTelemetryCoverageReport @ 0x1403653E0 (EtwTelemetryCoverageReport.c)
+ *     EtwpCoverageValidateCP @ 0x14036550C (EtwpCoverageValidateCP.c)
+ *     RtlStringCchCopyA @ 0x1403C360C (RtlStringCchCopyA.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall EtwpCoverageRecordAtHighIrql(__int64 *a1)
@@ -39,7 +39,7 @@ __int64 __fastcall EtwpCoverageRecordAtHighIrql(__int64 *a1)
     *(_QWORD *)&v13 = pszDest;
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(2uLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
       v6 = 4;
@@ -48,10 +48,10 @@ __int64 __fastcall EtwpCoverageRecordAtHighIrql(__int64 *a1)
       SchedulerAssist[5] |= v6;
     }
     EtwTelemetryCoverageReport((__int64 *)&v13);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v7 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v7 <= 0xFu && CurrentIrql <= 0xFu && v7 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v7 <= 0xFu && CurrentIrql <= 0xFu && v7 >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         v9 = CurrentPrcb->SchedulerAssist;

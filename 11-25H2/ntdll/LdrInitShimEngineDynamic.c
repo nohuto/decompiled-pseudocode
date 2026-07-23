@@ -14,15 +14,15 @@
  *     LdrpDropLastInProgressCount @ 0x1800F05A0 (LdrpDropLastInProgressCount.c)
  */
 
-__int64 __fastcall LdrInitShimEngineDynamic(__int64 a1, __int64 a2)
+__int64 __fastcall LdrInitShimEngineDynamic(PVOID DllHandle, __int64 a2)
 {
   char v4; // di
-  int EntryForAddress; // eax
+  NTSTATUS EntryForAddress; // eax
   __int64 v6; // rcx
   unsigned __int8 ShimEngine; // bl
-  __int64 v9; // [rsp+50h] [rbp+18h] BYREF
+  PLDR_DATA_TABLE_ENTRY Entry; // [rsp+50h] [rbp+18h] BYREF
 
-  v9 = 0LL;
+  Entry = 0LL;
   if ( (NtCurrentTeb()->SameTebFlags & 0x1000) != 0 )
   {
     v4 = 1;
@@ -35,14 +35,14 @@ __int64 __fastcall LdrInitShimEngineDynamic(__int64 a1, __int64 a2)
   LdrpAcquireLoaderLock();
   if ( !g_pShimEngineModule )
   {
-    g_pShimEngineModule = a1;
+    g_pShimEngineModule = DllHandle;
     LdrpGetShimEngineInterface();
   }
-  EntryForAddress = LdrFindEntryForAddress(a1, &v9);
+  EntryForAddress = LdrFindEntryForAddress(DllHandle, &Entry);
   if ( EntryForAddress < 0 )
   {
     LdrpLogInternal(
-      (__int64)"minkernel\\ldr\\ldrinit.c",
+      "minkernel\\ldr\\ldrinit.c",
       3791,
       (__int64)"LdrInitShimEngineDynamic",
       0,
@@ -52,7 +52,7 @@ __int64 __fastcall LdrInitShimEngineDynamic(__int64 a1, __int64 a2)
   }
   else
   {
-    LdrpPinModule(v9);
+    LdrpPinModule((__int64)Entry);
     ShimEngine = LdrpLoadShimEngine(*(wchar_t **)(a2 + 8));
   }
   LOBYTE(v6) = -ShimEngine;

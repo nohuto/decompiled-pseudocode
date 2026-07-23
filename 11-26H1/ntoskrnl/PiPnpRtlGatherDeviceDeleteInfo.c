@@ -1,13 +1,13 @@
 /*
- * XREFs of PiPnpRtlGatherDeviceDeleteInfo @ 0x140777048
+ * XREFs of PiPnpRtlGatherDeviceDeleteInfo @ 0x140779EF0
  * Callers:
- *     PiPnpRtlCmActionCallback @ 0x1409A2FF0 (PiPnpRtlCmActionCallback.c)
+ *     PiPnpRtlCmActionCallback @ 0x140963A50 (PiPnpRtlCmActionCallback.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     _CmGetDeviceRegProp @ 0x140996210 (_CmGetDeviceRegProp.c)
- *     PlugPlayGetDeviceStatus @ 0x140A80AD4 (PlugPlayGetDeviceStatus.c)
- *     PiPnpRtlFreeDeviceDeleteInfo @ 0x140B50F70 (PiPnpRtlFreeDeviceDeleteInfo.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     _CmGetDeviceRegProp @ 0x140956C70 (_CmGetDeviceRegProp.c)
+ *     PlugPlayGetDeviceStatus @ 0x140A86944 (PlugPlayGetDeviceStatus.c)
+ *     PiPnpRtlFreeDeviceDeleteInfo @ 0x140B53808 (PiPnpRtlFreeDeviceDeleteInfo.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall PiPnpRtlGatherDeviceDeleteInfo(PCWSTR SourceString, __int64 a2)

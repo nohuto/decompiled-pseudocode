@@ -1,18 +1,18 @@
 /*
- * XREFs of EtwpUnlockBufferList @ 0x14022807C
+ * XREFs of EtwpUnlockBufferList @ 0x14022818C
  * Callers:
- *     EtwpDequeueFreeBuffer @ 0x140227DF0 (EtwpDequeueFreeBuffer.c)
- *     EtwpEnqueueAvailableBuffer @ 0x140227FA8 (EtwpEnqueueAvailableBuffer.c)
- *     EtwpAdjustSiloTraceBuffers @ 0x140228520 (EtwpAdjustSiloTraceBuffers.c)
- *     EtwpReserveTraceBuffer @ 0x140234100 (EtwpReserveTraceBuffer.c)
- *     EtwpEnqueueOverflowBuffer @ 0x14036D7C8 (EtwpEnqueueOverflowBuffer.c)
- *     EtwpAllocateFreeBuffers @ 0x1403713D8 (EtwpAllocateFreeBuffers.c)
- *     EtwpDequeueBufferPendingCompression @ 0x140602708 (EtwpDequeueBufferPendingCompression.c)
- *     EtwpReenableCompression @ 0x1406029B4 (EtwpReenableCompression.c)
+ *     EtwpDequeueFreeBuffer @ 0x140227F00 (EtwpDequeueFreeBuffer.c)
+ *     EtwpEnqueueAvailableBuffer @ 0x1402280B8 (EtwpEnqueueAvailableBuffer.c)
+ *     EtwpAdjustSiloTraceBuffers @ 0x140228630 (EtwpAdjustSiloTraceBuffers.c)
+ *     EtwpReserveTraceBuffer @ 0x1402341D0 (EtwpReserveTraceBuffer.c)
+ *     EtwpEnqueueOverflowBuffer @ 0x14036D968 (EtwpEnqueueOverflowBuffer.c)
+ *     EtwpAllocateFreeBuffers @ 0x140371578 (EtwpAllocateFreeBuffers.c)
+ *     EtwpDequeueBufferPendingCompression @ 0x140602C58 (EtwpDequeueBufferPendingCompression.c)
+ *     EtwpReenableCompression @ 0x140602F04 (EtwpReenableCompression.c)
  * Callees:
- *     ExReleasePushLockEx @ 0x140231190 (ExReleasePushLockEx.c)
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExReleasePushLockEx @ 0x140231280 (ExReleasePushLockEx.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall EtwpUnlockBufferList(__int64 a1, unsigned __int8 *a2)
@@ -30,10 +30,10 @@ __int64 __fastcall EtwpUnlockBufferList(__int64 a1, unsigned __int8 *a2)
     return ExReleasePushLockEx(v3, 0LL);
   v4 = *a2;
   result = KxReleaseSpinLock(v3);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
       && (unsigned __int8)result <= 0xFu
       && (unsigned __int8)v4 <= 0xFu
       && (unsigned __int8)result >= 2u )

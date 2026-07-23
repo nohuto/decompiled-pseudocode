@@ -1,20 +1,20 @@
 /*
- * XREFs of PpmUpdatePlatformIdleVeto @ 0x140568230
+ * XREFs of PpmUpdatePlatformIdleVeto @ 0x140568470
  * Callers:
  *     <none>
  * Callees:
- *     KeAddProcessorAffinityEx @ 0x140229380 (KeAddProcessorAffinityEx.c)
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     PopExecuteOnTargetProcessors @ 0x14027B7DC (PopExecuteOnTargetProcessors.c)
- *     PopDeepSleepSetDisengageReason @ 0x140281548 (PopDeepSleepSetDisengageReason.c)
- *     PopDeepSleepClearDisengageReason @ 0x1402815D0 (PopDeepSleepClearDisengageReason.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     PopExecuteOnTargetProcessors @ 0x14026977C (PopExecuteOnTargetProcessors.c)
+ *     PopDeepSleepSetDisengageReason @ 0x14026F788 (PopDeepSleepSetDisengageReason.c)
+ *     PopDeepSleepClearDisengageReason @ 0x14026F810 (PopDeepSleepClearDisengageReason.c)
+ *     KeAddProcessorAffinityEx @ 0x1402CDC80 (KeAddProcessorAffinityEx.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     memset @ 0x140414200 (memset.c)
- *     KeFindFirstSetLeftAffinityEx @ 0x140513550 (KeFindFirstSetLeftAffinityEx.c)
- *     PpmUpdateIdleVeto @ 0x140567FD0 (PpmUpdateIdleVeto.c)
- *     PpmEventPlatformVetoRequest @ 0x140579FE8 (PpmEventPlatformVetoRequest.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     KeFindFirstSetLeftAffinityEx @ 0x140513790 (KeFindFirstSetLeftAffinityEx.c)
+ *     PpmUpdateIdleVeto @ 0x140568210 (PpmUpdateIdleVeto.c)
+ *     PpmEventPlatformVetoRequest @ 0x14057A228 (PpmEventPlatformVetoRequest.c)
  */
 
 __int64 __fastcall PpmUpdatePlatformIdleVeto(__int64 a1)

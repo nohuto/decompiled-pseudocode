@@ -29,7 +29,7 @@ __int64 __fastcall CmpAddProcessorConfigurationEntry(__int64 a1, int a2, int a3)
   int v12; // eax
   HANDLE v13; // rsi
   NTSTATUS v14; // edi
-  const char *v16; // r15
+  const CHAR *v16; // r15
   _DWORD *v21; // r8
   unsigned int v22; // r9d
   __int64 v28; // rcx
@@ -38,7 +38,7 @@ __int64 __fastcall CmpAddProcessorConfigurationEntry(__int64 a1, int a2, int a3)
   UNICODE_STRING UnicodeString; // [rsp+50h] [rbp-B0h] BYREF
   int Data; // [rsp+60h] [rbp-A0h] BYREF
   HANDLE KeyHandle; // [rsp+68h] [rbp-98h] BYREF
-  STRING SourceString; // [rsp+70h] [rbp-90h] BYREF
+  _STRING SourceString; // [rsp+70h] [rbp-90h] BYREF
   _QWORD v35[9]; // [rsp+80h] [rbp-80h] BYREF
   HANDLE Handle; // [rsp+D0h] [rbp-30h] BYREF
   _BYTE v37[64]; // [rsp+E0h] [rbp-20h] BYREF
@@ -115,7 +115,7 @@ __int64 __fastcall CmpAddProcessorConfigurationEntry(__int64 a1, int a2, int a3)
     {
       ZwClose(Handle);
       _RAX = 0x80000000LL;
-      v16 = (const char *)((a1 + 25232) & -(__int64)(*(_BYTE *)(a1 + 65) != 0));
+      v16 = (const CHAR *)((a1 + 25232) & -(__int64)(*(_BYTE *)(a1 + 65) != 0));
       __asm { cpuid }
       if ( (unsigned int)_RAX < 0x80000004 )
         goto LABEL_40;

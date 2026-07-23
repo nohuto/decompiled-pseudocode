@@ -18,7 +18,7 @@ __int64 __fastcall VfIrpLogRetrieveWmiData(
         unsigned int *a6)
 {
   __int64 v7; // rbx
-  struct _OBJECT_NAME_INFORMATION *PoolWithTag; // rdi
+  _OBJECT_NAME_INFORMATION *PoolWithTag; // rdi
   int v10; // ecx
   __int64 v11; // rsi
   _QWORD *v12; // r15
@@ -30,7 +30,7 @@ __int64 __fastcall VfIrpLogRetrieveWmiData(
   _WORD *v18; // r14
   _QWORD *v19; // rax
   _QWORD *v20; // rsi
-  struct _OBJECT_NAME_INFORMATION *v21; // rax
+  _OBJECT_NAME_INFORMATION *v21; // rax
   void *v22; // rcx
   unsigned int v23; // esi
   __int64 v24; // r13
@@ -61,7 +61,7 @@ __int64 __fastcall VfIrpLogRetrieveWmiData(
   *a5 = 0;
   *a6 = 0;
   *(_QWORD *)Length = 16LL;
-  PoolWithTag = (struct _OBJECT_NAME_INFORMATION *)ExAllocatePoolWithTag(PagedPool, 0x10uLL, 0x74496656u);
+  PoolWithTag = (_OBJECT_NAME_INFORMATION *)ExAllocatePoolWithTag(PagedPool, 0x10uLL, 0x74496656u);
   if ( !PoolWithTag )
     return 3221225626LL;
   v10 = 0;
@@ -96,7 +96,7 @@ __int64 __fastcall VfIrpLogRetrieveWmiData(
       if ( v15 == -1073741820 )
       {
         ExFreePoolWithTag(PoolWithTag, 0);
-        v21 = (struct _OBJECT_NAME_INFORMATION *)ExAllocatePoolWithTag(PagedPool, ReturnLength, 0x74496656u);
+        v21 = (_OBJECT_NAME_INFORMATION *)ExAllocatePoolWithTag(PagedPool, ReturnLength, 0x74496656u);
         PoolWithTag = v21;
         if ( !v21 )
           return (unsigned int)-1073741670;

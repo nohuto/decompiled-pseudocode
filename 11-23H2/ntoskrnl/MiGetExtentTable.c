@@ -1,7 +1,7 @@
 /*
- * XREFs of MiGetExtentTable @ 0x14063D940
+ * XREFs of MiGetExtentTable @ 0x14063DE90
  * Callers:
- *     MiDeleteFileExtentList @ 0x140A33E10 (MiDeleteFileExtentList.c)
+ *     MiDeleteFileExtentList @ 0x140A340C0 (MiDeleteFileExtentList.c)
  * Callees:
  *     <none>
  */

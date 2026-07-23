@@ -1,13 +1,13 @@
 /*
- * XREFs of IopStoreArcInformation @ 0x140A5D274
+ * XREFs of IopStoreArcInformation @ 0x140A5E274
  * Callers:
- *     IoInitSystemPreDrivers @ 0x140A3EB60 (IoInitSystemPreDrivers.c)
+ *     IoInitSystemPreDrivers @ 0x140A3FB60 (IoInitSystemPreDrivers.c)
  * Callees:
- *     IopVerifierExAllocatePool @ 0x14022C9E0 (IopVerifierExAllocatePool.c)
- *     RtlStringCbCopyA @ 0x1402D6260 (RtlStringCbCopyA.c)
- *     _strnicmp @ 0x1403D1E80 (_strnicmp.c)
- *     memset @ 0x140414200 (memset.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     IopVerifierExAllocatePool @ 0x1402336E0 (IopVerifierExAllocatePool.c)
+ *     RtlStringCbCopyA @ 0x1402875B0 (RtlStringCbCopyA.c)
+ *     _strnicmp @ 0x1403D1FF0 (_strnicmp.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IopStoreArcInformation(__int64 a1)
@@ -30,7 +30,7 @@ __int64 __fastcall IopStoreArcInformation(__int64 a1)
   PVOID *k; // rcx
 
   v1 = *(__int64 ***)(a1 + 232);
-  v2 = dword_140C19850;
+  v2 = dword_140C197B0;
   v3 = 0;
   qword_140D2E868 = (__int64)&IoArcTableListHead;
   IoArcTableListHead = &IoArcTableListHead;

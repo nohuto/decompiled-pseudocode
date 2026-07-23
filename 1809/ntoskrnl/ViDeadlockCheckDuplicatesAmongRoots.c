@@ -1,10 +1,10 @@
 /*
- * XREFs of ViDeadlockCheckDuplicatesAmongRoots @ 0x14093D028
+ * XREFs of ViDeadlockCheckDuplicatesAmongRoots @ 0x14093E028
  * Callers:
- *     VfDeadlockAcquireResource @ 0x14093B514 (VfDeadlockAcquireResource.c)
+ *     VfDeadlockAcquireResource @ 0x14093C514 (VfDeadlockAcquireResource.c)
  * Callees:
- *     ViDeadlockMergeNodes @ 0x14093D514 (ViDeadlockMergeNodes.c)
- *     ViDeadlockSimilarNodes @ 0x14093DD90 (ViDeadlockSimilarNodes.c)
+ *     ViDeadlockMergeNodes @ 0x14093E514 (ViDeadlockMergeNodes.c)
+ *     ViDeadlockSimilarNodes @ 0x14093ED90 (ViDeadlockSimilarNodes.c)
  */
 
 _UNKNOWN **__fastcall ViDeadlockCheckDuplicatesAmongRoots(__int64 a1, __int64 a2)

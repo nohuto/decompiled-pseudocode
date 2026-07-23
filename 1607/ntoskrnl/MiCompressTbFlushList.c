@@ -1,11 +1,11 @@
 /*
- * XREFs of MiCompressTbFlushList @ 0x1400974F0
+ * XREFs of MiCompressTbFlushList @ 0x140096CF0
  * Callers:
- *     MiDecommitPages @ 0x140044D50 (MiDecommitPages.c)
- *     MiDeleteVirtualAddresses @ 0x140045C00 (MiDeleteVirtualAddresses.c)
- *     MiAgeWorkingSet @ 0x140047090 (MiAgeWorkingSet.c)
- *     MiInsertTbFlushEntry @ 0x1400E0240 (MiInsertTbFlushEntry.c)
- *     MiFreeWsleList @ 0x1400E3AD0 (MiFreeWsleList.c)
+ *     MiDecommitPages @ 0x1400448D0 (MiDecommitPages.c)
+ *     MiDeleteVirtualAddresses @ 0x140045780 (MiDeleteVirtualAddresses.c)
+ *     MiAgeWorkingSet @ 0x140046C10 (MiAgeWorkingSet.c)
+ *     MiInsertTbFlushEntry @ 0x1400DE0E0 (MiInsertTbFlushEntry.c)
+ *     MiFreeWsleList @ 0x1400E1970 (MiFreeWsleList.c)
  * Callees:
  *     <none>
  */

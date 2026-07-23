@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwpInitializeStackLookasideList @ 0x14058170C
+ * XREFs of EtwpInitializeStackLookasideList @ 0x140581BB8
  * Callers:
  *     EtwpInitialize @ 0x1407A0D3C (EtwpInitialize.c)
  * Callees:
- *     InitializeSListHead @ 0x140002B3C (InitializeSListHead.c)
+ *     InitializeSListHead @ 0x140002CB0 (InitializeSListHead.c)
  */
 
 void EtwpInitializeStackLookasideList()
 {
   InitializeSListHead(&EtwpStackLookAsideList);
-  dword_1403292D0 = 0;
-  dword_1403292D4 = 0;
+  dword_140329310 = 0;
+  dword_140329314 = 0;
 }

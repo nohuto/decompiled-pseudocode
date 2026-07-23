@@ -1,13 +1,13 @@
 /*
- * XREFs of KiDpcRuntimeHistoryHashTableCleanupDpcRoutine @ 0x140476BE0
+ * XREFs of KiDpcRuntimeHistoryHashTableCleanupDpcRoutine @ 0x140473180
  * Callers:
- *     KiDpcRuntimeHistoryHashTableCleanupTimerCallback @ 0x140476B20 (KiDpcRuntimeHistoryHashTableCleanupTimerCallback.c)
+ *     KiDpcRuntimeHistoryHashTableCleanupTimerCallback @ 0x1404730C0 (KiDpcRuntimeHistoryHashTableCleanupTimerCallback.c)
  * Callees:
- *     KxAcquireSpinLock @ 0x140254AE0 (KxAcquireSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14025E408 (KiRemoveSystemWorkPriorityKick.c)
- *     KxReleaseSpinLock @ 0x140279CC0 (KxReleaseSpinLock.c)
- *     KeDisableInterrupts @ 0x140321E80 (KeDisableInterrupts.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KxReleaseSpinLock @ 0x14022F250 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x1402850F0 (KxAcquireSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14028EA18 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeDisableInterrupts @ 0x1402CAA10 (KeDisableInterrupts.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall KiDpcRuntimeHistoryHashTableCleanupDpcRoutine(

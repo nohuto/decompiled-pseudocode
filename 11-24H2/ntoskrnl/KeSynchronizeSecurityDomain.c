@@ -1,17 +1,17 @@
 /*
- * XREFs of KeSynchronizeSecurityDomain @ 0x1404A7090
+ * XREFs of KeSynchronizeSecurityDomain @ 0x1404A1ABC
  * Callers:
- *     PspCombineSecurityDomains @ 0x14094706C (PspCombineSecurityDomains.c)
- *     NtSetInformationProcess @ 0x140947500 (NtSetInformationProcess.c)
+ *     PspCombineSecurityDomains @ 0x1408AB200 (PspCombineSecurityDomains.c)
+ *     NtSetInformationProcess @ 0x1408EBA70 (NtSetInformationProcess.c)
  * Callees:
- *     KiIpiStallOnPacketTargetsPrcb @ 0x1403AFC10 (KiIpiStallOnPacketTargetsPrcb.c)
- *     ?KiCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z @ 0x1403B1720 (-KiCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z.c)
- *     KiIpiSendPacket @ 0x1404656E8 (KiIpiSendPacket.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     KiSynchronizeSecurityDomainTarget @ 0x1405C9210 (KiSynchronizeSecurityDomainTarget.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     KiIpiStallOnPacketTargetsPrcb @ 0x14039E420 (KiIpiStallOnPacketTargetsPrcb.c)
+ *     ?KiCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z @ 0x14039FF30 (-KiCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z.c)
+ *     KiIpiSendPacket @ 0x14045D668 (KiIpiSendPacket.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiSynchronizeSecurityDomainTarget @ 0x1405C6940 (KiSynchronizeSecurityDomainTarget.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall KeSynchronizeSecurityDomain(_KPROCESS *a1)

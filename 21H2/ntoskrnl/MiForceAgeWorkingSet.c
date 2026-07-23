@@ -1,10 +1,10 @@
 /*
- * XREFs of MiForceAgeWorkingSet @ 0x14053B3C0
+ * XREFs of MiForceAgeWorkingSet @ 0x14053B600
  * Callers:
- *     MiPreUnlockWorkingSetShared @ 0x14036C210 (MiPreUnlockWorkingSetShared.c)
- *     MiForcedTrim @ 0x14036C520 (MiForcedTrim.c)
+ *     MiPreUnlockWorkingSetShared @ 0x14036C3C0 (MiPreUnlockWorkingSetShared.c)
+ *     MiForcedTrim @ 0x14036C6D0 (MiForcedTrim.c)
  * Callees:
- *     MiAgeWorkingSet @ 0x140208B40 (MiAgeWorkingSet.c)
+ *     MiAgeWorkingSet @ 0x1402AD440 (MiAgeWorkingSet.c)
  */
 
 _BOOL8 __fastcall MiForceAgeWorkingSet(__int64 a1, char a2)
@@ -13,7 +13,7 @@ _BOOL8 __fastcall MiForceAgeWorkingSet(__int64 a1, char a2)
            a1,
            a2,
            5,
-           *(unsigned __int16 *)(*(_QWORD *)(*(_QWORD *)(qword_140C4E648 + 8LL * *(unsigned __int16 *)(a1 + 174))
+           *(unsigned __int16 *)(*(_QWORD *)(*(_QWORD *)(qword_140C4E688 + 8LL * *(unsigned __int16 *)(a1 + 174))
                                            + 6848LL)
                                + 2346LL));
 }

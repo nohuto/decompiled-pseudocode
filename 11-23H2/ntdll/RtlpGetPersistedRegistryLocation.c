@@ -1,40 +1,54 @@
 /*
- * XREFs of RtlpGetPersistedRegistryLocation @ 0x1800A0244
+ * XREFs of RtlpGetPersistedRegistryLocation @ 0x1800A0204
  * Callers:
- *     RtlpEtcGetDwordFromPersistedState @ 0x1800A0024 (RtlpEtcGetDwordFromPersistedState.c)
+ *     RtlpEtcGetDwordFromPersistedState @ 0x18009FFE4 (RtlpEtcGetDwordFromPersistedState.c)
  * Callees:
  *     RtlGetPersistedStateLocation @ 0x18000B480 (RtlGetPersistedStateLocation.c)
  *     NtdllpFreeStringRoutine @ 0x180039640 (NtdllpFreeStringRoutine.c)
  *     NtdllpAllocateStringRoutine @ 0x180039660 (NtdllpAllocateStringRoutine.c)
  */
 
-__int64 __fastcall RtlpGetPersistedRegistryLocation(PCWSTR SourceString, _WORD *a2, _QWORD *a3, _DWORD *a4)
+__int64 __fastcall RtlpGetPersistedRegistryLocation(PCWSTR SourceID, PCWSTR DefaultPath, WCHAR **a3, _DWORD *a4)
 {
-  int PersistedStateLocation; // eax
-  int v9; // ebx
-  unsigned int v10; // ebx
-  void *StringRoutine; // rdi
-  unsigned int v13[4]; // [rsp+40h] [rbp-28h] BYREF
+  NTSTATUS PersistedStateLocation; // eax
+  NTSTATUS v9; // ebx
+  ULONG BufferLengthIn; // ebx
+  WCHAR *TargetPath; // rdi
+  ULONG BufferLengthOut[4]; // [rsp+40h] [rbp-28h] BYREF
 
-  v13[0] = 0;
-  PersistedStateLocation = RtlGetPersistedStateLocation(SourceString, L"TargetNtPath", a2, 0, 0LL, 0, v13);
+  BufferLengthOut[0] = 0;
+  PersistedStateLocation = RtlGetPersistedStateLocation(
+                             SourceID,
+                             L"TargetNtPath",
+                             DefaultPath,
+                             LocationTypeRegistry,
+                             0LL,
+                             0,
+                             BufferLengthOut);
   v9 = PersistedStateLocation;
   if ( PersistedStateLocation == -2147483643 )
   {
-    v10 = v13[0];
-    StringRoutine = (void *)NtdllpAllocateStringRoutine(v13[0]);
-    if ( StringRoutine )
+    BufferLengthIn = BufferLengthOut[0];
+    TargetPath = (WCHAR *)NtdllpAllocateStringRoutine(BufferLengthOut[0]);
+    if ( TargetPath )
     {
-      v9 = RtlGetPersistedStateLocation(SourceString, L"TargetNtPath", a2, 0, StringRoutine, v10, v13);
+      v9 = RtlGetPersistedStateLocation(
+             SourceID,
+             L"TargetNtPath",
+             DefaultPath,
+             LocationTypeRegistry,
+             TargetPath,
+             BufferLengthIn,
+             BufferLengthOut);
       if ( v9 < 0 )
       {
-        NtdllpFreeStringRoutine((__int64)StringRoutine);
+        NtdllpFreeStringRoutine(TargetPath);
       }
       else
       {
-        *a3 = StringRoutine;
+        *a3 = TargetPath;
         if ( a4 )
-          *a4 = (v13[0] >> 1) - 1;
+          *a4 = (BufferLengthOut[0] >> 1) - 1;
       }
     }
     else

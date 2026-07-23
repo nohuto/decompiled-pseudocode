@@ -1,12 +1,12 @@
 /*
- * XREFs of DifPoRequestPowerIrpWrapper @ 0x1405EA210
+ * XREFs of DifPoRequestPowerIrpWrapper @ 0x1405EA780
  * Callers:
  *     <none>
  * Callees:
- *     PopRequestPowerIrp @ 0x14028F230 (PopRequestPowerIrp.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     DifGetAPIThunkContextById @ 0x1404664BE (DifGetAPIThunkContextById.c)
- *     DifGetReturnAddressForWrappers @ 0x1405F88C4 (DifGetReturnAddressForWrappers.c)
+ *     PopRequestPowerIrp @ 0x14028F4C0 (PopRequestPowerIrp.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x1404668BE (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F8E34 (DifGetReturnAddressForWrappers.c)
  */
 
 __int64 __fastcall DifPoRequestPowerIrpWrapper(__int64 a1, char a2, ULONG a3, __int64 a4, __int64 a5, PIRP Irp)

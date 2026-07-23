@@ -1,7 +1,7 @@
 /*
- * XREFs of IovpCancelRoutine @ 0x14070B010
+ * XREFs of IovpCancelRoutine @ 0x14070B040
  * Callers:
- *     IoCancelIrp @ 0x1400A2054 (IoCancelIrp.c)
+ *     IoCancelIrp @ 0x1400A097C (IoCancelIrp.c)
  * Callees:
  *     <none>
  */

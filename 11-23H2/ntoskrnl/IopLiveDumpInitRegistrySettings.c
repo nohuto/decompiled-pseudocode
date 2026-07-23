@@ -1,11 +1,11 @@
 /*
- * XREFs of IopLiveDumpInitRegistrySettings @ 0x14094E7CC
+ * XREFs of IopLiveDumpInitRegistrySettings @ 0x14094E9CC
  * Callers:
- *     IoCaptureLiveDump @ 0x14094B9E8 (IoCaptureLiveDump.c)
+ *     IoCaptureLiveDump @ 0x14094BBE8 (IoCaptureLiveDump.c)
  * Callees:
  *     IopGetRegistryValue @ 0x14068CE78 (IopGetRegistryValue.c)
- *     ObCloseHandle @ 0x14076B890 (ObCloseHandle.c)
- *     IopOpenRegistryKey @ 0x1407CEF1C (IopOpenRegistryKey.c)
+ *     ObCloseHandle @ 0x14076BA80 (ObCloseHandle.c)
+ *     IopOpenRegistryKey @ 0x1407CF1EC (IopOpenRegistryKey.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

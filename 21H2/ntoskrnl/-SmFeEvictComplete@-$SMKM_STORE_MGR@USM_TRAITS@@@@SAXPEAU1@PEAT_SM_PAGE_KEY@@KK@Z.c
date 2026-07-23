@@ -1,25 +1,25 @@
 /*
- * XREFs of ?SmFeEvictComplete@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAT_SM_PAGE_KEY@@KK@Z @ 0x1402D5268
+ * XREFs of ?SmFeEvictComplete@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAT_SM_PAGE_KEY@@KK@Z @ 0x1402865B4
  * Callers:
- *     ?SmIoCtxWorkItemComplete@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAKPEAU_ST_WORK_ITEM_HDR@@PEAU1@PEAU?$SMKM_STORE@USM_TRAITS@@@@J@Z @ 0x1402D90C0 (-SmIoCtxWorkItemComplete@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAKPEAU_ST_WORK_ITEM_HDR@@PEAU1@PEAU-$SM.c)
+ *     ?SmIoCtxWorkItemComplete@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAKPEAU_ST_WORK_ITEM_HDR@@PEAU1@PEAU?$SMKM_STORE@USM_TRAITS@@@@J@Z @ 0x14028A410 (-SmIoCtxWorkItemComplete@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAKPEAU_ST_WORK_ITEM_HDR@@PEAU1@PEAU-$SM.c)
  * Callees:
- *     KiCheckForKernelApcDelivery @ 0x14024A6E0 (KiCheckForKernelApcDelivery.c)
- *     KiAbEntryRemoveFromTree @ 0x14028F490 (KiAbEntryRemoveFromTree.c)
- *     SmKmStoreDeleteWhenEmpty @ 0x1402CC1B8 (SmKmStoreDeleteWhenEmpty.c)
- *     ?SmFeDeleteEntry@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAUSEARCH_RESULT@?$B_TREE@T_SM_PAGE_KEY@@USMKM_FRONTEND_ENTRY@?$SMKM_STORE_MGR@USM_TRAITS@@@@$0BAAA@UB_TREE_DUMMY_NODE_POOL@@U?$B_TREE_KEY_COMPARATOR@T_SM_PAGE_KEY@@@@@@PEAUITERATOR@3@PEAUSMKM_FRONTEND_ENTRY@1@@Z @ 0x1402D55E8 (-SmFeDeleteEntry@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAUSEARCH_RESULT@-$B_TREE@T_SM_PAGE_KE.c)
- *     ?BTreeIteratorFromSearchResult@?$B_TREE@T_SM_PAGE_KEY@@USMKM_FRONTEND_ENTRY@?$SMKM_STORE_MGR@USM_TRAITS@@@@$0BAAA@UB_TREE_DUMMY_NODE_POOL@@U?$B_TREE_KEY_COMPARATOR@T_SM_PAGE_KEY@@@@@@SAXPEAU1@PEAUITERATOR@1@PEAUSEARCH_RESULT@1@@Z @ 0x1402D82A4 (-BTreeIteratorFromSearchResult@-$B_TREE@T_SM_PAGE_KEY@@USMKM_FRONTEND_ENTRY@-$SMKM_STORE_MGR@USM.c)
- *     ?BTreeSearchKey@?$B_TREE@T_SM_PAGE_KEY@@USMKM_FRONTEND_ENTRY@?$SMKM_STORE_MGR@USM_TRAITS@@@@$0BAAA@UB_TREE_DUMMY_NODE_POOL@@U?$B_TREE_KEY_COMPARATOR@T_SM_PAGE_KEY@@@@@@SAJPEAU1@T_SM_PAGE_KEY@@PEAUSEARCH_RESULT@1@@Z @ 0x1402D8B8C (-BTreeSearchKey@-$B_TREE@T_SM_PAGE_KEY@@USMKM_FRONTEND_ENTRY@-$SMKM_STORE_MGR@USM_TRAITS@@@@$0BA.c)
- *     SmKmStoreRefFromStoreIndex @ 0x1402D95D8 (SmKmStoreRefFromStoreIndex.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
- *     MiGetSystemRegionType @ 0x14034A950 (MiGetSystemRegionType.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     KiAbThreadRemoveBoosts @ 0x14034AD00 (KiAbThreadRemoveBoosts.c)
- *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
- *     MmGetSessionIdEx @ 0x14034AE60 (MmGetSessionIdEx.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     memset @ 0x140414200 (memset.c)
+ *     KiAbEntryRemoveFromTree @ 0x14020C630 (KiAbEntryRemoveFromTree.c)
+ *     SmKmStoreDeleteWhenEmpty @ 0x140246174 (SmKmStoreDeleteWhenEmpty.c)
+ *     ?SmFeDeleteEntry@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAUSEARCH_RESULT@?$B_TREE@T_SM_PAGE_KEY@@USMKM_FRONTEND_ENTRY@?$SMKM_STORE_MGR@USM_TRAITS@@@@$0BAAA@UB_TREE_DUMMY_NODE_POOL@@U?$B_TREE_KEY_COMPARATOR@T_SM_PAGE_KEY@@@@@@PEAUITERATOR@3@PEAUSMKM_FRONTEND_ENTRY@1@@Z @ 0x140286934 (-SmFeDeleteEntry@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAUSEARCH_RESULT@-$B_TREE@T_SM_PAGE_KE.c)
+ *     ?BTreeIteratorFromSearchResult@?$B_TREE@T_SM_PAGE_KEY@@USMKM_FRONTEND_ENTRY@?$SMKM_STORE_MGR@USM_TRAITS@@@@$0BAAA@UB_TREE_DUMMY_NODE_POOL@@U?$B_TREE_KEY_COMPARATOR@T_SM_PAGE_KEY@@@@@@SAXPEAU1@PEAUITERATOR@1@PEAUSEARCH_RESULT@1@@Z @ 0x1402895F4 (-BTreeIteratorFromSearchResult@-$B_TREE@T_SM_PAGE_KEY@@USMKM_FRONTEND_ENTRY@-$SMKM_STORE_MGR@USM.c)
+ *     ?BTreeSearchKey@?$B_TREE@T_SM_PAGE_KEY@@USMKM_FRONTEND_ENTRY@?$SMKM_STORE_MGR@USM_TRAITS@@@@$0BAAA@UB_TREE_DUMMY_NODE_POOL@@U?$B_TREE_KEY_COMPARATOR@T_SM_PAGE_KEY@@@@@@SAJPEAU1@T_SM_PAGE_KEY@@PEAUSEARCH_RESULT@1@@Z @ 0x140289EDC (-BTreeSearchKey@-$B_TREE@T_SM_PAGE_KEY@@USMKM_FRONTEND_ENTRY@-$SMKM_STORE_MGR@USM_TRAITS@@@@$0BA.c)
+ *     SmKmStoreRefFromStoreIndex @ 0x14028A928 (SmKmStoreRefFromStoreIndex.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402EEF30 (KiCheckForKernelApcDelivery.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     KeSetEvent @ 0x14034E2F0 (KeSetEvent.c)
+ *     MiGetSystemRegionType @ 0x1403556A0 (MiGetSystemRegionType.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     KiAbThreadRemoveBoosts @ 0x140355A50 (KiAbThreadRemoveBoosts.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x140355AE0 (KiLeaveGuardedRegionUnsafe.c)
+ *     MmGetSessionIdEx @ 0x140355BB0 (MmGetSessionIdEx.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     memset @ 0x140414300 (memset.c)
  */
 
 __int64 __fastcall SMKM_STORE_MGR<SM_TRAITS>::SmFeEvictComplete(__int64 a1, unsigned int *a2, int a3, __int16 a4)
@@ -41,29 +41,32 @@ __int64 __fastcall SMKM_STORE_MGR<SM_TRAITS>::SmFeEvictComplete(__int64 a1, unsi
   __int64 v20; // rcx
   __int64 v21; // rdi
   __int64 v22; // rdx
-  __int64 v23; // rcx
-  __int64 v24; // r8
-  __int64 v25; // r9
-  __int64 *v26; // rax
-  __int64 v27; // rcx
-  __int128 v30; // [rsp+40h] [rbp-C0h] BYREF
-  _QWORD v31[3]; // [rsp+50h] [rbp-B0h] BYREF
-  int v32; // [rsp+68h] [rbp-98h]
-  int v33; // [rsp+6Ch] [rbp-94h]
-  __int64 v34; // [rsp+70h] [rbp-90h]
-  _BYTE v35[136]; // [rsp+78h] [rbp-88h] BYREF
+  __int64 v23; // rdx
+  __int64 v24; // rcx
+  __int64 v25; // r8
+  __int64 v26; // r9
+  __int64 v27; // r8
+  __int64 v28; // r9
+  __int64 *v29; // rax
+  __int64 v30; // rcx
+  __int128 v33; // [rsp+40h] [rbp-C0h] BYREF
+  _QWORD v34[3]; // [rsp+50h] [rbp-B0h] BYREF
+  int v35; // [rsp+68h] [rbp-98h]
+  int v36; // [rsp+6Ch] [rbp-94h]
+  __int64 v37; // [rsp+70h] [rbp-90h]
+  _BYTE v38[136]; // [rsp+78h] [rbp-88h] BYREF
 
   v4 = *a2;
-  memset(v35, 0, 0x80uLL);
-  v31[1] = 0LL;
-  v31[2] = 0LL;
-  v34 = 0LL;
+  memset(v38, 0, 0x80uLL);
+  v34[1] = 0LL;
+  v34[2] = 0LL;
+  v37 = 0LL;
   v7 = 0;
-  v32 = 0;
-  v31[0] = v35;
-  v33 = 8;
+  v35 = 0;
+  v34[0] = v38;
+  v36 = 8;
   CurrentThread = KeGetCurrentThread();
-  v30 = 0LL;
+  v33 = 0LL;
   --CurrentThread->SpecialApcDisable;
   v9 = (volatile signed __int64 *)(a1 + 440);
   ExAcquirePushLockExclusiveEx(a1 + 440, 0LL);
@@ -72,23 +75,23 @@ __int64 __fastcall SMKM_STORE_MGR<SM_TRAITS>::SmFeEvictComplete(__int64 a1, unsi
     B_TREE<_SM_PAGE_KEY,SMKM_STORE_MGR<SM_TRAITS>::SMKM_FRONTEND_ENTRY,4096,B_TREE_DUMMY_NODE_POOL,B_TREE_KEY_COMPARATOR<_SM_PAGE_KEY>>::BTreeSearchKey(
       a1 + 448,
       v4,
-      v31);
+      v34);
     B_TREE<_SM_PAGE_KEY,SMKM_STORE_MGR<SM_TRAITS>::SMKM_FRONTEND_ENTRY,4096,B_TREE_DUMMY_NODE_POOL,B_TREE_KEY_COMPARATOR<_SM_PAGE_KEY>>::BTreeIteratorFromSearchResult(
       v10,
-      &v30,
-      v31);
-    if ( (_QWORD)v30 )
+      &v33,
+      v34);
+    if ( (_QWORD)v33 )
     {
-      v11 = *((_QWORD *)&v30 + 1) + 8LL;
-      v13 = (unsigned __int16)*(_DWORD *)v30 + 2LL;
-      *((_QWORD *)&v30 + 1) = v11;
-      if ( v11 >= (__int64)v30 + 8 * v13 )
+      v11 = *((_QWORD *)&v33 + 1) + 8LL;
+      v13 = (unsigned __int16)*(_DWORD *)v33 + 2LL;
+      *((_QWORD *)&v33 + 1) = v11;
+      if ( v11 >= (__int64)v33 + 8 * v13 )
       {
-        v14 = *(_QWORD *)(v30 + 8);
+        v14 = *(_QWORD *)(v33 + 8);
         if ( v14 )
         {
-          *(_QWORD *)&v30 = *(_QWORD *)(v30 + 8);
-          *((_QWORD *)&v30 + 1) = v14 + 16;
+          *(_QWORD *)&v33 = *(_QWORD *)(v33 + 8);
+          *((_QWORD *)&v33 + 1) = v14 + 16;
         }
         v11 = (v14 + 16) & -(__int64)(v14 != 0);
       }
@@ -101,7 +104,7 @@ __int64 __fastcall SMKM_STORE_MGR<SM_TRAITS>::SmFeEvictComplete(__int64 a1, unsi
     if ( v12 && *(_DWORD *)(a1 + 1648) == *(_DWORD *)v11 )
       KeSetEvent(v12, 0, 0);
     *(_BYTE *)(v11 + 6) = 0;
-    SMKM_STORE_MGR<SM_TRAITS>::SmFeDeleteEntry(a1, v31, &v30);
+    SMKM_STORE_MGR<SM_TRAITS>::SmFeDeleteEntry(a1, v34, &v33);
     if ( ++v7 == a3 )
       break;
     ++v4;
@@ -135,7 +138,7 @@ __int64 __fastcall SMKM_STORE_MGR<SM_TRAITS>::SmFeEvictComplete(__int64 a1, unsi
         {
           *(_BYTE *)(v21 + 32) |= 2u;
           if ( *(__int64 *)(v21 + 32) < 0 )
-            KiAbEntryRemoveFromTree(v21);
+            KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v21);
           *(_DWORD *)(v21 + 88) &= 0xFFFE0000;
           *(_BYTE *)(v21 + 25) &= ~1u;
           *(_QWORD *)(v21 + 32) = 0LL;
@@ -157,8 +160,8 @@ LABEL_27:
   KiAbThreadRemoveBoosts((ULONG_PTR)v15);
   v19 = v15->SpecialApcDisable++ == -1;
   if ( v19 && ($C459BD0D405E8E46662177FB3D0A143F *)v15->ApcState.ApcListHead[0].Flink != &v15->152 )
-    KiCheckForKernelApcDelivery(v23);
+    KiCheckForKernelApcDelivery(v24, v23, v25, v26);
   KiLeaveGuardedRegionUnsafe(KeGetCurrentThread());
-  v26 = (__int64 *)SmKmStoreRefFromStoreIndex(a1, a4 & 0x3FF, v24, v25);
-  return SmKmStoreDeleteWhenEmpty(v27, *v26, 0LL);
+  v29 = (__int64 *)SmKmStoreRefFromStoreIndex(a1, a4 & 0x3FF, v27, v28);
+  return SmKmStoreDeleteWhenEmpty(v30, *v29, 0LL);
 }

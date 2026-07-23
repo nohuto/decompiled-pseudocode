@@ -1,18 +1,18 @@
 /*
- * XREFs of KiExpandKernelStackAndCalloutOnStackSegment @ 0x140264300
+ * XREFs of KiExpandKernelStackAndCalloutOnStackSegment @ 0x140263870
  * Callers:
- *     KiExpandKernelStackAndCalloutSwitchStack @ 0x1402639D0 (KiExpandKernelStackAndCalloutSwitchStack.c)
+ *     KiExpandKernelStackAndCalloutSwitchStack @ 0x140262F40 (KiExpandKernelStackAndCalloutSwitchStack.c)
  * Callees:
- *     KeQueryCurrentStackInformationEx @ 0x140263F70 (KeQueryCurrentStackInformationEx.c)
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     KiInsertQueueDpc @ 0x1402BD330 (KiInsertQueueDpc.c)
- *     MmCreateKernelStack @ 0x1403D0D34 (MmCreateKernelStack.c)
- *     KeReleaseMutantEx @ 0x1403DD130 (KeReleaseMutantEx.c)
- *     MmDeleteKernelStack @ 0x1404162AC (MmDeleteKernelStack.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     KeGetCurrentStackPointer @ 0x140727390 (KeGetCurrentStackPointer.c)
- *     KiSwitchKernelStackAndCallout @ 0x140728A70 (KiSwitchKernelStackAndCallout.c)
- *     RtlpInterlockedPushEntrySList @ 0x140730CD0 (RtlpInterlockedPushEntrySList.c)
+ *     KeQueryCurrentStackInformationEx @ 0x1402634E0 (KeQueryCurrentStackInformationEx.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     KiInsertQueueDpc @ 0x140307FF0 (KiInsertQueueDpc.c)
+ *     MmCreateKernelStack @ 0x1403D3D00 (MmCreateKernelStack.c)
+ *     KeReleaseMutantEx @ 0x1403E0320 (KeReleaseMutantEx.c)
+ *     MmDeleteKernelStack @ 0x14040A8BC (MmDeleteKernelStack.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     KeGetCurrentStackPointer @ 0x14072BF60 (KeGetCurrentStackPointer.c)
+ *     KiSwitchKernelStackAndCallout @ 0x14072D640 (KiSwitchKernelStackAndCallout.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1407358A0 (RtlpInterlockedPushEntrySList.c)
  */
 
 __int64 __fastcall KiExpandKernelStackAndCalloutOnStackSegment(

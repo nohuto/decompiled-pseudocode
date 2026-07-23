@@ -1,9 +1,9 @@
 /*
- * XREFs of ExInsertPoolTag @ 0x14009B2BC
+ * XREFs of ExInsertPoolTag @ 0x14009AABC
  * Callers:
- *     MiAllocateContiguousMemory @ 0x14009AF40 (MiAllocateContiguousMemory.c)
+ *     MiAllocateContiguousMemory @ 0x14009A740 (MiAllocateContiguousMemory.c)
  * Callees:
- *     ExpAllocateBigPool @ 0x140011AD0 (ExpAllocateBigPool.c)
+ *     ExpAllocateBigPool @ 0x140011650 (ExpAllocateBigPool.c)
  */
 
 _BOOL8 __fastcall ExInsertPoolTag(unsigned int a1, ULONG_PTR a2, unsigned __int64 a3, int a4, char a5)

@@ -11,59 +11,54 @@
  *     __security_check_cookie @ 0x180093840 (__security_check_cookie.c)
  */
 
-__int64 __fastcall RtlCreateVirtualAccountSid(__int64 a1, int a2, _DWORD *a3, unsigned int *a4)
+NTSTATUS __cdecl RtlCreateVirtualAccountSid(PUNICODE_STRING Name, ULONG BaseSubAuthority, PSID Sid, PULONG SidLength)
 {
-  _DWORD *v4; // rbx
-  unsigned int v6; // eax
-  __int64 result; // rax
-  __int64 v8; // r8
-  int v9; // eax
-  UNICODE_STRING UnicodeString; // [rsp+20h] [rbp-49h] BYREF
-  _BYTE v11[64]; // [rsp+30h] [rbp-39h] BYREF
-  int v12; // [rsp+70h] [rbp+7h]
-  int v13; // [rsp+74h] [rbp+Bh]
-  int v14; // [rsp+78h] [rbp+Fh]
-  int v15; // [rsp+7Ch] [rbp+13h]
-  int v16; // [rsp+80h] [rbp+17h]
-  int v17; // [rsp+84h] [rbp+1Bh]
-  int v18; // [rsp+88h] [rbp+1Fh]
-  int v19; // [rsp+90h] [rbp+27h]
-  int v20; // [rsp+94h] [rbp+2Bh]
-  int v21; // [rsp+98h] [rbp+2Fh]
-  int v22; // [rsp+9Ch] [rbp+33h]
-  int v23; // [rsp+A0h] [rbp+37h]
+  ULONG v6; // eax
+  NTSTATUS result; // eax
+  int v8; // eax
+  _UNICODE_STRING DestinationString; // [rsp+20h] [rbp-49h] BYREF
+  _BYTE v10[64]; // [rsp+30h] [rbp-39h] BYREF
+  int v11; // [rsp+70h] [rbp+7h]
+  int v12; // [rsp+74h] [rbp+Bh]
+  int v13; // [rsp+78h] [rbp+Fh]
+  int v14; // [rsp+7Ch] [rbp+13h]
+  int v15; // [rsp+80h] [rbp+17h]
+  int v16; // [rsp+84h] [rbp+1Bh]
+  int v17; // [rsp+88h] [rbp+1Fh]
+  int v18; // [rsp+90h] [rbp+27h]
+  int v19; // [rsp+94h] [rbp+2Bh]
+  int v20; // [rsp+98h] [rbp+2Fh]
+  int v21; // [rsp+9Ch] [rbp+33h]
+  int v22; // [rsp+A0h] [rbp+37h]
 
-  v4 = a3;
-  if ( !a1 || !a4 || (unsigned int)(a2 - 80) > 0x1F )
-    return 3221225485LL;
-  v6 = *a4;
-  *a4 = 32;
+  if ( !Name || !SidLength || BaseSubAuthority - 80 > 0x1F )
+    return -1073741811;
+  v6 = *SidLength;
+  *SidLength = 32;
   if ( v6 < 0x20 )
-    return 3221225507LL;
-  LOBYTE(a3) = 1;
-  result = RtlUpcaseUnicodeString(&UnicodeString, a1, a3);
-  if ( (int)result >= 0 )
+    return -1073741789;
+  result = RtlUpcaseUnicodeString(&DestinationString, Name, 1u);
+  if ( result >= 0 )
   {
+    v16 = 0;
     v17 = 0;
-    v18 = 0;
-    v12 = 1732584193;
-    v13 = -271733879;
-    v14 = -1732584194;
-    v15 = 271733878;
-    v16 = -1009589776;
-    A_SHAUpdate(v11, UnicodeString.Buffer, UnicodeString.Length);
-    A_SHAFinal(v11);
-    RtlFreeUnicodeString(&UnicodeString);
-    LOBYTE(v8) = 6;
-    RtlInitializeSid(v4, &RtlpNtAuthority, v8);
-    v9 = v19;
-    v4[2] = a2;
-    v4[3] = v9;
-    v4[4] = v20;
-    v4[5] = v21;
-    v4[6] = v22;
-    v4[7] = v23;
-    return 0LL;
+    v11 = 1732584193;
+    v12 = -271733879;
+    v13 = -1732584194;
+    v14 = 271733878;
+    v15 = -1009589776;
+    A_SHAUpdate(v10, DestinationString.Buffer, DestinationString.Length);
+    A_SHAFinal(v10);
+    RtlFreeUnicodeString(&DestinationString);
+    RtlInitializeSid(Sid, (PSID_IDENTIFIER_AUTHORITY)&RtlpNtAuthority, 6u);
+    v8 = v18;
+    *((_DWORD *)Sid + 2) = BaseSubAuthority;
+    *((_DWORD *)Sid + 3) = v8;
+    *((_DWORD *)Sid + 4) = v19;
+    *((_DWORD *)Sid + 5) = v20;
+    *((_DWORD *)Sid + 6) = v21;
+    *((_DWORD *)Sid + 7) = v22;
+    return 0;
   }
   return result;
 }

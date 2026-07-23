@@ -6,48 +6,48 @@
  *     <none>
  */
 
-__int64 __fastcall RtlDeNormalizeProcessParams(__int64 a1)
+PRTL_USER_PROCESS_PARAMETERS __cdecl RtlDeNormalizeProcessParams(PRTL_USER_PROCESS_PARAMETERS ProcessParameters)
 {
-  int v2; // edx
-  __int64 v3; // rax
-  __int64 v4; // rax
-  __int64 v5; // rax
-  __int64 v6; // rax
-  __int64 v7; // rax
-  __int64 v8; // rax
-  __int64 v9; // rax
-  __int64 v10; // rax
+  ULONG Flags; // edx
+  PWCH Buffer; // rax
+  PWCH v4; // rax
+  PWCH v5; // rax
+  PWCH v6; // rax
+  PWCH v7; // rax
+  PWCH v8; // rax
+  PWCH v9; // rax
+  PWCH v10; // rax
 
-  if ( !a1 )
+  if ( !ProcessParameters )
     return 0LL;
-  v2 = *(_DWORD *)(a1 + 8);
-  if ( (v2 & 1) != 0 )
+  Flags = ProcessParameters->Flags;
+  if ( (Flags & 1) != 0 )
   {
-    v3 = *(_QWORD *)(a1 + 64);
-    if ( v3 )
-      *(_QWORD *)(a1 + 64) = v3 - a1;
-    v4 = *(_QWORD *)(a1 + 88);
+    Buffer = ProcessParameters->CurrentDirectory.DosPath.Buffer;
+    if ( Buffer )
+      ProcessParameters->CurrentDirectory.DosPath.Buffer = (PWCH)((char *)Buffer - (char *)ProcessParameters);
+    v4 = ProcessParameters->DllPath.Buffer;
     if ( v4 )
-      *(_QWORD *)(a1 + 88) = v4 - a1;
-    v5 = *(_QWORD *)(a1 + 104);
+      ProcessParameters->DllPath.Buffer = (PWCH)((char *)v4 - (char *)ProcessParameters);
+    v5 = ProcessParameters->ImagePathName.Buffer;
     if ( v5 )
-      *(_QWORD *)(a1 + 104) = v5 - a1;
-    v6 = *(_QWORD *)(a1 + 120);
+      ProcessParameters->ImagePathName.Buffer = (PWCH)((char *)v5 - (char *)ProcessParameters);
+    v6 = ProcessParameters->CommandLine.Buffer;
     if ( v6 )
-      *(_QWORD *)(a1 + 120) = v6 - a1;
-    v7 = *(_QWORD *)(a1 + 184);
+      ProcessParameters->CommandLine.Buffer = (PWCH)((char *)v6 - (char *)ProcessParameters);
+    v7 = ProcessParameters->WindowTitle.Buffer;
     if ( v7 )
-      *(_QWORD *)(a1 + 184) = v7 - a1;
-    v8 = *(_QWORD *)(a1 + 200);
+      ProcessParameters->WindowTitle.Buffer = (PWCH)((char *)v7 - (char *)ProcessParameters);
+    v8 = ProcessParameters->DesktopInfo.Buffer;
     if ( v8 )
-      *(_QWORD *)(a1 + 200) = v8 - a1;
-    v9 = *(_QWORD *)(a1 + 216);
+      ProcessParameters->DesktopInfo.Buffer = (PWCH)((char *)v8 - (char *)ProcessParameters);
+    v9 = ProcessParameters->ShellInfo.Buffer;
     if ( v9 )
-      *(_QWORD *)(a1 + 216) = v9 - a1;
-    v10 = *(_QWORD *)(a1 + 232);
+      ProcessParameters->ShellInfo.Buffer = (PWCH)((char *)v9 - (char *)ProcessParameters);
+    v10 = ProcessParameters->RuntimeData.Buffer;
     if ( v10 )
-      *(_QWORD *)(a1 + 232) = v10 - a1;
-    *(_DWORD *)(a1 + 8) = v2 & 0xFFFFFFFE;
+      ProcessParameters->RuntimeData.Buffer = (PWCH)((char *)v10 - (char *)ProcessParameters);
+    ProcessParameters->Flags = Flags & 0xFFFFFFFE;
   }
-  return a1;
+  return ProcessParameters;
 }

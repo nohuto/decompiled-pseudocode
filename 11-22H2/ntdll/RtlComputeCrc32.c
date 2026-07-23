@@ -6,22 +6,24 @@
  *     <none>
  */
 
-__int64 __fastcall RtlComputeCrc32(int a1, char *a2, __int64 a3)
+// local variable allocation has failed, the output may be wrong!
+ULONG32 __cdecl RtlComputeCrc32(ULONG32 PartialCrc, PVOID Buffer, ULONG Length)
 {
-  unsigned int v4; // ecx
+  ULONG32 v4; // ecx
   char v5; // al
 
-  v4 = ~a1;
-  if ( (_DWORD)a3 )
+  v4 = ~PartialCrc;
+  if ( Length )
   {
-    a3 = (unsigned int)a3;
+    *(_QWORD *)&Length = Length;
     do
     {
-      v5 = *a2++;
+      v5 = *(_BYTE *)Buffer;
+      Buffer = (char *)Buffer + 1;
       v4 = RtlCrc32Table[(unsigned __int8)(v5 ^ v4)] ^ (v4 >> 8);
-      --a3;
+      --*(_QWORD *)&Length;
     }
-    while ( a3 );
+    while ( *(_QWORD *)&Length );
   }
   return ~v4;
 }

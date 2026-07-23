@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlDowncaseUnicodeString @ 0x140A47B20
+ * XREFs of RtlDowncaseUnicodeString @ 0x140A50E10
  * Callers:
- *     DifRtlDowncaseUnicodeStringWrapper @ 0x1406959C0 (DifRtlDowncaseUnicodeStringWrapper.c)
- *     ExpKdPullRemoteFileForUser @ 0x140845480 (ExpKdPullRemoteFileForUser.c)
+ *     DifRtlDowncaseUnicodeStringWrapper @ 0x1406995A0 (DifRtlDowncaseUnicodeStringWrapper.c)
+ *     ExpKdPullRemoteFileForUser @ 0x14084A4C4 (ExpKdPullRemoteFileForUser.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x1402150C0 (PsGetCurrentServerSiloGlobals.c)
- *     AllocateOrValidateUnicodeStringBuffer @ 0x1404621F0 (AllocateOrValidateUnicodeStringBuffer.c)
- *     ExFreePool @ 0x140C10E30 (ExFreePool.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x1402153F0 (PsGetCurrentServerSiloGlobals.c)
+ *     AllocateOrValidateUnicodeStringBuffer @ 0x14045B1B0 (AllocateOrValidateUnicodeStringBuffer.c)
+ *     ExFreePool @ 0x140C16E30 (ExFreePool.c)
  */
 
 NTSTATUS __stdcall RtlDowncaseUnicodeString(

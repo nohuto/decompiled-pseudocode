@@ -26,7 +26,7 @@ __int64 __fastcall RtlpUmsThreadYield()
   __int128 v15; // xmm13
   __int128 v16; // xmm14
   __int128 v17; // xmm15
-  void *v18; // rdx
+  PVOID v18; // rdx
   unsigned __int64 v19; // r10
   _UNKNOWN *retaddr; // [rsp+0h] [rbp+0h]
   char v23; // [rsp+8h] [rbp+8h] BYREF

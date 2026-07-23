@@ -1,12 +1,12 @@
 /*
- * XREFs of PiConfigureDevice @ 0x140723EEC
+ * XREFs of PiConfigureDevice @ 0x140721A7C
  * Callers:
- *     PnpDeviceActionWorker @ 0x14046CD70 (PnpDeviceActionWorker.c)
+ *     PnpDeviceActionWorker @ 0x140467910 (PnpDeviceActionWorker.c)
  * Callees:
- *     PpDevCfgProcessDeviceClass @ 0x14072C4F4 (PpDevCfgProcessDeviceClass.c)
- *     PpDevCfgProcessDeviceExtensions @ 0x14072C8FC (PpDevCfgProcessDeviceExtensions.c)
- *     PpDevCfgProcessDeviceReset @ 0x140A84170 (PpDevCfgProcessDeviceReset.c)
- *     PpDevCfgProcessDevice @ 0x140A9F37C (PpDevCfgProcessDevice.c)
+ *     PpDevCfgProcessDeviceClass @ 0x14072A508 (PpDevCfgProcessDeviceClass.c)
+ *     PpDevCfgProcessDeviceExtensions @ 0x14072A910 (PpDevCfgProcessDeviceExtensions.c)
+ *     PpDevCfgProcessDeviceReset @ 0x140A7EC90 (PpDevCfgProcessDeviceReset.c)
+ *     PpDevCfgProcessDevice @ 0x140A9A74C (PpDevCfgProcessDevice.c)
  */
 
 __int64 __fastcall PiConfigureDevice(__int64 a1)

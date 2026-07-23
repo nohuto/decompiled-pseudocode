@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpIrtExtendApertureRange @ 0x1407014B8
+ * XREFs of HalpIrtExtendApertureRange @ 0x1406FF0F8
  * Callers:
- *     HalpIrtAllocateDeviceAperture @ 0x140701104 (HalpIrtAllocateDeviceAperture.c)
+ *     HalpIrtAllocateDeviceAperture @ 0x1406FED44 (HalpIrtAllocateDeviceAperture.c)
  * Callees:
- *     KeReleaseGuardedMutex @ 0x14031E470 (KeReleaseGuardedMutex.c)
- *     ExAcquireFastMutex @ 0x14033E850 (ExAcquireFastMutex.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeReleaseGuardedMutex @ 0x1402C7000 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x14031DD30 (ExAcquireFastMutex.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 HalpIrtExtendApertureRange()
@@ -23,7 +23,7 @@ __int64 HalpIrtExtendApertureRange()
 
   v0 = HalpIrtAperturesPerRange;
   v1 = 0;
-  Pool2 = (void *)ExAllocatePool2(0x100uLL);
+  Pool2 = (void *)ExAllocatePool2(0x100uLL, (unsigned int)(32 * HalpIrtAperturesPerRange), 0x696C6148u);
   v3 = Pool2 != 0LL;
   ExAcquireFastMutex(&HalpIrtLock);
   v4 = HalpIrtAllocatedApertures;
@@ -34,12 +34,12 @@ __int64 HalpIrtExtendApertureRange()
     {
       if ( Pool2 )
       {
-        for ( i = 0; i < v0; qword_140F8FB58 = v7 )
+        for ( i = 0; i < v0; qword_140F8FDB8 = v7 )
         {
           v7 = (__int64)Pool2 + 32 * i;
           *(_DWORD *)(v7 + 16) = v4 + i;
-          v8 = (__int64 *)qword_140F8FB58;
-          if ( *(__int64 **)qword_140F8FB58 != &HalpIrtFreeDeviceAperturesHead )
+          v8 = (__int64 *)qword_140F8FDB8;
+          if ( *(__int64 **)qword_140F8FDB8 != &HalpIrtFreeDeviceAperturesHead )
             __fastfail(3u);
           *(_QWORD *)v7 = &HalpIrtFreeDeviceAperturesHead;
           ++i;

@@ -1,9 +1,9 @@
 /*
- * XREFs of x86BiosWritePciDataPort @ 0x140581070
+ * XREFs of x86BiosWritePciDataPort @ 0x140583590
  * Callers:
- *     x86BiosWriteIoSpace @ 0x1404A8050 (x86BiosWriteIoSpace.c)
+ *     x86BiosWriteIoSpace @ 0x1404A16E0 (x86BiosWriteIoSpace.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 x86BiosWritePciDataPort()

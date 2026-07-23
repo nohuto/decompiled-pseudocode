@@ -1,16 +1,16 @@
 /*
- * XREFs of OpenGlobalizationUserSettingsKey_ForSingleUserModel @ 0x14065AE8C
+ * XREFs of OpenGlobalizationUserSettingsKey_ForSingleUserModel @ 0x1406595AC
  * Callers:
- *     OpenGlobalizationUserSettingsKey @ 0x1404CB300 (OpenGlobalizationUserSettingsKey.c)
- *     OpenGlobalizationUserSettingsKey_ForMua @ 0x14065ABEC (OpenGlobalizationUserSettingsKey_ForMua.c)
+ *     OpenGlobalizationUserSettingsKey @ 0x1404C4820 (OpenGlobalizationUserSettingsKey.c)
+ *     OpenGlobalizationUserSettingsKey_ForMua @ 0x14065930C (OpenGlobalizationUserSettingsKey_ForMua.c)
  * Callees:
- *     RtlCopyUnicodeString @ 0x1403FFE80 (RtlCopyUnicodeString.c)
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     OpenRegistryKey @ 0x14065B0AC (OpenRegistryKey.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwQueryValueKey @ 0x1406A66F0 (ZwQueryValueKey.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlCopyUnicodeString @ 0x1403FA370 (RtlCopyUnicodeString.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     OpenRegistryKey @ 0x1406597CC (OpenRegistryKey.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwQueryValueKey @ 0x1406A7690 (ZwQueryValueKey.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall OpenGlobalizationUserSettingsKey_ForSingleUserModel(ULONG a1, _QWORD *a2)
@@ -32,10 +32,10 @@ __int64 __fastcall OpenGlobalizationUserSettingsKey_ForSingleUserModel(ULONG a1,
   void *v18; // [rsp+A8h] [rbp+38h] BYREF
 
   ResultLength = a1;
-  if ( dword_140EEECE4 )
+  if ( dword_140EEEEF4 )
   {
     DestinationString = 0LL;
-    RtlInitUnicodeString(&DestinationString, &word_140E62310);
+    RtlInitUnicodeString(&DestinationString, &word_140E62460);
     return (unsigned int)OpenRegistryKey(v3, &DestinationString, a2);
   }
   KeyHandle = 0LL;
@@ -51,11 +51,11 @@ __int64 __fastcall OpenGlobalizationUserSettingsKey_ForSingleUserModel(ULONG a1,
     if ( !ResultLength || v6 != -1073741789 && v6 != -2147483643 )
     {
       *(_QWORD *)&DestinationString.Length = 11141120LL;
-      DestinationString.Buffer = &word_140E62310;
+      DestinationString.Buffer = &word_140E62460;
       if ( v13.Length <= 0xAAu )
       {
         RtlCopyUnicodeString(&DestinationString, &v13);
-        dword_140EEECE4 = 1;
+        dword_140EEEEF4 = 1;
       }
       v10 = KeyHandle;
       KeyHandle = 0LL;
@@ -63,7 +63,7 @@ __int64 __fastcall OpenGlobalizationUserSettingsKey_ForSingleUserModel(ULONG a1,
       *a2 = v10;
       goto LABEL_21;
     }
-    Pool2 = ExAllocatePool2(0x100uLL);
+    Pool2 = ExAllocatePool2(0x100uLL, ResultLength, 0x4E4C53u);
     if ( Pool2 )
     {
       v4 = ZwQueryValueKey(KeyHandle, &ValueName, KeyValuePartialInformation, (PVOID)Pool2, ResultLength, &ResultLength);
@@ -84,11 +84,11 @@ LABEL_15:
         if ( v4 >= 0 )
         {
           *(_QWORD *)&DestinationString.Length = 11141120LL;
-          DestinationString.Buffer = &word_140E62310;
+          DestinationString.Buffer = &word_140E62460;
           if ( SourceString.Length <= 0xAAu )
           {
             RtlCopyUnicodeString(&DestinationString, &SourceString);
-            dword_140EEECE4 = 1;
+            dword_140EEEEF4 = 1;
           }
           v9 = v18;
           goto LABEL_15;

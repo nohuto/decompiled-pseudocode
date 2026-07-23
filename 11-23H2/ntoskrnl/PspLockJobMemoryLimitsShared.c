@@ -4,9 +4,9 @@
  *     NtQueryInformationJobObject @ 0x1406A1130 (NtQueryInformationJobObject.c)
  *     PspEnforceLimitsJobPostCallback @ 0x1406A3680 (PspEnforceLimitsJobPostCallback.c)
  *     PspApplyJobLimitsToProcess @ 0x1406A6EC4 (PspApplyJobLimitsToProcess.c)
- *     PsReportProcessMemoryLimitViolation @ 0x1409B1D3C (PsReportProcessMemoryLimitViolation.c)
+ *     PsReportProcessMemoryLimitViolation @ 0x1409B1F3C (PsReportProcessMemoryLimitViolation.c)
  * Callees:
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
+ *     ExAcquirePushLockSharedEx @ 0x140230E80 (ExAcquirePushLockSharedEx.c)
  */
 
 __int64 __fastcall PspLockJobMemoryLimitsShared(__int64 a1, __int64 a2)

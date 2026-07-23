@@ -1,11 +1,11 @@
 /*
- * XREFs of AccelpWaitForCompletionBusySpin @ 0x140524954
+ * XREFs of AccelpWaitForCompletionBusySpin @ 0x140526FC4
  * Callers:
- *     AccelpSiovInternalOperationHandler @ 0x140511B88 (AccelpSiovInternalOperationHandler.c)
- *     AccelpCpuInternalOperationHandler @ 0x1406E07A8 (AccelpCpuInternalOperationHandler.c)
- *     AccelpSdxiInternalOperationHandler @ 0x1406E0A10 (AccelpSdxiInternalOperationHandler.c)
+ *     AccelpSiovInternalOperationHandler @ 0x14050B5F8 (AccelpSiovInternalOperationHandler.c)
+ *     AccelpCpuInternalOperationHandler @ 0x1406E4A28 (AccelpCpuInternalOperationHandler.c)
+ *     AccelpSdxiInternalOperationHandler @ 0x1406E4C90 (AccelpSdxiInternalOperationHandler.c)
  * Callees:
- *     KeStallExecutionProcessor @ 0x14037BEF0 (KeStallExecutionProcessor.c)
+ *     KeStallExecutionProcessor @ 0x14037DCA0 (KeStallExecutionProcessor.c)
  */
 
 __int64 __fastcall AccelpWaitForCompletionBusySpin(int a1, int a2, __int64 a3)

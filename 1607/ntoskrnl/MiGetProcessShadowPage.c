@@ -1,7 +1,7 @@
 /*
- * XREFs of MiGetProcessShadowPage @ 0x1401EF32C
+ * XREFs of MiGetProcessShadowPage @ 0x1401EF158
  * Callers:
- *     MiSmallVaStillMapsFrame @ 0x140109A20 (MiSmallVaStillMapsFrame.c)
+ *     MiSmallVaStillMapsFrame @ 0x1401077A0 (MiSmallVaStillMapsFrame.c)
  * Callees:
  *     <none>
  */

@@ -12,45 +12,46 @@
  *     _RtlNormalizeString@20 @ 0x4B3685C0 (_RtlNormalizeString@20.c)
  */
 
-int __fastcall RtlpNameprepAsciiRealWorker(
+NTSTATUS __fastcall RtlpNameprepAsciiRealWorker(
         int a1,
         void *a2,
-        int a3,
+        LONG a3,
         void *a4,
         int *a5,
         char a6,
-        char *a7,
+        PWSTR DestinationString,
         int a8,
         const void *a9,
         int a10)
 {
   _WORD *v11; // ecx
-  int v12; // esi
+  LONG v12; // esi
   int v13; // edi
   char v14; // al
   char v15; // dl
-  int result; // eax
-  int v17; // eax
-  int v18; // ecx
-  int v19; // edi
-  char *v20; // edx
-  void *v21; // edi
-  int EmailAt; // eax
+  NTSTATUS result; // eax
+  LONG v17; // eax
+  LONG v18; // ecx
+  LONG v19; // edi
+  WCHAR *v20; // edx
+  const WCHAR *v21; // edi
+  LONG EmailAt; // eax
   bool v23; // zf
   bool v24; // zf
   int v25; // edx
   const void *v26; // ecx
   bool v27; // cc
-  char *v28; // ecx
-  int v29; // [esp+10h] [ebp-20h]
-  int v30; // [esp+14h] [ebp-1Ch]
+  PWSTR v28; // ecx
+  size_t v29; // [esp-4h] [ebp-34h]
+  int v30; // [esp+10h] [ebp-20h]
   int v31; // [esp+14h] [ebp-1Ch]
-  BOOL v32; // [esp+18h] [ebp-18h]
-  char v33; // [esp+1Ch] [ebp-14h]
-  int v34; // [esp+20h] [ebp-10h] BYREF
-  int v35; // [esp+24h] [ebp-Ch]
+  LONG v32; // [esp+14h] [ebp-1Ch]
+  BOOL v33; // [esp+18h] [ebp-18h]
+  char v34; // [esp+1Ch] [ebp-14h]
+  LONG DestinationStringLength; // [esp+20h] [ebp-10h] BYREF
+  LONG v36; // [esp+24h] [ebp-Ch]
   void *Src; // [esp+28h] [ebp-8h]
-  char v37; // [esp+2Fh] [ebp-1h]
+  char v38; // [esp+2Fh] [ebp-1h]
 
   Src = a2;
   v11 = Src;
@@ -62,26 +63,26 @@ int __fastcall RtlpNameprepAsciiRealWorker(
   if ( !a5 )
     return -1073741811;
   v13 = *a5;
-  v35 = v13;
+  v36 = v13;
   if ( v13 < 0 || v13 > 0 && !a4 )
     return -1073741811;
   if ( (a1 & 0xFFFFFFF8) != 0 )
     return -1073741811;
-  v37 = 0;
-  v29 = a1 & 1;
-  v30 = a1 & 4;
-  v14 = v30 != 0;
+  v38 = 0;
+  v30 = a1 & 1;
+  v31 = a1 & 4;
+  v14 = v31 != 0;
   v15 = (a1 & 2) != 0;
-  v32 = v30 != 0;
-  v33 = v15;
+  v33 = v31 != 0;
+  v34 = v15;
   if ( a3 == -1 )
   {
-    if ( RtlStringCchLengthW((int)Src, 0x7FFFFFFFu, &v34) >= 0 )
+    if ( RtlStringCchLengthW((int)Src, 0x7FFFFFFFu, &DestinationStringLength) >= 0 )
     {
       v11 = Src;
-      v12 = v34 + 1;
-      v14 = v30 != 0;
-      v15 = v33;
+      v12 = DestinationStringLength + 1;
+      v14 = v31 != 0;
+      v15 = v34;
       goto LABEL_9;
     }
     return -1073741811;
@@ -89,10 +90,10 @@ int __fastcall RtlpNameprepAsciiRealWorker(
 LABEL_9:
   if ( v12 > 0 )
   {
-    v13 = v35;
+    v13 = v36;
     if ( !v11[v12 - 1] )
     {
-      v37 = 1;
+      v38 = 1;
       --v12;
     }
   }
@@ -100,13 +101,14 @@ LABEL_9:
   {
     if ( !v12 )
       return -1073740010;
-    if ( v37 )
+    if ( v38 )
       ++v12;
     if ( !a4 || !v13 )
       goto LABEL_20;
     if ( v12 <= v13 )
     {
-      memcpy(a4, Src, 2 * v12);
+      LODWORD(v29) = 2 * v12;
+      memcpy(a4, Src, v29);
 LABEL_20:
       *a5 = v12;
       return 0;
@@ -116,53 +118,53 @@ LABEL_20:
   v17 = 511;
   v18 = 0;
   v19 = 0;
-  v20 = a7;
-  if ( v30 )
+  v20 = DestinationString;
+  if ( v31 )
   {
-    v21 = Src;
+    v21 = (const WCHAR *)Src;
     EmailAt = FindEmailAt(Src, v12);
-    v31 = EmailAt;
+    v32 = EmailAt;
     if ( !EmailAt )
       goto LABEL_50;
-    v34 = 511;
-    result = RtlNormalizeString(1, v21, EmailAt, a7, &v34);
-    v19 = v34;
+    DestinationStringLength = 511;
+    result = RtlNormalizeString(1u, v21, EmailAt, DestinationString, &DestinationStringLength);
+    v19 = DestinationStringLength;
     v23 = result == 0;
     if ( result >= 0 )
     {
-      if ( v34 )
+      if ( DestinationStringLength )
       {
-        v18 = v31;
-        v20 = &a7[2 * v34];
-        v17 = 511 - v34;
+        v18 = v32;
+        v20 = &DestinationString[DestinationStringLength];
+        v17 = 511 - DestinationStringLength;
         goto LABEL_31;
       }
       v23 = result == 0;
     }
     if ( v23 || result == -1073741789 || result == -1073740009 )
       goto LABEL_50;
-    v27 = v34 <= 0;
+    v27 = DestinationStringLength <= 0;
     goto LABEL_49;
   }
 LABEL_31:
   if ( v18 < v12 )
   {
-    v34 = v17;
-    result = RtlNormalizeString(((v29 ^ 1) << 8) + 13, (char *)Src + 2 * v18, v12 - v18, v20, &v34);
-    HIWORD(v18) = HIWORD(v34);
+    DestinationStringLength = v17;
+    result = RtlNormalizeString(((v30 ^ 1) << 8) + 13, (PCWSTR)Src + v18, v12 - v18, v20, &DestinationStringLength);
+    HIWORD(v18) = HIWORD(DestinationStringLength);
     v24 = result == 0;
     if ( result >= 0 )
     {
-      if ( v34 )
+      if ( DestinationStringLength )
       {
-        v19 += v34;
+        v19 += DestinationStringLength;
         goto LABEL_35;
       }
       v24 = result == 0;
     }
     if ( v24 || result == -1073741789 || result == -1073740009 )
       goto LABEL_50;
-    v27 = v34 <= 0;
+    v27 = DestinationStringLength <= 0;
 LABEL_49:
     if ( !v27 )
       goto LABEL_50;
@@ -171,7 +173,7 @@ LABEL_49:
 LABEL_35:
   if ( v19 > 0 )
   {
-    v25 = *(unsigned __int16 *)&a7[2 * v19 - 2];
+    v25 = (unsigned __int16)DestinationString[v19 - 1];
     if ( v25 == 46 )
     {
       LOWORD(v18) = *((_WORD *)Src + v12 - 1);
@@ -181,54 +183,56 @@ LABEL_35:
     if ( !(_WORD)v25 )
       goto LABEL_50;
   }
-  v34 = 515;
-  result = punycode_encode(a9, &v34, v32, v33);
-  v12 = v34;
-  if ( v34 )
+  DestinationStringLength = 515;
+  result = punycode_encode(a9, &DestinationStringLength, v33, v34);
+  v12 = DestinationStringLength;
+  if ( DestinationStringLength )
   {
     if ( a6 )
     {
-      if ( !v37 )
+      if ( !v38 )
       {
         v26 = a9;
         goto LABEL_59;
       }
-      if ( v34 < 515 )
+      if ( DestinationStringLength < 515 )
       {
         v26 = a9;
-        *((_WORD *)a9 + v34) = 0;
+        *((_WORD *)a9 + DestinationStringLength) = 0;
         ++v12;
 LABEL_59:
-        if ( !a4 || !v35 )
+        if ( !a4 || !v36 )
           goto LABEL_20;
-        if ( v12 <= v35 )
+        if ( v12 <= v36 )
         {
-          memcpy(a4, v26, 2 * v12);
+          LODWORD(v29) = 2 * v12;
+          memcpy(a4, v26, v29);
           goto LABEL_20;
         }
         goto LABEL_51;
       }
       goto LABEL_50;
     }
-    if ( !v37 )
+    if ( !v38 )
     {
-      v28 = a7;
+      v28 = DestinationString;
       goto LABEL_67;
     }
     if ( v19 <= 511 )
     {
-      v28 = a7;
-      *(_WORD *)&a7[2 * v19++] = 0;
+      v28 = DestinationString;
+      DestinationString[v19++] = 0;
 LABEL_67:
-      if ( a4 && v35 )
+      if ( a4 && v36 )
       {
-        if ( v19 > v35 )
+        if ( v19 > v36 )
         {
 LABEL_51:
           result = -1073741789;
           goto LABEL_52;
         }
-        memcpy(a4, v28, 2 * v19);
+        LODWORD(v29) = 2 * v19;
+        memcpy(a4, v28, v29);
       }
       *a5 = v19;
       return 0;

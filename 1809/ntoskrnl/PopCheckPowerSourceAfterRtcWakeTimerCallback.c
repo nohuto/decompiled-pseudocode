@@ -1,12 +1,12 @@
 /*
- * XREFs of PopCheckPowerSourceAfterRtcWakeTimerCallback @ 0x1402DE7D0
+ * XREFs of PopCheckPowerSourceAfterRtcWakeTimerCallback @ 0x1402DE9C0
  * Callers:
  *     <none>
  * Callees:
- *     PopQueueWorkItem @ 0x140138CC8 (PopQueueWorkItem.c)
+ *     PopQueueWorkItem @ 0x140138DC8 (PopQueueWorkItem.c)
  */
 
 char PopCheckPowerSourceAfterRtcWakeTimerCallback()
 {
-  return PopQueueWorkItem((__int64)&unk_1404169E8, DelayedWorkQueue);
+  return PopQueueWorkItem((__int64)&unk_140417AC8, DelayedWorkQueue);
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of NtAdjustPrivilegesToken @ 0x18009DE60
+ * XREFs of NtAdjustPrivilegesToken @ 0x18009DE20
  * Callers:
  *     TppCritSetThread @ 0x18004EA64 (TppCritSetThread.c)
  *     RtlAcquirePrivilege @ 0x1800781B0 (RtlAcquirePrivilege.c)
@@ -11,11 +11,17 @@
  *     <none>
  */
 
-__int64 NtAdjustPrivilegesToken()
+NTSTATUS __cdecl NtAdjustPrivilegesToken(
+        HANDLE TokenHandle,
+        BOOLEAN DisableAllPrivileges,
+        PTOKEN_PRIVILEGES NewState,
+        ULONG BufferLength,
+        PTOKEN_PRIVILEGES PreviousState,
+        PULONG ReturnLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 65LL;
+  result = 65;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

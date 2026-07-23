@@ -1,11 +1,11 @@
 /*
- * XREFs of DbgkpSuppressDbgMsg @ 0x14078A930
+ * XREFs of DbgkpSuppressDbgMsg @ 0x14078D460
  * Callers:
- *     DbgkMapViewOfSection @ 0x1409C37E4 (DbgkMapViewOfSection.c)
- *     MiUnmapViewOfSection @ 0x1409C3C30 (MiUnmapViewOfSection.c)
- *     DbgkUnMapViewOfSection @ 0x1409C4448 (DbgkUnMapViewOfSection.c)
+ *     DbgkMapViewOfSection @ 0x1409947C4 (DbgkMapViewOfSection.c)
+ *     MiUnmapViewOfSection @ 0x140994C10 (MiUnmapViewOfSection.c)
+ *     DbgkUnMapViewOfSection @ 0x140995428 (DbgkUnMapViewOfSection.c)
  * Callees:
- *     RtlReadUShortFromUser @ 0x14077F5CC (RtlReadUShortFromUser.c)
+ *     RtlReadUShortFromUser @ 0x1407820CC (RtlReadUShortFromUser.c)
  */
 
 __int64 __fastcall DbgkpSuppressDbgMsg(__int64 a1)

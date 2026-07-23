@@ -1,15 +1,15 @@
 /*
- * XREFs of PopFxAcpiPrepareDevice @ 0x1405DC554
+ * XREFs of PopFxAcpiPrepareDevice @ 0x1405D9424
  * Callers:
- *     PopFxAcpiDispatchNotification @ 0x1405DC3B0 (PopFxAcpiDispatchNotification.c)
+ *     PopFxAcpiDispatchNotification @ 0x1405D9280 (PopFxAcpiDispatchNotification.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExfReleasePushLockShared @ 0x14025DE00 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockSharedEx @ 0x14034050C (ExfAcquirePushLockSharedEx.c)
- *     PopFxFindAcpiDeviceByUniqueId @ 0x1404BAB50 (PopFxFindAcpiDeviceByUniqueId.c)
- *     PopPluginAcpiNotificationStrict @ 0x1405E4454 (PopPluginAcpiNotificationStrict.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExfReleasePushLockShared @ 0x14028E410 (ExfReleasePushLockShared.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockSharedEx @ 0x14031F9EC (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     PopFxFindAcpiDeviceByUniqueId @ 0x1404B59F0 (PopFxFindAcpiDeviceByUniqueId.c)
+ *     PopPluginAcpiNotificationStrict @ 0x1405E19E0 (PopPluginAcpiNotificationStrict.c)
  */
 
 __int64 __fastcall PopFxAcpiPrepareDevice(const UNICODE_STRING *a1, ULONG_PTR a2, ULONG_PTR *a3, _BYTE *a4)
@@ -17,7 +17,7 @@ __int64 __fastcall PopFxAcpiPrepareDevice(const UNICODE_STRING *a1, ULONG_PTR a2
   int AcpiDeviceByUniqueId; // edi
   struct _KTHREAD *CurrentThread; // rax
   ULONG_PTR v9; // rsi
-  _QWORD *v10; // rbx
+  char *v10; // rbx
   ULONG_PTR i; // rbx
 
   AcpiDeviceByUniqueId = PopFxFindAcpiDeviceByUniqueId(a1, 0LL);
@@ -26,11 +26,11 @@ __int64 __fastcall PopFxAcpiPrepareDevice(const UNICODE_STRING *a1, ULONG_PTR a2
     CurrentThread = KeGetCurrentThread();
     v9 = 0LL;
     --CurrentThread->KernelApcDisable;
-    v10 = KeAbPreAcquire((__int64)&PopFxPluginLock, 0LL);
+    v10 = (char *)KeAbPreAcquire((__int64)&PopFxPluginLock, 0LL);
     if ( _InterlockedCompareExchange64((volatile signed __int64 *)&PopFxPluginLock, 17LL, 0LL) )
       ExfAcquirePushLockSharedEx((signed __int64 *)&PopFxPluginLock, 0, v10, (__int64)&PopFxPluginLock);
     if ( v10 )
-      *((_BYTE *)v10 + 10) = 1;
+      v10[10] = 1;
     for ( i = PopFxPluginList; (ULONG_PTR *)i != &PopFxPluginList; i = *(_QWORD *)i )
     {
       if ( *(_DWORD *)(i + 16) >= 3u

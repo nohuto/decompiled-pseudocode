@@ -1,7 +1,7 @@
 /*
- * XREFs of SymCryptFdefRawMulAsm @ 0x140405E40
+ * XREFs of SymCryptFdefRawMulAsm @ 0x140406020
  * Callers:
- *     SymCryptFdefRawMul @ 0x140403B9C (SymCryptFdefRawMul.c)
+ *     SymCryptFdefRawMul @ 0x140403D7C (SymCryptFdefRawMul.c)
  * Callees:
  *     <none>
  */

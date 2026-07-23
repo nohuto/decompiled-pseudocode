@@ -7,10 +7,10 @@
  *     memmove @ 0x1800A32C0 (memmove.c)
  */
 
-__int64 __fastcall sub_18010E8E8(void *Src, unsigned int a2)
+void __fastcall sub_18010E8E8(void *Src, unsigned int a2)
 {
-  RtlAcquireSRWLockExclusive(&qword_180166478);
+  RtlAcquireSRWLockExclusive(&stru_180166478);
   dword_18016658C = a2;
   memmove(&unk_180163460, Src, 8LL * a2);
-  return RtlReleaseSRWLockExclusive(&qword_180166478);
+  RtlReleaseSRWLockExclusive(&stru_180166478);
 }

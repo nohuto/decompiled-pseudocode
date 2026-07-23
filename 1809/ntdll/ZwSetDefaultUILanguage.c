@@ -1,16 +1,16 @@
 /*
- * XREFs of ZwSetDefaultUILanguage @ 0x1800A33D0
+ * XREFs of ZwSetDefaultUILanguage @ 0x1800A33F0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 ZwSetDefaultUILanguage()
+NTSTATUS __cdecl ZwSetDefaultUILanguage(LANGID DefaultUILanguageId)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 392LL;
+  result = 392;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

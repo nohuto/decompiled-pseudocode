@@ -1,15 +1,15 @@
 /*
- * XREFs of ExpHwidProcessDevice @ 0x1404F59EC
+ * XREFs of ExpHwidProcessDevice @ 0x1404D8978
  * Callers:
- *     sub_1404DB3D8 @ 0x1404DB3D8 (sub_1404DB3D8.c)
- *     sub_1404F587C @ 0x1404F587C (sub_1404F587C.c)
+ *     sub_1404BE9DC @ 0x1404BE9DC (sub_1404BE9DC.c)
+ *     sub_1404D8808 @ 0x1404D8808 (sub_1404D8808.c)
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     ExpHwidAppendDeviceInfoBlock @ 0x1404F5B1C (ExpHwidAppendDeviceInfoBlock.c)
+ *     ExpHwidAppendDeviceInfoBlock @ 0x1404D8AA8 (ExpHwidAppendDeviceInfoBlock.c)
  */
 
 __int64 __fastcall ExpHwidProcessDevice(unsigned __int16 *a1, __int128 *a2, __int64 a3)

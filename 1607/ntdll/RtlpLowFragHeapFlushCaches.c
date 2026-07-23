@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlpLowFragHeapFlushCaches @ 0x18004EAD8
+ * XREFs of RtlpLowFragHeapFlushCaches @ 0x18004EAC8
  * Callers:
- *     RtlpFlushHeap @ 0x18004E5D8 (RtlpFlushHeap.c)
+ *     RtlpFlushHeap @ 0x18004E5C8 (RtlpFlushHeap.c)
  * Callees:
  *     RtlpGetReservedBlockSize @ 0x180001058 (RtlpGetReservedBlockSize.c)
- *     RtlpGetHeapProtection @ 0x1800436E4 (RtlpGetHeapProtection.c)
- *     RtlpFreeUserBlock @ 0x180045F48 (RtlpFreeUserBlock.c)
- *     RtlpIsSubSegmentReuseable @ 0x1800460E4 (RtlpIsSubSegmentReuseable.c)
- *     RtlpLocalInfoAllocFromCache @ 0x18004EFB0 (RtlpLocalInfoAllocFromCache.c)
- *     RtlpFreeUserBlockToHeap @ 0x18004F41C (RtlpFreeUserBlockToHeap.c)
+ *     RtlpGetHeapProtection @ 0x1800436D4 (RtlpGetHeapProtection.c)
+ *     RtlpFreeUserBlock @ 0x180045F38 (RtlpFreeUserBlock.c)
+ *     RtlpIsSubSegmentReuseable @ 0x1800460D4 (RtlpIsSubSegmentReuseable.c)
+ *     RtlpLocalInfoAllocFromCache @ 0x18004EFA0 (RtlpLocalInfoAllocFromCache.c)
+ *     RtlpFreeUserBlockToHeap @ 0x18004F40C (RtlpFreeUserBlockToHeap.c)
  *     RtlpLogHeapFailure @ 0x1800A5E64 (RtlpLogHeapFailure.c)
  *     ZwProtectVirtualMemory @ 0x1800A6E20 (ZwProtectVirtualMemory.c)
  *     RtlpInterlockedPushEntrySList @ 0x1800A9D70 (RtlpInterlockedPushEntrySList.c)
@@ -69,19 +69,19 @@ struct _PEB *__fastcall RtlpLowFragHeapFlushCaches(__int64 a1, __int64 a2, __int
   unsigned int v51; // edx
   unsigned __int16 ReservedBlockSize; // ax
   _DWORD *v53; // rcx
-  unsigned int HeapProtection; // eax
+  ULONG HeapProtection; // eax
   signed __int32 v55; // eax
   __int64 v56; // rcx
   __int64 **v57; // rdx
   __int64 v58; // [rsp+30h] [rbp-68h]
   __int64 v59; // [rsp+38h] [rbp-60h]
-  unsigned __int64 v60; // [rsp+40h] [rbp-58h] BYREF
-  unsigned __int64 v61[10]; // [rsp+48h] [rbp-50h] BYREF
+  ULONG_PTR RegionSize; // [rsp+40h] [rbp-58h] BYREF
+  PVOID BaseAddress; // [rsp+48h] [rbp-50h] BYREF
   unsigned int v62; // [rsp+A0h] [rbp+8h]
   __int64 v63; // [rsp+A0h] [rbp+8h]
   unsigned int v64; // [rsp+A8h] [rbp+10h]
   __int64 v65; // [rsp+A8h] [rbp+10h]
-  char v66; // [rsp+B0h] [rbp+18h] BYREF
+  ULONG OldProtect; // [rsp+B0h] [rbp+18h] BYREF
   signed __int64 v67; // [rsp+B8h] [rbp+20h]
 
   v5 = 0;
@@ -246,12 +246,12 @@ LABEL_48:
           v41 = *(_QWORD *)(v39 + 24);
           if ( (*((_BYTE *)v18 + 38) & 3) != 0 )
           {
-            v61[0] = (*((_QWORD *)v18 + 1) + 4151LL) & 0xFFFFFFFFFFFFF000uLL;
+            BaseAddress = (PVOID)((*((_QWORD *)v18 + 1) + 4151LL) & 0xFFFFFFFFFFFFF000uLL);
             ReservedBlockSize = RtlpGetReservedBlockSize((__int64)v18);
             v53 = *(_DWORD **)(v41 + 24);
-            v60 = 16 * ReservedBlockSize * (unsigned __int64)*((unsigned __int16 *)v18 + 20);
+            RegionSize = 16 * ReservedBlockSize * (unsigned __int64)*((unsigned __int16 *)v18 + 20);
             HeapProtection = RtlpGetHeapProtection(v53, 1);
-            ZwProtectVirtualMemory(-1LL, v61, &v60, HeapProtection, &v66);
+            ZwProtectVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, &RegionSize, HeapProtection, &OldProtect);
           }
           *(_DWORD *)(*((_QWORD *)v18 + 1) + 20LL) = 0;
           RtlpFreeUserBlock(v41, *((__int64 **)v18 + 1));
@@ -371,7 +371,7 @@ LABEL_8:
           v48 = 983040LL;
         v49 = v48 + WORD1(v47->ImageBaseAddress);
         v13 += v49;
-        result = (struct _PEB *)RtlpFreeUserBlockToHeap(*(_QWORD *)(a1 + 24), v47);
+        result = (struct _PEB *)RtlpFreeUserBlockToHeap(*(PVOID *)(a1 + 24), v47);
         ++v11;
         if ( MEMORY[0x7FFE0380] )
         {

@@ -1,14 +1,14 @@
 /*
- * XREFs of HalSendNMI @ 0x1404BDD70
+ * XREFs of HalSendNMI @ 0x1404BDFB0
  * Callers:
- *     HalpNmiReboot @ 0x1404D2C88 (HalpNmiReboot.c)
- *     KiSendFreeze @ 0x14051E180 (KiSendFreeze.c)
+ *     HalpNmiReboot @ 0x1404D2EC8 (HalpNmiReboot.c)
+ *     KiSendFreeze @ 0x14051E3C0 (KiSendFreeze.c)
  * Callees:
- *     KeGetProcessorIndexFromNumber @ 0x14027BE80 (KeGetProcessorIndexFromNumber.c)
- *     KeAndGroupAffinityEx @ 0x1403746A0 (KeAndGroupAffinityEx.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     memset @ 0x140414200 (memset.c)
+ *     KeGetProcessorIndexFromNumber @ 0x140269E20 (KeGetProcessorIndexFromNumber.c)
+ *     KeAndGroupAffinityEx @ 0x1403741F0 (KeAndGroupAffinityEx.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414300 (memset.c)
  */
 
 __int64 __fastcall HalSendNMI(__int64 a1)
@@ -34,7 +34,7 @@ __int64 __fastcall HalSendNMI(__int64 a1)
   __int64 v20; // rbx
   unsigned __int64 v21; // rdx
   __int64 (__fastcall *v22)(_QWORD, _DWORD *, __int128 *, _QWORD, __int64 *); // rax
-  struct _PROCESSOR_NUMBER ProcNumber; // [rsp+30h] [rbp-168h] BYREF
+  _PROCESSOR_NUMBER ProcNumber; // [rsp+30h] [rbp-168h] BYREF
   __int128 v24; // [rsp+38h] [rbp-160h] BYREF
   __int64 v25; // [rsp+48h] [rbp-150h]
   __int64 v26; // [rsp+50h] [rbp-148h]
@@ -62,7 +62,7 @@ __int64 __fastcall HalSendNMI(__int64 a1)
     v4 = HalpInterruptPhysicalTargets;
   v5 = 0;
   v34 = v4;
-  for ( i = 0; i < v34; *(_QWORD *)&v35[4 * v7 + 3] = qword_140C4BA48[v7] & *(_QWORD *)(a1 + 8 * v7 + 8) )
+  for ( i = 0; i < v34; *(_QWORD *)&v35[4 * v7 + 3] = qword_140C4BA88[v7] & *(_QWORD *)(a1 + 8 * v7 + 8) )
     v7 = i++;
   result = 20LL;
   *(_DWORD *)&v35[1] = 0;

@@ -1,22 +1,22 @@
 /*
- * XREFs of MmDeleteProcessAddressSpace @ 0x140460678
+ * XREFs of MmDeleteProcessAddressSpace @ 0x14045F548
  * Callers:
- *     PspProcessDelete @ 0x140460828 (PspProcessDelete.c)
+ *     PspProcessDelete @ 0x14045F6F8 (PspProcessDelete.c)
  * Callees:
- *     MiDereferencePartition @ 0x140001D0C (MiDereferencePartition.c)
- *     MiEmptyPageAccessLog @ 0x140027640 (MiEmptyPageAccessLog.c)
- *     MiGetProcessPartition @ 0x14002BAF0 (MiGetProcessPartition.c)
- *     MiGetSharedVm @ 0x14002EA30 (MiGetSharedVm.c)
- *     MiReturnCommit @ 0x14004E500 (MiReturnCommit.c)
- *     MiReturnResidentAvailable @ 0x14004F1E0 (MiReturnResidentAvailable.c)
- *     PsReturnProcessQuota @ 0x1400750A4 (PsReturnProcessQuota.c)
- *     MiDeleteFinalPageTables @ 0x140075A98 (MiDeleteFinalPageTables.c)
- *     MiContractPagingFiles @ 0x140075F3C (MiContractPagingFiles.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     MiReturnPartitionResidentAvailable @ 0x1401718E8 (MiReturnPartitionResidentAvailable.c)
+ *     MiDereferencePartition @ 0x140001E80 (MiDereferencePartition.c)
+ *     MiEmptyPageAccessLog @ 0x1400271C0 (MiEmptyPageAccessLog.c)
+ *     MiGetProcessPartition @ 0x14002B670 (MiGetProcessPartition.c)
+ *     MiGetSharedVm @ 0x14002E5B0 (MiGetSharedVm.c)
+ *     MiReturnCommit @ 0x14004E080 (MiReturnCommit.c)
+ *     MiReturnResidentAvailable @ 0x14004ED60 (MiReturnResidentAvailable.c)
+ *     PsReturnProcessQuota @ 0x140075124 (PsReturnProcessQuota.c)
+ *     MiDeleteFinalPageTables @ 0x140075B18 (MiDeleteFinalPageTables.c)
+ *     MiContractPagingFiles @ 0x140075FBC (MiContractPagingFiles.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     MiReturnPartitionResidentAvailable @ 0x140171DE4 (MiReturnPartitionResidentAvailable.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     MiReleaseProcessReferenceToSessionDataPage @ 0x1404E16A0 (MiReleaseProcessReferenceToSessionDataPage.c)
- *     MiDeletePhysicalProcessPages @ 0x14065C48C (MiDeletePhysicalProcessPages.c)
+ *     MiReleaseProcessReferenceToSessionDataPage @ 0x1404C4CA4 (MiReleaseProcessReferenceToSessionDataPage.c)
+ *     MiDeletePhysicalProcessPages @ 0x14065C570 (MiDeletePhysicalProcessPages.c)
  */
 
 void __fastcall MmDeleteProcessAddressSpace(ULONG_PTR *BugCheckParameter2)
@@ -32,7 +32,7 @@ void __fastcall MmDeleteProcessAddressSpace(ULONG_PTR *BugCheckParameter2)
   __int64 v10; // rdx
   int *ProcessPartition; // rax
   int *v12; // rbx
-  struct _SLIST_ENTRY *v13; // rcx
+  _SLIST_ENTRY *v13; // rcx
   void *v14; // rcx
 
   v1 = BugCheckParameter2[116];
@@ -82,7 +82,7 @@ void __fastcall MmDeleteProcessAddressSpace(ULONG_PTR *BugCheckParameter2)
     MiReturnPartitionResidentAvailable((__int64)ProcessPartition, 8uLL);
   if ( BugCheckParameter2[129] )
     MiDeletePhysicalProcessPages(BugCheckParameter2);
-  v13 = (struct _SLIST_ENTRY *)*((_QWORD *)SharedVm + 5);
+  v13 = (_SLIST_ENTRY *)*((_QWORD *)SharedVm + 5);
   if ( v13 )
   {
     MiEmptyPageAccessLog(v13);
@@ -95,7 +95,7 @@ void __fastcall MmDeleteProcessAddressSpace(ULONG_PTR *BugCheckParameter2)
     *((_QWORD *)SharedVm + 4) = 0LL;
   }
   MiReturnCommit((__int64)v12, 5 - v9);
-  _InterlockedExchangeAdd64(&qword_140327910, 0xFFFFFFFFFFFFFFFBuLL);
+  _InterlockedExchangeAdd64(&qword_140327950, 0xFFFFFFFFFFFFFFFBuLL);
   if ( BugCheckParameter2[128] )
     MiReleaseProcessReferenceToSessionDataPage();
   MiContractPagingFiles((__int64)v12);

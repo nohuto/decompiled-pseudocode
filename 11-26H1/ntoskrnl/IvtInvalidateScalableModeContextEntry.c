@@ -1,10 +1,10 @@
 /*
- * XREFs of IvtInvalidateScalableModeContextEntry @ 0x1405A7308
+ * XREFs of IvtInvalidateScalableModeContextEntry @ 0x1405A9B18
  * Callers:
- *     IvtUpdateScalableModeContextEntry @ 0x140500478 (IvtUpdateScalableModeContextEntry.c)
+ *     IvtUpdateScalableModeContextEntry @ 0x1404F9C68 (IvtUpdateScalableModeContextEntry.c)
  * Callees:
- *     IvtInvalidateContextEntry @ 0x1405A7278 (IvtInvalidateContextEntry.c)
- *     IvtInvalidateScalableModePasidCache @ 0x1405A7368 (IvtInvalidateScalableModePasidCache.c)
+ *     IvtInvalidateContextEntry @ 0x1405A9A88 (IvtInvalidateContextEntry.c)
+ *     IvtInvalidateScalableModePasidCache @ 0x1405A9B78 (IvtInvalidateScalableModePasidCache.c)
  */
 
 __int64 __fastcall IvtInvalidateScalableModeContextEntry(__int64 a1, _DWORD *a2, int a3, __int64 a4, char a5)

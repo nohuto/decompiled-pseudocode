@@ -1,14 +1,14 @@
 /*
  * XREFs of EtwpUpdateUmLogger @ 0x1800FDAC8
  * Callers:
- *     EtwProcessPrivateLoggerRequest @ 0x180053820 (EtwProcessPrivateLoggerRequest.c)
+ *     EtwProcessPrivateLoggerRequest @ 0x180053810 (EtwProcessPrivateLoggerRequest.c)
  * Callees:
- *     RtlFreeAnsiString @ 0x1800427E0 (RtlFreeAnsiString.c)
- *     EtwpQueryUmLogger @ 0x180051CEC (EtwpQueryUmLogger.c)
- *     EtwpSynchronizeWithLogger @ 0x180051E08 (EtwpSynchronizeWithLogger.c)
- *     EtwpGetPrivateLoggerContext @ 0x180053378 (EtwpGetPrivateLoggerContext.c)
- *     EtwpAddInstanceIdToLogFileName @ 0x1800554F0 (EtwpAddInstanceIdToLogFileName.c)
- *     RtlNtStatusToDosError @ 0x18005A4E0 (RtlNtStatusToDosError.c)
+ *     RtlFreeAnsiString @ 0x1800427D0 (RtlFreeAnsiString.c)
+ *     EtwpQueryUmLogger @ 0x180051CDC (EtwpQueryUmLogger.c)
+ *     EtwpSynchronizeWithLogger @ 0x180051DF8 (EtwpSynchronizeWithLogger.c)
+ *     EtwpGetPrivateLoggerContext @ 0x180053368 (EtwpGetPrivateLoggerContext.c)
+ *     EtwpAddInstanceIdToLogFileName @ 0x1800554E0 (EtwpAddInstanceIdToLogFileName.c)
+ *     RtlNtStatusToDosError @ 0x18005A4D0 (RtlNtStatusToDosError.c)
  */
 
 __int64 __fastcall EtwpUpdateUmLogger(unsigned int a1, _DWORD *a2, _DWORD *a3, __int64 a4)
@@ -19,9 +19,9 @@ __int64 __fastcall EtwpUpdateUmLogger(unsigned int a1, _DWORD *a2, _DWORD *a3, _
   int v11; // eax
   int v12; // eax
   int v13; // edx
-  UNICODE_STRING v14; // xmm6
+  _UNICODE_STRING v14; // xmm6
   NTSTATUS v15; // eax
-  UNICODE_STRING UnicodeString; // [rsp+20h] [rbp-48h] BYREF
+  _UNICODE_STRING UnicodeString; // [rsp+20h] [rbp-48h] BYREF
   __int64 v17; // [rsp+78h] [rbp+10h] BYREF
 
   v17 = 0LL;
@@ -60,9 +60,9 @@ __int64 __fastcall EtwpUpdateUmLogger(unsigned int a1, _DWORD *a2, _DWORD *a3, _
     if ( !*(_WORD *)(a4 + 128) )
       goto LABEL_28;
     v13 = *(_DWORD *)(v10 + 72);
-    v14 = *(UNICODE_STRING *)(v10 + 168);
+    v14 = *(_UNICODE_STRING *)(v10 + 168);
     UnicodeString = v14;
-    v9 = EtwpAddInstanceIdToLogFileName(a4, v13, (UNICODE_STRING *)(v10 + 168));
+    v9 = EtwpAddInstanceIdToLogFileName(a4, v13, (_UNICODE_STRING *)(v10 + 168));
     if ( v9 )
       goto LABEL_23;
     EtwpSynchronizeWithLogger(v10, 2);
@@ -74,7 +74,7 @@ __int64 __fastcall EtwpUpdateUmLogger(unsigned int a1, _DWORD *a2, _DWORD *a3, _
       {
         RtlFreeAnsiString((PUNICODE_STRING)(v10 + 168));
 LABEL_23:
-        *(UNICODE_STRING *)(v10 + 168) = v14;
+        *(_UNICODE_STRING *)(v10 + 168) = v14;
         goto LABEL_27;
       }
     }

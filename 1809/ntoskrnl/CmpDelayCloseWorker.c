@@ -1,22 +1,22 @@
 /*
- * XREFs of CmpDelayCloseWorker @ 0x1405D1760
+ * XREFs of CmpDelayCloseWorker @ 0x1405D2760
  * Callers:
  *     <none>
  * Callees:
  *     KeReleaseGuardedMutex @ 0x140014E30 (KeReleaseGuardedMutex.c)
  *     KiUnstackDetachProcess @ 0x140017190 (KiUnstackDetachProcess.c)
  *     ExAcquireFastMutex @ 0x14004E530 (ExAcquireFastMutex.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     CmCleanupThreadInfo @ 0x1401B2F3C (CmCleanupThreadInfo.c)
- *     CmpInitializeThreadInfo @ 0x1401B2F7C (CmpInitializeThreadInfo.c)
- *     CmpLockHashEntryExclusive @ 0x1405D1608 (CmpLockHashEntryExclusive.c)
- *     CmpLockKcbExclusive @ 0x1405D1728 (CmpLockKcbExclusive.c)
- *     CmpUnlockHashEntry @ 0x1405D19F8 (CmpUnlockHashEntry.c)
- *     CmpAttachToRegistryProcess @ 0x1405D4048 (CmpAttachToRegistryProcess.c)
- *     CmpCleanUpKcbCacheWithLock @ 0x1405D43B8 (CmpCleanUpKcbCacheWithLock.c)
- *     CmpUnlockKcb @ 0x1405E3580 (CmpUnlockKcb.c)
- *     CmpLockRegistry @ 0x140645100 (CmpLockRegistry.c)
- *     CmpUnlockRegistry @ 0x140645150 (CmpUnlockRegistry.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     CmCleanupThreadInfo @ 0x1401B307C (CmCleanupThreadInfo.c)
+ *     CmpInitializeThreadInfo @ 0x1401B30BC (CmpInitializeThreadInfo.c)
+ *     CmpLockHashEntryExclusive @ 0x1405D2608 (CmpLockHashEntryExclusive.c)
+ *     CmpLockKcbExclusive @ 0x1405D2728 (CmpLockKcbExclusive.c)
+ *     CmpUnlockHashEntry @ 0x1405D29F8 (CmpUnlockHashEntry.c)
+ *     CmpAttachToRegistryProcess @ 0x1405D5048 (CmpAttachToRegistryProcess.c)
+ *     CmpCleanUpKcbCacheWithLock @ 0x1405D53B8 (CmpCleanUpKcbCacheWithLock.c)
+ *     CmpUnlockKcb @ 0x1405E4580 (CmpUnlockKcb.c)
+ *     CmpLockRegistry @ 0x140646120 (CmpLockRegistry.c)
+ *     CmpUnlockRegistry @ 0x140646170 (CmpUnlockRegistry.c)
  */
 
 PVOID __fastcall CmpDelayCloseWorker(__int64 a1)
@@ -64,17 +64,17 @@ PVOID __fastcall CmpDelayCloseWorker(__int64 a1)
         v5 = CmpDelayedCloseElements;
         if ( CmpDelayedCloseElements <= (unsigned int)CmpDelayedCloseSize && (!v1 || !CmpDelayedCloseElements) )
           break;
-        v6 = qword_140437EC8 - 216;
-        if ( *(__int64 **)qword_140437EC8 == &CmpDelayedLRUListHead )
+        v6 = qword_140438F88 - 216;
+        if ( *(__int64 **)qword_140438F88 == &CmpDelayedLRUListHead )
         {
-          v7 = *(_QWORD **)(qword_140437EC8 + 8);
-          if ( *v7 == qword_140437EC8 )
+          v7 = *(_QWORD **)(qword_140438F88 + 8);
+          if ( *v7 == qword_140438F88 )
             continue;
         }
         __fastfail(3u);
-        qword_140437EC8 = *(_QWORD *)(qword_140437EC8 + 8);
+        qword_140438F88 = *(_QWORD *)(qword_140438F88 + 8);
         *v7 = &CmpDelayedLRUListHead;
-        --qword_14096EB28;
+        --qword_14096FB28;
         CmpDelayedCloseElements = v5 - 1;
         *((_QWORD *)v4 - 1) = *(_QWORD *)(v6 + 24);
         *(_QWORD *)v4 = v6;

@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpWnfCalculateRetryTime @ 0x18011524C
+ * XREFs of RtlpWnfCalculateRetryTime @ 0x180114A2C
  * Callers:
- *     RtlpWnfProcessCurrentDescriptor @ 0x18004FC80 (RtlpWnfProcessCurrentDescriptor.c)
+ *     RtlpWnfProcessCurrentDescriptor @ 0x18003A200 (RtlpWnfProcessCurrentDescriptor.c)
  * Callees:
  *     <none>
  */
@@ -21,7 +21,7 @@ __int64 __fastcall RtlpWnfCalculateRetryTime(__int64 a1)
     {
       if ( !v2 || v2 > v1[13] )
         v2 = v1[13];
-      result = *(unsigned int *)(qword_1801C7200 + 68);
+      result = *(unsigned int *)(qword_1801C6200 + 68);
       if ( *((_DWORD *)v1 + 29) < (unsigned int)result )
         i = 0;
     }

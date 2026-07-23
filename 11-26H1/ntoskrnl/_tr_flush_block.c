@@ -1,19 +1,19 @@
 /*
- * XREFs of _tr_flush_block @ 0x140635E48
+ * XREFs of _tr_flush_block @ 0x140638E50
  * Callers:
- *     deflate_fast @ 0x140627D70 (deflate_fast.c)
- *     deflate_huff @ 0x1406282C0 (deflate_huff.c)
- *     deflate_rle @ 0x140628430 (deflate_rle.c)
- *     deflate_slow @ 0x1406286F0 (deflate_slow.c)
+ *     deflate_fast @ 0x14062ADC0 (deflate_fast.c)
+ *     deflate_huff @ 0x14062B310 (deflate_huff.c)
+ *     deflate_rle @ 0x14062B480 (deflate_rle.c)
+ *     deflate_slow @ 0x14062B740 (deflate_slow.c)
  * Callees:
- *     _tr_stored_block @ 0x140636104 (_tr_stored_block.c)
- *     bi_windup @ 0x14063628C (bi_windup.c)
- *     build_tree @ 0x1406362EC (build_tree.c)
- *     compress_block @ 0x140636554 (compress_block.c)
- *     detect_data_type @ 0x140636934 (detect_data_type.c)
- *     init_block @ 0x140636C6C (init_block.c)
- *     scan_tree @ 0x140636DA4 (scan_tree.c)
- *     send_all_trees @ 0x140636EC4 (send_all_trees.c)
+ *     _tr_stored_block @ 0x14063910C (_tr_stored_block.c)
+ *     bi_windup @ 0x140639294 (bi_windup.c)
+ *     build_tree @ 0x1406392F4 (build_tree.c)
+ *     compress_block @ 0x14063955C (compress_block.c)
+ *     detect_data_type @ 0x14063993C (detect_data_type.c)
+ *     init_block @ 0x140639C74 (init_block.c)
+ *     scan_tree @ 0x140639DAC (scan_tree.c)
+ *     send_all_trees @ 0x140639ECC (send_all_trees.c)
  */
 
 __int64 __fastcall tr_flush_block(__int64 a1, __int64 a2, __int64 a3, unsigned int a4)
@@ -74,7 +74,7 @@ __int64 __fastcall tr_flush_block(__int64 a1, __int64 a2, __int64 a3, unsigned i
     LODWORD(v8) = 18;
     for ( i = 18LL; i >= 3; --i )
     {
-      if ( *(_WORD *)(a1 + 4LL * *((unsigned __int8 *)qword_140037910 + i) + 2806) )
+      if ( *(_WORD *)(a1 + 4LL * *((unsigned __int8 *)qword_1400385E8 + i) + 2806) )
         break;
       LODWORD(v8) = v8 - 1;
     }
@@ -114,8 +114,8 @@ __int64 __fastcall tr_flush_block(__int64 a1, __int64 a2, __int64 a3, unsigned i
         v28 = (unsigned __int16)(a4 + 2) >> (16 - v27);
       }
       *(_WORD *)(a1 + 5980) = v28;
-      v29 = qword_1400379B0;
-      v30 = qword_140037FB0;
+      v29 = qword_140037F20;
+      v30 = qword_140038570;
     }
     else
     {

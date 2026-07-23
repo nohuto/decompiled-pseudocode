@@ -1,18 +1,18 @@
 /*
- * XREFs of KiSetVpThreadSpinLockCount @ 0x1400BC7E0
+ * XREFs of KiSetVpThreadSpinLockCount @ 0x1400BC720
  * Callers:
  *     KiAbApplyWakeupBoost @ 0x1400240DC (KiAbApplyWakeupBoost.c)
  *     KeWaitForMultipleObjects @ 0x140053760 (KeWaitForMultipleObjects.c)
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
  *     KeRemoveQueueEx @ 0x140058D60 (KeRemoveQueueEx.c)
- *     IopCompleteRequest @ 0x1400BFD10 (IopCompleteRequest.c)
- *     IopfCompleteRequest @ 0x1400C10F0 (IopfCompleteRequest.c)
- *     KiQuantumEnd @ 0x1400D0020 (KiQuantumEnd.c)
- *     KiAbThreadUnboostCpuPriority @ 0x14011F558 (KiAbThreadUnboostCpuPriority.c)
- *     KeUpdateThreadCpuSets @ 0x14018C84C (KeUpdateThreadCpuSets.c)
- *     KxDispatchInterrupt @ 0x1401C40E0 (KxDispatchInterrupt.c)
+ *     IopCompleteRequest @ 0x1400BFC50 (IopCompleteRequest.c)
+ *     IopfCompleteRequest @ 0x1400C1030 (IopfCompleteRequest.c)
+ *     KiQuantumEnd @ 0x1400D00A0 (KiQuantumEnd.c)
+ *     KiAbThreadUnboostCpuPriority @ 0x14011F5C8 (KiAbThreadUnboostCpuPriority.c)
+ *     KeUpdateThreadCpuSets @ 0x14018C98C (KeUpdateThreadCpuSets.c)
+ *     KxDispatchInterrupt @ 0x1401C4240 (KxDispatchInterrupt.c)
  * Callees:
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void __fastcall KiSetVpThreadSpinLockCount(__int64 a1, char a2)

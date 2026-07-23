@@ -8,61 +8,59 @@
  *     RtlAcquireSRWLockExclusive @ 0x180028090 (RtlAcquireSRWLockExclusive.c)
  */
 
-__int64 __fastcall sub_180005E60(__int64 a1)
+void __fastcall sub_180005E60(PRTL_BALANCED_NODE Node)
 {
-  __int64 v2; // r8
-  unsigned __int64 v3; // rdi
-  char v4; // bl
-  int v5; // esi
-  unsigned __int64 v6; // rax
+  unsigned __int64 Root; // rdi
+  BOOLEAN v3; // bl
+  int v4; // esi
+  unsigned __int64 v5; // rax
 
-  RtlAcquireSRWLockExclusive(&unk_18015D380);
-  v3 = qword_18015D360;
-  v4 = 0;
-  if ( (qword_18015D368 & 1) != 0 )
+  RtlAcquireSRWLockExclusive(&stru_18015D380);
+  Root = (unsigned __int64)Parent.Root;
+  v3 = 0;
+  if ( ((__int64)Parent.Min & 1) != 0 )
   {
-    if ( qword_18015D360 )
-      v3 = (unsigned __int64)&qword_18015D360 ^ qword_18015D360;
+    if ( Parent.Root )
+      Root = (unsigned __int64)&Parent ^ (unsigned __int64)Parent.Root;
     else
-      v3 = 0LL;
+      Root = 0LL;
   }
-  v5 = qword_18015D368 & 1;
-  if ( v3 )
+  v4 = (__int64)Parent.Min & 1;
+  if ( Root )
   {
     while ( 1 )
     {
-      if ( (int)sub_180005F30(a1 + 24, v3) < 0 )
+      if ( (int)sub_180005F30(&Node[1], Root) < 0 )
       {
-        v6 = *(_QWORD *)v3;
-        if ( v5 )
+        v5 = *(_QWORD *)Root;
+        if ( v4 )
         {
-          if ( !v6 )
+          if ( !v5 )
             break;
-          v6 ^= v3;
+          v5 ^= Root;
         }
-        if ( !v6 )
+        if ( !v5 )
           break;
       }
       else
       {
-        v6 = *(_QWORD *)(v3 + 8);
-        if ( v5 )
+        v5 = *(_QWORD *)(Root + 8);
+        if ( v4 )
         {
-          if ( !v6 )
+          if ( !v5 )
             goto LABEL_11;
-          v6 ^= v3;
+          v5 ^= Root;
         }
-        if ( !v6 )
+        if ( !v5 )
         {
 LABEL_11:
-          v4 = 1;
+          v3 = 1;
           break;
         }
       }
-      v3 = v6;
+      Root = v5;
     }
   }
-  LOBYTE(v2) = v4;
-  RtlRbInsertNodeEx(&qword_18015D360, v3, v2, a1);
-  return RtlReleaseSRWLockExclusive(&unk_18015D380);
+  RtlRbInsertNodeEx(&Parent, (PRTL_BALANCED_NODE)Root, v3, Node);
+  RtlReleaseSRWLockExclusive(&stru_18015D380);
 }

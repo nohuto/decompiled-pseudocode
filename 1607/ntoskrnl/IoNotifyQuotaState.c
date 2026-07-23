@@ -1,14 +1,14 @@
 /*
- * XREFs of IoNotifyQuotaState @ 0x1401CC084
+ * XREFs of IoNotifyQuotaState @ 0x1401CBF68
  * Callers:
  *     <none>
  * Callees:
- *     IoDiskIoAttributionDereference @ 0x14001F3AC (IoDiskIoAttributionDereference.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     ObReferenceObjectSafe @ 0x14008C540 (ObReferenceObjectSafe.c)
- *     IopAcquireReferencesFromIoAttributionHandle @ 0x1400B610C (IopAcquireReferencesFromIoAttributionHandle.c)
- *     ExReleaseRundownProtection @ 0x1400D3F00 (ExReleaseRundownProtection.c)
- *     PsIoRateControlOverQuotaNotify @ 0x14020F7C0 (PsIoRateControlOverQuotaNotify.c)
+ *     IoDiskIoAttributionDereference @ 0x14001EF2C (IoDiskIoAttributionDereference.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     ObReferenceObjectSafe @ 0x14008BCA0 (ObReferenceObjectSafe.c)
+ *     IopAcquireReferencesFromIoAttributionHandle @ 0x1400B3F34 (IopAcquireReferencesFromIoAttributionHandle.c)
+ *     ExReleaseRundownProtection @ 0x1400D1DA0 (ExReleaseRundownProtection.c)
+ *     PsIoRateControlOverQuotaNotify @ 0x14020F5EC (PsIoRateControlOverQuotaNotify.c)
  */
 
 __int64 __fastcall IoNotifyQuotaState(__int64 a1, unsigned int a2, unsigned int a3, unsigned int a4)

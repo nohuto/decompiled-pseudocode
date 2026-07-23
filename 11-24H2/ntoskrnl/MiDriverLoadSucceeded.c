@@ -1,14 +1,14 @@
 /*
- * XREFs of MiDriverLoadSucceeded @ 0x1406F986C
+ * XREFs of MiDriverLoadSucceeded @ 0x1406F74AC
  * Callers:
- *     MiApplyHotPatchToLoadedDriver @ 0x1407F13E8 (MiApplyHotPatchToLoadedDriver.c)
+ *     MiApplyHotPatchToLoadedDriver @ 0x1407F19B8 (MiApplyHotPatchToLoadedDriver.c)
  * Callees:
- *     MiSectionControlArea @ 0x1402D4800 (MiSectionControlArea.c)
- *     VfDriverLoadSucceeded @ 0x1404B33E0 (VfDriverLoadSucceeded.c)
- *     MiGetBaseLoaderPortion @ 0x1404D0508 (MiGetBaseLoaderPortion.c)
- *     MiProtectSystemImage @ 0x140A90AEC (MiProtectSystemImage.c)
- *     MiCacheImageSymbols @ 0x140ABFD60 (MiCacheImageSymbols.c)
- *     MiCallImageNotify @ 0x140AC26CC (MiCallImageNotify.c)
+ *     MiSectionControlArea @ 0x140355A80 (MiSectionControlArea.c)
+ *     VfDriverLoadSucceeded @ 0x1404ADC50 (VfDriverLoadSucceeded.c)
+ *     MiGetBaseLoaderPortion @ 0x1404C96FC (MiGetBaseLoaderPortion.c)
+ *     MiProtectSystemImage @ 0x140A8D1E8 (MiProtectSystemImage.c)
+ *     MiCacheImageSymbols @ 0x140ABAE40 (MiCacheImageSymbols.c)
+ *     MiCallImageNotify @ 0x140ABD9B4 (MiCallImageNotify.c)
  */
 
 void __fastcall MiDriverLoadSucceeded(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

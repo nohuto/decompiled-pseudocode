@@ -18,14 +18,14 @@ __int64 SshpAlpcCloseTraceSession()
   v0 = KeAbPreAcquire((__int64)&stru_140F05788, 0LL);
   v1 = v0;
   if ( _interlockedbittestandset64((volatile signed __int32 *)&stru_140F05788, 0LL) )
-    ExfAcquirePushLockExclusiveEx(&stru_140F05788, v0, (__int64)&stru_140F05788);
+    ExfAcquirePushLockExclusiveEx((unsigned __int64 *)&stru_140F05788, v0, (__int64)&stru_140F05788);
   if ( v1 )
     *((_BYTE *)v1 + 10) = 1;
   if ( !--dword_140F05798 )
   {
     v3[0] = 0LL;
     v3[1] = -1LL;
-    KeSetTimer2((__int64)&unk_140F057A0, -50000000LL, 0LL, (__int64)v3);
+    KeSetTimer2((__int64)&unk_140F057A0, (LARGE_INTEGER)-50000000LL, 0LL, (__int64)v3);
   }
   return SSHSupportReleasePushLockExclusive((volatile signed __int64 *)&stru_140F05788);
 }

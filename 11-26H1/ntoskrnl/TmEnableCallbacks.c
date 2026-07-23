@@ -1,9 +1,9 @@
 /*
- * XREFs of TmEnableCallbacks @ 0x140534530
+ * XREFs of TmEnableCallbacks @ 0x1405369B0
  * Callers:
- *     CmpLoadKeyCommon @ 0x14046E794 (CmpLoadKeyCommon.c)
- *     CmpMountPreloadedHives @ 0x14084C298 (CmpMountPreloadedHives.c)
- *     CmpFinishSystemHivesLoad @ 0x140B4D840 (CmpFinishSystemHivesLoad.c)
+ *     CmpLoadKeyCommon @ 0x140467F14 (CmpLoadKeyCommon.c)
+ *     CmpMountPreloadedHives @ 0x1408525A8 (CmpMountPreloadedHives.c)
+ *     CmpFinishSystemHivesLoad @ 0x140B500D0 (CmpFinishSystemHivesLoad.c)
  * Callees:
  *     <none>
  */

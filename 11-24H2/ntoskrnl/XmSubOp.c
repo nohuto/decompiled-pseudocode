@@ -1,9 +1,9 @@
 /*
- * XREFs of XmSubOp @ 0x140468220
+ * XREFs of XmSubOp @ 0x140460BD0
  * Callers:
  *     <none>
  * Callees:
- *     XmSubOperands @ 0x140468260 (XmSubOperands.c)
+ *     XmSubOperands @ 0x140460C10 (XmSubOperands.c)
  */
 
 __int64 __fastcall XmSubOp(__int64 a1)

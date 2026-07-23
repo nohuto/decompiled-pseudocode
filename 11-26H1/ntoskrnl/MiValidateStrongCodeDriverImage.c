@@ -1,7 +1,7 @@
 /*
- * XREFs of MiValidateStrongCodeDriverImage @ 0x140B1FD78
+ * XREFs of MiValidateStrongCodeDriverImage @ 0x140B22198
  * Callers:
- *     MmLoadSystemImageEx @ 0x140A269D4 (MmLoadSystemImageEx.c)
+ *     MmLoadSystemImageEx @ 0x140A39A74 (MmLoadSystemImageEx.c)
  * Callees:
  *     <none>
  */
@@ -26,7 +26,7 @@ __int64 __fastcall MiValidateStrongCodeDriverImage(__int64 a1)
       v4 = v3 & 0x2000000;
       if ( v3 < 0 && !v4 )
       {
-        *(_DWORD *)&stru_140E2D150.WaitBlockFill10[8] = 194;
+        *(_DWORD *)&stru_140E2D2D0.WaitBlockFill10[8] = 194;
         return 3221225595LL;
       }
       v5 = v1[4];
@@ -35,6 +35,6 @@ __int64 __fastcall MiValidateStrongCodeDriverImage(__int64 a1)
     }
     v1 += 10;
   }
-  *(_DWORD *)&stru_140E2D150.WaitBlockFill10[8] = 196;
+  *(_DWORD *)&stru_140E2D2D0.WaitBlockFill10[8] = 196;
   return 3221225595LL;
 }

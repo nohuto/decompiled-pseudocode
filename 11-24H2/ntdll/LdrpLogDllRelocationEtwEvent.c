@@ -1,33 +1,29 @@
 /*
- * XREFs of LdrpLogDllRelocationEtwEvent @ 0x1800E51E8
+ * XREFs of LdrpLogDllRelocationEtwEvent @ 0x1800E0698
  * Callers:
- *     LdrpRelocateImage @ 0x1800E4EBC (LdrpRelocateImage.c)
+ *     LdrpRelocateImage @ 0x1800E036C (LdrpRelocateImage.c)
  * Callees:
- *     RtlAllocateHeap @ 0x180011260 (RtlAllocateHeap.c)
- *     RtlFreeHeap @ 0x1800269F0 (RtlFreeHeap.c)
- *     RtlGetCurrentServiceSessionId @ 0x180055A20 (RtlGetCurrentServiceSessionId.c)
- *     NtTraceEvent @ 0x180162840 (NtTraceEvent.c)
- *     memmove @ 0x180167400 (memmove.c)
+ *     RtlAllocateHeap @ 0x18003DC60 (RtlAllocateHeap.c)
+ *     RtlFreeHeap @ 0x1800533F0 (RtlFreeHeap.c)
+ *     RtlGetCurrentServiceSessionId @ 0x18006B600 (RtlGetCurrentServiceSessionId.c)
+ *     NtTraceEvent @ 0x180160C00 (NtTraceEvent.c)
+ *     memmove @ 0x1801657C0 (memmove.c)
  */
 
-struct _PEB *__fastcall LdrpLogDllRelocationEtwEvent(
-        const void **a1,
-        _RTL_USER_PROCESS_PARAMETERS *a2,
-        void *a3,
-        void *a4)
+int __fastcall LdrpLogDllRelocationEtwEvent(const void **a1, _RTL_USER_PROCESS_PARAMETERS *a2, void *a3, void *a4)
 {
-  struct _PEB *result; // rax
+  struct _PEB *Heap; // rax
   __int64 v9; // rbx
   __int64 v10; // r10
   unsigned int v11; // esi
-  unsigned __int64 v12; // rdi
+  struct _PEB *v12; // rdi
 
-  result = (struct _PEB *)RtlGetCurrentServiceSessionId();
+  LODWORD(Heap) = RtlGetCurrentServiceSessionId();
   v9 = 2147353476LL;
-  if ( (_DWORD)result )
+  if ( (_DWORD)Heap )
   {
-    result = NtCurrentPeb();
-    v10 = (__int64)result->SharedData + 554;
+    Heap = NtCurrentPeb();
+    v10 = (__int64)Heap->SharedData + 554;
   }
   else
   {
@@ -36,21 +32,21 @@ struct _PEB *__fastcall LdrpLogDllRelocationEtwEvent(
   if ( *(_BYTE *)v10 )
   {
     v11 = *(unsigned __int16 *)a1 + 64;
-    result = (struct _PEB *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, NtdllBaseTag + 1572864, v11);
-    v12 = (unsigned __int64)result;
-    if ( result )
+    Heap = (struct _PEB *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, NtdllBaseTag + 1572864, v11);
+    v12 = Heap;
+    if ( Heap )
     {
-      *(_WORD *)&result->Padding0[2] = 5152;
-      result->ProcessParameters = a2;
-      result->SubSystemData = a3;
-      result->ProcessHeap = a4;
-      memmove(&result->FastPebLock, a1[1], *(unsigned __int16 *)a1);
-      *(_WORD *)(v12 + 2 * ((unsigned __int64)*(unsigned __int16 *)a1 >> 1) + 56) = 0;
-      if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+      *(_WORD *)&Heap->Padding0[2] = 5152;
+      Heap->ProcessParameters = a2;
+      Heap->SubSystemData = a3;
+      Heap->ProcessHeap = a4;
+      memmove(&Heap->FastPebLock, a1[1], *(unsigned __int16 *)a1);
+      *((_WORD *)&v12->FastPebLock + ((unsigned __int64)*(unsigned __int16 *)a1 >> 1)) = 0;
+      if ( RtlGetCurrentServiceSessionId() )
         v9 = (__int64)NtCurrentPeb()->SharedData + 554;
-      NtTraceEvent(*(unsigned __int8 *)v9, 1026LL, v11 - 32, v12);
-      return (struct _PEB *)RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v12);
+      NtTraceEvent((HANDLE)*(unsigned __int8 *)v9, 0x402u, v11 - 32, v12);
+      LODWORD(Heap) = RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v12);
     }
   }
-  return result;
+  return (int)Heap;
 }

@@ -3,11 +3,11 @@
  * Callers:
  *     IoInitSystemPreDrivers @ 0x14079EDEC (IoInitSystemPreDrivers.c)
  * Callees:
- *     strstr @ 0x14014CF38 (strstr.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     ZwSetSystemInformation @ 0x14015CF60 (ZwSetSystemInformation.c)
- *     KitpReadUlongFromKey @ 0x14057EDE8 (KitpReadUlongFromKey.c)
- *     KitpOpenRegKey @ 0x14057EE50 (KitpOpenRegKey.c)
+ *     strstr @ 0x14014D4A8 (strstr.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     ZwSetSystemInformation @ 0x14015D4D0 (ZwSetSystemInformation.c)
+ *     KitpReadUlongFromKey @ 0x14057F294 (KitpReadUlongFromKey.c)
+ *     KitpOpenRegKey @ 0x14057F2FC (KitpOpenRegKey.c)
  */
 
 NTSTATUS __fastcall KitpInitAitSampleRate(__int64 a1, __int64 a2)
@@ -34,7 +34,7 @@ NTSTATUS __fastcall KitpInitAitSampleRate(__int64 a1, __int64 a2)
       SystemInformation = v5;
     }
   }
-  result = ZwSetSystemInformation(MaxSystemInfoClass|SystemStackTraceInformation, &SystemInformation, 4uLL);
+  result = ZwSetSystemInformation(SystemAitSamplingValue, &SystemInformation, 4uLL);
   if ( Handle )
     return ZwClose(Handle);
   return result;

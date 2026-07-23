@@ -1,9 +1,9 @@
 /*
- * XREFs of SymCryptFdefIntSetValueUint32 @ 0x140405940
+ * XREFs of SymCryptFdefIntSetValueUint32 @ 0x140405B20
  * Callers:
- *     SymCryptIntSetValueUint32 @ 0x1403F94B4 (SymCryptIntSetValueUint32.c)
+ *     SymCryptIntSetValueUint32 @ 0x1403F9694 (SymCryptIntSetValueUint32.c)
  * Callees:
- *     SymCryptWipe @ 0x1403F6508 (SymCryptWipe.c)
+ *     SymCryptWipe @ 0x1403F66E8 (SymCryptWipe.c)
  */
 
 __int64 __fastcall SymCryptFdefIntSetValueUint32(int a1, __int64 a2)

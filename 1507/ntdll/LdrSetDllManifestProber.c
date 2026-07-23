@@ -7,9 +7,9 @@
  */
 
 void __fastcall LdrSetDllManifestProber(
-        __int64 (__fastcall *a1)(_QWORD, _QWORD, _QWORD),
-        __int64 (__fastcall *a2)(_QWORD, _QWORD, _QWORD),
-        __int64 (__fastcall *a3)(_QWORD))
+        _RTL_DYNAMIC_HASH_TABLE *a1,
+        _RTL_DYNAMIC_HASH_TABLE *a2,
+        _RTL_DYNAMIC_HASH_TABLE *a3)
 {
   LdrpManifestProberRoutine = a1;
   LdrpCreateActCtxLanguageW = a2;

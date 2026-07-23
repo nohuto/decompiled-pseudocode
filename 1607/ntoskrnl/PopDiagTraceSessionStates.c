@@ -1,17 +1,17 @@
 /*
- * XREFs of PopDiagTraceSessionStates @ 0x1404F06D0
+ * XREFs of PopDiagTraceSessionStates @ 0x1404D27C4
  * Callers:
  *     PopSessionWinlogonNotification @ 0x1403E2A1C (PopSessionWinlogonNotification.c)
- *     NtPowerInformation @ 0x14051E834 (NtPowerInformation.c)
- *     PopSessionInputChange @ 0x14052E19C (PopSessionInputChange.c)
- *     PopSetSessionUserStatus @ 0x14052E674 (PopSetSessionUserStatus.c)
- *     PopSessionDisconnected @ 0x140534318 (PopSessionDisconnected.c)
- *     PopSessionConnected @ 0x140546184 (PopSessionConnected.c)
- *     PopSetSessionDisplayStatus @ 0x140546224 (PopSetSessionDisplayStatus.c)
+ *     NtPowerInformation @ 0x14050189C (NtPowerInformation.c)
+ *     PopSessionInputChange @ 0x14052E6DC (PopSessionInputChange.c)
+ *     PopSetSessionUserStatus @ 0x14052EBB4 (PopSetSessionUserStatus.c)
+ *     PopSessionDisconnected @ 0x140534858 (PopSessionDisconnected.c)
+ *     PopSessionConnected @ 0x1405466C4 (PopSessionConnected.c)
+ *     PopSetSessionDisplayStatus @ 0x140546764 (PopSetSessionDisplayStatus.c)
  * Callees:
- *     EtwWrite @ 0x140013320 (EtwWrite.c)
- *     EtwEventEnabled @ 0x1400D54D0 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     EtwWrite @ 0x140012EA0 (EtwWrite.c)
+ *     EtwEventEnabled @ 0x1400D3370 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 void __fastcall PopDiagTraceSessionStates(PCEVENT_DESCRIPTOR EventDescriptor, int a2, int a3)

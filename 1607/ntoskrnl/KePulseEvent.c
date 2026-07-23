@@ -1,22 +1,22 @@
 /*
- * XREFs of KePulseEvent @ 0x1400BEF10
+ * XREFs of KePulseEvent @ 0x1400BCDA0
  * Callers:
- *     MmResourcesAvailable @ 0x14007E280 (MmResourcesAvailable.c)
- *     MiWorkingSetManager @ 0x1400BDF08 (MiWorkingSetManager.c)
- *     MiPulseCommitSignal @ 0x1401ED0D8 (MiPulseCommitSignal.c)
- *     MiPulseLowAvailableEvent @ 0x1401F3910 (MiPulseLowAvailableEvent.c)
- *     NtPulseEvent @ 0x1404F3C78 (NtPulseEvent.c)
- *     MiAddPhysicalMemory @ 0x1406575DC (MiAddPhysicalMemory.c)
- *     MiRemovePhysicalMemory @ 0x1406581C0 (MiRemovePhysicalMemory.c)
+ *     MmResourcesAvailable @ 0x14007E300 (MmResourcesAvailable.c)
+ *     MiWorkingSetManager @ 0x1400BBD98 (MiWorkingSetManager.c)
+ *     MiPulseCommitSignal @ 0x1401ECF04 (MiPulseCommitSignal.c)
+ *     MiPulseLowAvailableEvent @ 0x1401F373C (MiPulseLowAvailableEvent.c)
+ *     NtPulseEvent @ 0x1404D6C04 (NtPulseEvent.c)
+ *     MiAddPhysicalMemory @ 0x1406576C0 (MiAddPhysicalMemory.c)
+ *     MiRemovePhysicalMemory @ 0x1406582A4 (MiRemovePhysicalMemory.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14002ECB0 (KeYieldProcessorEx.c)
- *     KiExitDispatcher @ 0x140056700 (KiExitDispatcher.c)
- *     KiTryUnwaitThread @ 0x140057DA0 (KiTryUnwaitThread.c)
- *     KiAcquireKobjectLockSafe @ 0x1400EE7C0 (KiAcquireKobjectLockSafe.c)
- *     KiWakeQueueWaiter @ 0x1400EE800 (KiWakeQueueWaiter.c)
- *     KiWakeOtherQueueWaiters @ 0x1400F9DBC (KiWakeOtherQueueWaiters.c)
- *     KeIsThreadRunning @ 0x1401D2C78 (KeIsThreadRunning.c)
- *     EtwTraceEnqueueWork @ 0x140225C20 (EtwTraceEnqueueWork.c)
+ *     KeYieldProcessorEx @ 0x14002E830 (KeYieldProcessorEx.c)
+ *     KiExitDispatcher @ 0x140056280 (KiExitDispatcher.c)
+ *     KiTryUnwaitThread @ 0x140057920 (KiTryUnwaitThread.c)
+ *     KiAcquireKobjectLockSafe @ 0x1400EC640 (KiAcquireKobjectLockSafe.c)
+ *     KiWakeQueueWaiter @ 0x1400EC680 (KiWakeQueueWaiter.c)
+ *     KiWakeOtherQueueWaiters @ 0x1400F7B48 (KiWakeOtherQueueWaiters.c)
+ *     KeIsThreadRunning @ 0x1401D2AA4 (KeIsThreadRunning.c)
+ *     EtwTraceEnqueueWork @ 0x140225A4C (EtwTraceEnqueueWork.c)
  */
 
 LONG __stdcall KePulseEvent(PRKEVENT Event, KPRIORITY Increment, BOOLEAN Wait)

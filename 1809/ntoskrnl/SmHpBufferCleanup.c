@@ -1,11 +1,11 @@
 /*
- * XREFs of SmHpBufferCleanup @ 0x1403066D4
+ * XREFs of SmHpBufferCleanup @ 0x1403068C4
  * Callers:
- *     SmHpChunkHeapCleanup @ 0x14011DFAC (SmHpChunkHeapCleanup.c)
- *     SmHpChunkFree @ 0x140147B70 (SmHpChunkFree.c)
+ *     SmHpChunkHeapCleanup @ 0x14011E01C (SmHpChunkHeapCleanup.c)
+ *     SmHpChunkFree @ 0x140147C70 (SmHpChunkFree.c)
  * Callees:
- *     SmHpBufferUpdateFullness @ 0x14014A4FC (SmHpBufferUpdateFullness.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     SmHpBufferUpdateFullness @ 0x14014A5FC (SmHpBufferUpdateFullness.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SmHpBufferCleanup(ULONG_PTR a1, _WORD *a2)

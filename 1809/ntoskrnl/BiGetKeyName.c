@@ -1,15 +1,15 @@
 /*
- * XREFs of BiGetKeyName @ 0x140713B4C
+ * XREFs of BiGetKeyName @ 0x140714DEC
  * Callers:
- *     BiGetObjectIdentifier @ 0x140713AF8 (BiGetObjectIdentifier.c)
- *     BiBindEfiEntryToBcdObject @ 0x1408F22D8 (BiBindEfiEntryToBcdObject.c)
- *     BiCreateBootEntry @ 0x1408F2A18 (BiCreateBootEntry.c)
+ *     BiGetObjectIdentifier @ 0x140714D98 (BiGetObjectIdentifier.c)
+ *     BiBindEfiEntryToBcdObject @ 0x1408F3598 (BiBindEfiEntryToBcdObject.c)
+ *     BiCreateBootEntry @ 0x1408F3CD8 (BiCreateBootEntry.c)
  * Callees:
- *     BiSanitizeHandle @ 0x14013B3D0 (BiSanitizeHandle.c)
- *     BiZwQueryKey @ 0x14016E5F8 (BiZwQueryKey.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     BiSanitizeHandle @ 0x14013B4D0 (BiSanitizeHandle.c)
+ *     BiZwQueryKey @ 0x14016E6F8 (BiZwQueryKey.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall BiGetKeyName(void *a1, _QWORD *a2)

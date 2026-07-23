@@ -1,21 +1,21 @@
 /*
- * XREFs of CmpCopySyncTree2 @ 0x140608240
+ * XREFs of CmpCopySyncTree2 @ 0x1406082F4
  * Callers:
- *     CmpCopySyncTree @ 0x1406081A4 (CmpCopySyncTree.c)
+ *     CmpCopySyncTree @ 0x140608258 (CmpCopySyncTree.c)
  * Callees:
- *     memmove @ 0x140171280 (memmove.c)
+ *     memmove @ 0x140171780 (memmove.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     CmpFindSubKeyByNumber @ 0x1404386C0 (CmpFindSubKeyByNumber.c)
- *     CmpAddSubKeyEx @ 0x1404B0A20 (CmpAddSubKeyEx.c)
- *     CmpCopyKeyPartial @ 0x1404EBDEC (CmpCopyKeyPartial.c)
- *     CmpFindSubKeyByNameWithStatus @ 0x1405120D0 (CmpFindSubKeyByNameWithStatus.c)
- *     HvpMarkCellDirty @ 0x1405136F0 (HvpMarkCellDirty.c)
- *     CmpInitializeKeyNameString @ 0x140608CD4 (CmpInitializeKeyNameString.c)
- *     CmpMarkKeyParentDirty @ 0x140608D50 (CmpMarkKeyParentDirty.c)
- *     CmpMergeKeyValues @ 0x140608F88 (CmpMergeKeyValues.c)
- *     CmpSyncKeyValues @ 0x140609858 (CmpSyncKeyValues.c)
- *     CmpSyncSubKeysAfterDelete @ 0x140609C5C (CmpSyncSubKeysAfterDelete.c)
+ *     CmpFindSubKeyByNumber @ 0x140437590 (CmpFindSubKeyByNumber.c)
+ *     CmpAddSubKeyEx @ 0x14049AE00 (CmpAddSubKeyEx.c)
+ *     CmpCopyKeyPartial @ 0x1404CDE74 (CmpCopyKeyPartial.c)
+ *     CmpFindSubKeyByNameWithStatus @ 0x1404F54C0 (CmpFindSubKeyByNameWithStatus.c)
+ *     HvpMarkCellDirty @ 0x1404F6AE0 (HvpMarkCellDirty.c)
+ *     CmpInitializeKeyNameString @ 0x140608D88 (CmpInitializeKeyNameString.c)
+ *     CmpMarkKeyParentDirty @ 0x140608E04 (CmpMarkKeyParentDirty.c)
+ *     CmpMergeKeyValues @ 0x14060903C (CmpMergeKeyValues.c)
+ *     CmpSyncKeyValues @ 0x14060990C (CmpSyncKeyValues.c)
+ *     CmpSyncSubKeysAfterDelete @ 0x140609D10 (CmpSyncSubKeysAfterDelete.c)
  */
 
 char __fastcall CmpCopySyncTree2(

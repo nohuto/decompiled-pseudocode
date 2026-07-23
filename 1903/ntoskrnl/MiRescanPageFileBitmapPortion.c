@@ -9,12 +9,12 @@
  *     RtlFindNextClearRunUlong @ 0x1401245BC (RtlFindNextClearRunUlong.c)
  */
 
-__int64 __fastcall MiRescanPageFileBitmapPortion(__int64 a1, __int64 a2, int a3, int a4, unsigned __int64 *a5)
+__int64 __fastcall MiRescanPageFileBitmapPortion(__int64 a1, __int64 a2, int a3, int a4, __int64 *a5)
 {
-  unsigned __int64 *v5; // r13
+  __int64 *v5; // r13
   int v6; // r15d
   int v8; // r12d
-  unsigned __int64 v9; // rbx
+  __int64 v9; // rbx
   __int64 result; // rax
   unsigned int v11; // edi
   unsigned int v12; // eax
@@ -23,12 +23,12 @@ __int64 __fastcall MiRescanPageFileBitmapPortion(__int64 a1, __int64 a2, int a3,
   _QWORD *v15; // rcx
   __int64 v16; // rsi
   unsigned __int64 v17; // rdx
-  bool v18; // r8
+  BOOLEAN v18; // r8
   unsigned __int64 v19; // rax
-  unsigned __int64 *v20; // rcx
-  unsigned __int64 v21; // rdx
-  bool v22; // r8
-  unsigned __int64 v23; // rax
+  _RTL_RB_TREE *v20; // rcx
+  __int64 v21; // rdx
+  BOOLEAN v22; // r8
+  __int64 v23; // rax
   unsigned int v24; // ecx
   __int64 v25; // rax
   _DWORD v26[2]; // [rsp+30h] [rbp-38h] BYREF
@@ -61,8 +61,8 @@ __int64 __fastcall MiRescanPageFileBitmapPortion(__int64 a1, __int64 a2, int a3,
     {
       if ( v12 )
       {
-        RtlRbRemoveNode((unsigned __int64 *)(a1 + 144), v9);
-        RtlRbRemoveNode((unsigned __int64 *)(a1 + 160), v9 + 24);
+        RtlRbRemoveNode((PRTL_RB_TREE)(a1 + 144), (PRTL_BALANCED_NODE)v9);
+        RtlRbRemoveNode((PRTL_RB_TREE)(a1 + 160), (PRTL_BALANCED_NODE)(v9 + 24));
         v24 = *(_DWORD *)(a1 + 140);
         if ( v24 <= *(_DWORD *)(v9 + 52) )
           v24 = *(_DWORD *)(v9 + 52);
@@ -122,8 +122,8 @@ LABEL_22:
           v17 = v19;
         }
       }
-      RtlRbInsertNodeEx((unsigned __int64 *)(a1 + 144), v17, v18, v9);
-      v20 = (unsigned __int64 *)(a1 + 160);
+      RtlRbInsertNodeEx((PRTL_RB_TREE)(a1 + 144), (PRTL_BALANCED_NODE)v17, v18, (PRTL_BALANCED_NODE)v9);
+      v20 = (_RTL_RB_TREE *)(a1 + 160);
       v21 = *(_QWORD *)(a1 + 160);
       if ( (*(_BYTE *)(a1 + 168) & 1) != 0 && v21 )
         v21 ^= (unsigned __int64)v20;
@@ -167,7 +167,7 @@ LABEL_38:
           v21 = v23;
         }
       }
-      RtlRbInsertNodeEx(v20, v21, v22, v9 + 24);
+      RtlRbInsertNodeEx(v20, (PRTL_BALANCED_NODE)v21, v22, (PRTL_BALANCED_NODE)(v9 + 24));
       ++*(_DWORD *)(a1 + 128);
       v9 = *(_QWORD *)(a1 + 176);
       if ( v9 == a1 + 176 )

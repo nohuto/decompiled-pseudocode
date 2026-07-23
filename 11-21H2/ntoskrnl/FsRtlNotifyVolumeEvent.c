@@ -1,8 +1,8 @@
 /*
  * XREFs of FsRtlNotifyVolumeEvent @ 0x1407FC020
  * Callers:
- *     RawCleanup @ 0x14074BE9C (RawCleanup.c)
- *     RawUserFsCtrl @ 0x1407FBE14 (RawUserFsCtrl.c)
+ *     sub_14074BE9C @ 0x14074BE9C (sub_14074BE9C.c)
+ *     sub_1407FBE14 @ 0x1407FBE14 (sub_1407FBE14.c)
  * Callees:
  *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
  *     FsRtlNotifyVolumeEventEx @ 0x14074C800 (FsRtlNotifyVolumeEventEx.c)

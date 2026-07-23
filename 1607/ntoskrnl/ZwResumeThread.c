@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwResumeThread @ 0x14015A6C0
+ * XREFs of ZwResumeThread @ 0x14015AC30
  * Callers:
  *     StartFirstUserProcess @ 0x1407A263C (StartFirstUserProcess.c)
  * Callees:
@@ -8,9 +8,7 @@
 
 NTSTATUS __stdcall ZwResumeThread(HANDLE ThreadHandle, PULONG SuspendCount)
 {
-  __int64 v2; // r8
-
   _disable();
   __readeflags();
-  return KiServiceInternal(ThreadHandle, SuspendCount, v2);
+  return KiServiceInternal(ThreadHandle);
 }

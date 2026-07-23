@@ -1,13 +1,13 @@
 /*
- * XREFs of MmIsDriverVerifying @ 0x14013A220
+ * XREFs of MmIsDriverVerifying @ 0x14013A320
  * Callers:
- *     VfIsVerificationEnabled @ 0x140177E50 (VfIsVerificationEnabled.c)
- *     VfXdvDriverCaptureIoCallbacks @ 0x140921338 (VfXdvDriverCaptureIoCallbacks.c)
- *     VfGetPristineDispatchRoutine @ 0x14092FCFC (VfGetPristineDispatchRoutine.c)
- *     VfGetPristineDriverInit @ 0x14092FD4C (VfGetPristineDriverInit.c)
- *     VfDevObjPostAddDevice @ 0x140934088 (VfDevObjPostAddDevice.c)
- *     VfDevObjPreAddDevice @ 0x1409340DC (VfDevObjPreAddDevice.c)
- *     IovUtilIsVerifiedDeviceStack @ 0x140935658 (IovUtilIsVerifiedDeviceStack.c)
+ *     VfIsVerificationEnabled @ 0x140177F50 (VfIsVerificationEnabled.c)
+ *     VfXdvDriverCaptureIoCallbacks @ 0x140922338 (VfXdvDriverCaptureIoCallbacks.c)
+ *     VfGetPristineDispatchRoutine @ 0x140930CFC (VfGetPristineDispatchRoutine.c)
+ *     VfGetPristineDriverInit @ 0x140930D4C (VfGetPristineDriverInit.c)
+ *     VfDevObjPostAddDevice @ 0x140935088 (VfDevObjPostAddDevice.c)
+ *     VfDevObjPreAddDevice @ 0x1409350DC (VfDevObjPreAddDevice.c)
+ *     IovUtilIsVerifiedDeviceStack @ 0x140936658 (IovUtilIsVerifiedDeviceStack.c)
  * Callees:
  *     <none>
  */

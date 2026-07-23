@@ -1,19 +1,19 @@
 /*
- * XREFs of TtmiLogCalloutStop @ 0x1409A6D28
+ * XREFs of TtmiLogCalloutStop @ 0x1409A6F28
  * Callers:
- *     TtmpStopCallout @ 0x1409A3D6C (TtmpStopCallout.c)
+ *     TtmpStopCallout @ 0x1409A3F6C (TtmpStopCallout.c)
  * Callees:
  *     _tlgKeywordOn @ 0x140212E64 (_tlgKeywordOn.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     PsGetProcessSessionIdEx @ 0x14036FA00 (PsGetProcessSessionIdEx.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6DB4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     PsGetProcessSessionIdEx @ 0x14036FBA0 (PsGetProcessSessionIdEx.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 char __fastcall TtmiLogCalloutStop(int a1, int a2, unsigned __int64 a3, int a4, int a5, unsigned __int64 a6)
 {
   _UNKNOWN **v6; // rax
   unsigned __int64 v7; // rdi
-  unsigned __int8 *v11; // rdx
+  char *v11; // rdx
   int *v12; // rcx
   unsigned __int64 *v13; // rax
   int v15; // [rsp+38h] [rbp-99h] BYREF
@@ -53,7 +53,7 @@ char __fastcall TtmiLogCalloutStop(int a1, int a2, unsigned __int64 a3, int a4, 
       if ( (_BYTE)v6 )
       {
         ProcessSessionId = PsGetProcessSessionIdEx((__int64)KeGetCurrentThread()->ApcState.Process);
-        v11 = (unsigned __int8 *)&word_140033756;
+        v11 = byte_140033C65;
         v17 = a1;
         p_ProcessSessionId = &ProcessSessionId;
         v12 = &dword_140D538E0;
@@ -78,7 +78,7 @@ char __fastcall TtmiLogCalloutStop(int a1, int a2, unsigned __int64 a3, int a4, 
     if ( (_BYTE)v6 )
     {
       v15 = PsGetProcessSessionIdEx((__int64)KeGetCurrentThread()->ApcState.Process);
-      v11 = (unsigned __int8 *)byte_140033B6D;
+      v11 = &byte_14003401F;
       v16 = a1;
       p_ProcessSessionId = &v15;
       v12 = &dword_140D53918;
@@ -103,7 +103,7 @@ LABEL_8:
       v33 = 4LL;
       v35 = 4LL;
       v37 = 8LL;
-      LOBYTE(v6) = tlgWriteTransfer_EtwWriteTransfer((__int64)v12, v11, 0LL, 0LL, 0xAu, &v21);
+      LOBYTE(v6) = tlgWriteTransfer_EtwWriteTransfer((__int64)v12, (unsigned __int8 *)v11, 0LL, 0LL, 0xAu, &v21);
     }
   }
   return (char)v6;

@@ -1,22 +1,27 @@
 /*
- * XREFs of AppModelPolicy_GetPolicy_Internal @ 0x1402503FC
+ * XREFs of AppModelPolicy_GetPolicy_Internal @ 0x1402F4C0C
  * Callers:
- *     SeQuerySigningPolicyWorker @ 0x140603818 (SeQuerySigningPolicyWorker.c)
+ *     SeQuerySigningPolicyWorker @ 0x1406F2F48 (SeQuerySigningPolicyWorker.c)
  * Callees:
- *     RtlQueryPackageClaims @ 0x14024F0F0 (RtlQueryPackageClaims.c)
+ *     RtlQueryPackageClaims @ 0x1402F3940 (RtlQueryPackageClaims.c)
  */
 
-__int64 __fastcall AppModelPolicy_GetPolicy_Internal(int a1, __int64 a2, int *a3, _QWORD *a4, _QWORD *a5)
+__int64 __fastcall AppModelPolicy_GetPolicy_Internal(
+        void *a1,
+        __int64 a2,
+        int *a3,
+        _PS_PKG_CLAIM *a4,
+        unsigned __int64 *a5)
 {
-  int PackageClaims; // ecx
+  NTSTATUS PackageClaims; // ecx
   int v8; // eax
-  int v10; // eax
+  ULONG Flags; // eax
 
   PackageClaims = RtlQueryPackageClaims(a1, 0LL, 0LL, 0LL, 0LL, 0LL, a4, a5);
   if ( PackageClaims == -1073741275 )
   {
     *a5 = 0LL;
-    *(_DWORD *)a4 = 0;
+    a4->Flags = 0;
     PackageClaims = 0;
   }
   *a3 = 0;
@@ -32,20 +37,20 @@ LABEL_6:
     }
     if ( (*a5 & 8) == 0 )
     {
-      v10 = *(_DWORD *)a4;
-      if ( (*(_DWORD *)a4 & 0x10000) != 0 )
+      Flags = a4->Flags;
+      if ( (a4->Flags & 0x10000) != 0 )
         goto LABEL_5;
-      if ( (v10 & 4) != 0 )
+      if ( (Flags & 4) != 0 )
       {
         v8 = 3014658;
         goto LABEL_6;
       }
-      if ( (v10 & 0x400) == 0 && (v10 & 0x800) == 0 )
+      if ( (Flags & 0x400) == 0 && (Flags & 0x800) == 0 )
       {
-        if ( (v10 & 0x40) != 0 )
+        if ( (Flags & 0x40) != 0 )
           goto LABEL_5;
         v8 = 3014656;
-        if ( (*(_DWORD *)a4 & 0x1000) != 0 )
+        if ( (a4->Flags & 0x1000) != 0 )
           goto LABEL_6;
       }
     }

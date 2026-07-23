@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlEnumerateHotPatchPatches @ 0x140A76404
+ * XREFs of RtlEnumerateHotPatchPatches @ 0x140A766B4
  * Callers:
- *     MiApplyImageHotPatchRequest @ 0x140A355E0 (MiApplyImageHotPatchRequest.c)
- *     MiCheckPatchesInSupportedSections @ 0x140A363B0 (MiCheckPatchesInSupportedSections.c)
- *     MiPrepareToHotPatchImage @ 0x140A3A908 (MiPrepareToHotPatchImage.c)
- *     MiProcessPatchImageCfg @ 0x140A3B018 (MiProcessPatchImageCfg.c)
+ *     MiApplyImageHotPatchRequest @ 0x140A35890 (MiApplyImageHotPatchRequest.c)
+ *     MiCheckPatchesInSupportedSections @ 0x140A36660 (MiCheckPatchesInSupportedSections.c)
+ *     MiPrepareToHotPatchImage @ 0x140A3ABB8 (MiPrepareToHotPatchImage.c)
+ *     MiProcessPatchImageCfg @ 0x140A3B2C8 (MiProcessPatchImageCfg.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     RtlGetHotPatchSize @ 0x14067ACB8 (RtlGetHotPatchSize.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     RtlGetHotPatchSize @ 0x14067B208 (RtlGetHotPatchSize.c)
  */
 
 __int64 __fastcall RtlEnumerateHotPatchPatches(

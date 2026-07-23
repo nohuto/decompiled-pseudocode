@@ -1,27 +1,27 @@
 /*
- * XREFs of HvLoadHive @ 0x14074ED44
+ * XREFs of HvLoadHive @ 0x14074EF34
  * Callers:
- *     HvHiveStartFileBacked @ 0x140701204 (HvHiveStartFileBacked.c)
+ *     HvHiveStartFileBacked @ 0x140701414 (HvHiveStartFileBacked.c)
  * Callees:
  *     CmSiFreeMemory @ 0x140208C40 (CmSiFreeMemory.c)
  *     _tlgKeywordOn @ 0x140212E64 (_tlgKeywordOn.c)
- *     SetFailureLocation @ 0x1402F69F0 (SetFailureLocation.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     memset @ 0x140435A00 (memset.c)
- *     CmpTraceHiveMountBaseFileMounted @ 0x14074E9F4 (CmpTraceHiveMountBaseFileMounted.c)
- *     HvpInitMap @ 0x14074EA70 (HvpInitMap.c)
- *     HvpGetHiveHeader @ 0x14074EC0C (HvpGetHiveHeader.c)
- *     HvpRemapAndEnlistHiveBins @ 0x14074F794 (HvpRemapAndEnlistHiveBins.c)
- *     HvpAdjustHiveFreeDisplay @ 0x14074FE94 (HvpAdjustHiveFreeDisplay.c)
- *     HvpViewMapStart @ 0x140750224 (HvpViewMapStart.c)
- *     HvpMapHiveImageFromViewMap @ 0x1407502D8 (HvpMapHiveImageFromViewMap.c)
- *     CmpFileFlush @ 0x140750D6C (CmpFileFlush.c)
- *     CmpInitializeActualFileSizes @ 0x140751028 (CmpInitializeActualFileSizes.c)
- *     HvAnalyzeLogFiles @ 0x1407FDB08 (HvAnalyzeLogFiles.c)
- *     HvpPerformLogFileRecovery @ 0x14080028C (HvpPerformLogFileRecovery.c)
- *     HvpMapHiveImageFromFile @ 0x140A1DE78 (HvpMapHiveImageFromFile.c)
+ *     SetFailureLocation @ 0x1402F6C80 (SetFailureLocation.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6DB4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     CmpTraceHiveMountBaseFileMounted @ 0x14074EBE4 (CmpTraceHiveMountBaseFileMounted.c)
+ *     HvpInitMap @ 0x14074EC60 (HvpInitMap.c)
+ *     HvpGetHiveHeader @ 0x14074EDFC (HvpGetHiveHeader.c)
+ *     HvpRemapAndEnlistHiveBins @ 0x14074F984 (HvpRemapAndEnlistHiveBins.c)
+ *     HvpAdjustHiveFreeDisplay @ 0x140750084 (HvpAdjustHiveFreeDisplay.c)
+ *     HvpViewMapStart @ 0x140750414 (HvpViewMapStart.c)
+ *     HvpMapHiveImageFromViewMap @ 0x1407504C8 (HvpMapHiveImageFromViewMap.c)
+ *     CmpFileFlush @ 0x140750F5C (CmpFileFlush.c)
+ *     CmpInitializeActualFileSizes @ 0x140751218 (CmpInitializeActualFileSizes.c)
+ *     HvAnalyzeLogFiles @ 0x1407FDDD8 (HvAnalyzeLogFiles.c)
+ *     HvpPerformLogFileRecovery @ 0x14080055C (HvpPerformLogFileRecovery.c)
+ *     HvpMapHiveImageFromFile @ 0x140A1E128 (HvpMapHiveImageFromFile.c)
  */
 
 __int64 __fastcall HvLoadHive(ULONG_PTR BugCheckParameter2, __int64 a2, int a3, __int64 a4)
@@ -207,7 +207,7 @@ LABEL_90:
     v12 = (char *)v5;
     v5 = 0LL;
   }
-  if ( (unsigned int)dword_140C043C8 > 5 && tlgKeywordOn((__int64)&dword_140C043C8, 0x200000000000LL) )
+  if ( (unsigned int)dword_140C04390 > 5 && tlgKeywordOn((__int64)&dword_140C04390, 0x200000000000LL) )
   {
     v49 = &v36;
     v50 = v29;
@@ -215,7 +215,13 @@ LABEL_90:
     LODWORD(v36) = v10;
     v38 = 0x1000000LL;
     v52 = 8LL;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C043C8, (unsigned __int8 *)byte_1400379B1, 0LL, 0LL, v29, v48);
+    tlgWriteTransfer_EtwWriteTransfer(
+      (__int64)&dword_140C04390,
+      (unsigned __int8 *)&dword_140037AFC + 3,
+      0LL,
+      0LL,
+      v29,
+      v48);
   }
   v6 = 0;
 LABEL_7:
@@ -235,7 +241,7 @@ LABEL_7:
     && (v39 & 0x20000) == 0
     && (BYTE2(NlsMbOemCodePageTag) || (CmpBootType & 6) != 0) )
   {
-    if ( (unsigned int)dword_140C043C8 > 5 && tlgKeywordOn((__int64)&dword_140C043C8, 0x200000000000LL) )
+    if ( (unsigned int)dword_140C04390 > 5 && tlgKeywordOn((__int64)&dword_140C04390, 0x200000000000LL) )
     {
       LODWORD(v36) = v33;
       v49 = &v36;
@@ -246,7 +252,7 @@ LABEL_7:
       v52 = 4LL;
       v38 = 0x1000000LL;
       v54 = 8LL;
-      tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C043C8, (unsigned __int8 *)word_140037A02, 0LL, 0LL, 5u, v48);
+      tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C04390, (unsigned __int8 *)byte_140037A99, 0LL, 0LL, 5u, v48);
     }
     *(_DWORD *)(*(_QWORD *)(BugCheckParameter2 + 64) + 4088LL) |= 4u;
     *(_DWORD *)(*(_QWORD *)(BugCheckParameter2 + 64) + 40LL) = (v17 - 4096) & 0xFFFFF000;

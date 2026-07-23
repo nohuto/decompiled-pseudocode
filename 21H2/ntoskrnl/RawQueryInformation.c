@@ -1,11 +1,11 @@
 /*
- * XREFs of RawQueryInformation @ 0x14090F734
+ * XREFs of RawQueryInformation @ 0x14090F894
  * Callers:
- *     RawDispatch @ 0x14071AB40 (RawDispatch.c)
+ *     RawDispatch @ 0x1406C8830 (RawDispatch.c)
  * Callees:
- *     IofCompleteRequest @ 0x140243490 (IofCompleteRequest.c)
- *     RawEndOperation @ 0x140360738 (RawEndOperation.c)
- *     RawBeginOperation @ 0x14036096C (RawBeginOperation.c)
+ *     RawEndOperation @ 0x1402A5638 (RawEndOperation.c)
+ *     RawBeginOperation @ 0x1402A586C (RawBeginOperation.c)
+ *     IofCompleteRequest @ 0x1402E7CE0 (IofCompleteRequest.c)
  */
 
 __int64 __fastcall RawQueryInformation(__int64 a1, __int64 a2, __int64 a3)

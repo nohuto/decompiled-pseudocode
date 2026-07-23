@@ -1,14 +1,14 @@
 /*
- * XREFs of PnpRegCopyKeySecurity @ 0x1407A48D8
+ * XREFs of PnpRegCopyKeySecurity @ 0x1407A7418
  * Callers:
- *     PnpRegCopyKeySecurityTree @ 0x1407A4A08 (PnpRegCopyKeySecurityTree.c)
+ *     PnpRegCopyKeySecurityTree @ 0x1407A7548 (PnpRegCopyKeySecurityTree.c)
  * Callees:
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     _PnpCtxRegGetKeySecurity @ 0x140895F88 (_PnpCtxRegGetKeySecurity.c)
- *     _PnpCtxRegSetKeySecurity @ 0x140895FD8 (_PnpCtxRegSetKeySecurity.c)
- *     _PnpCtxRegOpenKey @ 0x140997890 (_PnpCtxRegOpenKey.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     _PnpCtxRegGetKeySecurity @ 0x14089C388 (_PnpCtxRegGetKeySecurity.c)
+ *     _PnpCtxRegSetKeySecurity @ 0x14089C3D8 (_PnpCtxRegSetKeySecurity.c)
+ *     _PnpCtxRegOpenKey @ 0x1409582F0 (_PnpCtxRegOpenKey.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PnpRegCopyKeySecurity(int a1, int a2)

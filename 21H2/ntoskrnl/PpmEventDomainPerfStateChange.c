@@ -1,13 +1,13 @@
 /*
- * XREFs of PpmEventDomainPerfStateChange @ 0x14039A608
+ * XREFs of PpmEventDomainPerfStateChange @ 0x14039A758
  * Callers:
- *     PpmPerfApplyDomainState @ 0x1402A05F0 (PpmPerfApplyDomainState.c)
+ *     PpmPerfApplyDomainState @ 0x14021DB70 (PpmPerfApplyDomainState.c)
  * Callees:
- *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x14025DD10 (EtwWriteEx.c)
- *     KeAndGroupAffinityEx @ 0x1403746A0 (KeAndGroupAffinityEx.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     PpmFireWmiEvent @ 0x1405784F8 (PpmFireWmiEvent.c)
+ *     EtwWriteEx @ 0x14027F840 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x1402C0830 (EtwEventEnabled.c)
+ *     KeAndGroupAffinityEx @ 0x1403741F0 (KeAndGroupAffinityEx.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     PpmFireWmiEvent @ 0x140578738 (PpmFireWmiEvent.c)
  */
 
 char __fastcall PpmEventDomainPerfStateChange(__int64 a1)

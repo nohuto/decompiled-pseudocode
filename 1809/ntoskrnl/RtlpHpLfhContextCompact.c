@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpHpLfhContextCompact @ 0x1401B6554
+ * XREFs of RtlpHpLfhContextCompact @ 0x1401B66BC
  * Callers:
- *     RtlpHpHeapCompact @ 0x1401B6244 (RtlpHpHeapCompact.c)
+ *     RtlpHpHeapCompact @ 0x1401B63AC (RtlpHpHeapCompact.c)
  * Callees:
  *     RtlpHpReleaseLockShared @ 0x14000817C (RtlpHpReleaseLockShared.c)
  *     RtlpHpAcquireLockShared @ 0x140009644 (RtlpHpAcquireLockShared.c)
- *     RtlpHpLfhOwnerCompact @ 0x1401B65F0 (RtlpHpLfhOwnerCompact.c)
+ *     RtlpHpLfhOwnerCompact @ 0x1401B6758 (RtlpHpLfhOwnerCompact.c)
  */
 
 __int64 __fastcall RtlpHpLfhContextCompact(__int64 a1, int a2)

@@ -1,15 +1,15 @@
 /*
- * XREFs of _PnpCtxGetObjectDispatchCallback @ 0x1406D05E0
+ * XREFs of _PnpCtxGetObjectDispatchCallback @ 0x1406D0610
  * Callers:
- *     _PnpOpenObjectRegKeyDispatch @ 0x1406CFA54 (_PnpOpenObjectRegKeyDispatch.c)
- *     _PnpGetMappedPropertyDispatch @ 0x1406D0514 (_PnpGetMappedPropertyDispatch.c)
- *     _PnpSetMappedPropertyDispatch @ 0x140797100 (_PnpSetMappedPropertyDispatch.c)
- *     _PnpValidateObjectNameDispatch @ 0x1407FA828 (_PnpValidateObjectNameDispatch.c)
- *     _PnpGetMappedPropertyLocalesDispatch @ 0x140839EFC (_PnpGetMappedPropertyLocalesDispatch.c)
- *     _PnpGetMappedPropertyKeysDispatch @ 0x14083A778 (_PnpGetMappedPropertyKeysDispatch.c)
- *     _PnpGetObjectListDispatch @ 0x14086C8E0 (_PnpGetObjectListDispatch.c)
- *     _PnpCreateObjectDispatch @ 0x140A64BB4 (_PnpCreateObjectDispatch.c)
- *     _PnpDeleteObjectDispatch @ 0x140A64DE0 (_PnpDeleteObjectDispatch.c)
+ *     _PnpOpenObjectRegKeyDispatch @ 0x1406CFA84 (_PnpOpenObjectRegKeyDispatch.c)
+ *     _PnpGetMappedPropertyDispatch @ 0x1406D0544 (_PnpGetMappedPropertyDispatch.c)
+ *     _PnpSetMappedPropertyDispatch @ 0x1407972F0 (_PnpSetMappedPropertyDispatch.c)
+ *     _PnpValidateObjectNameDispatch @ 0x1407FAAF8 (_PnpValidateObjectNameDispatch.c)
+ *     _PnpGetMappedPropertyLocalesDispatch @ 0x14083A1FC (_PnpGetMappedPropertyLocalesDispatch.c)
+ *     _PnpGetMappedPropertyKeysDispatch @ 0x14083AA78 (_PnpGetMappedPropertyKeysDispatch.c)
+ *     _PnpGetObjectListDispatch @ 0x14086CB20 (_PnpGetObjectListDispatch.c)
+ *     _PnpCreateObjectDispatch @ 0x140A64E64 (_PnpCreateObjectDispatch.c)
+ *     _PnpDeleteObjectDispatch @ 0x140A65090 (_PnpDeleteObjectDispatch.c)
  * Callees:
  *     <none>
  */

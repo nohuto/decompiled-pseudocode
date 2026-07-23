@@ -1,22 +1,22 @@
 /*
- * XREFs of KiDisplayBlueScreen @ 0x1405180C0
+ * XREFs of KiDisplayBlueScreen @ 0x140518300
  * Callers:
- *     KeBugCheck2 @ 0x140516AD0 (KeBugCheck2.c)
+ *     KeBugCheck2 @ 0x140516D10 (KeBugCheck2.c)
  * Callees:
- *     BgpFwReleaseLock @ 0x14039C2A8 (BgpFwReleaseLock.c)
- *     BgpFwAcquireLock @ 0x14039C2F8 (BgpFwAcquireLock.c)
- *     HeadlessDispatch @ 0x1403AF760 (HeadlessDispatch.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memcmp @ 0x1403D29E0 (memcmp.c)
- *     memset @ 0x140414200 (memset.c)
- *     RtlStringCbPrintfExA @ 0x1404B6184 (RtlStringCbPrintfExA.c)
- *     InbvAcquireDisplayOwnership @ 0x1404FEED0 (InbvAcquireDisplayOwnership.c)
- *     IoSaveBugCheckProgress @ 0x140502780 (IoSaveBugCheckProgress.c)
- *     KeGetBugMessageText @ 0x140517AC4 (KeGetBugMessageText.c)
- *     KiBugCheckConvertParameterValueToUnicodeString @ 0x140517C8C (KiBugCheckConvertParameterValueToUnicodeString.c)
- *     KiDumpParameterImages @ 0x140518454 (KiDumpParameterImages.c)
- *     KiHeadlessDisplayString @ 0x1405185B8 (KiHeadlessDisplayString.c)
- *     BgpFwDisplayBugCheckScreen @ 0x1405C5704 (BgpFwDisplayBugCheckScreen.c)
+ *     BgpFwReleaseLock @ 0x14039C3F8 (BgpFwReleaseLock.c)
+ *     BgpFwAcquireLock @ 0x14039C448 (BgpFwAcquireLock.c)
+ *     HeadlessDispatch @ 0x1403AF8D0 (HeadlessDispatch.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memcmp @ 0x1403D2B50 (memcmp.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     RtlStringCbPrintfExA @ 0x1404B63C4 (RtlStringCbPrintfExA.c)
+ *     InbvAcquireDisplayOwnership @ 0x1404FEE50 (InbvAcquireDisplayOwnership.c)
+ *     IoSaveBugCheckProgress @ 0x140502700 (IoSaveBugCheckProgress.c)
+ *     KeGetBugMessageText @ 0x140517D04 (KeGetBugMessageText.c)
+ *     KiBugCheckConvertParameterValueToUnicodeString @ 0x140517ECC (KiBugCheckConvertParameterValueToUnicodeString.c)
+ *     KiDumpParameterImages @ 0x140518694 (KiDumpParameterImages.c)
+ *     KiHeadlessDisplayString @ 0x1405187F8 (KiHeadlessDisplayString.c)
+ *     BgpFwDisplayBugCheckScreen @ 0x1405C5934 (BgpFwDisplayBugCheckScreen.c)
  */
 
 __int64 __fastcall KiDisplayBlueScreen(int a1)

@@ -1,15 +1,15 @@
 /*
- * XREFs of PopRecordPowerWatchdogBlackboxInformation @ 0x1402E8F98
+ * XREFs of PopRecordPowerWatchdogBlackboxInformation @ 0x1402E9188
  * Callers:
- *     PopRecordPoBlackboxInformation @ 0x14087CF94 (PopRecordPoBlackboxInformation.c)
+ *     PopRecordPoBlackboxInformation @ 0x14087E1F4 (PopRecordPoBlackboxInformation.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     NtPowerInformation @ 0x14058C170 (NtPowerInformation.c)
+ *     KxReleaseSpinLock @ 0x1400630D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14008CE80 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     NtPowerInformation @ 0x14058D170 (NtPowerInformation.c)
  */
 
 void PopRecordPowerWatchdogBlackboxInformation()
@@ -96,7 +96,7 @@ LABEL_13:
     InputBuffer[1] = (unsigned int)v7;
     LODWORD(InputBuffer[3]) = 8;
     InputBuffer[0] = v3;
-    NtPowerInformation(TraceApplicationPowerMessage|0x40, InputBuffer, 0x20u, 0LL, 0);
+    NtPowerInformation(UpdateBlackBoxRecorder, InputBuffer, 0x20u, 0LL, 0);
   }
   if ( v3 )
     ExFreePoolWithTag(v3, 0x42424F50u);

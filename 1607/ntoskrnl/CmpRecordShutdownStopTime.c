@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpRecordShutdownStopTime @ 0x1405FCBD4
+ * XREFs of CmpRecordShutdownStopTime @ 0x1405FCC88
  * Callers:
- *     CmShutdownSystem @ 0x1405FC64C (CmShutdownSystem.c)
+ *     CmShutdownSystem @ 0x1405FC700 (CmShutdownSystem.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     ZwOpenKey @ 0x140159EC0 (ZwOpenKey.c)
- *     ZwSetValueKey @ 0x14015A880 (ZwSetValueKey.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     ZwOpenKey @ 0x14015A430 (ZwOpenKey.c)
+ *     ZwSetValueKey @ 0x14015ADF0 (ZwSetValueKey.c)
  */
 
 NTSTATUS CmpRecordShutdownStopTime()

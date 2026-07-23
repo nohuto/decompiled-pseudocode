@@ -1,29 +1,29 @@
 /*
- * XREFs of NtStartProfile @ 0x14095ADD0
+ * XREFs of NtStartProfile @ 0x14095AFA0
  * Callers:
  *     <none>
  * Callees:
- *     MmProbeAndLockPages @ 0x140209710 (MmProbeAndLockPages.c)
- *     MmMapLockedPagesSpecifyCache @ 0x140226CC0 (MmMapLockedPagesSpecifyCache.c)
- *     MmUnlockPages @ 0x140244A70 (MmUnlockPages.c)
- *     KeQueryActiveProcessorCountEx @ 0x14027B610 (KeQueryActiveProcessorCountEx.c)
- *     MmSizeOfMdl @ 0x1402986E0 (MmSizeOfMdl.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     KeReleaseMutex @ 0x1402EE5A0 (KeReleaseMutex.c)
- *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
- *     KeStartProfile @ 0x14051BBCC (KeStartProfile.c)
- *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
- *     KeInitializeProfile @ 0x1408BC0B8 (KeInitializeProfile.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     MmSizeOfMdl @ 0x140219160 (MmSizeOfMdl.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     KeQueryActiveProcessorCountEx @ 0x1402695B0 (KeQueryActiveProcessorCountEx.c)
+ *     MmProbeAndLockPages @ 0x1402AE010 (MmProbeAndLockPages.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x1402CB5C0 (MmMapLockedPagesSpecifyCache.c)
+ *     MmUnlockPages @ 0x1402E92C0 (MmUnlockPages.c)
+ *     KeReleaseMutex @ 0x1402F92F0 (KeReleaseMutex.c)
+ *     KeWaitForSingleObject @ 0x1403504C0 (KeWaitForSingleObject.c)
+ *     KeStartProfile @ 0x14051BE0C (KeStartProfile.c)
+ *     ObReferenceObjectByHandle @ 0x140707FA0 (ObReferenceObjectByHandle.c)
+ *     KeInitializeProfile @ 0x1408BC218 (KeInitializeProfile.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
-NTSTATUS __fastcall NtStartProfile(void *a1)
+NTSTATUS __cdecl NtStartProfile(HANDLE ProfileHandle)
 {
   KPROCESSOR_MODE PreviousMode; // r14
   NTSTATUS result; // eax
   PADAPTER_OBJECT v3; // rbx
-  int v4; // edi
+  NTSTATUS v4; // edi
   SIZE_T v5; // rax
   char *PoolWithTag; // rax
   void *v7; // rdi
@@ -36,7 +36,7 @@ NTSTATUS __fastcall NtStartProfile(void *a1)
 
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   DmaAdapter = 0LL;
-  result = ObReferenceObjectByHandle(a1, 1u, ExProfileObjectType, PreviousMode, (PVOID *)&DmaAdapter, 0LL);
+  result = ObReferenceObjectByHandle(ProfileHandle, 1u, ExProfileObjectType, PreviousMode, (PVOID *)&DmaAdapter, 0LL);
   if ( result >= 0 )
   {
     KeWaitForSingleObject(&ExpProfileStateMutex, Executive, 0, 0, 0LL);

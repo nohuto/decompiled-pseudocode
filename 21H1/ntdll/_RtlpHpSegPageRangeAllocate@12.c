@@ -16,9 +16,9 @@
 
 unsigned int __fastcall RtlpHpSegPageRangeAllocate(int a1, int a2, int a3)
 {
-  unsigned int v4; // esi
+  _RTL_BALANCED_NODE *v4; // esi
   unsigned int v5; // edi
-  unsigned int v6; // ecx
+  _RTL_BALANCED_NODE *v6; // ecx
   unsigned int v7; // ecx
   unsigned int v8; // eax
   unsigned int v9; // esi
@@ -31,9 +31,9 @@ unsigned int __fastcall RtlpHpSegPageRangeAllocate(int a1, int a2, int a3)
   unsigned int v17; // [esp+18h] [ebp-8h]
 
   v15 = (unsigned int)(a2 - 1 + (1 << *(_BYTE *)(a1 + 5))) >> *(_BYTE *)(a1 + 5);
-  v4 = v15 << 24;
+  v4 = (_RTL_BALANCED_NODE *)(v15 << 24);
   if ( (a3 & 1) == 0 )
-    RtlAcquireSRWLockExclusive((volatile signed __int32 *)(a1 + 64));
+    RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 64));
   v5 = *(_DWORD *)(a1 + 80);
   if ( (*(_BYTE *)(a1 + 84) & 1) != 0 )
   {
@@ -48,14 +48,14 @@ unsigned int __fastcall RtlpHpSegPageRangeAllocate(int a1, int a2, int a3)
   {
     do
     {
-      if ( v4 < *(_DWORD *)(v5 + 12) )
+      if ( (unsigned int)v4 < *(_DWORD *)(v5 + 12) )
       {
         v7 = *(_DWORD *)v5;
         v16 = v5;
       }
       else
       {
-        if ( v4 <= *(_DWORD *)(v5 + 12) )
+        if ( (unsigned int)v4 <= *(_DWORD *)(v5 + 12) )
           goto LABEL_19;
         v7 = *(_DWORD *)(v5 + 4);
       }
@@ -65,16 +65,16 @@ unsigned int __fastcall RtlpHpSegPageRangeAllocate(int a1, int a2, int a3)
         v5 = v7;
     }
     while ( v5 );
-    v6 = v16;
+    v6 = (_RTL_BALANCED_NODE *)v16;
   }
-  v5 = v6;
+  v5 = (unsigned int)v6;
 LABEL_19:
   if ( v5 )
   {
     if ( (a3 & 0x800000) != 0 )
       v5 = RtlpHpSegLargeRangeAllocate(a1, v5, v15, 1);
     else
-      RtlpHpSegFreeRangeRemove(a1, (_DWORD *)v5);
+      RtlpHpSegFreeRangeRemove(a1, (_RTL_BALANCED_NODE *)v5);
   }
   else
   {
@@ -87,7 +87,7 @@ LABEL_19:
   else
   {
     if ( (a3 & 1) == 0 )
-      RtlReleaseSRWLockExclusive((volatile signed __int32 *)(a1 + 64));
+      RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 64));
     v17 = RtlpHpSegSegmentAllocate((a3 & 0x800000) != 0 ? 2 : 0);
     if ( !v17 )
       return 0;
@@ -96,7 +96,7 @@ LABEL_19:
     v5 = v17 + 16 * *(unsigned __int8 *)(a1 + 6);
     if ( (a3 & 1) == 0 )
     {
-      RtlAcquireSRWLockExclusive((volatile signed __int32 *)(a1 + 64));
+      RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 64));
       v8 = v17;
     }
     RtlpHpSegHeapAddSegment(a1, v8);
@@ -110,7 +110,7 @@ LABEL_19:
   *(_BYTE *)(v5 + 12) |= HIBYTE(a3) & 0xC | 1;
   *(_BYTE *)(v5 + 16 * v9 - 4) |= 1u;
   if ( (a3 & 1) == 0 )
-    RtlReleaseSRWLockExclusive((volatile signed __int32 *)(a1 + 64));
+    RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 64));
   v11 = v9 - 1;
   v12 = 1;
   if ( v11 > 1 )

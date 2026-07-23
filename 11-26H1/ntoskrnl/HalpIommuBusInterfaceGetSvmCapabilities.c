@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpIommuBusInterfaceGetSvmCapabilities @ 0x14058BC58
+ * XREFs of HalpIommuBusInterfaceGetSvmCapabilities @ 0x14058E3D8
  * Callers:
- *     IommupDeviceEnablePasidTaggedDma @ 0x14078268C (IommupDeviceEnablePasidTaggedDma.c)
+ *     IommupDeviceEnablePasidTaggedDma @ 0x14078518C (IommupDeviceEnablePasidTaggedDma.c)
  * Callees:
- *     HalpIommuGetAcpiDeviceSvmCapabilities @ 0x14058BE7C (HalpIommuGetAcpiDeviceSvmCapabilities.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     HalpIommuGetAcpiDeviceSvmCapabilities @ 0x14058E5FC (HalpIommuGetAcpiDeviceSvmCapabilities.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall HalpIommuBusInterfaceGetSvmCapabilities(__int64 a1, __int64 a2)

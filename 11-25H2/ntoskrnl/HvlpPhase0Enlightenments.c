@@ -17,7 +17,7 @@ __int64 __fastcall HvlpPhase0Enlightenments(__int64 a1)
   __int64 v3; // rdx
   unsigned __int64 v4; // rbx
   unsigned __int64 v6; // [rsp+30h] [rbp+8h] BYREF
-  unsigned __int64 v7; // [rsp+38h] [rbp+10h] BYREF
+  __int64 v7; // [rsp+38h] [rbp+10h] BYREF
 
   v7 = 0LL;
   v1 = 0LL;

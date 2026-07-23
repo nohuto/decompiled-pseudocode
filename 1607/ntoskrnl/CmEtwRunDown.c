@@ -1,20 +1,20 @@
 /*
- * XREFs of CmEtwRunDown @ 0x1405FB640
+ * XREFs of CmEtwRunDown @ 0x1405FB6F4
  * Callers:
- *     EtwpKernelTraceRundown @ 0x140495B04 (EtwpKernelTraceRundown.c)
+ *     EtwpKernelTraceRundown @ 0x140496594 (EtwpKernelTraceRundown.c)
  * Callees:
- *     CmpFreeTransientPoolWithTag @ 0x14002D218 (CmpFreeTransientPoolWithTag.c)
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     EtwpLogKernelEvent @ 0x140059740 (EtwpLogKernelEvent.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     ZwOpenKey @ 0x140159EC0 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x140159F60 (ZwQueryValueKey.c)
- *     CmpGetNextActiveHive @ 0x1403FB6D0 (CmpGetNextActiveHive.c)
- *     CmpLockRegistryExclusive @ 0x1403FD9E8 (CmpLockRegistryExclusive.c)
- *     CmpUnlockRegistry @ 0x14040476C (CmpUnlockRegistry.c)
- *     CmpConstructName @ 0x1404A1DCC (CmpConstructName.c)
- *     CmpLogHiveRundownEvent @ 0x1405FBC18 (CmpLogHiveRundownEvent.c)
+ *     CmpFreeTransientPoolWithTag @ 0x14002CD98 (CmpFreeTransientPoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     EtwpLogKernelEvent @ 0x1400592C0 (EtwpLogKernelEvent.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     ZwOpenKey @ 0x14015A430 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x14015A4D0 (ZwQueryValueKey.c)
+ *     CmpGetNextActiveHive @ 0x1403FA590 (CmpGetNextActiveHive.c)
+ *     CmpLockRegistryExclusive @ 0x1403FC8A8 (CmpLockRegistryExclusive.c)
+ *     CmpUnlockRegistry @ 0x14040362C (CmpUnlockRegistry.c)
+ *     CmpConstructName @ 0x14051A1D8 (CmpConstructName.c)
+ *     CmpLogHiveRundownEvent @ 0x1405FBCCC (CmpLogHiveRundownEvent.c)
  */
 
 __int64 __fastcall CmEtwRunDown(unsigned int a1, char a2, char a3, char a4)

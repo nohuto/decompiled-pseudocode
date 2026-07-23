@@ -1,14 +1,14 @@
 /*
- * XREFs of PpmHvEnableQosEnlightenment @ 0x140A9CE18
+ * XREFs of PpmHvEnableQosEnlightenment @ 0x140AEBAB8
  * Callers:
- *     PpmCheckInitProcessors @ 0x140A9CBF0 (PpmCheckInitProcessors.c)
+ *     PpmCheckInitProcessors @ 0x140AEB890 (PpmCheckInitProcessors.c)
  * Callees:
- *     KeGetPrcb @ 0x1402916D0 (KeGetPrcb.c)
- *     PpmAcquireLock @ 0x140394F80 (PpmAcquireLock.c)
- *     PpmConvertTimeFrom @ 0x1403E63A8 (PpmConvertTimeFrom.c)
- *     KeEnumerateNextProcessor @ 0x14043BC70 (KeEnumerateNextProcessor.c)
- *     HvlIsRootPowerSchedulerQosPresent @ 0x1405B87D4 (HvlIsRootPowerSchedulerQosPresent.c)
- *     PpmReinitializeHeteroEngine @ 0x140A9CE8C (PpmReinitializeHeteroEngine.c)
+ *     KeGetPrcb @ 0x140290C30 (KeGetPrcb.c)
+ *     PpmConvertTimeFrom @ 0x1402F3288 (PpmConvertTimeFrom.c)
+ *     PpmAcquireLock @ 0x140396D00 (PpmAcquireLock.c)
+ *     KeEnumerateNextProcessor @ 0x14042E520 (KeEnumerateNextProcessor.c)
+ *     HvlIsRootPowerSchedulerQosPresent @ 0x1405BB044 (HvlIsRootPowerSchedulerQosPresent.c)
+ *     PpmReinitializeHeteroEngine @ 0x140AD89F8 (PpmReinitializeHeteroEngine.c)
  */
 
 char PpmHvEnableQosEnlightenment()
@@ -19,17 +19,16 @@ char PpmHvEnableQosEnlightenment()
   unsigned int v3; // edx
   __int64 v4; // rax
   __int64 v5; // r11
-  __int64 v6; // rcx
-  unsigned __int16 *v8[2]; // [rsp+20h] [rbp-28h] BYREF
-  __int16 v9; // [rsp+30h] [rbp-18h]
-  int v10; // [rsp+32h] [rbp-16h]
-  __int16 v11; // [rsp+36h] [rbp-12h]
-  unsigned int v12; // [rsp+50h] [rbp+8h] BYREF
+  unsigned __int16 *v7[2]; // [rsp+20h] [rbp-28h] BYREF
+  __int16 v8; // [rsp+30h] [rbp-18h]
+  int v9; // [rsp+32h] [rbp-16h]
+  __int16 v10; // [rsp+36h] [rbp-12h]
+  unsigned int v11; // [rsp+50h] [rbp+8h] BYREF
 
   CurrentPrcb = KeGetCurrentPrcb();
+  v9 = 0;
   v10 = 0;
   v11 = 0;
-  v12 = 0;
   if ( CurrentPrcb->PowerState.Hypervisor == ProcHypervisorPresent )
   {
     LOBYTE(CurrentPrcb) = HvlIsRootPowerSchedulerQosPresent();
@@ -37,13 +36,13 @@ char PpmHvEnableQosEnlightenment()
     {
       if ( !PpmPerfVmQosSupported )
       {
-        PpmAcquireLock((struct _KTHREAD **)&stru_140F10070.SchedulerAssistLastYieldBoostTime, v1, v2);
-        v8[1] = (unsigned __int16 *)qword_140E0B638[0];
-        v8[0] = (unsigned __int16 *)PpmCheckRegistered;
-        v9 = 0;
-        while ( !(unsigned int)KeEnumerateNextProcessor(&v12, v8) )
+        PpmAcquireLock((struct _KTHREAD **)&PpmIdlePolicyLock.ThreadLock, v1, v2);
+        v7[1] = (unsigned __int16 *)PpmCheckRegistered.Bitmap[0];
+        v7[0] = (unsigned __int16 *)&PpmCheckRegistered;
+        v8 = 0;
+        while ( !(unsigned int)KeEnumerateNextProcessor(&v11, v7) )
         {
-          KeGetPrcb(v12);
+          KeGetPrcb(v11);
           v3 = PpmPerfQosTransitionHysteresisOverride;
           if ( PpmPerfQosTransitionHysteresisOverride == -1 )
             v3 = PpmPerfQosTransitionHysteresis;
@@ -52,8 +51,7 @@ char PpmHvEnableQosEnlightenment()
         }
         PpmPerfQosManageIdleProcessors = 0;
         PpmPerfVmQosSupported = 1;
-        LOBYTE(v6) = 1;
-        LOBYTE(CurrentPrcb) = PpmReinitializeHeteroEngine(v6, 0LL);
+        LOBYTE(CurrentPrcb) = PpmReinitializeHeteroEngine(1, 0, 0);
       }
     }
   }

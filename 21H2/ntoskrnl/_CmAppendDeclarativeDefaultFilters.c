@@ -1,10 +1,10 @@
 /*
- * XREFs of _CmAppendDeclarativeDefaultFilters @ 0x140979458
+ * XREFs of _CmAppendDeclarativeDefaultFilters @ 0x140979638
  * Callers:
- *     _CmGetDeclarativeFilterList @ 0x140979BC4 (_CmGetDeclarativeFilterList.c)
+ *     _CmGetDeclarativeFilterList @ 0x140979DA4 (_CmGetDeclarativeFilterList.c)
  * Callees:
- *     _CmAppendDeclarativeFilterLevel @ 0x140979540 (_CmAppendDeclarativeFilterLevel.c)
- *     _PnpMultiSzAppend @ 0x14097C1EC (_PnpMultiSzAppend.c)
+ *     _CmAppendDeclarativeFilterLevel @ 0x140979720 (_CmAppendDeclarativeFilterLevel.c)
+ *     _PnpMultiSzAppend @ 0x14097C3CC (_PnpMultiSzAppend.c)
  */
 
 __int64 __fastcall CmAppendDeclarativeDefaultFilters(

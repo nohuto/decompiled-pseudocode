@@ -8,12 +8,8 @@
  *     TppWorkpValidateWork @ 0x180020290 (TppWorkpValidateWork.c)
  */
 
-struct _PEB *__fastcall TpWaitForWork(_PEB_LDR_DATA *a1, int a2)
+void __cdecl TpWaitForWork(PTP_WORK Work, LOGICAL CancelPendingCallbacks)
 {
-  struct _PEB *result; // rax
-
-  result = (struct _PEB *)TppWorkpValidateWork(a1, 0LL, 0LL);
-  if ( (_DWORD)result )
-    return TppWorkWait(a1, a2);
-  return result;
+  if ( (unsigned int)TppWorkpValidateWork((_PEB_LDR_DATA *)Work, 0LL, 0LL) )
+    TppWorkWait(Work, CancelPendingCallbacks);
 }

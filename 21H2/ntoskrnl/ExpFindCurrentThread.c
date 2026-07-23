@@ -1,14 +1,14 @@
 /*
- * XREFs of ExpFindCurrentThread @ 0x14034DA50
+ * XREFs of ExpFindCurrentThread @ 0x1403587A0
  * Callers:
- *     ExpBoostIoAfterAcquire @ 0x1402872F0 (ExpBoostIoAfterAcquire.c)
- *     ExpAcquireSharedStarveExclusive @ 0x14031E750 (ExpAcquireSharedStarveExclusive.c)
- *     ExpAcquireResourceSharedLite @ 0x14034C060 (ExpAcquireResourceSharedLite.c)
- *     ExpAcquireResourceExclusiveLite @ 0x14034C9B0 (ExpAcquireResourceExclusiveLite.c)
- *     ExAcquireSharedWaitForExclusive @ 0x1405B4D70 (ExAcquireSharedWaitForExclusive.c)
- *     ExpTryConvertSharedToExclusiveLite @ 0x1405B57D4 (ExpTryConvertSharedToExclusiveLite.c)
+ *     ExpBoostIoAfterAcquire @ 0x140204490 (ExpBoostIoAfterAcquire.c)
+ *     ExpAcquireSharedStarveExclusive @ 0x1403294A0 (ExpAcquireSharedStarveExclusive.c)
+ *     ExpAcquireResourceSharedLite @ 0x140356DB0 (ExpAcquireResourceSharedLite.c)
+ *     ExpAcquireResourceExclusiveLite @ 0x140357700 (ExpAcquireResourceExclusiveLite.c)
+ *     ExAcquireSharedWaitForExclusive @ 0x1405B4FA0 (ExAcquireSharedWaitForExclusive.c)
+ *     ExpTryConvertSharedToExclusiveLite @ 0x1405B5A04 (ExpTryConvertSharedToExclusiveLite.c)
  * Callees:
- *     ExpExpandResourceOwnerTable @ 0x1402B861C (ExpExpandResourceOwnerTable.c)
+ *     ExpExpandResourceOwnerTable @ 0x14023682C (ExpExpandResourceOwnerTable.c)
  */
 
 _QWORD *__fastcall ExpFindCurrentThread(

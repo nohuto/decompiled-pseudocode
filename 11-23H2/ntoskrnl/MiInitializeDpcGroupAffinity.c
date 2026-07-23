@@ -3,10 +3,10 @@
  * Callers:
  *     MiAbsorbPossibleEngineChanges @ 0x140221054 (MiAbsorbPossibleEngineChanges.c)
  *     MiInitializeAffinityWalker @ 0x140223104 (MiInitializeAffinityWalker.c)
- *     MiComputeIdealDpcGang @ 0x14038B91C (MiComputeIdealDpcGang.c)
+ *     MiComputeIdealDpcGang @ 0x14038BAFC (MiComputeIdealDpcGang.c)
  * Callees:
  *     KeFindFirstSetRightGroupAffinity @ 0x140221CF0 (KeFindFirstSetRightGroupAffinity.c)
- *     MiGetEngineType @ 0x14039955C (MiGetEngineType.c)
+ *     MiGetEngineType @ 0x14039973C (MiGetEngineType.c)
  */
 
 void __fastcall MiInitializeDpcGroupAffinity(_OWORD *a1, __int64 a2, unsigned int a3, int a4)

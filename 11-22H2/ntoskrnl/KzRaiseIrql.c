@@ -14,7 +14,10 @@ KIRQL __stdcall KzRaiseIrql(KIRQL NewIrql)
 
   result = KeGetCurrentIrql();
   __writecr8(NewIrql);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && result <= 0xFu && (unsigned __int8)(NewIrql - 2) <= 0xDu )
+  if ( (_DWORD)KiIrqlFlags
+    && ((unsigned __int8)KiIrqlFlags & 1) != 0
+    && result <= 0xFu
+    && (unsigned __int8)(NewIrql - 2) <= 0xDu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( result == NewIrql )

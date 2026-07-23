@@ -1,15 +1,15 @@
 /*
- * XREFs of PipKsrDeferredHardwareInit @ 0x1407B2E04
+ * XREFs of PipKsrDeferredHardwareInit @ 0x1407B5E64
  * Callers:
- *     PipKsrCallback @ 0x1407B2D10 (PipKsrCallback.c)
+ *     PipKsrCallback @ 0x1407B5D70 (PipKsrCallback.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     PnpRequestDeviceAction @ 0x140482588 (PnpRequestDeviceAction.c)
- *     IoInvalidateDeviceRelations @ 0x1404D2B60 (IoInvalidateDeviceRelations.c)
- *     MmEnumerateSystemImages @ 0x1404E5150 (MmEnumerateSystemImages.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     PnpWaitForQuiescentDeviceActionQueue @ 0x1407ACE7C (PnpWaitForQuiescentDeviceActionQueue.c)
- *     PnpMarkHalDeviceNode @ 0x140CC3950 (PnpMarkHalDeviceNode.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     PnpRequestDeviceAction @ 0x14047BEF8 (PnpRequestDeviceAction.c)
+ *     IoInvalidateDeviceRelations @ 0x1404CC3D0 (IoInvalidateDeviceRelations.c)
+ *     MmEnumerateSystemImages @ 0x1404DE6F0 (MmEnumerateSystemImages.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     PnpWaitForQuiescentDeviceActionQueue @ 0x1407AFEE0 (PnpWaitForQuiescentDeviceActionQueue.c)
+ *     PnpMarkHalDeviceNode @ 0x140CC9A24 (PnpMarkHalDeviceNode.c)
  */
 
 __int64 PipKsrDeferredHardwareInit()
@@ -29,7 +29,7 @@ __int64 PipKsrDeferredHardwareInit()
     IoInvalidateDeviceRelations(*(PDEVICE_OBJECT *)(IopInitHalDeviceNode + 32), BusRelations);
     PnpWaitForQuiescentDeviceActionQueue();
     result = MmEnumerateSystemImages((__int64)MiFreeBootDriverInitializationCode, 0LL);
-    stru_140E2D150.SchedulerApcFill3[9] = 1;
+    stru_140E2D2D0.SchedulerApcFill3[9] = 1;
   }
   return result;
 }

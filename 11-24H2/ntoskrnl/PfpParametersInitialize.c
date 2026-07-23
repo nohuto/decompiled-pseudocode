@@ -1,18 +1,18 @@
 /*
- * XREFs of PfpParametersInitialize @ 0x140C2CD40
+ * XREFs of PfpParametersInitialize @ 0x140C2EE60
  * Callers:
- *     PfInitializeSuperfetch @ 0x140C2C91C (PfInitializeSuperfetch.c)
+ *     PfInitializeSuperfetch @ 0x140C2EA3C (PfInitializeSuperfetch.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     ZwCreateKey @ 0x1406A67B0 (ZwCreateKey.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     PfSnParametersRead @ 0x140747CD0 (PfSnParametersRead.c)
- *     PfpGetParameter @ 0x1407481E0 (PfpGetParameter.c)
- *     PfpParametersRead @ 0x1407482D0 (PfpParametersRead.c)
- *     PfpSetBaseTime @ 0x14074869C (PfpSetBaseTime.c)
- *     PfpSetParameter @ 0x14074875C (PfpSetParameter.c)
- *     PfpCreateEvent @ 0x1407487C0 (PfpCreateEvent.c)
- *     PfSnParametersSetDefaults @ 0x140C2CC5C (PfSnParametersSetDefaults.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     ZwCreateKey @ 0x1406A7750 (ZwCreateKey.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     PfSnParametersRead @ 0x140745FC0 (PfSnParametersRead.c)
+ *     PfpGetParameter @ 0x1407464D0 (PfpGetParameter.c)
+ *     PfpParametersRead @ 0x1407465C0 (PfpParametersRead.c)
+ *     PfpSetBaseTime @ 0x14074698C (PfpSetBaseTime.c)
+ *     PfpSetParameter @ 0x140746A4C (PfpSetParameter.c)
+ *     PfpCreateEvent @ 0x140746AB0 (PfpCreateEvent.c)
+ *     PfSnParametersSetDefaults @ 0x140C2ED7C (PfSnParametersSetDefaults.c)
  */
 
 NTSTATUS __fastcall PfpParametersInitialize(__int64 a1)

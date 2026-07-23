@@ -1,12 +1,12 @@
 /*
- * XREFs of PfTFiNotifyVolumeCreateCallback @ 0x1404566F0
+ * XREFs of PfTFiNotifyVolumeCreateCallback @ 0x14044B6C0
  * Callers:
  *     <none>
  * Callees:
- *     PfFbLogEntryComplete @ 0x140245330 (PfFbLogEntryComplete.c)
- *     PfFbLogEntryReserve @ 0x140456B24 (PfFbLogEntryReserve.c)
- *     _wcsupr @ 0x1404FE6D0 (_wcsupr.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
+ *     PfFbLogEntryComplete @ 0x14020DB10 (PfFbLogEntryComplete.c)
+ *     PfFbLogEntryReserve @ 0x14044BAF4 (PfFbLogEntryReserve.c)
+ *     _wcsupr @ 0x1404FBF90 (_wcsupr.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
  */
 
 __int64 __fastcall PfTFiNotifyVolumeCreateCallback(__int64 a1, __int64 a2)

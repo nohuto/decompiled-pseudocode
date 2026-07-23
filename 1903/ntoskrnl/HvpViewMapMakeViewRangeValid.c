@@ -32,7 +32,7 @@ __int64 __fastcall HvpViewMapMakeViewRangeValid(SIZE_T a1, _QWORD *a2, __int64 a
   v11 = CmSiProtectViewOfSection(a1, *(void ***)(a1 + 24), v6, a4 - a3, 2u, (ULONG *)&v22);
   if ( v11 >= 0 )
   {
-    CmSiPrefetchVirtualMemoryRange(*(__int64 **)(a1 + 24), (__int64)v6, v5);
+    CmSiPrefetchVirtualMemoryRange(*(void ***)(a1 + 24), v6, v5);
     v13 = 0;
     if ( (*(_DWORD *)(a1 + 32) & 2) == 0 )
     {

@@ -1,47 +1,47 @@
 /*
- * XREFs of CmpCreateKeyControlBlock @ 0x1408717C0
+ * XREFs of CmpCreateKeyControlBlock @ 0x140875AF0
  * Callers:
- *     CmRenameKey @ 0x1407D9068 (CmRenameKey.c)
- *     CmpDoParseKey @ 0x14086E7B0 (CmpDoParseKey.c)
- *     CmpWalkOneLevel @ 0x140872560 (CmpWalkOneLevel.c)
- *     CmpCreateRegistryRoot @ 0x140C46D74 (CmpCreateRegistryRoot.c)
+ *     CmRenameKey @ 0x1407D95B8 (CmRenameKey.c)
+ *     CmpDoParseKey @ 0x140872AE0 (CmpDoParseKey.c)
+ *     CmpWalkOneLevel @ 0x140876890 (CmpWalkOneLevel.c)
+ *     CmpCreateRegistryRoot @ 0x140C48EC4 (CmpCreateRegistryRoot.c)
  * Callees:
- *     KeAbPostReleaseEx @ 0x14025CCE0 (KeAbPostReleaseEx.c)
- *     ExfReleasePushLockShared @ 0x14025DE00 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockSharedEx @ 0x14034050C (ExfAcquirePushLockSharedEx.c)
- *     ExAllocateFromLookasideListEx @ 0x1403E16C0 (ExAllocateFromLookasideListEx.c)
- *     CmpFindSecurityCellCacheIndex @ 0x14041FBC0 (CmpFindSecurityCellCacheIndex.c)
- *     CmpFreeTransientPoolWithTag @ 0x140441FC0 (CmpFreeTransientPoolWithTag.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     RtlUpcaseUnicodeChar @ 0x1408441F0 (RtlUpcaseUnicodeChar.c)
- *     CmpReferenceKeyControlBlockLockNotHeld @ 0x1408443F0 (CmpReferenceKeyControlBlockLockNotHeld.c)
- *     CmpReferenceKeyControlBlock @ 0x140845AD0 (CmpReferenceKeyControlBlock.c)
- *     CmpLockKcbExclusive @ 0x140870470 (CmpLockKcbExclusive.c)
- *     CmpDereferenceNameControlBlockWithLock @ 0x140870E00 (CmpDereferenceNameControlBlockWithLock.c)
- *     EtwpTraceRegistry @ 0x140870F40 (EtwpTraceRegistry.c)
- *     CmpGetNameControlBlock @ 0x140871120 (CmpGetNameControlBlock.c)
- *     HvpMarkCellDirty @ 0x140871600 (HvpMarkCellDirty.c)
- *     HvpGetCellFlat @ 0x140874470 (HvpGetCellFlat.c)
- *     HvpGetCellPaged @ 0x1408744C0 (HvpGetCellPaged.c)
- *     HvpGetCellContextInitialize @ 0x140875730 (HvpGetCellContextInitialize.c)
- *     HvpReleaseCellPaged @ 0x140875760 (HvpReleaseCellPaged.c)
- *     CmpConstructName @ 0x1408763E0 (CmpConstructName.c)
- *     HvpReleaseCellFlat @ 0x140884BB0 (HvpReleaseCellFlat.c)
- *     CmpDereferenceKeyControlBlockUnsafe @ 0x14099E750 (CmpDereferenceKeyControlBlockUnsafe.c)
- *     CmpFreeKeyControlBlock @ 0x1409D6920 (CmpFreeKeyControlBlock.c)
- *     CmpTryToLockKcbExclusive @ 0x1409E1B30 (CmpTryToLockKcbExclusive.c)
- *     CmpAllocateLayerInfoForKcb @ 0x140A00448 (CmpAllocateLayerInfoForKcb.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
- *     CmpUnlockKcb @ 0x140BB92C0 (CmpUnlockKcb.c)
- *     CmpAttachToRegistryProcess @ 0x140BB98E0 (CmpAttachToRegistryProcess.c)
- *     CmpDetachFromRegistryProcess @ 0x140BB9920 (CmpDetachFromRegistryProcess.c)
- *     CmLockHiveSecurityShared @ 0x140BB996C (CmLockHiveSecurityShared.c)
- *     CmUnlockHiveSecurity @ 0x140BB99C8 (CmUnlockHiveSecurity.c)
+ *     KeAbPostReleaseEx @ 0x14028D2F0 (KeAbPostReleaseEx.c)
+ *     ExfReleasePushLockShared @ 0x14028E410 (ExfReleasePushLockShared.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockSharedEx @ 0x14031F9EC (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     ExAllocateFromLookasideListEx @ 0x1403C9D30 (ExAllocateFromLookasideListEx.c)
+ *     CmpFindSecurityCellCacheIndex @ 0x140415340 (CmpFindSecurityCellCacheIndex.c)
+ *     CmpFreeTransientPoolWithTag @ 0x140438B90 (CmpFreeTransientPoolWithTag.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     RtlUpcaseUnicodeChar @ 0x1408404B0 (RtlUpcaseUnicodeChar.c)
+ *     CmpReferenceKeyControlBlockLockNotHeld @ 0x1408406B0 (CmpReferenceKeyControlBlockLockNotHeld.c)
+ *     CmpReferenceKeyControlBlock @ 0x140841D90 (CmpReferenceKeyControlBlock.c)
+ *     CmpLockKcbExclusive @ 0x1408747A0 (CmpLockKcbExclusive.c)
+ *     CmpDereferenceNameControlBlockWithLock @ 0x140875130 (CmpDereferenceNameControlBlockWithLock.c)
+ *     EtwpTraceRegistry @ 0x140875270 (EtwpTraceRegistry.c)
+ *     CmpGetNameControlBlock @ 0x140875450 (CmpGetNameControlBlock.c)
+ *     HvpMarkCellDirty @ 0x140875930 (HvpMarkCellDirty.c)
+ *     HvpGetCellFlat @ 0x1408787A0 (HvpGetCellFlat.c)
+ *     HvpGetCellPaged @ 0x1408787F0 (HvpGetCellPaged.c)
+ *     HvpGetCellContextInitialize @ 0x140879A60 (HvpGetCellContextInitialize.c)
+ *     HvpReleaseCellPaged @ 0x140879A90 (HvpReleaseCellPaged.c)
+ *     CmpConstructName @ 0x14087A710 (CmpConstructName.c)
+ *     HvpReleaseCellFlat @ 0x140888A60 (HvpReleaseCellFlat.c)
+ *     CmpDereferenceKeyControlBlockUnsafe @ 0x140987400 (CmpDereferenceKeyControlBlockUnsafe.c)
+ *     CmpFreeKeyControlBlock @ 0x1409C69A0 (CmpFreeKeyControlBlock.c)
+ *     CmpTryToLockKcbExclusive @ 0x1409DB8E0 (CmpTryToLockKcbExclusive.c)
+ *     CmpAllocateLayerInfoForKcb @ 0x1409FD420 (CmpAllocateLayerInfoForKcb.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
+ *     CmpUnlockKcb @ 0x140BBB2C0 (CmpUnlockKcb.c)
+ *     CmpAttachToRegistryProcess @ 0x140BBB8E0 (CmpAttachToRegistryProcess.c)
+ *     CmpDetachFromRegistryProcess @ 0x140BBB920 (CmpDetachFromRegistryProcess.c)
+ *     CmLockHiveSecurityShared @ 0x140BBB96C (CmLockHiveSecurityShared.c)
+ *     CmUnlockHiveSecurity @ 0x140BBB9C8 (CmUnlockHiveSecurity.c)
  */
 
 __int64 __fastcall CmpCreateKeyControlBlock(
@@ -86,7 +86,7 @@ __int64 __fastcall CmpCreateKeyControlBlock(
   __int64 v38; // rcx
   __int64 v39; // rbx
   signed __int64 *v40; // rbx
-  _QWORD *v41; // r15
+  char *v41; // r15
   ULONG_PTR v42; // rcx
   __int64 CellPaged; // rax
   ULONG_PTR v44; // rcx
@@ -271,11 +271,11 @@ LABEL_49:
   if ( (unsigned int)*v12 + v24 + 2 > 0xFFFF )
     return (unsigned int)-1073741811;
   _InterlockedIncrement64(&CmPerfCounters);
-  v29 = ExAllocateFromLookasideListEx(&CmpKcbLookaside);
+  v29 = ExAllocateFromLookasideListEx((PLOOKASIDE_LIST_EX)&CmpKcbLookaside);
   v30 = (ULONG_PTR)v29;
   if ( !v29 )
     return (unsigned int)-1073741670;
-  _InterlockedIncrement64(qword_140FD9430);
+  _InterlockedIncrement64(qword_140FDA440);
   memset_0(v29, 0, 0x138uLL);
   v31 = v78;
   v32 = v81;
@@ -333,11 +333,11 @@ LABEL_49:
         else
           HvpReleaseCellPaged(v38, &v77);
         v40 = (signed __int64 *)(*(_QWORD *)(v30 + 32) + 72LL);
-        v41 = KeAbPreAcquire((__int64)v40, 0LL);
+        v41 = (char *)KeAbPreAcquire((__int64)v40, 0LL);
         if ( _InterlockedCompareExchange64(v40, 17LL, 0LL) )
           ExfAcquirePushLockSharedEx(v40, 0, v41, (__int64)v40);
         if ( v41 )
-          *((_BYTE *)v41 + 10) = 1;
+          v41[10] = 1;
         v42 = *(_QWORD *)(v30 + 32);
         if ( (*(_BYTE *)(v42 + 140) & 1) != 0 )
           CellPaged = HvpGetCellFlat(v42, *(unsigned int *)(v30 + 40));
@@ -494,7 +494,7 @@ LABEL_86:
               if ( v54 == EtwpTraceRegistry )
                 EtwpTraceRegistry(0x16u, (__int64)v85, 0, 0, v30, (__int64)v56);
               else
-                guard_dispatch_icall_no_overrides(v55, v85, 0LL, 0LL);
+                guard_dispatch_icall_no_overrides(v55, v85);
               CmpFreeTransientPoolWithTag(v56, 0x624E4D43u);
             }
             CmpDetachFromRegistryProcess(&ApcState);

@@ -1,11 +1,11 @@
 /*
- * XREFs of MiGetPageSlist @ 0x1403D71D0
+ * XREFs of MiGetPageSlist @ 0x1403D73B0
  * Callers:
- *     MiGetFreeOrZeroPageAnyColor @ 0x1402E80D4 (MiGetFreeOrZeroPageAnyColor.c)
+ *     MiGetFreeOrZeroPageAnyColor @ 0x1402E8364 (MiGetFreeOrZeroPageAnyColor.c)
  * Callees:
- *     MiSetOriginalPtePfnFromFreeList @ 0x1402859D4 (MiSetOriginalPtePfnFromFreeList.c)
- *     RtlpInterlockedPopEntrySList @ 0x140428EB0 (RtlpInterlockedPopEntrySList.c)
- *     MiArePageContentsZero @ 0x14064D420 (MiArePageContentsZero.c)
+ *     MiSetOriginalPtePfnFromFreeList @ 0x140285C64 (MiSetOriginalPtePfnFromFreeList.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140429240 (RtlpInterlockedPopEntrySList.c)
+ *     MiArePageContentsZero @ 0x14064D970 (MiArePageContentsZero.c)
  */
 
 _QWORD *__fastcall MiGetPageSlist(__int64 a1, unsigned int a2, __int16 a3)
@@ -15,7 +15,7 @@ _QWORD *__fastcall MiGetPageSlist(__int64 a1, unsigned int a2, __int16 a3)
   int v5; // r12d
   unsigned int v7; // ebx
   int i; // esi
-  union _SLIST_HEADER *v9; // rcx
+  _SLIST_HEADER *v9; // rcx
   PSLIST_ENTRY v10; // rax
   _QWORD *p_Next; // r8
   __int64 v13; // [rsp+50h] [rbp+8h]
@@ -34,7 +34,7 @@ _QWORD *__fastcall MiGetPageSlist(__int64 a1, unsigned int a2, __int16 a3)
   {
     for ( i = *(_DWORD *)v4; ; i = *((_DWORD *)v4 + 1) )
     {
-      v9 = (union _SLIST_HEADER *)(16LL * v7 + *(_QWORD *)(a1 + 8LL * i + 6808));
+      v9 = (_SLIST_HEADER *)(16LL * v7 + *(_QWORD *)(a1 + 8LL * i + 6808));
       if ( LOWORD(v9->Alignment) )
       {
         v10 = RtlpInterlockedPopEntrySList(v9);

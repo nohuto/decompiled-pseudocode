@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpRemoveMicroarchitecturalPmcFromRegistry @ 0x1409E4CAC
+ * XREFs of EtwpRemoveMicroarchitecturalPmcFromRegistry @ 0x1409E4F3C
  * Callers:
- *     EtwSetPerformanceTraceInformation @ 0x1409E1E84 (EtwSetPerformanceTraceInformation.c)
+ *     EtwSetPerformanceTraceInformation @ 0x1409E2114 (EtwSetPerformanceTraceInformation.c)
  * Callees:
- *     EtwpFindMatchingPmcRegistryGroup @ 0x1409E3ED8 (EtwpFindMatchingPmcRegistryGroup.c)
- *     EtwpRemoveMicroarchitecturalPmcFromPmcGroup @ 0x1409E4A24 (EtwpRemoveMicroarchitecturalPmcFromPmcGroup.c)
+ *     EtwpFindMatchingPmcRegistryGroup @ 0x1409E4168 (EtwpFindMatchingPmcRegistryGroup.c)
+ *     EtwpRemoveMicroarchitecturalPmcFromPmcGroup @ 0x1409E4CB4 (EtwpRemoveMicroarchitecturalPmcFromPmcGroup.c)
  *     KiGetCpuVendor @ 0x140A888A0 (KiGetCpuVendor.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)

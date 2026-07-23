@@ -7,10 +7,10 @@
  *     _RtlAcquirePrivilege@16 @ 0x4B345D20 (_RtlAcquirePrivilege@16.c)
  */
 
-bool __thiscall AcquireDebugPrivilege(int *this)
+bool __thiscall AcquireDebugPrivilege(PVOID *ReturnedState)
 {
-  int v2; // [esp+4h] [ebp-4h] BYREF
+  ULONG Privilege; // [esp+4h] [ebp-4h] BYREF
 
-  v2 = 20;
-  return RtlAcquirePrivilege((int)&v2, 1u, 0, this) >= 0;
+  Privilege = 20;
+  return RtlAcquirePrivilege(&Privilege, 1u, 0, ReturnedState) >= 0;
 }

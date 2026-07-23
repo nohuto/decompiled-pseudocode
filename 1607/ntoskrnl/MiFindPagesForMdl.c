@@ -1,12 +1,12 @@
 /*
- * XREFs of MiFindPagesForMdl @ 0x14010404C
+ * XREFs of MiFindPagesForMdl @ 0x140101DCC
  * Callers:
- *     MiAllocatePagesForMdl @ 0x140104224 (MiAllocatePagesForMdl.c)
+ *     MiAllocatePagesForMdl @ 0x140101FA4 (MiAllocatePagesForMdl.c)
  * Callees:
- *     MiFindContiguousPages @ 0x1401044A0 (MiFindContiguousPages.c)
- *     MiAllocateMostlyContiguous @ 0x140105140 (MiAllocateMostlyContiguous.c)
- *     MiPfnZeroingNeeded @ 0x1401071D8 (MiPfnZeroingNeeded.c)
- *     MiAllocateMdlPagesByLists @ 0x14010F82C (MiAllocateMdlPagesByLists.c)
+ *     MiFindContiguousPages @ 0x140102220 (MiFindContiguousPages.c)
+ *     MiAllocateMostlyContiguous @ 0x140102EC0 (MiAllocateMostlyContiguous.c)
+ *     MiPfnZeroingNeeded @ 0x140104F58 (MiPfnZeroingNeeded.c)
+ *     MiAllocateMdlPagesByLists @ 0x14010FD90 (MiAllocateMdlPagesByLists.c)
  */
 
 __int64 __fastcall MiFindPagesForMdl(
@@ -73,7 +73,7 @@ __int64 __fastcall MiFindPagesForMdl(
   }
   if ( (v9 & 2) == 0 )
   {
-    v13 = (char *)qword_1403269A8 + 2 * a9 * (unsigned __int16)KeNumberNodes;
+    v13 = (char *)qword_1403269E8 + 2 * a9 * (unsigned __int16)KeNumberNodes;
     v40 = &v13[(unsigned __int16)KeNumberNodes];
 LABEL_3:
     if ( v13 != v35 )

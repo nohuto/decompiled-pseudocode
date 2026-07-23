@@ -1,26 +1,26 @@
 /*
- * XREFs of NtAllocateUuids @ 0x140A75270
+ * XREFs of NtAllocateUuids @ 0x140A7DF90
  * Callers:
- *     DifNtAllocateUuidsWrapper @ 0x14066B6D0 (DifNtAllocateUuidsWrapper.c)
+ *     DifNtAllocateUuidsWrapper @ 0x14066F2B0 (DifNtAllocateUuidsWrapper.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402BA1B0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     RtlCopyToUser @ 0x14077F284 (RtlCopyToUser.c)
- *     RtlReadULongFromUser @ 0x14077F590 (RtlReadULongFromUser.c)
- *     RtlWriteULong64ToUser @ 0x14077F758 (RtlWriteULong64ToUser.c)
- *     RtlWriteULongToUser @ 0x14077F7A0 (RtlWriteULongToUser.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408F29F0 (ExRaiseDatatypeMisalignment.c)
- *     ProbeForWrite @ 0x1408F5D00 (ProbeForWrite.c)
- *     ExpAllocateUuids @ 0x140A76DB0 (ExpAllocateUuids.c)
- *     ExpUuidSaveSequenceNumberIf @ 0x140A77BB0 (ExpUuidSaveSequenceNumberIf.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140304E70 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     RtlCopyToUser @ 0x140781D84 (RtlCopyToUser.c)
+ *     RtlReadULongFromUser @ 0x140782090 (RtlReadULongFromUser.c)
+ *     RtlWriteULong64ToUser @ 0x140782258 (RtlWriteULong64ToUser.c)
+ *     RtlWriteULongToUser @ 0x1407822A0 (RtlWriteULongToUser.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408F8FB0 (ExRaiseDatatypeMisalignment.c)
+ *     ProbeForWrite @ 0x140925C90 (ProbeForWrite.c)
+ *     ExpAllocateUuids @ 0x140A7FAD0 (ExpAllocateUuids.c)
+ *     ExpUuidSaveSequenceNumberIf @ 0x140A808D0 (ExpUuidSaveSequenceNumberIf.c)
  */
 
-__int64 __fastcall NtAllocateUuids(_QWORD *a1, unsigned int *a2, unsigned int *a3, struct _KLOCK_ENTRIES *a4)
+NTSTATUS __cdecl NtAllocateUuids(PULARGE_INTEGER Time, PULONG Range, PULONG Sequence, PCHAR Seed)
 {
   char PreviousMode; // di
   int ULongFromUser; // eax
@@ -30,13 +30,13 @@ __int64 __fastcall NtAllocateUuids(_QWORD *a1, unsigned int *a2, unsigned int *a
   void *v12; // rdx
   AutoBoost *v13; // r14
   __int64 v14; // rcx
-  int v15; // r14d
+  NTSTATUS v15; // r14d
   char v16; // r14
   __int64 v17; // rdx
   __int64 v19; // rdx
-  int v20; // [rsp+24h] [rbp-44h] BYREF
-  int v21[4]; // [rsp+28h] [rbp-40h] BYREF
-  __int64 v22[6]; // [rsp+38h] [rbp-30h] BYREF
+  ULONG v20; // [rsp+24h] [rbp-44h] BYREF
+  ULONG v21[4]; // [rsp+28h] [rbp-40h] BYREF
+  unsigned __int64 v22[6]; // [rsp+38h] [rbp-30h] BYREF
 
   v22[0] = 0LL;
   v20 = 0;
@@ -44,21 +44,21 @@ __int64 __fastcall NtAllocateUuids(_QWORD *a1, unsigned int *a2, unsigned int *a
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
   {
-    ProbeForWrite(a1, 8uLL, 4u);
-    if ( ((unsigned __int8)a2 & 3) != 0
-      || (ULongFromUser = RtlReadULongFromUser(a2),
-          RtlWriteULongToUser(a2, ULongFromUser),
-          ((unsigned __int8)a3 & 3) != 0) )
+    ProbeForWrite(Time, 8uLL, 4u);
+    if ( ((unsigned __int8)Range & 3) != 0
+      || (ULongFromUser = RtlReadULongFromUser(Range),
+          RtlWriteULongToUser(Range, ULongFromUser),
+          ((unsigned __int8)Sequence & 3) != 0) )
     {
       ExRaiseDatatypeMisalignment();
     }
-    v9 = RtlReadULongFromUser(a3);
-    RtlWriteULongToUser(a3, v9);
-    ProbeForWrite(a4, 6uLL, 1u);
+    v9 = RtlReadULongFromUser(Sequence);
+    RtlWriteULongToUser(Sequence, v9);
+    ProbeForWrite(Seed, 6uLL, 1u);
   }
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  v11 = (AutoBoost *)KeAbPreAcquire((__int64)&ExpUuidLock, 0LL, 0LL, a4);
+  v11 = (AutoBoost *)KeAbPreAcquire((__int64)&ExpUuidLock, 0LL, 0LL, (struct _KLOCK_ENTRIES *)Seed);
   v13 = v11;
   if ( _interlockedbittestandset64((volatile signed __int32 *)&ExpUuidLock, 0LL) )
     ExfAcquirePushLockExclusiveEx((unsigned __int64 *)&ExpUuidLock, v11, (__int64)&ExpUuidLock);
@@ -76,7 +76,7 @@ __int64 __fastcall NtAllocateUuids(_QWORD *a1, unsigned int *a2, unsigned int *a
       ExfTryToWakePushLock((volatile signed __int64 *)&ExpUuidLock.Header.Lock);
     KeAbPostRelease((unsigned __int64)&ExpUuidLock);
     KiLeaveCriticalRegionUnsafe((__int64)CurrentThread, v19);
-    return (unsigned int)v15;
+    return v15;
   }
   else
   {
@@ -87,21 +87,21 @@ __int64 __fastcall NtAllocateUuids(_QWORD *a1, unsigned int *a2, unsigned int *a
     KeAbPostRelease((unsigned __int64)&ExpUuidLock);
     KiLeaveCriticalRegionUnsafe((__int64)CurrentThread, v17);
     if ( PreviousMode )
-      RtlWriteULong64ToUser(a1, v22[0]);
+      RtlWriteULong64ToUser(Time, v22[0]);
     else
-      *a1 = v22[0];
+      *Time = (ULARGE_INTEGER)v22[0];
     if ( PreviousMode )
-      RtlWriteULongToUser(a2, v20);
+      RtlWriteULongToUser(Range, v20);
     else
-      *a2 = v20;
+      *Range = v20;
     if ( PreviousMode )
-      RtlWriteULongToUser(a3, v21[0]);
+      RtlWriteULongToUser(Sequence, v21[0]);
     else
-      *a3 = v21[0];
+      *Sequence = v21[0];
     if ( PreviousMode )
-      RtlCopyToUser(a4, &ExpPlatformBinaryLock.WaitBlockFill11[78], 6uLL);
+      RtlCopyToUser(Seed, &ExpPlatformBinaryLock.WaitBlockFill11[78], 6uLL);
     else
-      RtlCopyVolatileMemory(a4, &ExpPlatformBinaryLock.WaitBlockFill11[78], 6uLL);
+      RtlCopyVolatileMemory(Seed, &ExpPlatformBinaryLock.WaitBlockFill11[78], 6uLL);
     return v16 == 0 ? 0x40020056 : 0;
   }
 }

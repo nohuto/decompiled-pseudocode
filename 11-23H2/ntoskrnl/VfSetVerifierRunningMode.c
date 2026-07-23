@@ -1,7 +1,7 @@
 /*
- * XREFs of VfSetVerifierRunningMode @ 0x140ADAD6C
+ * XREFs of VfSetVerifierRunningMode @ 0x140ADAD5C
  * Callers:
- *     VfSetVerifierInformationEx @ 0x140ADD950 (VfSetVerifierInformationEx.c)
+ *     VfSetVerifierInformationEx @ 0x140ADD940 (VfSetVerifierInformationEx.c)
  *     ViInitSystemPhase0 @ 0x140B69A68 (ViInitSystemPhase0.c)
  * Callees:
  *     <none>

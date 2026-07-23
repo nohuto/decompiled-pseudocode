@@ -13,13 +13,13 @@
 
 size_t __cdecl wcsnlen(const wchar_t *Source, size_t MaxCount)
 {
-  size_t result; // eax
+  size_t result; // rax
 
-  for ( result = 0; result < MaxCount; ++Source )
+  for ( result = 0LL; (unsigned int)result < (unsigned int)MaxCount; ++Source )
   {
     if ( !*Source )
       break;
-    ++result;
+    LODWORD(result) = result + 1;
   }
   return result;
 }

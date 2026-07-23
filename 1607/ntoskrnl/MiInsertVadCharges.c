@@ -1,32 +1,32 @@
 /*
- * XREFs of MiInsertVadCharges @ 0x14042FE40
+ * XREFs of MiInsertVadCharges @ 0x14042ED10
  * Callers:
- *     MiDeletePartialVad @ 0x140095DC0 (MiDeletePartialVad.c)
- *     MiMapViewOfImageSection @ 0x140429AC0 (MiMapViewOfImageSection.c)
- *     MiAllocateVirtualMemory @ 0x140430E80 (MiAllocateVirtualMemory.c)
- *     MiMapViewOfDataSection @ 0x1404354C0 (MiMapViewOfDataSection.c)
- *     MiInsertProcessVads @ 0x14046D884 (MiInsertProcessVads.c)
- *     MiAllocateNewTebRegion @ 0x1404BA720 (MiAllocateNewTebRegion.c)
- *     MiAllocateChildVads @ 0x140527B80 (MiAllocateChildVads.c)
- *     MiMapLockedPagesInUserSpace @ 0x140528600 (MiMapLockedPagesInUserSpace.c)
- *     MiMapViewOfPhysicalSection @ 0x140572C40 (MiMapViewOfPhysicalSection.c)
- *     MmInitializeHandBuiltProcess2 @ 0x14057ED38 (MmInitializeHandBuiltProcess2.c)
- *     MiAllocateEnclaveVad @ 0x14065E4C4 (MiAllocateEnclaveVad.c)
+ *     MiDeletePartialVad @ 0x1400955C0 (MiDeletePartialVad.c)
+ *     MiMapViewOfImageSection @ 0x140428990 (MiMapViewOfImageSection.c)
+ *     MiAllocateVirtualMemory @ 0x14042FD50 (MiAllocateVirtualMemory.c)
+ *     MiMapViewOfDataSection @ 0x140434390 (MiMapViewOfDataSection.c)
+ *     MiInsertProcessVads @ 0x14046C754 (MiInsertProcessVads.c)
+ *     MiAllocateNewTebRegion @ 0x1404A6450 (MiAllocateNewTebRegion.c)
+ *     MiAllocateChildVads @ 0x14050ABE0 (MiAllocateChildVads.c)
+ *     MiMapLockedPagesInUserSpace @ 0x140528B40 (MiMapLockedPagesInUserSpace.c)
+ *     MiMapViewOfPhysicalSection @ 0x140573180 (MiMapViewOfPhysicalSection.c)
+ *     MmInitializeHandBuiltProcess2 @ 0x14057F1E4 (MmInitializeHandBuiltProcess2.c)
+ *     MiAllocateEnclaveVad @ 0x14065E5A8 (MiAllocateEnclaveVad.c)
  * Callees:
- *     PsReturnProcessPagedPoolQuota @ 0x140027B7C (PsReturnProcessPagedPoolQuota.c)
- *     RtlSetBits @ 0x140028420 (RtlSetBits.c)
- *     PsReturnProcessNonPagedPoolQuota @ 0x1400284C0 (PsReturnProcessNonPagedPoolQuota.c)
- *     PsChargeProcessNonPagedPoolQuota @ 0x140029BD0 (PsChargeProcessNonPagedPoolQuota.c)
- *     UNLOCK_PAGE_TABLE_COMMITMENT @ 0x140029D40 (UNLOCK_PAGE_TABLE_COMMITMENT.c)
- *     MiGetPteAddress @ 0x14002BA64 (MiGetPteAddress.c)
- *     MiVadPureReserve @ 0x14002BA90 (MiVadPureReserve.c)
- *     MiGetProcessPartition @ 0x14002BAF0 (MiGetProcessPartition.c)
- *     PspChargeQuota @ 0x14002BB90 (PspChargeQuota.c)
- *     LOCK_PAGE_TABLE_COMMITMENT @ 0x14002BF50 (LOCK_PAGE_TABLE_COMMITMENT.c)
- *     MiReturnResidentAvailable @ 0x14004F1E0 (MiReturnResidentAvailable.c)
- *     MiChargeResident @ 0x140103450 (MiChargeResident.c)
- *     MiCommitPageTablesForVad @ 0x140430A30 (MiCommitPageTablesForVad.c)
- *     MiResidentPagesForSpan @ 0x1404E730C (MiResidentPagesForSpan.c)
+ *     PsReturnProcessPagedPoolQuota @ 0x1400276FC (PsReturnProcessPagedPoolQuota.c)
+ *     RtlSetBits @ 0x140027FA0 (RtlSetBits.c)
+ *     PsReturnProcessNonPagedPoolQuota @ 0x140028040 (PsReturnProcessNonPagedPoolQuota.c)
+ *     PsChargeProcessNonPagedPoolQuota @ 0x140029750 (PsChargeProcessNonPagedPoolQuota.c)
+ *     UNLOCK_PAGE_TABLE_COMMITMENT @ 0x1400298C0 (UNLOCK_PAGE_TABLE_COMMITMENT.c)
+ *     MiGetPteAddress @ 0x14002B5E4 (MiGetPteAddress.c)
+ *     MiVadPureReserve @ 0x14002B610 (MiVadPureReserve.c)
+ *     MiGetProcessPartition @ 0x14002B670 (MiGetProcessPartition.c)
+ *     PspChargeQuota @ 0x14002B710 (PspChargeQuota.c)
+ *     LOCK_PAGE_TABLE_COMMITMENT @ 0x14002BAD0 (LOCK_PAGE_TABLE_COMMITMENT.c)
+ *     MiReturnResidentAvailable @ 0x14004ED60 (MiReturnResidentAvailable.c)
+ *     MiChargeResident @ 0x1401011D0 (MiChargeResident.c)
+ *     MiCommitPageTablesForVad @ 0x14042F900 (MiCommitPageTablesForVad.c)
+ *     MiResidentPagesForSpan @ 0x1404C9880 (MiResidentPagesForSpan.c)
  */
 
 __int64 __fastcall MiInsertVadCharges(__int64 a1, struct _KPROCESS *a2)
@@ -57,7 +57,7 @@ __int64 __fastcall MiInsertVadCharges(__int64 a1, struct _KPROCESS *a2)
   unsigned int v27; // ebx
   unsigned int v28; // esi
   __int64 i; // r14
-  struct _RTL_BITMAP *v30; // r10
+  _RTL_BITMAP *v30; // r10
   unsigned int v31; // eax
   unsigned int v32; // r9d
   int v33; // edi
@@ -135,12 +135,12 @@ LABEL_17:
           v19 >= 0) )
     {
       v25 = 0;
-      v26 = qword_140327F90;
+      v26 = qword_140327FD0;
       v27 = (*(_DWORD *)(a1 + 24) >> 4) | (*(unsigned __int8 *)(a1 + 32) << 28);
       v28 = (*(_DWORD *)(a1 + 28) >> 4) | (*(unsigned __int8 *)(a1 + 33) << 28);
       for ( i = 0LL; ; i += 40LL )
       {
-        v30 = (struct _RTL_BITMAP *)(i + v26);
+        v30 = (_RTL_BITMAP *)(i + v26);
         v31 = 8 * (*(_DWORD *)(i + v26 + 276840472) - v26);
         if ( v28 >= v31 )
         {
@@ -163,7 +163,7 @@ LABEL_17:
             RtlSetBits(v30 + 17302529, v34 - v31, v35 - v34 + 1);
             if ( !v33 )
               return 0LL;
-            v26 = qword_140327F90;
+            v26 = qword_140327FD0;
           }
         }
         if ( (unsigned int)++v25 >= 2 )

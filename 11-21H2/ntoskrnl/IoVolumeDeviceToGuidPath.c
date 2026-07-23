@@ -1,9 +1,9 @@
 /*
  * XREFs of IoVolumeDeviceToGuidPath @ 0x14068BA10
  * Callers:
- *     IopValidateJunctionTarget @ 0x14066119C (IopValidateJunctionTarget.c)
+ *     sub_14066119C @ 0x14066119C (sub_14066119C.c)
  *     IoVolumeDeviceToGuid @ 0x14068B980 (IoVolumeDeviceToGuid.c)
- *     CmpVolumeContextStart @ 0x140857634 (CmpVolumeContextStart.c)
+ *     sub_140857634 @ 0x140857634 (sub_140857634.c)
  * Callees:
  *     KeInitializeEvent @ 0x1402A7B90 (KeInitializeEvent.c)
  *     IofCallDriver @ 0x1402AC2D0 (IofCallDriver.c)

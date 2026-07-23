@@ -1,13 +1,13 @@
 /*
- * XREFs of HvlpSelectLpSet @ 0x1401BBDC8
+ * XREFs of HvlpSelectLpSet @ 0x1401BBCAC
  * Callers:
- *     HvlStartBootLogicalProcessors @ 0x140139734 (HvlStartBootLogicalProcessors.c)
+ *     HvlStartBootLogicalProcessors @ 0x140139CA4 (HvlStartBootLogicalProcessors.c)
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     HvlpComputeLpComparisonMetrics @ 0x1401BB4A0 (HvlpComputeLpComparisonMetrics.c)
- *     HvlpLpComparison @ 0x1401BBB3C (HvlpLpComparison.c)
- *     HvlpQueryApicIdAndNumaNode @ 0x1401BBC94 (HvlpQueryApicIdAndNumaNode.c)
- *     HviGetImplementationLimits @ 0x140231FC0 (HviGetImplementationLimits.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     HvlpComputeLpComparisonMetrics @ 0x1401BB384 (HvlpComputeLpComparisonMetrics.c)
+ *     HvlpLpComparison @ 0x1401BBA20 (HvlpLpComparison.c)
+ *     HvlpQueryApicIdAndNumaNode @ 0x1401BBB78 (HvlpQueryApicIdAndNumaNode.c)
+ *     HviGetImplementationLimits @ 0x140231DEC (HviGetImplementationLimits.c)
  */
 
 __int64 __fastcall HvlpSelectLpSet(unsigned int a1, __int64 a2)

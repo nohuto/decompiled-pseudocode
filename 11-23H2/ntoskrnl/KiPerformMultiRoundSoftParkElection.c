@@ -1,9 +1,9 @@
 /*
- * XREFs of KiPerformMultiRoundSoftParkElection @ 0x140410F98
+ * XREFs of KiPerformMultiRoundSoftParkElection @ 0x1404111A4
  * Callers:
- *     KiSoftParkElectionDpcRoutine @ 0x14057E250 (KiSoftParkElectionDpcRoutine.c)
+ *     KiSoftParkElectionDpcRoutine @ 0x14057E740 (KiSoftParkElectionDpcRoutine.c)
  * Callees:
- *     KiPerformHeteroSoftParkElection @ 0x14057E108 (KiPerformHeteroSoftParkElection.c)
+ *     KiPerformHeteroSoftParkElection @ 0x14057E5F8 (KiPerformHeteroSoftParkElection.c)
  */
 
 __int64 __fastcall KiPerformMultiRoundSoftParkElection(__int64 a1, __int64 a2)

@@ -1,11 +1,11 @@
 /*
- * XREFs of PopDiagTraceDirectedDripsNotifyAppsAndServices @ 0x14098E778
+ * XREFs of PopDiagTraceDirectedDripsNotifyAppsAndServices @ 0x14098E978
  * Callers:
- *     PopDirectedDripsNotifyAppsAndServices @ 0x1409839F4 (PopDirectedDripsNotifyAppsAndServices.c)
+ *     PopDirectedDripsNotifyAppsAndServices @ 0x140983BF4 (PopDirectedDripsNotifyAppsAndServices.c)
  * Callees:
- *     EtwWrite @ 0x1402578A0 (EtwWrite.c)
- *     EtwEventEnabled @ 0x140258420 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     EtwWrite @ 0x140257960 (EtwWrite.c)
+ *     EtwEventEnabled @ 0x1402584E0 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 char __fastcall PopDiagTraceDirectedDripsNotifyAppsAndServices(unsigned __int8 a1, __int64 a2, __int64 a3)

@@ -1,12 +1,12 @@
 /*
- * XREFs of HvcallpNoHypervisorPresent @ 0x1404E6190
+ * XREFs of HvcallpNoHypervisorPresent @ 0x1404DF730
  * Callers:
- *     KiLoadDirectoryTableBase @ 0x140247600 (KiLoadDirectoryTableBase.c)
- *     HvcallInitiateHypercall @ 0x14032BB00 (HvcallInitiateHypercall.c)
- *     HvlUpdatePerformanceStateCountersForLp @ 0x14032BD30 (HvlUpdatePerformanceStateCountersForLp.c)
- *     HvcallpExtendedFastHypercall @ 0x1407324F0 (HvcallpExtendedFastHypercall.c)
- *     HvpViewMapFreeView @ 0x1408B7E00 (HvpViewMapFreeView.c)
- *     HvpViewMapMakeViewRangeCOWByCaller @ 0x1408B93E8 (HvpViewMapMakeViewRangeCOWByCaller.c)
+ *     KiLoadDirectoryTableBase @ 0x140248F60 (KiLoadDirectoryTableBase.c)
+ *     HvcallInitiateHypercall @ 0x14032DB30 (HvcallInitiateHypercall.c)
+ *     HvlUpdatePerformanceStateCountersForLp @ 0x14032DD60 (HvlUpdatePerformanceStateCountersForLp.c)
+ *     HvcallpExtendedFastHypercall @ 0x1407370C0 (HvcallpExtendedFastHypercall.c)
+ *     HvpViewMapFreeView @ 0x1408BE3D0 (HvpViewMapFreeView.c)
+ *     HvpViewMapMakeViewRangeCOWByCaller @ 0x1408BF9B8 (HvpViewMapMakeViewRangeCOWByCaller.c)
  * Callees:
  *     <none>
  */

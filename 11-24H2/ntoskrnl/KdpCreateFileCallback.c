@@ -1,10 +1,10 @@
 /*
- * XREFs of KdpCreateFileCallback @ 0x140B76830
+ * XREFs of KdpCreateFileCallback @ 0x140B78830
  * Callers:
  *     <none>
  * Callees:
- *     DbgPrintEx @ 0x1402CB2F0 (DbgPrintEx.c)
- *     ZwCreateFile @ 0x1406A6EB0 (ZwCreateFile.c)
+ *     DbgPrintEx @ 0x140275B40 (DbgPrintEx.c)
+ *     ZwCreateFile @ 0x1406A7E50 (ZwCreateFile.c)
  */
 
 __int64 __fastcall KdpCreateFileCallback(__int64 a1, UNICODE_STRING *a2, LARGE_INTEGER a3)

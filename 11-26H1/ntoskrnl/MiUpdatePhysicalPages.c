@@ -1,17 +1,17 @@
 /*
- * XREFs of MiUpdatePhysicalPages @ 0x140709FC0
+ * XREFs of MiUpdatePhysicalPages @ 0x14070EC74
  * Callers:
- *     MiPerformMemoryChange @ 0x1406E9974 (MiPerformMemoryChange.c)
- *     MiInsertPartitionPageNodes @ 0x140708F28 (MiInsertPartitionPageNodes.c)
- *     MiMergePageNodes @ 0x1407090F4 (MiMergePageNodes.c)
- *     MiMoveBadPagePartition @ 0x1407093D4 (MiMoveBadPagePartition.c)
- *     MiPartitionDeleteMemoryNode @ 0x1407094E0 (MiPartitionDeleteMemoryNode.c)
- *     MiRemovePartitionPages @ 0x14070967C (MiRemovePartitionPages.c)
- *     MiTransferPartitionPageRun @ 0x140709A80 (MiTransferPartitionPageRun.c)
- *     MiCreateDynamicPfns @ 0x140865E98 (MiCreateDynamicPfns.c)
+ *     MiPerformMemoryChange @ 0x1406EE614 (MiPerformMemoryChange.c)
+ *     MiInsertPartitionPageNodes @ 0x14070DBDC (MiInsertPartitionPageNodes.c)
+ *     MiMergePageNodes @ 0x14070DDA8 (MiMergePageNodes.c)
+ *     MiMoveBadPagePartition @ 0x14070E088 (MiMoveBadPagePartition.c)
+ *     MiPartitionDeleteMemoryNode @ 0x14070E194 (MiPartitionDeleteMemoryNode.c)
+ *     MiRemovePartitionPages @ 0x14070E330 (MiRemovePartitionPages.c)
+ *     MiTransferPartitionPageRun @ 0x14070E734 (MiTransferPartitionPageRun.c)
+ *     MiCreateDynamicPfns @ 0x14086C278 (MiCreateDynamicPfns.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
  */
 
 void __fastcall MiUpdatePhysicalPages(__int64 a1, __int64 a2, int a3)

@@ -5,7 +5,7 @@
  *     IopInitializeBootDrivers @ 0x140B3CEB4 (IopInitializeBootDrivers.c)
  *     PipCheckDependencies @ 0x140B3E238 (PipCheckDependencies.c)
  * Callees:
- *     RtlEqualUnicodeString @ 0x1406DA2F0 (RtlEqualUnicodeString.c)
+ *     RtlEqualUnicodeString @ 0x1406DA320 (RtlEqualUnicodeString.c)
  *     PipCreateEntry @ 0x140B3E398 (PipCreateEntry.c)
  */
 

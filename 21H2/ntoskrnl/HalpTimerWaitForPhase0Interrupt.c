@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpTimerWaitForPhase0Interrupt @ 0x1403A8560
+ * XREFs of HalpTimerWaitForPhase0Interrupt @ 0x1403A92F0
  * Callers:
- *     HalpTimerInitializeClock @ 0x1403A8454 (HalpTimerInitializeClock.c)
+ *     HalpTimerInitializeClock @ 0x1403A91E4 (HalpTimerInitializeClock.c)
  * Callees:
- *     KeStallExecutionProcessor @ 0x14022A880 (KeStallExecutionProcessor.c)
- *     HalpProcessorFence @ 0x1403F9CC0 (HalpProcessorFence.c)
+ *     KeStallExecutionProcessor @ 0x1402CF130 (KeStallExecutionProcessor.c)
+ *     HalpProcessorFence @ 0x1403F9EA0 (HalpProcessorFence.c)
  */
 
 char __fastcall HalpTimerWaitForPhase0Interrupt(__int64 a1)

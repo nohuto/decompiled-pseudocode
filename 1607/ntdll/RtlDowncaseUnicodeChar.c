@@ -1,23 +1,25 @@
 /*
- * XREFs of RtlDowncaseUnicodeChar @ 0x1800E3190
+ * XREFs of RtlDowncaseUnicodeChar @ 0x1800E3250
  * Callers:
- *     RtlFindCharInUnicodeString @ 0x18001A5F0 (RtlFindCharInUnicodeString.c)
+ *     RtlFindCharInUnicodeString @ 0x18001A5E0 (RtlFindCharInUnicodeString.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall RtlDowncaseUnicodeChar(unsigned __int16 a1)
+WCHAR __cdecl RtlDowncaseUnicodeChar(WCHAR SourceCharacter)
 {
-  if ( a1 < 0x41u )
-    return a1;
-  if ( a1 > 0x5Au )
-    return (unsigned __int16)(a1
-                            + *(_WORD *)(Nls844UnicodeLowercaseTable
-                                       + 2LL
-                                       * ((a1 & 0xF)
-                                        + (unsigned int)*(unsigned __int16 *)(Nls844UnicodeLowercaseTable
-                                                                            + 2LL
-                                                                            * (((a1 >> 4) & 0xF)
-                                                                             + (unsigned int)*(unsigned __int16 *)(Nls844UnicodeLowercaseTable + 2 * ((unsigned __int64)a1 >> 8)))))));
-  return (unsigned int)a1 + 32;
+  if ( SourceCharacter < 0x41u )
+    return SourceCharacter;
+  if ( SourceCharacter > 0x5Au )
+    return SourceCharacter
+         + *(_WORD *)(Nls844UnicodeLowercaseTable
+                    + 2LL
+                    * ((SourceCharacter & 0xF)
+                     + (unsigned int)*(unsigned __int16 *)(Nls844UnicodeLowercaseTable
+                                                         + 2LL
+                                                         * (((SourceCharacter >> 4) & 0xF)
+                                                          + (unsigned int)*(unsigned __int16 *)(Nls844UnicodeLowercaseTable
+                                                                                              + 2
+                                                                                              * ((unsigned __int64)SourceCharacter >> 8))))));
+  return SourceCharacter + 32;
 }

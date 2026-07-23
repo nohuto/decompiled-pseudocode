@@ -6,7 +6,7 @@
  *     <none>
  */
 
-__int64 __fastcall RtlRemoveVectoredExceptionHandler(__int64 a1)
+ULONG __cdecl RtlRemoveVectoredExceptionHandler(PVOID Handle)
 {
-  return sub_180080EC0(a1, 0LL);
+  return sub_180080EC0(Handle, 0LL);
 }

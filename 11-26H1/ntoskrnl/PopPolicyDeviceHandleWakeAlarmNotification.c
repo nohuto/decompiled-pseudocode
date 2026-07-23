@@ -1,21 +1,21 @@
 /*
- * XREFs of PopPolicyDeviceHandleWakeAlarmNotification @ 0x1407D7814
+ * XREFs of PopPolicyDeviceHandleWakeAlarmNotification @ 0x1407DAE34
  * Callers:
- *     PopNotifyPolicyDevice @ 0x1407D7760 (PopNotifyPolicyDevice.c)
+ *     PopNotifyPolicyDevice @ 0x1407DAD80 (PopNotifyPolicyDevice.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     IofCallDriver @ 0x1402655A0 (IofCallDriver.c)
- *     IoBuildDeviceIoControlRequest @ 0x14026B150 (IoBuildDeviceIoControlRequest.c)
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     KeInitializeEvent @ 0x140466F30 (KeInitializeEvent.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     IoGetDeviceObjectPointer @ 0x140908800 (IoGetDeviceObjectPointer.c)
- *     PopChangeCapability @ 0x140943114 (PopChangeCapability.c)
- *     EmClientQueryRuleState @ 0x140C03950 (EmClientQueryRuleState.c)
- *     PopAcquirePolicyLock @ 0x140C04BF0 (PopAcquirePolicyLock.c)
- *     PopReleasePolicyLock @ 0x140C04C40 (PopReleasePolicyLock.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     IofCallDriver @ 0x140264B10 (IofCallDriver.c)
+ *     IoBuildDeviceIoControlRequest @ 0x14026A6C0 (IoBuildDeviceIoControlRequest.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     KeInitializeEvent @ 0x140460680 (KeInitializeEvent.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     PopChangeCapability @ 0x1409BEA8C (PopChangeCapability.c)
+ *     IoGetDeviceObjectPointer @ 0x140A30960 (IoGetDeviceObjectPointer.c)
+ *     EmClientQueryRuleState @ 0x140C09B60 (EmClientQueryRuleState.c)
+ *     PopAcquirePolicyLock @ 0x140C0AE00 (PopAcquirePolicyLock.c)
+ *     PopReleasePolicyLock @ 0x140C0AE50 (PopReleasePolicyLock.c)
  */
 
 __int64 __fastcall PopPolicyDeviceHandleWakeAlarmNotification(__int64 a1)
@@ -123,7 +123,7 @@ LABEL_11:
       v29 = 0LL;
       v30 = 0;
     }
-    if ( (unsigned int)dword_140E07598 > 5 && tlgKeywordOn((__int64)&dword_140E07598, 0x400000000000LL) )
+    if ( (unsigned int)dword_140E07560 > 5 && tlgKeywordOn((__int64)&dword_140E07560, 0x400000000000LL) )
     {
       LODWORD(DeviceObject) = v8;
       v32 = &v23;
@@ -158,8 +158,8 @@ LABEL_11:
       *(_QWORD *)&Event.Header.Lock = 0x1000000LL;
       v55 = 8LL;
       tlgWriteTransfer_EtwWriteTransfer(
-        (__int64)&dword_140E07598,
-        (unsigned __int8 *)byte_14004D1B5,
+        (__int64)&dword_140E07560,
+        (unsigned __int8 *)byte_14004D8DB,
         0LL,
         0LL,
         0xEu,
@@ -172,18 +172,18 @@ LABEL_11:
     v10 = *(_QWORD *)(a1 + 12) - *(_QWORD *)GUID_DEVICE_INTERFACE_REMOVAL.Data4;
   if ( !v10 || v4 )
   {
-    PopChangeCapability(&stru_140F10828.WaitBlockFill11[43], 0LL);
+    PopChangeCapability((char *)&PpmIdlePolicyLock.Padding[3] + 3, 0LL);
     v15 = 0LL;
     v16 = 0;
   }
   else
   {
     LOBYTE(v9) = 1;
-    PopChangeCapability(&stru_140F10828.WaitBlockFill11[43], v9);
+    PopChangeCapability((char *)&PpmIdlePolicyLock.Padding[3] + 3, v9);
     v15 = v29;
     v16 = v30;
   }
-  *((_DWORD *)&PopWeakChargerLock.SwapListEntry + 2) = v16;
-  *(_OWORD *)&PopWeakChargerLock.WaitBlockList = v15;
+  dword_140F0D290 = v16;
+  PopAcpiTimeAndAlarmCapabilities = v15;
   return PopReleasePolicyLock(v12, v11, v13, v14, OutputBuffer);
 }

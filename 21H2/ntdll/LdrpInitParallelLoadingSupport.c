@@ -1,7 +1,7 @@
 /*
  * XREFs of LdrpInitParallelLoadingSupport @ 0x18007EAF0
  * Callers:
- *     LdrpInitializeProcess @ 0x1800D1EC0 (LdrpInitializeProcess.c)
+ *     LdrpInitializeProcess @ 0x1800D1E80 (LdrpInitializeProcess.c)
  * Callees:
  *     RtlInitializeCriticalSectionEx @ 0x180020BC0 (RtlInitializeCriticalSectionEx.c)
  */
@@ -12,6 +12,6 @@ __int64 LdrpInitParallelLoadingSupport()
   LdrpWorkQueue = (__int64)&LdrpWorkQueue;
   qword_18016C3A8 = (__int64)&LdrpRetryQueue;
   LdrpRetryQueue = (__int64)&LdrpRetryQueue;
-  RtlInitializeCriticalSectionEx((__int64)&LdrpWorkQueueLock, 0LL, 0);
+  RtlInitializeCriticalSectionEx(&LdrpWorkQueueLock, 0, 0);
   return LdrpCreateLoaderEvents();
 }

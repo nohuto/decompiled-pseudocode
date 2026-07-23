@@ -1,12 +1,12 @@
 /*
- * XREFs of MiPageAttributeBatchChangeNeeded @ 0x1402F9B74
+ * XREFs of MiPageAttributeBatchChangeNeeded @ 0x1402F9E04
  * Callers:
- *     MiUpdateCacheAttributeListsForPage @ 0x1402F9B08 (MiUpdateCacheAttributeListsForPage.c)
- *     MiConvertContiguousPages @ 0x1403BDAD0 (MiConvertContiguousPages.c)
- *     MiSwitchToTransition @ 0x14063318C (MiSwitchToTransition.c)
+ *     MiUpdateCacheAttributeListsForPage @ 0x1402F9D98 (MiUpdateCacheAttributeListsForPage.c)
+ *     MiConvertContiguousPages @ 0x1403BDCB0 (MiConvertContiguousPages.c)
+ *     MiSwitchToTransition @ 0x1406336DC (MiSwitchToTransition.c)
  * Callees:
  *     MiTbFlushTimeStampMayNeedFlush @ 0x14021E394 (MiTbFlushTimeStampMayNeedFlush.c)
- *     MiChangePageAttribute @ 0x14036F3BC (MiChangePageAttribute.c)
+ *     MiChangePageAttribute @ 0x14036F55C (MiChangePageAttribute.c)
  */
 
 __int64 __fastcall MiPageAttributeBatchChangeNeeded(__int64 a1, __int64 a2)

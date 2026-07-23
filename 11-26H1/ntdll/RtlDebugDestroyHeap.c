@@ -1,18 +1,18 @@
 /*
- * XREFs of RtlDebugDestroyHeap @ 0x18011FBB4
+ * XREFs of RtlDebugDestroyHeap @ 0x18011F964
  * Callers:
- *     RtlDestroyHeap @ 0x18007EAC0 (RtlDestroyHeap.c)
+ *     RtlDestroyHeap @ 0x18006D090 (RtlDestroyHeap.c)
  * Callees:
- *     RtlpCheckHeapSignature @ 0x180014E10 (RtlpCheckHeapSignature.c)
- *     RtlpValidateHeap @ 0x180014EB8 (RtlpValidateHeap.c)
- *     DbgPrint @ 0x180025720 (DbgPrint.c)
- *     RtlpSecMemFreeVirtualMemory @ 0x18007F200 (RtlpSecMemFreeVirtualMemory.c)
+ *     DbgPrint @ 0x1800107F0 (DbgPrint.c)
+ *     RtlpCheckHeapSignature @ 0x180060540 (RtlpCheckHeapSignature.c)
+ *     RtlpValidateHeap @ 0x1800605E8 (RtlpValidateHeap.c)
+ *     RtlpSecMemFreeVirtualMemory @ 0x18006D540 (RtlpSecMemFreeVirtualMemory.c)
  */
 
-char __fastcall RtlDebugDestroyHeap(__int64 a1)
+char __fastcall RtlDebugDestroyHeap(unsigned __int64 a1)
 {
   __int64 v3; // rcx
-  __int64 v4; // [rsp+30h] [rbp+8h] BYREF
+  ULONG_PTR v4; // [rsp+30h] [rbp+8h] BYREF
 
   if ( (void *)a1 == NtCurrentPeb()->ProcessHeap )
   {
@@ -29,7 +29,7 @@ char __fastcall RtlDebugDestroyHeap(__int64 a1)
   if ( *(_QWORD *)(a1 + 216) )
   {
     v4 = 0LL;
-    RtlpSecMemFreeVirtualMemory(v3, (__int64 *)(a1 + 216), &v4, 0x8000LL);
+    RtlpSecMemFreeVirtualMemory(v3, (PVOID *)(a1 + 216), &v4, 0x8000u);
   }
   return 1;
 }

@@ -7,7 +7,7 @@
  *     sub_1800E51B0 @ 0x1800E51B0 (sub_1800E51B0.c)
  */
 
-char __fastcall sub_1800E5164(unsigned __int8 *a1, unsigned __int8 *a2, _WORD *a3, _WORD *a4)
+char __fastcall sub_1800E5164(unsigned __int8 *a1, unsigned __int8 *a2, void *a3, void *a4)
 {
   char v4; // r11
 

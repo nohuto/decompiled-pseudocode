@@ -1,27 +1,27 @@
 /*
- * XREFs of KeTerminateThread @ 0x14030A568
+ * XREFs of KeTerminateThread @ 0x14030A7F8
  * Callers:
- *     PspExitThread @ 0x14076DA2C (PspExitThread.c)
+ *     PspExitThread @ 0x14076DC1C (PspExitThread.c)
  * Callees:
  *     KiRemoveThreadFromSchedulingGroup @ 0x140204C14 (KiRemoveThreadFromSchedulingGroup.c)
- *     KiTryUnwaitThread @ 0x140238CD0 (KiTryUnwaitThread.c)
- *     KiSwapThread @ 0x14023F3F0 (KiSwapThread.c)
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     KiAcquireKobjectLockSafe @ 0x140252030 (KiAcquireKobjectLockSafe.c)
- *     KiProcessThreadWaitList @ 0x140253DC0 (KiProcessThreadWaitList.c)
- *     KiInsertQueueDpc @ 0x140254790 (KiInsertQueueDpc.c)
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14028A930 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14029CBD0 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
- *     KiWakeQueueWaiter @ 0x1402B8780 (KiWakeQueueWaiter.c)
- *     ExQueueWorkItemEx @ 0x14030B2B0 (ExQueueWorkItemEx.c)
- *     KiActivateWaiterQueueWithNoLocks @ 0x14030B448 (KiActivateWaiterQueueWithNoLocks.c)
- *     KiWakeOtherQueueWaiters @ 0x14031AC98 (KiWakeOtherQueueWaiters.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     KeIsThreadRunning @ 0x14056EDD0 (KeIsThreadRunning.c)
- *     KeDisableProfiling @ 0x140573E38 (KeDisableProfiling.c)
- *     EtwTraceEnqueueWork @ 0x1405FCD0C (EtwTraceEnqueueWork.c)
+ *     KiTryUnwaitThread @ 0x140238DA0 (KiTryUnwaitThread.c)
+ *     KiSwapThread @ 0x14023F4C0 (KiSwapThread.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     KiAcquireKobjectLockSafe @ 0x1402520F0 (KiAcquireKobjectLockSafe.c)
+ *     KiProcessThreadWaitList @ 0x140253E80 (KiProcessThreadWaitList.c)
+ *     KiInsertQueueDpc @ 0x140254850 (KiInsertQueueDpc.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14028ABC0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14029CE60 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     KiWakeQueueWaiter @ 0x1402B8A10 (KiWakeQueueWaiter.c)
+ *     ExQueueWorkItemEx @ 0x14030B540 (ExQueueWorkItemEx.c)
+ *     KiActivateWaiterQueueWithNoLocks @ 0x14030B6D8 (KiActivateWaiterQueueWithNoLocks.c)
+ *     KiWakeOtherQueueWaiters @ 0x14031AF28 (KiWakeOtherQueueWaiters.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     KeIsThreadRunning @ 0x14056F310 (KeIsThreadRunning.c)
+ *     KeDisableProfiling @ 0x140574378 (KeDisableProfiling.c)
+ *     EtwTraceEnqueueWork @ 0x1405FD27C (EtwTraceEnqueueWork.c)
  */
 
 struct _KPRCB *__fastcall KeTerminateThread(ULONG_PTR BugCheckParameter1)
@@ -75,7 +75,7 @@ struct _KPRCB *__fastcall KeTerminateThread(ULONG_PTR BugCheckParameter1)
   *(_BYTE *)(BugCheckParameter1 + 643) = 22;
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 2 )
@@ -135,7 +135,7 @@ LABEL_32:
       *(_QWORD *)v21 = 0LL;
       v27 = KeGetCurrentIrql();
       __writecr8(2uLL);
-      if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v27 <= 0xFu )
+      if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v27 <= 0xFu )
       {
         v34 = KeGetCurrentPrcb()->SchedulerAssist;
         if ( v27 == 2 )
@@ -209,7 +209,7 @@ LABEL_50:
   while ( v15 != v16 );
   if ( v15 )
   {
-    if ( qword_140C382F8 && _interlockedbittestandreset((volatile signed __int32 *)&qword_140C382F8, 0) )
+    if ( qword_140C38298 && _interlockedbittestandreset((volatile signed __int32 *)&qword_140C38298, 0) )
     {
       v17 = 0xFFFFLL;
       goto LABEL_20;
@@ -220,7 +220,7 @@ LABEL_50:
     v17 = 0xFFFFFFFFLL;
 LABEL_20:
     if ( !(unsigned __int8)ExQueueWorkItemEx(&PsReaperWorkItem, 2LL, v17) )
-      _interlockedbittestandset((volatile signed __int32 *)&qword_140C382F8, 0);
+      _interlockedbittestandset((volatile signed __int32 *)&qword_140C38298, 0);
   }
   _InterlockedOr(v36, 0);
   if ( *(_QWORD *)(BugCheckParameter1 + 64) )
@@ -234,5 +234,5 @@ LABEL_20:
     }
     *(_QWORD *)(BugCheckParameter1 + 64) = 0LL;
   }
-  return KiSwapThread(BugCheckParameter1, (__int64)CurrentPrcb, 0LL, v11);
+  return KiSwapThread(BugCheckParameter1, (ULONG_PTR)CurrentPrcb, 0LL, v11);
 }

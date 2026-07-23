@@ -1,16 +1,16 @@
 /*
- * XREFs of IopLiveDumpReleaseResources @ 0x140820390
+ * XREFs of IopLiveDumpReleaseResources @ 0x140821590
  * Callers:
- *     DbgkpWerCleanupContext @ 0x140812A10 (DbgkpWerCleanupContext.c)
- *     IoCaptureLiveDump @ 0x14081EF84 (IoCaptureLiveDump.c)
- *     IoWriteDeferredLiveDumpData @ 0x14081F568 (IoWriteDeferredLiveDumpData.c)
- *     IopLiveDumpAllocAndInitResources @ 0x14081F700 (IopLiveDumpAllocAndInitResources.c)
+ *     DbgkpWerCleanupContext @ 0x140813C10 (DbgkpWerCleanupContext.c)
+ *     IoCaptureLiveDump @ 0x140820184 (IoCaptureLiveDump.c)
+ *     IoWriteDeferredLiveDumpData @ 0x140820768 (IoWriteDeferredLiveDumpData.c)
+ *     IopLiveDumpAllocAndInitResources @ 0x140820900 (IopLiveDumpAllocAndInitResources.c)
  * Callees:
  *     MmFreeIndependentPages @ 0x140001010 (MmFreeIndependentPages.c)
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     IopLiveDumpFreeDumpBuffers @ 0x140820038 (IopLiveDumpFreeDumpBuffers.c)
- *     IopLiveDumpFreeMappingResources @ 0x1408200D0 (IopLiveDumpFreeMappingResources.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     IopLiveDumpFreeDumpBuffers @ 0x140821238 (IopLiveDumpFreeDumpBuffers.c)
+ *     IopLiveDumpFreeMappingResources @ 0x1408212D0 (IopLiveDumpFreeMappingResources.c)
  */
 
 void __fastcall IopLiveDumpReleaseResources(__int64 a1)

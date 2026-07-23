@@ -21,7 +21,7 @@ struct _KPRCB *__fastcall PopRestoreHiberContext(ULONG_PTR BugCheckParameter3)
   struct _KPRCB *result; // rax
   __int64 Number; // rdi
   unsigned __int64 v4; // r15
-  _QWORD *v5; // r13
+  __int64 v5; // r13
   unsigned __int64 v6; // rsi
   unsigned __int64 v7; // rax
   __int64 v8; // r12
@@ -65,8 +65,8 @@ struct _KPRCB *__fastcall PopRestoreHiberContext(ULONG_PTR BugCheckParameter3)
   if ( (unsigned int)Number < *(_DWORD *)(BugCheckParameter3 + 288) )
   {
     v4 = 0LL;
-    v5 = (_QWORD *)(*(_QWORD *)(BugCheckParameter3 + 296) + 168 * Number);
-    v5[10] = 0LL;
+    v5 = *(_QWORD *)(BugCheckParameter3 + 296) + 168 * Number;
+    *(_QWORD *)(v5 + 80) = 0LL;
     if ( (_DWORD)Number == *(_DWORD *)(BugCheckParameter3 + 208) )
     {
       byte_140E65B50 = 0;

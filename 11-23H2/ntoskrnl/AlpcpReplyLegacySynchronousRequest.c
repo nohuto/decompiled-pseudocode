@@ -1,24 +1,24 @@
 /*
- * XREFs of AlpcpReplyLegacySynchronousRequest @ 0x14071B5F8
+ * XREFs of AlpcpReplyLegacySynchronousRequest @ 0x14071B7F8
  * Callers:
- *     NtReplyWaitReceivePortEx @ 0x14071BA30 (NtReplyWaitReceivePortEx.c)
- *     NtReplyPort @ 0x1407D7A20 (NtReplyPort.c)
+ *     NtReplyWaitReceivePortEx @ 0x14071BC30 (NtReplyWaitReceivePortEx.c)
+ *     NtReplyPort @ 0x1407D7CF0 (NtReplyPort.c)
  * Callees:
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KeReleaseSemaphoreEx @ 0x1402B71A0 (KeReleaseSemaphoreEx.c)
- *     ExfReleasePushLockShared @ 0x1402BD860 (ExfReleasePushLockShared.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     AlpcpProbeAndCaptureMessageHeader @ 0x14071B134 (AlpcpProbeAndCaptureMessageHeader.c)
- *     AlpcpUnlockMessage @ 0x14071BEB8 (AlpcpUnlockMessage.c)
- *     AlpcpValidateMessage @ 0x14071BFA8 (AlpcpValidateMessage.c)
- *     AlpcpSetOwnerPortMessage @ 0x14071BFF4 (AlpcpSetOwnerPortMessage.c)
- *     AlpcpClearOwnerPortMessage @ 0x14071C028 (AlpcpClearOwnerPortMessage.c)
- *     AlpcpRemoveMessageFromPendingQueue @ 0x14071C05C (AlpcpRemoveMessageFromPendingQueue.c)
- *     AlpcpLookupMessage @ 0x1407388B0 (AlpcpLookupMessage.c)
- *     AlpcpCaptureMessageData @ 0x14073AA20 (AlpcpCaptureMessageData.c)
- *     AlpcpCancelMessage @ 0x14077920C (AlpcpCancelMessage.c)
- *     AlpcpValidateDataInformation @ 0x140978F9C (AlpcpValidateDataInformation.c)
+ *     ExAcquirePushLockSharedEx @ 0x140230E80 (ExAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     KeReleaseSemaphoreEx @ 0x1402B7430 (KeReleaseSemaphoreEx.c)
+ *     ExfReleasePushLockShared @ 0x1402BDAF0 (ExfReleasePushLockShared.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     AlpcpProbeAndCaptureMessageHeader @ 0x14071B334 (AlpcpProbeAndCaptureMessageHeader.c)
+ *     AlpcpUnlockMessage @ 0x14071C0B8 (AlpcpUnlockMessage.c)
+ *     AlpcpValidateMessage @ 0x14071C1A8 (AlpcpValidateMessage.c)
+ *     AlpcpSetOwnerPortMessage @ 0x14071C1F4 (AlpcpSetOwnerPortMessage.c)
+ *     AlpcpClearOwnerPortMessage @ 0x14071C228 (AlpcpClearOwnerPortMessage.c)
+ *     AlpcpRemoveMessageFromPendingQueue @ 0x14071C25C (AlpcpRemoveMessageFromPendingQueue.c)
+ *     AlpcpLookupMessage @ 0x140738AA0 (AlpcpLookupMessage.c)
+ *     AlpcpCaptureMessageData @ 0x14073AC10 (AlpcpCaptureMessageData.c)
+ *     AlpcpCancelMessage @ 0x1407793FC (AlpcpCancelMessage.c)
+ *     AlpcpValidateDataInformation @ 0x14097919C (AlpcpValidateDataInformation.c)
  */
 
 __int64 __fastcall AlpcpReplyLegacySynchronousRequest(__int64 *a1, unsigned __int64 a2, char a3)

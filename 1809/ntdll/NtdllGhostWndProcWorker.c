@@ -1,5 +1,5 @@
 /*
- * XREFs of NtdllGhostWndProcWorker @ 0x1800A02C0
+ * XREFs of NtdllGhostWndProcWorker @ 0x1800A02E0
  * Callers:
  *     <none>
  * Callees:

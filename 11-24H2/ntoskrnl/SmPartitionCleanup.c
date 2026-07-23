@@ -1,18 +1,18 @@
 /*
- * XREFs of SmPartitionCleanup @ 0x140797594
+ * XREFs of SmPartitionCleanup @ 0x1407976A4
  * Callers:
- *     SmDeletePartition @ 0x140797340 (SmDeletePartition.c)
- *     SmCreatePartition @ 0x140A3ECF4 (SmCreatePartition.c)
+ *     SmDeletePartition @ 0x140797450 (SmDeletePartition.c)
+ *     SmCreatePartition @ 0x140A34664 (SmCreatePartition.c)
  * Callees:
- *     SmKmStoreDereference @ 0x14027A498 (SmKmStoreDereference.c)
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     SmFpCleanup @ 0x14037E384 (SmFpCleanup.c)
- *     MmStoreReleaseResidentAvailableForRead @ 0x14044FDE4 (MmStoreReleaseResidentAvailableForRead.c)
- *     CmSiFreeMemory @ 0x14046B8D0 (CmSiFreeMemory.c)
- *     ?SmCleanup@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x140609FD4 (-SmCleanup@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@@Z.c)
- *     SmTerminateStoreProcess @ 0x14060CB08 (SmTerminateStoreProcess.c)
- *     SmpKeyedStoreCtxCleanup @ 0x14060CBD4 (SmpKeyedStoreCtxCleanup.c)
- *     SmHwAcceleratorPartitionMgrCleanup @ 0x14079CB7C (SmHwAcceleratorPartitionMgrCleanup.c)
+ *     SmKmStoreDereference @ 0x14022FA28 (SmKmStoreDereference.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     SmFpCleanup @ 0x1403780A4 (SmFpCleanup.c)
+ *     MmStoreReleaseResidentAvailableForRead @ 0x140445054 (MmStoreReleaseResidentAvailableForRead.c)
+ *     CmSiFreeMemory @ 0x140464550 (CmSiFreeMemory.c)
+ *     ?SmCleanup@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x140608594 (-SmCleanup@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@@Z.c)
+ *     SmTerminateStoreProcess @ 0x14060B0C8 (SmTerminateStoreProcess.c)
+ *     SmpKeyedStoreCtxCleanup @ 0x14060B194 (SmpKeyedStoreCtxCleanup.c)
+ *     SmHwAcceleratorPartitionMgrCleanup @ 0x14079CC8C (SmHwAcceleratorPartitionMgrCleanup.c)
  */
 
 unsigned __int64 __fastcall SmPartitionCleanup(__int64 a1)
@@ -28,7 +28,7 @@ unsigned __int64 __fastcall SmPartitionCleanup(__int64 a1)
   v1 = *(_DWORD *)(a1 + 2272);
   if ( v1 != -1 )
     SmKmStoreDereference(a1, v1);
-  SMKM_STORE_MGR<SM_TRAITS>::SmCleanup((union _SLIST_HEADER *)a1);
+  SMKM_STORE_MGR<SM_TRAITS>::SmCleanup((_SLIST_HEADER *)a1);
   SmpKeyedStoreCtxCleanup(a1 + 2232);
   v3 = (struct _PRIVILEGE_SET **)(a1 + 2808);
   while ( 1 )

@@ -1,17 +1,17 @@
 /*
- * XREFs of ExpWnfCreateProcessContext @ 0x140ABB004
+ * XREFs of ExpWnfCreateProcessContext @ 0x140ABC4C4
  * Callers:
- *     ExpWnfResolveScopeInstance @ 0x14094B390 (ExpWnfResolveScopeInstance.c)
- *     NtSetWnfProcessNotificationEvent @ 0x140ABAF30 (NtSetWnfProcessNotificationEvent.c)
+ *     ExpWnfResolveScopeInstance @ 0x1409C6D00 (ExpWnfResolveScopeInstance.c)
+ *     NtSetWnfProcessNotificationEvent @ 0x140ABC3F0 (NtSetWnfProcessNotificationEvent.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ExpWnfDeleteProcessContext @ 0x140A41EC4 (ExpWnfDeleteProcessContext.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ExpWnfDeleteProcessContext @ 0x1409FD874 (ExpWnfDeleteProcessContext.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall ExpWnfCreateProcessContext(__int64 a1, _QWORD *a2)
@@ -62,14 +62,14 @@ __int64 __fastcall ExpWnfCreateProcessContext(__int64 a1, _QWORD *a2)
       else
         *((_BYTE *)v12 + 10) = 1;
     }
-    v13 = off_140FD55C8;
+    v13 = off_140FD65E0;
     v14 = (_QWORD *)(v7 + 16);
-    if ( *off_140FD55C8 != (_UNKNOWN *)&ExpWnfProcessesListHead )
+    if ( *off_140FD65E0 != (_UNKNOWN *)&ExpWnfProcessesListHead )
       __fastfail(3u);
     *v14 = &ExpWnfProcessesListHead;
     *(_QWORD *)(v7 + 24) = v13;
     *v13 = v14;
-    off_140FD55C8 = (_UNKNOWN **)(v7 + 16);
+    off_140FD65E0 = (_UNKNOWN **)(v7 + 16);
     if ( (_InterlockedExchangeAdd64(
             (volatile signed __int64 *)&PspSiloMonitorLock.SuspendEvent.Header.Lock,
             0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )

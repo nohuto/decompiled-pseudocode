@@ -1,18 +1,18 @@
 /*
- * XREFs of NtWorkerFactoryWorkerReady @ 0x140354600
+ * XREFs of NtWorkerFactoryWorkerReady @ 0x1403547A0
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     ObReferenceObjectByHandle @ 0x1406E62C0 (ObReferenceObjectByHandle.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402610F0 (KeAcquireInStackQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     ObReferenceObjectByHandle @ 0x1406E62F0 (ObReferenceObjectByHandle.c)
  */
 
-__int64 __fastcall NtWorkerFactoryWorkerReady(void *a1)
+NTSTATUS __cdecl NtWorkerFactoryWorkerReady(HANDLE WorkerFactoryHandle)
 {
-  NTSTATUS v1; // edi
+  int v1; // edi
   _DWORD *v2; // rbx
   int v3; // eax
   int v4; // eax
@@ -28,7 +28,7 @@ __int64 __fastcall NtWorkerFactoryWorkerReady(void *a1)
   memset(&LockHandle, 0, sizeof(LockHandle));
   Object = 0LL;
   v1 = ObReferenceObjectByHandle(
-         a1,
+         WorkerFactoryHandle,
          0x10u,
          ExpWorkerFactoryObjectType,
          KeGetCurrentThread()->PreviousMode,
@@ -60,10 +60,13 @@ __int64 __fastcall NtWorkerFactoryWorkerReady(void *a1)
     }
     KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
     OldIrql = LockHandle.OldIrql;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && LockHandle.OldIrql <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -78,5 +81,5 @@ __int64 __fastcall NtWorkerFactoryWorkerReady(void *a1)
     __writecr8(OldIrql);
     ObfDereferenceObjectWithTag(v2, 0x746C6644u);
   }
-  return (unsigned int)v1;
+  return v1;
 }

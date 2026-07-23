@@ -1,12 +1,12 @@
 /*
- * XREFs of ViFaultsInitializeAppsList @ 0x140AD67D8
+ * XREFs of ViFaultsInitializeAppsList @ 0x140AD67C8
  * Callers:
- *     VfFaultsInitPhase0 @ 0x140AD5E48 (VfFaultsInitPhase0.c)
+ *     VfFaultsInitPhase0 @ 0x140AD5E38 (VfFaultsInitPhase0.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     ViFaultsAddAllApps @ 0x140AD6384 (ViFaultsAddAllApps.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     ViFaultsAddAllApps @ 0x140AD6374 (ViFaultsAddAllApps.c)
  */
 
 __int64 ViFaultsInitializeAppsList()
@@ -21,13 +21,16 @@ __int64 ViFaultsInitializeAppsList()
 
   v0 = 0;
   v1 = KeAcquireSpinLockRaiseToDpc(&ViFaultInjectionLock);
-  qword_140C36CA8 = (__int64)&ViFaultApplicationsList;
+  qword_140C36D88 = (__int64)&ViFaultApplicationsList;
   ViFaultApplicationsList = &ViFaultApplicationsList;
   KxReleaseSpinLock((volatile signed __int64 *)&ViFaultInjectionLock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v1 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v1 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

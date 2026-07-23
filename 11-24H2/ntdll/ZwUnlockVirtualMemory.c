@@ -1,21 +1,21 @@
 /*
- * XREFs of ZwUnlockVirtualMemory @ 0x180165840
+ * XREFs of ZwUnlockVirtualMemory @ 0x180163C00
  * Callers:
- *     RtlUnlockMemoryZone @ 0x1800018E0 (RtlUnlockMemoryZone.c)
- *     RtlLockMemoryZone @ 0x180001AA0 (RtlLockMemoryZone.c)
- *     RtlUnlockModuleSection @ 0x180001D20 (RtlUnlockModuleSection.c)
- *     RtlLockCurrentThread @ 0x1800FA1B0 (RtlLockCurrentThread.c)
- *     RtlUnlockCurrentThread @ 0x18010DFE0 (RtlUnlockCurrentThread.c)
- *     RtlpUnlockStack @ 0x18010E090 (RtlpUnlockStack.c)
+ *     RtlLockMemoryZone @ 0x1800AA7B0 (RtlLockMemoryZone.c)
+ *     RtlUnlockModuleSection @ 0x1800AAA30 (RtlUnlockModuleSection.c)
+ *     RtlLockCurrentThread @ 0x1800F4F10 (RtlLockCurrentThread.c)
+ *     RtlUnlockMemoryZone @ 0x180105B00 (RtlUnlockMemoryZone.c)
+ *     RtlUnlockCurrentThread @ 0x180108EC0 (RtlUnlockCurrentThread.c)
+ *     RtlpUnlockStack @ 0x180108F70 (RtlpUnlockStack.c)
  * Callees:
  *     <none>
  */
 
-__int64 ZwUnlockVirtualMemory()
+NTSTATUS __cdecl ZwUnlockVirtualMemory(HANDLE ProcessHandle, PVOID *BaseAddress, PSIZE_T RegionSize, ULONG MapType)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 478LL;
+  result = 478;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

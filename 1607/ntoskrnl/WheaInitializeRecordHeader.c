@@ -1,16 +1,16 @@
 /*
- * XREFs of WheaInitializeRecordHeader @ 0x140230B48
+ * XREFs of WheaInitializeRecordHeader @ 0x140230974
  * Callers:
- *     WheapCreateRecordFromGenericErrorData @ 0x140230D20 (WheapCreateRecordFromGenericErrorData.c)
+ *     WheapCreateRecordFromGenericErrorData @ 0x140230B4C (WheapCreateRecordFromGenericErrorData.c)
  * Callees:
- *     RtlTimeToTimeFields @ 0x1400AADE8 (RtlTimeToTimeFields.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     RtlTimeToTimeFields @ 0x1400A9368 (RtlTimeToTimeFields.c)
+ *     memset @ 0x140171AC0 (memset.c)
  */
 
 __int64 __fastcall WheaInitializeRecordHeader(_DWORD *a1)
 {
   int Year; // ecx
-  struct _TIME_FIELDS TimeFields; // [rsp+20h] [rbp-18h] BYREF
+  _TIME_FIELDS TimeFields; // [rsp+20h] [rbp-18h] BYREF
   LARGE_INTEGER Time; // [rsp+40h] [rbp+8h] BYREF
 
   memset(a1, 0, 0x80uLL);

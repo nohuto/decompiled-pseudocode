@@ -1,5 +1,5 @@
 /*
- * XREFs of HalpInitializeGhesRecovery @ 0x1403A8EF0
+ * XREFs of HalpInitializeGhesRecovery @ 0x1403A90D0
  * Callers:
  *     HalpInitializeMce @ 0x140A8ADA0 (HalpInitializeMce.c)
  * Callees:

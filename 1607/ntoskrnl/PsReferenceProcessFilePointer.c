@@ -1,17 +1,17 @@
 /*
- * XREFs of PsReferenceProcessFilePointer @ 0x14046EFC0
+ * XREFs of PsReferenceProcessFilePointer @ 0x14046DE90
  * Callers:
- *     SepMandatorySubProcessToken @ 0x14007C05C (SepMandatorySubProcessToken.c)
- *     SepVerifyDesktopAppxImage @ 0x140219CAC (SepVerifyDesktopAppxImage.c)
- *     NtQueryInformationProcess @ 0x140422590 (NtQueryInformationProcess.c)
- *     PspCallProcessNotifyRoutines @ 0x140428E24 (PspCallProcessNotifyRoutines.c)
- *     DbgkCreateThread @ 0x140459228 (DbgkCreateThread.c)
- *     CmpCheckExeOwnerForPca @ 0x140601DF0 (CmpCheckExeOwnerForPca.c)
+ *     SepMandatorySubProcessToken @ 0x14007C0DC (SepMandatorySubProcessToken.c)
+ *     SepVerifyDesktopAppxImage @ 0x140219AD8 (SepVerifyDesktopAppxImage.c)
+ *     NtQueryInformationProcess @ 0x140421450 (NtQueryInformationProcess.c)
+ *     PspCallProcessNotifyRoutines @ 0x140427CF4 (PspCallProcessNotifyRoutines.c)
+ *     DbgkCreateThread @ 0x1404580F8 (DbgkCreateThread.c)
+ *     CmpCheckExeOwnerForPca @ 0x140601EA4 (CmpCheckExeOwnerForPca.c)
  * Callees:
- *     MiReferenceControlAreaFile @ 0x140026690 (MiReferenceControlAreaFile.c)
- *     MiSectionControlArea @ 0x14002C4D0 (MiSectionControlArea.c)
- *     ExAcquireRundownProtection @ 0x1400D3ED0 (ExAcquireRundownProtection.c)
- *     ExReleaseRundownProtection @ 0x1400D3F00 (ExReleaseRundownProtection.c)
+ *     MiReferenceControlAreaFile @ 0x140026210 (MiReferenceControlAreaFile.c)
+ *     MiSectionControlArea @ 0x14002C050 (MiSectionControlArea.c)
+ *     ExAcquireRundownProtection @ 0x1400D1D70 (ExAcquireRundownProtection.c)
+ *     ExReleaseRundownProtection @ 0x1400D1DA0 (ExReleaseRundownProtection.c)
  */
 
 __int64 __fastcall PsReferenceProcessFilePointer(struct _EX_RUNDOWN_REF *a1, ULONG_PTR *a2)

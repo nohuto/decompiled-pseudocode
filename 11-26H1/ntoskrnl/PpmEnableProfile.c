@@ -1,18 +1,18 @@
 /*
- * XREFs of PpmEnableProfile @ 0x140A9C6CC
+ * XREFs of PpmEnableProfile @ 0x140AD850C
  * Callers:
- *     PdcPoPpmResetProfile @ 0x140A9C680 (PdcPoPpmResetProfile.c)
- *     PpmInitPolicyConfiguration @ 0x140CD2D80 (PpmInitPolicyConfiguration.c)
+ *     PdcPoPpmResetProfile @ 0x140AD84C0 (PdcPoPpmResetProfile.c)
+ *     PpmInitPolicyConfiguration @ 0x140CD8F20 (PpmInitPolicyConfiguration.c)
  * Callees:
- *     PpmAcquireLock @ 0x140394F80 (PpmAcquireLock.c)
- *     PpmPerfUpdateMultimediaPowerModel @ 0x1404DECAC (PpmPerfUpdateMultimediaPowerModel.c)
- *     PpmEventTraceProfileEnable @ 0x140A9C864 (PpmEventTraceProfileEnable.c)
- *     PpmReinitializeHeteroEngine @ 0x140A9CE8C (PpmReinitializeHeteroEngine.c)
+ *     PpmAcquireLock @ 0x140396D00 (PpmAcquireLock.c)
+ *     PpmPerfUpdateMultimediaPowerModel @ 0x1404D838C (PpmPerfUpdateMultimediaPowerModel.c)
+ *     PpmEventTraceProfileEnable @ 0x140AD86A4 (PpmEventTraceProfileEnable.c)
+ *     PpmReinitializeHeteroEngine @ 0x140AD89F8 (PpmReinitializeHeteroEngine.c)
  */
 
 __int64 __fastcall PpmEnableProfile(__int64 a1)
 {
-  __int64 **v1; // rdi
+  _QWORD **v1; // rdi
   char v2; // bp
   __int64 v4; // rsi
   _QWORD *v5; // rdx
@@ -22,7 +22,7 @@ __int64 __fastcall PpmEnableProfile(__int64 a1)
   unsigned int v9; // r8d
 
   *(_DWORD *)(a1 + 28) |= 1u;
-  v1 = &off_140E08188;
+  v1 = (_QWORD **)&off_140E08178;
   v2 = *(_BYTE *)(a1 + 8);
   v4 = 6LL;
   do
@@ -41,7 +41,7 @@ __int64 __fastcall PpmEnableProfile(__int64 a1)
       {
         LOBYTE(v6) = 1;
         PpmReinitializeHeteroEngine(v6, 0LL);
-        PpmAcquireLock((struct _KTHREAD **)&stru_140F10070.SchedulerAssistLastYieldBoostTime, v8, v9);
+        PpmAcquireLock((struct _KTHREAD **)&PpmIdlePolicyLock.ThreadLock, v8, v9);
       }
       else
       {

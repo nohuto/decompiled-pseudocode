@@ -1,12 +1,12 @@
 /*
- * XREFs of IopCheckIfMergeRequired @ 0x14096C92C
+ * XREFs of IopCheckIfMergeRequired @ 0x14096CB2C
  * Callers:
- *     PnpQueuePendingSurpriseRemoval @ 0x140883070 (PnpQueuePendingSurpriseRemoval.c)
+ *     PnpQueuePendingSurpriseRemoval @ 0x1408832B0 (PnpQueuePendingSurpriseRemoval.c)
  * Callees:
- *     PiGetProviderList @ 0x1406C98D0 (PiGetProviderList.c)
- *     PiEnumerateProviderListEntry @ 0x140838348 (PiEnumerateProviderListEntry.c)
- *     IopEnumerateRelations @ 0x140868390 (IopEnumerateRelations.c)
- *     PipIsDeviceInDeviceObjectList @ 0x140868D4C (PipIsDeviceInDeviceObjectList.c)
+ *     PiGetProviderList @ 0x1406C9900 (PiGetProviderList.c)
+ *     PiEnumerateProviderListEntry @ 0x140838648 (PiEnumerateProviderListEntry.c)
+ *     IopEnumerateRelations @ 0x1408685D0 (IopEnumerateRelations.c)
+ *     PipIsDeviceInDeviceObjectList @ 0x140868F8C (PipIsDeviceInDeviceObjectList.c)
  */
 
 char __fastcall IopCheckIfMergeRequired(unsigned int **a1, unsigned int **a2)

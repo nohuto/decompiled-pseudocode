@@ -1,12 +1,12 @@
 /*
- * XREFs of MmGetPfnDatabaseCommit @ 0x14049E1EC
+ * XREFs of MmGetPfnDatabaseCommit @ 0x140498FEC
  * Callers:
- *     ExpQuerySystemPerformanceInformation @ 0x140AE0850 (ExpQuerySystemPerformanceInformation.c)
+ *     ExpQuerySystemPerformanceInformation @ 0x140AE2138 (ExpQuerySystemPerformanceInformation.c)
  * Callees:
  *     <none>
  */
 
 __int64 MmGetPfnDatabaseCommit()
 {
-  return qword_140E375F8;
+  return qword_140E37738;
 }

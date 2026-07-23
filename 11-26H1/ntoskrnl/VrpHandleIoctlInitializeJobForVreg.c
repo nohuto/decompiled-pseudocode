@@ -1,28 +1,28 @@
 /*
- * XREFs of VrpHandleIoctlInitializeJobForVreg @ 0x140A3050C
+ * XREFs of VrpHandleIoctlInitializeJobForVreg @ 0x140A4B46C
  * Callers:
- *     VrpIoctlDeviceDispatch @ 0x140977F10 (VrpIoctlDeviceDispatch.c)
+ *     VrpIoctlDeviceDispatch @ 0x140939F20 (VrpIoctlDeviceDispatch.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     RtlUnicodeStringCopy @ 0x14043D5D0 (RtlUnicodeStringCopy.c)
- *     PsIsThreadInSilo @ 0x14043D79C (PsIsThreadInSilo.c)
- *     PsGetJobSilo @ 0x14043D7E0 (PsGetJobSilo.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     PsRemoveSiloContext @ 0x1407EE760 (PsRemoveSiloContext.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1408FA680 (ObpReferenceObjectByHandleWithTag.c)
- *     ObCreateObjectEx @ 0x1408FD7D0 (ObCreateObjectEx.c)
- *     PsMakeSiloContextPermanent @ 0x140A304E0 (PsMakeSiloContextPermanent.c)
- *     VrpIncrementSiloCount @ 0x140A30890 (VrpIncrementSiloCount.c)
- *     VrpAllocateKeyContext @ 0x140A30984 (VrpAllocateKeyContext.c)
- *     CmInitSiloNamespace @ 0x140A309F8 (CmInitSiloNamespace.c)
- *     PsInsertSiloContext @ 0x140A31020 (PsInsertSiloContext.c)
- *     CmSetCallbackObjectContext @ 0x140A31530 (CmSetCallbackObjectContext.c)
- *     CmGetRootKeyObjectForSilo @ 0x140A31970 (CmGetRootKeyObjectForSilo.c)
- *     VrpFreeKeyContext @ 0x140A7F588 (VrpFreeKeyContext.c)
- *     ExAllocatePoolWithTag @ 0x140C10340 (ExAllocatePoolWithTag.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     RtlUnicodeStringCopy @ 0x14042FE80 (RtlUnicodeStringCopy.c)
+ *     PsIsThreadInSilo @ 0x14043004C (PsIsThreadInSilo.c)
+ *     PsGetJobSilo @ 0x140430090 (PsGetJobSilo.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     PsRemoveSiloContext @ 0x1407F42C0 (PsRemoveSiloContext.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x14092A610 (ObpReferenceObjectByHandleWithTag.c)
+ *     ObCreateObjectEx @ 0x14092D760 (ObCreateObjectEx.c)
+ *     PsMakeSiloContextPermanent @ 0x140A4B440 (PsMakeSiloContextPermanent.c)
+ *     VrpIncrementSiloCount @ 0x140A4B7F0 (VrpIncrementSiloCount.c)
+ *     VrpAllocateKeyContext @ 0x140A4B8E4 (VrpAllocateKeyContext.c)
+ *     CmInitSiloNamespace @ 0x140A4B958 (CmInitSiloNamespace.c)
+ *     PsInsertSiloContext @ 0x140A4BF80 (PsInsertSiloContext.c)
+ *     CmSetCallbackObjectContext @ 0x140A4C490 (CmSetCallbackObjectContext.c)
+ *     CmGetRootKeyObjectForSilo @ 0x140A4C8D0 (CmGetRootKeyObjectForSilo.c)
+ *     VrpFreeKeyContext @ 0x140A853F8 (VrpFreeKeyContext.c)
+ *     ExAllocatePoolWithTag @ 0x140C16340 (ExAllocatePoolWithTag.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall VrpHandleIoctlInitializeJobForVreg(
@@ -58,7 +58,17 @@ __int64 __fastcall VrpHandleIoctlInitializeJobForVreg(
   RootKeyObjectForSilo = 0LL;
   if ( a2 < 8 )
     goto LABEL_32;
-  v10 = ObCreateObjectEx(0, *(_DWORD **)&WheapPfaLock.ThreadTimerDelay, 0LL, 1u, Tag, 96, 0, 0, &Object, 0LL);
+  v10 = ObCreateObjectEx(
+          0,
+          (_DWORD *)WheapPfaLock.KernelShadowStackLimit.AllFields,
+          0LL,
+          1u,
+          Tag,
+          96,
+          0,
+          0,
+          &Object,
+          0LL);
   v7 = Object;
   JobSilo = v10;
   if ( v10 >= 0 )
@@ -103,7 +113,7 @@ LABEL_6:
     if ( JobSilo >= 0 )
     {
       *((_DWORD *)v7 + 22) = 1;
-      v13 = ObpReferenceObjectByHandleWithTag(*a1, 6LL, PsJobType, a3, 0x52566D43u, &a5, 0LL, 0LL);
+      v13 = ObpReferenceObjectByHandleWithTag(*a1, 6, (__int64)PsJobType, a3, 0x52566D43u, &a5, 0LL, 0LL);
       v6 = a5;
       JobSilo = v13;
       if ( v13 >= 0 )
@@ -139,7 +149,7 @@ LABEL_6:
                 RootKeyObjectForSilo = (void *)CmGetRootKeyObjectForSilo(0LL);
                 JobSilo = CmSetCallbackObjectContext(
                             RootKeyObjectForSilo,
-                            (PLARGE_INTEGER)&gLoadedDiffHivesLock.StackLimit,
+                            (PLARGE_INTEGER)&gLoadedDiffHivesLock.InitialStack,
                             v8,
                             0LL);
                 if ( JobSilo >= 0 )

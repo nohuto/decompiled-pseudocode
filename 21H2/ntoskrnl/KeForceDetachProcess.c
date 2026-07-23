@@ -1,18 +1,18 @@
 /*
- * XREFs of KeForceDetachProcess @ 0x1402BA388
+ * XREFs of KeForceDetachProcess @ 0x140238598
  * Callers:
- *     MiUnlockStealVm @ 0x14026D310 (MiUnlockStealVm.c)
- *     MmQueryCommitReleaseState @ 0x1402C3EC8 (MmQueryCommitReleaseState.c)
- *     MiTrimSharedPageFromViews @ 0x1402EFC44 (MiTrimSharedPageFromViews.c)
- *     MiSharePages @ 0x140368360 (MiSharePages.c)
- *     MiReAcquireOutSwappedProcessCommit @ 0x14052C368 (MiReAcquireOutSwappedProcessCommit.c)
- *     MiReleaseCommitForResetPages @ 0x14052C554 (MiReleaseCommitForResetPages.c)
- *     MiReleaseOutSwappedProcessCommit @ 0x14052C708 (MiReleaseOutSwappedProcessCommit.c)
- *     MmReleaseCommitForMemResetPages @ 0x14052CCF4 (MmReleaseCommitForMemResetPages.c)
- *     PopHandleNextState @ 0x1409930D0 (PopHandleNextState.c)
+ *     MmQueryCommitReleaseState @ 0x140242448 (MmQueryCommitReleaseState.c)
+ *     MiUnlockStealVm @ 0x14025B2B0 (MiUnlockStealVm.c)
+ *     MiTrimSharedPageFromViews @ 0x1402FA994 (MiTrimSharedPageFromViews.c)
+ *     MiSharePages @ 0x140368510 (MiSharePages.c)
+ *     MiReAcquireOutSwappedProcessCommit @ 0x14052C5A8 (MiReAcquireOutSwappedProcessCommit.c)
+ *     MiReleaseCommitForResetPages @ 0x14052C794 (MiReleaseCommitForResetPages.c)
+ *     MiReleaseOutSwappedProcessCommit @ 0x14052C948 (MiReleaseOutSwappedProcessCommit.c)
+ *     MmReleaseCommitForMemResetPages @ 0x14052CF34 (MmReleaseCommitForMemResetPages.c)
+ *     PopHandleNextState @ 0x1409940D0 (PopHandleNextState.c)
  * Callees:
- *     KiUnstackDetachProcess @ 0x140207000 (KiUnstackDetachProcess.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     KiUnstackDetachProcess @ 0x1402AB900 (KiUnstackDetachProcess.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall KeForceDetachProcess(_OWORD *a1, char a2)
@@ -27,5 +27,5 @@ __int64 __fastcall KeForceDetachProcess(_OWORD *a1, char a2)
   if ( a1 )
     v4 = a1;
   memset(&v6[1], 0, 32);
-  return KiUnstackDetachProcess((__int64)v4, 2 * v3 + 1);
+  return KiUnstackDetachProcess(v4, (unsigned int)(2 * v3 + 1));
 }

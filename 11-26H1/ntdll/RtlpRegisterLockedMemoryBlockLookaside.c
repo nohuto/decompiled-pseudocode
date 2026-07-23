@@ -1,28 +1,28 @@
 /*
- * XREFs of RtlpRegisterLockedMemoryBlockLookaside @ 0x1800E1950
+ * XREFs of RtlpRegisterLockedMemoryBlockLookaside @ 0x1800DF1F0
  * Callers:
- *     RtlLockMemoryBlockLookaside @ 0x1800E16E0 (RtlLockMemoryBlockLookaside.c)
+ *     RtlLockMemoryBlockLookaside @ 0x1800DEF80 (RtlLockMemoryBlockLookaside.c)
  * Callees:
- *     RtlAcquireSRWLockExclusive @ 0x18003F4D0 (RtlAcquireSRWLockExclusive.c)
- *     RtlReleaseSRWLockExclusive @ 0x18003FAA0 (RtlReleaseSRWLockExclusive.c)
- *     RtlUnlockModuleSection @ 0x1800E19F0 (RtlUnlockModuleSection.c)
- *     RtlLockModuleSection @ 0x1800E1AA0 (RtlLockModuleSection.c)
+ *     RtlAcquireSRWLockExclusive @ 0x180029A40 (RtlAcquireSRWLockExclusive.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18002A010 (RtlReleaseSRWLockExclusive.c)
+ *     RtlUnlockModuleSection @ 0x1800DF290 (RtlUnlockModuleSection.c)
+ *     RtlLockModuleSection @ 0x1800DF340 (RtlLockModuleSection.c)
  */
 
-__int64 __fastcall RtlpRegisterLockedMemoryBlockLookaside(__int64 a1, __int64 a2)
+__int64 RtlpRegisterLockedMemoryBlockLookaside()
 {
-  int v2; // esi
-  int v3; // eax
+  NTSTATUS v0; // esi
+  int v1; // eax
   __int64 i; // rbx
-  __int64 (__fastcall **v6)(); // rdi
+  PVOID *v4; // rdi
 
-  v2 = 0;
-  RtlAcquireSRWLockExclusive(&RtlpMemoryBlockLookasideLock, a2);
-  v3 = RtlpLockedMemoryBlockLookasideCount;
+  v0 = 0;
+  RtlAcquireSRWLockExclusive(&RtlpMemoryBlockLookasideLock);
+  v1 = RtlpLockedMemoryBlockLookasideCount;
   if ( RtlpLockedMemoryBlockLookasideCount )
   {
 LABEL_2:
-    RtlpLockedMemoryBlockLookasideCount = v3 + 1;
+    RtlpLockedMemoryBlockLookasideCount = v1 + 1;
   }
   else
   {
@@ -30,17 +30,17 @@ LABEL_2:
     {
       if ( (unsigned int)i >= 4 )
       {
-        v3 = RtlpLockedMemoryBlockLookasideCount;
+        v1 = RtlpLockedMemoryBlockLookasideCount;
         goto LABEL_2;
       }
-      v6 = &RtlpMemoryBlockLookasideCriticalRoutines[i];
-      v2 = RtlLockModuleSection(*v6);
-      if ( v2 < 0 )
+      v4 = (PVOID *)(&RtlpMemoryBlockLookasideCriticalRoutines + i);
+      v0 = RtlLockModuleSection(*v4);
+      if ( v0 < 0 )
         break;
     }
     for ( ; (_DWORD)i; LODWORD(i) = i - 1 )
-      RtlUnlockModuleSection(*--v6);
+      RtlUnlockModuleSection(*--v4);
   }
   RtlReleaseSRWLockExclusive(&RtlpMemoryBlockLookasideLock);
-  return (unsigned int)v2;
+  return (unsigned int)v0;
 }

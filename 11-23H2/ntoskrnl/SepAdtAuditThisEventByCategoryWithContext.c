@@ -1,14 +1,14 @@
 /*
- * XREFs of SepAdtAuditThisEventByCategoryWithContext @ 0x1406C3550
+ * XREFs of SepAdtAuditThisEventByCategoryWithContext @ 0x1406C3580
  * Callers:
- *     SeAuditingAnyFileEventsWithContextEx @ 0x140229670 (SeAuditingAnyFileEventsWithContextEx.c)
- *     SeAuditingFileEventsWithContextEx @ 0x1405B8D80 (SeAuditingFileEventsWithContextEx.c)
- *     SepAdtAuditObjectAccessWithContext @ 0x1406C3288 (SepAdtAuditObjectAccessWithContext.c)
- *     SepAdtAuditThisEventWithContext @ 0x1406C34D0 (SepAdtAuditThisEventWithContext.c)
+ *     SeAuditingAnyFileEventsWithContextEx @ 0x140229780 (SeAuditingAnyFileEventsWithContextEx.c)
+ *     SeAuditingFileEventsWithContextEx @ 0x1405B92F0 (SeAuditingFileEventsWithContextEx.c)
+ *     SepAdtAuditObjectAccessWithContext @ 0x1406C32B8 (SepAdtAuditObjectAccessWithContext.c)
+ *     SepAdtAuditThisEventWithContext @ 0x1406C3500 (SepAdtAuditThisEventWithContext.c)
  * Callees:
- *     SeReleaseSubjectContext @ 0x140737BC0 (SeReleaseSubjectContext.c)
- *     SeCaptureSubjectContext @ 0x140737C70 (SeCaptureSubjectContext.c)
- *     SepAuditFailed @ 0x1409D1C40 (SepAuditFailed.c)
+ *     SeReleaseSubjectContext @ 0x140737DB0 (SeReleaseSubjectContext.c)
+ *     SeCaptureSubjectContext @ 0x140737E60 (SeCaptureSubjectContext.c)
+ *     SepAuditFailed @ 0x1409D1E40 (SepAuditFailed.c)
  */
 
 char __fastcall SepAdtAuditThisEventByCategoryWithContext(

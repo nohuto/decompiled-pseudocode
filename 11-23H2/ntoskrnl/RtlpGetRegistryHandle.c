@@ -1,25 +1,25 @@
 /*
- * XREFs of RtlpGetRegistryHandle @ 0x1406C61C0
+ * XREFs of RtlpGetRegistryHandle @ 0x1406C61F0
  * Callers:
- *     RtlpQueryRegistryValues @ 0x1406C59D0 (RtlpQueryRegistryValues.c)
- *     RtlWriteRegistryValue @ 0x1407D42E0 (RtlWriteRegistryValue.c)
- *     RtlCheckRegistryKey @ 0x1407E53B0 (RtlCheckRegistryKey.c)
- *     RtlpGetTimeZoneInfoHandle @ 0x1407F7D34 (RtlpGetTimeZoneInfoHandle.c)
- *     ExpRefreshTimeZoneInformation @ 0x14083EB98 (ExpRefreshTimeZoneInformation.c)
- *     RtlpGetDynamicTimeZoneInfoHandle @ 0x14083F45C (RtlpGetDynamicTimeZoneInfoHandle.c)
- *     RtlpUpdateDynamicTimeZones @ 0x14083F980 (RtlpUpdateDynamicTimeZones.c)
- *     RtlCreateRegistryKey @ 0x1408642F0 (RtlCreateRegistryKey.c)
- *     RtlDeleteRegistryValue @ 0x140873D00 (RtlDeleteRegistryValue.c)
+ *     RtlpQueryRegistryValues @ 0x1406C5A00 (RtlpQueryRegistryValues.c)
+ *     RtlWriteRegistryValue @ 0x1407D45B0 (RtlWriteRegistryValue.c)
+ *     RtlCheckRegistryKey @ 0x1407E5680 (RtlCheckRegistryKey.c)
+ *     RtlpGetTimeZoneInfoHandle @ 0x1407F8004 (RtlpGetTimeZoneInfoHandle.c)
+ *     ExpRefreshTimeZoneInformation @ 0x14083EE98 (ExpRefreshTimeZoneInformation.c)
+ *     RtlpGetDynamicTimeZoneInfoHandle @ 0x14083F75C (RtlpGetDynamicTimeZoneInfoHandle.c)
+ *     RtlpUpdateDynamicTimeZones @ 0x14083FC80 (RtlpUpdateDynamicTimeZones.c)
+ *     RtlCreateRegistryKey @ 0x140864530 (RtlCreateRegistryKey.c)
+ *     RtlDeleteRegistryValue @ 0x140873F40 (RtlDeleteRegistryValue.c)
  * Callees:
  *     RtlAppendUnicodeStringToString @ 0x140208A00 (RtlAppendUnicodeStringToString.c)
- *     RtlAppendUnicodeToString @ 0x14022A860 (RtlAppendUnicodeToString.c)
- *     ZwOpenKey @ 0x14041AFA0 (ZwOpenKey.c)
- *     ZwCreateKey @ 0x14041B100 (ZwCreateKey.c)
- *     RtlpInterlockedPopEntrySList @ 0x140428EB0 (RtlpInterlockedPopEntrySList.c)
- *     RtlpInterlockedPushEntrySList @ 0x140428EF0 (RtlpInterlockedPushEntrySList.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     RtlFreeUnicodeString @ 0x14076F3D0 (RtlFreeUnicodeString.c)
- *     RtlFormatCurrentUserKeyPath @ 0x1407FAAD0 (RtlFormatCurrentUserKeyPath.c)
+ *     RtlAppendUnicodeToString @ 0x14022A970 (RtlAppendUnicodeToString.c)
+ *     ZwOpenKey @ 0x14041B330 (ZwOpenKey.c)
+ *     ZwCreateKey @ 0x14041B490 (ZwCreateKey.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140429240 (RtlpInterlockedPopEntrySList.c)
+ *     RtlpInterlockedPushEntrySList @ 0x140429280 (RtlpInterlockedPushEntrySList.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     RtlFreeUnicodeString @ 0x14076F5C0 (RtlFreeUnicodeString.c)
+ *     RtlFormatCurrentUserKeyPath @ 0x1407FADA0 (RtlFormatCurrentUserKeyPath.c)
  */
 
 __int64 __fastcall RtlpGetRegistryHandle(int a1, const WCHAR *a2, char a3, HANDLE *a4)
@@ -40,13 +40,13 @@ __int64 __fastcall RtlpGetRegistryHandle(int a1, const WCHAR *a2, char a3, HANDL
   __int64 Tag; // r8
   __int64 Type; // rcx
   UNICODE_STRING Destination; // [rsp+48h] [rbp-19h] BYREF
-  UNICODE_STRING Source; // [rsp+58h] [rbp-9h] BYREF
+  UNICODE_STRING CurrentUserKeyPath; // [rsp+58h] [rbp-9h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+68h] [rbp+7h] BYREF
 
   result = 0LL;
   *(_DWORD *)(&Destination.MaximumLength + 1) = 0;
   memset(&ObjectAttributes, 0, 44);
-  Source = 0LL;
+  CurrentUserKeyPath = 0LL;
   if ( (a1 & 0x40000000) != 0 )
   {
     *a4 = (HANDLE)a2;
@@ -90,10 +90,10 @@ LABEL_6:
         *(_DWORD *)&Destination.Length = 34340864;
         if ( !(_DWORD)v8 )
           goto LABEL_13;
-        if ( (_DWORD)v8 == 5 && (int)RtlFormatCurrentUserKeyPath(&Source) >= 0 )
+        if ( (_DWORD)v8 == 5 && RtlFormatCurrentUserKeyPath(&CurrentUserKeyPath) >= 0 )
         {
-          appended = RtlAppendUnicodeStringToString(&Destination, &Source);
-          RtlFreeUnicodeString(&Source);
+          appended = RtlAppendUnicodeStringToString(&Destination, &CurrentUserKeyPath);
+          RtlFreeUnicodeString(&CurrentUserKeyPath);
         }
         else
         {

@@ -8,18 +8,25 @@
  *     _RtlpIdnToUnicodeWorker@28 @ 0x4B36535D (_RtlpIdnToUnicodeWorker@28.c)
  */
 
-int __stdcall RtlIdnToUnicode(int a1, int a2, int a3, void *a4, int a5)
+NTSTATUS __cdecl RtlIdnToUnicode(
+        ULONG Flags,
+        PCWSTR SourceString,
+        LONG SourceStringLength,
+        PWSTR DestinationString,
+        PLONG DestinationStringLength)
 {
-  void *Heap; // eax
+  const WCHAR *Heap; // eax
   int v6; // ecx
-  int v7; // edi
-  int v9; // esi
+  WCHAR *v7; // edi
+  NTSTATUS v9; // esi
+  SIZE_T v10; // [esp-4h] [ebp-10h]
 
-  Heap = (void *)RtlAllocateHeap((int)NtCurrentPeb()->ProcessHeap, 8, 1022);
-  v7 = (int)Heap;
+  LODWORD(v10) = 1022;
+  Heap = (const WCHAR *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, v10);
+  v7 = (WCHAR *)Heap;
   if ( !Heap )
     return -1073741801;
-  v9 = RtlpIdnToUnicodeWorker(a3, a4, a5, Heap, v6);
-  RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, v7);
+  v9 = RtlpIdnToUnicodeWorker(SourceStringLength, DestinationString, (int)DestinationStringLength, Heap, v6);
+  RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v7);
   return v9;
 }

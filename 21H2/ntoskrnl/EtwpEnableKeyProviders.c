@@ -1,20 +1,20 @@
 /*
- * XREFs of EtwpEnableKeyProviders @ 0x14079C0FC
+ * XREFs of EtwpEnableKeyProviders @ 0x14079C2FC
  * Callers:
- *     EtwStartAutoLogger @ 0x14079B594 (EtwStartAutoLogger.c)
+ *     EtwStartAutoLogger @ 0x14079B794 (EtwStartAutoLogger.c)
  * Callees:
- *     RtlInitializeGenericTableAvl @ 0x140264400 (RtlInitializeGenericTableAvl.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
- *     EtwpEnumerateKeyProviders @ 0x140794898 (EtwpEnumerateKeyProviders.c)
- *     EtwpFreeKeyNameList @ 0x14079C1E0 (EtwpFreeKeyNameList.c)
+ *     RtlInitializeGenericTableAvl @ 0x1402524C0 (RtlInitializeGenericTableAvl.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     EtwpEnumerateKeyProviders @ 0x1407946F0 (EtwpEnumerateKeyProviders.c)
+ *     EtwpFreeKeyNameList @ 0x14079C3E0 (EtwpFreeKeyNameList.c)
  */
 
 __int64 __fastcall EtwpEnableKeyProviders(__int64 a1, unsigned int a2, const WCHAR *a3, const WCHAR *a4, int a5)
 {
   BOOLEAN v10; // [rsp+28h] [rbp-1E0h]
   BOOLEAN v11; // [rsp+28h] [rbp-1E0h]
-  RTL_AVL_TABLE Table; // [rsp+40h] [rbp-1C8h] BYREF
+  _RTL_AVL_TABLE Table; // [rsp+40h] [rbp-1C8h] BYREF
   unsigned int v13[72]; // [rsp+B0h] [rbp-158h] BYREF
 
   memset(&Table, 0, sizeof(Table));

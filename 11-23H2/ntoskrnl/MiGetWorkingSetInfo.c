@@ -1,13 +1,13 @@
 /*
- * XREFs of MiGetWorkingSetInfo @ 0x140363210
+ * XREFs of MiGetWorkingSetInfo @ 0x1403633B0
  * Callers:
- *     MmQueryVirtualMemory @ 0x1406F8350 (MmQueryVirtualMemory.c)
+ *     MmQueryVirtualMemory @ 0x1406F8560 (MmQueryVirtualMemory.c)
  * Callees:
- *     MmMapLockedPagesSpecifyCache @ 0x14027CF60 (MmMapLockedPagesSpecifyCache.c)
- *     MmUnlockPages @ 0x1402CAB10 (MmUnlockPages.c)
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     MiProbeAndLockPages @ 0x1402FC270 (MiProbeAndLockPages.c)
- *     MiGetWorkingSetInfoEx @ 0x1403633AC (MiGetWorkingSetInfoEx.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x14027D1F0 (MmMapLockedPagesSpecifyCache.c)
+ *     MmUnlockPages @ 0x1402CADA0 (MmUnlockPages.c)
+ *     MiAllocatePool @ 0x1402DF430 (MiAllocatePool.c)
+ *     MiProbeAndLockPages @ 0x1402FC500 (MiProbeAndLockPages.c)
+ *     MiGetWorkingSetInfoEx @ 0x14036354C (MiGetWorkingSetInfoEx.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

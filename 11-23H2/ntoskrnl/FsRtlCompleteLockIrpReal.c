@@ -1,15 +1,15 @@
 /*
- * XREFs of FsRtlCompleteLockIrpReal @ 0x14045F180
+ * XREFs of FsRtlCompleteLockIrpReal @ 0x14045F580
  * Callers:
- *     FsRtlPrivateFastUnlockAll @ 0x140326A34 (FsRtlPrivateFastUnlockAll.c)
- *     FsRtlPrivateCheckWaitingLocks @ 0x140326D34 (FsRtlPrivateCheckWaitingLocks.c)
- *     FsRtlPrivateLock @ 0x140327530 (FsRtlPrivateLock.c)
- *     FsRtlUninitializeFileLock @ 0x14036B170 (FsRtlUninitializeFileLock.c)
- *     FsRtlPrivateCancelFileLockIrp @ 0x14053D780 (FsRtlPrivateCancelFileLockIrp.c)
- *     FsRtlProcessFileLock @ 0x14053D9B0 (FsRtlProcessFileLock.c)
+ *     FsRtlPrivateFastUnlockAll @ 0x140326CC4 (FsRtlPrivateFastUnlockAll.c)
+ *     FsRtlPrivateCheckWaitingLocks @ 0x140326FC4 (FsRtlPrivateCheckWaitingLocks.c)
+ *     FsRtlPrivateLock @ 0x1403277C0 (FsRtlPrivateLock.c)
+ *     FsRtlUninitializeFileLock @ 0x14036B310 (FsRtlUninitializeFileLock.c)
+ *     FsRtlPrivateCancelFileLockIrp @ 0x14053DCD0 (FsRtlPrivateCancelFileLockIrp.c)
+ *     FsRtlProcessFileLock @ 0x14053DF00 (FsRtlProcessFileLock.c)
  * Callees:
- *     IofCompleteRequest @ 0x1402C9980 (IofCompleteRequest.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     IofCompleteRequest @ 0x1402C9C10 (IofCompleteRequest.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 NTSTATUS *__fastcall FsRtlCompleteLockIrpReal(

@@ -7,22 +7,22 @@
  *     RtlpHpVsContextAllocateInternal @ 0x180038840 (RtlpHpVsContextAllocateInternal.c)
  */
 
-char *__fastcall RtlpHpVsContextAllocate(__int64 a1, unsigned int a2, int a3, unsigned int a4)
+char *__fastcall RtlpHpVsContextAllocate(_RTL_SRWLOCK *a1, unsigned int a2, int a3, unsigned int a4)
 {
   char v4; // bl
   char *v5; // rdi
   int v7; // [rsp+30h] [rbp-28h] BYREF
   __int64 v8; // [rsp+38h] [rbp-20h] BYREF
-  volatile signed __int64 *v9; // [rsp+40h] [rbp-18h]
+  PRTL_SRWLOCK SRWLock; // [rsp+40h] [rbp-18h]
   __int64 v10; // [rsp+48h] [rbp-10h]
 
   v4 = a4;
   v7 = 0;
   v8 = 0LL;
-  v9 = 0LL;
+  SRWLock = 0LL;
   v10 = 0LL;
   v5 = RtlpHpVsContextAllocateInternal(a1, a2, a3, a4, (__int64)&v8, &v7);
   if ( v7 && (v4 & 1) == 0 )
-    RtlReleaseSRWLockExclusive(v9);
+    RtlReleaseSRWLockExclusive(SRWLock);
   return v5;
 }

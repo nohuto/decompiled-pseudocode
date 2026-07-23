@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlGetLastRange @ 0x140B6A860
+ * XREFs of RtlGetLastRange @ 0x140B6DA70
  * Callers:
  *     <none>
  * Callees:

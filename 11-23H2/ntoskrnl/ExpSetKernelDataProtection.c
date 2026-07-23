@@ -1,18 +1,18 @@
 /*
- * XREFs of ExpSetKernelDataProtection @ 0x1407AE830
+ * XREFs of ExpSetKernelDataProtection @ 0x1407AEA20
  * Callers:
- *     ExpGetLicenseTamperState @ 0x14060905C (ExpGetLicenseTamperState.c)
- *     ExpSetLicenseTamperState @ 0x1406093E4 (ExpSetLicenseTamperState.c)
- *     ExInitLicenseData @ 0x14080EF78 (ExInitLicenseData.c)
- *     ExSetLicenseTamperState @ 0x1409F9730 (ExSetLicenseTamperState.c)
- *     sub_1409F9A40 @ 0x1409F9A40 (sub_1409F9A40.c)
- *     SLUpdateLicenseDataInternal @ 0x1409FA694 (SLUpdateLicenseDataInternal.c)
+ *     ExpGetLicenseTamperState @ 0x1406095AC (ExpGetLicenseTamperState.c)
+ *     ExpSetLicenseTamperState @ 0x140609934 (ExpSetLicenseTamperState.c)
+ *     ExInitLicenseData @ 0x14080F248 (ExInitLicenseData.c)
+ *     ExSetLicenseTamperState @ 0x1409F99C0 (ExSetLicenseTamperState.c)
+ *     sub_1409F9CD0 @ 0x1409F9CD0 (sub_1409F9CD0.c)
+ *     SLUpdateLicenseDataInternal @ 0x1409FA924 (SLUpdateLicenseDataInternal.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     sub_1407AEAD8 @ 0x1407AEAD8 (sub_1407AEAD8.c)
- *     sub_1408504A0 @ 0x1408504A0 (sub_1408504A0.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     sub_1407AECC8 @ 0x1407AECC8 (sub_1407AECC8.c)
+ *     sub_1408507A0 @ 0x1408507A0 (sub_1408507A0.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
@@ -51,7 +51,7 @@ __int64 __fastcall ExpSetKernelDataProtection(__int64 a1, __int64 a2, char a3, c
   if ( v9 )
   {
     v19 = *v9;
-    v16 = sub_1407AEAD8(&v19);
+    v16 = sub_1407AECC8(&v19);
     if ( v16 >= 0 )
     {
       Pool2 = v19;
@@ -84,7 +84,7 @@ LABEL_7:
       *(_QWORD *)(Pool2 + 24) = 0LL;
       *(_QWORD *)(Pool2 + 32) = 0LL;
       *(_BYTE *)(Pool2 + 40) = 1;
-      v16 = sub_1408504A0(v11);
+      v16 = sub_1408507A0(v11);
       if ( v16 >= 0 )
       {
         *(_QWORD *)(a1 + 47016) = v12;

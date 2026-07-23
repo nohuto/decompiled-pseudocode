@@ -1,11 +1,11 @@
 /*
- * XREFs of SshpUninitialize @ 0x140CD7578
+ * XREFs of SshpUninitialize @ 0x140CDD8F8
  * Callers:
- *     SshInitialize @ 0x140CD7428 (SshInitialize.c)
+ *     SshInitialize @ 0x140CDD7A8 (SshInitialize.c)
  * Callees:
- *     SleepstudyHelperDestroyLibrary @ 0x140614000 (SleepstudyHelperDestroyLibrary.c)
- *     SSHSupportUnregisterPowerSettingCallback @ 0x1407E453C (SSHSupportUnregisterPowerSettingCallback.c)
- *     EtwUnregister @ 0x140A84ED0 (EtwUnregister.c)
+ *     SleepstudyHelperDestroyLibrary @ 0x140616EC0 (SleepstudyHelperDestroyLibrary.c)
+ *     SSHSupportUnregisterPowerSettingCallback @ 0x1407EA0AC (SSHSupportUnregisterPowerSettingCallback.c)
+ *     EtwUnregister @ 0x1409BE550 (EtwUnregister.c)
  */
 
 PVOID *SshpUninitialize()
@@ -13,10 +13,10 @@ PVOID *SshpUninitialize()
   struct _LIST_ENTRY *Flink; // rcx
   PVOID *result; // rax
 
-  if ( LOBYTE(PsAltSystemCallRegistrationLock.KernelShadowStackLimit.AllFields) )
+  if ( byte_140F0A838 )
   {
     SSHSupportUnregisterPowerSettingCallback();
-    LOBYTE(PsAltSystemCallRegistrationLock.KernelShadowStackLimit.AllFields) = 0;
+    byte_140F0A838 = 0;
   }
   if ( _InterlockedExchange(&SshpTelemetryHandleRegistered, 0) )
   {

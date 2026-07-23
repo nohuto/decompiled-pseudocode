@@ -1,18 +1,18 @@
 /*
- * XREFs of PipFindDeviceOverrideEntry @ 0x1406D9194
+ * XREFs of PipFindDeviceOverrideEntry @ 0x1406DA434
  * Callers:
- *     PiQueryRemovableDeviceOverride @ 0x1406FFD78 (PiQueryRemovableDeviceOverride.c)
+ *     PiQueryRemovableDeviceOverride @ 0x140701018 (PiQueryRemovableDeviceOverride.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     ZwOpenKey @ 0x1401B83D0 (ZwOpenKey.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     RtlHashUnicodeString @ 0x140598BE0 (RtlHashUnicodeString.c)
- *     RtlEqualUnicodeString @ 0x140625D40 (RtlEqualUnicodeString.c)
- *     IopReplaceSeperatorWithPound @ 0x1406D9328 (IopReplaceSeperatorWithPound.c)
- *     PipCallbackHasDeviceOverrides @ 0x140822A9C (PipCallbackHasDeviceOverrides.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     ZwOpenKey @ 0x1401B8530 (ZwOpenKey.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     RtlHashUnicodeString @ 0x140599BE0 (RtlHashUnicodeString.c)
+ *     RtlEqualUnicodeString @ 0x140626D60 (RtlEqualUnicodeString.c)
+ *     IopReplaceSeperatorWithPound @ 0x1406DA5C8 (IopReplaceSeperatorWithPound.c)
+ *     PipCallbackHasDeviceOverrides @ 0x140823C9C (PipCallbackHasDeviceOverrides.c)
  */
 
 __int64 PipFindDeviceOverrideEntry(_WORD *Src, __int64 a2, __int64 a3, ...)

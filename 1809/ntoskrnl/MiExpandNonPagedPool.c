@@ -1,28 +1,28 @@
 /*
- * XREFs of MiExpandNonPagedPool @ 0x1401626E8
+ * XREFs of MiExpandNonPagedPool @ 0x1401627E8
  * Callers:
- *     MiFindContiguousMemoryInPool @ 0x1401625D4 (MiFindContiguousMemoryInPool.c)
- *     MiFindNonPagedPoolVa @ 0x1401634BC (MiFindNonPagedPoolVa.c)
+ *     MiFindContiguousMemoryInPool @ 0x1401626D4 (MiFindContiguousMemoryInPool.c)
+ *     MiFindNonPagedPoolVa @ 0x1401635BC (MiFindNonPagedPoolVa.c)
  * Callees:
  *     MiReturnPoolCharges @ 0x140023984 (MiReturnPoolCharges.c)
  *     RtlClearBitsEx @ 0x140027F20 (RtlClearBitsEx.c)
  *     MiReturnSystemVa @ 0x14002840C (MiReturnSystemVa.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     MmAllocatePoolMemory @ 0x140099140 (MmAllocatePoolMemory.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     MiObtainPoolCharges @ 0x1401097E4 (MiObtainPoolCharges.c)
- *     MiIncreaseNonPagedPoolUsage @ 0x140163E48 (MiIncreaseNonPagedPoolUsage.c)
- *     MiReadyNonPagedPoolExpansionForUse @ 0x1401640D8 (MiReadyNonPagedPoolExpansionForUse.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     MiLogPerfMemoryRangeEvent @ 0x1402A9318 (MiLogPerfMemoryRangeEvent.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14007DE80 (KeAcquireInStackQueuedSpinLock.c)
+ *     MmAllocatePoolMemory @ 0x140099080 (MmAllocatePoolMemory.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     MiObtainPoolCharges @ 0x140109864 (MiObtainPoolCharges.c)
+ *     MiIncreaseNonPagedPoolUsage @ 0x140163F48 (MiIncreaseNonPagedPoolUsage.c)
+ *     MiReadyNonPagedPoolExpansionForUse @ 0x1401641D8 (MiReadyNonPagedPoolExpansionForUse.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     MiLogPerfMemoryRangeEvent @ 0x1402A9508 (MiLogPerfMemoryRangeEvent.c)
  */
 
 __int64 __fastcall MiExpandNonPagedPool(int a1, unsigned __int64 a2, unsigned int a3, int a4, _DWORD *a5)
 {
   __int64 v6; // rbx
   int v8; // r15d
-  union _SLIST_HEADER *v9; // rdi
+  _SLIST_HEADER *v9; // rdi
   int v10; // r12d
   unsigned __int64 v11; // rcx
   unsigned __int64 v12; // rcx
@@ -52,26 +52,26 @@ __int64 __fastcall MiExpandNonPagedPool(int a1, unsigned __int64 a2, unsigned in
   v8 = 0;
   *a5 = 3;
   v34 = 1;
-  v9 = &qword_14043A058[25 * v6];
+  v9 = &qword_14043B118[25 * v6];
   v10 = a1 & 0x200;
   if ( (a1 & 0x200) != 0 )
   {
-    v11 = *(_QWORD *)(qword_14043C950 + 1984 * v6 + 1808) >> 9;
-    if ( qword_14043E510 >= 0x100000 )
+    v11 = *(_QWORD *)(qword_14043DA10 + 1984 * v6 + 1808) >> 9;
+    if ( qword_14043F5D0 >= 0x100000 )
     {
-      if ( qword_14043E510 < 0x400000 )
+      if ( qword_14043F5D0 < 0x400000 )
         v11 = ((v11 * (unsigned __int128)0x47AE147AE147AE15uLL) >> 64)
             + ((unsigned __int64)(v11 - ((v11 * (unsigned __int128)0x47AE147AE147AE15uLL) >> 64)) >> 1);
       v12 = v11 >> 4;
     }
     else
     {
-      v12 = *(_QWORD *)(qword_14043C950 + 1984 * v6 + 1808) >> 14;
+      v12 = *(_QWORD *)(qword_14043DA10 + 1984 * v6 + 1808) >> 14;
     }
-    if ( qword_14043E510 > 0x20000 )
+    if ( qword_14043F5D0 > 0x20000 )
     {
       v13 = -1LL;
-      if ( qword_14043E510 < 0x80000 )
+      if ( qword_14043F5D0 < 0x80000 )
         v13 = 2LL;
     }
     else

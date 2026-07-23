@@ -1,8 +1,8 @@
 /*
- * XREFs of CcUpdateReadHistory @ 0x14006E6CC
+ * XREFs of CcUpdateReadHistory @ 0x14006E24C
  * Callers:
- *     CcAsyncReadPrefetch @ 0x14006E060 (CcAsyncReadPrefetch.c)
- *     CcMdlRead @ 0x1404586BC (CcMdlRead.c)
+ *     CcAsyncReadPrefetch @ 0x14006DBE0 (CcAsyncReadPrefetch.c)
+ *     CcMdlRead @ 0x14045758C (CcMdlRead.c)
  * Callees:
  *     <none>
  */

@@ -1,11 +1,11 @@
 /*
- * XREFs of HvpGetCellPaged @ 0x14043FC60
+ * XREFs of HvpGetCellPaged @ 0x14043EB30
  * Callers:
  *     <none>
  * Callees:
- *     HvpFaultCellWithClustering @ 0x14002D340 (HvpFaultCellWithClustering.c)
- *     HvpMapEntryGetBlockAddress @ 0x14002D380 (HvpMapEntryGetBlockAddress.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
+ *     HvpFaultCellWithClustering @ 0x14002CEC0 (HvpFaultCellWithClustering.c)
+ *     HvpMapEntryGetBlockAddress @ 0x14002CF00 (HvpMapEntryGetBlockAddress.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall HvpGetCellPaged(ULONG_PTR BugCheckParameter3, unsigned int a2, __int64 a3)

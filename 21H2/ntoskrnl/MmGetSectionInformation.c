@@ -1,17 +1,17 @@
 /*
- * XREFs of MmGetSectionInformation @ 0x140620F30
+ * XREFs of MmGetSectionInformation @ 0x14068ABA0
  * Callers:
- *     NtQueryInformationProcess @ 0x1406212A0 (NtQueryInformationProcess.c)
- *     NtQuerySection @ 0x1406A9210 (NtQuerySection.c)
- *     AlpcpMapLegacyPortView @ 0x1406D2148 (AlpcpMapLegacyPortView.c)
- *     PspAllocateProcess @ 0x1406D6638 (PspAllocateProcess.c)
- *     PspLocateSystemDll @ 0x140798B78 (PspLocateSystemDll.c)
- *     DbgkpSendErrorMessage @ 0x140887370 (DbgkpSendErrorMessage.c)
+ *     NtQuerySection @ 0x140607190 (NtQuerySection.c)
+ *     NtQueryInformationProcess @ 0x14068AF10 (NtQueryInformationProcess.c)
+ *     AlpcpMapLegacyPortView @ 0x1406A9428 (AlpcpMapLegacyPortView.c)
+ *     PspAllocateProcess @ 0x1406AD918 (PspAllocateProcess.c)
+ *     PspLocateSystemDll @ 0x140798D78 (PspLocateSystemDll.c)
+ *     DbgkpSendErrorMessage @ 0x1408874D0 (DbgkpSendErrorMessage.c)
  * Callees:
- *     MiSectionControlArea @ 0x140315260 (MiSectionControlArea.c)
- *     MiAweControlArea @ 0x140316048 (MiAweControlArea.c)
- *     MiGetControlAreaLoadConfig @ 0x14035F2D8 (MiGetControlAreaLoadConfig.c)
- *     memset @ 0x140414200 (memset.c)
+ *     MiGetControlAreaLoadConfig @ 0x1402A4208 (MiGetControlAreaLoadConfig.c)
+ *     MiSectionControlArea @ 0x14031FFB0 (MiSectionControlArea.c)
+ *     MiAweControlArea @ 0x140320D98 (MiAweControlArea.c)
+ *     memset @ 0x140414300 (memset.c)
  */
 
 __int64 __fastcall MmGetSectionInformation(__int64 a1, int a2, __int64 a3)
@@ -85,7 +85,7 @@ __int64 __fastcall MmGetSectionInformation(__int64 a1, int a2, __int64 a3)
         v24 = v20[3];
         if ( (*(_DWORD *)(v9 + 56) & 0x10000000) != 0 )
         {
-          *(_QWORD *)&v30[0] = qword_140C4DE10 | LOWORD(v30[0]);
+          *(_QWORD *)&v30[0] = qword_140C4DE50 | LOWORD(v30[0]);
           v21 = v30[0];
         }
         if ( a2 == 4 )
@@ -156,7 +156,7 @@ __int64 __fastcall MmGetSectionInformation(__int64 a1, int a2, __int64 a3)
       if ( a2 == 2 )
       {
         if ( (*(_DWORD *)(v9 + 56) & 0x10000000) != 0 )
-          v19 += qword_140C4DE10 - *(_QWORD *)(*(_QWORD *)v9 + 32LL);
+          v19 += qword_140C4DE50 - *(_QWORD *)(*(_QWORD *)v9 + 32LL);
         *(_QWORD *)a3 = v19;
       }
       else

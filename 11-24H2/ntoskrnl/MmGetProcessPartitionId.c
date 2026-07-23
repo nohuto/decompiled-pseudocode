@@ -1,10 +1,10 @@
 /*
- * XREFs of MmGetProcessPartitionId @ 0x14046FF78
+ * XREFs of MmGetProcessPartitionId @ 0x14046A3A0
  * Callers:
- *     ExpQueryNumaAvailableMemory @ 0x1407B5140 (ExpQueryNumaAvailableMemory.c)
- *     ExpQueryChannelInformation @ 0x140A5A018 (ExpQueryChannelInformation.c)
- *     ExpQuerySystemInformation @ 0x140ADC240 (ExpQuerySystemInformation.c)
- *     ExpQuerySystemPerformanceInformation @ 0x140AE0850 (ExpQuerySystemPerformanceInformation.c)
+ *     ExpQueryNumaAvailableMemory @ 0x1407B5590 (ExpQueryNumaAvailableMemory.c)
+ *     ExpQueryChannelInformation @ 0x140A518D8 (ExpQueryChannelInformation.c)
+ *     ExpQuerySystemInformation @ 0x140ADDAE0 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemPerformanceInformation @ 0x140AE2138 (ExpQuerySystemPerformanceInformation.c)
  * Callees:
  *     <none>
  */

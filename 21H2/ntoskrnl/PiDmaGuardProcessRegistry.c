@@ -1,9 +1,9 @@
 /*
- * XREFs of PiDmaGuardProcessRegistry @ 0x140A538C4
+ * XREFs of PiDmaGuardProcessRegistry @ 0x140A548C4
  * Callers:
- *     IopInitializePlugPlayServices @ 0x140A52280 (IopInitializePlugPlayServices.c)
+ *     IopInitializePlugPlayServices @ 0x140A53280 (IopInitializePlugPlayServices.c)
  * Callees:
- *     PnpGetRegistryDword @ 0x1403B738C (PnpGetRegistryDword.c)
+ *     PnpGetRegistryDword @ 0x1403B74FC (PnpGetRegistryDword.c)
  */
 
 __int64 __fastcall PiDmaGuardProcessRegistry(void *a1)

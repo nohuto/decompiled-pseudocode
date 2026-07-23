@@ -1,5 +1,5 @@
 /*
- * XREFs of HvlGetQpcBias @ 0x140365540
+ * XREFs of HvlGetQpcBias @ 0x1403656F0
  * Callers:
  *     <none>
  * Callees:

@@ -1,12 +1,12 @@
 /*
- * XREFs of PnpSynchronizeDeviceEventQueue @ 0x140547ED0
+ * XREFs of PnpSynchronizeDeviceEventQueue @ 0x140548410
  * Callers:
- *     PipProcessDevNodeTree @ 0x1403F41E0 (PipProcessDevNodeTree.c)
+ *     PipProcessDevNodeTree @ 0x1403F30A4 (PipProcessDevNodeTree.c)
  * Callees:
- *     KeInitializeEvent @ 0x14002DEA0 (KeInitializeEvent.c)
- *     KeWaitForSingleObject @ 0x14005C880 (KeWaitForSingleObject.c)
- *     PnpInsertEventInQueue @ 0x1403F0BD4 (PnpInsertEventInQueue.c)
- *     PnpCreateDeviceEventEntry @ 0x1403F0D68 (PnpCreateDeviceEventEntry.c)
+ *     KeInitializeEvent @ 0x14002DA20 (KeInitializeEvent.c)
+ *     KeWaitForSingleObject @ 0x14005C400 (KeWaitForSingleObject.c)
+ *     PnpCreateDeviceEventEntry @ 0x140489C28 (PnpCreateDeviceEventEntry.c)
+ *     PnpInsertEventInQueue @ 0x14048AC64 (PnpInsertEventInQueue.c)
  */
 
 NTSTATUS PnpSynchronizeDeviceEventQueue()

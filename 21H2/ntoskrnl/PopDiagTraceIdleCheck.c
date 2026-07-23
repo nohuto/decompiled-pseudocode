@@ -1,11 +1,11 @@
 /*
- * XREFs of PopDiagTraceIdleCheck @ 0x140281E10
+ * XREFs of PopDiagTraceIdleCheck @ 0x140270050
  * Callers:
- *     PopCheckForIdleness @ 0x140280EE0 (PopCheckForIdleness.c)
+ *     PopCheckForIdleness @ 0x14026F120 (PopCheckForIdleness.c)
  * Callees:
- *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x14025DD10 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x14027F840 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x1402C0830 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 char __fastcall PopDiagTraceIdleCheck(__int64 a1, int a2, int a3)
@@ -45,7 +45,7 @@ char __fastcall PopDiagTraceIdleCheck(__int64 a1, int a2, int a3)
     {
       v7 = 0;
       *(_QWORD *)&UserData.Size = 4LL;
-      v8 = dword_140C23368 >= (unsigned int)dword_140C2336C;
+      v8 = dword_140C23968 >= (unsigned int)dword_140C2396C;
       v12 = 4LL;
       v9 = dword_140C002E0 != 0;
       v14 = 4LL;
@@ -53,7 +53,7 @@ char __fastcall PopDiagTraceIdleCheck(__int64 a1, int a2, int a3)
       v16 = 4LL;
       v11 = &v24;
       v13 = &v25;
-      v15 = &dword_140C23368;
+      v15 = &dword_140C23968;
       v17 = &v7;
       v19 = &v8;
       v21 = &v9;

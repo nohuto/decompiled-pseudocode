@@ -1,10 +1,10 @@
 /*
- * XREFs of MI_GET_NODE_FROM_VALID_PTE @ 0x1403D1CA0
+ * XREFs of MI_GET_NODE_FROM_VALID_PTE @ 0x1403D4C70
  * Callers:
- *     MmGrowKernelStackEx @ 0x1403D1450 (MmGrowKernelStackEx.c)
+ *     MmGrowKernelStackEx @ 0x1403D4420 (MmGrowKernelStackEx.c)
  * Callees:
- *     MiPageToNode @ 0x140289710 (MiPageToNode.c)
- *     MiReadPteShadow @ 0x140314FF0 (MiReadPteShadow.c)
+ *     MiPageToNode @ 0x140288C70 (MiPageToNode.c)
+ *     MiReadPteShadow @ 0x140317020 (MiReadPteShadow.c)
  */
 
 __int64 __fastcall MI_GET_NODE_FROM_VALID_PTE(__int64 *a1)

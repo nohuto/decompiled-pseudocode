@@ -3,8 +3,8 @@
  * Callers:
  *     VfFilterAttach @ 0x14071AB04 (VfFilterAttach.c)
  * Callees:
- *     HviIsAnyHypervisorPresent @ 0x14013123C (HviIsAnyHypervisorPresent.c)
- *     RtlEqualUnicodeString @ 0x14040F720 (RtlEqualUnicodeString.c)
+ *     HviIsAnyHypervisorPresent @ 0x1401317AC (HviIsAnyHypervisorPresent.c)
+ *     RtlEqualUnicodeString @ 0x14040E5E0 (RtlEqualUnicodeString.c)
  */
 
 _BOOL8 __fastcall ViFilterIsDeviceExcluded(__int64 a1)

@@ -1,14 +1,14 @@
 /*
- * XREFs of PspDeleteUserStack @ 0x1406CB070
+ * XREFs of PspDeleteUserStack @ 0x1406CC310
  * Callers:
- *     PspAllocateThread @ 0x1405F7E84 (PspAllocateThread.c)
- *     PspInsertThread @ 0x140621450 (PspInsertThread.c)
+ *     PspAllocateThread @ 0x1405F8E84 (PspAllocateThread.c)
+ *     PspInsertThread @ 0x140622450 (PspInsertThread.c)
  * Callees:
  *     KiStackAttachProcess @ 0x140016DB0 (KiStackAttachProcess.c)
  *     KiUnstackDetachProcess @ 0x140017190 (KiUnstackDetachProcess.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ZwFreeVirtualMemory @ 0x1401B8550 (ZwFreeVirtualMemory.c)
- *     MmFreeVirtualMemory @ 0x1405EF4F0 (MmFreeVirtualMemory.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ZwFreeVirtualMemory @ 0x1401B86B0 (ZwFreeVirtualMemory.c)
+ *     MmFreeVirtualMemory @ 0x1405F04F0 (MmFreeVirtualMemory.c)
  */
 
 __int64 __fastcall PspDeleteUserStack(_KPROCESS *a1, __int64 a2, _QWORD *a3, char *a4)

@@ -1,18 +1,18 @@
 /*
- * XREFs of HalpDmaSyncMapBuffersWithEmergencyResources @ 0x1404C856C
+ * XREFs of HalpDmaSyncMapBuffersWithEmergencyResources @ 0x1404C87AC
  * Callers:
- *     HalpDmaSyncMapBuffers @ 0x1404C81F4 (HalpDmaSyncMapBuffers.c)
+ *     HalpDmaSyncMapBuffers @ 0x1404C8434 (HalpDmaSyncMapBuffers.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     KeFlushIoBuffers @ 0x1402A7EB0 (KeFlushIoBuffers.c)
- *     MmMapLockedPagesWithReservedMapping @ 0x1403C8A70 (MmMapLockedPagesWithReservedMapping.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KeFlushIoBuffers @ 0x140225FF0 (KeFlushIoBuffers.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402D3660 (KeAcquireInStackQueuedSpinLock.c)
+ *     MmMapLockedPagesWithReservedMapping @ 0x1403C8C10 (MmMapLockedPagesWithReservedMapping.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     HalpDmaGetAdapterCacheAlignment @ 0x1404B8C50 (HalpDmaGetAdapterCacheAlignment.c)
- *     MmUnmapReservedMapping @ 0x140531C90 (MmUnmapReservedMapping.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     HalpDmaGetAdapterCacheAlignment @ 0x1404B8E90 (HalpDmaGetAdapterCacheAlignment.c)
+ *     MmUnmapReservedMapping @ 0x140531ED0 (MmUnmapReservedMapping.c)
  */
 
 __int64 __fastcall HalpDmaSyncMapBuffersWithEmergencyResources(
@@ -59,9 +59,9 @@ __int64 __fastcall HalpDmaSyncMapBuffersWithEmergencyResources(
   v8 = a4;
   memset(&LockHandle, 0, sizeof(LockHandle));
   AdapterCacheAlignment = HalpDmaGetAdapterCacheAlignment(a1);
-  KeAcquireInStackQueuedSpinLock(&qword_140CF2798, &LockHandle);
+  KeAcquireInStackQueuedSpinLock(&qword_140CF27D8, &LockHandle);
   v11 = MemoryDescriptorList;
-  v12 = qword_140C53EF8;
+  v12 = qword_140C53F38;
   v13 = a3 & 0xFFF;
   v15 = (unsigned __int64)(a3 - *(_QWORD *)(a2 + 32)) >> 12;
   MemoryDescriptorList->ByteOffset = v13;
@@ -82,7 +82,7 @@ __int64 __fastcall HalpDmaSyncMapBuffersWithEmergencyResources(
     }
     else
     {
-      v17 = qword_140C53F10;
+      v17 = qword_140C53F50;
       v12[1].Next = (struct _MDL *)(*v8 >> 12);
       v18 = (unsigned __int64)MmMapLockedPagesWithReservedMapping(v17, 0x206C6148u, v12, MmCached);
       if ( !v18 )

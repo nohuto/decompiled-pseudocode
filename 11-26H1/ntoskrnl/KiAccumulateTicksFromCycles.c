@@ -1,7 +1,7 @@
 /*
- * XREFs of KiAccumulateTicksFromCycles @ 0x1403F7DB0
+ * XREFs of KiAccumulateTicksFromCycles @ 0x1403F18F0
  * Callers:
- *     KiEndDebugAccumulation @ 0x1405025A0 (KiEndDebugAccumulation.c)
+ *     KiEndDebugAccumulation @ 0x1404FBE70 (KiEndDebugAccumulation.c)
  * Callees:
  *     <none>
  */
@@ -40,9 +40,9 @@ __int64 __fastcall KiAccumulateTicksFromCycles(
       v8 = a3 * (unsigned __int128)MEMORY[0xFFFFF78000000360];
       v9 = a5;
     }
-    v10 = (*((unsigned __int64 *)&v8 + 1) * (unsigned __int128)*(unsigned __int64 *)&stru_140FC01F0.SavedApcStateFill[40]) >> 64;
+    v10 = (*((unsigned __int64 *)&v8 + 1) * (unsigned __int128)(unsigned __int64)stru_140FC11F0.SavedApcState.Process) >> 64;
     v5 = (((unsigned __int64)v9 * (unsigned __int128)MEMORY[0xFFFFF78000000360]) >> 64)
-       * *(unsigned __int64 *)&stru_140FC01F0.SavedApcStateFill[40];
+       * (unsigned __int64)stru_140FC11F0.SavedApcState.Process;
     DWORD2(v5) = (*((_QWORD *)&v5 + 1) >> KiMaximumIncrementShiftCount) - (v10 >> KiMaximumIncrementShiftCount);
     if ( DWORD2(v5) )
     {

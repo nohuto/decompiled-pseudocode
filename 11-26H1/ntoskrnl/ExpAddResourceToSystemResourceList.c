@@ -1,73 +1,72 @@
 /*
- * XREFs of ExpAddResourceToSystemResourceList @ 0x140260A5C
+ * XREFs of ExpAddResourceToSystemResourceList @ 0x14021B4EC
  * Callers:
- *     SepCreateTokenEx @ 0x14025F384 (SepCreateTokenEx.c)
- *     CcAllocateInitializeBcb @ 0x140260530 (CcAllocateInitializeBcb.c)
- *     ExInitializeResourceLite @ 0x140260870 (ExInitializeResourceLite.c)
- *     CcPinFileData @ 0x1402DF720 (CcPinFileData.c)
- *     RtlpCreateHeap @ 0x1404E3978 (RtlpCreateHeap.c)
- *     DifExInitializeResourceLiteWrapper @ 0x140652410 (DifExInitializeResourceLiteWrapper.c)
- *     ExInitializeResourceLite2 @ 0x1406CE730 (ExInitializeResourceLite2.c)
- *     FsRtlInitSystem @ 0x140CB8A6C (FsRtlInitSystem.c)
- *     IoInitSystemPreDrivers @ 0x140CBACA0 (IoInitSystemPreDrivers.c)
- *     IopInitializePlugPlayServices @ 0x140CBFDA0 (IopInitializePlugPlayServices.c)
- *     PnpInitPhase0 @ 0x140CC3724 (PnpInitPhase0.c)
- *     PiDeviceDependencyInit @ 0x140CC3A38 (PiDeviceDependencyInit.c)
- *     PpInitializeBootDDB @ 0x140CC5184 (PpInitializeBootDDB.c)
- *     PiSwInit @ 0x140CC68FC (PiSwInit.c)
- *     PiDmaGuardQueueInitialize @ 0x140CC7BBC (PiDmaGuardQueueInitialize.c)
- *     PoInitSystem @ 0x140CCE870 (PoInitSystem.c)
- *     PopInitializeAdpm @ 0x140CD671C (PopInitializeAdpm.c)
- *     PopDripsWatchdogInitialize @ 0x140CD68EC (PopDripsWatchdogInitialize.c)
- *     SepInitializeWorkList @ 0x140CDAB2C (SepInitializeWorkList.c)
- *     SepRmDbInitialization @ 0x140CDE524 (SepRmDbInitialization.c)
- *     WmipGetSMBiosFromLoaderBlock @ 0x140CDFF80 (WmipGetSMBiosFromLoaderBlock.c)
- *     ExpInitSystemPhase0 @ 0x140CE40C0 (ExpInitSystemPhase0.c)
- *     MiInitializeLoadedModuleList @ 0x140D00470 (MiInitializeLoadedModuleList.c)
+ *     CcAllocateInitializeBcb @ 0x140219DA4 (CcAllocateInitializeBcb.c)
+ *     ExInitializeResourceLite @ 0x14021A0F0 (ExInitializeResourceLite.c)
+ *     CcPinFileData @ 0x1402C1530 (CcPinFileData.c)
+ *     SepCreateTokenEx @ 0x140405564 (SepCreateTokenEx.c)
+ *     RtlpCreateHeap @ 0x1404DCF18 (RtlpCreateHeap.c)
+ *     DifExInitializeResourceLiteWrapper @ 0x140655FF0 (DifExInitializeResourceLiteWrapper.c)
+ *     ExInitializeResourceLite2 @ 0x1406D2760 (ExInitializeResourceLite2.c)
+ *     FsRtlInitSystem @ 0x140CBEAB0 (FsRtlInitSystem.c)
+ *     IoInitSystemPreDrivers @ 0x140CC0D18 (IoInitSystemPreDrivers.c)
+ *     IopInitializePlugPlayServices @ 0x140CC5E70 (IopInitializePlugPlayServices.c)
+ *     PnpInitPhase0 @ 0x140CC97F8 (PnpInitPhase0.c)
+ *     PiDeviceDependencyInit @ 0x140CC9B0C (PiDeviceDependencyInit.c)
+ *     PpInitializeBootDDB @ 0x140CCB264 (PpInitializeBootDDB.c)
+ *     PiSwInit @ 0x140CCC9EC (PiSwInit.c)
+ *     PiDmaGuardQueueInitialize @ 0x140CCDCAC (PiDmaGuardQueueInitialize.c)
+ *     PoInitSystem @ 0x140CD49D0 (PoInitSystem.c)
+ *     PopInitializeAdpm @ 0x140CDCA70 (PopInitializeAdpm.c)
+ *     PopDripsWatchdogInitialize @ 0x140CDCC40 (PopDripsWatchdogInitialize.c)
+ *     SepInitializeWorkList @ 0x140CE0EAC (SepInitializeWorkList.c)
+ *     SepRmDbInitialization @ 0x140CE48BC (SepRmDbInitialization.c)
+ *     WmipGetSMBiosFromLoaderBlock @ 0x140CE6318 (WmipGetSMBiosFromLoaderBlock.c)
+ *     ExpInitSystemPhase0 @ 0x140CEA460 (ExpInitSystemPhase0.c)
+ *     MiInitializeLoadedModuleList @ 0x140D06810 (MiInitializeLoadedModuleList.c)
  * Callees:
- *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14021AAD4 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     DifObjTrkInsertItem @ 0x14064AED0 (DifObjTrkInsertItem.c)
- *     DifIsPluginEnabled @ 0x14064C7D0 (DifIsPluginEnabled.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14021C464 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     DifObjTrkInsertItem @ 0x14064EAB0 (DifObjTrkInsertItem.c)
+ *     DifIsPluginEnabled @ 0x1406503B0 (DifIsPluginEnabled.c)
  */
 
-__int64 __fastcall ExpAddResourceToSystemResourceList(struct _SINGLE_LIST_ENTRY *a1)
+__int64 __fastcall ExpAddResourceToSystemResourceList(_KSWAPPABLE_PAGE *a1)
 {
   KIRQL v2; // al
-  struct _SINGLE_LIST_ENTRY *Next; // rcx
-  unsigned __int64 v4; // rdi
+  __int64 v3; // rdx
+  _KSWAPPABLE_PAGE *SchedulerSharedSwappablePage; // rcx
+  unsigned __int64 v5; // rdi
   __int64 result; // rax
-  unsigned int v6; // r10d
-  __int64 retaddr; // [rsp+28h] [rbp+0h]
+  unsigned int v7; // r10d
+  void *retaddr; // [rsp+28h] [rbp+0h]
 
   v2 = ExAcquireSpinLockExclusive(&ExpResourceSpinLock);
-  Next = ExSaPageGroupDescriptorArrayLock.SystemAffinityTokenListHead.Next;
-  v4 = v2;
-  result = (__int64)&ExSaPageGroupDescriptorArrayLock.Spare36;
-  if ( ExSaPageGroupDescriptorArrayLock.SystemAffinityTokenListHead.Next->Next != (struct _SINGLE_LIST_ENTRY *)&ExSaPageGroupDescriptorArrayLock.Spare36 )
+  SchedulerSharedSwappablePage = ExSaPageGroupDescriptorArrayLock.SchedulerSharedSwappablePage;
+  v5 = v2;
+  result = (__int64)&ExSaPageGroupDescriptorArrayLock.ResourceIndex;
+  if ( ExSaPageGroupDescriptorArrayLock.SchedulerSharedSwappablePage->RegionStart != &ExSaPageGroupDescriptorArrayLock.ResourceIndex )
     __fastfail(3u);
-  a1->Next = (struct _SINGLE_LIST_ENTRY *)&ExSaPageGroupDescriptorArrayLock.Spare36;
-  a1[1].Next = Next;
-  Next->Next = a1;
-  ExSaPageGroupDescriptorArrayLock.SystemAffinityTokenListHead.Next = a1;
-  if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0
-    || (result = LODWORD(stru_140F11D08.WaitStatus), LODWORD(stru_140F11D08.WaitStatus)) )
-  {
+  a1->RegionStart = &ExSaPageGroupDescriptorArrayLock.ResourceIndex;
+  a1->TransitionLock = (unsigned __int64)SchedulerSharedSwappablePage;
+  SchedulerSharedSwappablePage->RegionStart = a1;
+  ExSaPageGroupDescriptorArrayLock.SchedulerSharedSwappablePage = a1;
+  if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || (result = (unsigned int)PopHibernateInProgress, PopHibernateInProgress) )
     ExpResourceSpinLock = 0;
-  }
   else
-  {
     result = ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(&ExpResourceSpinLock, retaddr);
-  }
   if ( KiIrqlFlags )
-    result = KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), v4);
-  __writecr8(v4);
+  {
+    LOBYTE(v3) = v5;
+    result = KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), v3);
+  }
+  __writecr8(v5);
   if ( KernelVerifier == 1 )
   {
     result = DifIsPluginEnabled(48LL);
     if ( (_BYTE)result )
-      return DifObjTrkInsertItem(v6, a1, v6 + 56, 0LL);
+      return DifObjTrkInsertItem(v7, a1, v7 + 56, 0LL);
   }
   return result;
 }

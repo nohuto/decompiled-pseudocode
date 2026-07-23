@@ -1,15 +1,15 @@
 /*
- * XREFs of CmpVEExecuteParseLogic @ 0x1406FC190
+ * XREFs of CmpVEExecuteParseLogic @ 0x140713570
  * Callers:
- *     CmpDoParseKey @ 0x1406F9170 (CmpDoParseKey.c)
+ *     CmpDoParseKey @ 0x140710550 (CmpDoParseKey.c)
  * Callees:
- *     PsGetCurrentThreadProcess @ 0x1402BDFE0 (PsGetCurrentThreadProcess.c)
- *     CmpAttachToRegistryProcess @ 0x1405F6390 (CmpAttachToRegistryProcess.c)
- *     SeReleaseSubjectContext @ 0x1406568F0 (SeReleaseSubjectContext.c)
- *     SeQueryInformationToken @ 0x140656BD0 (SeQueryInformationToken.c)
- *     SeCaptureSubjectContextEx @ 0x140657C60 (SeCaptureSubjectContextEx.c)
- *     CmpVEExecuteRealStoreParseLogic @ 0x14066FC00 (CmpVEExecuteRealStoreParseLogic.c)
- *     CmpVEExecuteVirtualStoreParseLogic @ 0x140870C28 (CmpVEExecuteVirtualStoreParseLogic.c)
+ *     PsGetCurrentThreadProcess @ 0x14023C620 (PsGetCurrentThreadProcess.c)
+ *     SeReleaseSubjectContext @ 0x14064B710 (SeReleaseSubjectContext.c)
+ *     SeQueryInformationToken @ 0x14064B9F0 (SeQueryInformationToken.c)
+ *     SeCaptureSubjectContextEx @ 0x14064CA80 (SeCaptureSubjectContextEx.c)
+ *     CmpVEExecuteRealStoreParseLogic @ 0x1406660E0 (CmpVEExecuteRealStoreParseLogic.c)
+ *     CmpAttachToRegistryProcess @ 0x1406E5AF0 (CmpAttachToRegistryProcess.c)
+ *     CmpVEExecuteVirtualStoreParseLogic @ 0x140870D88 (CmpVEExecuteVirtualStoreParseLogic.c)
  */
 
 __int64 __fastcall CmpVEExecuteParseLogic(
@@ -20,7 +20,7 @@ __int64 __fastcall CmpVEExecuteParseLogic(
         char a5,
         struct _SECURITY_SUBJECT_CONTEXT *a6)
 {
-  __int64 v11; // rdx
+  _DWORD *v11; // rdx
   __int16 i; // cx
   __int64 v13; // rax
   int *v14; // rdi
@@ -42,7 +42,7 @@ __int64 __fastcall CmpVEExecuteParseLogic(
 
   if ( !CmpVEEnabled || (a3[6] & 0x10) != 0 || *(_WORD *)(a1 + 66) )
     return 3221226097LL;
-  v11 = *(_QWORD *)(a1 + 32);
+  v11 = *(_DWORD **)(a1 + 32);
   if ( v11 == CmpMasterHive )
     return 3221226097LL;
   v28[0] = a1;
@@ -62,7 +62,7 @@ __int64 __fastcall CmpVEExecuteParseLogic(
     if ( *(_DWORD *)(v13 + 40) != -1 )
       break;
   }
-  if ( (*(_DWORD *)(v11 + 4152) & 0x10) == 0 && (*(_DWORD *)(a1 + 184) & 0x2000000) == 0 )
+  if ( (v11[1038] & 0x10) == 0 && (*(_DWORD *)(a1 + 184) & 0x2000000) == 0 )
     return 3221226097LL;
 LABEL_17:
   v14 = a3 + 4;
@@ -122,7 +122,7 @@ LABEL_17:
     return 3221226097LL;
   if ( (a3[40] & 1) == 0 )
   {
-    CmpAttachToRegistryProcess((__int64)(a3 + 42), v11, (__int64)a3, a4);
+    CmpAttachToRegistryProcess((__int64)(a3 + 42));
     a3[40] |= 1u;
   }
   if ( (*(_DWORD *)(a1 + 184) & 0x2000000) != 0 )

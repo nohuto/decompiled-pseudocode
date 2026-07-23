@@ -2,7 +2,7 @@
  * XREFs of RealPredecessor @ 0x18006BDBC
  * Callers:
  *     RtlDeleteElementGenericTableAvlEx @ 0x18006BAB0 (RtlDeleteElementGenericTableAvlEx.c)
- *     RtlLookupFirstMatchingElementGenericTableAvl @ 0x18008ABA0 (RtlLookupFirstMatchingElementGenericTableAvl.c)
+ *     RtlLookupFirstMatchingElementGenericTableAvl @ 0x18008ABB0 (RtlLookupFirstMatchingElementGenericTableAvl.c)
  *     RtlGetElementGenericTableAvl @ 0x1800F6BB0 (RtlGetElementGenericTableAvl.c)
  * Callees:
  *     <none>

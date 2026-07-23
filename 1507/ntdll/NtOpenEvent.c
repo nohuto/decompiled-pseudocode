@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 NtOpenEvent()
+NTSTATUS __cdecl NtOpenEvent(PHANDLE EventHandle, ACCESS_MASK DesiredAccess, POBJECT_ATTRIBUTES ObjectAttributes)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 64LL;
+  result = 64;
   __asm { syscall; Low latency system call }
   return result;
 }

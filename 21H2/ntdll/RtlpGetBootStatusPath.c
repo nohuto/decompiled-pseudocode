@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpGetBootStatusPath @ 0x1800EE384
+ * XREFs of RtlpGetBootStatusPath @ 0x1800EE344
  * Callers:
- *     RtlCreateBootStatusDataFile @ 0x1800EDEB0 (RtlCreateBootStatusDataFile.c)
+ *     RtlCreateBootStatusDataFile @ 0x1800EDE70 (RtlCreateBootStatusDataFile.c)
  * Callees:
- *     RtlpGetBootStatusPathFromRegistry @ 0x1800EE3DC (RtlpGetBootStatusPathFromRegistry.c)
+ *     RtlpGetBootStatusPathFromRegistry @ 0x1800EE39C (RtlpGetBootStatusPathFromRegistry.c)
  */
 
 const wchar_t *__fastcall RtlpGetBootStatusPath(const wchar_t **a1, char *a2)

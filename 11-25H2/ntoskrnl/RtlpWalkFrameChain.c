@@ -38,7 +38,7 @@ __int64 __fastcall RtlpWalkFrameChain(__int64 a1, unsigned int a2, char a3, unsi
   _QWORD *n; // rcx
   char *v20; // rsi
   __int64 v22; // rsi
-  _DWORD *v23; // rdi
+  PCONTEXT_EX v23; // rdi
   _QWORD *v24; // r13
   char *v25; // rbx
   __int64 v26; // rax
@@ -46,7 +46,7 @@ __int64 __fastcall RtlpWalkFrameChain(__int64 a1, unsigned int a2, char a3, unsi
   int v28; // edx
   __int64 v29; // r8
   unsigned __int64 CurrentStackPointer; // rax
-  __int64 v31; // r9
+  __int64 Offset; // r9
   char *v32; // r10
   __int64 v33; // rdx
   unsigned int v34; // r8d
@@ -98,7 +98,7 @@ __int64 __fastcall RtlpWalkFrameChain(__int64 a1, unsigned int a2, char a3, unsi
   unsigned int v80; // [rsp+90h] [rbp+30h]
   unsigned int v81; // [rsp+94h] [rbp+34h]
   unsigned int v82; // [rsp+98h] [rbp+38h]
-  _DWORD *v83; // [rsp+A0h] [rbp+40h] BYREF
+  PCONTEXT_EX ContextEx; // [rsp+A0h] [rbp+40h] BYREF
   __int64 v84; // [rsp+A8h] [rbp+48h]
   _QWORD *ii; // [rsp+B0h] [rbp+50h]
   unsigned __int64 v86; // [rsp+B8h] [rbp+58h]
@@ -128,7 +128,7 @@ __int64 __fastcall RtlpWalkFrameChain(__int64 a1, unsigned int a2, char a3, unsi
   v81 = a4;
   v82 = a2;
   v94 = a1;
-  v83 = 0LL;
+  ContextEx = 0LL;
   v5 = 0;
   v102 = 0LL;
   v103 = 0LL;
@@ -208,7 +208,7 @@ LABEL_10:
   v13 = v12 & 0xFFFFFFFFFFFFFFF0uLL;
   v14 = alloca(v13);
   v15 = alloca(v13);
-  RtlInitializeExtendedContext2(&v69, v8 != 0 ? 1048651 : 1048587, &v83, v8 != 0 ? 0x800 : 0);
+  RtlInitializeExtendedContext2((PCONTEXT)&v69, v8 != 0 ? 1048651 : 1048587, &ContextEx, v8 != 0 ? 0x800 : 0);
   RtlpCaptureContext2(&v69);
   v70 = 0;
   if ( !(unsigned __int8)RtlpGetStackLimits(&v75, &v79) )
@@ -232,7 +232,7 @@ LABEL_25:
     v106 = xmmword_141200030;
     *(_QWORD *)&v107 = qword_141200040;
     v69 = v17;
-    v23 = v83;
+    v23 = ContextEx;
     while ( 1 )
     {
       v24 = ii;
@@ -265,7 +265,7 @@ LABEL_25:
             {
               v79 = v60;
               v75 = &v60[-KeDpcStackSize];
-              v23 = v83;
+              v23 = ContextEx;
               v22 = v84;
               goto LABEL_29;
             }
@@ -279,7 +279,7 @@ LABEL_25:
           {
             v79 = v51;
             v75 = &v51[-(unsigned int)KeExceptionStackSize];
-            v23 = v83;
+            v23 = ContextEx;
             v22 = v84;
             goto LABEL_29;
           }
@@ -323,7 +323,7 @@ LABEL_25:
           goto LABEL_203;
         v75 = StackLimit;
         v79 = (char *)v40;
-        v23 = v83;
+        v23 = ContextEx;
         v22 = v84;
       }
 LABEL_29:
@@ -360,13 +360,13 @@ LABEL_29:
         {
           goto LABEL_141;
         }
-        v31 = (int)v23[4];
-        if ( *v23 > (int)v31 )
+        Offset = v23->XState.Offset;
+        if ( v23->All.Offset > (int)Offset )
           goto LABEL_140;
-        if ( v23[1] + *v23 < (int)v31 + v23[5] )
+        if ( (signed int)(v23->All.Length + v23->All.Offset) < (signed int)(Offset + v23->XState.Length) )
           goto LABEL_140;
-        v32 = (char *)v23 + v31;
-        if ( !(_DWORD *)((char *)v23 + v31) )
+        v32 = (char *)v23 + Offset;
+        if ( !(PCONTEXT_EX)((char *)v23 + Offset) )
           goto LABEL_140;
         if ( (MEMORY[0xFFFFF780000003EC] & 2) != 0 )
         {
@@ -467,7 +467,7 @@ LABEL_134:
             v22 = v84;
             if ( v84 )
               v86 = *(_QWORD *)(v84 + 208);
-            v23 = v83;
+            v23 = ContextEx;
           }
         }
         else
@@ -494,13 +494,13 @@ LABEL_134:
                 goto LABEL_165;
               if ( (MEMORY[0xFFFFF780000003EC] & 0xFFFFFFF8) != 0 )
                 goto LABEL_165;
-              v53 = (int)v23[4];
-              if ( *v23 > (int)v53 )
+              v53 = v23->XState.Offset;
+              if ( v23->All.Offset > (int)v53 )
                 goto LABEL_165;
-              if ( v23[1] + *v23 < (int)v53 + v23[5] )
+              if ( (signed int)(v23->All.Length + v23->All.Offset) < (signed int)(v53 + v23->XState.Length) )
                 goto LABEL_165;
               v54 = (char *)v23 + v53;
-              if ( !(_DWORD *)((char *)v23 + v53) )
+              if ( !(PCONTEXT_EX)((char *)v23 + v53) )
                 goto LABEL_165;
               if ( (MEMORY[0xFFFFF780000003EC] & 2) == 0 )
               {
@@ -578,13 +578,13 @@ LABEL_149:
               goto LABEL_145;
             if ( (MEMORY[0xFFFFF780000003EC] & 0xFFFFFFF8) != 0 )
               goto LABEL_145;
-            v44 = (int)v23[4];
-            if ( *v23 > (int)v44 )
+            v44 = v23->XState.Offset;
+            if ( v23->All.Offset > (int)v44 )
               goto LABEL_145;
-            if ( v23[1] + *v23 < (int)v44 + v23[5] )
+            if ( (signed int)(v23->All.Length + v23->All.Offset) < (signed int)(v44 + v23->XState.Length) )
               goto LABEL_145;
             v45 = (char *)v23 + v44;
-            if ( !(_DWORD *)((char *)v23 + v44) )
+            if ( !(PCONTEXT_EX)((char *)v23 + v44) )
               goto LABEL_145;
             if ( (MEMORY[0xFFFFF780000003EC] & 2) == 0 )
             {

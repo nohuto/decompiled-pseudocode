@@ -87,7 +87,7 @@ __int64 __fastcall PspUnlockQuotaExpansion(__int64 a1, unsigned __int8 a2)
           {
             v14->CrossThreadReleasableAndBusyByte |= 2u;
             if ( (__int64)v14->LockState.LockState < 0 )
-              KiAbEntryRemoveFromTree((__int64)&v6->LockEntries[v13]);
+              KiAbEntryRemoveFromTree(&v6->LockEntries[v13].TreeNode);
             v18 = v14->BoostBitmap.AllFields & 0x1FFFF;
             v14->BoostBitmap.AllFields &= 0xFFFE0000;
             v14->ThreadLocalFlags &= ~1u;

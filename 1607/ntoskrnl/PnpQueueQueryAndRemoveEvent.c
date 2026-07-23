@@ -1,21 +1,21 @@
 /*
- * XREFs of PnpQueueQueryAndRemoveEvent @ 0x14064B3CC
+ * XREFs of PnpQueueQueryAndRemoveEvent @ 0x14064B4B0
  * Callers:
- *     PnpRequestDeviceEjectExWorker @ 0x14062A82C (PnpRequestDeviceEjectExWorker.c)
- *     PiCMQueryRemove @ 0x140648028 (PiCMQueryRemove.c)
- *     PiControlQueryAndRemoveDevice @ 0x14064A76C (PiControlQueryAndRemoveDevice.c)
+ *     PnpRequestDeviceEjectExWorker @ 0x14062A8E0 (PnpRequestDeviceEjectExWorker.c)
+ *     PiCMQueryRemove @ 0x14064810C (PiCMQueryRemove.c)
+ *     PiControlQueryAndRemoveDevice @ 0x14064A850 (PiControlQueryAndRemoveDevice.c)
  * Callees:
- *     PnpDiagnosticTraceObject @ 0x1400084E8 (PnpDiagnosticTraceObject.c)
- *     KeInitializeEvent @ 0x14002DEA0 (KeInitializeEvent.c)
- *     KeWaitForSingleObject @ 0x14005C880 (KeWaitForSingleObject.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     PnpDiagnosticTraceDeviceOperation @ 0x1400B0CB4 (PnpDiagnosticTraceDeviceOperation.c)
- *     memmove @ 0x140171280 (memmove.c)
+ *     PnpDiagnosticTraceObject @ 0x14000805C (PnpDiagnosticTraceObject.c)
+ *     KeInitializeEvent @ 0x14002DA20 (KeInitializeEvent.c)
+ *     KeWaitForSingleObject @ 0x14005C400 (KeWaitForSingleObject.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     PnpDiagnosticTraceDeviceOperation @ 0x1400AED24 (PnpDiagnosticTraceDeviceOperation.c)
+ *     memmove @ 0x140171780 (memmove.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     PnpDeviceObjectFromDeviceInstance @ 0x1403F4A34 (PnpDeviceObjectFromDeviceInstance.c)
- *     PnpSetTargetDeviceRemove @ 0x1404C3F44 (PnpSetTargetDeviceRemove.c)
- *     PnpRemoveEventFromQueue @ 0x140642C50 (PnpRemoveEventFromQueue.c)
+ *     PnpDeviceObjectFromDeviceInstance @ 0x1403F38F8 (PnpDeviceObjectFromDeviceInstance.c)
+ *     PnpSetTargetDeviceRemove @ 0x140484C7C (PnpSetTargetDeviceRemove.c)
+ *     PnpRemoveEventFromQueue @ 0x140642D34 (PnpRemoveEventFromQueue.c)
  */
 
 __int64 __fastcall PnpQueueQueryAndRemoveEvent(unsigned __int16 *a1, char *a2, _WORD *a3, _WORD *a4, char a5, int a6)
@@ -128,7 +128,7 @@ LABEL_24:
             &v28,
             (__int64)v10,
             (__int64)v11,
-            (__int64 *)&P);
+            &P);
     if ( v13 >= 0 )
     {
       v13 = KeWaitForSingleObject(&Event, Executive, 0, 1u, 0LL);

@@ -1,21 +1,21 @@
 /*
- * XREFs of PopFxBuildDripsBlockingDeviceList @ 0x1402D75D0
+ * XREFs of PopFxBuildDripsBlockingDeviceList @ 0x1402D77C0
  * Callers:
- *     PopDripsWatchdogDfxCallback @ 0x14086E2C0 (PopDripsWatchdogDfxCallback.c)
- *     PopDripsWatchdogPs4Callback @ 0x14086E630 (PopDripsWatchdogPs4Callback.c)
- *     PopDripsCallbackTakeAction @ 0x140879548 (PopDripsCallbackTakeAction.c)
- *     PopDripsWatchdogTakeAction @ 0x140879788 (PopDripsWatchdogTakeAction.c)
+ *     PopDripsWatchdogDfxCallback @ 0x14086F520 (PopDripsWatchdogDfxCallback.c)
+ *     PopDripsWatchdogPs4Callback @ 0x14086F890 (PopDripsWatchdogPs4Callback.c)
+ *     PopDripsCallbackTakeAction @ 0x14087A7A8 (PopDripsCallbackTakeAction.c)
+ *     PopDripsWatchdogTakeAction @ 0x14087A9E8 (PopDripsWatchdogTakeAction.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     PopFxAddRefDevice @ 0x1400FE2C8 (PopFxAddRefDevice.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     PopFxIsDripsBlockingDevice @ 0x1402D847C (PopFxIsDripsBlockingDevice.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     IoGetDevicePropertyData @ 0x140586930 (IoGetDevicePropertyData.c)
- *     IoLockUnlockPnpDeviceTree @ 0x14082461C (IoLockUnlockPnpDeviceTree.c)
- *     PopFxDestroyDripsBlockingDeviceList @ 0x1408695F4 (PopFxDestroyDripsBlockingDeviceList.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     PopFxAddRefDevice @ 0x1400FE348 (PopFxAddRefDevice.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     PopFxIsDripsBlockingDevice @ 0x1402D866C (PopFxIsDripsBlockingDevice.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     IoGetDevicePropertyData @ 0x140587930 (IoGetDevicePropertyData.c)
+ *     IoLockUnlockPnpDeviceTree @ 0x14082581C (IoLockUnlockPnpDeviceTree.c)
+ *     PopFxDestroyDripsBlockingDeviceList @ 0x14086A854 (PopFxDestroyDripsBlockingDeviceList.c)
  */
 
 __int64 __fastcall PopFxBuildDripsBlockingDeviceList(__int64 a1, _QWORD *a2)

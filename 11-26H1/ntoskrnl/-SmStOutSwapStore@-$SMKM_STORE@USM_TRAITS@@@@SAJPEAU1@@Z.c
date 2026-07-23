@@ -1,17 +1,17 @@
 /*
- * XREFs of ?SmStOutSwapStore@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@@Z @ 0x1403F1014
+ * XREFs of ?SmStOutSwapStore@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@@Z @ 0x1403EA9E4
  * Callers:
- *     ?SmStSwapStore@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@W4_SM_STORE_SWAP_OPERATION@@@Z @ 0x1403F460C (-SmStSwapStore@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@W4_SM_STORE_SWAP_OPERATION@@@Z.c)
+ *     ?SmStSwapStore@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@W4_SM_STORE_SWAP_OPERATION@@@Z @ 0x1403EDFBC (-SmStSwapStore@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@W4_SM_STORE_SWAP_OPERATION@@@Z.c)
  * Callees:
- *     ?StLockReleaseShared@@YAXPEAUVLOCK@@K@Z @ 0x14027F130 (-StLockReleaseShared@@YAXPEAUVLOCK@@K@Z.c)
- *     ?SmStUnmapVirtualRegion@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@KKKPEAXK@Z @ 0x14038FB60 (-SmStUnmapVirtualRegion@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@KKKPEAXK@Z.c)
- *     ?SmStMapVirtualRegion@?$SMKM_STORE@USM_TRAITS@@@@SAPEAXPEAU1@KKKK@Z @ 0x14038FF90 (-SmStMapVirtualRegion@-$SMKM_STORE@USM_TRAITS@@@@SAPEAXPEAU1@KKKK@Z.c)
- *     ?StLockAcquireShared@@YAKPEAUVLOCK@@@Z @ 0x140390550 (-StLockAcquireShared@@YAKPEAUVLOCK@@@Z.c)
- *     ?StDrainReadContextList@?$ST_STORE@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x1403F04C8 (-StDrainReadContextList@-$ST_STORE@USM_TRAITS@@@@SAXPEAU1@@Z.c)
- *     SmArrayGrow @ 0x1403F2248 (SmArrayGrow.c)
- *     MmOutSwapVirtualAddresses @ 0x140405328 (MmOutSwapVirtualAddresses.c)
- *     ExAllocatePool3 @ 0x140C10010 (ExAllocatePool3.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ?StLockReleaseShared@@YAXPEAUVLOCK@@K@Z @ 0x14027E6A0 (-StLockReleaseShared@@YAXPEAUVLOCK@@K@Z.c)
+ *     ?SmStUnmapVirtualRegion@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@KKKPEAXK@Z @ 0x140391910 (-SmStUnmapVirtualRegion@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@KKKPEAXK@Z.c)
+ *     ?SmStMapVirtualRegion@?$SMKM_STORE@USM_TRAITS@@@@SAPEAXPEAU1@KKKK@Z @ 0x140391D40 (-SmStMapVirtualRegion@-$SMKM_STORE@USM_TRAITS@@@@SAPEAXPEAU1@KKKK@Z.c)
+ *     ?StLockAcquireShared@@YAKPEAUVLOCK@@@Z @ 0x140392300 (-StLockAcquireShared@@YAKPEAUVLOCK@@@Z.c)
+ *     ?StDrainReadContextList@?$ST_STORE@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x1403E9E98 (-StDrainReadContextList@-$ST_STORE@USM_TRAITS@@@@SAXPEAU1@@Z.c)
+ *     SmArrayGrow @ 0x1403EBBF8 (SmArrayGrow.c)
+ *     MmOutSwapVirtualAddresses @ 0x1403FE41C (MmOutSwapVirtualAddresses.c)
+ *     ExAllocatePool3 @ 0x140C16010 (ExAllocatePool3.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SMKM_STORE<SM_TRAITS>::SmStOutSwapStore(__int64 a1)
@@ -30,13 +30,13 @@ __int64 __fastcall SMKM_STORE<SM_TRAITS>::SmStOutSwapStore(__int64 a1)
   struct _KLOCK_ENTRIES *v13; // r9
   int v14; // eax
   struct _KTHREAD *v15; // r15
-  struct _KTHREAD *v16; // rdi
+  struct _KTHREAD *v16; // rsi
   __int64 v18; // r9
-  int v19; // r10d
-  unsigned __int64 v20; // r11
-  int *v21; // rdx
-  _DWORD *v22; // rax
-  int i; // r8d
+  __int64 v19; // r11
+  unsigned __int64 v20; // r10
+  _DWORD *v21; // rdx
+  int v22; // r8d
+  _DWORD *i; // rax
   unsigned int v24; // r8d
   __int64 v25; // rcx
   unsigned __int64 j; // rax
@@ -48,7 +48,7 @@ __int64 __fastcall SMKM_STORE<SM_TRAITS>::SmStOutSwapStore(__int64 a1)
   _QWORD *v32; // rdx
   __int64 v33; // rax
   __int64 v34; // rcx
-  unsigned int *v35; // rdi
+  unsigned int *v35; // rsi
   int v36; // [rsp+20h] [rbp-48h]
   PVOID v37; // [rsp+30h] [rbp-38h] BYREF
   __int64 v38; // [rsp+38h] [rbp-30h]
@@ -56,7 +56,7 @@ __int64 __fastcall SMKM_STORE<SM_TRAITS>::SmStOutSwapStore(__int64 a1)
   __int64 v40; // [rsp+50h] [rbp-18h]
   int v41; // [rsp+B0h] [rbp+48h]
   int v42; // [rsp+B8h] [rbp+50h] BYREF
-  __int64 v43; // [rsp+C0h] [rbp+58h]
+  unsigned int v43; // [rsp+C0h] [rbp+58h]
   PVOID P; // [rsp+C8h] [rbp+60h]
 
   LODWORD(v1) = 0;
@@ -66,7 +66,7 @@ __int64 __fastcall SMKM_STORE<SM_TRAITS>::SmStOutSwapStore(__int64 a1)
   Pool3 = 0LL;
   v37 = 0LL;
   v4 = 0LL;
-  ST_STORE<SM_TRAITS>::StDrainReadContextList((union _SLIST_HEADER *)a1);
+  ST_STORE<SM_TRAITS>::StDrainReadContextList((_SLIST_HEADER *)a1);
   v8 = *(_QWORD **)(a1 + 3040);
   if ( (unsigned __int64)v8 - 1 <= 0xFFFFFFFFFFFFFFFDuLL )
   {
@@ -87,7 +87,7 @@ __int64 __fastcall SMKM_STORE<SM_TRAITS>::SmStOutSwapStore(__int64 a1)
                               64LL,
                               (unsigned int)(4 * *(_DWORD *)(a1 + 2644)),
                               2001956211LL,
-                              &stru_140E27B08.Header.WaitListHead.Blink,
+                              &stru_140E27C48.Header.WaitListHead.Blink,
                               1);
     if ( !Pool3 )
     {
@@ -110,26 +110,24 @@ LABEL_5:
     while ( 1 )
     {
       v18 = *((unsigned int *)v8 + 2);
-      LODWORD(v43) = 0;
+      v43 = 0;
       if ( (unsigned int)v18 <= (unsigned int)v1 )
         break;
-      v19 = 0;
-      v43 = v8[2];
-      v20 = v43 + 4 * ((unsigned __int64)(unsigned int)(v18 - 1) >> 5);
-      v21 = (int *)(v43 + 4 * ((unsigned __int64)(unsigned int)v1 >> 5));
-      v22 = v21 + 1;
-      for ( i = *v21 | ((1 << (v1 & 0x1F)) - 1); ; i = *v21 )
+      v19 = v8[2];
+      v20 = v19 + 4 * ((unsigned __int64)(unsigned int)(v18 - 1) >> 5);
+      v21 = (_DWORD *)(v19 + 4 * ((unsigned __int64)(unsigned int)v1 >> 5));
+      v22 = *v21 | ((1 << (v1 & 0x1F)) - 1);
+      for ( i = v21 + 1; ; ++i )
       {
-        v24 = ~i;
+        v24 = ~v22;
         if ( v24 )
           break;
-        if ( (unsigned __int64)v22 > v20 )
+        if ( (unsigned __int64)i > v20 )
           goto LABEL_6;
-        ++v21;
-        ++v22;
+        v22 = *++v21;
       }
       _BitScanForward64((unsigned __int64 *)&v25, v24);
-      v1 = (unsigned int)v25 + 32 * (unsigned int)(((__int64)v21 - v43) >> 2);
+      v1 = (unsigned int)v25 + 32 * (unsigned int)(((__int64)v21 - v19) >> 2);
       if ( (unsigned int)v1 > (unsigned int)v18 )
         break;
       for ( j = ~(v24 | ((1 << v25) - 1)); ; j = *v27 )
@@ -139,18 +137,17 @@ LABEL_5:
           _BitScanForward64(&j, j);
           goto LABEL_31;
         }
-        v19 += 32;
-        v27 = (unsigned int *)(v21 + 1);
+        v27 = v21 + 1;
         if ( (unsigned __int64)(v21 + 1) > v20 )
           break;
         ++v21;
       }
       LODWORD(j) = 32;
 LABEL_31:
-      v28 = 32 * (((__int64)v21 - v43) >> 2) + j;
+      v28 = 32 * (((__int64)v21 - v19) >> 2) + j;
       if ( v28 > (unsigned int)v18 )
         v28 = v18;
-      LODWORD(v43) = v28;
+      v43 = v28;
       if ( v28 == (_DWORD)v1 )
         break;
       while ( (unsigned int)v1 < v28 )

@@ -1,13 +1,13 @@
 /*
- * XREFs of VerifierKeAcquireInStackQueuedSpinLockRaiseToSynchCommon @ 0x1409396E4
+ * XREFs of VerifierKeAcquireInStackQueuedSpinLockRaiseToSynchCommon @ 0x14093A6E4
  * Callers:
- *     VerifierKeAcquireInStackQueuedSpinLockRaiseToSynch @ 0x1409396A0 (VerifierKeAcquireInStackQueuedSpinLockRaiseToSynch.c)
- *     VerifierKeAcquireInStackQueuedSpinLockRaiseToSynchNoReboot @ 0x140939780 (VerifierKeAcquireInStackQueuedSpinLockRaiseToSynchNoReboot.c)
+ *     VerifierKeAcquireInStackQueuedSpinLockRaiseToSynch @ 0x14093A6A0 (VerifierKeAcquireInStackQueuedSpinLockRaiseToSynch.c)
+ *     VerifierKeAcquireInStackQueuedSpinLockRaiseToSynchNoReboot @ 0x14093A780 (VerifierKeAcquireInStackQueuedSpinLockRaiseToSynchNoReboot.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLockRaiseToSynch @ 0x140290790 (KeAcquireInStackQueuedSpinLockRaiseToSynch.c)
- *     VfUtilCheckKernelAddress @ 0x1409260A4 (VfUtilCheckKernelAddress.c)
- *     ViTargetIncrementCounter @ 0x14093507C (ViTargetIncrementCounter.c)
- *     ViKeRaiseIrqlSanityChecks @ 0x14093B048 (ViKeRaiseIrqlSanityChecks.c)
+ *     KeAcquireInStackQueuedSpinLockRaiseToSynch @ 0x140290980 (KeAcquireInStackQueuedSpinLockRaiseToSynch.c)
+ *     VfUtilCheckKernelAddress @ 0x1409270A4 (VfUtilCheckKernelAddress.c)
+ *     ViTargetIncrementCounter @ 0x14093607C (ViTargetIncrementCounter.c)
+ *     ViKeRaiseIrqlSanityChecks @ 0x14093C048 (ViKeRaiseIrqlSanityChecks.c)
  */
 
 __int64 __fastcall VerifierKeAcquireInStackQueuedSpinLockRaiseToSynchCommon(
@@ -19,7 +19,7 @@ __int64 __fastcall VerifierKeAcquireInStackQueuedSpinLockRaiseToSynchCommon(
   __int64 v6; // rbx
   __int64 result; // rax
 
-  ++dword_14041A988;
+  ++dword_14041BA68;
   if ( (MmVerifierData & 0x1000) != 0 )
     ViTargetIncrementCounter(a2, 148LL);
   VfUtilCheckKernelAddress((ULONG_PTR)a1, 8uLL);

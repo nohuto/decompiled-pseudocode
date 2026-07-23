@@ -1,23 +1,23 @@
 /*
- * XREFs of KeInitThread @ 0x140B69230
+ * XREFs of KeInitThread @ 0x140B6A948
  * Callers:
- *     KiAllocatePrcbThread @ 0x1405B7CE0 (KiAllocatePrcbThread.c)
- *     KiInitializeAndStartInitialThread @ 0x1405C2E04 (KiInitializeAndStartInitialThread.c)
- *     PspAllocateThread @ 0x1408A49BC (PspAllocateThread.c)
+ *     KiAllocatePrcbThread @ 0x1405B52C0 (KiAllocatePrcbThread.c)
+ *     KiInitializeAndStartInitialThread @ 0x1405C03D4 (KiInitializeAndStartInitialThread.c)
+ *     PspAllocateThread @ 0x1408FAFD4 (PspAllocateThread.c)
  * Callees:
- *     MmDeleteKernelStack @ 0x14026A4B0 (MmDeleteKernelStack.c)
- *     MmCreateKernelStack @ 0x14026B230 (MmCreateKernelStack.c)
- *     KiInitializeContextThread @ 0x140406F34 (KiInitializeContextThread.c)
- *     KeInitializeEvent @ 0x140409D80 (KeInitializeEvent.c)
- *     KeInitializeApc @ 0x140422520 (KeInitializeApc.c)
- *     KeAbInitializeThreadState @ 0x140451AD4 (KeAbInitializeThreadState.c)
- *     KeInitializeTimer @ 0x140455420 (KeInitializeTimer.c)
- *     KiGetIdealNodeProcessByGroup @ 0x14048B770 (KiGetIdealNodeProcessByGroup.c)
- *     KeCopyXfdMaskToTeb @ 0x14049BDE8 (KeCopyXfdMaskToTeb.c)
- *     KiAllocateXStateStack @ 0x1404D3C48 (KiAllocateXStateStack.c)
- *     KiDeleteXStateStack @ 0x1405B7F74 (KiDeleteXStateStack.c)
- *     KiCreateKernelShadowStack @ 0x140A0B9A0 (KiCreateKernelShadowStack.c)
- *     KiDeleteKernelShadowStack @ 0x140A19B34 (KiDeleteKernelShadowStack.c)
+ *     MmDeleteKernelStack @ 0x14021FA40 (MmDeleteKernelStack.c)
+ *     MmCreateKernelStack @ 0x1402207C0 (MmCreateKernelStack.c)
+ *     KiInitializeContextThread @ 0x1403FF414 (KiInitializeContextThread.c)
+ *     KeInitializeEvent @ 0x140402260 (KeInitializeEvent.c)
+ *     KeInitializeApc @ 0x1404163D0 (KeInitializeApc.c)
+ *     KeAbInitializeThreadState @ 0x140446B84 (KeAbInitializeThreadState.c)
+ *     KeInitializeTimer @ 0x14044A0E0 (KeInitializeTimer.c)
+ *     KiGetIdealNodeProcessByGroup @ 0x140486544 (KiGetIdealNodeProcessByGroup.c)
+ *     KeCopyXfdMaskToTeb @ 0x140496918 (KeCopyXfdMaskToTeb.c)
+ *     KiAllocateXStateStack @ 0x1404CCE4C (KiAllocateXStateStack.c)
+ *     KiDeleteXStateStack @ 0x1405B5554 (KiDeleteXStateStack.c)
+ *     KiCreateKernelShadowStack @ 0x140A0ABE0 (KiCreateKernelShadowStack.c)
+ *     KiDeleteKernelShadowStack @ 0x140A12CA4 (KiDeleteKernelShadowStack.c)
  */
 
 __int64 __fastcall KeInitThread(__int64 a1, __int64 a2)
@@ -36,28 +36,31 @@ __int64 __fastcall KeInitThread(__int64 a1, __int64 a2)
   __int64 v15; // r10
   __int64 v16; // rdx
   int KernelStack; // ebx
-  bool v18; // al
-  unsigned int v20; // ecx
-  int v21; // eax
-  __int64 v22; // rax
-  __int128 v23; // [rsp+50h] [rbp-B8h] BYREF
-  __int64 v24; // [rsp+60h] [rbp-A8h]
-  int v25[4]; // [rsp+68h] [rbp-A0h] BYREF
-  __int64 v26; // [rsp+78h] [rbp-90h]
-  __int128 v27; // [rsp+80h] [rbp-88h]
-  __int64 v28; // [rsp+90h] [rbp-78h]
-  int v29[2]; // [rsp+98h] [rbp-70h] BYREF
-  __int64 v30; // [rsp+A0h] [rbp-68h]
-  __int64 v31; // [rsp+A8h] [rbp-60h]
-  __int64 v32; // [rsp+B0h] [rbp-58h]
-  __int128 v33; // [rsp+B8h] [rbp-50h]
-  char v34; // [rsp+118h] [rbp+10h]
-  char v35; // [rsp+120h] [rbp+18h]
+  __int64 v18; // rdx
+  __int64 v19; // r8
+  __int64 v20; // r9
+  bool v21; // al
+  unsigned int v23; // ecx
+  int v24; // eax
+  __int64 v25; // rax
+  __int128 v26; // [rsp+50h] [rbp-B8h] BYREF
+  __int64 v27; // [rsp+60h] [rbp-A8h]
+  int v28[4]; // [rsp+68h] [rbp-A0h] BYREF
+  __int64 v29; // [rsp+78h] [rbp-90h]
+  __int128 v30; // [rsp+80h] [rbp-88h]
+  __int64 v31; // [rsp+90h] [rbp-78h]
+  int v32[2]; // [rsp+98h] [rbp-70h] BYREF
+  __int64 v33; // [rsp+A0h] [rbp-68h]
+  __int64 v34; // [rsp+A8h] [rbp-60h]
+  __int64 v35; // [rsp+B0h] [rbp-58h]
+  __int128 v36; // [rsp+B8h] [rbp-50h]
+  char v37; // [rsp+118h] [rbp+10h]
+  char v38; // [rsp+120h] [rbp+18h]
 
-  v30 = 0LL;
   v33 = 0LL;
-  *(_QWORD *)&v23 = 0LL;
-  v35 = 0;
+  v36 = 0LL;
+  *(_QWORD *)&v26 = 0LL;
+  v38 = 0;
   v4 = 5;
   *(_QWORD *)(a1 + 16) = a1 + 8;
   *(_QWORD *)(a1 + 8) = a1 + 8;
@@ -81,7 +84,7 @@ __int64 __fastcall KeInitThread(__int64 a1, __int64 a2)
   *(_QWORD *)(a1 + 184) = *(_QWORD *)(a2 + 48);
   *(_QWORD *)(a1 + 544) = *(_QWORD *)(a2 + 48);
   v7 = (unsigned int *)(a1 + 116);
-  v24 = a1 + 116;
+  v27 = a1 + 116;
   v8 = *(_DWORD *)(a1 + 116) & 0xFFFFBFFF;
   if ( (*(_BYTE *)(a2 + 60) & 2) == 0 )
     v8 = *(_DWORD *)(a1 + 116) | 0x4000;
@@ -127,56 +130,56 @@ __int64 __fastcall KeInitThread(__int64 a1, __int64 a2)
   v15 = 0LL;
   if ( (*(_DWORD *)(a2 + 60) & 2) == 0 )
     v15 = a1;
-  *((_QWORD *)&v23 + 1) = v15;
-  v34 = 0;
+  *((_QWORD *)&v26 + 1) = v15;
+  v37 = 0;
   v16 = *(_QWORD *)a2;
   if ( !*(_QWORD *)a2 )
   {
-    v25[3] = 0;
-    v27 = 0LL;
-    v28 = 0LL;
-    v25[0] = 8;
-    v25[1] = 5;
-    v25[2] = IdealNodeProcessByGroup;
-    v26 = v15;
-    KernelStack = MmCreateKernelStack(v25);
+    v28[3] = 0;
+    v30 = 0LL;
+    v31 = 0LL;
+    v28[0] = 8;
+    v28[1] = 5;
+    v28[2] = IdealNodeProcessByGroup;
+    v29 = v15;
+    KernelStack = MmCreateKernelStack(v28);
     if ( KernelStack < 0 )
       goto LABEL_25;
-    v16 = v27;
-    v34 = 1;
-    v15 = *((_QWORD *)&v23 + 1);
+    v16 = v30;
+    v37 = 1;
+    v15 = *((_QWORD *)&v26 + 1);
   }
   *(_QWORD *)(a1 + 40) = v16;
   *(_QWORD *)(a1 + 56) = v16;
   *(_QWORD *)(a1 + 48) = v16 - (unsigned int)KeKernelStackSize;
   if ( (_BYTE)KiKernelCetEnabled )
   {
-    v20 = *v7;
+    v23 = *v7;
     *v7 |= 0x400000u;
-    v21 = *(_DWORD *)(a2 + 60);
-    if ( (v21 & 1) == 0 )
+    v24 = *(_DWORD *)(a2 + 60);
+    if ( (v24 & 1) == 0 )
     {
-      if ( (v21 & 8) != 0 )
+      if ( (v24 & 8) != 0 )
       {
         v4 = 2;
       }
-      else if ( (v20 & 0x400) != 0 )
+      else if ( (v23 & 0x400) != 0 )
       {
         v4 = 1;
       }
       else
       {
-        v4 = (v20 >> 8) & 1;
+        v4 = (v23 >> 8) & 1;
       }
-      KernelStack = KiCreateKernelShadowStack(v15, v4, 0, IdealNodeProcessByGroup, &v23);
+      KernelStack = KiCreateKernelShadowStack(v15, v4, 0, IdealNodeProcessByGroup, &v26);
       if ( KernelStack < 0 )
         goto LABEL_25;
-      v35 = 1;
+      v38 = 1;
       *(_QWORD *)(a1 + 1032) = 0LL;
       *(_QWORD *)(a1 + 1040) = 8LL;
-      v22 = v23;
-      *(_QWORD *)(a1 + 1048) = v23;
-      *(_QWORD *)(a1 + 1056) = v4 | *(_QWORD *)(a1 + 1056) & 0xFFFFFFFFFFFFFFF8uLL ^ (*(_QWORD *)(a1 + 1056) ^ (v22 - 12288)) & 0xFFFFFFFFFFFFF000uLL;
+      v25 = v26;
+      *(_QWORD *)(a1 + 1048) = v26;
+      *(_QWORD *)(a1 + 1056) = v4 | *(_QWORD *)(a1 + 1056) & 0xFFFFFFFFFFFFFFF8uLL ^ (*(_QWORD *)(a1 + 1056) ^ (v25 - 12288)) & 0xFFFFFFFFFFFFF000uLL;
     }
   }
   KeAbInitializeThreadState(a1);
@@ -186,14 +189,14 @@ __int64 __fastcall KeInitThread(__int64 a1, __int64 a2)
   {
     *(_QWORD *)(a1 + 1064) = MEMORY[0xFFFFF780000003D8] & ~(unsigned int)*(_QWORD *)(a2 + 64) & 0x40000;
     if ( (*v7 & 0x400) == 0 )
-      KeCopyXfdMaskToTeb((_QWORD *)a1);
-    v18 = *(_QWORD *)(a2 + 64) != 0LL;
+      KeCopyXfdMaskToTeb((_QWORD *)a1, v18, v19, v20);
+    v21 = *(_QWORD *)(a2 + 64) != 0LL;
   }
   else
   {
-    v18 = 0;
+    v21 = 0;
   }
-  if ( !v18 || (KernelStack = KiAllocateXStateStack(a1, IdealNodeProcessByGroup), KernelStack >= 0) )
+  if ( !v21 || (KernelStack = KiAllocateXStateStack(a1, IdealNodeProcessByGroup), KernelStack >= 0) )
   {
     if ( (*(_DWORD *)(a2 + 60) & 4) == 0 )
       KiInitializeContextThread(a1, a2);
@@ -204,20 +207,20 @@ __int64 __fastcall KeInitThread(__int64 a1, __int64 a2)
 LABEL_25:
   if ( KernelStack < 0 )
   {
-    if ( v34 )
+    if ( v37 )
     {
-      v30 = 0LL;
       v33 = 0LL;
-      v29[0] = 2;
-      v29[1] = 5;
-      v32 = *(_QWORD *)(a1 + 56);
-      v31 = a1;
-      MmDeleteKernelStack(v29);
+      v36 = 0LL;
+      v32[0] = 2;
+      v32[1] = 5;
+      v35 = *(_QWORD *)(a1 + 56);
+      v34 = a1;
+      MmDeleteKernelStack(v32);
       *(_QWORD *)(a1 + 40) = 0LL;
     }
     if ( (*v7 & 0x800000) != 0 )
       KiDeleteXStateStack(a1);
-    if ( v35 )
+    if ( v38 )
     {
       KiDeleteKernelShadowStack(a1, *(_QWORD *)(a1 + 1048), v4, 0, *(_QWORD *)(a1 + 1032));
       *(_QWORD *)(a1 + 1032) = 0LL;

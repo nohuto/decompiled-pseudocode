@@ -1,16 +1,16 @@
 /*
- * XREFs of MmManageFaultRange @ 0x14039DB08
+ * XREFs of MmManageFaultRange @ 0x14039DC58
  * Callers:
- *     RtlpEnvRegisterFaultRange @ 0x14039DABC (RtlpEnvRegisterFaultRange.c)
+ *     RtlpEnvRegisterFaultRange @ 0x14039DC0C (RtlpEnvRegisterFaultRange.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
- *     RtlAvlRemoveNode @ 0x140234B20 (RtlAvlRemoveNode.c)
- *     MiAllocatePool @ 0x14025AD70 (MiAllocatePool.c)
- *     RtlAvlInsertNodeEx @ 0x140316550 (RtlAvlInsertNodeEx.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiAllocatePool @ 0x14027C2E0 (MiAllocatePool.c)
+ *     ExAcquireSpinLockExclusive @ 0x1402C1960 (ExAcquireSpinLockExclusive.c)
+ *     RtlAvlRemoveNode @ 0x1402D9370 (RtlAvlRemoveNode.c)
+ *     RtlAvlInsertNodeEx @ 0x1403212A0 (RtlAvlInsertNodeEx.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140346AD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MmManageFaultRange(ULONG_PTR BugCheckParameter3, ULONG_PTR BugCheckParameter4, char a3, char a4)
@@ -47,7 +47,7 @@ __int64 __fastcall MmManageFaultRange(ULONG_PTR BugCheckParameter3, ULONG_PTR Bu
   if ( (a4 & 1) != 0 )
   {
     v9 = 0;
-    v10 = (volatile signed __int64 *)&unk_140C4C920;
+    v10 = (volatile signed __int64 *)&unk_140C4C960;
     while ( 1 )
     {
       v11 = v10 - 3;
@@ -86,9 +86,9 @@ LABEL_5:
   }
   else
   {
-    v15 = (unsigned __int64 *)&unk_140C4C900;
+    v15 = (unsigned __int64 *)&unk_140C4C940;
   }
-  v16 = ExAcquireSpinLockExclusive(&dword_140C4C8F8);
+  v16 = ExAcquireSpinLockExclusive(&dword_140C4C938);
   v17 = (unsigned __int64 *)*v15;
   v18 = v16;
   if ( !v8 )
@@ -130,7 +130,7 @@ LABEL_17:
   RtlAvlInsertNodeEx(v15, (unsigned __int64)v17, v19, v11);
   v17 = 0LL;
 LABEL_18:
-  ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C4C8F8);
+  ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C4C938);
   if ( KiIrqlFlags )
   {
     if ( (KiIrqlFlags & 1) != 0 )
@@ -152,7 +152,7 @@ LABEL_18:
   if ( v17 )
   {
     v21 = 0LL;
-    while ( v17 != (unsigned __int64 *)((char *)&unk_140C4C908 + 40 * v21) )
+    while ( v17 != (unsigned __int64 *)((char *)&unk_140C4C948 + 40 * v21) )
     {
       v21 = (unsigned int)(v21 + 1);
       if ( (unsigned int)v21 >= 2 )

@@ -1,9 +1,9 @@
 /*
- * XREFs of PsRemoveVirtualizedTimer @ 0x1400AC704
+ * XREFs of PsRemoveVirtualizedTimer @ 0x1400AAC6C
  * Callers:
- *     ExpDeleteTimer @ 0x1400C3408 (ExpDeleteTimer.c)
+ *     ExpDeleteTimer @ 0x1400C1298 (ExpDeleteTimer.c)
  * Callees:
- *     KeAcquireSpinLockRaiseToDpc @ 0x1400EFE30 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1400EDCB0 (KeAcquireSpinLockRaiseToDpc.c)
  */
 
 void __fastcall PsRemoveVirtualizedTimer(__int64 a1, _QWORD *a2)

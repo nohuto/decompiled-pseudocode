@@ -40,12 +40,12 @@ __int64 __fastcall PpDevCfgProcessDeviceClass(__int64 a1)
   int v18; // [rsp+54h] [rbp-B4h] BYREF
   HANDLE Handle; // [rsp+58h] [rbp-B0h] BYREF
   HANDLE KeyHandle; // [rsp+60h] [rbp-A8h] BYREF
-  UNICODE_STRING UnicodeString; // [rsp+68h] [rbp-A0h] BYREF
+  UNICODE_STRING GuidString; // [rsp+68h] [rbp-A0h] BYREF
   __int64 v22; // [rsp+78h] [rbp-90h] BYREF
   const wchar_t *v23; // [rsp+80h] [rbp-88h]
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+88h] [rbp-80h] BYREF
   int v25[20]; // [rsp+B8h] [rbp-50h] BYREF
-  _QWORD v26[2]; // [rsp+108h] [rbp+0h] BYREF
+  GUID Guid; // [rsp+108h] [rbp+0h] BYREF
 
   memset(v25, 0, 0x48uLL);
   v18 = 1;
@@ -56,10 +56,10 @@ __int64 __fastcall PpDevCfgProcessDeviceClass(__int64 a1)
   v22 = 0LL;
   v4 = 0;
   v23 = 0LL;
-  v26[0] = 0LL;
-  v26[1] = 0LL;
-  *(_QWORD *)&UnicodeString.Length = 0LL;
-  UnicodeString.Buffer = 0LL;
+  *(_QWORD *)&Guid.Data1 = 0LL;
+  *(_QWORD *)Guid.Data4 = 0LL;
+  *(_QWORD *)&GuidString.Length = 0LL;
+  GuidString.Buffer = 0LL;
   P = 0;
   v17 = 0LL;
   if ( !PiDevCfgMode )
@@ -79,7 +79,7 @@ __int64 __fastcall PpDevCfgProcessDeviceClass(__int64 a1)
   v7 = *(_QWORD *)&v25[4];
   v8 = *(_QWORD *)(a1 + 48);
   *(_QWORD *)&ObjectAttributes.Length = &DEVPKEY_Device_ClassGuid;
-  ObjectAttributes.ObjectName = (PUNICODE_STRING)v26;
+  ObjectAttributes.ObjectName = (PUNICODE_STRING)&Guid;
   ObjectAttributes.RootDirectory = (HANDLE)13;
   *(_QWORD *)(&ObjectAttributes.Attributes + 1) = 0LL;
   HIDWORD(ObjectAttributes.SecurityDescriptor) = 0;
@@ -89,11 +89,11 @@ __int64 __fastcall PpDevCfgProcessDeviceClass(__int64 a1)
     goto LABEL_29;
   if ( SLODWORD(ObjectAttributes.SecurityDescriptor) < 0 )
     goto LABEL_12;
-  inited = RtlStringFromGUIDEx((unsigned int *)v26, (__int64)&UnicodeString, 1);
+  inited = RtlStringFromGUIDEx(&Guid, &GuidString, 1u);
   if ( inited < 0 )
     goto LABEL_29;
-  Buffer = UnicodeString.Buffer;
-  v9 = PnpOpenObjectRegKey(*(__int64 *)&PiPnpRtlCtx, (__int64)UnicodeString.Buffer, 2u, 131097, 0, (__int64)&Handle);
+  Buffer = GuidString.Buffer;
+  v9 = PnpOpenObjectRegKey(*(__int64 *)&PiPnpRtlCtx, (__int64)GuidString.Buffer, 2u, 131097, 0, (__int64)&Handle);
   inited = v9;
   if ( v9 != -1073741772 )
   {
@@ -160,7 +160,7 @@ LABEL_17:
     PiDevCfgSetDeviceRegProp(v13, (__int64)v25, 0xBu, 4, (__int64)&P, 4);
   }
 LABEL_29:
-  RtlFreeAnsiString(&UnicodeString);
+  RtlFreeAnsiString(&GuidString);
   if ( KeyHandle )
     ZwClose(KeyHandle);
   if ( Handle )

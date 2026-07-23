@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpHpVsContextMultiAlloc @ 0x1402AB9F4
+ * XREFs of RtlpHpVsContextMultiAlloc @ 0x140229B34
  * Callers:
- *     ExAllocateHeapPool @ 0x14033C210 (ExAllocateHeapPool.c)
+ *     ExAllocateHeapPool @ 0x140346F60 (ExAllocateHeapPool.c)
  * Callees:
- *     RtlpHpReleaseQueuedLockExclusive @ 0x14033BA80 (RtlpHpReleaseQueuedLockExclusive.c)
- *     RtlpHpVsContextAllocateInternal @ 0x14033EDC0 (RtlpHpVsContextAllocateInternal.c)
+ *     RtlpHpReleaseQueuedLockExclusive @ 0x1403467D0 (RtlpHpReleaseQueuedLockExclusive.c)
+ *     RtlpHpVsContextAllocateInternal @ 0x140349B10 (RtlpHpVsContextAllocateInternal.c)
  */
 
 __int64 __fastcall RtlpHpVsContextMultiAlloc(__int64 a1, int a2, unsigned int a3, __int64 a4, _QWORD *a5, _QWORD *a6)

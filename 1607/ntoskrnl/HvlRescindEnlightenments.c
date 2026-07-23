@@ -1,5 +1,5 @@
 /*
- * XREFs of HvlRescindEnlightenments @ 0x140171764
+ * XREFs of HvlRescindEnlightenments @ 0x140171C64
  * Callers:
  *     KiEnableKvaShadowing @ 0x1403DDF40 (KiEnableKvaShadowing.c)
  * Callees:

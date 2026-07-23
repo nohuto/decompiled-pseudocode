@@ -1,11 +1,11 @@
 /*
- * XREFs of PopCoalescingSetTimer @ 0x1402CA544
+ * XREFs of PopCoalescingSetTimer @ 0x14047F5A0
  * Callers:
- *     PopCoalescingSetActiveState @ 0x1404ADA60 (PopCoalescingSetActiveState.c)
- *     PopCoalescingNotify @ 0x140750FA0 (PopCoalescingNotify.c)
+ *     PopCoalescingSetActiveState @ 0x1404A8140 (PopCoalescingSetActiveState.c)
+ *     PopCoalescingNotify @ 0x14074F2C0 (PopCoalescingNotify.c)
  * Callees:
- *     PopPrintEx @ 0x1402CB174 (PopPrintEx.c)
- *     KiSetTimerEx @ 0x1403347A0 (KiSetTimerEx.c)
+ *     KiSetTimerEx @ 0x140316810 (KiSetTimerEx.c)
+ *     PopPrintEx @ 0x14047F604 (PopPrintEx.c)
  */
 
 __int64 PopCoalescingSetTimer()
@@ -16,8 +16,8 @@ __int64 PopCoalescingSetTimer()
   {
     PopPrintEx(3LL, "PopCoalescing: Coalescing timer activated\n");
     result = KiSetTimerEx(
-               (unsigned int)&PopCoalescingTimer,
-               -10000000 * PopCoalescingTimerInterval,
+               (__int64)&PopCoalescingTimer,
+               -10000000LL * PopCoalescingTimerInterval,
                0,
                0,
                (__int64)&PopCoalescingTimerDpc);

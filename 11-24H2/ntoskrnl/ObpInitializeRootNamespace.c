@@ -1,36 +1,36 @@
 /*
- * XREFs of ObpInitializeRootNamespace @ 0x140743CA8
+ * XREFs of ObpInitializeRootNamespace @ 0x140741BD8
  * Callers:
- *     ObCreateSiloRootDirectory @ 0x14082ABD4 (ObCreateSiloRootDirectory.c)
- *     ObInitSystem @ 0x140C612B4 (ObInitSystem.c)
+ *     ObCreateSiloRootDirectory @ 0x14082B404 (ObCreateSiloRootDirectory.c)
+ *     ObInitSystem @ 0x140C63408 (ObInitSystem.c)
  * Callees:
- *     PsIsHostSilo @ 0x14043E2E0 (PsIsHostSilo.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwOpenDirectoryObject @ 0x1406A6F10 (ZwOpenDirectoryObject.c)
- *     ZwCreateDirectoryObject @ 0x1406A7990 (ZwCreateDirectoryObject.c)
- *     ZwCreateDirectoryObjectEx @ 0x1406A79B0 (ZwCreateDirectoryObjectEx.c)
- *     ZwCreateSymbolicLinkObject @ 0x1406A7D10 (ZwCreateSymbolicLinkObject.c)
- *     ZwSetInformationSymbolicLink @ 0x1406A9990 (ZwSetInformationSymbolicLink.c)
- *     ObCleanupSecurityDescriptor @ 0x140742E54 (ObCleanupSecurityDescriptor.c)
- *     ObCreateKernelObjectsSD @ 0x140742EC8 (ObCreateKernelObjectsSD.c)
- *     ObpCreateDosDevicesDirectory @ 0x14074375C (ObpCreateDosDevicesDirectory.c)
- *     ObReferenceObjectByHandle @ 0x14084AF40 (ObReferenceObjectByHandle.c)
+ *     PsIsHostSilo @ 0x1404329D0 (PsIsHostSilo.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwOpenDirectoryObject @ 0x1406A7EB0 (ZwOpenDirectoryObject.c)
+ *     ZwCreateDirectoryObject @ 0x1406A8930 (ZwCreateDirectoryObject.c)
+ *     ZwCreateDirectoryObjectEx @ 0x1406A8950 (ZwCreateDirectoryObjectEx.c)
+ *     ZwCreateSymbolicLinkObject @ 0x1406A8CB0 (ZwCreateSymbolicLinkObject.c)
+ *     ZwSetInformationSymbolicLink @ 0x1406AA930 (ZwSetInformationSymbolicLink.c)
+ *     ObCleanupSecurityDescriptor @ 0x140740D84 (ObCleanupSecurityDescriptor.c)
+ *     ObCreateKernelObjectsSD @ 0x140740DF8 (ObCreateKernelObjectsSD.c)
+ *     ObpCreateDosDevicesDirectory @ 0x14074168C (ObpCreateDosDevicesDirectory.c)
+ *     ObReferenceObjectByHandle @ 0x140847200 (ObReferenceObjectByHandle.c)
  */
 
-__int64 __fastcall ObpInitializeRootNamespace(__int64 a1, void *a2, __int64 a3, __int64 a4)
+__int64 __fastcall ObpInitializeRootNamespace(__int64 a1, void *a2, void *a3, __int64 a4)
 {
   bool IsHostSilo; // di
   int KernelObjectsSD; // ebx
   bool v10; // sf
   HANDLE Handle; // [rsp+38h] [rbp-39h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+40h] [rbp-31h] BYREF
-  int v14; // [rsp+70h] [rbp-1h]
+  int SymbolicLinkInformation; // [rsp+70h] [rbp-1h] BYREF
   HANDLE DirectoryHandle; // [rsp+78h] [rbp+7h] BYREF
   PVOID Object; // [rsp+80h] [rbp+Fh] BYREF
   _OWORD SecurityDescriptor[2]; // [rsp+88h] [rbp+17h] BYREF
   __int64 v18; // [rsp+A8h] [rbp+37h]
 
-  v14 = 0;
+  SymbolicLinkInformation = 0;
   Handle = 0LL;
   DirectoryHandle = 0LL;
   memset(&ObjectAttributes, 0, 44);
@@ -55,7 +55,7 @@ __int64 __fastcall ObpInitializeRootNamespace(__int64 a1, void *a2, __int64 a3, 
       ObjectAttributes.SecurityDescriptor = SecurityDescriptor;
       ObjectAttributes.RootDirectory = a2;
       ObjectAttributes.Attributes = 592;
-      KernelObjectsSD = ZwCreateDirectoryObjectEx((__int64)&Handle, 983055LL);
+      KernelObjectsSD = ZwCreateDirectoryObjectEx(&Handle, 0xF000Fu, &ObjectAttributes, DirectoryHandle, 0);
       if ( KernelObjectsSD >= 0 )
       {
         ZwClose(Handle);
@@ -77,10 +77,18 @@ __int64 __fastcall ObpInitializeRootNamespace(__int64 a1, void *a2, __int64 a3, 
         }
         else
         {
-          KernelObjectsSD = ZwCreateSymbolicLinkObject((__int64)&Handle, 983041LL);
+          KernelObjectsSD = ZwCreateSymbolicLinkObject(
+                              &Handle,
+                              0xF0001u,
+                              &ObjectAttributes,
+                              (PUNICODE_STRING)&ObpObjectTypesPathString);
           if ( KernelObjectsSD < 0 )
             goto LABEL_12;
-          KernelObjectsSD = ZwSetInformationSymbolicLink((__int64)Handle, 1LL);
+          KernelObjectsSD = ZwSetInformationSymbolicLink(
+                              Handle,
+                              SymbolicLinkGlobalInformation,
+                              &SymbolicLinkInformation,
+                              4u);
           v10 = KernelObjectsSD < 0;
         }
         if ( !v10 )

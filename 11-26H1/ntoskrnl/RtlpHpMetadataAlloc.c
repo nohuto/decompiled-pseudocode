@@ -1,18 +1,18 @@
 /*
- * XREFs of RtlpHpMetadataAlloc @ 0x140352250
+ * XREFs of RtlpHpMetadataAlloc @ 0x1403542D4
  * Callers:
- *     RtlpHpLargeAlloc @ 0x140351D9C (RtlpHpLargeAlloc.c)
- *     RtlpHpCustomVaCallbacksRegistrarRegister @ 0x140637AF0 (RtlpHpCustomVaCallbacksRegistrarRegister.c)
- *     RtlpHpHeapAllocate @ 0x140638054 (RtlpHpHeapAllocate.c)
- *     ExpSecurePoolCreate @ 0x1406D103C (ExpSecurePoolCreate.c)
- *     ExpPoolCreate @ 0x14077DC90 (ExpPoolCreate.c)
- *     ExpPoolHeapCreate @ 0x1408465EC (ExpPoolHeapCreate.c)
+ *     RtlpHpLargeAlloc @ 0x140353E20 (RtlpHpLargeAlloc.c)
+ *     RtlpHpCustomVaCallbacksRegistrarRegister @ 0x14063AAF4 (RtlpHpCustomVaCallbacksRegistrarRegister.c)
+ *     RtlpHpHeapAllocate @ 0x14063B058 (RtlpHpHeapAllocate.c)
+ *     ExpSecurePoolCreate @ 0x1406D506C (ExpSecurePoolCreate.c)
+ *     ExpPoolCreate @ 0x140780790 (ExpPoolCreate.c)
+ *     ExpPoolHeapCreate @ 0x14084C84C (ExpPoolHeapCreate.c)
  * Callees:
- *     RtlpHpVsContextAllocate @ 0x140249DB0 (RtlpHpVsContextAllocate.c)
- *     RtlpHpSegAlloc @ 0x14034B0CC (RtlpHpSegAlloc.c)
- *     RtlpHpAllocateHeapInternal @ 0x140520DB8 (RtlpHpAllocateHeapInternal.c)
- *     RtlpLogHeapAllocateEvent @ 0x14052DB38 (RtlpLogHeapAllocateEvent.c)
- *     RtlRunOnceExecuteOnce @ 0x1409E7CD0 (RtlRunOnceExecuteOnce.c)
+ *     RtlpHpVsContextAllocate @ 0x14024B710 (RtlpHpVsContextAllocate.c)
+ *     RtlpHpSegAlloc @ 0x14034D14C (RtlpHpSegAlloc.c)
+ *     RtlpHpAllocateHeapInternal @ 0x14052345C (RtlpHpAllocateHeapInternal.c)
+ *     RtlpLogHeapAllocateEvent @ 0x140530058 (RtlpLogHeapAllocateEvent.c)
+ *     RtlRunOnceExecuteOnce @ 0x1409D46E0 (RtlRunOnceExecuteOnce.c)
  */
 
 __int64 __fastcall RtlpHpMetadataAlloc(unsigned __int64 a1, unsigned __int64 a2, int a3, __int128 *a4)
@@ -34,19 +34,19 @@ __int64 __fastcall RtlpHpMetadataAlloc(unsigned __int64 a1, unsigned __int64 a2,
   Parameter[0] = *(_QWORD *)a4;
   BYTE3(Parameter[0]) = 0;
   Parameter[1] = 0LL;
-  v9 = (unsigned int)dword_140022438[BYTE1(v4)];
-  BYTE1(Parameter[0]) = dword_140022438[BYTE1(Parameter[0])];
+  v9 = (unsigned int)dword_140021C58[BYTE1(v4)];
+  BYTE1(Parameter[0]) = dword_140021C58[BYTE1(Parameter[0])];
   v10 = 2 * v9;
-  if ( !qword_140E6BC18[v10]
+  if ( !qword_140E6BF18[v10]
     && RtlRunOnceExecuteOnce(
-         (PRTL_RUN_ONCE)((char *)&unk_140E6BC20 + v10 * 8),
+         (PRTL_RUN_ONCE)((char *)&unk_140E6BF20 + v10 * 8),
          RtlpHpMetadataHeapCreate,
          Parameter,
          0LL) < 0 )
   {
     return v5;
   }
-  v11 = qword_140E6BC18[v10];
+  v11 = qword_140E6BF18[v10];
   v12 = 3;
   v18 = 3;
   if ( !a3 )

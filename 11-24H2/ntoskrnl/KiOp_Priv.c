@@ -1,7 +1,7 @@
 /*
- * XREFs of KiOp_Priv @ 0x1403FBB10
+ * XREFs of KiOp_Priv @ 0x1403F5670
  * Callers:
- *     KiPreprocessFault @ 0x1403FB220 (KiPreprocessFault.c)
+ *     KiPreprocessFault @ 0x1403F4D80 (KiPreprocessFault.c)
  * Callees:
  *     <none>
  */

@@ -29,14 +29,14 @@ __int64 __fastcall CmpAddProcessorConfigurationEntry(__int64 a1, int a2, int a3)
   int v12; // eax
   void *v13; // rsi
   NTSTATUS v14; // edi
-  const char *v16; // r15
+  const CHAR *v16; // r15
   _DWORD *v21; // r8
   unsigned int v22; // r9d
   __int64 v28; // rcx
   _QWORD *v29; // r14
   UNICODE_STRING DestinationString; // [rsp+40h] [rbp-C0h] BYREF
   int Data; // [rsp+50h] [rbp-B0h] BYREF
-  STRING SourceString; // [rsp+58h] [rbp-A8h] BYREF
+  _STRING SourceString; // [rsp+58h] [rbp-A8h] BYREF
   _QWORD v33[9]; // [rsp+70h] [rbp-90h] BYREF
   UNICODE_STRING Handle; // [rsp+C0h] [rbp-40h] BYREF
   _BYTE v35[64]; // [rsp+D0h] [rbp-30h] BYREF
@@ -106,7 +106,7 @@ __int64 __fastcall CmpAddProcessorConfigurationEntry(__int64 a1, int a2, int a3)
     {
       ZwClose(*(HANDLE *)&Handle.Length);
       _RAX = 0x80000000LL;
-      v16 = (const char *)((a1 + 25232) & -(__int64)(*(_BYTE *)(a1 + 65) != 0));
+      v16 = (const CHAR *)((a1 + 25232) & -(__int64)(*(_BYTE *)(a1 + 65) != 0));
       __asm { cpuid }
       *(_DWORD *)(&Handle.MaximumLength + 1) = _RBX;
       Handle.Buffer = (wchar_t *)__PAIR64__(_RDX, _RCX);

@@ -1,29 +1,29 @@
 /*
- * XREFs of PfQuerySuperfetchInformation @ 0x140A52EAC
+ * XREFs of PfQuerySuperfetchInformation @ 0x140A5C19C
  * Callers:
- *     ExpQuerySystemInformation @ 0x140B145DC (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x140B169CC (ExpQuerySystemInformation.c)
  * Callees:
- *     PfpMemoryListQuery @ 0x1403464E8 (PfpMemoryListQuery.c)
- *     PfLockSharedAcquire @ 0x1404B2990 (PfLockSharedAcquire.c)
- *     PfLockSharedRelease @ 0x1404B5064 (PfLockSharedRelease.c)
- *     RtlCopyFromUser @ 0x140533E38 (RtlCopyFromUser.c)
- *     PfpMemoryRangesQuery @ 0x1405FFB74 (PfpMemoryRangesQuery.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     RtlCopyToUser @ 0x14077F284 (RtlCopyToUser.c)
- *     RtlReadULongFromUser @ 0x14077F590 (RtlReadULongFromUser.c)
- *     RtlWriteULongToUser @ 0x14077F7A0 (RtlWriteULongToUser.c)
- *     PfpQueryFileExtentsRequest @ 0x1407C589C (PfpQueryFileExtentsRequest.c)
- *     PfpQueryScenarioInformation @ 0x1407C5F10 (PfpQueryScenarioInformation.c)
- *     ProbeForWrite @ 0x1408F5D00 (ProbeForWrite.c)
- *     SeSinglePrivilegeCheck @ 0x140932280 (SeSinglePrivilegeCheck.c)
- *     PfpPrivSourceEnum @ 0x14096984C (PfpPrivSourceEnum.c)
- *     EtwTiLogSyscallUsage @ 0x140A53288 (EtwTiLogSyscallUsage.c)
- *     PfpPfnPrioRequest @ 0x140A5345C (PfpPfnPrioRequest.c)
- *     PfGetCompletedTrace @ 0x140A538E4 (PfGetCompletedTrace.c)
- *     PfpQueryGpuUtilization @ 0x140A5405C (PfpQueryGpuUtilization.c)
- *     PfpVirtualQuery @ 0x140A541C0 (PfpVirtualQuery.c)
- *     MmLogQueryCombineStats @ 0x140A542BC (MmLogQueryCombineStats.c)
+ *     PfpMemoryListQuery @ 0x140348568 (PfpMemoryListQuery.c)
+ *     PfLockSharedAcquire @ 0x1404ABEA0 (PfLockSharedAcquire.c)
+ *     PfLockSharedRelease @ 0x1404AE4B4 (PfLockSharedRelease.c)
+ *     RtlCopyFromUser @ 0x1405362B8 (RtlCopyFromUser.c)
+ *     PfpMemoryRangesQuery @ 0x140602624 (PfpMemoryRangesQuery.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     RtlCopyToUser @ 0x140781D84 (RtlCopyToUser.c)
+ *     RtlReadULongFromUser @ 0x140782090 (RtlReadULongFromUser.c)
+ *     RtlWriteULongToUser @ 0x1407822A0 (RtlWriteULongToUser.c)
+ *     PfpQueryFileExtentsRequest @ 0x1407C88FC (PfpQueryFileExtentsRequest.c)
+ *     PfpQueryScenarioInformation @ 0x1407C8F70 (PfpQueryScenarioInformation.c)
+ *     SeSinglePrivilegeCheck @ 0x14090DE50 (SeSinglePrivilegeCheck.c)
+ *     PfpPrivSourceEnum @ 0x14091DEAC (PfpPrivSourceEnum.c)
+ *     ProbeForWrite @ 0x140925C90 (ProbeForWrite.c)
+ *     EtwTiLogSyscallUsage @ 0x140A5C578 (EtwTiLogSyscallUsage.c)
+ *     PfpPfnPrioRequest @ 0x140A5C74C (PfpPfnPrioRequest.c)
+ *     PfGetCompletedTrace @ 0x140A5CBD4 (PfGetCompletedTrace.c)
+ *     PfpQueryGpuUtilization @ 0x140A5D34C (PfpQueryGpuUtilization.c)
+ *     PfpVirtualQuery @ 0x140A5D4B0 (PfpVirtualQuery.c)
+ *     MmLogQueryCombineStats @ 0x140A5D5AC (MmLogQueryCombineStats.c)
  */
 
 __int64 __fastcall PfQuerySuperfetchInformation(__int64 a1, void *a2, int a3, KPROCESSOR_MODE a4, _DWORD *a5)
@@ -108,7 +108,7 @@ __int64 __fastcall PfQuerySuperfetchInformation(__int64 a1, void *a2, int a3, KP
       }
       if ( (_DWORD)Src == 1 )
       {
-        *((_QWORD *)&Src + 1) = stru_140E66FF0.QuantumTarget;
+        *((_QWORD *)&Src + 1) = stru_140E67200.QuantumTarget;
         if ( a4 )
           RtlCopyToUser((void *)Address[0], &Src, 0x10uLL);
         else
@@ -218,11 +218,11 @@ LABEL_16:
       if ( a4 )
       {
         ProbeForWrite(Address[0], 4uLL, 4u);
-        RtlCopyToUser((void *)Address[0], &stru_140F12D20.Padding[2], 4uLL);
+        RtlCopyToUser((void *)Address[0], &xmmword_140F13528, 4uLL);
       }
       else
       {
-        RtlCopyVolatileMemory((void *)Address[0], &stru_140F12D20.Padding[2], 4uLL);
+        RtlCopyVolatileMemory((void *)Address[0], &xmmword_140F13528, 4uLL);
       }
       *a5 = 4;
       return v6;
@@ -232,11 +232,11 @@ LABEL_16:
   if ( LODWORD(Address[1]) != 28 )
     return (unsigned int)-1073741306;
   v6 = 0;
-  PfLockSharedAcquire((volatile signed __int64 *)&stru_140E66B30.ForegroundLossTime, v7, v8, v9);
-  v36 = *(_OWORD *)&stru_140E66B30.WaitBlockFill11[116];
-  v37 = *(_QWORD *)&stru_140E66B30.WaitBlockFill11[132];
-  v38 = *(_DWORD *)&stru_140E66B30.WaitBlockFill11[140];
-  PfLockSharedRelease((struct _KTHREAD *)&stru_140E66B30.ForegroundLossTime);
+  PfLockSharedAcquire((volatile signed __int64 *)&stru_140E66D40.ForegroundLossTime, v7, v8, v9);
+  v36 = *(_OWORD *)&stru_140E66D40.WaitBlockFill11[116];
+  v37 = *(_QWORD *)&stru_140E66D40.WaitBlockFill11[132];
+  v38 = *(_DWORD *)&stru_140E66D40.WaitBlockFill11[140];
+  PfLockSharedRelease((struct _KTHREAD *)&stru_140E66D40.ForegroundLossTime);
   if ( a4 )
   {
     ProbeForWrite(Address[0], 0x1CuLL, 4u);

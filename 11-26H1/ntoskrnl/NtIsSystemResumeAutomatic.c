@@ -1,12 +1,12 @@
 /*
- * XREFs of NtIsSystemResumeAutomatic @ 0x140B45F20
+ * XREFs of NtIsSystemResumeAutomatic @ 0x140B47F50
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-bool NtIsSystemResumeAutomatic()
+BOOLEAN NtIsSystemResumeAutomatic(void)
 {
-  return (dword_140F105A0[0] & 3) == 0;
+  return ((__int64)PpmIdlePolicyLock.Teb & 3) == 0;
 }

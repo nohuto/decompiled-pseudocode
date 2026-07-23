@@ -1,13 +1,13 @@
 /*
- * XREFs of PopAvlDeleteStatsForPowerRequest @ 0x14058883C
+ * XREFs of PopAvlDeleteStatsForPowerRequest @ 0x14058983C
  * Callers:
- *     PopStatsDeletePowerRequest @ 0x140589BBC (PopStatsDeletePowerRequest.c)
- *     PopPublishAndPurgePowerRequestStats @ 0x14087AE1C (PopPublishAndPurgePowerRequestStats.c)
+ *     PopStatsDeletePowerRequest @ 0x14058ABBC (PopStatsDeletePowerRequest.c)
+ *     PopPublishAndPurgePowerRequestStats @ 0x14087C07C (PopPublishAndPurgePowerRequestStats.c)
  * Callees:
  *     PoUninitializeStopWatch @ 0x140001E10 (PoUninitializeStopWatch.c)
  *     RtlDeleteElementGenericTableAvl @ 0x140006CA0 (RtlDeleteElementGenericTableAvl.c)
- *     PopFreeUnicodeString @ 0x1405882E0 (PopFreeUnicodeString.c)
- *     PopGetStopWatchByRequestType @ 0x1405888A4 (PopGetStopWatchByRequestType.c)
+ *     PopFreeUnicodeString @ 0x1405892E0 (PopFreeUnicodeString.c)
+ *     PopGetStopWatchByRequestType @ 0x1405898A4 (PopGetStopWatchByRequestType.c)
  */
 
 void __fastcall PopAvlDeleteStatsForPowerRequest(char *Buffer)

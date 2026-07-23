@@ -1,20 +1,20 @@
 /*
- * XREFs of HalpPopCommonBufferEntry @ 0x140344374
+ * XREFs of HalpPopCommonBufferEntry @ 0x1403463F4
  * Callers:
- *     HalFreeCommonBufferDmarThin @ 0x1403441A0 (HalFreeCommonBufferDmarThin.c)
- *     HalFreeCommonBufferDmaThin @ 0x1403442A0 (HalFreeCommonBufferDmaThin.c)
- *     HalFreeCommonBufferV3 @ 0x140589E20 (HalFreeCommonBufferV3.c)
+ *     HalFreeCommonBufferDmarThin @ 0x140346220 (HalFreeCommonBufferDmarThin.c)
+ *     HalFreeCommonBufferDmaThin @ 0x140346320 (HalFreeCommonBufferDmaThin.c)
+ *     HalFreeCommonBufferV3 @ 0x14058C550 (HalFreeCommonBufferV3.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     RtlRbRemoveNode @ 0x140377C60 (RtlRbRemoveNode.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     RtlRbRemoveNode @ 0x140379A10 (RtlRbRemoveNode.c)
  */
 
-unsigned __int64 __fastcall HalpPopCommonBufferEntry(unsigned __int64 a1, __int64 a2)
+unsigned __int64 __fastcall HalpPopCommonBufferEntry(_RTL_BALANCED_NODE *a1, __int64 a2)
 {
   unsigned __int64 v2; // rdi
   KIRQL v5; // al
-  __int64 v6; // rcx
+  _RTL_RB_TREE *v6; // rcx
   KIRQL v7; // bp
   unsigned __int64 v8; // rdx
   unsigned __int64 v9; // rax
@@ -30,23 +30,23 @@ unsigned __int64 __fastcall HalpPopCommonBufferEntry(unsigned __int64 a1, __int6
   if ( !a2 )
     goto LABEL_15;
   v5 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(a2 + 80));
-  v6 = a2 + 64;
+  v6 = (_RTL_RB_TREE *)(a2 + 64);
   v7 = v5;
   v8 = *(_QWORD *)(a2 + 64);
   if ( (*(_BYTE *)(a2 + 72) & 1) != 0 && v8 )
-    v8 ^= v6;
+    v8 ^= (unsigned __int64)v6;
   while ( v8 )
   {
-    if ( *(_QWORD *)(v8 + 24) > a1 )
+    if ( *(_QWORD *)(v8 + 24) > (unsigned __int64)a1 )
     {
       v9 = *(_QWORD *)v8;
     }
     else
     {
-      if ( *(_QWORD *)(v8 + 24) == a1 )
+      if ( *(_RTL_BALANCED_NODE **)(v8 + 24) == a1 )
       {
         v2 = v8;
-        RtlRbRemoveNode(v6, v8);
+        RtlRbRemoveNode(v6, (PRTL_BALANCED_NODE)v8);
         break;
       }
       v9 = *(_QWORD *)(v8 + 8);
@@ -72,13 +72,13 @@ LABEL_15:
         v15 ^= v12 + 64;
       while ( v15 )
       {
-        if ( *(_QWORD *)(v15 + 24) == a1 )
+        if ( *(_RTL_BALANCED_NODE **)(v15 + 24) == a1 )
         {
           v2 = v15;
-          RtlRbRemoveNode(v12 + 64, v15);
+          RtlRbRemoveNode((PRTL_RB_TREE)(v12 + 64), (PRTL_BALANCED_NODE)v15);
           break;
         }
-        if ( *(_QWORD *)(v15 + 24) <= a1 )
+        if ( *(_QWORD *)(v15 + 24) <= (unsigned __int64)a1 )
           v17 = *(_QWORD *)(v15 + 8);
         else
           v17 = *(_QWORD *)v15;

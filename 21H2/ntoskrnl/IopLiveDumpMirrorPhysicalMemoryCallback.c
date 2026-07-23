@@ -1,12 +1,12 @@
 /*
- * XREFs of IopLiveDumpMirrorPhysicalMemoryCallback @ 0x1409ACFE0
+ * XREFs of IopLiveDumpMirrorPhysicalMemoryCallback @ 0x1409ADF10
  * Callers:
  *     <none>
  * Callees:
- *     KeQueryPerformanceCounter @ 0x14022C340 (KeQueryPerformanceCounter.c)
- *     RtlSetBitsEx @ 0x140316A00 (RtlSetBitsEx.c)
- *     MmTryIdentifyPage @ 0x140534868 (MmTryIdentifyPage.c)
- *     RtlFindNextForwardRunClearEx @ 0x1405874F0 (RtlFindNextForwardRunClearEx.c)
+ *     KeQueryPerformanceCounter @ 0x1402D0BC0 (KeQueryPerformanceCounter.c)
+ *     RtlSetBitsEx @ 0x140321750 (RtlSetBitsEx.c)
+ *     MmTryIdentifyPage @ 0x140534AA8 (MmTryIdentifyPage.c)
+ *     RtlFindNextForwardRunClearEx @ 0x140587720 (RtlFindNextForwardRunClearEx.c)
  */
 
 __int64 __fastcall IopLiveDumpMirrorPhysicalMemoryCallback(unsigned __int64 a1, __int64 a2)

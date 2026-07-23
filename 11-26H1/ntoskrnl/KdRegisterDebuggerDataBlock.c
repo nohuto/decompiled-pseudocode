@@ -1,10 +1,10 @@
 /*
- * XREFs of KdRegisterDebuggerDataBlock @ 0x140C13318
+ * XREFs of KdRegisterDebuggerDataBlock @ 0x140C19318
  * Callers:
- *     KdInitSystem @ 0x140C12B60 (KdInitSystem.c)
+ *     KdInitSystem @ 0x140C18B60 (KdInitSystem.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
  */
 
 char __fastcall KdRegisterDebuggerDataBlock(__int64 a1, __int64 a2)
@@ -30,13 +30,13 @@ char __fastcall KdRegisterDebuggerDataBlock(__int64 a1, __int64 a2)
   }
   *(_DWORD *)(a2 + 16) = 1195525195;
   *(_DWORD *)(a2 + 20) = 936;
-  v8 = (__int64 *)qword_140F594F8;
-  if ( *(__int64 **)qword_140F594F8 != &KdpDebuggerDataListHead )
+  v8 = (__int64 *)qword_140F597D8;
+  if ( *(__int64 **)qword_140F597D8 != &KdpDebuggerDataListHead )
     __fastfail(3u);
   *(_QWORD *)a2 = &KdpDebuggerDataListHead;
   *(_QWORD *)(a2 + 8) = v8;
   *v8 = a2;
-  qword_140F594F8 = a2;
+  qword_140F597D8 = a2;
   KeReleaseSpinLock(&KdpDataSpinLock, v5);
   return 1;
 }

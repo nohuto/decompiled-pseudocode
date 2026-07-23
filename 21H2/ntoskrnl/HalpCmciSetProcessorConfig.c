@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpCmciSetProcessorConfig @ 0x1403A0BF8
+ * XREFs of HalpCmciSetProcessorConfig @ 0x1403A0D48
  * Callers:
- *     HalpDisableCmciOnProcessor @ 0x1404BD140 (HalpDisableCmciOnProcessor.c)
- *     HalpCmciInitProcessor @ 0x140999D20 (HalpCmciInitProcessor.c)
+ *     HalpDisableCmciOnProcessor @ 0x1404BD380 (HalpDisableCmciOnProcessor.c)
+ *     HalpCmciInitProcessor @ 0x14099AD20 (HalpCmciInitProcessor.c)
  * Callees:
- *     HalpCmciSetProcessorConfigIntel @ 0x1403A0C60 (HalpCmciSetProcessorConfigIntel.c)
- *     HalpGetCpuInfo @ 0x1403A0F70 (HalpGetCpuInfo.c)
- *     HalpCmciSetProcessorConfigAMD @ 0x1404BCE00 (HalpCmciSetProcessorConfigAMD.c)
+ *     HalpCmciSetProcessorConfigIntel @ 0x1403A0DB0 (HalpCmciSetProcessorConfigIntel.c)
+ *     HalpGetCpuInfo @ 0x1403A10C0 (HalpGetCpuInfo.c)
+ *     HalpCmciSetProcessorConfigAMD @ 0x1404BD040 (HalpCmciSetProcessorConfigAMD.c)
  */
 
 char __fastcall HalpCmciSetProcessorConfig(__int64 a1, char a2, __int64 a3)

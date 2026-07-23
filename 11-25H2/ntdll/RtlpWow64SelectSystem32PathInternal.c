@@ -7,7 +7,7 @@
  *     wcslen @ 0x1801292B0 (wcslen.c)
  */
 
-__int64 __fastcall RtlpWow64SelectSystem32PathInternal(unsigned __int16 a1, char a2, UNICODE_STRING *a3)
+__int64 __fastcall RtlpWow64SelectSystem32PathInternal(unsigned __int16 a1, char a2, _UNICODE_STRING *a3)
 {
   const wchar_t *v5; // rcx
   size_t v6; // rax

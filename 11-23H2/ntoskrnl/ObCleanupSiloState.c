@@ -1,11 +1,11 @@
 /*
- * XREFs of ObCleanupSiloState @ 0x14097ADD0
+ * XREFs of ObCleanupSiloState @ 0x14097AFD0
  * Callers:
- *     ObShutdownSystem @ 0x14097AE00 (ObShutdownSystem.c)
- *     PspDeleteExternalServerSiloState @ 0x1409ACDB8 (PspDeleteExternalServerSiloState.c)
- *     PspDeleteServerSiloGlobals @ 0x1409ACE90 (PspDeleteServerSiloGlobals.c)
+ *     ObShutdownSystem @ 0x14097B000 (ObShutdownSystem.c)
+ *     PspDeleteExternalServerSiloState @ 0x1409ACFB8 (PspDeleteExternalServerSiloState.c)
+ *     PspDeleteServerSiloGlobals @ 0x1409AD090 (PspDeleteServerSiloGlobals.c)
  * Callees:
- *     ObDereferenceDeviceMap @ 0x1407AFE5C (ObDereferenceDeviceMap.c)
+ *     ObDereferenceDeviceMap @ 0x1407B004C (ObDereferenceDeviceMap.c)
  */
 
 char __fastcall ObCleanupSiloState(volatile __int64 *a1)

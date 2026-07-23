@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpBuildScatterGatherListDmaThin @ 0x14031C2A4
+ * XREFs of HalpBuildScatterGatherListDmaThin @ 0x14031C534
  * Callers:
- *     HalGetScatterGatherListDmaThin @ 0x14031C240 (HalGetScatterGatherListDmaThin.c)
- *     HalBuildScatterGatherListDmaThinEx @ 0x14045CED0 (HalBuildScatterGatherListDmaThinEx.c)
- *     HalGetScatterGatherListDmaThinEx @ 0x1405133A0 (HalGetScatterGatherListDmaThinEx.c)
+ *     HalGetScatterGatherListDmaThin @ 0x14031C4D0 (HalGetScatterGatherListDmaThin.c)
+ *     HalBuildScatterGatherListDmaThinEx @ 0x14045D2D0 (HalBuildScatterGatherListDmaThinEx.c)
+ *     HalGetScatterGatherListDmaThinEx @ 0x1405138F0 (HalGetScatterGatherListDmaThinEx.c)
  * Callees:
- *     HalpGetNumberOfSGElementsDmaThin @ 0x14031C560 (HalpGetNumberOfSGElementsDmaThin.c)
- *     HalpConstructScatterGatherListDmaThin @ 0x14031C630 (HalpConstructScatterGatherListDmaThin.c)
+ *     HalpGetNumberOfSGElementsDmaThin @ 0x14031C7F0 (HalpGetNumberOfSGElementsDmaThin.c)
+ *     HalpConstructScatterGatherListDmaThin @ 0x14031C8C0 (HalpConstructScatterGatherListDmaThin.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

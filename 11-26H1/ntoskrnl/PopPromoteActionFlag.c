@@ -1,7 +1,7 @@
 /*
- * XREFs of PopPromoteActionFlag @ 0x140B4D72C
+ * XREFs of PopPromoteActionFlag @ 0x140B4F4BC
  * Callers:
- *     PopExecutePowerAction @ 0x140A37D58 (PopExecutePowerAction.c)
+ *     PopExecutePowerAction @ 0x1409F3918 (PopExecutePowerAction.c)
  * Callees:
  *     <none>
  */
@@ -17,20 +17,20 @@ __int64 __fastcall PopPromoteActionFlag(_BYTE *a1, char a2, int a3, char a4, uns
   v8 = a5 & a3;
   if ( !a4 )
   {
-    if ( v8 || (dword_140F0FB6C & a5) == 0 )
+    if ( v8 || (dword_140F1042C & a5) == 0 )
       return result;
     result = ~a5;
-    dword_140F0FB6C &= result;
+    dword_140F1042C &= result;
 LABEL_10:
     *a1 |= a2;
     return result;
   }
   if ( v8 )
   {
-    if ( (dword_140F0FB6C & a5) == 0 )
+    if ( (dword_140F1042C & a5) == 0 )
     {
       v7 = 1;
-      dword_140F0FB6C |= a5;
+      dword_140F1042C |= a5;
     }
   }
   if ( v7 )

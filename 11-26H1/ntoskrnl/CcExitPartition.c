@@ -1,19 +1,19 @@
 /*
- * XREFs of CcExitPartition @ 0x1405B26C4
+ * XREFs of CcExitPartition @ 0x1405B4ED4
  * Callers:
- *     MiDrainCrossPartitionUsage @ 0x1406F0580 (MiDrainCrossPartitionUsage.c)
+ *     MiDrainCrossPartitionUsage @ 0x1406F51F0 (MiDrainCrossPartitionUsage.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x1402B4730 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x1402B98C0 (KeReleaseInStackQueuedSpinLock.c)
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     DbgPrintEx @ 0x140397530 (DbgPrintEx.c)
- *     CcPostDeferredWrites @ 0x14039B61C (CcPostDeferredWrites.c)
- *     CcNotifyWriteBehindInternal @ 0x1403E07DC (CcNotifyWriteBehindInternal.c)
- *     CcForEachPrivateVolumeCacheMap @ 0x1403E0938 (CcForEachPrivateVolumeCacheMap.c)
- *     CcWaitForCurrentLazyWriterActivityOnPartition @ 0x1405B17CC (CcWaitForCurrentLazyWriterActivityOnPartition.c)
- *     CcDeletePartition @ 0x1405B2214 (CcDeletePartition.c)
- *     CcDeleteSectionsForPartition @ 0x1405B2470 (CcDeleteSectionsForPartition.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402FF400 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x140304580 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     DbgPrintEx @ 0x1403992B0 (DbgPrintEx.c)
+ *     CcPostDeferredWrites @ 0x14039D37C (CcPostDeferredWrites.c)
+ *     CcNotifyWriteBehindInternal @ 0x1403E39CC (CcNotifyWriteBehindInternal.c)
+ *     CcForEachPrivateVolumeCacheMap @ 0x1403E3B28 (CcForEachPrivateVolumeCacheMap.c)
+ *     CcWaitForCurrentLazyWriterActivityOnPartition @ 0x1405B3FDC (CcWaitForCurrentLazyWriterActivityOnPartition.c)
+ *     CcDeletePartition @ 0x1405B4A24 (CcDeletePartition.c)
+ *     CcDeleteSectionsForPartition @ 0x1405B4C80 (CcDeleteSectionsForPartition.c)
  */
 
 void __fastcall CcExitPartition(_QWORD *a1, int a2)
@@ -32,9 +32,9 @@ void __fastcall CcExitPartition(_QWORD *a1, int a2)
     if ( a2 )
     {
       KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(v2 + 768), &LockHandle);
-      v7 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)&EmpParseLock.ReadOperationCount);
+      v7 = KeAcquireSpinLockRaiseToDpc(&EmpParseLock.InGlobalUpdateVpThreadPriorityList);
       *(_BYTE *)(v2 + 1294) = 2;
-      KeReleaseSpinLock((PKSPIN_LOCK)&EmpParseLock.ReadOperationCount, v7);
+      KeReleaseSpinLock(&EmpParseLock.InGlobalUpdateVpThreadPriorityList, v7);
       KeReleaseInStackQueuedSpinLock(&LockHandle);
       if ( CcEnablePerVolumeLazyWriter )
         CcForEachPrivateVolumeCacheMap(v2);
@@ -56,9 +56,9 @@ void __fastcall CcExitPartition(_QWORD *a1, int a2)
       else
         CcWaitForCurrentLazyWriterActivityOnPartition(v2, 0LL);
       KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(v2 + 768), &LockHandle);
-      v4 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)&EmpParseLock.ReadOperationCount);
+      v4 = KeAcquireSpinLockRaiseToDpc(&EmpParseLock.InGlobalUpdateVpThreadPriorityList);
       *(_BYTE *)(v2 + 1294) = 1;
-      KeReleaseSpinLock((PKSPIN_LOCK)&EmpParseLock.ReadOperationCount, v4);
+      KeReleaseSpinLock(&EmpParseLock.InGlobalUpdateVpThreadPriorityList, v4);
       KeReleaseInStackQueuedSpinLock(&LockHandle);
       v5 = (_QWORD **)(v2 + 640);
       v6 = v2 + 696;

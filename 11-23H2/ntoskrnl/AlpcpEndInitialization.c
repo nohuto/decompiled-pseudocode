@@ -1,12 +1,12 @@
 /*
- * XREFs of AlpcpEndInitialization @ 0x14071EB98
+ * XREFs of AlpcpEndInitialization @ 0x14071ED98
  * Callers:
- *     AlpcpCreateSecurityContext @ 0x14071C9C8 (AlpcpCreateSecurityContext.c)
- *     AlpcpCreateSection @ 0x14076C3C8 (AlpcpCreateSection.c)
- *     AlpcpCreateReserve @ 0x1407CFE74 (AlpcpCreateReserve.c)
+ *     AlpcpCreateSecurityContext @ 0x14071CBC8 (AlpcpCreateSecurityContext.c)
+ *     AlpcpCreateSection @ 0x14076C5B8 (AlpcpCreateSection.c)
+ *     AlpcpCreateReserve @ 0x1407D0144 (AlpcpCreateReserve.c)
  * Callees:
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
  */
 
 signed __int32 __fastcall AlpcpEndInitialization(__int64 a1)

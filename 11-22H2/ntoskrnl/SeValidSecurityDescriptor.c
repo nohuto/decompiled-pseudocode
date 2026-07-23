@@ -18,10 +18,10 @@ BOOLEAN __stdcall SeValidSecurityDescriptor(ULONG Length, PSECURITY_DESCRIPTOR S
   int v7; // eax
   __int64 v8; // rcx
   unsigned int v9; // edx
-  char *v10; // rcx
+  ACL *v10; // rcx
   __int64 v11; // rcx
   unsigned int v13; // edi
-  char *v14; // rcx
+  ACL *v14; // rcx
 
   if ( Length < 0x14 )
     return 0;
@@ -64,14 +64,14 @@ BOOLEAN __stdcall SeValidSecurityDescriptor(ULONG Length, PSECURITY_DESCRIPTOR S
      || ((v8 + 3) & 0xFFFFFFFFFFFFFFFCuLL) == v8
      && (unsigned int)v8 <= Length
      && (v9 = Length - v8, Length - (unsigned int)v8 >= 8)
-     && (v10 = (char *)SecurityDescriptor + v8, v9 >= *((unsigned __int16 *)v10 + 1))
-     && RtlValidAcl((__int64)v10))
+     && (v10 = (ACL *)((char *)SecurityDescriptor + v8), v9 >= v10->AclSize)
+     && RtlValidAcl(v10))
     && ((v11 = *((unsigned int *)SecurityDescriptor + 3), !(_DWORD)v11)
      || ((v11 + 3) & 0xFFFFFFFFFFFFFFFCuLL) == v11
      && (unsigned int)v11 <= Length
      && (v13 = Length - v11, v13 >= 8)
-     && (v14 = (char *)SecurityDescriptor + v11, v13 >= *((unsigned __int16 *)v14 + 1))
-     && RtlValidAcl((__int64)v14)) )
+     && (v14 = (ACL *)((char *)SecurityDescriptor + v11), v13 >= v14->AclSize)
+     && RtlValidAcl(v14)) )
   {
     return 1;
   }

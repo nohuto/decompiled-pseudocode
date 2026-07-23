@@ -3,9 +3,9 @@
  * Callers:
  *     <none>
  * Callees:
- *     PsGetCurrentProcess @ 0x140014680 (PsGetCurrentProcess.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     KiSetUserTbFlushPending @ 0x14015E8F0 (KiSetUserTbFlushPending.c)
+ *     PsGetCurrentProcess @ 0x140014200 (PsGetCurrentProcess.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     KiSetUserTbFlushPending @ 0x14015EE60 (KiSetUserTbFlushPending.c)
  */
 
 void __fastcall KeWriteProtectPAT(char a1)

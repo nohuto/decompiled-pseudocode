@@ -1,13 +1,13 @@
 /*
- * XREFs of PiDevCfgEnforceDevicePolicy @ 0x14087C600
+ * XREFs of PiDevCfgEnforceDevicePolicy @ 0x14087C840
  * Callers:
- *     PiDevCfgConfigureDevice @ 0x14087A734 (PiDevCfgConfigureDevice.c)
+ *     PiDevCfgConfigureDevice @ 0x14087A974 (PiDevCfgConfigureDevice.c)
  * Callees:
- *     _wcsicmp @ 0x1403D9A50 (_wcsicmp.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ZwOpenKey @ 0x14041AFA0 (ZwOpenKey.c)
- *     PiDevCfgQueryPolicyEnabled @ 0x14095F678 (PiDevCfgQueryPolicyEnabled.c)
- *     PiDevCfgQueryPolicyStringList @ 0x14095F6E8 (PiDevCfgQueryPolicyStringList.c)
+ *     _wcsicmp @ 0x1403D9C30 (_wcsicmp.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ZwOpenKey @ 0x14041B330 (ZwOpenKey.c)
+ *     PiDevCfgQueryPolicyEnabled @ 0x14095F878 (PiDevCfgQueryPolicyEnabled.c)
+ *     PiDevCfgQueryPolicyStringList @ 0x14095F8E8 (PiDevCfgQueryPolicyStringList.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

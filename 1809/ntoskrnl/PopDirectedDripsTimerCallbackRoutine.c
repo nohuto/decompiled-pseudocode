@@ -1,9 +1,9 @@
 /*
- * XREFs of PopDirectedDripsTimerCallbackRoutine @ 0x1402D6AF0
+ * XREFs of PopDirectedDripsTimerCallbackRoutine @ 0x1402D6CE0
  * Callers:
  *     <none>
  * Callees:
- *     PopQueueDirectedDripsWork @ 0x1402D6B68 (PopQueueDirectedDripsWork.c)
+ *     PopQueueDirectedDripsWork @ 0x1402D6D58 (PopQueueDirectedDripsWork.c)
  */
 
 __int64 __fastcall PopDirectedDripsTimerCallbackRoutine(__int64 a1, volatile signed __int32 *a2)

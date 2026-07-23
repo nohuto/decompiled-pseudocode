@@ -1,20 +1,20 @@
 /*
- * XREFs of AlpcpAllocateBlob @ 0x14061849C
+ * XREFs of AlpcpAllocateBlob @ 0x14061949C
  * Callers:
- *     AlpcpCreateClientPort @ 0x14061506C (AlpcpCreateClientPort.c)
- *     AlpcpCreateRegion @ 0x140616770 (AlpcpCreateRegion.c)
- *     AlpcpAllocateMessage @ 0x140616D6C (AlpcpAllocateMessage.c)
- *     AlpcpCreateView @ 0x140617D0C (AlpcpCreateView.c)
- *     AlpcpCreateSecurityContext @ 0x14061801C (AlpcpCreateSecurityContext.c)
- *     AlpcpCreateSection @ 0x14061AF74 (AlpcpCreateSection.c)
- *     AlpcpCreateReserve @ 0x1406A3FB8 (AlpcpCreateReserve.c)
- *     AlpcpCaptureHandleAttributeInternal @ 0x1406A5664 (AlpcpCaptureHandleAttributeInternal.c)
- *     AlpcpCreateConnectionPort @ 0x1406B66A8 (AlpcpCreateConnectionPort.c)
+ *     AlpcpCreateClientPort @ 0x14061606C (AlpcpCreateClientPort.c)
+ *     AlpcpCreateRegion @ 0x140617770 (AlpcpCreateRegion.c)
+ *     AlpcpAllocateMessage @ 0x140617D6C (AlpcpAllocateMessage.c)
+ *     AlpcpCreateView @ 0x140618D0C (AlpcpCreateView.c)
+ *     AlpcpCreateSecurityContext @ 0x14061901C (AlpcpCreateSecurityContext.c)
+ *     AlpcpCreateSection @ 0x14061BF74 (AlpcpCreateSection.c)
+ *     AlpcpCreateReserve @ 0x1406A5258 (AlpcpCreateReserve.c)
+ *     AlpcpCaptureHandleAttributeInternal @ 0x1406A6904 (AlpcpCaptureHandleAttributeInternal.c)
+ *     AlpcpCreateConnectionPort @ 0x1406B7948 (AlpcpCreateConnectionPort.c)
  * Callees:
  *     ExAllocateFromNPagedLookasideList @ 0x140018B38 (ExAllocateFromNPagedLookasideList.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
  */
 
 char *__fastcall AlpcpAllocateBlob(__int64 a1, __int64 a2, int a3)

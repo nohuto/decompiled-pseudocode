@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpRegisterTimerInterruptHandler @ 0x14052168C
+ * XREFs of HalpRegisterTimerInterruptHandler @ 0x140521BDC
  * Callers:
- *     HalpSetSystemInformation @ 0x14085ECB0 (HalpSetSystemInformation.c)
+ *     HalpSetSystemInformation @ 0x14085EEF0 (HalpSetSystemInformation.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall HalpRegisterTimerInterruptHandler(__int64 (__fastcall *a1)(_QWORD, _QWORD, _QWORD, _QWORD))
@@ -40,10 +40,13 @@ __int64 __fastcall HalpRegisterTimerInterruptHandler(__int64 (__fastcall *a1)(_Q
       qword_140D18350 = KeGetCurrentThread()[1].CycleTime;
   }
   KxReleaseSpinLock((volatile signed __int64 *)&HalpPerfInterruptHandlerRegistrationLock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v3 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v3 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -51,7 +54,7 @@ __int64 __fastcall HalpRegisterTimerInterruptHandler(__int64 (__fastcall *a1)(_Q
       v8 = (v7 & SchedulerAssist[5]) == 0;
       SchedulerAssist[5] &= v7;
       if ( v8 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
     }
   }
   __writecr8(v3);

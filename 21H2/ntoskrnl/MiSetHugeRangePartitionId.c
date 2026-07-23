@@ -1,11 +1,11 @@
 /*
- * XREFs of MiSetHugeRangePartitionId @ 0x1405339E0
+ * XREFs of MiSetHugeRangePartitionId @ 0x140533C20
  * Callers:
- *     MiActOnPartitionNodePages @ 0x1405608A0 (MiActOnPartitionNodePages.c)
+ *     MiActOnPartitionNodePages @ 0x140560AE0 (MiActOnPartitionNodePages.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     KxAcquireQueuedSpinLock @ 0x140350970 (KxAcquireQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402D3660 (KeAcquireInStackQueuedSpinLock.c)
+ *     KxAcquireQueuedSpinLock @ 0x14035B6C0 (KxAcquireQueuedSpinLock.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
@@ -33,7 +33,7 @@ __int64 __fastcall MiSetHugeRangePartitionId(
   *(_QWORD *)&v16.OldIrql = 0LL;
   v6 = a1 + 516;
   v7 = a4 >> 18;
-  v10 = (unsigned __int64 *)(qword_140C4E670 + 8 * ((a3 >> 18) & 0x3FFFF));
+  v10 = (unsigned __int64 *)(qword_140C4E6B0 + 8 * ((a3 >> 18) & 0x3FFFF));
   memset(&LockHandle, 0, sizeof(LockHandle));
   if ( (unsigned __int64)a1 >= a2 )
   {

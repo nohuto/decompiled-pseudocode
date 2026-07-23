@@ -114,7 +114,7 @@ __int64 __fastcall SepDuplicateToken(
   int v58; // eax
   int v59; // r15d
   unsigned int **v60; // rax
-  unsigned int **v61; // r14
+  _SID_AND_ATTRIBUTES *v61; // r14
   int v62; // eax
   unsigned int v63; // r13d
   struct _KPRCB *v64; // rdx
@@ -138,7 +138,7 @@ __int64 __fastcall SepDuplicateToken(
   unsigned __int8 *v82; // rsi
   void *v83; // r14
   void *v84; // rcx
-  __int64 *v85; // rcx
+  _SID_AND_ATTRIBUTES *v85; // rcx
   unsigned int v86; // r15d
   unsigned int v87; // eax
   int v88; // esi
@@ -588,7 +588,7 @@ LABEL_72:
               v59 = v99;
             }
             v60 = (unsigned int **)ExAllocatePool2(0x100uLL);
-            v61 = v60;
+            v61 = (_SID_AND_ATTRIBUTES *)v60;
             if ( !v60 )
               goto LABEL_93;
             if ( SepTokenCapabilitySidSharingEnabled )
@@ -606,7 +606,7 @@ LABEL_72:
               SepFreeTokenCapabilities(v69);
             *(_QWORD *)(v69 + 792) = v61;
             *(_DWORD *)(v69 + 800) = v55;
-            RtlSidHashInitialize((__int64 *)v61, v55, (_QWORD *)(v69 + 808));
+            RtlSidHashInitialize(v61, v55, (PSID_AND_ATTRIBUTES_HASH)(v69 + 808));
           }
           v72 = (unsigned __int8 *)*((_QWORD *)a1 + 98);
           if ( !v72 )
@@ -695,11 +695,17 @@ LABEL_120:
               }
               if ( a3 )
                 SepMakeTokenEffectiveOnly(v69);
-              RtlSidHashInitialize(*(__int64 **)(v69 + 152), *(_DWORD *)(v69 + 124), (_QWORD *)(v69 + 232));
-              RtlSidHashInitialize(*(__int64 **)(v69 + 160), *(_DWORD *)(v69 + 128), (_QWORD *)(v69 + 504));
-              v85 = *(__int64 **)(v69 + 792);
+              RtlSidHashInitialize(
+                *(PSID_AND_ATTRIBUTES *)(v69 + 152),
+                *(_DWORD *)(v69 + 124),
+                (PSID_AND_ATTRIBUTES_HASH)(v69 + 232));
+              RtlSidHashInitialize(
+                *(PSID_AND_ATTRIBUTES *)(v69 + 160),
+                *(_DWORD *)(v69 + 128),
+                (PSID_AND_ATTRIBUTES_HASH)(v69 + 504));
+              v85 = *(_SID_AND_ATTRIBUTES **)(v69 + 792);
               if ( v85 )
-                RtlSidHashInitialize(v85, *(_DWORD *)(v69 + 800), (_QWORD *)(v69 + 808));
+                RtlSidHashInitialize(v85, *(_DWORD *)(v69 + 800), (PSID_AND_ATTRIBUTES_HASH)(v69 + 808));
               if ( SeTokenLeakTracking )
               {
                 if ( SepTokenLeakMethodWatch == 13

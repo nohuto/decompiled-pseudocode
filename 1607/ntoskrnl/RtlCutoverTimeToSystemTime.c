@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlCutoverTimeToSystemTime @ 0x14055EFD4
+ * XREFs of RtlCutoverTimeToSystemTime @ 0x14055F514
  * Callers:
- *     ExpRefreshTimeZoneInformation @ 0x14055EB0C (ExpRefreshTimeZoneInformation.c)
+ *     ExpRefreshTimeZoneInformation @ 0x14055F04C (ExpRefreshTimeZoneInformation.c)
  *     ExInitializeUtcTimeZoneBias @ 0x1407BD1DC (ExInitializeUtcTimeZoneBias.c)
  * Callees:
- *     RtlTimeFieldsToTime @ 0x1400A4D20 (RtlTimeFieldsToTime.c)
- *     RtlTimeToTimeFields @ 0x1400AADE8 (RtlTimeToTimeFields.c)
+ *     RtlTimeFieldsToTime @ 0x1400A3298 (RtlTimeFieldsToTime.c)
+ *     RtlTimeToTimeFields @ 0x1400A9368 (RtlTimeToTimeFields.c)
  */
 
 BOOLEAN __stdcall RtlCutoverTimeToSystemTime(
@@ -22,8 +22,8 @@ BOOLEAN __stdcall RtlCutoverTimeToSystemTime(
   __int16 v11; // r14
   __int16 v12; // di
   BOOLEAN result; // al
-  struct _TIME_FIELDS v14; // [rsp+20h] [rbp-20h] BYREF
-  struct _TIME_FIELDS TimeFields; // [rsp+30h] [rbp-10h] BYREF
+  _TIME_FIELDS v14; // [rsp+20h] [rbp-20h] BYREF
+  _TIME_FIELDS TimeFields; // [rsp+30h] [rbp-10h] BYREF
   LARGE_INTEGER Time; // [rsp+70h] [rbp+30h] BYREF
 
   RtlTimeToTimeFields(CurrentTime, &TimeFields);

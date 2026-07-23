@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpGetSystemMaximumBufferCount @ 0x140A6DAC8
+ * XREFs of EtwpGetSystemMaximumBufferCount @ 0x140AB286C
  * Callers:
- *     EtwpUpdateTrace @ 0x140A6C6F0 (EtwpUpdateTrace.c)
- *     EtwpAllocateTraceBufferPool @ 0x140A6D988 (EtwpAllocateTraceBufferPool.c)
+ *     EtwpUpdateTrace @ 0x140AB081C (EtwpUpdateTrace.c)
+ *     EtwpAllocateTraceBufferPool @ 0x140AB272C (EtwpAllocateTraceBufferPool.c)
  * Callees:
- *     MmGetNumberOfPhysicalPages @ 0x1404AF740 (MmGetNumberOfPhysicalPages.c)
- *     MmGetMaximumNonPagedPoolInBytes @ 0x1404F0030 (MmGetMaximumNonPagedPoolInBytes.c)
+ *     MmGetNumberOfPhysicalPages @ 0x1404A8DD0 (MmGetNumberOfPhysicalPages.c)
+ *     MmGetMaximumNonPagedPoolInBytes @ 0x1404E9610 (MmGetMaximumNonPagedPoolInBytes.c)
  */
 
 unsigned __int64 __fastcall EtwpGetSystemMaximumBufferCount(unsigned int *a1)

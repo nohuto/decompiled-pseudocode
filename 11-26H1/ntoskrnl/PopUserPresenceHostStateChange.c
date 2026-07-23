@@ -1,11 +1,11 @@
 /*
- * XREFs of PopUserPresenceHostStateChange @ 0x140A3BB64
+ * XREFs of PopUserPresenceHostStateChange @ 0x1409F7584
  * Callers:
- *     PopPowerInformationInternal @ 0x140B6F6FC (PopPowerInformationInternal.c)
+ *     PopPowerInformationInternal @ 0x140B73EF0 (PopPowerInformationInternal.c)
  * Callees:
- *     ExAcquireResourceExclusiveLite @ 0x140275200 (ExAcquireResourceExclusiveLite.c)
- *     PopReleaseAdaptiveLock @ 0x140A3D6E4 (PopReleaseAdaptiveLock.c)
- *     PopEvaluateGlobalUserStatus @ 0x140A3ECC8 (PopEvaluateGlobalUserStatus.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140274770 (ExAcquireResourceExclusiveLite.c)
+ *     PopReleaseAdaptiveLock @ 0x1409F9104 (PopReleaseAdaptiveLock.c)
+ *     PopEvaluateGlobalUserStatus @ 0x1409FA6E8 (PopEvaluateGlobalUserStatus.c)
  */
 
 __int64 __fastcall PopUserPresenceHostStateChange(int a1)
@@ -20,9 +20,9 @@ __int64 __fastcall PopUserPresenceHostStateChange(int a1)
   v8 = 0LL;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  ExAcquireResourceExclusiveLite((PERESOURCE)&PopAdaptiveStandbyLock.AbCompletedIoQoSBoostCount, 1u);
+  ExAcquireResourceExclusiveLite(&PopAdpmLock, 1u);
   ExpPlatformBinaryLock.WaitBlock[3].WaitListEntry.Blink = (struct _LIST_ENTRY *)KeGetCurrentThread();
-  LOBYTE(PopAdaptiveStandbyLock.ThreadListEntry.Blink) = 0;
+  PopAdaptiveContext = 0;
   if ( PopHostGlobalUserPresenceState != a1 )
   {
     PopHostGlobalUserPresenceState = a1;

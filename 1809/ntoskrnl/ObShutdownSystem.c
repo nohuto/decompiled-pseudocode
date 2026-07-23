@@ -1,20 +1,20 @@
 /*
- * XREFs of ObShutdownSystem @ 0x140860D0C
+ * XREFs of ObShutdownSystem @ 0x140861F6C
  * Callers:
- *     PoBroadcastSystemState @ 0x1405681E0 (PoBroadcastSystemState.c)
- *     PopGracefulShutdown @ 0x14057C9C0 (PopGracefulShutdown.c)
+ *     PoBroadcastSystemState @ 0x1405691E0 (PoBroadcastSystemState.c)
+ *     PopGracefulShutdown @ 0x14057D9C0 (PopGracefulShutdown.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     ExReleasePushLockEx @ 0x14004F160 (ExReleasePushLockEx.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     ObReferenceObjectByName @ 0x1405C8DA0 (ObReferenceObjectByName.c)
- *     ObpDeleteSymbolicLinkName @ 0x14068E194 (ObpDeleteSymbolicLinkName.c)
- *     ExEnumHandleTable @ 0x14068FAD0 (ExEnumHandleTable.c)
- *     ObMakeTemporaryObject @ 0x1406C73D0 (ObMakeTemporaryObject.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     ObReferenceObjectByName @ 0x1405C9DA0 (ObReferenceObjectByName.c)
+ *     ObpDeleteSymbolicLinkName @ 0x14068F354 (ObpDeleteSymbolicLinkName.c)
+ *     ExEnumHandleTable @ 0x140690C90 (ExEnumHandleTable.c)
+ *     ObMakeTemporaryObject @ 0x1406C8670 (ObMakeTemporaryObject.c)
  */
 
 char __fastcall ObShutdownSystem(int a1)

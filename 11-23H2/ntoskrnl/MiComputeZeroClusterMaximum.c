@@ -1,11 +1,11 @@
 /*
- * XREFs of MiComputeZeroClusterMaximum @ 0x1402F28B0
+ * XREFs of MiComputeZeroClusterMaximum @ 0x1402F2B40
  * Callers:
- *     MiResolvePrivateZeroFault @ 0x14026A380 (MiResolvePrivateZeroFault.c)
- *     MiExpandSharedZeroCluster @ 0x1402F2598 (MiExpandSharedZeroCluster.c)
- *     MiGetClusterPage @ 0x140669FF4 (MiGetClusterPage.c)
+ *     MiResolvePrivateZeroFault @ 0x14026A610 (MiResolvePrivateZeroFault.c)
+ *     MiExpandSharedZeroCluster @ 0x1402F2828 (MiExpandSharedZeroCluster.c)
+ *     MiGetClusterPage @ 0x14066A544 (MiGetClusterPage.c)
  * Callees:
- *     MiGetAvailablePagesBelowPriority @ 0x14025BAD0 (MiGetAvailablePagesBelowPriority.c)
+ *     MiGetAvailablePagesBelowPriority @ 0x14025BD60 (MiGetAvailablePagesBelowPriority.c)
  */
 
 unsigned __int64 __fastcall MiComputeZeroClusterMaximum(__int64 a1, __int64 a2, __int64 a3)

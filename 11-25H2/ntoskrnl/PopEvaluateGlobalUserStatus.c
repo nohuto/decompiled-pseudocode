@@ -20,7 +20,7 @@ void PopEvaluateGlobalUserStatus()
   __int64 v2; // rdx
   __int64 v3; // rcx
   unsigned int v4; // [rsp+50h] [rbp+8h] BYREF
-  BOOL v5; // [rsp+58h] [rbp+10h] BYREF
+  BOOL Buffer; // [rsp+58h] [rbp+10h] BYREF
   int v6; // [rsp+5Ch] [rbp+14h]
 
   v0 = PopHostGlobalUserPresenceState;
@@ -40,9 +40,9 @@ void PopEvaluateGlobalUserStatus()
     PopPrintEx(3, (int)"PopAdaptive: Global user presence/activity state: %S id: %I32u\n", v1);
     PopDiagTraceSessionStateCounted(v3, v2, v0);
     PopSetPowerSettingValueAcDc((__int64)&GUID_GLOBAL_USER_PRESENCE, 4u, (__int64)&v4);
-    v5 = v0 != 0;
+    Buffer = v0 != 0;
     PopUmpoSendUserPresencePredictionAction(v0 != 0);
     v6 = PopGlobalUserPresenceStateTransitions;
-    ZwUpdateWnfStateData((__int64)&WNF_PO_SLEEP_STUDY_USER_PRESENCE_CHANGED, (__int64)&v5);
+    ZwUpdateWnfStateData(&WNF_PO_SLEEP_STUDY_USER_PRESENCE_CHANGED, &Buffer, 8u, 0LL, 0LL, 0, 0);
   }
 }

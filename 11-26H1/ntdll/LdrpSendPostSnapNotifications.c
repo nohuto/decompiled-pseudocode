@@ -1,20 +1,20 @@
 /*
- * XREFs of LdrpSendPostSnapNotifications @ 0x18011B220
+ * XREFs of LdrpSendPostSnapNotifications @ 0x18011AFD0
  * Callers:
- *     LdrpNotifyLoadOfGraph @ 0x180119830 (LdrpNotifyLoadOfGraph.c)
+ *     LdrpNotifyLoadOfGraph @ 0x1801195E0 (LdrpNotifyLoadOfGraph.c)
  * Callees:
- *     RtlFreeHeap_0 @ 0x18003FD10 (RtlFreeHeap_0.c)
- *     RtlAllocateHeap_0 @ 0x1800439E0 (RtlAllocateHeap_0.c)
- *     LdrpLogInternal @ 0x180046B90 (LdrpLogInternal.c)
- *     RtlEnterCriticalSection @ 0x180048D70 (RtlEnterCriticalSection.c)
- *     RtlLeaveCriticalSection @ 0x18004A3E0 (RtlLeaveCriticalSection.c)
- *     SbUpdateSwitchContextBasedOnDll @ 0x180064160 (SbUpdateSwitchContextBasedOnDll.c)
- *     LdrpLogDllState @ 0x1800832E0 (LdrpLogDllState.c)
- *     AVrfDllLoadNotification @ 0x1800C51D0 (AVrfDllLoadNotification.c)
- *     CompatCachepLookupCdb @ 0x1800DBFE0 (CompatCachepLookupCdb.c)
- *     LdrpSendDllNotifications @ 0x1800DEB20 (LdrpSendDllNotifications.c)
- *     memmove @ 0x180164700 (memmove.c)
- *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180170020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ *     RtlFreeHeap_0 @ 0x18002A280 (RtlFreeHeap_0.c)
+ *     RtlAllocateHeap_0 @ 0x18002DF50 (RtlAllocateHeap_0.c)
+ *     LdrpLogInternal @ 0x180031100 (LdrpLogInternal.c)
+ *     RtlEnterCriticalSection @ 0x1800332F0 (RtlEnterCriticalSection.c)
+ *     RtlLeaveCriticalSection @ 0x180034960 (RtlLeaveCriticalSection.c)
+ *     LdrpLogDllState @ 0x18007A680 (LdrpLogDllState.c)
+ *     SbUpdateSwitchContextBasedOnDll @ 0x1800845B0 (SbUpdateSwitchContextBasedOnDll.c)
+ *     AVrfDllLoadNotification @ 0x1800C2990 (AVrfDllLoadNotification.c)
+ *     CompatCachepLookupCdb @ 0x1800D8F50 (CompatCachepLookupCdb.c)
+ *     LdrpSendDllNotifications @ 0x1800DBA90 (LdrpSendDllNotifications.c)
+ *     memmove @ 0x180164600 (memmove.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x18016F020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
  */
 
 __int64 __fastcall LdrpSendPostSnapNotifications(__int64 a1)
@@ -45,7 +45,7 @@ __int64 __fastcall LdrpSendPostSnapNotifications(__int64 a1)
   v4 = g_pShimmedModuleList != 0LL;
   v20 = v4;
   NtGlobalFlag = NtCurrentPeb()->NtGlobalFlag;
-  RtlEnterCriticalSection((__int64)&LdrpDllNotificationLock);
+  RtlEnterCriticalSection(&LdrpDllNotificationLock);
   if ( g_ShimsEnabled )
     v3 = (void (__fastcall *)(__int64))(__ROR8__(g_pfnSE_DllLoaded, 64 - (MEMORY[0x7FFE0330] & 0x3Fu)) ^ MEMORY[0x7FFE0330]);
   v7 = *(_QWORD *)(v2 + 8);
@@ -81,7 +81,7 @@ __int64 __fastcall LdrpSendPostSnapNotifications(__int64 a1)
             v12 = v11 + g_pShimmedModuleListLength + 1;
           else
             v12 = v11 + 2;
-          Heap_0 = (char *)RtlAllocateHeap_0();
+          Heap_0 = (char *)RtlAllocateHeap_0(NtCurrentPeb()->ProcessHeap, 8u, 2 * v12);
           v14 = Heap_0;
           if ( Heap_0 )
           {
@@ -94,7 +94,7 @@ __int64 __fastcall LdrpSendPostSnapNotifications(__int64 a1)
                 ++v16;
               while ( v10[v16] );
               memmove(&v14[v15 + 2], v10, 2 * v16);
-              RtlFreeHeap_0();
+              RtlFreeHeap_0(NtCurrentPeb()->ProcessHeap, 0, g_pShimmedModuleList);
               v2 = a1;
             }
             else
@@ -111,7 +111,7 @@ __int64 __fastcall LdrpSendPostSnapNotifications(__int64 a1)
           else
           {
             LdrpLogInternal(
-              (int)"minkernel\\ldr\\ldrinit.c",
+              "minkernel\\ldr\\ldrinit.c",
               3901,
               (__int64)"LdrpCheckModule",
               0,
@@ -128,6 +128,6 @@ __int64 __fastcall LdrpSendPostSnapNotifications(__int64 a1)
     }
     while ( v7 != v2 );
   }
-  RtlLeaveCriticalSection((__int64)&LdrpDllNotificationLock);
+  RtlLeaveCriticalSection(&LdrpDllNotificationLock);
   return (unsigned int)Notification;
 }

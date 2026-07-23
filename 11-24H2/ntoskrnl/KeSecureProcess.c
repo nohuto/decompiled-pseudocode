@@ -1,12 +1,12 @@
 /*
- * XREFs of KeSecureProcess @ 0x1405B843C
+ * XREFs of KeSecureProcess @ 0x1405B5A1C
  * Callers:
- *     PspAllocateProcess @ 0x140A1C4C0 (PspAllocateProcess.c)
+ *     PspAllocateProcess @ 0x1409FACD0 (PspAllocateProcess.c)
  * Callees:
- *     KiStackAttachProcess @ 0x1403209E0 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x140321EC0 (KiUnstackDetachProcess.c)
- *     VslInitializeSecureProcess @ 0x14058D77C (VslInitializeSecureProcess.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     KiStackAttachProcess @ 0x1402C9570 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x1402CAA50 (KiUnstackDetachProcess.c)
+ *     VslInitializeSecureProcess @ 0x14058AA6C (VslInitializeSecureProcess.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 __int64 __fastcall KeSecureProcess(
@@ -19,15 +19,17 @@ __int64 __fastcall KeSecureProcess(
         unsigned __int64 a7)
 {
   unsigned int v11; // ebx
-  bool v13; // [rsp+40h] [rbp-68h] BYREF
-  _OWORD v14[3]; // [rsp+48h] [rbp-60h] BYREF
+  __int64 v12; // r8
+  __int64 v13; // r9
+  bool v15; // [rsp+40h] [rbp-68h] BYREF
+  _OWORD v16[3]; // [rsp+48h] [rbp-60h] BYREF
 
-  v13 = 0;
-  memset(v14, 0, sizeof(v14));
-  KiStackAttachProcess(a1, 0, (__int64)v14);
-  v11 = VslInitializeSecureProcess(a1->SecureState.SecureHandle, a2, a3, a4, a5, a6, a7, &v13);
-  KiUnstackDetachProcess((__int64)v14, 0);
-  if ( v13 )
+  v15 = 0;
+  memset(v16, 0, sizeof(v16));
+  KiStackAttachProcess(a1, 0, (__int64)v16);
+  v11 = VslInitializeSecureProcess(a1->SecureState.SecureHandle, a2, a3, a4, a5, a6, a7, &v15);
+  KiUnstackDetachProcess((__int64)v16, 0, v12, v13);
+  if ( v15 )
     a1->SecureState.SecureHandle |= 2uLL;
   return v11;
 }

@@ -1,36 +1,36 @@
 /*
- * XREFs of NtFreeUserPhysicalPages @ 0x1408793E0
+ * XREFs of NtFreeUserPhysicalPages @ 0x14087F7C0
  * Callers:
- *     DifNtFreeUserPhysicalPagesWrapper @ 0x140678310 (DifNtFreeUserPhysicalPagesWrapper.c)
+ *     DifNtFreeUserPhysicalPagesWrapper @ 0x14067BEF0 (DifNtFreeUserPhysicalPagesWrapper.c)
  * Callees:
- *     KiUnstackDetachProcess @ 0x1402307C0 (KiUnstackDetachProcess.c)
- *     KiStackAttachProcess @ 0x140247880 (KiStackAttachProcess.c)
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     UNLOCK_ADDRESS_SPACE_UNORDERED @ 0x140315540 (UNLOCK_ADDRESS_SPACE_UNORDERED.c)
- *     LOCK_ADDRESS_SPACE @ 0x1403155B4 (LOCK_ADDRESS_SPACE.c)
- *     MiFreePagesFromMdl @ 0x1403454C0 (MiFreePagesFromMdl.c)
- *     MiReturnCrossPartitionCharges @ 0x14036E1E8 (MiReturnCrossPartitionCharges.c)
- *     MiSectionControlArea @ 0x14038A9B0 (MiSectionControlArea.c)
- *     IoFreeMdl @ 0x14039F190 (IoFreeMdl.c)
- *     MiGetAweInfoPartition @ 0x1403BC1DC (MiGetAweInfoPartition.c)
- *     MiFreePhysicalPageChain @ 0x1403C73D4 (MiFreePhysicalPageChain.c)
- *     IoAllocateMdl @ 0x14040BA40 (IoAllocateMdl.c)
- *     MiGetProcessPartition @ 0x14044C0C0 (MiGetProcessPartition.c)
- *     MiPageChainCount @ 0x14047AB90 (MiPageChainCount.c)
- *     MiReturnProcessCommitment @ 0x14048552C (MiReturnProcessCommitment.c)
- *     MiModeCopyExceptionFilterEx @ 0x1404E5578 (MiModeCopyExceptionFilterEx.c)
- *     MiReferenceAweHandle @ 0x140513A44 (MiReferenceAweHandle.c)
- *     MiBuildPhysicalPageFreeChain @ 0x140700C48 (MiBuildPhysicalPageFreeChain.c)
- *     MiPreparePhysicalPagesMdlForFree @ 0x140701D6C (MiPreparePhysicalPagesMdlForFree.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     RtlReadULong64FromUser @ 0x14077F554 (RtlReadULong64FromUser.c)
- *     RtlWriteULong64ToUser @ 0x14077F758 (RtlWriteULong64ToUser.c)
- *     MiCaptureUlongPtrArray @ 0x140878758 (MiCaptureUlongPtrArray.c)
+ *     KiUnstackDetachProcess @ 0x140232120 (KiUnstackDetachProcess.c)
+ *     KiStackAttachProcess @ 0x1402491E0 (KiStackAttachProcess.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     UNLOCK_ADDRESS_SPACE_UNORDERED @ 0x140317570 (UNLOCK_ADDRESS_SPACE_UNORDERED.c)
+ *     LOCK_ADDRESS_SPACE @ 0x1403175E4 (LOCK_ADDRESS_SPACE.c)
+ *     MiFreePagesFromMdl @ 0x140347540 (MiFreePagesFromMdl.c)
+ *     MiReturnCrossPartitionCharges @ 0x14036FF88 (MiReturnCrossPartitionCharges.c)
+ *     MiSectionControlArea @ 0x14038C760 (MiSectionControlArea.c)
+ *     IoFreeMdl @ 0x1403A0EF0 (IoFreeMdl.c)
+ *     MiGetAweInfoPartition @ 0x1403C604C (MiGetAweInfoPartition.c)
+ *     MiFreePhysicalPageChain @ 0x1403D12C8 (MiFreePhysicalPageChain.c)
+ *     IoAllocateMdl @ 0x1404046D0 (IoAllocateMdl.c)
+ *     MiGetProcessPartition @ 0x1404441E0 (MiGetProcessPartition.c)
+ *     MiPageChainCount @ 0x140474500 (MiPageChainCount.c)
+ *     MiReturnProcessCommitment @ 0x14047EE9C (MiReturnProcessCommitment.c)
+ *     MiModeCopyExceptionFilterEx @ 0x1404DEB18 (MiModeCopyExceptionFilterEx.c)
+ *     MiReferenceAweHandle @ 0x14050D4B4 (MiReferenceAweHandle.c)
+ *     MiBuildPhysicalPageFreeChain @ 0x140705918 (MiBuildPhysicalPageFreeChain.c)
+ *     MiPreparePhysicalPagesMdlForFree @ 0x140706A3C (MiPreparePhysicalPagesMdlForFree.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     RtlReadULong64FromUser @ 0x140782054 (RtlReadULong64FromUser.c)
+ *     RtlWriteULong64ToUser @ 0x140782258 (RtlWriteULong64ToUser.c)
+ *     MiCaptureUlongPtrArray @ 0x14087EB38 (MiCaptureUlongPtrArray.c)
  */
 
-NTSTATUS __fastcall NtFreeUserPhysicalPages(HANDLE Handle, PVOID *a2, void *a3)
+NTSTATUS __cdecl NtFreeUserPhysicalPages(HANDLE ProcessHandle, PULONG_PTR NumberOfPages, PULONG_PTR UserPfnArray)
 {
   int v5; // ebx
   KPROCESSOR_MODE PreviousMode; // r15
@@ -41,7 +41,7 @@ NTSTATUS __fastcall NtFreeUserPhysicalPages(HANDLE Handle, PVOID *a2, void *a3)
   struct _MDL *p_Mdl; // rdi
   void *v12; // r8
   _KPROCESS *v13; // rsi
-  int v14; // r14d
+  NTSTATUS v14; // r14d
   __int64 v15; // rax
   IRP *Irp; // r8
   unsigned __int64 v17; // r15
@@ -78,7 +78,7 @@ NTSTATUS __fastcall NtFreeUserPhysicalPages(HANDLE Handle, PVOID *a2, void *a3)
   _OWORD v48[3]; // [rsp+A0h] [rbp-10A8h] BYREF
   struct _MDL Mdl; // [rsp+D0h] [rbp-1078h] BYREF
 
-  Src = a3;
+  Src = UserPfnArray;
   memset(v48, 0, sizeof(v48));
   memset_0(&Mdl, 0, 0x1030uLL);
   Object = 0LL;
@@ -92,25 +92,25 @@ NTSTATUS __fastcall NtFreeUserPhysicalPages(HANDLE Handle, PVOID *a2, void *a3)
   v35 = PreviousMode;
   if ( PreviousMode )
   {
-    ULong64FromUser = RtlReadULong64FromUser(a2);
-    RtlWriteULong64ToUser(a2, ULong64FromUser);
-    v8 = RtlReadULong64FromUser(a2);
+    ULong64FromUser = RtlReadULong64FromUser(NumberOfPages);
+    RtlWriteULong64ToUser(NumberOfPages, ULong64FromUser);
+    v8 = RtlReadULong64FromUser(NumberOfPages);
   }
   else
   {
-    v8 = (unsigned __int64)*a2;
+    v8 = *NumberOfPages;
   }
   v47 = v8;
   if ( PreviousMode )
-    RtlWriteULong64ToUser(a2, 0LL);
+    RtlWriteULong64ToUser(NumberOfPages, 0LL);
   else
-    *a2 = 0LL;
+    *NumberOfPages = 0LL;
   if ( !v8 )
     return -1073741584;
   v10 = 0LL;
   v37 = 0LL;
   p_Mdl = &Mdl;
-  result = MiReferenceAweHandle(Handle, 2u, PreviousMode, &Object, &v36);
+  result = MiReferenceAweHandle(ProcessHandle, 2u, PreviousMode, &Object, &v36);
   v12 = 0LL;
   if ( result >= 0 )
   {
@@ -224,9 +224,9 @@ LABEL_66:
             ObfDereferenceObjectWithTag(v34, 0x68506D4Du);
           }
           if ( PreviousMode )
-            RtlWriteULong64ToUser(a2, (__int64)Object);
+            RtlWriteULong64ToUser(NumberOfPages, (__int64)Object);
           else
-            *a2 = Object;
+            *NumberOfPages = (unsigned __int64)Object;
           return v14;
         }
       }

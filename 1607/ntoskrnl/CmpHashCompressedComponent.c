@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpHashCompressedComponent @ 0x140087D2C
+ * XREFs of CmpHashCompressedComponent @ 0x14010BF1C
  * Callers:
- *     CmpPartialPromoteSubkeys @ 0x1401B3204 (CmpPartialPromoteSubkeys.c)
- *     CmDeleteLayeredKey @ 0x1401B5DB0 (CmDeleteLayeredKey.c)
- *     CmpFindSubkeyInHashByChildCell @ 0x1404A01C8 (CmpFindSubkeyInHashByChildCell.c)
+ *     CmpPartialPromoteSubkeys @ 0x1401B30E8 (CmpPartialPromoteSubkeys.c)
+ *     CmDeleteLayeredKey @ 0x1401B5C94 (CmDeleteLayeredKey.c)
+ *     CmpFindSubkeyInHashByChildCell @ 0x1405185D4 (CmpFindSubkeyInHashByChildCell.c)
  * Callees:
- *     RtlUpcaseUnicodeChar @ 0x1405132D0 (RtlUpcaseUnicodeChar.c)
+ *     RtlUpcaseUnicodeChar @ 0x1404F66C0 (RtlUpcaseUnicodeChar.c)
  */
 
 __int64 __fastcall CmpHashCompressedComponent(_BYTE *a1, int a2)

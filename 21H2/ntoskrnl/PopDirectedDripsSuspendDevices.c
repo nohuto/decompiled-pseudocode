@@ -1,15 +1,15 @@
 /*
- * XREFs of PopDirectedDripsSuspendDevices @ 0x1408E3A78
+ * XREFs of PopDirectedDripsSuspendDevices @ 0x1408E3BD8
  * Callers:
- *     PopDirectedDripsWorkerRoutine @ 0x1407B9990 (PopDirectedDripsWorkerRoutine.c)
- *     PopDirectedDripsHandleResiliencyNotification @ 0x1408E3194 (PopDirectedDripsHandleResiliencyNotification.c)
+ *     PopDirectedDripsWorkerRoutine @ 0x1407BA120 (PopDirectedDripsWorkerRoutine.c)
+ *     PopDirectedDripsHandleResiliencyNotification @ 0x1408E32F4 (PopDirectedDripsHandleResiliencyNotification.c)
  * Callees:
- *     PopDirectedDripsDiagTraceNotifyDevices @ 0x14057CC50 (PopDirectedDripsDiagTraceNotifyDevices.c)
- *     PopAcquireTransitionLock @ 0x14078DA78 (PopAcquireTransitionLock.c)
- *     PopDirectedDripsDestroyBroadcast @ 0x1408E310C (PopDirectedDripsDestroyBroadcast.c)
- *     PopDirectedDripsInitializeBroadcast @ 0x1408E334C (PopDirectedDripsInitializeBroadcast.c)
- *     PopDirectedDripsReleaseTransitionLock @ 0x1408E3850 (PopDirectedDripsReleaseTransitionLock.c)
- *     PoBroadcastSystemState @ 0x1409922E0 (PoBroadcastSystemState.c)
+ *     PopDirectedDripsDiagTraceNotifyDevices @ 0x14057CE90 (PopDirectedDripsDiagTraceNotifyDevices.c)
+ *     PopAcquireTransitionLock @ 0x14078DC38 (PopAcquireTransitionLock.c)
+ *     PopDirectedDripsDestroyBroadcast @ 0x1408E326C (PopDirectedDripsDestroyBroadcast.c)
+ *     PopDirectedDripsInitializeBroadcast @ 0x1408E34AC (PopDirectedDripsInitializeBroadcast.c)
+ *     PopDirectedDripsReleaseTransitionLock @ 0x1408E39B0 (PopDirectedDripsReleaseTransitionLock.c)
+ *     PoBroadcastSystemState @ 0x1409932E0 (PoBroadcastSystemState.c)
  */
 
 __int64 __fastcall PopDirectedDripsSuspendDevices(signed __int32 *a1)

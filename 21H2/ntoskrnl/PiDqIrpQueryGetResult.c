@@ -1,16 +1,16 @@
 /*
- * XREFs of PiDqIrpQueryGetResult @ 0x14062E070
+ * XREFs of PiDqIrpQueryGetResult @ 0x1406230F8
  * Callers:
- *     PiDqDispatch @ 0x14062EBF0 (PiDqDispatch.c)
+ *     PiDqDispatch @ 0x140623C70 (PiDqDispatch.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
- *     PiDqQueryFreeActiveData @ 0x14062E710 (PiDqQueryFreeActiveData.c)
- *     PiDqQueryGetNextIoctlInfo @ 0x14062E77C (PiDqQueryGetNextIoctlInfo.c)
- *     PiDqIrpComplete @ 0x14062F050 (PiDqIrpComplete.c)
- *     PiDqQuerySerializeActionQueue @ 0x14062F5EC (PiDqQuerySerializeActionQueue.c)
- *     ProbeForWrite @ 0x1406547A0 (ProbeForWrite.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140355BE0 (ExReleasePushLockEx.c)
+ *     PiDqQueryFreeActiveData @ 0x140623798 (PiDqQueryFreeActiveData.c)
+ *     PiDqQueryGetNextIoctlInfo @ 0x140623804 (PiDqQueryGetNextIoctlInfo.c)
+ *     PiDqIrpComplete @ 0x1406240D0 (PiDqIrpComplete.c)
+ *     PiDqQuerySerializeActionQueue @ 0x14062466C (PiDqQuerySerializeActionQueue.c)
+ *     ProbeForWrite @ 0x1406495C0 (ProbeForWrite.c)
  */
 
 __int64 __fastcall PiDqIrpQueryGetResult(__int64 a1)
@@ -21,24 +21,33 @@ __int64 __fastcall PiDqIrpQueryGetResult(__int64 a1)
   char v5; // r13
   struct _KTHREAD *CurrentThread; // rax
   int v7; // eax
-  unsigned int v8; // eax
-  struct _KTHREAD *v9; // rdx
-  struct _KTHREAD *v10; // rax
+  __int64 v8; // rdx
+  __int64 v9; // r8
+  __int64 v10; // r9
   unsigned int v11; // eax
-  struct _KTHREAD *v13; // rax
-  int v14; // [rsp+30h] [rbp-68h]
-  _OWORD v15[4]; // [rsp+50h] [rbp-48h] BYREF
-  unsigned int v16; // [rsp+B0h] [rbp+18h] BYREF
-  unsigned int v17; // [rsp+B8h] [rbp+20h] BYREF
+  struct _KTHREAD *v12; // rdx
+  __int64 v13; // rdx
+  __int64 v14; // r8
+  __int64 v15; // r9
+  struct _KTHREAD *v16; // rax
+  unsigned int v17; // eax
+  __int64 v18; // rdx
+  __int64 v19; // r8
+  __int64 v20; // r9
+  struct _KTHREAD *v22; // rax
+  int v23; // [rsp+30h] [rbp-68h]
+  _OWORD v24[4]; // [rsp+50h] [rbp-48h] BYREF
+  unsigned int v25; // [rsp+B0h] [rbp+18h] BYREF
+  unsigned int v26; // [rsp+B8h] [rbp+20h] BYREF
 
   SerializeActionQueue = 0;
   v3 = *(_QWORD *)(a1 + 184);
   v4 = *(_QWORD *)(*(_QWORD *)(v3 + 48) + 32LL);
-  v14 = *(_DWORD *)(v3 + 24);
+  v23 = *(_DWORD *)(v3 + 24);
   v5 = 0;
-  v16 = 0;
-  v17 = 0;
-  v15[0] = 0LL;
+  v25 = 0;
+  v26 = 0;
+  v24[0] = 0LL;
   if ( !v4 )
   {
     SerializeActionQueue = -1073741637;
@@ -70,34 +79,34 @@ LABEL_28:
   SerializeActionQueue = -1073741670;
 LABEL_7:
   ExReleasePushLockEx(v4 + 64, 0LL);
-  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v8, v9, v10);
   if ( SerializeActionQueue < 0 )
     goto LABEL_13;
-  v8 = *(_DWORD *)(v3 + 8);
-  if ( v8 < 0x10 )
+  v11 = *(_DWORD *)(v3 + 8);
+  if ( v11 < 0x10 )
   {
     SerializeActionQueue = -1073741789;
   }
   else
   {
-    if ( v14 == 4653063 )
+    if ( v23 == 4653063 )
     {
-      ProbeForWrite(*(volatile void **)(a1 + 112), v8, 8u);
+      ProbeForWrite(*(volatile void **)(a1 + 112), v11, 8u);
       SerializeActionQueue = PiDqQuerySerializeActionQueue(
                                v4,
                                *(_QWORD *)(a1 + 112),
                                *(_DWORD *)(v3 + 8),
-                               (unsigned int)&v16,
-                               (__int64)&v17);
+                               (unsigned int)&v25,
+                               (__int64)&v26);
       if ( SerializeActionQueue < 0 )
         goto LABEL_13;
-      v9 = KeGetCurrentThread();
-      --v9->KernelApcDisable;
+      v12 = KeGetCurrentThread();
+      --v12->KernelApcDisable;
       ExAcquirePushLockExclusiveEx(v4 + 64, 0LL);
-      PiDqQueryGetNextIoctlInfo(v4, *(unsigned int *)(v3 + 8), v17, v15);
+      PiDqQueryGetNextIoctlInfo(v4, *(unsigned int *)(v3 + 8), v26, v24);
 LABEL_12:
       ExReleasePushLockEx(v4 + 64, 0LL);
-      KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+      KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v13, v14, v15);
 LABEL_13:
       if ( SerializeActionQueue == 259 )
         return (unsigned int)SerializeActionQueue;
@@ -105,8 +114,8 @@ LABEL_13:
     }
     if ( *(_QWORD *)(a1 + 24) )
     {
-      v13 = KeGetCurrentThread();
-      --v13->KernelApcDisable;
+      v22 = KeGetCurrentThread();
+      --v22->KernelApcDisable;
       ExAcquirePushLockExclusiveEx(v4 + 64, 0LL);
       if ( !*(_QWORD *)(v4 + 184)
         && *(_QWORD *)(v4 + 192) == v4 + 192
@@ -126,8 +135,8 @@ LABEL_13:
       }
       else
       {
-        PiDqQueryGetNextIoctlInfo(v4, *(unsigned int *)(v3 + 8), 0LL, v15);
-        v16 = 16;
+        PiDqQueryGetNextIoctlInfo(v4, *(unsigned int *)(v3 + 8), 0LL, v24);
+        v25 = 16;
       }
       goto LABEL_12;
     }
@@ -136,19 +145,19 @@ LABEL_13:
 LABEL_14:
   if ( v5 )
   {
-    v10 = KeGetCurrentThread();
-    --v10->KernelApcDisable;
+    v16 = KeGetCurrentThread();
+    --v16->KernelApcDisable;
     ExAcquirePushLockExclusiveEx(v4 + 64, 0LL);
-    v11 = *(_DWORD *)(v4 + 216) & 0xFFFFFFEF;
-    *(_DWORD *)(v4 + 216) = v11;
+    v17 = *(_DWORD *)(v4 + 216) & 0xFFFFFFEF;
+    *(_DWORD *)(v4 + 216) = v17;
     if ( SerializeActionQueue < 0 )
     {
-      *(_DWORD *)(v4 + 216) = v11 | 1;
+      *(_DWORD *)(v4 + 216) = v17 | 1;
       PiDqQueryFreeActiveData(v4);
     }
     ExReleasePushLockEx(v4 + 64, 0LL);
-    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v18, v19, v20);
   }
-  PiDqIrpComplete(a1, (unsigned int)SerializeActionQueue, v16, v15);
+  PiDqIrpComplete(a1, (unsigned int)SerializeActionQueue, v25, v24);
   return (unsigned int)SerializeActionQueue;
 }

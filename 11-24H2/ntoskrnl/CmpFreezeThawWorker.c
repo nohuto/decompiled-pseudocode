@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpFreezeThawWorker @ 0x1407D8740
+ * XREFs of CmpFreezeThawWorker @ 0x1407D8C90
  * Callers:
  *     <none>
  * Callees:
- *     CmpInitializeThreadInfo @ 0x1403FA250 (CmpInitializeThreadInfo.c)
- *     CmpCleanupThreadInfo @ 0x14041EE60 (CmpCleanupThreadInfo.c)
- *     CmThawRegistry @ 0x1407D85E0 (CmThawRegistry.c)
+ *     CmpInitializeThreadInfo @ 0x1403F0160 (CmpInitializeThreadInfo.c)
+ *     CmpCleanupThreadInfo @ 0x140414BA0 (CmpCleanupThreadInfo.c)
+ *     CmThawRegistry @ 0x1407D8B30 (CmThawRegistry.c)
  */
 
 _KAFFINITY_EX *CmpFreezeThawWorker()

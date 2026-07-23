@@ -6,7 +6,7 @@
  *     RtlpHpSegMgrCommit @ 0x180047080 (RtlpHpSegMgrCommit.c)
  *     RtlpHpSegMgrReserve @ 0x18004AD68 (RtlpHpSegMgrReserve.c)
  *     RtlpHpSegMgrRelease @ 0x180065644 (RtlpHpSegMgrRelease.c)
- *     RtlpHpSegMgrVaCtxInsert @ 0x180123D00 (RtlpHpSegMgrVaCtxInsert.c)
+ *     RtlpHpSegMgrVaCtxInsert @ 0x180123CD0 (RtlpHpSegMgrVaCtxInsert.c)
  */
 
 unsigned __int64 __fastcall RtlpHpSegMgrAllocate(int *a1, int a2, int a3)
@@ -43,6 +43,6 @@ unsigned __int64 __fastcall RtlpHpSegMgrAllocate(int *a1, int a2, int a3)
     }
   }
   if ( v7 )
-    RtlpHpSegMgrRelease(a1, v7, 0LL);
+    RtlpHpSegMgrRelease((int)a1);
   return v8;
 }

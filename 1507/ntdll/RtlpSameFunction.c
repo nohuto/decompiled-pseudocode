@@ -11,24 +11,18 @@
  *     RtlpLookupFunctionEntryForStackWalks @ 0x1800136F0 (RtlpLookupFunctionEntryForStackWalks.c)
  */
 
-__int64 __fastcall RtlpSameFunction(__int64 a1, __int64 a2, __int64 a3)
+__int64 __fastcall RtlpSameFunction(__int64 a1, __int64 a2, void *a3)
 {
   _DWORD *v4; // rdi
   __int64 result; // rax
   __int64 v6; // rbx
-  __int64 v7; // [rsp+20h] [rbp-28h] BYREF
-  __int64 v8; // [rsp+28h] [rbp-20h]
-  __int64 v9; // [rsp+30h] [rbp-18h]
 
   v4 = (_DWORD *)((__int64 (*)(void))RtlpLookupPrimaryFunctionEntry)();
-  v7 = 0LL;
-  v8 = 0LL;
-  v9 = 0LL;
-  result = RtlpLookupFunctionEntryForStackWalks(a3, &v7);
+  result = RtlpLookupFunctionEntryForStackWalks(a3);
   v6 = 0LL;
   if ( result )
   {
-    if ( *v4 == *(_DWORD *)RtlpLookupPrimaryFunctionEntry(result, v8) )
+    if ( *v4 == *(_DWORD *)RtlpLookupPrimaryFunctionEntry(result, 0LL) )
       return (__int64)v4;
     return v6;
   }

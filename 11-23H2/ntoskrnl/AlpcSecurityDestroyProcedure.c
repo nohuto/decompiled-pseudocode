@@ -1,14 +1,14 @@
 /*
- * XREFs of AlpcSecurityDestroyProcedure @ 0x14071C950
+ * XREFs of AlpcSecurityDestroyProcedure @ 0x14071CB50
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     AlpcDeleteBlobByHandle @ 0x14071C284 (AlpcDeleteBlobByHandle.c)
- *     SeDeleteClientSecurity @ 0x14071D180 (SeDeleteClientSecurity.c)
- *     AlpcpReleasePagedPoolQuota @ 0x14071DBC0 (AlpcpReleasePagedPoolQuota.c)
- *     AlpcpRemoveResourcePort @ 0x14071EC60 (AlpcpRemoveResourcePort.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     AlpcDeleteBlobByHandle @ 0x14071C484 (AlpcDeleteBlobByHandle.c)
+ *     SeDeleteClientSecurity @ 0x14071D380 (SeDeleteClientSecurity.c)
+ *     AlpcpReleasePagedPoolQuota @ 0x14071DDC0 (AlpcpReleasePagedPoolQuota.c)
+ *     AlpcpRemoveResourcePort @ 0x14071EE60 (AlpcpRemoveResourcePort.c)
  */
 
 __int64 __fastcall AlpcSecurityDestroyProcedure(__int64 a1)

@@ -1,14 +1,14 @@
 /*
- * XREFs of CmpFreeIndexByCell @ 0x140A23464
+ * XREFs of CmpFreeIndexByCell @ 0x140A23714
  * Callers:
- *     CmRenameKey @ 0x140A143AC (CmRenameKey.c)
- *     CmpLightWeightCleanupModifyKeyDataUoW @ 0x140A27F04 (CmpLightWeightCleanupModifyKeyDataUoW.c)
+ *     CmRenameKey @ 0x140A1465C (CmRenameKey.c)
+ *     CmpLightWeightCleanupModifyKeyDataUoW @ 0x140A281B4 (CmpLightWeightCleanupModifyKeyDataUoW.c)
  * Callees:
- *     HvpGetCellPaged @ 0x1406E0150 (HvpGetCellPaged.c)
- *     HvpReleaseCellPaged @ 0x1406E0260 (HvpReleaseCellPaged.c)
- *     HvFreeCell @ 0x14070ABE0 (HvFreeCell.c)
- *     HvpReleaseCellFlat @ 0x1407D9470 (HvpReleaseCellFlat.c)
- *     HvpGetCellFlat @ 0x1407FD9F0 (HvpGetCellFlat.c)
+ *     HvpGetCellPaged @ 0x1406E0180 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x1406E0290 (HvpReleaseCellPaged.c)
+ *     HvFreeCell @ 0x14070ADF0 (HvFreeCell.c)
+ *     HvpReleaseCellFlat @ 0x1407D9740 (HvpReleaseCellFlat.c)
+ *     HvpGetCellFlat @ 0x1407FDCC0 (HvpGetCellFlat.c)
  */
 
 signed __int32 __fastcall CmpFreeIndexByCell(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter3)

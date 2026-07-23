@@ -1,10 +1,10 @@
 /*
- * XREFs of PfGenerateTrace @ 0x14071BDC4
+ * XREFs of PfGenerateTrace @ 0x14071D064
  * Callers:
- *     PfPowerActionNotify @ 0x140567F10 (PfPowerActionNotify.c)
- *     PfSetSuperfetchInformation @ 0x140665878 (PfSetSuperfetchInformation.c)
- *     PfpLogEventRequest @ 0x1406E1A94 (PfpLogEventRequest.c)
- *     PfpLogScenarioEvent @ 0x14071BCB4 (PfpLogScenarioEvent.c)
+ *     PfPowerActionNotify @ 0x140568F10 (PfPowerActionNotify.c)
+ *     PfSetSuperfetchInformation @ 0x140666A38 (PfSetSuperfetchInformation.c)
+ *     PfpLogEventRequest @ 0x1406E2D34 (PfpLogEventRequest.c)
+ *     PfpLogScenarioEvent @ 0x14071CF54 (PfpLogScenarioEvent.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     ObfReferenceObject @ 0x14004E220 (ObfReferenceObject.c)
@@ -12,9 +12,9 @@
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     KeWaitForMultipleObjects @ 0x140053760 (KeWaitForMultipleObjects.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KeResetEvent @ 0x1400B8AA0 (KeResetEvent.c)
- *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     KeResetEvent @ 0x1400B89E0 (KeResetEvent.c)
+ *     KeSetEvent @ 0x1400C2A40 (KeSetEvent.c)
  */
 
 __int64 __fastcall PfGenerateTrace(__int64 a1, int a2)

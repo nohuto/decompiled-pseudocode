@@ -1,15 +1,15 @@
 /*
- * XREFs of HalpDpPostReplaceInitialization @ 0x140A975F4
+ * XREFs of HalpDpPostReplaceInitialization @ 0x140A97464
  * Callers:
- *     HalpDpOfflineProcessorForReplace @ 0x140A97398 (HalpDpOfflineProcessorForReplace.c)
+ *     HalpDpOfflineProcessorForReplace @ 0x140A97208 (HalpDpOfflineProcessorForReplace.c)
  * Callees:
- *     HalpInterruptReinitializeThisProcessor @ 0x14037B2B0 (HalpInterruptReinitializeThisProcessor.c)
- *     HalpInterruptEnableNmi @ 0x14037B5B4 (HalpInterruptEnableNmi.c)
- *     HalpInterruptEnablePerformanceEvents @ 0x14037BD58 (HalpInterruptEnablePerformanceEvents.c)
- *     HalpMcUpdateMicrocode @ 0x14037FF58 (HalpMcUpdateMicrocode.c)
- *     HalpGetCpuInfo @ 0x140380630 (HalpGetCpuInfo.c)
- *     HalpRestartProfiling @ 0x140507F10 (HalpRestartProfiling.c)
- *     HalpMcaResumeProcessorConfig @ 0x140A9520C (HalpMcaResumeProcessorConfig.c)
+ *     HalpInterruptReinitializeThisProcessor @ 0x14037B450 (HalpInterruptReinitializeThisProcessor.c)
+ *     HalpInterruptEnableNmi @ 0x14037B754 (HalpInterruptEnableNmi.c)
+ *     HalpInterruptEnablePerformanceEvents @ 0x14037BEF8 (HalpInterruptEnablePerformanceEvents.c)
+ *     HalpMcUpdateMicrocode @ 0x1403800F8 (HalpMcUpdateMicrocode.c)
+ *     HalpGetCpuInfo @ 0x1403807D0 (HalpGetCpuInfo.c)
+ *     HalpRestartProfiling @ 0x140508460 (HalpRestartProfiling.c)
+ *     HalpMcaResumeProcessorConfig @ 0x140A9507C (HalpMcaResumeProcessorConfig.c)
  */
 
 __int64 __fastcall HalpDpPostReplaceInitialization(int *a1, unsigned __int64 *a2)
@@ -29,7 +29,7 @@ __int64 __fastcall HalpDpPostReplaceInitialization(int *a1, unsigned __int64 *a2
   HalpInterruptReinitializeThisProcessor();
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(0xFuLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 15 )

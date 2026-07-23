@@ -88,7 +88,7 @@ void __fastcall CcApplyLowIoPriorityToThread(__int64 a1, char a2, _DWORD *a3)
           {
             v15->CrossThreadReleasableAndBusyByte |= 2u;
             if ( (__int64)v15->LockState.LockState < 0 )
-              KiAbEntryRemoveFromTree(&v7->LockEntries[v14]);
+              KiAbEntryRemoveFromTree(&v7->LockEntries[v14].TreeNode);
             v27 = 0;
             v27 = v15->BoostBitmap.AllFields & 0x1FFFF;
             v15->BoostBitmap.AllFields &= 0xFFFE0000;
@@ -162,7 +162,7 @@ LABEL_25:
           {
             v25->CrossThreadReleasableAndBusyByte |= 2u;
             if ( (__int64)v25->LockState.LockState < 0 )
-              KiAbEntryRemoveFromTree(&v7->LockEntries[v24]);
+              KiAbEntryRemoveFromTree(&v7->LockEntries[v24].TreeNode);
             v28 = 0;
             v28 = v25->BoostBitmap.AllFields & 0x1FFFF;
             v25->BoostBitmap.AllFields &= 0xFFFE0000;

@@ -1,18 +1,18 @@
 /*
- * XREFs of RtlpLockAtomTable @ 0x140421FD0
+ * XREFs of RtlpLockAtomTable @ 0x140420E90
  * Callers:
- *     RtlAddAtomToAtomTableEx @ 0x140014694 (RtlAddAtomToAtomTableEx.c)
- *     RtlDestroyLowBoxAtoms @ 0x140088C44 (RtlDestroyLowBoxAtoms.c)
- *     RtlQueryAtomInAtomTable @ 0x140425460 (RtlQueryAtomInAtomTable.c)
- *     RtlLookupAtomInAtomTable @ 0x140429390 (RtlLookupAtomInAtomTable.c)
- *     RtlDestroyAtomTable @ 0x1404A2E30 (RtlDestroyAtomTable.c)
- *     RtlDeleteAtomFromAtomTable @ 0x1404A3568 (RtlDeleteAtomFromAtomTable.c)
- *     RtlPinAtomInAtomTable @ 0x1404E1468 (RtlPinAtomInAtomTable.c)
- *     RtlEmptyAtomTable @ 0x1406881D0 (RtlEmptyAtomTable.c)
- *     RtlQueryAtomsInAtomTable @ 0x1406882B0 (RtlQueryAtomsInAtomTable.c)
+ *     RtlAddAtomToAtomTableEx @ 0x140014214 (RtlAddAtomToAtomTableEx.c)
+ *     RtlDestroyLowBoxAtoms @ 0x14010CE34 (RtlDestroyLowBoxAtoms.c)
+ *     RtlQueryAtomInAtomTable @ 0x140424320 (RtlQueryAtomInAtomTable.c)
+ *     RtlLookupAtomInAtomTable @ 0x140428260 (RtlLookupAtomInAtomTable.c)
+ *     RtlPinAtomInAtomTable @ 0x1404C4A6C (RtlPinAtomInAtomTable.c)
+ *     RtlDestroyAtomTable @ 0x14051B230 (RtlDestroyAtomTable.c)
+ *     RtlDeleteAtomFromAtomTable @ 0x14051B968 (RtlDeleteAtomFromAtomTable.c)
+ *     RtlEmptyAtomTable @ 0x1406882B4 (RtlEmptyAtomTable.c)
+ *     RtlQueryAtomsInAtomTable @ 0x140688394 (RtlQueryAtomsInAtomTable.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
  */
 
 char __fastcall RtlpLockAtomTable(_DWORD *a1)

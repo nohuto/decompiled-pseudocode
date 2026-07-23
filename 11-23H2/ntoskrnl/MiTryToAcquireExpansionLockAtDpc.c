@@ -1,10 +1,10 @@
 /*
- * XREFs of MiTryToAcquireExpansionLockAtDpc @ 0x1403490E8
+ * XREFs of MiTryToAcquireExpansionLockAtDpc @ 0x140349378
  * Callers:
- *     MiReferenceOwningSession @ 0x14034904C (MiReferenceOwningSession.c)
- *     MiLockStealUserVm @ 0x1403BDF18 (MiLockStealUserVm.c)
+ *     MiReferenceOwningSession @ 0x1403492DC (MiReferenceOwningSession.c)
+ *     MiLockStealUserVm @ 0x1403BE0F8 (MiLockStealUserVm.c)
  * Callees:
- *     KeTryToAcquireInStackQueuedSpinLockAtDpcLevel @ 0x140349110 (KeTryToAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     KeTryToAcquireInStackQueuedSpinLockAtDpcLevel @ 0x1403493A0 (KeTryToAcquireInStackQueuedSpinLockAtDpcLevel.c)
  */
 
 _BOOL8 __fastcall MiTryToAcquireExpansionLockAtDpc(__int64 a1)

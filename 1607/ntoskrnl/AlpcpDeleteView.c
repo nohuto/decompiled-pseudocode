@@ -1,13 +1,13 @@
 /*
- * XREFs of AlpcpDeleteView @ 0x14040BD7C
+ * XREFs of AlpcpDeleteView @ 0x14040AC3C
  * Callers:
- *     NtAlpcCreateSectionView @ 0x140409A7C (NtAlpcCreateSectionView.c)
- *     AlpcpCaptureViewAttributeInternal @ 0x14040B860 (AlpcpCaptureViewAttributeInternal.c)
- *     AlpcpReceiveView @ 0x14040CD88 (AlpcpReceiveView.c)
- *     NtAlpcDeleteSectionView @ 0x1404D1410 (NtAlpcDeleteSectionView.c)
+ *     NtAlpcCreateSectionView @ 0x14040893C (NtAlpcCreateSectionView.c)
+ *     AlpcpCaptureViewAttributeInternal @ 0x14040A720 (AlpcpCaptureViewAttributeInternal.c)
+ *     AlpcpReceiveView @ 0x14040BC48 (AlpcpReceiveView.c)
+ *     NtAlpcDeleteSectionView @ 0x1404B4EB0 (NtAlpcDeleteSectionView.c)
  * Callees:
- *     AlpcpDeleteBlob @ 0x14040BDA8 (AlpcpDeleteBlob.c)
- *     AlpcpDereferenceBlobEx @ 0x14040C274 (AlpcpDereferenceBlobEx.c)
+ *     AlpcpDeleteBlob @ 0x14040AC68 (AlpcpDeleteBlob.c)
+ *     AlpcpDereferenceBlobEx @ 0x14040B134 (AlpcpDereferenceBlobEx.c)
  */
 
 char __fastcall AlpcpDeleteView(ULONG_PTR BugCheckParameter2)

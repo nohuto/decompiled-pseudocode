@@ -1,17 +1,17 @@
 /*
- * XREFs of IoWriteCapturedPristineTriageDumpToDedicatedDumpFile @ 0x1405510E4
+ * XREFs of IoWriteCapturedPristineTriageDumpToDedicatedDumpFile @ 0x1405517A4
  * Callers:
- *     KiDeferredBugcheckRecoveryWorker @ 0x14057ADE0 (KiDeferredBugcheckRecoveryWorker.c)
+ *     KiDeferredBugcheckRecoveryWorker @ 0x14057B2D0 (KiDeferredBugcheckRecoveryWorker.c)
  * Callees:
  *     MmBuildMdlForNonPagedPool @ 0x14020D950 (MmBuildMdlForNonPagedPool.c)
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     KeWaitForSingleObject @ 0x140243CE0 (KeWaitForSingleObject.c)
- *     IoSynchronousPageWriteEx @ 0x140250F80 (IoSynchronousPageWriteEx.c)
- *     IoFreeMdl @ 0x1402ACFE0 (IoFreeMdl.c)
- *     IopAllocateMdl @ 0x1402FC0EC (IopAllocateMdl.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     ZwQueryInformationFile @ 0x14041AF80 (ZwQueryInformationFile.c)
- *     ObReferenceObjectByHandle @ 0x1406E62C0 (ObReferenceObjectByHandle.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     KeWaitForSingleObject @ 0x140243DB0 (KeWaitForSingleObject.c)
+ *     IoSynchronousPageWriteEx @ 0x140251040 (IoSynchronousPageWriteEx.c)
+ *     IoFreeMdl @ 0x1402AD270 (IoFreeMdl.c)
+ *     IopAllocateMdl @ 0x1402FC37C (IopAllocateMdl.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     ZwQueryInformationFile @ 0x14041B310 (ZwQueryInformationFile.c)
+ *     ObReferenceObjectByHandle @ 0x1406E62F0 (ObReferenceObjectByHandle.c)
  */
 
 __int64 IoWriteCapturedPristineTriageDumpToDedicatedDumpFile()

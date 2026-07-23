@@ -1,13 +1,13 @@
 /*
- * XREFs of PopUserShutdownInitializeSleepstudyDiagnostics @ 0x140CD1618
+ * XREFs of PopUserShutdownInitializeSleepstudyDiagnostics @ 0x140CD77C0
  * Callers:
- *     PopUserShutdownScenarioInitialize @ 0x140CD1748 (PopUserShutdownScenarioInitialize.c)
+ *     PopUserShutdownScenarioInitialize @ 0x140CD78F0 (PopUserShutdownScenarioInitialize.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     SleepstudyHelperCreateBlockerFromGuid @ 0x14043D400 (SleepstudyHelperCreateBlockerFromGuid.c)
- *     SleepstudyHelperBuildBlocker @ 0x140A89550 (SleepstudyHelperBuildBlocker.c)
- *     SleepstudyHelperDestroyBlockerBuilder @ 0x140A89960 (SleepstudyHelperDestroyBlockerBuilder.c)
- *     SleepstudyHelperCreateLibrary @ 0x140B45EF0 (SleepstudyHelperCreateLibrary.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     SleepstudyHelperCreateBlockerFromGuid @ 0x14042FCB0 (SleepstudyHelperCreateBlockerFromGuid.c)
+ *     SleepstudyHelperBuildBlocker @ 0x140A90440 (SleepstudyHelperBuildBlocker.c)
+ *     SleepstudyHelperDestroyBlockerBuilder @ 0x140A90850 (SleepstudyHelperDestroyBlockerBuilder.c)
+ *     SleepstudyHelperCreateLibrary @ 0x140B47F20 (SleepstudyHelperCreateLibrary.c)
  */
 
 __int64 PopUserShutdownInitializeSleepstudyDiagnostics()
@@ -26,23 +26,23 @@ __int64 PopUserShutdownInitializeSleepstudyDiagnostics()
   __int64 *v11; // [rsp+A8h] [rbp+67h] BYREF
 
   v11 = 0LL;
-  result = SleepstudyHelperCreateLibrary(1347639124, &qword_140F11000);
+  result = SleepstudyHelperCreateLibrary(1347639124, &PopUserShutdownLibraryHandle);
   if ( (int)result >= 0 )
   {
     *(_QWORD *)&v6 = 0x5AADDAADDLL;
     v10[0] = GUID_USER_SHUTDOWN_PO_BLOCKER;
     *((_QWORD *)&v6 + 1) = 120LL;
     RtlInitUnicodeString(&DestinationString, L"PO Burst");
-    v7[0] = &qword_140F10FF8;
+    v7[0] = &PopUserShutdownPoBlockerHandle;
     v10[1] = GUID_USER_SHUTDOWN_WINLOGON_BLOCKER;
     RtlInitUnicodeString(&v9, L"Winlogon");
     v1 = 0;
-    v7[1] = &qword_140F10FF0;
+    v7[1] = &PopUserShutdownWinlogonBlockerHandle;
     v2 = (PKSPIN_LOCK **)v7;
     do
     {
       result = SleepstudyHelperCreateBlockerFromGuid(
-                 qword_140F11000,
+                 PopUserShutdownLibraryHandle,
                  &v6,
                  &v10[v1],
                  (__int64)(&DestinationString + v1),

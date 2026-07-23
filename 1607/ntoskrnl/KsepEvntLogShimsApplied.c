@@ -1,17 +1,17 @@
 /*
- * XREFs of KsepEvntLogShimsApplied @ 0x1401DCC68
+ * XREFs of KsepEvntLogShimsApplied @ 0x1401DCA94
  * Callers:
- *     KseDriverLoadImage @ 0x1404859F4 (KseDriverLoadImage.c)
+ *     KseDriverLoadImage @ 0x140514D7C (KseDriverLoadImage.c)
  * Callees:
- *     EtwWrite @ 0x140013320 (EtwWrite.c)
- *     KsepPoolFreePaged @ 0x140084D54 (KsepPoolFreePaged.c)
- *     KsepPoolAllocatePaged @ 0x140084D74 (KsepPoolAllocatePaged.c)
- *     RtlAppendUnicodeStringToString @ 0x140087614 (RtlAppendUnicodeStringToString.c)
- *     RtlAppendUnicodeToString @ 0x1400C3920 (RtlAppendUnicodeToString.c)
- *     EtwEventEnabled @ 0x1400D54D0 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     RtlFreeAnsiString @ 0x140458CF0 (RtlFreeAnsiString.c)
- *     RtlStringFromGUID @ 0x1404EE054 (RtlStringFromGUID.c)
+ *     EtwWrite @ 0x140012EA0 (EtwWrite.c)
+ *     RtlAppendUnicodeToString @ 0x1400C17B0 (RtlAppendUnicodeToString.c)
+ *     EtwEventEnabled @ 0x1400D3370 (EtwEventEnabled.c)
+ *     KsepPoolFreePaged @ 0x14010B35C (KsepPoolFreePaged.c)
+ *     KsepPoolAllocatePaged @ 0x14010B37C (KsepPoolAllocatePaged.c)
+ *     RtlAppendUnicodeStringToString @ 0x14010B80C (RtlAppendUnicodeStringToString.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     RtlFreeAnsiString @ 0x140457BC0 (RtlFreeAnsiString.c)
+ *     RtlStringFromGUID @ 0x1404D011C (RtlStringFromGUID.c)
  */
 
 void __fastcall KsepEvntLogShimsApplied(unsigned __int16 *a1, __int64 a2, unsigned int a3)

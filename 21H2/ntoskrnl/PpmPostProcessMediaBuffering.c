@@ -1,14 +1,14 @@
 /*
- * XREFs of PpmPostProcessMediaBuffering @ 0x1408F5E28
+ * XREFs of PpmPostProcessMediaBuffering @ 0x1408F5F88
  * Callers:
- *     PpmApplyProfile @ 0x1408F5AFC (PpmApplyProfile.c)
+ *     PpmApplyProfile @ 0x1408F5C5C (PpmApplyProfile.c)
  * Callees:
- *     KeSubtractAffinityEx @ 0x14022B670 (KeSubtractAffinityEx.c)
- *     PopExecuteOnTargetProcessors @ 0x14027B7DC (PopExecuteOnTargetProcessors.c)
- *     PoCopyDeepIdleMask @ 0x1402EC870 (PoCopyDeepIdleMask.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
- *     PpmCheckApplyResetNotification @ 0x140576C00 (PpmCheckApplyResetNotification.c)
+ *     PopExecuteOnTargetProcessors @ 0x14026977C (PopExecuteOnTargetProcessors.c)
+ *     PoCopyDeepIdleMask @ 0x14029DBC0 (PoCopyDeepIdleMask.c)
+ *     KeSubtractAffinityEx @ 0x1402CFF20 (KeSubtractAffinityEx.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     PpmCheckApplyResetNotification @ 0x140576E40 (PpmCheckApplyResetNotification.c)
  */
 
 char PpmPostProcessMediaBuffering()

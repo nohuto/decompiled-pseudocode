@@ -1,9 +1,9 @@
 /*
- * XREFs of PpmPerfApplyDomainStates @ 0x14048A2C0
+ * XREFs of PpmPerfApplyDomainStates @ 0x140483E00
  * Callers:
  *     <none>
  * Callees:
- *     PpmPerfApplyDomainState @ 0x14048A450 (PpmPerfApplyDomainState.c)
+ *     PpmPerfApplyDomainState @ 0x140483F90 (PpmPerfApplyDomainState.c)
  */
 
 void PpmPerfApplyDomainStates()

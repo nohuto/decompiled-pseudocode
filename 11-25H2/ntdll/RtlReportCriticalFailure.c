@@ -19,25 +19,24 @@
 
 __int64 __fastcall RtlReportCriticalFailure(int a1, __int64 a2, int a3)
 {
-  __int64 v6; // rcx
-  _DWORD v8[2]; // [rsp+30h] [rbp-B8h] BYREF
-  __int64 v9; // [rsp+38h] [rbp-B0h]
-  void (__stdcall *v10)(PEXCEPTION_RECORD); // [rsp+40h] [rbp-A8h]
-  int v11; // [rsp+48h] [rbp-A0h]
-  __int64 v12; // [rsp+50h] [rbp-98h]
+  _DWORD v7[2]; // [rsp+30h] [rbp-B8h] BYREF
+  __int64 v8; // [rsp+38h] [rbp-B0h]
+  void (__stdcall *v9)(PEXCEPTION_RECORD); // [rsp+40h] [rbp-A8h]
+  int v10; // [rsp+48h] [rbp-A0h]
+  __int64 v11; // [rsp+50h] [rbp-98h]
 
-  memset_thunk_772440563353939046(v8, 0, 0x98uLL);
-  if ( (unsigned __int8)RtlIsAnyDebuggerPresent(v6) )
+  memset_thunk_772440563353939046(v7, 0, 0x98uLL);
+  if ( RtlIsAnyDebuggerPresent() )
   {
-    DbgPrintEx(101LL, 0LL, "Critical error detected %lx\n", a1);
+    DbgPrintEx(0x65u, 0, "Critical error detected %lx\n", a1);
     if ( a3 )
       __debugbreak();
   }
-  v8[0] = a1;
-  v8[1] = 1;
-  v9 = 0LL;
-  v10 = RtlRaiseException;
-  v11 = 1;
-  v12 = a2;
-  return RtlReportFatalFailure(v8);
+  v7[0] = a1;
+  v7[1] = 1;
+  v8 = 0LL;
+  v9 = RtlRaiseException;
+  v10 = 1;
+  v11 = a2;
+  return RtlReportFatalFailure(v7);
 }

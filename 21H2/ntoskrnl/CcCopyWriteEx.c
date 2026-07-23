@@ -1,11 +1,11 @@
 /*
- * XREFs of CcCopyWriteEx @ 0x14022BFB0
+ * XREFs of CcCopyWriteEx @ 0x1402D0830
  * Callers:
- *     CcCopyWrite @ 0x1404EA010 (CcCopyWrite.c)
- *     CcFastCopyWrite @ 0x1404EA2C0 (CcFastCopyWrite.c)
+ *     CcCopyWrite @ 0x1404EA250 (CcCopyWrite.c)
+ *     CcFastCopyWrite @ 0x1404EA500 (CcFastCopyWrite.c)
  * Callees:
- *     PsGetBaseIoPriorityThread @ 0x14022C100 (PsGetBaseIoPriorityThread.c)
- *     CcMapAndCopyInToCache @ 0x140331C70 (CcMapAndCopyInToCache.c)
+ *     PsGetBaseIoPriorityThread @ 0x1402D0980 (PsGetBaseIoPriorityThread.c)
+ *     CcMapAndCopyInToCache @ 0x14033C9C0 (CcMapAndCopyInToCache.c)
  */
 
 char __fastcall CcCopyWriteEx(__int64 a1, __int64 a2, __int64 a3, char a4, __int64 a5, __int64 a6)
@@ -25,7 +25,7 @@ char __fastcall CcCopyWriteEx(__int64 a1, __int64 a2, __int64 a3, char a4, __int
   _QWORD v20[3]; // [rsp+60h] [rbp-18h] BYREF
 
   v19 = 0LL;
-  BaseIoPriorityThread = PsGetBaseIoPriorityThread(KeGetCurrentThread());
+  BaseIoPriorityThread = PsGetBaseIoPriorityThread(KeGetCurrentThread(), a2);
   if ( ((BaseIoPriorityThread >= 2 || (struct _KTHREAD *)v11 != KeGetCurrentThread() || !*(_DWORD *)(v11 + 1360))
      && BaseIoPriorityThread <= 0
      || (*(_DWORD *)(v10 + 80) & 0x10) != 0)

@@ -1,9 +1,9 @@
 /*
- * XREFs of GetResourceDirectoryEntry @ 0x18000BFD0
+ * XREFs of GetResourceDirectoryEntry @ 0x18000BFC0
  * Callers:
- *     WerEscalationReadImageVersionInfoForModuleBase @ 0x18000C014 (WerEscalationReadImageVersionInfoForModuleBase.c)
+ *     WerEscalationReadImageVersionInfoForModuleBase @ 0x18000C004 (WerEscalationReadImageVersionInfoForModuleBase.c)
  * Callees:
- *     ValidatePointer @ 0x18000C2A4 (ValidatePointer.c)
+ *     ValidatePointer @ 0x18000C294 (ValidatePointer.c)
  */
 
 __int64 __fastcall GetResourceDirectoryEntry(__int64 a1, __int64 a2, unsigned int a3)

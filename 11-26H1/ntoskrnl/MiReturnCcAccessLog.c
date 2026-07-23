@@ -1,14 +1,14 @@
 /*
- * XREFs of MiReturnCcAccessLog @ 0x1403BA494
+ * XREFs of MiReturnCcAccessLog @ 0x1403C4304
  * Callers:
- *     MiPeriodicTrimWorkingSet @ 0x1403B9E10 (MiPeriodicTrimWorkingSet.c)
- *     MiCheckAndProcessCcAccessLog @ 0x1403BA2D4 (MiCheckAndProcessCcAccessLog.c)
- *     MiAgeTargetedWorkingSet @ 0x140476D30 (MiAgeTargetedWorkingSet.c)
- *     MmPrefetchForCacheManager @ 0x140A50CB0 (MmPrefetchForCacheManager.c)
+ *     MiPeriodicTrimWorkingSet @ 0x1403C3C80 (MiPeriodicTrimWorkingSet.c)
+ *     MiCheckAndProcessCcAccessLog @ 0x1403C4144 (MiCheckAndProcessCcAccessLog.c)
+ *     MiAgeTargetedWorkingSet @ 0x1404704B0 (MiAgeTargetedWorkingSet.c)
+ *     MmPrefetchForCacheManager @ 0x140A59FA0 (MmPrefetchForCacheManager.c)
  * Callees:
- *     ObDereferenceObjectDeferDeleteWithTag @ 0x14027C870 (ObDereferenceObjectDeferDeleteWithTag.c)
- *     MiQueuePageAccessLog @ 0x1403BA328 (MiQueuePageAccessLog.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ObDereferenceObjectDeferDeleteWithTag @ 0x14027BDE0 (ObDereferenceObjectDeferDeleteWithTag.c)
+ *     MiQueuePageAccessLog @ 0x1403C4198 (MiQueuePageAccessLog.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiReturnCcAccessLog(__int64 a1, __int64 a2, int a3)

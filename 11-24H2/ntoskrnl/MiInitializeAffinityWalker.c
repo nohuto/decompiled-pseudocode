@@ -1,10 +1,10 @@
 /*
- * XREFs of MiInitializeAffinityWalker @ 0x140415948
+ * XREFs of MiInitializeAffinityWalker @ 0x1402717A8
  * Callers:
- *     MiInitializeZeroGroup @ 0x140415664 (MiInitializeZeroGroup.c)
+ *     MiInitializeZeroGroup @ 0x1402714C4 (MiInitializeZeroGroup.c)
  * Callees:
- *     MiObtainParkedCoreMasks @ 0x140244998 (MiObtainParkedCoreMasks.c)
- *     MiInitializeDpcGroupAffinity @ 0x140415D28 (MiInitializeDpcGroupAffinity.c)
+ *     MiObtainParkedCoreMasks @ 0x14020D180 (MiObtainParkedCoreMasks.c)
+ *     MiInitializeDpcGroupAffinity @ 0x140271B88 (MiInitializeDpcGroupAffinity.c)
  */
 
 __int64 __fastcall MiInitializeAffinityWalker(__int64 a1, _DWORD *a2, unsigned int a3, int a4)
@@ -20,7 +20,7 @@ __int64 __fastcall MiInitializeAffinityWalker(__int64 a1, _DWORD *a2, unsigned i
   __int64 v13; // r9
 
   v4 = a2;
-  v6 = *(void ***)(384LL * a3 + qword_140E2DAF8 + 376);
+  v6 = *(void ***)(384LL * a3 + qword_140E2DC38 + 376);
   if ( (*((_DWORD *)v6 + 9) & 1) == 0 || *a2 )
   {
     v7 = 0;

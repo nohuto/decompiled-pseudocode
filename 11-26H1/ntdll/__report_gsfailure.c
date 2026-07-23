@@ -1,13 +1,13 @@
 /*
- * XREFs of __report_gsfailure @ 0x1801269E0
+ * XREFs of __report_gsfailure @ 0x180126750
  * Callers:
- *     __security_check_cookie @ 0x180162C90 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x180162B90 (__security_check_cookie.c)
  * Callees:
- *     RtlLookupFunctionEntry @ 0x18004AEA0 (RtlLookupFunctionEntry.c)
- *     RtlVirtualUnwind @ 0x1800B4070 (RtlVirtualUnwind.c)
- *     RtlUnhandledExceptionFilter @ 0x18011F2D0 (RtlUnhandledExceptionFilter.c)
- *     RtlCaptureContext @ 0x180126D40 (RtlCaptureContext.c)
- *     ZwTerminateProcess @ 0x18015F4C0 (ZwTerminateProcess.c)
+ *     RtlLookupFunctionEntry @ 0x180035420 (RtlLookupFunctionEntry.c)
+ *     RtlVirtualUnwind @ 0x1800B1590 (RtlVirtualUnwind.c)
+ *     RtlUnhandledExceptionFilter @ 0x18011F080 (RtlUnhandledExceptionFilter.c)
+ *     RtlCaptureContext @ 0x180126AB0 (RtlCaptureContext.c)
+ *     ZwTerminateProcess @ 0x18015F3C0 (ZwTerminateProcess.c)
  */
 
 void __cdecl __noreturn _report_gsfailure(uintptr_t StackCookie)
@@ -36,13 +36,13 @@ void __cdecl __noreturn _report_gsfailure(uintptr_t StackCookie)
     ContextRecord.Rip = retaddr;
     ContextRecord.Rsp = (DWORD64)&v7;
   }
-  qword_1801C6850 = ContextRecord.Rip;
+  qword_1801C5850 = ContextRecord.Rip;
   ContextRecord.Rcx = v7;
-  dword_1801C6840 = -1073740791;
-  dword_1801C6844 = 1;
-  dword_1801C6858 = 1;
-  unk_1801C6860 = 2LL;
+  dword_1801C5840 = -1073740791;
+  dword_1801C5844 = 1;
+  dword_1801C5858 = 1;
+  unk_1801C5860 = 2LL;
   HandlerData[2] = (PVOID)_security_cookie_complement;
-  RtlUnhandledExceptionFilter((__int64)&off_180172280);
-  ZwTerminateProcess(-1LL, 3221226505LL);
+  RtlUnhandledExceptionFilter((PEXCEPTION_POINTERS)&ExceptionPointers);
+  ZwTerminateProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, -1073740791);
 }

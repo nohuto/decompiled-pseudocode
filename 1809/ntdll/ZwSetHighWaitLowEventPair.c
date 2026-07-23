@@ -1,16 +1,16 @@
 /*
- * XREFs of ZwSetHighWaitLowEventPair @ 0x1800A3450
+ * XREFs of ZwSetHighWaitLowEventPair @ 0x1800A3470
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 ZwSetHighWaitLowEventPair()
+NTSTATUS __cdecl ZwSetHighWaitLowEventPair(HANDLE EventPairHandle)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 396LL;
+  result = 396;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

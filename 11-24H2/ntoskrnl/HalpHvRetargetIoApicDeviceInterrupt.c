@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpHvRetargetIoApicDeviceInterrupt @ 0x1403BA8F8
+ * XREFs of HalpHvRetargetIoApicDeviceInterrupt @ 0x140374248
  * Callers:
- *     HalpInterruptSetRemappedDestinationHv @ 0x1403B9368 (HalpInterruptSetRemappedDestinationHv.c)
+ *     HalpInterruptSetRemappedDestinationHv @ 0x140373848 (HalpInterruptSetRemappedDestinationHv.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall HalpHvRetargetIoApicDeviceInterrupt(char a1, __int64 a2, __int64 a3, _BYTE *a4)
@@ -17,7 +17,7 @@ __int64 __fastcall HalpHvRetargetIoApicDeviceInterrupt(char a1, __int64 a2, __in
   unsigned __int64 v11; // [rsp+30h] [rbp-40h]
   _QWORD v12[2]; // [rsp+38h] [rbp-38h] BYREF
   __int128 v13; // [rsp+48h] [rbp-28h] BYREF
-  __int128 v14; // [rsp+58h] [rbp-18h] BYREF
+  __int128 v14; // [rsp+58h] [rbp-18h]
 
   v12[0] = 2LL;
   v4 = &v13;
@@ -31,7 +31,7 @@ __int64 __fastcall HalpHvRetargetIoApicDeviceInterrupt(char a1, __int64 a2, __in
   v14 = 0LL;
   LODWORD(v14) = v7;
   v13 = 0LL;
-  result = guard_dispatch_icall_no_overrides(v11, v12, &v14, a3);
+  result = guard_dispatch_icall_no_overrides(v11, v12);
   if ( (int)result >= 0 && v4 )
   {
     v9 = DWORD2(v13);

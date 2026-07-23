@@ -1,17 +1,17 @@
 /*
- * XREFs of CmpUpdateReorganizeRegistryValues @ 0x14057C8C8
+ * XREFs of CmpUpdateReorganizeRegistryValues @ 0x14057CD74
  * Callers:
- *     CmpReorganizeHive @ 0x14047FA2C (CmpReorganizeHive.c)
- *     CmpUpdatePhaseAccessBit @ 0x14057C880 (CmpUpdatePhaseAccessBit.c)
+ *     CmpReorganizeHive @ 0x14047E780 (CmpReorganizeHive.c)
+ *     CmpUpdatePhaseAccessBit @ 0x14057CD2C (CmpUpdatePhaseAccessBit.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     RtlTimeToTimeFields @ 0x1400AADE8 (RtlTimeToTimeFields.c)
- *     ExSystemTimeToLocalTime @ 0x1400B53D0 (ExSystemTimeToLocalTime.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     swprintf_s @ 0x140151960 (swprintf_s.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     ZwCreateKey @ 0x14015A020 (ZwCreateKey.c)
- *     ZwSetValueKey @ 0x14015A880 (ZwSetValueKey.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     RtlTimeToTimeFields @ 0x1400A9368 (RtlTimeToTimeFields.c)
+ *     ExSystemTimeToLocalTime @ 0x1400B3208 (ExSystemTimeToLocalTime.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     swprintf_s @ 0x140151F20 (swprintf_s.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     ZwCreateKey @ 0x14015A590 (ZwCreateKey.c)
+ *     ZwSetValueKey @ 0x14015ADF0 (ZwSetValueKey.c)
  */
 
 void CmpUpdateReorganizeRegistryValues()
@@ -22,7 +22,7 @@ void CmpUpdateReorganizeRegistryValues()
   HANDLE KeyHandle; // [rsp+40h] [rbp-39h] BYREF
   UNICODE_STRING DestinationString; // [rsp+48h] [rbp-31h] BYREF
   LARGE_INTEGER LocalTime; // [rsp+58h] [rbp-21h] BYREF
-  struct _TIME_FIELDS TimeFields; // [rsp+60h] [rbp-19h] BYREF
+  _TIME_FIELDS TimeFields; // [rsp+60h] [rbp-19h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+70h] [rbp-9h] BYREF
   wchar_t Dst[16]; // [rsp+A0h] [rbp+27h] BYREF
 

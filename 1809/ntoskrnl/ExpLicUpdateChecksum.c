@@ -1,13 +1,13 @@
 /*
  * XREFs of ExpLicUpdateChecksum @ 0x1400077F0
  * Callers:
- *     ExpTimeRefreshWork @ 0x14056E0E0 (ExpTimeRefreshWork.c)
- *     ExUpdateLicenseDataInternal @ 0x1405A0AD0 (ExUpdateLicenseDataInternal.c)
- *     ExpGenuinePolicyCacheProvider @ 0x1405A1820 (ExpGenuinePolicyCacheProvider.c)
- *     ExGetLicenseTamperState @ 0x1408CE940 (ExGetLicenseTamperState.c)
- *     ExSetLicenseTamperState @ 0x1408CEB50 (ExSetLicenseTamperState.c)
- *     sub_1408CF4A0 @ 0x1408CF4A0 (sub_1408CF4A0.c)
- *     sub_1408CF610 @ 0x1408CF610 (sub_1408CF610.c)
+ *     ExpTimeRefreshWork @ 0x14056F0E0 (ExpTimeRefreshWork.c)
+ *     ExUpdateLicenseDataInternal @ 0x1405A1AD0 (ExUpdateLicenseDataInternal.c)
+ *     ExpGenuinePolicyCacheProvider @ 0x1405A2820 (ExpGenuinePolicyCacheProvider.c)
+ *     ExGetLicenseTamperState @ 0x1408CFC00 (ExGetLicenseTamperState.c)
+ *     ExSetLicenseTamperState @ 0x1408CFE10 (ExSetLicenseTamperState.c)
+ *     sub_1408D0760 @ 0x1408D0760 (sub_1408D0760.c)
+ *     sub_1408D08D0 @ 0x1408D08D0 (sub_1408D08D0.c)
  * Callees:
  *     <none>
  */

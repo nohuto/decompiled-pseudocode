@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwpUpdateEnableMask @ 0x14083658C
+ * XREFs of EtwpUpdateEnableMask @ 0x14083745C
  * Callers:
- *     NtTraceEvent @ 0x140325D10 (NtTraceEvent.c)
- *     EtwpRegisterUMProvider @ 0x14083C6F0 (EtwpRegisterUMProvider.c)
- *     EtwpRegisterKMProvider @ 0x140A57524 (EtwpRegisterKMProvider.c)
+ *     NtTraceEvent @ 0x1402CE8A0 (NtTraceEvent.c)
+ *     EtwpRegisterUMProvider @ 0x140838D50 (EtwpRegisterUMProvider.c)
+ *     EtwpRegisterKMProvider @ 0x1409EA1C4 (EtwpRegisterKMProvider.c)
  * Callees:
- *     ExReleaseRundownProtectionCacheAwareEx @ 0x140259600 (ExReleaseRundownProtectionCacheAwareEx.c)
- *     ExAcquireRundownProtectionCacheAwareEx @ 0x14040CCA0 (ExAcquireRundownProtectionCacheAwareEx.c)
- *     EtwpCheckLoggerControlAccess @ 0x140836724 (EtwpCheckLoggerControlAccess.c)
- *     EtwpReleaseLoggerContext @ 0x14095D644 (EtwpReleaseLoggerContext.c)
+ *     ExReleaseRundownProtectionCacheAwareEx @ 0x140289C10 (ExReleaseRundownProtectionCacheAwareEx.c)
+ *     ExAcquireRundownProtectionCacheAwareEx @ 0x140405330 (ExAcquireRundownProtectionCacheAwareEx.c)
+ *     EtwpCheckLoggerControlAccess @ 0x1408375F4 (EtwpCheckLoggerControlAccess.c)
+ *     EtwpReleaseLoggerContext @ 0x140945104 (EtwpReleaseLoggerContext.c)
  */
 
 char __fastcall EtwpUpdateEnableMask(__int64 a1, char a2, char a3, char a4, _WORD *a5)

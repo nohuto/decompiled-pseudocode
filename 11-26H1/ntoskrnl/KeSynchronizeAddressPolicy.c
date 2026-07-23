@@ -1,16 +1,16 @@
 /*
- * XREFs of KeSynchronizeAddressPolicy @ 0x1404CC778
+ * XREFs of KeSynchronizeAddressPolicy @ 0x1404C5F18
  * Callers:
- *     PspDisablePrimaryTokenExchange @ 0x1409EB314 (PspDisablePrimaryTokenExchange.c)
+ *     PspDisablePrimaryTokenExchange @ 0x1409E7AE4 (PspDisablePrimaryTokenExchange.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiIpiStallOnPacketTargetsPrcb @ 0x1402517F0 (KiIpiStallOnPacketTargetsPrcb.c)
- *     ?RtlpCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z @ 0x1402518B0 (-RtlpCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z.c)
- *     KiIpiSendRequest @ 0x140329ED0 (KiIpiSendRequest.c)
- *     KiSynchronizeAddressPolicyTarget @ 0x1404CC940 (KiSynchronizeAddressPolicyTarget.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiIpiStallOnPacketTargetsPrcb @ 0x140253150 (KiIpiStallOnPacketTargetsPrcb.c)
+ *     ?RtlpCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z @ 0x140253210 (-RtlpCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z.c)
+ *     KiIpiSendRequest @ 0x14032BF00 (KiIpiSendRequest.c)
+ *     KiSynchronizeAddressPolicyTarget @ 0x1404C60E0 (KiSynchronizeAddressPolicyTarget.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 void *__fastcall KeSynchronizeAddressPolicy(__int64 a1)
@@ -48,14 +48,14 @@ void *__fastcall KeSynchronizeAddressPolicy(__int64 a1)
     memset_0(&v17.8, 0, sizeof(v17.8));
     RtlpCopyAffinityEx(&v17, 0x20u, *(struct _KAFFINITY_EX **)(a1 + 128));
     Count = v17.Count;
-    v7 = *(_DWORD *)(*(_QWORD *)&KiSupervisorXStateFeaturesLock.WaitBlockFill11[112] + 4LL * CurrentPrcb->Number) >> 6;
+    v7 = (unsigned int)*(&KiSupervisorXStateFeaturesLock.SchedulerApc.Thread->Header.LockNV + CurrentPrcb->Number) >> 6;
     if ( v17.Count > (unsigned int)v7 )
     {
       v8 = (unsigned int)v7;
       v9 = v17.Bitmap[v7];
       _bittestandreset64(
         (__int64 *)&v9,
-        *(_DWORD *)(*(_QWORD *)&KiSupervisorXStateFeaturesLock.WaitBlockFill11[112] + 4LL * CurrentPrcb->Number) & 0x3F);
+        *(&KiSupervisorXStateFeaturesLock.SchedulerApc.Thread->Header.LockNV + CurrentPrcb->Number) & 0x3F);
       v17.Bitmap[v8] = v9;
       Count = v17.Count;
     }

@@ -1,15 +1,16 @@
 /*
- * XREFs of HvpMapHiveImageFromViewMap @ 0x140709450
+ * XREFs of HvpMapHiveImageFromViewMap @ 0x140720830
  * Callers:
- *     HvLoadHive @ 0x140722748 (HvLoadHive.c)
- *     HvpPerformLogFileRecovery @ 0x1408740BC (HvpPerformLogFileRecovery.c)
+ *     HvLoadHive @ 0x1406FA774 (HvLoadHive.c)
+ *     HvpPerformLogFileRecovery @ 0x14087421C (HvpPerformLogFileRecovery.c)
  * Callees:
- *     HvpGetCellMap @ 0x140708730 (HvpGetCellMap.c)
- *     CmpClaimGlobalQuota @ 0x140720E44 (CmpClaimGlobalQuota.c)
+ *     CmpClaimGlobalQuota @ 0x1406F82B4 (CmpClaimGlobalQuota.c)
+ *     HvpGetCellMap @ 0x14071FB10 (HvpGetCellMap.c)
  */
 
-__int64 __fastcall HvpMapHiveImageFromViewMap(__int64 a1, int a2, unsigned int a3)
+__int64 __fastcall HvpMapHiveImageFromViewMap(__int64 a1, __int64 a2, unsigned int a3)
 {
+  int v5; // edi
   char v6; // al
   _QWORD *v7; // r10
   unsigned int v8; // r11d
@@ -22,12 +23,13 @@ __int64 __fastcall HvpMapHiveImageFromViewMap(__int64 a1, int a2, unsigned int a
   unsigned __int64 v15; // rax
   __int64 v16; // rcx
 
-  v6 = CmpClaimGlobalQuota(a3);
+  v5 = a2;
+  v6 = CmpClaimGlobalQuota(a3, a2);
   LODWORD(v7) = 0;
   if ( v6 )
   {
     v8 = 0;
-    v9 = a2 + a3;
+    v9 = v5 + a3;
     if ( v9 )
     {
       do

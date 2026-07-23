@@ -13,52 +13,49 @@
  *     NtCreateSemaphore @ 0x1800A66F0 (NtCreateSemaphore.c)
  */
 
-_WORD *__fastcall RtlInitializeResource(__int64 a1)
+void __cdecl RtlInitializeResource(PRTL_RESOURCE Resource)
 {
   __int64 DebugInfo; // rax
-  __int64 v3; // rdi
+  _RTL_CRITICAL_SECTION_DEBUG *v3; // rdi
   int v4; // eax
   int v5; // esi
   int v6; // esi
   HANDLE v7; // rax
-  _WORD *result; // rax
-  HANDLE Handle; // [rsp+58h] [rbp+10h] BYREF
-  __int64 v10; // [rsp+60h] [rbp+18h] BYREF
+  HANDLE SemaphoreHandle; // [rsp+58h] [rbp+10h] BYREF
+  HANDLE v9; // [rsp+60h] [rbp+18h] BYREF
 
   DebugInfo = RtlpAllocateDebugInfo();
-  v3 = DebugInfo;
+  v3 = (_RTL_CRITICAL_SECTION_DEBUG *)DebugInfo;
   if ( !DebugInfo )
-    RtlRaiseStatus(3221225495LL);
+    RtlRaiseStatus(-1073741801);
   *(_DWORD *)(DebugInfo + 36) = 0;
   v4 = RtlLogStackBackTraceEx(1LL);
-  *(_WORD *)(v3 + 2) = v4;
-  *(_WORD *)(v3 + 44) = HIWORD(v4);
-  v5 = NtCreateSemaphore(&Handle, 1048579LL, 0LL, 0LL, 0x7FFFFFFF);
+  v3->CreatorBackTraceIndex = v4;
+  v3->CreatorBackTraceIndexHigh = HIWORD(v4);
+  v5 = NtCreateSemaphore(&SemaphoreHandle, 0x100003u, 0LL, 0, 0x7FFFFFFF);
   if ( v5 < 0 )
   {
     RtlpFreeDebugInfo(v3);
-    RtlRaiseStatus((unsigned int)v5);
+    RtlRaiseStatus(v5);
   }
-  v6 = NtCreateSemaphore(&v10, 1048579LL, 0LL, 0LL, 0x7FFFFFFF);
+  v6 = NtCreateSemaphore(&v9, 0x100003u, 0LL, 0, 0x7FFFFFFF);
   if ( v6 < 0 )
   {
-    NtClose(Handle);
+    NtClose(SemaphoreHandle);
     RtlpFreeDebugInfo(v3);
-    RtlRaiseStatus((unsigned int)v6);
+    RtlRaiseStatus(v6);
   }
-  v7 = Handle;
-  *(_DWORD *)(a1 + 48) = 0;
-  *(_DWORD *)(a1 + 64) = 0;
-  *(_DWORD *)(a1 + 68) = 0;
-  *(_QWORD *)(a1 + 72) = 0LL;
-  *(_DWORD *)(a1 + 80) = 0;
-  *(_QWORD *)(a1 + 40) = v7;
-  *(_QWORD *)(a1 + 56) = v10;
-  *(_QWORD *)(a1 + 88) = v3;
-  RtlInitializeCriticalSectionEx(a1, 0LL, 0x8000000LL);
-  RtlpAddDebugInfoToCriticalSection(a1);
-  result = *(_WORD **)a1;
-  if ( *(_QWORD *)a1 != -1LL )
-    *result = 1;
-  return result;
+  v7 = SemaphoreHandle;
+  Resource->NumberOfWaitingShared = 0;
+  Resource->NumberOfWaitingExclusive = 0;
+  Resource->NumberOfActive = 0;
+  Resource->ExclusiveOwnerThread = 0LL;
+  Resource->Flags = 0;
+  Resource->SharedSemaphore = v7;
+  Resource->ExclusiveSemaphore = v9;
+  Resource->DebugInfo = v3;
+  RtlInitializeCriticalSectionEx(&Resource->CriticalSection, 0, 0x8000000u);
+  RtlpAddDebugInfoToCriticalSection(Resource);
+  if ( Resource->CriticalSection.DebugInfo != (_RTL_CRITICAL_SECTION_DEBUG *)-1LL )
+    Resource->CriticalSection.DebugInfo->Type = 1;
 }

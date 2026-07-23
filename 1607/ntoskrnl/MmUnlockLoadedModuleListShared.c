@@ -1,12 +1,12 @@
 /*
- * XREFs of MmUnlockLoadedModuleListShared @ 0x140014A04
+ * XREFs of MmUnlockLoadedModuleListShared @ 0x140014584
  * Callers:
- *     MiLockPagableImageSection @ 0x140014884 (MiLockPagableImageSection.c)
- *     RtlpxLookupFunctionTable @ 0x140051540 (RtlpxLookupFunctionTable.c)
- *     RtlPcToFileName @ 0x1401486E8 (RtlPcToFileName.c)
- *     MiSplitDriverPage @ 0x1401E1A20 (MiSplitDriverPage.c)
+ *     MiLockPagableImageSection @ 0x140014404 (MiLockPagableImageSection.c)
+ *     RtlpxLookupFunctionTable @ 0x1400510C0 (RtlpxLookupFunctionTable.c)
+ *     RtlPcToFileName @ 0x140148C58 (RtlPcToFileName.c)
+ *     MiSplitDriverPage @ 0x1401E184C (MiSplitDriverPage.c)
  * Callees:
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1400EA3E0 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1400E8250 (ExReleaseSpinLockSharedFromDpcLevel.c)
  */
 
 void __fastcall MmUnlockLoadedModuleListShared(unsigned __int8 a1)

@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlpPossibleDeadlock @ 0x1800D3C08
+ * XREFs of RtlpPossibleDeadlock @ 0x1800D3CC8
  * Callers:
- *     RtlpWaitOnCriticalSection @ 0x18006674C (RtlpWaitOnCriticalSection.c)
- *     RtlAcquireResourceShared @ 0x18006CEC0 (RtlAcquireResourceShared.c)
- *     RtlAcquireResourceExclusive @ 0x18006CFB0 (RtlAcquireResourceExclusive.c)
+ *     RtlpWaitOnCriticalSection @ 0x18006673C (RtlpWaitOnCriticalSection.c)
+ *     RtlAcquireResourceShared @ 0x18006CEB0 (RtlAcquireResourceShared.c)
+ *     RtlAcquireResourceExclusive @ 0x18006CFA0 (RtlAcquireResourceExclusive.c)
  * Callees:
- *     RtlRaiseException @ 0x180036770 (RtlRaiseException.c)
- *     RtlDecodePointer @ 0x180051BE0 (RtlDecodePointer.c)
- *     __security_check_cookie @ 0x180096C40 (__security_check_cookie.c)
+ *     RtlRaiseException @ 0x180036760 (RtlRaiseException.c)
+ *     RtlDecodePointer @ 0x180051BD0 (RtlDecodePointer.c)
+ *     __security_check_cookie @ 0x180096C30 (__security_check_cookie.c)
  *     _guard_dispatch_icall_nop @ 0x1800A9C80 (_guard_dispatch_icall_nop.c)
  */
 

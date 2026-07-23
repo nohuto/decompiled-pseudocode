@@ -1,18 +1,18 @@
 /*
- * XREFs of ExpConvertSignatureName @ 0x1407BB6C8
+ * XREFs of ExpConvertSignatureName @ 0x1407BBB18
  * Callers:
- *     ExpTranslateArcPath @ 0x1407BD06C (ExpTranslateArcPath.c)
+ *     ExpTranslateArcPath @ 0x1407BD4BC (ExpTranslateArcPath.c)
  * Callees:
- *     swprintf_s @ 0x140502E50 (swprintf_s.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ExpCreateOutputARC @ 0x1407BB90C (ExpCreateOutputARC.c)
- *     ExpParseSignatureName @ 0x1407BC030 (ExpParseSignatureName.c)
- *     ExpTranslateSymbolicLink @ 0x140A63CA4 (ExpTranslateSymbolicLink.c)
- *     ExpCreateOutputNT @ 0x140A63E54 (ExpCreateOutputNT.c)
- *     ExpFindDiskSignature @ 0x140A63F20 (ExpFindDiskSignature.c)
- *     ExpCreateOutputEFI @ 0x140A64A94 (ExpCreateOutputEFI.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     swprintf_s @ 0x140500710 (swprintf_s.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ExpCreateOutputARC @ 0x1407BBD5C (ExpCreateOutputARC.c)
+ *     ExpParseSignatureName @ 0x1407BC480 (ExpParseSignatureName.c)
+ *     ExpTranslateSymbolicLink @ 0x140A5C5A4 (ExpTranslateSymbolicLink.c)
+ *     ExpCreateOutputNT @ 0x140A5C754 (ExpCreateOutputNT.c)
+ *     ExpFindDiskSignature @ 0x140A5C820 (ExpFindDiskSignature.c)
+ *     ExpCreateOutputEFI @ 0x140A5D394 (ExpCreateOutputEFI.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall ExpConvertSignatureName(int a1, void *a2, __int64 a3, wchar_t *a4, void *Src)
@@ -71,7 +71,7 @@ __int64 __fastcall ExpConvertSignatureName(int a1, void *a2, __int64 a3, wchar_t
         return 3221225485LL;
       if ( a1 == 4 )
         return ExpCreateOutputEFI(a2, (__int64)&v24, (__int64)&v23, Src, v9);
-      Pool2 = (wchar_t *)ExAllocatePool2(0x40uLL);
+      Pool2 = (wchar_t *)ExAllocatePool2(0x40uLL, 0x5EuLL, 0x72766E45u);
       v13 = Pool2;
       if ( !Pool2 )
         return 3221225626LL;

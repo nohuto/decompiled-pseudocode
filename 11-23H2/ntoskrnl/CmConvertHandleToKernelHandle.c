@@ -4,9 +4,9 @@
  *     CmLoadDifferencingKey @ 0x14069108C (CmLoadDifferencingKey.c)
  *     CmUnloadKey @ 0x140698DD8 (CmUnloadKey.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ObReferenceObjectByHandle @ 0x1406E62C0 (ObReferenceObjectByHandle.c)
- *     ObOpenObjectByPointer @ 0x1407374D0 (ObOpenObjectByPointer.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     ObReferenceObjectByHandle @ 0x1406E62F0 (ObReferenceObjectByHandle.c)
+ *     ObOpenObjectByPointer @ 0x1407376C0 (ObOpenObjectByPointer.c)
  */
 
 __int64 __fastcall CmConvertHandleToKernelHandle(

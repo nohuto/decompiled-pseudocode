@@ -1,10 +1,10 @@
 /*
- * XREFs of PoDeleteThermalRequest @ 0x14066B788
+ * XREFs of PoDeleteThermalRequest @ 0x14066B86C
  * Callers:
  *     <none>
  * Callees:
- *     PoDestroyReasonContext @ 0x1400FB8C8 (PoDestroyReasonContext.c)
- *     PopDeactiveThermalRequest @ 0x14066BA80 (PopDeactiveThermalRequest.c)
+ *     PoDestroyReasonContext @ 0x1400F9654 (PoDestroyReasonContext.c)
+ *     PopDeactiveThermalRequest @ 0x14066BB64 (PopDeactiveThermalRequest.c)
  */
 
 void __fastcall PoDeleteThermalRequest(_QWORD **a1)

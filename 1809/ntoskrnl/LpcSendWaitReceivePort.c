@@ -1,10 +1,10 @@
 /*
- * XREFs of LpcSendWaitReceivePort @ 0x140849990
+ * XREFs of LpcSendWaitReceivePort @ 0x14084ABF0
  * Callers:
  *     <none>
  * Callees:
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     AlpcpProcessSynchronousRequest @ 0x140633A30 (AlpcpProcessSynchronousRequest.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     AlpcpProcessSynchronousRequest @ 0x140634A50 (AlpcpProcessSynchronousRequest.c)
  */
 
 __int64 __fastcall LpcSendWaitReceivePort(

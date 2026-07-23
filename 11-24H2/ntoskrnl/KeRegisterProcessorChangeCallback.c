@@ -1,18 +1,18 @@
 /*
- * XREFs of KeRegisterProcessorChangeCallback @ 0x14073C2D0
+ * XREFs of KeRegisterProcessorChangeCallback @ 0x14073A200
  * Callers:
- *     PoInitSystem @ 0x140C61990 (PoInitSystem.c)
+ *     PoInitSystem @ 0x140C63AE4 (PoInitSystem.c)
  * Callees:
- *     KeReleaseGuardedMutex @ 0x14031E470 (KeReleaseGuardedMutex.c)
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     ExAcquireFastMutex @ 0x14033E850 (ExAcquireFastMutex.c)
- *     HalGetProcessorIdByNtNumber @ 0x1403B88E0 (HalGetProcessorIdByNtNumber.c)
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     ExUnregisterCallback @ 0x1404ADD30 (ExUnregisterCallback.c)
- *     ExRegisterCallback @ 0x1404B3D50 (ExRegisterCallback.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     ExCreateCallback @ 0x140A64310 (ExCreateCallback.c)
+ *     HalGetProcessorIdByNtNumber @ 0x1402B4970 (HalGetProcessorIdByNtNumber.c)
+ *     KeReleaseGuardedMutex @ 0x1402C7000 (KeReleaseGuardedMutex.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     ExAcquireFastMutex @ 0x14031DD30 (ExAcquireFastMutex.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     ExUnregisterCallback @ 0x1404A8640 (ExUnregisterCallback.c)
+ *     ExRegisterCallback @ 0x1404AE560 (ExRegisterCallback.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     ExCreateCallback @ 0x140A5CC10 (ExCreateCallback.c)
  */
 
 PVOID __stdcall KeRegisterProcessorChangeCallback(
@@ -30,39 +30,37 @@ PVOID __stdcall KeRegisterProcessorChangeCallback(
   unsigned int v13; // edi
   __int64 *v14; // r14
   __int64 v15; // rcx
-  __int64 v16; // r9
-  int v17; // eax
-  PVOID v18; // rsi
-  __int64 v19; // rcx
-  __int64 v20; // r9
-  NTSTATUS v21; // [rsp+20h] [rbp-59h] BYREF
+  int v16; // eax
+  PVOID v17; // rsi
+  __int64 v18; // rcx
+  NTSTATUS v19; // [rsp+20h] [rbp-59h]
   PCALLBACK_OBJECT CallbackObject; // [rsp+28h] [rbp-51h] BYREF
-  PVOID v23; // [rsp+30h] [rbp-49h]
-  PVOID v24; // [rsp+38h] [rbp-41h]
+  PVOID v21; // [rsp+30h] [rbp-49h]
+  PVOID v22; // [rsp+38h] [rbp-41h]
   UNICODE_STRING DestinationString; // [rsp+40h] [rbp-39h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+50h] [rbp-29h] BYREF
-  __int128 v27; // [rsp+80h] [rbp+7h] BYREF
-  int v28; // [rsp+90h] [rbp+17h] BYREF
+  __int128 v25; // [rsp+80h] [rbp+7h] BYREF
+  int v26; // [rsp+90h] [rbp+17h] BYREF
 
-  v23 = CallbackContext;
+  v21 = CallbackContext;
   *(_QWORD *)&ObjectAttributes.Length = 48LL;
   *(_QWORD *)&ObjectAttributes.Attributes = 576LL;
-  v28 = 0;
+  v26 = 0;
   v5 = 0;
   CallbackObject = 0LL;
   v6 = Flags;
   DestinationString = 0LL;
-  v27 = 0LL;
+  v25 = 0LL;
   RtlInitUnicodeString(&DestinationString, L"\\Callback\\ProcessorAdd");
   ObjectAttributes.RootDirectory = 0LL;
   ObjectAttributes.ObjectName = &DestinationString;
   *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
-  v21 = ExCreateCallback(&CallbackObject, &ObjectAttributes, 0, 0);
-  if ( v21 < 0 )
+  v19 = ExCreateCallback(&CallbackObject, &ObjectAttributes, 0, 0);
+  if ( v19 < 0 )
     return 0LL;
   ExAcquireFastMutex(&KiDynamicProcessorLock);
   v8 = ExRegisterCallback(CallbackObject, (PCALLBACK_FUNCTION)CallbackFunction, CallbackContext);
-  v24 = v8;
+  v22 = v8;
   ObfDereferenceObject(CallbackObject);
   if ( v8 && (v6 & 1) != 0 )
   {
@@ -72,58 +70,55 @@ PVOID __stdcall KeRegisterProcessorChangeCallback(
     if ( (_DWORD)KeNumberProcessors_0 )
     {
       v14 = KiProcessorBlock;
-      while ( 1 )
+      do
       {
         v15 = *v14;
-        *(_QWORD *)((char *)&v27 + 4) = v13;
-        WORD6(v27) = *(unsigned __int8 *)(v15 + 208);
-        BYTE14(v27) = *(_BYTE *)(v15 + 209);
-        HalGetProcessorIdByNtNumber(v13, (__int64)&v28, v9, v10);
-        LODWORD(v27) = 0;
-        v21 = 0;
-        guard_dispatch_icall_no_overrides(v23, &v27, &v21, v16);
-        v17 = v21;
-        if ( v21 < 0 )
-          break;
+        *(_QWORD *)((char *)&v25 + 4) = v13;
+        WORD6(v25) = *(unsigned __int8 *)(v15 + 208);
+        BYTE14(v25) = *(_BYTE *)(v15 + 209);
+        HalGetProcessorIdByNtNumber(v13, (__int64)&v26, v9, v10);
+        LODWORD(v25) = 0;
+        v19 = 0;
+        guard_dispatch_icall_no_overrides(v21, &v25);
+        v16 = 0;
         ++v13;
         ++v14;
-        if ( v13 >= v11 )
-          goto LABEL_11;
       }
+      while ( v13 < v11 );
     }
     else
     {
-      v17 = v21;
-LABEL_11:
-      if ( v17 >= 0 )
-      {
-        LODWORD(v27) = 1;
-        goto LABEL_14;
-      }
+      v16 = v19;
     }
-    LODWORD(v27) = 2;
-    ExUnregisterCallback(v8);
-    v17 = v21;
-    v8 = 0LL;
-    v24 = 0LL;
-LABEL_14:
-    DWORD2(v27) = v17;
+    if ( v16 < 0 )
+    {
+      LODWORD(v25) = 2;
+      ExUnregisterCallback(v8);
+      v16 = v19;
+      v8 = 0LL;
+      v22 = 0LL;
+    }
+    else
+    {
+      LODWORD(v25) = 1;
+    }
+    DWORD2(v25) = v16;
     if ( v13 )
     {
-      v18 = v23;
+      v17 = v21;
       do
       {
-        v19 = *v12;
-        DWORD1(v27) = v5;
-        WORD6(v27) = *(unsigned __int8 *)(v19 + 208);
-        BYTE14(v27) = *(_BYTE *)(v19 + 209);
-        HalGetProcessorIdByNtNumber(v5, (__int64)&v28, v9, v10);
-        guard_dispatch_icall_no_overrides(v18, &v27, &v21, v20);
+        v18 = *v12;
+        DWORD1(v25) = v5;
+        WORD6(v25) = *(unsigned __int8 *)(v18 + 208);
+        BYTE14(v25) = *(_BYTE *)(v18 + 209);
+        HalGetProcessorIdByNtNumber(v5, (__int64)&v26, v9, v10);
+        guard_dispatch_icall_no_overrides(v17, &v25);
         ++v5;
         ++v12;
       }
       while ( v5 < v13 );
-      v8 = v24;
+      v8 = v22;
     }
   }
   KeReleaseGuardedMutex(&KiDynamicProcessorLock);

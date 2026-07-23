@@ -1,9 +1,9 @@
 /*
- * XREFs of VerifierFsRtlRegisterUncProviderEx @ 0x1405CF8C0
+ * XREFs of VerifierFsRtlRegisterUncProviderEx @ 0x1405CFE30
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 __int64 VerifierFsRtlRegisterUncProviderEx()

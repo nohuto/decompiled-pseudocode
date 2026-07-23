@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpCpuID @ 0x140498980
+ * XREFs of HalpCpuID @ 0x1404932E0
  * Callers:
- *     HalpGetProcessorBrandString @ 0x1407028D0 (HalpGetProcessorBrandString.c)
- *     HalpMcaSetFeatureFlags @ 0x140B4C414 (HalpMcaSetFeatureFlags.c)
+ *     HalpGetProcessorBrandString @ 0x140700510 (HalpGetProcessorBrandString.c)
+ *     HalpMcaSetFeatureFlags @ 0x140B4E454 (HalpMcaSetFeatureFlags.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 __int64 __fastcall HalpCpuID(unsigned int a1, _DWORD *a2, _DWORD *a3, _DWORD *a4, _DWORD *a5)

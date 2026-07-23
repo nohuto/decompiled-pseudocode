@@ -1,12 +1,12 @@
 /*
- * XREFs of CcCrossPartitionDrainSectionDeletion @ 0x1405356D4
+ * XREFs of CcCrossPartitionDrainSectionDeletion @ 0x140535C24
  * Callers:
- *     CcErrorCallbackRoutine @ 0x140537710 (CcErrorCallbackRoutine.c)
+ *     CcErrorCallbackRoutine @ 0x140537C60 (CcErrorCallbackRoutine.c)
  * Callees:
- *     KeDelayExecutionThread @ 0x140246810 (KeDelayExecutionThread.c)
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeDelayExecutionThread @ 0x1402468E0 (KeDelayExecutionThread.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402610F0 (KeAcquireInStackQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 CcCrossPartitionDrainSectionDeletion()
@@ -30,10 +30,13 @@ __int64 CcCrossPartitionDrainSectionDeletion()
   KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
   result = (unsigned int)KiIrqlFlags;
   OldIrql = LockHandle.OldIrql;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && LockHandle.OldIrql <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -41,7 +44,7 @@ __int64 CcCrossPartitionDrainSectionDeletion()
       v6 = ((unsigned int)result & SchedulerAssist[5]) == 0;
       SchedulerAssist[5] &= result;
       if ( v6 )
-        result = KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        result = KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
     }
   }
   __writecr8(OldIrql);

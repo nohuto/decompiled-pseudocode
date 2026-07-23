@@ -1,14 +1,14 @@
 /*
- * XREFs of HalSetBusDataByOffset @ 0x140439AB0
+ * XREFs of HalSetBusDataByOffset @ 0x14042C360
  * Callers:
- *     HalSetBusData @ 0x140579970 (HalSetBusData.c)
- *     HalpPiix4Detect @ 0x140C0A8DC (HalpPiix4Detect.c)
- *     KdpSysWriteBusData @ 0x140C153AC (KdpSysWriteBusData.c)
+ *     HalSetBusData @ 0x14057BEA0 (HalSetBusData.c)
+ *     HalpPiix4Detect @ 0x140C10AEC (HalpPiix4Detect.c)
+ *     KdpSysWriteBusData @ 0x140C1B3AC (KdpSysWriteBusData.c)
  * Callees:
- *     HalpSetPCIData @ 0x140439C40 (HalpSetPCIData.c)
- *     HalpReleaseCmosSpinLock @ 0x140451A74 (HalpReleaseCmosSpinLock.c)
- *     HalpAcquireCmosSpinLock @ 0x140530540 (HalpAcquireCmosSpinLock.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     HalpSetPCIData @ 0x14042C4F0 (HalpSetPCIData.c)
+ *     HalpReleaseCmosSpinLock @ 0x140449BA4 (HalpReleaseCmosSpinLock.c)
+ *     HalpAcquireCmosSpinLock @ 0x140532A40 (HalpAcquireCmosSpinLock.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 ULONG __stdcall HalSetBusDataByOffset(

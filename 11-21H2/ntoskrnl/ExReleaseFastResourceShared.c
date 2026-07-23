@@ -3,8 +3,8 @@
  * Callers:
  *     <none>
  * Callees:
- *     ExpReleaseFastResourceShared @ 0x14039D010 (ExpReleaseFastResourceShared.c)
- *     ExpReleaseFastResourceExclusive @ 0x14039D3E4 (ExpReleaseFastResourceExclusive.c)
+ *     sub_14039D010 @ 0x14039D010 (sub_14039D010.c)
+ *     sub_14039D3E4 @ 0x14039D3E4 (sub_14039D3E4.c)
  *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
  */
 
@@ -23,7 +23,7 @@ __int64 __fastcall ExReleaseFastResourceShared(ULONG_PTR BugCheckParameter2, ULO
   CurrentThread = KeGetCurrentThread();
   if ( CurrentIrql > 2u )
     KeBugCheckEx(0x1C6u, 0LL, CurrentIrql, 2uLL, 0LL);
-  if ( !CurrentIrql && (CurrentThread->MiscFlags & 0x400) == 0 && !CurrentThread->WaitBlock[3].SpareLong )
+  if ( !CurrentIrql && (*((_DWORD *)CurrentThread + 29) & 0x400) == 0 && !*((_DWORD *)CurrentThread + 121) )
     KeBugCheckEx(0x1C6u, 7uLL, 0LL, 0LL, 0LL);
   v5 = *(_QWORD *)(a2 + 32);
   if ( (struct _KTHREAD *)v5 != CurrentThread )
@@ -36,7 +36,7 @@ __int64 __fastcall ExReleaseFastResourceShared(ULONG_PTR BugCheckParameter2, ULO
   if ( (v6 & 4) != 0 )
     KeBugCheckEx(0x1C6u, 0xBuLL, a2, (unsigned __int64)(v6 & 4) << 14, 0LL);
   if ( (v2 & 0x80u) != 0 )
-    return ExpReleaseFastResourceExclusive(BugCheckParameter2, a2);
+    return sub_14039D3E4(BugCheckParameter2, a2);
   else
-    return ExpReleaseFastResourceShared(BugCheckParameter2, (__int64 *)a2);
+    return sub_14039D010(BugCheckParameter2, (__int64 *)a2);
 }

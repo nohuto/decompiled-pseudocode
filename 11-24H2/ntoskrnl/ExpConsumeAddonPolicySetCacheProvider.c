@@ -1,9 +1,9 @@
 /*
- * XREFs of ExpConsumeAddonPolicySetCacheProvider @ 0x1407B8540
+ * XREFs of ExpConsumeAddonPolicySetCacheProvider @ 0x1407B8990
  * Callers:
  *     <none>
  * Callees:
- *     ExpQueryLicenseValueFromBlobHelper @ 0x1404AFA20 (ExpQueryLicenseValueFromBlobHelper.c)
+ *     ExpQueryLicenseValueFromBlobHelper @ 0x1404AA410 (ExpQueryLicenseValueFromBlobHelper.c)
  */
 
 __int64 __fastcall ExpConsumeAddonPolicySetCacheProvider(
@@ -15,5 +15,5 @@ __int64 __fastcall ExpConsumeAddonPolicySetCacheProvider(
         _BYTE *a6)
 {
   *a6 = 1;
-  return ExpQueryLicenseValueFromBlobHelper(a1, (__int64)&qword_140B3B738, a2, a3, a4, a5);
+  return ExpQueryLicenseValueFromBlobHelper(a1, (__int64)&qword_140B3D4F0, a2, a3, a4, a5);
 }

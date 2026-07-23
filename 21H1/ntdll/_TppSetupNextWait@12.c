@@ -9,32 +9,44 @@
  *     _TppRaiseHandleStatus@16 @ 0x4B384839 (_TppRaiseHandleStatus@16.c)
  */
 
-int __fastcall TppSetupNextWait(_DWORD *a1, int a2, _DWORD *a3)
+int __fastcall TppSetupNextWait(char *ApcContext, HANDLE TargetObjectHandle, _DWORD *a3)
 {
-  int v3; // esi
-  int v4; // ebx
+  _DWORD *v3; // esi
+  _RTL_SRWLOCK *v4; // ebx
   int v5; // ecx
   _DWORD *v6; // edi
   int v8; // edx
   unsigned int v9; // edx
   int v10; // ecx
   int v11; // ecx
-  unsigned int v13; // [esp+14h] [ebp-10h]
-  char v14; // [esp+23h] [ebp-1h] BYREF
+  ULONG_PTR v12; // [esp-8h] [ebp-2Ch]
+  BOOLEAN *v13; // [esp+0h] [ebp-24h]
+  unsigned int v15; // [esp+14h] [ebp-10h]
+  char v16; // [esp+23h] [ebp-1h] BYREF
 
-  v3 = (int)a1;
-  v4 = a1[23];
-  a1[56] = a2;
-  if ( (int)ZwAssociateWaitCompletionPacket(a1[57], *(_DWORD *)(v4 + 40), a2, a1 + 62, a1, 0, 0, &v14) < 0 )
+  v3 = ApcContext;
+  HIDWORD(v12) = &v16;
+  LODWORD(v12) = 0;
+  v4 = (_RTL_SRWLOCK *)*((_DWORD *)ApcContext + 23);
+  *((_DWORD *)ApcContext + 56) = TargetObjectHandle;
+  if ( ZwAssociateWaitCompletionPacket(
+         *((HANDLE *)ApcContext + 57),
+         v4[10].Ptr,
+         TargetObjectHandle,
+         ApcContext + 248,
+         ApcContext,
+         0,
+         v12,
+         v13) < 0 )
   {
-    *(_DWORD *)(v3 + 224) = 0;
+    v3[56] = 0;
     TppRaiseHandleStatus(v3, v5);
   }
   v6 = a3;
-  if ( !a3 || v14 )
+  if ( !a3 || v16 )
     return 1;
   v8 = a3[1];
-  v13 = *a3;
+  v15 = *a3;
   if ( v8 < 0 )
   {
     v10 = -*a3;
@@ -44,22 +56,22 @@ int __fastcall TppSetupNextWait(_DWORD *a1, int a2, _DWORD *a3)
   {
     while ( MEMORY[0x7FFE0018] != MEMORY[0x7FFE001C] )
       _mm_pause();
-    v3 = (int)a1;
+    v3 = ApcContext;
     v6 = a3;
-    if ( __SPAIR64__(v8, v13) <= MEMORY[0x7FFE0014] )
+    if ( __SPAIR64__(v8, v15) <= MEMORY[0x7FFE0014] )
     {
       v10 = 0;
       v9 = 0;
     }
     else
     {
-      v9 = (__PAIR64__(v8, v13) - MEMORY[0x7FFE0014]) >> 32;
-      v10 = v13 - MEMORY[0x7FFE0014];
+      v9 = (__PAIR64__(v8, v15) - MEMORY[0x7FFE0014]) >> 32;
+      v10 = v15 - MEMORY[0x7FFE0014];
     }
   }
   v11 = __PAIR64__(v9, v10) >> 16;
   if ( __PAIR64__(HIWORD(v9), v11) > 0x12C )
     v11 = 300;
-  TppSetTimer(v3, v4 + 64, v6, 0, v11);
+  TppSetTimer((int)v3, v4 + 16, v6, 0, v11);
   return 2;
 }

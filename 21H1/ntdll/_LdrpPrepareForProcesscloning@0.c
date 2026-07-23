@@ -14,6 +14,6 @@ int __stdcall LdrpPrepareForProcesscloning()
     return -1073741420;
   LdrpDrainWorkQueue(0);
   LdrpAcquireLoaderLock();
-  RtlEnterCriticalSection((int)&LdrpWorkQueueLock);
+  RtlEnterCriticalSection(&LdrpWorkQueueLock);
   return 0;
 }

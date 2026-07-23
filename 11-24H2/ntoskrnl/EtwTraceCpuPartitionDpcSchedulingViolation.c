@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwTraceCpuPartitionDpcSchedulingViolation @ 0x14064D6B0
+ * XREFs of EtwTraceCpuPartitionDpcSchedulingViolation @ 0x14064BCC0
  * Callers:
- *     KiCpuPartitionCheckDpcEnqueue @ 0x1404FADB8 (KiCpuPartitionCheckDpcEnqueue.c)
+ *     KiCpuPartitionCheckDpcEnqueue @ 0x1404F8698 (KiCpuPartitionCheckDpcEnqueue.c)
  * Callees:
- *     EtwWriteEx @ 0x140259680 (EtwWriteEx.c)
- *     EtwEventEnabled @ 0x1402A1BD0 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x140289C90 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x1402D1300 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 void __fastcall EtwTraceCpuPartitionDpcSchedulingViolation(__int64 a1, int a2)

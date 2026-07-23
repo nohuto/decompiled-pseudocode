@@ -97,10 +97,13 @@ __int64 __fastcall MiDeleteSubsectionLargePages(__int64 *a1, _QWORD *a2, __int64
               *((_BYTE *)v12 + 10) |= 7u;
             }
             _InterlockedAnd64((volatile signed __int64 *)v12, 0x7FFFFFFFFFFFFFFFuLL);
-            if ( KiIrqlFlags )
+            if ( (_DWORD)KiIrqlFlags )
             {
               CurrentIrql = KeGetCurrentIrql();
-              if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v14 <= 0xFu && CurrentIrql >= 2u )
+              if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+                && CurrentIrql <= 0xFu
+                && (unsigned __int8)v14 <= 0xFu
+                && CurrentIrql >= 2u )
               {
                 CurrentPrcb = KeGetCurrentPrcb();
                 SchedulerAssist = CurrentPrcb->SchedulerAssist;

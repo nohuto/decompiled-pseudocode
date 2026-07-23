@@ -1,30 +1,30 @@
 /*
- * XREFs of MmDuplicateMemory @ 0x140C0CEE0
+ * XREFs of MmDuplicateMemory @ 0x140C130F0
  * Callers:
- *     IopLiveDumpCapture @ 0x1405CE5BC (IopLiveDumpCapture.c)
- *     MmCreateMirror @ 0x140868750 (MmCreateMirror.c)
- *     PnprInitiateReplaceOperation @ 0x140BF1744 (PnprInitiateReplaceOperation.c)
- *     PopTransitionToSleep @ 0x140C04000 (PopTransitionToSleep.c)
+ *     IopLiveDumpCapture @ 0x1405D0DCC (IopLiveDumpCapture.c)
+ *     MmCreateMirror @ 0x14086EB30 (MmCreateMirror.c)
+ *     PnprInitiateReplaceOperation @ 0x140BF7744 (PnprInitiateReplaceOperation.c)
+ *     PopTransitionToSleep @ 0x140C0A210 (PopTransitionToSleep.c)
  * Callees:
- *     ExfAcquirePushLockSharedEx @ 0x140277CC0 (ExfAcquirePushLockSharedEx.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     MiIterateOverPartitions @ 0x1404A90F4 (MiIterateOverPartitions.c)
- *     MiLockDynamicMemoryShared @ 0x1404CB6E0 (MiLockDynamicMemoryShared.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     MiLockAllMemoryLists @ 0x140703904 (MiLockAllMemoryLists.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     MiInitializeMirrorPacket @ 0x140777B50 (MiInitializeMirrorPacket.c)
- *     MmLockPagableSectionByHandle @ 0x140A9C420 (MmLockPagableSectionByHandle.c)
- *     MiUpdateMirrorBitmaps @ 0x140B65ABC (MiUpdateMirrorBitmaps.c)
- *     MiMirrorBlackPhase @ 0x140C00E38 (MiMirrorBlackPhase.c)
- *     MiMirrorComplete @ 0x140C00ED4 (MiMirrorComplete.c)
- *     MiMirrorVerify @ 0x140C0101C (MiMirrorVerify.c)
- *     MiRecordPostHibernateZeroPages @ 0x140C01070 (MiRecordPostHibernateZeroPages.c)
- *     MiActOnMirrorBitmap @ 0x140C0CAE8 (MiActOnMirrorBitmap.c)
- *     MiMirrorBrownPhase @ 0x140C0D430 (MiMirrorBrownPhase.c)
+ *     ExfAcquirePushLockSharedEx @ 0x140277230 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     MiIterateOverPartitions @ 0x1404A2784 (MiIterateOverPartitions.c)
+ *     MiLockDynamicMemoryShared @ 0x1404C5110 (MiLockDynamicMemoryShared.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     MiLockAllMemoryLists @ 0x1407085D4 (MiLockAllMemoryLists.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     MiInitializeMirrorPacket @ 0x14077A9F0 (MiInitializeMirrorPacket.c)
+ *     MmLockPagableSectionByHandle @ 0x140A9F220 (MmLockPagableSectionByHandle.c)
+ *     MiUpdateMirrorBitmaps @ 0x140B68B5C (MiUpdateMirrorBitmaps.c)
+ *     MiMirrorBlackPhase @ 0x140C07048 (MiMirrorBlackPhase.c)
+ *     MiMirrorComplete @ 0x140C070E4 (MiMirrorComplete.c)
+ *     MiMirrorVerify @ 0x140C0722C (MiMirrorVerify.c)
+ *     MiRecordPostHibernateZeroPages @ 0x140C07280 (MiRecordPostHibernateZeroPages.c)
+ *     MiActOnMirrorBitmap @ 0x140C12CF8 (MiActOnMirrorBitmap.c)
+ *     MiMirrorBrownPhase @ 0x140C13640 (MiMirrorBrownPhase.c)
  */
 
 int __fastcall MmDuplicateMemory(__int64 a1)
@@ -60,7 +60,7 @@ int __fastcall MmDuplicateMemory(__int64 a1)
   result = MiInitializeMirrorPacket(&v21, a1);
   if ( result >= 0 )
   {
-    result = KeWaitForSingleObject(&stru_140E2EB88.Timer.TimerListEntry.Blink, WrVirtualMemory, 0, 0, Timeout);
+    result = KeWaitForSingleObject(&stru_140E2ED08.Timer.TimerListEntry.Blink, WrVirtualMemory, 0, 0, Timeout);
     if ( result >= 0 )
     {
       if ( result == 258 )
@@ -72,10 +72,10 @@ int __fastcall MmDuplicateMemory(__int64 a1)
         if ( (MiFlags & 4) == 0 )
           MmLockPagableSectionByHandle(ExPageLockHandle);
         --v25[243];
-        v4 = (LegacyAutoBoost *)KeAbPreAcquire((__int64)&stru_140E2EB88, 0LL, 0LL, v3);
+        v4 = (LegacyAutoBoost *)KeAbPreAcquire((__int64)&stru_140E2ED08, 0LL, 0LL, v3);
         v7 = 17LL;
-        if ( _InterlockedCompareExchange64((volatile signed __int64 *)&stru_140E2EB88, 17LL, 0LL) )
-          ExfAcquirePushLockSharedEx((signed __int64 *)&stru_140E2EB88.Header.Lock, 0, v4, &stru_140E2EB88);
+        if ( _InterlockedCompareExchange64((volatile signed __int64 *)&stru_140E2ED08, 17LL, 0LL) )
+          ExfAcquirePushLockSharedEx((signed __int64 *)&stru_140E2ED08.Header.Lock, 0, v4, &stru_140E2ED08);
         if ( v4 )
         {
           if ( (KiAbpGlobalState & 1) != 0 )
@@ -84,9 +84,9 @@ int __fastcall MmDuplicateMemory(__int64 a1)
             *((_BYTE *)v4 + 10) = 1;
         }
         MiLockDynamicMemoryShared((__int64)&MiSystemPartition, (__int64)v25, v5, v6);
-        _InterlockedAdd((volatile signed __int32 *)&stru_140E36558.SystemCallNumber, 1u);
+        _InterlockedAdd((volatile signed __int32 *)&stru_140E366D8.SystemCallNumber, 1u);
         v8 = 0;
-        stru_140E2EB88.WaitBlock[0].SparePtr = v25;
+        stru_140E2ED08.WaitBlock[0].SparePtr = v25;
         while ( v8 < 2 )
         {
           if ( !(unsigned int)MiUpdateMirrorBitmaps(v8, 0LL, 0LL) )
@@ -101,13 +101,13 @@ int __fastcall MmDuplicateMemory(__int64 a1)
         v9 = guard_dispatch_icall_no_overrides(v12, v11);
         if ( v9 >= 0 )
         {
-          LODWORD(stru_140E2EB88.Timer.TimerListEntry.Flink) = 1;
+          LODWORD(stru_140E2ED08.Timer.TimerListEntry.Flink) = 1;
           v9 = MiMirrorBrownPhase(&v21);
           if ( v9 >= 0 )
           {
             if ( (v22 & 0x802) == 0 && (v27 & 1) != 0 )
             {
-              _InterlockedAdd(&dword_140E35FD8, 0xFFFFFFFF);
+              _InterlockedAdd(&dword_140E36158, 0xFFFFFFFF);
               v27 &= ~1u;
             }
             CurrentIrql = KeGetCurrentIrql();
@@ -139,19 +139,19 @@ int __fastcall MmDuplicateMemory(__int64 a1)
               MiLockAllMemoryLists();
               if ( (v27 & 1) != 0 )
               {
-                _InterlockedAdd(&dword_140E35FD8, 0xFFFFFFFF);
+                _InterlockedAdd(&dword_140E36158, 0xFFFFFFFF);
                 v27 &= ~1u;
               }
-              LODWORD(stru_140E2EB88.Timer.TimerListEntry.Flink) = 2;
+              LODWORD(stru_140E2ED08.Timer.TimerListEntry.Flink) = 2;
               v9 = MiMirrorBlackPhase((__int64)&v21);
               if ( v9 >= 0 )
               {
                 v9 = MiMirrorVerify(a1);
                 if ( v9 >= 0 )
                 {
-                  if ( (v27 & 4) == 0 && (stru_140E36558.WaitRegister.Flags & 8) != 0 )
+                  if ( (v27 & 4) == 0 && (stru_140E366D8.WaitRegister.Flags & 8) != 0 )
                   {
-                    _InterlockedAdd((volatile signed __int32 *)&stru_140E2EB88.WaitBlockFill11[32], 1u);
+                    _InterlockedAdd((volatile signed __int32 *)&stru_140E2ED08.WaitBlockFill11[32], 1u);
                     v27 |= 0x10u;
                   }
                   v9 = guard_dispatch_icall_no_overrides(1LL, v20);
@@ -159,7 +159,7 @@ int __fastcall MmDuplicateMemory(__int64 a1)
                   {
                     MiIterateOverPartitions((__int64)MiResumeMarkPageLists, (__int64)&v21);
                     v27 |= 2u;
-                    if ( (stru_140E36558.WaitRegister.Flags & 8) != 0 )
+                    if ( (stru_140E366D8.WaitRegister.Flags & 8) != 0 )
                       MiRecordPostHibernateZeroPages((__int64)&v21);
                     v9 = 0;
                   }

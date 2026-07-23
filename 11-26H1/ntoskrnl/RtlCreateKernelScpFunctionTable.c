@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlCreateKernelScpFunctionTable @ 0x140622F2C
+ * XREFs of RtlCreateKernelScpFunctionTable @ 0x140625F7C
  * Callers:
- *     MiInitializeKernelScp @ 0x140CFAB28 (MiInitializeKernelScp.c)
+ *     MiInitializeKernelScp @ 0x140D00EA8 (MiInitializeKernelScp.c)
  * Callees:
- *     RtlCalculateUnwindInfoSizeForKernelScp @ 0x140622E00 (RtlCalculateUnwindInfoSizeForKernelScp.c)
- *     RtlpGetKernelScpFunctionTable @ 0x140623030 (RtlpGetKernelScpFunctionTable.c)
+ *     RtlCalculateUnwindInfoSizeForKernelScp @ 0x140625E50 (RtlCalculateUnwindInfoSizeForKernelScp.c)
+ *     RtlpGetKernelScpFunctionTable @ 0x140626080 (RtlpGetKernelScpFunctionTable.c)
  */
 
 __int64 __fastcall RtlCreateKernelScpFunctionTable(__int64 a1, _DWORD *a2, int a3)
 {
-  __int64 v3; // rsi
+  PVOID v3; // rsi
   _DWORD *KernelScpFunctionTable; // r14
   __int64 result; // rax
   unsigned int v7; // r11d
@@ -23,8 +23,8 @@ __int64 __fastcall RtlCreateKernelScpFunctionTable(__int64 a1, _DWORD *a2, int a
   v3 = PsNtosImageBase;
   v11 = 0;
   KernelScpFunctionTable = (_DWORD *)RtlpGetKernelScpFunctionTable(
-                                       PsNtosImageBase,
-                                       PsNtosImageBase,
+                                       (_DWORD)PsNtosImageBase,
+                                       (_DWORD)PsNtosImageBase,
                                        (_DWORD)a2,
                                        a3,
                                        (__int64)&v11);
@@ -40,11 +40,11 @@ __int64 __fastcall RtlCreateKernelScpFunctionTable(__int64 a1, _DWORD *a2, int a
     v10 = v11;
     do
     {
-      *(v9 - 1) = v3 + *KernelScpFunctionTable - (_DWORD)a2;
-      *v9 = v3 + KernelScpFunctionTable[1] - (_DWORD)a2;
+      *(v9 - 1) = (_DWORD)v3 + *KernelScpFunctionTable - (_DWORD)a2;
+      *v9 = (_DWORD)v3 + KernelScpFunctionTable[1] - (_DWORD)a2;
       v9[1] = v8 - (_DWORD)a2;
       v9 += 3;
-      v8 += RtlCalculateUnwindInfoSizeForKernelScp(v3, (__int64)KernelScpFunctionTable, 0LL);
+      v8 += RtlCalculateUnwindInfoSizeForKernelScp((__int64)v3, (__int64)KernelScpFunctionTable, 0LL);
       KernelScpFunctionTable += 3;
       --v10;
     }

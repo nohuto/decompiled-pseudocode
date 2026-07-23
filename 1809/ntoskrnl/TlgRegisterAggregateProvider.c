@@ -1,9 +1,9 @@
 /*
- * XREFs of TlgRegisterAggregateProvider @ 0x140742FB8
+ * XREFs of TlgRegisterAggregateProvider @ 0x1407441A8
  * Callers:
- *     PnpTraceInitialize @ 0x1409AB2EC (PnpTraceInitialize.c)
+ *     PnpTraceInitialize @ 0x1409AC2EC (PnpTraceInitialize.c)
  * Callees:
- *     TlgRegisterAggregateProviderEx @ 0x140742FD4 (TlgRegisterAggregateProviderEx.c)
+ *     TlgRegisterAggregateProviderEx @ 0x1407441C4 (TlgRegisterAggregateProviderEx.c)
  */
 
 __int64 __fastcall TlgRegisterAggregateProvider(const struct _TlgProvider_t *a1)

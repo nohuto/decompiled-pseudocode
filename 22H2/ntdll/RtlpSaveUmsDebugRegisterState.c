@@ -11,11 +11,13 @@
 __int64 __fastcall RtlpSaveUmsDebugRegisterState(__int64 a1)
 {
   __int64 v3; // rcx
-  int ContextThread; // edi
+  NTSTATUS ContextThread; // edi
+  struct _CONTEXT ThreadContext; // [rsp+20h] [rbp-4E8h] BYREF
 
   if ( !a1 )
     return 3221225485LL;
-  ContextThread = ZwGetContextThread();
+  ThreadContext.ContextFlags = 1048592;
+  ContextThread = ZwGetContextThread((HANDLE)0xFFFFFFFFFFFFFFFELL, &ThreadContext);
   if ( ContextThread >= 0 )
   {
     RtlpCopyLegacyContext(v3, a1 + 16, 1048592);

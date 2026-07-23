@@ -8,14 +8,14 @@
  *     RtlpGuardIsSuppressedAddress @ 0x1800E57F0 (RtlpGuardIsSuppressedAddress.c)
  */
 
-__int64 __fastcall RtlGuardGrantSuppressedCallAccess(__int64 a1, _DWORD *a2)
+__int64 __fastcall RtlGuardGrantSuppressedCallAccess(void *a1, _DWORD *a2)
 {
-  if ( !qword_1801572F0 )
+  if ( !LdrSystemDllInitBlock.Wow64SharedInformation[9] )
   {
     *a2 = 0;
     return 0LL;
   }
-  if ( !(unsigned __int8)RtlpGuardIsSuppressedAddress() )
+  if ( !(unsigned __int8)RtlpGuardIsSuppressedAddress(a1) )
   {
     *a2 = 0;
     return 0LL;

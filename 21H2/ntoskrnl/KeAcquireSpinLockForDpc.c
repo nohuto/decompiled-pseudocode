@@ -1,10 +1,10 @@
 /*
- * XREFs of KeAcquireSpinLockForDpc @ 0x1405166A0
+ * XREFs of KeAcquireSpinLockForDpc @ 0x1405168E0
  * Callers:
  *     <none>
  * Callees:
- *     KxAcquireSpinLock @ 0x1402295B0 (KxAcquireSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KxAcquireSpinLock @ 0x1402CDEB0 (KxAcquireSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
  */
 
 KIRQL __stdcall KeAcquireSpinLockForDpc(PKSPIN_LOCK SpinLock)

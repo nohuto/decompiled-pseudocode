@@ -55,7 +55,7 @@ LABEL_19:
   v6 = *((_DWORD *)a1 + 19);
   v20 = 0;
   v19 = 0;
-  RtlAcquireSRWLockExclusive(&unk_180166448);
+  RtlAcquireSRWLockExclusive(&SRWLock);
   v10 = v6 - 1;
   if ( !v10 )
   {
@@ -95,7 +95,7 @@ LABEL_9:
   }
   v12 = 87;
 LABEL_10:
-  RtlReleaseSRWLockExclusive(&unk_180166448);
+  RtlReleaseSRWLockExclusive(&SRWLock);
   if ( v12 )
   {
 LABEL_17:

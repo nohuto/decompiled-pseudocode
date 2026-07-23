@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpInitializeLeakDetection @ 0x18010A7C8
+ * XREFs of RtlpInitializeLeakDetection @ 0x180022D68
  * Callers:
- *     RtlDetectHeapLeaks @ 0x18010A5F0 (RtlDetectHeapLeaks.c)
+ *     RtlDetectHeapLeaks @ 0x180022B90 (RtlDetectHeapLeaks.c)
  * Callees:
- *     RtlAllocateHeap @ 0x180011260 (RtlAllocateHeap.c)
- *     RtlpInitializeMap @ 0x180042390 (RtlpInitializeMap.c)
+ *     RtlpInitializeMap @ 0x180022B44 (RtlpInitializeMap.c)
+ *     RtlAllocateHeap @ 0x18003DC60 (RtlAllocateHeap.c)
  */
 
 char RtlpInitializeLeakDetection()
@@ -20,9 +20,9 @@ char RtlpInitializeLeakDetection()
   if ( Heap )
   {
     RtlpInitializeMap(Heap, 0LL);
-    qword_1801D3E98 = (__int64)&RtlpBusyList;
+    qword_1801D2E98 = (__int64)&RtlpBusyList;
     RtlpBusyList = (__int64)&RtlpBusyList;
-    qword_1801D3EA8 = (__int64)&RtlpLeakList;
+    qword_1801D2EA8 = (__int64)&RtlpLeakList;
     RtlpLeakList = (__int64)&RtlpLeakList;
     v2 = 0x100000LL;
     do
@@ -33,7 +33,7 @@ char RtlpInitializeLeakDetection()
     while ( v2 >= v3 );
     v1[2] = -1LL;
     *v1 = v3;
-    RtlpTempBlocks = (void *)RtlAllocateHeap(RtlpLeakHeap, 0, 0x28000uLL);
+    RtlpTempBlocks = RtlAllocateHeap(RtlpLeakHeap, 0, 0x28000uLL);
     LOBYTE(Heap) = RtlpTempBlocks != 0LL;
   }
   return (char)Heap;

@@ -1,7 +1,7 @@
 /*
- * XREFs of AslFree @ 0x140A541F8
+ * XREFs of AslFree @ 0x140A544A8
  * Callers:
- *     SdbpFreeAppAttributes @ 0x140A50D2C (SdbpFreeAppAttributes.c)
+ *     SdbpFreeAppAttributes @ 0x140A50FDC (SdbpFreeAppAttributes.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */

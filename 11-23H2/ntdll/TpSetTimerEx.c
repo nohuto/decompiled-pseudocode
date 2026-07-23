@@ -18,49 +18,46 @@
  *     _guard_xfg_dispatch_icall_nop @ 0x1800A4B90 (_guard_xfg_dispatch_icall_nop.c)
  */
 
-__int64 __fastcall TpSetTimerEx(__int64 a1, _QWORD *a2, unsigned int a3, int a4)
+NTSTATUS __cdecl TpSetTimerEx(PTP_TIMER Timer, PLARGE_INTEGER DueTime, ULONG Period, ULONG WindowLength)
 {
-  __int64 v8; // r15
+  _RTL_SRWLOCK *v8; // r15
   bool v9; // di
-  __int64 v10; // r8
-  __int64 v11; // r9
-  unsigned int v12; // ebp
+  NTSTATUS v10; // ebp
 
-  if ( (unsigned int)TppTimerpValidateTimer(a1, 0LL, a2 != 0LL) )
+  if ( (unsigned int)TppTimerpValidateTimer(Timer, 0LL, DueTime != 0LL) )
   {
-    v8 = *(_QWORD *)(a1 + 144);
-    v9 = a2 != 0LL;
-    RtlAcquireSRWLockExclusive(a1 + 240);
-    LOBYTE(v10) = a2 != 0LL;
-    v12 = (unsigned __int8)TppCancelTimer(a1, v8 + 112, v10, v11);
-    if ( a2 && *(_BYTE *)(a1 + 355) )
+    v8 = (_RTL_SRWLOCK *)*((_QWORD *)Timer + 18);
+    v9 = DueTime != 0LL;
+    RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)Timer + 30);
+    v10 = (unsigned __int8)TppCancelTimer((__int64)Timer, v8 + 14, DueTime != 0LL);
+    if ( DueTime && *((_BYTE *)Timer + 355) )
     {
-      RtlReleaseSRWLockExclusive(a1 + 240);
+      RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)Timer + 30);
       v9 = 0;
     }
-    if ( (_BYTE)v12 )
+    if ( (_BYTE)v10 )
     {
       if ( !v9 )
       {
-        if ( _InterlockedExchangeAdd((volatile signed __int32 *)a1, 0xFFFFFFFF) == 1 )
-          (**(void (__fastcall ***)(__int64))(a1 + 8))(a1);
-        return v12;
+        if ( _InterlockedExchangeAdd((volatile signed __int32 *)Timer, 0xFFFFFFFF) == 1 )
+          (**((void (__fastcall ***)(PTP_TIMER))Timer + 1))(Timer);
+        return v10;
       }
     }
     else
     {
       if ( !v9 )
-        return v12;
-      if ( (unsigned int)TpIsTimerSet(a1) )
+        return v10;
+      if ( TpIsTimerSet(Timer) )
       {
 LABEL_11:
-        RtlReleaseSRWLockExclusive(a1 + 240);
-        return v12;
+        RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)Timer + 30);
+        return v10;
       }
-      _InterlockedIncrement((volatile signed __int32 *)a1);
+      _InterlockedIncrement((volatile signed __int32 *)Timer);
     }
-    TppSetTimer(a1, v8 + 112, a2, a3, a4);
+    TppSetTimer((__int64)Timer, v8 + 14, (__int64 *)DueTime, Period, WindowLength);
     goto LABEL_11;
   }
-  return 0LL;
+  return 0;
 }

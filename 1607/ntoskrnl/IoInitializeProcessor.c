@@ -1,14 +1,14 @@
 /*
- * XREFs of IoInitializeProcessor @ 0x140552A44
+ * XREFs of IoInitializeProcessor @ 0x140552F84
  * Callers:
- *     KiStartDynamicProcessor @ 0x14064F040 (KiStartDynamicProcessor.c)
+ *     KiStartDynamicProcessor @ 0x14064F124 (KiStartDynamicProcessor.c)
  *     IoInitSystemPreDrivers @ 0x14079EDEC (IoInitSystemPreDrivers.c)
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  *     ExInitializeSystemLookasideList @ 0x1403D5368 (ExInitializeSystemLookasideList.c)
- *     IopQueryProcessorInitValues @ 0x140580A30 (IopQueryProcessorInitValues.c)
+ *     IopQueryProcessorInitValues @ 0x140580EDC (IopQueryProcessorInitValues.c)
  */
 
 __int64 __fastcall IoInitializeProcessor(__int64 a1, _BYTE *a2)

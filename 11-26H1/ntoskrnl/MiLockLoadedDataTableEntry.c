@@ -1,18 +1,18 @@
 /*
- * XREFs of MiLockLoadedDataTableEntry @ 0x1406FD170
+ * XREFs of MiLockLoadedDataTableEntry @ 0x140701E40
  * Callers:
- *     LdrpKrnGetDataTableEntry @ 0x1404AB078 (LdrpKrnGetDataTableEntry.c)
- *     MiLockLoadedDataTableEntryIfNecessary @ 0x1404ABD44 (MiLockLoadedDataTableEntryIfNecessary.c)
- *     MmLockLoadedDataTableEntry @ 0x1404C3C10 (MmLockLoadedDataTableEntry.c)
- *     MmLockLoadedDataTableEntryShared @ 0x1404D9298 (MmLockLoadedDataTableEntryShared.c)
- *     MmVerifyCallbackFunctionCheckFlags @ 0x140514250 (MmVerifyCallbackFunctionCheckFlags.c)
- *     MmWriteSystemImageTracepoint @ 0x1406FCF64 (MmWriteSystemImageTracepoint.c)
- *     MmDiscardDriverSection @ 0x140D01280 (MmDiscardDriverSection.c)
+ *     LdrpKrnGetDataTableEntry @ 0x1404A4708 (LdrpKrnGetDataTableEntry.c)
+ *     MiLockLoadedDataTableEntryIfNecessary @ 0x1404A53D4 (MiLockLoadedDataTableEntryIfNecessary.c)
+ *     MmLockLoadedDataTableEntry @ 0x1404BD460 (MmLockLoadedDataTableEntry.c)
+ *     MmLockLoadedDataTableEntryShared @ 0x1404D2978 (MmLockLoadedDataTableEntryShared.c)
+ *     MmVerifyCallbackFunctionCheckFlags @ 0x14050DCC0 (MmVerifyCallbackFunctionCheckFlags.c)
+ *     MmWriteSystemImageTracepoint @ 0x140701C34 (MmWriteSystemImageTracepoint.c)
+ *     MmDiscardDriverSection @ 0x140D07620 (MmDiscardDriverSection.c)
  * Callees:
- *     MmFindDataTableEntryByAddress @ 0x140366EA0 (MmFindDataTableEntryByAddress.c)
- *     MmReleaseLoadLockShared @ 0x1404A4BD8 (MmReleaseLoadLockShared.c)
- *     MiAcquireLoadLock @ 0x1404AB9EC (MiAcquireLoadLock.c)
- *     MiLockLoaderEntry @ 0x14051E298 (MiLockLoaderEntry.c)
+ *     MmFindDataTableEntryByAddress @ 0x140368C40 (MmFindDataTableEntryByAddress.c)
+ *     MmReleaseLoadLockShared @ 0x14049E268 (MmReleaseLoadLockShared.c)
+ *     MiAcquireLoadLock @ 0x1404A507C (MiAcquireLoadLock.c)
+ *     MiLockLoaderEntry @ 0x1405208A8 (MiLockLoaderEntry.c)
  */
 
 struct _LIST_ENTRY *__fastcall MiLockLoadedDataTableEntry(unsigned __int64 a1, int a2)

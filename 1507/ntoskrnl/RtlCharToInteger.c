@@ -11,14 +11,14 @@ NTSTATUS __stdcall RtlCharToInteger(PCSZ String, ULONG Base, PULONG Value)
 {
   ULONG v4; // r10d
   PCSZ v5; // r9
-  char v6; // r11
+  CHAR v6; // r11
   _BYTE *v7; // r9
-  char v8; // r8
+  CHAR v8; // r8
   int v9; // ecx
   ULONG v10; // edx
   unsigned int v11; // eax
   char v13; // al
-  char *v14; // r9
+  CHAR *v14; // r9
 
   v4 = Base;
   v5 = String;

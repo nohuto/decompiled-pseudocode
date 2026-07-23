@@ -64,7 +64,7 @@ LABEL_19:
         v16[0] = -1;
         if ( a2 )
         {
-          if ( sub_140459288(0LL, (int)&DestinationString, &DEVPKEY_DeviceInterface_Enabled, 17, 1u, v16) < 0 )
+          if ( sub_140459288(0LL, (__int64)&DestinationString, &DEVPKEY_DeviceInterface_Enabled, 17, 1u, v16) < 0 )
             goto LABEL_29;
           if ( v16[0] != -1 )
             break;

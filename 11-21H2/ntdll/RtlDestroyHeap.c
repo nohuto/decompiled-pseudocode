@@ -24,39 +24,36 @@
  *     RtlpHeapLogRangeRelease @ 0x180114FF4 (RtlpHeapLogRangeRelease.c)
  */
 
-__int64 __fastcall RtlDestroyHeap(__int64 a1)
+PVOID __cdecl RtlDestroyHeap(PVOID HeapHandle)
 {
   int v2; // ecx
-  unsigned __int64 v3; // rdx
-  __int64 v4; // rcx
-  unsigned __int64 v5; // r8
-  unsigned __int64 v6; // r9
-  __int64 v7; // rsi
-  _QWORD *v8; // rbx
+  __int64 v3; // rcx
+  __int64 v4; // rsi
+  _QWORD *v5; // rbx
+  PVOID v6; // rbx
+  __int64 v7; // rbx
+  __int64 v8; // rcx
   __int64 v9; // rbx
-  __int64 v10; // rbx
-  __int64 v11; // rcx
-  __int64 v12; // rbx
-  __int64 v13; // rcx
-  int v15; // ecx
-  __int64 v16; // rdx
-  __int64 v17; // r8
-  __int64 v18; // r9
-  unsigned __int64 v19; // rax
-  __int64 v20; // rcx
-  __int64 v21; // rcx
-  __int64 v22; // [rsp+38h] [rbp-39h] BYREF
-  __int64 v23; // [rsp+40h] [rbp-31h] BYREF
-  unsigned __int64 v24; // [rsp+48h] [rbp-29h] BYREF
-  __int64 v25; // [rsp+50h] [rbp-21h] BYREF
-  char v26[6]; // [rsp+58h] [rbp-19h] BYREF
-  __int16 v27; // [rsp+5Eh] [rbp-13h]
-  __int64 v28; // [rsp+78h] [rbp+7h]
-  char v29[6]; // [rsp+80h] [rbp+Fh] BYREF
-  __int16 v30; // [rsp+86h] [rbp+15h]
-  __int64 v31; // [rsp+A0h] [rbp+2Fh]
+  __int64 v10; // rcx
+  int v12; // ecx
+  __int64 v13; // rdx
+  __int64 v14; // r8
+  __int64 v15; // r9
+  unsigned __int64 v16; // rax
+  void *v17; // rcx
+  void *v18; // rcx
+  PVOID v19; // [rsp+38h] [rbp-39h] BYREF
+  ULONG_PTR v20; // [rsp+40h] [rbp-31h] BYREF
+  unsigned __int64 v21; // [rsp+48h] [rbp-29h] BYREF
+  ULONG_PTR v22; // [rsp+50h] [rbp-21h] BYREF
+  char Fields[6]; // [rsp+58h] [rbp-19h] BYREF
+  __int16 v24; // [rsp+5Eh] [rbp-13h]
+  PVOID v25; // [rsp+78h] [rbp+7h]
+  char v26[6]; // [rsp+80h] [rbp+Fh] BYREF
+  __int16 v27; // [rsp+86h] [rbp+15h]
+  PVOID v28; // [rsp+A0h] [rbp+2Fh]
 
-  if ( !a1 )
+  if ( !HeapHandle )
   {
     if ( RtlpHeapErrorHandlerThreshold >= 2 )
     {
@@ -69,108 +66,108 @@ __int64 __fastcall RtlDestroyHeap(__int64 a1)
     }
     return 0LL;
   }
-  if ( *(_DWORD *)(a1 + 16) == -571548178 )
+  if ( *((_DWORD *)HeapHandle + 4) == -571548178 )
   {
-    if ( (void *)a1 != NtCurrentPeb()->ProcessHeap )
+    if ( HeapHandle != NtCurrentPeb()->ProcessHeap )
     {
-      v15 = *(_DWORD *)(a1 + 24);
-      if ( v15 )
-        RtlpCallInterceptRoutine(v15, a1, 0, 8, 0LL);
-      RtlpHpStackTraceHeapDestroy(a1);
-      RtlpHpTagDestroyHeap(a1);
-      RtlpMoveHeapBetweenLists(a1, 1, 0, 0);
-      RtlpHpHeapDestroy(a1, v16, v17, v18);
+      v12 = *((_DWORD *)HeapHandle + 6);
+      if ( v12 )
+        RtlpCallInterceptRoutine(v12, (_DWORD)HeapHandle, 0, 8, 0LL);
+      RtlpHpStackTraceHeapDestroy(HeapHandle);
+      RtlpHpTagDestroyHeap(HeapHandle);
+      RtlpMoveHeapBetweenLists((__int64)HeapHandle, 1, 0, 0);
+      RtlpHpHeapDestroy((__int64)HeapHandle, v13, v14, v15);
       return 0LL;
     }
   }
   else
   {
-    if ( (*(_DWORD *)(a1 + 116) & 0x1000000) != 0 )
-      return ((__int64 (*)(void))qword_180174270)();
-    v2 = *(_DWORD *)(a1 + 144);
+    if ( (*((_DWORD *)HeapHandle + 29) & 0x1000000) != 0 )
+      return (PVOID)((__int64 (*)(void))qword_180174270)();
+    v2 = *((_DWORD *)HeapHandle + 36);
     if ( v2 )
-      RtlpCallInterceptRoutine(v2, a1, 0, 8, 0LL);
-    RtlpHpStackTraceHeapDestroy(a1);
-    if ( ((*(_DWORD *)(a1 + 112) & 0x61000000) == 0
-       || (*(_DWORD *)(a1 + 112) & 0x10000000) != 0
-       || (unsigned __int8)RtlDebugDestroyHeap(a1))
-      && (void *)a1 != NtCurrentPeb()->ProcessHeap )
+      RtlpCallInterceptRoutine(v2, (_DWORD)HeapHandle, 0, 8, 0LL);
+    RtlpHpStackTraceHeapDestroy(HeapHandle);
+    if ( ((*((_DWORD *)HeapHandle + 28) & 0x61000000) == 0
+       || (*((_DWORD *)HeapHandle + 28) & 0x10000000) != 0
+       || (unsigned __int8)RtlDebugDestroyHeap(HeapHandle))
+      && HeapHandle != NtCurrentPeb()->ProcessHeap )
     {
-      RtlpMoveHeapBetweenLists(a1, 1, 0, 0);
-      v7 = 2147353480LL;
-      v8 = *(_QWORD **)(a1 + 272);
-      while ( (_QWORD *)(a1 + 272) != v8 )
+      RtlpMoveHeapBetweenLists((__int64)HeapHandle, 1, 0, 0);
+      v4 = 2147353480LL;
+      v5 = (_QWORD *)*((_QWORD *)HeapHandle + 34);
+      while ( (char *)HeapHandle + 272 != (char *)v5 )
       {
-        v19 = (unsigned __int64)v8;
-        v8 = (_QWORD *)*v8;
-        v23 = 0LL;
-        v24 = v19 & 0xFFFFFFFFFFFF0000uLL;
-        RtlpSecMemFreeVirtualMemory(v4, &v24, &v23, 0x8000LL);
-        if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-          v4 = (__int64)NtCurrentPeb()->SharedData + 558;
+        v16 = (unsigned __int64)v5;
+        v5 = (_QWORD *)*v5;
+        v20 = 0LL;
+        v21 = v16 & 0xFFFFFFFFFFFF0000uLL;
+        RtlpSecMemFreeVirtualMemory(v3, (PVOID *)&v21, &v20, 0x8000u);
+        if ( RtlGetCurrentServiceSessionId() )
+          v3 = (__int64)NtCurrentPeb()->SharedData + 558;
         else
-          v4 = 2147353480LL;
-        if ( *(_BYTE *)v4 )
-          RtlpHeapLogRangeRelease(a1, v24, v23);
+          v3 = 2147353480LL;
+        if ( *(_BYTE *)v3 )
+          RtlpHeapLogRangeRelease(HeapHandle, v21, v20);
       }
-      if ( *(_BYTE *)(a1 + 418) == 2 && *(_QWORD *)(a1 + 408) )
+      if ( *((_BYTE *)HeapHandle + 418) == 2 && *((_QWORD *)HeapHandle + 51) )
       {
-        v22 = *(_QWORD *)(a1 + 408);
-        v25 = 0LL;
-        RtlpSecMemFreeVirtualMemory(v4, &v22, &v25, 0x8000LL);
-      }
-      if ( *(_QWORD *)(a1 + 232) )
-      {
+        v19 = (PVOID)*((_QWORD *)HeapHandle + 51);
         v22 = 0LL;
-        RtlpSecMemFreeVirtualMemory(v4, (_QWORD *)(a1 + 232), &v22, 0x8000LL);
-        *(_QWORD *)(a1 + 232) = 0LL;
+        RtlpSecMemFreeVirtualMemory(v3, &v19, &v22, 0x8000u);
       }
-      if ( (*(_BYTE *)(a1 + 112) & 1) == 0 )
+      if ( *((_QWORD *)HeapHandle + 29) )
       {
-        if ( *(int *)(a1 + 112) >= 0 )
-          RtlDeleteCriticalSection(*(__int64 **)(a1 + 352), v3, v5, v6);
-        *(_QWORD *)(a1 + 352) = 0LL;
+        v19 = 0LL;
+        RtlpSecMemFreeVirtualMemory(v3, (PVOID *)HeapHandle + 29, (ULONG_PTR *)&v19, 0x8000u);
+        *((_QWORD *)HeapHandle + 29) = 0LL;
+      }
+      if ( (*((_BYTE *)HeapHandle + 112) & 1) == 0 )
+      {
+        if ( *((int *)HeapHandle + 28) >= 0 )
+          RtlDeleteCriticalSection(*((PRTL_CRITICAL_SECTION *)HeapHandle + 44));
+        *((_QWORD *)HeapHandle + 44) = 0LL;
       }
       do
       {
-        v9 = *(_QWORD *)(a1 + 296) - 24LL;
-        RtlpDestroyHeapSegment(v9);
+        v6 = (PVOID)(*((_QWORD *)HeapHandle + 37) - 24LL);
+        RtlpDestroyHeapSegment(v6);
       }
-      while ( v9 != a1 );
-      v10 = 2147353472LL;
-      if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-        v11 = (__int64)NtCurrentPeb()->SharedData + 550;
+      while ( v6 != HeapHandle );
+      v7 = 2147353472LL;
+      if ( RtlGetCurrentServiceSessionId() )
+        v8 = (__int64)NtCurrentPeb()->SharedData + 550;
       else
-        v11 = 2147353472LL;
-      if ( *(_BYTE *)v11 && (NtCurrentPeb()->TracingFlags & 1) != 0 )
+        v8 = 2147353472LL;
+      if ( *(_BYTE *)v8 && (NtCurrentPeb()->TracingFlags & 1) != 0 )
       {
-        if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-          v10 = (__int64)NtCurrentPeb()->SharedData + 550;
-        v20 = *(unsigned __int8 *)v10;
-        v28 = a1;
+        if ( RtlGetCurrentServiceSessionId() )
+          v7 = (__int64)NtCurrentPeb()->SharedData + 550;
+        v17 = (void *)*(unsigned __int8 *)v7;
+        v25 = HeapHandle;
+        v24 = 4131;
+        NtTraceEvent(v17, 0x402u, 8u, Fields);
+      }
+      v9 = 2147353482LL;
+      if ( RtlGetCurrentServiceSessionId() )
+        v10 = (__int64)NtCurrentPeb()->SharedData + 560;
+      else
+        v10 = 2147353482LL;
+      if ( *(_BYTE *)v10 )
+      {
+        if ( RtlGetCurrentServiceSessionId() )
+          v9 = (__int64)NtCurrentPeb()->SharedData + 560;
+        v18 = (void *)*(unsigned __int8 *)v9;
+        v28 = HeapHandle;
         v27 = 4131;
-        NtTraceEvent(v20, 1026LL, 8LL, v26);
+        NtTraceEvent(v18, 0x402u, 8u, v26);
       }
-      v12 = 2147353482LL;
-      if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-        v13 = (__int64)NtCurrentPeb()->SharedData + 560;
-      else
-        v13 = 2147353482LL;
-      if ( *(_BYTE *)v13 )
-      {
-        if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-          v12 = (__int64)NtCurrentPeb()->SharedData + 560;
-        v21 = *(unsigned __int8 *)v12;
-        v31 = a1;
-        v30 = 4131;
-        NtTraceEvent(v21, 1026LL, 8LL, v29);
-      }
-      if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-        v7 = (__int64)NtCurrentPeb()->SharedData + 558;
-      if ( *(_BYTE *)v7 )
-        RtlpHeapLogRangeDestroy(a1);
+      if ( RtlGetCurrentServiceSessionId() )
+        v4 = (__int64)NtCurrentPeb()->SharedData + 558;
+      if ( *(_BYTE *)v4 )
+        RtlpHeapLogRangeDestroy(HeapHandle);
       return 0LL;
     }
   }
-  return a1;
+  return HeapHandle;
 }

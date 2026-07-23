@@ -1,25 +1,25 @@
 /*
- * XREFs of KiParkUmsThread @ 0x1401DC264
+ * XREFs of KiParkUmsThread @ 0x1401DC090
  * Callers:
- *     KiUmsExit @ 0x140170D40 (KiUmsExit.c)
+ *     KiUmsExit @ 0x140171240 (KiUmsExit.c)
  * Callees:
- *     KiLeaveGuardedRegionUnsafe @ 0x140013B70 (KiLeaveGuardedRegionUnsafe.c)
- *     EtwTraceKernelEvent @ 0x140014190 (EtwTraceKernelEvent.c)
- *     KeWaitForSingleObject @ 0x14005C880 (KeWaitForSingleObject.c)
- *     KiDeliverApc @ 0x14005DBD0 (KiDeliverApc.c)
- *     RtlXRestore @ 0x140082DAC (RtlXRestore.c)
- *     KiDispatchException @ 0x1400F3D60 (KiDispatchException.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     ZwTerminateProcess @ 0x14015A200 (ZwTerminateProcess.c)
- *     ZwTerminateThread @ 0x14015A6E0 (ZwTerminateThread.c)
- *     KeResetLegacyFloatingPointState @ 0x14015DB60 (KeResetLegacyFloatingPointState.c)
- *     KeRestoreLegacyFloatingPointControlWord @ 0x14015DB80 (KeRestoreLegacyFloatingPointControlWord.c)
- *     __chkstk @ 0x140167650 (__chkstk.c)
- *     KiUmsRestoreUch @ 0x140170880 (KiUmsRestoreUch.c)
- *     KiIsPrimaryPresent @ 0x1401DC17C (KiIsPrimaryPresent.c)
- *     KeUpdateUmsThreadState @ 0x14065074C (KeUpdateUmsThreadState.c)
- *     KiUmsExceptionFilter @ 0x140650D28 (KiUmsExceptionFilter.c)
- *     KiCaptureUmsThreadContext @ 0x140651B0C (KiCaptureUmsThreadContext.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1400136F0 (KiLeaveGuardedRegionUnsafe.c)
+ *     EtwTraceKernelEvent @ 0x140013D10 (EtwTraceKernelEvent.c)
+ *     KeWaitForSingleObject @ 0x14005C400 (KeWaitForSingleObject.c)
+ *     KiDeliverApc @ 0x14005D750 (KiDeliverApc.c)
+ *     RtlXRestore @ 0x140083A2C (RtlXRestore.c)
+ *     KiDispatchException @ 0x1400F1BB0 (KiDispatchException.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     ZwTerminateProcess @ 0x14015A770 (ZwTerminateProcess.c)
+ *     ZwTerminateThread @ 0x14015AC50 (ZwTerminateThread.c)
+ *     KeResetLegacyFloatingPointState @ 0x14015E0D0 (KeResetLegacyFloatingPointState.c)
+ *     KeRestoreLegacyFloatingPointControlWord @ 0x14015E0F0 (KeRestoreLegacyFloatingPointControlWord.c)
+ *     __chkstk @ 0x140167BC0 (__chkstk.c)
+ *     KiUmsRestoreUch @ 0x140170D80 (KiUmsRestoreUch.c)
+ *     KiIsPrimaryPresent @ 0x1401DBFA8 (KiIsPrimaryPresent.c)
+ *     KeUpdateUmsThreadState @ 0x140650830 (KeUpdateUmsThreadState.c)
+ *     KiUmsExceptionFilter @ 0x140650E0C (KiUmsExceptionFilter.c)
+ *     KiCaptureUmsThreadContext @ 0x140651BF0 (KiCaptureUmsThreadContext.c)
  */
 
 NTSTATUS __fastcall KiParkUmsThread(__int64 SparePtr)
@@ -39,7 +39,7 @@ NTSTATUS __fastcall KiParkUmsThread(__int64 SparePtr)
   unsigned __int8 CurrentIrql; // [rsp+38h] [rbp+8h]
   unsigned __int64 NpxState; // [rsp+38h] [rbp+8h]
   __int64 v16; // [rsp+68h] [rbp+38h] BYREF
-  struct _EXCEPTION_RECORD ExitStatus; // [rsp+70h] [rbp+40h] BYREF
+  EXCEPTION_RECORD ExitStatus; // [rsp+70h] [rbp+40h] BYREF
   unsigned __int64 v18; // [rsp+110h] [rbp+E0h] BYREF
   _DWORD v19[4]; // [rsp+C00h] [rbp+BD0h] BYREF
   _QWORD v20[2]; // [rsp+C10h] [rbp+BE0h] BYREF

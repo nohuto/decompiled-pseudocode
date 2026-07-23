@@ -1,15 +1,15 @@
 /*
- * XREFs of _handle_error @ 0x1403DDA20
+ * XREFs of _handle_error @ 0x1403DDC00
  * Callers:
- *     sqrt @ 0x1403DAD00 (sqrt.c)
+ *     sqrt @ 0x1403DAEE0 (sqrt.c)
  * Callees:
- *     xHalTimerWatchdogStop @ 0x14036E3C0 (xHalTimerWatchdogStop.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     _call_matherr @ 0x1403DD8E0 (_call_matherr.c)
- *     _exception_enabled @ 0x1403DD95C (_exception_enabled.c)
- *     _raise_exc @ 0x1403DDF90 (_raise_exc.c)
- *     _ctrlfp @ 0x1403DE2AC (_ctrlfp.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     xHalTimerWatchdogStop @ 0x14036E560 (xHalTimerWatchdogStop.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     _call_matherr @ 0x1403DDAC0 (_call_matherr.c)
+ *     _exception_enabled @ 0x1403DDB3C (_exception_enabled.c)
+ *     _raise_exc @ 0x1403DE170 (_raise_exc.c)
+ *     _ctrlfp @ 0x1403DE48C (_ctrlfp.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 double __fastcall handle_error(

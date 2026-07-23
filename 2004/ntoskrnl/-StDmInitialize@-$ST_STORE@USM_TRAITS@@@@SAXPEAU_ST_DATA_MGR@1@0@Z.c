@@ -43,21 +43,21 @@ unsigned __int64 __fastcall ST_STORE<SM_TRAITS>::StDmInitialize(__int64 a1, __in
   memset((void *)(a1 + 1376), 0, 0x60uLL);
   *(_QWORD *)(a1 + 1448) = a1 + 1440;
   *(_QWORD *)(a1 + 1440) = 0LL;
-  *(_DWORD *)(a1 + 1428) = (__int64)((unsigned int)KeMaximumIncrement
+  *(_DWORD *)(a1 + 1428) = (__int64)(KeMaximumIncrement
                                    * (unsigned __int64)(unsigned int)((__int64)MEMORY[0xFFFFF78000000320] >> 12)) >> 17;
   *(_DWORD *)(a1 + 1472) = 0;
   *(_QWORD *)(a1 + 1504) = a2;
   memset((void *)(a1 + 1512), 0, 0x60uLL);
   *(_QWORD *)(a1 + 1584) = a1 + 1576;
   *(_QWORD *)(a1 + 1576) = 0LL;
-  *(_DWORD *)(a1 + 1564) = (__int64)((unsigned int)KeMaximumIncrement
+  *(_DWORD *)(a1 + 1564) = (__int64)(KeMaximumIncrement
                                    * (unsigned __int64)(unsigned int)((__int64)MEMORY[0xFFFFF78000000320] >> 12)) >> 17;
   *(_DWORD *)(a1 + 1608) = 1;
   *(_QWORD *)(a1 + 1640) = a2;
   memset((void *)(a1 + 1648), 0, 0x60uLL);
   *(_QWORD *)(a1 + 1720) = a1 + 1712;
   *(_QWORD *)(a1 + 1712) = 0LL;
-  *(_DWORD *)(a1 + 1700) = (__int64)((unsigned int)KeMaximumIncrement
+  *(_DWORD *)(a1 + 1700) = (__int64)(KeMaximumIncrement
                                    * (unsigned __int64)(unsigned int)((__int64)MEMORY[0xFFFFF78000000320] >> 12)) >> 17;
   *(_DWORD *)(a1 + 1608) = 2;
   *(_QWORD *)(a1 + 1760) = 0LL;

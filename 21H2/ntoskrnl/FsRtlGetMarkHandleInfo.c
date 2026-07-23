@@ -1,9 +1,9 @@
 /*
- * XREFs of FsRtlGetMarkHandleInfo @ 0x1404F01D8
+ * XREFs of FsRtlGetMarkHandleInfo @ 0x1404F0158
  * Callers:
- *     FsRtlCheckOplockEx2 @ 0x140353D20 (FsRtlCheckOplockEx2.c)
+ *     FsRtlCheckOplockEx2 @ 0x14035EA70 (FsRtlCheckOplockEx2.c)
  * Callees:
- *     IoIs32bitProcess @ 0x1402644F0 (IoIs32bitProcess.c)
+ *     IoIs32bitProcess @ 0x140252580 (IoIs32bitProcess.c)
  */
 
 __int64 __fastcall FsRtlGetMarkHandleInfo(IRP *a1)

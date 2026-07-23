@@ -1,9 +1,9 @@
 /*
  * XREFs of MmSecureVirtualMemory @ 0x1406A2410
  * Callers:
- *     RtlFileMapMapView @ 0x1403CB4C0 (RtlFileMapMapView.c)
- *     DifMmSecureVirtualMemoryWrapper @ 0x1406177B0 (DifMmSecureVirtualMemoryWrapper.c)
- *     PspAllocateProcess @ 0x14070BD10 (PspAllocateProcess.c)
+ *     sub_1403CB4C0 @ 0x1403CB4C0 (sub_1403CB4C0.c)
+ *     sub_1406177B0 @ 0x1406177B0 (sub_1406177B0.c)
+ *     sub_14070BD10 @ 0x14070BD10 (sub_14070BD10.c)
  * Callees:
  *     MmSecureVirtualMemoryEx @ 0x1406A2440 (MmSecureVirtualMemoryEx.c)
  */

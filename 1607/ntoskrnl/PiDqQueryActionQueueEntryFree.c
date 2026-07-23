@@ -1,11 +1,11 @@
 /*
- * XREFs of PiDqQueryActionQueueEntryFree @ 0x14048BD04
+ * XREFs of PiDqQueryActionQueueEntryFree @ 0x14048C268
  * Callers:
- *     PiDqQuerySerializeActionQueue @ 0x14048B994 (PiDqQuerySerializeActionQueue.c)
- *     PiDqQueryFreeActiveData @ 0x14048CA74 (PiDqQueryFreeActiveData.c)
+ *     PiDqQuerySerializeActionQueue @ 0x14048BEF8 (PiDqQuerySerializeActionQueue.c)
+ *     PiDqQueryFreeActiveData @ 0x14048D088 (PiDqQueryFreeActiveData.c)
  * Callees:
- *     PiDmObjectRelease @ 0x1404FEFC0 (PiDmObjectRelease.c)
- *     PiPnpRtlObjectEventRelease @ 0x140501E38 (PiPnpRtlObjectEventRelease.c)
+ *     PiDmObjectRelease @ 0x1404E1F50 (PiDmObjectRelease.c)
+ *     PiPnpRtlObjectEventRelease @ 0x1404E4DC8 (PiPnpRtlObjectEventRelease.c)
  */
 
 void __fastcall PiDqQueryActionQueueEntryFree(_QWORD *a1)

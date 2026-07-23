@@ -1,11 +1,11 @@
 /*
- * XREFs of KeSetUserCetAppcompatOptions @ 0x1405FA9AC
+ * XREFs of KeSetUserCetAppcompatOptions @ 0x1405FD3CC
  * Callers:
- *     KseUserCetBasicModeAllowRetTargetNotCetCompatHookDriverTargeted @ 0x1405FFAF0 (KseUserCetBasicModeAllowRetTargetNotCetCompatHookDriverTargeted.c)
+ *     KseUserCetBasicModeAllowRetTargetNotCetCompatHookDriverTargeted @ 0x140602540 (KseUserCetBasicModeAllowRetTargetNotCetCompatHookDriverTargeted.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void KeSetUserCetAppcompatOptions()
@@ -19,8 +19,8 @@ void KeSetUserCetAppcompatOptions()
   __int64 v6; // [rsp+78h] [rbp-20h]
 
   if ( !_interlockedbittestandset(&KiUserCetAppcompatOptions, 0)
-    && (unsigned int)dword_140E06F90 > 5
-    && tlgKeywordOn((__int64)&dword_140E06F90, 0x400000000000LL) )
+    && (unsigned int)dword_140E06F58 > 5
+    && tlgKeywordOn((__int64)&dword_140E06F58, 0x400000000000LL) )
   {
     v0 = KiUserCetAppcompatOptions;
     v4 = 4LL;
@@ -28,6 +28,6 @@ void KeSetUserCetAppcompatOptions()
     v1 = 0x1000000LL;
     v5 = &v1;
     v6 = 8LL;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E06F90, (unsigned __int8 *)&dword_1400492CC, 0LL, 0LL, 4u, &v2);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E06F58, (unsigned __int8 *)&dword_1400498CC, 0LL, 0LL, 4u, &v2);
   }
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of XmByteImmediate @ 0x1404E52A0
+ * XREFs of XmByteImmediate @ 0x1404E54E0
  * Callers:
- *     XmEmulateStream @ 0x140397208 (XmEmulateStream.c)
+ *     XmEmulateStream @ 0x140397358 (XmEmulateStream.c)
  * Callees:
- *     XmGetImmediateSourceValue @ 0x140396FC0 (XmGetImmediateSourceValue.c)
+ *     XmGetImmediateSourceValue @ 0x140397110 (XmGetImmediateSourceValue.c)
  */
 
 __int64 __fastcall XmByteImmediate(__int64 a1)

@@ -7,21 +7,20 @@
  *     _RtlRaiseStatus@4 @ 0x4B308980 (_RtlRaiseStatus@4.c)
  */
 
-int __thiscall RtlDecodePointer(void *this, int a2)
+PVOID __cdecl RtlDecodePointer(PVOID Ptr)
 {
-  int v2; // edx
-  int v4; // eax
-  int v5; // [esp+0h] [ebp-4h] BYREF
+  PULONG v1; // edx
+  int v3; // eax
+  ULONG *ProcessInformation; // [esp+0h] [ebp-4h] BYREF
 
-  v5 = (int)this;
-  v2 = `RtlpGetCookieValue'::`2'::CookieValue;
+  v1 = `RtlpGetCookieValue'::`2'::CookieValue;
   if ( !`RtlpGetCookieValue'::`2'::CookieValue )
   {
-    v4 = ZwQueryInformationProcess(-1, 36, &v5, 4, 0);
-    if ( v4 < 0 )
-      RtlRaiseStatus(v4);
-    v2 = v5;
-    `RtlpGetCookieValue'::`2'::CookieValue = v5;
+    v3 = ZwQueryInformationProcess((HANDLE)0xFFFFFFFF, ProcessCookie, &ProcessInformation, 4u, 0);
+    if ( v3 < 0 )
+      RtlRaiseStatus(v3);
+    v1 = ProcessInformation;
+    `RtlpGetCookieValue'::`2'::CookieValue = ProcessInformation;
   }
-  return v2 ^ __ROR4__(a2, 32 - (v2 & 0x1F));
+  return (PVOID)((unsigned int)v1 ^ __ROR4__(Ptr, 32 - ((unsigned __int8)v1 & 0x1F)));
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of DbgkpDereferenceErrorPort @ 0x140532ABC
+ * XREFs of DbgkpDereferenceErrorPort @ 0x140534F5C
  * Callers:
- *     DbgkpSendErrorMessage @ 0x140954DF4 (DbgkpSendErrorMessage.c)
- *     DbgkFlushErrorPort @ 0x140A43A48 (DbgkFlushErrorPort.c)
- *     DbgkpRemoveErrorPort @ 0x140B3A9A0 (DbgkpRemoveErrorPort.c)
- *     DbgkRegisterErrorPort @ 0x140B581C4 (DbgkRegisterErrorPort.c)
+ *     DbgkFlushErrorPort @ 0x140AF614C (DbgkFlushErrorPort.c)
+ *     DbgkpRemoveErrorPort @ 0x140AF6254 (DbgkpRemoveErrorPort.c)
+ *     DbgkRegisterErrorPort @ 0x140B5AFE4 (DbgkRegisterErrorPort.c)
+ *     DbgkpSendErrorMessage @ 0x140B5CE74 (DbgkpSendErrorMessage.c)
  * Callees:
- *     DbgkpDeleteErrorPort @ 0x14078AF50 (DbgkpDeleteErrorPort.c)
+ *     DbgkpDeleteErrorPort @ 0x14078DA80 (DbgkpDeleteErrorPort.c)
  */
 
 __int64 __fastcall DbgkpDereferenceErrorPort(volatile signed __int32 *a1)

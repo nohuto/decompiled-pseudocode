@@ -1,9 +1,9 @@
 /*
- * XREFs of FsRtlNumberOfRunsInMcb @ 0x14057FC40
+ * XREFs of FsRtlNumberOfRunsInMcb @ 0x14057D080
  * Callers:
  *     <none>
  * Callees:
- *     FsRtlNumberOfRunsInLargeMcb @ 0x14047F220 (FsRtlNumberOfRunsInLargeMcb.c)
+ *     FsRtlNumberOfRunsInLargeMcb @ 0x14047A040 (FsRtlNumberOfRunsInLargeMcb.c)
  */
 
 ULONG __stdcall FsRtlNumberOfRunsInMcb(PMCB Mcb)

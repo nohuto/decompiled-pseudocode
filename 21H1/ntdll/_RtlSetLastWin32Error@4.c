@@ -25,32 +25,29 @@
  *     @__security_check_cookie@4 @ 0x4B2F4B20 (@__security_check_cookie@4.c)
  */
 
-struct _TEB *__stdcall RtlSetLastWin32Error(struct _TEB *a1)
+void __cdecl RtlSetLastWin32Error(LONG Win32Error)
 {
-  struct _TEB *result; // eax
-  _DWORD v2[5]; // [esp+0h] [ebp-18h] BYREF
+  struct _TEB *v1; // eax
+  _EVENT_DATA_DESCRIPTOR UserData; // [esp+0h] [ebp-18h] BYREF
 
-  result = NtCurrentTeb();
-  if ( g_dwLastErrorToBreakOn && a1 == (struct _TEB *)g_dwLastErrorToBreakOn )
+  v1 = NtCurrentTeb();
+  if ( g_dwLastErrorToBreakOn && Win32Error == g_dwLastErrorToBreakOn )
     __debugbreak();
-  if ( (struct _TEB *)result->LastErrorValue != a1 )
+  if ( v1->LastErrorValue != Win32Error )
   {
-    result->LastErrorValue = (unsigned int)a1;
-    result = a1;
-    if ( a1 )
+    v1->LastErrorValue = Win32Error;
+    if ( Win32Error )
     {
       if ( g_isErrorOriginProviderEnabled )
       {
-        if ( a1 != (struct _TEB *)997 )
+        if ( Win32Error != 997 )
         {
-          v2[1] = 0;
-          v2[0] = &a1;
-          v2[2] = 4;
-          v2[3] = 0;
-          return (struct _TEB *)EtwEventWrite(g_hUserDiagnosticProvider, dword_4B3A479C, SetLastWin32ErrorEvent, 1, v2);
+          UserData.Ptr = (unsigned int)&Win32Error;
+          UserData.Size = 4;
+          UserData.Reserved = 0;
+          EtwEventWrite(g_hUserDiagnosticProvider, &SetLastWin32ErrorEvent, 1u, &UserData);
         }
       }
     }
   }
-  return result;
 }

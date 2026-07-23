@@ -9,9 +9,7 @@
 
 NTSTATUS __stdcall ZwResumeThread(HANDLE ThreadHandle, PULONG SuspendCount)
 {
-  __int64 v2; // r8
-
   _disable();
   __readeflags();
-  return KiServiceInternal(ThreadHandle, SuspendCount, v2);
+  return KiServiceInternal(ThreadHandle);
 }

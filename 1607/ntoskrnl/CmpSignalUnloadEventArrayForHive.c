@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpSignalUnloadEventArrayForHive @ 0x14049FC28
+ * XREFs of CmpSignalUnloadEventArrayForHive @ 0x140518034
  * Callers:
- *     CmpDoReconcileNextHive @ 0x1404806D8 (CmpDoReconcileNextHive.c)
- *     CmUnloadKey @ 0x14049F858 (CmUnloadKey.c)
+ *     CmpDoReconcileNextHive @ 0x14047F42C (CmpDoReconcileNextHive.c)
+ *     CmUnloadKey @ 0x140517C64 (CmUnloadKey.c)
  * Callees:
- *     KeSetEvent @ 0x1400562D0 (KeSetEvent.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
+ *     KeSetEvent @ 0x140055E50 (KeSetEvent.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  */
 

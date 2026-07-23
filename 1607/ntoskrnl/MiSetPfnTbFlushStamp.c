@@ -1,15 +1,15 @@
 /*
- * XREFs of MiSetPfnTbFlushStamp @ 0x1400E7490
+ * XREFs of MiSetPfnTbFlushStamp @ 0x1400E5330
  * Callers:
- *     MiFinalizePageAttribute @ 0x14002375C (MiFinalizePageAttribute.c)
- *     MiGetPageChain @ 0x14003D480 (MiGetPageChain.c)
- *     MiFindNonPagedPoolPages @ 0x1400E7060 (MiFindNonPagedPoolPages.c)
- *     MiInitializePfn @ 0x1400E7280 (MiInitializePfn.c)
- *     MiGetPageTablePages @ 0x140102808 (MiGetPageTablePages.c)
- *     MiClaimPhysicalRun @ 0x1401063DC (MiClaimPhysicalRun.c)
- *     MiMapPageFileHash @ 0x140116930 (MiMapPageFileHash.c)
- *     MiPerformFinalZeroing @ 0x1401F2E40 (MiPerformFinalZeroing.c)
- *     MiSwapNumaStandbyPage @ 0x1401F3ACC (MiSwapNumaStandbyPage.c)
+ *     MiFinalizePageAttribute @ 0x1400232DC (MiFinalizePageAttribute.c)
+ *     MiGetPageChain @ 0x14003D000 (MiGetPageChain.c)
+ *     MiFindNonPagedPoolPages @ 0x1400E4F00 (MiFindNonPagedPoolPages.c)
+ *     MiInitializePfn @ 0x1400E5120 (MiInitializePfn.c)
+ *     MiGetPageTablePages @ 0x140100588 (MiGetPageTablePages.c)
+ *     MiClaimPhysicalRun @ 0x14010415C (MiClaimPhysicalRun.c)
+ *     MiMapPageFileHash @ 0x140116EA0 (MiMapPageFileHash.c)
+ *     MiPerformFinalZeroing @ 0x1401F2C6C (MiPerformFinalZeroing.c)
+ *     MiSwapNumaStandbyPage @ 0x1401F38F8 (MiSwapNumaStandbyPage.c)
  * Callees:
  *     <none>
  */

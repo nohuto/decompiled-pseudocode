@@ -5,16 +5,16 @@
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
  *     ExAcquirePushLockSharedEx @ 0x1402AD220 (ExAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
+ *     sub_1402AFC00 @ 0x1402AFC00 (sub_1402AFC00.c)
  *     KeQueryTimeIncrement @ 0x1402F1D40 (KeQueryTimeIncrement.c)
- *     KiQueryUnbiasedInterruptTime @ 0x1402F5718 (KiQueryUnbiasedInterruptTime.c)
+ *     sub_1402F5718 @ 0x1402F5718 (sub_1402F5718.c)
  *     ExfReleasePushLockShared @ 0x140359E40 (ExfReleasePushLockShared.c)
  *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
- *     ExpGetLicenseTamperState @ 0x140639C30 (ExpGetLicenseTamperState.c)
- *     ExpLicUpdateChecksum @ 0x140639D84 (ExpLicUpdateChecksum.c)
- *     ExpSetLicenseTamperState @ 0x140639FC4 (ExpSetLicenseTamperState.c)
- *     ExpSetKernelDataProtection @ 0x1406A71F0 (ExpSetKernelDataProtection.c)
- *     ExpGetKernelDataProtection @ 0x1406A73E0 (ExpGetKernelDataProtection.c)
+ *     sub_140639C30 @ 0x140639C30 (sub_140639C30.c)
+ *     sub_140639D84 @ 0x140639D84 (sub_140639D84.c)
+ *     sub_140639FC4 @ 0x140639FC4 (sub_140639FC4.c)
+ *     ntoskrnl_20 @ 0x1406A71F0 (ntoskrnl_20.c)
+ *     ntoskrnl_21 @ 0x1406A73E0 (ntoskrnl_21.c)
  *     sub_1409F992C @ 0x1409F992C (sub_1409F992C.c)
  */
 
@@ -64,10 +64,10 @@ __int64 __fastcall sub_1409F9AD0(__int64 a1, _DWORD *a2, _DWORD *a3, unsigned in
     v12 = v11 == 0;
     if ( _InterlockedCompareExchange64(v10, 0LL, 17LL) != 17 )
       ExfReleasePushLockShared(v10);
-    KeAbPostRelease((ULONG_PTR)v10);
+    sub_1402AFC00((ULONG_PTR)v10);
     if ( v11 )
     {
-      if ( (int)ExpGetKernelDataProtection(a1, &v32) < 0 || !(_QWORD)v33 )
+      if ( (int)ntoskrnl_21(a1, &v32) < 0 || !(_QWORD)v33 )
         goto LABEL_13;
       v13 = 900000;
       if ( *(_DWORD *)(a1 + 47032) < 0xDBBA0u )
@@ -89,7 +89,7 @@ LABEL_13:
         v16 = *(_QWORD *)(a1 + 47016);
         if ( (_InterlockedExchangeAdd64(v10, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
           ExfTryToWakePushLock(v10);
-        KeAbPostRelease((ULONG_PTR)v10);
+        sub_1402AFC00((ULONG_PTR)v10);
         if ( v16 )
         {
           v17 = *(_QWORD *)(a1 + 46832);
@@ -106,9 +106,9 @@ LABEL_13:
             v27 = 0uLL;
             *(_QWORD *)&v28 = 0LL;
             BYTE8(v28) = 1;
-            if ( (unsigned int)ExpLicUpdateChecksum(v17 + 20, v18, &v26)
+            if ( (unsigned int)sub_140639D84(v17 + 20, v18, &v26)
               || (_DWORD)v20
-              && ((unsigned __int64)(16 * v20) > 0xFFFFFFFF || (unsigned int)ExpLicUpdateChecksum(v21, v20, &v26)) )
+              && ((unsigned __int64)(16 * v20) > 0xFFFFFFFF || (unsigned int)sub_140639D84(v21, v20, &v26)) )
             {
               *(_QWORD *)&v26 = 0LL;
               DWORD2(v26) = 4;
@@ -116,7 +116,7 @@ LABEL_13:
             v29 = v26;
             v30 = v27;
             v31 = v28;
-            if ( (int)ExpGetKernelDataProtection(a1, v35) >= 0 )
+            if ( (int)ntoskrnl_21(a1, v35) >= 0 )
             {
               if ( *(_QWORD *)&v35[0] != (_QWORD)v29 )
               {
@@ -125,25 +125,25 @@ LABEL_13:
               }
               v22 = MEMORY[0xFFFFF78000000320];
               *(_QWORD *)&v30 = v22 * KeQueryTimeIncrement() / 10000;
-              ExpSetKernelDataProtection(a1, (__int64)&v29, v19, 0);
+              ntoskrnl_20(a1, (__int64)&v29, v19, 0);
             }
           }
         }
         else
         {
-          ExpSetLicenseTamperState(a1, 5);
+          sub_140639FC4(a1, 5);
         }
       }
     }
     v8 = v38;
   }
-  if ( *(_QWORD *)a1 && KiQueryUnbiasedInterruptTime() / 0x989680uLL > 0x2A30 )
+  if ( *(_QWORD *)a1 && sub_1402F5718() / 0x989680uLL > 0x2A30 )
   {
-    ExpSetLicenseTamperState(a1, 2);
+    sub_140639FC4(a1, 2);
     memset(v36, 0, 48);
-    ExpSetKernelDataProtection(a1, (__int64)v36, 32, 0);
+    ntoskrnl_20(a1, (__int64)v36, 32, 0);
   }
-  ExpGetLicenseTamperState(a1, &v37);
+  sub_140639C30(a1, &v37);
   if ( v37 )
   {
     v24 = a5;

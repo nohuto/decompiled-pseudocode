@@ -1,12 +1,12 @@
 /*
- * XREFs of ExSetTimerResolution @ 0x14014C1E4
+ * XREFs of ExSetTimerResolution @ 0x14014C754
  * Callers:
  *     <none>
  * Callees:
- *     ExpUpdateTimerResolution @ 0x140006F0C (ExpUpdateTimerResolution.c)
- *     PoTraceSystemTimerResolutionKernel @ 0x1400AB040 (PoTraceSystemTimerResolutionKernel.c)
- *     KeReleaseSpinLock @ 0x1400E9A70 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1400EFE30 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ExpUpdateTimerResolution @ 0x14000707C (ExpUpdateTimerResolution.c)
+ *     PoTraceSystemTimerResolutionKernel @ 0x1400A95C0 (PoTraceSystemTimerResolutionKernel.c)
+ *     KeReleaseSpinLock @ 0x1400EB600 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1400EDCB0 (KeAcquireSpinLockRaiseToDpc.c)
  */
 
 ULONG __stdcall ExSetTimerResolution(ULONG DesiredTime, BOOLEAN SetResolution)

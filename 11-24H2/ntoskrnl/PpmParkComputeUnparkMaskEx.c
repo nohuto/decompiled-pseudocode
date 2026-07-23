@@ -1,32 +1,32 @@
 /*
- * XREFs of PpmParkComputeUnparkMaskEx @ 0x1405E2544
+ * XREFs of PpmParkComputeUnparkMaskEx @ 0x1405DFACC
  * Callers:
- *     PpmParkCalculateCoreParkingMaskEx @ 0x1405E1B9C (PpmParkCalculateCoreParkingMaskEx.c)
+ *     PpmParkCalculateCoreParkingMaskEx @ 0x1405DF1A8 (PpmParkCalculateCoreParkingMaskEx.c)
  * Callees:
- *     KeFindFirstSetRightAffinityEx @ 0x140202700 (KeFindFirstSetRightAffinityEx.c)
- *     ?KiComplementAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z @ 0x140205180 (-KiComplementAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z.c)
- *     KeAndAffinityEx2 @ 0x1402052E0 (KeAndAffinityEx2.c)
- *     KeOrAffinityEx2 @ 0x1402067F0 (KeOrAffinityEx2.c)
- *     ?KiAndAffinityExNoResult@@YAKPEAU_KAFFINITY_EX@@0@Z @ 0x140206940 (-KiAndAffinityExNoResult@@YAKPEAU_KAFFINITY_EX@@0@Z.c)
- *     KeAddGroupAffinityEx @ 0x140257100 (KeAddGroupAffinityEx.c)
- *     ?KiOrAffinityEx@@YAKPEAU_KAFFINITY_EX@@00G@Z @ 0x14029B69C (-KiOrAffinityEx@@YAKPEAU_KAFFINITY_EX@@00G@Z.c)
- *     KeGetPrcb @ 0x140352980 (KeGetPrcb.c)
- *     ?KiSubtractAffinityEx@@YAKPEAU_KAFFINITY_EX@@00G@Z @ 0x140354CF8 (-KiSubtractAffinityEx@@YAKPEAU_KAFFINITY_EX@@00G@Z.c)
- *     KeSubtractAffinityEx2 @ 0x140354F10 (KeSubtractAffinityEx2.c)
- *     KeCountSetBitsAffinityEx @ 0x1403AFC80 (KeCountSetBitsAffinityEx.c)
- *     ?KiCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z @ 0x1403B1720 (-KiCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z.c)
- *     KeIsEmptyAffinityEx @ 0x1403B55D0 (KeIsEmptyAffinityEx.c)
- *     KeRemoveProcessorAffinityEx @ 0x1403CA140 (KeRemoveProcessorAffinityEx.c)
- *     KeEnumerateNextProcessor @ 0x14040D4F0 (KeEnumerateNextProcessor.c)
- *     PpmEventHeteroFavoredCoreRotationChange @ 0x14046EFD0 (PpmEventHeteroFavoredCoreRotationChange.c)
- *     KeGetTopologySiblingAffinityForProcessor @ 0x1404E752C (KeGetTopologySiblingAffinityForProcessor.c)
- *     PpmEventParkNodePreferenceEx @ 0x1405DE080 (PpmEventParkNodePreferenceEx.c)
- *     PpmEventTraceCoreParkingSelectionEx @ 0x1405DE820 (PpmEventTraceCoreParkingSelectionEx.c)
- *     PpmHeteroRestrictToFavoredClassEx @ 0x1405E0DE0 (PpmHeteroRestrictToFavoredClassEx.c)
- *     PpmParkBuildTopologyCandidatesEx @ 0x1405E1B44 (PpmParkBuildTopologyCandidatesEx.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     KeAddGroupAffinityEx @ 0x140287710 (KeAddGroupAffinityEx.c)
+ *     ?KiOrAffinityEx@@YAKPEAU_KAFFINITY_EX@@00G@Z @ 0x1402AA18C (-KiOrAffinityEx@@YAKPEAU_KAFFINITY_EX@@00G@Z.c)
+ *     KeGetPrcb @ 0x1402B0A10 (KeGetPrcb.c)
+ *     ?KiSubtractAffinityEx@@YAKPEAU_KAFFINITY_EX@@00G@Z @ 0x1402B2A28 (-KiSubtractAffinityEx@@YAKPEAU_KAFFINITY_EX@@00G@Z.c)
+ *     KeSubtractAffinityEx2 @ 0x1402B2C40 (KeSubtractAffinityEx2.c)
+ *     KeFindFirstSetRightAffinityEx @ 0x14032ADF0 (KeFindFirstSetRightAffinityEx.c)
+ *     ?KiComplementAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z @ 0x14032C760 (-KiComplementAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z.c)
+ *     KeAndAffinityEx2 @ 0x14032C8C0 (KeAndAffinityEx2.c)
+ *     KeOrAffinityEx2 @ 0x14032DDD0 (KeOrAffinityEx2.c)
+ *     ?KiAndAffinityExNoResult@@YAKPEAU_KAFFINITY_EX@@0@Z @ 0x14032DF20 (-KiAndAffinityExNoResult@@YAKPEAU_KAFFINITY_EX@@0@Z.c)
+ *     KeIsEmptyAffinityEx @ 0x140371960 (KeIsEmptyAffinityEx.c)
+ *     KeCountSetBitsAffinityEx @ 0x14039E490 (KeCountSetBitsAffinityEx.c)
+ *     ?KiCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z @ 0x14039FF30 (-KiCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z.c)
+ *     KeRemoveProcessorAffinityEx @ 0x1403A4D10 (KeRemoveProcessorAffinityEx.c)
+ *     KeEnumerateNextProcessor @ 0x140405740 (KeEnumerateNextProcessor.c)
+ *     PpmEventHeteroFavoredCoreRotationChange @ 0x1404696E0 (PpmEventHeteroFavoredCoreRotationChange.c)
+ *     KeGetTopologySiblingAffinityForProcessor @ 0x1404DE1EC (KeGetTopologySiblingAffinityForProcessor.c)
+ *     PpmEventParkNodePreferenceEx @ 0x1405DAF00 (PpmEventParkNodePreferenceEx.c)
+ *     PpmEventTraceCoreParkingSelectionEx @ 0x1405DB6A0 (PpmEventTraceCoreParkingSelectionEx.c)
+ *     PpmHeteroRestrictToFavoredClassEx @ 0x1405DE400 (PpmHeteroRestrictToFavoredClassEx.c)
+ *     PpmParkBuildTopologyCandidatesEx @ 0x1405DF150 (PpmParkBuildTopologyCandidatesEx.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 void __fastcall PpmParkComputeUnparkMaskEx(
@@ -147,15 +147,15 @@ void __fastcall PpmParkComputeUnparkMaskEx(
   v93 = a11;
   memset_0(&v104.8, 0, sizeof(v104.8));
   v20 = PpmCurrentProfile[0];
-  v21 = 61LL * dword_140F0BA4C;
+  v21 = 61LL * dword_140F0B38C;
   v80 = 0;
   v81 = 0;
   v69 = 0;
   v70 = 0;
   v67 = PpmCurrentProfile[0][v21 + 62];
   v66 = BYTE1(PpmCurrentProfile[0][v21 + 62]);
-  v87 = *(unsigned __int16 *)(a1 + 1244);
-  v22 = *(_QWORD *)(a1 + 1248);
+  v87 = *(unsigned __int16 *)(a1 + 1252);
+  v22 = *(_QWORD *)(a1 + 1256);
   v23 = PpmParkPerfCheckAffinities;
   v92 = v22;
   *(_QWORD *)&v104.Count = 2097153LL;
@@ -222,7 +222,7 @@ void __fastcall PpmParkComputeUnparkMaskEx(
   {
     if ( PpmParkPreferenceHandler )
     {
-      guard_dispatch_icall_no_overrides(0LL, PpmCheckTime, a5, v30);
+      guard_dispatch_icall_no_overrides(0LL, PpmCheckTime);
       PpmEventParkNodePreferenceEx(v30, a5, v73, v76, &v23[20].Count, &v23[23].Count);
       memset_0(&v104.8, 0, 8LL * v104.Count);
       v104.Count = 1;
@@ -264,7 +264,7 @@ void __fastcall PpmParkComputeUnparkMaskEx(
         KiCopyAffinityEx(
           v38,
           v38->Size,
-          (struct _KAFFINITY_EX *)(264LL * *(int *)(*(_QWORD *)(v83 + 1272) + 4LL) + *(_QWORD *)(v83 + 1272) + 16LL));
+          (struct _KAFFINITY_EX *)(264LL * *(int *)(*(_QWORD *)(v83 + 1280) + 4LL) + *(_QWORD *)(v83 + 1280) + 16LL));
         if ( !KeAndAffinityEx2(a9, v38, (__int64)v34) )
         {
           v36 = v70;
@@ -384,7 +384,7 @@ LABEL_42:
       KeSubtractAffinityEx2(v17, v72, v17);
       if ( v71 < a5 )
       {
-        if ( v92 && *(_DWORD *)(v83 + 1224) == 3 )
+        if ( v92 && *(_DWORD *)(v83 + 1232) == 3 )
         {
           v79 = 0;
           LODWORD(v73) = v87 - v71 + a5 - 1;
@@ -400,7 +400,7 @@ LABEL_42:
               if ( v54 < *(unsigned __int16 *)(v55 + 10) && *(_DWORD *)(v56 + 4LL * v54) != v69 )
               {
                 *(_DWORD *)(v56 + 4LL * v54) = v69;
-                *(_BYTE *)(v55 + 1246) = 1;
+                *(_BYTE *)(v55 + 1254) = 1;
               }
               --v54;
             }
@@ -410,7 +410,7 @@ LABEL_42:
             v17 = v85;
           }
           v57 = KeCountSetBitsAffinityEx(&v72->Count);
-          *(_WORD *)(v83 + 1244) += v57;
+          *(_WORD *)(v83 + 1252) += v57;
         }
       }
       else

@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlQueryAllInternalRuntimeFeatureConfigurations @ 0x1406177D0
+ * XREFs of RtlQueryAllInternalRuntimeFeatureConfigurations @ 0x14061A820
  * Callers:
  *     <none>
  * Callees:
- *     RtlpFcBufferManagerDereferenceBuffers @ 0x1404CC294 (RtlpFcBufferManagerDereferenceBuffers.c)
- *     RtlpFcBufferManagerReferenceBuffers @ 0x1404D88A8 (RtlpFcBufferManagerReferenceBuffers.c)
- *     RtlpFcQueryAllInternalFeatureConfigurationsFromBufferSet @ 0x14062493C (RtlpFcQueryAllInternalFeatureConfigurationsFromBufferSet.c)
- *     RtlpFcQueryAllGovernedFeaturesFromBufferSet @ 0x14080A108 (RtlpFcQueryAllGovernedFeaturesFromBufferSet.c)
- *     RtlpFcGetBufferManager @ 0x140B2D098 (RtlpFcGetBufferManager.c)
+ *     RtlpFcBufferManagerDereferenceBuffers @ 0x1404C5CC4 (RtlpFcBufferManagerDereferenceBuffers.c)
+ *     RtlpFcBufferManagerReferenceBuffers @ 0x1404D2078 (RtlpFcBufferManagerReferenceBuffers.c)
+ *     RtlpFcQueryAllInternalFeatureConfigurationsFromBufferSet @ 0x14062798C (RtlpFcQueryAllInternalFeatureConfigurationsFromBufferSet.c)
+ *     RtlpFcQueryAllGovernedFeaturesFromBufferSet @ 0x14080FB98 (RtlpFcQueryAllGovernedFeaturesFromBufferSet.c)
+ *     RtlpFcGetBufferManager @ 0x140B2F118 (RtlpFcGetBufferManager.c)
  */
 
 __int64 __fastcall RtlQueryAllInternalRuntimeFeatureConfigurations(

@@ -1,25 +1,25 @@
 /*
- * XREFs of HviEnterKernelAperture @ 0x140637888
+ * XREFs of HviEnterKernelAperture @ 0x14063A88C
  * Callers:
- *     HviCopyMemory @ 0x14046BDC8 (HviCopyMemory.c)
- *     HviCopyMemoryNonTemporal @ 0x1404F9560 (HviCopyMemoryNonTemporal.c)
+ *     HviCopyMemory @ 0x140465548 (HviCopyMemory.c)
+ *     HviCopyMemoryNonTemporal @ 0x1404F2B70 (HviCopyMemoryNonTemporal.c)
  * Callees:
- *     HvipApertureDetectParameters @ 0x1406379B0 (HvipApertureDetectParameters.c)
- *     HvipApertureDirectHypercall @ 0x140637A48 (HvipApertureDirectHypercall.c)
- *     HvipApertureVmfuncSwitchEptp @ 0x140732280 (HvipApertureVmfuncSwitchEptp.c)
+ *     HvipApertureDetectParameters @ 0x14063A9B4 (HvipApertureDetectParameters.c)
+ *     HvipApertureDirectHypercall @ 0x14063AA4C (HvipApertureDirectHypercall.c)
+ *     HvipApertureVmfuncSwitchEptp @ 0x140736E50 (HvipApertureVmfuncSwitchEptp.c)
  */
 
 char HviEnterKernelAperture()
 {
   char result; // al
 
-  result = BYTE2(RtlpBootStatHandleLock.ExpectedRunTime);
-  if ( !BYTE2(RtlpBootStatHandleLock.ExpectedRunTime) )
+  result = BYTE1(RtlpBootStatHandleLock.ExpectedRunTime);
+  if ( !BYTE1(RtlpBootStatHandleLock.ExpectedRunTime) )
     result = HvipApertureDetectParameters();
   _disable();
-  if ( !byte_140E0CD12 )
+  if ( !byte_140E0CD82 )
   {
-    if ( BYTE1(RtlpBootStatHandleLock.ExpectedRunTime) )
+    if ( LOBYTE(RtlpBootStatHandleLock.ExpectedRunTime) )
       return HvipApertureVmfuncSwitchEptp(1LL);
     else
       return HvipApertureDirectHypercall(6LL, 1LL);

@@ -1,12 +1,12 @@
 /*
- * XREFs of IopAcquireReferencesFromIoAttributionHandle @ 0x14028A5C4
+ * XREFs of IopAcquireReferencesFromIoAttributionHandle @ 0x140207764
  * Callers:
  *     IoNotifyQuotaState @ 0x140201210 (IoNotifyQuotaState.c)
- *     IoGetIoRateControl @ 0x14028A420 (IoGetIoRateControl.c)
+ *     IoGetIoRateControl @ 0x1402075C0 (IoGetIoRateControl.c)
  * Callees:
- *     ExAcquireRundownProtection_0 @ 0x14027C9B0 (ExAcquireRundownProtection_0.c)
- *     IopFindDiskIoAttribution @ 0x14028A6D0 (IopFindDiskIoAttribution.c)
- *     IoDiskIoAttributionDereference @ 0x14028A7B4 (IoDiskIoAttributionDereference.c)
+ *     IopFindDiskIoAttribution @ 0x140207870 (IopFindDiskIoAttribution.c)
+ *     IoDiskIoAttributionDereference @ 0x140207954 (IoDiskIoAttributionDereference.c)
+ *     ExAcquireRundownProtection @ 0x14026A950 (ExAcquireRundownProtection.c)
  */
 
 __int64 __fastcall IopAcquireReferencesFromIoAttributionHandle(
@@ -23,7 +23,7 @@ __int64 __fastcall IopAcquireReferencesFromIoAttributionHandle(
   v6 = DiskIoAttribution;
   if ( DiskIoAttribution )
   {
-    if ( ExAcquireRundownProtection_0(DiskIoAttribution + 21) )
+    if ( ExAcquireRundownProtection(DiskIoAttribution + 21) )
     {
       Count = v6[20].Count;
       *a2 = v6;

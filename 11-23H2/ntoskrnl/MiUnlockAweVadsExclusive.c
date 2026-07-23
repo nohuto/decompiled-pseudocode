@@ -1,14 +1,14 @@
 /*
- * XREFs of MiUnlockAweVadsExclusive @ 0x14064BE88
+ * XREFs of MiUnlockAweVadsExclusive @ 0x14064C3D8
  * Callers:
- *     MiCloneVads @ 0x140663278 (MiCloneVads.c)
- *     MmSetGraphicsPtes @ 0x140A2EAF0 (MmSetGraphicsPtes.c)
- *     MiAweViewInserter @ 0x140A412BC (MiAweViewInserter.c)
- *     MiCreateProcessDefaultAweInfo @ 0x140A41690 (MiCreateProcessDefaultAweInfo.c)
- *     MiRemoveUserPhysicalPagesView @ 0x140A42078 (MiRemoveUserPhysicalPagesView.c)
+ *     MiCloneVads @ 0x1406637C8 (MiCloneVads.c)
+ *     MmSetGraphicsPtes @ 0x140A2EDA0 (MmSetGraphicsPtes.c)
+ *     MiAweViewInserter @ 0x140A4156C (MiAweViewInserter.c)
+ *     MiCreateProcessDefaultAweInfo @ 0x140A41940 (MiCreateProcessDefaultAweInfo.c)
+ *     MiRemoveUserPhysicalPagesView @ 0x140A42328 (MiRemoveUserPhysicalPagesView.c)
  * Callees:
- *     ExReleaseAutoExpandPushLockExclusive @ 0x14022F8B0 (ExReleaseAutoExpandPushLockExclusive.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F820 (KiCheckForKernelApcDelivery.c)
+ *     ExReleaseAutoExpandPushLockExclusive @ 0x14022F9A0 (ExReleaseAutoExpandPushLockExclusive.c)
+ *     KiCheckForKernelApcDelivery @ 0x14030FAB0 (KiCheckForKernelApcDelivery.c)
  */
 
 char __fastcall MiUnlockAweVadsExclusive(__int64 a1)

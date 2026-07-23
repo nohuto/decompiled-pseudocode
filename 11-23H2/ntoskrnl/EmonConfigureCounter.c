@@ -1,9 +1,9 @@
 /*
- * XREFs of EmonConfigureCounter @ 0x14051CF68
+ * XREFs of EmonConfigureCounter @ 0x14051D4B8
  * Callers:
- *     EmonDisableMonitoring @ 0x14051D180 (EmonDisableMonitoring.c)
- *     EmonEnableMonitoring @ 0x14051D240 (EmonEnableMonitoring.c)
- *     EmonRestartProfiling @ 0x140A971F0 (EmonRestartProfiling.c)
+ *     EmonDisableMonitoring @ 0x14051D6D0 (EmonDisableMonitoring.c)
+ *     EmonEnableMonitoring @ 0x14051D790 (EmonEnableMonitoring.c)
+ *     EmonRestartProfiling @ 0x140A97060 (EmonRestartProfiling.c)
  * Callees:
  *     <none>
  */

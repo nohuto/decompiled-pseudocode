@@ -1,21 +1,21 @@
 /*
- * XREFs of CmpDoFileSetSizeEx @ 0x14074D3F8
+ * XREFs of CmpDoFileSetSizeEx @ 0x14074D5E8
  * Callers:
- *     CmShutdownSystem2 @ 0x140615E1C (CmShutdownSystem2.c)
+ *     CmShutdownSystem2 @ 0x14061636C (CmShutdownSystem2.c)
  *     CmpCompleteUnloadKey @ 0x140688D18 (CmpCompleteUnloadKey.c)
- *     HvpAddBin @ 0x14074F174 (HvpAddBin.c)
- *     HvWriteLogFile @ 0x140750D94 (HvWriteLogFile.c)
- *     HvTruncateCurrentLogFileIfRequired @ 0x140750EFC (HvTruncateCurrentLogFileIfRequired.c)
- *     HvTruncateAllLogFilesIfRequired @ 0x1407E7A94 (HvTruncateAllLogFilesIfRequired.c)
- *     HvpPerformLogFileRecovery @ 0x14080028C (HvpPerformLogFileRecovery.c)
- *     CmpLoadHiveThread @ 0x140826880 (CmpLoadHiveThread.c)
- *     CmpMountPreloadedHives @ 0x1408630AC (CmpMountPreloadedHives.c)
- *     HvWriteExternal @ 0x140A20B44 (HvWriteExternal.c)
+ *     HvpAddBin @ 0x14074F364 (HvpAddBin.c)
+ *     HvWriteLogFile @ 0x140750F84 (HvWriteLogFile.c)
+ *     HvTruncateCurrentLogFileIfRequired @ 0x1407510EC (HvTruncateCurrentLogFileIfRequired.c)
+ *     HvTruncateAllLogFilesIfRequired @ 0x1407E7D64 (HvTruncateAllLogFilesIfRequired.c)
+ *     HvpPerformLogFileRecovery @ 0x14080055C (HvpPerformLogFileRecovery.c)
+ *     CmpLoadHiveThread @ 0x140826B80 (CmpLoadHiveThread.c)
+ *     CmpMountPreloadedHives @ 0x1408632EC (CmpMountPreloadedHives.c)
+ *     HvWriteExternal @ 0x140A20DF4 (HvWriteExternal.c)
  * Callees:
  *     IoSetThreadHardErrorMode @ 0x140208890 (IoSetThreadHardErrorMode.c)
- *     ZwSetInformationFile @ 0x14041B240 (ZwSetInformationFile.c)
- *     HvpLogTypeToLogArrayIndex @ 0x1407511A0 (HvpLogTypeToLogArrayIndex.c)
- *     CmpAdjustRequestedFileSize @ 0x1407E5D4C (CmpAdjustRequestedFileSize.c)
+ *     ZwSetInformationFile @ 0x14041B5D0 (ZwSetInformationFile.c)
+ *     HvpLogTypeToLogArrayIndex @ 0x140751390 (HvpLogTypeToLogArrayIndex.c)
+ *     CmpAdjustRequestedFileSize @ 0x1407E601C (CmpAdjustRequestedFileSize.c)
  */
 
 __int64 __fastcall CmpDoFileSetSizeEx(__int64 a1, unsigned int a2, unsigned __int64 a3, char a4)

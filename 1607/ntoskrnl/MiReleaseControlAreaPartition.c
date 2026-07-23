@@ -1,16 +1,16 @@
 /*
- * XREFs of MiReleaseControlAreaPartition @ 0x140027E70
+ * XREFs of MiReleaseControlAreaPartition @ 0x1400279F0
  * Callers:
- *     MiInsertSharedCommitNode @ 0x14042E680 (MiInsertSharedCommitNode.c)
- *     MiRemoveSharedCommitNode @ 0x14042EA70 (MiRemoveSharedCommitNode.c)
+ *     MiInsertSharedCommitNode @ 0x14042D550 (MiInsertSharedCommitNode.c)
+ *     MiRemoveSharedCommitNode @ 0x14042D940 (MiRemoveSharedCommitNode.c)
  * Callees:
- *     KiLeaveGuardedRegionUnsafe @ 0x140013B70 (KiLeaveGuardedRegionUnsafe.c)
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
- *     MiSubsectionUsingExtents @ 0x1400E7F14 (MiSubsectionUsingExtents.c)
- *     MiReturnSubsectionCharges @ 0x1401F5310 (MiReturnSubsectionCharges.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1400136F0 (KiLeaveGuardedRegionUnsafe.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
+ *     MiSubsectionUsingExtents @ 0x1400E5DB4 (MiSubsectionUsingExtents.c)
+ *     MiReturnSubsectionCharges @ 0x1401F513C (MiReturnSubsectionCharges.c)
  */
 
 __int64 __fastcall MiReleaseControlAreaPartition(__int64 *a1, __int64 a2)
@@ -35,12 +35,12 @@ __int64 __fastcall MiReleaseControlAreaPartition(__int64 *a1, __int64 a2)
   if ( v3 == 1023 )
     v6 = MiSystemPartition;
   else
-    v6 = *(int **)(qword_140326FF8 + 8LL * v3);
+    v6 = *(int **)(qword_140327038 + 8LL * v3);
   result = *(unsigned __int16 *)(a2 + 1444);
   if ( (_WORD)result != 1023 )
   {
     result = (unsigned __int16)result;
-    v2 = *(int **)(qword_140326FF8 + 8LL * (unsigned __int16)result);
+    v2 = *(int **)(qword_140327038 + 8LL * (unsigned __int16)result);
   }
   if ( v6 != v2 )
   {

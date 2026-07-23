@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpHpVsSubsegmentCreate @ 0x180072104
+ * XREFs of RtlpHpVsSubsegmentCreate @ 0x1800720F4
  * Callers:
- *     RtlpHpVsContextAllocate @ 0x18001D100 (RtlpHpVsContextAllocate.c)
+ *     RtlpHpVsContextAllocate @ 0x18001D0F0 (RtlpHpVsContextAllocate.c)
  * Callees:
- *     RtlpHpSegLfhVsCommit @ 0x180043420 (RtlpHpSegLfhVsCommit.c)
- *     RtlpHpSegVsAllocate @ 0x180072250 (RtlpHpSegVsAllocate.c)
+ *     RtlpHpSegLfhVsCommit @ 0x180043410 (RtlpHpSegLfhVsCommit.c)
+ *     RtlpHpSegVsAllocate @ 0x180072240 (RtlpHpSegVsAllocate.c)
  *     _guard_dispatch_icall_nop @ 0x1800A9C80 (_guard_dispatch_icall_nop.c)
  *     memset @ 0x1800ACCC0 (memset.c)
  */
@@ -17,8 +17,8 @@ __int64 __fastcall RtlpHpVsSubsegmentCreate(__int64 a1, int a2, unsigned int a3)
   __int64 (__fastcall *v8)(__int64, _QWORD); // rax
   __int64 v9; // rax
   __int64 v10; // rdi
-  __int64 v11; // rcx
-  __int64 (__fastcall *v12)(__int64, __int64, unsigned int); // rax
+  void *v11; // rcx
+  __int64 (__fastcall *v12)(PVOID, __int64); // rax
   int v13; // eax
   unsigned __int64 v14; // rbx
   unsigned __int64 v15; // rcx
@@ -43,12 +43,12 @@ __int64 __fastcall RtlpHpVsSubsegmentCreate(__int64 a1, int a2, unsigned int a3)
   v10 = v9;
   if ( !v9 )
     return 0LL;
-  v11 = *(_QWORD *)(a1 + 56);
-  v12 = (__int64 (__fastcall *)(__int64, __int64, unsigned int))(a1 ^ RtlpHeapKey ^ *(_QWORD *)(a1 + 80));
+  v11 = *(void **)(a1 + 56);
+  v12 = (__int64 (__fastcall *)(PVOID, __int64))(a1 ^ RtlpHeapKey ^ *(_QWORD *)(a1 + 80));
   if ( v12 == RtlpHpSegLfhVsCommit )
-    v13 = RtlpHpSegLfhVsCommit(v11, v10, 0x1000u);
+    v13 = RtlpHpSegLfhVsCommit(v11, v10);
   else
-    v13 = v12(v11, v10, 4096u);
+    v13 = ((__int64 (__fastcall *)(void *, __int64, __int64))v12)(v11, v10, 4096LL);
   if ( v13 < 0 )
   {
     v16 = 0LL;

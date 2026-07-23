@@ -1,14 +1,14 @@
 /*
- * XREFs of MiInitializePrototypePtes @ 0x1404B8A74
+ * XREFs of MiInitializePrototypePtes @ 0x1404A2E54
  * Callers:
- *     MiCreatePrototypePtes @ 0x14008FE84 (MiCreatePrototypePtes.c)
- *     MiCreatePagingFileMap @ 0x1404B8370 (MiCreatePagingFileMap.c)
- *     MiExtendSection @ 0x140521CB4 (MiExtendSection.c)
- *     MiCopyDirectMapHeader @ 0x14065A8E0 (MiCopyDirectMapHeader.c)
+ *     MiCreatePrototypePtes @ 0x14008F5E4 (MiCreatePrototypePtes.c)
+ *     MiCreatePagingFileMap @ 0x1404A2750 (MiCreatePagingFileMap.c)
+ *     MiExtendSection @ 0x140504D14 (MiExtendSection.c)
+ *     MiCopyDirectMapHeader @ 0x14065A9C4 (MiCopyDirectMapHeader.c)
  * Callees:
- *     MiEncodeProtoFill @ 0x1400902CC (MiEncodeProtoFill.c)
- *     MiMakeDemandZeroPte @ 0x1401F2734 (MiMakeDemandZeroPte.c)
- *     MiMakeSubsectionPte @ 0x1401F277C (MiMakeSubsectionPte.c)
+ *     MiEncodeProtoFill @ 0x14008FA2C (MiEncodeProtoFill.c)
+ *     MiMakeDemandZeroPte @ 0x1401F2560 (MiMakeDemandZeroPte.c)
+ *     MiMakeSubsectionPte @ 0x1401F25A8 (MiMakeSubsectionPte.c)
  */
 
 void __fastcall MiInitializePrototypePtes(char *a1, __int64 a2, unsigned __int16 *a3, int a4)

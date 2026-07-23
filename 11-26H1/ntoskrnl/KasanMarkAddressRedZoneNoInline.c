@@ -1,12 +1,12 @@
 /*
- * XREFs of KasanMarkAddressRedZoneNoInline @ 0x1405DD820
+ * XREFs of KasanMarkAddressRedZoneNoInline @ 0x1405E0190
  * Callers:
- *     MiMapContiguousMemory @ 0x140363E10 (MiMapContiguousMemory.c)
- *     KasanDriverLoadImageInternal @ 0x140523630 (KasanDriverLoadImageInternal.c)
- *     KasanPoolAllocateNoInline @ 0x1405DD960 (KasanPoolAllocateNoInline.c)
- *     MiInitializeSharedUserData @ 0x140CF1F60 (MiInitializeSharedUserData.c)
+ *     MiMapContiguousMemory @ 0x140365BB0 (MiMapContiguousMemory.c)
+ *     KasanDriverLoadImageInternal @ 0x140525CA0 (KasanDriverLoadImageInternal.c)
+ *     KasanPoolAllocateNoInline @ 0x1405E02D0 (KasanPoolAllocateNoInline.c)
+ *     MiInitializeSharedUserData @ 0x140CF82E0 (MiInitializeSharedUserData.c)
  * Callees:
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 _BYTE *__fastcall KasanMarkAddressRedZoneNoInline(

@@ -1,19 +1,19 @@
 /*
- * XREFs of ExAcquireSharedStarveExclusive @ 0x140034660
+ * XREFs of ExAcquireSharedStarveExclusive @ 0x1400341E0
  * Callers:
- *     CcPinFileData @ 0x140031DE0 (CcPinFileData.c)
- *     CcPinMappedData @ 0x1404471C0 (CcPinMappedData.c)
+ *     CcPinFileData @ 0x140031960 (CcPinFileData.c)
+ *     CcPinMappedData @ 0x140446090 (CcPinMappedData.c)
  * Callees:
- *     ExpWaitForResource @ 0x14005CE30 (ExpWaitForResource.c)
- *     ExpUnlockResource @ 0x140066CF0 (ExpUnlockResource.c)
- *     ExpBoostIoAfterAcquire @ 0x14006B670 (ExpBoostIoAfterAcquire.c)
- *     ExpFindEmptyEntry @ 0x140096E48 (ExpFindEmptyEntry.c)
- *     ExpFindCurrentThread @ 0x1400970C0 (ExpFindCurrentThread.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     PerfLogExecutiveResourceAcquire @ 0x140228044 (PerfLogExecutiveResourceAcquire.c)
- *     PerfLogExecutiveResourceWait @ 0x140228500 (PerfLogExecutiveResourceWait.c)
- *     EXP_LOCK_RESOURCE @ 0x14022D8A4 (EXP_LOCK_RESOURCE.c)
- *     EXP_UNLOCK_RESOURCE @ 0x14022D918 (EXP_UNLOCK_RESOURCE.c)
+ *     ExpWaitForResource @ 0x14005C9B0 (ExpWaitForResource.c)
+ *     ExpUnlockResource @ 0x140066870 (ExpUnlockResource.c)
+ *     ExpBoostIoAfterAcquire @ 0x14006B1F0 (ExpBoostIoAfterAcquire.c)
+ *     ExpFindEmptyEntry @ 0x140096648 (ExpFindEmptyEntry.c)
+ *     ExpFindCurrentThread @ 0x1400968C0 (ExpFindCurrentThread.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     PerfLogExecutiveResourceAcquire @ 0x140227E70 (PerfLogExecutiveResourceAcquire.c)
+ *     PerfLogExecutiveResourceWait @ 0x14022832C (PerfLogExecutiveResourceWait.c)
+ *     EXP_LOCK_RESOURCE @ 0x14022D6D0 (EXP_LOCK_RESOURCE.c)
+ *     EXP_UNLOCK_RESOURCE @ 0x14022D744 (EXP_UNLOCK_RESOURCE.c)
  */
 
 BOOLEAN __stdcall ExAcquireSharedStarveExclusive(PERESOURCE Resource, BOOLEAN Wait)

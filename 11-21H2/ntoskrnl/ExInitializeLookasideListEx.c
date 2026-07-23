@@ -1,9 +1,9 @@
 /*
  * XREFs of ExInitializeLookasideListEx @ 0x1402A0360
  * Callers:
- *     CmpInitializeRegistryProcess @ 0x140831BF4 (CmpInitializeRegistryProcess.c)
+ *     sub_140831BF4 @ 0x140831BF4 (sub_140831BF4.c)
  * Callees:
- *     ExInitializeLookasideListExInternal @ 0x1402A03B0 (ExInitializeLookasideListExInternal.c)
+ *     sub_1402A03B0 @ 0x1402A03B0 (sub_1402A03B0.c)
  */
 
 NTSTATUS __stdcall ExInitializeLookasideListEx(
@@ -16,5 +16,5 @@ NTSTATUS __stdcall ExInitializeLookasideListEx(
         ULONG Tag,
         USHORT Depth)
 {
-  return ExInitializeLookasideListExInternal(&Lookaside->L.ListHead, Flags, Size, Tag, Depth, 0);
+  return sub_1402A03B0(&Lookaside->L.ListHead, Flags, Size, Tag, Depth, 0);
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of ObpInsertHandleCount @ 0x1404BB094
+ * XREFs of ObpInsertHandleCount @ 0x1404A6DC4
  * Callers:
- *     ObpLockHandleDataBaseEntry @ 0x1404BAF00 (ObpLockHandleDataBaseEntry.c)
+ *     ObpLockHandleDataBaseEntry @ 0x1404A6C30 (ObpLockHandleDataBaseEntry.c)
  * Callees:
- *     OBJECT_HEADER_TO_HANDLE_INFO @ 0x140096864 (OBJECT_HEADER_TO_HANDLE_INFO.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     OBJECT_HEADER_TO_HANDLE_INFO @ 0x140096064 (OBJECT_HEADER_TO_HANDLE_INFO.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */

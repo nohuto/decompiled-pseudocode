@@ -1,33 +1,31 @@
 /*
- * XREFs of IoWMIRegistrationControl @ 0x1409D0C80
+ * XREFs of IoWMIRegistrationControl @ 0x140A49C40
  * Callers:
- *     DifIoWMIRegistrationControlWrapper @ 0x14062B870 (DifIoWMIRegistrationControlWrapper.c)
- *     PpmEnableWmiInterface @ 0x14075C1E4 (PpmEnableWmiInterface.c)
- *     ViDdiDriverEntry @ 0x140B84750 (ViDdiDriverEntry.c)
- *     WmipDriverEntry @ 0x140C3C9C0 (WmipDriverEntry.c)
- *     WheaInitialize @ 0x140C440FC (WheaInitialize.c)
+ *     DifIoWMIRegistrationControlWrapper @ 0x140629E30 (DifIoWMIRegistrationControlWrapper.c)
+ *     PpmEnableWmiInterface @ 0x14075B214 (PpmEnableWmiInterface.c)
+ *     ViDdiDriverEntry @ 0x140B86750 (ViDdiDriverEntry.c)
+ *     WmipDriverEntry @ 0x140C3EB10 (WmipDriverEntry.c)
+ *     WheaInitialize @ 0x140C4624C (WheaInitialize.c)
  * Callees:
- *     KeReleaseMutex @ 0x1403379B0 (KeReleaseMutex.c)
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     WmipFindRegEntryByDevice @ 0x140463970 (WmipFindRegEntryByDevice.c)
- *     WmipUnreferenceRegEntry @ 0x14046FC2C (WmipUnreferenceRegEntry.c)
- *     WmipRegisterDevice @ 0x1409D0548 (WmipRegisterDevice.c)
- *     WmipUpdateRegistration @ 0x1409D091C (WmipUpdateRegistration.c)
- *     WmipDeregisterDevice @ 0x140A684C4 (WmipDeregisterDevice.c)
- *     WmipSetTraceNotify @ 0x140AA6BEC (WmipSetTraceNotify.c)
+ *     KeReleaseMutex @ 0x1402DEA60 (KeReleaseMutex.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     WmipFindRegEntryByDevice @ 0x14045A0A4 (WmipFindRegEntryByDevice.c)
+ *     WmipUnreferenceRegEntry @ 0x14046A188 (WmipUnreferenceRegEntry.c)
+ *     WmipRegisterDevice @ 0x140A49D98 (WmipRegisterDevice.c)
+ *     WmipUpdateRegistration @ 0x140A49F68 (WmipUpdateRegistration.c)
+ *     WmipDeregisterDevice @ 0x140A61874 (WmipDeregisterDevice.c)
+ *     WmipSetTraceNotify @ 0x140AA1CE8 (WmipSetTraceNotify.c)
  */
 
 NTSTATUS __stdcall IoWMIRegistrationControl(PDEVICE_OBJECT DeviceObject, ULONG Action)
 {
   char v2; // r14
   ULONG v5; // eax
-  unsigned int v6; // edi
+  ULONG v6; // eax
   ULONG v7; // eax
   ULONG v8; // eax
   ULONG v9; // eax
-  ULONG v10; // eax
-  NTSTATUS v12; // ebx
-  int v13; // ebp
+  NTSTATUS v11; // ebx
   __int64 RegEntryByDevice; // rbx
 
   v2 = 0;
@@ -36,32 +34,29 @@ NTSTATUS __stdcall IoWMIRegistrationControl(PDEVICE_OBJECT DeviceObject, ULONG A
   v5 = Action & 0x7FFFFFFF;
   if ( (Action & 0x80000000) == 0 )
     v5 = Action;
-  v6 = ((int)Action >> 31) & 0x80000000;
   if ( (v5 & 0x10000) != 0 )
   {
     v2 = 1;
-    v13 = v5 & 0xF00000;
     v5 &= 0xFF0EFFFF;
-    v6 |= v13 | 0x10000;
   }
-  v7 = v5 - 1;
-  if ( !v7 )
+  v6 = v5 - 1;
+  if ( !v6 )
   {
-    v12 = WmipRegisterDevice(DeviceObject, v6);
+    v11 = WmipRegisterDevice(DeviceObject);
     if ( v2 )
       WmipSetTraceNotify(DeviceObject);
-    return v12;
+    return v11;
   }
-  v8 = v7 - 1;
-  if ( !v8 )
+  v7 = v6 - 1;
+  if ( !v7 )
     return WmipDeregisterDevice(DeviceObject);
-  v9 = v8 - 1;
-  if ( v9 )
+  v8 = v7 - 1;
+  if ( v8 )
   {
-    v10 = v9 - 1;
-    if ( v10 )
+    v9 = v8 - 1;
+    if ( v9 )
     {
-      if ( v10 != 1 )
+      if ( v9 != 1 )
         return -1073741811;
       RegEntryByDevice = WmipFindRegEntryByDevice((__int64)DeviceObject);
       if ( !RegEntryByDevice )
@@ -72,13 +67,13 @@ NTSTATUS __stdcall IoWMIRegistrationControl(PDEVICE_OBJECT DeviceObject, ULONG A
       WmipUnreferenceRegEntry(RegEntryByDevice);
       return 0;
     }
-    return WmipUpdateRegistration((__int64)DeviceObject);
+    return WmipUpdateRegistration(DeviceObject);
   }
   else
   {
-    v12 = WmipDeregisterDevice(DeviceObject);
-    if ( v12 < 0 )
-      return v12;
-    return WmipRegisterDevice(DeviceObject, v6);
+    v11 = WmipDeregisterDevice(DeviceObject);
+    if ( v11 < 0 )
+      return v11;
+    return WmipRegisterDevice(DeviceObject);
   }
 }

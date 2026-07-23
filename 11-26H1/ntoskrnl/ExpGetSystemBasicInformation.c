@@ -1,11 +1,11 @@
 /*
- * XREFs of ExpGetSystemBasicInformation @ 0x140496458
+ * XREFs of ExpGetSystemBasicInformation @ 0x14048FFA8
  * Callers:
- *     ExpQuerySystemInformation @ 0x140B145DC (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x140B169CC (ExpQuerySystemInformation.c)
  * Callees:
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     RtlCopyToUser @ 0x14077F284 (RtlCopyToUser.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     RtlCopyToUser @ 0x140781D84 (RtlCopyToUser.c)
  */
 
 __int64 __fastcall ExpGetSystemBasicInformation(void *a1, char a2)
@@ -37,23 +37,23 @@ __int64 __fastcall ExpGetSystemBasicInformation(void *a1, char a2)
   Src[6] = 0x10000;
   v12 = 0x10000LL;
   v13 = 0x7FFFFFFEFFFFLL;
-  if ( (unsigned __int16)AffinityPrimaryGroup >= *(_WORD *)&stru_140FC01F0.WaitRegister.Flags )
+  if ( (unsigned __int16)AffinityPrimaryGroup >= *(_WORD *)&stru_140FC11F0.WaitRegister.Flags )
     v6 = 0LL;
   else
-    v6 = *(unsigned __int64 *)((char *)&stru_140FC01F0.116 + 8 * AffinityPrimaryGroup + 4);
+    v6 = *(unsigned __int64 *)((char *)&stru_140FC11F0.116 + 8 * AffinityPrimaryGroup + 4);
   v14 = v6;
   v15 = __popcnt(v6);
   v7 = -1;
   v8 = -1;
-  if ( *(_QWORD *)(*(_QWORD *)(stru_140E2EB88.ThreadLock + 8 * Blink_high) + 22288LL) <= 0xFFFFFFFFuLL )
-    v8 = *(_QWORD *)(*(_QWORD *)(stru_140E2EB88.ThreadLock + 8 * Blink_high) + 22288LL);
+  if ( *(_QWORD *)(*(_QWORD *)(stru_140E2ED08.ThreadLock + 8 * Blink_high) + 22288LL) <= 0xFFFFFFFFuLL )
+    v8 = *(_QWORD *)(*(_QWORD *)(stru_140E2ED08.ThreadLock + 8 * Blink_high) + 22288LL);
   Src[3] = v8;
   v9 = -1;
-  if ( *(_QWORD *)(*(_QWORD *)(stru_140E2EB88.ThreadLock + 8 * Blink_high) + 22272LL) <= 0xFFFFFFFFuLL )
-    v9 = *(_QWORD *)(*(_QWORD *)(stru_140E2EB88.ThreadLock + 8 * Blink_high) + 22272LL);
+  if ( *(_QWORD *)(*(_QWORD *)(stru_140E2ED08.ThreadLock + 8 * Blink_high) + 22272LL) <= 0xFFFFFFFFuLL )
+    v9 = *(_QWORD *)(*(_QWORD *)(stru_140E2ED08.ThreadLock + 8 * Blink_high) + 22272LL);
   Src[4] = v9;
-  if ( *(_QWORD *)(*(_QWORD *)(stru_140E2EB88.ThreadLock + 8 * Blink_high) + 22280LL) <= 0xFFFFFFFFuLL )
-    v7 = *(_QWORD *)(*(_QWORD *)(stru_140E2EB88.ThreadLock + 8 * Blink_high) + 22280LL);
+  if ( *(_QWORD *)(*(_QWORD *)(stru_140E2ED08.ThreadLock + 8 * Blink_high) + 22280LL) <= 0xFFFFFFFFuLL )
+    v7 = *(_QWORD *)(*(_QWORD *)(stru_140E2ED08.ThreadLock + 8 * Blink_high) + 22280LL);
   Src[5] = v7;
   if ( a2 )
     RtlCopyToUser(a1, Src, 0x40uLL);

@@ -14,86 +14,80 @@
  *     LdrpDependencyExist @ 0x180061A34 (LdrpDependencyExist.c)
  */
 
-signed __int64 __fastcall LdrpLoadContextReplaceModule(
-        __int64 a1,
-        unsigned __int64 a2,
-        unsigned __int64 a3,
-        unsigned __int64 a4)
+void __fastcall LdrpLoadContextReplaceModule(__int64 a1, __int64 a2)
 {
-  unsigned __int64 v6; // rdx
-  unsigned __int64 v7; // r9
-  unsigned __int64 v8; // r8
-  __int64 v9; // rdi
-  int v10; // eax
-  _QWORD **v11; // rcx
-  _QWORD *v12; // rbx
-  unsigned __int64 v13; // rsi
-  __int64 v14; // rbp
-  _QWORD *v15; // r8
-  _QWORD **v16; // rcx
+  __int64 v4; // r8
+  __int64 v5; // rdi
+  int v6; // eax
+  _QWORD **v7; // rcx
+  _QWORD *v8; // rbx
+  unsigned __int64 v9; // rsi
+  __int64 v10; // rbp
+  _QWORD *v11; // r8
+  _QWORD **v12; // rcx
   _QWORD *i; // rdx
-  _QWORD **v18; // rax
-  int v19; // eax
-  _QWORD *v22; // rcx
+  _QWORD **v14; // rax
+  int v15; // eax
+  _QWORD *v17; // rcx
 
-  RtlAcquireSRWLockExclusive((unsigned __int64)&LdrpModuleDatatableLock, a2, a3, a4);
-  v8 = *(_QWORD *)(*(_QWORD *)(a1 + 56) + 152LL);
+  RtlAcquireSRWLockExclusive(&LdrpModuleDatatableLock);
+  v4 = *(_QWORD *)(*(_QWORD *)(a1 + 56) + 152LL);
   *(_QWORD *)(a1 + 56) = a2;
-  v9 = *(_QWORD *)(a2 + 152);
-  v10 = *(_DWORD *)(v9 + 24);
-  if ( v10 != -1 )
-    *(_DWORD *)(v9 + 24) = v10 + 1;
-  *(_DWORD *)(v8 + 24) = 0;
-  v11 = *(_QWORD ***)(v8 + 48);
-  if ( v11 )
+  v5 = *(_QWORD *)(a2 + 152);
+  v6 = *(_DWORD *)(v5 + 24);
+  if ( v6 != -1 )
+    *(_DWORD *)(v5 + 24) = v6 + 1;
+  *(_DWORD *)(v4 + 24) = 0;
+  v7 = *(_QWORD ***)(v4 + 48);
+  if ( v7 )
   {
-    v12 = *v11;
-    if ( *v11 == v11 )
-      *(_QWORD *)(v8 + 48) = 0LL;
+    v8 = *v7;
+    if ( *v7 == v7 )
+      *(_QWORD *)(v4 + 48) = 0LL;
     else
-      *v11 = (_QWORD *)*v12;
-    LdrpDereferenceModule(a2, v6, v8, v7);
-    v13 = v12[1] & 0xFFFFFFFFFFFFFFF8uLL;
-    v14 = *(_QWORD *)(*(_QWORD *)v13 + 16LL);
-    if ( (unsigned __int8)LdrpDependencyExist(v13, v9) )
+      *v7 = (_QWORD *)*v8;
+    LdrpDereferenceModule((char *)a2);
+    v9 = v8[1] & 0xFFFFFFFFFFFFFFF8uLL;
+    v10 = *(_QWORD *)(*(_QWORD *)v9 + 16LL);
+    if ( (unsigned __int8)LdrpDependencyExist(v9, v5) )
     {
-      v16 = *(_QWORD ***)(v13 + 40);
-      for ( i = *v16; i != v15; i = (_QWORD *)*i )
-        v16 = (_QWORD **)i;
-      *v16 = (_QWORD *)*v15;
-      if ( *(_QWORD **)(v13 + 40) == v15 )
+      v12 = *(_QWORD ***)(v9 + 40);
+      for ( i = *v12; i != v11; i = (_QWORD *)*i )
+        v12 = (_QWORD **)i;
+      *v12 = (_QWORD *)*v11;
+      if ( *(_QWORD **)(v9 + 40) == v11 )
       {
-        v18 = 0LL;
-        if ( v16 != v15 )
-          v18 = v16;
-        *(_QWORD *)(v13 + 40) = v18;
+        v14 = 0LL;
+        if ( v12 != v11 )
+          v14 = v12;
+        *(_QWORD *)(v9 + 40) = v14;
       }
-      v19 = *(_DWORD *)(v9 + 24);
-      if ( v19 != -1 )
-        *(_DWORD *)(v9 + 24) = v19 - 1;
-      RtlFreeHeap(LdrpHeap, 0, (__int64)v15);
-      v15 = 0LL;
+      v15 = *(_DWORD *)(v5 + 24);
+      if ( v15 != -1 )
+        *(_DWORD *)(v5 + 24) = v15 - 1;
+      RtlFreeHeap(LdrpHeap, 0, v11);
+      v11 = 0LL;
     }
     else
     {
-      v15[1] = v9;
-      v22 = *(_QWORD **)(v9 + 48);
-      if ( v22 )
+      v11[1] = v5;
+      v17 = *(_QWORD **)(v5 + 48);
+      if ( v17 )
       {
-        *v12 = *v22;
-        *v22 = v12;
+        *v8 = *v17;
+        *v17 = v8;
       }
       else
       {
-        *v12 = v12;
+        *v8 = v8;
       }
-      *(_QWORD *)(v9 + 48) = v12;
+      *(_QWORD *)(v5 + 48) = v8;
     }
-    if ( v14 && (*(int *)(v9 + 56) >= 2 || !v15) && (*(_DWORD *)(v14 + 100))-- == 1 )
+    if ( v10 && (*(int *)(v5 + 56) >= 2 || !v11) && (*(_DWORD *)(v10 + 100))-- == 1 )
     {
-      *(_DWORD *)(v13 + 56) = 4;
-      LdrpQueueWork(v14);
+      *(_DWORD *)(v9 + 56) = 4;
+      LdrpQueueWork(v10);
     }
   }
-  return RtlReleaseSRWLockExclusive(&LdrpModuleDatatableLock);
+  RtlReleaseSRWLockExclusive(&LdrpModuleDatatableLock);
 }

@@ -1,19 +1,19 @@
 /*
- * XREFs of PiSwIrpInterfacePropertySet @ 0x14081B124
+ * XREFs of PiSwIrpInterfacePropertySet @ 0x14081B3F4
  * Callers:
- *     PiSwDispatch @ 0x14079C620 (PiSwDispatch.c)
+ *     PiSwDispatch @ 0x14079C810 (PiSwDispatch.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402390E0 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x14023D410 (ExReleaseResourceLite.c)
- *     IofCompleteRequest @ 0x1402C9980 (IofCompleteRequest.c)
- *     McTemplateK0zz_EtwWriteTransfer @ 0x1405637D4 (McTemplateK0zz_EtwWriteTransfer.c)
- *     McTemplateK0zzd_EtwWriteTransfer @ 0x1405638A4 (McTemplateK0zzd_EtwWriteTransfer.c)
- *     PiSwValidatePropertyArray @ 0x14079C8F8 (PiSwValidatePropertyArray.c)
- *     PiSwUpdateArrayProperties @ 0x14079C958 (PiSwUpdateArrayProperties.c)
- *     PiSwPropertySet @ 0x14079CA60 (PiSwPropertySet.c)
- *     PiSwDeviceOperationsAllowed @ 0x14079CB78 (PiSwDeviceOperationsAllowed.c)
- *     PiSwDeviceFindInterfaceEntry @ 0x14081B308 (PiSwDeviceFindInterfaceEntry.c)
+ *     KeLeaveCriticalRegion @ 0x140231550 (KeLeaveCriticalRegion.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402391B0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14023D4E0 (ExReleaseResourceLite.c)
+ *     IofCompleteRequest @ 0x1402C9C10 (IofCompleteRequest.c)
+ *     McTemplateK0zz_EtwWriteTransfer @ 0x140563E94 (McTemplateK0zz_EtwWriteTransfer.c)
+ *     McTemplateK0zzd_EtwWriteTransfer @ 0x140563F64 (McTemplateK0zzd_EtwWriteTransfer.c)
+ *     PiSwValidatePropertyArray @ 0x14079CAE8 (PiSwValidatePropertyArray.c)
+ *     PiSwUpdateArrayProperties @ 0x14079CB48 (PiSwUpdateArrayProperties.c)
+ *     PiSwPropertySet @ 0x14079CC50 (PiSwPropertySet.c)
+ *     PiSwDeviceOperationsAllowed @ 0x14079CD68 (PiSwDeviceOperationsAllowed.c)
+ *     PiSwDeviceFindInterfaceEntry @ 0x14081B5D8 (PiSwDeviceFindInterfaceEntry.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
@@ -51,7 +51,7 @@ __int64 __fastcall PiSwIrpInterfacePropertySet(PIRP Irp, __int64 a2, __int64 a3)
   v7 = MesDecodeBufferHandleCreate(MasterIrp, CurrentStackLocation->Parameters.Create.Options, &v16);
   if ( v7 < 0 )
     goto LABEL_15;
-  NdrMesTypeDecode3(v16, "TP 3\a", &off_140A77E38, &off_140C02F50, 4, &P);
+  NdrMesTypeDecode3(v16, "TP 3\a", &off_140A780E8, &off_140C02F50, 4, &P);
   if ( P && *(_QWORD *)P && *((_QWORD *)P + 2) && (v8 = *((_DWORD *)P + 2)) != 0 )
   {
     v7 = PiSwValidatePropertyArray(*((_QWORD *)P + 2), v8);

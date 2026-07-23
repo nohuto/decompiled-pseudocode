@@ -1,5 +1,5 @@
 /*
- * XREFs of xHalQueryProcessorRestartEntryPoint @ 0x14017171C
+ * XREFs of xHalQueryProcessorRestartEntryPoint @ 0x140171C1C
  * Callers:
  *     PopBuildMemoryImageHeader @ 0x1403CAA04 (PopBuildMemoryImageHeader.c)
  * Callees:

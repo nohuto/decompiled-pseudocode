@@ -3,7 +3,7 @@
  * Callers:
  *     MiProcessWorkingSets @ 0x14021FA10 (MiProcessWorkingSets.c)
  * Callees:
- *     MiGetAvailablePagesBelowPriority @ 0x14025BAD0 (MiGetAvailablePagesBelowPriority.c)
+ *     MiGetAvailablePagesBelowPriority @ 0x14025BD60 (MiGetAvailablePagesBelowPriority.c)
  */
 
 __int64 __fastcall MiComputeAgingPercent(__int64 a1)

@@ -1,15 +1,15 @@
 /*
- * XREFs of CcPerfLogFlushSection @ 0x140394304
+ * XREFs of CcPerfLogFlushSection @ 0x1403944E4
  * Callers:
- *     CcFlushCachePreProcess @ 0x14029DE80 (CcFlushCachePreProcess.c)
- *     CcFlushCacheOneRange @ 0x14029E650 (CcFlushCacheOneRange.c)
- *     CcFlushCachePostProcessOneRange @ 0x14029E9F0 (CcFlushCachePostProcessOneRange.c)
- *     CcUnpinRepinnedBcb @ 0x140394190 (CcUnpinRepinnedBcb.c)
+ *     CcFlushCachePreProcess @ 0x14029E110 (CcFlushCachePreProcess.c)
+ *     CcFlushCacheOneRange @ 0x14029E8E0 (CcFlushCacheOneRange.c)
+ *     CcFlushCachePostProcessOneRange @ 0x14029EC80 (CcFlushCachePostProcessOneRange.c)
+ *     CcUnpinRepinnedBcb @ 0x140394370 (CcUnpinRepinnedBcb.c)
  * Callees:
  *     EtwTraceKernelEvent @ 0x140211EDC (EtwTraceKernelEvent.c)
- *     CcReferenceSharedCacheMapFileObject @ 0x1402A14D0 (CcReferenceSharedCacheMapFileObject.c)
- *     ObFastDereferenceObjectDeferDelete @ 0x1402A2500 (ObFastDereferenceObjectDeferDelete.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     CcReferenceSharedCacheMapFileObject @ 0x1402A1760 (CcReferenceSharedCacheMapFileObject.c)
+ *     ObFastDereferenceObjectDeferDelete @ 0x1402A2790 (ObFastDereferenceObjectDeferDelete.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 void __fastcall CcPerfLogFlushSection(__int64 a1, __int64 a2, __int64 *a3, int a4, int a5)

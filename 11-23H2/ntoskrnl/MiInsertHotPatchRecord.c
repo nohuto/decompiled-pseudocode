@@ -1,19 +1,19 @@
 /*
- * XREFs of MiInsertHotPatchRecord @ 0x140A37B40
+ * XREFs of MiInsertHotPatchRecord @ 0x140A37DF0
  * Callers:
- *     MiLoadHotPatch @ 0x140A37F60 (MiLoadHotPatch.c)
- *     MiLoadHotPatchForUserSid @ 0x140A382F8 (MiLoadHotPatchForUserSid.c)
+ *     MiLoadHotPatch @ 0x140A38210 (MiLoadHotPatch.c)
+ *     MiLoadHotPatchForUserSid @ 0x140A385A8 (MiLoadHotPatchForUserSid.c)
  *     MmRegisterHotPatches @ 0x140B73D38 (MmRegisterHotPatches.c)
  * Callees:
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     RtlAvlInsertNodeEx @ 0x1402880C0 (RtlAvlInsertNodeEx.c)
- *     RtlAvlRemoveNode @ 0x14028AF50 (RtlAvlRemoveNode.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F820 (KiCheckForKernelApcDelivery.c)
- *     MiCompareHotPatchNodes @ 0x140A36604 (MiCompareHotPatchNodes.c)
- *     MiInsertPreviouslyRegisteredHotPatchRecord @ 0x140A37CD0 (MiInsertPreviouslyRegisteredHotPatchRecord.c)
+ *     KeAbPreAcquire @ 0x140230FD0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     RtlAvlInsertNodeEx @ 0x140288350 (RtlAvlInsertNodeEx.c)
+ *     RtlAvlRemoveNode @ 0x14028B1E0 (RtlAvlRemoveNode.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402FD0A0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KiCheckForKernelApcDelivery @ 0x14030FAB0 (KiCheckForKernelApcDelivery.c)
+ *     MiCompareHotPatchNodes @ 0x140A368B4 (MiCompareHotPatchNodes.c)
+ *     MiInsertPreviouslyRegisteredHotPatchRecord @ 0x140A37F80 (MiInsertPreviouslyRegisteredHotPatchRecord.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

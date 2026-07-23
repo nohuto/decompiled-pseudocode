@@ -1,20 +1,20 @@
 /*
- * XREFs of HvHiveStartEmptyClone @ 0x140873798
+ * XREFs of HvHiveStartEmptyClone @ 0x1408738F8
  * Callers:
- *     CmpCreateEmptyHiveClone @ 0x140872E48 (CmpCreateEmptyHiveClone.c)
+ *     CmpCreateEmptyHiveClone @ 0x140872FA8 (CmpCreateEmptyHiveClone.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     HvpViewMapStart @ 0x1407234E4 (HvpViewMapStart.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     HvpViewMapStart @ 0x1406FB510 (HvpViewMapStart.c)
  */
 
-int __fastcall HvHiveStartEmptyClone(__int64 a1, __int64 a2)
+NTSTATUS __fastcall HvHiveStartEmptyClone(__int64 a1, __int64 a2)
 {
   __int64 v3; // rdi
   __int64 (__fastcall *v4)(__int64, __int64, __int64); // rax
   __int64 v5; // rcx
   void *v6; // rax
-  int result; // eax
+  NTSTATUS result; // eax
   char v8; // cl
 
   *(_QWORD *)(a1 + 8) = *(_QWORD *)(a2 + 8);

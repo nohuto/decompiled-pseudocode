@@ -8,18 +8,17 @@
  *     RtlAnsiStringToUnicodeString @ 0x1408E5A80 (RtlAnsiStringToUnicodeString.c)
  */
 
-// local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall RtlInt64ToUnicodeString(ULONGLONG Value, ULONG Base, PUNICODE_STRING String)
 {
   NTSTATUS result; // eax
   __int64 v5; // rax
-  STRING SourceString; // [rsp+20h] [rbp-88h] BYREF
-  ULONGLONG v7[2]; // [rsp+30h] [rbp-78h] BYREF
-  char v8[80]; // [rsp+40h] [rbp-68h] BYREF
+  ANSI_STRING SourceString; // [rsp+20h] [rbp-88h] BYREF
+  LARGE_INTEGER v7[2]; // [rsp+30h] [rbp-78h] BYREF
+  CHAR v8[80]; // [rsp+40h] [rbp-68h] BYREF
 
   *(_DWORD *)(&SourceString.MaximumLength + 1) = 0;
-  v7[0] = Value;
-  result = RtlLargeIntegerToChar(v7, *(unsigned __int64 *)&Base, 65, v8);
+  v7[0].QuadPart = Value;
+  result = RtlLargeIntegerToChar(v7, Base, 65, v8);
   if ( result >= 0 )
   {
     SourceString.MaximumLength = 65;

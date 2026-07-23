@@ -7,20 +7,20 @@
  *     RtlRaiseStatus @ 0x180102820 (RtlRaiseStatus.c)
  */
 
-void __fastcall RtlSetUnhandledExceptionFilter(__int64 a1)
+void __cdecl RtlSetUnhandledExceptionFilter(PRTLP_UNHANDLED_EXCEPTION_FILTER UnhandledExceptionFilter)
 {
   __int64 v1; // rdx
-  NTSTATUS v3; // eax
+  int v3; // eax
   unsigned int ProcessInformation; // [rsp+48h] [rbp+10h] BYREF
 
   v1 = (unsigned int)`RtlpGetCookieValue'::`2'::CookieValue;
   if ( !`RtlpGetCookieValue'::`2'::CookieValue )
   {
-    v3 = NtQueryInformationProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, (PROCESSINFOCLASS)36, &ProcessInformation, 4u, 0LL);
+    v3 = NtQueryInformationProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, ProcessCookie, &ProcessInformation, 4u, 0LL);
     if ( v3 < 0 )
-      RtlRaiseStatus((unsigned int)v3);
+      RtlRaiseStatus(v3);
     v1 = ProcessInformation;
     `RtlpGetCookieValue'::`2'::CookieValue = ProcessInformation;
   }
-  RtlpUnhandledExceptionFilter = __ROR8__(a1 ^ v1, v1 & 0x3F);
+  RtlpUnhandledExceptionFilter = __ROR8__((unsigned __int64)UnhandledExceptionFilter ^ v1, v1 & 0x3F);
 }

@@ -1,34 +1,34 @@
 /*
- * XREFs of LdrpEtwLogLoaderSnaps @ 0x180114F24
+ * XREFs of LdrpEtwLogLoaderSnaps @ 0x180114708
  * Callers:
- *     LdrpLogInternal @ 0x180046B90 (LdrpLogInternal.c)
+ *     LdrpLogInternal @ 0x180031100 (LdrpLogInternal.c)
  * Callees:
- *     RtlGetCurrentServiceSessionId @ 0x180028160 (RtlGetCurrentServiceSessionId.c)
- *     LdrpGenerateSnapsUnicodeStrings @ 0x180049370 (LdrpGenerateSnapsUnicodeStrings.c)
- *     LdrpLogEtwEvent @ 0x180084238 (LdrpLogEtwEvent.c)
- *     __security_check_cookie @ 0x180162C90 (__security_check_cookie.c)
- *     memset$thunk$772440563353939046 @ 0x180170030 (memset$thunk$772440563353939046.c)
+ *     RtlGetCurrentServiceSessionId @ 0x180013230 (RtlGetCurrentServiceSessionId.c)
+ *     LdrpGenerateSnapsUnicodeStrings @ 0x1800338F0 (LdrpGenerateSnapsUnicodeStrings.c)
+ *     LdrpLogEtwEvent @ 0x18007B5D8 (LdrpLogEtwEvent.c)
+ *     __security_check_cookie @ 0x180162B90 (__security_check_cookie.c)
+ *     memset$thunk$772440563353939046 @ 0x18016F030 (memset$thunk$772440563353939046.c)
  */
 
-struct _PEB *__fastcall LdrpEtwLogLoaderSnaps(__int64 a1, int a2, char *Format, va_list ArgList)
+int __fastcall LdrpEtwLogLoaderSnaps(__int64 a1, int a2, char *Format, va_list ArgList)
 {
-  struct _PEB *result; // rax
+  struct _PEB *v8; // rax
   __int64 v9; // rcx
   __int64 v10; // rcx
-  int v11[2]; // [rsp+40h] [rbp-C0h] BYREF
-  _BYTE *v12; // [rsp+48h] [rbp-B8h]
-  int v13[2]; // [rsp+50h] [rbp-B0h] BYREF
-  _BYTE *v14; // [rsp+58h] [rbp-A8h]
-  _BYTE v15[256]; // [rsp+60h] [rbp-A0h] BYREF
-  _BYTE v16[512]; // [rsp+160h] [rbp+60h] BYREF
+  int v12[2]; // [rsp+40h] [rbp-C0h] BYREF
+  _BYTE *v13; // [rsp+48h] [rbp-B8h]
+  int v14[2]; // [rsp+50h] [rbp-B0h] BYREF
+  _BYTE *v15; // [rsp+58h] [rbp-A8h]
+  _BYTE v16[256]; // [rsp+60h] [rbp-A0h] BYREF
+  _BYTE v17[512]; // [rsp+160h] [rbp+60h] BYREF
 
-  v13[1] = 0;
-  v11[1] = 0;
-  result = (struct _PEB *)RtlGetCurrentServiceSessionId();
-  if ( (_DWORD)result )
+  v14[1] = 0;
+  v12[1] = 0;
+  LODWORD(v8) = RtlGetCurrentServiceSessionId();
+  if ( (_DWORD)v8 )
   {
-    result = NtCurrentPeb();
-    v9 = (__int64)result->SharedData + 554;
+    v8 = NtCurrentPeb();
+    v9 = (__int64)v8->SharedData + 554;
   }
   else
   {
@@ -36,14 +36,14 @@ struct _PEB *__fastcall LdrpEtwLogLoaderSnaps(__int64 a1, int a2, char *Format, 
   }
   if ( *(_BYTE *)v9 )
   {
-    result = NtCurrentPeb();
-    if ( (result->TracingFlags & 4) != 0 )
+    v8 = NtCurrentPeb();
+    if ( (v8->TracingFlags & 4) != 0 )
     {
-      result = (struct _PEB *)RtlGetCurrentServiceSessionId();
-      if ( (_DWORD)result )
+      LODWORD(v8) = RtlGetCurrentServiceSessionId();
+      if ( (_DWORD)v8 )
       {
-        result = NtCurrentPeb();
-        v10 = (__int64)result->SharedData + 555;
+        v8 = NtCurrentPeb();
+        v10 = (__int64)v8->SharedData + 555;
       }
       else
       {
@@ -51,17 +51,17 @@ struct _PEB *__fastcall LdrpEtwLogLoaderSnaps(__int64 a1, int a2, char *Format, 
       }
       if ( *(char *)v10 < 0 )
       {
-        memset_thunk_772440563353939046(v15, 0, 0x100uLL);
-        memset_thunk_772440563353939046(v16, 0, 0x200uLL);
-        v14 = v15;
-        v12 = v16;
-        v13[0] = 0x1000000;
-        v11[0] = 0x2000000;
-        result = (struct _PEB *)LdrpGenerateSnapsUnicodeStrings(1, (__int64)v13, (__int64)v11, a1, a2, Format, ArgList);
-        if ( !(_DWORD)result )
-          return (struct _PEB *)LdrpLogEtwEvent(5335, 0LL, 0, 0, (unsigned __int16 *)v13, (unsigned __int16 *)v11);
+        memset_thunk_772440563353939046(v16, 0, 0x100uLL);
+        memset_thunk_772440563353939046(v17, 0, 0x200uLL);
+        v15 = v16;
+        v13 = v17;
+        v14[0] = 0x1000000;
+        v12[0] = 0x2000000;
+        LODWORD(v8) = LdrpGenerateSnapsUnicodeStrings(1, (__int64)v14, (__int64)v12, a1, a2, Format, ArgList);
+        if ( !(_DWORD)v8 )
+          LODWORD(v8) = LdrpLogEtwEvent(5335, 0LL, 0, 0, (unsigned __int16 *)v14, (unsigned __int16 *)v12);
       }
     }
   }
-  return result;
+  return (int)v8;
 }

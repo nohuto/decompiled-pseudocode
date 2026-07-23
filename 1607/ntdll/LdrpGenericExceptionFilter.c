@@ -1,35 +1,37 @@
 /*
- * XREFs of LdrpGenericExceptionFilter @ 0x1800D2D24
+ * XREFs of LdrpGenericExceptionFilter @ 0x1800D2DE4
  * Callers:
- *     LdrUnlockLoaderLock @ 0x180029EC0 (LdrUnlockLoaderLock.c)
- *     LdrpHandleTlsData @ 0x18002DED4 (LdrpHandleTlsData.c)
- *     LdrpSnapModule @ 0x180033FA0 (LdrpSnapModule.c)
- *     LdrLockLoaderLock @ 0x18004E640 (LdrLockLoaderLock.c)
- *     LdrpAllocateTlsEntry @ 0x18004FF74 (LdrpAllocateTlsEntry.c)
- *     LdrpAllocateTls @ 0x1800512B4 (LdrpAllocateTls.c)
- *     LdrpProtectedCopyMemory @ 0x18006DDF0 (LdrpProtectedCopyMemory.c)
- *     LdrpProtectAndRelocateImage @ 0x180084C40 (LdrpProtectAndRelocateImage.c)
- *     LdrpTouchThreadStack @ 0x180087C48 (LdrpTouchThreadStack.c)
- *     LdrVerifyImageMatchesChecksumEx @ 0x18008BE60 (LdrVerifyImageMatchesChecksumEx.c)
+ *     LdrUnlockLoaderLock @ 0x180029EB0 (LdrUnlockLoaderLock.c)
+ *     LdrpHandleTlsData @ 0x18002DEC4 (LdrpHandleTlsData.c)
+ *     LdrpSnapModule @ 0x180033F90 (LdrpSnapModule.c)
+ *     LdrLockLoaderLock @ 0x18004E630 (LdrLockLoaderLock.c)
+ *     LdrpAllocateTlsEntry @ 0x18004FF64 (LdrpAllocateTlsEntry.c)
+ *     LdrpAllocateTls @ 0x1800512A4 (LdrpAllocateTls.c)
+ *     LdrpProtectedCopyMemory @ 0x18006DDE0 (LdrpProtectedCopyMemory.c)
+ *     LdrpProtectAndRelocateImage @ 0x180084C30 (LdrpProtectAndRelocateImage.c)
+ *     LdrpTouchThreadStack @ 0x180087C38 (LdrpTouchThreadStack.c)
+ *     LdrVerifyImageMatchesChecksumEx @ 0x18008BE50 (LdrVerifyImageMatchesChecksumEx.c)
  * Callees:
- *     DbgPrint @ 0x18005C3E0 (DbgPrint.c)
+ *     DbgPrint @ 0x18005C3D0 (DbgPrint.c)
  *     ZwTerminateProcess @ 0x1800A69A0 (ZwTerminateProcess.c)
  *     NtTerminateThread @ 0x1800A6E80 (NtTerminateThread.c)
- *     LdrpLogDbgPrint @ 0x1800D057C (LdrpLogDbgPrint.c)
- *     LdrpLogFatalLdrEtwEvent @ 0x1800D16A8 (LdrpLogFatalLdrEtwEvent.c)
- *     DbgPrompt @ 0x1800DB9F0 (DbgPrompt.c)
+ *     LdrpLogDbgPrint @ 0x1800D063C (LdrpLogDbgPrint.c)
+ *     LdrpLogFatalLdrEtwEvent @ 0x1800D1768 (LdrpLogFatalLdrEtwEvent.c)
+ *     DbgPrompt @ 0x1800DBAB0 (DbgPrompt.c)
  */
 
 __int64 __fastcall LdrpGenericExceptionFilter(const void **a1, const char *a2)
 {
   char v3; // al
-  bool v4; // zf
-  int v5; // ecx
+  NTSTATUS v4; // edi
+  bool v5; // zf
   int v6; // ecx
   int v7; // ecx
-  char v9; // [rsp+60h] [rbp+8h] BYREF
+  int v8; // ecx
+  CHAR Response; // [rsp+60h] [rbp+8h] BYREF
 
   v3 = LdrpDebugFlags;
+  v4 = *(_DWORD *)*a1;
   if ( (LdrpDebugFlags & 3) != 0 )
   {
     LdrpLogDbgPrint(
@@ -39,7 +41,7 @@ __int64 __fastcall LdrpGenericExceptionFilter(const void **a1, const char *a2)
       0,
       "Function %s raised exception 0x%08lx\n\tException record: .exr %p\n\tContext record: .cxr %p\n",
       a2,
-      *(_DWORD *)*a1,
+      v4,
       *a1,
       a1[1]);
     v3 = LdrpDebugFlags;
@@ -51,43 +53,43 @@ __int64 __fastcall LdrpGenericExceptionFilter(const void **a1, const char *a2)
     while ( 1 )
     {
       DbgPrint("\n***Exception thrown within loader***\n");
-      DbgPrompt("Break repeatedly, break Once, Ignore, terminate Process or terminate Thread (boipt)? ", &v9, 2LL);
-      if ( v9 > 98 )
+      DbgPrompt("Break repeatedly, break Once, Ignore, terminate Process or terminate Thread (boipt)? ", &Response, 2u);
+      if ( Response > 98 )
       {
-        v5 = v9 - 105;
-        v4 = v9 == 105;
+        v6 = Response - 105;
+        v5 = Response == 105;
       }
       else
       {
-        if ( v9 == 98 || v9 == 66 )
+        if ( Response == 98 || Response == 66 )
           goto LABEL_17;
-        v5 = v9 - 73;
-        v4 = v9 == 73;
+        v6 = Response - 73;
+        v5 = Response == 73;
       }
-      if ( v4 )
+      if ( v5 )
         return 1LL;
-      v6 = v5 - 6;
-      if ( !v6 )
+      v7 = v6 - 6;
+      if ( !v7 )
       {
 LABEL_17:
         DbgPrint("Execute '.cxr %p' to dump context\n", a1[1]);
         __debugbreak();
       }
-      v7 = v6 - 1;
-      if ( v7 )
+      v8 = v7 - 1;
+      if ( v8 )
       {
-        if ( v7 == 4 )
+        if ( v8 == 4 )
         {
           LdrpLogFatalLdrEtwEvent(
             (const void **)&NtCurrentPeb()->ProcessParameters->ImagePathName,
             &LoaderFatalErrorThread);
-          NtTerminateThread();
+          NtTerminateThread((HANDLE)0xFFFFFFFFFFFFFFFELL, v4);
         }
       }
       else
       {
         LdrpLogFatalLdrEtwEvent((const void **)&NtCurrentPeb()->ProcessParameters->ImagePathName, &LoaderFatalErrorProc);
-        ZwTerminateProcess();
+        ZwTerminateProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, v4);
       }
     }
   }

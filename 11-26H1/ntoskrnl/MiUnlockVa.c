@@ -1,12 +1,12 @@
 /*
- * XREFs of MiUnlockVa @ 0x1404AA78C
+ * XREFs of MiUnlockVa @ 0x1404A3E1C
  * Callers:
- *     MiLockVirtualMemoryRevert @ 0x140306D38 (MiLockVirtualMemoryRevert.c)
- *     MiMakeVaRangeNoAccess @ 0x140310CE0 (MiMakeVaRangeNoAccess.c)
- *     MiUnlockVirtualAddreses @ 0x1404AA608 (MiUnlockVirtualAddreses.c)
- *     MiSectionProtectTrimValidPtes @ 0x1404AE9B8 (MiSectionProtectTrimValidPtes.c)
+ *     MiLockVirtualMemoryRevert @ 0x1402E8DB8 (MiLockVirtualMemoryRevert.c)
+ *     MiMakeVaRangeNoAccess @ 0x140312D14 (MiMakeVaRangeNoAccess.c)
+ *     MiUnlockVirtualAddreses @ 0x1404A3C98 (MiUnlockVirtualAddreses.c)
+ *     MiSectionProtectTrimValidPtes @ 0x1404A8048 (MiSectionProtectTrimValidPtes.c)
  * Callees:
- *     MiUnlockWsle @ 0x140324658 (MiUnlockWsle.c)
+ *     MiUnlockWsle @ 0x140326688 (MiUnlockWsle.c)
  */
 
 __int64 __fastcall MiUnlockVa(__int64 a1, unsigned __int64 a2)

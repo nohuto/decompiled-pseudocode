@@ -1,29 +1,29 @@
 /*
- * XREFs of RtlpHpLargeAlloc @ 0x140420250
+ * XREFs of RtlpHpLargeAlloc @ 0x1404585E4
  * Callers:
- *     ExAllocateHeapPool @ 0x1402ACDB0 (ExAllocateHeapPool.c)
- *     RtlpHpAllocateHeap @ 0x1402B7A40 (RtlpHpAllocateHeap.c)
- *     RtlpHpAllocateHeapSlow @ 0x1402B819C (RtlpHpAllocateHeapSlow.c)
- *     RtlpHpMetadataAlloc @ 0x140420674 (RtlpHpMetadataAlloc.c)
+ *     ExAllocateHeapPool @ 0x140277790 (ExAllocateHeapPool.c)
+ *     RtlpHpAllocateHeap @ 0x1403E93B0 (RtlpHpAllocateHeap.c)
+ *     RtlpHpMetadataAlloc @ 0x140458A08 (RtlpHpMetadataAlloc.c)
+ *     RtlpHpAllocateHeapSlow @ 0x1404D2B7C (RtlpHpAllocateHeapSlow.c)
  * Callees:
- *     RtlRbInsertNodeEx @ 0x1402BDA80 (RtlRbInsertNodeEx.c)
- *     RtlpHpSegHeapCheckCommitLimit @ 0x1402C257C (RtlpHpSegHeapCheckCommitLimit.c)
- *     RtlpHpVaMgrCtxQuery @ 0x1402C27C8 (RtlpHpVaMgrCtxQuery.c)
- *     RtlpHpAllocVA @ 0x1402E98A8 (RtlpHpAllocVA.c)
- *     RtlpHpMetadataAlloc @ 0x140420674 (RtlpHpMetadataAlloc.c)
- *     RtlpHpLargeLockAcquire @ 0x140420E08 (RtlpHpLargeLockAcquire.c)
- *     RtlpHpMetadataFree @ 0x140420E2C (RtlpHpMetadataFree.c)
- *     RtlpHpLargeLockRelease @ 0x140420F94 (RtlpHpLargeLockRelease.c)
- *     RtlpHpFreeVA @ 0x140420FB8 (RtlpHpFreeVA.c)
- *     RtlpHpVaMgrCtxAlloc @ 0x140421384 (RtlpHpVaMgrCtxAlloc.c)
- *     RtlHeapZero @ 0x1406B4F30 (RtlHeapZero.c)
+ *     RtlpHpAllocVA @ 0x14034AEE8 (RtlpHpAllocVA.c)
+ *     RtlpHpVaMgrCtxQuery @ 0x14035D9AC (RtlpHpVaMgrCtxQuery.c)
+ *     RtlpHpSegHeapCheckCommitLimit @ 0x14035E43C (RtlpHpSegHeapCheckCommitLimit.c)
+ *     RtlRbInsertNodeEx @ 0x1403651C0 (RtlRbInsertNodeEx.c)
+ *     RtlpHpMetadataAlloc @ 0x140458A08 (RtlpHpMetadataAlloc.c)
+ *     RtlpHpLargeLockAcquire @ 0x1404590DC (RtlpHpLargeLockAcquire.c)
+ *     RtlpHpMetadataFree @ 0x140459100 (RtlpHpMetadataFree.c)
+ *     RtlpHpLargeLockRelease @ 0x140459268 (RtlpHpLargeLockRelease.c)
+ *     RtlpHpFreeVA @ 0x14045928C (RtlpHpFreeVA.c)
+ *     RtlpHpVaMgrCtxAlloc @ 0x140459658 (RtlpHpVaMgrCtxAlloc.c)
+ *     RtlHeapZero @ 0x1406B5ED0 (RtlHeapZero.c)
  */
 
 __int64 __fastcall RtlpHpLargeAlloc(__int128 *a1, unsigned __int64 a2, unsigned __int64 a3, char a4)
 {
   __int64 v4; // rsi
   __int64 v7; // rbx
-  unsigned __int64 v8; // r13
+  __int64 v8; // r13
   BOOL v9; // ebx
   int v10; // r12d
   __int64 v11; // r10
@@ -41,7 +41,7 @@ __int64 __fastcall RtlpHpLargeAlloc(__int128 *a1, unsigned __int64 a2, unsigned 
   unsigned __int64 v24; // rax
   char v25; // si
   unsigned __int64 v26; // rdx
-  bool v27; // r8
+  BOOLEAN v27; // r8
   unsigned __int64 v28; // rax
   __int64 v29; // rdx
   ULONG_PTR v30; // [rsp+28h] [rbp-99h]
@@ -98,7 +98,7 @@ __int64 __fastcall RtlpHpLargeAlloc(__int128 *a1, unsigned __int64 a2, unsigned 
       v39 = 1;
     v40 = *((_QWORD *)&v41 + 1);
     v34 = i - (((_DWORD)i - 1) & 0xFFFFF) + 0xFFFFF;
-    v15 = RtlpHpVaMgrCtxAlloc(&unk_140E68358, &v34, v11, v38);
+    v15 = RtlpHpVaMgrCtxAlloc(&unk_140E68558, &v34, v11, v38);
     if ( !v15 )
       goto LABEL_27;
     v4 = v15;
@@ -106,7 +106,7 @@ __int64 __fastcall RtlpHpLargeAlloc(__int128 *a1, unsigned __int64 a2, unsigned 
     v32 = v15;
     v44 = 0LL;
     v45 = 0LL;
-    RtlpHpVaMgrCtxQuery((__int64)&unk_140E68358, v15, (__int64)&v44);
+    RtlpHpVaMgrCtxQuery((__int64)&unk_140E68558, v15, (__int64)&v44);
     *(_QWORD *)v45 = a1;
     *(_QWORD *)&v41 = (a3 + 4095) >> 12;
     v16 = (_QWORD)v41 << 12;
@@ -209,7 +209,7 @@ LABEL_49:
       v26 = v28;
     }
   }
-  RtlRbInsertNodeEx((__int64 *)a1 + 9, v26, v27, v8);
+  RtlRbInsertNodeEx((PRTL_RB_TREE)((char *)a1 + 72), (PRTL_BALANCED_NODE)v26, v27, (PRTL_BALANCED_NODE)v8);
   LOBYTE(v29) = v25;
   RtlpHpLargeLockRelease(a1, v29);
   _InterlockedAdd64((volatile signed __int64 *)a1 + 11, v23 / 4096);

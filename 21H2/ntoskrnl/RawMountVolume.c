@@ -1,22 +1,22 @@
 /*
- * XREFs of RawMountVolume @ 0x14071C1B0
+ * XREFs of RawMountVolume @ 0x1406C90C8
  * Callers:
- *     RawFileSystemControl @ 0x14071B378 (RawFileSystemControl.c)
+ *     RawFileSystemControl @ 0x1406C9068 (RawFileSystemControl.c)
  * Callees:
- *     KeReleaseGuardedMutex @ 0x140265CD0 (KeReleaseGuardedMutex.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     ExAcquireFastMutex @ 0x14034A080 (ExAcquireFastMutex.c)
- *     IoDeleteDevice @ 0x140360D90 (IoDeleteDevice.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     RawCleanupVcb @ 0x14071A630 (RawCleanupVcb.c)
- *     RawScanDeletedList @ 0x14071B3D8 (RawScanDeletedList.c)
- *     IoCreateDevice @ 0x14071B4E0 (IoCreateDevice.c)
- *     RawInitializeVcb @ 0x14071BBE0 (RawInitializeVcb.c)
- *     IoCreateStreamFileObjectLite @ 0x14071BEC0 (IoCreateStreamFileObjectLite.c)
- *     FsRtlNotifyVolumeEventEx @ 0x14071C400 (FsRtlNotifyVolumeEventEx.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     KeReleaseGuardedMutex @ 0x140253C70 (KeReleaseGuardedMutex.c)
+ *     IoDeleteDevice @ 0x1402A5DF0 (IoDeleteDevice.c)
+ *     ExAcquireFastMutex @ 0x140354DD0 (ExAcquireFastMutex.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     IoCreateStreamFileObjectLite @ 0x1406C9310 (IoCreateStreamFileObjectLite.c)
+ *     RawInitializeVcb @ 0x1406C9600 (RawInitializeVcb.c)
+ *     IoCreateDevice @ 0x1406C9950 (IoCreateDevice.c)
+ *     RawScanDeletedList @ 0x1406CA050 (RawScanDeletedList.c)
+ *     RawCleanupVcb @ 0x1406CA0E4 (RawCleanupVcb.c)
+ *     FsRtlNotifyVolumeEventEx @ 0x1406FCFD0 (FsRtlNotifyVolumeEventEx.c)
  */
 
-NTSTATUS __fastcall RawMountVolume(__int64 *a1)
+NTSTATUS __fastcall RawMountVolume(_QWORD *a1)
 {
   __int64 v2; // r14
   NTSTATUS result; // eax
@@ -40,7 +40,7 @@ NTSTATUS __fastcall RawMountVolume(__int64 *a1)
   v2 = a1[2];
   if ( *(_WORD *)(v2 + 304) > 0x1000u )
     return -1073741489;
-  result = IoCreateDevice(*(PDRIVER_OBJECT *)(a1[5] + 8), 0x150u, 0LL, 8u, 0, 0, &DeviceObject);
+  result = IoCreateDevice(*(PDRIVER_OBJECT *)(a1[5] + 8LL), 0x150u, 0LL, 8u, 0, 0, &DeviceObject);
   if ( result >= 0 )
   {
     v4 = DeviceObject;
@@ -49,7 +49,7 @@ NTSTATUS __fastcall RawMountVolume(__int64 *a1)
       DeviceObject->AlignmentRequirement = v5;
     v4->SectorSize = *(_WORD *)(v2 + 304);
     v4->Flags |= 0x10u;
-    v6 = RawInitializeVcb(&v4[1].Type, a1[2], a1[1]);
+    v6 = RawInitializeVcb(&v4[1], a1[2], a1[1]);
     if ( v6 < 0 )
     {
       RawCleanupVcb((PFSRTL_ADVANCED_FCB_HEADER)&v4[1]);

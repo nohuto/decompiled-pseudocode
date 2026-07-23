@@ -33,27 +33,28 @@ int __fastcall SbpUpdateCache(_DWORD *a1, int a2, int a3, int a4)
   int v23; // edi
   char *v24; // edi
   int v25; // edi
-  unsigned int v26; // [esp+Ch] [ebp-3Ch]
-  _DWORD *v27; // [esp+10h] [ebp-38h]
-  char *v28; // [esp+14h] [ebp-34h]
-  _DWORD *v29; // [esp+14h] [ebp-34h]
-  unsigned int v30; // [esp+18h] [ebp-30h]
-  int v32; // [esp+20h] [ebp-28h]
-  _DWORD v34[3]; // [esp+28h] [ebp-20h] BYREF
+  size_t v26; // [esp-4h] [ebp-4Ch]
+  unsigned int StackCookie; // [esp+Ch] [ebp-3Ch]
+  _DWORD *StackCookie_4; // [esp+10h] [ebp-38h]
+  char *v29; // [esp+14h] [ebp-34h]
+  _DWORD *v30; // [esp+14h] [ebp-34h]
+  unsigned int v31; // [esp+18h] [ebp-30h]
+  int v33; // [esp+20h] [ebp-28h]
+  _DWORD v35[3]; // [esp+28h] [ebp-20h] BYREF
   char Buf2[16]; // [esp+34h] [ebp-14h] BYREF
 
   v5 = a1;
-  if ( !SbAtomicCaptureContextGuid(v34) )
+  if ( !SbAtomicCaptureContextGuid(v35) )
     return 0;
   v6 = *(unsigned int **)(a2 + 16);
   v7 = 0;
-  v26 = 0;
+  StackCookie = 0;
   if ( *v6 )
   {
     v8 = v5 + 4;
     v9 = -16 - (_DWORD)v5;
-    v27 = v5 + 4;
-    v32 = -16 - (_DWORD)v5;
+    StackCookie_4 = v5 + 4;
+    v33 = -16 - (_DWORD)v5;
     do
     {
       v10 = *(_DWORD **)((char *)v6 + (_DWORD)v8 + v9 + 4);
@@ -64,35 +65,38 @@ int __fastcall SbpUpdateCache(_DWORD *a1, int a2, int a3, int a4)
           goto LABEL_10;
         v12 = a3;
         v13 = (char *)(v10 + 37);
-        v28 = (char *)(v10 + 37);
+        v29 = (char *)(v10 + 37);
         while ( 1 )
         {
-          v30 = 0;
+          v31 = 0;
           if ( *(_DWORD *)(v12 + 60) )
             break;
 LABEL_8:
           ++v11;
           v13 += 112;
-          v28 = v13;
+          v29 = v13;
           if ( v11 >= v10[12] )
             goto LABEL_9;
         }
         v24 = (char *)(v12 + 64);
-        while ( memcmp(v13, v24, 0x10u) )
+        while ( 1 )
         {
+          LODWORD(v26) = 16;
+          if ( !memcmp(v13, v24, v26) )
+            break;
           v24 += 16;
           v12 = a3;
-          ++v30;
-          v13 = v28;
-          if ( v30 >= *(_DWORD *)(a3 + 60) )
+          ++v31;
+          v13 = v29;
+          if ( v31 >= *(_DWORD *)(a3 + 60) )
             goto LABEL_8;
         }
         v25 = 28 * v11;
         if ( !v10[28 * v11 + 14] && v10[v25 + 15] == 2 )
           v10[v25 + 14] = SbpResolveBasedOnName(v10[v25 + 13]);
-        *v27 = &v10[v25 + 13];
+        *StackCookie_4 = &v10[v25 + 13];
 LABEL_9:
-        v7 = v26;
+        v7 = StackCookie;
         if ( v11 >= v10[12] )
         {
 LABEL_10:
@@ -100,25 +104,25 @@ LABEL_10:
           if ( v10[12] )
           {
             v15 = v10 + 13;
-            v29 = v10 + 13;
+            v30 = v10 + 13;
             while ( SbpFindMatchingContext(Buf2) != 1 )
             {
               ++v14;
               v15 += 28;
-              v29 = v15;
+              v30 = v15;
               if ( v14 >= v10[12] )
                 goto LABEL_21;
             }
             v16 = 28 * v14;
             if ( !v10[28 * v14 + 14] && v10[v16 + 15] == 2 )
               v10[v16 + 14] = SbpResolveBasedOnName(v10[v16 + 13]);
-            v17 = v27;
-            *v27 = v29;
+            v17 = StackCookie_4;
+            *StackCookie_4 = v30;
           }
           else
           {
 LABEL_21:
-            v17 = v27;
+            v17 = StackCookie_4;
           }
           v18 = v10[12];
           if ( v14 >= v18 )
@@ -141,23 +145,23 @@ LABEL_21:
             }
           }
 LABEL_16:
-          v7 = v26;
+          v7 = StackCookie;
         }
       }
       ++v7;
-      v9 = v32;
-      v8 = v27 + 1;
-      v26 = v7;
+      v9 = v33;
+      v8 = StackCookie_4 + 1;
+      StackCookie = v7;
       v6 = *(unsigned int **)(a2 + 16);
-      ++v27;
+      ++StackCookie_4;
     }
     while ( v7 < *v6 );
     v5 = a1;
   }
-  v19 = v34[0];
+  v19 = v35[0];
   v5[2] = a4;
   *v5 = v19;
   result = 1;
-  v5[1] = v34[1];
+  v5[1] = v35[1];
   return result;
 }

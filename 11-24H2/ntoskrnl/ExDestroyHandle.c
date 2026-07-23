@@ -1,20 +1,20 @@
 /*
- * XREFs of ExDestroyHandle @ 0x14098A050
+ * XREFs of ExDestroyHandle @ 0x1408961C0
  * Callers:
- *     PspJobDelete @ 0x1404EE9D0 (PspJobDelete.c)
- *     PspProcessDelete @ 0x1408A99B0 (PspProcessDelete.c)
- *     RtlpInsertStringAtom @ 0x140989E7C (RtlpInsertStringAtom.c)
- *     RtlpFreeHandleForAtom @ 0x140989F28 (RtlpFreeHandleForAtom.c)
- *     AlpcpFreeMessageFunction @ 0x140989F90 (AlpcpFreeMessageFunction.c)
- *     PspThreadDelete @ 0x140AD1250 (PspThreadDelete.c)
+ *     PspJobDelete @ 0x1404E6110 (PspJobDelete.c)
+ *     AlpcpFreeMessageFunction @ 0x140896B30 (AlpcpFreeMessageFunction.c)
+ *     PspProcessDelete @ 0x1408FFC10 (PspProcessDelete.c)
+ *     RtlpInsertStringAtom @ 0x140A249F0 (RtlpInsertStringAtom.c)
+ *     RtlpFreeHandleForAtom @ 0x140A34188 (RtlpFreeHandleForAtom.c)
+ *     PspThreadDelete @ 0x140ACF4E0 (PspThreadDelete.c)
  * Callees:
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ExfUnblockPushLock @ 0x1402C7820 (ExfUnblockPushLock.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ExpUpdateDebugInfo @ 0x14084D2F4 (ExpUpdateDebugInfo.c)
- *     ExpGetHandleExtraInfo @ 0x14084D528 (ExpGetHandleExtraInfo.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ExfUnblockPushLock @ 0x1402BC1A0 (ExfUnblockPushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     ExpUpdateDebugInfo @ 0x1408495B4 (ExpUpdateDebugInfo.c)
+ *     ExpGetHandleExtraInfo @ 0x1408497E8 (ExpGetHandleExtraInfo.c)
  */
 
 __int64 __fastcall ExDestroyHandle(__int64 a1, __int64 a2, _QWORD *a3)
@@ -24,8 +24,8 @@ __int64 __fastcall ExDestroyHandle(__int64 a1, __int64 a2, _QWORD *a3)
   _QWORD *HandleExtraInfo; // rax
   char v9; // bp
   ULONG_PTR v10; // rbx
-  _QWORD *v11; // rax
-  _QWORD *v12; // rdi
+  char *v11; // rax
+  char *v12; // rdi
   __int64 v13; // rax
   __int64 v15; // rax
   signed __int32 v16[14]; // [rsp+0h] [rbp-38h] BYREF
@@ -52,12 +52,12 @@ __int64 __fastcall ExDestroyHandle(__int64 a1, __int64 a2, _QWORD *a3)
   if ( !v9 )
     Number = KeGetPcr()->Prcb.Number;
   v10 = a1 + ((Number + 1LL) << 6);
-  v11 = KeAbPreAcquire(v10, 0LL);
+  v11 = (char *)KeAbPreAcquire(v10, 0LL);
   v12 = v11;
   if ( _interlockedbittestandset64((volatile signed __int32 *)v10, 0LL) )
-    ExfAcquirePushLockExclusiveEx((unsigned __int64 *)v10, (__int64)v11, v10);
+    ExfAcquirePushLockExclusiveEx((unsigned __int64 *)v10, v11, v10);
   if ( v12 )
-    *((_BYTE *)v12 + 10) = 1;
+    v12[10] = 1;
   if ( v9 )
   {
     v15 = *(_QWORD *)(v10 + 16);

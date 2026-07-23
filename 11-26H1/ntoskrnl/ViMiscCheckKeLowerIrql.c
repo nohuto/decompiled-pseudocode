@@ -1,11 +1,11 @@
 /*
- * XREFs of ViMiscCheckKeLowerIrql @ 0x140C47208
+ * XREFs of ViMiscCheckKeLowerIrql @ 0x140C4D218
  * Callers:
- *     VfMiscKeReleaseInStackQueuedSpinLock_Entry @ 0x140C3CE80 (VfMiscKeReleaseInStackQueuedSpinLock_Entry.c)
- *     VfMiscKeReleaseQueuedSpinLock_Entry @ 0x140C3CF30 (VfMiscKeReleaseQueuedSpinLock_Entry.c)
- *     ViMiscCheckReleaseSpinlock @ 0x140C47180 (ViMiscCheckReleaseSpinlock.c)
+ *     VfMiscKeReleaseInStackQueuedSpinLock_Entry @ 0x140C42E90 (VfMiscKeReleaseInStackQueuedSpinLock_Entry.c)
+ *     VfMiscKeReleaseQueuedSpinLock_Entry @ 0x140C42F40 (VfMiscKeReleaseQueuedSpinLock_Entry.c)
+ *     ViMiscCheckReleaseSpinlock @ 0x140C4D190 (ViMiscCheckReleaseSpinlock.c)
  * Callees:
- *     CarReportRuleViolationFromNt @ 0x140C2BF1C (CarReportRuleViolationFromNt.c)
+ *     CarReportRuleViolationFromNt @ 0x140C31F2C (CarReportRuleViolationFromNt.c)
  */
 
 char __fastcall ViMiscCheckKeLowerIrql(unsigned __int8 a1, unsigned __int8 a2, __int64 a3)

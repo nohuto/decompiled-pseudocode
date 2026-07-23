@@ -1,15 +1,15 @@
 /*
- * XREFs of IopLiveDumpProcessCorralStateChange @ 0x1409AD37C
+ * XREFs of IopLiveDumpProcessCorralStateChange @ 0x1409AE2AC
  * Callers:
- *     IopLiveDumpCorralDpc @ 0x1409ABC30 (IopLiveDumpCorralDpc.c)
- *     IopLiveDumpInitiateCorralStateChange @ 0x1409AC958 (IopLiveDumpInitiateCorralStateChange.c)
+ *     IopLiveDumpCorralDpc @ 0x1409ACB60 (IopLiveDumpCorralDpc.c)
+ *     IopLiveDumpInitiateCorralStateChange @ 0x1409AD888 (IopLiveDumpInitiateCorralStateChange.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
- *     KeResumeClockTimerSafe @ 0x140513D14 (KeResumeClockTimerSafe.c)
- *     KeSuspendClockTimerSafe @ 0x140513DF0 (KeSuspendClockTimerSafe.c)
- *     KeRestoreSupervisorState @ 0x140519E60 (KeRestoreSupervisorState.c)
- *     KeSaveSupervisorState @ 0x140519EF8 (KeSaveSupervisorState.c)
- *     IopLiveDumpBufferDumpData @ 0x1409AB3FC (IopLiveDumpBufferDumpData.c)
+ *     KeYieldProcessorEx @ 0x1402EFAD0 (KeYieldProcessorEx.c)
+ *     KeResumeClockTimerSafe @ 0x140513F54 (KeResumeClockTimerSafe.c)
+ *     KeSuspendClockTimerSafe @ 0x140514030 (KeSuspendClockTimerSafe.c)
+ *     KeRestoreSupervisorState @ 0x14051A0A0 (KeRestoreSupervisorState.c)
+ *     KeSaveSupervisorState @ 0x14051A138 (KeSaveSupervisorState.c)
+ *     IopLiveDumpBufferDumpData @ 0x1409AC32C (IopLiveDumpBufferDumpData.c)
  */
 
 void __fastcall IopLiveDumpProcessCorralStateChange(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

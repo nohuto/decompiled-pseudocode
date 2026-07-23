@@ -1,16 +1,16 @@
 /*
- * XREFs of ObpRemoveObjectRoutine @ 0x140645E60
+ * XREFs of ObpRemoveObjectRoutine @ 0x140646E80
  * Callers:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
  *     NtWaitForWorkViaWorkerFactory @ 0x140059B50 (NtWaitForWorkViaWorkerFactory.c)
- *     NtSetInformationFile @ 0x140100E90 (NtSetInformationFile.c)
- *     NtSetInformationWorkerFactory @ 0x140106100 (NtSetInformationWorkerFactory.c)
- *     ObpProcessRemoveObjectQueue @ 0x1406919C0 (ObpProcessRemoveObjectQueue.c)
+ *     NtSetInformationFile @ 0x140100F10 (NtSetInformationFile.c)
+ *     NtSetInformationWorkerFactory @ 0x140106180 (NtSetInformationWorkerFactory.c)
+ *     ObpProcessRemoveObjectQueue @ 0x140692B80 (ObpProcessRemoveObjectQueue.c)
  * Callees:
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     ObpFreeObject @ 0x140645F40 (ObpFreeObject.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     ObpFreeObject @ 0x140646F60 (ObpFreeObject.c)
  */
 
 __int64 __fastcall ObpRemoveObjectRoutine(__int64 a1, char a2)

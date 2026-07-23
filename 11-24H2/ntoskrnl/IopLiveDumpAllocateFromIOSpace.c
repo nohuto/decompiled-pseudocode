@@ -1,20 +1,20 @@
 /*
- * XREFs of IopLiveDumpAllocateFromIOSpace @ 0x140598D2C
+ * XREFs of IopLiveDumpAllocateFromIOSpace @ 0x140595CAC
  * Callers:
- *     IopLiveDumpAllocateDumpBuffers @ 0x14049A8E4 (IopLiveDumpAllocateDumpBuffers.c)
+ *     IopLiveDumpAllocateDumpBuffers @ 0x1404952D4 (IopLiveDumpAllocateDumpBuffers.c)
  * Callees:
- *     IopLiveDumpDiscardVirtualAddressRange @ 0x140262A88 (IopLiveDumpDiscardVirtualAddressRange.c)
- *     MmUnmapLockedPages @ 0x14028D9C0 (MmUnmapLockedPages.c)
- *     MmMapLockedPagesSpecifyCache @ 0x14028F9F0 (MmMapLockedPagesSpecifyCache.c)
- *     IopLiveDumpAllocateIoSpaceRanges @ 0x14059944C (IopLiveDumpAllocateIoSpaceRanges.c)
- *     IopLiveDumpFreeIoSpaceRanges @ 0x14059AE24 (IopLiveDumpFreeIoSpaceRanges.c)
- *     IopLiveDumpQueryIOSpaceRanges @ 0x14059CCA0 (IopLiveDumpQueryIOSpaceRanges.c)
- *     IopLiveDumpUnpackMemoryRun @ 0x14059E52C (IopLiveDumpUnpackMemoryRun.c)
- *     IopLiveDumpTraceEventGeneric @ 0x1405A31E4 (IopLiveDumpTraceEventGeneric.c)
- *     IopLiveDumpTraceRunPageCountLoop @ 0x1405A33E4 (IopLiveDumpTraceRunPageCountLoop.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     IopLiveDumpDiscardVirtualAddressRange @ 0x14029293C (IopLiveDumpDiscardVirtualAddressRange.c)
+ *     MmUnmapLockedPages @ 0x14029D5C0 (MmUnmapLockedPages.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x14029F5F0 (MmMapLockedPagesSpecifyCache.c)
+ *     IopLiveDumpAllocateIoSpaceRanges @ 0x1405963CC (IopLiveDumpAllocateIoSpaceRanges.c)
+ *     IopLiveDumpFreeIoSpaceRanges @ 0x140597DA4 (IopLiveDumpFreeIoSpaceRanges.c)
+ *     IopLiveDumpQueryIOSpaceRanges @ 0x140599C20 (IopLiveDumpQueryIOSpaceRanges.c)
+ *     IopLiveDumpUnpackMemoryRun @ 0x14059B4AC (IopLiveDumpUnpackMemoryRun.c)
+ *     IopLiveDumpTraceEventGeneric @ 0x1405A0124 (IopLiveDumpTraceEventGeneric.c)
+ *     IopLiveDumpTraceRunPageCountLoop @ 0x1405A0324 (IopLiveDumpTraceRunPageCountLoop.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall IopLiveDumpAllocateFromIOSpace(__int64 a1, __int64 a2, __int64 a3, unsigned __int64 *a4)
@@ -38,7 +38,7 @@ void __fastcall IopLiveDumpAllocateFromIOSpace(__int64 a1, __int64 a2, __int64 a
   unsigned int v20; // edi
   int v21; // ecx
   unsigned __int64 v22; // r12
-  CSHORT v23; // di
+  unsigned int v23; // edi
   struct _MDL *Pool2; // rax
   __int64 v25; // rdx
   unsigned __int64 v26; // rdi
@@ -198,7 +198,7 @@ LABEL_53:
               if ( (v21 & 0x20000) != 0 )
                 IopLiveDumpTraceRunPageCountLoop(v14, v19, v18, v20, v17);
               v23 = 8 * v20 + 48;
-              Pool2 = (struct _MDL *)ExAllocatePool2(0x40uLL);
+              Pool2 = (struct _MDL *)ExAllocatePool2(0x40uLL, v23, 0x706D644Cu);
               if ( !Pool2 )
                 goto LABEL_53;
               Pool2->Next = 0LL;

@@ -1,7 +1,7 @@
 /*
- * XREFs of LdrpDependencyExist @ 0x1800D6D20
+ * XREFs of LdrpDependencyExist @ 0x1800D2090
  * Callers:
- *     LdrpLoadContextReplaceModule @ 0x1800D6BB8 (LdrpLoadContextReplaceModule.c)
+ *     LdrpLoadContextReplaceModule @ 0x1800D1F28 (LdrpLoadContextReplaceModule.c)
  * Callees:
  *     <none>
  */

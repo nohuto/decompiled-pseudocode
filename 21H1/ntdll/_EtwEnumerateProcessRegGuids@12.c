@@ -10,67 +10,69 @@
  *     _EtwEnumerateProcessRegGuids@12 @ 0x4B3802E0 (_EtwEnumerateProcessRegGuids@12.c)
  */
 
-int __stdcall EtwEnumerateProcessRegGuids(int a1, unsigned int a2, _DWORD *a3)
+ULONG __cdecl EtwEnumerateProcessRegGuids(PVOID OutBuffer, ULONG OutBufferSize, PULONG ReturnLength)
 {
-  unsigned int v3; // edi
-  unsigned int v4; // ebx
+  ULONG v3; // edi
+  ULONG v4; // ebx
   unsigned int NextRegistration; // eax
-  _DWORD *v7; // ecx
-  unsigned int v8; // eax
-  unsigned int i; // edi
-  _DWORD *v10; // edi
-  int v11; // esi
-  unsigned int v12; // [esp+1Ch] [ebp-24h]
-  _DWORD *v13; // [esp+24h] [ebp-1Ch]
+  _RTL_SRWLOCK *v7; // ecx
+  ULONG v8; // eax
+  ULONG i; // edi
+  unsigned int *v10; // edi
+  ULONG v11; // esi
+  size_t v12; // [esp-4h] [ebp-44h]
+  ULONG v13; // [esp+1Ch] [ebp-24h]
+  _RTL_SRWLOCK *v14; // [esp+24h] [ebp-1Ch]
 
-  v3 = a2 >> 4;
+  v3 = OutBufferSize >> 4;
   v4 = 0;
-  if ( !a1 && a2 )
+  if ( !OutBuffer && OutBufferSize )
     return 87;
   NextRegistration = EtwpGetNextRegistration(0);
   while ( 1 )
   {
-    v7 = (_DWORD *)NextRegistration;
-    v13 = (_DWORD *)NextRegistration;
+    v7 = (_RTL_SRWLOCK *)NextRegistration;
+    v14 = (_RTL_SRWLOCK *)NextRegistration;
     if ( !NextRegistration )
       break;
     if ( v4 >= v3 )
     {
       v8 = v3;
-      v12 = v3;
+      v13 = v3;
     }
     else
     {
       v8 = v4;
-      v12 = v4;
+      v13 = v4;
     }
     for ( i = 0; i < v8; ++i )
     {
-      if ( !memcmp(v7 + 3, (const void *)(a1 + 16 * i), 0x10u) )
+      LODWORD(v12) = 16;
+      if ( !memcmp(&v7[3], (char *)OutBuffer + 16 * i, v12) )
       {
-        v7 = v13;
+        v7 = v14;
         goto LABEL_17;
       }
-      v7 = v13;
-      v8 = v12;
+      v7 = v14;
+      v8 = v13;
     }
-    if ( v4 < a2 >> 4 )
+    if ( v4 < OutBufferSize >> 4 )
     {
-      v10 = (_DWORD *)(a1 + 16 * v4);
-      *v10++ = v7[3];
-      *v10++ = v7[4];
-      *v10 = v7[5];
-      v10[1] = v7[6];
+      v10 = (unsigned int *)((char *)OutBuffer + 16 * v4);
+      *v10++ = v7[3].Value;
+      *v10++ = v7[4].Value;
+      *v10 = v7[5].Value;
+      v10[1] = v7[6].Value;
     }
     ++v4;
 LABEL_17:
-    NextRegistration = EtwpGetNextRegistration((unsigned int)v7);
-    v3 = a2 >> 4;
+    NextRegistration = EtwpGetNextRegistration(v7);
+    v3 = OutBufferSize >> 4;
   }
   if ( v4 <= v3 )
     v11 = 0;
   else
     v11 = 122;
-  *a3 = 16 * v4;
+  *ReturnLength = 16 * v4;
   return v11;
 }

@@ -1,23 +1,23 @@
 /*
- * XREFs of MiPageToChannel @ 0x1402FF108
+ * XREFs of MiPageToChannel @ 0x140309E58
  * Callers:
- *     MiGetPage @ 0x140213610 (MiGetPage.c)
- *     MiUnlinkPageFromList @ 0x1402178B0 (MiUnlinkPageFromList.c)
- *     MiInsertPageInFreeOrZeroedList @ 0x140234F10 (MiInsertPageInFreeOrZeroedList.c)
- *     MiUnlinkFreeOrZeroedPage @ 0x1402363C0 (MiUnlinkFreeOrZeroedPage.c)
- *     MiInsertLargePageInNodeList @ 0x1402FEA50 (MiInsertLargePageInNodeList.c)
- *     MiGetPfnChannel @ 0x1403041C4 (MiGetPfnChannel.c)
- *     MiInsertPageInList @ 0x140326800 (MiInsertPageInList.c)
- *     MiInsertNumaStandbyPage @ 0x140329890 (MiInsertNumaStandbyPage.c)
- *     MiDescribePageRun @ 0x1403B0F18 (MiDescribePageRun.c)
- *     MiInitializeSystemChannelOrdering @ 0x140A92620 (MiInitializeSystemChannelOrdering.c)
+ *     MiGetPage @ 0x1402B7F10 (MiGetPage.c)
+ *     MiUnlinkPageFromList @ 0x1402BC1B0 (MiUnlinkPageFromList.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x1402D9760 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiUnlinkFreeOrZeroedPage @ 0x1402DAC10 (MiUnlinkFreeOrZeroedPage.c)
+ *     MiInsertLargePageInNodeList @ 0x1403097A0 (MiInsertLargePageInNodeList.c)
+ *     MiGetPfnChannel @ 0x14030EF14 (MiGetPfnChannel.c)
+ *     MiInsertPageInList @ 0x140331550 (MiInsertPageInList.c)
+ *     MiInsertNumaStandbyPage @ 0x1403345E0 (MiInsertNumaStandbyPage.c)
+ *     MiDescribePageRun @ 0x1403B1088 (MiDescribePageRun.c)
+ *     MiInitializeSystemChannelOrdering @ 0x140A93620 (MiInitializeSystemChannelOrdering.c)
  * Callees:
- *     MiSearchChannelTable @ 0x140547900 (MiSearchChannelTable.c)
+ *     MiSearchChannelTable @ 0x140547B40 (MiSearchChannelTable.c)
  */
 
 __int64 __fastcall MiPageToChannel(ULONG_PTR a1)
 {
-  if ( qword_140C4DED0 )
+  if ( qword_140C4DF10 )
     return *(unsigned __int16 *)(MiSearchChannelTable(a1) + 12);
   else
     return 0LL;

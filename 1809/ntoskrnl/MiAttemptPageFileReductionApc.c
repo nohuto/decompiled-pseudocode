@@ -1,21 +1,21 @@
 /*
- * XREFs of MiAttemptPageFileReductionApc @ 0x1402B7460
+ * XREFs of MiAttemptPageFileReductionApc @ 0x1402B7650
  * Callers:
  *     <none>
  * Callees:
  *     RtlClearBits @ 0x140017890 (RtlClearBits.c)
  *     MiCoalescePageFileBitmapsCache @ 0x14002A820 (MiCoalescePageFileBitmapsCache.c)
  *     MiChargeCommit @ 0x14004CF20 (MiChargeCommit.c)
- *     MiReturnCommit @ 0x140065D40 (MiReturnCommit.c)
- *     RtlSetBits @ 0x140076D80 (RtlSetBits.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     MiOkToShrinkPageFiles @ 0x1400917F8 (MiOkToShrinkPageFiles.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
- *     MiInvalidatePageFileBitmapsCache @ 0x140124574 (MiInvalidatePageFileBitmapsCache.c)
- *     RtlFindLastBackwardRunClear @ 0x1401275D0 (RtlFindLastBackwardRunClear.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     MiReduceCommitLimits @ 0x1402C0304 (MiReduceCommitLimits.c)
+ *     MiReturnCommit @ 0x140065D30 (MiReturnCommit.c)
+ *     RtlSetBits @ 0x140076D70 (RtlSetBits.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14007DE80 (KeAcquireInStackQueuedSpinLock.c)
+ *     MiOkToShrinkPageFiles @ 0x140091738 (MiOkToShrinkPageFiles.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     KeSetEvent @ 0x1400C2A40 (KeSetEvent.c)
+ *     MiInvalidatePageFileBitmapsCache @ 0x140124644 (MiInvalidatePageFileBitmapsCache.c)
+ *     RtlFindLastBackwardRunClear @ 0x1401276A0 (RtlFindLastBackwardRunClear.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiReduceCommitLimits @ 0x1402C04F4 (MiReduceCommitLimits.c)
  */
 
 LONG __fastcall MiAttemptPageFileReductionApc(struct _KEVENT *a1)
@@ -35,7 +35,7 @@ LONG __fastcall MiAttemptPageFileReductionApc(struct _KEVENT *a1)
   __int16 v13; // ax
   __int64 v14; // rax
   int v15; // esi
-  struct _RTL_BITMAP *v16; // r9
+  _RTL_BITMAP *v16; // r9
   const signed __int32 *v17; // r8
   unsigned int v18; // ecx
   const signed __int32 *v19; // rdx
@@ -59,7 +59,7 @@ LONG __fastcall MiAttemptPageFileReductionApc(struct _KEVENT *a1)
   struct _KPRCB *v37; // rcx
   unsigned __int64 v38; // rbx
   __int64 v39; // rax
-  struct _RTL_BITMAP *v40; // rbx
+  _RTL_BITMAP *v40; // rbx
   unsigned __int8 v41; // bl
   struct _KPRCB *v42; // rcx
   unsigned int v44; // [rsp+30h] [rbp-59h]
@@ -72,8 +72,8 @@ LONG __fastcall MiAttemptPageFileReductionApc(struct _KEVENT *a1)
   ULONG StartingRunIndex; // [rsp+78h] [rbp-11h] BYREF
   ULONG v52; // [rsp+7Ch] [rbp-Dh] BYREF
   PRTL_BITMAP v53; // [rsp+80h] [rbp-9h]
-  struct _RTL_BITMAP BitMapHeader; // [rsp+88h] [rbp-1h] BYREF
-  struct _RTL_BITMAP v55; // [rsp+98h] [rbp+Fh] BYREF
+  _RTL_BITMAP BitMapHeader; // [rsp+88h] [rbp-1h] BYREF
+  _RTL_BITMAP v55; // [rsp+98h] [rbp+Fh] BYREF
   struct _KEVENT *Event; // [rsp+F0h] [rbp+67h]
   int v57; // [rsp+108h] [rbp+7Fh]
 
@@ -123,7 +123,7 @@ LONG __fastcall MiAttemptPageFileReductionApc(struct _KEVENT *a1)
         KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(v12 + 232), &LockHandle);
         v14 = *(_QWORD *)(v12 + 112);
         v15 = *(_DWORD *)v12;
-        v16 = (struct _RTL_BITMAP *)(v14 + 8);
+        v16 = (_RTL_BITMAP *)(v14 + 8);
         v17 = *(const signed __int32 **)(v14 + 16);
         v18 = *(_DWORD *)v12 - 1;
         v48 = (PRTL_BITMAP)(v14 + 8);
@@ -226,7 +226,7 @@ LABEL_45:
                 *(_QWORD *)(v12 + 48) += v26;
                 *(_QWORD *)v12 = v31 + v26;
                 v39 = *(_QWORD *)(v12 + 112);
-                v40 = (struct _RTL_BITMAP *)(v39 + 24);
+                v40 = (_RTL_BITMAP *)(v39 + 24);
                 RtlClearBits((PRTL_BITMAP)(v39 + 8), v31, v26);
                 RtlClearBits(v40, v31, v26);
                 if ( v31 < *(unsigned int *)(v12 + 120) )

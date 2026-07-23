@@ -1,10 +1,10 @@
 /*
- * XREFs of ApiSetpFindImageSection @ 0x1406BBF8C
+ * XREFs of ApiSetpFindImageSection @ 0x1406BC0C4
  * Callers:
- *     ApiSetLoadSchemaEx @ 0x1406BBEC8 (ApiSetLoadSchemaEx.c)
+ *     ApiSetLoadSchemaEx @ 0x1406BC000 (ApiSetLoadSchemaEx.c)
  * Callees:
- *     RtlImageNtHeader @ 0x140014238 (RtlImageNtHeader.c)
- *     strncmp @ 0x14014CE80 (strncmp.c)
+ *     RtlImageNtHeader @ 0x140013DB8 (RtlImageNtHeader.c)
+ *     strncmp @ 0x14014D3F0 (strncmp.c)
  */
 
 const char *__fastcall ApiSetpFindImageSection(void *a1)

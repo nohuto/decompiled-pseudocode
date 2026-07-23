@@ -3,20 +3,20 @@
  * Callers:
  *     SepInitializationPhase0 @ 0x1407A24C4 (SepInitializationPhase0.c)
  * Callees:
- *     RtlTimeFieldsToTime @ 0x1400A4D20 (RtlTimeFieldsToTime.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     RtlTimeFieldsToTime @ 0x1400A3298 (RtlTimeFieldsToTime.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     RtlSetDaclSecurityDescriptor @ 0x140413E70 (RtlSetDaclSecurityDescriptor.c)
- *     RtlCreateSecurityDescriptor @ 0x140413ED0 (RtlCreateSecurityDescriptor.c)
- *     RtlCreateAcl @ 0x140420AB8 (RtlCreateAcl.c)
- *     SeSetMandatoryPolicyToken @ 0x14047AB5C (SeSetMandatoryPolicyToken.c)
- *     RtlSetSaclSecurityDescriptor @ 0x14047AD08 (RtlSetSaclSecurityDescriptor.c)
- *     RtlAddAccessAllowedAce @ 0x14048D14C (RtlAddAccessAllowedAce.c)
- *     RtlSetGroupSecurityDescriptor @ 0x14048D16C (RtlSetGroupSecurityDescriptor.c)
- *     RtlSetOwnerSecurityDescriptor @ 0x14048D1C4 (RtlSetOwnerSecurityDescriptor.c)
- *     SepCreateToken @ 0x1405539E8 (SepCreateToken.c)
- *     RtlAddProcessTrustLabelAce @ 0x140553AB8 (RtlAddProcessTrustLabelAce.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x140412D30 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateSecurityDescriptor @ 0x140412D90 (RtlCreateSecurityDescriptor.c)
+ *     RtlCreateAcl @ 0x14041F978 (RtlCreateAcl.c)
+ *     SeSetMandatoryPolicyToken @ 0x140479A2C (SeSetMandatoryPolicyToken.c)
+ *     RtlSetSaclSecurityDescriptor @ 0x140479BD8 (RtlSetSaclSecurityDescriptor.c)
+ *     RtlAddAccessAllowedAce @ 0x14048DBDC (RtlAddAccessAllowedAce.c)
+ *     RtlSetGroupSecurityDescriptor @ 0x14048DBFC (RtlSetGroupSecurityDescriptor.c)
+ *     RtlSetOwnerSecurityDescriptor @ 0x14048DC54 (RtlSetOwnerSecurityDescriptor.c)
+ *     SepCreateToken @ 0x140553F28 (SepCreateToken.c)
+ *     RtlAddProcessTrustLabelAce @ 0x140553FF8 (RtlAddProcessTrustLabelAce.c)
  */
 
 __int64 SeMakeSystemToken()
@@ -43,11 +43,11 @@ __int64 SeMakeSystemToken()
   __int64 v19; // rdx
   __int64 v20; // r8
   ACL *v22; // rcx
-  int v23; // [rsp+28h] [rbp-100h]
-  int v24; // [rsp+30h] [rbp-F8h]
+  int AceType; // [rsp+28h] [rbp-100h]
+  int AccessMask; // [rsp+30h] [rbp-F8h]
   int v25; // [rsp+A8h] [rbp-80h] BYREF
   int v26[2]; // [rsp+B0h] [rbp-78h] BYREF
-  struct _TIME_FIELDS TimeFields; // [rsp+B8h] [rbp-70h] BYREF
+  _TIME_FIELDS TimeFields; // [rsp+B8h] [rbp-70h] BYREF
   LARGE_INTEGER Time; // [rsp+C8h] [rbp-60h] BYREF
   int v29; // [rsp+D0h] [rbp-58h] BYREF
   __int64 v30; // [rsp+D8h] [rbp-50h]
@@ -117,7 +117,7 @@ __int64 SeMakeSystemToken()
   int v94; // [rsp+26Ch] [rbp+144h]
   __int64 v95; // [rsp+270h] [rbp+148h]
   int v96; // [rsp+278h] [rbp+150h]
-  struct _SID_AND_ATTRIBUTES v97; // [rsp+288h] [rbp+160h] BYREF
+  _SID_AND_ATTRIBUTES v97; // [rsp+288h] [rbp+160h] BYREF
   PSID v98; // [rsp+298h] [rbp+170h]
   int v99; // [rsp+2A0h] [rbp+178h]
   __int64 v100; // [rsp+2A8h] [rbp+180h]
@@ -126,7 +126,7 @@ __int64 SeMakeSystemToken()
   int v103; // [rsp+2C0h] [rbp+198h]
 
   v25 = 1;
-  TimeFields = (struct _TIME_FIELDS)_mm_load_si128((const __m128i *)&_xmm);
+  TimeFields = (_TIME_FIELDS)_mm_load_si128((const __m128i *)&_xmm);
   RtlTimeFieldsToTime(&TimeFields, &Time);
   v0 = SeAliasAdminsSid;
   v1 = SeLocalSystemSid;
@@ -224,7 +224,7 @@ __int64 SeMakeSystemToken()
     {
       RtlCreateAcl(v15, v14, 2u);
       RtlAddAccessAllowedAce(v13, 2u, 0xF01FFu, SeLocalSystemSid);
-      RtlAddProcessTrustLabelAce(v16, 2u, 0, (unsigned __int8 *)SeProcTrustWinTcbSid, 20, 131096);
+      RtlAddProcessTrustLabelAce(v16, 2u, 0, SeProcTrustWinTcbSid, 0x14u, 0x20018u);
       v17 = ExAllocatePoolWithTag(PagedPool, 0x28uLL, 0x64536553u);
       v18 = v17;
       if ( v17 )
@@ -245,11 +245,11 @@ __int64 SeMakeSystemToken()
           v19,
           v20,
           (__int64)&v29,
-          v23,
-          v24,
+          AceType,
+          AccessMask,
           (__int64)&SeSystemAuthenticationId,
           &Time,
-          (struct _SID_AND_ATTRIBUTES *)&TimeFields,
+          (_SID_AND_ATTRIBUTES *)&TimeFields,
           4u,
           &v97,
           v9,

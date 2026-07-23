@@ -1,15 +1,15 @@
 /*
- * XREFs of HvlUpdatePerformanceStateCountersForLp @ 0x14032BD30
+ * XREFs of HvlUpdatePerformanceStateCountersForLp @ 0x14032DD60
  * Callers:
- *     PpmCheckSnapAllDeliveredPerformance @ 0x140252E50 (PpmCheckSnapAllDeliveredPerformance.c)
+ *     PpmCheckSnapAllDeliveredPerformance @ 0x1402547B0 (PpmCheckSnapAllDeliveredPerformance.c)
  * Callees:
- *     RtlGetSystemTimePrecise @ 0x14021C830 (RtlGetSystemTimePrecise.c)
- *     EtwTraceTimedEvent @ 0x14032B770 (EtwTraceTimedEvent.c)
- *     EtwpGetPerfCounter @ 0x14032D3B0 (EtwpGetPerfCounter.c)
- *     HvlpHvToNtStatus @ 0x1403E7DC0 (HvlpHvToNtStatus.c)
- *     EtwpGetHostPerfCounter @ 0x14046F124 (EtwpGetHostPerfCounter.c)
- *     HvcallpNoHypervisorPresent @ 0x1404E6190 (HvcallpNoHypervisorPresent.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     RtlGetSystemTimePrecise @ 0x14021E1C0 (RtlGetSystemTimePrecise.c)
+ *     HvlpHvToNtStatus @ 0x1402F4CA0 (HvlpHvToNtStatus.c)
+ *     EtwTraceTimedEvent @ 0x14032D7A0 (EtwTraceTimedEvent.c)
+ *     EtwpGetPerfCounter @ 0x14032F3E0 (EtwpGetPerfCounter.c)
+ *     EtwpGetHostPerfCounter @ 0x1404688A4 (EtwpGetHostPerfCounter.c)
+ *     HvcallpNoHypervisorPresent @ 0x1404DF730 (HvcallpNoHypervisorPresent.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall HvlUpdatePerformanceStateCountersForLp(__int64 a1, __int64 a2, __int64 a3)
@@ -27,24 +27,24 @@ __int64 __fastcall HvlUpdatePerformanceStateCountersForLp(__int64 a1, __int64 a2
   v11[1] = 65774LL;
   v12 = 0LL;
   v13 = 0LL;
-  if ( (BYTE4(xmmword_140FBFC10) & 0x10) == 0 )
+  if ( (BYTE4(xmmword_140FC0C10) & 0x10) == 0 )
   {
     v3 = 0;
     goto LABEL_10;
   }
-  v5 = qword_140FC8C80;
+  v5 = qword_140FC9C80;
   v3 = 1;
   LODWORD(v11[0]) = 0;
   v8 = 0;
-  if ( qword_140FC8C80 )
+  if ( qword_140FC9C80 )
   {
-    a3 = *(unsigned int *)(qword_140FC8C80 + 4520);
+    a3 = *(unsigned int *)(qword_140FC9C80 + 4520);
     while ( _BitScanForward((unsigned int *)&a1, a3) )
     {
       a3 = ((_DWORD)a3 - 1) & (unsigned int)a3;
-      v10 = qword_140FC8C80 + 32LL * (unsigned int)a1 + 4556;
+      v10 = qword_140FC9C80 + 32LL * (unsigned int)a1 + 4556;
       if ( v10 && (*(_DWORD *)(v10 + 20) & 0x10) != 0 )
-        v8 |= 1 << *(_BYTE *)(qword_140FC8C80 + 2 * a1 + 4505);
+        v8 |= 1 << *(_BYTE *)(qword_140FC9C80 + 2 * a1 + 4505);
     }
     if ( (v8 & 2) == 0 )
       goto LABEL_4;
@@ -53,10 +53,10 @@ __int64 __fastcall HvlUpdatePerformanceStateCountersForLp(__int64 a1, __int64 a2
   {
     LOBYTE(v8) = 30;
   }
-  *(_QWORD *)&v12 = EtwpGetPerfCounter(a1, qword_140FC8C80, a3);
+  *(_QWORD *)&v12 = EtwpGetPerfCounter(a1, qword_140FC9C80, a3);
 LABEL_4:
   if ( (v8 & 4) != 0 )
-    *((_QWORD *)&v12 + 1) = RtlGetSystemTimePrecise();
+    *((LARGE_INTEGER *)&v12 + 1) = RtlGetSystemTimePrecise();
   else
     *((_QWORD *)&v12 + 1) = 0LL;
   if ( (v8 & 8) != 0 )

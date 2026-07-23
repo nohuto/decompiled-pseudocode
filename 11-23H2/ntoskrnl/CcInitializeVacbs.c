@@ -3,7 +3,7 @@
  * Callers:
  *     CcInitializeCacheManager @ 0x140B49A88 (CcInitializeCacheManager.c)
  * Callees:
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  *     ExAllocatePoolWithTag @ 0x140AAEC80 (ExAllocatePoolWithTag.c)
  */
 

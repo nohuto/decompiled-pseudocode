@@ -3,21 +3,21 @@
  * Callers:
  *     FsRtlPrepareMdlWriteDev @ 0x14092DCF0 (FsRtlPrepareMdlWriteDev.c)
  * Callees:
- *     CcForceWriteThrough @ 0x140253510 (CcForceWriteThrough.c)
+ *     sub_140253510 @ 0x140253510 (sub_140253510.c)
  *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140282BA0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
  *     ExAcquireFastMutex @ 0x14028A160 (ExAcquireFastMutex.c)
- *     MiProbeAndLockPages @ 0x14029C5B0 (MiProbeAndLockPages.c)
+ *     sub_14029C5B0 @ 0x14029C5B0 (sub_14029C5B0.c)
  *     IoAllocateMdl @ 0x14029C7F0 (IoAllocateMdl.c)
- *     CcSetDirtyInMask @ 0x14029D860 (CcSetDirtyInMask.c)
+ *     sub_14029D860 @ 0x14029D860 (sub_14029D860.c)
  *     KeReleaseGuardedMutex @ 0x1402AF9B0 (KeReleaseGuardedMutex.c)
  *     KeSetEvent @ 0x1402AFD30 (KeSetEvent.c)
  *     MmUnlockPages @ 0x1402B8AD0 (MmUnlockPages.c)
  *     RtlRaiseStatus @ 0x1402D37A0 (RtlRaiseStatus.c)
  *     KeAcquireInStackQueuedSpinLock @ 0x140311930 (KeAcquireInStackQueuedSpinLock.c)
- *     CcGetVirtualAddress @ 0x140328180 (CcGetVirtualAddress.c)
- *     CcMapAndRead @ 0x140328510 (CcMapAndRead.c)
+ *     sub_140328180 @ 0x140328180 (sub_140328180.c)
+ *     sub_140328510 @ 0x140328510 (sub_140328510.c)
  *     IoFreeMdl @ 0x140349550 (IoFreeMdl.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     sub_140418E4C @ 0x140418E4C (sub_140418E4C.c)
  */
 
 void __stdcall CcPrepareMdlWrite(
@@ -42,10 +42,10 @@ void __stdcall CcPrepareMdlWrite(
   struct _KEVENT *v18; // rcx
   struct _MDL *Next; // rax
   __int64 v20; // rdx
-  unsigned __int8 OldIrql; // bl
+  KIRQL OldIrql; // bl
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r9
-  _DWORD *SchedulerAssist; // r8
+  __int64 v24; // r8
   int v25; // eax
   bool v26; // zf
   ULONG v27; // [rsp+30h] [rbp-C8h] BYREF
@@ -75,15 +75,15 @@ void __stdcall CcPrepareMdlWrite(
   v33 = 0LL;
   memset(&LockHandle, 0, sizeof(LockHandle));
   SharedCacheMap = (struct _FAST_MUTEX *)FileObject->SectionObjectPointer->SharedCacheMap;
-  if ( (FileObject->Flags & 0x10) == 0 && (unsigned __int8)CcForceWriteThrough(FileObject, Length, SharedCacheMap, 0LL) )
-    RtlRaiseStatus(3221225626LL);
+  if ( (FileObject->Flags & 0x10) == 0 && (unsigned __int8)sub_140253510(FileObject, Length, SharedCacheMap, 0LL) )
+    RtlRaiseStatus(-1073741670);
   QuadPart = FileOffset->QuadPart;
   v34 = QuadPart;
   while ( v5 )
   {
     v27 = 0;
     v36 = 0LL;
-    VirtualAddress = (PVOID)CcGetVirtualAddress(
+    VirtualAddress = (PVOID)sub_140328180(
                               (_DWORD)SharedCacheMap,
                               QuadPart,
                               (unsigned int)&v33,
@@ -128,18 +128,18 @@ LABEL_15:
     }
 LABEL_16:
     LOBYTE(v14) = 1;
-    CcMapAndRead(v10, v12, v14, VirtualAddress);
+    sub_140328510(v10, v12, v14, VirtualAddress);
     Mdl = IoAllocateMdl(VirtualAddress, v10, 0, 0, 0LL);
     if ( !Mdl )
-      RtlRaiseStatus(3221225626LL);
+      RtlRaiseStatus(-1073741670);
     CurrentThread = KeGetCurrentThread();
-    v29 = BYTE5(CurrentThread[1].Queue) + 2;
+    v29 = *((unsigned __int8 *)CurrentThread + 1389) + 2;
     v15 = v29;
     v40 = CurrentThread;
-    BYTE5(CurrentThread[1].Queue) = 1;
-    MiProbeAndLockPages(Mdl, 0LL, 1LL);
+    *((_BYTE *)CurrentThread + 1389) = 1;
+    sub_14029C5B0(Mdl, 0LL, 1LL);
     v41 = KeGetCurrentThread();
-    BYTE5(v41[1].Queue) = v15 - 2;
+    *((_BYTE *)v41 + 1389) = v15 - 2;
     v29 = 0;
     ExAcquireFastMutex(SharedCacheMap + 5);
     if ( v11 > *(_QWORD *)&SharedCacheMap->OldIrql )
@@ -186,20 +186,20 @@ LABEL_16:
   ++LODWORD(SharedCacheMap[9].Event.Header.WaitListHead.Flink);
   KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
   OldIrql = LockHandle.OldIrql;
-  if ( KiIrqlFlags )
+  if ( dword_140D06B08 )
   {
-    if ( (KiIrqlFlags & 1) != 0 )
+    if ( (dword_140D06B08 & 1) != 0 )
     {
       CurrentIrql = KeGetCurrentIrql();
       if ( CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
-        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        v24 = *((_QWORD *)CurrentPrcb + 4375);
         v25 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
-        v26 = (v25 & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= v25;
+        v26 = (v25 & *(_DWORD *)(v24 + 20)) == 0;
+        *(_DWORD *)(v24 + 20) &= v25;
         if ( v26 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          sub_140418E4C(CurrentPrcb);
       }
     }
   }

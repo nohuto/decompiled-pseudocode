@@ -1,21 +1,21 @@
 /*
- * XREFs of RtlFindDynamicEnforcedAddressInRanges @ 0x1408377B4
+ * XREFs of RtlFindDynamicEnforcedAddressInRanges @ 0x1409F9380
  * Callers:
- *     KiCheckUserAddressCetCompat @ 0x140837728 (KiCheckUserAddressCetCompat.c)
+ *     KiCheckUserAddressCetCompat @ 0x1409F92F4 (KiCheckUserAddressCetCompat.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExfReleasePushLockShared @ 0x14025DE00 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockSharedEx @ 0x14034050C (ExfAcquirePushLockSharedEx.c)
- *     RtlpDynamicEnforcedAddressRangesTreeCompare @ 0x140787788 (RtlpDynamicEnforcedAddressRangesTreeCompare.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExfReleasePushLockShared @ 0x14028E410 (ExfReleasePushLockShared.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockSharedEx @ 0x14031F9EC (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     RtlpDynamicEnforcedAddressRangesTreeCompare @ 0x1407876B8 (RtlpDynamicEnforcedAddressRangesTreeCompare.c)
  */
 
 bool __fastcall RtlFindDynamicEnforcedAddressInRanges(_QWORD **a1, __int64 a2)
 {
   signed __int64 *v2; // rdi
   struct _KTHREAD *CurrentThread; // rax
-  _QWORD *v5; // rbx
+  char *v5; // rbx
   _QWORD *v6; // rbx
   int v7; // eax
   __int64 v9; // [rsp+20h] [rbp-48h] BYREF
@@ -30,11 +30,11 @@ bool __fastcall RtlFindDynamicEnforcedAddressInRanges(_QWORD **a1, __int64 a2)
   v9 = 0LL;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  v5 = KeAbPreAcquire((__int64)(a1 + 1), 0LL);
+  v5 = (char *)KeAbPreAcquire((__int64)(a1 + 1), 0LL);
   if ( _InterlockedCompareExchange64(v2, 17LL, 0LL) )
     ExfAcquirePushLockSharedEx(v2, 0, v5, (__int64)v2);
   if ( v5 )
-    *((_BYTE *)v5 + 10) = 1;
+    v5[10] = 1;
   v6 = *a1;
   while ( v6 )
   {

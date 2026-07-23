@@ -25,10 +25,10 @@
  *     BiLookupObjectByIdentifierAndBootEntry @ 0x140690D68 (BiLookupObjectByIdentifierAndBootEntry.c)
  */
 
-__int64 __fastcall BiBuildIdentifierList(_QWORD *a1, __int64 a2, _QWORD *a3)
+__int64 __fastcall BiBuildIdentifierList(_QWORD *BcdStoreHandle, __int64 a2, _QWORD *a3)
 {
   PCWSTR *v4; // rsi
-  __int64 v5; // r14
+  HANDLE v5; // r14
   int v6; // ebx
   unsigned int v7; // r12d
   __int64 v8; // r15
@@ -75,7 +75,7 @@ __int64 __fastcall BiBuildIdentifierList(_QWORD *a1, __int64 a2, _QWORD *a3)
   _QWORD *v50; // [rsp+48h] [rbp-41h] BYREF
   GUID *v51; // [rsp+50h] [rbp-39h]
   PCWSTR *v52; // [rsp+58h] [rbp-31h] BYREF
-  HANDLE v53; // [rsp+60h] [rbp-29h] BYREF
+  HANDLE BcdObjectHandle; // [rsp+60h] [rbp-29h] BYREF
   HANDLE Handle; // [rsp+68h] [rbp-21h] BYREF
   PVOID P; // [rsp+70h] [rbp-19h] BYREF
   PVOID v56; // [rsp+78h] [rbp-11h] BYREF
@@ -92,30 +92,30 @@ __int64 __fastcall BiBuildIdentifierList(_QWORD *a1, __int64 a2, _QWORD *a3)
   *a3 = a3;
   v49 = (GUID *)&v48;
   v4 = 0LL;
-  v47 = a1;
+  v47 = BcdStoreHandle;
   v48 = &v48;
   v52 = 0LL;
   v46 = &v45;
-  v5 = (__int64)a1;
+  v5 = BcdStoreHandle;
   v45 = &v45;
-  v6 = BiOpenKey(a1, L"Objects", 0x20019u, &Handle);
+  v6 = BiOpenKey(BcdStoreHandle, L"Objects", 0x20019u, &Handle);
   if ( v6 >= 0 )
   {
-    v6 = BiEnumerateSubKeys(Handle, &v52, (ULONG *)&v53);
+    v6 = BiEnumerateSubKeys(Handle, &v52, (ULONG *)&BcdObjectHandle);
     if ( v6 < 0 )
       goto LABEL_57;
-    v7 = (unsigned int)v53;
+    v7 = (unsigned int)BcdObjectHandle;
     v8 = 0LL;
-    if ( (_DWORD)v53 )
+    if ( (_DWORD)BcdObjectHandle )
     {
       v9 = v52;
       do
       {
         RtlInitUnicodeString(&DestinationString, v9[v8]);
-        if ( RtlGUIDFromString(&DestinationString, &Guid) >= 0 && (int)BcdOpenObject(v5, (__int128 *)&Guid, &v53) >= 0 )
+        if ( RtlGUIDFromString(&DestinationString, &Guid) >= 0 && BcdOpenObject(v5, &Guid, &BcdObjectHandle) >= 0 )
         {
-          v10 = v53;
-          if ( (int)BiGetObjectDescription((__int64)v53, &v57) >= 0
+          v10 = BcdObjectHandle;
+          if ( (int)BiGetObjectDescription((__int64)BcdObjectHandle, &v57) >= 0
             && (v58 & 0xF0000000) == 0x10000000
             && (v58 & 0xF00000) == 0x100000 )
           {
@@ -164,21 +164,21 @@ __int64 __fastcall BiBuildIdentifierList(_QWORD *a1, __int64 a2, _QWORD *a3)
             }
           }
           BcdCloseObject(v10);
-          v5 = (__int64)v47;
+          v5 = v47;
         }
         v8 = (unsigned int)(v8 + 1);
       }
       while ( (unsigned int)v8 < v7 );
     }
-    v17 = BiEnumerateBootEntries(&v56, &v53);
+    v17 = BiEnumerateBootEntries(&v56, &BcdObjectHandle);
     v18 = v56;
     v6 = v17;
     if ( v17 >= 0 )
     {
       v47 = 0LL;
       v19 = (unsigned int *)v56;
-      v20 = (unsigned int)v53;
-      if ( (_DWORD)v53 )
+      v20 = (unsigned int)BcdObjectHandle;
+      if ( (_DWORD)BcdObjectHandle )
       {
         while ( 1 )
         {

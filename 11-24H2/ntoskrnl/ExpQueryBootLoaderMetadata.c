@@ -1,35 +1,35 @@
 /*
- * XREFs of ExpQueryBootLoaderMetadata @ 0x140652EBC
+ * XREFs of ExpQueryBootLoaderMetadata @ 0x14065161C
  * Callers:
- *     ExpQuerySystemInformation @ 0x140ADC240 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x140ADDAE0 (ExpQuerySystemInformation.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ExSystemExceptionFilter @ 0x1407B6F80 (ExSystemExceptionFilter.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ExSystemExceptionFilter @ 0x1407B73D0 (ExSystemExceptionFilter.c)
  */
 
 __int64 __fastcall ExpQueryBootLoaderMetadata(void *a1, unsigned int a2, _DWORD *a3)
 {
   struct _KTHREAD *CurrentThread; // rax
-  _QWORD *v7; // rax
-  _QWORD *v8; // r14
+  char *v7; // rax
+  char *v8; // r14
   unsigned int v9; // edi
   char *v10; // rdx
   size_t v11; // rax
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  v7 = KeAbPreAcquire((__int64)&ExBootLoaderMetadataLock, 0LL);
+  v7 = (char *)KeAbPreAcquire((__int64)&ExBootLoaderMetadataLock, 0LL);
   v8 = v7;
   if ( _interlockedbittestandset64((volatile signed __int32 *)&ExBootLoaderMetadataLock, 0LL) )
-    ExfAcquirePushLockExclusiveEx(&ExBootLoaderMetadataLock, (__int64)v7, (__int64)&ExBootLoaderMetadataLock);
+    ExfAcquirePushLockExclusiveEx(&ExBootLoaderMetadataLock, v7, (__int64)&ExBootLoaderMetadataLock);
   v9 = 0;
   if ( v8 )
-    *((_BYTE *)v8 + 10) = 1;
+    v8[10] = 1;
   v10 = (char *)ExBootLoaderMetadata;
   if ( ExBootLoaderMetadata )
   {

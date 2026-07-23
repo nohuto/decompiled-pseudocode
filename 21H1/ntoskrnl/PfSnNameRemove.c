@@ -10,16 +10,16 @@
  *     ExFreePoolWithTag @ 0x1409B1010 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall PfSnNameRemove(__int64 a1, unsigned __int64 a2)
+__int64 __fastcall PfSnNameRemove(__int64 a1, _RTL_BALANCED_NODE *a2)
 {
   volatile LONG *v2; // rbp
   unsigned int v5; // edi
   KIRQL v6; // al
-  __int64 v7; // rcx
+  _RTL_RB_TREE *v7; // rcx
   unsigned __int64 v8; // rsi
   unsigned __int64 v9; // rbx
   unsigned __int64 v10; // rax
-  _QWORD *v12; // rcx
+  _RTL_BALANCED_NODE **v12; // rcx
   unsigned __int64 v13; // rdx
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r9
@@ -34,23 +34,23 @@ __int64 __fastcall PfSnNameRemove(__int64 a1, unsigned __int64 a2)
   v2 = (volatile LONG *)(a1 + 576);
   v5 = 0;
   v6 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(a1 + 576));
-  v7 = a1 + 520;
+  v7 = (_RTL_RB_TREE *)(a1 + 520);
   v8 = v6;
   v9 = *(_QWORD *)(a1 + 520);
   if ( (*(_BYTE *)(a1 + 528) & 1) != 0 )
   {
     if ( v9 )
-      v9 ^= v7;
+      v9 ^= (unsigned __int64)v7;
     else
       v9 = 0LL;
   }
   while ( v9 )
   {
-    if ( *(_QWORD *)(v9 + 24) <= a2 )
+    if ( *(_QWORD *)(v9 + 24) <= (unsigned __int64)a2 )
     {
-      if ( *(_QWORD *)(v9 + 24) >= a2 )
+      if ( *(_QWORD *)(v9 + 24) >= (unsigned __int64)a2 )
       {
-        RtlRbRemoveNode(v7, v9);
+        RtlRbRemoveNode(v7, (PRTL_BALANCED_NODE)v9);
         ExReleaseSpinLockExclusiveFromDpcLevel(v2);
         if ( KiIrqlFlags )
         {
@@ -70,7 +70,7 @@ __int64 __fastcall PfSnNameRemove(__int64 a1, unsigned __int64 a2)
           }
         }
         __writecr8(v8);
-        v12 = (_QWORD *)(a1 + 488);
+        v12 = (_RTL_BALANCED_NODE **)(a1 + 488);
         v13 = 0LL;
         if ( (a1 + 520 >= (unsigned __int64)(a1 + 488) ? 4 : 0) != 0 )
         {

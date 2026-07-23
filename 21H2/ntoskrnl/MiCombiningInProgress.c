@@ -1,15 +1,15 @@
 /*
- * XREFs of MiCombiningInProgress @ 0x140366CB8
+ * XREFs of MiCombiningInProgress @ 0x140366E68
  * Callers:
- *     MiCombineIdenticalPages @ 0x1407266AC (MiCombineIdenticalPages.c)
+ *     MiCombineIdenticalPages @ 0x140726B60 (MiCombineIdenticalPages.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
- *     RtlAvlRemoveNode @ 0x140234B20 (RtlAvlRemoveNode.c)
- *     MiFlushEntireTbDueToAttributeChange @ 0x14030438C (MiFlushEntireTbDueToAttributeChange.c)
- *     RtlAvlInsertNodeEx @ 0x140316550 (RtlAvlInsertNodeEx.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusive @ 0x1402C1960 (ExAcquireSpinLockExclusive.c)
+ *     RtlAvlRemoveNode @ 0x1402D9370 (RtlAvlRemoveNode.c)
+ *     MiFlushEntireTbDueToAttributeChange @ 0x14030F0DC (MiFlushEntireTbDueToAttributeChange.c)
+ *     RtlAvlInsertNodeEx @ 0x1403212A0 (RtlAvlInsertNodeEx.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140346AD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     memset @ 0x140414200 (memset.c)
+ *     memset @ 0x140414300 (memset.c)
  */
 
 __int64 __fastcall MiCombiningInProgress(__int64 *a1, unsigned __int64 *a2, int a3)
@@ -30,7 +30,7 @@ __int64 __fastcall MiCombiningInProgress(__int64 *a1, unsigned __int64 *a2, int 
   bool v19; // zf
 
   v3 = *a1;
-  v7 = ExAcquireSpinLockExclusive(&dword_140C4E540);
+  v7 = ExAcquireSpinLockExclusive(&dword_140C4E580);
   if ( a3 != 1 )
   {
     v14 = *a2;
@@ -39,22 +39,22 @@ __int64 __fastcall MiCombiningInProgress(__int64 *a1, unsigned __int64 *a2, int 
     {
       *v15 = (unsigned __int64 *)v14;
       *(_QWORD *)(v14 + 8) = v15;
-      RtlAvlRemoveNode((unsigned __int64 *)&qword_140C4E548, a2 + 2);
+      RtlAvlRemoveNode((unsigned __int64 *)&qword_140C4E588, a2 + 2);
       --*((_DWORD *)a1 + 16);
-      if ( dword_140C4E544 == 1 )
+      if ( dword_140C4E584 == 1 )
         MiFlushEntireTbDueToAttributeChange();
-      --dword_140C4E544;
+      --dword_140C4E584;
       goto LABEL_16;
     }
 LABEL_26:
     __fastfail(3u);
   }
   ++*((_DWORD *)a1 + 16);
-  ++dword_140C4E544;
-  if ( !dword_140C4E558 )
+  ++dword_140C4E584;
+  if ( !dword_140C4E598 )
   {
-    dword_140C4E558 = 1;
-    qword_140C4E550 = _InterlockedIncrement64(&PsNextSecurityDomain);
+    dword_140C4E598 = 1;
+    qword_140C4E590 = _InterlockedIncrement64(&PsNextSecurityDomain);
   }
   CurrentThread = KeGetCurrentThread();
   memset(a2, 0, 0x50uLL);
@@ -68,8 +68,8 @@ LABEL_26:
   a2[1] = (unsigned __int64)v9;
   *(_QWORD *)(v10 + 8) = a2;
   *v9 = a2;
-  v12 = (_QWORD *)qword_140C4E548;
-  if ( !qword_140C4E548 )
+  v12 = (_QWORD *)qword_140C4E588;
+  if ( !qword_140C4E588 )
     goto LABEL_19;
   while ( (unsigned __int64)CurrentThread < v12[3] )
   {
@@ -84,9 +84,9 @@ LABEL_8:
     goto LABEL_8;
   v11 = 1;
 LABEL_19:
-  RtlAvlInsertNodeEx((unsigned __int64 *)&qword_140C4E548, (unsigned __int64)v12, v11, a2 + 2);
+  RtlAvlInsertNodeEx((unsigned __int64 *)&qword_140C4E588, (unsigned __int64)v12, v11, a2 + 2);
 LABEL_16:
-  ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C4E540);
+  ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C4E580);
   result = (unsigned int)KiIrqlFlags;
   if ( KiIrqlFlags )
   {

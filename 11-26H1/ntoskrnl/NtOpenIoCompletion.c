@@ -1,37 +1,47 @@
 /*
- * XREFs of NtOpenIoCompletion @ 0x140796E40
+ * XREFs of NtOpenIoCompletion @ 0x140799970
  * Callers:
- *     DifNtOpenIoCompletionWrapper @ 0x14067D350 (DifNtOpenIoCompletionWrapper.c)
+ *     DifNtOpenIoCompletionWrapper @ 0x140680F30 (DifNtOpenIoCompletionWrapper.c)
  * Callees:
- *     RtlReadULong64FromUser @ 0x14077F554 (RtlReadULong64FromUser.c)
- *     RtlWriteULong64ToUser @ 0x14077F758 (RtlWriteULong64ToUser.c)
- *     ObOpenObjectByName @ 0x1408FC870 (ObOpenObjectByName.c)
+ *     RtlReadULong64FromUser @ 0x140782054 (RtlReadULong64FromUser.c)
+ *     RtlWriteULong64ToUser @ 0x140782258 (RtlWriteULong64ToUser.c)
+ *     ObOpenObjectByName @ 0x14092C800 (ObOpenObjectByName.c)
  */
 
-__int64 __fastcall NtOpenIoCompletion(_QWORD *a1, int a2, int a3)
+NTSTATUS __cdecl NtOpenIoCompletion(
+        PHANDLE IoCompletionHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes)
 {
   int v3; // ebx
   char PreviousMode; // si
   __int64 ULong64FromUser; // rax
-  int v8; // ebx
-  __int64 v10; // [rsp+50h] [rbp-18h] BYREF
+  NTSTATUS v8; // ebx
+  void *v10; // [rsp+50h] [rbp-18h] BYREF
 
-  v3 = a3;
+  v3 = (int)ObjectAttributes;
   v10 = 0LL;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
   {
-    ULong64FromUser = RtlReadULong64FromUser(a1);
-    RtlWriteULong64ToUser(a1, ULong64FromUser);
+    ULong64FromUser = RtlReadULong64FromUser(IoCompletionHandle);
+    RtlWriteULong64ToUser(IoCompletionHandle, ULong64FromUser);
   }
-  LOBYTE(a3) = PreviousMode;
-  v8 = ObOpenObjectByName(v3, (_DWORD)IoCompletionObjectType, a3, 0, a2, 0LL, (__int64)&v10);
+  LOBYTE(ObjectAttributes) = PreviousMode;
+  v8 = ObOpenObjectByName(
+         v3,
+         (_DWORD)IoCompletionObjectType,
+         (_DWORD)ObjectAttributes,
+         0,
+         DesiredAccess,
+         0LL,
+         (__int64)&v10);
   if ( v8 >= 0 )
   {
     if ( PreviousMode )
-      RtlWriteULong64ToUser(a1, v10);
+      RtlWriteULong64ToUser(IoCompletionHandle, (__int64)v10);
     else
-      *a1 = v10;
+      *IoCompletionHandle = v10;
   }
-  return (unsigned int)v8;
+  return v8;
 }

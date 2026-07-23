@@ -1,15 +1,15 @@
 /*
- * XREFs of MiFreeMdlTracker @ 0x140530B30
+ * XREFs of MiFreeMdlTracker @ 0x140530D70
  * Callers:
- *     MmUnlockPages @ 0x140244A70 (MmUnlockPages.c)
+ *     MmUnlockPages @ 0x1402E92C0 (MmUnlockPages.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
- *     RtlAvlRemoveNode @ 0x140234B20 (RtlAvlRemoveNode.c)
- *     ExFreeToNPagedLookasideList @ 0x140252DE4 (ExFreeToNPagedLookasideList.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     ExFreeToNPagedLookasideList @ 0x14021A938 (ExFreeToNPagedLookasideList.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402D3660 (KeAcquireInStackQueuedSpinLock.c)
+ *     RtlAvlRemoveNode @ 0x1402D9370 (RtlAvlRemoveNode.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     MiValidateMdlTracker @ 0x140530FD8 (MiValidateMdlTracker.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     MiValidateMdlTracker @ 0x140531218 (MiValidateMdlTracker.c)
  */
 
 __int64 __fastcall MiFreeMdlTracker(ULONG_PTR BugCheckParameter2, __int64 a2)
@@ -77,7 +77,7 @@ __int64 __fastcall MiFreeMdlTracker(ULONG_PTR BugCheckParameter2, __int64 a2)
       __writecr8(OldIrql);
       if ( v6 )
       {
-        ExFreeToNPagedLookasideList(&stru_140C4EA40, v6);
+        ExFreeToNPagedLookasideList(&stru_140C4EA80, v6);
       }
       else if ( *(_DWORD *)(v5 + 32) )
       {

@@ -13,43 +13,49 @@
  *     sub_1801086C8 @ 0x1801086C8 (sub_1801086C8.c)
  */
 
-__int64 __fastcall TpAllocIoCompletion(struct _PEB_LDR_DATA *Ldr, __int64 a2, __int64 a3, __int64 a4, __int64 a5)
+NTSTATUS __cdecl TpAllocIoCompletion(
+        PTP_IO *IoReturn,
+        HANDLE File,
+        PTP_IO_CALLBACK Callback,
+        PVOID Context,
+        PTP_CALLBACK_ENVIRON CallbackEnviron)
 {
-  struct _PEB_LDR_DATA *v8; // r12
-  int v9; // edi
-  __int64 Heap; // rax
+  PTP_IO *v8; // r12
+  DWORD Flags; // edi
+  PVOID Heap; // rax
   __int64 v11; // rbx
-  int v12; // edi
+  NTSTATUS v12; // edi
   __int64 v13; // rcx
   _DWORD *v14; // r14
   _BYTE *v15; // r15
-  unsigned __int64 v16; // rdx
-  unsigned __int64 *v17; // r8
-  __int64 v18; // r9
-  int v20; // [rsp+30h] [rbp-38h]
+  int v17; // [rsp+30h] [rbp-38h]
   _UNKNOWN *retaddr; // [rsp+68h] [rbp+0h]
-  unsigned __int64 v22; // [rsp+70h] [rbp+8h]
+  PVOID BaseAddress; // [rsp+70h] [rbp+8h]
 
-  v8 = Ldr;
-  if ( a5 )
-    v9 = *(_DWORD *)(a5 + 56);
+  v8 = IoReturn;
+  if ( CallbackEnviron )
+    Flags = CallbackEnviron->u.Flags;
   else
-    v9 = 0;
-  if ( Ldr && a2 && a3 && (v9 & 0xFFFFFFFC) == 0 && (Ldr = NtCurrentPeb()->Ldr, !Ldr->ShutdownInProgress) )
+    Flags = 0;
+  if ( IoReturn
+    && File
+    && Callback
+    && (Flags & 0xFFFFFFFC) == 0
+    && (IoReturn = (PTP_IO *)NtCurrentPeb()->Ldr, !*((_BYTE *)IoReturn + 72)) )
   {
-    *(_QWORD *)&v8->Length = 0LL;
-    Heap = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, (dword_18015D050 + 0x40000) | 8u, 288LL);
-    v11 = Heap;
-    v22 = Heap;
+    *v8 = 0LL;
+    Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, (dword_18015D050 + 0x40000) | 8, 0x120uLL);
+    v11 = (__int64)Heap;
+    BaseAddress = Heap;
     if ( Heap )
     {
-      *(_QWORD *)(Heap + 176) = retaddr;
-      v12 = sub_180024CB8(Heap, a4, a5, v9, (__int64)off_180110130);
-      v20 = v12;
+      *((_QWORD *)Heap + 22) = retaddr;
+      v12 = sub_180024CB8((__int64)Heap, (__int64)Context, (__int64)CallbackEnviron, Flags, (__int64)&off_180110130);
+      v17 = v12;
       if ( v12 >= 0 )
       {
-        *(_QWORD *)(v11 + 80) = a3;
-        *(_QWORD *)(v11 + 272) = a2;
+        *(_QWORD *)(v11 + 80) = Callback;
+        *(_QWORD *)(v11 + 272) = File;
         *(_DWORD *)(v11 + 280) = 0;
         v13 = *(_QWORD *)(v11 + 144);
         *(_QWORD *)(v11 + 256) = sub_1800254A0;
@@ -70,16 +76,16 @@ __int64 __fastcall TpAllocIoCompletion(struct _PEB_LDR_DATA *Ldr, __int64 a2, __
         *(_QWORD *)(v11 + 200) = off_1801106C0;
         *(_DWORD *)(v11 + 208) = *v14;
         *(_BYTE *)(v11 + 212) = *v15;
-        v12 = sub_18005756C(a2, v11 + 200, *(_QWORD *)(v11 + 144));
-        v20 = v12;
+        v12 = sub_18005756C(File, v11 + 200, *(_QWORD *)(v11 + 144));
+        v17 = v12;
         if ( v12 >= 0 )
         {
           v12 = 0;
-          v20 = 0;
-          if ( a5 )
-            *(_QWORD *)(v11 + 32) = *(_QWORD *)(a5 + 48);
+          v17 = 0;
+          if ( CallbackEnviron )
+            *(_QWORD *)(v11 + 32) = CallbackEnviron->FinalizationCallback;
           if ( *(_QWORD *)(v11 + 16) )
-            sub_1800570C8((_QWORD *)v11, v16, v17, v18);
+            sub_1800570C8(v11);
         }
         if ( v12 < 0 )
           sub_180024608((_QWORD *)v11);
@@ -88,24 +94,24 @@ __int64 __fastcall TpAllocIoCompletion(struct _PEB_LDR_DATA *Ldr, __int64 a2, __
     else
     {
       v12 = -1073741801;
-      v20 = -1073741801;
+      v17 = -1073741801;
     }
     if ( v12 >= 0 )
       goto LABEL_22;
     if ( v11 )
     {
-      RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, dword_18015D050 + 0x40000, v22);
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, dword_18015D050 + 0x40000, BaseAddress);
       v11 = 0LL;
-      v12 = v20;
+      v12 = v17;
     }
     if ( v12 >= 0 )
 LABEL_22:
-      *(_QWORD *)&v8->Length = v11;
-    return (unsigned int)v12;
+      *v8 = (PTP_IO)v11;
+    return v12;
   }
   else
   {
-    sub_1801086C8(Ldr, a2, a3, a4);
-    return 3221225485LL;
+    sub_1801086C8(IoReturn, File, Callback);
+    return -1073741811;
   }
 }

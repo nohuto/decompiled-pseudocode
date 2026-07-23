@@ -13,23 +13,23 @@
  *     BiReleaseBcdSyncMutant @ 0x140807C5C (BiReleaseBcdSyncMutant.c)
  */
 
-__int64 __fastcall BcdDeleteObject(void *a1)
+NTSTATUS __cdecl BcdDeleteObject(HANDLE BcdObjectHandle)
 {
   __int64 v2; // rcx
   char v3; // di
-  __int64 result; // rax
-  unsigned int v5; // eax
+  NTSTATUS result; // eax
+  NTSTATUS v5; // eax
   __int64 v6; // rcx
-  unsigned int v7; // ebx
+  NTSTATUS v7; // ebx
 
-  LOBYTE(v2) = BiIsOfflineHandle((char)a1);
+  LOBYTE(v2) = BiIsOfflineHandle((char)BcdObjectHandle);
   v3 = v2;
   result = BiAcquireBcdSyncMutant(v2);
-  if ( (int)result >= 0 )
+  if ( result >= 0 )
   {
-    if ( (unsigned __int8)BiIsLinkedToFirmwareVariable(a1, 0LL) )
-      BiSetFirmwareModifiedFromObject(a1);
-    v5 = BiDeleteKey(a1);
+    if ( (unsigned __int8)BiIsLinkedToFirmwareVariable(BcdObjectHandle, 0LL) )
+      BiSetFirmwareModifiedFromObject(BcdObjectHandle);
+    v5 = BiDeleteKey(BcdObjectHandle);
     LOBYTE(v6) = v3;
     v7 = v5;
     BiReleaseBcdSyncMutant(v6);

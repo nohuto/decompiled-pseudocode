@@ -2,22 +2,22 @@
  * XREFs of KiAbApplyWakeupBoost @ 0x1400240DC
  * Callers:
  *     ExpReleaseFastMutexContended @ 0x140023F40 (ExpReleaseFastMutexContended.c)
- *     ExpWakePushLock @ 0x1400915F0 (ExpWakePushLock.c)
- *     KeSetEventBoostPriorityEx @ 0x1401034C8 (KeSetEventBoostPriorityEx.c)
+ *     ExpWakePushLock @ 0x140091530 (ExpWakePushLock.c)
+ *     KeSetEventBoostPriorityEx @ 0x140103548 (KeSetEventBoostPriorityEx.c)
  * Callees:
  *     KiRequestSoftwareInterrupt @ 0x140005AC0 (KiRequestSoftwareInterrupt.c)
  *     KiSetPriorityFloor @ 0x14002509C (KiSetPriorityFloor.c)
  *     KiAbProcessContextSwitch @ 0x140057DC0 (KiAbProcessContextSwitch.c)
  *     KiDeliverApc @ 0x140058490 (KiDeliverApc.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     KiSetVpThreadSpinLockCount @ 0x1400BC7E0 (KiSetVpThreadSpinLockCount.c)
- *     KiReadyDeferredReadyList @ 0x1400CDC24 (KiReadyDeferredReadyList.c)
- *     KiEndThreadCycleAccumulation @ 0x1400D1FA0 (KiEndThreadCycleAccumulation.c)
- *     KiQueueReadyThread @ 0x1400D2370 (KiQueueReadyThread.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KiUpdatePriorityMatrixThreadState @ 0x1401B4B9C (KiUpdatePriorityMatrixThreadState.c)
- *     KiSwapContext @ 0x1401C3F70 (KiSwapContext.c)
- *     EtwTraceAutoBoostSetFloor @ 0x14030FABC (EtwTraceAutoBoostSetFloor.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     KiSetVpThreadSpinLockCount @ 0x1400BC720 (KiSetVpThreadSpinLockCount.c)
+ *     KiReadyDeferredReadyList @ 0x1400CDCA4 (KiReadyDeferredReadyList.c)
+ *     KiEndThreadCycleAccumulation @ 0x1400D2020 (KiEndThreadCycleAccumulation.c)
+ *     KiQueueReadyThread @ 0x1400D23F0 (KiQueueReadyThread.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiUpdatePriorityMatrixThreadState @ 0x1401B4CDC (KiUpdatePriorityMatrixThreadState.c)
+ *     KiSwapContext @ 0x1401C40D0 (KiSwapContext.c)
+ *     EtwTraceAutoBoostSetFloor @ 0x14030FCAC (EtwTraceAutoBoostSetFloor.c)
  */
 
 void __fastcall KiAbApplyWakeupBoost(char a1, __int64 a2, int a3)

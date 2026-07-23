@@ -1,14 +1,14 @@
 /*
- * XREFs of PopFxPluginWork @ 0x1400C3330
+ * XREFs of PopFxPluginWork @ 0x1400C11C0
  * Callers:
  *     <none>
  * Callees:
- *     PopFxProcessWork @ 0x1400C124C (PopFxProcessWork.c)
- *     PopPepWork @ 0x1400C1DA4 (PopPepWork.c)
- *     KeCancelTimer @ 0x1400C3480 (KeCancelTimer.c)
- *     KeSetCoalescableTimer @ 0x1400EFC00 (KeSetCoalescableTimer.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     PopFxBugCheck @ 0x1402022F4 (PopFxBugCheck.c)
+ *     PopFxProcessWork @ 0x1400BF0DC (PopFxProcessWork.c)
+ *     PopPepWork @ 0x1400BFC34 (PopPepWork.c)
+ *     KeCancelTimer @ 0x1400C1310 (KeCancelTimer.c)
+ *     KeSetCoalescableTimer @ 0x1400EDA80 (KeSetCoalescableTimer.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     PopFxBugCheck @ 0x140202120 (PopFxBugCheck.c)
  */
 
 __int64 __fastcall PopFxPluginWork(__int64 a1)

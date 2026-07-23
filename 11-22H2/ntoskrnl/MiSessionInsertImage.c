@@ -119,7 +119,9 @@ LABEL_19:
     LOBYTE(v20) = v15;
     RtlAvlInsertNodeEx(v35 + 64, v14, v20, Pool);
     ExReleaseSpinLockExclusiveFromDpcLevel(&PsLoadedModuleSpinLock);
-    if ( KiIrqlFlags && (CurrentIrql = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags
+      && (CurrentIrql = KeGetCurrentIrql(), ((unsigned __int8)KiIrqlFlags & 1) != 0)
+      && CurrentIrql <= 0xFu )
     {
       v22 = v38;
       if ( (unsigned __int8)v38 <= 0xFu && CurrentIrql >= 2u )
@@ -167,7 +169,7 @@ LABEL_9:
   }
   ++*((_DWORD *)v14 + 15);
   ExReleaseSpinLockExclusiveFromDpcLevel(&PsLoadedModuleSpinLock);
-  if ( KiIrqlFlags && (v24 = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && v24 <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && (v24 = KeGetCurrentIrql(), ((unsigned __int8)KiIrqlFlags & 1) != 0) && v24 <= 0xFu )
   {
     v18 = v38;
     if ( (unsigned __int8)v38 <= 0xFu && v24 >= 2u )

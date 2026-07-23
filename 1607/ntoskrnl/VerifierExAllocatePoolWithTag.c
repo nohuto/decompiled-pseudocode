@@ -1,10 +1,10 @@
 /*
- * XREFs of VerifierExAllocatePoolWithTag @ 0x140702120
+ * XREFs of VerifierExAllocatePoolWithTag @ 0x140702150
  * Callers:
  *     <none>
  * Callees:
- *     VfCheckPoolType @ 0x1407042B0 (VfCheckPoolType.c)
- *     XdvExAllocatePoolInternal @ 0x14070CE7C (XdvExAllocatePoolInternal.c)
+ *     VfCheckPoolType @ 0x1407042E0 (VfCheckPoolType.c)
+ *     XdvExAllocatePoolInternal @ 0x14070CEAC (XdvExAllocatePoolInternal.c)
  */
 
 __int64 __fastcall VerifierExAllocatePoolWithTag(__int64 a1, int a2, __int64 a3)

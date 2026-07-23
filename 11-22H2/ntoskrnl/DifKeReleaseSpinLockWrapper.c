@@ -10,7 +10,7 @@
  *     DifGetReturnAddressForWrappers @ 0x1405F8954 (DifGetReturnAddressForWrappers.c)
  */
 
-__int64 __fastcall DifKeReleaseSpinLockWrapper(volatile signed __int64 *a1, unsigned __int8 a2)
+void __fastcall DifKeReleaseSpinLockWrapper(volatile signed __int64 *a1, unsigned __int8 a2)
 {
   unsigned __int64 v2; // rbp
   __int64 *APIThunkContextById; // rax
@@ -22,19 +22,20 @@ __int64 __fastcall DifKeReleaseSpinLockWrapper(volatile signed __int64 *a1, unsi
   int v10; // eax
   __int64 ReturnAddressForWrappers; // rax
   __int64 *i; // rbx
-  __int64 result; // rax
+  unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  bool v16; // zf
-  _QWORD **v17; // rdi
+  int v16; // eax
+  bool v17; // zf
+  _QWORD **v18; // rdi
   _QWORD *j; // rbx
-  __int128 v19; // [rsp+20h] [rbp-28h] BYREF
-  volatile signed __int64 *v20; // [rsp+30h] [rbp-18h]
+  __int128 v20; // [rsp+20h] [rbp-28h] BYREF
+  volatile signed __int64 *v21; // [rsp+30h] [rbp-18h]
   __int64 retaddr; // [rsp+48h] [rbp+0h]
 
   v2 = a2;
-  v19 = 0LL;
   v20 = 0LL;
+  v21 = 0LL;
   APIThunkContextById = DifGetAPIThunkContextById(296);
   v9 = APIThunkContextById;
   if ( !APIThunkContextById )
@@ -57,44 +58,42 @@ LABEL_10:
   }
   ReturnAddressForWrappers = retaddr;
 LABEL_11:
-  *(_QWORD *)&v19 = ReturnAddressForWrappers;
+  *(_QWORD *)&v20 = ReturnAddressForWrappers;
 LABEL_12:
-  v20 = a1;
-  BYTE8(v19) = v2;
+  v21 = a1;
+  BYTE8(v20) = v2;
   for ( i = (__int64 *)v9[4]; i != v9 + 4; i = (__int64 *)*i )
   {
     if ( i != (__int64 *)16 )
-      ((void (__fastcall *)(__int128 *))*(i - 1))(&v19);
+      ((void (__fastcall *)(__int128 *))*(i - 1))(&v20);
   }
 LABEL_17:
-  result = KxReleaseSpinLock(a1);
-  if ( KiIrqlFlags )
+  KxReleaseSpinLock(a1);
+  if ( (_DWORD)KiIrqlFlags )
   {
-    result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
-      && (unsigned __int8)result <= 0xFu
+    CurrentIrql = KeGetCurrentIrql();
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
       && (unsigned __int8)v2 <= 0xFu
-      && (unsigned __int8)result >= 2u )
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v2 + 1));
-      v16 = ((unsigned int)result & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= result;
-      if ( v16 )
-        result = KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      v16 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v2 + 1));
+      v17 = (v16 & SchedulerAssist[5]) == 0;
+      SchedulerAssist[5] &= v16;
+      if ( v17 )
+        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
     }
   }
   __writecr8(v2);
   if ( v9 )
   {
-    v17 = (_QWORD **)(v9 + 6);
-    for ( j = *v17; j != v17; j = (_QWORD *)*j )
+    v18 = (_QWORD **)(v9 + 6);
+    for ( j = *v18; j != v18; j = (_QWORD *)*j )
     {
-      result = (__int64)(j - 2);
       if ( j != (_QWORD *)16 )
-        result = (*(__int64 (__fastcall **)(__int128 *))(result + 8))(&v19);
+        ((void (__fastcall *)(__int128 *))*(j - 1))(&v20);
     }
   }
-  return result;
 }

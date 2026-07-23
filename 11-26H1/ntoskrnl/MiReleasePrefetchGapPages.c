@@ -1,10 +1,10 @@
 /*
- * XREFs of MiReleasePrefetchGapPages @ 0x140337DB8
+ * XREFs of MiReleasePrefetchGapPages @ 0x140339E38
  * Callers:
- *     MiPfPutPagesInTransition @ 0x140372C60 (MiPfPutPagesInTransition.c)
+ *     MiPfPutPagesInTransition @ 0x140374A10 (MiPfPutPagesInTransition.c)
  * Callees:
- *     MiReturnPfnReferenceCountAtDpc @ 0x14031E324 (MiReturnPfnReferenceCountAtDpc.c)
- *     MiUnlinkPageChainHead @ 0x140365EF0 (MiUnlinkPageChainHead.c)
+ *     MiReturnPfnReferenceCountAtDpc @ 0x140320354 (MiReturnPfnReferenceCountAtDpc.c)
+ *     MiUnlinkPageChainHead @ 0x140367C90 (MiUnlinkPageChainHead.c)
  */
 
 __int64 __fastcall MiReleasePrefetchGapPages(__int64 a1)

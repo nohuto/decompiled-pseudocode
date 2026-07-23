@@ -84,7 +84,7 @@
  *     memset @ 0x1401D6BC0 (memset.c)
  */
 
-signed __int64 __fastcall ExfAcquirePushLockExclusiveEx(unsigned __int64 *a1, __int64 a2, ULONG_PTR a3)
+signed __int64 __fastcall ExfAcquirePushLockExclusiveEx(unsigned __int64 *a1, _RTL_BALANCED_NODE *a2, ULONG_PTR a3)
 {
   unsigned __int64 v6; // rdi
   __int64 v7; // r13

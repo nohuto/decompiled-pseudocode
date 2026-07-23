@@ -1,11 +1,11 @@
 /*
- * XREFs of MiResolveMappedFileFaultGetCopyExtents @ 0x1406F7854
+ * XREFs of MiResolveMappedFileFaultGetCopyExtents @ 0x1406FC4C4
  * Callers:
- *     MiResolveMappedFileFault @ 0x14036F5D0 (MiResolveMappedFileFault.c)
+ *     MiResolveMappedFileFault @ 0x140371380 (MiResolveMappedFileFault.c)
  * Callees:
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402DC6D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExAcquireSpinLockSharedAtDpcLevel @ 0x1402EDFB0 (ExAcquireSpinLockSharedAtDpcLevel.c)
- *     MiLookupFixupExtentByPte @ 0x1404CBA54 (MiLookupFixupExtentByPte.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402BE490 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x1402D0030 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     MiLookupFixupExtentByPte @ 0x1404C5484 (MiLookupFixupExtentByPte.c)
  */
 
 void __fastcall MiResolveMappedFileFaultGetCopyExtents(__int64 a1)

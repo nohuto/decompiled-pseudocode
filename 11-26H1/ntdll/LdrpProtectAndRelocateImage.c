@@ -1,41 +1,45 @@
 /*
- * XREFs of LdrpProtectAndRelocateImage @ 0x1800D8074
+ * XREFs of LdrpProtectAndRelocateImage @ 0x1800D5034
  * Callers:
- *     LdrpInitializeProcess @ 0x1800CF8B8 (LdrpInitializeProcess.c)
- *     LdrpCompleteMapModule @ 0x18011C480 (LdrpCompleteMapModule.c)
- *     LdrpLoadCustomNtdllWithSectionHandle @ 0x18015C1CC (LdrpLoadCustomNtdllWithSectionHandle.c)
+ *     LdrpInitializeProcess @ 0x1800CD028 (LdrpInitializeProcess.c)
+ *     LdrpCompleteMapModule @ 0x18011C230 (LdrpCompleteMapModule.c)
+ *     LdrpLoadCustomNtdllWithSectionHandle @ 0x18015C08C (LdrpLoadCustomNtdllWithSectionHandle.c)
  * Callees:
- *     LdrpLogInternal @ 0x180046B90 (LdrpLogInternal.c)
- *     LdrpSetProtection @ 0x1800D8238 (LdrpSetProtection.c)
- *     LdrRelocateImageWithBias @ 0x1800D8344 (LdrRelocateImageWithBias.c)
- *     LdrpGenericExceptionFilter @ 0x18015B768 (LdrpGenericExceptionFilter.c)
- *     ZwQueryVirtualMemory @ 0x18015F3A0 (ZwQueryVirtualMemory.c)
+ *     LdrpLogInternal @ 0x180031100 (LdrpLogInternal.c)
+ *     LdrpSetProtection @ 0x1800D51F8 (LdrpSetProtection.c)
+ *     LdrRelocateImageWithBias @ 0x1800D5304 (LdrRelocateImageWithBias.c)
+ *     LdrpGenericExceptionFilter @ 0x18015B628 (LdrpGenericExceptionFilter.c)
+ *     ZwQueryVirtualMemory @ 0x18015F2A0 (ZwQueryVirtualMemory.c)
  */
 
-__int64 __fastcall LdrpProtectAndRelocateImage(const void *ArgList)
+__int64 __fastcall LdrpProtectAndRelocateImage(PVOID BaseOfImage)
 {
   bool v2; // di
-  int v3; // eax
-  __int64 v4; // rdx
-  int v5; // ebx
-  int v6; // eax
-  int v8; // edx
-  const void *v9; // [rsp+48h] [rbp-20h] BYREF
-  __int64 v10; // [rsp+50h] [rbp-18h]
+  NTSTATUS v3; // eax
+  LONGLONG v4; // rdx
+  CHAR *v5; // r8
+  NTSTATUS v6; // r9d
+  NTSTATUS v7; // ebx
+  int v8; // eax
+  int v10; // edx
+  NTSTATUS Conflict; // [rsp+20h] [rbp-48h]
+  NTSTATUS Invalid; // [rsp+28h] [rbp-40h]
+  PVOID v13; // [rsp+48h] [rbp-20h] BYREF
+  __int64 v14; // [rsp+50h] [rbp-18h]
 
-  v10 = 0LL;
+  v14 = 0LL;
   v2 = 0;
-  v9 = ArgList;
-  v3 = ZwQueryVirtualMemory(-1LL, 0LL, 4LL, &v9, 16LL, 0LL);
+  v13 = BaseOfImage;
+  v3 = ZwQueryVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, 0LL, MemoryWorkingSetExInformation, &v13, 0x10uLL, 0LL);
   if ( v3 >= 0 )
   {
-    if ( (v10 & 1) != 0 )
-      v2 = (v10 & 0x800000) != 0;
+    if ( (v14 & 1) != 0 )
+      v2 = (v14 & 0x800000) != 0;
   }
   else
   {
     LdrpLogInternal(
-      (int)"minkernel\\ldr\\ldrfind.c",
+      "minkernel\\ldr\\ldrfind.c",
       1980,
       (__int64)"LdrpProtectAndRelocateImage",
       0,
@@ -44,43 +48,36 @@ __int64 __fastcall LdrpProtectAndRelocateImage(const void *ArgList)
   }
   if ( !v2 )
   {
-    v6 = LdrpSetProtection(ArgList, 0LL);
-    v5 = v6;
-    if ( v6 < 0 )
+    v8 = LdrpSetProtection(BaseOfImage);
+    v7 = v8;
+    if ( v8 < 0 )
     {
-      v8 = 1990;
+      v10 = 1990;
 LABEL_12:
       LdrpLogInternal(
-        (int)"minkernel\\ldr\\ldrfind.c",
-        v8,
+        "minkernel\\ldr\\ldrfind.c",
+        v10,
         (__int64)"LdrpProtectAndRelocateImage",
         0,
         "Changing the protection of the executable at %p failed with status 0x%08lx\n",
-        ArgList,
-        v6);
+        BaseOfImage,
+        v8);
       goto LABEL_7;
     }
   }
-  v5 = LdrRelocateImageWithBias(ArgList);
-  if ( v5 >= 0 && !v2 )
+  v7 = LdrRelocateImageWithBias(BaseOfImage, v4, v5, v6, Conflict, Invalid);
+  if ( v7 >= 0 && !v2 )
   {
-    LOBYTE(v4) = 1;
-    v6 = LdrpSetProtection(ArgList, v4);
-    v5 = v6;
-    if ( v6 < 0 )
+    v8 = LdrpSetProtection(BaseOfImage);
+    v7 = v8;
+    if ( v8 < 0 )
     {
-      v8 = 2014;
+      v10 = 2014;
       goto LABEL_12;
     }
   }
 LABEL_7:
-  LdrpLogInternal(
-    (int)"minkernel\\ldr\\ldrfind.c",
-    2054,
-    (__int64)"LdrpProtectAndRelocateImage",
-    4,
-    "Status: 0x%08lx\n",
-    v5);
-  LdrpLogInternal((int)"minkernel\\ldr\\ldrfind.c", 2055, (__int64)"LdrpProtectAndRelocateImage", 6, "%x\n", v5);
-  return (unsigned int)v5;
+  LdrpLogInternal("minkernel\\ldr\\ldrfind.c", 2054, (__int64)"LdrpProtectAndRelocateImage", 4, "Status: 0x%08lx\n", v7);
+  LdrpLogInternal("minkernel\\ldr\\ldrfind.c", 2055, (__int64)"LdrpProtectAndRelocateImage", 6, "%x\n", v7);
+  return (unsigned int)v7;
 }

@@ -1,7 +1,7 @@
 /*
- * XREFs of PopFxGetLatencyLimitWithoutResiliency @ 0x14000A324
+ * XREFs of PopFxGetLatencyLimitWithoutResiliency @ 0x140009EA4
  * Callers:
- *     PoFxSendSystemLatencyUpdate @ 0x14000A2A0 (PoFxSendSystemLatencyUpdate.c)
+ *     PoFxSendSystemLatencyUpdate @ 0x140009E20 (PoFxSendSystemLatencyUpdate.c)
  * Callees:
  *     <none>
  */
@@ -10,7 +10,7 @@ __int64 PopFxGetLatencyLimitWithoutResiliency()
 {
   __int64 result; // rax
 
-  if ( byte_140303E4F )
+  if ( byte_140303D8F )
     return (unsigned int)dword_1403A9300;
   if ( PpmDisableVsyncLatencyUpdate )
     return (unsigned int)PpmLatencyToleranceLimit;

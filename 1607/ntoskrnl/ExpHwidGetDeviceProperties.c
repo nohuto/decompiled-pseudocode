@@ -1,15 +1,15 @@
 /*
- * XREFs of ExpHwidGetDeviceProperties @ 0x1404F63A4
+ * XREFs of ExpHwidGetDeviceProperties @ 0x1404D9330
  * Callers:
- *     ExpHwidProcessInterface @ 0x1404DB0E4 (ExpHwidProcessInterface.c)
- *     sub_1404F587C @ 0x1404F587C (sub_1404F587C.c)
- *     ExpHwidSysVolIfGetDiskInfo @ 0x14051DAC0 (ExpHwidSysVolIfGetDiskInfo.c)
+ *     ExpHwidProcessInterface @ 0x1404BE6E8 (ExpHwidProcessInterface.c)
+ *     sub_1404D8808 @ 0x1404D8808 (sub_1404D8808.c)
+ *     ExpHwidSysVolIfGetDiskInfo @ 0x140500B70 (ExpHwidSysVolIfGetDiskInfo.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     ZwPlugPlayControl @ 0x14015C0E0 (ZwPlugPlayControl.c)
- *     sub_1404F5C98 @ 0x1404F5C98 (sub_1404F5C98.c)
- *     ExpHwidGetDevicePropertyDataFixed @ 0x1404F710C (ExpHwidGetDevicePropertyDataFixed.c)
- *     ExpHwidGetDevicePropertyData @ 0x1404F7188 (ExpHwidGetDevicePropertyData.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     ZwPlugPlayControl @ 0x14015C650 (ZwPlugPlayControl.c)
+ *     sub_1404D8C24 @ 0x1404D8C24 (sub_1404D8C24.c)
+ *     ExpHwidGetDevicePropertyDataFixed @ 0x1404DA098 (ExpHwidGetDevicePropertyDataFixed.c)
+ *     ExpHwidGetDevicePropertyData @ 0x1404DA114 (ExpHwidGetDevicePropertyData.c)
  */
 
 __int64 __fastcall ExpHwidGetDeviceProperties(PDEVICE_OBJECT Pdo, __int64 a2)
@@ -20,7 +20,7 @@ __int64 __fastcall ExpHwidGetDeviceProperties(PDEVICE_OBJECT Pdo, __int64 a2)
   __int64 v8; // [rsp+40h] [rbp-18h]
   char v9; // [rsp+68h] [rbp+10h] BYREF
 
-  sub_1404F5C98(a2, a2);
+  sub_1404D8C24(a2, a2);
   DevicePropertyData = ExpHwidGetDevicePropertyData(Pdo, a2);
   if ( DevicePropertyData >= 0 )
   {

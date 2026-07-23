@@ -1,24 +1,22 @@
 /*
- * XREFs of RtlTraceDatabaseAdd @ 0x180102850
+ * XREFs of RtlTraceDatabaseAdd @ 0x180102810
  * Callers:
  *     <none>
  * Callees:
  *     RtlLeaveCriticalSection @ 0x18002F230 (RtlLeaveCriticalSection.c)
  *     RtlEnterCriticalSection @ 0x18002FAA0 (RtlEnterCriticalSection.c)
- *     RtlpTraceDatabaseInternalAdd @ 0x180102D04 (RtlpTraceDatabaseInternalAdd.c)
+ *     RtlpTraceDatabaseInternalAdd @ 0x180102CC4 (RtlpTraceDatabaseInternalAdd.c)
  */
 
 char __fastcall RtlTraceDatabaseAdd(__int64 a1, unsigned int a2, __int64 a3, __int64 a4)
 {
   char v8; // al
-  __int64 v9; // rdx
-  __int64 v10; // r8
 
-  RtlEnterCriticalSection(a1 + 48);
+  RtlEnterCriticalSection((PRTL_CRITICAL_SECTION)(a1 + 48));
   *(_QWORD *)(a1 + 40) = 0LL;
   v8 = RtlpTraceDatabaseInternalAdd(a1, a2, a3, a4);
   *(_QWORD *)(a1 + 40) = 0LL;
   LOBYTE(a4) = v8;
-  RtlLeaveCriticalSection(a1 + 48, v9, v10);
+  RtlLeaveCriticalSection((PRTL_CRITICAL_SECTION)(a1 + 48));
   return a4;
 }

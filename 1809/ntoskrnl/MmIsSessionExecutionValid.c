@@ -1,13 +1,13 @@
 /*
- * XREFs of MmIsSessionExecutionValid @ 0x14009DB10
+ * XREFs of MmIsSessionExecutionValid @ 0x14009DA50
  * Callers:
- *     RtlpWalkFrameChain @ 0x14009EB90 (RtlpWalkFrameChain.c)
+ *     RtlpWalkFrameChain @ 0x14009EAD0 (RtlpWalkFrameChain.c)
  * Callees:
  *     MmGetSessionIdEx @ 0x14004F060 (MmGetSessionIdEx.c)
- *     MmLockLoadedModuleListShared @ 0x14009B82C (MmLockLoadedModuleListShared.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14009D110 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     MiSessionLookupImage @ 0x14009DBC8 (MiSessionLookupImage.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     MmLockLoadedModuleListShared @ 0x14009B76C (MmLockLoadedModuleListShared.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14009D050 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     MiSessionLookupImage @ 0x14009DB08 (MiSessionLookupImage.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 _BOOL8 __fastcall MmIsSessionExecutionValid(__int64 a1, __int64 a2, __int64 a3)

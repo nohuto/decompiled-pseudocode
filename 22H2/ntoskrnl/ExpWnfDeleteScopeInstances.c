@@ -21,7 +21,7 @@ char __fastcall ExpWnfDeleteScopeInstances(__int64 a1, unsigned int a2)
 
   v4 = (unsigned __int64 *)(a1 + 32 + 24LL * a2);
   v5 = a1 + 40 + 24LL * a2;
-  v6 = KeAbPreAcquire((ULONG_PTR)v4, 0LL, 0LL);
+  v6 = KeAbPreAcquire((ULONG_PTR)v4, 0LL, 0);
   v7 = v6;
   if ( _interlockedbittestandset64((volatile signed __int32 *)v4, 0LL) )
     ExfAcquirePushLockExclusiveEx(v4, v6, (ULONG_PTR)v4);

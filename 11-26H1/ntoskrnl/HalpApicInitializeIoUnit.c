@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpApicInitializeIoUnit @ 0x1405A1690
+ * XREFs of HalpApicInitializeIoUnit @ 0x1405A3EA0
  * Callers:
  *     <none>
  * Callees:
- *     HalpInterruptFindLines @ 0x1404265EC (HalpInterruptFindLines.c)
- *     HalMapIoSpace @ 0x14059A1C0 (HalMapIoSpace.c)
- *     HalpApicConvertFromRte @ 0x1405A0FC8 (HalpApicConvertFromRte.c)
- *     HalpApicDescribeLines @ 0x1405A1228 (HalpApicDescribeLines.c)
+ *     HalpInterruptFindLines @ 0x1404336FC (HalpInterruptFindLines.c)
+ *     HalMapIoSpace @ 0x14059C940 (HalMapIoSpace.c)
+ *     HalpApicConvertFromRte @ 0x1405A37D8 (HalpApicConvertFromRte.c)
+ *     HalpApicDescribeLines @ 0x1405A3A38 (HalpApicDescribeLines.c)
  */
 
 __int64 __fastcall HalpApicInitializeIoUnit(__int64 a1)

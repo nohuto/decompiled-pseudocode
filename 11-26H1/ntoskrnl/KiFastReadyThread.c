@@ -1,15 +1,15 @@
 /*
- * XREFs of KiFastReadyThread @ 0x14022F1E8
+ * XREFs of KiFastReadyThread @ 0x140230B78
  * Callers:
- *     KeReadyThread @ 0x14022F420 (KeReadyThread.c)
- *     KeSwapProcessOrStack @ 0x1405F7C80 (KeSwapProcessOrStack.c)
+ *     KeReadyThread @ 0x140230DB0 (KeReadyThread.c)
+ *     KeSwapProcessOrStack @ 0x1405FA6A0 (KeSwapProcessOrStack.c)
  * Callees:
- *     EtwTraceReadyThread @ 0x140218760 (EtwTraceReadyThread.c)
- *     KiEnterDeferredReadyState @ 0x14022E6D0 (KiEnterDeferredReadyState.c)
- *     KiDeferredReadyThread @ 0x14022F370 (KiDeferredReadyThread.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     KiCheckForThreadDispatch @ 0x14037CA70 (KiCheckForThreadDispatch.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     EtwTraceReadyThread @ 0x140218A90 (EtwTraceReadyThread.c)
+ *     KiEnterDeferredReadyState @ 0x140230060 (KiEnterDeferredReadyState.c)
+ *     KiDeferredReadyThread @ 0x140230D00 (KiDeferredReadyThread.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     KiCheckForThreadDispatch @ 0x14037E820 (KiCheckForThreadDispatch.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall KiFastReadyThread(__int64 a1)

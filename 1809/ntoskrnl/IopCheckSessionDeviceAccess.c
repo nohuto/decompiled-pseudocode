@@ -1,12 +1,12 @@
 /*
- * XREFs of IopCheckSessionDeviceAccess @ 0x140283CE8
+ * XREFs of IopCheckSessionDeviceAccess @ 0x140283ED8
  * Callers:
- *     IopParseDevice @ 0x14063CCE0 (IopParseDevice.c)
+ *     IopParseDevice @ 0x14063DD00 (IopParseDevice.c)
  * Callees:
  *     MmGetSessionIdEx @ 0x14004F060 (MmGetSessionIdEx.c)
- *     PsGetThreadServerSilo @ 0x14007E5E0 (PsGetThreadServerSilo.c)
- *     KeIsExecutingInArbitraryThreadContext @ 0x1401B42EC (KeIsExecutingInArbitraryThreadContext.c)
- *     IopGetSessionIdFromPDO @ 0x1406EBC34 (IopGetSessionIdFromPDO.c)
+ *     PsGetThreadServerSilo @ 0x14007E5D0 (PsGetThreadServerSilo.c)
+ *     KeIsExecutingInArbitraryThreadContext @ 0x1401B442C (KeIsExecutingInArbitraryThreadContext.c)
+ *     IopGetSessionIdFromPDO @ 0x1406ECED4 (IopGetSessionIdFromPDO.c)
  */
 
 bool __fastcall IopCheckSessionDeviceAccess(__int64 a1)

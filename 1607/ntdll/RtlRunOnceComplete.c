@@ -1,41 +1,41 @@
 /*
- * XREFs of RtlRunOnceComplete @ 0x18002AAE0
+ * XREFs of RtlRunOnceComplete @ 0x18002AAD0
  * Callers:
- *     RtlpSubSegmentInitialize @ 0x180027270 (RtlpSubSegmentInitialize.c)
- *     RtlRunOnceExecuteOnce @ 0x18002A760 (RtlRunOnceExecuteOnce.c)
- *     RtlpHeapGenerateRandomValue32 @ 0x180042348 (RtlpHeapGenerateRandomValue32.c)
- *     RtlpHpPerHeapStackTraceCleanup @ 0x1800522F4 (RtlpHpPerHeapStackTraceCleanup.c)
+ *     RtlpSubSegmentInitialize @ 0x180027260 (RtlpSubSegmentInitialize.c)
+ *     RtlRunOnceExecuteOnce @ 0x18002A750 (RtlRunOnceExecuteOnce.c)
+ *     RtlpHeapGenerateRandomValue32 @ 0x180042338 (RtlpHeapGenerateRandomValue32.c)
+ *     RtlpHpPerHeapStackTraceCleanup @ 0x1800522E4 (RtlpHpPerHeapStackTraceCleanup.c)
  * Callees:
  *     NtReleaseKeyedEvent @ 0x1800A8F70 (NtReleaseKeyedEvent.c)
  */
 
-__int64 __fastcall RtlRunOnceComplete(signed __int64 *a1, int a2, __int64 a3)
+NTSTATUS __cdecl RtlRunOnceComplete(PRTL_RUN_ONCE RunOnce, ULONG Flags, PVOID Context)
 {
   char v5; // r8
   char v6; // al
-  signed __int64 v7; // rcx
-  __int64 v8; // rdx
-  __int64 v9; // r10
+  unsigned __int64 Value; // rcx
+  unsigned __int64 v8; // rdx
+  unsigned __int64 v9; // r10
   __int64 v10; // r10
   _QWORD *v11; // r10
   _QWORD *v13; // rbx
   char v14; // [rsp+38h] [rbp+10h]
 
-  if ( ((a2 - 1) & a2) != 0 || (a2 & 0xFFFFFFF9) != 0 )
-    return 3221225712LL;
-  v5 = (v14 ^ ((~(_BYTE)a2 & 2) != 0)) & 1;
-  v6 = (v5 ^ v14 ^ (2 * ((~(_BYTE)a2 & 4) != 0))) & 2 ^ v5 ^ v14;
-  if ( a3 && ((a3 & 3) != 0 || (v6 & 2) == 0) )
-    return 3221225713LL;
-  _m_prefetchw(a1);
-  v7 = *a1;
-  v8 = *a1 & 3;
-  v9 = a3 ^ ((unsigned __int8)a3 ^ v6 & 2) & 3;
+  if ( ((Flags - 1) & Flags) != 0 || (Flags & 0xFFFFFFF9) != 0 )
+    return -1073741584;
+  v5 = (v14 ^ ((~(_BYTE)Flags & 2) != 0)) & 1;
+  v6 = (v5 ^ v14 ^ (2 * ((~(_BYTE)Flags & 4) != 0))) & 2 ^ v5 ^ v14;
+  if ( Context && (((unsigned __int8)Context & 3) != 0 || (v6 & 2) == 0) )
+    return -1073741583;
+  _m_prefetchw(RunOnce);
+  Value = RunOnce->Value;
+  v8 = RunOnce->Value & 3;
+  v9 = (unsigned __int64)Context ^ ((unsigned __int8)Context ^ v6 & 2) & 3;
   if ( v8 == 1 )
   {
     if ( (v6 & 1) != 0 )
     {
-      v10 = _InterlockedExchange64(a1, v9);
+      v10 = _InterlockedExchange64((volatile __int64 *)RunOnce, v9);
       if ( (v10 & 3) == 1 )
       {
         v11 = (_QWORD *)(v10 & 0xFFFFFFFFFFFFFFFCuLL);
@@ -44,22 +44,22 @@ __int64 __fastcall RtlRunOnceComplete(signed __int64 *a1, int a2, __int64 a3)
           do
           {
             v13 = (_QWORD *)*v11;
-            NtReleaseKeyedEvent(0LL, v11, 0LL, 0LL);
+            NtReleaseKeyedEvent(0LL, v11, 0, 0LL);
             v11 = v13;
           }
           while ( v13 );
         }
-        return 0LL;
+        return 0;
       }
-      return 3221225562LL;
+      return -1073741734;
     }
-    return 3221225712LL;
+    return -1073741584;
   }
   if ( v8 != 3 )
-    return 3221225473LL;
+    return -1073741823;
   if ( (v6 & 1) != 0 )
-    return 3221225712LL;
-  if ( v7 == _InterlockedCompareExchange64(a1, v9, v7) )
-    return 0LL;
-  return 3221225525LL;
+    return -1073741584;
+  if ( Value == _InterlockedCompareExchange64((volatile signed __int64 *)RunOnce, v9, Value) )
+    return 0;
+  return -1073741771;
 }

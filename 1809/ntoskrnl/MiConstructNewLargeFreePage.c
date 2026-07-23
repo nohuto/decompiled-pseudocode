@@ -1,13 +1,13 @@
 /*
- * XREFs of MiConstructNewLargeFreePage @ 0x1400911B0
+ * XREFs of MiConstructNewLargeFreePage @ 0x1400910F0
  * Callers:
- *     MiCoalesceFreeLargePages @ 0x140090810 (MiCoalesceFreeLargePages.c)
- *     MiRebuildLargePage @ 0x1402CE3E4 (MiRebuildLargePage.c)
+ *     MiCoalesceFreeLargePages @ 0x140090750 (MiCoalesceFreeLargePages.c)
+ *     MiRebuildLargePage @ 0x1402CE5D4 (MiRebuildLargePage.c)
  * Callees:
  *     MiLockPageInline @ 0x14002CE40 (MiLockPageInline.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     MiInsertLargePageInNodeListHelper @ 0x14009BAC0 (MiInsertLargePageInNodeListHelper.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     MiInsertLargePageInNodeListHelper @ 0x14009BA00 (MiInsertLargePageInNodeListHelper.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiConstructNewLargeFreePage(ULONG_PTR a1, __int64 a2, __int64 a3)

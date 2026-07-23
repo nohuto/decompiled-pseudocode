@@ -1,12 +1,12 @@
 /*
- * XREFs of NtAddAtom @ 0x140841650
+ * XREFs of NtAddAtom @ 0x140847890
  * Callers:
- *     DifNtAddAtomWrapper @ 0x14066A210 (DifNtAddAtomWrapper.c)
+ *     DifNtAddAtomWrapper @ 0x14066DDF0 (DifNtAddAtomWrapper.c)
  * Callees:
- *     NtAddAtomEx @ 0x140841670 (NtAddAtomEx.c)
+ *     NtAddAtomEx @ 0x1408478B0 (NtAddAtomEx.c)
  */
 
-__int64 __fastcall NtAddAtom(void *a1, size_t a2, void *a3)
+NTSTATUS __cdecl NtAddAtom(PWSTR AtomName, ULONG Length, PRTL_ATOM Atom)
 {
-  return NtAddAtomEx(a1, a2, a3);
+  return NtAddAtomEx(AtomName, Length, Atom, 0);
 }

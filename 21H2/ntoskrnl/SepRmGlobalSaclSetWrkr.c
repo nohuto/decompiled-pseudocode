@@ -1,16 +1,16 @@
 /*
- * XREFs of SepRmGlobalSaclSetWrkr @ 0x1407C4CB0
+ * XREFs of SepRmGlobalSaclSetWrkr @ 0x1407C51D0
  * Callers:
- *     SepRmCommandServerThread @ 0x1407AD230 (SepRmCommandServerThread.c)
+ *     SepRmCommandServerThread @ 0x1407AD430 (SepRmCommandServerThread.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
- *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     SepRmFetchGlobalSacl @ 0x1407C4D4C (SepRmFetchGlobalSacl.c)
- *     SepRmGlobalSaclFind @ 0x140924BF0 (SepRmGlobalSaclFind.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     KeLeaveCriticalRegion @ 0x140356100 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x140356140 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1403568F0 (ExAcquireResourceExclusiveLite.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     SepRmFetchGlobalSacl @ 0x1407C526C (SepRmFetchGlobalSacl.c)
+ *     SepRmGlobalSaclFind @ 0x140924D50 (SepRmGlobalSaclFind.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 void __fastcall SepRmGlobalSaclSetWrkr(__int64 a1, __int64 a2)

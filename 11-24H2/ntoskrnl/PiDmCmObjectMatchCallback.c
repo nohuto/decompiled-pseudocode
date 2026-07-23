@@ -1,11 +1,11 @@
 /*
- * XREFs of PiDmCmObjectMatchCallback @ 0x1408CF9A0
+ * XREFs of PiDmCmObjectMatchCallback @ 0x1408CD390
  * Callers:
- *     PiDmGetObjectListCallback @ 0x1408CF850 (PiDmGetObjectListCallback.c)
+ *     PiDmGetObjectListCallback @ 0x1408CD240 (PiDmGetObjectListCallback.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     PiPnpRtlInterfaceFilterCallback @ 0x1408D0AE0 (PiPnpRtlInterfaceFilterCallback.c)
- *     PiPnpRtlEnumeratorFilterCallback @ 0x1408D1050 (PiPnpRtlEnumeratorFilterCallback.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     PiPnpRtlInterfaceFilterCallback @ 0x1408CE4D0 (PiPnpRtlInterfaceFilterCallback.c)
+ *     PiPnpRtlEnumeratorFilterCallback @ 0x1408CEA40 (PiPnpRtlEnumeratorFilterCallback.c)
  */
 
 __int64 __fastcall PiDmCmObjectMatchCallback(__int64 a1, __int64 a2, _BYTE *a3)
@@ -34,7 +34,7 @@ LABEL_4:
   }
   if ( v3 != PiPnpRtlEnumeratorFilterCallback )
   {
-    v8 = guard_dispatch_icall_no_overrides(*(_QWORD *)&PiPnpRtlCtx, v7, v6, v5);
+    v8 = guard_dispatch_icall_no_overrides(*(_QWORD *)&PiPnpRtlCtx, v7);
     goto LABEL_4;
   }
   *a3 = PiPnpRtlEnumeratorFilterCallback(*(_QWORD *)&PiPnpRtlCtx, v7, v6, v5);

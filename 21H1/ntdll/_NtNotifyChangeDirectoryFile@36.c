@@ -6,7 +6,16 @@
  *     _Wow64SystemServiceCall@0 @ 0x4B308730 (_Wow64SystemServiceCall@0.c)
  */
 
-int __stdcall NtNotifyChangeDirectoryFile(int a1, int a2, int a3, int a4, int a5, int a6, int a7, int a8, int a9)
+NTSTATUS __cdecl NtNotifyChangeDirectoryFile(
+        HANDLE FileHandle,
+        HANDLE Event,
+        PIO_APC_ROUTINE ApcRoutine,
+        PVOID ApcContext,
+        PIO_STATUS_BLOCK IoStatusBlock,
+        PVOID Buffer,
+        ULONG Length,
+        ULONG CompletionFilter,
+        BOOLEAN WatchTree)
 {
   return Wow64SystemServiceCall();
 }

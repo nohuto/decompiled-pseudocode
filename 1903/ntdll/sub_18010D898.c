@@ -21,9 +21,9 @@ __int64 __fastcall sub_18010D898(unsigned int a1, _DWORD *a2, _DWORD *a3, __int6
   int v13; // ecx
   int v14; // eax
   int v15; // edx
-  UNICODE_STRING v16; // xmm6
+  _UNICODE_STRING v16; // xmm6
   NTSTATUS v17; // eax
-  UNICODE_STRING UnicodeString; // [rsp+20h] [rbp-48h] BYREF
+  _UNICODE_STRING UnicodeString; // [rsp+20h] [rbp-48h] BYREF
   __int64 v19; // [rsp+78h] [rbp+10h] BYREF
 
   v19 = 0LL;
@@ -73,9 +73,9 @@ __int64 __fastcall sub_18010D898(unsigned int a1, _DWORD *a2, _DWORD *a3, __int6
     if ( !*(_WORD *)(a4 + 128) )
       goto LABEL_28;
     v15 = *(_DWORD *)(v10 + 72);
-    v16 = *(UNICODE_STRING *)(v10 + 168);
+    v16 = *(_UNICODE_STRING *)(v10 + 168);
     UnicodeString = v16;
-    v9 = sub_180004B28(a4, v15, (_QWORD *)(v10 + 168));
+    v9 = sub_180004B28(a4, v15, (_UNICODE_STRING *)(v10 + 168));
     if ( v9 )
       goto LABEL_23;
     sub_180086E40(v10, 2);
@@ -87,7 +87,7 @@ __int64 __fastcall sub_18010D898(unsigned int a1, _DWORD *a2, _DWORD *a3, __int6
       {
         RtlFreeUnicodeString((PUNICODE_STRING)(v10 + 168));
 LABEL_23:
-        *(UNICODE_STRING *)(v10 + 168) = v16;
+        *(_UNICODE_STRING *)(v10 + 168) = v16;
         goto LABEL_27;
       }
     }

@@ -1,14 +1,14 @@
 /*
- * XREFs of KeFreezeProcessNew @ 0x1401D2130
+ * XREFs of KeFreezeProcessNew @ 0x1401D1F5C
  * Callers:
- *     PsFreezeProcess @ 0x14051E428 (PsFreezeProcess.c)
+ *     PsFreezeProcess @ 0x140501490 (PsFreezeProcess.c)
  * Callees:
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140026F70 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14002E9E0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiExitDispatcher @ 0x140056700 (KiExitDispatcher.c)
- *     KiFreezeSingleThread @ 0x1400C8FEC (KiFreezeSingleThread.c)
- *     KiQueryUnbiasedInterruptTime @ 0x1400F02D4 (KiQueryUnbiasedInterruptTime.c)
- *     KiReleaseProcessLockExclusive @ 0x1400F2E8C (KiReleaseProcessLockExclusive.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140026AF0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14002E560 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiExitDispatcher @ 0x140056280 (KiExitDispatcher.c)
+ *     KiFreezeSingleThread @ 0x1400C6E8C (KiFreezeSingleThread.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x1400EE154 (KiQueryUnbiasedInterruptTime.c)
+ *     KiReleaseProcessLockExclusive @ 0x1400F0CDC (KiReleaseProcessLockExclusive.c)
  */
 
 __int64 __fastcall KeFreezeProcessNew(__int64 a1, char a2)

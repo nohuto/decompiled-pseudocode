@@ -6,7 +6,7 @@
  *     RtlpFlsAlloc @ 0x1800097F8 (RtlpFlsAlloc.c)
  */
 
-__int64 __fastcall RtlFlsAlloc(int a1, __int64 a2)
+NTSTATUS __cdecl RtlFlsAlloc(PFLS_CALLBACK_FUNCTION Callback, PULONG FlsIndex)
 {
-  return RtlpFlsAlloc((unsigned int)&RtlpFlsContext, a2, a1, 0, a2);
+  return RtlpFlsAlloc(&RtlpFlsContext, (__int64)FlsIndex);
 }

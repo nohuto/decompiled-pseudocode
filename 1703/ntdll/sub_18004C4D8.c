@@ -13,15 +13,15 @@
  *     RtlDeleteBoundaryDescriptor @ 0x180022070 (RtlDeleteBoundaryDescriptor.c)
  */
 
-__int64 __fastcall sub_18004C4D8(__int64 a1)
+void __fastcall sub_18004C4D8(__int64 a1)
 {
-  __int64 result; // rax
+  _OBJECT_BOUNDARY_DESCRIPTOR *v2; // rcx
 
-  if ( *(_QWORD *)(a1 + 8) )
+  v2 = *(_OBJECT_BOUNDARY_DESCRIPTOR **)(a1 + 8);
+  if ( v2 )
   {
-    result = RtlDeleteBoundaryDescriptor();
+    RtlDeleteBoundaryDescriptor(v2);
     *(_QWORD *)(a1 + 8) = 0LL;
   }
   *(_DWORD *)a1 = 0;
-  return result;
 }

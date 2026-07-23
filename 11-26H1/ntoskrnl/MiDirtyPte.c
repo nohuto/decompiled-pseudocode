@@ -1,13 +1,13 @@
 /*
- * XREFs of MiDirtyPte @ 0x1404B1254
+ * XREFs of MiDirtyPte @ 0x1404AA8E4
  * Callers:
- *     MmCopyToCachedPage @ 0x1402D05F0 (MmCopyToCachedPage.c)
+ *     MmCopyToCachedPage @ 0x1402B23B0 (MmCopyToCachedPage.c)
  * Callees:
- *     MiLockPageTableInternal @ 0x1402B34E0 (MiLockPageTableInternal.c)
- *     MiUnlockPageTableInternal @ 0x1402D13E0 (MiUnlockPageTableInternal.c)
- *     MiUnlockWorkingSetShared @ 0x1402EB6C0 (MiUnlockWorkingSetShared.c)
- *     MiLockWorkingSetShared @ 0x1402EDD60 (MiLockWorkingSetShared.c)
- *     MiWriteValidPteNewProtection @ 0x140300450 (MiWriteValidPteNewProtection.c)
+ *     MiUnlockPageTableInternal @ 0x1402B31A0 (MiUnlockPageTableInternal.c)
+ *     MiUnlockWorkingSetShared @ 0x1402CD700 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x1402CFDE0 (MiLockWorkingSetShared.c)
+ *     MiWriteValidPteNewProtection @ 0x1402E24D0 (MiWriteValidPteNewProtection.c)
+ *     MiLockPageTableInternal @ 0x1402FE1B0 (MiLockPageTableInternal.c)
  */
 
 void __fastcall MiDirtyPte(__int64 a1, __int64 a2, __int64 a3)

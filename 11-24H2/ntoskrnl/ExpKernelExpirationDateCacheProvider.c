@@ -1,23 +1,23 @@
 /*
- * XREFs of ExpKernelExpirationDateCacheProvider @ 0x1407B8C30
+ * XREFs of ExpKernelExpirationDateCacheProvider @ 0x1407B9080
  * Callers:
  *     <none>
  * Callees:
- *     RtlTimeToTimeFields @ 0x1404260F0 (RtlTimeToTimeFields.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     SeCodeIntegrityGetBuildExpiryTime @ 0x14078E1E0 (SeCodeIntegrityGetBuildExpiryTime.c)
+ *     RtlTimeToTimeFields @ 0x140419FA0 (RtlTimeToTimeFields.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     SeCodeIntegrityGetBuildExpiryTime @ 0x14078E110 (SeCodeIntegrityGetBuildExpiryTime.c)
  */
 
 __int64 __fastcall ExpKernelExpirationDateCacheProvider(
         __int64 a1,
         _DWORD *a2,
         _OWORD *a3,
-        __int64 a4,
+        unsigned int a4,
         _DWORD *a5,
         _BYTE *a6)
 {
   int BuildExpiryTime; // ebx
-  TIME_FIELDS TimeFields; // [rsp+20h] [rbp-30h] BYREF
+  _TIME_FIELDS TimeFields; // [rsp+20h] [rbp-30h] BYREF
   LARGE_INTEGER Time; // [rsp+30h] [rbp-20h] BYREF
   __int128 v11; // [rsp+38h] [rbp-18h]
 
@@ -25,11 +25,11 @@ __int64 __fastcall ExpKernelExpirationDateCacheProvider(
   Time.QuadPart = 0LL;
   *a5 = 16;
   TimeFields = 0LL;
-  if ( (unsigned int)a4 >= 0x10 )
+  if ( a4 >= 0x10 )
   {
     if ( a2 )
       *a2 = 3;
-    BuildExpiryTime = SeCodeIntegrityGetBuildExpiryTime(&Time, (__int64)a2, (__int64)a3, a4);
+    BuildExpiryTime = SeCodeIntegrityGetBuildExpiryTime(&Time, (__int64)a2);
     if ( BuildExpiryTime >= 0 )
     {
       RtlTimeToTimeFields(&Time, &TimeFields);

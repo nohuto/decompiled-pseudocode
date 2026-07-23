@@ -1,18 +1,18 @@
 /*
- * XREFs of VF_FIND_INACTIVE_ADAPTER_AND_REMOVE @ 0x1409CA414
+ * XREFs of VF_FIND_INACTIVE_ADAPTER_AND_REMOVE @ 0x1409CB414
  * Callers:
- *     VfGetDmaAdapter @ 0x1409CBE60 (VfGetDmaAdapter.c)
+ *     VfGetDmaAdapter @ 0x1409CCE60 (VfGetDmaAdapter.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-struct _LIST_ENTRY *__fastcall VF_FIND_INACTIVE_ADAPTER_AND_REMOVE(struct _LIST_ENTRY *a1)
+_LIST_ENTRY *__fastcall VF_FIND_INACTIVE_ADAPTER_AND_REMOVE(struct _LIST_ENTRY *a1)
 {
-  struct _LIST_ENTRY *v2; // rdi
+  _LIST_ENTRY *v2; // rdi
   unsigned __int64 v3; // rbx
-  struct _LIST_ENTRY *i; // rax
+  _LIST_ENTRY *i; // rax
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9

@@ -1,19 +1,19 @@
 /*
- * XREFs of CmpLockTwoKcbsShared @ 0x140438C20
+ * XREFs of CmpLockTwoKcbsShared @ 0x140437AF0
  * Callers:
- *     NtNotifyChangeMultipleKeys @ 0x1404009C4 (NtNotifyChangeMultipleKeys.c)
- *     CmQueryMultipleValueKey @ 0x140402254 (CmQueryMultipleValueKey.c)
- *     CmEnumerateKey @ 0x1404390C0 (CmEnumerateKey.c)
- *     CmQueryKey @ 0x14043A810 (CmQueryKey.c)
- *     CmpFindSubkeyInHashByChildCell @ 0x1404A01C8 (CmpFindSubkeyInHashByChildCell.c)
- *     CmEnumerateValueKeyFromMergedView @ 0x1405FF9F4 (CmEnumerateValueKeyFromMergedView.c)
- *     CmSaveMergedKeys @ 0x14060CE74 (CmSaveMergedKeys.c)
+ *     NtNotifyChangeMultipleKeys @ 0x1403FF884 (NtNotifyChangeMultipleKeys.c)
+ *     CmQueryMultipleValueKey @ 0x140401114 (CmQueryMultipleValueKey.c)
+ *     CmEnumerateKey @ 0x140437F90 (CmEnumerateKey.c)
+ *     CmQueryKey @ 0x1404396E0 (CmQueryKey.c)
+ *     CmpFindSubkeyInHashByChildCell @ 0x1405185D4 (CmpFindSubkeyInHashByChildCell.c)
+ *     CmEnumerateValueKeyFromMergedView @ 0x1405FFAA8 (CmEnumerateValueKeyFromMergedView.c)
+ *     CmSaveMergedKeys @ 0x14060CF28 (CmSaveMergedKeys.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockSharedEx @ 0x1400C8280 (ExfAcquirePushLockSharedEx.c)
- *     CmpLockTableAdd @ 0x1401B5204 (CmpLockTableAdd.c)
- *     CmpLockKcbShared @ 0x140435440 (CmpLockKcbShared.c)
- *     CmpGetCorrectKcbLockOrder @ 0x1404A05C4 (CmpGetCorrectKcbLockOrder.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1400C6120 (ExfAcquirePushLockSharedEx.c)
+ *     CmpLockTableAdd @ 0x1401B50E8 (CmpLockTableAdd.c)
+ *     CmpLockKcbShared @ 0x140434310 (CmpLockKcbShared.c)
+ *     CmpGetCorrectKcbLockOrder @ 0x1405189D0 (CmpGetCorrectKcbLockOrder.c)
  */
 
 void __fastcall CmpLockTwoKcbsShared(__int64 a1, __int64 a2)

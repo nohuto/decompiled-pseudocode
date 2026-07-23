@@ -3,15 +3,15 @@
  * Callers:
  *     PspRemoveCpuRateControl @ 0x140684E4C (PspRemoveCpuRateControl.c)
  *     PspEstablishJobHierarchy @ 0x14069F8F4 (PspEstablishJobHierarchy.c)
- *     PspEstablishDfssHierarchy @ 0x1409B22E0 (PspEstablishDfssHierarchy.c)
- *     MiSessionObjectDelete @ 0x140A32550 (MiSessionObjectDelete.c)
+ *     PspEstablishDfssHierarchy @ 0x1409B24E0 (PspEstablishDfssHierarchy.c)
+ *     MiSessionObjectDelete @ 0x140A32800 (MiSessionObjectDelete.c)
  * Callees:
  *     KiAssignSchedulingGroupWeights @ 0x140205544 (KiAssignSchedulingGroupWeights.c)
  *     KiUpdateMinimumWeight @ 0x1402055F8 (KiUpdateMinimumWeight.c)
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402610F0 (KeAcquireInStackQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall KeRemoveSchedulingGroup(unsigned __int16 *a1)
@@ -119,10 +119,10 @@ LABEL_13:
 LABEL_15:
   KxReleaseQueuedSpinLock(&v23);
   OldIrql = v23.OldIrql;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v23.OldIrql <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v23.OldIrql <= 0xFu && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

@@ -1,11 +1,11 @@
 /*
- * XREFs of KiThawSingleThread @ 0x1400F4A00
+ * XREFs of KiThawSingleThread @ 0x1400F4A80
  * Callers:
- *     KeForceResumeProcess @ 0x1400F34BC (KeForceResumeProcess.c)
- *     KeThawProcess @ 0x1400F48BC (KeThawProcess.c)
+ *     KeForceResumeProcess @ 0x1400F353C (KeForceResumeProcess.c)
+ *     KeThawProcess @ 0x1400F493C (KeThawProcess.c)
  * Callees:
- *     KiResumeThread @ 0x1400F1C60 (KiResumeThread.c)
- *     KiAcquireKobjectLockSafe @ 0x1400FBE10 (KiAcquireKobjectLockSafe.c)
+ *     KiResumeThread @ 0x1400F1CE0 (KiResumeThread.c)
+ *     KiAcquireKobjectLockSafe @ 0x1400FBE90 (KiAcquireKobjectLockSafe.c)
  */
 
 char __fastcall KiThawSingleThread(__int64 a1, __int64 a2, char a3)

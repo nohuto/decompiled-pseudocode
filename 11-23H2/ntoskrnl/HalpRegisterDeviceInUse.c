@@ -3,9 +3,9 @@
  * Callers:
  *     HalpKdSetupDebuggingDevice @ 0x140AB2250 (HalpKdSetupDebuggingDevice.c)
  * Callees:
- *     HalpMmAllocateMemory @ 0x14037D6E0 (HalpMmAllocateMemory.c)
- *     wcscpy_s @ 0x1403DFD90 (wcscpy_s.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     HalpMmAllocateMemory @ 0x14037D880 (HalpMmAllocateMemory.c)
+ *     wcscpy_s @ 0x1403DFF70 (wcscpy_s.c)
+ *     memset @ 0x140435E00 (memset.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  *     HalpFindDevice @ 0x140AB2410 (HalpFindDevice.c)
  */

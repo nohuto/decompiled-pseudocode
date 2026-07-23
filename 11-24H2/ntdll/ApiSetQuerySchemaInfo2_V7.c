@@ -1,23 +1,23 @@
 /*
- * XREFs of ApiSetQuerySchemaInfo2_V7 @ 0x180135634
+ * XREFs of ApiSetQuerySchemaInfo2_V7 @ 0x180133864
  * Callers:
- *     ApiSetQuerySchemaInfo2 @ 0x180135140 (ApiSetQuerySchemaInfo2.c)
+ *     ApiSetQuerySchemaInfo2 @ 0x180133370 (ApiSetQuerySchemaInfo2.c)
  * Callees:
- *     ApiSetpGetContractKeyInfo @ 0x18013600C (ApiSetpGetContractKeyInfo.c)
- *     ApiSetpGetExtensionNameKeyInfo @ 0x1801362F8 (ApiSetpGetExtensionNameKeyInfo.c)
- *     ApiSetpGetSearchKeyHash @ 0x180136420 (ApiSetpGetSearchKeyHash.c)
- *     ApiSetpGetSemverKeyVersions @ 0x180136514 (ApiSetpGetSemverKeyVersions.c)
- *     ApiSetpSearchForSectionIndex_V7 @ 0x18013666C (ApiSetpSearchForSectionIndex_V7.c)
- *     ApiSetpIsFeatureEnabled @ 0x180136718 (ApiSetpIsFeatureEnabled.c)
+ *     ApiSetpGetContractKeyInfo @ 0x18013423C (ApiSetpGetContractKeyInfo.c)
+ *     ApiSetpGetExtensionNameKeyInfo @ 0x180134528 (ApiSetpGetExtensionNameKeyInfo.c)
+ *     ApiSetpGetSearchKeyHash @ 0x180134650 (ApiSetpGetSearchKeyHash.c)
+ *     ApiSetpGetSemverKeyVersions @ 0x180134744 (ApiSetpGetSemverKeyVersions.c)
+ *     ApiSetpSearchForSectionIndex_V7 @ 0x18013489C (ApiSetpSearchForSectionIndex_V7.c)
+ *     ApiSetpIsFeatureEnabled @ 0x180134948 (ApiSetpIsFeatureEnabled.c)
  */
 
-__int64 __fastcall ApiSetQuerySchemaInfo2_V7(__int64 a1, char *a2, int *a3)
+__int64 __fastcall ApiSetQuerySchemaInfo2_V7(__int64 a1, const WCHAR *a2, int *a3)
 {
   __int64 v4; // rbx
   unsigned int v5; // esi
   unsigned __int64 v6; // r10
   int v7; // r9d
-  char *v8; // r8
+  const WCHAR *v8; // r8
   char v9; // cl
   __int16 v10; // ax
   int v11; // ecx
@@ -56,19 +56,19 @@ __int64 __fastcall ApiSetQuerySchemaInfo2_V7(__int64 a1, char *a2, int *a3)
   v6 = -1LL;
   do
     ++v6;
-  while ( a2[v6] );
+  while ( *((_BYTE *)a2 + v6) );
   if ( v6 > 0xFFFF )
     return 3221225485LL;
   v7 = 10;
   v8 = a2;
   do
   {
-    if ( !*v8 )
+    if ( !*(_BYTE *)v8 )
       goto LABEL_19;
-    v9 = *v8 + 32;
-    if ( (unsigned __int8)(*v8 - 65) > 0x19u )
-      v9 = *v8;
-    if ( v8["schemaext-" - a2] != v9 )
+    v9 = *(_BYTE *)v8 + 32;
+    if ( (unsigned __int8)(*(_BYTE *)v8 - 65) > 0x19u )
+      v9 = *(_BYTE *)v8;
+    if ( *((_BYTE *)v8 + "schemaext-" - (char *)a2) != v9 )
     {
 LABEL_19:
       v29 = 0LL;
@@ -163,14 +163,14 @@ LABEL_31:
       *a3 = 246;
       return v5;
     }
-    ++v8;
+    v8 = (const WCHAR *)((char *)v8 + 1);
     --v7;
   }
   while ( v7 > 0 );
   v29 = 0LL;
   v27 = 0LL;
   v28 = 0LL;
-  if ( !(unsigned __int8)ApiSetpGetExtensionNameKeyInfo(a2, (unsigned __int16)v6, 0LL, &v27) )
+  if ( !(unsigned __int8)ApiSetpGetExtensionNameKeyInfo(a2) )
     return 3221225485LL;
   v10 = ApiSetpSearchForSectionIndex_V7(v4, v4 + 80, &v27);
   v11 = 0;

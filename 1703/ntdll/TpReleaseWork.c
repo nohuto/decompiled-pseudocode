@@ -7,22 +7,19 @@
  *     sub_180014918 @ 0x180014918 (sub_180014918.c)
  */
 
-char __fastcall TpReleaseWork(__int64 a1)
+void __cdecl TpReleaseWork(PTP_WORK Work)
 {
-  signed __int32 v2; // eax
+  int v2; // eax
   _UNKNOWN *retaddr; // [rsp+28h] [rbp+0h]
 
-  v2 = sub_180014918(a1, 1LL, 0LL);
-  if ( v2 )
+  if ( (unsigned int)sub_180014918(Work, 1LL, 0LL) )
   {
-    LOBYTE(v2) = sub_1800144B8(a1, 1LL);
+    LOBYTE(v2) = sub_1800144B8((__int64)Work, 1LL);
     if ( v2 )
     {
-      *(_QWORD *)(a1 + 184) = retaddr;
-      v2 = _InterlockedExchangeAdd((volatile signed __int32 *)a1, 0xFFFFFFFF);
-      if ( v2 == 1 )
-        LOBYTE(v2) = (**(__int64 (__fastcall ***)(__int64))(a1 + 8))(a1);
+      *((_QWORD *)Work + 23) = retaddr;
+      if ( _InterlockedExchangeAdd((volatile signed __int32 *)Work, 0xFFFFFFFF) == 1 )
+        (**((void (__fastcall ***)(PTP_WORK))Work + 1))(Work);
     }
   }
-  return v2;
 }

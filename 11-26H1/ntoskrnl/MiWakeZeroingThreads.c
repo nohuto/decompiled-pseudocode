@@ -1,13 +1,13 @@
 /*
- * XREFs of MiWakeZeroingThreads @ 0x14070ED28
+ * XREFs of MiWakeZeroingThreads @ 0x140713A28
  * Callers:
- *     MiActivateBetterZeroEngine @ 0x1404E7EA4 (MiActivateBetterZeroEngine.c)
- *     MiZeroNodeExiting @ 0x1405131F4 (MiZeroNodeExiting.c)
- *     MiResumeBackgroundZeroing @ 0x14051F69C (MiResumeBackgroundZeroing.c)
+ *     MiActivateBetterZeroEngine @ 0x1404E1264 (MiActivateBetterZeroEngine.c)
+ *     MiZeroNodeExiting @ 0x14050CC64 (MiZeroNodeExiting.c)
+ *     MiResumeBackgroundZeroing @ 0x140521D40 (MiResumeBackgroundZeroing.c)
  * Callees:
- *     MiLogZeroPageDecision @ 0x14049165C (MiLogZeroPageDecision.c)
- *     MiWakeAllZeroingThreads @ 0x14050DB8C (MiWakeAllZeroingThreads.c)
- *     MiAddZeroingThread @ 0x14051F7F0 (MiAddZeroingThread.c)
+ *     MiLogZeroPageDecision @ 0x14048B1AC (MiLogZeroPageDecision.c)
+ *     MiWakeAllZeroingThreads @ 0x1405075FC (MiWakeAllZeroingThreads.c)
+ *     MiAddZeroingThread @ 0x140521E94 (MiAddZeroingThread.c)
  */
 
 __int64 __fastcall MiWakeZeroingThreads(__int64 a1, int a2, int a3)
@@ -19,7 +19,7 @@ __int64 __fastcall MiWakeZeroingThreads(__int64 a1, int a2, int a3)
 
   v3 = *(_QWORD *)(a1 + 48);
   v10 = 0;
-  if ( *(_DWORD *)(v3 + 92) || HIDWORD(stru_140E2EB88.Timer.Header.WaitListHead.Flink) )
+  if ( *(_DWORD *)(v3 + 92) || HIDWORD(stru_140E2ED08.Timer.Header.WaitListHead.Flink) )
   {
     MiWakeAllZeroingThreads(a1);
     return 0LL;

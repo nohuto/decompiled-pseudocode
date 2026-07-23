@@ -1,11 +1,11 @@
 /*
- * XREFs of WbReAlloc @ 0x1407E510C
+ * XREFs of WbReAlloc @ 0x1407E53DC
  * Callers:
- *     sub_140762F48 @ 0x140762F48 (sub_140762F48.c)
- *     sub_140763D64 @ 0x140763D64 (sub_140763D64.c)
+ *     sub_140763138 @ 0x140763138 (sub_140763138.c)
+ *     sub_140763F54 @ 0x140763F54 (sub_140763F54.c)
  * Callees:
- *     memmove @ 0x140435700 (memmove.c)
- *     WbAlloc @ 0x140763988 (WbAlloc.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     WbAlloc @ 0x140763B78 (WbAlloc.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

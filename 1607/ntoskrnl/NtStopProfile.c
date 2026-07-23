@@ -1,16 +1,16 @@
 /*
- * XREFs of NtStopProfile @ 0x1406B8494
+ * XREFs of NtStopProfile @ 0x1406B85CC
  * Callers:
  *     <none>
  * Callees:
- *     MmUnmapLockedPages @ 0x140025D10 (MmUnmapLockedPages.c)
- *     MmUnlockPages @ 0x140051A80 (MmUnlockPages.c)
- *     KeReleaseMutex @ 0x140055FE0 (KeReleaseMutex.c)
- *     KeWaitForSingleObject @ 0x14005C880 (KeWaitForSingleObject.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     KeStopProfile @ 0x1401D6E54 (KeStopProfile.c)
+ *     MmUnmapLockedPages @ 0x140025890 (MmUnmapLockedPages.c)
+ *     MmUnlockPages @ 0x140051600 (MmUnlockPages.c)
+ *     KeReleaseMutex @ 0x140055B60 (KeReleaseMutex.c)
+ *     KeWaitForSingleObject @ 0x14005C400 (KeWaitForSingleObject.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     KeStopProfile @ 0x1401D6C80 (KeStopProfile.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     ObReferenceObjectByHandle @ 0x140450D40 (ObReferenceObjectByHandle.c)
+ *     ObReferenceObjectByHandle @ 0x14044FC10 (ObReferenceObjectByHandle.c)
  */
 
 NTSTATUS __stdcall NtStopProfile(HANDLE ProfileHandle)

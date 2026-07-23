@@ -34,8 +34,8 @@ __int64 __fastcall EtwpQueueApc(
   signed __int64 v16; // rax
   signed __int64 v17; // rtt
   PSLIST_ENTRY v19; // r14
-  struct _SLIST_ENTRY *Pool2; // rax
-  struct _SLIST_ENTRY *v21; // rdi
+  _SLIST_ENTRY *Pool2; // rax
+  _SLIST_ENTRY *v21; // rdi
   __int64 v22; // rcx
   char inserted; // al
   __int32 v24; // ecx
@@ -86,7 +86,7 @@ LABEL_44:
       return v12;
     }
     if ( (unsigned int)_InterlockedIncrement((volatile signed __int32 *)a1 + 41) > *((_DWORD *)a1 + 43)
-      || (Pool2 = (struct _SLIST_ENTRY *)ExAllocatePool2(0x48uLL), (v21 = Pool2) == 0LL) )
+      || (Pool2 = (_SLIST_ENTRY *)ExAllocatePool2(0x48uLL), (v21 = Pool2) == 0LL) )
     {
       _InterlockedDecrement((volatile signed __int32 *)a1 + 41);
       goto LABEL_44;

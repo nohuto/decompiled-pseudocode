@@ -17,7 +17,7 @@
 
 void SepCleanupMarkedForDeletionEntries()
 {
-  struct _RTL_DYNAMIC_HASH_TABLE *v0; // rsi
+  _RTL_DYNAMIC_HASH_TABLE *v0; // rsi
   volatile LONG *SingletonEntryFromIndexNumber; // rax
   volatile LONG *v2; // rdi
   KIRQL v3; // al
@@ -34,10 +34,10 @@ void SepCleanupMarkedForDeletionEntries()
   _DWORD *SchedulerAssist; // r9
   int v15; // eax
   bool v16; // zf
-  struct _RTL_DYNAMIC_HASH_TABLE_ENUMERATOR Enumerator; // [rsp+20h] [rbp-38h] BYREF
+  _RTL_DYNAMIC_HASH_TABLE_ENUMERATOR Enumerator; // [rsp+20h] [rbp-38h] BYREF
 
   memset(&Enumerator, 0, sizeof(Enumerator));
-  v0 = *(struct _RTL_DYNAMIC_HASH_TABLE **)(SeLuidToIndexMapping + 8);
+  v0 = *(_RTL_DYNAMIC_HASH_TABLE **)(SeLuidToIndexMapping + 8);
   RtlInitEnumerationHashTable(v0, &Enumerator);
   while ( 1 )
   {
@@ -62,10 +62,13 @@ void SepCleanupMarkedForDeletionEntries()
           *((_QWORD *)v2 + 2) = 0LL;
         }
         ExReleaseSpinLockExclusiveFromDpcLevel(v2);
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           CurrentIrql = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v8 <= 0xFu && CurrentIrql >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+            && CurrentIrql <= 0xFu
+            && (unsigned __int8)v8 <= 0xFu
+            && CurrentIrql >= 2u )
           {
             CurrentPrcb = KeGetCurrentPrcb();
             SchedulerAssist = CurrentPrcb->SchedulerAssist;

@@ -1,21 +1,21 @@
 /*
- * XREFs of KeSetPriorityAndQuantumProcess @ 0x140350190
+ * XREFs of KeSetPriorityAndQuantumProcess @ 0x140350330
  * Callers:
- *     PspSetProcessPriorityByClass @ 0x140350138 (PspSetProcessPriorityByClass.c)
- *     NtSetInformationProcess @ 0x140774540 (NtSetInformationProcess.c)
+ *     PspSetProcessPriorityByClass @ 0x1403502D8 (PspSetProcessPriorityByClass.c)
+ *     NtSetInformationProcess @ 0x140774730 (NtSetInformationProcess.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14028A930 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     KiSetPriorityThread @ 0x1402B05D0 (KiSetPriorityThread.c)
- *     KiProcessDeferredReadyList @ 0x1402B0E70 (KiProcessDeferredReadyList.c)
- *     KiSetQuantumTargetThread @ 0x1402B2AF0 (KiSetQuantumTargetThread.c)
- *     KiSetBasePriorityAndClearDecrement @ 0x1402B8430 (KiSetBasePriorityAndClearDecrement.c)
- *     KiPriQueueThreadPriorityChanged @ 0x1402BAAF4 (KiPriQueueThreadPriorityChanged.c)
- *     KeFlushProcessWriteBuffers @ 0x1402C003C (KeFlushProcessWriteBuffers.c)
- *     KiApplyForegroundBoostThread @ 0x1403504D8 (KiApplyForegroundBoostThread.c)
- *     KeSetQuantumProcess @ 0x140350C2C (KeSetQuantumProcess.c)
- *     EtwTracePriority @ 0x14046738E (EtwTracePriority.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14028ABC0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     KiSetPriorityThread @ 0x1402B0860 (KiSetPriorityThread.c)
+ *     KiProcessDeferredReadyList @ 0x1402B1100 (KiProcessDeferredReadyList.c)
+ *     KiSetQuantumTargetThread @ 0x1402B2D80 (KiSetQuantumTargetThread.c)
+ *     KiSetBasePriorityAndClearDecrement @ 0x1402B86C0 (KiSetBasePriorityAndClearDecrement.c)
+ *     KiPriQueueThreadPriorityChanged @ 0x1402BAD84 (KiPriQueueThreadPriorityChanged.c)
+ *     KeFlushProcessWriteBuffers @ 0x1402C02CC (KeFlushProcessWriteBuffers.c)
+ *     KiApplyForegroundBoostThread @ 0x140350678 (KiApplyForegroundBoostThread.c)
+ *     KeSetQuantumProcess @ 0x140350DCC (KeSetQuantumProcess.c)
+ *     EtwTracePriority @ 0x14046778E (EtwTracePriority.c)
  */
 
 __int64 __fastcall KeSetPriorityAndQuantumProcess(__int64 a1, __int64 a2, UCHAR a3, int a4, int a5)
@@ -93,7 +93,7 @@ __int64 __fastcall KeSetPriorityAndQuantumProcess(__int64 a1, __int64 a2, UCHAR 
     CurrentIrql = KeGetCurrentIrql();
     v47 = CurrentIrql;
     __writecr8(2uLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && (unsigned __int8)CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && (unsigned __int8)CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
       LODWORD(v26) = 4;

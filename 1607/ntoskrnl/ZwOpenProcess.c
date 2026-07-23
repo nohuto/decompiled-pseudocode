@@ -1,12 +1,11 @@
 /*
- * XREFs of ZwOpenProcess @ 0x14015A140
+ * XREFs of ZwOpenProcess @ 0x14015A6B0
  * Callers:
- *     SepRmLsaConnectRequest @ 0x14056B9C0 (SepRmLsaConnectRequest.c)
+ *     SepRmLsaConnectRequest @ 0x14056BF00 (SepRmLsaConnectRequest.c)
  * Callees:
  *     <none>
  */
 
-// local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall ZwOpenProcess(
         PHANDLE ProcessHandle,
         ACCESS_MASK DesiredAccess,
@@ -15,5 +14,5 @@ NTSTATUS __stdcall ZwOpenProcess(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(ProcessHandle, *(_QWORD *)&DesiredAccess, ObjectAttributes);
+  return KiServiceInternal(ProcessHandle);
 }

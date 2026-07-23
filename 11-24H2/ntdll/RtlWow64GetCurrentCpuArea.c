@@ -1,25 +1,25 @@
 /*
- * XREFs of RtlWow64GetCurrentCpuArea @ 0x1800D7B30
+ * XREFs of RtlWow64GetCurrentCpuArea @ 0x1800D2EA0
  * Callers:
- *     RtlWow64GetCurrentMachine @ 0x1800D75A0 (RtlWow64GetCurrentMachine.c)
+ *     RtlWow64GetCurrentMachine @ 0x1800D2910 (RtlWow64GetCurrentMachine.c)
  * Callees:
- *     RtlGetExtendedContextLength2 @ 0x1800D7C70 (RtlGetExtendedContextLength2.c)
- *     RtlpGetLegacyContextLength @ 0x1800D7EA0 (RtlpGetLegacyContextLength.c)
+ *     RtlGetExtendedContextLength2 @ 0x1800D2FE0 (RtlGetExtendedContextLength2.c)
+ *     RtlpGetLegacyContextLength @ 0x1800D3210 (RtlpGetLegacyContextLength.c)
  */
 
 __int64 __fastcall RtlWow64GetCurrentCpuArea(_WORD *a1, __int64 *a2, _QWORD *a3)
 {
   _WORD *v6; // rbp
   __int16 v7; // di
-  __int64 v9; // rcx
-  __int64 v10; // r10
+  ULONG v9; // ecx
+  ULONG64 v10; // r10
   __int64 v11; // rcx
   _QWORD *v12; // rax
-  _DWORD v13[10]; // [rsp+20h] [rbp-28h] BYREF
+  ULONG ContextLength[10]; // [rsp+20h] [rbp-28h] BYREF
   unsigned int v14; // [rsp+68h] [rbp+20h] BYREF
 
   v14 = 0;
-  v13[0] = 0;
+  ContextLength[0] = 0;
   v6 = NtCurrentTeb()->TlsSlots[1];
   v7 = v6[1];
   if ( v7 == 332 )
@@ -27,7 +27,7 @@ __int64 __fastcall RtlWow64GetCurrentCpuArea(_WORD *a1, __int64 *a2, _QWORD *a3)
     RtlpGetLegacyContextLength(0x10000LL, a2, &v14);
     v10 = MEMORY[0x7FFE03D8] & 0x40000000000009FCLL;
     if ( (MEMORY[0x7FFE03D8] & 0x40000000000009FCLL) != 0 )
-      v9 = 65600LL;
+      v9 = 65600;
   }
   else if ( v6[1] == 452 )
   {
@@ -43,9 +43,9 @@ __int64 __fastcall RtlWow64GetCurrentCpuArea(_WORD *a1, __int64 *a2, _QWORD *a3)
       return 3221225485LL;
     RtlpGetLegacyContextLength(0x400000LL, a2, &v14);
   }
-  RtlGetExtendedContextLength2(v9, v13, v10);
+  RtlGetExtendedContextLength2(v9, ContextLength, v10);
   v11 = ~(v14 - 1LL) & ((unsigned __int64)v6 + v14 + 3);
-  v12 = (_QWORD *)((v11 + v13[0] + 7LL) & 0xFFFFFFFFFFFFFFF8uLL);
+  v12 = (_QWORD *)((v11 + ContextLength[0] + 7LL) & 0xFFFFFFFFFFFFFFF8uLL);
   if ( a1 )
     *a1 = v7;
   if ( a2 )

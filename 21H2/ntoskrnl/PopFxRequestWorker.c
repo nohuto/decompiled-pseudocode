@@ -1,10 +1,10 @@
 /*
- * XREFs of PopFxRequestWorker @ 0x140262BF0
+ * XREFs of PopFxRequestWorker @ 0x140284030
  * Callers:
- *     PopPepRequestWork @ 0x140261C9C (PopPepRequestWork.c)
+ *     PopPepRequestWork @ 0x14028316C (PopPepRequestWork.c)
  * Callees:
- *     ExTryQueueWorkItem @ 0x14023BDA0 (ExTryQueueWorkItem.c)
- *     KeReleaseSemaphoreEx @ 0x1402631F0 (KeReleaseSemaphoreEx.c)
+ *     KeReleaseSemaphoreEx @ 0x140284630 (KeReleaseSemaphoreEx.c)
+ *     ExTryQueueWorkItem @ 0x1402E05F0 (ExTryQueueWorkItem.c)
  */
 
 __int64 __fastcall PopFxRequestWorker(__int64 a1, __int64 a2, __int64 a3, int a4)
@@ -32,7 +32,7 @@ __int64 __fastcall PopFxRequestWorker(__int64 a1, __int64 a2, __int64 a3, int a4
       if ( (unsigned int)v7 >= 4 )
         return result;
     }
-    result = ExTryQueueWorkItem((__int64)&v4[8 * v7 + 28 + 2 * (unsigned int)v7], 0x30u);
+    result = ExTryQueueWorkItem(&v4[8 * v7 + 28 + 2 * (unsigned int)v7], 48LL);
     if ( !(_BYTE)result )
       _InterlockedAnd(v4 + 24, ~v8);
   }

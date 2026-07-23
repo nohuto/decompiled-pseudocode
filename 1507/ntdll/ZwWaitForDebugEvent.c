@@ -6,11 +6,15 @@
  *     <none>
  */
 
-__int64 ZwWaitForDebugEvent()
+NTSTATUS __cdecl ZwWaitForDebugEvent(
+        HANDLE DebugObjectHandle,
+        BOOLEAN Alertable,
+        PLARGE_INTEGER Timeout,
+        PDBGUI_WAIT_STATE_CHANGE WaitStateChange)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 436LL;
+  result = 436;
   __asm { syscall; Low latency system call }
   return result;
 }

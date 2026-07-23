@@ -1,24 +1,26 @@
 /*
- * XREFs of NtQueryFullAttributesFile @ 0x14060C400
+ * XREFs of NtQueryFullAttributesFile @ 0x14069BEB0
  * Callers:
  *     <none>
  * Callees:
- *     PsGetCurrentSilo @ 0x14027C930 (PsGetCurrentSilo.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
- *     FsRtlpCleanupEcps @ 0x14060C8C0 (FsRtlpCleanupEcps.c)
- *     ObCloseHandle @ 0x14061AB80 (ObCloseHandle.c)
- *     ObOpenObjectByNameEx @ 0x140655CD0 (ObOpenObjectByNameEx.c)
- *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
+ *     PsGetCurrentSilo @ 0x14026A8D0 (PsGetCurrentSilo.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     ObOpenObjectByNameEx @ 0x14064AAF0 (ObOpenObjectByNameEx.c)
+ *     ObCloseHandle @ 0x1406847E0 (ObCloseHandle.c)
+ *     FsRtlpCleanupEcps @ 0x14069C370 (FsRtlpCleanupEcps.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BFB0 (ExRaiseDatatypeMisalignment.c)
  */
 
-__int64 __fastcall NtQueryFullAttributesFile(__int64 a1, unsigned __int64 a2)
+NTSTATUS __cdecl NtQueryFullAttributesFile(
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        PFILE_NETWORK_OPEN_INFORMATION FileInformation)
 {
-  unsigned __int8 v4; // di
+  char PreviousMode; // di
   __int64 v5; // rcx
   struct _KTHREAD *CurrentThread; // rax
-  int v7; // esi
-  __int64 result; // rax
+  NTSTATUS v7; // esi
+  NTSTATUS result; // eax
   HANDLE Handle[2]; // [rsp+40h] [rbp-268h] BYREF
   _OWORD v10[14]; // [rsp+50h] [rbp-258h] BYREF
   __int128 v11; // [rsp+130h] [rbp-178h] BYREF
@@ -29,13 +31,13 @@ __int64 __fastcall NtQueryFullAttributesFile(__int64 a1, unsigned __int64 a2)
 
   memset(v15, 0, sizeof(v15));
   Handle[0] = 0LL;
-  v4 = KeGetCurrentThread()->$6BEBF485330D18E60173AA6D991B35AC::gap0[10];
-  if ( v4 )
+  PreviousMode = KeGetCurrentThread()->PreviousMode;
+  if ( PreviousMode )
   {
-    v5 = a2;
-    if ( (a2 & 7) != 0 )
+    v5 = (__int64)FileInformation;
+    if ( ((unsigned __int8)FileInformation & 7) != 0 )
       ExRaiseDatatypeMisalignment();
-    if ( a2 >= 0x7FFFFFFF0000LL )
+    if ( (unsigned __int64)FileInformation >= 0x7FFFFFFF0000LL )
       v5 = 0x7FFFFFFF0000LL;
     *(_BYTE *)v5 = *(_BYTE *)v5;
     *(_BYTE *)(v5 + 55) = *(_BYTE *)(v5 + 55);
@@ -52,32 +54,40 @@ __int64 __fastcall NtQueryFullAttributesFile(__int64 a1, unsigned __int64 a2)
   BYTE9(v10[8]) = 1;
   BYTE11(v10[8]) = 1;
   *(_QWORD *)&v10[9] = v15;
-  *(_QWORD *)&v10[3] = a1;
+  *(_QWORD *)&v10[3] = ObjectAttributes;
   DWORD2(v10[9]) = 32;
-  if ( v4 )
+  if ( PreviousMode )
     *((_QWORD *)&v10[6] + 1) = &v11;
   else
-    *((_QWORD *)&v10[6] + 1) = a2;
+    *((_QWORD *)&v10[6] + 1) = FileInformation;
   memset(&v10[10], 0, 40);
   LOWORD(v10[10]) = 40;
   *(_QWORD *)&v10[12] = PsGetCurrentSilo();
   CurrentThread = KeGetCurrentThread();
   ++CurrentThread->OtherOperationCount;
   __incgsdword(0x2EE4u);
-  v7 = ObOpenObjectByNameEx(a1, IoFileObjectType, v4, 0LL, 128, v10, *(_QWORD *)&v10[12], Handle);
+  v7 = ObOpenObjectByNameEx(
+         (__int64)ObjectAttributes,
+         (__int64)IoFileObjectType,
+         PreviousMode,
+         0LL,
+         0x80u,
+         (__int64)v10,
+         *(__int64 *)&v10[12],
+         Handle);
   if ( *((_QWORD *)&v10[10] + 1) && (unsigned __int8)FsRtlpCleanupEcps() )
     *((_QWORD *)&v10[10] + 1) = 0LL;
   if ( LODWORD(v10[2]) == -1096154543 )
   {
-    result = LODWORD(v10[1]);
+    result = v10[1];
     if ( SLODWORD(v10[1]) >= 0 )
     {
-      if ( v4 )
+      if ( PreviousMode )
       {
-        *(_OWORD *)a2 = v11;
-        *(_OWORD *)(a2 + 16) = v12;
-        *(_OWORD *)(a2 + 32) = v13;
-        *(_QWORD *)(a2 + 48) = v14;
+        *(_OWORD *)&FileInformation->CreationTime.LowPart = v11;
+        *(_OWORD *)&FileInformation->LastWriteTime.LowPart = v12;
+        *(_OWORD *)&FileInformation->AllocationSize.LowPart = v13;
+        *(_QWORD *)&FileInformation->FileAttributes = v14;
       }
     }
   }
@@ -85,10 +95,10 @@ __int64 __fastcall NtQueryFullAttributesFile(__int64 a1, unsigned __int64 a2)
   {
     if ( v7 >= 0 )
     {
-      ObCloseHandle(Handle[0], v4);
-      return (unsigned int)-1073741788;
+      ObCloseHandle(Handle[0], PreviousMode);
+      return -1073741788;
     }
-    return (unsigned int)v7;
+    return v7;
   }
   return result;
 }

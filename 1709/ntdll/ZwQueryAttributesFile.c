@@ -12,11 +12,11 @@
  *     <none>
  */
 
-__int64 ZwQueryAttributesFile()
+NTSTATUS __cdecl ZwQueryAttributesFile(POBJECT_ATTRIBUTES ObjectAttributes, PFILE_BASIC_INFORMATION FileInformation)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 61LL;
+  result = 61;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

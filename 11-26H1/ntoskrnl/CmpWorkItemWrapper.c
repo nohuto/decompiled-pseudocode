@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpWorkItemWrapper @ 0x1404D5F70
+ * XREFs of CmpWorkItemWrapper @ 0x1404CF740
  * Callers:
  *     <none>
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 void __fastcall CmpWorkItemWrapper(__int64 a1)

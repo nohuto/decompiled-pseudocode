@@ -1,11 +1,11 @@
 /*
- * XREFs of KiMcheckFastForward @ 0x1405FD170
+ * XREFs of KiMcheckFastForward @ 0x1405FFBC0
  * Callers:
- *     KiNmiInterruptStart @ 0x140733AC0 (KiNmiInterruptStart.c)
- *     KiMcheckAbort @ 0x140738080 (KiMcheckAbort.c)
+ *     KiNmiInterruptStart @ 0x1407386C0 (KiNmiInterruptStart.c)
+ *     KiMcheckAbort @ 0x14073CC80 (KiMcheckAbort.c)
  * Callees:
- *     KiRspInIstStack @ 0x1403A6E58 (KiRspInIstStack.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     KiRspInIstStack @ 0x1403A8BB8 (KiRspInIstStack.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 void __fastcall KiMcheckFastForward(ULONG_PTR BugCheckParameter4, char a2)
@@ -31,23 +31,23 @@ void __fastcall KiMcheckFastForward(ULONG_PTR BugCheckParameter4, char a2)
     if ( (unsigned int)KiRspInIstStack(3u, v5) )
     {
       v4 = 1;
-      _InterlockedAdd((volatile signed __int32 *)&KsepShimDbLock.WaitBlockFill11[24], 1u);
+      _InterlockedAdd((volatile signed __int32 *)&KsepShimDbLock.ApcStateFill[16], 1u);
     }
     if ( (unsigned int)KiRspInIstStack(2u, v5) )
     {
       v4 |= 2u;
-      _InterlockedAdd((volatile signed __int32 *)&KsepShimDbLock.WaitBlockFill11[28], 1u);
+      _InterlockedAdd((volatile signed __int32 *)&KsepShimDbLock.ApcStateFill[20], 1u);
     }
     v6 = *(_QWORD *)(BugCheckParameter4 + 360);
     if ( v6 >= (unsigned __int64)&KiMcheckExitMceTailMceBegin && v6 < (unsigned __int64)&KiMcheckExitMceTailMceEnd )
     {
       v4 |= 4u;
-      _InterlockedAdd((volatile signed __int32 *)&KsepShimDbLock.WaitBlockFill11[32], 1u);
+      _InterlockedAdd((volatile signed __int32 *)&KsepShimDbLock.ApcStateFill[24], 1u);
     }
     if ( v6 >= (unsigned __int64)&KiMcheckExitMceTailNmiBegin && v6 < (unsigned __int64)KiMcheckExitMceTailNmiEnd )
     {
       v4 |= 4u;
-      _InterlockedAdd((volatile signed __int32 *)&KsepShimDbLock.WaitBlockFill11[32], 1u);
+      _InterlockedAdd((volatile signed __int32 *)&KsepShimDbLock.ApcStateFill[24], 1u);
     }
     if ( KiKvaShadow )
     {
@@ -55,28 +55,28 @@ void __fastcall KiMcheckFastForward(ULONG_PTR BugCheckParameter4, char a2)
         && v6 < (unsigned __int64)&KiKernelIstMceExitMceTailMceEnd )
       {
         v4 |= 4u;
-        _InterlockedAdd((volatile signed __int32 *)&KsepShimDbLock.WaitBlockFill11[36], 1u);
+        _InterlockedAdd((volatile signed __int32 *)&KsepShimDbLock.ApcStateFill[28], 1u);
       }
       if ( KiKvaShadow
         && v6 >= (unsigned __int64)&KiKernelIstMceExitMceTailNmiBegin
         && v6 < (unsigned __int64)&KiKernelIstMceExitMceTailNmiEnd )
       {
         v4 |= 4u;
-        _InterlockedAdd((volatile signed __int32 *)&KsepShimDbLock.WaitBlockFill11[36], 1u);
+        _InterlockedAdd((volatile signed __int32 *)&KsepShimDbLock.ApcStateFill[28], 1u);
       }
     }
   }
   CurrentPrcb = KeGetCurrentPrcb();
   if ( a2 || (v4 & 1) != 0 )
   {
-    _InterlockedAdd((volatile signed __int32 *)&KsepShimDbLock.WaitBlockFill11[48], 1u);
+    _InterlockedAdd((volatile signed __int32 *)&KsepShimDbLock.ApcStateFill[40], 1u);
     if ( (v4 & 1) != 0 )
-      _InterlockedAdd((volatile signed __int32 *)&KsepShimDbLock.WaitBlockFill11[56], 1u);
+      _InterlockedAdd((volatile signed __int32 *)&KsepShimDbLock.WaitStatus, 1u);
     v8 = 1;
   }
   else
   {
-    _InterlockedAdd((volatile signed __int32 *)&KsepShimDbLock.WaitBlockFill11[52], 1u);
+    _InterlockedAdd((volatile signed __int32 *)&KsepShimDbLock.UserIdealProcessor, 1u);
     v8 = 0;
   }
   if ( KiKvaShadow )
@@ -120,7 +120,7 @@ LABEL_37:
 LABEL_38:
   if ( (v4 & 4) != 0 )
   {
-    _InterlockedAdd((volatile signed __int32 *)&KsepShimDbLock.WaitBlockFill11[60], 1u);
+    _InterlockedAdd((_DWORD *)&KsepShimDbLock.WaitStatus + 1, 1u);
     GsBase = McheckContext->GsBase;
     if ( KiKvaShadow )
     {
@@ -128,7 +128,7 @@ LABEL_38:
       *(_QWORD *)(v10 + 24) = McheckContext->Cr3;
       if ( (McheckContext->Cr3 & 3) != 0 && CurrentPrcb->CurrentThread->Process->AddressPolicy != 1 )
       {
-        _InterlockedAdd((volatile signed __int32 *)&KsepShimDbLock.WaitBlockFill11[64], 1u);
+        _InterlockedAdd((volatile signed __int32 *)&KsepShimDbLock.WaitBlockList, 1u);
         _interlockedbittestandreset((volatile signed __int32 *)&CurrentPrcb->ShadowFlags, 0);
         v13 = __readcr4();
         if ( (v13 & 0x20080) != 0 )
@@ -153,12 +153,12 @@ LABEL_38:
     *(_QWORD *)(BugCheckParameter4 + 48) = McheckContext->Rax;
     *(_QWORD *)(BugCheckParameter4 + 56) = McheckContext->Rcx;
     *(_QWORD *)(BugCheckParameter4 + 64) = McheckContext->Rdx;
-    _InterlockedAdd((volatile signed __int32 *)&KsepShimDbLock.WaitBlockFill11[44], 1u);
+    _InterlockedAdd((volatile signed __int32 *)&KsepShimDbLock.ApcStateFill[36], 1u);
     McheckContext->MachineFrame.SegCs = 0;
   }
   if ( !a2 )
   {
-    _InterlockedAdd((volatile signed __int32 *)&KsepShimDbLock.WaitBlockFill11[40], 1u);
+    _InterlockedAdd((volatile signed __int32 *)&KsepShimDbLock.ApcStateFill[32], 1u);
     *(_OWORD *)&McheckContext->MachineFrame.Rip = *(_OWORD *)(BugCheckParameter4 + 360);
     *(_OWORD *)&McheckContext->MachineFrame.EFlags = *(_OWORD *)(BugCheckParameter4 + 376);
     *(_QWORD *)&McheckContext->MachineFrame.SegSs = *(_QWORD *)(BugCheckParameter4 + 392);

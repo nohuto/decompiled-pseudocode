@@ -1,7 +1,7 @@
 /*
  * XREFs of PspApplyComponentFilterOptions @ 0x1405CF994
  * Callers:
- *     PspAllocateProcess @ 0x1406D6638 (PspAllocateProcess.c)
+ *     PspAllocateProcess @ 0x1406AD918 (PspAllocateProcess.c)
  * Callees:
  *     <none>
  */

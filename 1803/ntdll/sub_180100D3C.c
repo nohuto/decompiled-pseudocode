@@ -14,35 +14,35 @@
  *     sub_18010473C @ 0x18010473C (sub_18010473C.c)
  */
 
-char __fastcall sub_180100D3C(unsigned __int64 a1, int a2, __int64 a3, __int64 a4)
+BOOLEAN __fastcall sub_180100D3C(PRTL_CRITICAL_SECTION *HeapHandle, int a2, char *a3, void *a4)
 {
-  char v8; // si
+  BOOLEAN v8; // si
   char v9; // r14
-  unsigned int v11; // edi
+  ULONG v11; // edi
   unsigned __int64 v12; // rdx
 
   v8 = 0;
   v9 = 0;
-  if ( (*(_DWORD *)(a1 + 116) & 0x1000000) != 0 )
+  if ( (*((_DWORD *)HeapHandle + 29) & 0x1000000) != 0 )
     return ((__int64 (*)(void))qword_180156460)();
-  if ( sub_18001FC58((_DWORD *)a1, "RtlSetUserValueHeap") )
+  if ( sub_18001FC58(HeapHandle, "RtlSetUserValueHeap") )
   {
-    v11 = *(_DWORD *)(a1 + 116) | 0x10000000 | a2;
+    v11 = *((_DWORD *)HeapHandle + 29) | 0x10000000 | a2;
     if ( (v11 & 1) == 0 )
     {
-      RtlEnterCriticalSection(*(_QWORD *)(a1 + 352));
+      RtlEnterCriticalSection(HeapHandle[44]);
       v9 = 1;
       v11 |= 1u;
     }
-    sub_18010120C(a1, 0LL);
-    v12 = a3 - 16;
-    _m_prefetchw((const void *)(a3 - 16));
-    if ( *(_BYTE *)(a3 - 16 + 15) == 5 )
+    sub_18010120C((_DWORD)HeapHandle);
+    v12 = (unsigned __int64)(a3 - 16);
+    _m_prefetchw(a3 - 16);
+    if ( *(a3 - 1) == 5 )
       v12 -= 16LL * *(unsigned __int8 *)(v12 + 14);
-    if ( sub_180072588(a1, v12, "RtlSetUserValueHeap") )
+    if ( sub_180072588((unsigned __int64)HeapHandle, v12, "RtlSetUserValueHeap") )
     {
-      v8 = RtlSetUserValueHeap(a1, v11, a3, a4);
-      sub_18010120C(a1, 0LL);
+      v8 = RtlSetUserValueHeap(HeapHandle, v11, a3, a4);
+      sub_18010120C((_DWORD)HeapHandle);
     }
   }
   else
@@ -50,6 +50,6 @@ char __fastcall sub_180100D3C(unsigned __int64 a1, int a2, __int64 a3, __int64 a
     v8 = 0;
   }
   if ( v9 )
-    RtlLeaveCriticalSection(*(_QWORD *)(a1 + 352));
+    RtlLeaveCriticalSection(HeapHandle[44]);
   return v8;
 }

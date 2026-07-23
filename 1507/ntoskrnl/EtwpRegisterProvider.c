@@ -61,9 +61,9 @@ __int64 __fastcall EtwpRegisterProvider(
   *(_QWORD *)&v29 = a4;
   v28 = 0LL;
   *a6 = 0LL;
-  v9 = *(_QWORD *)a1 - SecurityProviderGuid;
-  if ( *(_QWORD *)a1 == (_QWORD)SecurityProviderGuid )
-    v9 = *(_QWORD *)(a1 + 8) - *((_QWORD *)&SecurityProviderGuid + 1);
+  v9 = *(_QWORD *)a1 - *(_QWORD *)&SecurityProviderGuid.Data1;
+  if ( *(_QWORD *)a1 == *(_QWORD *)&SecurityProviderGuid.Data1 )
+    v9 = *(_QWORD *)(a1 + 8) - *(_QWORD *)SecurityProviderGuid.Data4;
   if ( !v9 )
     return 3221225506LL;
   if ( !a3 && a4 || a2 != 3 && (a2 != 2 || !a3) )

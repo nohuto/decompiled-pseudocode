@@ -1,18 +1,18 @@
 /*
- * XREFs of MiRemoveWsle @ 0x140046F10
+ * XREFs of MiRemoveWsle @ 0x140046A90
  * Callers:
- *     MiDecommitPages @ 0x140044D50 (MiDecommitPages.c)
- *     MiDeleteVirtualAddresses @ 0x140045C00 (MiDeleteVirtualAddresses.c)
- *     MmUnmapViewInSystemCache @ 0x1400492C0 (MmUnmapViewInSystemCache.c)
- *     MiDeleteSystemPagableVm @ 0x14004ACA0 (MiDeleteSystemPagableVm.c)
- *     MiTerminateWsle @ 0x1400E22C0 (MiTerminateWsle.c)
- *     MiRemoveImagePageFromSystemWorkingSet @ 0x1400FDEF0 (MiRemoveImagePageFromSystemWorkingSet.c)
- *     MiConvertPrivateToProto @ 0x1401F8908 (MiConvertPrivateToProto.c)
+ *     MiDecommitPages @ 0x1400448D0 (MiDecommitPages.c)
+ *     MiDeleteVirtualAddresses @ 0x140045780 (MiDeleteVirtualAddresses.c)
+ *     MmUnmapViewInSystemCache @ 0x140048E40 (MmUnmapViewInSystemCache.c)
+ *     MiDeleteSystemPagableVm @ 0x14004A820 (MiDeleteSystemPagableVm.c)
+ *     MiTerminateWsle @ 0x1400E0160 (MiTerminateWsle.c)
+ *     MiRemoveImagePageFromSystemWorkingSet @ 0x1400FBC70 (MiRemoveImagePageFromSystemWorkingSet.c)
+ *     MiConvertPrivateToProto @ 0x1401F8734 (MiConvertPrivateToProto.c)
  * Callees:
- *     MiGetSharedWorkingSetList @ 0x140047070 (MiGetSharedWorkingSetList.c)
- *     MiUpdateWsleHash @ 0x140048D80 (MiUpdateWsleHash.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     MiLogRemoveWsleEvent @ 0x1401E29D4 (MiLogRemoveWsleEvent.c)
+ *     MiGetSharedWorkingSetList @ 0x140046BF0 (MiGetSharedWorkingSetList.c)
+ *     MiUpdateWsleHash @ 0x140048900 (MiUpdateWsleHash.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     MiLogRemoveWsleEvent @ 0x1401E2800 (MiLogRemoveWsleEvent.c)
  */
 
 __int64 __fastcall MiRemoveWsle(ULONG_PTR BugCheckParameter3, __int64 a2)
@@ -41,13 +41,15 @@ __int64 __fastcall MiRemoveWsle(ULONG_PTR BugCheckParameter3, __int64 a2)
   v9 = v8 & 0xFFFFFFFFFFFFF000uLL;
   if ( (*(_BYTE *)(v5 + 184) & 7) == 4 )
   {
-    if ( PsNtosImageBase && (v9 < PsNtosImageEnd && v9 >= PsNtosImageBase || v9 < PsHalImageEnd && v9 >= PsHalImageBase) )
+    if ( PsNtosImageBase
+      && (v9 < PsNtosImageEnd && v9 >= (unsigned __int64)PsNtosImageBase
+       || v9 < PsHalImageEnd && v9 >= (unsigned __int64)PsHalImageBase) )
     {
-      LODWORD(xmmword_140326868) = xmmword_140326868 - 1;
+      LODWORD(xmmword_1403268A8) = xmmword_1403268A8 - 1;
     }
-    else if ( v9 >= qword_140327FF0 && v9 < qword_140327FF0 + 0x8000000000LL )
+    else if ( v9 >= qword_140328030 && v9 < qword_140328030 + 0x8000000000LL )
     {
-      --DWORD1(xmmword_140326868);
+      --DWORD1(xmmword_1403268A8);
     }
   }
   if ( (BugCheckParameter4 & 0xC) == 4 )

@@ -1,17 +1,17 @@
 /*
- * XREFs of MmAcceleratorCallbackRoutine @ 0x140800220
+ * XREFs of MmAcceleratorCallbackRoutine @ 0x140800960
  * Callers:
  *     <none>
  * Callees:
- *     MiDeleteHardwareAccelerators @ 0x140690ACC (MiDeleteHardwareAccelerators.c)
- *     MiAcceptNewAccelerators @ 0x140800064 (MiAcceptNewAccelerators.c)
+ *     MiDeleteHardwareAccelerators @ 0x140691B9C (MiDeleteHardwareAccelerators.c)
+ *     MiAcceptNewAccelerators @ 0x1408007A4 (MiAcceptNewAccelerators.c)
  */
 
 void __fastcall MmAcceleratorCallbackRoutine(__int64 a1)
 {
   int *v2; // rcx
 
-  if ( !byte_140E37454 )
+  if ( !byte_140E37594 )
   {
     v2 = *(int **)(a1 + 16);
     if ( *(_DWORD *)(a1 + 4) )

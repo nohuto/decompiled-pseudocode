@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlFindUnicodePrefix @ 0x140A17AA0
+ * XREFs of RtlFindUnicodePrefix @ 0x140A210D0
  * Callers:
  *     <none>
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x1402150C0 (PsGetCurrentServerSiloGlobals.c)
- *     RtlSplay @ 0x1402C0DB0 (RtlSplay.c)
- *     CompareUnicodeStrings @ 0x140A17F40 (CompareUnicodeStrings.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x1402153F0 (PsGetCurrentServerSiloGlobals.c)
+ *     RtlSplay @ 0x14030BA70 (RtlSplay.c)
+ *     CompareUnicodeStrings @ 0x140A21570 (CompareUnicodeStrings.c)
  */
 
 PUNICODE_PREFIX_TABLE_ENTRY __stdcall RtlFindUnicodePrefix(
@@ -17,9 +17,9 @@ PUNICODE_PREFIX_TABLE_ENTRY __stdcall RtlFindUnicodePrefix(
   int v4; // r9d
   PUNICODE_PREFIX_TABLE_ENTRY i; // r12
   PCUNICODE_STRING v6; // r8
-  RTL_SPLAY_LINKS *p_Links; // r14
+  _RTL_SPLAY_LINKS *p_Links; // r14
   wchar_t **p_Buffer; // r15
-  UNICODE_PREFIX_TABLE_ENTRY *v9; // r13
+  _UNICODE_PREFIX_TABLE_ENTRY *v9; // r13
   struct _LIST_ENTRY *CurrentServerSiloGlobals; // rax
   unsigned __int16 v11; // dx
   PCUNICODE_STRING v12; // r8
@@ -37,7 +37,7 @@ PUNICODE_PREFIX_TABLE_ENTRY __stdcall RtlFindUnicodePrefix(
   PRTL_SPLAY_LINKS v24; // rax
   __int64 v26; // rax
   __int64 v27; // rax
-  UNICODE_PREFIX_TABLE_ENTRY *v28; // rbx
+  _UNICODE_PREFIX_TABLE_ENTRY *v28; // rbx
   __int64 v29; // r9
   wchar_t *Buffer; // r8
   bool v31; // zf
@@ -79,7 +79,7 @@ PUNICODE_PREFIX_TABLE_ENTRY __stdcall RtlFindUnicodePrefix(
 LABEL_7:
     if ( !p_Links )
       goto LABEL_43;
-    v9 = (UNICODE_PREFIX_TABLE_ENTRY *)&p_Links[-1];
+    v9 = (_UNICODE_PREFIX_TABLE_ENTRY *)&p_Links[-1];
     CurrentServerSiloGlobals = PsGetCurrentServerSiloGlobals();
     v14 = *v13 >> 1;
     Flink = CurrentServerSiloGlobals[75].Flink;
@@ -188,7 +188,7 @@ LABEL_33:
 LABEL_16:
     if ( CaseInsensitiveIndex )
     {
-      v28 = (UNICODE_PREFIX_TABLE_ENTRY *)&p_Links[-1];
+      v28 = (_UNICODE_PREFIX_TABLE_ENTRY *)&p_Links[-1];
       do
       {
         if ( (unsigned int)CompareUnicodeStrings(v28->Prefix, FullName, CaseInsensitiveIndex) - 1 <= 1 )
@@ -211,7 +211,7 @@ LABEL_43:
     i->NodeTypeCode = 2050;
     v24 = RtlSplay(p_Links);
     LOWORD(v24[-1].Parent) = 2049;
-    v9 = (UNICODE_PREFIX_TABLE_ENTRY *)&v24[-1];
+    v9 = (_UNICODE_PREFIX_TABLE_ENTRY *)&v24[-1];
     v33->NextPrefixTree = (PUNICODE_PREFIX_TABLE_ENTRY)&v24[-1];
     v24[-1].LeftChild = NextPrefixTree;
   }

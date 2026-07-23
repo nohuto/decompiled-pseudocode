@@ -1,31 +1,31 @@
 /*
- * XREFs of RtlpMuiRegTryToAppendLangId @ 0x180014890
+ * XREFs of RtlpMuiRegTryToAppendLangId @ 0x180014880
  * Callers:
- *     RtlpMuiRegTryToAppendLanguageToMuiszFromLangList @ 0x1800147BC (RtlpMuiRegTryToAppendLanguageToMuiszFromLangList.c)
+ *     RtlpMuiRegTryToAppendLanguageToMuiszFromLangList @ 0x1800147AC (RtlpMuiRegTryToAppendLanguageToMuiszFromLangList.c)
  *     RtlpMuiRegGetFallbackLanguagesAsMultiSZ @ 0x1800F4A68 (RtlpMuiRegGetFallbackLanguagesAsMultiSZ.c)
  * Callees:
- *     RtlIntegerToUnicode @ 0x180014BB0 (RtlIntegerToUnicode.c)
- *     RtlpLangNameInMultiSzString_Size @ 0x18003E708 (RtlpLangNameInMultiSzString_Size.c)
- *     RtlCultureNameToLCID @ 0x180043F70 (RtlCultureNameToLCID.c)
- *     RtlInitUnicodeString @ 0x180044150 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x180096C40 (__security_check_cookie.c)
+ *     RtlIntegerToUnicode @ 0x180014BA0 (RtlIntegerToUnicode.c)
+ *     RtlpLangNameInMultiSzString_Size @ 0x18003E6F8 (RtlpLangNameInMultiSzString_Size.c)
+ *     RtlCultureNameToLCID @ 0x180043F60 (RtlCultureNameToLCID.c)
+ *     RtlInitUnicodeString @ 0x180044140 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x180096C30 (__security_check_cookie.c)
  *     memmove @ 0x1800AC980 (memmove.c)
  */
 
 __int64 __fastcall RtlpMuiRegTryToAppendLangId(__int64 a1, __int64 a2, unsigned int *a3, wchar_t *a4, unsigned int a5)
 {
   __int64 v7; // r12
-  unsigned int v8; // edi
+  DWORD v8; // edi
   unsigned int v9; // ebx
   unsigned int v10; // edi
-  unsigned int v12; // [rsp+20h] [rbp-30h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+28h] [rbp-28h] BYREF
+  DWORD Lcid; // [rsp+20h] [rbp-30h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+28h] [rbp-28h] BYREF
   WCHAR SourceString; // [rsp+38h] [rbp-18h] BYREF
   __int64 v15; // [rsp+3Ah] [rbp-16h]
 
   SourceString = 0;
   v15 = 0LL;
-  v12 = 0;
+  Lcid = 0;
   if ( a2 && a1 && a3 )
   {
     v7 = *a3;
@@ -41,9 +41,9 @@ __int64 __fastcall RtlpMuiRegTryToAppendLangId(__int64 a1, __int64 a2, unsigned 
         &DestinationString,
         (PCWSTR)(*(_QWORD *)(*(_QWORD *)(a1 + 32) + 24LL)
                + 2LL * *(__int16 *)(*(_QWORD *)(*(_QWORD *)(a1 + 32) + 16LL) + 2LL * *(__int16 *)(a2 + 6))));
-      if ( !(unsigned __int8)RtlCultureNameToLCID(&DestinationString, &v12) )
+      if ( !RtlCultureNameToLCID(&DestinationString, &Lcid) )
         return (unsigned int)-1073741811;
-      v8 = v12;
+      v8 = Lcid;
     }
     v9 = RtlIntegerToUnicode(v8, 16LL, 4294967292LL, &SourceString);
     if ( (v9 & 0x80000000) != 0 )

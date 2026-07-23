@@ -1,24 +1,24 @@
 /*
- * XREFs of PiDevCfgGetKeySecurityDescriptor @ 0x14087EB00
+ * XREFs of PiDevCfgGetKeySecurityDescriptor @ 0x14087ED40
  * Callers:
- *     PiDevCfgCopyDeviceKeys @ 0x14087E314 (PiDevCfgCopyDeviceKeys.c)
- *     PiDevCfgCopyDeviceKey @ 0x14087E424 (PiDevCfgCopyDeviceKey.c)
+ *     PiDevCfgCopyDeviceKeys @ 0x14087E554 (PiDevCfgCopyDeviceKeys.c)
+ *     PiDevCfgCopyDeviceKey @ 0x14087E664 (PiDevCfgCopyDeviceKey.c)
  * Callees:
- *     RtlLengthSid @ 0x140227A40 (RtlLengthSid.c)
- *     RtlGetAce @ 0x140227A60 (RtlGetAce.c)
- *     RtlEqualSid @ 0x14022A770 (RtlEqualSid.c)
- *     RtlGetDaclSecurityDescriptor @ 0x140297640 (RtlGetDaclSecurityDescriptor.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     ZwQuerySecurityObject @ 0x14041DA20 (ZwQuerySecurityObject.c)
+ *     RtlLengthSid @ 0x140227B50 (RtlLengthSid.c)
+ *     RtlGetAce @ 0x140227B70 (RtlGetAce.c)
+ *     RtlEqualSid @ 0x14022A880 (RtlEqualSid.c)
+ *     RtlGetDaclSecurityDescriptor @ 0x1402978D0 (RtlGetDaclSecurityDescriptor.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     ZwQuerySecurityObject @ 0x14041DDB0 (ZwQuerySecurityObject.c)
  *     RtlAbsoluteToSelfRelativeSD @ 0x14069BD60 (RtlAbsoluteToSelfRelativeSD.c)
  *     RtlGetGroupSecurityDescriptor @ 0x14069E380 (RtlGetGroupSecurityDescriptor.c)
- *     RtlSetDaclSecurityDescriptor @ 0x1406BD500 (RtlSetDaclSecurityDescriptor.c)
- *     RtlLengthSecurityDescriptor @ 0x140710F40 (RtlLengthSecurityDescriptor.c)
- *     RtlpAddKnownAce @ 0x140735270 (RtlpAddKnownAce.c)
- *     RtlCreateSecurityDescriptor @ 0x140736580 (RtlCreateSecurityDescriptor.c)
- *     RtlCreateAcl @ 0x140736620 (RtlCreateAcl.c)
- *     RtlAddAce @ 0x140736740 (RtlAddAce.c)
- *     RtlValidSecurityDescriptor @ 0x1407B4D10 (RtlValidSecurityDescriptor.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x1406BD530 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlLengthSecurityDescriptor @ 0x140711150 (RtlLengthSecurityDescriptor.c)
+ *     RtlpAddKnownAce @ 0x140735460 (RtlpAddKnownAce.c)
+ *     RtlCreateSecurityDescriptor @ 0x140736770 (RtlCreateSecurityDescriptor.c)
+ *     RtlCreateAcl @ 0x140736810 (RtlCreateAcl.c)
+ *     RtlAddAce @ 0x140736930 (RtlAddAce.c)
+ *     RtlValidSecurityDescriptor @ 0x1407B4FF0 (RtlValidSecurityDescriptor.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
@@ -142,13 +142,7 @@ __int64 __fastcall PiDevCfgGetKeySecurityDescriptor(HANDLE Handle, _QWORD *a2)
             GroupSecurityDescriptor = RtlAddAce(v4, 2u, 0, AceList, v13->AclSize - 8);
             if ( GroupSecurityDescriptor >= 0 )
             {
-              GroupSecurityDescriptor = RtlpAddKnownAce(
-                                          (__int64)v4,
-                                          2u,
-                                          2,
-                                          983103,
-                                          (unsigned __int8 *)SeLocalSystemSid,
-                                          0);
+              GroupSecurityDescriptor = RtlpAddKnownAce(v4, 2u, 2, 983103, (unsigned __int8 *)SeLocalSystemSid, 0);
               if ( GroupSecurityDescriptor >= 0 )
               {
                 GroupSecurityDescriptor = RtlCreateSecurityDescriptor(AbsoluteSecurityDescriptor, 1u);

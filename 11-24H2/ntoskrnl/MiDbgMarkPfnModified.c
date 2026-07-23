@@ -1,13 +1,13 @@
 /*
- * XREFs of MiDbgMarkPfnModified @ 0x14067ECDC
+ * XREFs of MiDbgMarkPfnModified @ 0x14067FEDC
  * Callers:
- *     MiDbgWriteCheck @ 0x14067F674 (MiDbgWriteCheck.c)
+ *     MiDbgWriteCheck @ 0x140680874 (MiDbgWriteCheck.c)
  * Callees:
- *     MiSetPfnModified @ 0x1402E4730 (MiSetPfnModified.c)
- *     MiGetPagingFileOffset @ 0x1402E5A60 (MiGetPagingFileOffset.c)
- *     MiAddLockedPageCharge @ 0x1402F6F40 (MiAddLockedPageCharge.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     MiSetPfnModified @ 0x140215EC0 (MiSetPfnModified.c)
+ *     MiAddLockedPageCharge @ 0x14033F050 (MiAddLockedPageCharge.c)
+ *     MiGetPagingFileOffset @ 0x140341C00 (MiGetPagingFileOffset.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall MiDbgMarkPfnModified(unsigned __int64 a1, char a2)
@@ -25,7 +25,7 @@ __int64 __fastcall MiDbgMarkPfnModified(unsigned __int64 a1, char a2)
   v2 = (a1 >> 12) & 0xFFFFFFFFFFLL;
   if ( (MiFlags & 0x10000000) == 0 )
     return 1LL;
-  if ( v2 > qword_140E2DBE0 )
+  if ( v2 > qword_140E2DD20 )
     return 1LL;
   if ( ((*(_QWORD *)(48 * v2 - 0x21FFFFFFFFD8LL) >> 54) & 1) == 0 )
     return 1LL;

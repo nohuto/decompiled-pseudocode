@@ -12,7 +12,7 @@
  */
 
 __int64 __fastcall SeQuerySigningPolicy(
-        PACCESS_TOKEN Token,
+        HANDLE TokenHandle,
         PCUNICODE_STRING String2,
         unsigned int a3,
         char a4,
@@ -36,7 +36,7 @@ __int64 __fastcall SeQuerySigningPolicy(
   if ( !SeQuerySigningPolicyExtAllowed )
     goto LABEL_5;
   LOBYTE(v12) = a4;
-  SigningPolicyExt = SeQuerySigningPolicyExt(Token, String2, a3, v12, a5, a6, a7);
+  SigningPolicyExt = SeQuerySigningPolicyExt(TokenHandle, String2, a3, v12, a5, a6, a7);
   IsMinTCB = SigningPolicyExt;
   if ( SigningPolicyExt == -1073741637 )
   {
@@ -46,7 +46,7 @@ LABEL_5:
     IsMinTCB = SepIsMinTCB(String2, (__int64)a6, (__int64)a7);
     if ( IsMinTCB < 0 )
     {
-      IsMinTCB = SeQuerySigningPolicyWorker(Token, (__int64)a5, (__int64)a6, (__int64)a7);
+      IsMinTCB = SeQuerySigningPolicyWorker(TokenHandle, (__int64)a5, (__int64)a6, (__int64)a7);
       if ( IsMinTCB < 0 )
         return (unsigned int)IsMinTCB;
     }

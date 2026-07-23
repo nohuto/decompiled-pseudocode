@@ -1724,6 +1724,6 @@ PVOID __stdcall ExAllocatePoolWithTag(POOL_TYPE PoolType, SIZE_T NumberOfBytes, 
     KeBugCheckEx(0x41u, NumberOfBytes, (unsigned int)v12[17], (unsigned int)v12[21] + (unsigned int)v12[23], 0LL);
   }
   if ( (PoolType & 0x10) != 0 )
-    RtlRaiseStatus(0xC000009A);
+    RtlRaiseStatus(-1073741670);
   return v8;
 }

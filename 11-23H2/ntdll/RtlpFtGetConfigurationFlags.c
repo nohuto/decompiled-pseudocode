@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpFtGetConfigurationFlags @ 0x18009F8AC
+ * XREFs of RtlpFtGetConfigurationFlags @ 0x18009F86C
  * Callers:
- *     RtlpFtQueryConfiguration @ 0x18009F9D8 (RtlpFtQueryConfiguration.c)
+ *     RtlpFtQueryConfiguration @ 0x18009F998 (RtlpFtQueryConfiguration.c)
  * Callees:
  *     <none>
  */

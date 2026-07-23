@@ -1,12 +1,12 @@
 /*
- * XREFs of TtmiSetInputWakeCapability @ 0x140768C24
+ * XREFs of TtmiSetInputWakeCapability @ 0x140768E44
  * Callers:
- *     TtmpDispatchSetInputWakeCapability @ 0x14076BBCC (TtmpDispatchSetInputWakeCapability.c)
+ *     TtmpDispatchSetInputWakeCapability @ 0x14076BDEC (TtmpDispatchSetInputWakeCapability.c)
  * Callees:
- *     TtmpFindDeviceByDeviceId @ 0x1407692D4 (TtmpFindDeviceByDeviceId.c)
- *     TtmiScheduleSessionWorker @ 0x140769F24 (TtmiScheduleSessionWorker.c)
- *     TtmiLogDeviceSetInputWakeCapability @ 0x14076CBF8 (TtmiLogDeviceSetInputWakeCapability.c)
- *     TtmiLogError @ 0x140903A9C (TtmiLogError.c)
+ *     TtmpFindDeviceByDeviceId @ 0x1407694F4 (TtmpFindDeviceByDeviceId.c)
+ *     TtmiScheduleSessionWorker @ 0x14076A144 (TtmiScheduleSessionWorker.c)
+ *     TtmiLogDeviceSetInputWakeCapability @ 0x14076CE18 (TtmiLogDeviceSetInputWakeCapability.c)
+ *     TtmiLogError @ 0x14099E04C (TtmiLogError.c)
  */
 
 __int64 __fastcall TtmiSetInputWakeCapability(__int64 a1, __int64 a2, unsigned int a3, unsigned int a4)

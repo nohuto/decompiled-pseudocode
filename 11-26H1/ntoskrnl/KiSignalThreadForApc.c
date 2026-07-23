@@ -1,24 +1,24 @@
 /*
- * XREFs of KiSignalThreadForApc @ 0x14020B1E0
+ * XREFs of KiSignalThreadForApc @ 0x14020B2C0
  * Callers:
- *     KiSuspendThread @ 0x14020909C (KiSuspendThread.c)
- *     KiQueueTebUpdateApc @ 0x1402093E4 (KiQueueTebUpdateApc.c)
- *     KiInsertDeferredPreemptionApc @ 0x14020A058 (KiInsertDeferredPreemptionApc.c)
- *     KeInsertQueueApc @ 0x14020AD90 (KeInsertQueueApc.c)
- *     KiSetUserAffinityThread @ 0x14022A784 (KiSetUserAffinityThread.c)
- *     KeRequestTerminationThread @ 0x1402C5B58 (KeRequestTerminationThread.c)
- *     KiResumeThread @ 0x1402C60D8 (KiResumeThread.c)
- *     KeTryToInsertQueueApc @ 0x1403F7408 (KeTryToInsertQueueApc.c)
- *     KiSchedulerApc @ 0x1404A1BE0 (KiSchedulerApc.c)
- *     KiRequestSchedulerApcThread @ 0x1405F6A2C (KiRequestSchedulerApcThread.c)
- *     ?KiAbpCrossThreadDelete@AutoBoost@@YAXPEAXPEAU_KTHREAD@@@Z @ 0x1405FDDA8 (-KiAbpCrossThreadDelete@AutoBoost@@YAXPEAXPEAU_KTHREAD@@@Z.c)
+ *     KiSuspendThread @ 0x14020917C (KiSuspendThread.c)
+ *     KiQueueTebUpdateApc @ 0x1402094C4 (KiQueueTebUpdateApc.c)
+ *     KiInsertDeferredPreemptionApc @ 0x14020A138 (KiInsertDeferredPreemptionApc.c)
+ *     KeInsertQueueApc @ 0x14020AE70 (KeInsertQueueApc.c)
+ *     KiSetUserAffinityThread @ 0x14022C114 (KiSetUserAffinityThread.c)
+ *     KeRequestTerminationThread @ 0x1403107F4 (KeRequestTerminationThread.c)
+ *     KiResumeThread @ 0x140310D78 (KiResumeThread.c)
+ *     KeTryToInsertQueueApc @ 0x1403F0DB8 (KeTryToInsertQueueApc.c)
+ *     KiSchedulerApc @ 0x14049B710 (KiSchedulerApc.c)
+ *     KiRequestSchedulerApcThread @ 0x1405F93EC (KiRequestSchedulerApcThread.c)
+ *     ?KiAbpCrossThreadDelete@AutoBoost@@YAXPEAXPEAU_KTHREAD@@@Z @ 0x1406007F8 (-KiAbpCrossThreadDelete@AutoBoost@@YAXPEAXPEAU_KTHREAD@@@Z.c)
  * Callees:
- *     HalpInterruptSendIpi @ 0x140230DF0 (HalpInterruptSendIpi.c)
- *     KiSignalThread @ 0x14027C940 (KiSignalThread.c)
- *     HalpDisableInterrupts @ 0x1402C7D00 (HalpDisableInterrupts.c)
- *     KiRequestSoftwareInterrupt @ 0x1402C7D20 (KiRequestSoftwareInterrupt.c)
- *     KiSendSoftwareInterrupt @ 0x140446190 (KiSendSoftwareInterrupt.c)
- *     KiRequestApcInterruptSynchronously @ 0x140520548 (KiRequestApcInterruptSynchronously.c)
+ *     HalpInterruptSendIpi @ 0x140232750 (HalpInterruptSendIpi.c)
+ *     KiSignalThread @ 0x14027BEB0 (KiSignalThread.c)
+ *     HalpDisableInterrupts @ 0x1403129A0 (HalpDisableInterrupts.c)
+ *     KiRequestSoftwareInterrupt @ 0x1403129C0 (KiRequestSoftwareInterrupt.c)
+ *     KiSendSoftwareInterrupt @ 0x14043EC90 (KiSendSoftwareInterrupt.c)
+ *     KiRequestApcInterruptSynchronously @ 0x140522BEC (KiRequestApcInterruptSynchronously.c)
  */
 
 char __fastcall KiSignalThreadForApc(__int64 a1, __int64 a2, char a3, char a4)

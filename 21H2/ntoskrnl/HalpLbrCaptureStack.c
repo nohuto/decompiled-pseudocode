@@ -1,5 +1,5 @@
 /*
- * XREFs of HalpLbrCaptureStack @ 0x1404DD0D0
+ * XREFs of HalpLbrCaptureStack @ 0x1404DD310
  * Callers:
  *     <none>
  * Callees:

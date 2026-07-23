@@ -1,5 +1,5 @@
 /*
- * XREFs of PsReleaseProcessExitSynchronization @ 0x1404C03A0
+ * XREFs of PsReleaseProcessExitSynchronization @ 0x1404AC0D0
  * Callers:
  *     <none>
  * Callees:

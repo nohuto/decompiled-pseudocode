@@ -1,7 +1,7 @@
 /*
  * XREFs of WheaInitializeProcessor @ 0x1403E0728
  * Callers:
- *     KiStartDynamicProcessor @ 0x14064F040 (KiStartDynamicProcessor.c)
+ *     KiStartDynamicProcessor @ 0x14064F124 (KiStartDynamicProcessor.c)
  * Callees:
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */
@@ -16,9 +16,9 @@ __int64 __fastcall WheaInitializeProcessor(__int64 a1, unsigned int a2)
   result = 0LL;
   if ( a2 )
   {
-    for ( i = qword_140329938; (__int64 *)i != &qword_140329938; i = *(_QWORD *)i )
+    for ( i = qword_140329968; (__int64 *)i != &qword_140329968; i = *(_QWORD *)i )
     {
-      result = (*((__int64 (__fastcall **)(_QWORD, __int64, _QWORD))&unk_1403415F8 + 6 * *(int *)(i + 40)))(
+      result = (*((__int64 (__fastcall **)(_QWORD, __int64, _QWORD))&unk_140341638 + 6 * *(int *)(i + 40)))(
                  a2,
                  i + 89,
                  *(_QWORD *)(i + 56));
@@ -34,7 +34,7 @@ __int64 __fastcall WheaInitializeProcessor(__int64 a1, unsigned int a2)
     if ( PoolWithTag )
     {
       PoolWithTag[1] = &WheapErrorSourceTable;
-      *(_DWORD *)PoolWithTag = dword_140329934;
+      *(_DWORD *)PoolWithTag = dword_140329964;
       PoolWithTag[2] = &WheapDispatchPtr.Reserved;
       result = 0LL;
       *(_QWORD *)(a1 + 24528) = v6;

@@ -1,24 +1,24 @@
 /*
- * XREFs of WdipSemDisableScenario @ 0x1404E3DA4
+ * XREFs of WdipSemDisableScenario @ 0x1404C6A5C
  * Callers:
- *     WdipStartEndScenario @ 0x1404E3D3C (WdipStartEndScenario.c)
+ *     WdipStartEndScenario @ 0x1404C69F4 (WdipStartEndScenario.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfAcquirePushLockSharedEx @ 0x1400C8280 (ExfAcquirePushLockSharedEx.c)
- *     ExfReleasePushLock @ 0x1400C8620 (ExfReleasePushLock.c)
- *     EtwEventEnabled @ 0x1400D54D0 (EtwEventEnabled.c)
- *     WdipSemMarkInstanceForDeletion @ 0x1404E3F5C (WdipSemMarkInstanceForDeletion.c)
- *     WdipSemGetLoggerIds @ 0x1404E4090 (WdipSemGetLoggerIds.c)
- *     WdipSemDeleteTransitionalInstance @ 0x1404E418C (WdipSemDeleteTransitionalInstance.c)
- *     WdipSemWriteSemActionsEvent @ 0x1404E4274 (WdipSemWriteSemActionsEvent.c)
- *     WdipSemDisableContextProviders @ 0x1404E4D38 (WdipSemDisableContextProviders.c)
- *     WdipSemValidateEndEvent @ 0x1404E4FC8 (WdipSemValidateEndEvent.c)
- *     WdipSemActivateInstance @ 0x1405419F0 (WdipSemActivateInstance.c)
- *     WdipSemShutdown @ 0x14069B990 (WdipSemShutdown.c)
- *     WdipSemWriteSemFailureEvent @ 0x14069C364 (WdipSemWriteSemFailureEvent.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1400C6120 (ExfAcquirePushLockSharedEx.c)
+ *     ExfReleasePushLock @ 0x1400C64C0 (ExfReleasePushLock.c)
+ *     EtwEventEnabled @ 0x1400D3370 (EtwEventEnabled.c)
+ *     WdipSemMarkInstanceForDeletion @ 0x1404C6C14 (WdipSemMarkInstanceForDeletion.c)
+ *     WdipSemGetLoggerIds @ 0x1404C6D48 (WdipSemGetLoggerIds.c)
+ *     WdipSemDeleteTransitionalInstance @ 0x1404C6E44 (WdipSemDeleteTransitionalInstance.c)
+ *     WdipSemWriteSemActionsEvent @ 0x1404C6F2C (WdipSemWriteSemActionsEvent.c)
+ *     WdipSemDisableContextProviders @ 0x1404C79F0 (WdipSemDisableContextProviders.c)
+ *     WdipSemValidateEndEvent @ 0x1404C7C80 (WdipSemValidateEndEvent.c)
+ *     WdipSemActivateInstance @ 0x140541F30 (WdipSemActivateInstance.c)
+ *     WdipSemShutdown @ 0x14069BA74 (WdipSemShutdown.c)
+ *     WdipSemWriteSemFailureEvent @ 0x14069C448 (WdipSemWriteSemFailureEvent.c)
  */
 
 __int64 __fastcall WdipSemDisableScenario(__int64 a1, unsigned __int16 a2, __int64 a3)

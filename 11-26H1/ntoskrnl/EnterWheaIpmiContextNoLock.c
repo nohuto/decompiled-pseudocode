@@ -1,13 +1,13 @@
 /*
- * XREFs of EnterWheaIpmiContextNoLock @ 0x1406D4318
+ * XREFs of EnterWheaIpmiContextNoLock @ 0x1406D8398
  * Callers:
- *     IopWheaSelLogCheckPointEx @ 0x1405CA070 (IopWheaSelLogCheckPointEx.c)
- *     IopWheaSelLogError @ 0x1405CA160 (IopWheaSelLogError.c)
- *     KeBugCheck2 @ 0x1405E5F10 (KeBugCheck2.c)
- *     WheaSelLogCheckPointNoLock @ 0x1406D43F0 (WheaSelLogCheckPointNoLock.c)
+ *     IopWheaSelLogCheckPointEx @ 0x1405CC940 (IopWheaSelLogCheckPointEx.c)
+ *     IopWheaSelLogError @ 0x1405CCA30 (IopWheaSelLogError.c)
+ *     KeBugCheck2 @ 0x1405E8880 (KeBugCheck2.c)
+ *     WheaSelLogCheckPointNoLock @ 0x1406D8470 (WheaSelLogCheckPointNoLock.c)
  * Callees:
- *     DbgPrintEx @ 0x140397530 (DbgPrintEx.c)
- *     CheckWheaIpmiContext @ 0x1406D4250 (CheckWheaIpmiContext.c)
+ *     DbgPrintEx @ 0x1403992B0 (DbgPrintEx.c)
+ *     CheckWheaIpmiContext @ 0x1406D82D0 (CheckWheaIpmiContext.c)
  */
 
 __int64 EnterWheaIpmiContextNoLock()
@@ -17,7 +17,7 @@ __int64 EnterWheaIpmiContextNoLock()
   result = CheckWheaIpmiContext();
   if ( !*(_DWORD *)&WheapConfigTableLock.WaitBlockFill11[16] )
   {
-    if ( LODWORD(CmpCallbackListLock.PropagateBoostsEntry.Next) )
+    if ( *(_DWORD *)&CmpContextListLock.SchedulerApcFill5[56] )
     {
       DbgPrintEx(
         5u,

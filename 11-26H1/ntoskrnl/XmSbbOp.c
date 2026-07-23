@@ -1,9 +1,9 @@
 /*
- * XREFs of XmSbbOp @ 0x1405ACB60
+ * XREFs of XmSbbOp @ 0x1405AF370
  * Callers:
  *     <none>
  * Callees:
- *     XmSubOperands @ 0x1404A7AE0 (XmSubOperands.c)
+ *     XmSubOperands @ 0x1404A1170 (XmSubOperands.c)
  */
 
 __int64 __fastcall XmSbbOp(_DWORD *a1)

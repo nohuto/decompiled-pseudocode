@@ -1,12 +1,12 @@
 /*
- * XREFs of PspJobIoRateVolumeEntryRemoveAll @ 0x140287874
+ * XREFs of PspJobIoRateVolumeEntryRemoveAll @ 0x140204A14
  * Callers:
- *     PspJobIoRateControlDisable @ 0x14067F400 (PspJobIoRateControlDisable.c)
+ *     PspJobIoRateControlDisable @ 0x1405D9EA0 (PspJobIoRateControlDisable.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusive @ 0x1402C1960 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140346AD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     PspIoRateEntryVolumeDelete @ 0x1405820C0 (PspIoRateEntryVolumeDelete.c)
+ *     PspIoRateEntryVolumeDelete @ 0x1405822F0 (PspIoRateEntryVolumeDelete.c)
  */
 
 __int64 __fastcall PspJobIoRateVolumeEntryRemoveAll(__int64 a1, __int64 a2)

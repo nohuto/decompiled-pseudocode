@@ -1,12 +1,12 @@
 /*
- * XREFs of KiUpdateVpBackingThreadPriorityOnPriorityQuery @ 0x1404F9024
+ * XREFs of KiUpdateVpBackingThreadPriorityOnPriorityQuery @ 0x1404F2634
  * Callers:
- *     KeQueryPriorityThread @ 0x1402052D0 (KeQueryPriorityThread.c)
- *     KeQueryEffectivePriorityThread @ 0x14045A8B0 (KeQueryEffectivePriorityThread.c)
+ *     KeQueryPriorityThread @ 0x1402053B0 (KeQueryPriorityThread.c)
+ *     KeQueryEffectivePriorityThread @ 0x140452130 (KeQueryEffectivePriorityThread.c)
  * Callees:
- *     KiAcquireThreadLockRaiseToDpc @ 0x1402C4710 (KiAcquireThreadLockRaiseToDpc.c)
- *     KiProcessDeferredReadyList @ 0x14037C920 (KiProcessDeferredReadyList.c)
- *     KiUpdateVpBackingThreadPriorityFromTopLevel @ 0x1403BFE80 (KiUpdateVpBackingThreadPriorityFromTopLevel.c)
+ *     KiAcquireThreadLockRaiseToDpc @ 0x14030F3D0 (KiAcquireThreadLockRaiseToDpc.c)
+ *     KiProcessDeferredReadyList @ 0x14037E6D0 (KiProcessDeferredReadyList.c)
+ *     KiUpdateVpBackingThreadPriorityFromTopLevel @ 0x1403C9D80 (KiUpdateVpBackingThreadPriorityFromTopLevel.c)
  */
 
 __int64 __fastcall KiUpdateVpBackingThreadPriorityOnPriorityQuery(struct _KTHREAD *a1)

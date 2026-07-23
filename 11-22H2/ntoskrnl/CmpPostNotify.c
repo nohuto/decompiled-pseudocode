@@ -174,7 +174,7 @@ LABEL_59:
           goto LABEL_59;
         *v27 = v26;
         *(_QWORD *)(v26 + 8) = v27;
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v28 = KeGetCurrentIrql();
           if ( ((unsigned __int8)KiIrqlFlags & (unsigned __int8)v11) != 0

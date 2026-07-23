@@ -20,32 +20,32 @@
 __int64 PopUmpoInitializeMonitorChannel()
 {
   PVOID v0; // rsi
-  int Port; // ebx
+  NTSTATUS v1; // ebx
   PCALLBACK_OBJECT v2; // rdi
   PCALLBACK_OBJECT CallbackObject; // [rsp+28h] [rbp-69h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+30h] [rbp-61h] BYREF
-  _QWORD v6[2]; // [rsp+60h] [rbp-31h] BYREF
+  _QWORD PortInformation[2]; // [rsp+60h] [rbp-31h] BYREF
   UNICODE_STRING DestinationString; // [rsp+70h] [rbp-21h] BYREF
-  _QWORD v8[10]; // [rsp+88h] [rbp-9h] BYREF
+  _ALPC_PORT_ATTRIBUTES PortAttributes; // [rsp+88h] [rbp-9h] BYREF
 
   CallbackObject = 0LL;
   PopAlpcMonitorServerPort = 0LL;
   PopAlpcMonitorClientPort = 0LL;
   v0 = 0LL;
   RtlInitUnicodeString(&DestinationString, L"\\PowerMonitorPort");
-  memset(v8, 0, 0x48uLL);
+  memset(&PortAttributes, 0, sizeof(PortAttributes));
   ObjectAttributes.RootDirectory = 0LL;
   ObjectAttributes.ObjectName = &DestinationString;
-  LODWORD(v8[0]) = 0x100000;
-  v8[2] = 256LL;
+  PortAttributes.Flags = 0x100000;
+  PortAttributes.MaxMessageLength = 256LL;
   ObjectAttributes.Length = 48;
   ObjectAttributes.Attributes = 512;
   *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
-  Port = ZwAlpcCreatePort((__int64)&PopAlpcMonitorServerPort, (__int64)&ObjectAttributes, (__int64)v8);
-  if ( Port < 0 )
+  v1 = ZwAlpcCreatePort(&PopAlpcMonitorServerPort, &ObjectAttributes, &PortAttributes);
+  if ( v1 < 0 )
   {
     if ( (PoDebug & 1) != 0 )
-      DbgPrint("%s: ZwAlpcCreatePort failed: 0x%x\n", "PopUmpoInitializeMonitorChannel", (unsigned int)Port);
+      DbgPrint("%s: ZwAlpcCreatePort failed: 0x%x\n", "PopUmpoInitializeMonitorChannel", (unsigned int)v1);
   }
   else
   {
@@ -54,11 +54,11 @@ __int64 PopUmpoInitializeMonitorChannel()
     ObjectAttributes.Length = 48;
     ObjectAttributes.Attributes = 512;
     *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
-    Port = ExCreateCallback(&CallbackObject, &ObjectAttributes, 1u, 1u);
-    if ( Port < 0 )
+    v1 = ExCreateCallback(&CallbackObject, &ObjectAttributes, 1u, 1u);
+    if ( v1 < 0 )
     {
       if ( (PoDebug & 1) != 0 )
-        DbgPrint("%s: Failed to create callback, %#08lx\n", "PopUmpoInitializeMonitorChannel", (unsigned int)Port);
+        DbgPrint("%s: Failed to create callback, %#08lx\n", "PopUmpoInitializeMonitorChannel", (unsigned int)v1);
     }
     else
     {
@@ -66,31 +66,31 @@ __int64 PopUmpoInitializeMonitorChannel()
       if ( v0 )
       {
         v2 = CallbackObject;
-        v6[0] = CallbackObject;
-        v6[1] = PopAlpcMonitorServerPort;
-        Port = ZwAlpcSetInformation((__int64)PopAlpcMonitorServerPort, 9LL, (__int64)v6);
+        PortInformation[0] = CallbackObject;
+        PortInformation[1] = PopAlpcMonitorServerPort;
+        v1 = ZwAlpcSetInformation(PopAlpcMonitorServerPort, AlpcRegisterCallbackInformation, PortInformation, 0x10u);
         ObfDereferenceObjectWithTag(v2, 0x746C6644u);
-        if ( Port < 0 )
+        if ( v1 < 0 )
         {
           if ( (PoDebug & 1) != 0 )
             DbgPrint(
               "%s: Failed to set alpc call back info, %#08lx\n",
               "PopUmpoInitializeMonitorChannel",
-              (unsigned int)Port);
+              (unsigned int)v1);
         }
         else
         {
           PopMonitorProcessLoop();
-          Port = 0;
+          v1 = 0;
         }
       }
       else if ( (PoDebug & 1) != 0 )
       {
-        DbgPrint("%s: Failed to register callback, %#08lx\n", "PopUmpoInitializeMonitorChannel", (unsigned int)Port);
+        DbgPrint("%s: Failed to register callback, %#08lx\n", "PopUmpoInitializeMonitorChannel", (unsigned int)v1);
       }
     }
   }
-  if ( Port < 0 )
+  if ( v1 < 0 )
   {
     if ( PopAlpcMonitorServerPort )
       ZwClose(PopAlpcMonitorServerPort);
@@ -99,5 +99,5 @@ __int64 PopUmpoInitializeMonitorChannel()
     if ( CallbackObject )
       ObfDereferenceObjectWithTag(CallbackObject, 0x746C6644u);
   }
-  return (unsigned int)Port;
+  return (unsigned int)v1;
 }

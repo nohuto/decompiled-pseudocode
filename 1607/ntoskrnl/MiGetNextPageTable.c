@@ -1,34 +1,34 @@
 /*
- * XREFs of MiGetNextPageTable @ 0x1400438F0
+ * XREFs of MiGetNextPageTable @ 0x140043470
  * Callers:
- *     NtGetWriteWatch @ 0x140014EF0 (NtGetWriteWatch.c)
- *     MiMoveDirtyBitsToPfns @ 0x140042A70 (MiMoveDirtyBitsToPfns.c)
- *     MiQueryAddressState @ 0x140043000 (MiQueryAddressState.c)
- *     MiDecommitPages @ 0x140044D50 (MiDecommitPages.c)
- *     MiDeleteVirtualAddresses @ 0x140045C00 (MiDeleteVirtualAddresses.c)
- *     MiDeletePagablePteRange @ 0x1400751A0 (MiDeletePagablePteRange.c)
- *     MiCountSharedPages @ 0x140092C50 (MiCountSharedPages.c)
- *     MiComputePageCommitment @ 0x140096300 (MiComputePageCommitment.c)
- *     MiSplitPrivatePage @ 0x1400988C0 (MiSplitPrivatePage.c)
- *     MiFlushDirtyBitsToPfn @ 0x1400A5F84 (MiFlushDirtyBitsToPfn.c)
- *     MiEnumerateLeafPtes @ 0x1400B9C10 (MiEnumerateLeafPtes.c)
- *     NtLockVirtualMemory @ 0x1400BAEC8 (NtLockVirtualMemory.c)
- *     MiWalkVaRange @ 0x1400BB684 (MiWalkVaRange.c)
- *     MiIsCfgBitMapPageShared @ 0x1400E9DF0 (MiIsCfgBitMapPageShared.c)
- *     MiDeletePteRange @ 0x1401007D0 (MiDeletePteRange.c)
- *     MiUpdateForkMaps @ 0x140109E0C (MiUpdateForkMaps.c)
- *     MiCloneReserveVadCommit @ 0x14010CB38 (MiCloneReserveVadCommit.c)
- *     MiDeleteSessionAddressSpace @ 0x140122D08 (MiDeleteSessionAddressSpace.c)
- *     MiFreeUnusedPfnPages @ 0x14013E234 (MiFreeUnusedPfnPages.c)
- *     MiCheckCommitReleaseFromVad @ 0x1401DF4E0 (MiCheckCommitReleaseFromVad.c)
+ *     NtGetWriteWatch @ 0x140014A70 (NtGetWriteWatch.c)
+ *     MiMoveDirtyBitsToPfns @ 0x1400425F0 (MiMoveDirtyBitsToPfns.c)
+ *     MiQueryAddressState @ 0x140042B80 (MiQueryAddressState.c)
+ *     MiDecommitPages @ 0x1400448D0 (MiDecommitPages.c)
+ *     MiDeleteVirtualAddresses @ 0x140045780 (MiDeleteVirtualAddresses.c)
+ *     MiDeletePagablePteRange @ 0x140075220 (MiDeletePagablePteRange.c)
+ *     MiCountSharedPages @ 0x140092450 (MiCountSharedPages.c)
+ *     MiComputePageCommitment @ 0x140095B00 (MiComputePageCommitment.c)
+ *     MiSplitPrivatePage @ 0x1400980C0 (MiSplitPrivatePage.c)
+ *     MiFlushDirtyBitsToPfn @ 0x1400A44FC (MiFlushDirtyBitsToPfn.c)
+ *     MiEnumerateLeafPtes @ 0x1400B7AA0 (MiEnumerateLeafPtes.c)
+ *     NtLockVirtualMemory @ 0x1400B8D58 (NtLockVirtualMemory.c)
+ *     MiWalkVaRange @ 0x1400B9514 (MiWalkVaRange.c)
+ *     MiIsCfgBitMapPageShared @ 0x1400E7C60 (MiIsCfgBitMapPageShared.c)
+ *     MiDeletePteRange @ 0x1400FE550 (MiDeletePteRange.c)
+ *     MiUpdateForkMaps @ 0x140107B8C (MiUpdateForkMaps.c)
+ *     MiCloneReserveVadCommit @ 0x14010A8B8 (MiCloneReserveVadCommit.c)
+ *     MiDeleteSessionAddressSpace @ 0x140123278 (MiDeleteSessionAddressSpace.c)
+ *     MiFreeUnusedPfnPages @ 0x14013E7A4 (MiFreeUnusedPfnPages.c)
+ *     MiCheckCommitReleaseFromVad @ 0x1401DF30C (MiCheckCommitReleaseFromVad.c)
  *     MiAddLoaderHalIoMappings @ 0x1407A3F38 (MiAddLoaderHalIoMappings.c)
  *     MiMarkLargePageRanges @ 0x1407AF36C (MiMarkLargePageRanges.c)
  * Callees:
- *     MiMakeSystemAddressValid @ 0x140015DAC (MiMakeSystemAddressValid.c)
- *     MiFlushTbList @ 0x1400E0490 (MiFlushTbList.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F2550 (MI_GET_PAGE_FRAME_FROM_PTE.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiMakeSystemAddressValid @ 0x14001592C (MiMakeSystemAddressValid.c)
+ *     MiFlushTbList @ 0x1400DE330 (MiFlushTbList.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F237C (MI_GET_PAGE_FRAME_FROM_PTE.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
  */
 
 __int64 __fastcall MiGetNextPageTable(
@@ -90,8 +90,8 @@ LABEL_3:
     if ( *(char *)v12 < 0 )
       break;
     if ( (a5 & 2) == 0
-      || qword_1403276E8 == (PVOID)qword_1403276F0
-      || (PVOID)MI_GET_PAGE_FRAME_FROM_PTE(v12) != *(&qword_1403276E8 + 3 - v8) )
+      || qword_140327728 == (PVOID)qword_140327730
+      || (PVOID)MI_GET_PAGE_FRAME_FROM_PTE(v12) != *(&qword_140327728 + 3 - v8) )
     {
       if ( (v7 & 1) != 0 )
       {

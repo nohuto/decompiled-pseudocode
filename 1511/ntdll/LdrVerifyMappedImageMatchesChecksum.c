@@ -7,32 +7,34 @@
  *     ChkSum @ 0x1800E2098 (ChkSum.c)
  */
 
-bool __fastcall LdrVerifyMappedImageMatchesChecksum(unsigned __int16 *a1, __int64 a2, int a3)
+BOOLEAN __cdecl LdrVerifyMappedImageMatchesChecksum(PVOID BaseAddress, SIZE_T NumberOfBytes, ULONG FileLength)
 {
-  __int64 v6; // rax
-  int v7; // edi
+  PIMAGE_NT_HEADERS v6; // rax
+  ULONG CheckSum; // edi
   unsigned __int16 v9; // ax
   unsigned __int16 *v10; // r10
   int v11; // r11d
   unsigned __int16 v12; // ax
   unsigned __int16 v13; // r10
 
-  v6 = RtlImageNtHeader((__int64)a1);
+  v6 = RtlImageNtHeader(BaseAddress);
   if ( v6 )
   {
-    v7 = *(_DWORD *)(v6 + 88);
-    if ( !v7 )
+    CheckSum = v6->OptionalHeader.CheckSum;
+    if ( !CheckSum )
       return 1;
-    v9 = ChkSum(0, a1, (unsigned __int64)(v6 - (_QWORD)a1 + 88) >> 1);
+    v9 = ChkSum(0, (unsigned __int16 *)BaseAddress, (unsigned __int64)((char *)v6 - (_BYTE *)BaseAddress + 88) >> 1);
     v12 = ChkSum(v9, v10, v11);
     v13 = v12;
-    if ( (a2 & 1) != 0 )
-      v13 = v12 + *((unsigned __int8 *)a1 + a2 - 1) + ((v12 + (unsigned int)*((unsigned __int8 *)a1 + a2 - 1)) >> 16);
+    if ( (NumberOfBytes & 1) != 0 )
+      v13 = v12
+          + (unsigned __int8)*((char *)BaseAddress + NumberOfBytes - 1)
+          + ((v12 + (unsigned int)(unsigned __int8)*((char *)BaseAddress + NumberOfBytes - 1)) >> 16);
   }
   else
   {
     v13 = 0;
-    v7 = a3;
+    CheckSum = FileLength;
   }
-  return a3 + v13 == v7;
+  return FileLength + v13 == CheckSum;
 }

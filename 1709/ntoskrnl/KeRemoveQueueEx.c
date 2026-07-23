@@ -53,7 +53,7 @@ ULONG __stdcall KeRemoveQueueEx(
   unsigned __int64 v22; // rax
   LIST_ENTRY *p_WaitListHead; // rax
   struct _LIST_ENTRY *v24; // rcx
-  struct _LIST_ENTRY *v25; // rax
+  _LIST_ENTRY *v25; // rax
   LIST_ENTRY *p_EntryListHead; // r8
   __int64 v28; // rsi
   struct _LIST_ENTRY *v29; // rax
@@ -512,15 +512,15 @@ LABEL_30:
     p_WaitListHead->Flink = (struct _LIST_ENTRY *)v15;
     _InterlockedAnd(&Queue->Header.Lock, 0xFFFFFF7F);
     CurrentThread->WaitBlockCount = 1;
-    v25 = (struct _LIST_ENTRY *)KiCommitThreadWait(CurrentThread, &CurrentThread->320, v21, v16);
+    v25 = (_LIST_ENTRY *)KiCommitThreadWait(CurrentThread, &CurrentThread->320, v21, v16);
     CurrentThread->WaitReason = 0;
-    if ( v25 != (struct _LIST_ENTRY *)256 )
+    if ( v25 != (_LIST_ENTRY *)256 )
     {
       *EntryArray = v25;
       if ( Count > 1
         && (unsigned __int64)&v25[-17].Blink + 7 > 1
-        && v25 != (struct _LIST_ENTRY *)192
-        && v25 != (struct _LIST_ENTRY *)128
+        && v25 != (_LIST_ENTRY *)192
+        && v25 != (_LIST_ENTRY *)128
         && Queue->Header.SignalState )
       {
         v46 = KeGetCurrentIrql();

@@ -12,11 +12,15 @@
  *     <none>
  */
 
-__int64 NtSetInformationProcess()
+NTSTATUS __cdecl NtSetInformationProcess(
+        HANDLE ProcessHandle,
+        PROCESSINFOCLASS ProcessInformationClass,
+        PVOID ProcessInformation,
+        ULONG ProcessInformationLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 28LL;
+  result = 28;
   __asm { syscall; Low latency system call }
   return result;
 }

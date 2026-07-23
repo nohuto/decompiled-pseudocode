@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpFindActivationContextSection_CheckParameters @ 0x18001B578
+ * XREFs of RtlpFindActivationContextSection_CheckParameters @ 0x18001B568
  * Callers:
- *     RtlFindActivationContextSectionGuid @ 0x180019EF0 (RtlFindActivationContextSectionGuid.c)
- *     RtlFindActivationContextSectionString @ 0x18001AD80 (RtlFindActivationContextSectionString.c)
+ *     RtlFindActivationContextSectionGuid @ 0x180019EE0 (RtlFindActivationContextSectionGuid.c)
+ *     RtlFindActivationContextSectionString @ 0x18001AD70 (RtlFindActivationContextSectionString.c)
  * Callees:
- *     DbgPrintEx @ 0x18005BFC0 (DbgPrintEx.c)
+ *     DbgPrintEx @ 0x18005BFB0 (DbgPrintEx.c)
  */
 
 __int64 __fastcall RtlpFindActivationContextSection_CheckParameters(
@@ -15,7 +15,7 @@ __int64 __fastcall RtlpFindActivationContextSection_CheckParameters(
         _DWORD *a5)
 {
   unsigned int v5; // ebx
-  const char *v7; // r8
+  const CHAR *v7; // r8
   int v8; // [rsp+20h] [rbp-18h]
 
   v5 = 0;
@@ -36,7 +36,7 @@ __int64 __fastcall RtlpFindActivationContextSection_CheckParameters(
 LABEL_15:
       v5 = -1073741811;
       v8 = -1073741811;
-      DbgPrintEx(51LL, 0LL, v7, "RtlpFindActivationContextSection_CheckParameters", v8);
+      DbgPrintEx(0x33u, 0, v7, "RtlpFindActivationContextSection_CheckParameters", v8);
     }
   }
   return v5;

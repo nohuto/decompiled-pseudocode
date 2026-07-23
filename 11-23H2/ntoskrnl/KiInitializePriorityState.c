@@ -1,10 +1,10 @@
 /*
- * XREFs of KiInitializePriorityState @ 0x1403829D0
+ * XREFs of KiInitializePriorityState @ 0x140382B70
  * Callers:
- *     KiStartIdleThread @ 0x140382914 (KiStartIdleThread.c)
- *     KiConfigureSchedulingInformation @ 0x140A8E204 (KiConfigureSchedulingInformation.c)
+ *     KiStartIdleThread @ 0x140382AB4 (KiStartIdleThread.c)
+ *     KiConfigureSchedulingInformation @ 0x140A8E07C (KiConfigureSchedulingInformation.c)
  * Callees:
- *     KiIsThreadRankNonZero @ 0x140308FE0 (KiIsThreadRankNonZero.c)
+ *     KiIsThreadRankNonZero @ 0x140309270 (KiIsThreadRankNonZero.c)
  */
 
 __int64 __fastcall KiInitializePriorityState(_BYTE *a1, struct _KPRCB *a2, __int64 a3)

@@ -1,9 +1,9 @@
 /*
- * XREFs of PopDirectedDripsPdcLpeNotification @ 0x1408683C0
+ * XREFs of PopDirectedDripsPdcLpeNotification @ 0x140869620
  * Callers:
  *     <none>
  * Callees:
- *     PopQueueDirectedDripsWork @ 0x1402D6B68 (PopQueueDirectedDripsWork.c)
+ *     PopQueueDirectedDripsWork @ 0x1402D6D58 (PopQueueDirectedDripsWork.c)
  */
 
 __int64 __fastcall PopDirectedDripsPdcLpeNotification(__int64 a1, int a2)

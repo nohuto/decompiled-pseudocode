@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlGetReturnAddressHijackTarget @ 0x18011EEA0
+ * XREFs of RtlGetReturnAddressHijackTarget @ 0x18011D0D0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 (__fastcall *RtlGetReturnAddressHijackTarget())()
+ULONG_PTR RtlGetReturnAddressHijackTarget(void)
 {
-  return RtlRaiseExceptionForReturnAddressHijack;
+  return (ULONG_PTR)RtlRaiseExceptionForReturnAddressHijack;
 }

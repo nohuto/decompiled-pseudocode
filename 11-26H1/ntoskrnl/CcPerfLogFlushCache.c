@@ -1,12 +1,12 @@
 /*
- * XREFs of CcPerfLogFlushCache @ 0x1404A36A8
+ * XREFs of CcPerfLogFlushCache @ 0x14049D1B8
  * Callers:
- *     CcFlushCachePreProcess @ 0x1403991C8 (CcFlushCachePreProcess.c)
+ *     CcFlushCachePreProcess @ 0x14039AF28 (CcFlushCachePreProcess.c)
  * Callees:
- *     ObFastDereferenceObjectDeferDelete @ 0x140264A20 (ObFastDereferenceObjectDeferDelete.c)
- *     EtwTraceKernelEvent @ 0x1402DAC90 (EtwTraceKernelEvent.c)
- *     CcReferenceSharedCacheMapFileObject @ 0x14039ADF4 (CcReferenceSharedCacheMapFileObject.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     ObFastDereferenceObjectDeferDelete @ 0x140263F90 (ObFastDereferenceObjectDeferDelete.c)
+ *     EtwTraceKernelEvent @ 0x1402BCA50 (EtwTraceKernelEvent.c)
+ *     CcReferenceSharedCacheMapFileObject @ 0x14039CB54 (CcReferenceSharedCacheMapFileObject.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void __fastcall CcPerfLogFlushCache(__int64 a1, __int64 a2, __int64 *a3, int a4, char a5, char a6, char a7)

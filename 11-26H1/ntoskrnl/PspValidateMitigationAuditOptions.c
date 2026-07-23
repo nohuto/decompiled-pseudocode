@@ -1,9 +1,9 @@
 /*
- * XREFs of PspValidateMitigationAuditOptions @ 0x140B40814
+ * XREFs of PspValidateMitigationAuditOptions @ 0x140B42824
  * Callers:
- *     PspReadIFEOMitigationAuditOptions @ 0x140966404 (PspReadIFEOMitigationAuditOptions.c)
- *     PspBuildCreateProcessContext @ 0x140A00BC4 (PspBuildCreateProcessContext.c)
- *     PspInitPhase0 @ 0x140D06FAC (PspInitPhase0.c)
+ *     PspReadIFEOMitigationAuditOptions @ 0x140A78518 (PspReadIFEOMitigationAuditOptions.c)
+ *     PspBuildCreateProcessContext @ 0x140A79424 (PspBuildCreateProcessContext.c)
+ *     PspInitPhase0 @ 0x140D0D27C (PspInitPhase0.c)
  * Callees:
  *     <none>
  */

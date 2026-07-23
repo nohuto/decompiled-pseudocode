@@ -1,25 +1,25 @@
 /*
- * XREFs of EtwpEnumerateAddressSpace @ 0x1409FD0D0
+ * XREFs of EtwpEnumerateAddressSpace @ 0x140921CD0
  * Callers:
- *     EtwTraceProcess @ 0x14096E118 (EtwTraceProcess.c)
- *     EtwpProcessEnumCallback @ 0x14096EA90 (EtwpProcessEnumCallback.c)
+ *     EtwpProcessEnumCallback @ 0x1409BC0E0 (EtwpProcessEnumCallback.c)
+ *     EtwTraceProcess @ 0x1409D02D8 (EtwTraceProcess.c)
  * Callees:
- *     KeAreAllApcsDisabled @ 0x140263C40 (KeAreAllApcsDisabled.c)
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     EtwTraceKernelEvent @ 0x1402DAC90 (EtwTraceKernelEvent.c)
- *     EtwpLogKernelEvent @ 0x14032CDC0 (EtwpLogKernelEvent.c)
- *     RtlImageNtHeader @ 0x1404696C0 (RtlImageNtHeader.c)
- *     EtwpTraceImageUnload @ 0x1404760E8 (EtwpTraceImageUnload.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     RtlReadULong64FromUser @ 0x14077F554 (RtlReadULong64FromUser.c)
- *     RtlReadULongFromUser @ 0x14077F590 (RtlReadULongFromUser.c)
- *     FsRtlReleaseFileNameInformation @ 0x1409FDA00 (FsRtlReleaseFileNameInformation.c)
- *     ObQueryNameStringMode @ 0x1409FDA40 (ObQueryNameStringMode.c)
- *     MmEnumerateAddressSpaceAndReferenceImages @ 0x140A7CF90 (MmEnumerateAddressSpaceAndReferenceImages.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KeAreAllApcsDisabled @ 0x1402631B0 (KeAreAllApcsDisabled.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     EtwTraceKernelEvent @ 0x1402BCA50 (EtwTraceKernelEvent.c)
+ *     EtwpLogKernelEvent @ 0x14032EDF0 (EtwpLogKernelEvent.c)
+ *     RtlImageNtHeader @ 0x140462E40 (RtlImageNtHeader.c)
+ *     EtwpTraceImageUnload @ 0x14046F868 (EtwpTraceImageUnload.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     RtlReadULong64FromUser @ 0x140782054 (RtlReadULong64FromUser.c)
+ *     RtlReadULongFromUser @ 0x140782090 (RtlReadULongFromUser.c)
+ *     FsRtlReleaseFileNameInformation @ 0x140922600 (FsRtlReleaseFileNameInformation.c)
+ *     ObQueryNameStringMode @ 0x140922640 (ObQueryNameStringMode.c)
+ *     MmEnumerateAddressSpaceAndReferenceImages @ 0x140A82E00 (MmEnumerateAddressSpaceAndReferenceImages.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall EtwpEnumerateAddressSpace(PRKPROCESS PROCESS, __int64 a2, int *a3)
@@ -36,7 +36,7 @@ void __fastcall EtwpEnumerateAddressSpace(PRKPROCESS PROCESS, __int64 a2, int *a
   int v12; // edx
   unsigned __int64 v13; // rax
   int NameStringMode; // r13d
-  _DWORD *v15; // rax
+  PIMAGE_NT_HEADERS v15; // rax
   __int64 ULong64FromUser; // rdx
   int v17; // edx
   PRKPROCESS v18; // r13
@@ -79,7 +79,7 @@ void __fastcall EtwpEnumerateAddressSpace(PRKPROCESS PROCESS, __int64 a2, int *a
   __int64 v55; // [rsp+C8h] [rbp-130h]
   __int64 v56; // [rsp+D0h] [rbp-128h]
   __int64 v57; // [rsp+D8h] [rbp-120h]
-  _DWORD *v58; // [rsp+E0h] [rbp-118h]
+  PIMAGE_NT_HEADERS v58; // [rsp+E0h] [rbp-118h]
   unsigned __int16 *v59; // [rsp+E8h] [rbp-110h]
   __int64 v60; // [rsp+F0h] [rbp-108h]
   __int64 v61; // [rsp+F8h] [rbp-100h]
@@ -91,7 +91,7 @@ void __fastcall EtwpEnumerateAddressSpace(PRKPROCESS PROCESS, __int64 a2, int *a
   PVOID P; // [rsp+128h] [rbp-D0h]
   _QWORD v68[2]; // [rsp+130h] [rbp-C8h] BYREF
   int Flink; // [rsp+140h] [rbp-B8h]
-  __int32 v70; // [rsp+144h] [rbp-B4h]
+  int v70; // [rsp+144h] [rbp-B4h]
   int v71; // [rsp+148h] [rbp-B0h]
   char v72; // [rsp+14Ch] [rbp-ACh]
   char v73; // [rsp+14Dh] [rbp-ABh]
@@ -289,14 +289,14 @@ LABEL_39:
       v49 = ULongFromUser;
       v64 = i[1].m128i_i64[0];
       v61 = v64;
-      v15 = RtlImageNtHeader(i->m128i_u64[1]);
+      v15 = RtlImageNtHeader((PVOID)i->m128i_i64[1]);
       v58 = v15;
       if ( v15 )
       {
-        ULongFromUser = RtlReadULongFromUser(v15 + 22);
+        ULongFromUser = RtlReadULongFromUser(&v15->OptionalHeader.CheckSum);
         v49 = ULongFromUser;
-        v47 = RtlReadULongFromUser(v58 + 2);
-        ULong64FromUser = RtlReadULong64FromUser(v58 + 12);
+        v47 = RtlReadULongFromUser(&v58->FileHeader.TimeDateStamp);
+        ULong64FromUser = RtlReadULong64FromUser(&v58->OptionalHeader.ImageBase);
         v61 = ULong64FromUser;
       }
       else
@@ -358,7 +358,7 @@ LABEL_39:
       v18 = v39;
 LABEL_33:
       if ( v55 )
-        FsRtlReleaseFileNameInformation(v55);
+        FsRtlReleaseFileNameInformation();
       v20 = (void *)i->m128i_i64[0];
       if ( v36 )
       {

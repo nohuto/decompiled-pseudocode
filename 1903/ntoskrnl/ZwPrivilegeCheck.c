@@ -10,5 +10,5 @@ NTSTATUS __stdcall ZwPrivilegeCheck(HANDLE ClientToken, PPRIVILEGE_SET RequiredP
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(ClientToken, RequiredPrivileges, Result);
+  return KiServiceInternal(ClientToken);
 }

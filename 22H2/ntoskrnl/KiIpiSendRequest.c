@@ -70,7 +70,7 @@ __int64 __fastcall KiIpiSendRequest(__int64 a1, unsigned int a2, unsigned __int1
   if ( (DWORD2(PerfGlobalGroupMask) & 0x400000) != 0 )
   {
     v39 = 1;
-    EtwGetKernelTraceTimestamp((LARGE_INTEGER *)v50, 1077936128LL, (__int64)a3, (__int64)a4);
+    EtwGetKernelTraceTimestamp((LARGE_INTEGER *)v50, 0x40400000u);
   }
   else
   {

@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpValidRelativeAttribute @ 0x1406851F4
+ * XREFs of RtlpValidRelativeAttribute @ 0x1406852D8
  * Callers:
- *     RtlpValidAttributeAce @ 0x140685000 (RtlpValidAttributeAce.c)
+ *     RtlpValidAttributeAce @ 0x1406850E4 (RtlpValidAttributeAce.c)
  * Callees:
- *     RtlStringCbLengthW @ 0x14009ED7C (RtlStringCbLengthW.c)
+ *     RtlStringCbLengthW @ 0x140085E34 (RtlStringCbLengthW.c)
  */
 
 char __fastcall RtlpValidRelativeAttribute(unsigned int *a1, unsigned int a2)

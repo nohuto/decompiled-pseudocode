@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     VfUtilDbgPrint @ 0x14022264C (VfUtilDbgPrint.c)
+ *     VfUtilDbgPrint @ 0x140222478 (VfUtilDbgPrint.c)
  */
 
 char __fastcall VfPowerDumpIrpStack(__int64 a1)

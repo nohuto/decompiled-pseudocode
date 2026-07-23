@@ -30,7 +30,7 @@ int __stdcall RtlpFlsAlloc(
   int v17; // eax
 
   v4 = 1;
-  RtlAcquireSRWLockExclusive((volatile signed __int32 *)&RtlpFlsContext);
+  RtlAcquireSRWLockExclusive(&RtlpFlsContext);
   v5 = 4;
   while ( 1 )
   {
@@ -40,7 +40,7 @@ int __stdcall RtlpFlsAlloc(
     {
       v12 = -1073741801;
 LABEL_22:
-      RtlReleaseSRWLockExclusive((volatile signed __int32 *)&RtlpFlsContext);
+      RtlReleaseSRWLockExclusive(&RtlpFlsContext);
       return v12;
     }
     v8 = v6 - 16;
@@ -72,7 +72,7 @@ LABEL_22:
     *(_DWORD *)v5 = v11;
     if ( v8 > dword_4B3A66FC )
       dword_4B3A66FC = v8;
-    RtlReleaseSRWLockExclusive((volatile signed __int32 *)&RtlpFlsContext);
+    RtlReleaseSRWLockExclusive(&RtlpFlsContext);
     v4 = 0;
     v7 = -1;
     *(_DWORD *)a2 = v8;

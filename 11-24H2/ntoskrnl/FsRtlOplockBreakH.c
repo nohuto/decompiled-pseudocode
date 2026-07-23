@@ -1,9 +1,9 @@
 /*
- * XREFs of FsRtlOplockBreakH @ 0x14070B400
+ * XREFs of FsRtlOplockBreakH @ 0x140708FC0
  * Callers:
  *     <none>
  * Callees:
- *     FsRtlOplockBreakH2 @ 0x140A35490 (FsRtlOplockBreakH2.c)
+ *     FsRtlOplockBreakH2 @ 0x140A294A0 (FsRtlOplockBreakH2.c)
  */
 
 NTSTATUS __stdcall FsRtlOplockBreakH(

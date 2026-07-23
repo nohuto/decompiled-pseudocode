@@ -1,19 +1,19 @@
 /*
- * XREFs of IovpLocalCompletionRoutine @ 0x140BA6B70
+ * XREFs of IovpLocalCompletionRoutine @ 0x140BA8B70
  * Callers:
  *     <none>
  * Callees:
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     MdlInvariantPostDriverCompletion @ 0x140611A40 (MdlInvariantPostDriverCompletion.c)
- *     ViErrorReport1 @ 0x140612574 (ViErrorReport1.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     VfIrpDatabaseEntryReleaseLock @ 0x140BA3FE4 (VfIrpDatabaseEntryReleaseLock.c)
- *     IovpCompleteRequest2 @ 0x140BA6DE4 (IovpCompleteRequest2.c)
- *     IovpCompleteRequest5 @ 0x140BA6E50 (IovpCompleteRequest5.c)
- *     IovpCompleteRequest3 @ 0x140BA6E9C (IovpCompleteRequest3.c)
- *     VfPendingMoreProcessingRequired @ 0x140BA7000 (VfPendingMoreProcessingRequired.c)
- *     VfIoCompletionCheckState @ 0x140BA710C (VfIoCompletionCheckState.c)
- *     ViIoCallbackSnapState @ 0x140BA7EF4 (ViIoCallbackSnapState.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     MdlInvariantPostDriverCompletion @ 0x140610000 (MdlInvariantPostDriverCompletion.c)
+ *     ViErrorReport1 @ 0x140610B34 (ViErrorReport1.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     VfIrpDatabaseEntryReleaseLock @ 0x140BA5FE4 (VfIrpDatabaseEntryReleaseLock.c)
+ *     IovpCompleteRequest2 @ 0x140BA8DE4 (IovpCompleteRequest2.c)
+ *     IovpCompleteRequest5 @ 0x140BA8E50 (IovpCompleteRequest5.c)
+ *     IovpCompleteRequest3 @ 0x140BA8E9C (IovpCompleteRequest3.c)
+ *     VfPendingMoreProcessingRequired @ 0x140BA9000 (VfPendingMoreProcessingRequired.c)
+ *     VfIoCompletionCheckState @ 0x140BA910C (VfIoCompletionCheckState.c)
+ *     ViIoCallbackSnapState @ 0x140BA9EF4 (ViIoCallbackSnapState.c)
  */
 
 __int64 __fastcall IovpLocalCompletionRoutine(__int64 a1, __int64 a2, __int64 *a3)
@@ -26,15 +26,13 @@ __int64 __fastcall IovpLocalCompletionRoutine(__int64 a1, __int64 a2, __int64 *a
   unsigned int v11; // ebp
   void *v13; // r14
   const void *v14; // r12
-  __int64 v15; // rbp
-  __int64 v16; // r9
-  _QWORD *v17; // r14
-  __int64 v18; // rbx
-  char v19; // al
-  __int64 v20; // r14
-  _BYTE *v21; // r13
-  char v22; // [rsp+68h] [rbp+10h]
-  char v23; // [rsp+70h] [rbp+18h]
+  _QWORD *v15; // r14
+  __int64 v16; // rbx
+  char v17; // al
+  __int64 v18; // r14
+  _BYTE *v19; // r13
+  char v20; // [rsp+68h] [rbp+10h]
+  char v21; // [rsp+70h] [rbp+18h]
 
   v4 = *a3;
   *(_BYTE *)(v4 + 1) = *((_BYTE *)a3 + 33);
@@ -49,8 +47,8 @@ __int64 __fastcall IovpLocalCompletionRoutine(__int64 a1, __int64 a2, __int64 *a
   *(_QWORD *)(v4 + 64) = a3[1];
   v7 = *(_BYTE *)(a2 + 67);
   v8 = *(_BYTE *)(a2 + 66) + 1;
-  v22 = v8;
-  v23 = v7;
+  v20 = v8;
+  v21 = v7;
   IovpCompleteRequest2(a2, a3[2]);
   if ( *(_BYTE *)v4 != 22 )
   {
@@ -71,43 +69,42 @@ __int64 __fastcall IovpLocalCompletionRoutine(__int64 a1, __int64 a2, __int64 *a
     else
       v13 = 0LL;
     v14 = *(const void **)(v4 + 56);
-    v15 = *(_QWORD *)(v4 + 64);
-    if ( (unsigned int)VfPendingMoreProcessingRequired(a1, a2, v4, (_DWORD)v14, v15) )
+    if ( (unsigned int)VfPendingMoreProcessingRequired(a1, a2, v4, (_DWORD)v14, *(_QWORD *)(v4 + 64)) )
     {
       v11 = -1073741802;
       v14 = VfPendingMoreProcessingRequired;
     }
     else
     {
-      v11 = guard_dispatch_icall_no_overrides(a1, a2, v15, v16);
+      v11 = guard_dispatch_icall_no_overrides(a1, a2);
     }
     if ( v13 )
       VfIoCompletionCheckState(v13, (ULONG_PTR)v14);
-    v17 = (_QWORD *)a3[2];
-    if ( *v17 )
+    v15 = (_QWORD *)a3[2];
+    if ( *v15 )
     {
-      v20 = v17[1];
-      *(_BYTE *)(v20 + 16) = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(v20 + 8));
+      v18 = v15[1];
+      *(_BYTE *)(v18 + 16) = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(v18 + 8));
       if ( v11 != -1073741802 )
       {
-        v21 = *(_BYTE **)(a2 + 184);
+        v19 = *(_BYTE **)(a2 + 184);
         if ( *(_BYTE *)(a2 + 67) <= *(_BYTE *)(a2 + 66)
-          && (unsigned __int8)(*v21 - 3) <= 1u
+          && (unsigned __int8)(*v19 - 3) <= 1u
           && *(_QWORD *)(a2 + 8)
           && (MmVerifierData & 0x6000) != 0 )
         {
-          MdlInvariantPostDriverCompletion(v20, a2);
+          MdlInvariantPostDriverCompletion(v18, a2);
         }
-        if ( *(_QWORD *)(v20 + 216) && *(int *)(v20 + 56) >= 0 && (v21[3] & 1) == 0 )
+        if ( *(_QWORD *)(v18 + 216) && *(int *)(v18 + 56) >= 0 && (v19[3] & 1) == 0 )
         {
           ViErrorReport1(0x228u, v14, (const void *)a2);
           *(_BYTE *)(*(_QWORD *)(a2 + 184) + 3LL) |= 1u;
         }
       }
-      VfIrpDatabaseEntryReleaseLock((_QWORD *)v20);
+      VfIrpDatabaseEntryReleaseLock((_QWORD *)v18);
     }
-    v7 = v23;
-    v8 = v22;
+    v7 = v21;
+    v8 = v20;
   }
   else
   {
@@ -118,35 +115,35 @@ __int64 __fastcall IovpLocalCompletionRoutine(__int64 a1, __int64 a2, __int64 *a
   IovpCompleteRequest5(a3[2]);
   if ( v11 != -1073741802 && v7 != v8 )
   {
-    v18 = v4 + 72;
-    *a3 = v18;
-    a3[1] = *(_QWORD *)(v18 + 64);
-    *((_OWORD *)a3 + 2) = *(_OWORD *)v18;
-    *((_OWORD *)a3 + 3) = *(_OWORD *)(v18 + 16);
-    *((_OWORD *)a3 + 4) = *(_OWORD *)(v18 + 32);
-    *((_OWORD *)a3 + 5) = *(_OWORD *)(v18 + 48);
-    a3[12] = *(_QWORD *)(v18 + 64);
-    v19 = *(_BYTE *)(v18 + 3);
+    v16 = v4 + 72;
+    *a3 = v16;
+    a3[1] = *(_QWORD *)(v16 + 64);
+    *((_OWORD *)a3 + 2) = *(_OWORD *)v16;
+    *((_OWORD *)a3 + 3) = *(_OWORD *)(v16 + 16);
+    *((_OWORD *)a3 + 4) = *(_OWORD *)(v16 + 32);
+    *((_OWORD *)a3 + 5) = *(_OWORD *)(v16 + 48);
+    a3[12] = *(_QWORD *)(v16 + 64);
+    v17 = *(_BYTE *)(v16 + 3);
     if ( *(int *)(a2 + 48) >= 0 )
     {
-      if ( (v19 & 0x40) != 0 )
+      if ( (v17 & 0x40) != 0 )
         goto LABEL_42;
     }
-    else if ( v19 < 0 )
+    else if ( v17 < 0 )
     {
       goto LABEL_42;
     }
-    if ( !*(_BYTE *)(a2 + 68) || (v19 & 0x20) == 0 )
+    if ( !*(_BYTE *)(a2 + 68) || (v17 & 0x20) == 0 )
     {
       a3[3] = 0LL;
-      *(_BYTE *)(v18 + 3) |= 0xE0u;
+      *(_BYTE *)(v16 + 3) |= 0xE0u;
 LABEL_22:
-      *(_QWORD *)(v18 + 64) = a3;
-      *(_QWORD *)(v18 + 56) = IovpLocalCompletionRoutine;
+      *(_QWORD *)(v16 + 64) = a3;
+      *(_QWORD *)(v16 + 56) = IovpLocalCompletionRoutine;
       return v11;
     }
 LABEL_42:
-    a3[3] = *(_QWORD *)(v18 + 56);
+    a3[3] = *(_QWORD *)(v16 + 56);
     goto LABEL_22;
   }
   return v11;

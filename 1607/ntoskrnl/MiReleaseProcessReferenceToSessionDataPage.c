@@ -1,21 +1,21 @@
 /*
- * XREFs of MiReleaseProcessReferenceToSessionDataPage @ 0x1404E16A0
+ * XREFs of MiReleaseProcessReferenceToSessionDataPage @ 0x1404C4CA4
  * Callers:
- *     MmDeleteProcessAddressSpace @ 0x140460678 (MmDeleteProcessAddressSpace.c)
- *     MiSessionObjectDelete @ 0x14053494C (MiSessionObjectDelete.c)
+ *     MmDeleteProcessAddressSpace @ 0x14045F548 (MmDeleteProcessAddressSpace.c)
+ *     MiSessionObjectDelete @ 0x140534E8C (MiSessionObjectDelete.c)
  * Callees:
- *     KiLeaveGuardedRegionUnsafe @ 0x140013B70 (KiLeaveGuardedRegionUnsafe.c)
- *     EtwTraceKernelEvent @ 0x140014190 (EtwTraceKernelEvent.c)
- *     MiGetPteAddress @ 0x14002BA64 (MiGetPteAddress.c)
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     MiReleasePtes @ 0x1400516D0 (MiReleasePtes.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
- *     MiReturnPfnReferenceCount @ 0x1400FDD40 (MiReturnPfnReferenceCount.c)
- *     MiUnlinkSessionList @ 0x1401268E4 (MiUnlinkSessionList.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F2550 (MI_GET_PAGE_FRAME_FROM_PTE.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1400136F0 (KiLeaveGuardedRegionUnsafe.c)
+ *     EtwTraceKernelEvent @ 0x140013D10 (EtwTraceKernelEvent.c)
+ *     MiGetPteAddress @ 0x14002B5E4 (MiGetPteAddress.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     MiReleasePtes @ 0x140051250 (MiReleasePtes.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
+ *     MiReturnPfnReferenceCount @ 0x1400FBAC0 (MiReturnPfnReferenceCount.c)
+ *     MiUnlinkSessionList @ 0x140126E54 (MiUnlinkSessionList.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F237C (MI_GET_PAGE_FRAME_FROM_PTE.c)
  */
 
 __int64 __fastcall MiReleaseProcessReferenceToSessionDataPage(unsigned __int64 a1)
@@ -68,7 +68,7 @@ __int64 __fastcall MiReleaseProcessReferenceToSessionDataPage(unsigned __int64 a
       v20 = 12;
       EtwTraceKernelEvent((int)&v19, 1, 0x20400000u, 590, 4200450);
     }
-    MiReleasePtes((__int64)&qword_140327870, PteAddress, 2u);
+    MiReleasePtes((__int64)&qword_1403278B0, PteAddress, 2u);
     v12 = (__int64 *)&v18;
     v13 = 2LL;
     do
@@ -79,17 +79,17 @@ __int64 __fastcall MiReleaseProcessReferenceToSessionDataPage(unsigned __int64 a
     while ( v13 );
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->SpecialApcDisable;
-    v15 = (_BYTE *)KeAbPreAcquire((ULONG_PTR)&qword_1403268D8, 0LL, 0);
-    v16 = _interlockedbittestandset64((volatile signed __int32 *)&qword_1403268D8, 0LL);
+    v15 = (_BYTE *)KeAbPreAcquire((ULONG_PTR)&qword_140326918, 0LL, 0);
+    v16 = _interlockedbittestandset64((volatile signed __int32 *)&qword_140326918, 0LL);
     v17 = v15;
     if ( v16 )
-      ExfAcquirePushLockExclusiveEx(&qword_1403268D8, v15, (ULONG_PTR)&qword_1403268D8);
+      ExfAcquirePushLockExclusiveEx(&qword_140326918, v15, (ULONG_PTR)&qword_140326918);
     if ( v17 )
       v17[26] |= 1u;
-    _bittestandreset((signed __int32 *)qword_140327820->Buffer, v5);
-    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_1403268D8, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-      ExfTryToWakePushLock((volatile signed __int64 *)&qword_1403268D8);
-    KeAbPostRelease((ULONG_PTR)&qword_1403268D8);
+    _bittestandreset((signed __int32 *)qword_140327860->Buffer, v5);
+    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140326918, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+      ExfTryToWakePushLock((volatile signed __int64 *)&qword_140326918);
+    KeAbPostRelease((ULONG_PTR)&qword_140326918);
     return KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);
   }
   return result;

@@ -1,16 +1,16 @@
 /*
- * XREFs of PopBootStatRestoreDefaults @ 0x1408774B8
+ * XREFs of PopBootStatRestoreDefaults @ 0x140878718
  * Callers:
- *     PopPowerInformationInternal @ 0x14058DF30 (PopPowerInformationInternal.c)
+ *     PopPowerInformationInternal @ 0x14058EF30 (PopPowerInformationInternal.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     RtlUnlockBootStatusData @ 0x140718BA0 (RtlUnlockBootStatusData.c)
- *     RtlLockBootStatusData @ 0x140718C80 (RtlLockBootStatusData.c)
- *     PopBootStatAccessCheck @ 0x140753370 (PopBootStatAccessCheck.c)
- *     RtlRestoreBootStatusDefaults @ 0x140895D98 (RtlRestoreBootStatusDefaults.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     RtlUnlockBootStatusData @ 0x140719E40 (RtlUnlockBootStatusData.c)
+ *     RtlLockBootStatusData @ 0x140719F20 (RtlLockBootStatusData.c)
+ *     PopBootStatAccessCheck @ 0x140754560 (PopBootStatAccessCheck.c)
+ *     RtlRestoreBootStatusDefaults @ 0x140896FF8 (RtlRestoreBootStatusDefaults.c)
  */
 
 __int64 PopBootStatRestoreDefaults()

@@ -1,12 +1,12 @@
 /*
- * XREFs of NtQueryTimerResolution @ 0x140B20A40
+ * XREFs of NtQueryTimerResolution @ 0x140B22E40
  * Callers:
- *     DifNtQueryTimerResolutionWrapper @ 0x140686380 (DifNtQueryTimerResolutionWrapper.c)
+ *     DifNtQueryTimerResolutionWrapper @ 0x140689F60 (DifNtQueryTimerResolutionWrapper.c)
  * Callees:
- *     RtlWriteULongToUser @ 0x14077F7A0 (RtlWriteULongToUser.c)
+ *     RtlWriteULongToUser @ 0x1407822A0 (RtlWriteULongToUser.c)
  */
 
-__int64 __fastcall NtQueryTimerResolution(_DWORD *a1, int *a2, int *a3)
+NTSTATUS __cdecl NtQueryTimerResolution(PULONG MaximumTime, PULONG MinimumTime, PULONG CurrentTime)
 {
   int v5; // r15d
   int v6; // esi
@@ -16,16 +16,16 @@ __int64 __fastcall NtQueryTimerResolution(_DWORD *a1, int *a2, int *a3)
   v6 = KePseudoHrTimeIncrement;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
-    RtlWriteULongToUser(a1, KeMaximumIncrement);
+    RtlWriteULongToUser(MaximumTime, KeMaximumIncrement);
   else
-    *a1 = KeMaximumIncrement;
+    *MaximumTime = KeMaximumIncrement;
   if ( PreviousMode )
-    RtlWriteULongToUser(a2, v5);
+    RtlWriteULongToUser(MinimumTime, v5);
   else
-    *a2 = v5;
+    *MinimumTime = v5;
   if ( PreviousMode )
-    RtlWriteULongToUser(a3, v6);
+    RtlWriteULongToUser(CurrentTime, v6);
   else
-    *a3 = v6;
-  return 0LL;
+    *CurrentTime = v6;
+  return 0;
 }

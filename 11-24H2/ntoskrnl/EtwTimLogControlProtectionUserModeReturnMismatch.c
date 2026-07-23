@@ -1,18 +1,18 @@
 /*
- * XREFs of EtwTimLogControlProtectionUserModeReturnMismatch @ 0x1407AB8A4
+ * XREFs of EtwTimLogControlProtectionUserModeReturnMismatch @ 0x1407ABD74
  * Callers:
- *     KiLogControlProtectionUserModeReturnMismatch @ 0x14043E9F0 (KiLogControlProtectionUserModeReturnMismatch.c)
+ *     KiLogControlProtectionUserModeReturnMismatch @ 0x140434610 (KiLogControlProtectionUserModeReturnMismatch.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     EtwpTiFillProcessIdentity @ 0x1403D4B94 (EtwpTiFillProcessIdentity.c)
- *     EtwWrite @ 0x14041C1B0 (EtwWrite.c)
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwQueryVirtualMemory @ 0x1406A6870 (ZwQueryVirtualMemory.c)
- *     MmGetImageInformation @ 0x140837878 (MmGetImageInformation.c)
- *     EtwpQueryProcessCommandLine @ 0x14094BCC0 (EtwpQueryProcessCommandLine.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     EtwpTiFillProcessIdentity @ 0x1402633C0 (EtwpTiFillProcessIdentity.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     EtwWrite @ 0x14040FFB0 (EtwWrite.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwQueryVirtualMemory @ 0x1406A7810 (ZwQueryVirtualMemory.c)
+ *     EtwpQueryProcessCommandLine @ 0x1408F0230 (EtwpQueryProcessCommandLine.c)
+ *     MmGetImageInformation @ 0x1409F9444 (MmGetImageInformation.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall EtwTimLogControlProtectionUserModeReturnMismatch(int a1, __int64 a2, __int64 a3)
@@ -224,14 +224,14 @@ LABEL_8:
   v125 = 0;
   v55 = EtwpTiFillProcessIdentity(v126, a2, (unsigned __int64 *)&v71);
   v16 = v55 + 4;
-  Pool2 = (unsigned __int16 *)ExAllocatePool2(0x100uLL);
+  Pool2 = (unsigned __int16 *)ExAllocatePool2(0x100uLL, 0x200uLL, 0x6E734954u);
   v18 = Pool2;
   if ( !Pool2 )
     goto LABEL_21;
   if ( ZwQueryVirtualMemory(
          (HANDLE)0xFFFFFFFFFFFFFFFFLL,
          BaseAddress,
-         (MEMORY_INFORMATION_CLASS)2,
+         MemoryMappedFilenameInformation,
          Pool2,
          0x200uLL,
          0LL) < 0 )
@@ -263,11 +263,11 @@ LABEL_21:
   *(ULONGLONG *)((char *)&UserData.Ptr + v24) = (ULONGLONG)v22;
   *(ULONG *)((char *)&UserData.Size + v24) = v21;
   *(ULONG *)((char *)&UserData.Reserved + v24) = 0;
-  v25 = (unsigned __int16 *)ExAllocatePool2(0x100uLL);
+  v25 = (unsigned __int16 *)ExAllocatePool2(0x100uLL, 0x200uLL, 0x6E734954u);
   v26 = v25;
   if ( !v25 )
     goto LABEL_27;
-  if ( ZwQueryVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, v67, (MEMORY_INFORMATION_CLASS)2, v25, 0x200uLL, 0LL) < 0 )
+  if ( ZwQueryVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, v67, MemoryMappedFilenameInformation, v25, 0x200uLL, 0LL) < 0 )
     *v26 = 0;
   if ( *v26 )
   {
@@ -339,7 +339,7 @@ LABEL_27:
   v48 = EtwSecurityMitigationsRegHandle;
   *((_QWORD *)&UserData.Size + v47) = 4LL;
   EtwWrite(v48, v7, 0LL, v46 + 1, &UserData);
-  if ( (unsigned int)dword_140E09128 > 5 && tlgKeywordOn((__int64)&dword_140E09128, 0x400000000000LL) )
+  if ( (unsigned int)dword_140E09198 > 5 && tlgKeywordOn((__int64)&dword_140E09198, 0x400000000000LL) )
   {
     v51 = P;
     v79 = &v59;
@@ -395,8 +395,8 @@ LABEL_27:
     v76 = 0x1000000LL;
     v116 = 8LL;
     tlgWriteTransfer_EtwWriteTransfer(
-      (__int64)&dword_140E09128,
-      (unsigned __int8 *)byte_14005362B,
+      (__int64)&dword_140E09198,
+      (unsigned __int8 *)&word_14005409E,
       0LL,
       0LL,
       0x15u,

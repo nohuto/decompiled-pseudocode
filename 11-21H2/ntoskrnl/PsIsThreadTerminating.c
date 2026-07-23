@@ -8,5 +8,5 @@
 
 BOOLEAN __stdcall PsIsThreadTerminating(PETHREAD Thread)
 {
-  return *(_DWORD *)(&Thread[1].SwapListEntry + 1) & 1;
+  return *((_DWORD *)Thread + 344) & 1;
 }

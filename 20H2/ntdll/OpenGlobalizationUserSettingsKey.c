@@ -17,16 +17,14 @@
  *     OpenGlobalizationUserSettingsKey_ForSingleUserModel @ 0x18011A028 (OpenGlobalizationUserSettingsKey_ForSingleUserModel.c)
  */
 
-__int64 __fastcall OpenGlobalizationUserSettingsKey(unsigned int a1, __int64 a2, __int64 a3)
+NTSTATUS __fastcall OpenGlobalizationUserSettingsKey(ACCESS_MASK DesiredAccess, __int64 a2, HANDLE *a3)
 {
   unsigned int v5; // ecx
   unsigned int v6; // ecx
   unsigned int v8; // ecx
-  __int64 v9; // [rsp+38h] [rbp+10h] BYREF
 
-  v9 = a2;
   if ( !a3 )
-    return 3221225485LL;
+    return -1073741811;
   v5 = dword_18016D24C;
   if ( !dword_18016D24C )
   {
@@ -38,11 +36,11 @@ __int64 __fastcall OpenGlobalizationUserSettingsKey(unsigned int a1, __int64 a2,
   }
   v6 = v5 - 1;
   if ( !v6 )
-    return RtlOpenCurrentUser(a1, a3);
+    return RtlOpenCurrentUser(DesiredAccess, a3);
   v8 = v6 - 1;
   if ( !v8 )
-    return OpenGlobalizationUserSettingsKey_ForSingleUserModel(a1, a3);
+    return OpenGlobalizationUserSettingsKey_ForSingleUserModel(DesiredAccess, a3);
   if ( v8 == 1 )
-    return OpenGlobalizationUserSettingsKey_ForMua(a1, a2, a3, &v9);
-  return 3221225701LL;
+    return OpenGlobalizationUserSettingsKey_ForMua(DesiredAccess);
+  return -1073741595;
 }

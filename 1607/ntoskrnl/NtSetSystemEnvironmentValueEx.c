@@ -1,17 +1,17 @@
 /*
- * XREFs of NtSetSystemEnvironmentValueEx @ 0x1406B5970
+ * XREFs of NtSetSystemEnvironmentValueEx @ 0x1406B5AA8
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     _wcsnicmp @ 0x14014D8A0 (_wcsnicmp.c)
- *     memmove @ 0x140171280 (memmove.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     _wcsnicmp @ 0x14014DE10 (_wcsnicmp.c)
+ *     memmove @ 0x140171780 (memmove.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     SeSinglePrivilegeCheck @ 0x140413F70 (SeSinglePrivilegeCheck.c)
- *     ExSetFirmwareEnvironmentVariable @ 0x1406AFEC4 (ExSetFirmwareEnvironmentVariable.c)
- *     ExpSetFirmwareEnvironmentVariable @ 0x1406B2440 (ExpSetFirmwareEnvironmentVariable.c)
- *     ExRaiseDatatypeMisalignment @ 0x1406B6058 (ExRaiseDatatypeMisalignment.c)
+ *     SeSinglePrivilegeCheck @ 0x140412E30 (SeSinglePrivilegeCheck.c)
+ *     ExSetFirmwareEnvironmentVariable @ 0x1406AFFFC (ExSetFirmwareEnvironmentVariable.c)
+ *     ExpSetFirmwareEnvironmentVariable @ 0x1406B2578 (ExpSetFirmwareEnvironmentVariable.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1406B6190 (ExRaiseDatatypeMisalignment.c)
  */
 
 NTSTATUS __stdcall NtSetSystemEnvironmentValueEx(
@@ -40,7 +40,7 @@ NTSTATUS __stdcall NtSetSystemEnvironmentValueEx(
              (__int64)Value,
              (int)ReturnLength,
              (int)Attributes);
-  if ( dword_1402FD0D0 != 2 )
+  if ( dword_1402FD030 != 2 )
     return -1073741822;
   if ( ((unsigned __int8)VariableName & 3) != 0 )
     ExRaiseDatatypeMisalignment();

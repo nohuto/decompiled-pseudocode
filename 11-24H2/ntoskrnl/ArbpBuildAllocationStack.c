@@ -1,12 +1,12 @@
 /*
- * XREFs of ArbpBuildAllocationStack @ 0x140706810
+ * XREFs of ArbpBuildAllocationStack @ 0x1407043D0
  * Callers:
- *     ArbTestAllocation @ 0x140706690 (ArbTestAllocation.c)
+ *     ArbTestAllocation @ 0x140704250 (ArbTestAllocation.c)
  * Callees:
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ArbpBuildAlternative @ 0x140706968 (ArbpBuildAlternative.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ArbpBuildAlternative @ 0x140704528 (ArbpBuildAlternative.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall ArbpBuildAllocationStack(__int64 a1, __int64 *a2, int a3)
@@ -45,7 +45,7 @@ __int64 __fastcall ArbpBuildAllocationStack(__int64 a1, __int64 *a2, int a3)
   v11 = 80 * v3 + v4;
   if ( *(_DWORD *)(a1 + 104) < v11 )
   {
-    Pool2 = ExAllocatePool2(0x100uLL);
+    Pool2 = ExAllocatePool2(0x100uLL, v11, 0x41627241u);
     if ( !Pool2 )
       return 3221225626LL;
     ExFreePoolWithTag(*(PVOID *)(a1 + 112), 0x41627241u);

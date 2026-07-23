@@ -1,12 +1,12 @@
 /*
- * XREFs of ?Control@NT_DISK@@UEAAJKPEAXK0K@Z @ 0x140790B50
+ * XREFs of ?Control@NT_DISK@@UEAAJKPEAXK0K@Z @ 0x140793680
  * Callers:
  *     <none>
  * Callees:
- *     IofCallDriver @ 0x1402655A0 (IofCallDriver.c)
- *     IoBuildDeviceIoControlRequest @ 0x14026B150 (IoBuildDeviceIoControlRequest.c)
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     KeInitializeEvent @ 0x140466F30 (KeInitializeEvent.c)
+ *     IofCallDriver @ 0x140264B10 (IofCallDriver.c)
+ *     IoBuildDeviceIoControlRequest @ 0x14026A6C0 (IoBuildDeviceIoControlRequest.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     KeInitializeEvent @ 0x140460680 (KeInitializeEvent.c)
  */
 
 int __fastcall NT_DISK::Control(

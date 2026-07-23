@@ -1,26 +1,26 @@
 /*
- * XREFs of FsRtlpOplockBreakByCacheFlags @ 0x140354E00
+ * XREFs of FsRtlpOplockBreakByCacheFlags @ 0x14035FB50
  * Callers:
- *     FsRtlCheckOplockEx2 @ 0x140353D20 (FsRtlCheckOplockEx2.c)
- *     FsRtlOplockBreakToNoneEx @ 0x1404F02B0 (FsRtlOplockBreakToNoneEx.c)
+ *     FsRtlCheckOplockEx2 @ 0x14035EA70 (FsRtlCheckOplockEx2.c)
+ *     FsRtlOplockBreakToNoneEx @ 0x1404F0230 (FsRtlOplockBreakToNoneEx.c)
  *     FsRtlCheckOplockForFsFilterCallback @ 0x1405CD900 (FsRtlCheckOplockForFsFilterCallback.c)
- *     FsRtlOplockBreakH @ 0x1406B8620 (FsRtlOplockBreakH.c)
- *     FsRtlCheckUpperOplock @ 0x14088B8B0 (FsRtlCheckUpperOplock.c)
+ *     FsRtlOplockBreakH @ 0x140617A40 (FsRtlOplockBreakH.c)
+ *     FsRtlCheckUpperOplock @ 0x14088BA10 (FsRtlCheckUpperOplock.c)
  * Callees:
- *     FsRtlpComputeShareableOplockState @ 0x140206150 (FsRtlpComputeShareableOplockState.c)
- *     IofCompleteRequest @ 0x140243490 (IofCompleteRequest.c)
- *     IoReleaseCancelSpinLock @ 0x140285860 (IoReleaseCancelSpinLock.c)
- *     IoAcquireCancelSpinLock @ 0x14029CF20 (IoAcquireCancelSpinLock.c)
- *     FsRtlpReleaseIrpsWaitingForRH @ 0x1402ADAF8 (FsRtlpReleaseIrpsWaitingForRH.c)
- *     FsRtlpOplockSendModernAppTermination @ 0x1402C7DD4 (FsRtlpOplockSendModernAppTermination.c)
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
- *     FsRtlpOplockKeysEqual @ 0x140355AE0 (FsRtlpOplockKeysEqual.c)
- *     FsRtlpClearOwner @ 0x140375278 (FsRtlpClearOwner.c)
- *     FsRtlpModifyThreadPriorities @ 0x140379E74 (FsRtlpModifyThreadPriorities.c)
- *     FsRtlpRemoveAndCompleteRHIrp @ 0x1403F0B48 (FsRtlpRemoveAndCompleteRHIrp.c)
- *     FsRtlpRemoveAndCompleteReadOnlyIrp @ 0x1404F0B4C (FsRtlpRemoveAndCompleteReadOnlyIrp.c)
- *     FsRtlpRemoveAndCompleteWaitingIrp @ 0x1404F0C4C (FsRtlpRemoveAndCompleteWaitingIrp.c)
- *     FsRtlpWaitOnIrp @ 0x1404F0CF0 (FsRtlpWaitOnIrp.c)
+ *     IoReleaseCancelSpinLock @ 0x140202A00 (IoReleaseCancelSpinLock.c)
+ *     IoAcquireCancelSpinLock @ 0x140219A60 (IoAcquireCancelSpinLock.c)
+ *     FsRtlpReleaseIrpsWaitingForRH @ 0x14022BE58 (FsRtlpReleaseIrpsWaitingForRH.c)
+ *     FsRtlpOplockSendModernAppTermination @ 0x140246634 (FsRtlpOplockSendModernAppTermination.c)
+ *     FsRtlpComputeShareableOplockState @ 0x1402AAA80 (FsRtlpComputeShareableOplockState.c)
+ *     IofCompleteRequest @ 0x1402E7CE0 (IofCompleteRequest.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
+ *     FsRtlpOplockKeysEqual @ 0x140360830 (FsRtlpOplockKeysEqual.c)
+ *     FsRtlpClearOwner @ 0x140374DC8 (FsRtlpClearOwner.c)
+ *     FsRtlpModifyThreadPriorities @ 0x1403799C4 (FsRtlpModifyThreadPriorities.c)
+ *     FsRtlpRemoveAndCompleteRHIrp @ 0x1403F0A78 (FsRtlpRemoveAndCompleteRHIrp.c)
+ *     FsRtlpRemoveAndCompleteReadOnlyIrp @ 0x1404F0ACC (FsRtlpRemoveAndCompleteReadOnlyIrp.c)
+ *     FsRtlpRemoveAndCompleteWaitingIrp @ 0x1404F0BCC (FsRtlpRemoveAndCompleteWaitingIrp.c)
+ *     FsRtlpWaitOnIrp @ 0x1404F0C70 (FsRtlpWaitOnIrp.c)
  */
 
 __int64 __fastcall FsRtlpOplockBreakByCacheFlags(

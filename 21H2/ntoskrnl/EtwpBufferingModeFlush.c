@@ -1,20 +1,20 @@
 /*
- * XREFs of EtwpBufferingModeFlush @ 0x14093D188
+ * XREFs of EtwpBufferingModeFlush @ 0x14093D358
  * Callers:
- *     EtwpFlushTrace @ 0x1406DD6A4 (EtwpFlushTrace.c)
+ *     EtwpFlushTrace @ 0x1406B4984 (EtwpFlushTrace.c)
  * Callees:
- *     EtwpQueryUsedProcessorCount @ 0x140265E58 (EtwpQueryUsedProcessorCount.c)
- *     EtwpPrepareDirtyBuffer @ 0x1402663DC (EtwpPrepareDirtyBuffer.c)
- *     EtwpLockUnlockBufferList @ 0x1402667AC (EtwpLockUnlockBufferList.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     EtwpBufferingModeCompressionFlush @ 0x1405AC4FC (EtwpBufferingModeCompressionFlush.c)
- *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
- *     EtwpPrepareHeader @ 0x140644BC4 (EtwpPrepareHeader.c)
- *     EtwpWaitForBufferReferenceCount @ 0x140644C3C (EtwpWaitForBufferReferenceCount.c)
- *     EtwpFlushBufferToLogfile @ 0x1406AB9A4 (EtwpFlushBufferToLogfile.c)
- *     EtwpFinalizeHeader @ 0x1406DF770 (EtwpFinalizeHeader.c)
- *     EtwpCreateLogFile @ 0x1406DFAAC (EtwpCreateLogFile.c)
- *     EtwpFindAndLockBufferForFlushing @ 0x14093D5FC (EtwpFindAndLockBufferForFlushing.c)
+ *     EtwpQueryUsedProcessorCount @ 0x140253DF8 (EtwpQueryUsedProcessorCount.c)
+ *     EtwpPrepareDirtyBuffer @ 0x14025437C (EtwpPrepareDirtyBuffer.c)
+ *     EtwpLockUnlockBufferList @ 0x14025474C (EtwpLockUnlockBufferList.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     EtwpBufferingModeCompressionFlush @ 0x1405AC72C (EtwpBufferingModeCompressionFlush.c)
+ *     EtwpFlushBufferToLogfile @ 0x14060A094 (EtwpFlushBufferToLogfile.c)
+ *     EtwpPrepareHeader @ 0x1406399D4 (EtwpPrepareHeader.c)
+ *     EtwpWaitForBufferReferenceCount @ 0x140639A4C (EtwpWaitForBufferReferenceCount.c)
+ *     RtlFreeAnsiString @ 0x14063DA40 (RtlFreeAnsiString.c)
+ *     EtwpFinalizeHeader @ 0x1406B6A50 (EtwpFinalizeHeader.c)
+ *     EtwpCreateLogFile @ 0x1406B6D8C (EtwpCreateLogFile.c)
+ *     EtwpFindAndLockBufferForFlushing @ 0x14093D7CC (EtwpFindAndLockBufferForFlushing.c)
  */
 
 __int64 __fastcall EtwpBufferingModeFlush(unsigned int *a1)
@@ -105,7 +105,7 @@ LABEL_57:
         if ( (i & 0xFFFFFFFFFFFFFFF0uLL) == v8 )
         {
           _InterlockedExchangeAdd((volatile signed __int32 *)((i & 0xFFFFFFFFFFFFFFF0uLL) + 12), -(i & 0xF));
-          EtwpPrepareDirtyBuffer((__int64)a1, (LARGE_INTEGER *)v8);
+          EtwpPrepareDirtyBuffer((__int64)a1, v8);
         }
       }
       v6 += 64LL;

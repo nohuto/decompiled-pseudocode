@@ -1,9 +1,9 @@
 /*
- * XREFs of Below4gb_MmAllocatePagesForMdl_Entry @ 0x140C39AA0
+ * XREFs of Below4gb_MmAllocatePagesForMdl_Entry @ 0x140C3FAB0
  * Callers:
  *     <none>
  * Callees:
- *     CarReportRuleViolationFromNt @ 0x140C2BF1C (CarReportRuleViolationFromNt.c)
+ *     CarReportRuleViolationFromNt @ 0x140C31F2C (CarReportRuleViolationFromNt.c)
  */
 
 __int64 __fastcall Below4gb_MmAllocatePagesForMdl_Entry(__int64 *a1)

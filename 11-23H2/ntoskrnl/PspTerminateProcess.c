@@ -3,17 +3,17 @@
  * Callers:
  *     PsTerminateProcess @ 0x140683794 (PsTerminateProcess.c)
  *     NtTerminateProcess @ 0x1406837E0 (NtTerminateProcess.c)
- *     PspTerminatePicoProcess @ 0x1409B5BC0 (PspTerminatePicoProcess.c)
+ *     PspTerminatePicoProcess @ 0x1409B5DC0 (PspTerminatePicoProcess.c)
  * Callees:
  *     KeSetProcessSchedulingGroup @ 0x1402047EC (KeSetProcessSchedulingGroup.c)
  *     KeForceResumeProcess @ 0x140204AE0 (KeForceResumeProcess.c)
  *     EtwTraceProcessTerminate @ 0x140204F94 (EtwTraceProcessTerminate.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  *     PspRundownSingleProcess @ 0x14068AD74 (PspRundownSingleProcess.c)
- *     PspTerminateAllThreads @ 0x14076D010 (PspTerminateAllThreads.c)
+ *     PspTerminateAllThreads @ 0x14076D200 (PspTerminateAllThreads.c)
  */
 
 __int64 __fastcall PspTerminateProcess(ULONG_PTR BugCheckParameter1, __int64 a2, unsigned int a3, char a4)
@@ -51,9 +51,9 @@ LABEL_14:
     v11 = v10;
     goto LABEL_15;
   }
-  if ( *((_QWORD *)&xmmword_140C38160 + 1) && (v9 & 8) == 0 )
+  if ( *((_QWORD *)&xmmword_140C38100 + 1) && (v9 & 8) == 0 )
   {
-    v10 = (*((__int64 (__fastcall **)(ULONG_PTR, _QWORD))&xmmword_140C38160 + 1))(BugCheckParameter1, a3);
+    v10 = (*((__int64 (__fastcall **)(ULONG_PTR, _QWORD))&xmmword_140C38100 + 1))(BugCheckParameter1, a3);
     goto LABEL_14;
   }
   v11 = 290;

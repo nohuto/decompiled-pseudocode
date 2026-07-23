@@ -1,39 +1,43 @@
 /*
- * XREFs of SymCryptMlDsaRejNttPoly @ 0x1405737E8
+ * XREFs of SymCryptMlDsaRejNttPoly @ 0x140572A10
  * Callers:
- *     SymCryptMlDsaExpandA @ 0x140572788 (SymCryptMlDsaExpandA.c)
+ *     SymCryptMlDsaExpandA @ 0x140571968 (SymCryptMlDsaExpandA.c)
  * Callees:
- *     SymCryptShake128Append @ 0x14057495C (SymCryptShake128Append.c)
- *     SymCryptShake256Extract @ 0x140574974 (SymCryptShake256Extract.c)
- *     SymCryptShake128Init @ 0x14057498C (SymCryptShake128Init.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     SymCryptShake128Append @ 0x140573BC0 (SymCryptShake128Append.c)
+ *     SymCryptShake256Extract @ 0x140573BD8 (SymCryptShake256Extract.c)
+ *     SymCryptShake128Init @ 0x140573BF0 (SymCryptShake128Init.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall SymCryptMlDsaRejNttPoly(__int64 a1, __int64 a2, unsigned int *a3)
 {
-  __int64 v6; // rbx
-  __int64 result; // rax
-  unsigned int v8; // [rsp+20h] [rbp-128h] BYREF
-  _BYTE v9[240]; // [rsp+30h] [rbp-118h] BYREF
+  unsigned int v6; // esi
+  unsigned int v7; // ebp
+  unsigned int v8; // ebx
+  unsigned int v10; // [rsp+20h] [rbp-138h] BYREF
+  _BYTE v11[240]; // [rsp+30h] [rbp-128h] BYREF
 
-  memset_0(v9, 0, sizeof(v9));
-  SymCryptShake128Init(v9);
-  SymCryptShake128Append(v9, a1, a2);
+  v6 = 0;
+  v7 = 0;
+  memset_0(v11, 0, sizeof(v11));
+  SymCryptShake128Init(v11);
+  SymCryptShake128Append(v11, a1, a2);
+  v10 = 0;
   v8 = 0;
-  v6 = 256LL;
-  do
+  while ( v7 < 0x12A )
   {
-    do
+    SymCryptShake256Extract(v11, &v10, 3LL);
+    BYTE2(v10) &= ~0x80u;
+    ++v7;
+    if ( v10 < 0x7FE001 )
     {
-      SymCryptShake256Extract(v9, &v8, 3LL);
-      BYTE2(v8) &= ~0x80u;
-      result = v8;
+      *a3 = v10;
+      ++v8;
+      ++a3;
+      if ( v8 >= 0x100 )
+        return v6;
     }
-    while ( v8 >= 0x7FE001 );
-    *a3++ = v8;
-    --v6;
   }
-  while ( v6 );
-  return result;
+  return 32776;
 }

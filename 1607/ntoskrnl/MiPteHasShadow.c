@@ -1,11 +1,11 @@
 /*
- * XREFs of MiPteHasShadow @ 0x1401EF38C
+ * XREFs of MiPteHasShadow @ 0x1401EF1B8
  * Callers:
- *     MiDeleteVirtualAddresses @ 0x140045C00 (MiDeleteVirtualAddresses.c)
- *     MiFreeWsleList @ 0x1400E3AD0 (MiFreeWsleList.c)
- *     MI_WRITE_INVALID_PTE_TB_FLUSH_NEEDED @ 0x14010D140 (MI_WRITE_INVALID_PTE_TB_FLUSH_NEEDED.c)
- *     MiReadPteShadow @ 0x1401EF3E0 (MiReadPteShadow.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
+ *     MiDeleteVirtualAddresses @ 0x140045780 (MiDeleteVirtualAddresses.c)
+ *     MiFreeWsleList @ 0x1400E1970 (MiFreeWsleList.c)
+ *     MI_WRITE_INVALID_PTE_TB_FLUSH_NEEDED @ 0x14010D6A4 (MI_WRITE_INVALID_PTE_TB_FLUSH_NEEDED.c)
+ *     MiReadPteShadow @ 0x1401EF20C (MiReadPteShadow.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
  * Callees:
  *     <none>
  */

@@ -8,11 +8,11 @@
  *     TppBarrierAdjust @ 0x180071CD8 (TppBarrierAdjust.c)
  */
 
-__int64 __fastcall TpWaitForJobNotification(__int64 a1, __int64 a2, __int64 a3)
+__int64 __fastcall TpWaitForJobNotification(__int64 a1)
 {
   __int64 result; // rax
 
-  result = TppJobpValidateJob(a1, 0LL, a3);
+  result = TppJobpValidateJob(a1, 0LL);
   if ( (_DWORD)result )
   {
     TppJobpRundownJob(a1);

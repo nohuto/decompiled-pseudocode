@@ -1,16 +1,16 @@
 /*
- * XREFs of PpmParkDistributeUtility @ 0x14025AB54
+ * XREFs of PpmParkDistributeUtility @ 0x14025C334
  * Callers:
- *     PpmHeteroDistributeUtility @ 0x140259CF0 (PpmHeteroDistributeUtility.c)
- *     PpmParkDistributeAllUtility @ 0x14025AAC0 (PpmParkDistributeAllUtility.c)
+ *     PpmHeteroDistributeUtility @ 0x14025B4D0 (PpmHeteroDistributeUtility.c)
+ *     PpmParkDistributeAllUtility @ 0x14025C2A0 (PpmParkDistributeAllUtility.c)
  * Callees:
- *     ?RtlpXorAffinityEx@@YAKPEAU_KAFFINITY_EX@@00G@Z @ 0x14025B1B0 (-RtlpXorAffinityEx@@YAKPEAU_KAFFINITY_EX@@00G@Z.c)
- *     PpmHeteroNormalizedUtilityToUtility @ 0x14025B37C (PpmHeteroNormalizedUtilityToUtility.c)
- *     KeGetPrcb @ 0x1402916D0 (KeGetPrcb.c)
- *     PpmHeteroUtilityToNormalizedUtility @ 0x14041EBA0 (PpmHeteroUtilityToNormalizedUtility.c)
- *     KeEnumerateNextProcessor @ 0x14043BC70 (KeEnumerateNextProcessor.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     ?RtlpXorAffinityEx@@YAKPEAU_KAFFINITY_EX@@00G@Z @ 0x14025C98C (-RtlpXorAffinityEx@@YAKPEAU_KAFFINITY_EX@@00G@Z.c)
+ *     PpmHeteroNormalizedUtilityToUtility @ 0x14025CB58 (PpmHeteroNormalizedUtilityToUtility.c)
+ *     KeGetPrcb @ 0x140290C30 (KeGetPrcb.c)
+ *     PpmHeteroUtilityToNormalizedUtility @ 0x1404163E0 (PpmHeteroUtilityToNormalizedUtility.c)
+ *     KeEnumerateNextProcessor @ 0x14042E520 (KeEnumerateNextProcessor.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall PpmParkDistributeUtility(
@@ -119,15 +119,14 @@ LABEL_2:
     {
       _BitScanForward64(&v12, v10);
       v10 &= ~(1LL << v12);
-      v63 = *((_DWORD *)&KiSupervisorXStateFeaturesLock.WaitBlock[2].Thread->Header.Lock
-            + 64 * (unsigned __int16)v11
+      v63 = *((_DWORD *)&KiSupervisorXStateFeaturesLock.SchedulerApc.ApcListEntry.Flink[16 * (unsigned __int16)v11].Flink
             + (unsigned __int8)v12);
       Prcb = KeGetPrcb(v63);
       if ( *(_BYTE *)(Prcb + 35352) )
       {
         ++v8;
-        v16 = *(_DWORD *)(*(_QWORD *)&KiSupervisorXStateFeaturesLock.WaitBlockFill11[112] + 4LL * v63) & 0x3F;
-        v17 = *(_DWORD *)(*(_QWORD *)&KiSupervisorXStateFeaturesLock.WaitBlockFill11[112] + 4LL * v63) >> 6;
+        v16 = *(&KiSupervisorXStateFeaturesLock.SchedulerApc.Thread->Header.LockNV + v63) & 0x3F;
+        v17 = (unsigned int)*(&KiSupervisorXStateFeaturesLock.SchedulerApc.Thread->Header.LockNV + v63) >> 6;
         if ( (unsigned __int16)v73 <= (unsigned int)v17 )
         {
           if ( WORD1(v73) <= (unsigned int)v17 )
@@ -168,8 +167,7 @@ LABEL_6:
     {
       _BitScanForward64(&v23, v20);
       v20 &= ~(1LL << v23);
-      v63 = *((_DWORD *)&KiSupervisorXStateFeaturesLock.WaitBlock[2].Thread->Header.Lock
-            + 64 * v21
+      v63 = *((_DWORD *)&KiSupervisorXStateFeaturesLock.SchedulerApc.ApcListEntry.Flink[16 * v21].Flink
             + (unsigned __int8)v23);
       v24 = (_DWORD *)KeGetPrcb(v63);
       v25 = v24[8826] - v24[8827];
@@ -209,11 +207,10 @@ LABEL_6:
       }
       _BitScanForward64(&v43, v41);
       v41 &= ~(1LL << v43);
-      v63 = *((_DWORD *)&KiSupervisorXStateFeaturesLock.WaitBlock[2].Thread->Header.Lock
-            + 64 * (unsigned __int16)v42
+      v63 = *((_DWORD *)&KiSupervisorXStateFeaturesLock.SchedulerApc.ApcListEntry.Flink[16 * (unsigned __int16)v42].Flink
             + (unsigned __int8)v43);
       v44 = KeGetPrcb(v63);
-      v45 = *(_DWORD *)(*(_QWORD *)&KiSupervisorXStateFeaturesLock.WaitBlockFill11[112] + 4LL * v63);
+      v45 = *((_DWORD *)&KiSupervisorXStateFeaturesLock.SchedulerApc.Thread->Header.Lock + v63);
       v46 = v45 >> 6;
       if ( v72.Count > (unsigned int)v46 )
         v72.Bitmap[(unsigned int)v46] = v72.Bitmap[v46] & ~(1LL << (v45 & 0x3F));
@@ -247,8 +244,7 @@ LABEL_28:
     {
       _BitScanForward64(&v33, v29);
       v29 &= ~(1LL << v33);
-      v63 = *((_DWORD *)&KiSupervisorXStateFeaturesLock.WaitBlock[2].Thread->Header.Lock
-            + 64 * (unsigned __int16)v31
+      v63 = *((_DWORD *)&KiSupervisorXStateFeaturesLock.SchedulerApc.ApcListEntry.Flink[16 * (unsigned __int16)v31].Flink
             + (unsigned __int8)v33);
       v34 = (_DWORD *)KeGetPrcb(v63);
       v35 = v34[8826];
@@ -258,7 +254,7 @@ LABEL_28:
         v36 = ((unsigned int)result * v35) >> 16;
       if ( v27 > v36 )
         goto LABEL_28;
-      v37 = *(_DWORD *)(*(_QWORD *)&KiSupervisorXStateFeaturesLock.WaitBlockFill11[112] + 4LL * v63);
+      v37 = *((_DWORD *)&KiSupervisorXStateFeaturesLock.SchedulerApc.Thread->Header.Lock + v63);
       result = v72.Count;
       v38 = v37 >> 6;
       if ( v72.Count > v37 >> 6 )
@@ -306,8 +302,7 @@ LABEL_28:
     {
       _BitScanForward64(&v52, v50);
       v50 &= ~(1LL << v52);
-      v63 = *((_DWORD *)&KiSupervisorXStateFeaturesLock.WaitBlock[2].Thread->Header.Lock
-            + 64 * (unsigned __int16)v51
+      v63 = *((_DWORD *)&KiSupervisorXStateFeaturesLock.SchedulerApc.ApcListEntry.Flink[16 * (unsigned __int16)v51].Flink
             + (unsigned __int8)v52);
       v53 = KeGetPrcb(v63);
       v54 = *(_DWORD *)(v53 + 35328);
@@ -322,7 +317,6 @@ LABEL_28:
     v50 = v72.Bitmap[v51];
   }
   v55 = (_DWORD *)v70;
-  LOWORD(v68) = v51;
   if ( v70 )
   {
     RtlpXorAffinityEx(v71, v6, &v72, v72.Size);
@@ -350,8 +344,7 @@ LABEL_28:
       {
         _BitScanForward64(&v58, v56);
         v56 &= ~(1LL << v58);
-        result = KeGetPrcb(*((unsigned int *)&KiSupervisorXStateFeaturesLock.WaitBlock[2].Thread->Header.Lock
-                           + 64 * i
+        result = KeGetPrcb(*((unsigned int *)&KiSupervisorXStateFeaturesLock.SchedulerApc.ApcListEntry.Flink[16 * i].Flink
                            + (unsigned __int8)v58));
         *(_DWORD *)(result + 35304) = *(_DWORD *)(result + 35308);
       }

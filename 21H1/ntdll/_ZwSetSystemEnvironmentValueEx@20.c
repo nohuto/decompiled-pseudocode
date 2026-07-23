@@ -6,7 +6,12 @@
  *     _Wow64SystemServiceCall@0 @ 0x4B308730 (_Wow64SystemServiceCall@0.c)
  */
 
-int __stdcall ZwSetSystemEnvironmentValueEx(int a1, int a2, int a3, int a4, int a5)
+NTSTATUS __cdecl ZwSetSystemEnvironmentValueEx(
+        PUNICODE_STRING VariableName,
+        PCGUID VendorGuid,
+        PVOID Value,
+        ULONG ValueLength,
+        ULONG Attributes)
 {
   return Wow64SystemServiceCall();
 }

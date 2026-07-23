@@ -1,7 +1,7 @@
 /*
- * XREFs of PfpPrefetchRequestPatchOffsets @ 0x1403EDD08
+ * XREFs of PfpPrefetchRequestPatchOffsets @ 0x1403EF338
  * Callers:
- *     PfpPrefetchRequestPerform @ 0x1403ECF84 (PfpPrefetchRequestPerform.c)
+ *     PfpPrefetchRequestPerform @ 0x1403EE5B4 (PfpPrefetchRequestPerform.c)
  * Callees:
  *     <none>
  */

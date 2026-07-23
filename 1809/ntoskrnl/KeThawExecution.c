@@ -1,14 +1,14 @@
 /*
- * XREFs of KeThawExecution @ 0x14029747C
+ * XREFs of KeThawExecution @ 0x14029766C
  * Callers:
- *     ExpWaitForBootDevices @ 0x14031A1E0 (ExpWaitForBootDevices.c)
- *     KdExitDebugger @ 0x140915E88 (KdExitDebugger.c)
+ *     ExpWaitForBootDevices @ 0x14031A3D0 (ExpWaitForBootDevices.c)
+ *     KdExitDebugger @ 0x140916E88 (KdExitDebugger.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     KiEndDebugAccumulation @ 0x140297630 (KiEndDebugAccumulation.c)
- *     KiSendThawExecution @ 0x140297A74 (KiSendThawExecution.c)
+ *     KxReleaseSpinLock @ 0x1400630D0 (KxReleaseSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     KiEndDebugAccumulation @ 0x140297820 (KiEndDebugAccumulation.c)
+ *     KiSendThawExecution @ 0x140297C64 (KiSendThawExecution.c)
  */
 
 __int64 __fastcall KeThawExecution(char a1)
@@ -24,7 +24,7 @@ __int64 __fastcall KeThawExecution(char a1)
   v2 = 0;
   if ( (KiFreezeFlag & 8) == 0 )
     v2 = KdPortLocked;
-  ((void (__fastcall *)(_QWORD, _QWORD))off_1403FE478[0])(0LL, 0LL);
+  ((void (__fastcall *)(_QWORD, _QWORD))off_1403FF478[0])(0LL, 0LL);
   if ( !PoAllProcIntrDisabled )
   {
     MEMORY[0xFFFFF78000000350] = KeQueryPerformanceCounter(0LL);

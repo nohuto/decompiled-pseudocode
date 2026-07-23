@@ -1,13 +1,13 @@
 /*
- * XREFs of PipEnumeratePersistedMemoryCallback @ 0x1405D8B00
+ * XREFs of PipEnumeratePersistedMemoryCallback @ 0x1405DB300
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     PipMatchPersistentMemory @ 0x14079DC84 (PipMatchPersistentMemory.c)
- *     PipMatchPersistentMemoryV1 @ 0x14079DD64 (PipMatchPersistentMemoryV1.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     PipMatchPersistentMemory @ 0x1407A07C4 (PipMatchPersistentMemory.c)
+ *     PipMatchPersistentMemoryV1 @ 0x1407A08A4 (PipMatchPersistentMemoryV1.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PipEnumeratePersistedMemoryCallback(__int64 a1, __int64 a2, __int64 *a3)

@@ -1,7 +1,7 @@
 /*
  * XREFs of ExReInitializeRundownProtectionCacheAware @ 0x14000E830
  * Callers:
- *     EtwpFreeLoggerContext @ 0x1406C08A0 (EtwpFreeLoggerContext.c)
+ *     EtwpFreeLoggerContext @ 0x1406C1B40 (EtwpFreeLoggerContext.c)
  * Callees:
  *     ExRundownCompletedCacheAware @ 0x14000E880 (ExRundownCompletedCacheAware.c)
  */

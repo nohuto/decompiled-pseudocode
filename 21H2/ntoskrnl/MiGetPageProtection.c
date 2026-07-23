@@ -1,29 +1,29 @@
 /*
- * XREFs of MiGetPageProtection @ 0x140330DA0
+ * XREFs of MiGetPageProtection @ 0x14033BAF0
  * Callers:
- *     MiCommitExistingVad @ 0x140218D90 (MiCommitExistingVad.c)
- *     MiProtectPrivateMemory @ 0x14030DA00 (MiProtectPrivateMemory.c)
- *     MiQueryAddressState @ 0x14032F730 (MiQueryAddressState.c)
+ *     MiCommitExistingVad @ 0x1402BD690 (MiCommitExistingVad.c)
+ *     MiProtectPrivateMemory @ 0x140318750 (MiProtectPrivateMemory.c)
+ *     MiQueryAddressState @ 0x14033A480 (MiQueryAddressState.c)
  * Callees:
- *     MiUnlockProtoPoolPage @ 0x1402397F0 (MiUnlockProtoPoolPage.c)
- *     MiLocateCloneAddress @ 0x14023EF08 (MiLocateCloneAddress.c)
- *     MI_PROTO_FORMAT_COMBINED @ 0x14028D248 (MI_PROTO_FORMAT_COMBINED.c)
- *     MiIsPrototypePteVadLookup @ 0x14028D4D0 (MiIsPrototypePteVadLookup.c)
- *     MiRotatedToFrameBuffer @ 0x1402B0538 (MiRotatedToFrameBuffer.c)
- *     MiPteHasShadow @ 0x1402B6A1C (MiPteHasShadow.c)
- *     MiGetImageProtoProtection @ 0x1402BB36C (MiGetImageProtoProtection.c)
- *     MiTryLockProtoPoolPageAtDpc @ 0x140304CB4 (MiTryLockProtoPoolPageAtDpc.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x14032DEC0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiGetProtoPteAddress @ 0x140330B40 (MiGetProtoPteAddress.c)
- *     PsGetCurrentProcess @ 0x14033B600 (PsGetCurrentProcess.c)
- *     MiIsPfn @ 0x140349150 (MiIsPfn.c)
- *     MiLockTransitionLeafPage @ 0x140364704 (MiLockTransitionLeafPage.c)
- *     MiCaptureProtectionFromLockedProto @ 0x14036C770 (MiCaptureProtectionFromLockedProto.c)
+ *     MI_PROTO_FORMAT_COMBINED @ 0x14020A3E8 (MI_PROTO_FORMAT_COMBINED.c)
+ *     MiIsPrototypePteVadLookup @ 0x14020A670 (MiIsPrototypePteVadLookup.c)
+ *     MiLockTransitionLeafPage @ 0x140224B74 (MiLockTransitionLeafPage.c)
+ *     MiRotatedToFrameBuffer @ 0x14022E898 (MiRotatedToFrameBuffer.c)
+ *     MiPteHasShadow @ 0x140234BFC (MiPteHasShadow.c)
+ *     MiGetImageProtoProtection @ 0x14023957C (MiGetImageProtoProtection.c)
+ *     MiUnlockProtoPoolPage @ 0x1402DE040 (MiUnlockProtoPoolPage.c)
+ *     MiLocateCloneAddress @ 0x1402E3758 (MiLocateCloneAddress.c)
+ *     MiTryLockProtoPoolPageAtDpc @ 0x14030FA04 (MiTryLockProtoPoolPageAtDpc.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140338C10 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiGetProtoPteAddress @ 0x14033B890 (MiGetProtoPteAddress.c)
+ *     PsGetCurrentProcess @ 0x140346350 (PsGetCurrentProcess.c)
+ *     MiIsPfn @ 0x140353EA0 (MiIsPfn.c)
+ *     MiCaptureProtectionFromLockedProto @ 0x14036C920 (MiCaptureProtectionFromLockedProto.c)
  *     MiGetProtectionFromPte @ 0x1403F4550 (MiGetProtectionFromPte.c)
  *     MI_PFN_IS_PROTO @ 0x1403F48C8 (MI_PFN_IS_PROTO.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     MiGetValidAwePartitionId @ 0x14054C500 (MiGetValidAwePartitionId.c)
- *     MiGetValidAweProtection @ 0x14054C628 (MiGetValidAweProtection.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     MiGetValidAwePartitionId @ 0x14054C740 (MiGetValidAwePartitionId.c)
+ *     MiGetValidAweProtection @ 0x14054C868 (MiGetValidAweProtection.c)
  */
 
 __int64 MiGetPageProtection(ULONG_PTR BugCheckParameter2, ULONG_PTR a2, __int64 **a3, _DWORD *a4, ...)
@@ -126,14 +126,14 @@ __int64 MiGetPageProtection(ULONG_PTR BugCheckParameter2, ULONG_PTR a2, __int64 
   {
     if ( (v6 & 0x400) == 0 )
     {
-      if ( (v6 & 0x800) != 0 && (v51 = MiLockTransitionLeafPage(a2)) != 0 )
+      if ( (v6 & 0x800) != 0 && (v51 = MiLockTransitionLeafPage(a2, 0LL)) != 0 )
       {
         *v4 = (*(_QWORD *)(v51 + 40) >> 39) & 0x3FF;
         _InterlockedAnd64((volatile signed __int64 *)(v51 + 24), 0x7FFFFFFFFFFFFFFFuLL);
       }
       else
       {
-        *v4 = **(_WORD **)(qword_140C4E648 + 8LL * *(unsigned __int16 *)(PsGetCurrentProcess() + 1838));
+        *v4 = **(_WORD **)(qword_140C4E688 + 8LL * *(unsigned __int16 *)(PsGetCurrentProcess() + 1838));
       }
       v41 = (v6 >> 5) & 0x1F;
       if ( (*(_DWORD *)(BugCheckParameter2 + 48) & 0x1100000) == 0x1100000 )
@@ -143,8 +143,8 @@ __int64 MiGetPageProtection(ULONG_PTR BugCheckParameter2, ULONG_PTR a2, __int64 
     if ( !MiIsPrototypePteVadLookup(v6) )
     {
       v46 = v6;
-      if ( qword_140C4DF40 && (v6 & 0x10) == 0 )
-        v46 = v6 & ~qword_140C4DF40;
+      if ( qword_140C4DF80 && (v6 & 0x10) == 0 )
+        v46 = v6 & ~qword_140C4DF80;
       v47 = v46 >> 16;
       if ( MI_PROTO_FORMAT_COMBINED(v6) )
       {
@@ -157,7 +157,7 @@ __int64 MiGetPageProtection(ULONG_PTR BugCheckParameter2, ULONG_PTR a2, __int64 
         {
           if ( v16 != 32 || (v15 & 0xF80) != 0x380 )
             KeBugCheckEx(0x1Au, 0x41202uLL, a2, v6, BugCheckParameter2);
-          *v4 = **(_WORD **)(qword_140C4E648 + 8LL * (*(_WORD *)(**(_QWORD **)(BugCheckParameter2 + 72) + 60LL) & 0x3FF));
+          *v4 = **(_WORD **)(qword_140C4E688 + 8LL * (*(_WORD *)(**(_QWORD **)(BugCheckParameter2 + 72) + 60LL) & 0x3FF));
           return MiGetImageProtoProtection(BugCheckParameter2, v47);
         }
         v48 = *(_WORD **)(CloneAddress[7] + 24LL);
@@ -168,7 +168,7 @@ __int64 MiGetPageProtection(ULONG_PTR BugCheckParameter2, ULONG_PTR a2, __int64 
     v41 = (v6 >> 5) & 0x1F;
     if ( (v15 & 0x100000) == 0 )
     {
-      *v4 = **(_WORD **)(qword_140C4E648 + 8LL * (*(_WORD *)(**(_QWORD **)(BugCheckParameter2 + 72) + 60LL) & 0x3FF));
+      *v4 = **(_WORD **)(qword_140C4E688 + 8LL * (*(_WORD *)(**(_QWORD **)(BugCheckParameter2 + 72) + 60LL) & 0x3FF));
       v42 = (unsigned __int64)((__int64)(a2 << 25) >> 16) >> 12;
       ProtoPteAddress = (__int64 *)MiGetProtoPteAddress(BugCheckParameter2, v42, 4, &v52);
       if ( ProtoPteAddress )

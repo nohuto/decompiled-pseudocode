@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlpCompareActivationContextStringSectionEntryByPseudoKey @ 0x1800C1A00
+ * XREFs of RtlpCompareActivationContextStringSectionEntryByPseudoKey @ 0x1800BF6B0
  * Callers:
  *     <none>
  * Callees:

@@ -7,13 +7,13 @@
  *     RtlAcquireSRWLockExclusive @ 0x180039340 (RtlAcquireSRWLockExclusive.c)
  */
 
-void __fastcall RtlpHpLfhOwnerListLockUnlock(__int64 a1, _QWORD *a2, char a3)
+void __fastcall RtlpHpLfhOwnerListLockUnlock(__int64 a1, _RTL_SRWLOCK **a2, char a3)
 {
-  _QWORD *v3; // rbx
+  _RTL_SRWLOCK *Value; // rbx
   int v6; // edi
 
-  v3 = (_QWORD *)*a2;
-  if ( (_QWORD *)*a2 != a2 )
+  Value = *a2;
+  if ( *a2 != (_RTL_SRWLOCK *)a2 )
   {
     v6 = a3 & 1;
     do
@@ -21,15 +21,15 @@ void __fastcall RtlpHpLfhOwnerListLockUnlock(__int64 a1, _QWORD *a2, char a3)
       if ( v6 )
       {
         if ( (a3 & 2) != 0 )
-          v3[3] = 1LL;
-        RtlReleaseSRWLockExclusive(v3 + 3);
+          Value[3].Value = 1LL;
+        RtlReleaseSRWLockExclusive(Value + 3);
       }
       else
       {
-        RtlAcquireSRWLockExclusive(v3 + 3);
+        RtlAcquireSRWLockExclusive(Value + 3);
       }
-      v3 = (_QWORD *)*v3;
+      Value = (_RTL_SRWLOCK *)Value->Value;
     }
-    while ( v3 != a2 );
+    while ( Value != (_RTL_SRWLOCK *)a2 );
   }
 }

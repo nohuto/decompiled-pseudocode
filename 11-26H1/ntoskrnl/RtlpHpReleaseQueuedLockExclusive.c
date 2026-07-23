@@ -1,25 +1,25 @@
 /*
- * XREFs of RtlpHpReleaseQueuedLockExclusive @ 0x14027D330
+ * XREFs of RtlpHpReleaseQueuedLockExclusive @ 0x14027C8A0
  * Callers:
- *     RtlpHpVsContextAllocate @ 0x140249DB0 (RtlpHpVsContextAllocate.c)
- *     RtlpHpVsSlotAllocate @ 0x14024A580 (RtlpHpVsSlotAllocate.c)
- *     RtlpHpVsChunkSplit @ 0x14024B9E0 (RtlpHpVsChunkSplit.c)
- *     RtlpHpVsSlotFreeList @ 0x140352F9C (RtlpHpVsSlotFreeList.c)
- *     RtlpHpVsChunkFree @ 0x1403532B0 (RtlpHpVsChunkFree.c)
- *     RtlpHpVsSlotCompactChunks @ 0x14041BD80 (RtlpHpVsSlotCompactChunks.c)
- *     RtlpHpVsContextMultiAlloc @ 0x140467958 (RtlpHpVsContextMultiAlloc.c)
- *     RtlpHpVsSubsegmentCommitPages @ 0x140485F58 (RtlpHpVsSubsegmentCommitPages.c)
+ *     RtlpHpVsContextAllocate @ 0x14024B710 (RtlpHpVsContextAllocate.c)
+ *     RtlpHpVsSlotAllocate @ 0x14024BEE0 (RtlpHpVsSlotAllocate.c)
+ *     RtlpHpVsChunkSplit @ 0x14024D340 (RtlpHpVsChunkSplit.c)
+ *     RtlpHpVsSlotFreeList @ 0x14035501C (RtlpHpVsSlotFreeList.c)
+ *     RtlpHpVsChunkFree @ 0x140355330 (RtlpHpVsChunkFree.c)
+ *     RtlpHpVsSlotCompactChunks @ 0x1404135D0 (RtlpHpVsSlotCompactChunks.c)
+ *     RtlpHpVsContextMultiAlloc @ 0x1404610A8 (RtlpHpVsContextMultiAlloc.c)
+ *     RtlpHpVsSubsegmentCommitPages @ 0x14047F8C8 (RtlpHpVsSubsegmentCommitPages.c)
  * Callees:
- *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14021AAD4 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     ?KiAbPostRelease@LegacyAutoBoost@@YAXPEAX@Z @ 0x140272090 (-KiAbPostRelease@LegacyAutoBoost@@YAXPEAX@Z.c)
- *     ?KiAbpEntryUnlink@AutoBoost@@YAXPEAU_AB_THREAD_ENTRY@1@@Z @ 0x14027AAF0 (-KiAbpEntryUnlink@AutoBoost@@YAXPEAU_AB_THREAD_ENTRY@1@@Z.c)
- *     ?KiAbpUnboostThread@AutoBoost@@YAXPEAU_KTHREAD@@PEAXT_AB_BOOST_BITMAP@1@PEAU_SINGLE_LIST_ENTRY@@@Z @ 0x14027C800 (-KiAbpUnboostThread@AutoBoost@@YAXPEAU_KTHREAD@@PEAXT_AB_BOOST_BITMAP@1@PEAU_SINGLE_LIST_ENTRY@@.c)
- *     KiCheckForKernelApcDelivery @ 0x14027DB80 (KiCheckForKernelApcDelivery.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14052FA20 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14021C464 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     ?KiAbPostRelease@LegacyAutoBoost@@YAXPEAX@Z @ 0x140271600 (-KiAbPostRelease@LegacyAutoBoost@@YAXPEAX@Z.c)
+ *     ?KiAbpEntryUnlink@AutoBoost@@YAXPEAU_AB_THREAD_ENTRY@1@@Z @ 0x14027A060 (-KiAbpEntryUnlink@AutoBoost@@YAXPEAU_AB_THREAD_ENTRY@1@@Z.c)
+ *     ?KiAbpUnboostThread@AutoBoost@@YAXPEAU_KTHREAD@@PEAXT_AB_BOOST_BITMAP@1@PEAU_SINGLE_LIST_ENTRY@@@Z @ 0x14027BD70 (-KiAbpUnboostThread@AutoBoost@@YAXPEAU_KTHREAD@@PEAXT_AB_BOOST_BITMAP@1@PEAU_SINGLE_LIST_ENTRY@@.c)
+ *     KiCheckForKernelApcDelivery @ 0x14027D0F0 (KiCheckForKernelApcDelivery.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x140531F20 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 void __fastcall RtlpHpReleaseQueuedLockExclusive(int a1, __int64 a2)
@@ -58,7 +58,7 @@ void __fastcall RtlpHpReleaseQueuedLockExclusive(int a1, __int64 a2)
   if ( a1 )
   {
     v17 = *(unsigned __int8 *)(a2 + 16);
-    if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+    if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
       *(_DWORD *)v2 = 0;
     else
       ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(v2, retaddr);
@@ -212,7 +212,7 @@ LABEL_21:
     }
     v18 = KeGetCurrentThread();
     if ( v18->SpecialApcDisable++ == -1
-      && ($7A85BAF4F1FA08634C1C4A3E45B775B3 *)v18->ApcState.ApcListHead[0].Flink != &v18->152 )
+      && ($241382875694CED3D471BC5892DE3337 *)v18->ApcState.ApcListHead[0].Flink != &v18->152 )
     {
       KiCheckForKernelApcDelivery(v18, v9, v16, v11);
     }

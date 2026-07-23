@@ -1,11 +1,11 @@
 /*
- * XREFs of KiScheduleSoftParkElectionIfNecessary @ 0x1402BDF30
+ * XREFs of KiScheduleSoftParkElectionIfNecessary @ 0x140308BF0
  * Callers:
- *     KiQueueReadyThread @ 0x140223650 (KiQueueReadyThread.c)
- *     KiAddThreadToPrcbQueue @ 0x1402BE9E0 (KiAddThreadToPrcbQueue.c)
- *     KiUpdateLocalReadyQueueStatisticsOnInsertion @ 0x1402BF0FC (KiUpdateLocalReadyQueueStatisticsOnInsertion.c)
+ *     KiQueueReadyThread @ 0x140224FE0 (KiQueueReadyThread.c)
+ *     KiAddThreadToPrcbQueue @ 0x1403096A0 (KiAddThreadToPrcbQueue.c)
+ *     KiUpdateLocalReadyQueueStatisticsOnInsertion @ 0x140309DBC (KiUpdateLocalReadyQueueStatisticsOnInsertion.c)
  * Callees:
- *     KiInsertQueueDpc @ 0x1402BD330 (KiInsertQueueDpc.c)
+ *     KiInsertQueueDpc @ 0x140307FF0 (KiInsertQueueDpc.c)
  */
 
 __int64 __fastcall KiScheduleSoftParkElectionIfNecessary(__int64 a1)
@@ -18,8 +18,7 @@ __int64 __fastcall KiScheduleSoftParkElectionIfNecessary(__int64 a1)
   {
     if ( *(_QWORD *)(a1 + 792) > (unsigned __int64)(unsigned int)KeSoftParkedQueueThreshold )
     {
-      v2 = *(_QWORD *)(KiProcessorBlock[*((unsigned int *)&KiSupervisorXStateFeaturesLock.WaitBlock[2].Thread->Header.Lock
-                                        + 64 * (unsigned __int64)*(unsigned __int16 *)(a1 + 710)
+      v2 = *(_QWORD *)(KiProcessorBlock[*((unsigned int *)&KiSupervisorXStateFeaturesLock.SchedulerApc.ApcListEntry.Flink[16 * (unsigned __int64)*(unsigned __int16 *)(a1 + 710)].Flink
                                         + *(unsigned __int8 *)(a1 + 705))]
                      + 192);
       result = *(_QWORD *)(v2 + 96);

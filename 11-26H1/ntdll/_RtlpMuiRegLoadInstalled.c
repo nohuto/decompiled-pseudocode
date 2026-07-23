@@ -1,34 +1,32 @@
 /*
- * XREFs of _RtlpMuiRegLoadInstalled @ 0x1801224D0
+ * XREFs of _RtlpMuiRegLoadInstalled @ 0x180122270
  * Callers:
- *     RtlpMuiRegCreateAndLoadRegistryInfo @ 0x18000844C (RtlpMuiRegCreateAndLoadRegistryInfo.c)
- *     RtlpMuiRegLoadRegistryInfo @ 0x1800DDC20 (RtlpMuiRegLoadRegistryInfo.c)
+ *     RtlpMuiRegCreateAndLoadRegistryInfo @ 0x180053B7C (RtlpMuiRegCreateAndLoadRegistryInfo.c)
+ *     RtlpMuiRegLoadRegistryInfo @ 0x1800DAB90 (RtlpMuiRegLoadRegistryInfo.c)
  * Callees:
- *     RtlpLoadInstallLanguageFallback @ 0x18000144C (RtlpLoadInstallLanguageFallback.c)
- *     RtlpMuiRegFreeRegistryInfo @ 0x1800DDD80 (RtlpMuiRegFreeRegistryInfo.c)
- *     _RtlpMuiRegLoadInstalledFromKey @ 0x180125768 (_RtlpMuiRegLoadInstalledFromKey.c)
- *     RtlpMuiRegCreateLanguages @ 0x18014D3E0 (RtlpMuiRegCreateLanguages.c)
- *     RtlpMuiRegCreateStringPool @ 0x18014D440 (RtlpMuiRegCreateStringPool.c)
- *     _RtlpMuiRegValidateInstalled @ 0x18014E7F8 (_RtlpMuiRegValidateInstalled.c)
- *     NtIsUILanguageComitted @ 0x1801610B0 (NtIsUILanguageComitted.c)
- *     NtQueryInstallUILanguage @ 0x180161AD0 (NtQueryInstallUILanguage.c)
+ *     RtlpLoadInstallLanguageFallback @ 0x18004CB84 (RtlpLoadInstallLanguageFallback.c)
+ *     RtlpMuiRegFreeRegistryInfo @ 0x1800DACF0 (RtlpMuiRegFreeRegistryInfo.c)
+ *     _RtlpMuiRegLoadInstalledFromKey @ 0x1801254D8 (_RtlpMuiRegLoadInstalledFromKey.c)
+ *     RtlpMuiRegCreateLanguages @ 0x18014D290 (RtlpMuiRegCreateLanguages.c)
+ *     RtlpMuiRegCreateStringPool @ 0x18014D2F0 (RtlpMuiRegCreateStringPool.c)
+ *     _RtlpMuiRegValidateInstalled @ 0x18014E6A8 (_RtlpMuiRegValidateInstalled.c)
+ *     NtIsUILanguageComitted @ 0x180160FB0 (NtIsUILanguageComitted.c)
+ *     NtQueryInstallUILanguage @ 0x1801619D0 (NtQueryInstallUILanguage.c)
  */
 
 __int64 __fastcall RtlpMuiRegLoadInstalled(__int64 a1)
 {
-  int InstallUILanguage; // edi
+  NTSTATUS InstallUILanguage; // edi
   __int64 result; // rax
-  __int64 v4; // rdx
-  __int64 v5; // r8
   __int64 Languages; // rax
   __int64 StringPool; // rax
 
   InstallUILanguage = 0;
   if ( !a1 )
     return 3221225485LL;
-  if ( (int)NtIsUILanguageComitted() >= 0 )
+  if ( NtIsUILanguageComitted() >= 0 )
   {
-    InstallUILanguage = NtQueryInstallUILanguage(a1 + 4, v4, v5);
+    InstallUILanguage = NtQueryInstallUILanguage((LANGID *)(a1 + 4));
     if ( InstallUILanguage < 0 || ((*(_WORD *)(a1 + 4) - 4096) & 0xFBFF) == 0 )
       goto LABEL_12;
     RtlpLoadInstallLanguageFallback(a1, (_WORD *)(a1 + 6), (_WORD *)(a1 + 8));

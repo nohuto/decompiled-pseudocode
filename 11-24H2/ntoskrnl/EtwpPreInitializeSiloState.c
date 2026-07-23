@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwpPreInitializeSiloState @ 0x1407A8DDC
+ * XREFs of EtwpPreInitializeSiloState @ 0x1407A8F1C
  * Callers:
- *     PspInitializeServerSiloDeferred @ 0x140772C80 (PspInitializeServerSiloDeferred.c)
- *     EtwpInitialize @ 0x140C3D0FC (EtwpInitialize.c)
+ *     PspInitializeServerSiloDeferred @ 0x140772EA0 (PspInitializeServerSiloDeferred.c)
+ *     EtwpInitialize @ 0x140C3F24C (EtwpInitialize.c)
  * Callees:
- *     PsGetServerSiloGlobals @ 0x140349380 (PsGetServerSiloGlobals.c)
- *     KeInitializeMutex @ 0x140476AE0 (KeInitializeMutex.c)
- *     EtwpCleanupSiloState @ 0x1407A70EC (EtwpCleanupSiloState.c)
- *     ExAllocateCacheAwareRundownProtection @ 0x1409A4220 (ExAllocateCacheAwareRundownProtection.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     PsGetServerSiloGlobals @ 0x1403C2DC0 (PsGetServerSiloGlobals.c)
+ *     KeInitializeMutex @ 0x140473080 (KeInitializeMutex.c)
+ *     EtwpCleanupSiloState @ 0x1407A722C (EtwpCleanupSiloState.c)
+ *     ExAllocateCacheAwareRundownProtection @ 0x1408ACFB0 (ExAllocateCacheAwareRundownProtection.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall EtwpPreInitializeSiloState(__int64 a1, unsigned int a2)
@@ -26,7 +26,7 @@ __int64 __fastcall EtwpPreInitializeSiloState(__int64 a1, unsigned int a2)
   __int64 v14; // rdx
 
   v4 = 0;
-  Pool2 = (__int64 *)ExAllocatePool2(0x48uLL);
+  Pool2 = (__int64 *)ExAllocatePool2(0x48uLL, 0x1348uLL, 0x61777445u);
   v6 = Pool2;
   if ( !Pool2 )
     goto LABEL_10;
@@ -41,7 +41,7 @@ __int64 __fastcall EtwpPreInitializeSiloState(__int64 a1, unsigned int a2)
   }
   v8 = 8 * v7;
   *((_DWORD *)v6 + 4) = v7;
-  v9 = ExAllocatePool2(0x48uLL);
+  v9 = ExAllocatePool2(0x48uLL, (unsigned int)(16 * v7), 0x61777445u);
   v6[88] = v9;
   if ( v9 )
   {
@@ -78,7 +78,7 @@ __int64 __fastcall EtwpPreInitializeSiloState(__int64 a1, unsigned int a2)
     while ( v12 );
     v6[86] = 0LL;
     v6[84] = (__int64)v6;
-    *((_OWORD *)v6 + 4) = SecurityProviderGuid;
+    *((GUID *)v6 + 4) = SecurityProviderGuid;
     *((_QWORD *)PsGetServerSiloGlobals(a1) + 104) = v6;
   }
   else

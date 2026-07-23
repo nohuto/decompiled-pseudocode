@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpTimerCaptureCloestAuxiliaryQpcPair @ 0x140576F0C
+ * XREFs of HalpTimerCaptureCloestAuxiliaryQpcPair @ 0x14057943C
  * Callers:
- *     HalpTimerInitSystem @ 0x1405774F0 (HalpTimerInitSystem.c)
+ *     HalpTimerInitSystem @ 0x140579A20 (HalpTimerInitSystem.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x14021C3F0 (KeQueryPerformanceCounter.c)
- *     HalpTimerGetInternalData @ 0x140426EC0 (HalpTimerGetInternalData.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     KeQueryPerformanceCounter @ 0x14021DD80 (KeQueryPerformanceCounter.c)
+ *     HalpTimerGetInternalData @ 0x140433FD0 (HalpTimerGetInternalData.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 _UNKNOWN **HalpTimerCaptureCloestAuxiliaryQpcPair()

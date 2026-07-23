@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpUmsThreadYield @ 0x1800A2623
+ * XREFs of RtlpUmsThreadYield @ 0x1800A25E3
  * Callers:
- *     RtlUmsThreadYield @ 0x1800F76D0 (RtlUmsThreadYield.c)
+ *     RtlUmsThreadYield @ 0x1800F7690 (RtlUmsThreadYield.c)
  * Callees:
  *     <none>
  */

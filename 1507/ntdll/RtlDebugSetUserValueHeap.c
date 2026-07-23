@@ -14,41 +14,47 @@
  *     RtlpValidateHeap @ 0x1800EDA3C (RtlpValidateHeap.c)
  */
 
-char __fastcall RtlDebugSetUserValueHeap(unsigned __int64 a1, unsigned int a2, __int64 a3, __int64 a4)
+BOOLEAN __fastcall RtlDebugSetUserValueHeap(PRTL_CRITICAL_SECTION *BaseAddress, unsigned int a2, char *a3, void *a4)
 {
-  unsigned __int8 v5; // si
-  char v7; // bl
-  char v8; // r14
-  unsigned __int64 v10; // rdx
+  BOOLEAN v8; // bl
+  char v9; // r14
+  ULONG v11; // esi
+  unsigned __int64 v12; // rdx
 
-  v5 = a2;
-  v7 = 0;
   v8 = 0;
-  if ( (*(_DWORD *)(a1 + 116) & 0x1000000) != 0 )
-    return qword_180143D00(a1, a2, a3, a4, 0);
-  if ( RtlpCheckHeapSignature((_DWORD *)a1, "RtlSetUserValueHeap") )
+  v9 = 0;
+  if ( (*((_DWORD *)BaseAddress + 29) & 0x1000000) != 0 )
+    return ((__int64 (__fastcall *)(PRTL_CRITICAL_SECTION *, _QWORD, char *, void *, _WORD))qword_180143D00)(
+             BaseAddress,
+             a2,
+             a3,
+             a4,
+             0);
+  if ( RtlpCheckHeapSignature(BaseAddress, "RtlSetUserValueHeap") )
   {
-    if ( ((*(_BYTE *)(a1 + 116) | v5) & 1) == 0 )
+    v11 = *((_DWORD *)BaseAddress + 29) | 0x10000000 | a2;
+    if ( (v11 & 1) == 0 )
     {
-      RtlEnterCriticalSection(*(_QWORD *)(a1 + 352));
-      v8 = 1;
+      RtlEnterCriticalSection(BaseAddress[44]);
+      v9 = 1;
+      v11 |= 1u;
     }
-    RtlpValidateHeap(a1, 0LL);
-    v10 = a3 - 16;
-    _m_prefetchw((const void *)(a3 - 16));
-    if ( *(_BYTE *)(a3 - 16 + 15) == 5 )
-      v10 -= 16LL * *(unsigned __int8 *)(v10 + 14);
-    if ( RtlpValidateHeapEntry(a1, v10, "RtlSetUserValueHeap") )
+    RtlpValidateHeap(BaseAddress);
+    v12 = (unsigned __int64)(a3 - 16);
+    _m_prefetchw(a3 - 16);
+    if ( *(a3 - 1) == 5 )
+      v12 -= 16LL * *(unsigned __int8 *)(v12 + 14);
+    if ( RtlpValidateHeapEntry((unsigned __int64)BaseAddress, v12, "RtlSetUserValueHeap") )
     {
-      v7 = RtlSetUserValueHeap();
-      RtlpValidateHeap(a1, 0LL);
+      v8 = RtlSetUserValueHeap(BaseAddress, v11, a3, a4);
+      RtlpValidateHeap(BaseAddress);
     }
   }
   else
   {
-    v7 = 0;
+    v8 = 0;
   }
-  if ( v8 )
-    RtlLeaveCriticalSection(*(_QWORD *)(a1 + 352));
-  return v7;
+  if ( v9 )
+    RtlLeaveCriticalSection(BaseAddress[44]);
+  return v8;
 }

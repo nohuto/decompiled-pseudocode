@@ -21,24 +21,24 @@ __int64 __fastcall MiApplyRetpolineFixupsToKernelAndHal(__int64 a1)
   unsigned int (*v5)(void); // rsi
   unsigned int v6; // edi
   int updated; // ecx
-  __int64 v9; // rbx
-  __int64 v10; // rax
+  char *v9; // rbx
+  PIMAGE_NT_HEADERS v10; // rax
   const char *v11; // rax
   unsigned int v12; // edx
   unsigned __int64 v13; // rax
   __int64 v14; // r12
-  __int64 v15; // r15
+  PIMAGE_NT_HEADERS v15; // r15
   const char *v16; // rax
   int v17; // ebx
   __int64 *v18; // rdi
-  int v19; // r13d
+  unsigned int v19; // r13d
   __int64 v20; // rsi
   const char *v21; // rax
   PVOID v22; // r9
   unsigned int v23; // r8d
   int v24; // ecx
   __int64 v25; // [rsp+58h] [rbp-69h] BYREF
-  _DWORD v26[2]; // [rsp+60h] [rbp-61h] BYREF
+  __int64 v26; // [rsp+60h] [rbp-61h] BYREF
   _DWORD v27[4]; // [rsp+68h] [rbp-59h] BYREF
   _QWORD v28[14]; // [rsp+78h] [rbp-49h] BYREF
 
@@ -48,11 +48,11 @@ __int64 __fastcall MiApplyRetpolineFixupsToKernelAndHal(__int64 a1)
   dword_140C4CC4C = *(_DWORD *)(v1 + 3468) >> 12;
   if ( (KiSpeculationFeatures & 0x20000000000LL) != 0
     && (v25 = v3,
-        v9 = *(_QWORD *)(v3 + 48),
+        v9 = *(char **)(v3 + 48),
         v10 = RtlImageNtHeader(v9),
-        v11 = RtlLookupImageSectionByName(v10, "RETPOL"),
+        v11 = RtlLookupImageSectionByName((__int64)v10, "RETPOL"),
         v12 = *((_DWORD *)v11 + 2),
-        Base = (PVOID)(v9 + *((unsigned int *)v11 + 3)),
+        Base = &v9[*((unsigned int *)v11 + 3)],
         dword_140C4CC88 = (v12 >> 12) + ((v12 & 0xFFF) != 0),
         dword_140C4CC88 > (unsigned int)dword_140C4CC4C) )
   {
@@ -71,31 +71,31 @@ __int64 __fastcall MiApplyRetpolineFixupsToKernelAndHal(__int64 a1)
   else if ( (KiSpeculationFeatures & 0x20000000000LL) != 0 )
   {
     v14 = v25;
-    v15 = RtlImageNtHeader(*(_QWORD *)(v25 + 48));
-    v16 = RtlLookupImageSectionByName(v15, "INITKDBG");
+    v15 = RtlImageNtHeader(*(PVOID *)(v25 + 48));
+    v16 = RtlLookupImageSectionByName((__int64)v15, "INITKDBG");
     v17 = 0;
     v18 = &v25;
     v27[0] = *((_DWORD *)v16 + 3);
     v19 = 1;
-    v26[0] = *((_DWORD *)v16 + 2);
+    LODWORD(v26) = *((_DWORD *)v16 + 2);
     while ( 1 )
     {
       v20 = *v18;
-      v21 = RtlLookupImageSectionByName(v15, "MINIEX");
+      v21 = RtlLookupImageSectionByName((__int64)v15, "MINIEX");
       v22 = Base;
       v23 = *(_DWORD *)(v20 + 64);
       v24 = *((_DWORD *)v21 + 3);
-      v26[v19] = *((_DWORD *)v21 + 2);
+      v27[v19 - 2] = *((_DWORD *)v21 + 2);
       v27[v19] = v24;
       updated = RtlPerformRetpolineRelocationsOnImageEx(
-                  *(_QWORD *)(v20 + 48),
+                  *(char **)(v20 + 48),
                   *(_QWORD *)(v20 + 48),
                   v23,
                   (__int64)v22,
                   (__int64)v22,
                   1,
                   (__int64)v27,
-                  (__int64)v26,
+                  (__int64)&v26,
                   v19 + 1);
       if ( updated < 0 )
         break;
@@ -126,7 +126,7 @@ LABEL_6:
       while ( 1 )
       {
         updated = RtlUpdateImportRelocationsInImage(
-                    v4[6],
+                    (char *)v4[6],
                     v4[6],
                     *((_DWORD *)v4 + 16),
                     v5,

@@ -1,27 +1,27 @@
 /*
- * XREFs of BiGetRegistryValue @ 0x14085D5C8
+ * XREFs of BiGetRegistryValue @ 0x140859338
  * Callers:
- *     BiWasFirmwareModified @ 0x1404BFC0C (BiWasFirmwareModified.c)
- *     BiMarkTreatAsSystemStore @ 0x140811E50 (BiMarkTreatAsSystemStore.c)
- *     BiIsPortableWorkspaceBoot @ 0x1408148AC (BiIsPortableWorkspaceBoot.c)
- *     BiUpdateBcdObject @ 0x1408157BC (BiUpdateBcdObject.c)
- *     BiGetObjectDescription @ 0x14085DA8C (BiGetObjectDescription.c)
- *     BiIsSystemStore @ 0x14085E2C0 (BiIsSystemStore.c)
- *     BiIsSystemStoreCandidate @ 0x14085E348 (BiIsSystemStoreCandidate.c)
- *     BiUnloadHiveByHandle @ 0x14085EDB0 (BiUnloadHiveByHandle.c)
- *     BiGetSavedBootEntry @ 0x14085F028 (BiGetSavedBootEntry.c)
- *     BcdGetElementDataWithFlags @ 0x1409BE80C (BcdGetElementDataWithFlags.c)
- *     BiIsWinPEBoot @ 0x1409C1B7C (BiIsWinPEBoot.c)
+ *     BiWasFirmwareModified @ 0x1404BB13C (BiWasFirmwareModified.c)
+ *     BiMarkTreatAsSystemStore @ 0x140812590 (BiMarkTreatAsSystemStore.c)
+ *     BiIsPortableWorkspaceBoot @ 0x140814FEC (BiIsPortableWorkspaceBoot.c)
+ *     BiUpdateBcdObject @ 0x140815EFC (BiUpdateBcdObject.c)
+ *     BiGetObjectDescription @ 0x1408597FC (BiGetObjectDescription.c)
+ *     BiIsSystemStore @ 0x14085A030 (BiIsSystemStore.c)
+ *     BiIsSystemStoreCandidate @ 0x14085A0B8 (BiIsSystemStoreCandidate.c)
+ *     BcdGetElementDataWithFlags @ 0x1409A4E5C (BcdGetElementDataWithFlags.c)
+ *     BiIsWinPEBoot @ 0x1409A81CC (BiIsWinPEBoot.c)
+ *     BiUnloadHiveByHandle @ 0x140A81B58 (BiUnloadHiveByHandle.c)
+ *     BiGetSavedBootEntry @ 0x140AA1720 (BiGetSavedBootEntry.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     BiZwQueryValueKey @ 0x14049D7F4 (BiZwQueryValueKey.c)
- *     CmSiCloseSection @ 0x14049E2AC (CmSiCloseSection.c)
- *     BiSanitizeHandle @ 0x1404A6FD0 (BiSanitizeHandle.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     BiOpenKey @ 0x14085D808 (BiOpenKey.c)
- *     BiLogMessage @ 0x1409BE7F8 (BiLogMessage.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     BiZwQueryValueKey @ 0x1404985F4 (BiZwQueryValueKey.c)
+ *     CmSiCloseSection @ 0x1404990AC (CmSiCloseSection.c)
+ *     BiSanitizeHandle @ 0x1404A1930 (BiSanitizeHandle.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     BiOpenKey @ 0x140859578 (BiOpenKey.c)
+ *     BiLogMessage @ 0x1409A4E48 (BiLogMessage.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall BiGetRegistryValue(__int64 a1, const WCHAR *a2, __int64 a3, unsigned int a4, _QWORD *a5, _DWORD *a6)
@@ -72,7 +72,7 @@ __int64 __fastcall BiGetRegistryValue(__int64 a1, const WCHAR *a2, __int64 a3, u
     Size_4 = v14;
     if ( v14 == -1073741789 )
     {
-      Pool2 = (_DWORD *)ExAllocatePool2(0x102uLL);
+      Pool2 = (_DWORD *)ExAllocatePool2(0x102uLL, Size, 0x4B444342u);
       if ( !Pool2 )
         goto LABEL_19;
       v14 = BiZwQueryValueKey(v15, &DestinationString, v16, Pool2, Size, &v21);
@@ -82,7 +82,7 @@ __int64 __fastcall BiGetRegistryValue(__int64 a1, const WCHAR *a2, __int64 a3, u
         if ( Pool2[1] == a4 )
         {
           Size -= 12;
-          v17 = (void *)ExAllocatePool2(0x102uLL);
+          v17 = (void *)ExAllocatePool2(0x102uLL, Size, 0x4B444342u);
           *a5 = v17;
           if ( v17 )
           {

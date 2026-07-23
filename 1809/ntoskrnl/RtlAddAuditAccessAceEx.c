@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlAddAuditAccessAceEx @ 0x140892950
+ * XREFs of RtlAddAuditAccessAceEx @ 0x140893BB0
  * Callers:
  *     <none>
  * Callees:
- *     RtlpAddKnownAce @ 0x1406315A0 (RtlpAddKnownAce.c)
+ *     RtlpAddKnownAce @ 0x1406325C0 (RtlpAddKnownAce.c)
  */
 
 NTSTATUS __stdcall RtlAddAuditAccessAceEx(

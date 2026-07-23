@@ -21,9 +21,9 @@ __int64 __fastcall MiReleaseSessionVa(__int64 a1, unsigned int a2)
   unsigned __int64 v5; // rbx
   ULONG_PTR v6; // rsi
   struct _KTHREAD *v7; // rbx
-  __int64 SessionId; // rdx
+  unsigned int SessionId; // edx
   unsigned __int8 v9; // r15
-  __int64 v10; // r8
+  unsigned int v10; // r8d
   __int64 v12; // rcx
   int v13; // eax
   __int64 v14; // rcx
@@ -47,22 +47,22 @@ __int64 __fastcall MiReleaseSessionVa(__int64 a1, unsigned int a2)
   v19 = 0;
   v7 = KeGetCurrentThread();
   if ( (unsigned int)MiGetSystemRegionType(v6) == 1 )
-    SessionId = (unsigned int)MmGetSessionIdEx(v7->ApcState.Process);
+    SessionId = MmGetSessionIdEx(v7->ApcState.Process);
   else
-    SessionId = 0xFFFFFFFFLL;
+    SessionId = -1;
   --v7->SpecialApcDisable;
   v9 = ++v7->AbAllocationRegionCount;
-  LODWORD(v10) = ((char)v7->AbEntrySummary | (char)v7->AbOrphanedEntrySummary) ^ 0x3F;
+  v10 = ((char)v7->AbEntrySummary | (char)v7->AbOrphanedEntrySummary) ^ 0x3F;
   while ( _BitScanReverse((unsigned int *)&v12, v10) )
   {
     v13 = 1 << v12;
     v14 = v12;
     v15 = &v7->LockEntries[v14];
-    v10 = ~v13 & (unsigned int)v10;
+    v10 &= ~v13;
     if ( (v15->AcquiredByte & 1) != 0
       && (*(_DWORD *)&v15->LockState.0 & 1) == 0
       && (*(_QWORD *)&v15->LockState.0 & 0x7FFFFFFFFFFFFFFCLL) == (v6 & 0x7FFFFFFFFFFFFFFCLL)
-      && v15->LockState.SessionId == (_DWORD)SessionId )
+      && v15->LockState.SessionId == SessionId )
     {
       v15->AcquiredByte &= ~1u;
       if ( v15->LockState.0 )
@@ -71,7 +71,7 @@ __int64 __fastcall MiReleaseSessionVa(__int64 a1, unsigned int a2)
         {
           v15->CrossThreadReleasableAndBusyByte |= 2u;
           if ( (__int64)v15->LockState.LockState < 0 )
-            KiAbEntryRemoveFromTree(&v7->LockEntries[v14], SessionId, v10);
+            KiAbEntryRemoveFromTree(&v7->LockEntries[v14].TreeNode);
           v19 = 0;
           v19 = v15->BoostBitmap.AllFields & 0x1FFFF;
           v15->BoostBitmap.AllFields &= 0xFFFE0000;
@@ -89,7 +89,7 @@ __int64 __fastcall MiReleaseSessionVa(__int64 a1, unsigned int a2)
     }
   }
   if ( (*((_DWORD *)&v7->0 + 1) & 0x8000) == 0 )
-    KeBugCheckEx(0x162u, (ULONG_PTR)v7, v6, (unsigned int)SessionId, 0LL);
+    KeBugCheckEx(0x162u, (ULONG_PTR)v7, v6, SessionId, 0LL);
 LABEL_19:
   --v7->AbAllocationRegionCount;
   KiAbThreadRemoveBoosts(v7, v6, &v19);

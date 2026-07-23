@@ -9,9 +9,9 @@
  *     _CmGetDeviceStatus @ 0x1409A9004 (_CmGetDeviceStatus.c)
  */
 
-__int64 __fastcall PiCMSetProblem(PCWSTR SourceString, int a2, int a3)
+NTSTATUS __fastcall PiCMSetProblem(PCWSTR SourceString, int a2, int a3)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
   int v7; // [rsp+40h] [rbp-30h] BYREF
   UNICODE_STRING DestinationString; // [rsp+48h] [rbp-28h] BYREF
   __int128 v9; // [rsp+58h] [rbp-18h]
@@ -23,12 +23,12 @@ __int64 __fastcall PiCMSetProblem(PCWSTR SourceString, int a2, int a3)
   v11 = 0;
   v12 = 0;
   if ( (unsigned int)(a3 - 1) > 1 )
-    return 3221225485LL;
+    return -1073741811;
   result = CmGetDeviceStatus(PiPnpRtlCtx, (_DWORD)SourceString, 0, (unsigned int)&v12, (__int64)&v11, (__int64)&v7);
-  if ( (int)result < 0 )
+  if ( result < 0 )
     return result;
   if ( a2 && (v12 & 0x400) != 0 && v11 != a2 && a3 != 2 )
-    return 3221225485LL;
+    return -1073741811;
   DestinationString = 0LL;
   v10 = 0LL;
   v9 = 0LL;
@@ -44,5 +44,5 @@ __int64 __fastcall PiCMSetProblem(PCWSTR SourceString, int a2, int a3)
     DWORD2(v9) = v11;
     LODWORD(v9) = 2;
   }
-  return ZwPlugPlayControl(14LL, (__int64)&DestinationString);
+  return ZwPlugPlayControl(PlugPlayControlDeviceStatus, &DestinationString, 0x28u);
 }

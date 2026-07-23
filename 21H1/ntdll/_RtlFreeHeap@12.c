@@ -318,15 +318,15 @@
  *     _RtlpLogHeapFailure@24 @ 0x4B375E3D (_RtlpLogHeapFailure@24.c)
  */
 
-int __stdcall RtlFreeHeap(int a1, int a2, int a3)
+LOGICAL __cdecl RtlFreeHeap(PVOID HeapHandle, ULONG Flags, PVOID BaseAddress)
 {
-  if ( !a3 )
+  if ( !BaseAddress )
     return 1;
-  if ( !a1 )
-    RtlpLogHeapFailure(a3, 0, 0, 0);
-  if ( *(_DWORD *)(a1 + 8) == -571548178 )
-    return RtlpHpFreeWithExceptionProtection(a2);
+  if ( !HeapHandle )
+    RtlpLogHeapFailure(BaseAddress, 0, 0, 0);
+  if ( *((_DWORD *)HeapHandle + 2) == -571548178 )
+    return RtlpHpFreeWithExceptionProtection(Flags);
   if ( (RtlpHpHeapFeatures & 2) != 0 )
-    return RtlpHpTagFreeHeap(a2);
-  return RtlpFreeHeapInternal(a2, 0, 0);
+    return RtlpHpTagFreeHeap(Flags);
+  return RtlpFreeHeapInternal(HeapHandle, (int)BaseAddress, Flags, 0, 0);
 }

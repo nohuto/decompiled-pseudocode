@@ -1,18 +1,18 @@
 /*
- * XREFs of PpCheckInDriverDatabase @ 0x14067F0DC
+ * XREFs of PpCheckInDriverDatabase @ 0x14068029C
  * Callers:
- *     PnpPrepareDriverLoading @ 0x14067F018 (PnpPrepareDriverLoading.c)
+ *     PnpPrepareDriverLoading @ 0x1406801D8 (PnpPrepareDriverLoading.c)
  * Callees:
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceExclusiveLite @ 0x1400505F0 (ExAcquireResourceExclusiveLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     McTemplateK0j @ 0x140288ADC (McTemplateK0j.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     PiLookupInDDB @ 0x14067EE0C (PiLookupInDDB.c)
- *     PiLookupInDDBCache @ 0x14067F1C8 (PiLookupInDDBCache.c)
- *     IopBuildFullDriverPath @ 0x14068061C (IopBuildFullDriverPath.c)
- *     PnpLogEvent @ 0x140827DEC (PnpLogEvent.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     McTemplateK0j @ 0x140288CCC (McTemplateK0j.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     PiLookupInDDB @ 0x14067FFCC (PiLookupInDDB.c)
+ *     PiLookupInDDBCache @ 0x140680388 (PiLookupInDDBCache.c)
+ *     IopBuildFullDriverPath @ 0x1406817DC (IopBuildFullDriverPath.c)
+ *     PnpLogEvent @ 0x140828FEC (PnpLogEvent.c)
  */
 
 __int64 __fastcall PpCheckInDriverDatabase(__int64 a1, __int64 a2, __int64 a3, unsigned int a4, int a5, _OWORD *a6)
@@ -55,7 +55,7 @@ __int64 __fastcall PpCheckInDriverDatabase(__int64 a1, __int64 a2, __int64 a3, u
   }
   if ( (unsigned int)(v10 + 1073740949) <= 1 )
   {
-    if ( (byte_140405846 & 2) != 0 )
+    if ( (byte_140406846 & 2) != 0 )
       McTemplateK0j(v9, v8, v11, (__int64)a6);
   }
   else

@@ -1,14 +1,14 @@
 /*
- * XREFs of MiGetAweViewPageSize @ 0x1404BA0FC
+ * XREFs of MiGetAweViewPageSize @ 0x1404B4F9C
  * Callers:
- *     MiDeleteVadAwePtes @ 0x1404B9E8C (MiDeleteVadAwePtes.c)
- *     MiWriteAwePtes @ 0x1404BA130 (MiWriteAwePtes.c)
- *     MiProtectAweRegion @ 0x1404C2558 (MiProtectAweRegion.c)
- *     MiGetAwePageSizeFromVa @ 0x140682524 (MiGetAwePageSizeFromVa.c)
- *     MiReferenceIncomingPhysicalPages @ 0x140682A70 (MiReferenceIncomingPhysicalPages.c)
- *     MiComputeAweCharges @ 0x1406F57C8 (MiComputeAweCharges.c)
- *     NtMapUserPhysicalPages @ 0x1407FA100 (NtMapUserPhysicalPages.c)
- *     MiGetAweVadPageSize @ 0x140988078 (MiGetAweVadPageSize.c)
+ *     MiDeleteVadAwePtes @ 0x1404B4D2C (MiDeleteVadAwePtes.c)
+ *     MiWriteAwePtes @ 0x1404B4FD0 (MiWriteAwePtes.c)
+ *     MiProtectAweRegion @ 0x1404BDA90 (MiProtectAweRegion.c)
+ *     MiGetAwePageSizeFromVa @ 0x140683714 (MiGetAwePageSizeFromVa.c)
+ *     MiReferenceIncomingPhysicalPages @ 0x140683C60 (MiReferenceIncomingPhysicalPages.c)
+ *     MiComputeAweCharges @ 0x1406F37C8 (MiComputeAweCharges.c)
+ *     NtMapUserPhysicalPages @ 0x1407FA870 (NtMapUserPhysicalPages.c)
+ *     MiGetAweVadPageSize @ 0x14097085C (MiGetAweVadPageSize.c)
  * Callees:
  *     <none>
  */

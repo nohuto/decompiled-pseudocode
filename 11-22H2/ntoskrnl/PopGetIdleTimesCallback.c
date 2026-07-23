@@ -170,9 +170,9 @@ LABEL_8:
         ++*v34;
         *v33 += v17;
       }
-      if ( v17 > (unsigned int)KeMaximumIncrement )
+      if ( v17 > KeMaximumIncrement )
       {
-        v18 = v17 / (unsigned int)KeMaximumIncrement;
+        v18 = v17 / KeMaximumIncrement;
         SpareLong0 = v18 + SpareLong0 - 1;
         KernelTime = v18 + KernelTime - 1;
       }
@@ -183,7 +183,7 @@ LABEL_8:
     if ( IdleAccounting && IdleStates )
       *(_QWORD *)a2 += *(_QWORD *)(a2 + 8) + *(_QWORD *)(a2 + 16) + *(_QWORD *)(a2 + 24);
     else
-      *(_QWORD *)a2 = SpareLong0 * (unsigned __int64)(unsigned int)KeMaximumIncrement;
+      *(_QWORD *)a2 = SpareLong0 * (unsigned __int64)KeMaximumIncrement;
   }
   if ( a3 )
   {

@@ -170,7 +170,7 @@ LABEL_4:
   if ( !v6[33] )
     goto LABEL_5;
   v17 = qword_140C31CC8;
-  v18 = v5 + (unsigned int)KeMaximumIncrement;
+  v18 = v5 + KeMaximumIncrement;
   if ( qword_140C31CC8 > v5 )
   {
     v19 = KiClockOwnerOneShotRequest;

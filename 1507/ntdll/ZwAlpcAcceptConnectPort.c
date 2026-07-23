@@ -6,11 +6,20 @@
  *     <none>
  */
 
-__int64 ZwAlpcAcceptConnectPort()
+NTSTATUS __cdecl ZwAlpcAcceptConnectPort(
+        PHANDLE PortHandle,
+        HANDLE ConnectionPortHandle,
+        ULONG Flags,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        PALPC_PORT_ATTRIBUTES PortAttributes,
+        PVOID PortContext,
+        PPORT_MESSAGE ConnectionRequest,
+        PALPC_MESSAGE_ATTRIBUTES ConnectionMessageAttributes,
+        BOOLEAN AcceptConnection)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 115LL;
+  result = 115;
   __asm { syscall; Low latency system call }
   return result;
 }

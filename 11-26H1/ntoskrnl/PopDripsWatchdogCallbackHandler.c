@@ -1,22 +1,22 @@
 /*
- * XREFs of PopDripsWatchdogCallbackHandler @ 0x140B3FB6C
+ * XREFs of PopDripsWatchdogCallbackHandler @ 0x140B41B9C
  * Callers:
- *     PopDripsWatchdogCallbackWorker @ 0x1407DE0A0 (PopDripsWatchdogCallbackWorker.c)
+ *     PopDripsWatchdogCallbackWorker @ 0x1407E2720 (PopDripsWatchdogCallbackWorker.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     PopQueueDirectedDripsWork @ 0x140483414 (PopQueueDirectedDripsWork.c)
- *     PopFxBuildDripsBlockingDeviceList @ 0x1404D4110 (PopFxBuildDripsBlockingDeviceList.c)
- *     PopDeviceConstraintsEnforced @ 0x140500E54 (PopDeviceConstraintsEnforced.c)
- *     PopDripsWatchdogGetDeviceActiveTime @ 0x140504010 (PopDripsWatchdogGetDeviceActiveTime.c)
- *     PopFxIsDirectedPowerTransitionSupported @ 0x140512E90 (PopFxIsDirectedPowerTransitionSupported.c)
- *     PopDirectedDripsMarkCandidateDevice @ 0x14077EF08 (PopDirectedDripsMarkCandidateDevice.c)
- *     PopDirectedDripsNotify @ 0x140B08694 (PopDirectedDripsNotify.c)
- *     PopDripsWatchdogInvokeDeviceCallbacks @ 0x140B32398 (PopDripsWatchdogInvokeDeviceCallbacks.c)
- *     PopFxDestroyDripsBlockingDeviceList @ 0x140B3FE28 (PopFxDestroyDripsBlockingDeviceList.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     PopQueueDirectedDripsWork @ 0x14047CD84 (PopQueueDirectedDripsWork.c)
+ *     PopFxBuildDripsBlockingDeviceList @ 0x1404CD980 (PopFxBuildDripsBlockingDeviceList.c)
+ *     PopDeviceConstraintsEnforced @ 0x1404FA644 (PopDeviceConstraintsEnforced.c)
+ *     PopDripsWatchdogGetDeviceActiveTime @ 0x1404FD8E0 (PopDripsWatchdogGetDeviceActiveTime.c)
+ *     PopFxIsDirectedPowerTransitionSupported @ 0x14050C900 (PopFxIsDirectedPowerTransitionSupported.c)
+ *     PopDirectedDripsMarkCandidateDevice @ 0x140781A08 (PopDirectedDripsMarkCandidateDevice.c)
+ *     PopDirectedDripsNotify @ 0x140B0A610 (PopDirectedDripsNotify.c)
+ *     PopDripsWatchdogInvokeDeviceCallbacks @ 0x140B347EC (PopDripsWatchdogInvokeDeviceCallbacks.c)
+ *     PopFxDestroyDripsBlockingDeviceList @ 0x140B41E58 (PopFxDestroyDripsBlockingDeviceList.c)
  */
 
 char __fastcall PopDripsWatchdogCallbackHandler(
@@ -24,10 +24,10 @@ char __fastcall PopDripsWatchdogCallbackHandler(
         __int64 a2,
         __int64 a3,
         unsigned __int64 a4,
-        __int64 a5,
+        struct _KTHREAD *a5,
         char a6)
 {
-  __int64 v6; // r15
+  struct _KTHREAD *v6; // r15
   int v7; // eax
   int v8; // ebp
   bool v9; // bl
@@ -55,27 +55,27 @@ char __fastcall PopDripsWatchdogCallbackHandler(
   v8 = a1 & 0x100;
   v9 = 0;
   if ( PopDirectedDripsTimeout && a4 / 0x989680 >= (unsigned int)PopDirectedDripsTimeout || a6 )
-    v9 = (word_140E27018 & 1) == 0 || (a1 & 1) != 0;
+    v9 = (word_140E27158 & 1) == 0 || (a1 & 1) != 0;
   if ( (a1 & 0x80) != 0 || (a1 & 0x100) != 0 || v9 )
   {
     LOBYTE(v7) = PopDeviceConstraintsEnforced(a1);
     if ( (_BYTE)v7 )
     {
-      v7 = PopFxBuildDripsBlockingDeviceList(a3, (__int64 **)v28);
+      v7 = PopFxBuildDripsBlockingDeviceList(a3, (__int64 *)v28);
       if ( v7 >= 0 )
       {
         if ( v9 )
         {
-          _m_prefetchw(dword_140F12AC0);
-          v13 = dword_140F12AC0[0];
+          _m_prefetchw(&PopDirectedDripsState);
+          v13 = PopDirectedDripsState;
           do
           {
             v14 = v13;
-            v13 = _InterlockedCompareExchange(dword_140F12AC0, v13, v13);
+            v13 = _InterlockedCompareExchange(&PopDirectedDripsState, v13, v13);
           }
           while ( v14 != v13 );
           if ( (v13 & 1) != 0 )
-            unk_140F12AF4 = 0;
+            dword_140F12E34 = 0;
         }
         else if ( v8 )
         {
@@ -100,21 +100,21 @@ char __fastcall PopDripsWatchdogCallbackHandler(
         }
         if ( v9 )
         {
-          _m_prefetchw(dword_140F12AC0);
-          v18 = dword_140F12AC0[0];
+          _m_prefetchw(&PopDirectedDripsState);
+          v18 = PopDirectedDripsState;
           do
           {
             v19 = v18;
-            v18 = _InterlockedCompareExchange(dword_140F12AC0, v18, v18);
+            v18 = _InterlockedCompareExchange(&PopDirectedDripsState, v18, v18);
           }
           while ( v19 != v18 );
           if ( (v18 & 1) != 0 )
           {
-            v20 = (AutoBoost *)KeAbPreAcquire((__int64)&unk_140F12B60, 0LL, 0LL, v12);
-            v22 = _interlockedbittestandset64(&unk_140F12B60.Header.Lock, 0LL);
+            v20 = (AutoBoost *)KeAbPreAcquire((__int64)&stru_140F12EA0, 0LL, 0LL, v12);
+            v22 = _interlockedbittestandset64(&stru_140F12EA0.Header.Lock, 0LL);
             v23 = v20;
             if ( v22 )
-              ExfAcquirePushLockExclusiveEx((unsigned __int64 *)&unk_140F12B60, v20, (__int64)&unk_140F12B60);
+              ExfAcquirePushLockExclusiveEx((unsigned __int64 *)&stru_140F12EA0, v20, (__int64)&stru_140F12EA0);
             if ( v23 )
             {
               if ( (KiAbpGlobalState & 1) != 0 )
@@ -122,26 +122,26 @@ char __fastcall PopDripsWatchdogCallbackHandler(
               else
                 *((_BYTE *)v23 + 10) = 1;
             }
-            if ( qword_140F12CE8 == v6 )
+            if ( stru_140F12EA0.WaitBlock[1].Thread == v6 )
             {
-              if ( dword_140F12CF0 )
+              if ( *(_DWORD *)&stru_140F12EA0.WaitBlockFill11[80] )
               {
-                _m_prefetchw(dword_140F12AC0);
-                v24 = dword_140F12AC0[0];
+                _m_prefetchw(&PopDirectedDripsState);
+                v24 = PopDirectedDripsState;
                 do
                 {
                   v25 = v24 | 0x3000u;
                   v26 = v24;
-                  v24 = _InterlockedCompareExchange(dword_140F12AC0, v25, v24);
+                  v24 = _InterlockedCompareExchange(&PopDirectedDripsState, v25, v24);
                 }
                 while ( v26 != v24 );
-                if ( (v24 & 0x3000) != 0x3000 || unk_140F12AF4 )
+                if ( (v24 & 0x3000) != 0x3000 || dword_140F12E34 )
                   PopQueueDirectedDripsWork(v25, 0x800uLL);
               }
             }
-            if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&unk_140F12B60, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-              ExfTryToWakePushLock((volatile signed __int64 *)&unk_140F12B60.Header.Lock);
-            KeAbPostRelease((unsigned __int64)&unk_140F12B60);
+            if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&stru_140F12EA0, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+              ExfTryToWakePushLock((volatile signed __int64 *)&stru_140F12EA0.Header.Lock);
+            KeAbPostRelease((unsigned __int64)&stru_140F12EA0);
           }
         }
         else if ( v8 )

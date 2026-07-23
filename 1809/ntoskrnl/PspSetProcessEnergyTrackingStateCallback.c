@@ -1,9 +1,9 @@
 /*
- * XREFs of PspSetProcessEnergyTrackingStateCallback @ 0x1406CEE60
+ * XREFs of PspSetProcessEnergyTrackingStateCallback @ 0x1406D0100
  * Callers:
  *     <none>
  * Callees:
- *     PsUpdateComponentPower @ 0x14008F910 (PsUpdateComponentPower.c)
+ *     PsUpdateComponentPower @ 0x14008F830 (PsUpdateComponentPower.c)
  */
 
 __int64 __fastcall PspSetProcessEnergyTrackingStateCallback(void *a1, unsigned __int64 *a2)

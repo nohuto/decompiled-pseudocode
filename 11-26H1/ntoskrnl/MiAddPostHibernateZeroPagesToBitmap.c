@@ -1,20 +1,20 @@
 /*
- * XREFs of MiAddPostHibernateZeroPagesToBitmap @ 0x140C007C4
+ * XREFs of MiAddPostHibernateZeroPagesToBitmap @ 0x140C069D4
  * Callers:
- *     MiRecordPostHibernateZeroPages @ 0x140C01070 (MiRecordPostHibernateZeroPages.c)
+ *     MiRecordPostHibernateZeroPages @ 0x140C07280 (MiRecordPostHibernateZeroPages.c)
  * Callees:
- *     MiGetPfnPageSizeIndex @ 0x14028B290 (MiGetPfnPageSizeIndex.c)
- *     MiIsDecayPfn @ 0x1402F9850 (MiIsDecayPfn.c)
- *     MiGetPagePrivilege @ 0x1402F9878 (MiGetPagePrivilege.c)
- *     MiGetPfnSlabType @ 0x1402FDC40 (MiGetPfnSlabType.c)
- *     MiIsPageInHugePfn @ 0x1403138E0 (MiIsPageInHugePfn.c)
- *     RtlSetBitsEx @ 0x14036F510 (RtlSetBitsEx.c)
- *     MiIsPfn @ 0x14042D9E0 (MiIsPfn.c)
- *     MiIsPfnFileOnly @ 0x1404611D0 (MiIsPfnFileOnly.c)
- *     MiIsPfnOnSlabStandbyList @ 0x14048DA2C (MiIsPfnOnSlabStandbyList.c)
- *     MiTryLockPageAtDpc @ 0x140491540 (MiTryLockPageAtDpc.c)
- *     MiTryLockHugePfnAtDpc @ 0x1406EDDCC (MiTryLockHugePfnAtDpc.c)
- *     MiUnlockHugePfnAtDpcUnordered @ 0x1406EDDE8 (MiUnlockHugePfnAtDpcUnordered.c)
+ *     MiGetPfnPageSizeIndex @ 0x14028A7F0 (MiGetPfnPageSizeIndex.c)
+ *     MiIsDecayPfn @ 0x1402DB8D0 (MiIsDecayPfn.c)
+ *     MiGetPagePrivilege @ 0x1402DB8F8 (MiGetPagePrivilege.c)
+ *     MiGetPfnSlabType @ 0x1402DFCC0 (MiGetPfnSlabType.c)
+ *     MiIsPageInHugePfn @ 0x140315910 (MiIsPageInHugePfn.c)
+ *     RtlSetBitsEx @ 0x1403712C0 (RtlSetBitsEx.c)
+ *     MiIsPfn @ 0x14041A8F0 (MiIsPfn.c)
+ *     MiIsPfnFileOnly @ 0x1404595D0 (MiIsPfnFileOnly.c)
+ *     MiIsPfnOnSlabStandbyList @ 0x14048756C (MiIsPfnOnSlabStandbyList.c)
+ *     MiTryLockPageAtDpc @ 0x14048B090 (MiTryLockPageAtDpc.c)
+ *     MiTryLockHugePfnAtDpc @ 0x1406F2A6C (MiTryLockHugePfnAtDpc.c)
+ *     MiUnlockHugePfnAtDpcUnordered @ 0x1406F2A88 (MiUnlockHugePfnAtDpcUnordered.c)
  */
 
 __int64 __fastcall MiAddPostHibernateZeroPagesToBitmap(__int64 a1, unsigned __int64 a2, __int64 a3)
@@ -44,7 +44,7 @@ __int64 __fastcall MiAddPostHibernateZeroPagesToBitmap(__int64 a1, unsigned __in
 
   v26 = 0LL;
   v4 = (unsigned __int8 **)&v25;
-  p_WaitType = &stru_140E2EB88.WaitBlock[1].WaitType;
+  p_WaitType = &stru_140E2ED08.WaitBlock[1].WaitType;
   v6 = 2LL;
   do
   {
@@ -58,7 +58,7 @@ __int64 __fastcall MiAddPostHibernateZeroPagesToBitmap(__int64 a1, unsigned __in
   v8 = 0LL;
   while ( a2 < v7 )
   {
-    if ( a2 > qword_140E2D7A0 )
+    if ( a2 > qword_140E2D920 )
       return v8;
     v9 = -1LL;
     v10 = 1LL;
@@ -66,7 +66,7 @@ __int64 __fastcall MiAddPostHibernateZeroPagesToBitmap(__int64 a1, unsigned __in
     if ( MiIsPageInHugePfn(a2) )
     {
       v10 = 0x40000LL;
-      v12 = (_QWORD *)(*(_QWORD *)((char *)&stru_140E2EB88.116 + 4) + 8 * ((a2 >> 18) & 0x3FFFFF));
+      v12 = (_QWORD *)(*(_QWORD *)((char *)&stru_140E2ED08.116 + 4) + 8 * ((a2 >> 18) & 0x3FFFFF));
       if ( (unsigned int)MiTryLockHugePfnAtDpc((__int64)v12) )
       {
         v13 = *v12 & 7LL;
@@ -114,13 +114,13 @@ LABEL_23:
                     v23 = (unsigned int)MiIsPfnFileOnly(v15)
                        || (*(_DWORD *)(v15 + 32) & 0x8000000) != 0
                        && (v15 < 0xFFFFDE0000000000uLL
-                        || v15 >= 48 * qword_140E2D7A0 - 0x21FFFFFFFFD0LL
+                        || v15 >= 48 * qword_140E2D920 - 0x21FFFFFFFFD0LL
                         || MiIsDecayPfn((__int64)(48 * a2) / 48)
                         || (v22 & 0x70000) != 0x60000 && (unsigned int)MiGetPfnSlabType(v15) == 9)
                         ? 5
                         : HIBYTE(v22) & 7;
                     if ( !v21
-                      && v23 < *(unsigned __int8 *)(*(_QWORD *)(stru_140E2EB88.ThreadLock
+                      && v23 < *(unsigned __int8 *)(*(_QWORD *)(stru_140E2ED08.ThreadLock
                                                               + 8 * ((*(_QWORD *)(v15 + 40) >> 43) & 0x3FFLL))
                                                   + 16484LL) )
                     {

@@ -1,15 +1,15 @@
 /*
- * XREFs of CmpDoFlushNextHive @ 0x14090AE60
+ * XREFs of CmpDoFlushNextHive @ 0x1408E2580
  * Callers:
  *     <none>
  * Callees:
- *     CmpDoQueueLateUnloadWorker @ 0x14087E638 (CmpDoQueueLateUnloadWorker.c)
- *     UNLOCK_HIVE_LOAD @ 0x140909020 (UNLOCK_HIVE_LOAD.c)
- *     LOCK_HIVE_LOAD @ 0x140909098 (LOCK_HIVE_LOAD.c)
- *     CmpGetNextActiveHive @ 0x14090B0EC (CmpGetNextActiveHive.c)
- *     CmpFlushHive @ 0x14097D2B4 (CmpFlushHive.c)
- *     CmpLockRegistryFreezeAware @ 0x14097DFD8 (CmpLockRegistryFreezeAware.c)
- *     CmpUnlockRegistry @ 0x140BB9F50 (CmpUnlockRegistry.c)
+ *     CmpDoQueueLateUnloadWorker @ 0x1408824E8 (CmpDoQueueLateUnloadWorker.c)
+ *     UNLOCK_HIVE_LOAD @ 0x1408E0740 (UNLOCK_HIVE_LOAD.c)
+ *     LOCK_HIVE_LOAD @ 0x1408E07B8 (LOCK_HIVE_LOAD.c)
+ *     CmpGetNextActiveHive @ 0x1408E280C (CmpGetNextActiveHive.c)
+ *     CmpFlushHive @ 0x140965AC4 (CmpFlushHive.c)
+ *     CmpLockRegistryFreezeAware @ 0x1409667E8 (CmpLockRegistryFreezeAware.c)
+ *     CmpUnlockRegistry @ 0x140BBBF50 (CmpUnlockRegistry.c)
  */
 
 char __fastcall CmpDoFlushNextHive(_BYTE *a1, unsigned __int64 *a2)

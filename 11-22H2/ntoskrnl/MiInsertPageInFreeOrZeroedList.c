@@ -934,10 +934,13 @@ LABEL_211:
                 MiWakeZeroingThreads(v107, 0);
               }
               ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v104 + 21008));
-              if ( KiIrqlFlags )
+              if ( (_DWORD)KiIrqlFlags )
               {
                 CurrentIrql = KeGetCurrentIrql();
-                if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v108 <= 0xFu && CurrentIrql >= 2u )
+                if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+                  && CurrentIrql <= 0xFu
+                  && (unsigned __int8)v108 <= 0xFu
+                  && CurrentIrql >= 2u )
                 {
                   CurrentPrcb = KeGetCurrentPrcb();
                   SchedulerAssist = CurrentPrcb->SchedulerAssist;

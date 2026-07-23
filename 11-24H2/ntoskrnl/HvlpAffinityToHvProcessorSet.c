@@ -1,18 +1,18 @@
 /*
- * XREFs of HvlpAffinityToHvProcessorSet @ 0x1403C9CC4
+ * XREFs of HvlpAffinityToHvProcessorSet @ 0x1403A4864
  * Callers:
- *     HvlpSlowSendSyntheticClusterIpiEx @ 0x1403C6780 (HvlpSlowSendSyntheticClusterIpiEx.c)
- *     HvlpFastSendSyntheticClusterIpiEx @ 0x1403C8838 (HvlpFastSendSyntheticClusterIpiEx.c)
- *     HvlParkedVirtualProcessors @ 0x1403C8E74 (HvlParkedVirtualProcessors.c)
- *     HvlRetargetDeviceInterrupt @ 0x1403C9670 (HvlRetargetDeviceInterrupt.c)
- *     HvlpFastFlushAddressSpaceTbEx @ 0x1403C9984 (HvlpFastFlushAddressSpaceTbEx.c)
- *     HvlpFastFlushListTbEx @ 0x1403C9B54 (HvlpFastFlushListTbEx.c)
- *     HvlpSlowFlushListTbEx @ 0x1403CA27C (HvlpSlowFlushListTbEx.c)
- *     HvlMapDeviceInterrupt @ 0x140587750 (HvlMapDeviceInterrupt.c)
- *     HvlWakeVirtualProcessors @ 0x1405897E0 (HvlWakeVirtualProcessors.c)
- *     HvlpSlowFlushAddressSpaceTbEx @ 0x1406A0FD0 (HvlpSlowFlushAddressSpaceTbEx.c)
+ *     HvlParkedVirtualProcessors @ 0x1403A3A14 (HvlParkedVirtualProcessors.c)
+ *     HvlRetargetDeviceInterrupt @ 0x1403A4210 (HvlRetargetDeviceInterrupt.c)
+ *     HvlpFastFlushAddressSpaceTbEx @ 0x1403A4524 (HvlpFastFlushAddressSpaceTbEx.c)
+ *     HvlpFastFlushListTbEx @ 0x1403A46F4 (HvlpFastFlushListTbEx.c)
+ *     HvlpFastSendSyntheticClusterIpiEx @ 0x1403A4C68 (HvlpFastSendSyntheticClusterIpiEx.c)
+ *     HvlpSlowFlushListTbEx @ 0x1403A4E4C (HvlpSlowFlushListTbEx.c)
+ *     HvlpSlowSendSyntheticClusterIpiEx @ 0x1404BB764 (HvlpSlowSendSyntheticClusterIpiEx.c)
+ *     HvlMapDeviceInterrupt @ 0x140584AD0 (HvlMapDeviceInterrupt.c)
+ *     HvlWakeVirtualProcessors @ 0x140586AD0 (HvlWakeVirtualProcessors.c)
+ *     HvlpSlowFlushAddressSpaceTbEx @ 0x1406A2028 (HvlpSlowFlushAddressSpaceTbEx.c)
  * Callees:
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall HvlpAffinityToHvProcessorSet(__int64 a1, _QWORD *a2, unsigned int a3)
@@ -69,7 +69,7 @@ LABEL_14:
     }
     _BitScanForward64(&v10, v7);
     v7 &= ~(1LL << v10);
-    v11 = *((unsigned int *)qword_140F21E78 + 64 * v9 + (unsigned __int8)v10);
+    v11 = *((unsigned int *)qword_140F22998 + 64 * v9 + (unsigned __int8)v10);
     v12 = (unsigned __int8)HvlpVirtualProcessorMapping[2 * v11];
     v13 = HvlpVirtualProcessorMapping[2 * v11 + 1];
     v15 = v13;

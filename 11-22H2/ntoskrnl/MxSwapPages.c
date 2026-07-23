@@ -22,11 +22,11 @@
  *     MxGetPhase0Mapping @ 0x140B5BDAC (MxGetPhase0Mapping.c)
  */
 
-__int64 __fastcall MxSwapPages(__int64 a1, unsigned __int64 a2)
+void __fastcall MxSwapPages(__int64 a1, unsigned __int64 a2)
 {
   ULONG_PTR v3; // r15
-  __int64 result; // rax
-  unsigned __int64 v5; // r12
+  unsigned __int64 v4; // r12
+  __int64 Page; // rax
   __int64 v6; // rdi
   __int64 v7; // rbx
   __int64 v8; // r13
@@ -56,29 +56,30 @@ __int64 __fastcall MxSwapPages(__int64 a1, unsigned __int64 a2)
   bool v32; // zf
   char v33; // r9
   bool v34; // zf
-  struct _KPRCB *v35; // r9
-  _DWORD *v36; // r8
-  unsigned __int64 v37; // [rsp+20h] [rbp-48h]
-  BOOL v39; // [rsp+80h] [rbp+18h]
-  __int64 v40; // [rsp+88h] [rbp+20h] BYREF
+  unsigned __int8 v35; // al
+  struct _KPRCB *v36; // r9
+  int v37; // eax
+  _DWORD *v38; // r8
+  unsigned __int64 Phase0Mapping; // [rsp+20h] [rbp-48h]
+  BOOL v41; // [rsp+80h] [rbp+18h]
+  __int64 v42; // [rsp+88h] [rbp+20h] BYREF
 
-  v40 = MI_READ_PTE_LOCK_FREE(a2);
-  v3 = ((unsigned __int64)MI_READ_PTE_LOCK_FREE((unsigned __int64)&v40) >> 12) & 0xFFFFFFFFFFLL;
-  result = MxGetPhase0Mapping();
-  v37 = result;
-  v5 = result;
-  if ( !result )
-    return result;
-  result = MiGetPage(
-             (__int64)MiSystemPartition,
-             *(_DWORD *)(a1 + 12) | *(_DWORD *)(a1 + 8) & (unsigned int)_InterlockedExchangeAdd(
-                                                                          *(volatile signed __int32 **)a1,
-                                                                          1u),
-             8u);
-  v6 = result;
-  if ( result == -1 )
-    return result;
-  v7 = 48 * result - 0x220000000000LL;
+  v42 = MI_READ_PTE_LOCK_FREE(a2);
+  v3 = ((unsigned __int64)MI_READ_PTE_LOCK_FREE((unsigned __int64)&v42) >> 12) & 0xFFFFFFFFFFLL;
+  Phase0Mapping = MxGetPhase0Mapping();
+  v4 = Phase0Mapping;
+  if ( !Phase0Mapping )
+    return;
+  Page = MiGetPage(
+           (__int64)MiSystemPartition,
+           *(_DWORD *)(a1 + 12) | *(_DWORD *)(a1 + 8) & (unsigned int)_InterlockedExchangeAdd(
+                                                                        *(volatile signed __int32 **)a1,
+                                                                        1u),
+           8u);
+  v6 = Page;
+  if ( Page == -1 )
+    return;
+  v7 = 48 * Page - 0x220000000000LL;
   v8 = 48 * v3 - 0x220000000000LL;
   v9 = (unsigned __int8)MiLockPageInline(v8);
   MiLockNestedPageAtDpcInline(v7);
@@ -86,10 +87,13 @@ __int64 __fastcall MxSwapPages(__int64 a1, unsigned __int64 a2)
   MiCopyPfnEntryEx(v7, (__int128 *)v8);
   _InterlockedAnd64((volatile signed __int64 *)(v7 + 24), 0x7FFFFFFFFFFFFFFFuLL);
   _InterlockedAnd64((volatile signed __int64 *)(v8 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v9 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v9 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -101,13 +105,13 @@ __int64 __fastcall MxSwapPages(__int64 a1, unsigned __int64 a2)
     }
   }
   __writecr8(v9);
-  v10 = ((v5 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
+  v10 = ((Phase0Mapping >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
   ValidPte = MiMakeValidPte(v10, v6, 2684354564LL);
   v12 = 0;
-  v39 = MiPteInShadowRange(v10);
+  v41 = MiPteInShadowRange(v10);
   v13 = 0x8000000000000000uLL;
   v14 = 4096LL;
-  if ( v39 )
+  if ( v41 )
   {
     if ( MiPteHasShadow() )
     {
@@ -130,11 +134,11 @@ LABEL_5:
   if ( v12 )
     MiWritePteShadow(v10, ValidPte, v13);
   v15 = (__int64)(a2 << 25) >> 16;
-  memmove((void *)v5, (const void *)v15, v14);
+  memmove((void *)Phase0Mapping, (const void *)v15, v14);
   if ( ((v10 ^ v15) & 0xFFFFFFFFFFFFF000uLL) == 0 )
   {
     v21 = ZeroPte;
-    v22 = (unsigned __int64 *)(v5 + 8 * ((v10 >> 3) & 0x1FF));
+    v22 = (unsigned __int64 *)(Phase0Mapping + 8 * ((v10 >> 3) & 0x1FF));
     v23 = 0;
     if ( !MiPteInShadowRange((unsigned __int64)v22) )
     {
@@ -142,7 +146,7 @@ LABEL_15:
       *v22 = v21;
       if ( v23 )
         MiWritePteShadow((__int64)v22, v21, v24);
-      v5 = v37;
+      v4 = Phase0Mapping;
       goto LABEL_11;
     }
     if ( MiPteHasShadow() )
@@ -164,7 +168,7 @@ LABEL_15:
   }
   v16 = ZeroPte;
   v17 = 0LL;
-  if ( !v39 )
+  if ( !v41 )
     goto LABEL_9;
   if ( MiPteHasShadow() )
   {
@@ -187,10 +191,10 @@ LABEL_9:
   if ( (_DWORD)v17 )
     MiWritePteShadow(v10, v16, v17);
 LABEL_11:
-  v40 = v40 ^ (v40 ^ (v6 << 12)) & 0xFFFFFFFFFF000LL | 0x20;
-  MiWriteValidPteNewPage((__int64 *)a2, v40, 0);
+  v42 = v42 ^ (v42 ^ (v6 << 12)) & 0xFFFFFFFFFF000LL | 0x20;
+  MiWriteValidPteNewPage((__int64 *)a2, v42, 0);
   KeFlushSingleTb(v15, 0, 1u);
-  KeFlushSingleTb(v5, 0, 1u);
+  KeFlushSingleTb(v4, 0, 1u);
   v18 = MiLockPageInline(48 * v3 - 0x220000000000LL);
   v19 = *(_BYTE *)(v8 + 34) & 0xDF;
   *(_WORD *)(v8 + 32) = 0;
@@ -199,25 +203,20 @@ LABEL_11:
   *(_BYTE *)(v8 + 34) = v19;
   *(_BYTE *)(v8 + 34) &= ~8u;
   MiInsertPageInFreeOrZeroedList(v3, 2);
-  result = 0x7FFFFFFFFFFFFFFFLL;
   _InterlockedAnd64((volatile signed __int64 *)(v8 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
-    result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
-      && (unsigned __int8)result <= 0xFu
-      && (unsigned __int8)v20 <= 0xFu
-      && (unsigned __int8)result >= 2u )
+    v35 = KeGetCurrentIrql();
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v35 <= 0xFu && (unsigned __int8)v20 <= 0xFu && v35 >= 2u )
     {
-      v35 = KeGetCurrentPrcb();
-      result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v20 + 1));
-      v36 = v35->SchedulerAssist;
-      v30 = ((unsigned int)result & v36[5]) == 0;
-      v36[5] &= result;
+      v36 = KeGetCurrentPrcb();
+      v37 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v20 + 1));
+      v38 = v36->SchedulerAssist;
+      v30 = (v37 & v38[5]) == 0;
+      v38[5] &= v37;
       if ( v30 )
-        result = KiRemoveSystemWorkPriorityKick((__int64)v35);
+        KiRemoveSystemWorkPriorityKick((__int64)v36);
     }
   }
   __writecr8(v20);
-  return result;
 }

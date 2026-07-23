@@ -1,9 +1,9 @@
 /*
- * XREFs of DefaultEnableMonitoring @ 0x1404BE6F0
+ * XREFs of DefaultEnableMonitoring @ 0x1404BE930
  * Callers:
  *     <none>
  * Callees:
- *     HalpTimerStartProfileInterrupt @ 0x1404C1A48 (HalpTimerStartProfileInterrupt.c)
+ *     HalpTimerStartProfileInterrupt @ 0x1404C1C88 (HalpTimerStartProfileInterrupt.c)
  */
 
 __int64 __fastcall DefaultEnableMonitoring(int a1, int a2)

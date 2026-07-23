@@ -1,9 +1,9 @@
 /*
- * XREFs of KiIsTsaPresent @ 0x140410C24
+ * XREFs of KiIsTsaPresent @ 0x140410E84
  * Callers:
- *     KiDetectHardwareSpecControlFeatures @ 0x1403822FC (KiDetectHardwareSpecControlFeatures.c)
+ *     KiDetectHardwareSpecControlFeatures @ 0x14038249C (KiDetectHardwareSpecControlFeatures.c)
  * Callees:
- *     HviIsAnyHypervisorPresent @ 0x140382850 (HviIsAnyHypervisorPresent.c)
+ *     HviIsAnyHypervisorPresent @ 0x1403829F0 (HviIsAnyHypervisorPresent.c)
  */
 
 __int64 __fastcall KiIsTsaPresent(_BYTE *a1)

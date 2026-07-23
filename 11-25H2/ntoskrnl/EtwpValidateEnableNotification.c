@@ -31,9 +31,9 @@ __int64 __fastcall EtwpValidateEnableNotification(__int64 a1, __int64 a2, char a
   {
     if ( (_DWORD)v12 == 3 )
       return 3221225506LL;
-    v13 = PrivateLoggerNotificationGuid - *(_QWORD *)(a2 + 40);
-    if ( (_QWORD)PrivateLoggerNotificationGuid == *(_QWORD *)(a2 + 40) )
-      v13 = *((_QWORD *)&PrivateLoggerNotificationGuid + 1) - *(_QWORD *)(a2 + 48);
+    v13 = *(_QWORD *)&PrivateLoggerNotificationGuid.Data1 - *(_QWORD *)(a2 + 40);
+    if ( *(_QWORD *)&PrivateLoggerNotificationGuid.Data1 == *(_QWORD *)(a2 + 40) )
+      v13 = *(_QWORD *)PrivateLoggerNotificationGuid.Data4 - *(_QWORD *)(a2 + 48);
     if ( v13 )
     {
       v14 = EtwpAcquireLoggerContextByLoggerId(a1, v12, 0LL);

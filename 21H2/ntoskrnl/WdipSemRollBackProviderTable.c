@@ -1,9 +1,9 @@
 /*
- * XREFs of WdipSemRollBackProviderTable @ 0x14092FDA4
+ * XREFs of WdipSemRollBackProviderTable @ 0x14092FF04
  * Callers:
- *     WdipSemLoadScenarioTable @ 0x140799978 (WdipSemLoadScenarioTable.c)
+ *     WdipSemLoadScenarioTable @ 0x140799B78 (WdipSemLoadScenarioTable.c)
  * Callees:
- *     WdipSemFastFree @ 0x140788994 (WdipSemFastFree.c)
+ *     WdipSemFastFree @ 0x140788B54 (WdipSemFastFree.c)
  */
 
 PSLIST_ENTRY __fastcall WdipSemRollBackProviderTable(int a1)
@@ -11,11 +11,11 @@ PSLIST_ENTRY __fastcall WdipSemRollBackProviderTable(int a1)
   unsigned int i; // esi
   PSLIST_ENTRY result; // rax
 
-  for ( i = a1; i < dword_140C1C9C0; ++i )
+  for ( i = a1; i < dword_140C1C9A0; ++i )
   {
-    result = WdipSemFastFree(2, (struct _SLIST_ENTRY *)WdipSemProviderTable[i]);
+    result = WdipSemFastFree(2, (_SLIST_ENTRY *)WdipSemProviderTable[i]);
     WdipSemProviderTable[i] = 0LL;
   }
-  dword_140C1C9C0 = a1;
+  dword_140C1C9A0 = a1;
   return result;
 }

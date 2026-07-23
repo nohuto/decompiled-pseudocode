@@ -1,11 +1,11 @@
 /*
- * XREFs of PopInitializeAdpm @ 0x1409DDD80
+ * XREFs of PopInitializeAdpm @ 0x1409DED80
  * Callers:
- *     PoInitSystem @ 0x1409B2C10 (PoInitSystem.c)
+ *     PoInitSystem @ 0x1409B3C10 (PoInitSystem.c)
  * Callees:
- *     ExInitializeResourceLite @ 0x1400CC4F0 (ExInitializeResourceLite.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     PopExtendConnectionState @ 0x140761D3C (PopExtendConnectionState.c)
+ *     ExInitializeResourceLite @ 0x1400CC570 (ExInitializeResourceLite.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     PopExtendConnectionState @ 0x140762F2C (PopExtendConnectionState.c)
  */
 
 PVOID PopInitializeAdpm()
@@ -15,6 +15,6 @@ PVOID PopInitializeAdpm()
   PopConsoleContext = -1;
   PopMaximumConnectionSessions = 0;
   PopConnectionState = 0LL;
-  dword_14040FDC0 = 3;
+  dword_140410E40 = 3;
   return PopExtendConnectionState(0);
 }

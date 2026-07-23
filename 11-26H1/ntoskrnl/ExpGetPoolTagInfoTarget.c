@@ -1,14 +1,14 @@
 /*
- * XREFs of ExpGetPoolTagInfoTarget @ 0x1402BCDA0
+ * XREFs of ExpGetPoolTagInfoTarget @ 0x140307A60
  * Callers:
  *     <none>
  * Callees:
- *     KeWakeAddressAll @ 0x1402BA1F0 (KeWakeAddressAll.c)
- *     HvlNotifyLongSpinWait @ 0x1402BBF00 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402BC760 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     KeCanUseHaltOnAddress @ 0x1403E5790 (KeCanUseHaltOnAddress.c)
- *     KiHaltOnAddress @ 0x1403E57E8 (KiHaltOnAddress.c)
- *     memmove @ 0x14073D480 (memmove.c)
+ *     KeWakeAddressAll @ 0x140304EB0 (KeWakeAddressAll.c)
+ *     HvlNotifyLongSpinWait @ 0x140306BC0 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140307420 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     KeCanUseHaltOnAddress @ 0x1403E8980 (KeCanUseHaltOnAddress.c)
+ *     KiHaltOnAddress @ 0x1403E89D8 (KiHaltOnAddress.c)
+ *     memmove @ 0x140742080 (memmove.c)
  */
 
 __int64 __fastcall ExpGetPoolTagInfoTarget(__int64 a1, __int64 a2, volatile signed __int32 *a3, __int64 a4)
@@ -37,10 +37,10 @@ __int64 __fastcall ExpGetPoolTagInfoTarget(__int64 a1, __int64 a2, volatile sign
   signed __int32 v28; // edx
   volatile signed __int32 v29; // r8d
   int v30; // ebp
-  void **p_KernelStack; // r9
+  volatile unsigned __int64 *p_CycleTime; // r9
   __int64 v32; // r10
   __int64 v33; // r8
-  _QWORD *v34; // rdx
+  volatile unsigned __int64 v34; // rdx
   __int64 v35; // rax
   _QWORD *i; // rcx
   int v37; // [rsp+58h] [rbp+10h] BYREF
@@ -104,36 +104,36 @@ __int64 __fastcall ExpGetPoolTagInfoTarget(__int64 a1, __int64 a2, volatile sign
     v12 = (_DWORD *)(a4 + 4);
     if ( (_InterlockedExchange((volatile __int32 *)a4, *(_DWORD *)(a4 + 4) | v8) & 0x40000000) != 0 )
       KeWakeAddressAll();
-    memmove(*(void **)a2, *(const void **)&stru_140EFEF90.CurrentRunTime, 80LL * *(_QWORD *)(a2 + 8));
-    p_KernelStack = &stru_140EFEF90.KernelStack;
+    memmove(*(void **)a2, (const void *)stru_140EFF2C0.ThreadLock, 80LL * *(_QWORD *)(a2 + 8));
+    p_CycleTime = &stru_140EFF2C0.CycleTime;
     v32 = 2047LL;
     v33 = *(_QWORD *)a2 + 80LL * *(_QWORD *)(a2 + 8);
     do
     {
-      v34 = *p_KernelStack;
-      if ( *p_KernelStack )
+      v34 = *p_CycleTime;
+      if ( *p_CycleTime )
       {
         for ( i = *(_QWORD **)a2; i != (_QWORD *)v33; i += 10 )
         {
           if ( *(_DWORD *)v34 )
           {
-            i[2] += v34[2];
-            i[3] += v34[3];
-            i[1] += v34[1];
-            i[5] += v34[5];
-            i[6] += v34[6];
-            i[4] += v34[4];
+            i[2] += *(_QWORD *)(v34 + 16);
+            i[3] += *(_QWORD *)(v34 + 24);
+            i[1] += *(_QWORD *)(v34 + 8);
+            i[5] += *(_QWORD *)(v34 + 40);
+            i[6] += *(_QWORD *)(v34 + 48);
+            i[4] += *(_QWORD *)(v34 + 32);
           }
-          v34 += 10;
+          v34 += 80LL;
         }
       }
-      ++p_KernelStack;
+      ++p_CycleTime;
       --v32;
     }
     while ( v32 );
     v35 = *(_QWORD *)(a2 + 24);
     if ( v35 )
-      memmove(*(void **)(a2 + 16), (const void *)stru_140EFEF90.ThreadLock, 80 * v35);
+      memmove(*(void **)(a2 + 16), (const void *)PoolTrackTableExpansion, 80 * v35);
   }
   result = (unsigned int)_InterlockedDecrement((volatile signed __int32 *)a4);
   v14 = ~(_DWORD)result & 0x80000000;

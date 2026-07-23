@@ -4,7 +4,7 @@
  *     Phase1InitializationDiscard @ 0x140794438 (Phase1InitializationDiscard.c)
  *     IoInitSystemPreDrivers @ 0x14079EDEC (IoInitSystemPreDrivers.c)
  * Callees:
- *     EtwRegister @ 0x140549F44 (EtwRegister.c)
+ *     EtwRegister @ 0x14054A484 (EtwRegister.c)
  *     SmQueryRegistry @ 0x1407B6318 (SmQueryRegistry.c)
  *     SmGlobalsInitialize @ 0x1407B6398 (SmGlobalsInitialize.c)
  */

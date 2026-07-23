@@ -1,9 +1,9 @@
 /*
- * XREFs of MiCompareHotPatchNodes @ 0x140854A78
+ * XREFs of MiCompareHotPatchNodes @ 0x140855CD8
  * Callers:
- *     MiFindHotPatchRecord @ 0x140682204 (MiFindHotPatchRecord.c)
- *     MiDeleteHotPatchRecord @ 0x140854BCC (MiDeleteHotPatchRecord.c)
- *     MiInsertHotPatchRecord @ 0x140855890 (MiInsertHotPatchRecord.c)
+ *     MiFindHotPatchRecord @ 0x1406833C4 (MiFindHotPatchRecord.c)
+ *     MiDeleteHotPatchRecord @ 0x140855E2C (MiDeleteHotPatchRecord.c)
+ *     MiInsertHotPatchRecord @ 0x140856AF0 (MiInsertHotPatchRecord.c)
  * Callees:
  *     <none>
  */

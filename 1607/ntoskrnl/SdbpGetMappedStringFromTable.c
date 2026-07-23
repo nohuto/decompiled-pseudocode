@@ -1,12 +1,12 @@
 /*
- * XREFs of SdbpGetMappedStringFromTable @ 0x140573D88
+ * XREFs of SdbpGetMappedStringFromTable @ 0x1405742C8
  * Callers:
- *     SdbGetStringTagPtr @ 0x140573D10 (SdbGetStringTagPtr.c)
+ *     SdbGetStringTagPtr @ 0x140574250 (SdbGetStringTagPtr.c)
  * Callees:
- *     SdbpGetMappedTagData @ 0x140484DE0 (SdbpGetMappedTagData.c)
- *     SdbGetTagFromTagID @ 0x140501250 (SdbGetTagFromTagID.c)
- *     SdbFindFirstTag @ 0x1405049C4 (SdbFindFirstTag.c)
- *     AslLogCallPrintf @ 0x1406C5804 (AslLogCallPrintf.c)
+ *     SdbGetTagFromTagID @ 0x1404E41E0 (SdbGetTagFromTagID.c)
+ *     SdbFindFirstTag @ 0x1404E7954 (SdbFindFirstTag.c)
+ *     SdbpGetMappedTagData @ 0x140514168 (SdbpGetMappedTagData.c)
+ *     AslLogCallPrintf @ 0x1406C593C (AslLogCallPrintf.c)
  */
 
 __int64 __fastcall SdbpGetMappedStringFromTable(__int64 a1, int a2)
@@ -15,6 +15,7 @@ __int64 __fastcall SdbpGetMappedStringFromTable(__int64 a1, int a2)
   unsigned int v4; // edi
   int FirstTag; // eax
   int v7; // r8d
+  const char *v8; // r9
 
   v3 = a1;
   if ( *(_DWORD *)(a1 + 16) )
@@ -37,18 +38,17 @@ __int64 __fastcall SdbpGetMappedStringFromTable(__int64 a1, int a2)
       {
         v7 = 747;
 LABEL_10:
-        AslLogCallPrintf(1, (unsigned int)"SdbpGetMappedStringFromTable", v7, (unsigned int)"No stringtable in DB");
-        return 0LL;
+        v8 = "No stringtable in DB";
+        goto LABEL_12;
       }
     }
     v4 = *(_DWORD *)(v3 + 1328) + a2;
   }
   if ( (unsigned __int16)SdbGetTagFromTagID(v3, v4) == 0x8801 )
     return SdbpGetMappedTagData(v3, v4);
-  AslLogCallPrintf(
-    1,
-    (unsigned int)"SdbpGetMappedStringFromTable",
-    762,
-    (unsigned int)"Pulled out a non-stringtable item");
+  v8 = "Pulled out a non-stringtable item";
+  v7 = 762;
+LABEL_12:
+  AslLogCallPrintf(1, (unsigned int)"SdbpGetMappedStringFromTable", v7, (_DWORD)v8);
   return 0LL;
 }

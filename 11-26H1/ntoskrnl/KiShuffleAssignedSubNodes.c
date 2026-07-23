@@ -1,7 +1,7 @@
 /*
- * XREFs of KiShuffleAssignedSubNodes @ 0x140CCC9FC
+ * XREFs of KiShuffleAssignedSubNodes @ 0x140CD2B5C
  * Callers:
- *     KiPerformAutomaticGroupConfiguration @ 0x140CCA5A8 (KiPerformAutomaticGroupConfiguration.c)
+ *     KiPerformAutomaticGroupConfiguration @ 0x140CD0688 (KiPerformAutomaticGroupConfiguration.c)
  * Callees:
  *     <none>
  */

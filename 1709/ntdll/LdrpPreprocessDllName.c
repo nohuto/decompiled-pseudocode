@@ -37,7 +37,7 @@ __int64 __fastcall LdrpPreprocessDllName(unsigned __int16 *a1, unsigned __int16 
   v9 = 0;
   if ( v5 )
   {
-    v10 = LdrpApplyFileNameRedirection(a3, (_DWORD)a1, a3, (_DWORD)a2, (__int64)&v21);
+    v10 = LdrpApplyFileNameRedirection(a3, a1, a3, a2, &v21);
     v9 = v21;
     appended = v10;
   }
@@ -94,7 +94,7 @@ LABEL_12:
       if ( (unsigned __int64)j < v14 )
       {
 LABEL_29:
-        appended = LdrpAppendUnicodeStringToFilenameBuffer(a2, L"\b\n");
+        appended = LdrpAppendUnicodeStringToFilenameBuffer(a2, &LdrpDefaultExtension);
         goto LABEL_23;
       }
       if ( *j == 46 )

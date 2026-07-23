@@ -1,10 +1,10 @@
 /*
- * XREFs of MiAllowGuardFault @ 0x1403A6CA0
+ * XREFs of MiAllowGuardFault @ 0x1403A8A00
  * Callers:
- *     MiAccessCheck @ 0x1403A69D0 (MiAccessCheck.c)
- *     MiZeroFault @ 0x140422AB0 (MiZeroFault.c)
+ *     MiAccessCheck @ 0x1403A8730 (MiAccessCheck.c)
+ *     MiZeroFault @ 0x14041A2F0 (MiZeroFault.c)
  * Callees:
- *     KeInvalidAccessAllowed @ 0x1403A6D10 (KeInvalidAccessAllowed.c)
+ *     KeInvalidAccessAllowed @ 0x1403A8A70 (KeInvalidAccessAllowed.c)
  */
 
 __int64 __fastcall MiAllowGuardFault(__int64 a1)

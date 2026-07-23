@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlCountRequiredHotPatchAddressTableEntries @ 0x140A76208
+ * XREFs of RtlCountRequiredHotPatchAddressTableEntries @ 0x140A764B8
  * Callers:
- *     MiPrepareToHotPatchImage @ 0x140A3A908 (MiPrepareToHotPatchImage.c)
+ *     MiPrepareToHotPatchImage @ 0x140A3ABB8 (MiPrepareToHotPatchImage.c)
  * Callees:
- *     RtlGetHotPatchSize @ 0x14067ACB8 (RtlGetHotPatchSize.c)
- *     RtlpCheckFunctionPatchAppliedInOriginalImage @ 0x14067AF0C (RtlpCheckFunctionPatchAppliedInOriginalImage.c)
+ *     RtlGetHotPatchSize @ 0x14067B208 (RtlGetHotPatchSize.c)
+ *     RtlpCheckFunctionPatchAppliedInOriginalImage @ 0x14067B45C (RtlpCheckFunctionPatchAppliedInOriginalImage.c)
  */
 
 __int64 __fastcall RtlCountRequiredHotPatchAddressTableEntries(

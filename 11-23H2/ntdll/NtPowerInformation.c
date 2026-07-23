@@ -6,17 +6,22 @@
  *     RtlRestoreSystemBootStatusDefaults @ 0x1800FAC90 (RtlRestoreSystemBootStatusDefaults.c)
  *     RtlUnlockBootStatusData @ 0x1800FACF0 (RtlUnlockBootStatusData.c)
  *     RtlpRecordBootStatusData @ 0x1800FB038 (RtlpRecordBootStatusData.c)
- *     RtlpCreateExecutionRequiredRequest @ 0x1801196D0 (RtlpCreateExecutionRequiredRequest.c)
- *     RtlpDestroyExecutionRequiredRequest @ 0x1801197D0 (RtlpDestroyExecutionRequiredRequest.c)
+ *     RtlpCreateExecutionRequiredRequest @ 0x1801196A0 (RtlpCreateExecutionRequiredRequest.c)
+ *     RtlpDestroyExecutionRequiredRequest @ 0x1801197A0 (RtlpDestroyExecutionRequiredRequest.c)
  * Callees:
  *     <none>
  */
 
-__int64 NtPowerInformation()
+NTSTATUS __cdecl NtPowerInformation(
+        POWER_INFORMATION_LEVEL InformationLevel,
+        PVOID InputBuffer,
+        ULONG InputBufferLength,
+        PVOID OutputBuffer,
+        ULONG OutputBufferLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 95LL;
+  result = 95;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

@@ -1,13 +1,13 @@
 /*
- * XREFs of CmpFindPathByNameEx @ 0x140601014
+ * XREFs of CmpFindPathByNameEx @ 0x1406010C8
  * Callers:
  *     CmpVEExecuteRealStoreParseLogic @ 0x1403E1228 (CmpVEExecuteRealStoreParseLogic.c)
  *     CmpVirtualBranchIsReplicated @ 0x1403E14A8 (CmpVirtualBranchIsReplicated.c)
- *     CmpVEExecuteOpenLogic @ 0x1404402B0 (CmpVEExecuteOpenLogic.c)
- *     CmpVEExecuteVirtualStoreParseLogic @ 0x140601A60 (CmpVEExecuteVirtualStoreParseLogic.c)
- *     CmpVirtualPathPresent @ 0x140601D0C (CmpVirtualPathPresent.c)
+ *     CmpVEExecuteOpenLogic @ 0x14043F180 (CmpVEExecuteOpenLogic.c)
+ *     CmpVEExecuteVirtualStoreParseLogic @ 0x140601B14 (CmpVEExecuteVirtualStoreParseLogic.c)
+ *     CmpVirtualPathPresent @ 0x140601DC0 (CmpVirtualPathPresent.c)
  * Callees:
- *     CmpFindSubKeyByNameWithStatus @ 0x1405120D0 (CmpFindSubKeyByNameWithStatus.c)
+ *     CmpFindSubKeyByNameWithStatus @ 0x1404F54C0 (CmpFindSubKeyByNameWithStatus.c)
  */
 
 char __fastcall CmpFindPathByNameEx(__int64 a1, __m128i *a2, __int64 a3, int a4, _DWORD *a5, __int64 *a6)

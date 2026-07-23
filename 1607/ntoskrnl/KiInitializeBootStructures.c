@@ -3,12 +3,12 @@
  * Callers:
  *     KiSystemStartup @ 0x1403C8010 (KiSystemStartup.c)
  * Callees:
- *     KeAddProcessorAffinityEx @ 0x1400D3F88 (KeAddProcessorAffinityEx.c)
- *     PoEnergyEstimationEnabled @ 0x1400F2054 (PoEnergyEstimationEnabled.c)
- *     strstr @ 0x14014CF38 (strstr.c)
- *     atoi @ 0x14014CFA8 (atoi.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     KiDetectTsx @ 0x1401D1EF4 (KiDetectTsx.c)
+ *     KeAddProcessorAffinityEx @ 0x1400D1E28 (KeAddProcessorAffinityEx.c)
+ *     PoEnergyEstimationEnabled @ 0x1400EFEA4 (PoEnergyEstimationEnabled.c)
+ *     strstr @ 0x14014D4A8 (strstr.c)
+ *     atoi @ 0x14014D518 (atoi.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     KiDetectTsx @ 0x1401D1D20 (KiDetectTsx.c)
  *     ExInitPoolLookasidePointers @ 0x1403D5234 (ExInitPoolLookasidePointers.c)
  *     KiInitPrcb @ 0x1403D5408 (KiInitPrcb.c)
  *     KiSetFeatureBits @ 0x1403D57C8 (KiSetFeatureBits.c)

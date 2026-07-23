@@ -1,5 +1,5 @@
 /*
- * XREFs of MD4Init @ 0x1801246A0
+ * XREFs of MD4Init @ 0x180124670
  * Callers:
  *     <none>
  * Callees:

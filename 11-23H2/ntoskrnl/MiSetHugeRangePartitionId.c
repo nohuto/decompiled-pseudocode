@@ -1,16 +1,16 @@
 /*
- * XREFs of MiSetHugeRangePartitionId @ 0x140622808
+ * XREFs of MiSetHugeRangePartitionId @ 0x140622D58
  * Callers:
- *     MiActOnPartitionNodePages @ 0x140658080 (MiActOnPartitionNodePages.c)
+ *     MiActOnPartitionNodePages @ 0x1406585D0 (MiActOnPartitionNodePages.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     MiSearchNumaNodeTable @ 0x14026EAD0 (MiSearchNumaNodeTable.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14028A930 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiRestrictRangeToNode @ 0x140375714 (MiRestrictRangeToNode.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiLockHugePfnInternal @ 0x140621468 (MiLockHugePfnInternal.c)
- *     MiUpdateHugePageCounts @ 0x140622D48 (MiUpdateHugePageCounts.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     MiSearchNumaNodeTable @ 0x14026ED60 (MiSearchNumaNodeTable.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14028ABC0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiRestrictRangeToNode @ 0x1403758B4 (MiRestrictRangeToNode.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     MiLockHugePfnInternal @ 0x1406219B8 (MiLockHugePfnInternal.c)
+ *     MiUpdateHugePageCounts @ 0x140623298 (MiUpdateHugePageCounts.c)
  */
 
 __int64 __fastcall MiSetHugeRangePartitionId(unsigned __int16 *a1, __int64 a2, ULONG_PTR a3, ULONG_PTR a4)
@@ -113,10 +113,10 @@ __int64 __fastcall MiSetHugeRangePartitionId(unsigned __int16 *a1, __int64 a2, U
       v21 = (volatile LONG *)(v16 + 23104);
     }
     ExReleaseSpinLockExclusiveFromDpcLevel(v21);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v17 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v17 <= 0xFu && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;

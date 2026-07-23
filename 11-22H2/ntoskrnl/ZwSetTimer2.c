@@ -6,9 +6,13 @@
  *     <none>
  */
 
-__int64 __fastcall ZwSetTimer2(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwSetTimer2(
+        HANDLE TimerHandle,
+        PLARGE_INTEGER DueTime,
+        PLARGE_INTEGER Period,
+        PT2_SET_PARAMETERS Parameters)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(TimerHandle);
 }

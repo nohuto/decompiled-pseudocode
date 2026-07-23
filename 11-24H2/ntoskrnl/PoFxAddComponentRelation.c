@@ -1,17 +1,17 @@
 /*
- * XREFs of PoFxAddComponentRelation @ 0x1405CFDE0
+ * XREFs of PoFxAddComponentRelation @ 0x1405CD500
  * Callers:
  *     <none>
  * Callees:
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     PopFxReferenceDevice @ 0x14029F788 (PopFxReferenceDevice.c)
- *     PopFxDereferenceDevice @ 0x140376880 (PopFxDereferenceDevice.c)
- *     ExReleaseSpinLockExclusive @ 0x140379ED0 (ExReleaseSpinLockExclusive.c)
- *     PopFxIdleComponent @ 0x1403B4888 (PopFxIdleComponent.c)
- *     PopFxActivateComponent @ 0x1403B61EC (PopFxActivateComponent.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     PopFxActivateComponent @ 0x1402AE4EC (PopFxActivateComponent.c)
+ *     ExReleaseSpinLockExclusive @ 0x1402E6E40 (ExReleaseSpinLockExclusive.c)
+ *     PopFxDereferenceDevice @ 0x1403A7F58 (PopFxDereferenceDevice.c)
+ *     PopFxIdleComponent @ 0x1403A8D58 (PopFxIdleComponent.c)
+ *     PopFxReferenceDevice @ 0x1403AA248 (PopFxReferenceDevice.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall PoFxAddComponentRelation(ULONG_PTR BugCheckParameter2, unsigned int a2, __int64 a3, _QWORD *a4)
@@ -89,7 +89,7 @@ __int64 __fastcall PoFxAddComponentRelation(ULONG_PTR BugCheckParameter2, unsign
     }
     else
     {
-      Pool2 = ExAllocatePool2(0x40uLL);
+      Pool2 = ExAllocatePool2(0x40uLL, 0x48uLL, 0x4D584650u);
       if ( Pool2 )
       {
         *(_DWORD *)Pool2 = 1;
@@ -103,8 +103,8 @@ __int64 __fastcall PoFxAddComponentRelation(ULONG_PTR BugCheckParameter2, unsign
         *(_DWORD *)(Pool2 + 16) |= 0xEu;
         *(_QWORD *)(Pool2 + 24) = v16;
         *(_QWORD *)(Pool2 + 48) = v7 + 128;
-        PopFxActivateComponent(v11, (__int64)v16, 1);
-        PopFxActivateComponent(BugCheckParameter2, v7, 1);
+        PopFxActivateComponent(v11, (__int64)v16, 1LL, 0);
+        PopFxActivateComponent(BugCheckParameter2, v7, 1LL, 0);
         v21 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(v7 + 128));
         v22 = *(_QWORD **)(v7 + 464);
         if ( *v22 != v7 + 456 )

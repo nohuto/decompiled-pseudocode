@@ -21,16 +21,16 @@ __int64 __fastcall RtlpInheritAcl2(
         __int64 a8,
         __int64 a9,
         __int64 a10,
-        __int64 a11,
+        PGENERIC_MAPPING a11,
         int a12,
         __int64 a13,
         int a14,
-        _DWORD *a15,
-        __int64 a16,
+        ULONG *a15,
+        PACL Acl,
         _BYTE *a17,
         int *a18)
 {
-  __int64 v18; // rsi
+  PACL v18; // rsi
   int v20; // r12d
   int v21; // edi
   unsigned int v22; // r14d
@@ -45,40 +45,38 @@ __int64 __fastcall RtlpInheritAcl2(
   char v31; // al
   __int64 result; // rax
   __int64 v33; // rax
-  int v34; // r8d
+  __int64 v34; // r8
   char v35; // al
   int v36; // ecx
   int v37; // eax
   char v38; // [rsp+88h] [rbp-19h]
   char v39; // [rsp+89h] [rbp-18h]
-  __int16 v40; // [rsp+8Ah] [rbp-17h]
-  int v41; // [rsp+8Ch] [rbp-15h] BYREF
-  int v42; // [rsp+90h] [rbp-11h] BYREF
-  void *Src; // [rsp+98h] [rbp-9h] BYREF
-  int v45; // [rsp+F8h] [rbp+57h] BYREF
-  char v46; // [rsp+100h] [rbp+5Fh]
+  unsigned __int16 AceCount; // [rsp+8Ah] [rbp-17h]
+  __int64 v41; // [rsp+8Ch] [rbp-15h] BYREF
+  PVOID FirstFree; // [rsp+98h] [rbp-9h] BYREF
+  __int64 v44; // [rsp+F8h] [rbp+57h] BYREF
+  int v45; // [rsp+100h] [rbp+5Fh]
 
-  v46 = a4;
-  v45 = a3;
-  v18 = a16;
-  v42 = 0;
+  LOBYTE(v45) = a4;
+  LODWORD(v44) = a3;
+  v18 = Acl;
   v20 = 0;
-  v41 = 0;
+  v41 = 0LL;
   v21 = 0;
-  v40 = 0;
-  Src = 0LL;
+  AceCount = 0;
+  FirstFree = 0LL;
   v22 = 2;
   v38 = 0;
   v39 = 1;
   v23 = 0;
   v24 = 0;
-  RtlCreateAcl(a16, (unsigned int)*a15, 2LL);
+  RtlCreateAcl(Acl, *a15, 2u);
   v25 = a17;
   v26 = a18;
-  v27 = v45;
+  v27 = v44;
   v28 = a5 != 0 ? 0x400 : 0;
-  v29 = (v45 & 8) == 0;
-  v30 = v45 & 8;
+  v29 = (v44 & 8) == 0;
+  v30 = v44 & 8;
   *a17 = 0;
   LODWORD(a18) = v30;
   *v26 = v28;
@@ -129,24 +127,24 @@ LABEL_6:
     {
       if ( (v27 & 0x1000) != 0 )
       {
-        v34 = 2;
+        v34 = 2LL;
         LOBYTE(v25) = 16;
         v35 = 1;
         goto LABEL_38;
       }
-      v34 = 1;
+      v34 = 1LL;
       v35 = 1;
     }
     else
     {
-      v34 = 2;
+      v34 = 2LL;
       v35 = 0;
     }
     LOBYTE(v25) = 0;
 LABEL_38:
-    result = RtlpCopyAces((_DWORD)a2, a11, v34, (_DWORD)v25, v35, a7, a8, a9, a10, v46, 0, a12, (__int64)&v42, v18);
-    v20 = v42;
-    v21 = v42;
+    result = RtlpCopyAces(a2, a11, v34, v25, v35, a7, a8, a9, a10, (_BYTE)v45, 0, a12, (char *)&v41 + 4, v18);
+    v20 = HIDWORD(v41);
+    v21 = HIDWORD(v41);
     if ( (_DWORD)result == -1073741789 )
     {
       v24 = 1;
@@ -156,14 +154,14 @@ LABEL_38:
       return result;
     if ( a6 )
     {
-      if ( v42 )
+      if ( HIDWORD(v41) )
       {
-        v40 = *(_WORD *)(v18 + 4);
-        if ( !RtlFirstFreeAce(v18, &Src) )
+        AceCount = v18->AceCount;
+        if ( !RtlFirstFreeAce(v18, &FirstFree) )
           return 3221225597LL;
       }
     }
-    v27 = v45;
+    v27 = v44;
     v25 = a17;
     goto LABEL_43;
   }
@@ -176,9 +174,9 @@ LABEL_7:
   LOBYTE(v27) = a5;
   if ( v22 <= (unsigned __int8)*a1 )
     LOBYTE(v22) = *a1;
-  LOBYTE(v30) = v46;
+  LOBYTE(v30) = v45;
   result = RtlpGenerateInheritAcl(
-             (_DWORD)a1,
+             (int)a1,
              v30,
              v27,
              a7,
@@ -192,7 +190,7 @@ LABEL_7:
              v24,
              (__int64)&v41,
              v18,
-             (__int64)&v45);
+             (__int64)&v44);
   if ( (_DWORD)result == -1073741789 )
   {
     v24 = 1;
@@ -200,15 +198,15 @@ LABEL_7:
   }
   if ( (int)result >= 0 )
   {
-    if ( a6 && v20 && (_BYTE)v45 && !v24 )
+    if ( a6 && v20 && (_BYTE)v44 && !v24 )
     {
-      if ( !RtlFirstFreeAce(v18, &a18) )
+      if ( !RtlFirstFreeAce(v18, (PVOID *)&a18) )
         return 3221225597LL;
       v37 = (int)a18;
       if ( !a18 )
-        v37 = v18 + *(unsigned __int16 *)(v18 + 2);
-      memmove((void *)(v18 + 8), Src, (unsigned int)(v37 - (_DWORD)Src));
-      *(_WORD *)(v18 + 4) -= v40;
+        v37 = (_DWORD)v18 + v18->AclSize;
+      memmove(&v18[1], FirstFree, (unsigned int)(v37 - (_DWORD)FirstFree));
+      v18->AceCount -= AceCount;
       v21 = 0;
     }
     v23 = v41;
@@ -234,8 +232,8 @@ LABEL_23:
       *a15 = v23 + v20 + 8;
       if ( v24 )
         return 3221225507LL;
-      *(_BYTE *)v18 = v22;
-      *(_WORD *)(v18 + 2) = v23 + v21 + 8;
+      v18->AclRevision = v22;
+      v18->AclSize = v23 + v21 + 8;
       return 0LL;
     }
     return 3221225597LL;

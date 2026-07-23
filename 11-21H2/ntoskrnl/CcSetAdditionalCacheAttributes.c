@@ -5,7 +5,7 @@
  * Callees:
  *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140282BA0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
  *     KeAcquireInStackQueuedSpinLock @ 0x140311930 (KeAcquireInStackQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     sub_140418E4C @ 0x140418E4C (sub_140418E4C.c)
  *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
  */
 
@@ -23,7 +23,7 @@ void __stdcall CcSetAdditionalCacheAttributes(
   unsigned __int64 OldIrql; // rbx
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
-  _DWORD *SchedulerAssist; // r9
+  __int64 v14; // r9
   int v15; // eax
   bool v16; // zf
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+30h] [rbp-28h] BYREF
@@ -46,20 +46,20 @@ void __stdcall CcSetAdditionalCacheAttributes(
   SharedCacheMap[38] = v9;
   KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
   OldIrql = LockHandle.OldIrql;
-  if ( KiIrqlFlags )
+  if ( dword_140D06B08 )
   {
-    if ( (KiIrqlFlags & 1) != 0 )
+    if ( (dword_140D06B08 & 1) != 0 )
     {
       CurrentIrql = KeGetCurrentIrql();
       if ( CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
-        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        v14 = *((_QWORD *)CurrentPrcb + 4375);
         v15 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
-        v16 = (v15 & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= v15;
+        v16 = (v15 & *(_DWORD *)(v14 + 20)) == 0;
+        *(_DWORD *)(v14 + 20) &= v15;
         if ( v16 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          sub_140418E4C(CurrentPrcb);
       }
     }
   }

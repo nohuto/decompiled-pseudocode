@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     NtWaitForSingleObject @ 0x1800A0360 (NtWaitForSingleObject.c)
+ *     NtWaitForSingleObject @ 0x1800A0380 (NtWaitForSingleObject.c)
  */
 
 NTSTATUS __fastcall RtlDequeueUmsCompletionListItems(__int64 a1, LARGE_INTEGER *a2, __int64 *a3)

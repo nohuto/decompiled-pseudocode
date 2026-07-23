@@ -1,24 +1,24 @@
 /*
- * XREFs of MiMapLockedPagesInUserSpace @ 0x140528600
+ * XREFs of MiMapLockedPagesInUserSpace @ 0x140528B40
  * Callers:
- *     MmMapLockedPagesSpecifyCache @ 0x1400DE220 (MmMapLockedPagesSpecifyCache.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x1400DC0C0 (MmMapLockedPagesSpecifyCache.c)
  * Callees:
- *     MiIsPfn @ 0x14000FBA0 (MiIsPfn.c)
- *     MiCheckForConflictingVadExistence @ 0x140014318 (MiCheckForConflictingVadExistence.c)
- *     MiUnlockVad @ 0x1400144A0 (MiUnlockVad.c)
- *     MiLockVad @ 0x14002BFB0 (MiLockVad.c)
- *     LOCK_ADDRESS_SPACE @ 0x14002C390 (LOCK_ADDRESS_SPACE.c)
- *     UNLOCK_ADDRESS_SPACE @ 0x14002CFD0 (UNLOCK_ADDRESS_SPACE.c)
- *     MiDereferenceIoPages @ 0x14009BF70 (MiDereferenceIoPages.c)
- *     MiReferenceIoPages @ 0x14009C300 (MiReferenceIoPages.c)
- *     RtlRaiseStatus @ 0x1400F6738 (RtlRaiseStatus.c)
- *     MiMapLockedPagesInUserSpaceHelper @ 0x14010E214 (MiMapLockedPagesInUserSpaceHelper.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     MiIsPfn @ 0x14000F720 (MiIsPfn.c)
+ *     MiCheckForConflictingVadExistence @ 0x140013E98 (MiCheckForConflictingVadExistence.c)
+ *     MiUnlockVad @ 0x140014020 (MiUnlockVad.c)
+ *     MiLockVad @ 0x14002BB30 (MiLockVad.c)
+ *     LOCK_ADDRESS_SPACE @ 0x14002BF10 (LOCK_ADDRESS_SPACE.c)
+ *     UNLOCK_ADDRESS_SPACE @ 0x14002CB50 (UNLOCK_ADDRESS_SPACE.c)
+ *     MiDereferenceIoPages @ 0x14009B770 (MiDereferenceIoPages.c)
+ *     MiReferenceIoPages @ 0x14009BB00 (MiReferenceIoPages.c)
+ *     RtlRaiseStatus @ 0x1400F4588 (RtlRaiseStatus.c)
+ *     MiMapLockedPagesInUserSpaceHelper @ 0x14010E778 (MiMapLockedPagesInUserSpaceHelper.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     MiInsertVadCharges @ 0x14042FE40 (MiInsertVadCharges.c)
- *     MiFindEmptyAddressRange @ 0x1404363D0 (MiFindEmptyAddressRange.c)
- *     MiAdvanceVadHint @ 0x140436BB0 (MiAdvanceVadHint.c)
+ *     MiInsertVadCharges @ 0x14042ED10 (MiInsertVadCharges.c)
+ *     MiFindEmptyAddressRange @ 0x1404352A0 (MiFindEmptyAddressRange.c)
+ *     MiAdvanceVadHint @ 0x140435A80 (MiAdvanceVadHint.c)
  */
 
 unsigned __int64 MiMapLockedPagesInUserSpace(__int64 a1, __int16 a2, int a3, ...)

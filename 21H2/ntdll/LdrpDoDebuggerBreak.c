@@ -1,19 +1,19 @@
 /*
- * XREFs of LdrpDoDebuggerBreak @ 0x1800D08E0
+ * XREFs of LdrpDoDebuggerBreak @ 0x1800D08A0
  * Callers:
  *     _LdrpInitialize @ 0x180075CBC (_LdrpInitialize.c)
- *     LdrpInitializeProcess @ 0x1800D1EC0 (LdrpInitializeProcess.c)
+ *     LdrpInitializeProcess @ 0x1800D1E80 (LdrpInitializeProcess.c)
  * Callees:
- *     ZwQueryInformationThread @ 0x18009DAE0 (ZwQueryInformationThread.c)
+ *     ZwQueryInformationThread @ 0x18009DAA0 (ZwQueryInformationThread.c)
  */
 
-__int64 LdrpDoDebuggerBreak()
+NTSTATUS LdrpDoDebuggerBreak()
 {
-  __int64 result; // rax
-  char v1; // [rsp+40h] [rbp+8h]
+  NTSTATUS result; // eax
+  char ThreadInformation; // [rsp+40h] [rbp+8h] BYREF
 
-  result = ZwQueryInformationThread();
-  if ( (int)result >= 0 && !v1 )
+  result = ZwQueryInformationThread((HANDLE)0xFFFFFFFFFFFFFFFELL, ThreadHideFromDebugger, &ThreadInformation, 1u, 0LL);
+  if ( result >= 0 && !ThreadInformation )
     __debugbreak();
   return result;
 }

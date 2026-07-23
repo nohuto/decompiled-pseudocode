@@ -1,15 +1,15 @@
 /*
- * XREFs of ExpSvmServicePageFault @ 0x14031E670
+ * XREFs of ExpSvmServicePageFault @ 0x14031E860
  * Callers:
  *     <none>
  * Callees:
  *     KiStackAttachProcess @ 0x140016DB0 (KiStackAttachProcess.c)
  *     KiUnstackDetachProcess @ 0x140017190 (KiUnstackDetachProcess.c)
  *     MmAccessFault @ 0x140043DA0 (MmAccessFault.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14007DE80 (KeAcquireInStackQueuedSpinLock.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall ExpSvmServicePageFault(char a1, signed __int64 a2, unsigned int a3)
@@ -26,8 +26,8 @@ __int64 __fastcall ExpSvmServicePageFault(char a1, signed __int64 a2, unsigned i
   _BYTE v16[48]; // [rsp+38h] [rbp-60h] BYREF
 
   Process = KeGetCurrentThread()->ApcState.Process;
-  KeAcquireInStackQueuedSpinLock(&qword_140406E58, &LockHandle);
-  v7 = (_KPROCESS *)*((_QWORD *)qword_140406E50 + 2 * a3);
+  KeAcquireInStackQueuedSpinLock(&qword_140407F38, &LockHandle);
+  v7 = (_KPROCESS *)*((_QWORD *)qword_140407F30 + 2 * a3);
   KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
   OldIrql = LockHandle.OldIrql;
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && KeGetCurrentIrql() >= 2u && LockHandle.OldIrql < 2u )

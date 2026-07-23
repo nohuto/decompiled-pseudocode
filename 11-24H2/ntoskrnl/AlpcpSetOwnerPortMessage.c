@@ -1,11 +1,11 @@
 /*
- * XREFs of AlpcpSetOwnerPortMessage @ 0x14088D3C0
+ * XREFs of AlpcpSetOwnerPortMessage @ 0x140890C40
  * Callers:
- *     AlpcpDispatchCloseMessage @ 0x14088CEEC (AlpcpDispatchCloseMessage.c)
- *     AlpcpDispatchConnectionRequest @ 0x14088D0AC (AlpcpDispatchConnectionRequest.c)
- *     AlpcpSendLegacySynchronousRequest @ 0x14088D3F8 (AlpcpSendLegacySynchronousRequest.c)
+ *     AlpcpDispatchCloseMessage @ 0x14089016C (AlpcpDispatchCloseMessage.c)
+ *     AlpcpDispatchConnectionRequest @ 0x14089032C (AlpcpDispatchConnectionRequest.c)
+ *     AlpcpSendLegacySynchronousRequest @ 0x14089055C (AlpcpSendLegacySynchronousRequest.c)
  * Callees:
- *     PsReferenceSiloContext @ 0x14033FA90 (PsReferenceSiloContext.c)
+ *     PsReferenceSiloContext @ 0x14031EF70 (PsReferenceSiloContext.c)
  */
 
 LONG_PTR __fastcall AlpcpSetOwnerPortMessage(__int64 a1, void *a2)

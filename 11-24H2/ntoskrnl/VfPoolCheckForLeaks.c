@@ -1,11 +1,11 @@
 /*
- * XREFs of VfPoolCheckForLeaks @ 0x140B9A350
+ * XREFs of VfPoolCheckForLeaks @ 0x140B9C350
  * Callers:
- *     VfTargetDriversRemove @ 0x1403F0E5C (VfTargetDriversRemove.c)
+ *     VfTargetDriversRemove @ 0x1403E4B7C (VfTargetDriversRemove.c)
  * Callees:
- *     RtlpInterlockedPopEntrySList @ 0x1406B3890 (RtlpInterlockedPopEntrySList.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
- *     CarReportRuleViolationFromNt @ 0x140B8D914 (CarReportRuleViolationFromNt.c)
+ *     RtlpInterlockedPopEntrySList @ 0x1406B4830 (RtlpInterlockedPopEntrySList.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
+ *     CarReportRuleViolationFromNt @ 0x140B8F914 (CarReportRuleViolationFromNt.c)
  */
 
 PSLIST_ENTRY __fastcall VfPoolCheckForLeaks(ULONG_PTR BugCheckParameter3, __int64 a2)

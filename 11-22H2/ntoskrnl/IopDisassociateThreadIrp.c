@@ -44,10 +44,10 @@ LONG_PTR IopDisassociateThreadIrp()
   p_SystemCallNumber = &KeGetCurrentThread()[1].SystemCallNumber;
   if ( *(unsigned int **)p_SystemCallNumber == p_SystemCallNumber )
   {
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v2 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v2 <= 0xFu && CurrentIrql <= 0xFu )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v2 <= 0xFu && CurrentIrql <= 0xFu )
       {
         v3 = v2 < 2u;
         goto LABEL_13;
@@ -61,10 +61,10 @@ LONG_PTR IopDisassociateThreadIrp()
   if ( *(char *)(*(_QWORD *)p_SystemCallNumber + 35LL) == *(char *)(*(_QWORD *)p_SystemCallNumber + 34LL) + 2 )
   {
     KeReleaseQueuedSpinLock(0xBuLL, v4);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v7 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v7 <= 0xFu && CurrentIrql <= 0xFu )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v7 <= 0xFu && CurrentIrql <= 0xFu )
       {
         v3 = v7 < 2u;
 LABEL_13:
@@ -114,10 +114,10 @@ LABEL_16:
     v18 = 0LL;
   }
   KeReleaseQueuedSpinLock(0xBuLL, v6);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v19 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v19 <= 0xFu && CurrentIrql <= 0xFu && v19 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v19 <= 0xFu && CurrentIrql <= 0xFu && v19 >= 2u )
     {
       v20 = KeGetCurrentPrcb();
       v21 = v20->SchedulerAssist;

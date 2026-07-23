@@ -1,20 +1,20 @@
 /*
- * XREFs of AlpcpDeleteBlob @ 0x1405EA09C
+ * XREFs of AlpcpDeleteBlob @ 0x1406D97FC
  * Callers:
- *     AlpcpFlushResourcesPort @ 0x1405E220C (AlpcpFlushResourcesPort.c)
- *     NtAlpcDeleteSecurityContext @ 0x1405EAC90 (NtAlpcDeleteSecurityContext.c)
- *     AlpcpCaptureSecurityAttributeInternal @ 0x140660844 (AlpcpCaptureSecurityAttributeInternal.c)
- *     AlpcpDeleteView @ 0x140662558 (AlpcpDeleteView.c)
- *     NtAlpcCreateSecurityContext @ 0x140662590 (NtAlpcCreateSecurityContext.c)
- *     NtAlpcDeletePortSection @ 0x1406A0620 (NtAlpcDeletePortSection.c)
- *     AlpcpMapLegacyPortView @ 0x1406D2148 (AlpcpMapLegacyPortView.c)
- *     NtAlpcCreatePortSection @ 0x1406D4210 (NtAlpcCreatePortSection.c)
- *     NtAlpcDeleteResourceReserve @ 0x1408C3470 (NtAlpcDeleteResourceReserve.c)
+ *     NtAlpcDeletePortSection @ 0x1405FF960 (NtAlpcDeletePortSection.c)
+ *     AlpcpCaptureSecurityAttributeInternal @ 0x140655664 (AlpcpCaptureSecurityAttributeInternal.c)
+ *     AlpcpDeleteView @ 0x140657378 (AlpcpDeleteView.c)
+ *     NtAlpcCreateSecurityContext @ 0x1406573B0 (NtAlpcCreateSecurityContext.c)
+ *     AlpcpMapLegacyPortView @ 0x1406A9428 (AlpcpMapLegacyPortView.c)
+ *     NtAlpcCreatePortSection @ 0x1406AB4F0 (NtAlpcCreatePortSection.c)
+ *     AlpcpFlushResourcesPort @ 0x1406D196C (AlpcpFlushResourcesPort.c)
+ *     NtAlpcDeleteSecurityContext @ 0x1406DA3F0 (NtAlpcDeleteSecurityContext.c)
+ *     NtAlpcDeleteResourceReserve @ 0x1408C35D0 (NtAlpcDeleteResourceReserve.c)
  * Callees:
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 char __fastcall AlpcpDeleteBlob(__int64 a1)

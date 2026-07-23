@@ -1,14 +1,14 @@
 /*
- * XREFs of PopDiagTraceThermalCoolingMode @ 0x140AC438C
+ * XREFs of PopDiagTraceThermalCoolingMode @ 0x140AC5FFC
  * Callers:
- *     PopThermalWorker @ 0x140AC3C50 (PopThermalWorker.c)
+ *     PopThermalWorker @ 0x140AC58C0 (PopThermalWorker.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     IoGetDeviceAttachmentBaseRefWithTag @ 0x14026F2B4 (IoGetDeviceAttachmentBaseRefWithTag.c)
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     IoGetDeviceAttachmentBaseRefWithTag @ 0x14026E824 (IoGetDeviceAttachmentBaseRefWithTag.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 char __fastcall PopDiagTraceThermalCoolingMode(__int64 a1, __int16 a2)
@@ -36,11 +36,9 @@ char __fastcall PopDiagTraceThermalCoolingMode(__int64 a1, __int16 a2)
   v11 = 0;
   DestinationString = 0LL;
   v10 = 0;
-  if ( byte_140E67628 )
+  if ( PopDiagHandleRegistered )
   {
-    LOBYTE(DeviceAttachmentBaseRefWithTag) = EtwEventEnabled(
-                                               *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-                                               &POP_ETW_EVENT_COOLING_MODE);
+    LOBYTE(DeviceAttachmentBaseRefWithTag) = EtwEventEnabled(PopDiagHandle, &POP_ETW_EVENT_COOLING_MODE);
     if ( (_BYTE)DeviceAttachmentBaseRefWithTag )
     {
       DeviceAttachmentBaseRefWithTag = (_UNKNOWN **)IoGetDeviceAttachmentBaseRefWithTag(a1, 0x67446F50u);
@@ -67,12 +65,7 @@ char __fastcall PopDiagTraceThermalCoolingMode(__int64 a1, __int16 a2)
           v20 = 2 * (DestinationString.Length >> 1);
           v18 = 2LL;
           v21 = 0;
-          EtwWrite(
-            *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-            &POP_ETW_EVENT_COOLING_MODE,
-            0LL,
-            4u,
-            &UserData);
+          EtwWrite(PopDiagHandle, &POP_ETW_EVENT_COOLING_MODE, 0LL, 4u, &UserData);
         }
         LOBYTE(DeviceAttachmentBaseRefWithTag) = ObfDereferenceObjectWithTag(v5, 0x67446F50u);
       }

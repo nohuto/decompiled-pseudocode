@@ -1,5 +1,5 @@
 /*
- * XREFs of strncmp @ 0x180094CF0
+ * XREFs of strncmp @ 0x180094D00
  * Callers:
  *     RtlValidateCorrelationVector @ 0x1800F8180 (RtlValidateCorrelationVector.c)
  * Callees:

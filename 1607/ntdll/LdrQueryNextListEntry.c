@@ -1,7 +1,7 @@
 /*
- * XREFs of LdrQueryNextListEntry @ 0x18006DBF0
+ * XREFs of LdrQueryNextListEntry @ 0x18006DBE0
  * Callers:
- *     LdrQueryProcessModuleInformationEx @ 0x18006D900 (LdrQueryProcessModuleInformationEx.c)
+ *     LdrQueryProcessModuleInformationEx @ 0x18006D8F0 (LdrQueryProcessModuleInformationEx.c)
  * Callees:
  *     <none>
  */

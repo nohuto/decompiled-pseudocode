@@ -1,12 +1,12 @@
 /*
- * XREFs of SepInitializeSingletonAttributesStructures @ 0x1409AD9A0
+ * XREFs of SepInitializeSingletonAttributesStructures @ 0x1409AE9A0
  * Callers:
- *     SepInitializationPhase1 @ 0x140726F24 (SepInitializationPhase1.c)
+ *     SepInitializationPhase1 @ 0x1407281C4 (SepInitializationPhase1.c)
  * Callees:
- *     RtlpCreateHashTable @ 0x14016A570 (RtlpCreateHashTable.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     RtlpCreateHashTable @ 0x14016A670 (RtlpCreateHashTable.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 __int64 SepInitializeSingletonAttributesStructures()
@@ -48,7 +48,7 @@ __int64 SepInitializeSingletonAttributesStructures()
         {
           *v6 = v5;
           ++*((_DWORD *)v7 + 1);
-          if ( RtlpCreateHashTable((struct _RTL_DYNAMIC_HASH_TABLE **)(SeLuidToIndexMapping + 8), 0x80u, 0, 0) )
+          if ( RtlpCreateHashTable((_RTL_DYNAMIC_HASH_TABLE **)(SeLuidToIndexMapping + 8), 0x80u, 0, 0) )
           {
             v8 = SeLuidToIndexMapping;
             *(_DWORD *)(SeLuidToIndexMapping + 16) = 64;

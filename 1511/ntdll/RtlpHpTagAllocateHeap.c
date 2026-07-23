@@ -9,7 +9,7 @@
  *     RtlpHpTagContextGetTag @ 0x1800EE940 (RtlpHpTagContextGetTag.c)
  */
 
-unsigned __int64 __fastcall RtlpHpTagAllocateHeap(__int64 a1, unsigned __int64 a2, int a3)
+unsigned __int64 __fastcall RtlpHpTagAllocateHeap(unsigned __int64 BaseAddress, unsigned __int64 a2, int a3)
 {
   unsigned __int16 Tag; // bx
   __int64 v7; // rcx
@@ -19,7 +19,7 @@ unsigned __int64 __fastcall RtlpHpTagAllocateHeap(__int64 a1, unsigned __int64 a
     Tag = RtlpHpTagContextGetTag();
   else
     Tag = 0;
-  HeapInternal = RtlpAllocateHeapInternal(a1, a2, a3, Tag);
+  HeapInternal = RtlpAllocateHeapInternal(BaseAddress, a2, a3, Tag);
   if ( !HeapInternal && Tag )
     RtlpHpTagFree(v7, Tag, a2);
   return HeapInternal;

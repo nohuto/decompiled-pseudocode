@@ -16,7 +16,7 @@
  *     sub_1800D5274 @ 0x1800D5274 (sub_1800D5274.c)
  */
 
-__int64 __fastcall sub_18004A930(__m128i *a1, __m128i *a2, __int64 a3, _OWORD *a4, __int64 a5, __int16 a6)
+__int64 __fastcall sub_18004A930(__m128i *a1, __m128i *a2, _UNICODE_STRING *a3, _OWORD *a4, __int64 a5, __int16 a6)
 {
   __m128i v10; // xmm0
   int v11; // ebx
@@ -26,7 +26,7 @@ __int64 __fastcall sub_18004A930(__m128i *a1, __m128i *a2, __int64 a3, _OWORD *a
   __m128i v15; // xmm1
   unsigned __int16 v16; // ax
   unsigned __int64 v17; // xmm1_8
-  _WORD *i; // rdx
+  const WCHAR *i; // rdx
   int v20; // eax
   __m128i *v21; // rax
   unsigned int v22; // eax
@@ -55,7 +55,7 @@ __int64 __fastcall sub_18004A930(__m128i *a1, __m128i *a2, __int64 a3, _OWORD *a
   Src = v10;
   if ( v11 >= 0 )
   {
-    if ( !a5 || (v11 = sub_180021AE0(0LL, (unsigned __int16 *)&Src, a6, a5, 0LL), v11 == -1073741515) )
+    if ( !a5 || (v11 = sub_180021AE0(0LL, (PUNICODE_STRING)&Src, a6, a5, 0LL), v11 == -1073741515) )
     {
       v11 = 0;
       if ( (a6 & 0x200) != 0 || (v21 = a2 + 1, &a2[1] == (__m128i *)a2->m128i_i64[1]) )
@@ -97,7 +97,7 @@ __int64 __fastcall sub_18004A930(__m128i *a1, __m128i *a2, __int64 a3, _OWORD *a
           v16 = _mm_cvtsi128_si32(Src);
           *a4 = Src;
           v17 = _mm_srli_si128(v15, 8).m128i_u64[0];
-          for ( i = (_WORD *)(v16 + v17 - 2); (unsigned __int64)i >= v17; --i )
+          for ( i = (const WCHAR *)(v16 + v17 - 2); (unsigned __int64)i >= v17; --i )
           {
             if ( *i == 92 || *i == 47 )
             {
@@ -105,7 +105,7 @@ __int64 __fastcall sub_18004A930(__m128i *a1, __m128i *a2, __int64 a3, _OWORD *a
               break;
             }
           }
-          RtlInitUnicodeStringEx(a3, (__int64)i);
+          RtlInitUnicodeStringEx(a3, i);
         }
       }
     }

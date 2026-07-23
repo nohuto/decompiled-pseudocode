@@ -1,7 +1,7 @@
 /*
- * XREFs of FirstEntrySList @ 0x1401C53C0
+ * XREFs of FirstEntrySList @ 0x1401C5520
  * Callers:
- *     PopMarkComponentsBootPhase @ 0x14056B53C (PopMarkComponentsBootPhase.c)
+ *     PopMarkComponentsBootPhase @ 0x14056C53C (PopMarkComponentsBootPhase.c)
  * Callees:
  *     <none>
  */

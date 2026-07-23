@@ -1,14 +1,14 @@
 /*
- * XREFs of ZwPulseEvent @ 0x1406A8D10
+ * XREFs of ZwPulseEvent @ 0x1406A9CB0
  * Callers:
- *     DifZwPulseEventWrapper @ 0x140643C80 (DifZwPulseEventWrapper.c)
+ *     DifZwPulseEventWrapper @ 0x140642240 (DifZwPulseEventWrapper.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwPulseEvent(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwPulseEvent(HANDLE EventHandle, PLONG PreviousState)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(EventHandle);
 }

@@ -16,7 +16,7 @@ char __fastcall LdrpLogMapAndVerifyResourceFileFailure(
         int a4,
         unsigned __int16 *a5)
 {
-  int v9; // eax
+  NTSTATUS v9; // eax
   const GUID *v10; // r8
   const GUID *v11; // r9
   char v13; // [rsp+38h] [rbp-61h] BYREF
@@ -39,8 +39,8 @@ char __fastcall LdrpLogMapAndVerifyResourceFileFailure(
   _DWORD v30[2]; // [rsp+D0h] [rbp+37h] BYREF
 
   v9 = RtlRunOnceExecuteOnce(
-         &qword_1801660D0,
-         (unsigned int (__fastcall *)(volatile signed __int64 *, __int64, unsigned __int64 *))LdrpResReportResourceAccessInternalInitOnce,
+         &stru_1801660D0,
+         (PRTL_RUN_ONCE_INIT_FN)LdrpResReportResourceAccessInternalInitOnce,
          0LL,
          0LL);
   if ( v9 >= 0 && (unsigned int)dword_18015F450 > 5 )

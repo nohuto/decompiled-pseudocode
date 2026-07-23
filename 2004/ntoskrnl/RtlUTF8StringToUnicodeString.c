@@ -9,62 +9,70 @@
  *     ExFreePoolWithTag @ 0x1409B1140 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall RtlUTF8StringToUnicodeString(__int16 *a1, unsigned __int16 *a2, char a3)
+NTSTATUS __cdecl RtlUTF8StringToUnicodeString(
+        PUNICODE_STRING DestinationString,
+        PUTF8_STRING SourceString,
+        BOOLEAN AllocateDestinationString)
 {
   int v6; // edx
-  char *v7; // rcx
-  __int64 result; // rax
+  char *Buffer; // rcx
+  NTSTATUS result; // eax
   SIZE_T v9; // rax
-  unsigned __int16 v10; // cx
-  PVOID StringRoutine; // rax
+  unsigned __int16 Length; // cx
+  wchar_t *StringRoutine; // rax
   unsigned __int64 v12; // rdx
   ULONG v13; // edx
-  NTSTATUS v14; // edi
+  int v14; // edi
   SIZE_T NumberOfBytes; // [rsp+58h] [rbp+10h] BYREF
   ULONG UnicodeStringActualByteCount; // [rsp+68h] [rbp+20h] BYREF
 
-  v6 = *a2 + 1;
+  v6 = SourceString->Length + 1;
   LODWORD(NumberOfBytes) = 0;
-  v7 = (char *)*((_QWORD *)a2 + 1);
+  Buffer = SourceString->Buffer;
   UnicodeStringActualByteCount = 0;
-  result = CountUTF8ToUnicode(v7, v6, &NumberOfBytes);
-  if ( (int)result >= 0 )
+  result = CountUTF8ToUnicode(Buffer, v6, &NumberOfBytes);
+  if ( result >= 0 )
   {
     v9 = (unsigned int)NumberOfBytes;
     if ( (unsigned int)NumberOfBytes > 0xFFFE )
-      return 3221225712LL;
-    v10 = NumberOfBytes - 2;
-    *a1 = NumberOfBytes - 2;
-    if ( a3 )
+      return -1073741584;
+    Length = NumberOfBytes - 2;
+    DestinationString->Length = NumberOfBytes - 2;
+    if ( AllocateDestinationString )
     {
-      a1[1] = v9;
-      StringRoutine = ExpAllocateStringRoutine(v9);
-      *((_QWORD *)a1 + 1) = StringRoutine;
+      DestinationString->MaximumLength = v9;
+      StringRoutine = (wchar_t *)ExpAllocateStringRoutine(v9);
+      DestinationString->Buffer = StringRoutine;
       if ( !StringRoutine )
-        return 3221225495LL;
-      v10 = *a1;
+        return -1073741801;
+      Length = DestinationString->Length;
     }
     else
     {
-      v12 = v10 + 2LL;
-      if ( v12 > (unsigned __int16)a1[1] || v12 < 2 )
-        return 2147483653LL;
+      v12 = Length + 2LL;
+      if ( v12 > DestinationString->MaximumLength || v12 < 2 )
+        return -2147483643;
     }
-    v14 = RtlUTF8ToUnicodeN(*((PWSTR *)a1 + 1), v10, &UnicodeStringActualByteCount, *((PCCH *)a2 + 1), *a2);
+    v14 = RtlUTF8ToUnicodeN(
+            DestinationString->Buffer,
+            Length,
+            &UnicodeStringActualByteCount,
+            SourceString->Buffer,
+            SourceString->Length);
     if ( v14 < 0 )
     {
-      if ( a3 )
+      if ( AllocateDestinationString )
       {
-        ExFreePoolWithTag(*((PVOID *)a1 + 1), v13);
-        *((_QWORD *)a1 + 1) = 0LL;
+        ExFreePoolWithTag(DestinationString->Buffer, v13);
+        DestinationString->Buffer = 0LL;
       }
     }
     else
     {
       v14 = 0;
-      *(_WORD *)(*((_QWORD *)a1 + 1) + 2 * ((unsigned __int64)UnicodeStringActualByteCount >> 1)) = 0;
+      DestinationString->Buffer[(unsigned __int64)UnicodeStringActualByteCount >> 1] = 0;
     }
-    return (unsigned int)v14;
+    return v14;
   }
   return result;
 }

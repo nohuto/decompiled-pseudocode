@@ -1,16 +1,16 @@
 /*
- * XREFs of _CmEnumDevicesInContainerWithCallbackWorker @ 0x140897798
+ * XREFs of _CmEnumDevicesInContainerWithCallbackWorker @ 0x14089DB98
  * Callers:
- *     _CmEnumDevicesInContainerWithCallback @ 0x140897648 (_CmEnumDevicesInContainerWithCallback.c)
+ *     _CmEnumDevicesInContainerWithCallback @ 0x14089DA48 (_CmEnumDevicesInContainerWithCallback.c)
  * Callees:
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     _PnpCtxRegEnumKey @ 0x14091A194 (_PnpCtxRegEnumKey.c)
- *     _PnpCtxRegEnumValue @ 0x14091ACF0 (_PnpCtxRegEnumValue.c)
- *     _PnpCtxRegOpenKey @ 0x140997890 (_PnpCtxRegOpenKey.c)
- *     _PnpOpenObjectRegKey @ 0x14099E110 (_PnpOpenObjectRegKey.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     _PnpCtxRegOpenKey @ 0x1409582F0 (_PnpCtxRegOpenKey.c)
+ *     _PnpOpenObjectRegKey @ 0x14095EB70 (_PnpOpenObjectRegKey.c)
+ *     _PnpCtxRegEnumKey @ 0x140974BF4 (_PnpCtxRegEnumKey.c)
+ *     _PnpCtxRegEnumValue @ 0x140975750 (_PnpCtxRegEnumValue.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall CmEnumDevicesInContainerWithCallbackWorker(

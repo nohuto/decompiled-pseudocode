@@ -1,23 +1,23 @@
 /*
- * XREFs of DrvDbSetDriverDatabaseMappedProperty @ 0x14072DDF8
+ * XREFs of DrvDbSetDriverDatabaseMappedProperty @ 0x14072E2A8
  * Callers:
- *     DrvDbDispatchDriverDatabase @ 0x14063BE70 (DrvDbDispatchDriverDatabase.c)
- *     DrvDbCreateDatabaseNode @ 0x1407A4268 (DrvDbCreateDatabaseNode.c)
- *     DrvDbInitializeDatabaseNodeVersion @ 0x14097EC94 (DrvDbInitializeDatabaseNodeVersion.c)
+ *     DrvDbDispatchDriverDatabase @ 0x140630C80 (DrvDbDispatchDriverDatabase.c)
+ *     DrvDbCreateDatabaseNode @ 0x1407A4468 (DrvDbCreateDatabaseNode.c)
+ *     DrvDbInitializeDatabaseNodeVersion @ 0x14097EE74 (DrvDbInitializeDatabaseNodeVersion.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
- *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
- *     _wcsicmp @ 0x1403D20D0 (_wcsicmp.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     DrvDbFindDatabaseNode @ 0x14060258C (DrvDbFindDatabaseNode.c)
- *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
- *     DrvDbUnloadDatabaseNode @ 0x14063E670 (DrvDbUnloadDatabaseNode.c)
- *     DrvDbLoadDatabaseNode @ 0x14063E754 (DrvDbLoadDatabaseNode.c)
- *     DrvDbOpenObjectRegKey @ 0x140640410 (DrvDbOpenObjectRegKey.c)
- *     RtlCreateUnicodeString @ 0x1406748C0 (RtlCreateUnicodeString.c)
- *     DrvDbSetRegValueMappedProperty @ 0x14072E35C (DrvDbSetRegValueMappedProperty.c)
- *     DrvDbOpenDriverDatabaseRegKey @ 0x140735A04 (DrvDbOpenDriverDatabaseRegKey.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseResourceLite @ 0x140356140 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1403568F0 (ExAcquireResourceExclusiveLite.c)
+ *     _wcsicmp @ 0x1403D2240 (_wcsicmp.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     DrvDbUnloadDatabaseNode @ 0x140633480 (DrvDbUnloadDatabaseNode.c)
+ *     DrvDbLoadDatabaseNode @ 0x140633564 (DrvDbLoadDatabaseNode.c)
+ *     DrvDbOpenObjectRegKey @ 0x140635220 (DrvDbOpenObjectRegKey.c)
+ *     RtlFreeAnsiString @ 0x14063DA40 (RtlFreeAnsiString.c)
+ *     RtlCreateUnicodeString @ 0x140669AF0 (RtlCreateUnicodeString.c)
+ *     DrvDbFindDatabaseNode @ 0x1406F1CEC (DrvDbFindDatabaseNode.c)
+ *     DrvDbSetRegValueMappedProperty @ 0x14072E80C (DrvDbSetRegValueMappedProperty.c)
+ *     DrvDbOpenDriverDatabaseRegKey @ 0x140735BC4 (DrvDbOpenDriverDatabaseRegKey.c)
  */
 
 __int64 __fastcall DrvDbSetDriverDatabaseMappedProperty(
@@ -65,13 +65,16 @@ __int64 __fastcall DrvDbSetDriverDatabaseMappedProperty(
   struct _KTHREAD *CurrentThread; // rax
   const UNICODE_STRING *v45; // rdi
   UNICODE_STRING v46; // xmm0
-  const UNICODE_STRING *v47; // [rsp+50h] [rbp-30h] BYREF
-  __int64 (**v48)[3]; // [rsp+58h] [rbp-28h]
+  __int64 v47; // rdx
+  __int64 v48; // r8
+  __int64 v49; // r9
+  const UNICODE_STRING *v50; // [rsp+50h] [rbp-30h] BYREF
+  __int64 (**v51)[3]; // [rsp+58h] [rbp-28h]
   HANDLE Handle; // [rsp+60h] [rbp-20h] BYREF
   UNICODE_STRING DestinationString; // [rsp+68h] [rbp-18h] BYREF
 
   Handle = 0LL;
-  v47 = 0LL;
+  v50 = 0LL;
   DatabaseNode = 0;
   v11 = 0LL;
   DestinationString = 0LL;
@@ -108,8 +111,8 @@ LABEL_50:
       ++v16;
       if ( v15 >= 7 )
       {
-        v48 = 0LL;
-        v18 = &off_140004F40;
+        v51 = 0LL;
+        v18 = &off_140004BA0;
         v19 = 0LL;
         v20 = 0;
         while ( 1 )
@@ -129,13 +132,13 @@ LABEL_50:
             goto LABEL_14;
         }
         v13 = 5LL * v20;
-        v19 = &off_140004F40 + 5 * v20;
-        v48 = v19;
+        v19 = &off_140004BA0 + 5 * v20;
+        v51 = v19;
 LABEL_14:
         if ( v19 )
           goto LABEL_15;
-        v48 = 0LL;
-        v39 = &off_140009DF0;
+        v51 = 0LL;
+        v39 = &off_140009E50;
         v19 = 0LL;
         v40 = 0;
         while ( 1 )
@@ -154,19 +157,19 @@ LABEL_14:
           if ( v40 >= 4 )
             goto LABEL_105;
         }
-        v19 = &off_140009DF0 + 5 * v40;
-        v48 = v19;
+        v19 = &off_140009E50 + 5 * v40;
+        v51 = v19;
 LABEL_105:
         if ( !v19 )
         {
           DatabaseNode = -1073741802;
           goto LABEL_24;
         }
-        DatabaseNode = DrvDbFindDatabaseNode(a1, a2, &v47);
+        DatabaseNode = DrvDbFindDatabaseNode(a1, a2, &v50);
         if ( DatabaseNode >= 0 )
         {
-          v11 = v47;
-          if ( ((__int64)v47[3].Buffer & 0x10) == 0 )
+          v11 = v50;
+          if ( ((__int64)v50[3].Buffer & 0x10) == 0 )
             goto LABEL_50;
 LABEL_15:
           if ( a5 != *((_DWORD *)v19 + 2) && a5 )
@@ -178,22 +181,13 @@ LABEL_111:
           if ( (v22 = a3) != 0LL && (!v11 || ((__int64)v11[3].Buffer & 0x10) == 0)
             || (!v11 || ((__int64)v11[3].Buffer & 0x10) == 0
               ? (v23 = DrvDbOpenDriverDatabaseRegKey(a1, a2, 2LL, 0LL, &Handle, 0LL))
-              : (v23 = DrvDbOpenObjectRegKey(
-                         (__int64 *)a1,
-                         *(const UNICODE_STRING **)(a1 + 32),
-                         1u,
-                         a2,
-                         2,
-                         0,
-                         &Handle,
-                         0LL,
-                         0LL)),
+              : (v23 = DrvDbOpenObjectRegKey((__int64 *)a1, *(__int64 **)(a1 + 32), 1u, a2, 2, 0, &Handle, 0LL, 0LL)),
                 DatabaseNode = v23,
                 v23 >= 0) )
           {
             if ( Handle )
               v22 = Handle;
-            DatabaseNode = DrvDbSetRegValueMappedProperty(v13, v22, v48, a5, SourceString, a7);
+            DatabaseNode = DrvDbSetRegValueMappedProperty(v13, v22, v51, a5, SourceString, a7);
             if ( DatabaseNode >= 0 && v11 && ((__int64)v11[3].Buffer & 0x10) != 0 && *(_DWORD *)(a4 + 16) == 14 )
             {
               v43 = *(_QWORD *)a4 - DEVPKEY_DriverDatabase_RegistryPath;
@@ -210,8 +204,8 @@ LABEL_111:
                 }
                 CurrentThread = KeGetCurrentThread();
                 --CurrentThread->KernelApcDisable;
-                v45 = v47;
-                ExAcquireResourceExclusiveLite(*(PERESOURCE *)&v47[9].Length, 1u);
+                v45 = v50;
+                ExAcquireResourceExclusiveLite(*(PERESOURCE *)&v50[9].Length, 1u);
                 RtlFreeAnsiString((PUNICODE_STRING)&v45[2].Buffer);
                 v46 = DestinationString;
                 *(_DWORD *)&v45[2].Length = 0;
@@ -225,7 +219,7 @@ LABEL_111:
         goto LABEL_24;
       }
     }
-    DatabaseNode = DrvDbFindDatabaseNode(a1, a2, &v47);
+    DatabaseNode = DrvDbFindDatabaseNode(a1, a2, &v50);
     if ( DatabaseNode < 0 )
       goto LABEL_24;
     v30 = *(_DWORD *)(a4 + 16);
@@ -239,12 +233,12 @@ LABEL_111:
         {
           if ( a5 != 17 || a7 != 1 || !SourceString )
             goto LABEL_111;
-          if ( ((__int64)v47[3].Buffer & 1) != 0 )
+          if ( ((__int64)v50[3].Buffer & 1) != 0 )
             goto LABEL_50;
           v32 = KeGetCurrentThread();
           --v32->KernelApcDisable;
-          v33 = v47;
-          ExAcquireResourceExclusiveLite(*(PERESOURCE *)&v47[9].Length, 1u);
+          v33 = v50;
+          ExAcquireResourceExclusiveLite(*(PERESOURCE *)&v50[9].Length, 1u);
           if ( *(_BYTE *)SourceString == 0xFF )
             v34 = DrvDbLoadDatabaseNode((__int64 *)a1, (__int64)v33);
           else
@@ -253,7 +247,7 @@ LABEL_111:
           DatabaseNode = v34;
 LABEL_129:
           ExReleaseResourceLite(v35);
-          KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+          KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v47, v48, v49);
           goto LABEL_24;
         }
         goto LABEL_24;
@@ -267,9 +261,9 @@ LABEL_129:
             goto LABEL_111;
           if ( *(_BYTE *)SourceString == 0xFF )
           {
-            *(_QWORD *)(a1 + 40) = v47;
+            *(_QWORD *)(a1 + 40) = v50;
           }
-          else if ( v47 == *(const UNICODE_STRING **)(a1 + 40) || !v47 )
+          else if ( v50 == *(const UNICODE_STRING **)(a1 + 40) || !v50 )
           {
             *(_QWORD *)(a1 + 40) = 0LL;
           }
@@ -284,9 +278,9 @@ LABEL_129:
           if ( a5 != 17 || a7 != 1 || !SourceString )
             goto LABEL_111;
           if ( *(_BYTE *)SourceString == 0xFF )
-            LODWORD(v47[3].Buffer) |= 4u;
+            LODWORD(v50[3].Buffer) |= 4u;
           else
-            LODWORD(v47[3].Buffer) &= ~4u;
+            LODWORD(v50[3].Buffer) &= ~4u;
         }
         goto LABEL_24;
     }
@@ -299,7 +293,7 @@ LABEL_129:
       goto LABEL_24;
     if ( a5 != 7 || a7 != 4 || !SourceString )
       goto LABEL_111;
-    if ( v47 != *(const UNICODE_STRING **)(a1 + 32) )
+    if ( v50 != *(const UNICODE_STRING **)(a1 + 32) )
       goto LABEL_50;
     v27 = *(_DWORD *)SourceString;
     goto LABEL_44;

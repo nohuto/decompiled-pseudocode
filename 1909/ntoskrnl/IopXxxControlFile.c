@@ -77,7 +77,7 @@ NTSTATUS IopXxxControlFile(
   PIRP v24; // rbx
   struct _KTHREAD *CurrentThread; // rax
   __int64 v26; // rbx
-  __int64 v27; // rax
+  PRTL_BALANCED_NODE v27; // rax
   int v28; // ebx
   PDEVICE_OBJECT AttachedDevice; // rax
   __int64 v30; // rdx
@@ -285,7 +285,7 @@ LABEL_50:
         else
         {
           if ( v27 )
-            *(_BYTE *)(v27 + 26) |= 1u;
+            BYTE2(v27[1].Left) |= 1u;
           v18 = *(_QWORD *)&Object[1];
           ObfReferenceObject(*(PVOID *)&Object[1]);
           v28 = 0;

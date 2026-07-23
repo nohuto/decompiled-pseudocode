@@ -1,5 +1,5 @@
 /*
- * XREFs of VerifierMmResetDriverPaging @ 0x14070CB60
+ * XREFs of VerifierMmResetDriverPaging @ 0x14070CB90
  * Callers:
  *     <none>
  * Callees:

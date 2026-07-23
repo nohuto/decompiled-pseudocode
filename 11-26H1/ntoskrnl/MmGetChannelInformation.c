@@ -1,15 +1,15 @@
 /*
- * XREFs of MmGetChannelInformation @ 0x140B0D228
+ * XREFs of MmGetChannelInformation @ 0x140B0E978
  * Callers:
- *     ExpQueryNumaAvailableMemory @ 0x140832DEC (ExpQueryNumaAvailableMemory.c)
- *     ExpQueryChannelInformation @ 0x140B66418 (ExpQueryChannelInformation.c)
- *     KiPopulateNodeInformation @ 0x140CCAA4C (KiPopulateNodeInformation.c)
+ *     ExpQueryNumaAvailableMemory @ 0x14083902C (ExpQueryNumaAvailableMemory.c)
+ *     ExpQueryChannelInformation @ 0x140B693A4 (ExpQueryChannelInformation.c)
+ *     KiPopulateNodeInformation @ 0x140CD0B2C (KiPopulateNodeInformation.c)
  * Callees:
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     MmGetCurrentProcessorColor @ 0x14044ADC0 (MmGetCurrentProcessorColor.c)
- *     MiGetChannelInformation @ 0x1404A43F4 (MiGetChannelInformation.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memmove @ 0x14073D480 (memmove.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     MmGetCurrentProcessorColor @ 0x140442EF0 (MmGetCurrentProcessorColor.c)
+ *     MiGetChannelInformation @ 0x14049DA84 (MiGetChannelInformation.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memmove @ 0x140742080 (memmove.c)
  */
 
 __int64 __fastcall MmGetChannelInformation(unsigned __int16 a1, unsigned int a2, _QWORD *a3, size_t *a4)
@@ -23,7 +23,7 @@ __int64 __fastcall MmGetChannelInformation(unsigned __int16 a1, unsigned int a2,
   Size[0] = 0LL;
   if ( a2 >= (unsigned __int16)KeNumberNodes )
     return 3221225711LL;
-  MiGetChannelInformation(*(_QWORD *)(stru_140E2EB88.ThreadLock + 8LL * a1), a2, (__int64)Src, Size);
+  MiGetChannelInformation(*(_QWORD *)(stru_140E2ED08.ThreadLock + 8LL * a1), a2, (__int64)Src, Size);
   v6 = Size[0];
   *a4 = Size[0];
   CurrentProcessorColor = MmGetCurrentProcessorColor();

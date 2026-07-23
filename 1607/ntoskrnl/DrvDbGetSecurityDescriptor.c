@@ -1,25 +1,25 @@
 /*
- * XREFs of DrvDbGetSecurityDescriptor @ 0x1406E3658
+ * XREFs of DrvDbGetSecurityDescriptor @ 0x1406E3790
  * Callers:
- *     DrvDbLoadDatabaseNode @ 0x1404FA464 (DrvDbLoadDatabaseNode.c)
+ *     DrvDbLoadDatabaseNode @ 0x1404DD3F0 (DrvDbLoadDatabaseNode.c)
  * Callees:
- *     RtlLengthSid @ 0x14000C2AC (RtlLengthSid.c)
- *     RtlSubAuthoritySid @ 0x14000D6F8 (RtlSubAuthoritySid.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     RtlLengthSid @ 0x14000BE2C (RtlLengthSid.c)
+ *     RtlSubAuthoritySid @ 0x14000D278 (RtlSubAuthoritySid.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     RtlSetDaclSecurityDescriptor @ 0x140413E70 (RtlSetDaclSecurityDescriptor.c)
- *     RtlCreateSecurityDescriptor @ 0x140413ED0 (RtlCreateSecurityDescriptor.c)
- *     RtlLengthSecurityDescriptor @ 0x14041FFE0 (RtlLengthSecurityDescriptor.c)
- *     RtlCreateAcl @ 0x140420AB8 (RtlCreateAcl.c)
- *     RtlValidSid @ 0x1404217D0 (RtlValidSid.c)
- *     RtlpAddKnownAce @ 0x140421800 (RtlpAddKnownAce.c)
- *     RtlLengthRequiredSid @ 0x1404792F0 (RtlLengthRequiredSid.c)
- *     RtlInitializeSid @ 0x140479578 (RtlInitializeSid.c)
- *     RtlSetGroupSecurityDescriptor @ 0x14048D16C (RtlSetGroupSecurityDescriptor.c)
- *     RtlSetOwnerSecurityDescriptor @ 0x14048D1C4 (RtlSetOwnerSecurityDescriptor.c)
- *     RtlValidSecurityDescriptor @ 0x1404BCD44 (RtlValidSecurityDescriptor.c)
- *     RtlAbsoluteToSelfRelativeSD @ 0x1404D6AD4 (RtlAbsoluteToSelfRelativeSD.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x140412D30 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateSecurityDescriptor @ 0x140412D90 (RtlCreateSecurityDescriptor.c)
+ *     RtlLengthSecurityDescriptor @ 0x14041EEA0 (RtlLengthSecurityDescriptor.c)
+ *     RtlCreateAcl @ 0x14041F978 (RtlCreateAcl.c)
+ *     RtlValidSid @ 0x140420690 (RtlValidSid.c)
+ *     RtlpAddKnownAce @ 0x1404206C0 (RtlpAddKnownAce.c)
+ *     RtlLengthRequiredSid @ 0x1404781C0 (RtlLengthRequiredSid.c)
+ *     RtlInitializeSid @ 0x140478448 (RtlInitializeSid.c)
+ *     RtlSetGroupSecurityDescriptor @ 0x14048DBFC (RtlSetGroupSecurityDescriptor.c)
+ *     RtlSetOwnerSecurityDescriptor @ 0x14048DC54 (RtlSetOwnerSecurityDescriptor.c)
+ *     RtlValidSecurityDescriptor @ 0x1404A8A74 (RtlValidSecurityDescriptor.c)
+ *     RtlAbsoluteToSelfRelativeSD @ 0x1404BA0D8 (RtlAbsoluteToSelfRelativeSD.c)
  */
 
 void *DrvDbGetSecurityDescriptor()
@@ -46,9 +46,9 @@ void *DrvDbGetSecurityDescriptor()
   void *v19; // rbx
   _BYTE SecurityDescriptor[2]; // [rsp+30h] [rbp-38h] BYREF
   __int16 v22; // [rsp+32h] [rbp-36h]
-  struct _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+B0h] [rbp+48h] BYREF
-  struct _SID_IDENTIFIER_AUTHORITY v24; // [rsp+B8h] [rbp+50h] BYREF
-  struct _SID_IDENTIFIER_AUTHORITY v25; // [rsp+C0h] [rbp+58h] BYREF
+  _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+B0h] [rbp+48h] BYREF
+  _SID_IDENTIFIER_AUTHORITY v24; // [rsp+B8h] [rbp+50h] BYREF
+  _SID_IDENTIFIER_AUTHORITY v25; // [rsp+C0h] [rbp+58h] BYREF
   void *v26; // [rsp+C8h] [rbp+60h]
 
   *(_WORD *)&IdentifierAuthority.Value[4] = 1280;

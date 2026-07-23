@@ -7,14 +7,26 @@
  *     ViZwShouldCheck @ 0x14075882C (ViZwShouldCheck.c)
  */
 
-__int64 __fastcall VfZwAlpcCreatePortSection(__int64 a1, unsigned int a2, __int64 a3, __int64 a4, int a5, int a6)
+NTSTATUS __fastcall VfZwAlpcCreatePortSection(
+        HANDLE PortHandle,
+        ULONG Flags,
+        HANDLE SectionHandle,
+        SIZE_T SectionSize,
+        PALPC_HANDLE AlpcSectionHandle,
+        PSIZE_T ActualSectionSize)
 {
   _UNKNOWN *retaddr; // [rsp+48h] [rbp+0h]
 
   if ( (unsigned int)ViZwShouldCheck() )
   {
-    ViZwCheckVirtualAddress(a5, (int)retaddr);
-    ViZwCheckVirtualAddress(a6, (int)retaddr);
+    ViZwCheckVirtualAddress((int)AlpcSectionHandle, (int)retaddr);
+    ViZwCheckVirtualAddress((int)ActualSectionSize, (int)retaddr);
   }
-  return pXdvZwAlpcCreatePortSection(a1, a2, a3);
+  return pXdvZwAlpcCreatePortSection(
+           PortHandle,
+           Flags,
+           SectionHandle,
+           SectionSize,
+           AlpcSectionHandle,
+           ActualSectionSize);
 }

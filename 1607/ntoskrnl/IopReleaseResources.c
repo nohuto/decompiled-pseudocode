@@ -1,14 +1,14 @@
 /*
- * XREFs of IopReleaseResources @ 0x140554B14
+ * XREFs of IopReleaseResources @ 0x140555054
  * Callers:
- *     IopLegacyResourceAllocation @ 0x1405549AC (IopLegacyResourceAllocation.c)
+ *     IopLegacyResourceAllocation @ 0x140554EEC (IopLegacyResourceAllocation.c)
  * Callees:
- *     KeReleaseGuardedMutex @ 0x14000CA40 (KeReleaseGuardedMutex.c)
- *     ExAcquireFastMutex @ 0x14002D0A0 (ExAcquireFastMutex.c)
+ *     KeReleaseGuardedMutex @ 0x14000C5C0 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x14002CC20 (ExAcquireFastMutex.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     PipClearDevNodeFlags @ 0x1403F3414 (PipClearDevNodeFlags.c)
- *     PnpReleaseResourcesInternal @ 0x1405559CC (PnpReleaseResourcesInternal.c)
- *     IopAllocateBootResourcesInternal @ 0x1405561C0 (IopAllocateBootResourcesInternal.c)
+ *     PipClearDevNodeFlags @ 0x1403F22D8 (PipClearDevNodeFlags.c)
+ *     PnpReleaseResourcesInternal @ 0x140555F0C (PnpReleaseResourcesInternal.c)
+ *     IopAllocateBootResourcesInternal @ 0x140556700 (IopAllocateBootResourcesInternal.c)
  */
 
 void __fastcall IopReleaseResources(__int64 a1)

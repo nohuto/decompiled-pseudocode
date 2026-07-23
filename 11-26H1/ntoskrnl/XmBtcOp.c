@@ -1,9 +1,9 @@
 /*
- * XREFs of XmBtcOp @ 0x1405ADF10
+ * XREFs of XmBtcOp @ 0x1405B0720
  * Callers:
  *     <none>
  * Callees:
- *     XmStoreResult @ 0x1404A8E3C (XmStoreResult.c)
+ *     XmStoreResult @ 0x1404A24CC (XmStoreResult.c)
  */
 
 _WORD *__fastcall XmBtcOp(_DWORD *a1)

@@ -1,32 +1,32 @@
 /*
- * XREFs of AlpcpReceiveMessage @ 0x1404494D0
+ * XREFs of AlpcpReceiveMessage @ 0x1404483A0
  * Callers:
- *     NtAlpcSendWaitReceivePort @ 0x140449270 (NtAlpcSendWaitReceivePort.c)
+ *     NtAlpcSendWaitReceivePort @ 0x140448140 (NtAlpcSendWaitReceivePort.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfAcquirePushLockSharedEx @ 0x1400C8280 (ExfAcquirePushLockSharedEx.c)
- *     ExfReleasePushLockShared @ 0x1400C8640 (ExfReleasePushLockShared.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     RtlpInterlockedPushEntrySList @ 0x140166E40 (RtlpInterlockedPushEntrySList.c)
- *     memmove @ 0x140171280 (memmove.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1400C6120 (ExfAcquirePushLockSharedEx.c)
+ *     ExfReleasePushLockShared @ 0x1400C64E0 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1401673B0 (RtlpInterlockedPushEntrySList.c)
+ *     memmove @ 0x140171780 (memmove.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     AlpcpCancelMessage @ 0x140408B94 (AlpcpCancelMessage.c)
- *     AlpcpUnlockMessage @ 0x1404091E8 (AlpcpUnlockMessage.c)
- *     AlpcpExposeAttributes @ 0x140449E20 (AlpcpExposeAttributes.c)
- *     AlpcpReceiveMessagePort @ 0x14044CD70 (AlpcpReceiveMessagePort.c)
- *     ProbeForWrite @ 0x14044DAC0 (ProbeForWrite.c)
- *     AlpcpReadMessageData @ 0x1404B3420 (AlpcpReadMessageData.c)
- *     AlpcpInsertMessagePendingQueue @ 0x1404B5C30 (AlpcpInsertMessagePendingQueue.c)
- *     AlpcpGetDataFromUserVaSafe @ 0x1404C3208 (AlpcpGetDataFromUserVaSafe.c)
- *     AlpcpReturnMessageOnInsufficientBuffer @ 0x1404DB9C8 (AlpcpReturnMessageOnInsufficientBuffer.c)
- *     AlpcpLookupMessage @ 0x14050E300 (AlpcpLookupMessage.c)
- *     AlpcpGetMessageAttributeSize32 @ 0x14052936C (AlpcpGetMessageAttributeSize32.c)
- *     AlpcpEnterStateChangeEventMessageLog @ 0x140654ED8 (AlpcpEnterStateChangeEventMessageLog.c)
- *     AlpcpLogReceiveMessage @ 0x1406568AC (AlpcpLogReceiveMessage.c)
- *     ExRaiseDatatypeMisalignment @ 0x1406B6058 (ExRaiseDatatypeMisalignment.c)
+ *     AlpcpCancelMessage @ 0x140407A54 (AlpcpCancelMessage.c)
+ *     AlpcpUnlockMessage @ 0x1404080A8 (AlpcpUnlockMessage.c)
+ *     AlpcpExposeAttributes @ 0x140448CF0 (AlpcpExposeAttributes.c)
+ *     AlpcpReceiveMessagePort @ 0x14044BC40 (AlpcpReceiveMessagePort.c)
+ *     ProbeForWrite @ 0x14044C990 (ProbeForWrite.c)
+ *     AlpcpReadMessageData @ 0x14049D800 (AlpcpReadMessageData.c)
+ *     AlpcpInsertMessagePendingQueue @ 0x1404A0010 (AlpcpInsertMessagePendingQueue.c)
+ *     AlpcpGetDataFromUserVaSafe @ 0x1404AEF1C (AlpcpGetDataFromUserVaSafe.c)
+ *     AlpcpReturnMessageOnInsufficientBuffer @ 0x1404BEFCC (AlpcpReturnMessageOnInsufficientBuffer.c)
+ *     AlpcpLookupMessage @ 0x1404F1290 (AlpcpLookupMessage.c)
+ *     AlpcpGetMessageAttributeSize32 @ 0x1405298AC (AlpcpGetMessageAttributeSize32.c)
+ *     AlpcpEnterStateChangeEventMessageLog @ 0x140654FBC (AlpcpEnterStateChangeEventMessageLog.c)
+ *     AlpcpLogReceiveMessage @ 0x140656990 (AlpcpLogReceiveMessage.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1406B6190 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall AlpcpReceiveMessage(__int64 a1, unsigned __int64 a2, _QWORD *a3, unsigned int *a4, __int64 *a5)
@@ -84,7 +84,7 @@ __int64 __fastcall AlpcpReceiveMessage(__int64 a1, unsigned __int64 a2, _QWORD *
   signed __int64 BugCheckParameter4; // rcx
   __int64 v57; // rbx
   int (__fastcall *v58)(ULONG_PTR); // rax
-  union _SLIST_HEADER *v59; // r8
+  _SLIST_HEADER *v59; // r8
   unsigned int v61; // [rsp+30h] [rbp-98h]
   unsigned int v62; // [rsp+34h] [rbp-94h]
   unsigned int v63; // [rsp+38h] [rbp-90h]

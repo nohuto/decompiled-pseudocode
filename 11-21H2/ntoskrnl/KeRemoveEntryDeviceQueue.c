@@ -1,11 +1,11 @@
 /*
  * XREFs of KeRemoveEntryDeviceQueue @ 0x1405709E0
  * Callers:
- *     DifKeRemoveEntryDeviceQueueWrapper @ 0x140615110 (DifKeRemoveEntryDeviceQueueWrapper.c)
+ *     sub_140615110 @ 0x140615110 (sub_140615110.c)
  * Callees:
  *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140282BA0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
  *     KeAcquireInStackQueuedSpinLock @ 0x140311930 (KeAcquireInStackQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     sub_140418E4C @ 0x140418E4C (sub_140418E4C.c)
  */
 
 BOOLEAN __stdcall KeRemoveEntryDeviceQueue(PKDEVICE_QUEUE DeviceQueue, PKDEVICE_QUEUE_ENTRY DeviceQueueEntry)
@@ -17,7 +17,7 @@ BOOLEAN __stdcall KeRemoveEntryDeviceQueue(PKDEVICE_QUEUE DeviceQueue, PKDEVICE_
   unsigned __int64 OldIrql; // rbx
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
-  _DWORD *SchedulerAssist; // r9
+  __int64 v11; // r9
   int v12; // edx
   bool v13; // zf
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
@@ -43,20 +43,20 @@ BOOLEAN __stdcall KeRemoveEntryDeviceQueue(PKDEVICE_QUEUE DeviceQueue, PKDEVICE_
   }
   KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
   OldIrql = LockHandle.OldIrql;
-  if ( KiIrqlFlags )
+  if ( dword_140D06B08 )
   {
-    if ( (KiIrqlFlags & 1) != 0 )
+    if ( (dword_140D06B08 & 1) != 0 )
     {
       CurrentIrql = KeGetCurrentIrql();
       if ( CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
-        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        v11 = *((_QWORD *)CurrentPrcb + 4375);
         v12 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
-        v13 = (v12 & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= v12;
+        v13 = (v12 & *(_DWORD *)(v11 + 20)) == 0;
+        *(_DWORD *)(v11 + 20) &= v12;
         if ( v13 )
-          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+          sub_140418E4C((__int64)CurrentPrcb);
       }
     }
   }

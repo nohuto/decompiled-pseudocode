@@ -1,8 +1,8 @@
 /*
- * XREFs of SepDeleteSessionLowboxEntries @ 0x14012A060
+ * XREFs of SepDeleteSessionLowboxEntries @ 0x14012A130
  * Callers:
- *     SepDeReferenceLogonSession @ 0x1406B35E0 (SepDeReferenceLogonSession.c)
- *     SepDeleteLogonSessionTrack @ 0x1406F71D8 (SepDeleteLogonSessionTrack.c)
+ *     SepDeReferenceLogonSession @ 0x1406B4880 (SepDeReferenceLogonSession.c)
+ *     SepDeleteLogonSessionTrack @ 0x1406F8478 (SepDeleteLogonSessionTrack.c)
  * Callees:
  *     KiAbEntryRemoveFromTree @ 0x140004530 (KiAbEntryRemoveFromTree.c)
  *     KiCheckForKernelApcDelivery @ 0x140005A50 (KiCheckForKernelApcDelivery.c)
@@ -11,10 +11,10 @@
  *     KiAbThreadRemoveBoosts @ 0x14004EFD0 (KiAbThreadRemoveBoosts.c)
  *     MmGetSessionIdEx @ 0x14004F060 (MmGetSessionIdEx.c)
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     RtlDeleteHashTable @ 0x14012ACF0 (RtlDeleteHashTable.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     RtlDeleteHashTable @ 0x14012ADC0 (RtlDeleteHashTable.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 void SepDeleteSessionLowboxEntries()
@@ -150,7 +150,7 @@ LABEL_14:
               {
                 *(_BYTE *)(v32 + 32) |= 2u;
                 if ( *(__int64 *)(v32 + 32) < 0 )
-                  KiAbEntryRemoveFromTree(v32, SessionId);
+                  KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v32, SessionId);
                 v43 = 0;
                 v43 = *(_DWORD *)(v32 + 88) & 0x1FFFF;
                 *(_DWORD *)(v32 + 88) &= 0xFFFE0000;
@@ -211,7 +211,7 @@ LABEL_61:
               {
                 *(_BYTE *)(v22 + 32) |= 2u;
                 if ( *(__int64 *)(v22 + 32) < 0 )
-                  KiAbEntryRemoveFromTree(v22, v17);
+                  KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v22, v17);
                 v42 = 0;
                 v42 = *(_DWORD *)(v22 + 88) & 0x1FFFF;
                 *(_DWORD *)(v22 + 88) &= 0xFFFE0000;
@@ -267,7 +267,7 @@ LABEL_34:
           {
             *(_BYTE *)(v39 + 32) |= 2u;
             if ( *(__int64 *)(v39 + 32) < 0 )
-              KiAbEntryRemoveFromTree(v39, v37);
+              KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v39, v37);
             v44 = 0;
             v44 = *(_DWORD *)(v39 + 88) & 0x1FFFF;
             *(_DWORD *)(v39 + 88) &= 0xFFFE0000;

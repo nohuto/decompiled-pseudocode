@@ -1,9 +1,9 @@
 /*
- * XREFs of WmiAcquireSmbiosLockExclusive @ 0x14077A38C
+ * XREFs of WmiAcquireSmbiosLockExclusive @ 0x14077A54C
  * Callers:
- *     PoBroadcastSystemState @ 0x1409922E0 (PoBroadcastSystemState.c)
+ *     PoBroadcastSystemState @ 0x1409932E0 (PoBroadcastSystemState.c)
  * Callees:
- *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1403568F0 (ExAcquireResourceExclusiveLite.c)
  */
 
 BOOLEAN WmiAcquireSmbiosLockExclusive()

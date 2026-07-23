@@ -1,5 +1,5 @@
 /*
- * XREFs of VerifierPoFxStartDevicePowerManagement @ 0x14070CC08
+ * XREFs of VerifierPoFxStartDevicePowerManagement @ 0x14070CC38
  * Callers:
  *     <none>
  * Callees:

@@ -1,15 +1,15 @@
 /*
- * XREFs of HvlpStartSecurePageListIteration @ 0x1405C2484
+ * XREFs of HvlpStartSecurePageListIteration @ 0x1405C4CF4
  * Callers:
- *     HvlDiscardSecurePagesFromHibernation @ 0x1405BF024 (HvlDiscardSecurePagesFromHibernation.c)
- *     HvlIterateSecurePagesForHibernation @ 0x1405BF1A0 (HvlIterateSecurePagesForHibernation.c)
- *     HvlAddSecurePagesCallbackRoutine @ 0x1405BFF04 (HvlAddSecurePagesCallbackRoutine.c)
- *     HvlpGetEncryptedDataFromSecureKernel @ 0x1405C09CC (HvlpGetEncryptedDataFromSecureKernel.c)
+ *     HvlDiscardSecurePagesFromHibernation @ 0x1405C1894 (HvlDiscardSecurePagesFromHibernation.c)
+ *     HvlIterateSecurePagesForHibernation @ 0x1405C1A10 (HvlIterateSecurePagesForHibernation.c)
+ *     HvlAddSecurePagesCallbackRoutine @ 0x1405C2774 (HvlAddSecurePagesCallbackRoutine.c)
+ *     HvlpGetEncryptedDataFromSecureKernel @ 0x1405C323C (HvlpGetEncryptedDataFromSecureKernel.c)
  * Callees:
- *     MmGetPhysicalAddress @ 0x14024D8F0 (MmGetPhysicalAddress.c)
- *     VslStartSecurePageIteration @ 0x140518844 (VslStartSecurePageIteration.c)
- *     HvlpGetPageListIterator @ 0x1405C2308 (HvlpGetPageListIterator.c)
- *     HvlpSetupPageListIteration @ 0x1405C23D8 (HvlpSetupPageListIteration.c)
+ *     MmGetPhysicalAddress @ 0x14024F250 (MmGetPhysicalAddress.c)
+ *     VslStartSecurePageIteration @ 0x1405122B4 (VslStartSecurePageIteration.c)
+ *     HvlpGetPageListIterator @ 0x1405C4B78 (HvlpGetPageListIterator.c)
+ *     HvlpSetupPageListIteration @ 0x1405C4C48 (HvlpSetupPageListIteration.c)
  */
 
 __int64 __fastcall HvlpStartSecurePageListIteration(
@@ -18,13 +18,13 @@ __int64 __fastcall HvlpStartSecurePageListIteration(
         char *a3,
         void *a4,
         unsigned int a5,
-        struct _LIST_ENTRY **a6)
+        LONGLONG **a6)
 {
-  $7A85BAF4F1FA08634C1C4A3E45B775B3 *v9; // rax
-  struct _LIST_ENTRY **v11; // r12
-  struct _LIST_ENTRY *Blink; // r14
+  volatile __int64 *v9; // rax
+  LONGLONG **v11; // r12
+  LONGLONG *v12; // r14
   unsigned int v13; // ebx
-  __int128 Flink; // rtt
+  __int128 v14; // rtt
   __int64 v15; // rbp
   LONGLONG v16; // rax
   unsigned int v17; // ebx
@@ -33,18 +33,18 @@ __int64 __fastcall HvlpStartSecurePageListIteration(
   PHYSICAL_ADDRESS PhysicalAddress; // rax
   PHYSICAL_ADDRESS v21; // rax
   int started; // edx
-  $7A85BAF4F1FA08634C1C4A3E45B775B3 *PageListIterator; // rax
+  volatile __int64 *PageListIterator; // rax
   __int64 v24; // [rsp+30h] [rbp-38h]
 
   v9 = HvlpSetupPageListIteration(a1, 1);
   if ( !v9 )
     return 3221225473LL;
   v11 = a6;
-  Blink = v9->ApcState.ApcListHead[0].Blink;
+  v12 = (LONGLONG *)*((_QWORD *)v9 + 1);
   v13 = 0;
-  Flink = (__int64)v9->ApcState.ApcListHead[1].Flink;
-  *a6 = Blink;
-  v24 = Flink / 4096;
+  v14 = *((__int64 *)v9 + 2);
+  *a6 = v12;
+  v24 = v14 / 4096;
   v15 = v24;
   v16 = 0LL;
   if ( a3 )
@@ -61,8 +61,7 @@ __int64 __fastcall HvlpStartSecurePageListIteration(
       {
         PhysicalAddress = MmGetPhysicalAddress(v18);
         v18 += 4096;
-        Blink->Flink = (struct _LIST_ENTRY *)(PhysicalAddress.QuadPart / 4096);
-        Blink = (struct _LIST_ENTRY *)((char *)Blink + 8);
+        *v12++ = PhysicalAddress.QuadPart / 4096;
         --v19;
       }
       while ( v19 );
@@ -70,17 +69,17 @@ __int64 __fastcall HvlpStartSecurePageListIteration(
       v15 = v24;
     }
     v21 = MmGetPhysicalAddress(a4);
-    *v11 = (struct _LIST_ENTRY *)a3;
+    *v11 = (LONGLONG *)a3;
     v16 = v21.QuadPart / 4096;
   }
   started = VslStartSecurePageIteration(a1 == 0, v15, v16, v13, a2);
   if ( started < 0 )
   {
     PageListIterator = HvlpGetPageListIterator(a1);
-    PageListIterator->ApcState.ApcListHead[0].Blink = 0LL;
-    LOWORD(PageListIterator->ApcState.ApcListHead[0].Flink) = 0;
-    *(_WORD *)&PageListIterator->ApcStateFill[3] = 0;
-    PageListIterator->ApcStateFill[2] = 0;
+    *((_QWORD *)PageListIterator + 1) = 0LL;
+    *(_WORD *)PageListIterator = 0;
+    *(_WORD *)((char *)PageListIterator + 3) = 0;
+    *((_BYTE *)PageListIterator + 2) = 0;
   }
   return (unsigned int)started;
 }

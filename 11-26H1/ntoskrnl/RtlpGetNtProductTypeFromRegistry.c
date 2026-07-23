@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlpGetNtProductTypeFromRegistry @ 0x140B320D4
+ * XREFs of RtlpGetNtProductTypeFromRegistry @ 0x140B34528
  * Callers:
- *     RtlGetNtProductType @ 0x140450F70 (RtlGetNtProductType.c)
- *     PspSiloInitializeUserSharedData @ 0x1407EF83C (PspSiloInitializeUserSharedData.c)
+ *     RtlGetNtProductType @ 0x1404490A0 (RtlGetNtProductType.c)
+ *     PspSiloInitializeUserSharedData @ 0x1407F539C (PspSiloInitializeUserSharedData.c)
  * Callees:
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwOpenKey @ 0x140723630 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x1407236D0 (ZwQueryValueKey.c)
- *     RtlEqualUnicodeString @ 0x14091F0E0 (RtlEqualUnicodeString.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140728200 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1407282A0 (ZwQueryValueKey.c)
+ *     RtlEqualUnicodeString @ 0x140979B40 (RtlEqualUnicodeString.c)
  */
 
 __int64 __fastcall RtlpGetNtProductTypeFromRegistry(_DWORD *a1)

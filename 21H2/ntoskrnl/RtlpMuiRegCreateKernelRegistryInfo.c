@@ -1,28 +1,27 @@
 /*
- * XREFs of RtlpMuiRegCreateKernelRegistryInfo @ 0x1403AD204
+ * XREFs of RtlpMuiRegCreateKernelRegistryInfo @ 0x1403A8878
  * Callers:
- *     MUIRegistrySystemRoutine @ 0x1407946F0 (MUIRegistrySystemRoutine.c)
+ *     MUIRegistrySystemRoutine @ 0x140790490 (MUIRegistrySystemRoutine.c)
  * Callees:
- *     ExFreeHeapPool @ 0x140341AC0 (ExFreeHeapPool.c)
- *     memset @ 0x140414200 (memset.c)
- *     _RtlpMuiRegSerializeRegistryInfo @ 0x140793CC8 (_RtlpMuiRegSerializeRegistryInfo.c)
- *     RtlpMuiRegGetInstalledLanguageIndexByLangId @ 0x140793FA8 (RtlpMuiRegGetInstalledLanguageIndexByLangId.c)
- *     RtlpMuiRegFreeRegistryInfo @ 0x140794490 (RtlpMuiRegFreeRegistryInfo.c)
- *     RtlpMuiRegLoadRegistryInfo @ 0x140794628 (RtlpMuiRegLoadRegistryInfo.c)
- *     RtlpMuiRegCreateRegistryInfo @ 0x140794698 (RtlpMuiRegCreateRegistryInfo.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     ExFreeHeapPool @ 0x14034C810 (ExFreeHeapPool.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     _RtlpMuiRegSerializeRegistryInfo @ 0x14078FA68 (_RtlpMuiRegSerializeRegistryInfo.c)
+ *     RtlpMuiRegGetInstalledLanguageIndexByLangId @ 0x14078FD48 (RtlpMuiRegGetInstalledLanguageIndexByLangId.c)
+ *     RtlpMuiRegFreeRegistryInfo @ 0x140790230 (RtlpMuiRegFreeRegistryInfo.c)
+ *     RtlpMuiRegLoadRegistryInfo @ 0x1407903C8 (RtlpMuiRegLoadRegistryInfo.c)
+ *     RtlpMuiRegCreateRegistryInfo @ 0x140790438 (RtlpMuiRegCreateRegistryInfo.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall RtlpMuiRegCreateKernelRegistryInfo(
         ULONG_PTR *a1,
         _DWORD *a2,
         _DWORD *a3,
-        _DWORD *a4,
+        int a4,
         _DWORD *a5,
         int a6,
         _DWORD *a7)
 {
-  int v7; // r13d
   int v9; // ebp
   ULONG_PTR v10; // rdi
   ULONG_PTR v11; // rsi
@@ -34,12 +33,8 @@ __int64 __fastcall RtlpMuiRegCreateKernelRegistryInfo(
   _WORD *v17; // rcx
   unsigned int v18; // ebx
   PVOID PoolWithTag; // rax
-  __int64 v20; // rdx
-  __int64 v21; // r8
-  _DWORD *v22; // r9
   unsigned int NumberOfBytes[18]; // [rsp+20h] [rbp-48h] BYREF
 
-  v7 = (int)a4;
   v9 = 0;
   v10 = 0LL;
   v11 = 0LL;
@@ -72,10 +67,10 @@ __int64 __fastcall RtlpMuiRegCreateKernelRegistryInfo(
     }
     *a3 = v9;
     *a5 = 0;
-    if ( v7 )
+    if ( a4 )
     {
       LOBYTE(v14) = 1;
-      if ( (int)RtlpMuiRegGetInstalledLanguageIndexByLangId(v11, (unsigned __int16)v7, v14, 0LL) >= 0 )
+      if ( (int)RtlpMuiRegGetInstalledLanguageIndexByLangId(v11, (unsigned __int16)a4, v14, 0LL) >= 0 )
         *a5 = 1;
     }
     *a7 = 0;
@@ -108,7 +103,7 @@ __int64 __fastcall RtlpMuiRegCreateKernelRegistryInfo(
         }
 LABEL_33:
         if ( v10 )
-          ExFreeHeapPool(v10, (__int64)a2, (__int64)a3, a4);
+          ExFreeHeapPool(v10);
         goto LABEL_27;
       }
       v13 = -1073741801;
@@ -118,7 +113,7 @@ LABEL_27:
   if ( v11 )
   {
     RtlpMuiRegFreeRegistryInfo(v11, 4095LL);
-    ExFreeHeapPool(v11, v20, v21, v22);
+    ExFreeHeapPool(v11);
   }
   return (unsigned int)v13;
 }

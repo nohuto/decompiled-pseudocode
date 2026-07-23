@@ -1,9 +1,9 @@
 /*
- * XREFs of KiMceLinkage @ 0x140A112A0
+ * XREFs of KiMceLinkage @ 0x140A122A0
  * Callers:
- *     KiMceThunk @ 0x140A11190 (KiMceThunk.c)
+ *     KiMceThunk @ 0x140A12190 (KiMceThunk.c)
  * Callees:
- *     KiMceDispatch @ 0x140A0BEA0 (KiMceDispatch.c)
+ *     KiMceDispatch @ 0x140A0CEA0 (KiMceDispatch.c)
  */
 
 // positive sp value has been detected, the output may be wrong!

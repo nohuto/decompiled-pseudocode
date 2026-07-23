@@ -1,16 +1,16 @@
 /*
- * XREFs of HalAllocateHardwareCounters @ 0x140864280
+ * XREFs of HalAllocateHardwareCounters @ 0x1408643E0
  * Callers:
  *     <none>
  * Callees:
- *     KeAddProcessorAffinityEx @ 0x140229380 (KeAddProcessorAffinityEx.c)
- *     KeQueryActiveProcessorCountEx @ 0x14027B610 (KeQueryActiveProcessorCountEx.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     memset @ 0x140414200 (memset.c)
- *     HalpAllocateHalCounters @ 0x1404B90B4 (HalpAllocateHalCounters.c)
- *     HalpGetFullPmuOwnership @ 0x1404B90E4 (HalpGetFullPmuOwnership.c)
- *     HalpReleaseHalCounters @ 0x1404B9130 (HalpReleaseHalCounters.c)
+ *     KeQueryActiveProcessorCountEx @ 0x1402695B0 (KeQueryActiveProcessorCountEx.c)
+ *     KeAddProcessorAffinityEx @ 0x1402CDC80 (KeAddProcessorAffinityEx.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     HalpAllocateHalCounters @ 0x1404B92F4 (HalpAllocateHalCounters.c)
+ *     HalpGetFullPmuOwnership @ 0x1404B9324 (HalpGetFullPmuOwnership.c)
+ *     HalpReleaseHalCounters @ 0x1404B9370 (HalpReleaseHalCounters.c)
  */
 
 NTSTATUS __stdcall HalAllocateHardwareCounters(

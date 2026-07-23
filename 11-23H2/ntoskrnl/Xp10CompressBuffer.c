@@ -1,14 +1,14 @@
 /*
- * XREFs of Xp10CompressBuffer @ 0x1409C49B8
+ * XREFs of Xp10CompressBuffer @ 0x1409C4BB8
  * Callers:
- *     RtlCompressBufferXp10 @ 0x1409C3000 (RtlCompressBufferXp10.c)
+ *     RtlCompressBufferXp10 @ 0x1409C3200 (RtlCompressBufferXp10.c)
  * Callees:
- *     memset @ 0x140435A00 (memset.c)
- *     Xp10ComputeAndWriteCrc @ 0x1409C4F5C (Xp10ComputeAndWriteCrc.c)
- *     Xp10ExecuteHuffmanEncode @ 0x1409C56A4 (Xp10ExecuteHuffmanEncode.c)
- *     Xp10ExecuteLz77PassMinMatchLen3 @ 0x1409C5B40 (Xp10ExecuteLz77PassMinMatchLen3.c)
- *     Xp10ExecuteLz77PassMinMatchLen4 @ 0x1409C6284 (Xp10ExecuteLz77PassMinMatchLen4.c)
- *     Xp10ValidateParametersAndFillFrameHeader @ 0x1409C795C (Xp10ValidateParametersAndFillFrameHeader.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     Xp10ComputeAndWriteCrc @ 0x1409C515C (Xp10ComputeAndWriteCrc.c)
+ *     Xp10ExecuteHuffmanEncode @ 0x1409C58A4 (Xp10ExecuteHuffmanEncode.c)
+ *     Xp10ExecuteLz77PassMinMatchLen3 @ 0x1409C5D40 (Xp10ExecuteLz77PassMinMatchLen3.c)
+ *     Xp10ExecuteLz77PassMinMatchLen4 @ 0x1409C6484 (Xp10ExecuteLz77PassMinMatchLen4.c)
+ *     Xp10ValidateParametersAndFillFrameHeader @ 0x1409C7B5C (Xp10ValidateParametersAndFillFrameHeader.c)
  */
 
 __int64 __fastcall Xp10CompressBuffer(
@@ -157,7 +157,7 @@ LABEL_12:
           v29 = v28;
           if ( v28 >= v24 )
             v29 = v24;
-          *v27 |= ((unsigned __int8)(BYTE8(v48) - BYTE8(v50)) & (unsigned __int8)byte_14001BCE0[4 * v29]) << v26;
+          *v27 |= ((unsigned __int8)(BYTE8(v48) - BYTE8(v50)) & (unsigned __int8)byte_14001BD60[4 * v29]) << v26;
           v30 = v24 - (unsigned int)v29;
           v31 = v25 >> v28;
           v32 = v27 + 1;
@@ -175,7 +175,7 @@ LABEL_12:
             while ( v33 );
           }
           if ( (_DWORD)v30 )
-            *v32 |= (unsigned __int8)v31 & byte_14001BCE0[4 * v30];
+            *v32 |= (unsigned __int8)v31 & byte_14001BD60[4 * v30];
           v18 += v24;
         }
         v20 += v45;
@@ -197,7 +197,7 @@ LABEL_12:
       if ( v39 >= v38 )
         v40 = v38;
       v41 = v38 - (unsigned int)v40;
-      *v37++ |= (byte_14001BCE0[4 * v40] & 1) << v36;
+      *v37++ |= (byte_14001BD60[4 * v40] & 1) << v36;
       v42 = 1u >> v39;
       if ( (unsigned int)v41 >= 8 )
       {
@@ -213,7 +213,7 @@ LABEL_12:
         while ( v43 );
       }
       if ( (_DWORD)v41 )
-        *v37 |= (unsigned __int8)v42 & byte_14001BCE0[4 * v41];
+        *v37 |= (unsigned __int8)v42 & byte_14001BD60[4 * v41];
     }
     DWORD2(v49) = 0;
     *(_QWORD *)&v49 = a2;

@@ -1,11 +1,11 @@
 /*
- * XREFs of MmGetPhysicalAddressEx @ 0x1404AFF24
+ * XREFs of MmGetPhysicalAddressEx @ 0x1404A95C0
  * Callers:
- *     PoSetHiberRange @ 0x1404AFD60 (PoSetHiberRange.c)
+ *     PoSetHiberRange @ 0x1404A93F0 (PoSetHiberRange.c)
  * Callees:
- *     MiGetVirtualAddressState @ 0x14024D274 (MiGetVirtualAddressState.c)
- *     MiMirrorInSingleProcessorMode @ 0x1402A2D34 (MiMirrorInSingleProcessorMode.c)
- *     DbgPrintEx @ 0x140397530 (DbgPrintEx.c)
+ *     MiGetVirtualAddressState @ 0x14024EBD4 (MiGetVirtualAddressState.c)
+ *     MiMirrorInSingleProcessorMode @ 0x1402A2284 (MiMirrorInSingleProcessorMode.c)
+ *     DbgPrintEx @ 0x1403992B0 (DbgPrintEx.c)
  */
 
 __int64 __fastcall MmGetPhysicalAddressEx(const void *a1, _QWORD *a2)

@@ -1,10 +1,10 @@
 /*
- * XREFs of __asan_allocas_unpoison @ 0x140565770
+ * XREFs of __asan_allocas_unpoison @ 0x140565E30
  * Callers:
  *     <none>
  * Callees:
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 void *__fastcall _asan_allocas_unpoison(ULONG_PTR BugCheckParameter3, ULONG_PTR a2)

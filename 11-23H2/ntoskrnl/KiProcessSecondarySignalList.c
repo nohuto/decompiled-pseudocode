@@ -1,12 +1,12 @@
 /*
- * XREFs of KiProcessSecondarySignalList @ 0x140571DB0
+ * XREFs of KiProcessSecondarySignalList @ 0x1405722F0
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KiProcessDisconnectList @ 0x1403A3268 (KiProcessDisconnectList.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     KiAcquireSecondarySignalListLock @ 0x1405719B8 (KiAcquireSecondarySignalListLock.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KiProcessDisconnectList @ 0x1403A3448 (KiProcessDisconnectList.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KiAcquireSecondarySignalListLock @ 0x140571EF8 (KiAcquireSecondarySignalListLock.c)
  */
 
 void __fastcall KiProcessSecondarySignalList(
@@ -55,7 +55,9 @@ void __fastcall KiProcessSecondarySignalList(
   }
   KiSecondarySignalDpcRunning = 0;
   KxReleaseSpinLock((volatile signed __int64 *)&KiSecondarySignalListLock);
-  if ( KiIrqlFlags && (CurrentIrql = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags
+    && (CurrentIrql = KeGetCurrentIrql(), ((unsigned __int8)KiIrqlFlags & 1) != 0)
+    && CurrentIrql <= 0xFu )
   {
     v7 = v12[0];
     if ( v12[0] <= 0xFu && CurrentIrql >= 2u )

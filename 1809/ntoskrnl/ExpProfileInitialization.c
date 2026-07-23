@@ -1,12 +1,12 @@
 /*
- * XREFs of ExpProfileInitialization @ 0x1409DE2E0
+ * XREFs of ExpProfileInitialization @ 0x1409DF2E0
  * Callers:
- *     ExpInitSystemPhase1 @ 0x1409B0434 (ExpInitSystemPhase1.c)
+ *     ExpInitSystemPhase1 @ 0x1409B1434 (ExpInitSystemPhase1.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     KiInitializeMutant @ 0x1400DD378 (KiInitializeMutant.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ObCreateObjectType @ 0x1407289C0 (ObCreateObjectType.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     KiInitializeMutant @ 0x1400DD3F8 (KiInitializeMutant.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ObCreateObjectType @ 0x140729BB0 (ObCreateObjectType.c)
  */
 
 bool __fastcall ExpProfileInitialization(__int64 a1, __int64 a2, __int64 a3)

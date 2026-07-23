@@ -1,13 +1,13 @@
 /*
- * XREFs of MiUpdateDemotedSubPage @ 0x14042FB30
+ * XREFs of MiUpdateDemotedSubPage @ 0x1402EF390
  * Callers:
- *     MiInsertDemotedPages @ 0x14042F7AC (MiInsertDemotedPages.c)
- *     MiDemoteValidLargePageOneLevel @ 0x140683AC8 (MiDemoteValidLargePageOneLevel.c)
- *     MiDemotePfnListChain @ 0x14069234C (MiDemotePfnListChain.c)
+ *     MiInsertDemotedPages @ 0x1402EF010 (MiInsertDemotedPages.c)
+ *     MiDemoteValidLargePageOneLevel @ 0x140684C24 (MiDemoteValidLargePageOneLevel.c)
+ *     MiDemotePfnListChain @ 0x14069341C (MiDemotePfnListChain.c)
  * Callees:
- *     HvlNotifyLongSpinWait @ 0x140293260 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140293290 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     MiAnyPagesRemovalPending @ 0x140470CA0 (MiAnyPagesRemovalPending.c)
+ *     HvlNotifyLongSpinWait @ 0x1402A2E60 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402A2E90 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     MiAnyPagesRemovalPending @ 0x14046B54C (MiAnyPagesRemovalPending.c)
  */
 
 __int64 __fastcall MiUpdateDemotedSubPage(__int64 a1, __int64 a2, unsigned int a3)

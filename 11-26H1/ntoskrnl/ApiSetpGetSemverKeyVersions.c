@@ -1,8 +1,8 @@
 /*
- * XREFs of ApiSetpGetSemverKeyVersions @ 0x1406DB374
+ * XREFs of ApiSetpGetSemverKeyVersions @ 0x1406DF60C
  * Callers:
- *     ApiSetQuerySchemaInfo2_V7 @ 0x1406D9F5C (ApiSetQuerySchemaInfo2_V7.c)
- *     ApiSetSchemaExpander_InsertSemverContractEntry @ 0x1406DBB54 (ApiSetSchemaExpander_InsertSemverContractEntry.c)
+ *     ApiSetQuerySchemaInfo2_V7 @ 0x1406DE0EC (ApiSetQuerySchemaInfo2_V7.c)
+ *     ApiSetSchemaExpander_InsertSemverContractEntry @ 0x1406DFDEC (ApiSetSchemaExpander_InsertSemverContractEntry.c)
  * Callees:
  *     <none>
  */

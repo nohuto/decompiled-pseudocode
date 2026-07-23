@@ -1,10 +1,10 @@
 /*
- * XREFs of IoSetAdapterCryptoEngineExtension @ 0x1405974E0
+ * XREFs of IoSetAdapterCryptoEngineExtension @ 0x140594460
  * Callers:
  *     <none>
  * Callees:
- *     IopAllocateIrpExtension @ 0x140375A80 (IopAllocateIrpExtension.c)
- *     IopIrpHasValidCombinationOfExtensionTypes @ 0x140480B68 (IopIrpHasValidCombinationOfExtensionTypes.c)
+ *     IopAllocateIrpExtension @ 0x140435420 (IopAllocateIrpExtension.c)
+ *     IopIrpHasValidCombinationOfExtensionTypes @ 0x14047B638 (IopIrpHasValidCombinationOfExtensionTypes.c)
  */
 
 __int64 __fastcall IoSetAdapterCryptoEngineExtension(__int64 a1, _OWORD *a2)

@@ -1,9 +1,9 @@
 /*
- * XREFs of PiCMCaptureEnumerateInputData @ 0x1408A4DDA
+ * XREFs of PiCMCaptureEnumerateInputData @ 0x1408A502A
  * Callers:
- *     PiCMEnumerateSubKeys @ 0x14096999C (PiCMEnumerateSubKeys.c)
+ *     PiCMEnumerateSubKeys @ 0x140969B9C (PiCMEnumerateSubKeys.c)
  * Callees:
- *     ExRaiseDatatypeMisalignment @ 0x140A00B60 (ExRaiseDatatypeMisalignment.c)
+ *     ExRaiseDatatypeMisalignment @ 0x140A00DF0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall PiCMCaptureEnumerateInputData(unsigned __int64 a1, unsigned int a2, __int64 a3, __int64 a4)

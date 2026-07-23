@@ -1,16 +1,22 @@
 /*
- * XREFs of NtReadVirtualMemoryEx @ 0x180161E30
+ * XREFs of NtReadVirtualMemoryEx @ 0x180161D30
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 NtReadVirtualMemoryEx()
+NTSTATUS __cdecl NtReadVirtualMemoryEx(
+        HANDLE ProcessHandle,
+        PVOID BaseAddress,
+        PVOID Buffer,
+        SIZE_T BufferSize,
+        PSIZE_T NumberOfBytesRead,
+        ULONG Flags)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 376LL;
+  result = 376;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

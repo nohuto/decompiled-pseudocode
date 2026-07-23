@@ -29,9 +29,9 @@ ULONG __fastcall MiSelectRelocationStartHint(__int64 a1, unsigned __int16 a2, UL
     --CurrentThread->SpecialApcDisable;
     ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_1403CB428, 0LL);
   }
-  RtlCopyBitMap(*(_QWORD *)a1, (__int64)&stru_1403CB468, 0);
-  RtlMergeBitMaps((__int64)&stru_1403CB468, *(unsigned int **)(a1 + 8));
-  ClearBits = RtlFindClearBits(&stru_1403CB468, a2, a3);
+  RtlCopyBitMap(*(PRTL_BITMAP *)a1, &Destination, 0);
+  RtlMergeBitMaps((__int64)&Destination, *(unsigned int **)(a1 + 8));
+  ClearBits = RtlFindClearBits(&Destination, a2, a3);
   if ( !a4 )
   {
     if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_1403CB428, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )

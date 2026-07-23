@@ -1,10 +1,10 @@
 /*
- * XREFs of ReferenceVacbLevel @ 0x14006CED8
+ * XREFs of ReferenceVacbLevel @ 0x14006CA58
  * Callers:
- *     CcAdjustVacbLevelLockCount @ 0x14006CB4C (CcAdjustVacbLevelLockCount.c)
- *     CcSetVacbLargeOffset @ 0x14006CBF0 (CcSetVacbLargeOffset.c)
+ *     CcAdjustVacbLevelLockCount @ 0x14006C6CC (CcAdjustVacbLevelLockCount.c)
+ *     CcSetVacbLargeOffset @ 0x14006C770 (CcSetVacbLargeOffset.c)
  * Callees:
- *     VacbLevelReference @ 0x14006CEF8 (VacbLevelReference.c)
+ *     VacbLevelReference @ 0x14006CA78 (VacbLevelReference.c)
  */
 
 _DWORD *__fastcall ReferenceVacbLevel(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int a5)

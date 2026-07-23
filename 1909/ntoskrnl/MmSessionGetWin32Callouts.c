@@ -14,9 +14,9 @@
  *     <none>
  */
 
-union _RTL_RUN_ONCE *MmSessionGetWin32Callouts()
+_RTL_RUN_ONCE *MmSessionGetWin32Callouts()
 {
-  union _RTL_RUN_ONCE *result; // rax
+  _RTL_RUN_ONCE *result; // rax
 
   result = &PsWin32CallBack;
   if ( *(_QWORD *)(KeGetCurrentThread()->ApcState.Process[1].ActiveProcessors.Bitmap[1] + 960) < 2uLL )

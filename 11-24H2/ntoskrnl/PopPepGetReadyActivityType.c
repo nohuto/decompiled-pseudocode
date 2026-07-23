@@ -1,7 +1,7 @@
 /*
- * XREFs of PopPepGetReadyActivityType @ 0x14044D878
+ * XREFs of PopPepGetReadyActivityType @ 0x140444778
  * Callers:
- *     PopPepProcessEvent @ 0x140317DF0 (PopPepProcessEvent.c)
+ *     PopPepProcessEvent @ 0x1402C0980 (PopPepProcessEvent.c)
  * Callees:
  *     <none>
  */

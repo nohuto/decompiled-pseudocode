@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlpPopulateListIndex @ 0x1402FC44C
+ * XREFs of RtlpPopulateListIndex @ 0x1402FC63C
  * Callers:
- *     RtlCreateHeap @ 0x14070AF20 (RtlCreateHeap.c)
+ *     RtlCreateHeap @ 0x14070C1C0 (RtlCreateHeap.c)
  * Callees:
- *     DbgPrint @ 0x1401262D0 (DbgPrint.c)
- *     RtlpAnalyzeHeapFailure @ 0x1402FB88C (RtlpAnalyzeHeapFailure.c)
- *     RtlpHeapHandleError @ 0x1402FBBCC (RtlpHeapHandleError.c)
- *     RtlpHeapAddListEntry @ 0x1402FC08C (RtlpHeapAddListEntry.c)
- *     RtlpHeapRemoveListEntry @ 0x1402FC358 (RtlpHeapRemoveListEntry.c)
+ *     DbgPrint @ 0x1401263A0 (DbgPrint.c)
+ *     RtlpAnalyzeHeapFailure @ 0x1402FBA7C (RtlpAnalyzeHeapFailure.c)
+ *     RtlpHeapHandleError @ 0x1402FBDBC (RtlpHeapHandleError.c)
+ *     RtlpHeapAddListEntry @ 0x1402FC27C (RtlpHeapAddListEntry.c)
+ *     RtlpHeapRemoveListEntry @ 0x1402FC548 (RtlpHeapRemoveListEntry.c)
  */
 
 __int64 __fastcall RtlpPopulateListIndex(ULONG_PTR a1, __int64 a2)

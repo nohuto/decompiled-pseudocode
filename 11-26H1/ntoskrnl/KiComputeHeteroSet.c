@@ -1,7 +1,7 @@
 /*
- * XREFs of KiComputeHeteroSet @ 0x1403EF490
+ * XREFs of KiComputeHeteroSet @ 0x140453FC0
  * Callers:
- *     KiInstallSubNodeHeteroSets @ 0x1403EF348 (KiInstallSubNodeHeteroSets.c)
+ *     KiInstallSubNodeHeteroSets @ 0x140453E78 (KiInstallSubNodeHeteroSets.c)
  * Callees:
  *     <none>
  */

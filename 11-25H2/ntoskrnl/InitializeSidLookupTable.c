@@ -21,7 +21,7 @@ char InitializeSidLookupTable()
   int v9; // edx
   int v10; // edx
   int v11; // edx
-  struct _SID_IDENTIFIER_AUTHORITY *p_IdentifierAuthority; // rdx
+  _SID_IDENTIFIER_AUTHORITY *p_IdentifierAuthority; // rdx
   ULONG v13; // edx
   PULONG v14; // rax
   int v16; // [rsp+20h] [rbp-20h] BYREF
@@ -30,10 +30,10 @@ char InitializeSidLookupTable()
   __int16 v19; // [rsp+2Ch] [rbp-14h]
   int v20; // [rsp+30h] [rbp-10h] BYREF
   __int16 v21; // [rsp+34h] [rbp-Ch]
-  struct _SID_IDENTIFIER_AUTHORITY v22; // [rsp+38h] [rbp-8h] BYREF
-  struct _SID_IDENTIFIER_AUTHORITY v23; // [rsp+68h] [rbp+28h] BYREF
-  struct _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+70h] [rbp+30h] BYREF
-  struct _SID_IDENTIFIER_AUTHORITY v25; // [rsp+78h] [rbp+38h] BYREF
+  _SID_IDENTIFIER_AUTHORITY v22; // [rsp+38h] [rbp-8h] BYREF
+  _SID_IDENTIFIER_AUTHORITY v23; // [rsp+68h] [rbp+28h] BYREF
+  _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+70h] [rbp+30h] BYREF
+  _SID_IDENTIFIER_AUTHORITY v25; // [rsp+78h] [rbp+38h] BYREF
 
   *(_WORD *)&v22.Value[4] = 256;
   *(_DWORD *)v22.Value = 0;
@@ -108,7 +108,7 @@ LABEL_18:
               v13 = 1;
               goto LABEL_15;
             }
-            p_IdentifierAuthority = (struct _SID_IDENTIFIER_AUTHORITY *)&v16;
+            p_IdentifierAuthority = (_SID_IDENTIFIER_AUTHORITY *)&v16;
           }
           else
           {
@@ -117,12 +117,12 @@ LABEL_18:
         }
         else
         {
-          p_IdentifierAuthority = (struct _SID_IDENTIFIER_AUTHORITY *)&v18;
+          p_IdentifierAuthority = (_SID_IDENTIFIER_AUTHORITY *)&v18;
         }
       }
       else
       {
-        p_IdentifierAuthority = (struct _SID_IDENTIFIER_AUTHORITY *)&v20;
+        p_IdentifierAuthority = (_SID_IDENTIFIER_AUTHORITY *)&v20;
       }
 LABEL_14:
       RtlInitializeSid(v3, p_IdentifierAuthority, 1u);

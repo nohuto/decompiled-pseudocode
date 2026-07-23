@@ -36,7 +36,7 @@ int __fastcall EtwpQueryUmLogger(unsigned int a1, _DWORD *a2, _DWORD *a3, int a4
       {
         *(_DWORD *)(a4 + 148) = a4 + 176;
         *(_WORD *)(a4 + 146) = *(_WORD *)(v7 + 110);
-        RtlCopyUnicodeString((unsigned __int16 *)(a4 + 144), (unsigned __int16 *)(v7 + 108));
+        RtlCopyUnicodeString((PUNICODE_STRING)(a4 + 144), (PCUNICODE_STRING)(v7 + 108));
         *a3 += *(unsigned __int16 *)(v7 + 110);
       }
       EtwpGetUmLoggerInfoFromContext(0);
@@ -45,7 +45,7 @@ int __fastcall EtwpQueryUmLogger(unsigned int a1, _DWORD *a2, _DWORD *a3, int a4
       {
         *(_DWORD *)(a4 + 132) = v8 + a4;
         *(_WORD *)(a4 + 130) = *(_WORD *)(v7 + 118);
-        RtlCopyUnicodeString((unsigned __int16 *)(a4 + 128), (unsigned __int16 *)(v7 + 116));
+        RtlCopyUnicodeString((PUNICODE_STRING)(a4 + 128), (PCUNICODE_STRING)(v7 + 116));
         *a3 += *(unsigned __int16 *)(v7 + 118);
       }
       *a2 = *a3;

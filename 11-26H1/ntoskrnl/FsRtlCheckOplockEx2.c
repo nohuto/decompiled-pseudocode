@@ -1,27 +1,27 @@
 /*
- * XREFs of FsRtlCheckOplockEx2 @ 0x1403FB980
+ * XREFs of FsRtlCheckOplockEx2 @ 0x1403F8170
  * Callers:
- *     FsRtlCheckOplock @ 0x1403FB720 (FsRtlCheckOplock.c)
- *     FsRtlCheckOplockEx @ 0x1403FB930 (FsRtlCheckOplockEx.c)
+ *     FsRtlCheckOplock @ 0x1403F7F10 (FsRtlCheckOplock.c)
+ *     FsRtlCheckOplockEx @ 0x1403F8120 (FsRtlCheckOplockEx.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     ExReleaseFastMutexUnsafe @ 0x140276140 (ExReleaseFastMutexUnsafe.c)
- *     FsRtlpOplockDequeueRH @ 0x1402C1DF8 (FsRtlpOplockDequeueRH.c)
- *     FsRtlpAttachOplockKey @ 0x1402C2000 (FsRtlpAttachOplockKey.c)
- *     FsRtlpReleaseIrpsWaitingForRH @ 0x1403F8514 (FsRtlpReleaseIrpsWaitingForRH.c)
- *     FsRtlpComputeShareableOplockState @ 0x1403F8764 (FsRtlpComputeShareableOplockState.c)
- *     FsRtlpOplockBreakByCacheFlags @ 0x1403F8A0C (FsRtlpOplockBreakByCacheFlags.c)
- *     FsRtlpOplockKeysEqual @ 0x1403FB470 (FsRtlpOplockKeysEqual.c)
- *     FsRtlpOplockStoreKeyForDeleteOperation @ 0x1403FB800 (FsRtlpOplockStoreKeyForDeleteOperation.c)
- *     ExAcquireFastMutexUnsafe @ 0x1403FC2F0 (ExAcquireFastMutexUnsafe.c)
- *     FsRtlpClearOwner @ 0x1403FCCBC (FsRtlpClearOwner.c)
- *     FsRtlpOplockCleanup @ 0x1403FCDAC (FsRtlpOplockCleanup.c)
- *     FsRtlpFreeRHOpContext @ 0x1403FE8B4 (FsRtlpFreeRHOpContext.c)
- *     FsRtlGetMarkHandleInfo @ 0x14043357C (FsRtlGetMarkHandleInfo.c)
- *     FsRtlpCallerIsAtomicRequestor @ 0x1404A2DCC (FsRtlpCallerIsAtomicRequestor.c)
- *     FsRtlpOplockBreakToII @ 0x1405148C0 (FsRtlpOplockBreakToII.c)
- *     FsRtlpOplockBreakToNone @ 0x140527130 (FsRtlpOplockBreakToNone.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     ExReleaseFastMutexUnsafe @ 0x1402756B0 (ExReleaseFastMutexUnsafe.c)
+ *     FsRtlpOplockDequeueRH @ 0x14030CAB8 (FsRtlpOplockDequeueRH.c)
+ *     FsRtlpAttachOplockKey @ 0x14030CCC0 (FsRtlpAttachOplockKey.c)
+ *     FsRtlpReleaseIrpsWaitingForRH @ 0x1403F4D08 (FsRtlpReleaseIrpsWaitingForRH.c)
+ *     FsRtlpComputeShareableOplockState @ 0x1403F4F58 (FsRtlpComputeShareableOplockState.c)
+ *     FsRtlpOplockBreakByCacheFlags @ 0x1403F5200 (FsRtlpOplockBreakByCacheFlags.c)
+ *     FsRtlpOplockKeysEqual @ 0x1403F7C60 (FsRtlpOplockKeysEqual.c)
+ *     FsRtlpOplockStoreKeyForDeleteOperation @ 0x1403F7FF0 (FsRtlpOplockStoreKeyForDeleteOperation.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1403F8AE0 (ExAcquireFastMutexUnsafe.c)
+ *     FsRtlpClearOwner @ 0x1403F94AC (FsRtlpClearOwner.c)
+ *     FsRtlpOplockCleanup @ 0x1403F959C (FsRtlpOplockCleanup.c)
+ *     FsRtlpFreeRHOpContext @ 0x1403FB0A4 (FsRtlpFreeRHOpContext.c)
+ *     FsRtlGetMarkHandleInfo @ 0x14042864C (FsRtlGetMarkHandleInfo.c)
+ *     FsRtlpCallerIsAtomicRequestor @ 0x14049C7EC (FsRtlpCallerIsAtomicRequestor.c)
+ *     FsRtlpOplockBreakToII @ 0x14050E330 (FsRtlpOplockBreakToII.c)
+ *     FsRtlpOplockBreakToNone @ 0x1405297A0 (FsRtlpOplockBreakToNone.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall FsRtlCheckOplockEx2(
@@ -231,7 +231,7 @@ LABEL_80:
                   v73 = 4LL;
                   tlgWriteTransfer_EtwWriteTransfer(
                     (__int64)&dword_140E06B30,
-                    (unsigned __int8 *)byte_140046A30,
+                    (unsigned __int8 *)byte_140047030,
                     0LL,
                     0LL,
                     6u,

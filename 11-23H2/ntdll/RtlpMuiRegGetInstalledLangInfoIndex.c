@@ -2,8 +2,8 @@
  * XREFs of RtlpMuiRegGetInstalledLangInfoIndex @ 0x1800833C0
  * Callers:
  *     LdrpConvertLangFallbackListToMultiSz @ 0x18001231C (LdrpConvertLangFallbackListToMultiSz.c)
- *     _RtlpMuiRegValidateLIPLanguage @ 0x180115D30 (_RtlpMuiRegValidateLIPLanguage.c)
- *     _RtlpMuiRegValidatePartialLanguage @ 0x180115F78 (_RtlpMuiRegValidatePartialLanguage.c)
+ *     _RtlpMuiRegValidateLIPLanguage @ 0x180115D00 (_RtlpMuiRegValidateLIPLanguage.c)
+ *     _RtlpMuiRegValidatePartialLanguage @ 0x180115F48 (_RtlpMuiRegValidatePartialLanguage.c)
  * Callees:
  *     <none>
  */

@@ -1,14 +1,14 @@
 /*
- * XREFs of KiXmmException @ 0x140738F40
+ * XREFs of KiXmmException @ 0x14073DB40
  * Callers:
- *     KiXmmExceptionShadow @ 0x140C59AC0 (KiXmmExceptionShadow.c)
+ *     KiXmmExceptionShadow @ 0x140C5FAC0 (KiXmmExceptionShadow.c)
  * Callees:
- *     KiSynchronizeUserIsolationDomainExit @ 0x140446060 (KiSynchronizeUserIsolationDomainExit.c)
- *     KiSaveDebugRegisterState @ 0x140533CB0 (KiSaveDebugRegisterState.c)
- *     KiXmmException @ 0x140738F40 (KiXmmException.c)
- *     KiBugCheckDispatch @ 0x14073C4C0 (KiBugCheckDispatch.c)
- *     KiExceptionDispatch @ 0x14073C540 (KiExceptionDispatch.c)
- *     KiFlushBhbDuringTrapEntryOrExit @ 0x14073CF80 (KiFlushBhbDuringTrapEntryOrExit.c)
+ *     KiSynchronizeUserIsolationDomainExit @ 0x14043EB60 (KiSynchronizeUserIsolationDomainExit.c)
+ *     KiSaveDebugRegisterState @ 0x140536130 (KiSaveDebugRegisterState.c)
+ *     KiXmmException @ 0x14073DB40 (KiXmmException.c)
+ *     KiBugCheckDispatch @ 0x1407410C0 (KiBugCheckDispatch.c)
+ *     KiExceptionDispatch @ 0x140741140 (KiExceptionDispatch.c)
+ *     KiFlushBhbDuringTrapEntryOrExit @ 0x140741B80 (KiFlushBhbDuringTrapEntryOrExit.c)
  */
 
 void __fastcall __noreturn KiXmmException(__int64 a1, __int64 _RDX)
@@ -69,7 +69,7 @@ void __fastcall __noreturn KiXmmException(__int64 a1, __int64 _RDX)
       LODWORD(_RDX) = (unsigned __int8)_RDX;
     }
     if ( (_RDX & 2) != 0 )
-      JUMPOUT(0x1407391A5LL);
+      JUMPOUT(0x14073DDA5LL);
     if ( (_RDX & 0x80) != 0 )
     {
       _mm_lfence();

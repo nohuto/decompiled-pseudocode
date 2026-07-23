@@ -1,13 +1,13 @@
 /*
- * XREFs of MmSizeOfMdl @ 0x140086AE0
+ * XREFs of MmSizeOfMdl @ 0x1400883D0
  * Callers:
  *     PopMarkHiberPhase @ 0x1403CAC58 (PopMarkHiberPhase.c)
- *     ExLockUserBuffer @ 0x140499420 (ExLockUserBuffer.c)
- *     MmRotatePhysicalView @ 0x1405281DC (MmRotatePhysicalView.c)
- *     MiAllocatePerSessionProtos @ 0x140661818 (MiAllocatePerSessionProtos.c)
- *     PspCreateSecureThread @ 0x14067F428 (PspCreateSecureThread.c)
- *     SmProcessStatsRequest @ 0x140696C6C (SmProcessStatsRequest.c)
- *     NtStartProfile @ 0x1406B823C (NtStartProfile.c)
+ *     ExLockUserBuffer @ 0x140499EB0 (ExLockUserBuffer.c)
+ *     MmRotatePhysicalView @ 0x14052871C (MmRotatePhysicalView.c)
+ *     MiAllocatePerSessionProtos @ 0x1406618FC (MiAllocatePerSessionProtos.c)
+ *     PspCreateSecureThread @ 0x14067F50C (PspCreateSecureThread.c)
+ *     SmProcessStatsRequest @ 0x140696D50 (SmProcessStatsRequest.c)
+ *     NtStartProfile @ 0x1406B8374 (NtStartProfile.c)
  * Callees:
  *     <none>
  */

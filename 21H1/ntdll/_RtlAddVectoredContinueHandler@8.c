@@ -6,7 +6,9 @@
  *     _RtlpAddVectoredHandler@12 @ 0x4B2AB096 (_RtlpAddVectoredHandler@12.c)
  */
 
-_DWORD *__stdcall RtlAddVectoredContinueHandler(int a1, int a2)
+PVOID __cdecl RtlAddVectoredContinueHandler(ULONG First, PVECTORED_EXCEPTION_HANDLER Handler)
 {
-  return RtlpAddVectoredHandler(a1, a2, 1);
+  int v2; // esi
+
+  return RtlpAddVectoredHandler((int)Handler, First, v2, 1);
 }

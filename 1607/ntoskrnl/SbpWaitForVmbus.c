@@ -3,9 +3,9 @@
  * Callers:
  *     IopInitializeBootDrivers @ 0x14079B23C (IopInitializeBootDrivers.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x14005C880 (KeWaitForSingleObject.c)
- *     IoRegisterPlugPlayNotification @ 0x14052BB14 (IoRegisterPlugPlayNotification.c)
- *     IoUnregisterPlugPlayNotification @ 0x14052D7E4 (IoUnregisterPlugPlayNotification.c)
+ *     KeWaitForSingleObject @ 0x14005C400 (KeWaitForSingleObject.c)
+ *     IoRegisterPlugPlayNotification @ 0x14052A9FC (IoRegisterPlugPlayNotification.c)
+ *     IoUnregisterPlugPlayNotification @ 0x14052DD24 (IoUnregisterPlugPlayNotification.c)
  */
 
 __int64 SbpWaitForVmbus()

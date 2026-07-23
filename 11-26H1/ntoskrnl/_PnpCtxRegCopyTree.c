@@ -1,11 +1,11 @@
 /*
- * XREFs of _PnpCtxRegCopyTree @ 0x140895F28
+ * XREFs of _PnpCtxRegCopyTree @ 0x14089C328
  * Callers:
- *     PiDevCfgConfigureSoftwareDevices @ 0x1409880EC (PiDevCfgConfigureSoftwareDevices.c)
- *     PiDevCfgConfigureDeviceFilters @ 0x140B354B0 (PiDevCfgConfigureDeviceFilters.c)
- *     PipMigratePnpState @ 0x140CC26A0 (PipMigratePnpState.c)
+ *     PiDevCfgConfigureSoftwareDevices @ 0x140A42818 (PiDevCfgConfigureSoftwareDevices.c)
+ *     PiDevCfgConfigureDeviceFilters @ 0x140B376C0 (PiDevCfgConfigureDeviceFilters.c)
+ *     PipMigratePnpState @ 0x140CC8770 (PipMigratePnpState.c)
  * Callees:
- *     _RegRtlCopyTreeInternal @ 0x14089D400 (_RegRtlCopyTreeInternal.c)
+ *     _RegRtlCopyTreeInternal @ 0x1408A3800 (_RegRtlCopyTreeInternal.c)
  */
 
 __int64 __fastcall PnpCtxRegCopyTree(__int64 a1, int a2, int a3, int a4, __int64 a5)

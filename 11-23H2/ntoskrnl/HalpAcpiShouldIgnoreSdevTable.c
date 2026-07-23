@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpAcpiShouldIgnoreSdevTable @ 0x14040F5BC
+ * XREFs of HalpAcpiShouldIgnoreSdevTable @ 0x14040F79C
  * Callers:
- *     HalpAcpiGetTableWork @ 0x140337070 (HalpAcpiGetTableWork.c)
- *     HalpAcpiGetAllTablesWork @ 0x14037DC28 (HalpAcpiGetAllTablesWork.c)
+ *     HalpAcpiGetTableWork @ 0x140337300 (HalpAcpiGetTableWork.c)
+ *     HalpAcpiGetAllTablesWork @ 0x14037DDC8 (HalpAcpiGetAllTablesWork.c)
  * Callees:
- *     HalpGetCpuInfo @ 0x140380630 (HalpGetCpuInfo.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     HalpGetCpuInfo @ 0x1403807D0 (HalpGetCpuInfo.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 char __fastcall HalpAcpiShouldIgnoreSdevTable(__int64 a1)

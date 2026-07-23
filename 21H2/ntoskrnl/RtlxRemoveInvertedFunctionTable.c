@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlxRemoveInvertedFunctionTable @ 0x1403728B8
+ * XREFs of RtlxRemoveInvertedFunctionTable @ 0x140372408
  * Callers:
- *     RtlRemoveInvertedFunctionTable @ 0x140372864 (RtlRemoveInvertedFunctionTable.c)
+ *     RtlRemoveInvertedFunctionTable @ 0x1403723B4 (RtlRemoveInvertedFunctionTable.c)
  * Callees:
- *     memmove @ 0x140413F40 (memmove.c)
+ *     memmove @ 0x140414040 (memmove.c)
  */
 
 void __fastcall RtlxRemoveInvertedFunctionTable(__int64 a1, __int64 a2)

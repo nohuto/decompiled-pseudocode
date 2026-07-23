@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlpFcUpdateFeatureConfiguration @ 0x140B19608
+ * XREFs of RtlpFcUpdateFeatureConfiguration @ 0x140B1BA58
  * Callers:
- *     CmFcManagerUpdateFeatureConfigurations @ 0x1408611C4 (CmFcManagerUpdateFeatureConfigurations.c)
+ *     CmFcManagerUpdateFeatureConfigurations @ 0x1408674B4 (CmFcManagerUpdateFeatureConfigurations.c)
  * Callees:
- *     qsort @ 0x140536F00 (qsort.c)
- *     RtlpIsImmutableFeatureConfigurationPriority @ 0x140624B08 (RtlpIsImmutableFeatureConfigurationPriority.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     RtlpFcCreateAndAddFeatureFromUpdate @ 0x14077AD38 (RtlpFcCreateAndAddFeatureFromUpdate.c)
- *     RtlpFcCalculateRequiredSizeForNewFeatureTable @ 0x140B1986C (RtlpFcCalculateRequiredSizeForNewFeatureTable.c)
- *     RtlpFcCompareFeatureToUpdate @ 0x140B199B0 (RtlpFcCompareFeatureToUpdate.c)
- *     RtlpFcApplyUpdateAndAddFeature @ 0x140B199DC (RtlpFcApplyUpdateAndAddFeature.c)
+ *     qsort @ 0x140539380 (qsort.c)
+ *     RtlpIsImmutableFeatureConfigurationPriority @ 0x140627B58 (RtlpIsImmutableFeatureConfigurationPriority.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     RtlpFcCreateAndAddFeatureFromUpdate @ 0x14077DC68 (RtlpFcCreateAndAddFeatureFromUpdate.c)
+ *     RtlpFcCalculateRequiredSizeForNewFeatureTable @ 0x140B1BCBC (RtlpFcCalculateRequiredSizeForNewFeatureTable.c)
+ *     RtlpFcCompareFeatureToUpdate @ 0x140B1BE00 (RtlpFcCompareFeatureToUpdate.c)
+ *     RtlpFcApplyUpdateAndAddFeature @ 0x140B1BE2C (RtlpFcApplyUpdateAndAddFeature.c)
  */
 
 __int64 __fastcall RtlpFcUpdateFeatureConfiguration(

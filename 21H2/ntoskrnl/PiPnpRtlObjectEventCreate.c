@@ -1,19 +1,19 @@
 /*
- * XREFs of PiPnpRtlObjectEventCreate @ 0x1406352B4
+ * XREFs of PiPnpRtlObjectEventCreate @ 0x14062A0C4
  * Callers:
- *     PiPnpRtlCacheObjectBaseKey @ 0x14063726C (PiPnpRtlCacheObjectBaseKey.c)
- *     PiPnpRtlObjectEventWorker @ 0x14074A010 (PiPnpRtlObjectEventWorker.c)
- *     PiPnpRtlEnsureObjectCached @ 0x1408A317C (PiPnpRtlEnsureObjectCached.c)
+ *     PiPnpRtlCacheObjectBaseKey @ 0x14062C07C (PiPnpRtlCacheObjectBaseKey.c)
+ *     PiPnpRtlObjectEventWorker @ 0x14074A1D0 (PiPnpRtlObjectEventWorker.c)
+ *     PiPnpRtlEnsureObjectCached @ 0x1408A32DC (PiPnpRtlEnsureObjectCached.c)
  * Callees:
- *     RtlLookupElementGenericTableFullAvl @ 0x140264710 (RtlLookupElementGenericTableFullAvl.c)
- *     RtlInsertElementGenericTableFullAvl @ 0x140264B90 (RtlInsertElementGenericTableFullAvl.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
- *     PiPnpRtlObjectEventRelease @ 0x140634048 (PiPnpRtlObjectEventRelease.c)
- *     PiDmGetObject @ 0x140636A6C (PiDmGetObject.c)
- *     PiDmInitializeComparisonObject @ 0x140636BA4 (PiDmInitializeComparisonObject.c)
- *     PiDmObjectRelease @ 0x140636DF0 (PiDmObjectRelease.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     RtlLookupElementGenericTableFullAvl @ 0x1402527A0 (RtlLookupElementGenericTableFullAvl.c)
+ *     RtlInsertElementGenericTableFullAvl @ 0x140252C20 (RtlInsertElementGenericTableFullAvl.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     PiPnpRtlObjectEventRelease @ 0x1406290D4 (PiPnpRtlObjectEventRelease.c)
+ *     PiDmGetObject @ 0x14062B87C (PiDmGetObject.c)
+ *     PiDmInitializeComparisonObject @ 0x14062B9B4 (PiDmInitializeComparisonObject.c)
+ *     PiDmObjectRelease @ 0x14062BC00 (PiDmObjectRelease.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PiPnpRtlObjectEventCreate(__int64 a1, unsigned int a2, __int64 a3, char **a4)

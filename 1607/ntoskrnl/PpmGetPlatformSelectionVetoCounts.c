@@ -1,8 +1,8 @@
 /*
- * XREFs of PpmGetPlatformSelectionVetoCounts @ 0x1401FFAFC
+ * XREFs of PpmGetPlatformSelectionVetoCounts @ 0x1401FF928
  * Callers:
- *     PopCalculateCsSummary @ 0x1402075E0 (PopCalculateCsSummary.c)
- *     PopConnectedStandbySettingCallback @ 0x140547F5C (PopConnectedStandbySettingCallback.c)
+ *     PopCalculateCsSummary @ 0x14020740C (PopCalculateCsSummary.c)
+ *     PopConnectedStandbySettingCallback @ 0x14054849C (PopConnectedStandbySettingCallback.c)
  * Callees:
  *     <none>
  */

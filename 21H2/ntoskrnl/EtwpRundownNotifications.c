@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwpRundownNotifications @ 0x14069322C
+ * XREFs of EtwpRundownNotifications @ 0x1406BCF58
  * Callers:
- *     EtwpDeleteRegistrationObject @ 0x1405FC900 (EtwpDeleteRegistrationObject.c)
+ *     EtwpDeleteRegistrationObject @ 0x1406EC060 (EtwpDeleteRegistrationObject.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
- *     EtwpReleaseQueueEntry @ 0x1406E491C (EtwpReleaseQueueEntry.c)
- *     EtwpUnreferenceDataBlock @ 0x1406E4984 (EtwpUnreferenceDataBlock.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140355BE0 (ExReleasePushLockEx.c)
+ *     EtwpReleaseQueueEntry @ 0x1406BBBFC (EtwpReleaseQueueEntry.c)
+ *     EtwpUnreferenceDataBlock @ 0x1406BBC64 (EtwpUnreferenceDataBlock.c)
  */
 
 void __fastcall EtwpRundownNotifications(__int64 a1, __int64 a2)
@@ -17,11 +17,14 @@ void __fastcall EtwpRundownNotifications(__int64 a1, __int64 a2)
   ULONG_PTR v5; // rdi
   _QWORD *v6; // rbx
   _QWORD *v7; // rdx
-  _QWORD *v8; // rbx
-  _QWORD *v9; // rax
-  _QWORD *v10; // rcx
-  _QWORD *v11; // r8
-  __int64 v12; // rax
+  __int64 v8; // rdx
+  __int64 v9; // r8
+  __int64 v10; // r9
+  volatile signed __int32 **v11; // rbx
+  _QWORD *v12; // rax
+  _QWORD *v13; // rcx
+  _QWORD *v14; // r8
+  __int64 v15; // rax
   PVOID P[2]; // [rsp+20h] [rbp-10h] BYREF
 
   v2 = *(_QWORD *)(a1 + 1424);
@@ -37,39 +40,39 @@ void __fastcall EtwpRundownNotifications(__int64 a1, __int64 a2)
     v7 = (_QWORD *)*v6;
     while ( v7 != v6 )
     {
-      v9 = v7;
+      v12 = v7;
       v7 = (_QWORD *)*v7;
-      if ( v9[3] == a2 )
+      if ( v12[3] == a2 )
       {
-        if ( (_QWORD *)v7[1] != v9
-          || (v10 = (_QWORD *)v9[1], (_QWORD *)*v10 != v9)
-          || (*v10 = v7, v7[1] = v10, v11 = P[0], *((PVOID **)P[0] + 1) != P) )
+        if ( (_QWORD *)v7[1] != v12
+          || (v13 = (_QWORD *)v12[1], (_QWORD *)*v13 != v12)
+          || (*v13 = v7, v7[1] = v13, v14 = P[0], *((PVOID **)P[0] + 1) != P) )
         {
 LABEL_15:
           __fastfail(3u);
         }
-        *v9 = P[0];
-        v9[1] = P;
-        v11[1] = v9;
-        P[0] = v9;
+        *v12 = P[0];
+        v12[1] = P;
+        v14[1] = v12;
+        P[0] = v12;
       }
     }
     ExReleasePushLockEx(v5, 0LL);
-    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v8, v9, v10);
     while ( 1 )
     {
-      v8 = P[0];
+      v11 = (volatile signed __int32 **)P[0];
       if ( P[0] == P )
         break;
       if ( *((PVOID **)P[0] + 1) != P )
         goto LABEL_15;
-      v12 = *(_QWORD *)P[0];
+      v15 = *(_QWORD *)P[0];
       if ( *(PVOID *)(*(_QWORD *)P[0] + 8LL) != P[0] )
         goto LABEL_15;
       P[0] = *(PVOID *)P[0];
-      *(_QWORD *)(v12 + 8) = P;
-      EtwpUnreferenceDataBlock(v8[2]);
-      EtwpReleaseQueueEntry(v8);
+      *(_QWORD *)(v15 + 8) = P;
+      EtwpUnreferenceDataBlock(v11[2]);
+      EtwpReleaseQueueEntry((PADAPTER_OBJECT *)v11, 1);
     }
   }
 }

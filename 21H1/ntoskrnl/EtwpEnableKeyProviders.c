@@ -14,7 +14,7 @@ __int64 __fastcall EtwpEnableKeyProviders(__int64 a1, unsigned int a2, const WCH
 {
   BOOLEAN v10; // [rsp+28h] [rbp-1E0h]
   BOOLEAN v11; // [rsp+28h] [rbp-1E0h]
-  RTL_AVL_TABLE Table; // [rsp+40h] [rbp-1C8h] BYREF
+  _RTL_AVL_TABLE Table; // [rsp+40h] [rbp-1C8h] BYREF
   unsigned int v13[72]; // [rsp+B0h] [rbp-158h] BYREF
 
   memset(&Table, 0, sizeof(Table));

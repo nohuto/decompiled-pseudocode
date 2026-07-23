@@ -1,12 +1,12 @@
 /*
- * XREFs of MiVaToPfnEx @ 0x140264680
+ * XREFs of MiVaToPfnEx @ 0x140293EF0
  * Callers:
- *     MiGetPhysicalAddress @ 0x140263560 (MiGetPhysicalAddress.c)
- *     MmGetPhysicalAddress @ 0x140263A60 (MmGetPhysicalAddress.c)
- *     MiCheckKernelShadow @ 0x140266594 (MiCheckKernelShadow.c)
- *     MiInitializeShadowPageTable @ 0x1407F6428 (MiInitializeShadowPageTable.c)
- *     MiFreeInitializationCode @ 0x140AE67EC (MiFreeInitializationCode.c)
- *     MiInitializeNonPagedPool @ 0x140C53CA4 (MiInitializeNonPagedPool.c)
+ *     MiGetPhysicalAddress @ 0x140292DD0 (MiGetPhysicalAddress.c)
+ *     MmGetPhysicalAddress @ 0x1402932D0 (MmGetPhysicalAddress.c)
+ *     MiCheckKernelShadow @ 0x1402EE7D4 (MiCheckKernelShadow.c)
+ *     MiInitializeShadowPageTable @ 0x1407F6B9C (MiInitializeShadowPageTable.c)
+ *     MiFreeInitializationCode @ 0x140AE80CC (MiFreeInitializationCode.c)
+ *     MiInitializeNonPagedPool @ 0x140C55E34 (MiInitializeNonPagedPool.c)
  * Callees:
  *     <none>
  */

@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlpNtMakeTemporaryKey @ 0x18014F100
+ * XREFs of RtlpNtMakeTemporaryKey @ 0x18014EFB0
  * Callers:
  *     <none>
  * Callees:
@@ -7,7 +7,7 @@
  */
 
 // attributes: thunk
-__int64 __fastcall RtlpNtMakeTemporaryKey(__int64 a1)
+NTSTATUS __cdecl RtlpNtMakeTemporaryKey(HANDLE KeyHandle)
 {
-  return NtDeleteKey(a1);
+  return NtDeleteKey(KeyHandle);
 }

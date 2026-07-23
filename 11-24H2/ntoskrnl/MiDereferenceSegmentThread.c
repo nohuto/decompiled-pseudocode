@@ -1,16 +1,16 @@
 /*
- * XREFs of MiDereferenceSegmentThread @ 0x1403F7700
+ * XREFs of MiDereferenceSegmentThread @ 0x1403ED670
  * Callers:
  *     <none>
  * Callees:
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     KeResetEvent @ 0x14028EEC0 (KeResetEvent.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     KeWaitForMultipleObjects @ 0x14033D720 (KeWaitForMultipleObjects.c)
- *     MiSetDeleteOnCloseTimer @ 0x1403F7894 (MiSetDeleteOnCloseTimer.c)
- *     MiIssueSegmentDereferenceWork @ 0x1403F7920 (MiIssueSegmentDereferenceWork.c)
- *     KeSetPriorityThread @ 0x1403F96D0 (KeSetPriorityThread.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     KeResetEvent @ 0x14029EAC0 (KeResetEvent.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     KeWaitForMultipleObjects @ 0x14031CC00 (KeWaitForMultipleObjects.c)
+ *     KeSetPriorityThread @ 0x140371FE0 (KeSetPriorityThread.c)
+ *     MiSetDeleteOnCloseTimer @ 0x1403ED804 (MiSetDeleteOnCloseTimer.c)
+ *     MiIssueSegmentDereferenceWork @ 0x1403ED890 (MiIssueSegmentDereferenceWork.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall MiDereferenceSegmentThread(__int64 a1)

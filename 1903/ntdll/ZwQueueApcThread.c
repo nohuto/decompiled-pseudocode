@@ -6,11 +6,16 @@
  *     <none>
  */
 
-__int64 ZwQueueApcThread()
+NTSTATUS __cdecl ZwQueueApcThread(
+        HANDLE ThreadHandle,
+        PPS_APC_ROUTINE ApcRoutine,
+        PVOID ApcArgument1,
+        PVOID ApcArgument2,
+        PVOID ApcArgument3)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 69LL;
+  result = 69;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

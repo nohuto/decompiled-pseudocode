@@ -1,12 +1,12 @@
 /*
- * XREFs of MiBuildFileOnlyProtos @ 0x1401ED1AC
+ * XREFs of MiBuildFileOnlyProtos @ 0x1401ECFD8
  * Callers:
- *     MiAllocateFileExtents @ 0x14065A34C (MiAllocateFileExtents.c)
+ *     MiAllocateFileExtents @ 0x14065A430 (MiAllocateFileExtents.c)
  * Callees:
- *     MmAccessFault @ 0x14003E7A0 (MmAccessFault.c)
- *     MiUnlockProtoPoolPage @ 0x14004C4E0 (MiUnlockProtoPoolPage.c)
- *     MiLockProtoPoolPage @ 0x14004ED80 (MiLockProtoPoolPage.c)
- *     MiInitializeFileOnlyPfn @ 0x1401ED8E4 (MiInitializeFileOnlyPfn.c)
+ *     MmAccessFault @ 0x14003E320 (MmAccessFault.c)
+ *     MiUnlockProtoPoolPage @ 0x14004C060 (MiUnlockProtoPoolPage.c)
+ *     MiLockProtoPoolPage @ 0x14004E900 (MiLockProtoPoolPage.c)
+ *     MiInitializeFileOnlyPfn @ 0x1401ED710 (MiInitializeFileOnlyPfn.c)
  */
 
 void __fastcall MiBuildFileOnlyProtos(__int64 a1, unsigned __int64 a2, __int64 a3, unsigned __int64 a4)

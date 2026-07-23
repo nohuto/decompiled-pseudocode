@@ -8,7 +8,9 @@
  *     __aullrem @ 0x4B2F67C0 (__aullrem.c)
  */
 
-int __stdcall AlpcGetMessageFromCompletionList(int a1, _DWORD *a2)
+PPORT_MESSAGE __cdecl AlpcGetMessageFromCompletionList(
+        PVOID CompletionList,
+        PALPC_MESSAGE_ATTRIBUTES *MessageAttributes)
 {
   unsigned int v2; // ebx
   int v3; // esi
@@ -18,18 +20,18 @@ int __stdcall AlpcGetMessageFromCompletionList(int a1, _DWORD *a2)
   int v7; // ecx
   int v8; // ebx
   signed __int64 v9; // rax
-  int v10; // esi
+  _PORT_MESSAGE *v10; // esi
   int v11; // edx
   int v13; // [esp+10h] [ebp-1Ch]
   unsigned __int64 v14; // [esp+14h] [ebp-18h]
-  int v15; // [esp+20h] [ebp-Ch]
+  char *v15; // [esp+20h] [ebp-Ch]
   int v16; // [esp+24h] [ebp-8h]
   unsigned int v17; // [esp+28h] [ebp-4h]
 
-  RtlAcquireSRWLockExclusive((volatile signed __int32 *)(a1 + 320));
-  v17 = *(_DWORD *)(a1 + 16) >> 2;
-  v15 = a1 + *(_DWORD *)(a1 + 12);
-  v4 = _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 64), 0LL, 0LL);
+  RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)CompletionList + 80);
+  v17 = *((_DWORD *)CompletionList + 4) >> 2;
+  v15 = (char *)CompletionList + *((_DWORD *)CompletionList + 3);
+  v4 = _InterlockedCompareExchange64((volatile signed __int64 *)CompletionList + 8, 0LL, 0LL);
   v3 = HIDWORD(v4);
   v2 = v4;
   v16 = v2;
@@ -44,7 +46,7 @@ int __stdcall AlpcGetMessageFromCompletionList(int a1, _DWORD *a2)
       v10 = 0;
       goto LABEL_14;
     }
-    v13 = *(_DWORD *)(v15 + 4 * (v2 & 0xFFFFFF));
+    v13 = *(_DWORD *)&v15[4 * (v2 & 0xFFFFFF)];
     LODWORD(v6) = v16;
     if ( v5 == HIDWORD(v6) )
     {
@@ -57,26 +59,28 @@ int __stdcall AlpcGetMessageFromCompletionList(int a1, _DWORD *a2)
       v7 = v3;
     }
     HIDWORD(v6) = v3;
-    v9 = _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 64), __SPAIR64__(v7, v8), v6);
+    v9 = _InterlockedCompareExchange64((volatile signed __int64 *)CompletionList + 8, __SPAIR64__(v7, v8), v6);
     v3 = HIDWORD(v9);
     v2 = v9;
     v16 = v9;
   }
   while ( __PAIR64__(v9, HIDWORD(v9)) != v14 );
-  v10 = a1 + v13 + *(_DWORD *)(a1 + 28);
-  if ( a2 )
+  v10 = (_PORT_MESSAGE *)((char *)CompletionList + v13 + *((_DWORD *)CompletionList + 7));
+  if ( MessageAttributes )
   {
-    if ( *(_DWORD *)(a1 + 36) )
+    if ( *((_DWORD *)CompletionList + 9) )
     {
-      v11 = ((_BYTE)v10 + (unsigned __int8)*(_WORD *)(v10 + 2)) & 3;
-      *a2 = v10 + *(unsigned __int16 *)(v10 + 2) + (v11 != 0 ? 4 - v11 : 0);
+      v11 = ((_BYTE)v10 + (unsigned __int8)v10->u1.s1.TotalLength) & 3;
+      *MessageAttributes = (PALPC_MESSAGE_ATTRIBUTES)((char *)v10
+                                                    + (unsigned __int16)v10->u1.s1.TotalLength
+                                                    + (v11 != 0 ? 4 - v11 : 0));
     }
     else
     {
-      *a2 = 0;
+      *MessageAttributes = 0;
     }
   }
 LABEL_14:
-  RtlReleaseSRWLockExclusive((volatile signed __int32 *)(a1 + 320));
+  RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)CompletionList + 80);
   return v10;
 }

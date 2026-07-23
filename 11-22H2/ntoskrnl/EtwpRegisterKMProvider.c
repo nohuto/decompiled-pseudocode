@@ -68,13 +68,13 @@ __int64 __fastcall EtwpRegisterKMProvider(
   v39 = a5;
   BugCheckParameter2 = 0LL;
   *a7 = 0LL;
-  v11 = *a2 - SecurityProviderGuid;
-  v10 = *a2 == (_QWORD)SecurityProviderGuid;
+  v11 = *a2 - *(_QWORD *)&SecurityProviderGuid.Data1;
+  v10 = *a2 == *(_QWORD *)&SecurityProviderGuid.Data1;
   v35 = 0LL;
   v37 = 0LL;
   v38 = 0LL;
   if ( v10 )
-    v11 = a2[1] - *((_QWORD *)&SecurityProviderGuid + 1);
+    v11 = a2[1] - *(_QWORD *)SecurityProviderGuid.Data4;
   if ( !v11 )
     return 3221225506LL;
   if ( !a4 && a5 || a3 != 3 && (a3 != 2 || !a4) )

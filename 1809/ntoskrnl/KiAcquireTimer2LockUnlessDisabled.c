@@ -1,11 +1,11 @@
 /*
- * XREFs of KiAcquireTimer2LockUnlessDisabled @ 0x1400FC488
+ * XREFs of KiAcquireTimer2LockUnlessDisabled @ 0x1400FC508
  * Callers:
- *     KeCancelTimer2 @ 0x1400FAF70 (KeCancelTimer2.c)
- *     KeDisableTimer2 @ 0x1400FB154 (KeDisableTimer2.c)
- *     KeSetTimer2 @ 0x1400FC170 (KeSetTimer2.c)
+ *     KeCancelTimer2 @ 0x1400FAFF0 (KeCancelTimer2.c)
+ *     KeDisableTimer2 @ 0x1400FB1D4 (KeDisableTimer2.c)
+ *     KeSetTimer2 @ 0x1400FC1F0 (KeSetTimer2.c)
  * Callees:
- *     KiAcquireKobjectLockSafe @ 0x1400FBE10 (KiAcquireKobjectLockSafe.c)
+ *     KiAcquireKobjectLockSafe @ 0x1400FBE90 (KiAcquireKobjectLockSafe.c)
  */
 
 bool __fastcall KiAcquireTimer2LockUnlessDisabled(__int64 a1, __int64 a2, __int64 a3)

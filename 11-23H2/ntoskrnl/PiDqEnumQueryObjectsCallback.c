@@ -1,9 +1,9 @@
 /*
- * XREFs of PiDqEnumQueryObjectsCallback @ 0x140788210
+ * XREFs of PiDqEnumQueryObjectsCallback @ 0x140788400
  * Callers:
  *     <none>
  * Callees:
- *     PiDqQueryEnumObject @ 0x140788234 (PiDqQueryEnumObject.c)
+ *     PiDqQueryEnumObject @ 0x140788424 (PiDqQueryEnumObject.c)
  */
 
 __int64 __fastcall PiDqEnumQueryObjectsCallback(__int64 a1, __int64 a2, _BYTE *a3)

@@ -6,7 +6,7 @@
  *     _RtlGetCurrentServiceSessionId@0 @ 0x4B2C3BF0 (_RtlGetCurrentServiceSessionId@0.c)
  */
 
-int __stdcall RtlGetActiveConsoleId()
+ULONG RtlGetActiveConsoleId(void)
 {
   if ( RtlGetCurrentServiceSessionId() )
     return *((_DWORD *)NtCurrentPeb()->SharedData + 1);

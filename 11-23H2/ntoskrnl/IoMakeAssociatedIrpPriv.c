@@ -1,16 +1,16 @@
 /*
- * XREFs of IoMakeAssociatedIrpPriv @ 0x14028FF08
+ * XREFs of IoMakeAssociatedIrpPriv @ 0x140290198
  * Callers:
- *     IoMakeAssociatedIrpEx @ 0x14028FEF0 (IoMakeAssociatedIrpEx.c)
- *     IoMakeAssociatedIrp @ 0x1403ACF20 (IoMakeAssociatedIrp.c)
+ *     IoMakeAssociatedIrpEx @ 0x140290180 (IoMakeAssociatedIrpEx.c)
+ *     IoMakeAssociatedIrp @ 0x1403AD100 (IoMakeAssociatedIrp.c)
  * Callees:
- *     IopIrpHasExtensionType @ 0x140290278 (IopIrpHasExtensionType.c)
- *     IopIsActivityTracingEnabled @ 0x1402902B0 (IopIsActivityTracingEnabled.c)
- *     IopSetDiskIoAttributionExtension @ 0x140290350 (IopSetDiskIoAttributionExtension.c)
- *     IoSetActivityIdIrp @ 0x1402905A0 (IoSetActivityIdIrp.c)
- *     IopSetDriverFlagsExtension @ 0x1402907C0 (IopSetDriverFlagsExtension.c)
- *     RtlpInterlockedPopEntrySList @ 0x140428EB0 (RtlpInterlockedPopEntrySList.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     IopIrpHasExtensionType @ 0x140290508 (IopIrpHasExtensionType.c)
+ *     IopIsActivityTracingEnabled @ 0x140290540 (IopIsActivityTracingEnabled.c)
+ *     IopSetDiskIoAttributionExtension @ 0x1402905E0 (IopSetDiskIoAttributionExtension.c)
+ *     IoSetActivityIdIrp @ 0x140290830 (IoSetActivityIdIrp.c)
+ *     IopSetDriverFlagsExtension @ 0x140290A50 (IopSetDriverFlagsExtension.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140429240 (RtlpInterlockedPopEntrySList.c)
+ *     memset @ 0x140435E00 (memset.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

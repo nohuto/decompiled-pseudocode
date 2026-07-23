@@ -1,17 +1,17 @@
 /*
- * XREFs of EtwpExpandFileName @ 0x1409DB494
+ * XREFs of EtwpExpandFileName @ 0x1409D5FA4
  * Callers:
- *     EtwpSavePersistedLogger @ 0x1407AFE60 (EtwpSavePersistedLogger.c)
- *     EtwpRealtimeCreateLogfile @ 0x1409D8F3C (EtwpRealtimeCreateLogfile.c)
- *     EtwpCreateLogFile @ 0x1409DA6AC (EtwpCreateLogFile.c)
+ *     EtwpSavePersistedLogger @ 0x1407B02B0 (EtwpSavePersistedLogger.c)
+ *     EtwpRealtimeCreateLogfile @ 0x1409D3A4C (EtwpRealtimeCreateLogfile.c)
+ *     EtwpCreateLogFile @ 0x1409D51BC (EtwpCreateLogFile.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x140347D10 (PsGetCurrentServerSiloGlobals.c)
- *     RtlStringCbPrintfW @ 0x14040BC90 (RtlStringCbPrintfW.c)
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     EtwpGetDriverDataDosPath @ 0x1404D4284 (EtwpGetDriverDataDosPath.c)
- *     _wcsnicmp @ 0x1404FE4F0 (_wcsnicmp.c)
- *     RtlFreeAnsiString @ 0x1408A4990 (RtlFreeAnsiString.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140326710 (PsGetCurrentServerSiloGlobals.c)
+ *     RtlStringCbPrintfW @ 0x140404170 (RtlStringCbPrintfW.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     EtwpGetDriverDataDosPath @ 0x1404CD494 (EtwpGetDriverDataDosPath.c)
+ *     _wcsnicmp @ 0x1404FBDB0 (_wcsnicmp.c)
+ *     RtlFreeAnsiString @ 0x1408B69C0 (RtlFreeAnsiString.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall EtwpExpandFileName(char a1, UNICODE_STRING *a2, unsigned int a3, unsigned __int16 *a4, char a5)
@@ -23,7 +23,7 @@ __int64 __fastcall EtwpExpandFileName(char a1, UNICODE_STRING *a2, unsigned int 
   __int64 v11; // r10
   struct _LIST_ENTRY *v12; // rdi
   unsigned int v13; // esi
-  size_t v14; // rbx
+  ULONG_PTR v14; // rbx
   __int64 result; // rax
   __int64 v16; // rax
   wchar_t *Pool2; // rax
@@ -92,7 +92,7 @@ LABEL_13:
 LABEL_14:
   if ( !v27 && !v8 && !v12 )
     return v13;
-  Pool2 = (wchar_t *)ExAllocatePool2(0x100uLL);
+  Pool2 = (wchar_t *)ExAllocatePool2(0x100uLL, v14, 0x50777445u);
   v18 = Pool2;
   if ( !Pool2 )
     return 3221225495LL;
@@ -109,11 +109,11 @@ LABEL_14:
   }
   else
   {
-    Blink = &word_140AEA890;
+    Blink = &word_140AEDAC0;
     if ( v8 )
       v22 = (const WCHAR *)*((_QWORD *)a4 + 1);
     else
-      v22 = &word_140AEA890;
+      v22 = &word_140AEDAC0;
     if ( v12 )
       Blink = (const WCHAR *)v12->Blink;
     v19 = RtlStringCbPrintfW(Pool2, v14, L"%ws%ws%ws", Blink, &a2->Buffer[v5], v22);

@@ -1,10 +1,10 @@
 /*
- * XREFs of SeFastTraverseCheck @ 0x14025EE28
+ * XREFs of SeFastTraverseCheck @ 0x14040500C
  * Callers:
- *     IopParseDevice @ 0x1409008C0 (IopParseDevice.c)
- *     ObpCheckTraverseAccess @ 0x14093C7C8 (ObpCheckTraverseAccess.c)
+ *     ObpCheckTraverseAccess @ 0x140918368 (ObpCheckTraverseAccess.c)
+ *     IopParseDevice @ 0x140930850 (IopParseDevice.c)
  * Callees:
- *     RtlEqualSid @ 0x1402604A0 (RtlEqualSid.c)
+ *     RtlEqualSid @ 0x140406680 (RtlEqualSid.c)
  */
 
 char __fastcall SeFastTraverseCheck(__int64 a1, __int64 a2, int a3)
@@ -49,7 +49,7 @@ char __fastcall SeFastTraverseCheck(__int64 a1, __int64 a2, int a3)
                 return 0;
             }
             else if ( (a3 & *(_DWORD *)(v9 + 4)) != 0
-                   && RtlEqualSid(RtlpBootStatHandleLock.StateSaveArea, (PSID)(v9 + 8)) )
+                   && RtlEqualSid(*(PSID *)&RtlpBootStatHandleLock.WaitRegister.Flags, (PSID)(v9 + 8)) )
             {
               return 1;
             }

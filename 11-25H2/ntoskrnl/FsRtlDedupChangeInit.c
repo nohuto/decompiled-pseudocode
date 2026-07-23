@@ -9,10 +9,10 @@
  *     ExFreePoolWithTag @ 0x140B62CD0 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall FsRtlDedupChangeInit(_QWORD *a1, int a2, int a3, char a4, __int64 a5)
+__int64 __fastcall FsRtlDedupChangeInit(_QWORD *a1, __int64 a2, __int64 a3, char a4, __int64 a5)
 {
   int v9; // eax
-  int v10; // r8d
+  __int64 v10; // r8
   PVOID v11; // rdi
   unsigned int v12; // ebx
   _BYTE v14[4]; // [rsp+30h] [rbp-81h] BYREF
@@ -39,7 +39,7 @@ __int64 __fastcall FsRtlDedupChangeInit(_QWORD *a1, int a2, int a3, char a4, __i
   if ( v9 < 0 || *(_DWORD *)((char *)P + *((unsigned int *)P + 2)) )
   {
     LOBYTE(v10) = a4;
-    v12 = FsRtlpDedupChangeRegisterVolume(a2, a3, v10, a5, (__int64)a1);
+    v12 = FsRtlpDedupChangeRegisterVolume(a2, a3, v10, a5, a1);
   }
   else
   {

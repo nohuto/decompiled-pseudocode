@@ -1,15 +1,15 @@
 /*
- * XREFs of SeIsAppContainerOrIdentifyLevelContext @ 0x14067C238
+ * XREFs of SeIsAppContainerOrIdentifyLevelContext @ 0x14066F978
  * Callers:
- *     IopDoFullTraverseCheck @ 0x140353B40 (IopDoFullTraverseCheck.c)
- *     IopIsSecurityContextAppContainer @ 0x140507ACC (IopIsSecurityContextAppContainer.c)
- *     NtPowerInformation @ 0x1406777D0 (NtPowerInformation.c)
- *     PopPowerRequestActionInfo @ 0x14067C148 (PopPowerRequestActionInfo.c)
- *     PfpPrivSourceEnum @ 0x1406CE0D0 (PfpPrivSourceEnum.c)
+ *     IopDoFullTraverseCheck @ 0x14035E890 (IopDoFullTraverseCheck.c)
+ *     IopIsSecurityContextAppContainer @ 0x140507A4C (IopIsSecurityContextAppContainer.c)
+ *     NtPowerInformation @ 0x14066AF10 (NtPowerInformation.c)
+ *     PopPowerRequestActionInfo @ 0x14066F888 (PopPowerRequestActionInfo.c)
+ *     PfpPrivSourceEnum @ 0x1406A53B4 (PfpPrivSourceEnum.c)
  * Callees:
- *     SeAccessCheck @ 0x140206760 (SeAccessCheck.c)
- *     SeCaptureSubjectContext @ 0x140655B30 (SeCaptureSubjectContext.c)
- *     SeReleaseSubjectContext @ 0x1406568F0 (SeReleaseSubjectContext.c)
+ *     SeAccessCheck @ 0x1402AB090 (SeAccessCheck.c)
+ *     SeCaptureSubjectContext @ 0x14064A950 (SeCaptureSubjectContext.c)
+ *     SeReleaseSubjectContext @ 0x14064B710 (SeReleaseSubjectContext.c)
  */
 
 __int64 __fastcall SeIsAppContainerOrIdentifyLevelContext(PSECURITY_SUBJECT_CONTEXT SubjectContext, _BYTE *a2)

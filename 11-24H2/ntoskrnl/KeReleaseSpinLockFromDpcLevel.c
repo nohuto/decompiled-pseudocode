@@ -1,9 +1,9 @@
 /*
- * XREFs of KeReleaseSpinLockFromDpcLevel @ 0x14043A950
+ * XREFs of KeReleaseSpinLockFromDpcLevel @ 0x14042D190
  * Callers:
- *     sub_140518FB0 @ 0x140518FB0 (sub_140518FB0.c)
+ *     sub_140516870 @ 0x140516870 (sub_140516870.c)
  * Callees:
- *     KiReleaseSpinLockInstrumented @ 0x14024E080 (KiReleaseSpinLockInstrumented.c)
+ *     KiReleaseSpinLockInstrumented @ 0x14027E690 (KiReleaseSpinLockInstrumented.c)
  */
 
 void __stdcall KeReleaseSpinLockFromDpcLevel(PKSPIN_LOCK SpinLock)

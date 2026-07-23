@@ -1,36 +1,37 @@
 /*
- * XREFs of TpReleaseWait @ 0x1800703F0
+ * XREFs of TpReleaseWait @ 0x180090840
  * Callers:
- *     EtwpRegisterTpNotificationOnce @ 0x1800700DC (EtwpRegisterTpNotificationOnce.c)
- *     RtlpWnfRegisterTpNotification @ 0x180070714 (RtlpWnfRegisterTpNotification.c)
- *     RtlDeregisterWaitEx @ 0x1801087C0 (RtlDeregisterWaitEx.c)
+ *     EtwpRegisterTpNotificationOnce @ 0x18009052C (EtwpRegisterTpNotificationOnce.c)
+ *     RtlpWnfRegisterTpNotification @ 0x180090B64 (RtlpWnfRegisterTpNotification.c)
+ *     RtlDeregisterWaitEx @ 0x180108160 (RtlDeregisterWaitEx.c)
  * Callees:
- *     TppBarrierAdjust @ 0x18002D290 (TppBarrierAdjust.c)
- *     RtlAcquireSRWLockExclusive @ 0x18003F4D0 (RtlAcquireSRWLockExclusive.c)
- *     RtlReleaseSRWLockExclusive @ 0x18003FAA0 (RtlReleaseSRWLockExclusive.c)
- *     TppRaiseInvalidParameter @ 0x180067FF8 (TppRaiseInvalidParameter.c)
- *     TppCancelTimer @ 0x1800686D0 (TppCancelTimer.c)
- *     ZwCancelWaitCompletionPacket @ 0x180160210 (ZwCancelWaitCompletionPacket.c)
+ *     TppBarrierAdjust @ 0x180018390 (TppBarrierAdjust.c)
+ *     RtlAcquireSRWLockExclusive @ 0x180029A40 (RtlAcquireSRWLockExclusive.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18002A010 (RtlReleaseSRWLockExclusive.c)
+ *     TppRaiseInvalidParameter @ 0x180088448 (TppRaiseInvalidParameter.c)
+ *     TppCancelTimer @ 0x180088B20 (TppCancelTimer.c)
+ *     ZwCancelWaitCompletionPacket @ 0x180160110 (ZwCancelWaitCompletionPacket.c)
  */
 
-void __fastcall TpReleaseWait(__int64 a1, __int64 a2)
+void __cdecl TpReleaseWait(PTP_WAIT Wait)
 {
-  int v2; // eax
-  signed __int32 v4; // eax
-  signed __int32 v5; // ett
-  __int64 v6; // rsi
-  _BYTE *v7; // rsi
-  int v8; // edi
+  volatile int Flags; // eax
+  volatile int v3; // eax
+  volatile int v4; // ett
+  _TP_POOL *Pool; // rsi
+  $1F934B8EBDE74339D46E9E4915B607C8 *p_WaitFlags; // rsi
+  int v7; // edi
   void *ThreadPoolData; // rax
-  int v10; // eax
-  char v11; // al
-  _UNKNOWN *retaddr; // [rsp+28h] [rbp+0h]
+  NTSTATUS v9; // eax
+  unsigned __int8 AllFlags; // al
+  void *retaddr; // [rsp+28h] [rbp+0h]
 
-  v2 = *(_DWORD *)(a1 + 168);
-  if ( (v2 & 0x10000) != 0
-    || (v2 & 0x20000) != 0
-    && ((ThreadPoolData = NtCurrentTeb()->ThreadPoolData) == 0LL || *(_QWORD *)(*(_QWORD *)ThreadPoolData + 240LL) != a1)
-    || *(__int64 (__fastcall ***)())(a1 + 8) != TppWaitpCleanupGroupMemberVFuncs
+  Flags = Wait->Timer.Work.CleanupGroupMember.Flags;
+  if ( (Flags & 0x10000) != 0
+    || (Flags & 0x20000) != 0
+    && ((ThreadPoolData = NtCurrentTeb()->ThreadPoolData) == 0LL
+     || *(PTP_WAIT *)(*(_QWORD *)ThreadPoolData + 240LL) != Wait)
+    || (__int64 (__fastcall **)(PVOID))Wait->Timer.Work.CleanupGroupMember.VFuncs != &TppWaitpCleanupGroupMemberVFuncs
     || NtCurrentPeb()->Ldr->ShutdownInProgress )
   {
     if ( NtCurrentPeb()->Ldr->ShutdownInProgress )
@@ -39,58 +40,58 @@ LABEL_17:
     TppRaiseInvalidParameter();
     return;
   }
-  _m_prefetchw((const void *)(a1 + 168));
-  v4 = *(_DWORD *)(a1 + 168);
+  _m_prefetchw(&Wait->Timer.Work.CleanupGroupMember.168);
+  v3 = Wait->Timer.Work.CleanupGroupMember.Flags;
   do
   {
-    v5 = v4;
-    v4 = _InterlockedCompareExchange((volatile signed __int32 *)(a1 + 168), v4 | 0x10000, v4);
+    v4 = v3;
+    v3 = _InterlockedCompareExchange(&Wait->Timer.Work.CleanupGroupMember.Flags, v3 | 0x10000, v3);
   }
-  while ( v5 != v4 );
-  if ( (v4 & 0x10000) != 0 )
+  while ( v4 != v3 );
+  if ( (v3 & 0x10000) != 0 )
     goto LABEL_17;
-  if ( (v4 & 0x30000) != 0 )
+  if ( (v3 & 0x30000) != 0 )
     return;
-  v6 = *(_QWORD *)(a1 + 144);
-  *(_QWORD *)(a1 + 184) = retaddr;
-  RtlAcquireSRWLockExclusive((volatile signed __int64 *)(a1 + 240), a2);
-  if ( *(_QWORD *)(a1 + 360) )
+  Pool = Wait->Timer.Work.CleanupGroupMember.Pool;
+  Wait->Timer.Work.CleanupGroupMember.ReleaseCaller.ReturnAddress = retaddr;
+  RtlAcquireSRWLockExclusive(&Wait->Timer.Lock);
+  if ( Wait->Handle )
   {
-    v10 = ZwCancelWaitCompletionPacket(*(_QWORD *)(a1 + 368), 1LL);
-    if ( !v10 )
+    v9 = ZwCancelWaitCompletionPacket(Wait->WaitPkt, 1u);
+    if ( !v9 )
     {
-      *(_QWORD *)(a1 + 360) = 0LL;
-      v8 = -1;
-      if ( TppCancelTimer(a1, (volatile signed __int64 *)(v6 + 112), 1) )
-        v8 = -2;
-      v7 = (_BYTE *)(a1 + 464);
-      if ( (*(_BYTE *)(a1 + 464) & 4) != 0 )
+      Wait->Handle = 0LL;
+      v7 = -1;
+      if ( TppCancelTimer((__int64)Wait, &Pool->TimerQueue.Lock, 1) )
+        v7 = -2;
+      p_WaitFlags = &Wait->WaitFlags;
+      if ( (Wait->WaitFlags.AllFlags & 4) != 0 )
       {
-        TppBarrierAdjust((signed __int64 *)(a1 + 56), -1, 0);
-        *v7 &= ~4u;
+        TppBarrierAdjust((_RTL_SRWLOCK *)&Wait->Timer.Work.CleanupGroupMember.CallbackBarrier, -1, 0);
+        p_WaitFlags->AllFlags &= ~4u;
       }
       goto LABEL_12;
     }
-    if ( v10 != 259 && v10 != -1073741536 )
+    if ( v9 != 259 && v9 != -1073741536 )
       TppRaiseInvalidParameter();
-    v7 = (_BYTE *)(a1 + 464);
-    v11 = *(_BYTE *)(a1 + 464);
-    if ( (v11 & 4) == 0 )
+    p_WaitFlags = &Wait->WaitFlags;
+    AllFlags = Wait->WaitFlags.AllFlags;
+    if ( (AllFlags & 4) == 0 )
     {
-      *v7 = v11 | 4;
-      TppBarrierAdjust((signed __int64 *)(a1 + 56), 1, 0);
+      p_WaitFlags->AllFlags = AllFlags | 4;
+      TppBarrierAdjust((_RTL_SRWLOCK *)&Wait->Timer.Work.CleanupGroupMember.CallbackBarrier, 1, 0);
     }
   }
   else
   {
-    v7 = (_BYTE *)(a1 + 464);
+    p_WaitFlags = &Wait->WaitFlags;
   }
-  v8 = 0;
+  v7 = 0;
 LABEL_12:
-  *v7 &= ~1u;
-  *v7 &= ~2u;
-  ++*(_BYTE *)(a1 + 355);
-  RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a1 + 240));
-  if ( _InterlockedExchangeAdd((volatile signed __int32 *)a1, v8 - 1) == 1 - v8 )
-    (**(void (__fastcall ***)(__int64))(a1 + 8))(a1);
+  p_WaitFlags->AllFlags &= ~1u;
+  p_WaitFlags->AllFlags &= ~2u;
+  ++Wait->Timer.BlockInsert;
+  RtlReleaseSRWLockExclusive(&Wait->Timer.Lock);
+  if ( _InterlockedExchangeAdd(&Wait->Timer.Work.CleanupGroupMember.Refcount.Refcount, v7 - 1) == 1 - v7 )
+    Wait->Timer.Work.CleanupGroupMember.VFuncs->Free(&Wait->Timer.Work.CleanupGroupMember);
 }

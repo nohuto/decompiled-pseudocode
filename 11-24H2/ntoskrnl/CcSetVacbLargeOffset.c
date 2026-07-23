@@ -1,21 +1,21 @@
 /*
- * XREFs of CcSetVacbLargeOffset @ 0x1402D5FE0
+ * XREFs of CcSetVacbLargeOffset @ 0x140357260
  * Callers:
- *     CcUnmapVacbArray @ 0x14023F290 (CcUnmapVacbArray.c)
- *     CcGetVirtualAddress @ 0x140273EF0 (CcGetVirtualAddress.c)
- *     CcGetVacbMiss @ 0x1402D5510 (CcGetVacbMiss.c)
- *     SetVacb @ 0x1402D5F50 (SetVacb.c)
- *     CcAdjustVacbLevelLockCount @ 0x1403654E4 (CcAdjustVacbLevelLockCount.c)
- *     CcUnmapInactiveViewsInternal @ 0x1403F877C (CcUnmapInactiveViewsInternal.c)
- *     CcSetFileSizesEx @ 0x1404A6800 (CcSetFileSizesEx.c)
+ *     CcUnmapVacbArray @ 0x1402073E0 (CcUnmapVacbArray.c)
+ *     CcGetVirtualAddress @ 0x140229480 (CcGetVirtualAddress.c)
+ *     CcGetVacbMiss @ 0x140356790 (CcGetVacbMiss.c)
+ *     SetVacb @ 0x1403571D0 (SetVacb.c)
+ *     CcAdjustVacbLevelLockCount @ 0x1403EAB94 (CcAdjustVacbLevelLockCount.c)
+ *     CcUnmapInactiveViewsInternal @ 0x1403EE88C (CcUnmapInactiveViewsInternal.c)
+ *     CcSetFileSizesEx @ 0x1404A10D0 (CcSetFileSizesEx.c)
  * Callees:
- *     CcFreeUnusedVacbLevels @ 0x1402D672C (CcFreeUnusedVacbLevels.c)
- *     VacbLevelReference @ 0x1403F6E30 (VacbLevelReference.c)
- *     CcGetBcbListHeadLargeOffset @ 0x140427130 (CcGetBcbListHeadLargeOffset.c)
- *     CcAllocateVacbLevels @ 0x1404764C0 (CcAllocateVacbLevels.c)
- *     CcAllocateVacbLevel @ 0x14047E3FC (CcAllocateVacbLevel.c)
- *     CcDeallocateVacbLevel @ 0x140484080 (CcDeallocateVacbLevel.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     CcDeallocateVacbLevel @ 0x1402E5538 (CcDeallocateVacbLevel.c)
+ *     CcFreeUnusedVacbLevels @ 0x1403579AC (CcFreeUnusedVacbLevels.c)
+ *     VacbLevelReference @ 0x1403ED150 (VacbLevelReference.c)
+ *     CcGetBcbListHeadLargeOffset @ 0x14041AFB0 (CcGetBcbListHeadLargeOffset.c)
+ *     CcAllocateVacbLevels @ 0x14047255C (CcAllocateVacbLevels.c)
+ *     CcAllocateVacbLevel @ 0x1404795EC (CcAllocateVacbLevel.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 char __fastcall CcSetVacbLargeOffset(__int64 a1, __int64 a2, unsigned __int64 a3, __int128 *a4)
@@ -39,38 +39,39 @@ char __fastcall CcSetVacbLargeOffset(__int64 a1, __int64 a2, unsigned __int64 a3
   __int64 v23; // rax
   __int64 v24; // rax
   unsigned int v25; // eax
-  __int64 v26; // rcx
-  _QWORD *v27; // rax
-  int v28; // eax
-  BOOL v29; // r15d
-  __int64 v30; // r9
-  _DWORD *v31; // rax
+  int v26; // edx
+  __int64 v27; // rcx
+  _QWORD *v28; // rax
+  int v29; // eax
+  BOOL v30; // r15d
+  __int64 v31; // r9
+  _DWORD *v32; // rax
   __int64 BcbListHeadLargeOffset; // rax
   __int64 i; // rcx
-  _QWORD *v34; // r10
-  BOOL v35; // [rsp+20h] [rbp-D8h]
-  unsigned int v36; // [rsp+24h] [rbp-D4h]
-  __int128 *v37; // [rsp+28h] [rbp-D0h]
-  __int128 v38; // [rsp+30h] [rbp-C8h] BYREF
-  __int128 v39; // [rsp+40h] [rbp-B8h]
-  __int64 v40; // [rsp+50h] [rbp-A8h]
-  __int64 v41; // [rsp+58h] [rbp-A0h]
-  _OWORD v42[3]; // [rsp+60h] [rbp-98h] BYREF
-  __int64 v43; // [rsp+90h] [rbp-68h]
-  _DWORD v44[8]; // [rsp+98h] [rbp-60h]
+  _QWORD *v35; // r10
+  BOOL v36; // [rsp+20h] [rbp-D8h]
+  unsigned int v37; // [rsp+24h] [rbp-D4h]
+  __int128 *v38; // [rsp+28h] [rbp-D0h]
+  __int128 v39; // [rsp+30h] [rbp-C8h] BYREF
+  __int128 v40; // [rsp+40h] [rbp-B8h]
+  __int64 v41; // [rsp+50h] [rbp-A8h]
+  __int64 v42; // [rsp+58h] [rbp-A0h]
+  _OWORD v43[3]; // [rsp+60h] [rbp-98h] BYREF
+  __int64 v44; // [rsp+90h] [rbp-68h]
+  _DWORD v45[8]; // [rsp+98h] [rbp-60h]
 
-  v40 = a2;
-  v37 = a4;
+  v41 = a2;
+  v38 = a4;
   v6 = a2;
-  memset(v42, 0, sizeof(v42));
+  memset(v43, 0, sizeof(v43));
   v7 = *(_QWORD **)(a1 + 88);
   LODWORD(v8) = 0;
   v9 = *(_QWORD *)(a1 + 32);
   v10 = 0;
-  v43 = 0LL;
+  v44 = 0LL;
   v11 = 25;
-  v38 = 0LL;
   v39 = 0LL;
+  v40 = 0LL;
   do
   {
     v12 = v11;
@@ -80,7 +81,7 @@ char __fastcall CcSetVacbLargeOffset(__int64 a1, __int64 a2, unsigned __int64 a3
   while ( v9 > 1LL << v11 );
   do
   {
-    v36 = v10;
+    v37 = v10;
     v13 = v10;
     v14 = v6 >> v12;
     --v10;
@@ -88,34 +89,34 @@ char __fastcall CcSetVacbLargeOffset(__int64 a1, __int64 a2, unsigned __int64 a3
       return 0;
     v15 = (unsigned int)v8;
     LODWORD(v8) = v8 + 1;
-    v44[v15] = v14;
-    *((_QWORD *)v42 + v15) = v7;
-    v41 = (unsigned int)v14;
+    v45[v15] = v14;
+    *((_QWORD *)v43 + v15) = v7;
+    v42 = (unsigned int)v14;
     VacbLevel = (_QWORD *)v7[(unsigned int)v14];
     if ( !VacbLevel )
     {
-      v28 = *(_DWORD *)(a1 + 152) & 0x200;
-      v29 = v28 && !v10;
-      v35 = v29;
+      v29 = *(_DWORD *)(a1 + 152) & 0x200;
+      v30 = v29 && !v10;
+      v36 = v30;
       if ( !a4 )
       {
-        *(_QWORD *)&v39 = 0LL;
-        *((_QWORD *)&v38 + 1) = &v38;
-        DWORD2(v39) = 0;
-        *(_QWORD *)&v38 = &v38;
-        LOBYTE(v14) = v28 != 0;
-        if ( !(unsigned __int8)CcAllocateVacbLevels(v13, v14, &v38) )
+        *(_QWORD *)&v40 = 0LL;
+        *((_QWORD *)&v39 + 1) = &v39;
+        DWORD2(v40) = 0;
+        *(_QWORD *)&v39 = &v39;
+        LOBYTE(v14) = v29 != 0;
+        if ( !(unsigned __int8)CcAllocateVacbLevels(v13, v14, &v39) )
           return 0;
-        a4 = &v38;
-        v37 = &v38;
+        a4 = &v39;
+        v38 = &v39;
       }
-      VacbLevel = (_QWORD *)CcAllocateVacbLevel(a4, v29);
-      if ( v35 )
+      VacbLevel = (_QWORD *)CcAllocateVacbLevel(a4, v30);
+      if ( v36 )
       {
-        BcbListHeadLargeOffset = CcGetBcbListHeadLargeOffset(a1, v40, 0LL, v30);
+        BcbListHeadLargeOffset = CcGetBcbListHeadLargeOffset(a1, v41, 0LL, v31);
         for ( i = *(_QWORD *)(BcbListHeadLargeOffset + 8); *(_WORD *)(i - 16) == 765; i = *(_QWORD *)(i + 8) )
           BcbListHeadLargeOffset = i;
-        v34 = *(_QWORD **)(BcbListHeadLargeOffset + 8);
+        v35 = *(_QWORD **)(BcbListHeadLargeOffset + 8);
         *(_QWORD *)(BcbListHeadLargeOffset + 8) = VacbLevel + 128;
         VacbLevel[128] = BcbListHeadLargeOffset;
         VacbLevel[129] = VacbLevel + 130;
@@ -244,13 +245,13 @@ char __fastcall CcSetVacbLargeOffset(__int64 a1, __int64 a2, unsigned __int64 a3
         VacbLevel[252] = VacbLevel + 250;
         VacbLevel[253] = VacbLevel + 254;
         VacbLevel[254] = VacbLevel + 252;
-        VacbLevel[255] = v34;
-        *v34 = VacbLevel + 254;
+        VacbLevel[255] = v35;
+        *v35 = VacbLevel + 254;
       }
-      v7[v41] = VacbLevel;
-      v31 = (_DWORD *)VacbLevelReference(a1, v7, v36);
-      a4 = v37;
-      ++*v31;
+      v7[v42] = VacbLevel;
+      v32 = (_DWORD *)VacbLevelReference(a1, v7, v37);
+      a4 = v38;
+      ++*v32;
     }
     v17 = 1LL << v12;
     v12 -= 7;
@@ -282,18 +283,20 @@ LABEL_16:
       v25 = v10;
       v8 = (unsigned int)(v8 - 1);
       ++v10;
+      v26 = 0;
       if ( !v25 && (*(_DWORD *)(a1 + 152) & 0x200) != 0 )
       {
-        v26 = v7[128];
-        v27 = (_QWORD *)v7[255];
-        *(_QWORD *)(v26 + 8) = v27;
-        *v27 = v26;
+        v27 = v7[128];
+        v26 = 1;
+        v28 = (_QWORD *)v7[255];
+        *(_QWORD *)(v27 + 8) = v28;
+        *v28 = v27;
       }
-      CcDeallocateVacbLevel(v7);
-      v7 = (_QWORD *)*((_QWORD *)v42 + v8);
-      v7[v44[v8]] = 0LL;
+      CcDeallocateVacbLevel(v7, v26);
+      v7 = (_QWORD *)*((_QWORD *)v43 + v8);
+      v7[v45[v8]] = 0LL;
     }
-    a4 = v37;
+    a4 = v38;
     goto LABEL_12;
   }
   v18 = v12;
@@ -311,7 +314,7 @@ LABEL_8:
   else
     ++*v21;
 LABEL_12:
-  if ( a4 == &v38 )
+  if ( a4 == &v39 )
     CcFreeUnusedVacbLevels(a4);
   return 1;
 }

@@ -36,7 +36,7 @@ void __fastcall KeFlushIoBuffers(ULONG_PTR BugCheckParameter4, char a2, char a3,
       if ( !v9 && CurrentIrql == 15 )
         KeBugCheckEx(0x55u, 0x86uLL, 0xBADuLL, 0LL, 0LL);
       if ( (xmmword_1403E4010 & 0x4000000) != 0 )
-        EtwGetKernelTraceTimestamp(v13, (char *)0x84000000LL);
+        EtwGetKernelTraceTimestamp(v13, 0x84000000);
       else
         v8 = 0;
       if ( v9 )

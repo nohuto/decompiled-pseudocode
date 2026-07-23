@@ -21,7 +21,7 @@ int __thiscall EtwpStopLoggerInstance(int this)
     *(_DWORD *)(this + 380) = 0;
   }
   _InterlockedExchange((volatile __int32 *)(EtwpLoggerArray + 8 * *(_DWORD *)(this + 20)), 3);
-  RtlWakeAllConditionVariable((volatile signed __int32 *)(this + 68));
+  RtlWakeAllConditionVariable((PRTL_CONDITION_VARIABLE)(this + 68));
   EtwpSendSessionNotification(*(_DWORD *)(this + 32));
   return 0;
 }

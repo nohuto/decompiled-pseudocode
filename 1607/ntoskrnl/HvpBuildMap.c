@@ -1,12 +1,12 @@
 /*
- * XREFs of HvpBuildMap @ 0x140610554
+ * XREFs of HvpBuildMap @ 0x140610608
  * Callers:
- *     HvInitializeHive @ 0x14047FBA4 (HvInitializeHive.c)
+ *     HvInitializeHive @ 0x14047E8F8 (HvInitializeHive.c)
  * Callees:
- *     SetFailureLocation @ 0x1401B2AF8 (SetFailureLocation.c)
- *     HvpInitMap @ 0x1404E3088 (HvpInitMap.c)
- *     HvpEnlistBinInMap @ 0x140513FE0 (HvpEnlistBinInMap.c)
- *     HvpCleanMap @ 0x140610770 (HvpCleanMap.c)
+ *     SetFailureLocation @ 0x1401B29DC (SetFailureLocation.c)
+ *     HvpInitMap @ 0x1404C5FEC (HvpInitMap.c)
+ *     HvpEnlistBinInMap @ 0x1404F73D0 (HvpEnlistBinInMap.c)
+ *     HvpCleanMap @ 0x140610824 (HvpCleanMap.c)
  */
 
 __int64 __fastcall HvpBuildMap(ULONG_PTR BugCheckParameter2, __int64 a2)

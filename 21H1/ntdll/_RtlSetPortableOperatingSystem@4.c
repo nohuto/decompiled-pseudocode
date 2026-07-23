@@ -6,10 +6,10 @@
  *     _RtlWriteRegistryValue@24 @ 0x4B3513B0 (_RtlWriteRegistryValue@24.c)
  */
 
-int __stdcall RtlSetPortableOperatingSystem(char a1)
+NTSTATUS __cdecl RtlSetPortableOperatingSystem(BOOLEAN IsPortable)
 {
-  int v2; // [esp+0h] [ebp-4h] BYREF
+  BOOL ValueData; // [esp+0h] [ebp-4h] BYREF
 
-  v2 = a1 != 0;
-  return RtlWriteRegistryValue(2, 0, L"PortableOperatingSystem", 4, (int)&v2, 4);
+  ValueData = IsPortable != 0;
+  return RtlWriteRegistryValue(2u, 0, L"PortableOperatingSystem", 4u, &ValueData, 4u);
 }

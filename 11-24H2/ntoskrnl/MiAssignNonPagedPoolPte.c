@@ -1,15 +1,15 @@
 /*
- * XREFs of MiAssignNonPagedPoolPte @ 0x1402EB5C0
+ * XREFs of MiAssignNonPagedPoolPte @ 0x14034CC00
  * Callers:
- *     MiFillPoolCommitPageTable @ 0x1402EB2D0 (MiFillPoolCommitPageTable.c)
+ *     MiFillPoolCommitPageTable @ 0x14034C910 (MiFillPoolCommitPageTable.c)
  * Callees:
- *     MiChangePageAttribute @ 0x14021F58C (MiChangePageAttribute.c)
- *     MiCheckLinearProtectedPteAccessedBit @ 0x140232A20 (MiCheckLinearProtectedPteAccessedBit.c)
- *     MiUserPdeOrAbove @ 0x140238638 (MiUserPdeOrAbove.c)
- *     HvlNotifyLongSpinWait @ 0x140293260 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140293290 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     MiGetContainingPageTable @ 0x1402ECE30 (MiGetContainingPageTable.c)
- *     MiIsAddressGlobal @ 0x1402ECF00 (MiIsAddressGlobal.c)
+ *     MiCheckLinearProtectedPteAccessedBit @ 0x140203550 (MiCheckLinearProtectedPteAccessedBit.c)
+ *     MiUserPdeOrAbove @ 0x1402127C8 (MiUserPdeOrAbove.c)
+ *     MiChangePageAttribute @ 0x14024C2DC (MiChangePageAttribute.c)
+ *     HvlNotifyLongSpinWait @ 0x1402A2E60 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402A2E90 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     MiGetContainingPageTable @ 0x14034E470 (MiGetContainingPageTable.c)
+ *     MiIsAddressGlobal @ 0x14034E540 (MiIsAddressGlobal.c)
  */
 
 __int64 __fastcall MiAssignNonPagedPoolPte(__int64 a1, unsigned __int64 a2)
@@ -52,12 +52,12 @@ __int64 __fastcall MiAssignNonPagedPoolPte(__int64 a1, unsigned __int64 a2)
   ContainingPageTable = MiGetContainingPageTable(v4);
   v37 = ContainingPageTable;
   v7 = 128LL;
-  if ( qword_140E2DB80 )
+  if ( qword_140E2DCC0 )
   {
-    if ( (qword_140E2DB80 & 0x80) != 0 )
+    if ( (qword_140E2DCC0 & 0x80) != 0 )
       v7 = 144LL;
     else
-      v7 = qword_140E2DB80 | 0x80;
+      v7 = qword_140E2DCC0 | 0x80;
   }
   v8 = (*(unsigned __int16 *)(a1 + 100) >> 3) & 0x1F;
   v9 = (*(unsigned __int16 *)(a1 + 100) >> 3) & 0x1F | 0xA0000000;
@@ -92,7 +92,7 @@ __int64 __fastcall MiAssignNonPagedPoolPte(__int64 a1, unsigned __int64 a2)
   v18 = v16 | 0x42;
   if ( !v17 || v9 >= 0 )
     v18 = v16;
-  v19 = (((unsigned __int64)(unsigned __int8)word_140E2ED84 << 8) ^ (((unsigned __int64)(unsigned __int8)word_140E2ED84 << 8) ^ v18) & 0xFFFFFFFFFFFFFEFFuLL) & 0xF0FFFFFFFFFFFFFFuLL | 0xA00000000000000LL;
+  v19 = (((unsigned __int64)(unsigned __int8)word_140E2EEC4 << 8) ^ (((unsigned __int64)(unsigned __int8)word_140E2EEC4 << 8) ^ v18) & 0xFFFFFFFFFFFFFEFFuLL) & 0xF0FFFFFFFFFFFFFFuLL | 0xA00000000000000LL;
   if ( (*(_WORD *)(a1 + 100) & 0x100) != 0 )
   {
     v34 = 1;
@@ -176,7 +176,7 @@ __int64 __fastcall MiAssignNonPagedPoolPte(__int64 a1, unsigned __int64 a2)
   v30 = v24 << 12;
   if ( _bittest64(&MiFlags, 0x24u) && (v19 & 0x20) == 0 && v4 >= 0xFFFFF6C000000000uLL )
   {
-    MiCheckLinearProtectedPteAccessedBit(v4, v30 ^ (v19 ^ v30) & 0xFFF0000000000FFFuLL, 128);
+    MiCheckLinearProtectedPteAccessedBit(v4, v30 ^ (v19 ^ v30) & 0xFFF0000000000FFFuLL, 128LL);
     ContainingPageTable = v37;
   }
   *(_QWORD *)v4 = v30 ^ (v19 ^ v30) & 0xFFF0000000000FFFuLL;

@@ -8,46 +8,46 @@
  *     sub_1800FE73C @ 0x1800FE73C (sub_1800FE73C.c)
  */
 
-__int64 __fastcall sub_1800225EC(__int64 a1, unsigned __int8 a2, __int64 a3, char a4)
+_BYTE *__fastcall sub_1800225EC(__int64 a1, unsigned __int8 a2, __int64 a3, char a4)
 {
   __int64 v8; // rbx
-  __int64 v9; // rbp
+  _BYTE *v9; // rbp
   unsigned __int64 v10; // rax
   unsigned __int64 v11; // rdi
-  _DWORD *HotpatchInformation; // rcx
-  __int64 v13; // rcx
+  PSILO_USER_SHARED_DATA SharedData; // rcx
+  __int64 UserModeGlobalLogger; // rcx
   unsigned int v14; // edx
   unsigned __int32 v16; // eax
   unsigned __int32 v17; // eax
 
   v8 = a1 + 48 * (a2 - 5LL);
   ++*(_WORD *)(v8 + 28);
-  v9 = (__int64)RtlInterlockedPopEntrySList((PSLIST_HEADER)v8);
+  v9 = RtlInterlockedPopEntrySList((PSLIST_HEADER)v8);
   if ( v9 )
   {
     ++*(_WORD *)(v8 + 32);
 LABEL_3:
-    v10 = 1LL << *(_BYTE *)(v9 + 16);
+    v10 = 1LL << v9[16];
     if ( v10 > 0xF0000 )
       v10 = 983040LL;
-    v11 = v10 + *(unsigned __int16 *)(v9 + 18);
-    HotpatchInformation = NtCurrentPeb()->HotpatchInformation;
-    if ( HotpatchInformation && *HotpatchInformation )
-      v13 = (__int64)NtCurrentPeb()->HotpatchInformation + 550;
+    v11 = v10 + *((unsigned __int16 *)v9 + 9);
+    SharedData = NtCurrentPeb()->SharedData;
+    if ( SharedData && SharedData->ServiceSessionId )
+      UserModeGlobalLogger = (__int64)NtCurrentPeb()->SharedData->UserModeGlobalLogger;
     else
-      v13 = 2147353472LL;
-    if ( *(_BYTE *)v13 && (NtCurrentPeb()->TracingFlags & 1) != 0 )
+      UserModeGlobalLogger = 2147353472LL;
+    if ( *(_BYTE *)UserModeGlobalLogger && (NtCurrentPeb()->TracingFlags & 1) != 0 )
       sub_1800FE73C(*(_QWORD *)(a1 + 24), v9, v11, a3);
     _InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 72), -(__int64)v11);
     goto LABEL_9;
   }
   if ( a2 > 7u )
   {
-    v9 = (__int64)RtlInterlockedPopEntrySList((PSLIST_HEADER)(a1 + 48 * (a2 - 6LL)));
+    v9 = RtlInterlockedPopEntrySList((PSLIST_HEADER)(a1 + 48 * (a2 - 6LL)));
     if ( v9 )
       goto LABEL_3;
   }
-  v9 = sub_180022498(*(_QWORD *)(a1 + 24), a2, a3, a4);
+  v9 = sub_180022498(*(PRTL_CRITICAL_SECTION **)(a1 + 24), a2, a3, a4);
   if ( v9 )
     _InterlockedIncrement((volatile signed __int32 *)(a1 + 48LL * a2 - 224));
 LABEL_9:

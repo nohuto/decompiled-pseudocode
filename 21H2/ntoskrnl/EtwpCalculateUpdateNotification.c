@@ -1,16 +1,16 @@
 /*
- * XREFs of EtwpCalculateUpdateNotification @ 0x1406E4530
+ * XREFs of EtwpCalculateUpdateNotification @ 0x1406BB810
  * Callers:
- *     EtwpEnableGuid @ 0x1406E2404 (EtwpEnableGuid.c)
- *     EtwpDisallowedGuidAddition @ 0x140933C04 (EtwpDisallowedGuidAddition.c)
- *     EtwpDisallowedGuidRemoval @ 0x140933EEC (EtwpDisallowedGuidRemoval.c)
+ *     EtwpEnableGuid @ 0x1406B96E4 (EtwpEnableGuid.c)
+ *     EtwpDisallowedGuidAddition @ 0x140933DD4 (EtwpDisallowedGuidAddition.c)
+ *     EtwpDisallowedGuidRemoval @ 0x1409340BC (EtwpDisallowedGuidRemoval.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     RtlCompareMemory @ 0x1404081B0 (RtlCompareMemory.c)
- *     memset @ 0x140414200 (memset.c)
- *     EtwpGetSchematizedFilterSize @ 0x1405EBEB8 (EtwpGetSchematizedFilterSize.c)
- *     EtwpComputeRegEntryEnableInfo @ 0x140643FCC (EtwpComputeRegEntryEnableInfo.c)
- *     EtwpBuildNotificationPacket @ 0x1406E16DC (EtwpBuildNotificationPacket.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     RtlCompareMemory @ 0x140408390 (RtlCompareMemory.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     EtwpComputeRegEntryEnableInfo @ 0x140638DDC (EtwpComputeRegEntryEnableInfo.c)
+ *     EtwpBuildNotificationPacket @ 0x1406B89BC (EtwpBuildNotificationPacket.c)
+ *     EtwpGetSchematizedFilterSize @ 0x1406DB618 (EtwpGetSchematizedFilterSize.c)
  */
 
 char __fastcall EtwpCalculateUpdateNotification(
@@ -28,7 +28,7 @@ char __fastcall EtwpCalculateUpdateNotification(
   __int16 v11; // r14
   _OWORD *v13; // rsi
   __int64 v14; // rcx
-  unsigned __int8 v15; // dl
+  __int64 v15; // rdx
   __int128 v16; // xmm0
   int SchematizedFilterSize; // eax
   _OWORD *v18; // rax
@@ -73,7 +73,7 @@ LABEL_17:
     memset(Source2, 0, sizeof(Source2));
     v13 = (_OWORD *)*a8;
     v14 = *(_QWORD *)(a1 + 32);
-    v15 = *(_BYTE *)(a1 + 100);
+    LOBYTE(v15) = *(_BYTE *)(a1 + 100);
     *(_OWORD *)Source2 = *(_OWORD *)*a8;
     *(_OWORD *)&Source2[16] = v13[1];
     *(_OWORD *)&Source2[32] = v13[2];

@@ -12,14 +12,14 @@
 
 void __noreturn KiUserExceptionDispatcher()
 {
-  int v0; // eax
+  NTSTATUS v0; // eax
   _UNKNOWN *retaddr; // [rsp+0h] [rbp+0h] BYREF
 
   if ( Wow64PrepareForException )
-    Wow64PrepareForException(&STACK[0x4F0], &retaddr);
-  if ( (unsigned __int8)RtlDispatchException((__int64)&STACK[0x4F0], (__int64)&retaddr) )
+    ((void (__fastcall *)(unsigned __int64 *, _UNKNOWN **))Wow64PrepareForException)(&STACK[0x4F0], &retaddr);
+  if ( RtlDispatchException((PEXCEPTION_RECORD)&STACK[0x4F0], (PCONTEXT)&retaddr) )
     RtlGuardRestoreContext((PCONTEXT)&retaddr, 0LL);
   else
-    v0 = ZwRaiseException();
+    v0 = ZwRaiseException((PEXCEPTION_RECORD)&STACK[0x4F0], (PCONTEXT)&retaddr, 0);
   RtlRaiseStatus(v0);
 }

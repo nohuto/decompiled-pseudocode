@@ -103,7 +103,7 @@ __int64 __fastcall IopInitializeBootDrivers(__int64 a1)
   void *v42; // rbx
   void **v43; // rax
   __int64 v44; // rdi
-  int v45; // edx
+  ULONG v45; // edx
   PVOID v46; // r14
   void *v47; // rsi
   __int64 v48; // rcx

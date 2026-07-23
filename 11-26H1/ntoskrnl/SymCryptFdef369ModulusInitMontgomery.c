@@ -1,9 +1,9 @@
 /*
- * XREFs of SymCryptFdef369ModulusInitMontgomery @ 0x140572760
+ * XREFs of SymCryptFdef369ModulusInitMontgomery @ 0x140571940
  * Callers:
  *     <none>
  * Callees:
- *     SymCryptFdefModulusInitMontgomeryInternal @ 0x1405705E0 (SymCryptFdefModulusInitMontgomeryInternal.c)
+ *     SymCryptFdefModulusInitMontgomeryInternal @ 0x14056F7C0 (SymCryptFdefModulusInitMontgomeryInternal.c)
  */
 
 __int64 __fastcall SymCryptFdef369ModulusInitMontgomery(__int64 a1, _DWORD *a2)

@@ -1,36 +1,36 @@
 /*
- * XREFs of IoCaptureLiveDump @ 0x140625F30
+ * XREFs of IoCaptureLiveDump @ 0x140625FE4
  * Callers:
- *     DbgkCaptureLiveKernelDump @ 0x1401B7A80 (DbgkCaptureLiveKernelDump.c)
- *     DbgkpWerCaptureLiveFullDump @ 0x14061BD38 (DbgkpWerCaptureLiveFullDump.c)
+ *     DbgkCaptureLiveKernelDump @ 0x1401B7964 (DbgkCaptureLiveKernelDump.c)
+ *     DbgkpWerCaptureLiveFullDump @ 0x14061BDEC (DbgkpWerCaptureLiveFullDump.c)
  * Callees:
- *     _TlgWrite @ 0x14000A598 (_TlgWrite.c)
- *     EtwWrite @ 0x140013320 (EtwWrite.c)
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExAcquireResourceExclusiveLite @ 0x140068160 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x140068940 (ExReleaseResourceLite.c)
- *     _TlgKeywordOn @ 0x140088D98 (_TlgKeywordOn.c)
- *     EtwActivityIdControl @ 0x1400A0BF4 (EtwActivityIdControl.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     IopLiveDumpIsTracingEnabled @ 0x1401CAEBC (IopLiveDumpIsTracingEnabled.c)
- *     IopLiveDumpIsUnderMemoryPressure @ 0x1401CAED8 (IopLiveDumpIsUnderMemoryPressure.c)
- *     IopLiveDumpTrace @ 0x1401CAF0C (IopLiveDumpTrace.c)
- *     IopLiveDumpTraceDumpFileWriteEnd @ 0x1401CB0C8 (IopLiveDumpTraceDumpFileWriteEnd.c)
- *     IopLiveDumpTraceInterfaceEnd @ 0x1401CB1E0 (IopLiveDumpTraceInterfaceEnd.c)
- *     IopLiveDumpTraceInterfaceStart @ 0x1401CB270 (IopLiveDumpTraceInterfaceStart.c)
- *     SecureDump_GetSecureDumpSettings @ 0x1401CB918 (SecureDump_GetSecureDumpSettings.c)
+ *     _TlgWrite @ 0x14000A118 (_TlgWrite.c)
+ *     EtwWrite @ 0x140012EA0 (EtwWrite.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140067CE0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x1400684C0 (ExReleaseResourceLite.c)
+ *     EtwActivityIdControl @ 0x14009F51C (EtwActivityIdControl.c)
+ *     _TlgKeywordOn @ 0x14010CF88 (_TlgKeywordOn.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     IopLiveDumpIsTracingEnabled @ 0x1401CADA0 (IopLiveDumpIsTracingEnabled.c)
+ *     IopLiveDumpIsUnderMemoryPressure @ 0x1401CADBC (IopLiveDumpIsUnderMemoryPressure.c)
+ *     IopLiveDumpTrace @ 0x1401CADF0 (IopLiveDumpTrace.c)
+ *     IopLiveDumpTraceDumpFileWriteEnd @ 0x1401CAFAC (IopLiveDumpTraceDumpFileWriteEnd.c)
+ *     IopLiveDumpTraceInterfaceEnd @ 0x1401CB0C4 (IopLiveDumpTraceInterfaceEnd.c)
+ *     IopLiveDumpTraceInterfaceStart @ 0x1401CB154 (IopLiveDumpTraceInterfaceStart.c)
+ *     SecureDump_GetSecureDumpSettings @ 0x1401CB7FC (SecureDump_GetSecureDumpSettings.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  *     IopLiveDumpCaptureMemoryPages @ 0x1403DA8AC (IopLiveDumpCaptureMemoryPages.c)
- *     IoCreateNotificationEvent @ 0x14057E814 (IoCreateNotificationEvent.c)
- *     IopLiveDumpAllocAndInitResources @ 0x1406266AC (IopLiveDumpAllocAndInitResources.c)
- *     IopLiveDumpReleaseResources @ 0x1406272E8 (IopLiveDumpReleaseResources.c)
- *     IopLiveDumpValidateParameters @ 0x14062748C (IopLiveDumpValidateParameters.c)
- *     IopLiveDumpWriteDumpFile @ 0x140627610 (IopLiveDumpWriteDumpFile.c)
- *     IopLiveDumpWriteDumpFileWithHvPages @ 0x14062782C (IopLiveDumpWriteDumpFileWithHvPages.c)
+ *     IoCreateNotificationEvent @ 0x14057ECC0 (IoCreateNotificationEvent.c)
+ *     IopLiveDumpAllocAndInitResources @ 0x140626760 (IopLiveDumpAllocAndInitResources.c)
+ *     IopLiveDumpReleaseResources @ 0x14062739C (IopLiveDumpReleaseResources.c)
+ *     IopLiveDumpValidateParameters @ 0x140627540 (IopLiveDumpValidateParameters.c)
+ *     IopLiveDumpWriteDumpFile @ 0x1406276C4 (IopLiveDumpWriteDumpFile.c)
+ *     IopLiveDumpWriteDumpFileWithHvPages @ 0x1406278E0 (IopLiveDumpWriteDumpFileWithHvPages.c)
  */
 
 __int64 __fastcall IoCaptureLiveDump(int a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5, __int64 a6, _QWORD *a7)
@@ -158,7 +158,7 @@ LABEL_24:
   EtwActivityIdControl(5u, (LPGUID)v12 + 38);
   EtwActivityIdControl(1u, (LPGUID)v12 + 39);
   if ( stru_1402F3560.LevelPlus1 > 5 && TlgKeywordOn(&stru_1402F3560, 0x400000000000uLL) )
-    TlgWrite(&stru_1402F3560, &unk_14027BA3B, (LPCGUID)v12 + 39, (LPCGUID)v12 + 38, 2u, &pData);
+    TlgWrite(&stru_1402F3560, &unk_14027BB3B, (LPCGUID)v12 + 39, (LPCGUID)v12 + 38, 2u, &pData);
   inited = IopLiveDumpValidateParameters(v12, v38);
   if ( inited < 0 )
     goto LABEL_28;
@@ -220,7 +220,7 @@ LABEL_28:
             v55 = &v39;
             v40 = (MEMORY[0xFFFFF78000000008] - v27) / 0x2710uLL;
             v57 = &v40;
-            TlgWrite(&stru_1402F3560, &unk_14027B9F2, (LPCGUID)v12 + 39, (LPCGUID)v12 + 38, 4u, &v54);
+            TlgWrite(&stru_1402F3560, &unk_14027BAF2, (LPCGUID)v12 + 39, (LPCGUID)v12 + 38, 4u, &v54);
           }
           IopLiveDumpTraceDumpFileWriteEnd((__int64)v12, 0LL, inited);
           if ( inited >= 0 && (*((_DWORD *)v12 + 20) & 2) != 0 )
@@ -255,7 +255,7 @@ LABEL_28:
       p_pActivityId = &pActivityId;
       v31 = &pActivityId;
     }
-    TlgWrite(&stru_1402F3560, &unk_14027B97B, v31, p_pActivityId, 6u, &v45);
+    TlgWrite(&stru_1402F3560, &unk_14027BA7B, v31, p_pActivityId, 6u, &v45);
   }
   if ( v12 )
   {

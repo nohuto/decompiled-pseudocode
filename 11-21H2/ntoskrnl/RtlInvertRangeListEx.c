@@ -2,7 +2,7 @@
  * XREFs of RtlInvertRangeListEx @ 0x140839EF0
  * Callers:
  *     RtlInvertRangeList @ 0x140839400 (RtlInvertRangeList.c)
- *     ArbInitializeRangeList @ 0x14090B3B0 (ArbInitializeRangeList.c)
+ *     sub_14090B3B0 @ 0x14090B3B0 (sub_14090B3B0.c)
  * Callees:
  *     RtlAddRange @ 0x14083A010 (RtlAddRange.c)
  */

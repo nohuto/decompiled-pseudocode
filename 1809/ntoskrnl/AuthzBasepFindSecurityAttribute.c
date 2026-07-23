@@ -1,18 +1,18 @@
 /*
- * XREFs of AuthzBasepFindSecurityAttribute @ 0x1400A71F0
+ * XREFs of AuthzBasepFindSecurityAttribute @ 0x1400A7130
  * Callers:
- *     AuthzBasepCopyoutSecurityAttributes @ 0x1400A5770 (AuthzBasepCopyoutSecurityAttributes.c)
- *     AuthzBasepGetSecurityAttributesCopyoutBufferSize @ 0x1400A6CB0 (AuthzBasepGetSecurityAttributesCopyoutBufferSize.c)
- *     AuthzBasepQuerySecurityAttributeAndValues @ 0x1400A6FA8 (AuthzBasepQuerySecurityAttributeAndValues.c)
- *     SepDetermineGlobalTableCheckNeededForQuery @ 0x1400A72C4 (SepDetermineGlobalTableCheckNeededForQuery.c)
- *     AuthzBasepAddSecurityAttribute @ 0x1400D8DEC (AuthzBasepAddSecurityAttribute.c)
- *     AuthzBasepDeleteSecurityAttribute @ 0x1400D9218 (AuthzBasepDeleteSecurityAttribute.c)
- *     AuthzBasepCompareLegacySecurityAttributesInformation @ 0x1405BC0FC (AuthzBasepCompareLegacySecurityAttributesInformation.c)
- *     AuthzBasepCompareSecurityAttributesInformation @ 0x1408EE3A4 (AuthzBasepCompareSecurityAttributesInformation.c)
+ *     AuthzBasepCopyoutSecurityAttributes @ 0x1400A56B0 (AuthzBasepCopyoutSecurityAttributes.c)
+ *     AuthzBasepGetSecurityAttributesCopyoutBufferSize @ 0x1400A6BF0 (AuthzBasepGetSecurityAttributesCopyoutBufferSize.c)
+ *     AuthzBasepQuerySecurityAttributeAndValues @ 0x1400A6EE8 (AuthzBasepQuerySecurityAttributeAndValues.c)
+ *     SepDetermineGlobalTableCheckNeededForQuery @ 0x1400A7204 (SepDetermineGlobalTableCheckNeededForQuery.c)
+ *     AuthzBasepAddSecurityAttribute @ 0x1400D8E6C (AuthzBasepAddSecurityAttribute.c)
+ *     AuthzBasepDeleteSecurityAttribute @ 0x1400D9298 (AuthzBasepDeleteSecurityAttribute.c)
+ *     AuthzBasepCompareLegacySecurityAttributesInformation @ 0x1405BD0FC (AuthzBasepCompareLegacySecurityAttributesInformation.c)
+ *     AuthzBasepCompareSecurityAttributesInformation @ 0x1408EF664 (AuthzBasepCompareSecurityAttributesInformation.c)
  * Callees:
- *     AuthzBasepEqualUnicodeString @ 0x1400A5DE8 (AuthzBasepEqualUnicodeString.c)
- *     AuthzBasepEqualUnicodeStringCaseSensitive @ 0x14013ADF8 (AuthzBasepEqualUnicodeStringCaseSensitive.c)
- *     RtlEqualUnicodeString @ 0x140625D40 (RtlEqualUnicodeString.c)
+ *     AuthzBasepEqualUnicodeString @ 0x1400A5D28 (AuthzBasepEqualUnicodeString.c)
+ *     AuthzBasepEqualUnicodeStringCaseSensitive @ 0x14013AEF8 (AuthzBasepEqualUnicodeStringCaseSensitive.c)
+ *     RtlEqualUnicodeString @ 0x140626D60 (RtlEqualUnicodeString.c)
  */
 
 const UNICODE_STRING *__fastcall AuthzBasepFindSecurityAttribute(__int64 a1, const UNICODE_STRING *a2)

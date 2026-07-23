@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwGetInterruptTimeStamp @ 0x1400921C0
+ * XREFs of EtwGetInterruptTimeStamp @ 0x140091920
  * Callers:
- *     KiScanInterruptObjectList @ 0x14015ED60 (KiScanInterruptObjectList.c)
- *     KiInterruptSubDispatch @ 0x14015EF30 (KiInterruptSubDispatch.c)
- *     KiInterruptSubDispatchNoLock @ 0x14015F060 (KiInterruptSubDispatchNoLock.c)
+ *     KiScanInterruptObjectList @ 0x14015F2D0 (KiScanInterruptObjectList.c)
+ *     KiInterruptSubDispatch @ 0x14015F4A0 (KiInterruptSubDispatch.c)
+ *     KiInterruptSubDispatchNoLock @ 0x14015F5D0 (KiInterruptSubDispatchNoLock.c)
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall EtwGetInterruptTimeStamp(__int64 a1)
@@ -31,7 +31,7 @@ __int64 __fastcall EtwGetInterruptTimeStamp(__int64 a1)
     v1 &= v1 - 1;
     v5 = (char *)&EtwpGroupMasks + 32 * (unsigned int)a1;
     if ( v5 && (*((_DWORD *)v5 + 1) & 0x4000) != 0 )
-      v2 |= 1 << LOBYTE(word_1402FD362[2 * a1]);
+      v2 |= 1 << LOBYTE(word_1402FD342[2 * a1]);
   }
   v6 = 0;
   v7 = 0LL;

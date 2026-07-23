@@ -1,7 +1,7 @@
 /*
- * XREFs of MmLockPagableSectionByHandle @ 0x1404DC9CC
+ * XREFs of MmLockPagableSectionByHandle @ 0x1404BFFD0
  * Callers:
- *     IoDeleteDevice @ 0x14007F30C (IoDeleteDevice.c)
+ *     IoDeleteDevice @ 0x14007F38C (IoDeleteDevice.c)
  *     MmDuplicateMemory @ 0x1403C9918 (MmDuplicateMemory.c)
  *     NtSetSystemPowerState @ 0x1403CF658 (NtSetSystemPowerState.c)
  *     IoUnregisterShutdownNotification @ 0x1403DA0D4 (IoUnregisterShutdownNotification.c)

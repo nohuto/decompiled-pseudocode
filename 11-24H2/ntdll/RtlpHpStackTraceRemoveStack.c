@@ -1,30 +1,30 @@
 /*
- * XREFs of RtlpHpStackTraceRemoveStack @ 0x1800E28F0
+ * XREFs of RtlpHpStackTraceRemoveStack @ 0x1800DDEC0
  * Callers:
- *     RtlFreeHeap @ 0x1800269F0 (RtlFreeHeap.c)
- *     RtlpHpFreeHeapSlow @ 0x18002B6C4 (RtlpHpFreeHeapSlow.c)
- *     RtlpFreeNTHeapInternal @ 0x18002BD80 (RtlpFreeNTHeapInternal.c)
- *     RtlpReAllocateHeapInternal @ 0x1800A1040 (RtlpReAllocateHeapInternal.c)
- *     RtlpHpReAllocateHeapSlow @ 0x18011C8F0 (RtlpHpReAllocateHeapSlow.c)
+ *     RtlFreeHeap @ 0x1800533F0 (RtlFreeHeap.c)
+ *     RtlpHpFreeHeapSlow @ 0x1800580C4 (RtlpHpFreeHeapSlow.c)
+ *     RtlpFreeNTHeapInternal @ 0x180058780 (RtlpFreeNTHeapInternal.c)
+ *     RtlpReAllocateHeapInternal @ 0x18005AF10 (RtlpReAllocateHeapInternal.c)
+ *     RtlpHpReAllocateHeapSlow @ 0x18011AB20 (RtlpHpReAllocateHeapSlow.c)
  * Callees:
- *     RtlpAcquireSRWLockSharedContended @ 0x180017E40 (RtlpAcquireSRWLockSharedContended.c)
- *     RtlStackDbStackRemove @ 0x18011E5D8 (RtlStackDbStackRemove.c)
- *     RtlpHpStackTraceHeapGetContext @ 0x18011EEB0 (RtlpHpStackTraceHeapGetContext.c)
- *     RtlpHpStackTraceAllocRemove @ 0x18014BBE4 (RtlpHpStackTraceAllocRemove.c)
+ *     RtlpAcquireSRWLockSharedContended @ 0x180044840 (RtlpAcquireSRWLockSharedContended.c)
+ *     RtlStackDbStackRemove @ 0x18011C808 (RtlStackDbStackRemove.c)
+ *     RtlpHpStackTraceHeapGetContext @ 0x18011D0E0 (RtlpHpStackTraceHeapGetContext.c)
+ *     RtlpHpStackTraceAllocRemove @ 0x180149F94 (RtlpHpStackTraceAllocRemove.c)
  */
 
-__int64 __fastcall RtlpHpStackTraceRemoveStack(__int64 a1, char *a2)
+void __fastcall RtlpHpStackTraceRemoveStack(__int64 a1, char *a2)
 {
   unsigned int v2; // eax
   char *v3; // rbx
   char *SchedulerSharedDataSlot; // r9
-  unsigned __int64 v6; // rax
-  __int64 v8; // rax
-  __int64 v9; // [rsp+40h] [rbp+18h] BYREF
+  char *v6; // rax
+  __int64 v7; // rax
+  __int64 v8; // [rsp+40h] [rbp+18h] BYREF
 
   v2 = 0;
   v3 = a2;
-  v9 = 0LL;
+  v8 = 0LL;
   SchedulerSharedDataSlot = (char *)NtCurrentTeb()->SchedulerSharedDataSlot;
   if ( SchedulerSharedDataSlot )
   {
@@ -40,20 +40,20 @@ __int64 __fastcall RtlpHpStackTraceRemoveStack(__int64 a1, char *a2)
       ++v2;
     }
   }
-  v6 = _InterlockedCompareExchange64(&RtlpHpStackTrackingContext, 17LL, 0LL);
+  v6 = (char *)_InterlockedCompareExchange64((volatile signed __int64 *)&RtlpHpStackTrackingContext, 17LL, 0LL);
   if ( v6 )
     RtlpAcquireSRWLockSharedContended(
       (unsigned __int64)&RtlpHpStackTrackingContext,
       (unsigned __int64)a2,
       v6,
-      (unsigned __int64)SchedulerSharedDataSlot);
-  if ( (dword_1801CE8C8 & 1) != 0
-    && (dword_1801CE8C8 & 2) != 0
-    && (int)RtlpHpStackTraceHeapGetContext(a1, 0LL, &v9) >= 0 )
+      SchedulerSharedDataSlot);
+  if ( (dword_1801CD8B8 & 1) != 0
+    && (dword_1801CD8B8 & 2) != 0
+    && (int)RtlpHpStackTraceHeapGetContext(a1, 0LL, &v8) >= 0 )
   {
-    v8 = RtlpHpStackTraceAllocRemove(v9, v3);
-    if ( v8 )
-      RtlStackDbStackRemove(&qword_1801CE8D0, v8);
+    v7 = RtlpHpStackTraceAllocRemove(v8, v3);
+    if ( v7 )
+      RtlStackDbStackRemove(&qword_1801CD8C0, v7);
   }
-  return RtlReleaseSRWLockShared(&RtlpHpStackTrackingContext);
+  RtlReleaseSRWLockShared(&RtlpHpStackTrackingContext);
 }

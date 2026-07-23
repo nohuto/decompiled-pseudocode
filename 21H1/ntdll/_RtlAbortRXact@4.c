@@ -14,7 +14,7 @@ int __stdcall RtlAbortRXact(int a1)
 
   if ( !*(_DWORD *)(a1 + 12) )
     return -1073741540;
-  RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, *(_DWORD *)(a1 + 12));
+  RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, *(PVOID *)(a1 + 12));
   *(_DWORD *)(a1 + 12) = 0;
   result = 0;
   *(_BYTE *)(a1 + 8) = 1;

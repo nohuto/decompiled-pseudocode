@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpLockHashEntryByIndexExclusive @ 0x140A1F4D0
+ * XREFs of CmpLockHashEntryByIndexExclusive @ 0x140A1F780
  * Callers:
- *     CmpSearchKeyControlBlockTreeEx @ 0x140A17744 (CmpSearchKeyControlBlockTreeEx.c)
+ *     CmpSearchKeyControlBlockTreeEx @ 0x140A179F4 (CmpSearchKeyControlBlockTreeEx.c)
  * Callees:
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     CmpReferenceHive @ 0x14076A58C (CmpReferenceHive.c)
+ *     KeAbPreAcquire @ 0x140230FD0 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402FD0A0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     CmpReferenceHive @ 0x14076A77C (CmpReferenceHive.c)
  */
 
 char __fastcall CmpLockHashEntryByIndexExclusive(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter4)

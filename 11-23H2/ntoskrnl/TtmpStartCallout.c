@@ -1,20 +1,20 @@
 /*
- * XREFs of TtmpStartCallout @ 0x1409A3C80
+ * XREFs of TtmpStartCallout @ 0x1409A3E80
  * Callers:
- *     TtmiSessionDeviceListWorker @ 0x1409A2D10 (TtmiSessionDeviceListWorker.c)
- *     TtmpCallAssignedToTerminal @ 0x1409A2FDC (TtmpCallAssignedToTerminal.c)
- *     TtmpCallSetBuiltinPanelState @ 0x1409A3078 (TtmpCallSetBuiltinPanelState.c)
- *     TtmpCallSetDisplayState @ 0x1409A30F8 (TtmpCallSetDisplayState.c)
- *     TtmpCallSetInputMode @ 0x1409A31A8 (TtmpCallSetInputMode.c)
- *     TtmpUpdatePrimaryDisplayWnf @ 0x1409A3DFC (TtmpUpdatePrimaryDisplayWnf.c)
+ *     TtmiSessionDeviceListWorker @ 0x1409A2F10 (TtmiSessionDeviceListWorker.c)
+ *     TtmpCallAssignedToTerminal @ 0x1409A31DC (TtmpCallAssignedToTerminal.c)
+ *     TtmpCallSetBuiltinPanelState @ 0x1409A3278 (TtmpCallSetBuiltinPanelState.c)
+ *     TtmpCallSetDisplayState @ 0x1409A32F8 (TtmpCallSetDisplayState.c)
+ *     TtmpCallSetInputMode @ 0x1409A33A8 (TtmpCallSetInputMode.c)
+ *     TtmpUpdatePrimaryDisplayWnf @ 0x1409A3FFC (TtmpUpdatePrimaryDisplayWnf.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x14023D410 (ExReleaseResourceLite.c)
- *     TtmpCalloutArmWatchdog @ 0x1409A3248 (TtmpCalloutArmWatchdog.c)
- *     TtmpCalloutCreateWatchdog @ 0x1409A32EC (TtmpCalloutCreateWatchdog.c)
- *     TtmpGetCalloutTagFromCalloutType @ 0x1409A36F4 (TtmpGetCalloutTagFromCalloutType.c)
- *     TtmpInitializeWatchdogTimeouts @ 0x1409A386C (TtmpInitializeWatchdogTimeouts.c)
- *     TtmiLogCalloutStart @ 0x1409A6BEC (TtmiLogCalloutStart.c)
+ *     KeLeaveCriticalRegion @ 0x140231550 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x14023D4E0 (ExReleaseResourceLite.c)
+ *     TtmpCalloutArmWatchdog @ 0x1409A3448 (TtmpCalloutArmWatchdog.c)
+ *     TtmpCalloutCreateWatchdog @ 0x1409A34EC (TtmpCalloutCreateWatchdog.c)
+ *     TtmpGetCalloutTagFromCalloutType @ 0x1409A38F4 (TtmpGetCalloutTagFromCalloutType.c)
+ *     TtmpInitializeWatchdogTimeouts @ 0x1409A3A6C (TtmpInitializeWatchdogTimeouts.c)
+ *     TtmiLogCalloutStart @ 0x1409A6DEC (TtmiLogCalloutStart.c)
  */
 
 __int64 __fastcall TtmpStartCallout(__int64 a1, int *a2, __int64 a3, int a4, __int64 a5, unsigned int a6)

@@ -31,15 +31,15 @@ void __fastcall MiLockPagableImageSection(ULONG_PTR BugCheckParameter2, ULONG_PT
   _QWORD *v4; // rdi
   _QWORD *v5; // rax
   ULONG_PTR v6; // r8
-  __int64 v7; // rsi
-  __int64 v8; // r8
+  char *v7; // rsi
+  PIMAGE_NT_HEADERS v8; // r8
   ULONG_PTR BugCheckParameter4; // r10
   __int64 v10; // rdx
   __int64 v11; // r9
   __int64 v12; // rcx
   unsigned int v13; // eax
   unsigned __int64 v14; // r11
-  unsigned __int64 v15; // r10
+  unsigned __int64 SectionAlignment; // r10
   __int64 v16; // rdx
   unsigned __int64 v17; // r9
   unsigned __int8 v18; // [rsp+50h] [rbp+8h] BYREF
@@ -76,10 +76,10 @@ LABEL_10:
   MmUnlockLoadedModuleListShared(v18);
   if ( !v4 )
     KeBugCheckEx(0x1Au, 0x1012uLL, BugCheckParameter2, v2, 0LL);
-  v7 = v4[6];
+  v7 = (char *)v4[6];
   v8 = RtlImageNtHeader(v7);
-  BugCheckParameter4 = *(unsigned __int16 *)(v8 + 6);
-  v10 = (__int64)(BugCheckParameter2 - *(unsigned __int16 *)(v8 + 20) - v8 - 24) / 40;
+  BugCheckParameter4 = v8->FileHeader.NumberOfSections;
+  v10 = (__int64)(BugCheckParameter2 - v8->FileHeader.SizeOfOptionalHeader - (_QWORD)v8 - 24) / 40;
   if ( (unsigned int)v10 >= (unsigned int)BugCheckParameter4 )
     KeBugCheckEx(0x1Au, 0x1013uLL, BugCheckParameter2 | v2, (unsigned int)v10, BugCheckParameter4);
   v11 = *(unsigned int *)(BugCheckParameter2 + 16);
@@ -87,12 +87,12 @@ LABEL_10:
   v13 = *(_DWORD *)(BugCheckParameter2 + 8);
   if ( (unsigned int)v11 < v13 )
     v11 = v13;
-  v14 = v7 + *(unsigned int *)(BugCheckParameter2 + 12);
-  v15 = *(unsigned int *)(v8 + 56);
+  v14 = (unsigned __int64)&v7[*(unsigned int *)(BugCheckParameter2 + 12)];
+  SectionAlignment = v8->OptionalHeader.SectionAlignment;
   v16 = ((v14 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
-  if ( v15 > 0x1000 )
-    v15 = 4096LL;
-  v17 = (((~(v15 - 1) & (v14 + v15 + v11 - 1)) + 4095) >> 9) & 0x7FFFFFFFF8LL;
+  if ( SectionAlignment > 0x1000 )
+    SectionAlignment = 4096LL;
+  v17 = (((~(SectionAlignment - 1) & (v14 + SectionAlignment + v11 - 1)) + 4095) >> 9) & 0x7FFFFFFFF8LL;
   if ( (_DWORD)v2 == 1 )
     MiLockImageSection(v4, v12, v16, v17 - 0x98000000008LL);
   else

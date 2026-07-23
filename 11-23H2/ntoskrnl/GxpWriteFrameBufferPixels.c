@@ -1,17 +1,17 @@
 /*
- * XREFs of GxpWriteFrameBufferPixels @ 0x1403852DC
+ * XREFs of GxpWriteFrameBufferPixels @ 0x1403854BC
  * Callers:
- *     BgpGxDrawRectangle @ 0x14038524C (BgpGxDrawRectangle.c)
+ *     BgpGxDrawRectangle @ 0x14038542C (BgpGxDrawRectangle.c)
  * Callees:
- *     BgpGetBitsPerPixel @ 0x140385500 (BgpGetBitsPerPixel.c)
- *     GxpAdjustRectangleToFrameBuffer @ 0x140385528 (GxpAdjustRectangleToFrameBuffer.c)
- *     BgpGxConvertRectangleEx @ 0x140385A9C (BgpGxConvertRectangleEx.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     memset @ 0x140435A00 (memset.c)
- *     BgfxGrowDirtyRect @ 0x140671E28 (BgfxGrowDirtyRect.c)
- *     GxpGetRotatedPixelOffset @ 0x140671ED8 (GxpGetRotatedPixelOffset.c)
+ *     BgpGetBitsPerPixel @ 0x1403856E0 (BgpGetBitsPerPixel.c)
+ *     GxpAdjustRectangleToFrameBuffer @ 0x140385708 (GxpAdjustRectangleToFrameBuffer.c)
+ *     BgpGxConvertRectangleEx @ 0x140385C7C (BgpGxConvertRectangleEx.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     BgfxGrowDirtyRect @ 0x140672378 (BgfxGrowDirtyRect.c)
+ *     GxpGetRotatedPixelOffset @ 0x140672428 (GxpGetRotatedPixelOffset.c)
  *     BgpGxRectangleDestroy @ 0x140AEDA70 (BgpGxRectangleDestroy.c)
  */
 

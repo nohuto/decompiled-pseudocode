@@ -1,11 +1,11 @@
 /*
- * XREFs of PnpTraceRequestDeviceRemovalForReset @ 0x140732DD8
+ * XREFs of PnpTraceRequestDeviceRemovalForReset @ 0x140730DE8
  * Callers:
- *     PiProcessDeviceResetAction @ 0x1405A4CD8 (PiProcessDeviceResetAction.c)
+ *     PiProcessDeviceResetAction @ 0x1405A1C18 (PiProcessDeviceResetAction.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 void __fastcall PnpTraceRequestDeviceRemovalForReset(__int64 a1, int a2)
@@ -74,7 +74,7 @@ void __fastcall PnpTraceRequestDeviceRemovalForReset(__int64 a1, int a2)
     v9 = v6;
     tlgWriteTransfer_EtwWriteTransfer(
       (__int64)&dword_140E06FA8,
-      (unsigned __int8 *)&word_140046BD6,
+      (unsigned __int8 *)byte_140047035,
       0LL,
       0LL,
       0xAu,

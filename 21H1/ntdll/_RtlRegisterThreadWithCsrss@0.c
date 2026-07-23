@@ -7,9 +7,9 @@
  *     @__security_check_cookie@4 @ 0x4B2F4B20 (@__security_check_cookie@4.c)
  */
 
-int __stdcall RtlRegisterThreadWithCsrss()
+NTSTATUS RtlRegisterThreadWithCsrss(void)
 {
-  int v0; // edx
+  NTSTATUS v0; // edx
   _DWORD v2[11]; // [esp+8h] [ebp-1F0h] BYREF
   _CLIENT_ID ClientId; // [esp+34h] [ebp-1C4h]
 

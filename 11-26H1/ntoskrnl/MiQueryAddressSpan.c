@@ -1,15 +1,15 @@
 /*
- * XREFs of MiQueryAddressSpan @ 0x140304F70
+ * XREFs of MiQueryAddressSpan @ 0x1402E6FF0
  * Callers:
- *     MmQueryVirtualMemory @ 0x14091F870 (MmQueryVirtualMemory.c)
+ *     MmQueryVirtualMemory @ 0x1409243E0 (MmQueryVirtualMemory.c)
  * Callees:
- *     KeShouldYieldProcessor @ 0x1402D49D0 (KeShouldYieldProcessor.c)
- *     MiUnlockWorkingSetShared @ 0x1402EB6C0 (MiUnlockWorkingSetShared.c)
- *     MiLockWorkingSetShared @ 0x1402EDD60 (MiLockWorkingSetShared.c)
- *     MiQueryAddressState @ 0x140305180 (MiQueryAddressState.c)
- *     MiWorkingSetIsContended @ 0x1403182D0 (MiWorkingSetIsContended.c)
- *     MiQueryReturnResults @ 0x140920250 (MiQueryReturnResults.c)
- *     MiInitializeQueryBasicInfo @ 0x140B12F6C (MiInitializeQueryBasicInfo.c)
+ *     KeShouldYieldProcessor @ 0x1402B6790 (KeShouldYieldProcessor.c)
+ *     MiUnlockWorkingSetShared @ 0x1402CD700 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x1402CFDE0 (MiLockWorkingSetShared.c)
+ *     MiQueryAddressState @ 0x1402E7200 (MiQueryAddressState.c)
+ *     MiWorkingSetIsContended @ 0x14031A300 (MiWorkingSetIsContended.c)
+ *     MiQueryReturnResults @ 0x140923994 (MiQueryReturnResults.c)
+ *     MiInitializeQueryBasicInfo @ 0x140B14E0C (MiInitializeQueryBasicInfo.c)
  */
 
 __int64 __fastcall MiQueryAddressSpan(_QWORD *a1)

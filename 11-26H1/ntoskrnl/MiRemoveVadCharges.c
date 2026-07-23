@@ -1,18 +1,18 @@
 /*
- * XREFs of MiRemoveVadCharges @ 0x14095C7D4
+ * XREFs of MiRemoveVadCharges @ 0x140A02094
  * Callers:
- *     MiFinishVadDeletion @ 0x140442CA8 (MiFinishVadDeletion.c)
+ *     MiFinishVadDeletion @ 0x14043B7B8 (MiFinishVadDeletion.c)
  * Callees:
- *     MiReturnCommit @ 0x14036D2B0 (MiReturnCommit.c)
- *     MiReturnResident @ 0x14036E2C0 (MiReturnResident.c)
- *     MiIsVadLarge @ 0x1403A6ED0 (MiIsVadLarge.c)
- *     MiGetSharedVm @ 0x140449C60 (MiGetSharedVm.c)
- *     MiGetProcessPartition @ 0x14044C0C0 (MiGetProcessPartition.c)
- *     MiReadVadFlags @ 0x1404655D0 (MiReadVadFlags.c)
- *     MiFillCommitReturnInfo @ 0x1404748C0 (MiFillCommitReturnInfo.c)
- *     MiReturnFullProcessCharges @ 0x1404C9B60 (MiReturnFullProcessCharges.c)
- *     MiReleaseVadEventBlocks @ 0x14095C4CC (MiReleaseVadEventBlocks.c)
- *     MiResidentPagesForSpan @ 0x14095DF90 (MiResidentPagesForSpan.c)
+ *     MiReturnCommit @ 0x14036F050 (MiReturnCommit.c)
+ *     MiReturnResident @ 0x140370060 (MiReturnResident.c)
+ *     MiIsVadLarge @ 0x1403A8C30 (MiIsVadLarge.c)
+ *     MiGetSharedVm @ 0x140441D90 (MiGetSharedVm.c)
+ *     MiGetProcessPartition @ 0x1404441E0 (MiGetProcessPartition.c)
+ *     MiReadVadFlags @ 0x14045E590 (MiReadVadFlags.c)
+ *     MiFillCommitReturnInfo @ 0x14046E040 (MiFillCommitReturnInfo.c)
+ *     MiReturnFullProcessCharges @ 0x1404C3598 (MiReturnFullProcessCharges.c)
+ *     MiReleaseVadEventBlocks @ 0x140A01D8C (MiReleaseVadEventBlocks.c)
+ *     MiResidentPagesForSpan @ 0x140A03850 (MiResidentPagesForSpan.c)
  */
 
 _QWORD *__fastcall MiRemoveVadCharges(__int64 a1, __int64 a2)

@@ -1,14 +1,14 @@
 /*
- * XREFs of ExEnterPriorityRegionAndAcquireResourceShared @ 0x1400659A0
+ * XREFs of ExEnterPriorityRegionAndAcquireResourceShared @ 0x140065520
  * Callers:
  *     <none>
  * Callees:
- *     KeAbProcessEffectiveIoPriorityChange @ 0x140062420 (KeAbProcessEffectiveIoPriorityChange.c)
- *     ExAcquireResourceSharedLite @ 0x1400685B0 (ExAcquireResourceSharedLite.c)
- *     RtlCaptureStackBackTrace @ 0x140084730 (RtlCaptureStackBackTrace.c)
- *     KeReleaseSpinLock @ 0x1400E9A70 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1400EFE30 (KeAcquireSpinLockRaiseToDpc.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     KeAbProcessEffectiveIoPriorityChange @ 0x140061FA0 (KeAbProcessEffectiveIoPriorityChange.c)
+ *     ExAcquireResourceSharedLite @ 0x140068130 (ExAcquireResourceSharedLite.c)
+ *     RtlCaptureStackBackTrace @ 0x140082890 (RtlCaptureStackBackTrace.c)
+ *     KeReleaseSpinLock @ 0x1400EB600 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1400EDCB0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */
 

@@ -1,7 +1,7 @@
 /*
- * XREFs of KiAllocateLocalSharedReadyQueue @ 0x140376DF0
+ * XREFs of KiAllocateLocalSharedReadyQueue @ 0x140376F90
  * Callers:
- *     KiStartDynamicProcessor @ 0x140973808 (KiStartDynamicProcessor.c)
+ *     KiStartDynamicProcessor @ 0x140973A08 (KiStartDynamicProcessor.c)
  *     KeStartAllProcessors @ 0x140B47590 (KeStartAllProcessors.c)
  * Callees:
  *     ExAllocatePool3 @ 0x140AAE430 (ExAllocatePool3.c)

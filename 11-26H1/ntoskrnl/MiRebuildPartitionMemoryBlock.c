@@ -1,11 +1,11 @@
 /*
- * XREFs of MiRebuildPartitionMemoryBlock @ 0x1407095C0
+ * XREFs of MiRebuildPartitionMemoryBlock @ 0x14070E274
  * Callers:
- *     MiGetPhysicalMemoryRanges @ 0x1408663A4 (MiGetPhysicalMemoryRanges.c)
+ *     MiGetPhysicalMemoryRanges @ 0x14086C784 (MiGetPhysicalMemoryRanges.c)
  * Callees:
- *     MiLockDynamicMemoryExclusive @ 0x1405278F0 (MiLockDynamicMemoryExclusive.c)
- *     MiUnlockDynamicMemoryExclusive @ 0x14052A718 (MiUnlockDynamicMemoryExclusive.c)
- *     MiMakePartitionMemoryBlock @ 0x14087C5D4 (MiMakePartitionMemoryBlock.c)
+ *     MiLockDynamicMemoryExclusive @ 0x140529F60 (MiLockDynamicMemoryExclusive.c)
+ *     MiUnlockDynamicMemoryExclusive @ 0x14052CC38 (MiUnlockDynamicMemoryExclusive.c)
+ *     MiMakePartitionMemoryBlock @ 0x1408829D4 (MiMakePartitionMemoryBlock.c)
  */
 
 _BOOL8 __fastcall MiRebuildPartitionMemoryBlock(__int64 a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)

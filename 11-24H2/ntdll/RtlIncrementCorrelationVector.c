@@ -1,45 +1,46 @@
 /*
- * XREFs of RtlIncrementCorrelationVector @ 0x1800F63E0
+ * XREFs of RtlIncrementCorrelationVector @ 0x1800F0940
  * Callers:
  *     <none>
  * Callees:
- *     RtlValidateCorrelationVector @ 0x1800F64D0 (RtlValidateCorrelationVector.c)
- *     RtlpGetCorrelationVectorBufferLength @ 0x1800F6674 (RtlpGetCorrelationVectorBufferLength.c)
- *     RtlpGetCorrelationVectorLastDotPosition @ 0x1800F6698 (RtlpGetCorrelationVectorLastDotPosition.c)
- *     _snprintf_s @ 0x18012CD50 (_snprintf_s.c)
- *     sscanf_s @ 0x18012D8E0 (sscanf_s.c)
- *     strcpy_s @ 0x18012D9D0 (strcpy_s.c)
- *     __security_check_cookie @ 0x1801659C0 (__security_check_cookie.c)
+ *     RtlValidateCorrelationVector @ 0x1800F0A30 (RtlValidateCorrelationVector.c)
+ *     RtlpGetCorrelationVectorBufferLength @ 0x1800F0BD4 (RtlpGetCorrelationVectorBufferLength.c)
+ *     RtlpGetCorrelationVectorLastDotPosition @ 0x1800F0BF8 (RtlpGetCorrelationVectorLastDotPosition.c)
+ *     _snprintf_s @ 0x18012AF80 (_snprintf_s.c)
+ *     sscanf_s @ 0x18012BB10 (sscanf_s.c)
+ *     strcpy_s @ 0x18012BC00 (strcpy_s.c)
+ *     __security_check_cookie @ 0x180163D80 (__security_check_cookie.c)
  */
 
-__int64 __fastcall RtlIncrementCorrelationVector(__int64 a1)
+DWORD __cdecl RtlIncrementCorrelationVector(PCORRELATION_VECTOR CorrelationVector)
 {
   int CorrelationVectorBufferLength; // ebp
-  int v3; // ebx
+  PCORRELATION_VECTOR v3; // rcx
+  int v4; // ebx
   int CorrelationVectorLastDotPosition; // eax
-  int v5; // esi
-  __int64 v7; // rdi
-  int v8; // eax
-  int v9; // [rsp+30h] [rbp-28h] BYREF
+  int v6; // esi
+  CHAR *v8; // rdi
+  int v9; // eax
+  int v10; // [rsp+30h] [rbp-28h] BYREF
   char Buffer[16]; // [rsp+38h] [rbp-20h] BYREF
 
-  v9 = 0;
+  v10 = 0;
   CorrelationVectorBufferLength = RtlpGetCorrelationVectorBufferLength();
-  v3 = RtlValidateCorrelationVector();
-  if ( v3 >= 0 )
+  v4 = RtlValidateCorrelationVector(v3);
+  if ( v4 >= 0 )
   {
-    CorrelationVectorLastDotPosition = RtlpGetCorrelationVectorLastDotPosition(a1);
-    v5 = CorrelationVectorLastDotPosition;
+    CorrelationVectorLastDotPosition = RtlpGetCorrelationVectorLastDotPosition(CorrelationVector);
+    v6 = CorrelationVectorLastDotPosition;
     if ( CorrelationVectorLastDotPosition >= 0
-      && (v7 = CorrelationVectorLastDotPosition + 1 + a1, sscanf_s((const char *const)(v7 + 1), "%d", &v9) == 1)
-      && (++v9, v8 = snprintf_s(Buffer, 0xCuLL, 0xCuLL, "%d", v9), v8 < CorrelationVectorBufferLength - v5 - 2) )
+      && (v8 = &CorrelationVector->Vector[CorrelationVectorLastDotPosition], sscanf_s(v8 + 1, "%d", &v10) == 1)
+      && (++v10, v9 = snprintf_s(Buffer, 0xCuLL, 0xCuLL, "%d", v10), v9 < CorrelationVectorBufferLength - v6 - 2) )
     {
-      strcpy_s((char *)(v7 + 1), v8 + 1, Buffer);
+      strcpy_s(v8 + 1, v9 + 1, Buffer);
     }
     else
     {
-      return (unsigned int)-2147483643;
+      return -2147483643;
     }
   }
-  return (unsigned int)v3;
+  return v4;
 }

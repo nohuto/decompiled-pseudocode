@@ -1,7 +1,7 @@
 /*
- * XREFs of PiIommuGetDmaRemappingPolicy @ 0x1405DD45C
+ * XREFs of PiIommuGetDmaRemappingPolicy @ 0x1405DFDCC
  * Callers:
- *     PiDmaGuardProcessPreAddDevice @ 0x140915648 (PiDmaGuardProcessPreAddDevice.c)
+ *     PiDmaGuardProcessPreAddDevice @ 0x1409700B4 (PiDmaGuardProcessPreAddDevice.c)
  * Callees:
  *     <none>
  */

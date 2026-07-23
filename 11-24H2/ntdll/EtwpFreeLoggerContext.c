@@ -1,101 +1,99 @@
 /*
- * XREFs of EtwpFreeLoggerContext @ 0x18008EA0C
+ * XREFs of EtwpFreeLoggerContext @ 0x1800AA48C
  * Callers:
- *     EtwpStopUmLogger @ 0x18008C4B4 (EtwpStopUmLogger.c)
- *     EtwpStartUmLogger @ 0x18008CCDC (EtwpStartUmLogger.c)
- *     EtwpLogger @ 0x18008DC40 (EtwpLogger.c)
+ *     EtwpStopUmLogger @ 0x1800A7F74 (EtwpStopUmLogger.c)
+ *     EtwpStartUmLogger @ 0x1800A879C (EtwpStartUmLogger.c)
+ *     EtwpLogger @ 0x1800A9700 (EtwpLogger.c)
  * Callees:
- *     RtlFreeHeap @ 0x1800269F0 (RtlFreeHeap.c)
- *     EtwpFreeStreamIndexMap @ 0x18008E9CC (EtwpFreeStreamIndexMap.c)
- *     RtlDeleteCriticalSection @ 0x18008FEC0 (RtlDeleteCriticalSection.c)
- *     RtlFreeAnsiString @ 0x1800B4B90 (RtlFreeAnsiString.c)
- *     EtwpShutdownCompression @ 0x180111430 (EtwpShutdownCompression.c)
- *     NtClose @ 0x180161E70 (NtClose.c)
- *     ZwFreeVirtualMemory @ 0x180162050 (ZwFreeVirtualMemory.c)
- *     ZwDelayExecution @ 0x180162310 (ZwDelayExecution.c)
+ *     RtlDeleteCriticalSection @ 0x180027610 (RtlDeleteCriticalSection.c)
+ *     RtlFreeHeap @ 0x1800533F0 (RtlFreeHeap.c)
+ *     RtlFreeAnsiString @ 0x180081430 (RtlFreeAnsiString.c)
+ *     EtwpFreeStreamIndexMap @ 0x1800AA6EC (EtwpFreeStreamIndexMap.c)
+ *     EtwpShutdownCompression @ 0x18010C83C (EtwpShutdownCompression.c)
+ *     NtClose @ 0x180160230 (NtClose.c)
+ *     ZwFreeVirtualMemory @ 0x180160410 (ZwFreeVirtualMemory.c)
+ *     ZwDelayExecution @ 0x1801606D0 (ZwDelayExecution.c)
  */
 
-__int64 __fastcall EtwpFreeLoggerContext(unsigned __int64 a1)
+LOGICAL __fastcall EtwpFreeLoggerContext(unsigned int *BaseAddress)
 {
   __int64 v1; // rdx
-  _QWORD *v3; // rdi
-  unsigned __int64 v4; // r8
-  _QWORD *v5; // rdi
-  unsigned __int64 v6; // r8
-  unsigned __int64 v7; // r8
-  unsigned __int64 v8; // r8
-  unsigned __int64 v9; // r8
-  unsigned __int64 v11; // rbp
-  _QWORD *v12; // r14
+  unsigned int *v3; // rdi
+  unsigned int *v4; // r8
+  unsigned int *v5; // rdi
+  void *v6; // r8
+  void *v7; // r8
+  void *v8; // r8
+  void *v9; // r8
+  unsigned int *v11; // rbp
+  unsigned int *v12; // r14
   void *ProcessHeap; // rcx
-  unsigned __int64 v14; // r8
-  int v15; // [rsp+50h] [rbp+8h] BYREF
-  int v16; // [rsp+54h] [rbp+Ch]
-  __int64 v17; // [rsp+58h] [rbp+10h] BYREF
+  unsigned int *v14; // r8
+  LARGE_INTEGER DelayInterval; // [rsp+50h] [rbp+8h] BYREF
+  ULONG_PTR RegionSize; // [rsp+58h] [rbp+10h] BYREF
 
-  v16 = -1;
-  v1 = *(unsigned int *)(a1 + 20);
-  v15 = -3000000;
+  v1 = BaseAddress[5];
+  DelayInterval.QuadPart = -3000000LL;
   if ( *(int *)(EtwpLoggerArray + 16 * v1 + 8) > 1 )
   {
     do
-      ZwDelayExecution(0LL, &v15);
-    while ( *(int *)(EtwpLoggerArray + 16LL * *(unsigned int *)(a1 + 20) + 8) > 1 );
+      ZwDelayExecution(0, &DelayInterval);
+    while ( *(int *)(EtwpLoggerArray + 16LL * BaseAddress[5] + 8) > 1 );
   }
-  if ( (*(_DWORD *)(a1 + 308) & 0x4000000) != 0 )
-    EtwpShutdownCompression(a1);
-  if ( *(_QWORD *)(a1 + 408) )
+  if ( (BaseAddress[77] & 0x4000000) != 0 )
+    EtwpShutdownCompression(BaseAddress);
+  if ( *((_QWORD *)BaseAddress + 51) )
   {
-    v17 = 0LL;
-    ZwFreeVirtualMemory(-1LL, a1 + 408, &v17, 0x8000LL);
+    RegionSize = 0LL;
+    ZwFreeVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, (PVOID *)BaseAddress + 51, &RegionSize, 0x8000u);
   }
-  NtClose(*(HANDLE *)(a1 + 120));
-  NtClose(*(HANDLE *)(a1 + 112));
-  RtlDeleteCriticalSection(a1 + 72);
-  if ( *(_QWORD *)(a1 + 144) )
-    RtlFreeAnsiString((PUNICODE_STRING)(a1 + 136));
-  if ( *(_QWORD *)(a1 + 160) )
-    RtlFreeAnsiString((PUNICODE_STRING)(a1 + 152));
-  if ( *(_QWORD *)(a1 + 176) )
-    RtlFreeAnsiString((PUNICODE_STRING)(a1 + 168));
-  v3 = *(_QWORD **)(a1 + 448);
-  while ( v3 != (_QWORD *)(a1 + 448) )
+  NtClose(*((HANDLE *)BaseAddress + 15));
+  NtClose(*((HANDLE *)BaseAddress + 14));
+  RtlDeleteCriticalSection((PRTL_CRITICAL_SECTION)(BaseAddress + 18));
+  if ( *((_QWORD *)BaseAddress + 18) )
+    RtlFreeAnsiString((PUNICODE_STRING)(BaseAddress + 34));
+  if ( *((_QWORD *)BaseAddress + 20) )
+    RtlFreeAnsiString((PUNICODE_STRING)(BaseAddress + 38));
+  if ( *((_QWORD *)BaseAddress + 22) )
+    RtlFreeAnsiString((PUNICODE_STRING)(BaseAddress + 42));
+  v3 = (unsigned int *)*((_QWORD *)BaseAddress + 56);
+  while ( v3 != BaseAddress + 112 )
   {
-    v4 = (unsigned __int64)v3;
-    v3 = (_QWORD *)*v3;
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v4);
+    v4 = v3;
+    v3 = *(unsigned int **)v3;
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v4);
   }
-  v5 = *(_QWORD **)(a1 + 464);
-  while ( v5 != (_QWORD *)(a1 + 464) )
+  v5 = (unsigned int *)*((_QWORD *)BaseAddress + 58);
+  while ( v5 != BaseAddress + 116 )
   {
-    v11 = (unsigned __int64)v5;
-    v12 = (_QWORD *)v5[3];
+    v11 = v5;
+    v12 = (unsigned int *)*((_QWORD *)v5 + 3);
     while ( 1 )
     {
       ProcessHeap = NtCurrentPeb()->ProcessHeap;
-      if ( v12 == v5 + 3 )
+      if ( v12 == v5 + 6 )
         break;
-      v14 = (unsigned __int64)v12;
-      v12 = (_QWORD *)*v12;
-      RtlFreeHeap((__int64)ProcessHeap, 0, v14);
+      v14 = v12;
+      v12 = *(unsigned int **)v12;
+      RtlFreeHeap(ProcessHeap, 0, v14);
     }
-    v5 = (_QWORD *)*v5;
-    RtlFreeHeap((__int64)ProcessHeap, 0, v11);
+    v5 = *(unsigned int **)v5;
+    RtlFreeHeap(ProcessHeap, 0, v11);
   }
-  v6 = *(_QWORD *)(a1 + 496);
+  v6 = (void *)*((_QWORD *)BaseAddress + 62);
   if ( v6 )
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v6);
-  v7 = *(_QWORD *)(a1 + 504);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v6);
+  v7 = (void *)*((_QWORD *)BaseAddress + 63);
   if ( v7 )
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v7);
-  v8 = *(_QWORD *)(a1 + 520);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v7);
+  v8 = (void *)*((_QWORD *)BaseAddress + 65);
   if ( v8 )
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v8);
-  v9 = *(_QWORD *)(a1 + 536);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v8);
+  v9 = (void *)*((_QWORD *)BaseAddress + 67);
   if ( v9 )
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v9);
-  EtwpFreeStreamIndexMap(a1);
-  _InterlockedExchange64((volatile __int64 *)(EtwpLoggerArray + 16LL * *(unsigned int *)(a1 + 20)), 1LL);
-  _InterlockedDecrement((volatile signed __int32 *)(EtwpLoggerArray + 16LL * *(unsigned int *)(a1 + 20) + 8));
-  return RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, a1);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v9);
+  EtwpFreeStreamIndexMap(BaseAddress);
+  _InterlockedExchange64((volatile __int64 *)(EtwpLoggerArray + 16LL * BaseAddress[5]), 1LL);
+  _InterlockedDecrement((volatile signed __int32 *)(EtwpLoggerArray + 16LL * BaseAddress[5] + 8));
+  return RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, BaseAddress);
 }

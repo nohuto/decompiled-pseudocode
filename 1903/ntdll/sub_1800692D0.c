@@ -10,7 +10,7 @@
  *     sub_1800CE318 @ 0x1800CE318 (sub_1800CE318.c)
  */
 
-__int64 *sub_1800692D0()
+int sub_1800692D0()
 {
   __int64 *v0; // rcx
   __int64 v1; // rbx
@@ -20,26 +20,26 @@ __int64 *sub_1800692D0()
   __int64 *v5; // rsi
   __int64 *v6; // rdi
   __int64 v7; // rax
-  __int64 *result; // rax
+  __int64 *v8; // rax
   char v9; // al
-  int v10; // [rsp+30h] [rbp-99h]
-  _QWORD v11[24]; // [rsp+40h] [rbp-89h] BYREF
-  char v12; // [rsp+130h] [rbp+67h] BYREF
-  unsigned int v13; // [rsp+138h] [rbp+6Fh] BYREF
+  int v11; // [rsp+30h] [rbp-99h]
+  _QWORD v12[24]; // [rsp+40h] [rbp-89h] BYREF
+  char v13; // [rsp+130h] [rbp+67h] BYREF
+  NTSTATUS ExitStatus; // [rsp+138h] [rbp+6Fh] BYREF
 
-  memset(v11, 0, sizeof(v11));
+  memset(v12, 0, sizeof(v12));
   v0 = (__int64 *)qword_1801653D0;
-  v11[5] = &v13;
-  LODWORD(v11[4]) = 0x80000;
+  v12[5] = &ExitStatus;
+  LODWORD(v12[4]) = 0x80000;
   while ( v0 != &qword_1801653D0 )
   {
     if ( *(_DWORD *)(v0[19] + 56) == 7 && !v0[22] )
-      v0[22] = (__int64)v11;
+      v0[22] = (__int64)v12;
     v0 = (__int64 *)*v0;
   }
   v1 = qword_1801653D0;
   v2 = 0LL;
-  v13 = 0;
+  ExitStatus = 0;
   v3 = 0LL;
   while ( 1 )
   {
@@ -65,10 +65,10 @@ LABEL_10:
       v7 = v6[1];
       if ( *(_DWORD *)(v7 + 56) == 7 )
       {
-        v12 = 0;
-        v13 = sub_180069778(v7, &v13, &v12);
-        v2 = v13;
-        if ( (v13 & 0x80000000) != 0 )
+        v13 = 0;
+        ExitStatus = sub_180069778(v7, &ExitStatus, &v13);
+        v2 = (unsigned int)ExitStatus;
+        if ( ExitStatus < 0 )
           goto LABEL_18;
         goto LABEL_16;
       }
@@ -80,27 +80,27 @@ LABEL_16:
       goto LABEL_10;
   }
   v2 = 3221225794LL;
-  v13 = -1073741502;
+  ExitStatus = -1073741502;
 LABEL_18:
-  result = (__int64 *)qword_1801653D0;
+  v8 = (__int64 *)qword_1801653D0;
   if ( (__int64 *)qword_1801653D0 != &qword_1801653D0 )
   {
     do
     {
-      v3 = (__int64)result;
-      if ( (_QWORD *)result[22] == v11 )
-        result[22] = 0LL;
-      result = (__int64 *)*result;
+      v3 = (__int64)v8;
+      if ( (_QWORD *)v8[22] == v12 )
+        v8[22] = 0LL;
+      v8 = (__int64 *)*v8;
     }
-    while ( result != &qword_1801653D0 );
-    v2 = v13;
+    while ( v8 != &qword_1801653D0 );
+    v2 = (unsigned int)ExitStatus;
   }
   if ( (int)v2 < 0 )
   {
     v9 = dword_18015FAB0;
     if ( (dword_18015FAB0 & 3) != 0 )
     {
-      v10 = v2;
+      v11 = v2;
       sub_1800CE318(
         (unsigned int)"minkernel\\ntdll\\ldrinit.c",
         2537,
@@ -108,14 +108,14 @@ LABEL_18:
         0,
         (__int64)"Initializing a shim dependency \"%wZ\" failed with status 0x%08lx\n",
         v3 + 72,
-        v10);
-      v2 = v13;
+        v11);
+      v2 = (unsigned int)ExitStatus;
       v9 = dword_18015FAB0;
     }
     if ( (v9 & 0x10) != 0 )
       __debugbreak();
     sub_180089150(v2);
-    return (__int64 *)ZwTerminateProcess(-1LL, v13);
+    LODWORD(v8) = ZwTerminateProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, ExitStatus);
   }
-  return result;
+  return (int)v8;
 }

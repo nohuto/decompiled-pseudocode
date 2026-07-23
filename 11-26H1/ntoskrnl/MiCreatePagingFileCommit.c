@@ -1,14 +1,14 @@
 /*
- * XREFs of MiCreatePagingFileCommit @ 0x1409B8504
+ * XREFs of MiCreatePagingFileCommit @ 0x1409894E4
  * Callers:
- *     MiCreatePagingFileMap @ 0x1409B88BC (MiCreatePagingFileMap.c)
+ *     MiCreatePagingFileMap @ 0x14098989C (MiCreatePagingFileMap.c)
  * Callees:
- *     MiInitializeDemandCoalesceContext @ 0x140206AD0 (MiInitializeDemandCoalesceContext.c)
- *     MiChargeCommit @ 0x1402F64A0 (MiChargeCommit.c)
- *     MiThreadIdealNode @ 0x14030EB24 (MiThreadIdealNode.c)
- *     MiChargeResident @ 0x1403185A0 (MiChargeResident.c)
- *     MiAllocateLargeZeroPages @ 0x1403C673C (MiAllocateLargeZeroPages.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     MiInitializeDemandCoalesceContext @ 0x140206BB0 (MiInitializeDemandCoalesceContext.c)
+ *     MiChargeCommit @ 0x1402D8520 (MiChargeCommit.c)
+ *     MiThreadIdealNode @ 0x1402F0BA4 (MiThreadIdealNode.c)
+ *     MiChargeResident @ 0x14031A5D0 (MiChargeResident.c)
+ *     MiAllocateLargeZeroPages @ 0x1403D0630 (MiAllocateLargeZeroPages.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall MiCreatePagingFileCommit(__int64 a1)
@@ -58,7 +58,7 @@ __int64 __fastcall MiCreatePagingFileCommit(__int64 a1)
     v13 = v1;
     v15 = v7;
     v12[1] = v2;
-    v8 = (int *)(qword_140E2D690 + 4LL * v7 * (unsigned int)(unsigned __int16)KeNumberNodes);
+    v8 = (int *)(qword_140E2D810 + 4LL * v7 * (unsigned int)(unsigned __int16)KeNumberNodes);
     v14 = 512LL;
     v9 = &v8[(unsigned __int16)KeNumberNodes];
     v16 = v3[8];

@@ -1,15 +1,15 @@
 /*
- * XREFs of ObCheckCreateObjectAccess @ 0x1406C4F10
+ * XREFs of ObCheckCreateObjectAccess @ 0x1406C4F40
  * Callers:
- *     ObpLookupObjectName @ 0x1406ED720 (ObpLookupObjectName.c)
+ *     ObpLookupObjectName @ 0x1406ED750 (ObpLookupObjectName.c)
  * Callees:
  *     CmSiFreeMemory @ 0x140208C40 (CmSiFreeMemory.c)
- *     SeAccessCheck @ 0x140231650 (SeAccessCheck.c)
- *     ObReleaseObjectSecurityEx @ 0x1406C30B0 (ObReleaseObjectSecurityEx.c)
- *     SeUnlockSubjectContext @ 0x1406C3130 (SeUnlockSubjectContext.c)
- *     SeLockSubjectContext @ 0x1406C3170 (SeLockSubjectContext.c)
- *     ObpGetObjectSecurity @ 0x140736220 (ObpGetObjectSecurity.c)
- *     SeAppendPrivileges @ 0x1407B63E0 (SeAppendPrivileges.c)
+ *     SeAccessCheck @ 0x140231720 (SeAccessCheck.c)
+ *     ObReleaseObjectSecurityEx @ 0x1406C30E0 (ObReleaseObjectSecurityEx.c)
+ *     SeUnlockSubjectContext @ 0x1406C3160 (SeUnlockSubjectContext.c)
+ *     SeLockSubjectContext @ 0x1406C31A0 (SeLockSubjectContext.c)
+ *     ObpGetObjectSecurity @ 0x140736410 (ObpGetObjectSecurity.c)
+ *     SeAppendPrivileges @ 0x1407B66C0 (SeAppendPrivileges.c)
  */
 
 BOOLEAN __fastcall ObCheckCreateObjectAccess(

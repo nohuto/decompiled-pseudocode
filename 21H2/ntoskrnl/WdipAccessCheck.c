@@ -1,20 +1,20 @@
 /*
- * XREFs of WdipAccessCheck @ 0x1405A5610
+ * XREFs of WdipAccessCheck @ 0x1405A5840
  * Callers:
- *     WdiUpdateSem @ 0x1405A55F0 (WdiUpdateSem.c)
+ *     WdiUpdateSem @ 0x1405A5820 (WdiUpdateSem.c)
  * Callees:
- *     SeAccessCheck @ 0x140206760 (SeAccessCheck.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     RtlLengthRequiredSid @ 0x1405DC260 (RtlLengthRequiredSid.c)
- *     RtlCreateSecurityDescriptor @ 0x140603560 (RtlCreateSecurityDescriptor.c)
- *     SeCaptureSubjectContext @ 0x140655B30 (SeCaptureSubjectContext.c)
- *     SeReleaseSubjectContext @ 0x1406568F0 (SeReleaseSubjectContext.c)
- *     RtlSetDaclSecurityDescriptor @ 0x140660500 (RtlSetDaclSecurityDescriptor.c)
- *     RtlCreateAcl @ 0x140660570 (RtlCreateAcl.c)
- *     RtlAddAccessAllowedAce @ 0x140676BE0 (RtlAddAccessAllowedAce.c)
- *     RtlInitializeSid @ 0x1406E52A0 (RtlInitializeSid.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     SeAccessCheck @ 0x1402AB090 (SeAccessCheck.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     SeCaptureSubjectContext @ 0x14064A950 (SeCaptureSubjectContext.c)
+ *     SeReleaseSubjectContext @ 0x14064B710 (SeReleaseSubjectContext.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x140655320 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateAcl @ 0x140655390 (RtlCreateAcl.c)
+ *     RtlAddAccessAllowedAce @ 0x14066A2B0 (RtlAddAccessAllowedAce.c)
+ *     RtlInitializeSid @ 0x1406BC580 (RtlInitializeSid.c)
+ *     RtlLengthRequiredSid @ 0x1406CB9E0 (RtlLengthRequiredSid.c)
+ *     RtlCreateSecurityDescriptor @ 0x1406F2C90 (RtlCreateSecurityDescriptor.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 WdipAccessCheck()
@@ -28,7 +28,7 @@ __int64 WdipAccessCheck()
   ACL *v7; // rax
   ACL *v8; // rsi
   NTSTATUS AccessStatus; // [rsp+58h] [rbp-9h] BYREF
-  struct _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+5Ch] [rbp-5h] BYREF
+  _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+5Ch] [rbp-5h] BYREF
   ACCESS_MASK GrantedAccess; // [rsp+64h] [rbp+3h] BYREF
   struct _SECURITY_SUBJECT_CONTEXT SubjectContext; // [rsp+68h] [rbp+7h] BYREF
   GENERIC_MAPPING GenericMapping; // [rsp+88h] [rbp+27h] BYREF

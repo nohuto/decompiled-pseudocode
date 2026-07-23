@@ -1,16 +1,16 @@
 /*
- * XREFs of SepCaptureUnicodeStringArray @ 0x140601510
+ * XREFs of SepCaptureUnicodeStringArray @ 0x1406F0C70
  * Callers:
- *     NtQuerySecurityAttributesToken @ 0x1406011C0 (NtQuerySecurityAttributesToken.c)
- *     SepCaptureTokenSecurityAttributesInformation @ 0x140675E78 (SepCaptureTokenSecurityAttributesInformation.c)
- *     NtSetCachedSigningLevel2 @ 0x14072A630 (NtSetCachedSigningLevel2.c)
- *     NtQuerySecurityPolicy @ 0x14091BB40 (NtQuerySecurityPolicy.c)
+ *     SepCaptureTokenSecurityAttributesInformation @ 0x140600F9C (SepCaptureTokenSecurityAttributesInformation.c)
+ *     NtQuerySecurityAttributesToken @ 0x1406F0920 (NtQuerySecurityAttributesToken.c)
+ *     NtSetCachedSigningLevel2 @ 0x14072AAE0 (NtSetCachedSigningLevel2.c)
+ *     NtQuerySecurityPolicy @ 0x14091BCA0 (NtQuerySecurityPolicy.c)
  * Callees:
- *     memmove @ 0x140413F40 (memmove.c)
- *     SeCaptureUnicodeStringStructures @ 0x140601730 (SeCaptureUnicodeStringStructures.c)
- *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     SeCaptureUnicodeStringStructures @ 0x1406F0E90 (SeCaptureUnicodeStringStructures.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BFB0 (ExRaiseDatatypeMisalignment.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall SepCaptureUnicodeStringArray(__int64 a1, unsigned int a2, __int64 a3, _QWORD *a4)

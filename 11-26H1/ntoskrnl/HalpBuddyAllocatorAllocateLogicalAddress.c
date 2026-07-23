@@ -1,18 +1,18 @@
 /*
- * XREFs of HalpBuddyAllocatorAllocateLogicalAddress @ 0x140357750
+ * XREFs of HalpBuddyAllocatorAllocateLogicalAddress @ 0x1403594F0
  * Callers:
  *     <none>
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockShared @ 0x14026CEE0 (ExReleaseSpinLockShared.c)
- *     ExAcquireSpinLockShared @ 0x1402EDF10 (ExAcquireSpinLockShared.c)
- *     HalpBuddyAllocatorDeleteSubtree @ 0x140357200 (HalpBuddyAllocatorDeleteSubtree.c)
- *     HalpBuddyAllocatorBltFindAndPop @ 0x140357B04 (HalpBuddyAllocatorBltFindAndPop.c)
- *     HalpBuddyAllocatorSplitNode @ 0x140357F00 (HalpBuddyAllocatorSplitNode.c)
- *     HalpBuddyAllocatorBltAdd @ 0x140358F80 (HalpBuddyAllocatorBltAdd.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockShared @ 0x14026C450 (ExReleaseSpinLockShared.c)
+ *     ExAcquireSpinLockShared @ 0x1402CFF90 (ExAcquireSpinLockShared.c)
+ *     HalpBuddyAllocatorDeleteSubtree @ 0x140358FA0 (HalpBuddyAllocatorDeleteSubtree.c)
+ *     HalpBuddyAllocatorBltFindAndPop @ 0x1403598A4 (HalpBuddyAllocatorBltFindAndPop.c)
+ *     HalpBuddyAllocatorSplitNode @ 0x140359CA0 (HalpBuddyAllocatorSplitNode.c)
+ *     HalpBuddyAllocatorBltAdd @ 0x14035AD20 (HalpBuddyAllocatorBltAdd.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall HalpBuddyAllocatorAllocateLogicalAddress(

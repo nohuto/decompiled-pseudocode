@@ -1,26 +1,26 @@
 /*
- * XREFs of MiChargeSegmentCommit @ 0x1409C9BB0
+ * XREFs of MiChargeSegmentCommit @ 0x14099AB90
  * Callers:
- *     MiInitializeDataVad @ 0x1409C5B30 (MiInitializeDataVad.c)
- *     MiCommitPagefileBackedSection @ 0x1409C9560 (MiCommitPagefileBackedSection.c)
- *     MiUpdateCfgSystemWideBitmapWorker @ 0x1409C9790 (MiUpdateCfgSystemWideBitmapWorker.c)
- *     MmCommitSessionMappedView @ 0x140AD5170 (MmCommitSessionMappedView.c)
+ *     MiInitializeDataVad @ 0x140996B10 (MiInitializeDataVad.c)
+ *     MiCommitPagefileBackedSection @ 0x14099A540 (MiCommitPagefileBackedSection.c)
+ *     MiUpdateCfgSystemWideBitmapWorker @ 0x14099A770 (MiUpdateCfgSystemWideBitmapWorker.c)
+ *     MmCommitSessionMappedView @ 0x140AD1F80 (MmCommitSessionMappedView.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     KiCheckForKernelApcDelivery @ 0x14027DB80 (KiCheckForKernelApcDelivery.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     MiMakeDemandZeroPte @ 0x14028B2D0 (MiMakeDemandZeroPte.c)
- *     MiChargeCommit @ 0x1402F64A0 (MiChargeCommit.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     MiReturnCommit @ 0x14036D2B0 (MiReturnCommit.c)
- *     MiGetControlAreaPartition @ 0x140457F60 (MiGetControlAreaPartition.c)
- *     MiUpdateControlAreaCommitCount @ 0x1404853D8 (MiUpdateControlAreaCommitCount.c)
- *     MiGetSubsectionCrossPartitionReferences @ 0x1404986C0 (MiGetSubsectionCrossPartitionReferences.c)
- *     MiGetSubsectionCharges @ 0x1404B69E0 (MiGetSubsectionCharges.c)
- *     MiReturnCrossPartitionSectionCharges @ 0x1404D1140 (MiReturnCrossPartitionSectionCharges.c)
- *     MiUpdateProcessSharedCommit @ 0x1409C9EE8 (MiUpdateProcessSharedCommit.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x14027D0F0 (KiCheckForKernelApcDelivery.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     MiMakeDemandZeroPte @ 0x14028A830 (MiMakeDemandZeroPte.c)
+ *     MiChargeCommit @ 0x1402D8520 (MiChargeCommit.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     MiReturnCommit @ 0x14036F050 (MiReturnCommit.c)
+ *     MiGetControlAreaPartition @ 0x14044F7D0 (MiGetControlAreaPartition.c)
+ *     MiUpdateControlAreaCommitCount @ 0x14047ED48 (MiUpdateControlAreaCommitCount.c)
+ *     MiGetSubsectionCrossPartitionReferences @ 0x140492210 (MiGetSubsectionCrossPartitionReferences.c)
+ *     MiGetSubsectionCharges @ 0x1404AFE30 (MiGetSubsectionCharges.c)
+ *     MiReturnCrossPartitionSectionCharges @ 0x1404CAB70 (MiReturnCrossPartitionSectionCharges.c)
+ *     MiUpdateProcessSharedCommit @ 0x14099AEC8 (MiUpdateProcessSharedCommit.c)
  */
 
 __int64 __fastcall MiChargeSegmentCommit(__int64 *a1, unsigned __int64 *a2, __int64 a3)
@@ -47,7 +47,7 @@ __int64 __fastcall MiChargeSegmentCommit(__int64 *a1, unsigned __int64 *a2, __in
   __int64 v23; // rdx
   __int64 updated; // rax
   __int64 v25; // rdx
-  $7A85BAF4F1FA08634C1C4A3E45B775B3 *v26; // rcx
+  $241382875694CED3D471BC5892DE3337 *v26; // rcx
   bool v27; // zf
   __int64 v29; // rdx
   __int64 v30; // rcx
@@ -162,7 +162,7 @@ LABEL_30:
     ExfTryToWakePushLock((volatile signed __int64 *)v6);
   KeAbPostRelease((unsigned __int64)v6);
   v27 = CurrentThread->SpecialApcDisable++ == -1;
-  if ( v27 && ($7A85BAF4F1FA08634C1C4A3E45B775B3 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+  if ( v27 && ($241382875694CED3D471BC5892DE3337 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
     KiCheckForKernelApcDelivery(v30, v29);
   return 0LL;
 }

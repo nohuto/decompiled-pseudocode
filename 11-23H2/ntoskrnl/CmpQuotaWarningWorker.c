@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpQuotaWarningWorker @ 0x140A0FD40
+ * XREFs of CmpQuotaWarningWorker @ 0x140A0FFF0
  * Callers:
  *     <none>
  * Callees:
- *     ExRaiseHardError @ 0x140A00B80 (ExRaiseHardError.c)
+ *     ExRaiseHardError @ 0x140A00E10 (ExRaiseHardError.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

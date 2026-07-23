@@ -1,22 +1,22 @@
 /*
- * XREFs of KiTimer2Expiration @ 0x1402515E0
+ * XREFs of KiTimer2Expiration @ 0x1402516A0
  * Callers:
- *     KiRetireDpcList @ 0x1402459F0 (KiRetireDpcList.c)
- *     KiTimerExpirationDpc @ 0x14057C9E0 (KiTimerExpirationDpc.c)
+ *     KiRetireDpcList @ 0x140245AC0 (KiRetireDpcList.c)
+ *     KiTimerExpirationDpc @ 0x14057CED0 (KiTimerExpirationDpc.c)
  * Callees:
  *     EtwTraceKernelEvent @ 0x140211EDC (EtwTraceKernelEvent.c)
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KxAcquireSpinLock @ 0x1402515B0 (KxAcquireSpinLock.c)
- *     KiRemoveTimer2 @ 0x1402518B0 (KiRemoveTimer2.c)
- *     KiExpireTimer2 @ 0x140251A80 (KiExpireTimer2.c)
- *     KiShouldActivateHRTimerClock @ 0x140251FF0 (KiShouldActivateHRTimerClock.c)
- *     KiAcquireKobjectLockSafe @ 0x140252030 (KiAcquireKobjectLockSafe.c)
- *     KiProcessThreadWaitList @ 0x140253DC0 (KiProcessThreadWaitList.c)
- *     KiUpdateTimer2Flags @ 0x14031E018 (KiUpdateTimer2Flags.c)
- *     KiInsertTimer2 @ 0x14034B608 (KiInsertTimer2.c)
- *     KiSendClockInterruptToClockOwner @ 0x1403650B8 (KiSendClockInterruptToClockOwner.c)
- *     KiCheckAndRearmForceIdle @ 0x14036E674 (KiCheckAndRearmForceIdle.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x140251670 (KxAcquireSpinLock.c)
+ *     KiRemoveTimer2 @ 0x140251970 (KiRemoveTimer2.c)
+ *     KiExpireTimer2 @ 0x140251B40 (KiExpireTimer2.c)
+ *     KiShouldActivateHRTimerClock @ 0x1402520B0 (KiShouldActivateHRTimerClock.c)
+ *     KiAcquireKobjectLockSafe @ 0x1402520F0 (KiAcquireKobjectLockSafe.c)
+ *     KiProcessThreadWaitList @ 0x140253E80 (KiProcessThreadWaitList.c)
+ *     KiUpdateTimer2Flags @ 0x14031E2A8 (KiUpdateTimer2Flags.c)
+ *     KiInsertTimer2 @ 0x14034B7A8 (KiInsertTimer2.c)
+ *     KiSendClockInterruptToClockOwner @ 0x140365258 (KiSendClockInterruptToClockOwner.c)
+ *     KiCheckAndRearmForceIdle @ 0x14036E814 (KiCheckAndRearmForceIdle.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall KiTimer2Expiration(__int64 a1, unsigned __int64 a2, char a3, char a4, __int64 a5)

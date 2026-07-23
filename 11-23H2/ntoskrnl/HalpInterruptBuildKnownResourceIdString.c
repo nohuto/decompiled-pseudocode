@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpInterruptBuildKnownResourceIdString @ 0x140378A60
+ * XREFs of HalpInterruptBuildKnownResourceIdString @ 0x140378C00
  * Callers:
- *     HalpInterruptRegisterController @ 0x1403786E4 (HalpInterruptRegisterController.c)
+ *     HalpInterruptRegisterController @ 0x140378884 (HalpInterruptRegisterController.c)
  * Callees:
- *     HalpExtBuildResourceIdString @ 0x140378E18 (HalpExtBuildResourceIdString.c)
+ *     HalpExtBuildResourceIdString @ 0x140378FB8 (HalpExtBuildResourceIdString.c)
  */
 
 __int64 __fastcall HalpInterruptBuildKnownResourceIdString(__int64 a1, __int64 a2, wchar_t *Dst)

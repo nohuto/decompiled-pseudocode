@@ -1,27 +1,27 @@
 /*
- * XREFs of PopFreeHiberContext @ 0x1406DFFA0
+ * XREFs of PopFreeHiberContext @ 0x1406E1240
  * Callers:
- *     PopUnlockAfterSleepWorker @ 0x14056C5F0 (PopUnlockAfterSleepWorker.c)
- *     PopAllocateHiberContext @ 0x1406DF534 (PopAllocateHiberContext.c)
+ *     PopUnlockAfterSleepWorker @ 0x14056D5F0 (PopUnlockAfterSleepWorker.c)
+ *     PopAllocateHiberContext @ 0x1406E07D4 (PopAllocateHiberContext.c)
  * Callees:
  *     MmUnmapLockedPages @ 0x140033F00 (MmUnmapLockedPages.c)
- *     MmFreePagesFromMdl @ 0x1401373D0 (MmFreePagesFromMdl.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     PopInternalAddToDumpFile @ 0x1402D3324 (PopInternalAddToDumpFile.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     BgkResumeFinished @ 0x14056C684 (BgkResumeFinished.c)
- *     MmReleaseDumpHibernateResources @ 0x1406E017C (MmReleaseDumpHibernateResources.c)
- *     MmUnlockPreChargedPagedPool @ 0x1406E01C0 (MmUnlockPreChargedPagedPool.c)
- *     PopBcdClearPendingResume @ 0x140710FA8 (PopBcdClearPendingResume.c)
- *     BcdCloseStore @ 0x140711A08 (BcdCloseStore.c)
- *     BcdOpenStore @ 0x140712268 (BcdOpenStore.c)
- *     PopClearHiberFileSignature @ 0x14071EC34 (PopClearHiberFileSignature.c)
- *     VslFreeSecureHibernateResources @ 0x140818694 (VslFreeSecureHibernateResources.c)
+ *     MmFreePagesFromMdl @ 0x1401374D0 (MmFreePagesFromMdl.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     PopInternalAddToDumpFile @ 0x1402D3514 (PopInternalAddToDumpFile.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     BgkResumeFinished @ 0x14056D684 (BgkResumeFinished.c)
+ *     MmReleaseDumpHibernateResources @ 0x1406E141C (MmReleaseDumpHibernateResources.c)
+ *     MmUnlockPreChargedPagedPool @ 0x1406E1460 (MmUnlockPreChargedPagedPool.c)
+ *     PopBcdClearPendingResume @ 0x140712248 (PopBcdClearPendingResume.c)
+ *     BcdCloseStore @ 0x140712CA8 (BcdCloseStore.c)
+ *     BcdOpenStore @ 0x140713508 (BcdOpenStore.c)
+ *     PopClearHiberFileSignature @ 0x14071FED4 (PopClearHiberFileSignature.c)
+ *     VslFreeSecureHibernateResources @ 0x140819894 (VslFreeSecureHibernateResources.c)
  */
 
-void __fastcall PopFreeHiberContext(__int64 a1)
+void __fastcall PopFreeHiberContext(UNICODE_STRING *a1)
 {
   ULONG_PTR v1; // rbx
   void *v2; // rcx
@@ -32,15 +32,15 @@ void __fastcall PopFreeHiberContext(__int64 a1)
   _QWORD *v7; // rax
   void *v8; // rcx
   __int64 v9; // rcx
-  __int64 v10; // [rsp+40h] [rbp+8h] BYREF
+  HANDLE BcdStoreHandle; // [rsp+40h] [rbp+8h] BYREF
 
   v1 = BugCheckParameter4;
   if ( BugCheckParameter4 )
   {
-    if ( (int)BcdOpenStore(a1, 2LL, &v10) >= 0 )
+    if ( BcdOpenStore(a1, BCD_OPEN_SYNC_FIRMWARE_ENTRIES, &BcdStoreHandle) >= 0 )
     {
-      PopBcdClearPendingResume(v10);
-      BcdCloseStore(v10);
+      PopBcdClearPendingResume(BcdStoreHandle);
+      BcdCloseStore(BcdStoreHandle);
     }
     v2 = *(void **)(v1 + 240);
     if ( v2 )
@@ -76,8 +76,8 @@ void __fastcall PopFreeHiberContext(__int64 a1)
       ExFreePoolWithTag(v5, 0);
       --*(_DWORD *)(v1 + 80);
     }
-    if ( *(_QWORD *)(v1 + 168) && CrashdmpImageEntry && qword_14043C7E0 )
-      qword_14043C7E0();
+    if ( *(_QWORD *)(v1 + 168) && CrashdmpImageEntry && qword_14043D8A0 )
+      qword_14043D8A0();
     if ( *(_QWORD *)(v1 + 136) )
     {
       PopInternalAddToDumpFile(v1, 0x1C8u, 0LL);
@@ -86,7 +86,7 @@ void __fastcall PopFreeHiberContext(__int64 a1)
     if ( *(_DWORD *)(v1 + 188) == 1073742484 )
       PopClearHiberFileSignature();
     *(_BYTE *)(v1 + 28) = 0;
-    MmUnlockPreChargedPagedPool(qword_140417870, Length);
+    MmUnlockPreChargedPagedPool(qword_140418910, Length);
     v8 = *(void **)(v1 + 288);
     if ( v8 )
       ExFreePoolWithTag(v8, 0x72626968u);

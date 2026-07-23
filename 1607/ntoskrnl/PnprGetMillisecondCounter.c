@@ -1,13 +1,13 @@
 /*
  * XREFs of PnprGetMillisecondCounter @ 0x1403DBA40
  * Callers:
- *     PnprMirrorPhysicalMemory @ 0x1401D04C4 (PnprMirrorPhysicalMemory.c)
- *     PnprSwapFinalize @ 0x1401D0B38 (PnprSwapFinalize.c)
+ *     PnprMirrorPhysicalMemory @ 0x1401D02F0 (PnprMirrorPhysicalMemory.c)
+ *     PnprSwapFinalize @ 0x1401D0964 (PnprSwapFinalize.c)
  *     PnprQuiesceDevices @ 0x1403DC3D4 (PnprQuiesceDevices.c)
  *     PnprQuiesceProcessors @ 0x1403DC8B8 (PnprQuiesceProcessors.c)
  *     PnprWakeDevices @ 0x1403DCE3C (PnprWakeDevices.c)
  *     PnprWakeProcessors @ 0x1403DCEB4 (PnprWakeProcessors.c)
- *     PnpReplacePartitionUnit @ 0x1406430D4 (PnpReplacePartitionUnit.c)
+ *     PnpReplacePartitionUnit @ 0x1406431B8 (PnpReplacePartitionUnit.c)
  * Callees:
  *     <none>
  */

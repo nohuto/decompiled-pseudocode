@@ -1,17 +1,17 @@
 /*
- * XREFs of MiWakeZeroingThreads @ 0x1403C7310
+ * XREFs of MiWakeZeroingThreads @ 0x140412F50
  * Callers:
- *     MiInsertPageInFreeOrZeroedList @ 0x140222210 (MiInsertPageInFreeOrZeroedList.c)
- *     MiWorkingSetManager @ 0x1402D3D20 (MiWorkingSetManager.c)
- *     MiWakePageZeroing @ 0x1403C7110 (MiWakePageZeroing.c)
- *     MiZeroNodeExiting @ 0x1406901F4 (MiZeroNodeExiting.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x14024EF60 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiWorkingSetManager @ 0x140354FA0 (MiWorkingSetManager.c)
+ *     MiWakePageZeroing @ 0x140412D50 (MiWakePageZeroing.c)
+ *     MiZeroNodeExiting @ 0x1406912C4 (MiZeroNodeExiting.c)
  * Callees:
- *     KeSetActualBasePriorityThread @ 0x14020A160 (KeSetActualBasePriorityThread.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     ObReferenceObjectSafeWithTag @ 0x14033E7D0 (ObReferenceObjectSafeWithTag.c)
- *     MiAddZeroingThreads @ 0x1403C73C8 (MiAddZeroingThreads.c)
- *     MiLogZeroPageDecision @ 0x1403C79E0 (MiLogZeroPageDecision.c)
- *     MiIncrementZeroEngineThread @ 0x1403C7B8C (MiIncrementZeroEngineThread.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     ObReferenceObjectSafeWithTag @ 0x14031DCB0 (ObReferenceObjectSafeWithTag.c)
+ *     KeSetActualBasePriorityThread @ 0x140331740 (KeSetActualBasePriorityThread.c)
+ *     MiAddZeroingThreads @ 0x140413008 (MiAddZeroingThreads.c)
+ *     MiLogZeroPageDecision @ 0x140413620 (MiLogZeroPageDecision.c)
+ *     MiIncrementZeroEngineThread @ 0x1404137CC (MiIncrementZeroEngineThread.c)
  */
 
 char __fastcall MiWakeZeroingThreads(__int64 a1)
@@ -24,8 +24,7 @@ char __fastcall MiWakeZeroingThreads(__int64 a1)
   _QWORD *v7; // rsi
   int v8; // r14d
   void *v9; // r15
-  __int64 v10; // r8
-  int v12; // [rsp+50h] [rbp+8h] BYREF
+  int v11; // [rsp+50h] [rbp+8h] BYREF
 
   v1 = *(_QWORD *)(a1 + 48);
   v3 = 3LL;
@@ -49,7 +48,7 @@ char __fastcall MiWakeZeroingThreads(__int64 a1)
               if ( (_BYTE)v1 )
               {
                 *((_DWORD *)v7 + 96) |= 8u;
-                KeSetActualBasePriorityThread((ULONG_PTR)v9, 12, v10);
+                KeSetActualBasePriorityThread((ULONG_PTR)v9, 12);
                 LOBYTE(v1) = ObfDereferenceObjectWithTag(v9, 0x655A6D4Du);
               }
             }
@@ -70,11 +69,11 @@ char __fastcall MiWakeZeroingThreads(__int64 a1)
   }
   else
   {
-    v12 = 0;
+    v11 = 0;
     do
     {
-      v4 = MiAddZeroingThreads(a1, 3LL, &v12);
-      LOBYTE(v1) = MiLogZeroPageDecision((int)a1 + 304 * v12 + 136, v12, 0, 0, 0, v4);
+      v4 = MiAddZeroingThreads(a1, 3LL, &v11);
+      LOBYTE(v1) = MiLogZeroPageDecision((int)a1 + 304 * v11 + 136, v11, 0, 0, 0, v4);
     }
     while ( !v4 );
   }

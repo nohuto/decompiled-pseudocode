@@ -5,10 +5,10 @@
  * Callees:
  *     _CmClassPropertyRead @ 0x14020BB18 (_CmClassPropertyRead.c)
  *     _MapCmClassPropertyToRegValue @ 0x14020BBA8 (_MapCmClassPropertyToRegValue.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     _PnpCtxRegQueryValueIndirect @ 0x1406CD9A4 (_PnpCtxRegQueryValueIndirect.c)
- *     _PnpOpenPropertiesKey @ 0x1406CDC40 (_PnpOpenPropertiesKey.c)
- *     _CmOpenInstallerClassRegKey @ 0x140787834 (_CmOpenInstallerClassRegKey.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     _PnpCtxRegQueryValueIndirect @ 0x1406CD9D4 (_PnpCtxRegQueryValueIndirect.c)
+ *     _PnpOpenPropertiesKey @ 0x1406CDC70 (_PnpOpenPropertiesKey.c)
+ *     _CmOpenInstallerClassRegKey @ 0x140787A24 (_CmOpenInstallerClassRegKey.c)
  */
 
 __int64 __fastcall CmGetInstallerClassRegPropWorker(

@@ -1,15 +1,15 @@
 /*
- * XREFs of HalpInterruptSwapProcessorIdentifiers @ 0x140B500C0
+ * XREFs of HalpInterruptSwapProcessorIdentifiers @ 0x140B52110
  * Callers:
- *     HalpDpReplaceControl @ 0x140B4FC60 (HalpDpReplaceControl.c)
+ *     HalpDpReplaceControl @ 0x140B51CB0 (HalpDpReplaceControl.c)
  * Callees:
- *     HalpInterruptIsRemappingRequired @ 0x1404AD420 (HalpInterruptIsRemappingRequired.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     HalpUpdateIrtDestinationId @ 0x140555EAC (HalpUpdateIrtDestinationId.c)
- *     HalpInterruptRestoreAllControllerState @ 0x140B4C140 (HalpInterruptRestoreAllControllerState.c)
- *     HalpInterruptEnsureLineSwapComplete @ 0x140B50030 (HalpInterruptEnsureLineSwapComplete.c)
- *     HalpInterruptUpdateLinesPostSwap @ 0x140B50224 (HalpInterruptUpdateLinesPostSwap.c)
- *     HalpInterruptUpdateLocalUnitIdentifier @ 0x140B5038C (HalpInterruptUpdateLocalUnitIdentifier.c)
+ *     HalpInterruptIsRemappingRequired @ 0x1404A7B00 (HalpInterruptIsRemappingRequired.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     HalpUpdateIrtDestinationId @ 0x1405537EC (HalpUpdateIrtDestinationId.c)
+ *     HalpInterruptRestoreAllControllerState @ 0x140B4E180 (HalpInterruptRestoreAllControllerState.c)
+ *     HalpInterruptEnsureLineSwapComplete @ 0x140B52080 (HalpInterruptEnsureLineSwapComplete.c)
+ *     HalpInterruptUpdateLinesPostSwap @ 0x140B52274 (HalpInterruptUpdateLinesPostSwap.c)
+ *     HalpInterruptUpdateLocalUnitIdentifier @ 0x140B523DC (HalpInterruptUpdateLocalUnitIdentifier.c)
  */
 
 __int64 __fastcall HalpInterruptSwapProcessorIdentifiers(
@@ -26,21 +26,17 @@ __int64 __fastcall HalpInterruptSwapProcessorIdentifiers(
   _QWORD **v13; // r12
   _QWORD *v14; // r15
   int v15; // ecx
-  __int64 v16; // rdx
-  __int64 v17; // rcx
-  __int64 v18; // r8
-  __int64 v19; // r9
-  __int128 v20; // [rsp+30h] [rbp-58h] BYREF
-  int v21; // [rsp+40h] [rbp-48h]
-  __int128 v22; // [rsp+48h] [rbp-40h] BYREF
-  int v23; // [rsp+58h] [rbp-30h]
+  __int128 v16; // [rsp+30h] [rbp-58h] BYREF
+  int v17; // [rsp+40h] [rbp-48h]
+  __int128 v18; // [rsp+48h] [rbp-40h] BYREF
+  int v19; // [rsp+58h] [rbp-30h]
 
   updated = 0;
-  v21 = 0;
-  v20 = 0LL;
-  v23 = 0;
+  v17 = 0;
+  v16 = 0LL;
+  v19 = 0;
   v4 = 0LL;
-  v22 = 0LL;
+  v18 = 0LL;
 LABEL_2:
   if ( (unsigned int)v4 >= a3 )
   {
@@ -51,8 +47,8 @@ LABEL_2:
       updated = HalpInterruptUpdateLocalUnitIdentifier(
                   *(unsigned int *)(BugCheckParameter3 + 4 * i),
                   *(unsigned int *)(BugCheckParameter4 + 4 * i),
-                  &v22,
-                  &v20);
+                  &v18,
+                  &v16);
       if ( updated < 0 )
 LABEL_22:
         KeBugCheckEx(0x5Cu, 0x4000uLL, HalpInterruptProcessorState, BugCheckParameter3, BugCheckParameter4);
@@ -71,15 +67,15 @@ LABEL_22:
                       v15,
                       *(_DWORD *)(BugCheckParameter3 + 4 * i),
                       *(_DWORD *)(BugCheckParameter4 + 4 * i),
-                      (unsigned int)&v22,
-                      (__int64)&v20);
+                      (unsigned int)&v18,
+                      (__int64)&v16);
           if ( updated < 0 )
             goto LABEL_22;
         }
       }
     }
     HalpInterruptEnsureLineSwapComplete();
-    HalpInterruptRestoreAllControllerState(v17, v16, v18, v19);
+    HalpInterruptRestoreAllControllerState();
     return (unsigned int)updated;
   }
   else

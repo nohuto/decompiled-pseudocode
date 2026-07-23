@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpLogDirtyVectorUse @ 0x1408834D4
+ * XREFs of CmpLogDirtyVectorUse @ 0x140887384
  * Callers:
- *     HvpGenerateLogEntryDirtyData @ 0x14042AFCC (HvpGenerateLogEntryDirtyData.c)
- *     HvpMarkDirty @ 0x140882A90 (HvpMarkDirty.c)
- *     HvpGenerateLogEntry @ 0x14097EF08 (HvpGenerateLogEntry.c)
+ *     HvpGenerateLogEntryDirtyData @ 0x1403773D0 (HvpGenerateLogEntryDirtyData.c)
+ *     HvpMarkDirty @ 0x140886940 (HvpMarkDirty.c)
+ *     HvpGenerateLogEntry @ 0x140967718 (HvpGenerateLogEntry.c)
  * Callees:
- *     RtlCaptureStackBackTrace @ 0x14027C690 (RtlCaptureStackBackTrace.c)
+ *     RtlCaptureStackBackTrace @ 0x140231C20 (RtlCaptureStackBackTrace.c)
  */
 
 USHORT __fastcall CmpLogDirtyVectorUse(__int64 a1, int a2, int a3, int a4)

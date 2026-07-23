@@ -14,51 +14,51 @@
  *     MmUnmapViewInSystemSpace @ 0x1404F75B0 (MmUnmapViewInSystemSpace.c)
  */
 
-char __fastcall LdrUnloadAlternateResourceModuleEx(__int64 a1)
+BOOLEAN __cdecl LdrUnloadAlternateResourceModuleEx(PVOID DllHandle, ULONG Flags)
 {
-  char v2; // bl
-  int v3; // edi
-  int v4; // r15d
-  _QWORD *v5; // rsi
-  void *v6; // rcx
+  BOOLEAN v3; // bl
+  int v4; // edi
+  int v5; // r15d
+  char *v6; // rsi
   void *v7; // rcx
-  bool v8; // zf
-  unsigned int v9; // eax
-  __int64 v10; // rcx
+  void *v8; // rcx
+  bool v9; // zf
+  unsigned int v10; // eax
+  __int64 v11; // rcx
   PVOID PoolWithTag; // rdi
-  PVOID v12; // rbx
+  PVOID v13; // rbx
 
-  v2 = 0;
-  if ( !a1 )
+  v3 = 0;
+  if ( !DllHandle )
     return 0;
   LdrpInitMuiCrits();
   KeWaitForSingleObject(&MuiMutex, Executive, 0, 0, 0LL);
-  v3 = AlternateResourceModuleCount;
+  v4 = AlternateResourceModuleCount;
   if ( AlternateResourceModuleCount )
   {
-    while ( v3 > 0 )
+    while ( v4 > 0 )
     {
-      v4 = v3 - 1;
-      v5 = (char *)AlternateResourceModules + 72 * v3 - 72;
-      if ( v5[1] == a1 )
+      v5 = v4 - 1;
+      v6 = (char *)AlternateResourceModules + 72 * v4 - 72;
+      if ( *((PVOID *)v6 + 1) == DllHandle )
       {
-        v6 = (void *)v5[4];
-        if ( v6 && v6 != (void *)-1LL )
+        v7 = (void *)*((_QWORD *)v6 + 4);
+        if ( v7 && v7 != (void *)-1LL )
         {
-          MmUnmapViewInSystemSpace(v6);
-          v7 = (void *)v5[5];
-          if ( v7 )
+          MmUnmapViewInSystemSpace(v7);
+          v8 = (void *)*((_QWORD *)v6 + 5);
+          if ( v8 )
           {
-            ZwClose(v7);
-            v5[5] = 0LL;
+            ZwClose(v8);
+            *((_QWORD *)v6 + 5) = 0LL;
           }
-          v5[4] = 0LL;
+          *((_QWORD *)v6 + 4) = 0LL;
         }
-        if ( v3 != AlternateResourceModuleCount )
-          memmove(v5, v5 + 9, 72LL * (unsigned int)(AlternateResourceModuleCount - v3));
-        v8 = AlternateResourceModuleCount == 1;
-        v9 = --AlternateResourceModuleCount;
-        if ( v8 )
+        if ( v4 != AlternateResourceModuleCount )
+          memmove(v6, v6 + 72, 72LL * (unsigned int)(AlternateResourceModuleCount - v4));
+        v9 = AlternateResourceModuleCount == 1;
+        v10 = --AlternateResourceModuleCount;
+        if ( v9 )
         {
           ExFreePoolWithTag(AlternateResourceModules, 0);
           AlternateResourceModules = 0LL;
@@ -66,31 +66,31 @@ char __fastcall LdrUnloadAlternateResourceModuleEx(__int64 a1)
         }
         else
         {
-          v10 = (unsigned int)(AltResMemBlockCount - 32);
-          if ( v9 < (unsigned int)v10 )
+          v11 = (unsigned int)(AltResMemBlockCount - 32);
+          if ( v10 < (unsigned int)v11 )
           {
-            PoolWithTag = ExAllocatePoolWithTag(PagedPool, 72 * v10, 0x69507472u);
+            PoolWithTag = ExAllocatePoolWithTag(PagedPool, 72 * v11, 0x69507472u);
             if ( !PoolWithTag )
             {
-              v2 = 0;
+              v3 = 0;
               break;
             }
-            v12 = AlternateResourceModules;
+            v13 = AlternateResourceModules;
             memmove(PoolWithTag, AlternateResourceModules, 72LL * (unsigned int)(AltResMemBlockCount - 32));
-            ExFreePoolWithTag(v12, 0);
+            ExFreePoolWithTag(v13, 0);
             AlternateResourceModules = PoolWithTag;
             AltResMemBlockCount -= 32;
           }
         }
-        v2 = 1;
+        v3 = 1;
       }
-      v3 = v4;
+      v4 = v5;
     }
   }
   else
   {
-    v2 = 1;
+    v3 = 1;
   }
   KeReleaseMutant(&MuiMutex, 1, 0, 0);
-  return v2;
+  return v3;
 }

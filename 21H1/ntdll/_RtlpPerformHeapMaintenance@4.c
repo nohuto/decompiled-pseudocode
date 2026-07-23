@@ -25,7 +25,7 @@ int __thiscall RtlpPerformHeapMaintenance(_DWORD *this)
   if ( (result & 0x10000000) != 0 )
   {
     this[18] = result & 0xEFFFFFFF;
-    result = RtlpInitializeUCRIndex(this);
+    result = RtlpInitializeUCRIndex((int)this);
     this[18] &= ~0x10000000u;
   }
   return result;

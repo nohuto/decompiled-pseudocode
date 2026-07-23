@@ -35,19 +35,15 @@
 
 __int64 __fastcall IopWaitAndAcquireFileObjectLock(
         volatile signed __int32 *Object,
-        __int64 a2,
-        __int64 a3,
+        char a2,
+        char a3,
         __int64 a4,
         _BYTE *a5)
 {
-  char v6; // r14
-  char v7; // r15
   NTSTATUS v9; // ebp
   _BYTE v11[40]; // [rsp+30h] [rbp-28h] BYREF
   int Priority; // [rsp+60h] [rbp+8h] BYREF
 
-  v6 = a3;
-  v7 = a2;
   _InterlockedIncrement(Object + 28);
   do
   {
@@ -60,10 +56,10 @@ __int64 __fastcall IopWaitAndAcquireFileObjectLock(
       return 0;
     }
     if ( a4 )
-      KeAbPreWait(a4, a2, a3);
-    v9 = IopWaitForLockAlertable((PVOID)(Object + 32), v7, v6);
+      KeAbPreWait(a4);
+    v9 = IopWaitForLockAlertable((PVOID)(Object + 32), a2, a3);
     if ( a4 )
-      a4 = KeAbPreAcquire((ULONG_PTR)(Object + 32), a4, 0LL);
+      a4 = KeAbPreAcquire((ULONG_PTR)(Object + 32), a4, 0);
   }
   while ( v9 >= 0 );
   _InterlockedDecrement(Object + 28);

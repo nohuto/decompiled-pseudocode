@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpWriteBufferCompressed @ 0x1800787C8
+ * XREFs of EtwpWriteBufferCompressed @ 0x180066FE8
  * Callers:
- *     EtwpFlushBuffer @ 0x180078550 (EtwpFlushBuffer.c)
+ *     EtwpFlushBuffer @ 0x180066D70 (EtwpFlushBuffer.c)
  * Callees:
- *     RtlCompressBufferXpressLz @ 0x1800B8E60 (RtlCompressBufferXpressLz.c)
- *     NtWriteFile @ 0x18015F040 (NtWriteFile.c)
- *     memmove @ 0x180164700 (memmove.c)
+ *     RtlCompressBufferXpressLz @ 0x1800B6380 (RtlCompressBufferXpressLz.c)
+ *     NtWriteFile @ 0x18015EF40 (NtWriteFile.c)
+ *     memmove @ 0x180164600 (memmove.c)
  */
 
 __int64 __fastcall EtwpWriteBufferCompressed(__int64 a1, _OWORD *a2, _DWORD *a3, _DWORD *a4)
@@ -17,11 +17,11 @@ __int64 __fastcall EtwpWriteBufferCompressed(__int64 a1, _OWORD *a2, _DWORD *a3,
   __int64 v12; // r9
   __int64 v13; // r8
   int v14; // eax
-  unsigned int v15; // ebp
+  unsigned __int32 v15; // ebp
   __int64 v17; // rcx
   __int64 v18; // rax
   unsigned int v19; // r14d
-  unsigned int v20; // eax
+  ULONG Length; // eax
   int v21; // edx
   int v22; // r8d
   int v23; // ecx
@@ -31,8 +31,8 @@ __int64 __fastcall EtwpWriteBufferCompressed(__int64 a1, _OWORD *a2, _DWORD *a3,
   char *v27; // rcx
   size_t v28; // r8
   char *v29; // rdx
-  __int64 v30; // [rsp+38h] [rbp-50h]
-  __int128 v31; // [rsp+50h] [rbp-38h] BYREF
+  PLARGE_INTEGER ByteOffset; // [rsp+38h] [rbp-50h]
+  _IO_STATUS_BLOCK IoStatusBlock; // [rsp+50h] [rbp-38h] BYREF
   int v32; // [rsp+90h] [rbp+8h] BYREF
 
   v5 = *(unsigned int *)(a1 + 436);
@@ -44,11 +44,11 @@ __int64 __fastcall EtwpWriteBufferCompressed(__int64 a1, _OWORD *a2, _DWORD *a3,
   v32 = 0;
   if ( v8 < v7 )
     v7 = v8;
-  v30 = *(_QWORD *)(a1 + 416);
+  ByteOffset = *(PLARGE_INTEGER *)(a1 + 416);
   v12 = v5 + 72 + *(_QWORD *)(a1 + 424);
   v13 = (unsigned int)(*((_DWORD *)a2 + 12) - 72);
-  v31 = 0LL;
-  v14 = RtlCompressBufferXpressLz(0LL, (char *)a2 + 72, v13, v12, v7, 0, &v32, v30);
+  IoStatusBlock = 0LL;
+  v14 = RtlCompressBufferXpressLz(0LL, (char *)a2 + 72, v13, v12, v7, 0, &v32, ByteOffset);
   v15 = v14;
   if ( v14 == -1073741789 )
   {
@@ -76,10 +76,19 @@ __int64 __fastcall EtwpWriteBufferCompressed(__int64 a1, _OWORD *a2, _DWORD *a3,
   *(_DWORD *)(*(unsigned int *)(a1 + 436) + *(_QWORD *)(a1 + 424)) = v19;
   ++*(_DWORD *)(a1 + 440);
   *(_DWORD *)(a1 + 436) += v19;
-  v20 = *(_DWORD *)(a1 + 192);
-  if ( *(_DWORD *)(a1 + 436) >= v20 )
+  Length = *(_DWORD *)(a1 + 192);
+  if ( *(_DWORD *)(a1 + 436) >= Length )
   {
-    v15 = NtWriteFile(*(_QWORD *)(a1 + 128), 0LL, 0LL, 0LL, &v31, *(_QWORD *)(a1 + 424), v20, a1 + 344, 0LL);
+    v15 = NtWriteFile(
+            *(HANDLE *)(a1 + 128),
+            0LL,
+            0LL,
+            0LL,
+            &IoStatusBlock,
+            *(PVOID *)(a1 + 424),
+            Length,
+            (PLARGE_INTEGER)(a1 + 344),
+            0LL);
     if ( (v15 & 0x80000000) == 0 )
     {
       v24 = *(unsigned int *)(a1 + 192);

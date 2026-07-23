@@ -1,10 +1,10 @@
 /*
- * XREFs of IopDebugPrint @ 0x1405D9E88
+ * XREFs of IopDebugPrint @ 0x1405DC688
  * Callers:
- *     PnpCollectOpenHandles @ 0x1407AD7B4 (PnpCollectOpenHandles.c)
- *     PnpCollectOpenHandlesCallBack @ 0x140B25490 (PnpCollectOpenHandlesCallBack.c)
+ *     PnpCollectOpenHandles @ 0x1407B0814 (PnpCollectOpenHandles.c)
+ *     PnpCollectOpenHandlesCallBack @ 0x140B27620 (PnpCollectOpenHandlesCallBack.c)
  * Callees:
- *     vDbgPrintExWithPrefixInternal @ 0x1403975BC (vDbgPrintExWithPrefixInternal.c)
+ *     vDbgPrintExWithPrefixInternal @ 0x14039933C (vDbgPrintExWithPrefixInternal.c)
  */
 
 __int64 IopDebugPrint(unsigned int a1, int a2, ...)

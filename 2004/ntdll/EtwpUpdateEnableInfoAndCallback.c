@@ -19,72 +19,72 @@
  *     EtwpGetUmProcessImageInfo @ 0x1800871D4 (EtwpGetUmProcessImageInfo.c)
  */
 
-void __fastcall EtwpUpdateEnableInfoAndCallback(__int64 a1, __int64 a2, unsigned __int64 a3, unsigned __int64 a4)
+void __fastcall EtwpUpdateEnableInfoAndCallback(__int64 a1, __int64 a2)
 {
-  int v4; // r14d
+  int v2; // r14d
   _QWORD *GuidEntry; // rbx
-  unsigned int v6; // r12d
-  char v9; // bp
-  char v10; // r15
-  unsigned __int64 v11; // rdx
-  _QWORD *v12; // r8
-  char v13; // dl
-  _BYTE *v14; // rax
-  unsigned int v15; // ecx
-  __int64 v16; // rcx
-  __int64 v17; // rax
-  _BYTE *v18; // rcx
-  _QWORD *v19; // r8
-  unsigned int v20; // ecx
-  _BYTE *v21; // rax
+  unsigned int v4; // r12d
+  char v7; // bp
+  char v8; // r15
+  __int64 v9; // rdx
+  _QWORD *v10; // r8
+  char v11; // dl
+  _BYTE *v12; // rax
+  unsigned int v13; // ecx
+  __int64 v14; // rcx
+  __int64 v15; // rax
+  _BYTE *v16; // rcx
+  _QWORD *v17; // r8
+  unsigned int v18; // ecx
+  _BYTE *v19; // rax
 
-  v4 = *(_DWORD *)(a2 + 72);
+  v2 = *(_DWORD *)(a2 + 72);
   GuidEntry = *(_QWORD **)(a1 + 248);
-  v6 = 4;
-  v9 = 0;
-  v10 = 0;
-  v11 = 0x3FFFLL;
-  if ( v4 != 2 )
+  v4 = 4;
+  v7 = 0;
+  v8 = 0;
+  v9 = 0x3FFFLL;
+  if ( v2 != 2 )
   {
     if ( *(__int16 *)(a2 + 78) >= 0 )
     {
-      v12 = (_QWORD *)(a1 + 104);
+      v10 = (_QWORD *)(a1 + 104);
 LABEL_4:
-      v9 = *((_BYTE *)v12 + 20);
-      *v12 = *(_QWORD *)(a2 + 96);
-      v12[1] = *(_QWORD *)(a2 + 88);
-      *((_BYTE *)v12 + 21) = *(_BYTE *)(a2 + 76);
-      *((_DWORD *)v12 + 4) = *(_DWORD *)(a2 + 80);
-      *((_BYTE *)v12 + 20) = v4 != 0;
+      v7 = *((_BYTE *)v10 + 20);
+      *v10 = *(_QWORD *)(a2 + 96);
+      v10[1] = *(_QWORD *)(a2 + 88);
+      *((_BYTE *)v10 + 21) = *(_BYTE *)(a2 + 76);
+      *((_DWORD *)v10 + 4) = *(_DWORD *)(a2 + 80);
+      *((_BYTE *)v10 + 20) = v2 != 0;
       if ( *(__int16 *)(a2 + 78) < 0 )
       {
-        if ( v6 < 4 )
+        if ( v4 < 4 )
         {
-          v16 = 3LL * v6;
-          *(_OWORD *)(a1 + 8 * v16 + 128) = *(_OWORD *)v12;
-          *(_QWORD *)(a1 + 8 * v16 + 144) = v12[2];
+          v14 = 3LL * v4;
+          *(_OWORD *)(a1 + 8 * v14 + 128) = *(_OWORD *)v10;
+          *(_QWORD *)(a1 + 8 * v14 + 144) = v10[2];
         }
         EtwpUpdatePrivateEnableInfo(a1, 0x3FFFLL);
         if ( (*(_WORD *)(a1 + 98) & 0x3FFF) == 2 || *(__int16 *)(a1 + 98) < 0 )
           EtwpGetUmProcessImageInfo(*(unsigned __int16 *)(a2 + 78), a1);
       }
-      if ( v10 )
+      if ( v8 )
       {
         *((_DWORD *)GuidEntry + 12) = 0;
-        RtlReleaseSRWLockExclusive(GuidEntry + 5);
-        if ( v6 < 4 && !v4 )
-          EtwpDereferenceUmGuidEntry(GuidEntry);
+        RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)GuidEntry + 5);
+        if ( v4 < 4 && !v2 )
+          EtwpDereferenceUmGuidEntry((PRTL_BALANCED_NODE)GuidEntry);
       }
       goto LABEL_6;
     }
-    v10 = 1;
-    if ( v4 == 1 && !(unsigned __int8)EtwpIsPrivateLoggerOn(*(unsigned __int16 *)(a2 + 78), 0x3FFFLL) )
+    v8 = 1;
+    if ( v2 == 1 && !(unsigned __int8)EtwpIsPrivateLoggerOn(*(unsigned __int16 *)(a2 + 78), 0x3FFFLL) )
       return;
     if ( !GuidEntry )
     {
-      if ( !v4 )
+      if ( !v2 )
         return;
-      GuidEntry = EtwpFindGuidEntry((_QWORD *)(a1 + 32), v11, a3, a4);
+      GuidEntry = EtwpFindGuidEntry((_QWORD *)(a1 + 32));
       if ( !GuidEntry )
       {
         GuidEntry = (_QWORD *)EtwpAllocateUmGuidEntry(a1 + 32);
@@ -93,76 +93,76 @@ LABEL_4:
       }
       *(_QWORD *)(a1 + 248) = GuidEntry;
     }
-    EtwpAcquireGuidEntryExclusive(GuidEntry, v11);
-    v13 = *(_BYTE *)(a2 + 78);
-    v14 = (char *)GuidEntry + 78;
-    v15 = 0;
-    while ( !*(v14 - 2) || *v14 != v13 )
+    EtwpAcquireGuidEntryExclusive(GuidEntry, v9);
+    v11 = *(_BYTE *)(a2 + 78);
+    v12 = (char *)GuidEntry + 78;
+    v13 = 0;
+    while ( !*(v12 - 2) || *v12 != v11 )
     {
-      ++v15;
-      v14 += 24;
-      if ( v15 >= 4 )
+      ++v13;
+      v12 += 24;
+      if ( v13 >= 4 )
       {
-        v12 = 0LL;
+        v10 = 0LL;
         goto LABEL_21;
       }
     }
-    v6 = v15;
-    v12 = &GuidEntry[2 * v15 + 7 + v15];
+    v4 = v13;
+    v10 = &GuidEntry[2 * v13 + 7 + v13];
 LABEL_21:
-    if ( v12 )
+    if ( v10 )
       goto LABEL_4;
-    if ( v4 )
+    if ( v2 )
     {
-      v17 = 0LL;
-      v18 = (char *)GuidEntry + 76;
+      v15 = 0LL;
+      v16 = (char *)GuidEntry + 76;
       do
       {
-        if ( !*v18 )
+        if ( !*v16 )
         {
-          v6 = v17;
-          v19 = &GuidEntry[2 * v17 + 7 + v17];
+          v4 = v15;
+          v17 = &GuidEntry[2 * v15 + 7 + v15];
           goto LABEL_36;
         }
-        v17 = (unsigned int)(v17 + 1);
-        v18 += 24;
+        v15 = (unsigned int)(v15 + 1);
+        v16 += 24;
       }
-      while ( (unsigned int)v17 < 4 );
-      v19 = 0LL;
+      while ( (unsigned int)v15 < 4 );
+      v17 = 0LL;
 LABEL_36:
-      if ( v19 )
+      if ( v17 )
       {
-        *((_BYTE *)v19 + 22) = v13;
+        *((_BYTE *)v17 + 22) = v11;
         EtwpReferenceUmGuidEntry(GuidEntry);
         goto LABEL_4;
       }
     }
     else
     {
-      v20 = 0;
-      v21 = (_BYTE *)(a1 + 150);
+      v18 = 0;
+      v19 = (_BYTE *)(a1 + 150);
       do
       {
-        if ( *(v21 - 2) && *v21 == v13 )
+        if ( *(v19 - 2) && *v19 == v11 )
         {
-          v12 = (_QWORD *)(a1 + 8 * (v20 + 2 * (v20 + 8LL)));
+          v10 = (_QWORD *)(a1 + 8 * (v18 + 2 * (v18 + 8LL)));
           goto LABEL_48;
         }
-        ++v20;
-        v21 += 24;
+        ++v18;
+        v19 += 24;
       }
-      while ( v20 < 4 );
-      v12 = 0LL;
+      while ( v18 < 4 );
+      v10 = 0LL;
 LABEL_48:
-      if ( v12 )
+      if ( v10 )
         goto LABEL_4;
     }
     *((_DWORD *)GuidEntry + 12) = 0;
-    RtlReleaseSRWLockExclusive(GuidEntry + 5);
+    RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)GuidEntry + 5);
     return;
   }
 LABEL_6:
-  if ( *(_DWORD *)(a2 + 72) || v9 )
+  if ( *(_DWORD *)(a2 + 72) || v7 )
   {
     if ( (*(_WORD *)(a1 + 98) & 0x3FFF) == 2 )
       EtwpRegisterGuidsApiCallback(a2, a1, 0LL);

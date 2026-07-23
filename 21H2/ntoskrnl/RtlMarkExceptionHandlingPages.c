@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlMarkExceptionHandlingPages @ 0x14075E6F0
+ * XREFs of RtlMarkExceptionHandlingPages @ 0x14075E8B0
  * Callers:
- *     MiCaptureImageExceptionValues @ 0x14075E644 (MiCaptureImageExceptionValues.c)
+ *     MiCaptureImageExceptionValues @ 0x14075E804 (MiCaptureImageExceptionValues.c)
  * Callees:
- *     RtlpConvertFunctionEntry @ 0x140276440 (RtlpConvertFunctionEntry.c)
- *     RtlSetBits @ 0x140358F70 (RtlSetBits.c)
- *     RtlpSearchFunctionTable @ 0x1403974F0 (RtlpSearchFunctionTable.c)
+ *     RtlpConvertFunctionEntry @ 0x1402643E0 (RtlpConvertFunctionEntry.c)
+ *     RtlSetBits @ 0x140363CC0 (RtlSetBits.c)
+ *     RtlpSearchFunctionTable @ 0x140397640 (RtlpSearchFunctionTable.c)
  */
 
 __int64 __fastcall RtlMarkExceptionHandlingPages(

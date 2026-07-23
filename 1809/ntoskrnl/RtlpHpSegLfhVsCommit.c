@@ -5,7 +5,7 @@
  * Callees:
  *     RtlpHpSegMgrCommit @ 0x14000C244 (RtlpHpSegMgrCommit.c)
  *     RtlpHpSegPageRangeHandleCommit @ 0x14000C760 (RtlpHpSegPageRangeHandleCommit.c)
- *     RtlpHpSegDescriptorValidate @ 0x1400BECD0 (RtlpHpSegDescriptorValidate.c)
+ *     RtlpHpSegDescriptorValidate @ 0x1400BEC10 (RtlpHpSegDescriptorValidate.c)
  */
 
 __int64 __fastcall RtlpHpSegLfhVsCommit(__int64 a1, int a2)

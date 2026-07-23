@@ -1,7 +1,7 @@
 /*
  * XREFs of sub_180084E98 @ 0x180084E98
  * Callers:
- *     sub_18002EA00 @ 0x18002EA00 (sub_18002EA00.c)
+ *     Callback @ 0x18002EA00 (Callback.c)
  *     sub_18002F4F0 @ 0x18002F4F0 (sub_18002F4F0.c)
  *     sub_1800305A0 @ 0x1800305A0 (sub_1800305A0.c)
  * Callees:
@@ -14,16 +14,16 @@
 void __fastcall sub_180084E98(__int64 a1)
 {
   unsigned int v1; // ebx
-  signed int v2; // edi
-  __int64 v3; // [rsp+20h] [rbp-C8h] BYREF
+  NTSTATUS v2; // edi
+  __int64 ThreadInformation; // [rsp+20h] [rbp-C8h] BYREF
   EXCEPTION_RECORD ExceptionRecord; // [rsp+30h] [rbp-B8h] BYREF
 
-  v3 = a1;
+  ThreadInformation = a1;
   v1 = 0;
   while ( 1 )
   {
     ++v1;
-    v2 = ZwSetInformationThread(-2LL, 5LL, &v3);
+    v2 = ZwSetInformationThread((HANDLE)0xFFFFFFFFFFFFFFFELL, ThreadImpersonationToken, &ThreadInformation, 8u);
     if ( v2 >= 0 )
       break;
     if ( v1 >= 2 )

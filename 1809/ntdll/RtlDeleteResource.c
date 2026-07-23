@@ -5,14 +5,14 @@
  * Callees:
  *     RtlDeleteCriticalSection @ 0x18005C6B0 (RtlDeleteCriticalSection.c)
  *     RtlpFreeDebugInfo @ 0x18005C7C8 (RtlpFreeDebugInfo.c)
- *     NtClose @ 0x1800A04C0 (NtClose.c)
+ *     NtClose @ 0x1800A04E0 (NtClose.c)
  */
 
-void *__fastcall RtlDeleteResource(HANDLE *a1)
+void __cdecl RtlDeleteResource(PRTL_RESOURCE Resource)
 {
-  RtlDeleteCriticalSection(a1);
-  NtClose(a1[5]);
-  NtClose(a1[7]);
-  RtlpFreeDebugInfo(a1[11]);
-  return memset(a1, 0, 0x60uLL);
+  RtlDeleteCriticalSection(&Resource->CriticalSection);
+  NtClose(Resource->SharedSemaphore);
+  NtClose(Resource->ExclusiveSemaphore);
+  RtlpFreeDebugInfo(Resource->DebugInfo);
+  memset(Resource, 0, sizeof(_RTL_RESOURCE));
 }

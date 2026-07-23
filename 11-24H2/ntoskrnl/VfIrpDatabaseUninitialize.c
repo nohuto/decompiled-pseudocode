@@ -1,10 +1,10 @@
 /*
- * XREFs of VfIrpDatabaseUninitialize @ 0x140BA4110
+ * XREFs of VfIrpDatabaseUninitialize @ 0x140BA6110
  * Callers:
- *     ViIovPluginUnload @ 0x1406A4090 (ViIovPluginUnload.c)
- *     ViPacketNotificationCallback @ 0x140B9B530 (ViPacketNotificationCallback.c)
+ *     ViIovPluginUnload @ 0x1406A5090 (ViIovPluginUnload.c)
+ *     ViPacketNotificationCallback @ 0x140B9D530 (ViPacketNotificationCallback.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 VfIrpDatabaseUninitialize()

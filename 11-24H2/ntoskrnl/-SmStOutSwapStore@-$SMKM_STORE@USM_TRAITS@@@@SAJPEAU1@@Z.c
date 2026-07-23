@@ -1,66 +1,68 @@
 /*
- * XREFs of ?SmStOutSwapStore@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@@Z @ 0x14037FE90
+ * XREFs of ?SmStOutSwapStore@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@@Z @ 0x1403797D0
  * Callers:
- *     ?SmStSwapStore@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@W4_SM_STORE_SWAP_OPERATION@@@Z @ 0x14048B408 (-SmStSwapStore@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@W4_SM_STORE_SWAP_OPERATION@@@Z.c)
+ *     ?SmStSwapStore@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@W4_SM_STORE_SWAP_OPERATION@@@Z @ 0x1404861DC (-SmStSwapStore@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@W4_SM_STORE_SWAP_OPERATION@@@Z.c)
  * Callees:
- *     ?StDrainReadContextList@?$ST_STORE@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x14037E408 (-StDrainReadContextList@-$ST_STORE@USM_TRAITS@@@@SAXPEAU1@@Z.c)
- *     SmArrayGrow @ 0x140380C70 (SmArrayGrow.c)
- *     ?StLockReleaseShared@@YAXPEAUVLOCK@@K@Z @ 0x140399948 (-StLockReleaseShared@@YAXPEAUVLOCK@@K@Z.c)
- *     ?SmStUnmapVirtualRegion@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@KKKPEAXK@Z @ 0x14039B2D0 (-SmStUnmapVirtualRegion@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@KKKPEAXK@Z.c)
- *     ?SmStMapVirtualRegion@?$SMKM_STORE@USM_TRAITS@@@@SAPEAXPEAU1@KKKK@Z @ 0x14039B930 (-SmStMapVirtualRegion@-$SMKM_STORE@USM_TRAITS@@@@SAPEAXPEAU1@KKKK@Z.c)
- *     ?StLockAcquireShared@@YAKPEAUVLOCK@@@Z @ 0x14039BF08 (-StLockAcquireShared@@YAKPEAUVLOCK@@@Z.c)
- *     MmOutSwapVirtualAddresses @ 0x140404108 (MmOutSwapVirtualAddresses.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ?StLockReleaseShared@@YAXPEAUVLOCK@@K@Z @ 0x1402F6C50 (-StLockReleaseShared@@YAXPEAUVLOCK@@K@Z.c)
+ *     ?SmStUnmapVirtualRegion@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@KKKPEAXK@Z @ 0x1402F85D0 (-SmStUnmapVirtualRegion@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@KKKPEAXK@Z.c)
+ *     ?SmStMapVirtualRegion@?$SMKM_STORE@USM_TRAITS@@@@SAPEAXPEAU1@KKKK@Z @ 0x1402F8C30 (-SmStMapVirtualRegion@-$SMKM_STORE@USM_TRAITS@@@@SAPEAXPEAU1@KKKK@Z.c)
+ *     ?StLockAcquireShared@@YAKPEAUVLOCK@@@Z @ 0x1402F9208 (-StLockAcquireShared@@YAKPEAUVLOCK@@@Z.c)
+ *     ?StDrainReadContextList@?$ST_STORE@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x140378128 (-StDrainReadContextList@-$ST_STORE@USM_TRAITS@@@@SAXPEAU1@@Z.c)
+ *     SmArrayGrow @ 0x14037A5B0 (SmArrayGrow.c)
+ *     MmOutSwapVirtualAddresses @ 0x1403C64C8 (MmOutSwapVirtualAddresses.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SMKM_STORE<SM_TRAITS>::SmStOutSwapStore(__int64 a1)
 {
   unsigned int v1; // ebx
-  _DWORD *Pool2; // r12
+  unsigned int *Pool2; // r12
   __int64 v4; // rsi
   signed __int64 v5; // r14
-  ULONG_PTR v6; // r13
+  struct VLOCK *v6; // r13
   __int64 v7; // r15
-  __int64 v8; // rdx
-  unsigned int v9; // r10d
-  unsigned int v10; // r8d
-  unsigned __int64 v11; // r11
+  unsigned int v8; // r10d
+  unsigned int v9; // r8d
+  unsigned __int64 v10; // r11
+  _DWORD *v11; // rdx
   int v12; // r9d
-  unsigned __int64 i; // rax
-  unsigned int v14; // r9d
+  _DWORD *i; // rax
+  __int64 v14; // r9
   __int64 v15; // rcx
   unsigned __int64 j; // rax
   unsigned int *v17; // rax
   unsigned int v18; // r8d
   unsigned int v19; // eax
   __int64 v20; // rdx
-  int v21; // r8d
-  __int64 v22; // rax
-  __int64 v23; // rcx
-  int v24; // r8d
-  int v25; // r9d
-  struct VLOCK *v26; // rcx
-  int v27; // ebx
-  _DWORD *v29; // r14
-  int v30; // [rsp+20h] [rbp-48h]
+  __int64 v21; // rdx
+  __int64 v22; // r8
+  _QWORD *v23; // rdx
+  __int64 v24; // rax
+  __int64 v25; // rcx
+  __int64 v26; // r8
+  __int64 v27; // r9
+  struct VLOCK *v28; // rcx
+  int v29; // ebx
+  unsigned int *v31; // r14
+  __int64 v32; // [rsp+20h] [rbp-48h]
   PVOID P; // [rsp+30h] [rbp-38h]
-  PVOID v32; // [rsp+38h] [rbp-30h] BYREF
-  __int64 v33; // [rsp+40h] [rbp-28h]
-  __int128 v34; // [rsp+48h] [rbp-20h]
-  __int64 v35; // [rsp+58h] [rbp-10h]
-  int v36; // [rsp+B0h] [rbp+48h]
-  int v37; // [rsp+C0h] [rbp+58h] BYREF
-  __int64 v38; // [rsp+C8h] [rbp+60h]
+  PVOID v34; // [rsp+38h] [rbp-30h] BYREF
+  __int64 v35; // [rsp+40h] [rbp-28h]
+  __int128 v36; // [rsp+48h] [rbp-20h]
+  __int64 v37; // [rsp+58h] [rbp-10h]
+  int v38; // [rsp+B0h] [rbp+48h]
+  int v39; // [rsp+C0h] [rbp+58h] BYREF
+  __int64 v40; // [rsp+C8h] [rbp+60h]
 
   v1 = 0;
   P = 0LL;
-  v34 = 0LL;
-  v35 = 0LL;
+  v36 = 0LL;
+  v37 = 0LL;
   Pool2 = 0LL;
-  v32 = 0LL;
+  v34 = 0LL;
   v4 = 0LL;
-  ST_STORE<SM_TRAITS>::StDrainReadContextList((union _SLIST_HEADER *)a1);
+  ST_STORE<SM_TRAITS>::StDrainReadContextList((_SLIST_HEADER *)a1);
   v5 = *(_QWORD *)(a1 + 7416);
   if ( (unsigned __int64)(v5 - 1) <= 0xFFFFFFFFFFFFFFFDuLL )
   {
@@ -69,131 +71,129 @@ __int64 __fastcall SMKM_STORE<SM_TRAITS>::SmStOutSwapStore(__int64 a1)
     if ( *(_QWORD *)v5 )
     {
       v7 = v5;
-      v27 = -1073741791;
+      v29 = -1073741791;
     }
     else
     {
-      v6 = a1 + 6840;
+      v6 = (struct VLOCK *)(a1 + 6840);
       P = (PVOID)v5;
-      v36 = 1;
+      v38 = 1;
       v7 = 0LL;
       StLockAcquireShared((struct VLOCK *)(a1 + 6840));
-      Pool2 = (_DWORD *)ExAllocatePool2(0x40uLL);
+      Pool2 = (unsigned int *)ExAllocatePool2(0x40uLL, (unsigned int)(4 * *(_DWORD *)(a1 + 7020)), 0x77536D73u);
       if ( !Pool2 )
       {
-        v27 = -1073741670;
+        v29 = -1073741670;
 LABEL_31:
-        StLockReleaseShared(v6, v8);
+        StLockReleaseShared(v6);
 LABEL_32:
         if ( v7 == -1 )
           goto LABEL_33;
         goto LABEL_42;
       }
-      v37 = 0;
+      v39 = 0;
       while ( 1 )
       {
-        v9 = *(_DWORD *)(v5 + 8);
-        if ( v9 <= v1 )
+        v8 = *(_DWORD *)(v5 + 8);
+        if ( v8 <= v1 )
           break;
-        v10 = 0;
-        v38 = *(_QWORD *)(v5 + 16);
-        v11 = v38 + 4 * ((unsigned __int64)(v9 - 1) >> 5);
-        v8 = v38 + 4 * ((unsigned __int64)v1 >> 5);
-        v12 = ((1 << (v1 & 0x1F)) - 1) | *(_DWORD *)v8;
-        for ( i = v8 + 4; ; i += 4LL )
+        v9 = 0;
+        v40 = *(_QWORD *)(v5 + 16);
+        v10 = v40 + 4 * ((unsigned __int64)(v8 - 1) >> 5);
+        v11 = (_DWORD *)(v40 + 4 * ((unsigned __int64)v1 >> 5));
+        v12 = ((1 << (v1 & 0x1F)) - 1) | *v11;
+        for ( i = v11 + 1; ; ++i )
         {
-          v14 = ~v12;
-          if ( v14 )
+          v14 = (unsigned int)~v12;
+          if ( (_DWORD)v14 )
             break;
-          if ( i > v11 )
+          if ( (unsigned __int64)i > v10 )
             goto LABEL_47;
-          v8 += 4LL;
-          v12 = *(_DWORD *)v8;
+          v12 = *++v11;
         }
-        _BitScanForward64((unsigned __int64 *)&v15, v14);
-        v1 = v15 + 32 * ((v8 - v38) >> 2);
-        if ( v1 > v9 )
+        _BitScanForward64((unsigned __int64 *)&v15, (unsigned int)v14);
+        v1 = v15 + 32 * (((__int64)v11 - v40) >> 2);
+        if ( v1 > v8 )
         {
 LABEL_47:
-          v1 = v9;
+          v1 = v8;
           goto LABEL_20;
         }
-        for ( j = ~(v14 | ((1 << v15) - 1)); ; j = *v17 )
+        for ( j = ~((unsigned int)v14 | ((1 << v15) - 1)); ; j = *v17 )
         {
           if ( (_DWORD)j )
           {
             _BitScanForward64(&j, j);
             goto LABEL_17;
           }
-          v17 = (unsigned int *)(v8 + 4);
-          if ( v8 + 4 > v11 )
+          v17 = v11 + 1;
+          if ( (unsigned __int64)(v11 + 1) > v10 )
             break;
-          v8 += 4LL;
+          ++v11;
         }
         LODWORD(j) = 32;
 LABEL_17:
-        v8 -= v38;
-        v18 = j + 32 * (v8 >> 2);
-        if ( v18 > v9 )
-          v18 = v9;
-        v10 = v18 - v1;
+        v18 = j + 32 * (((__int64)v11 - v40) >> 2);
+        if ( v18 > v8 )
+          v18 = v8;
+        v9 = v18 - v1;
 LABEL_20:
-        if ( !v10 )
+        if ( !v9 )
           break;
-        v19 = v10 + v1;
-        LODWORD(v38) = v10 + v1;
+        v19 = v9 + v1;
+        LODWORD(v40) = v9 + v1;
         while ( v1 < v19 )
         {
-          v8 = *(_QWORD *)(*(_QWORD *)(a1 + 7024) + 8LL * v1);
-          if ( (v8 & 0x7FFFFFFFFFFF0000LL) != 0 && v8 >= 0 )
+          v20 = *(_QWORD *)(*(_QWORD *)(a1 + 7024) + 8LL * v1);
+          if ( (v20 & 0x7FFFFFFFFFFF0000LL) != 0 && v20 >= 0 )
           {
-            v33 = SMKM_STORE<SM_TRAITS>::SmStMapVirtualRegion(a1, v1, 0, v14, 4);
-            if ( !(unsigned int)SmArrayGrow((unsigned int)v4, v20, &v37, &v32) )
+            v35 = SMKM_STORE<SM_TRAITS>::SmStMapVirtualRegion(a1, v1, 0, v14, 4);
+            if ( !(unsigned int)SmArrayGrow((unsigned int)v4, v21, &v39, &v34) )
             {
-              SMKM_STORE<SM_TRAITS>::SmStUnmapVirtualRegion(a1, v1, v21, v14, v30, 2);
-              v26 = (struct VLOCK *)(a1 + 6840);
-              v27 = -1073741670;
+              SMKM_STORE<SM_TRAITS>::SmStUnmapVirtualRegion(a1, v1, v22, v14, v32, 2u);
+              v28 = (struct VLOCK *)(a1 + 6840);
+              v29 = -1073741670;
               goto LABEL_29;
             }
-            v8 = (__int64)v32;
-            v22 = v33;
+            v23 = v34;
+            v24 = v35;
             Pool2[v4] = v1;
-            v23 = 2LL * (unsigned int)v4;
+            v25 = 2LL * (unsigned int)v4;
             v4 = (unsigned int)(v4 + 1);
-            *(_QWORD *)(v8 + 8 * v23) = v22;
-            *(_QWORD *)(v8 + 8 * v23 + 8) = *(unsigned int *)(a1 + 7016);
+            v23[v25] = v24;
+            v23[v25 + 1] = *(unsigned int *)(a1 + 7016);
           }
-          v19 = v38;
+          v19 = v40;
           ++v1;
         }
       }
-      StLockReleaseShared(a1 + 6840, v8);
-      v36 = 0;
+      StLockReleaseShared((struct VLOCK *)(a1 + 6840));
+      v38 = 0;
       if ( (_DWORD)v4 )
       {
-        *((_QWORD *)&v34 + 1) = v32;
-        v35 = (unsigned int)v4;
-        v27 = MmOutSwapVirtualAddresses(KeGetCurrentThread()->ApcState.Process);
-        v26 = (struct VLOCK *)(a1 + 6840);
-        if ( v27 < 0 )
+        *((_QWORD *)&v36 + 1) = v34;
+        v37 = (unsigned int)v4;
+        v29 = MmOutSwapVirtualAddresses(KeGetCurrentThread()->ApcState.Process);
+        v28 = (struct VLOCK *)(a1 + 6840);
+        if ( v29 < 0 )
         {
 LABEL_29:
-          v6 = (ULONG_PTR)v26;
+          v6 = v28;
           if ( !(_DWORD)v4 )
             goto LABEL_30;
           P = (PVOID)v5;
-          if ( v36 )
+          if ( v38 )
           {
 LABEL_51:
-            v29 = Pool2;
+            v31 = Pool2;
             do
             {
-              SMKM_STORE<SM_TRAITS>::SmStUnmapVirtualRegion(a1, *v29++, v24, v25, v30, 2);
+              SMKM_STORE<SM_TRAITS>::SmStUnmapVirtualRegion(a1, *v31++, v26, v27, v32, 2u);
               --v4;
             }
             while ( v4 );
 LABEL_30:
-            if ( !v36 )
+            if ( !v38 )
               goto LABEL_32;
             goto LABEL_31;
           }
@@ -201,15 +201,15 @@ LABEL_30:
         else
         {
           v7 = v5;
-          *(_QWORD *)v5 = v34;
+          *(_QWORD *)v5 = v36;
           P = 0LL;
-          v27 = 0;
+          v29 = 0;
         }
-        v36 = 1;
-        StLockAcquireShared(v26);
+        v38 = 1;
+        StLockAcquireShared(v28);
         goto LABEL_51;
       }
-      v27 = -1073741607;
+      v29 = -1073741607;
     }
 LABEL_42:
     _InterlockedExchange64((volatile __int64 *)(a1 + 7416), v7);
@@ -218,11 +218,11 @@ LABEL_33:
       ExFreePoolWithTag(P, 0);
     goto LABEL_35;
   }
-  v27 = -1073700861;
+  v29 = -1073700861;
 LABEL_35:
-  if ( v32 )
-    ExFreePoolWithTag(v32, 0);
+  if ( v34 )
+    ExFreePoolWithTag(v34, 0);
   if ( Pool2 )
     ExFreePoolWithTag(Pool2, 0);
-  return (unsigned int)v27;
+  return (unsigned int)v29;
 }

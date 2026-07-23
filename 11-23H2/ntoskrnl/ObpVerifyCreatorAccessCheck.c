@@ -1,19 +1,19 @@
 /*
- * XREFs of ObpVerifyCreatorAccessCheck @ 0x1407C8B08
+ * XREFs of ObpVerifyCreatorAccessCheck @ 0x1407C8DD8
  * Callers:
- *     NtCreatePrivateNamespace @ 0x1407C88A0 (NtCreatePrivateNamespace.c)
- *     NtDeletePrivateNamespace @ 0x140885F90 (NtDeletePrivateNamespace.c)
+ *     NtCreatePrivateNamespace @ 0x1407C8B70 (NtCreatePrivateNamespace.c)
+ *     NtDeletePrivateNamespace @ 0x1408861D0 (NtDeletePrivateNamespace.c)
  * Callees:
- *     RtlSubAuthoritySid @ 0x140297AD0 (RtlSubAuthoritySid.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     SeUnlockSubjectContext @ 0x1406C3130 (SeUnlockSubjectContext.c)
- *     SeLockSubjectContext @ 0x1406C3170 (SeLockSubjectContext.c)
- *     SeQueryInformationToken @ 0x1407196A0 (SeQueryInformationToken.c)
- *     SeReleaseSubjectContext @ 0x140737BC0 (SeReleaseSubjectContext.c)
- *     SeCaptureSubjectContextEx @ 0x140737CA0 (SeCaptureSubjectContextEx.c)
- *     RtlInitializeSid @ 0x140782050 (RtlInitializeSid.c)
- *     RtlEnumerateBoundaryDescriptorEntries @ 0x1407C8FE8 (RtlEnumerateBoundaryDescriptorEntries.c)
+ *     RtlSubAuthoritySid @ 0x140297D60 (RtlSubAuthoritySid.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     SeUnlockSubjectContext @ 0x1406C3160 (SeUnlockSubjectContext.c)
+ *     SeLockSubjectContext @ 0x1406C31A0 (SeLockSubjectContext.c)
+ *     SeQueryInformationToken @ 0x1407198A0 (SeQueryInformationToken.c)
+ *     SeReleaseSubjectContext @ 0x140737DB0 (SeReleaseSubjectContext.c)
+ *     SeCaptureSubjectContextEx @ 0x140737E90 (SeCaptureSubjectContextEx.c)
+ *     RtlInitializeSid @ 0x140782240 (RtlInitializeSid.c)
+ *     RtlEnumerateBoundaryDescriptorEntries @ 0x1407C92B8 (RtlEnumerateBoundaryDescriptorEntries.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
@@ -24,7 +24,7 @@ __int64 __fastcall ObpVerifyCreatorAccessCheck(__int64 a1)
   PULONG v4; // rax
   int v5; // ebx
   int v6; // ecx
-  struct _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+20h] [rbp-59h] BYREF
+  _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+20h] [rbp-59h] BYREF
   PVOID TokenInformation; // [rsp+28h] [rbp-51h] BYREF
   struct _SECURITY_SUBJECT_CONTEXT SubjectContext; // [rsp+30h] [rbp-49h] BYREF
   PVOID P[2]; // [rsp+50h] [rbp-29h] BYREF

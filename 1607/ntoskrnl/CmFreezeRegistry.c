@@ -1,21 +1,21 @@
 /*
- * XREFs of CmFreezeRegistry @ 0x140602BC0
+ * XREFs of CmFreezeRegistry @ 0x140602C74
  * Callers:
- *     NtFreezeRegistry @ 0x1401B2FB0 (NtFreezeRegistry.c)
+ *     NtFreezeRegistry @ 0x1401B2E94 (NtFreezeRegistry.c)
  * Callees:
- *     KiSetTimerEx @ 0x140006E00 (KiSetTimerEx.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     CmpDisableLazyFlush @ 0x1400B5FC0 (CmpDisableLazyFlush.c)
- *     ExAcquireRundownProtection @ 0x1400D3ED0 (ExAcquireRundownProtection.c)
- *     ExReleaseRundownProtection @ 0x1400D3F00 (ExReleaseRundownProtection.c)
- *     ExAcquireFastMutexUnsafe @ 0x1400F05A0 (ExAcquireFastMutexUnsafe.c)
- *     ExReleaseFastMutexUnsafe @ 0x1400F0700 (ExReleaseFastMutexUnsafe.c)
- *     CmpFlushHive @ 0x1403FA0CC (CmpFlushHive.c)
- *     CmpGetNextActiveHive @ 0x1403FB6D0 (CmpGetNextActiveHive.c)
- *     CmpLockRegistryExclusive @ 0x1403FD9E8 (CmpLockRegistryExclusive.c)
- *     CmpUnlockRegistry @ 0x14040476C (CmpUnlockRegistry.c)
- *     HvMarkBaseBlockDirty @ 0x140564650 (HvMarkBaseBlockDirty.c)
- *     CmThawRegistry @ 0x140602DE0 (CmThawRegistry.c)
+ *     KiSetTimerEx @ 0x140006F70 (KiSetTimerEx.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     CmpDisableLazyFlush @ 0x1400B3DE8 (CmpDisableLazyFlush.c)
+ *     ExAcquireRundownProtection @ 0x1400D1D70 (ExAcquireRundownProtection.c)
+ *     ExReleaseRundownProtection @ 0x1400D1DA0 (ExReleaseRundownProtection.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1400EE420 (ExAcquireFastMutexUnsafe.c)
+ *     ExReleaseFastMutexUnsafe @ 0x1400EE580 (ExReleaseFastMutexUnsafe.c)
+ *     CmpFlushHive @ 0x1403F8F8C (CmpFlushHive.c)
+ *     CmpGetNextActiveHive @ 0x1403FA590 (CmpGetNextActiveHive.c)
+ *     CmpLockRegistryExclusive @ 0x1403FC8A8 (CmpLockRegistryExclusive.c)
+ *     CmpUnlockRegistry @ 0x14040362C (CmpUnlockRegistry.c)
+ *     HvMarkBaseBlockDirty @ 0x140564B90 (HvMarkBaseBlockDirty.c)
+ *     CmThawRegistry @ 0x140602E94 (CmThawRegistry.c)
  */
 
 __int64 __fastcall CmFreezeRegistry(int a1)

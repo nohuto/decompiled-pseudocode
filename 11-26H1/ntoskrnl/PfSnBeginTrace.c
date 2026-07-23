@@ -1,19 +1,19 @@
 /*
- * XREFs of PfSnBeginTrace @ 0x140AA32C0
+ * XREFs of PfSnBeginTrace @ 0x1409D002C
  * Callers:
- *     PfSnBeginScenario @ 0x14096F3B8 (PfSnBeginScenario.c)
+ *     PfSnBeginScenario @ 0x1409D16A0 (PfSnBeginScenario.c)
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x140278B30 (ObfReferenceObjectWithTag.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     PsGetThreadId @ 0x14047FA80 (PsGetThreadId.c)
- *     KeInitializeDpc @ 0x140481A50 (KeInitializeDpc.c)
- *     KeInitializeTimer @ 0x140483D00 (KeInitializeTimer.c)
- *     PfSnActivateTrace @ 0x1404D0BF8 (PfSnActivateTrace.c)
- *     PfSnTraceBufferAllocate @ 0x1404D1E10 (PfSnTraceBufferAllocate.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     PfSnCleanupTrace @ 0x140AA3C54 (PfSnCleanupTrace.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x1402780A0 (ObfReferenceObjectWithTag.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     PsGetThreadId @ 0x1404793F0 (PsGetThreadId.c)
+ *     KeInitializeDpc @ 0x14047B3C0 (KeInitializeDpc.c)
+ *     KeInitializeTimer @ 0x14047D670 (KeInitializeTimer.c)
+ *     PfSnActivateTrace @ 0x1404CA628 (PfSnActivateTrace.c)
+ *     PfSnTraceBufferAllocate @ 0x1404CB9C0 (PfSnTraceBufferAllocate.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     PfSnCleanupTrace @ 0x140AA69F4 (PfSnCleanupTrace.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PfSnBeginTrace(_OWORD *a1, int a2, void *a3, struct _KTHREAD *a4, int a5, __int64 *a6)
@@ -29,7 +29,7 @@ __int64 __fastcall PfSnBeginTrace(_OWORD *a1, int a2, void *a3, struct _KTHREAD 
   int v17; // edi
 
   v8 = a2;
-  if ( LODWORD(stru_140E66FF0.ThreadLock) >= LODWORD(stru_140E66B30.LastXStateSaveDebugInfo) )
+  if ( LODWORD(stru_140E67200.ThreadLock) >= LODWORD(stru_140E66D40.LastXStateSaveDebugInfo) )
     return (unsigned int)-1073741618;
   if ( !FsRtlpVolumeStartupApplicationsComplete )
     return (unsigned int)-1073741661;
@@ -65,9 +65,9 @@ __int64 __fastcall PfSnBeginTrace(_OWORD *a1, int a2, void *a3, struct _KTHREAD 
     *(_OWORD *)(v11 + 72) = a1[3];
     *(_DWORD *)(v11 + 88) = v8;
     *(_WORD *)(v11 + 486) = v13 & 0xFFFE | (a5 != 0);
-    v14 = *(_DWORD *)&stru_140E66B30.WaitBlockFill11[16 * v8 + 152];
+    v14 = *(_DWORD *)&stru_140E66D40.WaitBlockFill11[16 * v8 + 152];
     *(_DWORD *)(v11 + 340) = v14;
-    *(_QWORD *)(v11 + 200) = *(_QWORD *)&stru_140E66B30.WaitBlockFill11[16 * v8 + 160];
+    *(_QWORD *)(v11 + 200) = *(_QWORD *)&stru_140E66D40.WaitBlockFill11[16 * v8 + 160];
     if ( v14 )
     {
       if ( v14 > 0x100000 )

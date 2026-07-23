@@ -1,34 +1,34 @@
 /*
- * XREFs of ExReferenceCallBackBlock @ 0x14029BA90
+ * XREFs of ExReferenceCallBackBlock @ 0x14029AFF0
  * Callers:
- *     IoBoostThreadIoPriority @ 0x140205ACC (IoBoostThreadIoPriority.c)
- *     PoIssueCoalescingNotification @ 0x140435CBC (PoIssueCoalescingNotification.c)
- *     KiEnumerateCallback @ 0x1404FD890 (KiEnumerateCallback.c)
- *     IoUnregisterPriorityCallback @ 0x1405CB4D0 (IoUnregisterPriorityCallback.c)
- *     KeDeregisterBoundCallback @ 0x1405E4820 (KeDeregisterBoundCallback.c)
- *     KiHandleBound @ 0x1405E5140 (KiHandleBound.c)
- *     DbgkLkmdRegisterCallback @ 0x14078B4D0 (DbgkLkmdRegisterCallback.c)
- *     DbgkLkmdUnregisterCallback @ 0x14078B5C0 (DbgkLkmdUnregisterCallback.c)
- *     DbgkpLkmdFireCallbacks @ 0x14078B668 (DbgkpLkmdFireCallbacks.c)
- *     PoUnregisterCoalescingCallback @ 0x1407CF1F0 (PoUnregisterCoalescingCallback.c)
- *     PsRemoveLoadImageNotifyRoutine @ 0x1407FCBE0 (PsRemoveLoadImageNotifyRoutine.c)
- *     PspCallThreadNotifyRoutines @ 0x1409EB6AC (PspCallThreadNotifyRoutines.c)
- *     ExCallCallBack @ 0x140A41008 (ExCallCallBack.c)
- *     PsInvokeWin32Callout @ 0x140A41140 (PsInvokeWin32Callout.c)
- *     PspCallProcessNotifyRoutines @ 0x140A43714 (PspCallProcessNotifyRoutines.c)
- *     KeUserModeCallback @ 0x140A59280 (KeUserModeCallback.c)
- *     PsCallImageNotifyRoutines @ 0x140A791A4 (PsCallImageNotifyRoutines.c)
- *     PsRemoveCreateThreadNotifyRoutine @ 0x140B2BAE0 (PsRemoveCreateThreadNotifyRoutine.c)
- *     PspSetCreateProcessNotifyRoutine @ 0x140B2CF9C (PspSetCreateProcessNotifyRoutine.c)
+ *     IoBoostThreadIoPriority @ 0x140205BAC (IoBoostThreadIoPriority.c)
+ *     PoIssueCoalescingNotification @ 0x1404247C8 (PoIssueCoalescingNotification.c)
+ *     KiEnumerateCallback @ 0x1404F6DD0 (KiEnumerateCallback.c)
+ *     IoUnregisterPriorityCallback @ 0x1405CDDA0 (IoUnregisterPriorityCallback.c)
+ *     KeDeregisterBoundCallback @ 0x1405E7190 (KeDeregisterBoundCallback.c)
+ *     KiHandleBound @ 0x1405E7AB0 (KiHandleBound.c)
+ *     DbgkLkmdRegisterCallback @ 0x14078E000 (DbgkLkmdRegisterCallback.c)
+ *     DbgkLkmdUnregisterCallback @ 0x14078E0F0 (DbgkLkmdUnregisterCallback.c)
+ *     DbgkpLkmdFireCallbacks @ 0x14078E198 (DbgkpLkmdFireCallbacks.c)
+ *     PoUnregisterCoalescingCallback @ 0x1407D2290 (PoUnregisterCoalescingCallback.c)
+ *     PsRemoveLoadImageNotifyRoutine @ 0x140802610 (PsRemoveLoadImageNotifyRoutine.c)
+ *     KeUserModeCallback @ 0x140923D90 (KeUserModeCallback.c)
+ *     PsCallImageNotifyRoutines @ 0x1409E6750 (PsCallImageNotifyRoutines.c)
+ *     PspCallThreadNotifyRoutines @ 0x1409E7E7C (PspCallThreadNotifyRoutines.c)
+ *     ExCallCallBack @ 0x1409FCA28 (ExCallCallBack.c)
+ *     PsInvokeWin32Callout @ 0x1409FCB60 (PsInvokeWin32Callout.c)
+ *     PspCallProcessNotifyRoutines @ 0x1409FE474 (PspCallProcessNotifyRoutines.c)
+ *     PsRemoveCreateThreadNotifyRoutine @ 0x140B2DB60 (PsRemoveCreateThreadNotifyRoutine.c)
+ *     PspSetCreateProcessNotifyRoutine @ 0x140B2F01C (PspSetCreateProcessNotifyRoutine.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     ExpWaitForSpinLockSharedAndAcquire @ 0x14029BC90 (ExpWaitForSpinLockSharedAndAcquire.c)
- *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x1402EE000 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14036A848 (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
- *     ExAcquireRundownProtectionEx @ 0x140375100 (ExAcquireRundownProtectionEx.c)
- *     ExpReleaseRundownProtection @ 0x140463F50 (ExpReleaseRundownProtection.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     ExpWaitForSpinLockSharedAndAcquire @ 0x14029B1F0 (ExpWaitForSpinLockSharedAndAcquire.c)
+ *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x1402D0080 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14036C5E8 (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
+ *     ExAcquireRundownProtectionEx @ 0x140376EB0 (ExAcquireRundownProtectionEx.c)
+ *     ExpReleaseRundownProtection @ 0x14045CF10 (ExpReleaseRundownProtection.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 struct _EX_RUNDOWN_REF *__fastcall ExReferenceCallBackBlock(signed __int64 *a1, signed __int64 a2)
@@ -71,38 +71,38 @@ struct _EX_RUNDOWN_REF *__fastcall ExReferenceCallBackBlock(signed __int64 *a1, 
       LOBYTE(a2) = 2;
       KiRaiseIrqlProcessIrqlFlags(CurrentIrql, a2);
     }
-    if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+    if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
     {
-      _m_prefetchw(&stru_140EFEF90.Header.WaitListHead);
-      v7 = (__int64)stru_140EFEF90.Header.WaitListHead.Flink & 0x7FFFFFFF;
+      _m_prefetchw(dword_140EFF2B8);
+      v7 = dword_140EFF2B8[0] & 0x7FFFFFFF;
       while ( 1 )
       {
         v8 = v7;
-        v7 = _InterlockedCompareExchange((volatile signed __int32 *)&stru_140EFEF90.Header.WaitListHead, v7 + 1, v7);
+        v7 = _InterlockedCompareExchange(dword_140EFF2B8, v7 + 1, v7);
         if ( v8 == v7 )
           break;
         if ( v7 < 0 )
         {
-          ExpWaitForSpinLockSharedAndAcquire(&stru_140EFEF90.Header.WaitListHead, CurrentIrql);
+          ExpWaitForSpinLockSharedAndAcquire(dword_140EFF2B8, CurrentIrql);
           break;
         }
       }
     }
     else
     {
-      ExpAcquireSpinLockSharedAtDpcLevelInstrumented(&stru_140EFEF90.Header.WaitListHead, CurrentIrql);
+      ExpAcquireSpinLockSharedAtDpcLevelInstrumented(dword_140EFF2B8, CurrentIrql);
     }
     v9 = (struct _EX_RUNDOWN_REF *)(*a1 & 0xFFFFFFFFFFFFFFF0uLL);
     if ( v9 && !ExAcquireRundownProtection_0((PEX_RUNDOWN_REF)(*a1 & 0xFFFFFFFFFFFFFFF0uLL)) )
       v9 = 0LL;
-    if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+    if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
     {
-      _InterlockedAnd((volatile signed __int32 *)&stru_140EFEF90.Header.WaitListHead, 0xBFFFFFFF);
-      _InterlockedDecrement((volatile signed __int32 *)&stru_140EFEF90.Header.WaitListHead);
+      _InterlockedAnd(dword_140EFF2B8, 0xBFFFFFFF);
+      _InterlockedDecrement(dword_140EFF2B8);
     }
     else
     {
-      ExpReleaseSpinLockSharedFromDpcLevelInstrumented(&stru_140EFEF90.Header.WaitListHead, retaddr);
+      ExpReleaseSpinLockSharedFromDpcLevelInstrumented(dword_140EFF2B8, retaddr);
     }
     if ( KiIrqlFlags )
       KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), CurrentIrql);

@@ -1,13 +1,13 @@
 /*
- * XREFs of SeOpenObjectAuditAlarmForNonObObject @ 0x140B09DB0
+ * XREFs of SeOpenObjectAuditAlarmForNonObObject @ 0x140B0BB70
  * Callers:
  *     <none>
  * Callees:
- *     SepAdtPrivilegeObjectAuditAlarm @ 0x14092F1E0 (SepAdtPrivilegeObjectAuditAlarm.c)
- *     SepAdtAuditThisEventWithContext @ 0x140932EA0 (SepAdtAuditThisEventWithContext.c)
- *     SeExamineSacl @ 0x1409F8430 (SeExamineSacl.c)
- *     SeExamineGlobalSacl @ 0x1409F8758 (SeExamineGlobalSacl.c)
- *     SepAdtOpenObjectAuditAlarm @ 0x1409FAF0C (SepAdtOpenObjectAuditAlarm.c)
+ *     SepAdtPrivilegeObjectAuditAlarm @ 0x14090AD10 (SepAdtPrivilegeObjectAuditAlarm.c)
+ *     SepAdtAuditThisEventWithContext @ 0x14090EA50 (SepAdtAuditThisEventWithContext.c)
+ *     SepAdtOpenObjectAuditAlarm @ 0x14091FB0C (SepAdtOpenObjectAuditAlarm.c)
+ *     SeExamineSacl @ 0x140A60F70 (SeExamineSacl.c)
+ *     SeExamineGlobalSacl @ 0x140A61298 (SeExamineGlobalSacl.c)
  */
 
 void SeOpenObjectAuditAlarmForNonObObject(

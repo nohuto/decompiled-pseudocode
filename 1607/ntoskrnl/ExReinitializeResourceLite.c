@@ -1,14 +1,14 @@
 /*
- * XREFs of ExReinitializeResourceLite @ 0x1400882A0
+ * XREFs of ExReinitializeResourceLite @ 0x14010C490
  * Callers:
  *     <none>
  * Callees:
- *     PsBoostThreadIoEx @ 0x14002D440 (PsBoostThreadIoEx.c)
- *     ExpOwnerEntryToThread @ 0x14008889C (ExpOwnerEntryToThread.c)
- *     ObDereferenceObjectDeferDeleteWithTag @ 0x1400D3F30 (ObDereferenceObjectDeferDeleteWithTag.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     PerfLogExecutiveResourceInitialize @ 0x140228158 (PerfLogExecutiveResourceInitialize.c)
+ *     PsBoostThreadIoEx @ 0x14002CFC0 (PsBoostThreadIoEx.c)
+ *     ObDereferenceObjectDeferDeleteWithTag @ 0x1400D1DD0 (ObDereferenceObjectDeferDeleteWithTag.c)
+ *     ExpOwnerEntryToThread @ 0x14010CA8C (ExpOwnerEntryToThread.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     PerfLogExecutiveResourceInitialize @ 0x140227F84 (PerfLogExecutiveResourceInitialize.c)
  */
 
 NTSTATUS __stdcall ExReinitializeResourceLite(PERESOURCE Resource)

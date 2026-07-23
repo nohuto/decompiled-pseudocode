@@ -1,15 +1,15 @@
 /*
- * XREFs of MiGetBaseResidentPage @ 0x1402E9180
+ * XREFs of MiGetBaseResidentPage @ 0x1402E9410
  * Callers:
- *     MiProbeUnlockPage @ 0x1402CB170 (MiProbeUnlockPage.c)
- *     MiGetPfnPageSizeIndexUnsynchronized @ 0x1402E90A0 (MiGetPfnPageSizeIndexUnsynchronized.c)
- *     MiTradePage @ 0x1403BA960 (MiTradePage.c)
- *     MiActivePageClaimCandidate @ 0x1403BBBF8 (MiActivePageClaimCandidate.c)
- *     MiTransferPartitionPageRun @ 0x14065B604 (MiTransferPartitionPageRun.c)
+ *     MiProbeUnlockPage @ 0x1402CB400 (MiProbeUnlockPage.c)
+ *     MiGetPfnPageSizeIndexUnsynchronized @ 0x1402E9330 (MiGetPfnPageSizeIndexUnsynchronized.c)
+ *     MiTradePage @ 0x1403BAB40 (MiTradePage.c)
+ *     MiActivePageClaimCandidate @ 0x1403BBDD8 (MiActivePageClaimCandidate.c)
+ *     MiTransferPartitionPageRun @ 0x14065BB54 (MiTransferPartitionPageRun.c)
  * Callees:
- *     MiLockNestedPageAtDpcInline @ 0x140348870 (MiLockNestedPageAtDpcInline.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
+ *     MiLockNestedPageAtDpcInline @ 0x140348B00 (MiLockNestedPageAtDpcInline.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiGetBaseResidentPage(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

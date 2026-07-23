@@ -8,10 +8,12 @@
 
 size_t __cdecl _mbstrlen(const char *String)
 {
-  const char *v2; // [esp+4h] [ebp-4h] BYREF
+  size_t result; // rax
+  PUCHAR SourceCharacter; // [esp+4h] [ebp-4h] BYREF
 
-  v2 = String;
-  while ( RtlAnsiCharToUnicodeChar((unsigned __int8 **)&v2) )
+  SourceCharacter = (PUCHAR)String;
+  while ( RtlAnsiCharToUnicodeChar(&SourceCharacter) )
     ;
-  return v2 - String - 1;
+  LODWORD(result) = SourceCharacter - (PUCHAR)String - 1;
+  return result;
 }

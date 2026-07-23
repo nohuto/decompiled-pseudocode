@@ -1,20 +1,20 @@
 /*
- * XREFs of CmpUnlockHiveList @ 0x140844354
+ * XREFs of CmpUnlockHiveList @ 0x140840614
  * Callers:
- *     CmpLoadKeyCommon @ 0x140464478 (CmpLoadKeyCommon.c)
- *     CmpJoinClassOfTrust @ 0x140464940 (CmpJoinClassOfTrust.c)
- *     CmpUnJoinClassOfTrust @ 0x140497B6C (CmpUnJoinClassOfTrust.c)
- *     CmpFinishSystemHivesLoad @ 0x1407CA230 (CmpFinishSystemHivesLoad.c)
- *     CmpLoadHiveVolatile @ 0x1407CE610 (CmpLoadHiveVolatile.c)
- *     CmpGetNextHive @ 0x14084425C (CmpGetNextHive.c)
- *     CmpDeleteHive @ 0x14084475C (CmpDeleteHive.c)
- *     CmpDoParseKey @ 0x14086E7B0 (CmpDoParseKey.c)
- *     CmpGetNextActiveHive @ 0x14090B0EC (CmpGetNextActiveHive.c)
- *     CmpGetLastHive @ 0x14092EBCC (CmpGetLastHive.c)
- *     CmpCreateHive @ 0x14092F538 (CmpCreateHive.c)
+ *     CmpLoadKeyCommon @ 0x14045ABA8 (CmpLoadKeyCommon.c)
+ *     CmpJoinClassOfTrust @ 0x14045B070 (CmpJoinClassOfTrust.c)
+ *     CmpUnJoinClassOfTrust @ 0x14049267C (CmpUnJoinClassOfTrust.c)
+ *     CmpFinishSystemHivesLoad @ 0x1407CA720 (CmpFinishSystemHivesLoad.c)
+ *     CmpLoadHiveVolatile @ 0x1407CEB00 (CmpLoadHiveVolatile.c)
+ *     CmpGetNextHive @ 0x14084051C (CmpGetNextHive.c)
+ *     CmpDeleteHive @ 0x140840A1C (CmpDeleteHive.c)
+ *     CmpDoParseKey @ 0x140872AE0 (CmpDoParseKey.c)
+ *     CmpGetNextActiveHive @ 0x1408E280C (CmpGetNextActiveHive.c)
+ *     CmpGetLastHive @ 0x140930D0C (CmpGetLastHive.c)
+ *     CmpCreateHive @ 0x140931678 (CmpCreateHive.c)
  * Callees:
- *     ExfReleasePushLock @ 0x14025E260 (ExfReleasePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
+ *     ExfReleasePushLock @ 0x14028E870 (ExfReleasePushLock.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
  */
 
 __int64 CmpUnlockHiveList()

@@ -1,15 +1,15 @@
 /*
- * XREFs of QueryRegistryHideMachine @ 0x140D08830
+ * XREFs of QueryRegistryHideMachine @ 0x140D0EB00
  * Callers:
- *     StartFirstUserProcess @ 0x140D08548 (StartFirstUserProcess.c)
+ *     StartFirstUserProcess @ 0x140D0E818 (StartFirstUserProcess.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     wcslen @ 0x1405380A0 (wcslen.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwOpenKey @ 0x140723630 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x1407236D0 (ZwQueryValueKey.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     wcslen @ 0x14053A520 (wcslen.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140728200 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1407282A0 (ZwQueryValueKey.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 bool QueryRegistryHideMachine()

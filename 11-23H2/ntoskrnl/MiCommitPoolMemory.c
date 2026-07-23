@@ -1,22 +1,22 @@
 /*
- * XREFs of MiCommitPoolMemory @ 0x140285E30
+ * XREFs of MiCommitPoolMemory @ 0x1402860C0
  * Callers:
- *     MmAllocatePoolMemory @ 0x1402867C8 (MmAllocatePoolMemory.c)
- *     MmAllocateSecurePoolMemory @ 0x1406418EC (MmAllocateSecurePoolMemory.c)
+ *     MmAllocatePoolMemory @ 0x140286A58 (MmAllocatePoolMemory.c)
+ *     MmAllocateSecurePoolMemory @ 0x140641E3C (MmAllocateSecurePoolMemory.c)
  * Callees:
  *     MiClearNonPagedPtes @ 0x140212458 (MiClearNonPagedPtes.c)
  *     MiMakeZeroedPageTablesEx @ 0x140214310 (MiMakeZeroedPageTablesEx.c)
- *     MiLockWorkingSetShared @ 0x140283C90 (MiLockWorkingSetShared.c)
- *     MiFillPoolCommitPageTable @ 0x140285390 (MiFillPoolCommitPageTable.c)
- *     MiLockPoolCommitPageTable @ 0x14028613C (MiLockPoolCommitPageTable.c)
- *     MiLinkPoolCommitChain @ 0x1402862A0 (MiLinkPoolCommitChain.c)
- *     MiUnlockPoolCommitWs @ 0x140286540 (MiUnlockPoolCommitWs.c)
- *     MiReturnExcessPoolCommit @ 0x140286598 (MiReturnExcessPoolCommit.c)
- *     MiGetSharedVm @ 0x140286E74 (MiGetSharedVm.c)
- *     MiUnlockPageTableInternal @ 0x1403195C0 (MiUnlockPageTableInternal.c)
- *     KeShouldYieldProcessor @ 0x140333C70 (KeShouldYieldProcessor.c)
- *     MiLogPerfMemoryRangeEvent @ 0x14061D878 (MiLogPerfMemoryRangeEvent.c)
- *     MiFreeExcessSegments @ 0x140624A1C (MiFreeExcessSegments.c)
+ *     MiLockWorkingSetShared @ 0x140283F20 (MiLockWorkingSetShared.c)
+ *     MiFillPoolCommitPageTable @ 0x140285620 (MiFillPoolCommitPageTable.c)
+ *     MiLockPoolCommitPageTable @ 0x1402863CC (MiLockPoolCommitPageTable.c)
+ *     MiLinkPoolCommitChain @ 0x140286530 (MiLinkPoolCommitChain.c)
+ *     MiUnlockPoolCommitWs @ 0x1402867D0 (MiUnlockPoolCommitWs.c)
+ *     MiReturnExcessPoolCommit @ 0x140286828 (MiReturnExcessPoolCommit.c)
+ *     MiGetSharedVm @ 0x140287104 (MiGetSharedVm.c)
+ *     MiUnlockPageTableInternal @ 0x140319850 (MiUnlockPageTableInternal.c)
+ *     KeShouldYieldProcessor @ 0x140333F00 (KeShouldYieldProcessor.c)
+ *     MiLogPerfMemoryRangeEvent @ 0x14061DDC8 (MiLogPerfMemoryRangeEvent.c)
+ *     MiFreeExcessSegments @ 0x140624F6C (MiFreeExcessSegments.c)
  */
 
 __int64 __fastcall MiCommitPoolMemory(_QWORD *a1)
@@ -56,7 +56,7 @@ __int64 __fastcall MiCommitPoolMemory(_QWORD *a1)
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
   LODWORD(v4) = 4;
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 2 )
@@ -83,7 +83,7 @@ __int64 __fastcall MiCommitPoolMemory(_QWORD *a1)
       MiUnlockPoolCommitWs(a1);
       v23 = KeGetCurrentIrql();
       __writecr8(2uLL);
-      if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v23 <= 0xFu )
+      if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v23 <= 0xFu )
       {
         v27 = KeGetCurrentPrcb()->SchedulerAssist;
         if ( v23 == 2 )
@@ -118,7 +118,7 @@ __int64 __fastcall MiCommitPoolMemory(_QWORD *a1)
       {
         *((_WORD *)a1 + 39) |= 1u;
         __writecr8(2uLL);
-        if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v21 <= 0xFu )
+        if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v21 <= 0xFu )
         {
           v29 = KeGetCurrentPrcb()->SchedulerAssist;
           if ( v21 != 2 )
@@ -131,7 +131,7 @@ __int64 __fastcall MiCommitPoolMemory(_QWORD *a1)
         break;
       }
       __writecr8(2uLL);
-      if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v21 <= 0xFu )
+      if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v21 <= 0xFu )
       {
         v25 = KeGetCurrentPrcb()->SchedulerAssist;
         if ( v21 == 2 )

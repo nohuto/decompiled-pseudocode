@@ -1,12 +1,12 @@
 /*
- * XREFs of MiFinishExtendAppend @ 0x140488E60
+ * XREFs of MiFinishExtendAppend @ 0x1404829A0
  * Callers:
- *     MiAppendSubsectionChain @ 0x1404C7AA8 (MiAppendSubsectionChain.c)
+ *     MiAppendSubsectionChain @ 0x1404C17E8 (MiAppendSubsectionChain.c)
  * Callees:
- *     MiInsertSubsectionNode @ 0x140488F70 (MiInsertSubsectionNode.c)
- *     MiMarkSubsectionsStatic @ 0x140489070 (MiMarkSubsectionsStatic.c)
- *     MiReturnAllSubsectionCharges @ 0x1404890DC (MiReturnAllSubsectionCharges.c)
- *     MiMarkSubsectionsDynamic @ 0x1406F80E4 (MiMarkSubsectionsDynamic.c)
+ *     MiInsertSubsectionNode @ 0x140482AB0 (MiInsertSubsectionNode.c)
+ *     MiMarkSubsectionsStatic @ 0x140482BB0 (MiMarkSubsectionsStatic.c)
+ *     MiReturnAllSubsectionCharges @ 0x140482C1C (MiReturnAllSubsectionCharges.c)
+ *     MiMarkSubsectionsDynamic @ 0x1406FCDB4 (MiMarkSubsectionsDynamic.c)
  */
 
 __int64 __fastcall MiFinishExtendAppend(__int64 *a1, __int64 a2, _QWORD *a3)

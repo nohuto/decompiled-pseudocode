@@ -24,7 +24,7 @@ __int64 __fastcall RtlpCopyAces(
         char a11,
         int a12,
         unsigned int *a13,
-        __int64 a14)
+        PACL Acl)
 {
   int v14; // esi
   GENERIC_MAPPING *GenericMapping; // r10
@@ -32,7 +32,7 @@ __int64 __fastcall RtlpCopyAces(
   __int64 v17; // r12
   unsigned __int8 v18; // al
   char v19; // r9
-  unsigned __int64 v20; // rcx
+  PACL v20; // rcx
   unsigned int v21; // r15d
   int *v22; // rbx
   unsigned int v23; // r8d
@@ -80,7 +80,7 @@ __int64 __fastcall RtlpCopyAces(
   v56 = a8;
   v57 = a9;
   v55 = a13;
-  v18 = *(_BYTE *)a14 - 2;
+  v18 = Acl->AclRevision - 2;
   v19 = 0;
   v52 = a3;
   v51 = a2;
@@ -89,23 +89,23 @@ __int64 __fastcall RtlpCopyAces(
   v44 = 0;
   if ( v18 > 2u )
     return 3221225560LL;
-  v20 = a14 + 8;
+  v20 = Acl + 1;
   v21 = 0;
   v22 = 0LL;
   v23 = 0;
-  if ( *(_WORD *)(a14 + 4) )
+  if ( Acl->AceCount )
   {
     do
     {
-      if ( v20 >= a14 + (unsigned __int64)*(unsigned __int16 *)(a14 + 2) )
+      if ( v20 >= (PACL)((char *)Acl + Acl->AclSize) )
         return 3221225597LL;
       ++v23;
-      v20 += *(unsigned __int16 *)(v20 + 2);
+      v20 = (PACL)((char *)v20 + v20->AclSize);
     }
-    while ( v23 < *(unsigned __int16 *)(a14 + 4) );
+    while ( v23 < Acl->AceCount );
     v19 = 0;
   }
-  if ( v20 <= a14 + (unsigned __int64)*(unsigned __int16 *)(a14 + 2) )
+  if ( v20 <= (PACL)((char *)Acl + Acl->AclSize) )
     v22 = (int *)v20;
   v24 = v17 + 8;
   v25 = 0;
@@ -137,7 +137,7 @@ LABEL_11:
         if ( !v27 )
         {
           v28 = *(unsigned __int16 *)(v24 + 2);
-          if ( v22 && v28 <= a14 + *(unsigned __int16 *)(a14 + 2) - (_QWORD)v22 )
+          if ( v22 && v28 <= (__int64)Acl + Acl->AclSize - (_QWORD)v22 )
           {
             if ( !v19 )
             {
@@ -175,7 +175,7 @@ LABEL_11:
             v44 = 1;
           }
 LABEL_66:
-          v22 = (int *)(a14 + *(unsigned __int16 *)(a14 + 2));
+          v22 = (int *)((char *)Acl + Acl->AclSize);
           goto LABEL_32;
         }
         v37 = 0;
@@ -204,7 +204,7 @@ LABEL_66:
                   0,
                   &v53,
                   &v50,
-                  a14,
+                  (__int64)Acl,
                   0LL,
                   &v46,
                   &v48) )
@@ -249,7 +249,7 @@ LABEL_51:
               LODWORD(v28) = *(unsigned __int16 *)(v24 + 2) + (_DWORD)v28;
               if ( (unsigned int)v28 > 0xFFFF )
                 return 3221225597LL;
-              if ( *(unsigned __int16 *)(v24 + 2) > a14 + *(unsigned __int16 *)(a14 + 2) - (_QWORD)v38 )
+              if ( *(unsigned __int16 *)(v24 + 2) > (__int64)Acl + Acl->AclSize - (_QWORD)v38 )
               {
                 v19 = 1;
                 v44 = 1;
@@ -262,7 +262,7 @@ LABEL_51:
                 v26 = v47;
 LABEL_30:
                 v19 = v44;
-                ++*(_WORD *)(a14 + 4);
+                ++Acl->AceCount;
 LABEL_31:
                 v22 = (int *)((char *)v22 + (unsigned int)v28);
 LABEL_32:
@@ -308,7 +308,7 @@ LABEL_33:
   }
   if ( a12 != 3 )
     goto LABEL_33;
-  if ( !RtlFindAceByType(a14, 17, 0LL) )
+  if ( !RtlFindAceByType(Acl, 0x11u, 0LL) )
   {
     v19 = v44;
     v27 = a5;

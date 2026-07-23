@@ -1,11 +1,11 @@
 /*
- * XREFs of MiReleaseImageSection @ 0x1402E93C0
+ * XREFs of MiReleaseImageSection @ 0x14029A710
  * Callers:
- *     MiCreateNewSection @ 0x1406D2BC0 (MiCreateNewSection.c)
+ *     MiCreateNewSection @ 0x1406A9EA0 (MiCreateNewSection.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExAcquireSpinLockExclusive @ 0x1402C1960 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140346AD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 

@@ -1,14 +1,14 @@
 /*
- * XREFs of CmpIsLoadType @ 0x1409CE6B4
+ * XREFs of CmpIsLoadType @ 0x1409CF6B4
  * Callers:
- *     CmpFindDrivers @ 0x1409CE508 (CmpFindDrivers.c)
+ *     CmpFindDrivers @ 0x1409CF508 (CmpFindDrivers.c)
  * Callees:
  *     RtlInitUnicodeStringEx @ 0x140015EB0 (RtlInitUnicodeStringEx.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     CmpFindSubKeyByName @ 0x14073D0DC (CmpFindSubKeyByName.c)
- *     CmpFindValueByName @ 0x14073D858 (CmpFindValueByName.c)
- *     CmpValueToData @ 0x14073D888 (CmpValueToData.c)
- *     CmpGetNodeName @ 0x1409CEA0C (CmpGetNodeName.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     CmpFindSubKeyByName @ 0x14073E2CC (CmpFindSubKeyByName.c)
+ *     CmpFindValueByName @ 0x14073EA48 (CmpFindValueByName.c)
+ *     CmpValueToData @ 0x14073EA78 (CmpValueToData.c)
+ *     CmpGetNodeName @ 0x1409CFA0C (CmpGetNodeName.c)
  */
 
 char __fastcall CmpIsLoadType(

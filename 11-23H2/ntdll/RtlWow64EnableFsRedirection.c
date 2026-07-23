@@ -6,7 +6,7 @@
  *     <none>
  */
 
-__int64 RtlWow64EnableFsRedirection()
+NTSTATUS __cdecl RtlWow64EnableFsRedirection(BOOLEAN Wow64FsEnableRedirection)
 {
-  return 3221225474LL;
+  return -1073741822;
 }

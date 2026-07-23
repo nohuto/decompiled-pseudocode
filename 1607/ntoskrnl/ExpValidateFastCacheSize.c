@@ -1,7 +1,7 @@
 /*
- * XREFs of ExpValidateFastCacheSize @ 0x1406AFBA8
+ * XREFs of ExpValidateFastCacheSize @ 0x1406AFCE0
  * Callers:
- *     sub_1406AE414 @ 0x1406AE414 (sub_1406AE414.c)
+ *     sub_1406AE54C @ 0x1406AE54C (sub_1406AE54C.c)
  *     sub_1407D22C0 @ 0x1407D22C0 (sub_1407D22C0.c)
  * Callees:
  *     <none>

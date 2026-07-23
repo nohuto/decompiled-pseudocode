@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpIsHiveEligibleForLazyReconcile @ 0x140AAB620
+ * XREFs of CmpIsHiveEligibleForLazyReconcile @ 0x140AA8BCC
  * Callers:
- *     CmpDoReconcileNextHive @ 0x140AAB490 (CmpDoReconcileNextHive.c)
+ *     CmpDoReconcileNextHive @ 0x140AA8A70 (CmpDoReconcileNextHive.c)
  * Callees:
- *     HvGetEffectiveLogSizeCapForHive @ 0x140AAB6F8 (HvGetEffectiveLogSizeCapForHive.c)
+ *     HvGetEffectiveLogSizeCapForHive @ 0x140AA8CA4 (HvGetEffectiveLogSizeCapForHive.c)
  */
 
 bool __fastcall CmpIsHiveEligibleForLazyReconcile(__int64 a1)

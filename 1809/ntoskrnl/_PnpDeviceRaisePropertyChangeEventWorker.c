@@ -1,15 +1,15 @@
 /*
- * XREFs of _PnpDeviceRaisePropertyChangeEventWorker @ 0x1406E5BC0
+ * XREFs of _PnpDeviceRaisePropertyChangeEventWorker @ 0x1406E6E60
  * Callers:
- *     _PnpObjectRaisePropertyChangeEvent @ 0x1406E5AE4 (_PnpObjectRaisePropertyChangeEvent.c)
+ *     _PnpObjectRaisePropertyChangeEvent @ 0x1406E6D84 (_PnpObjectRaisePropertyChangeEvent.c)
  * Callees:
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     RtlCompareMemory @ 0x1401C5BD0 (RtlCompareMemory.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     _PnpGetObjectProperty @ 0x14059A008 (_PnpGetObjectProperty.c)
- *     _PnpStringFromGuid @ 0x14059ACE4 (_PnpStringFromGuid.c)
- *     _CmGetMatchingFilteredDeviceInterfaceList @ 0x14059ED20 (_CmGetMatchingFilteredDeviceInterfaceList.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     RtlCompareMemory @ 0x1401C5D30 (RtlCompareMemory.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     _PnpGetObjectProperty @ 0x14059B008 (_PnpGetObjectProperty.c)
+ *     _PnpStringFromGuid @ 0x14059BCE4 (_PnpStringFromGuid.c)
+ *     _CmGetMatchingFilteredDeviceInterfaceList @ 0x14059FD20 (_CmGetMatchingFilteredDeviceInterfaceList.c)
  */
 
 char __fastcall PnpDeviceRaisePropertyChangeEventWorker(
@@ -99,7 +99,7 @@ LABEL_5:
   v43 = a5;
   a6(a1, a2, 1LL);
   v12 = v45;
-  v13 = &unk_14034F518;
+  v13 = &unk_140350518;
   v14 = 9LL;
   do
   {
@@ -129,7 +129,7 @@ LABEL_9:
     --v14;
   }
   while ( v14 );
-  v17 = &off_14034F4B0;
+  v17 = &off_1403504B0;
   v18 = 0;
   while ( 1 )
   {
@@ -182,7 +182,7 @@ LABEL_16:
       goto LABEL_19;
     if ( ObjectProperty < 0 )
       goto LABEL_70;
-    if ( RtlCompareMemory(&unk_140356B60, Source2, 0x10uLL) == 16 )
+    if ( RtlCompareMemory(&unk_140357A60, Source2, 0x10uLL) == 16 )
       goto LABEL_19;
     if ( PnpStringFromGuid(Source2, v50) < 0 )
     {
@@ -198,7 +198,7 @@ LABEL_70:
     }
     if ( v22 )
     {
-      v34 = &unk_14034F4B8;
+      v34 = &unk_1403504B8;
       v42 = 0LL;
       v35 = 3LL;
       do
@@ -237,7 +237,7 @@ LABEL_52:
   }
 LABEL_19:
   v24 = 0;
-  v25 = &off_14034F4F8;
+  v25 = &off_1403504F8;
   while ( 1 )
   {
     v26 = *((_DWORD *)v25 + 2);
@@ -277,7 +277,7 @@ LABEL_25:
     if ( (_BYTE)MatchingFilteredDeviceInterfaceList )
     {
       v48[1] = a5;
-      v48[2] = &off_14034F4F8;
+      v48[2] = &off_1403504F8;
       LODWORD(v48[3]) = 1;
     }
     MatchingFilteredDeviceInterfaceList = CmGetMatchingFilteredDeviceInterfaceList(

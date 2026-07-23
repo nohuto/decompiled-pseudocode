@@ -1,7 +1,7 @@
 /*
- * XREFs of HvpViewMapMakeViewRangeUnCOWByCaller @ 0x1405A5890
+ * XREFs of HvpViewMapMakeViewRangeUnCOWByCaller @ 0x1405A6890
  * Callers:
- *     HvpViewMapUnCOWAndSealRange @ 0x1405A5824 (HvpViewMapUnCOWAndSealRange.c)
+ *     HvpViewMapUnCOWAndSealRange @ 0x1405A6824 (HvpViewMapUnCOWAndSealRange.c)
  * Callees:
  *     CmSiProtectViewOfSection @ 0x14000F024 (CmSiProtectViewOfSection.c)
  */

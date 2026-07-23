@@ -1,36 +1,47 @@
 /*
- * XREFs of PopMonitorProcessLoop @ 0x140A7FDF8
+ * XREFs of PopMonitorProcessLoop @ 0x140A7A858
  * Callers:
- *     PopMonitorAlpcCallback @ 0x140A7FDE0 (PopMonitorAlpcCallback.c)
- *     PopUmpoInitializeMonitorChannel @ 0x140C326B4 (PopUmpoInitializeMonitorChannel.c)
+ *     PopMonitorAlpcCallback @ 0x140A7A840 (PopMonitorAlpcCallback.c)
+ *     PopUmpoInitializeMonitorChannel @ 0x140C347F4 (PopUmpoInitializeMonitorChannel.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwAlpcAcceptConnectPort @ 0x1406A7330 (ZwAlpcAcceptConnectPort.c)
- *     ZwAlpcSendWaitReceivePort @ 0x1406A75D0 (ZwAlpcSendWaitReceivePort.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     PopMonitorProcessBrightnessAction @ 0x140A7FF10 (PopMonitorProcessBrightnessAction.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwAlpcAcceptConnectPort @ 0x1406A82D0 (ZwAlpcAcceptConnectPort.c)
+ *     ZwAlpcSendWaitReceivePort @ 0x1406A8570 (ZwAlpcSendWaitReceivePort.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     PopMonitorProcessBrightnessAction @ 0x140A7A970 (PopMonitorProcessBrightnessAction.c)
  */
 
-__int64 PopMonitorProcessLoop()
+NTSTATUS PopMonitorProcessLoop()
 {
-  __int64 result; // rax
-  _DWORD v1[4]; // [rsp+90h] [rbp-70h] BYREF
-  __int64 v2; // [rsp+A0h] [rbp-60h]
-  __int16 v3; // [rsp+E4h] [rbp-1Ch]
-  unsigned int v4; // [rsp+108h] [rbp+8h]
-  unsigned int v5; // [rsp+10Ch] [rbp+Ch]
+  NTSTATUS result; // eax
+  ULONG_PTR BufferLength; // [rsp+50h] [rbp-B0h] BYREF
+  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+58h] [rbp-A8h] BYREF
+  _ALPC_PORT_ATTRIBUTES PortAttributes; // [rsp+90h] [rbp-70h] BYREF
+  _PORT_MESSAGE ConnectionRequest; // [rsp+E0h] [rbp-20h] BYREF
+  unsigned int v5; // [rsp+108h] [rbp+8h]
+  unsigned int v6; // [rsp+10Ch] [rbp+Ch]
 
-  memset_0(v1, 0, 0x48uLL);
+  memset(&ObjectAttributes, 0, 44);
+  memset_0(&PortAttributes, 0, sizeof(PortAttributes));
   while ( 1 )
   {
-    result = ZwAlpcSendWaitReceivePort((__int64)PopAlpcMonitorServerPort, 0LL);
-    if ( (_DWORD)result )
+    BufferLength = 48LL;
+    result = ZwAlpcSendWaitReceivePort(
+               PopAlpcMonitorServerPort,
+               0,
+               0LL,
+               0LL,
+               &ConnectionRequest,
+               &BufferLength,
+               0LL,
+               0LL);
+    if ( result )
       break;
-    switch ( (unsigned __int8)v3 )
+    switch ( LOBYTE(ConnectionRequest.u2.ZeroInit) )
     {
       case 3u:
-        PopMonitorProcessBrightnessAction(v4, v5);
+        PopMonitorProcessBrightnessAction(v5, v6);
         break;
       case 5u:
       case 6u:
@@ -43,11 +54,34 @@ __int64 PopMonitorProcessLoop()
           ZwClose(PopAlpcMonitorClientPort);
           PopAlpcMonitorClientPort = 0LL;
         }
-        memset_0(v1, 0, 0x48uLL);
-        v1[0] = 0x100000;
-        v2 = 256LL;
-        if ( (int)ZwAlpcAcceptConnectPort((__int64)&PopAlpcMonitorClientPort, (__int64)PopAlpcMonitorServerPort) < 0 )
-          ZwAlpcAcceptConnectPort((__int64)&PopAlpcMonitorClientPort, (__int64)PopAlpcMonitorServerPort);
+        memset_0(&PortAttributes, 0, sizeof(PortAttributes));
+        PortAttributes.Flags = 0x100000;
+        PortAttributes.MaxMessageLength = 256LL;
+        ObjectAttributes.Length = 48;
+        ObjectAttributes.RootDirectory = 0LL;
+        ObjectAttributes.Attributes = 512;
+        ObjectAttributes.ObjectName = 0LL;
+        *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+        if ( ZwAlpcAcceptConnectPort(
+               &PopAlpcMonitorClientPort,
+               PopAlpcMonitorServerPort,
+               0,
+               &ObjectAttributes,
+               &PortAttributes,
+               0LL,
+               &ConnectionRequest,
+               0LL,
+               1u) < 0 )
+          ZwAlpcAcceptConnectPort(
+            &PopAlpcMonitorClientPort,
+            PopAlpcMonitorServerPort,
+            0,
+            &ObjectAttributes,
+            &PortAttributes,
+            0LL,
+            &ConnectionRequest,
+            0LL,
+            0);
         break;
     }
   }

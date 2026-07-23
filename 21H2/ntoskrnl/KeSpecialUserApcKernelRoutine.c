@@ -1,11 +1,11 @@
 /*
- * XREFs of KeSpecialUserApcKernelRoutine @ 0x1408BCBE0
+ * XREFs of KeSpecialUserApcKernelRoutine @ 0x1408BCD40
  * Callers:
  *     <none>
  * Callees:
- *     KeInsertQueueApc @ 0x14025F8C0 (KeInsertQueueApc.c)
- *     KeInitializeApc @ 0x140278E60 (KeInitializeApc.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     KeInitializeApc @ 0x140266E00 (KeInitializeApc.c)
+ *     KeInsertQueueApc @ 0x14027E260 (KeInsertQueueApc.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 char __fastcall KeSpecialUserApcKernelRoutine(__int64 a1, __int64 *a2, __int64 *a3, __int64 *a4, __int64 *a5)

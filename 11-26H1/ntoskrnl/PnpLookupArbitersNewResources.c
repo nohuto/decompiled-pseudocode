@@ -1,10 +1,10 @@
 /*
- * XREFs of PnpLookupArbitersNewResources @ 0x140B55328
+ * XREFs of PnpLookupArbitersNewResources @ 0x140B57BC4
  * Callers:
- *     IopRetestConfiguration @ 0x1407A2D60 (IopRetestConfiguration.c)
- *     IopTestConfiguration @ 0x1407A3084 (IopTestConfiguration.c)
+ *     IopRetestConfiguration @ 0x1407A58A0 (IopRetestConfiguration.c)
+ *     IopTestConfiguration @ 0x1407A5BC4 (IopTestConfiguration.c)
  * Callees:
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall PnpLookupArbitersNewResources(

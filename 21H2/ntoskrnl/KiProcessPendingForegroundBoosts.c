@@ -1,15 +1,15 @@
 /*
- * XREFs of KiProcessPendingForegroundBoosts @ 0x1402E9ED0
+ * XREFs of KiProcessPendingForegroundBoosts @ 0x14029B220
  * Callers:
  *     <none>
  * Callees:
- *     KxAcquireSpinLock @ 0x1402295B0 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     KeSetTimer2 @ 0x14022C550 (KeSetTimer2.c)
- *     KiReadyDeferredReadyList @ 0x140230D60 (KiReadyDeferredReadyList.c)
- *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
- *     KiReleaseThreadLockSafe @ 0x14029A860 (KiReleaseThreadLockSafe.c)
- *     KiApplyForegroundBoostThread @ 0x1402EA08C (KiApplyForegroundBoostThread.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     KiReleaseThreadLockSafe @ 0x1402121F0 (KiReleaseThreadLockSafe.c)
+ *     KiApplyForegroundBoostThread @ 0x14029B3DC (KiApplyForegroundBoostThread.c)
+ *     KxAcquireSpinLock @ 0x1402CDEB0 (KxAcquireSpinLock.c)
+ *     KeSetTimer2 @ 0x1402D0DD0 (KeSetTimer2.c)
+ *     KiReadyDeferredReadyList @ 0x1402D55B0 (KiReadyDeferredReadyList.c)
+ *     KeYieldProcessorEx @ 0x1402EFAD0 (KeYieldProcessorEx.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
@@ -28,28 +28,25 @@ void __fastcall KiProcessPendingForegroundBoosts(
   __int64 v10; // r8
   __int64 **v11; // rcx
   bool v12; // di
-  __int64 v13; // rdx
-  __int64 v14; // r8
-  __int64 v15; // r9
-  __int64 *v16; // rsi
-  __int64 v17; // rsi
+  __int64 *v13; // rsi
+  __int64 v14; // rsi
   struct _KPRCB *CurrentPrcb; // rdi
   _DWORD *SchedulerAssist; // rcx
-  _DWORD *v20; // rcx
-  int v21; // eax
-  int v22; // eax
-  int v23; // [rsp+20h] [rbp-38h] BYREF
-  _QWORD *v24; // [rsp+28h] [rbp-30h] BYREF
-  __int128 v25; // [rsp+30h] [rbp-28h] BYREF
+  _DWORD *v17; // rcx
+  int v18; // eax
+  int v19; // eax
+  int v20; // [rsp+20h] [rbp-38h] BYREF
+  __int64 v21; // [rsp+28h] [rbp-30h] BYREF
+  __int128 v22; // [rsp+30h] [rbp-28h] BYREF
 
-  v24 = 0LL;
-  v25 = 0LL;
+  v21 = 0LL;
+  v22 = 0LL;
   v4 = 0LL;
   v5 = 0;
   v6 = MEMORY[0xFFFFF78000000320];
-  KxAcquireSpinLock(&qword_140C31FB8);
-  v7 = (__int64 *)qword_140C31FA8;
-  while ( v7 != &qword_140C31FA8 )
+  KxAcquireSpinLock(&qword_140C31F38);
+  v7 = (__int64 *)qword_140C31F28;
+  while ( v7 != &qword_140C31F28 )
   {
     v8 = v7;
     v7 = (__int64 *)*v7;
@@ -73,21 +70,21 @@ void __fastcall KiProcessPendingForegroundBoosts(
       _InterlockedAdd16((volatile signed __int16 *)v8 - 6, 1u);
     }
   }
-  v12 = qword_140C31FA8 != (_QWORD)&qword_140C31FA8;
-  KxReleaseSpinLock(&qword_140C31FB8);
+  v12 = qword_140C31F28 != (_QWORD)&qword_140C31F28;
+  KxReleaseSpinLock(&qword_140C31F38);
   if ( v12 )
   {
-    *((_QWORD *)&v25 + 1) = -1LL;
-    KeSetTimer2((__int64)&KiForegroundState, -150000LL * (KiForegroundBoostTicks - v5), 0LL, (__int64)&v25);
+    *((_QWORD *)&v22 + 1) = -1LL;
+    KeSetTimer2(&KiForegroundState, -150000LL * (KiForegroundBoostTicks - v5), 0LL, &v22);
   }
   while ( v4 )
   {
-    v16 = v4;
+    v13 = v4;
     v4 = (__int64 *)*v4;
-    v17 = (__int64)(v16 - 110);
-    *(_QWORD *)(v17 + 880) = 1LL;
+    v14 = (__int64)(v13 - 110);
+    *(_QWORD *)(v14 + 880) = 1LL;
     CurrentPrcb = KeGetCurrentPrcb();
-    v23 = 0;
+    v20 = 0;
     while ( 1 )
     {
       SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -95,32 +92,32 @@ void __fastcall KiProcessPendingForegroundBoosts(
       {
         if ( CurrentPrcb->NestingLevel <= 1u )
         {
-          v21 = SchedulerAssist[6];
-          SchedulerAssist[6] = v21 + 1;
-          if ( v21 == -1 )
+          v18 = SchedulerAssist[6];
+          SchedulerAssist[6] = v18 + 1;
+          if ( v18 == -1 )
             KiRemoveSystemWorkPriorityKick(CurrentPrcb);
         }
       }
-      if ( !_interlockedbittestandset64((volatile signed __int32 *)(v17 + 64), 0LL) )
+      if ( !_interlockedbittestandset64((volatile signed __int32 *)(v14 + 64), 0LL) )
         break;
-      v20 = CurrentPrcb->SchedulerAssist;
-      if ( v20 )
+      v17 = CurrentPrcb->SchedulerAssist;
+      if ( v17 )
       {
         if ( CurrentPrcb->NestingLevel <= 1u )
         {
-          v22 = v20[6] - 1;
-          v20[6] = v22;
-          if ( !v22 )
+          v19 = v17[6] - 1;
+          v17[6] = v19;
+          if ( !v19 )
             KiRemoveSystemWorkPriorityKick(CurrentPrcb);
         }
       }
       do
-        KeYieldProcessorEx(&v23, v13, v14, v15);
-      while ( *(_QWORD *)(v17 + 64) );
+        KeYieldProcessorEx(&v20);
+      while ( *(_QWORD *)(v14 + 64) );
     }
-    KiApplyForegroundBoostThread(v17, &v24);
-    KiReleaseThreadLockSafe(v17);
-    _InterlockedAdd16((volatile signed __int16 *)(v17 + 868), 0xFFFFu);
+    KiApplyForegroundBoostThread(v14, &v21);
+    KiReleaseThreadLockSafe(v14);
+    _InterlockedAdd16((volatile signed __int16 *)(v14 + 868), 0xFFFFu);
   }
-  KiReadyDeferredReadyList((__int64)KeGetCurrentPrcb(), &v24);
+  KiReadyDeferredReadyList(KeGetCurrentPrcb(), &v21);
 }

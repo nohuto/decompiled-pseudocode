@@ -1,10 +1,10 @@
 /*
  * XREFs of KeStartIdealProcessorAssignmentBlock @ 0x140223D00
  * Callers:
- *     PspAllocateProcess @ 0x1406B442C (PspAllocateProcess.c)
+ *     PspAllocateProcess @ 0x1406B45D8 (PspAllocateProcess.c)
  * Callees:
- *     KiSelectIdealProcessorSetsForProcess @ 0x1402246E0 (KiSelectIdealProcessorSetsForProcess.c)
- *     KiInitializeProcessConcurrencyCount @ 0x140576B00 (KiInitializeProcessConcurrencyCount.c)
+ *     KiSelectIdealProcessorSetsForProcess @ 0x1402247E8 (KiSelectIdealProcessorSetsForProcess.c)
+ *     KiInitializeProcessConcurrencyCount @ 0x140576FF0 (KiInitializeProcessConcurrencyCount.c)
  */
 
 __int64 __fastcall KeStartIdealProcessorAssignmentBlock(__int64 a1, __int64 a2, unsigned int *a3)

@@ -9,79 +9,79 @@
  *     RtlpCopyLegacyContext @ 0x180070B5C (RtlpCopyLegacyContext.c)
  */
 
-__int64 __fastcall RtlCopyContext(__int64 a1, unsigned int a2, __int64 a3)
+NTSTATUS __cdecl RtlCopyContext(PCONTEXT Context, ULONG ContextFlags, PCONTEXT Source)
 {
   int v6; // ebx
-  __int64 v7; // rbp
-  __int64 result; // rax
+  M128A *XmmRegisters; // rbp
+  NTSTATUS result; // eax
   unsigned int v9; // r12d
   int v10; // esi
-  unsigned int v11; // esi
+  ULONG v11; // esi
   __int64 v12; // rcx
-  unsigned int v13; // edi
+  NTSTATUS v13; // edi
   int v14; // ecx
   int v15; // [rsp+30h] [rbp-38h] BYREF
   unsigned int *ContextFlagsLocation; // [rsp+38h] [rbp-30h]
   int v17; // [rsp+88h] [rbp+20h] BYREF
 
   v6 = 0;
-  v7 = 0LL;
-  result = RtlpValidateContextFlags(a2, 0LL);
-  if ( (int)result >= 0 )
+  XmmRegisters = 0LL;
+  result = RtlpValidateContextFlags(ContextFlags, 0LL);
+  if ( result >= 0 )
   {
-    ContextFlagsLocation = (unsigned int *)RtlpGetContextFlagsLocation(a1, a2);
+    ContextFlagsLocation = (unsigned int *)RtlpGetContextFlagsLocation(Context, ContextFlags);
     v9 = *ContextFlagsLocation;
-    v10 = *(_DWORD *)RtlpGetContextFlagsLocation(a3, a2);
-    result = RtlpValidateContextFlags(a2 | v10 | v9, 0LL);
-    if ( (int)result >= 0 )
+    v10 = *(_DWORD *)RtlpGetContextFlagsLocation(Source, ContextFlags);
+    result = RtlpValidateContextFlags(ContextFlags | v10 | v9, 0LL);
+    if ( result >= 0 )
     {
-      v11 = a2 & v10;
+      v11 = ContextFlags & v10;
       result = RtlpValidateContextFlags(v11, &v15);
-      if ( (int)result >= 0 )
+      if ( result >= 0 )
       {
         result = RtlpValidateContextFlags(v9, &v17);
         v13 = result;
-        if ( (int)result >= 0 )
+        if ( result >= 0 )
         {
           if ( (~v17 & v15) != 0 )
           {
-            return 2147483653LL;
+            return -2147483643;
           }
           else
           {
-            RtlpCopyLegacyContext(v12, a1, v11, a3);
+            RtlpCopyLegacyContext(v12, Context, v11, Source);
             *ContextFlagsLocation |= v9;
             if ( (v17 & 0xFFFFFFFE) != 0 )
             {
               if ( (v11 & 0x10000) != 0 )
               {
-                v7 = a3 + 716;
-                v6 = a1 + 716;
+                XmmRegisters = (M128A *)((char *)&Source->1 + 460);
+                v6 = (_DWORD)Context + 716;
                 LOBYTE(v14) = (v9 & 0x10020) != 65568;
                 if ( ((unsigned __int8)v14 & ((v11 & 0x10020) == 65568)) != 0 )
-                  *(_DWORD *)(a1 + 728) = 716;
+                  *((_DWORD *)&Context->1 + 118) = 716;
               }
-              else if ( (a2 & 0x100000) != 0 )
+              else if ( (ContextFlags & 0x100000) != 0 )
               {
-                v7 = a3 + 1232;
-                v6 = a1 + 1232;
+                XmmRegisters = (M128A *)&Source[1];
+                v6 = (_DWORD)Context + 1232;
               }
-              else if ( (a2 & 0x200000) != 0 )
+              else if ( (ContextFlags & 0x200000) != 0 )
               {
-                v7 = a3 + 416;
-                v6 = a1 + 416;
+                XmmRegisters = Source->FltSave.XmmRegisters;
+                v6 = (_DWORD)Context + 416;
               }
-              else if ( (a2 & 0x400000) != 0 )
+              else if ( (ContextFlags & 0x400000) != 0 )
               {
-                v7 = a3 + 912;
-                v6 = a1 + 912;
+                XmmRegisters = &Source->VectorRegister[9];
+                v6 = (_DWORD)Context + 912;
               }
             }
             if ( (v15 & 2) == 0 )
               return v13;
-            result = RtlpCopyXStateChunk(v14, v6, v6, v7, v7);
+            result = RtlpCopyXStateChunk(v14, v6, v6, (_DWORD)XmmRegisters, (__int64)XmmRegisters);
             v13 = result;
-            if ( (int)result >= 0 )
+            if ( result >= 0 )
               return v13;
           }
         }

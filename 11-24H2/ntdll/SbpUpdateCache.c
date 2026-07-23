@@ -1,22 +1,22 @@
 /*
- * XREFs of SbpUpdateCache @ 0x1800AAA50
+ * XREFs of SbpUpdateCache @ 0x18000BBE0
  * Callers:
- *     SbSelectProcedure @ 0x1800A9EF0 (SbSelectProcedure.c)
+ *     SbSelectProcedure @ 0x18000B080 (SbSelectProcedure.c)
  * Callees:
- *     RtlAcquireSRWLockShared @ 0x180010220 (RtlAcquireSRWLockShared.c)
- *     RtlReleaseSRWLockShared @ 0x180010280 (RtlReleaseSRWLockShared.c)
- *     SbGetCurrentSwitchContext @ 0x1800710E0 (SbGetCurrentSwitchContext.c)
- *     SbpResolveBasedOnName @ 0x1801183E4 (SbpResolveBasedOnName.c)
- *     __security_check_cookie @ 0x1801659C0 (__security_check_cookie.c)
+ *     RtlAcquireSRWLockShared @ 0x18003CC20 (RtlAcquireSRWLockShared.c)
+ *     RtlReleaseSRWLockShared @ 0x18003CC80 (RtlReleaseSRWLockShared.c)
+ *     SbGetCurrentSwitchContext @ 0x18008D9C0 (SbGetCurrentSwitchContext.c)
+ *     SbpResolveBasedOnName @ 0x180113358 (SbpResolveBasedOnName.c)
+ *     __security_check_cookie @ 0x180163D80 (__security_check_cookie.c)
  */
 
 __int64 __fastcall SbpUpdateCache(__int64 a1, __int64 a2, __int64 a3, int a4)
 {
   __int64 v5; // rdi
-  char *CurrentSwitchContext; // rax
+  __int64 CurrentSwitchContext; // rax
   __int64 v8; // r8
   int v9; // r9d
-  char *v10; // rbx
+  __int64 v10; // rbx
   __int64 v11; // rsi
   _DWORD *v12; // rax
   __int64 i; // r15
@@ -44,14 +44,14 @@ __int64 __fastcall SbpUpdateCache(__int64 a1, __int64 a2, __int64 a3, int a4)
   if ( !v9 )
   {
     v11 = *(_QWORD *)CurrentSwitchContext;
-    v30 = *((_OWORD *)CurrentSwitchContext + 3);
+    v30 = *(_OWORD *)(CurrentSwitchContext + 48);
     goto LABEL_5;
   }
   if ( v9 != 1 )
     return 0LL;
   RtlAcquireSRWLockShared(&SbpContextLock);
   v11 = *(_QWORD *)v10;
-  v30 = *((_OWORD *)v10 + 4);
+  v30 = *(_OWORD *)(v10 + 64);
   RtlReleaseSRWLockShared(&SbpContextLock);
   v8 = a3;
 LABEL_5:

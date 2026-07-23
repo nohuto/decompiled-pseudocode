@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlUnicodeStringCatString @ 0x140438C68
+ * XREFs of RtlUnicodeStringCatString @ 0x1404278C8
  * Callers:
- *     AslpPathWildcardAllocMatchNode @ 0x14088AA00 (AslpPathWildcardAllocMatchNode.c)
- *     CmpLogTransactionAbortedWithChildName @ 0x1408AF680 (CmpLogTransactionAbortedWithChildName.c)
- *     SshpGenerateDeviceFriendlyName @ 0x140A88E8C (SshpGenerateDeviceFriendlyName.c)
- *     PopPowerRequestStatsIdConcat @ 0x140B00BF0 (PopPowerRequestStatsIdConcat.c)
- *     PopIdleWakeGenerateInterruptDescriptionString @ 0x140B22D10 (PopIdleWakeGenerateInterruptDescriptionString.c)
- *     PopGenerateDeviceFriendlyName @ 0x140B22F30 (PopGenerateDeviceFriendlyName.c)
+ *     AslpPathWildcardAllocMatchNode @ 0x140890DFC (AslpPathWildcardAllocMatchNode.c)
+ *     CmpLogTransactionAbortedWithChildName @ 0x1408B59EC (CmpLogTransactionAbortedWithChildName.c)
+ *     SshpGenerateDeviceFriendlyName @ 0x140A8FD7C (SshpGenerateDeviceFriendlyName.c)
+ *     PopPowerRequestStatsIdConcat @ 0x140B02920 (PopPowerRequestStatsIdConcat.c)
+ *     PopIdleWakeGenerateInterruptDescriptionString @ 0x140B25110 (PopIdleWakeGenerateInterruptDescriptionString.c)
+ *     PopGenerateDeviceFriendlyName @ 0x140B25330 (PopGenerateDeviceFriendlyName.c)
  * Callees:
- *     RtlWideCharArrayCopyStringWorker @ 0x140438CE0 (RtlWideCharArrayCopyStringWorker.c)
- *     RtlUnicodeStringValidateWorker @ 0x140439150 (RtlUnicodeStringValidateWorker.c)
+ *     RtlWideCharArrayCopyStringWorker @ 0x140427940 (RtlWideCharArrayCopyStringWorker.c)
+ *     RtlUnicodeStringValidateWorker @ 0x140427DB0 (RtlUnicodeStringValidateWorker.c)
  */
 
 NTSTATUS __stdcall RtlUnicodeStringCatString(PUNICODE_STRING DestinationString, NTSTRSAFE_PCWSTR pszSrc)

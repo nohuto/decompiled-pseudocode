@@ -1,15 +1,15 @@
 /*
- * XREFs of EtwpQueueStackWalkApc @ 0x140229234
+ * XREFs of EtwpQueueStackWalkApc @ 0x140229060
  * Callers:
- *     EtwpStackTraceDispatcher @ 0x1402293E4 (EtwpStackTraceDispatcher.c)
- *     EtwpStackWalkDpc @ 0x1402295D4 (EtwpStackWalkDpc.c)
+ *     EtwpStackTraceDispatcher @ 0x140229210 (EtwpStackTraceDispatcher.c)
+ *     EtwpStackWalkDpc @ 0x140229400 (EtwpStackWalkDpc.c)
  * Callees:
- *     KeInsertQueueApc @ 0x1400C9FD0 (KeInsertQueueApc.c)
- *     KeInitializeApc @ 0x1400F0F58 (KeInitializeApc.c)
- *     RtlpInterlockedPopEntrySList @ 0x140166E00 (RtlpInterlockedPopEntrySList.c)
- *     RtlpInterlockedPushEntrySList @ 0x140166E40 (RtlpInterlockedPushEntrySList.c)
- *     KeTryToInsertQueueApc @ 0x1401D678C (KeTryToInsertQueueApc.c)
- *     EtwpQueueStackWalkDpc @ 0x140229390 (EtwpQueueStackWalkDpc.c)
+ *     KeInsertQueueApc @ 0x1400C7E70 (KeInsertQueueApc.c)
+ *     KeInitializeApc @ 0x1400EEDA8 (KeInitializeApc.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140167370 (RtlpInterlockedPopEntrySList.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1401673B0 (RtlpInterlockedPushEntrySList.c)
+ *     KeTryToInsertQueueApc @ 0x1401D65B8 (KeTryToInsertQueueApc.c)
+ *     EtwpQueueStackWalkDpc @ 0x1402291BC (EtwpQueueStackWalkDpc.c)
  */
 
 __int64 __fastcall EtwpQueueStackWalkApc(__int64 a1, unsigned __int8 a2, unsigned int a3, unsigned int *a4)
@@ -18,7 +18,7 @@ __int64 __fastcall EtwpQueueStackWalkApc(__int64 a1, unsigned __int8 a2, unsigne
   __int64 result; // rax
   char *v9; // rdi
   unsigned int v10; // esi
-  struct _SLIST_ENTRY *v11; // rbp
+  _SLIST_ENTRY *v11; // rbp
   __int64 v12; // r8
   __int64 v13; // rdx
   char inserted; // al
@@ -37,7 +37,7 @@ __int64 __fastcall EtwpQueueStackWalkApc(__int64 a1, unsigned __int8 a2, unsigne
         if ( (*(_DWORD *)(a1 + 116) & 0x4000) == 0 )
           goto LABEL_13;
         result = (__int64)RtlpInterlockedPopEntrySList((PSLIST_HEADER)v9 + 5);
-        v11 = (struct _SLIST_ENTRY *)result;
+        v11 = (_SLIST_ENTRY *)result;
         if ( !result )
           goto LABEL_13;
         KeInitializeApc(result, a1, 0, (__int64)EtwpStackWalkApc, 0LL, (__int64)EtwpStackWalkApc, 0, v5);

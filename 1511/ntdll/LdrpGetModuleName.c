@@ -16,7 +16,7 @@ NTSTATUS __fastcall LdrpGetModuleName(__int64 a1, __int64 a2, __int64 a3, int a4
   NTSTATUS result; // eax
   char *v8; // rax
   size_t v9; // rbx
-  STRING DestinationString; // [rsp+20h] [rbp-E0h] BYREF
+  _STRING DestinationString; // [rsp+20h] [rbp-E0h] BYREF
   UNICODE_STRING SourceString; // [rsp+30h] [rbp-D0h] BYREF
   wchar_t String1[264]; // [rsp+40h] [rbp-C0h] BYREF
 

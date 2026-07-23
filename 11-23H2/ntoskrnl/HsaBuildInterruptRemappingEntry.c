@@ -1,8 +1,8 @@
 /*
- * XREFs of HsaBuildInterruptRemappingEntry @ 0x14052F424
+ * XREFs of HsaBuildInterruptRemappingEntry @ 0x14052F974
  * Callers:
- *     HsaBuildDeviceTableEntry @ 0x14052F298 (HsaBuildDeviceTableEntry.c)
- *     HsaUpdateRemappingTableInDeviceTableEntry @ 0x14053144C (HsaUpdateRemappingTableInDeviceTableEntry.c)
+ *     HsaBuildDeviceTableEntry @ 0x14052F7E8 (HsaBuildDeviceTableEntry.c)
+ *     HsaUpdateRemappingTableInDeviceTableEntry @ 0x14053199C (HsaUpdateRemappingTableInDeviceTableEntry.c)
  * Callees:
  *     <none>
  */

@@ -1,13 +1,13 @@
 /*
- * XREFs of I_MinCryptVerifySignerAuthenticatedAttributes @ 0x140826730
+ * XREFs of I_MinCryptVerifySignerAuthenticatedAttributes @ 0x140826F00
  * Callers:
- *     I_MinCryptVerifyAuthenticodeTimeStamp @ 0x140826384 (I_MinCryptVerifyAuthenticodeTimeStamp.c)
- *     MinCrypK_VerifySignedDataKModeEx @ 0x140826868 (MinCrypK_VerifySignedDataKModeEx.c)
+ *     I_MinCryptVerifyAuthenticodeTimeStamp @ 0x140826B54 (I_MinCryptVerifyAuthenticodeTimeStamp.c)
+ *     MinCrypK_VerifySignedDataKModeEx @ 0x140827038 (MinCrypK_VerifySignedDataKModeEx.c)
  * Callees:
- *     MinCryptHashMemory @ 0x14069F0F0 (MinCryptHashMemory.c)
- *     RtlCompareMemory @ 0x1406B3990 (RtlCompareMemory.c)
- *     I_MinAsn1ParseSingleAttribute @ 0x140826D10 (I_MinAsn1ParseSingleAttribute.c)
- *     MinAsn1ExtractContent @ 0x1408282B0 (MinAsn1ExtractContent.c)
+ *     MinCryptHashMemory @ 0x1406A01F4 (MinCryptHashMemory.c)
+ *     RtlCompareMemory @ 0x1406B4930 (RtlCompareMemory.c)
+ *     I_MinAsn1ParseSingleAttribute @ 0x1408274E0 (I_MinAsn1ParseSingleAttribute.c)
+ *     MinAsn1ExtractContent @ 0x140828A80 (MinAsn1ExtractContent.c)
  */
 
 __int64 __fastcall I_MinCryptVerifySignerAuthenticatedAttributes(
@@ -26,7 +26,7 @@ __int64 __fastcall I_MinCryptVerifySignerAuthenticatedAttributes(
   v12 = 0LL;
   memset(Length, 0, sizeof(Length));
   v10 = 49;
-  if ( !(unsigned __int8)I_MinAsn1ParseSingleAttribute(&qword_140B3BE08, a4, a3, &v12) )
+  if ( !(unsigned __int8)I_MinAsn1ParseSingleAttribute(&qword_140B3DBE8, a4, a3, &v12) )
     return 3221226536LL;
   if ( (int)MinAsn1ExtractContent(*((_QWORD *)&v12 + 1), (unsigned int)v12, Length, &Length[1]) < 0 )
     return 3221226536LL;

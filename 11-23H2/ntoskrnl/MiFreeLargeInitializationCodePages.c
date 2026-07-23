@@ -1,15 +1,15 @@
 /*
- * XREFs of MiFreeLargeInitializationCodePages @ 0x1403953EC
+ * XREFs of MiFreeLargeInitializationCodePages @ 0x1403955CC
  * Callers:
- *     MiFreeInitializationCode @ 0x140703AFC (MiFreeInitializationCode.c)
+ *     MiFreeInitializationCode @ 0x140703D0C (MiFreeInitializationCode.c)
  * Callees:
  *     MiSetPfnIdentity @ 0x140219488 (MiSetPfnIdentity.c)
- *     MiSetOriginalPtePfnFromFreeList @ 0x1402859D4 (MiSetOriginalPtePfnFromFreeList.c)
- *     MiReturnFreeZeroPage @ 0x1402E7F74 (MiReturnFreeZeroPage.c)
- *     MiLockPageInline @ 0x1402EF680 (MiLockPageInline.c)
- *     MiCheckSlabPfnBitmap @ 0x140324730 (MiCheckSlabPfnBitmap.c)
- *     MiAddExpansionNonPagedPool @ 0x1403988C4 (MiAddExpansionNonPagedPool.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiSetOriginalPtePfnFromFreeList @ 0x140285C64 (MiSetOriginalPtePfnFromFreeList.c)
+ *     MiReturnFreeZeroPage @ 0x1402E8204 (MiReturnFreeZeroPage.c)
+ *     MiLockPageInline @ 0x1402EF910 (MiLockPageInline.c)
+ *     MiCheckSlabPfnBitmap @ 0x1403249C0 (MiCheckSlabPfnBitmap.c)
+ *     MiAddExpansionNonPagedPool @ 0x140398AA4 (MiAddExpansionNonPagedPool.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiFreeLargeInitializationCodePages(__int64 a1, __int64 a2, __int64 a3)
@@ -38,10 +38,10 @@ __int64 __fastcall MiFreeLargeInitializationCodePages(__int64 a1, __int64 a2, __
     MiReturnFreeZeroPage(i);
     result = 0x7FFFFFFFFFFFFFFFLL;
     _InterlockedAnd64((volatile signed __int64 *)(i + 24), 0x7FFFFFFFFFFFFFFFuLL);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       result = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
         && (unsigned __int8)result <= 0xFu
         && (unsigned __int8)v8 <= 0xFu
         && (unsigned __int8)result >= 2u )

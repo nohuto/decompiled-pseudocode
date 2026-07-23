@@ -1,18 +1,18 @@
 /*
- * XREFs of LdrpLogDelayLoadTrigger @ 0x1800C9070
+ * XREFs of LdrpLogDelayLoadTrigger @ 0x1800C6830
  * Callers:
- *     LdrpGetDelayloadExportDll @ 0x1800C57B0 (LdrpGetDelayloadExportDll.c)
+ *     LdrpGetDelayloadExportDll @ 0x1800C2F70 (LdrpGetDelayloadExportDll.c)
  * Callees:
- *     RtlGetCurrentServiceSessionId @ 0x180028160 (RtlGetCurrentServiceSessionId.c)
- *     RtlFreeHeap_0 @ 0x18003FD10 (RtlFreeHeap_0.c)
- *     RtlAllocateHeap_0 @ 0x1800439E0 (RtlAllocateHeap_0.c)
- *     sprintf_s @ 0x180133C60 (sprintf_s.c)
- *     NtTraceEvent @ 0x18015FAF0 (NtTraceEvent.c)
- *     __security_check_cookie @ 0x180162C90 (__security_check_cookie.c)
- *     strlen @ 0x180164FE0 (strlen.c)
+ *     RtlGetCurrentServiceSessionId @ 0x180013230 (RtlGetCurrentServiceSessionId.c)
+ *     RtlFreeHeap_0 @ 0x18002A280 (RtlFreeHeap_0.c)
+ *     RtlAllocateHeap_0 @ 0x18002DF50 (RtlAllocateHeap_0.c)
+ *     sprintf_s @ 0x1801339D0 (sprintf_s.c)
+ *     NtTraceEvent @ 0x18015F9F0 (NtTraceEvent.c)
+ *     __security_check_cookie @ 0x180162B90 (__security_check_cookie.c)
+ *     strlen @ 0x180164EE0 (strlen.c)
  */
 
-struct _PEB *__fastcall LdrpLogDelayLoadTrigger(__int64 a1, unsigned int *a2, __int64 a3, __int64 a4)
+int __fastcall LdrpLogDelayLoadTrigger(__int64 a1, unsigned int *a2, __int64 a3, __int64 a4)
 {
   _DWORD *SharedData; // rcx
   __int64 v9; // rcx
@@ -33,7 +33,7 @@ struct _PEB *__fastcall LdrpLogDelayLoadTrigger(__int64 a1, unsigned int *a2, __
   unsigned __int16 *v24; // r14
   unsigned int v25; // r13d
   unsigned int v26; // ebp
-  struct _PEB *result; // rax
+  struct _PEB *Heap_0; // rax
   unsigned int v28; // ecx
   unsigned int v29; // esi
   _WORD *v30; // rdi
@@ -97,9 +97,9 @@ struct _PEB *__fastcall LdrpLogDelayLoadTrigger(__int64 a1, unsigned int *a2, __
   _DWORD *v88; // rcx
   __int64 v89; // rcx
   __int64 v90; // rcx
-  unsigned int v91; // [rsp+20h] [rbp-88h]
-  unsigned __int64 v92; // [rsp+28h] [rbp-80h]
-  struct _PEB *v93; // [rsp+30h] [rbp-78h]
+  unsigned int v92; // [rsp+20h] [rbp-88h]
+  unsigned __int64 v93; // [rsp+28h] [rbp-80h]
+  struct _PEB *Fields; // [rsp+30h] [rbp-78h]
   char Buffer[16]; // [rsp+40h] [rbp-68h] BYREF
 
   SharedData = NtCurrentPeb()->SharedData;
@@ -118,11 +118,11 @@ struct _PEB *__fastcall LdrpLogDelayLoadTrigger(__int64 a1, unsigned int *a2, __
     if ( (*(_BYTE *)v12 & 0x10) != 0 )
       goto LABEL_7;
   }
-  result = (struct _PEB *)RtlGetCurrentServiceSessionId();
-  if ( (_DWORD)result )
+  LODWORD(Heap_0) = RtlGetCurrentServiceSessionId();
+  if ( (_DWORD)Heap_0 )
   {
-    result = NtCurrentPeb();
-    v90 = (__int64)result->SharedData + 554;
+    Heap_0 = NtCurrentPeb();
+    v90 = (__int64)Heap_0->SharedData + 554;
   }
   else
   {
@@ -130,14 +130,14 @@ struct _PEB *__fastcall LdrpLogDelayLoadTrigger(__int64 a1, unsigned int *a2, __
   }
   if ( *(_BYTE *)v90 )
   {
-    result = NtCurrentPeb();
-    if ( (result->TracingFlags & 4) != 0 )
+    Heap_0 = NtCurrentPeb();
+    if ( (Heap_0->TracingFlags & 4) != 0 )
     {
-      result = (struct _PEB *)RtlGetCurrentServiceSessionId();
-      if ( (_DWORD)result )
+      LODWORD(Heap_0) = RtlGetCurrentServiceSessionId();
+      if ( (_DWORD)Heap_0 )
       {
-        result = NtCurrentPeb();
-        v10 = (__int64)result->SharedData + 555;
+        Heap_0 = NtCurrentPeb();
+        v10 = (__int64)Heap_0->SharedData + 555;
       }
       if ( (*(_BYTE *)v10 & 0x20) != 0 )
       {
@@ -145,7 +145,7 @@ LABEL_7:
         v13 = a2[1];
         v14 = *(_QWORD *)(a1 + 48) + v13 == 0;
         v15 = (const char *)(*(_QWORD *)(a1 + 48) + v13);
-        v92 = (unsigned __int64)v15;
+        v93 = (unsigned __int64)v15;
         if ( v14 )
         {
           LOWORD(v16) = 0;
@@ -184,16 +184,16 @@ LABEL_13:
         v24 = (unsigned __int16 *)(a3 + 72);
         v25 = (unsigned __int16)v16;
         v26 = *(unsigned __int16 *)(a1 + 72) + *v24 + 6 + 2 * ((unsigned __int16)v21 + (unsigned __int16)v16 + 1);
-        v91 = v26 + 36;
-        result = (struct _PEB *)RtlAllocateHeap_0();
-        v93 = result;
-        if ( result )
+        v92 = v26 + 36;
+        Heap_0 = (struct _PEB *)RtlAllocateHeap_0(NtCurrentPeb()->ProcessHeap, NtdllBaseTag + 1572864, v26 + 36);
+        Fields = Heap_0;
+        if ( Heap_0 )
         {
-          *(_WORD *)&result->Padding0[2] = 5334;
+          *(_WORD *)&Heap_0->Padding0[2] = 5334;
           v28 = 0;
-          LODWORD(result->ProcessParameters) = 3;
+          LODWORD(Heap_0->ProcessParameters) = 3;
           v29 = 2;
-          v30 = (_WORD *)&result->ProcessParameters + 2;
+          v30 = (_WORD *)&Heap_0->ProcessParameters + 2;
           if ( v22 && *(_WORD *)v22 )
           {
             v31 = *(_QWORD *)(v22 + 8);
@@ -202,7 +202,7 @@ LABEL_13:
             {
               v33 = (unsigned __int64)v26 >> 1;
               v34 = v31 - (_QWORD)v30;
-              v35 = (_WORD *)&result->ProcessParameters + 2;
+              v35 = (_WORD *)&Heap_0->ProcessParameters + 2;
               v36 = 0;
               do
               {
@@ -289,37 +289,37 @@ LABEL_13:
               if ( v25 < 4 )
                 goto LABEL_54;
               v56 = v25 - 1;
-              if ( (unsigned __int64)v51 <= v92 + v56 && (unsigned __int64)&v51[2 * v56] >= v92 )
+              if ( (unsigned __int64)v51 <= v93 + v56 && (unsigned __int64)&v51[2 * v56] >= v93 )
                 goto LABEL_54;
               if ( v25 < 0x20 )
-                goto LABEL_100;
+                goto LABEL_101;
               v57 = v25 & 0x1F;
               v58 = 16;
               do
               {
                 v59 = v55;
                 v55 += 32;
-                v60 = _mm_loadl_epi64((const __m128i *)(v59 + v92));
+                v60 = _mm_loadl_epi64((const __m128i *)(v59 + v93));
                 *(__m128i *)&v51[2 * v59] = _mm_srai_epi16(_mm_unpacklo_epi8(v60, v60), 8u);
                 v61 = v58 - 8;
-                v62 = _mm_loadl_epi64((const __m128i *)(v61 + v92));
+                v62 = _mm_loadl_epi64((const __m128i *)(v61 + v93));
                 *(__m128i *)&v51[2 * v61] = _mm_srai_epi16(_mm_unpacklo_epi8(v62, v62), 8u);
-                v63 = _mm_loadl_epi64((const __m128i *)(v58 + v92));
+                v63 = _mm_loadl_epi64((const __m128i *)(v58 + v93));
                 *(__m128i *)&v51[2 * v58] = _mm_srai_epi16(_mm_unpacklo_epi8(v63, v63), 8u);
                 v64 = v58 + 8;
                 v58 += 32;
-                v65 = _mm_loadl_epi64((const __m128i *)(v64 + v92));
+                v65 = _mm_loadl_epi64((const __m128i *)(v64 + v93));
                 *(__m128i *)&v51[2 * v64] = _mm_srai_epi16(_mm_unpacklo_epi8(v65, v65), 8u);
               }
               while ( v55 < v25 - v57 );
               if ( v57 >= 4 )
               {
-LABEL_100:
+LABEL_101:
                 do
                 {
                   v66 = v55;
                   v55 += 4;
-                  v67 = _mm_cvtsi32_si128(*(_DWORD *)(v66 + v92));
+                  v67 = _mm_cvtsi32_si128(*(_DWORD *)(v66 + v93));
                   *(_QWORD *)&v51[2 * v66] = _mm_srai_epi16(_mm_unpacklo_epi8(v67, v67), 8u).m128i_u64[0];
                 }
                 while ( v55 < v25 - (v25 & 3) );
@@ -331,7 +331,7 @@ LABEL_54:
                 v69 = v25 - v55;
                 v55 = v25;
                 v70 = &v51[2 * v68];
-                v71 = (char *)(v68 + v92);
+                v71 = (char *)(v68 + v93);
                 do
                 {
                   v72 = *v71++;
@@ -357,7 +357,7 @@ LABEL_54:
               if ( v73 <= &v20[v75] && &v73[2 * v75] >= v20 )
                 goto LABEL_68;
               if ( v23 < 0x20 )
-                goto LABEL_101;
+                goto LABEL_102;
               v76 = v23 & 0x1F;
               do
               {
@@ -378,7 +378,7 @@ LABEL_54:
               while ( v74 < v23 - v76 );
               if ( v76 >= 4 )
               {
-LABEL_101:
+LABEL_102:
                 do
                 {
                   v84 = v74;
@@ -409,11 +409,11 @@ LABEL_68:
             v89 = (__int64)NtCurrentPeb()->SharedData + 554;
           else
             v89 = 2147353476LL;
-          NtTraceEvent(*(unsigned __int8 *)v89, 1026LL, v91 - 32, v93);
-          return (struct _PEB *)RtlFreeHeap_0();
+          NtTraceEvent((HANDLE)*(unsigned __int8 *)v89, 0x402u, v92 - 32, Fields);
+          LODWORD(Heap_0) = RtlFreeHeap_0(NtCurrentPeb()->ProcessHeap, 0, Fields);
         }
       }
     }
   }
-  return result;
+  return (int)Heap_0;
 }

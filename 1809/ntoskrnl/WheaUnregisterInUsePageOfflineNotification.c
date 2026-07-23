@@ -1,21 +1,21 @@
 /*
- * XREFs of WheaUnregisterInUsePageOfflineNotification @ 0x1408DBC50
+ * XREFs of WheaUnregisterInUsePageOfflineNotification @ 0x1408DCF10
  * Callers:
- *     HvlUnregisterWheaErrorNotification @ 0x140817770 (HvlUnregisterWheaErrorNotification.c)
+ *     HvlUnregisterWheaErrorNotification @ 0x140818970 (HvlUnregisterWheaErrorNotification.c)
  * Callees:
  *     ExfAcquirePushLockExclusiveEx @ 0x140005760 (ExfAcquirePushLockExclusiveEx.c)
  *     KeAbPreAcquire @ 0x14004E270 (KeAbPreAcquire.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __stdcall WheaUnregisterInUsePageOfflineNotification(PFN_IN_USE_PAGE_OFFLINE_NOTIFY Callback)
 {
   char v1; // bl
-  __int64 v4; // rax
+  _RTL_BALANCED_NODE *v4; // rax
   signed __int8 v5; // cf
-  __int64 v6; // rdi
+  _RTL_BALANCED_NODE *v6; // rdi
   PFN_IN_USE_PAGE_OFFLINE_NOTIFY *v7; // rcx
   PFN_IN_USE_PAGE_OFFLINE_NOTIFY v8; // rax
   PVOID *v9; // rdx
@@ -29,7 +29,7 @@ NTSTATUS __stdcall WheaUnregisterInUsePageOfflineNotification(PFN_IN_USE_PAGE_OF
   if ( v5 )
     ExfAcquirePushLockExclusiveEx(&WheapInUsePageOfflineNotifyLock, v4, (ULONG_PTR)&WheapInUsePageOfflineNotifyLock);
   if ( v6 )
-    *(_BYTE *)(v6 + 26) |= 1u;
+    BYTE2(v6[1].Left) |= 1u;
   v7 = (PFN_IN_USE_PAGE_OFFLINE_NOTIFY *)WheapInUsePageOfflineNotifyList;
   if ( WheapInUsePageOfflineNotifyList != &WheapInUsePageOfflineNotifyList )
   {

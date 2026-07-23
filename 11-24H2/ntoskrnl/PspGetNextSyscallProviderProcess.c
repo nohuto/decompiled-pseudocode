@@ -1,15 +1,15 @@
 /*
- * XREFs of PspGetNextSyscallProviderProcess @ 0x140771338
+ * XREFs of PspGetNextSyscallProviderProcess @ 0x140771558
  * Callers:
- *     PspQuerySyscallProviderProcessList @ 0x1407714B0 (PspQuerySyscallProviderProcessList.c)
+ *     PspQuerySyscallProviderProcessList @ 0x1407716D0 (PspQuerySyscallProviderProcessList.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExfReleasePushLockShared @ 0x14025DE00 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     ObReferenceObjectSafeWithTag @ 0x14033E7D0 (ObReferenceObjectSafeWithTag.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockSharedEx @ 0x14034050C (ExfAcquirePushLockSharedEx.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExfReleasePushLockShared @ 0x14028E410 (ExfReleasePushLockShared.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     ObReferenceObjectSafeWithTag @ 0x14031DCB0 (ObReferenceObjectSafeWithTag.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockSharedEx @ 0x14031F9EC (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
  */
 
 __int64 __fastcall PspGetNextSyscallProviderProcess(__int64 a1, _QWORD *a2)
@@ -18,7 +18,7 @@ __int64 __fastcall PspGetNextSyscallProviderProcess(__int64 a1, _QWORD *a2)
   signed __int64 *v3; // rbx
   unsigned __int64 v6; // r15
   char v7; // r14
-  _QWORD *v8; // rdi
+  char *v8; // rdi
   _QWORD *v9; // rbp
   _QWORD *v10; // rdi
 
@@ -27,11 +27,11 @@ __int64 __fastcall PspGetNextSyscallProviderProcess(__int64 a1, _QWORD *a2)
   --CurrentThread->KernelApcDisable;
   v6 = 0LL;
   v7 = 0;
-  v8 = KeAbPreAcquire(a1 + 64, 0LL);
+  v8 = (char *)KeAbPreAcquire(a1 + 64, 0LL);
   if ( _InterlockedCompareExchange64(v3, 17LL, 0LL) )
     ExfAcquirePushLockSharedEx(v3, 0, v8, (__int64)v3);
   if ( v8 )
-    *((_BYTE *)v8 + 10) = 1;
+    v8[10] = 1;
   v9 = (_QWORD *)(a1 + 72);
   v10 = a2 + 248;
   if ( !a2 )

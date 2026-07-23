@@ -173,7 +173,7 @@ NTSTATUS __fastcall PopTransitionSystemPowerStateEx(__int64 a1)
   __int64 v68; // rax
   _DWORD *v69; // rax
   __int64 v70; // rdx
-  __int64 v71; // [rsp+30h] [rbp-50h]
+  __int64 CheckStamp; // [rsp+30h] [rbp-50h]
   UNICODE_STRING DestinationString; // [rsp+40h] [rbp-40h] BYREF
   int v73; // [rsp+50h] [rbp-30h] BYREF
   char *v74; // [rsp+58h] [rbp-28h]
@@ -719,7 +719,7 @@ LABEL_71:
               }
               v61 = dword_140442FEC;
               v62 = v80;
-              v71 = *(_QWORD *)(a1 + 368);
+              CheckStamp = *(_QWORD *)(a1 + 368);
               v63 = *(_QWORD *)(a1 + 360);
               *(_DWORD *)(a1 + 40) = dword_140442FEC;
               PopDiagTracePostSleepNotification(
@@ -729,7 +729,7 @@ LABEL_71:
                 qword_140443030[0],
                 qword_140443048,
                 v63,
-                v71);
+                CheckStamp);
               if ( KeMtrrComparisonFailed )
                 PopDiagTraceMtrrError();
               if ( *(int *)(a1 + 104) < 0 && dword_140442FE0 == 5 )
@@ -773,7 +773,7 @@ LABEL_172:
                 PfPowerActionNotify(3, 1LL, 0);
               }
               if ( *(_BYTE *)(a1 + 208) )
-                ZwUpdateWnfStateData((__int64)&WNF_BOOT_INVALID_TIME_SOURCE, 0LL, 0LL);
+                ZwUpdateWnfStateData(&WNF_BOOT_INVALID_TIME_SOURCE, 0LL, 0, 0LL, 0LL, 0, 0);
               if ( !PopSleepReliabilityDetailedDiagnosticsReg )
                 RtlBootStatusDisableFlushing(1);
               PopBootStatCheckpointAvailable = 1;

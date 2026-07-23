@@ -56,7 +56,11 @@ __int64 __fastcall VfInitVerifierComponents(unsigned int a1, unsigned int a2, un
   VfPendingCheckForChanges(a1);
   VfPoolInitPhase0();
   VfFaultsInitPhase0();
-  v6 = (int)VfAvlInitializeTree(&ViLookasideAvl, 96LL, 0LL, (RTL_AVL_FREE_ROUTINE *)ViRemLockDelayFreeAvlNode) < 0;
+  v6 = (int)VfAvlInitializeTree(
+              &ViLookasideAvl,
+              96LL,
+              0LL,
+              (void (__cdecl *)(_RTL_AVL_TABLE *, PVOID))ViRemLockDelayFreeAvlNode) < 0;
   v7 = &ViLookasideInitialized;
   if ( v6 )
     v7 = &ViLookasideAllocationFailures;
@@ -84,7 +88,11 @@ __int64 __fastcall VfInitVerifierComponents(unsigned int a1, unsigned int a2, un
     v19,
     VfInitializedWithoutReboot,
     (__int64)ExInitializeNPagedLookasideListInternal);
-  v6 = (int)VfAvlInitializeTree(&ViResourceAvl, 104LL, 0LL, (RTL_AVL_FREE_ROUTINE *)ViRemLockDelayFreeAvlNode) < 0;
+  v6 = (int)VfAvlInitializeTree(
+              &ViResourceAvl,
+              104LL,
+              0LL,
+              (void (__cdecl *)(_RTL_AVL_TABLE *, PVOID))ViRemLockDelayFreeAvlNode) < 0;
   v8 = &ViResourceInitialized;
   if ( v6 )
     v8 = &ViResourceNotTracked;
@@ -173,12 +181,20 @@ __int64 __fastcall VfInitVerifierComponents(unsigned int a1, unsigned int a2, un
     *v14 = v14;
   }
   ViDdiInitialized = 1;
-  v6 = (int)VfAvlInitializeTree(&ViRemLockAvl, 32LL, 136LL, (RTL_AVL_FREE_ROUTINE *)ViRemLockDelayFreeAvlNode) < 0;
+  v6 = (int)VfAvlInitializeTree(
+              &ViRemLockAvl,
+              32LL,
+              136LL,
+              (void (__cdecl *)(_RTL_AVL_TABLE *, PVOID))ViRemLockDelayFreeAvlNode) < 0;
   v15 = &ViRemLockInitialized;
   if ( v6 )
     v15 = &ViRemLockAllocationFailures;
   _InterlockedExchange(v15, 1);
-  v6 = (int)VfAvlInitializeTree(&ViDevObjAvl, 336LL, 24LL, (RTL_AVL_FREE_ROUTINE *)ViRemLockDelayFreeAvlNode) < 0;
+  v6 = (int)VfAvlInitializeTree(
+              &ViDevObjAvl,
+              336LL,
+              24LL,
+              (void (__cdecl *)(_RTL_AVL_TABLE *, PVOID))ViRemLockDelayFreeAvlNode) < 0;
   v16 = &ViDevObjInitialized;
   if ( v6 )
     v16 = &ViDevObjAllocationFailures;

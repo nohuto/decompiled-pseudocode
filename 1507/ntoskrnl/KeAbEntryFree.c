@@ -10,17 +10,17 @@
  *     EtwTraceAutoBoostClearFloor @ 0x14025CCD0 (EtwTraceAutoBoostClearFloor.c)
  */
 
-void __fastcall KeAbEntryFree(__int64 a1, ULONG_PTR a2, __int64 a3)
+void __fastcall KeAbEntryFree(__int64 a1, ULONG_PTR a2)
 {
-  __int16 v5; // ax
+  __int16 v4; // ax
 
   *(_BYTE *)(a1 + 32) |= 2u;
   if ( *(__int64 *)(a1 + 32) < 0 )
-    KiAbEntryRemoveFromTree(a1, a2, a3);
-  v5 = *(_WORD *)(a1 + 88);
-  if ( v5 )
+    KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)a1);
+  v4 = *(_WORD *)(a1 + 88);
+  if ( v4 )
   {
-    if ( (v5 & 1) != 0 )
+    if ( (v4 & 1) != 0 )
     {
       _InterlockedDecrement((volatile signed __int32 *)(a2 + 1412));
       PsBoostThreadIoEx(a2, 1, 0, 0LL);

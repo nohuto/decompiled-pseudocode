@@ -1,10 +1,10 @@
 /*
- * XREFs of ?SmStOutSwapPrepareStore@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@@Z @ 0x1403F46B0
+ * XREFs of ?SmStOutSwapPrepareStore@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@@Z @ 0x1403EE060
  * Callers:
- *     ?SmStSwapStore@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@W4_SM_STORE_SWAP_OPERATION@@@Z @ 0x1403F460C (-SmStSwapStore@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@W4_SM_STORE_SWAP_OPERATION@@@Z.c)
+ *     ?SmStSwapStore@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@W4_SM_STORE_SWAP_OPERATION@@@Z @ 0x1403EDFBC (-SmStSwapStore@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@W4_SM_STORE_SWAP_OPERATION@@@Z.c)
  * Callees:
- *     RtlSetAllBits @ 0x1403F4780 (RtlSetAllBits.c)
- *     ExAllocatePool3 @ 0x140C10010 (ExAllocatePool3.c)
+ *     RtlSetAllBits @ 0x1403EE130 (RtlSetAllBits.c)
+ *     ExAllocatePool3 @ 0x140C16010 (ExAllocatePool3.c)
  */
 
 __int64 __fastcall SMKM_STORE<SM_TRAITS>::SmStOutSwapPrepareStore(__int64 a1)
@@ -18,7 +18,7 @@ __int64 __fastcall SMKM_STORE<SM_TRAITS>::SmStOutSwapPrepareStore(__int64 a1)
             64LL,
             4 * (((unsigned __int64)*(unsigned int *)(a1 + 2644) + 31) >> 5) + 24,
             2001956211LL,
-            &stru_140E27B08.Header.WaitListHead.Blink,
+            &stru_140E27C48.Header.WaitListHead.Blink,
             1);
   v3 = Pool3;
   if ( Pool3 )

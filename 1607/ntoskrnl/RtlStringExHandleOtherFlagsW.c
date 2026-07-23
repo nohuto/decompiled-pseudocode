@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlStringExHandleOtherFlagsW @ 0x1401CCBD8
+ * XREFs of RtlStringExHandleOtherFlagsW @ 0x1401CCABC
  * Callers:
- *     RtlStringCchCopyExW @ 0x1400C34A8 (RtlStringCchCopyExW.c)
- *     RtlStringCchPrintfExW @ 0x1400C3A00 (RtlStringCchPrintfExW.c)
- *     RtlStringCchCatExW @ 0x14013BD00 (RtlStringCchCatExW.c)
+ *     RtlStringCchCopyExW @ 0x1400C1338 (RtlStringCchCopyExW.c)
+ *     RtlStringCchPrintfExW @ 0x1400C1890 (RtlStringCchPrintfExW.c)
+ *     RtlStringCchCatExW @ 0x14013C270 (RtlStringCchCatExW.c)
  * Callees:
- *     memset @ 0x1401715C0 (memset.c)
+ *     memset @ 0x140171AC0 (memset.c)
  */
 
 NTSTATUS __stdcall RtlStringExHandleOtherFlagsW(

@@ -1,10 +1,10 @@
 /*
- * XREFs of ViWdBeforeCallDriver @ 0x140C3A0C8
+ * XREFs of ViWdBeforeCallDriver @ 0x140C400D8
  * Callers:
- *     IovpCallDriver1 @ 0x140C2B2B8 (IovpCallDriver1.c)
+ *     IovpCallDriver1 @ 0x140C312C8 (IovpCallDriver1.c)
  * Callees:
- *     ExAllocateFromNPagedLookasideList @ 0x1402C1770 (ExAllocateFromNPagedLookasideList.c)
- *     VfTargetDriversIsEnabled @ 0x140C46C9C (VfTargetDriversIsEnabled.c)
+ *     ExAllocateFromNPagedLookasideList @ 0x14030C430 (ExAllocateFromNPagedLookasideList.c)
+ *     VfTargetDriversIsEnabled @ 0x140C4CCAC (VfTargetDriversIsEnabled.c)
  */
 
 void __fastcall ViWdBeforeCallDriver(__int64 a1, __int64 a2, _QWORD *a3)

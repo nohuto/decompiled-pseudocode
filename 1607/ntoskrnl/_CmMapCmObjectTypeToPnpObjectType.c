@@ -1,14 +1,14 @@
 /*
- * XREFs of _CmMapCmObjectTypeToPnpObjectType @ 0x1404FE32C
+ * XREFs of _CmMapCmObjectTypeToPnpObjectType @ 0x1404E12BC
  * Callers:
- *     PiDmGetCmObjectListFromCache @ 0x1404E2AA8 (PiDmGetCmObjectListFromCache.c)
- *     PiPnpRtlCmActionCallback @ 0x1404FCFB8 (PiPnpRtlCmActionCallback.c)
- *     PiDmObjectGetCachedCmProperty @ 0x1404FE1F8 (PiDmObjectGetCachedCmProperty.c)
- *     PiDmObjectUpdateCachedCmProperty @ 0x140500534 (PiDmObjectUpdateCachedCmProperty.c)
- *     _CmRaisePropertyChangeEvent @ 0x140571678 (_CmRaisePropertyChangeEvent.c)
- *     _CmRaiseCreateEvent @ 0x1406DBEF0 (_CmRaiseCreateEvent.c)
- *     _CmRaiseDeleteEvent @ 0x1406DBF64 (_CmRaiseDeleteEvent.c)
- *     _PnpCmMatchCallbackRoutine @ 0x1406DFC40 (_PnpCmMatchCallbackRoutine.c)
+ *     PiDmGetCmObjectListFromCache @ 0x1404C5A0C (PiDmGetCmObjectListFromCache.c)
+ *     PiPnpRtlCmActionCallback @ 0x1404DFF48 (PiPnpRtlCmActionCallback.c)
+ *     PiDmObjectGetCachedCmProperty @ 0x1404E1188 (PiDmObjectGetCachedCmProperty.c)
+ *     PiDmObjectUpdateCachedCmProperty @ 0x1404E34C4 (PiDmObjectUpdateCachedCmProperty.c)
+ *     _CmRaisePropertyChangeEvent @ 0x140571BB8 (_CmRaisePropertyChangeEvent.c)
+ *     _CmRaiseCreateEvent @ 0x1406DC028 (_CmRaiseCreateEvent.c)
+ *     _CmRaiseDeleteEvent @ 0x1406DC09C (_CmRaiseDeleteEvent.c)
+ *     _PnpCmMatchCallbackRoutine @ 0x1406DFD78 (_PnpCmMatchCallbackRoutine.c)
  * Callees:
  *     <none>
  */

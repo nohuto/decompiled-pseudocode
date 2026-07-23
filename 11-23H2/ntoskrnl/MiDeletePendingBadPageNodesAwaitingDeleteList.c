@@ -1,11 +1,11 @@
 /*
- * XREFs of MiDeletePendingBadPageNodesAwaitingDeleteList @ 0x140629A00
+ * XREFs of MiDeletePendingBadPageNodesAwaitingDeleteList @ 0x140629F50
  * Callers:
  *     <none>
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
@@ -41,10 +41,10 @@ __int64 MiDeletePendingBadPageNodesAwaitingDeleteList()
     v1[1] = v2;
     --qword_140C67330;
     ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C67310);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v9 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v9 <= 0xFu && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -60,10 +60,10 @@ __int64 MiDeletePendingBadPageNodesAwaitingDeleteList()
   }
   byte_140C67338 = 0;
   ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C67310);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v10 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v10 <= 0xFu && v9 <= 0xFu && v10 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v10 <= 0xFu && v9 <= 0xFu && v10 >= 2u )
     {
       v11 = KeGetCurrentPrcb();
       v12 = v11->SchedulerAssist;

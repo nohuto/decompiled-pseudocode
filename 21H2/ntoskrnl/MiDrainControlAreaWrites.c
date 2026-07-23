@@ -1,12 +1,12 @@
 /*
- * XREFs of MiDrainControlAreaWrites @ 0x1402F7DAC
+ * XREFs of MiDrainControlAreaWrites @ 0x140302AFC
  * Callers:
- *     MiPrepareSegmentForDeletion @ 0x1402F7D04 (MiPrepareSegmentForDeletion.c)
- *     MiDestroySection @ 0x14037F32C (MiDestroySection.c)
+ *     MiPrepareSegmentForDeletion @ 0x140302A54 (MiPrepareSegmentForDeletion.c)
+ *     MiDestroySection @ 0x14037EE7C (MiDestroySection.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
- *     KeWaitForGate @ 0x140299F74 (KeWaitForGate.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KeWaitForGate @ 0x14022A4E4 (KeWaitForGate.c)
+ *     ExAcquireSpinLockExclusive @ 0x1402C1960 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140346AD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
@@ -60,7 +60,7 @@ void __fastcall MiDrainControlAreaWrites(__int64 a1, KIRQL a2)
         }
       }
       __writecr8(a2);
-      KeWaitForGate((__int64)&v12, 18);
+      KeWaitForGate((__int64)&v12, 0x12u);
       a2 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(a1 + 72));
     }
     while ( *(_DWORD *)(a1 + 76) );

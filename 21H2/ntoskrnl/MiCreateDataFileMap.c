@@ -1,17 +1,17 @@
 /*
- * XREFs of MiCreateDataFileMap @ 0x14061BFD4
+ * XREFs of MiCreateDataFileMap @ 0x140685C44
  * Callers:
- *     MiCreateNewSection @ 0x1406D2BC0 (MiCreateNewSection.c)
+ *     MiCreateNewSection @ 0x1406A9EA0 (MiCreateNewSection.c)
  * Callees:
- *     MiAllocatePool @ 0x14025AD70 (MiAllocatePool.c)
- *     MiInsertSubsectionNode @ 0x1402A15FC (MiInsertSubsectionNode.c)
- *     FsRtlSetFileSize @ 0x140689B90 (FsRtlSetFileSize.c)
- *     FsRtlGetFileSize @ 0x1406D4860 (FsRtlGetFileSize.c)
- *     MiComputeIdealFirstSubsection @ 0x1408CFD6C (MiComputeIdealFirstSubsection.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     MiInsertSubsectionNode @ 0x14021EB7C (MiInsertSubsectionNode.c)
+ *     MiAllocatePool @ 0x14027C2E0 (MiAllocatePool.c)
+ *     FsRtlSetFileSize @ 0x1405E9020 (FsRtlSetFileSize.c)
+ *     FsRtlGetFileSize @ 0x1406ABB40 (FsRtlGetFileSize.c)
+ *     MiComputeIdealFirstSubsection @ 0x1408CFECC (MiComputeIdealFirstSubsection.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
-NTSTATUS __fastcall MiCreateDataFileMap(
+int __fastcall MiCreateDataFileMap(
         PFILE_OBJECT FileObject,
         _WORD *a2,
         LARGE_INTEGER **a3,
@@ -44,7 +44,7 @@ NTSTATUS __fastcall MiCreateDataFileMap(
   bool v31; // zf
   __int16 v32; // cx
   int v33; // eax
-  NTSTATUS result; // eax
+  int result; // eax
   LARGE_INTEGER *v35; // rcx
   _QWORD *QuadPart; // rcx
   _QWORD *v37; // rbx
@@ -72,7 +72,7 @@ NTSTATUS __fastcall MiCreateDataFileMap(
         return -1073741760;
       FileSize = a4;
       v11 = a4;
-      result = FsRtlSetFileSize(FileObject);
+      result = FsRtlSetFileSize(FileObject, (__int64 *)&FileSize);
       if ( result < 0 )
         return result;
     }

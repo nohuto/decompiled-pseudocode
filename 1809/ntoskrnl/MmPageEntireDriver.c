@@ -1,15 +1,15 @@
 /*
- * XREFs of MmPageEntireDriver @ 0x140653970
+ * XREFs of MmPageEntireDriver @ 0x140654B30
  * Callers:
  *     <none>
  * Callees:
  *     MiGetSystemRegionType @ 0x14004EC30 (MiGetSystemRegionType.c)
- *     MiGetPteAddress @ 0x140065DE8 (MiGetPteAddress.c)
- *     MI_IS_PHYSICAL_ADDRESS @ 0x14009D910 (MI_IS_PHYSICAL_ADDRESS.c)
- *     MiLookupDataTableEntry @ 0x1400DA590 (MiLookupDataTableEntry.c)
- *     MiSetPagingOfDriver @ 0x1400DADFC (MiSetPagingOfDriver.c)
- *     KeFlushQueuedDpcs @ 0x1400DBE50 (KeFlushQueuedDpcs.c)
- *     MiCancelPhase0Locking @ 0x140653B0C (MiCancelPhase0Locking.c)
+ *     MiGetPteAddress @ 0x140065DD8 (MiGetPteAddress.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x14009D850 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     MiLookupDataTableEntry @ 0x1400DA610 (MiLookupDataTableEntry.c)
+ *     MiSetPagingOfDriver @ 0x1400DAE7C (MiSetPagingOfDriver.c)
+ *     KeFlushQueuedDpcs @ 0x1400DBED0 (KeFlushQueuedDpcs.c)
+ *     MiCancelPhase0Locking @ 0x140654CCC (MiCancelPhase0Locking.c)
  */
 
 PVOID __stdcall MmPageEntireDriver(PVOID AddressWithinSection)
@@ -27,7 +27,7 @@ PVOID __stdcall MmPageEntireDriver(PVOID AddressWithinSection)
   if ( !v2 )
     return 0LL;
   v4 = (void *)v2[6];
-  if ( (dword_140540174 & 1) == 0 && (unsigned int)MiGetSystemRegionType((unsigned __int64)AddressWithinSection) != 1 )
+  if ( (dword_140541174 & 1) == 0 && (unsigned int)MiGetSystemRegionType((unsigned __int64)AddressWithinSection) != 1 )
   {
     KeFlushQueuedDpcs();
     PteAddress = MiGetPteAddress((unsigned __int64)v4);

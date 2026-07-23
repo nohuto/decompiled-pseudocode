@@ -1,33 +1,33 @@
 /*
- * XREFs of MiRemoveMappedPtes @ 0x1400855D0
+ * XREFs of MiRemoveMappedPtes @ 0x1400855C0
  * Callers:
  *     MiRemoveFromSystemSpace @ 0x140026F90 (MiRemoveFromSystemSpace.c)
  * Callees:
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MiUnlockWorkingSetShared @ 0x140046970 (MiUnlockWorkingSetShared.c)
- *     MiReturnCommit @ 0x140065D40 (MiReturnCommit.c)
- *     MiLockPageTableInternal @ 0x14006CA20 (MiLockPageTableInternal.c)
- *     MiLockWorkingSetShared @ 0x140076050 (MiLockWorkingSetShared.c)
- *     MiCheckControlArea @ 0x1400764A0 (MiCheckControlArea.c)
- *     MiLocateSubsectionNode @ 0x140077B40 (MiLocateSubsectionNode.c)
- *     MiRemoveViewsFromSection @ 0x140079370 (MiRemoveViewsFromSection.c)
- *     MiTerminateWsleCluster @ 0x14007B968 (MiTerminateWsleCluster.c)
- *     MiReleasePageFileSpace @ 0x1400823A4 (MiReleasePageFileSpace.c)
- *     MiAppendWsleCluster @ 0x1400859FC (MiAppendWsleCluster.c)
- *     MI_WSLE_LOG_ACCESS @ 0x140088044 (MI_WSLE_LOG_ACCESS.c)
- *     MiTryDeleteTransitionPte @ 0x140094F2C (MiTryDeleteTransitionPte.c)
- *     MiPageTableLockIsContended @ 0x140096404 (MiPageTableLockIsContended.c)
- *     MiWorkingSetIsContended @ 0x1400992A0 (MiWorkingSetIsContended.c)
- *     MiOffsetToProtos @ 0x1400AF830 (MiOffsetToProtos.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
- *     KeShouldYieldProcessor @ 0x1400F9CE0 (KeShouldYieldProcessor.c)
- *     MiUnlockPageTableInternal @ 0x140104A90 (MiUnlockPageTableInternal.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     MiReturnCrossPartitionControlAreaCharges @ 0x1402A3234 (MiReturnCrossPartitionControlAreaCharges.c)
- *     MiDecrementLargeSubsections @ 0x1402B5814 (MiDecrementLargeSubsections.c)
- *     MiReturnCrossPartitionSectionCharges @ 0x1402C4CB4 (MiReturnCrossPartitionSectionCharges.c)
+ *     MiReturnCommit @ 0x140065D30 (MiReturnCommit.c)
+ *     MiLockPageTableInternal @ 0x14006CA10 (MiLockPageTableInternal.c)
+ *     MiLockWorkingSetShared @ 0x140076040 (MiLockWorkingSetShared.c)
+ *     MiCheckControlArea @ 0x140076490 (MiCheckControlArea.c)
+ *     MiLocateSubsectionNode @ 0x140077B30 (MiLocateSubsectionNode.c)
+ *     MiRemoveViewsFromSection @ 0x140079360 (MiRemoveViewsFromSection.c)
+ *     MiTerminateWsleCluster @ 0x14007B958 (MiTerminateWsleCluster.c)
+ *     MiReleasePageFileSpace @ 0x140082394 (MiReleasePageFileSpace.c)
+ *     MiAppendWsleCluster @ 0x1400859EC (MiAppendWsleCluster.c)
+ *     MI_WSLE_LOG_ACCESS @ 0x140088034 (MI_WSLE_LOG_ACCESS.c)
+ *     MiTryDeleteTransitionPte @ 0x140094E6C (MiTryDeleteTransitionPte.c)
+ *     MiPageTableLockIsContended @ 0x140096344 (MiPageTableLockIsContended.c)
+ *     MiWorkingSetIsContended @ 0x1400991E0 (MiWorkingSetIsContended.c)
+ *     MiOffsetToProtos @ 0x1400AF770 (MiOffsetToProtos.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC420 (ExAcquireSpinLockExclusive.c)
+ *     KeShouldYieldProcessor @ 0x1400F9D60 (KeShouldYieldProcessor.c)
+ *     MiUnlockPageTableInternal @ 0x140104B10 (MiUnlockPageTableInternal.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     MiReturnCrossPartitionControlAreaCharges @ 0x1402A3424 (MiReturnCrossPartitionControlAreaCharges.c)
+ *     MiDecrementLargeSubsections @ 0x1402B5A04 (MiDecrementLargeSubsections.c)
+ *     MiReturnCrossPartitionSectionCharges @ 0x1402C4EA4 (MiReturnCrossPartitionSectionCharges.c)
  */
 
 __int64 __fastcall MiRemoveMappedPtes(__int64 a1, __int64 a2)
@@ -91,7 +91,7 @@ __int64 __fastcall MiRemoveMappedPtes(__int64 a1, __int64 a2)
   v9 = *(unsigned __int16 *)(a2 + 174);
   v43 = *BugCheckParameter2;
   v8 = v43;
-  v40 = *(struct _KEVENT **)(qword_14043A748 + 8 * v9);
+  v40 = *(struct _KEVENT **)(qword_14043B808 + 8 * v9);
   v10 = ((v4 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
   memset(v44, 0, 0x20uLL);
   v11 = *(_DWORD *)(v43 + 56);
@@ -99,7 +99,7 @@ __int64 __fastcall MiRemoveMappedPtes(__int64 a1, __int64 a2)
   if ( (v11 & 0x400) != 0 )
     v13 = &MiSystemPartition;
   else
-    v13 = *(ULONG_PTR **)(qword_14043A748 + 8LL * (*(_WORD *)(v43 + 60) & 0x3FF));
+    v13 = *(ULONG_PTR **)(qword_14043B808 + 8LL * (*(_WORD *)(v43 + 60) & 0x3FF));
   v41 = v13;
   if ( (v11 & 0x420) != 0 )
   {
@@ -163,7 +163,7 @@ __int64 __fastcall MiRemoveMappedPtes(__int64 a1, __int64 a2)
       goto LABEL_20;
     if ( (v20 & 1) != 0 )
     {
-      if ( dword_14043A8E8 )
+      if ( dword_14043B9A8 )
         MI_WSLE_LOG_ACCESS(a2, v10);
       MiAppendWsleCluster(v44, a2, v10, v17);
       goto LABEL_20;
@@ -175,7 +175,7 @@ __int64 __fastcall MiRemoveMappedPtes(__int64 a1, __int64 a2)
       {
         if ( (unsigned int)MiPteHasShadow(0xFFFFF6FB7DBED000uLL, ZeroPte) )
         {
-          if ( !HIBYTE(word_14043A1AC) && (v21 & 1) != 0 )
+          if ( !HIBYTE(word_14043B26C) && (v21 & 1) != 0 )
             v21 |= v34;
           goto LABEL_68;
         }
@@ -197,7 +197,7 @@ __int64 __fastcall MiRemoveMappedPtes(__int64 a1, __int64 a2)
         goto LABEL_19;
       if ( (unsigned int)MiPteHasShadow(v36, v21) )
       {
-        if ( !HIBYTE(word_14043A1AC) && (v21 & 1) != 0 )
+        if ( !HIBYTE(word_14043B26C) && (v21 & 1) != 0 )
           goto LABEL_80;
         goto LABEL_68;
       }
@@ -214,7 +214,7 @@ __int64 __fastcall MiRemoveMappedPtes(__int64 a1, __int64 a2)
       {
         if ( (unsigned int)MiPteHasShadow(v37, v21) )
         {
-          if ( !HIBYTE(word_14043A1AC) && (v21 & 1) != 0 )
+          if ( !HIBYTE(word_14043B26C) && (v21 & 1) != 0 )
 LABEL_80:
             v21 |= 0x8000000000000000uLL;
 LABEL_68:

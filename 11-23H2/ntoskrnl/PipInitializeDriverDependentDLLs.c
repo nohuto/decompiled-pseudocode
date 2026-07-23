@@ -4,8 +4,8 @@
  *     PipInitializeCoreDriversAndElam @ 0x140B3C670 (PipInitializeCoreDriversAndElam.c)
  *     IopInitializeBootDrivers @ 0x140B3CEB4 (IopInitializeBootDrivers.c)
  * Callees:
- *     memset @ 0x140435A00 (memset.c)
- *     MmCallDllInitialize @ 0x140810E60 (MmCallDllInitialize.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     MmCallDllInitialize @ 0x140811130 (MmCallDllInitialize.c)
  *     PnpDoPolicyCheck @ 0x140B3E044 (PnpDoPolicyCheck.c)
  *     PnpNotifyEarlyLaunchImageLoad @ 0x140B3E0A4 (PnpNotifyEarlyLaunchImageLoad.c)
  */

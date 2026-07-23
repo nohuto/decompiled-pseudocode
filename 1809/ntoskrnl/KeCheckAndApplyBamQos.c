@@ -1,13 +1,13 @@
 /*
- * XREFs of KeCheckAndApplyBamQos @ 0x140297C90
+ * XREFs of KeCheckAndApplyBamQos @ 0x140297E80
  * Callers:
  *     PsImpersonateContainerOfThread @ 0x14005AE90 (PsImpersonateContainerOfThread.c)
  *     KeClockInterruptNotify @ 0x140060C40 (KeClockInterruptNotify.c)
- *     SwapContext @ 0x1401C42C0 (SwapContext.c)
- *     KeSetThreadSchedulerAssist @ 0x140297D44 (KeSetThreadSchedulerAssist.c)
+ *     SwapContext @ 0x1401C4420 (SwapContext.c)
+ *     KeSetThreadSchedulerAssist @ 0x140297F34 (KeSetThreadSchedulerAssist.c)
  * Callees:
- *     KeUpdatePendingQosRequest @ 0x140297FF4 (KeUpdatePendingQosRequest.c)
- *     PoSetProcessorQoS @ 0x1402DB068 (PoSetProcessorQoS.c)
+ *     KeUpdatePendingQosRequest @ 0x1402981E4 (KeUpdatePendingQosRequest.c)
+ *     PoSetProcessorQoS @ 0x1402DB258 (PoSetProcessorQoS.c)
  */
 
 __int64 __fastcall KeCheckAndApplyBamQos(__int64 a1, __int64 a2)

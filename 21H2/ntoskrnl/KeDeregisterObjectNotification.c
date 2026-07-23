@@ -1,11 +1,11 @@
 /*
- * XREFs of KeDeregisterObjectNotification @ 0x140202E60
+ * XREFs of KeDeregisterObjectNotification @ 0x1402A77A0
  * Callers:
- *     IopCancelWaitCompletionPacket @ 0x140202CF0 (IopCancelWaitCompletionPacket.c)
- *     ExpLeaveWorkerFactoryAwayMode @ 0x140202E08 (ExpLeaveWorkerFactoryAwayMode.c)
- *     ExpShutdownWorkerFactory @ 0x14027F9D8 (ExpShutdownWorkerFactory.c)
+ *     ExpShutdownWorkerFactory @ 0x14026DC18 (ExpShutdownWorkerFactory.c)
+ *     IopCancelWaitCompletionPacket @ 0x1402A7634 (IopCancelWaitCompletionPacket.c)
+ *     ExpLeaveWorkerFactoryAwayMode @ 0x1402A7748 (ExpLeaveWorkerFactoryAwayMode.c)
  * Callees:
- *     KiAcquireKobjectLockSafe @ 0x14024C4A0 (KiAcquireKobjectLockSafe.c)
+ *     KiAcquireKobjectLockSafe @ 0x1402F0CF0 (KiAcquireKobjectLockSafe.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 

@@ -1,10 +1,10 @@
 /*
- * XREFs of VfInitSetVerifyDriverTargets @ 0x140CDEC04
+ * XREFs of VfInitSetVerifyDriverTargets @ 0x140CE4F9C
  * Callers:
- *     ViInitSystemPhase0 @ 0x140CDEDA4 (ViInitSystemPhase0.c)
- *     ViMakeVerifierSettings @ 0x140CDFB38 (ViMakeVerifierSettings.c)
+ *     ViInitSystemPhase0 @ 0x140CE513C (ViInitSystemPhase0.c)
+ *     ViMakeVerifierSettings @ 0x140CE5ED0 (ViMakeVerifierSettings.c)
  * Callees:
- *     memmove @ 0x14073D480 (memmove.c)
+ *     memmove @ 0x140742080 (memmove.c)
  */
 
 void *__fastcall VfInitSetVerifyDriverTargets(void *Src, unsigned int a2)
@@ -14,7 +14,7 @@ void *__fastcall VfInitSetVerifyDriverTargets(void *Src, unsigned int a2)
 
   if ( a2 > 0x1800 )
   {
-    word_140FFE50E = 0;
+    word_140FFF50E = 0;
     a2 = 6142;
   }
   v2 = a2;

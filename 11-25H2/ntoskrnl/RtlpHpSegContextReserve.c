@@ -9,7 +9,7 @@
  *     RtlpHpSegSegmentInitialize @ 0x1402F971C (RtlpHpSegSegmentInitialize.c)
  */
 
-__int64 __fastcall RtlpHpSegContextReserve(__int64 *a1, __int64 a2, __int64 a3)
+__int64 __fastcall RtlpHpSegContextReserve(_RTL_RB_TREE *a1, __int64 a2, __int64 a3)
 {
   unsigned __int64 v3; // rsi
   unsigned int v5; // r15d
@@ -20,8 +20,8 @@ __int64 __fastcall RtlpHpSegContextReserve(__int64 *a1, __int64 a2, __int64 a3)
   unsigned __int64 v10; // r14
 
   v3 = (unsigned __int64)(a3 + 4095) >> 12;
-  v5 = (256 - *((unsigned __int8 *)a1 + 10)) << *((_BYTE *)a1 + 9);
-  v6 = ((unsigned __int64)(unsigned int)-*(_DWORD *)a1 + a2 - 1) / (unsigned int)-*(_DWORD *)a1;
+  v5 = (256 - BYTE2(a1->Min)) << *((_BYTE *)&a1->0 + 1);
+  v6 = ((unsigned __int64)(unsigned int)-LODWORD(a1->Root) + a2 - 1) / (unsigned int)-LODWORD(a1->Root);
   v7 = 0;
   while ( v6 )
   {
@@ -34,7 +34,7 @@ __int64 __fastcall RtlpHpSegContextReserve(__int64 *a1, __int64 a2, __int64 a3)
     if ( !v9 )
       return (unsigned int)-1073741670;
     RtlpHpSegSegmentInitialize(a1, v9, v8);
-    RtlpHpSegFreeRangeInsert(a1, v10 + 32LL * *((unsigned __int8 *)a1 + 10), 1);
+    RtlpHpSegFreeRangeInsert(a1, v10 + 32LL * BYTE2(a1->Min), 1);
     RtlpHpSegHeapAddSegment((__int64)a1, v10);
     --v6;
   }

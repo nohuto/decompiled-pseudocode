@@ -16,12 +16,12 @@
 __int64 __fastcall LdrpMapResourceFile(__int64 a1, UNICODE_STRING *a2, HANDLE *a3, _QWORD *a4, ULONG_PTR *a5)
 {
   PVOID v8; // rdi
-  __int64 v9; // rax
-  unsigned __int16 v10; // si
+  PIMAGE_NT_HEADERS v9; // rax
+  unsigned __int16 MajorSubsystemVersion; // si
   NTSTATUS v11; // ebx
   PVOID v12; // rsi
   NTSTATUS v13; // eax
-  __int64 v14; // rax
+  PIMAGE_NT_HEADERS v14; // rax
   int v15; // ecx
   ULONG_PTR *v16; // rcx
   HANDLE SectionHandle; // [rsp+60h] [rbp-41h] BYREF
@@ -43,10 +43,10 @@ __int64 __fastcall LdrpMapResourceFile(__int64 a1, UNICODE_STRING *a2, HANDLE *a
   IoStatusBlock = 0LL;
   if ( a1 && a2 && a4 )
   {
-    v9 = RtlImageNtHeader(a1 & 0xFFFFFFFFFFFFFFFCuLL);
+    v9 = RtlImageNtHeader((PVOID)(a1 & 0xFFFFFFFFFFFFFFFCuLL));
     if ( v9 )
     {
-      v10 = *(_WORD *)(v9 + 72);
+      MajorSubsystemVersion = v9->OptionalHeader.MajorSubsystemVersion;
       ObjectAttributes.Length = 48;
       ObjectAttributes.RootDirectory = 0LL;
       ObjectAttributes.Attributes = 576;
@@ -65,7 +65,7 @@ __int64 __fastcall LdrpMapResourceFile(__int64 a1, UNICODE_STRING *a2, HANDLE *a
                 0xF0005u,
                 &ObjectAttributes,
                 &MaximumSize,
-                v10 < 6u ? 8 : 2,
+                MajorSubsystemVersion < 6u ? 8 : 2,
                 0x8000000u,
                 FileHandle);
         if ( v11 >= 0 )
@@ -81,7 +81,7 @@ __int64 __fastcall LdrpMapResourceFile(__int64 a1, UNICODE_STRING *a2, HANDLE *a
             v11 = v13;
             if ( v13 >= 0 )
             {
-              v14 = RtlImageNtHeader((__int64)MappedBase);
+              v14 = RtlImageNtHeader(MappedBase);
               v15 = v11;
               if ( !v14 )
                 v15 = -1073741701;

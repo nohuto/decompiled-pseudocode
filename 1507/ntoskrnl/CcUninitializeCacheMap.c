@@ -31,7 +31,7 @@ BOOLEAN __stdcall CcUninitializeCacheMap(
         PLARGE_INTEGER TruncateSize,
         PCACHE_UNINITIALIZE_EVENT UninitializeEvent)
 {
-  struct _SLIST_ENTRY *v4; // rdi
+  _SLIST_ENTRY *v4; // rdi
   bool v5; // r12
   KIRQL CurrentIrql; // r13
   void *ArbitraryUserPointer; // rcx
@@ -69,7 +69,7 @@ BOOLEAN __stdcall CcUninitializeCacheMap(
   signed __int64 v41; // rcx
   signed __int64 i; // rax
   void *retaddr; // [rsp+58h] [rbp+0h]
-  struct _SLIST_ENTRY *v45; // [rsp+60h] [rbp+8h]
+  _SLIST_ENTRY *v45; // [rsp+60h] [rbp+8h]
 
   v4 = 0LL;
   v45 = 0LL;
@@ -104,7 +104,7 @@ BOOLEAN __stdcall CcUninitializeCacheMap(
       v16 = *v15;
       ++CcDbgNumberOfNoopedReadAheads;
       v17 = (__int64 **)v15[1];
-      v45 = (struct _SLIST_ENTRY *)v15;
+      v45 = (_SLIST_ENTRY *)v15;
       if ( *(__int64 **)(v16 + 8) != v15 || *v17 != v15 )
         __fastfail(3u);
       *v17 = (__int64 *)v16;
@@ -307,7 +307,7 @@ LABEL_83:
     else
     {
       ++P->FreeMisses;
-      ((void (__fastcall *)(struct _SLIST_ENTRY *))P->FreeEx)(v4);
+      ((void (__fastcall *)(_SLIST_ENTRY *))P->FreeEx)(v4);
     }
     p_Blink = &FileObject[-1].Event.Header.WaitListHead.Blink;
     if ( ObpTraceFlags )

@@ -1,23 +1,23 @@
 /*
- * XREFs of DifNtAccessCheckByTypeResultListWrapper @ 0x140669780
+ * XREFs of DifNtAccessCheckByTypeResultListWrapper @ 0x14066D360
  * Callers:
  *     <none>
  * Callees:
- *     DifGetReturnAddressForWrappers @ 0x140260EA4 (DifGetReturnAddressForWrappers.c)
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     SeAccessCheckByType @ 0x1402AAD98 (SeAccessCheckByType.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     DifGetAPIThunkContextById @ 0x1404C17A4 (DifGetAPIThunkContextById.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     DifGetReturnAddressForWrappers @ 0x14026040C (DifGetReturnAddressForWrappers.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     SeAccessCheckByType @ 0x1403AC1E8 (SeAccessCheckByType.c)
+ *     DifGetAPIThunkContextById @ 0x1404BAFF4 (DifGetAPIThunkContextById.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall DifNtAccessCheckByTypeResultListWrapper(
         void *a1,
         void *a2,
-        __int64 a3,
-        int a4,
-        __int64 a5,
+        void *a3,
+        unsigned int a4,
+        char *a5,
         unsigned int a6,
         void *a7,
         void *a8,
@@ -37,9 +37,9 @@ __int64 __fastcall DifNtAccessCheckByTypeResultListWrapper(
   __int128 *j; // rbx
   _QWORD v25[6]; // [rsp+68h] [rbp-69h] BYREF
   unsigned int v26; // [rsp+98h] [rbp-39h]
-  __int64 v27; // [rsp+A0h] [rbp-31h]
-  int v28; // [rsp+A8h] [rbp-29h]
-  __int64 v29; // [rsp+B0h] [rbp-21h]
+  char *v27; // [rsp+A0h] [rbp-31h]
+  unsigned int v28; // [rsp+A8h] [rbp-29h]
+  void *v29; // [rsp+B0h] [rbp-21h]
   void *v30; // [rsp+B8h] [rbp-19h]
   void *v31; // [rsp+C0h] [rbp-11h]
   unsigned int v32; // [rsp+C8h] [rbp-9h]
@@ -87,7 +87,7 @@ LABEL_7:
       ExReleaseRundownProtection_0(&DifRebootlessRundown);
   }
 LABEL_17:
-  v32 = SeAccessCheckByType(a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, 1);
+  v32 = SeAccessCheckByType(a1, a2, a3, (struct _KLOCK_ENTRIES *)a4, a5, a6, a7, a8, a9, a10, a11, 1);
   if ( v16 )
   {
     if ( (v22 = 0, !VfDifRunningWithoutReboot) && (VfOptionFlags & 0x800) == 0

@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpIommuHsaDiscover @ 0x140CB5574
+ * XREFs of HalpIommuHsaDiscover @ 0x140CBB5B4
  * Callers:
- *     HalpIommuRegisterBuiltinPlugins @ 0x14059FF48 (HalpIommuRegisterBuiltinPlugins.c)
+ *     HalpIommuRegisterBuiltinPlugins @ 0x1405A2738 (HalpIommuRegisterBuiltinPlugins.c)
  * Callees:
- *     HalpAcpiGetTable @ 0x140342AEC (HalpAcpiGetTable.c)
- *     HalpIommuProcessIvhdEntry @ 0x1405A835C (HalpIommuProcessIvhdEntry.c)
+ *     HalpAcpiGetTable @ 0x140344B6C (HalpAcpiGetTable.c)
+ *     HalpIommuProcessIvhdEntry @ 0x1405AAB6C (HalpIommuProcessIvhdEntry.c)
  */
 
 int __fastcall HalpIommuHsaDiscover(unsigned __int64 *a1)
@@ -25,12 +25,12 @@ int __fastcall HalpIommuHsaDiscover(unsigned __int64 *a1)
   char v15; // [rsp+40h] [rbp+8h] BYREF
 
   *a1 = 0LL;
-  qword_140F87378 = (__int64)&qword_140F87370;
-  qword_140F87370 = (__int64)&qword_140F87370;
+  qword_140F87868 = (__int64)&qword_140F87860;
+  qword_140F87860 = (__int64)&qword_140F87860;
   v15 = 0;
-  if ( HalpDeviceBlockUnblockPushLock.WaitBlock[2].WaitListEntry.Flink || HalpPrebootMode )
+  if ( *(_QWORD *)&HalpDeviceBlockUnblockPushLock.WaitBlockFill11[64] || HalpPrebootMode )
   {
-    Table = HalpAcpiGetTable((__int64)HalpDeviceBlockUnblockPushLock.WaitBlock[2].WaitListEntry.Flink, 1397904969, 0, 0);
+    Table = HalpAcpiGetTable(*(__int64 *)&HalpDeviceBlockUnblockPushLock.WaitBlockFill11[64], 1397904969, 0, 0);
     v3 = Table;
     if ( Table )
     {

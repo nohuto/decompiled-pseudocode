@@ -1,25 +1,25 @@
 /*
- * XREFs of DifNtDuplicateObjectWrapper @ 0x140676770
+ * XREFs of DifNtDuplicateObjectWrapper @ 0x14067A350
  * Callers:
  *     <none>
  * Callees:
- *     DifGetReturnAddressForWrappers @ 0x140260EA4 (DifGetReturnAddressForWrappers.c)
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     DifGetAPIThunkContextById @ 0x1404C17A4 (DifGetAPIThunkContextById.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     NtDuplicateObject @ 0x140A828E0 (NtDuplicateObject.c)
+ *     DifGetReturnAddressForWrappers @ 0x14026040C (DifGetReturnAddressForWrappers.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     DifGetAPIThunkContextById @ 0x1404BAFF4 (DifGetAPIThunkContextById.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     NtDuplicateObject @ 0x140A88750 (NtDuplicateObject.c)
  */
 
 __int64 __fastcall DifNtDuplicateObjectWrapper(
-        ULONG_PTR a1,
-        __int64 a2,
-        __int64 a3,
-        __int64 a4,
-        int a5,
-        int a6,
-        int a7)
+        void *a1,
+        void *a2,
+        void *a3,
+        HANDLE *a4,
+        ACCESS_MASK DesiredAccess,
+        ULONG HandleAttributes,
+        ULONG Options)
 {
   __int128 *APIThunkContextById; // rax
   __int64 v11; // rdx
@@ -32,13 +32,13 @@ __int64 __fastcall DifNtDuplicateObjectWrapper(
   BOOLEAN v18; // di
   __int128 *j; // rbx
   PVOID v21; // [rsp+40h] [rbp-40h] BYREF
-  int v22; // [rsp+48h] [rbp-38h]
-  int v23; // [rsp+4Ch] [rbp-34h]
-  int v24; // [rsp+50h] [rbp-30h]
-  __int64 v25; // [rsp+58h] [rbp-28h]
-  __int64 v26; // [rsp+60h] [rbp-20h]
-  __int64 v27; // [rsp+68h] [rbp-18h]
-  ULONG_PTR v28; // [rsp+70h] [rbp-10h]
+  ULONG v22; // [rsp+48h] [rbp-38h]
+  ULONG v23; // [rsp+4Ch] [rbp-34h]
+  ACCESS_MASK v24; // [rsp+50h] [rbp-30h]
+  HANDLE *v25; // [rsp+58h] [rbp-28h]
+  void *v26; // [rsp+60h] [rbp-20h]
+  void *v27; // [rsp+68h] [rbp-18h]
+  void *v28; // [rsp+70h] [rbp-10h]
   unsigned int v29; // [rsp+78h] [rbp-8h]
   void *retaddr; // [rsp+A8h] [rbp+28h]
 
@@ -62,9 +62,9 @@ __int64 __fastcall DifNtDuplicateObjectWrapper(
 LABEL_7:
   v15 = 0;
   v28 = a1;
-  v24 = a5;
-  v23 = a6;
-  v22 = a7;
+  v24 = DesiredAccess;
+  v23 = HandleAttributes;
+  v22 = Options;
   v27 = a2;
   v26 = a3;
   v25 = a4;
@@ -80,7 +80,7 @@ LABEL_7:
       ExReleaseRundownProtection_0(&DifRebootlessRundown);
   }
 LABEL_17:
-  v29 = NtDuplicateObject(a1, a5, a6, a7);
+  v29 = NtDuplicateObject(a1, a2, a3, a4, DesiredAccess, HandleAttributes, Options);
   if ( v12 )
   {
     if ( (v18 = 0, !VfDifRunningWithoutReboot) && (VfOptionFlags & 0x800) == 0

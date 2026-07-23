@@ -1,23 +1,23 @@
 /*
- * XREFs of EtwpEnableAutoLoggerProviders @ 0x1405637E0
+ * XREFs of EtwpEnableAutoLoggerProviders @ 0x140563D20
  * Callers:
- *     EtwpEnableKeyProviders @ 0x14056366C (EtwpEnableKeyProviders.c)
+ *     EtwpEnableKeyProviders @ 0x140563BAC (EtwpEnableKeyProviders.c)
  * Callees:
- *     RtlStringCbPrintfW @ 0x14000C1D4 (RtlStringCbPrintfW.c)
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     ZwOpenKey @ 0x140159EC0 (ZwOpenKey.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     RtlStringCbPrintfW @ 0x14000BD54 (RtlStringCbPrintfW.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     ZwOpenKey @ 0x14015A430 (ZwOpenKey.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     RtlFreeAnsiString @ 0x140458CF0 (RtlFreeAnsiString.c)
- *     EtwpEnableTrace @ 0x14048D828 (EtwpEnableTrace.c)
- *     RtlNtStatusToDosError @ 0x1404BAE20 (RtlNtStatusToDosError.c)
- *     RtlWriteRegistryValue @ 0x1404E08E4 (RtlWriteRegistryValue.c)
- *     RtlpQueryRegistryValues @ 0x1404F8018 (RtlpQueryRegistryValues.c)
- *     RtlGUIDFromString @ 0x1404FB370 (RtlGUIDFromString.c)
- *     EtwpGetAutoLoggerProviderFilter @ 0x140563BFC (EtwpGetAutoLoggerProviderFilter.c)
+ *     RtlFreeAnsiString @ 0x140457BC0 (RtlFreeAnsiString.c)
+ *     EtwpEnableTrace @ 0x14048E2B8 (EtwpEnableTrace.c)
+ *     RtlNtStatusToDosError @ 0x1404A6B50 (RtlNtStatusToDosError.c)
+ *     RtlWriteRegistryValue @ 0x1404C3EE8 (RtlWriteRegistryValue.c)
+ *     RtlpQueryRegistryValues @ 0x1404DAFA4 (RtlpQueryRegistryValues.c)
+ *     RtlGUIDFromString @ 0x1404DE2FC (RtlGUIDFromString.c)
+ *     EtwpGetAutoLoggerProviderFilter @ 0x14056413C (EtwpGetAutoLoggerProviderFilter.c)
  */
 
 void __fastcall EtwpEnableAutoLoggerProviders(__int64 a1, unsigned int a2, const WCHAR *a3, __int64 a4)

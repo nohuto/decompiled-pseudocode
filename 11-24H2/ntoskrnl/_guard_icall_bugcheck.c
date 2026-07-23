@@ -1,11 +1,11 @@
 /*
- * XREFs of _guard_icall_bugcheck @ 0x1406B3D40
+ * XREFs of _guard_icall_bugcheck @ 0x1406B4CE0
  * Callers:
- *     KeCheckStackAndTargetAddress @ 0x1404378F0 (KeCheckStackAndTargetAddress.c)
- *     _guard_check_icall_no_overrides @ 0x1406B3DA0 (_guard_check_icall_no_overrides.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     KeCheckStackAndTargetAddress @ 0x14042A370 (KeCheckStackAndTargetAddress.c)
+ *     _guard_check_icall_no_overrides @ 0x1406B4D40 (_guard_check_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  * Callees:
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 void __fastcall __noreturn guard_icall_bugcheck(ULONG_PTR BugCheckParameter4)

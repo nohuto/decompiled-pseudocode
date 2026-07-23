@@ -1,12 +1,17 @@
 /*
- * XREFs of NtAllocateUserPhysicalPagesEx @ 0x1407F9BB0
+ * XREFs of NtAllocateUserPhysicalPagesEx @ 0x1407FA320
  * Callers:
  *     <none>
  * Callees:
- *     MiAllocateUserPhysicalPages @ 0x1407F84C8 (MiAllocateUserPhysicalPages.c)
+ *     MiAllocateUserPhysicalPages @ 0x1407F8C38 (MiAllocateUserPhysicalPages.c)
  */
 
-NTSTATUS __fastcall NtAllocateUserPhysicalPagesEx(void *a1, unsigned __int64 *a2, volatile void *a3, volatile void *a4)
+NTSTATUS __cdecl NtAllocateUserPhysicalPagesEx(
+        HANDLE ProcessHandle,
+        PULONG_PTR NumberOfPages,
+        PULONG_PTR UserPfnArray,
+        PMEM_EXTENDED_PARAMETER ExtendedParameters,
+        ULONG ExtendedParameterCount)
 {
-  return MiAllocateUserPhysicalPages(a1, a2, a3, a4);
+  return MiAllocateUserPhysicalPages(ProcessHandle, NumberOfPages, UserPfnArray, ExtendedParameters);
 }

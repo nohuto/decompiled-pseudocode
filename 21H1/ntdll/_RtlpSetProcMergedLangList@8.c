@@ -15,14 +15,14 @@ int __fastcall RtlpSetProcMergedLangList(_DWORD *a1, int a2)
   if ( !a1[14] )
   {
     RtlpInitMuiCriticalSection();
-    RtlEnterCriticalSection((int)&RegistryInfoCritSect);
+    RtlEnterCriticalSection(&RegistryInfoCritSect);
     if ( !a1[14] )
     {
       *(_DWORD *)(a2 + 32) |= 0x40u;
       *a1 |= 0x200u;
       a1[14] = a2;
     }
-    RtlLeaveCriticalSection((int)&RegistryInfoCritSect);
+    RtlLeaveCriticalSection(&RegistryInfoCritSect);
   }
   return 0;
 }

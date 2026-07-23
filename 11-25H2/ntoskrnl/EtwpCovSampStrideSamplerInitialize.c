@@ -25,7 +25,7 @@ __int64 __fastcall EtwpCovSampStrideSamplerInitialize(__int64 a1, unsigned int a
   {
     if ( a2 )
     {
-      v7 = v3 * (KeMaximumIncrement / 0xAu / a2);
+      v7 = v3 * (KeMaximumIncrement / 0xA / a2);
       LODWORD(v3) = 0x10000000;
       if ( v7 < 0x10000000 )
         LODWORD(v3) = v7;

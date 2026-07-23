@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpSanitizeContextFlags @ 0x1403E6DD0
+ * XREFs of RtlpSanitizeContextFlags @ 0x1403D4970
  * Callers:
- *     KyRaiseException @ 0x1403E65D0 (KyRaiseException.c)
- *     NtCreateThread @ 0x1407738E0 (NtCreateThread.c)
- *     PspSetContextThreadInternal @ 0x1408FD220 (PspSetContextThreadInternal.c)
- *     PspGetContextThreadInternal @ 0x1408FD570 (PspGetContextThreadInternal.c)
+ *     KyRaiseException @ 0x1403D4170 (KyRaiseException.c)
+ *     NtCreateThread @ 0x140773B00 (NtCreateThread.c)
+ *     PspSetContextThreadInternal @ 0x14091FB00 (PspSetContextThreadInternal.c)
+ *     PspGetContextThreadInternal @ 0x14091FE50 (PspGetContextThreadInternal.c)
  * Callees:
- *     RtlpValidateContextFlags @ 0x1403E76B0 (RtlpValidateContextFlags.c)
+ *     RtlpValidateContextFlags @ 0x1403D5250 (RtlpValidateContextFlags.c)
  */
 
 __int64 __fastcall RtlpSanitizeContextFlags(unsigned int *a1, char a2)

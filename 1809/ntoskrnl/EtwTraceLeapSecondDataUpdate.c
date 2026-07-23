@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwTraceLeapSecondDataUpdate @ 0x1407345AC
+ * XREFs of EtwTraceLeapSecondDataUpdate @ 0x14073579C
  * Callers:
- *     ExpReadLeapSecondData @ 0x1407342DC (ExpReadLeapSecondData.c)
- *     IoInitSystemPreDrivers @ 0x1409B1F54 (IoInitSystemPreDrivers.c)
+ *     ExpReadLeapSecondData @ 0x1407354CC (ExpReadLeapSecondData.c)
+ *     IoInitSystemPreDrivers @ 0x1409B2F54 (IoInitSystemPreDrivers.c)
  * Callees:
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
- *     EtwWrite @ 0x1400CAD20 (EtwWrite.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     EtwWrite @ 0x1400CAE00 (EtwWrite.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 char __fastcall EtwTraceLeapSecondDataUpdate(int a1, int a2, int a3, int a4)
@@ -54,9 +54,9 @@ char __fastcall EtwTraceLeapSecondDataUpdate(int a1, int a2, int a3, int a4)
   v40 = a3;
   v39 = a2;
   v38 = a1;
-  if ( stru_1404002D0.LevelPlus1 > 5 )
+  if ( stru_140401308.LevelPlus1 > 5 )
   {
-    LOBYTE(v4) = TlgKeywordOn(&stru_1404002D0, 0x400000000000uLL);
+    LOBYTE(v4) = TlgKeywordOn(&stru_140401308, 0x400000000000uLL);
     if ( (_BYTE)v4 )
     {
       v27 = 0;
@@ -75,7 +75,7 @@ char __fastcall EtwTraceLeapSecondDataUpdate(int a1, int a2, int a3, int a4)
       v29 = 4;
       v32 = 4;
       v35 = 4;
-      LOBYTE(v4) = TlgWrite(&stru_1404002D0, &unk_140373538, 0LL, 0LL, 6u, &pData);
+      LOBYTE(v4) = TlgWrite(&stru_140401308, &unk_140373EA5, 0LL, 0LL, 6u, &pData);
     }
   }
   if ( EtwKernelProvRegHandle )

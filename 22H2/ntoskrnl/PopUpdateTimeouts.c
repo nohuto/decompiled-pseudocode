@@ -52,7 +52,7 @@ __int64 __fastcall PopUpdateTimeouts(int a1, unsigned int *a2, unsigned int *a3)
   if ( !*((_BYTE *)a2 + 4) )
     v9 = (const char *)qword_1407DD820;
   PopPrintEx(
-    3LL,
+    3u,
     (__int64)"PopAdaptive: Console session %u timeouts: %s%s Display:%u,: %s%sInput:%u\n",
     a1,
     v9,

@@ -1,13 +1,13 @@
 /*
- * XREFs of CmpClaimGlobalQuota @ 0x140513F30
+ * XREFs of CmpClaimGlobalQuota @ 0x1404F7320
  * Callers:
- *     CmpAllocate @ 0x140513ED4 (CmpAllocate.c)
- *     HvpViewMapViewOfPrimaryFile @ 0x140610158 (HvpViewMapViewOfPrimaryFile.c)
- *     HvpViewRemapViewOfPrimaryFile @ 0x140610284 (HvpViewRemapViewOfPrimaryFile.c)
+ *     CmpAllocate @ 0x1404F72C4 (CmpAllocate.c)
+ *     HvpViewMapViewOfPrimaryFile @ 0x14061020C (HvpViewMapViewOfPrimaryFile.c)
+ *     HvpViewRemapViewOfPrimaryFile @ 0x140610338 (HvpViewRemapViewOfPrimaryFile.c)
  * Callees:
- *     ExQueueWorkItem @ 0x14005FE5C (ExQueueWorkItem.c)
+ *     ExQueueWorkItem @ 0x14005F9DC (ExQueueWorkItem.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     CmpUpdateGlobalQuotaAllowed @ 0x140513F80 (CmpUpdateGlobalQuotaAllowed.c)
+ *     CmpUpdateGlobalQuotaAllowed @ 0x1404F7370 (CmpUpdateGlobalQuotaAllowed.c)
  */
 
 char __fastcall CmpClaimGlobalQuota(__int64 a1, __int64 a2)

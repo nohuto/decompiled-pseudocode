@@ -1,9 +1,9 @@
 /*
- * XREFs of KsepCacheUninitialize @ 0x140653E60
+ * XREFs of KsepCacheUninitialize @ 0x140653F44
  * Callers:
  *     KsepEngineUninitialize @ 0x1407D0374 (KsepEngineUninitialize.c)
  * Callees:
- *     KsepPoolFreePaged @ 0x140084D54 (KsepPoolFreePaged.c)
+ *     KsepPoolFreePaged @ 0x14010B35C (KsepPoolFreePaged.c)
  */
 
 void __fastcall KsepCacheUninitialize(__int64 a1)

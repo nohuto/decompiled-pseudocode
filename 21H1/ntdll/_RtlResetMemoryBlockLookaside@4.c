@@ -8,17 +8,17 @@
  *     _RtlResetMemoryZone@4 @ 0x4B34D850 (_RtlResetMemoryZone@4.c)
  */
 
-int __stdcall RtlResetMemoryBlockLookaside(int a1)
+NTSTATUS __cdecl RtlResetMemoryBlockLookaside(PVOID MemoryBlockLookaside)
 {
   unsigned int v1; // ecx
   _DWORD *v2; // eax
-  int v3; // esi
+  NTSTATUS v3; // esi
 
-  RtlAcquireSRWLockExclusive((volatile signed __int32 *)a1);
+  RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)MemoryBlockLookaside);
   v1 = 0;
-  if ( *(_DWORD *)(a1 + 20) )
+  if ( *((_DWORD *)MemoryBlockLookaside + 5) )
   {
-    v2 = (_DWORD *)(a1 + 32);
+    v2 = (char *)MemoryBlockLookaside + 32;
     do
     {
       *v2 = 0;
@@ -26,9 +26,9 @@ int __stdcall RtlResetMemoryBlockLookaside(int a1)
       v2[1] = 0;
       v2 += 4;
     }
-    while ( v1 < *(_DWORD *)(a1 + 20) );
+    while ( v1 < *((_DWORD *)MemoryBlockLookaside + 5) );
   }
-  v3 = RtlResetMemoryZone(*(_DWORD *)(a1 + 8));
-  RtlReleaseSRWLockExclusive((volatile signed __int32 *)a1);
+  v3 = RtlResetMemoryZone(*((PVOID *)MemoryBlockLookaside + 2));
+  RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)MemoryBlockLookaside);
   return v3;
 }

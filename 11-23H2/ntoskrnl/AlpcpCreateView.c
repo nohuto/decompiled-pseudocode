@@ -1,24 +1,24 @@
 /*
- * XREFs of AlpcpCreateView @ 0x14071C324
+ * XREFs of AlpcpCreateView @ 0x14071C524
  * Callers:
- *     AlpcpExposeViewAttributeInSenderContext @ 0x14071A858 (AlpcpExposeViewAttributeInSenderContext.c)
- *     AlpcpCreateSectionView @ 0x1407B9CC4 (AlpcpCreateSectionView.c)
+ *     AlpcpExposeViewAttributeInSenderContext @ 0x14071AA58 (AlpcpExposeViewAttributeInSenderContext.c)
+ *     AlpcpCreateSectionView @ 0x1407B9FA4 (AlpcpCreateSectionView.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ObfReferenceObject @ 0x140233C40 (ObfReferenceObject.c)
- *     ObfReferenceObjectWithTag @ 0x1402B68C0 (ObfReferenceObjectWithTag.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     memset @ 0x140435A00 (memset.c)
- *     MiMapViewInSystemSpace @ 0x1406AD6A4 (MiMapViewInSystemSpace.c)
- *     MmMapSecureViewOfSection @ 0x14071C198 (MmMapSecureViewOfSection.c)
- *     AlpcpDereferenceBlobEx @ 0x14071E93C (AlpcpDereferenceBlobEx.c)
- *     AlpcpInsertResourcePort @ 0x14071EBDC (AlpcpInsertResourcePort.c)
- *     AlpcpReferenceBlob @ 0x140738B20 (AlpcpReferenceBlob.c)
- *     AlpcpAllocateBlob @ 0x140739C40 (AlpcpAllocateBlob.c)
- *     AlpcpLockForCachedReferenceBlob @ 0x140739E34 (AlpcpLockForCachedReferenceBlob.c)
- *     AlpcpUnlockBlob @ 0x14073BC40 (AlpcpUnlockBlob.c)
- *     MmMapViewOfSection @ 0x1407A2340 (MmMapViewOfSection.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ObfReferenceObject @ 0x140233D10 (ObfReferenceObject.c)
+ *     ObfReferenceObjectWithTag @ 0x1402B6B50 (ObfReferenceObjectWithTag.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     MiMapViewInSystemSpace @ 0x1406AD6D4 (MiMapViewInSystemSpace.c)
+ *     MmMapSecureViewOfSection @ 0x14071C398 (MmMapSecureViewOfSection.c)
+ *     AlpcpDereferenceBlobEx @ 0x14071EB3C (AlpcpDereferenceBlobEx.c)
+ *     AlpcpInsertResourcePort @ 0x14071EDDC (AlpcpInsertResourcePort.c)
+ *     AlpcpReferenceBlob @ 0x140738D10 (AlpcpReferenceBlob.c)
+ *     AlpcpAllocateBlob @ 0x140739E30 (AlpcpAllocateBlob.c)
+ *     AlpcpLockForCachedReferenceBlob @ 0x14073A024 (AlpcpLockForCachedReferenceBlob.c)
+ *     AlpcpUnlockBlob @ 0x14073BE30 (AlpcpUnlockBlob.c)
+ *     MmMapViewOfSection @ 0x1407A2530 (MmMapViewOfSection.c)
  */
 
 __int64 __fastcall AlpcpCreateView(ULONG_PTR BugCheckParameter2, _QWORD *Object, ULONG_PTR *a3)

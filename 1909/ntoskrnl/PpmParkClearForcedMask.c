@@ -18,9 +18,6 @@ __int64 __fastcall PpmParkClearForcedMask(_WORD *a1)
   unsigned __int16 i; // cx
   __int64 v7; // rdx
   char v8; // al
-  __int64 v9; // rdx
-  __int64 v10; // rcx
-  __int64 v11; // r8
 
   PpmAcquireLock((struct _KTHREAD **)&PpmPerfPolicyLock);
   if ( *a1 < 0x14u )
@@ -45,7 +42,7 @@ __int64 __fastcall PpmParkClearForcedMask(_WORD *a1)
     {
       PpmParkApplyPolicy();
       PpmParkParkingAvailable();
-      PpmCheckApplyParkConstraints(v10, v9, v11);
+      PpmCheckApplyParkConstraints();
       return v2;
     }
   }

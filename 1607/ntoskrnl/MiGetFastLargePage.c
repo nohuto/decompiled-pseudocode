@@ -1,16 +1,16 @@
 /*
- * XREFs of MiGetFastLargePage @ 0x1406629F0
+ * XREFs of MiGetFastLargePage @ 0x140662AD4
  * Callers:
- *     MiAllocateLargeZeroPages @ 0x1406620F0 (MiAllocateLargeZeroPages.c)
+ *     MiAllocateLargeZeroPages @ 0x1406621D4 (MiAllocateLargeZeroPages.c)
  * Callees:
- *     MiFreeZeroPageSizeIndex @ 0x14001BB40 (MiFreeZeroPageSizeIndex.c)
- *     MiUpdateLargePageBitMap @ 0x140022BE0 (MiUpdateLargePageBitMap.c)
- *     MiProtectionToCacheAttribute @ 0x1400E74EC (MiProtectionToCacheAttribute.c)
- *     MiPfnZeroingNeeded @ 0x1401071D8 (MiPfnZeroingNeeded.c)
- *     MiSetPfnOriginalPte @ 0x1401718E0 (MiSetPfnOriginalPte.c)
- *     MiSetOriginalPtePfnFromFreeList @ 0x1401F2FB8 (MiSetOriginalPtePfnFromFreeList.c)
- *     MiZeroAndConvertLargePage @ 0x1401FC4CC (MiZeroAndConvertLargePage.c)
- *     MiGetLargePageDemoteAsNeeded @ 0x1401FD350 (MiGetLargePageDemoteAsNeeded.c)
+ *     MiFreeZeroPageSizeIndex @ 0x14001B6C0 (MiFreeZeroPageSizeIndex.c)
+ *     MiUpdateLargePageBitMap @ 0x140022760 (MiUpdateLargePageBitMap.c)
+ *     MiProtectionToCacheAttribute @ 0x1400E538C (MiProtectionToCacheAttribute.c)
+ *     MiPfnZeroingNeeded @ 0x140104F58 (MiPfnZeroingNeeded.c)
+ *     MiSetPfnOriginalPte @ 0x140171DDC (MiSetPfnOriginalPte.c)
+ *     MiSetOriginalPtePfnFromFreeList @ 0x1401F2DE4 (MiSetOriginalPtePfnFromFreeList.c)
+ *     MiZeroAndConvertLargePage @ 0x1401FC2F8 (MiZeroAndConvertLargePage.c)
+ *     MiGetLargePageDemoteAsNeeded @ 0x1401FD17C (MiGetLargePageDemoteAsNeeded.c)
  */
 
 __int64 __fastcall MiGetFastLargePage(__int64 a1, unsigned int a2, unsigned __int64 *a3, unsigned int a4, __int64 a5)

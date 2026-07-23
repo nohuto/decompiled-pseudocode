@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwpCoverageSamplerCleanup @ 0x1409F2F54
+ * XREFs of EtwpCoverageSamplerCleanup @ 0x1409F31E4
  * Callers:
- *     EtwpCoverageSamplerDelete @ 0x1409F30F0 (EtwpCoverageSamplerDelete.c)
+ *     EtwpCoverageSamplerDelete @ 0x1409F3380 (EtwpCoverageSamplerDelete.c)
  * Callees:
  *     MiRemoveFromSystemSpace @ 0x140213780 (MiRemoveFromSystemSpace.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     EtwpCovSampContextCleanup @ 0x1409F1044 (EtwpCovSampContextCleanup.c)
- *     EtwpCoverageSamplerFreeTable @ 0x1409F3108 (EtwpCoverageSamplerFreeTable.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     EtwpCovSampContextCleanup @ 0x1409F12D4 (EtwpCovSampContextCleanup.c)
+ *     EtwpCoverageSamplerFreeTable @ 0x1409F3398 (EtwpCoverageSamplerFreeTable.c)
  */
 
 void __fastcall EtwpCoverageSamplerCleanup(__int64 a1)

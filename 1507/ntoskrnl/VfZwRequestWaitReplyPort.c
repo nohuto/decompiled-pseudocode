@@ -7,7 +7,7 @@
  *     ViZwShouldCheck @ 0x14075882C (ViZwShouldCheck.c)
  */
 
-NTSTATUS __fastcall VfZwRequestWaitReplyPort(HANDLE PortHandle, struct _PORT_MESSAGE *a2, struct _PORT_MESSAGE *a3)
+NTSTATUS __fastcall VfZwRequestWaitReplyPort(HANDLE PortHandle, _PORT_MESSAGE *a2, _PORT_MESSAGE *a3)
 {
   _UNKNOWN *retaddr; // [rsp+28h] [rbp+0h]
 

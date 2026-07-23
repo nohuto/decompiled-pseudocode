@@ -1,10 +1,10 @@
 /*
- * XREFs of PopTracePowerButtonSuppressionActionUpdate @ 0x140B31FBC
+ * XREFs of PopTracePowerButtonSuppressionActionUpdate @ 0x140B34410
  * Callers:
- *     PopEvaluatePowerButtonSuppressionState @ 0x140B31ED4 (PopEvaluatePowerButtonSuppressionState.c)
+ *     PopEvaluatePowerButtonSuppressionState @ 0x140B34328 (PopEvaluatePowerButtonSuppressionState.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall PopTracePowerButtonSuppressionActionUpdate(char a1, int a2, int a3, int a4, int a5)
@@ -30,10 +30,10 @@ NTSTATUS __fastcall PopTracePowerButtonSuppressionActionUpdate(char a1, int a2, 
   __int64 *v23; // [rsp+C0h] [rbp+2Fh]
   __int64 v24; // [rsp+C8h] [rbp+37h]
 
-  if ( (unsigned int)dword_140E07598 > 5 && (qword_140E075A8 & 0x400000000000LL) != 0 )
+  if ( (unsigned int)dword_140E07560 > 5 && (qword_140E07570 & 0x400000000000LL) != 0 )
   {
     result = 0;
-    if ( (qword_140E075B0 & 0x400000000000LL) == qword_140E075B0 )
+    if ( (qword_140E07578 & 0x400000000000LL) == qword_140E07578 )
     {
       v6 = a1;
       v13 = &v6;
@@ -54,8 +54,8 @@ NTSTATUS __fastcall PopTracePowerButtonSuppressionActionUpdate(char a1, int a2, 
       v22 = 4LL;
       v11 = 0x1000000LL;
       return tlgWriteTransfer_EtwWriteTransfer(
-               (__int64)&dword_140E07598,
-               (unsigned __int8 *)word_14004A9C2,
+               (__int64)&dword_140E07560,
+               (unsigned __int8 *)&dword_14004AF24,
                0LL,
                0LL,
                8u,

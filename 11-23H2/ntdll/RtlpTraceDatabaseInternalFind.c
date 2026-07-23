@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlpTraceDatabaseInternalFind @ 0x180110DF0
+ * XREFs of RtlpTraceDatabaseInternalFind @ 0x180110DC0
  * Callers:
- *     RtlTraceDatabaseFind @ 0x180110AB0 (RtlTraceDatabaseFind.c)
- *     RtlpTraceDatabaseInternalAdd @ 0x180110C3C (RtlpTraceDatabaseInternalAdd.c)
+ *     RtlTraceDatabaseFind @ 0x180110A80 (RtlTraceDatabaseFind.c)
+ *     RtlpTraceDatabaseInternalAdd @ 0x180110C0C (RtlpTraceDatabaseInternalAdd.c)
  * Callees:
  *     _guard_xfg_dispatch_icall_nop @ 0x1800A4B90 (_guard_xfg_dispatch_icall_nop.c)
  */

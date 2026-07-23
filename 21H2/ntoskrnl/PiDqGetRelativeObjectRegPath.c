@@ -1,22 +1,22 @@
 /*
- * XREFs of PiDqGetRelativeObjectRegPath @ 0x1406A9B6C
+ * XREFs of PiDqGetRelativeObjectRegPath @ 0x140607AEC
  * Callers:
- *     PiDqOpenUserObjectRegKey @ 0x1406A98B8 (PiDqOpenUserObjectRegKey.c)
- *     PiDqDeleteUserObject @ 0x14072D748 (PiDqDeleteUserObject.c)
+ *     PiDqOpenUserObjectRegKey @ 0x140607838 (PiDqOpenUserObjectRegKey.c)
+ *     PiDqDeleteUserObject @ 0x14072DBF8 (PiDqDeleteUserObject.c)
  * Callees:
- *     _CmGetDeviceRegKeyPath @ 0x1406420EC (_CmGetDeviceRegKeyPath.c)
- *     _CmGetDeviceInterfaceRegKeyPath @ 0x140644CEC (_CmGetDeviceInterfaceRegKeyPath.c)
- *     _CmGetCommonClassRegKeyPath @ 0x140644FE0 (_CmGetCommonClassRegKeyPath.c)
- *     _CmGetDeviceContainerRegKeyPath @ 0x1406AA46C (_CmGetDeviceContainerRegKeyPath.c)
- *     _CmGetDevicePanelRegKeyPath @ 0x1409785E0 (_CmGetDevicePanelRegKeyPath.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     _CmGetDeviceContainerRegKeyPath @ 0x1406083EC (_CmGetDeviceContainerRegKeyPath.c)
+ *     _CmGetDeviceRegKeyPath @ 0x140636EFC (_CmGetDeviceRegKeyPath.c)
+ *     _CmGetDeviceInterfaceRegKeyPath @ 0x140639AFC (_CmGetDeviceInterfaceRegKeyPath.c)
+ *     _CmGetCommonClassRegKeyPath @ 0x140639DF0 (_CmGetCommonClassRegKeyPath.c)
+ *     _CmGetDevicePanelRegKeyPath @ 0x1409787C0 (_CmGetDevicePanelRegKeyPath.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall PiDqGetRelativeObjectRegPath(const wchar_t *a1, int a2, PVOID *a3)
+__int64 __fastcall PiDqGetRelativeObjectRegPath(int a1, int a2, PVOID *a3)
 {
   wchar_t *pszDest; // rax
-  __int64 v7; // rcx
+  int v7; // ecx
   int v8; // r9d
   int v9; // ebx
   int DeviceRegKeyPath; // eax
@@ -25,7 +25,7 @@ __int64 __fastcall PiDqGetRelativeObjectRegPath(const wchar_t *a1, int a2, PVOID
   int v14; // ebx
   int v15; // ebx
   int v16; // ebx
-  __int16 v17; // r8
+  int v17; // r8d
   int v18; // [rsp+20h] [rbp-28h]
   size_t cchDest; // [rsp+30h] [rbp-18h]
 
@@ -40,7 +40,7 @@ __int64 __fastcall PiDqGetRelativeObjectRegPath(const wchar_t *a1, int a2, PVOID
   if ( !v9 )
   {
     LODWORD(cchDest) = 1024;
-    DeviceRegKeyPath = CmGetDeviceRegKeyPath(*(__int64 *)&PiPnpRtlCtx, (__int64)a1, 16LL, 0, 0, pszDest, cchDest, 0LL);
+    DeviceRegKeyPath = CmGetDeviceRegKeyPath(PiPnpRtlCtx, a1, 16, 0, 0, pszDest, cchDest, 0LL);
     goto LABEL_4;
   }
   v13 = v9 - 1;
@@ -53,7 +53,7 @@ __int64 __fastcall PiDqGetRelativeObjectRegPath(const wchar_t *a1, int a2, PVOID
   if ( !v14 )
   {
     LODWORD(cchDest) = 1024;
-    DeviceRegKeyPath = CmGetDeviceInterfaceRegKeyPath(v7, a1, 48, 0, v18, pszDest, cchDest, 0LL);
+    DeviceRegKeyPath = CmGetDeviceInterfaceRegKeyPath(v7, a1, 48, 0, v18, (__int64)pszDest, cchDest, 0LL);
     goto LABEL_4;
   }
   v15 = v14 - 1;
@@ -62,7 +62,7 @@ __int64 __fastcall PiDqGetRelativeObjectRegPath(const wchar_t *a1, int a2, PVOID
     v17 = 64;
 LABEL_20:
     LODWORD(cchDest) = 1024;
-    DeviceRegKeyPath = CmGetCommonClassRegKeyPath(v7, (__int64)a1, v17, 0, v18, pszDest, cchDest, 0LL);
+    DeviceRegKeyPath = CmGetCommonClassRegKeyPath(v7, a1, v17, 0, v18, pszDest, cchDest, 0LL);
 LABEL_4:
     v11 = DeviceRegKeyPath;
     if ( DeviceRegKeyPath >= 0 )
@@ -73,13 +73,13 @@ LABEL_4:
   if ( !v16 )
   {
     LODWORD(cchDest) = 1024;
-    DeviceRegKeyPath = CmGetDeviceContainerRegKeyPath(v7, (int)a1, 80, v8, v18, pszDest, cchDest, 0LL);
+    DeviceRegKeyPath = CmGetDeviceContainerRegKeyPath(v7, a1, 80, v8, v18, pszDest, cchDest, 0LL);
     goto LABEL_4;
   }
   if ( v16 == 1 )
   {
     LODWORD(cchDest) = 1024;
-    DeviceRegKeyPath = CmGetDevicePanelRegKeyPath(v7, (int)a1, 96, v8, v18, pszDest, cchDest, 0LL);
+    DeviceRegKeyPath = CmGetDevicePanelRegKeyPath(v7, a1, 96, v8, v18, pszDest, cchDest, 0LL);
     goto LABEL_4;
   }
   v11 = -1073741811;

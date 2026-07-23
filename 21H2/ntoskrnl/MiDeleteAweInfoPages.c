@@ -1,30 +1,30 @@
 /*
- * XREFs of MiDeleteAweInfoPages @ 0x1408D5E8C
+ * XREFs of MiDeleteAweInfoPages @ 0x1408D5FEC
  * Callers:
- *     MiDeleteSectionAwe @ 0x14054BB08 (MiDeleteSectionAwe.c)
- *     MmCleanProcessAddressSpace @ 0x1406EB24C (MmCleanProcessAddressSpace.c)
+ *     MiDeleteSectionAwe @ 0x14054BD48 (MiDeleteSectionAwe.c)
+ *     MmCleanProcessAddressSpace @ 0x14070262C (MmCleanProcessAddressSpace.c)
  * Callees:
- *     RtlFindSetBitsEx @ 0x140228910 (RtlFindSetBitsEx.c)
- *     RtlClearBitsEx @ 0x1402FE300 (RtlClearBitsEx.c)
- *     MiFreeMdlPageRun @ 0x1402FFCF8 (MiFreeMdlPageRun.c)
- *     ExGetCallBackBlockRoutine @ 0x140382160 (ExGetCallBackBlockRoutine.c)
- *     MiGetAweInfoPartition @ 0x14054C394 (MiGetAweInfoPartition.c)
- *     MiLockAwePagesExclusive @ 0x14054CFB8 (MiLockAwePagesExclusive.c)
- *     MiUnlockAwePagesExclusive @ 0x14054DFA0 (MiUnlockAwePagesExclusive.c)
- *     RtlFindNextForwardRunClearEx @ 0x1405874F0 (RtlFindNextForwardRunClearEx.c)
+ *     RtlFindSetBitsEx @ 0x1402CD210 (RtlFindSetBitsEx.c)
+ *     RtlClearBitsEx @ 0x140309050 (RtlClearBitsEx.c)
+ *     MiFreeMdlPageRun @ 0x14030AA48 (MiFreeMdlPageRun.c)
+ *     ExGetCallBackBlockRoutine @ 0x140381CB0 (ExGetCallBackBlockRoutine.c)
+ *     MiGetAweInfoPartition @ 0x14054C5D4 (MiGetAweInfoPartition.c)
+ *     MiLockAwePagesExclusive @ 0x14054D1F8 (MiLockAwePagesExclusive.c)
+ *     MiUnlockAwePagesExclusive @ 0x14054E1E0 (MiUnlockAwePagesExclusive.c)
+ *     RtlFindNextForwardRunClearEx @ 0x140587720 (RtlFindNextForwardRunClearEx.c)
  */
 
 __int64 __fastcall MiDeleteAweInfoPages(__int64 a1)
 {
   struct _KTHREAD *CurrentThread; // rbp
   __int64 v2; // rdi
-  unsigned __int64 v3; // r13
+  ULONG64 v3; // r13
   __int64 v4; // r15
-  _DWORD *v5; // r14
+  _RTL_BITMAP_EX *v5; // r14
   __int64 v6; // rax
-  int v7; // ecx
-  unsigned __int64 *v8; // r12
-  unsigned __int64 SetBits; // rax
+  int SizeOfBitMap; // ecx
+  _RTL_BITMAP_EX *v8; // r12
+  ULONG64 SetBits; // rax
   unsigned __int64 v10; // rbx
   unsigned __int64 NextForwardRunClear; // rax
   unsigned __int64 v12; // rsi
@@ -47,14 +47,14 @@ __int64 __fastcall MiDeleteAweInfoPages(__int64 a1)
   v3 = 0LL;
   v4 = 0LL;
   v23 = CurrentThread;
-  v5 = (_DWORD *)a1;
+  v5 = (_RTL_BITMAP_EX *)a1;
   AweInfoPartition = MiGetAweInfoPartition(a1);
   MiLockAwePagesExclusive((__int64)v5, (__int64)CurrentThread);
   v6 = ExGetCallBackBlockRoutine((__int64)v5);
-  v7 = *v5;
-  v8 = (unsigned __int64 *)(v5 + 4);
+  SizeOfBitMap = v5->SizeOfBitMap;
+  v8 = v5 + 1;
   v26 = v6;
-  if ( (v7 & 1) == 0 || *(_QWORD *)&KeGetCurrentThread()->ApcState.Process[1].Spare2[39] )
+  if ( (SizeOfBitMap & 1) == 0 || *(_QWORD *)&KeGetCurrentThread()->ApcState.Process[1].Spare2[39] )
   {
     do
     {
@@ -66,7 +66,7 @@ __int64 __fastcall MiDeleteAweInfoPages(__int64 a1)
       v12 = v25;
       v13 = NextForwardRunClear;
       if ( !NextForwardRunClear )
-        v12 = *v8;
+        v12 = v8->SizeOfBitMap;
       v14 = v12 - v10;
       RtlClearBitsEx((__int64)v8, v10, v14);
       v15 = v26;
@@ -94,17 +94,17 @@ __int64 __fastcall MiDeleteAweInfoPages(__int64 a1)
           --v14;
         }
         while ( v14 );
-        v5 = (_DWORD *)a1;
-        v8 = (unsigned __int64 *)(a1 + 16);
+        v5 = (_RTL_BITMAP_EX *)a1;
+        v8 = (_RTL_BITMAP_EX *)(a1 + 16);
       }
       MiFreeMdlPageRun(v16, v17, 0);
     }
-    while ( v3 < *v8 );
+    while ( v3 < v8->SizeOfBitMap );
     if ( v4 )
     {
       _InterlockedExchangeAdd64((volatile signed __int64 *)(AweInfoPartition + 7608), -v4);
       if ( (ULONG_PTR *)AweInfoPartition == &MiSystemPartition )
-        _InterlockedExchangeAdd64(&qword_140C4EFB8, -v4);
+        _InterlockedExchangeAdd64(&qword_140C4EFF8, -v4);
     }
     CurrentThread = v23;
     v2 = v4;

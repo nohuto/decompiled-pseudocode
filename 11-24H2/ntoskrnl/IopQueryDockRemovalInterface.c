@@ -1,13 +1,13 @@
 /*
- * XREFs of IopQueryDockRemovalInterface @ 0x140733C7C
+ * XREFs of IopQueryDockRemovalInterface @ 0x140731BB0
  * Callers:
- *     PnpProcessQueryRemoveAndEject @ 0x140A0DB78 (PnpProcessQueryRemoveAndEject.c)
+ *     PnpProcessQueryRemoveAndEject @ 0x1409BBF7C (PnpProcessQueryRemoveAndEject.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     IopSynchronousCall @ 0x1408BBC08 (IopSynchronousCall.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     IopSynchronousCall @ 0x1408B9564 (IopSynchronousCall.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IopQueryDockRemovalInterface(int a1, _QWORD *a2)
@@ -23,7 +23,7 @@ __int64 __fastcall IopQueryDockRemovalInterface(int a1, _QWORD *a2)
   GUID v13; // [rsp+78h] [rbp-30h] BYREF
 
   v13 = GUID_DOCK_INTERFACE;
-  Pool2 = (_WORD *)ExAllocatePool2(0x100uLL);
+  Pool2 = (_WORD *)ExAllocatePool2(0x100uLL, 0x30uLL, 0x20207050u);
   v5 = Pool2;
   if ( !Pool2 )
     return 3221225626LL;

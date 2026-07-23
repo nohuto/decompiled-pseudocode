@@ -1,13 +1,13 @@
 /*
- * XREFs of SmProcessDeleteNotification @ 0x140929A94
+ * XREFs of SmProcessDeleteNotification @ 0x140929BF4
  * Callers:
- *     PspProcessDelete @ 0x1406136C0 (PspProcessDelete.c)
+ *     PspProcessDelete @ 0x14067D320 (PspProcessDelete.c)
  * Callees:
- *     CmSiFreeMemory @ 0x140201A30 (CmSiFreeMemory.c)
- *     ExReleaseRundownProtection_0 @ 0x14027C4F0 (ExReleaseRundownProtection_0.c)
- *     SmKmStoreDeleteWhenEmpty @ 0x1402CC1B8 (SmKmStoreDeleteWhenEmpty.c)
- *     SmpKeyedStoreEntryGet @ 0x1402D6348 (SmpKeyedStoreEntryGet.c)
- *     SmKmStoreRefFromStoreIndex @ 0x1402D95D8 (SmKmStoreRefFromStoreIndex.c)
+ *     CmSiFreeMemory @ 0x1402253C0 (CmSiFreeMemory.c)
+ *     SmKmStoreDeleteWhenEmpty @ 0x140246174 (SmKmStoreDeleteWhenEmpty.c)
+ *     ExReleaseRundownProtection @ 0x14026A490 (ExReleaseRundownProtection.c)
+ *     SmpKeyedStoreEntryGet @ 0x140287698 (SmpKeyedStoreEntryGet.c)
+ *     SmKmStoreRefFromStoreIndex @ 0x14028A928 (SmKmStoreRefFromStoreIndex.c)
  */
 
 void __fastcall SmProcessDeleteNotification(__int64 a1)
@@ -29,6 +29,6 @@ void __fastcall SmProcessDeleteNotification(__int64 a1)
     v4 = (__int64 *)SmKmStoreRefFromStoreIndex((__int64)&SmGlobals, v3);
     SmKmStoreDeleteWhenEmpty((__int64)&SmGlobals, *v4, 1LL);
     v5 = (struct _EX_RUNDOWN_REF *)SmKmStoreRefFromStoreIndex((__int64)&SmGlobals, v3);
-    ExReleaseRundownProtection_0(v5 + 1);
+    ExReleaseRundownProtection(v5 + 1);
   }
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of PspCloseActivityReference @ 0x1406D6D70
+ * XREFs of PspCloseActivityReference @ 0x1406D8010
  * Callers:
  *     <none>
  * Callees:
- *     PsReleaseProcessWakeCounter @ 0x14061C390 (PsReleaseProcessWakeCounter.c)
+ *     PsReleaseProcessWakeCounter @ 0x14061D390 (PsReleaseProcessWakeCounter.c)
  */
 
 __int64 __fastcall PspCloseActivityReference(__int64 a1, __int64 *a2, __int64 a3, __int64 a4)

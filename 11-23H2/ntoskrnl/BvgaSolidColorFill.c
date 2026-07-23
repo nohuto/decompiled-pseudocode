@@ -1,11 +1,11 @@
 /*
- * XREFs of BvgaSolidColorFill @ 0x14054F570
+ * XREFs of BvgaSolidColorFill @ 0x14054FC30
  * Callers:
  *     <none>
  * Callees:
- *     HeadlessDispatch @ 0x140377250 (HeadlessDispatch.c)
- *     BvgaAcquireLock @ 0x14054F130 (BvgaAcquireLock.c)
- *     BvgaReleaseLock @ 0x14054F430 (BvgaReleaseLock.c)
+ *     HeadlessDispatch @ 0x1403773F0 (HeadlessDispatch.c)
+ *     BvgaAcquireLock @ 0x14054F7F0 (BvgaAcquireLock.c)
+ *     BvgaReleaseLock @ 0x14054FAF0 (BvgaReleaseLock.c)
  */
 
 char __fastcall BvgaSolidColorFill(unsigned int a1, unsigned int a2, unsigned int a3, unsigned int a4, int a5)

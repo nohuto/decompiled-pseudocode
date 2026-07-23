@@ -1,17 +1,17 @@
 /*
- * XREFs of IoRegisterDeviceInterface @ 0x140AFA280
+ * XREFs of IoRegisterDeviceInterface @ 0x1409AB500
  * Callers:
- *     DifIoRegisterDeviceInterfaceWrapper @ 0x14065DC10 (DifIoRegisterDeviceInterfaceWrapper.c)
- *     PiSwCompleteCreate @ 0x14090F730 (PiSwCompleteCreate.c)
+ *     DifIoRegisterDeviceInterfaceWrapper @ 0x1406617F0 (DifIoRegisterDeviceInterfaceWrapper.c)
+ *     PiSwCompleteCreate @ 0x1409B1860 (PiSwCompleteCreate.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x14045D040 (RtlInitUnicodeStringEx.c)
- *     wcspbrk @ 0x140538B34 (wcspbrk.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     IopRegisterDeviceInterface @ 0x1409D8950 (IopRegisterDeviceInterface.c)
- *     PnpUnicodeStringToWstrFree @ 0x1409DB5D0 (PnpUnicodeStringToWstrFree.c)
- *     ObQueryNameStringMode @ 0x1409FDA40 (ObQueryNameStringMode.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeStringEx @ 0x140456BE0 (RtlInitUnicodeStringEx.c)
+ *     wcspbrk @ 0x14053AFB4 (wcspbrk.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     ObQueryNameStringMode @ 0x140922640 (ObQueryNameStringMode.c)
+ *     IopRegisterDeviceInterface @ 0x1409A9840 (IopRegisterDeviceInterface.c)
+ *     PnpUnicodeStringToWstrFree @ 0x140A18820 (PnpUnicodeStringToWstrFree.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __stdcall IoRegisterDeviceInterface(
@@ -53,7 +53,7 @@ LABEL_9:
   }
   if ( !*((_QWORD *)DeviceNode + 6) )
     goto LABEL_23;
-  ObQueryNameStringMode((char *)PhysicalDeviceObject, 0LL, 0, &v23, 0);
+  ObQueryNameStringMode((__int64)PhysicalDeviceObject, 0LL, 0, &v23, 0);
   if ( v23 <= 0x10 )
     goto LABEL_23;
   if ( ReferenceString )
@@ -103,7 +103,7 @@ LABEL_23:
   }
   v11 = (const wchar_t *)*((_QWORD *)DeviceNode + 6);
   v21 = 0;
-  v12 = IopRegisterDeviceInterface(v11, (int *)InterfaceClassGuid, v9, 0, (PVOID *)&SourceString, &v21);
+  v12 = IopRegisterDeviceInterface(v11, (__int64)InterfaceClassGuid, v9, 0, (PVOID *)&SourceString, &v21);
   v8 = (WCHAR *)SourceString;
   inited = v12;
   if ( v12 < 0 )
@@ -114,6 +114,6 @@ LABEL_23:
   if ( inited < 0 )
     goto LABEL_9;
 LABEL_11:
-  PnpUnicodeStringToWstrFree(v9, (__int64)ReferenceString);
+  PnpUnicodeStringToWstrFree(v9, ReferenceString);
   return inited;
 }

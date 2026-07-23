@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpTimerClockActivate @ 0x1403A2470
+ * XREFs of HalpTimerClockActivate @ 0x1403A25C0
  * Callers:
  *     <none>
  * Callees:
- *     HalpTimerGetInternalData @ 0x14022AA30 (HalpTimerGetInternalData.c)
- *     HalpTimerPrepareClockInterrupt @ 0x1403A24EC (HalpTimerPrepareClockInterrupt.c)
- *     HalpInterruptSetIdtEntry @ 0x1403A26AC (HalpInterruptSetIdtEntry.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     HalpTimerGetInternalData @ 0x1402CF2E0 (HalpTimerGetInternalData.c)
+ *     HalpTimerPrepareClockInterrupt @ 0x1403A263C (HalpTimerPrepareClockInterrupt.c)
+ *     HalpInterruptSetIdtEntry @ 0x1403A27FC (HalpInterruptSetIdtEntry.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall HalpTimerClockActivate(char a1)

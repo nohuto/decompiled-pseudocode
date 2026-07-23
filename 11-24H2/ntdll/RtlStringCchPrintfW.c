@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlStringCchPrintfW @ 0x1800B56AC
+ * XREFs of RtlStringCchPrintfW @ 0x180081F4C
  * Callers:
- *     RtlpGetTokenNamedObjectPath @ 0x1800B3330 (RtlpGetTokenNamedObjectPath.c)
- *     RtlpEtcGetDwordFromPersistedState @ 0x180146DE8 (RtlpEtcGetDwordFromPersistedState.c)
- *     RtlpEtcIsValidFeatureId @ 0x180146F50 (RtlpEtcIsValidFeatureId.c)
+ *     RtlpGetTokenNamedObjectPath @ 0x18007FBD0 (RtlpGetTokenNamedObjectPath.c)
+ *     RtlpEtcGetDwordFromPersistedState @ 0x180145198 (RtlpEtcGetDwordFromPersistedState.c)
+ *     RtlpEtcIsValidFeatureId @ 0x180145300 (RtlpEtcIsValidFeatureId.c)
  * Callees:
- *     _vsnwprintf @ 0x180122B60 (_vsnwprintf.c)
+ *     _vsnwprintf @ 0x180120D90 (_vsnwprintf.c)
  */
 
 __int64 RtlStringCchPrintfW(wchar_t *a1, __int64 a2, const wchar_t *a3, ...)

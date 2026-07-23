@@ -107,7 +107,7 @@ __int64 __fastcall ExAllocateHeapPool(__int64 a1, unsigned __int64 a2, __int64 a
   unsigned int v70; // ecx
   unsigned int v71; // r8d
   int v72; // eax
-  struct _SLIST_ENTRY *v73; // rdx
+  _SLIST_ENTRY *v73; // rdx
   ULONG v74; // eax
   __int64 v75; // rcx
   unsigned __int64 v76; // rax
@@ -180,7 +180,7 @@ __int64 __fastcall ExAllocateHeapPool(__int64 a1, unsigned __int64 a2, __int64 a
   __int64 v143; // [rsp+A0h] [rbp-60h] BYREF
   ULONG_PTR v144; // [rsp+A8h] [rbp-58h]
   __int64 v145; // [rsp+B0h] [rbp-50h]
-  struct _SLIST_ENTRY **v146; // [rsp+B8h] [rbp-48h] BYREF
+  _SLIST_ENTRY **v146; // [rsp+B8h] [rbp-48h] BYREF
   PSLIST_ENTRY ListEnd; // [rsp+C0h] [rbp-40h] BYREF
   __int64 v148; // [rsp+C8h] [rbp-38h]
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+D0h] [rbp-30h] BYREF
@@ -593,7 +593,7 @@ LABEL_109:
         {
           v69 = (__int64)v146;
           v73 = *v146;
-          v146 = (struct _SLIST_ENTRY **)*v146;
+          v146 = (_SLIST_ENTRY **)*v146;
           v74 = v72 - 1;
           if ( v74 )
             InterlockedPushListSList((PSLIST_HEADER)v68, v73, ListEnd, v74);

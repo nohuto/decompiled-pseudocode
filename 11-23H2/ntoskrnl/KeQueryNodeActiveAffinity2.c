@@ -1,12 +1,12 @@
 /*
- * XREFs of KeQueryNodeActiveAffinity2 @ 0x14036BB80
+ * XREFs of KeQueryNodeActiveAffinity2 @ 0x14036BD20
  * Callers:
- *     MiComputeIdealDpcGang @ 0x14038B91C (MiComputeIdealDpcGang.c)
- *     PpmParkRegisterParking @ 0x1403918C0 (PpmParkRegisterParking.c)
- *     MiCombineAllPhysicalMemory @ 0x1406F9D10 (MiCombineAllPhysicalMemory.c)
+ *     MiComputeIdealDpcGang @ 0x14038BAFC (MiComputeIdealDpcGang.c)
+ *     PpmParkRegisterParking @ 0x140391AA0 (PpmParkRegisterParking.c)
+ *     MiCombineAllPhysicalMemory @ 0x1406F9F20 (MiCombineAllPhysicalMemory.c)
  *     MiComputeMemoryNodeProcessorAssignments @ 0x140B5EFB4 (MiComputeMemoryNodeProcessorAssignments.c)
  * Callees:
- *     KiQuerySubNodeActiveAffinity @ 0x140307E7C (KiQuerySubNodeActiveAffinity.c)
+ *     KiQuerySubNodeActiveAffinity @ 0x14030810C (KiQuerySubNodeActiveAffinity.c)
  */
 
 __int64 __fastcall KeQueryNodeActiveAffinity2(unsigned __int16 a1, __int64 a2, unsigned __int16 a3, _WORD *a4)

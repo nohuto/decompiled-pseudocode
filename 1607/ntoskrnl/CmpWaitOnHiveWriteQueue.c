@@ -1,19 +1,19 @@
 /*
- * XREFs of CmpWaitOnHiveWriteQueue @ 0x1406030E0
+ * XREFs of CmpWaitOnHiveWriteQueue @ 0x140603194
  * Callers:
- *     CmpFlushHive @ 0x1403FA0CC (CmpFlushHive.c)
- *     CmpBecomeActiveFlusherAndReconciler @ 0x14054E014 (CmpBecomeActiveFlusherAndReconciler.c)
- *     NtCompressKey @ 0x1405F964C (NtCompressKey.c)
- *     CmpRefreshHive @ 0x14060D810 (CmpRefreshHive.c)
+ *     CmpFlushHive @ 0x1403F8F8C (CmpFlushHive.c)
+ *     CmpBecomeActiveFlusherAndReconciler @ 0x14054E3B4 (CmpBecomeActiveFlusherAndReconciler.c)
+ *     NtCompressKey @ 0x1405F9700 (NtCompressKey.c)
+ *     CmpRefreshHive @ 0x14060D8C4 (CmpRefreshHive.c)
  * Callees:
- *     EtwWrite @ 0x140013320 (EtwWrite.c)
- *     KeInitializeEvent @ 0x14002DEA0 (KeInitializeEvent.c)
- *     KeWaitForSingleObject @ 0x14005C880 (KeWaitForSingleObject.c)
- *     ExReleaseResourceLite @ 0x140068940 (ExReleaseResourceLite.c)
- *     EtwEventEnabled @ 0x1400D54D0 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     CmpUnlockRegistry @ 0x14040476C (CmpUnlockRegistry.c)
- *     CmpBoostActiveHiveWriter @ 0x14047D444 (CmpBoostActiveHiveWriter.c)
+ *     EtwWrite @ 0x140012EA0 (EtwWrite.c)
+ *     KeInitializeEvent @ 0x14002DA20 (KeInitializeEvent.c)
+ *     KeWaitForSingleObject @ 0x14005C400 (KeWaitForSingleObject.c)
+ *     ExReleaseResourceLite @ 0x1400684C0 (ExReleaseResourceLite.c)
+ *     EtwEventEnabled @ 0x1400D3370 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     CmpUnlockRegistry @ 0x14040362C (CmpUnlockRegistry.c)
+ *     CmpBoostActiveHiveWriter @ 0x14047C198 (CmpBoostActiveHiveWriter.c)
  */
 
 __int64 __fastcall CmpWaitOnHiveWriteQueue(__int64 a1, __int64 a2, char a3)

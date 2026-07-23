@@ -1,23 +1,23 @@
 /*
- * XREFs of MiRemoveWsleList @ 0x1402EA570
+ * XREFs of MiRemoveWsleList @ 0x1402CC5B0
  * Callers:
- *     MmUnmapViewInSystemCache @ 0x14031E380 (MmUnmapViewInSystemCache.c)
- *     MiFreeWsleList @ 0x140328E50 (MiFreeWsleList.c)
- *     MiDecommitPages @ 0x140360150 (MiDecommitPages.c)
- *     MiDeleteVaTail @ 0x140361270 (MiDeleteVaTail.c)
- *     MiDecommitPagesTail @ 0x14044B7AC (MiDecommitPagesTail.c)
+ *     MmUnmapViewInSystemCache @ 0x1403203B0 (MmUnmapViewInSystemCache.c)
+ *     MiFreeWsleList @ 0x14032AE80 (MiFreeWsleList.c)
+ *     MiDecommitPages @ 0x140361EF0 (MiDecommitPages.c)
+ *     MiDeleteVaTail @ 0x140363010 (MiDeleteVaTail.c)
+ *     MiDecommitPagesTail @ 0x1404438DC (MiDecommitPagesTail.c)
  * Callees:
- *     MiGetSystemRegionType @ 0x140264F40 (MiGetSystemRegionType.c)
- *     ExpWaitForSpinLockSharedAndAcquire @ 0x14029BC90 (ExpWaitForSpinLockSharedAndAcquire.c)
- *     MiRebuildPageTableAges @ 0x14029E1F0 (MiRebuildPageTableAges.c)
- *     MiInsertActivePageTableLinksTail @ 0x1402EC620 (MiInsertActivePageTableLinksTail.c)
- *     MiRemoveActivePageTableLinks @ 0x1402EC880 (MiRemoveActivePageTableLinks.c)
- *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x1402EE000 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
- *     MiPteHasShadow @ 0x1403011E0 (MiPteHasShadow.c)
- *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14036A848 (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
- *     MiIsDriverPage @ 0x1404BD140 (MiIsDriverPage.c)
- *     MiLogRemoveWsleEvent @ 0x140507AB4 (MiLogRemoveWsleEvent.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     MiGetSystemRegionType @ 0x1402644B0 (MiGetSystemRegionType.c)
+ *     ExpWaitForSpinLockSharedAndAcquire @ 0x14029B1F0 (ExpWaitForSpinLockSharedAndAcquire.c)
+ *     MiRebuildPageTableAges @ 0x14029D740 (MiRebuildPageTableAges.c)
+ *     MiInsertActivePageTableLinksTail @ 0x1402CE660 (MiInsertActivePageTableLinksTail.c)
+ *     MiRemoveActivePageTableLinks @ 0x1402CE8C0 (MiRemoveActivePageTableLinks.c)
+ *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x1402D0080 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
+ *     MiPteHasShadow @ 0x1402E3260 (MiPteHasShadow.c)
+ *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14036C5E8 (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
+ *     MiIsDriverPage @ 0x1404B6920 (MiIsDriverPage.c)
+ *     MiLogRemoveWsleEvent @ 0x140501484 (MiLogRemoveWsleEvent.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 char __fastcall MiRemoveWsleList(__int64 a1, __int64 a2)
@@ -86,7 +86,7 @@ char __fastcall MiRemoveWsleList(__int64 a1, __int64 a2)
   v5 = *(_QWORD *)(a2 + 16480);
   v6 = 0LL;
   if ( (v4 & 0xF) == 1 )
-    v6 = &dword_140E37880;
+    v6 = &dword_140E37A00;
   v59 = v2;
   v60 = v6;
   LOBYTE(IsDriverPage) = 0;
@@ -125,9 +125,10 @@ char __fastcall MiRemoveWsleList(__int64 a1, __int64 a2)
         LOBYTE(IsDriverPage) = v4 & 0xF;
         if ( (v4 & 0xF) == 3 )
         {
-          LOBYTE(IsDriverPage) = PsNtosImageBase;
+          LOBYTE(IsDriverPage) = (_BYTE)PsNtosImageBase;
           if ( PsNtosImageBase
-            && (v17 < PsNtosImageEnd && v17 >= PsNtosImageBase || v17 >= PsHalImageBase && v17 < PsHalImageEnd) )
+            && (v17 < PsNtosImageEnd && v17 >= (unsigned __int64)PsNtosImageBase
+             || v17 >= (unsigned __int64)PsHalImageBase && v17 < PsHalImageEnd) )
           {
             v52 = ++v12;
           }
@@ -160,10 +161,10 @@ char __fastcall MiRemoveWsleList(__int64 a1, __int64 a2)
     {
       v18 = a1;
       if ( (*(_DWORD *)(a1 + 184) & 0xF) == 1 )
-        v19 = &unk_140E37840;
+        v19 = &unk_140E379C0;
       else
         v19 = (_DWORD *)(a1 + 256);
-      if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+      if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
       {
         _m_prefetchw(v19);
         v20 = *v19 & 0x7FFFFFFF;
@@ -194,9 +195,9 @@ LABEL_19:
           _InterlockedAdd64((volatile signed __int64 *)(v18 + 144), -v55);
       }
       if ( v52 )
-        _InterlockedAdd((volatile signed __int32 *)&stru_140E2D150.SchedulerApcFill5[72], -v52);
+        _InterlockedAdd((volatile signed __int32 *)&stru_140E2D2D0.SchedulerApcFill5[72], -v52);
       if ( v16 )
-        _InterlockedAdd((volatile signed __int32 *)&stru_140E2D150.SchedulerApcFill5[76], -v16);
+        _InterlockedAdd((volatile signed __int32 *)&stru_140E2D2D0.SchedulerApcFill5[76], -v16);
       _InterlockedAdd64((volatile signed __int64 *)(v18 + 152), -v9);
       v23 = a2;
       v24 = 0LL;
@@ -247,11 +248,11 @@ LABEL_41:
               }
               LOBYTE(IsDriverPage) = *(_DWORD *)(v18 + 184) & 0xF;
               if ( (_BYTE)IsDriverPage == 1 )
-                v37 = (volatile signed __int32 *)&unk_140E37840;
+                v37 = (volatile signed __int32 *)&unk_140E379C0;
               else
                 v37 = (volatile signed __int32 *)(v18 + 256);
               if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0
-                || (LOBYTE(IsDriverPage) = stru_140F11D08.WaitStatus, LODWORD(stru_140F11D08.WaitStatus)) )
+                || (LOBYTE(IsDriverPage) = PopHibernateInProgress, PopHibernateInProgress) )
               {
                 _InterlockedAnd(v37, 0xBFFFFFFF);
                 _InterlockedDecrement(v37);

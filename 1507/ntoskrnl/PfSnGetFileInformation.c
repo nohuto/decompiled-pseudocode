@@ -24,8 +24,8 @@
 
 __int64 __fastcall PfSnGetFileInformation(__int64 a1, _QWORD *a2)
 {
-  unsigned __int64 v2; // rbx
-  _QWORD *v3; // rax
+  _RTL_BALANCED_NODE *v2; // rbx
+  _RTL_BALANCED_NODE **v3; // rax
   BOOLEAN v4; // r14
   int v5; // r15d
   _DWORD *v8; // r12
@@ -35,21 +35,21 @@ __int64 __fastcall PfSnGetFileInformation(__int64 a1, _QWORD *a2)
   unsigned __int64 v12; // rax
   char *PoolWithTag; // rax
   char *v15; // r13
-  __int64 v16; // r8
-  unsigned __int8 v17; // bp
-  unsigned int v18; // esi
-  signed __int32 v19; // edx
-  _QWORD *v20; // rax
-  unsigned __int64 v21; // rcx
-  unsigned __int64 v22; // rtt
-  _QWORD *v23; // rdx
-  _QWORD *v24; // rax
+  unsigned __int8 v16; // bp
+  unsigned int v17; // esi
+  signed __int32 v18; // edx
+  _QWORD *v19; // rax
+  unsigned __int64 v20; // rcx
+  unsigned __int64 v21; // rtt
+  BOOLEAN v22; // r8
+  _RTL_BALANCED_NODE *v23; // rdx
+  _RTL_BALANCED_NODE *v24; // rax
   unsigned int v25; // ebx
   unsigned __int64 v26; // rtt
   void *retaddr; // [rsp+48h] [rbp+0h]
 
-  v2 = a2[3];
-  v3 = (_QWORD *)(a1 + 488);
+  v2 = (_RTL_BALANCED_NODE *)a2[3];
+  v3 = (_RTL_BALANCED_NODE **)(a1 + 488);
   v4 = 0;
   v5 = 0;
   if ( a1 + 488 < (unsigned __int64)(a1 + 520) )
@@ -80,13 +80,13 @@ __int64 __fastcall PfSnGetFileInformation(__int64 a1, _QWORD *a2)
   while ( v11 )
   {
     v12 = v11[3];
-    if ( v12 > v2 )
+    if ( v12 > (unsigned __int64)v2 )
     {
       v11 = (_QWORD *)*v11;
     }
     else
     {
-      if ( v12 >= v2 )
+      if ( v12 >= (unsigned __int64)v2 )
         break;
       v11 = (_QWORD *)v11[1];
     }
@@ -118,7 +118,7 @@ __int64 __fastcall PfSnGetFileInformation(__int64 a1, _QWORD *a2)
   ObfReferenceObjectWithTag(a2, 0x746C6644u);
   *((_QWORD *)v15 + 5) = a2;
   *((_QWORD *)v15 + 3) = v2;
-  v17 = KeGetCurrentIrql();
+  v16 = KeGetCurrentIrql();
   __writecr8(2uLL);
   if ( (BYTE6(PerfGlobalGroupMask) & 0x21) != 0 )
   {
@@ -126,33 +126,33 @@ __int64 __fastcall PfSnGetFileInformation(__int64 a1, _QWORD *a2)
   }
   else
   {
-    v18 = 0;
+    v17 = 0;
     if ( _interlockedbittestandset(v8, 0x1Fu) )
-      v18 = ExpWaitForSpinLockExclusiveAndAcquire(v8);
+      v17 = ExpWaitForSpinLockExclusiveAndAcquire(v8);
     while ( 1 )
     {
-      v19 = *v8;
+      v18 = *v8;
       if ( (*v8 & 0xBFFFFFFF) == 0x80000000 )
         break;
-      if ( (v19 & 0x40000000) == 0 )
-        _InterlockedCompareExchange(v8, v19 | 0x40000000, v19);
-      if ( (++v18 & HvlLongSpinCountMask) != 0 || (HvlEnlightenments & 0x40) == 0 )
+      if ( (v18 & 0x40000000) == 0 )
+        _InterlockedCompareExchange(v8, v18 | 0x40000000, v18);
+      if ( (++v17 & HvlLongSpinCountMask) != 0 || (HvlEnlightenments & 0x40) == 0 )
         _mm_pause();
       else
-        HvlNotifyLongSpinWait(v18);
+        HvlNotifyLongSpinWait(v17);
     }
   }
-  v20 = *(_QWORD **)(a1 + 520);
-  while ( v20 )
+  v19 = *(_QWORD **)(a1 + 520);
+  while ( v19 )
   {
-    v21 = v20[3];
-    if ( v21 > v2 )
+    v20 = v19[3];
+    if ( v20 > (unsigned __int64)v2 )
     {
-      v20 = (_QWORD *)*v20;
+      v19 = (_QWORD *)*v19;
     }
     else
     {
-      if ( v21 >= v2 )
+      if ( v20 >= (unsigned __int64)v2 )
       {
         v25 = 0;
 LABEL_48:
@@ -160,19 +160,19 @@ LABEL_48:
           ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(v8, retaddr);
         else
           *v8 = 0;
-        __writecr8(v17);
+        __writecr8(v16);
         ObfDereferenceObjectWithTag(*((PVOID *)v15 + 5), 0x746C6644u);
         ExFreePoolWithTag(v15, 0);
         return v25;
       }
-      v20 = (_QWORD *)v20[1];
+      v19 = (_QWORD *)v19[1];
     }
   }
   if ( !*(_QWORD *)(a1 + 568) )
   {
     _m_prefetchw((const void *)(a1 + 360));
-    v22 = *(_QWORD *)(a1 + 360) & 0xFFFFFFFFFFFFFFFEuLL;
-    if ( v22 == _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 360), v22 + 2, v22) )
+    v21 = *(_QWORD *)(a1 + 360) & 0xFFFFFFFFFFFFFFFEuLL;
+    if ( v21 == _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 360), v21 + 2, v21) )
     {
       v4 = 1;
     }
@@ -191,33 +191,33 @@ LABEL_48:
     *(_QWORD *)(a1 + 544) = 0LL;
   }
   *((_QWORD *)v15 + 4) = *(_QWORD *)(a1 + 536);
-  LOBYTE(v16) = 0;
+  v22 = 0;
   *(_QWORD *)(a1 + 536) = v15 + 32;
-  v23 = *(_QWORD **)(a1 + 520);
+  v23 = *(_RTL_BALANCED_NODE **)(a1 + 520);
   if ( !v23 )
     goto LABEL_41;
-  while ( v23[3] > v2 )
+  while ( v23[1].Children[0] > v2 )
   {
-    v24 = (_QWORD *)*v23;
-    if ( !*v23 )
+    v24 = v23->Children[0];
+    if ( !v23->Children[0] )
     {
-      LOBYTE(v16) = 0;
+      v22 = 0;
       goto LABEL_41;
     }
 LABEL_36:
     v23 = v24;
   }
-  v24 = (_QWORD *)v23[1];
+  v24 = v23->Children[1];
   if ( v24 )
     goto LABEL_36;
-  LOBYTE(v16) = 1;
+  v22 = 1;
 LABEL_41:
-  RtlRbInsertNodeEx(a1 + 520, v23, v16, v15);
+  RtlRbInsertNodeEx((PRTL_RB_TREE)(a1 + 520), v23, v22, (PRTL_BALANCED_NODE)v15);
   if ( (BYTE6(PerfGlobalGroupMask) & 1) != 0 )
     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(v8, retaddr);
   else
     *v8 = 0;
-  __writecr8(v17);
+  __writecr8(v16);
   if ( v5 )
   {
     v4 = 0;

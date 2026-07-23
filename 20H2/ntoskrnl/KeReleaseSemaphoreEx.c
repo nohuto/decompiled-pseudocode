@@ -100,7 +100,7 @@ __int64 __fastcall KeReleaseSemaphoreEx(__int64 a1, unsigned int a2, int a3, __i
       }
     }
     __writecr8(CurrentIrql);
-    RtlRaiseStatus(3221225543LL);
+    RtlRaiseStatus(-1073741753);
   }
   v12 = 0;
   *(_DWORD *)(a1 + 4) = v11;

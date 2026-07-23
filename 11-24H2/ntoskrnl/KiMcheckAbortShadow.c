@@ -1,5 +1,5 @@
 /*
- * XREFs of KiMcheckAbortShadow @ 0x140BBB9C0
+ * XREFs of KiMcheckAbortShadow @ 0x140BBD9C0
  * Callers:
  *     <none>
  * Callees:

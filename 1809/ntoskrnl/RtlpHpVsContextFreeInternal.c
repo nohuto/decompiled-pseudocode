@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlpHpVsContextFreeInternal @ 0x1401B6A1C
+ * XREFs of RtlpHpVsContextFreeInternal @ 0x1401B6B84
  * Callers:
- *     RtlpHpVsContextFreeList @ 0x1401B6BB0 (RtlpHpVsContextFreeList.c)
+ *     RtlpHpVsContextFreeList @ 0x1401B6D18 (RtlpHpVsContextFreeList.c)
  * Callees:
- *     RtlpHpVsChunkFree @ 0x1400BD390 (RtlpHpVsChunkFree.c)
- *     RtlpHpVsSubsegmentFree @ 0x140154900 (RtlpHpVsSubsegmentFree.c)
- *     RtlpHpAcquireQueuedLockExclusive @ 0x1401B6304 (RtlpHpAcquireQueuedLockExclusive.c)
- *     RtlpHpReleaseQueuedLockExclusive @ 0x1401B636C (RtlpHpReleaseQueuedLockExclusive.c)
- *     RtlpLogHeapFailure @ 0x1402FB838 (RtlpLogHeapFailure.c)
+ *     RtlpHpVsChunkFree @ 0x1400BD2D0 (RtlpHpVsChunkFree.c)
+ *     RtlpHpVsSubsegmentFree @ 0x140154A00 (RtlpHpVsSubsegmentFree.c)
+ *     RtlpHpAcquireQueuedLockExclusive @ 0x1401B646C (RtlpHpAcquireQueuedLockExclusive.c)
+ *     RtlpHpReleaseQueuedLockExclusive @ 0x1401B64D4 (RtlpHpReleaseQueuedLockExclusive.c)
+ *     RtlpLogHeapFailure @ 0x1402FBA28 (RtlpLogHeapFailure.c)
  */
 
 __int64 __fastcall RtlpHpVsContextFreeInternal(

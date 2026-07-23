@@ -17,21 +17,18 @@ __int64 __fastcall PopPowerAggregatorSystemTransitionEnterStateHandler(__int64 a
 {
   __int64 MonitorReasonFromPowerEventId; // rax
   unsigned int v3; // ebx
-  __int64 v4; // rdx
-  __int64 v5; // rcx
-  __int64 v6; // r8
-  _OWORD v8[2]; // [rsp+20h] [rbp-28h] BYREF
+  _OWORD v5[2]; // [rsp+20h] [rbp-28h] BYREF
 
   if ( *(_DWORD *)(a1 + 56) != 5 )
   {
     MonitorReasonFromPowerEventId = PopGetMonitorReasonFromPowerEventId(*(_DWORD *)(a1 + 60));
-    memset(v8, 0, sizeof(v8));
+    memset(v5, 0, sizeof(v5));
     v3 = MonitorReasonFromPowerEventId & 0xFFFFFF;
-    LODWORD(v8[0]) = 5;
-    PopPowerAggregatorSetCurrentState(a1, v8);
+    LODWORD(v5[0]) = 5;
+    PopPowerAggregatorSetCurrentState(a1, v5);
     PopReleaseRwLock(&PopPowerAggregatorLock);
     PopSuspendResumePdc(1LL);
-    PopPowerRequestRevokeRequestsForSleep(v5, v4, v6);
+    PopPowerRequestRevokeRequestsForSleep();
     KeSetEvent((PRKEVENT)(a1 + 264), 0, 0);
     PopSleepstudyStartNextSession(3LL, v3);
     PopAcquireRwLockExclusive((unsigned __int64 *)&PopPowerAggregatorLock);

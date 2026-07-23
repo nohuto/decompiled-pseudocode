@@ -1,15 +1,15 @@
 /*
- * XREFs of NtAddDriverEntry @ 0x1409FE870
+ * XREFs of NtAddDriverEntry @ 0x1409FEB00
  * Callers:
  *     <none>
  * Callees:
- *     ExpSetDriverEntry @ 0x1409FD900 (ExpSetDriverEntry.c)
+ *     ExpSetDriverEntry @ 0x1409FDB90 (ExpSetDriverEntry.c)
  */
 
-__int64 __fastcall NtAddDriverEntry(const void *a1, unsigned __int64 a2)
+NTSTATUS __cdecl NtAddDriverEntry(PEFI_DRIVER_ENTRY DriverEntry, PULONG Id)
 {
-  if ( dword_140C31B10 == 2 )
-    return ExpSetDriverEntry(1, a1, a2);
+  if ( dword_140C31AB0 == 2 )
+    return ExpSetDriverEntry(1, DriverEntry, (unsigned __int64)Id);
   else
-    return 3221225474LL;
+    return -1073741822;
 }

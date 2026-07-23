@@ -1,14 +1,14 @@
 /*
- * XREFs of CmpFreeSecurityDescriptor @ 0x14066C518
+ * XREFs of CmpFreeSecurityDescriptor @ 0x140661338
  * Callers:
- *     CmpCreateChild @ 0x140667AD4 (CmpCreateChild.c)
- *     CmpFreeKeyByCell @ 0x14066B280 (CmpFreeKeyByCell.c)
- *     CmpCopySaclToVirtualKey @ 0x1408717C4 (CmpCopySaclToVirtualKey.c)
- *     CmpSyncKeyValues @ 0x140879E2C (CmpSyncKeyValues.c)
+ *     CmpCreateChild @ 0x14065C8F4 (CmpCreateChild.c)
+ *     CmpFreeKeyByCell @ 0x1406600A0 (CmpFreeKeyByCell.c)
+ *     CmpCopySaclToVirtualKey @ 0x140871924 (CmpCopySaclToVirtualKey.c)
+ *     CmpSyncKeyValues @ 0x140879F8C (CmpSyncKeyValues.c)
  * Callees:
- *     CmpRemoveSecurityCellList @ 0x1402CD674 (CmpRemoveSecurityCellList.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     HvFreeCell @ 0x140709534 (HvFreeCell.c)
+ *     CmpRemoveSecurityCellList @ 0x14024BB74 (CmpRemoveSecurityCellList.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     HvFreeCell @ 0x140720914 (HvFreeCell.c)
  */
 
 __int64 __fastcall CmpFreeSecurityDescriptor(ULONG_PTR BugCheckParameter2, __int64 a2)

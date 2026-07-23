@@ -16,142 +16,140 @@
  *     memmove @ 0x1800A6940 (memmove.c)
  */
 
-__int64 __fastcall RtlSetProtectedPolicy(_OWORD *Key, __int64 a2, _QWORD *a3)
+NTSTATUS __cdecl RtlSetProtectedPolicy(PGUID PolicyGuid, ULONG_PTR PolicyValue, PULONG_PTR OldPolicyValue)
 {
   char v6; // di
-  unsigned __int64 v7; // rdx
-  int v8; // ebx
-  unsigned __int64 *v9; // r8
-  __int64 v10; // r9
-  unsigned __int64 v11; // rdx
-  unsigned __int64 *v12; // r8
-  __int64 v13; // r9
-  void *v14; // rax
-  char *v15; // rbx
-  unsigned int v16; // ebx
-  void *ProcessHeap; // rcx
+  int v7; // ebx
+  PVOID v8; // rax
+  GUID *v9; // rbx
+  unsigned int v10; // ebx
+  int v11; // eax
+  PVOID ProcessHeap; // rcx
   char *Heap; // rdi
-  void *v19; // rsi
-  __int64 v20; // rcx
-  int v22; // ebx
-  int v23; // ecx
-  void *v24; // rcx
+  PVOID v14; // rsi
+  unsigned __int64 v15; // rcx
+  int v17; // ebx
+  int v18; // ecx
+  int v19; // eax
+  PVOID v20; // rcx
 
   v6 = 0;
-  v8 = LdrEnsureMrdataHeapExists();
-  if ( v8 < 0 )
-    return (unsigned int)v8;
-  RtlAcquireSRWLockExclusive((unsigned __int64)&RtlpProtectedPoliciesSRWLock, v7, v9, v10);
-  if ( qword_18016F370 && (byte_18016F35C & 1) == 0 )
+  v7 = LdrEnsureMrdataHeapExists();
+  if ( v7 < 0 )
+    return v7;
+  RtlAcquireSRWLockExclusive(&RtlpProtectedPoliciesSRWLock);
+  if ( LdrSystemDllInitBlock.CfgBitMap && (LdrSystemDllInitBlock.Flags & 1) == 0 )
   {
-    RtlAcquireSRWLockExclusive((unsigned __int64)&LdrpMrdataLock, v11, v12, v13);
-    v22 = *(_DWORD *)LdrpMrdataHeapUnprotected;
+    RtlAcquireSRWLockExclusive(&LdrpMrdataLock);
+    v17 = *(_DWORD *)LdrpMrdataHeapUnprotected;
     if ( !*(_DWORD *)LdrpMrdataHeapUnprotected )
-      RtlProtectHeap((_DWORD *)LdrpMrdataHeap, 0);
-    if ( v22 == -1 )
+      RtlProtectHeap(LdrpMrdataHeap, 0);
+    if ( v17 == -1 )
     {
       RtlReleaseSRWLockExclusive(&LdrpMrdataLock);
       __fastfail(0xEu);
     }
-    *(_DWORD *)LdrpMrdataHeapUnprotected = v22 + 1;
+    *(_DWORD *)LdrpMrdataHeapUnprotected = v17 + 1;
     RtlReleaseSRWLockExclusive(&LdrpMrdataLock);
   }
-  v14 = RtlpProtectedPolicies;
+  v8 = RtlpProtectedPolicies;
   if ( RtlpProtectedPolicies )
   {
-    v15 = (char *)bsearch(
-                    Key,
-                    RtlpProtectedPolicies,
-                    (unsigned int)RtlpProtectedPoliciesActiveCount,
-                    0x18uLL,
-                    (_CoreCrtNonSecureSearchSortCompareFunction)RtlpCompareProtectedPolicyEntry);
-    v14 = RtlpProtectedPolicies;
+    v9 = (GUID *)bsearch(
+                   PolicyGuid,
+                   RtlpProtectedPolicies,
+                   (unsigned int)RtlpProtectedPoliciesActiveCount,
+                   0x18uLL,
+                   (_CoreCrtNonSecureSearchSortCompareFunction)RtlpCompareProtectedPolicyEntry);
+    v8 = RtlpProtectedPolicies;
   }
   else
   {
-    v15 = 0LL;
+    v9 = 0LL;
   }
-  if ( v15 )
+  if ( v9 )
     goto LABEL_18;
-  if ( v14 && (_DWORD)RtlpProtectedPoliciesActiveCount + 1 != RtlpProtectedPoliciesTotalCount )
+  if ( v8 && (_DWORD)RtlpProtectedPoliciesActiveCount + 1 != RtlpProtectedPoliciesTotalCount )
   {
     LdrProtectMrdata(0);
     Heap = (char *)RtlpProtectedPolicies;
 LABEL_17:
-    v15 = &Heap[24 * (unsigned int)RtlpProtectedPoliciesActiveCount];
+    v9 = (GUID *)&Heap[24 * (unsigned int)RtlpProtectedPoliciesActiveCount];
     LODWORD(RtlpProtectedPoliciesActiveCount) = RtlpProtectedPoliciesActiveCount + 1;
-    *(_QWORD *)v15 = 0LL;
-    *((_QWORD *)v15 + 1) = 0LL;
-    *((_QWORD *)v15 + 2) = 0LL;
-    *(_OWORD *)v15 = *Key;
+    *(_QWORD *)&v9->Data1 = 0LL;
+    *(_QWORD *)v9->Data4 = 0LL;
+    *(_QWORD *)&v9[1].Data1 = 0LL;
+    *v9 = *PolicyGuid;
     LdrProtectMrdata(1);
-    v14 = RtlpProtectedPolicies;
+    v8 = RtlpProtectedPolicies;
     v6 = 1;
 LABEL_18:
-    v20 = *((_QWORD *)v15 + 2);
-    *((_QWORD *)v15 + 2) = a2;
-    if ( a3 )
-      *a3 = v20;
+    v15 = *(_QWORD *)&v9[1].Data1;
+    *(_QWORD *)&v9[1].Data1 = PolicyValue;
+    if ( OldPolicyValue )
+      *OldPolicyValue = v15;
     if ( v6 )
       qsort(
-        v14,
+        v8,
         (unsigned int)RtlpProtectedPoliciesActiveCount,
         0x18uLL,
         (_CoreCrtNonSecureSearchSortCompareFunction)RtlpCompareProtectedPolicyEntry);
-    v8 = 0;
+    v7 = 0;
     goto LABEL_23;
   }
-  v16 = 16;
+  v10 = 16;
   if ( RtlpProtectedPoliciesTotalCount )
-    v16 = 2 * RtlpProtectedPoliciesTotalCount;
-  if ( v16 >= RtlpProtectedPoliciesTotalCount && v16 < 0xAAAAAAA )
+    v10 = 2 * RtlpProtectedPoliciesTotalCount;
+  if ( v10 >= RtlpProtectedPoliciesTotalCount && v10 < 0xAAAAAAA )
   {
-    if ( LdrControlFlowGuardEnforced() )
+    LOBYTE(v11) = LdrControlFlowGuardEnforced();
+    if ( v11 )
     {
-      if ( 24 * (unsigned __int64)v16 >= 0xFF000 )
+      if ( 24 * (unsigned __int64)v10 >= 0xFF000 )
         goto LABEL_45;
-      ProcessHeap = (void *)LdrpMrdataHeap;
+      ProcessHeap = LdrpMrdataHeap;
     }
     else
     {
       ProcessHeap = NtCurrentPeb()->ProcessHeap;
     }
-    Heap = (char *)RtlAllocateHeap((__int64)ProcessHeap, 0, 24LL * v16);
+    Heap = (char *)RtlAllocateHeap(ProcessHeap, 0, 24LL * v10);
     if ( Heap )
     {
       LdrProtectMrdata(0);
-      v19 = RtlpProtectedPolicies;
+      v14 = RtlpProtectedPolicies;
       if ( RtlpProtectedPolicies )
       {
         memmove(Heap, RtlpProtectedPolicies, 24LL * (unsigned int)RtlpProtectedPoliciesActiveCount);
-        if ( LdrControlFlowGuardEnforced() )
-          v24 = (void *)LdrpMrdataHeap;
+        LOBYTE(v19) = LdrControlFlowGuardEnforced();
+        if ( v19 )
+          v20 = LdrpMrdataHeap;
         else
-          v24 = NtCurrentPeb()->ProcessHeap;
-        RtlFreeHeap((__int64)v24, 0, (unsigned __int64)v19);
+          v20 = NtCurrentPeb()->ProcessHeap;
+        RtlFreeHeap(v20, 0, v14);
       }
       RtlpProtectedPolicies = Heap;
-      RtlpProtectedPoliciesTotalCount = v16;
+      RtlpProtectedPoliciesTotalCount = v10;
       goto LABEL_17;
     }
   }
 LABEL_45:
-  v8 = -1073741801;
+  v7 = -1073741801;
 LABEL_23:
-  if ( qword_18016F370 && (byte_18016F35C & 1) == 0 )
+  if ( LdrSystemDllInitBlock.CfgBitMap && (LdrSystemDllInitBlock.Flags & 1) == 0 )
   {
-    RtlAcquireSRWLockExclusive((unsigned __int64)&LdrpMrdataLock, v11, v12, v13);
-    v23 = *(_DWORD *)LdrpMrdataHeapUnprotected;
+    RtlAcquireSRWLockExclusive(&LdrpMrdataLock);
+    v18 = *(_DWORD *)LdrpMrdataHeapUnprotected;
     if ( !*(_DWORD *)LdrpMrdataHeapUnprotected )
     {
       RtlReleaseSRWLockExclusive(&LdrpMrdataLock);
       __fastfail(0xEu);
     }
-    *(_DWORD *)LdrpMrdataHeapUnprotected = v23 - 1;
-    if ( v23 == 1 )
-      RtlProtectHeap((_DWORD *)LdrpMrdataHeap, 1);
+    *(_DWORD *)LdrpMrdataHeapUnprotected = v18 - 1;
+    if ( v18 == 1 )
+      RtlProtectHeap(LdrpMrdataHeap, 1u);
     RtlReleaseSRWLockExclusive(&LdrpMrdataLock);
   }
   RtlReleaseSRWLockExclusive(&RtlpProtectedPoliciesSRWLock);
-  return (unsigned int)v8;
+  return v7;
 }

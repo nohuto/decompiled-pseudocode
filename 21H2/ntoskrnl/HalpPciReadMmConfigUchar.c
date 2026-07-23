@@ -1,5 +1,5 @@
 /*
- * XREFs of HalpPciReadMmConfigUchar @ 0x1403F9FE0
+ * XREFs of HalpPciReadMmConfigUchar @ 0x1403FA1C0
  * Callers:
  *     <none>
  * Callees:

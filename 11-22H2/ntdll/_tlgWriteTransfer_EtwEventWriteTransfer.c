@@ -25,24 +25,24 @@
  *     EtwEventWriteTransfer @ 0x1800304F0 (EtwEventWriteTransfer.c)
  */
 
-__int64 __fastcall tlgWriteTransfer_EtwEventWriteTransfer(
+ULONG __fastcall tlgWriteTransfer_EtwEventWriteTransfer(
         __int64 a1,
         unsigned __int8 *a2,
         __int64 a3,
         __int64 a4,
-        int a5,
-        __int64 a6)
+        ULONG UserDataCount,
+        PEVENT_DATA_DESCRIPTOR UserData)
 {
-  __int128 v7; // [rsp+30h] [rbp-18h] BYREF
+  EVENT_DESCRIPTOR EventDescriptor; // [rsp+30h] [rbp-18h] BYREF
 
-  LODWORD(v7) = *a2 << 24;
-  DWORD1(v7) = *(unsigned __int16 *)(a2 + 1);
-  *((_QWORD *)&v7 + 1) = *(_QWORD *)(a2 + 3);
-  *(_QWORD *)a6 = *(_QWORD *)(a1 + 8);
-  *(_DWORD *)(a6 + 8) = **(unsigned __int16 **)(a1 + 8);
-  *(_QWORD *)(a6 + 16) = a2 + 11;
-  *(_DWORD *)(a6 + 12) = 2;
-  *(_DWORD *)(a6 + 24) = *(unsigned __int16 *)(a2 + 11);
-  *(_DWORD *)(a6 + 28) = 1;
-  return EtwEventWriteTransfer(*(_QWORD *)(a1 + 32), &v7, 0LL, 0LL, a5, a6);
+  *(_DWORD *)&EventDescriptor.Id = *a2 << 24;
+  *(_DWORD *)&EventDescriptor.Level = *(unsigned __int16 *)(a2 + 1);
+  EventDescriptor.Keyword = *(_QWORD *)(a2 + 3);
+  UserData->Ptr = *(_QWORD *)(a1 + 8);
+  UserData->Size = **(unsigned __int16 **)(a1 + 8);
+  UserData[1].Ptr = (unsigned __int64)(a2 + 11);
+  UserData->Reserved = 2;
+  UserData[1].Size = *(unsigned __int16 *)(a2 + 11);
+  UserData[1].Reserved = 1;
+  return EtwEventWriteTransfer(*(_QWORD *)(a1 + 32), &EventDescriptor, 0LL, 0LL, UserDataCount, UserData);
 }

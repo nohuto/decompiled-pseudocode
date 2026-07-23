@@ -8,24 +8,24 @@
  *     _RtlFreeHeap@12 @ 0x4B2C3B70 (_RtlFreeHeap@12.c)
  */
 
-int __stdcall LdrUnregisterDllNotification(_UNKNOWN **a1)
+NTSTATUS __cdecl LdrUnregisterDllNotification(PVOID Cookie)
 {
-  int v1; // edi
-  int v2; // esi
-  _UNKNOWN **i; // eax
-  _UNKNOWN **v4; // ecx
-  void **v6; // edx
+  void *v1; // edi
+  NTSTATUS v2; // esi
+  _DWORD *i; // eax
+  _DWORD *v4; // ecx
+  _DWORD *v6; // edx
 
   v1 = 0;
   v2 = -1073741515;
-  RtlEnterCriticalSection((int)&LdrpDllNotificationLock);
-  for ( i = (_UNKNOWN **)LdrpDllNotificationList; i != &LdrpDllNotificationList; i = (_UNKNOWN **)*i )
+  RtlEnterCriticalSection(&LdrpDllNotificationLock);
+  for ( i = LdrpDllNotificationList; i != &LdrpDllNotificationList; i = (_DWORD *)*i )
   {
-    v1 = (int)i;
-    v4 = (_UNKNOWN **)*i;
-    if ( i == a1 )
+    v1 = i;
+    v4 = (_DWORD *)*i;
+    if ( i == Cookie )
     {
-      if ( v4[1] != (_UNKNOWN *)i || (v6 = (void **)i[1], *v6 != i) )
+      if ( (_DWORD *)v4[1] != i || (v6 = (_DWORD *)i[1], (_DWORD *)*v6 != i) )
         __fastfail(3u);
       *v6 = v4;
       v2 = 0;
@@ -33,7 +33,7 @@ int __stdcall LdrUnregisterDllNotification(_UNKNOWN **a1)
       break;
     }
   }
-  RtlLeaveCriticalSection((int)&LdrpDllNotificationLock);
+  RtlLeaveCriticalSection(&LdrpDllNotificationLock);
   if ( v2 >= 0 )
     RtlFreeHeap(LdrpHeap, 0, v1);
   return v2;

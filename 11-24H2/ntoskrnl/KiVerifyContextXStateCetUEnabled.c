@@ -1,11 +1,11 @@
 /*
- * XREFs of KiVerifyContextXStateCetUEnabled @ 0x1403E7F14
+ * XREFs of KiVerifyContextXStateCetUEnabled @ 0x1403D5AB4
  * Callers:
- *     KiUnwindUserSspForApcContextCopyBypass @ 0x1403E6858 (KiUnwindUserSspForApcContextCopyBypass.c)
- *     KiContinuePreviousModeUser @ 0x1403E6E30 (KiContinuePreviousModeUser.c)
- *     KeVerifyContextXStateCetU @ 0x1403E7E20 (KeVerifyContextXStateCetU.c)
+ *     KiUnwindUserSspForApcContextCopyBypass @ 0x1403D43F8 (KiUnwindUserSspForApcContextCopyBypass.c)
+ *     KiContinuePreviousModeUser @ 0x1403D49D0 (KiContinuePreviousModeUser.c)
+ *     KeVerifyContextXStateCetU @ 0x1403D59C0 (KeVerifyContextXStateCetU.c)
  * Callees:
- *     ZwQueryVirtualMemory @ 0x1406A6870 (ZwQueryVirtualMemory.c)
+ *     ZwQueryVirtualMemory @ 0x1406A7810 (ZwQueryVirtualMemory.c)
  */
 
 __int64 __fastcall KiVerifyContextXStateCetUEnabled(_QWORD *a1, void *a2)
@@ -25,6 +25,6 @@ __int64 __fastcall KiVerifyContextXStateCetUEnabled(_QWORD *a1, void *a2)
   v4 = a1[1];
   if ( (v4 & 7) != 0 || v4 < (unsigned __int64)a2 )
     return 3221227018LL;
-  ZwQueryVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, a2, (MEMORY_INFORMATION_CLASS)3, &MemoryInformation, 0x30uLL, 0LL);
+  ZwQueryVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, a2, MemoryRegionInformation, &MemoryInformation, 0x30uLL, 0LL);
   return (unsigned __int64)(v7 + MemoryInformation - 4096) < a1[1] ? 0xC000060A : 0;
 }

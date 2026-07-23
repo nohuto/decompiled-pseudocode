@@ -1,30 +1,30 @@
 /*
- * XREFs of KeGetProcessorIndexFromNumber @ 0x140352BB0
+ * XREFs of KeGetProcessorIndexFromNumber @ 0x140370440
  * Callers:
- *     KeQueryLogicalProcessorRelationship @ 0x140206A10 (KeQueryLogicalProcessorRelationship.c)
- *     PoGetIdleTimes @ 0x140351EF0 (PoGetIdleTimes.c)
- *     KeSetTargetProcessorDpcEx @ 0x140352B60 (KeSetTargetProcessorDpcEx.c)
- *     KeSetIdealProcessorThread @ 0x1403B40B0 (KeSetIdealProcessorThread.c)
- *     KeSetIdealProcessorThreadByNumber @ 0x1403B4160 (KeSetIdealProcessorThreadByNumber.c)
- *     HalpInterruptDestinationToTarget @ 0x1403BAD88 (HalpInterruptDestinationToTarget.c)
- *     PoGetPerfStateAndParkingInfo @ 0x140434F50 (PoGetPerfStateAndParkingInfo.c)
- *     KeSetTargetProcessorDpc @ 0x140480740 (KeSetTargetProcessorDpc.c)
- *     PpmSetSimulatedIdle @ 0x1404CD620 (PpmSetSimulatedIdle.c)
- *     PpmClearSimulatedIdle @ 0x1404CF11C (PpmClearSimulatedIdle.c)
- *     HalSendNMI @ 0x1405441C0 (HalSendNMI.c)
- *     HalpInterruptDpReplaceBegin @ 0x140561B9C (HalpInterruptDpReplaceBegin.c)
- *     IntPartGetProcessorEfficiencyClass @ 0x1405BF380 (IntPartGetProcessorEfficiencyClass.c)
- *     PpmUpdateProcessorIdleVeto @ 0x1405CF5D0 (PpmUpdateProcessorIdleVeto.c)
- *     PspBuildCreateProcessContext @ 0x1408A2E70 (PspBuildCreateProcessContext.c)
- *     IopConnectInterrupt @ 0x140A12470 (IopConnectInterrupt.c)
- *     PpmInstallPlatformIdleStates @ 0x140A39740 (PpmInstallPlatformIdleStates.c)
- *     PpmUpdateIdleStates @ 0x140A66D50 (PpmUpdateIdleStates.c)
- *     PpmSetSimulatedLoad @ 0x140AB5610 (PpmSetSimulatedLoad.c)
- *     PpmClearSimulatedLoad @ 0x140AB6854 (PpmClearSimulatedLoad.c)
- *     PpmPerfGetBrandedFrequency @ 0x140ABBC18 (PpmPerfGetBrandedFrequency.c)
- *     HalpInterruptUpdateLocalUnitIdentifier @ 0x140B5038C (HalpInterruptUpdateLocalUnitIdentifier.c)
- *     HalpInterruptReinitialize @ 0x140B6A818 (HalpInterruptReinitialize.c)
- *     PopReadSimulatedProcessorClass @ 0x140C31558 (PopReadSimulatedProcessorClass.c)
+ *     KeQueryLogicalProcessorRelationship @ 0x14032DFF0 (KeQueryLogicalProcessorRelationship.c)
+ *     PoGetIdleTimes @ 0x14036F560 (PoGetIdleTimes.c)
+ *     KeSetTargetProcessorDpcEx @ 0x1403703F0 (KeSetTargetProcessorDpcEx.c)
+ *     PoGetPerfStateAndParkingInfo @ 0x140370500 (PoGetPerfStateAndParkingInfo.c)
+ *     KeSetIdealProcessorThreadByNumber @ 0x140370880 (KeSetIdealProcessorThreadByNumber.c)
+ *     KeSetIdealProcessorThread @ 0x140370950 (KeSetIdealProcessorThread.c)
+ *     KeSetTargetProcessorDpc @ 0x140370CF0 (KeSetTargetProcessorDpc.c)
+ *     HalpInterruptDestinationToTarget @ 0x140370DAC (HalpInterruptDestinationToTarget.c)
+ *     PpmSetSimulatedIdle @ 0x1404C69F0 (PpmSetSimulatedIdle.c)
+ *     PpmClearSimulatedIdle @ 0x1404C82E8 (PpmClearSimulatedIdle.c)
+ *     HalSendNMI @ 0x140541B10 (HalSendNMI.c)
+ *     HalpInterruptDpReplaceBegin @ 0x14055F7CC (HalpInterruptDpReplaceBegin.c)
+ *     IntPartGetProcessorEfficiencyClass @ 0x1405BC9B0 (IntPartGetProcessorEfficiencyClass.c)
+ *     PpmUpdateProcessorIdleVeto @ 0x1405CCCF0 (PpmUpdateProcessorIdleVeto.c)
+ *     PspBuildCreateProcessContext @ 0x1408F9210 (PspBuildCreateProcessContext.c)
+ *     IopConnectInterrupt @ 0x1409C0880 (IopConnectInterrupt.c)
+ *     PpmInstallPlatformIdleStates @ 0x140A2E800 (PpmInstallPlatformIdleStates.c)
+ *     PpmUpdateIdleStates @ 0x140A5FB30 (PpmUpdateIdleStates.c)
+ *     PpmSetSimulatedLoad @ 0x140AAFAA0 (PpmSetSimulatedLoad.c)
+ *     PpmClearSimulatedLoad @ 0x140AB0B2C (PpmClearSimulatedLoad.c)
+ *     PpmPerfGetBrandedFrequency @ 0x140AB6C38 (PpmPerfGetBrandedFrequency.c)
+ *     HalpInterruptUpdateLocalUnitIdentifier @ 0x140B523DC (HalpInterruptUpdateLocalUnitIdentifier.c)
+ *     HalpInterruptReinitialize @ 0x140B6C0DC (HalpInterruptReinitialize.c)
+ *     PopReadSimulatedProcessorClass @ 0x140C33678 (PopReadSimulatedProcessorClass.c)
  * Callees:
  *     <none>
  */
@@ -45,7 +45,7 @@ ULONG __stdcall KeGetProcessorIndexFromNumber(PPROCESSOR_NUMBER ProcNumber)
   Number = ProcNumber->Number;
   if ( (unsigned __int8)Number >= 0x40u )
     return -1;
-  result = *((_DWORD *)qword_140F21E78 + 64 * Group + Number);
+  result = *((_DWORD *)qword_140F22998 + 64 * Group + Number);
   if ( !result )
     return -1;
   return result;

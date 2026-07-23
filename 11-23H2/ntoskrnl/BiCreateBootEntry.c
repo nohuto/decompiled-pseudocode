@@ -1,25 +1,25 @@
 /*
- * XREFs of BiCreateBootEntry @ 0x140A5DA2C
+ * XREFs of BiCreateBootEntry @ 0x140A5DCDC
  * Callers:
- *     BiCreateEfiEntry @ 0x140A5DDE0 (BiCreateEfiEntry.c)
+ *     BiCreateEfiEntry @ 0x140A5E090 (BiCreateEfiEntry.c)
  * Callees:
- *     swprintf_s @ 0x1403DE3C0 (swprintf_s.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     BiLogMessage @ 0x140805620 (BiLogMessage.c)
- *     BiGetKeyName @ 0x1408057C4 (BiGetKeyName.c)
- *     BiTranslateFilePath @ 0x140805FD8 (BiTranslateFilePath.c)
- *     BiGetElement @ 0x140A5C930 (BiGetElement.c)
+ *     swprintf_s @ 0x1403DE5A0 (swprintf_s.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     BiLogMessage @ 0x1408058F0 (BiLogMessage.c)
+ *     BiGetKeyName @ 0x140805A94 (BiGetKeyName.c)
+ *     BiTranslateFilePath @ 0x1408062A8 (BiTranslateFilePath.c)
+ *     BiGetElement @ 0x140A5CBE0 (BiGetElement.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 
-__int64 __fastcall BiCreateBootEntry(void *a1, void **a2)
+__int64 __fastcall BiCreateBootEntry(HANDLE BcdObjectHandle, void **a2)
 {
   _DWORD *v2; // rdi
   void *v3; // rsi
   unsigned int *v4; // r14
   void *v5; // r12
-  _DWORD *Pool2; // r15
+  _FILE_PATH *Pool2; // r15
   int Element; // eax
   int v9; // ebx
   int v10; // eax
@@ -38,13 +38,13 @@ __int64 __fastcall BiCreateBootEntry(void *a1, void **a2)
   _DWORD *v23; // rax
   _DWORD *v24; // rdx
   size_t v25; // r8
-  unsigned int v26; // eax
+  ULONG v26; // eax
   int v27; // ecx
   __int64 v28; // rax
   char *v29; // rbx
   char *v30; // rax
   unsigned __int64 v32; // [rsp+30h] [rbp-38h] BYREF
-  unsigned int v33; // [rsp+38h] [rbp-30h] BYREF
+  ULONG v33; // [rsp+38h] [rbp-30h] BYREF
   void *v34; // [rsp+40h] [rbp-28h] BYREF
   void *Src; // [rsp+48h] [rbp-20h] BYREF
   void *v36; // [rsp+50h] [rbp-18h] BYREF
@@ -65,7 +65,7 @@ __int64 __fastcall BiCreateBootEntry(void *a1, void **a2)
   v34 = 0LL;
   Pool2 = 0LL;
   v36 = 0LL;
-  Element = BiGetElement((__int64)a1, 0x12000004u, P, (unsigned int *)&v40);
+  Element = BiGetElement(BcdObjectHandle, 0x12000004u, P, (ULONG *)&v40);
   v9 = Element;
   if ( Element < 0 )
   {
@@ -75,7 +75,7 @@ __int64 __fastcall BiCreateBootEntry(void *a1, void **a2)
       (unsigned int)Element);
     goto LABEL_25;
   }
-  v10 = BiGetElement((__int64)a1, 0x11000001u, &v32, (unsigned int *)&Size);
+  v10 = BiGetElement(BcdObjectHandle, 0x11000001u, &v32, (ULONG *)&Size);
   v9 = v10;
   if ( v10 < 0 )
   {
@@ -86,7 +86,7 @@ __int64 __fastcall BiCreateBootEntry(void *a1, void **a2)
     v2 = (_DWORD *)v32;
     goto LABEL_25;
   }
-  v11 = BiGetElement((__int64)a1, 0x12000002u, &Src, &v33);
+  v11 = BiGetElement(BcdObjectHandle, 0x12000002u, &Src, &v33);
   v9 = v11;
   if ( v11 < 0 )
   {
@@ -124,20 +124,20 @@ __int64 __fastcall BiCreateBootEntry(void *a1, void **a2)
   if ( v17 + 12 < v17 )
     goto LABEL_24;
   v32 = v18;
-  Pool2 = (_DWORD *)ExAllocatePool2(258LL, v18, 1262764866LL);
+  Pool2 = (_FILE_PATH *)ExAllocatePool2(258LL, v18, 1262764866LL);
   if ( !Pool2 )
   {
 LABEL_16:
     v9 = -1073741670;
     goto LABEL_25;
   }
-  Pool2[1] = v32;
-  *Pool2 = 1;
-  Pool2[2] = 3;
-  memmove(Pool2 + 3, v2 + 5, v16);
-  memmove((char *)Pool2 + v16 + 12, v3, (unsigned int)Size);
-  v9 = BiTranslateFilePath((__int64)Pool2, 4u, &v34);
-  if ( v9 < 0 || (KeyName = BiGetKeyName(a1, &v36), v5 = v36, v9 = KeyName, KeyName < 0) )
+  Pool2->Length = v32;
+  Pool2->Version = 1;
+  Pool2->Type = 3;
+  memmove(Pool2->FilePath, v2 + 5, v16);
+  memmove(&Pool2->FilePath[v16], v3, (unsigned int)Size);
+  v9 = BiTranslateFilePath(Pool2, 4u, (_FILE_PATH **)&v34);
+  if ( v9 < 0 || (KeyName = BiGetKeyName(BcdObjectHandle, &v36), v5 = v36, v9 = KeyName, KeyName < 0) )
   {
     v4 = (unsigned int *)v34;
     goto LABEL_25;

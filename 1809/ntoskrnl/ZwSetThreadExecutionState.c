@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwSetThreadExecutionState @ 0x1401BB650
+ * XREFs of ZwSetThreadExecutionState @ 0x1401BB7B0
  * Callers:
  *     <none>
  * Callees:
@@ -9,9 +9,7 @@
 // local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall ZwSetThreadExecutionState(EXECUTION_STATE esFlags, EXECUTION_STATE *PreviousFlags)
 {
-  __int64 v2; // r8
-
   _disable();
   __readeflags();
-  return KiServiceInternal(*(_QWORD *)&esFlags, PreviousFlags, v2);
+  return KiServiceInternal(*(_QWORD *)&esFlags);
 }

@@ -1,17 +1,17 @@
 /*
- * XREFs of PiDevCfgSetObjectProperty @ 0x1407452EC
+ * XREFs of PiDevCfgSetObjectProperty @ 0x1407454AC
  * Callers:
- *     PiDevCfgResetDeviceDriverSettings @ 0x140730420 (PiDevCfgResetDeviceDriverSettings.c)
- *     PiDevCfgProcessDevice @ 0x140739D90 (PiDevCfgProcessDevice.c)
- *     PiDevCfgConfigureDevice @ 0x140742E20 (PiDevCfgConfigureDevice.c)
- *     PiDevCfgCopyObjectProperties @ 0x140767E78 (PiDevCfgCopyObjectProperties.c)
- *     PiDevCfgCopyDeviceKey @ 0x140769E0C (PiDevCfgCopyDeviceKey.c)
- *     PiDevCfgMigrateDevice @ 0x14076E804 (PiDevCfgMigrateDevice.c)
- *     PiDevCfgRequestDriverConfigurations @ 0x1408A7E6C (PiDevCfgRequestDriverConfigurations.c)
- *     PpDevCfgProcessDeviceExtensions @ 0x1408AA8EC (PpDevCfgProcessDeviceExtensions.c)
- *     PpDevCfgInit @ 0x140A52024 (PpDevCfgInit.c)
+ *     PiDevCfgResetDeviceDriverSettings @ 0x1407305EC (PiDevCfgResetDeviceDriverSettings.c)
+ *     PiDevCfgProcessDevice @ 0x140739F50 (PiDevCfgProcessDevice.c)
+ *     PiDevCfgConfigureDevice @ 0x140742FE0 (PiDevCfgConfigureDevice.c)
+ *     PiDevCfgCopyObjectProperties @ 0x140768038 (PiDevCfgCopyObjectProperties.c)
+ *     PiDevCfgCopyDeviceKey @ 0x140769FCC (PiDevCfgCopyDeviceKey.c)
+ *     PiDevCfgMigrateDevice @ 0x14076E9C4 (PiDevCfgMigrateDevice.c)
+ *     PiDevCfgRequestDriverConfigurations @ 0x1408A7FCC (PiDevCfgRequestDriverConfigurations.c)
+ *     PpDevCfgProcessDeviceExtensions @ 0x1408AAA4C (PpDevCfgProcessDeviceExtensions.c)
+ *     PpDevCfgInit @ 0x140A53024 (PpDevCfgInit.c)
  * Callees:
- *     PiPnpRtlSetObjectProperty @ 0x14074578C (PiPnpRtlSetObjectProperty.c)
+ *     PiPnpRtlSetObjectProperty @ 0x14074594C (PiPnpRtlSetObjectProperty.c)
  */
 
 __int64 __fastcall PiDevCfgSetObjectProperty(

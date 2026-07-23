@@ -37,7 +37,7 @@ unsigned __int64 __fastcall PopPowerAggregatorRecordIntent(
     || *((_DWORD *)v13 + 34) != v9
     || !(unsigned __int8)PopPowerAggregatorAreTargetStatesEqual(v13 + 40, v7)
     || !(unsigned __int8)PopPowerAggregatorAreTargetStatesEqual(v13 + 88, v11)
-    || (result = KeQueryInterruptTimePrecise(&v16) - *((_QWORD *)v13 + 1), result >= 0x2FAF080) )
+    || (result = *(_QWORD *)&KeQueryInterruptTimePrecise(&v16) - *((_QWORD *)v13 + 1), result >= 0x2FAF080) )
   {
     result = PopPowerAggregatorAllocateLogEntry(&PopPowerAggregatorContext, 1LL);
     *(_DWORD *)(result + 24) = a2;

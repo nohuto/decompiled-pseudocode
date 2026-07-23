@@ -1,14 +1,14 @@
 /*
- * XREFs of KeInsertPriQueue @ 0x14023BF70
+ * XREFs of KeInsertPriQueue @ 0x1402E07C0
  * Callers:
- *     ExpTryQueueWorkItem @ 0x14023BDCC (ExpTryQueueWorkItem.c)
+ *     ExpTryQueueWorkItem @ 0x1402E061C (ExpTryQueueWorkItem.c)
  * Callees:
- *     KiAcquireKobjectLockSafe @ 0x14024C4A0 (KiAcquireKobjectLockSafe.c)
- *     KiWakePriQueueWaiter @ 0x14029F81C (KiWakePriQueueWaiter.c)
- *     KiExitDispatcher @ 0x140343AC0 (KiExitDispatcher.c)
+ *     KiWakePriQueueWaiter @ 0x14021CD7C (KiWakePriQueueWaiter.c)
+ *     KiAcquireKobjectLockSafe @ 0x1402F0CF0 (KiAcquireKobjectLockSafe.c)
+ *     KiExitDispatcher @ 0x14034E810 (KiExitDispatcher.c)
  */
 
-__int64 __fastcall KeInsertPriQueue(__int64 a1, __int64 *a2, int a3, __int64 a4, char a5)
+__int64 __fastcall KeInsertPriQueue(__int64 a1, __int64 a2, int a3, __int64 a4, char a5)
 {
   __int64 v5; // r12
   _QWORD *v6; // rdi
@@ -21,11 +21,11 @@ __int64 __fastcall KeInsertPriQueue(__int64 a1, __int64 *a2, int a3, __int64 a4,
   __int64 v14; // rax
   int v15; // ecx
   unsigned int v16; // ecx
-  __int64 *v17; // rbx
+  _QWORD *v17; // rbx
   int v18; // ecx
   _DWORD *SchedulerAssist; // r9
   __int64 v21; // rcx
-  __int64 **v22; // rax
+  _QWORD *v22; // rax
 
   v5 = a3;
   v6 = (_QWORD *)(a1 + 8);
@@ -59,25 +59,25 @@ __int64 __fastcall KeInsertPriQueue(__int64 a1, __int64 *a2, int a3, __int64 a4,
       {
         if ( v12 >= v16 )
           break;
-        v17 = a2;
-        v8 = KiWakePriQueueWaiter(CurrentPrcb, a1, a2, (unsigned int)v5);
+        v17 = (_QWORD *)a2;
+        v8 = KiWakePriQueueWaiter((__int64)CurrentPrcb, a1, a2, v5);
         if ( !v8 )
           goto LABEL_14;
         goto LABEL_9;
       }
     }
   }
-  v17 = a2;
+  v17 = (_QWORD *)a2;
 LABEL_14:
   if ( (a5 & 2) == 0 )
   {
     ++*(_DWORD *)(a1 + 4);
     v21 = 16 * v5 + a1 + 24;
-    v22 = *(__int64 ***)(v21 + 8);
-    if ( *v22 != (__int64 *)v21 )
+    v22 = *(_QWORD **)(v21 + 8);
+    if ( *v22 != v21 )
       __fastfail(3u);
     *v17 = v21;
-    v17[1] = (__int64)v22;
+    v17[1] = v22;
     *v22 = v17;
     *(_QWORD *)(v21 + 8) = v17;
   }

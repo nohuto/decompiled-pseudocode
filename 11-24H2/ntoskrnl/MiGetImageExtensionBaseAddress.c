@@ -1,9 +1,9 @@
 /*
- * XREFs of MiGetImageExtensionBaseAddress @ 0x140A2C0F0
+ * XREFs of MiGetImageExtensionBaseAddress @ 0x140A1FFB0
  * Callers:
- *     MiSetProtectionOnSection @ 0x140236630 (MiSetProtectionOnSection.c)
- *     MiMapImageScpCfgPages @ 0x140264810 (MiMapImageScpCfgPages.c)
- *     MiQueryImageExtensionInformation @ 0x140474954 (MiQueryImageExtensionInformation.c)
+ *     MiSetProtectionOnSection @ 0x1402107C0 (MiSetProtectionOnSection.c)
+ *     MiMapImageScpCfgPages @ 0x140294080 (MiMapImageScpCfgPages.c)
+ *     MiQueryImageExtensionInformation @ 0x140470764 (MiQueryImageExtensionInformation.c)
  * Callees:
  *     <none>
  */

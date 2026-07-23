@@ -1,13 +1,13 @@
 /*
- * XREFs of PpmResetIdlePolicy @ 0x14039FB58
+ * XREFs of PpmResetIdlePolicy @ 0x14039FD38
  * Callers:
- *     PpmInstallNewIdleStates @ 0x14039F5E0 (PpmInstallNewIdleStates.c)
- *     PpmApplyIdlePolicyChanges @ 0x140583F00 (PpmApplyIdlePolicyChanges.c)
+ *     PpmInstallNewIdleStates @ 0x14039F7C0 (PpmInstallNewIdleStates.c)
+ *     PpmApplyIdlePolicyChanges @ 0x1405843F0 (PpmApplyIdlePolicyChanges.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x1402C3270 (KeQueryPerformanceCounter.c)
- *     PpmScaleIdleStateValues @ 0x14034F31C (PpmScaleIdleStateValues.c)
- *     PpmApplyIdlePolicy @ 0x14039FB94 (PpmApplyIdlePolicy.c)
- *     PpmResetProcessorIdleAccounting @ 0x14039FC04 (PpmResetProcessorIdleAccounting.c)
+ *     KeQueryPerformanceCounter @ 0x1402C3500 (KeQueryPerformanceCounter.c)
+ *     PpmScaleIdleStateValues @ 0x14034F4BC (PpmScaleIdleStateValues.c)
+ *     PpmApplyIdlePolicy @ 0x14039FD74 (PpmApplyIdlePolicy.c)
+ *     PpmResetProcessorIdleAccounting @ 0x14039FDE4 (PpmResetProcessorIdleAccounting.c)
  */
 
 void __fastcall PpmResetIdlePolicy(_QWORD *a1)

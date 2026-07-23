@@ -1,22 +1,22 @@
 /*
- * XREFs of WmipQueryTraceInformation @ 0x140829064
+ * XREFs of WmipQueryTraceInformation @ 0x14082F2A4
  * Callers:
- *     WdipSemGetLoggerDroppedEventCount @ 0x140ADB33C (WdipSemGetLoggerDroppedEventCount.c)
- *     WmiQueryTraceInformation @ 0x140B69710 (WmiQueryTraceInformation.c)
+ *     WdipSemGetLoggerDroppedEventCount @ 0x140AD7DEC (WdipSemGetLoggerDroppedEventCount.c)
+ *     WmiQueryTraceInformation @ 0x140B6C6A0 (WmiQueryTraceInformation.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x1402150C0 (PsGetCurrentServerSiloGlobals.c)
- *     KeGetPrcb @ 0x1402916D0 (KeGetPrcb.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     RtlCopyToUser @ 0x14077F284 (RtlCopyToUser.c)
- *     RtlReadULong64FromUser @ 0x14077F554 (RtlReadULong64FromUser.c)
- *     RtlReadULongFromUser @ 0x14077F590 (RtlReadULongFromUser.c)
- *     RtlWriteULong64ToUser @ 0x14077F758 (RtlWriteULong64ToUser.c)
- *     RtlWriteULongToUser @ 0x14077F7A0 (RtlWriteULongToUser.c)
- *     ProbeForRead @ 0x1408EF880 (ProbeForRead.c)
- *     EtwpAcquireLoggerContextByLoggerId @ 0x14091EFC0 (EtwpAcquireLoggerContextByLoggerId.c)
- *     EtwpReleaseLoggerContext @ 0x14093D918 (EtwpReleaseLoggerContext.c)
- *     EtwQueryTraceHandleByLoggerName @ 0x140B2AA20 (EtwQueryTraceHandleByLoggerName.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x1402153F0 (PsGetCurrentServerSiloGlobals.c)
+ *     KeGetPrcb @ 0x140290C30 (KeGetPrcb.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     RtlCopyToUser @ 0x140781D84 (RtlCopyToUser.c)
+ *     RtlReadULong64FromUser @ 0x140782054 (RtlReadULong64FromUser.c)
+ *     RtlReadULongFromUser @ 0x140782090 (RtlReadULongFromUser.c)
+ *     RtlWriteULong64ToUser @ 0x140782258 (RtlWriteULong64ToUser.c)
+ *     RtlWriteULongToUser @ 0x1407822A0 (RtlWriteULongToUser.c)
+ *     ProbeForRead @ 0x1408F5E40 (ProbeForRead.c)
+ *     EtwpReleaseLoggerContext @ 0x1409194B8 (EtwpReleaseLoggerContext.c)
+ *     EtwpAcquireLoggerContextByLoggerId @ 0x140979A20 (EtwpAcquireLoggerContextByLoggerId.c)
+ *     EtwQueryTraceHandleByLoggerName @ 0x140B2CAA0 (EtwQueryTraceHandleByLoggerName.c)
  */
 
 __int64 __fastcall WmipQueryTraceInformation(int a1, int *a2, unsigned int a3, _DWORD *a4, unsigned int *a5, char a6)
@@ -273,7 +273,7 @@ __int64 __fastcall WmipQueryTraceInformation(int a1, int *a2, unsigned int a3, _
           else
             *a4 = 120;
         }
-        if ( (unsigned __int8)EtwpBootPhase <= 1u )
+        if ( LOBYTE(stru_140F03830.CycleTime) <= 1u )
           return 3221225635LL;
         if ( (_DWORD)v7 != 120 )
           return 3221225476LL;
@@ -297,7 +297,7 @@ __int64 __fastcall WmipQueryTraceInformation(int a1, int *a2, unsigned int a3, _
           else
             *a4 = 8;
         }
-        if ( (unsigned __int8)EtwpBootPhase <= 1u )
+        if ( LOBYTE(stru_140F03830.CycleTime) <= 1u )
           return 3221225635LL;
         if ( (_DWORD)v7 != 8 )
           return 3221225476LL;
@@ -321,7 +321,7 @@ LABEL_168:
           else
             *a4 = 8;
         }
-        if ( (unsigned __int8)EtwpBootPhase <= 1u )
+        if ( LOBYTE(stru_140F03830.CycleTime) <= 1u )
           return 3221225635LL;
         if ( (_DWORD)v7 != 8 )
           return 3221225476LL;
@@ -344,7 +344,7 @@ LABEL_168:
         else
           *a4 = 8;
       }
-      if ( (unsigned __int8)EtwpBootPhase <= 1u )
+      if ( LOBYTE(stru_140F03830.CycleTime) <= 1u )
         return 3221225635LL;
       if ( (_DWORD)v7 != 8 )
         return 3221225476LL;

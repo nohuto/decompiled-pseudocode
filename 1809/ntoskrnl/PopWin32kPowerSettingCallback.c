@@ -1,10 +1,10 @@
 /*
- * XREFs of PopWin32kPowerSettingCallback @ 0x14017DFC0
+ * XREFs of PopWin32kPowerSettingCallback @ 0x14017E100
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     PopBroadcastSessionInfo @ 0x14072985C (PopBroadcastSessionInfo.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     PopBroadcastSessionInfo @ 0x14072AA4C (PopBroadcastSessionInfo.c)
  */
 
 __int64 __fastcall PopWin32kPowerSettingCallback(__int128 *a1, int *a2, int a3)

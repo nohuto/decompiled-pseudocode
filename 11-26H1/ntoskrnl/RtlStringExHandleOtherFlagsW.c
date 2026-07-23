@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlStringExHandleOtherFlagsW @ 0x140430530
+ * XREFs of RtlStringExHandleOtherFlagsW @ 0x14041D560
  * Callers:
- *     RtlStringCchCopyNExW @ 0x1404302C0 (RtlStringCchCopyNExW.c)
+ *     RtlStringCchCopyNExW @ 0x14041D2F0 (RtlStringCchCopyNExW.c)
  * Callees:
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 NTSTATUS __stdcall RtlStringExHandleOtherFlagsW(

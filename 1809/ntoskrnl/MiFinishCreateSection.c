@@ -1,20 +1,20 @@
 /*
- * XREFs of MiFinishCreateSection @ 0x1405DE0B0
+ * XREFs of MiFinishCreateSection @ 0x1405DF0B0
  * Callers:
- *     MiCreateSection @ 0x1405DDAC0 (MiCreateSection.c)
+ *     MiCreateSection @ 0x1405DEAC0 (MiCreateSection.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     RtlAvlInsertNodeEx @ 0x140064B40 (RtlAvlInsertNodeEx.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     ObCreateObjectEx @ 0x1405E05E0 (ObCreateObjectEx.c)
- *     MiFindEmptyAddressRangeDownTree @ 0x140698E70 (MiFindEmptyAddressRangeDownTree.c)
- *     ObCheckActiveHandles @ 0x1406C43E8 (ObCheckActiveHandles.c)
- *     MiDereferencePerSessionProtos @ 0x1406C8FB0 (MiDereferencePerSessionProtos.c)
- *     MiCreatePerSessionProtos @ 0x1406C90C8 (MiCreatePerSessionProtos.c)
- *     MiDereferenceFailedControlArea @ 0x1406D0324 (MiDereferenceFailedControlArea.c)
+ *     RtlAvlInsertNodeEx @ 0x140064B30 (RtlAvlInsertNodeEx.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     ObCreateObjectEx @ 0x1405E15E0 (ObCreateObjectEx.c)
+ *     MiFindEmptyAddressRangeDownTree @ 0x14069A030 (MiFindEmptyAddressRangeDownTree.c)
+ *     ObCheckActiveHandles @ 0x1406C5688 (ObCheckActiveHandles.c)
+ *     MiDereferencePerSessionProtos @ 0x1406CA250 (MiDereferencePerSessionProtos.c)
+ *     MiCreatePerSessionProtos @ 0x1406CA368 (MiCreatePerSessionProtos.c)
+ *     MiDereferenceFailedControlArea @ 0x1406D15C4 (MiDereferenceFailedControlArea.c)
  */
 
 __int64 __fastcall MiFinishCreateSection(int *a1)
@@ -166,27 +166,27 @@ __int64 __fastcall MiFinishCreateSection(int *a1)
     goto LABEL_16;
   *((_DWORD *)Object + 14) = v13 | 0x40;
   v21 = Object[6];
-  if ( v21 > qword_140438BE8 )
+  if ( v21 > qword_140439CA8 )
   {
     ObfDereferenceObject(Object);
     return 3221225495LL;
   }
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->SpecialApcDisable;
-  ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_140438BD0, 0LL);
+  ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_140439C90, 0LL);
   EmptyAddressRangeDownTree = MiFindEmptyAddressRangeDownTree(
-                                (unsigned int)&qword_140438BC8,
+                                (unsigned int)&qword_140439C88,
                                 v21,
                                 0x10000,
                                 0,
                                 0x10000LL,
-                                qword_140438BE8,
+                                qword_140439CA8,
                                 (__int64)&v30);
   if ( EmptyAddressRangeDownTree < 0 )
   {
-    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140438BD0, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-      ExfTryToWakePushLock((volatile signed __int64 *)&qword_140438BD0);
-    KeAbPostRelease((ULONG_PTR)&qword_140438BD0);
+    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140439C90, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+      ExfTryToWakePushLock((volatile signed __int64 *)&qword_140439C90);
+    KeAbPostRelease((ULONG_PTR)&qword_140439C90);
     KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);
     ObfDereferenceObject(Object);
     return (unsigned int)EmptyAddressRangeDownTree;
@@ -195,9 +195,9 @@ __int64 __fastcall MiFinishCreateSection(int *a1)
   v25 = v30 >> 12;
   Object[3] = v30 >> 12;
   Object[4] = ((v21 + 4095) >> 12) + v25 - 1;
-  v26 = qword_140438BC8;
+  v26 = qword_140439C88;
   v27 = Object[3];
-  if ( !qword_140438BC8 )
+  if ( !qword_140439C88 )
     goto LABEL_55;
   while ( v27 <= (*(unsigned int *)(v26 + 28) | ((unsigned __int64)*(unsigned __int8 *)(v26 + 33) << 32))
        && v27 < (*(unsigned int *)(v26 + 24) | ((unsigned __int64)*(unsigned __int8 *)(v26 + 32) << 32)) )
@@ -216,10 +216,10 @@ LABEL_60:
     goto LABEL_60;
   v24 = 1;
 LABEL_55:
-  RtlAvlInsertNodeEx((unsigned __int64 *)&qword_140438BC8, v26, v24, Object);
-  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140438BD0, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock((volatile signed __int64 *)&qword_140438BD0);
-  KeAbPostRelease((ULONG_PTR)&qword_140438BD0);
+  RtlAvlInsertNodeEx((unsigned __int64 *)&qword_140439C88, v26, v24, Object);
+  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140439C90, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    ExfTryToWakePushLock((volatile signed __int64 *)&qword_140439C90);
+  KeAbPostRelease((ULONG_PTR)&qword_140439C90);
   KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);
   v11 = Object;
 LABEL_16:

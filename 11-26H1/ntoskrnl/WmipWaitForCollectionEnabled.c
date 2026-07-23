@@ -1,11 +1,11 @@
 /*
- * XREFs of WmipWaitForCollectionEnabled @ 0x140824370
+ * XREFs of WmipWaitForCollectionEnabled @ 0x14082A5BC
  * Callers:
- *     WmipSendEnableRequest @ 0x140A0AF48 (WmipSendEnableRequest.c)
+ *     WmipSendEnableRequest @ 0x140A0A1B0 (WmipSendEnableRequest.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     KeReleaseMutex @ 0x1403DD0F0 (KeReleaseMutex.c)
- *     KeInitializeEvent @ 0x140466F30 (KeInitializeEvent.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     KeReleaseMutex @ 0x1403E02E0 (KeReleaseMutex.c)
+ *     KeInitializeEvent @ 0x140460680 (KeInitializeEvent.c)
  */
 
 NTSTATUS __fastcall WmipWaitForCollectionEnabled(__int64 a1)
@@ -15,7 +15,7 @@ NTSTATUS __fastcall WmipWaitForCollectionEnabled(__int64 a1)
     KeInitializeEvent(*(PRKEVENT *)(a1 + 96), NotificationEvent, 0);
     *(_DWORD *)(a1 + 16) |= 8u;
   }
-  KeReleaseMutex((PRKMUTEX)&EtwpSecurityLock.IoSelfBoostsEntry, 0);
+  KeReleaseMutex(&WmipSMMutex, 0);
   KeWaitForSingleObject(*(PVOID *)(a1 + 96), Executive, 0, 0, 0LL);
-  return KeWaitForSingleObject(&EtwpSecurityLock.IoSelfBoostsEntry, Executive, 0, 0, 0LL);
+  return KeWaitForSingleObject(&WmipSMMutex, Executive, 0, 0, 0LL);
 }

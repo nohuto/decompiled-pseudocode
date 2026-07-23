@@ -1,9 +1,9 @@
 /*
- * XREFs of IommuUnmapLogicalRange @ 0x1404DADA0
+ * XREFs of IommuUnmapLogicalRange @ 0x1404DAFE0
  * Callers:
- *     IommuMapLogicalRange @ 0x1404DA990 (IommuMapLogicalRange.c)
+ *     IommuMapLogicalRange @ 0x1404DABD0 (IommuMapLogicalRange.c)
  * Callees:
- *     HalpIommuDomainUnmapLogicalRange @ 0x1404C9334 (HalpIommuDomainUnmapLogicalRange.c)
+ *     HalpIommuDomainUnmapLogicalRange @ 0x1404C9574 (HalpIommuDomainUnmapLogicalRange.c)
  */
 
 __int64 __fastcall IommuUnmapLogicalRange(ULONG_PTR a1, ULONG_PTR a2, __int64 a3)

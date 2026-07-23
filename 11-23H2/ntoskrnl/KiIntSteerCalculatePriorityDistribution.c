@@ -5,8 +5,8 @@
  * Callees:
  *     KiIntSteerGetNextProcessorTarget @ 0x140221B74 (KiIntSteerGetNextProcessorTarget.c)
  *     KeQueryActiveProcessorCountEx @ 0x140222050 (KeQueryActiveProcessorCountEx.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 int __fastcall KiIntSteerCalculatePriorityDistribution(char *a1, _QWORD **a2, __int64 a3, __int64 a4, __int64 a5)

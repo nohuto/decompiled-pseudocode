@@ -1,22 +1,22 @@
 /*
- * XREFs of CmpSnapshotHiveToOffsetArray @ 0x140604834
+ * XREFs of CmpSnapshotHiveToOffsetArray @ 0x1406048E8
  * Callers:
- *     CmpFlushBackupHive @ 0x1406044B0 (CmpFlushBackupHive.c)
- *     CmDumpKey @ 0x14060C0B8 (CmDumpKey.c)
+ *     CmpFlushBackupHive @ 0x140604564 (CmpFlushBackupHive.c)
+ *     CmDumpKey @ 0x14060C16C (CmDumpKey.c)
  * Callees:
- *     HvpMapEntryReleaseBinAddress @ 0x14002D400 (HvpMapEntryReleaseBinAddress.c)
- *     HvpMapEntryGetBinAddress @ 0x14002D660 (HvpMapEntryGetBinAddress.c)
- *     HvpGetBinContextInitialize @ 0x14002D780 (HvpGetBinContextInitialize.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExAcquireRundownProtection @ 0x1400D3ED0 (ExAcquireRundownProtection.c)
- *     ExReleaseRundownProtection @ 0x1400D3F00 (ExReleaseRundownProtection.c)
- *     HvpMapEntryGetFreeBin @ 0x1400F0100 (HvpMapEntryGetFreeBin.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     HvpMapEntryReleaseBinAddress @ 0x14002CF80 (HvpMapEntryReleaseBinAddress.c)
+ *     HvpMapEntryGetBinAddress @ 0x14002D1E0 (HvpMapEntryGetBinAddress.c)
+ *     HvpGetBinContextInitialize @ 0x14002D300 (HvpGetBinContextInitialize.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExAcquireRundownProtection @ 0x1400D1D70 (ExAcquireRundownProtection.c)
+ *     ExReleaseRundownProtection @ 0x1400D1DA0 (ExReleaseRundownProtection.c)
+ *     HvpMapEntryGetFreeBin @ 0x1400EDF80 (HvpMapEntryGetFreeBin.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     HvpHeaderCheckSum @ 0x140481EC0 (HvpHeaderCheckSum.c)
- *     HvpGetCellMap @ 0x140513BC0 (HvpGetCellMap.c)
+ *     HvpHeaderCheckSum @ 0x140480C14 (HvpHeaderCheckSum.c)
+ *     HvpGetCellMap @ 0x1404F6FB0 (HvpGetCellMap.c)
  */
 
 __int64 __fastcall CmpSnapshotHiveToOffsetArray(__int64 a1, _DWORD *a2, PVOID **a3, unsigned int *a4)

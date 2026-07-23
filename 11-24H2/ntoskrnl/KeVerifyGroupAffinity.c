@@ -1,11 +1,11 @@
 /*
- * XREFs of KeVerifyGroupAffinity @ 0x14046F4B0
+ * XREFs of KeVerifyGroupAffinity @ 0x140469BC0
  * Callers:
- *     sub_14050A410 @ 0x14050A410 (sub_14050A410.c)
- *     IopConnectInterruptFullySpecified @ 0x14071DF68 (IopConnectInterruptFullySpecified.c)
- *     ExpProfileCreate @ 0x1407C3C30 (ExpProfileCreate.c)
- *     PspBuildCreateProcessContext @ 0x1408A2E70 (PspBuildCreateProcessContext.c)
- *     NtSetInformationProcess @ 0x140947500 (NtSetInformationProcess.c)
+ *     sub_140507CD0 @ 0x140507CD0 (sub_140507CD0.c)
+ *     IopConnectInterruptFullySpecified @ 0x14071BAF8 (IopConnectInterruptFullySpecified.c)
+ *     ExpProfileCreate @ 0x1407C1A4C (ExpProfileCreate.c)
+ *     NtSetInformationProcess @ 0x1408EBA70 (NtSetInformationProcess.c)
+ *     PspBuildCreateProcessContext @ 0x1408F9210 (PspBuildCreateProcessContext.c)
  * Callees:
  *     <none>
  */

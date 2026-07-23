@@ -1,37 +1,37 @@
 /*
- * XREFs of ?SmFirstTimeInit@@YAJPEAU_SM_PARTITION@@K@Z @ 0x14063CDAC
+ * XREFs of ?SmFirstTimeInit@@YAJPEAU_SM_PARTITION@@K@Z @ 0x14064098C
  * Callers:
- *     SmProcessCreateRequest @ 0x140967230 (SmProcessCreateRequest.c)
+ *     SmProcessCreateRequest @ 0x140ADC4D4 (SmProcessCreateRequest.c)
  * Callees:
- *     KiUnstackDetachProcess @ 0x1402307C0 (KiUnstackDetachProcess.c)
- *     KiStackAttachProcess @ 0x140247880 (KiStackAttachProcess.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     PsDereferencePartition @ 0x140381940 (PsDereferencePartition.c)
- *     SmFpPreAllocate @ 0x1403EFFC0 (SmFpPreAllocate.c)
- *     SmFpCleanup @ 0x1403F02E0 (SmFpCleanup.c)
- *     MmStoreChargeResidentAvailableForRead @ 0x140481F1C (MmStoreChargeResidentAvailableForRead.c)
- *     ?SmCleanup@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x14063C534 (-SmCleanup@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@@Z.c)
- *     ?SmCompressManagerStart@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU_SM_COMPRESS_MANAGER@1@W4_ST_COMPRESSION_FORMAT@@@Z @ 0x14063C864 (-SmCompressManagerStart@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU_SM_COMPRESS_MANAGER@1@W4_ST_COMPR.c)
- *     ?SmInitialize@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAU_SMKM_STORE_MGR_PARAMS@@@Z @ 0x14063D2A4 (-SmInitialize@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAU_SMKM_STORE_MGR_PARAMS@@@Z.c)
- *     ?SmStorePrepare@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@@Z @ 0x14063D530 (-SmStorePrepare@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@@Z.c)
- *     SmTerminateStoreProcess @ 0x14063E81C (SmTerminateStoreProcess.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ExAllocatePrivateWorkerPool @ 0x140772100 (ExAllocatePrivateWorkerPool.c)
- *     MmStoreCheckPagefiles @ 0x14077C774 (MmStoreCheckPagefiles.c)
- *     PsCreateMinimalProcess @ 0x1407FC198 (PsCreateMinimalProcess.c)
- *     SmHwAcceleratorPartitionMgrCleanup @ 0x14081B83C (SmHwAcceleratorPartitionMgrCleanup.c)
- *     SmHwAcceleratorPartitionMgrInitialize @ 0x14081B958 (SmHwAcceleratorPartitionMgrInitialize.c)
- *     SmHwAcceleratorPartitionMgrStart @ 0x14081B974 (SmHwAcceleratorPartitionMgrStart.c)
- *     MmStoreRegister @ 0x14087D67C (MmStoreRegister.c)
- *     ObReferenceObjectByHandle @ 0x1408F9550 (ObReferenceObjectByHandle.c)
- *     SmRegistrationCtxStart @ 0x140B4ED90 (SmRegistrationCtxStart.c)
+ *     KiUnstackDetachProcess @ 0x140232120 (KiUnstackDetachProcess.c)
+ *     KiStackAttachProcess @ 0x1402491E0 (KiStackAttachProcess.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     PsDereferencePartition @ 0x1403836F0 (PsDereferencePartition.c)
+ *     SmFpPreAllocate @ 0x1403E9990 (SmFpPreAllocate.c)
+ *     SmFpCleanup @ 0x1403E9CB0 (SmFpCleanup.c)
+ *     MmStoreChargeResidentAvailableForRead @ 0x14047B88C (MmStoreChargeResidentAvailableForRead.c)
+ *     ?SmCleanup@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x140640114 (-SmCleanup@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@@Z.c)
+ *     ?SmCompressManagerStart@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU_SM_COMPRESS_MANAGER@1@W4_ST_COMPRESSION_FORMAT@@@Z @ 0x140640444 (-SmCompressManagerStart@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU_SM_COMPRESS_MANAGER@1@W4_ST_COMPR.c)
+ *     ?SmInitialize@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAU_SMKM_STORE_MGR_PARAMS@@@Z @ 0x140640E84 (-SmInitialize@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAU_SMKM_STORE_MGR_PARAMS@@@Z.c)
+ *     ?SmStorePrepare@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@@Z @ 0x140641110 (-SmStorePrepare@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@@Z.c)
+ *     SmTerminateStoreProcess @ 0x1406423FC (SmTerminateStoreProcess.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ExAllocatePrivateWorkerPool @ 0x140775100 (ExAllocatePrivateWorkerPool.c)
+ *     MmStoreCheckPagefiles @ 0x14077F268 (MmStoreCheckPagefiles.c)
+ *     PsCreateMinimalProcess @ 0x140801BC8 (PsCreateMinimalProcess.c)
+ *     SmHwAcceleratorPartitionMgrCleanup @ 0x140821A4C (SmHwAcceleratorPartitionMgrCleanup.c)
+ *     SmHwAcceleratorPartitionMgrInitialize @ 0x140821B68 (SmHwAcceleratorPartitionMgrInitialize.c)
+ *     SmHwAcceleratorPartitionMgrStart @ 0x140821B84 (SmHwAcceleratorPartitionMgrStart.c)
+ *     MmStoreRegister @ 0x140883A7C (MmStoreRegister.c)
+ *     ObReferenceObjectByHandle @ 0x1409294E0 (ObReferenceObjectByHandle.c)
+ *     SmRegistrationCtxStart @ 0x140B51620 (SmRegistrationCtxStart.c)
  */
 
 __int64 __fastcall SmFirstTimeInit(struct _SM_PARTITION *a1, unsigned int a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
@@ -104,7 +104,7 @@ __int64 __fastcall SmFirstTimeInit(struct _SM_PARTITION *a1, unsigned int a2, __
     LOBYTE(v14) = *(_BYTE *)(v13 + 1530);
     MinimalProcess = PsCreateMinimalProcess(
                        v13,
-                       (unsigned int)&unk_140E08CD0,
+                       (unsigned int)&unk_140E08CC0,
                        0,
                        v14,
                        0LL,
@@ -161,7 +161,7 @@ __int64 __fastcall SmFirstTimeInit(struct _SM_PARTITION *a1, unsigned int a2, __
       v20 = *((_QWORD *)a1 + 267);
       v29 = *(_OWORD *)((char *)a1 + 2120);
       v30 = v20;
-      SMKM_STORE_MGR<SM_TRAITS>::SmCleanup((union _SLIST_HEADER *)a1);
+      SMKM_STORE_MGR<SM_TRAITS>::SmCleanup((_SLIST_HEADER *)a1);
       SMKM_STORE_MGR<SM_TRAITS>::SmInitialize(a1, &v29);
       SmTerminateStoreProcess(a1);
       goto LABEL_49;

@@ -1,11 +1,11 @@
 /*
  * XREFs of SepCheckForCriticalAceRemoval @ 0x140013054
  * Callers:
- *     SeCheckForCriticalAceRemoval @ 0x1405B8B50 (SeCheckForCriticalAceRemoval.c)
+ *     SeCheckForCriticalAceRemoval @ 0x1405B9B50 (SeCheckForCriticalAceRemoval.c)
  * Callees:
  *     SepSidInToken @ 0x140013310 (SepSidInToken.c)
- *     SepHasCriticalAcesRemoved @ 0x1405B9420 (SepHasCriticalAcesRemoved.c)
- *     SeSinglePrivilegeCheckEx @ 0x1406121AC (SeSinglePrivilegeCheckEx.c)
+ *     SepHasCriticalAcesRemoved @ 0x1405BA420 (SepHasCriticalAcesRemoved.c)
+ *     SeSinglePrivilegeCheckEx @ 0x1406131AC (SeSinglePrivilegeCheckEx.c)
  */
 
 _UNKNOWN **__fastcall SepCheckForCriticalAceRemoval(

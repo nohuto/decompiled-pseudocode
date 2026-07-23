@@ -1,12 +1,12 @@
 /*
- * XREFs of KiExpireTimerTable @ 0x1403AB740
+ * XREFs of KiExpireTimerTable @ 0x1403B5450
  * Callers:
- *     KiTimerExpiration @ 0x1403AB338 (KiTimerExpiration.c)
+ *     KiTimerExpiration @ 0x1403B5048 (KiTimerExpiration.c)
  * Callees:
- *     HvlNotifyLongSpinWait @ 0x1402BBF00 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402BC760 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     KiProcessExpiredTimerList @ 0x1403ABBEC (KiProcessExpiredTimerList.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     HvlNotifyLongSpinWait @ 0x140306BC0 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140307420 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     KiProcessExpiredTimerList @ 0x1403B58FC (KiProcessExpiredTimerList.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 unsigned __int64 __fastcall KiExpireTimerTable(
@@ -231,7 +231,7 @@ LABEL_40:
           result = a2 + 32 * ((unsigned __int8)v9 + ((v30 ^ 1LL) << 8) + 16);
           if ( *(_DWORD *)(result + 28) != -1 )
             goto LABEL_44;
-          v26 = qword_140FC1698[2 * *(unsigned __int8 *)(a2 - 16432)];
+          v26 = qword_140FC2698[2 * *(unsigned __int8 *)(a2 - 16432)];
           if ( KiSerializeTimerExpiration )
           {
             result = v9 & 0x3F;

@@ -1,21 +1,24 @@
 /*
- * XREFs of RtlMakeSelfRelativeSD @ 0x140768454
+ * XREFs of RtlMakeSelfRelativeSD @ 0x140768614
  * Callers:
- *     RtlpSysVolCheckOwnerAndSecurity @ 0x140731FF8 (RtlpSysVolCheckOwnerAndSecurity.c)
- *     RtlAbsoluteToSelfRelativeSD @ 0x140768430 (RtlAbsoluteToSelfRelativeSD.c)
+ *     RtlpSysVolCheckOwnerAndSecurity @ 0x1407321B8 (RtlpSysVolCheckOwnerAndSecurity.c)
+ *     RtlAbsoluteToSelfRelativeSD @ 0x1407685F0 (RtlAbsoluteToSelfRelativeSD.c)
  * Callees:
- *     memmove @ 0x140413F40 (memmove.c)
- *     memset @ 0x140414200 (memset.c)
- *     RtlpQuerySecurityDescriptor @ 0x1407685C4 (RtlpQuerySecurityDescriptor.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     RtlpQuerySecurityDescriptor @ 0x140768784 (RtlpQuerySecurityDescriptor.c)
  */
 
-__int64 __fastcall RtlMakeSelfRelativeSD(int *a1, char *a2, unsigned int *a3)
+NTSTATUS __cdecl RtlMakeSelfRelativeSD(
+        PSECURITY_DESCRIPTOR AbsoluteSecurityDescriptor,
+        PSECURITY_DESCRIPTOR SelfRelativeSecurityDescriptor,
+        PULONG BufferLength)
 {
   size_t v6; // r15
   size_t v7; // r12
   size_t v8; // r13
   size_t v9; // r14
-  unsigned int v10; // ecx
+  ULONG v10; // ecx
   int v11; // eax
   char *v12; // rdi
   int v13; // eax
@@ -39,7 +42,7 @@ __int64 __fastcall RtlMakeSelfRelativeSD(int *a1, char *a2, unsigned int *a3)
   Src = 0LL;
   v17 = 0LL;
   RtlpQuerySecurityDescriptor(
-    (_DWORD)a1,
+    (_DWORD)AbsoluteSecurityDescriptor,
     (unsigned int)&v19,
     (unsigned int)&v22,
     (unsigned int)&v20,
@@ -53,20 +56,20 @@ __int64 __fastcall RtlMakeSelfRelativeSD(int *a1, char *a2, unsigned int *a3)
   v8 = (unsigned int)Size;
   v9 = (unsigned int)v23;
   v10 = v23 + v21 + v22 + Size + 20;
-  if ( v10 > *a3 )
+  if ( v10 > *BufferLength )
   {
-    *a3 = v10;
-    return 3221225507LL;
+    *BufferLength = v10;
+    return -1073741789;
   }
-  else if ( a2 )
+  else if ( SelfRelativeSecurityDescriptor )
   {
-    memset(a2, 0, v10);
-    v11 = *a1;
-    v12 = a2 + 20;
-    *(_DWORD *)a2 = v11;
+    memset(SelfRelativeSecurityDescriptor, 0, v10);
+    v11 = *(_DWORD *)AbsoluteSecurityDescriptor;
+    v12 = (char *)SelfRelativeSecurityDescriptor + 20;
+    *(_DWORD *)SelfRelativeSecurityDescriptor = v11;
     if ( (_DWORD)v9 )
     {
-      memmove(a2 + 20, v17, v9);
+      memmove((char *)SelfRelativeSecurityDescriptor + 20, v17, v9);
       v12 += v9;
       v13 = 20;
     }
@@ -74,35 +77,35 @@ __int64 __fastcall RtlMakeSelfRelativeSD(int *a1, char *a2, unsigned int *a3)
     {
       v13 = 0;
     }
-    *((_DWORD *)a2 + 3) = v13;
+    *((_DWORD *)SelfRelativeSecurityDescriptor + 3) = v13;
     if ( (_DWORD)v8 )
     {
       memmove(v12, Src, v8);
       v14 = (int)v12;
       v12 += v8;
-      v15 = v14 - (_DWORD)a2;
+      v15 = v14 - (_DWORD)SelfRelativeSecurityDescriptor;
     }
     else
     {
       v15 = 0;
     }
-    *((_DWORD *)a2 + 4) = v15;
+    *((_DWORD *)SelfRelativeSecurityDescriptor + 4) = v15;
     if ( (_DWORD)v7 )
     {
       memmove(v12, v19, v7);
-      *((_DWORD *)a2 + 1) = (_DWORD)v12 - (_DWORD)a2;
+      *((_DWORD *)SelfRelativeSecurityDescriptor + 1) = (_DWORD)v12 - (_DWORD)SelfRelativeSecurityDescriptor;
       v12 += v7;
     }
     if ( (_DWORD)v6 )
     {
       memmove(v12, v20, v6);
-      *((_DWORD *)a2 + 2) = (_DWORD)v12 - (_DWORD)a2;
+      *((_DWORD *)SelfRelativeSecurityDescriptor + 2) = (_DWORD)v12 - (_DWORD)SelfRelativeSecurityDescriptor;
     }
-    *((_WORD *)a2 + 1) |= 0x8000u;
-    return 0LL;
+    *((_WORD *)SelfRelativeSecurityDescriptor + 1) |= 0x8000u;
+    return 0;
   }
   else
   {
-    return 3221225485LL;
+    return -1073741811;
   }
 }

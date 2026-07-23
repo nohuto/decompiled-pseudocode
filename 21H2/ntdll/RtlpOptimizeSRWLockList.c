@@ -9,39 +9,45 @@
  *     <none>
  */
 
-signed __int64 __fastcall RtlpOptimizeSRWLockList(volatile signed __int64 *a1, signed __int64 a2)
+int __fastcall RtlpOptimizeSRWLockList(volatile signed __int64 *a1, signed __int64 a2)
 {
-  signed __int64 result; // rax
+  signed __int64 v2; // rax
   _QWORD *v4; // r8
   _QWORD *v5; // rcx
   __int64 v6; // rcx
   signed __int64 v7; // rtt
 
-  result = a2;
-  if ( (a2 & 1) == 0 )
-    return RtlpWakeSRWLock(a1, result, 0);
-  while ( 1 )
+  v2 = a2;
+  if ( (a2 & 1) != 0 )
   {
-    v4 = (_QWORD *)(result & 0xFFFFFFFFFFFFFFF0uLL);
-    if ( !*(_QWORD *)((result & 0xFFFFFFFFFFFFFFF0uLL) + 8) )
+    while ( 1 )
     {
-      do
+      v4 = (_QWORD *)(v2 & 0xFFFFFFFFFFFFFFF0uLL);
+      if ( !*(_QWORD *)((v2 & 0xFFFFFFFFFFFFFFF0uLL) + 8) )
       {
-        v5 = v4;
-        v4 = (_QWORD *)*v4;
-        v4[2] = v5;
-        v6 = v4[1];
+        do
+        {
+          v5 = v4;
+          v4 = (_QWORD *)*v4;
+          v4[2] = v5;
+          v6 = v4[1];
+        }
+        while ( !v6 );
+        if ( v4 != (_QWORD *)(v2 & 0xFFFFFFFFFFFFFFF0uLL) )
+          *(_QWORD *)((v2 & 0xFFFFFFFFFFFFFFF0uLL) + 8) = v6;
       }
-      while ( !v6 );
-      if ( v4 != (_QWORD *)(result & 0xFFFFFFFFFFFFFFF0uLL) )
-        *(_QWORD *)((result & 0xFFFFFFFFFFFFFFF0uLL) + 8) = v6;
+      v7 = v2;
+      v2 = _InterlockedCompareExchange64(a1, v2 - 4, v2);
+      if ( v7 == v2 )
+        break;
+      if ( (v2 & 1) == 0 )
+        goto LABEL_8;
     }
-    v7 = result;
-    result = _InterlockedCompareExchange64(a1, result - 4, result);
-    if ( v7 == result )
-      break;
-    if ( (result & 1) == 0 )
-      return RtlpWakeSRWLock(a1, result, 0);
   }
-  return result;
+  else
+  {
+LABEL_8:
+    LODWORD(v2) = RtlpWakeSRWLock(a1, v2, 0);
+  }
+  return v2;
 }

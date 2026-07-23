@@ -6,7 +6,7 @@
  *     RtlpValidateHeapSegment @ 0x1801095C0 (RtlpValidateHeapSegment.c)
  * Callees:
  *     DbgPrint @ 0x18004F300 (DbgPrint.c)
- *     RtlCompareMemory @ 0x1800A4A60 (RtlCompareMemory.c)
+ *     RtlCompareMemory @ 0x1800A4A80 (RtlCompareMemory.c)
  *     RtlpBreakPointHeap @ 0x180108DD8 (RtlpBreakPointHeap.c)
  */
 

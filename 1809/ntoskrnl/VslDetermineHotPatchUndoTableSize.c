@@ -1,11 +1,11 @@
 /*
- * XREFs of VslDetermineHotPatchUndoTableSize @ 0x14081856C
+ * XREFs of VslDetermineHotPatchUndoTableSize @ 0x14081976C
  * Callers:
- *     MiApplyDriverHotPatch @ 0x140854080 (MiApplyDriverHotPatch.c)
- *     MiUnapplyDriverHotPatch @ 0x140858114 (MiUnapplyDriverHotPatch.c)
+ *     MiApplyDriverHotPatch @ 0x1408552E0 (MiApplyDriverHotPatch.c)
+ *     MiUnapplyDriverHotPatch @ 0x140859374 (MiUnapplyDriverHotPatch.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140129CB0 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     VslpEnterIumSecureMode @ 0x140129D80 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall VslDetermineHotPatchUndoTableSize(__int64 a1, _DWORD *a2)

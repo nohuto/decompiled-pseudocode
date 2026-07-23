@@ -7,7 +7,6 @@
  *     <none>
  */
 
-// local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall ZwOpenEnlistment(
         PHANDLE EnlistmentHandle,
         ACCESS_MASK DesiredAccess,
@@ -17,5 +16,5 @@ NTSTATUS __stdcall ZwOpenEnlistment(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(EnlistmentHandle, *(_QWORD *)&DesiredAccess);
+  return KiServiceInternal(EnlistmentHandle);
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of IoDiskIoAttributionQuery @ 0x1400B6224
+ * XREFs of IoDiskIoAttributionQuery @ 0x1400B404C
  * Callers:
- *     IoGetIoRateControl @ 0x1400B5FD8 (IoGetIoRateControl.c)
- *     IopIoRateStartRateControl @ 0x1400B6D58 (IopIoRateStartRateControl.c)
- *     PspQueryJobIoAttribution @ 0x1404F19AC (PspQueryJobIoAttribution.c)
+ *     IoGetIoRateControl @ 0x1400B3E00 (IoGetIoRateControl.c)
+ *     IopIoRateStartRateControl @ 0x1400B4B80 (IopIoRateStartRateControl.c)
+ *     PspQueryJobIoAttribution @ 0x1404D3AA0 (PspQueryJobIoAttribution.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140012750 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14001BD40 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x1400122D0 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14001B8C0 (KeAcquireInStackQueuedSpinLock.c)
  */
 
 void __fastcall IoDiskIoAttributionQuery(__int64 a1, _OWORD *a2, _OWORD *a3)

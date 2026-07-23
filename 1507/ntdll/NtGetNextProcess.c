@@ -6,11 +6,16 @@
  *     <none>
  */
 
-__int64 NtGetNextProcess()
+NTSTATUS __cdecl NtGetNextProcess(
+        HANDLE ProcessHandle,
+        ACCESS_MASK DesiredAccess,
+        ULONG HandleAttributes,
+        ULONG Flags,
+        PHANDLE NewProcessHandle)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 232LL;
+  result = 232;
   __asm { syscall; Low latency system call }
   return result;
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpSavePersistedLoggersWorker @ 0x1407B042C
+ * XREFs of EtwpSavePersistedLoggersWorker @ 0x1407B087C
  * Callers:
- *     EtwpSavePersistedLoggers @ 0x1407B03FC (EtwpSavePersistedLoggers.c)
+ *     EtwpSavePersistedLoggers @ 0x1407B084C (EtwpSavePersistedLoggers.c)
  * Callees:
- *     EtwpSavePersistedLogger @ 0x1407AFE60 (EtwpSavePersistedLogger.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     EtwpSavePersistedLogger @ 0x1407B02B0 (EtwpSavePersistedLogger.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 EtwpSavePersistedLoggersWorker()
@@ -19,7 +19,7 @@ __int64 EtwpSavePersistedLoggersWorker()
   int v7; // [rsp+50h] [rbp+8h] BYREF
 
   v7 = 0;
-  Pool2 = ExAllocatePool2(0x100uLL);
+  Pool2 = ExAllocatePool2(0x100uLL, 8LL * *(unsigned int *)(EtwpHostSiloState + 16) + 4112, 0x4B777445u);
   v2 = (_QWORD *)Pool2;
   if ( !Pool2 )
     goto LABEL_9;

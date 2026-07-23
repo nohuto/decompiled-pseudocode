@@ -1,9 +1,9 @@
 /*
- * XREFs of PopIdleWakeFreeWakeSourceDiagnostic @ 0x14075EF8C
+ * XREFs of PopIdleWakeFreeWakeSourceDiagnostic @ 0x14075DF2C
  * Callers:
- *     PopIdleWakeNotifyModernStandbyExitWorker @ 0x140A8D7D0 (PopIdleWakeNotifyModernStandbyExitWorker.c)
+ *     PopIdleWakeNotifyModernStandbyExitWorker @ 0x140A89DA0 (PopIdleWakeNotifyModernStandbyExitWorker.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PopIdleWakeFreeWakeSourceDiagnostic(__int64 a1)

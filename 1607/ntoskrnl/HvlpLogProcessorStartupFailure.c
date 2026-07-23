@@ -1,10 +1,10 @@
 /*
- * XREFs of HvlpLogProcessorStartupFailure @ 0x1401C11A0
+ * XREFs of HvlpLogProcessorStartupFailure @ 0x1401C1084
  * Callers:
- *     HvlPhase2Initialize @ 0x14014C4A8 (HvlPhase2Initialize.c)
+ *     HvlPhase2Initialize @ 0x14014CA18 (HvlPhase2Initialize.c)
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     HvlpWriteEventLog @ 0x1401C1260 (HvlpWriteEventLog.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     HvlpWriteEventLog @ 0x1401C1144 (HvlpWriteEventLog.c)
  */
 
 __int64 __fastcall HvlpLogProcessorStartupFailure(int a1, int a2, __int64 a3)

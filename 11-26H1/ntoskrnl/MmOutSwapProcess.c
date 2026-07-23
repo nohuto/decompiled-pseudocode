@@ -1,26 +1,26 @@
 /*
- * XREFs of MmOutSwapProcess @ 0x14049A5C8
+ * XREFs of MmOutSwapProcess @ 0x140494118
  * Callers:
- *     KiOutSwapProcesses @ 0x14049A3E4 (KiOutSwapProcesses.c)
+ *     KiOutSwapProcesses @ 0x140493F34 (KiOutSwapProcesses.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiMapPageInHyperSpaceWorker @ 0x140287EE0 (MiMapPageInHyperSpaceWorker.c)
- *     MiEmptyPageAccessLog @ 0x1402CFDDC (MiEmptyPageAccessLog.c)
- *     MiBadShareCount @ 0x1402DC710 (MiBadShareCount.c)
- *     MiPfnShareCountIsZero @ 0x1402DC770 (MiPfnShareCountIsZero.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402DED10 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiLockAndDecrementShareCount @ 0x1403091DC (MiLockAndDecrementShareCount.c)
- *     MiMakeTransitionPte @ 0x14030DC00 (MiMakeTransitionPte.c)
- *     MiUnmapPageInHyperSpaceWorker @ 0x14040DF60 (MiUnmapPageInHyperSpaceWorker.c)
- *     KeFlushProcessTb @ 0x1404840AC (KeFlushProcessTb.c)
- *     KeWaitForAllContextSwaps @ 0x14052E2F8 (KeWaitForAllContextSwaps.c)
- *     MiReleaseCommitForResetPages @ 0x1406E4EA0 (MiReleaseCommitForResetPages.c)
- *     MiReleaseOutSwappedProcessCommit @ 0x1406E502C (MiReleaseOutSwappedProcessCommit.c)
- *     MiOutSwapFreeSoftWslePxe @ 0x14070FD28 (MiOutSwapFreeSoftWslePxe.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiMapPageInHyperSpaceWorker @ 0x140287440 (MiMapPageInHyperSpaceWorker.c)
+ *     MiEmptyPageAccessLog @ 0x1402B1B9C (MiEmptyPageAccessLog.c)
+ *     MiBadShareCount @ 0x1402BE4D0 (MiBadShareCount.c)
+ *     MiPfnShareCountIsZero @ 0x1402BE530 (MiPfnShareCountIsZero.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402C0B20 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiLockAndDecrementShareCount @ 0x1402EB25C (MiLockAndDecrementShareCount.c)
+ *     MiMakeTransitionPte @ 0x1402EFC80 (MiMakeTransitionPte.c)
+ *     MiUnmapPageInHyperSpaceWorker @ 0x14042AE90 (MiUnmapPageInHyperSpaceWorker.c)
+ *     KeFlushProcessTb @ 0x14047DA1C (KeFlushProcessTb.c)
+ *     KeWaitForAllContextSwaps @ 0x140530818 (KeWaitForAllContextSwaps.c)
+ *     MiReleaseCommitForResetPages @ 0x1406E9B50 (MiReleaseCommitForResetPages.c)
+ *     MiReleaseOutSwappedProcessCommit @ 0x1406E9CDC (MiReleaseOutSwappedProcessCommit.c)
+ *     MiOutSwapFreeSoftWslePxe @ 0x140714A24 (MiOutSwapFreeSoftWslePxe.c)
  */
 
 void __fastcall MmOutSwapProcess(struct _EPROCESS *a1)
@@ -58,9 +58,9 @@ void __fastcall MmOutSwapProcess(struct _EPROCESS *a1)
 
   if ( (a1->Vm.Instance.Flags.EntireFlags & 0xF) == 1 )
   {
-    p_CommitReleaseContext = (void **)&unk_140E37820;
-    p_ActualWslePages = (volatile unsigned __int64 *)&unk_140E37838;
-    p_AccessLog = (void **)&unk_140E37828;
+    p_CommitReleaseContext = (void **)&unk_140E379A0;
+    p_ActualWslePages = (volatile unsigned __int64 *)&unk_140E379B8;
+    p_AccessLog = (void **)&unk_140E379A8;
   }
   else
   {
@@ -84,7 +84,7 @@ void __fastcall MmOutSwapProcess(struct _EPROCESS *a1)
     VmWorkingSetList = a1->Vm.Instance.VmWorkingSetList;
     v30[1] = v30;
     v30[0] = v30;
-    v7 = (volatile LONG *)(*(_QWORD *)(stru_140E2EB88.ThreadLock + 8 * PartitionId) + 21384LL);
+    v7 = (volatile LONG *)(*(_QWORD *)(stru_140E2ED08.ThreadLock + 8 * PartitionId) + 21384LL);
     v8 = ExAcquireSpinLockExclusive(v7);
     AttachedThreads = VmWorkingSetList->AttachedThreads;
     v10 = v8;
@@ -119,18 +119,18 @@ LABEL_14:
       v14->Flink = 0LL;
 LABEL_23:
       ExReleaseSpinLockExclusiveFromDpcLevel(v7);
-      ExAcquireSpinLockExclusiveAtDpcLevel(&dword_140E36080);
+      ExAcquireSpinLockExclusiveAtDpcLevel(&dword_140E36200);
       _InterlockedOr((volatile signed __int32 *)&a1->500, 0x80u);
       if ( v10 == 17 )
-        ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140E36080);
+        ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140E36200);
       else
-        ExReleaseSpinLockExclusive(&dword_140E36080, v10);
+        ExReleaseSpinLockExclusive(&dword_140E36200, v10);
       if ( *p_AccessLog )
       {
         if ( (a1->Vm.Instance.Flags.EntireFlags & 0xF) == 1 )
           v17 = &MiSystemPartition;
         else
-          v17 = *(ULONG **)(stru_140E2EB88.ThreadLock + 8LL * a1->Vm.Instance.PartitionId);
+          v17 = *(ULONG **)(stru_140E2ED08.ThreadLock + 8LL * a1->Vm.Instance.PartitionId);
         MiEmptyPageAccessLog((__int64)v17, *p_AccessLog);
         *p_AccessLog = 0LL;
       }
@@ -144,7 +144,7 @@ LABEL_23:
       v21 = MiMapPageInHyperSpaceWorker(v18, (unsigned __int8 *)&EntireFlags, 0x80000000);
       if ( *p_ActualWslePages )
       {
-        v22 = ((unsigned __int64)(8 * (unsigned int)((unsigned __int64)(qword_140E37C30 + 0x8000000000LL) >> 39)
+        v22 = ((unsigned __int64)(8 * (unsigned int)((unsigned __int64)(qword_140E37DB0 + 0x8000000000LL) >> 39)
                                 + 2109657088) >> 3) & 0x1FF;
         v23 = *(_QWORD *)(v21 + 8 * v22);
         *(_QWORD *)(v21 + 8 * v22) = *(_QWORD *)&CLFS_LSN_NULL_EXT;
@@ -163,7 +163,7 @@ LABEL_23:
       if ( KiIrqlFlags )
         KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), EntireFlags);
       __writecr8((unsigned __int8)EntireFlags);
-      v28 = ExAcquireSpinLockExclusive(&dword_140E36080);
+      v28 = ExAcquireSpinLockExclusive(&dword_140E36200);
       EntireFlags = 0;
       while ( _interlockedbittestandset64((volatile signed __int32 *)(v19 + 24), 0x3FuLL) )
       {
@@ -184,7 +184,7 @@ LABEL_23:
       if ( (v29 & 0x3FFFFFFFFFFFFFFFLL) == 1 )
         MiPfnShareCountIsZero(v19, 0LL);
       _InterlockedAnd64((volatile signed __int64 *)(v19 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-      v11 = &dword_140E36080;
+      v11 = &dword_140E36200;
       if ( v28 != 17 )
       {
         v12 = v28;

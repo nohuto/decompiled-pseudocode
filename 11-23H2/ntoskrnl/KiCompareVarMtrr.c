@@ -1,7 +1,7 @@
 /*
- * XREFs of KiCompareVarMtrr @ 0x140A8FBCC
+ * XREFs of KiCompareVarMtrr @ 0x140A8FA4C
  * Callers:
- *     KeLoadMTRR @ 0x140A8F950 (KeLoadMTRR.c)
+ *     KeLoadMTRR @ 0x140A8F7D0 (KeLoadMTRR.c)
  * Callees:
  *     <none>
  */

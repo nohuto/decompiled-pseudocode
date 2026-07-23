@@ -1,20 +1,20 @@
 /*
- * XREFs of KiInsertSchedulingGroupQueue @ 0x14011709C
+ * XREFs of KiInsertSchedulingGroupQueue @ 0x14011710C
  * Callers:
- *     KiInsertNonMaxOverQuotaScb @ 0x14011703C (KiInsertNonMaxOverQuotaScb.c)
- *     KiResortScbQueue @ 0x1401171B0 (KiResortScbQueue.c)
+ *     KiInsertNonMaxOverQuotaScb @ 0x1401170AC (KiInsertNonMaxOverQuotaScb.c)
+ *     KiResortScbQueue @ 0x140117220 (KiResortScbQueue.c)
  * Callees:
- *     RtlRbInsertNodeEx @ 0x1400BD6B0 (RtlRbInsertNodeEx.c)
+ *     RtlRbInsertNodeEx @ 0x1400BD5F0 (RtlRbInsertNodeEx.c)
  */
 
-char __fastcall KiInsertSchedulingGroupQueue(__int64 a1, __int64 a2, char a3)
+BOOLEAN __fastcall KiInsertSchedulingGroupQueue(_RTL_RB_TREE *a1, __int64 a2, char a3)
 {
-  unsigned __int64 *v3; // rax
+  _RTL_RB_TREE *v3; // rax
   __int64 v4; // r9
-  unsigned __int64 *v7; // rcx
-  unsigned __int64 v8; // rax
-  unsigned __int64 v9; // rdx
-  bool v10; // r8
+  _RTL_RB_TREE *v7; // rcx
+  _RTL_BALANCED_NODE *Min; // rax
+  unsigned __int64 Root; // rdx
+  BOOLEAN v10; // r8
   int v11; // r9d
   int v12; // r11d
   int v13; // eax
@@ -22,33 +22,33 @@ char __fastcall KiInsertSchedulingGroupQueue(__int64 a1, __int64 a2, char a3)
   unsigned __int16 v15; // r8
   int v16; // r10d
   int v17; // eax
-  unsigned __int64 v18; // rax
-  char result; // al
+  _RTL_BALANCED_NODE *v18; // rax
+  BOOLEAN result; // al
 
   *(_BYTE *)(a2 + 112) |= 1u;
-  v3 = (unsigned __int64 *)(a1 + 22896);
+  v3 = a1 + 1431;
   v4 = *(_QWORD *)(a2 + 408);
-  v7 = (unsigned __int64 *)(v4 + 392);
+  v7 = (_RTL_RB_TREE *)(v4 + 392);
   if ( !v4 )
     v7 = v3;
-  v8 = v7[1];
-  v9 = *v7;
-  if ( (v8 & 1) != 0 && v9 )
-    v9 ^= (unsigned __int64)v7;
+  Min = v7->Min;
+  Root = (unsigned __int64)v7->Root;
+  if ( ((unsigned __int8)Min & 1) != 0 && Root )
+    Root ^= (unsigned __int64)v7;
   v10 = 0;
-  v11 = v8 & 1;
-  if ( v9 )
+  v11 = (unsigned __int8)Min & 1;
+  if ( Root )
   {
     v12 = *(_DWORD *)(a2 + 116);
     while ( 1 )
     {
-      v13 = v12 - *(_DWORD *)(v9 + 28);
-      if ( v12 == *(_DWORD *)(v9 + 28) )
+      v13 = v12 - *(_DWORD *)(Root + 28);
+      if ( v12 == *(_DWORD *)(Root + 28) )
       {
         v14 = *(_WORD *)(a2 + 114);
         if ( v14 )
         {
-          v15 = *(_WORD *)(v9 + 26);
+          v15 = *(_WORD *)(Root + 26);
           _BitScanReverse((unsigned int *)&v16, v14);
           v17 = 0;
           if ( v15 )
@@ -59,7 +59,7 @@ char __fastcall KiInsertSchedulingGroupQueue(__int64 a1, __int64 a2, char a3)
         {
           if ( !v12 )
           {
-            if ( *(_QWORD *)a2 > *(_QWORD *)(v9 - 88) )
+            if ( *(_QWORD *)a2 > *(_QWORD *)(Root - 88) )
               goto LABEL_22;
             goto LABEL_15;
           }
@@ -69,12 +69,12 @@ char __fastcall KiInsertSchedulingGroupQueue(__int64 a1, __int64 a2, char a3)
       if ( v13 >= 0 )
       {
 LABEL_22:
-        v18 = *(_QWORD *)(v9 + 8);
+        v18 = *(_RTL_BALANCED_NODE **)(Root + 8);
         if ( v11 )
         {
           if ( !v18 )
             goto LABEL_26;
-          v18 ^= v9;
+          v18 = (_RTL_BALANCED_NODE *)(Root ^ (unsigned __int64)v18);
         }
         if ( !v18 )
         {
@@ -85,12 +85,12 @@ LABEL_26:
         goto LABEL_19;
       }
 LABEL_15:
-      v18 = *(_QWORD *)v9;
+      v18 = *(_RTL_BALANCED_NODE **)Root;
       if ( v11 )
       {
         if ( !v18 )
           goto LABEL_27;
-        v18 ^= v9;
+        v18 = (_RTL_BALANCED_NODE *)(Root ^ (unsigned __int64)v18);
       }
       if ( !v18 )
       {
@@ -99,10 +99,10 @@ LABEL_27:
         break;
       }
 LABEL_19:
-      v9 = v18;
+      Root = (unsigned __int64)v18;
     }
   }
-  result = RtlRbInsertNodeEx((unsigned __int64)v7, v9, v10, (_QWORD *)(a2 + 88));
+  result = RtlRbInsertNodeEx(v7, (PRTL_BALANCED_NODE)Root, v10, (PRTL_BALANCED_NODE)(a2 + 88));
   if ( a3 )
   {
     result = MEMORY[0xFFFFF78000000008];

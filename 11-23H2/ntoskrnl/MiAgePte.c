@@ -1,18 +1,18 @@
 /*
- * XREFs of MiAgePte @ 0x14027BD60
+ * XREFs of MiAgePte @ 0x14027BFF0
  * Callers:
  *     <none>
  * Callees:
  *     ExpWaitForSpinLockExclusiveAndAcquire @ 0x140207740 (ExpWaitForSpinLockExclusiveAndAcquire.c)
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1402712F0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiAgePteWorker @ 0x14027C1F0 (MiAgePteWorker.c)
- *     MiDemoteCombinedPte @ 0x1402F37B4 (MiDemoteCombinedPte.c)
- *     MiAgeWorkingSetTail @ 0x1403343B0 (MiAgeWorkingSetTail.c)
- *     MiIsPageTableLocked @ 0x14035E09C (MiIsPageTableLocked.c)
- *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14046B438 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
- *     MiInsertVmAccessedEntry @ 0x14046BCC8 (MiInsertVmAccessedEntry.c)
- *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14060B0BC (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140271580 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiAgePteWorker @ 0x14027C480 (MiAgePteWorker.c)
+ *     MiDemoteCombinedPte @ 0x1402F3A44 (MiDemoteCombinedPte.c)
+ *     MiAgeWorkingSetTail @ 0x140334640 (MiAgeWorkingSetTail.c)
+ *     MiIsPageTableLocked @ 0x14035E23C (MiIsPageTableLocked.c)
+ *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14046B838 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
+ *     MiInsertVmAccessedEntry @ 0x14046C0C8 (MiInsertVmAccessedEntry.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14060B60C (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
  */
 
 __int64 __fastcall MiAgePte(__int64 a1, __int64 a2, int a3)

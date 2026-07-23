@@ -1,17 +1,17 @@
 /*
- * XREFs of MiUpdatePfnPriority @ 0x1403FE790
+ * XREFs of MiUpdatePfnPriority @ 0x1403DCE10
  * Callers:
- *     MiActOnPte @ 0x14028B7E0 (MiActOnPte.c)
- *     MiPfPutPagesInTransition @ 0x1402E692C (MiPfPutPagesInTransition.c)
- *     MiCombineWithExisting @ 0x1402F92E0 (MiCombineWithExisting.c)
- *     MiCombineWithStandbyExisting @ 0x140313D4C (MiCombineWithStandbyExisting.c)
- *     MiDeprioritizeVirtualAddresses @ 0x1403FD5B4 (MiDeprioritizeVirtualAddresses.c)
- *     NtLockVirtualMemory @ 0x1403FD910 (NtLockVirtualMemory.c)
- *     MiUpdatePrefetchPriority @ 0x1403FE3E8 (MiUpdatePrefetchPriority.c)
+ *     MiCombineWithExisting @ 0x140294840 (MiCombineWithExisting.c)
+ *     MiActOnPte @ 0x14029B3E0 (MiActOnPte.c)
+ *     MiPfPutPagesInTransition @ 0x140347F6C (MiPfPutPagesInTransition.c)
+ *     MiDeprioritizeVirtualAddresses @ 0x1403DB1C8 (MiDeprioritizeVirtualAddresses.c)
+ *     NtLockVirtualMemory @ 0x1403DBC30 (NtLockVirtualMemory.c)
+ *     MiUpdatePrefetchPriority @ 0x1403DCA60 (MiUpdatePrefetchPriority.c)
+ *     MiCombineWithStandbyExisting @ 0x1403F1098 (MiCombineWithStandbyExisting.c)
  * Callees:
- *     MiRelinkStandbyPage @ 0x14022C848 (MiRelinkStandbyPage.c)
- *     MiGetPfnSlabType @ 0x14022D610 (MiGetPfnSlabType.c)
- *     MiIsDecayPfn @ 0x14022EFD0 (MiIsDecayPfn.c)
+ *     MiRelinkStandbyPage @ 0x140300158 (MiRelinkStandbyPage.c)
+ *     MiGetPfnSlabType @ 0x140300F20 (MiGetPfnSlabType.c)
+ *     MiIsDecayPfn @ 0x1403028E0 (MiIsDecayPfn.c)
  */
 
 __int64 __fastcall MiUpdatePfnPriority(unsigned __int64 a1, unsigned int a2, int a3)
@@ -32,7 +32,7 @@ __int64 __fastcall MiUpdatePfnPriority(unsigned __int64 a1, unsigned int a2, int
   v11 = *(_DWORD *)(a1 + 32);
   if ( (v11 & 0x8000000) != 0
     && (a1 < 0xFFFFDE0000000000uLL
-     || a1 >= 48 * qword_140E2DBE0 - 0x21FFFFFFFFD0LL
+     || a1 >= 48 * qword_140E2DD20 - 0x21FFFFFFFFD0LL
      || MiIsDecayPfn(0xAAAAAAAAAAAAAAABuLL * ((__int64)(a1 + 0x220000000000LL) >> 4))
      || (v9 & 7) != 6 && (unsigned int)MiGetPfnSlabType(v4) == 9) )
   {
@@ -67,11 +67,11 @@ __int64 __fastcall MiUpdatePfnPriority(unsigned __int64 a1, unsigned int a2, int
   }
   if ( !v6
     && (*(_DWORD *)(v4 + 16) & 0x400LL) == 0
-    && (*(_DWORD *)(*((_QWORD *)qword_140E2FF88 + ((*(_QWORD *)(v4 + 40) >> 43) & 0x3FFLL)) + 4LL) & 0x80u) == 0 )
+    && (*(_DWORD *)(*((_QWORD *)qword_140E300C8 + ((*(_QWORD *)(v4 + 40) >> 43) & 0x3FFLL)) + 4LL) & 0x80u) == 0 )
   {
     v10 = *(_QWORD *)(v4 + 16);
     if ( (v10 & 4) != 0
-      && (unsigned __int16)v10 >> 12 == *(_DWORD *)(*((_QWORD *)qword_140E2FF88
+      && (unsigned __int16)v10 >> 12 == *(_DWORD *)(*((_QWORD *)qword_140E300C8
                                                     + ((*(_QWORD *)(v4 + 40) >> 43) & 0x3FFLL))
                                                   + 1204LL) )
     {

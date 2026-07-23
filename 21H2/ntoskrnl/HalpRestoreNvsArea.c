@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpRestoreNvsArea @ 0x140386924
+ * XREFs of HalpRestoreNvsArea @ 0x140386A74
  * Callers:
- *     HalpAcpiPostSleep @ 0x140995B2C (HalpAcpiPostSleep.c)
+ *     HalpAcpiPostSleep @ 0x140996B2C (HalpAcpiPostSleep.c)
  * Callees:
- *     memmove @ 0x140413F40 (memmove.c)
+ *     memmove @ 0x140414040 (memmove.c)
  */
 
 void *HalpRestoreNvsArea()

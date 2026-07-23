@@ -1,5 +1,5 @@
 /*
- * XREFs of PsGetProcessUILimits @ 0x1407F7890
+ * XREFs of PsGetProcessUILimits @ 0x1407FD3F0
  * Callers:
  *     <none>
  * Callees:

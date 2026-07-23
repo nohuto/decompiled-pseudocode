@@ -1,11 +1,11 @@
 /*
- * XREFs of MiCopyToUntrustedMemory @ 0x140398640
+ * XREFs of MiCopyToUntrustedMemory @ 0x140398820
  * Callers:
- *     MiDbgCopyMemory @ 0x1402E5E58 (MiDbgCopyMemory.c)
- *     MiDbgCopyMemoryTarget @ 0x140643A30 (MiDbgCopyMemoryTarget.c)
+ *     MiDbgCopyMemory @ 0x1402E60E8 (MiDbgCopyMemory.c)
+ *     MiDbgCopyMemoryTarget @ 0x140643F80 (MiDbgCopyMemoryTarget.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memmove @ 0x140435700 (memmove.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memmove @ 0x140435B00 (memmove.c)
  */
 
 __int64 __fastcall MiCopyToUntrustedMemory(_BYTE *a1, _BYTE *a2, unsigned int a3, unsigned int a4)

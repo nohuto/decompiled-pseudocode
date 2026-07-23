@@ -1,14 +1,14 @@
 /*
- * XREFs of RXactpCommit @ 0x180082D84
+ * XREFs of RXactpCommit @ 0x180082D94
  * Callers:
- *     RtlApplyRXactNoFlush @ 0x180082D10 (RtlApplyRXactNoFlush.c)
- *     RtlApplyRXact @ 0x18008C520 (RtlApplyRXact.c)
- *     RtlInitializeRXact @ 0x18008DDA0 (RtlInitializeRXact.c)
+ *     RtlApplyRXactNoFlush @ 0x180082D20 (RtlApplyRXactNoFlush.c)
+ *     RtlApplyRXact @ 0x18008C530 (RtlApplyRXact.c)
+ *     RtlInitializeRXact @ 0x18008DDB0 (RtlInitializeRXact.c)
  * Callees:
- *     RXactpOpenTargetKey @ 0x18008B47C (RXactpOpenTargetKey.c)
- *     NtClose @ 0x1800A04C0 (NtClose.c)
- *     ZwSetValueKey @ 0x1800A0ED0 (ZwSetValueKey.c)
- *     NtDeleteKey @ 0x1800A1C90 (NtDeleteKey.c)
+ *     RXactpOpenTargetKey @ 0x18008B48C (RXactpOpenTargetKey.c)
+ *     NtClose @ 0x1800A04E0 (NtClose.c)
+ *     ZwSetValueKey @ 0x1800A0EF0 (ZwSetValueKey.c)
+ *     NtDeleteKey @ 0x1800A1CB0 (NtDeleteKey.c)
  */
 
 __int64 __fastcall RXactpCommit(__int64 *a1)
@@ -21,7 +21,7 @@ __int64 __fastcall RXactpCommit(__int64 *a1)
   unsigned int *i; // rbx
   HANDLE v7; // rcx
   char v8; // bp
-  int v9; // eax
+  NTSTATUS v9; // eax
   int v10; // edi
   __int64 result; // rax
   HANDLE v12; // rcx
@@ -77,7 +77,7 @@ __int64 __fastcall RXactpCommit(__int64 *a1)
         Handle = (HANDLE)*((_QWORD *)i + 5);
         v8 = 0;
       }
-      v9 = ZwSetValueKey(v7, i + 6, 0LL, i[12], *((_QWORD *)i + 7), i[13]);
+      v9 = ZwSetValueKey(v7, (PUNICODE_STRING)(i + 6), 0, i[12], *((PVOID *)i + 7), i[13]);
     }
     v10 = v9;
     if ( v8 )

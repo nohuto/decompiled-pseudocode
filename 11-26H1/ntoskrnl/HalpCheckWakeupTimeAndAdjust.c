@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpCheckWakeupTimeAndAdjust @ 0x140594734
+ * XREFs of HalpCheckWakeupTimeAndAdjust @ 0x140596EB4
  * Callers:
- *     HaliAcpiSleep @ 0x1405A2710 (HaliAcpiSleep.c)
+ *     HaliAcpiSleep @ 0x1405A4F20 (HaliAcpiSleep.c)
  * Callees:
- *     HalQueryRealTimeClock @ 0x140451480 (HalQueryRealTimeClock.c)
- *     HalpSetWakeAlarm @ 0x1404515F8 (HalpSetWakeAlarm.c)
- *     RtlpTimeToTimeFields @ 0x140451D40 (RtlpTimeToTimeFields.c)
- *     RtlpTimeFieldsToTime @ 0x1404522F8 (RtlpTimeFieldsToTime.c)
- *     HalpAcpiPmRegisterWrite @ 0x1404576C0 (HalpAcpiPmRegisterWrite.c)
+ *     HalQueryRealTimeClock @ 0x1404495B0 (HalQueryRealTimeClock.c)
+ *     HalpSetWakeAlarm @ 0x140449728 (HalpSetWakeAlarm.c)
+ *     RtlpTimeToTimeFields @ 0x140449E70 (RtlpTimeToTimeFields.c)
+ *     RtlpTimeFieldsToTime @ 0x14044A428 (RtlpTimeFieldsToTime.c)
+ *     HalpAcpiPmRegisterWrite @ 0x14044EF30 (HalpAcpiPmRegisterWrite.c)
  */
 
 char HalpCheckWakeupTimeAndAdjust()
@@ -31,13 +31,13 @@ char HalpCheckWakeupTimeAndAdjust()
       if ( result )
       {
         RtlpTimeFieldsToTime((__int64)&v2, &v4);
-        RtlpTimeFieldsToTime((__int64)&xmmword_140F87E02, (__int64 *)&v5);
+        RtlpTimeFieldsToTime((__int64)&xmmword_140F88202, (__int64 *)&v5);
         result = v4;
         if ( v5 <= v4 + 300000000 )
         {
           v4 += 300000000LL;
           RtlpTimeToTimeFields(&v4, &v2);
-          xmmword_140F87E02 = v2;
+          xmmword_140F88202 = v2;
           HalpSetWakeAlarm(v1, (unsigned __int8 *)&v2);
           result = 0;
           v3 = 1024;

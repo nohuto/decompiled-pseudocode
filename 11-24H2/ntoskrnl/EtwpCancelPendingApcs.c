@@ -1,24 +1,24 @@
 /*
- * XREFs of EtwpCancelPendingApcs @ 0x14048C6E8
+ * XREFs of EtwpCancelPendingApcs @ 0x140487408
  * Callers:
- *     EtwpFreeLoggerContext @ 0x1409D77E0 (EtwpFreeLoggerContext.c)
+ *     EtwpFreeLoggerContext @ 0x140A48E90 (EtwpFreeLoggerContext.c)
  * Callees:
- *     KeRemoveQueueApc @ 0x140205700 (KeRemoveQueueApc.c)
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     ObfReferenceObjectWithTag @ 0x1403403E0 (ObfReferenceObjectWithTag.c)
- *     EtwpFinalizePendingApc @ 0x140441FD8 (EtwpFinalizePendingApc.c)
- *     RtlpInterlockedPushEntrySList @ 0x1406B38D0 (RtlpInterlockedPushEntrySList.c)
- *     RtlpInterlockedFlushSList @ 0x1406B3910 (RtlpInterlockedFlushSList.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x14031F8C0 (ObfReferenceObjectWithTag.c)
+ *     KeRemoveQueueApc @ 0x14032CCE0 (KeRemoveQueueApc.c)
+ *     EtwpFinalizePendingApc @ 0x140438BA8 (EtwpFinalizePendingApc.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1406B4870 (RtlpInterlockedPushEntrySList.c)
+ *     RtlpInterlockedFlushSList @ 0x1406B48B0 (RtlpInterlockedFlushSList.c)
  */
 
 PSLIST_ENTRY __fastcall EtwpCancelPendingApcs(__int64 a1)
 {
   void *v2; // rdi
   PSLIST_ENTRY result; // rax
-  struct _SLIST_ENTRY *i; // rbx
-  struct _SLIST_ENTRY *v5; // r13
+  _SLIST_ENTRY *i; // rbx
+  _SLIST_ENTRY *v5; // r13
   KIRQL v6; // r12
   void *v7; // rcx
 

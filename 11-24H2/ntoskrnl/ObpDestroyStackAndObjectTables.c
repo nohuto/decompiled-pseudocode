@@ -1,9 +1,9 @@
 /*
- * XREFs of ObpDestroyStackAndObjectTables @ 0x140744BBC
+ * XREFs of ObpDestroyStackAndObjectTables @ 0x140742EAC
  * Callers:
- *     ObpStopRuntimeStackTrace @ 0x1407458D4 (ObpStopRuntimeStackTrace.c)
+ *     ObpStopRuntimeStackTrace @ 0x140743BC4 (ObpStopRuntimeStackTrace.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall ObpDestroyStackAndObjectTables(_WORD *a1, _QWORD **a2, _QWORD *a3)

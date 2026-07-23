@@ -1,16 +1,16 @@
 /*
- * XREFs of PnpCallAddDevice @ 0x14073E92C
+ * XREFs of PnpCallAddDevice @ 0x14073EAEC
  * Callers:
- *     PipCallDriverAddDevice @ 0x140741988 (PipCallDriverAddDevice.c)
+ *     PipCallDriverAddDevice @ 0x140741B48 (PipCallDriverAddDevice.c)
  * Callees:
- *     KeRevertToUserGroupAffinityThread @ 0x1402EB390 (KeRevertToUserGroupAffinityThread.c)
- *     PnpSetDeviceAffinityThread @ 0x140361E70 (PnpSetDeviceAffinityThread.c)
- *     PpvUtilCallAddDevice @ 0x14036F630 (PpvUtilCallAddDevice.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     McTemplateK0q_EtwWriteTransfer @ 0x14050D974 (McTemplateK0q_EtwWriteTransfer.c)
- *     McTemplateK0qhzr1z_EtwWriteTransfer @ 0x14050D9E0 (McTemplateK0qhzr1z_EtwWriteTransfer.c)
- *     PnpDisableWatchdog @ 0x1406774E0 (PnpDisableWatchdog.c)
- *     PnpEnableWatchdog @ 0x140677554 (PnpEnableWatchdog.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x14029C6E0 (KeRevertToUserGroupAffinityThread.c)
+ *     PnpSetDeviceAffinityThread @ 0x1402F7538 (PnpSetDeviceAffinityThread.c)
+ *     PpvUtilCallAddDevice @ 0x14036F7E0 (PpvUtilCallAddDevice.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     McTemplateK0q_EtwWriteTransfer @ 0x14050DBB4 (McTemplateK0q_EtwWriteTransfer.c)
+ *     McTemplateK0qhzr1z_EtwWriteTransfer @ 0x14050DC20 (McTemplateK0qhzr1z_EtwWriteTransfer.c)
+ *     PnpDisableWatchdog @ 0x14066AC20 (PnpDisableWatchdog.c)
+ *     PnpEnableWatchdog @ 0x14066AC94 (PnpEnableWatchdog.c)
  */
 
 __int64 __fastcall PnpCallAddDevice(
@@ -27,7 +27,7 @@ __int64 __fastcall PnpCallAddDevice(
   unsigned int v12; // ebx
   __int64 v13; // r8
   _QWORD v15[4]; // [rsp+40h] [rbp-78h] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+60h] [rbp-58h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+60h] [rbp-58h] BYREF
 
   v15[0] = 0LL;
   PreviousAffinity = 0LL;

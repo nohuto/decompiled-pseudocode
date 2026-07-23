@@ -1,18 +1,18 @@
 /*
- * XREFs of CmpReportNotifyHelper @ 0x1406D5440
+ * XREFs of CmpReportNotifyHelper @ 0x1406D5470
  * Callers:
- *     CmpReportNotifyForKcbStack @ 0x1406D53B0 (CmpReportNotifyForKcbStack.c)
+ *     CmpReportNotifyForKcbStack @ 0x1406D53E0 (CmpReportNotifyForKcbStack.c)
  * Callees:
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     CmpTransIsTransActive @ 0x1406164BC (CmpTransIsTransActive.c)
- *     CmpGetKcbAtLayerHeight @ 0x1406D57A0 (CmpGetKcbAtLayerHeight.c)
- *     CmpDelayedDerefKeys @ 0x1406D586C (CmpDelayedDerefKeys.c)
- *     CmpNotifyTriggerCheck @ 0x1407667E4 (CmpNotifyTriggerCheck.c)
- *     CmpPostNotify @ 0x140766860 (CmpPostNotify.c)
+ *     KeAbPreAcquire @ 0x140230FD0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402FD0A0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     CmpTransIsTransActive @ 0x140616A0C (CmpTransIsTransActive.c)
+ *     CmpGetKcbAtLayerHeight @ 0x1406D57D0 (CmpGetKcbAtLayerHeight.c)
+ *     CmpDelayedDerefKeys @ 0x1406D589C (CmpDelayedDerefKeys.c)
+ *     CmpNotifyTriggerCheck @ 0x1407669D4 (CmpNotifyTriggerCheck.c)
+ *     CmpPostNotify @ 0x140766A50 (CmpPostNotify.c)
  */
 
 __int64 __fastcall CmpReportNotifyHelper(__int64 a1, __int64 a2, __int64 a3, int a4, __int64 a5)
@@ -73,10 +73,10 @@ __int64 __fastcall CmpReportNotifyHelper(__int64 a1, __int64 a2, __int64 a3, int
       }
     }
   }
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v23 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v23 <= 0xFu && CurrentIrql <= 0xFu && v23 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v23 <= 0xFu && CurrentIrql <= 0xFu && v23 >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

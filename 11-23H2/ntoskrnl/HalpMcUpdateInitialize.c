@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpMcUpdateInitialize @ 0x14081E114
+ * XREFs of HalpMcUpdateInitialize @ 0x14081E3E4
  * Callers:
- *     HalpLoadMicrocode @ 0x140934B30 (HalpLoadMicrocode.c)
+ *     HalpLoadMicrocode @ 0x140934D30 (HalpLoadMicrocode.c)
  *     HalpProcInitSystem @ 0x140A8A680 (HalpProcInitSystem.c)
  *     HalpProcInitDiscard @ 0x140B75924 (HalpProcInitDiscard.c)
  * Callees:
- *     HalpIsPartitionCpuManager @ 0x140377EF8 (HalpIsPartitionCpuManager.c)
- *     HalpMcUpdateFindDataTableEntry @ 0x1403796FC (HalpMcUpdateFindDataTableEntry.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     HalpIsPartitionCpuManager @ 0x140378098 (HalpIsPartitionCpuManager.c)
+ *     HalpMcUpdateFindDataTableEntry @ 0x14037989C (HalpMcUpdateFindDataTableEntry.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall HalpMcUpdateInitialize(__int64 a1, __int64 a2)

@@ -15,9 +15,9 @@
 unsigned __int64 __fastcall MmGetLoadedModuleImageAdditionalTablesAddress(__int64 a1, int *a2)
 {
   unsigned __int64 v2; // r9
-  __int64 v3; // rt1
+  void *v3; // rt1
   int v4; // r10d
-  unsigned __int64 v5; // r8
+  char *v5; // r8
   int v6; // r11d
   __int64 v7; // rbx
   unsigned __int64 v8; // r10
@@ -33,15 +33,15 @@ unsigned __int64 __fastcall MmGetLoadedModuleImageAdditionalTablesAddress(__int6
   __int64 v19; // [rsp+20h] [rbp-10h]
 
   v2 = *(_QWORD *)(a1 + 48);
-  v3 = *(_QWORD *)&KeNumberProcessorsGroup0[9];
-  if ( v2 == v3 || v2 == PsHalImageBase )
+  v3 = *(void **)&KeNumberProcessorsGroup0[9];
+  if ( (void *)v2 == v3 || (PVOID)v2 == PsHalImageBase )
     v4 = dword_140E3726C;
   else
     v4 = dword_140E3726C + dword_140E37270;
   *a2 = v4;
   if ( !v4 )
     return 0LL;
-  v5 = v2 + *(unsigned int *)(a1 + 64);
+  v5 = (char *)(v2 + *(unsigned int *)(a1 + 64));
   v6 = 4;
   v16 = ((v2 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
   v17 = ((v16 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
@@ -57,7 +57,7 @@ unsigned __int64 __fastcall MmGetLoadedModuleImageAdditionalTablesAddress(__int6
     {
       v11 = *(_QWORD *)v8;
       if ( (v9 & 1) == 0 )
-        return v5;
+        return (unsigned __int64)v5;
       if ( ((v9 & 0x42) == 0 || (v9 & 0x20) == 0) && (MiFlags & 0x600000) != 0 )
       {
         Process = KeGetCurrentThread()->ApcState.Process;
@@ -77,13 +77,13 @@ unsigned __int64 __fastcall MmGetLoadedModuleImageAdditionalTablesAddress(__int6
       }
     }
     if ( (v9 & 1) == 0 )
-      return v5;
+      return (unsigned __int64)v5;
     if ( (v9 & 0x80u) != 0LL )
       break;
     if ( v7 == 1 )
-      return v5;
+      return (unsigned __int64)v5;
   }
   if ( v6 )
-    return (v5 + 0x1FFFFF) & 0xFFFFFFFFFFE00000uLL;
-  return v5;
+    return (unsigned __int64)(v5 + 0x1FFFFF) & 0xFFFFFFFFFFE00000uLL;
+  return (unsigned __int64)v5;
 }

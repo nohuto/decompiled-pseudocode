@@ -1,11 +1,11 @@
 /*
- * XREFs of MiLogPagefileExtension @ 0x1406F8D4C
+ * XREFs of MiLogPagefileExtension @ 0x1406FDA1C
  * Callers:
- *     MiAttemptPageFileExtension @ 0x140B2FAF8 (MiAttemptPageFileExtension.c)
+ *     MiAttemptPageFileExtension @ 0x140B318D8 (MiAttemptPageFileExtension.c)
  * Callees:
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     _tlgWriteEx_EtwWriteEx @ 0x1404E33C4 (_tlgWriteEx_EtwWriteEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x1404DC958 (_tlgWriteEx_EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 char __fastcall MiLogPagefileExtension(__int64 a1, int *a2, __int64 a3, __int64 a4, __int64 a5, int a6)
@@ -57,9 +57,9 @@ char __fastcall MiLogPagefileExtension(__int64 a1, int *a2, __int64 a3, __int64 
   v7 = *a2;
   v8 = a2[1];
   v9 = a2[2];
-  if ( *(_DWORD *)stru_140E36558.FirstArgument > 5u )
+  if ( *(_DWORD *)stru_140E366D8.FirstArgument > 5u )
   {
-    LOBYTE(v6) = tlgKeywordOn((__int64)stru_140E36558.FirstArgument, 4096LL);
+    LOBYTE(v6) = tlgKeywordOn((__int64)stru_140E366D8.FirstArgument, 4096LL);
     if ( (_BYTE)v6 )
     {
       v20 = v11;
@@ -93,7 +93,7 @@ char __fastcall MiLogPagefileExtension(__int64 a1, int *a2, __int64 a3, __int64 
       v46 = &v25;
       LODWORD(v25) = v15;
       v47 = 4LL;
-      LOBYTE(v6) = tlgWriteEx_EtwWriteEx(v13, (unsigned __int8 *)&unk_140058150, v10, 1u, v17, v18, 0xCu, &v27);
+      LOBYTE(v6) = tlgWriteEx_EtwWriteEx(v13, (unsigned __int8 *)&byte_140059143, v10, 1u, v17, v18, 0xCu, &v27);
     }
   }
   return (char)v6;

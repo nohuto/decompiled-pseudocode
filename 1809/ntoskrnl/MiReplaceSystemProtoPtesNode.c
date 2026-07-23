@@ -1,14 +1,14 @@
 /*
- * XREFs of MiReplaceSystemProtoPtesNode @ 0x1402C77B0
+ * XREFs of MiReplaceSystemProtoPtesNode @ 0x1402C79A0
  * Callers:
- *     MiAllocateFileExtents @ 0x1408521B0 (MiAllocateFileExtents.c)
+ *     MiAllocateFileExtents @ 0x140853410 (MiAllocateFileExtents.c)
  * Callees:
  *     RtlAvlRemoveNode @ 0x140037250 (RtlAvlRemoveNode.c)
- *     RtlAvlInsertNodeEx @ 0x140064B40 (RtlAvlInsertNodeEx.c)
- *     MiObtainProtoBaseFromNode @ 0x1400961A4 (MiObtainProtoBaseFromNode.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     RtlAvlInsertNodeEx @ 0x140064B30 (RtlAvlInsertNodeEx.c)
+ *     MiObtainProtoBaseFromNode @ 0x1400960E4 (MiObtainProtoBaseFromNode.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC420 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC5A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiReplaceSystemProtoPtesNode(unsigned __int64 *a1, _QWORD *a2)
@@ -31,12 +31,12 @@ __int64 __fastcall MiReplaceSystemProtoPtesNode(unsigned __int64 *a1, _QWORD *a2
   __int64 v19; // [rsp+30h] [rbp+8h] BYREF
 
   v4 = MiObtainProtoBaseFromNode(a1, &v19);
-  v5 = ExAcquireSpinLockExclusive(&dword_140438D78);
-  RtlAvlRemoveNode((unsigned __int64 *)&qword_140438D70, a1);
+  v5 = ExAcquireSpinLockExclusive(&dword_140439E38);
+  RtlAvlRemoveNode((unsigned __int64 *)&qword_140439E30, a1);
   a1[3] &= ~8uLL;
   v6 = 0;
-  v7 = (_QWORD *)qword_140438D70;
-  if ( qword_140438D70 )
+  v7 = (_QWORD *)qword_140439E30;
+  if ( qword_140439E30 )
   {
     while ( 1 )
     {
@@ -104,9 +104,9 @@ LABEL_15:
     goto LABEL_16;
   }
 LABEL_22:
-  RtlAvlInsertNodeEx((unsigned __int64 *)&qword_140438D70, (unsigned __int64)v7, v6, a2);
+  RtlAvlInsertNodeEx((unsigned __int64 *)&qword_140439E30, (unsigned __int64)v7, v6, a2);
   a2[3] |= 8uLL;
-  ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140438D78);
+  ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140439E38);
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && KeGetCurrentIrql() >= 2u && v5 < 2u )
   {
     CurrentPrcb = KeGetCurrentPrcb();

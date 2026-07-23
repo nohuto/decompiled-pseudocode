@@ -9,46 +9,45 @@
  *     PpmIdleCsVetoAccountingUpdateBlock @ 0x14058506C (PpmIdleCsVetoAccountingUpdateBlock.c)
  */
 
-__int64 __fastcall PpmIdleCsVetoAccountingDeviceUpdate(unsigned int a1, char a2)
+void __fastcall PpmIdleCsVetoAccountingDeviceUpdate(unsigned int a1, char a2)
 {
-  __int64 result; // rax
-  __int64 v4; // rsi
-  KIRQL v5; // al
-  __int64 v6; // r8
-  unsigned __int64 v7; // rbx
-  __int64 v8; // rdx
+  __int64 v3; // rsi
+  KIRQL v4; // al
+  __int64 v5; // r8
+  unsigned __int64 v6; // rbx
+  __int64 v7; // rdx
+  unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  bool v11; // zf
+  int v11; // eax
+  bool v12; // zf
 
-  result = PpmPlatformStates;
-  v4 = a1;
+  v3 = a1;
   if ( *(_DWORD *)(PpmPlatformStates + 4) )
   {
-    v5 = KeAcquireSpinLockRaiseToDpc(&PpmIdleVetoLock);
-    LOBYTE(v6) = a2;
-    v7 = v5;
-    LOBYTE(v8) = 1;
-    PpmIdleCsVetoAccountingUpdateBlock(448 * v4 + PpmPlatformStates + 80, v8, v6);
-    result = KxReleaseSpinLock((volatile signed __int64 *)&PpmIdleVetoLock);
-    if ( KiIrqlFlags )
+    v4 = KeAcquireSpinLockRaiseToDpc(&PpmIdleVetoLock);
+    LOBYTE(v5) = a2;
+    v6 = v4;
+    LOBYTE(v7) = 1;
+    PpmIdleCsVetoAccountingUpdateBlock(448 * v3 + PpmPlatformStates + 80, v7, v5);
+    KxReleaseSpinLock((volatile signed __int64 *)&PpmIdleVetoLock);
+    if ( (_DWORD)KiIrqlFlags )
     {
-      result = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0
-        && (unsigned __int8)result <= 0xFu
-        && (unsigned __int8)v7 <= 0xFu
-        && (unsigned __int8)result >= 2u )
+      CurrentIrql = KeGetCurrentIrql();
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v6 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v7 + 1));
-        v11 = ((unsigned int)result & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= result;
-        if ( v11 )
-          result = KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+        v11 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v6 + 1));
+        v12 = (v11 & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= v11;
+        if ( v12 )
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
       }
     }
-    __writecr8(v7);
+    __writecr8(v6);
   }
-  return result;
 }

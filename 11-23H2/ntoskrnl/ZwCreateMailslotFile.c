@@ -1,14 +1,22 @@
 /*
- * XREFs of ZwCreateMailslotFile @ 0x14041C440
+ * XREFs of ZwCreateMailslotFile @ 0x14041C7D0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwCreateMailslotFile(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwCreateMailslotFile(
+        PHANDLE FileHandle,
+        ULONG DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        PIO_STATUS_BLOCK IoStatusBlock,
+        ULONG CreateOptions,
+        ULONG MailslotQuota,
+        ULONG MaximumMessageSize,
+        PLARGE_INTEGER ReadTimeout)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(FileHandle);
 }

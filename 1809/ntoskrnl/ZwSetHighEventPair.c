@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwSetHighEventPair @ 0x1401BB2F0
+ * XREFs of ZwSetHighEventPair @ 0x1401BB450
  * Callers:
  *     <none>
  * Callees:
@@ -8,10 +8,7 @@
 
 NTSTATUS __stdcall ZwSetHighEventPair(HANDLE EventPairHandle)
 {
-  __int64 v1; // rdx
-  __int64 v2; // r8
-
   _disable();
   __readeflags();
-  return KiServiceInternal(EventPairHandle, v1, v2);
+  return KiServiceInternal(EventPairHandle);
 }

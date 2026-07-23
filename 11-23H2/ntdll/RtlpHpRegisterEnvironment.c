@@ -6,8 +6,8 @@
  * Callees:
  *     RtlpHpVaMgrCtxAllocatorReference @ 0x18006694C (RtlpHpVaMgrCtxAllocatorReference.c)
  *     RtlpHpVaMgrCtxAllocatorDereference @ 0x180067598 (RtlpHpVaMgrCtxAllocatorDereference.c)
- *     RtlpHpCustomVaCallbacksRegistrarRegister @ 0x180122CE8 (RtlpHpCustomVaCallbacksRegistrarRegister.c)
- *     RtlpHpCustomVaCallbacksRegistrarUnregister @ 0x180123060 (RtlpHpCustomVaCallbacksRegistrarUnregister.c)
+ *     RtlpHpCustomVaCallbacksRegistrarRegister @ 0x180122CB8 (RtlpHpCustomVaCallbacksRegistrarRegister.c)
+ *     RtlpHpCustomVaCallbacksRegistrarUnregister @ 0x180123030 (RtlpHpCustomVaCallbacksRegistrarUnregister.c)
  */
 
 __int64 __fastcall RtlpHpRegisterEnvironment(__int128 *a1, int a2)

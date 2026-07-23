@@ -1,12 +1,12 @@
 /*
- * XREFs of KeIsEqualAffinityEx @ 0x140144208
+ * XREFs of KeIsEqualAffinityEx @ 0x140144778
  * Callers:
- *     PpmParkReportMask @ 0x1400D52BC (PpmParkReportMask.c)
- *     KeIsSubsetAffinityEx @ 0x1401D3ED8 (KeIsSubsetAffinityEx.c)
- *     PspSetEffectiveJobLimits @ 0x1404F2444 (PspSetEffectiveJobLimits.c)
- *     PpmRegisterPerfStates @ 0x140569588 (PpmRegisterPerfStates.c)
- *     PpmHeteroDetectFavoredCores @ 0x14056A874 (PpmHeteroDetectFavoredCores.c)
- *     PpmHeteroComputeRelativePerformance @ 0x14056A9D8 (PpmHeteroComputeRelativePerformance.c)
+ *     PpmParkReportMask @ 0x1400D315C (PpmParkReportMask.c)
+ *     KeIsSubsetAffinityEx @ 0x1401D3D04 (KeIsSubsetAffinityEx.c)
+ *     PspSetEffectiveJobLimits @ 0x1404D53D0 (PspSetEffectiveJobLimits.c)
+ *     PpmRegisterPerfStates @ 0x140569AC8 (PpmRegisterPerfStates.c)
+ *     PpmHeteroDetectFavoredCores @ 0x14056ADB4 (PpmHeteroDetectFavoredCores.c)
+ *     PpmHeteroComputeRelativePerformance @ 0x14056AF18 (PpmHeteroComputeRelativePerformance.c)
  * Callees:
  *     <none>
  */

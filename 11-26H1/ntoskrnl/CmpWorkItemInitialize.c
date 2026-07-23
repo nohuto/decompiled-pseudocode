@@ -1,7 +1,7 @@
 /*
- * XREFs of CmpWorkItemInitialize @ 0x14077C01C
+ * XREFs of CmpWorkItemInitialize @ 0x14077EB9C
  * Callers:
- *     CmFcManagerInitialize @ 0x140CF07BC (CmFcManagerInitialize.c)
+ *     CmFcManagerInitialize @ 0x140CF6B34 (CmFcManagerInitialize.c)
  * Callees:
  *     <none>
  */

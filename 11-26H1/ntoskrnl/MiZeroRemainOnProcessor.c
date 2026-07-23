@@ -1,12 +1,12 @@
 /*
- * XREFs of MiZeroRemainOnProcessor @ 0x1403E8CEC
+ * XREFs of MiZeroRemainOnProcessor @ 0x1402F5BCC
  * Callers:
- *     MiSelectBestZeroingProcessor @ 0x1403E8AC4 (MiSelectBestZeroingProcessor.c)
- *     MiBackgroundZeroNodePages @ 0x1404976C0 (MiBackgroundZeroNodePages.c)
- *     MiAddZeroingThread @ 0x14051F7F0 (MiAddZeroingThread.c)
+ *     MiSelectBestZeroingProcessor @ 0x1402F59A4 (MiSelectBestZeroingProcessor.c)
+ *     MiBackgroundZeroNodePages @ 0x140491210 (MiBackgroundZeroNodePages.c)
+ *     MiAddZeroingThread @ 0x140521E94 (MiAddZeroingThread.c)
  * Callees:
- *     MiProcessorParked @ 0x1403E8774 (MiProcessorParked.c)
- *     MiProcessorInEngineProcessAffinity @ 0x14070E9B8 (MiProcessorInEngineProcessAffinity.c)
+ *     MiProcessorParked @ 0x1402F5654 (MiProcessorParked.c)
+ *     MiProcessorInEngineProcessAffinity @ 0x1407136B8 (MiProcessorInEngineProcessAffinity.c)
  */
 
 __int64 __fastcall MiZeroRemainOnProcessor(__int64 a1, int a2)

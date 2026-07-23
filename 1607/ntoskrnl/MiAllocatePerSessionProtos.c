@@ -1,24 +1,24 @@
 /*
- * XREFs of MiAllocatePerSessionProtos @ 0x140661818
+ * XREFs of MiAllocatePerSessionProtos @ 0x1406618FC
  * Callers:
- *     MiCreatePerSessionProtos @ 0x140661B60 (MiCreatePerSessionProtos.c)
- *     MiCreateSessionDriverProtos @ 0x1406645B4 (MiCreateSessionDriverProtos.c)
+ *     MiCreatePerSessionProtos @ 0x140661C44 (MiCreatePerSessionProtos.c)
+ *     MiCreateSessionDriverProtos @ 0x140664698 (MiCreateSessionDriverProtos.c)
  * Callees:
- *     MiChargeCommit @ 0x14002B650 (MiChargeCommit.c)
- *     MmProbeAndLockPages @ 0x14002F120 (MmProbeAndLockPages.c)
- *     MiReturnCommit @ 0x14004E500 (MiReturnCommit.c)
- *     MmUnlockPages @ 0x140051A80 (MmUnlockPages.c)
- *     MmSizeOfMdl @ 0x140086AE0 (MmSizeOfMdl.c)
- *     IS_PTE_NOT_DEMAND_ZERO @ 0x1400BDED4 (IS_PTE_NOT_DEMAND_ZERO.c)
- *     MiChargeResident @ 0x140103450 (MiChargeResident.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiMakeSubsectionPte @ 0x1401F277C (MiMakeSubsectionPte.c)
+ *     MiChargeCommit @ 0x14002B1D0 (MiChargeCommit.c)
+ *     MmProbeAndLockPages @ 0x14002ECA0 (MmProbeAndLockPages.c)
+ *     MiReturnCommit @ 0x14004E080 (MiReturnCommit.c)
+ *     MmUnlockPages @ 0x140051600 (MmUnlockPages.c)
+ *     MmSizeOfMdl @ 0x1400883D0 (MmSizeOfMdl.c)
+ *     IS_PTE_NOT_DEMAND_ZERO @ 0x1400BBD64 (IS_PTE_NOT_DEMAND_ZERO.c)
+ *     MiChargeResident @ 0x1401011D0 (MiChargeResident.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
+ *     MiMakeSubsectionPte @ 0x1401F25A8 (MiMakeSubsectionPte.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     MiFillPerSessionProtos @ 0x140661E34 (MiFillPerSessionProtos.c)
+ *     MiFillPerSessionProtos @ 0x140661F18 (MiFillPerSessionProtos.c)
  */
 
 __int64 __fastcall MiAllocatePerSessionProtos(__int64 a1, unsigned __int64 a2, unsigned int a3, __int64 a4, _QWORD *a5)

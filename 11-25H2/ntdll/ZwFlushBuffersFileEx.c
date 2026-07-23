@@ -6,11 +6,16 @@
  *     <none>
  */
 
-__int64 ZwFlushBuffersFileEx()
+NTSTATUS __cdecl ZwFlushBuffersFileEx(
+        HANDLE FileHandle,
+        ULONG Flags,
+        PVOID Parameters,
+        ULONG ParametersSize,
+        PIO_STATUS_BLOCK IoStatusBlock)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 239LL;
+  result = 239;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

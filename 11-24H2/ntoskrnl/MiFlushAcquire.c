@@ -1,15 +1,15 @@
 /*
- * XREFs of MiFlushAcquire @ 0x140489CC0
+ * XREFs of MiFlushAcquire @ 0x140484FBC
  * Callers:
- *     MiCommitFileBackedSection @ 0x1408DDC1C (MiCommitFileBackedSection.c)
- *     MmFlushVirtualMemory @ 0x1409D1A4C (MmFlushVirtualMemory.c)
+ *     MiCommitFileBackedSection @ 0x1409147D8 (MiCommitFileBackedSection.c)
+ *     MmFlushVirtualMemory @ 0x1409C187C (MmFlushVirtualMemory.c)
  * Callees:
- *     MiReferenceSubsection @ 0x14020F750 (MiReferenceSubsection.c)
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     MiReferenceSubsection @ 0x140338AB0 (MiReferenceSubsection.c)
  */
 
-__int64 __fastcall MiFlushAcquire(__int64 a1, __int64 *a2, __int64 *a3)
+__int64 __fastcall MiFlushAcquire(__int64 a1, __int64 a2, __int64 a3)
 {
   KIRQL v6; // r14
   unsigned int v7; // ebx

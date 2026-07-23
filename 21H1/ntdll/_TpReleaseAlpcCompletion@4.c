@@ -8,22 +8,14 @@
  *     _RtlpHpAppCompatDontChangePolicy@0 @ 0x4B2ED850 (_RtlpHpAppCompatDontChangePolicy@0.c)
  */
 
-int __stdcall TpReleaseAlpcCompletion(int a1)
+void __cdecl TpReleaseAlpcCompletion(PTP_ALPC Alpc)
 {
-  int result; // eax
   _UNKNOWN *retaddr; // [esp+8h] [ebp+4h]
 
-  result = TppAlpcpValidateAlpc(0);
-  if ( result )
+  if ( TppAlpcpValidateAlpc(0) && TppCleanupGroupMemberRelease((int)Alpc + 48, 1) )
   {
-    result = TppCleanupGroupMemberRelease(a1 + 48, 1);
-    if ( result )
-    {
-      *(_DWORD *)(a1 + 160) = retaddr;
-      result = _InterlockedExchangeAdd((volatile signed __int32 *)(a1 + 48), 0xFFFFFFFF);
-      if ( !result )
-        return (**(int (__thiscall ***)(_DWORD, int))(a1 + 52))(**(_DWORD **)(a1 + 52), a1 + 48);
-    }
+    *((_DWORD *)Alpc + 40) = retaddr;
+    if ( !_InterlockedExchangeAdd((volatile signed __int32 *)Alpc + 12, 0xFFFFFFFF) )
+      (**((void (__thiscall ***)(_DWORD, char *))Alpc + 13))(**((_DWORD **)Alpc + 13), (char *)Alpc + 48);
   }
-  return result;
 }

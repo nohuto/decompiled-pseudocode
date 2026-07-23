@@ -1,11 +1,11 @@
 /*
- * XREFs of PipDmgRequestUpdateConsoleLockState @ 0x140732180
+ * XREFs of PipDmgRequestUpdateConsoleLockState @ 0x140730190
  * Callers:
- *     PipDmgFlushQueueAndRestartDevices @ 0x140731C6C (PipDmgFlushQueueAndRestartDevices.c)
+ *     PipDmgFlushQueueAndRestartDevices @ 0x14072FC7C (PipDmgFlushQueueAndRestartDevices.c)
  * Callees:
- *     IoAddTriageDumpDataBlock @ 0x1403F2880 (IoAddTriageDumpDataBlock.c)
- *     PnpRequestDeviceAction @ 0x14046C968 (PnpRequestDeviceAction.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     IoAddTriageDumpDataBlock @ 0x1403E65A0 (IoAddTriageDumpDataBlock.c)
+ *     PnpRequestDeviceAction @ 0x140467508 (PnpRequestDeviceAction.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall PipDmgRequestUpdateConsoleLockState(ULONG_PTR BugCheckParameter2)

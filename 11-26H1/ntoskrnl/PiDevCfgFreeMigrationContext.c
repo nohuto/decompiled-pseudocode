@@ -1,10 +1,10 @@
 /*
- * XREFs of PiDevCfgFreeMigrationContext @ 0x14098B880
+ * XREFs of PiDevCfgFreeMigrationContext @ 0x140A45FA0
  * Callers:
- *     PiDevCfgMigrateDevice @ 0x14098B138 (PiDevCfgMigrateDevice.c)
- *     PiDevCfgInitMigrationContext @ 0x14098B654 (PiDevCfgInitMigrationContext.c)
+ *     PiDevCfgMigrateDevice @ 0x140A45858 (PiDevCfgMigrateDevice.c)
+ *     PiDevCfgInitMigrationContext @ 0x140A45D74 (PiDevCfgInitMigrationContext.c)
  * Callees:
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
  */
 
 NTSTATUS __fastcall PiDevCfgFreeMigrationContext(__int64 a1)

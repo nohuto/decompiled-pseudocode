@@ -1,10 +1,10 @@
 /*
- * XREFs of VerifierKeAcquireSpinLockRaiseToDpc @ 0x140C47A60
+ * XREFs of VerifierKeAcquireSpinLockRaiseToDpc @ 0x140C4DA70
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     ViKeIrqlLogAndTrimMemory @ 0x140C46CD4 (ViKeIrqlLogAndTrimMemory.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     ViKeIrqlLogAndTrimMemory @ 0x140C4CCE4 (ViKeIrqlLogAndTrimMemory.c)
  */
 
 __int64 __fastcall VerifierKeAcquireSpinLockRaiseToDpc(__int64 a1, __int64 a2)

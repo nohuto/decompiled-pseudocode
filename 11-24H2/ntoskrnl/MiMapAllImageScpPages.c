@@ -1,15 +1,15 @@
 /*
- * XREFs of MiMapAllImageScpPages @ 0x1408F9404
+ * XREFs of MiMapAllImageScpPages @ 0x14091BCE0
  * Callers:
- *     MiMapProcessExecutable @ 0x1408F8C84 (MiMapProcessExecutable.c)
+ *     MiMapProcessExecutable @ 0x14091B024 (MiMapProcessExecutable.c)
  * Callees:
- *     MiGetNextVad @ 0x1402614BC (MiGetNextVad.c)
- *     MiMapImageScpCfgPages @ 0x140264810 (MiMapImageScpCfgPages.c)
- *     MiGetFirstVad @ 0x1404043B8 (MiGetFirstVad.c)
- *     LOCK_ADDRESS_SPACE_SHARED @ 0x140404438 (LOCK_ADDRESS_SPACE_SHARED.c)
- *     UNLOCK_ADDRESS_SPACE_SHARED @ 0x1404044B8 (UNLOCK_ADDRESS_SPACE_SHARED.c)
- *     MiReadVadFlags2 @ 0x14044BF3C (MiReadVadFlags2.c)
- *     MiDoesImageContainFunctionOverrideFixups @ 0x1408F94A8 (MiDoesImageContainFunctionOverrideFixups.c)
+ *     MiGetNextVad @ 0x140291ACC (MiGetNextVad.c)
+ *     MiMapImageScpCfgPages @ 0x140294080 (MiMapImageScpCfgPages.c)
+ *     MiGetFirstVad @ 0x1403C6358 (MiGetFirstVad.c)
+ *     LOCK_ADDRESS_SPACE_SHARED @ 0x1403C63D8 (LOCK_ADDRESS_SPACE_SHARED.c)
+ *     UNLOCK_ADDRESS_SPACE_SHARED @ 0x1403C6458 (UNLOCK_ADDRESS_SPACE_SHARED.c)
+ *     MiReadVadFlags2 @ 0x14044307C (MiReadVadFlags2.c)
+ *     MiDoesImageContainFunctionOverrideFixups @ 0x14091BD84 (MiDoesImageContainFunctionOverrideFixups.c)
  */
 
 _QWORD *__fastcall MiMapAllImageScpPages(__int64 a1)

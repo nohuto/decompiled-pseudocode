@@ -1,18 +1,18 @@
 /*
- * XREFs of PsBootPhaseComplete @ 0x1408543BC
+ * XREFs of PsBootPhaseComplete @ 0x1408546BC
  * Callers:
- *     CmCompleteRegistryInitialization @ 0x14080A920 (CmCompleteRegistryInitialization.c)
- *     CmpFinishSystemHivesLoad @ 0x14080AF10 (CmpFinishSystemHivesLoad.c)
+ *     CmCompleteRegistryInitialization @ 0x14080ABF0 (CmCompleteRegistryInitialization.c)
+ *     CmpFinishSystemHivesLoad @ 0x14080B1E0 (CmpFinishSystemHivesLoad.c)
  * Callees:
- *     PdcCreateWatchdogAroundClientCall @ 0x140293450 (PdcCreateWatchdogAroundClientCall.c)
- *     PsGetServerSiloGlobals @ 0x140297694 (PsGetServerSiloGlobals.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     ZwOpenKey @ 0x14041AFA0 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x14041B040 (ZwQueryValueKey.c)
- *     ObCloseHandle @ 0x14076B890 (ObCloseHandle.c)
- *     RtlQueryImageFileExecutionOptions @ 0x140854690 (RtlQueryImageFileExecutionOptions.c)
- *     PspQueryForwardersEnabled @ 0x140854708 (PspQueryForwardersEnabled.c)
- *     PspIsDfssEnabled @ 0x140854790 (PspIsDfssEnabled.c)
+ *     PdcCreateWatchdogAroundClientCall @ 0x1402936E0 (PdcCreateWatchdogAroundClientCall.c)
+ *     PsGetServerSiloGlobals @ 0x140297924 (PsGetServerSiloGlobals.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     ZwOpenKey @ 0x14041B330 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x14041B3D0 (ZwQueryValueKey.c)
+ *     ObCloseHandle @ 0x14076BA80 (ObCloseHandle.c)
+ *     RtlQueryImageFileExecutionOptions @ 0x140854990 (RtlQueryImageFileExecutionOptions.c)
+ *     PspQueryForwardersEnabled @ 0x140854A08 (PspQueryForwardersEnabled.c)
+ *     PspIsDfssEnabled @ 0x140854A90 (PspIsDfssEnabled.c)
  */
 
 __int64 __fastcall PsBootPhaseComplete(__int64 a1, __int64 a2, __int64 a3)

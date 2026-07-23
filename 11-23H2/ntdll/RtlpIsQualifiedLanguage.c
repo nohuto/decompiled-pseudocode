@@ -10,33 +10,33 @@
 
 __int64 __fastcall RtlpIsQualifiedLanguage(__int64 a1, __int16 *a2, char a3)
 {
-  __int64 v6; // rdi
+  char *v6; // rdi
   int v7; // eax
   unsigned int v8; // ebx
   bool v9; // zf
   unsigned __int16 v10; // ax
-  __int64 v12; // rcx
+  char *v12; // rcx
   __int64 v13; // r9
   __int16 v14; // dx
   __int16 v15; // dx
-  __int64 v16; // [rsp+60h] [rbp+8h] BYREF
+  PVOID BaseAddress; // [rsp+60h] [rbp+8h] BYREF
 
-  v16 = 0LL;
+  BaseAddress = 0LL;
   v6 = 0LL;
   if ( a1 && a2 )
   {
-    v7 = RtlpCreateTraverseNodes(&v16);
-    v6 = v16;
+    v7 = RtlpCreateTraverseNodes(&BaseAddress);
+    v6 = (char *)BaseAddress;
     v8 = v7;
     if ( v7 >= 0 )
     {
-      v9 = RtlpTraverseParents(a2, v16, a1, 0LL, 0, 42) == 0;
+      v9 = RtlpTraverseParents(a2, (__int64)BaseAddress, a1, 0LL, 0, 42) == 0;
       v10 = 0;
       if ( v9 )
         v8 = -1073741823;
       do
       {
-        if ( v10 && *(_DWORD *)(v6 + 8LL * v10 + 4) )
+        if ( v10 && *(_DWORD *)&v6[8 * v10 + 4] )
         {
           v12 = v6 + 2;
           v13 = v10;
@@ -44,23 +44,23 @@ __int64 __fastcall RtlpIsQualifiedLanguage(__int64 a1, __int16 *a2, char a3)
           {
             if ( *(_DWORD *)(v12 + 2) )
             {
-              if ( *(_WORD *)(v12 - 2) )
+              if ( *((_WORD *)v12 - 1) )
               {
-                v14 = *(_WORD *)(v6 + 8LL * v10);
+                v14 = *(_WORD *)&v6[8 * v10];
                 if ( v14 )
                 {
-                  if ( *(_WORD *)(v12 - 2) == v14 )
+                  if ( *((_WORD *)v12 - 1) == v14 )
                     v8 = -1073741823;
                 }
               }
               if ( *(__int16 *)v12 > 0 )
               {
-                v15 = *(_WORD *)(v6 + 8LL * v10 + 2);
+                v15 = *(_WORD *)&v6[8 * v10 + 2];
                 if ( v15 > 0 && *(_WORD *)v12 == v15 )
                   v8 = -1073741823;
               }
             }
-            v12 += 8LL;
+            v12 += 8;
             --v13;
           }
           while ( v13 );

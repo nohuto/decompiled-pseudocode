@@ -1,12 +1,12 @@
 /*
- * XREFs of PspSelectMachineForProcess @ 0x140A9174C
+ * XREFs of PspSelectMachineForProcess @ 0x140A9629C
  * Callers:
- *     PspAllocateProcess @ 0x140964C24 (PspAllocateProcess.c)
+ *     PspAllocateProcess @ 0x140B7E8A8 (PspAllocateProcess.c)
  * Callees:
- *     HalSystemVectorDispatchEntry @ 0x1404BD660 (HalSystemVectorDispatchEntry.c)
- *     PsWow64IsMachineSupported @ 0x1409EBAE0 (PsWow64IsMachineSupported.c)
- *     PsGetProcessMachine @ 0x140A918B0 (PsGetProcessMachine.c)
- *     PspQueryComPlusRunUnderWoW @ 0x140B4CF04 (PspQueryComPlusRunUnderWoW.c)
+ *     HalSystemVectorDispatchEntry @ 0x1404B6E40 (HalSystemVectorDispatchEntry.c)
+ *     PsWow64IsMachineSupported @ 0x1409E82B0 (PsWow64IsMachineSupported.c)
+ *     PsGetProcessMachine @ 0x140A96400 (PsGetProcessMachine.c)
+ *     PspQueryComPlusRunUnderWoW @ 0x140B4EC94 (PspQueryComPlusRunUnderWoW.c)
  */
 
 __int64 __fastcall PspSelectMachineForProcess(__int64 a1, __int64 a2, __int16 *a3)

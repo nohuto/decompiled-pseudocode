@@ -3,11 +3,11 @@
  * Callers:
  *     BgDisplayString @ 0x14072A240 (BgDisplayString.c)
  * Callees:
- *     BgpGxDrawRectangle @ 0x140127524 (BgpGxDrawRectangle.c)
- *     BgpRasPrintGlyph @ 0x1401277B0 (BgpRasPrintGlyph.c)
- *     BgpGxFillRectangle @ 0x140127D68 (BgpGxFillRectangle.c)
- *     BgpFoGetTextMetrics @ 0x140127E00 (BgpFoGetTextMetrics.c)
- *     BgpFoGetAdvanceWidth @ 0x140239854 (BgpFoGetAdvanceWidth.c)
+ *     BgpGxDrawRectangle @ 0x140127A94 (BgpGxDrawRectangle.c)
+ *     BgpRasPrintGlyph @ 0x140127D20 (BgpRasPrintGlyph.c)
+ *     BgpGxFillRectangle @ 0x1401282D8 (BgpGxFillRectangle.c)
+ *     BgpFoGetTextMetrics @ 0x140128370 (BgpFoGetTextMetrics.c)
+ *     BgpFoGetAdvanceWidth @ 0x140239738 (BgpFoGetAdvanceWidth.c)
  *     BgpGxRectangleDestroy @ 0x1407276C0 (BgpGxRectangleDestroy.c)
  *     BgpGxRectangleCreate @ 0x1407276DC (BgpGxRectangleCreate.c)
  *     BgpGxBlendRectangle @ 0x14072AD60 (BgpGxBlendRectangle.c)

@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpAcpiGetCachedTable @ 0x140342C6C
+ * XREFs of HalpAcpiGetCachedTable @ 0x140344CEC
  * Callers:
- *     HalpAcpiGetTableWork @ 0x140342B6C (HalpAcpiGetTableWork.c)
- *     HalpAcpiTableCacheInit @ 0x140D0A55C (HalpAcpiTableCacheInit.c)
+ *     HalpAcpiGetTableWork @ 0x140344BEC (HalpAcpiGetTableWork.c)
+ *     HalpAcpiTableCacheInit @ 0x140D1082C (HalpAcpiTableCacheInit.c)
  * Callees:
- *     strncmp @ 0x14073D360 (strncmp.c)
+ *     strncmp @ 0x140741F60 (strncmp.c)
  */
 
 __int64 __fastcall HalpAcpiGetCachedTable(int a1, const char *a2, const char *a3)

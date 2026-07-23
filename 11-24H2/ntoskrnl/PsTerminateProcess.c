@@ -1,23 +1,23 @@
 /*
- * XREFs of PsTerminateProcess @ 0x140938BD4
+ * XREFs of PsTerminateProcess @ 0x1408F32A4
  * Callers:
- *     MiReAcquireCommitFailWorker @ 0x14066A250 (MiReAcquireCommitFailWorker.c)
- *     PspShutdownCsrProcess @ 0x140772FB4 (PspShutdownCsrProcess.c)
- *     PsShutdownSystem @ 0x140778944 (PsShutdownSystem.c)
- *     PsCreateMinimalProcess @ 0x1407797C4 (PsCreateMinimalProcess.c)
- *     RtlpTerminateCurrentProcess @ 0x140781F2C (RtlpTerminateCurrentProcess.c)
- *     WheaTerminateProcess @ 0x1407C7780 (WheaTerminateProcess.c)
- *     KiSchedulerApcTerminate @ 0x1408A7B70 (KiSchedulerApcTerminate.c)
- *     PspRemoveProcessFromJobChain @ 0x1408A9078 (PspRemoveProcessFromJobChain.c)
- *     DbgkpCloseObject @ 0x1408EF460 (DbgkpCloseObject.c)
- *     PspCallProcessNotifyRoutines @ 0x140938898 (PspCallProcessNotifyRoutines.c)
- *     PspProcessClose @ 0x1409EAF60 (PspProcessClose.c)
- *     MiForceCrashForInvalidAccess @ 0x140AB6F10 (MiForceCrashForInvalidAccess.c)
- *     NtCreateUserProcess @ 0x140ACBA80 (NtCreateUserProcess.c)
- *     ExpDebuggerWorker @ 0x140B79F70 (ExpDebuggerWorker.c)
+ *     MiReAcquireCommitFailWorker @ 0x14066B420 (MiReAcquireCommitFailWorker.c)
+ *     PspShutdownCsrProcess @ 0x1407731D4 (PspShutdownCsrProcess.c)
+ *     PsShutdownSystem @ 0x140778A44 (PsShutdownSystem.c)
+ *     PsCreateMinimalProcess @ 0x1407798C4 (PsCreateMinimalProcess.c)
+ *     RtlpTerminateCurrentProcess @ 0x140781E5C (RtlpTerminateCurrentProcess.c)
+ *     WheaTerminateProcess @ 0x1407C7C20 (WheaTerminateProcess.c)
+ *     DbgkpCloseObject @ 0x140860C60 (DbgkpCloseObject.c)
+ *     PspCallProcessNotifyRoutines @ 0x1408F2F68 (PspCallProcessNotifyRoutines.c)
+ *     KiSchedulerApcTerminate @ 0x1408FDDD0 (KiSchedulerApcTerminate.c)
+ *     PspRemoveProcessFromJobChain @ 0x1408FF2D8 (PspRemoveProcessFromJobChain.c)
+ *     PspProcessClose @ 0x1409E5850 (PspProcessClose.c)
+ *     MiForceCrashForInvalidAccess @ 0x140AB11E8 (MiForceCrashForInvalidAccess.c)
+ *     NtCreateUserProcess @ 0x140AC9930 (NtCreateUserProcess.c)
+ *     ExpDebuggerWorker @ 0x140B7BF70 (ExpDebuggerWorker.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x1402595A0 (KeLeaveCriticalRegionThread.c)
- *     PspTerminateProcess @ 0x140939700 (PspTerminateProcess.c)
+ *     KeLeaveCriticalRegionThread @ 0x140289BB0 (KeLeaveCriticalRegionThread.c)
+ *     PspTerminateProcess @ 0x1408F4E40 (PspTerminateProcess.c)
  */
 
 __int64 __fastcall PsTerminateProcess(void *a1)

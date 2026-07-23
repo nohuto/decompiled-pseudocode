@@ -1,14 +1,14 @@
 /*
- * XREFs of IopDumpTraceForceDumpDisabled @ 0x140943D9C
+ * XREFs of IopDumpTraceForceDumpDisabled @ 0x140943F9C
  * Callers:
  *     IoInitSystemPreDrivers @ 0x140B4B914 (IoInitSystemPreDrivers.c)
  *     IopInitCrashDumpDuringSysInit @ 0x140B71660 (IopInitCrashDumpDuringSysInit.c)
  * Callees:
  *     _tlgKeywordOn @ 0x140212E64 (_tlgKeywordOn.c)
- *     EtwWrite @ 0x1402578A0 (EtwWrite.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     IopDumpIsTracingEnabled @ 0x140552848 (IopDumpIsTracingEnabled.c)
+ *     EtwWrite @ 0x140257960 (EtwWrite.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6DB4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     IopDumpIsTracingEnabled @ 0x140552F08 (IopDumpIsTracingEnabled.c)
  */
 
 char IopDumpTraceForceDumpDisabled()
@@ -33,9 +33,9 @@ char IopDumpTraceForceDumpDisabled()
     UserData.Size = 4;
     result = EtwWrite(IopDumpEtwRegHandle, &DUMP_EVENT_FORCE_DUMP_DISABLED, 0LL, 1u, &UserData);
   }
-  if ( (unsigned int)dword_140C062E8 > 5 )
+  if ( (unsigned int)dword_140C062A8 > 5 )
   {
-    result = tlgKeywordOn((__int64)&dword_140C062E8, 0x400000000000LL);
+    result = tlgKeywordOn((__int64)&dword_140C062A8, 0x400000000000LL);
     if ( result )
     {
       v7 = 0;
@@ -47,8 +47,8 @@ char IopDumpTraceForceDumpDisabled()
       v6 = 8;
       v9 = 1;
       return tlgWriteTransfer_EtwWriteTransfer(
-               (__int64)&dword_140C062E8,
-               (unsigned __int8 *)byte_14002B749,
+               (__int64)&dword_140C062A8,
+               (unsigned __int8 *)byte_14002B831,
                0LL,
                0LL,
                4u,

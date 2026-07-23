@@ -1,12 +1,12 @@
 /*
- * XREFs of ExpAddResourceToSystemResourceList @ 0x1403656DC
+ * XREFs of ExpAddResourceToSystemResourceList @ 0x1403EAD8C
  * Callers:
- *     ExInitializeResourceLite2 @ 0x140365350 (ExInitializeResourceLite2.c)
- *     ExInitializeResourceLite @ 0x1403655E0 (ExInitializeResourceLite.c)
+ *     ExInitializeResourceLite2 @ 0x1403EAA00 (ExInitializeResourceLite2.c)
+ *     ExInitializeResourceLite @ 0x1403EAC90 (ExInitializeResourceLite.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x140379F24 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x1402E6E94 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall ExpAddResourceToSystemResourceList(_QWORD *a1)
@@ -14,16 +14,16 @@ __int64 __fastcall ExpAddResourceToSystemResourceList(_QWORD *a1)
   __int64 v2; // rdx
   unsigned __int64 v3; // rdi
   __int64 result; // rax
-  void *retaddr; // [rsp+28h] [rbp+0h]
+  __int64 retaddr; // [rsp+28h] [rbp+0h]
 
   v3 = ExAcquireSpinLockExclusive(&ExpResourceSpinLock);
-  result = qword_140EFA6D8;
-  if ( *(__int64 **)qword_140EFA6D8 != &ExpSystemResourcesList )
+  result = qword_140EFAA08;
+  if ( *(__int64 **)qword_140EFAA08 != &ExpSystemResourcesList )
     __fastfail(3u);
   *a1 = &ExpSystemResourcesList;
   a1[1] = result;
   *(_QWORD *)result = a1;
-  qword_140EFA6D8 = (__int64)a1;
+  qword_140EFAA08 = (__int64)a1;
   if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || (result = (unsigned int)PopHibernateInProgress, PopHibernateInProgress) )
     ExpResourceSpinLock = 0;
   else

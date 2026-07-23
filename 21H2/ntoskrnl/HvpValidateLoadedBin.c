@@ -1,8 +1,8 @@
 /*
- * XREFs of HvpValidateLoadedBin @ 0x140709BE4
+ * XREFs of HvpValidateLoadedBin @ 0x140720FC4
  * Callers:
- *     HvpRemapAndEnlistHiveBins @ 0x14070999C (HvpRemapAndEnlistHiveBins.c)
- *     HvpBuildMapForMemoryBackedHive @ 0x1407B1EFC (HvpBuildMapForMemoryBackedHive.c)
+ *     HvpRemapAndEnlistHiveBins @ 0x140720D7C (HvpRemapAndEnlistHiveBins.c)
+ *     HvpBuildMapForMemoryBackedHive @ 0x1407B209C (HvpBuildMapForMemoryBackedHive.c)
  * Callees:
  *     <none>
  */

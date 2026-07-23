@@ -1,14 +1,14 @@
 /*
- * XREFs of CmpBlockTwoHiveWrites @ 0x140A13858
+ * XREFs of CmpBlockTwoHiveWrites @ 0x140A13B08
  * Callers:
- *     CmSaveMergedKeys @ 0x140A0BD84 (CmSaveMergedKeys.c)
- *     CmpVirtualBranchIsReplicated @ 0x140A1A62C (CmpVirtualBranchIsReplicated.c)
- *     CmpVirtualPathPresent @ 0x140A1A7E0 (CmpVirtualPathPresent.c)
+ *     CmSaveMergedKeys @ 0x140A0C034 (CmSaveMergedKeys.c)
+ *     CmpVirtualBranchIsReplicated @ 0x140A1A8DC (CmpVirtualBranchIsReplicated.c)
+ *     CmpVirtualPathPresent @ 0x140A1AA90 (CmpVirtualPathPresent.c)
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x14028B390 (ExReleaseRundownProtection_0.c)
- *     CmpDeleteHive @ 0x14074E6D4 (CmpDeleteHive.c)
- *     CmpGetNextActiveHive @ 0x140752060 (CmpGetNextActiveHive.c)
- *     CmpReferenceHive @ 0x14076A58C (CmpReferenceHive.c)
+ *     ExReleaseRundownProtection_0 @ 0x14028B620 (ExReleaseRundownProtection_0.c)
+ *     CmpDeleteHive @ 0x14074E8C4 (CmpDeleteHive.c)
+ *     CmpGetNextActiveHive @ 0x140752250 (CmpGetNextActiveHive.c)
+ *     CmpReferenceHive @ 0x14076A77C (CmpReferenceHive.c)
  *     HvLockHiveFlusherExclusive @ 0x140AF5670 (HvLockHiveFlusherExclusive.c)
  *     HvUnlockHiveFlusherExclusive @ 0x140AF568C (HvUnlockHiveFlusherExclusive.c)
  */

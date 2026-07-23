@@ -1,15 +1,15 @@
 /*
- * XREFs of AslStringUpcaseToMultiByteN @ 0x14075A7D0
+ * XREFs of AslStringUpcaseToMultiByteN @ 0x14075A990
  * Callers:
- *     SdbpFindNextIndexedWildCardTag @ 0x1407535EC (SdbpFindNextIndexedWildCardTag.c)
- *     SdbpFindFirstIndexedWildCardTag @ 0x140759788 (SdbpFindFirstIndexedWildCardTag.c)
+ *     SdbpFindNextIndexedWildCardTag @ 0x1407537AC (SdbpFindNextIndexedWildCardTag.c)
+ *     SdbpFindFirstIndexedWildCardTag @ 0x140759948 (SdbpFindFirstIndexedWildCardTag.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     RtlUnicodeStringToAnsiString @ 0x1405EDB00 (RtlUnicodeStringToAnsiString.c)
- *     RtlUpcaseUnicodeString @ 0x1406CC820 (RtlUpcaseUnicodeString.c)
- *     AslLogCallPrintf @ 0x140755F64 (AslLogCallPrintf.c)
- *     AslAlloc @ 0x14075B098 (AslAlloc.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     RtlUpcaseUnicodeString @ 0x14067B110 (RtlUpcaseUnicodeString.c)
+ *     RtlUnicodeStringToAnsiString @ 0x1406DD260 (RtlUnicodeStringToAnsiString.c)
+ *     AslLogCallPrintf @ 0x140756124 (AslLogCallPrintf.c)
+ *     AslAlloc @ 0x14075B258 (AslAlloc.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall AslStringUpcaseToMultiByteN(char *a1, __int64 a2, const WCHAR *a3)
@@ -18,7 +18,7 @@ __int64 __fastcall AslStringUpcaseToMultiByteN(char *a1, __int64 a2, const WCHAR
   __int64 v5; // rcx
   NTSTATUS v6; // ebx
   UNICODE_STRING SourceString; // [rsp+30h] [rbp-30h] BYREF
-  STRING v9; // [rsp+40h] [rbp-20h] BYREF
+  _STRING v9; // [rsp+40h] [rbp-20h] BYREF
   UNICODE_STRING DestinationString; // [rsp+50h] [rbp-10h] BYREF
 
   *(_DWORD *)(&v9.MaximumLength + 1) = 0;

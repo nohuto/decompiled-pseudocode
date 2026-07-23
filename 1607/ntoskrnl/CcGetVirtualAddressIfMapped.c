@@ -1,14 +1,14 @@
 /*
- * XREFs of CcGetVirtualAddressIfMapped @ 0x140016E7C
+ * XREFs of CcGetVirtualAddressIfMapped @ 0x1400169FC
  * Callers:
- *     CcFlushCachePriv @ 0x1400E8E10 (CcFlushCachePriv.c)
+ *     CcFlushCachePriv @ 0x1400E6CB0 (CcFlushCachePriv.c)
  * Callees:
- *     CcGetVacbLargeOffset @ 0x140018248 (CcGetVacbLargeOffset.c)
- *     CcIncrementVacbActiveCount @ 0x140018984 (CcIncrementVacbActiveCount.c)
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfAcquirePushLockSharedEx @ 0x1400C8280 (ExfAcquirePushLockSharedEx.c)
- *     ExfReleasePushLock @ 0x1400C8620 (ExfReleasePushLock.c)
+ *     CcGetVacbLargeOffset @ 0x140017DC8 (CcGetVacbLargeOffset.c)
+ *     CcIncrementVacbActiveCount @ 0x140018504 (CcIncrementVacbActiveCount.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1400C6120 (ExfAcquirePushLockSharedEx.c)
+ *     ExfReleasePushLock @ 0x1400C64C0 (ExfReleasePushLock.c)
  */
 
 __int64 __fastcall CcGetVirtualAddressIfMapped(__int64 a1, __int64 a2, __int64 *a3, _DWORD *a4)

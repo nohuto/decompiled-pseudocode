@@ -51,6 +51,6 @@ void __fastcall KiVerifyScopesExecute(PVOID Parameter)
   if ( BugCheckParameter4 != 0x7493D5224FA9E69ALL )
 LABEL_10:
     KeBugCheckEx(0x14Du, 0xFFFFFFFFuLL, 0LL, 0x7493D5224FA9E69AuLL, BugCheckParameter4);
-  KiVerifyPdata(PsNtosImageBase);
+  KiVerifyPdata((ULONG_PTR)PsNtosImageBase);
   KiVerifyPdata((ULONG_PTR)PsHalImageBase);
 }

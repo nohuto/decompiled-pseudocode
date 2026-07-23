@@ -1,20 +1,20 @@
 /*
- * XREFs of ExRegisterHost @ 0x140553420
+ * XREFs of ExRegisterHost @ 0x140553960
  * Callers:
- *     IopInitializeIoRate @ 0x14013C758 (IopInitializeIoRate.c)
+ *     IopInitializeIoRate @ 0x14013CCC8 (IopInitializeIoRate.c)
  *     PsInitSystem @ 0x140793634 (PsInitSystem.c)
  *     ExpInitSystemPhase1 @ 0x14079EB74 (ExpInitSystemPhase1.c)
  *     SepInitializeAuthorizationCallbacks @ 0x1407A25A8 (SepInitializeAuthorizationCallbacks.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExWaitForRundownProtectionRelease @ 0x140074D34 (ExWaitForRundownProtectionRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExWaitForRundownProtectionRelease @ 0x140074DB4 (ExWaitForRundownProtectionRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     ExpFindHost @ 0x140553578 (ExpFindHost.c)
- *     ExpDereferenceHost @ 0x1406B69B0 (ExpDereferenceHost.c)
+ *     ExpFindHost @ 0x140553AB8 (ExpFindHost.c)
+ *     ExpDereferenceHost @ 0x1406B6AE8 (ExpDereferenceHost.c)
  */
 
 __int64 __fastcall ExRegisterHost(_QWORD *a1, __int64 a2, unsigned __int16 *a3)

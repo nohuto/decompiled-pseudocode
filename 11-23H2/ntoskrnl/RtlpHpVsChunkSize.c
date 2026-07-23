@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlpHpVsChunkSize @ 0x1405B7404
+ * XREFs of RtlpHpVsChunkSize @ 0x1405B7974
  * Callers:
- *     RtlpSizeHeapInternal @ 0x1405AE26C (RtlpSizeHeapInternal.c)
- *     RtlpHpSegSizeInternal @ 0x1405B6BC8 (RtlpHpSegSizeInternal.c)
+ *     RtlpSizeHeapInternal @ 0x1405AE7DC (RtlpSizeHeapInternal.c)
+ *     RtlpHpSegSizeInternal @ 0x1405B7138 (RtlpHpSegSizeInternal.c)
  * Callees:
  *     <none>
  */

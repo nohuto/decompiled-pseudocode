@@ -2,12 +2,12 @@
  * XREFs of PspDereferenceQuotaBlock @ 0x14069ECF4
  * Callers:
  *     PsReturnSharedPoolQuota @ 0x14069ECA8 (PsReturnSharedPoolQuota.c)
- *     ObpFreeObject @ 0x140729850 (ObpFreeObject.c)
- *     PspProcessDelete @ 0x1407610B0 (PspProcessDelete.c)
- *     PspAssignProcessQuotaBlock @ 0x1407F8468 (PspAssignProcessQuotaBlock.c)
+ *     ObpFreeObject @ 0x140729A50 (ObpFreeObject.c)
+ *     PspProcessDelete @ 0x1407612A0 (PspProcessDelete.c)
+ *     PspAssignProcessQuotaBlock @ 0x1407F8738 (PspAssignProcessQuotaBlock.c)
  * Callees:
  *     PspReturnResourceQuota @ 0x140208380 (PspReturnResourceQuota.c)
- *     PspRemoveQuotaBlock @ 0x1409AE08C (PspRemoveQuotaBlock.c)
+ *     PspRemoveQuotaBlock @ 0x1409AE28C (PspRemoveQuotaBlock.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

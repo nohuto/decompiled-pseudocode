@@ -1,13 +1,13 @@
 /*
- * XREFs of IopMarkPagesForProcessorData @ 0x1405A11D0
+ * XREFs of IopMarkPagesForProcessorData @ 0x14059E108
  * Callers:
- *     IopAddLiveDumpPagesToPartialKernelDump @ 0x1405A03BC (IopAddLiveDumpPagesToPartialKernelDump.c)
+ *     IopAddLiveDumpPagesToPartialKernelDump @ 0x14059D2EC (IopAddLiveDumpPagesToPartialKernelDump.c)
  * Callees:
- *     MmIsAddressValidEx @ 0x140262FC0 (MmIsAddressValidEx.c)
- *     KeGetNextKernelStackSegment @ 0x14040EAA0 (KeGetNextKernelStackSegment.c)
- *     IopAddStackSegmentKernelShadowStackToDump @ 0x1405A0894 (IopAddStackSegmentKernelShadowStackToDump.c)
- *     MmAddRangeToCrashDump @ 0x140677990 (MmAddRangeToCrashDump.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     MmIsAddressValidEx @ 0x140244560 (MmIsAddressValidEx.c)
+ *     KeGetNextKernelStackSegment @ 0x140406CA0 (KeGetNextKernelStackSegment.c)
+ *     IopAddStackSegmentKernelShadowStackToDump @ 0x14059D7C4 (IopAddStackSegmentKernelShadowStackToDump.c)
+ *     MmAddRangeToCrashDump @ 0x140678B70 (MmAddRangeToCrashDump.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall IopMarkPagesForProcessorData(__int64 a1, int a2)

@@ -1,27 +1,27 @@
 /*
- * XREFs of MmCreateShadowMapping @ 0x1407F674C
+ * XREFs of MmCreateShadowMapping @ 0x1407F6EC0
  * Callers:
- *     KeAllocateProcessorProfileStructures @ 0x1405B0460 (KeAllocateProcessorProfileStructures.c)
- *     KiShadowKernelSectionByAddress @ 0x1405C3AA0 (KiShadowKernelSectionByAddress.c)
- *     KiShadowProcessorAllocation @ 0x140B5AA1C (KiShadowProcessorAllocation.c)
+ *     KeAllocateProcessorProfileStructures @ 0x1405AD3D0 (KeAllocateProcessorProfileStructures.c)
+ *     KiShadowKernelSectionByAddress @ 0x1405C1070 (KiShadowKernelSectionByAddress.c)
+ *     KiShadowProcessorAllocation @ 0x140B5CA8C (KiShadowProcessorAllocation.c)
  * Callees:
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     KiCheckForKernelApcDelivery @ 0x1402BB4D0 (KiCheckForKernelApcDelivery.c)
- *     MiUnlinkPageChainHead @ 0x1402E8490 (MiUnlinkPageChainHead.c)
- *     KiStackAttachProcess @ 0x1403209E0 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x140321EC0 (KiUnstackDetachProcess.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     MiGetPageTablePages @ 0x14039E9BC (MiGetPageTablePages.c)
- *     MiInitializeColorBase @ 0x1403A671C (MiInitializeColorBase.c)
- *     MiCleanupPageTablePages @ 0x1403A679C (MiCleanupPageTablePages.c)
- *     MiInitializeLargePfnList @ 0x140428B20 (MiInitializeLargePfnList.c)
- *     MiGetPteAddress @ 0x140437550 (MiGetPteAddress.c)
- *     MiPageTablesNeeded @ 0x140679A34 (MiPageTablesNeeded.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     MiMakeShadowPageTableRange @ 0x1407F6634 (MiMakeShadowPageTableRange.c)
+ *     MiGetPageTablePages @ 0x14021CA98 (MiGetPageTablePages.c)
+ *     MiInitializeColorBase @ 0x14026DA0C (MiInitializeColorBase.c)
+ *     MiCleanupPageTablePages @ 0x14026DA8C (MiCleanupPageTablePages.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     KiStackAttachProcess @ 0x1402C9570 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x1402CAA50 (KiUnstackDetachProcess.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     MiUnlinkPageChainHead @ 0x140349AD0 (MiUnlinkPageChainHead.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x140362C10 (KiCheckForKernelApcDelivery.c)
+ *     MiInitializeLargePfnList @ 0x14041CC70 (MiInitializeLargePfnList.c)
+ *     MiGetPteAddress @ 0x140429FD0 (MiGetPteAddress.c)
+ *     MiPageTablesNeeded @ 0x14067AC14 (MiPageTablesNeeded.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     MiMakeShadowPageTableRange @ 0x1407F6DA8 (MiMakeShadowPageTableRange.c)
  */
 
 __int64 __fastcall MmCreateShadowMapping(unsigned __int64 PteAddress, __int64 a2)
@@ -36,11 +36,11 @@ __int64 __fastcall MmCreateShadowMapping(unsigned __int64 PteAddress, __int64 a2
   struct _KTHREAD *CurrentThread; // rbx
   PEPROCESS v13; // rdi
   struct _KPROCESS *Process; // r12
-  _QWORD *v15; // rax
+  char *v15; // rax
   signed __int8 v16; // cf
-  _QWORD *v17; // rsi
-  __int64 v18; // rdx
-  __int64 v19; // rcx
+  char *v17; // rsi
+  __int64 v18; // r8
+  __int64 v19; // r9
   bool v20; // zf
   __int128 v21; // [rsp+30h] [rbp-D0h] BYREF
   __int64 v22; // [rsp+40h] [rbp-C0h]
@@ -97,22 +97,22 @@ __int64 __fastcall MmCreateShadowMapping(unsigned __int64 PteAddress, __int64 a2
   if ( Process != PsInitialSystemProcess )
     KiStackAttachProcess(PsInitialSystemProcess, 0, (__int64)v31);
   --CurrentThread->SpecialApcDisable;
-  v15 = KeAbPreAcquire((__int64)&qword_140E2ED70, 0LL);
-  v16 = _interlockedbittestandset64((volatile signed __int32 *)&qword_140E2ED70, 0LL);
+  v15 = (char *)KeAbPreAcquire((__int64)&qword_140E2EEB0, 0LL);
+  v16 = _interlockedbittestandset64((volatile signed __int32 *)&qword_140E2EEB0, 0LL);
   v17 = v15;
   if ( v16 )
-    ExfAcquirePushLockExclusiveEx(&qword_140E2ED70, (__int64)v15, (__int64)&qword_140E2ED70);
+    ExfAcquirePushLockExclusiveEx(&qword_140E2EEB0, v15, (__int64)&qword_140E2EEB0);
   if ( v17 )
-    *((_BYTE *)v17 + 10) = 1;
+    v17[10] = 1;
   MiMakeShadowPageTableRange(PteAddress, v4, (__int64)v32, 3, (__int64)v23);
-  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140E2ED70, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock((volatile signed __int64 *)&qword_140E2ED70);
-  KeAbPostRelease((ULONG_PTR)&qword_140E2ED70);
+  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140E2EEB0, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    ExfTryToWakePushLock((volatile signed __int64 *)&qword_140E2EEB0);
+  KeAbPostRelease((ULONG_PTR)&qword_140E2EEB0);
   v20 = CurrentThread->SpecialApcDisable++ == -1;
-  if ( v20 && ($81B80DCEA5A02D890AB7B2872B48AC01 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
-    KiCheckForKernelApcDelivery(v19, v18);
+  if ( v20 && ($727077A9B6E167EAE1398C74674DC5A5 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+    KiCheckForKernelApcDelivery();
   if ( Process != v13 )
-    KiUnstackDetachProcess((__int64)v31, 0);
+    KiUnstackDetachProcess((__int64)v31, 0, v18, v19);
   MiCleanupPageTablePages((__int64)v23);
   return 1LL;
 }

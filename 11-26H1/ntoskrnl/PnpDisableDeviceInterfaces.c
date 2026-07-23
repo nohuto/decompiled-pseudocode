@@ -1,31 +1,31 @@
 /*
- * XREFs of PnpDisableDeviceInterfaces @ 0x140A8ABF0
+ * XREFs of PnpDisableDeviceInterfaces @ 0x1409B7A10
  * Callers:
- *     PnpRemoveLockedDeviceNode @ 0x1404D23F4 (PnpRemoveLockedDeviceNode.c)
- *     PnpSurpriseRemoveLockedDeviceNode @ 0x140A8A8E0 (PnpSurpriseRemoveLockedDeviceNode.c)
+ *     PnpRemoveLockedDeviceNode @ 0x1404CBC6C (PnpRemoveLockedDeviceNode.c)
+ *     PnpSurpriseRemoveLockedDeviceNode @ 0x1409B7700 (PnpSurpriseRemoveLockedDeviceNode.c)
  * Callees:
- *     ExAcquireResourceExclusiveLite @ 0x140275200 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x1402B4CF0 (ExReleaseResourceLite.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     RtlInitUnicodeStringEx @ 0x14045D040 (RtlInitUnicodeStringEx.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     PnpUnicodeStringToWstrFree @ 0x1409DB5D0 (PnpUnicodeStringToWstrFree.c)
- *     _CmGetMatchingFilteredDeviceInterfaceList @ 0x140A8AF9C (_CmGetMatchingFilteredDeviceInterfaceList.c)
- *     IoSetDeviceInterfaceState @ 0x140AF9840 (IoSetDeviceInterfaceState.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140274770 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x1402FF9C0 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     RtlInitUnicodeStringEx @ 0x140456BE0 (RtlInitUnicodeStringEx.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     IoSetDeviceInterfaceState @ 0x1409AA7B0 (IoSetDeviceInterfaceState.c)
+ *     _CmGetMatchingFilteredDeviceInterfaceList @ 0x1409B7DBC (_CmGetMatchingFilteredDeviceInterfaceList.c)
+ *     PnpUnicodeStringToWstrFree @ 0x140A18820 (PnpUnicodeStringToWstrFree.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PnpDisableDeviceInterfaces(unsigned __int16 *a1)
 {
   struct _KTHREAD *CurrentThread; // rax
-  void *v3; // rbp
+  _WORD *v3; // rbp
   WCHAR *v4; // rsi
   __int64 v5; // r8
   _WORD *v6; // rcx
   unsigned __int64 v7; // rdx
-  void *Pool2; // rax
-  void *v9; // rbx
+  _WORD *Pool2; // rax
+  _WORD *v9; // rbx
   NTSTATUS MatchingFilteredDeviceInterfaceList; // ebx
   unsigned int i; // r15d
   const WCHAR *v12; // rdi
@@ -63,13 +63,13 @@ LABEL_24:
     {
       goto LABEL_27;
     }
-    Pool2 = (void *)ExAllocatePool2(0x100uLL);
+    Pool2 = (_WORD *)ExAllocatePool2(0x100uLL);
     v9 = Pool2;
     if ( Pool2 )
     {
       memmove(Pool2, *((const void **)a1 + 1), *a1);
       v3 = v9;
-      *((_WORD *)v9 + ((unsigned __int64)*a1 >> 1)) = 0;
+      v9[(unsigned __int64)*a1 >> 1] = 0;
       goto LABEL_12;
     }
     goto LABEL_23;
@@ -77,7 +77,7 @@ LABEL_24:
   if ( !*v6 )
   {
 LABEL_27:
-    v3 = (void *)*((_QWORD *)a1 + 1);
+    v3 = (_WORD *)*((_QWORD *)a1 + 1);
     goto LABEL_12;
   }
   v14 = (_WORD *)ExAllocatePool2(0x100uLL);
@@ -132,6 +132,6 @@ LABEL_20:
   KeLeaveCriticalRegion();
   if ( v4 )
     ExFreePoolWithTag(v4, 0);
-  PnpUnicodeStringToWstrFree(v3, (__int64)a1);
+  PnpUnicodeStringToWstrFree(v3, a1);
   return (unsigned int)MatchingFilteredDeviceInterfaceList;
 }

@@ -10,43 +10,47 @@
  *     RtlpInitMuiCriticalSection @ 0x18006F9A8 (RtlpInitMuiCriticalSection.c)
  */
 
-__int64 __fastcall RtlGetProcessPreferredUILanguages(int a1, int *a2, _DWORD *a3, unsigned int *a4)
+NTSTATUS __cdecl RtlGetProcessPreferredUILanguages(
+        ULONG Flags,
+        PULONG NumberOfLanguages,
+        PZZWSTR Languages,
+        PULONG ReturnLength)
 {
   char v7; // bl
-  __int64 result; // rax
+  NTSTATUS result; // eax
   __int64 v9; // rsi
-  unsigned int v10; // ebx
-  __int64 v11; // rdx
-  __int64 v12; // r8
-  __int64 v13; // [rsp+78h] [rbp+20h] BYREF
+  NTSTATUS v10; // ebx
+  __int64 v11; // [rsp+78h] [rbp+20h] BYREF
 
-  v13 = 0LL;
-  v7 = a1;
-  if ( !a4 || !a2 || !a3 && *a4 )
-    return 3221225485LL;
-  if ( a1 )
+  v11 = 0LL;
+  v7 = Flags;
+  if ( !ReturnLength || !NumberOfLanguages || !Languages && *ReturnLength )
+    return -1073741811;
+  if ( Flags )
   {
-    if ( (a1 & 0xFFFFFFF3) == 0 && (a1 & 0xC) != 12 )
+    if ( (Flags & 0xFFFFFFF3) == 0 && (Flags & 0xC) != 12 )
       goto LABEL_7;
-    return 3221225485LL;
+    return -1073741811;
   }
   v7 = 8;
 LABEL_7:
-  result = RtlpCreateProcessRegistryInfo(&v13);
-  if ( (int)result >= 0 )
+  result = RtlpCreateProcessRegistryInfo(&v11);
+  if ( result >= 0 )
   {
-    v9 = v13;
-    if ( *(_QWORD *)(v13 + 72) )
-    {
-      RtlpInitMuiCriticalSection();
-      RtlEnterCriticalSection((__int64)&RegistryInfoCritSect);
-      v10 = LdrpConvertLangFallbackListToMultiSz(*(_QWORD *)(v9 + 72), v9, a3, a4, v7, 0, a2);
-      RtlLeaveCriticalSection((__int64)&RegistryInfoCritSect, v11, v12);
-    }
-    else
-    {
-      return (unsigned int)LdrpConvertLangFallbackListToMultiSz(0LL, v13, a3, a4, v7, 0, a2);
-    }
+    v9 = v11;
+    if ( !*(_QWORD *)(v11 + 72) )
+      return LdrpConvertLangFallbackListToMultiSz(0LL, v11, Languages, ReturnLength, v7, 0, (int *)NumberOfLanguages);
+    RtlpInitMuiCriticalSection();
+    RtlEnterCriticalSection(&RegistryInfoCritSect);
+    v10 = LdrpConvertLangFallbackListToMultiSz(
+            *(_QWORD *)(v9 + 72),
+            v9,
+            Languages,
+            ReturnLength,
+            v7,
+            0,
+            (int *)NumberOfLanguages);
+    RtlLeaveCriticalSection(&RegistryInfoCritSect);
     return v10;
   }
   return result;

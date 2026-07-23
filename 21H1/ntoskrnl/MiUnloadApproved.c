@@ -11,7 +11,7 @@
 
 __int64 __fastcall MiUnloadApproved(ULONG_PTR BugCheckParameter2)
 {
-  unsigned __int64 v1; // rdi
+  void *v1; // rdi
   __int16 v3; // ax
   _QWORD *v5; // rax
   _QWORD *v6; // rcx
@@ -19,16 +19,16 @@ __int64 __fastcall MiUnloadApproved(ULONG_PTR BugCheckParameter2)
   int (*ExportedRoutineByName)(void); // rax
   unsigned __int64 v9; // rdx
 
-  v1 = *(_QWORD *)(BugCheckParameter2 + 48);
-  if ( (unsigned int)MiGetSystemRegionType(v1) == 1 )
+  v1 = *(void **)(BugCheckParameter2 + 48);
+  if ( (unsigned int)MiGetSystemRegionType((unsigned __int64)v1) == 1 )
   {
-    v5 = MiSessionLookupImage(v1);
+    v5 = MiSessionLookupImage((unsigned __int64)v1);
     v6 = v5;
     if ( !v5 )
     {
       v9 = KeGetCurrentThread()->ApcState.Process[1].AffinityPadding[5];
       if ( (*(_DWORD *)(v9 + 4) & 2) == 0 )
-        KeBugCheckEx(0x1Au, 0x2200uLL, BugCheckParameter2, v1, *(unsigned int *)(v9 + 8));
+        KeBugCheckEx(0x1Au, 0x2200uLL, BugCheckParameter2, (ULONG_PTR)v1, *(unsigned int *)(v9 + 8));
       return 0LL;
     }
     v7 = *((_DWORD *)v5 + 15);

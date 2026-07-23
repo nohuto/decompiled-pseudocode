@@ -11,20 +11,25 @@
  *     CmpReleaseShutdownRundown @ 0x140BA9970 (CmpReleaseShutdownRundown.c)
  */
 
-__int64 __fastcall NtOpenRegistryTransaction(HANDLE *a1, int a2, int a3)
+NTSTATUS __cdecl NtOpenRegistryTransaction(
+        HANDLE *RegistryTransactionHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjAttributes)
 {
+  int v3; // ebx
   __int64 v6; // rdx
   __int64 v7; // rcx
   __int64 v8; // r8
   __int64 v9; // r9
   char v10; // si
   int v11; // r8d
-  int v12; // ebx
+  NTSTATUS v12; // ebx
   char PreviousMode; // r14
   __int64 v14; // rax
   HANDLE Handle; // [rsp+48h] [rbp-30h] BYREF
   __int128 v17; // [rsp+50h] [rbp-28h] BYREF
 
+  v3 = (int)ObjAttributes;
   v17 = 0LL;
   Handle = 0LL;
   CmpInitializeThreadInfo((_KAFFINITY_EX *)&v17);
@@ -35,19 +40,19 @@ __int64 __fastcall NtOpenRegistryTransaction(HANDLE *a1, int a2, int a3)
     if ( PreviousMode == 1 )
     {
       v14 = 0x7FFFFFFF0000LL;
-      if ( (unsigned __int64)a1 < 0x7FFFFFFF0000LL )
-        v14 = (__int64)a1;
+      if ( (unsigned __int64)RegistryTransactionHandle < 0x7FFFFFFF0000LL )
+        v14 = (__int64)RegistryTransactionHandle;
       *(_QWORD *)v14 = 0LL;
     }
     else
     {
-      *a1 = 0LL;
+      *RegistryTransactionHandle = 0LL;
     }
     LOBYTE(v11) = PreviousMode;
-    v12 = ObOpenObjectByName(a3, (_DWORD)CmRegistryTransactionType, v11, 0, a2, 0LL, (__int64)&Handle);
+    v12 = ObOpenObjectByName(v3, (_DWORD)CmRegistryTransactionType, v11, 0, DesiredAccess, 0LL, (__int64)&Handle);
     if ( v12 >= 0 )
     {
-      *a1 = Handle;
+      *RegistryTransactionHandle = Handle;
       Handle = 0LL;
       v12 = 0;
     }
@@ -61,5 +66,5 @@ __int64 __fastcall NtOpenRegistryTransaction(HANDLE *a1, int a2, int a3)
   if ( v10 )
     CmpReleaseShutdownRundown();
   CmCleanupThreadInfo((_KAFFINITY_EX **)&v17);
-  return (unsigned int)v12;
+  return v12;
 }

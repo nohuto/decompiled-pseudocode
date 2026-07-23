@@ -4,7 +4,7 @@
  *     RtlpHpLfhSubsegmentCreate @ 0x140009064 (RtlpHpLfhSubsegmentCreate.c)
  * Callees:
  *     RtlpHeapGenerateRandomValue64 @ 0x140009608 (RtlpHeapGenerateRandomValue64.c)
- *     memset @ 0x1401D1880 (memset.c)
+ *     memset @ 0x1401D1980 (memset.c)
  */
 
 __int64 __fastcall RtlpHpLfhSubsegmentInitialize(
@@ -43,7 +43,7 @@ __int64 __fastcall RtlpHpLfhSubsegmentInitialize(
   memset(a1, 0, 0x30uLL);
   *((_QWORD *)a1 + 3) = 0LL;
   HIWORD(v21) = v11;
-  v12 = qword_14040E088 ^ ((unsigned int)a1 >> 12);
+  v12 = qword_14040F0E8 ^ ((unsigned int)a1 >> 12);
   a1[45] = v7;
   LOWORD(v21) = a4;
   *((_DWORD *)a1 + 10) = v21 ^ v12;
@@ -96,7 +96,7 @@ __int64 __fastcall RtlpHpLfhSubsegmentInitialize(
       v17 = v11 + a4;
       LOWORD(v17) = (a4 - 1) & (v11 + a4 - 1);
       HIWORD(v21) = a4 - v17 - 1 + v11;
-      *((_DWORD *)a1 + 10) = v21 ^ qword_14040E088 ^ ((unsigned int)a1 >> 12);
+      *((_DWORD *)a1 + 10) = v21 ^ qword_14040F0E8 ^ ((unsigned int)a1 >> 12);
     }
   }
   Ucb_high = HIWORD(KeGetCurrentThread()[1].Ucb);

@@ -1,9 +1,9 @@
 /*
- * XREFs of KiAllocateKNode @ 0x1405EF048
+ * XREFs of KiAllocateKNode @ 0x1405F19B8
  * Callers:
- *     KiPopulateNodeInformation @ 0x140CCAA4C (KiPopulateNodeInformation.c)
+ *     KiPopulateNodeInformation @ 0x140CD0B2C (KiPopulateNodeInformation.c)
  * Callees:
- *     ExAllocatePool3 @ 0x140C10010 (ExAllocatePool3.c)
+ *     ExAllocatePool3 @ 0x140C16010 (ExAllocatePool3.c)
  */
 
 __int64 __fastcall KiAllocateKNode(unsigned __int16 a1, unsigned int a2, __int64 a3)

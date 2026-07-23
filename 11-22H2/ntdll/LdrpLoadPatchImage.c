@@ -17,54 +17,63 @@
 
 __int64 __fastcall LdrpLoadPatchImage(const void *a1)
 {
-  __int64 v2; // rbx
-  unsigned int v4; // [rsp+50h] [rbp-B0h] BYREF
-  __int64 v5; // [rsp+58h] [rbp-A8h] BYREF
-  __int64 v6; // [rsp+60h] [rbp-A0h] BYREF
-  __int128 v7; // [rsp+68h] [rbp-98h] BYREF
-  __int64 v8[15]; // [rsp+80h] [rbp-80h] BYREF
+  char *v2; // rbx
+  __int64 v4; // [rsp+50h] [rbp-B0h] BYREF
+  char *v5; // [rsp+58h] [rbp-A8h] BYREF
+  PVOID BaseAddress; // [rsp+60h] [rbp-A0h] BYREF
+  int v7[4]; // [rsp+68h] [rbp-98h] BYREF
+  PWSTR Path[15]; // [rsp+80h] [rbp-80h] BYREF
   char v9; // [rsp+FCh] [rbp-4h]
 
   LdrpLogInternal(
     (unsigned int)"minkernel\\ntdll\\ldrapi.c",
-    298LL,
+    298,
     (__int64)"LdrpLoadPatchImage",
-    3LL,
+    3u,
     "Loading patch image with Base image at: 0x%p\n",
     a1);
-  v7 = 0LL;
-  LdrpInitializeDllPath(0LL, 0LL, v8);
-  v4 = 0;
-  LdrpLoadDllInternal((__int64)&v7, (int)v8, 0x10000200u, 9, 0LL, 0LL, &v6, (int *)&v4, (__int64)a1);
+  *(_OWORD *)v7 = 0LL;
+  LdrpInitializeDllPath(0LL, 0LL, (__int64 *)Path);
+  LODWORD(v4) = 0;
+  LdrpLoadDllInternal(
+    (_UNICODE_STRING *)v7,
+    (__int64)Path,
+    268435968LL,
+    9,
+    0LL,
+    0LL,
+    &BaseAddress,
+    (int *)&v4,
+    (__int64)a1);
   v2 = 0LL;
   v5 = 0LL;
-  if ( (v4 & 0x80000000) != 0 )
+  if ( (int)v4 < 0 )
   {
-    LdrpFindLoadedDllByHandle((unsigned __int64)a1, &v5, 0LL);
+    LdrpFindLoadedDllByHandle((unsigned __int64)a1, (__int64 *)&v5, 0LL);
     v2 = v5;
-    LdrpLogEtwHotPatchStatus(LdrpImageEntry + 88, v5, (unsigned int)&v7, v4, 1);
+    LdrpLogEtwHotPatchStatus(LdrpImageEntry + 88, (_DWORD)v5, (unsigned int)v7, v4, 1);
     LdrpLogInternal(
       (unsigned int)"minkernel\\ntdll\\ldrapi.c",
-      353LL,
+      353,
       (__int64)"LdrpLoadPatchImage",
-      0LL,
+      0,
       "Failed to load patch image with base address 0x%p. Status: 0x%08lx\n",
       a1,
       v4);
   }
-  LdrpFreeUnicodeString((__int64)&v7);
+  LdrpFreeUnicodeString((__int64)v7);
   if ( v9 )
-    RtlReleasePath(v8[0]);
-  if ( v6 )
-    LdrpDereferenceModule(v6);
+    RtlReleasePath(Path[0]);
+  if ( BaseAddress )
+    LdrpDereferenceModule((char *)BaseAddress);
   if ( v2 )
     LdrpDereferenceModule(v2);
   LdrpLogInternal(
     (unsigned int)"minkernel\\ntdll\\ldrapi.c",
-    368LL,
+    368,
     (__int64)"LdrpLoadPatchImage",
-    4LL,
+    4u,
     "Status: 0x%08lx\n",
     v4);
-  return v4;
+  return (unsigned int)v4;
 }

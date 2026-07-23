@@ -1,18 +1,18 @@
 /*
- * XREFs of MiInitializeImageVad @ 0x1409CDD4C
+ * XREFs of MiInitializeImageVad @ 0x14099ED2C
  * Callers:
- *     MiMapViewOfImageSection @ 0x1409CD37C (MiMapViewOfImageSection.c)
+ *     MiMapViewOfImageSection @ 0x14099E35C (MiMapViewOfImageSection.c)
  * Callees:
- *     PsGetSessionIdEx @ 0x14030B820 (PsGetSessionIdEx.c)
- *     MiReferenceActiveSubsection @ 0x14045AE40 (MiReferenceActiveSubsection.c)
- *     MiUpdateVadStartVpn @ 0x14049B0E4 (MiUpdateVadStartVpn.c)
- *     MiInsertVadEvent @ 0x14049B0F8 (MiInsertVadEvent.c)
- *     MiControlAreaRequiresCharge @ 0x1404A9D84 (MiControlAreaRequiresCharge.c)
- *     MiUpdatePrivateDemandZeroView @ 0x1404E72E8 (MiUpdatePrivateDemandZeroView.c)
- *     MiInsertVadCharges @ 0x1409C5DC0 (MiInsertVadCharges.c)
- *     MiInsertSharedCommitNode @ 0x1409C6360 (MiInsertSharedCommitNode.c)
- *     MiCreateFixupVad @ 0x1409CE47C (MiCreateFixupVad.c)
- *     MiCreatePerSessionProtos @ 0x1409CFA34 (MiCreatePerSessionProtos.c)
+ *     PsGetSessionIdEx @ 0x1402ED8A0 (PsGetSessionIdEx.c)
+ *     MiReferenceActiveSubsection @ 0x140454670 (MiReferenceActiveSubsection.c)
+ *     MiUpdateVadStartVpn @ 0x140494C34 (MiUpdateVadStartVpn.c)
+ *     MiInsertVadEvent @ 0x140494C48 (MiInsertVadEvent.c)
+ *     MiControlAreaRequiresCharge @ 0x1404A3414 (MiControlAreaRequiresCharge.c)
+ *     MiUpdatePrivateDemandZeroView @ 0x1404E06A4 (MiUpdatePrivateDemandZeroView.c)
+ *     MiInsertVadCharges @ 0x140996DA0 (MiInsertVadCharges.c)
+ *     MiInsertSharedCommitNode @ 0x140997340 (MiInsertSharedCommitNode.c)
+ *     MiCreateFixupVad @ 0x14099F45C (MiCreateFixupVad.c)
+ *     MiCreatePerSessionProtos @ 0x1409A0A14 (MiCreatePerSessionProtos.c)
  */
 
 __int64 __fastcall MiInitializeImageVad(__int64 a1)

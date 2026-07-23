@@ -1,28 +1,28 @@
 /*
- * XREFs of MiReplaceTransitionPage @ 0x1401074C4
+ * XREFs of MiReplaceTransitionPage @ 0x140105244
  * Callers:
- *     MiObtainTransitionPage @ 0x140107214 (MiObtainTransitionPage.c)
+ *     MiObtainTransitionPage @ 0x140104F94 (MiObtainTransitionPage.c)
  * Callees:
- *     MiPageToNode @ 0x14001BA54 (MiPageToNode.c)
- *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14001BCF0 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
- *     MiUnmapPageInHyperSpaceWorker @ 0x14001DBA0 (MiUnmapPageInHyperSpaceWorker.c)
- *     MiFinalizePageAttribute @ 0x14002375C (MiFinalizePageAttribute.c)
- *     MiMapPageInHyperSpaceWorker @ 0x140034990 (MiMapPageInHyperSpaceWorker.c)
- *     MiPartitionIdToPointer @ 0x1400680A0 (MiPartitionIdToPointer.c)
- *     KxReleaseQueuedSpinLock @ 0x140069570 (KxReleaseQueuedSpinLock.c)
- *     MiLockNestedPageAtDpcInline @ 0x14009E2E0 (MiLockNestedPageAtDpcInline.c)
- *     MiIsDecayPfn @ 0x1400A3DF8 (MiIsDecayPfn.c)
- *     MiDetermineModifiedPageListHead @ 0x1400B4614 (MiDetermineModifiedPageListHead.c)
- *     MiCopyPage @ 0x1400E3260 (MiCopyPage.c)
- *     MiGetPfnPriority @ 0x1400E67A4 (MiGetPfnPriority.c)
- *     MiSetPfnBlink @ 0x140107ACC (MiSetPfnBlink.c)
- *     MiCopyPfnEntry @ 0x140107B40 (MiCopyPfnEntry.c)
- *     MiReplaceNumaStandbyPage @ 0x140107C6C (MiReplaceNumaStandbyPage.c)
- *     KeMakeKernelDirectoryTableBase @ 0x1401DBB88 (KeMakeKernelDirectoryTableBase.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiUpdateTransitionPteFrame @ 0x1401F2A38 (MiUpdateTransitionPteFrame.c)
+ *     MiPageToNode @ 0x14001B5D4 (MiPageToNode.c)
+ *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14001B870 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     MiUnmapPageInHyperSpaceWorker @ 0x14001D720 (MiUnmapPageInHyperSpaceWorker.c)
+ *     MiFinalizePageAttribute @ 0x1400232DC (MiFinalizePageAttribute.c)
+ *     MiMapPageInHyperSpaceWorker @ 0x140034510 (MiMapPageInHyperSpaceWorker.c)
+ *     MiPartitionIdToPointer @ 0x140067C20 (MiPartitionIdToPointer.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400690F0 (KxReleaseQueuedSpinLock.c)
+ *     MiLockNestedPageAtDpcInline @ 0x14009DAE0 (MiLockNestedPageAtDpcInline.c)
+ *     MiIsDecayPfn @ 0x1400A2720 (MiIsDecayPfn.c)
+ *     MiDetermineModifiedPageListHead @ 0x1400B2494 (MiDetermineModifiedPageListHead.c)
+ *     MiCopyPage @ 0x1400E1100 (MiCopyPage.c)
+ *     MiGetPfnPriority @ 0x1400E4644 (MiGetPfnPriority.c)
+ *     MiSetPfnBlink @ 0x14010584C (MiSetPfnBlink.c)
+ *     MiCopyPfnEntry @ 0x1401058C0 (MiCopyPfnEntry.c)
+ *     MiReplaceNumaStandbyPage @ 0x1401059EC (MiReplaceNumaStandbyPage.c)
+ *     KeMakeKernelDirectoryTableBase @ 0x1401DB9B4 (KeMakeKernelDirectoryTableBase.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
+ *     MiUpdateTransitionPteFrame @ 0x1401F2864 (MiUpdateTransitionPteFrame.c)
  */
 
 unsigned __int64 __fastcall MiReplaceTransitionPage(__int64 a1, __int64 a2, int *a3)
@@ -189,11 +189,11 @@ LABEL_24:
     MiReplaceNumaStandbyPage(a1, a2);
   v32 = *(_QWORD *)(((unsigned __int64)v51 & 0xFFFFFFFFFFFFFFE0uLL) + 0x10);
   *(_BYTE *)(a1 + 34) = *(_BYTE *)(a1 + 34) & 0xF8 | 5;
-  if ( dword_140327060 == 1 )
+  if ( dword_1403270A0 == 1 )
   {
     v33 = v32 & 0x1F;
     LOBYTE(v34) = 1;
-    v35 = (volatile signed __int32 *)(qword_140327080 + 4 * (v32 >> 5));
+    v35 = (volatile signed __int32 *)stru_1403270B8.Buffer + (v32 >> 5);
     if ( (unsigned __int64)(v33 + 1) <= 0x20 )
     {
       v36 = 1 << v33;
@@ -251,10 +251,10 @@ LABEL_43:
     v46 = *(_QWORD *)(a1 + 8) | 0x8000000000000000uLL;
   }
   if ( (*(_QWORD *)(a1 + 40) & 0x200000000000000LL) == 0
-    && (v46 >= qword_140327F20[0] && v46 < qword_140327F20[0] + 0x100000000000LL
-     || qword_140326C30
-     && v46 >= qword_140326C30
-     && v46 < qword_140326C30 + (qword_140326C10 << 21)
+    && (v46 >= qword_140327F60[0] && v46 < qword_140327F60[0] + 0x100000000000LL
+     || qword_140326C70
+     && v46 >= qword_140326C70
+     && v46 < qword_140326C70 + (qword_140326C50 << 21)
      && (*(_BYTE *)(48 * ((*(_QWORD *)(((v46 >> 18) & 0x3FFFFFF8) - 0x904C0000000LL) >> 12) & 0xFFFFFFFFFLL)
                   - 0x57FFFFFFFDALL) & 0xF0) == 0xD0) )
   {

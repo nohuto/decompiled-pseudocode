@@ -1,10 +1,10 @@
 /*
- * XREFs of IovAllocateMdl @ 0x140AC0DE0
+ * XREFs of IovAllocateMdl @ 0x140AC0DD0
  * Callers:
  *     <none>
  * Callees:
- *     IoAllocateMdl @ 0x14022E2A0 (IoAllocateMdl.c)
- *     VfHandlePoolAlloc @ 0x140AD0FE0 (VfHandlePoolAlloc.c)
+ *     IoAllocateMdl @ 0x14022E3B0 (IoAllocateMdl.c)
+ *     VfHandlePoolAlloc @ 0x140AD0FD0 (VfHandlePoolAlloc.c)
  */
 
 PMDL __fastcall IovAllocateMdl(unsigned __int64 a1, ULONG a2, BOOLEAN a3, BOOLEAN a4, IRP *a5, __int64 a6)

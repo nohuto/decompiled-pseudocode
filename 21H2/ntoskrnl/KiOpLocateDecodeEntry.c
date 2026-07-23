@@ -1,9 +1,9 @@
 /*
- * XREFs of KiOpLocateDecodeEntry @ 0x140274134
+ * XREFs of KiOpLocateDecodeEntry @ 0x1402620D4
  * Callers:
- *     KiOpDecode @ 0x140273EE0 (KiOpDecode.c)
+ *     KiOpDecode @ 0x140261E80 (KiOpDecode.c)
  * Callees:
- *     KiOpFetchNextByte @ 0x140274068 (KiOpFetchNextByte.c)
+ *     KiOpFetchNextByte @ 0x140262008 (KiOpFetchNextByte.c)
  */
 
 __int64 __fastcall KiOpLocateDecodeEntry(__int64 a1)
@@ -17,7 +17,7 @@ __int64 __fastcall KiOpLocateDecodeEntry(__int64 a1)
   char v8; // cl
   char v9; // cl
 
-  v1 = &qword_1400020D8;
+  v1 = &qword_1400046F8;
   v2 = KiOpOneByteTable;
   if ( *(_BYTE *)(a1 + 57) )
   {

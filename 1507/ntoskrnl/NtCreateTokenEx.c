@@ -18,35 +18,35 @@
  *     ExRaiseDatatypeMisalignment @ 0x1406F78A0 (ExRaiseDatatypeMisalignment.c)
  */
 
-__int64 __fastcall NtCreateTokenEx(
-        _QWORD *a1,
-        unsigned int a2,
-        __int64 a3,
-        int a4,
-        __int64 a5,
-        __int64 a6,
-        void *Src,
-        ULONG *a8,
-        __int64 a9,
-        __int64 a10,
-        __int64 a11,
-        __int64 a12,
-        __int64 a13,
-        __int64 a14,
-        __int64 a15,
-        __int64 a16,
-        __int64 a17)
+NTSTATUS __cdecl NtCreateTokenEx(
+        PHANDLE TokenHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        TOKEN_TYPE Type,
+        PLUID AuthenticationId,
+        PLARGE_INTEGER ExpirationTime,
+        PTOKEN_USER User,
+        PTOKEN_GROUPS Groups,
+        PTOKEN_PRIVILEGES Privileges,
+        PTOKEN_SECURITY_ATTRIBUTES_INFORMATION UserAttributes,
+        PTOKEN_SECURITY_ATTRIBUTES_INFORMATION DeviceAttributes,
+        PTOKEN_GROUPS DeviceGroups,
+        PTOKEN_MANDATORY_POLICY MandatoryPolicy,
+        PTOKEN_OWNER Owner,
+        PTOKEN_PRIMARY_GROUP PrimaryGroup,
+        PTOKEN_DEFAULT_DACL DefaultDacl,
+        PTOKEN_SOURCE Source)
 {
-  _QWORD *v18; // rbx
+  PHANDLE v18; // rbx
   char PreviousMode; // si
   _QWORD *v20; // rcx
-  void **v21; // r12
-  char **v22; // r13
-  _DWORD *v23; // r14
-  __int64 v24; // r15
-  __int64 result; // rax
+  PTOKEN_OWNER v21; // r12
+  PTOKEN_DEFAULT_DACL v22; // r13
+  PTOKEN_GROUPS v23; // r14
+  PTOKEN_SECURITY_ATTRIBUTES_INFORMATION v24; // r15
+  NTSTATUS result; // eax
   __int64 v26; // rdx
-  int v27; // edi
+  NTSTATUS v27; // edi
   __int64 v28; // r8
   __int64 v29; // r9
   ULONG v30; // ebx
@@ -57,10 +57,10 @@ __int64 __fastcall NtCreateTokenEx(
   int v35; // [rsp+30h] [rbp-188h]
   char v36; // [rsp+C0h] [rbp-F8h]
   _BYTE v37[2]; // [rsp+C2h] [rbp-F6h] BYREF
-  int v38; // [rsp+C4h] [rbp-F4h]
+  NTSTATUS v38; // [rsp+C4h] [rbp-F4h]
   __int64 v39; // [rsp+C8h] [rbp-F0h] BYREF
-  int v40; // [rsp+D0h] [rbp-E8h]
-  int v41; // [rsp+D4h] [rbp-E4h] BYREF
+  int PrivilegeCount; // [rsp+D0h] [rbp-E8h]
+  unsigned int Policy; // [rsp+D4h] [rbp-E4h] BYREF
   ULONG Count; // [rsp+D8h] [rbp-E0h]
   __int64 v43; // [rsp+E0h] [rbp-D8h] BYREF
   __int64 v44; // [rsp+E8h] [rbp-D0h] BYREF
@@ -74,29 +74,29 @@ __int64 __fastcall NtCreateTokenEx(
   __int64 v52; // [rsp+128h] [rbp-90h] BYREF
   __int64 v53; // [rsp+130h] [rbp-88h] BYREF
   int v54[2]; // [rsp+138h] [rbp-80h] BYREF
-  _QWORD *v55; // [rsp+140h] [rbp-78h]
+  PHANDLE v55; // [rsp+140h] [rbp-78h]
   __int64 v56; // [rsp+148h] [rbp-70h] BYREF
   __int64 v57; // [rsp+150h] [rbp-68h] BYREF
-  __int64 v58; // [rsp+158h] [rbp-60h] BYREF
+  __int64 QuadPart; // [rsp+158h] [rbp-60h] BYREF
   _BYTE v59[4]; // [rsp+160h] [rbp-58h] BYREF
   int v60; // [rsp+164h] [rbp-54h]
   __int64 v61[2]; // [rsp+170h] [rbp-48h] BYREF
 
-  v18 = a1;
-  v55 = a1;
+  v18 = TokenHandle;
+  v55 = TokenHandle;
   *(_QWORD *)v54 = 0LL;
   v37[0] = 0;
   v43 = 0LL;
   Count = 0;
   v48 = 0LL;
   v39 = 0LL;
-  v40 = 0;
+  PrivilegeCount = 0;
   v46 = 0LL;
   LODWORD(v53) = 0;
   v47 = 0LL;
   v49 = 0LL;
   v44 = 0LL;
-  v41 = 0;
+  Policy = 0;
   v36 = 0;
   v51 = 0LL;
   v50 = 0LL;
@@ -104,74 +104,83 @@ __int64 __fastcall NtCreateTokenEx(
   v52 = 0LL;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( !SeSinglePrivilegeCheck(SeCreateTokenPrivilege, PreviousMode) )
-    return 3221225569LL;
+    return -1073741727;
   if ( PreviousMode )
   {
     v20 = v18;
     if ( (unsigned __int64)v18 >= MmUserProbeAddress )
       v20 = (_QWORD *)MmUserProbeAddress;
     *v20 = *v20;
-    if ( (a6 & 3) != 0 )
+    if ( ((unsigned __int8)ExpirationTime & 3) != 0 )
       ExRaiseDatatypeMisalignment();
-    if ( ((unsigned __int8)a8 & 3) != 0 )
+    if ( ((unsigned __int8)Groups & 3) != 0 )
       ExRaiseDatatypeMisalignment();
-    if ( (a9 & 3) != 0 )
+    if ( ((unsigned __int8)Privileges & 3) != 0 )
       ExRaiseDatatypeMisalignment();
-    if ( (a17 & 3) != 0 )
+    if ( ((unsigned __int8)Source & 3) != 0 )
       ExRaiseDatatypeMisalignment();
-    v21 = (void **)a14;
-    if ( a14 && (a14 & 3) != 0 )
+    v21 = Owner;
+    if ( Owner && ((unsigned __int8)Owner & 3) != 0 )
       ExRaiseDatatypeMisalignment();
-    if ( (a15 & 3) != 0 )
+    if ( ((unsigned __int8)PrimaryGroup & 3) != 0 )
       ExRaiseDatatypeMisalignment();
-    v22 = (char **)a16;
-    if ( a16 && (a16 & 3) != 0 )
+    v22 = DefaultDacl;
+    if ( DefaultDacl && ((unsigned __int8)DefaultDacl & 3) != 0 )
       ExRaiseDatatypeMisalignment();
-    if ( (a5 & 3) != 0 )
+    if ( ((unsigned __int8)AuthenticationId & 3) != 0 )
       ExRaiseDatatypeMisalignment();
-    if ( a13 && (a13 & 3) != 0 )
+    if ( MandatoryPolicy && ((unsigned __int8)MandatoryPolicy & 3) != 0 )
       ExRaiseDatatypeMisalignment();
-    v23 = (_DWORD *)a12;
-    if ( a12 && (a12 & 3) != 0 )
+    v23 = DeviceGroups;
+    if ( DeviceGroups && ((unsigned __int8)DeviceGroups & 3) != 0 )
       ExRaiseDatatypeMisalignment();
-    if ( a11 && (a11 & 3) != 0 )
+    if ( DeviceAttributes && ((unsigned __int8)DeviceAttributes & 3) != 0 )
       ExRaiseDatatypeMisalignment();
-    v24 = a10;
-    if ( a10 && (a10 & 3) != 0 )
+    v24 = UserAttributes;
+    if ( UserAttributes && ((unsigned __int8)UserAttributes & 3) != 0 )
       ExRaiseDatatypeMisalignment();
   }
   else
   {
-    v22 = (char **)a16;
-    v21 = (void **)a14;
-    v23 = (_DWORD *)a12;
-    v24 = a10;
+    v22 = DefaultDacl;
+    v21 = Owner;
+    v23 = DeviceGroups;
+    v24 = UserAttributes;
   }
-  if ( (unsigned int)(a4 - 1) > 1 )
-    return 3221225640LL;
-  result = SeCaptureSecurityQos(a3, PreviousMode, v37, (__int64)v59);
-  if ( (int)result >= 0 )
+  if ( (unsigned int)(Type - 1) > 1 )
+    return -1073741656;
+  result = SeCaptureSecurityQos((__int64)ObjectAttributes, PreviousMode, v37, (__int64)v59);
+  if ( result >= 0 )
   {
-    if ( !v37[0] && a4 == 2 )
-      return 3221225637LL;
+    if ( !v37[0] && Type == TokenImpersonation )
+      return -1073741659;
     v38 = 0;
-    v56 = *(_QWORD *)a5;
-    v58 = *(_QWORD *)a6;
-    v27 = SeCaptureSidAndAttributesArray(Src, 0, v32, v34, (__int64)&v43, (__int64)&v52 + 4);
+    v56 = (__int64)*AuthenticationId;
+    QuadPart = ExpirationTime->QuadPart;
+    v27 = SeCaptureSidAndAttributesArray(User, 0, v32, v34, (__int64)&v43, (__int64)&v52 + 4);
     v38 = v27;
     if ( v27 >= 0 )
     {
-      Count = *a8;
+      Count = Groups->GroupCount;
       v30 = Count;
-      v27 = SeCaptureSidAndAttributesArray(a8 + 2, 0, v33, v35, (__int64)&v48, (__int64)&v39);
+      v27 = SeCaptureSidAndAttributesArray(Groups->Groups, 0, v33, v35, (__int64)&v48, (__int64)&v39);
       v38 = v27;
       LODWORD(v39) = (v39 - 16 * v30 + 3) & 0xFFFFFFFC;
       v18 = v55;
     }
     if ( v27 >= 0 )
     {
-      v40 = *(_DWORD *)a9;
-      v27 = SeCaptureLuidAndAttributesArray((char *)(a9 + 4), v40, PreviousMode, v29, PoolType, v33, v35, &v46, &v53);
+      PrivilegeCount = Privileges->PrivilegeCount;
+      v27 = SeCaptureLuidAndAttributesArray(
+              (char *)Privileges->Privileges,
+              PrivilegeCount,
+              PreviousMode,
+              v29,
+              PoolType,
+              v33,
+              v35,
+              &v46,
+              &v53);
       v38 = v27;
     }
     if ( v21 )
@@ -179,16 +188,24 @@ __int64 __fastcall NtCreateTokenEx(
       if ( v27 < 0 )
       {
 LABEL_50:
-        if ( v22 && v27 >= 0 && *v22 )
+        if ( v22 && v27 >= 0 && v22->DefaultDacl )
         {
-          v27 = SeCaptureAcl(*v22, PreviousMode, v28, v29, NonPagedPoolNx, v33, (PVOID *)&v44, (unsigned int *)&v57);
+          v27 = SeCaptureAcl(
+                  (char *)v22->DefaultDacl,
+                  PreviousMode,
+                  v28,
+                  v29,
+                  NonPagedPoolNx,
+                  v33,
+                  (PVOID *)&v44,
+                  (unsigned int *)&v57);
           v38 = v27;
         }
-        *(_OWORD *)v61 = *(_OWORD *)a17;
+        *(struct _TOKEN_SOURCE *)v61 = *Source;
         if ( v23 && v27 >= 0 )
         {
-          HIDWORD(v39) = *v23;
-          v27 = SeCaptureSidAndAttributesArray(v23 + 2, 0, v33, v35, (__int64)&v45, (__int64)&v52);
+          HIDWORD(v39) = v23->GroupCount;
+          v27 = SeCaptureSidAndAttributesArray(v23->Groups, 0, v33, v35, (__int64)&v45, (__int64)&v52);
           v38 = v27;
         }
         if ( v24 && v27 >= 0 )
@@ -197,32 +214,32 @@ LABEL_50:
           v27 = SepCaptureTokenSecurityAttributesInformation(v24, v26, 0LL, &v51);
           v38 = v27;
         }
-        if ( a11 && v27 >= 0 )
+        if ( DeviceAttributes && v27 >= 0 )
         {
           LOBYTE(v26) = PreviousMode;
-          v27 = SepCaptureTokenSecurityAttributesInformation(a11, v26, 0LL, &v50);
+          v27 = SepCaptureTokenSecurityAttributesInformation(DeviceAttributes, v26, 0LL, &v50);
           v38 = v27;
         }
-        if ( a13 && v27 >= 0 )
+        if ( MandatoryPolicy && v27 >= 0 )
         {
-          v41 = *(_DWORD *)a13;
+          Policy = MandatoryPolicy->Policy;
           v36 = 1;
         }
         if ( v27 >= 0 )
           v27 = SepCreateTokenEx(
                   (HANDLE *)v54,
                   PreviousMode,
-                  a2,
-                  a3,
-                  a4,
+                  DesiredAccess,
+                  (__int64)ObjectAttributes,
+                  Type,
                   v60,
                   (__int64)&v56,
-                  &v58,
-                  (struct _SID_AND_ATTRIBUTES *)v43,
+                  &QuadPart,
+                  (_SID_AND_ATTRIBUTES *)v43,
                   Count,
                   v48,
                   v39,
-                  v40,
+                  PrivilegeCount,
                   v46,
                   (void *)v47,
                   (void *)v49,
@@ -232,7 +249,7 @@ LABEL_50:
                   v50,
                   SHIDWORD(v39),
                   v45,
-                  (_DWORD *)((unsigned __int64)&v41 & -(__int64)(v36 != 0)),
+                  (_DWORD *)((unsigned __int64)&Policy & -(__int64)(v36 != 0)),
                   0);
         if ( v43 )
           SeReleaseLuidAndAttributesArray((void *)v43, PreviousMode);
@@ -261,15 +278,15 @@ LABEL_50:
         if ( v50 )
           SepFreeCapturedTokenSecurityAttributesInformation();
         if ( v27 >= 0 )
-          *v18 = *(_QWORD *)v54;
-        return (unsigned int)v27;
+          *v18 = *(HANDLE *)v54;
+        return v27;
       }
-      v27 = SeCaptureSid(*v21, PoolType, 1, (__int64)&v47);
+      v27 = SeCaptureSid(v21->Owner, PoolType, 1, (__int64)&v47);
       v38 = v27;
     }
     if ( v27 >= 0 )
     {
-      v27 = SeCaptureSid(*(void **)a15, PoolType, 1, (__int64)&v49);
+      v27 = SeCaptureSid(PrimaryGroup->PrimaryGroup, PoolType, 1, (__int64)&v49);
       v38 = v27;
     }
     goto LABEL_50;

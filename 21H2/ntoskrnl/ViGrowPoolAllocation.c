@@ -1,26 +1,26 @@
 /*
- * XREFs of ViGrowPoolAllocation @ 0x1409D5484
+ * XREFs of ViGrowPoolAllocation @ 0x1409D6484
  * Callers:
- *     VeAllocatePoolWithTagPriority @ 0x1409D45D0 (VeAllocatePoolWithTagPriority.c)
+ *     VeAllocatePoolWithTagPriority @ 0x1409D55D0 (VeAllocatePoolWithTagPriority.c)
  * Callees:
- *     ExAllocatePoolWithTagPriority @ 0x14033C0E0 (ExAllocatePoolWithTagPriority.c)
- *     KeZeroSinglePage @ 0x140402D70 (KeZeroSinglePage.c)
- *     RtlpInterlockedPopEntrySList @ 0x140407930 (RtlpInterlockedPopEntrySList.c)
- *     RtlpInterlockedPushEntrySList @ 0x140407970 (RtlpInterlockedPushEntrySList.c)
+ *     ExAllocatePoolWithTagPriority @ 0x140346E30 (ExAllocatePoolWithTagPriority.c)
+ *     KeZeroSinglePage @ 0x140402F50 (KeZeroSinglePage.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140407B10 (RtlpInterlockedPopEntrySList.c)
+ *     RtlpInterlockedPushEntrySList @ 0x140407B50 (RtlpInterlockedPushEntrySList.c)
  */
 
-PSLIST_ENTRY __fastcall ViGrowPoolAllocation(union _SLIST_HEADER *a1)
+PSLIST_ENTRY __fastcall ViGrowPoolAllocation(_SLIST_HEADER *a1)
 {
-  struct _SLIST_ENTRY *PoolWithTagPriority; // rax
-  union _SLIST_HEADER *v3; // rdi
-  struct _SLIST_ENTRY *v4; // rbx
+  _SLIST_ENTRY *PoolWithTagPriority; // rax
+  _SLIST_HEADER *v3; // rdi
+  _SLIST_ENTRY *v4; // rbx
   __int64 v6; // rsi
 
-  PoolWithTagPriority = (struct _SLIST_ENTRY *)ExAllocatePoolWithTagPriority(
-                                                 (POOL_TYPE)640,
-                                                 0x1000uLL,
-                                                 0x70706556u,
-                                                 HighPoolPriority);
+  PoolWithTagPriority = (_SLIST_ENTRY *)ExAllocatePoolWithTagPriority(
+                                          (POOL_TYPE)640,
+                                          0x1000uLL,
+                                          0x70706556u,
+                                          HighPoolPriority);
   v3 = a1 + 5;
   v4 = PoolWithTagPriority;
   if ( !PoolWithTagPriority )

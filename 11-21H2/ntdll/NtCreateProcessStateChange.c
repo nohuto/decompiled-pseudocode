@@ -6,11 +6,16 @@
  *     <none>
  */
 
-__int64 NtCreateProcessStateChange()
+NTSTATUS __cdecl NtCreateProcessStateChange(
+        PHANDLE ProcessStateChangeHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        HANDLE ProcessHandle,
+        ULONG64 Reserved)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 190LL;
+  result = 190;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

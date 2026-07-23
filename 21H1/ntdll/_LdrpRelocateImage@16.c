@@ -10,20 +10,20 @@
  *     _LdrpProtectAndRelocateImage@20 @ 0x4B3310B1 (_LdrpProtectAndRelocateImage@20.c)
  */
 
-int __fastcall LdrpRelocateImage(void *a1, int a2, int a3, int a4)
+int __fastcall LdrpRelocateImage(PVOID BaseOfImage, int a2, int a3, int a4)
 {
   int v6; // esi
   int v8; // [esp-Ch] [ebp-1Ch]
   int v9; // [esp-8h] [ebp-18h]
   int v10; // [esp-4h] [ebp-14h]
-  int v11; // [esp+Ch] [ebp-4h] BYREF
+  ULONG Size; // [esp+Ch] [ebp-4h] BYREF
 
   if ( (ShowSnaps & 9) != 0 )
     LdrpLogDbgPrint("minkernel\\ntdll\\ldrmap.c", 353, "LdrpRelocateImage", 3, "DLL name: %wZ\n", a4);
-  if ( ((*(_BYTE *)(a3 + 22) & 1) != 0 || RtlImageDirectoryEntryToData(a1, (int)a1, 1, 5, (int)&v11) && v11)
-    && !(unsigned __int8)LdrpIsILOnlyImage(a1) )
+  if ( ((*(_BYTE *)(a3 + 22) & 1) != 0 || RtlImageDirectoryEntryToData(BaseOfImage, 1u, 5u, &Size) && Size)
+    && !(unsigned __int8)LdrpIsILOnlyImage(BaseOfImage) )
   {
-    LdrpLogDllRelocationEtwEvent(a1, a2);
+    LdrpLogDllRelocationEtwEvent(BaseOfImage, a2);
     v6 = LdrpProtectAndRelocateImage(v8, v9, v10);
   }
   else

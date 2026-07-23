@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwpExpandFileName @ 0x1404EE8AC
+ * XREFs of EtwpExpandFileName @ 0x1404D0974
  * Callers:
- *     EtwpRealtimeCreateLogfile @ 0x140490628 (EtwpRealtimeCreateLogfile.c)
- *     EtwpCreateLogFile @ 0x140494518 (EtwpCreateLogFile.c)
+ *     EtwpRealtimeCreateLogfile @ 0x1404910B8 (EtwpRealtimeCreateLogfile.c)
+ *     EtwpCreateLogFile @ 0x140494FA8 (EtwpCreateLogFile.c)
  * Callees:
- *     RtlStringCbPrintfW @ 0x14000C1D4 (RtlStringCbPrintfW.c)
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
+ *     RtlStringCbPrintfW @ 0x14000BD54 (RtlStringCbPrintfW.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     RtlFreeAnsiString @ 0x140458CF0 (RtlFreeAnsiString.c)
- *     RtlCompareUnicodeStrings @ 0x140489820 (RtlCompareUnicodeStrings.c)
+ *     RtlFreeAnsiString @ 0x140457BC0 (RtlFreeAnsiString.c)
+ *     RtlCompareUnicodeStrings @ 0x140511FA0 (RtlCompareUnicodeStrings.c)
  */
 
 __int64 __fastcall EtwpExpandFileName(char a1, UNICODE_STRING *a2, unsigned int a3, unsigned __int16 *a4)
@@ -96,7 +96,7 @@ __int64 __fastcall EtwpExpandFileName(char a1, UNICODE_STRING *a2, unsigned int 
         if ( v6 )
           v16 = (const WCHAR *)*((_QWORD *)a4 + 1);
         else
-          v16 = &word_140583CF0;
+          v16 = &word_1405841A0;
         v17 = RtlStringCbPrintfW(PoolWithTag, v13, L"%ws%ws%ws", NtSystemRoot.Buffer, &a2->Buffer[v25], v16);
       }
     }
@@ -105,7 +105,7 @@ __int64 __fastcall EtwpExpandFileName(char a1, UNICODE_STRING *a2, unsigned int 
       if ( v6 )
         v23 = (const WCHAR *)*((_QWORD *)a4 + 1);
       else
-        v23 = &word_140583CF0;
+        v23 = &word_1405841A0;
       v17 = RtlStringCbPrintfW(PoolWithTag, v13, L"%ws%ws", a2->Buffer, v23);
     }
     else

@@ -35,7 +35,7 @@ unsigned __int64 __fastcall MiGetHugeBadRangeFromNode(unsigned __int16 *a1, __in
     v4 = (*ColorHeadHugeRangeBase >> 15) ^ ((*ColorHeadHugeRangeBase >> 15) ^ v4) & 0xFFFFFFFFFFC00000uLL;
     if ( !v6 )
       break;
-    if ( _bittest64((const signed __int64 *)qword_140E2FD78, v6) )
+    if ( _bittest64((const signed __int64 *)stru_140E2FD70.Buffer, v6) )
     {
       v7 = (__int64 *)(qword_140E2FD80 + 8 * v6);
       if ( KeGetCurrentIrql() == 2 )

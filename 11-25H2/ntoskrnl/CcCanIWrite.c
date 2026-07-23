@@ -37,7 +37,7 @@ BOOLEAN __stdcall CcCanIWrite(PFILE_OBJECT FileObject, ULONG BytesToWrite, BOOLE
   __int64 *PrivateVolumeCacheMapFromFileObject; // r14
   ULONG Flags; // eax
   __int64 v12; // rdi
-  struct _LIST_ENTRY *v13; // rcx
+  _LIST_ENTRY *v13; // rcx
   char *v14; // r13
   char *v15; // r13
   char IsFileObjectDirectMapped; // r12
@@ -64,7 +64,7 @@ BOOLEAN __stdcall CcCanIWrite(PFILE_OBJECT FileObject, ULONG BytesToWrite, BOOLE
   int v38; // [rsp+A8h] [rbp-60h] BYREF
   PFILE_OBJECT v39; // [rsp+B0h] [rbp-58h]
   ULONG v40; // [rsp+B8h] [rbp-50h]
-  struct _LIST_ENTRY ListEntry; // [rsp+C0h] [rbp-48h] BYREF
+  _LIST_ENTRY ListEntry; // [rsp+C0h] [rbp-48h] BYREF
   __int64 *p_Object; // [rsp+D0h] [rbp-38h]
   __int64 v43; // [rsp+F0h] [rbp-18h]
   __int64 *v44; // [rsp+F8h] [rbp-10h]
@@ -92,9 +92,9 @@ BOOLEAN __stdcall CcCanIWrite(PFILE_OBJECT FileObject, ULONG BytesToWrite, BOOLE
     v12 = CcReferencePartitionFromFileObject((__int64)FileObject);
     PrivateVolumeCacheMapFromFileObject = CcGetPrivateVolumeCacheMapFromFileObject(FileObject, v12);
     CcReferencePrivateVolumeCacheMap((__int64)PrivateVolumeCacheMapFromFileObject);
-    v13 = (struct _LIST_ENTRY *)(PrivateVolumeCacheMapFromFileObject + 138);
+    v13 = (_LIST_ENTRY *)(PrivateVolumeCacheMapFromFileObject + 138);
     if ( !CcEnablePerVolumeLazyWriter )
-      v13 = (struct _LIST_ENTRY *)(v12 + 1168);
+      v13 = (_LIST_ENTRY *)(v12 + 1168);
     ListHead = v13;
     v14 = (char *)PrivateVolumeCacheMapFromFileObject + 708;
     if ( !CcEnablePerVolumeLazyWriter )

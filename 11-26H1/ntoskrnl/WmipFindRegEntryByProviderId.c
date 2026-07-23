@@ -1,15 +1,15 @@
 /*
- * XREFs of WmipFindRegEntryByProviderId @ 0x1403DD004
+ * XREFs of WmipFindRegEntryByProviderId @ 0x1403E01F4
  * Callers:
- *     WmipForwardWmiIrp @ 0x140A0F03C (WmipForwardWmiIrp.c)
- *     IoWMISystemControl @ 0x140AC4764 (IoWMISystemControl.c)
+ *     WmipForwardWmiIrp @ 0x140A0E218 (WmipForwardWmiIrp.c)
+ *     IoWMISystemControl @ 0x140AC63D4 (IoWMISystemControl.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     KxReleaseSpinLock @ 0x1402BDEF0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeReleaseMutantEx @ 0x1403DD130 (KeReleaseMutantEx.c)
- *     WmipDoFindRegEntryByProviderId @ 0x1403DD5E0 (WmipDoFindRegEntryByProviderId.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     KxReleaseSpinLock @ 0x140308BB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeReleaseMutantEx @ 0x1403E0320 (KeReleaseMutantEx.c)
+ *     WmipDoFindRegEntryByProviderId @ 0x1403E07D0 (WmipDoFindRegEntryByProviderId.c)
  */
 
 __int64 __fastcall WmipFindRegEntryByProviderId(unsigned int a1)
@@ -18,7 +18,7 @@ __int64 __fastcall WmipFindRegEntryByProviderId(unsigned int a1)
   __int64 RegEntryByProviderId; // rax
   __int64 v4; // rbx
 
-  KeWaitForSingleObject(&EtwpSecurityLock.IoSelfBoostsEntry, Executive, 0, 0, 0LL);
+  KeWaitForSingleObject(&WmipSMMutex, Executive, 0, 0, 0LL);
   v2 = KeAcquireSpinLockRaiseToDpc(&WmipRegistrationSpinLock);
   RegEntryByProviderId = WmipDoFindRegEntryByProviderId(a1);
   v4 = RegEntryByProviderId;
@@ -28,6 +28,6 @@ __int64 __fastcall WmipFindRegEntryByProviderId(unsigned int a1)
   if ( KiIrqlFlags )
     KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), v2);
   __writecr8(v2);
-  KeReleaseMutantEx((struct _KTHREAD *)&EtwpSecurityLock.IoSelfBoostsEntry);
+  KeReleaseMutantEx((struct _KTHREAD *)&WmipSMMutex);
   return v4;
 }

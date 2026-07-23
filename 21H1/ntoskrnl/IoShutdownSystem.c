@@ -34,7 +34,7 @@ void __fastcall IoShutdownSystem(int a1)
   PADAPTER_OBJECT *v9; // rbx
   struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+40h] [rbp-30h] BYREF
   struct _KEVENT Event; // [rsp+50h] [rbp-20h] BYREF
-  int v12; // [rsp+80h] [rbp+10h] BYREF
+  int SystemInformation; // [rsp+80h] [rbp+10h] BYREF
 
   memset(&Event, 0, sizeof(Event));
   IoStatusBlock = 0LL;
@@ -87,7 +87,7 @@ void __fastcall IoShutdownSystem(int a1)
     }
     if ( (MmVerifierData & 0x10) != 0 )
       IovUnloadDrivers();
-    v12 = 2;
-    ZwSetSystemInformation(151LL, (__int64)&v12);
+    SystemInformation = 2;
+    ZwSetSystemInformation(SystemSoftRebootInformation, &SystemInformation, 4u);
   }
 }

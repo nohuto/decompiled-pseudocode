@@ -12,13 +12,13 @@
 __int64 __fastcall RtlpIsQualifiedLanguage(__int64 a1, __int16 *a2, char a3)
 {
   int v5; // esi
-  unsigned __int64 v6; // rax
-  __int64 Heap; // rax
-  __int64 v8; // rdi
+  SIZE_T v6; // rax
+  char *Heap; // rax
+  char *v8; // rdi
   unsigned int v9; // ebx
   bool v10; // zf
   unsigned __int16 v11; // ax
-  __int64 v13; // rcx
+  char *v13; // rcx
   __int64 v14; // r9
   __int16 v15; // r8
   __int16 v16; // r8
@@ -29,18 +29,18 @@ __int64 __fastcall RtlpIsQualifiedLanguage(__int64 a1, __int16 *a2, char a3)
     v6 = LdrpCalcAllocSize(42LL, 8LL);
     if ( v6 )
     {
-      Heap = RtlAllocateHeap((char *)NtCurrentPeb()->ProcessHeap, 8u, v6);
+      Heap = (char *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, v6);
       v8 = Heap;
       if ( Heap )
       {
         v9 = 0;
-        v10 = (unsigned __int8)RtlpTraverseParents((_DWORD)a2, Heap, v5, 0, 0, 42) == 0;
+        v10 = (unsigned __int8)RtlpTraverseParents((_DWORD)a2, (_DWORD)Heap, v5, 0, 0, 42) == 0;
         v11 = 0;
         if ( v10 )
           v9 = -1073741823;
         do
         {
-          if ( v11 && *(_DWORD *)(v8 + 8LL * v11 + 4) )
+          if ( v11 && *(_DWORD *)&v8[8 * v11 + 4] )
           {
             v13 = v8 + 2;
             v14 = v11;
@@ -48,23 +48,23 @@ __int64 __fastcall RtlpIsQualifiedLanguage(__int64 a1, __int16 *a2, char a3)
             {
               if ( *(_DWORD *)(v13 + 2) )
               {
-                if ( *(_WORD *)(v13 - 2) )
+                if ( *((_WORD *)v13 - 1) )
                 {
-                  v15 = *(_WORD *)(v8 + 8LL * v11);
+                  v15 = *(_WORD *)&v8[8 * v11];
                   if ( v15 )
                   {
-                    if ( *(_WORD *)(v13 - 2) == v15 )
+                    if ( *((_WORD *)v13 - 1) == v15 )
                       v9 = -1073741823;
                   }
                 }
                 if ( *(__int16 *)v13 > 0 )
                 {
-                  v16 = *(_WORD *)(v8 + 8LL * v11 + 2);
+                  v16 = *(_WORD *)&v8[8 * v11 + 2];
                   if ( v16 > 0 && *(_WORD *)v13 == v16 )
                     v9 = -1073741823;
                 }
               }
-              v13 += 8LL;
+              v13 += 8;
               --v14;
             }
             while ( v14 );

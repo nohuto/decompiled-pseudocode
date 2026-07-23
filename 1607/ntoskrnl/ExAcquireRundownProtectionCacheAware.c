@@ -1,9 +1,9 @@
 /*
- * XREFs of ExAcquireRundownProtectionCacheAware @ 0x14008C5A0
+ * XREFs of ExAcquireRundownProtectionCacheAware @ 0x14008BD00
  * Callers:
  *     <none>
  * Callees:
- *     ExfAcquireRundownProtection @ 0x14008C5E0 (ExfAcquireRundownProtection.c)
+ *     ExfAcquireRundownProtection @ 0x14008BD40 (ExfAcquireRundownProtection.c)
  */
 
 BOOLEAN __stdcall ExAcquireRundownProtectionCacheAware(PEX_RUNDOWN_REF_CACHE_AWARE RunRefCacheAware)

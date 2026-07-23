@@ -1,29 +1,29 @@
 /*
- * XREFs of MiApplyHotPatchToLoadedDriver @ 0x1408C91F8
+ * XREFs of MiApplyHotPatchToLoadedDriver @ 0x1408C9358
  * Callers:
- *     MiApplyHotPatchToDriver @ 0x1408C9114 (MiApplyHotPatchToDriver.c)
+ *     MiApplyHotPatchToDriver @ 0x1408C9274 (MiApplyHotPatchToDriver.c)
  * Callees:
- *     MiControlAreaRequiresCharge @ 0x14025ACBC (MiControlAreaRequiresCharge.c)
- *     MiSectionControlArea @ 0x140315260 (MiSectionControlArea.c)
- *     MiReferenceActiveSubsection @ 0x140315D00 (MiReferenceActiveSubsection.c)
- *     MiCheckPurgeAndUpMapCount @ 0x140315FB0 (MiCheckPurgeAndUpMapCount.c)
- *     MiGetPteAddress @ 0x140318100 (MiGetPteAddress.c)
- *     MI_IS_PHYSICAL_ADDRESS @ 0x14031CBD0 (MI_IS_PHYSICAL_ADDRESS.c)
- *     ObDereferenceObjectDeferDelete @ 0x140343540 (ObDereferenceObjectDeferDelete.c)
- *     MiMakeZeroedPageTables @ 0x14039DE40 (MiMakeZeroedPageTables.c)
- *     VslPrepareDriverForPatch @ 0x1404FCFCC (VslPrepareDriverForPatch.c)
- *     MiReturnCrossPartitionControlAreaCharges @ 0x14052A924 (MiReturnCrossPartitionControlAreaCharges.c)
- *     MiUnloadSystemImage @ 0x1406D11C8 (MiUnloadSystemImage.c)
- *     MiObtainSectionForDriver @ 0x14075C358 (MiObtainSectionForDriver.c)
- *     MiGenerateSystemImageNames @ 0x14075C4D0 (MiGenerateSystemImageNames.c)
- *     MiDriverLoadSucceeded @ 0x14075C644 (MiDriverLoadSucceeded.c)
- *     MiHandleDriverNonPagedSections @ 0x14075C910 (MiHandleDriverNonPagedSections.c)
- *     MiMapSystemImage @ 0x14075D0C4 (MiMapSystemImage.c)
- *     MiConstructLoaderEntry @ 0x14075DDD0 (MiConstructLoaderEntry.c)
- *     MiGetSystemAddressForImage @ 0x14075E8AC (MiGetSystemAddressForImage.c)
- *     MiBackSingleImageWithPagefile @ 0x140780C14 (MiBackSingleImageWithPagefile.c)
- *     MiApplyDriverHotPatch @ 0x1408C8DB4 (MiApplyDriverHotPatch.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     MiControlAreaRequiresCharge @ 0x14027C22C (MiControlAreaRequiresCharge.c)
+ *     MiSectionControlArea @ 0x14031FFB0 (MiSectionControlArea.c)
+ *     MiReferenceActiveSubsection @ 0x140320A50 (MiReferenceActiveSubsection.c)
+ *     MiCheckPurgeAndUpMapCount @ 0x140320D00 (MiCheckPurgeAndUpMapCount.c)
+ *     MiGetPteAddress @ 0x140322E50 (MiGetPteAddress.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x140327920 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     ObDereferenceObjectDeferDelete @ 0x14034E290 (ObDereferenceObjectDeferDelete.c)
+ *     MiMakeZeroedPageTables @ 0x14039DF90 (MiMakeZeroedPageTables.c)
+ *     VslPrepareDriverForPatch @ 0x1404FCF4C (VslPrepareDriverForPatch.c)
+ *     MiReturnCrossPartitionControlAreaCharges @ 0x14052AB64 (MiReturnCrossPartitionControlAreaCharges.c)
+ *     MiUnloadSystemImage @ 0x1406A84A8 (MiUnloadSystemImage.c)
+ *     MiObtainSectionForDriver @ 0x14075C518 (MiObtainSectionForDriver.c)
+ *     MiGenerateSystemImageNames @ 0x14075C690 (MiGenerateSystemImageNames.c)
+ *     MiDriverLoadSucceeded @ 0x14075C804 (MiDriverLoadSucceeded.c)
+ *     MiHandleDriverNonPagedSections @ 0x14075CAD0 (MiHandleDriverNonPagedSections.c)
+ *     MiMapSystemImage @ 0x14075D284 (MiMapSystemImage.c)
+ *     MiConstructLoaderEntry @ 0x14075DF90 (MiConstructLoaderEntry.c)
+ *     MiGetSystemAddressForImage @ 0x14075EA6C (MiGetSystemAddressForImage.c)
+ *     MiBackSingleImageWithPagefile @ 0x140780DD4 (MiBackSingleImageWithPagefile.c)
+ *     MiApplyDriverHotPatch @ 0x1408C8F14 (MiApplyDriverHotPatch.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __fastcall MiApplyHotPatchToLoadedDriver(__int64 a1, unsigned __int16 *a2, __int64 a3)
@@ -68,7 +68,7 @@ NTSTATUS __fastcall MiApplyHotPatchToLoadedDriver(__int64 a1, unsigned __int16 *
     v10 = PteAddress + 8 * (((v9 >> 12) + ((v9 & 0xFFF) != 0) + 511LL) & 0xFFFFFFFFFFFFFE00uLL);
     if ( !(unsigned int)MiMakeZeroedPageTables(
                           v10,
-                          v10 + 8 * (((unsigned int)dword_140C4CCB0 >> 12) + ((dword_140C4CCB0 & 0xFFF) != 0) - 1LL),
+                          v10 + 8 * (((unsigned int)dword_140C4CCF0 >> 12) + ((dword_140C4CCF0 & 0xFFF) != 0) - 1LL),
                           0,
                           12) )
       return -1073741670;
@@ -135,7 +135,7 @@ LABEL_18:
     active = MiMapSystemImage((__int64)v13, SystemAddressForImage, 0LL);
     if ( active < 0 )
       goto LABEL_18;
-    _InterlockedExchangeAdd(&dword_140C4EFD0, v29);
+    _InterlockedExchangeAdd(&dword_140C4F010, v29);
     v12 = (unsigned int *)P;
     v21 = v27;
     v7 = 1;

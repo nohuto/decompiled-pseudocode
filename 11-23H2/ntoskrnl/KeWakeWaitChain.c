@@ -1,31 +1,31 @@
 /*
- * XREFs of KeWakeWaitChain @ 0x140260940
+ * XREFs of KeWakeWaitChain @ 0x140260BD0
  * Callers:
- *     ExpReleaseResourceForThreadLite @ 0x140260600 (ExpReleaseResourceForThreadLite.c)
- *     ExpConvertExclusiveToSharedLite @ 0x1403477DC (ExpConvertExclusiveToSharedLite.c)
- *     ExpConvertFastResourceExclusiveToShared @ 0x1403CB2B8 (ExpConvertFastResourceExclusiveToShared.c)
- *     ExpCommitWakeResourceExclusive @ 0x1403CB5F0 (ExpCommitWakeResourceExclusive.c)
- *     ExpCommitWakeFastResource @ 0x1404152F8 (ExpCommitWakeFastResource.c)
- *     ExpConvertFastResourceExclusiveToShared2 @ 0x14041532C (ExpConvertFastResourceExclusiveToShared2.c)
- *     VrpRelinquishDiffHiveEntryTransitionOwner @ 0x14077C560 (VrpRelinquishDiffHiveEntryTransitionOwner.c)
+ *     ExpReleaseResourceForThreadLite @ 0x140260890 (ExpReleaseResourceForThreadLite.c)
+ *     ExpConvertExclusiveToSharedLite @ 0x140347A6C (ExpConvertExclusiveToSharedLite.c)
+ *     ExpConvertFastResourceExclusiveToShared @ 0x1403CB498 (ExpConvertFastResourceExclusiveToShared.c)
+ *     ExpCommitWakeResourceExclusive @ 0x1403CB7D0 (ExpCommitWakeResourceExclusive.c)
+ *     ExpCommitWakeFastResource @ 0x14041568C (ExpCommitWakeFastResource.c)
+ *     ExpConvertFastResourceExclusiveToShared2 @ 0x1404156C0 (ExpConvertFastResourceExclusiveToShared2.c)
+ *     VrpRelinquishDiffHiveEntryTransitionOwner @ 0x14077C750 (VrpRelinquishDiffHiveEntryTransitionOwner.c)
  * Callees:
- *     KiTryUnwaitThread @ 0x140238CD0 (KiTryUnwaitThread.c)
- *     KiExitDispatcher @ 0x14023CD70 (KiExitDispatcher.c)
- *     KiAcquireKobjectLockSafe @ 0x140252030 (KiAcquireKobjectLockSafe.c)
- *     KiInsertQueueDpc @ 0x140254790 (KiInsertQueueDpc.c)
- *     KiWakeQueueWaiter @ 0x1402B8780 (KiWakeQueueWaiter.c)
- *     KiRemoveBoostThread @ 0x1402BB250 (KiRemoveBoostThread.c)
- *     KeAbPreWakeupHandle @ 0x1402BDD98 (KeAbPreWakeupHandle.c)
- *     KiWakeOtherQueueWaiters @ 0x14031AC98 (KiWakeOtherQueueWaiters.c)
- *     KeIsThreadRunning @ 0x14056EDD0 (KeIsThreadRunning.c)
- *     EtwTraceEnqueueWork @ 0x1405FCD0C (EtwTraceEnqueueWork.c)
+ *     KiTryUnwaitThread @ 0x140238DA0 (KiTryUnwaitThread.c)
+ *     KiExitDispatcher @ 0x14023CE40 (KiExitDispatcher.c)
+ *     KiAcquireKobjectLockSafe @ 0x1402520F0 (KiAcquireKobjectLockSafe.c)
+ *     KiInsertQueueDpc @ 0x140254850 (KiInsertQueueDpc.c)
+ *     KiWakeQueueWaiter @ 0x1402B8A10 (KiWakeQueueWaiter.c)
+ *     KiRemoveBoostThread @ 0x1402BB4E0 (KiRemoveBoostThread.c)
+ *     KeAbPreWakeupHandle @ 0x1402BE028 (KeAbPreWakeupHandle.c)
+ *     KiWakeOtherQueueWaiters @ 0x14031AF28 (KiWakeOtherQueueWaiters.c)
+ *     KeIsThreadRunning @ 0x14056F310 (KeIsThreadRunning.c)
+ *     EtwTraceEnqueueWork @ 0x1405FD27C (EtwTraceEnqueueWork.c)
  */
 
 __int64 __fastcall KeWakeWaitChain(volatile signed __int32 **a1, unsigned int a2, char a3)
 {
   volatile signed __int32 *v3; // rdi
   unsigned int v5; // ebx
-  struct _PROCESSOR_NUMBER v6; // r15d
+  _PROCESSOR_NUMBER v6; // r15d
   unsigned __int8 CurrentIrql; // cl
   struct _KPRCB *CurrentPrcb; // r12
   int v12; // ecx
@@ -63,13 +63,13 @@ __int64 __fastcall KeWakeWaitChain(volatile signed __int32 **a1, unsigned int a2
 
   v3 = *a1;
   v5 = 0;
-  v6 = (struct _PROCESSOR_NUMBER)1;
+  v6 = (_PROCESSOR_NUMBER)1;
   if ( !*a1 )
     return v5;
   CurrentIrql = KeGetCurrentIrql();
   v42 = CurrentIrql;
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 2 )
@@ -125,7 +125,7 @@ LABEL_8:
             *(_QWORD *)v16 = 0LL;
             v25 = KeGetCurrentIrql();
             __writecr8(2uLL);
-            if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v25 <= 0xFu )
+            if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v25 <= 0xFu )
             {
               v26 = KeGetCurrentPrcb()->SchedulerAssist;
               if ( v25 == 2 )
@@ -203,7 +203,7 @@ LABEL_17:
     v23 = KiRemoveBoostThread(CurrentPrcb, CurrentPrcb->CurrentThread);
     if ( a2 )
     {
-      v6 = (struct _PROCESSOR_NUMBER)2;
+      v6 = (_PROCESSOR_NUMBER)2;
       if ( v23 > (char)a2 )
         a2 = v23;
     }

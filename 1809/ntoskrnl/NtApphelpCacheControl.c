@@ -1,16 +1,16 @@
 /*
- * XREFs of NtApphelpCacheControl @ 0x140661CF0
+ * XREFs of NtApphelpCacheControl @ 0x140662EB0
  * Callers:
  *     <none>
  * Callees:
  *     RtlInitUnicodeStringEx @ 0x140015EB0 (RtlInitUnicodeStringEx.c)
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     IofCallDriver @ 0x1400B8DF0 (IofCallDriver.c)
- *     KeInitializeEvent @ 0x1400B8E70 (KeInitializeEvent.c)
- *     ExGetPreviousMode @ 0x1400DDC70 (ExGetPreviousMode.c)
- *     IoBuildDeviceIoControlRequest @ 0x1400DDC90 (IoBuildDeviceIoControlRequest.c)
- *     IoGetDeviceObjectPointer @ 0x140661E90 (IoGetDeviceObjectPointer.c)
- *     AhcCacheQueryHwId @ 0x140905248 (AhcCacheQueryHwId.c)
+ *     IofCallDriver @ 0x1400B8D30 (IofCallDriver.c)
+ *     KeInitializeEvent @ 0x1400B8DB0 (KeInitializeEvent.c)
+ *     ExGetPreviousMode @ 0x1400DDCF0 (ExGetPreviousMode.c)
+ *     IoBuildDeviceIoControlRequest @ 0x1400DDD10 (IoBuildDeviceIoControlRequest.c)
+ *     IoGetDeviceObjectPointer @ 0x140663050 (IoGetDeviceObjectPointer.c)
+ *     AhcCacheQueryHwId @ 0x140906508 (AhcCacheQueryHwId.c)
  */
 
 NTSTATUS __stdcall NtApphelpCacheControl(APPHELPCACHESERVICECLASS Service, PAPPHELP_CACHE_SERVICE_LOOKUP ServiceData)

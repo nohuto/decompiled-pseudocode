@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlpCaptureContext2 @ 0x1800A43D0
+ * XREFs of RtlpCaptureContext2 @ 0x1800A43F0
  * Callers:
  *     RtlRaiseException @ 0x1800087D0 (RtlRaiseException.c)
  * Callees:
@@ -31,5 +31,5 @@ void __fastcall RtlpCaptureContext2(__int64 a1)
   *(_OWORD *)(a1 + 640) = v9;
   *(_OWORD *)(a1 + 656) = v10;
   *(_DWORD *)(a1 + 280) = _mm_getcsr();
-  JUMPOUT(0x1800A448CLL);
+  JUMPOUT(0x1800A44ACLL);
 }

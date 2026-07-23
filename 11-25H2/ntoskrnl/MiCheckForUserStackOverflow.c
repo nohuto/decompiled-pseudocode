@@ -35,11 +35,11 @@ __int64 __fastcall MiCheckForUserStackOverflow(unsigned __int64 a1, int a2)
   unsigned __int64 v24; // [rsp+48h] [rbp-30h]
   __int64 v25; // [rsp+50h] [rbp-28h]
   unsigned int v26; // [rsp+90h] [rbp+18h] BYREF
-  int v27; // [rsp+98h] [rbp+20h]
+  ULONG OldProtect; // [rsp+98h] [rbp+20h] BYREF
 
   RegionSize = 0LL;
   v26 = 0;
-  v27 = 0;
+  OldProtect = 0;
   v3 = 0LL;
   CurrentThread = KeGetCurrentThread();
   if ( ((__int64)CurrentThread[1].Queue & 0x4080) != 0 || ((__int64)CurrentThread[1].Queue & 3) != 0 )
@@ -143,7 +143,7 @@ LABEL_11:
     v21 = v12 + 4096;
   }
   BaseAddress = v21;
-  ZwProtectVirtualMemory(-1LL, (__int64)&BaseAddress);
+  ZwProtectVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, &RegionSize, 4u, &OldProtect);
   v14 = (char *)BaseAddress;
   result = 3221225725LL;
 LABEL_16:

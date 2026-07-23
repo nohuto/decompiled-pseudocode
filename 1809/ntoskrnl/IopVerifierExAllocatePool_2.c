@@ -1,11 +1,11 @@
 /*
- * XREFs of IopVerifierExAllocatePool_2 @ 0x140285A98
+ * XREFs of IopVerifierExAllocatePool_2 @ 0x140285C88
  * Callers:
- *     NtQueryEaFile @ 0x1406A95B0 (NtQueryEaFile.c)
- *     NtSetEaFile @ 0x14081E1E0 (NtSetEaFile.c)
+ *     NtQueryEaFile @ 0x1406AA850 (NtQueryEaFile.c)
+ *     NtSetEaFile @ 0x14081F3E0 (NtSetEaFile.c)
  * Callees:
- *     ExAllocatePoolWithTagPriority @ 0x1400FD830 (ExAllocatePoolWithTagPriority.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
+ *     ExAllocatePoolWithTagPriority @ 0x1400FD8B0 (ExAllocatePoolWithTagPriority.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
  */
 
 PVOID IopVerifierExAllocatePool_2()

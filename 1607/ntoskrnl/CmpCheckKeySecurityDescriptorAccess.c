@@ -1,13 +1,13 @@
 /*
- * XREFs of CmpCheckKeySecurityDescriptorAccess @ 0x1401B4DB0
+ * XREFs of CmpCheckKeySecurityDescriptorAccess @ 0x1401B4C94
  * Callers:
- *     CmpCheckKcbStackAccess @ 0x1401B4D80 (CmpCheckKcbStackAccess.c)
+ *     CmpCheckKcbStackAccess @ 0x1401B4C64 (CmpCheckKcbStackAccess.c)
  * Callees:
- *     SeAccessCheck @ 0x140062B10 (SeAccessCheck.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     SeDeleteAccessState @ 0x140405E08 (SeDeleteAccessState.c)
- *     SeCreateAccessStateEx @ 0x1404D339C (SeCreateAccessStateEx.c)
+ *     SeAccessCheck @ 0x140062690 (SeAccessCheck.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     SeDeleteAccessState @ 0x140404CC8 (SeDeleteAccessState.c)
+ *     SeCreateAccessStateEx @ 0x1404B6E3C (SeCreateAccessStateEx.c)
  */
 
 __int64 __fastcall CmpCheckKeySecurityDescriptorAccess(

@@ -1,16 +1,16 @@
 /*
- * XREFs of MigrateOOBELanguageToInstallationLanguage @ 0x14060F54C
+ * XREFs of MigrateOOBELanguageToInstallationLanguage @ 0x14060FA9C
  * Callers:
- *     NtGetMUIRegistryInfo @ 0x1407CA590 (NtGetMUIRegistryInfo.c)
- *     NtFlushInstallUILanguage @ 0x14085F4E0 (NtFlushInstallUILanguage.c)
+ *     NtGetMUIRegistryInfo @ 0x1407CA860 (NtGetMUIRegistryInfo.c)
+ *     NtFlushInstallUILanguage @ 0x14085F720 (NtFlushInstallUILanguage.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ZwOpenKey @ 0x14041AFA0 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x14041B040 (ZwQueryValueKey.c)
- *     ZwSetValueKey @ 0x14041B960 (ZwSetValueKey.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ZwOpenKey @ 0x14041B330 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x14041B3D0 (ZwQueryValueKey.c)
+ *     ZwSetValueKey @ 0x14041BCF0 (ZwSetValueKey.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 __int64 MigrateOOBELanguageToInstallationLanguage()

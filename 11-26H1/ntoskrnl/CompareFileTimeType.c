@@ -1,7 +1,7 @@
 /*
- * XREFs of CompareFileTimeType @ 0x14089FF8C
+ * XREFs of CompareFileTimeType @ 0x1408A638C
  * Callers:
- *     PropertyEval @ 0x1409A8E30 (PropertyEval.c)
+ *     PropertyEval @ 0x140969840 (PropertyEval.c)
  * Callees:
  *     <none>
  */

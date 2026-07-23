@@ -1,20 +1,20 @@
 /*
- * XREFs of NtSetWnfProcessNotificationEvent @ 0x140ABAF30
+ * XREFs of NtSetWnfProcessNotificationEvent @ 0x140ABC3F0
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     ObReferenceObjectByHandle @ 0x1408F9550 (ObReferenceObjectByHandle.c)
- *     ExpWnfCreateProcessContext @ 0x140ABB004 (ExpWnfCreateProcessContext.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     ObReferenceObjectByHandle @ 0x1409294E0 (ObReferenceObjectByHandle.c)
+ *     ExpWnfCreateProcessContext @ 0x140ABC4C4 (ExpWnfCreateProcessContext.c)
  */
 
-__int64 __fastcall NtSetWnfProcessNotificationEvent(HANDLE Handle)
+NTSTATUS __cdecl NtSetWnfProcessNotificationEvent(HANDLE NotificationEvent)
 {
   struct _KTHREAD *CurrentThread; // rax
   _KPROCESS *Process; // rcx
   volatile signed __int64 *v4; // rdi
-  NTSTATUS v5; // ebx
+  int v5; // ebx
   PVOID v6; // rcx
   PVOID Object; // [rsp+48h] [rbp+10h] BYREF
 
@@ -31,7 +31,7 @@ __int64 __fastcall NtSetWnfProcessNotificationEvent(HANDLE Handle)
     v4 = (volatile signed __int64 *)Object;
   }
   Object = 0LL;
-  v5 = ObReferenceObjectByHandle(Handle, 2u, (POBJECT_TYPE)ExEventObjectType, 1, &Object, 0LL);
+  v5 = ObReferenceObjectByHandle(NotificationEvent, 2u, (POBJECT_TYPE)ExEventObjectType, 1, &Object, 0LL);
   if ( v5 >= 0 )
   {
     v6 = Object;
@@ -47,5 +47,5 @@ __int64 __fastcall NtSetWnfProcessNotificationEvent(HANDLE Handle)
   }
 LABEL_5:
   KeLeaveCriticalRegion();
-  return (unsigned int)v5;
+  return v5;
 }

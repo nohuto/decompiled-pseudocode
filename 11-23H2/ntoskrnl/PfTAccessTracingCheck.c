@@ -1,8 +1,8 @@
 /*
- * XREFs of PfTAccessTracingCheck @ 0x14035EE98
+ * XREFs of PfTAccessTracingCheck @ 0x14035F038
  * Callers:
- *     PfpLogScenarioEvent @ 0x1407D3AE8 (PfpLogScenarioEvent.c)
- *     PfPowerActionNotify @ 0x140A9FE74 (PfPowerActionNotify.c)
+ *     PfpLogScenarioEvent @ 0x1407D3DB8 (PfpLogScenarioEvent.c)
+ *     PfPowerActionNotify @ 0x140A9FCE4 (PfPowerActionNotify.c)
  * Callees:
  *     <none>
  */

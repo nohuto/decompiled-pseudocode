@@ -1,29 +1,29 @@
 /*
- * XREFs of NtQueryEaFile @ 0x14046B6CC
+ * XREFs of NtQueryEaFile @ 0x14046A59C
  * Callers:
  *     <none>
  * Callees:
- *     KeInitializeEvent @ 0x14002DEA0 (KeInitializeEvent.c)
- *     IoGetRelatedDeviceObject @ 0x14002E0E0 (IoGetRelatedDeviceObject.c)
- *     IopResetEvent @ 0x14002E5C0 (IopResetEvent.c)
- *     IoAllocateMdl @ 0x14002EF90 (IoAllocateMdl.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     IopVerifierExAllocatePoolWithQuota @ 0x140079F20 (IopVerifierExAllocatePoolWithQuota.c)
- *     IopReferenceFileObject @ 0x14007B630 (IopReferenceFileObject.c)
- *     IopAcquireFastLock @ 0x14007BAB4 (IopAcquireFastLock.c)
- *     RtlRaiseStatus @ 0x1400F6738 (RtlRaiseStatus.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     IopProbeAndLockPages_0 @ 0x1401C5358 (IopProbeAndLockPages_0.c)
- *     IopVerifierExAllocatePool_2 @ 0x1401CAE28 (IopVerifierExAllocatePool_2.c)
+ *     KeInitializeEvent @ 0x14002DA20 (KeInitializeEvent.c)
+ *     IoGetRelatedDeviceObject @ 0x14002DC60 (IoGetRelatedDeviceObject.c)
+ *     IopResetEvent @ 0x14002E140 (IopResetEvent.c)
+ *     IoAllocateMdl @ 0x14002EB10 (IoAllocateMdl.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     IopVerifierExAllocatePoolWithQuota @ 0x140079FA0 (IopVerifierExAllocatePoolWithQuota.c)
+ *     IopReferenceFileObject @ 0x14007B6B0 (IopReferenceFileObject.c)
+ *     IopAcquireFastLock @ 0x14007BB34 (IopAcquireFastLock.c)
+ *     RtlRaiseStatus @ 0x1400F4588 (RtlRaiseStatus.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     IopProbeAndLockPages_1 @ 0x1401CAC84 (IopProbeAndLockPages_1.c)
+ *     IopVerifierExAllocatePool_2 @ 0x1401CACC8 (IopVerifierExAllocatePool_2.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     IopAcquireFileObjectLock @ 0x1403ECA60 (IopAcquireFileObjectLock.c)
- *     IopSynchronousServiceTail @ 0x1404457B0 (IopSynchronousServiceTail.c)
- *     ProbeForWrite @ 0x14044DAC0 (ProbeForWrite.c)
- *     IopSynchronousApiServiceTail @ 0x1404C9698 (IopSynchronousApiServiceTail.c)
- *     IopAllocateIrpCleanup @ 0x140620DC0 (IopAllocateIrpCleanup.c)
- *     IopExceptionCleanup @ 0x1406213D4 (IopExceptionCleanup.c)
- *     ExRaiseDatatypeMisalignment @ 0x1406B6058 (ExRaiseDatatypeMisalignment.c)
+ *     IopAcquireFileObjectLock @ 0x1403EE090 (IopAcquireFileObjectLock.c)
+ *     IopSynchronousServiceTail @ 0x140444680 (IopSynchronousServiceTail.c)
+ *     ProbeForWrite @ 0x14044C990 (ProbeForWrite.c)
+ *     IopSynchronousApiServiceTail @ 0x1404AF418 (IopSynchronousApiServiceTail.c)
+ *     IopAllocateIrpCleanup @ 0x140620E74 (IopAllocateIrpCleanup.c)
+ *     IopExceptionCleanup @ 0x140621488 (IopExceptionCleanup.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1406B6190 (ExRaiseDatatypeMisalignment.c)
  */
 
 NTSTATUS __stdcall NtQueryEaFile(
@@ -229,7 +229,7 @@ LABEL_76:
         Mdl = IoAllocateMdl(Buffer, Length, 0, 1u, Irp);
         if ( !Mdl )
           RtlRaiseStatus(-1073741670);
-        IopProbeAndLockPages_0(Mdl, v42, IoWriteAccess, (__int64)v35, v34->MajorFunction);
+        IopProbeAndLockPages_1(Mdl, v42, IoWriteAccess, (__int64)v35, v34->MajorFunction);
         v37 = Length;
       }
       goto LABEL_76;

@@ -1,17 +1,17 @@
 /*
- * XREFs of MiMarkSystemVaAllocated @ 0x14050AA78
+ * XREFs of MiMarkSystemVaAllocated @ 0x1405044E8
  * Callers:
- *     MiReservePoolMemory @ 0x1402A4C9C (MiReservePoolMemory.c)
+ *     MiReservePoolMemory @ 0x1402A41EC (MiReservePoolMemory.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     RtlClearBitsEx @ 0x14024EFA0 (RtlClearBitsEx.c)
- *     MiSystemVaToDynamicBitmap @ 0x1402A4D64 (MiSystemVaToDynamicBitmap.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402DED10 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     RtlSetBitsEx @ 0x14036F510 (RtlSetBitsEx.c)
- *     MiExtendDynamicBitMap @ 0x1404FFA5C (MiExtendDynamicBitMap.c)
- *     MiSystemVaPreserveGuardPage @ 0x1406F57D8 (MiSystemVaPreserveGuardPage.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     RtlClearBitsEx @ 0x140250900 (RtlClearBitsEx.c)
+ *     MiSystemVaToDynamicBitmap @ 0x1402A42B4 (MiSystemVaToDynamicBitmap.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402C0B20 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     RtlSetBitsEx @ 0x1403712C0 (RtlSetBitsEx.c)
+ *     MiExtendDynamicBitMap @ 0x1404F924C (MiExtendDynamicBitMap.c)
+ *     MiSystemVaPreserveGuardPage @ 0x1406FA448 (MiSystemVaPreserveGuardPage.c)
  */
 
 __int64 __fastcall MiMarkSystemVaAllocated(int a1, __int64 a2, __int64 a3, int a4, int a5)

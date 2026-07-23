@@ -1,9 +1,9 @@
 /*
- * XREFs of XmSmswOp @ 0x140577110
+ * XREFs of XmSmswOp @ 0x1405745A0
  * Callers:
  *     <none>
  * Callees:
- *     XmStoreResult @ 0x14046959C (XmStoreResult.c)
+ *     XmStoreResult @ 0x140461F4C (XmStoreResult.c)
  */
 
 _WORD *__fastcall XmSmswOp(__int64 a1)

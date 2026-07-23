@@ -8,9 +8,9 @@
  *     <none>
  */
 
-__int64 __fastcall ZwEnumerateBootEntries(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwEnumerateBootEntries(PVOID Buffer, PULONG BufferLength)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(Buffer);
 }

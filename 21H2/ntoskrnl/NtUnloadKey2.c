@@ -1,12 +1,12 @@
 /*
- * XREFs of NtUnloadKey2 @ 0x140773890
+ * XREFs of NtUnloadKey2 @ 0x140773A50
  * Callers:
  *     <none>
  * Callees:
- *     CmUnloadKey @ 0x140719C78 (CmUnloadKey.c)
+ *     CmUnloadKey @ 0x1405DF54C (CmUnloadKey.c)
  */
 
-__int64 __fastcall NtUnloadKey2(__int64 a1, unsigned int a2)
+NTSTATUS __cdecl NtUnloadKey2(POBJECT_ATTRIBUTES TargetKey, ULONG Flags)
 {
-  return CmUnloadKey(a1, a2, 0, 0LL);
+  return CmUnloadKey((__int64)TargetKey, Flags, 0, 0LL);
 }

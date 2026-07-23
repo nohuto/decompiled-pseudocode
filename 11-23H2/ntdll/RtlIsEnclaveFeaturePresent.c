@@ -6,14 +6,14 @@
  *     RtlGetCurrentServiceSessionId @ 0x18003B120 (RtlGetCurrentServiceSessionId.c)
  */
 
-unsigned __int8 __fastcall RtlIsEnclaveFeaturePresent(unsigned int a1)
+BOOLEAN __cdecl RtlIsEnclaveFeaturePresent(ULONG FeatureMask)
 {
   int v2; // eax
-  unsigned __int8 v3; // bl
+  BOOLEAN v3; // bl
 
-  v2 = *(_DWORD *)(4 * ((unsigned __int64)a1 >> 8) + 0x7FFE036C);
-  v3 = _bittest(&v2, a1 & 0x1F);
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() && a1 == 8 )
+  v2 = *(_DWORD *)(4 * ((unsigned __int64)FeatureMask >> 8) + 0x7FFE036C);
+  v3 = _bittest(&v2, FeatureMask & 0x1F);
+  if ( RtlGetCurrentServiceSessionId() && FeatureMask == 8 )
     return 0;
   return v3;
 }

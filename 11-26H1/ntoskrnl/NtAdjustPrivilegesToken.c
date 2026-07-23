@@ -1,21 +1,21 @@
 /*
- * XREFs of NtAdjustPrivilegesToken @ 0x140A42610
+ * XREFs of NtAdjustPrivilegesToken @ 0x1409E1580
  * Callers:
- *     DifNtAdjustPrivilegesTokenWrapper @ 0x14066A820 (DifNtAdjustPrivilegesTokenWrapper.c)
- *     RtlpSysVolTakeOwnership @ 0x14080620C (RtlpSysVolTakeOwnership.c)
+ *     DifNtAdjustPrivilegesTokenWrapper @ 0x14066E400 (DifNtAdjustPrivilegesTokenWrapper.c)
+ *     RtlpSysVolTakeOwnership @ 0x14080BCAC (RtlpSysVolTakeOwnership.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     ExAcquireResourceExclusiveLite @ 0x140275200 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x1402B4CF0 (ExReleaseResourceLite.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     RtlSetVolatileMemory @ 0x1407330A0 (RtlSetVolatileMemory.c)
- *     RtlReadULongFromUser @ 0x14077F590 (RtlReadULongFromUser.c)
- *     RtlSetUserMemory @ 0x14077F608 (RtlSetUserMemory.c)
- *     RtlWriteULongToUser @ 0x14077F7A0 (RtlWriteULongToUser.c)
- *     ObReferenceObjectByHandle @ 0x1408F9550 (ObReferenceObjectByHandle.c)
- *     SepAdjustPrivileges @ 0x140A429A4 (SepAdjustPrivileges.c)
- *     SeCaptureLuidAndAttributesArray @ 0x140A43158 (SeCaptureLuidAndAttributesArray.c)
- *     SeReleaseLuidAndAttributesArray @ 0x140A43238 (SeReleaseLuidAndAttributesArray.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140274770 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x1402FF9C0 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     RtlSetVolatileMemory @ 0x140737C70 (RtlSetVolatileMemory.c)
+ *     RtlReadULongFromUser @ 0x140782090 (RtlReadULongFromUser.c)
+ *     RtlSetUserMemory @ 0x140782108 (RtlSetUserMemory.c)
+ *     RtlWriteULongToUser @ 0x1407822A0 (RtlWriteULongToUser.c)
+ *     ObReferenceObjectByHandle @ 0x1409294E0 (ObReferenceObjectByHandle.c)
+ *     SepAdjustPrivileges @ 0x1409E1914 (SepAdjustPrivileges.c)
+ *     SeCaptureLuidAndAttributesArray @ 0x1409E2108 (SeCaptureLuidAndAttributesArray.c)
+ *     SeReleaseLuidAndAttributesArray @ 0x1409E21E8 (SeReleaseLuidAndAttributesArray.c)
  */
 
 NTSTATUS __stdcall NtAdjustPrivilegesToken(

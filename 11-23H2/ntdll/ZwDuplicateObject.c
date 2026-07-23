@@ -14,19 +14,26 @@
  *     RtlReportExceptionEx @ 0x1800E8110 (RtlReportExceptionEx.c)
  *     RtlReportExceptionHelper @ 0x1800E8600 (RtlReportExceptionHelper.c)
  *     RtlpHeapPerformCrossProcessQuery @ 0x180100668 (RtlpHeapPerformCrossProcessQuery.c)
- *     PssNtFreeRemoteSnapshot @ 0x180128D70 (PssNtFreeRemoteSnapshot.c)
- *     PsspWalkHandleTable @ 0x18012AEB4 (PsspWalkHandleTable.c)
- *     PsspDuplicateSnapshotLocalToRemote @ 0x18012BEFC (PsspDuplicateSnapshotLocalToRemote.c)
- *     PsspDuplicateSnapshotRemoteToRemote @ 0x18012C484 (PsspDuplicateSnapshotRemoteToRemote.c)
+ *     PssNtFreeRemoteSnapshot @ 0x180128D40 (PssNtFreeRemoteSnapshot.c)
+ *     PsspWalkHandleTable @ 0x18012AE84 (PsspWalkHandleTable.c)
+ *     PsspDuplicateSnapshotLocalToRemote @ 0x18012BECC (PsspDuplicateSnapshotLocalToRemote.c)
+ *     PsspDuplicateSnapshotRemoteToRemote @ 0x18012C488 (PsspDuplicateSnapshotRemoteToRemote.c)
  * Callees:
  *     <none>
  */
 
-__int64 ZwDuplicateObject()
+NTSTATUS __cdecl ZwDuplicateObject(
+        HANDLE SourceProcessHandle,
+        HANDLE SourceHandle,
+        HANDLE TargetProcessHandle,
+        PHANDLE TargetHandle,
+        ACCESS_MASK DesiredAccess,
+        ULONG HandleAttributes,
+        ULONG Options)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 60LL;
+  result = 60;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

@@ -1,5 +1,5 @@
 /*
- * XREFs of KiForegroundTimerCallback @ 0x14012DB90
+ * XREFs of KiForegroundTimerCallback @ 0x14012DC60
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 __int64 KiForegroundTimerCallback()
 {
-  return KiInsertQueueDpc((ULONG_PTR)&stru_140421F08, 0LL, 0LL, 0LL, 0);
+  return KiInsertQueueDpc((ULONG_PTR)&stru_140422FE8, 0LL, 0LL, 0LL, 0);
 }

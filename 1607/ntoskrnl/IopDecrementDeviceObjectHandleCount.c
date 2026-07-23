@@ -1,9 +1,9 @@
 /*
- * XREFs of IopDecrementDeviceObjectHandleCount @ 0x1401C4A44
+ * XREFs of IopDecrementDeviceObjectHandleCount @ 0x1401C4928
  * Callers:
- *     PnpSurpriseRemoveLockedDeviceNode @ 0x1404C3474 (PnpSurpriseRemoveLockedDeviceNode.c)
- *     IopRemoveDevice @ 0x1404C6038 (IopRemoveDevice.c)
- *     PiIrpQueryRemoveDevice @ 0x14064A0C8 (PiIrpQueryRemoveDevice.c)
+ *     PnpSurpriseRemoveLockedDeviceNode @ 0x1404837DC (PnpSurpriseRemoveLockedDeviceNode.c)
+ *     IopRemoveDevice @ 0x140484840 (IopRemoveDevice.c)
+ *     PiIrpQueryRemoveDevice @ 0x14064A1AC (PiIrpQueryRemoveDevice.c)
  * Callees:
  *     <none>
  */

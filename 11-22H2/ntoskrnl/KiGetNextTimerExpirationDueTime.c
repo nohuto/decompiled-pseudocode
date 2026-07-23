@@ -89,9 +89,9 @@ unsigned __int64 __fastcall KiGetNextTimerExpirationDueTime(
     {
       goto LABEL_6;
     }
-    if ( KiGenerationEndTick * (unsigned __int64)(unsigned int)KeMaximumIncrement < NextWakeTimeForDeepSleep )
+    if ( KiGenerationEndTick * (unsigned __int64)KeMaximumIncrement < NextWakeTimeForDeepSleep )
     {
-      NextWakeTimeForDeepSleep = KiGenerationEndTick * (unsigned int)KeMaximumIncrement;
+      NextWakeTimeForDeepSleep = KiGenerationEndTick * KeMaximumIncrement;
       v28 = NextWakeTimeForDeepSleep;
       v13 = 5;
     }

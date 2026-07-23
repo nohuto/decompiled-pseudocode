@@ -147,10 +147,10 @@ unsigned __int64 __fastcall MiChangePageAttributeContiguous(__int64 a1, __int64 
         v4 = a3;
       }
       _InterlockedAnd64((volatile signed __int64 *)(v9 - 24), 0x7FFFFFFFFFFFFFFFuLL);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v10 <= 0xFu && CurrentIrql >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v10 <= 0xFu && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           a2 = -1LL << (v10 + 1);

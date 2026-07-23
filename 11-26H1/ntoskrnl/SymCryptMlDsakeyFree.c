@@ -1,11 +1,11 @@
 /*
- * XREFs of SymCryptMlDsakeyFree @ 0x14055E274
+ * XREFs of SymCryptMlDsakeyFree @ 0x140560798
  * Callers:
- *     SymCryptMlDsaSelftest @ 0x140563120 (SymCryptMlDsaSelftest.c)
- *     HashpVerifyMldsaSignature @ 0x1408ABDEC (HashpVerifyMldsaSignature.c)
+ *     SymCryptMlDsaSelftest @ 0x140565630 (SymCryptMlDsaSelftest.c)
+ *     HashpVerifyMldsaSignature @ 0x1408B2230 (HashpVerifyMldsaSignature.c)
  * Callees:
- *     SymCryptWipe @ 0x140556458 (SymCryptWipe.c)
- *     SymCryptCallbackFree @ 0x1407228C8 (SymCryptCallbackFree.c)
+ *     SymCryptWipe @ 0x1405588E8 (SymCryptWipe.c)
+ *     SymCryptCallbackFree @ 0x140727498 (SymCryptCallbackFree.c)
  */
 
 __int64 __fastcall SymCryptMlDsakeyFree(__int64 a1)

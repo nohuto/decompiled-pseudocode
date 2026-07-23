@@ -3,7 +3,7 @@
  * Callers:
  *     HalpSetupAcpiPhase0 @ 0x140B65578 (HalpSetupAcpiPhase0.c)
  * Callees:
- *     strstr @ 0x1403D91D0 (strstr.c)
+ *     strstr @ 0x1403D93B0 (strstr.c)
  */
 
 void __fastcall HalpSetPlatformFlags(__int64 a1, __int64 a2)

@@ -1,15 +1,15 @@
 /*
- * XREFs of HalGetBusDataByOffset @ 0x140439D40
+ * XREFs of HalGetBusDataByOffset @ 0x14042C5F0
  * Callers:
- *     HalGetBusData @ 0x140579940 (HalGetBusData.c)
- *     HalpWhackICHUsbSmi @ 0x14059A3DC (HalpWhackICHUsbSmi.c)
- *     HalpPiix4Detect @ 0x140C0A8DC (HalpPiix4Detect.c)
- *     KdpSysReadBusData @ 0x140C15344 (KdpSysReadBusData.c)
+ *     HalGetBusData @ 0x14057BE70 (HalGetBusData.c)
+ *     HalpWhackICHUsbSmi @ 0x14059CB5C (HalpWhackICHUsbSmi.c)
+ *     HalpPiix4Detect @ 0x140C10AEC (HalpPiix4Detect.c)
+ *     KdpSysReadBusData @ 0x140C1B344 (KdpSysReadBusData.c)
  * Callees:
- *     HalpGetPCIData @ 0x140439E70 (HalpGetPCIData.c)
- *     HalpGetSetCmosData @ 0x1404F4054 (HalpGetSetCmosData.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     HalpGetPCIData @ 0x14042C720 (HalpGetPCIData.c)
+ *     HalpGetSetCmosData @ 0x1404ED634 (HalpGetSetCmosData.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 // local variable allocation has failed, the output may be wrong!

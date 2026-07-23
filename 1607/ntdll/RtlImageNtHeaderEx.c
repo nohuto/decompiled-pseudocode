@@ -1,88 +1,88 @@
 /*
- * XREFs of RtlImageNtHeaderEx @ 0x1800348B0
+ * XREFs of RtlImageNtHeaderEx @ 0x1800348A0
  * Callers:
- *     WerEscalationReadImageVersionInfoForModuleBaseSafe @ 0x18000BF58 (WerEscalationReadImageVersionInfoForModuleBaseSafe.c)
- *     WerEscalationReadImageVersionInfoForModuleBase @ 0x18000C014 (WerEscalationReadImageVersionInfoForModuleBase.c)
- *     LdrpMapImage @ 0x18002F44C (LdrpMapImage.c)
- *     LdrpProcessMappedModule @ 0x18002F938 (LdrpProcessMappedModule.c)
- *     LdrpValidateEntrySection @ 0x18002FAE4 (LdrpValidateEntrySection.c)
- *     LdrpFetchAddressOfSecurityCookie @ 0x18002FF00 (LdrpFetchAddressOfSecurityCookie.c)
- *     LdrpPrepareImportAddressTableForSnap @ 0x1800310E8 (LdrpPrepareImportAddressTableForSnap.c)
- *     LdrpFindLoadedDllByMappingLockHeld @ 0x180031534 (LdrpFindLoadedDllByMappingLockHeld.c)
- *     RtlpImageDirectoryEntryToDataEx @ 0x1800318FC (RtlpImageDirectoryEntryToDataEx.c)
- *     RtlImageDirectoryEntryToData @ 0x180031B00 (RtlImageDirectoryEntryToData.c)
- *     RtlImageNtHeader @ 0x180031C20 (RtlImageNtHeader.c)
- *     LdrpGetProcedureAddress @ 0x180032370 (LdrpGetProcedureAddress.c)
- *     LdrpHandleProtectedDelayload @ 0x180033840 (LdrpHandleProtectedDelayload.c)
- *     LdrpSnapModule @ 0x180033FA0 (LdrpSnapModule.c)
- *     RtlpxLookupFunctionTable @ 0x1800362F0 (RtlpxLookupFunctionTable.c)
- *     LdrpResGetResourceDirectory @ 0x1800376C0 (LdrpResGetResourceDirectory.c)
- *     LdrpResGetMappingSize @ 0x180039860 (LdrpResGetMappingSize.c)
- *     LdrpInitializeTls @ 0x180051188 (LdrpInitializeTls.c)
- *     CsrClientConnectToServer @ 0x1800751B0 (CsrClientConnectToServer.c)
- *     LdrpFindLoadedDllByMappingFile @ 0x18007833C (LdrpFindLoadedDllByMappingFile.c)
- *     LdrGetDllHandleByMapping @ 0x1800784B0 (LdrGetDllHandleByMapping.c)
- *     LdrpCodeAuthzInitialize @ 0x18008020C (LdrpCodeAuthzInitialize.c)
- *     LdrpSetProtection @ 0x180084D28 (LdrpSetProtection.c)
- *     LdrRelocateImage @ 0x180084E2C (LdrRelocateImage.c)
- *     LdrVerifyImageMatchesChecksumEx @ 0x18008BE60 (LdrVerifyImageMatchesChecksumEx.c)
- *     LdrpInitializeProcess @ 0x180091E34 (LdrpInitializeProcess.c)
- *     LdrpInitializeExceptionTable @ 0x1800D25A4 (LdrpInitializeExceptionTable.c)
- *     LdrpLocateMrdata @ 0x1800D2EB0 (LdrpLocateMrdata.c)
- *     AVrfInitializeVerifier @ 0x1800D5F68 (AVrfInitializeVerifier.c)
- *     LdrVerifyMappedImageMatchesChecksum @ 0x1800EB2D8 (LdrVerifyMappedImageMatchesChecksum.c)
+ *     WerEscalationReadImageVersionInfoForModuleBaseSafe @ 0x18000BF48 (WerEscalationReadImageVersionInfoForModuleBaseSafe.c)
+ *     WerEscalationReadImageVersionInfoForModuleBase @ 0x18000C004 (WerEscalationReadImageVersionInfoForModuleBase.c)
+ *     LdrpMapImage @ 0x18002F43C (LdrpMapImage.c)
+ *     LdrpProcessMappedModule @ 0x18002F928 (LdrpProcessMappedModule.c)
+ *     LdrpValidateEntrySection @ 0x18002FAD4 (LdrpValidateEntrySection.c)
+ *     LdrpFetchAddressOfSecurityCookie @ 0x18002FEF0 (LdrpFetchAddressOfSecurityCookie.c)
+ *     LdrpPrepareImportAddressTableForSnap @ 0x1800310D8 (LdrpPrepareImportAddressTableForSnap.c)
+ *     LdrpFindLoadedDllByMappingLockHeld @ 0x180031524 (LdrpFindLoadedDllByMappingLockHeld.c)
+ *     RtlpImageDirectoryEntryToDataEx @ 0x1800318EC (RtlpImageDirectoryEntryToDataEx.c)
+ *     RtlImageDirectoryEntryToData @ 0x180031AF0 (RtlImageDirectoryEntryToData.c)
+ *     RtlImageNtHeader @ 0x180031C10 (RtlImageNtHeader.c)
+ *     LdrpGetProcedureAddress @ 0x180032360 (LdrpGetProcedureAddress.c)
+ *     LdrpHandleProtectedDelayload @ 0x180033830 (LdrpHandleProtectedDelayload.c)
+ *     LdrpSnapModule @ 0x180033F90 (LdrpSnapModule.c)
+ *     RtlpxLookupFunctionTable @ 0x1800362E0 (RtlpxLookupFunctionTable.c)
+ *     LdrpResGetResourceDirectory @ 0x1800376B0 (LdrpResGetResourceDirectory.c)
+ *     LdrpResGetMappingSize @ 0x180039850 (LdrpResGetMappingSize.c)
+ *     LdrpInitializeTls @ 0x180051178 (LdrpInitializeTls.c)
+ *     CsrClientConnectToServer @ 0x1800751A0 (CsrClientConnectToServer.c)
+ *     LdrpFindLoadedDllByMappingFile @ 0x18007832C (LdrpFindLoadedDllByMappingFile.c)
+ *     LdrGetDllHandleByMapping @ 0x1800784A0 (LdrGetDllHandleByMapping.c)
+ *     LdrpCodeAuthzInitialize @ 0x1800801FC (LdrpCodeAuthzInitialize.c)
+ *     LdrpSetProtection @ 0x180084D18 (LdrpSetProtection.c)
+ *     LdrRelocateImage @ 0x180084E1C (LdrRelocateImage.c)
+ *     LdrVerifyImageMatchesChecksumEx @ 0x18008BE50 (LdrVerifyImageMatchesChecksumEx.c)
+ *     LdrpInitializeProcess @ 0x180091E24 (LdrpInitializeProcess.c)
+ *     LdrpInitializeExceptionTable @ 0x1800D2664 (LdrpInitializeExceptionTable.c)
+ *     LdrpLocateMrdata @ 0x1800D2F70 (LdrpLocateMrdata.c)
+ *     AVrfInitializeVerifier @ 0x1800D6028 (AVrfInitializeVerifier.c)
+ *     LdrVerifyMappedImageMatchesChecksum @ 0x1800EB398 (LdrVerifyMappedImageMatchesChecksum.c)
  * Callees:
  *     RtlImageNtHeaderEx_ExceptionFilter @ 0x1800F0554 (RtlImageNtHeaderEx_ExceptionFilter.c)
  */
 
-__int64 __fastcall RtlImageNtHeaderEx(int a1, unsigned __int64 a2, unsigned __int64 a3, _QWORD *a4)
+NTSTATUS __cdecl RtlImageNtHeaderEx(ULONG Flags, PVOID BaseOfImage, ULONG64 Size, PIMAGE_NT_HEADERS *OutHeaders)
 {
-  __int64 result; // rax
-  _DWORD *v6; // r10
+  NTSTATUS result; // eax
+  _IMAGE_NT_HEADERS64 *v6; // r10
   char v7; // cl
-  unsigned __int64 v8; // r8
+  ULONG64 v8; // r8
 
-  result = 0LL;
+  result = 0;
   v6 = 0LL;
-  if ( !a4 )
-    return 3221225485LL;
-  *a4 = 0LL;
-  if ( (a1 & 0xFFFFFFFC) != 0 || a2 - 1 > 0xFFFFFFFFFFFFFFFDuLL )
-    return 3221225485LL;
-  if ( (a1 & 1) != 0 )
+  if ( !OutHeaders )
+    return -1073741811;
+  *OutHeaders = 0LL;
+  if ( (Flags & 0xFFFFFFFC) != 0 || (char *)BaseOfImage - 1 > (char *)0xFFFFFFFFFFFFFFFDLL )
+    return -1073741811;
+  if ( (Flags & 1) != 0 )
   {
     v7 = 0;
   }
   else
   {
     v7 = 1;
-    if ( a3 < 0x40 )
-      return 3221225595LL;
+    if ( Size < 0x40 )
+      return -1073741701;
   }
-  if ( *(_WORD *)a2 != 23117 )
+  if ( *(_WORD *)BaseOfImage != 23117 )
   {
 LABEL_16:
-    result = 3221225595LL;
+    result = -1073741701;
     goto LABEL_19;
   }
-  v8 = *(unsigned int *)(a2 + 60);
-  if ( v7 && (v8 >= a3 || (unsigned int)v8 >= 0xFFFFFFE7 || v8 + 24 >= a3) )
+  v8 = *((unsigned int *)BaseOfImage + 15);
+  if ( v7 && (v8 >= Size || (unsigned int)v8 >= 0xFFFFFFE7 || v8 + 24 >= Size) )
   {
-    result = 3221225595LL;
+    result = -1073741701;
     v6 = 0LL;
     goto LABEL_19;
   }
   if ( (unsigned int)v8 < 0x10000000 )
   {
-    v6 = (_DWORD *)(a2 + v8);
-    if ( a2 + v8 >= a2 && *v6 == 17744 )
+    v6 = (_IMAGE_NT_HEADERS64 *)((char *)BaseOfImage + v8);
+    if ( (char *)BaseOfImage + v8 >= BaseOfImage && v6->Signature == 17744 )
       goto LABEL_19;
     goto LABEL_16;
   }
-  result = 3221225595LL;
+  result = -1073741701;
   v6 = 0LL;
 LABEL_19:
-  if ( (int)result >= 0 )
-    *a4 = v6;
+  if ( result >= 0 )
+    *OutHeaders = v6;
   return result;
 }

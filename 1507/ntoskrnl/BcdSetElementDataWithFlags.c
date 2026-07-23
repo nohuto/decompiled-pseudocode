@@ -27,13 +27,18 @@
  *     BiConvertElementToRegistryData @ 0x140570370 (BiConvertElementToRegistryData.c)
  */
 
-__int64 __fastcall BcdSetElementDataWithFlags(__int64 a1, unsigned int a2, __int64 a3, __int64 a4, unsigned int a5)
+NTSTATUS __cdecl BcdSetElementDataWithFlags(
+        HANDLE BcdObjectHandle,
+        ULONG BcdElement,
+        BCD_FLAGS BcdFlags,
+        PVOID Buffer,
+        ULONG BufferSize)
 {
   __int64 v8; // rcx
   char v9; // r12
-  __int64 result; // rax
+  NTSTATUS result; // eax
   __int64 v11; // rcx
-  int v12; // ebx
+  NTSTATUS v12; // ebx
   int v13; // eax
   HANDLE v14; // rdi
   int v15; // eax
@@ -45,23 +50,23 @@ __int64 __fastcall BcdSetElementDataWithFlags(__int64 a1, unsigned int a2, __int
   PVOID P; // [rsp+48h] [rbp-29h]
   wchar_t DstBuf[24]; // [rsp+50h] [rbp-21h] BYREF
 
-  if ( !a4 && a5 )
-    return 3221225485LL;
+  if ( !Buffer && BufferSize )
+    return -1073741811;
   v19 = 0LL;
   Handle = 0LL;
   P = 0LL;
   v18 = 0;
-  if ( a5 )
+  if ( BufferSize )
   {
-    LOBYTE(v8) = BiIsOfflineHandle(a1);
+    LOBYTE(v8) = BiIsOfflineHandle((char)BcdObjectHandle);
     v9 = v8;
     result = BiAcquireBcdSyncMutant(v8);
-    if ( (int)result >= 0 )
+    if ( result >= 0 )
     {
-      v12 = BiOpenKey(a1, L"Elements", 131101LL, &v19);
+      v12 = BiOpenKey(BcdObjectHandle, L"Elements", 131101LL, &v19);
       if ( v12 >= 0 )
       {
-        if ( ultow_s(a2, DstBuf, 0x16uLL, 16) )
+        if ( ultow_s(BcdElement, DstBuf, 0x16uLL, 16) )
         {
           v12 = -1073741823;
         }
@@ -72,12 +77,12 @@ __int64 __fastcall BcdSetElementDataWithFlags(__int64 a1, unsigned int a2, __int
           v12 = v13;
           if ( v13 < 0 )
             goto LABEL_22;
-          v15 = BiConvertElementToRegistryData(a2, a4, a5);
+          v15 = BiConvertElementToRegistryData(BcdElement, Buffer, BufferSize);
           v16 = P;
           v12 = v15;
           if ( v15 >= 0 )
           {
-            v17 = BiConvertElementFormatToValueType(HIBYTE(a2) & 0xF);
+            v17 = BiConvertElementFormatToValueType(HIBYTE(BcdElement) & 0xF);
             v12 = BiSetRegistryValue(v14, L"Element", 0LL, v17, v16, (_DWORD)Handle);
           }
           if ( v16 )
@@ -99,13 +104,13 @@ LABEL_22:
         BiCloseKey(v19);
       LOBYTE(v11) = v9;
       BiReleaseBcdSyncMutant(v11);
-      return (unsigned int)v12;
+      return v12;
     }
   }
   else
   {
-    BcdDeleteElement(a1, a2);
-    return 0LL;
+    BcdDeleteElement(BcdObjectHandle, BcdElement);
+    return 0;
   }
   return result;
 }

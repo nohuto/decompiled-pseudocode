@@ -16,5 +16,5 @@ NTSTATUS __stdcall ZwQuerySystemEnvironmentValueEx(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(VariableName, VendorGuid, Value);
+  return KiServiceInternal(VariableName);
 }

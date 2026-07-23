@@ -15,21 +15,21 @@
  *     CmpReleaseShutdownRundown @ 0x140BA9970 (CmpReleaseShutdownRundown.c)
  */
 
-__int64 __fastcall NtCreateKeyTransacted(
-        __int64 a1,
-        int a2,
-        __int64 a3,
-        int a4,
-        __int64 a5,
-        int a6,
-        HANDLE Handle,
-        __int64 a8)
+NTSTATUS __cdecl NtCreateKeyTransacted(
+        PHANDLE KeyHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        ULONG TitleIndex,
+        PUNICODE_STRING Class,
+        ULONG CreateOptions,
+        HANDLE TransactionHandle,
+        PULONG Disposition)
 {
   __int64 v12; // rdx
   __int64 v13; // rcx
   __int64 v14; // r8
   __int64 v15; // r9
-  NTSTATUS v16; // edi
+  int v16; // edi
   KPROCESSOR_MODE PreviousMode; // r9
   NTSTATUS v18; // eax
   __int64 v19; // rcx
@@ -39,15 +39,15 @@ __int64 __fastcall NtCreateKeyTransacted(
   PVOID Object; // [rsp+38h] [rbp-49h] BYREF
   __int128 v25; // [rsp+40h] [rbp-41h] BYREF
   _QWORD Parameter[2]; // [rsp+58h] [rbp-29h] BYREF
-  int v27; // [rsp+68h] [rbp-19h]
+  ACCESS_MASK v27; // [rsp+68h] [rbp-19h]
   int v28; // [rsp+6Ch] [rbp-15h]
-  __int64 v29; // [rsp+70h] [rbp-11h]
-  int v30; // [rsp+78h] [rbp-9h]
+  POBJECT_ATTRIBUTES v29; // [rsp+70h] [rbp-11h]
+  ULONG v30; // [rsp+78h] [rbp-9h]
   int v31; // [rsp+7Ch] [rbp-5h]
-  __int64 v32; // [rsp+80h] [rbp-1h]
-  int v33; // [rsp+88h] [rbp+7h]
+  PUNICODE_STRING v32; // [rsp+80h] [rbp-1h]
+  ULONG v33; // [rsp+88h] [rbp+7h]
   int v34; // [rsp+8Ch] [rbp+Bh]
-  __int64 v35; // [rsp+90h] [rbp+Fh]
+  PULONG v35; // [rsp+90h] [rbp+Fh]
   __int64 v36; // [rsp+98h] [rbp+17h]
 
   HIDWORD(Parameter[0]) = 0;
@@ -61,14 +61,14 @@ __int64 __fastcall NtCreateKeyTransacted(
   }
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   Object = 0LL;
-  v18 = ObReferenceObjectByHandle(Handle, 4u, CmRegistryTransactionType, PreviousMode, &Object, 0LL);
+  v18 = ObReferenceObjectByHandle(TransactionHandle, 4u, CmRegistryTransactionType, PreviousMode, &Object, 0LL);
   v20 = (__int64)Object;
   v16 = v18;
   if ( v18 == -1073741788 )
   {
     v21 = KeGetCurrentThread()->PreviousMode;
     Object = 0LL;
-    v22 = ObReferenceObjectByHandle(Handle, 4u, (POBJECT_TYPE)TmTransactionObjectType, v21, &Object, 0LL);
+    v22 = ObReferenceObjectByHandle(TransactionHandle, 4u, (POBJECT_TYPE)TmTransactionObjectType, v21, &Object, 0LL);
     v20 = (__int64)Object;
     v16 = v22;
     if ( v22 < 0 )
@@ -83,13 +83,13 @@ __int64 __fastcall NtCreateKeyTransacted(
   v28 = 0;
   v31 = 0;
   v34 = 0;
-  v32 = a5;
-  v33 = a6;
-  v35 = a8;
-  Parameter[1] = a1;
-  v27 = a2;
-  v29 = a3;
-  v30 = a4;
+  v32 = Class;
+  v33 = CreateOptions;
+  v35 = Disposition;
+  Parameter[1] = KeyHandle;
+  v27 = DesiredAccess;
+  v29 = ObjectAttributes;
+  v30 = TitleIndex;
   v36 = v20;
   if ( !(unsigned int)Feature_RegistryStackExpand__private_IsEnabledDeviceUsageNoInline() )
   {
@@ -107,5 +107,5 @@ LABEL_12:
   CmpReleaseShutdownRundown(v19);
 LABEL_15:
   CmCleanupThreadInfo((_KAFFINITY_EX **)&v25);
-  return (unsigned int)v16;
+  return v16;
 }

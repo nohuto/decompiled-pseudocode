@@ -5,7 +5,7 @@
  *     RtlLogStackBackTraceEx @ 0x180061BC0 (RtlLogStackBackTraceEx.c)
  *     RtlReleaseStackTrace @ 0x1800FD940 (RtlReleaseStackTrace.c)
  * Callees:
- *     RtlpInterlockedPushEntrySList @ 0x1800A3DD0 (RtlpInterlockedPushEntrySList.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1800A3DF0 (RtlpInterlockedPushEntrySList.c)
  *     RtlpStdLockAcquire @ 0x1800FE18C (RtlpStdLockAcquire.c)
  *     RtlpStdLockRelease @ 0x1800FE1AC (RtlpStdLockRelease.c)
  */

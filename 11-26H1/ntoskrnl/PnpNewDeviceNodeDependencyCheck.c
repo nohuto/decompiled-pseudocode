@@ -1,34 +1,33 @@
 /*
- * XREFs of PnpNewDeviceNodeDependencyCheck @ 0x14091034C
+ * XREFs of PnpNewDeviceNodeDependencyCheck @ 0x1409B247C
  * Callers:
- *     PiProcessNewDeviceNode @ 0x140AA5E3C (PiProcessNewDeviceNode.c)
+ *     PiProcessNewDeviceNode @ 0x1409D9370 (PiProcessNewDeviceNode.c)
  * Callees:
- *     ExAcquireResourceSharedLite @ 0x1402B3C80 (ExAcquireResourceSharedLite.c)
- *     PiListEntryToDependencyEdge @ 0x140515F40 (PiListEntryToDependencyEdge.c)
- *     PipNotifyDependenciesChanged @ 0x140778910 (PipNotifyDependenciesChanged.c)
- *     PnpReleaseDependencyRelationsLock @ 0x14090ECA0 (PnpReleaseDependencyRelationsLock.c)
- *     PnpAcquireDependencyRelationsLock @ 0x14090ECD0 (PnpAcquireDependencyRelationsLock.c)
- *     PipProcessRebuildPowerRelationsQueue @ 0x14090ED8C (PipProcessRebuildPowerRelationsQueue.c)
- *     PiGetProviderList @ 0x1409108AC (PiGetProviderList.c)
- *     PipAddtoRebuildPowerRelationsQueue @ 0x14091159C (PipAddtoRebuildPowerRelationsQueue.c)
- *     PiGetDependentList @ 0x1409142E8 (PiGetDependentList.c)
- *     PiPnpRtlBeginOperation @ 0x1409A7AC8 (PiPnpRtlBeginOperation.c)
- *     PiPnpRtlEndOperation @ 0x1409A7CB4 (PiPnpRtlEndOperation.c)
+ *     ExAcquireResourceSharedLite @ 0x1402FE950 (ExAcquireResourceSharedLite.c)
+ *     PiListEntryToDependencyEdge @ 0x14050F9B0 (PiListEntryToDependencyEdge.c)
+ *     PipNotifyDependenciesChanged @ 0x14077B7B0 (PipNotifyDependenciesChanged.c)
+ *     PiPnpRtlBeginOperation @ 0x140968528 (PiPnpRtlBeginOperation.c)
+ *     PiPnpRtlEndOperation @ 0x140968708 (PiPnpRtlEndOperation.c)
+ *     PnpReleaseDependencyRelationsLock @ 0x1409B0DD0 (PnpReleaseDependencyRelationsLock.c)
+ *     PnpAcquireDependencyRelationsLock @ 0x1409B0E00 (PnpAcquireDependencyRelationsLock.c)
+ *     PipProcessRebuildPowerRelationsQueue @ 0x1409B0EBC (PipProcessRebuildPowerRelationsQueue.c)
+ *     PiGetProviderList @ 0x1409B298C (PiGetProviderList.c)
+ *     PipAddtoRebuildPowerRelationsQueue @ 0x1409B367C (PipAddtoRebuildPowerRelationsQueue.c)
+ *     PiGetDependentList @ 0x1409B6958 (PiGetDependentList.c)
  */
 
 void __fastcall PnpNewDeviceNodeDependencyCheck(__int64 a1)
 {
-  __int64 v2; // rdx
   struct _KTHREAD *CurrentThread; // rax
-  __int64 v4; // rbx
+  __int64 v3; // rbx
   _QWORD **ProviderList; // rdi
-  _QWORD *v6; // rbx
-  struct _KTHREAD *v7; // rax
-  __int64 v8; // rbx
+  _QWORD *v5; // rbx
+  struct _KTHREAD *v6; // rax
+  __int64 v7; // rbx
   _QWORD **DependentList; // rdi
-  _QWORD *v10; // rbx
+  _QWORD *v9; // rbx
+  __int64 v10; // rax
   __int64 v11; // rax
-  __int64 v12; // rax
   PVOID P; // [rsp+30h] [rbp+8h] BYREF
 
   P = 0LL;
@@ -36,35 +35,35 @@ void __fastcall PnpNewDeviceNodeDependencyCheck(__int64 a1)
   PipAddtoRebuildPowerRelationsQueue(*(_QWORD *)(a1 + 32));
   PnpReleaseDependencyRelationsLock();
   PipProcessRebuildPowerRelationsQueue();
-  PiPnpRtlBeginOperation(&P, v2);
+  PiPnpRtlBeginOperation(&P);
   CurrentThread = KeGetCurrentThread();
-  v4 = *(_QWORD *)(a1 + 32);
+  v3 = *(_QWORD *)(a1 + 32);
   --CurrentThread->KernelApcDisable;
   ExAcquireResourceSharedLite(&IopDeviceTreeLock, 1u);
   ExAcquireResourceSharedLite(&PiDependencyRelationsLock, 1u);
-  ProviderList = (_QWORD **)PiGetProviderList(v4);
-  v6 = *ProviderList;
-  while ( v6 != ProviderList )
+  ProviderList = (_QWORD **)PiGetProviderList(v3);
+  v5 = *ProviderList;
+  while ( v5 != ProviderList )
   {
-    v11 = PiListEntryToDependencyEdge((__int64)v6, 0);
-    v6 = (_QWORD *)*v6;
-    PipNotifyDependenciesChanged(0LL, *(_QWORD *)(v11 + 32));
+    v10 = PiListEntryToDependencyEdge((__int64)v5, 0);
+    v5 = (_QWORD *)*v5;
+    PipNotifyDependenciesChanged(0LL, *(_QWORD *)(v10 + 32));
   }
   PnpReleaseDependencyRelationsLock();
-  v7 = KeGetCurrentThread();
-  v8 = *(_QWORD *)(a1 + 32);
-  --v7->KernelApcDisable;
+  v6 = KeGetCurrentThread();
+  v7 = *(_QWORD *)(a1 + 32);
+  --v6->KernelApcDisable;
   ExAcquireResourceSharedLite(&IopDeviceTreeLock, 1u);
   ExAcquireResourceSharedLite(&PiDependencyRelationsLock, 1u);
-  DependentList = (_QWORD **)PiGetDependentList(v8);
-  v10 = *DependentList;
-  while ( v10 != DependentList )
+  DependentList = (_QWORD **)PiGetDependentList(v7);
+  v9 = *DependentList;
+  while ( v9 != DependentList )
   {
-    v12 = PiListEntryToDependencyEdge((__int64)v10, 1);
-    v10 = (_QWORD *)*v10;
-    PipNotifyDependenciesChanged(*(_QWORD *)(v12 + 40), 0LL);
+    v11 = PiListEntryToDependencyEdge((__int64)v9, 1);
+    v9 = (_QWORD *)*v9;
+    PipNotifyDependenciesChanged(*(_QWORD *)(v11 + 40), 0LL);
   }
   PnpReleaseDependencyRelationsLock();
   if ( P )
-    PiPnpRtlEndOperation(P);
+    PiPnpRtlEndOperation((char *)P);
 }

@@ -4,9 +4,9 @@
  *     <none>
  * Callees:
  *     ObfReferenceObjectWithTag @ 0x1402A6D50 (ObfReferenceObjectWithTag.c)
- *     KeLeaveCriticalRegionThread @ 0x1402AC800 (KeLeaveCriticalRegionThread.c)
+ *     sub_1402AC800 @ 0x1402AC800 (sub_1402AC800.c)
  *     ExAcquirePushLockExclusiveEx @ 0x1402AC910 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x1402AFC00 (KeAbPostRelease.c)
+ *     sub_1402AFC00 @ 0x1402AFC00 (sub_1402AFC00.c)
  *     ExQueueWorkItem @ 0x140345FC0 (ExQueueWorkItem.c)
  *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
  *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
@@ -22,7 +22,7 @@ __int64 __fastcall PsSetProcessWin32Process(_QWORD *Object, __int64 a2, __int64 
 
   CurrentThread = KeGetCurrentThread();
   v4 = 0;
-  --CurrentThread->KernelApcDisable;
+  --*((_WORD *)CurrentThread + 242);
   v8 = Object + 135;
   ExAcquirePushLockExclusiveEx((ULONG_PTR)(Object + 135), 0LL);
   if ( a2 )
@@ -42,7 +42,7 @@ __int64 __fastcall PsSetProcessWin32Process(_QWORD *Object, __int64 a2, __int64 
         {
           ObfReferenceObjectWithTag(Object, 0x624A7350u);
           v11[1].List.Flink = (struct _LIST_ENTRY *)Object;
-          v11->WorkerRoutine = (void (__fastcall *)(void *))PspTimerDelayWorkerRoutine;
+          v11->WorkerRoutine = (PWORKER_THREAD_ROUTINE)sub_1405E1550;
           v11->Parameter = v11;
           v11->List.Flink = 0LL;
           ExQueueWorkItem(v11, NormalWorkQueue);
@@ -60,7 +60,7 @@ __int64 __fastcall PsSetProcessWin32Process(_QWORD *Object, __int64 a2, __int64 
   }
   if ( (_InterlockedExchangeAdd64(v8, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
     ExfTryToWakePushLock(v8);
-  KeAbPostRelease((ULONG_PTR)v8);
-  KeLeaveCriticalRegionThread((__int64)CurrentThread);
+  sub_1402AFC00((ULONG_PTR)v8);
+  sub_1402AC800((__int64)CurrentThread);
   return v4;
 }

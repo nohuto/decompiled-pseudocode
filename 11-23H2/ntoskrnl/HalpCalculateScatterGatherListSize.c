@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpCalculateScatterGatherListSize @ 0x1403B96B0
+ * XREFs of HalpCalculateScatterGatherListSize @ 0x1403B9890
  * Callers:
- *     HalCalculateScatterGatherListSizeV2 @ 0x1403B4C60 (HalCalculateScatterGatherListSizeV2.c)
- *     HalBuildScatterGatherListV2 @ 0x1403CCDE0 (HalBuildScatterGatherListV2.c)
+ *     HalCalculateScatterGatherListSizeV2 @ 0x1403B4E40 (HalCalculateScatterGatherListSizeV2.c)
+ *     HalBuildScatterGatherListV2 @ 0x1403CCFC0 (HalBuildScatterGatherListV2.c)
  * Callees:
- *     HalpDmaGetAdapterCacheAlignment @ 0x1403B980C (HalpDmaGetAdapterCacheAlignment.c)
+ *     HalpDmaGetAdapterCacheAlignment @ 0x1403B99EC (HalpDmaGetAdapterCacheAlignment.c)
  */
 
 __int64 __fastcall HalpCalculateScatterGatherListSize(

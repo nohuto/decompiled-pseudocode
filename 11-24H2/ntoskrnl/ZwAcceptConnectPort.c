@@ -1,14 +1,20 @@
 /*
- * XREFs of ZwAcceptConnectPort @ 0x1406A6450
+ * XREFs of ZwAcceptConnectPort @ 0x1406A73F0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 ZwAcceptConnectPort()
+NTSTATUS __cdecl ZwAcceptConnectPort(
+        PHANDLE PortHandle,
+        PVOID PortContext,
+        PPORT_MESSAGE ConnectionRequest,
+        BOOLEAN AcceptConnection,
+        PPORT_VIEW ServerView,
+        PREMOTE_PORT_VIEW ClientView)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal();
+  return KiServiceInternal(PortHandle);
 }

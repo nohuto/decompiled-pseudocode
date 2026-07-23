@@ -31,20 +31,21 @@ _BYTE *__fastcall LdrpLogEtwEvent(__int16 a1, int a2, char a3, char a4, unsigned
   unsigned int v6; // esi
   _BYTE *v7; // edi
   _BYTE *result; // eax
-  size_t v9; // eax
+  int v9; // eax
   __int64 v10; // rax
   int v11; // ecx
-  int v13; // [esp+10h] [ebp-258h] BYREF
-  int v14; // [esp+14h] [ebp-254h]
-  unsigned __int16 *v15; // [esp+18h] [ebp-250h]
-  unsigned __int16 *v16; // [esp+1Ch] [ebp-24Ch]
-  _BYTE v17[580]; // [esp+20h] [ebp-248h] BYREF
+  size_t v12; // [esp-4h] [ebp-26Ch]
+  int v14; // [esp+10h] [ebp-258h] BYREF
+  int v15; // [esp+14h] [ebp-254h]
+  unsigned __int16 *v16; // [esp+18h] [ebp-250h]
+  unsigned __int16 *v17; // [esp+1Ch] [ebp-24Ch]
+  _BYTE Fields[580]; // [esp+20h] [ebp-248h] BYREF
 
   v6 = 0;
-  v14 = a2;
-  v15 = a5;
-  v16 = a6;
-  v7 = v17;
+  v15 = a2;
+  v16 = a5;
+  v17 = a6;
+  v7 = Fields;
   if ( a5 )
   {
     v6 = *a5 + 2;
@@ -52,35 +53,36 @@ _BYTE *__fastcall LdrpLogEtwEvent(__int16 a1, int a2, char a3, char a4, unsigned
       v6 += *a6 + 2;
   }
   if ( v6 <= 0x214
-    || (result = (_BYTE *)RtlAllocateHeap((int)NtCurrentPeb()->ProcessHeap, 0, v6 + 42), (v7 = result) != 0) )
+    || (LODWORD(v12) = v6 + 42, result = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, v12), (v7 = result) != 0) )
   {
     v9 = 576;
     if ( v6 + 42 > 0x240 )
       v9 = v6 + 42;
-    memset(v7, 0, v9);
+    LODWORD(v12) = v9;
+    memset(v7, 0, v12);
     *((_WORD *)v7 + 3) = a1;
-    if ( v14 != -1 )
+    if ( v15 != -1 )
     {
-      v10 = v14;
-      *((_DWORD *)v7 + 8) = v14;
+      v10 = v15;
+      *((_DWORD *)v7 + 8) = v15;
       v7[40] = a3;
       *((_DWORD *)v7 + 9) = HIDWORD(v10);
       v7[41] = a4;
       if ( v6 )
       {
-        LdrpEventAddUnicodeString((int)v15, (_WORD *)v7 + 21, v6, &v13);
-        if ( v16 )
-          LdrpEventAddUnicodeString((int)v16, &v7[v13 + 42], v6 - v13, &v13);
+        LdrpEventAddUnicodeString((int)v16, (_WORD *)v7 + 21, v6, &v14);
+        if ( v17 )
+          LdrpEventAddUnicodeString((int)v17, &v7[v14 + 42], v6 - v14, &v14);
       }
     }
     if ( RtlGetCurrentServiceSessionId() )
       v11 = (int)NtCurrentPeb()->SharedData + 554;
     else
       v11 = 2147353476;
-    NtTraceEvent(*(unsigned __int8 *)v11, 1026, v6 + 10, (int)v7);
-    result = v17;
-    if ( v17 != v7 )
-      return (_BYTE *)RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, (int)v7);
+    NtTraceEvent((HANDLE)*(unsigned __int8 *)v11, 0x402u, v6 + 10, v7);
+    result = Fields;
+    if ( Fields != v7 )
+      return (_BYTE *)RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v7);
   }
   return result;
 }

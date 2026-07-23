@@ -1,11 +1,11 @@
 /*
- * XREFs of PopEtEnergyTrackerInitialize @ 0x14075E0CC
+ * XREFs of PopEtEnergyTrackerInitialize @ 0x14075D06C
  * Callers:
- *     PopEtEnergyTrackerCreate @ 0x14075DC60 (PopEtEnergyTrackerCreate.c)
+ *     PopEtEnergyTrackerCreate @ 0x14075CC00 (PopEtEnergyTrackerCreate.c)
  * Callees:
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     PopEtDeferredInitDxgContext @ 0x14075D8C0 (PopEtDeferredInitDxgContext.c)
- *     PopEtEnergyTrackerFindDxgAdapters @ 0x14075DF08 (PopEtEnergyTrackerFindDxgAdapters.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     PopEtDeferredInitDxgContext @ 0x14075C860 (PopEtDeferredInitDxgContext.c)
+ *     PopEtEnergyTrackerFindDxgAdapters @ 0x14075CEA8 (PopEtEnergyTrackerFindDxgAdapters.c)
  */
 
 void __fastcall PopEtEnergyTrackerInitialize(__int64 a1)

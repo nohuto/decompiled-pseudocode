@@ -36,7 +36,7 @@ __int64 __fastcall PspInitializeProcessSecurity(
   int v23; // r12d
   int v24; // eax
   signed __int64 v25; // rax
-  __int64 v27; // [rsp+68h] [rbp-29h] BYREF
+  void *v27; // [rsp+68h] [rbp-29h] BYREF
   _DWORD v28[4]; // [rsp+70h] [rbp-21h] BYREF
   PEPROCESS v29; // [rsp+80h] [rbp-11h]
   __int64 v30; // [rsp+88h] [rbp-9h]
@@ -89,7 +89,7 @@ __int64 __fastcall PspInitializeProcessSecurity(
       if ( !v24 && v32 )
       {
         v20 = (struct _DMA_ADAPTER *)PsReferencePrimaryToken(Process);
-        v23 = PspIdentityBasedJobBreakaway((__int64)v20, v27, v14 + 1);
+        v23 = PspIdentityBasedJobBreakaway(v20, v27, v14 + 1);
       }
     }
     if ( *v14

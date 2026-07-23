@@ -1,11 +1,11 @@
 /*
- * XREFs of IoWritePartitionTable @ 0x1406200D4
+ * XREFs of IoWritePartitionTable @ 0x140620188
  * Callers:
  *     <none>
  * Callees:
- *     PcWritePartitionTable @ 0x14023B81C (PcWritePartitionTable.c)
+ *     PcWritePartitionTable @ 0x14023B700 (PcWritePartitionTable.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     ?AllocatePool@PC_ENVIRONMENT@@SAPEAXKEK@Z @ 0x140574E38 (-AllocatePool@PC_ENVIRONMENT@@SAPEAXKEK@Z.c)
+ *     ?AllocatePool@PC_ENVIRONMENT@@SAPEAXKEK@Z @ 0x140575378 (-AllocatePool@PC_ENVIRONMENT@@SAPEAXKEK@Z.c)
  */
 
 // local variable allocation has failed, the output may be wrong!

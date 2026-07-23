@@ -1,14 +1,14 @@
 /*
- * XREFs of MiGenerateAccessViolation @ 0x140645F8C
+ * XREFs of MiGenerateAccessViolation @ 0x1406464DC
  * Callers:
- *     MiSystemFault @ 0x1402611A0 (MiSystemFault.c)
- *     MiCheckSystemPageTables @ 0x140261930 (MiCheckSystemPageTables.c)
- *     MiRaisedIrqlFault @ 0x140341BE0 (MiRaisedIrqlFault.c)
+ *     MiSystemFault @ 0x140261430 (MiSystemFault.c)
+ *     MiCheckSystemPageTables @ 0x140261BC0 (MiCheckSystemPageTables.c)
+ *     MiRaisedIrqlFault @ 0x140341E70 (MiRaisedIrqlFault.c)
  * Callees:
  *     MiDeterminePoolType @ 0x1402123C0 (MiDeterminePoolType.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7C00 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExAcquireSpinLockShared @ 0x140314620 (ExAcquireSpinLockShared.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7E90 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockShared @ 0x1403148B0 (ExAcquireSpinLockShared.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiGenerateAccessViolation(unsigned __int64 *a1)
@@ -45,10 +45,13 @@ __int64 __fastcall MiGenerateAccessViolation(unsigned __int64 *a1)
     }
   }
   ExReleaseSpinLockSharedFromDpcLevel(&dword_140C654B0);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v5 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v5 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

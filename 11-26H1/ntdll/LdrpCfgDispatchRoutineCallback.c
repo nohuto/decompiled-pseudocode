@@ -1,34 +1,34 @@
 /*
- * XREFs of LdrpCfgDispatchRoutineCallback @ 0x1800814B0
+ * XREFs of LdrpCfgDispatchRoutineCallback @ 0x180078850
  * Callers:
  *     <none>
  * Callees:
- *     LdrControlFlowGuardEnforcedWithExportSuppression @ 0x180081510 (LdrControlFlowGuardEnforcedWithExportSuppression.c)
+ *     LdrControlFlowGuardEnforcedWithExportSuppression @ 0x1800788B0 (LdrControlFlowGuardEnforcedWithExportSuppression.c)
  */
 
-__int64 __fastcall LdrpCfgDispatchRoutineCallback(__int64 a1, __int64 a2)
+ULONG_PTR __fastcall LdrpCfgDispatchRoutineCallback(__int64 a1, __int64 a2)
 {
   __int16 v2; // dx
   __int64 (__fastcall **v3)(); // r8
-  __int64 result; // rax
-  __int64 (__fastcall *v5)(); // rcx
-  __int64 (__fastcall *v6)(); // rdx
+  ULONG_PTR result; // rax
+  __int64 (__fastcall *ScpCfgDispatchFunction)(); // rcx
+  __int64 (__fastcall *ScpCfgDispatchESFunction)(); // rdx
 
   if ( (unsigned int)LdrControlFlowGuardEnforcedWithExportSuppression(a1, a2, a1) && (v2 & 0x4000) != 0 )
   {
-    result = qword_1801E3568;
-    v6 = LdrpDispatchUserCallTargetES;
-    if ( qword_1801E3568 )
-      v6 = (__int64 (__fastcall *)())qword_1801E3568;
-    *v3 = v6;
+    result = LdrSystemDllInitBlock.ScpCfgDispatchESFunction;
+    ScpCfgDispatchESFunction = LdrpDispatchUserCallTargetES;
+    if ( LdrSystemDllInitBlock.ScpCfgDispatchESFunction )
+      ScpCfgDispatchESFunction = (__int64 (__fastcall *)())LdrSystemDllInitBlock.ScpCfgDispatchESFunction;
+    *v3 = ScpCfgDispatchESFunction;
   }
   else
   {
-    result = qword_1801E3560;
-    v5 = LdrpDispatchUserCallTarget;
-    if ( qword_1801E3560 )
-      v5 = (__int64 (__fastcall *)())qword_1801E3560;
-    *v3 = v5;
+    result = LdrSystemDllInitBlock.ScpCfgDispatchFunction;
+    ScpCfgDispatchFunction = LdrpDispatchUserCallTarget;
+    if ( LdrSystemDllInitBlock.ScpCfgDispatchFunction )
+      ScpCfgDispatchFunction = (__int64 (__fastcall *)())LdrSystemDllInitBlock.ScpCfgDispatchFunction;
+    *v3 = ScpCfgDispatchFunction;
   }
   return result;
 }

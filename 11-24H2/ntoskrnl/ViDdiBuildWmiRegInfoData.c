@@ -1,9 +1,9 @@
 /*
- * XREFs of ViDdiBuildWmiRegInfoData @ 0x140B84388
+ * XREFs of ViDdiBuildWmiRegInfoData @ 0x140B86388
  * Callers:
- *     ViDdiDispatchWmiRegInfoEx @ 0x140B846B8 (ViDdiDispatchWmiRegInfoEx.c)
+ *     ViDdiDispatchWmiRegInfoEx @ 0x140B866B8 (ViDdiDispatchWmiRegInfoEx.c)
  * Callees:
- *     memmove @ 0x1406BFC40 (memmove.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
  */
 
 __int64 __fastcall ViDdiBuildWmiRegInfoData(int a1, __int64 a2)

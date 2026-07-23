@@ -1,15 +1,12 @@
 /*
- * XREFs of RtlCheckForOrphanedCriticalSections @ 0x1800E6350
+ * XREFs of RtlCheckForOrphanedCriticalSections @ 0x1800E4560
  * Callers:
  *     <none>
  * Callees:
- *     RtlCheckHeldCriticalSections @ 0x1800E6380 (RtlCheckHeldCriticalSections.c)
+ *     RtlCheckHeldCriticalSections @ 0x1800E4590 (RtlCheckHeldCriticalSections.c)
  */
 
-__int64 __fastcall RtlCheckForOrphanedCriticalSections(__int64 a1)
+void __cdecl RtlCheckForOrphanedCriticalSections(HANDLE ThreadHandle)
 {
-  __int64 v2; // [rsp+38h] [rbp+10h] BYREF
-
-  v2 = 0LL;
-  return RtlCheckHeldCriticalSections(a1, &v2);
+  RtlCheckHeldCriticalSections(ThreadHandle);
 }

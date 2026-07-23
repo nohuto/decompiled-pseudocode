@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlpHpSegLargeRangeAllocate @ 0x18012372C
+ * XREFs of RtlpHpSegLargeRangeAllocate @ 0x1801236FC
  * Callers:
  *     RtlpHpSegPageRangeAllocate @ 0x180034ED0 (RtlpHpSegPageRangeAllocate.c)
  * Callees:
@@ -95,7 +95,7 @@ LABEL_27:
   {
     LOBYTE(j) = *(_BYTE *)(a1 + 8);
     v22 = RtlpHpSegPageRangeSplit(j, i, v21 >> j);
-    RtlpHpSegFreeRangeInsert(a1, i, 0LL);
+    RtlpHpSegFreeRangeInsert(a1, i, 0);
     return v22;
   }
   return i;

@@ -1,7 +1,7 @@
 /*
- * XREFs of PspGetEffectiveNoWakeCharge @ 0x1406187C4
+ * XREFs of PspGetEffectiveNoWakeCharge @ 0x140682424
  * Callers:
- *     PspEnforceLimitsJobPostCallback @ 0x140618320 (PspEnforceLimitsJobPostCallback.c)
+ *     PspEnforceLimitsJobPostCallback @ 0x140681F80 (PspEnforceLimitsJobPostCallback.c)
  * Callees:
  *     <none>
  */

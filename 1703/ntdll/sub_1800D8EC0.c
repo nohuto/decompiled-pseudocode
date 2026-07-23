@@ -14,13 +14,13 @@ void sub_1800D8EC0()
   __int64 v2; // rsi
 
   v0 = NtCurrentPeb();
-  if ( v0->FlsCallback )
+  if ( v0->SparePointers[0] )
   {
     v1 = 16LL;
     v2 = 127LL;
     do
     {
-      RtlAcquireSRWLockExclusive((volatile signed __int64 *)((char *)v0->FlsCallback + v1 + 8));
+      RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)((char *)v0->SparePointers[0] + v1 + 8));
       v1 += 16LL;
       --v2;
     }

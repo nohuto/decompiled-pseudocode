@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlpFcEnterRegion @ 0x140B1077C
+ * XREFs of RtlpFcEnterRegion @ 0x140B121BC
  * Callers:
- *     RtlQueryFeatureConfiguration @ 0x1404CC190 (RtlQueryFeatureConfiguration.c)
- *     RtlpFcBufferManagerReferenceBuffers @ 0x1404D88A8 (RtlpFcBufferManagerReferenceBuffers.c)
+ *     RtlQueryFeatureConfiguration @ 0x1404C5BC0 (RtlQueryFeatureConfiguration.c)
+ *     RtlpFcBufferManagerReferenceBuffers @ 0x1404D2078 (RtlpFcBufferManagerReferenceBuffers.c)
  * Callees:
  *     <none>
  */

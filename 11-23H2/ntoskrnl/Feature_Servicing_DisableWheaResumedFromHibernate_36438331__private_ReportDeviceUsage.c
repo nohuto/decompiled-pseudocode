@@ -1,10 +1,10 @@
 /*
- * XREFs of Feature_Servicing_DisableWheaResumedFromHibernate_36438331__private_ReportDeviceUsage @ 0x1404169D0
+ * XREFs of Feature_Servicing_DisableWheaResumedFromHibernate_36438331__private_ReportDeviceUsage @ 0x140416D64
  * Callers:
- *     WheaResumedFromHibernate @ 0x140610324 (WheaResumedFromHibernate.c)
+ *     WheaResumedFromHibernate @ 0x140610874 (WheaResumedFromHibernate.c)
  * Callees:
- *     wil_details_FeatureReporting_ReportUsageToService @ 0x14022FBC0 (wil_details_FeatureReporting_ReportUsageToService.c)
- *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x14040F878 (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
+ *     wil_details_FeatureReporting_ReportUsageToService @ 0x14022FCB0 (wil_details_FeatureReporting_ReportUsageToService.c)
+ *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x14040FA58 (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
  */
 
 void Feature_Servicing_DisableWheaResumedFromHibernate_36438331__private_ReportDeviceUsage()

@@ -1,18 +1,18 @@
 /*
- * XREFs of ZwEnumerateValueKey @ 0x140159EE0
+ * XREFs of ZwEnumerateValueKey @ 0x14015A450
  * Callers:
- *     _RegRtlEnumValue @ 0x1404DF0EC (_RegRtlEnumValue.c)
- *     RtlpQueryRegistryValues @ 0x1404F8018 (RtlpQueryRegistryValues.c)
- *     ExpSetCurrentUserUILanguage @ 0x140548E70 (ExpSetCurrentUserUILanguage.c)
- *     RtlpPopulateLanguageConfigList @ 0x1405605D4 (RtlpPopulateLanguageConfigList.c)
- *     PipApplyFunctionToServiceInstances @ 0x14057471C (PipApplyFunctionToServiceInstances.c)
- *     PiDcInitUpdateProperties @ 0x1405777B8 (PiDcInitUpdateProperties.c)
- *     PiDevCfgCopyDeviceKey @ 0x140636298 (PiDevCfgCopyDeviceKey.c)
- *     PiDevCfgFindDeviceMigrationNode @ 0x140638328 (PiDevCfgFindDeviceMigrationNode.c)
- *     PiDevCfgQueryPolicyStringList @ 0x14063D1DC (PiDevCfgQueryPolicyStringList.c)
- *     KsepRegistryEnumValue @ 0x1406540EC (KsepRegistryEnumValue.c)
- *     _RtlpMuiRegInitLIPLanguage @ 0x1406E79F0 (_RtlpMuiRegInitLIPLanguage.c)
- *     _RtlpMuiRegPopulateBaseLanguages @ 0x1406E7C88 (_RtlpMuiRegPopulateBaseLanguages.c)
+ *     _RegRtlEnumValue @ 0x1404C26F0 (_RegRtlEnumValue.c)
+ *     RtlpQueryRegistryValues @ 0x1404DAFA4 (RtlpQueryRegistryValues.c)
+ *     ExpSetCurrentUserUILanguage @ 0x1405493B0 (ExpSetCurrentUserUILanguage.c)
+ *     RtlpPopulateLanguageConfigList @ 0x140560B14 (RtlpPopulateLanguageConfigList.c)
+ *     PipApplyFunctionToServiceInstances @ 0x140574C5C (PipApplyFunctionToServiceInstances.c)
+ *     PiDcInitUpdateProperties @ 0x140577CF8 (PiDcInitUpdateProperties.c)
+ *     PiDevCfgCopyDeviceKey @ 0x14063634C (PiDevCfgCopyDeviceKey.c)
+ *     PiDevCfgFindDeviceMigrationNode @ 0x1406383DC (PiDevCfgFindDeviceMigrationNode.c)
+ *     PiDevCfgQueryPolicyStringList @ 0x14063D290 (PiDevCfgQueryPolicyStringList.c)
+ *     KsepRegistryEnumValue @ 0x1406541D0 (KsepRegistryEnumValue.c)
+ *     _RtlpMuiRegInitLIPLanguage @ 0x1406E7B28 (_RtlpMuiRegInitLIPLanguage.c)
+ *     _RtlpMuiRegPopulateBaseLanguages @ 0x1406E7DC0 (_RtlpMuiRegPopulateBaseLanguages.c)
  *     EmInitSystem @ 0x1407A6E60 (EmInitSystem.c)
  *     SepLoadNgenLocations @ 0x1407B7D5C (SepLoadNgenLocations.c)
  *     PiLastGoodCopyKeyContents @ 0x1407B90B4 (PiLastGoodCopyKeyContents.c)
@@ -21,7 +21,6 @@
  *     <none>
  */
 
-// local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall ZwEnumerateValueKey(
         HANDLE KeyHandle,
         ULONG Index,
@@ -32,5 +31,5 @@ NTSTATUS __stdcall ZwEnumerateValueKey(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(KeyHandle, *(_QWORD *)&Index, *(_QWORD *)&KeyValueInformationClass);
+  return KiServiceInternal(KeyHandle);
 }

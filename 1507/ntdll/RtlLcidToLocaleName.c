@@ -20,10 +20,14 @@
  *     RtlpGetUserOrMachineUILanguage4NLS @ 0x1800E6110 (RtlpGetUserOrMachineUILanguage4NLS.c)
  */
 
-__int64 __fastcall RtlLcidToLocaleName(unsigned int a1, __int64 a2, int a3, char a4)
+NTSTATUS __cdecl RtlLcidToLocaleName(
+        LCID lcid,
+        PUNICODE_STRING LocaleName,
+        ULONG Flags,
+        BOOLEAN AllocateDestinationString)
 {
   char v5; // r15
-  unsigned int v7; // edi
+  LCID v7; // edi
   __int64 v8; // rbx
   int LcidIndex; // eax
   __int64 v10; // rcx
@@ -31,30 +35,30 @@ __int64 __fastcall RtlLcidToLocaleName(unsigned int a1, __int64 a2, int a3, char
   unsigned __int16 *Buffer; // rdx
   __int64 v13; // r8
   __int64 v15; // [rsp+20h] [rbp-A9h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+28h] [rbp-A1h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+28h] [rbp-A1h] BYREF
   _BYTE v17[176]; // [rsp+40h] [rbp-89h] BYREF
 
   v15 = 85LL;
-  v5 = a3;
-  v7 = a1;
-  if ( (a1 & 0xFFFFEFFF) == 0 )
-    return 3221225711LL;
-  if ( !a2 )
-    return 3221225712LL;
-  if ( (a3 & 0xFFFFFFFD) == 0 )
+  v5 = Flags;
+  v7 = lcid;
+  if ( (lcid & 0xFFFFEFFF) == 0 )
+    return -1073741585;
+  if ( !LocaleName )
+    return -1073741584;
+  if ( (Flags & 0xFFFFFFFD) == 0 )
   {
-    if ( a4 || *(_QWORD *)(a2 + 8) )
+    if ( AllocateDestinationString || LocaleName->Buffer )
     {
-      if ( a1 == 5120 )
+      if ( lcid == 5120 )
       {
         if ( (int)RtlpGetUserOrMachineUILanguage4NLS(1LL, v17, &v15) >= 0 )
         {
           Buffer = (unsigned __int16 *)v17;
           goto LABEL_15;
         }
-        return 3221225473LL;
+        return -1073741823;
       }
-      if ( ((a1 - 1024) & 0xFFFFF7FF) != 0 )
+      if ( ((lcid - 1024) & 0xFFFFF7FF) != 0 )
       {
         v8 = pTblPtrs;
         if ( pTblPtrs )
@@ -87,13 +91,13 @@ LABEL_9:
 LABEL_15:
                 v13 = (unsigned int)v15;
 LABEL_16:
-                LOBYTE(v10) = a4;
-                return RtlpInitUnicodeStringUsingBuffer(v10, Buffer, v13, a2);
+                LOBYTE(v10) = AllocateDestinationString;
+                return RtlpInitUnicodeStringUsingBuffer(v10, Buffer, v13, LocaleName);
               }
-              return 3221225473LL;
+              return -1073741823;
             }
           }
-          return 3221225711LL;
+          return -1073741585;
         }
       }
       else
@@ -107,9 +111,9 @@ LABEL_16:
           goto LABEL_16;
         }
       }
-      return 3221225473LL;
+      return -1073741823;
     }
-    return 3221225712LL;
+    return -1073741584;
   }
-  return 3221225713LL;
+  return -1073741583;
 }

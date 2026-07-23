@@ -10,7 +10,7 @@
  *     PopAcquirePolicyLock @ 0x140990084 (PopAcquirePolicyLock.c)
  */
 
-struct _KTHREAD *__fastcall PopDispatchFullWake(__int64 a1, __int64 a2)
+struct _KTHREAD *__fastcall PopDispatchFullWake(__int64 a1, char a2)
 {
   int v2; // ecx
   __int64 v3; // rdx
@@ -19,7 +19,7 @@ struct _KTHREAD *__fastcall PopDispatchFullWake(__int64 a1, __int64 a2)
 
   if ( byte_140C23A41 != 3 )
   {
-    PopNotifyConsoleUserPresent(0LL, a2, 9u);
+    PopNotifyConsoleUserPresent(0, a2, 9u);
     if ( (PopFullWake & 3) == 2 )
     {
       _InterlockedOr(&PopFullWake, 1u);

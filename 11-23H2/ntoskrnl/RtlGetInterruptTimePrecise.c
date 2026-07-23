@@ -1,89 +1,96 @@
 /*
- * XREFs of RtlGetInterruptTimePrecise @ 0x1402C42E0
+ * XREFs of RtlGetInterruptTimePrecise @ 0x1402C4570
  * Callers:
  *     KeIntSteerSnapPerf @ 0x140221D60 (KeIntSteerSnapPerf.c)
- *     KeSetTimer2 @ 0x140250150 (KeSetTimer2.c)
- *     KiExpireTimer2 @ 0x140251A80 (KiExpireTimer2.c)
- *     KePrepareNonClockOwnerForIdle @ 0x1402C1CDC (KePrepareNonClockOwnerForIdle.c)
- *     PpmIdleEvaluateConstraints @ 0x1402C2488 (PpmIdleEvaluateConstraints.c)
- *     KiSetClockTimer @ 0x1402C2598 (KiSetClockTimer.c)
- *     KiCheckWaitNext @ 0x1402C2720 (KiCheckWaitNext.c)
- *     KiSetClockTickRate @ 0x1402C2890 (KiSetClockTickRate.c)
- *     HalpTimerClockInterrupt @ 0x1402C4080 (HalpTimerClockInterrupt.c)
- *     KeClockInterruptNotify @ 0x1402C46A0 (KeClockInterruptNotify.c)
- *     KeResumeClockTimerFromIdle @ 0x1402C7060 (KeResumeClockTimerFromIdle.c)
- *     PopFxIdleComponent @ 0x140312FC0 (PopFxIdleComponent.c)
- *     PpmCheckStart @ 0x14032C0C4 (PpmCheckStart.c)
- *     KiShouldRearmClockTimer @ 0x140340E3C (KiShouldRearmClockTimer.c)
- *     KePrepareClockTimerForIdle @ 0x140347334 (KePrepareClockTimerForIdle.c)
- *     PopFxResidentTimeoutRoutine @ 0x14034C3C0 (PopFxResidentTimeoutRoutine.c)
- *     KiCheckAndRearmForceIdle @ 0x14036E674 (KiCheckAndRearmForceIdle.c)
- *     PopSetWatchdog @ 0x1403700AC (PopSetWatchdog.c)
- *     PopSetModernStandbyTransitionReason @ 0x1403C7E6C (PopSetModernStandbyTransitionReason.c)
- *     PopWatchdogWorker @ 0x1403D62A0 (PopWatchdogWorker.c)
- *     PopWatchdogDpc @ 0x1403D6A10 (PopWatchdogDpc.c)
- *     HalpVpptAcknowledgeInterrupt @ 0x140509AB0 (HalpVpptAcknowledgeInterrupt.c)
- *     HalpVpptArmTimer @ 0x140509C60 (HalpVpptArmTimer.c)
- *     HalpVpptUpdatePhysicalTimer @ 0x14050A200 (HalpVpptUpdatePhysicalTimer.c)
- *     HalpWatchdogCheckPreResetNMI @ 0x14050BD30 (HalpWatchdogCheckPreResetNMI.c)
- *     HalpWatchdogDelayExpiration @ 0x14050BE20 (HalpWatchdogDelayExpiration.c)
- *     HalpTimerAlwaysOnClockInterrupt @ 0x14051E850 (HalpTimerAlwaysOnClockInterrupt.c)
- *     HalpTimerWatchdogPreResetInterrupt @ 0x14051EB40 (HalpTimerWatchdogPreResetInterrupt.c)
- *     KeGetNextClockTickDuration @ 0x14056F910 (KeGetNextClockTickDuration.c)
- *     KiResumeClockTimer @ 0x14056FE48 (KiResumeClockTimer.c)
- *     KiSetClockIntervalToMinimumRequested @ 0x14057004C (KiSetClockIntervalToMinimumRequested.c)
- *     KeSetForceIdle @ 0x14057CC94 (KeSetForceIdle.c)
- *     KiResetForceIdle @ 0x14057D14C (KiResetForceIdle.c)
- *     PpmIdleCsVetoAccountingUpdateBlock @ 0x140584FDC (PpmIdleCsVetoAccountingUpdateBlock.c)
- *     PpmIdlePrevetoWatchdog @ 0x140585250 (PpmIdlePrevetoWatchdog.c)
- *     PpmUpdateIdleVeto @ 0x140586430 (PpmUpdateIdleVeto.c)
- *     PpmResetPerfEngineForProcessor @ 0x14058D618 (PpmResetPerfEngineForProcessor.c)
- *     PoPushPowerStateTransitionRecordWithCallback @ 0x14058F104 (PoPushPowerStateTransitionRecordWithCallback.c)
- *     PopCalculateCsSummary @ 0x140591334 (PopCalculateCsSummary.c)
- *     PpmEventTracePreVetoAccounting @ 0x14059BEA0 (PpmEventTracePreVetoAccounting.c)
- *     PopIdleWakeNotifyDevicesActive @ 0x14059D89C (PopIdleWakeNotifyDevicesActive.c)
- *     PopIdleWakeNotifyIdleResiliencyState @ 0x14059D994 (PopIdleWakeNotifyIdleResiliencyState.c)
- *     PopIdleWakeNotifyModernStandbyExit @ 0x14059DAF4 (PopIdleWakeNotifyModernStandbyExit.c)
- *     PopRecordPowerWatchdogBlackboxInformation @ 0x1405A28D8 (PopRecordPowerWatchdogBlackboxInformation.c)
- *     MiSessionCreate @ 0x1407A900C (MiSessionCreate.c)
- *     PopPowerAggregatorRecordIntent @ 0x1407A95B4 (PopPowerAggregatorRecordIntent.c)
- *     PopPowerAggregatorAllocateLogEntry @ 0x1407A96C4 (PopPowerAggregatorAllocateLogEntry.c)
- *     PopSleepstudyStartNextSession @ 0x140878644 (PopSleepstudyStartNextSession.c)
- *     PopSleepstudySnapModernStandbySessionData @ 0x140993418 (PopSleepstudySnapModernStandbySessionData.c)
- *     PopEnableSystemSleepCheckpoint @ 0x140996DEC (PopEnableSystemSleepCheckpoint.c)
- *     PopIdleWakeNotifyModernStandbyExitWorker @ 0x14099A860 (PopIdleWakeNotifyModernStandbyExitWorker.c)
- *     ExProcessCounterSetCallback @ 0x1409F5DD0 (ExProcessCounterSetCallback.c)
+ *     KeSetTimer2 @ 0x140250220 (KeSetTimer2.c)
+ *     KiExpireTimer2 @ 0x140251B40 (KiExpireTimer2.c)
+ *     KePrepareNonClockOwnerForIdle @ 0x1402C1F6C (KePrepareNonClockOwnerForIdle.c)
+ *     PpmIdleEvaluateConstraints @ 0x1402C2718 (PpmIdleEvaluateConstraints.c)
+ *     KiSetClockTimer @ 0x1402C2828 (KiSetClockTimer.c)
+ *     KiCheckWaitNext @ 0x1402C29B0 (KiCheckWaitNext.c)
+ *     KiSetClockTickRate @ 0x1402C2B20 (KiSetClockTickRate.c)
+ *     HalpTimerClockInterrupt @ 0x1402C4310 (HalpTimerClockInterrupt.c)
+ *     KeClockInterruptNotify @ 0x1402C4930 (KeClockInterruptNotify.c)
+ *     KeResumeClockTimerFromIdle @ 0x1402C72F0 (KeResumeClockTimerFromIdle.c)
+ *     PopFxIdleComponent @ 0x140313250 (PopFxIdleComponent.c)
+ *     PpmCheckStart @ 0x14032C354 (PpmCheckStart.c)
+ *     KiShouldRearmClockTimer @ 0x1403410CC (KiShouldRearmClockTimer.c)
+ *     KePrepareClockTimerForIdle @ 0x1403475C4 (KePrepareClockTimerForIdle.c)
+ *     PopFxResidentTimeoutRoutine @ 0x14034C560 (PopFxResidentTimeoutRoutine.c)
+ *     KiCheckAndRearmForceIdle @ 0x14036E814 (KiCheckAndRearmForceIdle.c)
+ *     PopSetWatchdog @ 0x14037024C (PopSetWatchdog.c)
+ *     PopSetModernStandbyTransitionReason @ 0x1403C804C (PopSetModernStandbyTransitionReason.c)
+ *     PopWatchdogWorker @ 0x1403D6480 (PopWatchdogWorker.c)
+ *     PopWatchdogDpc @ 0x1403D6BF0 (PopWatchdogDpc.c)
+ *     HalpVpptAcknowledgeInterrupt @ 0x14050A000 (HalpVpptAcknowledgeInterrupt.c)
+ *     HalpVpptArmTimer @ 0x14050A1B0 (HalpVpptArmTimer.c)
+ *     HalpVpptUpdatePhysicalTimer @ 0x14050A750 (HalpVpptUpdatePhysicalTimer.c)
+ *     HalpWatchdogCheckPreResetNMI @ 0x14050C280 (HalpWatchdogCheckPreResetNMI.c)
+ *     HalpWatchdogDelayExpiration @ 0x14050C370 (HalpWatchdogDelayExpiration.c)
+ *     HalpTimerAlwaysOnClockInterrupt @ 0x14051EDA0 (HalpTimerAlwaysOnClockInterrupt.c)
+ *     HalpTimerWatchdogPreResetInterrupt @ 0x14051F090 (HalpTimerWatchdogPreResetInterrupt.c)
+ *     KeGetNextClockTickDuration @ 0x14056FE50 (KeGetNextClockTickDuration.c)
+ *     KiResumeClockTimer @ 0x140570388 (KiResumeClockTimer.c)
+ *     KiSetClockIntervalToMinimumRequested @ 0x14057058C (KiSetClockIntervalToMinimumRequested.c)
+ *     KeSetForceIdle @ 0x14057D184 (KeSetForceIdle.c)
+ *     KiResetForceIdle @ 0x14057D63C (KiResetForceIdle.c)
+ *     PpmIdleCsVetoAccountingUpdateBlock @ 0x1405854CC (PpmIdleCsVetoAccountingUpdateBlock.c)
+ *     PpmIdlePrevetoWatchdog @ 0x140585740 (PpmIdlePrevetoWatchdog.c)
+ *     PpmUpdateIdleVeto @ 0x140586920 (PpmUpdateIdleVeto.c)
+ *     PpmResetPerfEngineForProcessor @ 0x14058DB08 (PpmResetPerfEngineForProcessor.c)
+ *     PoPushPowerStateTransitionRecordWithCallback @ 0x14058F5F4 (PoPushPowerStateTransitionRecordWithCallback.c)
+ *     PopCalculateCsSummary @ 0x140591824 (PopCalculateCsSummary.c)
+ *     PpmEventTracePreVetoAccounting @ 0x14059C390 (PpmEventTracePreVetoAccounting.c)
+ *     PopIdleWakeNotifyDevicesActive @ 0x14059DD8C (PopIdleWakeNotifyDevicesActive.c)
+ *     PopIdleWakeNotifyIdleResiliencyState @ 0x14059DE84 (PopIdleWakeNotifyIdleResiliencyState.c)
+ *     PopIdleWakeNotifyModernStandbyExit @ 0x14059DFE4 (PopIdleWakeNotifyModernStandbyExit.c)
+ *     PopRecordPowerWatchdogBlackboxInformation @ 0x1405A2DC8 (PopRecordPowerWatchdogBlackboxInformation.c)
+ *     MiSessionCreate @ 0x1407A91FC (MiSessionCreate.c)
+ *     PopPowerAggregatorRecordIntent @ 0x1407A97A4 (PopPowerAggregatorRecordIntent.c)
+ *     PopPowerAggregatorAllocateLogEntry @ 0x1407A98B4 (PopPowerAggregatorAllocateLogEntry.c)
+ *     PopSleepstudyStartNextSession @ 0x140878884 (PopSleepstudyStartNextSession.c)
+ *     PopSleepstudySnapModernStandbySessionData @ 0x140993618 (PopSleepstudySnapModernStandbySessionData.c)
+ *     PopEnableSystemSleepCheckpoint @ 0x140996FEC (PopEnableSystemSleepCheckpoint.c)
+ *     PopIdleWakeNotifyModernStandbyExitWorker @ 0x14099AA60 (PopIdleWakeNotifyModernStandbyExitWorker.c)
+ *     ExProcessCounterSetCallback @ 0x1409F6060 (ExProcessCounterSetCallback.c)
  *     PopSleepstudyInitialize @ 0x140B51FE0 (PopSleepstudyInitialize.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x1402C3270 (KeQueryPerformanceCounter.c)
+ *     KeQueryPerformanceCounter @ 0x1402C3500 (KeQueryPerformanceCounter.c)
  */
 
-__int64 __fastcall RtlGetInterruptTimePrecise(LARGE_INTEGER *a1)
+LARGE_INTEGER __cdecl RtlGetInterruptTimePrecise(PLARGE_INTEGER PerformanceCounter)
 {
   __int64 v2; // rbx
-  LARGE_INTEGER v3; // rdi
-  __int64 v4; // rbp
-  LARGE_INTEGER PerformanceCounter; // rdx
+  unsigned __int64 v3; // rdi
+  LARGE_INTEGER v4; // rbp
+  LARGE_INTEGER v5; // rdx
   LONGLONG v6; // rdx
+  LARGE_INTEGER result; // rax
 
   while ( 1 )
   {
     v2 = MEMORY[0xFFFFF78000000340];
     if ( (MEMORY[0xFFFFF78000000340] & 1) == 0 )
     {
-      v3.QuadPart = MEMORY[0xFFFFF78000000350];
-      v4 = MEMORY[0xFFFFF78000000008];
-      PerformanceCounter = KeQueryPerformanceCounter(0LL);
+      v3 = MEMORY[0xFFFFF78000000350];
+      v4.QuadPart = MEMORY[0xFFFFF78000000008];
+      v5 = KeQueryPerformanceCounter(0LL);
       if ( MEMORY[0xFFFFF78000000340] == v2 )
         break;
     }
     _mm_pause();
   }
-  *a1 = PerformanceCounter;
-  if ( PerformanceCounter.QuadPart <= (unsigned __int64)v3.QuadPart )
+  *PerformanceCounter = v5;
+  if ( v5.QuadPart <= v3 )
+  {
     return v4;
-  v6 = PerformanceCounter.QuadPart - v3.QuadPart - 1;
-  if ( MEMORY[0xFFFFF78000000369] )
-    v6 <<= MEMORY[0xFFFFF78000000369];
-  return (((unsigned __int64)v6 * (unsigned __int128)MEMORY[0xFFFFF78000000360]) >> 64) + v4;
+  }
+  else
+  {
+    v6 = v5.QuadPart - v3 - 1;
+    if ( MEMORY[0xFFFFF78000000369] )
+      v6 <<= MEMORY[0xFFFFF78000000369];
+    result.QuadPart = (((unsigned __int64)v6 * (unsigned __int128)MEMORY[0xFFFFF78000000360]) >> 64) + v4.QuadPart;
+  }
+  return result;
 }

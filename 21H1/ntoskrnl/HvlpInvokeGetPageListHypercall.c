@@ -12,20 +12,15 @@
 
 char __fastcall HvlpInvokeGetPageListHypercall(__int64 a1, __int64 a2)
 {
-  _QWORD *v4; // rax
-  __int64 v5; // rdx
-  __int64 v6; // r9
-  __int128 v8; // [rsp+20h] [rbp-68h] BYREF
-  __int128 v9; // [rsp+30h] [rbp-58h]
-  _BYTE v10[48]; // [rsp+40h] [rbp-48h] BYREF
+  _QWORD *v3; // rax
+  _OWORD v5[2]; // [rsp+20h] [rbp-68h] BYREF
+  _BYTE v6[48]; // [rsp+40h] [rbp-48h] BYREF
 
-  v8 = 0LL;
-  v9 = 0LL;
-  v4 = HvlpAcquireHypercallPage((PHYSICAL_ADDRESS *)&v8, 1, (__int64)v10, 24LL);
-  v5 = *((_QWORD *)&v9 + 1);
-  v4[1] = -1LL;
-  *v4 = a2;
-  v4[2] = 1LL;
-  HvcallInitiateHypercall(151, v5, *(_QWORD *)(a1 + 16), v6);
-  return HvlpReleaseHypercallPage((__int64)&v8);
+  memset(v5, 0, sizeof(v5));
+  v3 = HvlpAcquireHypercallPage((PHYSICAL_ADDRESS *)v5, 1, (__int64)v6, 24LL);
+  v3[1] = -1LL;
+  *v3 = a2;
+  v3[2] = 1LL;
+  HvcallInitiateHypercall(151);
+  return HvlpReleaseHypercallPage((__int64)v5);
 }

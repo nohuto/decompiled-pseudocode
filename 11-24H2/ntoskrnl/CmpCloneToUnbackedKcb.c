@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpCloneToUnbackedKcb @ 0x1407DAAC8
+ * XREFs of CmpCloneToUnbackedKcb @ 0x1407DB018
  * Callers:
- *     CmpPrepareDiscardReplacePost @ 0x1407E1340 (CmpPrepareDiscardReplacePost.c)
+ *     CmpPrepareDiscardReplacePost @ 0x1407E1890 (CmpPrepareDiscardReplacePost.c)
  * Callees:
- *     CmpDereferenceNameControlBlockWithLock @ 0x140870E00 (CmpDereferenceNameControlBlockWithLock.c)
- *     CmpReferenceKeyControlBlockUnsafe @ 0x14087B450 (CmpReferenceKeyControlBlockUnsafe.c)
- *     CmpFreeKeyControlBlock @ 0x1409D6920 (CmpFreeKeyControlBlock.c)
- *     CmpAllocateKeyControlBlock @ 0x1409E39E0 (CmpAllocateKeyControlBlock.c)
+ *     CmpDereferenceNameControlBlockWithLock @ 0x140875130 (CmpDereferenceNameControlBlockWithLock.c)
+ *     CmpReferenceKeyControlBlockUnsafe @ 0x14087F300 (CmpReferenceKeyControlBlockUnsafe.c)
+ *     CmpFreeKeyControlBlock @ 0x1409C69A0 (CmpFreeKeyControlBlock.c)
+ *     CmpAllocateKeyControlBlock @ 0x1409DE440 (CmpAllocateKeyControlBlock.c)
  */
 
 __int64 __fastcall CmpCloneToUnbackedKcb(__int64 a1, ULONG_PTR *a2)

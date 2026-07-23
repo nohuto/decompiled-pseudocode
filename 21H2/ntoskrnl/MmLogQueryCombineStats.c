@@ -1,12 +1,12 @@
 /*
- * XREFs of MmLogQueryCombineStats @ 0x1408D9C00
+ * XREFs of MmLogQueryCombineStats @ 0x1408D9D60
  * Callers:
- *     PfQuerySuperfetchInformation @ 0x140654810 (PfQuerySuperfetchInformation.c)
- *     EtwpKernelTraceRundown @ 0x14079743C (EtwpKernelTraceRundown.c)
+ *     PfQuerySuperfetchInformation @ 0x140649630 (PfQuerySuperfetchInformation.c)
+ *     EtwpKernelTraceRundown @ 0x14079763C (EtwpKernelTraceRundown.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x1402EAC90 (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     EtwTraceSiloDcEvent @ 0x1405A8190 (EtwTraceSiloDcEvent.c)
+ *     EtwTraceKernelEvent @ 0x14029BFE0 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     EtwTraceSiloDcEvent @ 0x1405A83C0 (EtwTraceSiloDcEvent.c)
  */
 
 void __fastcall MmLogQueryCombineStats(__int64 a1, unsigned int *a2, _OWORD *a3)
@@ -32,14 +32,14 @@ void __fastcall MmLogQueryCombineStats(__int64 a1, unsigned int *a2, _OWORD *a3)
     v5 = 0;
   }
   *(_DWORD *)a3 = v5 & 0xFFFFFFC0 | 1;
-  *((_DWORD *)a3 + 1) = dword_140C52830;
-  *((_QWORD *)a3 + 1) = qword_140C52818 + qword_140C52820;
-  *((_QWORD *)a3 + 2) = qword_140C52828;
-  v6 = dword_140C52834;
-  *((_DWORD *)a3 + 6) = dword_140C52834;
-  v7 = dword_140C52838;
-  v8 = v6 <= dword_140C52838;
-  *((_DWORD *)a3 + 7) = dword_140C52838;
+  *((_DWORD *)a3 + 1) = dword_140C52870;
+  *((_QWORD *)a3 + 1) = qword_140C52858 + qword_140C52860;
+  *((_QWORD *)a3 + 2) = qword_140C52868;
+  v6 = dword_140C52874;
+  *((_DWORD *)a3 + 6) = dword_140C52874;
+  v7 = dword_140C52878;
+  v8 = v6 <= dword_140C52878;
+  *((_DWORD *)a3 + 7) = dword_140C52878;
   if ( !v8 )
     v6 = v7;
   *((_DWORD *)a3 + 6) = v6;

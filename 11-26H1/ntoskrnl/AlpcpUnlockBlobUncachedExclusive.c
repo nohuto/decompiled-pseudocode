@@ -1,16 +1,16 @@
 /*
- * XREFs of AlpcpUnlockBlobUncachedExclusive @ 0x1408EAB80
+ * XREFs of AlpcpUnlockBlobUncachedExclusive @ 0x1408F1140
  * Callers:
- *     NtAlpcRevokeSecurityContext @ 0x1407C06A0 (NtAlpcRevokeSecurityContext.c)
- *     AlpcpAcceptConnectPort @ 0x1408E6A30 (AlpcpAcceptConnectPort.c)
- *     AlpcConnectionDestroyProcedure @ 0x1408E9120 (AlpcConnectionDestroyProcedure.c)
- *     AlpcpCreateClientPort @ 0x1408E9A60 (AlpcpCreateClientPort.c)
- *     AlpcpDeletePort @ 0x1408EA7B0 (AlpcpDeletePort.c)
- *     AlpcpDisconnectPort @ 0x1408EAF48 (AlpcpDisconnectPort.c)
- *     AlpcpWalkConnectionList @ 0x140AFBB7C (AlpcpWalkConnectionList.c)
+ *     NtAlpcRevokeSecurityContext @ 0x1407C3700 (NtAlpcRevokeSecurityContext.c)
+ *     AlpcpAcceptConnectPort @ 0x1408ECFF0 (AlpcpAcceptConnectPort.c)
+ *     AlpcConnectionDestroyProcedure @ 0x1408EF6E0 (AlpcConnectionDestroyProcedure.c)
+ *     AlpcpCreateClientPort @ 0x1408F0020 (AlpcpCreateClientPort.c)
+ *     AlpcpDeletePort @ 0x1408F0D70 (AlpcpDeletePort.c)
+ *     AlpcpDisconnectPort @ 0x1408F1508 (AlpcpDisconnectPort.c)
+ *     AlpcpWalkConnectionList @ 0x140AFD7FC (AlpcpWalkConnectionList.c)
  * Callees:
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
  */
 
 void __fastcall AlpcpUnlockBlobUncachedExclusive(__int64 a1)

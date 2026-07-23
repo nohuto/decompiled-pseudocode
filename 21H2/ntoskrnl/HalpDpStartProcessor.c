@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpDpStartProcessor @ 0x1409A8A54
+ * XREFs of HalpDpStartProcessor @ 0x1409A9984
  * Callers:
- *     HalpDpReplaceControl @ 0x1409A8780 (HalpDpReplaceControl.c)
+ *     HalpDpReplaceControl @ 0x1409A96B0 (HalpDpReplaceControl.c)
  * Callees:
- *     HalGetProcessorIdByNtNumber @ 0x140377550 (HalGetProcessorIdByNtNumber.c)
- *     HalpQueryMaximumRegisteredProcessorCount @ 0x1403A2374 (HalpQueryMaximumRegisteredProcessorCount.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     HalpInterruptStartProcessor @ 0x140999F74 (HalpInterruptStartProcessor.c)
+ *     HalGetProcessorIdByNtNumber @ 0x1403770A0 (HalGetProcessorIdByNtNumber.c)
+ *     HalpQueryMaximumRegisteredProcessorCount @ 0x1403A24C4 (HalpQueryMaximumRegisteredProcessorCount.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     HalpInterruptStartProcessor @ 0x14099AF74 (HalpInterruptStartProcessor.c)
  */
 
 __int64 __fastcall HalpDpStartProcessor(ULONG_PTR BugCheckParameter2, _DWORD *a2, __int64 a3, unsigned int a4)

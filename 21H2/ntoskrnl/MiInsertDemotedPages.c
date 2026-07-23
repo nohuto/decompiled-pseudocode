@@ -1,11 +1,11 @@
 /*
- * XREFs of MiInsertDemotedPages @ 0x1402918D0
+ * XREFs of MiInsertDemotedPages @ 0x14020F840
  * Callers:
- *     MiDemoteLocalLargePage @ 0x140232110 (MiDemoteLocalLargePage.c)
- *     MiDemoteLargeFreePage @ 0x1402917AC (MiDemoteLargeFreePage.c)
- *     MiGetLargePage @ 0x140303A34 (MiGetLargePage.c)
+ *     MiDemoteLargeFreePage @ 0x14020F71C (MiDemoteLargeFreePage.c)
+ *     MiDemoteLocalLargePage @ 0x1402D6960 (MiDemoteLocalLargePage.c)
+ *     MiGetLargePage @ 0x14030E784 (MiGetLargePage.c)
  * Callees:
- *     MiInsertLargePageChain @ 0x1402FE784 (MiInsertLargePageChain.c)
+ *     MiInsertLargePageChain @ 0x1403094D4 (MiInsertLargePageChain.c)
  */
 
 __int64 __fastcall MiInsertDemotedPages(int a1, int a2, int a3, int a4, __int64 a5)

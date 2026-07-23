@@ -1,17 +1,17 @@
 /*
- * XREFs of MmCreateSpecialImageSection @ 0x1406B9664
+ * XREFs of MmCreateSpecialImageSection @ 0x1406B9694
  * Callers:
- *     NtCreateUserProcess @ 0x1406B82E0 (NtCreateUserProcess.c)
- *     PspLocateSystemDll @ 0x14084D394 (PspLocateSystemDll.c)
+ *     NtCreateUserProcess @ 0x1406B8310 (NtCreateUserProcess.c)
+ *     PspLocateSystemDll @ 0x14084D694 (PspLocateSystemDll.c)
  * Callees:
- *     KeDelayExecutionThread @ 0x140246810 (KeDelayExecutionThread.c)
- *     MiSectionControlArea @ 0x14029F880 (MiSectionControlArea.c)
- *     MmGetSessionIdEx @ 0x1402A1720 (MmGetSessionIdEx.c)
- *     CcZeroEndOfLastPage @ 0x1402A22E8 (CcZeroEndOfLastPage.c)
- *     MiReferenceControlAreaFile @ 0x1402A23D4 (MiReferenceControlAreaFile.c)
- *     MiDereferenceControlAreaFile @ 0x1402A24E0 (MiDereferenceControlAreaFile.c)
- *     MiCreateSection @ 0x140722B00 (MiCreateSection.c)
- *     ObInsertObjectEx @ 0x1407359D0 (ObInsertObjectEx.c)
+ *     KeDelayExecutionThread @ 0x1402468E0 (KeDelayExecutionThread.c)
+ *     MiSectionControlArea @ 0x14029FB10 (MiSectionControlArea.c)
+ *     MmGetSessionIdEx @ 0x1402A19B0 (MmGetSessionIdEx.c)
+ *     CcZeroEndOfLastPage @ 0x1402A2578 (CcZeroEndOfLastPage.c)
+ *     MiReferenceControlAreaFile @ 0x1402A2664 (MiReferenceControlAreaFile.c)
+ *     MiDereferenceControlAreaFile @ 0x1402A2770 (MiDereferenceControlAreaFile.c)
+ *     MiCreateSection @ 0x140722D00 (MiCreateSection.c)
+ *     ObInsertObjectEx @ 0x140735BC0 (ObInsertObjectEx.c)
  */
 
 __int64 __fastcall MmCreateSpecialImageSection(__int64 *a1, int a2, __int64 a3, char a4, __int64 a5, char a6)

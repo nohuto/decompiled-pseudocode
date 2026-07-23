@@ -1,16 +1,16 @@
 /*
- * XREFs of ViAdapterCallback @ 0x140708488
+ * XREFs of ViAdapterCallback @ 0x1407084B8
  * Callers:
  *     <none>
  * Callees:
- *     ExFreeToNPagedLookasideList @ 0x14000F4A4 (ExFreeToNPagedLookasideList.c)
- *     KeReleaseSpinLock @ 0x1400E9A70 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1400EFE30 (KeAcquireSpinLockRaiseToDpc.c)
- *     VfUtilDbgPrint @ 0x14022264C (VfUtilDbgPrint.c)
- *     ViIsActiveChannelWcb @ 0x140222CB0 (ViIsActiveChannelWcb.c)
- *     DECREMENT_ADAPTER_CHANNELS @ 0x140705B90 (DECREMENT_ADAPTER_CHANNELS.c)
- *     SUBTRACT_MAP_REGISTERS @ 0x140705E70 (SUBTRACT_MAP_REGISTERS.c)
- *     ViFreeMapRegisterFile @ 0x140709458 (ViFreeMapRegisterFile.c)
+ *     ExFreeToNPagedLookasideList @ 0x14000F024 (ExFreeToNPagedLookasideList.c)
+ *     KeReleaseSpinLock @ 0x1400EB600 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1400EDCB0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     VfUtilDbgPrint @ 0x140222478 (VfUtilDbgPrint.c)
+ *     ViIsActiveChannelWcb @ 0x140222ADC (ViIsActiveChannelWcb.c)
+ *     DECREMENT_ADAPTER_CHANNELS @ 0x140705BC0 (DECREMENT_ADAPTER_CHANNELS.c)
+ *     SUBTRACT_MAP_REGISTERS @ 0x140705EA0 (SUBTRACT_MAP_REGISTERS.c)
+ *     ViFreeMapRegisterFile @ 0x140709488 (ViFreeMapRegisterFile.c)
  */
 
 __int64 __fastcall ViAdapterCallback(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4)

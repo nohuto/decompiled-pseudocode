@@ -1,14 +1,14 @@
 /*
- * XREFs of HvlpMapStatisticsPage @ 0x140541234
+ * XREFs of HvlpMapStatisticsPage @ 0x1405418F4
  * Callers:
- *     HvlPhase1Initialize @ 0x1403880A4 (HvlPhase1Initialize.c)
- *     HvlpEnableNextLogicalProcessor @ 0x140540DA8 (HvlpEnableNextLogicalProcessor.c)
- *     HvlpInitializeBootProcessor @ 0x1405410A0 (HvlpInitializeBootProcessor.c)
+ *     HvlPhase1Initialize @ 0x140388284 (HvlPhase1Initialize.c)
+ *     HvlpEnableNextLogicalProcessor @ 0x140541468 (HvlpEnableNextLogicalProcessor.c)
+ *     HvlpInitializeBootProcessor @ 0x140541760 (HvlpInitializeBootProcessor.c)
  * Callees:
- *     HvcallInitiateHypercall @ 0x1403CD360 (HvcallInitiateHypercall.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     HvlpAcquireHypercallPage @ 0x1405407B0 (HvlpAcquireHypercallPage.c)
- *     HvlpReleaseHypercallPage @ 0x140541400 (HvlpReleaseHypercallPage.c)
+ *     HvcallInitiateHypercall @ 0x1403CD540 (HvcallInitiateHypercall.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     HvlpAcquireHypercallPage @ 0x140540E70 (HvlpAcquireHypercallPage.c)
+ *     HvlpReleaseHypercallPage @ 0x140541AC0 (HvlpReleaseHypercallPage.c)
  */
 
 __int64 __fastcall HvlpMapStatisticsPage(ULONG a1, _OWORD *a2, _QWORD *a3)

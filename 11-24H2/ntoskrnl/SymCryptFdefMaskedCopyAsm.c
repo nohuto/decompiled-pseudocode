@@ -1,9 +1,9 @@
 /*
- * XREFs of SymCryptFdefMaskedCopyAsm @ 0x140537D20
+ * XREFs of SymCryptFdefMaskedCopyAsm @ 0x1405321C0
  * Callers:
- *     SymCryptFdefIntConditionalCopy @ 0x140537184 (SymCryptFdefIntConditionalCopy.c)
- *     SymCryptFdefIntMaskedCopy @ 0x140537440 (SymCryptFdefIntMaskedCopy.c)
- *     SymCryptFdefMaskedCopy @ 0x140537504 (SymCryptFdefMaskedCopy.c)
+ *     SymCryptFdefIntConditionalCopy @ 0x140531624 (SymCryptFdefIntConditionalCopy.c)
+ *     SymCryptFdefIntMaskedCopy @ 0x1405318E0 (SymCryptFdefIntMaskedCopy.c)
+ *     SymCryptFdefMaskedCopy @ 0x1405319A4 (SymCryptFdefMaskedCopy.c)
  * Callees:
  *     <none>
  */

@@ -1,7 +1,7 @@
 /*
- * XREFs of MiInitializeLargePageNodeLists @ 0x14054F598
+ * XREFs of MiInitializeLargePageNodeLists @ 0x14054FAD8
  * Callers:
- *     MiInitializePartition @ 0x14054ECF0 (MiInitializePartition.c)
+ *     MiInitializePartition @ 0x14054F230 (MiInitializePartition.c)
  *     MiSwitchToPfns @ 0x1407965E0 (MiSwitchToPfns.c)
  * Callees:
  *     <none>

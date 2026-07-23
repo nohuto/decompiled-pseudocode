@@ -17,5 +17,8 @@
 
 _BOOL8 sub_18001AE58()
 {
-  return (unsigned int)LdrControlFlowGuardEnforced() && (BYTE5(xmmword_18017A370) & 3) == 3;
+  int v0; // eax
+
+  LOBYTE(v0) = LdrControlFlowGuardEnforced();
+  return v0 && (BYTE5(LdrSystemDllInitBlock.MitigationOptionsMap.Map[0]) & 3) == 3;
 }

@@ -1,18 +1,18 @@
 /*
- * XREFs of _PnpDispatchDeviceInterface @ 0x14059AE70
+ * XREFs of _PnpDispatchDeviceInterface @ 0x14059BE70
  * Callers:
  *     <none>
  * Callees:
  *     _PnpMapCmStatusToDispatchStatus @ 0x140007248 (_PnpMapCmStatusToDispatchStatus.c)
- *     _CmGetDeviceInterfaceMappedProperty @ 0x14059B38C (_CmGetDeviceInterfaceMappedProperty.c)
- *     _CmOpenDeviceInterfaceRegKey @ 0x14059B4E8 (_CmOpenDeviceInterfaceRegKey.c)
- *     _CmValidateDeviceInterfaceName @ 0x1405C6810 (_CmValidateDeviceInterfaceName.c)
- *     _CmSetDeviceInterfaceMappedProperty @ 0x1406FC880 (_CmSetDeviceInterfaceMappedProperty.c)
- *     _CmCreateDeviceInterface @ 0x140704630 (_CmCreateDeviceInterface.c)
- *     _CmGetMatchingDeviceInterfaceList @ 0x140760E08 (_CmGetMatchingDeviceInterfaceList.c)
- *     _CmDeleteDeviceInterface @ 0x1408F67D4 (_CmDeleteDeviceInterface.c)
- *     _CmGetDeviceInterfaceMappedPropertyKeys @ 0x1408FD790 (_CmGetDeviceInterfaceMappedPropertyKeys.c)
- *     _CmGetDeviceInterfaceMappedPropertyLocales @ 0x1408FD9F4 (_CmGetDeviceInterfaceMappedPropertyLocales.c)
+ *     _CmGetDeviceInterfaceMappedProperty @ 0x14059C38C (_CmGetDeviceInterfaceMappedProperty.c)
+ *     _CmOpenDeviceInterfaceRegKey @ 0x14059C4E8 (_CmOpenDeviceInterfaceRegKey.c)
+ *     _CmValidateDeviceInterfaceName @ 0x1405C7810 (_CmValidateDeviceInterfaceName.c)
+ *     _CmSetDeviceInterfaceMappedProperty @ 0x1406FDB20 (_CmSetDeviceInterfaceMappedProperty.c)
+ *     _CmCreateDeviceInterface @ 0x1407058D0 (_CmCreateDeviceInterface.c)
+ *     _CmGetMatchingDeviceInterfaceList @ 0x140761FF8 (_CmGetMatchingDeviceInterfaceList.c)
+ *     _CmDeleteDeviceInterface @ 0x1408F7A94 (_CmDeleteDeviceInterface.c)
+ *     _CmGetDeviceInterfaceMappedPropertyKeys @ 0x1408FEA50 (_CmGetDeviceInterfaceMappedPropertyKeys.c)
+ *     _CmGetDeviceInterfaceMappedPropertyLocales @ 0x1408FECB4 (_CmGetDeviceInterfaceMappedPropertyLocales.c)
  */
 
 __int64 __fastcall PnpDispatchDeviceInterface(__int64 a1, __int64 (__fastcall *a2)(), __int64 a3, int a4, _DWORD *a5)

@@ -1,10 +1,11 @@
 /*
- * XREFs of SymCryptIntIsEqual @ 0x140523970
+ * XREFs of SymCryptIntIsEqual @ 0x140521288
  * Callers:
- *     SymCryptEcurveIsSame @ 0x140522A18 (SymCryptEcurveIsSame.c)
- *     SymCryptRsaCoreDecCrt @ 0x140524C9C (SymCryptRsaCoreDecCrt.c)
+ *     SymCryptRsakeyCalculatePrivateFields @ 0x14051EE5C (SymCryptRsakeyCalculatePrivateFields.c)
+ *     SymCryptEcurveIsSame @ 0x14052032C (SymCryptEcurveIsSame.c)
+ *     SymCryptRsaCoreDecCrt @ 0x1405225B4 (SymCryptRsaCoreDecCrt.c)
  * Callees:
- *     SymCryptFdefIntIsEqual @ 0x14053734C (SymCryptFdefIntIsEqual.c)
+ *     SymCryptFdefIntIsEqual @ 0x1405317EC (SymCryptFdefIntIsEqual.c)
  */
 
 __int64 SymCryptIntIsEqual()

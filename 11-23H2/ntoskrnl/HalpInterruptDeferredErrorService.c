@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpInterruptDeferredErrorService @ 0x14051C230
+ * XREFs of HalpInterruptDeferredErrorService @ 0x14051C780
  * Callers:
  *     <none>
  * Callees:
- *     HalpCmciHandler @ 0x14050573C (HalpCmciHandler.c)
+ *     HalpCmciHandler @ 0x140505C8C (HalpCmciHandler.c)
  */
 
 char HalpInterruptDeferredErrorService()

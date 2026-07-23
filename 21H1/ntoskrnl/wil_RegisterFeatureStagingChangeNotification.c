@@ -7,27 +7,27 @@
  *     RtlRegisterFeatureConfigurationChangeNotification @ 0x1409149F0 (RtlRegisterFeatureConfigurationChangeNotification.c)
  */
 
-__int64 *wil_RegisterFeatureStagingChangeNotification()
+int wil_RegisterFeatureStagingChangeNotification()
 {
   __int64 *i; // rcx
-  __int64 *result; // rax
+  __int64 *v1; // rax
 
-  for ( i = (__int64 *)&wil_details_featureDescriptors_a; ; i = result + 3 )
+  for ( i = (__int64 *)&wil_details_featureDescriptors_a; ; i = v1 + 3 )
   {
-    result = wil_details_FeatureDescriptors_SkipPadding(i);
-    if ( !result )
+    v1 = wil_details_FeatureDescriptors_SkipPadding(i);
+    if ( !v1 )
       break;
-    if ( !*((_BYTE *)result + 13) && !*((_BYTE *)result + 14) && !*((_BYTE *)result + 12) )
+    if ( !*((_BYTE *)v1 + 13) && !*((_BYTE *)v1 + 14) && !*((_BYTE *)v1 + 12) )
     {
-      result = (__int64 *)RtlRegisterFeatureConfigurationChangeNotification(
-                            wil_details_OnFeatureConfigurationChange,
-                            0LL,
-                            0LL,
-                            &wil_details_featureChangeNotification);
-      if ( (_DWORD)result )
+      LODWORD(v1) = RtlRegisterFeatureConfigurationChangeNotification(
+                      wil_details_OnFeatureConfigurationChange,
+                      0LL,
+                      0LL,
+                      &wil_details_featureChangeNotification);
+      if ( (_DWORD)v1 )
         wil_details_featureChangeNotification = 0LL;
-      return result;
+      return (int)v1;
     }
   }
-  return result;
+  return (int)v1;
 }

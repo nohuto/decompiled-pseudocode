@@ -1,14 +1,14 @@
 /*
- * XREFs of VfMiscPluginEntry @ 0x140AE06B4
+ * XREFs of VfMiscPluginEntry @ 0x140AE06A4
  * Callers:
- *     DifRegisterKernelPlugin @ 0x1405D4F40 (DifRegisterKernelPlugin.c)
+ *     DifRegisterKernelPlugin @ 0x1405D54B0 (DifRegisterKernelPlugin.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     VfAvlInitializeTree @ 0x1405D1C10 (VfAvlInitializeTree.c)
- *     DifIsPluginRunningWithoutReboot @ 0x1405D4E74 (DifIsPluginRunningWithoutReboot.c)
- *     DifRegisterPlugin @ 0x1405D5070 (DifRegisterPlugin.c)
- *     VfSettingsApplyMiscellaneousChecks @ 0x140ADAD94 (VfSettingsApplyMiscellaneousChecks.c)
- *     VfCtxInit @ 0x140AE49E4 (VfCtxInit.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     VfAvlInitializeTree @ 0x1405D2180 (VfAvlInitializeTree.c)
+ *     DifIsPluginRunningWithoutReboot @ 0x1405D53E4 (DifIsPluginRunningWithoutReboot.c)
+ *     DifRegisterPlugin @ 0x1405D55E0 (DifRegisterPlugin.c)
+ *     VfSettingsApplyMiscellaneousChecks @ 0x140ADAD84 (VfSettingsApplyMiscellaneousChecks.c)
+ *     VfCtxInit @ 0x140AE49D4 (VfCtxInit.c)
  */
 
 __int64 VfMiscPluginEntry()
@@ -289,7 +289,7 @@ __int64 VfMiscPluginEntry()
 
   LODWORD(v7) = 323;
   v9 = 0LL;
-  qword_140C36968 = (__int64)VfMiscPluginUnload;
+  qword_140C368F8 = (__int64)VfMiscPluginUnload;
   v6 = "MmAllocateContiguousMemory";
   v8 = VfMiscMmAllocateContiguousMemory_Entry;
   v10 = "MmAllocateContiguousMemoryEx";
@@ -559,12 +559,20 @@ __int64 VfMiscPluginEntry()
   v0 = DifRegisterPlugin((__int64)&v6, 0x43u, 0xBu, &ViMiscSetting);
   if ( v0 >= 0 )
   {
-    v1 = VfAvlInitializeTree(&ViLookasideAvl, 96LL, 0LL, (RTL_AVL_FREE_ROUTINE *)ViRemLockDelayFreeAvlNode);
+    v1 = VfAvlInitializeTree(
+           &ViLookasideAvl,
+           96LL,
+           0LL,
+           (void (__cdecl *)(_RTL_AVL_TABLE *, PVOID))ViRemLockDelayFreeAvlNode);
     v2 = &ViLookasideInitialized;
     if ( v1 < 0 )
       v2 = &ViLookasideAllocationFailures;
     _InterlockedExchange(v2, 1);
-    v3 = VfAvlInitializeTree(&ViResourceAvl, 104LL, 0LL, (RTL_AVL_FREE_ROUTINE *)ViRemLockDelayFreeAvlNode);
+    v3 = VfAvlInitializeTree(
+           &ViResourceAvl,
+           104LL,
+           0LL,
+           (void (__cdecl *)(_RTL_AVL_TABLE *, PVOID))ViRemLockDelayFreeAvlNode);
     v4 = &ViResourceInitialized;
     if ( v3 < 0 )
       v4 = &ViResourceNotTracked;

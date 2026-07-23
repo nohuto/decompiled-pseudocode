@@ -1,12 +1,12 @@
 /*
- * XREFs of _CmSetInstallerClassMappedPropertyFromRegValue @ 0x1406DF2F4
+ * XREFs of _CmSetInstallerClassMappedPropertyFromRegValue @ 0x1406DF42C
  * Callers:
- *     _CmSetInstallerClassMappedProperty @ 0x1406DEF10 (_CmSetInstallerClassMappedProperty.c)
+ *     _CmSetInstallerClassMappedProperty @ 0x1406DF048 (_CmSetInstallerClassMappedProperty.c)
  * Callees:
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     _PnpCtxRegSetValue @ 0x1404870E4 (_PnpCtxRegSetValue.c)
- *     _CmOpenInstallerClassRegKey @ 0x1404F7A60 (_CmOpenInstallerClassRegKey.c)
- *     _PnpOpenPropertiesKey @ 0x1404FAC30 (_PnpOpenPropertiesKey.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     _CmOpenInstallerClassRegKey @ 0x1404DA9EC (_CmOpenInstallerClassRegKey.c)
+ *     _PnpOpenPropertiesKey @ 0x1404DDBBC (_PnpOpenPropertiesKey.c)
+ *     _PnpCtxRegSetValue @ 0x140512E00 (_PnpCtxRegSetValue.c)
  */
 
 __int64 __fastcall CmSetInstallerClassMappedPropertyFromRegValue(
@@ -27,18 +27,18 @@ __int64 __fastcall CmSetInstallerClassMappedPropertyFromRegValue(
   __int64 v17; // rcx
   int v18; // ecx
   __int64 v19; // rcx
-  __int64 v20; // r14
-  unsigned int v21; // esi
+  const WCHAR *v20; // r14
+  ULONG v21; // esi
   __int64 v22; // rax
   __int64 v23; // rax
   __int64 v24; // rax
   __int64 v25; // rax
   __int64 v26; // rax
-  const wchar_t *v27; // rax
+  wchar_t *v27; // rax
   HANDLE v28; // rdx
   int v29; // eax
   __int64 v30; // rax
-  HANDLE v31; // rdx
+  int v31; // edx
   __int64 v32; // rax
   HANDLE v33; // rdx
   int v34; // eax
@@ -51,7 +51,7 @@ __int64 __fastcall CmSetInstallerClassMappedPropertyFromRegValue(
   v8 = 0;
   v38 = 0LL;
   Handle = 0LL;
-  v10 = &off_1406EB2A0;
+  v10 = &off_1406EB3D0;
   for ( i = 0; i < 0xD; ++i )
   {
     v15 = *v10;
@@ -85,7 +85,7 @@ __int64 __fastcall CmSetInstallerClassMappedPropertyFromRegValue(
   if ( a3 || (v8 = CmOpenInstallerClassRegKey((int)a1, a2, 0LL, (__int64)v10, 3, 0, (__int64)&v38, 0LL), v8 >= 0) )
   {
     v19 = *(unsigned int *)(a4 + 16);
-    v20 = (__int64)v16[2];
+    v20 = (const WCHAR *)v16[2];
     v21 = *((_DWORD *)v16 + 6);
     if ( (_DWORD)v19 == 7 )
     {
@@ -146,7 +146,7 @@ LABEL_66:
           v33 = v38;
           if ( a3 )
             v33 = a3;
-          v34 = PnpCtxRegSetValue(v19, v33, v20, v21, (__int64)a6, a7);
+          v34 = PnpCtxRegSetValue(v19, v33, v20, v21, a6, a7);
           if ( v34 < 0 )
             v8 = v34;
           goto LABEL_70;
@@ -169,14 +169,14 @@ LABEL_37:
           goto LABEL_37;
         v37 = 0;
       }
-      v31 = v38;
+      v31 = (int)v38;
       if ( a3 )
-        v31 = a3;
-      v8 = PnpOpenPropertiesKey(a1, (__int64)v31, 0LL, 2u, 1, v36, &Handle);
+        v31 = (int)a3;
+      v8 = PnpOpenPropertiesKey(a1, v31, 0LL, 2, 1, v36, &Handle);
       if ( v8 < 0 )
         goto LABEL_70;
       v28 = Handle;
-      v27 = (const wchar_t *)&v37;
+      v27 = (wchar_t *)&v37;
     }
     else
     {
@@ -192,13 +192,13 @@ LABEL_36:
       {
         if ( (_BYTE)v19 )
           goto LABEL_37;
-        v27 = L"0";
+        v27 = (wchar_t *)L"0";
       }
       v28 = v38;
       if ( a3 )
         v28 = a3;
     }
-    v29 = PnpCtxRegSetValue(v19, v28, v20, v21, (__int64)v27, 4u);
+    v29 = PnpCtxRegSetValue(v19, v28, v20, v21, v27, 4u);
     if ( v29 == -1073741444 )
     {
       v8 = -1073741772;

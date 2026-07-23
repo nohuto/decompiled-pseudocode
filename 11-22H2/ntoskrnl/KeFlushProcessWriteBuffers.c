@@ -46,7 +46,7 @@ __int64 __fastcall KeFlushProcessWriteBuffers(char a1)
 
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(0xCuLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 12 )
@@ -85,10 +85,10 @@ __int64 __fastcall KeFlushProcessWriteBuffers(char a1)
     KiIpiSendPacket(v3, (_DWORD)p_StaticAffinity, (unsigned int)xHalTimerWatchdogStop, 0, 0LL, 0LL);
     KiIpiStallOnPacketTargetsPrcb(v7, CurrentPrcb);
   }
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v11 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v11 <= 0xFu && CurrentIrql <= 0xFu && v11 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v11 <= 0xFu && CurrentIrql <= 0xFu && v11 >= 2u )
     {
       v12 = KeGetCurrentPrcb();
       v13 = v12->SchedulerAssist;

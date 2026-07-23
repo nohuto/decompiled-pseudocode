@@ -1,8 +1,8 @@
 /*
- * XREFs of MiSystemCacheVaControlArea @ 0x1402EE150
+ * XREFs of MiSystemCacheVaControlArea @ 0x14034F790
  * Callers:
- *     MmCheckCachedPageStates @ 0x140280E90 (MmCheckCachedPageStates.c)
- *     MmCopyToCachedPage @ 0x1402EDA94 (MmCopyToCachedPage.c)
+ *     MmCheckCachedPageStates @ 0x140236420 (MmCheckCachedPageStates.c)
+ *     MmCopyToCachedPage @ 0x14034F0D4 (MmCopyToCachedPage.c)
  * Callees:
  *     <none>
  */
@@ -28,7 +28,7 @@ __int64 __fastcall MiSystemCacheVaControlArea(unsigned __int64 a1)
     }
     else
     {
-      v4 = qword_140E38AB8 + 16 * (v4 - 1);
+      v4 = qword_140E38BF8 + 16 * (v4 - 1);
     }
     if ( v4 )
       v4 += 40 * ((a1 >> 18) & 7);

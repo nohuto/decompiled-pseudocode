@@ -1,13 +1,13 @@
 /*
- * XREFs of IopCheckVpbMounted @ 0x14044A8C8
+ * XREFs of IopCheckVpbMounted @ 0x1404429F8
  * Callers:
- *     IopParseDevice @ 0x1409008C0 (IopParseDevice.c)
+ *     IopParseDevice @ 0x140930850 (IopParseDevice.c)
  * Callees:
- *     IopDecrementDeviceObjectRef @ 0x1402B2B50 (IopDecrementDeviceObjectRef.c)
- *     KeAcquireQueuedSpinLock @ 0x1402B4690 (KeAcquireQueuedSpinLock.c)
- *     KeReleaseQueuedSpinLock @ 0x1402E2650 (KeReleaseQueuedSpinLock.c)
- *     IopIncrementVpbRefCount @ 0x14044AA10 (IopIncrementVpbRefCount.c)
- *     IopMountVolume @ 0x140B1E87C (IopMountVolume.c)
+ *     KeReleaseQueuedSpinLock @ 0x1402C4710 (KeReleaseQueuedSpinLock.c)
+ *     IopDecrementDeviceObjectRef @ 0x1402FD820 (IopDecrementDeviceObjectRef.c)
+ *     KeAcquireQueuedSpinLock @ 0x1402FF360 (KeAcquireQueuedSpinLock.c)
+ *     IopIncrementVpbRefCount @ 0x140442B40 (IopIncrementVpbRefCount.c)
+ *     IopMountVolume @ 0x140B208FC (IopMountVolume.c)
  */
 
 __int64 __fastcall IopCheckVpbMounted(__int64 a1, ULONG_PTR a2, __int64 a3, int *a4)
@@ -16,9 +16,11 @@ __int64 __fastcall IopCheckVpbMounted(__int64 a1, ULONG_PTR a2, __int64 a3, int 
   __int64 v7; // rbx
   KIRQL v8; // bp
   __int16 v9; // ax
+  __int64 v10; // r9
   __int64 result; // rax
-  int v11; // eax
-  __int64 v12; // [rsp+68h] [rbp+10h] BYREF
+  int v12; // eax
+  __int64 v13; // r9
+  __int64 v14; // [rsp+68h] [rbp+10h] BYREF
 
   for ( i = KeAcquireQueuedSpinLock(9uLL); ; i = KeAcquireQueuedSpinLock(9uLL) )
   {
@@ -38,20 +40,20 @@ __int64 __fastcall IopCheckVpbMounted(__int64 a1, ULONG_PTR a2, __int64 a3, int 
       }
       KeReleaseQueuedSpinLock(9uLL, v8);
       if ( !v7 )
-        IopDecrementDeviceObjectRef(a2, 0LL, 0LL);
+        IopDecrementDeviceObjectRef(a2, 0LL, 0LL, v10);
       return v7;
     }
     KeReleaseQueuedSpinLock(9uLL, v8);
-    v12 = 0LL;
-    v11 = IopMountVolume(a2, (__int64)&v12);
-    *a4 = v11;
-    if ( v11 < 0 || v11 == 192 || v11 == 257 )
+    v14 = 0LL;
+    v12 = IopMountVolume(a2, (__int64)&v14);
+    *a4 = v12;
+    if ( v12 < 0 || v12 == 192 || v12 == 257 )
       break;
-    result = v12;
-    if ( v12 )
+    result = v14;
+    if ( v14 )
       return result;
   }
-  IopDecrementDeviceObjectRef(a2, 0LL, 0LL);
+  IopDecrementDeviceObjectRef(a2, 0LL, 0LL, v13);
   result = 0LL;
   if ( *a4 >= 0 )
     *a4 = -1073741806;

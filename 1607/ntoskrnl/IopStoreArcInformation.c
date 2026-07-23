@@ -3,10 +3,10 @@
  * Callers:
  *     IoInitSystemPreDrivers @ 0x14079EDEC (IoInitSystemPreDrivers.c)
  * Callees:
- *     ExAllocatePoolWithTagPriority @ 0x14007E210 (ExAllocatePoolWithTagPriority.c)
- *     RtlStringCbCopyA @ 0x1400C980C (RtlStringCbCopyA.c)
- *     _strnicmp @ 0x14014D40C (_strnicmp.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     ExAllocatePoolWithTagPriority @ 0x14007E290 (ExAllocatePoolWithTagPriority.c)
+ *     RtlStringCbCopyA @ 0x1400C76AC (RtlStringCbCopyA.c)
+ *     _strnicmp @ 0x14014D97C (_strnicmp.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */
@@ -31,7 +31,7 @@ __int64 __fastcall IopStoreArcInformation(__int64 a1)
   PVOID *i; // rcx
 
   v1 = *(_QWORD **)(a1 + 232);
-  v2 = dword_1402FD0D0;
+  v2 = dword_1402FD030;
   v3 = &IoArcTableListHead;
   IoArcTableListHead = &IoArcTableListHead;
   v4 = 0;

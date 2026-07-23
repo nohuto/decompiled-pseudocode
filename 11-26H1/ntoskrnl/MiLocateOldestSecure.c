@@ -1,7 +1,7 @@
 /*
- * XREFs of MiLocateOldestSecure @ 0x1404D724C
+ * XREFs of MiLocateOldestSecure @ 0x1404D0A1C
  * Callers:
- *     MiUnmapLockedPagesInUserSpace @ 0x14095CF04 (MiUnmapLockedPagesInUserSpace.c)
+ *     MiUnmapLockedPagesInUserSpace @ 0x140A027C4 (MiUnmapLockedPagesInUserSpace.c)
  * Callees:
  *     <none>
  */

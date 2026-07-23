@@ -1,14 +1,14 @@
 /*
- * XREFs of CmpDelayFreeRMWorker @ 0x1404EB204
+ * XREFs of CmpDelayFreeRMWorker @ 0x1404CD388
  * Callers:
  *     <none>
  * Callees:
- *     KeReleaseGuardedMutex @ 0x14000CA40 (KeReleaseGuardedMutex.c)
- *     ExAcquireFastMutex @ 0x14002D0A0 (ExAcquireFastMutex.c)
- *     ExDeleteResourceLite @ 0x1400885B0 (ExDeleteResourceLite.c)
+ *     KeReleaseGuardedMutex @ 0x14000C5C0 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x14002CC20 (ExAcquireFastMutex.c)
+ *     ExDeleteResourceLite @ 0x14010C7A0 (ExDeleteResourceLite.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     CmpLockRegistryExclusive @ 0x1403FD9E8 (CmpLockRegistryExclusive.c)
- *     CmpUnlockRegistry @ 0x14040476C (CmpUnlockRegistry.c)
+ *     CmpLockRegistryExclusive @ 0x1403FC8A8 (CmpLockRegistryExclusive.c)
+ *     CmpUnlockRegistry @ 0x14040362C (CmpUnlockRegistry.c)
  */
 
 void CmpDelayFreeRMWorker()

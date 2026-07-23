@@ -1,16 +1,20 @@
 /*
- * XREFs of TpSetPoolStackInformation @ 0x180085EC0
+ * XREFs of TpSetPoolStackInformation @ 0x180085EB0
  * Callers:
- *     TppPoolpReferenceGlobalPool @ 0x18003EF9C (TppPoolpReferenceGlobalPool.c)
- *     TpSetDefaultPoolStackInformation @ 0x180085DA0 (TpSetDefaultPoolStackInformation.c)
+ *     TppPoolpReferenceGlobalPool @ 0x18003EF8C (TppPoolpReferenceGlobalPool.c)
+ *     TpSetDefaultPoolStackInformation @ 0x180085D90 (TpSetDefaultPoolStackInformation.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall TpSetPoolStackInformation(__int64 a1, __int64 a2)
+NTSTATUS __cdecl TpSetPoolStackInformation(PTP_POOL Pool, PTP_POOL_STACK_INFORMATION PoolStackInformation)
 {
-  if ( a1 && a2 )
-    return NtSetInformationWorkerFactory(*(_QWORD *)(a1 + 56), 10LL, a2);
+  if ( Pool && PoolStackInformation )
+    return NtSetInformationWorkerFactory(
+             *((HANDLE *)Pool + 7),
+             WorkerFactoryStackInformation,
+             PoolStackInformation,
+             0x10u);
   else
-    return 3221225485LL;
+    return -1073741811;
 }

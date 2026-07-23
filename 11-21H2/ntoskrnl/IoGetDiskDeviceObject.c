@@ -1,7 +1,7 @@
 /*
  * XREFs of IoGetDiskDeviceObject @ 0x1403A6F80
  * Callers:
- *     IopAttachDeviceToDeviceStackSafe @ 0x14024FC04 (IopAttachDeviceToDeviceStackSafe.c)
+ *     sub_14024FC04 @ 0x14024FC04 (sub_14024FC04.c)
  * Callees:
  *     KeAcquireQueuedSpinLock @ 0x140285C80 (KeAcquireQueuedSpinLock.c)
  *     KeReleaseQueuedSpinLock @ 0x1402A3F30 (KeReleaseQueuedSpinLock.c)

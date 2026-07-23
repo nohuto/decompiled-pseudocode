@@ -9,18 +9,18 @@
  *     ExFreePoolWithTag @ 0x140B62CD0 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall EtwpStackInitializeProcessor(union _SLIST_HEADER *a1, int a2)
+__int64 __fastcall EtwpStackInitializeProcessor(_SLIST_HEADER *a1, int a2)
 {
   unsigned int i; // edi
   __int64 Pool2; // rax
   __int64 v6; // rdx
-  struct _SLIST_ENTRY *v7; // rbx
+  _SLIST_ENTRY *v7; // rbx
   int CalloutStack; // esi
 
   for ( i = 0; i < 2; ++i )
   {
     Pool2 = ExAllocatePool2(0x40uLL);
-    v7 = (struct _SLIST_ENTRY *)Pool2;
+    v7 = (_SLIST_ENTRY *)Pool2;
     if ( !Pool2 )
       return 3221225495LL;
     *(_DWORD *)(Pool2 + 16) = a2;

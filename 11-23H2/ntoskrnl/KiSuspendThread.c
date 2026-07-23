@@ -1,17 +1,17 @@
 /*
- * XREFs of KiSuspendThread @ 0x140309F1C
+ * XREFs of KiSuspendThread @ 0x14030A1AC
  * Callers:
- *     KeSuspendThread @ 0x140309E18 (KeSuspendThread.c)
- *     KiFreezeSingleThread @ 0x14036F95C (KiFreezeSingleThread.c)
- *     KiAdjustThreadTimer @ 0x140576DD8 (KiAdjustThreadTimer.c)
+ *     KeSuspendThread @ 0x14030A0A8 (KeSuspendThread.c)
+ *     KiFreezeSingleThread @ 0x14036FAFC (KiFreezeSingleThread.c)
+ *     KiAdjustThreadTimer @ 0x1405772C8 (KiAdjustThreadTimer.c)
  * Callees:
  *     KiDecrementProcessStackCount @ 0x140222CF4 (KiDecrementProcessStackCount.c)
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     KiAcquireKobjectLockSafe @ 0x140252030 (KiAcquireKobjectLockSafe.c)
- *     KiCancelTimer @ 0x140253AA0 (KiCancelTimer.c)
- *     KiSignalThread @ 0x1402B85D0 (KiSignalThread.c)
- *     KiInsertQueueApc @ 0x14030A16C (KiInsertQueueApc.c)
- *     KiSignalThreadForApc @ 0x14030B308 (KiSignalThreadForApc.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     KiAcquireKobjectLockSafe @ 0x1402520F0 (KiAcquireKobjectLockSafe.c)
+ *     KiCancelTimer @ 0x140253B60 (KiCancelTimer.c)
+ *     KiSignalThread @ 0x1402B8860 (KiSignalThread.c)
+ *     KiInsertQueueApc @ 0x14030A3FC (KiInsertQueueApc.c)
+ *     KiSignalThreadForApc @ 0x14030B598 (KiSignalThreadForApc.c)
  */
 
 char __fastcall KiSuspendThread(__int64 a1, __int64 a2, __int64 a3)

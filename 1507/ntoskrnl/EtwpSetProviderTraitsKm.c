@@ -39,7 +39,7 @@ __int64 __fastcall EtwpSetProviderTraitsKm(__int64 a1, const void *a2, unsigned 
            a1,
            v9,
            (ULONG_PTR)&EtwpProviderTraitsKmMutex,
-           (unsigned __int64 *)&EtwpProviderTraitsKmTree);
+           (_RTL_RB_TREE *)&EtwpProviderTraitsKmTree);
     if ( !*(_QWORD *)(a1 + 40) )
     {
       ProviderGroupFromTraits = EtwpGetProviderGroupFromTraits((const char *)(*(_QWORD *)(a1 + 104) + 28LL));

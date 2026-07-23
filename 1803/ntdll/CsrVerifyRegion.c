@@ -9,7 +9,7 @@
 bool __fastcall CsrVerifyRegion(unsigned __int64 a1, unsigned int a2)
 {
   unsigned __int64 v2; // rdx
-  void *ReadOnlySharedMemoryBase; // r9
+  PVOID ReadOnlySharedMemoryBase; // r9
   bool result; // al
 
   result = 0;

@@ -8,13 +8,13 @@
  *     RtlLeaveCriticalSection @ 0x18002EE00 (RtlLeaveCriticalSection.c)
  */
 
-__int64 RtlpEnsureLiveDeadListsInitialized()
+NTSTATUS RtlpEnsureLiveDeadListsInitialized()
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
   if ( !g_SxsLiveActivationContexts )
   {
-    RtlEnterCriticalSection((__int64)NtCurrentPeb()->FastPebLock);
+    RtlEnterCriticalSection(NtCurrentPeb()->FastPebLock);
     if ( !g_SxsLiveActivationContexts )
     {
       qword_180146430 = (__int64)&g_SxsLiveActivationContexts;
@@ -22,7 +22,7 @@ __int64 RtlpEnsureLiveDeadListsInitialized()
       qword_180146420 = (__int64)&g_SxsFreeActivationContexts;
       g_SxsFreeActivationContexts = (__int64)&g_SxsFreeActivationContexts;
     }
-    return RtlLeaveCriticalSection((__int64)NtCurrentPeb()->FastPebLock);
+    return RtlLeaveCriticalSection(NtCurrentPeb()->FastPebLock);
   }
   return result;
 }

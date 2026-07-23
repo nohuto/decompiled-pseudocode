@@ -1,11 +1,11 @@
 /*
- * XREFs of PipQueryBindingResolution @ 0x140567E30
+ * XREFs of PipQueryBindingResolution @ 0x140568370
  * Callers:
- *     IoResolveDependency @ 0x1401428E4 (IoResolveDependency.c)
- *     IoDuplicateDependency @ 0x14062AB18 (IoDuplicateDependency.c)
- *     PipSetDependency @ 0x14062B594 (PipSetDependency.c)
+ *     IoResolveDependency @ 0x140142E54 (IoResolveDependency.c)
+ *     IoDuplicateDependency @ 0x14062ABCC (IoDuplicateDependency.c)
+ *     PipSetDependency @ 0x14062B648 (PipSetDependency.c)
  * Callees:
- *     RtlEqualUnicodeString @ 0x14040F720 (RtlEqualUnicodeString.c)
+ *     RtlEqualUnicodeString @ 0x14040E5E0 (RtlEqualUnicodeString.c)
  */
 
 __int64 *__fastcall PipQueryBindingResolution(__int64 a1)

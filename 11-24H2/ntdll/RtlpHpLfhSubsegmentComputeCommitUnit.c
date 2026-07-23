@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpHpLfhSubsegmentComputeCommitUnit @ 0x1800E2500
+ * XREFs of RtlpHpLfhSubsegmentComputeCommitUnit @ 0x1800DDAD0
  * Callers:
- *     RtlpHpLfhSubsegmentInitialize @ 0x180050038 (RtlpHpLfhSubsegmentInitialize.c)
+ *     RtlpHpLfhSubsegmentInitialize @ 0x180065C18 (RtlpHpLfhSubsegmentInitialize.c)
  * Callees:
  *     <none>
  */

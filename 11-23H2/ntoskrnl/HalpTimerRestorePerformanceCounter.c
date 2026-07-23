@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpTimerRestorePerformanceCounter @ 0x1404FE83C
+ * XREFs of HalpTimerRestorePerformanceCounter @ 0x1404FED8C
  * Callers:
- *     HalpAcpiPostSleep @ 0x140A96600 (HalpAcpiPostSleep.c)
+ *     HalpAcpiPostSleep @ 0x140A96470 (HalpAcpiPostSleep.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x1402C3270 (KeQueryPerformanceCounter.c)
- *     HalpTimerGetInternalData @ 0x1402C4570 (HalpTimerGetInternalData.c)
- *     HalpTimerCalibratePerformanceCounter @ 0x14037A618 (HalpTimerCalibratePerformanceCounter.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     HalpTimerSetProblemEx @ 0x1405097B4 (HalpTimerSetProblemEx.c)
+ *     KeQueryPerformanceCounter @ 0x1402C3500 (KeQueryPerformanceCounter.c)
+ *     HalpTimerGetInternalData @ 0x1402C4800 (HalpTimerGetInternalData.c)
+ *     HalpTimerCalibratePerformanceCounter @ 0x14037A7B8 (HalpTimerCalibratePerformanceCounter.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     HalpTimerSetProblemEx @ 0x140509D04 (HalpTimerSetProblemEx.c)
  */
 
 LARGE_INTEGER HalpTimerRestorePerformanceCounter()

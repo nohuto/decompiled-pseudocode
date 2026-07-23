@@ -1,16 +1,16 @@
 /*
- * XREFs of IoUpdateBugCheckProgressEnvVariable @ 0x140502BE0
+ * XREFs of IoUpdateBugCheckProgressEnvVariable @ 0x140502B60
  * Callers:
- *     IoSaveBugCheckProgress @ 0x140502780 (IoSaveBugCheckProgress.c)
- *     IoSetBugCheckProgressAndFlag @ 0x14050295C (IoSetBugCheckProgressAndFlag.c)
- *     IoSetBugCheckProgressFlag @ 0x1405029A8 (IoSetBugCheckProgressFlag.c)
- *     IoWriteCrashDump @ 0x140502CD0 (IoWriteCrashDump.c)
- *     IopDumpCallAddPagesCallbacks @ 0x140503D00 (IopDumpCallAddPagesCallbacks.c)
- *     IopDumpCallRemovePagesCallbacks @ 0x140503E50 (IopDumpCallRemovePagesCallbacks.c)
- *     IopFillTriageDumpDataBlocks @ 0x140503FA0 (IopFillTriageDumpDataBlocks.c)
+ *     IoSaveBugCheckProgress @ 0x140502700 (IoSaveBugCheckProgress.c)
+ *     IoSetBugCheckProgressAndFlag @ 0x1405028DC (IoSetBugCheckProgressAndFlag.c)
+ *     IoSetBugCheckProgressFlag @ 0x140502928 (IoSetBugCheckProgressFlag.c)
+ *     IoWriteCrashDump @ 0x140502C50 (IoWriteCrashDump.c)
+ *     IopDumpCallAddPagesCallbacks @ 0x140503C80 (IopDumpCallAddPagesCallbacks.c)
+ *     IopDumpCallRemovePagesCallbacks @ 0x140503DD0 (IopDumpCallRemovePagesCallbacks.c)
+ *     IopFillTriageDumpDataBlocks @ 0x140503F20 (IopFillTriageDumpDataBlocks.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     KeFrozenProcessorCount @ 0x14051DA80 (KeFrozenProcessorCount.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     KeFrozenProcessorCount @ 0x14051DCC0 (KeFrozenProcessorCount.c)
  */
 
 __int64 IoUpdateBugCheckProgressEnvVariable()

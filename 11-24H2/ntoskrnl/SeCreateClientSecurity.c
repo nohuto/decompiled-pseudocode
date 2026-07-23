@@ -1,22 +1,22 @@
 /*
- * XREFs of SeCreateClientSecurity @ 0x140896720
+ * XREFs of SeCreateClientSecurity @ 0x14089EDC0
  * Callers:
- *     EtwpStartLogger @ 0x140831694 (EtwpStartLogger.c)
- *     EtwpUpdateTrace @ 0x14083311C (EtwpUpdateTrace.c)
- *     AlpcpCreateClientPort @ 0x1408649C0 (AlpcpCreateClientPort.c)
- *     NtAlpcCreateSecurityContext @ 0x140894C50 (NtAlpcCreateSecurityContext.c)
- *     AlpcpCreateSecurityContext @ 0x1408963D8 (AlpcpCreateSecurityContext.c)
- *     NtImpersonateThread @ 0x140A28F20 (NtImpersonateThread.c)
- *     EtwpFixBootLoggers @ 0x140C3E598 (EtwpFixBootLoggers.c)
+ *     AlpcpCreateClientPort @ 0x140868FD0 (AlpcpCreateClientPort.c)
+ *     NtAlpcCreateSecurityContext @ 0x14089D0F0 (NtAlpcCreateSecurityContext.c)
+ *     AlpcpCreateSecurityContext @ 0x14089E878 (AlpcpCreateSecurityContext.c)
+ *     EtwpStartLogger @ 0x1409D017C (EtwpStartLogger.c)
+ *     NtImpersonateThread @ 0x140A1D8E0 (NtImpersonateThread.c)
+ *     EtwpUpdateTrace @ 0x140ADA038 (EtwpUpdateTrace.c)
+ *     EtwpFixBootLoggers @ 0x140C406E8 (EtwpFixBootLoggers.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     PsReferencePrimaryTokenWithTag @ 0x14033FFF0 (PsReferencePrimaryTokenWithTag.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ObfReferenceObjectWithTag @ 0x1403403E0 (ObfReferenceObjectWithTag.c)
- *     ExfAcquirePushLockSharedEx @ 0x14034050C (ExfAcquirePushLockSharedEx.c)
- *     SepReconcileTrustSidWithProcessProtection @ 0x1403597C0 (SepReconcileTrustSidWithProcessProtection.c)
- *     PspUnlockThreadSecurityShared @ 0x14041AFC0 (PspUnlockThreadSecurityShared.c)
- *     SepCreateClientSecurityEx @ 0x140897AC0 (SepCreateClientSecurityEx.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     PsReferencePrimaryTokenWithTag @ 0x14031F4D0 (PsReferencePrimaryTokenWithTag.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     ObfReferenceObjectWithTag @ 0x14031F8C0 (ObfReferenceObjectWithTag.c)
+ *     ExfAcquirePushLockSharedEx @ 0x14031F9EC (ExfAcquirePushLockSharedEx.c)
+ *     SepReconcileTrustSidWithProcessProtection @ 0x1403E3A30 (SepReconcileTrustSidWithProcessProtection.c)
+ *     PspUnlockThreadSecurityShared @ 0x14040AFC0 (PspUnlockThreadSecurityShared.c)
+ *     SepCreateClientSecurityEx @ 0x1408A0160 (SepCreateClientSecurityEx.c)
  */
 
 NTSTATUS __stdcall SeCreateClientSecurity(
@@ -28,12 +28,12 @@ NTSTATUS __stdcall SeCreateClientSecurity(
   int v8; // r15d
   struct _KTHREAD *CurrentThread; // rax
   _KPROCESS *Process; // rbp
-  __int64 *v11; // rsi
+  PSID *v11; // rsi
   int v12; // ebx
   __int64 v13; // r14
   NTSTATUS result; // eax
   NTSTATUS v15; // ebx
-  _QWORD *v16; // rsi
+  char *v16; // rsi
   __int64 v17; // r14
   char v18[8]; // [rsp+60h] [rbp-48h] BYREF
   struct _KTHREAD *v19; // [rsp+68h] [rbp-40h]
@@ -53,7 +53,7 @@ NTSTATUS __stdcall SeCreateClientSecurity(
     v21 = ClientThread->Process;
     v19 = KeGetCurrentThread();
     --v19->KernelApcDisable;
-    v16 = KeAbPreAcquire((__int64)&ClientThread[1].WaitBlockList, 0LL);
+    v16 = (char *)KeAbPreAcquire((__int64)&ClientThread[1].WaitBlockList, 0LL);
     if ( _InterlockedCompareExchange64((volatile signed __int64 *)&ClientThread[1].WaitBlockList, 17LL, 0LL) )
       ExfAcquirePushLockSharedEx(
         (signed __int64 *)&ClientThread[1].WaitBlockList,
@@ -61,10 +61,10 @@ NTSTATUS __stdcall SeCreateClientSecurity(
         v16,
         (__int64)&ClientThread[1].WaitBlockList);
     if ( v16 )
-      *((_BYTE *)v16 + 10) = 1;
+      v16[10] = 1;
     if ( (*(_DWORD *)(&ClientThread[1].SwapListEntry + 1) & 8) != 0 )
     {
-      v11 = (__int64 *)(*(_QWORD *)((char *)&ClientThread[1].116 + 4) & 0xFFFFFFFFFFFFFFF8uLL);
+      v11 = (PSID *)(*(_QWORD *)((char *)&ClientThread[1].116 + 4) & 0xFFFFFFFFFFFFFFF8uLL);
       ObfReferenceObjectWithTag(v11, 0x63436553u);
       v8 = *((_DWORD *)&ClientThread[1].0 + 1) & 3;
       v17 = *((_BYTE *)&ClientThread[1].MiscFlags + 4) >> 2;
@@ -82,7 +82,7 @@ NTSTATUS __stdcall SeCreateClientSecurity(
       PspUnlockThreadSecurityShared((__int64)ClientThread);
     }
   }
-  v11 = (__int64 *)PsReferencePrimaryTokenWithTag((__int64)Process, 0x63436553u);
+  v11 = (PSID *)PsReferencePrimaryTokenWithTag((__int64)Process, 0x63436553u);
   LOBYTE(v21) = BYTE2(Process[3].ActiveGroupsMask.Masks[1]);
   v12 = 1;
   LOBYTE(v13) = 0;

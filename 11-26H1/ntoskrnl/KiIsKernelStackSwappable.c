@@ -1,7 +1,7 @@
 /*
- * XREFs of KiIsKernelStackSwappable @ 0x14043C160
+ * XREFs of KiIsKernelStackSwappable @ 0x14042EA10
  * Callers:
- *     KeTryToFreezeThreadStack @ 0x1405EC060 (KeTryToFreezeThreadStack.c)
+ *     KeTryToFreezeThreadStack @ 0x1405EE9D0 (KeTryToFreezeThreadStack.c)
  * Callees:
  *     <none>
  */

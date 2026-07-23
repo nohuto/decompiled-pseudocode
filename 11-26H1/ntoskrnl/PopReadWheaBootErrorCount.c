@@ -1,10 +1,10 @@
 /*
- * XREFs of PopReadWheaBootErrorCount @ 0x140CD0764
+ * XREFs of PopReadWheaBootErrorCount @ 0x140CD690C
  * Callers:
- *     PopCheckShutdownMarker @ 0x140CD0064 (PopCheckShutdownMarker.c)
+ *     PopCheckShutdownMarker @ 0x140CD620C (PopCheckShutdownMarker.c)
  * Callees:
- *     WheaGetErrorSourceInfo @ 0x1408481F0 (WheaGetErrorSourceInfo.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     WheaGetErrorSourceInfo @ 0x14084E4C0 (WheaGetErrorSourceInfo.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PopReadWheaBootErrorCount(int *a1)

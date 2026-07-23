@@ -116,43 +116,43 @@
  *     _RtlpNotOwnerCriticalSection@4 @ 0x4B34A880 (_RtlpNotOwnerCriticalSection@4.c)
  */
 
-int __stdcall RtlLeaveCriticalSection(int a1)
+NTSTATUS __cdecl RtlLeaveCriticalSection(PRTL_CRITICAL_SECTION CriticalSection)
 {
-  volatile signed __int32 *v2; // edi
+  int *p_LockCount; // edi
   signed __int32 v3; // ebx
   int v5; // eax
   signed __int32 v6; // [esp+10h] [ebp-Ch] BYREF
   int v7; // [esp+14h] [ebp-8h] BYREF
-  int DeferredCriticalSectionEvent; // [esp+18h] [ebp-4h]
+  HANDLE EventHandle; // [esp+18h] [ebp-4h]
 
-  if ( (*(_DWORD *)(a1 + 8))-- == 1 )
+  if ( CriticalSection->RecursionCount-- == 1 )
   {
-    *(_DWORD *)(a1 + 12) = 0;
-    v2 = (volatile signed __int32 *)(a1 + 4);
-    v3 = _InterlockedCompareExchange((volatile signed __int32 *)(a1 + 4), -1, -2);
+    CriticalSection->OwningThread = 0;
+    p_LockCount = &CriticalSection->LockCount;
+    v3 = _InterlockedCompareExchange(&CriticalSection->LockCount, -1, -2);
     if ( v3 != -2 )
     {
-      if ( (*(_BYTE *)v2 & 1) != 0 )
-        RtlpNotOwnerCriticalSection(a1);
-      DeferredCriticalSectionEvent = *(_DWORD *)(a1 + 16);
-      if ( !DeferredCriticalSectionEvent )
-        DeferredCriticalSectionEvent = RtlpCreateDeferredCriticalSectionEvent(a1);
+      if ( (*(_BYTE *)p_LockCount & 1) != 0 )
+        RtlpNotOwnerCriticalSection(CriticalSection);
+      EventHandle = CriticalSection->LockSemaphore;
+      if ( !EventHandle )
+        EventHandle = (HANDLE)RtlpCreateDeferredCriticalSectionEvent(CriticalSection);
       v7 = 0;
-      while ( _InterlockedCompareExchange(v2, (v3 & 2 | 1) + v3, v3) != v3 )
+      while ( _InterlockedCompareExchange(p_LockCount, (v3 & 2 | 1) + v3, v3) != v3 )
       {
         RtlBackoff(&v7);
-        v3 = *v2;
+        v3 = *p_LockCount;
       }
       if ( (v3 & 2) != 0 )
       {
-        if ( DeferredCriticalSectionEvent == -1 )
+        if ( EventHandle == (HANDLE)-1 )
         {
           _InterlockedOr(&v6, 0);
           RtlpWakeByAddress(0);
         }
         else
         {
-          v5 = NtSetEvent(DeferredCriticalSectionEvent, 0);
+          v5 = NtSetEvent(EventHandle, 0);
           if ( v5 < 0 )
             RtlRaiseStatus(v5);
         }

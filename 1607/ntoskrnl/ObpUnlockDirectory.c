@@ -1,16 +1,16 @@
 /*
- * XREFs of ObpUnlockDirectory @ 0x14008BA30
+ * XREFs of ObpUnlockDirectory @ 0x14008B190
  * Callers:
- *     ObpLookupDirectoryEntryEx @ 0x14040CEF0 (ObpLookupDirectoryEntryEx.c)
- *     ObpLookupDirectoryUsingHash @ 0x14040D044 (ObpLookupDirectoryUsingHash.c)
- *     ObOpenObjectByNameEx @ 0x140419070 (ObOpenObjectByNameEx.c)
- *     ObpLookupObjectName @ 0x14044F450 (ObpLookupObjectName.c)
- *     NtSetInformationObject @ 0x1404B0170 (NtSetInformationObject.c)
- *     NtQueryDirectoryObject @ 0x1404B0580 (NtQueryDirectoryObject.c)
+ *     ObpLookupDirectoryEntryEx @ 0x14040BDB0 (ObpLookupDirectoryEntryEx.c)
+ *     ObpLookupDirectoryUsingHash @ 0x14040BF04 (ObpLookupDirectoryUsingHash.c)
+ *     ObOpenObjectByNameEx @ 0x140417F30 (ObOpenObjectByNameEx.c)
+ *     ObpLookupObjectName @ 0x14044E320 (ObpLookupObjectName.c)
+ *     NtSetInformationObject @ 0x14049A550 (NtSetInformationObject.c)
+ *     NtQueryDirectoryObject @ 0x14049A960 (NtQueryDirectoryObject.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14006ACD0 (ObfDereferenceObjectWithTag.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfReleasePushLock @ 0x1400C8620 (ExfReleasePushLock.c)
+ *     ObfDereferenceObjectWithTag @ 0x14006A850 (ObfDereferenceObjectWithTag.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfReleasePushLock @ 0x1400C64C0 (ExfReleasePushLock.c)
  */
 
 void __fastcall ObpUnlockDirectory(__int64 a1, __int64 a2)

@@ -1,9 +1,9 @@
 /*
- * XREFs of PopGenericEventHandler @ 0x140AF0080
+ * XREFs of PopGenericEventHandler @ 0x140AF2C50
  * Callers:
  *     <none>
  * Callees:
- *     SSHSupportIsPlatformAoAc @ 0x1404C9760 (SSHSupportIsPlatformAoAc.c)
+ *     SSHSupportIsPlatformAoAc @ 0x1404C3180 (SSHSupportIsPlatformAoAc.c)
  */
 
 __int64 __fastcall PopGenericEventHandler(char a1, _DWORD *a2)

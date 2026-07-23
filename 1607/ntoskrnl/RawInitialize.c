@@ -3,12 +3,12 @@
  * Callers:
  *     <none>
  * Callees:
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     IoDeleteDevice @ 0x14007F30C (IoDeleteDevice.c)
- *     ObfReferenceObjectWithTag @ 0x1400EE4F0 (ObfReferenceObjectWithTag.c)
- *     IoCreateDevice @ 0x1404734C0 (IoCreateDevice.c)
- *     IoRegisterFileSystem @ 0x1405508C4 (IoRegisterFileSystem.c)
- *     IoRegisterShutdownNotification @ 0x140550FA0 (IoRegisterShutdownNotification.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     IoDeleteDevice @ 0x14007F38C (IoDeleteDevice.c)
+ *     ObfReferenceObjectWithTag @ 0x1400EC370 (ObfReferenceObjectWithTag.c)
+ *     IoCreateDevice @ 0x140472390 (IoCreateDevice.c)
+ *     IoRegisterFileSystem @ 0x140550E04 (IoRegisterFileSystem.c)
+ *     IoRegisterShutdownNotification @ 0x1405514E0 (IoRegisterShutdownNotification.c)
  */
 
 NTSTATUS __fastcall RawInitialize(PDRIVER_OBJECT DriverObject)

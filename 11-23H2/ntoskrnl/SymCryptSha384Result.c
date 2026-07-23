@@ -1,11 +1,11 @@
 /*
- * XREFs of SymCryptSha384Result @ 0x1403FA55C
+ * XREFs of SymCryptSha384Result @ 0x1403FA73C
  * Callers:
- *     HashpHashMemory @ 0x140A7701C (HashpHashMemory.c)
+ *     HashpHashMemory @ 0x140A772CC (HashpHashMemory.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     SymCryptSha384Init @ 0x1403FA510 (SymCryptSha384Init.c)
- *     SymCryptSha512Result @ 0x1403FBD48 (SymCryptSha512Result.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     SymCryptSha384Init @ 0x1403FA6F0 (SymCryptSha384Init.c)
+ *     SymCryptSha512Result @ 0x1403FBF28 (SymCryptSha512Result.c)
  */
 
 __int64 __fastcall SymCryptSha384Result(__int64 a1, _OWORD *a2)

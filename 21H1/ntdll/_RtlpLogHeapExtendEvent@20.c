@@ -14,11 +14,11 @@
  *     _GetUCBytes@12 @ 0x4B36D406 (_GetUCBytes@12.c)
  */
 
-int __fastcall RtlpLogHeapExtendEvent(int a1, int a2, int a3, int a4, int a5)
+NTSTATUS __fastcall RtlpLogHeapExtendEvent(int a1, int a2, int a3, int a4, HANDLE TraceHandle)
 {
   int UCBytes; // eax
   int v7; // ecx
-  char v9[6]; // [esp+8h] [ebp-4Ch] BYREF
+  char Fields[6]; // [esp+8h] [ebp-4Ch] BYREF
   __int16 v10; // [esp+Eh] [ebp-46h]
   int v11; // [esp+28h] [ebp-2Ch]
   int v12; // [esp+2Ch] [ebp-28h]
@@ -40,5 +40,5 @@ int __fastcall RtlpLogHeapExtendEvent(int a1, int a2, int a3, int a4, int a5)
   v7 = v16 - *(_DWORD *)(a1 + 580) - UCBytes;
   v10 = 4133;
   v15 = v7;
-  return NtTraceEvent(a5, 1027, 32, (int)v9);
+  return NtTraceEvent(TraceHandle, 0x403u, 0x20u, Fields);
 }

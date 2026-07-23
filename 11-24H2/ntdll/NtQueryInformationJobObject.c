@@ -1,17 +1,22 @@
 /*
- * XREFs of NtQueryInformationJobObject @ 0x180164740
+ * XREFs of NtQueryInformationJobObject @ 0x180162B00
  * Callers:
- *     TppJobpRundownJob @ 0x180069A78 (TppJobpRundownJob.c)
- *     RtlGetSessionProperties @ 0x180139040 (RtlGetSessionProperties.c)
+ *     TppJobpRundownJob @ 0x180085608 (TppJobpRundownJob.c)
+ *     RtlGetSessionProperties @ 0x180137270 (RtlGetSessionProperties.c)
  * Callees:
  *     <none>
  */
 
-__int64 NtQueryInformationJobObject()
+NTSTATUS __cdecl NtQueryInformationJobObject(
+        HANDLE JobHandle,
+        JOBOBJECTINFOCLASS JobObjectInformationClass,
+        PVOID JobObjectInformation,
+        ULONG JobObjectInformationLength,
+        PULONG ReturnLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 342LL;
+  result = 342;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

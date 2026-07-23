@@ -23,7 +23,7 @@ __int64 __fastcall PopPowerAggregatorModernStandbyExitStateHandler(__int64 a1)
 
   if ( *(_BYTE *)(a1 + 72) )
   {
-    PopPowerAggregatorDisengageModernStandby(a1);
+    PopPowerAggregatorDisengageModernStandby();
   }
   else
   {

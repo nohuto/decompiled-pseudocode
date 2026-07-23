@@ -1,13 +1,13 @@
 /*
- * XREFs of MiGetAweVadPageSize @ 0x140A41D5C
+ * XREFs of MiGetAweVadPageSize @ 0x140A4200C
  * Callers:
- *     MiVadPageTableChargeLevel @ 0x140277C10 (MiVadPageTableChargeLevel.c)
- *     MiGetWorkingSetInfoList @ 0x1402F1954 (MiGetWorkingSetInfoList.c)
- *     MmQueryVirtualMemory @ 0x1406F8350 (MmQueryVirtualMemory.c)
+ *     MiVadPageTableChargeLevel @ 0x140277EA0 (MiVadPageTableChargeLevel.c)
+ *     MiGetWorkingSetInfoList @ 0x1402F1BE4 (MiGetWorkingSetInfoList.c)
+ *     MmQueryVirtualMemory @ 0x1406F8560 (MmQueryVirtualMemory.c)
  * Callees:
- *     MiLocateVadEvent @ 0x14030B40C (MiLocateVadEvent.c)
- *     MiGetAwePageSize @ 0x14064A918 (MiGetAwePageSize.c)
- *     MiGetAweViewPageSize @ 0x14064A9B8 (MiGetAweViewPageSize.c)
+ *     MiLocateVadEvent @ 0x14030B69C (MiLocateVadEvent.c)
+ *     MiGetAwePageSize @ 0x14064AE68 (MiGetAwePageSize.c)
+ *     MiGetAweViewPageSize @ 0x14064AF08 (MiGetAweViewPageSize.c)
  */
 
 __int64 __fastcall MiGetAweVadPageSize(__int64 a1)

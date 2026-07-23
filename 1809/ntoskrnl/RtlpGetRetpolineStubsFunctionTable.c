@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpGetRetpolineStubsFunctionTable @ 0x1402F6A00
+ * XREFs of RtlpGetRetpolineStubsFunctionTable @ 0x1402F6BF0
  * Callers:
- *     RtlCopyRetpolineStubsUnwindInfo @ 0x1402F6834 (RtlCopyRetpolineStubsUnwindInfo.c)
- *     RtlCreateRetpolineStubsFunctionTable @ 0x1402F6910 (RtlCreateRetpolineStubsFunctionTable.c)
+ *     RtlCopyRetpolineStubsUnwindInfo @ 0x1402F6A24 (RtlCopyRetpolineStubsUnwindInfo.c)
+ *     RtlCreateRetpolineStubsFunctionTable @ 0x1402F6B00 (RtlCreateRetpolineStubsFunctionTable.c)
  * Callees:
- *     RtlpImageDirectoryEntryToDataEx @ 0x1400F2C70 (RtlpImageDirectoryEntryToDataEx.c)
+ *     RtlpImageDirectoryEntryToDataEx @ 0x1400F2CF0 (RtlpImageDirectoryEntryToDataEx.c)
  */
 
 __int64 __fastcall RtlpGetRetpolineStubsFunctionTable(
@@ -15,6 +15,8 @@ __int64 __fastcall RtlpGetRetpolineStubsFunctionTable(
         int *a5)
 {
   __int64 v5; // rdi
+  __int64 v6; // rbx
+  __int64 v7; // rsi
   NTSTATUS v8; // eax
   __int64 v9; // r10
   unsigned __int64 v10; // r8
@@ -37,7 +39,11 @@ __int64 __fastcall RtlpGetRetpolineStubsFunctionTable(
   __int64 v27; // [rsp+38h] [rbp-10h] BYREF
 
   v5 = a4;
-  v8 = RtlpImageDirectoryEntryToDataEx(a1, 1, 3u, (int)&v26, &v27);
+  v6 = a3;
+  v7 = a2;
+  LOWORD(a3) = 3;
+  LOBYTE(a2) = 1;
+  v8 = RtlpImageDirectoryEntryToDataEx(a1, a2, a3, (__int64)&v26, &v27);
   v9 = v27;
   if ( v8 < 0 )
     v9 = 0LL;
@@ -48,7 +54,7 @@ __int64 __fastcall RtlpGetRetpolineStubsFunctionTable(
   v10 = v26 / 0xCuLL;
   if ( v26 % 0xCuLL )
     return 0LL;
-  v11 = a3 - a2;
+  v11 = v6 - v7;
   v12 = v10 - 1;
   v13 = 0;
   v14 = v11 + v5;

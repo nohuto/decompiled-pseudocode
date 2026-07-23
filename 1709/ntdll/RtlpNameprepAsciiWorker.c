@@ -15,38 +15,38 @@
  *     FindEmailAt @ 0x1800F7F44 (FindEmailAt.c)
  */
 
-__int64 __fastcall RtlpNameprepAsciiWorker(int a1, wchar_t *a2, __int64 a3, void *a4, int *a5, char a6)
+__int64 __fastcall RtlpNameprepAsciiWorker(int a1, const WCHAR *a2, __int64 a3, void *a4, int *a5, char a6)
 {
-  int v6; // ebx
+  LONG v6; // ebx
   void *v7; // r15
   int v8; // edi
   int v10; // r14d
   bool v11; // dl
   char v12; // r13
   __int64 v13; // r8
-  wchar_t *v14; // rdx
+  WCHAR *v14; // rdx
   __int64 result; // rax
   int v16; // eax
-  wchar_t *v17; // r9
-  int v18; // ecx
-  int v19; // eax
+  WCHAR *v17; // r9
+  LONG v18; // ecx
+  NTSTATUS v19; // eax
   unsigned int v20; // ecx
-  wchar_t v21; // dx
+  WCHAR v21; // dx
   __int64 v22; // rdx
   __int64 v23; // rcx
   __int64 v24; // r8
-  int v25; // edi
-  wchar_t v26; // ax
-  int EmailAt; // eax
-  int v28; // eax
+  LONG v25; // edi
+  WCHAR v26; // ax
+  LONG EmailAt; // eax
+  NTSTATUS v28; // eax
   bool v29; // cc
   unsigned __int64 v30; // rax
   char v31; // [rsp+30h] [rbp-D0h]
   bool v32; // [rsp+31h] [rbp-CFh]
-  int v33; // [rsp+34h] [rbp-CCh] BYREF
-  int v34; // [rsp+38h] [rbp-C8h] BYREF
+  LONG DestinationStringLength; // [rsp+34h] [rbp-CCh] BYREF
+  LONG v34; // [rsp+38h] [rbp-C8h] BYREF
   int v35; // [rsp+40h] [rbp-C0h]
-  wchar_t String1[512]; // [rsp+50h] [rbp-B0h] BYREF
+  WCHAR DestinationString[512]; // [rsp+50h] [rbp-B0h] BYREF
   _WORD Src[520]; // [rsp+450h] [rbp+350h] BYREF
 
   v6 = 0;
@@ -65,15 +65,15 @@ __int64 __fastcall RtlpNameprepAsciiWorker(int a1, wchar_t *a2, __int64 a3, void
     return 3221225485LL;
   v31 = 0;
   v35 = a1 & 1;
-  v33 = a1 & 4;
-  v11 = v33 != 0;
+  DestinationStringLength = a1 & 4;
+  v11 = DestinationStringLength != 0;
   v12 = (a1 & 2) != 0;
-  v32 = v33 != 0;
+  v32 = DestinationStringLength != 0;
   if ( (_DWORD)a3 == -1 )
   {
     if ( (int)RtlStringCchLengthW(a2, 0x7FFFFFFFLL, &v34) >= 0 )
     {
-      v11 = v33 != 0;
+      v11 = DestinationStringLength != 0;
       v8 = v34 + 1;
       goto LABEL_9;
     }
@@ -90,23 +90,23 @@ LABEL_9:
   if ( !(unsigned __int8)RtlpValidateAsciiStd3AndLength(a2, (unsigned int)v8, a3, a4) )
   {
     v16 = 0;
-    v17 = String1;
+    v17 = DestinationString;
     v18 = 511;
-    if ( v33 )
+    if ( DestinationStringLength )
     {
-      EmailAt = FindEmailAt(a2, (unsigned int)v8, v13, String1);
+      EmailAt = FindEmailAt(a2, (unsigned int)v8, v13, DestinationString);
       v34 = EmailAt;
       if ( !EmailAt )
         goto LABEL_50;
-      v33 = 511;
-      v28 = RtlNormalizeString(1, (_DWORD)a2, EmailAt, (unsigned int)String1, (__int64)&v33);
-      v6 = v33;
+      DestinationStringLength = 511;
+      v28 = RtlNormalizeString(1u, a2, EmailAt, DestinationString, &DestinationStringLength);
+      v6 = DestinationStringLength;
       v20 = v28;
-      if ( v28 < 0 || !v33 )
+      if ( v28 < 0 || !DestinationStringLength )
       {
         if ( v28 && v28 != -1073741789 && v28 != -1073740009 )
         {
-          v29 = v33 <= 0;
+          v29 = DestinationStringLength <= 0;
 LABEL_55:
           if ( v29 )
             goto LABEL_42;
@@ -118,15 +118,15 @@ LABEL_42:
         goto LABEL_34;
       }
       v16 = v34;
-      v17 = &String1[v33];
-      v18 = 511 - v33;
+      v17 = &DestinationString[DestinationStringLength];
+      v18 = 511 - DestinationStringLength;
     }
     if ( v16 >= v8 )
     {
 LABEL_30:
       if ( v6 > 0 )
       {
-        v21 = String1[v6 - 1];
+        v21 = DestinationString[v6 - 1];
         if ( v21 == 46 )
         {
           v26 = a2[v8 - 1];
@@ -136,10 +136,10 @@ LABEL_30:
         if ( !v21 )
           goto LABEL_50;
       }
-      v33 = 515;
-      result = punycode_encode(String1, v32, v12);
-      v25 = v33;
-      if ( !v33 )
+      DestinationStringLength = 515;
+      result = punycode_encode(DestinationString, v32, v12);
+      v25 = DestinationStringLength;
+      if ( !DestinationStringLength )
       {
 LABEL_34:
         *a5 = 0;
@@ -154,25 +154,25 @@ LABEL_34:
           v30 = v6++;
           if ( v30 >= 511 )
             _report_rangecheckfailure(v23, v22, v24, 0LL);
-          String1[v30] = 0;
+          DestinationString[v30] = 0;
         }
         if ( !v7 || !v10 )
           goto LABEL_21;
         if ( v6 <= v10 )
         {
-          v14 = String1;
+          v14 = DestinationString;
           goto LABEL_20;
         }
         goto LABEL_81;
       }
       if ( !v31 )
         goto LABEL_66;
-      if ( (unsigned __int64)v33 < 0x203 )
+      if ( (unsigned __int64)DestinationStringLength < 0x203 )
       {
-        v25 = v33 + 1;
-        if ( (unsigned __int64)(2LL * v33) >= 0x406 )
+        v25 = DestinationStringLength + 1;
+        if ( (unsigned __int64)(2LL * DestinationStringLength) >= 0x406 )
           _report_rangecheckfailure(v23, v22, v24, 0LL);
-        Src[v33] = 0;
+        Src[DestinationStringLength] = 0;
 LABEL_66:
         if ( v7 && v10 )
         {
@@ -191,22 +191,17 @@ LABEL_50:
       result = 3221227286LL;
       goto LABEL_34;
     }
-    v33 = v18;
-    v19 = RtlNormalizeString(
-            (((unsigned __int8)v35 ^ 1u) << 8) + 13,
-            (int)a2 + 2 * v16,
-            v8 - v16,
-            (_DWORD)v17,
-            (__int64)&v33);
+    DestinationStringLength = v18;
+    v19 = RtlNormalizeString((((unsigned __int8)v35 ^ 1) << 8) + 13, &a2[v16], v8 - v16, v17, &DestinationStringLength);
     v20 = v19;
-    if ( v19 >= 0 && v33 )
+    if ( v19 >= 0 && DestinationStringLength )
     {
-      v6 += v33;
+      v6 += DestinationStringLength;
       goto LABEL_30;
     }
     if ( v19 && v19 != -1073740009 && v19 != -1073741789 )
     {
-      v29 = v33 <= 0;
+      v29 = DestinationStringLength <= 0;
       goto LABEL_55;
     }
     goto LABEL_41;
@@ -220,7 +215,7 @@ LABEL_50:
       goto LABEL_21;
     if ( v6 <= v10 )
     {
-      v14 = a2;
+      v14 = (WCHAR *)a2;
 LABEL_20:
       memmove(v7, v14, 2LL * v6);
 LABEL_21:

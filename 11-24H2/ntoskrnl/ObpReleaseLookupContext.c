@@ -1,23 +1,23 @@
 /*
- * XREFs of ObpReleaseLookupContext @ 0x14025E7E0
+ * XREFs of ObpReleaseLookupContext @ 0x14028EDF0
  * Callers:
- *     ObpCreateSymbolicLinkName @ 0x1406F8670 (ObpCreateSymbolicLinkName.c)
- *     ObReferenceObjectByName @ 0x14083F230 (ObReferenceObjectByName.c)
- *     ObpDecrementHandleCount @ 0x1408410A0 (ObpDecrementHandleCount.c)
- *     ObCloseHandleTableEntry @ 0x14084BFA0 (ObCloseHandleTableEntry.c)
- *     ObReferenceObjectByNameEx @ 0x1408679A4 (ObReferenceObjectByNameEx.c)
- *     ObpDeleteNameCheck @ 0x14089B690 (ObpDeleteNameCheck.c)
- *     ObpLookupObjectName @ 0x14089D210 (ObpLookupObjectName.c)
- *     ObpInsertOrLocateNamedObject @ 0x1409E45C0 (ObpInsertOrLocateNamedObject.c)
- *     ObCreateObjectTypeEx @ 0x140A9DB20 (ObCreateObjectTypeEx.c)
- *     ObInitSystem @ 0x140C612B4 (ObInitSystem.c)
+ *     ObpCreateSymbolicLinkName @ 0x1407421D0 (ObpCreateSymbolicLinkName.c)
+ *     ObReferenceObjectByName @ 0x14083B4F0 (ObReferenceObjectByName.c)
+ *     ObpDecrementHandleCount @ 0x14083D360 (ObpDecrementHandleCount.c)
+ *     ObCloseHandleTableEntry @ 0x140848260 (ObCloseHandleTableEntry.c)
+ *     ObReferenceObjectByNameEx @ 0x14086BC94 (ObReferenceObjectByNameEx.c)
+ *     ObpDeleteNameCheck @ 0x1408A3D30 (ObpDeleteNameCheck.c)
+ *     ObpLookupObjectName @ 0x1408A58B0 (ObpLookupObjectName.c)
+ *     ObpInsertOrLocateNamedObject @ 0x1409DF020 (ObpInsertOrLocateNamedObject.c)
+ *     ObCreateObjectTypeEx @ 0x140A99090 (ObCreateObjectTypeEx.c)
+ *     ObInitSystem @ 0x140C63408 (ObInitSystem.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x1402595A0 (KeLeaveCriticalRegionThread.c)
- *     KiAbEntryFreeAndEnableInterrupts @ 0x14025CDA0 (KiAbEntryFreeAndEnableInterrupts.c)
- *     ExfReleasePushLock @ 0x14025E260 (ExfReleasePushLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14025E408 (KiRemoveSystemWorkPriorityKick.c)
- *     ObDereferenceObjectDeferDeleteWithTag @ 0x14025E950 (ObDereferenceObjectDeferDeleteWithTag.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     KeLeaveCriticalRegionThread @ 0x140289BB0 (KeLeaveCriticalRegionThread.c)
+ *     KiAbEntryFreeAndEnableInterrupts @ 0x14028D3B0 (KiAbEntryFreeAndEnableInterrupts.c)
+ *     ExfReleasePushLock @ 0x14028E870 (ExfReleasePushLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14028EA18 (KiRemoveSystemWorkPriorityKick.c)
+ *     ObDereferenceObjectDeferDeleteWithTag @ 0x14028EF60 (ObDereferenceObjectDeferDeleteWithTag.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 void __fastcall ObpReleaseLookupContext(__int64 a1)
@@ -59,7 +59,7 @@ void __fastcall ObpReleaseLookupContext(__int64 a1)
         && (*(_QWORD *)v9 & 1) == 0 )
       {
         *(_BYTE *)(v9 + 10) = 0;
-        KiAbEntryFreeAndEnableInterrupts(v9, (ULONG_PTR)CurrentThread, v2, 1, 0LL);
+        KiAbEntryFreeAndEnableInterrupts(v9, (ULONG_PTR)CurrentThread, v2, 1LL, 0LL);
         goto LABEL_18;
       }
     }

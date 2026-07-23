@@ -22,68 +22,68 @@
  *     sub_1800E4434 @ 0x1800E4434 (sub_1800E4434.c)
  */
 
-char __fastcall RtlValidAcl(__int64 a1)
+BOOLEAN __cdecl RtlValidAcl(PACL Acl)
 {
-  _WORD *v2; // r14
-  _BYTE *v3; // rbx
+  WORD *p_AclSize; // r14
+  PACL v3; // rbx
   unsigned int i; // esi
-  unsigned __int64 v5; // rcx
-  unsigned __int16 *v6; // r15
+  ACL *v5; // rcx
+  WORD *v6; // r15
   __int64 v7; // rdx
   int v8; // ecx
-  char result; // al
+  BOOLEAN result; // al
 
-  if ( (unsigned __int8)(*(_BYTE *)a1 - 2) <= 2u )
+  if ( (unsigned __int8)(Acl->AclRevision - 2) <= 2u )
   {
-    v2 = (_WORD *)(a1 + 2);
-    if ( ((a1 + 3) & 0xFFFFFFFFFFFFFFFEuLL) != a1 + 2 )
+    p_AclSize = &Acl->AclSize;
+    if ( (WORD *)(((unsigned __int64)&Acl->AclSize + 1) & 0xFFFFFFFFFFFFFFFEuLL) != &Acl->AclSize )
       return 0;
-    if ( *v2 < 8u )
+    if ( *p_AclSize < 8u )
       return 0;
-    v3 = (_BYTE *)(a1 + 8);
+    v3 = Acl + 1;
     for ( i = 0; ; ++i )
     {
-      if ( i >= *(unsigned __int16 *)(a1 + 4) )
+      if ( i >= Acl->AceCount )
         return 1;
-      v5 = a1 + (unsigned __int16)*v2;
-      if ( (unsigned __int64)(v3 + 4) >= v5 )
+      v5 = (PACL)((char *)Acl + *p_AclSize);
+      if ( &v3->AceCount >= (WORD *)v5 )
         return 0;
-      v6 = (unsigned __int16 *)(v3 + 2);
-      if ( (_BYTE *)((unsigned __int64)(v3 + 3) & 0xFFFFFFFFFFFFFFFEuLL) != v3 + 2 )
+      v6 = &v3->AclSize;
+      if ( (WORD *)(((unsigned __int64)&v3->AclSize + 1) & 0xFFFFFFFFFFFFFFFEuLL) != &v3->AclSize )
         return 0;
       v7 = *v6;
-      if ( (unsigned __int64)&v3[v7] > v5 )
+      if ( (PACL)((char *)v3 + v7) > v5 )
         return 0;
-      if ( *v3 <= 0x14u && (v8 = 1730063, _bittest(&v8, (unsigned __int8)*v3)) )
+      if ( v3->AclRevision <= 0x14u && (v8 = 1730063, _bittest(&v8, v3->AclRevision)) )
       {
         if ( !(unsigned __int8)sub_18003773C(v3) )
           return 0;
       }
-      else if ( *v3 == 4 )
+      else if ( v3->AclRevision == 4 )
       {
-        if ( *(_BYTE *)a1 < 3u )
+        if ( Acl->AclRevision < 3u )
           return 0;
         result = sub_1800E43B8(v3);
         if ( !result )
           return result;
       }
-      else if ( (unsigned __int8)(*v3 - 5) <= 3u
-             || (unsigned __int8)(*v3 - 11) <= 1u
-             || (unsigned __int8)(*v3 - 15) <= 1u )
+      else if ( (unsigned __int8)(v3->AclRevision - 5) <= 3u
+             || (unsigned __int8)(v3->AclRevision - 11) <= 1u
+             || (unsigned __int8)(v3->AclRevision - 15) <= 1u )
       {
-        if ( *(_BYTE *)a1 < 4u )
+        if ( Acl->AclRevision < 4u )
           return 0;
         result = sub_1800E4434(v3);
         if ( !result )
           return result;
       }
-      else if ( *v3 == 18 )
+      else if ( v3->AclRevision == 18 )
       {
         result = sub_1800E42D0(v3);
         if ( !result )
           return result;
       }
-      else if ( *v3 == 21 )
+      else if ( v3->AclRevision == 21 )
       {
         result = sub_1800E4104(v3);
         if ( !result )
@@ -93,7 +93,7 @@ char __fastcall RtlValidAcl(__int64 a1)
       {
         return 0;
       }
-      v3 += *v6;
+      v3 = (PACL)((char *)v3 + *v6);
     }
   }
   return 0;

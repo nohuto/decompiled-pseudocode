@@ -3,14 +3,14 @@
  * Callers:
  *     <none>
  * Callees:
- *     KeQueryNodeActiveAffinity @ 0x140004F28 (KeQueryNodeActiveAffinity.c)
- *     KeSelectIdealProcessor @ 0x14007D1B0 (KeSelectIdealProcessor.c)
- *     ExQueueWorkItemEx @ 0x1400A8A00 (ExQueueWorkItemEx.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
+ *     KeQueryNodeActiveAffinity @ 0x14000509C (KeQueryNodeActiveAffinity.c)
+ *     KeSelectIdealProcessor @ 0x14007D230 (KeSelectIdealProcessor.c)
+ *     ExQueueWorkItemEx @ 0x1400A6F80 (ExQueueWorkItemEx.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     ExpCreateSystemThreadForNode @ 0x1403E4644 (ExpCreateSystemThreadForNode.c)
- *     ObReferenceObjectByHandle @ 0x140450D40 (ObReferenceObjectByHandle.c)
- *     KeSynchronizeWithDynamicProcessors @ 0x1404D22CC (KeSynchronizeWithDynamicProcessors.c)
+ *     ExpCreateSystemThreadForNode @ 0x1403E5C70 (ExpCreateSystemThreadForNode.c)
+ *     ObReferenceObjectByHandle @ 0x14044FC10 (ObReferenceObjectByHandle.c)
+ *     KeSynchronizeWithDynamicProcessors @ 0x1404B5D6C (KeSynchronizeWithDynamicProcessors.c)
  */
 
 void __fastcall ExpWorkerHotAddProcessor(_QWORD *P)

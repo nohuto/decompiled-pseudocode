@@ -1,19 +1,19 @@
 /*
- * XREFs of MiInitializeReadInProgressPfn @ 0x1402DEB40
+ * XREFs of MiInitializeReadInProgressPfn @ 0x1402DEDD0
  * Callers:
- *     MiPfPutPagesInTransition @ 0x1402DE040 (MiPfPutPagesInTransition.c)
- *     MiPrivateFixup @ 0x1402ED678 (MiPrivateFixup.c)
- *     MiResolvePageFileFault @ 0x14066B4BC (MiResolvePageFileFault.c)
+ *     MiPfPutPagesInTransition @ 0x1402DE2D0 (MiPfPutPagesInTransition.c)
+ *     MiPrivateFixup @ 0x1402ED908 (MiPrivateFixup.c)
+ *     MiResolvePageFileFault @ 0x14066BA0C (MiResolvePageFileFault.c)
  * Callees:
  *     MiLocateAddress @ 0x140217240 (MiLocateAddress.c)
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1402712F0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiIsPrototypePteVadLookup @ 0x14027CF00 (MiIsPrototypePteVadLookup.c)
- *     MiSwizzleInvalidPte @ 0x1402857A0 (MiSwizzleInvalidPte.c)
- *     MiUnlockVadTree @ 0x140287878 (MiUnlockVadTree.c)
- *     MiLockVadTree @ 0x14028A8C0 (MiLockVadTree.c)
- *     MiChangePageAttribute @ 0x14036F3BC (MiChangePageAttribute.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140271580 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiIsPrototypePteVadLookup @ 0x14027D190 (MiIsPrototypePteVadLookup.c)
+ *     MiSwizzleInvalidPte @ 0x140285A30 (MiSwizzleInvalidPte.c)
+ *     MiUnlockVadTree @ 0x140287B08 (MiUnlockVadTree.c)
+ *     MiLockVadTree @ 0x14028AB50 (MiLockVadTree.c)
+ *     MiChangePageAttribute @ 0x14036F55C (MiChangePageAttribute.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 char __fastcall MiInitializeReadInProgressPfn(
@@ -214,7 +214,7 @@ char __fastcall MiInitializeReadInProgressPfn(
           }
           CurrentIrql = KeGetCurrentIrql();
           __writecr8(2uLL);
-          if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+          if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
           {
             SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
             if ( CurrentIrql == 2 )
@@ -284,10 +284,10 @@ char __fastcall MiInitializeReadInProgressPfn(
           if ( a6 < 0 )
             *(_BYTE *)(v14 + 35) |= 0x20u;
           _InterlockedAnd64((volatile signed __int64 *)(v14 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-          if ( KiIrqlFlags )
+          if ( (_DWORD)KiIrqlFlags )
           {
             v41 = KeGetCurrentIrql();
-            if ( (KiIrqlFlags & 1) != 0 && v41 <= 0xFu && CurrentIrql <= 0xFu && v41 >= 2u )
+            if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v41 <= 0xFu && CurrentIrql <= 0xFu && v41 >= 2u )
             {
               CurrentPrcb = KeGetCurrentPrcb();
               v43 = CurrentPrcb->SchedulerAssist;

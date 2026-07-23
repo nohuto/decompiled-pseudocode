@@ -1,33 +1,33 @@
 /*
- * XREFs of SepAdtInitializeAuditingOptions @ 0x140A4BB0C
+ * XREFs of SepAdtInitializeAuditingOptions @ 0x140A4CB0C
  * Callers:
- *     SeRmInitPhase1 @ 0x140A4BA3C (SeRmInitPhase1.c)
+ *     SeRmInitPhase1 @ 0x140A4CA3C (SeRmInitPhase1.c)
  * Callees:
- *     NtSetEvent @ 0x140684400 (NtSetEvent.c)
- *     NtClose @ 0x1406F0980 (NtClose.c)
- *     SepAdtInitializeBounds @ 0x14079E224 (SepAdtInitializeBounds.c)
- *     SepAdtInitializePrivilegeAuditing @ 0x14079E2A8 (SepAdtInitializePrivilegeAuditing.c)
- *     SepAdtInitializeCrashOnFail @ 0x14079E308 (SepAdtInitializeCrashOnFail.c)
- *     SepAdtOpenRegAndSetupNotification @ 0x14079E368 (SepAdtOpenRegAndSetupNotification.c)
- *     SepAdtOpenEtwReadyEvent @ 0x14079E3F4 (SepAdtOpenEtwReadyEvent.c)
- *     AdtpInitializeAuditingCommon @ 0x14079E480 (AdtpInitializeAuditingCommon.c)
+ *     NtSetEvent @ 0x1405DE240 (NtSetEvent.c)
+ *     NtClose @ 0x140707D60 (NtClose.c)
+ *     SepAdtInitializeBounds @ 0x14079E424 (SepAdtInitializeBounds.c)
+ *     SepAdtInitializePrivilegeAuditing @ 0x14079E4A8 (SepAdtInitializePrivilegeAuditing.c)
+ *     SepAdtInitializeCrashOnFail @ 0x14079E508 (SepAdtInitializeCrashOnFail.c)
+ *     SepAdtOpenRegAndSetupNotification @ 0x14079E568 (SepAdtOpenRegAndSetupNotification.c)
+ *     SepAdtOpenEtwReadyEvent @ 0x14079E5F4 (SepAdtOpenEtwReadyEvent.c)
+ *     AdtpInitializeAuditingCommon @ 0x14079E680 (AdtpInitializeAuditingCommon.c)
  */
 
 int SepAdtInitializeAuditingOptions()
 {
   int result; // eax
-  int v1; // ebx
-  HANDLE Handle; // [rsp+30h] [rbp+8h] BYREF
+  NTSTATUS v1; // ebx
+  HANDLE EventHandle; // [rsp+30h] [rbp+8h] BYREF
 
-  Handle = 0LL;
+  EventHandle = 0LL;
   result = AdtpInitializeAuditingCommon();
   if ( result >= 0 )
   {
-    result = SepAdtOpenEtwReadyEvent((unsigned __int64)&Handle);
+    result = SepAdtOpenEtwReadyEvent(&EventHandle);
     if ( result >= 0 )
     {
-      v1 = NtSetEvent(Handle, 0LL);
-      NtClose(Handle);
+      v1 = NtSetEvent(EventHandle, 0LL);
+      NtClose(EventHandle);
       if ( v1 >= 0 )
       {
         result = SepAdtOpenRegAndSetupNotification();

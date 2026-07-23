@@ -86,7 +86,7 @@ void __fastcall MiRebuildLargePages(unsigned __int64 a1)
   v13 = (unsigned __int64 *)(v1 + 4328);
   LockHandle.LockQueue.Lock = (unsigned __int64 *volatile)(v1 + 4328);
   KxAcquireQueuedSpinLock((__int64)&LockHandle, (volatile __int64 *)(v1 + 4328));
-  v14 = KeAbPreAcquire(v1, 0LL, 0LL);
+  v14 = KeAbPreAcquire(v1, 0LL, 0);
   if ( v14 )
     *(_BYTE *)(v14 + 26) |= 1u;
   if ( v9 >= v8 )

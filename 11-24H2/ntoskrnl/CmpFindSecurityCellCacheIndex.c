@@ -1,22 +1,22 @@
 /*
- * XREFs of CmpFindSecurityCellCacheIndex @ 0x14041FBC0
+ * XREFs of CmpFindSecurityCellCacheIndex @ 0x140415340
  * Callers:
- *     CmpSyncKeyValues @ 0x1407E2A84 (CmpSyncKeyValues.c)
- *     CmpCreateKeyControlBlock @ 0x1408717C0 (CmpCreateKeyControlBlock.c)
- *     CmpRebuildKcbCacheFromNode @ 0x14087C024 (CmpRebuildKcbCacheFromNode.c)
- *     CmpCopyKeyPartial @ 0x140880F10 (CmpCopyKeyPartial.c)
- *     CmpIncrementCachedSecurityRefcount @ 0x14088711C (CmpIncrementCachedSecurityRefcount.c)
- *     CmpCreateChild @ 0x14091788C (CmpCreateChild.c)
- *     CmpSetSecurityDescriptorInfo @ 0x1409A0064 (CmpSetSecurityDescriptorInfo.c)
- *     CmpValidateHiveSecurityDescriptors @ 0x1409A0BDC (CmpValidateHiveSecurityDescriptors.c)
- *     CmpAddSecurityCellToCache @ 0x1409A1310 (CmpAddSecurityCellToCache.c)
- *     CmpAssignSecurityToKcb @ 0x1409D58E0 (CmpAssignSecurityToKcb.c)
- *     CmpLightWeightCommitAddKeyUoW @ 0x140A1F89C (CmpLightWeightCommitAddKeyUoW.c)
- *     CmpUndoDeleteKeyForTrans @ 0x140A2E074 (CmpUndoDeleteKeyForTrans.c)
- *     CmpRemoveFromSecurityCache @ 0x140A69344 (CmpRemoveFromSecurityCache.c)
- *     CmpLightWeightCommitSetSecDescUoW @ 0x140A82334 (CmpLightWeightCommitSetSecDescUoW.c)
+ *     CmpSyncKeyValues @ 0x1407E2FD4 (CmpSyncKeyValues.c)
+ *     CmpSetSecurityDescriptorInfo @ 0x140830F98 (CmpSetSecurityDescriptorInfo.c)
+ *     CmpAddSecurityCellToCache @ 0x140832634 (CmpAddSecurityCellToCache.c)
+ *     CmpValidateHiveSecurityDescriptors @ 0x1408328B8 (CmpValidateHiveSecurityDescriptors.c)
+ *     CmpCreateKeyControlBlock @ 0x140875AF0 (CmpCreateKeyControlBlock.c)
+ *     CmpRebuildKcbCacheFromNode @ 0x14087FED4 (CmpRebuildKcbCacheFromNode.c)
+ *     CmpCopyKeyPartial @ 0x140884DC0 (CmpCopyKeyPartial.c)
+ *     CmpIncrementCachedSecurityRefcount @ 0x14088AFCC (CmpIncrementCachedSecurityRefcount.c)
+ *     CmpCreateChild @ 0x14090B2FC (CmpCreateChild.c)
+ *     CmpAssignSecurityToKcb @ 0x1409C5710 (CmpAssignSecurityToKcb.c)
+ *     CmpLightWeightCommitAddKeyUoW @ 0x140A1499C (CmpLightWeightCommitAddKeyUoW.c)
+ *     CmpUndoDeleteKeyForTrans @ 0x140A22AB4 (CmpUndoDeleteKeyForTrans.c)
+ *     CmpRemoveFromSecurityCache @ 0x140A626F4 (CmpRemoveFromSecurityCache.c)
+ *     CmpLightWeightCommitSetSecDescUoW @ 0x140A7CED8 (CmpLightWeightCommitSetSecDescUoW.c)
  * Callees:
- *     RtlFindLowerBoundInSortedArray @ 0x1409B0BD0 (RtlFindLowerBoundInSortedArray.c)
+ *     RtlFindLowerBoundInSortedArray @ 0x14099A690 (RtlFindLowerBoundInSortedArray.c)
  */
 
 char __fastcall CmpFindSecurityCellCacheIndex(__int64 a1, int a2, _DWORD *a3)

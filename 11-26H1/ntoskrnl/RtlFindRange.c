@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlFindRange @ 0x140AB0E90
+ * XREFs of RtlFindRange @ 0x140AAEE80
  * Callers:
- *     ArbFindSuitableRange @ 0x140788710 (ArbFindSuitableRange.c)
- *     IopPortFindSuitableRange @ 0x1407A6CA0 (IopPortFindSuitableRange.c)
+ *     ArbFindSuitableRange @ 0x14078B240 (ArbFindSuitableRange.c)
+ *     IopPortFindSuitableRange @ 0x1407A9850 (IopPortFindSuitableRange.c)
  * Callees:
- *     RtlpIsRangeAvailable @ 0x140AB10C8 (RtlpIsRangeAvailable.c)
+ *     RtlpIsRangeAvailable @ 0x140AAF0B8 (RtlpIsRangeAvailable.c)
  */
 
 __int64 __fastcall RtlFindRange(

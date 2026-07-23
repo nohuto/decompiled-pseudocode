@@ -10,54 +10,54 @@
  *     _NtClose@4 @ 0x4B2F2A50 (_NtClose@4.c)
  */
 
-char __fastcall RtlpCheckForSameCurdir(unsigned __int16 *a1)
+char __thiscall RtlpCheckForSameCurdir(PUNICODE_STRING String2)
 {
-  unsigned __int16 *v1; // edi
+  _UNICODE_STRING *v1; // edi
   char v2; // bl
   int v3; // eax
-  int v4; // esi
+  HANDLE *v4; // esi
   wchar_t *Buffer; // eax
-  int v6; // eax
+  int Length; // eax
   _RTL_USER_PROCESS_PARAMETERS *ProcessParameters; // ecx
-  _DWORD v9[2]; // [esp+10h] [ebp-8h] BYREF
+  _UNICODE_STRING String1; // [esp+10h] [ebp-8h] BYREF
 
-  v1 = a1;
+  v1 = String2;
   v2 = 0;
-  LOBYTE(a1) = 0;
-  v3 = RtlpReferenceCurrentDirectory(a1);
-  v4 = v3;
+  LOBYTE(String2) = 0;
+  v3 = RtlpReferenceCurrentDirectory(String2);
+  v4 = (HANDLE *)v3;
   if ( v3 )
   {
-    v9[0] = *(_DWORD *)(v3 + 12);
+    *(_DWORD *)&String1.Length = *(_DWORD *)(v3 + 12);
     Buffer = *(wchar_t **)(v3 + 16);
   }
   else
   {
     ProcessParameters = NtCurrentPeb()->ProcessParameters;
-    v9[0] = *(_DWORD *)&ProcessParameters->CurrentDirectory.DosPath.Length;
+    *(_DWORD *)&String1.Length = *(_DWORD *)&ProcessParameters->CurrentDirectory.DosPath.Length;
     Buffer = ProcessParameters->CurrentDirectory.DosPath.Buffer;
   }
-  v9[1] = Buffer;
-  v6 = *v1;
-  if ( LOWORD(v9[0]) <= 6u )
+  String1.Buffer = Buffer;
+  Length = v1->Length;
+  if ( String1.Length <= 6u )
   {
-    if ( LOWORD(v9[0]) != (_WORD)v6 )
+    if ( String1.Length != (_WORD)Length )
       goto LABEL_5;
   }
   else
   {
-    if ( LOWORD(v9[0]) - 2 != v6 )
+    if ( String1.Length - 2 != Length )
       goto LABEL_5;
-    LOWORD(v9[0]) -= 2;
+    String1.Length -= 2;
   }
-  if ( (unsigned __int8)RtlEqualUnicodeString(v9, v1, 1) )
+  if ( RtlEqualUnicodeString(&String1, v1, 1u) )
     v2 = 1;
 LABEL_5:
   if ( v4 )
   {
     if ( !_InterlockedExchangeAdd((volatile signed __int32 *)v4, 0xFFFFFFFF) )
     {
-      NtClose(*(HANDLE *)(v4 + 4));
+      NtClose(v4[1]);
       RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v4);
     }
   }

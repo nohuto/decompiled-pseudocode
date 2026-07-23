@@ -3,33 +3,33 @@
  * Callers:
  *     <none>
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExpLicUpdateChecksum @ 0x14008606C (ExpLicUpdateChecksum.c)
- *     KeQueryTimeIncrement @ 0x140086090 (KeQueryTimeIncrement.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfAcquirePushLockSharedEx @ 0x1400C8280 (ExfAcquirePushLockSharedEx.c)
- *     ExfReleasePushLockShared @ 0x1400C8640 (ExfReleasePushLockShared.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
- *     KeSetTimer2 @ 0x1400EB320 (KeSetTimer2.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExpLicUpdateChecksum @ 0x14008795C (ExpLicUpdateChecksum.c)
+ *     KeQueryTimeIncrement @ 0x140087980 (KeQueryTimeIncrement.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1400C6120 (ExfAcquirePushLockSharedEx.c)
+ *     ExfReleasePushLockShared @ 0x1400C64E0 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
+ *     KeSetTimer2 @ 0x1400E9190 (KeSetTimer2.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
  *     ExUpdateSystemTimeFromCmos @ 0x1403C8DA4 (ExUpdateSystemTimeFromCmos.c)
- *     PsCreateSystemThread @ 0x1403E4710 (PsCreateSystemThread.c)
- *     ExAcquireTimeRefreshLock @ 0x1403EA8B0 (ExAcquireTimeRefreshLock.c)
- *     CmSetValueKey @ 0x1404037B0 (CmSetValueKey.c)
- *     ExpSetKernelDataProtection @ 0x140497230 (ExpSetKernelDataProtection.c)
- *     ExpGetKernelDataProtection @ 0x14049779C (ExpGetKernelDataProtection.c)
- *     ExReleaseTimeRefreshLock @ 0x1404D08F4 (ExReleaseTimeRefreshLock.c)
- *     ExpPutLicenseDataIntoRegistry @ 0x1404EFCCC (ExpPutLicenseDataIntoRegistry.c)
- *     sub_1404F1514 @ 0x1404F1514 (sub_1404F1514.c)
- *     ExGetExpirationDate @ 0x14052DAA8 (ExGetExpirationDate.c)
- *     ExpObtainFastCacheKeyBody @ 0x14057A65C (ExpObtainFastCacheKeyBody.c)
- *     PoShutdownBugCheck @ 0x14066E8B4 (PoShutdownBugCheck.c)
- *     sub_1406AEF3C @ 0x1406AEF3C (sub_1406AEF3C.c)
- *     sub_1406AEF88 @ 0x1406AEF88 (sub_1406AEF88.c)
- *     sub_1406AF784 @ 0x1406AF784 (sub_1406AF784.c)
+ *     PsCreateSystemThread @ 0x1403E5D3C (PsCreateSystemThread.c)
+ *     ExAcquireTimeRefreshLock @ 0x1403EBEE0 (ExAcquireTimeRefreshLock.c)
+ *     CmSetValueKey @ 0x140402670 (CmSetValueKey.c)
+ *     ExpSetKernelDataProtection @ 0x140497CC0 (ExpSetKernelDataProtection.c)
+ *     ExpGetKernelDataProtection @ 0x14049822C (ExpGetKernelDataProtection.c)
+ *     ExReleaseTimeRefreshLock @ 0x1404B4394 (ExReleaseTimeRefreshLock.c)
+ *     ExpPutLicenseDataIntoRegistry @ 0x1404D1CE8 (ExpPutLicenseDataIntoRegistry.c)
+ *     sub_1404D3608 @ 0x1404D3608 (sub_1404D3608.c)
+ *     ExGetExpirationDate @ 0x14052DFE8 (ExGetExpirationDate.c)
+ *     ExpObtainFastCacheKeyBody @ 0x14057AB9C (ExpObtainFastCacheKeyBody.c)
+ *     PoShutdownBugCheck @ 0x14066E998 (PoShutdownBugCheck.c)
+ *     sub_1406AF074 @ 0x1406AF074 (sub_1406AF074.c)
+ *     sub_1406AF0C0 @ 0x1406AF0C0 (sub_1406AF0C0.c)
+ *     sub_1406AF8BC @ 0x1406AF8BC (sub_1406AF8BC.c)
  */
 
 _BOOL8 __fastcall ExpTimeRefreshWork(__int64 a1)
@@ -131,7 +131,7 @@ _BOOL8 __fastcall ExpTimeRefreshWork(__int64 a1)
       ExfAcquirePushLockExclusiveEx(&ExpFastCacheUpdateLock, v2, (ULONG_PTR)&ExpFastCacheUpdateLock);
     if ( v4 )
       v4[26] |= 1u;
-    if ( *(_QWORD *)&qword_140747E48 || (int)ExpObtainFastCacheKeyBody(&stru_1406E9958) >= 0 )
+    if ( *(_QWORD *)&qword_140747E48 || (int)ExpObtainFastCacheKeyBody(&stru_1406E9A88) >= 0 )
     {
       v53 = 0LL;
       if ( (int)ExpLicUpdateChecksum((__int64)v64, v3, &v53) >= 0 )
@@ -146,7 +146,7 @@ _BOOL8 __fastcall ExpTimeRefreshWork(__int64 a1)
             v80 = v53;
             LODWORD(ClientId) = 24;
             v81 = 0LL;
-            CmSetValueKey(qword_140747E48, (int)&stru_1406E9948, 3, (int)v79, (size_t)ClientId, 0LL, 0);
+            CmSetValueKey(qword_140747E48, (int)&stru_1406E9A78, 3, (int)v79, (size_t)ClientId, 0LL, 0);
             break;
           }
         }
@@ -271,7 +271,7 @@ LABEL_43:
         ExfReleasePushLockShared((signed __int64 *)&qword_140747B20);
       KeAbPostRelease((ULONG_PTR)&qword_140747B20);
       KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread(), v37, v38, v39);
-      sub_1406AEF3C();
+      sub_1406AF074();
       if ( v36 > v35 )
       {
         v47 = 0;
@@ -352,11 +352,11 @@ LABEL_43:
         KeAbPostRelease((ULONG_PTR)&qword_140747B20);
         KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread(), v49, v50, v51);
         ExpPutLicenseDataIntoRegistry();
-        sub_1406AEF88(&KernelLicensingCacheExpired);
-        sub_1406AF784(7190LL);
+        sub_1406AF0C0(&KernelLicensingCacheExpired);
+        sub_1406AF8BC(7190LL);
       }
       if ( v47 )
-        sub_1404F1514();
+        sub_1404D3608();
     }
     if ( !ExpSystemSetupInProgress )
     {

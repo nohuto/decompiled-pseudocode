@@ -24,7 +24,7 @@ void __fastcall MiReleaseVadEventBlocks(__int64 a1, int a2)
   _DWORD *v9; // rcx
   _DWORD *v10; // r14
   unsigned __int64 v11; // r12
-  struct _SLIST_ENTRY *v12; // rcx
+  _SLIST_ENTRY *v12; // rcx
   int v13; // eax
   unsigned __int64 v14; // rax
 
@@ -44,7 +44,7 @@ void __fastcall MiReleaseVadEventBlocks(__int64 a1, int a2)
       }
       if ( (*(_DWORD *)(VadWakeList + 80) & 8) != 0 )
       {
-        v12 = *(struct _SLIST_ENTRY **)(VadWakeList + 8);
+        v12 = *(_SLIST_ENTRY **)(VadWakeList + 8);
         if ( v12 )
           MiFreeInPageSupportBlock(v12);
         PsReturnProcessNonPagedPoolQuota((ULONG_PTR)KeGetCurrentThread()->ApcState.Process, 0x218uLL);

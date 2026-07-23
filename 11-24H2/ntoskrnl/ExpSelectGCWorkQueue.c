@@ -1,7 +1,7 @@
 /*
- * XREFs of ExpSelectGCWorkQueue @ 0x14065A3A4
+ * XREFs of ExpSelectGCWorkQueue @ 0x140658A74
  * Callers:
- *     ExpHpGCTimerCallback @ 0x1403BF6C0 (ExpHpGCTimerCallback.c)
+ *     ExpHpGCTimerCallback @ 0x1403AE280 (ExpHpGCTimerCallback.c)
  * Callees:
  *     <none>
  */
@@ -14,19 +14,19 @@ __int64 __fastcall ExpSelectGCWorkQueue(int a1)
   unsigned int v4; // ecx
 
   v1 = 4;
-  if ( (unsigned __int64)(100LL * *(_QWORD *)(*(_QWORD *)qword_140E2FF88 + 19328LL))
-     / *(_QWORD *)(*(_QWORD *)qword_140E2FF88 + 19608LL) >= 0x55 )
+  if ( (unsigned __int64)(100LL * *(_QWORD *)(*(_QWORD *)qword_140E300C8 + 19328LL))
+     / *(_QWORD *)(*(_QWORD *)qword_140E300C8 + 19608LL) >= 0x55 )
     return 3;
-  v2 = *(_QWORD *)(*(_QWORD *)qword_140E2FF88 + 18512LL);
-  if ( 100LL * *(_QWORD *)(*(_QWORD *)qword_140E2FF88 + 18688LL) / v2 <= 0xF )
+  v2 = *(_QWORD *)(*(_QWORD *)qword_140E300C8 + 18512LL);
+  if ( 100LL * *(_QWORD *)(*(_QWORD *)qword_140E300C8 + 18688LL) / v2 <= 0xF )
   {
     return 3;
   }
   else if ( a1 == 1 )
   {
     v3 = 0LL;
-    if ( *(__int64 *)(*(_QWORD *)qword_140E2FF88 + 18752LL) >= 0 )
-      v3 = *(_QWORD *)(*(_QWORD *)qword_140E2FF88 + 18752LL);
+    if ( *(__int64 *)(*(_QWORD *)qword_140E300C8 + 18752LL) >= 0 )
+      v3 = *(_QWORD *)(*(_QWORD *)qword_140E300C8 + 18752LL);
     v4 = 4;
     if ( 100 * v3 / v2 <= 0xF )
       return 3;

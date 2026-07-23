@@ -1,21 +1,21 @@
 /*
- * XREFs of PopPepUpdateIdleStateRefCount @ 0x14035DFAC
+ * XREFs of PopPepUpdateIdleStateRefCount @ 0x14035E14C
  * Callers:
- *     PopPepDeviceDState @ 0x14028DB5C (PopPepDeviceDState.c)
- *     PopPepStartComponentIdleStateChangeActivity @ 0x14035C560 (PopPepStartComponentIdleStateChangeActivity.c)
- *     PopPepCompleteComponentIdleStateChangeActivity @ 0x14035DE60 (PopPepCompleteComponentIdleStateChangeActivity.c)
- *     PopPepClearDripsDeviceVetoMask @ 0x14059EAC4 (PopPepClearDripsDeviceVetoMask.c)
- *     PopPepInitializeVetoMasks @ 0x14059F2C4 (PopPepInitializeVetoMasks.c)
- *     PopPepPlatformStateRegistered @ 0x14059F994 (PopPepPlatformStateRegistered.c)
- *     PopPepUpdateDripsDeviceVetoMask @ 0x14059FE64 (PopPepUpdateDripsDeviceVetoMask.c)
- *     PopPepUnregisterDevice @ 0x14099D928 (PopPepUnregisterDevice.c)
+ *     PopPepDeviceDState @ 0x14028DDEC (PopPepDeviceDState.c)
+ *     PopPepStartComponentIdleStateChangeActivity @ 0x14035C700 (PopPepStartComponentIdleStateChangeActivity.c)
+ *     PopPepCompleteComponentIdleStateChangeActivity @ 0x14035E000 (PopPepCompleteComponentIdleStateChangeActivity.c)
+ *     PopPepClearDripsDeviceVetoMask @ 0x14059EFB4 (PopPepClearDripsDeviceVetoMask.c)
+ *     PopPepInitializeVetoMasks @ 0x14059F7B4 (PopPepInitializeVetoMasks.c)
+ *     PopPepPlatformStateRegistered @ 0x14059FE84 (PopPepPlatformStateRegistered.c)
+ *     PopPepUpdateDripsDeviceVetoMask @ 0x1405A0354 (PopPepUpdateDripsDeviceVetoMask.c)
+ *     PopPepUnregisterDevice @ 0x14099DB28 (PopPepUnregisterDevice.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     PopFxBugCheck @ 0x140588BE0 (PopFxBugCheck.c)
- *     PopFxPlatformStateAvailable @ 0x14058B35C (PopFxPlatformStateAvailable.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     PopFxBugCheck @ 0x1405890D0 (PopFxBugCheck.c)
+ *     PopFxPlatformStateAvailable @ 0x14058B84C (PopFxPlatformStateAvailable.c)
  */
 
 __int64 __fastcall PopPepUpdateIdleStateRefCount(unsigned int a1, unsigned int a2, int a3, volatile signed __int32 *a4)
@@ -104,7 +104,7 @@ __int64 __fastcall PopPepUpdateIdleStateRefCount(unsigned int a1, unsigned int a
         {
           CurrentIrql = KeGetCurrentIrql();
           __writecr8(2uLL);
-          if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+          if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
           {
             SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
             if ( CurrentIrql == 2 )
@@ -138,7 +138,7 @@ __int64 __fastcall PopPepUpdateIdleStateRefCount(unsigned int a1, unsigned int a
   {
     v21 = KeGetCurrentIrql();
     __writecr8(2uLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v21 <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v21 <= 0xFu )
     {
       v22 = KeGetCurrentPrcb()->SchedulerAssist;
       if ( v21 != 2 )
@@ -184,10 +184,10 @@ LABEL_46:
   if ( v31 )
   {
 LABEL_56:
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v27 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v27 <= 0xFu && CurrentIrql <= 0xFu && v27 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v27 <= 0xFu && CurrentIrql <= 0xFu && v27 >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         v29 = CurrentPrcb->SchedulerAssist;

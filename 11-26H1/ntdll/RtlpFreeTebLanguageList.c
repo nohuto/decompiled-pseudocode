@@ -1,30 +1,30 @@
 /*
- * XREFs of RtlpFreeTebLanguageList @ 0x18006F928
+ * XREFs of RtlpFreeTebLanguageList @ 0x18008FD78
  * Callers:
- *     RtlRestoreThreadPreferredUILanguages @ 0x18006F490 (RtlRestoreThreadPreferredUILanguages.c)
- *     RtlSetThreadPreferredUILanguages2 @ 0x18006F580 (RtlSetThreadPreferredUILanguages2.c)
- *     RtlpDupTebLanguageList @ 0x18006F7BC (RtlpDupTebLanguageList.c)
- *     RtlCleanUpTEBLangLists @ 0x18006F850 (RtlCleanUpTEBLangLists.c)
+ *     RtlRestoreThreadPreferredUILanguages @ 0x18008F8E0 (RtlRestoreThreadPreferredUILanguages.c)
+ *     RtlSetThreadPreferredUILanguages2 @ 0x18008F9D0 (RtlSetThreadPreferredUILanguages2.c)
+ *     RtlpDupTebLanguageList @ 0x18008FC0C (RtlpDupTebLanguageList.c)
+ *     RtlCleanUpTEBLangLists @ 0x18008FCA0 (RtlCleanUpTEBLangLists.c)
  * Callees:
- *     RtlpMuiRegFreeLanguageList @ 0x180006B20 (RtlpMuiRegFreeLanguageList.c)
- *     RtlpMuiRegFreeStringPool @ 0x18000D934 (RtlpMuiRegFreeStringPool.c)
+ *     RtlpMuiRegFreeLanguageList @ 0x180052250 (RtlpMuiRegFreeLanguageList.c)
+ *     RtlpMuiRegFreeStringPool @ 0x180059064 (RtlpMuiRegFreeStringPool.c)
  */
 
-__int64 __fastcall RtlpFreeTebLanguageList(__int64 *a1)
+LOGICAL __fastcall RtlpFreeTebLanguageList(void **BaseAddress)
 {
-  __int64 v2; // rcx
-  __int64 v3; // rcx
-  __int64 result; // rax
+  void *v2; // rcx
+  void *v3; // rcx
+  LOGICAL result; // eax
 
-  if ( a1 )
+  if ( BaseAddress )
   {
-    v2 = *a1;
+    v2 = *BaseAddress;
     if ( v2 )
       RtlpMuiRegFreeLanguageList(v2);
-    v3 = a1[1];
+    v3 = BaseAddress[1];
     if ( v3 )
       RtlpMuiRegFreeStringPool(v3);
-    return RtlFreeHeap_0();
+    return RtlFreeHeap_0(NtCurrentPeb()->ProcessHeap, 0, BaseAddress);
   }
   return result;
 }

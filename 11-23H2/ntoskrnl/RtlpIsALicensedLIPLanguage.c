@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpIsALicensedLIPLanguage @ 0x140A742C8
+ * XREFs of RtlpIsALicensedLIPLanguage @ 0x140A74578
  * Callers:
- *     RtlpMuiRegAddLanguageByName @ 0x140844B80 (RtlpMuiRegAddLanguageByName.c)
+ *     RtlpMuiRegAddLanguageByName @ 0x140844E80 (RtlpMuiRegAddLanguageByName.c)
  * Callees:
- *     RtlpLangNameInMultiSzString @ 0x140844F1C (RtlpLangNameInMultiSzString.c)
+ *     RtlpLangNameInMultiSzString @ 0x14084521C (RtlpLangNameInMultiSzString.c)
  */
 
 __int64 __fastcall RtlpIsALicensedLIPLanguage(__int64 a1, wchar_t *a2)

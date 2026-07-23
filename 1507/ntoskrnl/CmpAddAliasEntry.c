@@ -24,7 +24,7 @@ __int64 __fastcall CmpAddAliasEntry(void *a1, __int64 a2, int a3)
   HANDLE Handle; // [rsp+40h] [rbp-C0h] BYREF
   int Data; // [rsp+48h] [rbp-B8h] BYREF
   ULONG Disposition; // [rsp+4Ch] [rbp-B4h] BYREF
-  STRING KeyHandle; // [rsp+50h] [rbp-B0h] BYREF
+  _STRING KeyHandle; // [rsp+50h] [rbp-B0h] BYREF
   UNICODE_STRING DestinationString; // [rsp+60h] [rbp-A0h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+70h] [rbp-90h] BYREF
   char DstBuf[128]; // [rsp+A0h] [rbp-60h] BYREF

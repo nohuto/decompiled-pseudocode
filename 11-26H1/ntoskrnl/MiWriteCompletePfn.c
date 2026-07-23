@@ -1,23 +1,23 @@
 /*
- * XREFs of MiWriteCompletePfn @ 0x1404077B0
+ * XREFs of MiWriteCompletePfn @ 0x1404008A0
  * Callers:
- *     MiUnlockStoreLockedPages @ 0x1404075E4 (MiUnlockStoreLockedPages.c)
- *     MiWriteComplete @ 0x14040A870 (MiWriteComplete.c)
- *     MiReleaseMappedPages @ 0x140502058 (MiReleaseMappedPages.c)
- *     MiModwriterReturnUnusedPages @ 0x14070D6F4 (MiModwriterReturnUnusedPages.c)
+ *     MiUnlockStoreLockedPages @ 0x1404006D4 (MiUnlockStoreLockedPages.c)
+ *     MiWriteComplete @ 0x140403960 (MiWriteComplete.c)
+ *     MiReleaseMappedPages @ 0x1404FB928 (MiReleaseMappedPages.c)
+ *     MiModwriterReturnUnusedPages @ 0x1407123A4 (MiModwriterReturnUnusedPages.c)
  * Callees:
- *     MiGetSubsectionFromPte @ 0x1402836C0 (MiGetSubsectionFromPte.c)
- *     MiReleasePageFileInfo @ 0x1402DAD50 (MiReleasePageFileInfo.c)
- *     MiInsertPageInFreeOrZeroedList @ 0x1402DCDD0 (MiInsertPageInFreeOrZeroedList.c)
- *     MiInsertPageInList @ 0x1402DDC40 (MiInsertPageInList.c)
- *     MiRestoreTransitionPte @ 0x1402F8F60 (MiRestoreTransitionPte.c)
- *     MiPteHasShadow @ 0x1403011E0 (MiPteHasShadow.c)
- *     MiReadPteShadow @ 0x140314FF0 (MiReadPteShadow.c)
- *     MiReturnCommit @ 0x14036D2B0 (MiReturnCommit.c)
- *     MiIsPfnOriginalPteLost @ 0x140408658 (MiIsPfnOriginalPteLost.c)
- *     MiCanPfnOriginalPteBeLost @ 0x140408680 (MiCanPfnOriginalPteBeLost.c)
- *     MiSetSubsectionModified @ 0x14045CF48 (MiSetSubsectionModified.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     MiGetSubsectionFromPte @ 0x140282C30 (MiGetSubsectionFromPte.c)
+ *     MiReleasePageFileInfo @ 0x1402BCB10 (MiReleasePageFileInfo.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x1402BEB90 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiInsertPageInList @ 0x1402BFA00 (MiInsertPageInList.c)
+ *     MiRestoreTransitionPte @ 0x1402DAFE0 (MiRestoreTransitionPte.c)
+ *     MiPteHasShadow @ 0x1402E3260 (MiPteHasShadow.c)
+ *     MiReadPteShadow @ 0x140317020 (MiReadPteShadow.c)
+ *     MiReturnCommit @ 0x14036F050 (MiReturnCommit.c)
+ *     MiIsPfnOriginalPteLost @ 0x140401748 (MiIsPfnOriginalPteLost.c)
+ *     MiCanPfnOriginalPteBeLost @ 0x140401770 (MiCanPfnOriginalPteBeLost.c)
+ *     MiSetSubsectionModified @ 0x140456AF0 (MiSetSubsectionModified.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 unsigned __int64 __fastcall MiWriteCompletePfn(ULONG_PTR BugCheckParameter2, char a2, __int64 a3)
@@ -58,7 +58,7 @@ unsigned __int64 __fastcall MiWriteCompletePfn(ULONG_PTR BugCheckParameter2, cha
   {
     if ( (a2 & 2) == 0 )
       goto LABEL_3;
-    v12 = *(_QWORD *)(stru_140E2EB88.ThreadLock + 8 * ((*(_QWORD *)(BugCheckParameter2 + 40) >> 43) & 0x3FFLL));
+    v12 = *(_QWORD *)(stru_140E2ED08.ThreadLock + 8 * ((*(_QWORD *)(BugCheckParameter2 + 40) >> 43) & 0x3FFLL));
     if ( (*(_BYTE *)(BugCheckParameter2 + 34) & 0x10) != 0
       && (CanPfnOriginalPteBeLost = MiCanPfnOriginalPteBeLost(BugCheckParameter2)) != 0 )
     {
@@ -209,7 +209,7 @@ LABEL_3:
         || (*(_BYTE *)(BugCheckParameter2 + 35) & 0x20) == 0 )
       {
         MiReturnCommit(
-          *(_QWORD *)(stru_140E2EB88.ThreadLock + 8 * ((*(_QWORD *)(BugCheckParameter2 + 40) >> 43) & 0x3FFLL)),
+          *(_QWORD *)(stru_140E2ED08.ThreadLock + 8 * ((*(_QWORD *)(BugCheckParameter2 + 40) >> 43) & 0x3FFLL)),
           1LL,
           0);
       }
@@ -276,10 +276,10 @@ LABEL_3:
         if ( v25 )
         {
           MiReleasePageFileInfo(
-            *(struct _KEVENT **)(stru_140E2EB88.ThreadLock + 8
+            *(struct _KEVENT **)(stru_140E2ED08.ThreadLock + 8
                                                            * ((*(_QWORD *)(BugCheckParameter2 + 40) >> 43) & 0x3FFLL)),
             v25,
-            1);
+            1LL);
           MiInsertPageInFreeOrZeroedList((__int64)(BugCheckParameter2 + 0x220000000000LL) / 48);
           return v3;
         }

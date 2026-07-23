@@ -1,22 +1,22 @@
 /*
- * XREFs of MiGetClusterPage @ 0x14050E5D0
+ * XREFs of MiGetClusterPage @ 0x140508040
  * Callers:
- *     MiCreateSharedZeroPages @ 0x140283980 (MiCreateSharedZeroPages.c)
- *     MiResolvePrivateZeroFault @ 0x1402D5420 (MiResolvePrivateZeroFault.c)
+ *     MiCreateSharedZeroPages @ 0x140282EF0 (MiCreateSharedZeroPages.c)
+ *     MiResolvePrivateZeroFault @ 0x1402B71E0 (MiResolvePrivateZeroFault.c)
  * Callees:
- *     MiGetPageChain @ 0x140285DD0 (MiGetPageChain.c)
- *     MiGetProtoPteAddress @ 0x1402D2540 (MiGetProtoPteAddress.c)
- *     MiInsertPageChainHead @ 0x14033A060 (MiInsertPageChainHead.c)
- *     MiUnlinkPageChainHead @ 0x140365EF0 (MiUnlinkPageChainHead.c)
- *     MiInitializePageColorBase @ 0x14036FE20 (MiInitializePageColorBase.c)
- *     MiProtectionToCacheAttribute @ 0x140372270 (MiProtectionToCacheAttribute.c)
- *     MiIsPteEvaluated @ 0x1403D9CDC (MiIsPteEvaluated.c)
- *     MiComputeZeroClusterMaximum @ 0x1403D9D60 (MiComputeZeroClusterMaximum.c)
- *     MiConvertLargeActivePageToChain @ 0x14040A4E0 (MiConvertLargeActivePageToChain.c)
- *     MiInitializePageChainPacket @ 0x14041AAB0 (MiInitializePageChainPacket.c)
- *     MiGetLargePage @ 0x14051E3C4 (MiGetLargePage.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     MiGetPageChain @ 0x140285330 (MiGetPageChain.c)
+ *     MiGetProtoPteAddress @ 0x1402B4300 (MiGetProtoPteAddress.c)
+ *     MiInsertPageChainHead @ 0x14033C0E0 (MiInsertPageChainHead.c)
+ *     MiUnlinkPageChainHead @ 0x140367C90 (MiUnlinkPageChainHead.c)
+ *     MiInitializePageColorBase @ 0x140371BD0 (MiInitializePageColorBase.c)
+ *     MiProtectionToCacheAttribute @ 0x140374020 (MiProtectionToCacheAttribute.c)
+ *     MiIsPteEvaluated @ 0x1403DCEC8 (MiIsPteEvaluated.c)
+ *     MiComputeZeroClusterMaximum @ 0x1403DCF50 (MiComputeZeroClusterMaximum.c)
+ *     MiConvertLargeActivePageToChain @ 0x1404035D0 (MiConvertLargeActivePageToChain.c)
+ *     MiInitializePageChainPacket @ 0x140412300 (MiInitializePageChainPacket.c)
+ *     MiGetLargePage @ 0x1405209D4 (MiGetLargePage.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall MiGetClusterPage(
@@ -140,8 +140,8 @@ __int64 __fastcall MiGetClusterPage(
     v21 = (__int64 *)(((v46[0] >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL);
     v22 = *(_DWORD *)(*(_QWORD *)v44 + 60LL) & 0x3FF;
   }
-  v27 = *(_QWORD *)(*(_QWORD *)(stru_140E2EB88.ThreadLock + 8 * v22) + 16LL);
-  v44 = *(unsigned int **)(stru_140E2EB88.ThreadLock + 8 * v22);
+  v27 = *(_QWORD *)(*(_QWORD *)(stru_140E2ED08.ThreadLock + 8 * v22) + 16LL);
+  v44 = *(unsigned int **)(stru_140E2ED08.ThreadLock + 8 * v22);
   *(_BYTE *)(56320LL * v19 + v27 + 4155) = 1;
   for ( i = 0LL; i < 0x10; ++i )
     v62[i] = *(_QWORD *)(v20 + 8 * i);
@@ -154,8 +154,8 @@ __int64 __fastcall MiGetClusterPage(
       if ( (v30 & 1) != 0 )
         break;
       v32 = v62[j];
-      if ( qword_140E2D740 && (v30 & 0x10) == 0 )
-        LOWORD(v32) = v30 & qword_140E2D748;
+      if ( qword_140E2D8C0 && (v30 & 0x10) == 0 )
+        LOWORD(v32) = v30 & qword_140E2D8C8;
       if ( (v32 & 0x400) != 0 || (v32 & 0x800) != 0 || (v32 & 8) != 0 )
         break;
       v31 = ((v30 >> 5) & 0x1F) == a6;

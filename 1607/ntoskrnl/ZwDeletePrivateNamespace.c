@@ -1,14 +1,14 @@
 /*
- * XREFs of ZwDeletePrivateNamespace @ 0x14015B5C0
+ * XREFs of ZwDeletePrivateNamespace @ 0x14015BB30
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwDeletePrivateNamespace(__int64 a1, __int64 a2, __int64 a3)
+NTSTATUS __cdecl ZwDeletePrivateNamespace(HANDLE NamespaceHandle)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2, a3);
+  return KiServiceInternal(NamespaceHandle);
 }

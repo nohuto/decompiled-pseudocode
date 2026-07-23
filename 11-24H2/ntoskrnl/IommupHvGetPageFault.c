@@ -1,9 +1,9 @@
 /*
- * XREFs of IommupHvGetPageFault @ 0x140565E70
+ * XREFs of IommupHvGetPageFault @ 0x140563B70
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall IommupHvGetPageFault(
@@ -32,7 +32,7 @@ __int64 __fastcall IommupHvGetPageFault(
   if ( (_DWORD)v9 == HIDWORD(v9) )
   {
     if ( *(_BYTE *)(*((_QWORD *)a1 + 1) + 9LL) )
-      guard_dispatch_icall_no_overrides(*a1, a2, a3, a4);
+      guard_dispatch_icall_no_overrides(*a1, a2);
     return 0LL;
   }
   else

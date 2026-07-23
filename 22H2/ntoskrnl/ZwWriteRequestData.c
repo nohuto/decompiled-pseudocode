@@ -6,9 +6,15 @@
  *     <none>
  */
 
-__int64 __fastcall ZwWriteRequestData(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwWriteRequestData(
+        HANDLE PortHandle,
+        PPORT_MESSAGE Message,
+        ULONG DataEntryIndex,
+        PVOID Buffer,
+        SIZE_T BufferSize,
+        PSIZE_T NumberOfBytesWritten)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(PortHandle);
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of MiQuerySecureBasicInfo @ 0x14091F660
+ * XREFs of MiQuerySecureBasicInfo @ 0x140923550
  * Callers:
- *     MmQueryVirtualMemory @ 0x14091F870 (MmQueryVirtualMemory.c)
+ *     MmQueryVirtualMemory @ 0x1409243E0 (MmQueryVirtualMemory.c)
  * Callees:
- *     MiGetProcessPartition @ 0x14044C0C0 (MiGetProcessPartition.c)
- *     VslQueryVirtualMemory @ 0x1404EAE40 (VslQueryVirtualMemory.c)
- *     MiQueryReturnResults @ 0x140920250 (MiQueryReturnResults.c)
+ *     MiGetProcessPartition @ 0x1404441E0 (MiGetProcessPartition.c)
+ *     VslQueryVirtualMemory @ 0x1404E41F0 (VslQueryVirtualMemory.c)
+ *     MiQueryReturnResults @ 0x140923994 (MiQueryReturnResults.c)
  */
 
 __int64 __fastcall MiQuerySecureBasicInfo(__int64 *a1)

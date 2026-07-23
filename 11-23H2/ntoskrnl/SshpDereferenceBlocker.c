@@ -1,12 +1,12 @@
 /*
- * XREFs of SshpDereferenceBlocker @ 0x1407A831C
+ * XREFs of SshpDereferenceBlocker @ 0x1407A850C
  * Callers:
- *     SleepstudyHelperSetBlockerParentHandle @ 0x14036B6F0 (SleepstudyHelperSetBlockerParentHandle.c)
- *     SleepstudyHelperDestroyBlockerBuilder @ 0x1407A8290 (SleepstudyHelperDestroyBlockerBuilder.c)
- *     SshpSendSessionData @ 0x14087822C (SshpSendSessionData.c)
- *     SleepstudyHelperDestroyLibrary @ 0x1409A1E90 (SleepstudyHelperDestroyLibrary.c)
+ *     SleepstudyHelperSetBlockerParentHandle @ 0x14036B890 (SleepstudyHelperSetBlockerParentHandle.c)
+ *     SleepstudyHelperDestroyBlockerBuilder @ 0x1407A8480 (SleepstudyHelperDestroyBlockerBuilder.c)
+ *     SshpSendSessionData @ 0x14087846C (SshpSendSessionData.c)
+ *     SleepstudyHelperDestroyLibrary @ 0x1409A2090 (SleepstudyHelperDestroyLibrary.c)
  * Callees:
- *     CmpFreeTransientPoolWithTag @ 0x14022CED4 (CmpFreeTransientPoolWithTag.c)
+ *     CmpFreeTransientPoolWithTag @ 0x14022CFE4 (CmpFreeTransientPoolWithTag.c)
  */
 
 void __fastcall SshpDereferenceBlocker(_QWORD *a1)

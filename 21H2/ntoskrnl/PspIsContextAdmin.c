@@ -1,16 +1,16 @@
 /*
- * XREFs of PspIsContextAdmin @ 0x140715EE0
+ * XREFs of PspIsContextAdmin @ 0x1406C4530
  * Callers:
- *     NtSetInformationJobObject @ 0x140614200 (NtSetInformationJobObject.c)
- *     NtPowerInformation @ 0x1406777D0 (NtPowerInformation.c)
- *     PopPowerInformationInternal @ 0x140678DF4 (PopPowerInformationInternal.c)
- *     PspSetEnergyTrackingStateJobTree @ 0x140716C84 (PspSetEnergyTrackingStateJobTree.c)
+ *     NtPowerInformation @ 0x14066AF10 (NtPowerInformation.c)
+ *     PopPowerInformationInternal @ 0x14066C534 (PopPowerInformationInternal.c)
+ *     NtSetInformationJobObject @ 0x14067DE60 (NtSetInformationJobObject.c)
+ *     PspSetEnergyTrackingStateJobTree @ 0x1406C52D4 (PspSetEnergyTrackingStateJobTree.c)
  * Callees:
- *     SeCaptureSubjectContext @ 0x140655B30 (SeCaptureSubjectContext.c)
- *     SeReleaseSubjectContext @ 0x1406568F0 (SeReleaseSubjectContext.c)
- *     SeLockSubjectContext @ 0x1406F5E30 (SeLockSubjectContext.c)
- *     SeUnlockSubjectContext @ 0x1406F5E90 (SeUnlockSubjectContext.c)
- *     SeTokenIsAdmin @ 0x140717530 (SeTokenIsAdmin.c)
+ *     SeCaptureSubjectContext @ 0x14064A950 (SeCaptureSubjectContext.c)
+ *     SeReleaseSubjectContext @ 0x14064B710 (SeReleaseSubjectContext.c)
+ *     SeTokenIsAdmin @ 0x1406C5B80 (SeTokenIsAdmin.c)
+ *     SeLockSubjectContext @ 0x14070D210 (SeLockSubjectContext.c)
+ *     SeUnlockSubjectContext @ 0x14070D270 (SeUnlockSubjectContext.c)
  */
 
 BOOLEAN PspIsContextAdmin()

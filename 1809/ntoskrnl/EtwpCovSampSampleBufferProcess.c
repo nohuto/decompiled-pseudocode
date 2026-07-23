@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwpCovSampSampleBufferProcess @ 0x1408C7564
+ * XREFs of EtwpCovSampSampleBufferProcess @ 0x1408C8824
  * Callers:
- *     EtwpCovSampCaptureWorkerThread @ 0x1408C44F0 (EtwpCovSampCaptureWorkerThread.c)
+ *     EtwpCovSampCaptureWorkerThread @ 0x1408C57B0 (EtwpCovSampCaptureWorkerThread.c)
  * Callees:
  *     ExReleaseRundownProtection_0 @ 0x14004D2F0 (ExReleaseRundownProtection_0.c)
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
- *     EtwpCovSampAcquireSamplerRundown @ 0x1408C396C (EtwpCovSampAcquireSamplerRundown.c)
- *     EtwpCovSampContextAddAddresses @ 0x1408C4720 (EtwpCovSampContextAddAddresses.c)
- *     EtwpCovSampContextAddSamples @ 0x1408C4814 (EtwpCovSampContextAddSamples.c)
- *     EtwpCovSampStackHashCheck @ 0x1408C7734 (EtwpCovSampStackHashCheck.c)
+ *     EtwpCovSampAcquireSamplerRundown @ 0x1408C4C2C (EtwpCovSampAcquireSamplerRundown.c)
+ *     EtwpCovSampContextAddAddresses @ 0x1408C59E0 (EtwpCovSampContextAddAddresses.c)
+ *     EtwpCovSampContextAddSamples @ 0x1408C5AD4 (EtwpCovSampContextAddSamples.c)
+ *     EtwpCovSampStackHashCheck @ 0x1408C89F4 (EtwpCovSampStackHashCheck.c)
  */
 
 void __fastcall EtwpCovSampSampleBufferProcess(__int64 a1, _DWORD *a2)
@@ -68,7 +68,7 @@ void __fastcall EtwpCovSampSampleBufferProcess(__int64 a1, _DWORD *a2)
   }
   if ( v7 )
   {
-    ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)&stru_140409DE0);
+    ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)&stru_14040AE40);
     KeLeaveCriticalRegion();
   }
 }

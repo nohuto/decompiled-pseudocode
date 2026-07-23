@@ -1,9 +1,9 @@
 /*
- * XREFs of KiEnableXSave @ 0x14056F0BC
+ * XREFs of KiEnableXSave @ 0x1405700BC
  * Callers:
- *     KiRestoreXSaveSupport @ 0x140569A0C (KiRestoreXSaveSupport.c)
- *     KiInitializeKernel @ 0x140571310 (KiInitializeKernel.c)
- *     KiConfigureDynamicProcessor @ 0x14057B744 (KiConfigureDynamicProcessor.c)
+ *     KiRestoreXSaveSupport @ 0x14056AA0C (KiRestoreXSaveSupport.c)
+ *     KiInitializeKernel @ 0x140572310 (KiInitializeKernel.c)
+ *     KiConfigureDynamicProcessor @ 0x14057C744 (KiConfigureDynamicProcessor.c)
  * Callees:
  *     <none>
  */

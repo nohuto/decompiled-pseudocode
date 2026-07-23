@@ -1,7 +1,7 @@
 /*
- * XREFs of MiGetEngineType @ 0x1404F8630
+ * XREFs of MiGetEngineType @ 0x1404F5F10
  * Callers:
- *     MiInitializeZeroingDomains @ 0x1407FF580 (MiInitializeZeroingDomains.c)
+ *     MiInitializeZeroingDomains @ 0x1407FFCC4 (MiInitializeZeroingDomains.c)
  * Callees:
  *     <none>
  */

@@ -26,14 +26,14 @@ __int64 __fastcall LdrpInitializeThread(__int64 a1, __int64 a2, __int64 a3)
   struct _TEB *v3; // rbx
   _PEB *ProcessEnvironmentBlock; // rsi
   __int64 result; // rax
-  int i; // ebx
+  NTSTATUS i; // ebx
   __int64 v7; // rcx
   __int64 v8; // rdi
   _QWORD *v9; // rbx
   __int64 v10; // rdx
   _ACTIVATION_CONTEXT_STACK *ActivationContextStackPointer; // r8
   unsigned __int64 ActiveFrame; // rcx
-  __int64 v13; // [rsp+20h] [rbp-198h] BYREF
+  LARGE_INTEGER DelayInterval; // [rsp+20h] [rbp-198h] BYREF
   __int64 v14; // [rsp+28h] [rbp-190h]
   __int64 v15; // [rsp+30h] [rbp-188h]
   _QWORD v16[2]; // [rsp+40h] [rbp-178h] BYREF
@@ -50,7 +50,7 @@ __int64 __fastcall LdrpInitializeThread(__int64 a1, __int64 a2, __int64 a3)
   EXCEPTION_RECORD ExceptionRecord; // [rsp+F0h] [rbp-C8h] BYREF
   _UNKNOWN *retaddr; // [rsp+1B8h] [rbp+0h]
 
-  v13 = 0LL;
+  DelayInterval.QuadPart = 0LL;
   v3 = NtCurrentTeb();
   ProcessEnvironmentBlock = v3->ProcessEnvironmentBlock;
   if ( UseCOR && (v3->SameTebFlags & 0x400) != 0 )
@@ -59,7 +59,12 @@ __int64 __fastcall LdrpInitializeThread(__int64 a1, __int64 a2, __int64 a3)
     a2 = __ROR8__(LdrpCorExeMainRoutine, 64 - (MEMORY[0x7FFE0330] & 0x3Fu));
     *(_QWORD *)(a1 + 128) = a2 ^ MEMORY[0x7FFE0330];
   }
-  LdrpAcquireSchedulerSharedDataSlot(v3, a2, a3, a1, v13);
+  ((void (__fastcall *)(_QWORD, _QWORD, _QWORD, _QWORD, _QWORD))LdrpAcquireSchedulerSharedDataSlot)(
+    v3,
+    a2,
+    a3,
+    a1,
+    (LARGE_INTEGER)DelayInterval.QuadPart);
   RtlpInitializeThreadActivationContextStack(v3);
   if ( (NtCurrentTeb()->SameTebFlags & 8) != 0 )
   {
@@ -74,13 +79,13 @@ __int64 __fastcall LdrpInitializeThread(__int64 a1, __int64 a2, __int64 a3)
   {
     if ( i != -1073741801 )
       break;
-    v13 = -3000000LL;
-    ZwDelayExecution(0LL, &v13);
+    DelayInterval.QuadPart = -3000000LL;
+    ZwDelayExecution(0, &DelayInterval);
   }
   if ( i < 0 )
   {
-    ZwTerminateProcess(-1LL, (unsigned int)i);
-    RtlRaiseStatus((unsigned int)i);
+    ZwTerminateProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, i);
+    RtlRaiseStatus(i);
   }
   LdrpDrainWorkQueue(0);
   LdrpAcquireLoaderLock();

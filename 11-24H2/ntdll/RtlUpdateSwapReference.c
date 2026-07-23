@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlUpdateSwapReference @ 0x1800D6944
+ * XREFs of RtlUpdateSwapReference @ 0x1800D1CB4
  * Callers:
- *     RtlpFcBufferManagerUpdateBuffers @ 0x1800D685C (RtlpFcBufferManagerUpdateBuffers.c)
+ *     RtlpFcBufferManagerUpdateBuffers @ 0x1800D1BCC (RtlpFcBufferManagerUpdateBuffers.c)
  * Callees:
- *     RtlpWaitOnAddress @ 0x18009B780 (RtlpWaitOnAddress.c)
+ *     RtlpWaitOnAddress @ 0x1800305D0 (RtlpWaitOnAddress.c)
  */
 
 unsigned __int64 __fastcall RtlUpdateSwapReference(volatile __int64 *a1, char a2)

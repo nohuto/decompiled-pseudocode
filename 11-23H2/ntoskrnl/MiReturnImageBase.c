@@ -1,18 +1,18 @@
 /*
- * XREFs of MiReturnImageBase @ 0x140721CA0
+ * XREFs of MiReturnImageBase @ 0x140721EA0
  * Callers:
- *     MiCheckControlArea @ 0x14029FBC0 (MiCheckControlArea.c)
+ *     MiCheckControlArea @ 0x14029FE50 (MiCheckControlArea.c)
  *     MiRelocateImageAgain @ 0x1406AA700 (MiRelocateImageAgain.c)
- *     MiFreeRelocations @ 0x140A480B8 (MiFreeRelocations.c)
+ *     MiFreeRelocations @ 0x140A48368 (MiFreeRelocations.c)
  * Callees:
  *     MiGetImageBitMapInfo @ 0x1402106D4 (MiGetImageBitMapInfo.c)
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     RtlClearBitsEx @ 0x14028BB20 (RtlClearBitsEx.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F820 (KiCheckForKernelApcDelivery.c)
- *     MiZeroCfgSystemWideBitmap @ 0x140348110 (MiZeroCfgSystemWideBitmap.c)
+ *     KeAbPreAcquire @ 0x140230FD0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     RtlClearBitsEx @ 0x14028BDB0 (RtlClearBitsEx.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402FD0A0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KiCheckForKernelApcDelivery @ 0x14030FAB0 (KiCheckForKernelApcDelivery.c)
+ *     MiZeroCfgSystemWideBitmap @ 0x1403483A0 (MiZeroCfgSystemWideBitmap.c)
  *     MiReturnSystemImageAddress @ 0x140698C68 (MiReturnSystemImageAddress.c)
  */
 

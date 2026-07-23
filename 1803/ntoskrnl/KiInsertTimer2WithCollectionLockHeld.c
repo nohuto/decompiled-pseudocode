@@ -8,39 +8,39 @@
  *     KiRemoveTimer2 @ 0x1400E9160 (KiRemoveTimer2.c)
  */
 
-__int64 __fastcall KiInsertTimer2WithCollectionLockHeld(__int64 a1, char a2, unsigned __int64 a3, _BYTE *a4)
+__int64 __fastcall KiInsertTimer2WithCollectionLockHeld(__int64 a1, char a2, _BYTE *a3, _BYTE *a4)
 {
   char v4; // r10
   _BYTE *v5; // rbp
   unsigned __int8 v7; // r12
-  _BYTE *v8; // r13
   int v9; // r15d
   int v10; // esi
   __int64 v11; // rsi
   __int64 v12; // rax
   unsigned __int64 v13; // rdx
-  unsigned __int64 v14; // rdi
-  int v15; // ecx
-  unsigned __int64 v16; // rax
-  __int64 v17; // rcx
-  __int64 v18; // rax
-  char v19; // cl
-  __int64 v20; // rdi
-  __int64 v21; // rax
-  unsigned __int64 v22; // rdx
-  int v23; // ecx
-  unsigned __int64 v24; // rax
-  __int64 v25; // rcx
-  __int64 v26; // rax
-  __int64 v27; // rcx
-  signed __int32 v29[8]; // [rsp+0h] [rbp-58h] BYREF
+  _RTL_RB_TREE *v14; // rdi
+  BOOLEAN v15; // r8
+  int v16; // ecx
+  unsigned __int64 v17; // rax
+  _RTL_BALANCED_NODE *Min; // rcx
+  __int64 v19; // rax
+  char v20; // cl
+  _RTL_RB_TREE *v21; // rdi
+  __int64 v22; // rax
+  unsigned __int64 Root; // rdx
+  BOOLEAN v24; // r8
+  int v25; // ecx
+  unsigned __int64 v26; // rax
+  _RTL_BALANCED_NODE *v27; // rcx
+  __int64 v28; // rax
+  __int64 v29; // rcx
+  signed __int32 v31[8]; // [rsp+0h] [rbp-58h] BYREF
 
   v4 = *(_BYTE *)(a1 + 130);
   v5 = a4;
   v7 = 1;
-  v8 = (_BYTE *)a3;
   v9 = 0;
-  *(_BYTE *)a3 = 0;
+  *a3 = 0;
   v10 = 0;
   *a4 = 0;
   if ( v4 == 20 || (v4 & 0x20) != 0 && *(_QWORD *)(a1 + 72) == *(_QWORD *)(a1 + 80) )
@@ -53,72 +53,71 @@ __int64 __fastcall KiInsertTimer2WithCollectionLockHeld(__int64 a1, char a2, uns
     *(_BYTE *)(a1 + 130) = v4 & 0xEF;
     v12 = *((_QWORD *)&KiTimer2Collections + 3 * (v4 & 3) + 1);
     v13 = *((_QWORD *)&KiTimer2Collections + 3 * (v4 & 3));
-    v14 = (unsigned __int64)&KiTimer2Collections + 24 * (v4 & 3);
+    v14 = (_RTL_RB_TREE *)((char *)&KiTimer2Collections + 24 * (v4 & 3));
     if ( (v12 & 1) != 0 )
     {
       if ( v13 )
-        v13 ^= v14;
+        v13 ^= (unsigned __int64)v14;
       else
         v13 = 0LL;
     }
-    LOBYTE(a3) = 0;
-    v15 = v12 & 1;
+    v15 = 0;
+    v16 = v12 & 1;
     if ( v13 )
     {
-      a3 = *(_QWORD *)(a1 + 72);
       while ( 1 )
       {
-        if ( a3 < *(_QWORD *)(v13 + 48) )
+        if ( *(_QWORD *)(a1 + 72) < *(_QWORD *)(v13 + 48) )
         {
-          v16 = *(_QWORD *)v13;
-          if ( v15 )
+          v17 = *(_QWORD *)v13;
+          if ( v16 )
           {
-            if ( !v16 )
-              goto LABEL_21;
-            v16 ^= v13;
+            if ( !v17 )
+              goto LABEL_20;
+            v17 ^= v13;
           }
-          if ( !v16 )
+          if ( !v17 )
           {
-LABEL_21:
-            LOBYTE(a3) = 0;
+LABEL_20:
+            v15 = 0;
             break;
           }
         }
         else
         {
-          v16 = *(_QWORD *)(v13 + 8);
-          if ( v15 )
+          v17 = *(_QWORD *)(v13 + 8);
+          if ( v16 )
           {
-            if ( !v16 )
-              goto LABEL_15;
-            v16 ^= v13;
+            if ( !v17 )
+              goto LABEL_14;
+            v17 ^= v13;
           }
-          if ( !v16 )
+          if ( !v17 )
           {
-LABEL_15:
-            a3 = 1LL;
+LABEL_14:
+            v15 = 1;
             break;
           }
         }
-        v13 = v16;
+        v13 = v17;
       }
     }
-    RtlRbInsertNodeEx(v14, v13, a3, a1 + 24);
-    v17 = *(_QWORD *)(v14 + 8);
-    if ( (v17 & 1) != 0 )
+    RtlRbInsertNodeEx(v14, (PRTL_BALANCED_NODE)v13, v15, (PRTL_BALANCED_NODE)(a1 + 24));
+    Min = v14->Min;
+    if ( ((unsigned __int8)Min & 1) != 0 )
     {
-      if ( v17 == 1 )
-        v18 = 0LL;
+      if ( Min == (_RTL_BALANCED_NODE *)1 )
+        v19 = 0LL;
       else
-        v18 = v17 ^ (v14 | 1);
+        v19 = (unsigned __int64)Min ^ ((unsigned __int64)v14 | 1);
     }
     else
     {
-      v18 = *(_QWORD *)(v14 + 8);
+      v19 = (__int64)v14->Min;
     }
-    if ( v18 == v11 )
+    if ( v19 == v11 )
     {
-      *(_QWORD *)(v14 + 16) = *(_QWORD *)(a1 + 72);
+      v14[1].Root = *(_RTL_BALANCED_NODE **)(a1 + 72);
       v10 = 1;
     }
     else
@@ -126,83 +125,82 @@ LABEL_15:
       v10 = 0;
     }
   }
-  v19 = *(_BYTE *)(a1 + 131);
+  v20 = *(_BYTE *)(a1 + 131);
   if ( *(_QWORD *)(a1 + 80) == -1LL )
   {
-    *(_BYTE *)(a1 + 131) = v19 | 0x10;
+    *(_BYTE *)(a1 + 131) = v20 | 0x10;
   }
   else
   {
-    *(_BYTE *)(a1 + 131) = v19 & 0xEF;
-    v20 = 0x140000000LL + 24LL * (v19 & 3) + 3884192;
-    v21 = *(_QWORD *)(0x140000008LL + 24LL * (v19 & 3) + 3884192);
-    v22 = *(_QWORD *)v20;
-    if ( (v21 & 1) != 0 )
+    *(_BYTE *)(a1 + 131) = v20 & 0xEF;
+    v21 = (_RTL_RB_TREE *)(0x140000000LL + 24LL * (v20 & 3) + 3884192);
+    v22 = *(_QWORD *)(0x140000008LL + 24LL * (v20 & 3) + 3884192);
+    Root = (unsigned __int64)v21->Root;
+    if ( (v22 & 1) != 0 )
     {
-      if ( v22 )
-        v22 ^= v20;
+      if ( Root )
+        Root ^= (unsigned __int64)v21;
       else
-        v22 = 0LL;
+        Root = 0LL;
     }
-    LOBYTE(a3) = 0;
-    v23 = v21 & 1;
-    if ( v22 )
+    v24 = 0;
+    v25 = v22 & 1;
+    if ( Root )
     {
-      a3 = *(_QWORD *)(a1 + 80);
       while ( 1 )
       {
-        if ( a3 < *(_QWORD *)(v22 + 32) )
+        if ( *(_QWORD *)(a1 + 80) < *(_QWORD *)(Root + 32) )
         {
-          v24 = *(_QWORD *)v22;
-          if ( v23 )
+          v26 = *(_QWORD *)Root;
+          if ( v25 )
           {
-            if ( !v24 )
-              goto LABEL_49;
-            v24 ^= v22;
+            if ( !v26 )
+              goto LABEL_47;
+            v26 ^= Root;
           }
-          if ( !v24 )
+          if ( !v26 )
           {
-LABEL_49:
-            LOBYTE(a3) = 0;
+LABEL_47:
+            v24 = 0;
             break;
           }
         }
         else
         {
-          v24 = *(_QWORD *)(v22 + 8);
-          if ( v23 )
+          v26 = *(_QWORD *)(Root + 8);
+          if ( v25 )
           {
-            if ( !v24 )
-              goto LABEL_43;
-            v24 ^= v22;
+            if ( !v26 )
+              goto LABEL_41;
+            v26 ^= Root;
           }
-          if ( !v24 )
+          if ( !v26 )
           {
-LABEL_43:
-            a3 = 1LL;
+LABEL_41:
+            v24 = 1;
             break;
           }
         }
-        v22 = v24;
+        Root = v26;
       }
     }
-    RtlRbInsertNodeEx(v20, v22, a3, a1 + 48);
-    v25 = *(_QWORD *)(v20 + 8);
-    if ( (v25 & 1) != 0 )
+    RtlRbInsertNodeEx(v21, (PRTL_BALANCED_NODE)Root, v24, (PRTL_BALANCED_NODE)(a1 + 48));
+    v27 = v21->Min;
+    if ( ((unsigned __int8)v27 & 1) != 0 )
     {
-      if ( v25 == 1 )
-        v26 = 0LL;
+      if ( v27 == (_RTL_BALANCED_NODE *)1 )
+        v28 = 0LL;
       else
-        v26 = v25 ^ (v20 | 1);
+        v28 = (unsigned __int64)v27 ^ ((unsigned __int64)v21 | 1);
     }
     else
     {
-      v26 = *(_QWORD *)(v20 + 8);
+      v28 = (__int64)v21->Min;
     }
-    if ( v26 == a1 + 48 )
+    if ( v28 == a1 + 48 )
     {
       v9 = 1;
-      *(_QWORD *)(v20 + 16) = *(_QWORD *)(a1 + 80);
+      v21[1].Root = *(_RTL_BALANCED_NODE **)(a1 + 80);
     }
     v5 = a4;
     v10 |= v9;
@@ -212,11 +210,11 @@ LABEL_43:
     if ( (unsigned __int64)KiNextTimer2DueTime > *(_QWORD *)(a1 + 72) )
     {
       KiNextTimer2DueTime = *(_QWORD *)(a1 + 72);
-      _InterlockedOr(v29, 0);
+      _InterlockedOr(v31, 0);
     }
     if ( *(_QWORD *)(a1 + 72) <= MEMORY[0xFFFFF78000000008] )
     {
-      *v8 = 1;
+      *a3 = 1;
       if ( !a2 )
       {
         KiRemoveTimer2(a1);
@@ -226,10 +224,10 @@ LABEL_43:
   }
   if ( (*(_BYTE *)(a1 + 129) & 4) != 0 && _InterlockedIncrement(&KiHrTimerActiveCount) == 1 )
   {
-    v27 = *(_QWORD *)(KiProcessorBlock[KiClockTimerOwner] + 25016);
-    if ( v27 && (KiVelocityFlags & 0x40) != 0 && *(_BYTE *)(v27 + 27) != 1 )
+    v29 = *(_QWORD *)(KiProcessorBlock[KiClockTimerOwner] + 25016);
+    if ( v29 && (KiVelocityFlags & 0x40) != 0 && *(_BYTE *)(v29 + 27) != 1 )
     {
-      *(_BYTE *)(v27 + 27) = 1;
+      *(_BYTE *)(v29 + 27) = 1;
       *v5 = 1;
       return v7;
     }

@@ -9,67 +9,67 @@
  *     RtlBootStatusItemInfo @ 0x1800F91F8 (RtlBootStatusItemInfo.c)
  */
 
-__int64 __fastcall RtlCheckBootStatusIntegrity(__int64 a1, bool *a2)
+NTSTATUS __cdecl RtlCheckBootStatusIntegrity(HANDLE FileHandle, PBOOLEAN Verified)
 {
-  char v3; // r14
-  int File; // ebx
-  __int64 Heap; // rsi
-  __int64 v6; // rcx
-  _BYTE *v7; // rax
-  int v9; // [rsp+50h] [rbp-20h] BYREF
-  __int64 v10; // [rsp+58h] [rbp-18h]
-  __int64 v11; // [rsp+68h] [rbp-8h]
-  unsigned int v12; // [rsp+B0h] [rbp+40h]
-  int v13; // [rsp+B8h] [rbp+48h] BYREF
+  char v4; // r14
+  NTSTATUS v5; // ebx
+  PVOID Buffer; // rsi
+  __int64 v7; // rcx
+  _BYTE *v8; // rax
+  int v10; // [rsp+50h] [rbp-20h] BYREF
+  LARGE_INTEGER ByteOffset; // [rsp+58h] [rbp-18h] BYREF
+  _IO_STATUS_BLOCK IoStatusBlock; // [rsp+60h] [rbp-10h] BYREF
+  SIZE_T Size; // [rsp+B0h] [rbp+40h] BYREF
+  int v14; // [rsp+B8h] [rbp+48h] BYREF
 
-  v10 = 0LL;
-  v3 = 0;
-  File = NtReadFile();
-  if ( File >= 0 )
+  ByteOffset.QuadPart = 0LL;
+  v4 = 0;
+  v5 = NtReadFile(FileHandle, 0LL, 0LL, 0LL, &IoStatusBlock, &Size, 4u, &ByteOffset, 0LL);
+  if ( v5 >= 0 )
   {
-    File = RtlBootStatusItemInfo(15, &v9, &v13);
-    if ( File >= 0 )
+    v5 = RtlBootStatusItemInfo(15, &v10, &v14);
+    if ( v5 >= 0 )
     {
-      if ( v12 < v13 + v9 || v12 > 0x800 )
+      if ( (unsigned int)Size < v14 + v10 || (unsigned int)Size > 0x800 )
       {
-        *a2 = 0;
+        *Verified = 0;
       }
       else
       {
-        Heap = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v12);
-        if ( Heap )
+        Buffer = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, (unsigned int)Size);
+        if ( Buffer )
         {
-          File = NtReadFile();
-          if ( File >= 0 )
+          v5 = NtReadFile(FileHandle, 0LL, 0LL, 0LL, &IoStatusBlock, Buffer, Size, &ByteOffset, 0LL);
+          if ( v5 >= 0 )
           {
-            v6 = v12;
-            if ( v11 == v12 )
+            v7 = (unsigned int)Size;
+            if ( IoStatusBlock.Information == (unsigned int)Size )
             {
-              if ( v12 )
+              if ( (_DWORD)Size )
               {
-                v7 = (_BYTE *)Heap;
+                v8 = Buffer;
                 do
                 {
-                  v3 += *v7++;
-                  --v6;
+                  v4 += *v8++;
+                  --v7;
                 }
-                while ( v6 );
+                while ( v7 );
               }
-              *a2 = v3 == 0;
+              *Verified = v4 == 0;
             }
             else
             {
-              *a2 = 0;
+              *Verified = 0;
             }
           }
-          RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, Heap);
+          RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Buffer);
         }
         else
         {
-          return (unsigned int)-1073741801;
+          return -1073741801;
         }
       }
     }
   }
-  return (unsigned int)File;
+  return v5;
 }

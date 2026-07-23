@@ -1,13 +1,13 @@
 /*
- * XREFs of SepSetSingletonEntry @ 0x140609480
+ * XREFs of SepSetSingletonEntry @ 0x140607920
  * Callers:
- *     SeSetSecurityAttributesTokenEx @ 0x1406092E0 (SeSetSecurityAttributesTokenEx.c)
+ *     SeSetSecurityAttributesTokenEx @ 0x140607780 (SeSetSecurityAttributesTokenEx.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     SepGetSingletonEntryFromIndexNumber @ 0x140357308 (SepGetSingletonEntryFromIndexNumber.c)
- *     AuthzBasepSetSecurityAttributesToken @ 0x140357454 (AuthzBasepSetSecurityAttributesToken.c)
- *     ExReleaseSpinLockExclusive @ 0x140379ED0 (ExReleaseSpinLockExclusive.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     SepGetSingletonEntryFromIndexNumber @ 0x14021AA04 (SepGetSingletonEntryFromIndexNumber.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusive @ 0x1402E6E40 (ExReleaseSpinLockExclusive.c)
+ *     AuthzBasepSetSecurityAttributesToken @ 0x1403B8BCC (AuthzBasepSetSecurityAttributesToken.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall SepSetSingletonEntry(unsigned int a1, int *a2, __int64 a3)
@@ -29,7 +29,7 @@ __int64 __fastcall SepSetSingletonEntry(unsigned int a1, int *a2, __int64 a3)
     v8 = ExAcquireSpinLockExclusive(SingletonEntryFromIndexNumber);
     if ( !*((_QWORD *)v7 + 2) )
     {
-      Pool2 = (_DWORD *)ExAllocatePool2(0x40uLL);
+      Pool2 = (_DWORD *)ExAllocatePool2(0x40uLL, 0x30uLL, 0x74416553u);
       *((_QWORD *)v7 + 2) = Pool2;
       if ( !Pool2 )
       {

@@ -1,21 +1,21 @@
 /*
- * XREFs of PiDevCfgConfigureDeviceInterfaces @ 0x14087CDA0
+ * XREFs of PiDevCfgConfigureDeviceInterfaces @ 0x14087CFE0
  * Callers:
- *     PiDevCfgConfigureDeviceKeys @ 0x14087CAA4 (PiDevCfgConfigureDeviceKeys.c)
+ *     PiDevCfgConfigureDeviceKeys @ 0x14087CCE4 (PiDevCfgConfigureDeviceKeys.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x14022B6C0 (RtlInitUnicodeStringEx.c)
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     PiDevCfgParseVariableName @ 0x1403CE72C (PiDevCfgParseVariableName.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     _wcsicmp @ 0x1403D9A50 (_wcsicmp.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ZwOpenKey @ 0x14041AFA0 (ZwOpenKey.c)
- *     ZwEnumerateKey @ 0x14041B3A0 (ZwEnumerateKey.c)
- *     PiDevCfgParseInterfaceKeyName @ 0x140562084 (PiDevCfgParseInterfaceKeyName.c)
- *     _CmGetMatchingFilteredDeviceInterfaceList @ 0x1407D1938 (_CmGetMatchingFilteredDeviceInterfaceList.c)
- *     IopRegisterDeviceInterface @ 0x1408667FC (IopRegisterDeviceInterface.c)
- *     PiDevCfgResolveVariable @ 0x14087EC00 (PiDevCfgResolveVariable.c)
- *     PiDevCfgConfigureDeviceInterface @ 0x14095D3F0 (PiDevCfgConfigureDeviceInterface.c)
+ *     RtlInitUnicodeStringEx @ 0x14022B7D0 (RtlInitUnicodeStringEx.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     PiDevCfgParseVariableName @ 0x1403CE90C (PiDevCfgParseVariableName.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     _wcsicmp @ 0x1403D9C30 (_wcsicmp.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ZwOpenKey @ 0x14041B330 (ZwOpenKey.c)
+ *     ZwEnumerateKey @ 0x14041B730 (ZwEnumerateKey.c)
+ *     PiDevCfgParseInterfaceKeyName @ 0x140562744 (PiDevCfgParseInterfaceKeyName.c)
+ *     _CmGetMatchingFilteredDeviceInterfaceList @ 0x1407D1C08 (_CmGetMatchingFilteredDeviceInterfaceList.c)
+ *     IopRegisterDeviceInterface @ 0x140866A3C (IopRegisterDeviceInterface.c)
+ *     PiDevCfgResolveVariable @ 0x14087EE40 (PiDevCfgResolveVariable.c)
+ *     PiDevCfgConfigureDeviceInterface @ 0x14095D5F0 (PiDevCfgConfigureDeviceInterface.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

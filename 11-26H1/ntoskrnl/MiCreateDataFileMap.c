@@ -1,16 +1,16 @@
 /*
- * XREFs of MiCreateDataFileMap @ 0x140A565D8
+ * XREFs of MiCreateDataFileMap @ 0x140A63B60
  * Callers:
- *     MiCreateNewSection @ 0x140A562D8 (MiCreateNewSection.c)
+ *     MiCreateNewSection @ 0x140A63860 (MiCreateNewSection.c)
  * Callees:
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     MmGetCurrentProcessorColor @ 0x14044ADC0 (MmGetCurrentProcessorColor.c)
- *     MiInsertSubsectionNode @ 0x140488F70 (MiInsertSubsectionNode.c)
- *     Mi4KStartForSubsection @ 0x1404937B0 (Mi4KStartForSubsection.c)
- *     MiComputeIdealFirstSubsection @ 0x14086CF34 (MiComputeIdealFirstSubsection.c)
- *     FsRtlGetFileSize @ 0x140A56DE0 (FsRtlGetFileSize.c)
- *     FsRtlSetFileSize @ 0x140A57278 (FsRtlSetFileSize.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     MmGetCurrentProcessorColor @ 0x140442EF0 (MmGetCurrentProcessorColor.c)
+ *     MiInsertSubsectionNode @ 0x140482AB0 (MiInsertSubsectionNode.c)
+ *     Mi4KStartForSubsection @ 0x14048D2FC (Mi4KStartForSubsection.c)
+ *     MiComputeIdealFirstSubsection @ 0x140873314 (MiComputeIdealFirstSubsection.c)
+ *     FsRtlGetFileSize @ 0x140A64360 (FsRtlGetFileSize.c)
+ *     FsRtlSetFileSize @ 0x140A647F8 (FsRtlSetFileSize.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __fastcall MiCreateDataFileMap(
@@ -31,10 +31,10 @@ NTSTATUS __fastcall MiCreateDataFileMap(
   __int64 v16; // rdi
   __int64 v17; // rcx
   int v18; // ebx
-  unsigned int v19; // r14d
+  unsigned int v19; // r12d
   __int64 v20; // rdx
   unsigned __int64 v21; // r13
-  unsigned int v22; // r12d
+  unsigned int v22; // r14d
   int v23; // eax
   __int16 v24; // cx
   int v25; // edx
@@ -151,9 +151,9 @@ LABEL_29:
         FileSize.QuadPart = v20;
         *(_DWORD *)(v20 + 44) = v22 >> 3;
         v21 -= v22;
-        LODWORD(v17) = v19;
-        if ( v22 >= v19 )
-          LODWORD(v17) = v22;
+        if ( v22 < v19 )
+          v22 = v19;
+        LODWORD(v17) = v22;
         if ( !v21 )
         {
           *(_OWORD *)&PoolMm->LowPart = 0LL;
@@ -205,10 +205,10 @@ LABEL_22:
           PoolMm[3] = v11;
           PoolMm[1].LowPart = v12;
           v30 = v27 ^ (v27 ^ WORD2(v12)) & 0x3FF;
-          v31 = 0LL;
           LOBYTE(v27) = BYTE6(PoolMm[1].QuadPart) & 0xE0;
           WORD2(PoolMm[1].QuadPart) = v30;
           BYTE6(PoolMm[1].QuadPart) = v25 | v27;
+          v31 = 0LL;
           do
           {
             *v28 = v16;

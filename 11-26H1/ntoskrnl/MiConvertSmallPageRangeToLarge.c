@@ -1,20 +1,20 @@
 /*
- * XREFs of MiConvertSmallPageRangeToLarge @ 0x1403C5A90
+ * XREFs of MiConvertSmallPageRangeToLarge @ 0x1403CF990
  * Callers:
- *     MiRebuildLargePage @ 0x14028FF24 (MiRebuildLargePage.c)
- *     MiFreeMdlPageRun @ 0x1403C4140 (MiFreeMdlPageRun.c)
- *     MiFreeLargePageMemory @ 0x1403C52E8 (MiFreeLargePageMemory.c)
- *     MiInitializeMdlBatchPages @ 0x14050EE1C (MiInitializeMdlBatchPages.c)
- *     MiDeleteSubsectionLargePages @ 0x140510EFC (MiDeleteSubsectionLargePages.c)
- *     MiFindLargePageMemory @ 0x140B617F8 (MiFindLargePageMemory.c)
+ *     MiRebuildLargePage @ 0x14028F484 (MiRebuildLargePage.c)
+ *     MiFreeMdlPageRun @ 0x1403CE04C (MiFreeMdlPageRun.c)
+ *     MiFreeLargePageMemory @ 0x1403CF1F4 (MiFreeLargePageMemory.c)
+ *     MiInitializeMdlBatchPages @ 0x14050888C (MiInitializeMdlBatchPages.c)
+ *     MiDeleteSubsectionLargePages @ 0x14050A96C (MiDeleteSubsectionLargePages.c)
+ *     MiFindLargePageMemory @ 0x140B64898 (MiFindLargePageMemory.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     HvlNotifyLongSpinWait @ 0x1402BBF00 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402BC760 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     KeShouldYieldProcessor @ 0x1402D49D0 (KeShouldYieldProcessor.c)
- *     MiConvertLockedSmallPageToLarge @ 0x1403C5CF0 (MiConvertLockedSmallPageToLarge.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     KeShouldYieldProcessor @ 0x1402B6790 (KeShouldYieldProcessor.c)
+ *     HvlNotifyLongSpinWait @ 0x140306BC0 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140307420 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     MiConvertLockedSmallPageToLarge @ 0x1403CFBF0 (MiConvertLockedSmallPageToLarge.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall MiConvertSmallPageRangeToLarge(__int64 a1, unsigned int a2)

@@ -1,9 +1,9 @@
 /*
- * XREFs of PnpCompareInstancePath @ 0x140A24220
+ * XREFs of PnpCompareInstancePath @ 0x140A36D30
  * Callers:
  *     <none>
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x1402150C0 (PsGetCurrentServerSiloGlobals.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x1402153F0 (PsGetCurrentServerSiloGlobals.c)
  */
 
 __int64 __fastcall PnpCompareInstancePath(__int64 a1, __int64 a2, __int64 a3)

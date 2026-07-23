@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlSetActiveTimeBias @ 0x1407821AC
+ * XREFs of RtlSetActiveTimeBias @ 0x1407820DC
  * Callers:
- *     ExpRefreshTimeZoneInformation @ 0x1409DC59C (ExpRefreshTimeZoneInformation.c)
+ *     ExpRefreshTimeZoneInformation @ 0x140A7981C (ExpRefreshTimeZoneInformation.c)
  * Callees:
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     RtlpQueryRegistryValues @ 0x1409CC350 (RtlpQueryRegistryValues.c)
- *     RtlpGetTimeZoneInfoHandle @ 0x1409DBBB4 (RtlpGetTimeZoneInfoHandle.c)
- *     RtlWriteRegistryValue @ 0x140A54360 (RtlWriteRegistryValue.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     RtlpQueryRegistryValues @ 0x1409B4DD0 (RtlpQueryRegistryValues.c)
+ *     RtlWriteRegistryValue @ 0x1409B6290 (RtlWriteRegistryValue.c)
+ *     RtlpGetTimeZoneInfoHandle @ 0x1409B6330 (RtlpGetTimeZoneInfoHandle.c)
  */
 
 __int64 __fastcall RtlSetActiveTimeBias(__int64 a1)

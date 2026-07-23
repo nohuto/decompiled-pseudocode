@@ -3,16 +3,16 @@
  * Callers:
  *     MiInitSystem @ 0x1407A3AAC (MiInitSystem.c)
  * Callees:
- *     MiLockPageInline @ 0x140022E70 (MiLockPageInline.c)
- *     MiIsPfnInline @ 0x140030920 (MiIsPfnInline.c)
- *     MiMakeValidKernelPte @ 0x140034D10 (MiMakeValidKernelPte.c)
- *     ExGenRandom @ 0x1400F0494 (ExGenRandom.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiSwizzleInvalidPte @ 0x1401F297C (MiSwizzleInvalidPte.c)
+ *     MiLockPageInline @ 0x1400229F0 (MiLockPageInline.c)
+ *     MiIsPfnInline @ 0x1400304A0 (MiIsPfnInline.c)
+ *     MiMakeValidKernelPte @ 0x140034890 (MiMakeValidKernelPte.c)
+ *     ExGenRandom @ 0x1400EE314 (ExGenRandom.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
+ *     MiSwizzleInvalidPte @ 0x1401F2784 (MiSwizzleInvalidPte.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     HvlGetSharedPageVa @ 0x14058194C (HvlGetSharedPageVa.c)
+ *     HvlGetSharedPageVa @ 0x140581DFC (HvlGetSharedPageVa.c)
  */
 
 __int64 MiInitializeSharedUserData()
@@ -50,7 +50,7 @@ __int64 MiInitializeSharedUserData()
         v3 = ExGenRandom(1) & 0xF;
         if ( !v3 )
           LODWORD(v3) = 15;
-        qword_140326998 = (unsigned int)((_DWORD)v3 << 12) + 2147352576LL;
+        qword_1403269D8 = (unsigned int)((_DWORD)v3 << 12) + 2147352576LL;
       }
     }
   }
@@ -66,7 +66,7 @@ __int64 MiInitializeSharedUserData()
       *v9 = ValidKernelPte;
       if ( MiPteInShadowRange((unsigned __int64)v9) )
         MiWritePteShadow(v11, v10);
-      *(&qword_140326988 + i) = (ULONG_PTR)v9;
+      *(&qword_1403269C8 + i) = (ULONG_PTR)v9;
       v12 = 48 * v7 - 0x58000000000LL;
       MiLockPageInline(v12);
       *(_QWORD *)(v12 + 16) = MiSwizzleInvalidPte(128LL);

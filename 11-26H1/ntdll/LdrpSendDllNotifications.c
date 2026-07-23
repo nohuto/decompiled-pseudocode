@@ -1,16 +1,16 @@
 /*
- * XREFs of LdrpSendDllNotifications @ 0x1800DEB20
+ * XREFs of LdrpSendDllNotifications @ 0x1800DBA90
  * Callers:
- *     LdrpSendPostSnapNotifications @ 0x18011B220 (LdrpSendPostSnapNotifications.c)
- *     LdrpUnloadNode @ 0x18011BEB0 (LdrpUnloadNode.c)
- *     LdrpCorProcessImports @ 0x18011D1A0 (LdrpCorProcessImports.c)
+ *     LdrpSendPostSnapNotifications @ 0x18011AFD0 (LdrpSendPostSnapNotifications.c)
+ *     LdrpUnloadNode @ 0x18011BC60 (LdrpUnloadNode.c)
+ *     LdrpCorProcessImports @ 0x18011CF50 (LdrpCorProcessImports.c)
  * Callees:
- *     RtlEnterCriticalSection @ 0x180048D70 (RtlEnterCriticalSection.c)
- *     RtlLeaveCriticalSection @ 0x18004A3E0 (RtlLeaveCriticalSection.c)
- *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180170020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ *     RtlEnterCriticalSection @ 0x1800332F0 (RtlEnterCriticalSection.c)
+ *     RtlLeaveCriticalSection @ 0x180034960 (RtlLeaveCriticalSection.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x18016F020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
  */
 
-__int64 __fastcall LdrpSendDllNotifications(__int64 a1, unsigned int a2)
+NTSTATUS __fastcall LdrpSendDllNotifications(__int64 a1, unsigned int a2)
 {
   _UNKNOWN **v3; // rbx
   _QWORD v5[4]; // [rsp+20h] [rbp-38h] BYREF
@@ -21,7 +21,7 @@ __int64 __fastcall LdrpSendDllNotifications(__int64 a1, unsigned int a2)
   v5[2] = a1 + 88;
   v5[3] = *(_QWORD *)(a1 + 48);
   v6 = *(_DWORD *)(a1 + 64);
-  RtlEnterCriticalSection((__int64)&LdrpDllNotificationLock);
+  RtlEnterCriticalSection(&LdrpDllNotificationLock);
   v3 = (_UNKNOWN **)LdrpDllNotificationList;
   if ( LdrpDllNotificationList != (_UNKNOWN *)&LdrpDllNotificationList )
   {
@@ -32,5 +32,5 @@ __int64 __fastcall LdrpSendDllNotifications(__int64 a1, unsigned int a2)
     }
     while ( v3 != &LdrpDllNotificationList );
   }
-  return RtlLeaveCriticalSection((__int64)&LdrpDllNotificationLock);
+  return RtlLeaveCriticalSection(&LdrpDllNotificationLock);
 }

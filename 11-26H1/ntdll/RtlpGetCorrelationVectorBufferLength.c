@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpGetCorrelationVectorBufferLength @ 0x1800E93B4
+ * XREFs of RtlpGetCorrelationVectorBufferLength @ 0x1800E85C4
  * Callers:
- *     RtlExtendCorrelationVector @ 0x1800E90D0 (RtlExtendCorrelationVector.c)
- *     RtlIncrementCorrelationVector @ 0x1800E9120 (RtlIncrementCorrelationVector.c)
- *     RtlValidateCorrelationVector @ 0x1800E9210 (RtlValidateCorrelationVector.c)
- *     RtlpGetCorrelationVectorEndPosition @ 0x1800E92FC (RtlpGetCorrelationVectorEndPosition.c)
- *     RtlpGetLastContiguosBase64Position @ 0x1800E9340 (RtlpGetLastContiguosBase64Position.c)
- *     RtlpGetCorrelationVectorLastDotPosition @ 0x1800E93D8 (RtlpGetCorrelationVectorLastDotPosition.c)
+ *     RtlExtendCorrelationVector @ 0x1800E82E0 (RtlExtendCorrelationVector.c)
+ *     RtlIncrementCorrelationVector @ 0x1800E8330 (RtlIncrementCorrelationVector.c)
+ *     RtlValidateCorrelationVector @ 0x1800E8420 (RtlValidateCorrelationVector.c)
+ *     RtlpGetCorrelationVectorEndPosition @ 0x1800E850C (RtlpGetCorrelationVectorEndPosition.c)
+ *     RtlpGetLastContiguosBase64Position @ 0x1800E8550 (RtlpGetLastContiguosBase64Position.c)
+ *     RtlpGetCorrelationVectorLastDotPosition @ 0x1800E85E8 (RtlpGetCorrelationVectorLastDotPosition.c)
  * Callees:
  *     <none>
  */

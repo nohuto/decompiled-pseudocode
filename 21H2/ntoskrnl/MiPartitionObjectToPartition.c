@@ -1,17 +1,17 @@
 /*
- * XREFs of MiPartitionObjectToPartition @ 0x1402E5F80
+ * XREFs of MiPartitionObjectToPartition @ 0x1402972D0
  * Callers:
- *     MmAllocatePartitionNodePagesForMdlEx @ 0x1402E32F0 (MmAllocatePartitionNodePagesForMdlEx.c)
- *     MmAllocateNonChargedSecurePages @ 0x14053430C (MmAllocateNonChargedSecurePages.c)
- *     MmFreeNonChargedSecurePages @ 0x1405344D4 (MmFreeNonChargedSecurePages.c)
- *     MmGetNodeFastLargePageCounts @ 0x140547D00 (MmGetNodeFastLargePageCounts.c)
- *     MmAllocateSecureKernelPages @ 0x1405533D4 (MmAllocateSecureKernelPages.c)
- *     MmGetPageFileInformation @ 0x1406BE834 (MmGetPageFileInformation.c)
- *     MmGetPhysicalMemoryRangesEx2 @ 0x14076F700 (MmGetPhysicalMemoryRangesEx2.c)
- *     MmBuildLargePages @ 0x1408D76D4 (MmBuildLargePages.c)
+ *     MmAllocatePartitionNodePagesForMdlEx @ 0x140294640 (MmAllocatePartitionNodePagesForMdlEx.c)
+ *     MmAllocateNonChargedSecurePages @ 0x14053454C (MmAllocateNonChargedSecurePages.c)
+ *     MmFreeNonChargedSecurePages @ 0x140534714 (MmFreeNonChargedSecurePages.c)
+ *     MmGetNodeFastLargePageCounts @ 0x140547F40 (MmGetNodeFastLargePageCounts.c)
+ *     MmAllocateSecureKernelPages @ 0x140553614 (MmAllocateSecureKernelPages.c)
+ *     MmGetPageFileInformation @ 0x14061DAD4 (MmGetPageFileInformation.c)
+ *     MmGetPhysicalMemoryRangesEx2 @ 0x14076F8C0 (MmGetPhysicalMemoryRangesEx2.c)
+ *     MmBuildLargePages @ 0x1408D7834 (MmBuildLargePages.c)
  * Callees:
- *     PsReferencePartitionSafe @ 0x1402AC004 (PsReferencePartitionSafe.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     PsReferencePartitionSafe @ 0x1402745B0 (PsReferencePartitionSafe.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
  */
 
 ULONG_PTR *__fastcall MiPartitionObjectToPartition(ULONG_PTR **BugCheckParameter2, char a2, _BYTE *a3)
@@ -27,7 +27,7 @@ ULONG_PTR *__fastcall MiPartitionObjectToPartition(ULONG_PTR **BugCheckParameter
   {
     if ( BugCheckParameter2 == (ULONG_PTR **)-1LL )
     {
-      v7 = *(ULONG_PTR **)(qword_140C4E648 + 8LL * KeGetCurrentThread()->ApcState.Process[1].IdealProcessorPadding[5]);
+      v7 = *(ULONG_PTR **)(qword_140C4E688 + 8LL * KeGetCurrentThread()->ApcState.Process[1].IdealProcessorPadding[5]);
     }
     else
     {

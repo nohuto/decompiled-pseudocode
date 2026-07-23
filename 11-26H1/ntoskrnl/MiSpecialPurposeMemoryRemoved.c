@@ -1,17 +1,17 @@
 /*
- * XREFs of MiSpecialPurposeMemoryRemoved @ 0x14087EC30
+ * XREFs of MiSpecialPurposeMemoryRemoved @ 0x140885030
  * Callers:
- *     MmRemovePhysicalMemory @ 0x140867460 (MmRemovePhysicalMemory.c)
- *     MiSpecialPurposeMemoryTypeDereference @ 0x14087EDA8 (MiSpecialPurposeMemoryTypeDereference.c)
+ *     MmRemovePhysicalMemory @ 0x14086D840 (MmRemovePhysicalMemory.c)
+ *     MiSpecialPurposeMemoryTypeDereference @ 0x1408851A8 (MiSpecialPurposeMemoryTypeDereference.c)
  * Callees:
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     KiCheckForKernelApcDelivery @ 0x14027DB80 (KiCheckForKernelApcDelivery.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     PsDereferencePartition @ 0x140381940 (PsDereferencePartition.c)
- *     KeGenericCallDpcEx @ 0x1403C2284 (KeGenericCallDpcEx.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     MiFindSpecialPurposeMemoryTypeByPartition @ 0x14087E624 (MiFindSpecialPurposeMemoryTypeByPartition.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x14027D0F0 (KiCheckForKernelApcDelivery.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     PsDereferencePartition @ 0x1403836F0 (PsDereferencePartition.c)
+ *     KeGenericCallDpcEx @ 0x1403CC184 (KeGenericCallDpcEx.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     MiFindSpecialPurposeMemoryTypeByPartition @ 0x140884A24 (MiFindSpecialPurposeMemoryTypeByPartition.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiSpecialPurposeMemoryRemoved(_QWORD *a1)
@@ -72,7 +72,7 @@ void __fastcall MiSpecialPurposeMemoryRemoved(_QWORD *a1)
       CurrentThread = KeGetCurrentThread();
       v11 = CurrentThread->SpecialApcDisable++ == -1;
       if ( v11
-        && ($7A85BAF4F1FA08634C1C4A3E45B775B3 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+        && ($241382875694CED3D471BC5892DE3337 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
       {
         KiCheckForKernelApcDelivery(v9, (__int64)CurrentThread);
       }

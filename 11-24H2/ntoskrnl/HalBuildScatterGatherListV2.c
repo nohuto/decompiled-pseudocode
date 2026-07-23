@@ -1,21 +1,21 @@
 /*
- * XREFs of HalBuildScatterGatherListV2 @ 0x14038E070
+ * XREFs of HalBuildScatterGatherListV2 @ 0x1403879B0
  * Callers:
- *     HalGetScatterGatherList @ 0x140390DB0 (HalGetScatterGatherList.c)
+ *     HalGetScatterGatherList @ 0x14038A6E0 (HalGetScatterGatherList.c)
  * Callees:
- *     HalpDmaFlushBuffer @ 0x14038D450 (HalpDmaFlushBuffer.c)
- *     HalpCalculateScatterGatherListSize @ 0x14038E640 (HalpCalculateScatterGatherListSize.c)
- *     KeInsertDeviceQueue @ 0x14038E850 (KeInsertDeviceQueue.c)
- *     HalpDmaAllocateMapRegisters @ 0x14038E95C (HalpDmaAllocateMapRegisters.c)
- *     HalpAllocateAdapterCallbackV2 @ 0x14038ED80 (HalpAllocateAdapterCallbackV2.c)
- *     IoFreeAdapterChannelV2 @ 0x14038F310 (IoFreeAdapterChannelV2.c)
- *     HalpQueueMapBufferWorker @ 0x14049D1A8 (HalpQueueMapBufferWorker.c)
- *     HalpDmaQueueAdapter @ 0x1404D9E04 (HalpDmaQueueAdapter.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     HalpDmaFlushBuffer @ 0x140386D90 (HalpDmaFlushBuffer.c)
+ *     HalpCalculateScatterGatherListSize @ 0x140387F80 (HalpCalculateScatterGatherListSize.c)
+ *     KeInsertDeviceQueue @ 0x140388190 (KeInsertDeviceQueue.c)
+ *     HalpDmaAllocateMapRegisters @ 0x14038829C (HalpDmaAllocateMapRegisters.c)
+ *     HalpAllocateAdapterCallbackV2 @ 0x1403886C0 (HalpAllocateAdapterCallbackV2.c)
+ *     IoFreeAdapterChannelV2 @ 0x140388C50 (IoFreeAdapterChannelV2.c)
+ *     HalpQueueMapBufferWorker @ 0x140497EF8 (HalpQueueMapBufferWorker.c)
+ *     HalpDmaQueueAdapter @ 0x1404D3844 (HalpDmaQueueAdapter.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall HalBuildScatterGatherListV2(
@@ -61,34 +61,32 @@ __int64 __fastcall HalBuildScatterGatherListV2(
   char v41; // bp
   unsigned __int8 CurrentIrql; // r13
   __int64 v43; // rdx
-  __int64 v44; // r8
-  __int64 v45; // r9
   __int64 MapRegisters; // rax
-  __int64 v47; // rcx
-  __int64 v48; // r8
+  __int64 v45; // rcx
+  __int64 v46; // r8
   int AdapterCallbackV2; // eax
-  struct _KDEVICE_QUEUE_ENTRY *v50; // rax
-  unsigned __int64 v51; // r8
-  ULONG v52; // [rsp+40h] [rbp-48h] BYREF
+  struct _KDEVICE_QUEUE_ENTRY *v48; // rax
+  unsigned __int64 v49; // r8
+  ULONG v50; // [rsp+40h] [rbp-48h] BYREF
   char *Pool2; // [rsp+48h] [rbp-40h] BYREF
-  char *v55; // [rsp+A0h] [rbp+18h] BYREF
-  unsigned __int64 v56; // [rsp+A8h] [rbp+20h]
+  char *v53; // [rsp+A0h] [rbp+18h] BYREF
+  unsigned __int64 v54; // [rsp+A8h] [rbp+20h]
 
-  v56 = a4;
+  v54 = a4;
   v10 = 0;
   v11 = a4;
   LODWORD(Pool2) = 0;
-  v52 = 0;
-  LODWORD(v55) = 0;
+  v50 = 0;
+  LODWORD(v53) = 0;
   if ( !a3 )
     return 3221225485LL;
   v15 = a5;
-  result = HalpCalculateScatterGatherListSize(a1, a3, a4, a5, (__int64)&v55, (__int64)&Pool2, (__int64)&v52);
+  result = HalpCalculateScatterGatherListSize(a1, a3, a4, a5, (__int64)&v53, (__int64)&Pool2, (__int64)&v50);
   if ( (int)result >= 0 )
   {
     if ( *(_BYTE *)(a1 + 440) )
     {
-      v34 = v52;
+      v34 = v50;
       v35 = a8;
     }
     else
@@ -98,14 +96,14 @@ __int64 __fastcall HalBuildScatterGatherListV2(
       v35 = a8;
       if ( a8 )
         goto LABEL_5;
-      v34 = v52;
-      if ( !v52 )
+      v34 = v50;
+      if ( !v50 )
       {
-        v11 = v56;
+        v11 = v54;
 LABEL_5:
         if ( P )
         {
-          if ( a10 >= (unsigned int)v55 )
+          if ( a10 >= (unsigned int)v53 )
           {
             v17 = (char *)P;
             Pool2 = (char *)P;
@@ -115,7 +113,7 @@ LABEL_8:
             *((_QWORD *)v17 + 1) = 0LL;
             v20 = v11 & 0xFFF;
             v21 = *(_DWORD *)(a3 + 40) - v11;
-            v55 = v17 + 16;
+            v53 = v17 + 16;
             v22 = v19 + v21;
             v23 = v17 + 16;
             v24 = v15;
@@ -141,11 +139,11 @@ LABEL_8:
                 if ( !*(_BYTE *)(a1 + 445) )
                 {
                   if ( v26 == a3 )
-                    v51 = v56;
+                    v49 = v54;
                   else
-                    v51 = *(_QWORD *)(v26 + 32) + v20;
-                  HalpDmaFlushBuffer(v27, v26, v51, v29, a8, 0);
-                  v18 = v55;
+                    v49 = *(_QWORD *)(v26 + 32) + v20;
+                  HalpDmaFlushBuffer(v27, v26, v49, v29, a8, 0);
+                  v18 = v53;
                   v24 = a5;
                 }
                 for ( ; v29; v20 = 0 )
@@ -168,7 +166,7 @@ LABEL_8:
                       *((_DWORD *)v23 - 4) += v32;
                       v23 -= 24;
                     }
-                    v18 = v55;
+                    v18 = v53;
                   }
                   v23 += 24;
                   ++v25;
@@ -186,12 +184,12 @@ LABEL_8:
             *(_DWORD *)v17 = (v23 - v17 - 16) / 24;
             if ( P )
               *((_QWORD *)v17 + 1) = 1LL;
-            guard_dispatch_icall_no_overrides(a2, a2[2].Flink, v17, a7);
+            guard_dispatch_icall_no_overrides(a2, a2[2].Flink);
             return 0LL;
           }
           return 3221225507LL;
         }
-        Pool2 = (char *)ExAllocatePool2(0x42uLL);
+        Pool2 = (char *)ExAllocatePool2(0x42uLL, (unsigned int)v53, 0x446C6148u);
         v17 = Pool2;
         if ( Pool2 )
           goto LABEL_8;
@@ -201,19 +199,19 @@ LABEL_8:
     v36 = P;
     if ( P )
     {
-      if ( a10 < (unsigned int)v55 )
+      if ( a10 < (unsigned int)v53 )
         return 3221225507LL;
       LODWORD(P->DeviceListEntry.Flink) |= 1u;
     }
     else
     {
-      v50 = (struct _KDEVICE_QUEUE_ENTRY *)ExAllocatePool2(0x42uLL);
-      v36 = v50;
-      if ( !v50 )
+      v48 = (struct _KDEVICE_QUEUE_ENTRY *)ExAllocatePool2(0x42uLL, (unsigned int)v53, 0x446C6148u);
+      v36 = v48;
+      if ( !v48 )
         return 3221225626LL;
-      LODWORD(v50->DeviceListEntry.Flink) = 0;
+      LODWORD(v48->DeviceListEntry.Flink) = 0;
     }
-    v36[1].DeviceListEntry.Blink = (struct _LIST_ENTRY *)v56;
+    v36[1].DeviceListEntry.Blink = (struct _LIST_ENTRY *)v54;
     v36[5].DeviceListEntry.Flink = a6;
     v36[5].DeviceListEntry.Blink = a7;
     v36->DeviceListEntry.Blink = (struct _LIST_ENTRY *)a3;
@@ -278,17 +276,17 @@ LABEL_8:
         *(_QWORD *)(a1 + 240) = 0LL;
         *(_DWORD *)(a1 + 248) = 0;
       }
-      v47 = *(_QWORD *)(a1 + 432);
-      if ( v47 )
-        guard_dispatch_icall_no_overrides(v47, v43, v44, v45);
+      v45 = *(_QWORD *)(a1 + 432);
+      if ( v45 )
+        guard_dispatch_icall_no_overrides(v45, v43);
       if ( !v39 )
       {
-        v48 = *(_QWORD *)(a1 + 240);
+        v46 = *(_QWORD *)(a1 + 240);
         *(_QWORD *)(a1 + 352) = v37;
         AdapterCallbackV2 = HalpAllocateAdapterCallbackV2(
                               v36[4].DeviceListEntry.Flink,
                               v36[4].DeviceListEntry.Blink,
-                              v48,
+                              v46,
                               v36[3].DeviceListEntry.Blink);
         if ( AdapterCallbackV2 != 2 )
         {

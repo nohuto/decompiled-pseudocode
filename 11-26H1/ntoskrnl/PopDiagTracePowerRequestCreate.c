@@ -1,16 +1,16 @@
 /*
- * XREFs of PopDiagTracePowerRequestCreate @ 0x140AC0BAC
+ * XREFs of PopDiagTracePowerRequestCreate @ 0x140AC2C4C
  * Callers:
- *     PopPowerRequestCreateCommon @ 0x140436FDC (PopPowerRequestCreateCommon.c)
- *     PopDiagTraceControlCallback @ 0x140AC0910 (PopDiagTraceControlCallback.c)
+ *     PopPowerRequestCreateCommon @ 0x140425F6C (PopPowerRequestCreateCommon.c)
+ *     PopDiagTraceControlCallback @ 0x140AC29B0 (PopDiagTraceControlCallback.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     PoStoreRequester @ 0x140437428 (PoStoreRequester.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     PopGetCallerContextFromBuffer @ 0x140ABC0A8 (PopGetCallerContextFromBuffer.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     PoStoreRequester @ 0x1404263B8 (PoStoreRequester.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     PopGetCallerContextFromBuffer @ 0x140ABDDA8 (PopGetCallerContextFromBuffer.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PopDiagTracePowerRequestCreate(char a1, __int64 a2)
@@ -85,12 +85,12 @@ void __fastcall PopDiagTracePowerRequestCreate(char a1, __int64 a2)
   v21 = 0;
   v36 = 0LL;
   *(_DWORD *)(&v34.MaximumLength + 1) = 0;
-  if ( byte_140E67628 )
+  if ( PopDiagHandleRegistered )
   {
     v3 = &POP_ETW_EVENT_CREATE_POWER_REQUEST;
     if ( a1 )
       v3 = &POP_ETW_EVENT_POWER_REQUEST_RUNDOWN;
-    if ( EtwEventEnabled(*(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16], v3) )
+    if ( EtwEventEnabled(PopDiagHandle, v3) )
     {
       v33 = 0LL;
       *(_DWORD *)&v34.Length = 1441792;
@@ -206,7 +206,7 @@ void __fastcall PopDiagTracePowerRequestCreate(char a1, __int64 a2)
           *((_QWORD *)&UserData.Size + v18) = 4LL;
           if ( !a1 )
             v12 = &POP_ETW_EVENT_CREATE_POWER_REQUEST;
-          EtwWrite(*(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16], v12, 0LL, v19, &UserData);
+          EtwWrite(PopDiagHandle, v12, 0LL, v19, &UserData);
         }
         ExFreePoolWithTag(v6, 0x50455654u);
       }

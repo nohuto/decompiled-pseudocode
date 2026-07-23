@@ -1,25 +1,25 @@
 /*
- * XREFs of RtlQueryPackageClaims @ 0x14000CCEC
+ * XREFs of RtlQueryPackageClaims @ 0x14000C86C
  * Callers:
- *     RtlQueryPackageIdentity @ 0x14000CC98 (RtlQueryPackageIdentity.c)
- *     SepDesktopAppxSubProcessToken @ 0x14007BF38 (SepDesktopAppxSubProcessToken.c)
- *     SeQuerySigningPolicyWorker @ 0x14045D1FC (SeQuerySigningPolicyWorker.c)
+ *     RtlQueryPackageIdentity @ 0x14000C818 (RtlQueryPackageIdentity.c)
+ *     SepDesktopAppxSubProcessToken @ 0x14007BFB8 (SepDesktopAppxSubProcessToken.c)
+ *     SeQuerySigningPolicyWorker @ 0x14045C0CC (SeQuerySigningPolicyWorker.c)
  * Callees:
- *     RtlpQueryPackageIdentityAttributes @ 0x14000DAB8 (RtlpQueryPackageIdentityAttributes.c)
- *     RtlStringCbPrintfExW @ 0x1400A8DE0 (RtlStringCbPrintfExW.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     RtlGUIDFromString @ 0x1404FB370 (RtlGUIDFromString.c)
+ *     RtlpQueryPackageIdentityAttributes @ 0x14000D638 (RtlpQueryPackageIdentityAttributes.c)
+ *     RtlStringCbPrintfExW @ 0x1400A7360 (RtlStringCbPrintfExW.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     RtlGUIDFromString @ 0x1404DE2FC (RtlGUIDFromString.c)
  */
 
-NTSTATUS __fastcall RtlQueryPackageClaims(
-        int a1,
-        wchar_t *a2,
-        size_t *a3,
-        wchar_t *a4,
-        size_t *a5,
-        GUID *Guid,
-        __int64 a7,
-        __int64 a8)
+NTSTATUS __cdecl RtlQueryPackageClaims(
+        HANDLE TokenHandle,
+        PWSTR PackageFullName,
+        PSIZE_T PackageSize,
+        PWSTR AppId,
+        PSIZE_T AppIdSize,
+        PGUID DynamicId,
+        PPS_PKG_CLAIM PkgClaim,
+        PULONG64 AttributesPresent)
 {
   NTSTATUS result; // eax
   NTSTATUS v12; // ebx
@@ -28,41 +28,48 @@ NTSTATUS __fastcall RtlQueryPackageClaims(
   size_t pcbRemaining; // [rsp+48h] [rbp-380h] BYREF
   __int64 v16; // [rsp+58h] [rbp-370h]
 
-  result = RtlpQueryPackageIdentityAttributes(a1, a8);
+  result = RtlpQueryPackageIdentityAttributes((int)TokenHandle, (__int64)AttributesPresent);
   v12 = result;
   if ( result < 0 )
     return result;
-  if ( a2 )
+  if ( PackageFullName )
   {
-    if ( a3 )
+    if ( PackageSize )
     {
-      result = RtlStringCbPrintfExW(a2, *a3, &ppszDestEnd, &pcbRemaining, 0x800u, L"%wZ", *(_QWORD *)(v16 + 32));
+      result = RtlStringCbPrintfExW(
+                 PackageFullName,
+                 *PackageSize,
+                 &ppszDestEnd,
+                 &pcbRemaining,
+                 0x800u,
+                 L"%wZ",
+                 *(_QWORD *)(v16 + 32));
       v12 = result;
       if ( result < 0 )
         return result;
-      *a3 = (char *)ppszDestEnd - (char *)a2 + 2;
+      *PackageSize = (char *)ppszDestEnd - (char *)PackageFullName + 2;
       goto LABEL_7;
     }
     return -1073741811;
   }
-  if ( a3 )
+  if ( PackageSize )
     return -1073741811;
 LABEL_7:
-  if ( a4 )
+  if ( AppId )
   {
-    result = RtlStringCbPrintfExW(a4, *a5, &ppszDestEnd, 0LL, 0x800u, L"%wZ", *(_QWORD *)(v16 + 32) + 16LL);
+    result = RtlStringCbPrintfExW(AppId, *AppIdSize, &ppszDestEnd, 0LL, 0x800u, L"%wZ", *(_QWORD *)(v16 + 32) + 16LL);
     v12 = result;
     if ( result < 0 )
       return result;
-    *a5 = (char *)ppszDestEnd - (char *)a4 + 2;
+    *AppIdSize = (char *)ppszDestEnd - (char *)AppId + 2;
   }
-  if ( Guid )
+  if ( DynamicId )
   {
     v13 = v16;
-    *(_QWORD *)&Guid->Data1 = 0LL;
-    *(_QWORD *)Guid->Data4 = 0LL;
+    *(_QWORD *)&DynamicId->Data1 = 0LL;
+    *(_QWORD *)DynamicId->Data4 = 0LL;
     if ( *(_DWORD *)(v13 + 24) > 3u )
-      RtlGUIDFromString((PCUNICODE_STRING)(*(_QWORD *)(v13 + 32) + 48LL), Guid);
+      RtlGUIDFromString((PCUNICODE_STRING)(*(_QWORD *)(v13 + 32) + 48LL), DynamicId);
   }
   return v12;
 }

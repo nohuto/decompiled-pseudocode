@@ -1,8 +1,8 @@
 /*
- * XREFs of PspLookupSyscallProviderByIdNoLock @ 0x14077143C
+ * XREFs of PspLookupSyscallProviderByIdNoLock @ 0x14077165C
  * Callers:
- *     PspLookupSyscallProviderById @ 0x1405E4A2C (PspLookupSyscallProviderById.c)
- *     PsRegisterSyscallProvider @ 0x140770EE0 (PsRegisterSyscallProvider.c)
+ *     PspLookupSyscallProviderById @ 0x1405E1F54 (PspLookupSyscallProviderById.c)
+ *     PsRegisterSyscallProvider @ 0x140771100 (PsRegisterSyscallProvider.c)
  * Callees:
  *     <none>
  */

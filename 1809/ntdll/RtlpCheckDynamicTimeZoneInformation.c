@@ -6,9 +6,9 @@
  *     RtlpRegTziFormatToTzi @ 0x1800531A4 (RtlpRegTziFormatToTzi.c)
  *     RtlpGetDynamicTimeZoneInfoHandle @ 0x180053260 (RtlpGetDynamicTimeZoneInfoHandle.c)
  *     RtlpFindRegTziForCurrentYear @ 0x18005352C (RtlpFindRegTziForCurrentYear.c)
- *     __security_check_cookie @ 0x18008FEC0 (__security_check_cookie.c)
- *     memcmp @ 0x180093CB0 (memcmp.c)
- *     NtClose @ 0x1800A04C0 (NtClose.c)
+ *     __security_check_cookie @ 0x18008FED0 (__security_check_cookie.c)
+ *     memcmp @ 0x180093CC0 (memcmp.c)
+ *     NtClose @ 0x1800A04E0 (NtClose.c)
  */
 
 char __fastcall RtlpCheckDynamicTimeZoneInformation(_OWORD *Buf2, unsigned __int16 a2)

@@ -1,15 +1,15 @@
 /*
- * XREFs of MmManageFaultRange @ 0x140680564
+ * XREFs of MmManageFaultRange @ 0x140681764
  * Callers:
- *     RtlpEnvRegisterFaultRange @ 0x140607598 (RtlpEnvRegisterFaultRange.c)
+ *     RtlpEnvRegisterFaultRange @ 0x140604BA0 (RtlpEnvRegisterFaultRange.c)
  * Callees:
- *     RtlAvlInsertNodeEx @ 0x14025FDD0 (RtlAvlInsertNodeEx.c)
- *     RtlAvlRemoveNode @ 0x140260BC0 (RtlAvlRemoveNode.c)
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     MiAllocatePool @ 0x1402ACA70 (MiAllocatePool.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     MiAllocatePool @ 0x140277450 (MiAllocatePool.c)
+ *     RtlAvlInsertNodeEx @ 0x1402903E0 (RtlAvlInsertNodeEx.c)
+ *     RtlAvlRemoveNode @ 0x1402911D0 (RtlAvlRemoveNode.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MmManageFaultRange(ULONG_PTR BugCheckParameter3, ULONG_PTR BugCheckParameter4, __int64 a3, char a4)
@@ -65,10 +65,10 @@ __int64 __fastcall MmManageFaultRange(ULONG_PTR BugCheckParameter3, ULONG_PTR Bu
     v19 = BugCheckParameter4 + BugCheckParameter3 - 1;
   }
 LABEL_12:
-  v12 = ExAcquireSpinLockExclusive(&dword_140E2CA70);
+  v12 = ExAcquireSpinLockExclusive(&dword_140E2CBB0);
   if ( !v9 )
   {
-    v16 = qword_140E2CA78[0];
+    v16 = qword_140E2CBB8[0];
     while ( v16 )
     {
       if ( *((_QWORD *)v8 + 3) <= *(_QWORD *)(v16 + 32) )
@@ -84,12 +84,12 @@ LABEL_12:
     }
     if ( *(_QWORD *)(v16 + 24) != BugCheckParameter3 || *(_QWORD *)(v16 + 32) != v5 )
       KeBugCheckEx(0x1Au, 0x5231uLL, v16, BugCheckParameter3, BugCheckParameter4);
-    RtlAvlRemoveNode(qword_140E2CA78, v16);
+    RtlAvlRemoveNode(qword_140E2CBB8, v16);
     goto LABEL_31;
   }
-  v13 = (_QWORD *)qword_140E2CA78[0];
+  v13 = (_QWORD *)qword_140E2CBB8[0];
   v14 = 0;
-  if ( !qword_140E2CA78[0] )
+  if ( !qword_140E2CBB8[0] )
     goto LABEL_21;
   while ( *((_QWORD *)v8 + 3) <= v13[4] && *((_QWORD *)v8 + 4) < v13[3] )
   {
@@ -104,10 +104,10 @@ LABEL_19:
     goto LABEL_19;
   v14 = 1;
 LABEL_21:
-  RtlAvlInsertNodeEx(qword_140E2CA78, (unsigned __int64)v13, v14, v8);
+  RtlAvlInsertNodeEx(qword_140E2CBB8, (unsigned __int64)v13, v14, v8);
   v16 = 0LL;
 LABEL_31:
-  MiReleaseSpinLockExclusive(&dword_140E2CA70, v12);
+  MiReleaseSpinLockExclusive(&dword_140E2CBB0, v12);
   if ( v16 )
   {
     while ( v4 < 2 )

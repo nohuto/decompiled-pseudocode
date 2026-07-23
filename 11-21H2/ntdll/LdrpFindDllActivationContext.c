@@ -15,7 +15,7 @@ __int64 __fastcall LdrpFindDllActivationContext(_QWORD *a1)
   _WORD *v4; // rdx
   int v5; // eax
   __int64 v6; // rax
-  volatile signed __int32 *v8; // rcx
+  _ACTIVATION_CONTEXT *v8; // rcx
   __int64 v9; // [rsp+58h] [rbp+10h] BYREF
 
   v2 = 0;
@@ -57,7 +57,7 @@ __int64 __fastcall LdrpFindDllActivationContext(_QWORD *a1)
       v6 = v9;
       if ( v9 )
       {
-        v8 = (volatile signed __int32 *)a1[17];
+        v8 = (_ACTIVATION_CONTEXT *)a1[17];
         if ( v8 )
         {
           RtlReleaseActivationContext(v8);

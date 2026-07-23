@@ -1,59 +1,59 @@
 /*
- * XREFs of CcDecrementOpenCount @ 0x14031313C
+ * XREFs of CcDecrementOpenCount @ 0x14031DE8C
  * Callers:
- *     CcFlushCachePriv @ 0x14022CBA0 (CcFlushCachePriv.c)
- *     CcNotifyOfMappedWrite @ 0x14022D68C (CcNotifyOfMappedWrite.c)
- *     CcWriteBehindInternal @ 0x14022DA70 (CcWriteBehindInternal.c)
- *     CcSetFileSizesEx @ 0x14022E120 (CcSetFileSizesEx.c)
- *     CcGetFlushedValidData @ 0x1402B9D30 (CcGetFlushedValidData.c)
- *     CcNotifyOfMappedWriteComplete @ 0x1402D0220 (CcNotifyOfMappedWriteComplete.c)
- *     CcMdlWriteComplete2 @ 0x1402D05D8 (CcMdlWriteComplete2.c)
- *     CcPurgeCacheSection @ 0x1402F0920 (CcPurgeCacheSection.c)
- *     CcCompleteAsyncRead @ 0x1402F7640 (CcCompleteAsyncRead.c)
- *     CcPerformReadAhead @ 0x1402F9DF0 (CcPerformReadAhead.c)
- *     CcUnmapInactiveViewsInternal @ 0x1404EB544 (CcUnmapInactiveViewsInternal.c)
- *     CcMdlWriteAbort @ 0x1404EBB70 (CcMdlWriteAbort.c)
+ *     CcGetFlushedValidData @ 0x140237F40 (CcGetFlushedValidData.c)
+ *     CcNotifyOfMappedWriteComplete @ 0x14024E5A0 (CcNotifyOfMappedWriteComplete.c)
+ *     CcMdlWriteComplete2 @ 0x14024E958 (CcMdlWriteComplete2.c)
+ *     CcFlushCachePriv @ 0x1402D13F0 (CcFlushCachePriv.c)
+ *     CcNotifyOfMappedWrite @ 0x1402D1EDC (CcNotifyOfMappedWrite.c)
+ *     CcWriteBehindInternal @ 0x1402D22C0 (CcWriteBehindInternal.c)
+ *     CcSetFileSizesEx @ 0x1402D2970 (CcSetFileSizesEx.c)
+ *     CcPurgeCacheSection @ 0x1402FB670 (CcPurgeCacheSection.c)
+ *     CcCompleteAsyncRead @ 0x140302390 (CcCompleteAsyncRead.c)
+ *     CcPerformReadAhead @ 0x140304B40 (CcPerformReadAhead.c)
+ *     CcUnmapInactiveViewsInternal @ 0x1404EB784 (CcUnmapInactiveViewsInternal.c)
+ *     CcMdlWriteAbort @ 0x1404EBDB0 (CcMdlWriteAbort.c)
  * Callees:
- *     CcScheduleLazyWriteScan @ 0x1402F6D5C (CcScheduleLazyWriteScan.c)
- *     CcInsertIntoDirtySharedCacheMapList @ 0x1402F6DE8 (CcInsertIntoDirtySharedCacheMapList.c)
- *     CcGetPartition @ 0x140313800 (CcGetPartition.c)
+ *     CcScheduleLazyWriteScan @ 0x140301AAC (CcScheduleLazyWriteScan.c)
+ *     CcInsertIntoDirtySharedCacheMapList @ 0x140301B38 (CcInsertIntoDirtySharedCacheMapList.c)
+ *     CcGetPartition @ 0x14031E550 (CcGetPartition.c)
  */
 
-char __fastcall CcDecrementOpenCount(__int64 a1)
+char __fastcall CcDecrementOpenCount(__int64 a1, char a2, char a3)
 {
   __int64 Partition; // rax
-  __int64 v3; // rdi
-  int v4; // r8d
-  int v5; // ecx
-  __int64 v6; // r11
-  char v7; // dl
-  char v8; // r8
+  __int64 v5; // rdi
+  int v6; // r8d
+  int v7; // ecx
+  __int64 v8; // r11
+  char v9; // dl
+  char v10; // r8
 
   --*(_DWORD *)(a1 + 4);
   --*(_DWORD *)(a1 + 536);
-  Partition = CcGetPartition(a1);
-  v3 = Partition;
+  Partition = CcGetPartition(a1, a2, a3);
+  v5 = Partition;
   if ( !*(_DWORD *)(a1 + 4) )
   {
     *(_BYTE *)(*(_QWORD *)(a1 + 528) + 633LL) = 1;
-    v4 = *(_DWORD *)(a1 + 152);
-    v5 = *(_DWORD *)(a1 + 112);
-    if ( (v4 & 0x10000) != 0 )
+    v6 = *(_DWORD *)(a1 + 152);
+    v7 = *(_DWORD *)(a1 + 112);
+    if ( (v6 & 0x10000) != 0 )
     {
-      if ( !v5 )
+      if ( !v7 )
         CcInsertIntoDirtySharedCacheMapList(a1);
-      v8 = 1;
-      v7 = 1;
+      v10 = 1;
+      v9 = 1;
     }
     else
     {
-      if ( v5 || (v4 & 0x20) != 0 )
+      if ( v7 || (v6 & 0x20) != 0 )
         return Partition;
       CcInsertIntoDirtySharedCacheMapList(a1);
-      v7 = v6 != 0;
-      v8 = 0;
+      v9 = v8 != 0;
+      v10 = 0;
     }
-    LOBYTE(Partition) = CcScheduleLazyWriteScan(v3, v7, v8);
+    LOBYTE(Partition) = CcScheduleLazyWriteScan(v5, v9, v10);
   }
   return Partition;
 }

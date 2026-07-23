@@ -1,11 +1,11 @@
 /*
- * XREFs of wil_details_FeatureStateCache_ReevaluateCachedFeatureEnabledState @ 0x1800D58D4
+ * XREFs of wil_details_FeatureStateCache_ReevaluateCachedFeatureEnabledState @ 0x1800D0C44
  * Callers:
- *     wil_details_IsEnabledFallback @ 0x1800D5838 (wil_details_IsEnabledFallback.c)
- *     wil_details_FeatureStateCache_GetCachedFeatureEnabledState @ 0x18010AB94 (wil_details_FeatureStateCache_GetCachedFeatureEnabledState.c)
+ *     wil_details_IsEnabledFallback @ 0x1800D0BA8 (wil_details_IsEnabledFallback.c)
+ *     wil_details_FeatureStateCache_GetCachedFeatureEnabledState @ 0x180105704 (wil_details_FeatureStateCache_GetCachedFeatureEnabledState.c)
  * Callees:
- *     wil_details_GetCurrentFeatureEnabledState @ 0x1800D59FC (wil_details_GetCurrentFeatureEnabledState.c)
- *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180172020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ *     wil_details_GetCurrentFeatureEnabledState @ 0x1800D0D6C (wil_details_GetCurrentFeatureEnabledState.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180171020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
  */
 
 __int64 __fastcall wil_details_FeatureStateCache_ReevaluateCachedFeatureEnabledState(
@@ -18,7 +18,7 @@ __int64 __fastcall wil_details_FeatureStateCache_ReevaluateCachedFeatureEnabledS
   __int16 CurrentFeatureEnabledState; // bx
   signed __int32 v8; // eax
   char i; // cl
-  unsigned int v10; // esi
+  signed __int32 v10; // esi
   int v12; // [rsp+50h] [rbp+8h] BYREF
   __int64 v13; // [rsp+58h] [rbp+10h]
 
@@ -34,16 +34,12 @@ __int64 __fastcall wil_details_FeatureStateCache_ReevaluateCachedFeatureEnabledS
   v8 = v5;
   for ( i = v5; ; i = v8 )
   {
-    v10 = v8;
-    LODWORD(v13) = v8;
-    if ( v12 )
+    v10 = v8 | 0x40000;
+    LODWORD(v13) = v8 | 0x40000;
+    if ( v12 && (i & 2) == 0 )
     {
-      LODWORD(v13) = v8;
-      if ( (i & 2) == 0 )
-      {
-        v10 = CurrentFeatureEnabledState & 0x9C1 | v8 & 0xFFFFF63E | 2;
-        LODWORD(v13) = v10;
-      }
+      v10 = CurrentFeatureEnabledState & 0x9C1 | v8 & 0xFFFBF63E | 0x40000 | 2;
+      LODWORD(v13) = v10;
     }
     if ( (v5 & 4) == 0 )
     {

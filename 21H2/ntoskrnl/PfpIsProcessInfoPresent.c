@@ -1,8 +1,8 @@
 /*
- * XREFs of PfpIsProcessInfoPresent @ 0x1402D4668
+ * XREFs of PfpIsProcessInfoPresent @ 0x140273348
  * Callers:
- *     PfpCopyEvent @ 0x1406CA480 (PfpCopyEvent.c)
- *     PfpFlushBuffers @ 0x1406CA6C0 (PfpFlushBuffers.c)
+ *     PfpCopyEvent @ 0x140678D70 (PfpCopyEvent.c)
+ *     PfpFlushBuffers @ 0x140678FB0 (PfpFlushBuffers.c)
  * Callees:
  *     <none>
  */

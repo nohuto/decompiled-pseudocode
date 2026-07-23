@@ -6,7 +6,7 @@
  *     <none>
  */
 
-int __stdcall LdrLoadEnclaveModule(int a1, int a2, int a3)
+NTSTATUS __cdecl LdrLoadEnclaveModule(PVOID BaseAddress, PWSTR DllPath, PUNICODE_STRING DllName)
 {
   return -1073741637;
 }

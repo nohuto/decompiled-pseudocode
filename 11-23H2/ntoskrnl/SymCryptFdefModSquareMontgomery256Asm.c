@@ -1,5 +1,5 @@
 /*
- * XREFs of SymCryptFdefModSquareMontgomery256Asm @ 0x140406BB0
+ * XREFs of SymCryptFdefModSquareMontgomery256Asm @ 0x140406D90
  * Callers:
  *     <none>
  * Callees:
@@ -13,7 +13,7 @@ __int64 __fastcall SymCryptFdefModSquareMontgomery256Asm(__int64 a1, __int64 a2)
 
   result = *(_QWORD *)(a2 + 24) * *(_QWORD *)(a2 + 24);
   if ( &v3 )
-    JUMPOUT(0x140406953LL);
+    JUMPOUT(0x140406B33LL);
   __debugbreak();
   return result;
 }

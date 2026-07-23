@@ -1,13 +1,13 @@
 /*
- * XREFs of MiCompactServiceTable @ 0x14053A248
+ * XREFs of MiCompactServiceTable @ 0x14053A788
  * Callers:
- *     MmLoadSystemImage @ 0x140482B2C (MmLoadSystemImage.c)
+ *     MmLoadSystemImage @ 0x140481880 (MmLoadSystemImage.c)
  * Callees:
- *     MiSectionControlArea @ 0x14002C4D0 (MiSectionControlArea.c)
- *     MiSetImageProtection @ 0x140084C58 (MiSetImageProtection.c)
- *     KeCompactServiceTable @ 0x14012DA2C (KeCompactServiceTable.c)
- *     RtlFindExportedRoutineByName @ 0x1403F5F04 (RtlFindExportedRoutineByName.c)
- *     RtlEqualUnicodeString @ 0x14040F720 (RtlEqualUnicodeString.c)
+ *     MiSectionControlArea @ 0x14002C050 (MiSectionControlArea.c)
+ *     MiSetImageProtection @ 0x140082DB8 (MiSetImageProtection.c)
+ *     KeCompactServiceTable @ 0x14012DF9C (KeCompactServiceTable.c)
+ *     RtlFindExportedRoutineByName @ 0x1403F4DC8 (RtlFindExportedRoutineByName.c)
+ *     RtlEqualUnicodeString @ 0x14040E5E0 (RtlEqualUnicodeString.c)
  */
 
 __int64 __fastcall MiCompactServiceTable(__int64 a1)
@@ -26,22 +26,22 @@ __int64 __fastcall MiCompactServiceTable(__int64 a1)
   v10.Buffer = L"win32k.sys";
   if ( RtlEqualUnicodeString((PCUNICODE_STRING)(a1 + 88), &v10, 1u) != 1 )
     return 0LL;
-  ExportedRoutineByName = (int *)RtlFindExportedRoutineByName(*(char **)(a1 + 48), "W32pServiceTable");
+  ExportedRoutineByName = (int *)RtlFindExportedRoutineByName(*(PVOID *)(a1 + 48), "W32pServiceTable");
   if ( ExportedRoutineByName )
   {
-    v4 = (unsigned int *)RtlFindExportedRoutineByName(*(char **)(a1 + 48), "W32pServiceLimit");
+    v4 = (unsigned int *)RtlFindExportedRoutineByName(*(PVOID *)(a1 + 48), "W32pServiceLimit");
     if ( v4 )
     {
-      v5 = (unsigned __int8 *)RtlFindExportedRoutineByName(*(char **)(a1 + 48), "W32pArgumentTable");
+      v5 = (unsigned __int8 *)RtlFindExportedRoutineByName(*(PVOID *)(a1 + 48), "W32pArgumentTable");
       if ( v5 )
       {
-        v6 = (int *)RtlFindExportedRoutineByName(*(char **)(a1 + 48), "W32pServiceTableFilter");
+        v6 = (int *)RtlFindExportedRoutineByName(*(PVOID *)(a1 + 48), "W32pServiceTableFilter");
         if ( v6 )
         {
-          v7 = (unsigned int *)RtlFindExportedRoutineByName(*(char **)(a1 + 48), "W32pServiceLimitFilter");
+          v7 = (unsigned int *)RtlFindExportedRoutineByName(*(PVOID *)(a1 + 48), "W32pServiceLimitFilter");
           if ( v7 )
           {
-            v8 = (unsigned __int8 *)RtlFindExportedRoutineByName(*(char **)(a1 + 48), "W32pArgumentTableFilter");
+            v8 = (unsigned __int8 *)RtlFindExportedRoutineByName(*(PVOID *)(a1 + 48), "W32pArgumentTableFilter");
             if ( v8 )
             {
               v9 = 8 * *v4;

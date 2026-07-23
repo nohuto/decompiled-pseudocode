@@ -1,13 +1,13 @@
 /*
- * XREFs of AslEnvVarQuery @ 0x14080BF80
+ * XREFs of AslEnvVarQuery @ 0x14080C6C0
  * Callers:
- *     SdbpGetProcessHistory @ 0x140805DC0 (SdbpGetProcessHistory.c)
- *     AslEnvExpandStrings @ 0x14080B864 (AslEnvExpandStrings.c)
+ *     SdbpGetProcessHistory @ 0x140806500 (SdbpGetProcessHistory.c)
+ *     AslEnvExpandStrings @ 0x14080BFA4 (AslEnvExpandStrings.c)
  * Callees:
- *     _wcsnicmp @ 0x1404FE4F0 (_wcsnicmp.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     RtlUpcaseUnicodeChar @ 0x1408441F0 (RtlUpcaseUnicodeChar.c)
- *     RtlGetNtSystemRoot @ 0x140A0B910 (RtlGetNtSystemRoot.c)
+ *     _wcsnicmp @ 0x1404FBDB0 (_wcsnicmp.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     RtlUpcaseUnicodeChar @ 0x1408404B0 (RtlUpcaseUnicodeChar.c)
+ *     RtlGetNtSystemRoot @ 0x140A0AB50 (RtlGetNtSystemRoot.c)
  */
 
 __int64 __fastcall AslEnvVarQuery(
@@ -20,8 +20,8 @@ __int64 __fastcall AslEnvVarQuery(
 {
   unsigned int v6; // esi
   WCHAR *v7; // rbp
-  __int64 NtSystemRoot; // rax
-  _BYTE *v12; // rdx
+  PWSTR NtSystemRoot; // rax
+  PWSTR v12; // rdx
   unsigned __int64 v13; // rbx
   unsigned __int64 v14; // rcx
   size_t v15; // rbx
@@ -68,7 +68,7 @@ LABEL_22:
       if ( v19 )
       {
         v12 = v20 + 1;
-        v22 = ((char *)a1 - v12) >> 1;
+        v22 = a1 - v12;
         if ( v22 < a5 )
         {
           v15 = v22;
@@ -105,11 +105,11 @@ LABEL_28:
     goto LABEL_27;
   }
   NtSystemRoot = RtlGetNtSystemRoot();
-  v12 = (_BYTE *)NtSystemRoot;
+  v12 = NtSystemRoot;
   v13 = -1LL;
   do
     ++v13;
-  while ( *(_WORD *)(NtSystemRoot + 2 * v13) );
+  while ( NtSystemRoot[v13] );
   if ( v13 < a5 )
   {
     *a6 = v13;

@@ -2,18 +2,18 @@
  * XREFs of PoFxSendSystemLatencyUpdate @ 0x140005DA8
  * Callers:
  *     PoNotifyVSyncChange @ 0x140005D70 (PoNotifyVSyncChange.c)
- *     PopDeepSleepEvaluateCallback @ 0x1402E3810 (PopDeepSleepEvaluateCallback.c)
- *     PopCheckResiliencyScenarios @ 0x140589E14 (PopCheckResiliencyScenarios.c)
- *     PopEnforceResiliencyScenarios @ 0x1406E2064 (PopEnforceResiliencyScenarios.c)
- *     PopWnfFullscreenVideoCallback @ 0x140868F30 (PopWnfFullscreenVideoCallback.c)
- *     PoInitSystem @ 0x1409B2C10 (PoInitSystem.c)
+ *     PopDeepSleepEvaluateCallback @ 0x1402E3A00 (PopDeepSleepEvaluateCallback.c)
+ *     PopCheckResiliencyScenarios @ 0x14058AE14 (PopCheckResiliencyScenarios.c)
+ *     PopEnforceResiliencyScenarios @ 0x1406E3304 (PopEnforceResiliencyScenarios.c)
+ *     PopWnfFullscreenVideoCallback @ 0x14086A190 (PopWnfFullscreenVideoCallback.c)
+ *     PoInitSystem @ 0x1409B3C10 (PoInitSystem.c)
  * Callees:
  *     PopFxGetLatencyLimitWithoutResiliency @ 0x140005E34 (PopFxGetLatencyLimitWithoutResiliency.c)
  *     PpmIdleUsingStateSelection @ 0x140005E68 (PpmIdleUsingStateSelection.c)
  *     PoFxSystemLatencyNotify @ 0x140005EEC (PoFxSystemLatencyNotify.c)
  *     PopDiagTraceSystemLatencyUpdate @ 0x140005F88 (PopDiagTraceSystemLatencyUpdate.c)
  *     PpmGetExitSamplingCountdown @ 0x140005FFC (PpmGetExitSamplingCountdown.c)
- *     KeFlushProcessWriteBuffers @ 0x1400ECFF8 (KeFlushProcessWriteBuffers.c)
+ *     KeFlushProcessWriteBuffers @ 0x1400ED078 (KeFlushProcessWriteBuffers.c)
  */
 
 __int64 PoFxSendSystemLatencyUpdate()
@@ -25,8 +25,8 @@ __int64 PoFxSendSystemLatencyUpdate()
   __int64 v4; // rcx
   signed __int32 v5[10]; // [rsp+0h] [rbp-28h] BYREF
 
-  if ( byte_140418234 && (!PopDeepSleepIsEnabled && PopPdcIdleResiliency || PopDeepSleepIsEngaged) )
-    LatencyLimitWithoutResiliency = dword_14054034C;
+  if ( byte_1404192F4 && (!PopDeepSleepIsEnabled && PopPdcIdleResiliency || PopDeepSleepIsEngaged) )
+    LatencyLimitWithoutResiliency = dword_14054134C;
   else
     LatencyLimitWithoutResiliency = PopFxGetLatencyLimitWithoutResiliency();
   result = (unsigned int)PopFxSystemLatencyLimit;

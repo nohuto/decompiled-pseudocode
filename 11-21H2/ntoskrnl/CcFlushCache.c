@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     CcFlushCachePriv @ 0x140283030 (CcFlushCachePriv.c)
+ *     sub_140283030 @ 0x140283030 (sub_140283030.c)
  */
 
 void __stdcall CcFlushCache(
@@ -12,5 +12,5 @@ void __stdcall CcFlushCache(
         ULONG Length,
         PIO_STATUS_BLOCK IoStatus)
 {
-  CcFlushCachePriv((_DWORD)SectionObjectPointer, (_DWORD)FileOffset, Length, 0, 0, (__int64)IoStatus);
+  sub_140283030((_DWORD)SectionObjectPointer, (_DWORD)FileOffset, Length, 0, 0, (__int64)IoStatus);
 }

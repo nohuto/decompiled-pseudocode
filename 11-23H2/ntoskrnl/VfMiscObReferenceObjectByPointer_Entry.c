@@ -1,10 +1,10 @@
 /*
- * XREFs of VfMiscObReferenceObjectByPointer_Entry @ 0x140AE0610
+ * XREFs of VfMiscObReferenceObjectByPointer_Entry @ 0x140AE0600
  * Callers:
  *     <none>
  * Callees:
- *     VfMiscCheckKernelAddress @ 0x1405D2498 (VfMiscCheckKernelAddress.c)
- *     VerifierBugCheckIfAppropriate @ 0x140ACD2B4 (VerifierBugCheckIfAppropriate.c)
+ *     VfMiscCheckKernelAddress @ 0x1405D2A08 (VfMiscCheckKernelAddress.c)
+ *     VerifierBugCheckIfAppropriate @ 0x140ACD2A4 (VerifierBugCheckIfAppropriate.c)
  */
 
 unsigned __int64 __fastcall VfMiscObReferenceObjectByPointer_Entry(__int64 a1)

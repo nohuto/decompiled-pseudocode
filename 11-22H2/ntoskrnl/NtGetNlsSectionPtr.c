@@ -17,19 +17,24 @@
  *     RtlpInitNlsFileName @ 0x1407A5798 (RtlpInitNlsFileName.c)
  */
 
-NTSTATUS __fastcall NtGetNlsSectionPtr(unsigned int a1, unsigned int a2, PVOID *a3, _QWORD *a4, _QWORD *a5)
+NTSTATUS __cdecl NtGetNlsSectionPtr(
+        ULONG SectionType,
+        ULONG SectionData,
+        PVOID ContextData,
+        PVOID *SectionPointer,
+        PULONG SectionSize)
 {
   char PreviousMode; // r12
   __int64 v10; // rdx
   __int64 v11; // rcx
   __int64 v12; // rcx
   NTSTATUS result; // eax
-  NTSTATUS v14; // ebx
-  NTSTATUS v15; // eax
+  int v14; // ebx
+  int v15; // eax
   PVOID Object; // [rsp+58h] [rbp-220h] BYREF
   HANDLE SectionHandle; // [rsp+60h] [rbp-218h] BYREF
   HANDLE FileHandle; // [rsp+68h] [rbp-210h] BYREF
-  __int64 v19; // [rsp+70h] [rbp-208h] BYREF
+  void *v19; // [rsp+70h] [rbp-208h] BYREF
   unsigned __int64 v20; // [rsp+78h] [rbp-200h] BYREF
   __int64 v21; // [rsp+80h] [rbp-1F8h] BYREF
   __int64 v22; // [rsp+88h] [rbp-1F0h] BYREF
@@ -49,36 +54,36 @@ NTSTATUS __fastcall NtGetNlsSectionPtr(unsigned int a1, unsigned int a2, PVOID *
   IoStatusBlock = 0LL;
   v19 = 0LL;
   v20 = 0LL;
-  if ( !a4 && !a3 )
+  if ( !SectionPointer && !ContextData )
     return -1073741811;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
   {
     v10 = 0x7FFFFFFF0000LL;
-    if ( a4 )
+    if ( SectionPointer )
     {
       v11 = 0x7FFFFFFF0000LL;
-      if ( (unsigned __int64)a4 < 0x7FFFFFFF0000LL )
-        v11 = (__int64)a4;
+      if ( (unsigned __int64)SectionPointer < 0x7FFFFFFF0000LL )
+        v11 = (__int64)SectionPointer;
       *(_QWORD *)v11 = *(_QWORD *)v11;
     }
-    if ( a5 )
+    if ( SectionSize )
     {
       v12 = 0x7FFFFFFF0000LL;
-      if ( (unsigned __int64)a5 < 0x7FFFFFFF0000LL )
-        v12 = (__int64)a5;
+      if ( (unsigned __int64)SectionSize < 0x7FFFFFFF0000LL )
+        v12 = (__int64)SectionSize;
       *(_QWORD *)v12 = *(_QWORD *)v12;
     }
-    if ( a3 )
+    if ( ContextData )
     {
-      if ( (unsigned __int64)a3 < 0x7FFFFFFF0000LL )
-        v10 = (__int64)a3;
+      if ( (unsigned __int64)ContextData < 0x7FFFFFFF0000LL )
+        v10 = (__int64)ContextData;
       *(_QWORD *)v10 = *(_QWORD *)v10;
     }
-    if ( a3 )
+    if ( ContextData )
       return -1073741583;
   }
-  result = RtlpInitNlsSectionName(a1, a2, v28);
+  result = RtlpInitNlsSectionName(SectionType, SectionData, v28);
   if ( result >= 0 )
   {
     ObjectAttributes.Length = 48;
@@ -86,7 +91,7 @@ NTSTATUS __fastcall NtGetNlsSectionPtr(unsigned int a1, unsigned int a2, PVOID *
     ObjectAttributes.Attributes = 720;
     ObjectAttributes.ObjectName = (PUNICODE_STRING)&v24;
     *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
-    if ( ((a1 - 11) & 0xFFFFFFFC) != 0 || a1 == 13 )
+    if ( ((SectionType - 11) & 0xFFFFFFFC) != 0 || SectionType == 13 )
     {
       v14 = -1073741823;
     }
@@ -98,7 +103,7 @@ NTSTATUS __fastcall NtGetNlsSectionPtr(unsigned int a1, unsigned int a2, PVOID *
         *(&v26.Length + 1) = 0;
         *(&v26.Attributes + 1) = 0;
         v25 = 0LL;
-        result = RtlpInitNlsFileName(a1, a2, v29);
+        result = RtlpInitNlsFileName(SectionType, SectionData, v29);
         if ( result < 0 )
           return result;
         v26.Length = 48;
@@ -120,7 +125,7 @@ NTSTATUS __fastcall NtGetNlsSectionPtr(unsigned int a1, unsigned int a2, PVOID *
       ZwClose(SectionHandle);
       if ( v14 >= 0 )
       {
-        if ( a4 )
+        if ( SectionPointer )
         {
           v21 = 0LL;
           if ( PreviousMode )
@@ -144,16 +149,16 @@ NTSTATUS __fastcall NtGetNlsSectionPtr(unsigned int a1, unsigned int a2, PVOID *
           }
           v14 = v15;
         }
-        if ( !a3 )
+        if ( !ContextData )
           ObfDereferenceObject(Object);
         if ( v14 >= 0 )
         {
-          if ( a4 )
-            *a4 = v19;
-          if ( a5 )
-            *a5 = v20;
-          if ( a3 )
-            *a3 = Object;
+          if ( SectionPointer )
+            *SectionPointer = v19;
+          if ( SectionSize )
+            *(_QWORD *)SectionSize = v20;
+          if ( ContextData )
+            *(_QWORD *)ContextData = Object;
         }
       }
     }

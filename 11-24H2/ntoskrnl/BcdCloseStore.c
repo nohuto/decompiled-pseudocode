@@ -1,67 +1,50 @@
 /*
- * XREFs of BcdCloseStore @ 0x14085EED8
+ * XREFs of BcdCloseStore @ 0x140A81A08
  * Callers:
- *     WheaPersistBadPageToBcd @ 0x14065CE90 (WheaPersistBadPageToBcd.c)
- *     PopFreeHiberContext @ 0x1406FB788 (PopFreeHiberContext.c)
- *     PoInitHiberServices @ 0x140748B24 (PoInitHiberServices.c)
- *     PopValidateWinresume @ 0x140752EA8 (PopValidateWinresume.c)
- *     PopAdaptiveClearInitialSystemPowerState @ 0x14075F12C (PopAdaptiveClearInitialSystemPowerState.c)
- *     SepSecureBootCorrectBcd @ 0x140793E34 (SepSecureBootCorrectBcd.c)
- *     PopBcdClose @ 0x14085EEC0 (PopBcdClose.c)
- *     BiLoadSystemStore @ 0x14085F450 (BiLoadSystemStore.c)
- *     PopAllocateHiberContext @ 0x140AC688C (PopAllocateHiberContext.c)
+ *     WheaPersistBadPageToBcd @ 0x14065B5B0 (WheaPersistBadPageToBcd.c)
+ *     PopFreeHiberContext @ 0x1406F93C8 (PopFreeHiberContext.c)
+ *     PoInitHiberServices @ 0x140746E14 (PoInitHiberServices.c)
+ *     PopValidateWinresume @ 0x1407511C8 (PopValidateWinresume.c)
+ *     PopAdaptiveClearInitialSystemPowerState @ 0x14075E0CC (PopAdaptiveClearInitialSystemPowerState.c)
+ *     SepSecureBootCorrectBcd @ 0x140793ED4 (SepSecureBootCorrectBcd.c)
+ *     BiLoadSystemStore @ 0x140A575F0 (BiLoadSystemStore.c)
+ *     PopBcdClose @ 0x140A819F0 (PopBcdClose.c)
+ *     PopAllocateHiberContext @ 0x140AC4284 (PopAllocateHiberContext.c)
  * Callees:
- *     BiIsOfflineHandle @ 0x1404AB350 (BiIsOfflineHandle.c)
- *     BiIsSynchFirmwareEntries @ 0x140697750 (BiIsSynchFirmwareEntries.c)
- *     BiIsSystemStore @ 0x14085E2C0 (BiIsSystemStore.c)
- *     BiCloseStore @ 0x14085EF8C (BiCloseStore.c)
- *     BiAcquireBcdSyncMutant @ 0x1409BE268 (BiAcquireBcdSyncMutant.c)
- *     BiReleaseBcdSyncMutant @ 0x1409BE32C (BiReleaseBcdSyncMutant.c)
- *     BiLogMessage @ 0x1409BE7F8 (BiLogMessage.c)
- *     BiIsWinPEBoot @ 0x1409C1B7C (BiIsWinPEBoot.c)
+ *     BiIsOfflineHandle @ 0x1404A5974 (BiIsOfflineHandle.c)
+ *     BiIsSynchFirmwareEntries @ 0x1406987D0 (BiIsSynchFirmwareEntries.c)
+ *     BiIsSystemStore @ 0x14085A030 (BiIsSystemStore.c)
+ *     BiAcquireBcdSyncMutant @ 0x1409A48B8 (BiAcquireBcdSyncMutant.c)
+ *     BiReleaseBcdSyncMutant @ 0x1409A497C (BiReleaseBcdSyncMutant.c)
+ *     BiLogMessage @ 0x1409A4E48 (BiLogMessage.c)
+ *     BiIsWinPEBoot @ 0x1409A81CC (BiIsWinPEBoot.c)
+ *     BiCloseStore @ 0x140A81ABC (BiCloseStore.c)
  */
 
-__int64 __fastcall BcdCloseStore(__int64 a1)
+NTSTATUS __cdecl BcdCloseStore(HANDLE BcdStoreHandle)
 {
-  __int64 v2; // rcx
-  char v3; // si
-  int v4; // eax
-  __int64 v5; // r8
-  unsigned int v6; // r8d
-  unsigned int v7; // eax
-  __int64 v8; // rcx
-  unsigned int v9; // ebx
-  unsigned int v11; // r8d
-  unsigned int v12; // ebx
-  char IsWinPEBoot; // al
+  char IsOfflineHandle; // si
+  __int64 v3; // r8
+  __int64 v4; // r9
+  NTSTATUS v5; // ebx
+  NTSTATUS v7; // r8d
 
-  LOBYTE(v2) = BiIsOfflineHandle(a1);
-  v3 = v2;
-  v4 = BiAcquireBcdSyncMutant(v2);
-  if ( v4 < 0 )
+  IsOfflineHandle = BiIsOfflineHandle((char)BcdStoreHandle);
+  if ( BiAcquireBcdSyncMutant(IsOfflineHandle) < 0 )
   {
-    BiLogMessage(4LL, L"BcdCloseStore: Failed to acquire BCD sync mutant. Status: %x", (unsigned int)v4);
-    return v11;
+    BiLogMessage();
+    return v7;
   }
   else
   {
-    if ( BiIsSystemStore(a1) )
+    if ( BiIsSystemStore((__int64)BcdStoreHandle) )
     {
-      v12 = BiIsSynchFirmwareEntries(a1) ? 4 : 0;
-      IsWinPEBoot = BiIsWinPEBoot();
-      v5 = v12 | 2;
-      if ( !IsWinPEBoot )
-        v5 = v12;
+      BiIsSynchFirmwareEntries((char)BcdStoreHandle);
+      BiIsWinPEBoot();
     }
-    else
-    {
-      v5 = 2LL;
-    }
-    BiLogMessage(2LL, L"Closing store. Flags: 0x%x", v5);
-    v7 = BiCloseStore(a1, v6);
-    LOBYTE(v8) = v3;
-    v9 = v7;
-    BiReleaseBcdSyncMutant(v8);
-    return v9;
+    BiLogMessage();
+    v5 = BiCloseStore(BcdStoreHandle, (unsigned int)v3, v3, v4);
+    BiReleaseBcdSyncMutant(IsOfflineHandle);
+    return v5;
   }
 }

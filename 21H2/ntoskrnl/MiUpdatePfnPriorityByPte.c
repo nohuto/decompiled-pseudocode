@@ -1,17 +1,17 @@
 /*
- * XREFs of MiUpdatePfnPriorityByPte @ 0x14032BF10
+ * XREFs of MiUpdatePfnPriorityByPte @ 0x140336C60
  * Callers:
- *     MiSystemFault @ 0x140311400 (MiSystemFault.c)
- *     MiPfPrepareSequentialReadList @ 0x1406EDDD0 (MiPfPrepareSequentialReadList.c)
- *     MiPfPrepareReadList @ 0x1406EF910 (MiPfPrepareReadList.c)
+ *     MiSystemFault @ 0x14031C150 (MiSystemFault.c)
+ *     MiPfPrepareSequentialReadList @ 0x1407051B0 (MiPfPrepareSequentialReadList.c)
+ *     MiPfPrepareReadList @ 0x140706CF0 (MiPfPrepareReadList.c)
  * Callees:
- *     MiInvalidPteConforms @ 0x14023B540 (MiInvalidPteConforms.c)
- *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
- *     MiRelinkStandbyPage @ 0x140271FD8 (MiRelinkStandbyPage.c)
- *     MiIsPteInStore @ 0x14028BE40 (MiIsPteInStore.c)
- *     MiPteHasShadow @ 0x1402B6A1C (MiPteHasShadow.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x14032DEC0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiGetSystemRegionType @ 0x14034A950 (MiGetSystemRegionType.c)
+ *     MiIsPteInStore @ 0x140208FE0 (MiIsPteInStore.c)
+ *     MiPteHasShadow @ 0x140234BFC (MiPteHasShadow.c)
+ *     MiRelinkStandbyPage @ 0x14025FF78 (MiRelinkStandbyPage.c)
+ *     MiInvalidPteConforms @ 0x1402DFD90 (MiInvalidPteConforms.c)
+ *     KeYieldProcessorEx @ 0x1402EFAD0 (KeYieldProcessorEx.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140338C10 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiGetSystemRegionType @ 0x1403556A0 (MiGetSystemRegionType.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  *     MI_PFN_IS_PROTO @ 0x1403F48C8 (MI_PFN_IS_PROTO.c)
  */
@@ -87,12 +87,12 @@ __int64 __fastcall MiUpdatePfnPriorityByPte(unsigned __int64 a1, unsigned int a2
         result = MiInvalidPteConforms(result);
         if ( !(_DWORD)result )
           return result;
-        if ( qword_140C4DF40 )
+        if ( qword_140C4DF80 )
         {
           if ( (v6 & 0x10) != 0 )
             v6 &= ~0x10uLL;
           else
-            v6 &= ~qword_140C4DF40;
+            v6 &= ~qword_140C4DF80;
         }
         v7 = 2;
       }
@@ -199,7 +199,7 @@ LABEL_51:
       if ( v27
         || (*(_DWORD *)(v11 + 16) & 0x400LL) != 0
         || !(unsigned int)MiIsPteInStore(
-                            *(_QWORD *)(qword_140C4E648 + 8 * ((*(_QWORD *)(v11 + 40) >> 39) & 0x3FFLL)),
+                            *(_QWORD *)(qword_140C4E688 + 8 * ((*(_QWORD *)(v11 + 40) >> 39) & 0x3FFLL)),
                             *(_QWORD *)(v11 + 16)) )
       {
         MiRelinkStandbyPage(v11, a2);

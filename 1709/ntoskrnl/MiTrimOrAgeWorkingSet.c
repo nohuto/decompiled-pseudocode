@@ -43,7 +43,7 @@ __int64 __fastcall MiTrimOrAgeWorkingSet(__int64 a1, __int64 a2, unsigned int a3
   _QWORD *v19; // rdx
   LONG *v20; // rcx
   char v21; // al
-  struct _SLIST_ENTRY *v22; // rsi
+  _SLIST_ENTRY *v22; // rsi
   __int64 v24; // r8
   __int64 v25; // rdx
   __int64 v26; // rax
@@ -215,7 +215,7 @@ LABEL_23:
   {
     if ( qword_140388C40 )
     {
-      v22 = (struct _SLIST_ENTRY *)_InterlockedExchange64(&qword_140388C40, 0LL);
+      v22 = (_SLIST_ENTRY *)_InterlockedExchange64(&qword_140388C40, 0LL);
       if ( v22 )
       {
         if ( v15 - (unsigned __int64)v22[1].Next > PfKernelGlobals || (a3 & 0x18) != 0 )

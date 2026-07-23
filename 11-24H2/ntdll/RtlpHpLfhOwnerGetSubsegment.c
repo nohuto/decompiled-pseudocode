@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlpHpLfhOwnerGetSubsegment @ 0x18004CC40
+ * XREFs of RtlpHpLfhOwnerGetSubsegment @ 0x180062820
  * Callers:
- *     RtlpHpLfhBucketGetSubsegment @ 0x18004B540 (RtlpHpLfhBucketGetSubsegment.c)
+ *     RtlpHpLfhBucketGetSubsegment @ 0x180061120 (RtlpHpLfhBucketGetSubsegment.c)
  * Callees:
- *     RtlpLogHeapFailure @ 0x18002A380 (RtlpLogHeapFailure.c)
- *     RtlpHpLfhSubsegmentDelayFreeProcess @ 0x18004D160 (RtlpHpLfhSubsegmentDelayFreeProcess.c)
- *     RtlpHpLfhSubsegmentDecommitPages @ 0x18004D510 (RtlpHpLfhSubsegmentDecommitPages.c)
- *     RtlpHpLfhSubsegmentDelayFreeListBatch @ 0x18004E040 (RtlpHpLfhSubsegmentDelayFreeListBatch.c)
- *     RtlpHpLfhContextUpdateFreeCommitCount @ 0x180056220 (RtlpHpLfhContextUpdateFreeCommitCount.c)
- *     memset$thunk$772440563353939046 @ 0x180172030 (memset$thunk$772440563353939046.c)
+ *     RtlpLogHeapFailure @ 0x180056D80 (RtlpLogHeapFailure.c)
+ *     RtlpHpLfhSubsegmentDelayFreeProcess @ 0x180062D40 (RtlpHpLfhSubsegmentDelayFreeProcess.c)
+ *     RtlpHpLfhSubsegmentDecommitPages @ 0x1800630F0 (RtlpHpLfhSubsegmentDecommitPages.c)
+ *     RtlpHpLfhSubsegmentDelayFreeListBatch @ 0x180063C20 (RtlpHpLfhSubsegmentDelayFreeListBatch.c)
+ *     RtlpHpLfhContextUpdateFreeCommitCount @ 0x18006BE00 (RtlpHpLfhContextUpdateFreeCommitCount.c)
+ *     memset$thunk$772440563353939046 @ 0x180171030 (memset$thunk$772440563353939046.c)
  */
 
 unsigned __int64 __fastcall RtlpHpLfhOwnerGetSubsegment(__int64 *a1, __int64 a2)
@@ -129,9 +129,9 @@ LABEL_49:
     v12 = *(_BYTE *)(v7 + 51) & 1;
     v13 = *(unsigned __int16 *)(v7 + 34);
     v14 = HIWORD(v11);
-    v15 = (unsigned __int16)(qword_1801CDEC8 ^ *(_WORD *)(v7 + 40) ^ (v7 >> 12));
+    v15 = (unsigned __int16)(qword_1801CCEC8 ^ *(_WORD *)(v7 + 40) ^ (v7 >> 12));
     v16 = v7
-        + ((unsigned __int64)((unsigned int)qword_1801CDEC8 ^ *(_DWORD *)(v7 + 40) ^ (unsigned int)(v7 >> 12)) >> 16);
+        + ((unsigned __int64)((unsigned int)qword_1801CCEC8 ^ *(_DWORD *)(v7 + 40) ^ (unsigned int)(v7 >> 12)) >> 16);
     v48 = HIWORD(v11);
     v47 = v15;
     v41 = v16;
@@ -170,7 +170,7 @@ LABEL_10:
           v26 = &v24[2
                    * ((((_DWORD)v20
                       - (_DWORD)v7
-                      + (*(unsigned __int16 *)(v7 + 40) ^ (unsigned __int16)(v7 >> 12) ^ (unsigned int)(unsigned __int16)qword_1801CDEC8)
+                      + (*(unsigned __int16 *)(v7 + 40) ^ (unsigned __int16)(v7 >> 12) ^ (unsigned int)(unsigned __int16)qword_1801CCEC8)
                       - 1) >> 12 >> v21)
                     - (unsigned int)v22)
                    + 2];

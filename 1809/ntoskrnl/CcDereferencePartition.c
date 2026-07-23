@@ -1,23 +1,23 @@
 /*
- * XREFs of CcDereferencePartition @ 0x14007C998
+ * XREFs of CcDereferencePartition @ 0x14007C988
  * Callers:
- *     CcDeleteSharedCacheMap @ 0x14007C270 (CcDeleteSharedCacheMap.c)
- *     CcUninitializeCacheMap @ 0x14007C530 (CcUninitializeCacheMap.c)
- *     CcFreeWorkQueueEntry @ 0x14007EDF0 (CcFreeWorkQueueEntry.c)
- *     CcWorkerThread @ 0x14007F2E0 (CcWorkerThread.c)
- *     CcZeroData @ 0x1400E0C20 (CcZeroData.c)
- *     CcCompleteAsyncReadWorker @ 0x1400E1DA0 (CcCompleteAsyncReadWorker.c)
- *     CcForEachPartition @ 0x140120080 (CcForEachPartition.c)
- *     CcAsyncReadWorkerThread @ 0x14013FAD0 (CcAsyncReadWorkerThread.c)
- *     CcAsyncReadWorker @ 0x1401403B0 (CcAsyncReadWorker.c)
- *     CcQueueLazyWriteScanThread @ 0x140183840 (CcQueueLazyWriteScanThread.c)
- *     CcInitializeAsyncRead @ 0x14018AB18 (CcInitializeAsyncRead.c)
- *     CcDeferWrite @ 0x140269780 (CcDeferWrite.c)
- *     CcPostDeferredWrites @ 0x1402699B0 (CcPostDeferredWrites.c)
- *     CcUnmapInactiveViews @ 0x14026A960 (CcUnmapInactiveViews.c)
- *     CcDeletePartition @ 0x14026B1A0 (CcDeletePartition.c)
+ *     CcDeleteSharedCacheMap @ 0x14007C260 (CcDeleteSharedCacheMap.c)
+ *     CcUninitializeCacheMap @ 0x14007C520 (CcUninitializeCacheMap.c)
+ *     CcFreeWorkQueueEntry @ 0x14007EDE0 (CcFreeWorkQueueEntry.c)
+ *     CcWorkerThread @ 0x14007F2D0 (CcWorkerThread.c)
+ *     CcZeroData @ 0x1400E0CA0 (CcZeroData.c)
+ *     CcCompleteAsyncReadWorker @ 0x1400E1E20 (CcCompleteAsyncReadWorker.c)
+ *     CcForEachPartition @ 0x1401200F0 (CcForEachPartition.c)
+ *     CcAsyncReadWorkerThread @ 0x14013FBD0 (CcAsyncReadWorkerThread.c)
+ *     CcAsyncReadWorker @ 0x1401404B0 (CcAsyncReadWorker.c)
+ *     CcQueueLazyWriteScanThread @ 0x140183980 (CcQueueLazyWriteScanThread.c)
+ *     CcInitializeAsyncRead @ 0x14018AC58 (CcInitializeAsyncRead.c)
+ *     CcDeferWrite @ 0x140269970 (CcDeferWrite.c)
+ *     CcPostDeferredWrites @ 0x140269BA0 (CcPostDeferredWrites.c)
+ *     CcUnmapInactiveViews @ 0x14026AB50 (CcUnmapInactiveViews.c)
+ *     CcDeletePartition @ 0x14026B390 (CcDeletePartition.c)
  * Callees:
- *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
+ *     KeSetEvent @ 0x1400C2A40 (KeSetEvent.c)
  */
 
 char __fastcall CcDereferencePartition(__int64 a1)

@@ -1,13 +1,13 @@
 /*
- * XREFs of ExpCreateOutputARC @ 0x1407BB90C
+ * XREFs of ExpCreateOutputARC @ 0x1407BBD5C
  * Callers:
- *     ExpConvertSignatureName @ 0x1407BB6C8 (ExpConvertSignatureName.c)
- *     ExpTranslateNtPath @ 0x1407BD4F4 (ExpTranslateNtPath.c)
- *     ExpTranslateEfiPath @ 0x140A6389C (ExpTranslateEfiPath.c)
+ *     ExpConvertSignatureName @ 0x1407BBB18 (ExpConvertSignatureName.c)
+ *     ExpTranslateNtPath @ 0x1407BD944 (ExpTranslateNtPath.c)
+ *     ExpTranslateEfiPath @ 0x140A5C19C (ExpTranslateEfiPath.c)
  * Callees:
- *     wcscpy_s @ 0x1405047E0 (wcscpy_s.c)
- *     ExpFindArcName @ 0x1407BBBCC (ExpFindArcName.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     wcscpy_s @ 0x1405020A0 (wcscpy_s.c)
+ *     ExpFindArcName @ 0x1407BC01C (ExpFindArcName.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall ExpCreateOutputARC(_DWORD *a1, unsigned int *a2, __int64 a3, const wchar_t *a4)

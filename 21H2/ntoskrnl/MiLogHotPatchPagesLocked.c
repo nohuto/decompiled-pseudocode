@@ -1,12 +1,12 @@
 /*
- * XREFs of MiLogHotPatchPagesLocked @ 0x1408CBDE8
+ * XREFs of MiLogHotPatchPagesLocked @ 0x1408CBF48
  * Callers:
- *     MiPrepareImagePagesForHotPatch @ 0x14053EBCC (MiPrepareImagePagesForHotPatch.c)
+ *     MiPrepareImagePagesForHotPatch @ 0x14053EE0C (MiPrepareImagePagesForHotPatch.c)
  * Callees:
- *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
- *     PsGetProcessId @ 0x14027B6A0 (PsGetProcessId.c)
- *     _tlgWriteEx_EtwWriteEx @ 0x1402D2F3C (_tlgWriteEx_EtwWriteEx.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x1402514DC (_tlgWriteEx_EtwWriteEx.c)
+ *     PsGetProcessId @ 0x140269640 (PsGetProcessId.c)
+ *     _tlgKeywordOn @ 0x1402864F4 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 char __fastcall MiLogHotPatchPagesLocked(__int64 a1, __int64 a2, int a3, int a4, int a5)
@@ -49,12 +49,12 @@ char __fastcall MiLogHotPatchPagesLocked(__int64 a1, __int64 a2, int a3, int a4,
   _UNKNOWN *retaddr; // [rsp+118h] [rbp+0h] BYREF
 
   v5 = &retaddr;
-  v6 = *(_QWORD *)&qword_140C4EEE0;
-  if ( *(_QWORD *)&qword_140C4EEE0 )
+  v6 = *(_QWORD *)&qword_140C4EF20;
+  if ( *(_QWORD *)&qword_140C4EF20 )
   {
-    if ( **(_DWORD **)&qword_140C4EEE0 > 5u )
+    if ( **(_DWORD **)&qword_140C4EF20 > 5u )
     {
-      LOBYTE(v5) = tlgKeywordOn(*(__int64 *)&qword_140C4EEE0, 0x400000000020LL);
+      LOBYTE(v5) = tlgKeywordOn(*(__int64 *)&qword_140C4EF20, 0x400000000020LL);
       if ( (_BYTE)v5 )
       {
         ProcessId = (unsigned int)PsGetProcessId(KeGetCurrentThread()->ApcState.Process);
@@ -86,7 +86,7 @@ char __fastcall MiLogHotPatchPagesLocked(__int64 a1, __int64 a2, int a3, int a4,
         v17 = a3;
         v18 = a4;
         v22 = 0x1000000LL;
-        LOBYTE(v5) = tlgWriteEx_EtwWriteEx(v6, (unsigned __int8 *)&unk_140026410, v12, 1u, v14, v15, 9u, &v23);
+        LOBYTE(v5) = tlgWriteEx_EtwWriteEx(v6, (unsigned __int8 *)&byte_140026489, v12, 1u, v14, v15, 9u, &v23);
       }
     }
   }

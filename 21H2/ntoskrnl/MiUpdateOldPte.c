@@ -1,15 +1,15 @@
 /*
- * XREFs of MiUpdateOldPte @ 0x14053C5B0
+ * XREFs of MiUpdateOldPte @ 0x14053C7F0
  * Callers:
  *     <none>
  * Callees:
- *     MiWalkVaCheckCommon @ 0x140306724 (MiWalkVaCheckCommon.c)
- *     MiGetVaAge @ 0x1403090F0 (MiGetVaAge.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x14032DEC0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiWalkVaCheckCommon @ 0x140311474 (MiWalkVaCheckCommon.c)
+ *     MiGetVaAge @ 0x140313E40 (MiGetVaAge.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140338C10 (MI_READ_PTE_LOCK_FREE.c)
  *     MI_PFN_IS_PROTO @ 0x1403F48C8 (MI_PFN_IS_PROTO.c)
- *     MiInsertVmAccessedEntry @ 0x14053B400 (MiInsertVmAccessedEntry.c)
- *     MiUpdateOldPteWorker @ 0x14053C728 (MiUpdateOldPteWorker.c)
- *     MiUpdateOldWorkingSetPagesTail @ 0x14053C780 (MiUpdateOldWorkingSetPagesTail.c)
+ *     MiInsertVmAccessedEntry @ 0x14053B640 (MiInsertVmAccessedEntry.c)
+ *     MiUpdateOldPteWorker @ 0x14053C968 (MiUpdateOldPteWorker.c)
+ *     MiUpdateOldWorkingSetPagesTail @ 0x14053C9C0 (MiUpdateOldWorkingSetPagesTail.c)
  */
 
 __int64 __fastcall MiUpdateOldPte(__int64 a1, unsigned __int64 a2, int a3)

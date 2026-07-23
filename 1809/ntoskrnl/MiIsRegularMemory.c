@@ -1,8 +1,8 @@
 /*
- * XREFs of MiIsRegularMemory @ 0x1409C044C
+ * XREFs of MiIsRegularMemory @ 0x1409C144C
  * Callers:
- *     MxMovePageTables @ 0x1409BFEB0 (MxMovePageTables.c)
- *     MxCreatePfns @ 0x1409C008C (MxCreatePfns.c)
+ *     MxMovePageTables @ 0x1409C0EB0 (MxMovePageTables.c)
+ *     MxCreatePfns @ 0x1409C108C (MxCreatePfns.c)
  * Callees:
  *     <none>
  */

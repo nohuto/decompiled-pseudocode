@@ -1,13 +1,13 @@
 /*
- * XREFs of FsRtlpDedupChangeQueryValueKey @ 0x14070CBA4
+ * XREFs of FsRtlpDedupChangeQueryValueKey @ 0x14070A744
  * Callers:
- *     FsRtlDedupChangeInit @ 0x14070C8F0 (FsRtlDedupChangeInit.c)
+ *     FsRtlDedupChangeInit @ 0x14070A490 (FsRtlDedupChangeInit.c)
  * Callees:
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwOpenKey @ 0x1406A6650 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x1406A66F0 (ZwQueryValueKey.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwOpenKey @ 0x1406A75F0 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1406A7690 (ZwQueryValueKey.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __fastcall FsRtlpDedupChangeQueryValueKey(
@@ -49,7 +49,7 @@ NTSTATUS __fastcall FsRtlpDedupChangeQueryValueKey(
         if ( Length != *a3 )
           break;
         Length = ResultLength;
-        Pool2 = ExAllocatePool2(0x100uLL);
+        Pool2 = ExAllocatePool2(0x100uLL, ResultLength, 0x68436544u);
         if ( !Pool2 )
         {
           v12 = -1073741670;

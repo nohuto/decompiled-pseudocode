@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlNtStatusToDosErrorNoTeb @ 0x1402A2200
+ * XREFs of RtlNtStatusToDosErrorNoTeb @ 0x14021F640
  * Callers:
- *     RtlNtStatusToDosError @ 0x14068A4C0 (RtlNtStatusToDosError.c)
+ *     RtlNtStatusToDosError @ 0x1405E9950 (RtlNtStatusToDosError.c)
  * Callees:
  *     <none>
  */
@@ -28,7 +28,7 @@ ULONG __stdcall RtlNtStatusToDosErrorNoTeb(NTSTATUS Status)
     if ( (Status & 0xFF0000) == 0x70000 && ((HIBYTE(Status) - 128) & 0xFFFFFFBF) == 0 )
       return (unsigned __int16)Status;
     v3 = Status & 0xCFFFFFFF;
-    v4 = 308;
+    v4 = 313;
     if ( (Status & 0xF0000000) != 0xD0000000 )
       v3 = Status;
     while ( 1 )
@@ -42,10 +42,10 @@ ULONG __stdcall RtlNtStatusToDosErrorNoTeb(NTSTATUS Status)
       }
       else
       {
-        if ( v7 < (unsigned __int8)byte_1400186C4[8 * v5] )
+        if ( v7 < (unsigned __int8)byte_14001A574[8 * v5] )
         {
-          v8 = (unsigned __int16)word_1400186C6[4 * v5];
-          if ( byte_1400186C5[8 * v5] == 1 )
+          v8 = (unsigned __int16)word_14001A576[4 * v5];
+          if ( byte_14001A575[8 * v5] == 1 )
             return (unsigned __int16)RtlpStatusTable[v7 + v8];
           else
             return (unsigned __int16)RtlpStatusTable[2 * v7 + v8] | ((unsigned __int16)RtlpStatusTable[2 * v7 + 1 + v8] << 16);

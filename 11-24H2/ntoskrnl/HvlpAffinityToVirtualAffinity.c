@@ -1,7 +1,7 @@
 /*
- * XREFs of HvlpAffinityToVirtualAffinity @ 0x1403B1540
+ * XREFs of HvlpAffinityToVirtualAffinity @ 0x14039FD50
  * Callers:
- *     HvlpFastFlushAddressSpaceTb @ 0x1403B0AC4 (HvlpFastFlushAddressSpaceTb.c)
+ *     HvlpFastFlushAddressSpaceTb @ 0x14039F2D4 (HvlpFastFlushAddressSpaceTb.c)
  * Callees:
  *     <none>
  */
@@ -15,7 +15,7 @@ unsigned __int64 __fastcall HvlpAffinityToVirtualAffinity(unsigned __int64 a1)
   v1 = 0LL;
   if ( HvlpVirtualProcessorsIdentityMapped )
     return a1;
-  for ( i = &unk_140FCC223; ; i += 4 )
+  for ( i = &unk_140FCD2A3; ; i += 4 )
   {
     if ( (a1 & 1) != 0 )
       v1 |= 1LL << *(i - 2);

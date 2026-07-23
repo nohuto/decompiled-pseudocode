@@ -54,7 +54,7 @@ unsigned __int64 __fastcall EtwpReserveWithPmcCounters(
       }
     }
   }
-  v14 = EtwpReserveTraceBuffer(a1, v10, a4, a5, a6);
+  v14 = EtwpReserveTraceBuffer((unsigned int *)a1, v10, a4, a5, a6);
   v15 = v14;
   if ( v14 )
   {

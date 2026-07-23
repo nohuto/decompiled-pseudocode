@@ -6,21 +6,24 @@
  *     <none>
  */
 
-char __fastcall RtlIsValidIndexHandle(__int64 a1, int a2, _QWORD *a3)
+BOOLEAN __cdecl RtlIsValidIndexHandle(
+        PRTL_HANDLE_TABLE HandleTable,
+        ULONG HandleIndex,
+        PRTL_HANDLE_TABLE_ENTRY *Handle)
 {
-  unsigned __int64 v3; // r9
-  _BYTE *v4; // rax
+  PRTL_HANDLE_TABLE_ENTRY CommittedHandles; // r9
+  _RTL_HANDLE_TABLE_ENTRY *v4; // rax
 
-  v3 = *(_QWORD *)(a1 + 24);
-  v4 = (_BYTE *)(v3 + (unsigned int)(a2 * *(_DWORD *)(a1 + 4)));
+  CommittedHandles = HandleTable->CommittedHandles;
+  v4 = (PRTL_HANDLE_TABLE_ENTRY)((char *)CommittedHandles + HandleIndex * HandleTable->SizeOfHandleTableEntry);
   if ( !v4
-    || (unsigned __int64)v4 < v3
-    || (unsigned __int64)v4 >= *(_QWORD *)(a1 + 32)
-    || ((*(_DWORD *)(a1 + 4) - 1) & (unsigned int)v4) != 0
-    || (*v4 & 1) == 0 )
+    || v4 < CommittedHandles
+    || v4 >= HandleTable->UnCommittedHandles
+    || ((HandleTable->SizeOfHandleTableEntry - 1) & (unsigned int)v4) != 0
+    || (v4->Flags & 1) == 0 )
   {
     return 0;
   }
-  *a3 = v4;
+  *Handle = v4;
   return 1;
 }

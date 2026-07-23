@@ -1,16 +1,16 @@
 /*
- * XREFs of RtlpMuiRegCreateLanguageConfigList @ 0x180071C24
+ * XREFs of RtlpMuiRegCreateLanguageConfigList @ 0x180071C14
  * Callers:
- *     RtlpLoadLanguageConfigList @ 0x1800710C4 (RtlpLoadLanguageConfigList.c)
- *     RtlpPopulateLanguageConfigList @ 0x180071B10 (RtlpPopulateLanguageConfigList.c)
+ *     RtlpLoadLanguageConfigList @ 0x1800710B4 (RtlpLoadLanguageConfigList.c)
+ *     RtlpPopulateLanguageConfigList @ 0x180071B00 (RtlpPopulateLanguageConfigList.c)
  * Callees:
- *     _SafeAllocBlob @ 0x1800144BC (_SafeAllocBlob.c)
+ *     _SafeAllocBlob @ 0x1800144AC (_SafeAllocBlob.c)
  */
 
-__int64 __fastcall RtlpMuiRegCreateLanguageConfigList(int a1)
+_QWORD *__fastcall RtlpMuiRegCreateLanguageConfigList(int a1)
 {
   unsigned int v1; // ebx
-  __int64 result; // rax
+  _QWORD *result; // rax
   unsigned int v3; // [rsp+40h] [rbp+8h] BYREF
 
   v1 = a1;
@@ -20,9 +20,9 @@ __int64 __fastcall RtlpMuiRegCreateLanguageConfigList(int a1)
   if ( result )
   {
     *(_DWORD *)result = v3;
-    *(_QWORD *)(result + 8) = result + 16;
-    *(_WORD *)(result + 4) = 0;
-    *(_WORD *)(result + 6) = v1;
+    result[1] = result + 2;
+    *((_WORD *)result + 2) = 0;
+    *((_WORD *)result + 3) = v1;
   }
   return result;
 }

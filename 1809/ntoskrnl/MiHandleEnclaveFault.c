@@ -1,10 +1,10 @@
 /*
- * XREFs of MiHandleEnclaveFault @ 0x14085901C
+ * XREFs of MiHandleEnclaveFault @ 0x14085A27C
  * Callers:
  *     MmAccessFault @ 0x140043DA0 (MmAccessFault.c)
  * Callees:
- *     MiObtainReferencedVadEx @ 0x1400747E0 (MiObtainReferencedVadEx.c)
- *     MiUnlockAndDereferenceVadShared @ 0x1400754A0 (MiUnlockAndDereferenceVadShared.c)
+ *     MiObtainReferencedVadEx @ 0x1400747D0 (MiObtainReferencedVadEx.c)
+ *     MiUnlockAndDereferenceVadShared @ 0x140075490 (MiUnlockAndDereferenceVadShared.c)
  */
 
 __int64 __fastcall MiHandleEnclaveFault(unsigned __int64 a1)

@@ -1,12 +1,12 @@
 /*
- * XREFs of KiInsertQueueApc @ 0x1400F2120
+ * XREFs of KiInsertQueueApc @ 0x1400F21A0
  * Callers:
- *     KeRequestTerminationThread @ 0x1400F1348 (KeRequestTerminationThread.c)
- *     KeInsertQueueApc @ 0x1400F1480 (KeInsertQueueApc.c)
- *     KiSchedulerApc @ 0x1400F17D0 (KiSchedulerApc.c)
- *     KiSuspendThread @ 0x1400F23A8 (KiSuspendThread.c)
- *     KiInsertDeferredPreemptionApc @ 0x1400F27E8 (KiInsertDeferredPreemptionApc.c)
- *     KeTryToInsertQueueApc @ 0x140294C20 (KeTryToInsertQueueApc.c)
+ *     KeRequestTerminationThread @ 0x1400F13C8 (KeRequestTerminationThread.c)
+ *     KeInsertQueueApc @ 0x1400F1500 (KeInsertQueueApc.c)
+ *     KiSchedulerApc @ 0x1400F1850 (KiSchedulerApc.c)
+ *     KiSuspendThread @ 0x1400F2428 (KiSuspendThread.c)
+ *     KiInsertDeferredPreemptionApc @ 0x1400F2868 (KiInsertDeferredPreemptionApc.c)
+ *     KeTryToInsertQueueApc @ 0x140294E10 (KeTryToInsertQueueApc.c)
  * Callees:
  *     <none>
  */

@@ -1,10 +1,10 @@
 /*
- * XREFs of PpmPerfCalculateMinMaxStates @ 0x1401441AC
+ * XREFs of PpmPerfCalculateMinMaxStates @ 0x14014471C
  * Callers:
- *     PpmRegisterPerfStates @ 0x140569588 (PpmRegisterPerfStates.c)
- *     PpmReapplyPerfPolicy @ 0x140569F90 (PpmReapplyPerfPolicy.c)
+ *     PpmRegisterPerfStates @ 0x140569AC8 (PpmRegisterPerfStates.c)
+ *     PpmReapplyPerfPolicy @ 0x14056A4D0 (PpmReapplyPerfPolicy.c)
  * Callees:
- *     PpmGetHeterogeneousClass @ 0x1400D3FC8 (PpmGetHeterogeneousClass.c)
+ *     PpmGetHeterogeneousClass @ 0x1400D1E68 (PpmGetHeterogeneousClass.c)
  */
 
 _BOOL8 __fastcall PpmPerfCalculateMinMaxStates(__int64 a1)
@@ -17,7 +17,7 @@ _BOOL8 __fastcall PpmPerfCalculateMinMaxStates(__int64 a1)
 
   v1 = a1;
   result = 0LL;
-  v3 = &PpmCurrentProfile[174 * dword_140303E0C];
+  v3 = &PpmCurrentProfile[174 * dword_140303D4C];
   if ( !*(_BYTE *)(a1 + 199) )
     result = PpmGetHeterogeneousClass(*(_QWORD *)(a1 + 16));
   v4 = *((unsigned __int8 *)v3 + result + 66);

@@ -1,17 +1,17 @@
 /*
- * XREFs of PopPowerActionWatchdog @ 0x140607820
+ * XREFs of PopPowerActionWatchdog @ 0x14060A380
  * Callers:
- *     PopSetPowerActionWatchdogState @ 0x1404FE998 (PopSetPowerActionWatchdogState.c)
+ *     PopSetPowerActionWatchdogState @ 0x1404F7F48 (PopSetPowerActionWatchdogState.c)
  * Callees:
- *     ExQueueWorkItem @ 0x140381C70 (ExQueueWorkItem.c)
- *     PopInternalAddToDumpFile @ 0x140600824 (PopInternalAddToDumpFile.c)
+ *     ExQueueWorkItem @ 0x140383A20 (ExQueueWorkItem.c)
+ *     PopInternalAddToDumpFile @ 0x1406032D4 (PopInternalAddToDumpFile.c)
  */
 
 void PopPowerActionWatchdog()
 {
   PopInternalAddToDumpFile(0LL, 0, 0LL);
-  qword_140F110B8 = 0LL;
-  qword_140F110B0 = (__int64)PopStateTransitionTimeoutDispatch;
-  qword_140F110A0.List.Flink = 0LL;
-  ExQueueWorkItem(&qword_140F110A0, HyperCriticalWorkQueue);
+  PopStateTransitionTimeoutWorker.Parameter = 0LL;
+  PopStateTransitionTimeoutWorker.WorkerRoutine = (void (__fastcall *)(void *))PopStateTransitionTimeoutDispatch;
+  PopStateTransitionTimeoutWorker.List.Flink = 0LL;
+  ExQueueWorkItem(&PopStateTransitionTimeoutWorker, HyperCriticalWorkQueue);
 }

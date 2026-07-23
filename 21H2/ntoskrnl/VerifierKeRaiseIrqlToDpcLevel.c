@@ -1,11 +1,11 @@
 /*
- * XREFs of VerifierKeRaiseIrqlToDpcLevel @ 0x1409DAEB0
+ * XREFs of VerifierKeRaiseIrqlToDpcLevel @ 0x1409DBEB0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     ViTargetIncrementCounter @ 0x1409D750C (ViTargetIncrementCounter.c)
- *     ViKeRaiseIrqlSanityChecks @ 0x1409DC27C (ViKeRaiseIrqlSanityChecks.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     ViTargetIncrementCounter @ 0x1409D850C (ViTargetIncrementCounter.c)
+ *     ViKeRaiseIrqlSanityChecks @ 0x1409DD27C (ViKeRaiseIrqlSanityChecks.c)
  */
 
 __int64 VerifierKeRaiseIrqlToDpcLevel()
@@ -17,7 +17,7 @@ __int64 VerifierKeRaiseIrqlToDpcLevel()
   __int64 retaddr; // [rsp+28h] [rbp+0h]
 
   v0 = (__int64 (*)(void))pXdvKeRaiseIrqlToDpcLevel;
-  ++dword_140C2A864;
+  ++dword_140C2A8A4;
   v1 = retaddr;
   if ( (MmVerifierData & 0x1000) != 0 )
     ViTargetIncrementCounter(retaddr, 152LL);

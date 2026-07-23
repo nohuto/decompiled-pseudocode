@@ -1,14 +1,14 @@
 /*
- * XREFs of MmAllocateNonCachedMemory @ 0x140B37D20
+ * XREFs of MmAllocateNonCachedMemory @ 0x140B39F30
  * Callers:
- *     DifMmAllocateNonCachedMemoryWrapper @ 0x140665F70 (DifMmAllocateNonCachedMemoryWrapper.c)
+ *     DifMmAllocateNonCachedMemoryWrapper @ 0x140669B50 (DifMmAllocateNonCachedMemoryWrapper.c)
  * Callees:
- *     MiMakeValidPte @ 0x1402DA020 (MiMakeValidPte.c)
- *     MmFreePagesFromMdl @ 0x1403454A0 (MmFreePagesFromMdl.c)
- *     MiAllocatePagesForMdl @ 0x14034898C (MiAllocatePagesForMdl.c)
- *     MiReservePtes @ 0x14035DE50 (MiReservePtes.c)
- *     KeGetIdealNodeNumberThread @ 0x14048C2AC (KeGetIdealNodeNumberThread.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     MiMakeValidPte @ 0x1402BBDE0 (MiMakeValidPte.c)
+ *     MmFreePagesFromMdl @ 0x140347520 (MmFreePagesFromMdl.c)
+ *     MiAllocatePagesForMdl @ 0x14034AA0C (MiAllocatePagesForMdl.c)
+ *     MiReservePtes @ 0x14035FBF0 (MiReservePtes.c)
+ *     KeGetIdealNodeNumberThread @ 0x140485DEC (KeGetIdealNodeNumberThread.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 PVOID __stdcall MmAllocateNonCachedMemory(SIZE_T NumberOfBytes)
@@ -42,7 +42,7 @@ PVOID __stdcall MmAllocateNonCachedMemory(SIZE_T NumberOfBytes)
                                  0LL);
   if ( !PagesForMdl )
     return 0LL;
-  v7 = MiReservePtes((__int64)&unk_140E34A40, v1, v5, v6);
+  v7 = MiReservePtes((__int64)&unk_140E34BC0, v1, v5, v6);
   if ( !v7 )
   {
     MmFreePagesFromMdl(PagesForMdl);

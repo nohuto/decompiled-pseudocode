@@ -7,7 +7,7 @@
  */
 
 // attributes: thunk
-void __stdcall RtlInitUTF8String(PSTRING DestinationString, PCSZ SourceString)
+void __cdecl RtlInitUTF8String(PUTF8_STRING DestinationString, PCSZ SourceString)
 {
   RtlInitString(DestinationString, SourceString);
 }

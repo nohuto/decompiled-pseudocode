@@ -1,12 +1,12 @@
 /*
- * XREFs of FilterEval @ 0x140788460
+ * XREFs of FilterEval @ 0x140788650
  * Callers:
- *     PiDqQueryEvaluateFilter @ 0x140788354 (PiDqQueryEvaluateFilter.c)
- *     ConstraintEval @ 0x1407FB198 (ConstraintEval.c)
- *     ValidFilter @ 0x1407FB930 (ValidFilter.c)
+ *     PiDqQueryEvaluateFilter @ 0x140788544 (PiDqQueryEvaluateFilter.c)
+ *     ConstraintEval @ 0x1407FB468 (ConstraintEval.c)
+ *     ValidFilter @ 0x1407FBC00 (ValidFilter.c)
  * Callees:
- *     FilterEvalStrict @ 0x140789B78 (FilterEvalStrict.c)
- *     FilterEvalImpliedAnd @ 0x14078D638 (FilterEvalImpliedAnd.c)
+ *     FilterEvalStrict @ 0x140789D68 (FilterEvalStrict.c)
+ *     FilterEvalImpliedAnd @ 0x14078D828 (FilterEvalImpliedAnd.c)
  */
 
 __int64 __fastcall FilterEval(int a1, int a2, int a3, _DWORD *a4, __int64 a5)

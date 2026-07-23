@@ -1,18 +1,18 @@
 /*
- * XREFs of LdrpGetFromMUIMemCache @ 0x1403DCE10
+ * XREFs of LdrpGetFromMUIMemCache @ 0x1403E0000
  * Callers:
- *     LdrpGetRcConfig @ 0x1403DC6CC (LdrpGetRcConfig.c)
- *     LdrLoadAlternateResourceModuleEx @ 0x1403DCBD0 (LdrLoadAlternateResourceModuleEx.c)
- *     LdrResGetRCConfig @ 0x140B03754 (LdrResGetRCConfig.c)
+ *     LdrpGetRcConfig @ 0x1403DF8BC (LdrpGetRcConfig.c)
+ *     LdrLoadAlternateResourceModuleEx @ 0x1403DFDC0 (LdrLoadAlternateResourceModuleEx.c)
+ *     LdrResGetRCConfig @ 0x140B05364 (LdrResGetRCConfig.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     KeReleaseMutant @ 0x1403DD0B0 (KeReleaseMutant.c)
- *     KeReleaseMutantEx @ 0x1403DD130 (KeReleaseMutantEx.c)
- *     LdrpInitMuiCrits @ 0x1403DD614 (LdrpInitMuiCrits.c)
- *     LdrUnloadAlternateResourceModuleEx @ 0x1404B2744 (LdrUnloadAlternateResourceModuleEx.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     KeReleaseMutant @ 0x1403E02A0 (KeReleaseMutant.c)
+ *     KeReleaseMutantEx @ 0x1403E0320 (KeReleaseMutantEx.c)
+ *     LdrpInitMuiCrits @ 0x1403E0804 (LdrpInitMuiCrits.c)
+ *     LdrUnloadAlternateResourceModuleEx @ 0x1404ABC54 (LdrUnloadAlternateResourceModuleEx.c)
  */
 
-_DWORD *__fastcall LdrpGetFromMUIMemCache(__int64 a1, __int16 a2, _QWORD *a3, int a4)
+_DWORD *__fastcall LdrpGetFromMUIMemCache(unsigned __int64 DllHandle, __int16 a2, _QWORD *a3, int a4)
 {
   char v4; // si
   _DWORD *v8; // r14
@@ -20,16 +20,17 @@ _DWORD *__fastcall LdrpGetFromMUIMemCache(__int64 a1, __int16 a2, _QWORD *a3, in
   unsigned __int64 v10; // rdx
   unsigned __int64 v11; // rdi
   _DWORD *v12; // rax
-  signed int v13; // edx
+  int v13; // edx
   __int64 v14; // rax
+  ULONG v15; // edx
 
   v4 = a4;
   v8 = 0LL;
   v9 = 0;
   if ( (a4 & 0xC) == 0 || (a4 & 0xFFFFFFF3) != 0 || (a4 & 4) != 0 && !a2 )
     return 0LL;
-  v10 = a1 & 0xFFFFFFFFFFFFFFFCuLL;
-  if ( (a1 & 0xFFFFFFFFFFFFFFFCuLL) != 0 )
+  v10 = DllHandle & 0xFFFFFFFFFFFFFFFCuLL;
+  if ( (DllHandle & 0xFFFFFFFFFFFFFFFCuLL) != 0 )
   {
     v11 = 0LL;
     if ( *(_WORD *)v10 == 23117 )
@@ -53,23 +54,23 @@ _DWORD *__fastcall LdrpGetFromMUIMemCache(__int64 a1, __int16 a2, _QWORD *a3, in
     *a3 = 0LL;
   LdrpInitMuiCrits();
   KeWaitForSingleObject(&NormalizationListLock.FirstArgument, Executive, 0, 0, 0LL);
-  v13 = NormalizationListLock.SystemCallNumber - 1;
+  v13 = LODWORD(NormalizationListLock.WaitBlockList) - 1;
   while ( v13 >= 0 )
   {
     v14 = (__int64)v13 << 6;
-    if ( *(_QWORD *)(v14 + *(_QWORD *)((char *)&NormalizationListLock.116 + 4) + 8) != a1 )
+    if ( *(_QWORD *)(v14 + NormalizationListLock.WaitStatus + 8) != DllHandle )
       goto LABEL_16;
-    if ( *(_DWORD *)(v14 + *(_QWORD *)((char *)&NormalizationListLock.116 + 4) + 24) != *(_DWORD *)(v11 + 88) )
+    if ( *(_DWORD *)(v14 + NormalizationListLock.WaitStatus + 24) != *(_DWORD *)(v11 + 88) )
     {
       v9 = 1;
       break;
     }
     if ( (v4 & 8) != 0 )
     {
-      if ( *(_QWORD *)(v14 + *(_QWORD *)((char *)&NormalizationListLock.116 + 4) + 16) )
+      if ( *(_QWORD *)(v14 + NormalizationListLock.WaitStatus + 16) )
       {
         _mm_lfence();
-        v8 = *(_DWORD **)(v14 + *(_QWORD *)((char *)&NormalizationListLock.116 + 4) + 16);
+        v8 = *(_DWORD **)(v14 + NormalizationListLock.WaitStatus + 16);
         if ( v8 != (_DWORD *)-1LL && v8 && *v8 != -20054323 )
         {
           v9 = 1;
@@ -84,11 +85,11 @@ LABEL_16:
     {
       if ( (v4 & 4) == 0 )
         goto LABEL_16;
-      if ( a2 && *(_WORD *)(v14 + *(_QWORD *)((char *)&NormalizationListLock.116 + 4)) == a2 )
+      if ( a2 && *(_WORD *)(v14 + NormalizationListLock.WaitStatus) == a2 )
       {
-        v8 = *(_DWORD **)(v14 + *(_QWORD *)((char *)&NormalizationListLock.116 + 4) + 32);
+        v8 = *(_DWORD **)(v14 + NormalizationListLock.WaitStatus + 32);
         if ( a3 )
-          *a3 = *(_QWORD *)(v14 + *(_QWORD *)((char *)&NormalizationListLock.116 + 4) + 48);
+          *a3 = *(_QWORD *)(v14 + NormalizationListLock.WaitStatus + 48);
         break;
       }
       --v13;
@@ -96,6 +97,6 @@ LABEL_16:
   }
   KeReleaseMutantEx((struct _KTHREAD *)&NormalizationListLock.FirstArgument);
   if ( v9 )
-    LdrUnloadAlternateResourceModuleEx(a1);
+    LdrUnloadAlternateResourceModuleEx((PVOID)DllHandle, v15);
   return v8;
 }

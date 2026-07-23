@@ -1,12 +1,12 @@
 /*
- * XREFs of ApiSetSchemaExpander_InsertHostEntry @ 0x140418AEC
+ * XREFs of ApiSetSchemaExpander_InsertHostEntry @ 0x140418E7C
  * Callers:
- *     ApiSetCompose_ProcessV7Extension_Phase1 @ 0x140417A9C (ApiSetCompose_ProcessV7Extension_Phase1.c)
- *     ApiSetCompose_V7_ProcessV6Extension_Phase1 @ 0x140419060 (ApiSetCompose_V7_ProcessV6Extension_Phase1.c)
+ *     ApiSetCompose_ProcessV7Extension_Phase1 @ 0x140417E2C (ApiSetCompose_ProcessV7Extension_Phase1.c)
+ *     ApiSetCompose_V7_ProcessV6Extension_Phase1 @ 0x1404193F0 (ApiSetCompose_V7_ProcessV6Extension_Phase1.c)
  * Callees:
- *     ApiSetSchemaExpander_AllocateWString @ 0x1404184E0 (ApiSetSchemaExpander_AllocateWString.c)
- *     ApiSetpInsertHashEntry_V7 @ 0x14041946C (ApiSetpInsertHashEntry_V7.c)
- *     ApiSetpPopulateHashes_V7 @ 0x140419610 (ApiSetpPopulateHashes_V7.c)
+ *     ApiSetSchemaExpander_AllocateWString @ 0x140418870 (ApiSetSchemaExpander_AllocateWString.c)
+ *     ApiSetpInsertHashEntry_V7 @ 0x1404197FC (ApiSetpInsertHashEntry_V7.c)
+ *     ApiSetpPopulateHashes_V7 @ 0x1404199A0 (ApiSetpPopulateHashes_V7.c)
  */
 
 __int64 __fastcall ApiSetSchemaExpander_InsertHostEntry(__int64 a1, const void *a2, unsigned __int16 a3, _DWORD *a4)

@@ -19,52 +19,58 @@ int __stdcall RtlCreateSystemVolumeInformationFolder(unsigned __int16 *a1)
   unsigned int v1; // eax
   unsigned __int16 v2; // dx
   __int16 v3; // di
-  _WORD *Heap; // ecx
+  PVOID Heap; // ecx
   unsigned int v6; // ecx
   NTSTATUS v7; // esi
   struct _PEB *v8; // eax
-  int v9; // [esp-4h] [ebp-4Ch]
+  SIZE_T v9; // [esp-4h] [ebp-4Ch]
+  size_t v10; // [esp-4h] [ebp-4Ch]
+  size_t v11; // [esp-4h] [ebp-4Ch]
+  PVOID v12; // [esp-4h] [ebp-4Ch]
   HANDLE FileHandle; // [esp+Ch] [ebp-3Ch] BYREF
-  void *v11; // [esp+10h] [ebp-38h] BYREF
-  int v12; // [esp+14h] [ebp-34h] BYREF
-  _WORD v13[2]; // [esp+18h] [ebp-30h] BYREF
-  _WORD *v14; // [esp+1Ch] [ebp-2Ch]
-  UNICODE_STRING DestinationString; // [esp+20h] [ebp-28h] BYREF
-  struct _IO_STATUS_BLOCK IoStatusBlock; // [esp+28h] [ebp-20h] BYREF
-  OBJECT_ATTRIBUTES ObjectAttributes; // [esp+30h] [ebp-18h] BYREF
+  PVOID v14; // [esp+10h] [ebp-38h] BYREF
+  PVOID v15; // [esp+14h] [ebp-34h] BYREF
+  _WORD v16[2]; // [esp+18h] [ebp-30h] BYREF
+  PVOID BaseAddress; // [esp+1Ch] [ebp-2Ch]
+  _UNICODE_STRING DestinationString; // [esp+20h] [ebp-28h] BYREF
+  _IO_STATUS_BLOCK IoStatusBlock; // [esp+28h] [ebp-20h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [esp+30h] [ebp-18h] BYREF
 
   RtlInitUnicodeString(&DestinationString, L"System Volume Information");
   v1 = *a1;
   v2 = v1 + DestinationString.Length;
-  v13[0] = v1 + DestinationString.Length;
+  v16[0] = v1 + DestinationString.Length;
   if ( (unsigned __int16)(v1 + DestinationString.Length) >= (unsigned __int16)v1 && v2 >= DestinationString.Length )
   {
     v3 = *(_WORD *)(*((_DWORD *)a1 + 1) + 2 * (v1 >> 1) - 2);
     if ( v3 != 92 )
-      v13[0] = v2 + 2;
-    v13[1] = v13[0] + 2;
-    Heap = (_WORD *)RtlAllocateHeap((int)NtCurrentPeb()->ProcessHeap, 0, (unsigned __int16)(v13[0] + 2));
-    v14 = Heap;
+      v16[0] = v2 + 2;
+    v16[1] = v16[0] + 2;
+    LODWORD(v9) = (unsigned __int16)(v16[0] + 2);
+    Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, v9);
+    BaseAddress = Heap;
     if ( !Heap )
       return -1073741670;
-    memcpy(Heap, *((const void **)a1 + 1), *a1);
+    LODWORD(v10) = *a1;
+    memcpy(Heap, *((const void **)a1 + 1), v10);
     v6 = *a1;
-    v13[0] = *a1;
+    v16[0] = *a1;
     if ( v3 != 92 )
     {
-      v14[v6 >> 1] = 92;
-      LOWORD(v6) = v13[0] + 2;
-      v13[0] += 2;
+      *((_WORD *)BaseAddress + (v6 >> 1)) = 92;
+      LOWORD(v6) = v16[0] + 2;
+      v16[0] += 2;
     }
-    memcpy((char *)v14 + (unsigned __int16)v6, DestinationString.Buffer, DestinationString.Length);
-    v13[0] += DestinationString.Length;
-    v14[v13[0] >> 1] = 0;
-    v7 = RtlpSysVolCreateSecurityDescriptor(&v11, &v12);
+    LODWORD(v11) = DestinationString.Length;
+    memcpy((char *)BaseAddress + (unsigned __int16)v6, DestinationString.Buffer, v11);
+    v16[0] += DestinationString.Length;
+    *((_WORD *)BaseAddress + (v16[0] >> 1)) = 0;
+    v7 = RtlpSysVolCreateSecurityDescriptor(&v14, &v15);
     if ( v7 >= 0 )
     {
       ObjectAttributes.Length = 24;
-      ObjectAttributes.ObjectName = (PUNICODE_STRING)v13;
-      ObjectAttributes.SecurityDescriptor = v11;
+      ObjectAttributes.ObjectName = (PUNICODE_STRING)v16;
+      ObjectAttributes.SecurityDescriptor = v14;
       ObjectAttributes.RootDirectory = 0;
       ObjectAttributes.Attributes = 576;
       ObjectAttributes.SecurityQualityOfService = 0;
@@ -73,27 +79,27 @@ int __stdcall RtlCreateSystemVolumeInformationFolder(unsigned __int16 *a1)
       v7 = NtCreateFile(&FileHandle, 0x1E0000u, &ObjectAttributes, &IoStatusBlock, 0, 6u, 7u, 3u, 0x21u, 0, 0);
       if ( v7 < 0 )
       {
-        RtlpSysVolTakeOwnership(v13);
+        RtlpSysVolTakeOwnership(v16);
         v7 = NtCreateFile(&FileHandle, 0x1E0000u, &ObjectAttributes, &IoStatusBlock, 0, 6u, 7u, 3u, 0x21u, 0, 0);
       }
-      RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, (int)v14);
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, BaseAddress);
       v8 = NtCurrentPeb();
       if ( v7 < 0 )
       {
-        RtlFreeHeap((int)v8->ProcessHeap, 0, v12);
-        RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, (int)v11);
+        RtlFreeHeap(v8->ProcessHeap, 0, v15);
+        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v14);
         return v7;
       }
-      RtlFreeHeap((int)v8->ProcessHeap, 0, (int)v11);
-      v7 = RtlpSysVolCheckOwnerAndSecurity(FileHandle, v12);
+      RtlFreeHeap(v8->ProcessHeap, 0, v14);
+      v7 = RtlpSysVolCheckOwnerAndSecurity(FileHandle);
       NtClose(FileHandle);
-      v9 = v12;
+      v12 = v15;
     }
     else
     {
-      v9 = (int)v14;
+      v12 = BaseAddress;
     }
-    RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, v9);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v12);
     return v7;
   }
   return -1073741811;

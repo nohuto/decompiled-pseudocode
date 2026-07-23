@@ -8,35 +8,45 @@
  *     _RtlExpandEnvironmentStrings@24 @ 0x4B2DC3A0 (_RtlExpandEnvironmentStrings@24.c)
  */
 
-int __stdcall RtlExpandEnvironmentStrings_U(int a1, unsigned __int16 *a2, int a3, _DWORD *a4)
+NTSTATUS __cdecl RtlExpandEnvironmentStrings_U(
+        PVOID Environment,
+        PUNICODE_STRING Source,
+        PUNICODE_STRING Destination,
+        PULONG ReturnedLength)
 {
-  int v4; // eax
-  unsigned int v5; // esi
-  int v6; // ecx
-  unsigned int v8; // [esp+Ch] [ebp-4h] BYREF
+  NTSTATUS v4; // eax
+  int v5; // esi
+  NTSTATUS v6; // ecx
+  SIZE_T v8; // [esp-10h] [ebp-20h]
+  SIZE_T v9; // [esp-4h] [ebp-14h]
+  ULONG_PTR *v10; // [esp+4h] [ebp-Ch]
+  SIZE_T DestinationLength; // [esp+Ch] [ebp-4h] BYREF
 
-  v8 = 0;
+  LODWORD(DestinationLength) = 0;
+  LODWORD(v9) = &DestinationLength;
+  HIDWORD(v8) = Destination->Buffer;
+  LODWORD(v8) = Source->Length >> 1;
   v4 = RtlExpandEnvironmentStrings(
-         a1,
-         *((_DWORD *)a2 + 1),
-         *a2 >> 1,
-         *(_DWORD *)(a3 + 4),
-         *(unsigned __int16 *)(a3 + 2) >> 1,
-         &v8);
-  v5 = v8;
+         Environment,
+         (PCWSTR)Source->Buffer,
+         v8,
+         (PWSTR)(Destination->MaximumLength >> 1),
+         v9,
+         v10);
+  v5 = DestinationLength;
   v6 = v4;
-  if ( v8 > 0x7FFF )
+  if ( (unsigned int)DestinationLength > 0x7FFF )
   {
     v6 = -1073741823;
-    if ( a4 )
-      *a4 = 0;
+    if ( ReturnedLength )
+      *ReturnedLength = 0;
   }
   else
   {
     if ( v4 >= 0 )
-      *(_WORD *)a3 = 2 * v8 - 2;
-    if ( a4 )
-      *a4 = 2 * v5;
+      Destination->Length = 2 * DestinationLength - 2;
+    if ( ReturnedLength )
+      *ReturnedLength = 2 * v5;
   }
   return v6;
 }

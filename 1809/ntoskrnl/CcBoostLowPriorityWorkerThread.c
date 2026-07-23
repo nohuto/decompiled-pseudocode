@@ -1,5 +1,5 @@
 /*
- * XREFs of CcBoostLowPriorityWorkerThread @ 0x140107F50
+ * XREFs of CcBoostLowPriorityWorkerThread @ 0x140107FD0
  * Callers:
  *     CcFlushCachePriv @ 0x14001EA90 (CcFlushCachePriv.c)
  *     CcAdjustWriteBehindThreadPoolIfNeeded @ 0x140023880 (CcAdjustWriteBehindThreadPoolIfNeeded.c)
@@ -11,13 +11,13 @@
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KiAbThreadRemoveBoosts @ 0x14004EFD0 (KiAbThreadRemoveBoosts.c)
  *     MmGetSessionIdEx @ 0x14004F060 (MmGetSessionIdEx.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     PsGetIoPriorityThread @ 0x1400B6B40 (PsGetIoPriorityThread.c)
- *     PsBoostThreadIo @ 0x1400BBF70 (PsBoostThreadIo.c)
- *     KeSetPriorityThread @ 0x1400CD870 (KeSetPriorityThread.c)
- *     IoBoostThreadIoPriority @ 0x14010865C (IoBoostThreadIoPriority.c)
- *     CcUpdateSharedCacheMapFlag @ 0x140108BD0 (CcUpdateSharedCacheMapFlag.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     PsGetIoPriorityThread @ 0x1400B6A80 (PsGetIoPriorityThread.c)
+ *     PsBoostThreadIo @ 0x1400BBEB0 (PsBoostThreadIo.c)
+ *     KeSetPriorityThread @ 0x1400CD8F0 (KeSetPriorityThread.c)
+ *     IoBoostThreadIoPriority @ 0x1401086DC (IoBoostThreadIoPriority.c)
+ *     CcUpdateSharedCacheMapFlag @ 0x140108C50 (CcUpdateSharedCacheMapFlag.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
  */
 
 _QWORD *__fastcall CcBoostLowPriorityWorkerThread(__int64 a1, __int64 a2)
@@ -94,7 +94,7 @@ _QWORD *__fastcall CcBoostLowPriorityWorkerThread(__int64 a1, __int64 a2)
         {
           v13->CrossThreadReleasableAndBusyByte |= 2u;
           if ( (__int64)v13->LockState.LockState < 0 )
-            KiAbEntryRemoveFromTree((__int64)&CurrentThread->LockEntries[v12], SessionId);
+            KiAbEntryRemoveFromTree(&CurrentThread->LockEntries[v12].TreeNode, SessionId);
           v20 = 0;
           v20 = v13->BoostBitmap.AllFields & 0x1FFFF;
           v13->BoostBitmap.AllFields &= 0xFFFE0000;

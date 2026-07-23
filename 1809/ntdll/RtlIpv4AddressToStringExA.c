@@ -3,9 +3,9 @@
  * Callers:
  *     <none>
  * Callees:
- *     RtlIpv4AddressToStringA @ 0x1800854C0 (RtlIpv4AddressToStringA.c)
- *     __security_check_cookie @ 0x18008FEC0 (__security_check_cookie.c)
- *     sprintf_s @ 0x18009B1C0 (sprintf_s.c)
+ *     RtlIpv4AddressToStringA @ 0x1800854D0 (RtlIpv4AddressToStringA.c)
+ *     __security_check_cookie @ 0x18008FED0 (__security_check_cookie.c)
+ *     sprintf_s @ 0x18009B1D0 (sprintf_s.c)
  *     memmove @ 0x1800A6DC0 (memmove.c)
  */
 

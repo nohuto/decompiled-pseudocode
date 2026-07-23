@@ -1,11 +1,11 @@
 /*
- * XREFs of SepSetSystemPaths @ 0x14057A068
+ * XREFs of SepSetSystemPaths @ 0x14057A5A8
  * Callers:
- *     SepIsMinTCB @ 0x14045CC48 (SepIsMinTCB.c)
+ *     SepIsMinTCB @ 0x14045BB18 (SepIsMinTCB.c)
  * Callees:
- *     RtlStringCbPrintfW @ 0x14000C1D4 (RtlStringCbPrintfW.c)
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     RtlStringCbLengthW @ 0x14009ED7C (RtlStringCbLengthW.c)
+ *     RtlStringCbPrintfW @ 0x14000BD54 (RtlStringCbPrintfW.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     RtlStringCbLengthW @ 0x140085E34 (RtlStringCbLengthW.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  *     SepLoadNgenLocations @ 0x1407B7D5C (SepLoadNgenLocations.c)
@@ -39,7 +39,7 @@ __int64 SepSetSystemPaths()
       RtlInitUnicodeString((PUNICODE_STRING)(v3 + 16), v5);
       *(_OWORD *)(v3 + 32) = *(_OWORD *)v3;
       *(_WORD *)(v3 + 32) = 12;
-      v6 = (void *)(v3 & -(__int64)(_InterlockedCompareExchange64((volatile signed __int64 *)&qword_14033E228, v3, 0LL) != 0));
+      v6 = (void *)(v3 & -(__int64)(_InterlockedCompareExchange64((volatile signed __int64 *)&qword_14033E268, v3, 0LL) != 0));
       if ( v6 )
         ExFreePoolWithTag(v6, 0x63734943u);
     }

@@ -1,30 +1,30 @@
 /*
- * XREFs of MmSetAddressRangeModifiedEx @ 0x140086780
+ * XREFs of MmSetAddressRangeModifiedEx @ 0x140086770
  * Callers:
  *     CcFlushCachePriv @ 0x14001EA90 (CcFlushCachePriv.c)
- *     CcZeroDataInCache @ 0x1400E07C4 (CcZeroDataInCache.c)
- *     CcPurgeAndClearCacheSection @ 0x1400E78F8 (CcPurgeAndClearCacheSection.c)
- *     MmSetAddressRangeModified @ 0x140134300 (MmSetAddressRangeModified.c)
- *     CcUnpinRepinnedBcb @ 0x140269DD0 (CcUnpinRepinnedBcb.c)
+ *     CcZeroDataInCache @ 0x1400E0844 (CcZeroDataInCache.c)
+ *     CcPurgeAndClearCacheSection @ 0x1400E7978 (CcPurgeAndClearCacheSection.c)
+ *     MmSetAddressRangeModified @ 0x1401343D0 (MmSetAddressRangeModified.c)
+ *     CcUnpinRepinnedBcb @ 0x140269FC0 (CcUnpinRepinnedBcb.c)
  * Callees:
  *     MiReleasePageFileInfo @ 0x14002A628 (MiReleasePageFileInfo.c)
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  *     MiUnlockWorkingSetShared @ 0x140046970 (MiUnlockWorkingSetShared.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     MiFlushTbList @ 0x1400740C0 (MiFlushTbList.c)
- *     MiMakeProtectionMask @ 0x1400744A0 (MiMakeProtectionMask.c)
- *     MI_TIGHTER_PERMISSIONS @ 0x140086748 (MI_TIGHTER_PERMISSIONS.c)
- *     MiCaptureDirtyBitToPfn @ 0x140087910 (MiCaptureDirtyBitToPfn.c)
- *     MiWriteValidPteNewProtection @ 0x140087970 (MiWriteValidPteNewProtection.c)
- *     MiLockWorkingSetOptimal @ 0x140088344 (MiLockWorkingSetOptimal.c)
- *     MiGetSystemCacheReverseMap @ 0x1400ADF50 (MiGetSystemCacheReverseMap.c)
- *     MiInsertTbFlushEntry @ 0x1400B3AF0 (MiInsertTbFlushEntry.c)
- *     MiUnlockPageTableInternal @ 0x140104A90 (MiUnlockPageTableInternal.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     MiFlushTbList @ 0x1400740B0 (MiFlushTbList.c)
+ *     MiMakeProtectionMask @ 0x140074490 (MiMakeProtectionMask.c)
+ *     MI_TIGHTER_PERMISSIONS @ 0x140086738 (MI_TIGHTER_PERMISSIONS.c)
+ *     MiCaptureDirtyBitToPfn @ 0x140087900 (MiCaptureDirtyBitToPfn.c)
+ *     MiWriteValidPteNewProtection @ 0x140087960 (MiWriteValidPteNewProtection.c)
+ *     MiLockWorkingSetOptimal @ 0x140088334 (MiLockWorkingSetOptimal.c)
+ *     MiGetSystemCacheReverseMap @ 0x1400ADE90 (MiGetSystemCacheReverseMap.c)
+ *     MiInsertTbFlushEntry @ 0x1400B3A30 (MiInsertTbFlushEntry.c)
+ *     MiUnlockPageTableInternal @ 0x140104B10 (MiUnlockPageTableInternal.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MmSetAddressRangeModifiedEx(unsigned __int64 a1, __int64 a2)
@@ -91,14 +91,14 @@ __int64 __fastcall MmSetAddressRangeModifiedEx(unsigned __int64 a1, __int64 a2)
   v7 = (((a1 + v3) >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
   v8 = a1 & 0xFFFFFFFFFFFFF000uLL;
   v9 = 0LL;
-  v44 = MiLockWorkingSetOptimal(&unk_14043E640, v6, v38);
+  v44 = MiLockWorkingSetOptimal(&unk_14043F700, v6, v38);
   SystemCacheReverseMap = MiGetSystemCacheReverseMap(v8);
   v11 = 0x8000000000000000uLL;
   v12 = *(_QWORD *)(SystemCacheReverseMap + 24);
   v13 = v12 & 0xFFFFFFFFFFFFFFFEuLL;
   if ( (v12 & 1) == 0 )
     v13 = *(_QWORD *)(SystemCacheReverseMap + 24);
-  v45 = *(_QWORD *)(qword_14043A748 + 8LL * (*(_WORD *)(*(_QWORD *)v13 + 60LL) & 0x3FF)) + 7424LL;
+  v45 = *(_QWORD *)(qword_14043B808 + 8LL * (*(_WORD *)(*(_QWORD *)v13 + 60LL) & 0x3FF)) + 7424LL;
   v14 = v6;
   do
   {
@@ -141,7 +141,7 @@ __int64 __fastcall MmSetAddressRangeModifiedEx(unsigned __int64 a1, __int64 a2)
         while ( *(__int64 *)(v23 + 24) < 0 );
       }
       v26 = (*(_BYTE *)(v23 + 34) & 0x10) == 0;
-      v27 = *(struct _KEVENT **)(qword_14043A748 + 8 * ((*(_QWORD *)(v23 + 40) >> 40) & 0x3FFLL));
+      v27 = *(struct _KEVENT **)(qword_14043B808 + 8 * ((*(_QWORD *)(v23 + 40) >> 40) & 0x3FFLL));
       v43 = v27;
       if ( v26 || (*(_DWORD *)(v23 + 16) & 0x400LL) == 0 )
       {
@@ -205,7 +205,7 @@ LABEL_20:
       {
         if ( (unsigned int)MiPteHasShadow(v36, v35) )
         {
-          if ( !HIBYTE(word_14043A1AC) && (v34 & 1) != 0 )
+          if ( !HIBYTE(word_14043B26C) && (v34 & 1) != 0 )
             v35 |= v11;
           *(_QWORD *)v6 = v35;
           MiWritePteShadow(v6);

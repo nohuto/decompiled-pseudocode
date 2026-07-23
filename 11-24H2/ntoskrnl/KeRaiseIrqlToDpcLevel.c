@@ -1,9 +1,9 @@
 /*
- * XREFs of KeRaiseIrqlToDpcLevel @ 0x1403FA2A0
+ * XREFs of KeRaiseIrqlToDpcLevel @ 0x1403F4D40
  * Callers:
  *     <none>
  * Callees:
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 KIRQL KeRaiseIrqlToDpcLevel(void)

@@ -1,14 +1,14 @@
 /*
- * XREFs of ZwShutdownWorkerFactory @ 0x1406A9CF0
+ * XREFs of ZwShutdownWorkerFactory @ 0x1406AAC90
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwShutdownWorkerFactory(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwShutdownWorkerFactory(HANDLE WorkerFactoryHandle, LONG *PendingWorkerCount)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(WorkerFactoryHandle);
 }

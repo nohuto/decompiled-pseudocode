@@ -96,7 +96,7 @@
  *     PopCheckForWork @ 0x14032C9D8 (PopCheckForWork.c)
  */
 
-__int64 PopReleasePolicyLock()
+__int64 __fastcall PopReleasePolicyLock()
 {
   __int64 v0; // rdx
 

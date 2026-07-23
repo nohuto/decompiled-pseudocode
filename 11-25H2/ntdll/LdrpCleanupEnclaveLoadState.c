@@ -9,36 +9,36 @@
  *     LdrpEnclaveFreeModule @ 0x180134994 (LdrpEnclaveFreeModule.c)
  */
 
-_UNKNOWN **__fastcall LdrpCleanupEnclaveLoadState(__int64 a1, int a2, __int64 a3, __int64 a4)
+_UNKNOWN **__fastcall LdrpCleanupEnclaveLoadState(__int64 a1, int a2)
 {
   _UNKNOWN **result; // rax
-  _QWORD *v5; // rsi
-  _QWORD *v7; // rbx
-  __int64 v8; // rdi
-  _QWORD *v9; // rbp
-  __int64 v10; // r8
+  _QWORD *v3; // rsi
+  _QWORD *v5; // rbx
+  _QWORD *v6; // rdi
+  _QWORD *v7; // rbp
+  void *v8; // r8
   _UNKNOWN *retaddr; // [rsp+28h] [rbp+0h] BYREF
 
   result = &retaddr;
-  v5 = (_QWORD *)(a1 + 96);
-  v7 = *(_QWORD **)(a1 + 96);
-  while ( v7 != v5 )
+  v3 = (_QWORD *)(a1 + 96);
+  v5 = *(_QWORD **)(a1 + 96);
+  while ( v5 != v3 )
   {
-    v8 = v7[22];
-    v9 = v7;
-    v7 = (_QWORD *)*v7;
-    if ( v8 )
+    v6 = (_QWORD *)v5[22];
+    v7 = v5;
+    v5 = (_QWORD *)*v5;
+    if ( v6 )
     {
-      v10 = *(_QWORD *)(v8 + 88);
-      if ( v10 )
+      v8 = (void *)v6[11];
+      if ( v8 )
       {
-        RtlFreeHeap(LdrpHeap, 0, v10, a4);
-        *(_QWORD *)(v8 + 88) = 0LL;
+        RtlFreeHeap(LdrpHeap, 0, v8);
+        v6[11] = 0LL;
       }
-      result = (_UNKNOWN **)LdrpFreeLoadContext(v8);
+      result = (_UNKNOWN **)LdrpFreeLoadContext(v6);
     }
     if ( a2 < 0 )
-      result = (_UNKNOWN **)LdrpEnclaveFreeModule(v9);
+      result = (_UNKNOWN **)LdrpEnclaveFreeModule(v7);
   }
   return result;
 }

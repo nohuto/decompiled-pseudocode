@@ -1,13 +1,13 @@
 /*
- * XREFs of PfpRpCHashAddEntries @ 0x140B031D8
+ * XREFs of PfpRpCHashAddEntries @ 0x140B04DEC
  * Callers:
- *     PfpRpControlRequestUpdate @ 0x140B03054 (PfpRpControlRequestUpdate.c)
+ *     PfpRpControlRequestUpdate @ 0x140B04C68 (PfpRpControlRequestUpdate.c)
  * Callees:
- *     PfLockExclusiveAcquire @ 0x1404C3BA0 (PfLockExclusiveAcquire.c)
- *     PfLockExclusiveRelease @ 0x1404C761C (PfLockExclusiveRelease.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     PfpRpCHashGrow @ 0x140B033A0 (PfpRpCHashGrow.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     PfLockExclusiveAcquire @ 0x1404BD3F0 (PfLockExclusiveAcquire.c)
+ *     PfLockExclusiveRelease @ 0x1404C0F38 (PfLockExclusiveRelease.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     PfpRpCHashGrow @ 0x140B04FB4 (PfpRpCHashGrow.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PfpRpCHashAddEntries(

@@ -75,7 +75,7 @@ __int64 __fastcall ObOpenObjectByNameEx(
   __int64 v29; // rax
   __int64 v30; // rcx
   struct _KPRCB *v31; // r8
-  struct _SLIST_ENTRY *v32; // rdx
+  _SLIST_ENTRY *v32; // rdx
   _GENERAL_LOOKASIDE *v33; // rcx
   int v34; // edi
   char *v35; // rdi
@@ -84,7 +84,7 @@ __int64 __fastcall ObOpenObjectByNameEx(
   signed __int64 v38; // rtt
   void *v39; // rcx
   _SLIST_ENTRY *v40; // rcx
-  struct _SLIST_ENTRY *v41; // r8
+  _SLIST_ENTRY *v41; // r8
   struct _KPRCB *v42; // rdx
   _GENERAL_LOOKASIDE *v43; // rcx
   struct _KPRCB *v44; // rdx
@@ -288,7 +288,7 @@ LABEL_16:
             *(_QWORD *)(*((_QWORD *)v28 + 4) + 32LL) = 0LL;
           }
           v31 = KeGetCurrentPrcb();
-          v32 = (struct _SLIST_ENTRY *)*((_QWORD *)v28 + 4);
+          v32 = (_SLIST_ENTRY *)*((_QWORD *)v28 + 4);
           v33 = v31->PPLookasideList[4].P;
           ++v33->TotalFrees;
           if ( LOWORD(v33->ListHead.Alignment) < v33->Depth
@@ -302,7 +302,7 @@ LABEL_16:
           else
           {
             ++v33->FreeMisses;
-            ((void (__fastcall *)(struct _SLIST_ENTRY *))v33->FreeEx)(v32);
+            ((void (__fastcall *)(_SLIST_ENTRY *))v33->FreeEx)(v32);
           }
           *((_QWORD *)v28 + 4) = 0LL;
           v27 = Object;
@@ -435,7 +435,7 @@ LABEL_80:
       else
       {
         ++v43->FreeMisses;
-        ((void (__fastcall *)(struct _SLIST_ENTRY *))v43->FreeEx)(v41);
+        ((void (__fastcall *)(_SLIST_ENTRY *))v43->FreeEx)(v41);
       }
     }
     else

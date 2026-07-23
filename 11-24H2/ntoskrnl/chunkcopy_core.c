@@ -1,11 +1,11 @@
 /*
- * XREFs of chunkcopy_core @ 0x1405F3E0C
+ * XREFs of chunkcopy_core @ 0x1405F144C
  * Callers:
- *     chunkset_core @ 0x1405F3E50 (chunkset_core.c)
- *     inflate @ 0x1405F3FB0 (inflate.c)
- *     chunkcopy_lapped_relaxed @ 0x1406019BC (chunkcopy_lapped_relaxed.c)
- *     chunkset_core_0 @ 0x1406019EC (chunkset_core_0.c)
- *     inflate_fast_chunk_ @ 0x140601B7C (inflate_fast_chunk_.c)
+ *     chunkset_core @ 0x1405F1490 (chunkset_core.c)
+ *     inflate @ 0x1405F15F0 (inflate.c)
+ *     chunkcopy_lapped_relaxed @ 0x1405FEFFC (chunkcopy_lapped_relaxed.c)
+ *     chunkset_core_0 @ 0x1405FF02C (chunkset_core_0.c)
+ *     inflate_fast_chunk_ @ 0x1405FF1BC (inflate_fast_chunk_.c)
  * Callees:
  *     <none>
  */

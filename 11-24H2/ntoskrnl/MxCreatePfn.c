@@ -1,10 +1,10 @@
 /*
- * XREFs of MxCreatePfn @ 0x140C526E4
+ * XREFs of MxCreatePfn @ 0x140C54874
  * Callers:
- *     MxCreatePfnsForPtes @ 0x140C52830 (MxCreatePfnsForPtes.c)
+ *     MxCreatePfnsForPtes @ 0x140C549C0 (MxCreatePfnsForPtes.c)
  * Callees:
- *     MiMakeDemandZeroPte @ 0x1402E3CC0 (MiMakeDemandZeroPte.c)
- *     MiCopyPfnEntryRaw @ 0x140441C20 (MiCopyPfnEntryRaw.c)
+ *     MiMakeDemandZeroPte @ 0x140392C40 (MiMakeDemandZeroPte.c)
+ *     MiCopyPfnEntryRaw @ 0x1404386A0 (MiCopyPfnEntryRaw.c)
  */
 
 __int64 __fastcall MxCreatePfn(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int a5)

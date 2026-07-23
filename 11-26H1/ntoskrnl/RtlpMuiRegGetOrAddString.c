@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlpMuiRegGetOrAddString @ 0x1408A8BCC
+ * XREFs of RtlpMuiRegGetOrAddString @ 0x1408AF03C
  * Callers:
- *     RtlpLoadPolicyLanguageSpec @ 0x1408A7B88 (RtlpLoadPolicyLanguageSpec.c)
- *     RtlpMuiRegGetInstalledLanguageIndexByName @ 0x1408A88E8 (RtlpMuiRegGetInstalledLanguageIndexByName.c)
- *     RtlpMuiRegGetLanguageSpec @ 0x1408A8B00 (RtlpMuiRegGetLanguageSpec.c)
- *     _RtlMuiRegAddLIPParent @ 0x1408A96A8 (_RtlMuiRegAddLIPParent.c)
- *     _RtlpMuiRegValidateInstalled @ 0x1408AA5F8 (_RtlpMuiRegValidateInstalled.c)
- *     _RtlpMuiRegInitAnyLanguage @ 0x140B2DD14 (_RtlpMuiRegInitAnyLanguage.c)
+ *     RtlpLoadPolicyLanguageSpec @ 0x1408ADFF8 (RtlpLoadPolicyLanguageSpec.c)
+ *     RtlpMuiRegGetInstalledLanguageIndexByName @ 0x1408AED58 (RtlpMuiRegGetInstalledLanguageIndexByName.c)
+ *     RtlpMuiRegGetLanguageSpec @ 0x1408AEF70 (RtlpMuiRegGetLanguageSpec.c)
+ *     _RtlMuiRegAddLIPParent @ 0x1408AFB18 (_RtlMuiRegAddLIPParent.c)
+ *     _RtlpMuiRegValidateInstalled @ 0x1408B0A68 (_RtlpMuiRegValidateInstalled.c)
+ *     _RtlpMuiRegInitAnyLanguage @ 0x140B2FD94 (_RtlpMuiRegInitAnyLanguage.c)
  * Callees:
- *     RtlpMuiRegGetOrAddStringToPool @ 0x1408A8D0C (RtlpMuiRegGetOrAddStringToPool.c)
- *     RtlpMuiRegResizeStringPool @ 0x1408A91E8 (RtlpMuiRegResizeStringPool.c)
+ *     RtlpMuiRegGetOrAddStringToPool @ 0x1408AF17C (RtlpMuiRegGetOrAddStringToPool.c)
+ *     RtlpMuiRegResizeStringPool @ 0x1408AF658 (RtlpMuiRegResizeStringPool.c)
  */
 
 __int64 __fastcall RtlpMuiRegGetOrAddString(__int64 a1, _WORD *a2, __int64 a3, __int16 *a4)

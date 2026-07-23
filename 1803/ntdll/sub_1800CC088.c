@@ -11,7 +11,7 @@
 
 char __fastcall sub_1800CC088(int a1, unsigned __int16 *a2, char a3, int a4, unsigned __int16 *a5)
 {
-  int v9; // eax
+  NTSTATUS v9; // eax
   __int64 v10; // r8
   __int64 v11; // r9
   char v13; // [rsp+38h] [rbp-61h] BYREF
@@ -33,11 +33,7 @@ char __fastcall sub_1800CC088(int a1, unsigned __int16 *a2, char a3, int a4, uns
   __int64 v29; // [rsp+C8h] [rbp+2Fh]
   _DWORD v30[2]; // [rsp+D0h] [rbp+37h] BYREF
 
-  v9 = RtlRunOnceExecuteOnce(
-         &qword_18015D080,
-         (unsigned int (__fastcall *)(volatile signed __int64 *, __int64, unsigned __int64 *))sub_180082590,
-         0LL,
-         0LL);
+  v9 = RtlRunOnceExecuteOnce(&stru_18015D080, (PRTL_RUN_ONCE_INIT_FN)sub_180082590, 0LL, 0LL);
   if ( v9 >= 0 && (unsigned int)dword_180156530 > 5 )
   {
     LOBYTE(v9) = sub_18007A45C((__int64)&dword_180156530, 0x200000000000LL);
@@ -62,7 +58,13 @@ char __fastcall sub_1800CC088(int a1, unsigned __int16 *a2, char a3, int a4, uns
       v26 = 4LL;
       v28 = 2LL;
       v30[1] = v11;
-      LOBYTE(v9) = sub_1800886A4((__int64)&dword_180156530, byte_180123A8D, v10, v11, 9, (__int64)v16);
+      LOBYTE(v9) = sub_1800886A4(
+                     (__int64)&dword_180156530,
+                     (unsigned __int8 *)dword_180123A8D,
+                     v10,
+                     v11,
+                     9u,
+                     (PEVENT_DATA_DESCRIPTOR)v16);
     }
   }
   return v9;

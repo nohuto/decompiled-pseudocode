@@ -1,23 +1,23 @@
 /*
- * XREFs of PopPowerAggregatorInvokeStateMachine @ 0x1407761A8
+ * XREFs of PopPowerAggregatorInvokeStateMachine @ 0x140776368
  * Callers:
- *     PopPowerAggregatorWorker @ 0x140776120 (PopPowerAggregatorWorker.c)
+ *     PopPowerAggregatorWorker @ 0x1407762E0 (PopPowerAggregatorWorker.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     xHalGetInterruptTranslator @ 0x1406BCC70 (xHalGetInterruptTranslator.c)
- *     PopPowerAggregatorInvalidStateHandler @ 0x140726480 (PopPowerAggregatorInvalidStateHandler.c)
- *     PopPowerAggregatorSystemTransitionEnterStateHandler @ 0x140774B20 (PopPowerAggregatorSystemTransitionEnterStateHandler.c)
- *     PopPowerAggregatorSystemTransitionExitStateHandler @ 0x140774BE0 (PopPowerAggregatorSystemTransitionExitStateHandler.c)
- *     PopPowerAggregatorAllocateLogEntry @ 0x1407762A8 (PopPowerAggregatorAllocateLogEntry.c)
- *     PopPowerAggregatorDiagTraceEvent @ 0x140776334 (PopPowerAggregatorDiagTraceEvent.c)
- *     PopPowerAggregatorActiveToScreenOffStateHandler @ 0x1408EDF00 (PopPowerAggregatorActiveToScreenOffStateHandler.c)
- *     PopPowerAggregatorDisplayPoweringOnStateHandler @ 0x1408EE120 (PopPowerAggregatorDisplayPoweringOnStateHandler.c)
- *     PopPowerAggregatorModernStandbyEnterStateHandler @ 0x1408EE530 (PopPowerAggregatorModernStandbyEnterStateHandler.c)
- *     PopPowerAggregatorModernStandbyExitStateHandler @ 0x1408EE580 (PopPowerAggregatorModernStandbyExitStateHandler.c)
- *     PopPowerAggregatorScreenOffActiveToActiveStateHandler @ 0x1408EE7A0 (PopPowerAggregatorScreenOffActiveToActiveStateHandler.c)
- *     PopPowerAggregatorScreenOffEnterStateHandler @ 0x1408EE7F0 (PopPowerAggregatorScreenOffEnterStateHandler.c)
- *     PopPowerAggregatorScreenOffExitStateHandler @ 0x1408EE9A0 (PopPowerAggregatorScreenOffExitStateHandler.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     xHalGetInterruptTranslator @ 0x14061BE40 (xHalGetInterruptTranslator.c)
+ *     PopPowerAggregatorInvalidStateHandler @ 0x140726650 (PopPowerAggregatorInvalidStateHandler.c)
+ *     PopPowerAggregatorSystemTransitionEnterStateHandler @ 0x140774CE0 (PopPowerAggregatorSystemTransitionEnterStateHandler.c)
+ *     PopPowerAggregatorSystemTransitionExitStateHandler @ 0x140774DA0 (PopPowerAggregatorSystemTransitionExitStateHandler.c)
+ *     PopPowerAggregatorAllocateLogEntry @ 0x140776468 (PopPowerAggregatorAllocateLogEntry.c)
+ *     PopPowerAggregatorDiagTraceEvent @ 0x1407764F4 (PopPowerAggregatorDiagTraceEvent.c)
+ *     PopPowerAggregatorActiveToScreenOffStateHandler @ 0x1408EE060 (PopPowerAggregatorActiveToScreenOffStateHandler.c)
+ *     PopPowerAggregatorDisplayPoweringOnStateHandler @ 0x1408EE280 (PopPowerAggregatorDisplayPoweringOnStateHandler.c)
+ *     PopPowerAggregatorModernStandbyEnterStateHandler @ 0x1408EE690 (PopPowerAggregatorModernStandbyEnterStateHandler.c)
+ *     PopPowerAggregatorModernStandbyExitStateHandler @ 0x1408EE6E0 (PopPowerAggregatorModernStandbyExitStateHandler.c)
+ *     PopPowerAggregatorScreenOffActiveToActiveStateHandler @ 0x1408EE900 (PopPowerAggregatorScreenOffActiveToActiveStateHandler.c)
+ *     PopPowerAggregatorScreenOffEnterStateHandler @ 0x1408EE950 (PopPowerAggregatorScreenOffEnterStateHandler.c)
+ *     PopPowerAggregatorScreenOffExitStateHandler @ 0x1408EEB00 (PopPowerAggregatorScreenOffExitStateHandler.c)
  */
 
 __int64 PopPowerAggregatorInvokeStateMachine()
@@ -32,17 +32,17 @@ __int64 PopPowerAggregatorInvokeStateMachine()
   LogEntry = PopPowerAggregatorAllocateLogEntry(&PopPowerAggregatorContext, 3LL);
   UserData.Reserved = 0;
   v6 = 0;
-  *(_OWORD *)(LogEntry + 24) = xmmword_140C21798;
+  *(_OWORD *)(LogEntry + 24) = xmmword_140C217F8;
   UserData.Size = 4;
   v5 = 4;
-  *(__m256 *)(LogEntry + 40) = ymmword_140C217A8;
-  *(_OWORD *)(LogEntry + 72) = xmmword_140C217C8;
-  *(_OWORD *)(LogEntry + 88) = xmmword_140C217D8;
-  UserData.Ptr = (ULONGLONG)&xmmword_140C21798;
-  v4 = &xmmword_140C217C8;
+  *(__m256 *)(LogEntry + 40) = ymmword_140C21808;
+  *(_OWORD *)(LogEntry + 72) = xmmword_140C21828;
+  *(_OWORD *)(LogEntry + 88) = xmmword_140C21838;
+  UserData.Ptr = (ULONGLONG)&xmmword_140C217F8;
+  v4 = &xmmword_140C21828;
   PopPowerAggregatorDiagTraceEvent(&POP_ETW_EVENT_POWER_AGGREGATOR_HANDLER_INVOKE, 2u, &UserData);
-  v1 = ((__int64 (__fastcall *)(__int64 *))*(&PopPowerAggregatorInternalStateContexts[4 * (int)xmmword_140C217C8]
-                                           + (int)xmmword_140C21798))(&PopPowerAggregatorContext);
+  v1 = ((__int64 (__fastcall *)(__int64 *))*(&PopPowerAggregatorInternalStateContexts[4 * (int)xmmword_140C21828]
+                                           + (int)xmmword_140C217F8))(&PopPowerAggregatorContext);
   *(_DWORD *)(PopPowerAggregatorAllocateLogEntry(&PopPowerAggregatorContext, 4LL) + 24) = v1;
   return v1;
 }

@@ -1,14 +1,14 @@
 /*
- * XREFs of ExAcquireAutoExpandPushLockExclusive @ 0x140276830
+ * XREFs of ExAcquireAutoExpandPushLockExclusive @ 0x140275DA0
  * Callers:
- *     MiLockAweVadsExclusive @ 0x1404FEF8C (MiLockAweVadsExclusive.c)
- *     MiLockLoaderEntry @ 0x14051E298 (MiLockLoaderEntry.c)
- *     MiLockAwePagesExclusive @ 0x140701D48 (MiLockAwePagesExclusive.c)
+ *     MiLockAweVadsExclusive @ 0x1404F877C (MiLockAweVadsExclusive.c)
+ *     MiLockLoaderEntry @ 0x1405208A8 (MiLockLoaderEntry.c)
+ *     MiLockAwePagesExclusive @ 0x140706A18 (MiLockAwePagesExclusive.c)
  * Callees:
- *     KeQueryMaximumProcessorCountEx @ 0x1402767B0 (KeQueryMaximumProcessorCountEx.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     KeQueryMaximumProcessorCountEx @ 0x140275D20 (KeQueryMaximumProcessorCountEx.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 void __fastcall ExAcquireAutoExpandPushLockExclusive(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter1)
@@ -40,7 +40,8 @@ void __fastcall ExAcquireAutoExpandPushLockExclusive(ULONG_PTR BugCheckParameter
     v5 = ((unsigned int)v4 >> 13) & 0x3FFFF;
     _BitScanReverse(&v6, v5);
     v7 = (v4 >> 4) & 0x1FF;
-    v8 = (volatile signed __int32 *)(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)ExSaPageArrays + 8LL * (v6 - 2))
+    v8 = (volatile signed __int32 *)(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)ExSaPageGroupDescriptorArrayLock.SListFaultAddress
+                                                           + 8LL * (v6 - 2))
                                                + 8 * (v5 ^ (unsigned int)(1 << v6))
                                                + 8)
                                    + 8 * v7);
@@ -53,7 +54,8 @@ void __fastcall ExAcquireAutoExpandPushLockExclusive(ULONG_PTR BugCheckParameter
     {
       _BitScanReverse(&v12, v5);
       if ( _interlockedbittestandset64(
-             (volatile signed __int32 *)(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)(ExSaPageArrays + 8LL * v10)
+             (volatile signed __int32 *)(*(_QWORD *)(*(_QWORD *)(*((_QWORD *)ExSaPageGroupDescriptorArrayLock.SListFaultAddress
+                                                                 + v10)
                                                                + 8LL * (v12 - 2))
                                                    + 8 * (v5 ^ (unsigned int)(1 << v12))
                                                    + 8)
@@ -62,7 +64,9 @@ void __fastcall ExAcquireAutoExpandPushLockExclusive(ULONG_PTR BugCheckParameter
       {
         v11 = (unsigned int)(v11 - 1);
         _BitScanReverse(&v13, v5);
-        v14 = (volatile signed __int32 *)(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)(ExSaPageArrays + 8 * v11) + 8LL * (v13 - 2))
+        v14 = (volatile signed __int32 *)(*(_QWORD *)(*(_QWORD *)(*((_QWORD *)ExSaPageGroupDescriptorArrayLock.SListFaultAddress
+                                                                  + v11)
+                                                                + 8LL * (v13 - 2))
                                                     + 8 * (v5 ^ (unsigned int)(1 << v13))
                                                     + 8)
                                         + 8 * v7);

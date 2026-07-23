@@ -1,14 +1,14 @@
 /*
- * XREFs of CmpSyncNextBackupHive @ 0x1407DC7D8
+ * XREFs of CmpSyncNextBackupHive @ 0x1407DCD28
  * Callers:
- *     NtInitializeRegistry @ 0x1407CFCB0 (NtInitializeRegistry.c)
+ *     NtInitializeRegistry @ 0x1407D01A0 (NtInitializeRegistry.c)
  * Callees:
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwCreateKey @ 0x1406A67B0 (ZwCreateKey.c)
- *     ZwSetValueKey @ 0x1406A7010 (ZwSetValueKey.c)
- *     CmpFlushBackupHive @ 0x1407DC2B8 (CmpFlushBackupHive.c)
- *     CmpAcquireHiveLoadUnloadRundown @ 0x140BB9AD0 (CmpAcquireHiveLoadUnloadRundown.c)
- *     CmpReleaseHiveLoadUnloadRundown @ 0x140BB9B10 (CmpReleaseHiveLoadUnloadRundown.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwCreateKey @ 0x1406A7750 (ZwCreateKey.c)
+ *     ZwSetValueKey @ 0x1406A7FB0 (ZwSetValueKey.c)
+ *     CmpFlushBackupHive @ 0x1407DC808 (CmpFlushBackupHive.c)
+ *     CmpAcquireHiveLoadUnloadRundown @ 0x140BBBAD0 (CmpAcquireHiveLoadUnloadRundown.c)
+ *     CmpReleaseHiveLoadUnloadRundown @ 0x140BBBB10 (CmpReleaseHiveLoadUnloadRundown.c)
  */
 
 __int64 CmpSyncNextBackupHive()

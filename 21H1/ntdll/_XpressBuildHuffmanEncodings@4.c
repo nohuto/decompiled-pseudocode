@@ -46,25 +46,32 @@ int __thiscall XpressBuildHuffmanEncodings(_DWORD *this)
   int v35; // esi
   unsigned int v36; // edx
   int v37; // esi
-  unsigned int v38; // [esp+Ch] [ebp-1Ch]
-  int *v39; // [esp+10h] [ebp-18h]
-  _DWORD *v40; // [esp+14h] [ebp-14h]
-  int v42; // [esp+1Ch] [ebp-Ch]
-  unsigned __int8 **v43; // [esp+1Ch] [ebp-Ch]
-  int v44; // [esp+1Ch] [ebp-Ch]
-  unsigned int v45; // [esp+20h] [ebp-8h]
-  _BYTE *v46; // [esp+20h] [ebp-8h]
-  _DWORD *v47; // [esp+24h] [ebp-4h]
-  char v48; // [esp+24h] [ebp-4h]
-  _DWORD *v49; // [esp+24h] [ebp-4h]
-  _DWORD *v50; // [esp+24h] [ebp-4h]
+  size_t v38; // [esp-1Ch] [ebp-44h]
+  size_t v39; // [esp-10h] [ebp-38h]
+  size_t v40; // [esp-4h] [ebp-2Ch]
+  size_t v41; // [esp-4h] [ebp-2Ch]
+  unsigned int v42; // [esp+Ch] [ebp-1Ch]
+  int *v43; // [esp+10h] [ebp-18h]
+  _DWORD *v44; // [esp+14h] [ebp-14h]
+  int v46; // [esp+1Ch] [ebp-Ch]
+  unsigned __int8 **v47; // [esp+1Ch] [ebp-Ch]
+  int v48; // [esp+1Ch] [ebp-Ch]
+  unsigned int v49; // [esp+20h] [ebp-8h]
+  _BYTE *v50; // [esp+20h] [ebp-8h]
+  _DWORD *v51; // [esp+24h] [ebp-4h]
+  char v52; // [esp+24h] [ebp-4h]
+  _DWORD *v53; // [esp+24h] [ebp-4h]
+  _DWORD *v54; // [esp+24h] [ebp-4h]
 
   v1 = this;
-  v40 = this + 3587;
-  memset(this + 3587, 0, 0x202u);
-  memset((char *)v1 + 14862, 0, 0x202u);
+  LODWORD(v40) = 514;
+  v44 = this + 3587;
+  memset(this + 3587, 0, v40);
+  LODWORD(v39) = 514;
+  memset((char *)v1 + 14862, 0, v39);
+  LODWORD(v38) = 512;
   v2 = (unsigned __int8 *)(v1 + 512);
-  memset(v1 + 4100, 0, 0x200u);
+  memset(v1 + 4100, 0, v38);
   v3 = v1 + 4228;
   for ( i = 0; i < 0x200; ++i )
   {
@@ -80,8 +87,9 @@ int __thiscall XpressBuildHuffmanEncodings(_DWORD *this)
     }
     ++v3;
   }
-  v45 = (unsigned int)v2;
-  memset(v1 + 4740, 0, 0x100u);
+  LODWORD(v41) = 256;
+  v49 = (unsigned int)v2;
+  memset(v1 + 4740, 0, v41);
   if ( v2 > (unsigned __int8 *)v1 + 2060 )
   {
     v8 = (char *)v1 + 14350;
@@ -107,11 +115,11 @@ int __thiscall XpressBuildHuffmanEncodings(_DWORD *this)
       }
       while ( v11 < v2 );
     }
-    v42 = (v2 - (unsigned __int8 *)v1 - 2048) / 12;
-    if ( v42 )
+    v46 = (v2 - (unsigned __int8 *)v1 - 2048) / 12;
+    if ( v46 )
     {
       v13 = (unsigned __int16 *)(v1 + 3844);
-      v47 = v1 + 3844;
+      v51 = v1 + 3844;
       do
       {
         v14 = *v13;
@@ -122,14 +130,14 @@ int __thiscall XpressBuildHuffmanEncodings(_DWORD *this)
         v18 = 3 * v17;
         v1[v18 + 514] = v14;
         v1[v18 + 512] = v15;
-        v13 = (unsigned __int16 *)v47 + 1;
-        v19 = v42-- == 1;
-        v47 = (_DWORD *)((char *)v47 + 2);
+        v13 = (unsigned __int16 *)v51 + 1;
+        v19 = v46-- == 1;
+        v51 = (_DWORD *)((char *)v51 + 2);
       }
       while ( !v19 );
-      v2 = (unsigned __int8 *)v45;
+      v2 = (unsigned __int8 *)v49;
     }
-    v39 = v1 + 3588;
+    v43 = v1 + 3588;
 LABEL_18:
     v20 = v1 + 512;
     v21 = (unsigned __int8 *)(v1 + 518);
@@ -170,15 +178,15 @@ LABEL_18:
           v22 += 12;
         }
       }
-      v26 = v40;
+      v26 = v44;
       v27 = 0;
-      v28 = v39;
+      v28 = v43;
       for ( j = 0; ; --j )
       {
-        v48 = v27;
+        v52 = v27;
         while ( 1 )
         {
-          v43 = (unsigned __int8 **)(v23 + 8);
+          v47 = (unsigned __int8 **)(v23 + 8);
           v1 = this;
           if ( !*((_DWORD *)v23 + 1) )
             break;
@@ -186,13 +194,13 @@ LABEL_18:
           ++j;
           *v28 = v27;
           v28 += 2;
-          v48 = v27;
+          v52 = v27;
           *v26 = *((_DWORD *)v23 + 1);
           v26 += 2;
-          v23 = *v43;
+          v23 = *v47;
         }
         *((_DWORD *)v23 + 1) = v27;
-        *((_BYTE *)this + (_DWORD)*v43 + 16400) = v48;
+        *((_BYTE *)this + (_DWORD)*v47 + 16400) = v52;
         if ( !j )
           break;
         v23 = (unsigned __int8 *)*(v26 - 2);
@@ -201,14 +209,14 @@ LABEL_18:
         v27 = *v28;
       }
       v30 = this[513];
-      v2 = (unsigned __int8 *)v45;
-      v38 = v30;
+      v2 = (unsigned __int8 *)v49;
+      v42 = v30;
       if ( v30 <= 0xF )
         break;
       v20 = this + 512;
       v31 = this + 512;
       v21 = (unsigned __int8 *)(this + 518);
-      if ( (unsigned int)(this + 512) < v45 )
+      if ( (unsigned int)(this + 512) < v49 )
       {
         do
         {
@@ -217,52 +225,52 @@ LABEL_18:
           *v31 = v32 >> 1;
           v31 += 3;
         }
-        while ( (unsigned int)v31 < v45 );
+        while ( (unsigned int)v31 < v49 );
         goto LABEL_18;
       }
     }
-    v33 = *(_DWORD *)(v45 - 8);
+    v33 = *(_DWORD *)(v49 - 8);
     result = 0;
     v34 = 0;
-    v44 = 0;
+    v48 = 0;
     if ( v33 <= v30 )
     {
       do
       {
         v35 = 0;
-        v46 = v1 + 4740;
+        v50 = v1 + 4740;
         v36 = 0;
-        v49 = v1 + 4228;
+        v53 = v1 + 4228;
         do
         {
           if ( *((unsigned __int8 *)v1 + v36 + 16400) == v33 )
           {
-            v35 += *v49;
-            *v46 |= v33;
+            v35 += *v53;
+            *v50 |= v33;
             HIWORD(v1[v36]) = v34++;
             LOWORD(v1[v36]) = v33;
           }
-          v50 = v49 + 1;
+          v54 = v53 + 1;
           if ( *((unsigned __int8 *)v1 + v36 + 16401) == v33 )
           {
-            v35 += *v50;
-            *v46 |= 16 * (_BYTE)v33;
+            v35 += *v54;
+            *v50 |= 16 * (_BYTE)v33;
             v1 = this;
             HIWORD(this[v36 + 1]) = v34++;
             LOWORD(this[v36 + 1]) = v33;
           }
-          ++v46;
+          ++v50;
           v36 += 2;
-          v49 = v50 + 1;
+          v53 = v54 + 1;
         }
         while ( v36 < 0x200 );
         v34 *= 2;
         v37 = v33 * v35;
         ++v33;
-        result = v37 + v44;
-        v44 += v37;
+        result = v37 + v48;
+        v48 += v37;
       }
-      while ( v33 <= v38 );
+      while ( v33 <= v42 );
     }
   }
   else if ( v2 == (unsigned __int8 *)(v1 + 512) )

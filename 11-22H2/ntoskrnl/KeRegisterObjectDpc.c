@@ -29,7 +29,7 @@ char __fastcall KeRegisterObjectDpc(__int64 a1, ULONG_PTR a2, __int64 a3, char a
   LODWORD(v8) = 4;
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql != 2 )
@@ -48,10 +48,10 @@ char __fastcall KeRegisterObjectDpc(__int64 a1, ULONG_PTR a2, __int64 a3, char a
     *v12 = a3;
     *(_QWORD *)(a1 + 16) = a3;
     _InterlockedAnd((volatile signed __int32 *)a1, 0xFFFFFF7F);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v13 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v13 <= 0xFu && CurrentIrql <= 0xFu && v13 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v13 <= 0xFu && CurrentIrql <= 0xFu && v13 >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         v15 = CurrentPrcb->SchedulerAssist;
@@ -69,7 +69,7 @@ char __fastcall KeRegisterObjectDpc(__int64 a1, ULONG_PTR a2, __int64 a3, char a
     *(_BYTE *)(a3 + 17) = 5;
     KiInsertQueueDpc(a2, a1, a3, 0LL, 0);
     _InterlockedAnd((volatile signed __int32 *)a1, 0xFFFFFF7F);
-    KiExitDispatcher((__int64)KeGetCurrentPrcb(), 0, (struct _PROCESSOR_NUMBER)1, 0, CurrentIrql);
+    KiExitDispatcher((__int64)KeGetCurrentPrcb(), 0, (_PROCESSOR_NUMBER)1, 0, CurrentIrql);
   }
   return v11;
 }

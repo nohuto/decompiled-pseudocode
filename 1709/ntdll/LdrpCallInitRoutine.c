@@ -22,13 +22,12 @@ char __fastcall LdrpCallInitRoutine(__int64 a1, int a2, int a3)
   __int64 v6; // rdi
   __int64 v7; // rdx
   __int64 v8; // rbx
-  __int64 v9; // rdx
-  __int64 v10; // r8
-  _DWORD *v11; // rcx
-  int v13; // r9d
-  __int64 v14; // rcx
-  int v15; // r9d
-  char v16; // [rsp+48h] [rbp-38h]
+  __int64 v9; // r8
+  _DWORD *v10; // rcx
+  int v12; // r9d
+  __int64 v13; // rcx
+  int v14; // r9d
+  char v15; // [rsp+48h] [rbp-38h]
 
   SharedData = NtCurrentPeb()->SharedData;
   if ( SharedData && *SharedData )
@@ -44,39 +43,39 @@ char __fastcall LdrpCallInitRoutine(__int64 a1, int a2, int a3)
   if ( *(_BYTE *)v7 && (NtCurrentPeb()->TracingFlags & 4) != 0 )
   {
     v8 = 2147353477LL;
-    if ( (unsigned int)RtlGetCurrentServiceSessionId(a1, v7) )
-      v14 = (__int64)NtCurrentPeb()->SharedData + 555;
+    if ( RtlGetCurrentServiceSessionId() )
+      v13 = (__int64)NtCurrentPeb()->SharedData + 555;
     else
-      v14 = 2147353477LL;
-    if ( (*(_BYTE *)v14 & 0x20) != 0 )
+      v13 = 2147353477LL;
+    if ( (*(_BYTE *)v13 & 0x20) != 0 )
     {
-      LOBYTE(v13) = a3;
-      LdrpLogEtwEvent(5283, a2, 0, v13, 0LL, 0LL);
+      LOBYTE(v12) = a3;
+      LdrpLogEtwEvent(5283, a2, 0, v12, 0LL, 0LL);
     }
   }
   else
   {
     v8 = 2147353477LL;
   }
-  v16 = _guard_dispatch_icall_fptr();
-  v11 = NtCurrentPeb()->SharedData;
-  if ( v11 && *v11 )
+  v15 = _guard_dispatch_icall_fptr();
+  v10 = NtCurrentPeb()->SharedData;
+  if ( v10 && *v10 )
     v6 = (__int64)NtCurrentPeb()->SharedData + 554;
   if ( *(_BYTE *)v6 && (NtCurrentPeb()->TracingFlags & 4) != 0 )
   {
-    if ( (unsigned int)RtlGetCurrentServiceSessionId(v11, v9) )
+    if ( RtlGetCurrentServiceSessionId() )
       v8 = (__int64)NtCurrentPeb()->SharedData + 555;
     if ( (*(_BYTE *)v8 & 0x20) != 0 )
     {
-      LOBYTE(v15) = -1;
-      LOBYTE(v10) = -1;
-      LdrpLogEtwEvent(5270, a2, v10, v15, 0LL, 0LL);
+      LOBYTE(v14) = -1;
+      LOBYTE(v9) = -1;
+      LdrpLogEtwEvent(5270, a2, v9, v14, 0LL, 0LL);
     }
   }
-  if ( !v16 && a3 == 1 )
+  if ( !v15 && a3 == 1 )
   {
-    LOBYTE(v10) = 1;
-    LdrpLogError(3221225794LL, 5270LL, v10, 0LL);
+    LOBYTE(v9) = 1;
+    LdrpLogError(3221225794LL, 5270LL, v9, 0LL);
   }
-  return v16;
+  return v15;
 }

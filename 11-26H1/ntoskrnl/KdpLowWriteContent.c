@@ -1,12 +1,12 @@
 /*
- * XREFs of KdpLowWriteContent @ 0x140C168F8
+ * XREFs of KdpLowWriteContent @ 0x140C1C8F8
  * Callers:
- *     KdpDeleteBreakpoint @ 0x140C1676C (KdpDeleteBreakpoint.c)
- *     KdpSuspendAllBreakpoints @ 0x140C16A90 (KdpSuspendAllBreakpoints.c)
+ *     KdpDeleteBreakpoint @ 0x140C1C76C (KdpDeleteBreakpoint.c)
+ *     KdpSuspendAllBreakpoints @ 0x140C1CA90 (KdpSuspendAllBreakpoints.c)
  * Callees:
- *     KdpIsBreakpoint @ 0x1405E44B8 (KdpIsBreakpoint.c)
- *     KdpCopyCodeStream @ 0x140C16104 (KdpCopyCodeStream.c)
- *     KdpRemoveBreakpoint @ 0x140C169CC (KdpRemoveBreakpoint.c)
+ *     KdpIsBreakpoint @ 0x1405E6E28 (KdpIsBreakpoint.c)
+ *     KdpCopyCodeStream @ 0x140C1C104 (KdpCopyCodeStream.c)
+ *     KdpRemoveBreakpoint @ 0x140C1C9CC (KdpRemoveBreakpoint.c)
  */
 
 bool __fastcall KdpLowWriteContent(unsigned int a1)

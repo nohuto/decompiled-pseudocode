@@ -1,22 +1,22 @@
 /*
- * XREFs of ExpProfileCreate @ 0x140A03C78
+ * XREFs of ExpProfileCreate @ 0x140A03F08
  * Callers:
- *     NtCreateProfile @ 0x140A04390 (NtCreateProfile.c)
- *     NtCreateProfileEx @ 0x140A04470 (NtCreateProfileEx.c)
+ *     NtCreateProfile @ 0x140A04620 (NtCreateProfile.c)
+ *     NtCreateProfileEx @ 0x140A04700 (NtCreateProfileEx.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     KiCopyAffinityEx @ 0x1402545C0 (KiCopyAffinityEx.c)
- *     KeVerifyGroupAffinity @ 0x140321374 (KeVerifyGroupAffinity.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     memset @ 0x140435A00 (memset.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1406E6300 (ObpReferenceObjectByHandleWithTag.c)
- *     ProbeForWrite @ 0x140729380 (ProbeForWrite.c)
- *     ObCreateObjectEx @ 0x1407308B0 (ObCreateObjectEx.c)
- *     ObInsertObjectEx @ 0x1407359D0 (ObInsertObjectEx.c)
- *     SeSinglePrivilegeCheck @ 0x140737B00 (SeSinglePrivilegeCheck.c)
- *     ExIsRestrictedCaller @ 0x1407D8824 (ExIsRestrictedCaller.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00B60 (ExRaiseDatatypeMisalignment.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     KiCopyAffinityEx @ 0x140254680 (KiCopyAffinityEx.c)
+ *     KeVerifyGroupAffinity @ 0x140321604 (KeVerifyGroupAffinity.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x1406E6330 (ObpReferenceObjectByHandleWithTag.c)
+ *     ProbeForWrite @ 0x140729580 (ProbeForWrite.c)
+ *     ObCreateObjectEx @ 0x140730AA0 (ObCreateObjectEx.c)
+ *     ObInsertObjectEx @ 0x140735BC0 (ObInsertObjectEx.c)
+ *     SeSinglePrivilegeCheck @ 0x140737CF0 (SeSinglePrivilegeCheck.c)
+ *     ExIsRestrictedCaller @ 0x1407D8AF4 (ExIsRestrictedCaller.c)
+ *     ExRaiseDatatypeMisalignment @ 0x140A00DF0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall ExpProfileCreate(

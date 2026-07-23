@@ -1,11 +1,11 @@
 /*
- * XREFs of AppendCondition @ 0x140860580
+ * XREFs of AppendCondition @ 0x140864B8C
  * Callers:
- *     LocalGetConditionForString @ 0x14085FAE0 (LocalGetConditionForString.c)
+ *     LocalGetConditionForString @ 0x1408640EC (LocalGetConditionForString.c)
  * Callees:
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     SddlpAlloc @ 0x1408638C4 (SddlpAlloc.c)
- *     SddlpFree @ 0x140863910 (SddlpFree.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     SddlpAlloc @ 0x140867ED4 (SddlpAlloc.c)
+ *     SddlpFree @ 0x140867F20 (SddlpFree.c)
  */
 
 __int64 __fastcall AppendCondition(const void **a1, unsigned int *a2, unsigned int *a3, const void *a4, size_t Size)

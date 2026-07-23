@@ -4,7 +4,7 @@
  *     _raise_exc_ex @ 0x180095310 (_raise_exc_ex.c)
  * Callees:
  *     _fclrf @ 0x18009685A (_fclrf.c)
- *     _get_fpsr @ 0x1800A4470 (_get_fpsr.c)
+ *     _get_fpsr @ 0x1800A4430 (_get_fpsr.c)
  */
 
 __int64 clrfp()

@@ -1,16 +1,16 @@
 /*
- * XREFs of MiCaptureRetpolineImportInfo @ 0x14079D6E8
+ * XREFs of MiCaptureRetpolineImportInfo @ 0x14079D8D8
  * Callers:
- *     MiApplyImportOptimizationToRuntimeDriver @ 0x14079D5E8 (MiApplyImportOptimizationToRuntimeDriver.c)
+ *     MiApplyImportOptimizationToRuntimeDriver @ 0x14079D7D8 (MiApplyImportOptimizationToRuntimeDriver.c)
  * Callees:
  *     MiIsRetpolineEnabled @ 0x14020EBA0 (MiIsRetpolineEnabled.c)
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F820 (KiCheckForKernelApcDelivery.c)
- *     RtlCaptureRetpolineImportRvas @ 0x140324D40 (RtlCaptureRetpolineImportRvas.c)
+ *     KeAbPreAcquire @ 0x140230FD0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     MiAllocatePool @ 0x1402DF430 (MiAllocatePool.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402FD0A0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KiCheckForKernelApcDelivery @ 0x14030FAB0 (KiCheckForKernelApcDelivery.c)
+ *     RtlCaptureRetpolineImportRvas @ 0x140324FD0 (RtlCaptureRetpolineImportRvas.c)
  */
 
 __int64 __fastcall MiCaptureRetpolineImportInfo(__int64 a1, __int64 a2)
@@ -24,7 +24,7 @@ __int64 __fastcall MiCaptureRetpolineImportInfo(__int64 a1, __int64 a2)
   __int64 result; // rax
   __int64 v10; // rax
   __int64 v11; // rsi
-  unsigned int v13; // [rsp+50h] [rbp+8h] BYREF
+  ULONG v13; // [rsp+50h] [rbp+8h] BYREF
 
   CurrentThread = KeGetCurrentThread();
   Pool = 0LL;
@@ -33,7 +33,7 @@ __int64 __fastcall MiCaptureRetpolineImportInfo(__int64 a1, __int64 a2)
   v6 = *(_QWORD *)(v4 + 32);
   v8 = (unsigned int (*)(void))((unsigned __int64)MiIsTargetFullyRetpolined & -(__int64)MiIsRetpolineEnabled());
   result = RtlCaptureRetpolineImportRvas(
-             *(_QWORD *)(v7 + 48),
+             *(char **)(v7 + 48),
              *(_QWORD *)(v7 + 48),
              *(unsigned int *)(a1 + 64),
              v8,
@@ -47,7 +47,7 @@ __int64 __fastcall MiCaptureRetpolineImportInfo(__int64 a1, __int64 a2)
     if ( !Pool )
       return 3221225495LL;
     result = RtlCaptureRetpolineImportRvas(
-               *(_QWORD *)(a1 + 48),
+               *(char **)(a1 + 48),
                *(_QWORD *)(a1 + 48),
                *(unsigned int *)(a1 + 64),
                v8,

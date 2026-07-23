@@ -1,10 +1,10 @@
 /*
- * XREFs of TimeToDaysAndFraction @ 0x14033B98C
+ * XREFs of TimeToDaysAndFraction @ 0x14033BC1C
  * Callers:
- *     RtlpTimeToTimeFieldsNoLeapSeconds @ 0x14033B7A4 (RtlpTimeToTimeFieldsNoLeapSeconds.c)
- *     RtlTimeToElapsedTimeFields @ 0x1409B8EE0 (RtlTimeToElapsedTimeFields.c)
+ *     RtlpTimeToTimeFieldsNoLeapSeconds @ 0x14033BA34 (RtlpTimeToTimeFieldsNoLeapSeconds.c)
+ *     RtlTimeToElapsedTimeFields @ 0x1409B90E0 (RtlTimeToElapsedTimeFields.c)
  * Callees:
- *     RtlExtendedMagicDivide @ 0x14033B9E4 (RtlExtendedMagicDivide.c)
+ *     RtlExtendedMagicDivide @ 0x14033BC74 (RtlExtendedMagicDivide.c)
  */
 
 LARGE_INTEGER __fastcall TimeToDaysAndFraction(LARGE_INTEGER *a1, ULONG *a2, _DWORD *a3)

@@ -10,12 +10,12 @@
  *     memset$thunk$772440563353939046 @ 0x180130010 (memset$thunk$772440563353939046.c)
  */
 
-__int64 RtlStringCbPrintfExW(_WORD *a1, unsigned __int64 a2, _QWORD *a3, _QWORD *a4, int a5, _WORD *a6, ...)
+__int64 RtlStringCbPrintfExW(_WORD *a1, unsigned __int64 a2, _QWORD *a3, _QWORD *a4, int a5, const WCHAR *a6, ...)
 {
   unsigned __int64 v7; // rdi
   int v10; // ebx
   _WORD *v11; // r13
-  _WORD *v12; // r9
+  const WCHAR *v12; // r9
   int v13; // eax
   __int64 v14; // rcx
   unsigned __int64 v16; // r8
@@ -47,7 +47,7 @@ __int64 RtlStringCbPrintfExW(_WORD *a1, unsigned __int64 a2, _QWORD *a3, _QWORD 
     v18[0] = a2 >> 1;
     if ( (a5 & 0x100) != 0 )
     {
-      v12 = &unk_180135D3C;
+      v12 = &word_180135D3C;
       if ( a6 )
         v12 = a6;
     }

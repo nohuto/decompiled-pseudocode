@@ -1,12 +1,12 @@
 /*
- * XREFs of IopStartNextPacketByKey @ 0x1401C96BC
+ * XREFs of IopStartNextPacketByKey @ 0x1401C955C
  * Callers:
- *     IopStartNextPacketByKeyEx @ 0x1400AE404 (IopStartNextPacketByKeyEx.c)
- *     IoStartNextPacketByKey @ 0x1401C92C4 (IoStartNextPacketByKey.c)
+ *     IopStartNextPacketByKeyEx @ 0x1400AC96C (IopStartNextPacketByKeyEx.c)
+ *     IoStartNextPacketByKey @ 0x1401C9164 (IoStartNextPacketByKey.c)
  * Callees:
- *     IoAcquireCancelSpinLock @ 0x140078440 (IoAcquireCancelSpinLock.c)
- *     KeReleaseQueuedSpinLock @ 0x1400E8DA0 (KeReleaseQueuedSpinLock.c)
- *     KeRemoveByKeyDeviceQueue @ 0x1401D68CC (KeRemoveByKeyDeviceQueue.c)
+ *     IoAcquireCancelSpinLock @ 0x1400784C0 (IoAcquireCancelSpinLock.c)
+ *     KeReleaseQueuedSpinLock @ 0x1400E6C40 (KeReleaseQueuedSpinLock.c)
+ *     KeRemoveByKeyDeviceQueue @ 0x1401D66F8 (KeRemoveByKeyDeviceQueue.c)
  */
 
 void __fastcall IopStartNextPacketByKey(__int64 a1, int a2, ULONG a3)
@@ -14,7 +14,7 @@ void __fastcall IopStartNextPacketByKey(__int64 a1, int a2, ULONG a3)
   KIRQL v3; // di
   PKDEVICE_QUEUE_ENTRY v7; // rax
   PKDEVICE_QUEUE_ENTRY v8; // rsi
-  KIRQL v9; // [rsp+38h] [rbp+10h] BYREF
+  UCHAR v9; // [rsp+38h] [rbp+10h] BYREF
 
   v3 = 0;
   v9 = 0;

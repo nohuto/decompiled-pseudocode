@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwTraceLongDpcMitigationEvent @ 0x1405FCF7C
+ * XREFs of EtwTraceLongDpcMitigationEvent @ 0x1405FD4EC
  * Callers:
- *     KiEnterLongDpcProcessing @ 0x140247A00 (KiEnterLongDpcProcessing.c)
+ *     KiEnterLongDpcProcessing @ 0x140247AD0 (KiEnterLongDpcProcessing.c)
  * Callees:
  *     EtwTraceKernelEvent @ 0x140211EDC (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall EtwTraceLongDpcMitigationEvent(__int64 a1, __int64 a2, char a3, char a4, char a5, char a6)

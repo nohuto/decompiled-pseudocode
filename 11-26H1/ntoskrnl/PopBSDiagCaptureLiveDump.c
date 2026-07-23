@@ -1,13 +1,13 @@
 /*
- * XREFs of PopBSDiagCaptureLiveDump @ 0x14060DB1C
+ * XREFs of PopBSDiagCaptureLiveDump @ 0x140610C1C
  * Callers:
- *     PopBSDiagButtonWnfCallback @ 0x14060DA50 (PopBSDiagButtonWnfCallback.c)
+ *     PopBSDiagButtonWnfCallback @ 0x140610B50 (PopBSDiagButtonWnfCallback.c)
  * Callees:
- *     PopReleaseRwLock @ 0x14043630C (PopReleaseRwLock.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     DbgkWerCaptureLiveKernelDump @ 0x140B41E00 (DbgkWerCaptureLiveKernelDump.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     PopReleaseRwLock @ 0x14021B1A8 (PopReleaseRwLock.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     DbgkWerCaptureLiveKernelDump @ 0x140B43CF0 (DbgkWerCaptureLiveKernelDump.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PopBSDiagCaptureLiveDump(__int64 a1, __int64 a2)
@@ -33,7 +33,7 @@ void __fastcall PopBSDiagCaptureLiveDump(__int64 a1, __int64 a2)
   v6 = 32;
   *(_BYTE *)(a1 + 293) = PopConsoleExternalDisplayConnected;
   *(_BYTE *)(a1 + 294) = PopLidOpened;
-  *(_DWORD *)(a1 + 296) = dword_140F106CC;
+  *(_DWORD *)(a1 + 296) = HIDWORD(PpmIdlePolicyLock.PropagateBoostsEntry.Next);
   for ( i = 0LL; (unsigned int)i < 0xB; i = (unsigned int)(i + 1) )
   {
     if ( *(_QWORD *)(a1 + 16 * (i + 5)) )

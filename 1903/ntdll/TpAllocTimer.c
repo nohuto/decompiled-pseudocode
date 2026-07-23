@@ -10,42 +10,52 @@
  *     sub_18010EFC8 @ 0x18010EFC8 (sub_18010EFC8.c)
  */
 
-__int64 __fastcall TpAllocTimer(struct _PEB_LDR_DATA *Ldr, __int64 a2, __int64 a3, __int64 a4)
+NTSTATUS __cdecl TpAllocTimer(
+        PTP_TIMER *Timer,
+        PTP_TIMER_CALLBACK Callback,
+        PVOID Context,
+        PTP_CALLBACK_ENVIRON CallbackEnviron)
 {
   int v5; // ebp
-  struct _PEB_LDR_DATA *v7; // r14
-  __int64 Heap; // rax
-  __int64 v9; // rbx
-  __int64 result; // rax
+  PTP_TIMER *v7; // r14
+  _TP_TIMER *Heap; // rax
+  _TP_TIMER *v9; // rbx
+  NTSTATUS result; // eax
   _UNKNOWN *retaddr; // [rsp+38h] [rbp+0h]
 
-  v5 = a3;
-  v7 = Ldr;
-  if ( !Ldr
-    || !a2
-    || a4 && (*(_DWORD *)(a4 + 56) & 0xFFFFFFFC) != 0
-    || (Ldr = NtCurrentPeb()->Ldr, Ldr->ShutdownInProgress) )
+  v5 = (int)Context;
+  v7 = Timer;
+  if ( !Timer
+    || !Callback
+    || CallbackEnviron && (CallbackEnviron->u.Flags & 0xFFFFFFFC) != 0
+    || (Timer = (PTP_TIMER *)NtCurrentPeb()->Ldr, *((_BYTE *)Timer + 72)) )
   {
-    sub_18010EFC8(Ldr, a2, a3, a4);
-    return 3221225485LL;
+    sub_18010EFC8(Timer, Callback, Context, CallbackEnviron);
+    return -1073741811;
   }
   else
   {
-    Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, (dword_180166080 + 0x100000) | 8u, 360LL);
+    Heap = (_TP_TIMER *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, (dword_180166080 + 0x100000) | 8, 0x168uLL);
     v9 = Heap;
     if ( Heap )
     {
-      *(_QWORD *)(Heap + 176) = retaddr;
-      result = sub_180031AA0(Heap, 0, v5, a4, (__int64)off_180118370, (__int64)off_180118360);
-      if ( (int)result >= 0 )
+      *((_QWORD *)Heap + 22) = retaddr;
+      result = sub_180031AA0(
+                 (__int64)Heap,
+                 0,
+                 v5,
+                 (__int64)CallbackEnviron,
+                 (__int64)off_180118370,
+                 (__int64)&off_180118360);
+      if ( result >= 0 )
       {
-        *(_QWORD *)(v9 + 80) = a2;
-        *(_QWORD *)&v7->Length = v9;
+        *((_QWORD *)v9 + 10) = Callback;
+        *v7 = v9;
       }
     }
     else
     {
-      return 3221225495LL;
+      return -1073741801;
     }
   }
   return result;

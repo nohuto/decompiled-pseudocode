@@ -1,22 +1,22 @@
 /*
- * XREFs of SepCreateClientSecurityEx @ 0x140631EC0
+ * XREFs of SepCreateClientSecurityEx @ 0x140632EE0
  * Callers:
- *     SeCreateClientSecurityFromSubjectContextEx @ 0x1402FFE50 (SeCreateClientSecurityFromSubjectContextEx.c)
- *     SeCreateClientSecurityEx @ 0x140631CE0 (SeCreateClientSecurityEx.c)
- *     SeCreateClientSecurity @ 0x1406491D0 (SeCreateClientSecurity.c)
- *     SeCreateClientSecurityFromSubjectContext @ 0x1406CB650 (SeCreateClientSecurityFromSubjectContext.c)
+ *     SeCreateClientSecurityFromSubjectContextEx @ 0x140300040 (SeCreateClientSecurityFromSubjectContextEx.c)
+ *     SeCreateClientSecurityEx @ 0x140632D00 (SeCreateClientSecurityEx.c)
+ *     SeCreateClientSecurity @ 0x14064A390 (SeCreateClientSecurity.c)
+ *     SeCreateClientSecurityFromSubjectContext @ 0x1406CC8F0 (SeCreateClientSecurityFromSubjectContext.c)
  * Callees:
  *     PsGetCurrentServerSilo @ 0x14004D270 (PsGetCurrentServerSilo.c)
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     PsIsHostSilo @ 0x1400B8A80 (PsIsHostSilo.c)
- *     PsIsCurrentThreadInServerSilo @ 0x1400B9C20 (PsIsCurrentThreadInServerSilo.c)
- *     SepGetAnonymousToken @ 0x1400DD50C (SepGetAnonymousToken.c)
- *     PsReferencePrimaryToken @ 0x1405DD640 (PsReferencePrimaryToken.c)
- *     ObInsertObjectEx @ 0x14062D080 (ObInsertObjectEx.c)
- *     SeCopyClientToken @ 0x140649E74 (SeCopyClientToken.c)
- *     SeQueryServerSiloToken @ 0x1406C5500 (SeQueryServerSiloToken.c)
- *     SepCopyClientTokenAndSetSilo @ 0x14089BCD0 (SepCopyClientTokenAndSetSilo.c)
- *     SeGetTokenControlInformation @ 0x1408A1CFC (SeGetTokenControlInformation.c)
+ *     PsIsHostSilo @ 0x1400B89C0 (PsIsHostSilo.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x1400B9B60 (PsIsCurrentThreadInServerSilo.c)
+ *     SepGetAnonymousToken @ 0x1400DD58C (SepGetAnonymousToken.c)
+ *     PsReferencePrimaryToken @ 0x1405DE640 (PsReferencePrimaryToken.c)
+ *     ObInsertObjectEx @ 0x14062E0A0 (ObInsertObjectEx.c)
+ *     SeCopyClientToken @ 0x14064B034 (SeCopyClientToken.c)
+ *     SeQueryServerSiloToken @ 0x1406C67A0 (SeQueryServerSiloToken.c)
+ *     SepCopyClientTokenAndSetSilo @ 0x14089CF30 (SepCopyClientTokenAndSetSilo.c)
+ *     SeGetTokenControlInformation @ 0x1408A2F5C (SeGetTokenControlInformation.c)
  */
 
 __int64 __fastcall SepCreateClientSecurityEx(

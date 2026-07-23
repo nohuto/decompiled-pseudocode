@@ -1,7 +1,7 @@
 /*
- * XREFs of KiDebugTrapOrFault @ 0x14040A940
+ * XREFs of KiDebugTrapOrFault @ 0x14040AA40
  * Callers:
- *     KiDebugTrapOrFaultShadow @ 0x140A14180 (KiDebugTrapOrFaultShadow.c)
+ *     KiDebugTrapOrFaultShadow @ 0x140A15180 (KiDebugTrapOrFaultShadow.c)
  * Callees:
  *     <none>
  */

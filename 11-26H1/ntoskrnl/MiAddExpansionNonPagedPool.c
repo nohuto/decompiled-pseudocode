@@ -1,20 +1,20 @@
 /*
- * XREFs of MiAddExpansionNonPagedPool @ 0x140520A60
+ * XREFs of MiAddExpansionNonPagedPool @ 0x140523104
  * Callers:
- *     MiFreeLargeInitializationCodePages @ 0x140520698 (MiFreeLargeInitializationCodePages.c)
- *     MiInitializeNonPagedPool @ 0x140CF9BA8 (MiInitializeNonPagedPool.c)
+ *     MiFreeLargeInitializationCodePages @ 0x140522D3C (MiFreeLargeInitializationCodePages.c)
+ *     MiInitializeNonPagedPool @ 0x140CFFF28 (MiInitializeNonPagedPool.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiPageToNode @ 0x140289710 (MiPageToNode.c)
- *     MiMakeDemandZeroPte @ 0x14028B2D0 (MiMakeDemandZeroPte.c)
- *     MiChangePageAttribute @ 0x1402D8660 (MiChangePageAttribute.c)
- *     MiClearPfnReuseFields @ 0x14031A250 (MiClearPfnReuseFields.c)
- *     MiInsertPageChainHead @ 0x14033A060 (MiInsertPageChainHead.c)
- *     MiSetPfnContainingFrame @ 0x14033BC10 (MiSetPfnContainingFrame.c)
- *     MiSetPfnIdentity @ 0x140369440 (MiSetPfnIdentity.c)
- *     MiReturnPhysicalPoolPages @ 0x14051DF40 (MiReturnPhysicalPoolPages.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiPageToNode @ 0x140288C70 (MiPageToNode.c)
+ *     MiMakeDemandZeroPte @ 0x14028A830 (MiMakeDemandZeroPte.c)
+ *     MiChangePageAttribute @ 0x1402BA420 (MiChangePageAttribute.c)
+ *     MiClearPfnReuseFields @ 0x14031C280 (MiClearPfnReuseFields.c)
+ *     MiInsertPageChainHead @ 0x14033C0E0 (MiInsertPageChainHead.c)
+ *     MiSetPfnContainingFrame @ 0x14033DC90 (MiSetPfnContainingFrame.c)
+ *     MiSetPfnIdentity @ 0x14036B1E0 (MiSetPfnIdentity.c)
+ *     MiReturnPhysicalPoolPages @ 0x140520550 (MiReturnPhysicalPoolPages.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 void __fastcall MiAddExpansionNonPagedPool(__int64 a1, __int64 a2)

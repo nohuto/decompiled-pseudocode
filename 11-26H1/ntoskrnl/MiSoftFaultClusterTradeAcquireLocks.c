@@ -1,14 +1,14 @@
 /*
- * XREFs of MiSoftFaultClusterTradeAcquireLocks @ 0x140712350
+ * XREFs of MiSoftFaultClusterTradeAcquireLocks @ 0x140717048
  * Callers:
- *     MiHandleTransitionFault @ 0x1402F6550 (MiHandleTransitionFault.c)
+ *     MiHandleTransitionFault @ 0x1402D85D0 (MiHandleTransitionFault.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiRemoveLockedPageChargeAndDecRef @ 0x1402E8BF0 (MiRemoveLockedPageChargeAndDecRef.c)
- *     MiLockProtoPoolPage @ 0x1402F50D0 (MiLockProtoPoolPage.c)
- *     MiIsProtoPoolPfnInNonPagedPool @ 0x14031C220 (MiIsProtoPoolPfnInNonPagedPool.c)
- *     MiIsFaultPteIntact @ 0x14031C508 (MiIsFaultPteIntact.c)
- *     MiRelockFaultState @ 0x14038C0A0 (MiRelockFaultState.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiRemoveLockedPageChargeAndDecRef @ 0x1402CAC30 (MiRemoveLockedPageChargeAndDecRef.c)
+ *     MiLockProtoPoolPage @ 0x1402D7150 (MiLockProtoPoolPage.c)
+ *     MiIsProtoPoolPfnInNonPagedPool @ 0x14031E250 (MiIsProtoPoolPfnInNonPagedPool.c)
+ *     MiIsFaultPteIntact @ 0x14031E538 (MiIsFaultPteIntact.c)
+ *     MiRelockFaultState @ 0x14038DE50 (MiRelockFaultState.c)
  */
 
 __int64 MiSoftFaultClusterTradeAcquireLocks(__int64 a1, ULONG_PTR a2, __int64 *a3, ...)

@@ -1,12 +1,12 @@
 /*
- * XREFs of MmIsVerifierApplicableToImage @ 0x1406F3918
+ * XREFs of MmIsVerifierApplicableToImage @ 0x1406F8588
  * Callers:
- *     MiReapplyImportOptimizationIsr @ 0x1406FB670 (MiReapplyImportOptimizationIsr.c)
- *     VfDriverApplyDifVerification @ 0x140C28168 (VfDriverApplyDifVerification.c)
- *     MmApplyVerifierToRunningImage @ 0x140C43750 (MmApplyVerifierToRunningImage.c)
- *     VfDriverEnableVerifier @ 0x140C46844 (VfDriverEnableVerifier.c)
+ *     MiReapplyImportOptimizationIsr @ 0x140700340 (MiReapplyImportOptimizationIsr.c)
+ *     VfDriverApplyDifVerification @ 0x140C2E174 (VfDriverApplyDifVerification.c)
+ *     MmApplyVerifierToRunningImage @ 0x140C49760 (MmApplyVerifierToRunningImage.c)
+ *     VfDriverEnableVerifier @ 0x140C4C854 (VfDriverEnableVerifier.c)
  * Callees:
- *     KiEnumerateNmiSxCallback @ 0x140533418 (KiEnumerateNmiSxCallback.c)
+ *     KiEnumerateNmiSxCallback @ 0x140535898 (KiEnumerateNmiSxCallback.c)
  */
 
 __int64 __fastcall MmIsVerifierApplicableToImage(__int64 a1)

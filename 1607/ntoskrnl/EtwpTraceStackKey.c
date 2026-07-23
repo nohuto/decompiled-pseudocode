@@ -1,19 +1,19 @@
 /*
- * XREFs of EtwpTraceStackKey @ 0x14022B1D8
+ * XREFs of EtwpTraceStackKey @ 0x14022B004
  * Callers:
- *     EtwpTraceStackWalk @ 0x140229620 (EtwpTraceStackWalk.c)
+ *     EtwpTraceStackWalk @ 0x14022944C (EtwpTraceStackWalk.c)
  * Callees:
- *     EtwpLogKernelEvent @ 0x140059740 (EtwpLogKernelEvent.c)
- *     EtwpCloseLogger @ 0x140073C30 (EtwpCloseLogger.c)
- *     EtwpOpenLogger @ 0x140073C68 (EtwpOpenLogger.c)
- *     KxTryToAcquireSpinLock @ 0x1400825BC (KxTryToAcquireSpinLock.c)
- *     KxAcquireSpinLock @ 0x140092A60 (KxAcquireSpinLock.c)
- *     KeReleaseSpinLock @ 0x1400E9A70 (KeReleaseSpinLock.c)
- *     RtlpInterlockedPopEntrySList @ 0x140166E00 (RtlpInterlockedPopEntrySList.c)
- *     RtlpInterlockedPushEntrySList @ 0x140166E40 (RtlpInterlockedPushEntrySList.c)
- *     RtlCompareMemory @ 0x140167460 (RtlCompareMemory.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     EtwpDereferenceStackEntry @ 0x14022AFC4 (EtwpDereferenceStackEntry.c)
+ *     EtwpLogKernelEvent @ 0x1400592C0 (EtwpLogKernelEvent.c)
+ *     EtwpCloseLogger @ 0x1400737B0 (EtwpCloseLogger.c)
+ *     EtwpOpenLogger @ 0x1400737E8 (EtwpOpenLogger.c)
+ *     KxTryToAcquireSpinLock @ 0x140083238 (KxTryToAcquireSpinLock.c)
+ *     KxAcquireSpinLock @ 0x140092260 (KxAcquireSpinLock.c)
+ *     KeReleaseSpinLock @ 0x1400EB600 (KeReleaseSpinLock.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140167370 (RtlpInterlockedPopEntrySList.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1401673B0 (RtlpInterlockedPushEntrySList.c)
+ *     RtlCompareMemory @ 0x1401679D0 (RtlCompareMemory.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     EtwpDereferenceStackEntry @ 0x14022ADF0 (EtwpDereferenceStackEntry.c)
  */
 
 char __fastcall EtwpTraceStackKey(
@@ -25,7 +25,7 @@ char __fastcall EtwpTraceStackKey(
         unsigned int a6)
 {
   __int64 v6; // rax
-  union _SLIST_HEADER *v7; // r12
+  _SLIST_HEADER *v7; // r12
   unsigned int v8; // ebx
   char v9; // bp
   unsigned int v10; // r13d
@@ -49,12 +49,12 @@ char __fastcall EtwpTraceStackKey(
   PSLIST_ENTRY *v28; // rax
   __int64 v29; // rbx
   PSLIST_ENTRY v30; // rsi
-  union _SLIST_HEADER *v31; // rbp
+  _SLIST_HEADER *v31; // rbp
   PSLIST_ENTRY v32; // rax
   PSLIST_ENTRY v33; // r15
   unsigned int v34; // r12d
   KIRQL v35; // dl
-  union _SLIST_HEADER *v36; // rsi
+  _SLIST_HEADER *v36; // rsi
   _SLIST_ENTRY *v37; // rbx
   _SLIST_ENTRY **v38; // rax
   KIRQL v39; // dl
@@ -62,13 +62,13 @@ char __fastcall EtwpTraceStackKey(
   char v42[4]; // [rsp+30h] [rbp-A8h] BYREF
   int v43; // [rsp+34h] [rbp-A4h]
   PSLIST_HEADER ListHead; // [rsp+38h] [rbp-A0h]
-  struct _SLIST_ENTRY *v45; // [rsp+40h] [rbp-98h]
+  _SLIST_ENTRY *v45; // [rsp+40h] [rbp-98h]
   __int64 v46; // [rsp+48h] [rbp-90h]
   KIRQL NewIrql[8]; // [rsp+50h] [rbp-88h]
   PSLIST_ENTRY v48; // [rsp+58h] [rbp-80h] BYREF
   PSLIST_ENTRY ListEntry; // [rsp+60h] [rbp-78h]
   PKSPIN_LOCK SpinLock; // [rsp+68h] [rbp-70h]
-  union _SLIST_HEADER *v51; // [rsp+70h] [rbp-68h]
+  _SLIST_HEADER *v51; // [rsp+70h] [rbp-68h]
   _SLIST_ENTRY *v52; // [rsp+78h] [rbp-60h]
   __int64 v53; // [rsp+80h] [rbp-58h]
 
@@ -76,7 +76,7 @@ char __fastcall EtwpTraceStackKey(
   v53 = v6;
   if ( v6 )
   {
-    v7 = *(union _SLIST_HEADER **)(v6 + 840);
+    v7 = *(_SLIST_HEADER **)(v6 + 840);
     v51 = v7;
     if ( !v7 )
     {
@@ -268,7 +268,7 @@ LABEL_27:
       *(_QWORD *)(a4 + 16) = &v48;
       *(_DWORD *)(a4 + 24) = 8;
       EtwpLogKernelEvent(a4, v40, a1, 2u, a3, a2);
-      EtwpDereferenceStackEntry(v48, *(union _SLIST_HEADER **)(v53 + 840));
+      EtwpDereferenceStackEntry(v48, *(_SLIST_HEADER **)(v53 + 840));
       goto LABEL_59;
     }
     SpinLock = (PKSPIN_LOCK)&v19[1];

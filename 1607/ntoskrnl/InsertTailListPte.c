@@ -1,16 +1,16 @@
 /*
- * XREFs of InsertTailListPte @ 0x140017ED0
+ * XREFs of InsertTailListPte @ 0x140017A50
  * Callers:
- *     MiReleaseSystemCacheView @ 0x140018374 (MiReleaseSystemCacheView.c)
- *     MiExpandSystemCache @ 0x1400A2B00 (MiExpandSystemCache.c)
- *     MiExpandSpecialPool @ 0x1401EB618 (MiExpandSpecialPool.c)
- *     MiRemoveSpecialPoolRange @ 0x1401EB91C (MiRemoveSpecialPoolRange.c)
+ *     MiReleaseSystemCacheView @ 0x140017EF4 (MiReleaseSystemCacheView.c)
+ *     MiExpandSystemCache @ 0x1400A1428 (MiExpandSystemCache.c)
+ *     MiExpandSpecialPool @ 0x1401EB444 (MiExpandSpecialPool.c)
+ *     MiRemoveSpecialPoolRange @ 0x1401EB748 (MiRemoveSpecialPoolRange.c)
  * Callees:
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
- *     MiGetPteLink @ 0x1401F2680 (MiGetPteLink.c)
- *     MiMakeLinkedListPte @ 0x1401F2740 (MiMakeLinkedListPte.c)
- *     MiUpdateLinkedListInPte @ 0x1401F2A14 (MiUpdateLinkedListInPte.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
+ *     MiGetPteLink @ 0x1401F24AC (MiGetPteLink.c)
+ *     MiMakeLinkedListPte @ 0x1401F256C (MiMakeLinkedListPte.c)
+ *     MiUpdateLinkedListInPte @ 0x1401F281C (MiUpdateLinkedListInPte.c)
  */
 
 __int64 __fastcall InsertTailListPte(__int64 *a1)

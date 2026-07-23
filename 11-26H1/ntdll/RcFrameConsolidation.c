@@ -1,10 +1,10 @@
 /*
- * XREFs of RcFrameConsolidation @ 0x180127350
+ * XREFs of RcFrameConsolidation @ 0x1801270C0
  * Callers:
  *     <none>
  * Callees:
- *     RtlGuardCheckExceptionHandler @ 0x180081080 (RtlGuardCheckExceptionHandler.c)
- *     RtlpGuardSynchronizeRestorePc @ 0x180127560 (RtlpGuardSynchronizeRestorePc.c)
+ *     RtlGuardCheckExceptionHandler @ 0x180078420 (RtlGuardCheckExceptionHandler.c)
+ *     RtlpGuardSynchronizeRestorePc @ 0x1801272D0 (RtlpGuardSynchronizeRestorePc.c)
  */
 
 void __fastcall RcFrameConsolidation(
@@ -38,20 +38,20 @@ void __fastcall RcFrameConsolidation(
         int a28,
         int a29,
         int a30,
-        void *a31,
+        PVOID BaseAddress,
         __int64 a32)
 {
   volatile __int32 *v32; // rbx
   __int32 v33; // r8d
   _UNKNOWN *retaddr; // [rsp+0h] [rbp+0h]
 
-  a31 = (void *)(*(__int64 (**)(void))(a1 + 32))();
-  if ( (*(&qword_1801E3500 + 1) & 0x1000000000000000LL) != 0
-    || (RtlGuardCheckExceptionHandler((unsigned __int64)a31, 0, 0LL), (a6 & 0x100040) == 0x100040)
+  BaseAddress = (PVOID)(*(__int64 (**)(void))(a1 + 32))();
+  if ( (LdrSystemDllInitBlock.MitigationOptionsMap.Map[1] & 0x1000000000000000LL) != 0
+    || (RtlGuardCheckExceptionHandler(BaseAddress, 0, 0LL), (a6 & 0x100040) == 0x100040)
     && (*(unsigned __int64 *)((char *)&STACK[0x4D8] + SLODWORD(STACK[0x4E0])) & 0x800) != 0
-    || (*(&qword_1801E3500 + 1) & 0x1000) != 0 )
+    || (LdrSystemDllInitBlock.MitigationOptionsMap.Map[1] & 0x1000) != 0 )
   {
-    RtlpGuardSynchronizeRestorePc(&a31);
+    RtlpGuardSynchronizeRestorePc(&BaseAddress);
   }
   else if ( (a6 & 0xFFFFFF3F) == 0x10000F )
   {
@@ -64,8 +64,8 @@ void __fastcall RcFrameConsolidation(
     }
     _fxrstor(&a32);
     _mm_setcsr(HIDWORD(a6));
-    retaddr = a31;
+    retaddr = BaseAddress;
     __asm { iretq }
   }
-  JUMPOUT(0x18012713CLL);
+  JUMPOUT(0x180126EACLL);
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of MiGetUltraPage @ 0x14033A1B0
+ * XREFs of MiGetUltraPage @ 0x14033C230
  * Callers:
- *     MiReplenishUltraPageTables @ 0x1402F445C (MiReplenishUltraPageTables.c)
+ *     MiReplenishUltraPageTables @ 0x1402D64DC (MiReplenishUltraPageTables.c)
  * Callees:
- *     MiGetPage @ 0x1402866A0 (MiGetPage.c)
- *     MiGetSlabPage @ 0x14033A284 (MiGetSlabPage.c)
+ *     MiGetPage @ 0x140285C00 (MiGetPage.c)
+ *     MiGetSlabPage @ 0x14033C304 (MiGetSlabPage.c)
  */
 
 __int64 __fastcall MiGetUltraPage(__int64 a1, char a2)

@@ -9,7 +9,6 @@
  *     <none>
  */
 
-// local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall ZwSetInformationObject(
         HANDLE ObjectHandle,
         OBJECT_INFORMATION_CLASS ObjectInformationClass,
@@ -18,5 +17,5 @@ NTSTATUS __stdcall ZwSetInformationObject(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(ObjectHandle, *(_QWORD *)&ObjectInformationClass, ObjectInformation);
+  return KiServiceInternal(ObjectHandle);
 }

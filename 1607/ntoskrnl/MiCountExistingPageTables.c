@@ -1,11 +1,11 @@
 /*
- * XREFs of MiCountExistingPageTables @ 0x1401025EC
+ * XREFs of MiCountExistingPageTables @ 0x14010036C
  * Callers:
- *     MiPageTablesNeeded @ 0x140102518 (MiPageTablesNeeded.c)
- *     MiCountExistingPageTables @ 0x1401025EC (MiCountExistingPageTables.c)
+ *     MiPageTablesNeeded @ 0x140100298 (MiPageTablesNeeded.c)
+ *     MiCountExistingPageTables @ 0x14010036C (MiCountExistingPageTables.c)
  * Callees:
- *     MiCountExistingPageTables @ 0x1401025EC (MiCountExistingPageTables.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiCountExistingPageTables @ 0x14010036C (MiCountExistingPageTables.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
  */
 
 __int64 __fastcall MiCountExistingPageTables(

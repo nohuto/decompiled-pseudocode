@@ -22,11 +22,11 @@ __int64 __fastcall HvlpDepositPages(unsigned __int16 a1)
 {
   char v1; // bp
   _OWORD *NodePagesForMdl; // r15
-  union _SLIST_HEADER *CurrentPrcb; // rbx
+  _SLIST_HEADER *CurrentPrcb; // rbx
   _QWORD *p_Next; // rcx
   _SLIST_ENTRY *Next; // rsi
   PSLIST_ENTRY v7; // rax
-  struct _SLIST_ENTRY *v8; // r14
+  _SLIST_ENTRY *v8; // r14
   char v9; // di
   __int16 v10; // ax
   _OWORD *v11; // rax
@@ -35,8 +35,8 @@ __int64 __fastcall HvlpDepositPages(unsigned __int16 a1)
   __int128 v14; // xmm1
   __int64 HypercallCachedPages; // rax
   struct _KPRCB *v16; // rcx
-  union _SLIST_HEADER *v17; // [rsp+48h] [rbp-40h]
-  struct _SLIST_ENTRY *v18; // [rsp+50h] [rbp-38h]
+  _SLIST_HEADER *v17; // [rsp+48h] [rbp-40h]
+  _SLIST_ENTRY *v18; // [rsp+50h] [rbp-38h]
   _SLIST_ENTRY *v19; // [rsp+58h] [rbp-30h]
   __int16 v20; // [rsp+80h] [rbp-8h]
 
@@ -46,7 +46,7 @@ __int64 __fastcall HvlpDepositPages(unsigned __int16 a1)
     return 3221225495LL;
   if ( (HvlpFlags & 0x10) != 0 )
   {
-    CurrentPrcb = (union _SLIST_HEADER *)KeGetCurrentPrcb();
+    CurrentPrcb = (_SLIST_HEADER *)KeGetCurrentPrcb();
     v7 = RtlpInterlockedPopEntrySList(CurrentPrcb + 1535);
     p_Next = &v7->Next;
     if ( v7 )

@@ -1,15 +1,15 @@
 /*
- * XREFs of PiDevCfgVerifyDeviceAllowed @ 0x14077C328
+ * XREFs of PiDevCfgVerifyDeviceAllowed @ 0x14077C4E8
  * Callers:
- *     PiDevCfgConfigureDevice @ 0x140742E20 (PiDevCfgConfigureDevice.c)
+ *     PiDevCfgConfigureDevice @ 0x140742FE0 (PiDevCfgConfigureDevice.c)
  * Callees:
- *     PnpValidateRegistryDword @ 0x14039A9C8 (PnpValidateRegistryDword.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     ZwOpenKey @ 0x1403FA5E0 (ZwOpenKey.c)
- *     PiDevCfgQueryResolveValue @ 0x14050E4A4 (PiDevCfgQueryResolveValue.c)
- *     PiDevCfgFreeResolveContext @ 0x14076777C (PiDevCfgFreeResolveContext.c)
- *     PiDevCfgInitResolveContext @ 0x140767D0C (PiDevCfgInitResolveContext.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     PnpValidateRegistryDword @ 0x14039AB18 (PnpValidateRegistryDword.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403FA7C0 (ZwOpenKey.c)
+ *     PiDevCfgQueryResolveValue @ 0x14050E6E4 (PiDevCfgQueryResolveValue.c)
+ *     PiDevCfgFreeResolveContext @ 0x14076793C (PiDevCfgFreeResolveContext.c)
+ *     PiDevCfgInitResolveContext @ 0x140767ECC (PiDevCfgInitResolveContext.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiDevCfgVerifyDeviceAllowed(__int64 a1, void *a2)

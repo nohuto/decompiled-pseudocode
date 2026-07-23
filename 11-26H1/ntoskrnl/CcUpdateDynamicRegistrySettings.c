@@ -1,15 +1,15 @@
 /*
- * XREFs of CcUpdateDynamicRegistrySettings @ 0x1404DB1C0
+ * XREFs of CcUpdateDynamicRegistrySettings @ 0x1404D48A0
  * Callers:
  *     <none>
  * Callees:
- *     DbgPrintEx @ 0x140397530 (DbgPrintEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwOpenKey @ 0x140723630 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x1407236D0 (ZwQueryValueKey.c)
- *     ExAllocatePoolWithTag @ 0x140C10340 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     DbgPrintEx @ 0x1403992B0 (DbgPrintEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140728200 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1407282A0 (ZwQueryValueKey.c)
+ *     ExAllocatePoolWithTag @ 0x140C16340 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall CcUpdateDynamicRegistrySettings(__int64 a1)
@@ -761,13 +761,13 @@ void __fastcall CcUpdateDynamicRegistrySettings(__int64 a1)
   if ( v80 && (unsigned int)(v94 - 1) <= 0x7FFF )
     CcMaxLazyWritePages = v94;
   if ( v81 && (_DWORD)v19 )
-    EmpParseLock.RelativeTimerBias = -10000000 * v19;
+    *(_QWORD *)&EmpParseLock.Timer.Header.Lock = -10000000 * v19;
   if ( v88 && v110 )
-    *(_QWORD *)&EmpParseLock.Timer.Header.Lock = 10000000LL * v110;
+    EmpParseLock.Timer.Header.WaitListHead.Flink = (struct _LIST_ENTRY *)(10000000LL * v110);
   if ( v82 && v95 )
-    EmpParseLock.Timer.Header.WaitListHead.Flink = (struct _LIST_ENTRY *)(10000000LL * v95);
+    EmpParseLock.Timer.Header.WaitListHead.Blink = (struct _LIST_ENTRY *)(10000000LL * v95);
   if ( v83 )
-    BYTE1(EmpParseLock.Timer.DueTime.LowPart) = v96 != 0;
+    BYTE1(EmpParseLock.Timer.TimerListEntry.Flink) = v96 != 0;
   if ( v84 )
   {
     if ( v4 > 1 )

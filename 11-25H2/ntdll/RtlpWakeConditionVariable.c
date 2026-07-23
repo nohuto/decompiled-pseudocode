@@ -96,7 +96,7 @@ LABEL_13:
         if ( !v15 || (LOBYTE(v8) = RtlpQueueWaitBlockToSRWLock(v17, v15, v9, i), !(_BYTE)v8) )
         {
           _InterlockedOr(v13 + 9, 4u);
-          LOBYTE(v8) = ZwAlertThreadByThreadId(*((_QWORD *)v17 + 3));
+          LOBYTE(v8) = ZwAlertThreadByThreadId(*((HANDLE *)v17 + 3));
         }
       }
       v13 = v14;

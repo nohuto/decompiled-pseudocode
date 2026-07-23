@@ -1,9 +1,9 @@
 /*
- * XREFs of MiSkipEntirePagefileRegions @ 0x140547750
+ * XREFs of MiSkipEntirePagefileRegions @ 0x140547990
  * Callers:
- *     MiQueryAddressState @ 0x14032F730 (MiQueryAddressState.c)
+ *     MiQueryAddressState @ 0x14033A480 (MiQueryAddressState.c)
  * Callees:
- *     MiLocatePagefileSubsection @ 0x140316CFC (MiLocatePagefileSubsection.c)
+ *     MiLocatePagefileSubsection @ 0x140321A4C (MiLocatePagefileSubsection.c)
  */
 
 __int64 __fastcall MiSkipEntirePagefileRegions(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5)

@@ -1,18 +1,18 @@
 /*
- * XREFs of VfDriverApplyDifVerification @ 0x140ACA308
+ * XREFs of VfDriverApplyDifVerification @ 0x140ACA2F8
  * Callers:
- *     MmEnableOrDisableVerifierForDriver @ 0x140AE806C (MmEnableOrDisableVerifierForDriver.c)
+ *     MmEnableOrDisableVerifierForDriver @ 0x140AE805C (MmEnableOrDisableVerifierForDriver.c)
  * Callees:
- *     ExReleaseResourceLite @ 0x14023D410 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x14023D680 (ExAcquireResourceSharedLite.c)
- *     KeReleaseMutex @ 0x1402AFF70 (KeReleaseMutex.c)
- *     ExSetPoolFlags @ 0x140607A98 (ExSetPoolFlags.c)
- *     MmIsVerifierApplicableToImage @ 0x14061C04C (MmIsVerifierApplicableToImage.c)
- *     RtlEqualUnicodeString @ 0x1406DA2F0 (RtlEqualUnicodeString.c)
- *     VfUtilIsProtectedDriver @ 0x140AC27FC (VfUtilIsProtectedDriver.c)
- *     VfDriverLock @ 0x140ACA76C (VfDriverLock.c)
- *     VfSuspectApplyDifVolatileVerification @ 0x140ADA2B8 (VfSuspectApplyDifVolatileVerification.c)
- *     VfSuspectDriversLookupName @ 0x140ADAA24 (VfSuspectDriversLookupName.c)
+ *     ExReleaseResourceLite @ 0x14023D4E0 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x14023D750 (ExAcquireResourceSharedLite.c)
+ *     KeReleaseMutex @ 0x1402B0200 (KeReleaseMutex.c)
+ *     ExSetPoolFlags @ 0x140607FE8 (ExSetPoolFlags.c)
+ *     MmIsVerifierApplicableToImage @ 0x14061C59C (MmIsVerifierApplicableToImage.c)
+ *     RtlEqualUnicodeString @ 0x1406DA320 (RtlEqualUnicodeString.c)
+ *     VfUtilIsProtectedDriver @ 0x140AC27EC (VfUtilIsProtectedDriver.c)
+ *     VfDriverLock @ 0x140ACA75C (VfDriverLock.c)
+ *     VfSuspectApplyDifVolatileVerification @ 0x140ADA2A8 (VfSuspectApplyDifVolatileVerification.c)
+ *     VfSuspectDriversLookupName @ 0x140ADAA14 (VfSuspectDriversLookupName.c)
  */
 
 __int64 __fastcall VfDriverApplyDifVerification(__int64 a1, __int64 a2, _DWORD *a3)
@@ -72,13 +72,13 @@ LABEL_26:
     }
   }
 LABEL_4:
-  v9 = (__int64 *)qword_140C37398;
-  if ( *(__int64 **)qword_140C37398 != &VfSuspectDriversList )
+  v9 = (__int64 *)qword_140C37378;
+  if ( *(__int64 **)qword_140C37378 != &VfSuspectDriversList )
     __fastfail(3u);
   *(_QWORD *)a1 = &VfSuspectDriversList;
   *(_QWORD *)(a1 + 8) = v9;
   *v9 = a1;
-  qword_140C37398 = a1;
+  qword_140C37378 = a1;
   if ( KernelVerifier
     || (IsVerifierApplicableToImage = VfSuspectApplyDifVolatileVerification(v3, a1), IsVerifierApplicableToImage >= 0) )
   {

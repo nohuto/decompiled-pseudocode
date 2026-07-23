@@ -7,22 +7,22 @@
  *     _RtlSizeHeap@12 @ 0x4B2DB840 (_RtlSizeHeap@12.c)
  */
 
-int __fastcall RtlpDumpEntryInfo(int a1, int a2)
+int __fastcall RtlpDumpEntryInfo(_DWORD *HeapHandle, unsigned __int8 *BaseAddress)
 {
   unsigned __int8 *v3; // esi
   int v4; // eax
 
-  if ( *(_DWORD *)(a1 + 8) == -571548178 )
+  if ( HeapHandle[2] == -571548178 )
   {
-    v3 = (unsigned __int8 *)a2;
+    v3 = BaseAddress;
   }
   else
   {
-    v3 = (unsigned __int8 *)(a2 - 8);
-    if ( *(_BYTE *)(a2 - 8 + 7) == 5 )
+    v3 = BaseAddress - 8;
+    if ( *(BaseAddress - 1) == 5 )
       v3 -= 8 * v3[6];
   }
-  v4 = RtlSizeHeap(a1, 0, a2);
-  DbgPrint("%p  %-16Ix  %Id", v3, a1, v4);
+  v4 = RtlSizeHeap(HeapHandle, 0, BaseAddress);
+  DbgPrint("%p  %-16Ix  %Id", v3, HeapHandle, v4);
   return DbgPrint("\n");
 }

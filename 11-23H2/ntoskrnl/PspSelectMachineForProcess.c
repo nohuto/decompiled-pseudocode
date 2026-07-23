@@ -1,13 +1,13 @@
 /*
- * XREFs of PspSelectMachineForProcess @ 0x1406B7B58
+ * XREFs of PspSelectMachineForProcess @ 0x1406B7B88
  * Callers:
- *     PspAllocateProcess @ 0x1406B442C (PspAllocateProcess.c)
+ *     PspAllocateProcess @ 0x1406B45D8 (PspAllocateProcess.c)
  * Callees:
- *     PdcCreateWatchdogAroundClientCall @ 0x140293450 (PdcCreateWatchdogAroundClientCall.c)
- *     PsGetProcessMachine @ 0x1406B6990 (PsGetProcessMachine.c)
- *     PsIsMachineSupportedNoWow @ 0x1406B7C88 (PsIsMachineSupportedNoWow.c)
- *     PsWow64IsMachineSupported @ 0x14076F160 (PsWow64IsMachineSupported.c)
- *     PspQueryComPlusRunUnderWoW @ 0x1409B12F8 (PspQueryComPlusRunUnderWoW.c)
+ *     PdcCreateWatchdogAroundClientCall @ 0x1402936E0 (PdcCreateWatchdogAroundClientCall.c)
+ *     PsGetProcessMachine @ 0x1406B6B40 (PsGetProcessMachine.c)
+ *     PsIsMachineSupportedNoWow @ 0x1406B7CB8 (PsIsMachineSupportedNoWow.c)
+ *     PsWow64IsMachineSupported @ 0x14076F350 (PsWow64IsMachineSupported.c)
+ *     PspQueryComPlusRunUnderWoW @ 0x1409B14F8 (PspQueryComPlusRunUnderWoW.c)
  */
 
 __int64 __fastcall PspSelectMachineForProcess(__int64 a1, __int64 a2, unsigned __int16 *a3)

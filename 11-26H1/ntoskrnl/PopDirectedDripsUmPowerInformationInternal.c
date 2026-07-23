@@ -1,12 +1,12 @@
 /*
- * XREFs of PopDirectedDripsUmPowerInformationInternal @ 0x140772F20
+ * XREFs of PopDirectedDripsUmPowerInformationInternal @ 0x140775F20
  * Callers:
- *     PopPowerInformationInternal @ 0x140B6F6FC (PopPowerInformationInternal.c)
+ *     PopPowerInformationInternal @ 0x140B73EF0 (PopPowerInformationInternal.c)
  * Callees:
- *     PopDirectedDripsUmDirectedFxAddTestDevice @ 0x1407E24D0 (PopDirectedDripsUmDirectedFxAddTestDevice.c)
- *     PopDirectedDripsUmDirectedFxRemoveTestDevice @ 0x1407E25C8 (PopDirectedDripsUmDirectedFxRemoveTestDevice.c)
- *     PopDirectedDripsUmDirectedFxSetMode @ 0x1407E265C (PopDirectedDripsUmDirectedFxSetMode.c)
- *     PopDirectedDripsUmQueryCapabilities @ 0x1407E2730 (PopDirectedDripsUmQueryCapabilities.c)
+ *     PopDirectedDripsUmDirectedFxAddTestDevice @ 0x1407E7560 (PopDirectedDripsUmDirectedFxAddTestDevice.c)
+ *     PopDirectedDripsUmDirectedFxRemoveTestDevice @ 0x1407E7658 (PopDirectedDripsUmDirectedFxRemoveTestDevice.c)
+ *     PopDirectedDripsUmDirectedFxSetMode @ 0x1407E76EC (PopDirectedDripsUmDirectedFxSetMode.c)
+ *     PopDirectedDripsUmQueryCapabilities @ 0x1407E77C0 (PopDirectedDripsUmQueryCapabilities.c)
  */
 
 __int64 __fastcall PopDirectedDripsUmPowerInformationInternal(
@@ -24,12 +24,12 @@ __int64 __fastcall PopDirectedDripsUmPowerInformationInternal(
 
   *a4 = 0;
   *a5 = 0LL;
-  _m_prefetchw(dword_140F12AC0);
-  v5 = dword_140F12AC0[0];
+  _m_prefetchw(&PopDirectedDripsState);
+  v5 = PopDirectedDripsState;
   do
   {
     v6 = v5;
-    v5 = _InterlockedCompareExchange(dword_140F12AC0, v5, v5);
+    v5 = _InterlockedCompareExchange(&PopDirectedDripsState, v5, v5);
   }
   while ( v6 != v5 );
   if ( (v5 & 1) == 0 )

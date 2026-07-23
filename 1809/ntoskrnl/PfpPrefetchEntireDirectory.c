@@ -1,13 +1,13 @@
 /*
- * XREFs of PfpPrefetchEntireDirectory @ 0x14065EFA8
+ * XREFs of PfpPrefetchEntireDirectory @ 0x140660168
  * Callers:
- *     PfSnPrefetchMetadata @ 0x14065ECDC (PfSnPrefetchMetadata.c)
+ *     PfSnPrefetchMetadata @ 0x14065FE9C (PfSnPrefetchMetadata.c)
  * Callees:
- *     memset @ 0x1401D1880 (memset.c)
- *     IopXxxControlFile @ 0x1405E8BD0 (IopXxxControlFile.c)
- *     PfpOpenHandleCreate @ 0x140660368 (PfpOpenHandleCreate.c)
- *     PfpOpenHandleClose @ 0x1406604CC (PfpOpenHandleClose.c)
- *     IopQueryXxxInformation @ 0x140661720 (IopQueryXxxInformation.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     IopXxxControlFile @ 0x1405E9BD0 (IopXxxControlFile.c)
+ *     PfpOpenHandleCreate @ 0x140661528 (PfpOpenHandleCreate.c)
+ *     PfpOpenHandleClose @ 0x14066168C (PfpOpenHandleClose.c)
+ *     IopQueryXxxInformation @ 0x1406628E0 (IopQueryXxxInformation.c)
  */
 
 __int64 PfpPrefetchEntireDirectory(__int64 a1, __int64 a2, __int64 a3, __int64 a4, ...)

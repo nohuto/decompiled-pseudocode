@@ -1,19 +1,19 @@
 /*
- * XREFs of MiGetHugePageToZero @ 0x140185464
+ * XREFs of MiGetHugePageToZero @ 0x1401855A4
  * Callers:
- *     MiZeroPageThread @ 0x140179200 (MiZeroPageThread.c)
- *     MiGetPagesToZero @ 0x140185260 (MiGetPagesToZero.c)
+ *     MiZeroPageThread @ 0x140179300 (MiZeroPageThread.c)
+ *     MiGetPagesToZero @ 0x1401853A0 (MiGetPagesToZero.c)
  * Callees:
- *     MiUnlinkNodeLargePage @ 0x140064290 (MiUnlinkNodeLargePage.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     MiGetUltraHugeAlreadyActive @ 0x1401855F4 (MiGetUltraHugeAlreadyActive.c)
- *     MiInitializeNewUltraHugeContext @ 0x1401858BC (MiInitializeNewUltraHugeContext.c)
- *     MiDecrementHugeContext @ 0x140185A48 (MiDecrementHugeContext.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     MiUnlinkNodeLargePage @ 0x140064280 (MiUnlinkNodeLargePage.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14007DE80 (KeAcquireInStackQueuedSpinLock.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     MiGetUltraHugeAlreadyActive @ 0x140185734 (MiGetUltraHugeAlreadyActive.c)
+ *     MiInitializeNewUltraHugeContext @ 0x1401859FC (MiInitializeNewUltraHugeContext.c)
+ *     MiDecrementHugeContext @ 0x140185B88 (MiDecrementHugeContext.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiGetHugePageToZero(__int64 a1, __int64 a2)
@@ -37,7 +37,7 @@ __int64 __fastcall MiGetHugePageToZero(__int64 a1, __int64 a2)
 
   v2 = *(_DWORD *)(a2 + 244);
   memset(&LockHandle, 0, sizeof(LockHandle));
-  v5 = v2 >> byte_14043A049;
+  v5 = v2 >> byte_14043B109;
   while ( 1 )
   {
     *(_QWORD *)(a2 + 32) = 0LL;

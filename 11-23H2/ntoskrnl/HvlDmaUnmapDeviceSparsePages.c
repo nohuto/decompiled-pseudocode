@@ -1,14 +1,14 @@
 /*
- * XREFs of HvlDmaUnmapDeviceSparsePages @ 0x140543AD0
+ * XREFs of HvlDmaUnmapDeviceSparsePages @ 0x140544190
  * Callers:
  *     <none>
  * Callees:
- *     HvcallFastExtended @ 0x1403CC1B0 (HvcallFastExtended.c)
- *     HvcallInitiateHypercall @ 0x1403CD360 (HvcallInitiateHypercall.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     HvlpHvToNtStatus @ 0x14045F516 (HvlpHvToNtStatus.c)
- *     HvlpAcquireHypercallPage @ 0x1405407B0 (HvlpAcquireHypercallPage.c)
- *     HvlpReleaseHypercallPage @ 0x140541400 (HvlpReleaseHypercallPage.c)
+ *     HvcallFastExtended @ 0x1403CC390 (HvcallFastExtended.c)
+ *     HvcallInitiateHypercall @ 0x1403CD540 (HvcallInitiateHypercall.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     HvlpHvToNtStatus @ 0x14045F916 (HvlpHvToNtStatus.c)
+ *     HvlpAcquireHypercallPage @ 0x140540E70 (HvlpAcquireHypercallPage.c)
+ *     HvlpReleaseHypercallPage @ 0x140541AC0 (HvlpReleaseHypercallPage.c)
  */
 
 __int64 __fastcall HvlDmaUnmapDeviceSparsePages(__int64 a1, __int64 a2, unsigned __int64 *a3)

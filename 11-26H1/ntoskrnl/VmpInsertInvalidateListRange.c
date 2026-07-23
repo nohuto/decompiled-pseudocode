@@ -1,12 +1,12 @@
 /*
- * XREFs of VmpInsertInvalidateListRange @ 0x140251FD8
+ * XREFs of VmpInsertInvalidateListRange @ 0x140253938
  * Callers:
- *     VmpFlushTb @ 0x1402519C4 (VmpFlushTb.c)
- *     VmpFlushTbVaRange @ 0x14025248C (VmpFlushTbVaRange.c)
- *     VmpInvalidateSlatBatched @ 0x1406C1430 (VmpInvalidateSlatBatched.c)
+ *     VmpFlushTb @ 0x140253324 (VmpFlushTb.c)
+ *     VmpFlushTbVaRange @ 0x140253DEC (VmpFlushTbVaRange.c)
+ *     VmpInvalidateSlatBatched @ 0x1406C5010 (VmpInvalidateSlatBatched.c)
  * Callees:
- *     VmpProcessInvalidateList @ 0x140518B00 (VmpProcessInvalidateList.c)
- *     VmpLogTbFlushSlatInvalidateInsert @ 0x14052FED0 (VmpLogTbFlushSlatInvalidateInsert.c)
+ *     VmpProcessInvalidateList @ 0x140512570 (VmpProcessInvalidateList.c)
+ *     VmpLogTbFlushSlatInvalidateInsert @ 0x1405323D0 (VmpLogTbFlushSlatInvalidateInsert.c)
  */
 
 unsigned __int64 __fastcall VmpInsertInvalidateListRange(
@@ -32,11 +32,11 @@ unsigned __int64 __fastcall VmpInsertInvalidateListRange(
   unsigned int *v21; // r12
   __int64 v22; // rcx
 
-  if ( stru_140F066E8.QuantumTarget
-    && *(_DWORD *)stru_140F066E8.QuantumTarget
-    && (*(_BYTE *)(stru_140F066E8.QuantumTarget + 16) & 2) != 0 )
+  if ( stru_140F06A28.InitialStack
+    && *(_DWORD *)stru_140F06A28.InitialStack
+    && (*((_BYTE *)stru_140F06A28.InitialStack + 16) & 2) != 0 )
   {
-    v18 = *(_QWORD *)(stru_140F066E8.QuantumTarget + 24);
+    v18 = *((_QWORD *)stru_140F06A28.InitialStack + 3);
     v9 = a6;
     if ( (v18 & 2) == v18 )
       VmpLogTbFlushSlatInvalidateInsert(v18, a4, a3, a5, a6, *(_QWORD *)(a1 + 120));

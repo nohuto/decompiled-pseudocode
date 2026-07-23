@@ -1,14 +1,14 @@
 /*
- * XREFs of CmpDoSystemCacheWrite @ 0x14060405C
+ * XREFs of CmpDoSystemCacheWrite @ 0x140604110
  * Callers:
- *     CmpFileWrite @ 0x1403F6108 (CmpFileWrite.c)
+ *     CmpFileWrite @ 0x1403F4FCC (CmpFileWrite.c)
  * Callees:
- *     CmpSetIoPriorityThread @ 0x1400B4CE0 (CmpSetIoPriorityThread.c)
- *     CmpSetPriorityThread @ 0x1400B4CE8 (CmpSetPriorityThread.c)
- *     HvViewMapCopyToFileOffset @ 0x1401B6684 (HvViewMapCopyToFileOffset.c)
- *     HvViewMapFlush @ 0x14060FB24 (HvViewMapFlush.c)
- *     HvViewMapPinForFileOffset @ 0x14060FC6C (HvViewMapPinForFileOffset.c)
- *     HvViewMapUnpinForFileOffset @ 0x14060FE80 (HvViewMapUnpinForFileOffset.c)
+ *     CmpSetIoPriorityThread @ 0x1400B2B18 (CmpSetIoPriorityThread.c)
+ *     CmpSetPriorityThread @ 0x1400B2B20 (CmpSetPriorityThread.c)
+ *     HvViewMapCopyToFileOffset @ 0x1401B6568 (HvViewMapCopyToFileOffset.c)
+ *     HvViewMapFlush @ 0x14060FBD8 (HvViewMapFlush.c)
+ *     HvViewMapPinForFileOffset @ 0x14060FD20 (HvViewMapPinForFileOffset.c)
+ *     HvViewMapUnpinForFileOffset @ 0x14060FF34 (HvViewMapUnpinForFileOffset.c)
  */
 
 bool __fastcall CmpDoSystemCacheWrite(__int64 a1, __int64 a2, unsigned int a3, unsigned int *a4, char a5)

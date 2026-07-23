@@ -1,9 +1,9 @@
 /*
- * XREFs of KiCustomAccessRoutine4 @ 0x1401687B0
+ * XREFs of KiCustomAccessRoutine4 @ 0x140168D20
  * Callers:
- *     CmpEnableLazyFlushDpcRoutine @ 0x140126A90 (CmpEnableLazyFlushDpcRoutine.c)
+ *     CmpEnableLazyFlushDpcRoutine @ 0x140127000 (CmpEnableLazyFlushDpcRoutine.c)
  * Callees:
- *     KiCustomRecurseRoutine4 @ 0x140168790 (KiCustomRecurseRoutine4.c)
+ *     KiCustomRecurseRoutine4 @ 0x140168D00 (KiCustomRecurseRoutine4.c)
  */
 
 __int64 __fastcall KiCustomAccessRoutine4(unsigned int *a1)

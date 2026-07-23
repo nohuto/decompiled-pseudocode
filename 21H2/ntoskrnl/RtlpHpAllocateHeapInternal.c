@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpHpAllocateHeapInternal @ 0x1402A5FA0
+ * XREFs of RtlpHpAllocateHeapInternal @ 0x1402233E0
  * Callers:
- *     RtlpHpAllocateHeap @ 0x1402A5E94 (RtlpHpAllocateHeap.c)
+ *     RtlpHpAllocateHeap @ 0x1402232D4 (RtlpHpAllocateHeap.c)
  * Callees:
- *     RtlpHpLargeAlloc @ 0x1402A56A0 (RtlpHpLargeAlloc.c)
- *     RtlpHpLfhContextAllocate @ 0x1402A6084 (RtlpHpLfhContextAllocate.c)
- *     RtlpHpVsContextAllocate @ 0x1402A6404 (RtlpHpVsContextAllocate.c)
- *     RtlpHpSegAlloc @ 0x140309850 (RtlpHpSegAlloc.c)
+ *     RtlpHpLargeAlloc @ 0x140222AE0 (RtlpHpLargeAlloc.c)
+ *     RtlpHpLfhContextAllocate @ 0x1402234C4 (RtlpHpLfhContextAllocate.c)
+ *     RtlpHpVsContextAllocate @ 0x140223844 (RtlpHpVsContextAllocate.c)
+ *     RtlpHpSegAlloc @ 0x1403145A0 (RtlpHpSegAlloc.c)
  */
 
 __int64 __fastcall RtlpHpAllocateHeapInternal(__int64 a1, __int64 a2, unsigned __int64 a3, unsigned int a4, int *a5)

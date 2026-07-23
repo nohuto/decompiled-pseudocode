@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpMuiRegResizeLanguages @ 0x140A75038
+ * XREFs of RtlpMuiRegResizeLanguages @ 0x140A752E8
  * Callers:
- *     RtlpMuiRegGetOrAddLangInfo @ 0x14085EDCC (RtlpMuiRegGetOrAddLangInfo.c)
+ *     RtlpMuiRegGetOrAddLangInfo @ 0x14085F00C (RtlpMuiRegGetOrAddLangInfo.c)
  * Callees:
- *     _SafeReallocBlob @ 0x14067A354 (_SafeReallocBlob.c)
+ *     _SafeReallocBlob @ 0x14067A8A4 (_SafeReallocBlob.c)
  */
 
 _QWORD *__fastcall RtlpMuiRegResizeLanguages(__int64 a1, int a2)

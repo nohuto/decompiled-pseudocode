@@ -1,10 +1,10 @@
 /*
- * XREFs of PopFlushAndHold @ 0x140207354
+ * XREFs of PopFlushAndHold @ 0x140207180
  * Callers:
  *     PopFlushVolumeWorker @ 0x1403D0FC4 (PopFlushVolumeWorker.c)
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     ZwDeviceIoControlFile @ 0x140159D60 (ZwDeviceIoControlFile.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     ZwDeviceIoControlFile @ 0x14015A2D0 (ZwDeviceIoControlFile.c)
  */
 
 NTSTATUS __fastcall PopFlushAndHold(void *a1, struct _IO_STATUS_BLOCK *a2)

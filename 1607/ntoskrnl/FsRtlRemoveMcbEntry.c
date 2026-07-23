@@ -1,5 +1,5 @@
 /*
- * XREFs of FsRtlRemoveMcbEntry @ 0x1401B8828
+ * XREFs of FsRtlRemoveMcbEntry @ 0x1401B85FC
  * Callers:
  *     <none>
  * Callees:

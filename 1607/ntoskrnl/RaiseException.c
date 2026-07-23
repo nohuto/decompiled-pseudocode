@@ -1,28 +1,33 @@
 /*
- * XREFs of RaiseException @ 0x1401514D8
+ * XREFs of RaiseException @ 0x140151A90
  * Callers:
- *     _raise_exc_ex @ 0x14015158C (_raise_exc_ex.c)
+ *     _raise_exc_ex @ 0x140151B44 (_raise_exc_ex.c)
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     RtlRaiseException @ 0x140211E04 (RtlRaiseException.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     RtlRaiseException @ 0x140211C30 (RtlRaiseException.c)
  */
 
-void __fastcall RaiseException(int a1, char a2, __int64 a3, const void *a4)
+// local variable allocation has failed, the output may be wrong!
+void __cdecl RaiseException(
+        DWORD dwExceptionCode,
+        DWORD dwExceptionFlags,
+        DWORD nNumberOfArguments,
+        const ULONG_PTR *lpArguments)
 {
-  struct _EXCEPTION_RECORD ExceptionRecord; // [rsp+20h] [rbp-B8h] BYREF
+  EXCEPTION_RECORD ExceptionRecord; // [rsp+20h] [rbp-B8h] BYREF
 
   HIDWORD(ExceptionRecord.ExceptionRecord) = 0;
-  ExceptionRecord.ExceptionCode = a1;
-  *(_QWORD *)&ExceptionRecord.ExceptionFlags = a2 & 1;
-  ExceptionRecord.ExceptionAddress = &RaiseException;
-  if ( a4 )
+  ExceptionRecord.ExceptionCode = dwExceptionCode;
+  *(_QWORD *)&ExceptionRecord.ExceptionFlags = dwExceptionFlags & 1;
+  ExceptionRecord.ExceptionAddress = RaiseException;
+  if ( lpArguments )
   {
-    if ( (unsigned int)a3 > 0xF )
-      a3 = 15LL;
-    ExceptionRecord.NumberParameters = a3;
-    if ( (_DWORD)a3 )
-      memmove(ExceptionRecord.ExceptionInformation, a4, 8 * a3);
+    if ( nNumberOfArguments > 0xF )
+      *(_QWORD *)&nNumberOfArguments = 15LL;
+    ExceptionRecord.NumberParameters = nNumberOfArguments;
+    if ( nNumberOfArguments )
+      memmove(ExceptionRecord.ExceptionInformation, lpArguments, 8LL * *(_QWORD *)&nNumberOfArguments);
   }
   else
   {

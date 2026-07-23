@@ -3,8 +3,8 @@
  * Callers:
  *     <none>
  * Callees:
- *     VerifierBugCheckIfAppropriate @ 0x14070C2E8 (VerifierBugCheckIfAppropriate.c)
- *     ViTargetAddToCounter @ 0x140710350 (ViTargetAddToCounter.c)
+ *     VerifierBugCheckIfAppropriate @ 0x14070C318 (VerifierBugCheckIfAppropriate.c)
+ *     ViTargetAddToCounter @ 0x140710380 (ViTargetAddToCounter.c)
  *     ViPoolLogStackTrace @ 0x140710BB0 (ViPoolLogStackTrace.c)
  *     VfFaultsIsSystemSufficientlyBooted @ 0x140710F24 (VfFaultsIsSystemSufficientlyBooted.c)
  *     ViMmMapLockedPagesSanityChecks @ 0x14071C834 (ViMmMapLockedPagesSanityChecks.c)

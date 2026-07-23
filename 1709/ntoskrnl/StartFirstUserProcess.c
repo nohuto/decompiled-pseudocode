@@ -31,14 +31,14 @@ void StartFirstUserProcess()
   char *PoolWithTag; // rax
   char *v6; // rdi
   __int128 v7; // xmm0
-  ULONG_PTR UserProcess; // rbx
-  NTSTATUS v9; // eax
-  NTSTATUS v10; // eax
+  BOOLEAN v8; // r8
+  PRTL_USER_PROCESS_EXTENDED_PARAMETERS v9; // r9
+  ULONG_PTR v10; // rbx
+  NTSTATUS v11; // eax
+  NTSTATUS v12; // eax
   UNICODE_STRING DestinationString; // [rsp+30h] [rbp-49h] BYREF
-  char v12[8]; // [rsp+40h] [rbp-39h] BYREF
-  HANDLE ProcessHandle; // [rsp+48h] [rbp-31h]
-  HANDLE ThreadHandle; // [rsp+50h] [rbp-29h]
-  int ProcessInformation; // [rsp+E0h] [rbp+67h] BYREF
+  _RTL_USER_PROCESS_INFORMATION ProcessInformation; // [rsp+40h] [rbp-39h] BYREF
+  int v15; // [rsp+E0h] [rbp+67h] BYREF
   LARGE_INTEGER Interval; // [rsp+E8h] [rbp+6Fh] BYREF
 
   if ( (unsigned __int8)QueryRegistryHideMachine() )
@@ -71,22 +71,22 @@ void StartFirstUserProcess()
   DestinationString.Length = 0;
   DestinationString.MaximumLength = v2;
   RtlCopyUnicodeString(&DestinationString, ServerSiloGlobals + 63);
-  UserProcess = (int)RtlCreateUserProcessEx((int)v6 + 96, (int)v6, v12);
+  v10 = RtlCreateUserProcessEx((PUNICODE_STRING)v6 + 6, (PRTL_USER_PROCESS_PARAMETERS)v6, v8, v9, &ProcessInformation);
   if ( InbvIsBootDriverInstalled() )
     FinalizeBootLogo();
-  if ( (UserProcess & 0x80000000) != 0LL )
-    KeBugCheckEx(0x6Du, UserProcess, 0LL, 1uLL, 0LL);
-  ProcessInformation = 1;
-  v9 = ZwSetInformationProcess(ProcessHandle, ProcessBreakOnTermination, &ProcessInformation, 4u);
-  if ( v9 < 0 )
-    KeBugCheckEx(0x6Du, v9, 0LL, 2uLL, 0LL);
-  v10 = ZwResumeThread(ThreadHandle, 0LL);
-  if ( v10 < 0 )
-    KeBugCheckEx(0x6Du, v10, 0LL, 3uLL, 0LL);
+  if ( (v10 & 0x80000000) != 0LL )
+    KeBugCheckEx(0x6Du, v10, 0LL, 1uLL, 0LL);
+  v15 = 1;
+  v11 = ZwSetInformationProcess(ProcessInformation.ProcessHandle, ProcessBreakOnTermination, &v15, 4u);
+  if ( v11 < 0 )
+    KeBugCheckEx(0x6Du, v11, 0LL, 2uLL, 0LL);
+  v12 = ZwResumeThread(ProcessInformation.ThreadHandle, 0LL);
+  if ( v12 < 0 )
+    KeBugCheckEx(0x6Du, v12, 0LL, 3uLL, 0LL);
   byte_140387808 = 1;
   Interval.QuadPart = -50000000LL;
   KeDelayExecutionThread(0, 0, &Interval);
-  ZwClose(ThreadHandle);
-  ZwClose(ProcessHandle);
+  ZwClose(ProcessInformation.ThreadHandle);
+  ZwClose(ProcessInformation.ProcessHandle);
   ExFreePoolWithTag(v6, 0);
 }

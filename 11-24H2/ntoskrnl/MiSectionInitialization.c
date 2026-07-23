@@ -1,17 +1,17 @@
 /*
- * XREFs of MiSectionInitialization @ 0x140C53724
+ * XREFs of MiSectionInitialization @ 0x140C558B4
  * Callers:
- *     MiInitSystem @ 0x140C4DC40 (MiInitSystem.c)
+ *     MiInitSystem @ 0x140C4FDD0 (MiInitSystem.c)
  * Callees:
- *     MiReservePtes @ 0x14028FF10 (MiReservePtes.c)
- *     MiAllocatePool @ 0x1402ACA70 (MiAllocatePool.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ObCreateObjectType @ 0x1406FBAA0 (ObCreateObjectType.c)
- *     ObInsertObject @ 0x140856F80 (ObInsertObject.c)
- *     ObCloseHandle @ 0x1408A2B10 (ObCloseHandle.c)
- *     ObCreateObject @ 0x14098A240 (ObCreateObject.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     MiAllocatePool @ 0x140277450 (MiAllocatePool.c)
+ *     MiReservePtes @ 0x14029FB10 (MiReservePtes.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ObCreateObjectType @ 0x1406F96E0 (ObCreateObjectType.c)
+ *     ObInsertObject @ 0x140853260 (ObInsertObject.c)
+ *     ObCloseHandle @ 0x1408AB1B0 (ObCloseHandle.c)
+ *     ObCreateObject @ 0x140973930 (ObCreateObject.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 MiSectionInitialization()
@@ -48,7 +48,7 @@ __int64 MiSectionInitialization()
   Handle = 0LL;
   v6[0] = 3014700LL;
   v6[1] = L"\\Device\\PhysicalMemory";
-  qword_140E2CC08 = 0LL;
+  qword_140E2CD48 = 0LL;
   memset_0(&v13, 0, 0x78uLL);
   v14 |= 4u;
   v21 = MiSectionOpen;
@@ -66,15 +66,15 @@ __int64 MiSectionInitialization()
   Pool = (_QWORD *)MiAllocatePool(0x100uLL, 0x48uLL, 1733520717);
   if ( !Pool )
     return 0LL;
-  memset_0(&qword_140E2D4D0, 0, 0x80uLL);
-  memset_0(&qword_140E2D438, 0, 0x98uLL);
+  memset_0(&qword_140E2D610, 0, 0x80uLL);
+  memset_0(&qword_140E2D578, 0, 0x98uLL);
   Pool[5] = 0LL;
-  dword_140E2D508 |= 0x400u;
+  dword_140E2D648 |= 0x400u;
   v9 = v6;
-  qword_140E2D438 = (__int64)&qword_140E2D4D0;
-  qword_140E2D4D0 = (__int64)Pool;
-  qword_140E2D4E8 = 1LL;
-  *Pool = &qword_140E2D4D0;
+  qword_140E2D578 = (__int64)&qword_140E2D610;
+  qword_140E2D610 = (__int64)Pool;
+  qword_140E2D628 = 1LL;
+  *Pool = &qword_140E2D610;
   v7[0] = 48;
   v8 = 0LL;
   v10 = 65552;
@@ -85,16 +85,16 @@ __int64 MiSectionInitialization()
     return 0LL;
   }
   v2 = Object;
-  *((_QWORD *)Object + 5) = &qword_140E2D4D0;
-  v2[6] = (1LL << dword_140E2DB38) - 1;
+  *((_QWORD *)Object + 5) = &qword_140E2D610;
+  v2[6] = (1LL << dword_140E2DC78) - 1;
   *((_DWORD *)v2 + 14) = 0;
   *((_DWORD *)v2 + 15) = *((_DWORD *)v2 + 15) & 0xFFFFF000 | 0x40;
   if ( ObInsertObject(v2, 0LL, 4u, 0, 0LL, &Handle) < 0 )
     return 0LL;
   ObCloseHandle(Handle, 0);
-  qword_140E2D620 = MiReservePtes((__int64)&qword_140E37568, 1u);
-  if ( !qword_140E2D620 )
+  qword_140E2D760 = MiReservePtes((__int64)&qword_140E376A8, 1u);
+  if ( !qword_140E2D760 )
     return 0LL;
-  qword_140E2D618 = 0LL;
+  qword_140E2D758 = 0LL;
   return 1LL;
 }

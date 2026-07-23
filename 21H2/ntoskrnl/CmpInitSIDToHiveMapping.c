@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpInitSIDToHiveMapping @ 0x1407D5614
+ * XREFs of CmpInitSIDToHiveMapping @ 0x1407D5784
  * Callers:
- *     CmInitSystem1 @ 0x140A59F78 (CmInitSystem1.c)
+ *     CmInitSystem1 @ 0x140A5AF78 (CmInitSystem1.c)
  * Callees:
- *     KeInitializeGuardedMutex @ 0x1402EE570 (KeInitializeGuardedMutex.c)
+ *     KeInitializeGuardedMutex @ 0x1402F92C0 (KeInitializeGuardedMutex.c)
  */
 
 void CmpInitSIDToHiveMapping()

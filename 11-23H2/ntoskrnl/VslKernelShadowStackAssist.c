@@ -1,19 +1,19 @@
 /*
- * XREFs of VslKernelShadowStackAssist @ 0x14054BA40
+ * XREFs of VslKernelShadowStackAssist @ 0x14054C100
  * Callers:
  *     KiCheckForFreezeExecution @ 0x14020EA10 (KiCheckForFreezeExecution.c)
- *     KiDispatchInterrupt @ 0x140249530 (KiDispatchInterrupt.c)
- *     KiCheckForSListAddress @ 0x14030FDE0 (KiCheckForSListAddress.c)
- *     KxContextToKframes @ 0x14033F840 (KxContextToKframes.c)
- *     KiDebugTrapOrFault @ 0x14042BF80 (KiDebugTrapOrFault.c)
- *     KiProcessDeferredDpcWatchdogViolation @ 0x14057B208 (KiProcessDeferredDpcWatchdogViolation.c)
- *     KeKernelShadowStackRestoreContext @ 0x14057BA60 (KeKernelShadowStackRestoreContext.c)
- *     KiProcessControlProtectionFromKernelMode @ 0x14057C348 (KiProcessControlProtectionFromKernelMode.c)
+ *     KiDispatchInterrupt @ 0x140249600 (KiDispatchInterrupt.c)
+ *     KiCheckForSListAddress @ 0x140310070 (KiCheckForSListAddress.c)
+ *     KxContextToKframes @ 0x14033FAD0 (KxContextToKframes.c)
+ *     KiDebugTrapOrFault @ 0x14042C380 (KiDebugTrapOrFault.c)
+ *     KiProcessDeferredDpcWatchdogViolation @ 0x14057B6F8 (KiProcessDeferredDpcWatchdogViolation.c)
+ *     KeKernelShadowStackRestoreContext @ 0x14057BF50 (KeKernelShadowStackRestoreContext.c)
+ *     KiProcessControlProtectionFromKernelMode @ 0x14057C838 (KiProcessControlProtectionFromKernelMode.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x14033FCF0 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     VslpEnterIumSecureMode @ 0x14033FF80 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 __int64 __fastcall VslKernelShadowStackAssist(int a1, ULONG_PTR a2, ULONG_PTR a3, ULONG_PTR a4, ULONG_PTR a5, int a6)

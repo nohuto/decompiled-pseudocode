@@ -1,19 +1,19 @@
 /*
- * XREFs of DbgPrompt @ 0x1800DB9F0
+ * XREFs of DbgPrompt @ 0x1800DBAB0
  * Callers:
- *     LdrpGenericExceptionFilter @ 0x1800D2D24 (LdrpGenericExceptionFilter.c)
- *     RtlAssert @ 0x1800E4CD0 (RtlAssert.c)
+ *     LdrpGenericExceptionFilter @ 0x1800D2DE4 (LdrpGenericExceptionFilter.c)
+ *     RtlAssert @ 0x1800E4D90 (RtlAssert.c)
  * Callees:
  *     DebugPrompt @ 0x1800A9CF0 (DebugPrompt.c)
  */
 
-__int64 __fastcall DbgPrompt(__int64 a1)
+ULONG __cdecl DbgPrompt(PCCH Prompt, PCH Response, ULONG Length)
 {
-  __int64 v1; // rax
+  __int64 v3; // rax
 
-  v1 = -1LL;
+  v3 = -1LL;
   do
-    ++v1;
-  while ( *(_BYTE *)(a1 + v1) );
+    ++v3;
+  while ( Prompt[v3] );
   return DebugPrompt();
 }

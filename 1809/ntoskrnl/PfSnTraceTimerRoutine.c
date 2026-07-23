@@ -1,5 +1,5 @@
 /*
- * XREFs of PfSnTraceTimerRoutine @ 0x14012BD50
+ * XREFs of PfSnTraceTimerRoutine @ 0x14012BE20
  * Callers:
  *     <none>
  * Callees:
@@ -7,9 +7,9 @@
  *     ExReleaseRundownProtection_0 @ 0x14004D2F0 (ExReleaseRundownProtection_0.c)
  *     ExAcquireRundownProtection_0 @ 0x14004D320 (ExAcquireRundownProtection_0.c)
  *     KxAcquireSpinLock @ 0x140062A90 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
- *     ExQueueWorkItem @ 0x1400D1A00 (ExQueueWorkItem.c)
- *     PfSnTraceGetLogEntry @ 0x1400D51C0 (PfSnTraceGetLogEntry.c)
+ *     KxReleaseSpinLock @ 0x1400630D0 (KxReleaseSpinLock.c)
+ *     ExQueueWorkItem @ 0x1400D1A80 (ExQueueWorkItem.c)
+ *     PfSnTraceGetLogEntry @ 0x1400D5240 (PfSnTraceGetLogEntry.c)
  */
 
 void __fastcall PfSnTraceTimerRoutine(
@@ -47,7 +47,7 @@ void __fastcall PfSnTraceTimerRoutine(
     *v9 &= 7uLL;
     v7[1] = 0LL;
     *v7 = *v7 & 0xFFFFFFFFFFFFFFF8uLL | 4;
-    if ( *((_DWORD *)DeferredContext + 82) < dword_14043C074 )
+    if ( *((_DWORD *)DeferredContext + 82) < dword_14043D134 )
     {
       KxAcquireSpinLock((PKSPIN_LOCK)DeferredContext + 34);
       if ( !*((_DWORD *)DeferredContext + 100) && ExAcquireRundownProtection_0((PEX_RUNDOWN_REF)DeferredContext + 45) )

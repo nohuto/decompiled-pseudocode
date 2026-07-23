@@ -75,7 +75,7 @@ void __fastcall ExpAcquireFastResourceExclusiveSlow(
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
   v9 = (unsigned int)(unsigned __int8)v46 + 1;
-  if ( KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & (unsigned __int8)(v46 + 1)) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & (unsigned __int8)(v46 + 1)) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 2 )
@@ -138,7 +138,7 @@ LABEL_15:
   if ( a4 )
     KeAbPreWait((__int64 *)a4);
   KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v19 = KeGetCurrentIrql();
     if ( ((unsigned __int8)KiIrqlFlags & (unsigned __int8)v9) != 0 && v19 <= 0xFu && CurrentIrql <= 0xFu && v19 >= 2u )
@@ -216,10 +216,10 @@ LABEL_31:
   }
   if ( v24 )
   {
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v38 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v38 <= 0xFu && CurrentIrql <= 0xFu && v38 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v38 <= 0xFu && CurrentIrql <= 0xFu && v38 >= 2u )
       {
         v39 = KeGetCurrentPrcb();
         v40 = v39->SchedulerAssist;

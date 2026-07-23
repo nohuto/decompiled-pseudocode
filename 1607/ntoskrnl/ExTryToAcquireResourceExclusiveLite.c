@@ -1,11 +1,11 @@
 /*
- * XREFs of ExTryToAcquireResourceExclusiveLite @ 0x14022DAA0
+ * XREFs of ExTryToAcquireResourceExclusiveLite @ 0x14022D8CC
  * Callers:
  *     <none>
  * Callees:
- *     PerfLogExecutiveResourceAcquire @ 0x140228044 (PerfLogExecutiveResourceAcquire.c)
- *     EXP_LOCK_RESOURCE @ 0x14022D8A4 (EXP_LOCK_RESOURCE.c)
- *     EXP_UNLOCK_RESOURCE @ 0x14022D918 (EXP_UNLOCK_RESOURCE.c)
+ *     PerfLogExecutiveResourceAcquire @ 0x140227E70 (PerfLogExecutiveResourceAcquire.c)
+ *     EXP_LOCK_RESOURCE @ 0x14022D6D0 (EXP_LOCK_RESOURCE.c)
+ *     EXP_UNLOCK_RESOURCE @ 0x14022D744 (EXP_UNLOCK_RESOURCE.c)
  */
 
 BOOLEAN __stdcall ExTryToAcquireResourceExclusiveLite(PERESOURCE Resource)

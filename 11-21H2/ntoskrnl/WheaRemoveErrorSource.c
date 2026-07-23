@@ -5,16 +5,16 @@
  * Callees:
  *     KeDelayExecutionThread @ 0x1402B90A0 (KeDelayExecutionThread.c)
  *     WheaLogInternalEvent @ 0x1403D2A90 (WheaLogInternalEvent.c)
- *     WheapIsNonHestErrorSource @ 0x1403D2BC0 (WheapIsNonHestErrorSource.c)
+ *     sub_1403D2BC0 @ 0x1403D2BC0 (sub_1403D2BC0.c)
  *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     WheapGetErrorSource @ 0x140643F2C (WheapGetErrorSource.c)
- *     WheapCallErrorSourceUninitialize @ 0x1406456B8 (WheapCallErrorSourceUninitialize.c)
+ *     sub_140643F2C @ 0x140643F2C (sub_140643F2C.c)
+ *     sub_1406456B8 @ 0x1406456B8 (sub_1406456B8.c)
  *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
  */
 
 char __fastcall WheaRemoveErrorSource(unsigned int a1)
 {
-  __int64 *ErrorSource; // rax
+  __int64 *v1; // rax
   __int64 v2; // rbx
   __int64 v3; // rax
   __int64 v4; // rcx
@@ -29,12 +29,12 @@ char __fastcall WheaRemoveErrorSource(unsigned int a1)
   int v14; // [rsp+41Ch] [rbp+31Ch]
   char v15; // [rsp+420h] [rbp+320h]
 
-  ErrorSource = WheapGetErrorSource((__int64)&WheapErrorSourceTable, a1);
-  v2 = (__int64)ErrorSource;
-  if ( ErrorSource )
+  v1 = sub_140643F2C((__int64)&unk_140CE1A98, a1);
+  v2 = (__int64)v1;
+  if ( v1 )
   {
-    LOBYTE(ErrorSource) = WheapIsNonHestErrorSource(*((_DWORD *)ErrorSource + 26));
-    if ( (_BYTE)ErrorSource )
+    LOBYTE(v1) = sub_1403D2BC0(*((_DWORD *)v1 + 26));
+    if ( (_BYTE)v1 )
     {
       if ( (unsigned int)(*(_DWORD *)(v2 + 108) - 3) > 1 )
       {
@@ -67,7 +67,7 @@ char __fastcall WheaRemoveErrorSource(unsigned int a1)
         *(_DWORD *)(v2 + 108) = 4;
         while ( _InterlockedCompareExchange((volatile signed __int32 *)(v2 + 92), -1, 0) > 0 )
           KeDelayExecutionThread(0, 0, &Interval);
-        v7 = WheapCallErrorSourceUninitialize(v2);
+        v7 = sub_1406456B8(v2);
         v8 = *(void **)(v2 + 48);
         v9 = v7;
         *(_DWORD *)(v2 + 108) = 3;
@@ -86,9 +86,9 @@ char __fastcall WheaRemoveErrorSource(unsigned int a1)
         Src[7] = 977;
         v14 = v9;
         v15 = 1;
-        LOBYTE(ErrorSource) = WheaLogInternalEvent(Src);
+        LOBYTE(v1) = WheaLogInternalEvent(Src);
       }
     }
   }
-  return (char)ErrorSource;
+  return (char)v1;
 }

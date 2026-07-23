@@ -1,12 +1,12 @@
 /*
- * XREFs of PopPowerRequestNotifyTtmSessionInitialized @ 0x140AB8240
+ * XREFs of PopPowerRequestNotifyTtmSessionInitialized @ 0x140AB2704
  * Callers:
- *     NtPowerInformation @ 0x1409F0230 (NtPowerInformation.c)
+ *     NtPowerInformation @ 0x1409EDB00 (NtPowerInformation.c)
  * Callees:
- *     PopReleaseRwLock @ 0x1403B5EC8 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x1404283D4 (PopAcquireRwLockExclusive.c)
- *     PopPowerRequestUnrevokeRequests @ 0x1404B4CB0 (PopPowerRequestUnrevokeRequests.c)
- *     TtmNotifySessionPowerRequestPresent @ 0x140769D28 (TtmNotifySessionPowerRequestPresent.c)
+ *     PopReleaseRwLock @ 0x1402AE8FC (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14041C564 (PopAcquireRwLockExclusive.c)
+ *     PopPowerRequestUnrevokeRequests @ 0x1404AF4B0 (PopPowerRequestUnrevokeRequests.c)
+ *     TtmNotifySessionPowerRequestPresent @ 0x140769F48 (TtmNotifySessionPowerRequestPresent.c)
  */
 
 __int64 PopPowerRequestNotifyTtmSessionInitialized()
@@ -16,7 +16,7 @@ __int64 PopPowerRequestNotifyTtmSessionInitialized()
   PVOID v2; // r9
   int v4; // [rsp+28h] [rbp-20h]
 
-  PopAcquireRwLockExclusive(&PopPowerRequestLock);
+  PopAcquireRwLockExclusive((unsigned __int64 *)&PopPowerRequestLock);
   for ( i = (PVOID *)PopPowerRequestObjectList; i != &PopPowerRequestObjectList; i = (PVOID *)*i )
   {
     v1 = *((_DWORD *)i + 26);
@@ -28,5 +28,5 @@ __int64 PopPowerRequestNotifyTtmSessionInitialized()
     }
   }
   PopPowerRequestUnrevokeRequests(1);
-  return PopReleaseRwLock((signed __int64 *)&PopPowerRequestLock);
+  return PopReleaseRwLock(&PopPowerRequestLock);
 }

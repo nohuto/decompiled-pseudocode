@@ -1,10 +1,10 @@
 /*
- * XREFs of KeSaveStateForHibernate @ 0x14015E3F0
+ * XREFs of KeSaveStateForHibernate @ 0x14015E960
  * Callers:
- *     PopSaveHiberContextWrapper @ 0x140166C10 (PopSaveHiberContextWrapper.c)
+ *     PopSaveHiberContextWrapper @ 0x140167180 (PopSaveHiberContextWrapper.c)
  * Callees:
- *     KiSaveProcessorControlState @ 0x14015D840 (KiSaveProcessorControlState.c)
- *     RtlCaptureContext @ 0x140166F20 (RtlCaptureContext.c)
+ *     KiSaveProcessorControlState @ 0x14015DDB0 (KiSaveProcessorControlState.c)
+ *     RtlCaptureContext @ 0x140167490 (RtlCaptureContext.c)
  */
 
 __int64 __fastcall KeSaveStateForHibernate(__int64 a1)

@@ -1,18 +1,18 @@
 /*
- * XREFs of MiAllocatePfnRepurposeLogDispatch @ 0x14047E990
+ * XREFs of MiAllocatePfnRepurposeLogDispatch @ 0x140479890
  * Callers:
  *     <none>
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14020FA40 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140210170 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     ExReleaseRundownProtection_0 @ 0x140245670 (ExReleaseRundownProtection_0.c)
- *     Feature_PrefetchQueueWorkerProactivelyForProcessExit__private_IsEnabledDeviceUsageNoInline @ 0x140245E80 (Feature_PrefetchQueueWorkerProactivelyForProcessExit__private_IsEnabledDeviceUsageNoInline.c)
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     ExAcquireRundownProtection @ 0x1402792A0 (ExAcquireRundownProtection.c)
- *     MiAllocatePool @ 0x1402ACA70 (MiAllocatePool.c)
- *     PfIsProcessExitingInNonSystemPartition @ 0x14047EBF4 (PfIsProcessExitingInNonSystemPartition.c)
- *     RtlpInterlockedPushEntrySList @ 0x1406B38D0 (RtlpInterlockedPushEntrySList.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExReleaseRundownProtection_0 @ 0x14020DE50 (ExReleaseRundownProtection_0.c)
+ *     Feature_PrefetchQueueWorkerProactivelyForProcessExit__private_IsEnabledDeviceUsageNoInline @ 0x14020EFA8 (Feature_PrefetchQueueWorkerProactivelyForProcessExit__private_IsEnabledDeviceUsageNoInline.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     ExAcquireRundownProtection_0 @ 0x14022E830 (ExAcquireRundownProtection_0.c)
+ *     MiAllocatePool @ 0x140277450 (MiAllocatePool.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140338DA0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1403394D0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     PfIsProcessExitingInNonSystemPartition @ 0x140479AF4 (PfIsProcessExitingInNonSystemPartition.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1406B4870 (RtlpInterlockedPushEntrySList.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiAllocatePfnRepurposeLogDispatch(
@@ -84,7 +84,7 @@ LABEL_6:
     }
     *(_QWORD *)(v8 + 32) = v8 + 64;
     v11 = *(_QWORD *)(*((_QWORD *)DeferredContext + 23) + 32LL);
-    if ( !ExAcquireRundownProtection((PEX_RUNDOWN_REF)(v11 + 728)) )
+    if ( !ExAcquireRundownProtection_0((PEX_RUNDOWN_REF)(v11 + 728)) )
     {
 LABEL_24:
       ExFreePoolWithTag((PVOID)v8, 0);

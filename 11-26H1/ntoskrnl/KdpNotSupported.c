@@ -1,7 +1,7 @@
 /*
- * XREFs of KdpNotSupported @ 0x140C142AC
+ * XREFs of KdpNotSupported @ 0x140C1A2AC
  * Callers:
- *     KdpSendWaitContinue @ 0x140C17038 (KdpSendWaitContinue.c)
+ *     KdpSendWaitContinue @ 0x140C1D038 (KdpSendWaitContinue.c)
  * Callees:
  *     <none>
  */

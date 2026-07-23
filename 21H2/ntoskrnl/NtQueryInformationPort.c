@@ -1,46 +1,46 @@
 /*
- * XREFs of NtQueryInformationPort @ 0x1408C2010
+ * XREFs of NtQueryInformationPort @ 0x1408C2170
  * Callers:
  *     <none>
  * Callees:
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     ProbeForWrite @ 0x1406547A0 (ProbeForWrite.c)
- *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     ProbeForWrite @ 0x1406495C0 (ProbeForWrite.c)
+ *     ObReferenceObjectByHandle @ 0x140707FA0 (ObReferenceObjectByHandle.c)
  */
 
-__int64 __fastcall NtQueryInformationPort(HANDLE Handle, __int64 a2, volatile void *a3, unsigned int a4, _DWORD *a5)
+NTSTATUS __cdecl NtQueryInformationPort(
+        HANDLE PortHandle,
+        PORT_INFORMATION_CLASS PortInformationClass,
+        PVOID PortInformation,
+        ULONG Length,
+        PULONG ReturnLength)
 {
   KPROCESSOR_MODE PreviousMode; // di
   __int64 v7; // rcx
-  NTSTATUS v8; // ebx
+  int v8; // ebx
   PVOID Object; // [rsp+30h] [rbp-18h] BYREF
 
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
   {
-    ProbeForWrite(a3, a4, 4u);
-    if ( a5 )
+    ProbeForWrite(PortInformation, Length, 4u);
+    if ( ReturnLength )
     {
       v7 = 0x7FFFFFFF0000LL;
-      if ( (unsigned __int64)a5 < 0x7FFFFFFF0000LL )
-        v7 = (__int64)a5;
+      if ( (unsigned __int64)ReturnLength < 0x7FFFFFFF0000LL )
+        v7 = (__int64)ReturnLength;
       *(_DWORD *)v7 = *(_DWORD *)v7;
     }
   }
-  if ( Handle )
+  if ( !PortHandle )
+    return -1073741821;
+  Object = 0LL;
+  v8 = ObReferenceObjectByHandle(PortHandle, 0x20000u, AlpcPortObjectType, PreviousMode, &Object, 0LL);
+  if ( v8 >= 0 )
   {
-    Object = 0LL;
-    v8 = ObReferenceObjectByHandle(Handle, 0x20000u, AlpcPortObjectType, PreviousMode, &Object, 0LL);
-    if ( v8 >= 0 )
-    {
-      if ( a5 )
-        *a5 = 0;
-      HalPutDmaAdapter((PADAPTER_OBJECT)Object);
-    }
+    if ( ReturnLength )
+      *ReturnLength = 0;
+    HalPutDmaAdapter((PADAPTER_OBJECT)Object);
   }
-  else
-  {
-    return (unsigned int)-1073741821;
-  }
-  return (unsigned int)v8;
+  return v8;
 }

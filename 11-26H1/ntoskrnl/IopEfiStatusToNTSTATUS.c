@@ -1,10 +1,10 @@
 /*
- * XREFs of IopEfiStatusToNTSTATUS @ 0x14079A46C
+ * XREFs of IopEfiStatusToNTSTATUS @ 0x14079CF9C
  * Callers:
- *     IopEnumerateEnvironmentVariablesTrEE @ 0x14079A6E0 (IopEnumerateEnvironmentVariablesTrEE.c)
- *     IopGetEnvironmentVariableTrEE @ 0x14079ACE0 (IopGetEnvironmentVariableTrEE.c)
- *     IopQueryEnvironmentVariableInfoTrEE @ 0x14079B100 (IopQueryEnvironmentVariableInfoTrEE.c)
- *     IopSetEnvironmentVariableTrEE @ 0x14079B300 (IopSetEnvironmentVariableTrEE.c)
+ *     IopEnumerateEnvironmentVariablesTrEE @ 0x14079D210 (IopEnumerateEnvironmentVariablesTrEE.c)
+ *     IopGetEnvironmentVariableTrEE @ 0x14079D820 (IopGetEnvironmentVariableTrEE.c)
+ *     IopQueryEnvironmentVariableInfoTrEE @ 0x14079DC40 (IopQueryEnvironmentVariableInfoTrEE.c)
+ *     IopSetEnvironmentVariableTrEE @ 0x14079DE40 (IopSetEnvironmentVariableTrEE.c)
  * Callees:
  *     <none>
  */

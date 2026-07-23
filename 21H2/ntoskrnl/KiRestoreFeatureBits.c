@@ -1,13 +1,12 @@
 /*
- * XREFs of KiRestoreFeatureBits @ 0x140383D30
+ * XREFs of KiRestoreFeatureBits @ 0x140383EE0
  * Callers:
- *     KeRestoreProcessorSpecificFeatures @ 0x140383CCC (KeRestoreProcessorSpecificFeatures.c)
+ *     KeRestoreProcessorSpecificFeatures @ 0x140383E7C (KeRestoreProcessorSpecificFeatures.c)
  * Callees:
- *     HviIsAnyHypervisorPresent @ 0x1403A5A10 (HviIsAnyHypervisorPresent.c)
- *     KeInitializeCatRegisters @ 0x1403A7B18 (KeInitializeCatRegisters.c)
- *     KiSetVirtualMitigationControl @ 0x1403F34D0 (KiSetVirtualMitigationControl.c)
- *     KiApplyProcessorErrata @ 0x1403F3598 (KiApplyProcessorErrata.c)
- *     KiCheckMicrocode @ 0x14099B100 (KiCheckMicrocode.c)
+ *     KeInitializeCatRegisters @ 0x1403A7C68 (KeInitializeCatRegisters.c)
+ *     KiSetVirtualMitigationControl @ 0x1403F3520 (KiSetVirtualMitigationControl.c)
+ *     KiApplyProcessorErrata @ 0x1403F3594 (KiApplyProcessorErrata.c)
+ *     KiCheckMicrocode @ 0x14099C100 (KiCheckMicrocode.c)
  */
 
 unsigned __int64 KiRestoreFeatureBits()
@@ -16,12 +15,9 @@ unsigned __int64 KiRestoreFeatureBits()
   unsigned __int64 v1; // rdx
   __int64 v2; // rcx
   unsigned __int64 MsrIa32TsxCtrl; // rax
-  unsigned __int64 v4; // rdx
-  char CpuType; // al
-  unsigned __int64 v6; // rax
-  unsigned __int64 v7; // rax
+  unsigned __int64 v4; // rax
   unsigned __int64 result; // rax
-  unsigned __int64 v9; // rax
+  unsigned __int64 v6; // rax
 
   CurrentPrcb = KeGetCurrentPrcb();
   if ( CurrentPrcb->CpuVendor == 2 )
@@ -33,40 +29,26 @@ unsigned __int64 KiRestoreFeatureBits()
   KiSetVirtualMitigationControl(CurrentPrcb);
   if ( (KeFeatureBits2 & 0x8000) != 0 )
   {
+    v2 = 290LL;
     MsrIa32TsxCtrl = CurrentPrcb->MsrIa32TsxCtrl;
     v1 = HIDWORD(MsrIa32TsxCtrl);
-    v2 = 290LL;
     __writemsr(0x122u, MsrIa32TsxCtrl);
   }
   KeInitializeCatRegisters(v2, v1);
-  v4 = 0LL;
   __writemsr(0x174u, 0LL);
   __writemsr(0x176u, 0LL);
   __writemsr(0x175u, 0LL);
-  if ( Feature_MSRC101641_Enabled )
-  {
-    KiApplyProcessorErrata(CurrentPrcb, 0LL);
-  }
-  else if ( CurrentPrcb->CpuVendor == 1 )
-  {
-    CpuType = CurrentPrcb->CpuType;
-    if ( CpuType > 15 && CpuType != 17 && !(unsigned __int8)HviIsAnyHypervisorPresent(373LL, 0LL) )
-    {
-      v6 = __readmsr(0xC0011029) | 2;
-      v4 = HIDWORD(v6);
-      __writemsr(0xC0011029, v6);
-    }
-  }
+  KiApplyProcessorErrata(CurrentPrcb, 0LL);
   if ( KiFlushPcid && !VslVsmEnabled )
   {
-    v7 = __readcr3();
-    __writecr3(v7 | 2);
+    v4 = __readcr3();
+    __writecr3(v4 | 2);
   }
-  result = KiCheckMicrocode(CurrentPrcb, v4);
+  result = KiCheckMicrocode(CurrentPrcb);
   if ( KiUserCetAllowed )
   {
-    v9 = __readcr4();
-    result = v9 | 0x800000;
+    v6 = __readcr4();
+    result = v6 | 0x800000;
     __writecr4(result);
   }
   return result;

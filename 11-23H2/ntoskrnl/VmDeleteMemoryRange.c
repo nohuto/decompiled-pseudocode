@@ -1,14 +1,14 @@
 /*
- * XREFs of VmDeleteMemoryRange @ 0x1409DC680
+ * XREFs of VmDeleteMemoryRange @ 0x1409DC880
  * Callers:
  *     <none>
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     VmpRemoveMemoryRange @ 0x1405FACF4 (VmpRemoveMemoryRange.c)
- *     VmpValidateMemoryRangeParameters @ 0x1409DD88C (VmpValidateMemoryRangeParameters.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x140231550 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     VmpRemoveMemoryRange @ 0x1405FB264 (VmpRemoveMemoryRange.c)
+ *     VmpValidateMemoryRangeParameters @ 0x1409DDA8C (VmpValidateMemoryRangeParameters.c)
  */
 
 __int64 __fastcall VmDeleteMemoryRange(unsigned __int64 a1, unsigned __int64 a2, unsigned __int64 a3, __int64 a4)

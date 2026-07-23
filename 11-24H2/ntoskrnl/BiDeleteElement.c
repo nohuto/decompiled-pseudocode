@@ -1,31 +1,31 @@
 /*
- * XREFs of BiDeleteElement @ 0x1409BF8D0
+ * XREFs of BiDeleteElement @ 0x1409A5F20
  * Callers:
- *     PopAdaptiveClearInitialSystemPowerState @ 0x14075F12C (PopAdaptiveClearInitialSystemPowerState.c)
- *     PopBcdCopyLoaderObjectSettings @ 0x1407632B4 (PopBcdCopyLoaderObjectSettings.c)
- *     SepSecureBootUpdateBcdDataForRule @ 0x140794164 (SepSecureBootUpdateBcdDataForRule.c)
- *     BiHandleFirmwareDefaultEntry @ 0x1408153F4 (BiHandleFirmwareDefaultEntry.c)
- *     BiUpdateBcdObject @ 0x1408157BC (BiUpdateBcdObject.c)
- *     BcdSetElementDataWithFlags @ 0x1409BEB2C (BcdSetElementDataWithFlags.c)
- *     PopBcdClearPendingResume @ 0x1409C04F8 (PopBcdClearPendingResume.c)
+ *     PopAdaptiveClearInitialSystemPowerState @ 0x14075E0CC (PopAdaptiveClearInitialSystemPowerState.c)
+ *     PopBcdCopyLoaderObjectSettings @ 0x140762C84 (PopBcdCopyLoaderObjectSettings.c)
+ *     SepSecureBootUpdateBcdDataForRule @ 0x140794274 (SepSecureBootUpdateBcdDataForRule.c)
+ *     BiHandleFirmwareDefaultEntry @ 0x140815B34 (BiHandleFirmwareDefaultEntry.c)
+ *     BiUpdateBcdObject @ 0x140815EFC (BiUpdateBcdObject.c)
+ *     BcdSetElementDataWithFlags @ 0x1409A517C (BcdSetElementDataWithFlags.c)
+ *     PopBcdClearPendingResume @ 0x1409A6B48 (PopBcdClearPendingResume.c)
  * Callees:
- *     BiSetFirmwareModifiedFromObject @ 0x1404A7E48 (BiSetFirmwareModifiedFromObject.c)
- *     BiIsOfflineHandle @ 0x1404AB350 (BiIsOfflineHandle.c)
- *     _ultow_s @ 0x140503260 (_ultow_s.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     BiCloseKey @ 0x14085CB80 (BiCloseKey.c)
- *     BiOpenKey @ 0x14085D808 (BiOpenKey.c)
- *     BiIsLinkedToFirmwareVariable @ 0x14085DDCC (BiIsLinkedToFirmwareVariable.c)
- *     BiAcquireBcdSyncMutant @ 0x1409BE268 (BiAcquireBcdSyncMutant.c)
- *     BiReleaseBcdSyncMutant @ 0x1409BE32C (BiReleaseBcdSyncMutant.c)
- *     BiLogMessage @ 0x1409BE7F8 (BiLogMessage.c)
- *     BiDeleteKey @ 0x1409BFC74 (BiDeleteKey.c)
+ *     BiSetFirmwareModifiedFromObject @ 0x1404A2898 (BiSetFirmwareModifiedFromObject.c)
+ *     BiIsOfflineHandle @ 0x1404A5974 (BiIsOfflineHandle.c)
+ *     _ultow_s @ 0x140500B20 (_ultow_s.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     BiCloseKey @ 0x1408588F0 (BiCloseKey.c)
+ *     BiOpenKey @ 0x140859578 (BiOpenKey.c)
+ *     BiIsLinkedToFirmwareVariable @ 0x140859B3C (BiIsLinkedToFirmwareVariable.c)
+ *     BiAcquireBcdSyncMutant @ 0x1409A48B8 (BiAcquireBcdSyncMutant.c)
+ *     BiReleaseBcdSyncMutant @ 0x1409A497C (BiReleaseBcdSyncMutant.c)
+ *     BiLogMessage @ 0x1409A4E48 (BiLogMessage.c)
+ *     BiDeleteKey @ 0x1409A62C4 (BiDeleteKey.c)
  */
 
-int __fastcall BiDeleteElement(void *a1, unsigned int a2)
+NTSTATUS __fastcall BiDeleteElement(void *a1, unsigned int a2)
 {
   char IsOfflineHandle; // r12
-  int result; // eax
+  NTSTATUS result; // eax
   int v6; // ebx
   void *v7; // rdi
   void *v8; // [rsp+20h] [rbp-50h] BYREF

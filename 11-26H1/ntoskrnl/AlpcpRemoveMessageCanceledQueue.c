@@ -1,9 +1,9 @@
 /*
- * XREFs of AlpcpRemoveMessageCanceledQueue @ 0x140A9F428
+ * XREFs of AlpcpRemoveMessageCanceledQueue @ 0x140A9F750
  * Callers:
- *     AlpcpReceiveDirectMessagePort @ 0x1407C08B0 (AlpcpReceiveDirectMessagePort.c)
- *     AlpcpFlushCancelQueue @ 0x140A9F328 (AlpcpFlushCancelQueue.c)
- *     AlpcpReceiveMessagePort @ 0x140ACC1E4 (AlpcpReceiveMessagePort.c)
+ *     AlpcpReceiveDirectMessagePort @ 0x1407C3910 (AlpcpReceiveDirectMessagePort.c)
+ *     AlpcpFlushCancelQueue @ 0x140A9F650 (AlpcpFlushCancelQueue.c)
+ *     AlpcpReceiveMessagePort @ 0x140ACE424 (AlpcpReceiveMessagePort.c)
  * Callees:
  *     <none>
  */

@@ -1,18 +1,18 @@
 /*
- * XREFs of PopFxRegisterPluginEx @ 0x1405D1A68
+ * XREFs of PopFxRegisterPluginEx @ 0x1405CF188
  * Callers:
- *     PoFxRegisterPluginEx @ 0x1405D0470 (PoFxRegisterPluginEx.c)
- *     PoFxRegisterPlugin @ 0x14074D9D0 (PoFxRegisterPlugin.c)
+ *     PoFxRegisterPluginEx @ 0x1405CDB90 (PoFxRegisterPluginEx.c)
+ *     PoFxRegisterPlugin @ 0x14074BD00 (PoFxRegisterPlugin.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     PopFxInitializeWorkPool @ 0x14074E060 (PopFxInitializeWorkPool.c)
- *     PopDiagTraceFxPluginRegistration @ 0x140A95F94 (PopDiagTraceFxPluginRegistration.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     PopFxInitializeWorkPool @ 0x14074C390 (PopFxInitializeWorkPool.c)
+ *     PopDiagTraceFxPluginRegistration @ 0x140A927C4 (PopDiagTraceFxPluginRegistration.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PopFxRegisterPluginEx(unsigned __int16 *a1, __int64 a2, unsigned __int16 *a3)
@@ -24,8 +24,8 @@ __int64 __fastcall PopFxRegisterPluginEx(unsigned __int16 *a1, __int64 a2, unsig
   __int64 Pool2; // rax
   _DWORD *v12; // rsi
   struct _KTHREAD *CurrentThread; // rax
-  _QWORD *v14; // rax
-  _QWORD *v15; // r15
+  char *v14; // rax
+  char *v15; // r15
   _QWORD *v16; // rax
   __int64 v17; // rdx
   bool v18; // cf
@@ -59,7 +59,7 @@ __int64 __fastcall PopFxRegisterPluginEx(unsigned __int16 *a1, __int64 a2, unsig
   {
     return (unsigned int)-1073741811;
   }
-  Pool2 = ExAllocatePool2(0x40uLL);
+  Pool2 = ExAllocatePool2(0x40uLL, 0x1A8uLL, 0x4D584650u);
   v12 = (_DWORD *)Pool2;
   if ( Pool2 )
   {
@@ -74,12 +74,12 @@ __int64 __fastcall PopFxRegisterPluginEx(unsigned __int16 *a1, __int64 a2, unsig
         *((_QWORD *)v12 + 14) = *((_QWORD *)a1 + 3);
       CurrentThread = KeGetCurrentThread();
       --CurrentThread->KernelApcDisable;
-      v14 = KeAbPreAcquire((__int64)&PopFxPluginLock, 0LL);
+      v14 = (char *)KeAbPreAcquire((__int64)&PopFxPluginLock, 0LL);
       v15 = v14;
       if ( _interlockedbittestandset64((volatile signed __int32 *)&PopFxPluginLock, 0LL) )
-        ExfAcquirePushLockExclusiveEx(&PopFxPluginLock, (__int64)v14, (__int64)&PopFxPluginLock);
+        ExfAcquirePushLockExclusiveEx(&PopFxPluginLock, v14, (__int64)&PopFxPluginLock);
       if ( v15 )
-        *((_BYTE *)v15 + 10) = 1;
+        v15[10] = 1;
       v16 = (_QWORD *)PopFxDeviceRegisterHead;
       v17 = *(_QWORD *)PopFxDeviceRegisterHead;
       if ( *(_QWORD *)(*(_QWORD *)PopFxDeviceRegisterHead + 8LL) != PopFxDeviceRegisterHead )

@@ -1,10 +1,10 @@
 /*
  * XREFs of MiQueryAddressState @ 0x14003EAF0
  * Callers:
- *     MiSetProtectionOnSection @ 0x140071E80 (MiSetProtectionOnSection.c)
- *     MiQueryAddressSpan @ 0x140075EA0 (MiQueryAddressSpan.c)
- *     MiComparePteProtections @ 0x1400883A8 (MiComparePteProtections.c)
- *     MiAllowProtectionChange @ 0x1400F15E8 (MiAllowProtectionChange.c)
+ *     MiSetProtectionOnSection @ 0x140071E70 (MiSetProtectionOnSection.c)
+ *     MiQueryAddressSpan @ 0x140075E90 (MiQueryAddressSpan.c)
+ *     MiComparePteProtections @ 0x140088398 (MiComparePteProtections.c)
+ *     MiAllowProtectionChange @ 0x1400F1668 (MiAllowProtectionChange.c)
  * Callees:
  *     MiGetAnyMultiplexedVm @ 0x140028884 (MiGetAnyMultiplexedVm.c)
  *     MiIsPrototypePteVadLookup @ 0x14002D250 (MiIsPrototypePteVadLookup.c)
@@ -15,26 +15,26 @@
  *     MiFastLockLeafPageTable @ 0x140045BC0 (MiFastLockLeafPageTable.c)
  *     MiUnlockWorkingSetShared @ 0x140046970 (MiUnlockWorkingSetShared.c)
  *     MmGetSessionIdEx @ 0x14004F060 (MmGetSessionIdEx.c)
- *     MiGetPageTableLockBuffer @ 0x14006CE80 (MiGetPageTableLockBuffer.c)
- *     MiWalkPageTables @ 0x14006E940 (MiWalkPageTables.c)
- *     MiVadPureReserve @ 0x140070D30 (MiVadPureReserve.c)
- *     MiLockWorkingSetShared @ 0x140076050 (MiLockWorkingSetShared.c)
- *     MiGetLeafVa @ 0x140076410 (MiGetLeafVa.c)
- *     ExAcquireSpinLockShared @ 0x14009D7C0 (ExAcquireSpinLockShared.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     PsGetCurrentProcess @ 0x1400F1330 (PsGetCurrentProcess.c)
- *     KiResetGlobalDpcWatchdogProfiler @ 0x1400FB3C8 (KiResetGlobalDpcWatchdogProfiler.c)
- *     MiUnlockPageTableInternal @ 0x140104A90 (MiUnlockPageTableInternal.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     MiGetSharedProtos @ 0x140177174 (MiGetSharedProtos.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ExReleaseSpinLockRegardlessFromDpcLevel @ 0x1401B7468 (ExReleaseSpinLockRegardlessFromDpcLevel.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     MiFaultInPagedPool @ 0x1402A596C (MiFaultInPagedPool.c)
- *     MiGetValidAweProtection @ 0x1402B0D90 (MiGetValidAweProtection.c)
- *     MiSkipEntirePagefileRegions @ 0x1402BF248 (MiSkipEntirePagefileRegions.c)
- *     EtwTraceShouldYieldProcessor @ 0x14031050C (EtwTraceShouldYieldProcessor.c)
- *     ExSpinLockIsContended @ 0x14031C008 (ExSpinLockIsContended.c)
+ *     MiGetPageTableLockBuffer @ 0x14006CE70 (MiGetPageTableLockBuffer.c)
+ *     MiWalkPageTables @ 0x14006E930 (MiWalkPageTables.c)
+ *     MiVadPureReserve @ 0x140070D20 (MiVadPureReserve.c)
+ *     MiLockWorkingSetShared @ 0x140076040 (MiLockWorkingSetShared.c)
+ *     MiGetLeafVa @ 0x140076400 (MiGetLeafVa.c)
+ *     ExAcquireSpinLockShared @ 0x14009D700 (ExAcquireSpinLockShared.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     PsGetCurrentProcess @ 0x1400F13B0 (PsGetCurrentProcess.c)
+ *     KiResetGlobalDpcWatchdogProfiler @ 0x1400FB448 (KiResetGlobalDpcWatchdogProfiler.c)
+ *     MiUnlockPageTableInternal @ 0x140104B10 (MiUnlockPageTableInternal.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     MiGetSharedProtos @ 0x140177274 (MiGetSharedProtos.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ExReleaseSpinLockRegardlessFromDpcLevel @ 0x1401B75C8 (ExReleaseSpinLockRegardlessFromDpcLevel.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     MiFaultInPagedPool @ 0x1402A5B5C (MiFaultInPagedPool.c)
+ *     MiGetValidAweProtection @ 0x1402B0F80 (MiGetValidAweProtection.c)
+ *     MiSkipEntirePagefileRegions @ 0x1402BF438 (MiSkipEntirePagefileRegions.c)
+ *     EtwTraceShouldYieldProcessor @ 0x1403106FC (EtwTraceShouldYieldProcessor.c)
+ *     ExSpinLockIsContended @ 0x14031C1F8 (ExSpinLockIsContended.c)
  */
 
 __int64 __fastcall MiQueryAddressState(
@@ -244,7 +244,7 @@ LABEL_2:
     while ( v16 >= 0xFFFFF68000000000uLL );
     v9 = v139;
   }
-  if ( v16 < 0xFFFF800000000000uLL || v16 >= qword_14043BAC0 && v16 <= qword_14043A530 )
+  if ( v16 < 0xFFFF800000000000uLL || v16 >= qword_14043CB80 && v16 <= qword_14043B5F0 )
     AnyMultiplexedVm = (char *)&KeGetCurrentThread()->ApcState.Process[1].IdealNode[12];
   else
     AnyMultiplexedVm = MiGetAnyMultiplexedVm(1);
@@ -771,7 +771,7 @@ LABEL_187:
       v89 = v139[92] & 7;
       if ( v89 < 6u )
       {
-        v91 = &dword_14043B700;
+        v91 = &dword_14043C7C0;
         if ( v89 != 2 )
           v91 = (LONG *)(v139 + 96);
         ExAcquireSpinLockShared(v91);
@@ -902,7 +902,7 @@ LABEL_247:
       goto LABEL_249;
     }
 LABEL_250:
-    v105 = &dword_14043B700;
+    v105 = &dword_14043C7C0;
     if ( (v35[92] & 7) != 2 )
       v105 = (LONG *)(v35 + 96);
     if ( (*v105 & 0x40000000) != 0 )

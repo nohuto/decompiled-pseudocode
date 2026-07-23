@@ -1,17 +1,17 @@
 /*
  * XREFs of VslpIumPhase0Initialize @ 0x140B935CC
  * Callers:
- *     HvlPhase1Initialize @ 0x1403880A4 (HvlPhase1Initialize.c)
+ *     HvlPhase1Initialize @ 0x140388284 (HvlPhase1Initialize.c)
  * Callees:
- *     MmGetPhysicalAddress @ 0x14028BEE0 (MmGetPhysicalAddress.c)
- *     VslpEnterIumSecureMode @ 0x14033FCF0 (VslpEnterIumSecureMode.c)
- *     HvlQueryVsmConnection @ 0x140340388 (HvlQueryVsmConnection.c)
- *     MmSetPageProtection @ 0x1403C2C70 (MmSetPageProtection.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     memset @ 0x140435A00 (memset.c)
- *     KeQueryKvaShadowInformation @ 0x140975488 (KeQueryKvaShadowInformation.c)
+ *     MmGetPhysicalAddress @ 0x14028C170 (MmGetPhysicalAddress.c)
+ *     VslpEnterIumSecureMode @ 0x14033FF80 (VslpEnterIumSecureMode.c)
+ *     HvlQueryVsmConnection @ 0x140340618 (HvlQueryVsmConnection.c)
+ *     MmSetPageProtection @ 0x1403C2E50 (MmSetPageProtection.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     KeQueryKvaShadowInformation @ 0x140975688 (KeQueryKvaShadowInformation.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  *     VslpIumPhase0InitializeNtKd @ 0x140B93884 (VslpIumPhase0InitializeNtKd.c)
  */

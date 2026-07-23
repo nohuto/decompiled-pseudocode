@@ -1,13 +1,13 @@
 /*
- * XREFs of PsSetPagePriorityThread @ 0x140383060
+ * XREFs of PsSetPagePriorityThread @ 0x140384E10
  * Callers:
- *     ?SmStWorker@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAX@Z @ 0x14020BDCC (-SmStWorker@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAX@Z.c)
- *     SmKmStoreHelperCommandProcess @ 0x140382C98 (SmKmStoreHelperCommandProcess.c)
- *     CcPerformReadAhead @ 0x140386E18 (CcPerformReadAhead.c)
- *     CcCompleteAsyncRead @ 0x14039E848 (CcCompleteAsyncRead.c)
- *     NtSetInformationThread @ 0x140A833F0 (NtSetInformationThread.c)
- *     NtSetInformationProcess @ 0x140B72B10 (NtSetInformationProcess.c)
- *     MiInitSystem @ 0x140CF15C4 (MiInitSystem.c)
+ *     ?SmStWorker@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAX@Z @ 0x14020BEAC (-SmStWorker@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAX@Z.c)
+ *     SmKmStoreHelperCommandProcess @ 0x140384A48 (SmKmStoreHelperCommandProcess.c)
+ *     CcPerformReadAhead @ 0x140388BC8 (CcPerformReadAhead.c)
+ *     CcCompleteAsyncRead @ 0x1403A05A8 (CcCompleteAsyncRead.c)
+ *     NtSetInformationThread @ 0x14094C4F0 (NtSetInformationThread.c)
+ *     NtSetInformationProcess @ 0x140B781E0 (NtSetInformationProcess.c)
+ *     MiInitSystem @ 0x140CF7944 (MiInitSystem.c)
  * Callees:
  *     EtwTracePriority @ 0x140202938 (EtwTracePriority.c)
  */

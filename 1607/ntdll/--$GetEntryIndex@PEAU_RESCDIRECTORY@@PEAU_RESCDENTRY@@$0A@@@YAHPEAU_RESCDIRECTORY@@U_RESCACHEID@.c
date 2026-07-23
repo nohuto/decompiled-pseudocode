@@ -1,9 +1,9 @@
 /*
  * XREFs of ??$GetEntryIndex@PEAU_RESCDIRECTORY@@PEAU_RESCDENTRY@@$0A@@@YAHPEAU_RESCDIRECTORY@@U_RESCACHEID@@I@Z @ 0x1800FF860
  * Callers:
- *     ResCDirectoryGetEntryIndexEx @ 0x18008A148 (ResCDirectoryGetEntryIndexEx.c)
+ *     ResCDirectoryGetEntryIndexEx @ 0x18008A138 (ResCDirectoryGetEntryIndexEx.c)
  * Callees:
- *     RtlSetLastWin32Error @ 0x18005A470 (RtlSetLastWin32Error.c)
+ *     RtlSetLastWin32Error @ 0x18005A460 (RtlSetLastWin32Error.c)
  *     ??$GetFirstEntryIndex@PEAU_RESCDIRECTORY@@PEAU_RESCDENTRY@@$0A@@@YAHPEAU_RESCDIRECTORY@@U_RESCACHEID@@@Z @ 0x1800FF8F0 (--$GetFirstEntryIndex@PEAU_RESCDIRECTORY@@PEAU_RESCDENTRY@@$0A@@@YAHPEAU_RESCDIRECTORY@@U_RESCAC.c)
  */
 
@@ -16,7 +16,7 @@ __int64 __fastcall GetEntryIndex<_RESCDIRECTORY *,_RESCDENTRY *,0>(__int64 a1, _
 
   if ( (a3 & 0xFFFF0000) == 0x100000 )
   {
-    RtlSetLastWin32Error(0x57u);
+    RtlSetLastWin32Error(87);
     return 0xFFFFFFFFLL;
   }
   else

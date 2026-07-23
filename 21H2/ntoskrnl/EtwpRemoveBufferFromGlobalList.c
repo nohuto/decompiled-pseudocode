@@ -1,7 +1,7 @@
 /*
- * XREFs of EtwpRemoveBufferFromGlobalList @ 0x1403F92FC
+ * XREFs of EtwpRemoveBufferFromGlobalList @ 0x1403F947C
  * Callers:
- *     EtwpAdjustSiloTraceBuffers @ 0x140265D30 (EtwpAdjustSiloTraceBuffers.c)
+ *     EtwpAdjustSiloTraceBuffers @ 0x140253CD0 (EtwpAdjustSiloTraceBuffers.c)
  * Callees:
  *     <none>
  */

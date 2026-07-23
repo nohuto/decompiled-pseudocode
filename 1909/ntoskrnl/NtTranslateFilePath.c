@@ -31,7 +31,7 @@ NTSTATUS __stdcall NtTranslateFilePath(
   unsigned int v13; // ebx
   _DWORD *PoolWithTag; // rax
   _DWORD *v15; // r14
-  PVOID v16; // rsi
+  _DWORD *v16; // rsi
   NTSTATUS v17; // ebx
   unsigned int v18; // eax
   NTSTATUS v19; // eax
@@ -175,7 +175,7 @@ LABEL_54:
       }
       if ( v18 == 4 )
       {
-        v19 = ExpTranslateEfiPath((__int64)v15, OutputType, (__int64)v16, (__int64)&v21);
+        v19 = ExpTranslateEfiPath((__int64)v15, OutputType, v16, &v21);
 LABEL_47:
         v17 = v19;
         v12 = v21;

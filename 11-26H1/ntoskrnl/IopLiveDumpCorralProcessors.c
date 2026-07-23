@@ -1,18 +1,18 @@
 /*
- * XREFs of IopLiveDumpCorralProcessors @ 0x1405CED50
+ * XREFs of IopLiveDumpCorralProcessors @ 0x1405D1560
  * Callers:
- *     IopLiveDumpEnterCorralledState @ 0x1405CF050 (IopLiveDumpEnterCorralledState.c)
+ *     IopLiveDumpEnterCorralledState @ 0x1405D1860 (IopLiveDumpEnterCorralledState.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     KiInsertQueueDpc @ 0x1402BD330 (KiInsertQueueDpc.c)
- *     KeSetSystemGroupAffinityThread @ 0x14037A1C0 (KeSetSystemGroupAffinityThread.c)
- *     KeEnumerateNextProcessor @ 0x14043BC70 (KeEnumerateNextProcessor.c)
- *     IopLiveDumpGetMillisecondCounter @ 0x1404E48C0 (IopLiveDumpGetMillisecondCounter.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     IopLiveDumpIsTracingEnabled @ 0x14052F2C8 (IopLiveDumpIsTracingEnabled.c)
- *     IopLiveDumpInitiateCorralStateChange @ 0x1405D010C (IopLiveDumpInitiateCorralStateChange.c)
- *     IopLiveDumpTraceCorralProcessorsDuration @ 0x1405D1F3C (IopLiveDumpTraceCorralProcessorsDuration.c)
- *     IopLiveDumpTraceNoArgs @ 0x1405D7BE8 (IopLiveDumpTraceNoArgs.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     KiInsertQueueDpc @ 0x140307FF0 (KiInsertQueueDpc.c)
+ *     KeSetSystemGroupAffinityThread @ 0x14037BF70 (KeSetSystemGroupAffinityThread.c)
+ *     KeEnumerateNextProcessor @ 0x14042E520 (KeEnumerateNextProcessor.c)
+ *     IopLiveDumpGetMillisecondCounter @ 0x1404DDE60 (IopLiveDumpGetMillisecondCounter.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     IopLiveDumpIsTracingEnabled @ 0x1405317E8 (IopLiveDumpIsTracingEnabled.c)
+ *     IopLiveDumpInitiateCorralStateChange @ 0x1405D291C (IopLiveDumpInitiateCorralStateChange.c)
+ *     IopLiveDumpTraceCorralProcessorsDuration @ 0x1405D472C (IopLiveDumpTraceCorralProcessorsDuration.c)
+ *     IopLiveDumpTraceNoArgs @ 0x1405DA3E0 (IopLiveDumpTraceNoArgs.c)
  */
 
 __int64 __fastcall IopLiveDumpCorralProcessors(__int64 *a1)
@@ -20,16 +20,16 @@ __int64 __fastcall IopLiveDumpCorralProcessors(__int64 *a1)
   __int64 v1; // r15
   int v2; // edi
   int MillisecondCounter; // r13d
-  struct _GROUP_AFFINITY *v5; // rdx
+  _GROUP_AFFINITY *v5; // rdx
   int v6; // r12d
-  unsigned int v7; // ecx
+  volatile unsigned int Lock; // ecx
   int v8; // edx
   __int64 *v9; // rcx
   unsigned __int8 CurrentIrql; // si
   int v11; // r14d
   __int64 result; // rax
   __int64 v13; // [rsp+30h] [rbp-38h] BYREF
-  struct _GROUP_AFFINITY Affinity; // [rsp+38h] [rbp-30h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+38h] [rbp-30h] BYREF
   unsigned __int16 *v15[2]; // [rsp+48h] [rbp-20h] BYREF
   __int16 v16; // [rsp+58h] [rbp-10h]
   int v17; // [rsp+5Ah] [rbp-Eh]
@@ -48,16 +48,16 @@ __int64 __fastcall IopLiveDumpCorralProcessors(__int64 *a1)
   a1[14] = 0LL;
   MillisecondCounter = 0;
   *((_DWORD *)a1 + 30) = 0;
-  v5 = (struct _GROUP_AFFINITY *)(a1 + 12);
+  v5 = (_GROUP_AFFINITY *)(a1 + 12);
   v6 = 0;
   Affinity = 0LL;
   v17 = 0;
   v18 = 0;
-  v7 = **(_DWORD **)&KiSupervisorXStateFeaturesLock.WaitBlockFill11[112];
+  Lock = KiSupervisorXStateFeaturesLock.SchedulerApc.Thread->Header.Lock;
   Affinity.Reserved[1] = 0;
   Affinity.Reserved[2] = 0;
-  *(_DWORD *)&Affinity.Group = (unsigned __int16)(v7 >> 6);
-  Affinity.Mask = 1LL << v7;
+  *(_DWORD *)&Affinity.Group = (unsigned __int16)(Lock >> 6);
+  Affinity.Mask = 1LL << Lock;
   v19 = 0;
   v21 = 0LL;
   v13 = 0LL;
@@ -88,8 +88,8 @@ __int64 __fastcall IopLiveDumpCorralProcessors(__int64 *a1)
   a1[7] = (__int64)a1;
   a1[10] = 0LL;
   a1[5] = 0LL;
-  v15[1] = *(unsigned __int16 **)((char *)&stru_140FC01F0.116 + 4);
-  v15[0] = (unsigned __int16 *)&stru_140FC01F0.WaitRegister.Flags;
+  v15[1] = *(unsigned __int16 **)((char *)&stru_140FC11F0.116 + 4);
+  v15[0] = (unsigned __int16 *)&stru_140FC11F0.WaitRegister.Flags;
   v16 = 0;
   while ( !(unsigned int)KeEnumerateNextProcessor(&v19, v15) )
   {
@@ -116,7 +116,7 @@ __int64 __fastcall IopLiveDumpCorralProcessors(__int64 *a1)
     IopLiveDumpInitiateCorralStateChange(a1, 2LL, &v21);
     v6 = v21;
   }
-  LOBYTE(stru_140F10828.WriteOperationCount) = 1;
+  PoAllProcIntrDisabled = 1;
   IopLiveDumpInitiateCorralStateChange(a1, 7LL, &v13);
   IopLiveDumpInitiateCorralStateChange(a1, 3LL, &v22);
   *((_DWORD *)a1 + 2) |= 1u;

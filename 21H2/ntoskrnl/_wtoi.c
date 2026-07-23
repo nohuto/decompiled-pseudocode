@@ -1,11 +1,11 @@
 /*
- * XREFs of _wtoi @ 0x1403D2430
+ * XREFs of _wtoi @ 0x1403D25A0
  * Callers:
- *     WmipPrepareWnodeSI @ 0x140757604 (WmipPrepareWnodeSI.c)
- *     WmipFindISinGEbyName @ 0x140758368 (WmipFindISinGEbyName.c)
- *     CmpCloneHwProfile @ 0x140877184 (CmpCloneHwProfile.c)
+ *     WmipPrepareWnodeSI @ 0x1407577C4 (WmipPrepareWnodeSI.c)
+ *     WmipFindISinGEbyName @ 0x140758528 (WmipFindISinGEbyName.c)
+ *     CmpCloneHwProfile @ 0x1408772E4 (CmpCloneHwProfile.c)
  * Callees:
- *     _wtol @ 0x1403D2450 (_wtol.c)
+ *     _wtol @ 0x1403D25C0 (_wtol.c)
  */
 
 int __cdecl wtoi(const wchar_t *Str)

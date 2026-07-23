@@ -1,11 +1,11 @@
 /*
- * XREFs of ObKillProcess @ 0x14045D694
+ * XREFs of ObKillProcess @ 0x14045C564
  * Callers:
- *     PspRundownSingleProcess @ 0x14045E0C0 (PspRundownSingleProcess.c)
+ *     PspRundownSingleProcess @ 0x14045CF90 (PspRundownSingleProcess.c)
  * Callees:
- *     IoSetThreadHardErrorMode @ 0x140074CB8 (IoSetThreadHardErrorMode.c)
- *     ExDestroyHandleTable @ 0x14045F0FC (ExDestroyHandleTable.c)
- *     ExSweepHandleTable @ 0x14045F330 (ExSweepHandleTable.c)
+ *     IoSetThreadHardErrorMode @ 0x140074D38 (IoSetThreadHardErrorMode.c)
+ *     ExDestroyHandleTable @ 0x14045DFCC (ExDestroyHandleTable.c)
+ *     ExSweepHandleTable @ 0x14045E200 (ExSweepHandleTable.c)
  */
 
 void __fastcall ObKillProcess(__int64 a1)

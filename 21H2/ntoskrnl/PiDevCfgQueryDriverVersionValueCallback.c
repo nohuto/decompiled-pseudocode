@@ -1,5 +1,5 @@
 /*
- * XREFs of PiDevCfgQueryDriverVersionValueCallback @ 0x1408A7620
+ * XREFs of PiDevCfgQueryDriverVersionValueCallback @ 0x1408A7780
  * Callers:
  *     <none>
  * Callees:

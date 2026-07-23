@@ -1,10 +1,10 @@
 /*
- * XREFs of IoAllocateMiniCompletionPacket @ 0x1409A70C0
+ * XREFs of IoAllocateMiniCompletionPacket @ 0x140990590
  * Callers:
- *     NtCreateWorkerFactory @ 0x1409A6CF0 (NtCreateWorkerFactory.c)
- *     NtSetInformationJobObject @ 0x140ACE760 (NtSetInformationJobObject.c)
+ *     NtCreateWorkerFactory @ 0x1409901C0 (NtCreateWorkerFactory.c)
+ *     NtSetInformationJobObject @ 0x140ACC7F0 (NtSetInformationJobObject.c)
  * Callees:
- *     ExAllocatePool3 @ 0x140B746D0 (ExAllocatePool3.c)
+ *     ExAllocatePool3 @ 0x140B76270 (ExAllocatePool3.c)
  */
 
 __int64 __fastcall IoAllocateMiniCompletionPacket(__int64 a1, __int64 a2)

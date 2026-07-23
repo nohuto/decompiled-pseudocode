@@ -30,7 +30,7 @@ __int64 __fastcall KiDeregisterNmiSxCallback(PVOID a1)
   _DWORD *v15; // r8
   int v16; // eax
   unsigned int v17; // edi
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+20h] [rbp-28h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+20h] [rbp-28h] BYREF
 
   v2 = 0;
   PreviousAffinity = 0LL;
@@ -43,10 +43,13 @@ __int64 __fastcall KiDeregisterNmiSxCallback(PVOID a1)
     if ( !v4 )
     {
       KxReleaseSpinLock((volatile signed __int64 *)&KiNmiCallbackListLock);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v6 <= 0xFu && CurrentIrql >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+          && CurrentIrql <= 0xFu
+          && (unsigned __int8)v6 <= 0xFu
+          && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -67,10 +70,10 @@ __int64 __fastcall KiDeregisterNmiSxCallback(PVOID a1)
   }
   *v5 = *v4;
   KxReleaseSpinLock((volatile signed __int64 *)&KiNmiCallbackListLock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v13 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v13 <= 0xFu && (unsigned __int8)v6 <= 0xFu && v13 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v13 <= 0xFu && (unsigned __int8)v6 <= 0xFu && v13 >= 2u )
     {
       v14 = KeGetCurrentPrcb();
       v15 = v14->SchedulerAssist;

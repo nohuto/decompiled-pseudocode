@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpHpFindImageNameInList @ 0x1800E7BD4
+ * XREFs of RtlpHpFindImageNameInList @ 0x1800E6634
  * Callers:
- *     RtlpHpOptIntoSegmentHeap @ 0x1800D424C (RtlpHpOptIntoSegmentHeap.c)
- *     RtlSetGlobalHeapFeatures @ 0x180144518 (RtlSetGlobalHeapFeatures.c)
+ *     RtlpHpOptIntoSegmentHeap @ 0x1800CFF64 (RtlpHpOptIntoSegmentHeap.c)
+ *     RtlSetGlobalHeapFeatures @ 0x180144408 (RtlSetGlobalHeapFeatures.c)
  * Callees:
- *     _wcsnicmp @ 0x180129080 (_wcsnicmp.c)
+ *     _wcsnicmp @ 0x180128DF0 (_wcsnicmp.c)
  */
 
 __int64 __fastcall RtlpHpFindImageNameInList(unsigned __int16 *a1)
@@ -29,12 +29,12 @@ __int64 __fastcall RtlpHpFindImageNameInList(unsigned __int16 *a1)
         {
           for ( j = 0; j < 0x18; ++j )
           {
-            if ( !wcsnicmp(v4, off_180171F20[j], v2) )
+            if ( !wcsnicmp(v4, (&off_180170F20)[j], v2) )
             {
               v7 = -1LL;
               do
                 ++v7;
-              while ( off_180171F20[j][v7] );
+              while ( (&off_180170F20)[j][v7] );
               if ( v2 == v7 )
                 return 1LL;
             }

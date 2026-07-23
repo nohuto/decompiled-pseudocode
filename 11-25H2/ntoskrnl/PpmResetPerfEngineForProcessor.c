@@ -19,10 +19,10 @@ __int64 __fastcall PpmResetPerfEngineForProcessor(__int64 a1, __int64 a2)
   __int64 v9; // rcx
   int v10; // eax
   __int64 i; // rbx
-  __int64 InterruptTimePrecise; // rax
+  LARGE_INTEGER InterruptTimePrecise; // rax
   unsigned int j; // edi
   __int64 v14; // rcx
-  unsigned __int64 v15; // [rsp+40h] [rbp+8h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+40h] [rbp+8h] BYREF
 
   v2 = a2;
   if ( !*(_DWORD *)(a1 + 36) )
@@ -56,8 +56,10 @@ __int64 __fastcall PpmResetPerfEngineForProcessor(__int64 a1, __int64 a2)
     {
       if ( *(_QWORD *)(v5 + 416) )
       {
-        InterruptTimePrecise = RtlGetInterruptTimePrecise(&v15);
-        guard_dispatch_icall_no_overrides(*(_QWORD *)(v6 + 8), InterruptTimePrecise);
+        InterruptTimePrecise = RtlGetInterruptTimePrecise(&PerformanceCounter);
+        ((void (__fastcall *)(_QWORD, _QWORD))guard_dispatch_icall_no_overrides)(
+          *(_QWORD *)(v6 + 8),
+          (LARGE_INTEGER)InterruptTimePrecise.QuadPart);
       }
     }
     else if ( *(_QWORD *)(v5 + 368) )

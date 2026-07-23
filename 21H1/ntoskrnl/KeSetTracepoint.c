@@ -21,7 +21,7 @@
 __int64 __fastcall KeSetTracepoint(
         __int64 a1,
         char a2,
-        ULONG_PTR a3,
+        unsigned __int64 a3,
         int a4,
         __int64 a5,
         __int64 a6,
@@ -64,11 +64,11 @@ __int64 __fastcall KeSetTracepoint(
   __int64 v45; // [rsp+40h] [rbp-98h]
   int v46; // [rsp+48h] [rbp-90h]
   BOOL v47; // [rsp+4Ch] [rbp-8Ch]
-  __int64 v48; // [rsp+50h] [rbp-88h] BYREF
+  PVOID BaseOfImage; // [rsp+50h] [rbp-88h] BYREF
   _BYTE *v49; // [rsp+58h] [rbp-80h]
   _BYTE v50[48]; // [rsp+60h] [rbp-78h] BYREF
 
-  v48 = 0LL;
+  BaseOfImage = 0LL;
   v9 = 0LL;
   v10 = a1;
   v45 = a1;
@@ -150,9 +150,9 @@ LABEL_36:
   {
     if ( a3 >= 0xFFFF800000000000uLL )
     {
-      if ( !RtlPcToFileHeader(a3, &v48) )
+      if ( !RtlPcToFileHeader((PVOID)a3, &BaseOfImage) )
         return (unsigned int)-1073741811;
-      if ( !(unsigned int)KiTpIsSupportedKernelTracepointLocation(v48, a3) )
+      if ( !(unsigned int)KiTpIsSupportedKernelTracepointLocation(BaseOfImage) )
         return (unsigned int)-1073741637;
     }
     if ( (unsigned int)(a4 - 1) <= 1 )
@@ -239,7 +239,7 @@ LABEL_71:
           if ( ++KiTpEnabledCount == 1 )
             _InterlockedOr(&KiDynamicTraceMask, 2u);
           LOBYTE(v35) = 1;
-          v16 = KiTpWriteBreakpoint(v30, v35, 0LL);
+          v16 = KiTpWriteBreakpoint(v30, v35);
           if ( v16 < 0 )
           {
             if ( v30 == v9 )
@@ -269,7 +269,7 @@ LABEL_71:
       {
         if ( *(_BYTE *)(v30 + 48) )
         {
-          if ( (int)KiTpWriteBreakpoint(v30, 0LL, 0LL) >= 0 )
+          if ( (int)KiTpWriteBreakpoint(v30, 0LL) >= 0 )
           {
             if ( !--KiTpEnabledCount )
               _InterlockedAnd(&KiDynamicTraceMask, 0xFFFFFFFD);

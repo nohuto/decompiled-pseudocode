@@ -1,15 +1,15 @@
 /*
- * XREFs of ObpCallPostOperationCallbacks @ 0x1408624F0
+ * XREFs of ObpCallPostOperationCallbacks @ 0x140863750
  * Callers:
- *     ObpCallPreOperationCallbacks @ 0x1406370E0 (ObpCallPreOperationCallbacks.c)
- *     ObpPostInterceptHandleCreate @ 0x140862594 (ObpPostInterceptHandleCreate.c)
- *     ObpPostInterceptHandleDuplicate @ 0x140862654 (ObpPostInterceptHandleDuplicate.c)
+ *     ObpCallPreOperationCallbacks @ 0x140638100 (ObpCallPreOperationCallbacks.c)
+ *     ObpPostInterceptHandleCreate @ 0x1408637F4 (ObpPostInterceptHandleCreate.c)
+ *     ObpPostInterceptHandleDuplicate @ 0x1408638B4 (ObpPostInterceptHandleDuplicate.c)
  * Callees:
  *     ExReleaseRundownProtection_0 @ 0x14004D2F0 (ExReleaseRundownProtection_0.c)
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall ObpCallPostOperationCallbacks(__int64 a1, _QWORD *a2)

@@ -1,9 +1,9 @@
 /*
- * XREFs of KeMarkHiberPhase @ 0x14057AEC8
+ * XREFs of KeMarkHiberPhase @ 0x14057BEC8
  * Callers:
- *     PopMarkComponentsBootPhase @ 0x14056B53C (PopMarkComponentsBootPhase.c)
+ *     PopMarkComponentsBootPhase @ 0x14056C53C (PopMarkComponentsBootPhase.c)
  * Callees:
- *     PoSetHiberRange @ 0x1401447D0 (PoSetHiberRange.c)
+ *     PoSetHiberRange @ 0x1401448D0 (PoSetHiberRange.c)
  */
 
 void __fastcall KeMarkHiberPhase(_QWORD *Address)
@@ -74,10 +74,10 @@ void __fastcall KeMarkHiberPhase(_QWORD *Address)
   v9 = *(void **)(v1 + 23808);
   if ( v9 )
     PoSetHiberRange(0LL, 0x10000u, v9, 0x428uLL, 0x7349654Bu);
-  if ( qword_14041B438 )
-    PoSetHiberRange(0LL, 0x10000u, qword_14041B438, 16 * (unsigned int)(unsigned __int8)qword_14041B428, 0x7272744Du);
-  if ( qword_14041B440 )
-    PoSetHiberRange(0LL, 0x10000u, qword_14041B440, 0x58uLL, 0x7272744Du);
+  if ( qword_14041C4D8 )
+    PoSetHiberRange(0LL, 0x10000u, qword_14041C4D8, 16 * (unsigned int)(unsigned __int8)qword_14041C4C8, 0x7272744Du);
+  if ( qword_14041C4E0 )
+    PoSetHiberRange(0LL, 0x10000u, qword_14041C4E0, 0x58uLL, 0x7272744Du);
   v10 = *(_QWORD **)(v1 + 8);
   v11 = (void *)((v10[6] + 4095LL) & 0xFFFFFFFFFFFFF000uLL);
   v12 = v10[7] - (_QWORD)v11;

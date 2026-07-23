@@ -1,30 +1,30 @@
 /*
- * XREFs of ExpWnfCreateNameInstance @ 0x14060DA34
+ * XREFs of ExpWnfCreateNameInstance @ 0x14069D4E4
  * Callers:
- *     NtCreateWnfStateName @ 0x14060D6D0 (NtCreateWnfStateName.c)
- *     ExpNtUpdateWnfStateData @ 0x14060E5DC (ExpNtUpdateWnfStateData.c)
- *     ExpWnfSubscribeWnfStateChange @ 0x14060EAF4 (ExpWnfSubscribeWnfStateChange.c)
- *     NtQueryWnfStateData @ 0x14060EE80 (NtQueryWnfStateData.c)
+ *     NtCreateWnfStateName @ 0x14069D180 (NtCreateWnfStateName.c)
+ *     ExpNtUpdateWnfStateData @ 0x14069E08C (ExpNtUpdateWnfStateData.c)
+ *     ExpWnfSubscribeWnfStateChange @ 0x14069E5A4 (ExpWnfSubscribeWnfStateChange.c)
+ *     NtQueryWnfStateData @ 0x14069E930 (NtQueryWnfStateData.c)
  * Callees:
- *     ExAcquireRundownProtection_0 @ 0x14027C9B0 (ExAcquireRundownProtection_0.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402F2C90 (ExfAcquirePushLockExclusiveEx.c)
- *     RtlAvlInsertNodeEx @ 0x140316550 (RtlAvlInsertNodeEx.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     KeAbPreAcquire @ 0x14034A230 (KeAbPreAcquire.c)
- *     ExAllocatePoolWithQuotaTag @ 0x140353020 (ExAllocatePoolWithQuotaTag.c)
- *     memset @ 0x140414200 (memset.c)
- *     ExpWnfFindStateName @ 0x14060F480 (ExpWnfFindStateName.c)
- *     ExpWnfPopulateStateData @ 0x140610B5C (ExpWnfPopulateStateData.c)
- *     ObDereferenceSecurityDescriptor @ 0x14065F6A0 (ObDereferenceSecurityDescriptor.c)
- *     ObLogSecurityDescriptor @ 0x14065FEB0 (ObLogSecurityDescriptor.c)
- *     ExpWnfGetPermanentDataStoreHandle @ 0x1406C2660 (ExpWnfGetPermanentDataStoreHandle.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     ExAcquireRundownProtection @ 0x14026A950 (ExAcquireRundownProtection.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402FD9E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     RtlAvlInsertNodeEx @ 0x1403212A0 (RtlAvlInsertNodeEx.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     KeAbPreAcquire @ 0x140354F80 (KeAbPreAcquire.c)
+ *     ExAllocatePoolWithQuotaTag @ 0x14035DD70 (ExAllocatePoolWithQuotaTag.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     ExpWnfGetPermanentDataStoreHandle @ 0x140621320 (ExpWnfGetPermanentDataStoreHandle.c)
+ *     ObDereferenceSecurityDescriptor @ 0x1406544C0 (ObDereferenceSecurityDescriptor.c)
+ *     ObLogSecurityDescriptor @ 0x140654CD0 (ObLogSecurityDescriptor.c)
+ *     ExpWnfFindStateName @ 0x14069EF30 (ExpWnfFindStateName.c)
+ *     ExpWnfPopulateStateData @ 0x1406A060C (ExpWnfPopulateStateData.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall ExpWnfCreateNameInstance(
-        unsigned __int64 a1,
+        __int64 a1,
         unsigned __int64 a2,
         __int64 a3,
         struct _KPROCESS *a4,
@@ -35,19 +35,19 @@ __int64 __fastcall ExpWnfCreateNameInstance(
   SIZE_T v10; // rdx
   struct _EX_RUNDOWN_REF *PoolWithTag; // rax
   struct _EX_RUNDOWN_REF *v12; // rdi
-  struct _EX_RUNDOWN_REF *v13; // r12
+  __int64 *v13; // r12
   unsigned int v14; // esi
   volatile signed __int64 *v15; // rsi
-  __int64 v16; // rax
-  __int64 v17; // r14
+  _RTL_BALANCED_NODE *v16; // rax
+  _RTL_BALANCED_NODE *v17; // r14
   struct _EX_RUNDOWN_REF *StateName; // rax
   struct _EX_RUNDOWN_REF *v19; // r14
   _QWORD *v20; // rdx
   bool v21; // r8
   _QWORD *v22; // rax
   unsigned __int64 v23; // r15
-  __int64 v24; // rax
-  __int64 v25; // r14
+  _RTL_BALANCED_NODE *v24; // rax
+  _RTL_BALANCED_NODE *v25; // r14
   struct _EX_RUNDOWN_REF **v26; // r8
   struct _EX_RUNDOWN_REF *v27; // rdx
   SIZE_T v29; // rdx
@@ -82,8 +82,8 @@ __int64 __fastcall ExpWnfCreateNameInstance(
     v12[8].Count = (unsigned __int64)&v12[21];
     *(_OWORD *)&v12[21].Count = *(_OWORD *)*(_QWORD *)(a3 + 8);
   }
-  v13 = v12 + 9;
-  if ( (int)ObLogSecurityDescriptor(*(void **)(a3 + 16)) < 0 )
+  v13 = (__int64 *)&v12[9];
+  if ( (int)ObLogSecurityDescriptor(*(char **)(a3 + 16), &v12[9].Count, 1u) < 0 )
   {
     ExFreePoolWithTag(v12, 0x20666E57u);
     return 3221225626LL;
@@ -92,7 +92,7 @@ __int64 __fastcall ExpWnfCreateNameInstance(
   v12[15].Count = (unsigned __int64)&v12[15];
   v12[14].Count = 0LL;
   v12[10].Count = 0LL;
-  if ( (a2 & 0x400) != 0 && (int)ExpWnfGetPermanentDataStoreHandle(a1, (unsigned int)v7, 1LL, &v12[13]) < 0 )
+  if ( (a2 & 0x400) != 0 && (int)ExpWnfGetPermanentDataStoreHandle(a1, (unsigned int)v7, 1LL, &v12[13].Count) < 0 )
   {
     v14 = -1073741670;
     goto LABEL_42;
@@ -101,7 +101,7 @@ __int64 __fastcall ExpWnfCreateNameInstance(
   if ( v14 )
   {
 LABEL_42:
-    ObDereferenceSecurityDescriptor(v13->Count, 1LL);
+    ObDereferenceSecurityDescriptor(*v13, 1u);
     ExFreePoolWithTag(v12, 0x20666E57u);
     return v14;
   }
@@ -111,16 +111,16 @@ LABEL_42:
   if ( _interlockedbittestandset64((volatile signed __int32 *)(a1 + 48), 0LL) )
     ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(a1 + 48), v16, a1 + 48);
   if ( v17 )
-    *(_BYTE *)(v17 + 26) |= 1u;
+    BYTE2(v17[1].Left) |= 1u;
   StateName = (struct _EX_RUNDOWN_REF *)ExpWnfFindStateName(a1, a2);
   v19 = StateName;
   if ( StateName )
   {
-    ExAcquireRundownProtection_0(StateName + 1);
+    ExAcquireRundownProtection(StateName + 1);
     if ( (_InterlockedExchangeAdd64(v15, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
       ExfTryToWakePushLock(a1 + 48);
     KeAbPostRelease(a1 + 48);
-    ObDereferenceSecurityDescriptor(v13->Count, 1LL);
+    ObDereferenceSecurityDescriptor(*v13, 1u);
     Ptr = v12[11].Ptr;
     if ( Ptr )
       ExFreePoolWithTag(Ptr, 0x20666E57u);
@@ -128,7 +128,7 @@ LABEL_42:
     *a5 = v19;
     return 0LL;
   }
-  ExAcquireRundownProtection_0(v12 + 1);
+  ExAcquireRundownProtection(v12 + 1);
   v20 = *(_QWORD **)(a1 + 56);
   v21 = 0;
   if ( !v20 )
@@ -156,7 +156,7 @@ LABEL_23:
     if ( _interlockedbittestandset64((volatile signed __int32 *)(v23 + 56), 0LL) )
       ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(v23 + 56), v24, v23 + 56);
     if ( v25 )
-      *(_BYTE *)(v25 + 26) |= 1u;
+      BYTE2(v25[1].Left) |= 1u;
     v26 = *(struct _EX_RUNDOWN_REF ***)(v23 + 72);
     v27 = v12 + 17;
     if ( *v26 != (struct _EX_RUNDOWN_REF *)(v23 + 64) )

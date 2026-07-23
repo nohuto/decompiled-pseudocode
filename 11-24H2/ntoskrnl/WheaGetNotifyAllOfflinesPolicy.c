@@ -1,13 +1,13 @@
 /*
- * XREFs of WheaGetNotifyAllOfflinesPolicy @ 0x14065CDC0
+ * XREFs of WheaGetNotifyAllOfflinesPolicy @ 0x14065B4E0
  * Callers:
- *     WheapAttemptPhysicalPageOffline @ 0x1407C791C (WheapAttemptPhysicalPageOffline.c)
- *     WheapExecuteRowFailureCheck @ 0x1407C8EE8 (WheapExecuteRowFailureCheck.c)
+ *     WheapAttemptPhysicalPageOffline @ 0x1407C7DBC (WheapAttemptPhysicalPageOffline.c)
+ *     WheapExecuteRowFailureCheck @ 0x1407C93D8 (WheapExecuteRowFailureCheck.c)
  * Callees:
  *     <none>
  */
 
 bool WheaGetNotifyAllOfflinesPolicy()
 {
-  return *(_DWORD *)off_140E09738 <= 1u;
+  return *(_DWORD *)off_140E097A8 <= 1u;
 }

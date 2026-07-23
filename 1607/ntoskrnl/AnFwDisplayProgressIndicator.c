@@ -4,10 +4,10 @@
  *     BgDisplayProgressIndicator @ 0x1407271A4 (BgDisplayProgressIndicator.c)
  *     BgpFwLibraryDisable @ 0x140728834 (BgpFwLibraryDisable.c)
  * Callees:
- *     KeInitializeDpc @ 0x14000D6DC (KeInitializeDpc.c)
- *     KeSetCoalescableTimer @ 0x1400EFC00 (KeSetCoalescableTimer.c)
- *     KeInitializeTimerEx @ 0x1400F0C50 (KeInitializeTimerEx.c)
- *     BgpTxtDisplayCharacter @ 0x140127284 (BgpTxtDisplayCharacter.c)
+ *     KeInitializeDpc @ 0x14000D25C (KeInitializeDpc.c)
+ *     KeSetCoalescableTimer @ 0x1400EDA80 (KeSetCoalescableTimer.c)
+ *     KeInitializeTimerEx @ 0x1400EEAA0 (KeInitializeTimerEx.c)
+ *     BgpTxtDisplayCharacter @ 0x1401277F4 (BgpTxtDisplayCharacter.c)
  *     AnFwpProgressAnimationManual @ 0x1407253F8 (AnFwpProgressAnimationManual.c)
  *     AnFwpDisableProgressTimer @ 0x14072586C (AnFwpDisableProgressTimer.c)
  *     RaspClearCache @ 0x140725934 (RaspClearCache.c)
@@ -23,7 +23,7 @@ __int64 __fastcall AnFwDisplayProgressIndicator(char a1)
   __int64 v5; // rcx
   int v6; // [rsp+28h] [rbp-20h]
 
-  if ( !a1 && !byte_140328C10 )
+  if ( !a1 && !byte_140328C50 )
     return 0LL;
   v1 = 0;
   if ( (dword_1402F9F90 & 0x100000) != 0 )
@@ -55,7 +55,7 @@ __int64 __fastcall AnFwDisplayProgressIndicator(char a1)
       RaspClearCache();
     return 0LL;
   }
-  if ( byte_140328C10 )
+  if ( byte_140328C50 )
   {
     if ( v1 )
       goto LABEL_7;
@@ -65,7 +65,7 @@ __int64 __fastcall AnFwDisplayProgressIndicator(char a1)
   {
     if ( (dword_1402F9F90 & 0x40000) == 0 )
     {
-      byte_140328C10 = 1;
+      byte_140328C50 = 1;
       if ( !v1 )
       {
         word_1402F4E60 = -8110;
@@ -74,13 +74,13 @@ __int64 __fastcall AnFwDisplayProgressIndicator(char a1)
           BgpTxtDisplayCharacter(qword_1402FA040, i, 1, 0LL, 0LL, v6);
         word_1402F4E60 = -7989;
         BgpTxtDisplayCharacter(qword_1402FA040, 57547LL, 0, 0LL, 0LL, v6);
-        qword_140328C18 = LogFwStat(0, 2, 0LL).QuadPart;
-        KeInitializeTimerEx(&stru_140340420, NotificationTimer);
-        KeInitializeDpc(&stru_1403403A0, (PKDEFERRED_ROUTINE)AnFwpProgressIndicatorTimer, 0LL);
-        KeSetCoalescableTimer(&stru_140340420, 0LL, 0x1Eu, 0, &stru_1403403A0);
+        qword_140328C58 = LogFwStat(0, 2, 0LL).QuadPart;
+        KeInitializeTimerEx(&stru_140340460, NotificationTimer);
+        KeInitializeDpc(&stru_1403403E0, (PKDEFERRED_ROUTINE)AnFwpProgressIndicatorTimer, 0LL);
+        KeSetCoalescableTimer(&stru_140340460, 0LL, 0x1Eu, 0, &stru_1403403E0);
         return 0LL;
       }
-      qword_140328C18 = 0LL;
+      qword_140328C58 = 0LL;
       word_1402F4E60 = -8111;
 LABEL_7:
       AnFwpProgressAnimationManual();

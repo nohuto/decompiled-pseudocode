@@ -3,10 +3,10 @@
  * Callers:
  *     CmInitSystem1 @ 0x1407ADA6C (CmInitSystem1.c)
  * Callees:
- *     memset @ 0x1401715C0 (memset.c)
- *     PsRegisterSiloMonitor @ 0x140551E98 (PsRegisterSiloMonitor.c)
- *     PsStartSiloMonitor @ 0x14055F7E8 (PsStartSiloMonitor.c)
- *     PsUnregisterSiloMonitor @ 0x140681064 (PsUnregisterSiloMonitor.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     PsRegisterSiloMonitor @ 0x1405523D8 (PsRegisterSiloMonitor.c)
+ *     PsStartSiloMonitor @ 0x14055FD28 (PsStartSiloMonitor.c)
+ *     PsUnregisterSiloMonitor @ 0x140681148 (PsUnregisterSiloMonitor.c)
  */
 
 char CmpInitServerSilo()

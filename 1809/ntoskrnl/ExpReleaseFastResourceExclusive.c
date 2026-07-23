@@ -1,17 +1,17 @@
 /*
- * XREFs of ExpReleaseFastResourceExclusive @ 0x1401663B8
+ * XREFs of ExpReleaseFastResourceExclusive @ 0x1401664B8
  * Callers:
- *     ExReleaseFastResource @ 0x140164F10 (ExReleaseFastResource.c)
- *     ExReleaseFastResourceExclusive @ 0x14031B3F0 (ExReleaseFastResourceExclusive.c)
- *     ExReleaseFastResourceShared @ 0x14031B520 (ExReleaseFastResourceShared.c)
+ *     ExReleaseFastResource @ 0x140165010 (ExReleaseFastResource.c)
+ *     ExReleaseFastResourceExclusive @ 0x14031B5E0 (ExReleaseFastResourceExclusive.c)
+ *     ExReleaseFastResourceShared @ 0x14031B710 (ExReleaseFastResourceShared.c)
  * Callees:
  *     KeAbPostReleaseEx @ 0x1400043BC (KeAbPostReleaseEx.c)
- *     KxAcquireQueuedSpinLock @ 0x1400AC9B0 (KxAcquireQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     KeWakeWaitChain @ 0x140125BD8 (KeWakeWaitChain.c)
- *     ExpRotateFastOwnerEntrySublistHead @ 0x140165144 (ExpRotateFastOwnerEntrySublistHead.c)
- *     ExpPrepareToWakeResourceExclusive @ 0x140166564 (ExpPrepareToWakeResourceExclusive.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxAcquireQueuedSpinLock @ 0x1400AC8F0 (KxAcquireQueuedSpinLock.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     KeWakeWaitChain @ 0x140125CA8 (KeWakeWaitChain.c)
+ *     ExpRotateFastOwnerEntrySublistHead @ 0x140165244 (ExpRotateFastOwnerEntrySublistHead.c)
+ *     ExpPrepareToWakeResourceExclusive @ 0x140166664 (ExpPrepareToWakeResourceExclusive.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 unsigned __int8 __fastcall ExpReleaseFastResourceExclusive(ULONG_PTR BugCheckParameter2, __int64 a2, __int64 a3)

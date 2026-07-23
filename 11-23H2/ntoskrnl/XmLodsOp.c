@@ -1,11 +1,11 @@
 /*
- * XREFs of XmLodsOp @ 0x140534060
+ * XREFs of XmLodsOp @ 0x1405345B0
  * Callers:
- *     XmEmulateStream @ 0x1403BE4E0 (XmEmulateStream.c)
+ *     XmEmulateStream @ 0x1403BE6C0 (XmEmulateStream.c)
  * Callees:
- *     XmGetStringAddress @ 0x1403992EC (XmGetStringAddress.c)
- *     XmSetSourceValue @ 0x1403B94C0 (XmSetSourceValue.c)
- *     XmStoreResult @ 0x1403B9608 (XmStoreResult.c)
+ *     XmGetStringAddress @ 0x1403994CC (XmGetStringAddress.c)
+ *     XmSetSourceValue @ 0x1403B96A0 (XmSetSourceValue.c)
+ *     XmStoreResult @ 0x1403B97E8 (XmStoreResult.c)
  */
 
 _WORD *__fastcall XmLodsOp(__int64 a1)

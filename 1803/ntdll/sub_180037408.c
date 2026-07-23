@@ -21,26 +21,26 @@
  *     memmove @ 0x1800A1380 (memmove.c)
  */
 
-__int64 __fastcall sub_180037408(char *a1, unsigned int a2, int a3, int a4, unsigned __int8 *Src, char a6)
+__int64 __fastcall sub_180037408(PACL Acl, unsigned int a2, int a3, int a4, unsigned __int8 *Sid, char a6)
 {
-  char v10; // al
+  BYTE v10; // al
   bool v11; // cc
-  char v12; // di
-  __int64 v13; // r9
+  BYTE AclRevision; // di
+  char *v13; // r9
   unsigned __int16 v14; // r8
   __int64 result; // rax
   unsigned int v16; // eax
-  _QWORD v17[5]; // [rsp+20h] [rbp-28h] BYREF
+  PVOID FirstFree; // [rsp+20h] [rbp-28h] BYREF
 
-  if ( !(unsigned __int8)RtlValidSid(Src) )
+  if ( !RtlValidSid(Sid) )
     return 3221225592LL;
-  if ( (unsigned __int8)*a1 > 4u || a2 > 4 )
+  if ( Acl->AclRevision > 4u || a2 > 4 )
     return 3221225561LL;
   v10 = a2;
-  v11 = (unsigned __int8)*a1 <= (unsigned __int8)a2;
-  v12 = *a1;
+  v11 = Acl->AclRevision <= (unsigned __int8)a2;
+  AclRevision = Acl->AclRevision;
   if ( v11 )
-    v12 = v10;
+    AclRevision = v10;
   if ( (a3 & 0xFFFFFFE0) != 0 )
   {
     v16 = a3 & 0xFFFFFF20;
@@ -49,19 +49,19 @@ __int64 __fastcall sub_180037408(char *a1, unsigned int a2, int a3, int a4, unsi
     if ( v16 )
       return 3221225485LL;
   }
-  if ( !(unsigned __int8)RtlValidAcl(a1) || !(unsigned __int8)RtlFirstFreeAce(a1, v17) )
+  if ( !RtlValidAcl(Acl) || !RtlFirstFreeAce(Acl, &FirstFree) )
     return 3221225591LL;
-  v13 = v17[0];
-  v14 = 4 * (Src[1] + 4);
-  if ( !v17[0] || v17[0] + (unsigned __int64)v14 > (unsigned __int64)&a1[*((unsigned __int16 *)a1 + 1)] )
+  v13 = (char *)FirstFree;
+  v14 = 4 * (Sid[1] + 4);
+  if ( !FirstFree || (char *)FirstFree + v14 > (char *)Acl + Acl->AclSize )
     return 3221225625LL;
-  *(_WORD *)(v17[0] + 2LL) = v14;
-  *(_BYTE *)(v13 + 1) = a3;
-  *(_BYTE *)v13 = a6;
-  *(_DWORD *)(v13 + 4) = a4;
-  memmove((void *)(v13 + 8), Src, 4 * (unsigned int)Src[1] + 8);
-  ++*((_WORD *)a1 + 2);
+  *((_WORD *)FirstFree + 1) = v14;
+  v13[1] = a3;
+  *v13 = a6;
+  *((_DWORD *)v13 + 1) = a4;
+  memmove(v13 + 8, Sid, 4 * (unsigned int)Sid[1] + 8);
+  ++Acl->AceCount;
   result = 0LL;
-  *a1 = v12;
+  Acl->AclRevision = AclRevision;
   return result;
 }

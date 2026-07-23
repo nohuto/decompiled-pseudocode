@@ -62,7 +62,7 @@ unsigned __int8 __fastcall PopDeferDoze(int a1, int a2, _BYTE *a3)
   if ( !v15 )
   {
     v4 = 1;
-    PopPrintEx(3LL, (__int64)"Deferring doze to S4\n");
+    PopPrintEx(3u, (__int64)"Deferring doze to S4\n");
   }
   v16 = v14;
   v17 = P[0];

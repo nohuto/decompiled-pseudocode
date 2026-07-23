@@ -1,22 +1,22 @@
 /*
- * XREFs of IopInvalidateVolumesForDevice @ 0x140704F4C
+ * XREFs of IopInvalidateVolumesForDevice @ 0x1407061EC
  * Callers:
- *     IopRemoveDevice @ 0x1406ECE04 (IopRemoveDevice.c)
- *     PiIrpQueryRemoveDevice @ 0x14083B210 (PiIrpQueryRemoveDevice.c)
+ *     IopRemoveDevice @ 0x1406EE0A4 (IopRemoveDevice.c)
+ *     PiIrpQueryRemoveDevice @ 0x14083C470 (PiIrpQueryRemoveDevice.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceSharedLite @ 0x140050860 (ExAcquireResourceSharedLite.c)
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     KeResetEvent @ 0x1400B8AA0 (KeResetEvent.c)
- *     IofCallDriver @ 0x1400B8DF0 (IofCallDriver.c)
- *     KeInitializeEvent @ 0x1400B8E70 (KeInitializeEvent.c)
- *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
- *     IoBuildDeviceIoControlRequest @ 0x1400DDC90 (IoBuildDeviceIoControlRequest.c)
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     IoCreateStreamFileObjectLite @ 0x1405A3560 (IoCreateStreamFileObjectLite.c)
- *     ObOpenObjectByPointer @ 0x1406470C0 (ObOpenObjectByPointer.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     KeResetEvent @ 0x1400B89E0 (KeResetEvent.c)
+ *     IofCallDriver @ 0x1400B8D30 (IofCallDriver.c)
+ *     KeInitializeEvent @ 0x1400B8DB0 (KeInitializeEvent.c)
+ *     KeSetEvent @ 0x1400C2A40 (KeSetEvent.c)
+ *     IoBuildDeviceIoControlRequest @ 0x1400DDD10 (IoBuildDeviceIoControlRequest.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     IoCreateStreamFileObjectLite @ 0x1405A4560 (IoCreateStreamFileObjectLite.c)
+ *     ObOpenObjectByPointer @ 0x1406480E0 (ObOpenObjectByPointer.c)
  */
 
 __int64 __fastcall IopInvalidateVolumesForDevice(PDEVICE_OBJECT DeviceObject)

@@ -4,8 +4,8 @@
  *     MiInitNucleus @ 0x140B41888 (MiInitNucleus.c)
  * Callees:
  *     RtlImageNtHeader @ 0x140214B30 (RtlImageNtHeader.c)
- *     MI_IS_PHYSICAL_ADDRESS @ 0x1402848B0 (MI_IS_PHYSICAL_ADDRESS.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x140284B40 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  *     MiCheckLargePageSystemImage @ 0x140B60F20 (MiCheckLargePageSystemImage.c)
  *     MiVerifyLargeSectionLayout @ 0x140B66BDC (MiVerifyLargeSectionLayout.c)
  */
@@ -15,7 +15,7 @@ __int64 __fastcall MiCheckLargePageOk(ULONG_PTR BugCheckParameter2)
   __int64 v1; // rdi
   unsigned int v2; // ebp
   unsigned int v3; // esi
-  unsigned __int64 v5; // r14
+  void *v5; // r14
   int v6; // eax
   unsigned int v7; // ecx
   __int64 v8; // rax
@@ -23,8 +23,8 @@ __int64 __fastcall MiCheckLargePageOk(ULONG_PTR BugCheckParameter2)
   __int64 *v10; // r14
   _QWORD *v11; // rdi
   int v12; // esi
-  ULONG_PTR v13; // rbp
-  ULONG_PTR v14; // rdx
+  void *v13; // rbp
+  ULONG_PTR SectionAlignment; // rdx
   _QWORD *v15; // rsi
   int v16; // ebp
   unsigned __int64 v17; // rdi
@@ -37,12 +37,12 @@ __int64 __fastcall MiCheckLargePageOk(ULONG_PTR BugCheckParameter2)
   {
     while ( 1 )
     {
-      v5 = *(_QWORD *)(v1 + 48);
-      v6 = MI_IS_PHYSICAL_ADDRESS(v5);
+      v5 = *(void **)(v1 + 48);
+      v6 = MI_IS_PHYSICAL_ADDRESS((unsigned __int64)v5);
       v7 = v2 + 1;
       if ( !v6 )
         v7 = v2;
-      v8 = v5 + *(unsigned int *)(v1 + 64);
+      v8 = (__int64)v5 + *(unsigned int *)(v1 + 64);
       v2 = v7;
       v9 = v7;
       if ( v3 )
@@ -65,12 +65,12 @@ __int64 __fastcall MiCheckLargePageOk(ULONG_PTR BugCheckParameter2)
   v12 = 0;
   do
   {
-    v13 = v11[6];
+    v13 = (void *)v11[6];
     *v10 = (__int64)v11;
-    v14 = *(unsigned int *)(RtlImageNtHeader(v13) + 56);
-    if ( (_DWORD)v14 != 4096 )
-      KeBugCheckEx(0x1Au, 0x3030207uLL, BugCheckParameter2, v14, 0LL);
-    MiVerifyLargeSectionLayout(v13);
+    SectionAlignment = RtlImageNtHeader(v13)->OptionalHeader.SectionAlignment;
+    if ( (_DWORD)SectionAlignment != 4096 )
+      KeBugCheckEx(0x1Au, 0x3030207uLL, BugCheckParameter2, SectionAlignment, 0LL);
+    MiVerifyLargeSectionLayout((ULONG_PTR)v13);
     v11 = (_QWORD *)*v11;
     ++v12;
     ++v10;

@@ -1,10 +1,10 @@
 /*
- * XREFs of MinCryptDecodeOid @ 0x1408A0404
+ * XREFs of MinCryptDecodeOid @ 0x1408A6814
  * Callers:
- *     MinCryptDecodeHashAlgorithmIdentifier @ 0x1408A03B0 (MinCryptDecodeHashAlgorithmIdentifier.c)
- *     MinCryptVerifySignedHash2 @ 0x1408A04B0 (MinCryptVerifySignedHash2.c)
+ *     MinCryptDecodeHashAlgorithmIdentifier @ 0x1408A67C0 (MinCryptDecodeHashAlgorithmIdentifier.c)
+ *     MinCryptVerifySignedHash2 @ 0x1408A68C0 (MinCryptVerifySignedHash2.c)
  * Callees:
- *     RtlCompareMemory @ 0x140730D90 (RtlCompareMemory.c)
+ *     RtlCompareMemory @ 0x140735960 (RtlCompareMemory.c)
  */
 
 __int64 __fastcall MinCryptDecodeOid(__int64 a1, unsigned int a2, unsigned int *a3)

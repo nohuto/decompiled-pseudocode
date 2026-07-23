@@ -8,24 +8,24 @@
  *     RtlpCheckAndFlushAllCacheIfOptimal @ 0x140286844 (RtlpCheckAndFlushAllCacheIfOptimal.c)
  */
 
-__int64 __fastcall RtlFlushNonVolatileMemoryRanges(char a1, __int64 a2, __int64 a3, char a4)
+DWORD __cdecl RtlFlushNonVolatileMemoryRanges(PVOID NvToken, PNV_MEMORY_RANGE NvRanges, SIZE_T NumRanges, DWORD Flags)
 {
-  __int64 v5; // rdi
-  __int64 v6; // rsi
+  SIZE_T v5; // rdi
+  PNV_MEMORY_RANGE v6; // rsi
 
-  v5 = a3;
-  v6 = a2;
-  if ( (a1 & 1) == 0 )
-    return 3221225485LL;
-  if ( (a1 & 2) != 0 && !(unsigned __int8)RtlpCheckAndFlushAllCacheIfOptimal(a2, a3) )
+  v5 = NumRanges;
+  v6 = NvRanges;
+  if ( ((unsigned __int8)NvToken & 1) == 0 )
+    return -1073741811;
+  if ( ((unsigned __int8)NvToken & 2) != 0 && !(unsigned __int8)RtlpCheckAndFlushAllCacheIfOptimal(NvRanges, NumRanges) )
   {
     for ( ; v5; --v5 )
     {
-      RtlFlushNonVolatileMemory(a1, *(_QWORD *)v6, *(_QWORD *)(v6 + 8), a4 | 1);
-      v6 += 16LL;
+      RtlFlushNonVolatileMemory(NvToken, v6->BaseAddress, v6->Length, Flags | 1);
+      ++v6;
     }
-    if ( (a4 & 1) == 0 )
-      RtlDrainNonVolatileFlush(a1);
+    if ( (Flags & 1) == 0 )
+      RtlDrainNonVolatileFlush(NvToken);
   }
-  return 0LL;
+  return 0;
 }

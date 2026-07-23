@@ -1,11 +1,11 @@
 /*
- * XREFs of MiSubsectionRequiresCharge @ 0x1400FC9C4
+ * XREFs of MiSubsectionRequiresCharge @ 0x1400FA744
  * Callers:
- *     MiReferenceActiveSubsection @ 0x14002CE80 (MiReferenceActiveSubsection.c)
- *     MiUpdateLastSubsectionSize @ 0x1400FCA18 (MiUpdateLastSubsectionSize.c)
+ *     MiReferenceActiveSubsection @ 0x14002CA00 (MiReferenceActiveSubsection.c)
+ *     MiUpdateLastSubsectionSize @ 0x1400FA798 (MiUpdateLastSubsectionSize.c)
  * Callees:
- *     MiPartitionIdToPointer @ 0x1400680A0 (MiPartitionIdToPointer.c)
- *     MiSubsectionUsingExtents @ 0x1400E7F14 (MiSubsectionUsingExtents.c)
+ *     MiPartitionIdToPointer @ 0x140067C20 (MiPartitionIdToPointer.c)
+ *     MiSubsectionUsingExtents @ 0x1400E5DB4 (MiSubsectionUsingExtents.c)
  */
 
 __int64 __fastcall MiSubsectionRequiresCharge(unsigned __int8 *a1)
@@ -22,6 +22,6 @@ __int64 __fastcall MiSubsectionRequiresCharge(unsigned __int8 *a1)
     return 1LL;
   if ( v3 == MiSystemPartition )
     return 2LL;
-  ++dword_140327008;
+  ++dword_140327048;
   return 0LL;
 }

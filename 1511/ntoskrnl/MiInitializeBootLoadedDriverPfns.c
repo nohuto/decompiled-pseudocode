@@ -31,7 +31,7 @@ void __fastcall MiInitializeBootLoadedDriverPfns(__int64 a1)
       if ( *(char *)(((v4 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL) >= 0 )
       {
         v5 = ((unsigned __int64)*((unsigned int *)v2 + 16) + 4095) >> 12;
-        if ( v3 != PsNtosImageBase && v3 != PsHalImageBase )
+        if ( (PVOID)v3 != PsNtosImageBase && (PVOID)v3 != PsHalImageBase )
         {
           _InterlockedExchangeAdd(&dword_1402FF858, v5);
           qword_1402FF818 -= (unsigned int)v5;

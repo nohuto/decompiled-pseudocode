@@ -1,12 +1,12 @@
 /*
- * XREFs of IopQuerySecureDeviceClassState @ 0x140AA47E0
+ * XREFs of IopQuerySecureDeviceClassState @ 0x140A9FB70
  * Callers:
- *     IopCreateSecureDeviceClassSettings @ 0x1409A1A38 (IopCreateSecureDeviceClassSettings.c)
+ *     IopCreateSecureDeviceClassSettings @ 0x140A6063C (IopCreateSecureDeviceClassSettings.c)
  * Callees:
- *     SeCaptureSecurityDescriptor @ 0x14091CE60 (SeCaptureSecurityDescriptor.c)
- *     IopGetSecurityDescriptorInformation @ 0x1409A1904 (IopGetSecurityDescriptorInformation.c)
- *     IopGetRegistryValue @ 0x1409CAD5C (IopGetRegistryValue.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     SeCaptureSecurityDescriptor @ 0x1409108D0 (SeCaptureSecurityDescriptor.c)
+ *     IopGetRegistryValue @ 0x1409B5F9C (IopGetRegistryValue.c)
+ *     IopGetSecurityDescriptorInformation @ 0x140A6073C (IopGetSecurityDescriptorInformation.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IopQuerySecureDeviceClassState(HANDLE KeyHandle, __int64 a2)

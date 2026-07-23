@@ -1,25 +1,25 @@
 /*
- * XREFs of ExpWnfReadStateData @ 0x14094A158
+ * XREFs of ExpWnfReadStateData @ 0x1409C5AC8
  * Callers:
- *     PopEsInStandbyEvaluate @ 0x14094683C (PopEsInStandbyEvaluate.c)
- *     PopWnfAudioCallback @ 0x140946B50 (PopWnfAudioCallback.c)
- *     PopWnfSprActiveSessionChangeCallback @ 0x140947BB0 (PopWnfSprActiveSessionChangeCallback.c)
- *     PopEsWnfSubscriptionOverrideCallback @ 0x140947CB0 (PopEsWnfSubscriptionOverrideCallback.c)
- *     ExQueryWnfStateData @ 0x1409489F0 (ExQueryWnfStateData.c)
- *     NtQueryWnfStateData @ 0x140949A90 (NtQueryWnfStateData.c)
- *     ExpWnfDeliverThreadNotifications @ 0x14094A448 (ExpWnfDeliverThreadNotifications.c)
- *     PopWnfFullscreenVideoCallback @ 0x140B486A0 (PopWnfFullscreenVideoCallback.c)
- *     PopAdaptiveWnfCallback @ 0x140B4D470 (PopAdaptiveWnfCallback.c)
- *     VslpConnectedStandbyWnfCallback @ 0x140B55A60 (VslpConnectedStandbyWnfCallback.c)
+ *     PopEsInStandbyEvaluate @ 0x1409C21AC (PopEsInStandbyEvaluate.c)
+ *     PopWnfAudioCallback @ 0x1409C24C0 (PopWnfAudioCallback.c)
+ *     PopWnfSprActiveSessionChangeCallback @ 0x1409C3520 (PopWnfSprActiveSessionChangeCallback.c)
+ *     PopEsWnfSubscriptionOverrideCallback @ 0x1409C3620 (PopEsWnfSubscriptionOverrideCallback.c)
+ *     ExQueryWnfStateData @ 0x1409C4360 (ExQueryWnfStateData.c)
+ *     NtQueryWnfStateData @ 0x1409C5400 (NtQueryWnfStateData.c)
+ *     ExpWnfDeliverThreadNotifications @ 0x1409C5DB8 (ExpWnfDeliverThreadNotifications.c)
+ *     PopWnfFullscreenVideoCallback @ 0x140B4A430 (PopWnfFullscreenVideoCallback.c)
+ *     PopAdaptiveWnfCallback @ 0x140B4F200 (PopAdaptiveWnfCallback.c)
+ *     VslpConnectedStandbyWnfCallback @ 0x140B58300 (VslpConnectedStandbyWnfCallback.c)
  * Callees:
- *     ExfAcquirePushLockSharedEx @ 0x140277CC0 (ExfAcquirePushLockSharedEx.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ExfReleasePushLockShared @ 0x140278BD0 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     RtlCopyToUser @ 0x14077F284 (RtlCopyToUser.c)
- *     RtlWriteULongToUser @ 0x14077F7A0 (RtlWriteULongToUser.c)
+ *     ExfAcquirePushLockSharedEx @ 0x140277230 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ExfReleasePushLockShared @ 0x140278140 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     RtlCopyToUser @ 0x140781D84 (RtlCopyToUser.c)
+ *     RtlWriteULongToUser @ 0x1407822A0 (RtlWriteULongToUser.c)
  */
 
 __int64 __fastcall ExpWnfReadStateData(

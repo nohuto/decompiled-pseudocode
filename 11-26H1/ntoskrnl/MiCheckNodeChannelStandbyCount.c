@@ -1,7 +1,7 @@
 /*
- * XREFs of MiCheckNodeChannelStandbyCount @ 0x1404D78C8
+ * XREFs of MiCheckNodeChannelStandbyCount @ 0x1404D1090
  * Callers:
- *     MiGetPage @ 0x1402866A0 (MiGetPage.c)
+ *     MiGetPage @ 0x140285C00 (MiGetPage.c)
  * Callees:
  *     <none>
  */
@@ -18,7 +18,7 @@ __int64 __fastcall MiCheckNodeChannelStandbyCount(__int64 a1, unsigned int a2, c
   if ( (*(_DWORD *)(v3 + 14096) & 1) != 0 )
     v4 = a3 + 1;
   else
-    v4 = byte_140E2D718;
+    v4 = byte_140E2D898;
   v5 = (*(_DWORD *)(v3 + 14096) & 1) != 0 ? a3 : 0;
   v6 = 0;
   while ( v5 != v4 )

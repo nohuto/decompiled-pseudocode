@@ -1,9 +1,9 @@
 /*
- * XREFs of wcscpy_s @ 0x180134330
+ * XREFs of wcscpy_s @ 0x1801340A0
  * Callers:
- *     RtlConvertSidToUnicodeString @ 0x18003CD70 (RtlConvertSidToUnicodeString.c)
+ *     RtlConvertSidToUnicodeString @ 0x1800272E0 (RtlConvertSidToUnicodeString.c)
  * Callees:
- *     _invalid_parameter @ 0x180126898 (_invalid_parameter.c)
+ *     _invalid_parameter @ 0x180126608 (_invalid_parameter.c)
  */
 
 errno_t __cdecl wcscpy_s(wchar_t *Destination, rsize_t SizeInWords, const wchar_t *Source)

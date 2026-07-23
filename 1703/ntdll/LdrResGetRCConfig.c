@@ -16,46 +16,46 @@
  *     sub_1800E2008 @ 0x1800E2008 (sub_1800E2008.c)
  */
 
-__int64 __fastcall LdrResGetRCConfig(__int64 a1, __int64 a2, unsigned int **a3, int a4, char a5)
+__int64 __fastcall LdrResGetRCConfig(void *a1, __int64 a2, ULONG **a3, int a4, char a5)
 {
   int v7; // edi
   __int64 v8; // r12
   __int64 v9; // rcx
   __int64 v10; // rsi
-  __int64 v11; // rcx
-  unsigned int *v12; // rax
+  PVOID v11; // rcx
+  ULONG *v12; // rax
   unsigned int v13; // edi
   __int64 result; // rax
-  __int64 v15; // r14
+  unsigned __int64 v15; // r14
   int v16; // ecx
-  unsigned int *v17; // r8
+  ULONG *v17; // r8
   int v18; // r9d
   __int64 v19; // rdx
-  unsigned int v20; // ecx
+  ULONG v20; // ecx
   unsigned int v21; // r9d
-  unsigned int v22; // ecx
+  ULONG v22; // ecx
   unsigned int v23; // r9d
-  unsigned int v24; // ecx
+  ULONG v24; // ecx
   unsigned int v25; // r9d
-  unsigned int v26; // ecx
+  ULONG v26; // ecx
   unsigned int v27; // r9d
-  unsigned int v28; // ecx
+  ULONG v28; // ecx
   unsigned int v29; // r9d
-  unsigned int v30; // ecx
+  ULONG v30; // ecx
   unsigned int v31; // r9d
-  unsigned int v32; // ecx
+  ULONG v32; // ecx
   unsigned int v33; // r9d
-  unsigned int v34; // ecx
+  ULONG v34; // ecx
   unsigned int v35; // r9d
   __int64 v36; // rcx
   __int64 v37; // r8
   __int64 v38; // rcx
   __int64 v39; // rcx
   int v40; // [rsp+50h] [rbp-B8h]
-  unsigned int *v41; // [rsp+58h] [rbp-B0h] BYREF
-  __int64 v42; // [rsp+60h] [rbp-A8h]
+  ULONG *v41; // [rsp+58h] [rbp-B0h] BYREF
+  PVOID DllHandle; // [rsp+60h] [rbp-A8h]
   __int64 v43; // [rsp+68h] [rbp-A0h] BYREF
-  unsigned int **v44; // [rsp+70h] [rbp-98h]
+  ULONG **v44; // [rsp+70h] [rbp-98h]
   __int64 v45[2]; // [rsp+78h] [rbp-90h] BYREF
   int v46; // [rsp+88h] [rbp-80h] BYREF
   const wchar_t *v47; // [rsp+90h] [rbp-78h]
@@ -64,8 +64,8 @@ __int64 __fastcall LdrResGetRCConfig(__int64 a1, __int64 a2, unsigned int **a3, 
   _QWORD v50[3]; // [rsp+A8h] [rbp-60h] BYREF
 
   v44 = a3;
-  v42 = a1;
-  v45[1] = a1;
+  DllHandle = a1;
+  v45[1] = (__int64)a1;
   v50[0] = L"MUI";
   v50[1] = 1LL;
   v50[2] = 0LL;
@@ -77,15 +77,15 @@ __int64 __fastcall LdrResGetRCConfig(__int64 a1, __int64 a2, unsigned int **a3, 
   v49 = L"LdrResGetRCConfig Exit";
   v7 = a4 & 0x2000;
   v8 = 2147353477LL;
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-    v9 = (__int64)NtCurrentPeb()->HotpatchInformation + 555;
+  if ( RtlGetCurrentServiceSessionId() )
+    v9 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[2] + 1;
   else
     v9 = 2147353477LL;
   if ( (*(_BYTE *)v9 & 1) != 0 )
   {
     v10 = 2147353476LL;
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-      v39 = (__int64)NtCurrentPeb()->HotpatchInformation + 554;
+    if ( RtlGetCurrentServiceSessionId() )
+      v39 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[2];
     else
       v39 = 2147353476LL;
     sub_1800E2008(&v46, *(unsigned __int8 *)v39);
@@ -94,8 +94,8 @@ __int64 __fastcall LdrResGetRCConfig(__int64 a1, __int64 a2, unsigned int **a3, 
   {
     v10 = 2147353476LL;
   }
-  v11 = v42;
-  if ( !v42 )
+  v11 = DllHandle;
+  if ( !DllHandle )
   {
     v13 = -1073741811;
     goto LABEL_9;
@@ -105,12 +105,12 @@ __int64 __fastcall LdrResGetRCConfig(__int64 a1, __int64 a2, unsigned int **a3, 
 LABEL_16:
     if ( !a2 && !v7 )
     {
-      result = LdrpResGetMappingSize(v11, (unsigned __int64 *)&v43, a4, 0);
+      result = LdrpResGetMappingSize((__int64)v11, (unsigned __int64 *)&v43, a4, 0);
       if ( (int)result < 0 )
         return result;
     }
-    v15 = v42;
-    v16 = sub_18005A0E4(v42, v43, (v7 != 0 ? 8240 : 4144) | 0x200000u, (__int64)v50, 3u, &v41, v45, 0LL, 0LL);
+    v15 = (unsigned __int64)DllHandle;
+    v16 = sub_18005A0E4(DllHandle, v43, (v7 != 0 ? 8240 : 4144) | 0x200000u, (__int64)v50, 3, &v41, v45, 0LL, 0LL);
     if ( v16 < 0 )
     {
       if ( v16 != -1073741701 )
@@ -223,9 +223,9 @@ LABEL_22:
     v40 = 0;
     goto LABEL_22;
   }
-  v12 = sub_18002FF94(v42, 0, 0LL, 8);
+  v12 = sub_18002FF94((unsigned __int64)DllHandle, 0, 0LL, 8);
   v41 = v12;
-  if ( v12 != (unsigned int *)-1LL )
+  if ( v12 != (ULONG *)-1LL )
   {
     if ( v12 )
     {
@@ -235,23 +235,23 @@ LABEL_22:
         *v44 = v12;
       goto LABEL_10;
     }
-    v11 = v42;
+    v11 = DllHandle;
     goto LABEL_16;
   }
   v13 = -1073741686;
 LABEL_9:
   v40 = v13;
 LABEL_10:
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+  if ( RtlGetCurrentServiceSessionId() )
   {
-    v8 = (__int64)NtCurrentPeb()->HotpatchInformation + 555;
+    v8 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[2] + 1;
     v13 = v40;
   }
   if ( (*(_BYTE *)v8 & 1) != 0 )
   {
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+    if ( RtlGetCurrentServiceSessionId() )
     {
-      v10 = (__int64)NtCurrentPeb()->HotpatchInformation + 554;
+      v10 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[2];
       v13 = v40;
     }
     sub_1800E2008(&v48, *(unsigned __int8 *)v10);

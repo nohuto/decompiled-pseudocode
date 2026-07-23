@@ -1,18 +1,18 @@
 /*
- * XREFs of KiResetForceIdle @ 0x14057D14C
+ * XREFs of KiResetForceIdle @ 0x14057D63C
  * Callers:
- *     KeClockInterruptNotify @ 0x1402C46A0 (KeClockInterruptNotify.c)
- *     KeResumeClockTimerFromIdle @ 0x1402C7060 (KeResumeClockTimerFromIdle.c)
- *     KiCallInterruptServiceRoutine @ 0x140324950 (KiCallInterruptServiceRoutine.c)
- *     KeClearForceIdle @ 0x14057CBA0 (KeClearForceIdle.c)
+ *     KeClockInterruptNotify @ 0x1402C4930 (KeClockInterruptNotify.c)
+ *     KeResumeClockTimerFromIdle @ 0x1402C72F0 (KeResumeClockTimerFromIdle.c)
+ *     KiCallInterruptServiceRoutine @ 0x140324BE0 (KiCallInterruptServiceRoutine.c)
+ *     KeClearForceIdle @ 0x14057D090 (KeClearForceIdle.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     KeIsForceIdleEngaged @ 0x14025012C (KeIsForceIdleEngaged.c)
- *     KiInsertQueueDpc @ 0x140254790 (KiInsertQueueDpc.c)
- *     RtlGetInterruptTimePrecise @ 0x1402C42E0 (RtlGetInterruptTimePrecise.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     KiSetForceIdleState @ 0x14057D294 (KiSetForceIdleState.c)
- *     PoTraceForceIdleReset @ 0x1405910A0 (PoTraceForceIdleReset.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     KeIsForceIdleEngaged @ 0x1402501FC (KeIsForceIdleEngaged.c)
+ *     KiInsertQueueDpc @ 0x140254850 (KiInsertQueueDpc.c)
+ *     RtlGetInterruptTimePrecise @ 0x1402C4570 (RtlGetInterruptTimePrecise.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KiSetForceIdleState @ 0x14057D784 (KiSetForceIdleState.c)
+ *     PoTraceForceIdleReset @ 0x140591590 (PoTraceForceIdleReset.c)
  */
 
 char __fastcall KiResetForceIdle(unsigned int a1, char a2)
@@ -26,9 +26,9 @@ char __fastcall KiResetForceIdle(unsigned int a1, char a2)
   signed __int32 v10; // ett
   __int16 v12; // [rsp+40h] [rbp-8h]
   int v13; // [rsp+58h] [rbp+10h] BYREF
-  LARGE_INTEGER v14; // [rsp+60h] [rbp+18h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+60h] [rbp+18h] BYREF
 
-  v14.QuadPart = 0LL;
+  PerformanceCounter.QuadPart = 0LL;
   v2 = 0;
   if ( !a2 )
   {
@@ -52,7 +52,8 @@ char __fastcall KiResetForceIdle(unsigned int a1, char a2)
     if ( a1 == 3 )
       v7 = 0LL;
     else
-      v7 = 10000000LL * (unsigned int)KiForceIdleGracePeriodInSec + RtlGetInterruptTimePrecise(&v14);
+      v7 = 10000000LL * (unsigned int)KiForceIdleGracePeriodInSec
+         + *(_QWORD *)&RtlGetInterruptTimePrecise(&PerformanceCounter);
     KiForceIdleStartTime = v7;
     if ( !*(&KiForceIdleStopDpc + 7) )
       WORD1(KiForceIdleStopDpc) = KiClockTimerOwner + 2048;

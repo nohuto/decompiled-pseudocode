@@ -15,9 +15,9 @@
  *     ExFreePoolWithTag @ 0x140B62CD0 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall PnpPrepareDriverLoading(__int64 a1, void *a2, unsigned __int64 a3, int a4, _DWORD *a5, bool *a6)
+__int64 __fastcall PnpPrepareDriverLoading(__int64 a1, void *a2, void *a3, int a4, _DWORD *a5, bool *a6)
 {
-  unsigned __int64 v10; // rax
+  PIMAGE_NT_HEADERS v10; // rax
   unsigned int v11; // edi
   HANDLE KeyHandle; // [rsp+38h] [rbp-51h] BYREF
   UNICODE_STRING DestinationString; // [rsp+40h] [rbp-49h] BYREF
@@ -31,7 +31,7 @@ __int64 __fastcall PnpPrepareDriverLoading(__int64 a1, void *a2, unsigned __int6
   if ( !v10 )
     return 3221225473LL;
   v16 = 0LL;
-  v11 = PpCheckInDriverDatabase(a1, (__int64)a2, a3, *(_DWORD *)(v10 + 80), a4, &v16);
+  v11 = PpCheckInDriverDatabase(a1, (__int64)a2, a3, v10->OptionalHeader.SizeOfImage, a4, &v16);
   if ( v11 + 1073740949 <= 1 )
     PnpSetBlockedDriverEvent(&v16);
   if ( (int)IopGetRegistryValue(a2) >= 0 )

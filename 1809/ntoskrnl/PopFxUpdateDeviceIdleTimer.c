@@ -1,14 +1,14 @@
 /*
- * XREFs of PopFxUpdateDeviceIdleTimer @ 0x14018E1B8
+ * XREFs of PopFxUpdateDeviceIdleTimer @ 0x14018E2F8
  * Callers:
- *     PopFxProcessWork @ 0x1400FE390 (PopFxProcessWork.c)
- *     PoFxSetDeviceIdleTimeout @ 0x14018E130 (PoFxSetDeviceIdleTimeout.c)
+ *     PopFxProcessWork @ 0x1400FE410 (PopFxProcessWork.c)
+ *     PoFxSetDeviceIdleTimeout @ 0x14018E270 (PoFxSetDeviceIdleTimeout.c)
  * Callees:
  *     KeCancelTimer @ 0x14001CEB0 (KeCancelTimer.c)
- *     PopFxScheduleDeviceIdleTimer @ 0x1400FDF94 (PopFxScheduleDeviceIdleTimer.c)
- *     PopDiagTraceFxDevicePowerRequirement @ 0x1400FE764 (PopDiagTraceFxDevicePowerRequirement.c)
- *     PopFxAddLogEntry @ 0x1400FE804 (PopFxAddLogEntry.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     PopFxScheduleDeviceIdleTimer @ 0x1400FE014 (PopFxScheduleDeviceIdleTimer.c)
+ *     PopDiagTraceFxDevicePowerRequirement @ 0x1400FE7E4 (PopDiagTraceFxDevicePowerRequirement.c)
+ *     PopFxAddLogEntry @ 0x1400FE884 (PopFxAddLogEntry.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
  */
 
 void __fastcall PopFxUpdateDeviceIdleTimer(__int64 a1)

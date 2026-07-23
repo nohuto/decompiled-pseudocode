@@ -1,8 +1,8 @@
 /*
- * XREFs of PiDqQueryGetObjectManager @ 0x14048C958
+ * XREFs of PiDqQueryGetObjectManager @ 0x14048CF6C
  * Callers:
- *     PiDqDispatch @ 0x14048B160 (PiDqDispatch.c)
- *     PiDqQuerySerializeActionQueue @ 0x14048B994 (PiDqQuerySerializeActionQueue.c)
+ *     PiDqDispatch @ 0x14048B6C4 (PiDqDispatch.c)
+ *     PiDqQuerySerializeActionQueue @ 0x14048BEF8 (PiDqQuerySerializeActionQueue.c)
  * Callees:
  *     <none>
  */

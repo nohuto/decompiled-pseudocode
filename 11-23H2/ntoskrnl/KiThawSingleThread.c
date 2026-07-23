@@ -4,8 +4,8 @@
  *     KeThawMultiProcess @ 0x140204688 (KeThawMultiProcess.c)
  *     KeForceResumeProcess @ 0x140204AE0 (KeForceResumeProcess.c)
  * Callees:
- *     KiAcquireKobjectLockSafe @ 0x140252030 (KiAcquireKobjectLockSafe.c)
- *     KiResumeThread @ 0x14030ACF8 (KiResumeThread.c)
+ *     KiAcquireKobjectLockSafe @ 0x1402520F0 (KiAcquireKobjectLockSafe.c)
+ *     KiResumeThread @ 0x14030AF88 (KiResumeThread.c)
  */
 
 __int64 __fastcall KiThawSingleThread(__int64 a1, __int64 a2, char a3, char a4)

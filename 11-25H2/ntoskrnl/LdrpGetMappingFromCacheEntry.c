@@ -12,9 +12,9 @@ char __fastcall LdrpGetMappingFromCacheEntry(unsigned int a1, unsigned __int64 a
   __int64 v8; // rbx
   __int64 v9; // rdx
   char result; // al
-  __int16 v11; // cx
-  unsigned int v12; // ecx
-  __int64 v13; // [rsp+38h] [rbp+10h] BYREF
+  unsigned __int16 Magic; // cx
+  unsigned int SizeOfImage; // ecx
+  PIMAGE_NT_HEADERS OutHeaders; // [rsp+38h] [rbp+10h] BYREF
 
   if ( !a2 )
     return 0;
@@ -29,16 +29,16 @@ char __fastcall LdrpGetMappingFromCacheEntry(unsigned int a1, unsigned __int64 a
     return 0;
   if ( !v9 )
   {
-    v13 = 0LL;
-    RtlImageNtHeaderEx(1LL, v8 & 0xFFFFFFFFFFFFFFFCuLL, 0LL, &v13);
-    if ( !v13 )
+    OutHeaders = 0LL;
+    RtlImageNtHeaderEx(1u, (PVOID)(v8 & 0xFFFFFFFFFFFFFFFCuLL), 0LL, &OutHeaders);
+    if ( !OutHeaders )
       return 0;
-    v11 = *(_WORD *)(v13 + 24);
-    if ( v11 != 267 && v11 != 523 )
+    Magic = OutHeaders->OptionalHeader.Magic;
+    if ( Magic != 267 && Magic != 523 )
       return 0;
-    v12 = *(_DWORD *)(v13 + 80);
-    v9 = v12;
-    if ( !v12 )
+    SizeOfImage = OutHeaders->OptionalHeader.SizeOfImage;
+    v9 = SizeOfImage;
+    if ( !SizeOfImage )
       return 0;
   }
   if ( a2 < (v8 & 0xFFFFFFFFFFFFFFFCuLL) || a2 >= v9 + (v8 & 0xFFFFFFFFFFFFFFFCuLL) )

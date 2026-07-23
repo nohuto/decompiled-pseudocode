@@ -10,7 +10,6 @@
  *     <none>
  */
 
-// local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall ZwDuplicateToken(
         HANDLE ExistingTokenHandle,
         ACCESS_MASK DesiredAccess,
@@ -21,5 +20,5 @@ NTSTATUS __stdcall ZwDuplicateToken(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(ExistingTokenHandle, *(_QWORD *)&DesiredAccess);
+  return KiServiceInternal(ExistingTokenHandle);
 }

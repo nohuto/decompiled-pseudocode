@@ -1,12 +1,12 @@
 /*
- * XREFs of PspReturnResourceQuota @ 0x1400C6840
+ * XREFs of PspReturnResourceQuota @ 0x1400C46E0
  * Callers:
- *     PspReturnQuota @ 0x140010AA0 (PspReturnQuota.c)
+ *     PspReturnQuota @ 0x140010620 (PspReturnQuota.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     ObpFreeObject @ 0x14041B800 (ObpFreeObject.c)
- *     PspDereferenceQuotaBlock @ 0x1404A6018 (PspDereferenceQuotaBlock.c)
+ *     ObpFreeObject @ 0x14041A6C0 (ObpFreeObject.c)
+ *     PspDereferenceQuotaBlock @ 0x14051E418 (PspDereferenceQuotaBlock.c)
  * Callees:
- *     PspLockQuotaExpansion @ 0x1400C69CC (PspLockQuotaExpansion.c)
+ *     PspLockQuotaExpansion @ 0x1400C486C (PspLockQuotaExpansion.c)
  */
 
 __int64 __fastcall PspReturnResourceQuota(unsigned int a1, __int64 a2, __int64 a3, int a4)

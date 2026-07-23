@@ -1,31 +1,32 @@
 /*
- * XREFs of RtlpHpVsFreeChunkRemove @ 0x1402B4088
+ * XREFs of RtlpHpVsFreeChunkRemove @ 0x14035C9F8
  * Callers:
- *     RtlpHpVsSlotCompactChunks @ 0x1402B3AF0 (RtlpHpVsSlotCompactChunks.c)
+ *     RtlpHpVsSlotCompactChunks @ 0x14035C460 (RtlpHpVsSlotCompactChunks.c)
  * Callees:
- *     RtlRbRemoveNode @ 0x1402BE130 (RtlRbRemoveNode.c)
+ *     RtlRbRemoveNode @ 0x140365870 (RtlRbRemoveNode.c)
  */
 
-unsigned __int64 __fastcall RtlpHpVsFreeChunkRemove(__int64 a1, __int64 a2, int a3, _DWORD *a4)
+unsigned __int64 __fastcall RtlpHpVsFreeChunkRemove(__int64 a1, _RTL_RB_TREE *a2, int a3, __int64 a4)
 {
   __int64 v7; // r9
   __int64 v8; // r8
   unsigned __int64 result; // rax
   int v10; // edx
 
-  RtlRbRemoveNode(a2 + 16, a4 + 2);
+  RtlRbRemoveNode(a2 + 1, (PRTL_BALANCED_NODE)(a4 + 8));
   v7 = *(__int16 *)(a1 + 6);
-  v8 = 16 * (WORD1(RtlpHpHeapGlobals) ^ (((unsigned int)a4 ^ *a4) >> 16));
+  v8 = 16 * (WORD1(RtlpHpHeapGlobals) ^ (((unsigned int)a4 ^ *(_DWORD *)a4) >> 16));
   result = (unsigned __int64)(v8 + 4095) >> 12;
   v10 = result
-      + (unsigned __int16)(RtlpHpHeapGlobals ^ (unsigned __int16)a4 ^ *(_WORD *)a4)
+      + (unsigned __int16)(RtlpHpHeapGlobals ^ a4 ^ *(_WORD *)a4)
       - (((((_DWORD)a4 - a3 + 4127) & 0xFFFFF000) < (((_DWORD)a4
-                                                    + 16 * (WORD1(RtlpHpHeapGlobals) ^ (((unsigned int)a4 ^ *a4) >> 16))
+                                                    + 16
+                                                    * (WORD1(RtlpHpHeapGlobals) ^ (((unsigned int)a4 ^ *(_DWORD *)a4) >> 16))
                                                     - a3) & 0xFFFFF000)
-        ? (((_DWORD)a4 + 16 * (WORD1(RtlpHpHeapGlobals) ^ (((unsigned int)a4 ^ *a4) >> 16)) - a3) & 0xFFFFF000)
+        ? (((_DWORD)a4 + 16 * (WORD1(RtlpHpHeapGlobals) ^ (((unsigned int)a4 ^ *(_DWORD *)a4) >> 16)) - a3) & 0xFFFFF000)
         - (((_DWORD)a4 - a3 + 4127) & 0xFFFFF000)
         : 0) >> 12)
-      - ((v8 + (unsigned __int64)((unsigned __int16)a4 & 0xFFF) + 4095) >> 12);
+      - ((v8 + (unsigned __int64)(a4 & 0xFFF) + 4095) >> 12);
   if ( (_WORD)v7 )
     _InterlockedAdd64((volatile signed __int64 *)(v7 + a1 + 32), v10);
   else

@@ -1,12 +1,12 @@
 /*
- * XREFs of MiReturnExcessPoolCharges @ 0x1403C7FB0
+ * XREFs of MiReturnExcessPoolCharges @ 0x1403D1EA0
  * Callers:
- *     MiReturnExcessPoolCommit @ 0x140365894 (MiReturnExcessPoolCommit.c)
- *     MiGetPoolPages @ 0x140365A30 (MiGetPoolPages.c)
- *     MiGetLargePoolPages @ 0x1403C7CA8 (MiGetLargePoolPages.c)
- *     MmAllocateIndependentPagesEx @ 0x140B3D7BC (MmAllocateIndependentPagesEx.c)
+ *     MiReturnExcessPoolCommit @ 0x140367634 (MiReturnExcessPoolCommit.c)
+ *     MiGetPoolPages @ 0x1403677D0 (MiGetPoolPages.c)
+ *     MiGetLargePoolPages @ 0x1403D1B98 (MiGetLargePoolPages.c)
+ *     MmAllocateIndependentPagesEx @ 0x140B3F88C (MmAllocateIndependentPagesEx.c)
  * Callees:
- *     MiReturnPoolCharges @ 0x14036D218 (MiReturnPoolCharges.c)
+ *     MiReturnPoolCharges @ 0x14036EFB8 (MiReturnPoolCharges.c)
  */
 
 __int64 __fastcall MiReturnExcessPoolCharges(__int64 a1, int a2)

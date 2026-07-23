@@ -6,16 +6,16 @@
  *     _RtlClearBits@12 @ 0x4B2E1AE0 (_RtlClearBits@12.c)
  */
 
-unsigned int __stdcall RtlFindSetBitsAndClear(unsigned int *a1, unsigned int a2, unsigned int a3)
+ULONG __cdecl RtlFindSetBitsAndClear(PRTL_BITMAP BitMapHeader, ULONG NumberToFind, ULONG HintIndex)
 {
-  int v3; // eax
+  _RTL_BITMAP *v3; // eax
   unsigned int v4; // edx
-  unsigned int v5; // edi
-  unsigned int v6; // esi
-  unsigned int v7; // ecx
+  unsigned int SizeOfBitMap; // edi
+  unsigned int *Buffer; // esi
+  ULONG v7; // ecx
   unsigned int v8; // ebx
-  unsigned int v9; // ecx
-  _DWORD *v10; // esi
+  ULONG v9; // ecx
+  unsigned int *v10; // esi
   signed int v11; // edi
   unsigned int v12; // ebx
   int v13; // eax
@@ -23,7 +23,7 @@ unsigned int __stdcall RtlFindSetBitsAndClear(unsigned int *a1, unsigned int a2,
   int v15; // ecx
   int v16; // ecx
   unsigned int v17; // edx
-  _DWORD *v18; // edi
+  unsigned int *v18; // edi
   unsigned int v19; // edx
   unsigned int v20; // eax
   unsigned int v21; // ebx
@@ -33,30 +33,30 @@ unsigned int __stdcall RtlFindSetBitsAndClear(unsigned int *a1, unsigned int a2,
   unsigned int v25; // eax
   int v26; // ecx
   int v27; // eax
-  unsigned int v28; // ebx
+  ULONG v28; // ebx
   unsigned int v29; // edx
-  unsigned int v30; // ecx
+  ULONG v30; // ecx
   bool v31; // cf
   int v32; // ecx
   int v33; // eax
-  _DWORD *v34; // ecx
+  unsigned int *v34; // ecx
   unsigned int v35; // eax
-  _DWORD *v37; // [esp+14h] [ebp-18h]
+  unsigned int *v37; // [esp+14h] [ebp-18h]
   unsigned int v38; // [esp+18h] [ebp-14h]
-  unsigned int v39; // [esp+1Ch] [ebp-10h]
-  unsigned int v40; // [esp+20h] [ebp-Ch]
-  unsigned int v41; // [esp+20h] [ebp-Ch]
-  unsigned int v42; // [esp+28h] [ebp-4h]
+  unsigned int *v39; // [esp+1Ch] [ebp-10h]
+  ULONG v40; // [esp+20h] [ebp-Ch]
+  ULONG v41; // [esp+20h] [ebp-Ch]
+  unsigned int *v42; // [esp+28h] [ebp-4h]
 
-  v3 = (int)a1;
-  v4 = a2;
-  v5 = *a1;
-  v6 = a1[1];
-  v7 = a3 < *a1 ? a3 : 0;
-  v8 = *a1 - 1;
+  v3 = BitMapHeader;
+  v4 = NumberToFind;
+  SizeOfBitMap = BitMapHeader->SizeOfBitMap;
+  Buffer = BitMapHeader->Buffer;
+  v7 = HintIndex < BitMapHeader->SizeOfBitMap ? HintIndex : 0;
+  v8 = BitMapHeader->SizeOfBitMap - 1;
   v40 = v7;
-  v42 = v6;
-  if ( !a2 )
+  v42 = Buffer;
+  if ( !NumberToFind )
   {
     v9 = v7 & 0xFFFFFFF8;
     goto LABEL_83;
@@ -69,15 +69,15 @@ unsigned int __stdcall RtlFindSetBitsAndClear(unsigned int *a1, unsigned int a2,
       goto LABEL_32;
     }
     v38 = v8 - v4 + 1;
-    v39 = v6 + 4 * (v38 >> 5);
-    v10 = (_DWORD *)(v6 + 4 * (v40 >> 5));
+    v39 = &Buffer[v38 >> 5];
+    v10 = &Buffer[v40 >> 5];
     v11 = ((1 << (v7 & 0x1F)) - 1) | ~*v10;
-    v4 = a2;
-    if ( a2 > 0x3F )
+    v4 = NumberToFind;
+    if ( NumberToFind > 0x3F )
     {
-      v12 = v39;
+      v12 = (unsigned int)v39;
       if ( (v38 & 0x1F) != 0 )
-        v12 = v39 + 4;
+        v12 = (unsigned int)(v39 + 1);
       if ( v11 )
       {
         if ( *++v10 != -1 )
@@ -93,7 +93,7 @@ unsigned int __stdcall RtlFindSetBitsAndClear(unsigned int *a1, unsigned int a2,
         v13 = 0;
       }
 LABEL_20:
-      v9 = 32 * ((int)((int)v10 - a1[1]) >> 2) - v13;
+      v9 = 32 * (v10 - BitMapHeader->Buffer) - v13;
       if ( v9 <= v38 )
       {
         v17 = v4 - v13;
@@ -112,7 +112,7 @@ LABEL_20:
         if ( v20 >= v19 )
           goto LABEL_28;
 LABEL_14:
-        v4 = a2;
+        v4 = NumberToFind;
 LABEL_15:
         while ( (unsigned int)v10 <= v12 )
         {
@@ -129,13 +129,13 @@ LABEL_15:
       }
       goto LABEL_36;
     }
-    if ( a2 >= 0x20 )
+    if ( NumberToFind >= 0x20 )
     {
       while ( 1 )
       {
         while ( v11 < 0 )
         {
-          if ( (unsigned int)++v10 > v39 )
+          if ( ++v10 > v39 )
             goto LABEL_36;
           v11 = ~*v10;
         }
@@ -144,7 +144,7 @@ LABEL_15:
           v23 = 32;
         else
           v23 = 31 - v22;
-        v9 = 32 * (((int)((int)v10 - a1[1]) >> 2) + 1) - v23;
+        v9 = 32 * (v10 - BitMapHeader->Buffer + 1) - v23;
         if ( v9 > v38 )
           goto LABEL_36;
         v24 = v4 - v23;
@@ -166,33 +166,33 @@ LABEL_15:
         if ( v25 >= v24 )
         {
 LABEL_28:
-          v6 = a1[1];
+          Buffer = BitMapHeader->Buffer;
           goto LABEL_29;
         }
 LABEL_54:
-        v4 = a2;
+        v4 = NumberToFind;
       }
     }
-    if ( a2 <= 1 )
+    if ( NumberToFind <= 1 )
     {
       if ( v11 == -1 )
       {
-        while ( (unsigned int)++v10 <= v39 )
+        while ( ++v10 <= v39 )
         {
           v11 = ~*v10;
           if ( *v10 )
             goto LABEL_81;
         }
 LABEL_36:
-        v6 = a1[1];
+        Buffer = BitMapHeader->Buffer;
         v9 = -1;
         goto LABEL_31;
       }
 LABEL_81:
       v34 = v10;
-      v6 = a1[1];
+      Buffer = BitMapHeader->Buffer;
       _BitScanForward(&v35, ~v11);
-      v9 = v35 + 32 * ((int)((int)v34 - v42) >> 2);
+      v9 = v35 + 32 * (v34 - v42);
 LABEL_76:
       if ( v9 > v38 )
       {
@@ -206,14 +206,14 @@ LABEL_29:
     else
     {
       v26 = 0;
-      v37 = (_DWORD *)(v42 + 4 * (v8 >> 5));
+      v37 = &v42[v8 >> 5];
       while ( 1 )
       {
         if ( v11 == -1 )
         {
           do
           {
-            if ( (unsigned int)++v10 > v39 )
+            if ( ++v10 > v39 )
               goto LABEL_36;
             v11 = ~*v10;
           }
@@ -227,11 +227,11 @@ LABEL_29:
         {
           v32 = -v26;
 LABEL_75:
-          v9 = 32 * ((int)((int)v10 - v42) >> 2) + v32;
-          v6 = a1[1];
+          v9 = 32 * (v10 - v42) + v32;
+          Buffer = BitMapHeader->Buffer;
           goto LABEL_76;
         }
-        v28 = a2;
+        v28 = NumberToFind;
         v29 = ~v11;
         while ( 1 )
         {
@@ -244,7 +244,7 @@ LABEL_75:
           if ( v31 || v28 == 1 )
           {
             _BitScanForward((unsigned int *)&v32, v29);
-            v4 = a2;
+            v4 = NumberToFind;
             goto LABEL_75;
           }
         }
@@ -255,21 +255,21 @@ LABEL_75:
           v26 = 32;
         else
           v26 = 31 - v33;
-        v4 = a2;
+        v4 = NumberToFind;
         v11 = ~*++v10;
       }
-      v6 = a1[1];
+      Buffer = BitMapHeader->Buffer;
       v9 = -1;
 LABEL_30:
-      v4 = a2;
+      v4 = NumberToFind;
 LABEL_31:
-      v5 = *a1;
+      SizeOfBitMap = BitMapHeader->SizeOfBitMap;
 LABEL_32:
       if ( v40 )
       {
-        v21 = v4 + a3;
-        if ( v4 + a3 > v5 )
-          v21 = v5;
+        v21 = v4 + HintIndex;
+        if ( v4 + HintIndex > SizeOfBitMap )
+          v21 = SizeOfBitMap;
         v8 = v21 - 1;
         v7 = 0;
         v40 = 0;
@@ -278,8 +278,8 @@ LABEL_32:
     }
     break;
   }
-  v4 = a2;
-  v3 = (int)a1;
+  v4 = NumberToFind;
+  v3 = BitMapHeader;
 LABEL_83:
   v41 = v9;
   if ( v9 != -1 )

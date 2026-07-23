@@ -1,9 +1,9 @@
 /*
- * XREFs of VfCreateProcessCallback @ 0x140647050
+ * XREFs of VfCreateProcessCallback @ 0x14064AC30
  * Callers:
  *     <none>
  * Callees:
- *     ViCreateProcessCallbackInternal @ 0x140C34B80 (ViCreateProcessCallbackInternal.c)
+ *     ViCreateProcessCallbackInternal @ 0x140C3AB90 (ViCreateProcessCallbackInternal.c)
  */
 
 void __fastcall VfCreateProcessCallback(HANDLE ParentId, HANDLE ProcessId, BOOLEAN Create)

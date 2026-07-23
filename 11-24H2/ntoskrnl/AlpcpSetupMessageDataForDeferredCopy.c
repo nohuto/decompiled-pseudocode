@@ -1,14 +1,14 @@
 /*
- * XREFs of AlpcpSetupMessageDataForDeferredCopy @ 0x14088DB20
+ * XREFs of AlpcpSetupMessageDataForDeferredCopy @ 0x140892140
  * Callers:
- *     AlpcpFormatConnectionRequest @ 0x14088B56C (AlpcpFormatConnectionRequest.c)
- *     AlpcpAcceptConnectPort @ 0x1409F4F00 (AlpcpAcceptConnectPort.c)
+ *     AlpcpFormatConnectionRequest @ 0x14089137C (AlpcpFormatConnectionRequest.c)
+ *     AlpcpAcceptConnectPort @ 0x140A1ED20 (AlpcpAcceptConnectPort.c)
  * Callees:
- *     PsReturnProcessPagedPoolQuota @ 0x1404066F0 (PsReturnProcessPagedPoolQuota.c)
- *     AlpcpReleasePagedPoolQuota @ 0x14088DADC (AlpcpReleasePagedPoolQuota.c)
- *     AlpcpChargePagedPoolQuota @ 0x14088DD64 (AlpcpChargePagedPoolQuota.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     PsReturnProcessPagedPoolQuota @ 0x1403C8EA0 (PsReturnProcessPagedPoolQuota.c)
+ *     AlpcpChargePagedPoolQuota @ 0x140892384 (AlpcpChargePagedPoolQuota.c)
+ *     AlpcpReleasePagedPoolQuota @ 0x1408923C8 (AlpcpReleasePagedPoolQuota.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall AlpcpSetupMessageDataForDeferredCopy(
@@ -25,15 +25,15 @@ __int64 __fastcall AlpcpSetupMessageDataForDeferredCopy(
   unsigned __int64 v10; // rdi
   unsigned __int64 v11; // rcx
   void *v12; // rcx
-  ULONG_PTR v14; // r14
+  __int64 v14; // r14
   void *v15; // rcx
-  __int64 v16; // rbx
+  ULONG_PTR v16; // rbx
   __int64 Pool2; // rax
-  ULONG_PTR v18; // rcx
+  __int64 v18; // rcx
   ULONG_PTR v19; // rcx
   ULONG_PTR v20; // rdx
   int v21; // ebx
-  ULONG_PTR v22; // rcx
+  __int64 v22; // rcx
 
   v6 = 0;
   if ( !a5 )
@@ -75,7 +75,7 @@ __int64 __fastcall AlpcpSetupMessageDataForDeferredCopy(
             *(_QWORD *)(a1 + 232) = 0LL;
           }
           v16 = v8 - v10;
-          Pool2 = ExAllocatePool2(0x100uLL);
+          Pool2 = ExAllocatePool2(0x100uLL, v16, 0x42456C41u);
           v18 = *(_QWORD *)(a1 + 48);
           *(_QWORD *)(a1 + 224) = Pool2;
           if ( Pool2 )

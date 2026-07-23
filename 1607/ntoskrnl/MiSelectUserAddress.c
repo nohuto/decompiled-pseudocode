@@ -1,15 +1,15 @@
 /*
- * XREFs of MiSelectUserAddress @ 0x1404BAA90
+ * XREFs of MiSelectUserAddress @ 0x1404A67C0
  * Callers:
- *     MiMapViewOfImageSection @ 0x140429AC0 (MiMapViewOfImageSection.c)
- *     MiAllocateVirtualMemory @ 0x140430E80 (MiAllocateVirtualMemory.c)
- *     MiMapViewOfDataSection @ 0x1404354C0 (MiMapViewOfDataSection.c)
- *     MiAllocateNewTebRegion @ 0x1404BA720 (MiAllocateNewTebRegion.c)
- *     MiMapViewOfPhysicalSection @ 0x140572C40 (MiMapViewOfPhysicalSection.c)
- *     MiAllocateEnclaveVad @ 0x14065E4C4 (MiAllocateEnclaveVad.c)
+ *     MiMapViewOfImageSection @ 0x140428990 (MiMapViewOfImageSection.c)
+ *     MiAllocateVirtualMemory @ 0x14042FD50 (MiAllocateVirtualMemory.c)
+ *     MiMapViewOfDataSection @ 0x140434390 (MiMapViewOfDataSection.c)
+ *     MiAllocateNewTebRegion @ 0x1404A6450 (MiAllocateNewTebRegion.c)
+ *     MiMapViewOfPhysicalSection @ 0x140573180 (MiMapViewOfPhysicalSection.c)
+ *     MiAllocateEnclaveVad @ 0x14065E5A8 (MiAllocateEnclaveVad.c)
  * Callees:
- *     MiFindEmptyAddressRange @ 0x1404363D0 (MiFindEmptyAddressRange.c)
- *     MiFindEmptyAddressRangeDown @ 0x1404BABB4 (MiFindEmptyAddressRangeDown.c)
+ *     MiFindEmptyAddressRange @ 0x1404352A0 (MiFindEmptyAddressRange.c)
+ *     MiFindEmptyAddressRangeDown @ 0x1404A68E4 (MiFindEmptyAddressRangeDown.c)
  */
 
 __int64 __fastcall MiSelectUserAddress(

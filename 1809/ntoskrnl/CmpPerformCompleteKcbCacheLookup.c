@@ -1,8 +1,8 @@
 /*
- * XREFs of CmpPerformCompleteKcbCacheLookup @ 0x1405E5320
+ * XREFs of CmpPerformCompleteKcbCacheLookup @ 0x1405E6320
  * Callers:
- *     CmpGetSymbolicLinkTarget @ 0x1405D7CC0 (CmpGetSymbolicLinkTarget.c)
- *     CmpDoParseKey @ 0x140641CA0 (CmpDoParseKey.c)
+ *     CmpGetSymbolicLinkTarget @ 0x1405D8CC0 (CmpGetSymbolicLinkTarget.c)
+ *     CmpDoParseKey @ 0x140642CC0 (CmpDoParseKey.c)
  * Callees:
  *     ExpAcquireFastMutexContended @ 0x140005480 (ExpAcquireFastMutexContended.c)
  *     KeReleaseGuardedMutex @ 0x140014E30 (KeReleaseGuardedMutex.c)
@@ -12,24 +12,24 @@
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     ExReleasePushLockEx @ 0x14004F160 (ExReleasePushLockEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     CmpDereferenceKeyControlBlockWithLock @ 0x1405A942C (CmpDereferenceKeyControlBlockWithLock.c)
- *     CmpUnlockHashEntryByKcb @ 0x1405AA470 (CmpUnlockHashEntryByKcb.c)
- *     CmpLockHashEntryExclusiveByKcb @ 0x1405AA61C (CmpLockHashEntryExclusiveByKcb.c)
- *     CmpDeleteHive @ 0x1405AFDEC (CmpDeleteHive.c)
- *     CmpDereferenceKeyControlBlockUnsafe @ 0x1405AFFE0 (CmpDereferenceKeyControlBlockUnsafe.c)
- *     CmpLockHashEntrySharedByKcb @ 0x1405D168C (CmpLockHashEntrySharedByKcb.c)
- *     CmpLockKcbExclusive @ 0x1405D1728 (CmpLockKcbExclusive.c)
- *     CmpUnlockHashEntry @ 0x1405D19F8 (CmpUnlockHashEntry.c)
- *     RtlUpcaseUnicodeChar @ 0x1405D5C10 (RtlUpcaseUnicodeChar.c)
- *     CmpUnlockKcb @ 0x1405E3580 (CmpUnlockKcb.c)
- *     CmpDereferenceKeyControlBlock @ 0x1406441A0 (CmpDereferenceKeyControlBlock.c)
- *     CmpGetComponentNameAtIndex @ 0x140644760 (CmpGetComponentNameAtIndex.c)
- *     CmpFreeKeyControlBlock @ 0x140692BF4 (CmpFreeKeyControlBlock.c)
- *     CmpRecordParseFailure @ 0x140698260 (CmpRecordParseFailure.c)
- *     CmpCompareUnicodeString @ 0x1406B6598 (CmpCompareUnicodeString.c)
- *     CmpWaitForHiveMount @ 0x1407555A4 (CmpWaitForHiveMount.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     CmpDereferenceKeyControlBlockWithLock @ 0x1405AA42C (CmpDereferenceKeyControlBlockWithLock.c)
+ *     CmpUnlockHashEntryByKcb @ 0x1405AB470 (CmpUnlockHashEntryByKcb.c)
+ *     CmpLockHashEntryExclusiveByKcb @ 0x1405AB61C (CmpLockHashEntryExclusiveByKcb.c)
+ *     CmpDeleteHive @ 0x1405B0DEC (CmpDeleteHive.c)
+ *     CmpDereferenceKeyControlBlockUnsafe @ 0x1405B0FE0 (CmpDereferenceKeyControlBlockUnsafe.c)
+ *     CmpLockHashEntrySharedByKcb @ 0x1405D268C (CmpLockHashEntrySharedByKcb.c)
+ *     CmpLockKcbExclusive @ 0x1405D2728 (CmpLockKcbExclusive.c)
+ *     CmpUnlockHashEntry @ 0x1405D29F8 (CmpUnlockHashEntry.c)
+ *     RtlUpcaseUnicodeChar @ 0x1405D6C10 (RtlUpcaseUnicodeChar.c)
+ *     CmpUnlockKcb @ 0x1405E4580 (CmpUnlockKcb.c)
+ *     CmpDereferenceKeyControlBlock @ 0x1406451C0 (CmpDereferenceKeyControlBlock.c)
+ *     CmpGetComponentNameAtIndex @ 0x140645780 (CmpGetComponentNameAtIndex.c)
+ *     CmpFreeKeyControlBlock @ 0x140693DB4 (CmpFreeKeyControlBlock.c)
+ *     CmpRecordParseFailure @ 0x140699420 (CmpRecordParseFailure.c)
+ *     CmpCompareUnicodeString @ 0x1406B7838 (CmpCompareUnicodeString.c)
+ *     CmpWaitForHiveMount @ 0x140756794 (CmpWaitForHiveMount.c)
  */
 
 __int64 __fastcall CmpPerformCompleteKcbCacheLookup(
@@ -90,7 +90,7 @@ __int64 __fastcall CmpPerformCompleteKcbCacheLookup(
   signed __int32 v54; // eax
   signed __int32 v55; // ecx
   signed __int32 v56; // ett
-  __int64 v57; // rdi
+  PRTL_BALANCED_NODE v57; // rdi
   unsigned __int8 CurrentIrql; // si
   char v59; // al
   __int64 *v60; // rcx
@@ -521,7 +521,7 @@ LABEL_73:
                     if ( !_interlockedbittestandreset((volatile signed __int32 *)&CmpDelayedCloseTableLock, 0) )
                       ExpAcquireFastMutexContended((ULONG_PTR)&CmpDelayedCloseTableLock, v57);
                     if ( v57 )
-                      *(_BYTE *)(v57 + 26) |= 1u;
+                      BYTE2(v57[1].Left) |= 1u;
                     *(&CmpDelayedCloseTableLock + 1) = (ULONG_PTR)KeGetCurrentThread();
                     *((_DWORD *)&CmpDelayedCloseTableLock + 12) = CurrentIrql;
                     v59 = *(_BYTE *)(v32 + 56);
@@ -537,7 +537,7 @@ LABEL_73:
                           --CmpDelayedCloseElements;
                           *v62 = v61;
                           v61[1] = (__int64)v62;
-                          --qword_14096EB28;
+                          --qword_14096FB28;
                           goto LABEL_83;
                         }
 LABEL_145:

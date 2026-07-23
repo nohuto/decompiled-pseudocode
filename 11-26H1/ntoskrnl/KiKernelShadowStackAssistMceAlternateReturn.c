@@ -1,9 +1,9 @@
 /*
- * XREFs of KiKernelShadowStackAssistMceAlternateReturn @ 0x1405FAC70
+ * XREFs of KiKernelShadowStackAssistMceAlternateReturn @ 0x1405FD690
  * Callers:
- *     KiMcheckAbort @ 0x140738080 (KiMcheckAbort.c)
+ *     KiMcheckAbort @ 0x14073CC80 (KiMcheckAbort.c)
  * Callees:
- *     VslKernelShadowStackAssist @ 0x140368500 (VslKernelShadowStackAssist.c)
+ *     VslKernelShadowStackAssist @ 0x14036A2A0 (VslKernelShadowStackAssist.c)
  */
 
 __int64 __fastcall KiKernelShadowStackAssistMceAlternateReturn(__int64 a1)

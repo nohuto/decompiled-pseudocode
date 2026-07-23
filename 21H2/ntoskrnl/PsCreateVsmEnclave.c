@@ -1,19 +1,19 @@
 /*
- * XREFs of PsCreateVsmEnclave @ 0x14090D8E8
+ * XREFs of PsCreateVsmEnclave @ 0x14090DA48
  * Callers:
- *     MiCreateVsmEnclave @ 0x1408D2BAC (MiCreateVsmEnclave.c)
+ *     MiCreateVsmEnclave @ 0x1408D2D0C (MiCreateVsmEnclave.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     ExAllocatePoolWithQuotaTag @ 0x140353020 (ExAllocatePoolWithQuotaTag.c)
- *     KeInitializeEvent @ 0x1403538F0 (KeInitializeEvent.c)
- *     memset @ 0x140414200 (memset.c)
- *     ?Free@SC_ENV@@SAXPEAX@Z @ 0x1406B7B50 (-Free@SC_ENV@@SAXPEAX@Z.c)
- *     VslCreateEnclave @ 0x14088EF50 (VslCreateEnclave.c)
- *     PspVsmEnclaveHashAllocator @ 0x14090E740 (PspVsmEnclaveHashAllocator.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     ExAllocatePoolWithQuotaTag @ 0x14035DD70 (ExAllocatePoolWithQuotaTag.c)
+ *     KeInitializeEvent @ 0x14035E640 (KeInitializeEvent.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     ?Free@SC_ENV@@SAXPEAX@Z @ 0x140617060 (-Free@SC_ENV@@SAXPEAX@Z.c)
+ *     VslCreateEnclave @ 0x14088F0B0 (VslCreateEnclave.c)
+ *     PspVsmEnclaveHashAllocator @ 0x14090E8A0 (PspVsmEnclaveHashAllocator.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PsCreateVsmEnclave(
@@ -33,30 +33,36 @@ __int64 __fastcall PsCreateVsmEnclave(
   char *PoolWithQuotaTag; // rdi
   unsigned __int64 v15; // rax
   unsigned __int64 v16; // rax
-  char *v17; // rax
-  char *v18; // r14
+  __int64 v17; // rdx
+  __int64 v18; // r8
+  __int64 v19; // r9
+  char *v20; // rax
+  char *v21; // r14
   int Enclave; // edi
-  unsigned int v21; // edi
-  signed __int64 v22; // rax
-  struct _KTHREAD *v23; // rax
-  volatile signed __int64 *v24; // r12
-  __int64 v25; // r13
-  __int64 v26; // rsi
-  char *v27; // r8
-  char v28; // cl
-  unsigned __int64 v29; // rcx
-  __int64 v30; // r10
-  __int64 v31; // r12
-  _QWORD *v32; // r9
-  __int64 v33; // rdx
-  void *v34; // rcx
-  int v35; // esi
-  __int64 v36; // r8
-  unsigned int v37; // edi
-  __int64 v38; // rcx
-  __int64 v39; // rdx
-  __int64 v40; // [rsp+50h] [rbp-10h]
-  __int64 v41; // [rsp+58h] [rbp-8h]
+  unsigned int v24; // edi
+  signed __int64 v25; // rax
+  struct _KTHREAD *v26; // rax
+  volatile signed __int64 *v27; // r12
+  __int64 v28; // r13
+  __int64 v29; // rsi
+  char *v30; // r8
+  char v31; // cl
+  unsigned __int64 v32; // rcx
+  __int64 v33; // r10
+  __int64 v34; // r12
+  _QWORD *v35; // r9
+  __int64 v36; // rdx
+  void *v37; // rcx
+  int v38; // esi
+  __int64 v39; // r8
+  unsigned int v40; // edi
+  __int64 v41; // rcx
+  __int64 v42; // rdx
+  __int64 v43; // rdx
+  __int64 v44; // r8
+  __int64 v45; // r9
+  __int64 v46; // [rsp+50h] [rbp-10h]
+  __int64 v47; // [rsp+58h] [rbp-8h]
 
   v8 = a4;
   v10 = a2;
@@ -92,136 +98,136 @@ __int64 __fastcall PsCreateVsmEnclave(
     if ( (_InterlockedExchangeAdd64(v13, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
       ExfTryToWakePushLock(v13);
     KeAbPostRelease((ULONG_PTR)v13);
-    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v17, v18, v19);
     if ( !*(_QWORD *)(a1 + 2248) )
       return 3221225626LL;
     v10 = a2;
   }
-  v17 = (char *)ExAllocatePoolWithQuotaTag((POOL_TYPE)520, 0x88uLL, 0x65567350u);
-  v18 = v17;
-  if ( !v17 )
+  v20 = (char *)ExAllocatePoolWithQuotaTag((POOL_TYPE)520, 0x88uLL, 0x65567350u);
+  v21 = v20;
+  if ( !v20 )
     return 3221225626LL;
-  memset(v17, 0, 0x88uLL);
-  Enclave = VslCreateEnclave((__int64)v18, a1, v10, a3, v8, a6, a7, a5, (_QWORD *)v18 + 3);
+  memset(v20, 0, 0x88uLL);
+  Enclave = VslCreateEnclave((__int64)v21, a1, v10, a3, v8, a6, a7, a5, (_QWORD *)v21 + 3);
   if ( Enclave >= 0 )
   {
-    v21 = 0;
-    v18[76] = a5;
-    *((_QWORD *)v18 + 14) = 0LL;
-    *((_QWORD *)v18 + 2) = 1LL;
-    *((_QWORD *)v18 + 13) = 0LL;
-    *((_QWORD *)v18 + 6) = 0LL;
-    *((_QWORD *)v18 + 4) = a3;
-    KeInitializeEvent((PRKEVENT)(v18 + 80), NotificationEvent, 0);
+    v24 = 0;
+    v21[76] = a5;
+    *((_QWORD *)v21 + 14) = 0LL;
+    *((_QWORD *)v21 + 2) = 1LL;
+    *((_QWORD *)v21 + 13) = 0LL;
+    *((_QWORD *)v21 + 6) = 0LL;
+    *((_QWORD *)v21 + 4) = a3;
+    KeInitializeEvent((PRKEVENT)(v21 + 80), NotificationEvent, 0);
     if ( !a5 )
     {
-      if ( !*((_QWORD *)v18 + 1) )
+      if ( !*((_QWORD *)v21 + 1) )
       {
         do
         {
-          v22 = _InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 2256), 1uLL);
-          *((_QWORD *)v18 + 1) = v22 + 1;
+          v25 = _InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 2256), 1uLL);
+          *((_QWORD *)v21 + 1) = v25 + 1;
         }
-        while ( v22 == -1 );
+        while ( v25 == -1 );
       }
-      v23 = KeGetCurrentThread();
-      --v23->KernelApcDisable;
-      v24 = (volatile signed __int64 *)(a1 + 2264);
+      v26 = KeGetCurrentThread();
+      --v26->KernelApcDisable;
+      v27 = (volatile signed __int64 *)(a1 + 2264);
       ExAcquirePushLockExclusiveEx(a1 + 2264, 0LL);
-      v25 = *(_QWORD *)(a1 + 2248);
-      if ( *(_DWORD *)v25 >= (unsigned int)(4 * (*(_DWORD *)(v25 + 4) >> 5)) )
+      v28 = *(_QWORD *)(a1 + 2248);
+      if ( *(_DWORD *)v28 >= (unsigned int)(4 * (*(_DWORD *)(v28 + 4) >> 5)) )
       {
-        v26 = (unsigned int)(2 * (*(_DWORD *)(v25 + 4) >> 5));
-        if ( (unsigned int)v26 < 4 )
-          v26 = 4LL;
-        v27 = (char *)PspVsmEnclaveHashAllocator(8LL * (unsigned int)v26);
-        if ( v27 )
+        v29 = (unsigned int)(2 * (*(_DWORD *)(v28 + 4) >> 5));
+        if ( (unsigned int)v29 < 4 )
+          v29 = 4LL;
+        v30 = (char *)PspVsmEnclaveHashAllocator(8LL * (unsigned int)v29);
+        if ( v30 )
         {
-          if ( (((_DWORD)v26 - 1) & (unsigned int)v26) != 0 )
+          if ( (((_DWORD)v29 - 1) & (unsigned int)v29) != 0 )
           {
-            v28 = -1;
+            v31 = -1;
             do
             {
-              ++v28;
-              LODWORD(v26) = (unsigned int)v26 >> 1;
+              ++v31;
+              LODWORD(v29) = (unsigned int)v29 >> 1;
             }
-            while ( (_DWORD)v26 );
-            v26 = (unsigned int)(1 << v28);
+            while ( (_DWORD)v29 );
+            v29 = (unsigned int)(1 << v31);
           }
-          if ( (unsigned int)v26 > 0x4000000 )
-            v26 = 0x4000000LL;
-          v29 = (unsigned int)v26;
-          if ( v27 > &v27[8 * v26] )
-            v29 = 0LL;
-          if ( v29 )
+          if ( (unsigned int)v29 > 0x4000000 )
+            v29 = 0x4000000LL;
+          v32 = (unsigned int)v29;
+          if ( v30 > &v30[8 * v29] )
+            v32 = 0LL;
+          if ( v32 )
           {
-            memset64(v27, v25 | 1, v29);
-            v21 = 0;
+            memset64(v30, v28 | 1, v32);
+            v24 = 0;
           }
-          v30 = -1LL << (*(_BYTE *)(v25 + 4) & 0x1F);
-          if ( (*(_DWORD *)(v25 + 4) & 0xFFFFFFE0) != 0 )
+          v33 = -1LL << (*(_BYTE *)(v28 + 4) & 0x1F);
+          if ( (*(_DWORD *)(v28 + 4) & 0xFFFFFFE0) != 0 )
           {
             do
             {
-              v31 = *(_QWORD *)(v25 + 8);
+              v34 = *(_QWORD *)(v28 + 8);
               while ( 1 )
               {
-                v32 = *(_QWORD **)(v31 + 8LL * v21);
-                if ( ((unsigned __int8)v32 & 1) != 0 )
+                v35 = *(_QWORD **)(v34 + 8LL * v24);
+                if ( ((unsigned __int8)v35 & 1) != 0 )
                   break;
-                *(_QWORD *)(v31 + 8LL * v21) = *v32;
-                v40 = v30 & v32[1];
-                v33 = (37
-                     * (BYTE6(v40)
+                *(_QWORD *)(v34 + 8LL * v24) = *v35;
+                v46 = v33 & v35[1];
+                v36 = (37
+                     * (BYTE6(v46)
                       + 37
-                      * (BYTE5(v40)
+                      * (BYTE5(v46)
                        + 37
-                       * (BYTE4(v40)
+                       * (BYTE4(v46)
                         + 37
-                        * (BYTE3(v40) + 37 * (BYTE2(v40) + 37 * (BYTE1(v40) + 37 * ((unsigned __int8)v40 + 11623883)))))))
-                     + HIBYTE(v40)) & (unsigned int)(v26 - 1);
-                *v32 = *(_QWORD *)&v27[8 * v33];
-                *(_QWORD *)&v27[8 * v33] = v32;
+                        * (BYTE3(v46) + 37 * (BYTE2(v46) + 37 * (BYTE1(v46) + 37 * ((unsigned __int8)v46 + 11623883)))))))
+                     + HIBYTE(v46)) & (unsigned int)(v29 - 1);
+                *v35 = *(_QWORD *)&v30[8 * v36];
+                *(_QWORD *)&v30[8 * v36] = v35;
               }
-              ++v21;
+              ++v24;
             }
-            while ( v21 < *(_DWORD *)(v25 + 4) >> 5 );
-            v24 = (volatile signed __int64 *)(a1 + 2264);
+            while ( v24 < *(_DWORD *)(v28 + 4) >> 5 );
+            v27 = (volatile signed __int64 *)(a1 + 2264);
           }
-          v34 = *(void **)(v25 + 8);
-          v35 = *(_DWORD *)(v25 + 4) & 0x1F | (32 * v26);
-          *(_QWORD *)(v25 + 8) = v27;
-          *(_DWORD *)(v25 + 4) = v35;
-          if ( v34 )
-            SC_ENV::Free(v34);
+          v37 = *(void **)(v28 + 8);
+          v38 = *(_DWORD *)(v28 + 4) & 0x1F | (32 * v29);
+          *(_QWORD *)(v28 + 8) = v30;
+          *(_DWORD *)(v28 + 4) = v38;
+          if ( v37 )
+            SC_ENV::Free(v37);
         }
       }
-      v36 = *(_QWORD *)(a1 + 2248);
-      v37 = *(_DWORD *)(v36 + 4);
-      v41 = *((_QWORD *)v18 + 1) & (-1LL << (v37 & 0x1F));
-      v38 = *(_QWORD *)(v36 + 8);
-      v39 = (37
-           * (BYTE6(v41)
+      v39 = *(_QWORD *)(a1 + 2248);
+      v40 = *(_DWORD *)(v39 + 4);
+      v47 = *((_QWORD *)v21 + 1) & (-1LL << (v40 & 0x1F));
+      v41 = *(_QWORD *)(v39 + 8);
+      v42 = (37
+           * (BYTE6(v47)
             + 37
-            * (BYTE5(v41)
+            * (BYTE5(v47)
              + 37
-             * (BYTE4(v41)
-              + 37 * (BYTE3(v41) + 37 * (BYTE2(v41) + 37 * (BYTE1(v41) + 37 * ((unsigned __int8)v41 + 11623883)))))))
-           + HIBYTE(v41)) & ((v37 >> 5) - 1);
-      *(_QWORD *)v18 = *(_QWORD *)(v38 + 8 * v39);
-      *(_QWORD *)(v38 + 8 * v39) = v18;
-      ++*(_DWORD *)v36;
-      if ( (_InterlockedExchangeAdd64(v24, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-        ExfTryToWakePushLock(v24);
-      KeAbPostRelease((ULONG_PTR)v24);
-      KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+             * (BYTE4(v47)
+              + 37 * (BYTE3(v47) + 37 * (BYTE2(v47) + 37 * (BYTE1(v47) + 37 * ((unsigned __int8)v47 + 11623883)))))))
+           + HIBYTE(v47)) & ((v40 >> 5) - 1);
+      *(_QWORD *)v21 = *(_QWORD *)(v41 + 8 * v42);
+      *(_QWORD *)(v41 + 8 * v42) = v21;
+      ++*(_DWORD *)v39;
+      if ( (_InterlockedExchangeAdd64(v27, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+        ExfTryToWakePushLock(v27);
+      KeAbPostRelease((ULONG_PTR)v27);
+      KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v43, v44, v45);
     }
-    *a8 = v18;
+    *a8 = v21;
     return 0LL;
   }
   else
   {
-    ExFreePoolWithTag(v18, 0);
+    ExFreePoolWithTag(v21, 0);
     return (unsigned int)Enclave;
   }
 }

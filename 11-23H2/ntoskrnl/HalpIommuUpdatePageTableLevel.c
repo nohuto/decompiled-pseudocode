@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpIommuUpdatePageTableLevel @ 0x1403A9FE8
+ * XREFs of HalpIommuUpdatePageTableLevel @ 0x1403AA1C8
  * Callers:
- *     HalpIommuInitializeAll @ 0x140A90F0C (HalpIommuInitializeAll.c)
+ *     HalpIommuInitializeAll @ 0x140A90D8C (HalpIommuInitializeAll.c)
  * Callees:
  *     <none>
  */

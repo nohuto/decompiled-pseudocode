@@ -1,17 +1,17 @@
 /*
- * XREFs of DrvDbOpenContext @ 0x140823650
+ * XREFs of DrvDbOpenContext @ 0x140823D90
  * Callers:
- *     PiDrvDbInit @ 0x1407370BC (PiDrvDbInit.c)
+ *     PiDrvDbInit @ 0x140734FEC (PiDrvDbInit.c)
  * Callees:
- *     ExDeleteResourceLite @ 0x1402CD920 (ExDeleteResourceLite.c)
- *     ExInitializeResourceLite @ 0x1403655E0 (ExInitializeResourceLite.c)
- *     _PnpCtxSetObjectContext @ 0x140817B64 (_PnpCtxSetObjectContext.c)
- *     _PnpCtxSetObjectDispatchCallback @ 0x140817B90 (_PnpCtxSetObjectDispatchCallback.c)
- *     DrvDbCreateDatabaseNode @ 0x140823A00 (DrvDbCreateDatabaseNode.c)
- *     DrvDbDestroyDatabaseNode @ 0x140823D38 (DrvDbDestroyDatabaseNode.c)
- *     DrvDbLoadDatabaseNode @ 0x140925AF8 (DrvDbLoadDatabaseNode.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExDeleteResourceLite @ 0x1402E55A0 (ExDeleteResourceLite.c)
+ *     ExInitializeResourceLite @ 0x1403EAC90 (ExInitializeResourceLite.c)
+ *     _PnpCtxSetObjectContext @ 0x1408182A4 (_PnpCtxSetObjectContext.c)
+ *     _PnpCtxSetObjectDispatchCallback @ 0x1408182D0 (_PnpCtxSetObjectDispatchCallback.c)
+ *     DrvDbCreateDatabaseNode @ 0x140824140 (DrvDbCreateDatabaseNode.c)
+ *     DrvDbDestroyDatabaseNode @ 0x140824478 (DrvDbDestroyDatabaseNode.c)
+ *     DrvDbLoadDatabaseNode @ 0x140927C38 (DrvDbLoadDatabaseNode.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 DrvDbOpenContext()
@@ -38,7 +38,7 @@ __int64 DrvDbOpenContext()
   PiDrvDbCtx = 0LL;
   v16 = 0LL;
   v2 = **(_DWORD **)&PiPnpRtlCtx;
-  Pool2 = ExAllocatePool2(0x100uLL);
+  Pool2 = ExAllocatePool2(0x100uLL, 0x40uLL, 0x42444450u);
   v4 = (PVOID *)Pool2;
   if ( Pool2 )
   {
@@ -48,7 +48,7 @@ __int64 DrvDbOpenContext()
     v6 = (_QWORD *)(Pool2 + 16);
     v6[1] = v6;
     *v6 = v6;
-    v7 = (struct _ERESOURCE *)ExAllocatePool2(0x40uLL);
+    v7 = (struct _ERESOURCE *)ExAllocatePool2(0x40uLL, 0x68uLL, 0x42444450u);
     v4[7] = v7;
     if ( v7 )
     {
@@ -63,7 +63,7 @@ __int64 DrvDbOpenContext()
           DatabaseNode = DrvDbLoadDatabaseNode(v4, v16);
           if ( DatabaseNode >= 0 )
           {
-            v9 = &qword_140009890;
+            v9 = &qword_140009A90;
             do
             {
               DatabaseNode = PnpCtxSetObjectDispatchCallback(v0, *(_DWORD *)v9, v9[1]);

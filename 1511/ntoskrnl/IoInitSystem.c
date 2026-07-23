@@ -11,7 +11,7 @@
  *     IoInitSystemPreDrivers @ 0x140757B24 (IoInitSystemPreDrivers.c)
  */
 
-char __fastcall IoInitSystem(__int64 a1)
+char __fastcall IoInitSystem(UNICODE_STRING *a1)
 {
   if ( !IoInitSystemPreDrivers(a1) )
     return 0;

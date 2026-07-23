@@ -79,10 +79,13 @@ __int64 __fastcall MiIncrementLargeSubsections(__int64 *a1, unsigned __int64 a2)
       v32[0] = 393479;
       v30 = 512;
       ExReleaseSpinLockExclusiveFromDpcLevel(v6);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v7 <= 0xFu && CurrentIrql >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+          && CurrentIrql <= 0xFu
+          && (unsigned __int8)v7 <= 0xFu
+          && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -103,10 +106,10 @@ __int64 __fastcall MiIncrementLargeSubsections(__int64 *a1, unsigned __int64 a2)
       if ( v15 == 1 )
       {
         ExReleaseSpinLockExclusiveFromDpcLevel(v6);
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v16 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v16 <= 0xFu && (unsigned __int8)v7 <= 0xFu && v16 >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v16 <= 0xFu && (unsigned __int8)v7 <= 0xFu && v16 >= 2u )
           {
             v17 = KeGetCurrentPrcb();
             v18 = v17->SchedulerAssist;
@@ -147,10 +150,10 @@ __int64 __fastcall MiIncrementLargeSubsections(__int64 *a1, unsigned __int64 a2)
   v4 = -1;
 LABEL_34:
   ExReleaseSpinLockExclusiveFromDpcLevel(SpinLock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v23 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v23 <= 0xFu && (unsigned __int8)v7 <= 0xFu && v23 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v23 <= 0xFu && (unsigned __int8)v7 <= 0xFu && v23 >= 2u )
     {
       v24 = KeGetCurrentPrcb();
       v25 = v24->SchedulerAssist;

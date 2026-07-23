@@ -1,38 +1,38 @@
 /*
- * XREFs of MiApplyDriverHotPatch @ 0x14086DAC4
+ * XREFs of MiApplyDriverHotPatch @ 0x140873E94
  * Callers:
- *     MiApplyHotPatchToLoadedDriver @ 0x14086E384 (MiApplyHotPatchToLoadedDriver.c)
+ *     MiApplyHotPatchToLoadedDriver @ 0x140874754 (MiApplyHotPatchToLoadedDriver.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x1403685AC (VslpEnterIumSecureMode.c)
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     RtlImageDirectoryEntryToData @ 0x14040E290 (RtlImageDirectoryEntryToData.c)
- *     MmGetCurrentProcessorColor @ 0x14044ADC0 (MmGetCurrentProcessorColor.c)
- *     MiGetAnyMultiplexedVm @ 0x140457870 (MiGetAnyMultiplexedVm.c)
- *     MiGetBaseLoaderPortion @ 0x1404F5130 (MiGetBaseLoaderPortion.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     VslApplyHotPatch @ 0x1405C29F0 (VslApplyHotPatch.c)
- *     MiLinkHotPatchToBase @ 0x1406FC268 (MiLinkHotPatchToBase.c)
- *     MiUpdatePatchInProgress @ 0x1406FCEB4 (MiUpdatePatchInProgress.c)
- *     RtlGetHotPatchSize @ 0x140720BB0 (RtlGetHotPatchSize.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     strcmp @ 0x14073DC40 (strcmp.c)
- *     VslObtainHotPatchUndoTable @ 0x14079251C (VslObtainHotPatchUndoTable.c)
- *     MiPrepareDriverPatchState @ 0x140864420 (MiPrepareDriverPatchState.c)
- *     MiApplyHotPatchToDriverDataPages @ 0x14086E230 (MiApplyHotPatchToDriverDataPages.c)
- *     MiIdentifyImageDiscardablePages @ 0x140870424 (MiIdentifyImageDiscardablePages.c)
- *     MiIdentifyPatchImageDataPages @ 0x140870540 (MiIdentifyPatchImageDataPages.c)
- *     MiInvokePatchCallback @ 0x140870C74 (MiInvokePatchCallback.c)
- *     MiPrepareDriverForHotPatch @ 0x1408734E8 (MiPrepareDriverForHotPatch.c)
- *     MiAddEntryToImportList @ 0x140874F0C (MiAddEntryToImportList.c)
- *     RtlFindHotPatchBaseMachine @ 0x1408AB00C (RtlFindHotPatchBaseMachine.c)
- *     RtlFindHotPatchInformation @ 0x1408AB074 (RtlFindHotPatchInformation.c)
- *     RtlValidateHotPatchBase @ 0x1408AB358 (RtlValidateHotPatchBase.c)
- *     MiAllocateKernelCfgBitmapPageTables @ 0x140AC7290 (MiAllocateKernelCfgBitmapPageTables.c)
- *     MiUnlockDriverPages @ 0x140AC7404 (MiUnlockDriverPages.c)
- *     MiFreeLoadedImportList @ 0x140B3D6A4 (MiFreeLoadedImportList.c)
- *     MiGetSectionStrongImageReference @ 0x140B4D7C0 (MiGetSectionStrongImageReference.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     VslpEnterIumSecureMode @ 0x14036A34C (VslpEnterIumSecureMode.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     RtlImageDirectoryEntryToData @ 0x14042B1C0 (RtlImageDirectoryEntryToData.c)
+ *     MmGetCurrentProcessorColor @ 0x140442EF0 (MmGetCurrentProcessorColor.c)
+ *     MiGetAnyMultiplexedVm @ 0x14044F0E0 (MiGetAnyMultiplexedVm.c)
+ *     MiGetBaseLoaderPortion @ 0x1404EE710 (MiGetBaseLoaderPortion.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     VslApplyHotPatch @ 0x1405C5260 (VslApplyHotPatch.c)
+ *     MiLinkHotPatchToBase @ 0x140700F38 (MiLinkHotPatchToBase.c)
+ *     MiUpdatePatchInProgress @ 0x140701B84 (MiUpdatePatchInProgress.c)
+ *     RtlGetHotPatchSize @ 0x1407257D0 (RtlGetHotPatchSize.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     strcmp @ 0x140742840 (strcmp.c)
+ *     VslObtainHotPatchUndoTable @ 0x14079504C (VslObtainHotPatchUndoTable.c)
+ *     MiPrepareDriverPatchState @ 0x14086A800 (MiPrepareDriverPatchState.c)
+ *     MiApplyHotPatchToDriverDataPages @ 0x140874600 (MiApplyHotPatchToDriverDataPages.c)
+ *     MiIdentifyImageDiscardablePages @ 0x140876784 (MiIdentifyImageDiscardablePages.c)
+ *     MiIdentifyPatchImageDataPages @ 0x1408768A0 (MiIdentifyPatchImageDataPages.c)
+ *     MiInvokePatchCallback @ 0x140876FD4 (MiInvokePatchCallback.c)
+ *     MiPrepareDriverForHotPatch @ 0x140879848 (MiPrepareDriverForHotPatch.c)
+ *     MiAddEntryToImportList @ 0x14087B2F0 (MiAddEntryToImportList.c)
+ *     RtlFindHotPatchBaseMachine @ 0x1408B147C (RtlFindHotPatchBaseMachine.c)
+ *     RtlFindHotPatchInformation @ 0x1408B14E4 (RtlFindHotPatchInformation.c)
+ *     RtlValidateHotPatchBase @ 0x1408B17C8 (RtlValidateHotPatchBase.c)
+ *     MiAllocateKernelCfgBitmapPageTables @ 0x140AC8E80 (MiAllocateKernelCfgBitmapPageTables.c)
+ *     MiUnlockDriverPages @ 0x140AC8FF4 (MiUnlockDriverPages.c)
+ *     MiFreeLoadedImportList @ 0x140B3F774 (MiFreeLoadedImportList.c)
+ *     MiGetSectionStrongImageReference @ 0x140B4F550 (MiGetSectionStrongImageReference.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiApplyDriverHotPatch(__int64 a1, __int64 a2, __int64 a3)
@@ -58,11 +58,11 @@ __int64 __fastcall MiApplyDriverHotPatch(__int64 a1, __int64 a2, __int64 a3)
   __int64 v24; // r12
   int HotPatchSize; // r8d
   int KernelCfgBitmapPageTables; // eax
-  unsigned __int64 v27; // r15
-  _DWORD *v28; // rax
-  _DWORD *v29; // r14
-  unsigned __int64 v30; // rbx
-  unsigned __int64 v31; // rcx
+  char *v27; // r15
+  char *v28; // rax
+  char *v29; // r14
+  char *v30; // rbx
+  char *v31; // rcx
   int v32; // r12d
   int v33; // r12d
   int v34; // eax
@@ -75,19 +75,19 @@ __int64 __fastcall MiApplyDriverHotPatch(__int64 a1, __int64 a2, __int64 a3)
   int v41; // [rsp+40h] [rbp-C0h]
   __int64 v42; // [rsp+48h] [rbp-B8h]
   int v43; // [rsp+50h] [rbp-B0h]
-  unsigned int v44; // [rsp+54h] [rbp-ACh] BYREF
+  ULONG Size; // [rsp+54h] [rbp-ACh] BYREF
   unsigned __int64 v45; // [rsp+58h] [rbp-A8h]
   __int64 v46; // [rsp+60h] [rbp-A0h]
-  unsigned __int64 v47; // [rsp+68h] [rbp-98h]
+  char *v47; // [rsp+68h] [rbp-98h]
   int v48; // [rsp+70h] [rbp-90h]
   __int64 BaseLoaderPortion; // [rsp+78h] [rbp-88h]
   _QWORD v50[3]; // [rsp+80h] [rbp-80h] BYREF
   __int64 v51; // [rsp+98h] [rbp-68h]
   _DWORD *v52; // [rsp+A0h] [rbp-60h]
   PVOID P; // [rsp+A8h] [rbp-58h]
-  unsigned __int64 v54; // [rsp+B0h] [rbp-50h] BYREF
+  char *v54; // [rsp+B0h] [rbp-50h] BYREF
   int v55; // [rsp+B8h] [rbp-48h]
-  unsigned __int64 v56; // [rsp+C0h] [rbp-40h]
+  char *v56; // [rsp+C0h] [rbp-40h]
   __int64 v57; // [rsp+C8h] [rbp-38h]
   __int64 v58; // [rsp+D0h] [rbp-30h]
   __int64 v59[3]; // [rsp+E0h] [rbp-20h] BYREF
@@ -106,7 +106,7 @@ __int64 __fastcall MiApplyDriverHotPatch(__int64 a1, __int64 a2, __int64 a3)
   if ( (*(_DWORD *)(BaseLoaderPortion + 184) & 0x80u) != 0 )
     return 3221225496LL;
   v42 = MiGetBaseLoaderPortion(a1);
-  HotPatchInformation = RtlFindHotPatchInformation(*(_QWORD *)(a1 + 48), 0LL);
+  HotPatchInformation = RtlFindHotPatchInformation(*(PVOID *)(a1 + 48));
   v51 = HotPatchInformation;
   v8 = (_DWORD *)HotPatchInformation;
   if ( !HotPatchInformation )
@@ -233,16 +233,16 @@ LABEL_28:
     goto LABEL_67;
   if ( (*(_DWORD *)(BaseLoaderPortion + 184) & 2) == 0 )
     goto LABEL_50;
-  v27 = *(_QWORD *)(a1 + 48);
-  v44 = 0;
-  v28 = (_DWORD *)RtlImageDirectoryEntryToData(v27, 1, 0, &v44);
+  v27 = *(char **)(a1 + 48);
+  Size = 0;
+  v28 = (char *)RtlImageDirectoryEntryToData(v27, 1u, 0, &Size);
   v29 = v28;
   v30 = 0LL;
   if ( !v28 )
     goto LABEL_49;
-  v31 = v27 + (unsigned int)v28[8];
-  v32 = v28[6];
-  v56 = v27 + (unsigned int)v28[9];
+  v31 = &v27[*((unsigned int *)v28 + 8)];
+  v32 = *((_DWORD *)v28 + 6);
+  v56 = &v27[*((unsigned int *)v28 + 9)];
   v33 = v32 - 1;
   v34 = 0;
   v47 = v31;
@@ -258,7 +258,7 @@ LABEL_48:
     }
     v35 = (v34 + v33) >> 1;
     v57 = v35;
-    v36 = strcmp("__PatchMainCallout__", (const char *)(v27 + *(unsigned int *)(v31 + 4LL * v35)));
+    v36 = strcmp("__PatchMainCallout__", &v27[*(unsigned int *)&v31[4 * v35]]);
     if ( v36 >= 0 )
       break;
     if ( !v35 )
@@ -276,11 +276,11 @@ LABEL_42:
   }
   v21 = v45;
   v24 = v42;
-  v37 = *(unsigned __int16 *)(v56 + 2 * v57);
-  if ( (unsigned int)v37 < v29[5] )
+  v37 = *(unsigned __int16 *)&v56[2 * v57];
+  if ( (unsigned int)v37 < *((_DWORD *)v29 + 5) )
   {
-    v30 = v27 + *(unsigned int *)(v27 + (unsigned int)v29[7] + 4 * v37);
-    if ( v30 > (unsigned __int64)v29 && v30 < (unsigned __int64)v29 + v44 )
+    v30 = &v27[*(unsigned int *)&v27[4 * v37 + *((unsigned int *)v29 + 7)]];
+    if ( v30 > v29 && v30 < &v29[Size] )
       v30 = 0LL;
   }
 LABEL_49:

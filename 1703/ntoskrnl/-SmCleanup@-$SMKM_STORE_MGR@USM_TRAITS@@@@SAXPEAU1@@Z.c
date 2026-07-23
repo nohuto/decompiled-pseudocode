@@ -13,12 +13,12 @@
  *     SmKmCleanup @ 0x140701BC0 (SmKmCleanup.c)
  */
 
-void __fastcall SMKM_STORE_MGR<SM_TRAITS>::SmCleanup(union _SLIST_HEADER *a1)
+void __fastcall SMKM_STORE_MGR<SM_TRAITS>::SmCleanup(_SLIST_HEADER *a1)
 {
   char *Alignment; // rdx
   PSLIST_ENTRY v3; // rbx
   PSLIST_ENTRY v4; // rcx
-  union _SLIST_HEADER *v5; // rdi
+  _SLIST_HEADER *v5; // rdi
   KIRQL v6; // al
   unsigned __int64 v7; // rbx
 

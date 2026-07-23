@@ -1,43 +1,43 @@
 /*
- * XREFs of MiLockCode @ 0x1400155F0
+ * XREFs of MiLockCode @ 0x140015170
  * Callers:
- *     MiDisablePagingOfDriver @ 0x14047D77C (MiDisablePagingOfDriver.c)
- *     MmResetDriverPaging @ 0x14047DB58 (MmResetDriverPaging.c)
- *     MiHandleDriverNonPagedSections @ 0x14047EAEC (MiHandleDriverNonPagedSections.c)
- *     MiLockImageSection @ 0x140499ABC (MiLockImageSection.c)
- *     PopAllocateHiberContext @ 0x14052F5C4 (PopAllocateHiberContext.c)
+ *     MiDisablePagingOfDriver @ 0x14047C4D0 (MiDisablePagingOfDriver.c)
+ *     MmResetDriverPaging @ 0x14047C8AC (MmResetDriverPaging.c)
+ *     MiHandleDriverNonPagedSections @ 0x14047D840 (MiHandleDriverNonPagedSections.c)
+ *     MiLockImageSection @ 0x1404AEF68 (MiLockImageSection.c)
+ *     PopAllocateHiberContext @ 0x14052FB04 (PopAllocateHiberContext.c)
  * Callees:
- *     MiCaptureDirtyBitToPfn @ 0x140015D60 (MiCaptureDirtyBitToPfn.c)
- *     MiReleasePageFileInfo @ 0x14001A280 (MiReleasePageFileInfo.c)
- *     MiGetAnyMultiplexedVm @ 0x14001D05C (MiGetAnyMultiplexedVm.c)
- *     MI_IS_PHYSICAL_ADDRESS @ 0x140025FB0 (MI_IS_PHYSICAL_ADDRESS.c)
- *     MiUnlockWorkingSetExclusive @ 0x14002E930 (MiUnlockWorkingSetExclusive.c)
- *     MiGetSharedVm @ 0x14002EA30 (MiGetSharedVm.c)
- *     MiLockPageAtDpcInline @ 0x14002EB30 (MiLockPageAtDpcInline.c)
- *     ExAcquireSpinLockExclusive @ 0x14002EB90 (ExAcquireSpinLockExclusive.c)
- *     KeYieldProcessorEx @ 0x14002ECB0 (KeYieldProcessorEx.c)
- *     MmAccessFault @ 0x14003E7A0 (MmAccessFault.c)
- *     MiUnlockProtoPoolPage @ 0x14004C4E0 (MiUnlockProtoPoolPage.c)
- *     MiIsPfnFileOnly @ 0x14004E980 (MiIsPfnFileOnly.c)
- *     MiAreChargesNeededToLockPage @ 0x14004ED00 (MiAreChargesNeededToLockPage.c)
- *     MiLockProtoPoolPage @ 0x14004ED80 (MiLockProtoPoolPage.c)
- *     MiAddLockedPageCharge @ 0x14004F188 (MiAddLockedPageCharge.c)
- *     MiUnlockCodePage @ 0x140083BE0 (MiUnlockCodePage.c)
- *     MiMakeDriverPagesPrivate @ 0x140086098 (MiMakeDriverPagesPrivate.c)
- *     MiReleaseFreshPage @ 0x1400AC5F4 (MiReleaseFreshPage.c)
- *     MiInsertTbFlushEntry @ 0x1400E0240 (MiInsertTbFlushEntry.c)
- *     MiFlushTbList @ 0x1400E0490 (MiFlushTbList.c)
- *     MiCopyOnWriteEx @ 0x1400E2730 (MiCopyOnWriteEx.c)
- *     MiRemoveImagePageFromSystemWorkingSet @ 0x1400FDEF0 (MiRemoveImagePageFromSystemWorkingSet.c)
- *     MiWriteValidPteVolatile @ 0x1400FF0F4 (MiWriteValidPteVolatile.c)
- *     MiTradeActivePage @ 0x14010B184 (MiTradeActivePage.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F2550 (MI_GET_PAGE_FRAME_FROM_PTE.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiSetFreshPfnFromFreeList @ 0x1401F2FAC (MiSetFreshPfnFromFreeList.c)
- *     MiPrefetchDriverPages @ 0x1404CA5A4 (MiPrefetchDriverPages.c)
- *     MiAllocateDriverPage @ 0x140526790 (MiAllocateDriverPage.c)
+ *     MiCaptureDirtyBitToPfn @ 0x1400158E0 (MiCaptureDirtyBitToPfn.c)
+ *     MiReleasePageFileInfo @ 0x140019E00 (MiReleasePageFileInfo.c)
+ *     MiGetAnyMultiplexedVm @ 0x14001CBDC (MiGetAnyMultiplexedVm.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x140025B30 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     MiUnlockWorkingSetExclusive @ 0x14002E4B0 (MiUnlockWorkingSetExclusive.c)
+ *     MiGetSharedVm @ 0x14002E5B0 (MiGetSharedVm.c)
+ *     MiLockPageAtDpcInline @ 0x14002E6B0 (MiLockPageAtDpcInline.c)
+ *     ExAcquireSpinLockExclusive @ 0x14002E710 (ExAcquireSpinLockExclusive.c)
+ *     KeYieldProcessorEx @ 0x14002E830 (KeYieldProcessorEx.c)
+ *     MmAccessFault @ 0x14003E320 (MmAccessFault.c)
+ *     MiUnlockProtoPoolPage @ 0x14004C060 (MiUnlockProtoPoolPage.c)
+ *     MiIsPfnFileOnly @ 0x14004E500 (MiIsPfnFileOnly.c)
+ *     MiAreChargesNeededToLockPage @ 0x14004E880 (MiAreChargesNeededToLockPage.c)
+ *     MiLockProtoPoolPage @ 0x14004E900 (MiLockProtoPoolPage.c)
+ *     MiAddLockedPageCharge @ 0x14004ED08 (MiAddLockedPageCharge.c)
+ *     MiUnlockCodePage @ 0x140081D40 (MiUnlockCodePage.c)
+ *     MiMakeDriverPagesPrivate @ 0x140087988 (MiMakeDriverPagesPrivate.c)
+ *     MiReleaseFreshPage @ 0x1400AAB5C (MiReleaseFreshPage.c)
+ *     MiInsertTbFlushEntry @ 0x1400DE0E0 (MiInsertTbFlushEntry.c)
+ *     MiFlushTbList @ 0x1400DE330 (MiFlushTbList.c)
+ *     MiCopyOnWriteEx @ 0x1400E05D0 (MiCopyOnWriteEx.c)
+ *     MiRemoveImagePageFromSystemWorkingSet @ 0x1400FBC70 (MiRemoveImagePageFromSystemWorkingSet.c)
+ *     MiWriteValidPteVolatile @ 0x1400FCE74 (MiWriteValidPteVolatile.c)
+ *     MiTradeActivePage @ 0x140108F04 (MiTradeActivePage.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F237C (MI_GET_PAGE_FRAME_FROM_PTE.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
+ *     MiSetFreshPfnFromFreeList @ 0x1401F2DD8 (MiSetFreshPfnFromFreeList.c)
+ *     MiPrefetchDriverPages @ 0x1404B0324 (MiPrefetchDriverPages.c)
+ *     MiAllocateDriverPage @ 0x1405097F0 (MiAllocateDriverPage.c)
  */
 
 __int64 __fastcall MiLockCode(__int64 a1, unsigned __int64 a2, unsigned __int64 a3, char a4)
@@ -98,12 +98,12 @@ __int64 __fastcall MiLockCode(__int64 a1, unsigned __int64 a2, unsigned __int64 
     return 0LL;
   v10 = 0;
   v37 = 1;
-  if ( v7 < qword_140326910 || v7 >= qword_140326910 + 0x8000000000LL )
+  if ( v7 < qword_140326950 || v7 >= qword_140326950 + 0x8000000000LL )
   {
-    if ( v7 >= qword_140327F30 && v7 < qword_140327F30 + 0xF8000000000LL
-      || qword_140326C30
-      && v7 >= qword_140326C30
-      && v7 < qword_140326C30 + (qword_140326C10 << 21)
+    if ( v7 >= qword_140327F70 && v7 < qword_140327F70 + 0xF8000000000LL
+      || qword_140326C70
+      && v7 >= qword_140326C70
+      && v7 < qword_140326C70 + (qword_140326C50 << 21)
       && (*(_BYTE *)(48 * ((*(_QWORD *)(((v7 >> 18) & 0x3FFFFFF8) - 0x904C0000000LL) >> 12) & 0xFFFFFFFFFLL)
                    - 0x57FFFFFFFDALL) & 0xF0) == 0x70 )
     {
@@ -191,7 +191,7 @@ __int64 __fastcall MiLockCode(__int64 a1, unsigned __int64 a2, unsigned __int64 
       if ( (*(_BYTE *)(v27 + 35) & 8) == 0 && *(_QWORD *)v27 )
       {
 LABEL_54:
-        if ( ((unsigned __int16)v22 & 0x1FFu) < (unsigned __int64)(qword_140326818 & 0x1FF) )
+        if ( ((unsigned __int16)v22 & 0x1FFu) < (unsigned __int64)(qword_140326858 & 0x1FF) )
         {
           MiFlushTbList(&v48);
           MiUnlockWorkingSetExclusive(v13, v18);

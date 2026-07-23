@@ -1,16 +1,16 @@
 /*
- * XREFs of EtwpFreeGuidEntry @ 0x1405C0920
+ * XREFs of EtwpFreeGuidEntry @ 0x1405C1920
  * Callers:
- *     EtwpAddGuidEntry @ 0x1405C0A0C (EtwpAddGuidEntry.c)
- *     EtwpUnreferenceGuidEntry @ 0x1405C4098 (EtwpUnreferenceGuidEntry.c)
+ *     EtwpAddGuidEntry @ 0x1405C1A0C (EtwpAddGuidEntry.c)
+ *     EtwpUnreferenceGuidEntry @ 0x1405C5098 (EtwpUnreferenceGuidEntry.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     ExReleasePushLockEx @ 0x14004F160 (ExReleasePushLockEx.c)
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
- *     KeEnterCriticalRegion @ 0x1400B9C00 (KeEnterCriticalRegion.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     EtwpUnreferenceGuidEntry @ 0x1405C4098 (EtwpUnreferenceGuidEntry.c)
- *     ObDereferenceSecurityDescriptor @ 0x1405C9410 (ObDereferenceSecurityDescriptor.c)
+ *     KeEnterCriticalRegion @ 0x1400B9B40 (KeEnterCriticalRegion.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     EtwpUnreferenceGuidEntry @ 0x1405C5098 (EtwpUnreferenceGuidEntry.c)
+ *     ObDereferenceSecurityDescriptor @ 0x1405CA410 (ObDereferenceSecurityDescriptor.c)
  */
 
 void __fastcall EtwpFreeGuidEntry(char *P)

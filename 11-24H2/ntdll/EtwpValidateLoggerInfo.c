@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpValidateLoggerInfo @ 0x18008C848
+ * XREFs of EtwpValidateLoggerInfo @ 0x1800A8308
  * Callers:
- *     EtwProcessPrivateLoggerRequest @ 0x18008C670 (EtwProcessPrivateLoggerRequest.c)
+ *     EtwProcessPrivateLoggerRequest @ 0x1800A8130 (EtwProcessPrivateLoggerRequest.c)
  * Callees:
- *     memcmp @ 0x1801676D0 (memcmp.c)
+ *     memcmp @ 0x180165A90 (memcmp.c)
  */
 
 __int64 __fastcall EtwpValidateLoggerInfo(_DWORD *a1)

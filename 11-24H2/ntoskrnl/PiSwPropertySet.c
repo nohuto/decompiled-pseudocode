@@ -1,17 +1,17 @@
 /*
- * XREFs of PiSwPropertySet @ 0x1408B80F0
+ * XREFs of PiSwPropertySet @ 0x1408B5A60
  * Callers:
- *     PiSwIrpPropertySet @ 0x1408B1E40 (PiSwIrpPropertySet.c)
- *     PiSwIrpInterfaceRegister @ 0x1408B2584 (PiSwIrpInterfaceRegister.c)
- *     PiSwIrpInterfacePropertySet @ 0x1408B9044 (PiSwIrpInterfacePropertySet.c)
- *     PiSwCompleteCreate @ 0x1409F8538 (PiSwCompleteCreate.c)
- *     PiSwIrpStartCreateWorker @ 0x1409F8A64 (PiSwIrpStartCreateWorker.c)
+ *     PiSwIrpPropertySet @ 0x1408AF734 (PiSwIrpPropertySet.c)
+ *     PiSwIrpInterfaceRegister @ 0x1408AFE78 (PiSwIrpInterfaceRegister.c)
+ *     PiSwIrpInterfacePropertySet @ 0x1408B69EC (PiSwIrpInterfacePropertySet.c)
+ *     PiSwCompleteCreate @ 0x1409F0EA8 (PiSwCompleteCreate.c)
+ *     PiSwIrpStartCreateWorker @ 0x1409F13D4 (PiSwIrpStartCreateWorker.c)
  * Callees:
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     PiPnpRtlSetObjectProperty @ 0x1408B84A0 (PiPnpRtlSetObjectProperty.c)
- *     PiPnpRtlBeginOperation @ 0x1408CBF78 (PiPnpRtlBeginOperation.c)
- *     PiPnpRtlEndOperation @ 0x1408CC158 (PiPnpRtlEndOperation.c)
- *     _PnpOpenObjectRegKey @ 0x1408CD438 (_PnpOpenObjectRegKey.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     PiPnpRtlSetObjectProperty @ 0x1408B5E10 (PiPnpRtlSetObjectProperty.c)
+ *     PiPnpRtlBeginOperation @ 0x1408C99A8 (PiPnpRtlBeginOperation.c)
+ *     PiPnpRtlEndOperation @ 0x1408C9B88 (PiPnpRtlEndOperation.c)
+ *     _PnpOpenObjectRegKey @ 0x1408CAE28 (_PnpOpenObjectRegKey.c)
  */
 
 __int64 __fastcall PiSwPropertySet(__int64 a1, __int64 a2, __int64 a3, unsigned int a4)

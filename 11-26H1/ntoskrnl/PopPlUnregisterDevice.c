@@ -1,15 +1,15 @@
 /*
- * XREFs of PopPlUnregisterDevice @ 0x140510374
+ * XREFs of PopPlUnregisterDevice @ 0x140509DE4
  * Callers:
- *     PopFxUnregisterDevice @ 0x140B06628 (PopFxUnregisterDevice.c)
+ *     PopFxUnregisterDevice @ 0x140B08758 (PopFxUnregisterDevice.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     PopPlCalculateDevicePowerDraw @ 0x140612524 (PopPlCalculateDevicePowerDraw.c)
- *     PopPlPublishSystemPowerChange @ 0x1406128F0 (PopPlPublishSystemPowerChange.c)
- *     PopPlUnregisterComponent @ 0x140612ECC (PopPlUnregisterComponent.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PopPlCalculateDevicePowerDraw @ 0x140615364 (PopPlCalculateDevicePowerDraw.c)
+ *     PopPlPublishSystemPowerChange @ 0x140615730 (PopPlPublishSystemPowerChange.c)
+ *     PopPlUnregisterComponent @ 0x140615D0C (PopPlUnregisterComponent.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void __fastcall PopPlUnregisterDevice(__int64 a1)
@@ -54,7 +54,7 @@ void __fastcall PopPlUnregisterDevice(__int64 a1)
     v5 = PopPlCalculateDevicePowerDraw(a1, &v11, &v10, 0LL);
     *(_DWORD *)(v1 + 32) = v5;
     v6 = v5 - v4;
-    if ( (unsigned int)dword_140E07598 > 5 )
+    if ( (unsigned int)dword_140E07560 > 5 )
     {
       v12 = v5;
       LOWORD(v10) = 1;
@@ -79,8 +79,8 @@ void __fastcall PopPlUnregisterDevice(__int64 a1)
       v14 = v6 + v8;
       v29 = 4LL;
       tlgWriteTransfer_EtwWriteTransfer(
-        (__int64)&dword_140E07598,
-        (unsigned __int8 *)byte_14004FF3B,
+        (__int64)&dword_140E07560,
+        (unsigned __int8 *)&byte_14005117F,
         0LL,
         0LL,
         9u,

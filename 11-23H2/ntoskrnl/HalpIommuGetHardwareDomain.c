@@ -1,20 +1,20 @@
 /*
- * XREFs of HalpIommuGetHardwareDomain @ 0x1403A964C
+ * XREFs of HalpIommuGetHardwareDomain @ 0x1403A982C
  * Callers:
- *     HalpIommuInitializeDmar @ 0x1403A959C (HalpIommuInitializeDmar.c)
- *     IommupDomainAttachPasidDevice @ 0x14050E190 (IommupDomainAttachPasidDevice.c)
- *     IommupDomainDetachPasidDevice @ 0x14050E4B8 (IommupDomainDetachPasidDevice.c)
- *     HalpIommuJoinDmaDomain @ 0x140518344 (HalpIommuJoinDmaDomain.c)
- *     HalpIommuLeaveDmaDomain @ 0x1405184B4 (HalpIommuLeaveDmaDomain.c)
+ *     HalpIommuInitializeDmar @ 0x1403A977C (HalpIommuInitializeDmar.c)
+ *     IommupDomainAttachPasidDevice @ 0x14050E6E0 (IommupDomainAttachPasidDevice.c)
+ *     IommupDomainDetachPasidDevice @ 0x14050EA08 (IommupDomainDetachPasidDevice.c)
+ *     HalpIommuJoinDmaDomain @ 0x140518894 (HalpIommuJoinDmaDomain.c)
+ *     HalpIommuLeaveDmaDomain @ 0x140518A04 (HalpIommuLeaveDmaDomain.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     HalpIommuGetDmarptRootAddress @ 0x14037FE10 (HalpIommuGetDmarptRootAddress.c)
- *     HalpMmAllocCtxAlloc @ 0x14039AE20 (HalpMmAllocCtxAlloc.c)
- *     HalpMmAllocCtxFree @ 0x1403A56C0 (HalpMmAllocCtxFree.c)
- *     HalpIommuAcquireNewDomain @ 0x1403A9794 (HalpIommuAcquireNewDomain.c)
- *     memset @ 0x140435A00 (memset.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     HalpIommuGetDmarptRootAddress @ 0x14037FFB0 (HalpIommuGetDmarptRootAddress.c)
+ *     HalpMmAllocCtxAlloc @ 0x14039B000 (HalpMmAllocCtxAlloc.c)
+ *     HalpMmAllocCtxFree @ 0x1403A58A0 (HalpMmAllocCtxFree.c)
+ *     HalpIommuAcquireNewDomain @ 0x1403A9974 (HalpIommuAcquireNewDomain.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 __int64 __fastcall HalpIommuGetHardwareDomain(__int64 a1, __int64 a2, char a3, char a4, char a5, __int64 *a6)
@@ -119,10 +119,13 @@ LABEL_11:
   *v6 = v7;
 LABEL_12:
   KxReleaseSpinLock(v29);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v14 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v14 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

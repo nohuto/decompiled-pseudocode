@@ -1,13 +1,13 @@
 /*
- * XREFs of IopGetSessionIdFromSymbolicName @ 0x140790728
+ * XREFs of IopGetSessionIdFromSymbolicName @ 0x140790918
  * Callers:
  *     IoRegisterPlugPlayNotification @ 0x140687F00 (IoRegisterPlugPlayNotification.c)
- *     PiUEventProcessBroadcastNotifications @ 0x140782278 (PiUEventProcessBroadcastNotifications.c)
- *     PnpNotifyDeviceClassChange @ 0x14078F280 (PnpNotifyDeviceClassChange.c)
+ *     PiUEventProcessBroadcastNotifications @ 0x140782468 (PiUEventProcessBroadcastNotifications.c)
+ *     PnpNotifyDeviceClassChange @ 0x14078F470 (PnpNotifyDeviceClassChange.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     IopDeviceObjectFromSymbolicName @ 0x140790784 (IopDeviceObjectFromSymbolicName.c)
- *     IopGetSessionIdFromPDO @ 0x140790F54 (IopGetSessionIdFromPDO.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     IopDeviceObjectFromSymbolicName @ 0x140790974 (IopDeviceObjectFromSymbolicName.c)
+ *     IopGetSessionIdFromPDO @ 0x140791144 (IopGetSessionIdFromPDO.c)
  */
 
 __int64 IopGetSessionIdFromSymbolicName()

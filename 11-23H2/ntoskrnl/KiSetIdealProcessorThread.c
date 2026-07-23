@@ -1,14 +1,14 @@
 /*
- * XREFs of KiSetIdealProcessorThread @ 0x1403CEFCC
+ * XREFs of KiSetIdealProcessorThread @ 0x1403CF1AC
  * Callers:
- *     KeSetIdealProcessorThreadEx @ 0x1403CEE58 (KeSetIdealProcessorThreadEx.c)
- *     KiAdaptThreadIdealProcessorForProcessIdealSetChange @ 0x14057681C (KiAdaptThreadIdealProcessorForProcessIdealSetChange.c)
+ *     KeSetIdealProcessorThreadEx @ 0x1403CF038 (KeSetIdealProcessorThreadEx.c)
+ *     KiAdaptThreadIdealProcessorForProcessIdealSetChange @ 0x140576D0C (KiAdaptThreadIdealProcessorForProcessIdealSetChange.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     KiAcquirePrcbLocksForIsolationUnit @ 0x140246770 (KiAcquirePrcbLocksForIsolationUnit.c)
- *     KiUpdateSharedReadyQueueAffinityThread @ 0x1402BE06C (KiUpdateSharedReadyQueueAffinityThread.c)
- *     KiCheckPrcbAffinityEx @ 0x140307890 (KiCheckPrcbAffinityEx.c)
- *     KiReleasePrcbLocksForIsolationUnit @ 0x1403078C0 (KiReleasePrcbLocksForIsolationUnit.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     KiAcquirePrcbLocksForIsolationUnit @ 0x140246840 (KiAcquirePrcbLocksForIsolationUnit.c)
+ *     KiUpdateSharedReadyQueueAffinityThread @ 0x1402BE2FC (KiUpdateSharedReadyQueueAffinityThread.c)
+ *     KiCheckPrcbAffinityEx @ 0x140307B20 (KiCheckPrcbAffinityEx.c)
+ *     KiReleasePrcbLocksForIsolationUnit @ 0x140307B50 (KiReleasePrcbLocksForIsolationUnit.c)
  */
 
 __int64 __fastcall KiSetIdealProcessorThread(__int64 a1, int a2, char a3, _DWORD *a4)

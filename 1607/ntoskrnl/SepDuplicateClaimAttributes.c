@@ -1,18 +1,18 @@
 /*
- * XREFs of SepDuplicateClaimAttributes @ 0x140695A80
+ * XREFs of SepDuplicateClaimAttributes @ 0x140695B64
  * Callers:
- *     SepConvertToOwnTokenClaims @ 0x14008078C (SepConvertToOwnTokenClaims.c)
- *     SepDuplicateTokenClaims @ 0x140695C88 (SepDuplicateTokenClaims.c)
+ *     SepConvertToOwnTokenClaims @ 0x14008080C (SepConvertToOwnTokenClaims.c)
+ *     SepDuplicateTokenClaims @ 0x140695D6C (SepDuplicateTokenClaims.c)
  * Callees:
- *     RtlSidHashInitialize @ 0x14000EC10 (RtlSidHashInitialize.c)
- *     AuthzBasepDuplicateSecurityAttributes @ 0x14000ED90 (AuthzBasepDuplicateSecurityAttributes.c)
- *     AuthzBasepFreeSecurityAttributesList @ 0x140088740 (AuthzBasepFreeSecurityAttributesList.c)
- *     AuthzBasepAllocateSecurityAttributesList @ 0x140146050 (AuthzBasepAllocateSecurityAttributesList.c)
+ *     RtlSidHashInitialize @ 0x14000E790 (RtlSidHashInitialize.c)
+ *     AuthzBasepDuplicateSecurityAttributes @ 0x14000E910 (AuthzBasepDuplicateSecurityAttributes.c)
+ *     AuthzBasepFreeSecurityAttributesList @ 0x14010C930 (AuthzBasepFreeSecurityAttributesList.c)
+ *     AuthzBasepAllocateSecurityAttributesList @ 0x1401465C0 (AuthzBasepAllocateSecurityAttributesList.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     SepLengthSidAndAttributesArray @ 0x140478B94 (SepLengthSidAndAttributesArray.c)
- *     SeCaptureSidAndAttributesArray @ 0x140478C40 (SeCaptureSidAndAttributesArray.c)
- *     AuthzBasepAllocateClaimCollectionNoLists @ 0x1406C9C70 (AuthzBasepAllocateClaimCollectionNoLists.c)
+ *     SepLengthSidAndAttributesArray @ 0x140477A64 (SepLengthSidAndAttributesArray.c)
+ *     SeCaptureSidAndAttributesArray @ 0x140477B10 (SeCaptureSidAndAttributesArray.c)
+ *     AuthzBasepAllocateClaimCollectionNoLists @ 0x1406C9DA8 (AuthzBasepAllocateClaimCollectionNoLists.c)
  */
 
 __int64 __fastcall SepDuplicateClaimAttributes(unsigned int *a1, _QWORD *a2)
@@ -22,17 +22,17 @@ __int64 __fastcall SepDuplicateClaimAttributes(unsigned int *a1, _QWORD *a2)
   _DWORD *v6; // r14
   _DWORD *v7; // rbp
   char v8; // r13
-  void *v9; // r15
+  _SID_AND_ATTRIBUTES *v9; // r15
   __int64 v10; // rdx
   __int64 v11; // rcx
-  _QWORD *ClaimCollectionNoLists; // rsi
+  _DWORD *ClaimCollectionNoLists; // rsi
   _QWORD *SecurityAttributesList; // rax
   _QWORD *v14; // rax
   void *v15; // rcx
   __int64 v16; // rdx
   unsigned int v17; // ebx
-  PVOID PoolWithTag; // rax
-  unsigned int v19; // edx
+  _SID_AND_ATTRIBUTES *PoolWithTag; // rax
+  ULONG v19; // edx
   int v20; // [rsp+28h] [rbp-60h]
   int v21; // [rsp+30h] [rbp-58h]
   char v22; // [rsp+98h] [rbp+10h]
@@ -53,7 +53,7 @@ __int64 __fastcall SepDuplicateClaimAttributes(unsigned int *a1, _QWORD *a2)
   *a2 = 0LL;
   if ( a1 )
   {
-    ClaimCollectionNoLists = (_QWORD *)AuthzBasepAllocateClaimCollectionNoLists();
+    ClaimCollectionNoLists = (_DWORD *)AuthzBasepAllocateClaimCollectionNoLists();
     if ( !ClaimCollectionNoLists )
       return (unsigned int)-1073741670;
     if ( *((_QWORD *)a1 + 72) )
@@ -88,7 +88,7 @@ LABEL_23:
         goto LABEL_33;
       }
       v8 = 1;
-      ClaimCollectionNoLists[72] = v6;
+      *((_QWORD *)ClaimCollectionNoLists + 72) = v6;
     }
     if ( *((_QWORD *)a1 + 73) )
     {
@@ -104,7 +104,7 @@ LABEL_13:
       if ( v5 < 0 )
         goto LABEL_23;
       v22 = 1;
-      ClaimCollectionNoLists[73] = v7;
+      *((_QWORD *)ClaimCollectionNoLists + 73) = v7;
     }
     v15 = (void *)*((_QWORD *)a1 + 1);
     if ( v15 )
@@ -116,7 +116,7 @@ LABEL_13:
         if ( v5 < 0 )
           goto LABEL_23;
         v17 = NumberOfBytes;
-        PoolWithTag = ExAllocatePoolWithTag(PagedPool, (unsigned int)NumberOfBytes, 0x64546553u);
+        PoolWithTag = (_SID_AND_ATTRIBUTES *)ExAllocatePoolWithTag(PagedPool, (unsigned int)NumberOfBytes, 0x64546553u);
         v9 = PoolWithTag;
         if ( !PoolWithTag )
           goto LABEL_13;
@@ -133,9 +133,9 @@ LABEL_13:
         if ( v5 < 0 )
           goto LABEL_23;
         v19 = *a1;
-        *(_DWORD *)ClaimCollectionNoLists = *a1;
-        ClaimCollectionNoLists[1] = v9;
-        RtlSidHashInitialize((__int64 *)v9, v19, ClaimCollectionNoLists + 4);
+        *ClaimCollectionNoLists = *a1;
+        *((_QWORD *)ClaimCollectionNoLists + 1) = v9;
+        RtlSidHashInitialize(v9, v19, (PSID_AND_ATTRIBUTES_HASH)(ClaimCollectionNoLists + 8));
       }
     }
     *a2 = ClaimCollectionNoLists;

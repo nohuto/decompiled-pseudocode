@@ -1,12 +1,12 @@
 /*
- * XREFs of PoFxSetComponentLatency @ 0x1403B1590
+ * XREFs of PoFxSetComponentLatency @ 0x1403BB2A0
  * Callers:
- *     DifPoFxSetComponentLatencyWrapper @ 0x140693A80 (DifPoFxSetComponentLatencyWrapper.c)
+ *     DifPoFxSetComponentLatencyWrapper @ 0x140697660 (DifPoFxSetComponentLatencyWrapper.c)
  * Callees:
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     EtwpLevelKeywordEnabled @ 0x140255F60 (EtwpLevelKeywordEnabled.c)
- *     PopPepComponentSetLatency @ 0x1403B1784 (PopPepComponentSetLatency.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     EtwpLevelKeywordEnabled @ 0x1402578F0 (EtwpLevelKeywordEnabled.c)
+ *     PopPepComponentSetLatency @ 0x1403BB494 (PopPepComponentSetLatency.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall PoFxSetComponentLatency(__int64 a1, unsigned int a2, __int64 a3)
@@ -51,17 +51,13 @@ __int64 __fastcall PoFxSetComponentLatency(__int64 a1, unsigned int a2, __int64 
       *(_QWORD *)(v11 + 8 * v10 + 16) = a3;
     }
   }
-  if ( byte_140E67628 && *(_QWORD *)&PopSleepstudySessionLock.PriorityFloorCounts[16] )
+  if ( PopDiagHandleRegistered && PopDiagHandle )
   {
-    if ( (v13 = *(_QWORD *)(*(_QWORD *)&PopSleepstudySessionLock.PriorityFloorCounts[16] + 32LL), *(_DWORD *)(v13 + 96))
+    if ( (v13 = *(_QWORD *)(PopDiagHandle + 32), *(_DWORD *)(v13 + 96))
       && ((v14 = *(_BYTE *)(v13 + 100), v14 >= 4u) || !v14)
       && (*(_DWORD *)(v13 + 112) & 0x100LL) != 0
       && (*(_QWORD *)(v13 + 120) & 0x100LL) == *(_QWORD *)(v13 + 120)
-      || *(_WORD *)(*(_QWORD *)&PopSleepstudySessionLock.PriorityFloorCounts[16] + 102LL)
-      && EtwpLevelKeywordEnabled(
-           *(_QWORD *)(*(_QWORD *)&PopSleepstudySessionLock.PriorityFloorCounts[16] + 40LL) + 96LL,
-           4u,
-           256LL) )
+      || *(_WORD *)(PopDiagHandle + 102) && EtwpLevelKeywordEnabled(*(_QWORD *)(PopDiagHandle + 40) + 96LL, 4u, 256LL) )
     {
       UserData.Ptr = (ULONGLONG)&v16;
       *(_QWORD *)&UserData.Size = 8LL;
@@ -69,15 +65,7 @@ __int64 __fastcall PoFxSetComponentLatency(__int64 a1, unsigned int a2, __int64 
       v20 = 4LL;
       v21 = &v17;
       v22 = 8LL;
-      EtwWriteEx(
-        *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-        &POP_ETW_EVENT_COMPONENT_LATENCY,
-        0LL,
-        v8,
-        ActivityId,
-        ActivityId,
-        3u,
-        &UserData);
+      EtwWriteEx(PopDiagHandle, &POP_ETW_EVENT_COMPONENT_LATENCY, 0LL, v8, ActivityId, ActivityId, 3u, &UserData);
     }
   }
   return PopPepComponentSetLatency(*(_QWORD *)(a1 + 56), a2, a3);

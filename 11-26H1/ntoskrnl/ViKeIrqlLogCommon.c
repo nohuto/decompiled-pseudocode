@@ -1,10 +1,10 @@
 /*
- * XREFs of ViKeIrqlLogCommon @ 0x140C479D8
+ * XREFs of ViKeIrqlLogCommon @ 0x140C4D9E8
  * Callers:
- *     VfKeIrqlLogRaise @ 0x140C46D4C (VfKeIrqlLogRaise.c)
- *     VfKeIrqlLogLower @ 0x140C47B58 (VfKeIrqlLogLower.c)
+ *     VfKeIrqlLogRaise @ 0x140C4CD5C (VfKeIrqlLogRaise.c)
+ *     VfKeIrqlLogLower @ 0x140C4DB68 (VfKeIrqlLogLower.c)
  * Callees:
- *     RtlCaptureStackBackTrace @ 0x140261920 (RtlCaptureStackBackTrace.c)
+ *     RtlCaptureStackBackTrace @ 0x140260E90 (RtlCaptureStackBackTrace.c)
  */
 
 void __fastcall ViKeIrqlLogCommon(__int64 a1, ULONG a2)

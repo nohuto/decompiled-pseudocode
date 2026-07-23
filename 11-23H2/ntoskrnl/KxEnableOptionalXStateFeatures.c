@@ -1,12 +1,12 @@
 /*
- * XREFs of KxEnableOptionalXStateFeatures @ 0x140572E54
+ * XREFs of KxEnableOptionalXStateFeatures @ 0x140573394
  * Callers:
- *     KeEnableOptionalXStateFeaturesApc @ 0x1405725D0 (KeEnableOptionalXStateFeaturesApc.c)
- *     KiEnableOptionalXStateFeatures @ 0x14057291C (KiEnableOptionalXStateFeatures.c)
+ *     KeEnableOptionalXStateFeaturesApc @ 0x140572B10 (KeEnableOptionalXStateFeaturesApc.c)
+ *     KiEnableOptionalXStateFeatures @ 0x140572E5C (KiEnableOptionalXStateFeatures.c)
  * Callees:
- *     memset @ 0x140435A00 (memset.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     KeCopyXfdMaskToTeb @ 0x1405724A0 (KeCopyXfdMaskToTeb.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     KeCopyXfdMaskToTeb @ 0x1405729E0 (KeCopyXfdMaskToTeb.c)
  */
 
 __int64 __fastcall KxEnableOptionalXStateFeatures(__int64 a1, __int64 a2, void *a3, char *a4)
@@ -32,7 +32,7 @@ __int64 __fastcall KxEnableOptionalXStateFeatures(__int64 a1, __int64 a2, void *
     return 3221225659LL;
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     v11 = 4;
@@ -60,10 +60,10 @@ __int64 __fastcall KxEnableOptionalXStateFeatures(__int64 a1, __int64 a2, void *
     v20 = ~a2;
     *(_QWORD *)(a1 + 1064) &= v20;
     __writemsr(0x1C4u, v20 & __readmsr(0x1C4u));
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v21 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v21 <= 0xFu && CurrentIrql <= 0xFu && v21 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v21 <= 0xFu && CurrentIrql <= 0xFu && v21 >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         v23 = CurrentPrcb->SchedulerAssist;
@@ -79,10 +79,10 @@ __int64 __fastcall KxEnableOptionalXStateFeatures(__int64 a1, __int64 a2, void *
   }
   else
   {
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v12 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v12 <= 0xFu && CurrentIrql <= 0xFu && v12 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v12 <= 0xFu && CurrentIrql <= 0xFu && v12 >= 2u )
       {
         v13 = KeGetCurrentPrcb();
         v14 = v13->SchedulerAssist;

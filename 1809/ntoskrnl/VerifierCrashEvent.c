@@ -1,5 +1,5 @@
 /*
- * XREFs of VerifierCrashEvent @ 0x140309E60
+ * XREFs of VerifierCrashEvent @ 0x14030A050
  * Callers:
  *     <none>
  * Callees:
@@ -21,9 +21,9 @@ __int64 __fastcall VerifierCrashEvent(__int64 a1)
     *(_DWORD *)a1 = VfBugcheckTmpData;
     *(_QWORD *)(a1 + 8) = BugCheckParameter1;
     v4 = 2LL;
-    *(_QWORD *)(a1 + 16) = qword_140985A70;
-    *(_QWORD *)(a1 + 24) = qword_140985A78;
-    *(_QWORD *)(a1 + 32) = qword_140985A80;
+    *(_QWORD *)(a1 + 16) = qword_140986A70;
+    *(_QWORD *)(a1 + 24) = qword_140986A78;
+    *(_QWORD *)(a1 + 32) = qword_140986A80;
     do
     {
       *(_DWORD *)(v1 * 4 + *(_QWORD *)(a1 + 40)) = VfRuleClassesRecord[v1];

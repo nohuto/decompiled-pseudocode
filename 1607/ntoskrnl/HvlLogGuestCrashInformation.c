@@ -1,10 +1,10 @@
 /*
- * XREFs of HvlLogGuestCrashInformation @ 0x1401BAB4C
+ * XREFs of HvlLogGuestCrashInformation @ 0x1401BAA30
  * Callers:
- *     KeBugCheck2 @ 0x1401D40EC (KeBugCheck2.c)
+ *     KeBugCheck2 @ 0x1401D3F18 (KeBugCheck2.c)
  * Callees:
- *     HvlpGetRegister64 @ 0x1401C13BC (HvlpGetRegister64.c)
- *     HvlpSetRegister64 @ 0x1401C1460 (HvlpSetRegister64.c)
+ *     HvlpGetRegister64 @ 0x1401C12A0 (HvlpGetRegister64.c)
+ *     HvlpSetRegister64 @ 0x1401C1344 (HvlpSetRegister64.c)
  */
 
 _UNKNOWN **__fastcall HvlLogGuestCrashInformation(unsigned int a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5)

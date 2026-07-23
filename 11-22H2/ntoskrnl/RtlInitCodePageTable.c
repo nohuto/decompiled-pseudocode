@@ -20,7 +20,7 @@ void __stdcall RtlInitCodePageTable(PUSHORT TableBase, PCPTABLEINFO CodePageTabl
   v2 = 0LL;
   if ( !TableBase || TableBase[1] == 0xFDE9 )
   {
-    *CodePageTable = (struct _CPTABLEINFO)Utf8TableInfo;
+    *CodePageTable = (_CPTABLEINFO)Utf8TableInfo;
   }
   else
   {

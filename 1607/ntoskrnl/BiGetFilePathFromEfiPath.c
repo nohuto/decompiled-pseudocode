@@ -1,10 +1,10 @@
 /*
- * XREFs of BiGetFilePathFromEfiPath @ 0x1406D5030
+ * XREFs of BiGetFilePathFromEfiPath @ 0x1406D5168
  * Callers:
- *     BiCreateMergedBootEntry @ 0x1406D4498 (BiCreateMergedBootEntry.c)
- *     BiUpdateBcdObject @ 0x1406D5A18 (BiUpdateBcdObject.c)
+ *     BiCreateMergedBootEntry @ 0x1406D45D0 (BiCreateMergedBootEntry.c)
+ *     BiUpdateBcdObject @ 0x1406D5B50 (BiUpdateBcdObject.c)
  * Callees:
- *     memmove @ 0x140171280 (memmove.c)
+ *     memmove @ 0x140171780 (memmove.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */
 

@@ -1,17 +1,17 @@
 /*
- * XREFs of PiDmObjectCreate @ 0x14086B75C
+ * XREFs of PiDmObjectCreate @ 0x14086B99C
  * Callers:
- *     PiDmAddCacheReferenceForObject @ 0x1407880B4 (PiDmAddCacheReferenceForObject.c)
- *     PiDmObjectManagerPopulate @ 0x1408396DC (PiDmObjectManagerPopulate.c)
+ *     PiDmAddCacheReferenceForObject @ 0x1407882A4 (PiDmAddCacheReferenceForObject.c)
+ *     PiDmObjectManagerPopulate @ 0x1408399DC (PiDmObjectManagerPopulate.c)
  * Callees:
- *     PnpAllocatePWSTR @ 0x1406CCC3C (PnpAllocatePWSTR.c)
- *     PiDmGetCachedKeyIndex @ 0x1406D61F0 (PiDmGetCachedKeyIndex.c)
- *     PiDmGetCacheKeys @ 0x1406D6344 (PiDmGetCacheKeys.c)
- *     PiDmObjectRelease @ 0x1406D6B68 (PiDmObjectRelease.c)
- *     RtlHashUnicodeString @ 0x1406D9430 (RtlHashUnicodeString.c)
- *     _CmSetDeviceInterfacePathFormat @ 0x14077D910 (_CmSetDeviceInterfacePathFormat.c)
- *     PiDmCacheDataEncode @ 0x14078D4E0 (PiDmCacheDataEncode.c)
- *     _PnpValidateObjectName @ 0x1407FA768 (_PnpValidateObjectName.c)
+ *     PnpAllocatePWSTR @ 0x1406CCC6C (PnpAllocatePWSTR.c)
+ *     PiDmGetCachedKeyIndex @ 0x1406D6220 (PiDmGetCachedKeyIndex.c)
+ *     PiDmGetCacheKeys @ 0x1406D6374 (PiDmGetCacheKeys.c)
+ *     PiDmObjectRelease @ 0x1406D6B98 (PiDmObjectRelease.c)
+ *     RtlHashUnicodeString @ 0x1406D9460 (RtlHashUnicodeString.c)
+ *     _CmSetDeviceInterfacePathFormat @ 0x14077DB00 (_CmSetDeviceInterfacePathFormat.c)
+ *     PiDmCacheDataEncode @ 0x14078D6D0 (PiDmCacheDataEncode.c)
+ *     _PnpValidateObjectName @ 0x1407FAA38 (_PnpValidateObjectName.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 

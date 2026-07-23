@@ -6,11 +6,19 @@
  *     <none>
  */
 
-__int64 ZwCreateKeyTransacted()
+NTSTATUS __cdecl ZwCreateKeyTransacted(
+        PHANDLE KeyHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        ULONG TitleIndex,
+        PUNICODE_STRING Class,
+        ULONG CreateOptions,
+        HANDLE TransactionHandle,
+        PULONG Disposition)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 163LL;
+  result = 163;
   __asm { syscall; Low latency system call }
   return result;
 }

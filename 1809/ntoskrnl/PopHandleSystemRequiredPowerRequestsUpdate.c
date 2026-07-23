@@ -1,14 +1,14 @@
 /*
  * XREFs of PopHandleSystemRequiredPowerRequestsUpdate @ 0x1400039AC
  * Callers:
- *     PopHandleConvergedPowerRequestUpdate @ 0x140589D88 (PopHandleConvergedPowerRequestUpdate.c)
+ *     PopHandleConvergedPowerRequestUpdate @ 0x14058AD88 (PopHandleConvergedPowerRequestUpdate.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     PopReleasePolicyLock @ 0x140565370 (PopReleasePolicyLock.c)
- *     PopAcquirePolicyLock @ 0x140565690 (PopAcquirePolicyLock.c)
- *     PopCheckResiliencyScenarios @ 0x140589E14 (PopCheckResiliencyScenarios.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14007DE80 (KeAcquireInStackQueuedSpinLock.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     PopReleasePolicyLock @ 0x140566370 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140566690 (PopAcquirePolicyLock.c)
+ *     PopCheckResiliencyScenarios @ 0x14058AE14 (PopCheckResiliencyScenarios.c)
  */
 
 void __fastcall PopHandleSystemRequiredPowerRequestsUpdate(int a1)
@@ -33,12 +33,12 @@ void __fastcall PopHandleSystemRequiredPowerRequestsUpdate(int a1)
   PopAcquirePolicyLock();
   KeAcquireInStackQueuedSpinLock(&PopPowerRequestSpinLock, &LockHandle);
   if ( PopPowerRequestAttributes[4 * v1] <= 0 )
-    v3 = ~v2 & dword_140417664;
+    v3 = ~v2 & dword_1404186E4;
   else
-    v3 = v2 | dword_140417664;
-  dword_140417664 = v3;
+    v3 = v2 | dword_1404186E4;
+  dword_1404186E4 = v3;
   if ( !v3 )
-    dword_140417680 = dword_140417648;
+    dword_140418700 = dword_1404186C8;
   KxReleaseQueuedSpinLock(&LockHandle);
   OldIrql = LockHandle.OldIrql;
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && KeGetCurrentIrql() >= 2u && LockHandle.OldIrql < 2u )

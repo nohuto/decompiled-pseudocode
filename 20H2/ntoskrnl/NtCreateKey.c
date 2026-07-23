@@ -6,7 +6,14 @@
  *     CmCreateKey @ 0x1406FF300 (CmCreateKey.c)
  */
 
-__int64 __fastcall NtCreateKey(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+NTSTATUS __cdecl NtCreateKey(
+        PHANDLE KeyHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        ULONG TitleIndex,
+        PUNICODE_STRING Class,
+        ULONG CreateOptions,
+        PULONG Disposition)
 {
-  return CmCreateKey(a1, a2, a3, a4);
+  return CmCreateKey(KeyHandle, DesiredAccess, ObjectAttributes, TitleIndex, Class, CreateOptions, Disposition, 0LL);
 }

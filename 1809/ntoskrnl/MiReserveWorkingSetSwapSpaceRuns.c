@@ -1,10 +1,10 @@
 /*
- * XREFs of MiReserveWorkingSetSwapSpaceRuns @ 0x14085EC08
+ * XREFs of MiReserveWorkingSetSwapSpaceRuns @ 0x14085FE68
  * Callers:
- *     MiReserveWorkingSetSwapSpace @ 0x14085EB4C (MiReserveWorkingSetSwapSpace.c)
+ *     MiReserveWorkingSetSwapSpace @ 0x14085FDAC (MiReserveWorkingSetSwapSpace.c)
  * Callees:
- *     MiFindFreePageFileSpace @ 0x14012413C (MiFindFreePageFileSpace.c)
- *     MiMakePageFilePte @ 0x1402BF5F4 (MiMakePageFilePte.c)
+ *     MiFindFreePageFileSpace @ 0x14012420C (MiFindFreePageFileSpace.c)
+ *     MiMakePageFilePte @ 0x1402BF7E4 (MiMakePageFilePte.c)
  */
 
 unsigned __int64 __fastcall MiReserveWorkingSetSwapSpaceRuns(

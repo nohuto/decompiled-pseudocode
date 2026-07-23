@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpAllocateKeyControlBlock @ 0x1409E39E0
+ * XREFs of CmpAllocateKeyControlBlock @ 0x1409DE440
  * Callers:
- *     CmpCloneToUnbackedKcb @ 0x1407DAAC8 (CmpCloneToUnbackedKcb.c)
+ *     CmpCloneToUnbackedKcb @ 0x1407DB018 (CmpCloneToUnbackedKcb.c)
  * Callees:
- *     ExAllocateFromLookasideListEx @ 0x1403E16C0 (ExAllocateFromLookasideListEx.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     ExAllocateFromLookasideListEx @ 0x1403C9D30 (ExAllocateFromLookasideListEx.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 PVOID CmpAllocateKeyControlBlock()
@@ -13,11 +13,11 @@ PVOID CmpAllocateKeyControlBlock()
   PVOID v1; // rbx
 
   _InterlockedIncrement64(&CmPerfCounters);
-  result = ExAllocateFromLookasideListEx(&CmpKcbLookaside);
+  result = ExAllocateFromLookasideListEx((PLOOKASIDE_LIST_EX)&CmpKcbLookaside);
   v1 = result;
   if ( result )
   {
-    _InterlockedIncrement64(qword_140FD9430);
+    _InterlockedIncrement64(qword_140FDA440);
     memset_0(result, 0, 0x138uLL);
     return v1;
   }

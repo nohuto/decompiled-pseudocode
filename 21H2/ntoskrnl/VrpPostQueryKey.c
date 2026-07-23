@@ -3,10 +3,10 @@
  * Callers:
  *     VrpRegistryCallback @ 0x1405D3FD0 (VrpRegistryCallback.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     ExGetPreviousMode @ 0x14029DFA0 (ExGetPreviousMode.c)
- *     EtwActivityIdControl @ 0x1402B1640 (EtwActivityIdControl.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ExGetPreviousMode @ 0x14021B500 (ExGetPreviousMode.c)
+ *     EtwActivityIdControl @ 0x140272110 (EtwActivityIdControl.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14027E1A4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  *     VrpCleanupBufferParameter @ 0x1405D5748 (VrpCleanupBufferParameter.c)
  *     VrpOutputBufferParameter @ 0x1405D57FC (VrpOutputBufferParameter.c)
  *     VrpProcessBufferParameter @ 0x1405D5AEC (VrpProcessBufferParameter.c)
@@ -77,7 +77,7 @@ __int64 __fastcall VrpPostQueryKey(__int64 a1)
     v30[0] = *(unsigned __int16 *)v15;
     tlgWriteTransfer_EtwWriteTransfer(
       (__int64)&dword_140C02168,
-      (unsigned __int8 *)&dword_140024194,
+      (unsigned __int8 *)byte_1400243CD,
       &ActivityId,
       0LL,
       5u,
@@ -150,7 +150,7 @@ __int64 __fastcall VrpPostQueryKey(__int64 a1)
                 v30[1] = &updated;
                 tlgWriteTransfer_EtwWriteTransfer(
                   (__int64)&dword_140C02168,
-                  (unsigned __int8 *)byte_1400243F1,
+                  (unsigned __int8 *)&byte_14002433F,
                   &ActivityId,
                   0LL,
                   6u,
@@ -178,7 +178,7 @@ LABEL_4:
     v30[0] = 4LL;
     tlgWriteTransfer_EtwWriteTransfer(
       (__int64)&dword_140C02168,
-      (unsigned __int8 *)&unk_140024300,
+      (unsigned __int8 *)byte_14002440B,
       &ActivityId,
       0LL,
       5u,

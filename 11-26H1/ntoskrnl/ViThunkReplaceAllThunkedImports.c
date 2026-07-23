@@ -1,12 +1,12 @@
 /*
- * XREFs of ViThunkReplaceAllThunkedImports @ 0x140C35DB4
+ * XREFs of ViThunkReplaceAllThunkedImports @ 0x140C3BDC4
  * Callers:
- *     VfThunkApplyThunksCurrentSession @ 0x140C353F8 (VfThunkApplyThunksCurrentSession.c)
+ *     VfThunkApplyThunksCurrentSession @ 0x140C3B408 (VfThunkApplyThunksCurrentSession.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
- *     ViThunkFindAllSpecialTables @ 0x140C357CC (ViThunkFindAllSpecialTables.c)
- *     ViThunkReplaceIatEntryForClassDriverThunk @ 0x140C35EF8 (ViThunkReplaceIatEntryForClassDriverThunk.c)
- *     ViThunkReplaceIatEntryForWdmThunk @ 0x140C35F54 (ViThunkReplaceIatEntryForWdmThunk.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
+ *     ViThunkFindAllSpecialTables @ 0x140C3B7DC (ViThunkFindAllSpecialTables.c)
+ *     ViThunkReplaceIatEntryForClassDriverThunk @ 0x140C3BF08 (ViThunkReplaceIatEntryForClassDriverThunk.c)
+ *     ViThunkReplaceIatEntryForWdmThunk @ 0x140C3BF64 (ViThunkReplaceIatEntryForWdmThunk.c)
  */
 
 __int64 __fastcall ViThunkReplaceAllThunkedImports(__int64 a1, __int64 a2, unsigned int a3, int a4)

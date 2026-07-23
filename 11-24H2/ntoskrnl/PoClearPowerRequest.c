@@ -1,9 +1,9 @@
 /*
- * XREFs of PoClearPowerRequest @ 0x14046BD20
+ * XREFs of PoClearPowerRequest @ 0x1404649A0
  * Callers:
  *     <none>
  * Callees:
- *     PopPowerRequestReferenceRelease @ 0x14046BD60 (PopPowerRequestReferenceRelease.c)
+ *     PopPowerRequestReferenceRelease @ 0x1404649E0 (PopPowerRequestReferenceRelease.c)
  */
 
 NTSTATUS __stdcall PoClearPowerRequest(PVOID PowerRequest, POWER_REQUEST_TYPE Type)

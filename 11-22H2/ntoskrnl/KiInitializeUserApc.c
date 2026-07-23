@@ -46,7 +46,7 @@ unsigned __int64 __fastcall KiInitializeUserApc(
   unsigned int v22; // r9d
   __int64 v23; // rdx
   unsigned __int64 v24; // rcx
-  int v25; // eax
+  NTSTATUS v25; // eax
   _DWORD *v26; // rcx
   unsigned int Size; // [rsp+34h] [rbp-194h]
   _QWORD *v29; // [rsp+40h] [rbp-188h]
@@ -59,11 +59,11 @@ unsigned __int64 __fastcall KiInitializeUserApc(
   _QWORD *v38; // [rsp+C0h] [rbp-108h]
   _QWORD *v39; // [rsp+C8h] [rbp-100h]
   SIZE_T v40; // [rsp+D0h] [rbp-F8h]
-  ULONG_PTR v41[19]; // [rsp+F0h] [rbp-D8h] BYREF
+  EXCEPTION_RECORD ExceptionRecord; // [rsp+F0h] [rbp-D8h] BYREF
 
   v7 = a4;
   v8 = a3;
-  memset(v41, 0, sizeof(v41));
+  memset(&ExceptionRecord, 0, sizeof(ExceptionRecord));
   CurrentThread = KeGetCurrentThread();
   v34 = CurrentThread;
   if ( a1 )
@@ -145,7 +145,7 @@ unsigned __int64 __fastcall KiInitializeUserApc(
     {
       v25 = KiUnwindUserSspForApcContextCopyBypass(v31);
       if ( v25 < 0 )
-        RtlRaiseStatus((unsigned int)v25);
+        RtlRaiseStatus(v25);
     }
     v16 = v31 + 1296;
   }

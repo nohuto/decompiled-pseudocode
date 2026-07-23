@@ -22,7 +22,7 @@ bool PspInitPhase2()
   ULONG Seed; // [rsp+30h] [rbp+8h] BYREF
 
   v0 = PsInitialSystemProcess;
-  v0[1].ThreadListHead.Flink = (struct _LIST_ENTRY *)RtlGetSystemTimePrecise();
+  v0[1].ThreadListHead.Flink = (struct _LIST_ENTRY *)RtlGetSystemTimePrecise().QuadPart;
   PsInitialSystemProcess[2].ActiveProcessors.Bitmap[18] = MEMORY[0xFFFFF78000000008];
   UnbiasedInterruptTime = KiQueryUnbiasedInterruptTime();
   v2 = PsIdleProcess;

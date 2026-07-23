@@ -16,21 +16,21 @@
  *     OpenGlobalizationUserSettingsKey_ForSingleUserModel @ 0x4B38B3AF (OpenGlobalizationUserSettingsKey_ForSingleUserModel.c)
  */
 
-int __thiscall OpenGlobalizationUserSettingsKey(void *this, int a2)
+NTSTATUS __thiscall OpenGlobalizationUserSettingsKey(ACCESS_MASK DesiredAccess, PHANDLE CurrentUserKey)
 {
   int v3; // eax
   int v5; // eax
   _BYTE v6[4]; // [esp+8h] [ebp-4h] BYREF
 
-  if ( !a2 )
+  if ( !CurrentUserKey )
     return -1073741811;
   v3 = GetGlobalizationUserModelType() - 1;
   if ( !v3 )
-    return RtlOpenCurrentUser(this, a2);
+    return RtlOpenCurrentUser(DesiredAccess, CurrentUserKey);
   v5 = v3 - 1;
   if ( !v5 )
-    return OpenGlobalizationUserSettingsKey_ForSingleUserModel(this, a2);
+    return OpenGlobalizationUserSettingsKey_ForSingleUserModel(DesiredAccess, CurrentUserKey);
   if ( v5 == 1 )
-    return OpenGlobalizationUserSettingsKey_ForMua(a2, v6);
+    return OpenGlobalizationUserSettingsKey_ForMua(CurrentUserKey, v6);
   return -1073741595;
 }

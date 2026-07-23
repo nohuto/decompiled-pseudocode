@@ -1,10 +1,10 @@
 /*
- * XREFs of IopCombineLegacyResources @ 0x140959DA4
+ * XREFs of IopCombineLegacyResources @ 0x140959FA4
  * Callers:
- *     IopLegacyResourceAllocation @ 0x140815844 (IopLegacyResourceAllocation.c)
+ *     IopLegacyResourceAllocation @ 0x140815B14 (IopLegacyResourceAllocation.c)
  * Callees:
- *     memmove @ 0x140435700 (memmove.c)
- *     PnpDetermineResourceListSize @ 0x1407901CC (PnpDetermineResourceListSize.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     PnpDetermineResourceListSize @ 0x1407903BC (PnpDetermineResourceListSize.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 

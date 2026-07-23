@@ -1,7 +1,7 @@
 /*
- * XREFs of KeGetHeteroPolicies @ 0x140392468
+ * XREFs of KeGetHeteroPolicies @ 0x140392648
  * Callers:
- *     PpmEventTraceHeteroSets @ 0x14082D474 (PpmEventTraceHeteroSets.c)
+ *     PpmEventTraceHeteroSets @ 0x14082D774 (PpmEventTraceHeteroSets.c)
  * Callees:
  *     <none>
  */

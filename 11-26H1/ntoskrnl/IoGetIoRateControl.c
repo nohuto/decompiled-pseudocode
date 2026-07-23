@@ -1,15 +1,15 @@
 /*
- * XREFs of IoGetIoRateControl @ 0x140207570
+ * XREFs of IoGetIoRateControl @ 0x140207650
  * Callers:
  *     <none>
  * Callees:
- *     IoDiskIoAttributionQuery @ 0x1402074B4 (IoDiskIoAttributionQuery.c)
- *     IopFindDiskIoAttribution @ 0x140207870 (IopFindDiskIoAttribution.c)
- *     PspIoRateEntryIoControlReference @ 0x140207BB4 (PspIoRateEntryIoControlReference.c)
- *     IoDiskIoAttributionDereference @ 0x14021D5D4 (IoDiskIoAttributionDereference.c)
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     PspJobIoRateVolumeEntryReference @ 0x140615D38 (PspJobIoRateVolumeEntryReference.c)
+ *     IoDiskIoAttributionQuery @ 0x140207594 (IoDiskIoAttributionQuery.c)
+ *     IopFindDiskIoAttribution @ 0x140207950 (IopFindDiskIoAttribution.c)
+ *     PspIoRateEntryIoControlReference @ 0x140207C94 (PspIoRateEntryIoControlReference.c)
+ *     IoDiskIoAttributionDereference @ 0x14021EF64 (IoDiskIoAttributionDereference.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     PspJobIoRateVolumeEntryReference @ 0x140618CCC (PspJobIoRateVolumeEntryReference.c)
  */
 
 __int64 __fastcall IoGetIoRateControl(

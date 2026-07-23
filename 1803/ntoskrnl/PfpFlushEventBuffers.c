@@ -13,13 +13,13 @@
 
 __int64 PfpFlushEventBuffers()
 {
-  struct _SLIST_ENTRY *v0; // rbx
+  _SLIST_ENTRY *v0; // rbx
   int v1; // esi
   PSLIST_ENTRY v2; // rcx
-  struct _SLIST_ENTRY *v4; // rax
-  struct _SLIST_ENTRY *v5; // rbp
-  struct _SLIST_ENTRY *v6; // rdi
-  struct _SLIST_ENTRY *v8; // rcx
+  _SLIST_ENTRY *v4; // rax
+  _SLIST_ENTRY *v5; // rbp
+  _SLIST_ENTRY *v6; // rdi
+  _SLIST_ENTRY *v8; // rcx
 
   v0 = 0LL;
   v1 = 0;

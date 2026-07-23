@@ -1,13 +1,13 @@
 /*
- * XREFs of ObpAllocateObject @ 0x14072FBF0
+ * XREFs of ObpAllocateObject @ 0x14072FDE0
  * Callers:
- *     SepDuplicateToken @ 0x140729B80 (SepDuplicateToken.c)
- *     IopAllocRealFileObject @ 0x14072F300 (IopAllocRealFileObject.c)
- *     CmpCreateKeyBody @ 0x14072F810 (CmpCreateKeyBody.c)
- *     ObCreateObjectEx @ 0x1407308B0 (ObCreateObjectEx.c)
- *     ObCreateObjectTypeEx @ 0x14081F1F0 (ObCreateObjectTypeEx.c)
+ *     SepDuplicateToken @ 0x140729D80 (SepDuplicateToken.c)
+ *     IopAllocRealFileObject @ 0x14072F500 (IopAllocRealFileObject.c)
+ *     CmpCreateKeyBody @ 0x14072FA00 (CmpCreateKeyBody.c)
+ *     ObCreateObjectEx @ 0x140730AA0 (ObCreateObjectEx.c)
+ *     ObCreateObjectTypeEx @ 0x14081F4F0 (ObCreateObjectTypeEx.c)
  * Callees:
- *     SeAuditHeaderRequired @ 0x1402AF8C0 (SeAuditHeaderRequired.c)
+ *     SeAuditHeaderRequired @ 0x1402AFB50 (SeAuditHeaderRequired.c)
  *     ExAllocatePoolWithTag @ 0x140AAEC80 (ExAllocatePoolWithTag.c)
  */
 

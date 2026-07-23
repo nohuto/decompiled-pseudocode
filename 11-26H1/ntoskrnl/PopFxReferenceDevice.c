@@ -1,21 +1,21 @@
 /*
- * XREFs of PopFxReferenceDevice @ 0x1403948D4
+ * XREFs of PopFxReferenceDevice @ 0x140396654
  * Callers:
- *     PopFxQueueWorkOrder @ 0x14039486C (PopFxQueueWorkOrder.c)
- *     PopFxIdleWorkerTail @ 0x140395604 (PopFxIdleWorkerTail.c)
- *     PopFxBuildDirectedDripsCandidateDeviceList @ 0x1404D0FCC (PopFxBuildDirectedDripsCandidateDeviceList.c)
- *     PopFxBuildDripsBlockingDeviceList @ 0x1404D4110 (PopFxBuildDripsBlockingDeviceList.c)
- *     PopFxActivateDevice @ 0x1404D5290 (PopFxActivateDevice.c)
- *     PopFxClearDeviceConstraints @ 0x1404E2030 (PopFxClearDeviceConstraints.c)
- *     PoFxAddComponentRelation @ 0x140603F90 (PoFxAddComponentRelation.c)
- *     PoFxAddDeviceRelation @ 0x140604200 (PoFxAddDeviceRelation.c)
- *     PoFxRemoveComponentRelation @ 0x140604610 (PoFxRemoveComponentRelation.c)
- *     PoFxRemoveDeviceRelation @ 0x140604860 (PoFxRemoveDeviceRelation.c)
- *     PopFxGetParentFxDevice @ 0x140604FC8 (PopFxGetParentFxDevice.c)
- *     PopFxIssueDirectedPowerTransition @ 0x14060521C (PopFxIssueDirectedPowerTransition.c)
+ *     PopFxQueueWorkOrder @ 0x1403965EC (PopFxQueueWorkOrder.c)
+ *     PopFxIdleWorkerTail @ 0x140397384 (PopFxIdleWorkerTail.c)
+ *     PopFxBuildDirectedDripsCandidateDeviceList @ 0x1404CA9FC (PopFxBuildDirectedDripsCandidateDeviceList.c)
+ *     PopFxBuildDripsBlockingDeviceList @ 0x1404CD980 (PopFxBuildDripsBlockingDeviceList.c)
+ *     PopFxActivateDevice @ 0x1404CEB00 (PopFxActivateDevice.c)
+ *     PopFxClearDeviceConstraints @ 0x1404DB710 (PopFxClearDeviceConstraints.c)
+ *     PoFxAddComponentRelation @ 0x140606A90 (PoFxAddComponentRelation.c)
+ *     PoFxAddDeviceRelation @ 0x140606D00 (PoFxAddDeviceRelation.c)
+ *     PoFxRemoveComponentRelation @ 0x140607110 (PoFxRemoveComponentRelation.c)
+ *     PoFxRemoveDeviceRelation @ 0x140607360 (PoFxRemoveDeviceRelation.c)
+ *     PopFxGetParentFxDevice @ 0x140607AC8 (PopFxGetParentFxDevice.c)
+ *     PopFxIssueDirectedPowerTransition @ 0x140607D1C (PopFxIssueDirectedPowerTransition.c)
  * Callees:
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     PopFxBugCheck @ 0x1403B0E54 (PopFxBugCheck.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     PopFxBugCheck @ 0x1403BAB64 (PopFxBugCheck.c)
  */
 
 __int64 __fastcall PopFxReferenceDevice(ULONG_PTR BugCheckParameter2, int a2)

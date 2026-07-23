@@ -23,13 +23,15 @@
 __int64 __fastcall sub_1800D0B18(const void **a1, const char *a2)
 {
   char v3; // al
-  bool v4; // zf
-  int v5; // ecx
+  NTSTATUS v4; // edi
+  bool v5; // zf
   int v6; // ecx
   int v7; // ecx
-  char v9; // [rsp+60h] [rbp+8h] BYREF
+  int v8; // ecx
+  CHAR Response; // [rsp+60h] [rbp+8h] BYREF
 
   v3 = dword_180156A70;
+  v4 = *(_DWORD *)*a1;
   if ( (dword_180156A70 & 3) != 0 )
   {
     sub_1800CA554(
@@ -39,7 +41,7 @@ __int64 __fastcall sub_1800D0B18(const void **a1, const char *a2)
       0,
       "Function %s raised exception 0x%08lx\n\tException record: .exr %p\n\tContext record: .cxr %p\n",
       a2,
-      *(_DWORD *)*a1,
+      v4,
       *a1,
       a1[1]);
     v3 = dword_180156A70;
@@ -51,41 +53,41 @@ __int64 __fastcall sub_1800D0B18(const void **a1, const char *a2)
     while ( 1 )
     {
       DbgPrint("\n***Exception thrown within loader***\n");
-      DbgPrompt("Break repeatedly, break Once, Ignore, terminate Process or terminate Thread (boipt)? ", &v9, 2LL);
-      if ( v9 > 98 )
+      DbgPrompt("Break repeatedly, break Once, Ignore, terminate Process or terminate Thread (boipt)? ", &Response, 2u);
+      if ( Response > 98 )
       {
-        v5 = v9 - 105;
-        v4 = v9 == 105;
+        v6 = Response - 105;
+        v5 = Response == 105;
       }
       else
       {
-        if ( v9 == 98 || v9 == 66 )
+        if ( Response == 98 || Response == 66 )
           goto LABEL_17;
-        v5 = v9 - 73;
-        v4 = v9 == 73;
+        v6 = Response - 73;
+        v5 = Response == 73;
       }
-      if ( v4 )
+      if ( v5 )
         return 1LL;
-      v6 = v5 - 6;
-      if ( !v6 )
+      v7 = v6 - 6;
+      if ( !v7 )
       {
 LABEL_17:
         DbgPrint("Execute '.cxr %p' to dump context\n", a1[1]);
         __debugbreak();
       }
-      v7 = v6 - 1;
-      if ( v7 )
+      v8 = v7 - 1;
+      if ( v8 )
       {
-        if ( v7 == 4 )
+        if ( v8 == 4 )
         {
-          sub_1800896AC(&NtCurrentPeb()->ProcessParameters->ImagePathName.Length, &xmmword_180123F00);
-          ZwTerminateThread();
+          sub_1800896AC(&NtCurrentPeb()->ProcessParameters->ImagePathName.Length, &stru_180123F00);
+          ZwTerminateThread((HANDLE)0xFFFFFFFFFFFFFFFELL, v4);
         }
       }
       else
       {
-        sub_1800896AC(&NtCurrentPeb()->ProcessParameters->ImagePathName.Length, &xmmword_180123FE0);
-        ZwTerminateProcess();
+        sub_1800896AC(&NtCurrentPeb()->ProcessParameters->ImagePathName.Length, &stru_180123FE0);
+        ZwTerminateProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, v4);
       }
     }
   }

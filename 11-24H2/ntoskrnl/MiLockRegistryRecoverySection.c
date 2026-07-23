@@ -1,10 +1,10 @@
 /*
- * XREFs of MiLockRegistryRecoverySection @ 0x1407E7DB0
+ * XREFs of MiLockRegistryRecoverySection @ 0x1407E8380
  * Callers:
  *     <none>
  * Callees:
- *     MiLockCode @ 0x14023D6F0 (MiLockCode.c)
- *     MiSnapDriverRange @ 0x140A3DE88 (MiSnapDriverRange.c)
+ *     MiLockCode @ 0x140205480 (MiLockCode.c)
+ *     MiSnapDriverRange @ 0x140A33798 (MiSnapDriverRange.c)
  */
 
 __int64 __fastcall MiLockRegistryRecoverySection(__int64 a1)

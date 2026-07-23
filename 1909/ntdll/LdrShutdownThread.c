@@ -21,8 +21,12 @@
  *     memset @ 0x1800A3DC0 (memset.c)
  */
 
-__int64 __fastcall LdrShutdownThread(struct _RTLP_FLS_CONTEXT *a1, __int64 a2, __int64 a3, __int64 a4)
+void __noreturn LdrShutdownThread(void)
 {
+  __int64 v0; // rdx
+  struct _RTLP_FLS_CONTEXT *v1; // rcx
+  __int64 v2; // r8
+  __int64 v3; // r9
   struct _TEB *v4; // rbx
   struct _PEB *v5; // r13
   struct _RTLP_FLS_DATA *FlsData; // r14
@@ -40,20 +44,19 @@ __int64 __fastcall LdrShutdownThread(struct _RTLP_FLS_CONTEXT *a1, __int64 a2, _
   __int64 v18; // rcx
   __int64 v19; // r8
   __int64 v20; // r9
-  __int64 result; // rax
   void *FiberData; // r8
-  __int64 v23; // [rsp+30h] [rbp-C8h] BYREF
-  int v24; // [rsp+38h] [rbp-C0h]
-  _BYTE v25[56]; // [rsp+40h] [rbp-B8h] BYREF
-  __int64 v26; // [rsp+80h] [rbp-78h] BYREF
-  int v27; // [rsp+88h] [rbp-70h]
-  _BYTE v28[56]; // [rsp+90h] [rbp-68h] BYREF
+  __int64 v22; // [rsp+30h] [rbp-C8h] BYREF
+  int v23; // [rsp+38h] [rbp-C0h]
+  _BYTE v24[56]; // [rsp+40h] [rbp-B8h] BYREF
+  __int64 v25; // [rsp+80h] [rbp-78h] BYREF
+  int v26; // [rsp+88h] [rbp-70h]
+  _BYTE v27[56]; // [rsp+90h] [rbp-68h] BYREF
 
   v4 = NtCurrentTeb();
   v5 = NtCurrentPeb();
   FlsData = (struct _RTLP_FLS_DATA *)v4->FlsData;
   if ( FlsData )
-    RtlpFlsDataCleanup(a1, (struct _RTLP_FLS_DATA *)v4->FlsData, 1u);
+    RtlpFlsDataCleanup(v1, (struct _RTLP_FLS_DATA *)v4->FlsData, 1u);
   if ( ((NtCurrentTeb()->SameTebFlags & 8) == 0 || (NtCurrentTeb()->SameTebFlags & 0x20) != 0)
     && (v4->SameTebFlags & 0x2000) == 0 )
   {
@@ -81,26 +84,26 @@ __int64 __fastcall LdrShutdownThread(struct _RTLP_FLS_CONTEXT *a1, __int64 a2, _
           v8 &= 0x80004u;
           if ( (_DWORD)v8 == 524292 )
           {
-            v23 = 72LL;
-            v24 = 1;
-            memset(v25, 0, sizeof(v25));
-            RtlActivateActivationContextUnsafeFast(&v23, v10[17]);
+            v22 = 72LL;
+            v23 = 1;
+            memset(v24, 0, sizeof(v24));
+            RtlActivateActivationContextUnsafeFast(&v22, v10[17]);
             if ( *((_WORD *)v10 + 55) )
               LdrpCallTlsInitializers(3LL, v10);
             LdrpCallInitRoutine(v11, v10[6], 3LL);
-            RtlDeactivateActivationContextUnsafeFast(&v23);
+            RtlDeactivateActivationContextUnsafeFast(&v22);
           }
         }
       }
     }
     if ( *(_WORD *)(LdrpImageEntry + 110) )
     {
-      v26 = 72LL;
-      v27 = 1;
-      memset(v28, 0, sizeof(v28));
-      RtlActivateActivationContextUnsafeFast(&v26, *(_QWORD *)(LdrpImageEntry + 136));
+      v25 = 72LL;
+      v26 = 1;
+      memset(v27, 0, sizeof(v27));
+      RtlActivateActivationContextUnsafeFast(&v25, *(_QWORD *)(LdrpImageEntry + 136));
       LdrpCallTlsInitializers(3LL, LdrpImageEntry);
-      RtlDeactivateActivationContextUnsafeFast(&v26);
+      RtlDeactivateActivationContextUnsafeFast(&v25);
     }
     LdrpReleaseLoaderLock(v8, 19LL);
     if ( !v7 )
@@ -110,25 +113,23 @@ __int64 __fastcall LdrShutdownThread(struct _RTLP_FLS_CONTEXT *a1, __int64 a2, _
   if ( FlsData )
   {
     v4->FlsData = 0LL;
-    RtlpFlsDataCleanup(a1, FlsData, 2u);
+    RtlpFlsDataCleanup(v1, FlsData, 2u);
   }
   TlsExpansionSlots = v4->TlsExpansionSlots;
   if ( TlsExpansionSlots )
   {
     v4->TlsExpansionSlots = 0LL;
-    RtlEnterCriticalSection((__int64)&FastPebLock);
+    RtlEnterCriticalSection(&FastPebLock);
     RtlLeaveCriticalSection(&FastPebLock);
-    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, TlsExpansionSlots);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, TlsExpansionSlots);
   }
   if ( (v4->SameTebFlags & 4) != 0 )
   {
     FiberData = v4->NtTib.FiberData;
     v4->NtTib.FiberData = 0LL;
-    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, FiberData);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, FiberData);
   }
-  RtlFreeThreadActivationContextStack(a1, a2, a3, a4);
-  result = 1024LL;
+  RtlFreeThreadActivationContextStack(v1, v0, v2, v3);
   if ( (v4->SameTebFlags & 0x400) != 0 && LdrInitState == 3 )
-    return TpTrimPools(v18, v17, v19, v20);
-  return result;
+    TpTrimPools(v18, v17, v19, v20);
 }

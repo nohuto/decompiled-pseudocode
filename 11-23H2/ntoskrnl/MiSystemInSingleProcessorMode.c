@@ -1,8 +1,8 @@
 /*
- * XREFs of MiSystemInSingleProcessorMode @ 0x14061C398
+ * XREFs of MiSystemInSingleProcessorMode @ 0x14061C8E8
  * Callers:
- *     MmAddRangeToCrashDump @ 0x140630140 (MmAddRangeToCrashDump.c)
- *     MmRemoveSystemCacheFromDump @ 0x1406306DC (MmRemoveSystemCacheFromDump.c)
+ *     MmAddRangeToCrashDump @ 0x140630690 (MmAddRangeToCrashDump.c)
+ *     MmRemoveSystemCacheFromDump @ 0x140630C2C (MmRemoveSystemCacheFromDump.c)
  * Callees:
  *     <none>
  */

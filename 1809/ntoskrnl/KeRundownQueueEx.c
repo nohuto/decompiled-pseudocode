@@ -1,15 +1,15 @@
 /*
- * XREFs of KeRundownQueueEx @ 0x1400FA9BC
+ * XREFs of KeRundownQueueEx @ 0x1400FAA3C
  * Callers:
- *     KeRundownQueue @ 0x1400F9BB0 (KeRundownQueue.c)
- *     IopDeleteIoCompletionInternal @ 0x1400FA85C (IopDeleteIoCompletionInternal.c)
- *     EtwpDeleteRegistrationObject @ 0x1405C3E20 (EtwpDeleteRegistrationObject.c)
- *     KeUnInitializeUmsThread @ 0x140845534 (KeUnInitializeUmsThread.c)
+ *     KeRundownQueue @ 0x1400F9C30 (KeRundownQueue.c)
+ *     IopDeleteIoCompletionInternal @ 0x1400FA8DC (IopDeleteIoCompletionInternal.c)
+ *     EtwpDeleteRegistrationObject @ 0x1405C4E20 (EtwpDeleteRegistrationObject.c)
+ *     KeUnInitializeUmsThread @ 0x140846794 (KeUnInitializeUmsThread.c)
  * Callees:
- *     KiExitDispatcher @ 0x1400C2F70 (KiExitDispatcher.c)
- *     KeRundownQueueCommon @ 0x1400FAAA0 (KeRundownQueueCommon.c)
- *     KiAcquireReleaseObjectRundownLockExclusive @ 0x1400FACB0 (KiAcquireReleaseObjectRundownLockExclusive.c)
- *     KiAcquireKobjectLockSafe @ 0x1400FBE10 (KiAcquireKobjectLockSafe.c)
+ *     KiExitDispatcher @ 0x1400C2EB0 (KiExitDispatcher.c)
+ *     KeRundownQueueCommon @ 0x1400FAB20 (KeRundownQueueCommon.c)
+ *     KiAcquireReleaseObjectRundownLockExclusive @ 0x1400FAD30 (KiAcquireReleaseObjectRundownLockExclusive.c)
+ *     KiAcquireKobjectLockSafe @ 0x1400FBE90 (KiAcquireKobjectLockSafe.c)
  */
 
 __int64 __fastcall KeRundownQueueEx(__int64 a1, char a2)

@@ -7,31 +7,31 @@
  *     LdrResolveDelayLoadedAPI @ 0x180021000 (LdrResolveDelayLoadedAPI.c)
  */
 
-__int64 __fastcall LdrpResolveDelayLoadDescriptor(__int64 a1, __int64 a2)
+__int64 __fastcall LdrpResolveDelayLoadDescriptor(
+        char *ParentModuleBase,
+        PCIMAGE_DELAYLOAD_DESCRIPTOR DelayloadDescriptor)
 {
-  _QWORD *v2; // rsi
+  char *v2; // rsi
   unsigned int v3; // ebx
-  char v4; // r14
-  __int64 v5; // rdi
-  _QWORD *v6; // rax
-  bool v7; // zf
+  __int64 v6; // rdi
+  IMAGE_THUNK_DATA64 *ThunkAddress; // rax
+  bool v8; // zf
 
-  v2 = (_QWORD *)(a1 + *(unsigned int *)(a2 + 12));
+  v2 = &ParentModuleBase[DelayloadDescriptor->ImportAddressTableRVA];
   v3 = 0;
-  v4 = a1;
-  LODWORD(v5) = 0;
-  if ( *v2 )
+  LODWORD(v6) = 0;
+  if ( *(_QWORD *)v2 )
   {
-    v6 = (_QWORD *)(a1 + *(unsigned int *)(a2 + 12));
+    ThunkAddress = (IMAGE_THUNK_DATA64 *)&ParentModuleBase[DelayloadDescriptor->ImportAddressTableRVA];
     do
     {
-      v7 = LdrResolveDelayLoadedAPI(v4, (__int64)v6, 0) == 0;
-      v5 = (unsigned int)(v5 + 1);
-      v6 = &v2[v5];
-      if ( v7 )
+      v8 = LdrResolveDelayLoadedAPI(ParentModuleBase, DelayloadDescriptor, 0LL, 0LL, ThunkAddress, 0) == 0LL;
+      v6 = (unsigned int)(v6 + 1);
+      ThunkAddress = (IMAGE_THUNK_DATA64 *)&v2[8 * v6];
+      if ( v8 )
         v3 = -1073740782;
     }
-    while ( *v6 );
+    while ( ThunkAddress->u1.ForwarderString );
   }
   return v3;
 }

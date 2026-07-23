@@ -250,7 +250,7 @@ PVOID __stdcall RtlCreateHeap(
             if ( ZwQueryVirtualMemory(
                    (HANDLE)0xFFFFFFFFFFFFFFFFLL,
                    HeapBase,
-                   MemoryBasicVlmInformation,
+                   MemoryRegionInformation,
                    v66,
                    0x20uLL,
                    0LL) < 0 )

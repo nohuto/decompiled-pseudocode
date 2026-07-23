@@ -10,7 +10,7 @@
  *     RtlEndStrongEnumerationHashTable @ 0x180081AE0 (RtlEndStrongEnumerationHashTable.c)
  */
 
-__int64 __fastcall LdrpSendDllNotifications(__int64 a1, unsigned int a2)
+NTSTATUS __fastcall LdrpSendDllNotifications(__int64 a1, unsigned int a2)
 {
   _UNKNOWN **i; // rdi
   int v5; // [rsp+20h] [rbp-38h] BYREF

@@ -1,13 +1,13 @@
 /*
- * XREFs of PiDqDeleteUserObjectFromLoadedHives @ 0x14082ADAC
+ * XREFs of PiDqDeleteUserObjectFromLoadedHives @ 0x14082BFAC
  * Callers:
- *     PiDqObjectManagerHandleObjectEvent @ 0x1406F9420 (PiDqObjectManagerHandleObjectEvent.c)
+ *     PiDqObjectManagerHandleObjectEvent @ 0x1406FA6C0 (PiDqObjectManagerHandleObjectEvent.c)
  * Callees:
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     _SysCtxRegOpenKey @ 0x1405C7AFC (_SysCtxRegOpenKey.c)
- *     _RegRtlEnumKey @ 0x1406F97C8 (_RegRtlEnumKey.c)
- *     PiDqDeleteUserObject @ 0x14082AC9C (PiDqDeleteUserObject.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     _SysCtxRegOpenKey @ 0x1405C8AFC (_SysCtxRegOpenKey.c)
+ *     _RegRtlEnumKey @ 0x1406FAA68 (_RegRtlEnumKey.c)
+ *     PiDqDeleteUserObject @ 0x14082BE9C (PiDqDeleteUserObject.c)
  */
 
 NTSTATUS __fastcall PiDqDeleteUserObjectFromLoadedHives(__int64 a1, int a2)

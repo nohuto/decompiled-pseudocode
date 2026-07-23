@@ -9,43 +9,42 @@
  *     _iswdigit @ 0x4B2F8620 (_iswdigit.c)
  */
 
-int __thiscall RtlpIsDosDeviceName_Ustr(int *this)
+int __thiscall RtlpIsDosDeviceName_Ustr(_DWORD *this)
 {
   unsigned __int16 *v1; // edx
   unsigned int v2; // esi
   int v3; // ebx
   int v4; // eax
-  unsigned __int16 *v5; // esi
+  wchar_t *v5; // esi
   int v6; // edi
   int v7; // edx
-  __int16 v8; // cx
-  unsigned __int16 v9; // ax
-  unsigned __int16 *v10; // eax
+  unsigned __int16 Length; // cx
+  wchar_t v9; // ax
+  wchar_t *v10; // eax
   int v11; // ecx
-  char *v12; // ecx
+  wchar_t *v12; // ecx
   int v13; // eax
   __int16 v14; // ax
   int v15; // eax
-  unsigned __int16 *v16; // ecx
-  unsigned __int16 *v17; // edx
+  wchar_t *v16; // ecx
+  wchar_t *v17; // edx
   int v18; // eax
   int v19; // ecx
   int v20; // edi
   __int16 v21; // bx
   int result; // eax
-  char v23; // al
+  BOOLEAN v23; // al
   int v24; // eax
   int v25; // eax
   int v26; // eax
-  int v27; // [esp+10h] [ebp-10h] BYREF
-  char *v28; // [esp+14h] [ebp-Ch]
-  int v29; // [esp+18h] [ebp-8h]
-  int v30; // [esp+1Ch] [ebp-4h]
+  _UNICODE_STRING String1; // [esp+10h] [ebp-10h] BYREF
+  int v28; // [esp+18h] [ebp-8h]
+  int v29; // [esp+1Ch] [ebp-4h]
 
   v1 = (unsigned __int16 *)this[1];
   v2 = *(unsigned __int16 *)this;
   v3 = 0;
-  v30 = 0;
+  v29 = 0;
   if ( v2 >= 2 )
   {
     v4 = *v1;
@@ -72,21 +71,21 @@ int __thiscall RtlpIsDosDeviceName_Ustr(int *this)
   }
   v5 = v1;
   v6 = (unsigned __int16)*this;
-  v27 = *this;
+  *(_DWORD *)&String1.Length = *this;
   v7 = (unsigned __int16)v6 >> 1;
-  v28 = (char *)v5;
+  String1.Buffer = v5;
   if ( !(_WORD)v7 )
     return 0;
   if ( v5[v7 - 1] == 58 )
   {
     v3 = 1;
-    v8 = v6 - 2;
+    Length = v6 - 2;
     LOWORD(v7) = v7 - 1;
-    v30 = 1;
+    v29 = 1;
   }
   else
   {
-    v8 = v27;
+    Length = String1.Length;
   }
   if ( !(_WORD)v7 )
     return 0;
@@ -95,14 +94,14 @@ int __thiscall RtlpIsDosDeviceName_Ustr(int *this)
     v9 = v5[(unsigned __int16)v7 - 1];
     if ( v9 != 46 && v9 != 32 )
       break;
-    v29 = 65534;
+    v28 = 65534;
     LOWORD(v7) = v7 - 1;
-    v8 -= 2;
+    Length -= 2;
     ++v3;
   }
   while ( (_WORD)v7 );
-  v30 = v3;
-  v29 = 0;
+  v29 = v3;
+  v28 = 0;
   if ( (_WORD)v7 )
   {
     v10 = &v5[(unsigned __int16)v7 - 1];
@@ -116,17 +115,17 @@ int __thiscall RtlpIsDosDeviceName_Ustr(int *this)
         if ( --v10 < v5 )
           goto LABEL_21;
       }
-      v12 = (char *)(v10 + 1);
-      if ( v10 + 1 >= (unsigned __int16 *)((char *)v5 + (v6 & 0xFFFFFFFE)) )
+      v12 = v10 + 1;
+      if ( v10 + 1 >= (wchar_t *)((char *)v5 + (v6 & 0xFFFFFFFE)) )
         return 0;
-      v13 = *(_WORD *)v12 | 0x20;
+      v13 = *v12 | 0x20;
       if ( v13 != 112 && v13 != 108 && v13 != 110 && v13 != 97 && v13 != 99 )
         return 0;
-      v29 = v12 - (char *)v5;
+      v28 = (char *)v12 - (char *)v5;
       v14 = (unsigned __int16)(v6 + (_WORD)v5 - (_WORD)v12) >> 1;
-      v5 = (unsigned __int16 *)v12;
-      v28 = v12;
-      LOWORD(v7) = v14 - v30;
+      v5 = v12;
+      String1.Buffer = v12;
+      LOWORD(v7) = v14 - v29;
     }
 LABEL_21:
     v15 = *v5 | 0x20;
@@ -156,39 +155,39 @@ LABEL_21:
   v19 = v16 - v5;
   v20 = (unsigned __int16)v19;
   v21 = 2 * v19;
-  LOWORD(v27) = 2 * v19;
+  String1.Length = 2 * v19;
   if ( (unsigned __int16)v19 == 5 )
     return 0;
   switch ( (__int16)v19 )
   {
     case 3:
-      if ( (unsigned __int8)RtlEqualUnicodeString(&v27, &RtlpDosPRNDevice, 1)
-        || (unsigned __int8)RtlEqualUnicodeString(&v27, &RtlpDosAUXDevice, 1)
-        || (unsigned __int8)RtlEqualUnicodeString(&v27, &RtlpDosNULDevice, 1) )
+      if ( RtlEqualUnicodeString(&String1, (PUNICODE_STRING)&RtlpDosPRNDevice, 1u)
+        || RtlEqualUnicodeString(&String1, (PUNICODE_STRING)&RtlpDosAUXDevice, 1u)
+        || RtlEqualUnicodeString(&String1, (PUNICODE_STRING)&RtlpDosNULDevice, 1u) )
       {
-        return (v29 << 16) | (2 * v20);
+        return (v28 << 16) | (2 * v20);
       }
-      v23 = RtlEqualUnicodeString(&v27, &RtlpDosCONDevice, 1);
+      v23 = RtlEqualUnicodeString(&String1, (PUNICODE_STRING)&RtlpDosCONDevice, 1u);
       goto LABEL_46;
     case 4:
       if ( !iswdigit(v5[3]) || v5[3] == 48 )
         return 0;
-      LOWORD(v27) = v21 - 2;
-      if ( (unsigned __int8)RtlEqualUnicodeString(&v27, &RtlpDosLPTDevice, 1) )
-        return (v29 << 16) | (2 * v20);
-      v23 = RtlEqualUnicodeString(&v27, &RtlpDosCOMDevice, 1);
+      String1.Length = v21 - 2;
+      if ( RtlEqualUnicodeString(&String1, (PUNICODE_STRING)&RtlpDosLPTDevice, 1u) )
+        return (v28 << 16) | (2 * v20);
+      v23 = RtlEqualUnicodeString(&String1, (PUNICODE_STRING)&RtlpDosCOMDevice, 1u);
 LABEL_46:
       if ( !v23 )
         return 0;
-      result = (v29 << 16) | (2 * v20);
+      result = (v28 << 16) | (2 * v20);
       break;
     case 6:
-      v23 = RtlEqualUnicodeString(&v27, &RtlpDosCONINDevice, 1);
+      v23 = RtlEqualUnicodeString(&String1, (PUNICODE_STRING)&RtlpDosCONINDevice, 1u);
       goto LABEL_46;
     case 7:
-      if ( !(unsigned __int8)RtlEqualUnicodeString(&v27, &RtlpDosCONOUTDevice, 1) )
+      if ( !RtlEqualUnicodeString(&String1, (PUNICODE_STRING)&RtlpDosCONOUTDevice, 1u) )
         return 0;
-      return (v29 << 16) | (2 * v20);
+      return (v28 << 16) | (2 * v20);
     default:
       return 0;
   }

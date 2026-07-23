@@ -1,14 +1,14 @@
 /*
- * XREFs of WheapAttemptPhysicalPageOffline @ 0x1406BA850
+ * XREFs of WheapAttemptPhysicalPageOffline @ 0x1406BA988
  * Callers:
- *     WheaAttemptPhysicalPageOffline @ 0x1406BA518 (WheaAttemptPhysicalPageOffline.c)
- *     WheapAttemptPhysicalPageOfflineWorker @ 0x1406BA95C (WheapAttemptPhysicalPageOfflineWorker.c)
+ *     WheaAttemptPhysicalPageOffline @ 0x1406BA650 (WheaAttemptPhysicalPageOffline.c)
+ *     WheapAttemptPhysicalPageOfflineWorker @ 0x1406BAA94 (WheapAttemptPhysicalPageOfflineWorker.c)
  * Callees:
- *     MmMarkPhysicalMemoryAsBad @ 0x1401E2344 (MmMarkPhysicalMemoryAsBad.c)
- *     WheaPersistOfflinedPage @ 0x1402309A4 (WheaPersistOfflinedPage.c)
- *     WheapLogPageOfflineAttemptEvent @ 0x140231158 (WheapLogPageOfflineAttemptEvent.c)
- *     WheapCallInUsePageNotificationCallbacks @ 0x1406BA98C (WheapCallInUsePageNotificationCallbacks.c)
- *     WheapSqmAddToStream @ 0x1406BBB7C (WheapSqmAddToStream.c)
+ *     MmMarkPhysicalMemoryAsBad @ 0x1401E2170 (MmMarkPhysicalMemoryAsBad.c)
+ *     WheaPersistOfflinedPage @ 0x1402307D0 (WheaPersistOfflinedPage.c)
+ *     WheapLogPageOfflineAttemptEvent @ 0x140230F84 (WheapLogPageOfflineAttemptEvent.c)
+ *     WheapCallInUsePageNotificationCallbacks @ 0x1406BAAC4 (WheapCallInUsePageNotificationCallbacks.c)
+ *     WheapSqmAddToStream @ 0x1406BBCB4 (WheapSqmAddToStream.c)
  */
 
 __int64 __fastcall WheapAttemptPhysicalPageOffline(__int64 a1, char a2, char a3)

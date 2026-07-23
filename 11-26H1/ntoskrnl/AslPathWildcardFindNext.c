@@ -1,23 +1,23 @@
 /*
- * XREFs of AslPathWildcardFindNext @ 0x140889EE8
+ * XREFs of AslPathWildcardFindNext @ 0x1408902E4
  * Callers:
- *     SdbpCheckMatchingWildcardFiles @ 0x14077E1F0 (SdbpCheckMatchingWildcardFiles.c)
- *     AslPathWildcardFindFirst @ 0x140889920 (AslPathWildcardFindFirst.c)
+ *     SdbpCheckMatchingWildcardFiles @ 0x140780CF0 (SdbpCheckMatchingWildcardFiles.c)
+ *     AslPathWildcardFindFirst @ 0x14088FD1C (AslPathWildcardFindFirst.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     ULongLongMult @ 0x14046FB90 (ULongLongMult.c)
- *     RtlStringCbCopyNW @ 0x140486674 (RtlStringCbCopyNW.c)
- *     RtlStringCbCatNW @ 0x140714CBC (RtlStringCbCatNW.c)
- *     ZwQueryDirectoryFile @ 0x140723A90 (ZwQueryDirectoryFile.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     AslpPathWildcardAllocMatchNode @ 0x14088AA00 (AslpPathWildcardAllocMatchNode.c)
- *     AslpPathWildcardFreeMatchNode @ 0x14088ACFC (AslpPathWildcardFreeMatchNode.c)
- *     AslAlloc @ 0x1409E4C90 (AslAlloc.c)
- *     AslFree @ 0x1409E6BD8 (AslFree.c)
- *     AslLogCallPrintf @ 0x1409E8884 (AslLogCallPrintf.c)
- *     ExAllocatePoolWithTag @ 0x140C10340 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     ULongLongMult @ 0x140469310 (ULongLongMult.c)
+ *     RtlStringCbCopyNW @ 0x14047FFEC (RtlStringCbCopyNW.c)
+ *     RtlStringCbCatNW @ 0x1407199AC (RtlStringCbCatNW.c)
+ *     ZwQueryDirectoryFile @ 0x140728660 (ZwQueryDirectoryFile.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     AslpPathWildcardAllocMatchNode @ 0x140890DFC (AslpPathWildcardAllocMatchNode.c)
+ *     AslpPathWildcardFreeMatchNode @ 0x1408910F8 (AslpPathWildcardFreeMatchNode.c)
+ *     AslLogCallPrintf @ 0x1409D5294 (AslLogCallPrintf.c)
+ *     AslFree @ 0x1409D6144 (AslFree.c)
+ *     AslAlloc @ 0x1409D8260 (AslAlloc.c)
+ *     ExAllocatePoolWithTag @ 0x140C16340 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall AslPathWildcardFindNext(wchar_t *a1, __int64 a2, ULONGLONG *a3)

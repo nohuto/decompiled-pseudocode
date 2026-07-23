@@ -9,48 +9,54 @@
  *     ExRaiseDatatypeMisalignment @ 0x1406F78A0 (ExRaiseDatatypeMisalignment.c)
  */
 
-__int64 __fastcall NtSetTimerEx(int a1, int a2, _OWORD *a3, unsigned int a4)
+NTSTATUS __cdecl NtSetTimerEx(
+        HANDLE TimerHandle,
+        TIMER_SET_INFORMATION_CLASS TimerSetInformationClass,
+        PVOID TimerSetInformation,
+        ULONG TimerSetInformationLength)
 {
   _OWORD *v4; // rbx
+  int v5; // r14d
   unsigned __int8 v6; // di
-  ULONG64 v7; // rcx
+  char *v7; // rcx
   __int64 v8; // rcx
   __int64 v9; // rsi
   int v10; // eax
-  unsigned int v11; // ebx
-  __int64 result; // rax
+  NTSTATUS v11; // ebx
+  NTSTATUS result; // eax
   _BYTE v13[8]; // [rsp+50h] [rbp-48h] BYREF
   __int64 v14; // [rsp+58h] [rbp-40h] BYREF
   _OWORD v15[3]; // [rsp+60h] [rbp-38h] BYREF
 
-  v4 = a3;
+  v4 = TimerSetInformation;
+  v5 = (int)TimerHandle;
   v6 = KeGetCurrentThread()->gap0[10];
-  if ( v6 && a4 )
+  if ( v6 && TimerSetInformationLength )
   {
-    if ( ((unsigned __int8)a3 & 3) != 0 )
+    if ( ((unsigned __int8)TimerSetInformation & 3) != 0 )
       ExRaiseDatatypeMisalignment();
-    v7 = (ULONG64)a3 + a4;
-    if ( v7 > MmUserProbeAddress || v7 < (unsigned __int64)a3 )
+    v7 = (char *)TimerSetInformation + TimerSetInformationLength;
+    if ( (unsigned __int64)v7 > MmUserProbeAddress || v7 < TimerSetInformation )
       *(_BYTE *)MmUserProbeAddress = 0;
   }
-  if ( a2 )
-    return 3221225475LL;
-  if ( a4 != 48 )
-    return 3221225476LL;
+  if ( TimerSetInformationClass )
+    return -1073741821;
+  if ( TimerSetInformationLength != 48 )
+    return -1073741820;
   if ( v6 )
   {
-    v15[0] = *a3;
-    v15[1] = a3[1];
-    v15[2] = a3[2];
+    v15[0] = *(_OWORD *)TimerSetInformation;
+    v15[1] = *((_OWORD *)TimerSetInformation + 1);
+    v15[2] = *((_OWORD *)TimerSetInformation + 2);
     v4 = v15;
   }
   if ( *((_DWORD *)v4 + 8) > 0x7FFFFFFFu )
-    return 3221225713LL;
+    return -1073741583;
   v8 = *((_QWORD *)v4 + 3);
   if ( v8 )
   {
     result = PoCaptureReasonContext(v8, v6, 0, 0, (__int64)v13, (__int64)&v14);
-    if ( (int)result < 0 )
+    if ( result < 0 )
       return result;
     v9 = v14;
     LOBYTE(v8) = v13[0];
@@ -60,7 +66,7 @@ __int64 __fastcall NtSetTimerEx(int a1, int a2, _OWORD *a3, unsigned int a4)
     v9 = 0LL;
   }
   v10 = ExpSetTimer(
-          a1,
+          v5,
           v6,
           (int)v4,
           *((_QWORD *)v4 + 1),

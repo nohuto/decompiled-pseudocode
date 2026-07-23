@@ -1,17 +1,17 @@
 /*
- * XREFs of IopLiveDumpCaptureMemoryPages @ 0x1409AB964
+ * XREFs of IopLiveDumpCaptureMemoryPages @ 0x1409AC894
  * Callers:
- *     IoCaptureLiveDump @ 0x140896298 (IoCaptureLiveDump.c)
+ *     IoCaptureLiveDump @ 0x1408963F8 (IoCaptureLiveDump.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
- *     VslIsSecureKernelRunning @ 0x1402D3F0C (VslIsSecureKernelRunning.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     VslFinalizeLiveDumpInSk @ 0x1404FC258 (VslFinalizeLiveDumpInSk.c)
- *     IopLiveDumpTraceCaptureMemoryPages @ 0x1405091D0 (IopLiveDumpTraceCaptureMemoryPages.c)
- *     IopLiveDumpTraceMmDuplicateMemoryFailure @ 0x140509C88 (IopLiveDumpTraceMmDuplicateMemoryFailure.c)
- *     MmDuplicateMemory @ 0x14099525C (MmDuplicateMemory.c)
- *     IopLiveDumpUncorralProcessors @ 0x1409AD5E8 (IopLiveDumpUncorralProcessors.c)
+ *     VslIsSecureKernelRunning @ 0x14025217C (VslIsSecureKernelRunning.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14027E1A4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x1402864F4 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     VslFinalizeLiveDumpInSk @ 0x1404FC1D8 (VslFinalizeLiveDumpInSk.c)
+ *     IopLiveDumpTraceCaptureMemoryPages @ 0x14050940C (IopLiveDumpTraceCaptureMemoryPages.c)
+ *     IopLiveDumpTraceMmDuplicateMemoryFailure @ 0x140509EC4 (IopLiveDumpTraceMmDuplicateMemoryFailure.c)
+ *     MmDuplicateMemory @ 0x14099625C (MmDuplicateMemory.c)
+ *     IopLiveDumpUncorralProcessors @ 0x1409AE518 (IopLiveDumpUncorralProcessors.c)
  */
 
 __int64 __fastcall IopLiveDumpCaptureMemoryPages(__int64 a1)
@@ -130,7 +130,7 @@ __int64 __fastcall IopLiveDumpCaptureMemoryPages(__int64 a1)
     v40 = 8;
     tlgWriteTransfer_EtwWriteTransfer(
       (__int64)&dword_140C044D8,
-      (unsigned __int8 *)byte_1400247E9,
+      (unsigned __int8 *)word_1400249BA,
       (const GUID *)(a1 + 864),
       (const GUID *)(a1 + 848),
       9u,

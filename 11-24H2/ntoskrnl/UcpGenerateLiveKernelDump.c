@@ -1,9 +1,9 @@
 /*
- * XREFs of UcpGenerateLiveKernelDump @ 0x140694A5C
+ * XREFs of UcpGenerateLiveKernelDump @ 0x140695B2C
  * Callers:
- *     UcpLogEventGenerateDump @ 0x140694AAC (UcpLogEventGenerateDump.c)
+ *     UcpLogEventGenerateDump @ 0x140695B7C (UcpLogEventGenerateDump.c)
  * Callees:
- *     DbgkWerCaptureLiveKernelDump @ 0x140AA9B20 (DbgkWerCaptureLiveKernelDump.c)
+ *     DbgkWerCaptureLiveKernelDump @ 0x140AA4BD0 (DbgkWerCaptureLiveKernelDump.c)
  */
 
 __int64 __fastcall UcpGenerateLiveKernelDump(_DWORD *a1)

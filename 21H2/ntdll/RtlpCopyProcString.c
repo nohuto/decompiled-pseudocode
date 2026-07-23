@@ -3,8 +3,8 @@
  * Callers:
  *     RtlCreateProcessParametersInternal @ 0x18004A9F0 (RtlCreateProcessParametersInternal.c)
  * Callees:
- *     memmove @ 0x1800A44C0 (memmove.c)
- *     memset @ 0x1800A4780 (memset.c)
+ *     memmove @ 0x1800A4480 (memmove.c)
+ *     memset @ 0x1800A4740 (memset.c)
  */
 
 char *__fastcall RtlpCopyProcString(void **a1, __int64 a2, unsigned __int16 *a3, unsigned int a4)

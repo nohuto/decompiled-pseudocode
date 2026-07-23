@@ -1,15 +1,15 @@
 /*
- * XREFs of PopGenerateDeviceFriendlyName @ 0x140A81B2C
+ * XREFs of PopGenerateDeviceFriendlyName @ 0x140A7C424
  * Callers:
- *     PopFxRegisterDevice @ 0x14074E950 (PopFxRegisterDevice.c)
- *     PopDirectedDripsDiagCreateDeviceDescription @ 0x140764194 (PopDirectedDripsDiagCreateDeviceDescription.c)
- *     PopIdleWakeGenerateInterruptDescriptionString @ 0x140A8190C (PopIdleWakeGenerateInterruptDescriptionString.c)
+ *     PopFxRegisterDevice @ 0x14074CC80 (PopFxRegisterDevice.c)
+ *     PopDirectedDripsDiagCreateDeviceDescription @ 0x140763B64 (PopDirectedDripsDiagCreateDeviceDescription.c)
+ *     PopIdleWakeGenerateInterruptDescriptionString @ 0x140A7C204 (PopIdleWakeGenerateInterruptDescriptionString.c)
  * Callees:
- *     RtlUnicodeStringCat @ 0x1403EA5B0 (RtlUnicodeStringCat.c)
- *     RtlUnicodeStringCatString @ 0x14041C568 (RtlUnicodeStringCatString.c)
- *     IoGetDeviceProperty @ 0x1408BCAC0 (IoGetDeviceProperty.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlUnicodeStringCat @ 0x1403DA240 (RtlUnicodeStringCat.c)
+ *     RtlUnicodeStringCatString @ 0x1404105C0 (RtlUnicodeStringCatString.c)
+ *     IoGetDeviceProperty @ 0x1408BA410 (IoGetDeviceProperty.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PopGenerateDeviceFriendlyName(__int64 a1, char a2, UNICODE_STRING *a3)
@@ -100,7 +100,7 @@ LABEL_6:
     v13 = -1073741675;
     goto LABEL_7;
   }
-  Pool2 = (wchar_t *)ExAllocatePool2(0x100uLL);
+  Pool2 = (wchar_t *)ExAllocatePool2(0x100uLL, Length, 0x4D584650u);
   if ( Pool2 )
   {
     a3->Buffer = Pool2;

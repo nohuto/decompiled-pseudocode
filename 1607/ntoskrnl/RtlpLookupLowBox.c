@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlpLookupLowBox @ 0x140013E94
+ * XREFs of RtlpLookupLowBox @ 0x140013A14
  * Callers:
- *     RtlQueryAtomInAtomTable @ 0x140425460 (RtlQueryAtomInAtomTable.c)
- *     RtlDeleteAtomFromAtomTable @ 0x1404A3568 (RtlDeleteAtomFromAtomTable.c)
- *     RtlPinAtomInAtomTable @ 0x1404E1468 (RtlPinAtomInAtomTable.c)
- *     RtlQueryAtomsInAtomTable @ 0x1406882B0 (RtlQueryAtomsInAtomTable.c)
+ *     RtlQueryAtomInAtomTable @ 0x140424320 (RtlQueryAtomInAtomTable.c)
+ *     RtlPinAtomInAtomTable @ 0x1404C4A6C (RtlPinAtomInAtomTable.c)
+ *     RtlDeleteAtomFromAtomTable @ 0x14051B968 (RtlDeleteAtomFromAtomTable.c)
+ *     RtlQueryAtomsInAtomTable @ 0x140688394 (RtlQueryAtomsInAtomTable.c)
  * Callees:
- *     RtlpQueryLowBoxId @ 0x14000F2C8 (RtlpQueryLowBoxId.c)
- *     RtlpAllowsLowBoxAccess @ 0x1400AF76C (RtlpAllowsLowBoxAccess.c)
+ *     RtlpQueryLowBoxId @ 0x14000EE48 (RtlpQueryLowBoxId.c)
+ *     RtlpAllowsLowBoxAccess @ 0x1400ADCD4 (RtlpAllowsLowBoxAccess.c)
  */
 
 __int64 *__fastcall RtlpLookupLowBox(__int64 a1, __int64 a2, char a3)

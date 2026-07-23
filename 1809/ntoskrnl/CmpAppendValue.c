@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpAppendValue @ 0x1409CF0D8
+ * XREFs of CmpAppendValue @ 0x1409D00D8
  * Callers:
- *     CmpParseInfBuffer @ 0x1409CEB20 (CmpParseInfBuffer.c)
+ *     CmpParseInfBuffer @ 0x1409CFB20 (CmpParseInfBuffer.c)
  * Callees:
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
  */
 
 char __fastcall CmpAppendValue(__int64 a1, __int64 a2, char a3)

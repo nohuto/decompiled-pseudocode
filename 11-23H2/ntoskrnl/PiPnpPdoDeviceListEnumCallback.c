@@ -1,10 +1,10 @@
 /*
- * XREFs of PiPnpPdoDeviceListEnumCallback @ 0x1407D9C10
+ * XREFs of PiPnpPdoDeviceListEnumCallback @ 0x1407D9EE0
  * Callers:
  *     <none>
  * Callees:
- *     ObfReferenceObject @ 0x140233C40 (ObfReferenceObject.c)
- *     PiPnpAddDeviceToPdoDeviceListEnumContext @ 0x1407D9C50 (PiPnpAddDeviceToPdoDeviceListEnumContext.c)
+ *     ObfReferenceObject @ 0x140233D10 (ObfReferenceObject.c)
+ *     PiPnpAddDeviceToPdoDeviceListEnumContext @ 0x1407D9F20 (PiPnpAddDeviceToPdoDeviceListEnumContext.c)
  */
 
 __int64 __fastcall PiPnpPdoDeviceListEnumCallback(__int64 a1, __int64 a2)

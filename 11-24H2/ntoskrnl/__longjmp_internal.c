@@ -1,9 +1,9 @@
 /*
- * XREFs of __longjmp_internal @ 0x1406A59B0
+ * XREFs of __longjmp_internal @ 0x1406A69B0
  * Callers:
- *     longjmp @ 0x1404FB920 (longjmp.c)
+ *     longjmp @ 0x1404F91E0 (longjmp.c)
  * Callees:
- *     RtlUnwind @ 0x14027B9C0 (RtlUnwind.c)
+ *     RtlUnwind @ 0x140230F50 (RtlUnwind.c)
  */
 
 __int64 __fastcall _longjmp_internal(__int64 a1, __int64 a2)
@@ -16,7 +16,7 @@ __int64 __fastcall _longjmp_internal(__int64 a1, __int64 a2)
   __int64 v8; // [rsp+40h] [rbp-8h]
 
   if ( !a2 )
-    LODWORD(a2) = 1;
+    a2 = 1LL;
   v2 = 0LL;
   if ( *(_QWORD *)a1 )
   {
@@ -28,7 +28,7 @@ __int64 __fastcall _longjmp_internal(__int64 a1, __int64 a2)
       v6 = v2;
       v7 = v2 + 1;
       v8 = a1;
-      RtlUnwind(*(_QWORD *)a1, *(_QWORD *)(a1 + 80), (int)v4, a2);
+      RtlUnwind(*(PVOID *)a1, *(PVOID *)(a1 + 80), (PEXCEPTION_RECORD)v4, (PVOID)a2);
     }
   }
   _mm_lfence();

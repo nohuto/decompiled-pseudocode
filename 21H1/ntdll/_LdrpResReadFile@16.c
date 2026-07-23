@@ -10,23 +10,22 @@
  *     _LdrpResSetFilePointer@8 @ 0x4B343B27 (_LdrpResSetFilePointer@8.c)
  */
 
-int __thiscall LdrpResReadFile(void *this, int a2, int a3)
+NTSTATUS __thiscall LdrpResReadFile(HANDLE Handle, PVOID Buffer, ULONG Length)
 {
-  int result; // eax
-  int File; // ecx
-  _BYTE v6[4]; // [esp+8h] [ebp-8h] BYREF
-  int v7; // [esp+Ch] [ebp-4h]
+  NTSTATUS result; // eax
+  NTSTATUS v5; // ecx
+  _IO_STATUS_BLOCK IoStatusBlock; // [esp+8h] [ebp-8h] BYREF
 
-  if ( !this || this == (void *)-1 )
+  if ( !Handle || Handle == (HANDLE)-1 )
     return -1073741811;
-  result = LdrpResSetFilePointer();
+  result = LdrpResSetFilePointer(Handle);
   if ( result >= 0 )
   {
-    File = NtReadFile((int)this, 0, 0, 0, (int)v6, a2, a3, 0, 0);
-    if ( File == 259 )
-      File = ZwWaitForSingleObject((int)this, 0, 0);
-    result = (File & 0xC0000000) != 0x80000000 ? File : 0;
-    if ( result >= 0 && a3 != v7 )
+    v5 = NtReadFile(Handle, 0, 0, 0, &IoStatusBlock, Buffer, Length, 0, 0);
+    if ( v5 == 259 )
+      v5 = ZwWaitForSingleObject(Handle, 0, 0);
+    result = (v5 & 0xC0000000) != 0x80000000 ? v5 : 0;
+    if ( result >= 0 && Length != IoStatusBlock.Information )
       return -1073741823;
   }
   return result;

@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     __pctype_func @ 0x1403E50E4 (__pctype_func.c)
+ *     sub_1403E50E4 @ 0x1403E50E4 (sub_1403E50E4.c)
  */
 
 int __cdecl tolower(int C)
@@ -11,7 +11,7 @@ int __cdecl tolower(int C)
   __int64 v2; // rax
   int v3; // edx
 
-  v2 = _pctype_func();
+  v2 = sub_1403E50E4();
   v3 = (unsigned __int8)C;
   if ( C == -1 )
     v3 = -1;

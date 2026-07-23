@@ -1,16 +1,16 @@
 /*
- * XREFs of ZwFreeUserPhysicalPages @ 0x1800A1FB0
+ * XREFs of ZwFreeUserPhysicalPages @ 0x1800A1FD0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 ZwFreeUserPhysicalPages()
+NTSTATUS __cdecl ZwFreeUserPhysicalPages(HANDLE ProcessHandle, PULONG_PTR NumberOfPages, PULONG_PTR UserPfnArray)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 231LL;
+  result = 231;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

@@ -1,55 +1,51 @@
 /*
- * XREFs of RtlpFlsClonePrepare @ 0x18014F308
+ * XREFs of RtlpFlsClonePrepare @ 0x18014F1B8
  * Callers:
- *     RtlLockHeapManagerForCloning @ 0x180144390 (RtlLockHeapManagerForCloning.c)
- *     RtlCloneUserProcess @ 0x18015C640 (RtlCloneUserProcess.c)
- *     RtlPrepareForProcessCloning @ 0x18015CB00 (RtlPrepareForProcessCloning.c)
+ *     RtlLockHeapManagerForCloning @ 0x180144290 (RtlLockHeapManagerForCloning.c)
+ *     RtlCloneUserProcess @ 0x18015C500 (RtlCloneUserProcess.c)
+ *     RtlPrepareForProcessCloning @ 0x18015C9C0 (RtlPrepareForProcessCloning.c)
  * Callees:
- *     RtlAcquireSRWLockExclusive @ 0x18003F4D0 (RtlAcquireSRWLockExclusive.c)
- *     RtlReleaseSRWLockExclusive @ 0x18003FAA0 (RtlReleaseSRWLockExclusive.c)
+ *     RtlAcquireSRWLockExclusive @ 0x180029A40 (RtlAcquireSRWLockExclusive.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18002A010 (RtlReleaseSRWLockExclusive.c)
  */
 
-signed __int64 __fastcall RtlpFlsClonePrepare(__int64 a1, __int64 a2)
+void __fastcall RtlpFlsClonePrepare(PRTL_SRWLOCK SRWLock)
 {
-  unsigned int v2; // esi
-  unsigned int v4; // ebx
-  unsigned int v5; // ebp
-  __int64 v6; // r14
-  unsigned int v7; // ecx
-  __int64 v8; // rdx
-  __int64 v9; // r8
-  volatile signed __int64 *v10; // rcx
-  signed __int64 result; // rax
+  unsigned int Value; // esi
+  unsigned int v3; // ebx
+  unsigned int v4; // ebp
+  __int64 v5; // r14
+  int v6; // ecx
+  unsigned __int64 v7; // r8
+  _RTL_SRWLOCK *v8; // rcx
 
-  v2 = *(_DWORD *)(a1 + 88);
-  v4 = 1;
+  Value = SRWLock[11].Value;
+  v3 = 1;
   while ( 1 )
   {
-    if ( v4 <= v2 )
+    if ( v3 <= Value )
     {
-      v5 = v4 + 16;
-      v6 = v2 - v4 + 1;
-      v4 = v2 + 1;
+      v4 = v3 + 16;
+      v5 = Value - v3 + 1;
+      v3 = Value + 1;
       do
       {
-        _BitScanReverse(&v7, v5);
-        v8 = v5 ^ (1 << v7);
-        v9 = *(_QWORD *)(a1 + 8LL * (v7 - 4) + 8);
-        if ( v9 )
-          v10 = (volatile signed __int64 *)(v9 + 8 * ((unsigned int)v8 + 2 * v8 + 1));
+        _BitScanReverse((unsigned int *)&v6, v4);
+        v7 = SRWLock[(unsigned int)(v6 - 4) + 1].Value;
+        if ( v7 )
+          v8 = (_RTL_SRWLOCK *)(v7 + 8 * ((v4 ^ (1 << v6)) + 2LL * (v4 ^ (1 << v6)) + 1));
         else
-          v10 = 0LL;
-        RtlAcquireSRWLockExclusive(v10, v8);
-        ++v5;
-        --v6;
+          v8 = 0LL;
+        RtlAcquireSRWLockExclusive(v8);
+        ++v4;
+        --v5;
       }
-      while ( v6 );
+      while ( v5 );
     }
-    result = RtlAcquireSRWLockExclusive((volatile signed __int64 *)a1, a2);
-    if ( *(_DWORD *)(a1 + 88) <= v2 )
+    RtlAcquireSRWLockExclusive(SRWLock);
+    if ( *(_DWORD *)&SRWLock[11].0 <= Value )
       break;
-    v2 = *(_DWORD *)(a1 + 88);
-    RtlReleaseSRWLockExclusive((volatile signed __int64 *)a1);
+    Value = SRWLock[11].Value;
+    RtlReleaseSRWLockExclusive(SRWLock);
   }
-  return result;
 }

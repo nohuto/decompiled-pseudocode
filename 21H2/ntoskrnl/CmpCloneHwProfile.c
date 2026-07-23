@@ -1,35 +1,35 @@
 /*
- * XREFs of CmpCloneHwProfile @ 0x140877184
+ * XREFs of CmpCloneHwProfile @ 0x1408772E4
  * Callers:
- *     CmSetAcpiHwProfile @ 0x1407A5908 (CmSetAcpiHwProfile.c)
- *     CmpCreateHardwareProfiles @ 0x140A58540 (CmpCreateHardwareProfiles.c)
+ *     CmSetAcpiHwProfile @ 0x1407A5B08 (CmSetAcpiHwProfile.c)
+ *     CmpCreateHardwareProfiles @ 0x140A59540 (CmpCreateHardwareProfiles.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     CmpInitializeDelayDerefContext @ 0x1403510E8 (CmpInitializeDelayDerefContext.c)
- *     CmpDrainDelayDerefContext @ 0x140351100 (CmpDrainDelayDerefContext.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     _wtoi @ 0x1403D2430 (_wtoi.c)
- *     swprintf_s @ 0x1403D68F0 (swprintf_s.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     ZwOpenKey @ 0x1403FA5E0 (ZwOpenKey.c)
- *     ZwQueryKey @ 0x1403FA660 (ZwQueryKey.c)
- *     ZwQueryValueKey @ 0x1403FA680 (ZwQueryValueKey.c)
- *     ZwCreateKey @ 0x1403FA740 (ZwCreateKey.c)
- *     ZwEnumerateKey @ 0x1403FA9E0 (ZwEnumerateKey.c)
- *     ZwSetValueKey @ 0x1403FAFA0 (ZwSetValueKey.c)
- *     ZwQuerySecurityObject @ 0x1403FCF20 (ZwQuerySecurityObject.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
- *     CmpLockRegistryExclusive @ 0x14067278C (CmpLockRegistryExclusive.c)
- *     RtlStringFromGUID @ 0x14067A7C0 (RtlStringFromGUID.c)
- *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
- *     CmpUnlockRegistry @ 0x1406F5ED0 (CmpUnlockRegistry.c)
- *     CmpRebuildKcbCache @ 0x14071D99C (CmpRebuildKcbCache.c)
- *     ExUuidCreate @ 0x1407208B0 (ExUuidCreate.c)
- *     CmpCreateHwProfileFriendlyName @ 0x140877940 (CmpCreateHwProfileFriendlyName.c)
- *     CmpCopySyncTree @ 0x1408784E4 (CmpCopySyncTree.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     CmpInitializeDelayDerefContext @ 0x14035BE38 (CmpInitializeDelayDerefContext.c)
+ *     CmpDrainDelayDerefContext @ 0x14035BE50 (CmpDrainDelayDerefContext.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     _wtoi @ 0x1403D25A0 (_wtoi.c)
+ *     swprintf_s @ 0x1403D6A60 (swprintf_s.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403FA7C0 (ZwOpenKey.c)
+ *     ZwQueryKey @ 0x1403FA840 (ZwQueryKey.c)
+ *     ZwQueryValueKey @ 0x1403FA860 (ZwQueryValueKey.c)
+ *     ZwCreateKey @ 0x1403FA920 (ZwCreateKey.c)
+ *     ZwEnumerateKey @ 0x1403FABC0 (ZwEnumerateKey.c)
+ *     ZwSetValueKey @ 0x1403FB180 (ZwSetValueKey.c)
+ *     ZwQuerySecurityObject @ 0x1403FD100 (ZwQuerySecurityObject.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     CmpRebuildKcbCache @ 0x140614584 (CmpRebuildKcbCache.c)
+ *     RtlFreeAnsiString @ 0x14063DA40 (RtlFreeAnsiString.c)
+ *     CmpLockRegistryExclusive @ 0x1406679BC (CmpLockRegistryExclusive.c)
+ *     RtlStringFromGUID @ 0x14066DF00 (RtlStringFromGUID.c)
+ *     ExUuidCreate @ 0x1406F73B0 (ExUuidCreate.c)
+ *     ObReferenceObjectByHandle @ 0x140707FA0 (ObReferenceObjectByHandle.c)
+ *     CmpUnlockRegistry @ 0x14070D2B0 (CmpUnlockRegistry.c)
+ *     CmpCreateHwProfileFriendlyName @ 0x140877AA0 (CmpCreateHwProfileFriendlyName.c)
+ *     CmpCopySyncTree @ 0x140878644 (CmpCopySyncTree.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall CmpCloneHwProfile(
@@ -264,7 +264,7 @@ LABEL_13:
                       {
                         *(_WORD *)(v21 + 52) = *(_WORD *)(v20 + 52);
                         *(_DWORD *)(v21 + 56) = *(_DWORD *)(v20 + 56);
-                        CmpRebuildKcbCache(v17[1], (__int64)&v36);
+                        CmpRebuildKcbCache(v17[1]);
                         (*(void (__fastcall **)(_QWORD, PVOID *))(*(_QWORD *)(v17[1] + 32LL) + 16LL))(
                           *(_QWORD *)(v17[1] + 32LL),
                           Object);

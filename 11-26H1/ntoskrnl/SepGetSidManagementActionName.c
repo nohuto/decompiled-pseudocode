@@ -1,7 +1,7 @@
 /*
- * XREFs of SepGetSidManagementActionName @ 0x1407790EC
+ * XREFs of SepGetSidManagementActionName @ 0x14077BF8C
  * Callers:
- *     SepLogTokenSidManagement @ 0x140B2B4E0 (SepLogTokenSidManagement.c)
+ *     SepLogTokenSidManagement @ 0x140B2D560 (SepLogTokenSidManagement.c)
  * Callees:
  *     <none>
  */

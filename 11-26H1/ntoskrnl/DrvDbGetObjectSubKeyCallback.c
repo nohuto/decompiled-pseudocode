@@ -1,19 +1,19 @@
 /*
- * XREFs of DrvDbGetObjectSubKeyCallback @ 0x140A80FB0
+ * XREFs of DrvDbGetObjectSubKeyCallback @ 0x140A86E20
  * Callers:
  *     <none>
  * Callees:
- *     RtlStringCchCopyExW @ 0x14045AB50 (RtlStringCchCopyExW.c)
- *     RtlInitUnicodeStringEx @ 0x14045D040 (RtlInitUnicodeStringEx.c)
- *     _wcsicmp @ 0x140536570 (_wcsicmp.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwQueryKey @ 0x1407236B0 (ZwQueryKey.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     _RegRtlOpenKeyTransacted @ 0x140997950 (_RegRtlOpenKeyTransacted.c)
- *     _PnpCtxRegEnumKeyWithCallback @ 0x140B202B8 (_PnpCtxRegEnumKeyWithCallback.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlStringCchCopyExW @ 0x140454380 (RtlStringCchCopyExW.c)
+ *     RtlInitUnicodeStringEx @ 0x140456BE0 (RtlInitUnicodeStringEx.c)
+ *     _wcsicmp @ 0x1405389F0 (_wcsicmp.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwQueryKey @ 0x140728280 (ZwQueryKey.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     _RegRtlOpenKeyTransacted @ 0x1409583B0 (_RegRtlOpenKeyTransacted.c)
+ *     _PnpCtxRegEnumKeyWithCallback @ 0x140B226B8 (_PnpCtxRegEnumKeyWithCallback.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall DrvDbGetObjectSubKeyCallback(__int64 a1, char *a2, const wchar_t *a3, __int64 a4)

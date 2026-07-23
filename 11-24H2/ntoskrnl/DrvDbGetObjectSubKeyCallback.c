@@ -1,20 +1,20 @@
 /*
- * XREFs of DrvDbGetObjectSubKeyCallback @ 0x1409FF930
+ * XREFs of DrvDbGetObjectSubKeyCallback @ 0x1409F8880
  * Callers:
- *     _PnpCtxInternalEnumKeyCallback @ 0x1404677B0 (_PnpCtxInternalEnumKeyCallback.c)
+ *     _PnpCtxInternalEnumKeyCallback @ 0x14045F250 (_PnpCtxInternalEnumKeyCallback.c)
  * Callees:
- *     RtlStringCchCopyExW @ 0x14041DC50 (RtlStringCchCopyExW.c)
- *     RtlStringCchCopyW @ 0x14043FE9C (RtlStringCchCopyW.c)
- *     RtlInitUnicodeStringEx @ 0x14045AA10 (RtlInitUnicodeStringEx.c)
- *     _wcsicmp @ 0x1404FE3B0 (_wcsicmp.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwQueryKey @ 0x1406A66D0 (ZwQueryKey.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     _RegRtlOpenKeyTransacted @ 0x1408C7B60 (_RegRtlOpenKeyTransacted.c)
- *     _PnpCtxRegEnumKeyWithCallback @ 0x140A89520 (_PnpCtxRegEnumKeyWithCallback.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlStringCchCopyExW @ 0x140412020 (RtlStringCchCopyExW.c)
+ *     RtlStringCchCopyW @ 0x14043615C (RtlStringCchCopyW.c)
+ *     RtlInitUnicodeStringEx @ 0x14044FE60 (RtlInitUnicodeStringEx.c)
+ *     _wcsicmp @ 0x1404FBC70 (_wcsicmp.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwQueryKey @ 0x1406A7670 (ZwQueryKey.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     _RegRtlOpenKeyTransacted @ 0x1408C5590 (_RegRtlOpenKeyTransacted.c)
+ *     _PnpCtxRegEnumKeyWithCallback @ 0x140A85920 (_PnpCtxRegEnumKeyWithCallback.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall DrvDbGetObjectSubKeyCallback(__int64 a1, __int64 a2, const wchar_t *a3, __int64 a4)
@@ -57,7 +57,7 @@ __int64 __fastcall DrvDbGetObjectSubKeyCallback(__int64 a1, __int64 a2, const wc
     v5 = 1;
   }
   v10 = 256;
-  Pool2 = (wchar_t *)ExAllocatePool2(0x100uLL);
+  Pool2 = (wchar_t *)ExAllocatePool2(0x100uLL, 0x200uLL, 0x42444450u);
   v12 = Pool2;
   if ( Pool2 )
   {
@@ -100,8 +100,7 @@ __int64 __fastcall DrvDbGetObjectSubKeyCallback(__int64 a1, __int64 a2, const wc
     {
 LABEL_18:
       if ( DWORD1(v31)
-        && (!*(_QWORD *)(a4 + 520)
-         || (unsigned __int8)guard_dispatch_icall_no_overrides(a1, v12, 0LL, *(_QWORD *)(a4 + 528)))
+        && (!*(_QWORD *)(a4 + 520) || (unsigned __int8)guard_dispatch_icall_no_overrides(a1, v12))
         && RtlInitUnicodeStringEx(&DestinationString, v12) >= 0 )
       {
         v19 = *(_DWORD *)(a4 + 544);
@@ -118,7 +117,7 @@ LABEL_18:
         ExFreePoolWithTag((PVOID)v4, 0);
       goto LABEL_13;
     }
-    v21 = ExAllocatePool2(0x100uLL);
+    v21 = ExAllocatePool2(0x100uLL, 0x228uLL, 0x42444450u);
     v4 = v21;
     if ( v21 )
     {

@@ -1,15 +1,15 @@
 /*
- * XREFs of PopLoadFileInMemory @ 0x1407C8C88
+ * XREFs of PopLoadFileInMemory @ 0x1407CBD28
  * Callers:
- *     PopValidateWinresume @ 0x1407D0A04 (PopValidateWinresume.c)
+ *     PopValidateWinresume @ 0x1407D3AA4 (PopValidateWinresume.c)
  * Callees:
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwReadFile @ 0x1407234B0 (ZwReadFile.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwQueryInformationFile @ 0x140723610 (ZwQueryInformationFile.c)
- *     ZwOpenFile @ 0x140723A50 (ZwOpenFile.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwReadFile @ 0x140728080 (ZwReadFile.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwQueryInformationFile @ 0x1407281E0 (ZwQueryInformationFile.c)
+ *     ZwOpenFile @ 0x140728620 (ZwOpenFile.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PopLoadFileInMemory(UNICODE_STRING *a1, _QWORD *a2, ULONG *a3)

@@ -1,31 +1,31 @@
 /*
- * XREFs of KdInitSystem @ 0x1409B5160
+ * XREFs of KdInitSystem @ 0x1409B6160
  * Callers:
- *     KdEnableDebuggerWithLock @ 0x140510D7C (KdEnableDebuggerWithLock.c)
- *     KeEnterKernelDebugger @ 0x140517A20 (KeEnterKernelDebugger.c)
- *     KiSystemStartup @ 0x14098F010 (KiSystemStartup.c)
- *     PopHiberCheckResume @ 0x1409988A0 (PopHiberCheckResume.c)
- *     KiSetFeatureBits @ 0x14099CB6C (KiSetFeatureBits.c)
- *     KiSetProcessorSignature @ 0x14099EA34 (KiSetProcessorSignature.c)
- *     Phase1InitializationDiscard @ 0x140A3B6A4 (Phase1InitializationDiscard.c)
+ *     KdEnableDebuggerWithLock @ 0x140510FBC (KdEnableDebuggerWithLock.c)
+ *     KeEnterKernelDebugger @ 0x140517C60 (KeEnterKernelDebugger.c)
+ *     KiSystemStartup @ 0x140990010 (KiSystemStartup.c)
+ *     PopHiberCheckResume @ 0x1409998A0 (PopHiberCheckResume.c)
+ *     KiSetFeatureBits @ 0x14099DB6C (KiSetFeatureBits.c)
+ *     KiSetProcessorSignature @ 0x14099F964 (KiSetProcessorSignature.c)
+ *     Phase1InitializationDiscard @ 0x140A3C6A4 (Phase1InitializationDiscard.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x14022C340 (KeQueryPerformanceCounter.c)
- *     RtlInitAnsiString @ 0x1402502B0 (RtlInitAnsiString.c)
- *     KeInitializeTimerEx @ 0x140278AE0 (KeInitializeTimerEx.c)
- *     KeInitializeDpc @ 0x14027B6B0 (KeInitializeDpc.c)
- *     MmGetPagedPoolCommitPointer @ 0x1402D4038 (MmGetPagedPoolCommitPointer.c)
- *     DbgLoadImageSymbols @ 0x140372000 (DbgLoadImageSymbols.c)
- *     KdDisableDebuggerWithLock @ 0x1403CFA38 (KdDisableDebuggerWithLock.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     _strupr @ 0x1403D1020 (_strupr.c)
- *     strncmp @ 0x1403D1540 (strncmp.c)
- *     strstr @ 0x1403D1880 (strstr.c)
- *     atol @ 0x1403D1920 (atol.c)
- *     memset @ 0x140414200 (memset.c)
- *     __report_rangecheckfailure @ 0x1404B646C (__report_rangecheckfailure.c)
- *     KdPollBreakIn @ 0x140511B20 (KdPollBreakIn.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
- *     KdRegisterDebuggerDataBlock @ 0x1409B5434 (KdRegisterDebuggerDataBlock.c)
+ *     MmGetPagedPoolCommitPointer @ 0x1402522A8 (MmGetPagedPoolCommitPointer.c)
+ *     KeInitializeTimerEx @ 0x140266A80 (KeInitializeTimerEx.c)
+ *     KeInitializeDpc @ 0x140269650 (KeInitializeDpc.c)
+ *     RtlInitAnsiString @ 0x1402713E0 (RtlInitAnsiString.c)
+ *     KeQueryPerformanceCounter @ 0x1402D0BC0 (KeQueryPerformanceCounter.c)
+ *     DbgLoadImageSymbols @ 0x140371B50 (DbgLoadImageSymbols.c)
+ *     KdDisableDebuggerWithLock @ 0x1403CFBA8 (KdDisableDebuggerWithLock.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     _strupr @ 0x1403D1190 (_strupr.c)
+ *     strncmp @ 0x1403D16B0 (strncmp.c)
+ *     strstr @ 0x1403D19F0 (strstr.c)
+ *     atol @ 0x1403D1A90 (atol.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     __report_rangecheckfailure @ 0x1404B66AC (__report_rangecheckfailure.c)
+ *     KdPollBreakIn @ 0x140511D60 (KdPollBreakIn.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
+ *     KdRegisterDebuggerDataBlock @ 0x1409B6434 (KdRegisterDebuggerDataBlock.c)
  */
 
 char __fastcall KdInitSystem(int a1, __int64 a2, __int64 a3, __int64 a4)
@@ -51,16 +51,16 @@ char __fastcall KdInitSystem(int a1, __int64 a2, __int64 a3, __int64 a4)
   unsigned int v24; // ebp
   __int64 *k; // rbx
   __int64 v26; // rdx
-  char *v27; // r9
+  CHAR *v27; // r9
   unsigned int v28; // r8d
-  char v29; // al
+  CHAR v29; // al
   __int64 v30; // rcx
   unsigned int i; // edi
   PVOID PoolWithTag; // rax
   PVOID v33; // rbx
   signed __int32 v34[8]; // [rsp+0h] [rbp-178h] BYREF
   STRING DestinationString; // [rsp+20h] [rbp-158h] BYREF
-  char SourceString[256]; // [rsp+30h] [rbp-148h] BYREF
+  CHAR SourceString[256]; // [rsp+30h] [rbp-148h] BYREF
 
   v5 = 0;
   v6 = 0;
@@ -104,17 +104,17 @@ char __fastcall KdInitSystem(int a1, __int64 a2, __int64 a3, __int64 a4)
       *((_QWORD *)&KdpContext + 1) = KdDebugDevice;
       qword_140C00C90 = (__int64)MmGetPagedPoolCommitPointer();
       KdpPowerSpinLock = 0LL;
-      qword_140C40848 = (__int64)&KdpPowerListHead;
+      qword_140C43038 = (__int64)&KdpPowerListHead;
       KdpPowerListHead = (__int64)&KdpPowerListHead;
-      qword_140C40828 = (__int64)&KdpDebuggerDataListHead;
+      qword_140C43048 = (__int64)&KdpDebuggerDataListHead;
       KdpDebuggerDataListHead = (__int64)&KdpDebuggerDataListHead;
       KdRegisterDebuggerDataBlock(v9, &KdDebuggerDataBlock);
       WORD1(KdVersionBlock) = NtBuildNumber;
       WORD3(KdVersionBlock) |= 1u;
       LOWORD(KdVersionBlock) = (unsigned int)NtBuildNumber >> 28;
-      *((_QWORD *)&xmmword_140C0F418 + 1) = &PsLoadedModuleList;
+      *((_QWORD *)&xmmword_140C0F408 + 1) = &PsLoadedModuleList;
       *(_WORD *)((char *)&KdVersionBlock + 11) = 13059;
-      qword_140C0F428 = (__int64)&KdpDebuggerDataListHead;
+      qword_140C0F418 = (__int64)&KdpDebuggerDataListHead;
     }
     CurrentPrcb = KeGetCurrentPrcb();
     if ( !CurrentPrcb->Context )
@@ -128,7 +128,7 @@ char __fastcall KdInitSystem(int a1, __int64 a2, __int64 a3, __int64 a4)
       off_140C00DF8 = &KdpLoaderDebuggerBlock;
       KdpLoaderDebuggerBlock = a2 + 16;
       v12 = *(char **)(a2 + 216);
-      *(_QWORD *)&xmmword_140C0F418 = v11;
+      *(_QWORD *)&xmmword_140C0F408 = v11;
       if ( v12 )
       {
         strupr(v12);
@@ -259,9 +259,9 @@ char __fastcall KdInitSystem(int a1, __int64 a2, __int64 a3, __int64 a4)
     else
     {
       v13 = 1;
-      *(_QWORD *)&xmmword_140C0F418 = PsNtosImageBase;
+      *(_QWORD *)&xmmword_140C0F408 = PsNtosImageBase;
     }
-    qword_140C00B38 = xmmword_140C0F418;
+    qword_140C00B38 = xmmword_140C0F408;
     if ( !v8 )
     {
       if ( a2 && *(_DWORD *)(a2 + 12) < 2u )
@@ -336,7 +336,7 @@ LABEL_31:
           break;
         DestinationString = 0LL;
         LODWORD(v26) = 0;
-        v27 = (char *)k[10];
+        v27 = (CHAR *)k[10];
         v28 = *((unsigned __int16 *)k + 36) >> 1;
         if ( v28 >= 0x100 )
           v28 = 255;
@@ -353,13 +353,13 @@ LABEL_31:
           _report_rangecheckfailure();
         SourceString[v26] = 0;
         RtlInitAnsiString(&DestinationString, SourceString);
-        DbgLoadImageSymbols((__int64)&DestinationString, k[6], 0xFFFFFFFFLL);
+        DbgLoadImageSymbols((__int64)&DestinationString, (void *)k[6], 0xFFFFFFFFLL);
         k = (__int64 *)*k;
       }
     }
     else
     {
-      DbgLoadImageSymbols(0LL, qword_140C00B38, 0xFFFFFFFFLL);
+      DbgLoadImageSymbols(0LL, (void *)qword_140C00B38, 0xFFFFFFFFLL);
     }
     if ( a2 )
     {

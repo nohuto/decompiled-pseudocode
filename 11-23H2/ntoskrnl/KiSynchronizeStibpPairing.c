@@ -1,14 +1,14 @@
 /*
- * XREFs of KiSynchronizeStibpPairing @ 0x1404609F6
+ * XREFs of KiSynchronizeStibpPairing @ 0x140460DF6
  * Callers:
- *     KiUpdateSpeculationControl @ 0x140325BC0 (KiUpdateSpeculationControl.c)
+ *     KiUpdateSpeculationControl @ 0x140325E50 (KiUpdateSpeculationControl.c)
  * Callees:
- *     KeAddProcessorAffinityEx @ 0x1402573A0 (KeAddProcessorAffinityEx.c)
- *     KiIpiStallOnPacketTargetsPrcb @ 0x1402C02F0 (KiIpiStallOnPacketTargetsPrcb.c)
- *     KiIpiSendPacket @ 0x1402C0330 (KiIpiSendPacket.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAddProcessorAffinityEx @ 0x140257460 (KeAddProcessorAffinityEx.c)
+ *     KiIpiStallOnPacketTargetsPrcb @ 0x1402C0580 (KiIpiStallOnPacketTargetsPrcb.c)
+ *     KiIpiSendPacket @ 0x1402C05C0 (KiIpiSendPacket.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 __int64 __fastcall KiSynchronizeStibpPairing(__int64 a1)
@@ -29,7 +29,7 @@ __int64 __fastcall KiSynchronizeStibpPairing(__int64 a1)
   memset(&v13[2], 0, 0x100uLL);
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(0xCuLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 12 )
@@ -44,10 +44,10 @@ __int64 __fastcall KiSynchronizeStibpPairing(__int64 a1)
   KeAddProcessorAffinityEx((unsigned __int16 *)v13, *(_DWORD *)(v5 + 36));
   KiIpiSendPacket(0, (int)v13, (__int64)KiSynchronizeStibpPairingTarget, 0LL, 0LL, 0LL);
   KiIpiStallOnPacketTargetsPrcb(v6, a1);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v7 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v7 <= 0xFu && CurrentIrql <= 0xFu && v7 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v7 <= 0xFu && CurrentIrql <= 0xFu && v7 >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v9 = CurrentPrcb->SchedulerAssist;
@@ -55,7 +55,7 @@ __int64 __fastcall KiSynchronizeStibpPairing(__int64 a1)
       v11 = (v10 & v9[5]) == 0;
       v9[5] &= v10;
       if ( v11 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
     }
   }
   result = CurrentIrql;

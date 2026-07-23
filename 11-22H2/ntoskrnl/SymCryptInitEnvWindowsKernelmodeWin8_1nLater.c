@@ -16,7 +16,7 @@
 __int64 __fastcall SymCryptInitEnvWindowsKernelmodeWin8_1nLater(unsigned int a1)
 {
   __int64 result; // rax
-  struct _OSVERSIONINFOW VersionInformation; // [rsp+20h] [rbp-138h] BYREF
+  _OSVERSIONINFOW VersionInformation; // [rsp+20h] [rbp-138h] BYREF
 
   memset(&VersionInformation.dwMajorVersion, 0, 0x110uLL);
   result = (unsigned int)g_SymCryptFlags;

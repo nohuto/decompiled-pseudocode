@@ -1,10 +1,10 @@
 /*
- * XREFs of PopDirectedDripsQueryMitigationStatus @ 0x1408E37A8
+ * XREFs of PopDirectedDripsQueryMitigationStatus @ 0x1408E3908
  * Callers:
- *     PopDirectedDripsNotify @ 0x14078DB18 (PopDirectedDripsNotify.c)
- *     PopDirectedDripsInitializeBroadcast @ 0x1408E334C (PopDirectedDripsInitializeBroadcast.c)
- *     PopDirectedDripsSendSessionData @ 0x1408E3964 (PopDirectedDripsSendSessionData.c)
- *     PopDirectedDripsUmQueryCapabilities @ 0x1408F8974 (PopDirectedDripsUmQueryCapabilities.c)
+ *     PopDirectedDripsNotify @ 0x14078DCD8 (PopDirectedDripsNotify.c)
+ *     PopDirectedDripsInitializeBroadcast @ 0x1408E34AC (PopDirectedDripsInitializeBroadcast.c)
+ *     PopDirectedDripsSendSessionData @ 0x1408E3AC4 (PopDirectedDripsSendSessionData.c)
+ *     PopDirectedDripsUmQueryCapabilities @ 0x1408F8AD4 (PopDirectedDripsUmQueryCapabilities.c)
  * Callees:
  *     <none>
  */
@@ -17,7 +17,7 @@ __int64 __fastcall PopDirectedDripsQueryMitigationStatus(_DWORD *a1, _DWORD *a2,
   int v7; // ett
   __int16 v8; // cx
 
-  v3 = dword_140C24C50;
+  v3 = dword_140C24CB0;
   _m_prefetchw(&PopDirectedDripsState);
   LODWORD(result) = PopDirectedDripsState.HandleAttributes;
   v6 = 0;

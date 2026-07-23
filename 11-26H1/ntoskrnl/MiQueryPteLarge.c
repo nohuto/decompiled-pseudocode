@@ -1,9 +1,9 @@
 /*
- * XREFs of MiQueryPteLarge @ 0x1402D1850
+ * XREFs of MiQueryPteLarge @ 0x1402B3610
  * Callers:
- *     MiGetWorkingSetInfoList @ 0x1402D28A0 (MiGetWorkingSetInfoList.c)
+ *     MiGetWorkingSetInfoList @ 0x1402B4660 (MiGetWorkingSetInfoList.c)
  * Callees:
- *     MiQueryPteAddResidentAttributes @ 0x1404E9984 (MiQueryPteAddResidentAttributes.c)
+ *     MiQueryPteAddResidentAttributes @ 0x1404E2D34 (MiQueryPteAddResidentAttributes.c)
  */
 
 __int64 __fastcall MiQueryPteLarge(__int64 a1, unsigned __int64 a2, ULONG_PTR a3)

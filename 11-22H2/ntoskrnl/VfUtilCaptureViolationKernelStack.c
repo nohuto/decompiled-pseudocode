@@ -37,7 +37,7 @@ char __fastcall VfUtilCaptureViolationKernelStack(PCONTEXT ContextRecord, _QWORD
   v5 = 1;
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(0xFuLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 15 )
@@ -62,10 +62,10 @@ char __fastcall VfUtilCaptureViolationKernelStack(PCONTEXT ContextRecord, _QWORD
     *a2 = &VfRuleViolationStackSavedArea;
     ContextRecord->Rsp = (unsigned __int64)&VfRuleViolationStackSavedArea + v10;
   }
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v12 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v12 <= 0xFu && CurrentIrql <= 0xFu && v12 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v12 <= 0xFu && CurrentIrql <= 0xFu && v12 >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v14 = CurrentPrcb->SchedulerAssist;

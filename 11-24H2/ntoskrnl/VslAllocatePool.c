@@ -1,14 +1,14 @@
 /*
- * XREFs of VslAllocatePool @ 0x1404B0800
+ * XREFs of VslAllocatePool @ 0x1404AB090
  * Callers:
- *     PsDispatchIumService @ 0x14048D020 (PsDispatchIumService.c)
+ *     PsDispatchIumService @ 0x1404E66B4 (PsDispatchIumService.c)
  * Callees:
- *     VslpLockPagesForTransfer @ 0x140266DCC (VslpLockPagesForTransfer.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     VslpLockPagesForTransfer @ 0x14025E3AC (VslpLockPagesForTransfer.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall VslAllocatePool(unsigned __int64 a1, __int64 a2, _QWORD *a3, _QWORD *a4, _QWORD *a5)
+__int64 __fastcall VslAllocatePool(ULONG_PTR a1, ULONG a2, _QWORD *a3, _QWORD *a4, _QWORD *a5)
 {
   unsigned int v7; // ebx
   struct _MDL *Pool2; // rsi
@@ -19,10 +19,10 @@ __int64 __fastcall VslAllocatePool(unsigned __int64 a1, __int64 a2, _QWORD *a3, 
   v7 = a1;
   if ( a1 > 0x1FA000 )
     return 3221225659LL;
-  Pool2 = (struct _MDL *)ExAllocatePool2(0x40uLL);
+  Pool2 = (struct _MDL *)ExAllocatePool2(0x40uLL, a1, a2);
   if ( !Pool2 )
     return 3221225626LL;
-  v9 = ExAllocatePool2(0x40uLL);
+  v9 = ExAllocatePool2(0x40uLL, 0x48uLL, 0x54736D56u);
   v10 = (_QWORD *)v9;
   if ( !v9 )
   {

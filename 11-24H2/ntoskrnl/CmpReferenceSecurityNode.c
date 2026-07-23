@@ -1,14 +1,14 @@
 /*
- * XREFs of CmpReferenceSecurityNode @ 0x1407DD7B0
+ * XREFs of CmpReferenceSecurityNode @ 0x1407DDD00
  * Callers:
- *     CmRenameKey @ 0x1407D9068 (CmRenameKey.c)
+ *     CmRenameKey @ 0x1407D95B8 (CmRenameKey.c)
  * Callees:
- *     CmpKeySecurityIncrementReferenceCount @ 0x140494ECC (CmpKeySecurityIncrementReferenceCount.c)
- *     HvpGetCellFlat @ 0x140874470 (HvpGetCellFlat.c)
- *     HvpGetCellPaged @ 0x1408744C0 (HvpGetCellPaged.c)
- *     HvpGetCellContextInitialize @ 0x140875730 (HvpGetCellContextInitialize.c)
- *     HvpReleaseCellPaged @ 0x140875760 (HvpReleaseCellPaged.c)
- *     HvpReleaseCellFlat @ 0x140884BB0 (HvpReleaseCellFlat.c)
+ *     CmpKeySecurityIncrementReferenceCount @ 0x14048F78C (CmpKeySecurityIncrementReferenceCount.c)
+ *     HvpGetCellFlat @ 0x1408787A0 (HvpGetCellFlat.c)
+ *     HvpGetCellPaged @ 0x1408787F0 (HvpGetCellPaged.c)
+ *     HvpGetCellContextInitialize @ 0x140879A60 (HvpGetCellContextInitialize.c)
+ *     HvpReleaseCellPaged @ 0x140879A90 (HvpReleaseCellPaged.c)
+ *     HvpReleaseCellFlat @ 0x140888A60 (HvpReleaseCellFlat.c)
  */
 
 __int64 __fastcall CmpReferenceSecurityNode(ULONG_PTR BugCheckParameter3, unsigned int a2)

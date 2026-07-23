@@ -1,11 +1,11 @@
 /*
- * XREFs of MiFlushCacheRange @ 0x1402C3E7C
+ * XREFs of MiFlushCacheRange @ 0x1402C406C
  * Callers:
- *     MiRemovePhysicalMemory @ 0x14084D54C (MiRemovePhysicalMemory.c)
+ *     MiRemovePhysicalMemory @ 0x14084E7AC (MiRemovePhysicalMemory.c)
  * Callees:
- *     MiFlushCacheForAttributeChange @ 0x140138EC8 (MiFlushCacheForAttributeChange.c)
- *     KeInvalidateAllCaches @ 0x140177050 (KeInvalidateAllCaches.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiFlushCacheForAttributeChange @ 0x140138FC8 (MiFlushCacheForAttributeChange.c)
+ *     KeInvalidateAllCaches @ 0x140177150 (KeInvalidateAllCaches.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiFlushCacheRange(__int64 a1, unsigned __int64 a2)
@@ -13,7 +13,7 @@ __int64 __fastcall MiFlushCacheRange(__int64 a1, unsigned __int64 a2)
   unsigned __int8 CurrentIrql; // bl
   struct _KPRCB *CurrentPrcb; // rcx
 
-  if ( a2 < (unsigned int)dword_14043A09C )
+  if ( a2 < (unsigned int)dword_14043B15C )
   {
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(2uLL);
@@ -31,7 +31,7 @@ __int64 __fastcall MiFlushCacheRange(__int64 a1, unsigned __int64 a2)
   }
   else
   {
-    ++dword_14043A094;
+    ++dword_14043B154;
     KeInvalidateAllCaches();
     return 1LL;
   }

@@ -11,19 +11,25 @@
 
 void __stdcall LdrpInitializeCriticalSectionExceptionGlobalMitigation()
 {
-  int ValueKey; // esi
-  _BYTE v1[4]; // [esp+0h] [ebp-5Ch] BYREF
-  HANDLE Handle; // [esp+4h] [ebp-58h] BYREF
-  _BYTE v3[4]; // [esp+8h] [ebp-54h] BYREF
+  NTSTATUS v0; // esi
+  ULONG ResultLength; // [esp+0h] [ebp-5Ch] BYREF
+  HANDLE KeyHandle; // [esp+4h] [ebp-58h] BYREF
+  _BYTE KeyValueInformation[4]; // [esp+8h] [ebp-54h] BYREF
   int v4; // [esp+Ch] [ebp-50h]
   int v5; // [esp+10h] [ebp-4Ch]
   int v6; // [esp+14h] [ebp-48h]
 
   if ( LdrpIsSecureProcess
-    || (RtlpRaiseExceptionOnPossibleDeadlock = 0, ZwOpenKey((int)&Handle, 1, (int)dword_4B281A48) >= 0)
-    && (ValueKey = ZwQueryValueKey((int)Handle, (int)&dword_4B281A28, 2, (int)v3, 80, (int)v1),
-        NtClose(Handle),
-        ValueKey >= 0)
+    || (RtlpRaiseExceptionOnPossibleDeadlock = 0, ZwOpenKey(&KeyHandle, 1u, (POBJECT_ATTRIBUTES)&stru_4B281A48) >= 0)
+    && (v0 = ZwQueryValueKey(
+               KeyHandle,
+               (PUNICODE_STRING)&stru_4B281A28,
+               KeyValuePartialInformation,
+               KeyValueInformation,
+               0x50u,
+               &ResultLength),
+        NtClose(KeyHandle),
+        v0 >= 0)
     && v4 == 4
     && v5 == 4
     && v6 )

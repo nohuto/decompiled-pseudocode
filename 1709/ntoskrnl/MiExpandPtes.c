@@ -177,7 +177,7 @@ __int64 __fastcall MiExpandPtes(__int64 *a1, unsigned __int64 a2)
             {
               v36->CrossThreadReleasableAndBusyByte |= 2u;
               if ( (__int64)v36->LockState.LockState < 0 )
-                KiAbEntryRemoveFromTree((__int64)&v29->LockEntries[v35]);
+                KiAbEntryRemoveFromTree(&v29->LockEntries[v35].TreeNode);
               v50 = 0;
               v50 = v36->BoostBitmap.AllFields & 0x1FFFF;
               v36->BoostBitmap.AllFields &= 0xFFFE0000;

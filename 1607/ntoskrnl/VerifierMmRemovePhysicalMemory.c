@@ -1,5 +1,5 @@
 /*
- * XREFs of VerifierMmRemovePhysicalMemory @ 0x14070CB58
+ * XREFs of VerifierMmRemovePhysicalMemory @ 0x14070CB88
  * Callers:
  *     <none>
  * Callees:

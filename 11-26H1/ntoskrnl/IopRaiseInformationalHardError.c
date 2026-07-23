@@ -1,10 +1,10 @@
 /*
- * XREFs of IopRaiseInformationalHardError @ 0x140B334A0
+ * XREFs of IopRaiseInformationalHardError @ 0x140B358F0
  * Callers:
  *     <none>
  * Callees:
- *     ExRaiseHardError @ 0x140B06D30 (ExRaiseHardError.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExRaiseHardError @ 0x140B08E60 (ExRaiseHardError.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall IopRaiseInformationalHardError(_DWORD *P)
@@ -27,5 +27,5 @@ void __fastcall IopRaiseInformationalHardError(_DWORD *P)
   if ( v2 )
     ExFreePoolWithTag(v2, 0);
   ExFreePoolWithTag(P, 0);
-  _InterlockedDecrement(&dword_140F853DC);
+  _InterlockedDecrement((volatile signed __int32 *)&IopPerfIoTrackingLock.SchedulerApcFill5[52]);
 }

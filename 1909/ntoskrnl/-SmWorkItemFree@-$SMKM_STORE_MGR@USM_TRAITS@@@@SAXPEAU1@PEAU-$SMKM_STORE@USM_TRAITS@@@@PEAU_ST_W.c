@@ -23,7 +23,7 @@ void __fastcall SMKM_STORE_MGR<SM_TRAITS>::SmWorkItemFree(__int64 a1, __int64 a2
   int v10; // r15d
   int v11; // r14d
   __int128 v12; // xmm1
-  union _SLIST_HEADER *v13; // rcx
+  _SLIST_HEADER *v13; // rcx
   BOOL v14; // esi
   struct _EX_RUNDOWN_REF *v15; // rax
   int v16; // edi

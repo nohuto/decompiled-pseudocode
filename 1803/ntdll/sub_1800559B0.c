@@ -29,25 +29,25 @@ char __fastcall sub_1800559B0(PCWSTR SourceString)
   __int64 v4; // rdi
   __int64 *v5; // rbx
   int v7; // ecx
-  unsigned __int64 v8; // rcx
-  int v9; // ebx
+  _QWORD *v8; // rcx
+  NTSTATUS v9; // ebx
   char v10; // al
   char v11; // al
-  __int64 i; // rax
+  __int64 *i; // rax
   __int64 v13; // [rsp+30h] [rbp-89h]
-  unsigned __int64 v14; // [rsp+40h] [rbp-79h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+48h] [rbp-71h] BYREF
-  __int64 v16[15]; // [rsp+60h] [rbp-59h] BYREF
+  PVOID BaseAddress; // [rsp+40h] [rbp-79h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+48h] [rbp-71h] BYREF
+  PWSTR Path[15]; // [rsp+60h] [rbp-59h] BYREF
   char v17; // [rsp+DCh] [rbp+23h]
 
   v2 = 1;
-  sub_180042054(0LL, 16385LL, v16);
+  sub_180042054(0LL, (const WCHAR *)0x4001, (const WCHAR **)Path);
   byte_18015CFBC = 1;
   v3 = (void (__fastcall *)(_QWORD))(MEMORY[0x7FFE0330] ^ __ROR8__(qword_18016F210, 64 - (MEMORY[0x7FFE0330] & 0x3Fu)));
   while ( *SourceString )
   {
     RtlInitUnicodeString(&DestinationString, SourceString);
-    v7 = sub_18003B7AC((__int64)&DestinationString, (int)v16, 0, 0, (__int64 *)&v14);
+    v7 = sub_18003B7AC((__int64)&DestinationString, (__int64)Path, 0, 0, &BaseAddress);
     if ( v7 < 0 )
     {
       v10 = dword_180156A70;
@@ -70,12 +70,12 @@ char __fastcall sub_1800559B0(PCWSTR SourceString)
     }
     else
     {
-      *(_DWORD *)(v14 + 104) |= 0x100u;
-      sub_180059158(v14);
-      v8 = v14;
-      if ( *(_DWORD *)(*(_QWORD *)(v14 + 152) + 56LL) == 7 )
+      *((_DWORD *)BaseAddress + 26) |= 0x100u;
+      sub_180059158(BaseAddress);
+      v8 = BaseAddress;
+      if ( *(_DWORD *)(*((_QWORD *)BaseAddress + 19) + 56LL) == 7 )
       {
-        v9 = sub_180054DE8(*(_QWORD *)(v14 + 152));
+        v9 = sub_180054DE8(*((_QWORD *)BaseAddress + 19));
         if ( v9 < 0 )
         {
           v11 = dword_180156A70;
@@ -96,27 +96,27 @@ char __fastcall sub_1800559B0(PCWSTR SourceString)
             __debugbreak();
           v2 = 0;
           sub_18008965C((unsigned int)v9);
-          ZwTerminateProcess(-1LL, (unsigned int)v9);
+          ZwTerminateProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, v9);
           break;
         }
-        v8 = v14;
+        v8 = BaseAddress;
       }
-      v3(*(_QWORD *)(v8 + 48));
-      sub_18001F5FC(v14);
+      v3(v8[6]);
+      sub_18001F5FC((char *)BaseAddress);
     }
     SourceString += (unsigned __int64)DestinationString.MaximumLength >> 1;
   }
   if ( v17 )
-    RtlReleasePath(v16[0]);
+    RtlReleasePath(Path[0]);
   ((void (*)(void))(__ROR8__(qword_18016F248, 64 - (MEMORY[0x7FFE0330] & 0x3Fu)) ^ MEMORY[0x7FFE0330]))();
   v4 = MEMORY[0x7FFE0330] ^ __ROR8__(qword_18016F260, 64 - (MEMORY[0x7FFE0330] & 0x3Fu));
-  RtlEnterCriticalSection((__int64)&off_1801564C0);
+  RtlEnterCriticalSection(&stru_1801564C0);
   if ( byte_18015CFB4 )
   {
-    for ( i = qword_18015C370; (__int64 *)i != &qword_18015C370; i = *(_QWORD *)i )
+    for ( i = (__int64 *)qword_18015C370; i != &qword_18015C370; i = (__int64 *)*i )
     {
-      v14 = i;
-      *(_BYTE *)(i + 105) &= ~8u;
+      BaseAddress = i;
+      *((_BYTE *)i + 105) &= ~8u;
     }
   }
   v5 = (__int64 *)qword_18015C370;
@@ -128,12 +128,12 @@ char __fastcall sub_1800559B0(PCWSTR SourceString)
 LABEL_10:
     if ( v5 == &qword_18015C370 )
       break;
-    v14 = (unsigned __int64)v5;
+    BaseAddress = v5;
     sub_180055BBC(v5[19], v4);
   }
   byte_18015CFBC = 0;
   byte_18015CFB4 = 1;
-  RtlLeaveCriticalSection((__int64)&off_1801564C0);
+  RtlLeaveCriticalSection(&stru_1801564C0);
   sub_180055C44();
   return v2;
 }

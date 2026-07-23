@@ -1,9 +1,9 @@
 /*
  * XREFs of ZwOpenProcess @ 0x14041BC20
  * Callers:
- *     DifZwOpenProcessWrapper @ 0x140622490 (DifZwOpenProcessWrapper.c)
- *     BiLogFileOwnerProcess @ 0x14064CD50 (BiLogFileOwnerProcess.c)
- *     SepRmLsaConnectRequest @ 0x14083B480 (SepRmLsaConnectRequest.c)
+ *     sub_140622490 @ 0x140622490 (sub_140622490.c)
+ *     sub_14064CD50 @ 0x14064CD50 (sub_14064CD50.c)
+ *     sub_14083B480 @ 0x14083B480 (sub_14083B480.c)
  * Callees:
  *     <none>
  */
@@ -17,5 +17,5 @@ NTSTATUS __stdcall ZwOpenProcess(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(ProcessHandle, *(_QWORD *)&DesiredAccess);
+  return sub_140433F80(ProcessHandle, *(_QWORD *)&DesiredAccess);
 }

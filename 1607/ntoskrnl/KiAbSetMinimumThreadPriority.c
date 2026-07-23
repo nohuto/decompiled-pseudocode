@@ -1,18 +1,18 @@
 /*
- * XREFs of KiAbSetMinimumThreadPriority @ 0x14006C0E4
+ * XREFs of KiAbSetMinimumThreadPriority @ 0x14006BC64
  * Callers:
- *     KiAbProcessContextSwitch @ 0x14005C490 (KiAbProcessContextSwitch.c)
- *     KiAbProcessThreadLocks @ 0x14006BBA8 (KiAbProcessThreadLocks.c)
- *     KiAbIoBoostOwners @ 0x14006BE9C (KiAbIoBoostOwners.c)
- *     KiAbCpuBoostOwners @ 0x14006BF8C (KiAbCpuBoostOwners.c)
+ *     KiAbProcessContextSwitch @ 0x14005C010 (KiAbProcessContextSwitch.c)
+ *     KiAbProcessThreadLocks @ 0x14006B728 (KiAbProcessThreadLocks.c)
+ *     KiAbIoBoostOwners @ 0x14006BA1C (KiAbIoBoostOwners.c)
+ *     KiAbCpuBoostOwners @ 0x14006BB0C (KiAbCpuBoostOwners.c)
  * Callees:
- *     KiAbEntryGetCpuPriorityKey @ 0x14006C3D8 (KiAbEntryGetCpuPriorityKey.c)
- *     KiSetPriorityFloor @ 0x14006C4F4 (KiSetPriorityFloor.c)
- *     KiAbThreadBoostIoPriority @ 0x14006C5A4 (KiAbThreadBoostIoPriority.c)
- *     KiAbThreadInsertList @ 0x1400ACCF0 (KiAbThreadInsertList.c)
- *     PsGetIoPriorityThread @ 0x1400E7E30 (PsGetIoPriorityThread.c)
- *     PsGetBaseIoPriorityThread @ 0x1400EBF30 (PsGetBaseIoPriorityThread.c)
- *     EtwTraceAutoBoostSetFloor @ 0x14022597C (EtwTraceAutoBoostSetFloor.c)
+ *     KiAbEntryGetCpuPriorityKey @ 0x14006BF58 (KiAbEntryGetCpuPriorityKey.c)
+ *     KiSetPriorityFloor @ 0x14006C074 (KiSetPriorityFloor.c)
+ *     KiAbThreadBoostIoPriority @ 0x14006C124 (KiAbThreadBoostIoPriority.c)
+ *     KiAbThreadInsertList @ 0x1400AB258 (KiAbThreadInsertList.c)
+ *     PsGetIoPriorityThread @ 0x1400E5CD0 (PsGetIoPriorityThread.c)
+ *     PsGetBaseIoPriorityThread @ 0x1400E9DA0 (PsGetBaseIoPriorityThread.c)
+ *     EtwTraceAutoBoostSetFloor @ 0x1402257A8 (EtwTraceAutoBoostSetFloor.c)
  */
 
 __int64 __fastcall KiAbSetMinimumThreadPriority(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5, _DWORD *a6)

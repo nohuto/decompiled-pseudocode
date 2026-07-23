@@ -1,20 +1,20 @@
 /*
- * XREFs of _CmGetDeviceStatus @ 0x14079A568
+ * XREFs of _CmGetDeviceStatus @ 0x14079A758
  * Callers:
- *     _CmGetDeviceMappedPropertyFromComposite @ 0x1406CA3BC (_CmGetDeviceMappedPropertyFromComposite.c)
- *     _CmIsDeviceSafeRemovalRequired @ 0x1407989E8 (_CmIsDeviceSafeRemovalRequired.c)
- *     PiCMGetDeviceStatus @ 0x140799968 (PiCMGetDeviceStatus.c)
- *     PiCMValidateDeviceInstance @ 0x140799EB8 (PiCMValidateDeviceInstance.c)
- *     PpDevCfgProcessDevices @ 0x140810D14 (PpDevCfgProcessDevices.c)
- *     PiCMDeleteDevice @ 0x140968E48 (PiCMDeleteDevice.c)
- *     PiCMDeviceAction @ 0x14096968C (PiCMDeviceAction.c)
- *     PiCMGenerateDeviceInstance @ 0x140969BBC (PiCMGenerateDeviceInstance.c)
- *     PiCMQueryRemove @ 0x14096A274 (PiCMQueryRemove.c)
- *     PiCMSetProblem @ 0x14096AA24 (PiCMSetProblem.c)
+ *     _CmGetDeviceMappedPropertyFromComposite @ 0x1406CA3EC (_CmGetDeviceMappedPropertyFromComposite.c)
+ *     _CmIsDeviceSafeRemovalRequired @ 0x140798BD8 (_CmIsDeviceSafeRemovalRequired.c)
+ *     PiCMGetDeviceStatus @ 0x140799B58 (PiCMGetDeviceStatus.c)
+ *     PiCMValidateDeviceInstance @ 0x14079A0A8 (PiCMValidateDeviceInstance.c)
+ *     PpDevCfgProcessDevices @ 0x140810FE4 (PpDevCfgProcessDevices.c)
+ *     PiCMDeleteDevice @ 0x140969048 (PiCMDeleteDevice.c)
+ *     PiCMDeviceAction @ 0x14096988C (PiCMDeviceAction.c)
+ *     PiCMGenerateDeviceInstance @ 0x140969DBC (PiCMGenerateDeviceInstance.c)
+ *     PiCMQueryRemove @ 0x14096A474 (PiCMQueryRemove.c)
+ *     PiCMSetProblem @ 0x14096AC24 (PiCMSetProblem.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x14022B6C0 (RtlInitUnicodeStringEx.c)
- *     _CmGetDeviceRegProp @ 0x1406CD45C (_CmGetDeviceRegProp.c)
- *     _NtPlugPlayGetDeviceStatus @ 0x14079A7D8 (_NtPlugPlayGetDeviceStatus.c)
+ *     RtlInitUnicodeStringEx @ 0x14022B7D0 (RtlInitUnicodeStringEx.c)
+ *     _CmGetDeviceRegProp @ 0x1406CD48C (_CmGetDeviceRegProp.c)
+ *     _NtPlugPlayGetDeviceStatus @ 0x14079A9C8 (_NtPlugPlayGetDeviceStatus.c)
  */
 
 __int64 __fastcall CmGetDeviceStatus(

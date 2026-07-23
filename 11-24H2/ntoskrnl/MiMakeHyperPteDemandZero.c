@@ -1,10 +1,10 @@
 /*
- * XREFs of MiMakeHyperPteDemandZero @ 0x14045B0C0
+ * XREFs of MiMakeHyperPteDemandZero @ 0x140450460
  * Callers:
- *     MiFillHyperPtes @ 0x14045AF48 (MiFillHyperPtes.c)
+ *     MiFillHyperPtes @ 0x1404502E8 (MiFillHyperPtes.c)
  * Callees:
- *     MiIncreaseUsedPtes @ 0x14028A180 (MiIncreaseUsedPtes.c)
- *     MiMakeDemandZeroPte @ 0x1402E3CC0 (MiMakeDemandZeroPte.c)
+ *     MiIncreaseUsedPtes @ 0x140299D80 (MiIncreaseUsedPtes.c)
+ *     MiMakeDemandZeroPte @ 0x140392C40 (MiMakeDemandZeroPte.c)
  */
 
 void __fastcall MiMakeHyperPteDemandZero(__int64 *a1, __int64 a2, __int64 a3, __int64 a4)
@@ -17,7 +17,7 @@ void __fastcall MiMakeHyperPteDemandZero(__int64 *a1, __int64 a2, __int64 a3, __
   {
     DemandZeroPte = MiMakeDemandZeroPte(4);
     if ( v8 != 3 )
-      MiIncreaseUsedPtes(v6, (((unsigned __int64)a1 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL, 1u, 0);
+      MiIncreaseUsedPtes(v6, (((unsigned __int64)a1 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL, 1LL, 0LL);
     *a1 = DemandZeroPte;
   }
   ++*(_QWORD *)(a4 + 8);

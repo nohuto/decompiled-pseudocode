@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpReserveWithPebsIndex @ 0x140226D88
+ * XREFs of EtwpReserveWithPebsIndex @ 0x140226BB4
  * Callers:
- *     EtwpLogKernelEvent @ 0x140059740 (EtwpLogKernelEvent.c)
- *     EtwTraceContextSwap @ 0x1400D6460 (EtwTraceContextSwap.c)
+ *     EtwpLogKernelEvent @ 0x1400592C0 (EtwpLogKernelEvent.c)
+ *     EtwTraceContextSwap @ 0x1400D4300 (EtwTraceContextSwap.c)
  * Callees:
- *     EtwpReserveTraceBuffer @ 0x1400D68F0 (EtwpReserveTraceBuffer.c)
+ *     EtwpReserveTraceBuffer @ 0x1400D4790 (EtwpReserveTraceBuffer.c)
  */
 
 unsigned __int64 __fastcall EtwpReserveWithPebsIndex(

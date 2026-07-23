@@ -30,68 +30,72 @@
  *     RtlAddressInSectionTable @ 0x1800206B0 (RtlAddressInSectionTable.c)
  */
 
-__int64 __fastcall RtlImageDirectoryEntryToData(unsigned __int64 a1, char a2, unsigned __int16 a3, _DWORD *a4)
+PVOID __cdecl RtlImageDirectoryEntryToData(
+        PVOID BaseOfImage,
+        BOOLEAN MappedAsImage,
+        USHORT DirectoryEntry,
+        PULONG Size)
 {
-  __int64 v4; // rbx
+  void *v4; // rbx
   __int64 v5; // r14
-  char v6; // bp
-  unsigned __int64 v8; // rdi
-  __int64 v9; // rsi
+  BOOLEAN v6; // bp
+  char *v8; // rdi
+  char *v9; // rsi
   bool v10; // zf
-  char v11; // cl
-  int v12; // eax
-  __int64 v13; // rcx
-  __int16 v14; // ax
-  __int64 v15; // rdx
+  BOOLEAN v11; // cl
+  NTSTATUS v12; // eax
+  PIMAGE_NT_HEADERS v13; // rcx
+  unsigned __int16 Magic; // ax
+  __int64 VirtualAddress; // rdx
   __int64 v17; // r10
   unsigned int v18; // r8d
   unsigned int *v19; // rdx
   __int64 v20; // r9
   int v21; // ecx
-  __int64 v22; // [rsp+40h] [rbp+8h] BYREF
+  PIMAGE_NT_HEADERS OutHeaders; // [rsp+40h] [rbp+8h] BYREF
 
   v4 = 0LL;
-  v5 = a3;
-  v6 = a2;
-  v22 = 0LL;
-  v8 = a1;
+  v5 = DirectoryEntry;
+  v6 = MappedAsImage;
+  OutHeaders = 0LL;
+  v8 = (char *)BaseOfImage;
   v9 = 0LL;
-  if ( (a1 & 3) != 0 )
+  if ( ((unsigned __int8)BaseOfImage & 3) != 0 )
   {
-    v8 = a1 & 0xFFFFFFFFFFFFFFFCuLL;
-    v10 = (a1 & 1) == 0;
+    v8 = (char *)((unsigned __int64)BaseOfImage & 0xFFFFFFFFFFFFFFFCuLL);
+    v10 = ((unsigned __int8)BaseOfImage & 1) == 0;
     v11 = 0;
     if ( v10 )
-      v11 = a2;
+      v11 = MappedAsImage;
     v6 = v11;
   }
-  v12 = RtlImageNtHeaderEx(1, v8, 0LL, &v22);
-  v13 = v22;
-  if ( !v22 )
+  v12 = RtlImageNtHeaderEx(1u, v8, 0LL, &OutHeaders);
+  v13 = OutHeaders;
+  if ( !OutHeaders )
     goto LABEL_13;
-  v14 = *(_WORD *)(v22 + 24);
-  if ( v14 == 267 )
+  Magic = OutHeaders->OptionalHeader.Magic;
+  if ( Magic == 267 )
   {
-    if ( (unsigned int)v5 < *(_DWORD *)(v22 + 116) )
+    if ( (unsigned int)v5 < HIDWORD(OutHeaders->OptionalHeader.SizeOfHeapReserve) )
     {
-      v17 = *(unsigned int *)(v22 + 8 * v5 + 120);
+      v17 = *((unsigned int *)&OutHeaders->OptionalHeader.SizeOfHeapCommit + 2 * v5);
       if ( !(_DWORD)v17 )
         goto LABEL_27;
-      *a4 = *(_DWORD *)(v22 + 8 * v5 + 124);
-      if ( v6 || (unsigned int)v17 < *(_DWORD *)(v13 + 84) )
+      *Size = *((_DWORD *)&OutHeaders->OptionalHeader.SizeOfHeapCommit + 2 * v5 + 1);
+      if ( v6 || (unsigned int)v17 < v13->OptionalHeader.SizeOfHeaders )
       {
-        v9 = v8 + v17;
+        v9 = &v8[v17];
         v12 = 0;
         goto LABEL_13;
       }
       v18 = 0;
-      v19 = (unsigned int *)(*(unsigned __int16 *)(v13 + 20) + v22 + 24);
-      while ( v18 < *(unsigned __int16 *)(v22 + 6) )
+      v19 = (unsigned int *)((char *)&OutHeaders->OptionalHeader.Magic + v13->FileHeader.SizeOfOptionalHeader);
+      while ( v18 < OutHeaders->FileHeader.NumberOfSections )
       {
         v20 = v19[3];
         if ( (unsigned int)v17 >= (unsigned int)v20 && (unsigned int)v17 < (unsigned int)v20 + v19[4] )
         {
-          v9 = v8 + v19[5] - v20 + v17;
+          v9 = &v8[v19[5] - v20 + v17];
           if ( v9 )
             goto LABEL_12;
           break;
@@ -104,25 +108,25 @@ LABEL_26:
     v12 = -1073741811;
     goto LABEL_13;
   }
-  if ( v14 != 523 || (unsigned int)v5 >= *(_DWORD *)(v22 + 132) )
+  if ( Magic != 523 || (unsigned int)v5 >= OutHeaders->OptionalHeader.NumberOfRvaAndSizes )
     goto LABEL_26;
-  v15 = *(unsigned int *)(v22 + 8 * v5 + 136);
-  if ( !(_DWORD)v15 )
+  VirtualAddress = OutHeaders->OptionalHeader.DataDirectory[v5].VirtualAddress;
+  if ( !(_DWORD)VirtualAddress )
   {
 LABEL_27:
     v12 = -1073741822;
     goto LABEL_13;
   }
-  *a4 = *(_DWORD *)(v22 + 8 * v5 + 140);
-  if ( v6 || (unsigned int)v15 < *(_DWORD *)(v13 + 84) )
+  *Size = OutHeaders->OptionalHeader.DataDirectory[v5].Size;
+  if ( v6 || (unsigned int)VirtualAddress < v13->OptionalHeader.SizeOfHeaders )
   {
-    v9 = v8 + v15;
+    v9 = &v8[VirtualAddress];
 LABEL_12:
     v12 = 0;
   }
   else
   {
-    v9 = RtlAddressInSectionTable(v13, v8, v15);
+    v9 = (char *)RtlAddressInSectionTable(v13, v8, VirtualAddress);
     v21 = 0;
     if ( !v9 )
       v21 = -1073741811;

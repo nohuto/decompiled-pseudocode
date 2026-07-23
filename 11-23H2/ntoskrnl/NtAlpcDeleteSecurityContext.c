@@ -1,39 +1,41 @@
 /*
- * XREFs of NtAlpcDeleteSecurityContext @ 0x14071E840
+ * XREFs of NtAlpcDeleteSecurityContext @ 0x14071EA40
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ObReferenceObjectByHandle @ 0x1406E62C0 (ObReferenceObjectByHandle.c)
- *     AlpcpDeleteBlob @ 0x14071C11C (AlpcpDeleteBlob.c)
- *     AlpcReferenceBlobByHandle @ 0x14071DBF8 (AlpcReferenceBlobByHandle.c)
- *     AlpcpDereferenceBlobEx @ 0x14071E93C (AlpcpDereferenceBlobEx.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     ObReferenceObjectByHandle @ 0x1406E62F0 (ObReferenceObjectByHandle.c)
+ *     AlpcpDeleteBlob @ 0x14071C31C (AlpcpDeleteBlob.c)
+ *     AlpcReferenceBlobByHandle @ 0x14071DDF8 (AlpcReferenceBlobByHandle.c)
+ *     AlpcpDereferenceBlobEx @ 0x14071EB3C (AlpcpDereferenceBlobEx.c)
  */
 
-__int64 __fastcall NtAlpcDeleteSecurityContext(void *a1, int a2, int a3)
+NTSTATUS __cdecl NtAlpcDeleteSecurityContext(HANDLE PortHandle, ULONG Flags, ALPC_HANDLE ContextHandle)
 {
   struct _KTHREAD *CurrentThread; // rax
-  NTSTATUS v5; // ebx
+  int v4; // edi
+  int v5; // ebx
   PVOID v6; // rsi
   ULONG_PTR v7; // rax
   ULONG_PTR v8; // rdi
   PVOID Object; // [rsp+58h] [rbp+20h] BYREF
 
   CurrentThread = KeGetCurrentThread();
+  v4 = (int)ContextHandle;
   --CurrentThread->KernelApcDisable;
-  if ( a2 )
+  if ( Flags )
   {
     v5 = -1073741811;
   }
   else
   {
     Object = 0LL;
-    v5 = ObReferenceObjectByHandle(a1, 1u, AlpcPortObjectType, KeGetCurrentThread()->PreviousMode, &Object, 0LL);
+    v5 = ObReferenceObjectByHandle(PortHandle, 1u, AlpcPortObjectType, KeGetCurrentThread()->PreviousMode, &Object, 0LL);
     if ( v5 >= 0 )
     {
       v6 = Object;
-      v7 = AlpcReferenceBlobByHandle((_QWORD *)(*((_QWORD *)Object + 2) + 40LL), a3, AlpcSecurityType);
+      v7 = AlpcReferenceBlobByHandle((_QWORD *)(*((_QWORD *)Object + 2) + 40LL), v4, AlpcSecurityType);
       v8 = v7;
       if ( v7 )
       {
@@ -58,5 +60,5 @@ __int64 __fastcall NtAlpcDeleteSecurityContext(void *a1, int a2, int a3)
     }
   }
   KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-  return (unsigned int)v5;
+  return v5;
 }

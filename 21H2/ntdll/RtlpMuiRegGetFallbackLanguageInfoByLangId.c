@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlpMuiRegGetFallbackLanguageInfoByLangId @ 0x180104A0C
+ * XREFs of RtlpMuiRegGetFallbackLanguageInfoByLangId @ 0x1801049CC
  * Callers:
- *     RtlGetUILanguageInfo @ 0x1800EF0E0 (RtlGetUILanguageInfo.c)
- *     RtlpMuiRegGetFallbackLanguageInfoByName @ 0x180104BCC (RtlpMuiRegGetFallbackLanguageInfoByName.c)
+ *     RtlGetUILanguageInfo @ 0x1800EF0A0 (RtlGetUILanguageInfo.c)
+ *     RtlpMuiRegGetFallbackLanguageInfoByName @ 0x180104B8C (RtlpMuiRegGetFallbackLanguageInfoByName.c)
  * Callees:
  *     RtlFreeHeap @ 0x180024760 (RtlFreeHeap.c)
  *     RtlAllocateHeap @ 0x18002A9A0 (RtlAllocateHeap.c)
  *     RtlLCIDToCultureName @ 0x18003B020 (RtlLCIDToCultureName.c)
- *     RtlpMuiRegGetFallbackLanguageInfoByName @ 0x180104BCC (RtlpMuiRegGetFallbackLanguageInfoByName.c)
+ *     RtlpMuiRegGetFallbackLanguageInfoByName @ 0x180104B8C (RtlpMuiRegGetFallbackLanguageInfoByName.c)
  */
 
 __int64 __fastcall RtlpMuiRegGetFallbackLanguageInfoByLangId(
@@ -17,17 +17,16 @@ __int64 __fastcall RtlpMuiRegGetFallbackLanguageInfoByLangId(
         char a4,
         __int64 a5)
 {
-  unsigned int v5; // ebp
+  LCID v5; // ebp
   __int16 v9; // r9
   __int16 i; // dx
   __int16 v11; // r8
   __int64 v12; // r8
   __int64 v13; // rcx
-  __int64 Heap; // rax
-  __int64 v16; // rdi
+  wchar_t *Heap; // rax
+  wchar_t *v16; // rdi
   unsigned int FallbackLanguageInfoByName; // ebx
-  int v18; // [rsp+30h] [rbp-38h] BYREF
-  __int64 v19; // [rsp+38h] [rbp-30h]
+  _UNICODE_STRING String; // [rsp+30h] [rbp-38h] BYREF
 
   v5 = a3;
   if ( !a1 || !a2 || !a5 )
@@ -59,19 +58,21 @@ __int64 __fastcall RtlpMuiRegGetFallbackLanguageInfoByLangId(
     }
     ++v9;
   }
-  Heap = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, 170LL);
+  Heap = (wchar_t *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, 0xAAuLL);
   v16 = Heap;
   if ( !Heap )
     return 3221225495LL;
-  if ( a4 && *(__int16 *)(a2 + 6) > 0 && (v19 = Heap, v18 = 11141120, RtlLCIDToCultureName(v5, (__int64)&v18)) )
+  if ( a4
+    && *(__int16 *)(a2 + 6) > 0
+    && (String.Buffer = Heap, *(_DWORD *)&String.Length = 11141120, RtlLCIDToCultureName(v5, &String)) )
   {
-    FallbackLanguageInfoByName = RtlpMuiRegGetFallbackLanguageInfoByName(a1, a2, v19, 0LL, a5);
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v16);
+    FallbackLanguageInfoByName = RtlpMuiRegGetFallbackLanguageInfoByName(a1, a2, String.Buffer, 0LL, a5);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v16);
     return FallbackLanguageInfoByName;
   }
   else
   {
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v16);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v16);
     return 3221225524LL;
   }
 }

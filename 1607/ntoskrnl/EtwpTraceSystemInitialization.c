@@ -3,16 +3,16 @@
  * Callers:
  *     EtwpInitialize @ 0x1407A0D3C (EtwpInitialize.c)
  * Callees:
- *     _TlgWrite @ 0x14000A598 (_TlgWrite.c)
- *     EtwWrite @ 0x140013320 (EtwWrite.c)
- *     _TlgKeywordOn @ 0x140088D98 (_TlgKeywordOn.c)
- *     EtwEventEnabled @ 0x1400D54D0 (EtwEventEnabled.c)
- *     RtlGetSystemTimePrecise @ 0x1400F2118 (RtlGetSystemTimePrecise.c)
- *     HviIsHypervisorVendorMicrosoft @ 0x14013CF88 (HviIsHypervisorVendorMicrosoft.c)
- *     HviGetHypervisorFeatures @ 0x14014AF24 (HviGetHypervisorFeatures.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     HviGetHardwareFeatures @ 0x140231EDC (HviGetHardwareFeatures.c)
- *     RtlGetVersion @ 0x1404DE1AC (RtlGetVersion.c)
+ *     _TlgWrite @ 0x14000A118 (_TlgWrite.c)
+ *     EtwWrite @ 0x140012EA0 (EtwWrite.c)
+ *     EtwEventEnabled @ 0x1400D3370 (EtwEventEnabled.c)
+ *     RtlGetSystemTimePrecise @ 0x1400EFF68 (RtlGetSystemTimePrecise.c)
+ *     _TlgKeywordOn @ 0x14010CF88 (_TlgKeywordOn.c)
+ *     HviIsHypervisorVendorMicrosoft @ 0x14013D4F8 (HviIsHypervisorVendorMicrosoft.c)
+ *     HviGetHypervisorFeatures @ 0x14014B494 (HviGetHypervisorFeatures.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     HviGetHardwareFeatures @ 0x140231D08 (HviGetHardwareFeatures.c)
+ *     RtlGetVersion @ 0x1404C17B0 (RtlGetVersion.c)
  */
 
 char EtwpTraceSystemInitialization()
@@ -34,13 +34,13 @@ char EtwpTraceSystemInitialization()
   int v15; // [rsp+54h] [rbp-B4h] BYREF
   __int64 v16; // [rsp+58h] [rbp-B0h] BYREF
   LARGE_INTEGER v17; // [rsp+60h] [rbp-A8h] BYREF
-  __int64 SystemTimePrecise; // [rsp+68h] [rbp-A0h] BYREF
+  LARGE_INTEGER SystemTimePrecise; // [rsp+68h] [rbp-A0h] BYREF
   _QWORD v19[2]; // [rsp+70h] [rbp-98h] BYREF
   _DWORD v20[6]; // [rsp+80h] [rbp-88h] BYREF
-  struct _OSVERSIONINFOW VersionInformation; // [rsp+98h] [rbp-70h] BYREF
+  _OSVERSIONINFOW VersionInformation; // [rsp+98h] [rbp-70h] BYREF
   __int16 v22; // [rsp+1ACh] [rbp+A4h] BYREF
   struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+1B8h] [rbp+B0h] BYREF
-  DWORD *p_SystemTimePrecise; // [rsp+1C8h] [rbp+C0h]
+  LARGE_INTEGER *p_SystemTimePrecise; // [rsp+1C8h] [rbp+C0h]
   __int64 v25; // [rsp+1D0h] [rbp+C8h]
   DWORD *v26; // [rsp+1D8h] [rbp+D0h]
   __int64 v27; // [rsp+1E0h] [rbp+D8h]
@@ -78,7 +78,7 @@ char EtwpTraceSystemInitialization()
   __int64 v59; // [rsp+310h] [rbp+208h]
 
   HIDWORD(v11) = InitSafeBootMode;
-  LODWORD(v11) = 8957;
+  LODWORD(v11) = 9339;
   VersionInformation.dwOSVersionInfoSize = 284;
   Version = RtlGetVersion(&VersionInformation);
   if ( Version >= 0 )
@@ -91,7 +91,7 @@ char EtwpTraceSystemInitialization()
       dwBuildNumber = VersionInformation.dwBuildNumber;
       v16 = v11;
       LOWORD(v9) = v22;
-      v10 = dword_140328DC8;
+      v10 = dword_140328E08;
       p_dwMajorVersion = &dwMajorVersion;
       p_dwMinorVersion = &dwMinorVersion;
       p_dwBuildNumber = &dwBuildNumber;
@@ -112,7 +112,7 @@ char EtwpTraceSystemInitialization()
       v50 = 4LL;
       v52 = 8LL;
       v54 = 4LL;
-      TlgWrite(&stru_1402F3680, &unk_14027E673, 0LL, 0LL, 0xBu, &pData);
+      TlgWrite(&stru_1402F3680, &unk_14027E773, 0LL, 0LL, 0xBu, &pData);
     }
     LOBYTE(Version) = HviIsHypervisorVendorMicrosoft();
     if ( (_BYTE)Version )
@@ -131,7 +131,7 @@ char EtwpTraceSystemInitialization()
           v58 = &v9;
           v57 = 4LL;
           v59 = 1LL;
-          LOBYTE(Version) = TlgWrite(&stru_1402F3680, &unk_14027E63E, 0LL, 0LL, 4u, &v55);
+          LOBYTE(Version) = TlgWrite(&stru_1402F3680, &unk_14027E73E, 0LL, 0LL, 4u, &v55);
         }
       }
     }
@@ -140,7 +140,7 @@ char EtwpTraceSystemInitialization()
       *(_QWORD *)&UserData.Size = 4LL;
       UserData.Ptr = (ULONGLONG)&VersionInformation.dwMajorVersion;
       v25 = 4LL;
-      p_SystemTimePrecise = &VersionInformation.dwMinorVersion;
+      p_SystemTimePrecise = (LARGE_INTEGER *)&VersionInformation.dwMinorVersion;
       v27 = 4LL;
       v26 = &VersionInformation.dwBuildNumber;
       v29 = 4LL;
@@ -160,13 +160,13 @@ char EtwpTraceSystemInitialization()
         UserData.Ptr = (ULONGLONG)&EtwBootPerfData;
         LOBYTE(Version) = EtwWrite(v5, &BootPerformanceData, 0LL, 1u, &UserData);
       }
-      if ( (qword_1402FD0D8 & 4) != 0 )
+      if ( (qword_1402FD038 & 4) != 0 )
       {
         SystemTimePrecise = RtlGetSystemTimePrecise();
         v7 = *(_QWORD *)(KeLoaderBlock_0 + 240) + 2560LL;
         *(_QWORD *)&UserData.Size = 8LL;
         UserData.Ptr = v7;
-        p_SystemTimePrecise = (DWORD *)&SystemTimePrecise;
+        p_SystemTimePrecise = &SystemTimePrecise;
         v25 = 8LL;
         v26 = (DWORD *)(*(_QWORD *)(KeLoaderBlock_0 + 240) + 2552LL);
         v27 = 4LL;

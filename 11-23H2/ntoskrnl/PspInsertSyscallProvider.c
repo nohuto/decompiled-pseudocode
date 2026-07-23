@@ -1,14 +1,14 @@
 /*
- * XREFs of PspInsertSyscallProvider @ 0x1409B4CE4
+ * XREFs of PspInsertSyscallProvider @ 0x1409B4EE4
  * Callers:
- *     PsRegisterSyscallProvider @ 0x1409B4560 (PsRegisterSyscallProvider.c)
+ *     PsRegisterSyscallProvider @ 0x1409B4760 (PsRegisterSyscallProvider.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     PspDereferenceSyscallProvider @ 0x1405A4BCC (PspDereferenceSyscallProvider.c)
- *     PspLookupSyscallProviderByIdNoLock @ 0x1409B4DBC (PspLookupSyscallProviderByIdNoLock.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     PspDereferenceSyscallProvider @ 0x1405A513C (PspDereferenceSyscallProvider.c)
+ *     PspLookupSyscallProviderByIdNoLock @ 0x1409B4FBC (PspLookupSyscallProviderByIdNoLock.c)
  */
 
 __int64 __fastcall PspInsertSyscallProvider(__int64 a1)

@@ -1,20 +1,20 @@
 /*
- * XREFs of PopCreateUserPowerRequest @ 0x14067CD9C
+ * XREFs of PopCreateUserPowerRequest @ 0x140670C38
  * Callers:
- *     PopPowerRequestCreateInfo @ 0x14067CFCC (PopPowerRequestCreateInfo.c)
- *     NtSetThreadExecutionState @ 0x14067D5F0 (NtSetThreadExecutionState.c)
+ *     PopPowerRequestCreateInfo @ 0x140670E30 (PopPowerRequestCreateInfo.c)
+ *     NtSetThreadExecutionState @ 0x1406713E0 (NtSetThreadExecutionState.c)
  * Callees:
- *     PopReleaseRwLock @ 0x14027C284 (PopReleaseRwLock.c)
- *     PopUmpoSendPowerRequestOverrideQuery @ 0x140282D74 (PopUmpoSendPowerRequestOverrideQuery.c)
- *     SessionIsInteractive @ 0x140283248 (SessionIsInteractive.c)
- *     MmGetSessionIdEx @ 0x14034AE60 (MmGetSessionIdEx.c)
+ *     PopReleaseRwLock @ 0x14026A224 (PopReleaseRwLock.c)
+ *     PopUmpoSendPowerRequestOverrideQuery @ 0x140271020 (PopUmpoSendPowerRequestOverrideQuery.c)
+ *     SessionIsInteractive @ 0x14027141C (SessionIsInteractive.c)
+ *     MmGetSessionIdEx @ 0x140355BB0 (MmGetSessionIdEx.c)
  *     Feature_3401902395__private_IsEnabledDeviceUsage @ 0x1403F7E54 (Feature_3401902395__private_IsEnabledDeviceUsage.c)
- *     PsQueryProcessAttributes @ 0x140600F24 (PsQueryProcessAttributes.c)
- *     PopCreatePowerRequestObject @ 0x14062BBB0 (PopCreatePowerRequestObject.c)
- *     PopAcquirePowerRequestPushLock @ 0x14067B148 (PopAcquirePowerRequestPushLock.c)
- *     PopDiagTracePowerRequestCreate @ 0x14067C538 (PopDiagTracePowerRequestCreate.c)
- *     PopInsertPowerRequestObject @ 0x14067CEC4 (PopInsertPowerRequestObject.c)
- *     PopUmpoSendPowerRequestCreate @ 0x1408F2698 (PopUmpoSendPowerRequestCreate.c)
+ *     PopAcquirePowerRequestPushLock @ 0x14066E888 (PopAcquirePowerRequestPushLock.c)
+ *     PopDiagTracePowerRequestCreate @ 0x140670078 (PopDiagTracePowerRequestCreate.c)
+ *     PopCreatePowerRequestObject @ 0x140670788 (PopCreatePowerRequestObject.c)
+ *     PopInsertPowerRequestObject @ 0x140670D60 (PopInsertPowerRequestObject.c)
+ *     PsQueryProcessAttributes @ 0x1406F0684 (PsQueryProcessAttributes.c)
+ *     PopUmpoSendPowerRequestCreate @ 0x1408F27F8 (PopUmpoSendPowerRequestCreate.c)
  */
 
 __int64 __fastcall PopCreateUserPowerRequest(__int64 *a1, char a2, __int64 a3)
@@ -37,7 +37,7 @@ __int64 __fastcall PopCreateUserPowerRequest(__int64 *a1, char a2, __int64 a3)
   Process = CurrentThread->ApcState.Process;
   if ( a2 )
   {
-    PsQueryProcessAttributes(CurrentThread->ApcState.Process, (__int64)&v15, 0LL);
+    PsQueryProcessAttributes(CurrentThread->ApcState.Process, &v15, 0LL);
     if ( v15 )
       return 3221225659LL;
   }

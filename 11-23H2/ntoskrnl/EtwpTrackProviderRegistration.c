@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwpTrackProviderRegistration @ 0x1406BFB90
+ * XREFs of EtwpTrackProviderRegistration @ 0x1406BFBC0
  * Callers:
- *     EtwpRegisterUMProvider @ 0x1406BF210 (EtwpRegisterUMProvider.c)
- *     EtwpRegisterKMProvider @ 0x14078D8C4 (EtwpRegisterKMProvider.c)
+ *     EtwpRegisterUMProvider @ 0x1406BF240 (EtwpRegisterUMProvider.c)
+ *     EtwpRegisterKMProvider @ 0x14078DAB4 (EtwpRegisterKMProvider.c)
  * Callees:
- *     ExReleaseRundownProtectionCacheAwareEx @ 0x140259CD0 (ExReleaseRundownProtectionCacheAwareEx.c)
- *     EtwpReleaseLoggerContext @ 0x1406BE208 (EtwpReleaseLoggerContext.c)
- *     EtwpAcquireLoggerContextByLoggerId @ 0x1406BECCC (EtwpAcquireLoggerContextByLoggerId.c)
- *     EtwpProviderArrivalCallback @ 0x14077DC5C (EtwpProviderArrivalCallback.c)
+ *     ExReleaseRundownProtectionCacheAwareEx @ 0x140259F60 (ExReleaseRundownProtectionCacheAwareEx.c)
+ *     EtwpReleaseLoggerContext @ 0x1406BE238 (EtwpReleaseLoggerContext.c)
+ *     EtwpAcquireLoggerContextByLoggerId @ 0x1406BECFC (EtwpAcquireLoggerContextByLoggerId.c)
+ *     EtwpProviderArrivalCallback @ 0x14077DE4C (EtwpProviderArrivalCallback.c)
  */
 
 void __fastcall EtwpTrackProviderRegistration(__int64 a1)

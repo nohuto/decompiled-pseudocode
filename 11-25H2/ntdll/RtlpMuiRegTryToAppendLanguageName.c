@@ -20,47 +20,47 @@ __int64 __fastcall RtlpMuiRegTryToAppendLanguageName(
 {
   unsigned int v5; // ebp
   __int64 v10; // r12
-  void *Heap; // r14
+  wchar_t *Heap; // r14
   __int64 v12; // rax
-  unsigned int v13; // ecx
-  void *v14; // rcx
+  LCID v13; // ecx
+  wchar_t *v14; // rcx
   size_t v15; // rax
   __int64 v16; // r13
   unsigned int v17; // edi
-  void *Src[2]; // [rsp+20h] [rbp-38h] BYREF
+  _UNICODE_STRING String; // [rsp+20h] [rbp-38h] BYREF
 
   v5 = 0;
-  *(_OWORD *)Src = 0LL;
+  String = 0LL;
   if ( !a2 || !a1 || !a3 )
     return 3221225485LL;
   v10 = *a3;
-  Heap = (void *)RtlAllocateHeap((char *)NtCurrentPeb()->ProcessHeap, 8u, 0xAAuLL);
+  Heap = (wchar_t *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, 0xAAuLL);
   if ( !Heap )
     return 3221225495LL;
   v12 = *(__int16 *)(a2 + 6);
   if ( (__int16)v12 > 0 )
   {
-    v14 = (void *)(*(_QWORD *)(*(_QWORD *)(a1 + 32) + 24LL)
-                 + 2LL * *(__int16 *)(*(_QWORD *)(*(_QWORD *)(a1 + 32) + 16LL) + 2 * v12));
-    Src[1] = v14;
+    v14 = (wchar_t *)(*(_QWORD *)(*(_QWORD *)(a1 + 32) + 24LL)
+                    + 2LL * *(__int16 *)(*(_QWORD *)(*(_QWORD *)(a1 + 32) + 16LL) + 2 * v12));
+    String.Buffer = v14;
     if ( v14 )
     {
-      v15 = 2 * wcslen((const wchar_t *)v14);
+      v15 = 2 * wcslen(v14);
       if ( v15 >= 0xFFFE )
         LOWORD(v15) = -4;
-      LOWORD(Src[0]) = v15;
-      WORD1(Src[0]) = v15 + 2;
+      String.Length = v15;
+      String.MaximumLength = v15 + 2;
     }
 LABEL_12:
-    if ( *a3 && *a3 <= a5 && (unsigned __int8)RtlpLangNameInMultiSzString_Size(a4, (wchar_t *)Src[1]) )
+    if ( *a3 && *a3 <= a5 && (unsigned __int8)RtlpLangNameInMultiSzString_Size(a4, String.Buffer) )
       goto LABEL_23;
-    v16 = (unsigned int)v10 + (LOWORD(Src[0]) >> 1);
+    v16 = (unsigned int)v10 + (String.Length >> 1);
     v17 = v16 + 1;
     if ( a4 && (unsigned int)v10 < v17 )
     {
       if ( v17 < a5 )
       {
-        memmove(&a4[v10], Src[1], LOWORD(Src[0]));
+        memmove(&a4[v10], String.Buffer, String.Length);
         a4[v16] = 0;
         goto LABEL_22;
       }
@@ -75,12 +75,12 @@ LABEL_22:
     goto LABEL_23;
   }
   v13 = *(unsigned __int16 *)(a2 + 4);
-  Src[1] = Heap;
-  LODWORD(Src[0]) = 11141120;
-  if ( (unsigned __int8)RtlLCIDToCultureName(v13, (__int64)Src) )
+  String.Buffer = Heap;
+  *(_DWORD *)&String.Length = 11141120;
+  if ( RtlLCIDToCultureName(v13, &String) )
     goto LABEL_12;
   v5 = -1073741595;
 LABEL_23:
-  RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, Heap);
+  RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Heap);
   return v5;
 }

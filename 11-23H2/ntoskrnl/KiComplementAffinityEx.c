@@ -1,10 +1,10 @@
 /*
- * XREFs of KiComplementAffinityEx @ 0x14028FBE4
+ * XREFs of KiComplementAffinityEx @ 0x14028FE74
  * Callers:
- *     PpmParkSteerInterrupts @ 0x140256A20 (PpmParkSteerInterrupts.c)
- *     KiGetDeepIdleProcessors @ 0x14028FB00 (KiGetDeepIdleProcessors.c)
- *     KeComplementAffinityEx @ 0x14056F380 (KeComplementAffinityEx.c)
- *     KeComplementAffinityEx2 @ 0x14056F3A0 (KeComplementAffinityEx2.c)
+ *     PpmParkSteerInterrupts @ 0x140256AE0 (PpmParkSteerInterrupts.c)
+ *     KiGetDeepIdleProcessors @ 0x14028FD90 (KiGetDeepIdleProcessors.c)
+ *     KeComplementAffinityEx @ 0x14056F8C0 (KeComplementAffinityEx.c)
+ *     KeComplementAffinityEx2 @ 0x14056F8E0 (KeComplementAffinityEx2.c)
  * Callees:
  *     <none>
  */

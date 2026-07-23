@@ -1,15 +1,15 @@
 /*
- * XREFs of MiCheckVirtualAddress @ 0x140098CF0
+ * XREFs of MiCheckVirtualAddress @ 0x140098C30
  * Callers:
  *     MiIsFaultPteIntact @ 0x14002D02C (MiIsFaultPteIntact.c)
  *     MiFindActualFaultingPte @ 0x14002D0E8 (MiFindActualFaultingPte.c)
  *     MiResolveDemandZeroFault @ 0x140046D50 (MiResolveDemandZeroFault.c)
- *     MiInPagePageTable @ 0x1400987E0 (MiInPagePageTable.c)
- *     MiCheckProtoAccess @ 0x140098C10 (MiCheckProtoAccess.c)
- *     MiSystemFault @ 0x1400E8900 (MiSystemFault.c)
- *     MiTranslatePageForCopy @ 0x1400E9C30 (MiTranslatePageForCopy.c)
+ *     MiInPagePageTable @ 0x140098720 (MiInPagePageTable.c)
+ *     MiCheckProtoAccess @ 0x140098B50 (MiCheckProtoAccess.c)
+ *     MiSystemFault @ 0x1400E8980 (MiSystemFault.c)
+ *     MiTranslatePageForCopy @ 0x1400E9CB0 (MiTranslatePageForCopy.c)
  * Callees:
- *     MiCheckUserVirtualAddress @ 0x140098EA0 (MiCheckUserVirtualAddress.c)
+ *     MiCheckUserVirtualAddress @ 0x140098DE0 (MiCheckUserVirtualAddress.c)
  */
 
 __int64 __fastcall MiCheckVirtualAddress(unsigned __int64 a1, _DWORD *a2, unsigned __int64 *a3)
@@ -38,9 +38,9 @@ LABEL_15:
   if ( (a1 & 0xFFFFFFFFFFFFF000uLL) == 0x7FFE0000 )
   {
     *a2 = 1;
-    return qword_140439FF8;
+    return qword_14043B0B8;
   }
-  if ( v5 != qword_14043A008 || !v5 )
+  if ( v5 != qword_14043B0C8 || !v5 )
   {
 LABEL_5:
     Process = KeGetCurrentThread()->ApcState.Process;
@@ -76,7 +76,7 @@ LABEL_8:
     *a3 = 0LL;
     goto LABEL_15;
   }
-  result = qword_14043A000;
+  result = qword_14043B0C0;
   *a2 = 1;
   return result;
 }

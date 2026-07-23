@@ -1,9 +1,9 @@
 /*
- * XREFs of FsRtlpOplockFsctrlInternal @ 0x1405DC640
+ * XREFs of FsRtlpOplockFsctrlInternal @ 0x1405DD640
  * Callers:
- *     FsRtlOplockFsctrl @ 0x1405DC600 (FsRtlOplockFsctrl.c)
- *     FsRtlOplockFsctrlEx @ 0x1405DC620 (FsRtlOplockFsctrlEx.c)
- *     FsRtlUpperOplockFsctrl @ 0x140815170 (FsRtlUpperOplockFsctrl.c)
+ *     FsRtlOplockFsctrl @ 0x1405DD600 (FsRtlOplockFsctrl.c)
+ *     FsRtlOplockFsctrlEx @ 0x1405DD620 (FsRtlOplockFsctrlEx.c)
+ *     FsRtlUpperOplockFsctrl @ 0x140816370 (FsRtlUpperOplockFsctrl.c)
  * Callees:
  *     FsRtlpOplockDequeueRH @ 0x140017D48 (FsRtlpOplockDequeueRH.c)
  *     FsRtlpRequestShareableOplock @ 0x140017E60 (FsRtlpRequestShareableOplock.c)
@@ -13,19 +13,19 @@
  *     ExAcquireFastMutexUnsafe @ 0x1400189C0 (ExAcquireFastMutexUnsafe.c)
  *     FsRtlpAttachOplockKey @ 0x140018B74 (FsRtlpAttachOplockKey.c)
  *     FsRtlpCallerIsAtomicRequestor @ 0x140019C40 (FsRtlpCallerIsAtomicRequestor.c)
- *     FsRtlCheckOplockEx @ 0x1400B7C80 (FsRtlCheckOplockEx.c)
- *     IofCompleteRequest @ 0x1400C10C0 (IofCompleteRequest.c)
- *     FsRtlpClearOwner @ 0x14012173C (FsRtlpClearOwner.c)
- *     FsRtlpReleaseIrpsWaitingForRH @ 0x140133290 (FsRtlpReleaseIrpsWaitingForRH.c)
- *     FsRtlpRequestExclusiveOplock @ 0x14015E10C (FsRtlpRequestExclusiveOplock.c)
- *     FsRtlpAcknowledgeOplockBreakByCacheFlags @ 0x140168DA0 (FsRtlpAcknowledgeOplockBreakByCacheFlags.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     FsRtlpAcknowledgeOplockBreak @ 0x14026F958 (FsRtlpAcknowledgeOplockBreak.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     FsRtlpAllocateOplock @ 0x1405DCDA0 (FsRtlpAllocateOplock.c)
- *     FsRtlpOpBatchBreakClosePending @ 0x1408152FC (FsRtlpOpBatchBreakClosePending.c)
- *     FsRtlpOplockBreakNotify @ 0x140815438 (FsRtlpOplockBreakNotify.c)
+ *     FsRtlCheckOplockEx @ 0x1400B7BC0 (FsRtlCheckOplockEx.c)
+ *     IofCompleteRequest @ 0x1400C1000 (IofCompleteRequest.c)
+ *     FsRtlpClearOwner @ 0x14012180C (FsRtlpClearOwner.c)
+ *     FsRtlpReleaseIrpsWaitingForRH @ 0x140133360 (FsRtlpReleaseIrpsWaitingForRH.c)
+ *     FsRtlpRequestExclusiveOplock @ 0x14015E20C (FsRtlpRequestExclusiveOplock.c)
+ *     FsRtlpAcknowledgeOplockBreakByCacheFlags @ 0x140168EA0 (FsRtlpAcknowledgeOplockBreakByCacheFlags.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     FsRtlpAcknowledgeOplockBreak @ 0x14026FB48 (FsRtlpAcknowledgeOplockBreak.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     FsRtlpAllocateOplock @ 0x1405DDDA0 (FsRtlpAllocateOplock.c)
+ *     FsRtlpOpBatchBreakClosePending @ 0x1408164FC (FsRtlpOpBatchBreakClosePending.c)
+ *     FsRtlpOplockBreakNotify @ 0x140816638 (FsRtlpOplockBreakNotify.c)
  */
 
 __int64 __fastcall FsRtlpOplockFsctrlInternal(__int64 *Oplock, PIRP Irp, unsigned int a3, int a4, unsigned int a5)

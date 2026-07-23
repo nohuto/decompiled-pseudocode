@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwTraceObjectOperation @ 0x14043ABE0
+ * XREFs of EtwTraceObjectOperation @ 0x14042D490
  * Callers:
- *     ObpPushStackInfo @ 0x1402659F0 (ObpPushStackInfo.c)
+ *     ObpPushStackInfo @ 0x140264F60 (ObpPushStackInfo.c)
  * Callees:
- *     ExCheckSingleFilter @ 0x14043AD5C (ExCheckSingleFilter.c)
- *     EtwpTraceKernelEventWithFilter @ 0x1404CE4E8 (EtwpTraceKernelEventWithFilter.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     ExCheckSingleFilter @ 0x14042D60C (ExCheckSingleFilter.c)
+ *     EtwpTraceKernelEventWithFilter @ 0x1404C7F18 (EtwpTraceKernelEventWithFilter.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall EtwTraceObjectOperation(unsigned __int16 a1, __int64 a2, unsigned int a3, unsigned int a4)
@@ -18,7 +18,7 @@ __int64 __fastcall EtwTraceObjectOperation(unsigned __int16 a1, __int64 a2, unsi
   bool v12; // zf
   __int64 v13; // r11
   __int64 v14; // r8
-  unsigned __int16 *v15; // rbx
+  unsigned __int8 *v15; // rbx
   unsigned int v16; // edi
   int v17; // r8d
   char v18; // r11
@@ -47,11 +47,11 @@ __int64 __fastcall EtwTraceObjectOperation(unsigned __int16 a1, __int64 a2, unsi
         {
           result = 5 * v13;
           v14 = 0LL;
-          v15 = (unsigned __int16 *)((char *)&EtwpObjectTypeFilter + 20 * v13);
-          v16 = *v15;
+          v15 = &stru_140F03830.WaitBlockFill5[20 * v13 + 48];
+          v16 = *(unsigned __int16 *)v15;
           while ( (unsigned int)v14 < v16 )
           {
-            result = ExCheckSingleFilter(v9, *(unsigned int *)&v15[2 * v14 + 2], v14);
+            result = ExCheckSingleFilter(v9, *(unsigned int *)&v15[4 * v14 + 4], v14);
             if ( (_DWORD)result )
             {
               result = (unsigned int)(1 << v18);

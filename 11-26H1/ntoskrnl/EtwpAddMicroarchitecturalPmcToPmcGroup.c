@@ -1,15 +1,15 @@
 /*
- * XREFs of EtwpAddMicroarchitecturalPmcToPmcGroup @ 0x140824A80
+ * XREFs of EtwpAddMicroarchitecturalPmcToPmcGroup @ 0x14082ACC0
  * Callers:
- *     EtwpAddMicroarchitecturalPmcToRegistry @ 0x140824DB0 (EtwpAddMicroarchitecturalPmcToRegistry.c)
+ *     EtwpAddMicroarchitecturalPmcToRegistry @ 0x14082AFF0 (EtwpAddMicroarchitecturalPmcToRegistry.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     RtlStringCbPrintfW @ 0x140433060 (RtlStringCbPrintfW.c)
- *     ZwCreateKey @ 0x140723790 (ZwCreateKey.c)
- *     ZwSetValueKey @ 0x140723FF0 (ZwSetValueKey.c)
- *     KiGetCpuVendor @ 0x140C0A4F8 (KiGetCpuVendor.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     RtlStringCbPrintfW @ 0x140420090 (RtlStringCbPrintfW.c)
+ *     ZwCreateKey @ 0x140728360 (ZwCreateKey.c)
+ *     ZwSetValueKey @ 0x140728BC0 (ZwSetValueKey.c)
+ *     KiGetCpuVendor @ 0x140C10708 (KiGetCpuVendor.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpAddMicroarchitecturalPmcToPmcGroup(__int64 a1, unsigned __int8 *a2)

@@ -1,11 +1,11 @@
 /*
- * XREFs of KiUpdateSoftParkElectionStatisticsOnInsertion @ 0x140372898
+ * XREFs of KiUpdateSoftParkElectionStatisticsOnInsertion @ 0x140372A38
  * Callers:
- *     KiUpdateLocalReadyQueueStatisticsOnInsertion @ 0x140410E10 (KiUpdateLocalReadyQueueStatisticsOnInsertion.c)
+ *     KiUpdateLocalReadyQueueStatisticsOnInsertion @ 0x14041101C (KiUpdateLocalReadyQueueStatisticsOnInsertion.c)
  * Callees:
- *     KiScheduleSoftParkElectionIfNecessary @ 0x140234CF0 (KiScheduleSoftParkElectionIfNecessary.c)
- *     KeQueryGroupAffinityEx @ 0x1403B69C0 (KeQueryGroupAffinityEx.c)
- *     KiAcquireSoftParkElectionLock @ 0x140410348 (KiAcquireSoftParkElectionLock.c)
+ *     KiScheduleSoftParkElectionIfNecessary @ 0x140234DC0 (KiScheduleSoftParkElectionIfNecessary.c)
+ *     KeQueryGroupAffinityEx @ 0x1403B6BA0 (KeQueryGroupAffinityEx.c)
+ *     KiAcquireSoftParkElectionLock @ 0x140410424 (KiAcquireSoftParkElectionLock.c)
  */
 
 __int64 __fastcall KiUpdateSoftParkElectionStatisticsOnInsertion(__int64 a1, __int64 a2)

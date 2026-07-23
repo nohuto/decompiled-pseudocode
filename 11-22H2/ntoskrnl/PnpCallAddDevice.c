@@ -31,7 +31,7 @@ __int64 __fastcall PnpCallAddDevice(
   __int64 v12; // r8
   void *v13; // rbx
   _QWORD v15[4]; // [rsp+40h] [rbp-78h] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+60h] [rbp-58h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+60h] [rbp-58h] BYREF
 
   v15[0] = 0LL;
   PreviousAffinity = 0LL;

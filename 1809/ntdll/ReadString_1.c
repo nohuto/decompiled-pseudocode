@@ -1,11 +1,11 @@
 /*
- * XREFs of ReadString_1 @ 0x18009DFFC
+ * XREFs of ReadString_1 @ 0x18009E00C
  * Callers:
- *     ReadStringDelimited_1 @ 0x18009E23C (ReadStringDelimited_1.c)
- *     _winput_s @ 0x18009E4B4 (_winput_s.c)
+ *     ReadStringDelimited_1 @ 0x18009E24C (ReadStringDelimited_1.c)
+ *     _winput_s @ 0x18009E4C4 (_winput_s.c)
  * Callees:
- *     _fgetwc_nolock @ 0x18009EE8C (_fgetwc_nolock.c)
- *     _ungetwc_nolock @ 0x18009EED4 (_ungetwc_nolock.c)
+ *     _fgetwc_nolock @ 0x18009EE9C (_fgetwc_nolock.c)
+ *     _ungetwc_nolock @ 0x18009EEE4 (_ungetwc_nolock.c)
  *     memmove @ 0x1800A6DC0 (memmove.c)
  */
 

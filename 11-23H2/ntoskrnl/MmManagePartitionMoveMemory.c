@@ -1,15 +1,15 @@
 /*
- * XREFs of MmManagePartitionMoveMemory @ 0x140A457B8
+ * XREFs of MmManagePartitionMoveMemory @ 0x140A45A68
  * Callers:
- *     NtManagePartition @ 0x14075FD70 (NtManagePartition.c)
+ *     NtManagePartition @ 0x14075FF60 (NtManagePartition.c)
  * Callees:
- *     MiHugePagesSupported @ 0x1403C78A4 (MiHugePagesSupported.c)
- *     KeGetIdealNodeNumberThread @ 0x140570760 (KeGetIdealNodeNumberThread.c)
- *     SeSinglePrivilegeCheck @ 0x140737B00 (SeSinglePrivilegeCheck.c)
- *     MiAllocatePartitionPhysicalPages @ 0x140A4431C (MiAllocatePartitionPhysicalPages.c)
- *     MiAddSpecialPurposeMemoryCleanup @ 0x140A46CC4 (MiAddSpecialPurposeMemoryCleanup.c)
- *     MiAddSpecialPurposeMemoryComplete @ 0x140A46D3C (MiAddSpecialPurposeMemoryComplete.c)
- *     MiAddSpecialPurposeMemoryPrepare @ 0x140A46DC0 (MiAddSpecialPurposeMemoryPrepare.c)
+ *     MiHugePagesSupported @ 0x1403C7A84 (MiHugePagesSupported.c)
+ *     KeGetIdealNodeNumberThread @ 0x140570CA0 (KeGetIdealNodeNumberThread.c)
+ *     SeSinglePrivilegeCheck @ 0x140737CF0 (SeSinglePrivilegeCheck.c)
+ *     MiAllocatePartitionPhysicalPages @ 0x140A445CC (MiAllocatePartitionPhysicalPages.c)
+ *     MiAddSpecialPurposeMemoryCleanup @ 0x140A46F74 (MiAddSpecialPurposeMemoryCleanup.c)
+ *     MiAddSpecialPurposeMemoryComplete @ 0x140A46FEC (MiAddSpecialPurposeMemoryComplete.c)
+ *     MiAddSpecialPurposeMemoryPrepare @ 0x140A47070 (MiAddSpecialPurposeMemoryPrepare.c)
  */
 
 __int64 __fastcall MmManagePartitionMoveMemory(__int64 *a1, __int64 *a2, __int64 a3, KPROCESSOR_MODE a4)

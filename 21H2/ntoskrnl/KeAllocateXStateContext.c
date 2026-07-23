@@ -1,11 +1,11 @@
 /*
- * XREFs of KeAllocateXStateContext @ 0x1402C11B4
+ * XREFs of KeAllocateXStateContext @ 0x14023F654
  * Callers:
- *     KeSaveExtendedAndSupervisorState @ 0x1402C0F5C (KeSaveExtendedAndSupervisorState.c)
- *     VfCtxInit @ 0x1409E416C (VfCtxInit.c)
+ *     KeSaveExtendedAndSupervisorState @ 0x14023F3FC (KeSaveExtendedAndSupervisorState.c)
+ *     VfCtxInit @ 0x1409E516C (VfCtxInit.c)
  * Callees:
- *     memset @ 0x140414200 (memset.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall KeAllocateXStateContext(__int64 a1, __int64 a2, unsigned int a3)

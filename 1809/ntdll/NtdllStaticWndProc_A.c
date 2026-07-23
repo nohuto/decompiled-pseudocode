@@ -1,5 +1,5 @@
 /*
- * XREFs of NtdllStaticWndProc_A @ 0x1800A00F0
+ * XREFs of NtdllStaticWndProc_A @ 0x1800A0110
  * Callers:
  *     <none>
  * Callees:

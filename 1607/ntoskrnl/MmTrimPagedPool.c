@@ -1,9 +1,9 @@
 /*
- * XREFs of MmTrimPagedPool @ 0x14065A268
+ * XREFs of MmTrimPagedPool @ 0x14065A34C
  * Callers:
- *     CmpTrimHive @ 0x1404A1058 (CmpTrimHive.c)
+ *     CmpTrimHive @ 0x140519464 (CmpTrimHive.c)
  * Callees:
- *     MiGetAnyMultiplexedVm @ 0x14001D05C (MiGetAnyMultiplexedVm.c)
+ *     MiGetAnyMultiplexedVm @ 0x14001CBDC (MiGetAnyMultiplexedVm.c)
  */
 
 char MmTrimPagedPool()

@@ -1,10 +1,10 @@
 /*
- * XREFs of write_multi_char_0 @ 0x140501F60
+ * XREFs of write_multi_char_0 @ 0x1404FF820
  * Callers:
- *     _output_l @ 0x140501698 (_output_l.c)
- *     _output_s @ 0x140504B84 (_output_s.c)
+ *     _output_l @ 0x1404FEF58 (_output_l.c)
+ *     _output_s @ 0x140502444 (_output_s.c)
  * Callees:
- *     write_char_0 @ 0x140501F10 (write_char_0.c)
+ *     write_char_0 @ 0x1404FF7D0 (write_char_0.c)
  */
 
 int __fastcall write_multi_char_0(char a1, int a2, FILE *a3, _DWORD *a4)

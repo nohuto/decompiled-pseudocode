@@ -1,11 +1,11 @@
 /*
- * XREFs of PopDiagTraceNotifyConsoleUserPresent @ 0x140A3DDDC
+ * XREFs of PopDiagTraceNotifyConsoleUserPresent @ 0x1409F97FC
  * Callers:
- *     PopNotifyConsoleUserPresent @ 0x140A3DB40 (PopNotifyConsoleUserPresent.c)
+ *     PopNotifyConsoleUserPresent @ 0x1409F9560 (PopNotifyConsoleUserPresent.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 char __fastcall PopDiagTraceNotifyConsoleUserPresent(char a1, int a2, char a3, int a4)
@@ -28,11 +28,9 @@ char __fastcall PopDiagTraceNotifyConsoleUserPresent(char a1, int a2, char a3, i
   v18 = a4;
   v17 = a2;
   v16 = a1;
-  if ( byte_140E67628 )
+  if ( PopDiagHandleRegistered )
   {
-    LOBYTE(v4) = EtwEventEnabled(
-                   *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-                   &POP_ETW_EVENT_NOTIFY_CONSOLE_USER_PRESENT);
+    LOBYTE(v4) = EtwEventEnabled(PopDiagHandle, &POP_ETW_EVENT_NOTIFY_CONSOLE_USER_PRESENT);
     if ( (_BYTE)v4 )
     {
       UserData.Ptr = (ULONGLONG)&v16;
@@ -44,12 +42,7 @@ char __fastcall PopDiagTraceNotifyConsoleUserPresent(char a1, int a2, char a3, i
       v7 = a3 != 0;
       v14 = 4LL;
       v13 = &v18;
-      LOBYTE(v4) = EtwWrite(
-                     *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-                     &POP_ETW_EVENT_NOTIFY_CONSOLE_USER_PRESENT,
-                     0LL,
-                     4u,
-                     &UserData);
+      LOBYTE(v4) = EtwWrite(PopDiagHandle, &POP_ETW_EVENT_NOTIFY_CONSOLE_USER_PRESENT, 0LL, 4u, &UserData);
     }
   }
   return (char)v4;

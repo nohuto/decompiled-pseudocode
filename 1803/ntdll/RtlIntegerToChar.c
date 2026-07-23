@@ -8,13 +8,13 @@
  *     memset @ 0x1800A16C0 (memset.c)
  */
 
-__int64 __fastcall RtlIntegerToChar(unsigned int a1, unsigned int a2, int a3, char *a4)
+NTSTATUS __cdecl RtlIntegerToChar(ULONG Value, ULONG Base, LONG OutputLength, PSTR String)
 {
-  unsigned int v6; // r8d
+  ULONG v6; // r8d
   int v8; // ecx
   int v9; // r9d
   char *v10; // r15
-  unsigned int v11; // edx
+  ULONG v11; // edx
   __int64 v12; // rax
   _BYTE *v13; // rdx
   int v14; // esp
@@ -23,24 +23,24 @@ __int64 __fastcall RtlIntegerToChar(unsigned int a1, unsigned int a2, int a3, ch
   size_t v18; // rbx
   char v19; // [rsp+41h] [rbp-27h] BYREF
 
-  v6 = a2;
-  if ( !a2 )
+  v6 = Base;
+  if ( !Base )
   {
     v6 = 10;
     goto LABEL_17;
   }
-  if ( a2 != 16 )
+  if ( Base != 16 )
   {
-    if ( a2 != 10 )
+    if ( Base != 10 )
     {
-      if ( a2 == 2 )
+      if ( Base == 2 )
       {
         v8 = 1;
       }
       else
       {
-        if ( a2 != 8 )
-          return 3221225485LL;
+        if ( Base != 8 )
+          return -1073741811;
         v8 = 3;
       }
       goto LABEL_4;
@@ -59,39 +59,39 @@ LABEL_5:
   {
     if ( v8 )
     {
-      v11 = a1 & v9;
-      a1 >>= v8;
+      v11 = Value & v9;
+      Value >>= v8;
     }
     else
     {
-      v11 = a1 % v6;
-      a1 /= v6;
+      v11 = Value % v6;
+      Value /= v6;
     }
     --v10;
     v12 = v11;
     v13 = byte_180119730;
     *v10 = byte_180119730[v12];
   }
-  while ( a1 );
+  while ( Value );
   v15 = (unsigned int)(v14 + 65 - (_DWORD)v10);
-  if ( a3 >= 0 )
+  if ( OutputLength >= 0 )
     goto LABEL_10;
-  a3 = -a3;
-  v16 = (int)v15 <= a3;
-  if ( (int)v15 < a3 )
+  OutputLength = -OutputLength;
+  v16 = (int)v15 <= OutputLength;
+  if ( (int)v15 < OutputLength )
   {
-    v18 = (unsigned int)(a3 - v15);
+    v18 = (unsigned int)(OutputLength - v15);
     LOBYTE(v13) = 48;
-    memset(a4, (int)v13, v18);
-    a3 = v15;
-    a4 += v18;
+    memset(String, (int)v13, v18);
+    OutputLength = v15;
+    String += v18;
 LABEL_10:
-    v16 = (int)v15 <= a3;
+    v16 = (int)v15 <= OutputLength;
   }
   if ( !v16 )
-    return 2147483653LL;
-  memmove(a4, v10, (unsigned int)v15);
-  if ( (int)v15 < a3 )
-    a4[v15] = 0;
-  return 0LL;
+    return -2147483643;
+  memmove(String, v10, (unsigned int)v15);
+  if ( (int)v15 < OutputLength )
+    String[v15] = 0;
+  return 0;
 }

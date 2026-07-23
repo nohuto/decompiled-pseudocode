@@ -1,19 +1,19 @@
 /*
- * XREFs of MiCopyVmReadBytes @ 0x140A228B0
+ * XREFs of MiCopyVmReadBytes @ 0x140A2BED0
  * Callers:
- *     MiCopyVirtualMemory @ 0x140A22370 (MiCopyVirtualMemory.c)
+ *     MiCopyVirtualMemory @ 0x140A2B990 (MiCopyVirtualMemory.c)
  * Callees:
- *     MmMapLockedPagesSpecifyCache @ 0x14035D330 (MmMapLockedPagesSpecifyCache.c)
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     MiProbeAndLockPages @ 0x1403A016C (MiProbeAndLockPages.c)
- *     MmUnlockPages @ 0x140410C10 (MmUnlockPages.c)
- *     MmGetCurrentProcessorColor @ 0x14044ADC0 (MmGetCurrentProcessorColor.c)
- *     MiCloneTreeActive @ 0x14046AFE0 (MiCloneTreeActive.c)
- *     MiModeCopyExceptionFilterEx @ 0x1404E5578 (MiModeCopyExceptionFilterEx.c)
- *     RtlCopyFromUser @ 0x140533E38 (RtlCopyFromUser.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     VslDebugReadWriteSecureProcess @ 0x140A22CB8 (VslDebugReadWriteSecureProcess.c)
- *     MiDbgReadWriteEnclave @ 0x140B47294 (MiDbgReadWriteEnclave.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x14035F0D0 (MmMapLockedPagesSpecifyCache.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     MiProbeAndLockPages @ 0x1403A1ECC (MiProbeAndLockPages.c)
+ *     MmUnlockPages @ 0x140410330 (MmUnlockPages.c)
+ *     MmGetCurrentProcessorColor @ 0x140442EF0 (MmGetCurrentProcessorColor.c)
+ *     MiCloneTreeActive @ 0x140464760 (MiCloneTreeActive.c)
+ *     MiModeCopyExceptionFilterEx @ 0x1404DEB18 (MiModeCopyExceptionFilterEx.c)
+ *     RtlCopyFromUser @ 0x1405362B8 (RtlCopyFromUser.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     VslDebugReadWriteSecureProcess @ 0x140A2C2D8 (VslDebugReadWriteSecureProcess.c)
+ *     MiDbgReadWriteEnclave @ 0x140B492C4 (MiDbgReadWriteEnclave.c)
  */
 
 __int64 __fastcall MiCopyVmReadBytes(__int64 a1)

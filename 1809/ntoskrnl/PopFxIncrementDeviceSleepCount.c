@@ -1,12 +1,12 @@
 /*
- * XREFs of PopFxIncrementDeviceSleepCount @ 0x140155D00
+ * XREFs of PopFxIncrementDeviceSleepCount @ 0x140155E00
  * Callers:
- *     PoFxStartDevicePowerManagement @ 0x14018BCD0 (PoFxStartDevicePowerManagement.c)
- *     PopSystemIrpCompletion @ 0x14056C720 (PopSystemIrpCompletion.c)
+ *     PoFxStartDevicePowerManagement @ 0x14018BE10 (PoFxStartDevicePowerManagement.c)
+ *     PopSystemIrpCompletion @ 0x14056D720 (PopSystemIrpCompletion.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC420 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC5A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void __fastcall PopFxIncrementDeviceSleepCount(__int64 a1)

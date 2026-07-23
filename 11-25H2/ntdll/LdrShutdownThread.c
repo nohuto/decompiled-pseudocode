@@ -21,7 +21,7 @@
  *     TpTrimPools @ 0x1800F7360 (TpTrimPools.c)
  */
 
-__int64 LdrShutdownThread()
+void __noreturn LdrShutdownThread(void)
 {
   struct _TEB *v0; // rbx
   _PEB *ProcessEnvironmentBlock; // r12
@@ -32,30 +32,28 @@ __int64 LdrShutdownThread()
   __int64 *v6; // r13
   __int64 *v7; // rdi
   __int64 v8; // r12
-  void *HeapFlsData; // rdx
   void **TlsExpansionSlots; // rdi
-  __int64 result; // rax
   void *FiberData; // r8
-  _QWORD v13[2]; // [rsp+20h] [rbp-D8h] BYREF
-  __int128 v14; // [rsp+30h] [rbp-C8h]
-  __int128 v15; // [rsp+40h] [rbp-B8h]
-  __int128 v16; // [rsp+50h] [rbp-A8h]
-  __int64 v17; // [rsp+60h] [rbp-98h]
-  _QWORD v18[2]; // [rsp+70h] [rbp-88h] BYREF
-  __int128 v19; // [rsp+80h] [rbp-78h]
-  __int128 v20; // [rsp+90h] [rbp-68h]
-  __int128 v21; // [rsp+A0h] [rbp-58h]
-  __int64 v22; // [rsp+B0h] [rbp-48h]
-  __int64 *v23; // [rsp+C0h] [rbp-38h]
-  __int64 v24; // [rsp+C8h] [rbp-30h]
-  _PEB *v25; // [rsp+108h] [rbp+10h]
+  _QWORD v11[2]; // [rsp+20h] [rbp-D8h] BYREF
+  __int128 v12; // [rsp+30h] [rbp-C8h]
+  __int128 v13; // [rsp+40h] [rbp-B8h]
+  __int128 v14; // [rsp+50h] [rbp-A8h]
+  __int64 v15; // [rsp+60h] [rbp-98h]
+  _QWORD v16[2]; // [rsp+70h] [rbp-88h] BYREF
+  __int128 v17; // [rsp+80h] [rbp-78h]
+  __int128 v18; // [rsp+90h] [rbp-68h]
+  __int128 v19; // [rsp+A0h] [rbp-58h]
+  __int64 v20; // [rsp+B0h] [rbp-48h]
+  __int64 *v21; // [rsp+C0h] [rbp-38h]
+  __int64 v22; // [rsp+C8h] [rbp-30h]
+  _PEB *v23; // [rsp+108h] [rbp+10h]
 
   v0 = NtCurrentTeb();
   ProcessEnvironmentBlock = v0->ProcessEnvironmentBlock;
-  v25 = ProcessEnvironmentBlock;
+  v23 = ProcessEnvironmentBlock;
   FlsData = v0->FlsData;
   if ( FlsData )
-    RtlpFlsDataCleanup(&RtlpFlsContext, v0->FlsData, 1LL);
+    RtlpFlsDataCleanup(&RtlpFlsContext);
   if ( (NtCurrentTeb()->SameTebFlags & 8) == 0 || (NtCurrentTeb()->SameTebFlags & 0x20) != 0 )
   {
     v3 = &v0->6126;
@@ -75,7 +73,7 @@ __int64 LdrShutdownThread()
       while ( v6 != &qword_1801D4970 )
       {
         v7 = v6 - 4;
-        v23 = v7;
+        v21 = v7;
         v6 = (__int64 *)v6[1];
         v5 = *((unsigned int *)v7 + 26);
         if ( ProcessEnvironmentBlock->ImageBaseAddress != (void *)v7[6] && (v5 & 0x40000) == 0 )
@@ -86,34 +84,34 @@ __int64 LdrShutdownThread()
             v5 &= 0x80004u;
             if ( (_DWORD)v5 == 524292 )
             {
-              v24 = v7[7];
-              v13[0] = 72LL;
-              v13[1] = 1LL;
+              v22 = v7[7];
+              v11[0] = 72LL;
+              v11[1] = 1LL;
+              v12 = 0LL;
+              v13 = 0LL;
               v14 = 0LL;
               v15 = 0LL;
-              v16 = 0LL;
-              v17 = 0LL;
-              RtlActivateActivationContextUnsafeFast(v13, v7[17]);
+              RtlActivateActivationContextUnsafeFast(v11, v7[17]);
               if ( *((_WORD *)v7 + 55) )
                 LdrpCallTlsInitializers(3LL, v7);
               LdrpCallInitRoutine(v8, v7[6], 3LL);
-              RtlDeactivateActivationContextUnsafeFast(v13);
+              RtlDeactivateActivationContextUnsafeFast(v11);
             }
           }
-          ProcessEnvironmentBlock = v25;
+          ProcessEnvironmentBlock = v23;
         }
       }
       if ( *(_WORD *)(LdrpImageEntry + 110) )
       {
-        v18[0] = 72LL;
-        v18[1] = 1LL;
+        v16[0] = 72LL;
+        v16[1] = 1LL;
+        v17 = 0LL;
+        v18 = 0LL;
         v19 = 0LL;
         v20 = 0LL;
-        v21 = 0LL;
-        v22 = 0LL;
-        RtlActivateActivationContextUnsafeFast(v18, *(_QWORD *)(LdrpImageEntry + 136));
+        RtlActivateActivationContextUnsafeFast(v16, *(_QWORD *)(LdrpImageEntry + 136));
         LdrpCallTlsInitializers(3LL, LdrpImageEntry);
-        RtlDeactivateActivationContextUnsafeFast(v18);
+        RtlDeactivateActivationContextUnsafeFast(v16);
       }
       LdrpReleaseLoaderLock(v5, 19, 0);
       if ( !v4 )
@@ -128,31 +126,28 @@ __int64 LdrShutdownThread()
   if ( FlsData )
   {
     v0->FlsData = 0LL;
-    RtlpFlsDataCleanup(&RtlpFlsContext, FlsData, 2LL);
+    RtlpFlsDataCleanup(&RtlpFlsContext);
   }
   if ( (v3->SameTebFlags & 4) != 0 )
   {
     FiberData = v0->NtTib.FiberData;
     v0->NtTib.FiberData = 0LL;
-    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, FiberData);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, FiberData);
   }
   RtlFreeThreadActivationContextStack();
   if ( (v3->SameTebFlags & 0x400) != 0 && LdrInitState == 3 )
     TpTrimPools();
-  HeapFlsData = NtCurrentTeb()->HeapFlsData;
-  if ( HeapFlsData )
+  if ( NtCurrentTeb()->HeapFlsData )
   {
-    RtlpFlsDataCleanup(&RtlpHpEnvFlsContext, HeapFlsData, 3LL);
+    RtlpFlsDataCleanup(&RtlpHpEnvFlsContext);
     NtCurrentTeb()->HeapFlsData = (void *)-1LL;
   }
   TlsExpansionSlots = v0->TlsExpansionSlots;
-  result = 0LL;
   if ( TlsExpansionSlots )
   {
     v0->TlsExpansionSlots = 0LL;
     RtlEnterCriticalSection(&FastPebLock);
     RtlLeaveCriticalSection(&FastPebLock);
-    return RtlpFreeHeapMetadata(NtCurrentPeb()->ProcessHeap, TlsExpansionSlots);
+    RtlpFreeHeapMetadata(NtCurrentPeb()->ProcessHeap, TlsExpansionSlots);
   }
-  return result;
 }

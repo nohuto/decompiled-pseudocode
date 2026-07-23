@@ -1,15 +1,15 @@
 /*
- * XREFs of KiCheckForTimerExpiration @ 0x1402C8140
+ * XREFs of KiCheckForTimerExpiration @ 0x1402C83D0
  * Callers:
- *     KeAccumulateTicks @ 0x1402C7B10 (KeAccumulateTicks.c)
+ *     KeAccumulateTicks @ 0x1402C7DA0 (KeAccumulateTicks.c)
  * Callees:
  *     EtwTraceKernelEvent @ 0x140211EDC (EtwTraceKernelEvent.c)
- *     HalpInterruptSendIpi @ 0x140254D50 (HalpInterruptSendIpi.c)
- *     RtlBackoff @ 0x1402FD2B0 (RtlBackoff.c)
- *     KiResetClockIntervalOneShot @ 0x140340AE8 (KiResetClockIntervalOneShot.c)
- *     KiSetClockIntervalOneShot @ 0x140340B48 (KiSetClockIntervalOneShot.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     HalpInterruptSendIpi @ 0x140254E10 (HalpInterruptSendIpi.c)
+ *     RtlBackoff @ 0x1402FD540 (RtlBackoff.c)
+ *     KiResetClockIntervalOneShot @ 0x140340D78 (KiResetClockIntervalOneShot.c)
+ *     KiSetClockIntervalOneShot @ 0x140340DD8 (KiSetClockIntervalOneShot.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void __fastcall KiCheckForTimerExpiration(__int64 a1, unsigned int a2)
@@ -168,7 +168,7 @@ LABEL_22:
   if ( !*v3 )
     goto LABEL_23;
   v20 = qword_140C422A8;
-  v21 = v5 + (unsigned int)KeMaximumIncrement;
+  v21 = v5 + KeMaximumIncrement;
   if ( qword_140C422A8 > v5 )
   {
     v22 = KiClockOwnerOneShotRequest;
@@ -178,7 +178,7 @@ LABEL_22:
     {
       CurrentIrql = KeGetCurrentIrql();
       __writecr8(0xFuLL);
-      if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+      if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
       {
         SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
         if ( CurrentIrql == 15 )
@@ -196,10 +196,10 @@ LABEL_22:
         KiSetClockIntervalOneShot(v20, v5);
       else
         KiResetClockIntervalOneShot(v6);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v27 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v27 <= 0xFu && CurrentIrql <= 0xFu && v27 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v27 <= 0xFu && CurrentIrql <= 0xFu && v27 >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           v29 = CurrentPrcb->SchedulerAssist;

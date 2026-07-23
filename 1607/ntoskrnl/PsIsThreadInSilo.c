@@ -1,9 +1,9 @@
 /*
- * XREFs of PsIsThreadInSilo @ 0x140013600
+ * XREFs of PsIsThreadInSilo @ 0x140013180
  * Callers:
- *     PsLookupThreadByThreadId @ 0x1404207F0 (PsLookupThreadByThreadId.c)
+ *     PsLookupThreadByThreadId @ 0x14041F6B0 (PsLookupThreadByThreadId.c)
  * Callees:
- *     PspIsSiloInSilo @ 0x14067E9B8 (PspIsSiloInSilo.c)
+ *     PspIsSiloInSilo @ 0x14067EA9C (PspIsSiloInSilo.c)
  */
 
 char __fastcall PsIsThreadInSilo(__int64 a1, __int64 a2)

@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlQueryFeatureConfigurationBuffer @ 0x180148D10
+ * XREFs of RtlQueryFeatureConfigurationBuffer @ 0x180148BC0
  * Callers:
  *     <none>
  * Callees:
- *     RtlpFcBufferManagerDereferenceBuffers @ 0x180013B08 (RtlpFcBufferManagerDereferenceBuffers.c)
- *     RtlpFcReferenceFeatureConfigurationBuffers @ 0x180014134 (RtlpFcReferenceFeatureConfigurationBuffers.c)
- *     memmove @ 0x180164700 (memmove.c)
- *     RtlpFcConfigurationTypeToBufferType @ 0x18016F744 (RtlpFcConfigurationTypeToBufferType.c)
+ *     RtlpFcBufferManagerDereferenceBuffers @ 0x18005F238 (RtlpFcBufferManagerDereferenceBuffers.c)
+ *     RtlpFcReferenceFeatureConfigurationBuffers @ 0x18005F864 (RtlpFcReferenceFeatureConfigurationBuffers.c)
+ *     memmove @ 0x180164600 (memmove.c)
+ *     RtlpFcConfigurationTypeToBufferType @ 0x18016E744 (RtlpFcConfigurationTypeToBufferType.c)
  */
 
 __int64 __fastcall RtlQueryFeatureConfigurationBuffer(__int64 a1, _QWORD *a2, void *a3, size_t *a4)
@@ -57,6 +57,6 @@ __int64 __fastcall RtlQueryFeatureConfigurationBuffer(__int64 a1, _QWORD *a2, vo
   }
 LABEL_14:
   if ( v10 )
-    RtlpFcBufferManagerDereferenceBuffers((volatile signed __int64 *)&xmmword_1801CCC48, v10);
+    RtlpFcBufferManagerDereferenceBuffers((unsigned __int64 *)&xmmword_1801CBC88, v10);
   return v8;
 }

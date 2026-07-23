@@ -1,16 +1,16 @@
 /*
- * XREFs of EtwpUpdateEnableInfoAndCallback @ 0x18002A95C
+ * XREFs of EtwpUpdateEnableInfoAndCallback @ 0x18002A94C
  * Callers:
- *     EtwpSetProviderTraits @ 0x18002A1B4 (EtwpSetProviderTraits.c)
- *     EtwpRegisterProvider @ 0x18002A504 (EtwpRegisterProvider.c)
- *     EtwpDisableTraceProviders @ 0x180053E90 (EtwpDisableTraceProviders.c)
- *     EtwpProcessNotification @ 0x180054298 (EtwpProcessNotification.c)
+ *     EtwpSetProviderTraits @ 0x18002A1A4 (EtwpSetProviderTraits.c)
+ *     EtwpRegisterProvider @ 0x18002A4F4 (EtwpRegisterProvider.c)
+ *     EtwpDisableTraceProviders @ 0x180053E80 (EtwpDisableTraceProviders.c)
+ *     EtwpProcessNotification @ 0x180054288 (EtwpProcessNotification.c)
  * Callees:
- *     EtwpEventApiCallback @ 0x18002ACD0 (EtwpEventApiCallback.c)
- *     EtwpGetUmProcessImageInfo @ 0x1800797D0 (EtwpGetUmProcessImageInfo.c)
- *     EtwpRegisterGuidsApiCallback @ 0x18008251C (EtwpRegisterGuidsApiCallback.c)
- *     EtwpUpdatePrivateEnableInfo @ 0x18008689C (EtwpUpdatePrivateEnableInfo.c)
- *     EtwpIsPrivateLoggerOn @ 0x1800872E0 (EtwpIsPrivateLoggerOn.c)
+ *     EtwpEventApiCallback @ 0x18002ACC0 (EtwpEventApiCallback.c)
+ *     EtwpGetUmProcessImageInfo @ 0x1800797C0 (EtwpGetUmProcessImageInfo.c)
+ *     EtwpRegisterGuidsApiCallback @ 0x18008250C (EtwpRegisterGuidsApiCallback.c)
+ *     EtwpUpdatePrivateEnableInfo @ 0x18008688C (EtwpUpdatePrivateEnableInfo.c)
+ *     EtwpIsPrivateLoggerOn @ 0x1800872D0 (EtwpIsPrivateLoggerOn.c)
  */
 
 void __fastcall EtwpUpdateEnableInfoAndCallback(__int64 a1, __int64 a2)

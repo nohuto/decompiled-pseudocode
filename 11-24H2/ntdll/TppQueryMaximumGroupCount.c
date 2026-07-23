@@ -1,42 +1,48 @@
 /*
- * XREFs of TppQueryMaximumGroupCount @ 0x1800A5614
+ * XREFs of TppQueryMaximumGroupCount @ 0x180023184
  * Callers:
- *     TpInitializePackage @ 0x1800A52A0 (TpInitializePackage.c)
+ *     TpInitializePackage @ 0x180022E0C (TpInitializePackage.c)
  * Callees:
- *     RtlAllocateHeap @ 0x180011260 (RtlAllocateHeap.c)
- *     RtlFreeHeap @ 0x1800269F0 (RtlFreeHeap.c)
- *     NtQuerySystemInformationEx @ 0x180164A40 (NtQuerySystemInformationEx.c)
+ *     RtlAllocateHeap @ 0x18003DC60 (RtlAllocateHeap.c)
+ *     RtlFreeHeap @ 0x1800533F0 (RtlFreeHeap.c)
+ *     NtQuerySystemInformationEx @ 0x180162E00 (NtQuerySystemInformationEx.c)
  */
 
 __int64 TppQueryMaximumGroupCount()
 {
   unsigned __int16 v0; // di
-  unsigned __int64 Heap; // rbx
-  unsigned int i; // eax
-  int v3; // eax
-  unsigned int v5; // [rsp+40h] [rbp+8h] BYREF
-  int v6; // [rsp+48h] [rbp+10h] BYREF
+  _WORD *Heap; // rbx
+  ULONG SystemInformationLength; // eax
+  NTSTATUS v3; // eax
+  ULONG ReturnLength; // [rsp+40h] [rbp+8h] BYREF
+  int InputBuffer; // [rsp+48h] [rbp+10h] BYREF
 
-  v5 = 0;
+  ReturnLength = 0;
   v0 = 0;
   Heap = 0LL;
-  for ( i = 0; ; i = v5 )
+  for ( SystemInformationLength = 0; ; SystemInformationLength = ReturnLength )
   {
-    v6 = 4;
-    v3 = NtQuerySystemInformationEx(107LL, &v6, 4LL, Heap, i, &v5);
+    InputBuffer = 4;
+    v3 = NtQuerySystemInformationEx(
+           SystemLogicalProcessorAndGroupInformation,
+           &InputBuffer,
+           4u,
+           Heap,
+           SystemInformationLength,
+           &ReturnLength);
     if ( v3 >= 0 )
       break;
     if ( v3 != -1073741820 )
       goto LABEL_9;
     if ( Heap )
-      RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, TppHeapTag + 786432, Heap);
-    Heap = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, (TppHeapTag + 786432) | 8u, v5);
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, TppHeapTag + 786432, Heap);
+    Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, (TppHeapTag + 786432) | 8, ReturnLength);
     if ( !Heap )
       return v0;
   }
-  v0 = *(_WORD *)(Heap + 8);
+  v0 = Heap[4];
 LABEL_9:
   if ( Heap )
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, TppHeapTag + 786432, Heap);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, TppHeapTag + 786432, Heap);
   return v0;
 }

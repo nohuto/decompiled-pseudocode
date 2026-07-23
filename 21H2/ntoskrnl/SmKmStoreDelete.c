@@ -1,20 +1,20 @@
 /*
- * XREFs of SmKmStoreDelete @ 0x1406BDA60
+ * XREFs of SmKmStoreDelete @ 0x14061CC70
  * Callers:
- *     SmKmStoreDeleteWhenEmptyWorker @ 0x1402D0020 (SmKmStoreDeleteWhenEmptyWorker.c)
- *     SmProcessCreateRequest @ 0x140710D34 (SmProcessCreateRequest.c)
- *     SmProcessDeleteRequest @ 0x140929B18 (SmProcessDeleteRequest.c)
+ *     SmKmStoreDeleteWhenEmptyWorker @ 0x14024E3A0 (SmKmStoreDeleteWhenEmptyWorker.c)
+ *     SmProcessCreateRequest @ 0x1406BF384 (SmProcessCreateRequest.c)
+ *     SmProcessDeleteRequest @ 0x140929C78 (SmProcessDeleteRequest.c)
  * Callees:
- *     ExWaitForRundownProtectionRelease @ 0x1402797E0 (ExWaitForRundownProtectionRelease.c)
- *     SmKmStoreRefFromStoreIndex @ 0x1402D95D8 (SmKmStoreRefFromStoreIndex.c)
- *     SmEtwEnabled @ 0x1402DAE08 (SmEtwEnabled.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     SmKmEtwLogStoreChange @ 0x14092B06C (SmKmEtwLogStoreChange.c)
- *     SmKmEtwLogStoreStats @ 0x14092B17C (SmKmEtwLogStoreStats.c)
+ *     ExWaitForRundownProtectionRelease @ 0x140267780 (ExWaitForRundownProtectionRelease.c)
+ *     SmKmStoreRefFromStoreIndex @ 0x14028A928 (SmKmStoreRefFromStoreIndex.c)
+ *     SmEtwEnabled @ 0x14028C158 (SmEtwEnabled.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     KeLeaveCriticalRegion @ 0x140356100 (KeLeaveCriticalRegion.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     SmKmEtwLogStoreChange @ 0x14092B1CC (SmKmEtwLogStoreChange.c)
+ *     SmKmEtwLogStoreStats @ 0x14092B2DC (SmKmEtwLogStoreStats.c)
  */
 
 __int64 __fastcall SmKmStoreDelete(__int64 a1, unsigned int a2, char a3)

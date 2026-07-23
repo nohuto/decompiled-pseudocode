@@ -1,16 +1,16 @@
 /*
- * XREFs of KiSearchForNewThreadsWithinSearchContext @ 0x14023FC00
+ * XREFs of KiSearchForNewThreadsWithinSearchContext @ 0x140241560
  * Callers:
- *     KiSearchForNewThreadsWithinL1SearchContext @ 0x1404AF3D8 (KiSearchForNewThreadsWithinL1SearchContext.c)
+ *     KiSearchForNewThreadsWithinL1SearchContext @ 0x1404A8A68 (KiSearchForNewThreadsWithinL1SearchContext.c)
  * Callees:
- *     KiGetNextIdleSearchTargetInGeneration @ 0x14023FFD0 (KiGetNextIdleSearchTargetInGeneration.c)
- *     KiJoinCooperativeIdleSearch @ 0x140240260 (KiJoinCooperativeIdleSearch.c)
- *     KiSearchForNewThreadsOnTarget @ 0x1402404D0 (KiSearchForNewThreadsOnTarget.c)
- *     KiAcquirePrcbLocksForIsolationUnit @ 0x1402BBDD0 (KiAcquirePrcbLocksForIsolationUnit.c)
- *     HvlNotifyLongSpinWait @ 0x1402BBF00 (HvlNotifyLongSpinWait.c)
- *     KiLeaveCooperativeIdleSearch @ 0x140457AB0 (KiLeaveCooperativeIdleSearch.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14052FA20 (KiRemoveSystemWorkPriorityKick.c)
- *     KiSwapStacksAndRetireDpcList @ 0x14072C440 (KiSwapStacksAndRetireDpcList.c)
+ *     KiGetNextIdleSearchTargetInGeneration @ 0x140241930 (KiGetNextIdleSearchTargetInGeneration.c)
+ *     KiJoinCooperativeIdleSearch @ 0x140241BC0 (KiJoinCooperativeIdleSearch.c)
+ *     KiSearchForNewThreadsOnTarget @ 0x140241E30 (KiSearchForNewThreadsOnTarget.c)
+ *     KiAcquirePrcbLocksForIsolationUnit @ 0x140306A90 (KiAcquirePrcbLocksForIsolationUnit.c)
+ *     HvlNotifyLongSpinWait @ 0x140306BC0 (HvlNotifyLongSpinWait.c)
+ *     KiLeaveCooperativeIdleSearch @ 0x14044F320 (KiLeaveCooperativeIdleSearch.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x140531F20 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiSwapStacksAndRetireDpcList @ 0x140731010 (KiSwapStacksAndRetireDpcList.c)
  */
 
 __int64 __fastcall KiSearchForNewThreadsWithinSearchContext(__int64 a1, unsigned __int64 *a2, __int64 a3, _QWORD *a4)

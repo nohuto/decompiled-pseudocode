@@ -1,12 +1,12 @@
 /*
- * XREFs of MmShutdownSystem @ 0x14057BEF0
+ * XREFs of MmShutdownSystem @ 0x14057CEF0
  * Callers:
- *     PoBroadcastSystemState @ 0x1405681E0 (PoBroadcastSystemState.c)
- *     PopGracefulShutdown @ 0x14057C9C0 (PopGracefulShutdown.c)
+ *     PoBroadcastSystemState @ 0x1405691E0 (PoBroadcastSystemState.c)
+ *     PopGracefulShutdown @ 0x14057D9C0 (PopGracefulShutdown.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     MmTrimAllSystemPagableMemory @ 0x1402B4320 (MmTrimAllSystemPagableMemory.c)
- *     MiShutdownSystem @ 0x14057BBF4 (MiShutdownSystem.c)
+ *     MmTrimAllSystemPagableMemory @ 0x1402B4510 (MmTrimAllSystemPagableMemory.c)
+ *     MiShutdownSystem @ 0x14057CBF4 (MiShutdownSystem.c)
  */
 
 char __fastcall MmShutdownSystem(int a1)
@@ -18,15 +18,15 @@ char __fastcall MmShutdownSystem(int a1)
     return MiShutdownSystem();
   if ( a1 == 1 )
   {
-    if ( (unsigned int)dword_14043A764 < 2 )
+    if ( (unsigned int)dword_14043B824 < 2 )
     {
-      dword_14043A764 = 2;
+      dword_14043B824 = 2;
       if ( (PopShutdownCleanly & 2) != 0 )
       {
         MmTrimAllSystemPagableMemory(1);
         if ( Count )
         {
-          v2 = qword_14043E520;
+          v2 = qword_14043F5E0;
           v3 = Count;
           do
           {
@@ -40,9 +40,9 @@ char __fastcall MmShutdownSystem(int a1)
       }
     }
   }
-  else if ( (unsigned int)dword_14043A764 < 3 )
+  else if ( (unsigned int)dword_14043B824 < 3 )
   {
-    dword_14043A764 = 3;
+    dword_14043B824 = 3;
   }
   return 1;
 }

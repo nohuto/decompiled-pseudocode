@@ -1,5 +1,5 @@
 /*
- * XREFs of FsRtlAllocateFileLock @ 0x1401393B0
+ * XREFs of FsRtlAllocateFileLock @ 0x1401394B0
  * Callers:
  *     <none>
  * Callees:

@@ -1,10 +1,10 @@
 /*
- * XREFs of HvipApertureDetectParameters @ 0x1406379B0
+ * XREFs of HvipApertureDetectParameters @ 0x14063A9B4
  * Callers:
- *     HviEnterKernelAperture @ 0x140637888 (HviEnterKernelAperture.c)
+ *     HviEnterKernelAperture @ 0x14063A88C (HviEnterKernelAperture.c)
  * Callees:
- *     HviGetHardwareFeatures @ 0x1404E6360 (HviGetHardwareFeatures.c)
- *     HviIsKernelApertureAvailable @ 0x1406378E8 (HviIsKernelApertureAvailable.c)
+ *     HviGetHardwareFeatures @ 0x1404DF900 (HviGetHardwareFeatures.c)
+ *     HviIsKernelApertureAvailable @ 0x14063A8EC (HviIsKernelApertureAvailable.c)
  */
 
 char HvipApertureDetectParameters()
@@ -32,9 +32,9 @@ char HvipApertureDetectParameters()
   {
     v8 = 1;
   }
-  LOBYTE(RtlpBootStatHandleLock.ExpectedRunTime) = v6;
-  byte_140E0CD12 = v8;
-  BYTE1(RtlpBootStatHandleLock.ExpectedRunTime) = v5;
-  BYTE2(RtlpBootStatHandleLock.ExpectedRunTime) = 1;
+  BYTE2(RtlpBootStatHandleLock.ExpectedRunTime) = v6;
+  byte_140E0CD82 = v8;
+  LOBYTE(RtlpBootStatHandleLock.ExpectedRunTime) = v5;
+  BYTE1(RtlpBootStatHandleLock.ExpectedRunTime) = 1;
   return result;
 }

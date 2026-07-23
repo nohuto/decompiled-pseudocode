@@ -12,8 +12,8 @@ PSLIST_ENTRY __fastcall EtwpDereferenceStackEntry(PSLIST_ENTRY ListEntry, unsign
 {
   PSLIST_ENTRY v3; // rdi
   PSLIST_ENTRY result; // rax
-  union _SLIST_HEADER *v5; // rsi
-  struct _SLIST_ENTRY *Next; // rbx
+  _SLIST_HEADER *v5; // rsi
+  _SLIST_ENTRY *Next; // rbx
 
   v3 = ListEntry;
   result = (PSLIST_ENTRY)(unsigned int)_InterlockedExchangeAdd(
@@ -22,7 +22,7 @@ PSLIST_ENTRY __fastcall EtwpDereferenceStackEntry(PSLIST_ENTRY ListEntry, unsign
   if ( (_DWORD)result == 1 )
   {
     EtwpTraceCachedStack(*((_QWORD *)*a2 + 139), **a2, 6179LL, ListEntry);
-    v5 = (union _SLIST_HEADER *)(a2 + 2);
+    v5 = (_SLIST_HEADER *)(a2 + 2);
     do
     {
       Next = v3[1].Next;

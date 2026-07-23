@@ -1,16 +1,16 @@
 /*
- * XREFs of KiInitializeXSave @ 0x14099BC40
+ * XREFs of KiInitializeXSave @ 0x14099CC40
  * Callers:
- *     KiSystemStartup @ 0x14098F010 (KiSystemStartup.c)
+ *     KiSystemStartup @ 0x140990010 (KiSystemStartup.c)
  * Callees:
- *     KiGetIptInfo @ 0x1403AD944 (KiGetIptInfo.c)
- *     KiGetXSaveSupportedFeatures @ 0x1403AD9C0 (KiGetXSaveSupportedFeatures.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     memset @ 0x140414200 (memset.c)
- *     KiIntersectFeaturesWithPolicy @ 0x1409A0B30 (KiIntersectFeaturesWithPolicy.c)
- *     KiUpdateXSaveSizeAndVolatileFeatures @ 0x1409A1850 (KiUpdateXSaveSizeAndVolatileFeatures.c)
- *     KiParseLoadOptions @ 0x1409A1990 (KiParseLoadOptions.c)
+ *     KiGetIptInfo @ 0x1403ADA94 (KiGetIptInfo.c)
+ *     KiGetXSaveSupportedFeatures @ 0x1403ADB10 (KiGetXSaveSupportedFeatures.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     KiIntersectFeaturesWithPolicy @ 0x1409A1A60 (KiIntersectFeaturesWithPolicy.c)
+ *     KiUpdateXSaveSizeAndVolatileFeatures @ 0x1409A2780 (KiUpdateXSaveSizeAndVolatileFeatures.c)
+ *     KiParseLoadOptions @ 0x1409A28C0 (KiParseLoadOptions.c)
  */
 
 __int64 __fastcall KiInitializeXSave(__int64 a1, int a2)

@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 ZwShutdownSystem()
+NTSTATUS __cdecl ZwShutdownSystem(SHUTDOWN_ACTION Action)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 408LL;
+  result = 408;
   __asm { syscall; Low latency system call }
   return result;
 }

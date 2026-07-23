@@ -1,15 +1,15 @@
 /*
- * XREFs of DbgkpPostModuleMessages @ 0x14080F1A4
+ * XREFs of DbgkpPostModuleMessages @ 0x1408103A4
  * Callers:
- *     DbgkCreateThread @ 0x1405F7028 (DbgkCreateThread.c)
- *     DbgkpPostFakeProcessCreateMessages @ 0x14080ED08 (DbgkpPostFakeProcessCreateMessages.c)
+ *     DbgkCreateThread @ 0x1405F8028 (DbgkCreateThread.c)
+ *     DbgkpPostFakeProcessCreateMessages @ 0x14080FF08 (DbgkpPostFakeProcessCreateMessages.c)
  * Callees:
- *     RtlImageNtHeader @ 0x14009DAE0 (RtlImageNtHeader.c)
- *     DbgkPostEnclaveModuleMessages @ 0x14026D848 (DbgkPostEnclaveModuleMessages.c)
- *     DbgkPostModuleMessage @ 0x14026D8C4 (DbgkPostModuleMessage.c)
- *     PsFreeEnclaveModuleInfo @ 0x1402EBE74 (PsFreeEnclaveModuleInfo.c)
- *     PsGetProcessEnclaveModuleInfo @ 0x1402EBED0 (PsGetProcessEnclaveModuleInfo.c)
- *     VslSendDebugAttachNotifications @ 0x140818E10 (VslSendDebugAttachNotifications.c)
+ *     RtlImageNtHeader @ 0x14009DA20 (RtlImageNtHeader.c)
+ *     DbgkPostEnclaveModuleMessages @ 0x14026DA38 (DbgkPostEnclaveModuleMessages.c)
+ *     DbgkPostModuleMessage @ 0x14026DAB4 (DbgkPostModuleMessage.c)
+ *     PsFreeEnclaveModuleInfo @ 0x1402EC064 (PsFreeEnclaveModuleInfo.c)
+ *     PsGetProcessEnclaveModuleInfo @ 0x1402EC0C0 (PsGetProcessEnclaveModuleInfo.c)
+ *     VslSendDebugAttachNotifications @ 0x14081A010 (VslSendDebugAttachNotifications.c)
  */
 
 __int64 __fastcall DbgkpPostModuleMessages(_BYTE *Object, PVOID a2, PRKEVENT a3)

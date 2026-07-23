@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpAcpiDetectMachineSpecificActions @ 0x140CB517C
+ * XREFs of HalpAcpiDetectMachineSpecificActions @ 0x140CBB1BC
  * Callers:
- *     HalpSetupAcpiPhase0 @ 0x140CB3904 (HalpSetupAcpiPhase0.c)
+ *     HalpSetupAcpiPhase0 @ 0x140CB9944 (HalpSetupAcpiPhase0.c)
  * Callees:
- *     HalpAcpiGetTable @ 0x140342AEC (HalpAcpiGetTable.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memcmp @ 0x14073D750 (memcmp.c)
+ *     HalpAcpiGetTable @ 0x140344B6C (HalpAcpiGetTable.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memcmp @ 0x140742350 (memcmp.c)
  */
 
 int __fastcall HalpAcpiDetectMachineSpecificActions(__int64 a1)
@@ -19,7 +19,7 @@ int __fastcall HalpAcpiDetectMachineSpecificActions(__int64 a1)
 
   Table = &retaddr;
   v2 = 0;
-  v3 = &dword_140D163BC;
+  v3 = &dword_140D1C57C;
   v4 = 0LL;
   do
   {

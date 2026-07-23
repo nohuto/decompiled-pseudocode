@@ -1,35 +1,35 @@
 /*
- * XREFs of DifZwAccessCheckByTypeResultListAndAuditAlarmByHandleWrapper @ 0x140697740
+ * XREFs of DifZwAccessCheckByTypeResultListAndAuditAlarmByHandleWrapper @ 0x14069B320
  * Callers:
  *     <none>
  * Callees:
- *     DifGetReturnAddressForWrappers @ 0x140260EA4 (DifGetReturnAddressForWrappers.c)
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     DifGetAPIThunkContextById @ 0x1404C17A4 (DifGetAPIThunkContextById.c)
- *     ZwAccessCheckByTypeResultListAndAuditAlarmByHandle @ 0x1407240B0 (ZwAccessCheckByTypeResultListAndAuditAlarmByHandle.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     DifGetReturnAddressForWrappers @ 0x14026040C (DifGetReturnAddressForWrappers.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     DifGetAPIThunkContextById @ 0x1404BAFF4 (DifGetAPIThunkContextById.c)
+ *     ZwAccessCheckByTypeResultListAndAuditAlarmByHandle @ 0x140728C80 (ZwAccessCheckByTypeResultListAndAuditAlarmByHandle.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall DifZwAccessCheckByTypeResultListAndAuditAlarmByHandleWrapper(
-        __int64 a1,
-        __int64 a2,
-        __int64 a3,
-        __int64 a4,
-        __int64 a5,
-        __int64 a6,
-        __int64 a7,
-        int a8,
-        int a9,
-        int a10,
-        __int64 a11,
-        int a12,
-        __int64 a13,
-        char a14,
-        __int64 a15,
-        __int64 a16,
-        __int64 a17)
+        UNICODE_STRING *a1,
+        void *a2,
+        void *a3,
+        UNICODE_STRING *a4,
+        UNICODE_STRING *ObjectName,
+        PSECURITY_DESCRIPTOR SecurityDescriptor,
+        PSID PrincipalSelfSid,
+        ACCESS_MASK DesiredAccess,
+        AUDIT_EVENT_TYPE AuditType,
+        ULONG Flags,
+        struct _OBJECT_TYPE_LIST *ObjectTypeList,
+        ULONG ObjectTypeListLength,
+        GENERIC_MAPPING *GenericMapping,
+        BOOLEAN ObjectCreation,
+        ACCESS_MASK *GrantedAccess,
+        NTSTATUS *AccessStatus,
+        BOOLEAN *GenerateOnClose)
 {
   __int128 *APIThunkContextById; // rax
   __int64 v21; // rdx
@@ -43,20 +43,20 @@ __int64 __fastcall DifZwAccessCheckByTypeResultListAndAuditAlarmByHandleWrapper(
   _QWORD **v29; // rsi
   _QWORD *j; // rbx
   _QWORD v32[4]; // [rsp+98h] [rbp-80h] BYREF
-  char v33; // [rsp+B8h] [rbp-60h]
-  __int64 v34; // [rsp+C0h] [rbp-58h]
-  int v35; // [rsp+C8h] [rbp-50h]
-  __int64 v36; // [rsp+D0h] [rbp-48h]
-  int v37; // [rsp+D8h] [rbp-40h]
-  int v38; // [rsp+DCh] [rbp-3Ch]
-  int v39; // [rsp+E0h] [rbp-38h]
-  __int64 v40; // [rsp+E8h] [rbp-30h]
-  __int64 v41; // [rsp+F0h] [rbp-28h]
-  __int64 v42; // [rsp+F8h] [rbp-20h]
-  __int64 v43; // [rsp+100h] [rbp-18h]
-  __int64 v44; // [rsp+108h] [rbp-10h]
-  __int64 v45; // [rsp+110h] [rbp-8h]
-  __int64 v46; // [rsp+118h] [rbp+0h]
+  BOOLEAN v33; // [rsp+B8h] [rbp-60h]
+  GENERIC_MAPPING *v34; // [rsp+C0h] [rbp-58h]
+  ULONG v35; // [rsp+C8h] [rbp-50h]
+  struct _OBJECT_TYPE_LIST *v36; // [rsp+D0h] [rbp-48h]
+  ULONG v37; // [rsp+D8h] [rbp-40h]
+  AUDIT_EVENT_TYPE v38; // [rsp+DCh] [rbp-3Ch]
+  ACCESS_MASK v39; // [rsp+E0h] [rbp-38h]
+  PSID v40; // [rsp+E8h] [rbp-30h]
+  PSECURITY_DESCRIPTOR v41; // [rsp+F0h] [rbp-28h]
+  UNICODE_STRING *v42; // [rsp+F8h] [rbp-20h]
+  UNICODE_STRING *v43; // [rsp+100h] [rbp-18h]
+  void *v44; // [rsp+108h] [rbp-10h]
+  void *v45; // [rsp+110h] [rbp-8h]
+  UNICODE_STRING *v46; // [rsp+118h] [rbp+0h]
   unsigned int v47; // [rsp+120h] [rbp+8h]
   void *retaddr; // [rsp+150h] [rbp+38h]
 
@@ -80,19 +80,19 @@ __int64 __fastcall DifZwAccessCheckByTypeResultListAndAuditAlarmByHandleWrapper(
 LABEL_7:
   v25 = 0;
   v46 = a1;
-  v42 = a5;
-  v41 = a6;
-  v40 = a7;
-  v39 = a8;
-  v38 = a9;
-  v37 = a10;
-  v36 = a11;
-  v35 = a12;
-  v34 = a13;
-  v33 = a14;
-  v32[3] = a15;
-  v32[2] = a16;
-  v32[1] = a17;
+  v42 = ObjectName;
+  v41 = SecurityDescriptor;
+  v40 = PrincipalSelfSid;
+  v39 = DesiredAccess;
+  v38 = AuditType;
+  v37 = Flags;
+  v36 = ObjectTypeList;
+  v35 = ObjectTypeListLength;
+  v34 = GenericMapping;
+  v33 = ObjectCreation;
+  v32[3] = GrantedAccess;
+  v32[2] = AccessStatus;
+  v32[1] = GenerateOnClose;
   v45 = a2;
   v44 = a3;
   v43 = a4;
@@ -113,19 +113,19 @@ LABEL_17:
           a2,
           a3,
           a4,
-          a5,
-          a6,
-          a7,
-          a8,
-          a9,
-          a10,
-          a11,
-          a12,
-          a13,
-          a14,
-          a15,
-          a16,
-          a17);
+          ObjectName,
+          SecurityDescriptor,
+          PrincipalSelfSid,
+          DesiredAccess,
+          AuditType,
+          Flags,
+          ObjectTypeList,
+          ObjectTypeListLength,
+          GenericMapping,
+          ObjectCreation,
+          GrantedAccess,
+          AccessStatus,
+          GenerateOnClose);
   if ( v22 )
   {
     if ( (v28 = 0, !VfDifRunningWithoutReboot) && (VfOptionFlags & 0x800) == 0

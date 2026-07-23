@@ -1,17 +1,17 @@
 /*
- * XREFs of TtmiSetPendingOnOffRequest @ 0x1408FDB28
+ * XREFs of TtmiSetPendingOnOffRequest @ 0x1408FDC88
  * Callers:
- *     TtmiResetTerminalTimeouts @ 0x1408FD8E8 (TtmiResetTerminalTimeouts.c)
- *     TtmiTerminalMonitorControl @ 0x1408FDBDC (TtmiTerminalMonitorControl.c)
- *     TtmiSetDisplayPowerRequest @ 0x1408FF238 (TtmiSetDisplayPowerRequest.c)
- *     TtmpDispatchSetDisplayState @ 0x1409010DC (TtmpDispatchSetDisplayState.c)
+ *     TtmiResetTerminalTimeouts @ 0x1408FDA48 (TtmiResetTerminalTimeouts.c)
+ *     TtmiTerminalMonitorControl @ 0x1408FDD3C (TtmiTerminalMonitorControl.c)
+ *     TtmiSetDisplayPowerRequest @ 0x1408FF398 (TtmiSetDisplayPowerRequest.c)
+ *     TtmpDispatchSetDisplayState @ 0x14090123C (TtmpDispatchSetDisplayState.c)
  * Callees:
- *     TtmpExitProximity @ 0x1408FDF14 (TtmpExitProximity.c)
- *     TtmpShouldEscapeProximity @ 0x1408FE0F0 (TtmpShouldEscapeProximity.c)
- *     TtmiScheduleSessionWorker @ 0x1408FF140 (TtmiScheduleSessionWorker.c)
- *     TtmiLogProximityBlockedRequest @ 0x14090306C (TtmiLogProximityBlockedRequest.c)
- *     TtmiLogTerminalOffRequest @ 0x140904C78 (TtmiLogTerminalOffRequest.c)
- *     TtmiLogTerminalOnRequest @ 0x140904D90 (TtmiLogTerminalOnRequest.c)
+ *     TtmpExitProximity @ 0x1408FE074 (TtmpExitProximity.c)
+ *     TtmpShouldEscapeProximity @ 0x1408FE250 (TtmpShouldEscapeProximity.c)
+ *     TtmiScheduleSessionWorker @ 0x1408FF2A0 (TtmiScheduleSessionWorker.c)
+ *     TtmiLogProximityBlockedRequest @ 0x1409031CC (TtmiLogProximityBlockedRequest.c)
+ *     TtmiLogTerminalOffRequest @ 0x140904DD8 (TtmiLogTerminalOffRequest.c)
+ *     TtmiLogTerminalOnRequest @ 0x140904EF0 (TtmiLogTerminalOnRequest.c)
  */
 
 __int64 __fastcall TtmiSetPendingOnOffRequest(__int64 a1, unsigned int *a2, char a3, unsigned int a4, unsigned int a5)

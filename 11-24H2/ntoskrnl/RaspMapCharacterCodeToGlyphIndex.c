@@ -1,7 +1,7 @@
 /*
- * XREFs of RaspMapCharacterCodeToGlyphIndex @ 0x14069BC74
+ * XREFs of RaspMapCharacterCodeToGlyphIndex @ 0x14069CCF4
  * Callers:
- *     RaspGetUnscaledGlyphData @ 0x14069B1FC (RaspGetUnscaledGlyphData.c)
+ *     RaspGetUnscaledGlyphData @ 0x14069C27C (RaspGetUnscaledGlyphData.c)
  * Callees:
  *     <none>
  */

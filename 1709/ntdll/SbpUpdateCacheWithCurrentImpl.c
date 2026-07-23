@@ -12,140 +12,139 @@
 
 __int64 __fastcall SbpUpdateCacheWithCurrentImpl(__int64 a1, __int64 a2)
 {
-  __int64 v4; // rdx
-  struct _PEB *v5; // r8
-  unsigned int OSPlatformId; // eax
+  struct _PEB *v4; // r8
+  _NT_PRODUCT_TYPE OSPlatformId; // eax
   wchar_t *Buffer; // r8
-  _WORD *v8; // rcx
-  __int64 v9; // rbx
-  unsigned __int64 v10; // rax
-  unsigned __int16 v11; // dx
-  bool v12; // cf
-  char *v13; // rbx
-  _DWORD *v14; // rax
-  __int64 v15; // r14
-  __int64 v16; // rbp
-  unsigned int v17; // r9d
-  __int64 v18; // rdi
-  unsigned int v19; // ecx
-  __int64 v20; // r8
-  __int64 v21; // rax
-  unsigned __int64 v22; // rsi
-  unsigned int v23; // eax
-  unsigned int v25; // esi
-  _DWORD *v26; // rcx
-  __int64 v27; // rdi
-  _DWORD v28[76]; // [rsp+20h] [rbp-178h] BYREF
+  _WORD *v7; // rcx
+  __int64 v8; // rbx
+  unsigned __int64 v9; // rax
+  unsigned __int16 v10; // dx
+  bool v11; // cf
+  char *v12; // rbx
+  _DWORD *v13; // rax
+  __int64 v14; // r14
+  __int64 v15; // rbp
+  unsigned int v16; // r9d
+  __int64 v17; // rdi
+  unsigned int v18; // ecx
+  __int64 v19; // r8
+  __int64 v20; // rax
+  unsigned __int64 v21; // rsi
+  unsigned int v22; // eax
+  unsigned int v24; // esi
+  _DWORD *v25; // rcx
+  __int64 v26; // rdi
+  _NT_PRODUCT_TYPE NtProductType[76]; // [rsp+20h] [rbp-178h] BYREF
 
-  memset(&v28[4], 0, 0x11CuLL);
-  v5 = NtCurrentPeb();
-  v28[5] = v5->OSMajorVersion;
-  v28[6] = v5->OSMinorVersion;
-  v28[7] = v5->OSBuildNumber;
-  OSPlatformId = v5->OSPlatformId;
-  Buffer = v5->CSDVersion.Buffer;
-  v28[8] = OSPlatformId;
+  memset(&NtProductType[4], 0, 0x11CuLL);
+  v4 = NtCurrentPeb();
+  NtProductType[5] = (_NT_PRODUCT_TYPE)v4->OSMajorVersion;
+  NtProductType[6] = (_NT_PRODUCT_TYPE)v4->OSMinorVersion;
+  NtProductType[7] = v4->OSBuildNumber;
+  OSPlatformId = v4->OSPlatformId;
+  Buffer = v4->CSDVersion.Buffer;
+  NtProductType[8] = OSPlatformId;
   if ( Buffer && *Buffer )
-    RtlStringCbCopyW(&v28[9], 256LL, Buffer);
-  if ( ((v28[4] - 284) & 0xFFFFFFF7) == 0 )
-    RtlGetNtProductType(v28, v4);
-  v8 = &unk_180113456;
-  v9 = -1LL;
-  v10 = 0LL;
+    RtlStringCbCopyW(&NtProductType[9], 256LL, Buffer);
+  if ( ((NtProductType[4] - 284) & 0xFFFFFFF7) == 0 )
+    RtlGetNtProductType(NtProductType);
+  v7 = &unk_180113456;
+  v8 = -1LL;
+  v9 = 0LL;
   while ( 1 )
   {
-    v11 = *(v8 - 1);
-    v12 = LOWORD(v28[5]) < v11;
-    if ( LOWORD(v28[5]) <= v11 )
+    v10 = *(v7 - 1);
+    v11 = LOWORD(NtProductType[5]) < v10;
+    if ( LOWORD(NtProductType[5]) <= v10 )
     {
-      if ( LOWORD(v28[5]) != v11 )
+      if ( LOWORD(NtProductType[5]) != v10 )
         goto LABEL_39;
-      if ( LOWORD(v28[6]) < *v8 )
+      if ( LOWORD(NtProductType[6]) < *v7 )
         break;
     }
-    v9 = v10;
+    v8 = v9;
 LABEL_9:
-    ++v10;
-    v8 += 16;
-    if ( v10 >= 5 )
+    ++v9;
+    v7 += 16;
+    if ( v9 >= 5 )
       goto LABEL_10;
   }
-  v12 = LOWORD(v28[5]) < v11;
+  v11 = LOWORD(NtProductType[5]) < v10;
 LABEL_39:
-  if ( !v12 && (LOWORD(v28[5]) != v11 || LOWORD(v28[6]) >= *v8) )
+  if ( !v11 && (LOWORD(NtProductType[5]) != v10 || LOWORD(NtProductType[6]) >= *v7) )
     goto LABEL_9;
 LABEL_10:
-  if ( v9 == -1 )
-    v13 = (char *)&SbSupportedOsList;
+  if ( v8 == -1 )
+    v12 = (char *)&SbSupportedOsList;
   else
-    v13 = (char *)&SbSupportedOsList + 32 * v9;
-  v14 = *(_DWORD **)(a2 + 24);
-  v15 = 0LL;
-  if ( !*v14 )
+    v12 = (char *)&SbSupportedOsList + 32 * v8;
+  v13 = *(_DWORD **)(a2 + 24);
+  v14 = 0LL;
+  if ( !*v13 )
     return 1LL;
   while ( 1 )
   {
-    v16 = *(_QWORD *)&v14[2 * v15 + 2];
-    if ( v16 )
+    v15 = *(_QWORD *)&v13[2 * v14 + 2];
+    if ( v15 )
     {
-      v17 = *(_DWORD *)(v16 + 68);
-      v18 = 0LL;
-      if ( v17 )
+      v16 = *(_DWORD *)(v15 + 68);
+      v17 = 0LL;
+      if ( v16 )
       {
         while ( 2 )
         {
-          v19 = 0;
-          v20 = 8 * v18;
+          v18 = 0;
+          v19 = 8 * v17;
           do
           {
-            v21 = *(_QWORD *)(v16 + 16 * (v20 + v19) + 120) - *(_QWORD *)(v13 + 4);
-            if ( !v21 )
-              v21 = *(_QWORD *)(v16 + 16 * (v20 + v19) + 128) - *(_QWORD *)(v13 + 12);
-            if ( !v21 )
+            v20 = *(_QWORD *)(v15 + 16 * (v19 + v18) + 120) - *(_QWORD *)(v12 + 4);
+            if ( !v20 )
+              v20 = *(_QWORD *)(v15 + 16 * (v19 + v18) + 128) - *(_QWORD *)(v12 + 12);
+            if ( !v20 )
             {
-              v22 = (unsigned __int64)(unsigned int)v18 << 7;
-              if ( !*(_QWORD *)(v22 + v16 + 80) && *(_DWORD *)(v22 + v16 + 88) == 2 )
-                *(_QWORD *)(v22 + v16 + 80) = SbpResolveBasedOnName(*(_QWORD *)(v22 + v16 + 72));
-              *(_QWORD *)(a1 + 8 * v15 + 16) = v22 + v16 + 72;
+              v21 = (unsigned __int64)(unsigned int)v17 << 7;
+              if ( !*(_QWORD *)(v21 + v15 + 80) && *(_DWORD *)(v21 + v15 + 88) == 2 )
+                *(_QWORD *)(v21 + v15 + 80) = SbpResolveBasedOnName(*(_QWORD *)(v21 + v15 + 72));
+              *(_QWORD *)(a1 + 8 * v14 + 16) = v21 + v15 + 72;
               goto LABEL_24;
             }
-            ++v19;
+            ++v18;
           }
-          while ( v19 < 4 );
-          v18 = (unsigned int)(v18 + 1);
-          if ( (unsigned int)v18 < v17 )
+          while ( v18 < 4 );
+          v17 = (unsigned int)(v17 + 1);
+          if ( (unsigned int)v17 < v16 )
             continue;
           break;
         }
       }
 LABEL_24:
-      v23 = *(_DWORD *)(v16 + 68);
-      if ( (unsigned int)v18 >= v23 )
+      v22 = *(_DWORD *)(v15 + 68);
+      if ( (unsigned int)v17 >= v22 )
       {
-        v25 = 0;
-        if ( v23 )
+        v24 = 0;
+        if ( v22 )
         {
-          v26 = (_DWORD *)(v16 + 104);
-          while ( !*v26 )
+          v25 = (_DWORD *)(v15 + 104);
+          while ( !*v25 )
           {
-            ++v25;
-            v26 += 32;
-            if ( v25 >= v23 )
+            ++v24;
+            v25 += 32;
+            if ( v24 >= v22 )
               goto LABEL_32;
           }
-          v27 = v16 + ((unsigned __int64)v25 << 7);
-          if ( !*(_QWORD *)(v27 + 80) && *(_DWORD *)(v27 + 88) == 2 )
-            *(_QWORD *)(v27 + 80) = SbpResolveBasedOnName(*(_QWORD *)(v27 + 72));
-          *(_QWORD *)(a1 + 8 * v15 + 16) = v27 + 72;
+          v26 = v15 + ((unsigned __int64)v24 << 7);
+          if ( !*(_QWORD *)(v26 + 80) && *(_DWORD *)(v26 + 88) == 2 )
+            *(_QWORD *)(v26 + 80) = SbpResolveBasedOnName(*(_QWORD *)(v26 + 72));
+          *(_QWORD *)(a1 + 8 * v14 + 16) = v26 + 72;
         }
 LABEL_32:
-        if ( v25 >= *(_DWORD *)(v16 + 68) )
+        if ( v24 >= *(_DWORD *)(v15 + 68) )
           return 0LL;
       }
     }
-    v14 = *(_DWORD **)(a2 + 24);
-    v15 = (unsigned int)(v15 + 1);
-    if ( (unsigned int)v15 >= *v14 )
+    v13 = *(_DWORD **)(a2 + 24);
+    v14 = (unsigned int)(v14 + 1);
+    if ( (unsigned int)v14 >= *v13 )
       return 1LL;
   }
 }

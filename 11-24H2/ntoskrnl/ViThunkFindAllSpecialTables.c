@@ -1,18 +1,18 @@
 /*
- * XREFs of ViThunkFindAllSpecialTables @ 0x140B975F8
+ * XREFs of ViThunkFindAllSpecialTables @ 0x140B995F8
  * Callers:
- *     VfThunkApplyDriverAddedThunks @ 0x140B97018 (VfThunkApplyDriverAddedThunks.c)
- *     ViThunkReplaceAllThunkedImports @ 0x140B97B48 (ViThunkReplaceAllThunkedImports.c)
+ *     VfThunkApplyDriverAddedThunks @ 0x140B99018 (VfThunkApplyDriverAddedThunks.c)
+ *     ViThunkReplaceAllThunkedImports @ 0x140B99B48 (ViThunkReplaceAllThunkedImports.c)
  * Callees:
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ViThunkFindNextSpecialTable @ 0x140B977A4 (ViThunkFindNextSpecialTable.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ViThunkFindNextSpecialTable @ 0x140B997A4 (ViThunkFindNextSpecialTable.c)
  */
 
-ULONG_PTR __fastcall ViThunkFindAllSpecialTables(__int64 a1, __int64 a2)
+__int64 __fastcall ViThunkFindAllSpecialTables(__int64 a1, __int64 a2)
 {
   unsigned int v2; // esi
   __int64 NextSpecialTable; // rbx
-  ULONG_PTR Pool2; // r11
+  __int64 Pool2; // r11
   __int64 v6; // rdi
 
   v2 = a2;

@@ -1,11 +1,11 @@
 /*
- * XREFs of KeEnableProfiling @ 0x140AB6C40
+ * XREFs of KeEnableProfiling @ 0x140AB0F18
  * Callers:
- *     NtSetInformationThread @ 0x140911410 (NtSetInformationThread.c)
+ *     NtSetInformationThread @ 0x1408E8B60 (NtSetInformationThread.c)
  * Callees:
- *     KeUpdateTotalCyclesCurrentThread @ 0x14034AEC0 (KeUpdateTotalCyclesCurrentThread.c)
- *     KiBeginCounterAccumulation @ 0x140492190 (KiBeginCounterAccumulation.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     KeUpdateTotalCyclesCurrentThread @ 0x1403693A0 (KeUpdateTotalCyclesCurrentThread.c)
+ *     KiBeginCounterAccumulation @ 0x14048D030 (KiBeginCounterAccumulation.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall KeEnableProfiling(_KTHREAD *a1, int a2, __int64 a3, __int64 a4)
@@ -16,7 +16,7 @@ __int64 __fastcall KeEnableProfiling(_KTHREAD *a1, int a2, __int64 a3, __int64 a
     return 3221225485LL;
   if ( a1->WaitBlock[0].SparePtr )
     return 3221226243LL;
-  Pool2 = ExAllocatePool2(0x41uLL);
+  Pool2 = ExAllocatePool2(0x41uLL, 0x1A8uLL, 0x666F7250u);
   if ( !Pool2 )
     return 3221225495LL;
   *(_QWORD *)(Pool2 + 8) = a4;

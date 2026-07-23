@@ -7,7 +7,7 @@
  *     RtlpHpSegReportBusyBlock @ 0x180002ACC (RtlpHpSegReportBusyBlock.c)
  *     RtlpHpSegReportSegment @ 0x180002BF8 (RtlpHpSegReportSegment.c)
  *     RtlpHpLfhSubsegmentWalk @ 0x180002D40 (RtlpHpLfhSubsegmentWalk.c)
- *     RtlpHpSegReportPageRange @ 0x18010F6A4 (RtlpHpSegReportPageRange.c)
+ *     RtlpHpSegReportPageRange @ 0x18010F664 (RtlpHpSegReportPageRange.c)
  */
 
 __int64 __fastcall RtlpHpSegWalk(__int64 *a1, __int64 *a2, char a3)

@@ -1,11 +1,11 @@
 /*
- * XREFs of VfZwOpenProcessToken @ 0x1409EA300
+ * XREFs of VfZwOpenProcessToken @ 0x1409EB300
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     ViZwCheckVirtualAddress @ 0x1409EC944 (ViZwCheckVirtualAddress.c)
- *     ViZwShouldCheck @ 0x1409EC990 (ViZwShouldCheck.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     ViZwCheckVirtualAddress @ 0x1409ED944 (ViZwCheckVirtualAddress.c)
+ *     ViZwShouldCheck @ 0x1409ED990 (ViZwShouldCheck.c)
  */
 
 __int64 __fastcall VfZwOpenProcessToken(__int64 a1, unsigned int a2, ULONG_PTR a3)

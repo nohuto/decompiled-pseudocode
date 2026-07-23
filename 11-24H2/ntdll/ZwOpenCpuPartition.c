@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwOpenCpuPartition @ 0x180164140
+ * XREFs of ZwOpenCpuPartition @ 0x180162500
  * Callers:
  *     <none>
  * Callees:

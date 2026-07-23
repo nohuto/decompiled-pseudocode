@@ -1,13 +1,13 @@
 /*
- * XREFs of PnpBuildUnsafeRemovalDeviceList @ 0x1406EDB6C
+ * XREFs of PnpBuildUnsafeRemovalDeviceList @ 0x1406EEE0C
  * Callers:
- *     PnpProcessQueryRemoveAndEject @ 0x1406EF790 (PnpProcessQueryRemoveAndEject.c)
+ *     PnpProcessQueryRemoveAndEject @ 0x1406F0A30 (PnpProcessQueryRemoveAndEject.c)
  * Callees:
- *     memmove @ 0x1401D1540 (memmove.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     IopEnumerateRelations @ 0x1406EE0B4 (IopEnumerateRelations.c)
- *     PnpIsBeingRemovedSafely @ 0x1406EE1C8 (PnpIsBeingRemovedSafely.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     IopEnumerateRelations @ 0x1406EF354 (IopEnumerateRelations.c)
+ *     PnpIsBeingRemovedSafely @ 0x1406EF468 (PnpIsBeingRemovedSafely.c)
  */
 
 void __fastcall PnpBuildUnsafeRemovalDeviceList(__int64 a1, __int64 a2, _QWORD *a3)

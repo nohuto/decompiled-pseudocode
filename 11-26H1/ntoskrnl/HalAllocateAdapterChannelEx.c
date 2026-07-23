@@ -1,9 +1,9 @@
 /*
- * XREFs of HalAllocateAdapterChannelEx @ 0x1404412D0
+ * XREFs of HalAllocateAdapterChannelEx @ 0x140439DE0
  * Callers:
  *     <none>
  * Callees:
- *     HalpAllocateAdapterChannel @ 0x140440D84 (HalpAllocateAdapterChannel.c)
+ *     HalpAllocateAdapterChannel @ 0x140439894 (HalpAllocateAdapterChannel.c)
  */
 
 __int64 __fastcall HalAllocateAdapterChannelEx(

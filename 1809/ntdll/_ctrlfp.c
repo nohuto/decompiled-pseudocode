@@ -1,15 +1,15 @@
 /*
- * XREFs of _ctrlfp @ 0x180098E60
+ * XREFs of _ctrlfp @ 0x180098E70
  * Callers:
- *     fabs @ 0x180093570 (fabs.c)
- *     _call_matherr @ 0x180097CE8 (_call_matherr.c)
- *     _handle_error @ 0x180097E14 (_handle_error.c)
- *     _except1 @ 0x1800984F0 (_except1.c)
- *     _handle_qnan1 @ 0x180098858 (_handle_qnan1.c)
- *     _umatherr @ 0x180098BA4 (_umatherr.c)
+ *     fabs @ 0x180093580 (fabs.c)
+ *     _call_matherr @ 0x180097CF8 (_call_matherr.c)
+ *     _handle_error @ 0x180097E24 (_handle_error.c)
+ *     _except1 @ 0x180098500 (_except1.c)
+ *     _handle_qnan1 @ 0x180098868 (_handle_qnan1.c)
+ *     _umatherr @ 0x180098BB4 (_umatherr.c)
  * Callees:
- *     _set_fpsr @ 0x180099E60 (_set_fpsr.c)
- *     _get_fpsr @ 0x1800A6D80 (_get_fpsr.c)
+ *     _set_fpsr @ 0x180099E70 (_set_fpsr.c)
+ *     _get_fpsr @ 0x1800A6DA0 (_get_fpsr.c)
  */
 
 __int64 __fastcall ctrlfp(int a1, int a2)

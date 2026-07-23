@@ -1,16 +1,16 @@
 /*
- * XREFs of ExpCapabilityCheck @ 0x1408CFBF4
+ * XREFs of ExpCapabilityCheck @ 0x1408D0EB4
  * Callers:
- *     NtSetSystemInformation @ 0x140663DF0 (NtSetSystemInformation.c)
- *     ExpFirmwareAccessAppContainerCheck @ 0x1408D0A10 (ExpFirmwareAccessAppContainerCheck.c)
+ *     NtSetSystemInformation @ 0x140664FB0 (NtSetSystemInformation.c)
+ *     ExpFirmwareAccessAppContainerCheck @ 0x1408D1CD0 (ExpFirmwareAccessAppContainerCheck.c)
  * Callees:
- *     RtlCapabilityCheck @ 0x1408938C0 (RtlCapabilityCheck.c)
+ *     RtlCapabilityCheck @ 0x140894B20 (RtlCapabilityCheck.c)
  */
 
-bool __fastcall ExpCapabilityCheck(UNICODE_STRING *SourceString)
+bool __fastcall ExpCapabilityCheck(PUNICODE_STRING CapabilityName)
 {
-  char v2; // [rsp+38h] [rbp+10h] BYREF
+  BOOLEAN HasCapability; // [rsp+38h] [rbp+10h] BYREF
 
-  v2 = 0;
-  return (int)RtlCapabilityCheck(0LL, SourceString, &v2) >= 0 && v2;
+  HasCapability = 0;
+  return RtlCapabilityCheck(0LL, CapabilityName, &HasCapability) >= 0 && HasCapability;
 }

@@ -1,67 +1,62 @@
 /*
- * XREFs of AVrfOpenCurrentUserImageFileOptionsKey @ 0x18008A6A4
+ * XREFs of AVrfOpenCurrentUserImageFileOptionsKey @ 0x1800A6164
  * Callers:
- *     LdrpInitializeExecutionOptions @ 0x1800887A8 (LdrpInitializeExecutionOptions.c)
+ *     LdrpInitializeExecutionOptions @ 0x1800A4268 (LdrpInitializeExecutionOptions.c)
  * Callees:
- *     RtlAppendUnicodeStringToString @ 0x180075AB0 (RtlAppendUnicodeStringToString.c)
- *     AVrfpFormatCurrentUserKeyPath @ 0x18011D604 (AVrfpFormatCurrentUserKeyPath.c)
- *     NtOpenKey @ 0x180161ED0 (NtOpenKey.c)
+ *     RtlAppendUnicodeStringToString @ 0x180092390 (RtlAppendUnicodeStringToString.c)
+ *     AVrfpFormatCurrentUserKeyPath @ 0x18011B834 (AVrfpFormatCurrentUserKeyPath.c)
+ *     NtOpenKey @ 0x180160290 (NtOpenKey.c)
  */
 
-__int64 __fastcall AVrfOpenCurrentUserImageFileOptionsKey(unsigned __int16 *a1, __int64 a2, __int64 a3)
+int __fastcall AVrfOpenCurrentUserImageFileOptionsKey(unsigned __int16 *a1, __int64 a2, HANDLE *a3)
 {
-  __int64 result; // rax
+  int result; // eax
   int v6; // eax
-  __int64 v7; // rcx
+  wchar_t *v7; // rcx
   int v8; // edx
-  __int128 v9; // [rsp+20h] [rbp-50h] BYREF
-  __int128 v10; // [rsp+30h] [rbp-40h] BYREF
-  _DWORD v11[2]; // [rsp+40h] [rbp-30h] BYREF
-  __int64 v12; // [rsp+48h] [rbp-28h]
-  __int128 *v13; // [rsp+50h] [rbp-20h]
-  int v14; // [rsp+58h] [rbp-18h]
-  int v15; // [rsp+5Ch] [rbp-14h]
-  __int128 v16; // [rsp+60h] [rbp-10h]
+  UNICODE_STRING Source; // [rsp+20h] [rbp-50h] BYREF
+  _UNICODE_STRING Destination; // [rsp+30h] [rbp-40h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+40h] [rbp-30h] BYREF
 
-  v15 = 0;
-  v11[1] = 0;
-  v9 = 0LL;
-  v10 = 0LL;
-  result = AVrfpFormatCurrentUserKeyPath(&v10);
-  if ( (int)result >= 0 )
+  *(&ObjectAttributes.Attributes + 1) = 0;
+  *(&ObjectAttributes.Length + 1) = 0;
+  Source = 0LL;
+  Destination = 0LL;
+  result = AVrfpFormatCurrentUserKeyPath(&Destination);
+  if ( result >= 0 )
   {
     v6 = *a1;
-    v7 = *((_QWORD *)a1 + 1) + *a1;
+    v7 = (wchar_t *)(*((_QWORD *)a1 + 1) + *a1);
     if ( *a1 )
     {
       do
       {
-        if ( *(_WORD *)(v7 - 2) == 92 )
+        if ( *(v7 - 1) == 92 )
           break;
-        v7 -= 2LL;
+        --v7;
         v6 -= 2;
       }
       while ( v6 );
     }
     v8 = *a1 - v6;
-    *((_QWORD *)&v9 + 1) = v7;
-    LOWORD(v9) = v8;
+    Source.Buffer = v7;
+    Source.Length = v8;
     if ( (unsigned __int16)v8 == v8 )
     {
-      result = RtlAppendUnicodeStringToString((unsigned __int16 *)&v10, (const void **)&v9);
-      if ( (int)result >= 0 )
+      result = RtlAppendUnicodeStringToString(&Destination, &Source);
+      if ( result >= 0 )
       {
-        v12 = 0LL;
-        v13 = &v10;
-        v11[0] = 48;
-        v14 = 64;
-        v16 = 0LL;
-        return NtOpenKey(a3, 9LL, v11);
+        ObjectAttributes.RootDirectory = 0LL;
+        ObjectAttributes.ObjectName = &Destination;
+        ObjectAttributes.Length = 48;
+        ObjectAttributes.Attributes = 64;
+        *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+        return NtOpenKey(a3, 9u, &ObjectAttributes);
       }
     }
     else
     {
-      return 3221225507LL;
+      return -1073741789;
     }
   }
   return result;

@@ -1,12 +1,12 @@
 /*
- * XREFs of MiUpdateLargePageCandidates @ 0x140447BF0
+ * XREFs of MiUpdateLargePageCandidates @ 0x1404406E0
  * Callers:
- *     MiUnlinkFreeOrZeroedPage @ 0x14028C8F4 (MiUnlinkFreeOrZeroedPage.c)
- *     MiMirrorZeroFreeListsCallback @ 0x1404A1120 (MiMirrorZeroFreeListsCallback.c)
+ *     MiUnlinkFreeOrZeroedPage @ 0x14028BE54 (MiUnlinkFreeOrZeroedPage.c)
+ *     MiMirrorZeroFreeListsCallback @ 0x14049AC50 (MiMirrorZeroFreeListsCallback.c)
  * Callees:
- *     MiUpdateLargePageCandidateValue @ 0x1402DD890 (MiUpdateLargePageCandidateValue.c)
- *     MiRecordLargePageCandidate @ 0x140447EB0 (MiRecordLargePageCandidate.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     MiUpdateLargePageCandidateValue @ 0x1402BF650 (MiUpdateLargePageCandidateValue.c)
+ *     MiRecordLargePageCandidate @ 0x1404409A0 (MiRecordLargePageCandidate.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiUpdateLargePageCandidates(ULONG_PTR BugCheckParameter2, int a2, __int64 a3)
@@ -24,10 +24,10 @@ __int64 __fastcall MiUpdateLargePageCandidates(ULONG_PTR BugCheckParameter2, int
   v12 = 0;
   v13 = 0;
   v4 = (*(_QWORD *)(48 * BugCheckParameter2 - 0x21FFFFFFFFD8LL) >> 43) & 0x3FFLL;
-  v5 = *(_QWORD *)(stru_140E2EB88.ThreadLock + 8 * v4);
+  v5 = *(_QWORD *)(stru_140E2ED08.ThreadLock + 8 * v4);
   if ( !*(_BYTE *)(v5 + 16486) )
     return 0LL;
-  v6 = *(_QWORD *)(stru_140E2EB88.ThreadLock + 8 * v4);
+  v6 = *(_QWORD *)(stru_140E2ED08.ThreadLock + 8 * v4);
   if ( a2 )
   {
     if ( a3 <= 0 )
@@ -42,10 +42,10 @@ __int64 __fastcall MiUpdateLargePageCandidates(ULONG_PTR BugCheckParameter2, int
       MiUpdateLargePageCandidateValue(v6, BugCheckParameter2, 2, 0, &v12);
       if ( (v12 & 0xFC00) != 0x7C00LL )
         return 0LL;
-      v8 = dword_140E2D684;
-      if ( dword_140E2D680 > (unsigned int)dword_140E2D684
-        || (v9 = (char *)qword_140E2D6E0 + 16 * dword_140E2D680, BugCheckParameter2 < *(_QWORD *)v9)
-        || dword_140E2D680 != dword_140E2D684 && BugCheckParameter2 >= *((_QWORD *)v9 + 2) )
+      v8 = dword_140E2D804;
+      if ( dword_140E2D800 > (unsigned int)dword_140E2D804
+        || (v9 = (char *)qword_140E2D860 + 16 * dword_140E2D800, BugCheckParameter2 < *(_QWORD *)v9)
+        || dword_140E2D800 != dword_140E2D804 && BugCheckParameter2 >= *((_QWORD *)v9 + 2) )
       {
         for ( i = 0; ; i = v11 + 1 )
         {
@@ -54,17 +54,17 @@ __int64 __fastcall MiUpdateLargePageCandidates(ULONG_PTR BugCheckParameter2, int
             if ( v8 < i )
               KeBugCheckEx(0x1Au, 0x5180uLL, BugCheckParameter2, 0LL, 0LL);
             v11 = (i + v8) >> 1;
-            v9 = (char *)qword_140E2D6E0 + 16 * v11;
+            v9 = (char *)qword_140E2D860 + 16 * v11;
             if ( BugCheckParameter2 >= *(_QWORD *)v9 )
               break;
             if ( !v11 )
               KeBugCheckEx(0x1Au, 0x5180uLL, BugCheckParameter2, (ULONG_PTR)v9, 0LL);
             v8 = v11 - 1;
           }
-          if ( v11 == dword_140E2D684 || BugCheckParameter2 < *((_QWORD *)v9 + 2) )
+          if ( v11 == dword_140E2D804 || BugCheckParameter2 < *((_QWORD *)v9 + 2) )
             break;
         }
-        dword_140E2D680 = (i + v8) >> 1;
+        dword_140E2D800 = (i + v8) >> 1;
       }
       _InterlockedDecrement64((volatile signed __int64 *)(56320LL * *((unsigned int *)v9 + 2)
                                                         + *(_QWORD *)(v5 + 16)

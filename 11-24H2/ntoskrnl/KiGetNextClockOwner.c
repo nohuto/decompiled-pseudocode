@@ -1,15 +1,15 @@
 /*
- * XREFs of KiGetNextClockOwner @ 0x1405BA1EC
+ * XREFs of KiGetNextClockOwner @ 0x1405B781C
  * Callers:
- *     KeResumeClockTimerFromIdle @ 0x1405B9944 (KeResumeClockTimerFromIdle.c)
+ *     KeResumeClockTimerFromIdle @ 0x1405B6F84 (KeResumeClockTimerFromIdle.c)
  * Callees:
- *     KiHeteroReduceToMaximallyPreferredByClass @ 0x140202324 (KiHeteroReduceToMaximallyPreferredByClass.c)
- *     KiEnumerateNextSchedulerSubNodeInSystem @ 0x140208D20 (KiEnumerateNextSchedulerSubNodeInSystem.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     KeFindFirstSetRightGroupAffinity @ 0x1403B4C70 (KeFindFirstSetRightGroupAffinity.c)
- *     KeCheckProcessorAffinityEx @ 0x1403C9F30 (KeCheckProcessorAffinityEx.c)
- *     KiInitializeSystemSubNodeEnumerationContext @ 0x140439854 (KiInitializeSystemSubNodeEnumerationContext.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     KiHeteroReduceToMaximallyPreferredByClass @ 0x14032AA14 (KiHeteroReduceToMaximallyPreferredByClass.c)
+ *     KiEnumerateNextSchedulerSubNodeInSystem @ 0x140330300 (KiEnumerateNextSchedulerSubNodeInSystem.c)
+ *     KeFindFirstSetRightGroupAffinity @ 0x140371000 (KeFindFirstSetRightGroupAffinity.c)
+ *     KeCheckProcessorAffinityEx @ 0x1403A4AD0 (KeCheckProcessorAffinityEx.c)
+ *     KiInitializeSystemSubNodeEnumerationContext @ 0x14042C414 (KiInitializeSystemSubNodeEnumerationContext.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 __int64 __fastcall KiGetNextClockOwner(__int64 a1)
@@ -109,7 +109,7 @@ LABEL_18:
   }
   FirstSetRightGroupAffinity = *(_DWORD *)(a1 + 36);
 LABEL_20:
-  if ( (unsigned int)dword_140E070B8 > 5 )
+  if ( (unsigned int)dword_140E07080 > 5 )
   {
     v20 = 0;
     v23 = 0;
@@ -131,7 +131,13 @@ LABEL_20:
     v28 = 2;
     *(_QWORD *)&v13 = v7;
     v31 = 8;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E070B8, (unsigned __int8 *)&word_140047C36, 0LL, 0LL, 7u, &v17);
+    tlgWriteTransfer_EtwWriteTransfer(
+      (__int64)&dword_140E07080,
+      (unsigned __int8 *)&dword_140047C8C,
+      0LL,
+      0LL,
+      7u,
+      &v17);
   }
   return FirstSetRightGroupAffinity;
 }

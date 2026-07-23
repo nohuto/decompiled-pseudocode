@@ -17,8 +17,8 @@ NTSTATUS __stdcall RtlUnicodeStringToOemString(
   unsigned int v6; // eax
   __int64 v7; // rdx
   char *StringRoutine; // rax
-  NTSTATUS v9; // edi
-  int v11; // [rsp+78h] [rbp+20h] BYREF
+  int v9; // edi
+  ULONG BytesInOemString; // [rsp+78h] [rbp+20h] BYREF
 
   v6 = RtlxUnicodeStringToOemSize(SourceString);
   if ( v6 > 0xFFFF )
@@ -39,12 +39,12 @@ NTSTATUS __stdcall RtlUnicodeStringToOemString(
   v9 = RtlUnicodeToOemN(
          DestinationString->Buffer,
          DestinationString->Length,
-         (unsigned int)&v11,
+         &BytesInOemString,
          SourceString->Buffer,
          SourceString->Length);
   if ( v9 >= 0 )
   {
-    DestinationString->Buffer[v11] = 0;
+    DestinationString->Buffer[BytesInOemString] = 0;
     v9 = 0;
   }
   if ( v9 < 0 )

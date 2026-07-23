@@ -6,16 +6,16 @@
  *     RtlAllocateHeap @ 0x18003CB80 (RtlAllocateHeap.c)
  */
 
-__int64 __fastcall RtlpAllocateAtomTableEntry(unsigned int a1, _QWORD *a2)
+_WORD *__fastcall RtlpAllocateAtomTableEntry(unsigned int a1, _QWORD *a2)
 {
-  __int64 result; // rax
+  _WORD *result; // rax
 
-  result = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0LL, a1 + 20LL);
+  result = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, a1 + 20LL);
   if ( !result )
     return 0LL;
   *(_QWORD *)result = 0LL;
-  *(_WORD *)(result + 12) = 1;
-  *(_WORD *)(result + 14) = 0;
-  *a2 = result + 12;
+  result[6] = 1;
+  result[7] = 0;
+  *a2 = result + 6;
   return result;
 }

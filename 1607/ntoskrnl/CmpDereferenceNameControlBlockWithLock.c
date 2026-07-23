@@ -1,15 +1,15 @@
 /*
- * XREFs of CmpDereferenceNameControlBlockWithLock @ 0x140436E10
+ * XREFs of CmpDereferenceNameControlBlockWithLock @ 0x140435CE0
  * Callers:
- *     CmpCloneToUnbackedKcb @ 0x1401B484C (CmpCloneToUnbackedKcb.c)
- *     CmpCreateKeyControlBlock @ 0x140434610 (CmpCreateKeyControlBlock.c)
- *     CmpCleanUpKcbCacheWithLock @ 0x140436D30 (CmpCleanUpKcbCacheWithLock.c)
- *     CmRenameKey @ 0x1405FD4E8 (CmRenameKey.c)
+ *     CmpCloneToUnbackedKcb @ 0x1401B4730 (CmpCloneToUnbackedKcb.c)
+ *     CmpCreateKeyControlBlock @ 0x1404334E0 (CmpCreateKeyControlBlock.c)
+ *     CmpCleanUpKcbCacheWithLock @ 0x140435C00 (CmpCleanUpKcbCacheWithLock.c)
+ *     CmRenameKey @ 0x1405FD59C (CmRenameKey.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     CmpFreeTransientPoolWithTag @ 0x14002D218 (CmpFreeTransientPoolWithTag.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfReleasePushLock @ 0x1400C8620 (ExfReleasePushLock.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     CmpFreeTransientPoolWithTag @ 0x14002CD98 (CmpFreeTransientPoolWithTag.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfReleasePushLock @ 0x1400C64C0 (ExfReleasePushLock.c)
  */
 
 unsigned __int64 __fastcall CmpDereferenceNameControlBlockWithLock(int *P)

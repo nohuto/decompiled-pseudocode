@@ -1,14 +1,14 @@
 /*
- * XREFs of ExpRemoveEntryListAndClear2 @ 0x14041676C
+ * XREFs of ExpRemoveEntryListAndClear2 @ 0x140416B00
  * Callers:
- *     ExDisownFastResource2 @ 0x14041351C (ExDisownFastResource2.c)
- *     ExpConvertFastResourceExclusiveToShared2 @ 0x14041532C (ExpConvertFastResourceExclusiveToShared2.c)
- *     ExpConvertSharedToExclusiveImmediately @ 0x1404154A8 (ExpConvertSharedToExclusiveImmediately.c)
- *     ExpMoveSharedFastResourceOwnershipWithFlags @ 0x140415A7C (ExpMoveSharedFastResourceOwnershipWithFlags.c)
- *     ExpReleaseDisownedFastResourceExclusive2 @ 0x140416018 (ExpReleaseDisownedFastResourceExclusive2.c)
- *     ExpReleaseDisownedFastResourceShared2 @ 0x1404161C8 (ExpReleaseDisownedFastResourceShared2.c)
- *     ExpReleaseFastResourceExclusive2 @ 0x140416368 (ExpReleaseFastResourceExclusive2.c)
- *     ExpReleaseFastResourceShared2 @ 0x14041657C (ExpReleaseFastResourceShared2.c)
+ *     ExDisownFastResource2 @ 0x1404138B0 (ExDisownFastResource2.c)
+ *     ExpConvertFastResourceExclusiveToShared2 @ 0x1404156C0 (ExpConvertFastResourceExclusiveToShared2.c)
+ *     ExpConvertSharedToExclusiveImmediately @ 0x14041583C (ExpConvertSharedToExclusiveImmediately.c)
+ *     ExpMoveSharedFastResourceOwnershipWithFlags @ 0x140415E10 (ExpMoveSharedFastResourceOwnershipWithFlags.c)
+ *     ExpReleaseDisownedFastResourceExclusive2 @ 0x1404163AC (ExpReleaseDisownedFastResourceExclusive2.c)
+ *     ExpReleaseDisownedFastResourceShared2 @ 0x14041655C (ExpReleaseDisownedFastResourceShared2.c)
+ *     ExpReleaseFastResourceExclusive2 @ 0x1404166FC (ExpReleaseFastResourceExclusive2.c)
+ *     ExpReleaseFastResourceShared2 @ 0x140416910 (ExpReleaseFastResourceShared2.c)
  * Callees:
  *     <none>
  */

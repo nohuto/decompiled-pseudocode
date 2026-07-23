@@ -1,11 +1,11 @@
 /*
- * XREFs of MmIssueMemoryListCommand @ 0x14071BED8
+ * XREFs of MmIssueMemoryListCommand @ 0x14071D178
  * Callers:
- *     NtSetSystemInformation @ 0x140663DF0 (NtSetSystemInformation.c)
- *     PfpLogEventRequest @ 0x1406E1A94 (PfpLogEventRequest.c)
+ *     NtSetSystemInformation @ 0x140664FB0 (NtSetSystemInformation.c)
+ *     PfpLogEventRequest @ 0x1406E2D34 (PfpLogEventRequest.c)
  * Callees:
- *     MmPerformMemoryListCommand @ 0x14056EA20 (MmPerformMemoryListCommand.c)
- *     SeSinglePrivilegeCheck @ 0x140612160 (SeSinglePrivilegeCheck.c)
+ *     MmPerformMemoryListCommand @ 0x14056FA20 (MmPerformMemoryListCommand.c)
+ *     SeSinglePrivilegeCheck @ 0x140613160 (SeSinglePrivilegeCheck.c)
  */
 
 __int64 __fastcall MmIssueMemoryListCommand(_DWORD *a1, unsigned int a2, KPROCESSOR_MODE a3)

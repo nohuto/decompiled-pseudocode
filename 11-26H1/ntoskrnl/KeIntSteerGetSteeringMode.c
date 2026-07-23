@@ -1,10 +1,10 @@
 /*
- * XREFs of KeIntSteerGetSteeringMode @ 0x1404251C0
+ * XREFs of KeIntSteerGetSteeringMode @ 0x1404322B0
  * Callers:
- *     KiIntSteerChooseInitialTargetProcessors @ 0x14042508C (KiIntSteerChooseInitialTargetProcessors.c)
- *     ExpQueryInterruptSteeringInformation @ 0x140779EBC (ExpQueryInterruptSteeringInformation.c)
+ *     KiIntSteerChooseInitialTargetProcessors @ 0x14043217C (KiIntSteerChooseInitialTargetProcessors.c)
+ *     ExpQueryInterruptSteeringInformation @ 0x14077CDEC (ExpQueryInterruptSteeringInformation.c)
  * Callees:
- *     HalpInterruptAffinityIsSteerable @ 0x1404259F4 (HalpInterruptAffinityIsSteerable.c)
+ *     HalpInterruptAffinityIsSteerable @ 0x140432AF8 (HalpInterruptAffinityIsSteerable.c)
  */
 
 __int64 __fastcall KeIntSteerGetSteeringMode(char a1, __int64 a2, char a3, int a4, __int64 a5)

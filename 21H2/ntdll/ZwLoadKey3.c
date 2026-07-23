@@ -1,16 +1,24 @@
 /*
- * XREFs of ZwLoadKey3 @ 0x1800A1110
+ * XREFs of ZwLoadKey3 @ 0x1800A10D0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 ZwLoadKey3()
+NTSTATUS __cdecl ZwLoadKey3(
+        POBJECT_ATTRIBUTES TargetKey,
+        POBJECT_ATTRIBUTES SourceFile,
+        ULONG Flags,
+        PCM_EXTENDED_PARAMETER ExtendedParameters,
+        ULONG ExtendedParameterCount,
+        ACCESS_MASK DesiredAccess,
+        PHANDLE RootHandle,
+        PVOID Reserved)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 471LL;
+  result = 471;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

@@ -1,10 +1,10 @@
 /*
- * XREFs of WheapWmiExecuteErrorSourceMethod @ 0x14065EF30
+ * XREFs of WheapWmiExecuteErrorSourceMethod @ 0x14065D700
  * Callers:
- *     WheapWmiExecuteMethod @ 0x14065F348 (WheapWmiExecuteMethod.c)
+ *     WheapWmiExecuteMethod @ 0x14065DB18 (WheapWmiExecuteMethod.c)
  * Callees:
- *     WheapGetErrorSource @ 0x14042E7A8 (WheapGetErrorSource.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     WheapGetErrorSource @ 0x1404204D8 (WheapGetErrorSource.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 __int64 __fastcall WheapWmiExecuteErrorSourceMethod(
@@ -177,7 +177,7 @@ LABEL_28:
     else
     {
       v10 = 0;
-      if ( !dword_140EEED0C )
+      if ( !dword_140EEEF14 )
         goto LABEL_35;
       if ( a4 < 4 )
         goto LABEL_28;
@@ -220,18 +220,18 @@ LABEL_28:
   {
     v11 = 0;
     v10 = 0;
-    if ( !dword_140EEED0C )
+    if ( !dword_140EEEF14 )
       goto LABEL_35;
-    v10 = 972 * dword_140EEED0C + 12;
+    v10 = 972 * dword_140EEEF14 + 12;
     if ( v10 > a2 )
       goto LABEL_37;
     *a3 = 0;
-    v34 = (__int64 *)qword_140EEED18;
+    v34 = (__int64 *)qword_140EEEF20;
     v35 = a3 + 3;
     v36 = 0;
-    for ( i = 0; v34 != &qword_140EEED18; v34 = (__int64 *)*v34 )
+    for ( i = 0; v34 != &qword_140EEEF20; v34 = (__int64 *)*v34 )
     {
-      if ( i >= dword_140EEED0C )
+      if ( i >= dword_140EEEF14 )
         break;
       v38 = v35;
       v39 = v34 + 12;

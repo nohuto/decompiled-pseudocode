@@ -1,12 +1,12 @@
 /*
- * XREFs of MiReturnWsToExpansionList @ 0x14007BEAC
+ * XREFs of MiReturnWsToExpansionList @ 0x14007BF2C
  * Callers:
- *     MiAllowWorkingSetExpansion @ 0x14007BE5C (MiAllowWorkingSetExpansion.c)
- *     MmInSwapProcess @ 0x140091564 (MmInSwapProcess.c)
- *     MiProcessWorkingSets @ 0x1400CD640 (MiProcessWorkingSets.c)
- *     MiEmptyTargetedWorkingSet @ 0x1401E9720 (MiEmptyTargetedWorkingSet.c)
+ *     MiAllowWorkingSetExpansion @ 0x14007BEDC (MiAllowWorkingSetExpansion.c)
+ *     MmInSwapProcess @ 0x140090CC4 (MmInSwapProcess.c)
+ *     MiProcessWorkingSets @ 0x1400CB4E0 (MiProcessWorkingSets.c)
+ *     MiEmptyTargetedWorkingSet @ 0x1401E954C (MiEmptyTargetedWorkingSet.c)
  * Callees:
- *     MiPartitionIdToPointer @ 0x1400680A0 (MiPartitionIdToPointer.c)
+ *     MiPartitionIdToPointer @ 0x140067C20 (MiPartitionIdToPointer.c)
  */
 
 __int64 __fastcall MiReturnWsToExpansionList(__int64 a1)

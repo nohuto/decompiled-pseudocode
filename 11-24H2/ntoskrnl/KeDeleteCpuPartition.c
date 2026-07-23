@@ -1,15 +1,15 @@
 /*
- * XREFs of KeDeleteCpuPartition @ 0x14073C878
+ * XREFs of KeDeleteCpuPartition @ 0x14073A7A8
  * Callers:
- *     PspDeleteCpuPartition @ 0x140776BC0 (PspDeleteCpuPartition.c)
+ *     PspDeleteCpuPartition @ 0x140776DE0 (PspDeleteCpuPartition.c)
  * Callees:
- *     ?KiCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z @ 0x1403B1720 (-KiCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z.c)
- *     KeIsEmptyAffinityEx @ 0x1403B55D0 (KeIsEmptyAffinityEx.c)
- *     KiRundownAvailableCpusWorkItem @ 0x14043A3D8 (KiRundownAvailableCpusWorkItem.c)
- *     KeCpuPartitionMoveCpus @ 0x1405BF6B0 (KeCpuPartitionMoveCpus.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KiRundownAvailableCpusWorkItem @ 0x1402B9C1C (KiRundownAvailableCpusWorkItem.c)
+ *     KeIsEmptyAffinityEx @ 0x140371960 (KeIsEmptyAffinityEx.c)
+ *     ?KiCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z @ 0x14039FF30 (-KiCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z.c)
+ *     KeCpuPartitionMoveCpus @ 0x1405BCCE0 (KeCpuPartitionMoveCpus.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall KeDeleteCpuPartition(__int64 P, __int64 a2)

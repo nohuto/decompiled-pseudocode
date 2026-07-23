@@ -1,26 +1,26 @@
 /*
- * XREFs of ObpProcessRemoveObjectQueue @ 0x140684B90
+ * XREFs of ObpProcessRemoveObjectQueue @ 0x1405E2E40
  * Callers:
  *     <none>
  * Callees:
- *     KeInsertQueueDpc @ 0x14021FD40 (KeInsertQueueDpc.c)
- *     KiQueryUnbiasedInterruptTime @ 0x1402546F4 (KiQueryUnbiasedInterruptTime.c)
- *     KeInitializeDpc @ 0x14027B6B0 (KeInitializeDpc.c)
- *     MmDetachSession @ 0x140298F40 (MmDetachSession.c)
- *     MmAttachSession @ 0x140298FE0 (MmAttachSession.c)
- *     OBJECT_HEADER_TO_HANDLE_REVOCATION_INFO @ 0x14029C5BC (OBJECT_HEADER_TO_HANDLE_REVOCATION_INFO.c)
- *     MmGetNextSession @ 0x1402D5F90 (MmGetNextSession.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     ExfUnblockPushLock @ 0x1403F9560 (ExfUnblockPushLock.c)
- *     ObpHandleRevocationBlockRemoveObject @ 0x140684EE0 (ObpHandleRevocationBlockRemoveObject.c)
- *     MmQuitNextSession @ 0x1406C3770 (MmQuitNextSession.c)
- *     ObpRemoveObjectRoutine @ 0x1406F0440 (ObpRemoveObjectRoutine.c)
- *     ObpDeregisterObject @ 0x1408DE37C (ObpDeregisterObject.c)
+ *     OBJECT_HEADER_TO_HANDLE_REVOCATION_INFO @ 0x14021471C (OBJECT_HEADER_TO_HANDLE_REVOCATION_INFO.c)
+ *     MmDetachSession @ 0x140215920 (MmDetachSession.c)
+ *     MmAttachSession @ 0x1402159C0 (MmAttachSession.c)
+ *     KeInitializeDpc @ 0x140269650 (KeInitializeDpc.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x140275C64 (KiQueryUnbiasedInterruptTime.c)
+ *     MmGetNextSession @ 0x1402872E0 (MmGetNextSession.c)
+ *     KeInsertQueueDpc @ 0x1402C4640 (KeInsertQueueDpc.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     ExfUnblockPushLock @ 0x1403F96E0 (ExfUnblockPushLock.c)
+ *     ObpHandleRevocationBlockRemoveObject @ 0x1405E3190 (ObpHandleRevocationBlockRemoveObject.c)
+ *     MmQuitNextSession @ 0x140622350 (MmQuitNextSession.c)
+ *     ObpRemoveObjectRoutine @ 0x140707820 (ObpRemoveObjectRoutine.c)
+ *     ObpDeregisterObject @ 0x1408DE4DC (ObpDeregisterObject.c)
  */
 
 int ObpProcessRemoveObjectQueue()
 {
-  _KPROCESS *NextSession; // rax
+  ULONG_PTR NextSession; // rax
   __int64 v1; // rbx
   int v2; // r8d
   __int128 **v3; // r11
@@ -60,11 +60,11 @@ int ObpProcessRemoveObjectQueue()
   {
     v22 = &xmmword_140CFCC20;
     v23 = &xmmword_140CFCA60;
-    NextSession = (_KPROCESS *)MmGetNextSession(0LL);
-    v1 = (__int64)NextSession;
+    NextSession = MmGetNextSession(0LL);
+    v1 = NextSession;
     if ( NextSession )
     {
-      if ( (int)MmAttachSession(NextSession, (__int64)v24) >= 0 )
+      if ( (int)MmAttachSession(NextSession) >= 0 )
       {
         if ( !qword_140C13328 )
           qword_140C13328 = (unsigned int)KiTableInformation;

@@ -13,23 +13,23 @@
 NTSTATUS __fastcall AVrfpAppendCurrentUserSid(unsigned __int16 *a1)
 {
   NTSTATUS result; // eax
-  int v3; // edi
+  NTSTATUS v3; // edi
   unsigned __int64 v4; // rcx
   __int64 v5; // rax
   unsigned __int16 v6; // cx
-  int v7; // [rsp+38h] [rbp-39h] BYREF
-  HANDLE Handle; // [rsp+40h] [rbp-31h] BYREF
-  UNICODE_STRING UnicodeString; // [rsp+48h] [rbp-29h] BYREF
-  PSID Sid[12]; // [rsp+58h] [rbp-19h] BYREF
+  ULONG ReturnLength; // [rsp+38h] [rbp-39h] BYREF
+  HANDLE TokenHandle; // [rsp+40h] [rbp-31h] BYREF
+  _UNICODE_STRING UnicodeString; // [rsp+48h] [rbp-29h] BYREF
+  PSID TokenInformation[12]; // [rsp+58h] [rbp-19h] BYREF
 
-  Handle = 0LL;
-  v7 = 0;
+  TokenHandle = 0LL;
+  ReturnLength = 0;
   *(_DWORD *)(&UnicodeString.MaximumLength + 1) = 0;
-  result = NtOpenProcessTokenEx(-1LL, 8LL, 512LL, &Handle);
+  result = NtOpenProcessTokenEx((HANDLE)0xFFFFFFFFFFFFFFFFLL, 8u, 0x200u, &TokenHandle);
   if ( result >= 0 )
   {
-    v3 = NtQueryInformationToken(Handle, 1LL, Sid, 88LL, &v7);
-    NtClose(Handle);
+    v3 = NtQueryInformationToken(TokenHandle, 1u, TokenInformation, 0x58u, &ReturnLength);
+    NtClose(TokenHandle);
     if ( v3 < 0 )
     {
       return v3;
@@ -41,7 +41,7 @@ NTSTATUS __fastcall AVrfpAppendCurrentUserSid(unsigned __int16 *a1)
       v5 = *((_QWORD *)a1 + 1);
       UnicodeString.Length = 0;
       UnicodeString.Buffer = (wchar_t *)(v5 + 2 * (v4 >> 1));
-      result = RtlConvertSidToUnicodeString(&UnicodeString, Sid[0], 0);
+      result = RtlConvertSidToUnicodeString(&UnicodeString, TokenInformation[0], 0);
       if ( result >= 0 )
       {
         v6 = UnicodeString.Length + *a1;

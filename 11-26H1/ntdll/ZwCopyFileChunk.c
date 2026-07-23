@@ -1,16 +1,26 @@
 /*
- * XREFs of ZwCopyFileChunk @ 0x180160410
+ * XREFs of ZwCopyFileChunk @ 0x180160310
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 ZwCopyFileChunk()
+NTSTATUS __cdecl ZwCopyFileChunk(
+        HANDLE SourceHandle,
+        HANDLE DestinationHandle,
+        HANDLE EventHandle,
+        PIO_STATUS_BLOCK IoStatusBlock,
+        ULONG Length,
+        PLARGE_INTEGER SourceOffset,
+        PLARGE_INTEGER DestOffset,
+        PULONG SourceKey,
+        PULONG DestKey,
+        ULONG Flags)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 167LL;
+  result = 167;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

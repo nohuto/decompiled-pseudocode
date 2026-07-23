@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpCleanupLightWeightPrepare @ 0x140A1C2F4
+ * XREFs of CmpCleanupLightWeightPrepare @ 0x140A1C5A4
  * Callers:
- *     CmpCommitLightWeightTransaction @ 0x140A1C46C (CmpCommitLightWeightTransaction.c)
- *     CmpPrepareLightWeightTransaction @ 0x140A1C754 (CmpPrepareLightWeightTransaction.c)
+ *     CmpCommitLightWeightTransaction @ 0x140A1C71C (CmpCommitLightWeightTransaction.c)
+ *     CmpPrepareLightWeightTransaction @ 0x140A1CA04 (CmpPrepareLightWeightTransaction.c)
  * Callees:
- *     CmpCleanupLightWeightUoWData @ 0x140A1C344 (CmpCleanupLightWeightUoWData.c)
+ *     CmpCleanupLightWeightUoWData @ 0x140A1C5F4 (CmpCleanupLightWeightUoWData.c)
  *     CmListGetNextElement @ 0x140AF56A8 (CmListGetNextElement.c)
  */
 

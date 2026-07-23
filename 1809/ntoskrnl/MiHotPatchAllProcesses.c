@@ -1,16 +1,16 @@
 /*
- * XREFs of MiHotPatchAllProcesses @ 0x140855288
+ * XREFs of MiHotPatchAllProcesses @ 0x1408564E8
  * Callers:
- *     MiLoadHotPatch @ 0x1408559D8 (MiLoadHotPatch.c)
- *     MiLoadHotPatchForUserSid @ 0x140855C38 (MiLoadHotPatchForUserSid.c)
- *     MiUnloadHotPatch @ 0x1408581F8 (MiUnloadHotPatch.c)
- *     MiUnloadHotPatchForUserSid @ 0x1408582B0 (MiUnloadHotPatchForUserSid.c)
+ *     MiLoadHotPatch @ 0x140856C38 (MiLoadHotPatch.c)
+ *     MiLoadHotPatchForUserSid @ 0x140856E98 (MiLoadHotPatchForUserSid.c)
+ *     MiUnloadHotPatch @ 0x140859458 (MiUnloadHotPatch.c)
+ *     MiUnloadHotPatchForUserSid @ 0x140859510 (MiUnloadHotPatchForUserSid.c)
  * Callees:
  *     KiStackAttachProcess @ 0x140016DB0 (KiStackAttachProcess.c)
  *     KiUnstackDetachProcess @ 0x140017190 (KiUnstackDetachProcess.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     PsGetNextProcess @ 0x1405B21E0 (PsGetNextProcess.c)
- *     MiHotPatchProcess @ 0x140855604 (MiHotPatchProcess.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     PsGetNextProcess @ 0x1405B31E0 (PsGetNextProcess.c)
+ *     MiHotPatchProcess @ 0x140856864 (MiHotPatchProcess.c)
  */
 
 __int64 __fastcall MiHotPatchAllProcesses(unsigned int a1, unsigned int a2)

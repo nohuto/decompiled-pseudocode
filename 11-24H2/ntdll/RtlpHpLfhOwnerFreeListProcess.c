@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpHpLfhOwnerFreeListProcess @ 0x18004E2B0
+ * XREFs of RtlpHpLfhOwnerFreeListProcess @ 0x180063E90
  * Callers:
- *     RtlpHpLfhContextSlotStandbyProcess @ 0x18004B3D8 (RtlpHpLfhContextSlotStandbyProcess.c)
+ *     RtlpHpLfhContextSlotStandbyProcess @ 0x180060FB8 (RtlpHpLfhContextSlotStandbyProcess.c)
  * Callees:
- *     RtlpHpLfhSubsegmentDelayFreeProcess @ 0x18004D160 (RtlpHpLfhSubsegmentDelayFreeProcess.c)
- *     RtlpHpLfhOwnerMoveSubsegment @ 0x18004E450 (RtlpHpLfhOwnerMoveSubsegment.c)
+ *     RtlpHpLfhSubsegmentDelayFreeProcess @ 0x180062D40 (RtlpHpLfhSubsegmentDelayFreeProcess.c)
+ *     RtlpHpLfhOwnerMoveSubsegment @ 0x180064030 (RtlpHpLfhOwnerMoveSubsegment.c)
  */
 
 void __fastcall RtlpHpLfhOwnerFreeListProcess(__int64 *a1, __int64 a2, unsigned __int64 *a3, char a4)

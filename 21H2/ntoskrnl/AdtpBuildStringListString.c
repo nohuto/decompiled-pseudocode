@@ -1,11 +1,11 @@
 /*
- * XREFs of AdtpBuildStringListString @ 0x14096DE48
+ * XREFs of AdtpBuildStringListString @ 0x14096E028
  * Callers:
- *     AdtpPackageParameters @ 0x1403C06B4 (AdtpPackageParameters.c)
+ *     AdtpPackageParameters @ 0x1403C0AE4 (AdtpPackageParameters.c)
  * Callees:
- *     RtlAppendUnicodeToString @ 0x140265A40 (RtlAppendUnicodeToString.c)
- *     RtlAppendUnicodeStringToString @ 0x14027F0B0 (RtlAppendUnicodeStringToString.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     RtlAppendUnicodeToString @ 0x1402539E0 (RtlAppendUnicodeToString.c)
+ *     RtlAppendUnicodeStringToString @ 0x14026D4E0 (RtlAppendUnicodeStringToString.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall AdtpBuildStringListString(

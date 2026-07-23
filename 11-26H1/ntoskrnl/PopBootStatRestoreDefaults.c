@@ -1,24 +1,24 @@
 /*
- * XREFs of PopBootStatRestoreDefaults @ 0x140B516E4
+ * XREFs of PopBootStatRestoreDefaults @ 0x140B53F84
  * Callers:
- *     PopPowerInformationInternal @ 0x140B6F6FC (PopPowerInformationInternal.c)
+ *     PopPowerInformationInternal @ 0x140B73EF0 (PopPowerInformationInternal.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     RtlpAcquireBootStatusLock @ 0x1404E3E70 (RtlpAcquireBootStatusLock.c)
- *     RtlpReleaseBootStatusLock @ 0x1404EF738 (RtlpReleaseBootStatusLock.c)
- *     RtlInitializeBootStatDataCache @ 0x140619DE4 (RtlInitializeBootStatDataCache.c)
- *     RtlpGetBootStatusPath @ 0x140619F0C (RtlpGetBootStatusPath.c)
- *     ZwOpenFile @ 0x140723A50 (ZwOpenFile.c)
- *     RtlRestoreBootStatusDefaults @ 0x140805A88 (RtlRestoreBootStatusDefaults.c)
- *     RtlUnlockBootStatusData @ 0x140ACBD70 (RtlUnlockBootStatusData.c)
- *     PopBootStatAccessCheck @ 0x140B50828 (PopBootStatAccessCheck.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     RtlpAcquireBootStatusLock @ 0x1404DD410 (RtlpAcquireBootStatusLock.c)
+ *     RtlpReleaseBootStatusLock @ 0x1404E8D18 (RtlpReleaseBootStatusLock.c)
+ *     RtlInitializeBootStatDataCache @ 0x14061CE34 (RtlInitializeBootStatDataCache.c)
+ *     RtlpGetBootStatusPath @ 0x14061CF5C (RtlpGetBootStatusPath.c)
+ *     ZwOpenFile @ 0x140728620 (ZwOpenFile.c)
+ *     RtlRestoreBootStatusDefaults @ 0x14080B528 (RtlRestoreBootStatusDefaults.c)
+ *     RtlUnlockBootStatusData @ 0x140ACDFB0 (RtlUnlockBootStatusData.c)
+ *     PopBootStatAccessCheck @ 0x140B530B8 (PopBootStatAccessCheck.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PopBootStatRestoreDefaults(__int64 a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
@@ -34,29 +34,26 @@ __int64 __fastcall PopBootStatRestoreDefaults(__int64 a1, __int64 a2, __int64 a3
   AutoBoost *v12; // rdi
   WCHAR *v13; // r14
   int v14; // esi
-  void *CycleTime; // rdi
-  __int64 v16; // rdx
-  __int64 v17; // r8
-  struct _KLOCK_ENTRIES *v18; // r9
+  HANDLE v15; // rdi
   UNICODE_STRING DestinationString; // [rsp+30h] [rbp-50h] BYREF
   struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+40h] [rbp-40h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+50h] [rbp-30h] BYREF
-  __int64 v23; // [rsp+C0h] [rbp+40h] BYREF
+  __int64 v20; // [rsp+C0h] [rbp+40h] BYREF
   HANDLE FileHandle; // [rsp+C8h] [rbp+48h] BYREF
   PCWSTR SourceString; // [rsp+D0h] [rbp+50h] BYREF
 
-  v23 = a1;
+  v20 = a1;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  v6 = (AutoBoost *)KeAbPreAcquire((__int64)&PopModernStandbyStateNotify.AbWaitObject, 0LL, 0LL, a4);
-  v11 = _interlockedbittestandset64((volatile signed __int32 *)&PopModernStandbyStateNotify.AbWaitObject, 0LL);
+  v6 = (AutoBoost *)KeAbPreAcquire((__int64)&PopPdcDeviceListLock.ApcState.ApcListHead[0].Blink, 0LL, 0LL, a4);
+  v11 = _interlockedbittestandset64((volatile signed __int32 *)&PopPdcDeviceListLock.ApcStateFill[8], 0LL);
   v12 = v6;
   if ( v11 )
     ExfAcquirePushLockExclusiveEx(
-      (unsigned __int64 *)&PopModernStandbyStateNotify.AbWaitObject,
+      (unsigned __int64 *)&PopPdcDeviceListLock.ApcState.ApcListHead[0].Blink,
       v6,
-      (__int64)&PopModernStandbyStateNotify.AbWaitObject);
+      (__int64)&PopPdcDeviceListLock.ApcState.ApcListHead[0].Blink);
   if ( v12 )
   {
     if ( (KiAbpGlobalState & 1) != 0 )
@@ -70,17 +67,17 @@ __int64 __fastcall PopBootStatRestoreDefaults(__int64 a1, __int64 a2, __int64 a3
   v14 = 0;
   SourceString = 0LL;
   DestinationString = 0LL;
-  LOBYTE(v23) = 0;
+  LOBYTE(v20) = 0;
   IoStatusBlock = 0LL;
   RtlpAcquireBootStatusLock(v8, (__int64)v7, v9, v10);
-  ++HIDWORD(NormalizationListLock.StateSaveArea);
-  if ( LOBYTE(NormalizationListLock.CurrentRunTime) )
+  ++HIDWORD(NormalizationListLock.SchedulingGroup);
+  if ( BYTE4(NormalizationListLock.CycleTime) )
   {
-    CycleTime = (void *)NormalizationListLock.CycleTime;
+    v15 = *(HANDLE *)&NormalizationListLock.CurrentRunTime;
   }
   else
   {
-    RtlpGetBootStatusPath(&SourceString, (char *)&v23);
+    RtlpGetBootStatusPath(&SourceString, (char *)&v20);
     v13 = (WCHAR *)SourceString;
     RtlInitUnicodeString(&DestinationString, SourceString);
     ObjectAttributes.ObjectName = &DestinationString;
@@ -91,34 +88,34 @@ __int64 __fastcall PopBootStatRestoreDefaults(__int64 a1, __int64 a2, __int64 a3
     v14 = ZwOpenFile(&FileHandle, 0x12019Fu, &ObjectAttributes, &IoStatusBlock, 1u, 0x20u);
     if ( v14 < 0 )
     {
-      NormalizationListLock.CycleTime = 0LL;
-      CycleTime = 0LL;
-      LOBYTE(NormalizationListLock.CurrentRunTime) = 0;
-      HIDWORD(NormalizationListLock.StateSaveArea) = 0;
+      *(_QWORD *)&NormalizationListLock.CurrentRunTime = 0LL;
+      v15 = 0LL;
+      BYTE4(NormalizationListLock.CycleTime) = 0;
+      HIDWORD(NormalizationListLock.SchedulingGroup) = 0;
     }
     else
     {
-      NormalizationListLock.CycleTime = (volatile unsigned __int64)FileHandle;
-      LOBYTE(NormalizationListLock.CurrentRunTime) = 1;
+      *(_QWORD *)&NormalizationListLock.CurrentRunTime = FileHandle;
+      BYTE4(NormalizationListLock.CycleTime) = 1;
       RtlInitializeBootStatDataCache();
-      CycleTime = FileHandle;
+      v15 = FileHandle;
     }
   }
   RtlpReleaseBootStatusLock();
-  if ( (_BYTE)v23 )
+  if ( (_BYTE)v20 )
     ExFreePoolWithTag(v13, 0);
   if ( v14 >= 0 )
   {
-    if ( !PreviousMode || (v14 = PopBootStatAccessCheck(CycleTime, PreviousMode, 1u), v14 >= 0) )
-      v14 = RtlRestoreBootStatusDefaults(CycleTime);
+    if ( !PreviousMode || (v14 = PopBootStatAccessCheck(v15, PreviousMode, 1u), v14 >= 0) )
+      v14 = RtlRestoreBootStatusDefaults(v15);
   }
-  if ( CycleTime )
-    RtlUnlockBootStatusData((__int64)CycleTime, v16, v17, v18);
+  if ( v15 )
+    RtlUnlockBootStatusData(v15);
   if ( (_InterlockedExchangeAdd64(
-          (volatile signed __int64 *)&PopModernStandbyStateNotify.AbWaitObject,
+          (volatile signed __int64 *)&PopPdcDeviceListLock.ApcState.ApcListHead[0].Blink,
           0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock((volatile signed __int64 *)&PopModernStandbyStateNotify.AbWaitObject);
-  KeAbPostRelease((unsigned __int64)&PopModernStandbyStateNotify.AbWaitObject);
+    ExfTryToWakePushLock((volatile signed __int64 *)&PopPdcDeviceListLock.ApcState.ApcListHead[0].Blink);
+  KeAbPostRelease((unsigned __int64)&PopPdcDeviceListLock.ApcState.ApcListHead[0].Blink);
   KeLeaveCriticalRegion();
   return (unsigned int)v14;
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of IvtGetBlockedDomain @ 0x14052C9B8
+ * XREFs of IvtGetBlockedDomain @ 0x14052CF08
  * Callers:
- *     IvtUpdateContextEntry @ 0x14052D984 (IvtUpdateContextEntry.c)
- *     IvtUpdateScalableModeTranslationStructures @ 0x14052DF0C (IvtUpdateScalableModeTranslationStructures.c)
+ *     IvtUpdateContextEntry @ 0x14052DED4 (IvtUpdateContextEntry.c)
+ *     IvtUpdateScalableModeTranslationStructures @ 0x14052E45C (IvtUpdateScalableModeTranslationStructures.c)
  *     IvtInitializeIommu @ 0x140A89E10 (IvtInitializeIommu.c)
  * Callees:
- *     HalpIvtFindReservedDomain @ 0x140534B58 (HalpIvtFindReservedDomain.c)
+ *     HalpIvtFindReservedDomain @ 0x1405350A8 (HalpIvtFindReservedDomain.c)
  */
 
 __int64 __fastcall IvtGetBlockedDomain(__int64 a1, unsigned int *a2, unsigned __int64 *a3)

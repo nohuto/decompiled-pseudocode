@@ -1,18 +1,18 @@
 /*
- * XREFs of ?SmStStart@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_SMST_PARAMETERS@@@Z @ 0x140343348
+ * XREFs of ?SmStStart@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_SMST_PARAMETERS@@@Z @ 0x1403435D8
  * Callers:
- *     SmProcessCreateRequest @ 0x1407B767C (SmProcessCreateRequest.c)
+ *     SmProcessCreateRequest @ 0x1407B795C (SmProcessCreateRequest.c)
  * Callees:
- *     ?SmStWorkerThreadStartThread@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAXP6AX1@ZPEAPEAU_ETHREAD@@@Z @ 0x1403437B0 (-SmStWorkerThreadStartThread@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAXP6AX1@ZPEAPEAU_ETHREAD@@@Z.c)
- *     SmKmStoreHelperStart @ 0x1403438AC (SmKmStoreHelperStart.c)
- *     SmAcquireReleaseCharges @ 0x1403439FC (SmAcquireReleaseCharges.c)
- *     ?StStart@?$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_CREATE_PARAMS@@@Z @ 0x140343AE0 (-StStart@-$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_CREATE_PARAMS@@@Z.c)
- *     SmFpCleanup @ 0x140344318 (SmFpCleanup.c)
- *     SmFpPreAllocate @ 0x1403A6C04 (SmFpPreAllocate.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     SmKmFileInfoDuplicate @ 0x1409D8A24 (SmKmFileInfoDuplicate.c)
- *     SmKmFileInfoInit @ 0x1409D8C84 (SmKmFileInfoInit.c)
+ *     ?SmStWorkerThreadStartThread@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAXP6AX1@ZPEAPEAU_ETHREAD@@@Z @ 0x140343A40 (-SmStWorkerThreadStartThread@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAXP6AX1@ZPEAPEAU_ETHREAD@@@Z.c)
+ *     SmKmStoreHelperStart @ 0x140343B3C (SmKmStoreHelperStart.c)
+ *     SmAcquireReleaseCharges @ 0x140343C8C (SmAcquireReleaseCharges.c)
+ *     ?StStart@?$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_CREATE_PARAMS@@@Z @ 0x140343D70 (-StStart@-$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_CREATE_PARAMS@@@Z.c)
+ *     SmFpCleanup @ 0x1403445A8 (SmFpCleanup.c)
+ *     SmFpPreAllocate @ 0x1403A6DE4 (SmFpPreAllocate.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     SmKmFileInfoDuplicate @ 0x1409D8C24 (SmKmFileInfoDuplicate.c)
+ *     SmKmFileInfoInit @ 0x1409D8E84 (SmKmFileInfoInit.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 

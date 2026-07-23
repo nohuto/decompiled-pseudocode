@@ -1,13 +1,13 @@
 /*
- * XREFs of HvpGenerateLogEntryChecksums @ 0x140705678
+ * XREFs of HvpGenerateLogEntryChecksums @ 0x140705888
  * Callers:
- *     HvpGenerateLogEntry @ 0x140705758 (HvpGenerateLogEntry.c)
+ *     HvpGenerateLogEntry @ 0x140705968 (HvpGenerateLogEntry.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     SymCryptMarvin32 @ 0x1403F5F08 (SymCryptMarvin32.c)
- *     SymCryptMarvin32Append @ 0x1403F60AC (SymCryptMarvin32Append.c)
- *     SymCryptMarvin32Init @ 0x1403F625C (SymCryptMarvin32Init.c)
- *     SymCryptMarvin32Result @ 0x1403F6278 (SymCryptMarvin32Result.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     SymCryptMarvin32 @ 0x1403F60E8 (SymCryptMarvin32.c)
+ *     SymCryptMarvin32Append @ 0x1403F628C (SymCryptMarvin32Append.c)
+ *     SymCryptMarvin32Init @ 0x1403F643C (SymCryptMarvin32Init.c)
+ *     SymCryptMarvin32Result @ 0x1403F6458 (SymCryptMarvin32Result.c)
  */
 
 __int64 __fastcall HvpGenerateLogEntryChecksums(__int64 a1, unsigned int a2, char a3)

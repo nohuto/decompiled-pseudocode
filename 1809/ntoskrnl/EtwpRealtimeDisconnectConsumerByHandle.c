@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpRealtimeDisconnectConsumerByHandle @ 0x1406C2A80
+ * XREFs of EtwpRealtimeDisconnectConsumerByHandle @ 0x1406C3D20
  * Callers:
- *     NtTraceControl @ 0x1405C2F40 (NtTraceControl.c)
+ *     NtTraceControl @ 0x1405C3F40 (NtTraceControl.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
- *     EtwpRealtimeDisconnectConsumer @ 0x1406C2F04 (EtwpRealtimeDisconnectConsumer.c)
+ *     ObReferenceObjectByHandle @ 0x1405E9350 (ObReferenceObjectByHandle.c)
+ *     EtwpRealtimeDisconnectConsumer @ 0x1406C41A4 (EtwpRealtimeDisconnectConsumer.c)
  */
 
 __int64 __fastcall EtwpRealtimeDisconnectConsumerByHandle(void *a1)

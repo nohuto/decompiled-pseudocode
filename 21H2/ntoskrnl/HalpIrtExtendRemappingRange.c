@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpIrtExtendRemappingRange @ 0x140865D28
+ * XREFs of HalpIrtExtendRemappingRange @ 0x140865E88
  * Callers:
- *     HalpInitializeInterruptRemappingBspLate @ 0x140865730 (HalpInitializeInterruptRemappingBspLate.c)
- *     HalpIrtAllocateIndex @ 0x140865984 (HalpIrtAllocateIndex.c)
+ *     HalpInitializeInterruptRemappingBspLate @ 0x140865890 (HalpInitializeInterruptRemappingBspLate.c)
+ *     HalpIrtAllocateIndex @ 0x140865AE4 (HalpIrtAllocateIndex.c)
  * Callees:
- *     KeReleaseGuardedMutex @ 0x140265CD0 (KeReleaseGuardedMutex.c)
- *     ExAcquireFastMutex @ 0x14034A080 (ExAcquireFastMutex.c)
- *     RtlClearAllBits @ 0x140362270 (RtlClearAllBits.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     KeReleaseGuardedMutex @ 0x140253C70 (KeReleaseGuardedMutex.c)
+ *     RtlClearAllBits @ 0x1402F70D0 (RtlClearAllBits.c)
+ *     ExAcquireFastMutex @ 0x140354DD0 (ExAcquireFastMutex.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall HalpIrtExtendRemappingRange(unsigned int a1)
@@ -17,7 +17,7 @@ __int64 __fastcall HalpIrtExtendRemappingRange(unsigned int a1)
   __int64 v2; // rdi
   char v3; // si
   unsigned int *PoolWithTag; // rbp
-  RTL_BITMAP BitMapHeader; // [rsp+20h] [rbp-18h] BYREF
+  _RTL_BITMAP BitMapHeader; // [rsp+20h] [rbp-18h] BYREF
 
   v1 = 0;
   v2 = a1;

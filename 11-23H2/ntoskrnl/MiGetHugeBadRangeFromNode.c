@@ -1,13 +1,13 @@
 /*
- * XREFs of MiGetHugeBadRangeFromNode @ 0x14061FC40
+ * XREFs of MiGetHugeBadRangeFromNode @ 0x140620190
  * Callers:
- *     MiAllocatePartitionPhysicalPages @ 0x140A4431C (MiAllocatePartitionPhysicalPages.c)
+ *     MiAllocatePartitionPhysicalPages @ 0x140A445CC (MiAllocatePartitionPhysicalPages.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiLockHugePfnInternal @ 0x140621468 (MiLockHugePfnInternal.c)
- *     MiUnlinkHugeRange @ 0x140622ABC (MiUnlinkHugeRange.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     MiLockHugePfnInternal @ 0x1406219B8 (MiLockHugePfnInternal.c)
+ *     MiUnlinkHugeRange @ 0x14062300C (MiUnlinkHugeRange.c)
  */
 
 unsigned __int64 __fastcall MiGetHugeBadRangeFromNode(__int64 a1, unsigned int a2)
@@ -51,10 +51,13 @@ unsigned __int64 __fastcall MiGetHugeBadRangeFromNode(__int64 a1, unsigned int a
         goto LABEL_15;
       }
       ExReleaseSpinLockExclusiveFromDpcLevel(v5);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v7 <= 0xFu && CurrentIrql >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+          && CurrentIrql <= 0xFu
+          && (unsigned __int8)v7 <= 0xFu
+          && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -69,10 +72,10 @@ unsigned __int64 __fastcall MiGetHugeBadRangeFromNode(__int64 a1, unsigned int a
     }
     ExReleaseSpinLockExclusiveFromDpcLevel(v5);
 LABEL_15:
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v14 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v14 <= 0xFu && (unsigned __int8)v7 <= 0xFu && v14 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v14 <= 0xFu && (unsigned __int8)v7 <= 0xFu && v14 >= 2u )
       {
         v15 = KeGetCurrentPrcb();
         v16 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v7 + 1));

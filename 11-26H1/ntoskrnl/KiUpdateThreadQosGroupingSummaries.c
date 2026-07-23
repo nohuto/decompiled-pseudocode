@@ -1,19 +1,19 @@
 /*
- * XREFs of KiUpdateThreadQosGroupingSummaries @ 0x14037EEC0
+ * XREFs of KiUpdateThreadQosGroupingSummaries @ 0x140380C70
  * Callers:
- *     KiUpdateProcessThreadQos @ 0x1402040A4 (KiUpdateProcessThreadQos.c)
- *     KiUpdateThreadSchedulingProperties @ 0x14020425C (KiUpdateThreadSchedulingProperties.c)
- *     ?KiCommitRescheduleContextEntry@@YAEPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KPRCB@@KPEAU_SINGLE_LIST_ENTRY@@@Z @ 0x14023F140 (-KiCommitRescheduleContextEntry@@YAEPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KPRCB@@KPEAU_SINGLE_L.c)
- *     KeSetThreadPpmPolicy @ 0x1402C4470 (KeSetThreadPpmPolicy.c)
- *     KeUpdateThreadTag @ 0x1402C4800 (KeUpdateThreadTag.c)
- *     KiQuantumEnd @ 0x140331070 (KiQuantumEnd.c)
- *     PspUpdateContainerImpersonation @ 0x14037E0F0 (PspUpdateContainerImpersonation.c)
- *     KiUpdateThreadPriority @ 0x14037EAA0 (KiUpdateThreadPriority.c)
- *     KiSetPriorityThread @ 0x14037F250 (KiSetPriorityThread.c)
- *     KeSetThreadSchedulerAssist @ 0x1403BFAB8 (KeSetThreadSchedulerAssist.c)
- *     KiUpdateVpBackingThreadPriorityFromTopLevel @ 0x1403BFE80 (KiUpdateVpBackingThreadPriorityFromTopLevel.c)
- *     KiUpdateVPBackingThreadPriority @ 0x1403C0220 (KiUpdateVPBackingThreadPriority.c)
- *     KiCompleteKernelInit @ 0x140BF36A8 (KiCompleteKernelInit.c)
+ *     KiUpdateProcessThreadQos @ 0x140204184 (KiUpdateProcessThreadQos.c)
+ *     KiUpdateThreadSchedulingProperties @ 0x14020433C (KiUpdateThreadSchedulingProperties.c)
+ *     ?KiCommitRescheduleContextEntry@@YAEPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KPRCB@@KPEAU_SINGLE_LIST_ENTRY@@@Z @ 0x140240AA0 (-KiCommitRescheduleContextEntry@@YAEPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KPRCB@@KPEAU_SINGLE_L.c)
+ *     KeSetThreadPpmPolicy @ 0x14030F130 (KeSetThreadPpmPolicy.c)
+ *     KeUpdateThreadTag @ 0x14030F4C0 (KeUpdateThreadTag.c)
+ *     KiQuantumEnd @ 0x1403330A0 (KiQuantumEnd.c)
+ *     PspUpdateContainerImpersonation @ 0x14037FEA0 (PspUpdateContainerImpersonation.c)
+ *     KiUpdateThreadPriority @ 0x140380850 (KiUpdateThreadPriority.c)
+ *     KiSetPriorityThread @ 0x140381000 (KiSetPriorityThread.c)
+ *     KeSetThreadSchedulerAssist @ 0x1403C99B8 (KeSetThreadSchedulerAssist.c)
+ *     KiUpdateVpBackingThreadPriorityFromTopLevel @ 0x1403C9D80 (KiUpdateVpBackingThreadPriorityFromTopLevel.c)
+ *     KiUpdateVPBackingThreadPriority @ 0x1403CA120 (KiUpdateVPBackingThreadPriority.c)
+ *     KiCompleteKernelInit @ 0x140BF96A8 (KiCompleteKernelInit.c)
  * Callees:
  *     <none>
  */

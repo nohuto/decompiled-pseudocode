@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlSelfRelativeToAbsoluteSD @ 0x140871E40
+ * XREFs of RtlSelfRelativeToAbsoluteSD @ 0x140872080
  * Callers:
  *     <none>
  * Callees:
- *     memmove @ 0x140435700 (memmove.c)
+ *     memmove @ 0x140435B00 (memmove.c)
  *     RtlpQuerySecurityDescriptor @ 0x14069BEF4 (RtlpQuerySecurityDescriptor.c)
  */
 

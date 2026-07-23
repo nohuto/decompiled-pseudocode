@@ -1,14 +1,14 @@
 /*
- * XREFs of AslPathToNetworkPathNt @ 0x140809E14
+ * XREFs of AslPathToNetworkPathNt @ 0x14080A554
  * Callers:
- *     SdbpResolveMatchingFile @ 0x140805590 (SdbpResolveMatchingFile.c)
+ *     SdbpResolveMatchingFile @ 0x140805CD0 (SdbpResolveMatchingFile.c)
  * Callees:
- *     wcscat_s @ 0x140504740 (wcscat_s.c)
- *     wcscpy_s @ 0x1405047E0 (wcscpy_s.c)
- *     AslpDetermineDosPathNameType @ 0x14080B024 (AslpDetermineDosPathNameType.c)
- *     AslFree @ 0x14095CD24 (AslFree.c)
- *     AslAlloc @ 0x14095D3E4 (AslAlloc.c)
- *     AslLogCallPrintf @ 0x1409601DC (AslLogCallPrintf.c)
+ *     wcscat_s @ 0x140502000 (wcscat_s.c)
+ *     wcscpy_s @ 0x1405020A0 (wcscpy_s.c)
+ *     AslpDetermineDosPathNameType @ 0x14080B764 (AslpDetermineDosPathNameType.c)
+ *     AslFree @ 0x1409447E4 (AslFree.c)
+ *     AslAlloc @ 0x140944EA4 (AslAlloc.c)
+ *     AslLogCallPrintf @ 0x140947C9C (AslLogCallPrintf.c)
  */
 
 __int64 __fastcall AslPathToNetworkPathNt(wchar_t **a1, __int64 a2)

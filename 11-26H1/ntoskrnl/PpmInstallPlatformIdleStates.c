@@ -1,19 +1,19 @@
 /*
- * XREFs of PpmInstallPlatformIdleStates @ 0x140AF2FD0
+ * XREFs of PpmInstallPlatformIdleStates @ 0x140AF57C0
  * Callers:
  *     <none>
  * Callees:
- *     KeGetPrcb @ 0x1402916D0 (KeGetPrcb.c)
- *     KeGetProcessorIndexFromNumber @ 0x140428990 (KeGetProcessorIndexFromNumber.c)
- *     PopReleaseRwLock @ 0x14043630C (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x140436378 (PopAcquireRwLockExclusive.c)
- *     KeQueryActiveProcessorAffinity2 @ 0x140484340 (KeQueryActiveProcessorAffinity2.c)
- *     PpmIdleIsStateDisabled @ 0x1404ECBDC (PpmIdleIsStateDisabled.c)
- *     PpmResetPlatformIdleAccounting @ 0x1406033C0 (PpmResetPlatformIdleAccounting.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     PpmEnableCoordinatedIdleStates @ 0x1407C967C (PpmEnableCoordinatedIdleStates.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KeGetProcessorIndexFromNumber @ 0x14021AC70 (KeGetProcessorIndexFromNumber.c)
+ *     PopReleaseRwLock @ 0x14021B1A8 (PopReleaseRwLock.c)
+ *     KeGetPrcb @ 0x140290C30 (KeGetPrcb.c)
+ *     PopAcquireRwLockExclusive @ 0x140425310 (PopAcquireRwLockExclusive.c)
+ *     KeQueryActiveProcessorAffinity2 @ 0x14047DCB0 (KeQueryActiveProcessorAffinity2.c)
+ *     PpmIdleIsStateDisabled @ 0x1404E61BC (PpmIdleIsStateDisabled.c)
+ *     PpmResetPlatformIdleAccounting @ 0x140605E70 (PpmResetPlatformIdleAccounting.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     PpmEnableCoordinatedIdleStates @ 0x1407CC71C (PpmEnableCoordinatedIdleStates.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PpmInstallPlatformIdleStates(__int64 a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
@@ -99,7 +99,7 @@ __int64 __fastcall PpmInstallPlatformIdleStates(__int64 a1, __int64 a2, __int64 
   v4 = a1;
   v5 = 0;
   Pool2 = 0LL;
-  PopAcquireRwLockExclusive((unsigned __int64 *)&stru_140F10070.1136, a2, a3, a4);
+  PopAcquireRwLockExclusive((unsigned __int64 *)&PpmIdlePolicyLock, a2, a3, a4);
   v6 = 1;
   if ( PpmPlatformStates && !*(_BYTE *)(v4 + 40) )
   {
@@ -112,7 +112,7 @@ __int64 __fastcall PpmInstallPlatformIdleStates(__int64 a1, __int64 a2, __int64 
 LABEL_17:
     v5 = -1073741811;
 LABEL_18:
-    PopReleaseRwLock((struct _KTHREAD *)&stru_140F10070.1136);
+    PopReleaseRwLock(&PpmIdlePolicyLock);
     return v5;
   }
   if ( (HvlpFlags & 2) != 0 )
@@ -164,9 +164,9 @@ LABEL_6:
     v78 = v70 + 24 * *(_DWORD *)(v4 + 4) * (v8 + v10);
     v71 = (v78 + 1032 * v7 + 47) & 0xFFFFFFF8;
     v72 = (4 * v7 + 15) & 0xFFFFFFF8;
-    if ( stru_140E66FF0.IptSaveArea )
+    if ( stru_140E67200.Padding[4] )
     {
-      v37 = *((_DWORD *)stru_140E66FF0.IptSaveArea + 1);
+      v37 = *(_DWORD *)(stru_140E67200.Padding[4] + 4);
       if ( v37 )
       {
         Pool2 = ExAllocatePool2(0x40uLL);

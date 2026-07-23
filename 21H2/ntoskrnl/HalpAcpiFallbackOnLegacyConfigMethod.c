@@ -1,5 +1,5 @@
 /*
- * XREFs of HalpAcpiFallbackOnLegacyConfigMethod @ 0x140A390B0
+ * XREFs of HalpAcpiFallbackOnLegacyConfigMethod @ 0x140A3A0B0
  * Callers:
  *     <none>
  * Callees:

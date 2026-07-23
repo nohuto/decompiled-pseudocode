@@ -1,15 +1,15 @@
 /*
- * XREFs of SepRmGlobalSaclFind @ 0x140A906C0
+ * XREFs of SepRmGlobalSaclFind @ 0x140A95210
  * Callers:
- *     SepExamineGlobalSaclEx @ 0x1402C5A70 (SepExamineGlobalSaclEx.c)
- *     SeAuditingFileOrGlobalEvents @ 0x1408134E0 (SeAuditingFileOrGlobalEvents.c)
- *     SepRmGlobalSaclSetWrkr @ 0x1408167D0 (SepRmGlobalSaclSetWrkr.c)
- *     NtSetSecurityObject @ 0x1408ECC30 (NtSetSecurityObject.c)
+ *     SepExamineGlobalSaclEx @ 0x14031070C (SepExamineGlobalSaclEx.c)
+ *     SeAuditingFileOrGlobalEvents @ 0x140819340 (SeAuditingFileOrGlobalEvents.c)
+ *     SepRmGlobalSaclSetWrkr @ 0x14081C9E0 (SepRmGlobalSaclSetWrkr.c)
+ *     NtSetSecurityObject @ 0x1408F31F0 (NtSetSecurityObject.c)
  * Callees:
- *     ExReleaseResourceLite @ 0x1402B4CF0 (ExReleaseResourceLite.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     SepRmAcquireGlobalSaclReadLock @ 0x1402C5B28 (SepRmAcquireGlobalSaclReadLock.c)
- *     RtlCompareUnicodeStrings @ 0x140981100 (RtlCompareUnicodeStrings.c)
+ *     ExReleaseResourceLite @ 0x1402FF9C0 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     SepRmAcquireGlobalSaclReadLock @ 0x1403107C4 (SepRmAcquireGlobalSaclReadLock.c)
+ *     RtlCompareUnicodeStrings @ 0x140943110 (RtlCompareUnicodeStrings.c)
  */
 
 __int64 __fastcall SepRmGlobalSaclFind(__int64 **a1, __int64 **a2, PCWCH *a3, char a4)
@@ -53,7 +53,7 @@ __int64 __fastcall SepRmGlobalSaclFind(__int64 **a1, __int64 **a2, PCWCH *a3, ch
 LABEL_13:
     if ( v4 )
     {
-      ExReleaseResourceLite(&SepRmGlobalSaclLock);
+      ExReleaseResourceLite((PERESOURCE)&RtlpBootStatHandleLock.KernelWaitTime);
       KeLeaveCriticalRegion();
     }
   }

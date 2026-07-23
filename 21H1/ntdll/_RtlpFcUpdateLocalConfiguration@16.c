@@ -18,83 +18,97 @@
  *     _RtlpFcSectionTypeToBufferType@4 @ 0x4B3A10ED (_RtlpFcSectionTypeToBufferType@4.c)
  */
 
-int __fastcall RtlpFcUpdateLocalConfiguration(int a1, char a2, unsigned __int64 a3)
+NTSTATUS __fastcall RtlpFcUpdateLocalConfiguration(PRTL_SRWLOCK SRWLock, char a2, unsigned __int64 a3)
 {
-  int SystemInformation; // esi
-  int v5; // eax
-  unsigned int v6; // edx
+  NTSTATUS v3; // esi
+  unsigned int v5; // eax
+  unsigned int Value; // edx
   unsigned int v7; // eax
   unsigned int i; // edi
   __int64 v9; // rax
   int v10; // ebx
-  _DWORD *v11; // edi
+  PVOID *v11; // edi
   int v12; // eax
   HANDLE *v13; // edi
-  int v15; // [esp+0h] [ebp-A8h]
-  int v16; // [esp+4h] [ebp-A4h]
-  _DWORD v17[3]; // [esp+14h] [ebp-94h] BYREF
-  _DWORD v18[33]; // [esp+20h] [ebp-88h] BYREF
+  size_t v15; // [esp-4h] [ebp-ACh]
+  size_t v16; // [esp-4h] [ebp-ACh]
+  int v17; // [esp+0h] [ebp-A8h]
+  int v18; // [esp+4h] [ebp-A4h]
+  _DWORD v20[3]; // [esp+14h] [ebp-94h] BYREF
+  _DWORD v21[8]; // [esp+20h] [ebp-88h] BYREF
+  _DWORD SystemInformation[2]; // [esp+40h] [ebp-68h] BYREF
+  _BYTE v23[48]; // [esp+48h] [ebp-60h] BYREF
+  _BYTE v24[44]; // [esp+78h] [ebp-30h] BYREF
 
-  SystemInformation = 0;
-  memset(&v18[6], 0, 104);
+  LODWORD(v15) = 56;
+  v3 = 0;
+  memset(&v21[6], 0, v15);
+  LODWORD(v16) = 48;
+  memset(&v23[40], 0, v16);
   if ( byte_4B3A5DA8 )
   {
-    SystemInformation = -1073741058;
+    v3 = -1073741058;
   }
   else
   {
     if ( a2 )
     {
-      RtlAcquireSRWLockExclusive((volatile signed __int32 *)a1);
+      RtlAcquireSRWLockExclusive(SRWLock);
     }
-    else if ( _interlockedbittestandset((volatile signed __int32 *)a1, 0) )
+    else if ( _interlockedbittestandset((volatile signed __int32 *)SRWLock, 0) )
     {
-      SystemInformation = -1073741608;
+      v3 = -1073741608;
       goto LABEL_14;
     }
-    v5 = *(_DWORD *)(a1 + 8) & 1;
-    v6 = *(_DWORD *)(a1 + 8 + 8 * v5 + 112);
-    v7 = *(_DWORD *)(a1 + 8 + 8 * v5 + 116);
-    v17[1] = v6;
-    v17[2] = v7;
-    if ( __PAIR64__(v7, v6) < a3 )
+    v5 = SRWLock[2].Value & 1;
+    Value = SRWLock[2 * v5 + 30].Value;
+    v7 = SRWLock[2 * v5 + 31].Value;
+    v20[1] = Value;
+    v20[2] = v7;
+    if ( __PAIR64__(v7, Value) < a3 )
     {
-      RtlpFcBufferManagerReferenceBuffers(v17);
-      memset(v18, 0, 0x18u);
+      RtlpFcBufferManagerReferenceBuffers(v20);
+      memset(v21, 0, 0x18u);
       for ( i = 0; i < 3; ++i )
       {
         v9 = RtlpFcSectionTypeToBufferType(i);
-        v18[2 * i] = *(_DWORD *)(HIDWORD(v9) + 16 * v9);
-        v18[2 * i + 1] = *(_DWORD *)(HIDWORD(v9) + 16 * v9 + 4);
+        v21[2 * i] = *(_DWORD *)(HIDWORD(v9) + 16 * v9);
+        v21[2 * i + 1] = *(_DWORD *)(HIDWORD(v9) + 16 * v9 + 4);
       }
-      RtlpFcBufferManagerDereferenceBuffers(v15, v16);
-      SystemInformation = ZwQuerySystemInformationEx(211, &v18[2], 24, &v18[8], 56, 0);
-      if ( SystemInformation >= 0 )
+      RtlpFcBufferManagerDereferenceBuffers(v17, v18);
+      v3 = ZwQuerySystemInformationEx(
+             SystemFeatureConfigurationSectionInformation,
+             &v21[2],
+             0x18u,
+             SystemInformation,
+             0x38u,
+             0);
+      if ( v3 >= 0 )
       {
-        SystemInformation = RtlpFcMapBuffers((int)&v18[8], (int)&v18[22]);
-        if ( SystemInformation >= 0 )
-          RtlpFcBufferManagerUpdateBuffers(v18[8], v18[9]);
+        v3 = RtlpFcMapBuffers((int)SystemInformation, (int)v24);
+        if ( v3 >= 0 )
+          RtlpFcBufferManagerUpdateBuffers(&SRWLock[2], v24, SystemInformation[0], SystemInformation[1]);
       }
     }
-    RtlReleaseSRWLockExclusive((volatile signed __int32 *)a1);
+    RtlReleaseSRWLockExclusive(SRWLock);
   }
 LABEL_14:
   v10 = 3;
-  v11 = &v18[22];
-  v17[0] = 3;
+  v11 = (PVOID *)v24;
+  v20[0] = 3;
   v12 = 3;
   do
   {
     if ( *v11 )
     {
-      NtUnmapViewOfSection(-1, *v11);
-      v12 = v17[0];
+      NtUnmapViewOfSection((HANDLE)0xFFFFFFFF, *v11);
+      v12 = v20[0];
     }
     v11 += 4;
-    v17[0] = --v12;
+    v20[0] = --v12;
   }
   while ( v12 );
-  v13 = (HANDLE *)&v18[10];
+  v13 = (HANDLE *)v23;
   do
   {
     if ( *v13 )
@@ -103,5 +117,5 @@ LABEL_14:
     --v10;
   }
   while ( v10 );
-  return SystemInformation;
+  return v3;
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of IoWMISetSingleItem @ 0x1409DF0D0
+ * XREFs of IoWMISetSingleItem @ 0x1409DF2D0
  * Callers:
  *     <none>
  * Callees:
- *     memmove @ 0x140435700 (memmove.c)
- *     WmipQuerySetExecuteSI @ 0x1406C6D3C (WmipQuerySetExecuteSI.c)
- *     WmipAllocateSingleInstanceWnode @ 0x1409DF4C4 (WmipAllocateSingleInstanceWnode.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     WmipQuerySetExecuteSI @ 0x1406C6D6C (WmipQuerySetExecuteSI.c)
+ *     WmipAllocateSingleInstanceWnode @ 0x1409DF6C4 (WmipAllocateSingleInstanceWnode.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

@@ -1,14 +1,14 @@
 /*
- * XREFs of KeFreezeProcess @ 0x14036F858
+ * XREFs of KeFreezeProcess @ 0x14036F9F8
  * Callers:
- *     MiReAcquireOutSwappedProcessCommit @ 0x140618F08 (MiReAcquireOutSwappedProcessCommit.c)
- *     PsFreezeProcess @ 0x1407EBC80 (PsFreezeProcess.c)
+ *     MiReAcquireOutSwappedProcessCommit @ 0x140619458 (MiReAcquireOutSwappedProcessCommit.c)
+ *     PsFreezeProcess @ 0x1407EBF50 (PsFreezeProcess.c)
  * Callees:
- *     KiExitDispatcher @ 0x14023CD70 (KiExitDispatcher.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14028A930 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     KiQueryUnbiasedInterruptTime @ 0x1402E7464 (KiQueryUnbiasedInterruptTime.c)
- *     KiFreezeSingleThread @ 0x14036F95C (KiFreezeSingleThread.c)
+ *     KiExitDispatcher @ 0x14023CE40 (KiExitDispatcher.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14028ABC0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x1402E76F4 (KiQueryUnbiasedInterruptTime.c)
+ *     KiFreezeSingleThread @ 0x14036FAFC (KiFreezeSingleThread.c)
  */
 
 __int64 __fastcall KeFreezeProcess(__int64 a1, char a2)
@@ -26,7 +26,7 @@ __int64 __fastcall KeFreezeProcess(__int64 a1, char a2)
 
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     LODWORD(v14) = 4;
@@ -58,6 +58,6 @@ __int64 __fastcall KeFreezeProcess(__int64 a1, char a2)
   }
 LABEL_7:
   ExReleaseSpinLockExclusiveFromDpcLevel(v6);
-  KiExitDispatcher((__int64)CurrentPrcb, 0, (struct _PROCESSOR_NUMBER)1, 0, CurrentIrql);
+  KiExitDispatcher((__int64)CurrentPrcb, 0, (_PROCESSOR_NUMBER)1, 0, CurrentIrql);
   return v9;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of MiGetSinglePageToZero @ 0x14020B4C0
+ * XREFs of MiGetSinglePageToZero @ 0x1403332A0
  * Callers:
- *     MiGetBackgroundHugePageToZero @ 0x140209AF0 (MiGetBackgroundHugePageToZero.c)
- *     MiBackgroundZeroLocalPages @ 0x14020A480 (MiBackgroundZeroLocalPages.c)
+ *     MiGetBackgroundHugePageToZero @ 0x1403310D0 (MiGetBackgroundHugePageToZero.c)
+ *     MiBackgroundZeroLocalPages @ 0x140332260 (MiBackgroundZeroLocalPages.c)
  * Callees:
- *     MiGetBestPageToZero @ 0x14041E190 (MiGetBestPageToZero.c)
+ *     MiGetBestPageToZero @ 0x140413ED0 (MiGetBestPageToZero.c)
  */
 
 __int64 __fastcall MiGetSinglePageToZero(__int64 a1, __int64 a2, volatile signed __int32 *a3, int a4)
@@ -29,7 +29,7 @@ __int64 __fastcall MiGetSinglePageToZero(__int64 a1, __int64 a2, volatile signed
   v8 = 0xF51E5A7CD9A0EE3FuLL * ((a2 - *(_QWORD *)(*(_QWORD *)(a2 + 14984) + 16LL)) >> 7);
   if ( (_DWORD)v8 == -1 )
     LODWORD(v8) = *(_DWORD *)(KiProcessorBlock[KeGetCurrentThread()->IdealProcessor] + 34644);
-  v9 = qword_140E38C10 + 57216LL * (unsigned int)v8;
+  v9 = qword_140E38D50 + 57216LL * (unsigned int)v8;
   if ( (*(_DWORD *)(v9 + 15184) & 1) == 0 )
     goto LABEL_10;
   v10 = 0;
@@ -67,7 +67,7 @@ LABEL_11:
     {
       v12 ^= ((unsigned __int16)v12 ^ (unsigned __int16)((_WORD)i << 15)) & 0x8000;
       v14 = 0;
-      v15 = _InterlockedExchangeAdd(v5, 1u) % (unsigned int)dword_140E2DBC0[HIWORD(v12) & 3];
+      v15 = _InterlockedExchangeAdd(v5, 1u) % (unsigned int)dword_140E2DD00[HIWORD(v12) & 3];
       v16 = MmNumberOfChannels;
       v17 = v12 ^ (unsigned __int8)(v12 ^ v15);
       if ( MmNumberOfChannels )
@@ -78,7 +78,7 @@ LABEL_11:
           v19 = v14;
           if ( v14 == 2 )
           {
-            v20 = qword_140E38C10 + 57216 * ((v17 >> 9) & 0x3F);
+            v20 = qword_140E38D50 + 57216 * ((v17 >> 9) & 0x3F);
             if ( (*(_DWORD *)(v20 + 15184) & 1) == 0 )
               goto LABEL_22;
             v19 = 0;

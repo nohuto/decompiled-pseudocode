@@ -1,10 +1,10 @@
 /*
- * XREFs of MiLockHotPatchUndoPages @ 0x1408716DC
+ * XREFs of MiLockHotPatchUndoPages @ 0x140877A3C
  * Callers:
- *     MiPrepareDriverForHotPatch @ 0x1408734E8 (MiPrepareDriverForHotPatch.c)
+ *     MiPrepareDriverForHotPatch @ 0x140879848 (MiPrepareDriverForHotPatch.c)
  * Callees:
- *     MiLockDriverPageRange @ 0x1406E57E8 (MiLockDriverPageRange.c)
- *     RtlDetermineHotPatchUndoExtent @ 0x1408AAEEC (RtlDetermineHotPatchUndoExtent.c)
+ *     MiLockDriverPageRange @ 0x1406EA498 (MiLockDriverPageRange.c)
+ *     RtlDetermineHotPatchUndoExtent @ 0x1408B135C (RtlDetermineHotPatchUndoExtent.c)
  */
 
 __int64 __fastcall MiLockHotPatchUndoPages(__int64 a1, int a2)

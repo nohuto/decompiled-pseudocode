@@ -1,12 +1,12 @@
 /*
- * XREFs of ViFaultsInitializeAppsList @ 0x1409DCFD0
+ * XREFs of ViFaultsInitializeAppsList @ 0x1409DDFD0
  * Callers:
- *     VfInitVerifierComponents @ 0x1409C6E70 (VfInitVerifierComponents.c)
+ *     VfInitVerifierComponents @ 0x1409C7E70 (VfInitVerifierComponents.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     ViFaultsAddAllApps @ 0x1409DCB7C (ViFaultsAddAllApps.c)
+ *     ViFaultsAddAllApps @ 0x1409DDB7C (ViFaultsAddAllApps.c)
  */
 
 __int64 ViFaultsInitializeAppsList()
@@ -21,7 +21,7 @@ __int64 ViFaultsInitializeAppsList()
 
   v0 = 0;
   v1 = KeAcquireSpinLockRaiseToDpc(&ViFaultInjectionLock);
-  qword_140C1CB48 = (__int64)&ViFaultApplicationsList;
+  qword_140C1CEC8 = (__int64)&ViFaultApplicationsList;
   ViFaultApplicationsList = &ViFaultApplicationsList;
   KxReleaseSpinLock(&ViFaultInjectionLock);
   if ( KiIrqlFlags )

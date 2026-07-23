@@ -29,9 +29,9 @@ void __fastcall sub_180027040(unsigned int *a1)
   unsigned int *v1; // rsi
   unsigned int v2; // eax
   int v3; // ecx
-  __int64 v4; // r14
+  _RTL_SRWLOCK *v4; // r14
   char v5; // r15
-  unsigned __int64 v6; // rdi
+  unsigned __int64 Ptr; // rdi
   __int64 v7; // rbx
   bool v8; // r12
   signed __int64 v9; // rdx
@@ -45,19 +45,19 @@ void __fastcall sub_180027040(unsigned int *a1)
   __int64 v17; // r9
   signed __int64 v18; // rax
   signed __int64 v19; // rtt
-  __int64 v20; // rcx
+  void *v20; // rcx
   signed __int64 v21; // rax
   signed __int64 v22; // rtt
-  int v23; // eax
+  NTSTATUS v23; // eax
   ULONG_PTR v24; // rbx
-  __int64 v25; // rbx
-  int v26; // eax
-  int v27; // eax
-  int v28; // eax
+  PVOID v25; // rbx
+  NTSTATUS v26; // eax
+  NTSTATUS v27; // eax
+  NTSTATUS v28; // eax
   ULONG_PTR v29; // rbx
   ULONG_PTR v30; // rax
   signed __int64 v31; // [rsp+20h] [rbp-99h]
-  _DWORD v32[2]; // [rsp+28h] [rbp-91h] BYREF
+  _DWORD WorkerFactoryInformation[2]; // [rsp+28h] [rbp-91h] BYREF
   unsigned int *v33; // [rsp+30h] [rbp-89h]
   EXCEPTION_RECORD ExceptionRecord; // [rsp+40h] [rbp-79h] BYREF
 
@@ -74,7 +74,7 @@ LABEL_15:
   while ( 2 )
   {
     _BitScanForward((unsigned int *)&v3, v2);
-    v32[1] = v3;
+    WorkerFactoryInformation[1] = v3;
     v1[36] = v2 ^ (1 << v3);
     switch ( v3 )
     {
@@ -105,38 +105,38 @@ LABEL_15:
         }
         goto LABEL_14;
       case 6:
-        v4 = *((_QWORD *)v1 + 23);
+        v4 = (_RTL_SRWLOCK *)*((_QWORD *)v1 + 23);
         v5 = 0;
-        _m_prefetchw((const void *)(v4 + 56));
-        v6 = *(_QWORD *)(v4 + 56);
+        _m_prefetchw(&v4[7]);
+        Ptr = (unsigned __int64)v4[7].Ptr;
         do
         {
           if ( v5 )
           {
-            RtlReleaseSRWLockExclusive((volatile signed __int64 *)(v4 + 64));
+            RtlReleaseSRWLockExclusive(v4 + 8);
             v5 = 0;
           }
-          v7 = v6 ^ (v6 ^ (v6 - 1)) & 0xFFFFFFFFFFFFFFFLL;
-          v8 = ((v6 >> 60) & 8) != 0 && (v7 & 0xFFFFFFFFFFFFFFFLL) == 0;
+          v7 = Ptr ^ (Ptr ^ (Ptr - 1)) & 0xFFFFFFFFFFFFFFFLL;
+          v8 = ((Ptr >> 60) & 8) != 0 && (v7 & 0xFFFFFFFFFFFFFFFLL) == 0;
           if ( v8 )
           {
             v5 = 1;
-            RtlAcquireSRWLockExclusive(v4 + 64);
+            RtlAcquireSRWLockExclusive(v4 + 8);
           }
           v9 = v7 & 0x7FFFFFFFFFFFFFFFLL;
           if ( !v8 )
-            v9 = v6 ^ (v6 ^ (v6 - 1)) & 0xFFFFFFFFFFFFFFFLL;
-          v11 = _InterlockedCompareExchange64((volatile signed __int64 *)(v4 + 56), v9, v6);
-          v10 = v6 == v11;
-          v6 = v11;
+            v9 = Ptr ^ (Ptr ^ (Ptr - 1)) & 0xFFFFFFFFFFFFFFFLL;
+          v11 = _InterlockedCompareExchange64((volatile signed __int64 *)&v4[7], v9, Ptr);
+          v10 = Ptr == v11;
+          Ptr = v11;
         }
         while ( !v10 );
         v1 = v33;
         if ( v5 )
         {
-          v25 = *(_QWORD *)(v4 + 72);
-          *(_QWORD *)(v4 + 72) = 0LL;
-          RtlReleaseSRWLockExclusive((volatile signed __int64 *)(v4 + 64));
+          v25 = v4[9].Ptr;
+          v4[9].Ptr = 0LL;
+          RtlReleaseSRWLockExclusive(v4 + 8);
           sub_1800556F8(v25);
         }
         goto LABEL_14;
@@ -159,7 +159,7 @@ LABEL_15:
             v31 = v21;
           }
           while ( v22 != v21 );
-          v20 = *(_QWORD *)(v14 + 56);
+          v20 = *(void **)(v14 + 56);
         }
         else
         {
@@ -177,23 +177,23 @@ LABEL_15:
             v31 = v18;
           }
           while ( v19 != v18 );
-          v20 = *(_QWORD *)(*(_QWORD *)(v16 + 144) + 56LL);
+          v20 = *(void **)(*(_QWORD *)(v16 + 144) + 56LL);
         }
         if ( v15 == 2 )
         {
-          v32[0] = 0;
-          ZwSetInformationWorkerFactory(v20, 9LL, v32);
+          WorkerFactoryInformation[0] = 0;
+          ZwSetInformationWorkerFactory(v20, WorkerFactoryCallbackType, WorkerFactoryInformation, 4u);
         }
         goto LABEL_14;
     }
     switch ( v3 )
     {
       case 0:
-        RtlLeaveCriticalSection(*((_QWORD *)v1 + 24));
+        RtlLeaveCriticalSection(*((PRTL_CRITICAL_SECTION *)v1 + 24));
         *((_QWORD *)v1 + 24) = 0LL;
         goto LABEL_14;
       case 1:
-        v27 = ZwReleaseMutant(v1[38], 0LL, sub_180027DD0, sub_180028870);
+        v27 = ZwReleaseMutant((HANDLE)v1[38], 0LL);
         v24 = v27;
         if ( v27 >= 0 )
         {
@@ -218,7 +218,7 @@ LABEL_50:
         RtlRaiseException(&ExceptionRecord);
         return;
       case 2:
-        v26 = ZwSetEvent(v1[37], 0LL);
+        v26 = ZwSetEvent((HANDLE)v1[37], 0LL);
         v24 = v26;
         if ( v26 < 0 )
         {
@@ -230,7 +230,7 @@ LABEL_50:
         v1[37] = 0;
         goto LABEL_14;
       case 3:
-        v28 = ZwReleaseSemaphore(v1[39], v1[40], 0LL, sub_180028870);
+        v28 = ZwReleaseSemaphore((HANDLE)v1[39], v1[40], 0LL);
         v29 = v28;
         if ( v28 < 0 )
         {
@@ -249,7 +249,7 @@ LABEL_50:
         *((_QWORD *)v1 + 22) = 0LL;
         goto LABEL_14;
       case 7:
-        v23 = LdrUnloadDll(*((_QWORD *)v1 + 25), sub_180027A50, sub_180027DD0, sub_180028870);
+        v23 = LdrUnloadDll(*((PVOID *)v1 + 25));
         v24 = v23;
         if ( v23 < 0 )
         {
@@ -261,7 +261,7 @@ LABEL_50:
         *((_QWORD *)v1 + 25) = 0LL;
         goto LABEL_14;
       case 8:
-        LdrUnloadDll(*((_QWORD *)v1 + 21), sub_180027A50, sub_180027DD0, sub_180028870);
+        LdrUnloadDll(*((PVOID *)v1 + 21));
         *((_QWORD *)v1 + 21) = 0LL;
         goto LABEL_14;
       default:

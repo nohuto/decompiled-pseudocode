@@ -7,7 +7,7 @@
  *     ExRaiseDatatypeMisalignment @ 0x140777E40 (ExRaiseDatatypeMisalignment.c)
  */
 
-NTSTATUS __fastcall NtDelayExecution(BOOLEAN a1, LARGE_INTEGER *a2)
+NTSTATUS __cdecl NtDelayExecution(BOOLEAN Alertable, PLARGE_INTEGER DelayInterval)
 {
   KPROCESSOR_MODE PreviousMode; // cl
   LARGE_INTEGER Interval; // [rsp+40h] [rbp+18h] BYREF
@@ -15,13 +15,13 @@ NTSTATUS __fastcall NtDelayExecution(BOOLEAN a1, LARGE_INTEGER *a2)
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
   {
-    if ( ((unsigned __int8)a2 & 3) != 0 )
+    if ( ((unsigned __int8)DelayInterval & 3) != 0 )
       ExRaiseDatatypeMisalignment();
-    Interval = *a2;
+    Interval = *DelayInterval;
   }
   else
   {
-    Interval = *a2;
+    Interval = *DelayInterval;
   }
-  return KeDelayExecutionThread(PreviousMode, a1, &Interval);
+  return KeDelayExecutionThread(PreviousMode, Alertable, &Interval);
 }

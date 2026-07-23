@@ -1,15 +1,15 @@
 /*
- * XREFs of MmEnoughMemoryForWrite @ 0x1403157C0
+ * XREFs of MmEnoughMemoryForWrite @ 0x140411550
  * Callers:
- *     CcCanIWriteStreamEx @ 0x1402CE730 (CcCanIWriteStreamEx.c)
+ *     CcCanIWriteStreamEx @ 0x14040C5C0 (CcCanIWriteStreamEx.c)
  * Callees:
- *     MiSufficientAvailablePages @ 0x1402AA420 (MiSufficientAvailablePages.c)
- *     MiLockSectionControlArea @ 0x140316190 (MiLockSectionControlArea.c)
- *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x140379F24 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
+ *     MiLockSectionControlArea @ 0x1402BED40 (MiLockSectionControlArea.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x1402E6E94 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     MiSufficientAvailablePages @ 0x1403526D0 (MiSufficientAvailablePages.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
  */
 
-__int64 __fastcall MmEnoughMemoryForWrite(__int64 a1)
+__int64 __fastcall MmEnoughMemoryForWrite(_QWORD *a1)
 {
   __int64 v1; // rsi
   bool v2; // bl
@@ -21,9 +21,9 @@ __int64 __fastcall MmEnoughMemoryForWrite(__int64 a1)
   __int64 v9; // rbp
   _QWORD *v10; // r14
   unsigned int i; // r10d
-  __int64 v13; // rdx
+  char v13; // dl
   __int64 v14; // rax
-  void *retaddr; // [rsp+48h] [rbp+0h]
+  __int64 retaddr; // [rsp+48h] [rbp+0h]
   unsigned __int8 v16; // [rsp+50h] [rbp+8h] BYREF
 
   v1 = 0LL;
@@ -31,14 +31,14 @@ __int64 __fastcall MmEnoughMemoryForWrite(__int64 a1)
   v2 = 0;
   if ( a1 )
   {
-    v13 = 3LL;
+    v13 = 3;
     if ( KeGetCurrentIrql() != 2 )
-      v13 = 1LL;
+      v13 = 1;
     v14 = MiLockSectionControlArea(a1, v13, &v16);
     v1 = v14;
     if ( !v14 )
       return 1LL;
-    v4 = (ULONG *)*((_QWORD *)qword_140E2FF88 + (*(_WORD *)(v14 + 60) & 0x3FF));
+    v4 = (ULONG *)*((_QWORD *)qword_140E300C8 + (*(_WORD *)(v14 + 60) & 0x3FF));
   }
   else
   {
@@ -46,7 +46,7 @@ __int64 __fastcall MmEnoughMemoryForWrite(__int64 a1)
   }
   v5 = 450LL;
   v6 = *((_QWORD *)v4 + 2336);
-  if ( (_BYTE)dword_140FC421C )
+  if ( (_BYTE)dword_140FC521C )
     v5 = 0x4000LL;
   if ( v6 >= v5 )
   {
@@ -63,7 +63,7 @@ LABEL_13:
       v10 = (_QWORD *)v8;
       while ( v9 <= 1 )
       {
-        for ( i = 0; i < dword_140E2DBCC; ++i )
+        for ( i = 0; i < dword_140E2DD0C; ++i )
         {
           v6 += *(unsigned __int16 *)(*v10 + 16LL * i);
           if ( v6 >= v5 )
@@ -85,7 +85,7 @@ LABEL_13:
     if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
       *(_DWORD *)(v1 + 72) = 0;
     else
-      ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(v1 + 72, retaddr);
+      ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented((_DWORD *)(v1 + 72), retaddr);
     if ( KiIrqlFlags )
       KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), v16);
     __writecr8(v16);
@@ -98,7 +98,7 @@ LABEL_13:
   }
   else
   {
-    ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(v1 + 72, retaddr);
+    ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented((_DWORD *)(v1 + 72), retaddr);
     return v2;
   }
 }

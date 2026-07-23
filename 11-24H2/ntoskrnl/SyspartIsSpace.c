@@ -1,11 +1,11 @@
 /*
- * XREFs of SyspartIsSpace @ 0x140815DD8
+ * XREFs of SyspartIsSpace @ 0x140816518
  * Callers:
- *     BiMapEfiDeviceForSpaces @ 0x1404B6A60 (BiMapEfiDeviceForSpaces.c)
- *     BiSpacesUpdatePhysicalDevicePath @ 0x140697A70 (BiSpacesUpdatePhysicalDevicePath.c)
+ *     BiMapEfiDeviceForSpaces @ 0x1404B1240 (BiMapEfiDeviceForSpaces.c)
+ *     BiSpacesUpdatePhysicalDevicePath @ 0x140698AF0 (BiSpacesUpdatePhysicalDevicePath.c)
  * Callees:
- *     SiQueryProperty @ 0x140A518C0 (SiQueryProperty.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     SiQueryProperty @ 0x140A48990 (SiQueryProperty.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SyspartIsSpace(__int64 a1, _BYTE *a2)

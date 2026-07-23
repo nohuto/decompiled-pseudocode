@@ -1,15 +1,15 @@
 /*
- * XREFs of CmpQueryDowncastString @ 0x140A4A454
+ * XREFs of CmpQueryDowncastString @ 0x140A41174
  * Callers:
- *     CmQueryBuildVersionInformation @ 0x140A4A2E0 (CmQueryBuildVersionInformation.c)
+ *     CmQueryBuildVersionInformation @ 0x140A41000 (CmQueryBuildVersionInformation.c)
  * Callees:
- *     RtlUnicodeStringToAnsiString @ 0x1408AEF80 (RtlUnicodeStringToAnsiString.c)
+ *     RtlUnicodeStringToAnsiString @ 0x1409051E0 (RtlUnicodeStringToAnsiString.c)
  */
 
 NTSTATUS __fastcall CmpQueryDowncastString(char *a1, unsigned __int16 a2, const UNICODE_STRING *a3)
 {
   NTSTATUS result; // eax
-  STRING DestinationString; // [rsp+20h] [rbp-18h] BYREF
+  _STRING DestinationString; // [rsp+20h] [rbp-18h] BYREF
 
   *(_DWORD *)(&DestinationString.MaximumLength + 1) = 0;
   if ( a3->Buffer && a3->Length )

@@ -1,15 +1,15 @@
 /*
- * XREFs of KiUpdateTotalCyclesCurrentThread @ 0x1402BACF8
+ * XREFs of KiUpdateTotalCyclesCurrentThread @ 0x1402BAF88
  * Callers:
  *     KiRemoveThreadFromSchedulingGroup @ 0x140204C14 (KiRemoveThreadFromSchedulingGroup.c)
  *     KiStartDebugAccumulation @ 0x14020E460 (KiStartDebugAccumulation.c)
- *     NtWaitForWorkViaWorkerFactory @ 0x1402A91B0 (NtWaitForWorkViaWorkerFactory.c)
- *     KiCompleteDirectSwitchThread @ 0x1402B9BA8 (KiCompleteDirectSwitchThread.c)
- *     KeSetThreadChargeOnlySchedulingGroup @ 0x1403495E0 (KeSetThreadChargeOnlySchedulingGroup.c)
- *     KiReduceByEffectiveIdleSmtSet @ 0x1403CDE14 (KiReduceByEffectiveIdleSmtSet.c)
+ *     NtWaitForWorkViaWorkerFactory @ 0x1402A9440 (NtWaitForWorkViaWorkerFactory.c)
+ *     KiCompleteDirectSwitchThread @ 0x1402B9E38 (KiCompleteDirectSwitchThread.c)
+ *     KeSetThreadChargeOnlySchedulingGroup @ 0x140349CFC (KeSetThreadChargeOnlySchedulingGroup.c)
+ *     KiReduceByEffectiveIdleSmtSet @ 0x1403CDFF4 (KiReduceByEffectiveIdleSmtSet.c)
  * Callees:
- *     KiEndThreadCycleAccumulation @ 0x1402B2C90 (KiEndThreadCycleAccumulation.c)
- *     KiStartThreadCycleAccumulation @ 0x1402B2D40 (KiStartThreadCycleAccumulation.c)
+ *     KiEndThreadCycleAccumulation @ 0x1402B2F20 (KiEndThreadCycleAccumulation.c)
+ *     KiStartThreadCycleAccumulation @ 0x1402B2FD0 (KiStartThreadCycleAccumulation.c)
  */
 
 unsigned __int64 __fastcall KiUpdateTotalCyclesCurrentThread(__int64 a1, __int64 a2, unsigned __int64 *a3)

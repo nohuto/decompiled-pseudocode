@@ -1,14 +1,14 @@
 /*
  * XREFs of RtlCopyRangeList @ 0x14083A400
  * Callers:
- *     ArbTestAllocation @ 0x140839900 (ArbTestAllocation.c)
+ *     sub_140839900 @ 0x140839900 (sub_140839900.c)
  *     ArbBootAllocation @ 0x140839BE0 (ArbBootAllocation.c)
- *     ArbQueryConflict @ 0x14090B4C0 (ArbQueryConflict.c)
- *     ArbRetestAllocation @ 0x14090B860 (ArbRetestAllocation.c)
+ *     sub_14090B4C0 @ 0x14090B4C0 (sub_14090B4C0.c)
+ *     sub_14090B860 @ 0x14090B860 (sub_14090B860.c)
  *     RtlMergeRangeLists @ 0x1409B59D0 (RtlMergeRangeLists.c)
  * Callees:
  *     RtlFreeRangeList @ 0x1408397E0 (RtlFreeRangeList.c)
- *     RtlpCopyRangeListEntry @ 0x14083A490 (RtlpCopyRangeListEntry.c)
+ *     sub_14083A490 @ 0x14083A490 (sub_14083A490.c)
  */
 
 __int64 __fastcall RtlCopyRangeList(__int64 a1, __int64 *a2)
@@ -29,7 +29,7 @@ __int64 __fastcall RtlCopyRangeList(__int64 a1, __int64 *a2)
     v5 = i - 5;
     if ( a2 == i )
       return 0LL;
-    v6 = RtlpCopyRangeListEntry(i - 5);
+    v6 = sub_14083A490(i - 5);
     if ( !v6 )
       break;
     v7 = *(__int64 ***)(a1 + 8);

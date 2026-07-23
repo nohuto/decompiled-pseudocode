@@ -1,12 +1,12 @@
 /*
- * XREFs of WheapProcessEfiBadMemoryPage @ 0x14065B988
+ * XREFs of WheapProcessEfiBadMemoryPage @ 0x14065A0A8
  * Callers:
- *     WheapCheckForAndReportErrorsFromPreviousSession @ 0x14065B774 (WheapCheckForAndReportErrorsFromPreviousSession.c)
+ *     WheapCheckForAndReportErrorsFromPreviousSession @ 0x140659E94 (WheapCheckForAndReportErrorsFromPreviousSession.c)
  * Callees:
- *     HalSetEnvironmentVariableEx @ 0x140443B40 (HalSetEnvironmentVariableEx.c)
- *     HalGetEnvironmentVariableEx @ 0x140443D90 (HalGetEnvironmentVariableEx.c)
- *     WheaPersistBadPageToBcd @ 0x14065CE90 (WheaPersistBadPageToBcd.c)
- *     WheaPersistBadPageToRegistry @ 0x14065D04C (WheaPersistBadPageToRegistry.c)
+ *     HalSetEnvironmentVariableEx @ 0x1404395E0 (HalSetEnvironmentVariableEx.c)
+ *     HalGetEnvironmentVariableEx @ 0x140439830 (HalGetEnvironmentVariableEx.c)
+ *     WheaPersistBadPageToBcd @ 0x14065B5B0 (WheaPersistBadPageToBcd.c)
+ *     WheaPersistBadPageToRegistry @ 0x14065B76C (WheaPersistBadPageToRegistry.c)
  */
 
 __int64 WheapProcessEfiBadMemoryPage()
@@ -29,13 +29,13 @@ __int64 WheapProcessEfiBadMemoryPage()
     return 3221226021LL;
   if ( (int)result >= 0 )
   {
-    if ( *(_DWORD *)off_140E09718 == 1 )
+    if ( *(_DWORD *)off_140E09788 == 1 )
     {
       v1 = WheaPersistBadPageToBcd(v4);
     }
     else
     {
-      if ( *(_DWORD *)off_140E09718 != 2 )
+      if ( *(_DWORD *)off_140E09788 != 2 )
       {
         v2 = 0;
         goto LABEL_11;

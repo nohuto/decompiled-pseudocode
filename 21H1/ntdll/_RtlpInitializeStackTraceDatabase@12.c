@@ -10,22 +10,22 @@
  *     _RtlStdInitializeStackDatabase@16 @ 0x4B368EA0 (_RtlStdInitializeStackDatabase@16.c)
  */
 
-int __fastcall RtlpInitializeStackTraceDatabase(int a1, unsigned int a2, unsigned int a3)
+int __fastcall RtlpInitializeStackTraceDatabase(_BYTE *a1, unsigned int a2, unsigned int a3)
 {
-  int v4; // esi
-  void *v5; // ecx
-  void *v6; // [esp+8h] [ebp-14h] BYREF
+  NTSTATUS v4; // esi
+  PVOID v5; // ecx
+  PVOID BaseAddress; // [esp+8h] [ebp-14h] BYREF
   _DWORD v7[3]; // [esp+Ch] [ebp-10h] BYREF
 
   if ( RtlpStackTraceDatabase )
     return -1073741302;
-  v4 = RtlStdInitializeStackDatabase(a1, a2, a3, &v6);
+  v4 = RtlStdInitializeStackDatabase(a1, a2, __PAIR64__(&BaseAddress, a3));
   if ( v4 >= 0 )
   {
-    v5 = v6;
-    if ( _InterlockedCompareExchange(&RtlpStackTraceDatabase, (signed __int32)v6, 0) )
+    v5 = BaseAddress;
+    if ( _InterlockedCompareExchange((volatile signed __int32 *)&RtlpStackTraceDatabase, (signed __int32)BaseAddress, 0) )
     {
-      RtlStdDeleteStackDatabase(v5, (int)v6);
+      RtlStdDeleteStackDatabase(v5, BaseAddress);
       return -1073741302;
     }
     if ( v4 >= 0 && LdrInitState == 3 )

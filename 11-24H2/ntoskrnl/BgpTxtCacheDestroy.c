@@ -1,13 +1,13 @@
 /*
- * XREFs of BgpTxtCacheDestroy @ 0x140BB4354
+ * XREFs of BgpTxtCacheDestroy @ 0x140BB6354
  * Callers:
- *     AnFwDisplayProgressIndicator @ 0x140BB1FD0 (AnFwDisplayProgressIndicator.c)
- *     BgpTxtDestroyRegion @ 0x140BB2B5C (BgpTxtDestroyRegion.c)
- *     ResFwFreeContext @ 0x140BB34C4 (ResFwFreeContext.c)
- *     AnFwpDisableProgressTimer @ 0x140BB3CB4 (AnFwpDisableProgressTimer.c)
+ *     AnFwDisplayProgressIndicator @ 0x140BB3FD0 (AnFwDisplayProgressIndicator.c)
+ *     BgpTxtDestroyRegion @ 0x140BB4B5C (BgpTxtDestroyRegion.c)
+ *     ResFwFreeContext @ 0x140BB54C4 (ResFwFreeContext.c)
+ *     AnFwpDisableProgressTimer @ 0x140BB5CB4 (AnFwpDisableProgressTimer.c)
  * Callees:
- *     TxtpClearCache @ 0x140BB437C (TxtpClearCache.c)
- *     RaspClearCache @ 0x140BB5C90 (RaspClearCache.c)
+ *     TxtpClearCache @ 0x140BB637C (TxtpClearCache.c)
+ *     RaspClearCache @ 0x140BB7C90 (RaspClearCache.c)
  */
 
 __int64 BgpTxtCacheDestroy()

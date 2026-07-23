@@ -7,20 +7,20 @@
  *     RtlSetEnvironmentVar @ 0x18000D0F0 (RtlSetEnvironmentVar.c)
  */
 
-__int64 __fastcall RtlSetEnvironmentVariable(int a1, unsigned __int16 *a2, unsigned __int16 *a3)
+NTSTATUS __cdecl RtlSetEnvironmentVariable(PVOID *Environment, PUNICODE_STRING Name, PUNICODE_STRING Value)
 {
-  __int64 v3; // r9
-  unsigned __int64 v4; // rax
+  wchar_t *Buffer; // r9
+  SIZE_T ValueLength; // rax
 
-  LODWORD(v3) = 0;
-  if ( a3 )
+  Buffer = 0LL;
+  if ( Value )
   {
-    v3 = *((_QWORD *)a3 + 1);
-    v4 = (unsigned __int64)*a3 >> 1;
+    Buffer = Value->Buffer;
+    ValueLength = (unsigned __int64)Value->Length >> 1;
   }
   else
   {
-    v4 = 0LL;
+    ValueLength = 0LL;
   }
-  return RtlSetEnvironmentVar(a1, *((_QWORD *)a2 + 1), (unsigned __int64)*a2 >> 1, v3, v4);
+  return RtlSetEnvironmentVar(Environment, Name->Buffer, (unsigned __int64)Name->Length >> 1, Buffer, ValueLength);
 }

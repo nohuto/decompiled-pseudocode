@@ -3,8 +3,8 @@
  * Callers:
  *     VrpHandleIoctlInitializeJobForVreg @ 0x1405D268C (VrpHandleIoctlInitializeJobForVreg.c)
  * Callees:
- *     CmpStartSiloRegistryNamespace @ 0x1406C39CC (CmpStartSiloRegistryNamespace.c)
- *     CmpGetOrCreateContextForSiloNoRef @ 0x140715BF8 (CmpGetOrCreateContextForSiloNoRef.c)
+ *     CmpStartSiloRegistryNamespace @ 0x1406225AC (CmpStartSiloRegistryNamespace.c)
+ *     CmpGetOrCreateContextForSiloNoRef @ 0x1406C4248 (CmpGetOrCreateContextForSiloNoRef.c)
  */
 
 __int64 __fastcall CmInitSiloNamespace(__int64 a1)

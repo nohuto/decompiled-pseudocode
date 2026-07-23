@@ -6,9 +6,9 @@
  *     RtlIpv4StringToAddressExA @ 0x1405EB820 (RtlIpv4StringToAddressExA.c)
  *     RtlIpv6StringToAddressA @ 0x1405EBA00 (RtlIpv6StringToAddressA.c)
  *     RtlIpv6StringToAddressExA @ 0x1405EBE60 (RtlIpv6StringToAddressExA.c)
- *     I_MinAsn1ScanFrac @ 0x140A33580 (I_MinAsn1ScanFrac.c)
- *     MinAsn1DecodeGeneralizedTime @ 0x140A33600 (MinAsn1DecodeGeneralizedTime.c)
- *     MinAsn1DecodeUtcTime @ 0x140A33AD0 (MinAsn1DecodeUtcTime.c)
+ *     sub_140A33580 @ 0x140A33580 (sub_140A33580.c)
+ *     sub_140A33600 @ 0x140A33600 (sub_140A33600.c)
+ *     sub_140A33AD0 @ 0x140A33AD0 (sub_140A33AD0.c)
  * Callees:
  *     <none>
  */

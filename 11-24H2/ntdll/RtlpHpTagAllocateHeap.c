@@ -1,33 +1,33 @@
 /*
- * XREFs of RtlpHpTagAllocateHeap @ 0x180094EF0
+ * XREFs of RtlpHpTagAllocateHeap @ 0x180083CE0
  * Callers:
- *     RtlAllocateHeap @ 0x180011260 (RtlAllocateHeap.c)
+ *     RtlAllocateHeap @ 0x18003DC60 (RtlAllocateHeap.c)
  * Callees:
- *     RtlpAllocateNTHeapInternal @ 0x1800283A0 (RtlpAllocateNTHeapInternal.c)
- *     RtlpHpExtrasGet @ 0x18002CA80 (RtlpHpExtrasGet.c)
- *     EtwEventWriteTransfer @ 0x18003AD80 (EtwEventWriteTransfer.c)
- *     RtlpHpLfhSubsegmentPrefetch @ 0x18004B138 (RtlpHpLfhSubsegmentPrefetch.c)
- *     RtlpHpLfhSlotAllocateSlow @ 0x18004B690 (RtlpHpLfhSlotAllocateSlow.c)
- *     RtlpHpLfhThreadDataInitializeSet @ 0x18004EAC0 (RtlpHpLfhThreadDataInitializeSet.c)
- *     RtlpHpAllocateHeapBackend @ 0x180051334 (RtlpHpAllocateHeapBackend.c)
- *     RtlpHpLfhSubsegmentCommitBlock @ 0x180056390 (RtlpHpLfhSubsegmentCommitBlock.c)
- *     TpSetTimerEx @ 0x18006AF80 (TpSetTimerEx.c)
- *     RtlpHpLargeAlloc @ 0x180093F08 (RtlpHpLargeAlloc.c)
- *     RtlNtStatusToDosErrorNoTeb @ 0x18009F9E0 (RtlNtStatusToDosErrorNoTeb.c)
- *     RtlpHpLfhBucketCheckAndUpdate @ 0x1800A4EB0 (RtlpHpLfhBucketCheckAndUpdate.c)
- *     RtlpHpAllocateHeapSlow @ 0x1800ACEF0 (RtlpHpAllocateHeapSlow.c)
- *     RtlpHpTagContextAllocateTag @ 0x1800B79F0 (RtlpHpTagContextAllocateTag.c)
- *     RtlpHpVsContextAllocate @ 0x1800ED0DC (RtlpHpVsContextAllocate.c)
- *     RtlpAllocateHeapRaiseException @ 0x1801154C4 (RtlpAllocateHeapRaiseException.c)
- *     RtlpHpLfhBucketUpdateAffinityMapping @ 0x180119830 (RtlpHpLfhBucketUpdateAffinityMapping.c)
- *     RtlpHpEnvAcquireGlobalLockSharedContended @ 0x18011CBF4 (RtlpHpEnvAcquireGlobalLockSharedContended.c)
- *     __security_check_cookie @ 0x1801659C0 (__security_check_cookie.c)
- *     RtlHeapZero @ 0x180167000 (RtlHeapZero.c)
+ *     EtwEventWriteTransfer @ 0x18001B000 (EtwEventWriteTransfer.c)
+ *     RtlpAllocateNTHeapInternal @ 0x180054DA0 (RtlpAllocateNTHeapInternal.c)
+ *     RtlpHpExtrasGet @ 0x180059480 (RtlpHpExtrasGet.c)
+ *     RtlpHpLfhSubsegmentPrefetch @ 0x180060D18 (RtlpHpLfhSubsegmentPrefetch.c)
+ *     RtlpHpLfhSlotAllocateSlow @ 0x180061270 (RtlpHpLfhSlotAllocateSlow.c)
+ *     RtlpHpLfhThreadDataInitializeSet @ 0x1800646A0 (RtlpHpLfhThreadDataInitializeSet.c)
+ *     RtlpHpAllocateHeapBackend @ 0x180066F14 (RtlpHpAllocateHeapBackend.c)
+ *     RtlpHpLfhSubsegmentCommitBlock @ 0x18006BF70 (RtlpHpLfhSubsegmentCommitBlock.c)
+ *     RtlNtStatusToDosErrorNoTeb @ 0x1800872D0 (RtlNtStatusToDosErrorNoTeb.c)
+ *     TpSetTimerEx @ 0x180087860 (TpSetTimerEx.c)
+ *     RtlpHpLargeAlloc @ 0x18009A714 (RtlpHpLargeAlloc.c)
+ *     RtlpHpAllocateHeapSlow @ 0x18009FA50 (RtlpHpAllocateHeapSlow.c)
+ *     RtlpHpTagContextAllocateTag @ 0x1800A1D38 (RtlpHpTagContextAllocateTag.c)
+ *     RtlpHpLfhBucketCheckAndUpdate @ 0x1800D6820 (RtlpHpLfhBucketCheckAndUpdate.c)
+ *     RtlpHpVsContextAllocate @ 0x1800E80AC (RtlpHpVsContextAllocate.c)
+ *     RtlpAllocateHeapRaiseException @ 0x180110740 (RtlpAllocateHeapRaiseException.c)
+ *     RtlpHpLfhBucketUpdateAffinityMapping @ 0x180117A60 (RtlpHpLfhBucketUpdateAffinityMapping.c)
+ *     RtlpHpEnvAcquireGlobalLockSharedContended @ 0x18011AE24 (RtlpHpEnvAcquireGlobalLockSharedContended.c)
+ *     __security_check_cookie @ 0x180163D80 (__security_check_cookie.c)
+ *     RtlHeapZero @ 0x1801653C0 (RtlHeapZero.c)
  */
 
-__int64 __fastcall RtlpHpTagAllocateHeap(__int64 a1, unsigned __int64 a2, unsigned int a3)
+__int64 __fastcall RtlpHpTagAllocateHeap(_RTL_SRWLOCK *HeapHandle, unsigned __int64 a2, unsigned int a3)
 {
-  __int64 v3; // rsi
+  _RTL_SRWLOCK *v3; // rsi
   unsigned __int64 v4; // r13
   __int64 v6; // rax
   bool v7; // zf
@@ -124,32 +124,31 @@ __int64 __fastcall RtlpHpTagAllocateHeap(__int64 a1, unsigned __int64 a2, unsign
   int v111; // [rsp+70h] [rbp-61h]
   unsigned __int64 v112; // [rsp+78h] [rbp-59h]
   __int64 v113; // [rsp+80h] [rbp-51h]
-  __int128 v114[3]; // [rsp+88h] [rbp-49h] BYREF
-  __int128 v115; // [rsp+B8h] [rbp-19h] BYREF
-  void *v116; // [rsp+D0h] [rbp-1h] BYREF
-  int v117; // [rsp+D8h] [rbp+7h]
-  int v118; // [rsp+DCh] [rbp+Bh]
-  void *v119; // [rsp+E0h] [rbp+Fh]
-  int v120; // [rsp+E8h] [rbp+17h]
-  int v121; // [rsp+ECh] [rbp+1Bh]
+  EVENT_DESCRIPTOR EventDescriptor; // [rsp+88h] [rbp-49h] BYREF
+  __int128 v115; // [rsp+A8h] [rbp-29h]
+  __int128 v116; // [rsp+B8h] [rbp-19h] BYREF
+  _EVENT_DATA_DESCRIPTOR UserData; // [rsp+D0h] [rbp-1h] BYREF
+  void *v118; // [rsp+E0h] [rbp+Fh]
+  int v119; // [rsp+E8h] [rbp+17h]
+  int v120; // [rsp+ECh] [rbp+1Bh]
 
-  v3 = a1;
+  v3 = HeapHandle;
   v4 = a2;
   v104 = 0;
-  v6 = 2LL * (unsigned int)dword_1801800C8[BYTE1(RtlpHpEnvHandle)];
-  v7 = *(_DWORD *)(a1 + 16) == -571548178;
-  v114[2] = RtlpHpEnvHandle;
+  v6 = 2LL * (unsigned int)dword_18017E8C8[BYTE1(RtlpHpEnvHandle)];
+  v7 = HeapHandle[2].0 == -571548178;
+  v115 = RtlpHpEnvHandle;
   if ( !v7 )
     goto LABEL_146;
-  if ( a1 != qword_1801D21B8[v6] )
+  if ( HeapHandle != (_RTL_SRWLOCK *)qword_1801D11A8[v6] )
   {
-    v115 = 0LL;
+    v116 = 0LL;
     SubProcessTag = (unsigned __int64)NtCurrentTeb()->SubProcessTag;
-    *(_QWORD *)&v115 = SubProcessTag;
-    if ( SubProcessTag != RtlpHpNullGUID || qword_1801CE880 )
+    *(_QWORD *)&v116 = SubProcessTag;
+    if ( SubProcessTag != RtlpHpNullGUID || qword_1801CD878 )
     {
-      if ( word_1801D3C44
-        && (v9 = *(_QWORD *)(qword_1801D3C38 + 8LL * (unsigned __int16)word_1801D3C44 - 8),
+      if ( word_1801D2C44
+        && (v9 = *(_QWORD *)(qword_1801D2C38 + 8LL * (unsigned __int16)word_1801D2C44 - 8),
             *(_QWORD *)(v9 + 16) == SubProcessTag)
         && !*(_QWORD *)(v9 + 24) )
       {
@@ -159,23 +158,23 @@ __int64 __fastcall RtlpHpTagAllocateHeap(__int64 a1, unsigned __int64 a2, unsign
       }
       else
       {
-        v11 = dword_1801D3C2C & 0x1F;
-        v12 = HIBYTE(v115)
+        v11 = dword_1801D2C2C & 0x1F;
+        v12 = HIBYTE(v116)
             + 0x8B7970C2A4EFB2A9uLL * BYTE1(SubProcessTag)
             + 0x288D4C21D6A4D26DLL * (unsigned __int8)SubProcessTag
             + 0x3433B6F080FF8F35LL * BYTE2(SubProcessTag)
             + 37
-            * (BYTE14(v115)
+            * (BYTE14(v116)
              + 37
-             * (BYTE13(v115)
+             * (BYTE13(v116)
               + 37
-              * (BYTE12(v115)
+              * (BYTE12(v116)
                + 37
-               * (BYTE11(v115)
+               * (BYTE11(v116)
                 + 37
-                * (BYTE10(v115)
+                * (BYTE10(v116)
                  + 37
-                 * (BYTE9(v115)
+                 * (BYTE9(v116)
                   + 1369
                   * (HIBYTE(SubProcessTag)
                    + 37
@@ -188,7 +187,7 @@ __int64 __fastcall RtlpHpTagAllocateHeap(__int64 a1, unsigned __int64 a2, unsign
 LABEL_11:
         if ( v14 )
           goto LABEL_14;
-        if ( (unsigned int)dword_1801D3C2C >> 5 )
+        if ( (unsigned int)dword_1801D2C2C >> 5 )
         {
           v11 = HIBYTE(v15)
               + 37
@@ -200,7 +199,7 @@ LABEL_11:
                  + 37
                  * (BYTE3(v15)
                   + 37 * (BYTE2(v15) + 37 * (BYTE1(v15) + 37 * ((unsigned int)(unsigned __int8)v15 + 11623883)))))));
-          v14 = qword_1801D3C30 + 8LL * ((unsigned int)v11 & (((unsigned int)dword_1801D3C2C >> 5) - 1));
+          v14 = qword_1801D2C30 + 8LL * ((unsigned int)v11 & (((unsigned int)dword_1801D2C2C >> 5) - 1));
 LABEL_14:
           while ( 1 )
           {
@@ -226,12 +225,12 @@ LABEL_14:
         }
         v4 = a2;
 LABEL_22:
-        v10 = RtlpHpTagContextAllocateTag(v11, &v115, v12, v4);
+        v10 = RtlpHpTagContextAllocateTag(v11, &v116, v12, v4);
       }
       if ( v10 )
       {
 LABEL_24:
-        word_1801D3C44 = v10;
+        word_1801D2C44 = v10;
         a3 |= 0x100u;
       }
       v104 = v10;
@@ -240,12 +239,12 @@ LABEL_24:
     {
       v104 = 0;
     }
-    v3 = a1;
+    v3 = HeapHandle;
   }
-  if ( *(_DWORD *)(v3 + 16) != -571548178 )
+  if ( v3[2].0 != -571548178 )
   {
 LABEL_146:
-    NTHeapInternal = RtlpAllocateNTHeapInternal((void *)v3, v4, a3);
+    NTHeapInternal = RtlpAllocateNTHeapInternal(v3, v4, a3);
     goto LABEL_147;
   }
   if ( a3 )
@@ -272,15 +271,15 @@ LABEL_146:
     v16 = 0;
   }
   v106 = v16;
-  __writegsqword(0x1858u, v3 + 20);
-  v19 = ((unsigned __int16)v16 | (unsigned __int16)*(_DWORD *)(v3 + 20)) & 0x2FFA;
+  __writegsqword(0x1858u, (unsigned __int64)&v3[2].Ptr + 4);
+  v19 = ((unsigned __int16)v16 | (unsigned __int16)HIDWORD(v3[2].Ptr)) & 0x2FFA;
   v105 = v19;
-  if ( (((unsigned __int16)v16 | (unsigned __int16)*(_DWORD *)(v3 + 20)) & 0x2FF8) != 0 )
+  if ( (((unsigned __int16)v16 | (unsigned __int16)HIDWORD(v3[2].Ptr)) & 0x2FF8) != 0 )
   {
-    if ( (v19 & 0x10) != 0 && *(_DWORD *)(v3 + 224) != (unsigned int)NtCurrentTeb()->ClientId.UniqueThread )
+    if ( (v19 & 0x10) != 0 && v3[28].0 != (unsigned int)NtCurrentTeb()->ClientId.UniqueThread )
       RtlpHpEnvAcquireGlobalLockSharedContended(
-        v3 + 20,
-        ((unsigned __int16)v16 | (unsigned __int16)*(_DWORD *)(v3 + 20)) & 0x2FFA);
+        (char *)&v3[2].Ptr + 4,
+        ((unsigned __int16)v16 | (unsigned __int16)HIDWORD(v3[2].Ptr)) & 0x2FFA);
     NTHeapInternal = RtlpHpAllocateHeapSlow(v3, v4, v19);
     goto LABEL_142;
   }
@@ -288,14 +287,14 @@ LABEL_146:
   if ( v4 > 1 )
     v21 = v4;
   v112 = v21;
-  if ( v21 >= *(unsigned __int16 *)(v3 + 900) )
+  if ( v21 >= WORD2(v3[112].Ptr) )
     goto LABEL_135;
-  v22 = v3 + 832;
-  v23 = *(unsigned __int16 *)(v3 + 908);
+  v22 = (__int64)&v3[104];
+  v23 = WORD2(v3[113].Ptr);
   v24 = v21 + 2;
   if ( (_DWORD)v4 == (_DWORD)v21 )
     v24 = v21;
-  v108 = v3 + 832;
+  v108 = (__int64)&v3[104];
   v25 = (unsigned int)RtlpLfhBucketIndexMap[(unsigned int)(v24 + 15) >> 4] - 1;
   if ( v23 < 0x40 )
   {
@@ -320,18 +319,18 @@ LABEL_54:
   {
     if ( !RtlpHpLfhBucketCheckAndUpdate(v22, (unsigned int)v25, v30) )
     {
-      v3 = a1;
+      v3 = HeapHandle;
 LABEL_135:
       if ( v21 > 0x20000 )
       {
-        if ( v21 > *(unsigned int *)(v3 + 528) )
+        if ( v21 > LODWORD(v3[66].Value) )
           HeapBackend = RtlpHpLargeAlloc(v3, v4, v21, v19);
         else
-          HeapBackend = RtlpHpAllocateHeapBackend(v3, v4, v21, v19);
+          HeapBackend = RtlpHpAllocateHeapBackend((__int64)v3, v4, v21, v19);
       }
       else
       {
-        HeapBackend = RtlpHpVsContextAllocate(v3 + 704, (unsigned int)v4, (unsigned int)v21, v19);
+        HeapBackend = RtlpHpVsContextAllocate(&v3[88], (unsigned int)v4, (unsigned int)v21, v19);
       }
       NTHeapInternal = HeapBackend;
       goto LABEL_141;
@@ -367,7 +366,7 @@ LABEL_135:
       v39 = (v33 & 0xFFFFFFFFFFFFF000uLL) + 64;
       v40 = *(unsigned __int8 *)((v33 & 0xFFFFFFFFFFFFF000uLL) + 0x18);
       v41 = v35->RngState[1];
-      v99 = qword_1801CDEC8 ^ *(_DWORD *)((v33 & 0xFFFFFFFFFFFFF000uLL) + 0x28) ^ ((v33 & 0xFFFFFFFFFFFFF000uLL) >> 12);
+      v99 = qword_1801CCEC8 ^ *(_DWORD *)((v33 & 0xFFFFFFFFFFFFF000uLL) + 0x28) ^ ((v33 & 0xFFFFFFFFFFFFF000uLL) >> 12);
       if ( (unsigned int)v4 >= (unsigned __int16)v99 )
         v37 = 1LL;
       v42 = v41 + v38;
@@ -391,7 +390,7 @@ LABEL_66:
       }
       while ( 1 )
       {
-        if ( (qword_1801CDEE8 & 4) != 0 )
+        if ( (qword_1801CCEE8 & 4) != 0 )
         {
           _RCX = 1LL << ((unsigned __int16)(v44 * __popcnt(_RAX)) >> 8);
           __asm
@@ -453,7 +452,7 @@ LABEL_66:
       }
       else
       {
-        if ( (int)RtlpHpLfhSubsegmentCommitBlock(v108, v33 & 0xFFFFFFFFFFFFF000uLL, (unsigned int)v65) < 0 )
+        if ( (int)RtlpHpLfhSubsegmentCommitBlock(v108, v33 & 0xFFFFFFFFFFFFF000uLL, v65) < 0 )
         {
           NTHeapInternal = 0LL;
           if ( v63 != -1 )
@@ -496,23 +495,25 @@ LABEL_99:
           if ( !*(_BYTE *)(v71 + v62 + 92) )
           {
             *(_BYTE *)(v71 + v62 + 92) = 1;
-            if ( !(_DWORD)qword_1801CE278 )
+            if ( !(_DWORD)qword_1801CD278 )
             {
-              if ( qword_1801CE268 )
+              if ( Context )
               {
-                if ( !byte_1801D2908 && !_InterlockedCompareExchange((volatile signed __int32 *)&qword_1801CE278, 1, 0) )
+                if ( !byte_1801D1908 && !_InterlockedCompareExchange((volatile signed __int32 *)&qword_1801CD278, 1, 0) )
                 {
-                  TpSetTimerEx((_PEB_LDR_DATA *)qword_1801CE268, (unsigned __int64)&qword_1801CE270, 0, 0x3E8uLL);
-                  if ( (RtlpHpHeapFeatures & 8) != 0 && (unsigned int)dword_1801CC670 > 5 )
+                  TpSetTimerEx(Context, &DueTime, 0, 0x3E8u);
+                  if ( (RtlpHpHeapFeatures & 8) != 0 && (unsigned int)dword_1801CB670 > 5 )
                   {
-                    v116 = off_1801CC678;
-                    v114[0] = 0x50B000000uLL;
-                    v117 = *(unsigned __int16 *)off_1801CC678;
-                    v119 = &unk_1801A23DE;
-                    v118 = 2;
-                    v120 = 25;
-                    v121 = 1;
-                    EtwEventWriteTransfer(qword_1801CC690, v114, 0LL, 0LL, 2, (__int64)&v116);
+                    *(_DWORD *)&EventDescriptor.Level = 5;
+                    UserData.Ptr = (unsigned __int64)off_1801CB678;
+                    *(_DWORD *)&EventDescriptor.Id = 184549376;
+                    EventDescriptor.Keyword = 0LL;
+                    UserData.Size = *(unsigned __int16 *)off_1801CB678;
+                    v118 = &unk_1801A157E;
+                    UserData.Reserved = 2;
+                    v119 = 25;
+                    v120 = 1;
+                    EtwEventWriteTransfer(qword_1801CB690, &EventDescriptor, 0LL, 0LL, 2u, &UserData);
                   }
                 }
               }
@@ -561,7 +562,7 @@ LABEL_99:
       goto LABEL_98;
     }
 LABEL_118:
-    NTHeapInternal = RtlpHpLfhSlotAllocateSlow(v22, v32, (unsigned int)v4, v19);
+    NTHeapInternal = RtlpHpLfhSlotAllocateSlow(v22, v32, (unsigned int)v4, (struct _TEB *)v19);
     goto LABEL_132;
   }
   v77 = *(_QWORD *)(v32 + 56);
@@ -572,7 +573,7 @@ LABEL_118:
   *(_QWORD *)(v32 + 56) = v77 - 1;
   v80 = NtCurrentTeb();
   v81 = *(unsigned __int8 *)((v77 & 0xFFFFFFFFFFFFF000uLL) + 0x18);
-  v82 = qword_1801CDEC8 ^ *(_DWORD *)((v77 & 0xFFFFFFFFFFFFF000uLL) + 0x28) ^ ((v77 & 0xFFFFFFFFFFFFF000uLL) >> 12);
+  v82 = qword_1801CCEC8 ^ *(_DWORD *)((v77 & 0xFFFFFFFFFFFFF000uLL) + 0x28) ^ ((v77 & 0xFFFFFFFFFFFFF000uLL) >> 12);
   v83 = v80->RngState[0];
   v84 = v80->RngState[1];
   v85 = (unsigned __int16)v82;
@@ -612,7 +613,7 @@ LABEL_118:
     *(_WORD *)(v85 + NTHeapInternal - 2) = v95;
   }
 LABEL_132:
-  v3 = a1;
+  v3 = HeapHandle;
   if ( NTHeapInternal == -1 )
     goto LABEL_135;
 LABEL_141:
@@ -623,17 +624,17 @@ LABEL_142:
   {
     v97 = NtCurrentTeb();
     v97->LastStatusValue = -1073741801;
-    v97->LastErrorValue = RtlNtStatusToDosErrorNoTeb(3221225495LL);
-    if ( v16 < 0 || *(int *)(v3 + 20) < 0 )
+    v97->LastErrorValue = RtlNtStatusToDosErrorNoTeb(-1073741801);
+    if ( v16 < 0 || SHIDWORD(v3[2].Ptr) < 0 )
       RtlpAllocateHeapRaiseException(v4);
   }
 LABEL_147:
   if ( v104 )
   {
     if ( NTHeapInternal )
-      *(_WORD *)RtlpHpExtrasGet(v3, NTHeapInternal, *(_DWORD *)(v3 + 20), 0LL) = v104;
+      *(_WORD *)RtlpHpExtrasGet(v3, NTHeapInternal, HIDWORD(v3[2].Ptr), 0LL) = v104;
     else
-      _InterlockedAdd64((volatile signed __int64 *)(*(_QWORD *)(qword_1801D3C38 + 8LL * v104 - 8) + 32LL), -(__int64)v4);
+      _InterlockedAdd64((volatile signed __int64 *)(*(_QWORD *)(qword_1801D2C38 + 8LL * v104 - 8) + 32LL), -(__int64)v4);
   }
   return NTHeapInternal;
 }

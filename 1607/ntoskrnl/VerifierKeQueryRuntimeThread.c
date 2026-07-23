@@ -1,5 +1,5 @@
 /*
- * XREFs of VerifierKeQueryRuntimeThread @ 0x14070CA2C
+ * XREFs of VerifierKeQueryRuntimeThread @ 0x14070CA5C
  * Callers:
  *     <none>
  * Callees:

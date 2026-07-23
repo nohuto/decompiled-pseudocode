@@ -1,11 +1,11 @@
 /*
- * XREFs of MiIsImageFullyRetpolined @ 0x140B1F430
+ * XREFs of MiIsImageFullyRetpolined @ 0x140B214B0
  * Callers:
- *     MiUnloadSystemImage @ 0x140AC76E8 (MiUnloadSystemImage.c)
- *     MiMarkKernelImageRetpolineBits @ 0x140B1F2FC (MiMarkKernelImageRetpolineBits.c)
+ *     MiUnloadSystemImage @ 0x140AC92D8 (MiUnloadSystemImage.c)
+ *     MiMarkKernelImageRetpolineBits @ 0x140B2137C (MiMarkKernelImageRetpolineBits.c)
  * Callees:
- *     MiSectionControlArea @ 0x14038A9B0 (MiSectionControlArea.c)
- *     RtlIsImageFullyRetpolined @ 0x1404FFD68 (RtlIsImageFullyRetpolined.c)
+ *     MiSectionControlArea @ 0x14038C760 (MiSectionControlArea.c)
+ *     RtlIsImageFullyRetpolined @ 0x1404F9558 (RtlIsImageFullyRetpolined.c)
  */
 
 __int64 __fastcall MiIsImageFullyRetpolined(__int64 a1)

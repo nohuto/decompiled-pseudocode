@@ -19,16 +19,16 @@
 
 __int64 LdrpInitializeImportRedirection()
 {
-  __int64 v0; // rbx
+  int Dll; // ebx
   _UNICODE_STRING *p_RedirectionDllName; // rdi
   char v3; // al
   __int64 v4; // rcx
   _BYTE v5[8]; // [rsp+38h] [rbp-49h] BYREF
   __int64 v6; // [rsp+40h] [rbp-41h] BYREF
-  __int64 v7[15]; // [rsp+48h] [rbp-39h] BYREF
+  PWSTR Path[15]; // [rsp+48h] [rbp-39h] BYREF
   char v8; // [rsp+C4h] [rbp+43h]
 
-  LODWORD(v0) = 0;
+  Dll = 0;
   p_RedirectionDllName = &NtCurrentPeb()->ProcessParameters->RedirectionDllName;
   if ( p_RedirectionDllName->Length )
   {
@@ -40,22 +40,22 @@ __int64 LdrpInitializeImportRedirection()
         2,
         (__int64)"Loading import redirection DLL: '%wZ'\n",
         p_RedirectionDllName);
-    LdrpInitializeDllPath(0LL, 0LL, v7);
-    LODWORD(v0) = LdrpLoadDll((__int64)p_RedirectionDllName, (int)v7, 16777217, (__int64)&v6);
+    LdrpInitializeDllPath(0LL, 0LL, (const WCHAR **)Path);
+    Dll = LdrpLoadDll((__int64)p_RedirectionDllName, (__int64)Path, 16777217, (__int64)&v6);
     if ( v8 )
-      RtlReleasePath(v7[0]);
-    if ( (int)v0 >= 0 )
+      RtlReleasePath(Path[0]);
+    if ( Dll >= 0 )
     {
-      LODWORD(v0) = LdrpBuildImportRedirection(v6);
-      if ( (int)v0 >= 0 )
+      Dll = LdrpBuildImportRedirection(v6);
+      if ( Dll >= 0 )
       {
         LdrpDrainWorkQueue(0);
         LdrpAcquireLoaderLock();
         v5[0] = 0;
-        v0 = (unsigned int)LdrpInitializeGraphRecurse(*(__int64 **)(v6 + 152), 0LL, v5);
-        LdrpReleaseLoaderLock(v4, 2LL, v0);
+        Dll = LdrpInitializeGraphRecurse(*(__int64 **)(v6 + 152), 0LL, v5);
+        LdrpReleaseLoaderLock(v4, 2, Dll);
         LdrpDropLastInProgressCount();
-        if ( (int)v0 >= 0 )
+        if ( Dll >= 0 )
         {
           *(_DWORD *)(*(_QWORD *)(v6 + 152) + 24LL) = -1;
           *(_WORD *)(**(_QWORD **)(v6 + 152) - 52LL) = -1;
@@ -74,7 +74,7 @@ __int64 LdrpInitializeImportRedirection()
             (unsigned int)"LdrpInitializeImportRedirection",
             0,
             (__int64)"Unable to build import redirection Table, Status = 0x%x\n",
-            v0);
+            Dll);
           v3 = LdrpDebugFlags;
         }
         if ( (v3 & 0x10) != 0 )
@@ -82,5 +82,5 @@ __int64 LdrpInitializeImportRedirection()
       }
     }
   }
-  return (unsigned int)v0;
+  return (unsigned int)Dll;
 }

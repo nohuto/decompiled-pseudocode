@@ -1,11 +1,11 @@
 /*
- * XREFs of deflate_rle @ 0x1405F5E7C
+ * XREFs of deflate_rle @ 0x1405F34BC
  * Callers:
- *     deflate @ 0x1405F52F8 (deflate.c)
+ *     deflate @ 0x1405F2938 (deflate.c)
  * Callees:
- *     fill_window @ 0x1405F6C20 (fill_window.c)
- *     flush_pending @ 0x1405F6F88 (flush_pending.c)
- *     _tr_flush_block @ 0x140602828 (_tr_flush_block.c)
+ *     fill_window @ 0x1405F4260 (fill_window.c)
+ *     flush_pending @ 0x1405F45C8 (flush_pending.c)
+ *     _tr_flush_block @ 0x1405FFE68 (_tr_flush_block.c)
  */
 
 __int64 __fastcall deflate_rle(__int64 *a1)

@@ -1,23 +1,23 @@
 /*
- * XREFs of DrvDbSetDriverDatabaseMappedProperty @ 0x140902ABC
+ * XREFs of DrvDbSetDriverDatabaseMappedProperty @ 0x140903D7C
  * Callers:
- *     DrvDbDispatchDriverDatabase @ 0x1406D2780 (DrvDbDispatchDriverDatabase.c)
- *     DrvDbCreateDatabaseNode @ 0x14073B3E8 (DrvDbCreateDatabaseNode.c)
- *     DrvDbInitializeDatabaseNodeVersion @ 0x140903EC8 (DrvDbInitializeDatabaseNodeVersion.c)
+ *     DrvDbDispatchDriverDatabase @ 0x1406D3A20 (DrvDbDispatchDriverDatabase.c)
+ *     DrvDbCreateDatabaseNode @ 0x14073C5D8 (DrvDbCreateDatabaseNode.c)
+ *     DrvDbInitializeDatabaseNodeVersion @ 0x140905188 (DrvDbInitializeDatabaseNodeVersion.c)
  * Callees:
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceExclusiveLite @ 0x1400505F0 (ExAcquireResourceExclusiveLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     _wcsicmp @ 0x140195930 (_wcsicmp.c)
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     RtlFreeAnsiString @ 0x140623790 (RtlFreeAnsiString.c)
- *     RtlCreateUnicodeString @ 0x14065AA10 (RtlCreateUnicodeString.c)
- *     DrvDbOpenObjectRegKey @ 0x1406D2C78 (DrvDbOpenObjectRegKey.c)
- *     DrvDbLoadDatabaseNode @ 0x1406D3150 (DrvDbLoadDatabaseNode.c)
- *     DrvDbUnloadDatabaseNode @ 0x1406D3410 (DrvDbUnloadDatabaseNode.c)
- *     DrvDbFindDatabaseNode @ 0x1406D3B78 (DrvDbFindDatabaseNode.c)
- *     DrvDbOpenDriverDatabaseRegKey @ 0x140753ABC (DrvDbOpenDriverDatabaseRegKey.c)
- *     DrvDbSetRegValueMappedProperty @ 0x1409038B8 (DrvDbSetRegValueMappedProperty.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     _wcsicmp @ 0x140195A70 (_wcsicmp.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     RtlFreeAnsiString @ 0x140624790 (RtlFreeAnsiString.c)
+ *     RtlCreateUnicodeString @ 0x14065BBD0 (RtlCreateUnicodeString.c)
+ *     DrvDbOpenObjectRegKey @ 0x1406D3F18 (DrvDbOpenObjectRegKey.c)
+ *     DrvDbLoadDatabaseNode @ 0x1406D43F0 (DrvDbLoadDatabaseNode.c)
+ *     DrvDbUnloadDatabaseNode @ 0x1406D46B0 (DrvDbUnloadDatabaseNode.c)
+ *     DrvDbFindDatabaseNode @ 0x1406D4E18 (DrvDbFindDatabaseNode.c)
+ *     DrvDbOpenDriverDatabaseRegKey @ 0x140754CAC (DrvDbOpenDriverDatabaseRegKey.c)
+ *     DrvDbSetRegValueMappedProperty @ 0x140904B78 (DrvDbSetRegValueMappedProperty.c)
  */
 
 __int64 __fastcall DrvDbSetDriverDatabaseMappedProperty(
@@ -112,7 +112,7 @@ LABEL_19:
     goto LABEL_122;
   }
   v19 = 0;
-  v20 = &off_140400390;
+  v20 = &off_140401390;
   do
   {
     v21 = *v20;
@@ -218,7 +218,7 @@ LABEL_121:
   v22 = 0LL;
   *(_QWORD *)&DestinationString.Length = 0LL;
   v23 = 0LL;
-  v24 = &off_1403534A0;
+  v24 = &off_1403544A0;
   while ( 1 )
   {
     v25 = *v24;
@@ -236,7 +236,7 @@ LABEL_121:
       goto LABEL_81;
   }
   v13 = 5 * v23;
-  v22 = &off_1403534A0 + 5 * v23;
+  v22 = &off_1403544A0 + 5 * v23;
   *(_QWORD *)&DestinationString.Length = v22;
 LABEL_81:
   if ( v22 )
@@ -291,7 +291,7 @@ LABEL_94:
     goto LABEL_121;
   }
   *(_QWORD *)&DestinationString.Length = 0LL;
-  v35 = &off_140356510;
+  v35 = &off_140357500;
   v36 = 0LL;
   while ( 1 )
   {
@@ -309,7 +309,7 @@ LABEL_94:
     if ( (unsigned int)v36 >= 2 )
       goto LABEL_90;
   }
-  v22 = &off_140356510 + 5 * v36;
+  v22 = &off_140357500 + 5 * v36;
   *(_QWORD *)&DestinationString.Length = v22;
 LABEL_90:
   if ( !v22 )

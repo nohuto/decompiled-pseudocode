@@ -58,9 +58,9 @@ __int64 __fastcall sub_180079010(_DWORD *a1, __int64 a2, __int64 a3, unsigned __
     if ( (_DWORD)v13 == *((_DWORD *)v12 + 2) )
     {
       DbgPrintEx(
-        51,
+        0x33u,
         0,
-        (int)"SXS: %s() found activation context data at %p with assembly roster that has no root\n",
+        "SXS: %s() found activation context data at %p with assembly roster that has no root\n",
         "RtlpQueryInformationActivationContextDetailedInformation",
         a1);
       return 3222601731LL;

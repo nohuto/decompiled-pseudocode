@@ -1,13 +1,13 @@
 /*
- * XREFs of SymCryptShortWeierstrassOnCurve @ 0x140402990
+ * XREFs of SymCryptShortWeierstrassOnCurve @ 0x140402B70
  * Callers:
  *     <none>
  * Callees:
- *     SymCryptModAdd @ 0x1403F95D4 (SymCryptModAdd.c)
- *     SymCryptModElementCreate @ 0x1403F966C (SymCryptModElementCreate.c)
- *     SymCryptModElementIsEqual @ 0x1403F96B8 (SymCryptModElementIsEqual.c)
- *     SymCryptModMul @ 0x1403F98F4 (SymCryptModMul.c)
- *     SymCryptModSquare @ 0x1403F99D0 (SymCryptModSquare.c)
+ *     SymCryptModAdd @ 0x1403F97B4 (SymCryptModAdd.c)
+ *     SymCryptModElementCreate @ 0x1403F984C (SymCryptModElementCreate.c)
+ *     SymCryptModElementIsEqual @ 0x1403F9898 (SymCryptModElementIsEqual.c)
+ *     SymCryptModMul @ 0x1403F9AD4 (SymCryptModMul.c)
+ *     SymCryptModSquare @ 0x1403F9BB0 (SymCryptModSquare.c)
  */
 
 __int64 __fastcall SymCryptShortWeierstrassOnCurve(__int64 a1, __int64 a2, __int64 a3)

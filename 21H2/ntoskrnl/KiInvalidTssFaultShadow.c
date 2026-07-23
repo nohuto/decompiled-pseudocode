@@ -1,5 +1,5 @@
 /*
- * XREFs of KiInvalidTssFaultShadow @ 0x140A14640
+ * XREFs of KiInvalidTssFaultShadow @ 0x140A15640
  * Callers:
  *     <none>
  * Callees:

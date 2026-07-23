@@ -1,16 +1,16 @@
 /*
- * XREFs of MiDeleteKernelStackPages @ 0x14028E9CC
+ * XREFs of MiDeleteKernelStackPages @ 0x14028DF2C
  * Callers:
- *     MiDeleteCachedKernelStack @ 0x14028FE5C (MiDeleteCachedKernelStack.c)
- *     MiDeleteCachedKernelShadowStack @ 0x1402A97A0 (MiDeleteCachedKernelShadowStack.c)
- *     MiAllocateKernelStackPages @ 0x1403D1778 (MiAllocateKernelStackPages.c)
- *     MmDeleteKernelStack @ 0x1404162AC (MmDeleteKernelStack.c)
+ *     MiDeleteCachedKernelStack @ 0x14028F3BC (MiDeleteCachedKernelStack.c)
+ *     MiDeleteCachedKernelShadowStack @ 0x1402A8BB0 (MiDeleteCachedKernelShadowStack.c)
+ *     MiAllocateKernelStackPages @ 0x1403D4748 (MiAllocateKernelStackPages.c)
+ *     MmDeleteKernelStack @ 0x14040A8BC (MmDeleteKernelStack.c)
  * Callees:
- *     MiVaToFlushVm @ 0x1402843F8 (MiVaToFlushVm.c)
- *     MiDeleteShadowStackPtes @ 0x1403407F4 (MiDeleteShadowStackPtes.c)
- *     MiDecommitPages @ 0x140360150 (MiDecommitPages.c)
- *     MiReturnCommit @ 0x14036D2B0 (MiReturnCommit.c)
- *     MiReturnResident @ 0x14036E2C0 (MiReturnResident.c)
+ *     MiVaToFlushVm @ 0x140283968 (MiVaToFlushVm.c)
+ *     MiDeleteShadowStackPtes @ 0x140342874 (MiDeleteShadowStackPtes.c)
+ *     MiDecommitPages @ 0x140361EF0 (MiDecommitPages.c)
+ *     MiReturnCommit @ 0x14036F050 (MiReturnCommit.c)
+ *     MiReturnResident @ 0x140370060 (MiReturnResident.c)
  */
 
 __int64 __fastcall MiDeleteKernelStackPages(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5)

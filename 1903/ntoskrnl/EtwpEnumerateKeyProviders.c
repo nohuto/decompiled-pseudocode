@@ -28,7 +28,7 @@ int __fastcall EtwpEnumerateKeyProviders(
   int v12; // r13d
   int v13; // ebx
   unsigned __int64 v14; // rax
-  struct _RTL_AVL_TABLE *v15; // rcx
+  _RTL_AVL_TABLE *v15; // rcx
   const WCHAR *v16; // rdx
   ULONG ValueData; // [rsp+30h] [rbp-50h] BYREF
   ULONG ResultLength; // [rsp+34h] [rbp-4Ch] BYREF

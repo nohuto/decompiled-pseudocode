@@ -1,30 +1,30 @@
 /*
- * XREFs of MiMapPageFileHash @ 0x140116930
+ * XREFs of MiMapPageFileHash @ 0x140116EA0
  * Callers:
- *     MiStoreUpdatePagefileHash @ 0x1401167A0 (MiStoreUpdatePagefileHash.c)
- *     MiGatherPagefilePages @ 0x140119444 (MiGatherPagefilePages.c)
+ *     MiStoreUpdatePagefileHash @ 0x140116D10 (MiStoreUpdatePagefileHash.c)
+ *     MiGatherPagefilePages @ 0x1401199B4 (MiGatherPagefilePages.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140012750 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14001BD40 (KeAcquireInStackQueuedSpinLock.c)
- *     MiGetAnyMultiplexedVm @ 0x14001D05C (MiGetAnyMultiplexedVm.c)
- *     MiInitializePfnForOtherProcess @ 0x140021708 (MiInitializePfnForOtherProcess.c)
- *     MiLockPageInline @ 0x140022E70 (MiLockPageInline.c)
- *     MmUnmapLockedPages @ 0x140025D10 (MmUnmapLockedPages.c)
- *     MiMakeValidKernelPte @ 0x140034D10 (MiMakeValidKernelPte.c)
- *     MiReturnCommit @ 0x14004E500 (MiReturnCommit.c)
- *     MiReturnResidentAvailable @ 0x14004F1E0 (MiReturnResidentAvailable.c)
- *     MiInsertPageInFreeOrZeroedList @ 0x1400671C0 (MiInsertPageInFreeOrZeroedList.c)
- *     MmMapLockedPagesSpecifyCache @ 0x1400DE220 (MmMapLockedPagesSpecifyCache.c)
- *     MiInitializePageColorBase @ 0x1400E60A0 (MiInitializePageColorBase.c)
- *     MiSetPfnTbFlushStamp @ 0x1400E7490 (MiSetPfnTbFlushStamp.c)
- *     MiGetFileHashPage @ 0x140114CEC (MiGetFileHashPage.c)
- *     MiWritePageFileHash @ 0x140115040 (MiWritePageFileHash.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
- *     MI_GET_PFN_FROM_PTE @ 0x1401F2594 (MI_GET_PFN_FROM_PTE.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiGetPteTimeStamp @ 0x1401F269C (MiGetPteTimeStamp.c)
- *     MiUpdatePageFileHighInPte @ 0x1401F2958 (MiUpdatePageFileHighInPte.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x1400122D0 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14001B8C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     MiGetAnyMultiplexedVm @ 0x14001CBDC (MiGetAnyMultiplexedVm.c)
+ *     MiInitializePfnForOtherProcess @ 0x140021288 (MiInitializePfnForOtherProcess.c)
+ *     MiLockPageInline @ 0x1400229F0 (MiLockPageInline.c)
+ *     MmUnmapLockedPages @ 0x140025890 (MmUnmapLockedPages.c)
+ *     MiMakeValidKernelPte @ 0x140034890 (MiMakeValidKernelPte.c)
+ *     MiReturnCommit @ 0x14004E080 (MiReturnCommit.c)
+ *     MiReturnResidentAvailable @ 0x14004ED60 (MiReturnResidentAvailable.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x140066D40 (MiInsertPageInFreeOrZeroedList.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x1400DC0C0 (MmMapLockedPagesSpecifyCache.c)
+ *     MiInitializePageColorBase @ 0x1400E3F40 (MiInitializePageColorBase.c)
+ *     MiSetPfnTbFlushStamp @ 0x1400E5330 (MiSetPfnTbFlushStamp.c)
+ *     MiGetFileHashPage @ 0x14011525C (MiGetFileHashPage.c)
+ *     MiWritePageFileHash @ 0x1401155B0 (MiWritePageFileHash.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
+ *     MI_GET_PFN_FROM_PTE @ 0x1401F23C0 (MI_GET_PFN_FROM_PTE.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
+ *     MiGetPteTimeStamp @ 0x1401F24C8 (MiGetPteTimeStamp.c)
+ *     MiUpdatePageFileHighInPte @ 0x1401F2840 (MiUpdatePageFileHighInPte.c)
  */
 
 void __fastcall MiMapPageFileHash(__int64 a1, __int64 a2, __int64 a3, unsigned int a4, unsigned int a5)
@@ -203,7 +203,7 @@ LABEL_37:
       else
         _InterlockedExchangeAdd64((volatile signed __int64 *)(v31 + 6528), 1uLL);
       MiReturnCommit(*(_QWORD *)(a1 + 256), 1uLL);
-      _InterlockedDecrement64(&qword_140327D88);
+      _InterlockedDecrement64(&qword_140327DC8);
     }
     v13 = a5;
     v5 = v55;

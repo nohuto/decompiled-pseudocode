@@ -1,11 +1,11 @@
 /*
- * XREFs of PopFxEnforceDirectedPowerTransition @ 0x14058A310
+ * XREFs of PopFxEnforceDirectedPowerTransition @ 0x14058A800
  * Callers:
- *     PopFxCompleteDirectedPowerTransition @ 0x14058969C (PopFxCompleteDirectedPowerTransition.c)
+ *     PopFxCompleteDirectedPowerTransition @ 0x140589B8C (PopFxCompleteDirectedPowerTransition.c)
  * Callees:
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     PopDirectedDripsDiagTraceDfxPowerStateFailure @ 0x1405A078C (PopDirectedDripsDiagTraceDfxPowerStateFailure.c)
- *     DbgkWerCaptureLiveKernelDump @ 0x1408834E0 (DbgkWerCaptureLiveKernelDump.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     PopDirectedDripsDiagTraceDfxPowerStateFailure @ 0x1405A0C7C (PopDirectedDripsDiagTraceDfxPowerStateFailure.c)
+ *     DbgkWerCaptureLiveKernelDump @ 0x140883720 (DbgkWerCaptureLiveKernelDump.c)
  */
 
 __int64 __fastcall PopFxEnforceDirectedPowerTransition(ULONG_PTR BugCheckParameter2, int a2, unsigned __int8 a3)

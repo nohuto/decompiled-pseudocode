@@ -1,12 +1,12 @@
 /*
- * XREFs of MiLookupFixupExtentByPte @ 0x1404CBA54
+ * XREFs of MiLookupFixupExtentByPte @ 0x1404C5484
  * Callers:
- *     MiFaultGetFileExtents @ 0x14050CBDC (MiFaultGetFileExtents.c)
- *     MiInitializeNewPfns @ 0x1406E6548 (MiInitializeNewPfns.c)
- *     MiResolveMappedFileFaultGetCopyExtents @ 0x1406F7854 (MiResolveMappedFileFaultGetCopyExtents.c)
- *     MiEliminateOverlappingExtents @ 0x1406F96E4 (MiEliminateOverlappingExtents.c)
+ *     MiFaultGetFileExtents @ 0x14050664C (MiFaultGetFileExtents.c)
+ *     MiInitializeNewPfns @ 0x1406EB1F8 (MiInitializeNewPfns.c)
+ *     MiResolveMappedFileFaultGetCopyExtents @ 0x1406FC4C4 (MiResolveMappedFileFaultGetCopyExtents.c)
+ *     MiEliminateOverlappingExtents @ 0x1406FE3B4 (MiEliminateOverlappingExtents.c)
  * Callees:
- *     bsearch @ 0x140536920 (bsearch.c)
+ *     bsearch @ 0x140538DA0 (bsearch.c)
  */
 
 void *__fastcall MiLookupFixupExtentByPte(__int64 a1, const void *a2)

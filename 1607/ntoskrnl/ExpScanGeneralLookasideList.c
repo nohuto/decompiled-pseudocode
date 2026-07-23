@@ -1,9 +1,9 @@
 /*
- * XREFs of ExpScanGeneralLookasideList @ 0x14008D5B0
+ * XREFs of ExpScanGeneralLookasideList @ 0x14008CD10
  * Callers:
- *     KeBalanceSetManager @ 0x14013EF3C (KeBalanceSetManager.c)
+ *     KeBalanceSetManager @ 0x14013F4AC (KeBalanceSetManager.c)
  * Callees:
- *     KeAcquireSpinLockRaiseToDpc @ 0x1400EFE30 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1400EDCB0 (KeAcquireSpinLockRaiseToDpc.c)
  */
 
 void __fastcall ExpScanGeneralLookasideList(_QWORD *a1, KSPIN_LOCK *a2)

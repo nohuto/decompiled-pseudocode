@@ -1,10 +1,10 @@
 /*
- * XREFs of MiFindEmptyAddressRangeDown @ 0x1404BABB4
+ * XREFs of MiFindEmptyAddressRangeDown @ 0x1404A68E4
  * Callers:
- *     MiMapViewOfDataSection @ 0x1404354C0 (MiMapViewOfDataSection.c)
- *     MiSelectUserAddress @ 0x1404BAA90 (MiSelectUserAddress.c)
+ *     MiMapViewOfDataSection @ 0x140434390 (MiMapViewOfDataSection.c)
+ *     MiSelectUserAddress @ 0x1404A67C0 (MiSelectUserAddress.c)
  * Callees:
- *     MiFindEmptyAddressRangeDownTree @ 0x1404BAC5C (MiFindEmptyAddressRangeDownTree.c)
+ *     MiFindEmptyAddressRangeDownTree @ 0x1404A698C (MiFindEmptyAddressRangeDownTree.c)
  */
 
 __int64 __fastcall MiFindEmptyAddressRangeDown(int a1, int a2, int a3, __int64 a4, char a5, __int64 a6)
@@ -18,12 +18,12 @@ __int64 __fastcall MiFindEmptyAddressRangeDown(int a1, int a2, int a3, __int64 a
   unsigned int v15; // ecx
   unsigned __int64 v16; // rax
 
-  v9 = *(_QWORD *)(qword_140327F90 + 276840496);
+  v9 = *(_QWORD *)(qword_140327FD0 + 276840496);
   v10 = a4 + 1;
   v11 = a4 + 1;
-  if ( (unsigned __int64)(a4 + 1) > *(_QWORD *)(qword_140327F90 + 276840456) )
-    v11 = *(_QWORD *)(qword_140327F90 + 276840456);
-  v12 = *(_DWORD *)(qword_140327F90 + 276840492);
+  if ( (unsigned __int64)(a4 + 1) > *(_QWORD *)(qword_140327FD0 + 276840456) )
+    v11 = *(_QWORD *)(qword_140327FD0 + 276840456);
+  v12 = *(_DWORD *)(qword_140327FD0 + 276840492);
   v13 = (unsigned __int8)v12;
   if ( !(_BYTE)v12 )
     v13 = 1;

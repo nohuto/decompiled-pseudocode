@@ -15,23 +15,28 @@
  *     RtlIsValidLocaleName @ 0x1800E04F0 (RtlIsValidLocaleName.c)
  */
 
-__int64 __fastcall RtlGetSystemPreferredUILanguages(int a1, const WCHAR *a2, _DWORD *a3, __int64 a4, unsigned int *a5)
+NTSTATUS __cdecl RtlGetSystemPreferredUILanguages(
+        ULONG Flags,
+        PCWSTR LocaleName,
+        PULONG NumberOfLanguages,
+        PZZWSTR Languages,
+        PULONG ReturnLength)
 {
-  unsigned int *v7; // rcx
-  __int64 v9; // r15
-  unsigned int v10; // esi
+  PULONG v7; // rcx
+  void *v9; // r15
+  ULONG v10; // esi
   char v11; // bl
-  int v12; // eax
-  __int64 result; // rax
+  ULONG v12; // eax
+  NTSTATUS result; // eax
   _QWORD *v14; // rdi
   int v15; // eax
-  int v16; // ebx
-  __int64 v17; // rsi
+  NTSTATUS LangFallbackList; // ebx
+  unsigned __int16 *v17; // rsi
   char v18; // r13
-  __int64 v19; // rcx
+  PVOID v19; // rcx
   bool v20; // zf
-  unsigned int *v21; // r13
-  unsigned int *v22; // r9
+  PULONG v21; // r13
+  PULONG v22; // r9
   int v23; // eax
   _BYTE *v24; // rdx
   __int64 v25; // r9
@@ -40,95 +45,118 @@ __int64 __fastcall RtlGetSystemPreferredUILanguages(int a1, const WCHAR *a2, _DW
   __int64 v28; // r9
   char v29; // [rsp+20h] [rbp-51h]
   char v30; // [rsp+50h] [rbp-21h]
-  int v31; // [rsp+54h] [rbp-1Dh] BYREF
+  ULONG v31; // [rsp+54h] [rbp-1Dh] BYREF
   int v32; // [rsp+58h] [rbp-19h]
-  unsigned int v33; // [rsp+5Ch] [rbp-15h]
-  __int64 v34; // [rsp+60h] [rbp-11h] BYREF
-  __int64 v35; // [rsp+68h] [rbp-9h] BYREF
+  ULONG v33; // [rsp+5Ch] [rbp-15h]
+  PVOID BaseAddress; // [rsp+60h] [rbp-11h] BYREF
+  void *v35; // [rsp+68h] [rbp-9h] BYREF
   _QWORD *v36; // [rsp+70h] [rbp-1h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+78h] [rbp+7h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+78h] [rbp+7h] BYREF
   __int16 v38; // [rsp+D8h] [rbp+67h] BYREF
-  _DWORD *v39; // [rsp+E0h] [rbp+6Fh]
+  PULONG v39; // [rsp+E0h] [rbp+6Fh]
 
-  v39 = a3;
+  v39 = NumberOfLanguages;
   v38 = -1;
   v31 = 0;
-  v7 = a5;
-  v34 = 0LL;
+  v7 = ReturnLength;
+  BaseAddress = 0LL;
   v35 = 0LL;
   v32 = -256;
   v9 = 0LL;
-  v10 = *a5;
+  v10 = *ReturnLength;
   v36 = 0LL;
-  if ( a2 )
+  if ( LocaleName )
   {
-    v20 = (a1 & 0x80u) == 0;
-    a1 = 4104;
+    v20 = (Flags & 0x80u) == 0;
+    Flags = 4104;
     v32 = !v20;
-    RtlInitUnicodeString(&DestinationString, a2);
-    if ( !(unsigned __int8)RtlIsValidLocaleName(a2) )
+    RtlInitUnicodeString(&DestinationString, LocaleName);
+    if ( !RtlIsValidLocaleName(LocaleName, 2u) )
       goto LABEL_34;
-    v7 = a5;
+    v7 = ReturnLength;
   }
-  if ( (a1 & 0xFFFF6373) != 0 )
-    return 3221225485LL;
-  if ( (a1 & 0x9880) == 0 )
-    a1 |= 0x80u;
-  if ( (a1 & 0xC) == 0xC )
-    return 3221225485LL;
-  if ( (a1 & 0xC) == 0 )
-    a1 |= 8u;
-  v11 = (a1 & 0x400) == 0;
+  if ( (Flags & 0xFFFF6373) != 0 )
+    return -1073741811;
+  if ( (Flags & 0x9880) == 0 )
+    Flags |= 0x80u;
+  if ( (Flags & 0xC) == 0xC )
+    return -1073741811;
+  if ( (Flags & 0xC) == 0 )
+    Flags |= 8u;
+  v11 = (Flags & 0x400) == 0;
   v30 = v11;
-  v12 = a1 & 0x9880;
-  if ( (a1 & 0x9880) == 0 )
+  v12 = Flags & 0x9880;
+  if ( (Flags & 0x9880) == 0 )
   {
-    a1 |= 0x8000u;
+    Flags |= 0x8000u;
     v12 = 0x8000;
   }
   if ( v12 != 128 && v12 != 2048 && v12 != 4096 && v12 != 0x8000 )
-    return 3221225485LL;
+    return -1073741811;
   v10 = *v7;
   v33 = v10;
   if ( v10 )
   {
-    if ( !a4 )
-      return 3221225485LL;
+    if ( !Languages )
+      return -1073741811;
   }
-  result = RtlpCreateProcessRegistryInfo((__int64 *)&v36);
-  if ( (int)result < 0 )
+  result = RtlpCreateProcessRegistryInfo(&v36);
+  if ( result < 0 )
     return result;
   v14 = v36;
-  if ( a2 && (int)RtlpMuiRegGetInstalledLanguageIndexByName((__int64)v36, a2, 0, &v38) < 0 )
+  if ( LocaleName && (int)RtlpMuiRegGetInstalledLanguageIndexByName((__int64)v36, LocaleName, 0, &v38) < 0 )
   {
 LABEL_34:
-    v16 = -1073741772;
+    LangFallbackList = -1073741772;
     goto LABEL_35;
   }
   result = RtlpSetProcUserMachineLangList((__int64)v14, 0);
-  if ( (int)result >= 0 )
+  if ( result >= 0 )
   {
-    if ( (a1 & 0x800) != 0 )
+    if ( (Flags & 0x800) != 0 )
     {
-      v21 = a5;
-      v22 = a5;
-      *a5 = v10;
-      v16 = LdrpConvertLangFallbackListToMultiSz(v14[7], (__int64)v14, (_DWORD *)a4, v22, a1, v11, &v31);
-      if ( v16 >= 0 && v31 )
+      v21 = ReturnLength;
+      v22 = ReturnLength;
+      *ReturnLength = v10;
+      LangFallbackList = LdrpConvertLangFallbackListToMultiSz(
+                           v14[7],
+                           (__int64)v14,
+                           Languages,
+                           v22,
+                           Flags,
+                           v11,
+                           (int *)&v31);
+      if ( LangFallbackList >= 0 && v31 )
         goto LABEL_27;
-      v16 = LdrpCreateLangFallbackList(&v34, (__int64)v14, 0x19u, 1);
-      if ( v16 >= 0 )
+      LangFallbackList = LdrpCreateLangFallbackList((__int64 *)&BaseAddress, (__int64)v14, 0x19u, 1);
+      if ( LangFallbackList >= 0 )
       {
-        v16 = LdrpMergeLangFallbackLists(a1 | 0x30u, v14, (__int64)&v34, 0LL, 0LL, 0LL, 0LL, 0LL, 0);
-        if ( v16 >= 0 )
+        LangFallbackList = LdrpMergeLangFallbackLists(
+                             Flags | 0x30,
+                             (__int64)v14,
+                             (__int64)&BaseAddress,
+                             0LL,
+                             0LL,
+                             0LL,
+                             0LL,
+                             0LL,
+                             0);
+        if ( LangFallbackList >= 0 )
         {
           *v21 = v10;
 LABEL_20:
-          v17 = v34;
+          v17 = (unsigned __int16 *)BaseAddress;
           v18 = v30;
-          v19 = v34;
+          v19 = BaseAddress;
 LABEL_21:
-          v16 = LdrpConvertLangFallbackListToMultiSz(v19, (__int64)v14, (_DWORD *)a4, a5, a1, v18, &v31);
+          LangFallbackList = LdrpConvertLangFallbackListToMultiSz(
+                               (__int64)v19,
+                               (__int64)v14,
+                               Languages,
+                               ReturnLength,
+                               Flags,
+                               v18,
+                               (int *)&v31);
 LABEL_22:
           if ( v17 )
             RtlpMuiRegFreeLanguageList(v17);
@@ -136,49 +164,67 @@ LABEL_22:
             RtlpMuiRegFreeLanguageList(v9);
           v10 = v33;
 LABEL_27:
-          if ( v16 >= 0 )
+          if ( LangFallbackList >= 0 )
           {
             *v39 = v31;
-            return (unsigned int)v16;
+            return LangFallbackList;
           }
 LABEL_35:
-          if ( a4 )
+          if ( Languages )
           {
             if ( v10 )
-              *(_WORD *)a4 = 0;
+              *Languages = 0;
             if ( v10 > 1 )
-              *(_WORD *)(a4 + 2) = 0;
+              Languages[1] = 0;
           }
-          return (unsigned int)v16;
+          return LangFallbackList;
         }
       }
 LABEL_81:
-      v17 = v34;
+      v17 = (unsigned __int16 *)BaseAddress;
       goto LABEL_22;
     }
-    v15 = LdrpCreateLangFallbackList(&v34, (__int64)v14, 0x19u, 1);
-    v16 = v15;
-    if ( (a1 & 0x8080) != 0 )
+    v15 = LdrpCreateLangFallbackList((__int64 *)&BaseAddress, (__int64)v14, 0x19u, 1);
+    LangFallbackList = v15;
+    if ( (Flags & 0x8080) != 0 )
     {
       if ( v15 >= 0 )
       {
-        v16 = LdrpMergeLangFallbackLists(a1 | 0x30u, v14, (__int64)&v34, 0LL, 0LL, 0LL, v14[7], 0LL, 1);
-        if ( v16 >= 0 )
+        LangFallbackList = LdrpMergeLangFallbackLists(
+                             Flags | 0x30,
+                             (__int64)v14,
+                             (__int64)&BaseAddress,
+                             0LL,
+                             0LL,
+                             0LL,
+                             v14[7],
+                             0LL,
+                             1);
+        if ( LangFallbackList >= 0 )
           goto LABEL_20;
       }
       goto LABEL_81;
     }
     if ( v15 < 0 )
       goto LABEL_81;
-    v16 = LdrpMergeLangFallbackLists(a1 | 0x30u, v14, (__int64)&v34, 0LL, 0LL, 0LL, v14[7], 0LL, 0);
-    if ( v16 < 0 )
+    LangFallbackList = LdrpMergeLangFallbackLists(
+                         Flags | 0x30,
+                         (__int64)v14,
+                         (__int64)&BaseAddress,
+                         0LL,
+                         0LL,
+                         0LL,
+                         v14[7],
+                         0LL,
+                         0);
+    if ( LangFallbackList < 0 )
       goto LABEL_81;
-    v23 = LdrpCreateLangFallbackList(&v35, (__int64)v14, 0x19u, 1);
-    v17 = v34;
-    v16 = v23;
+    v23 = LdrpCreateLangFallbackList((__int64 *)&v35, (__int64)v14, 0x19u, 1);
+    v17 = (unsigned __int16 *)BaseAddress;
+    LangFallbackList = v23;
     if ( v23 >= 0 )
     {
-      if ( a2 )
+      if ( LocaleName )
       {
         if ( v38 == -1 || (v24 = (_BYTE *)(*(_QWORD *)(v14[3] + 16LL) + 28LL * v38)) == 0LL )
         {
@@ -190,21 +236,21 @@ LABEL_81:
             v18 = 0;
           else
             v18 = v30;
-          if ( *(_BYTE *)(v34 + 8) )
+          if ( *((_BYTE *)BaseAddress + 8) )
             v25 = v14[5];
           else
             v25 = v14[6];
-          v16 = LdrpMergeParentBaseLanguagesToList((unsigned int)&v35, (_DWORD)v24, (_DWORD)v14, v25, v29);
+          LangFallbackList = LdrpMergeParentBaseLanguagesToList((unsigned int)&v35, (_DWORD)v24, (_DWORD)v14, v25, v29);
         }
       }
       else
       {
         v18 = v30;
-        if ( *(_WORD *)(v34 + 4) )
+        if ( *((_WORD *)BaseAddress + 2) )
         {
           do
           {
-            v26 = *(_QWORD *)(v17 + 24);
+            v26 = *((_QWORD *)v17 + 3);
             if ( *(_WORD *)(v26 + 6LL * (unsigned int)v9) == 2 )
             {
               if ( (*(_BYTE *)(28LL * *(__int16 *)(v26 + 6LL * (unsigned int)v9 + 4) + *(_QWORD *)(v14[3] + 16LL)) & 2) != 0 )
@@ -212,18 +258,23 @@ LABEL_81:
               v27 = (_BYTE *)(*(_QWORD *)(v14[3] + 16LL) + 28LL * *(__int16 *)(v26 + 6LL * (unsigned int)v9 + 4));
               if ( (*v27 & 6) != 0 )
               {
-                v28 = *(_BYTE *)(v17 + 8) ? v14[5] : v14[6];
-                v16 = LdrpMergeParentBaseLanguagesToList((unsigned int)&v35, (_DWORD)v27, (_DWORD)v14, v28, v29);
-                if ( v16 >= 0 )
+                v28 = *((_BYTE *)v17 + 8) ? v14[5] : v14[6];
+                LangFallbackList = LdrpMergeParentBaseLanguagesToList(
+                                     (unsigned int)&v35,
+                                     (_DWORD)v27,
+                                     (_DWORD)v14,
+                                     v28,
+                                     v29);
+                if ( LangFallbackList >= 0 )
                   goto LABEL_79;
               }
             }
-            LODWORD(v9) = v9 + 1;
+            LODWORD(v9) = (_DWORD)v9 + 1;
           }
-          while ( (unsigned int)v9 < *(unsigned __int16 *)(v17 + 4) );
+          while ( (unsigned int)v9 < v17[2] );
         }
       }
-      if ( v16 >= 0 )
+      if ( LangFallbackList >= 0 )
       {
 LABEL_79:
         v9 = v35;

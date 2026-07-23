@@ -1,11 +1,11 @@
 /*
- * XREFs of PspPauseProcessVirtualTimers @ 0x140617048
+ * XREFs of PspPauseProcessVirtualTimers @ 0x14061A038
  * Callers:
- *     PsFreezeProcess @ 0x14077B540 (PsFreezeProcess.c)
+ *     PsFreezeProcess @ 0x14077E180 (PsFreezeProcess.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     ExpTimerPause @ 0x1404B94C0 (ExpTimerPause.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ExpTimerPause @ 0x1404B2CF0 (ExpTimerPause.c)
  */
 
 void __fastcall PspPauseProcessVirtualTimers(__int64 a1)

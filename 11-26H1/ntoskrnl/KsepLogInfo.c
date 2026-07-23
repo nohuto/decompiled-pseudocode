@@ -1,21 +1,21 @@
 /*
- * XREFs of KsepLogInfo @ 0x1404CCB84
+ * XREFs of KsepLogInfo @ 0x1404C6324
  * Callers:
- *     KseRegisterShimEx @ 0x1407BCFE0 (KseRegisterShimEx.c)
- *     KseUnregisterShim @ 0x1407BD330 (KseUnregisterShim.c)
- *     KsepApplyShimsToDriver @ 0x1407BD8BC (KsepApplyShimsToDriver.c)
- *     KsepResolveApplicableShimsForDriver @ 0x1407BDDD4 (KsepResolveApplicableShimsForDriver.c)
- *     KseQueryDeviceData @ 0x1409E5A00 (KseQueryDeviceData.c)
- *     KseDriverUnloadImage @ 0x140A2501C (KseDriverUnloadImage.c)
- *     KsepGetShimsForDriver @ 0x140A255BC (KsepGetShimsForDriver.c)
- *     KsepGetShimCallbacksForDriver @ 0x140A25750 (KsepGetShimCallbacksForDriver.c)
- *     KseDriverLoadImage @ 0x140A25978 (KseDriverLoadImage.c)
- *     KseShimDriverIoCallbacks @ 0x140A26360 (KseShimDriverIoCallbacks.c)
- *     KseInitialize @ 0x140CCCEE0 (KseInitialize.c)
- *     KsepMatchInitBiosInfo @ 0x140CCD5F0 (KsepMatchInitBiosInfo.c)
- *     KsepEngineReadFlags @ 0x140D0821C (KsepEngineReadFlags.c)
+ *     KseRegisterShimEx @ 0x1407C0040 (KseRegisterShimEx.c)
+ *     KseUnregisterShim @ 0x1407C0390 (KseUnregisterShim.c)
+ *     KsepApplyShimsToDriver @ 0x1407C091C (KsepApplyShimsToDriver.c)
+ *     KsepResolveApplicableShimsForDriver @ 0x1407C0E34 (KsepResolveApplicableShimsForDriver.c)
+ *     KseQueryDeviceData @ 0x1409D6F80 (KseQueryDeviceData.c)
+ *     KseDriverUnloadImage @ 0x140A380BC (KseDriverUnloadImage.c)
+ *     KsepGetShimsForDriver @ 0x140A3865C (KsepGetShimsForDriver.c)
+ *     KsepGetShimCallbacksForDriver @ 0x140A387F0 (KsepGetShimCallbacksForDriver.c)
+ *     KseDriverLoadImage @ 0x140A38A18 (KseDriverLoadImage.c)
+ *     KseShimDriverIoCallbacks @ 0x140A39400 (KseShimDriverIoCallbacks.c)
+ *     KseInitialize @ 0x140CD3040 (KseInitialize.c)
+ *     KsepMatchInitBiosInfo @ 0x140CD3750 (KsepMatchInitBiosInfo.c)
+ *     KsepEngineReadFlags @ 0x140D0E4EC (KsepEngineReadFlags.c)
  * Callees:
- *     KsepLogEtwMessage @ 0x1404CCBF4 (KsepLogEtwMessage.c)
+ *     KsepLogEtwMessage @ 0x1404C6394 (KsepLogEtwMessage.c)
  */
 
 __int64 KsepLogInfo(__int64 a1, __int64 a2, ...)

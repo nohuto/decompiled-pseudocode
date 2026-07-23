@@ -1,9 +1,9 @@
 /*
- * XREFs of PiSwDeviceCreate @ 0x1404C7410
+ * XREFs of PiSwDeviceCreate @ 0x140487BA0
  * Callers:
- *     PiSwIrpStartCreateWorker @ 0x1404C6CB4 (PiSwIrpStartCreateWorker.c)
+ *     PiSwIrpStartCreateWorker @ 0x1404880D0 (PiSwIrpStartCreateWorker.c)
  * Callees:
- *     memset @ 0x1401715C0 (memset.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */
 

@@ -1,13 +1,13 @@
 /*
- * XREFs of KeDispatchSecondaryInterrupt @ 0x1403A2EC0
+ * XREFs of KeDispatchSecondaryInterrupt @ 0x1403A30A0
  * Callers:
- *     HalpInvokeIsrForGsiv @ 0x1403A2E70 (HalpInvokeIsrForGsiv.c)
+ *     HalpInvokeIsrForGsiv @ 0x1403A3050 (HalpInvokeIsrForGsiv.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KiInsertQueueDpc @ 0x140254790 (KiInsertQueueDpc.c)
- *     KiInterruptDispatchCommon @ 0x1403A2F44 (KiInterruptDispatchCommon.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     KiAcquireSecondarySignalListLock @ 0x1405719B8 (KiAcquireSecondarySignalListLock.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KiInsertQueueDpc @ 0x140254850 (KiInsertQueueDpc.c)
+ *     KiInterruptDispatchCommon @ 0x1403A3124 (KiInterruptDispatchCommon.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KiAcquireSecondarySignalListLock @ 0x140571EF8 (KiAcquireSecondarySignalListLock.c)
  */
 
 char __fastcall KeDispatchSecondaryInterrupt(int a1, unsigned int a2, __int64 a3)
@@ -57,7 +57,7 @@ char __fastcall KeDispatchSecondaryInterrupt(int a1, unsigned int a2, __int64 a3
         KiInsertQueueDpc((ULONG_PTR)&KiSecondarySignalDpc, 0LL, 0LL, 0LL, 0);
       }
       KxReleaseSpinLock((volatile signed __int64 *)&KiSecondarySignalListLock);
-      if ( KiIrqlFlags && (v9 = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && v9 <= 0xFu )
+      if ( (_DWORD)KiIrqlFlags && (v9 = KeGetCurrentIrql(), ((unsigned __int8)KiIrqlFlags & 1) != 0) && v9 <= 0xFu )
       {
         v10 = v15;
         if ( v15 <= 0xFu && v9 >= 2u )

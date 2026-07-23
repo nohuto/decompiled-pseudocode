@@ -1,9 +1,9 @@
 /*
- * XREFs of Feature_DisableQosGroupingForMediumQos__private_IsEnabledFallback @ 0x1405E94A4
+ * XREFs of Feature_DisableQosGroupingForMediumQos__private_IsEnabledFallback @ 0x1405EBE14
  * Callers:
- *     Feature_DisableQosGroupingForMediumQos__private_IsEnabledDeviceUsageNoInline @ 0x1405E9468 (Feature_DisableQosGroupingForMediumQos__private_IsEnabledDeviceUsageNoInline.c)
+ *     Feature_DisableQosGroupingForMediumQos__private_IsEnabledDeviceUsageNoInline @ 0x1405EBDD8 (Feature_DisableQosGroupingForMediumQos__private_IsEnabledDeviceUsageNoInline.c)
  * Callees:
- *     wil_details_IsEnabledFallback @ 0x1405016DC (wil_details_IsEnabledFallback.c)
+ *     wil_details_IsEnabledFallback @ 0x1404FAECC (wil_details_IsEnabledFallback.c)
  */
 
 __int64 __fastcall Feature_DisableQosGroupingForMediumQos__private_IsEnabledFallback(__int64 a1, unsigned int a2)

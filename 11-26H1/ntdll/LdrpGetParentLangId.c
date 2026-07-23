@@ -1,57 +1,77 @@
 /*
- * XREFs of LdrpGetParentLangId @ 0x180002608
+ * XREFs of LdrpGetParentLangId @ 0x18004DD38
  * Callers:
- *     LdrResFallbackLangList @ 0x1800094E0 (LdrResFallbackLangList.c)
- *     LdrpLoadResourceFromAlternativeModule @ 0x18002DF70 (LdrpLoadResourceFromAlternativeModule.c)
- *     LdrpSearchResourceSection_U @ 0x18002E860 (LdrpSearchResourceSection_U.c)
+ *     LdrpLoadResourceFromAlternativeModule @ 0x180019070 (LdrpLoadResourceFromAlternativeModule.c)
+ *     LdrpSearchResourceSection_U @ 0x180019960 (LdrpSearchResourceSection_U.c)
+ *     LdrResFallbackLangList @ 0x180054C10 (LdrResFallbackLangList.c)
  * Callees:
- *     RtlGetParentLocaleName @ 0x1800036A0 (RtlGetParentLocaleName.c)
- *     RtlLocaleNameToLcid @ 0x1800045B0 (RtlLocaleNameToLcid.c)
- *     RtlLcidToLocaleName @ 0x180005EB0 (RtlLcidToLocaleName.c)
- *     RtlFreeHeap_0 @ 0x18003FD10 (RtlFreeHeap_0.c)
- *     __security_check_cookie @ 0x180162C90 (__security_check_cookie.c)
+ *     RtlFreeHeap_0 @ 0x18002A280 (RtlFreeHeap_0.c)
+ *     RtlGetParentLocaleName @ 0x18004EDD0 (RtlGetParentLocaleName.c)
+ *     RtlLocaleNameToLcid @ 0x18004FCE0 (RtlLocaleNameToLcid.c)
+ *     RtlLcidToLocaleName @ 0x1800515E0 (RtlLcidToLocaleName.c)
+ *     __security_check_cookie @ 0x180162B90 (__security_check_cookie.c)
  */
 
 __int64 __fastcall LdrpGetParentLangId(unsigned __int16 a1, _WORD *a2)
 {
-  unsigned int v2; // ebx
-  int v3; // eax
-  wchar_t *v4; // rsi
-  unsigned int ParentLocaleName; // ebx
-  wchar_t *v7[2]; // [rsp+28h] [rbp-41h]
-  wchar_t *String[2]; // [rsp+38h] [rbp-31h] BYREF
-  _BYTE v9[32]; // [rsp+50h] [rbp-19h] BYREF
-  _BYTE v10[32]; // [rsp+70h] [rbp+7h] BYREF
+  LCID v3; // ebx
+  NTSTATUS v4; // eax
+  wchar_t *Buffer; // rsi
+  NTSTATUS v6; // eax
+  NTSTATUS v7; // ebx
+  wchar_t *v8; // rdi
+  DWORD lcid; // [rsp+20h] [rbp-49h] BYREF
+  _UNICODE_STRING ParentLocaleName; // [rsp+28h] [rbp-41h] BYREF
+  _UNICODE_STRING LocaleName; // [rsp+38h] [rbp-31h] BYREF
+  _BYTE v13[32]; // [rsp+50h] [rbp-19h] BYREF
+  _BYTE v14[32]; // [rsp+70h] [rbp+7h] BYREF
 
-  *(_OWORD *)v7 = 0LL;
-  *(_OWORD *)String = 0LL;
+  lcid = 0;
+  ParentLocaleName = 0LL;
+  LocaleName = 0LL;
   if ( !a2 )
     return 3221225485LL;
-  v2 = a1;
+  v3 = a1;
   *a2 = 0;
-  String[1] = (wchar_t *)v10;
-  WORD1(String[0]) = 30;
-  v3 = RtlLcidToLocaleName(a1, String, 2LL);
-  if ( v3 >= 0
-    || v3 == -1073741789 && (String[1] = 0LL, WORD1(String[0]) = 0, (int)RtlLcidToLocaleName(v2, String, 2LL) >= 0) )
+  LocaleName.Buffer = (wchar_t *)v14;
+  LocaleName.MaximumLength = 30;
+  v4 = RtlLcidToLocaleName(a1, &LocaleName, 2u, 0);
+  if ( v4 >= 0
+    || v4 == -1073741789
+    && (LocaleName.Buffer = 0LL, LocaleName.MaximumLength = 0, RtlLcidToLocaleName(v3, &LocaleName, 2u, 1u) >= 0) )
   {
-    v4 = String[1];
-    v7[1] = (wchar_t *)v9;
-    ParentLocaleName = RtlGetParentLocaleName(String[1]);
-    if ( ParentLocaleName == -1073741789 )
+    Buffer = LocaleName.Buffer;
+    ParentLocaleName.MaximumLength = 30;
+    ParentLocaleName.Buffer = (wchar_t *)v13;
+    v6 = RtlGetParentLocaleName(LocaleName.Buffer, &ParentLocaleName, 6u, 0);
+    v7 = v6;
+    if ( v6 >= 0
+      || v6 == -1073741789
+      && (ParentLocaleName.Buffer = 0LL,
+          ParentLocaleName.MaximumLength = 0,
+          v7 = RtlGetParentLocaleName(Buffer, &ParentLocaleName, 6u, 1u),
+          v7 >= 0) )
     {
-      v7[1] = 0LL;
-      ParentLocaleName = RtlGetParentLocaleName(v4);
+      if ( ParentLocaleName.Length )
+      {
+        v8 = ParentLocaleName.Buffer;
+        v7 = RtlLocaleNameToLcid(ParentLocaleName.Buffer, &lcid, 3u);
+        if ( v7 >= 0 )
+          *a2 = lcid;
+        goto LABEL_7;
+      }
     }
   }
   else
   {
-    v4 = String[1];
-    ParentLocaleName = -1073741811;
+    Buffer = LocaleName.Buffer;
+    v7 = -1073741811;
   }
-  if ( (_BYTE *)v7[1] != v9 )
-    RtlFreeHeap_0(NtCurrentPeb()->ProcessHeap, 0LL, v7[1]);
-  if ( v4 != (wchar_t *)v10 )
-    RtlFreeHeap_0(NtCurrentPeb()->ProcessHeap, 0LL, v4);
-  return ParentLocaleName;
+  v8 = ParentLocaleName.Buffer;
+LABEL_7:
+  if ( v8 != (wchar_t *)v13 )
+    RtlFreeHeap_0(NtCurrentPeb()->ProcessHeap, 0, v8);
+  if ( Buffer != (wchar_t *)v14 )
+    RtlFreeHeap_0(NtCurrentPeb()->ProcessHeap, 0, Buffer);
+  return (unsigned int)v7;
 }

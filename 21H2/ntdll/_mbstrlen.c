@@ -8,10 +8,10 @@
 
 size_t __cdecl mbstrlen(const char *String)
 {
-  char *v3; // [rsp+30h] [rbp+8h] BYREF
+  PUCHAR SourceCharacter; // [rsp+30h] [rbp+8h] BYREF
 
-  v3 = (char *)String;
-  while ( (unsigned __int16)RtlAnsiCharToUnicodeChar(&v3) )
+  SourceCharacter = (PUCHAR)String;
+  while ( RtlAnsiCharToUnicodeChar(&SourceCharacter) )
     ;
-  return v3 - String - 1;
+  return SourceCharacter - (PUCHAR)String - 1;
 }

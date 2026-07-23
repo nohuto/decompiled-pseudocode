@@ -1,9 +1,9 @@
 /*
- * XREFs of KdpSearchPhysicalPageRange @ 0x140C150F4
+ * XREFs of KdpSearchPhysicalPageRange @ 0x140C1B0F4
  * Callers:
- *     KdpSysCheckLowMemory @ 0x140C152F4 (KdpSysCheckLowMemory.c)
+ *     KdpSysCheckLowMemory @ 0x140C1B2F4 (KdpSysCheckLowMemory.c)
  * Callees:
- *     KdpSearchPhysicalPage @ 0x140C14EE0 (KdpSearchPhysicalPage.c)
+ *     KdpSearchPhysicalPage @ 0x140C1AEE0 (KdpSearchPhysicalPage.c)
  */
 
 __int64 __fastcall KdpSearchPhysicalPageRange(int a1)

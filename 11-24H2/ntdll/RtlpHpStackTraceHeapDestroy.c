@@ -1,23 +1,23 @@
 /*
- * XREFs of RtlpHpStackTraceHeapDestroy @ 0x18008FD48
+ * XREFs of RtlpHpStackTraceHeapDestroy @ 0x180027FC8
  * Callers:
- *     RtlDestroyHeap @ 0x18008F580 (RtlDestroyHeap.c)
+ *     RtlDestroyHeap @ 0x1800280C0 (RtlDestroyHeap.c)
  * Callees:
- *     RtlAcquireSRWLockExclusive @ 0x180055AE0 (RtlAcquireSRWLockExclusive.c)
- *     RtlpHpPerHeapStackTraceCleanup @ 0x18014B774 (RtlpHpPerHeapStackTraceCleanup.c)
+ *     RtlAcquireSRWLockExclusive @ 0x18006B6C0 (RtlAcquireSRWLockExclusive.c)
+ *     RtlpHpPerHeapStackTraceCleanup @ 0x180149B24 (RtlpHpPerHeapStackTraceCleanup.c)
  */
 
-__int64 __fastcall RtlpHpStackTraceHeapDestroy(__int64 a1, volatile signed __int32 **a2, unsigned __int64 a3)
+void __fastcall RtlpHpStackTraceHeapDestroy(__int64 a1)
 {
-  __int64 v5; // rcx
+  __int64 v2; // rcx
 
-  RtlAcquireSRWLockExclusive((volatile signed __int32 *)&RtlpHpStackTrackingContext, a2, a3);
-  if ( (dword_1801CE8C8 & 1) != 0 && (dword_1801CE8C8 & 2) != 0 )
+  RtlAcquireSRWLockExclusive(&RtlpHpStackTrackingContext);
+  if ( (dword_1801CD8B8 & 1) != 0 && (dword_1801CD8B8 & 2) != 0 )
   {
-    v5 = 112LL;
+    v2 = 112LL;
     if ( *(_DWORD *)(a1 + 16) != -571548178 )
-      v5 = 368LL;
-    RtlpHpPerHeapStackTraceCleanup(a1 + v5, 0LL, 0LL);
+      v2 = 368LL;
+    RtlpHpPerHeapStackTraceCleanup(a1 + v2, 0LL, 0LL);
   }
-  return RtlReleaseSRWLockExclusive(&RtlpHpStackTrackingContext);
+  RtlReleaseSRWLockExclusive(&RtlpHpStackTrackingContext);
 }

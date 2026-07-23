@@ -1,8 +1,8 @@
 /*
- * XREFs of PspGetJobLimitInformationValidFlags @ 0x140614080
+ * XREFs of PspGetJobLimitInformationValidFlags @ 0x14067DCE0
  * Callers:
- *     NtSetInformationJobObject @ 0x140614200 (NtSetInformationJobObject.c)
- *     NtQueryInformationJobObject @ 0x140616880 (NtQueryInformationJobObject.c)
+ *     NtSetInformationJobObject @ 0x14067DE60 (NtSetInformationJobObject.c)
+ *     NtQueryInformationJobObject @ 0x1406804E0 (NtQueryInformationJobObject.c)
  * Callees:
  *     <none>
  */

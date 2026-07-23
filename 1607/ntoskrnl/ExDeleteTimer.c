@@ -1,11 +1,11 @@
 /*
- * XREFs of ExDeleteTimer @ 0x140130A78
+ * XREFs of ExDeleteTimer @ 0x140130FE8
  * Callers:
- *     CancelTimerCallbacksAndDeleteTimer @ 0x14023CD64 (CancelTimerCallbacksAndDeleteTimer.c)
+ *     CancelTimerCallbacksAndDeleteTimer @ 0x14023CC48 (CancelTimerCallbacksAndDeleteTimer.c)
  * Callees:
- *     KeDisableTimer2 @ 0x1400F79FC (KeDisableTimer2.c)
- *     ExpCheckForFreedEnhancedTimer @ 0x1400F9DA0 (ExpCheckForFreedEnhancedTimer.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
+ *     KeDisableTimer2 @ 0x1400F583C (KeDisableTimer2.c)
+ *     ExpCheckForFreedEnhancedTimer @ 0x1400F7B2C (ExpCheckForFreedEnhancedTimer.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
  */
 
 char __fastcall ExDeleteTimer(__int64 a1, char a2, char a3, unsigned int *a4)

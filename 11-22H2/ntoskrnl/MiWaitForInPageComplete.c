@@ -166,10 +166,13 @@ __int64 __fastcall MiWaitForInPageComplete(__int64 a1, ULONG_PTR a2, unsigned in
       v35 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(v30 + 232));
       RtlAvlRemoveNode((unsigned __int64 *)(v30 + 240), (unsigned __int64 *)(a2 + 352));
       ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v30 + 232));
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v35 <= 0xFu && CurrentIrql >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+          && CurrentIrql <= 0xFu
+          && (unsigned __int8)v35 <= 0xFu
+          && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -318,10 +321,10 @@ LABEL_30:
       v43 = (unsigned __int8)MiLockPageInline(v5);
       *(_QWORD *)(v5 + 8) = *(_QWORD *)(v42 + 8);
       _InterlockedAnd64((volatile signed __int64 *)(v5 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v44 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v44 <= 0xFu && (unsigned __int8)v43 <= 0xFu && v44 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v44 <= 0xFu && (unsigned __int8)v43 <= 0xFu && v44 >= 2u )
         {
           v45 = KeGetCurrentPrcb();
           v46 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v43 + 1));

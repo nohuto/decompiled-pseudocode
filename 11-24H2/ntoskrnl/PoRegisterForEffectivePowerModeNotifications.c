@@ -1,14 +1,14 @@
 /*
- * XREFs of PoRegisterForEffectivePowerModeNotifications @ 0x1407510D0
+ * XREFs of PoRegisterForEffectivePowerModeNotifications @ 0x14074F3F0
  * Callers:
  *     <none>
  * Callees:
- *     PopReleaseRwLock @ 0x1403B5EC8 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x1404283D4 (PopAcquireRwLockExclusive.c)
- *     ExSubscribeWnfStateChange @ 0x140A19320 (ExSubscribeWnfStateChange.c)
- *     ExUnsubscribeWnfStateChange @ 0x140A64A60 (ExUnsubscribeWnfStateChange.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     PopReleaseRwLock @ 0x1402AE8FC (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14041C564 (PopAcquireRwLockExclusive.c)
+ *     ExSubscribeWnfStateChange @ 0x140A12490 (ExSubscribeWnfStateChange.c)
+ *     ExUnsubscribeWnfStateChange @ 0x140A5D360 (ExUnsubscribeWnfStateChange.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PoRegisterForEffectivePowerModeNotifications(int a1, __int64 a2, __int64 a3, _QWORD *a4, __int64 a5)
@@ -24,7 +24,7 @@ __int64 __fastcall PoRegisterForEffectivePowerModeNotifications(int a1, __int64 
   v16 = 0LL;
   if ( (unsigned int)(a1 - 1) <= 1 && a2 && a4 )
   {
-    Pool2 = ExAllocatePool2(0x100uLL);
+    Pool2 = ExAllocatePool2(0x100uLL, 0x58uLL, 0x74655350u);
     v10 = (_DWORD *)Pool2;
     if ( Pool2 )
     {

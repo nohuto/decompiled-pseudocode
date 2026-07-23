@@ -1,15 +1,15 @@
 /*
- * XREFs of EtwTraceShouldYieldProcessor @ 0x1405A811C
+ * XREFs of EtwTraceShouldYieldProcessor @ 0x1405A834C
  * Callers:
- *     MiProbeAndLockPages @ 0x14020A860 (MiProbeAndLockPages.c)
- *     MiWalkPageTablesRecursively @ 0x14020BDA0 (MiWalkPageTablesRecursively.c)
- *     MiGetPageChain @ 0x140212D10 (MiGetPageChain.c)
- *     KeShouldYieldProcessor @ 0x140293FD0 (KeShouldYieldProcessor.c)
- *     MiQueryAddressState @ 0x14032F730 (MiQueryAddressState.c)
- *     MiDecommitPages @ 0x140334820 (MiDecommitPages.c)
+ *     KeShouldYieldProcessor @ 0x140211F40 (KeShouldYieldProcessor.c)
+ *     MiProbeAndLockPages @ 0x1402AF160 (MiProbeAndLockPages.c)
+ *     MiWalkPageTablesRecursively @ 0x1402B06A0 (MiWalkPageTablesRecursively.c)
+ *     MiGetPageChain @ 0x1402B7610 (MiGetPageChain.c)
+ *     MiQueryAddressState @ 0x14033A480 (MiQueryAddressState.c)
+ *     MiDecommitPages @ 0x14033F570 (MiDecommitPages.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x1402EAC90 (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     EtwTraceKernelEvent @ 0x14029BFE0 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall EtwTraceShouldYieldProcessor(int a1, int a2, int a3)

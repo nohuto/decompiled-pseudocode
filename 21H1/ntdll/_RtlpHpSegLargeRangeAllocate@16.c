@@ -48,7 +48,7 @@ unsigned int __fastcall RtlpHpSegLargeRangeAllocate(int a1, unsigned int a2, int
         {
           v14 = v8 - v7;
           if ( a4 )
-            RtlpHpSegFreeRangeRemove(a1, (_DWORD *)a2);
+            RtlpHpSegFreeRangeRemove(a1, (_RTL_BALANCED_NODE *)a2);
           if ( v14 )
           {
             v15 = RtlpHpSegPageRangeSplit(v14 >> *(_BYTE *)(a1 + 4));

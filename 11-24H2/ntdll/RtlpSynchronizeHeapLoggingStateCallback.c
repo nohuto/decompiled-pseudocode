@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlpSynchronizeHeapLoggingStateCallback @ 0x1800A5F30
+ * XREFs of RtlpSynchronizeHeapLoggingStateCallback @ 0x180026640
  * Callers:
  *     <none>
  * Callees:
- *     RtlpHpHeapLoggingStateSync @ 0x1800A5F50 (RtlpHpHeapLoggingStateSync.c)
+ *     RtlpHpHeapLoggingStateSync @ 0x1800265D4 (RtlpHpHeapLoggingStateSync.c)
  */
 
 __int64 __fastcall RtlpSynchronizeHeapLoggingStateCallback(__int64 a1)
 {
   if ( *(_DWORD *)(a1 + 16) == -571548178 )
-    RtlpHpHeapLoggingStateSync();
+    RtlpHpHeapLoggingStateSync(a1);
   return 0LL;
 }

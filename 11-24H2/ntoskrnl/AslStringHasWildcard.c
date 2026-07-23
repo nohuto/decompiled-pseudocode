@@ -1,7 +1,7 @@
 /*
- * XREFs of AslStringHasWildcard @ 0x1408084C0
+ * XREFs of AslStringHasWildcard @ 0x140808C00
  * Callers:
- *     AslpPathWildcardMakeLeaves @ 0x14080B4D0 (AslpPathWildcardMakeLeaves.c)
+ *     AslpPathWildcardMakeLeaves @ 0x14080BC10 (AslpPathWildcardMakeLeaves.c)
  * Callees:
  *     <none>
  */

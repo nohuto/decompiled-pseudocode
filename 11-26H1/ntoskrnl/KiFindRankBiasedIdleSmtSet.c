@@ -1,10 +1,10 @@
 /*
- * XREFs of KiFindRankBiasedIdleSmtSet @ 0x140228C34
+ * XREFs of KiFindRankBiasedIdleSmtSet @ 0x14022A5C4
  * Callers:
- *     KiSelectIdleProcessor @ 0x1402288B0 (KiSelectIdleProcessor.c)
- *     KiChooseTargetProcessor @ 0x140235760 (KiChooseTargetProcessor.c)
- *     KiTryLocalThreadSchedule @ 0x1402373D0 (KiTryLocalThreadSchedule.c)
- *     KiSearchForNewThreadsOnTarget @ 0x1402404D0 (KiSearchForNewThreadsOnTarget.c)
+ *     KiSelectIdleProcessor @ 0x14022A240 (KiSelectIdleProcessor.c)
+ *     KiChooseTargetProcessor @ 0x1402370C0 (KiChooseTargetProcessor.c)
+ *     KiTryLocalThreadSchedule @ 0x140238D30 (KiTryLocalThreadSchedule.c)
+ *     KiSearchForNewThreadsOnTarget @ 0x140241E30 (KiSearchForNewThreadsOnTarget.c)
  * Callees:
  *     <none>
  */
@@ -30,7 +30,7 @@ char __fastcall KiFindRankBiasedIdleSmtSet(__int64 a1, _QWORD *a2)
     _BitScanForward64(&v6, v4);
     v7 = 1LL << v6;
     v4 ^= 1LL << v6;
-    v8 = KiProcessorBlock[*((unsigned int *)&KiSupervisorXStateFeaturesLock.WaitBlock[2].Thread->Header.Lock
+    v8 = KiProcessorBlock[*((unsigned int *)&KiSupervisorXStateFeaturesLock.SchedulerApc.ApcListEntry.Flink->Flink
                           + (unsigned int)(v5 + v6))];
     v9 = *(_QWORD *)(v8 + 36512) & ~*(_QWORD *)(v8 + 200);
     if ( (v4 & v9) == v9 )
@@ -40,7 +40,7 @@ char __fastcall KiFindRankBiasedIdleSmtSet(__int64 a1, _QWORD *a2)
     else
     {
       _BitScanForward64(&v10, v9);
-      if ( (*(_DWORD *)(KiProcessorBlock[*((unsigned int *)&KiSupervisorXStateFeaturesLock.WaitBlock[2].Thread->Header.Lock
+      if ( (*(_DWORD *)(KiProcessorBlock[*((unsigned int *)&KiSupervisorXStateFeaturesLock.SchedulerApc.ApcListEntry.Flink->Flink
                                          + (unsigned int)(v5 + v10))]
                       + 236) & 0x200) != 0 )
         v3 |= v7;

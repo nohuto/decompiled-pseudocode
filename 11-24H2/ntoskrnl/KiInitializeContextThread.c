@@ -1,15 +1,15 @@
 /*
- * XREFs of KiInitializeContextThread @ 0x140406F34
+ * XREFs of KiInitializeContextThread @ 0x1403FF414
  * Callers:
- *     KiStartIdleThread @ 0x1405C3210 (KiStartIdleThread.c)
- *     KeInitThread @ 0x140B69230 (KeInitThread.c)
+ *     KiStartIdleThread @ 0x1405C07E0 (KiStartIdleThread.c)
+ *     KeInitThread @ 0x140B6A948 (KeInitThread.c)
  * Callees:
- *     RtlLocateExtendedFeature @ 0x140281BD0 (RtlLocateExtendedFeature.c)
- *     KxContextToKframes @ 0x140407390 (KxContextToKframes.c)
- *     RtlLocateSupervisorFeature @ 0x140407940 (RtlLocateSupervisorFeature.c)
- *     ExBuildPasidMsrForThread @ 0x140407A4C (ExBuildPasidMsrForThread.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     RtlLocateExtendedFeature @ 0x140237160 (RtlLocateExtendedFeature.c)
+ *     KxContextToKframes @ 0x1403FF870 (KxContextToKframes.c)
+ *     RtlLocateSupervisorFeature @ 0x1403FFE20 (RtlLocateSupervisorFeature.c)
+ *     ExBuildPasidMsrForThread @ 0x1403FFF2C (ExBuildPasidMsrForThread.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall KiInitializeContextThread(__int64 a1, __int64 a2)
@@ -173,14 +173,14 @@ LABEL_14:
     if ( (v25 & v21) != 0 )
     {
       if ( (*(_DWORD *)(v10 + 48) & 0x100040) == 0x100040 )
-        ExtendedFeature = (_OWORD *)RtlLocateExtendedFeature(v10 + 1232, 11);
-      result = RtlLocateSupervisorFeature(v5 + 512, 11LL);
+        ExtendedFeature = RtlLocateExtendedFeature((PCONTEXT_EX)(v10 + 1232), 0xBu, 0LL);
+      result = (__int64)RtlLocateSupervisorFeature((PXSAVE_AREA_HEADER)(v5 + 512), 0xBu, 0LL);
       *(_OWORD *)result = *ExtendedFeature;
     }
   }
   if ( (v25 & 0x400) != 0 )
   {
-    result = RtlLocateSupervisorFeature(v5 + 512, 10LL);
+    result = (__int64)RtlLocateSupervisorFeature((PXSAVE_AREA_HEADER)(v5 + 512), 0xAu, 0LL);
     *(_QWORD *)result = v24;
   }
   *(_QWORD *)(a1 + 40) = v9;

@@ -23,8 +23,8 @@ __int64 __fastcall WbGetInitializedEncryptionSegment(__int64 a1, __int64 a2, uns
   int WarbirdEncryptionSegment; // esi
   struct _KTHREAD *CurrentThread; // rax
   unsigned __int64 *v10; // r14
-  unsigned __int64 v11; // rax
-  unsigned __int64 v12; // r15
+  PRTL_BALANCED_NODE v11; // rax
+  PRTL_BALANCED_NODE v12; // r15
   char v13; // bl
   __int64 v14; // [rsp+20h] [rbp-30h] BYREF
   PVOID P; // [rsp+28h] [rbp-28h] BYREF
@@ -50,9 +50,9 @@ __int64 __fastcall WbGetInitializedEncryptionSegment(__int64 a1, __int64 a2, uns
     v11 = KeAbPreAcquire(v14 + 8, 0LL, 0);
     v12 = v11;
     if ( _interlockedbittestandset64((volatile signed __int32 *)v10, 0LL) )
-      ExfAcquirePushLockExclusiveEx(v10, v11, (__int16 *)v10);
+      ExfAcquirePushLockExclusiveEx(v10, (__int64)v11, (__int16 *)v10);
     if ( v12 )
-      *(_BYTE *)(v12 + 26) |= 1u;
+      BYTE2(v12[1].Left) |= 1u;
     if ( !*(_DWORD *)(v6 + 16) )
       WarbirdEncryptionSegment = sub_14044AEBC(P);
     v13 = _InterlockedExchangeAdd64((volatile signed __int64 *)v10, 0xFFFFFFFFFFFFFFFFuLL);

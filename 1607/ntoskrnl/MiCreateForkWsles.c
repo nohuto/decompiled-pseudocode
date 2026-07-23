@@ -1,11 +1,11 @@
 /*
- * XREFs of MiCreateForkWsles @ 0x14010C7A8
+ * XREFs of MiCreateForkWsles @ 0x14010A528
  * Callers:
- *     MiCloneProcessAddressSpace @ 0x1405278F8 (MiCloneProcessAddressSpace.c)
+ *     MiCloneProcessAddressSpace @ 0x14050A958 (MiCloneProcessAddressSpace.c)
  * Callees:
- *     MiGetSharedVm @ 0x14002EA30 (MiGetSharedVm.c)
- *     ExAcquireSpinLockExclusive @ 0x14002EB90 (ExAcquireSpinLockExclusive.c)
- *     MiCreateForkWsle @ 0x14010C87C (MiCreateForkWsle.c)
+ *     MiGetSharedVm @ 0x14002E5B0 (MiGetSharedVm.c)
+ *     ExAcquireSpinLockExclusive @ 0x14002E710 (ExAcquireSpinLockExclusive.c)
+ *     MiCreateForkWsle @ 0x14010A5FC (MiCreateForkWsle.c)
  */
 
 __int64 MiCreateForkWsles()

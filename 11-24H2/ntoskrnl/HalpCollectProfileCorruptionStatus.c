@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpCollectProfileCorruptionStatus @ 0x1405454B4
+ * XREFs of HalpCollectProfileCorruptionStatus @ 0x140542D74
  * Callers:
- *     HalpQueryProfileInformation @ 0x140ABC9C4 (HalpQueryProfileInformation.c)
+ *     HalpQueryProfileInformation @ 0x140AB79E4 (HalpQueryProfileInformation.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x14034FA10 (KeQueryPerformanceCounter.c)
- *     HalpCollectSamplingProfileCorruptionStatus @ 0x14054597C (HalpCollectSamplingProfileCorruptionStatus.c)
+ *     KeQueryPerformanceCounter @ 0x14036DEF0 (KeQueryPerformanceCounter.c)
+ *     HalpCollectSamplingProfileCorruptionStatus @ 0x14054323C (HalpCollectSamplingProfileCorruptionStatus.c)
  */
 
 __int64 __fastcall HalpCollectProfileCorruptionStatus(unsigned int **a1, __int64 a2, unsigned int *a3)

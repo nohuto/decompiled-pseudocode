@@ -1,9 +1,9 @@
 /*
- * XREFs of VfLeaveDmaDomain @ 0x140222BDC
+ * XREFs of VfLeaveDmaDomain @ 0x140222A08
  * Callers:
  *     <none>
  * Callees:
- *     ViGetRealDmaOperation @ 0x140709924 (ViGetRealDmaOperation.c)
+ *     ViGetRealDmaOperation @ 0x140709954 (ViGetRealDmaOperation.c)
  */
 
 __int64 __fastcall VfLeaveDmaDomain(__int64 a1)

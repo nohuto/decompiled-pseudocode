@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlRealPredecessor @ 0x1404B2A20
+ * XREFs of RtlRealPredecessor @ 0x1404AD2B0
  * Callers:
  *     <none>
  * Callees:
@@ -9,7 +9,7 @@
 PRTL_SPLAY_LINKS __stdcall RtlRealPredecessor(PRTL_SPLAY_LINKS Links)
 {
   PRTL_SPLAY_LINKS result; // rax
-  RTL_SPLAY_LINKS *v2; // rdx
+  _RTL_SPLAY_LINKS *v2; // rdx
   _RTL_SPLAY_LINKS *v3; // r8
   _RTL_SPLAY_LINKS *i; // rcx
 

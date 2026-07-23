@@ -1,12 +1,12 @@
 /*
- * XREFs of KeSetDisableBoostThread @ 0x140451E34
+ * XREFs of KeSetDisableBoostThread @ 0x140446EE4
  * Callers:
- *     NtSetInformationThread @ 0x140911410 (NtSetInformationThread.c)
+ *     NtSetInformationThread @ 0x1408E8B60 (NtSetInformationThread.c)
  * Callees:
- *     KiProcessDeferredReadyList @ 0x14031D3D0 (KiProcessDeferredReadyList.c)
- *     KiSetDisableBoostThread @ 0x140451ED4 (KiSetDisableBoostThread.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiProcessDeferredReadyList @ 0x1402C5F60 (KiProcessDeferredReadyList.c)
+ *     KiSetDisableBoostThread @ 0x140446F84 (KiSetDisableBoostThread.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall KeSetDisableBoostThread(__int64 a1, unsigned int a2)

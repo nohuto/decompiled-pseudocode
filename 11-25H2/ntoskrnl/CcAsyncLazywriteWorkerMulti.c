@@ -208,7 +208,7 @@ LABEL_29:
     if ( *(_DWORD *)(NextWBWorkQueueEntry + 128) == 4 )
     {
       KeSetEvent(*(PRKEVENT *)(NextWBWorkQueueEntry + 16), 0, 0);
-      CcFreeWorkQueueEntry((struct _SLIST_ENTRY *)NextWBWorkQueueEntry);
+      CcFreeWorkQueueEntry((_SLIST_ENTRY *)NextWBWorkQueueEntry);
       KeAcquireInStackQueuedSpinLock(v16, &LockHandle);
       *(_BYTE *)(v3 + 196) = 0;
     }

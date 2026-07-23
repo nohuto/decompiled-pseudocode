@@ -3,8 +3,8 @@
  * Callers:
  *     KiInitializeXSave @ 0x1403D6360 (KiInitializeXSave.c)
  * Callees:
- *     KiGetProcessorInformation @ 0x140145FFC (KiGetProcessorInformation.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     KiGetProcessorInformation @ 0x14014656C (KiGetProcessorInformation.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  *     KiIsXSaveFeatureAllowed @ 0x1403D6730 (KiIsXSaveFeatureAllowed.c)
  *     KiLoadPolicyFromImage @ 0x1403D67C0 (KiLoadPolicyFromImage.c)
  */

@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpInternEntryCreate @ 0x140906B28
+ * XREFs of RtlpInternEntryCreate @ 0x1408DD3EC
  * Callers:
- *     RtlInternTableIntern @ 0x140907824 (RtlInternTableIntern.c)
+ *     RtlInternTableIntern @ 0x1408DEF40 (RtlInternTableIntern.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 _WORD *__fastcall RtlpInternEntryCreate(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -26,7 +26,7 @@ _WORD *__fastcall RtlpInternEntryCreate(__int64 a1, __int64 a2, __int64 a3, __in
   v4 = a4 - *(_QWORD *)a2;
   if ( (unsigned __int64)(*(_QWORD *)a2 - 32LL) > 0xFFE0 || v4 > 0x40000000 )
     return 0LL;
-  v7 = (_WORD *)guard_dispatch_icall_no_overrides(a1, a4, a3, a4);
+  v7 = (_WORD *)guard_dispatch_icall_no_overrides(a1, a4);
   v8 = 0LL;
   v9 = v7;
   if ( v7 )

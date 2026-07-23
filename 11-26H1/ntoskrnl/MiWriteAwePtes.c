@@ -1,23 +1,23 @@
 /*
- * XREFs of MiWriteAwePtes @ 0x140477F10
+ * XREFs of MiWriteAwePtes @ 0x140471690
  * Callers:
- *     MiDeleteVadAwePtes @ 0x140477BFC (MiDeleteVadAwePtes.c)
- *     NtMapUserPhysicalPagesScatter @ 0x140879900 (NtMapUserPhysicalPagesScatter.c)
- *     NtMapUserPhysicalPages @ 0x140B39FC0 (NtMapUserPhysicalPages.c)
+ *     MiDeleteVadAwePtes @ 0x14047137C (MiDeleteVadAwePtes.c)
+ *     NtMapUserPhysicalPagesScatter @ 0x14087FCE0 (NtMapUserPhysicalPagesScatter.c)
+ *     NtMapUserPhysicalPages @ 0x140B3C1D0 (NtMapUserPhysicalPages.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiMakeValidPte @ 0x1402DA020 (MiMakeValidPte.c)
- *     MiWriteAwePtesPrepare @ 0x14047851C (MiWriteAwePtesPrepare.c)
- *     MiDecrementAweMapCount @ 0x14048007C (MiDecrementAweMapCount.c)
- *     MiGetAweNode @ 0x140526364 (MiGetAweNode.c)
- *     MiFinishPteChangesInPageTable @ 0x140527D9C (MiFinishPteChangesInPageTable.c)
- *     MiWriteAweClusterPte @ 0x14052DDF8 (MiWriteAweClusterPte.c)
- *     MiInsertAweFlushList @ 0x140533384 (MiInsertAweFlushList.c)
- *     MiGetAweFlushList @ 0x140701B08 (MiGetAweFlushList.c)
- *     MiWriteAwePtesNewPageTable @ 0x140702E64 (MiWriteAwePtesNewPageTable.c)
- *     MiZeroAndFlushAweLazyPtes @ 0x140702FEC (MiZeroAndFlushAweLazyPtes.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiMakeValidPte @ 0x1402BBDE0 (MiMakeValidPte.c)
+ *     MiWriteAwePtesPrepare @ 0x140471C9C (MiWriteAwePtesPrepare.c)
+ *     MiDecrementAweMapCount @ 0x1404799BC (MiDecrementAweMapCount.c)
+ *     MiGetAweNode @ 0x1405289D4 (MiGetAweNode.c)
+ *     MiFinishPteChangesInPageTable @ 0x14052A40C (MiFinishPteChangesInPageTable.c)
+ *     MiWriteAweClusterPte @ 0x140530318 (MiWriteAweClusterPte.c)
+ *     MiInsertAweFlushList @ 0x140535804 (MiInsertAweFlushList.c)
+ *     MiGetAweFlushList @ 0x1407067D8 (MiGetAweFlushList.c)
+ *     MiWriteAwePtesNewPageTable @ 0x140707B34 (MiWriteAwePtesNewPageTable.c)
+ *     MiZeroAndFlushAweLazyPtes @ 0x140707CBC (MiZeroAndFlushAweLazyPtes.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall MiWriteAwePtes(
@@ -185,12 +185,12 @@ LABEL_60:
         if ( v24 )
         {
           v26 = v24;
-          if ( qword_140E2D740 )
+          if ( qword_140E2D8C0 )
           {
             if ( (v24 & 0x10) != 0 )
               v26 = v24 & 0xFFFFFFFFFFFFFFEFuLL;
             else
-              v26 = qword_140E2D748 & v24;
+              v26 = qword_140E2D8C8 & v24;
           }
           v27 = v26 >> 31;
           if ( (_DWORD)v27 )
@@ -282,12 +282,12 @@ LABEL_74:
       if ( (v24 & 0x800) != 0 )
       {
         v30 = v24;
-        if ( qword_140E2D740 )
+        if ( qword_140E2D8C0 )
         {
           if ( (v24 & 0x10) != 0 )
             v30 = v24 & 0xFFFFFFFFFFFFFFEFuLL;
           else
-            v30 = qword_140E2D748 & v24;
+            v30 = qword_140E2D8C8 & v24;
         }
         goto LABEL_74;
       }

@@ -1,9 +1,9 @@
 /*
- * XREFs of SiValidateSystemPartition @ 0x14012EDA8
+ * XREFs of SiValidateSystemPartition @ 0x14012F318
  * Callers:
- *     SiGetFirmwareBootDeviceName @ 0x14054207C (SiGetFirmwareBootDeviceName.c)
+ *     SiGetFirmwareBootDeviceName @ 0x1405425BC (SiGetFirmwareBootDeviceName.c)
  * Callees:
- *     SiGetDiskPartitionInformation @ 0x1405421E8 (SiGetDiskPartitionInformation.c)
+ *     SiGetDiskPartitionInformation @ 0x140542728 (SiGetDiskPartitionInformation.c)
  */
 
 __int64 __fastcall SiValidateSystemPartition(const WCHAR *a1)

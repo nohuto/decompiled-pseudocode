@@ -1,19 +1,19 @@
 /*
- * XREFs of IoWriteErrorLogEntry @ 0x140380A80
+ * XREFs of IoWriteErrorLogEntry @ 0x1403805D0
  * Callers:
- *     IopDisassociateThreadIrp @ 0x14050072C (IopDisassociateThreadIrp.c)
- *     FsRtlLogCcFlushError @ 0x14088ADF0 (FsRtlLogCcFlushError.c)
- *     IopLogBlockedDriverEvent @ 0x140891B2C (IopLogBlockedDriverEvent.c)
- *     PnpLogEvent @ 0x1408A1EFC (PnpLogEvent.c)
- *     MiLogFailedDriverLoad @ 0x1408C7DA0 (MiLogFailedDriverLoad.c)
- *     MiBadMemoryLogger @ 0x1408D72E0 (MiBadMemoryLogger.c)
+ *     IopDisassociateThreadIrp @ 0x1405006AC (IopDisassociateThreadIrp.c)
+ *     FsRtlLogCcFlushError @ 0x14088AF50 (FsRtlLogCcFlushError.c)
+ *     IopLogBlockedDriverEvent @ 0x140891C8C (IopLogBlockedDriverEvent.c)
+ *     PnpLogEvent @ 0x1408A205C (PnpLogEvent.c)
+ *     MiLogFailedDriverLoad @ 0x1408C7F00 (MiLogFailedDriverLoad.c)
+ *     MiBadMemoryLogger @ 0x1408D7440 (MiBadMemoryLogger.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     ExQueueWorkItem @ 0x14023E750 (ExQueueWorkItem.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     ExQueueWorkItem @ 0x1402E2FA0 (ExQueueWorkItem.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 void __stdcall IoWriteErrorLogEntry(PVOID ElEntry)
@@ -46,15 +46,15 @@ void __stdcall IoWriteErrorLogEntry(PVOID ElEntry)
   {
     *((_QWORD *)v1 + 5) = MEMORY[0xFFFFF78000000014];
     v2 = KeAcquireSpinLockRaiseToDpc(&IopErrorLogLock);
-    v3 = (_QWORD *)qword_140C45BD8;
+    v3 = (_QWORD *)qword_140C45D18;
     v4 = v1 + 8;
-    if ( *(__int64 **)qword_140C45BD8 != &IopErrorLogListHead )
+    if ( *(__int64 **)qword_140C45D18 != &IopErrorLogListHead )
       __fastfail(3u);
     v5 = IopErrorLogSessionPending == 0;
     *v4 = &IopErrorLogListHead;
     v4[1] = v3;
     *v3 = v4;
-    qword_140C45BD8 = (__int64)v4;
+    qword_140C45D18 = (__int64)v4;
     if ( v5 )
     {
       IopErrorLogWorkItem.Parameter = 0LL;

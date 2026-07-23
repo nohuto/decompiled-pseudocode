@@ -188,7 +188,7 @@ LABEL_23:
   inserted = SepSetTokenBnoIsolation((__int64)DmaAdapter, 0, 0LL, 0, 0LL);
   if ( inserted < 0 )
     goto LABEL_58;
-  inserted = SepDesktopAppxSubProcessToken((__int64)DmaAdapter, a1, *(_DWORD *)(a6 + 4), &v31, &v32);
+  inserted = SepDesktopAppxSubProcessToken((PERESOURCE *)DmaAdapter, a1, *(_DWORD *)(a6 + 4), &v31, &v32);
   if ( inserted < 0 )
     goto LABEL_58;
   inserted = SepMandatorySubProcessToken((_DWORD *)(v38 & -(__int64)((a4 & 2) != 0)), (__int64)DmaAdapter, a1, &v39);
@@ -240,7 +240,7 @@ LABEL_46:
       if ( (unsigned int)Feature_Servicing_HardenTokenPPLRestrictions__private_IsEnabled() )
         SepFinalizeTokenAcls(DmaAdapter);
       else
-        SepAppendAceToTokenObjectAcl((__int64)DmaAdapter, 8, SeAliasAdminsSid);
+        SepAppendAceToTokenObjectAcl((__int64)DmaAdapter, 8u, SeAliasAdminsSid);
       v24 = v41;
       BYTE4(DmaAdapter[12].DmaOperations) = a4 & 1;
       *v24 = DmaAdapter;

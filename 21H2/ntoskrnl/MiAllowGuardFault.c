@@ -1,12 +1,12 @@
 /*
- * XREFs of MiAllowGuardFault @ 0x1402A2BC4
+ * XREFs of MiAllowGuardFault @ 0x140220004
  * Callers:
- *     MiUserFault @ 0x14020D770 (MiUserFault.c)
- *     MiResolveProtoPteFault @ 0x1402153D0 (MiResolveProtoPteFault.c)
- *     MiAccessCheck @ 0x1402C1228 (MiAccessCheck.c)
- *     MiZeroFault @ 0x14034EE60 (MiZeroFault.c)
+ *     MiAccessCheck @ 0x14023F6C8 (MiAccessCheck.c)
+ *     MiUserFault @ 0x1402B2070 (MiUserFault.c)
+ *     MiResolveProtoPteFault @ 0x1402B9CD0 (MiResolveProtoPteFault.c)
+ *     MiZeroFault @ 0x140359BB0 (MiZeroFault.c)
  * Callees:
- *     KeInvalidAccessAllowed @ 0x1402A2C40 (KeInvalidAccessAllowed.c)
+ *     KeInvalidAccessAllowed @ 0x140220080 (KeInvalidAccessAllowed.c)
  */
 
 _BOOL8 __fastcall MiAllowGuardFault(__int64 a1)

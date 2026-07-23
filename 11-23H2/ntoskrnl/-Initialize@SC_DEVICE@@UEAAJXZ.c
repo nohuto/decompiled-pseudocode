@@ -1,11 +1,11 @@
 /*
- * XREFs of ?Initialize@SC_DEVICE@@UEAAJXZ @ 0x140676AC0
+ * XREFs of ?Initialize@SC_DEVICE@@UEAAJXZ @ 0x140677010
  * Callers:
- *     ?Initialize@SC_DISK@@UEAAJXZ @ 0x1406758A0 (-Initialize@SC_DISK@@UEAAJXZ.c)
+ *     ?Initialize@SC_DISK@@UEAAJXZ @ 0x140675DF0 (-Initialize@SC_DISK@@UEAAJXZ.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     ?Free@SC_ENV@@SAXPEAX@Z @ 0x1407DEA50 (-Free@SC_ENV@@SAXPEAX@Z.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     ?Free@SC_ENV@@SAXPEAX@Z @ 0x1407DED20 (-Free@SC_ENV@@SAXPEAX@Z.c)
  */
 
 __int64 __fastcall SC_DEVICE::Initialize(SC_DEVICE *this)

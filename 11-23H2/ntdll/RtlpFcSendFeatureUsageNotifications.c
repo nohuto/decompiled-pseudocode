@@ -3,7 +3,7 @@
  * Callers:
  *     RtlNotifyFeatureUsage @ 0x1800B0D90 (RtlNotifyFeatureUsage.c)
  * Callees:
- *     RtlpFcNotifyFeatureUsageTarget @ 0x180122704 (RtlpFcNotifyFeatureUsageTarget.c)
+ *     RtlpFcNotifyFeatureUsageTarget @ 0x1801226D4 (RtlpFcNotifyFeatureUsageTarget.c)
  */
 
 __int64 __fastcall RtlpFcSendFeatureUsageNotifications(__int64 a1, unsigned int *a2, __int64 a3)

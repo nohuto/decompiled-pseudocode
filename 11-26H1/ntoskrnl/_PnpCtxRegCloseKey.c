@@ -1,21 +1,21 @@
 /*
- * XREFs of _PnpCtxRegCloseKey @ 0x140A9BD98
+ * XREFs of _PnpCtxRegCloseKey @ 0x140A9E908
  * Callers:
- *     PipUpdateDeviceProducts @ 0x1405D7EE0 (PipUpdateDeviceProducts.c)
- *     DrvDbGetConfigurationSubKeyCallback @ 0x140719960 (DrvDbGetConfigurationSubKeyCallback.c)
- *     IopInitializeBootDrivers @ 0x140CBF2A4 (IopInitializeBootDrivers.c)
- *     PipCheckSystemFirmwareUpdated @ 0x140CC1338 (PipCheckSystemFirmwareUpdated.c)
- *     PipMigratePnpState @ 0x140CC26A0 (PipMigratePnpState.c)
- *     PipMigrateServiceCallback @ 0x140CC2D50 (PipMigrateServiceCallback.c)
- *     PipResetDevices @ 0x140CC3094 (PipResetDevices.c)
- *     PipResetMatchingFilteredDevices @ 0x140CC3170 (PipResetMatchingFilteredDevices.c)
- *     PipCommitPendingOsExtensionResource @ 0x140CC6C40 (PipCommitPendingOsExtensionResource.c)
- *     PipCommitPendingService @ 0x140CC6E70 (PipCommitPendingService.c)
- *     PipProcessPendingOsExtensionResources @ 0x140CC7460 (PipProcessPendingOsExtensionResources.c)
- *     PipProcessPendingServices @ 0x140CC750C (PipProcessPendingServices.c)
- *     PipInitComputerIds @ 0x140D056B0 (PipInitComputerIds.c)
+ *     PipUpdateDeviceProducts @ 0x1405DA6E0 (PipUpdateDeviceProducts.c)
+ *     DrvDbGetConfigurationSubKeyCallback @ 0x14071E5F0 (DrvDbGetConfigurationSubKeyCallback.c)
+ *     IopInitializeBootDrivers @ 0x140CC5374 (IopInitializeBootDrivers.c)
+ *     PipCheckSystemFirmwareUpdated @ 0x140CC7408 (PipCheckSystemFirmwareUpdated.c)
+ *     PipMigratePnpState @ 0x140CC8770 (PipMigratePnpState.c)
+ *     PipMigrateServiceCallback @ 0x140CC8E20 (PipMigrateServiceCallback.c)
+ *     PipResetDevices @ 0x140CC9164 (PipResetDevices.c)
+ *     PipResetMatchingFilteredDevices @ 0x140CC9240 (PipResetMatchingFilteredDevices.c)
+ *     PipCommitPendingOsExtensionResource @ 0x140CCCD30 (PipCommitPendingOsExtensionResource.c)
+ *     PipCommitPendingService @ 0x140CCCF60 (PipCommitPendingService.c)
+ *     PipProcessPendingOsExtensionResources @ 0x140CCD550 (PipProcessPendingOsExtensionResources.c)
+ *     PipProcessPendingServices @ 0x140CCD5FC (PipProcessPendingServices.c)
+ *     PipInitComputerIds @ 0x140D0B980 (PipInitComputerIds.c)
  * Callees:
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
  */
 
 NTSTATUS __fastcall PnpCtxRegCloseKey(__int64 a1, void *a2)

@@ -1,5 +1,5 @@
 /*
- * XREFs of NtdllTitleWndProc_A @ 0x1801618F0
+ * XREFs of NtdllTitleWndProc_A @ 0x18015FCB0
  * Callers:
  *     <none>
  * Callees:
@@ -9,5 +9,5 @@
 // attributes: thunk
 void __noreturn NtdllTitleWndProc_A()
 {
-  off_1801E7138();
+  off_1801E6138();
 }

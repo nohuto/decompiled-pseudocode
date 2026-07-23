@@ -1,9 +1,9 @@
 /*
- * XREFs of FsRtlOplockKeysEqual @ 0x1403DA080
+ * XREFs of FsRtlOplockKeysEqual @ 0x1403CE270
  * Callers:
  *     <none>
  * Callees:
- *     FsRtlpOplockKeysEqual @ 0x1403DA0A0 (FsRtlpOplockKeysEqual.c)
+ *     FsRtlpOplockKeysEqual @ 0x1403CE290 (FsRtlpOplockKeysEqual.c)
  */
 
 BOOLEAN __stdcall FsRtlOplockKeysEqual(PFILE_OBJECT Fo1, PFILE_OBJECT Fo2)

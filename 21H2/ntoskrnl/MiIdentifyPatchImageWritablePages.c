@@ -1,11 +1,11 @@
 /*
- * XREFs of MiIdentifyPatchImageWritablePages @ 0x1408CA848
+ * XREFs of MiIdentifyPatchImageWritablePages @ 0x1408CA9A8
  * Callers:
- *     MiApplyDriverHotPatch @ 0x1408C8DB4 (MiApplyDriverHotPatch.c)
+ *     MiApplyDriverHotPatch @ 0x1408C8F14 (MiApplyDriverHotPatch.c)
  * Callees:
- *     MiAllocatePool @ 0x14025AD70 (MiAllocatePool.c)
- *     MiSectionControlArea @ 0x140315260 (MiSectionControlArea.c)
- *     RtlSetBitsEx @ 0x140316A00 (RtlSetBitsEx.c)
+ *     MiAllocatePool @ 0x14027C2E0 (MiAllocatePool.c)
+ *     MiSectionControlArea @ 0x14031FFB0 (MiSectionControlArea.c)
+ *     RtlSetBitsEx @ 0x140321750 (RtlSetBitsEx.c)
  */
 
 __int64 __fastcall MiIdentifyPatchImageWritablePages(_QWORD *a1)

@@ -1,25 +1,25 @@
 /*
- * XREFs of MiUpdateSystemProtoPtesTree @ 0x1402F8260
+ * XREFs of MiUpdateSystemProtoPtesTree @ 0x140302FB0
  * Callers:
- *     MiDeleteSubsectionPages @ 0x140239170 (MiDeleteSubsectionPages.c)
- *     MiDeleteEmptySubsections @ 0x1402BD5BC (MiDeleteEmptySubsections.c)
- *     MiDeletePerSessionProtos @ 0x1402CF174 (MiDeletePerSessionProtos.c)
- *     MiCreatePrototypePtes @ 0x1402F7DF8 (MiCreatePrototypePtes.c)
- *     MiDeleteCachedSubsection @ 0x140528DAC (MiDeleteCachedSubsection.c)
- *     MiCreatePagingFileMap @ 0x14061C548 (MiCreatePagingFileMap.c)
- *     MiExtendSection @ 0x140689798 (MiExtendSection.c)
- *     MiAllocatePerSessionProtos @ 0x1406BCA38 (MiAllocatePerSessionProtos.c)
- *     MiCreateImageFileMap @ 0x1406D33F4 (MiCreateImageFileMap.c)
- *     MiBuildImageControlArea @ 0x1406D5038 (MiBuildImageControlArea.c)
- *     MiSegmentDelete @ 0x1406E8110 (MiSegmentDelete.c)
- *     MiDeletePageFileSectionNodes @ 0x1406E8298 (MiDeletePageFileSectionNodes.c)
- *     MiAllocateFileExtents @ 0x1408CF510 (MiAllocateFileExtents.c)
+ *     MiDeleteEmptySubsections @ 0x14023BC6C (MiDeleteEmptySubsections.c)
+ *     MiDeletePerSessionProtos @ 0x14024D674 (MiDeletePerSessionProtos.c)
+ *     MiDeleteSubsectionPages @ 0x1402DD9C0 (MiDeleteSubsectionPages.c)
+ *     MiCreatePrototypePtes @ 0x140302B48 (MiCreatePrototypePtes.c)
+ *     MiDeleteCachedSubsection @ 0x140528FEC (MiDeleteCachedSubsection.c)
+ *     MiExtendSection @ 0x1405E8C28 (MiExtendSection.c)
+ *     MiAllocatePerSessionProtos @ 0x14061BC08 (MiAllocatePerSessionProtos.c)
+ *     MiCreatePagingFileMap @ 0x1406861B8 (MiCreatePagingFileMap.c)
+ *     MiCreateImageFileMap @ 0x1406AA6D4 (MiCreateImageFileMap.c)
+ *     MiBuildImageControlArea @ 0x1406AC318 (MiBuildImageControlArea.c)
+ *     MiSegmentDelete @ 0x1406FF4F0 (MiSegmentDelete.c)
+ *     MiDeletePageFileSectionNodes @ 0x1406FF678 (MiDeletePageFileSectionNodes.c)
+ *     MiAllocateFileExtents @ 0x1408CF670 (MiAllocateFileExtents.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
- *     RtlAvlRemoveNode @ 0x140234B20 (RtlAvlRemoveNode.c)
- *     MiObtainProtoBaseFromNode @ 0x1402F8350 (MiObtainProtoBaseFromNode.c)
- *     RtlAvlInsertNodeEx @ 0x140316550 (RtlAvlInsertNodeEx.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusive @ 0x1402C1960 (ExAcquireSpinLockExclusive.c)
+ *     RtlAvlRemoveNode @ 0x1402D9370 (RtlAvlRemoveNode.c)
+ *     MiObtainProtoBaseFromNode @ 0x1403030A0 (MiObtainProtoBaseFromNode.c)
+ *     RtlAvlInsertNodeEx @ 0x1403212A0 (RtlAvlInsertNodeEx.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140346AD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
@@ -39,16 +39,16 @@ __int64 __fastcall MiUpdateSystemProtoPtesTree(unsigned __int64 *a1, int a2)
 
   v13 = 0LL;
   v4 = MiObtainProtoBaseFromNode(a1, &v13);
-  v5 = ExAcquireSpinLockExclusive(&dword_140C4CB40);
+  v5 = ExAcquireSpinLockExclusive(&dword_140C4CB80);
   if ( !a2 )
   {
-    RtlAvlRemoveNode((unsigned __int64 *)&qword_140C4CB38, a1);
+    RtlAvlRemoveNode((unsigned __int64 *)&qword_140C4CB78, a1);
     a1[3] &= ~8uLL;
     goto LABEL_9;
   }
-  v7 = (_QWORD *)qword_140C4CB38;
+  v7 = (_QWORD *)qword_140C4CB78;
   LOBYTE(v6) = 0;
-  if ( !qword_140C4CB38 )
+  if ( !qword_140C4CB78 )
     goto LABEL_8;
   while ( 1 )
   {
@@ -69,10 +69,10 @@ LABEL_5:
     goto LABEL_5;
   LOBYTE(v6) = 0;
 LABEL_8:
-  RtlAvlInsertNodeEx(&qword_140C4CB38, v7, v6, a1);
+  RtlAvlInsertNodeEx(&qword_140C4CB78, v7, v6, a1);
   a1[3] |= 8uLL;
 LABEL_9:
-  ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C4CB40);
+  ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C4CB80);
   result = (unsigned int)KiIrqlFlags;
   if ( KiIrqlFlags )
   {

@@ -22,7 +22,7 @@ char __fastcall TppPrepareDirectParams(__int64 a1, __int64 a2, unsigned int a3, 
   unsigned int v13; // r12d
   __int64 v14; // r14
   _OWORD *v15; // rdx
-  _QWORD *v16; // rax
+  _RTL_SRWLOCK *v16; // rax
   bool v17; // r14
   bool v18; // r12
   signed __int64 v19; // rax
@@ -33,14 +33,14 @@ char __fastcall TppPrepareDirectParams(__int64 a1, __int64 a2, unsigned int a3, 
   unsigned int v24; // r8d
   signed __int64 v25; // rtt
   char result; // al
-  _QWORD *v27; // rbx
-  _QWORD *v28; // rcx
-  _QWORD *v29; // rbx
-  _QWORD *v30; // rax
-  _QWORD *v31; // rdx
-  _QWORD *v32; // rcx
-  __int64 **v33; // rcx
-  __int64 ***v34; // rax
+  _RTL_SRWLOCK **v27; // rbx
+  _RTL_SRWLOCK *v28; // rcx
+  _RTL_SRWLOCK **v29; // rbx
+  _RTL_SRWLOCK *v30; // rax
+  _RTL_SRWLOCK **Value; // rdx
+  _RTL_SRWLOCK *v32; // rcx
+  unsigned __int64 **v33; // rcx
+  unsigned __int64 *v34; // rax
   int v35; // r11d
   __int64 v36; // rax
   __int64 v37; // rdx
@@ -65,11 +65,11 @@ char __fastcall TppPrepareDirectParams(__int64 a1, __int64 a2, unsigned int a3, 
   __int64 v56; // [rsp+28h] [rbp-48h] BYREF
   unsigned int v57; // [rsp+30h] [rbp-40h]
   __int64 *v58; // [rsp+38h] [rbp-38h] BYREF
-  __int64 **v59; // [rsp+40h] [rbp-30h]
-  _QWORD *v60; // [rsp+48h] [rbp-28h]
-  _QWORD *v61; // [rsp+50h] [rbp-20h]
-  _QWORD *v62; // [rsp+58h] [rbp-18h]
-  _QWORD *v63; // [rsp+60h] [rbp-10h]
+  unsigned __int64 *v59; // [rsp+40h] [rbp-30h]
+  PRTL_SRWLOCK SRWLock; // [rsp+48h] [rbp-28h]
+  _RTL_SRWLOCK *v61; // [rsp+50h] [rbp-20h]
+  unsigned __int64 v62; // [rsp+58h] [rbp-18h]
+  _RTL_SRWLOCK *v63; // [rsp+60h] [rbp-10h]
   char v64; // [rsp+B0h] [rbp+40h]
   signed __int64 v65; // [rsp+B0h] [rbp+40h]
   char v66; // [rsp+B8h] [rbp+48h]
@@ -92,7 +92,7 @@ char __fastcall TppPrepareDirectParams(__int64 a1, __int64 a2, unsigned int a3, 
   else
   {
     *(_QWORD *)v6 = 0LL;
-    v59 = &v58;
+    v59 = (unsigned __int64 *)&v58;
     v13 = a3;
     v14 = a2 + 56 * v8;
     v58 = (__int64 *)&v58;
@@ -100,46 +100,46 @@ char __fastcall TppPrepareDirectParams(__int64 a1, __int64 a2, unsigned int a3, 
     do
     {
       v15 = (_OWORD *)(a2 + 32LL * --v13);
-      v16 = *(_QWORD **)v15;
+      v16 = *(_RTL_SRWLOCK **)v15;
       v61 = v16;
       if ( v16 )
       {
         if ( v10 )
         {
-          v27 = (_QWORD *)(a2 + 56LL * v13);
-          v60 = v16 + 4;
+          v27 = (_RTL_SRWLOCK **)(a2 + 56LL * v13);
+          SRWLock = v16 + 4;
           memmove(v27, v15, 0x20uLL);
-          v28 = v60;
-          v27[6] = v14;
+          v28 = SRWLock;
+          v27[6] = (_RTL_SRWLOCK *)v14;
           RtlAcquireSRWLockExclusive(v28);
           v29 = v27 + 4;
           v30 = v61 + 5;
           v63 = v61 + 5;
-          v31 = (_QWORD *)v61[6];
-          v62 = (_QWORD *)v61[5];
-          if ( (_QWORD *)*v31 != v61 + 5 )
+          Value = (_RTL_SRWLOCK **)v61[6].Value;
+          v62 = v61[5].Value;
+          if ( *Value != &v61[5] )
             goto LABEL_65;
-          v32 = v60;
+          v32 = SRWLock;
           *v29 = v30;
-          v29[1] = v31;
-          *v31 = v29;
-          v30[1] = v29;
+          v29[1] = (_RTL_SRWLOCK *)Value;
+          *Value = (_RTL_SRWLOCK *)v29;
+          v30[1].Value = (unsigned __int64)v29;
           RtlReleaseSRWLockExclusive(v32);
           v9 = v56 + 1;
           LODWORD(v56) = v56 + 1;
-          if ( v62 == v63 )
+          if ( (_RTL_SRWLOCK *)v62 == v63 )
           {
-            v33 = v59;
-            v34 = (__int64 ***)(v61 + 2);
-            if ( *v59 != (__int64 *)&v58 )
+            v33 = (unsigned __int64 **)v59;
+            v34 = (unsigned __int64 *)&v61[2];
+            if ( (__int64 **)*v59 != &v58 )
 LABEL_65:
               __fastfail(3u);
             v35 = v55;
-            *v34 = &v58;
+            *v34 = (unsigned __int64)&v58;
             v11 = v35 + 1;
-            v34[1] = v33;
-            *v33 = (__int64 *)v34;
-            v59 = (__int64 **)v34;
+            v34[1] = (unsigned __int64)v33;
+            *v33 = v34;
+            v59 = v34;
             v55 = v11;
           }
           else
@@ -164,7 +164,7 @@ LABEL_65:
     while ( v13 );
     if ( v9 != a3 - 1 && _InterlockedExchangeAdd((volatile signed __int32 *)(v14 + 8), 0xFFFFFFFF) == 1 )
     {
-      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, (unsigned int)(TppHeapTag + 3145728), *(_QWORD *)v14);
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, TppHeapTag + 3145728, *(PVOID *)v14);
       v11 = v55;
     }
     if ( v11 )
@@ -198,7 +198,7 @@ LABEL_65:
           v40 = *(_QWORD *)(a5 + 24);
           _BitScanForward((unsigned int *)&v41, v39);
           v57 = v41;
-          RtlAcquireSRWLockExclusive(v40 + 8 * (v41 + 2 * (v41 + 1)));
+          RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(v40 + 8 * (v41 + 2 * (v41 + 1))));
           v39 &= ~(1 << v41);
         }
         while ( v39 );
@@ -207,7 +207,7 @@ LABEL_65:
       {
         _BitScanForward(&v53, i);
         v57 = v53;
-        RtlAcquireSRWLockExclusive(*(_QWORD *)(a5 + 24) + 8 * (v53 + 32 + 2 * (v53 + 32 + 1LL)));
+        RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(*(_QWORD *)(a5 + 24) + 8 * (v53 + 32 + 2 * (v53 + 32 + 1LL))));
       }
       while ( 1 )
       {
@@ -240,7 +240,7 @@ LABEL_65:
         {
           _BitScanReverse(&v54, v52);
           v57 = v54;
-          RtlReleaseSRWLockExclusive(*(_QWORD *)(a5 + 24) + 8 * (v54 + 32 + 2 * (v54 + 32 + 1LL)));
+          RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(*(_QWORD *)(a5 + 24) + 8 * (v54 + 32 + 2 * (v54 + 32 + 1LL))));
           v52 &= ~(1 << v54);
         }
         while ( v52 );
@@ -250,7 +250,7 @@ LABEL_65:
         v50 = *(_QWORD *)(a5 + 24);
         _BitScanReverse((unsigned int *)&v51, j);
         v57 = v51;
-        RtlReleaseSRWLockExclusive(v50 + 8 * (v51 + 2 * (v51 + 1)));
+        RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(v50 + 8 * (v51 + 2 * (v51 + 1))));
       }
       v11 = v55;
     }
@@ -301,7 +301,7 @@ LABEL_65:
   }
   while ( v25 != v19 );
   if ( v23 )
-    NtReleaseWorkerFactoryWorker(*(_QWORD *)(a5 + 56));
+    NtReleaseWorkerFactoryWorker(*(HANDLE *)(a5 + 56));
   result = v20;
   *a6 = v21;
   return result;

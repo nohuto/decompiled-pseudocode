@@ -13,66 +13,69 @@
  *     _RtlpDupTebLanguageList@4 @ 0x4B353D5C (_RtlpDupTebLanguageList@4.c)
  */
 
-int __stdcall RtlSetThreadPreferredUILanguages2(int a1, int a2, int *a3, int *a4)
+int __userpurge RtlSetThreadPreferredUILanguages2@<eax>(int a1@<edi>, int a2, int a3, int *a4, _DWORD *a5)
 {
-  int Heap; // esi
-  int v6; // eax
+  PVOID Heap; // esi
   int v7; // eax
   int v8; // eax
-  int v9; // edi
-  _BYTE v10[4]; // [esp+4h] [ebp-8h] BYREF
-  int v11; // [esp+8h] [ebp-4h] BYREF
+  int v9; // eax
+  int v10; // edi
+  SIZE_T v11; // [esp-Ch] [ebp-18h]
+  ULONG NumberOfLanguages; // [esp+4h] [ebp-8h] BYREF
+  ULONG ReturnLength; // [esp+8h] [ebp-4h] BYREF
 
-  if ( !a4 )
-    return RtlSetThreadPreferredUILanguages(a1, a2, a3);
-  *a4 = 0;
-  v11 = 0;
-  RtlGetThreadPreferredUILanguages(a1 | 0x30, (int)v10, 0, &v11);
-  Heap = RtlAllocateHeap((int)NtCurrentPeb()->ProcessHeap, 8, 16);
+  if ( !a5 )
+    return RtlSetThreadPreferredUILanguages(a2, a3, a4);
+  HIDWORD(v11) = a1;
+  *a5 = 0;
+  ReturnLength = 0;
+  RtlGetThreadPreferredUILanguages(a2 | 0x30, &NumberOfLanguages, 0, &ReturnLength);
+  LODWORD(v11) = 16;
+  Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, v11);
   if ( !Heap )
     return -1073741801;
   if ( NtCurrentTeb()->PreferredLanguages )
   {
-    v6 = RtlpMuiRegDupLanguageList((int)NtCurrentTeb()->PreferredLanguages);
-    *(_DWORD *)Heap = v6;
-    if ( !v6 )
-      goto LABEL_20;
-    *(_DWORD *)(v6 + 32) &= ~0x40u;
+    v7 = RtlpMuiRegDupLanguageList((int)NtCurrentTeb()->PreferredLanguages);
+    *(_DWORD *)Heap = v7;
+    if ( !v7 )
+      goto LABEL_19;
+    *(_DWORD *)(v7 + 32) &= ~0x40u;
   }
   if ( NtCurrentTeb()->MergedPrefLanguages )
   {
-    v7 = RtlpMuiRegDupLanguageList((int)NtCurrentTeb()->MergedPrefLanguages);
-    *(_DWORD *)(Heap + 4) = v7;
-    if ( !v7 )
-      goto LABEL_20;
-    *(_DWORD *)(v7 + 32) &= ~0x40u;
+    v8 = RtlpMuiRegDupLanguageList((int)NtCurrentTeb()->MergedPrefLanguages);
+    *((_DWORD *)Heap + 1) = v8;
+    if ( !v8 )
+      goto LABEL_19;
+    *(_DWORD *)(v8 + 32) &= ~0x40u;
   }
   if ( !NtCurrentTeb()->UserPrefLanguages )
     goto LABEL_14;
-  v8 = RtlpDupTebLanguageList(NtCurrentTeb()->UserPrefLanguages);
-  *(_DWORD *)(Heap + 8) = v8;
-  if ( v8 )
+  v9 = RtlpDupTebLanguageList(NtCurrentTeb()->UserPrefLanguages);
+  *((_DWORD *)Heap + 2) = v9;
+  if ( v9 )
   {
-    *(_DWORD *)(*(_DWORD *)v8 + 32) &= ~0x40u;
+    *(_DWORD *)(*(_DWORD *)v9 + 32) &= ~0x40u;
 LABEL_14:
-    *(_DWORD *)(Heap + 12) = NtCurrentTeb()->ClientId.UniqueThread;
-    v9 = RtlSetThreadPreferredUILanguages(a1, a2, a3);
-    if ( v9 >= 0 )
+    *((_DWORD *)Heap + 3) = NtCurrentTeb()->ClientId.UniqueThread;
+    v10 = RtlSetThreadPreferredUILanguages(a2, a3, a4);
+    if ( v10 >= 0 )
     {
-      *a4 = Heap;
+      *a5 = Heap;
       Heap = 0;
     }
     goto LABEL_16;
   }
-LABEL_20:
-  v9 = -1073741801;
+LABEL_19:
+  v10 = -1073741801;
 LABEL_16:
   if ( Heap )
   {
-    RtlpMuiRegFreeLanguageList(*(_BYTE **)Heap);
-    RtlpMuiRegFreeLanguageList(*(_BYTE **)(Heap + 4));
-    RtlpFreeTebLanguageList(*(_DWORD *)(Heap + 8));
-    RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, Heap);
+    RtlpMuiRegFreeLanguageList(*(PVOID *)Heap);
+    RtlpMuiRegFreeLanguageList(*((PVOID *)Heap + 1));
+    RtlpFreeTebLanguageList(*((PVOID *)Heap + 2));
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Heap);
   }
-  return v9;
+  return v10;
 }

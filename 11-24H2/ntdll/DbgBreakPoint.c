@@ -1,12 +1,12 @@
 /*
- * XREFs of DbgBreakPoint @ 0x180120AE0
+ * XREFs of DbgBreakPoint @ 0x18011ED10
  * Callers:
- *     DbgUiRemoteBreakin @ 0x180132BC0 (DbgUiRemoteBreakin.c)
+ *     DbgUiRemoteBreakin @ 0x180130DF0 (DbgUiRemoteBreakin.c)
  * Callees:
  *     <none>
  */
 
-void DbgBreakPoint()
+void DbgBreakPoint(void)
 {
   __debugbreak();
 }

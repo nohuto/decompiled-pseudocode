@@ -1,11 +1,11 @@
 /*
- * XREFs of MiPulseLowAvailableEvent @ 0x1401F3910
+ * XREFs of MiPulseLowAvailableEvent @ 0x1401F373C
  * Callers:
- *     MiComputeSystemTrimCriteria @ 0x1400BF160 (MiComputeSystemTrimCriteria.c)
+ *     MiComputeSystemTrimCriteria @ 0x1400BCFF0 (MiComputeSystemTrimCriteria.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140012750 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14001BD40 (KeAcquireInStackQueuedSpinLock.c)
- *     KePulseEvent @ 0x1400BEF10 (KePulseEvent.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x1400122D0 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14001B8C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     KePulseEvent @ 0x1400BCDA0 (KePulseEvent.c)
  */
 
 void __fastcall MiPulseLowAvailableEvent(__int64 a1)

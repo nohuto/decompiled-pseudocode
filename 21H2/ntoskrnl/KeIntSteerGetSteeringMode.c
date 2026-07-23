@@ -1,8 +1,8 @@
 /*
- * XREFs of KeIntSteerGetSteeringMode @ 0x140378120
+ * XREFs of KeIntSteerGetSteeringMode @ 0x140377C70
  * Callers:
- *     KiIntSteerChooseInitialTargetProcessors @ 0x140378014 (KiIntSteerChooseInitialTargetProcessors.c)
- *     ExpQueryInterruptSteeringInformation @ 0x1407CF5A4 (ExpQueryInterruptSteeringInformation.c)
+ *     KiIntSteerChooseInitialTargetProcessors @ 0x140377B64 (KiIntSteerChooseInitialTargetProcessors.c)
+ *     ExpQueryInterruptSteeringInformation @ 0x1407CF714 (ExpQueryInterruptSteeringInformation.c)
  * Callees:
  *     <none>
  */

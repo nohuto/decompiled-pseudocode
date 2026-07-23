@@ -1,12 +1,12 @@
 /*
- * XREFs of KiComputeNewPriority @ 0x1400D0E90
+ * XREFs of KiComputeNewPriority @ 0x1400D0F10
  * Callers:
  *     KeDelayExecutionThread @ 0x14004DA20 (KeDelayExecutionThread.c)
- *     KiDeferredReadyThread @ 0x1400C3390 (KiDeferredReadyThread.c)
- *     KeSetBasePriorityThread @ 0x1400CD370 (KeSetBasePriorityThread.c)
- *     KiQuantumEnd @ 0x1400D0020 (KiQuantumEnd.c)
- *     KiQueueReadyThread @ 0x1400D2370 (KiQueueReadyThread.c)
- *     KeYieldExecution @ 0x1400D65D0 (KeYieldExecution.c)
+ *     KiDeferredReadyThread @ 0x1400C32D0 (KiDeferredReadyThread.c)
+ *     KeSetBasePriorityThread @ 0x1400CD3F0 (KeSetBasePriorityThread.c)
+ *     KiQuantumEnd @ 0x1400D00A0 (KiQuantumEnd.c)
+ *     KiQueueReadyThread @ 0x1400D23F0 (KiQueueReadyThread.c)
+ *     KeYieldExecution @ 0x1400D6650 (KeYieldExecution.c)
  * Callees:
  *     <none>
  */

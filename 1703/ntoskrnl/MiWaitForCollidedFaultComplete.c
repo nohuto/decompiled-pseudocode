@@ -40,20 +40,19 @@ __int64 __fastcall MiWaitForCollidedFaultComplete(
   _DWORD *v13; // r14
   _KLOCK_ENTRY *v14; // rbp
   ULONG_PTR v15; // rbx
-  __int64 v16; // rax
+  PRTL_BALANCED_NODE v16; // rax
   __int64 v17; // rdx
-  __int64 v18; // r8
   LONG *SharedVm; // rbx
-  __int64 v20; // r8
-  unsigned int v22; // ebx
-  __int64 v23; // [rsp+60h] [rbp+8h] BYREF
+  __int64 v19; // r8
+  unsigned int v21; // ebx
+  __int64 v22; // [rsp+60h] [rbp+8h] BYREF
 
   v7 = *(_QWORD *)(a1 + 8) | 0x8000000000000000uLL;
   v12 = MI_READ_PTE_LOCK_FREE(v7);
   v13 = a7;
   v14 = 0LL;
   v15 = *(_QWORD *)a1 - 32LL;
-  v23 = v12;
+  v22 = v12;
   if ( !*a7 )
   {
     if ( !(unsigned int)MiAddLockedPageCharge(a1, 2) )
@@ -80,15 +79,15 @@ __int64 __fastcall MiWaitForCollidedFaultComplete(
     MiUnlockWorkingSetExclusive(a4, a5);
   if ( *(_QWORD *)(v15 + 208) )
   {
-    v16 = KeAbPreAcquire(v15, 0LL, 0LL);
+    v16 = KeAbPreAcquire(v15, 0LL, 0);
     v14 = (_KLOCK_ENTRY *)v16;
     if ( v16 )
-      KeAbPreWait(v16, v17, v18);
+      KeAbPreWait((__int64)v16, v17);
   }
   KeWaitForSingleObject((PVOID)(v15 + 56), WrPageIn, 0, 0, 0LL);
   if ( v14 )
   {
-    KeAbPreAcquire(v15, (__int64)v14, 0LL);
+    KeAbPreAcquire(v15, &v14->TreeNode, 0);
     KeAbPostReleaseEx(v15, v14);
   }
   MiFreeInPageSupportBlock((char *)v15);
@@ -111,12 +110,12 @@ __int64 __fastcall MiWaitForCollidedFaultComplete(
   }
   if ( (*(_QWORD *)(a1 + 24) & 0x4000000000000000LL) == 0 )
   {
-    if ( (unsigned int)MiIsFaultPteIntact(a3, v7, &v23) && MiImagePageOk(a3, a1, v20) )
+    if ( (unsigned int)MiIsFaultPteIntact(a3, v7, &v22) && MiImagePageOk(a3, a1, v19) )
       return 0LL;
     MiRemoveLockedPageChargeAndDecRef(a1);
     return 3221226548LL;
   }
-  v22 = (*(_BYTE *)(a1 + 35) & 0x10) != 0 ? 0xFFFFFBE3 : 0;
+  v21 = (*(_BYTE *)(a1 + 35) & 0x10) != 0 ? 0xFFFFFBE3 : 0;
   MiRemoveLockedPageChargeAndDecRef(a1);
-  return v22 - 1073740748;
+  return v21 - 1073740748;
 }

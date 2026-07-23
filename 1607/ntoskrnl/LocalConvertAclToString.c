@@ -1,21 +1,21 @@
 /*
- * XREFs of LocalConvertAclToString @ 0x1406CA388
+ * XREFs of LocalConvertAclToString @ 0x1406CA4C0
  * Callers:
- *     LocalConvertSDToStringSD_Rev1 @ 0x1406CAE68 (LocalConvertSDToStringSD_Rev1.c)
+ *     LocalConvertSDToStringSD_Rev1 @ 0x1406CAFA0 (LocalConvertSDToStringSD_Rev1.c)
  * Callees:
- *     _ultow_s @ 0x140151D08 (_ultow_s.c)
- *     wcscpy_s @ 0x140153094 (wcscpy_s.c)
- *     RtlNtStatusToDosError @ 0x1404BAE20 (RtlNtStatusToDosError.c)
- *     SddlpFree @ 0x1404D6ABC (SddlpFree.c)
- *     LookupSidInTable @ 0x1404D72E0 (LookupSidInTable.c)
- *     LookupAccessMaskInTable @ 0x1404D7434 (LookupAccessMaskInTable.c)
- *     LookupAceTypeInTable @ 0x1404D74D0 (LookupAceTypeInTable.c)
- *     SddlpAlloc @ 0x1404D7574 (SddlpAlloc.c)
- *     LocalConvertSidToStringSidW @ 0x1406CB414 (LocalConvertSidToStringSidW.c)
- *     LocalGetAceCondition @ 0x1406CB4C8 (LocalGetAceCondition.c)
- *     LookupAceFlagsInTable @ 0x1406CBDB8 (LookupAceFlagsInTable.c)
- *     SddlpFreeUuidString @ 0x1406CC3D8 (SddlpFreeUuidString.c)
- *     SddlpUuidToString @ 0x1406CC544 (SddlpUuidToString.c)
+ *     _ultow_s @ 0x1401522C8 (_ultow_s.c)
+ *     wcscpy_s @ 0x140153654 (wcscpy_s.c)
+ *     RtlNtStatusToDosError @ 0x1404A6B50 (RtlNtStatusToDosError.c)
+ *     SddlpFree @ 0x1404BA0C0 (SddlpFree.c)
+ *     LookupSidInTable @ 0x1404BA8E4 (LookupSidInTable.c)
+ *     LookupAccessMaskInTable @ 0x1404BAA38 (LookupAccessMaskInTable.c)
+ *     LookupAceTypeInTable @ 0x1404BAAD4 (LookupAceTypeInTable.c)
+ *     SddlpAlloc @ 0x1404BAB78 (SddlpAlloc.c)
+ *     LocalConvertSidToStringSidW @ 0x1406CB54C (LocalConvertSidToStringSidW.c)
+ *     LocalGetAceCondition @ 0x1406CB600 (LocalGetAceCondition.c)
+ *     LookupAceFlagsInTable @ 0x1406CBEF0 (LookupAceFlagsInTable.c)
+ *     SddlpFreeUuidString @ 0x1406CC510 (SddlpFreeUuidString.c)
+ *     SddlpUuidToString @ 0x1406CC67C (SddlpUuidToString.c)
  */
 
 __int64 __fastcall LocalConvertAclToString(
@@ -232,7 +232,7 @@ LABEL_37:
     while ( v20[v21] );
     v22 = 7LL;
     v23 = v10 + 2 * v21 + 2;
-    v24 = &unk_140287668;
+    v24 = &unk_140287748;
     do
     {
       if ( ((unsigned __int8)*v24 & v17[1]) != 0 )
@@ -449,7 +449,7 @@ LABEL_39:
         goto LABEL_169;
       *v58 = 59;
       v63 = v58 + 1;
-      v64 = &unk_140287668;
+      v64 = &unk_140287748;
       v65 = v59 - 1;
       v66 = 7LL;
       do

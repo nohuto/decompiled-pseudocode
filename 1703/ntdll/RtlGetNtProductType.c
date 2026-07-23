@@ -11,28 +11,28 @@
  *     sub_1800F5960 @ 0x1800F5960 (sub_1800F5960.c)
  */
 
-char __fastcall RtlGetNtProductType(_DWORD *a1, __int64 a2, __int64 a3, __int64 a4)
+BOOLEAN __cdecl RtlGetNtProductType(PNT_PRODUCT_TYPE NtProductType)
 {
-  char v5; // bl
-  int v6; // eax
+  BOOLEAN v2; // bl
+  _NT_PRODUCT_TYPE v3; // eax
 
-  v5 = 0;
-  if ( (unsigned int)RtlGetCurrentServiceSessionId(a1, a2, a3, a4) )
+  v2 = 0;
+  if ( RtlGetCurrentServiceSessionId() )
   {
-    v6 = *((_DWORD *)NtCurrentPeb()->HotpatchInformation + 4);
+    v3 = NtCurrentPeb()->SharedData->NtProductType;
     goto LABEL_4;
   }
   if ( MEMORY[0x7FFE0268] )
   {
-    v6 = MEMORY[0x7FFE0264];
+    v3 = MEMORY[0x7FFE0264];
 LABEL_4:
-    *a1 = v6;
+    *NtProductType = v3;
     return 1;
   }
-  if ( (int)sub_1800F5960(a1) < 0 )
+  if ( (int)sub_1800F5960(NtProductType) < 0 )
   {
-    *a1 = 1;
-    return v5;
+    *NtProductType = NtProductWinNt;
+    return v2;
   }
   return 1;
 }

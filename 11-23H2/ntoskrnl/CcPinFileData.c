@@ -1,38 +1,38 @@
 /*
- * XREFs of CcPinFileData @ 0x140263890
+ * XREFs of CcPinFileData @ 0x140263B20
  * Callers:
- *     CcZeroDataInCache @ 0x1402FBF18 (CcZeroDataInCache.c)
- *     CcPinRead @ 0x1406F58C0 (CcPinRead.c)
- *     CcPinMappedData @ 0x1406F5E50 (CcPinMappedData.c)
- *     CcMapData @ 0x1406F6010 (CcMapData.c)
- *     CcPreparePinWrite @ 0x140764F90 (CcPreparePinWrite.c)
- *     CcMapDataCommon @ 0x140765164 (CcMapDataCommon.c)
+ *     CcZeroDataInCache @ 0x1402FC1A8 (CcZeroDataInCache.c)
+ *     CcPinRead @ 0x1406F5AD0 (CcPinRead.c)
+ *     CcPinMappedData @ 0x1406F6060 (CcPinMappedData.c)
+ *     CcMapData @ 0x1406F6220 (CcMapData.c)
+ *     CcPreparePinWrite @ 0x140765180 (CcPreparePinWrite.c)
+ *     CcMapDataCommon @ 0x140765354 (CcMapDataCommon.c)
  * Callees:
  *     CcAllocateInitializeBcb @ 0x140207370 (CcAllocateInitializeBcb.c)
- *     KeReleaseGuardedMutex @ 0x1402284C0 (KeReleaseGuardedMutex.c)
- *     ExAcquireFastMutex @ 0x140230720 (ExAcquireFastMutex.c)
- *     ExReleaseFastMutex @ 0x140230860 (ExReleaseFastMutex.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402390E0 (ExAcquireResourceExclusiveLite.c)
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
- *     CcUnpinFileDataEx @ 0x14025D810 (CcUnpinFileDataEx.c)
- *     CcGetBcbListHeadLargeOffset @ 0x140260FF0 (CcGetBcbListHeadLargeOffset.c)
- *     ExpAcquireSharedStarveExclusive @ 0x1402633E0 (ExpAcquireSharedStarveExclusive.c)
- *     CcGetVirtualAddress @ 0x140264DF0 (CcGetVirtualAddress.c)
- *     CcMapAndRead @ 0x140265190 (CcMapAndRead.c)
- *     MmCheckCachedPageStates @ 0x140265320 (MmCheckCachedPageStates.c)
- *     MmGetSessionIdEx @ 0x1402A1720 (MmGetSessionIdEx.c)
- *     ExpReleaseFastMutexContended @ 0x1402BBF60 (ExpReleaseFastMutexContended.c)
- *     ExpAcquireFastMutexContended @ 0x1402FCD4C (ExpAcquireFastMutexContended.c)
- *     KiAbThreadRemoveBoostsSlow @ 0x140317E40 (KiAbThreadRemoveBoostsSlow.c)
- *     RtlRaiseStatus @ 0x1403217B0 (RtlRaiseStatus.c)
- *     KiAbTryReclaimOrphanedEntries @ 0x14032FA68 (KiAbTryReclaimOrphanedEntries.c)
- *     ExAcquireSharedStarveExclusive @ 0x140348D20 (ExAcquireSharedStarveExclusive.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     CcDereferenceFileOffset @ 0x140537EE4 (CcDereferenceFileOffset.c)
- *     CcReferenceFileOffset @ 0x1405380B0 (CcReferenceFileOffset.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     ExpFastResourceLegacyAcquireSharedStarveExclusive @ 0x14060A524 (ExpFastResourceLegacyAcquireSharedStarveExclusive.c)
+ *     KeReleaseGuardedMutex @ 0x1402285D0 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x140230810 (ExAcquireFastMutex.c)
+ *     ExReleaseFastMutex @ 0x140230950 (ExReleaseFastMutex.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402391B0 (ExAcquireResourceExclusiveLite.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
+ *     CcUnpinFileDataEx @ 0x14025DAA0 (CcUnpinFileDataEx.c)
+ *     CcGetBcbListHeadLargeOffset @ 0x140261280 (CcGetBcbListHeadLargeOffset.c)
+ *     ExpAcquireSharedStarveExclusive @ 0x140263670 (ExpAcquireSharedStarveExclusive.c)
+ *     CcGetVirtualAddress @ 0x140265080 (CcGetVirtualAddress.c)
+ *     CcMapAndRead @ 0x140265420 (CcMapAndRead.c)
+ *     MmCheckCachedPageStates @ 0x1402655B0 (MmCheckCachedPageStates.c)
+ *     MmGetSessionIdEx @ 0x1402A19B0 (MmGetSessionIdEx.c)
+ *     ExpReleaseFastMutexContended @ 0x1402BC1F0 (ExpReleaseFastMutexContended.c)
+ *     ExpAcquireFastMutexContended @ 0x1402FCFDC (ExpAcquireFastMutexContended.c)
+ *     KiAbThreadRemoveBoostsSlow @ 0x1403180D0 (KiAbThreadRemoveBoostsSlow.c)
+ *     RtlRaiseStatus @ 0x140321A40 (RtlRaiseStatus.c)
+ *     KiAbTryReclaimOrphanedEntries @ 0x14032FCF8 (KiAbTryReclaimOrphanedEntries.c)
+ *     ExAcquireSharedStarveExclusive @ 0x140348FB0 (ExAcquireSharedStarveExclusive.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     CcDereferenceFileOffset @ 0x140538434 (CcDereferenceFileOffset.c)
+ *     CcReferenceFileOffset @ 0x140538600 (CcReferenceFileOffset.c)
+ *     ExpFastResourceLegacyAcquireSharedStarveExclusive @ 0x14060AA74 (ExpFastResourceLegacyAcquireSharedStarveExclusive.c)
  */
 
 __int64 __fastcall CcPinFileData(
@@ -122,7 +122,7 @@ __int64 __fastcall CcPinFileData(
   __int64 v83; // rdi
   __int16 v84; // cx
   struct _KTHREAD *v85; // r13
-  int v86; // r8d
+  NTSTATUS v86; // r8d
   unsigned __int64 v87; // rdx
   unsigned __int64 v88; // rdi
   unsigned int v89; // eax
@@ -185,7 +185,7 @@ __int64 __fastcall CcPinFileData(
   __int64 v147; // [rsp+80h] [rbp-98h]
   __int64 v148; // [rsp+88h] [rbp-90h]
   int v149; // [rsp+90h] [rbp-88h]
-  int v150; // [rsp+94h] [rbp-84h]
+  NTSTATUS v150; // [rsp+94h] [rbp-84h]
   __int64 v151; // [rsp+98h] [rbp-80h]
   __int64 v152; // [rsp+A0h] [rbp-78h]
   __int64 v153; // [rsp+A8h] [rbp-70h]
@@ -370,10 +370,10 @@ LABEL_48:
         v71 = _InterlockedCompareExchange((volatile signed __int32 *)v15, 1, 0);
         if ( v71 )
           ExpReleaseFastMutexContended(v15, v71);
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v72 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v72 <= 0xFu && (unsigned __int8)v70 <= 0xFu && v72 >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v72 <= 0xFu && (unsigned __int8)v70 <= 0xFu && v72 >= 2u )
           {
             v73 = KeGetCurrentPrcb();
             v74 = v73->SchedulerAssist;
@@ -484,7 +484,7 @@ LABEL_48:
           v93 = v92 >> 1;
           LODWORD(v85[1].WaitListEntry.Flink) = v93;
           if ( v86 < 0 )
-            RtlRaiseStatus((unsigned int)v86);
+            RtlRaiseStatus(v86);
           v146 = 0;
           v152 = 0LL;
           v94 = KeGetCurrentThread();
@@ -545,10 +545,10 @@ LABEL_48:
           v105 = _InterlockedCompareExchange((volatile signed __int32 *)v15, 1, 0);
           if ( v105 )
             ExpReleaseFastMutexContended(v15, v105);
-          if ( KiIrqlFlags )
+          if ( (_DWORD)KiIrqlFlags )
           {
             v106 = KeGetCurrentIrql();
-            if ( (KiIrqlFlags & 1) != 0 && v106 <= 0xFu && (unsigned __int8)v104 <= 0xFu && v106 >= 2u )
+            if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v106 <= 0xFu && (unsigned __int8)v104 <= 0xFu && v106 >= 2u )
             {
               v107 = KeGetCurrentPrcb();
               v108 = v107->SchedulerAssist;
@@ -610,10 +610,10 @@ LABEL_48:
     v111 = _InterlockedCompareExchange((volatile signed __int32 *)v15, 1, 0);
     if ( v111 )
       ExpReleaseFastMutexContended(v15, v111);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v112 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v112 <= 0xFu && (unsigned __int8)v110 <= 0xFu && v112 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v112 <= 0xFu && (unsigned __int8)v110 <= 0xFu && v112 >= 2u )
       {
         v113 = KeGetCurrentPrcb();
         v114 = v113->SchedulerAssist;
@@ -781,7 +781,7 @@ LABEL_231:
   if ( !v56 )
   {
     KeReleaseGuardedMutex((PKGUARDED_MUTEX)v15);
-    RtlRaiseStatus(3221225626LL);
+    RtlRaiseStatus(-1073741670);
   }
   if ( v162 )
     goto LABEL_97;
@@ -887,10 +887,10 @@ LABEL_233:
     v127 = _InterlockedCompareExchange((volatile signed __int32 *)v15, 1, 0);
     if ( v127 )
       ExpReleaseFastMutexContended(v15, v127);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v128 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v128 <= 0xFu && (unsigned __int8)v126 <= 0xFu && v128 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v128 <= 0xFu && (unsigned __int8)v126 <= 0xFu && v128 >= 2u )
       {
         v129 = KeGetCurrentPrcb();
         v130 = v129->SchedulerAssist;

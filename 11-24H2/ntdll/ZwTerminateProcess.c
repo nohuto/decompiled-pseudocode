@@ -1,37 +1,37 @@
 /*
- * XREFs of ZwTerminateProcess @ 0x180162210
+ * XREFs of ZwTerminateProcess @ 0x1801605D0
  * Callers:
- *     WerpBreakIntoDebuggerIfPresent @ 0x180001534 (WerpBreakIntoDebuggerIfPresent.c)
- *     RtlUserThreadStart @ 0x180004250 (RtlUserThreadStart.c)
- *     RtlExitUserProcess @ 0x180004320 (RtlExitUserProcess.c)
- *     LdrpInitializeThread @ 0x180012810 (LdrpInitializeThread.c)
- *     RtlpAcquireSRWLockSharedContended @ 0x180017E40 (RtlpAcquireSRWLockSharedContended.c)
- *     RtlpAcquireSRWLockExclusiveContended @ 0x18004A470 (RtlpAcquireSRWLockExclusiveContended.c)
- *     LdrpLoadShimEngine @ 0x180065AE0 (LdrpLoadShimEngine.c)
- *     LdrpInitializeShimDllDependencies @ 0x180065E3C (LdrpInitializeShimDllDependencies.c)
- *     _LdrpInitialize @ 0x180066904 (_LdrpInitialize.c)
- *     RtlpWaitOnCriticalSection @ 0x18009A7A0 (RtlpWaitOnCriticalSection.c)
- *     RtlAssert @ 0x1800F28E0 (RtlAssert.c)
- *     LdrAppxHandleIntegrityFailure @ 0x180115D20 (LdrAppxHandleIntegrityFailure.c)
- *     RtlReportFatalFailure @ 0x18011716C (RtlReportFatalFailure.c)
- *     LdrpGenericExceptionFilter @ 0x1801185C0 (LdrpGenericExceptionFilter.c)
- *     __raise_securityfailure @ 0x180120888 (__raise_securityfailure.c)
- *     __report_gsfailure @ 0x1801208B0 (__report_gsfailure.c)
- *     RtlpProcessReflectionStartup @ 0x1801334B0 (RtlpProcessReflectionStartup.c)
- *     UninitUser32Proc @ 0x180134260 (UninitUser32Proc.c)
- *     RtlReportExceptionEx @ 0x1801342D0 (RtlReportExceptionEx.c)
- *     TppTerminateProcess @ 0x18015C7E0 (TppTerminateProcess.c)
- *     LdrpFatalExceptionFilter @ 0x18015E390 (LdrpFatalExceptionFilter.c)
- *     LdrpCompleteProcessCloning @ 0x180160B48 (LdrpCompleteProcessCloning.c)
+ *     RtlpWaitOnCriticalSection @ 0x18002F5F0 (RtlpWaitOnCriticalSection.c)
+ *     LdrpInitializeThread @ 0x18003F210 (LdrpInitializeThread.c)
+ *     RtlpAcquireSRWLockSharedContended @ 0x180044840 (RtlpAcquireSRWLockSharedContended.c)
+ *     RtlpAcquireSRWLockExclusiveContended @ 0x180060050 (RtlpAcquireSRWLockExclusiveContended.c)
+ *     RtlUserThreadStart @ 0x1800AAD40 (RtlUserThreadStart.c)
+ *     RtlExitUserProcess @ 0x1800AAE10 (RtlExitUserProcess.c)
+ *     LdrpLoadShimEngine @ 0x1800AD9B0 (LdrpLoadShimEngine.c)
+ *     LdrpInitializeShimDllDependencies @ 0x1800ADD0C (LdrpInitializeShimDllDependencies.c)
+ *     _LdrpInitialize @ 0x1800AEAE4 (_LdrpInitialize.c)
+ *     RtlAssert @ 0x1800ED1D0 (RtlAssert.c)
+ *     WerpBreakIntoDebuggerIfPresent @ 0x18010B594 (WerpBreakIntoDebuggerIfPresent.c)
+ *     LdrAppxHandleIntegrityFailure @ 0x1801111B0 (LdrAppxHandleIntegrityFailure.c)
+ *     RtlReportFatalFailure @ 0x18011215C (RtlReportFatalFailure.c)
+ *     LdrpGenericExceptionFilter @ 0x180113530 (LdrpGenericExceptionFilter.c)
+ *     __raise_securityfailure @ 0x18011EAB8 (__raise_securityfailure.c)
+ *     __report_gsfailure @ 0x18011EAE0 (__report_gsfailure.c)
+ *     RtlpProcessReflectionStartup @ 0x1801316E0 (RtlpProcessReflectionStartup.c)
+ *     UninitUser32Proc @ 0x180132490 (UninitUser32Proc.c)
+ *     RtlReportExceptionEx @ 0x180132500 (RtlReportExceptionEx.c)
+ *     TppTerminateProcess @ 0x18015ABA0 (TppTerminateProcess.c)
+ *     LdrpFatalExceptionFilter @ 0x18015C750 (LdrpFatalExceptionFilter.c)
+ *     LdrpCompleteProcessCloning @ 0x18015EF08 (LdrpCompleteProcessCloning.c)
  * Callees:
  *     <none>
  */
 
-__int64 ZwTerminateProcess()
+NTSTATUS __cdecl ZwTerminateProcess(HANDLE ProcessHandle, NTSTATUS ExitStatus)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 44LL;
+  result = 44;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

@@ -1,36 +1,36 @@
 /*
- * XREFs of ExpWaitForSpinLockSharedAndAcquire @ 0x140316D70
+ * XREFs of ExpWaitForSpinLockSharedAndAcquire @ 0x140317000
  * Callers:
  *     MiLocateCombineBlock @ 0x140215B20 (MiLocateCombineBlock.c)
- *     MiZeroFault @ 0x140232320 (MiZeroFault.c)
- *     MiProbeAndLockPrepare @ 0x140234DB0 (MiProbeAndLockPrepare.c)
- *     MiUserFault @ 0x140235890 (MiUserFault.c)
- *     MiGetSlabPage @ 0x14023BD70 (MiGetSlabPage.c)
- *     ExAcquireSpinLockSharedAtDpcLevel @ 0x14025AD10 (ExAcquireSpinLockSharedAtDpcLevel.c)
- *     MiSynchronizeSystemVa @ 0x1402619B0 (MiSynchronizeSystemVa.c)
- *     MiAcquirePageListLock @ 0x1402673A0 (MiAcquirePageListLock.c)
- *     MiMakeSystemCacheRangeValid @ 0x140267860 (MiMakeSystemCacheRangeValid.c)
- *     MiAddWorkingSetEntries @ 0x14026BD20 (MiAddWorkingSetEntries.c)
- *     MiSynchronizeFastPageInsert @ 0x14026DF10 (MiSynchronizeFastPageInsert.c)
- *     MiInsertPageInList @ 0x14026EC00 (MiInsertPageInList.c)
- *     MiSetVaAgeList @ 0x1402709E0 (MiSetVaAgeList.c)
- *     MiQueryAddressSpan @ 0x140273D60 (MiQueryAddressSpan.c)
- *     MiCommitExistingVad @ 0x140276A30 (MiCommitExistingVad.c)
- *     MiSetProtectionOnSection @ 0x140277C80 (MiSetProtectionOnSection.c)
- *     MiLockPageListAndLastPage @ 0x140278FA0 (MiLockPageListAndLastPage.c)
- *     MiEndingOffsetWithLock @ 0x140279E50 (MiEndingOffsetWithLock.c)
- *     MiRemoveWsle @ 0x14027B450 (MiRemoveWsle.c)
- *     MiLockWorkingSetShared @ 0x140283C90 (MiLockWorkingSetShared.c)
- *     MiGetControlAreaPtes @ 0x140288610 (MiGetControlAreaPtes.c)
- *     MiInsertPageInFreeOrZeroedList @ 0x1402D3670 (MiInsertPageInFreeOrZeroedList.c)
- *     ExAcquireSpinLockShared @ 0x140314620 (ExAcquireSpinLockShared.c)
- *     ExpRemoveTagForBigPages @ 0x140323810 (ExpRemoveTagForBigPages.c)
- *     ExpAddTagForBigPages @ 0x140331B30 (ExpAddTagForBigPages.c)
- *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x14046B4F2 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
+ *     MiZeroFault @ 0x1402323F0 (MiZeroFault.c)
+ *     MiProbeAndLockPrepare @ 0x140234E80 (MiProbeAndLockPrepare.c)
+ *     MiUserFault @ 0x140235960 (MiUserFault.c)
+ *     MiGetSlabPage @ 0x14023BE40 (MiGetSlabPage.c)
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x14025AFA0 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     MiSynchronizeSystemVa @ 0x140261C40 (MiSynchronizeSystemVa.c)
+ *     MiAcquirePageListLock @ 0x140267630 (MiAcquirePageListLock.c)
+ *     MiMakeSystemCacheRangeValid @ 0x140267AF0 (MiMakeSystemCacheRangeValid.c)
+ *     MiAddWorkingSetEntries @ 0x14026BFB0 (MiAddWorkingSetEntries.c)
+ *     MiSynchronizeFastPageInsert @ 0x14026E1A0 (MiSynchronizeFastPageInsert.c)
+ *     MiInsertPageInList @ 0x14026EE90 (MiInsertPageInList.c)
+ *     MiSetVaAgeList @ 0x140270C70 (MiSetVaAgeList.c)
+ *     MiQueryAddressSpan @ 0x140273FF0 (MiQueryAddressSpan.c)
+ *     MiCommitExistingVad @ 0x140276CC0 (MiCommitExistingVad.c)
+ *     MiSetProtectionOnSection @ 0x140277F10 (MiSetProtectionOnSection.c)
+ *     MiLockPageListAndLastPage @ 0x140279230 (MiLockPageListAndLastPage.c)
+ *     MiEndingOffsetWithLock @ 0x14027A0E0 (MiEndingOffsetWithLock.c)
+ *     MiRemoveWsle @ 0x14027B6E0 (MiRemoveWsle.c)
+ *     MiLockWorkingSetShared @ 0x140283F20 (MiLockWorkingSetShared.c)
+ *     MiGetControlAreaPtes @ 0x1402888A0 (MiGetControlAreaPtes.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x1402D3900 (MiInsertPageInFreeOrZeroedList.c)
+ *     ExAcquireSpinLockShared @ 0x1403148B0 (ExAcquireSpinLockShared.c)
+ *     ExpRemoveTagForBigPages @ 0x140323AA0 (ExpRemoveTagForBigPages.c)
+ *     ExpAddTagForBigPages @ 0x140331DC0 (ExpAddTagForBigPages.c)
+ *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x14046B8F2 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
  * Callees:
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1403CD2C0 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     HvlNotifyLongSpinWait @ 0x1403CD2F0 (HvlNotifyLongSpinWait.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1403CD4A0 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     HvlNotifyLongSpinWait @ 0x1403CD4D0 (HvlNotifyLongSpinWait.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall ExpWaitForSpinLockSharedAndAcquire(unsigned __int64 CurrentIrql, unsigned __int8 a2)
@@ -60,10 +60,10 @@ __int64 __fastcall ExpWaitForSpinLockSharedAndAcquire(unsigned __int64 CurrentIr
           _InterlockedOr(v3, 0x40000000u);
         if ( a2 != 0xFF )
         {
-          if ( KiIrqlFlags )
+          if ( (_DWORD)KiIrqlFlags )
           {
             CurrentIrql = KeGetCurrentIrql();
-            if ( (KiIrqlFlags & 1) != 0
+            if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
               && (unsigned __int8)CurrentIrql <= 0xFu
               && a2 <= 0xFu
               && (unsigned __int8)CurrentIrql >= 2u )
@@ -94,9 +94,9 @@ __int64 __fastcall ExpWaitForSpinLockSharedAndAcquire(unsigned __int64 CurrentIr
         {
           a2 = KeGetCurrentIrql();
           __writecr8(2uLL);
-          if ( KiIrqlFlags )
+          if ( (_DWORD)KiIrqlFlags )
           {
-            if ( (KiIrqlFlags & 1) != 0 && a2 <= 0xFu )
+            if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && a2 <= 0xFu )
             {
               v12 = KeGetCurrentPrcb()->SchedulerAssist;
               if ( a2 == 2 )

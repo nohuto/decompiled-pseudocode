@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwpRealtimeUpdateReferenceTime @ 0x140885EE8
+ * XREFs of EtwpRealtimeUpdateReferenceTime @ 0x140886128
  * Callers:
- *     EtwpRealtimeCreateLogfile @ 0x140772D48 (EtwpRealtimeCreateLogfile.c)
- *     EtwpRealtimeResetReferenceTime @ 0x1408011FC (EtwpRealtimeResetReferenceTime.c)
+ *     EtwpRealtimeCreateLogfile @ 0x140772F38 (EtwpRealtimeCreateLogfile.c)
+ *     EtwpRealtimeResetReferenceTime @ 0x1408014CC (EtwpRealtimeResetReferenceTime.c)
  * Callees:
- *     EtwpResetBufferHeader @ 0x140228160 (EtwpResetBufferHeader.c)
- *     EtwpInitializeBufferHeader @ 0x1403715B8 (EtwpInitializeBufferHeader.c)
- *     memset @ 0x140435A00 (memset.c)
- *     EtwpRealtimeDeliverBuffer @ 0x140708D60 (EtwpRealtimeDeliverBuffer.c)
- *     EtwpRealtimeSaveBuffer @ 0x1407F5B4C (EtwpRealtimeSaveBuffer.c)
+ *     EtwpResetBufferHeader @ 0x140228270 (EtwpResetBufferHeader.c)
+ *     EtwpInitializeBufferHeader @ 0x140371758 (EtwpInitializeBufferHeader.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     EtwpRealtimeDeliverBuffer @ 0x140708F70 (EtwpRealtimeDeliverBuffer.c)
+ *     EtwpRealtimeSaveBuffer @ 0x1407F5E1C (EtwpRealtimeSaveBuffer.c)
  */
 
 __int64 __fastcall EtwpRealtimeUpdateReferenceTime(__int64 a1, __int128 *a2)

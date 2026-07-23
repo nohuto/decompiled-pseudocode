@@ -1,10 +1,10 @@
 /*
- * XREFs of MiInitializeSlabDefragmentContext @ 0x14068824C
+ * XREFs of MiInitializeSlabDefragmentContext @ 0x14068937C
  * Callers:
- *     MiDefragmentAllSlabsHelper @ 0x140686C80 (MiDefragmentAllSlabsHelper.c)
- *     MiDefragmentSlabAllocator @ 0x140686DD0 (MiDefragmentSlabAllocator.c)
+ *     MiDefragmentAllSlabsHelper @ 0x140687DB0 (MiDefragmentAllSlabsHelper.c)
+ *     MiDefragmentSlabAllocator @ 0x140687F00 (MiDefragmentSlabAllocator.c)
  * Callees:
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall MiInitializeSlabDefragmentContext(_QWORD *a1, __int64 a2, __int64 a3, int a4)

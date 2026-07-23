@@ -1,14 +1,14 @@
 /*
- * XREFs of IoUnregisterShutdownNotification @ 0x14056E370
+ * XREFs of IoUnregisterShutdownNotification @ 0x14056F370
  * Callers:
- *     IoDeleteDevice @ 0x1400DAAE0 (IoDeleteDevice.c)
+ *     IoDeleteDevice @ 0x1400DAB60 (IoDeleteDevice.c)
  * Callees:
  *     KeReleaseQueuedSpinLock @ 0x140018930 (KeReleaseQueuedSpinLock.c)
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     MmUnlockPagableImageSection @ 0x140097F00 (MmUnlockPagableImageSection.c)
- *     KeAcquireQueuedSpinLock @ 0x1400ACF30 (KeAcquireQueuedSpinLock.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     MmLockPagableSectionByHandle @ 0x14061F240 (MmLockPagableSectionByHandle.c)
+ *     MmUnlockPagableImageSection @ 0x140097E40 (MmUnlockPagableImageSection.c)
+ *     KeAcquireQueuedSpinLock @ 0x1400ACE70 (KeAcquireQueuedSpinLock.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     MmLockPagableSectionByHandle @ 0x140620240 (MmLockPagableSectionByHandle.c)
  */
 
 void __stdcall IoUnregisterShutdownNotification(PDEVICE_OBJECT DeviceObject)

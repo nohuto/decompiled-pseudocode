@@ -13,27 +13,27 @@
  *     RtlpHpVirtUnlockHeap @ 0x1800EBCBC (RtlpHpVirtUnlockHeap.c)
  */
 
-char __fastcall RtlUnlockHeap(__int64 a1)
+BOOLEAN __cdecl RtlUnlockHeap(PVOID HeapHandle)
 {
-  char v2; // si
-  __int64 v3; // rcx
-  _BYTE v6[6]; // [rsp+20h] [rbp-38h] BYREF
+  BOOLEAN v2; // si
+  _RTL_CRITICAL_SECTION *v3; // rcx
+  _BYTE Fields[6]; // [rsp+20h] [rbp-38h] BYREF
   __int16 v7; // [rsp+26h] [rbp-32h]
-  __int64 v8; // [rsp+40h] [rbp-18h]
+  PVOID v8; // [rsp+40h] [rbp-18h]
 
   if ( (RtlpHpHeapFeatures & 2) == 0 )
   {
     v2 = 0;
-    if ( *(_DWORD *)(a1 + 16) != -571548178 )
+    if ( *((_DWORD *)HeapHandle + 4) != -571548178 )
     {
-      if ( (*(_DWORD *)(a1 + 116) & 0x1000000) != 0 )
-        return qword_180143CE8(a1);
-      if ( (unsigned __int8)RtlpCheckHeapSignature(a1, "RtlUnlockHeap") )
+      if ( (*((_DWORD *)HeapHandle + 29) & 0x1000000) != 0 )
+        return ((__int64 (__fastcall *)(PVOID))qword_180143CE8)(HeapHandle);
+      if ( (unsigned __int8)RtlpCheckHeapSignature(HeapHandle, "RtlUnlockHeap") )
       {
-        if ( (*(_BYTE *)(a1 + 112) & 1) == 0 )
+        if ( (*((_BYTE *)HeapHandle + 112) & 1) == 0 )
         {
-          v3 = *(_QWORD *)(a1 + 352);
-          --*(_WORD *)(a1 + 376);
+          v3 = (_RTL_CRITICAL_SECTION *)*((_QWORD *)HeapHandle + 44);
+          --*((_WORD *)HeapHandle + 188);
           RtlLeaveCriticalSection(v3);
         }
 LABEL_7:
@@ -42,25 +42,25 @@ LABEL_7:
           if ( (NtCurrentPeb()->TracingFlags & 1) != 0 )
           {
             v7 = 4140;
-            v8 = a1;
-            NtTraceEvent(MEMORY[0x7FFE0380], 1026LL, 8LL, v6);
+            v8 = HeapHandle;
+            NtTraceEvent((HANDLE)MEMORY[0x7FFE0380], 0x402u, 8u, Fields);
           }
         }
         return 1;
       }
       return v2;
     }
-    if ( (*(_BYTE *)(a1 + 20) & 1) == 0 && (*(_WORD *)(a1 + 38))-- == 1 )
+    if ( (*((_BYTE *)HeapHandle + 20) & 1) == 0 && (*((_WORD *)HeapHandle + 19))-- == 1 )
     {
-      *(_DWORD *)(a1 + 40) = 0;
-      RtlReleaseSRWLockExclusive(a1 + 48);
-      if ( (*(_BYTE *)(a1 + 20) & 1) == 0 )
+      *((_DWORD *)HeapHandle + 10) = 0;
+      RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)HeapHandle + 6);
+      if ( (*((_BYTE *)HeapHandle + 20) & 1) == 0 )
       {
-        RtlReleaseSRWLockExclusive(a1 + 88);
-        if ( (*(_BYTE *)(a1 + 20) & 1) == 0 )
-          RtlReleaseSRWLockExclusive(a1 + 176);
+        RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)HeapHandle + 11);
+        if ( (*((_BYTE *)HeapHandle + 20) & 1) == 0 )
+          RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)HeapHandle + 22);
       }
-      RtlReleaseSRWLockExclusive(a1 + 336);
+      RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)HeapHandle + 42);
     }
     goto LABEL_7;
   }

@@ -1,9 +1,9 @@
 /*
- * XREFs of PspUserApcReserveRundownRoutine @ 0x140A463B0
+ * XREFs of PspUserApcReserveRundownRoutine @ 0x140A3C070
  * Callers:
- *     PspUserApcReserveKernelRoutine @ 0x140A46390 (PspUserApcReserveKernelRoutine.c)
+ *     PspUserApcReserveKernelRoutine @ 0x140A3C050 (PspUserApcReserveKernelRoutine.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
  */
 
 LONG_PTR __fastcall PspUserApcReserveRundownRoutine(__int64 a1)

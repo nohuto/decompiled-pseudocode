@@ -1,9 +1,9 @@
 /*
- * XREFs of OBJECT_HEADER_TO_AUDIT_INFO @ 0x14041B1C0
+ * XREFs of OBJECT_HEADER_TO_AUDIT_INFO @ 0x14040ED00
  * Callers:
- *     ObDuplicateObject @ 0x14083FFB0 (ObDuplicateObject.c)
- *     ObpSetObjectAuditInfo @ 0x140867674 (ObpSetObjectAuditInfo.c)
- *     ObpAuditObjectAccess @ 0x140989024 (ObpAuditObjectAccess.c)
+ *     ObDuplicateObject @ 0x14083C270 (ObDuplicateObject.c)
+ *     ObpAuditObjectAccess @ 0x140863834 (ObpAuditObjectAccess.c)
+ *     ObpSetObjectAuditInfo @ 0x14086B968 (ObpSetObjectAuditInfo.c)
  * Callees:
  *     <none>
  */

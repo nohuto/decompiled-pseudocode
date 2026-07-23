@@ -1,13 +1,13 @@
 /*
- * XREFs of IopAddRelationToList @ 0x140737868
+ * XREFs of IopAddRelationToList @ 0x140737A28
  * Callers:
- *     PnpProcessRelation @ 0x1407374AC (PnpProcessRelation.c)
- *     PnpInvalidateRelationsInList @ 0x14073808C (PnpInvalidateRelationsInList.c)
- *     PnpCancelRemoveOnHungDevices @ 0x1408A2280 (PnpCancelRemoveOnHungDevices.c)
- *     IopMergeRelationLists @ 0x1408B2728 (IopMergeRelationLists.c)
+ *     PnpProcessRelation @ 0x14073766C (PnpProcessRelation.c)
+ *     PnpInvalidateRelationsInList @ 0x14073824C (PnpInvalidateRelationsInList.c)
+ *     PnpCancelRemoveOnHungDevices @ 0x1408A23E0 (PnpCancelRemoveOnHungDevices.c)
+ *     IopMergeRelationLists @ 0x1408B2888 (IopMergeRelationLists.c)
  * Callees:
- *     PipIsDeviceInDeviceObjectList @ 0x1407378FC (PipIsDeviceInDeviceObjectList.c)
- *     PipDeviceObjectListAdd @ 0x140737970 (PipDeviceObjectListAdd.c)
+ *     PipIsDeviceInDeviceObjectList @ 0x140737ABC (PipIsDeviceInDeviceObjectList.c)
+ *     PipDeviceObjectListAdd @ 0x140737B30 (PipDeviceObjectListAdd.c)
  */
 
 __int64 __fastcall IopAddRelationToList(_BYTE *a1, __int64 a2, __int64 a3, unsigned int a4)

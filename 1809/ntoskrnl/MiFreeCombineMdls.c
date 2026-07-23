@@ -1,12 +1,12 @@
 /*
- * XREFs of MiFreeCombineMdls @ 0x1406D1EAC
+ * XREFs of MiFreeCombineMdls @ 0x1406D314C
  * Callers:
- *     MiCombineWorkingSet @ 0x14013DB80 (MiCombineWorkingSet.c)
- *     MiProcessCrcList @ 0x14061F320 (MiProcessCrcList.c)
+ *     MiCombineWorkingSet @ 0x14013DC80 (MiCombineWorkingSet.c)
+ *     MiProcessCrcList @ 0x140620320 (MiProcessCrcList.c)
  * Callees:
  *     MiFreePagesFromMdl @ 0x14002A000 (MiFreePagesFromMdl.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiFreeCombineMdls(__int64 a1)

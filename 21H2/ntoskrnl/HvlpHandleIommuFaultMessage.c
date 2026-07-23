@@ -1,9 +1,9 @@
 /*
- * XREFs of HvlpHandleIommuFaultMessage @ 0x1404F95F4
+ * XREFs of HvlpHandleIommuFaultMessage @ 0x1404F9574
  * Callers:
- *     HvlSharedIsr @ 0x1404F1F00 (HvlSharedIsr.c)
+ *     HvlSharedIsr @ 0x1404F1E80 (HvlSharedIsr.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall HvlpHandleIommuFaultMessage(__int64 a1)

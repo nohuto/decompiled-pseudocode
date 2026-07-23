@@ -1,13 +1,13 @@
 /*
- * XREFs of KiTraceSetTimer2 @ 0x14057D5A4
+ * XREFs of KiTraceSetTimer2 @ 0x14057DA94
  * Callers:
- *     KeSetTimer2 @ 0x140250150 (KeSetTimer2.c)
+ *     KeSetTimer2 @ 0x140250220 (KeSetTimer2.c)
  * Callees:
  *     EtwTraceKernelEvent @ 0x140211EDC (EtwTraceKernelEvent.c)
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KiUpdateTimer2Flags @ 0x14031E018 (KiUpdateTimer2Flags.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     KiTraceCancelTimer2 @ 0x1404629E8 (KiTraceCancelTimer2.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KiUpdateTimer2Flags @ 0x14031E2A8 (KiUpdateTimer2Flags.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiTraceCancelTimer2 @ 0x140462DE8 (KiTraceCancelTimer2.c)
  */
 
 __int64 __fastcall KiTraceSetTimer2(__int64 a1, char a2, int a3)

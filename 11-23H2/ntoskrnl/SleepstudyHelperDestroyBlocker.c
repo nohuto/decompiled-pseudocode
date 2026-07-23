@@ -1,17 +1,17 @@
 /*
- * XREFs of SleepstudyHelperDestroyBlocker @ 0x1403B5110
+ * XREFs of SleepstudyHelperDestroyBlocker @ 0x1403B52F0
  * Callers:
- *     SleepstudyHelper_UnregisterComponent @ 0x1405A36A0 (SleepstudyHelper_UnregisterComponent.c)
- *     PopPowerRequestStatsCleanup @ 0x1407A78C8 (PopPowerRequestStatsCleanup.c)
- *     SleepstudyHelper_RegisterPdoWithParentPdo @ 0x140843D00 (SleepstudyHelper_RegisterPdoWithParentPdo.c)
- *     SleepstudyHelper_RegisterComponentEx @ 0x1408503A0 (SleepstudyHelper_RegisterComponentEx.c)
- *     SleepstudyHelper_RegisterPdoWithParentGuid @ 0x1409A22B0 (SleepstudyHelper_RegisterPdoWithParentGuid.c)
- *     SleepstudyHelper_RegisterPdoWithParentHandle @ 0x1409A2370 (SleepstudyHelper_RegisterPdoWithParentHandle.c)
+ *     SleepstudyHelper_UnregisterComponent @ 0x1405A3B90 (SleepstudyHelper_UnregisterComponent.c)
+ *     PopPowerRequestStatsCleanup @ 0x1407A7AB8 (PopPowerRequestStatsCleanup.c)
+ *     SleepstudyHelper_RegisterPdoWithParentPdo @ 0x140844000 (SleepstudyHelper_RegisterPdoWithParentPdo.c)
+ *     SleepstudyHelper_RegisterComponentEx @ 0x1408506A0 (SleepstudyHelper_RegisterComponentEx.c)
+ *     SleepstudyHelper_RegisterPdoWithParentGuid @ 0x1409A24B0 (SleepstudyHelper_RegisterPdoWithParentGuid.c)
+ *     SleepstudyHelper_RegisterPdoWithParentHandle @ 0x1409A2570 (SleepstudyHelper_RegisterPdoWithParentHandle.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     SshpBlockerActiveDereference @ 0x14032D61C (SshpBlockerActiveDereference.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     SshpBlockerActiveDereference @ 0x14032D8AC (SshpBlockerActiveDereference.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall SleepstudyHelperDestroyBlocker(PKSPIN_LOCK SpinLock)
@@ -43,10 +43,13 @@ __int64 __fastcall SleepstudyHelperDestroyBlocker(PKSPIN_LOCK SpinLock)
     if ( !*((_DWORD *)SpinLock + 4) )
       v5 = *((_DWORD *)SpinLock + 3);
     KxReleaseSpinLock((volatile signed __int64 *)SpinLock);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v2 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v2 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;

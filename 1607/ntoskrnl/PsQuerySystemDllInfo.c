@@ -1,9 +1,9 @@
 /*
- * XREFs of PsQuerySystemDllInfo @ 0x14045A7D4
+ * XREFs of PsQuerySystemDllInfo @ 0x1404596A4
  * Callers:
  *     ExpSystemErrorHandler2 @ 0x1403E0080 (ExpSystemErrorHandler2.c)
- *     DbgkCreateThread @ 0x140459228 (DbgkCreateThread.c)
- *     DbgkSendSystemDllMessages @ 0x140617E98 (DbgkSendSystemDllMessages.c)
+ *     DbgkCreateThread @ 0x1404580F8 (DbgkCreateThread.c)
+ *     DbgkSendSystemDllMessages @ 0x140617F4C (DbgkSendSystemDllMessages.c)
  *     PspInitializeSystemDlls @ 0x1407B6180 (PspInitializeSystemDlls.c)
  *     MmInitSystemDll @ 0x1407BCFB8 (MmInitSystemDll.c)
  * Callees:

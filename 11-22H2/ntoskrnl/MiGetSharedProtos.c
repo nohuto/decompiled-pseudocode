@@ -34,7 +34,7 @@ __int64 __fastcall MiGetSharedProtos(__int64 a1, unsigned int a2, __int64 a3)
 
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     LODWORD(v7) = 4;
@@ -43,10 +43,10 @@ __int64 __fastcall MiGetSharedProtos(__int64 a1, unsigned int a2, __int64 a3)
     SchedulerAssist[5] |= v7;
   }
   SharedProtosAtDpcLevel = MiGetSharedProtosAtDpcLevel(a1, a2, a3);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v8 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v8 <= 0xFu && CurrentIrql <= 0xFu && v8 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v8 <= 0xFu && CurrentIrql <= 0xFu && v8 >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v10 = CurrentPrcb->SchedulerAssist;

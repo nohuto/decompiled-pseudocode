@@ -1,10 +1,10 @@
 /*
- * XREFs of PfTAcquireLogEntry @ 0x1406CB0B0
+ * XREFs of PfTAcquireLogEntry @ 0x1406799A0
  * Callers:
- *     PfpCopyEvent @ 0x1406CA480 (PfpCopyEvent.c)
- *     PfpFlushBuffers @ 0x1406CA6C0 (PfpFlushBuffers.c)
+ *     PfpCopyEvent @ 0x140678D70 (PfpCopyEvent.c)
+ *     PfpFlushBuffers @ 0x140678FB0 (PfpFlushBuffers.c)
  * Callees:
- *     PfTReplaceCurrentBuffer @ 0x1406CB134 (PfTReplaceCurrentBuffer.c)
+ *     PfTReplaceCurrentBuffer @ 0x140679A24 (PfTReplaceCurrentBuffer.c)
  */
 
 __int64 __fastcall PfTAcquireLogEntry(__int64 a1, _DWORD *a2, int a3)

@@ -1,23 +1,23 @@
 /*
- * XREFs of IopInitializeDumpPolicySettings @ 0x140711124
+ * XREFs of IopInitializeDumpPolicySettings @ 0x14070ECB4
  * Callers:
- *     IopLiveDumpPolicyChangeWnfCallback @ 0x14059C620 (IopLiveDumpPolicyChangeWnfCallback.c)
- *     IopCrashDumpPolicyChangeWnfCallback @ 0x140710B20 (IopCrashDumpPolicyChangeWnfCallback.c)
- *     IoInitSystemPreDrivers @ 0x140C1AA0C (IoInitSystemPreDrivers.c)
+ *     IopLiveDumpPolicyChangeWnfCallback @ 0x1405995A0 (IopLiveDumpPolicyChangeWnfCallback.c)
+ *     IopCrashDumpPolicyChangeWnfCallback @ 0x14070E6B0 (IopCrashDumpPolicyChangeWnfCallback.c)
+ *     IoInitSystemPreDrivers @ 0x140C1CA4C (IoInitSystemPreDrivers.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     EtwWrite @ 0x14041C1B0 (EtwWrite.c)
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     CmIsStateSeparationEnabled @ 0x14049985C (CmIsStateSeparationEnabled.c)
- *     IopDumpIsTracingEnabled @ 0x1404FA9C8 (IopDumpIsTracingEnabled.c)
- *     IopLiveDumpRegisterWnfNotificationCallback @ 0x14059CD48 (IopLiveDumpRegisterWnfNotificationCallback.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ObCloseHandle @ 0x1408A2B10 (ObCloseHandle.c)
- *     IopGetRegistryValue @ 0x1409CAD5C (IopGetRegistryValue.c)
- *     ExSubscribeWnfStateChange @ 0x140A19320 (ExSubscribeWnfStateChange.c)
- *     IopOpenRegistryKey @ 0x140A77340 (IopOpenRegistryKey.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     EtwWrite @ 0x14040FFB0 (EtwWrite.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     CmIsStateSeparationEnabled @ 0x1404941EC (CmIsStateSeparationEnabled.c)
+ *     IopDumpIsTracingEnabled @ 0x1404F82A8 (IopDumpIsTracingEnabled.c)
+ *     IopLiveDumpRegisterWnfNotificationCallback @ 0x140599CC8 (IopLiveDumpRegisterWnfNotificationCallback.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ObCloseHandle @ 0x1408AB1B0 (ObCloseHandle.c)
+ *     IopGetRegistryValue @ 0x1409B5F9C (IopGetRegistryValue.c)
+ *     ExSubscribeWnfStateChange @ 0x140A12490 (ExSubscribeWnfStateChange.c)
+ *     IopOpenRegistryKey @ 0x140A71460 (IopOpenRegistryKey.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 char __fastcall IopInitializeDumpPolicySettings(char a1)
@@ -122,7 +122,7 @@ LABEL_23:
         v16 = 8LL;
         tlgWriteTransfer_EtwWriteTransfer(
           (__int64)&dword_140E06DC8,
-          (unsigned __int8 *)&dword_140045264,
+          (unsigned __int8 *)byte_140045780,
           0LL,
           0LL,
           3u,

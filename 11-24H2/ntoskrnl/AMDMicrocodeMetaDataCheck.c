@@ -1,9 +1,9 @@
 /*
- * XREFs of AMDMicrocodeMetaDataCheck @ 0x1406651D8
+ * XREFs of AMDMicrocodeMetaDataCheck @ 0x140663AC8
  * Callers:
- *     MicrocodeGetRecord @ 0x1406644E0 (MicrocodeGetRecord.c)
+ *     MicrocodeGetRecord @ 0x140662DD0 (MicrocodeGetRecord.c)
  * Callees:
- *     Feature_Microcode_Client_CD__private_IsEnabledDeviceUsageNoInline @ 0x140663E98 (Feature_Microcode_Client_CD__private_IsEnabledDeviceUsageNoInline.c)
+ *     Feature_Microcode_Client_CD__private_IsEnabledDeviceUsageNoInline @ 0x140662788 (Feature_Microcode_Client_CD__private_IsEnabledDeviceUsageNoInline.c)
  */
 
 __int64 __fastcall AMDMicrocodeMetaDataCheck(_DWORD *a1, int a2)

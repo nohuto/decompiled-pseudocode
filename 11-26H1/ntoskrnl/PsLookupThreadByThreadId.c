@@ -1,30 +1,30 @@
 /*
- * XREFs of PsLookupThreadByThreadId @ 0x140A10B70
+ * XREFs of PsLookupThreadByThreadId @ 0x140A0FD60
  * Callers:
- *     PfpServiceMainThreadBoostPrep @ 0x1407C60A8 (PfpServiceMainThreadBoostPrep.c)
- *     PspCriticalProcessDeathBlamedThreadTryGet @ 0x1407FAA68 (PspCriticalProcessDeathBlamedThreadTryGet.c)
- *     NtAlertMultipleThreadByThreadId @ 0x1407FF500 (NtAlertMultipleThreadByThreadId.c)
- *     PsOpenProcess @ 0x1408EFC40 (PsOpenProcess.c)
- *     PopInitSystemSleeperThread @ 0x140A03F00 (PopInitSystemSleeperThread.c)
- *     PsLookupProcessThreadByCid @ 0x140A10460 (PsLookupProcessThreadByCid.c)
- *     PsOpenThread @ 0x140A10530 (PsOpenThread.c)
- *     PopManageTransitionRecordRequest @ 0x140AE4334 (PopManageTransitionRecordRequest.c)
- *     PopTransitionSystemPowerStateEx @ 0x140C0B0A0 (PopTransitionSystemPowerStateEx.c)
+ *     PfpServiceMainThreadBoostPrep @ 0x1407C9108 (PfpServiceMainThreadBoostPrep.c)
+ *     PspCriticalProcessDeathBlamedThreadTryGet @ 0x140800498 (PspCriticalProcessDeathBlamedThreadTryGet.c)
+ *     NtAlertMultipleThreadByThreadId @ 0x140804F30 (NtAlertMultipleThreadByThreadId.c)
+ *     PsOpenProcess @ 0x1408F6200 (PsOpenProcess.c)
+ *     PsLookupProcessThreadByCid @ 0x140A0F650 (PsLookupProcessThreadByCid.c)
+ *     PsOpenThread @ 0x140A0F720 (PsOpenThread.c)
+ *     PopInitSystemSleeperThread @ 0x140A77BF0 (PopInitSystemSleeperThread.c)
+ *     PopManageTransitionRecordRequest @ 0x140AE1E44 (PopManageTransitionRecordRequest.c)
+ *     PopTransitionSystemPowerStateEx @ 0x140C112B0 (PopTransitionSystemPowerStateEx.c)
  * Callees:
- *     PsGetCurrentServerSilo @ 0x140215E70 (PsGetCurrentServerSilo.c)
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     ObpTraceObjectReferenceIfActive @ 0x140278BB0 (ObpTraceObjectReferenceIfActive.c)
- *     KiCheckForKernelApcDelivery @ 0x14027DB80 (KiCheckForKernelApcDelivery.c)
- *     ExFastReferenceHandleTableEntry @ 0x1403F3A50 (ExFastReferenceHandleTableEntry.c)
- *     PsIsProcessInSilo @ 0x14043D820 (PsIsProcessInSilo.c)
- *     ExfAcquireReleasePushLockExclusive @ 0x140449B6C (ExfAcquireReleasePushLockExclusive.c)
- *     ExLockHandleTableEntry @ 0x14044C040 (ExLockHandleTableEntry.c)
- *     ExSlowReplenishHandleTableEntry @ 0x14044D280 (ExSlowReplenishHandleTableEntry.c)
- *     ExGetHandlePointer @ 0x140457590 (ExGetHandlePointer.c)
- *     IoThreadToProcess @ 0x1404703A0 (IoThreadToProcess.c)
- *     ObDereferenceObjectExWithTag2 @ 0x14047F848 (ObDereferenceObjectExWithTag2.c)
- *     ExpLookupHandleTableEntry @ 0x1408FAF00 (ExpLookupHandleTableEntry.c)
- *     ExUnlockHandleTableEntry @ 0x140A33080 (ExUnlockHandleTableEntry.c)
+ *     PsGetCurrentServerSilo @ 0x1402161A0 (PsGetCurrentServerSilo.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     ObpTraceObjectReferenceIfActive @ 0x140278120 (ObpTraceObjectReferenceIfActive.c)
+ *     KiCheckForKernelApcDelivery @ 0x14027D0F0 (KiCheckForKernelApcDelivery.c)
+ *     ExFastReferenceHandleTableEntry @ 0x1403ED400 (ExFastReferenceHandleTableEntry.c)
+ *     PsIsProcessInSilo @ 0x1404300D0 (PsIsProcessInSilo.c)
+ *     ExfAcquireReleasePushLockExclusive @ 0x140441C9C (ExfAcquireReleasePushLockExclusive.c)
+ *     ExLockHandleTableEntry @ 0x140444160 (ExLockHandleTableEntry.c)
+ *     ExSlowReplenishHandleTableEntry @ 0x1404453A0 (ExSlowReplenishHandleTableEntry.c)
+ *     ExGetHandlePointer @ 0x14044EE00 (ExGetHandlePointer.c)
+ *     IoThreadToProcess @ 0x140469B20 (IoThreadToProcess.c)
+ *     ObDereferenceObjectExWithTag2 @ 0x1404791B8 (ObDereferenceObjectExWithTag2.c)
+ *     ExpLookupHandleTableEntry @ 0x14092AE90 (ExpLookupHandleTableEntry.c)
+ *     ExUnlockHandleTableEntry @ 0x140A4DFE0 (ExUnlockHandleTableEntry.c)
  */
 
 NTSTATUS __stdcall PsLookupThreadByThreadId(HANDLE ThreadId, PETHREAD *Thread)
@@ -39,7 +39,7 @@ NTSTATUS __stdcall PsLookupThreadByThreadId(HANDLE ThreadId, PETHREAD *Thread)
   __int64 v10; // r8
   struct _KLOCK_ENTRIES *v11; // r9
   unsigned __int64 CurrentServerSilo; // rax
-  $7A85BAF4F1FA08634C1C4A3E45B775B3 *v14; // rcx
+  $241382875694CED3D471BC5892DE3337 *v14; // rcx
   int v16; // ebp
   signed __int64 v17; // rax
   signed __int64 v18; // rtt
@@ -137,7 +137,7 @@ LABEL_12:
   if ( CurrentThread->SpecialApcDisable++ == -1 )
   {
     v14 = &CurrentThread->152;
-    if ( ($7A85BAF4F1FA08634C1C4A3E45B775B3 *)v14->ApcState.ApcListHead[0].Flink != v14 )
+    if ( ($241382875694CED3D471BC5892DE3337 *)v14->ApcState.ApcListHead[0].Flink != v14 )
       KiCheckForKernelApcDelivery((__int64)v14, (__int64)Thread);
   }
   return v7;

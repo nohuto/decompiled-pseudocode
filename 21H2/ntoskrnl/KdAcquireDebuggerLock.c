@@ -1,9 +1,9 @@
 /*
- * XREFs of KdAcquireDebuggerLock @ 0x140510B10
+ * XREFs of KdAcquireDebuggerLock @ 0x140510D50
  * Callers:
  *     <none>
  * Callees:
- *     KxAcquireSpinLock @ 0x1402295B0 (KxAcquireSpinLock.c)
+ *     KxAcquireSpinLock @ 0x1402CDEB0 (KxAcquireSpinLock.c)
  */
 
 void __fastcall KdAcquireDebuggerLock(unsigned __int8 *a1)

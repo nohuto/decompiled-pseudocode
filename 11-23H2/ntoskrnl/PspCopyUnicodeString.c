@@ -1,10 +1,10 @@
 /*
- * XREFs of PspCopyUnicodeString @ 0x1407ADD0C
+ * XREFs of PspCopyUnicodeString @ 0x1407ADEFC
  * Callers:
- *     PspCaptureUserProcessParameters @ 0x1407AD690 (PspCaptureUserProcessParameters.c)
+ *     PspCaptureUserProcessParameters @ 0x1407AD880 (PspCaptureUserProcessParameters.c)
  * Callees:
- *     memmove @ 0x140435700 (memmove.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 __int64 __fastcall PspCopyUnicodeString(const void **a1, __int64 a2, void **a3)

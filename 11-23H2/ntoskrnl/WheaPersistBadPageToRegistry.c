@@ -1,16 +1,16 @@
 /*
- * XREFs of WheaPersistBadPageToRegistry @ 0x140611F50
+ * XREFs of WheaPersistBadPageToRegistry @ 0x1406124A0
  * Callers:
- *     WheapCheckForAndReportErrorsFromPreviousSession @ 0x1403B419C (WheapCheckForAndReportErrorsFromPreviousSession.c)
- *     WheapAttemptPhysicalPageOffline @ 0x140A0819C (WheapAttemptPhysicalPageOffline.c)
+ *     WheapCheckForAndReportErrorsFromPreviousSession @ 0x1403B437C (WheapCheckForAndReportErrorsFromPreviousSession.c)
+ *     WheapAttemptPhysicalPageOffline @ 0x140A0844C (WheapAttemptPhysicalPageOffline.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     WheaLogInternalEvent @ 0x140380A50 (WheaLogInternalEvent.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     ZwQueryValueKey @ 0x14041B040 (ZwQueryValueKey.c)
- *     ZwCreateKey @ 0x14041B100 (ZwCreateKey.c)
- *     ZwSetValueKey @ 0x14041B960 (ZwSetValueKey.c)
- *     WheapInsertPageToList @ 0x1406123F4 (WheapInsertPageToList.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     WheaLogInternalEvent @ 0x140380BF0 (WheaLogInternalEvent.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     ZwQueryValueKey @ 0x14041B3D0 (ZwQueryValueKey.c)
+ *     ZwCreateKey @ 0x14041B490 (ZwCreateKey.c)
+ *     ZwSetValueKey @ 0x14041BCF0 (ZwSetValueKey.c)
+ *     WheapInsertPageToList @ 0x140612944 (WheapInsertPageToList.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

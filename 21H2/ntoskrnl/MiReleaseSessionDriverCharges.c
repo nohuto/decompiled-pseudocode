@@ -1,11 +1,11 @@
 /*
- * XREFs of MiReleaseSessionDriverCharges @ 0x140779908
+ * XREFs of MiReleaseSessionDriverCharges @ 0x140779AC8
  * Callers:
- *     MiUnloadSystemImage @ 0x1406D11C8 (MiUnloadSystemImage.c)
+ *     MiUnloadSystemImage @ 0x1406A84A8 (MiUnloadSystemImage.c)
  * Callees:
- *     MiManageSubsectionView @ 0x140311100 (MiManageSubsectionView.c)
- *     memset @ 0x140414200 (memset.c)
- *     MiReturnCrossPartitionControlAreaCharges @ 0x14052A924 (MiReturnCrossPartitionControlAreaCharges.c)
+ *     MiManageSubsectionView @ 0x14031BE50 (MiManageSubsectionView.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     MiReturnCrossPartitionControlAreaCharges @ 0x14052AB64 (MiReturnCrossPartitionControlAreaCharges.c)
  */
 
 __int64 __fastcall MiReleaseSessionDriverCharges(__int64 a1)

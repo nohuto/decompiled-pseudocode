@@ -6,12 +6,12 @@
  *     <none>
  */
 
-__int64 __fastcall RtlpTpWaitFinalizationCallback(__int64 a1, unsigned __int64 a2)
+LOGICAL __fastcall RtlpTpWaitFinalizationCallback(__int64 a1, __int64 a2)
 {
-  __int64 result; // rax
+  LOGICAL result; // eax
 
   _m_prefetchw((const void *)(a2 + 24));
-  result = (unsigned int)_InterlockedOr((volatile signed __int32 *)(a2 + 24), 2u);
+  result = _InterlockedOr((volatile signed __int32 *)(a2 + 24), 2u);
   if ( (result & 1) == 0 )
     return RtlpTpWaitRundown(a2);
   return result;

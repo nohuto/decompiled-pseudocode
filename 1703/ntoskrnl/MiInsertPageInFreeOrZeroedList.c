@@ -164,7 +164,7 @@ PSLIST_ENTRY __fastcall MiInsertPageInFreeOrZeroedList(__int64 a1, __int16 a2)
   int v87; // ecx
   __int64 *v88; // rdx
   signed __int32 v89[8]; // [rsp+0h] [rbp-99h] BYREF
-  struct _SLIST_ENTRY *v90; // [rsp+30h] [rbp-69h] BYREF
+  _SLIST_ENTRY *v90; // [rsp+30h] [rbp-69h] BYREF
   volatile signed __int64 *v91; // [rsp+38h] [rbp-61h]
   unsigned int v92; // [rsp+48h] [rbp-51h]
   int v93; // [rsp+4Ch] [rbp-4Dh]

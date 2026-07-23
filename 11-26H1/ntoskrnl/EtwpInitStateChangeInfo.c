@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwpInitStateChangeInfo @ 0x140954454
+ * XREFs of EtwpInitStateChangeInfo @ 0x1409D0CD8
  * Callers:
- *     EtwTraceAppStateChange @ 0x1409540B8 (EtwTraceAppStateChange.c)
- *     EtwTraceProcess @ 0x14096E118 (EtwTraceProcess.c)
+ *     EtwTraceAppStateChange @ 0x1409CF9F8 (EtwTraceAppStateChange.c)
+ *     EtwTraceProcess @ 0x1409D02D8 (EtwTraceProcess.c)
  * Callees:
- *     PsGetSessionId @ 0x140447280 (PsGetSessionId.c)
- *     PsGetProcessStartKey @ 0x1404838E0 (PsGetProcessStartKey.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     PsGetSessionId @ 0x14043FD70 (PsGetSessionId.c)
+ *     PsGetProcessStartKey @ 0x14047D210 (PsGetProcessStartKey.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall EtwpInitStateChangeInfo(__int64 a1, __int64 a2)
@@ -35,7 +35,7 @@ __int64 __fastcall EtwpInitStateChangeInfo(__int64 a1, __int64 a2)
   *((_QWORD *)&v10 + 1) = PsGetProcessStartKey(a1);
   *(_OWORD *)(a2 + 2) = v10;
   *(_DWORD *)(a2 + 37) = *(_DWORD *)(a1 + 1656);
-  *(_QWORD *)(a2 + 82) = _InterlockedIncrement64(&EtwpAppStateChangeSequenceNumber);
+  *(_QWORD *)(a2 + 82) = _InterlockedIncrement64((volatile signed __int64 *)&stru_140F03830.WaitBlockFill11[16]);
   result = *(_QWORD *)(a1 + 1656);
   *(_QWORD *)(a2 + 90) = result;
   return result;

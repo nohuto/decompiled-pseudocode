@@ -1,14 +1,14 @@
 /*
- * XREFs of CmpInitializeSystemHive @ 0x140C47C88
+ * XREFs of CmpInitializeSystemHive @ 0x140C49DD8
  * Callers:
- *     CmpInitializePreloadedHives @ 0x140C479C4 (CmpInitializePreloadedHives.c)
+ *     CmpInitializePreloadedHives @ 0x140C49B14 (CmpInitializePreloadedHives.c)
  * Callees:
- *     CmpAllocatePool @ 0x1403E1834 (CmpAllocatePool.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     CmpSetupLoggingState @ 0x1407CCCC8 (CmpSetupLoggingState.c)
- *     CmpLinkHiveToMaster @ 0x14092C240 (CmpLinkHiveToMaster.c)
- *     CmpCreateHive @ 0x14092F538 (CmpCreateHive.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     CmpAllocatePool @ 0x1403C9EA4 (CmpAllocatePool.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     CmpSetupLoggingState @ 0x1407CD1B8 (CmpSetupLoggingState.c)
+ *     CmpLinkHiveToMaster @ 0x14092E380 (CmpLinkHiveToMaster.c)
+ *     CmpCreateHive @ 0x140931678 (CmpCreateHive.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall CmpInitializeSystemHive(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -26,7 +26,7 @@ __int64 __fastcall CmpInitializeSystemHive(__int64 a1, __int64 a2, __int64 a3, _
   v6 = 0;
   LOBYTE(v15) = 0;
   BugCheckParameter3[0] = 0LL;
-  Pool = (_OWORD *)CmpAllocatePool(0x100uLL);
+  Pool = (_OWORD *)CmpAllocatePool(0x100uLL, 0x1B0uLL, 0x33394D43u);
   if ( Pool )
   {
     v9 = 18LL;
@@ -71,7 +71,7 @@ __int64 __fastcall CmpInitializeSystemHive(__int64 a1, __int64 a2, __int64 a3, _
             0LL,
             BugCheckParameter3[0],
             0,
-            dword_140E09A80,
+            dword_140E09AF0,
             0,
             0LL,
             a2,
@@ -80,7 +80,7 @@ __int64 __fastcall CmpInitializeSystemHive(__int64 a1, __int64 a2, __int64 a3, _
             1,
             Pool);
     if ( v12 >= 0 )
-      qword_140E09A70 = BugCheckParameter3[0];
+      qword_140E09AE0 = BugCheckParameter3[0];
     ExFreePoolWithTag(Pool, 0);
     if ( v12 < 0 )
       return (unsigned int)v12;

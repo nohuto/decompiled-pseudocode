@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpLookupUserFunctionTableInverted @ 0x140281A20
+ * XREFs of RtlpLookupUserFunctionTableInverted @ 0x140236FB0
  * Callers:
- *     RtlpLookupUserFunctionTable @ 0x140280BA0 (RtlpLookupUserFunctionTable.c)
- *     RtlGetImageBaseAndLoadConfig @ 0x140463C24 (RtlGetImageBaseAndLoadConfig.c)
+ *     RtlpLookupUserFunctionTable @ 0x140236130 (RtlpLookupUserFunctionTable.c)
+ *     RtlGetImageBaseAndLoadConfig @ 0x14045A364 (RtlGetImageBaseAndLoadConfig.c)
  * Callees:
- *     ExRaiseDatatypeMisalignment @ 0x14089B1F0 (ExRaiseDatatypeMisalignment.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408A3890 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall RtlpLookupUserFunctionTableInverted(unsigned __int64 a1, __int64 a2)
@@ -24,16 +24,16 @@ __int64 __fastcall RtlpLookupUserFunctionTableInverted(unsigned __int64 a1, __in
   __int64 v16; // [rsp+28h] [rbp-30h]
   int v17; // [rsp+70h] [rbp+18h]
 
-  v3 = qword_140FC6498;
-  v17 = *(_DWORD *)(qword_140FC6498 + 8);
+  v3 = qword_140FC7518;
+  v17 = *(_DWORD *)(qword_140FC7518 + 8);
   v14 = 0;
   v15 = 0;
-  v4 = qword_140FC6498 + 16;
-  v5 = *(_QWORD *)(qword_140FC6498 + 24);
-  if ( a1 < v5 || a1 >= v5 + *(unsigned int *)(qword_140FC6498 + 32) )
+  v4 = qword_140FC7518 + 16;
+  v5 = *(_QWORD *)(qword_140FC7518 + 24);
+  if ( a1 < v5 || a1 >= v5 + *(unsigned int *)(qword_140FC7518 + 32) )
   {
-    v6 = *(_DWORD *)qword_140FC6498 - 1;
-    if ( (unsigned int)v6 <= 0x200 && *(_DWORD *)qword_140FC6498 != 1 )
+    v6 = *(_DWORD *)qword_140FC7518 - 1;
+    if ( (unsigned int)v6 <= 0x200 && *(_DWORD *)qword_140FC7518 != 1 )
     {
       v7 = 1;
       v15 = 1;
@@ -41,7 +41,7 @@ __int64 __fastcall RtlpLookupUserFunctionTableInverted(unsigned __int64 a1, __in
       while ( v6 >= v7 )
       {
         v8 = (v7 + v6) >> 1;
-        v4 = qword_140FC6498 + 8 * (3LL * v8 + 2);
+        v4 = qword_140FC7518 + 8 * (3LL * v8 + 2);
         v9 = *(_QWORD *)(v4 + 8);
         v10 = v9 + *(unsigned int *)(v4 + 16);
         if ( v10 < v9 )

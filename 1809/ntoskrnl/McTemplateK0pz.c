@@ -1,10 +1,10 @@
 /*
- * XREFs of McTemplateK0pz @ 0x14028B04C
+ * XREFs of McTemplateK0pz @ 0x14028B23C
  * Callers:
- *     PiProcessNewDeviceNode @ 0x1406E3F14 (PiProcessNewDeviceNode.c)
+ *     PiProcessNewDeviceNode @ 0x1406E51B4 (PiProcessNewDeviceNode.c)
  * Callees:
- *     McGenEventWrite @ 0x14015D6C0 (McGenEventWrite.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     McGenEventWrite @ 0x14015D7C0 (McGenEventWrite.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 ULONG McTemplateK0pz(__int64 a1, __int64 a2, __int64 a3, ...)

@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlNumberOfSetBitsUlongPtr @ 0x1403AFFC0
+ * XREFs of RtlNumberOfSetBitsUlongPtr @ 0x1403B01A0
  * Callers:
  *     <none>
  * Callees:

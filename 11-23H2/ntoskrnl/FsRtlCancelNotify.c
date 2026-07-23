@@ -1,20 +1,20 @@
 /*
- * XREFs of FsRtlCancelNotify @ 0x14035E1C0
+ * XREFs of FsRtlCancelNotify @ 0x14035E360
  * Callers:
- *     FsRtlNotifySetCancelRoutine @ 0x140302CF8 (FsRtlNotifySetCancelRoutine.c)
+ *     FsRtlNotifySetCancelRoutine @ 0x140302F88 (FsRtlNotifySetCancelRoutine.c)
  * Callees:
  *     PsChargeProcessPoolQuota @ 0x1402081D0 (PsChargeProcessPoolQuota.c)
  *     PsReturnProcessPagedPoolQuota @ 0x1402085B0 (PsReturnProcessPagedPoolQuota.c)
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     MmMapLockedPagesSpecifyCache @ 0x14027CF60 (MmMapLockedPagesSpecifyCache.c)
- *     IofCompleteRequest @ 0x1402C9980 (IofCompleteRequest.c)
- *     ExReleaseFastMutexUnsafe @ 0x1403025F0 (ExReleaseFastMutexUnsafe.c)
- *     ExAcquireFastMutexUnsafe @ 0x140302660 (ExAcquireFastMutexUnsafe.c)
- *     KeReleaseQueuedSpinLock @ 0x140302810 (KeReleaseQueuedSpinLock.c)
- *     RtlRaiseStatus @ 0x1403217B0 (RtlRaiseStatus.c)
- *     FsRtlIsNtstatusExpected @ 0x140359D00 (FsRtlIsNtstatusExpected.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     SeReleaseSubjectContext @ 0x140737BC0 (SeReleaseSubjectContext.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x14027D1F0 (MmMapLockedPagesSpecifyCache.c)
+ *     IofCompleteRequest @ 0x1402C9C10 (IofCompleteRequest.c)
+ *     ExReleaseFastMutexUnsafe @ 0x140302880 (ExReleaseFastMutexUnsafe.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1403028F0 (ExAcquireFastMutexUnsafe.c)
+ *     KeReleaseQueuedSpinLock @ 0x140302AA0 (KeReleaseQueuedSpinLock.c)
+ *     RtlRaiseStatus @ 0x140321A40 (RtlRaiseStatus.c)
+ *     FsRtlIsNtstatusExpected @ 0x140359EA0 (FsRtlIsNtstatusExpected.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     SeReleaseSubjectContext @ 0x140737DB0 (SeReleaseSubjectContext.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
@@ -40,7 +40,7 @@ _QWORD *__fastcall FsRtlCancelNotify(__int64 a1, __int64 a2)
   unsigned int *v19; // r8
   PVOID v20; // rax
   __int64 v21; // rcx
-  NTSTATUS v22; // eax
+  int v22; // eax
   _BYTE *v23; // rcx
   struct _SECURITY_SUBJECT_CONTEXT *SubjectContext; // [rsp+48h] [rbp-A0h]
   _QWORD *v27; // [rsp+50h] [rbp-98h]

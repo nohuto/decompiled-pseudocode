@@ -34,14 +34,15 @@ int __fastcall RtlpScanEnvironment(
   unsigned int v22; // eax
   unsigned __int16 **v23; // ecx
   unsigned __int16 **v24; // eax
-  int v26; // [esp+10h] [ebp-Ch]
-  unsigned int v27; // [esp+14h] [ebp-8h]
-  unsigned __int16 *v28; // [esp+18h] [ebp-4h]
+  size_t v25; // [esp-4h] [ebp-20h]
+  int v27; // [esp+10h] [ebp-Ch]
+  unsigned int v28; // [esp+14h] [ebp-8h]
+  unsigned __int16 *v29; // [esp+18h] [ebp-4h]
 
   v7 = a2;
   v8 = a1;
   v9 = &a2[a3];
-  v27 = (unsigned int)v9;
+  v28 = (unsigned int)v9;
   if ( !*a1 )
   {
 LABEL_27:
@@ -51,7 +52,7 @@ LABEL_27:
   }
   while ( 1 )
   {
-    v28 = v8;
+    v29 = v8;
     v10 = v7;
     if ( v7 < v9 )
     {
@@ -61,23 +62,23 @@ LABEL_27:
           break;
         v11 = NLS_UPCASE(*v8);
         v12 = NLS_UPCASE(*v10);
-        v9 = (unsigned __int16 *)v27;
+        v9 = (unsigned __int16 *)v28;
         if ( v11 != v12 )
           break;
         ++v10;
         ++v8;
       }
-      while ( (unsigned int)v10 < v27 );
+      while ( (unsigned int)v10 < v28 );
     }
     if ( v10 == v9 && *v8 == 61 )
     {
-      v26 = 1;
+      v27 = 1;
 LABEL_22:
-      v15 = v28;
+      v15 = v29;
       goto LABEL_11;
     }
     v13 = *v8;
-    v26 = 0;
+    v27 = 0;
     v14 = *v8;
     if ( !*v8 )
     {
@@ -90,8 +91,8 @@ LABEL_30:
     {
       if ( v13 == 61 )
       {
-        v15 = v28;
-        if ( v8 != v28 )
+        v15 = v29;
+        if ( v8 != v29 )
           break;
       }
       v13 = *++v8;
@@ -126,12 +127,12 @@ LABEL_11:
         }
       }
     }
-    if ( v26 )
+    if ( v27 )
       break;
 LABEL_16:
     if ( !*++v8 )
       goto LABEL_27;
-    v9 = (unsigned __int16 *)v27;
+    v9 = (unsigned __int16 *)v28;
     v7 = a2;
   }
   v17 = v16 + 1;
@@ -140,8 +141,9 @@ LABEL_16:
   {
     if ( v18 < a5 )
     {
+      LODWORD(v25) = 2 * v18;
       *a6 = v18;
-      memcpy(a4, v17, 2 * v18);
+      memcpy(a4, v17, v25);
       result = 0;
       a4[v18] = 0;
       return result;

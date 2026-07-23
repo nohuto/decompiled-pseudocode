@@ -1,12 +1,12 @@
 /*
- * XREFs of VslFastFlushSecureRangeList @ 0x1403905F4
+ * XREFs of VslFastFlushSecureRangeList @ 0x140390744
  * Callers:
- *     HvlpFastFlushListTb @ 0x140390044 (HvlpFastFlushListTb.c)
- *     HvlpFastFlushListTbEx @ 0x1404FAE50 (HvlpFastFlushListTbEx.c)
+ *     HvlpFastFlushListTb @ 0x140390194 (HvlpFastFlushListTb.c)
+ *     HvlpFastFlushListTbEx @ 0x1404FADD0 (HvlpFastFlushListTbEx.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140262C90 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
+ *     VslpEnterIumSecureMode @ 0x1402840D0 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
  */
 
 NTSTATUS __fastcall VslFastFlushSecureRangeList(_QWORD *a1, unsigned int a2)

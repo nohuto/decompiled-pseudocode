@@ -16,47 +16,50 @@
  *     _RtlpHeapExceptionFilter@8 @ 0x4B375DFF (_RtlpHeapExceptionFilter@8.c)
  */
 
-char __fastcall RtlDebugSetUserFlagsHeap(_DWORD *a1, int a2, int a3, unsigned int a4, unsigned int a5, int a6, int a7)
+BOOLEAN __fastcall RtlDebugSetUserFlagsHeap(
+        unsigned int a1,
+        int a2,
+        char *BaseAddress,
+        ULONG UserFlagsReset,
+        ULONG UserFlagsSet,
+        int a6,
+        int a7)
 {
-  int v10; // edx
-  int v11; // ebx
-  unsigned int v12; // edx
-  int v13; // edx
-  char v15; // [esp+1Eh] [ebp-1Ah]
-  char v16; // [esp+1Fh] [ebp-19h]
+  ULONG v10; // ebx
+  char *v11; // edx
+  char v13; // [esp+1Eh] [ebp-1Ah]
+  BOOLEAN v14; // [esp+1Fh] [ebp-19h]
 
-  v16 = 0;
-  v15 = 0;
-  if ( (a1[17] & 0x1000000) != 0 )
-    return dword_4B3A3780(dword_4B3A3780, a1, a2, a3, a4, a5);
-  if ( ((a5 | a4) & 0xFFFFF1FF) != 0 )
+  v14 = 0;
+  v13 = 0;
+  if ( (*(_DWORD *)(a1 + 68) & 0x1000000) != 0 )
+    return dword_4B3A3780(dword_4B3A3780, a1, a2, BaseAddress, UserFlagsReset, UserFlagsSet);
+  if ( ((UserFlagsSet | UserFlagsReset) & 0xFFFFF1FF) != 0 )
     return 0;
-  if ( RtlpCheckHeapSignature(a1, "RtlSetUserFlagsHeap") )
+  if ( RtlpCheckHeapSignature((_DWORD *)a1, "RtlSetUserFlagsHeap") )
   {
-    v11 = a1[17] | 0x10000000 | a2;
-    if ( (v11 & 1) == 0 )
+    v10 = *(_DWORD *)(a1 + 68) | 0x10000000 | a2;
+    if ( (v10 & 1) == 0 )
     {
-      RtlEnterCriticalSection(a1[50]);
-      v15 = 1;
-      v11 |= 1u;
+      RtlEnterCriticalSection(*(PRTL_CRITICAL_SECTION *)(a1 + 200));
+      v13 = 1;
+      v10 |= 1u;
     }
-    LOBYTE(v10) = 0;
-    RtlpValidateHeap(a1, v10);
-    v12 = a3 - 8;
-    if ( *(_BYTE *)(a3 - 8 + 7) == 5 )
-      v12 -= 8 * *(unsigned __int8 *)(v12 + 6);
-    if ( RtlpValidateHeapEntry((unsigned int)a1, v12, "RtlSetUserFlagsHeap") )
+    RtlpValidateHeap((PVOID)a1);
+    v11 = BaseAddress - 8;
+    if ( *(BaseAddress - 1) == 5 )
+      v11 -= 8 * (unsigned __int8)v11[6];
+    if ( RtlpValidateHeapEntry(a1, (unsigned int)v11, "RtlSetUserFlagsHeap") )
     {
-      v16 = RtlSetUserFlagsHeap((int)a1, v11, a3, a4, a5);
-      LOBYTE(v13) = 0;
-      RtlpValidateHeap(a1, v13);
+      v14 = RtlSetUserFlagsHeap((PVOID)a1, v10, BaseAddress, UserFlagsReset, UserFlagsSet);
+      RtlpValidateHeap((PVOID)a1);
     }
   }
   else
   {
-    v16 = 0;
+    v14 = 0;
   }
-  if ( v15 )
-    RtlLeaveCriticalSection(a1[50]);
-  return v16;
+  if ( v13 )
+    RtlLeaveCriticalSection(*(PRTL_CRITICAL_SECTION *)(a1 + 200));
+  return v14;
 }

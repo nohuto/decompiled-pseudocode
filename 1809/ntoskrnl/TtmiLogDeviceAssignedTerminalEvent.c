@@ -1,12 +1,12 @@
 /*
- * XREFs of TtmiLogDeviceAssignedTerminalEvent @ 0x140883274
+ * XREFs of TtmiLogDeviceAssignedTerminalEvent @ 0x1408844D4
  * Callers:
- *     TtmpPublishDeviceEvent @ 0x14087E240 (TtmpPublishDeviceEvent.c)
+ *     TtmpPublishDeviceEvent @ 0x14087F4A0 (TtmpPublishDeviceEvent.c)
  * Callees:
  *     PsGetProcessSessionIdEx @ 0x140003190 (PsGetProcessSessionIdEx.c)
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 void __fastcall TtmiLogDeviceAssignedTerminalEvent(int a1, int a2)
@@ -26,9 +26,9 @@ void __fastcall TtmiLogDeviceAssignedTerminalEvent(int a1, int a2)
   int v16; // [rsp+88h] [rbp+3Fh]
   int v17; // [rsp+8Ch] [rbp+43h]
 
-  if ( stru_14096D820.LevelPlus1 > 5 )
+  if ( stru_14096E820.LevelPlus1 > 5 )
   {
-    if ( TlgKeywordOn(&stru_14096D820, 1uLL) )
+    if ( TlgKeywordOn(&stru_14096E820, 1uLL) )
     {
       ProcessSessionId = PsGetProcessSessionIdEx((__int64)KeGetCurrentThread()->ApcState.Process);
       v11 = 0;
@@ -43,7 +43,7 @@ void __fastcall TtmiLogDeviceAssignedTerminalEvent(int a1, int a2)
       v10 = 4;
       v13 = 4;
       v16 = 4;
-      TlgWrite(&stru_14096D820, &unk_140372AD3, 0LL, 0LL, 5u, &pData);
+      TlgWrite(&stru_14096E820, &unk_140373ABA, 0LL, 0LL, 5u, &pData);
     }
   }
 }

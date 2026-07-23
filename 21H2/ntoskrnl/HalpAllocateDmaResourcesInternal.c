@@ -1,23 +1,23 @@
 /*
- * XREFs of HalpAllocateDmaResourcesInternal @ 0x1404CA5DC
+ * XREFs of HalpAllocateDmaResourcesInternal @ 0x1404CA81C
  * Callers:
- *     HalpDmaReturnEmergencyLogicalAddressResources @ 0x1404B8368 (HalpDmaReturnEmergencyLogicalAddressResources.c)
- *     HalpDmaProcessMapRegisterQueueV3 @ 0x1404C6358 (HalpDmaProcessMapRegisterQueueV3.c)
- *     IoFreeAdapterChannelV3 @ 0x1404C639C (IoFreeAdapterChannelV3.c)
- *     HalpAllocateAdapterChannel @ 0x1404CA3D0 (HalpAllocateAdapterChannel.c)
- *     HalpAllocateDmaResources @ 0x1404CA5C0 (HalpAllocateDmaResources.c)
+ *     HalpDmaReturnEmergencyLogicalAddressResources @ 0x1404B85A8 (HalpDmaReturnEmergencyLogicalAddressResources.c)
+ *     HalpDmaProcessMapRegisterQueueV3 @ 0x1404C6598 (HalpDmaProcessMapRegisterQueueV3.c)
+ *     IoFreeAdapterChannelV3 @ 0x1404C65DC (IoFreeAdapterChannelV3.c)
+ *     HalpAllocateAdapterChannel @ 0x1404CA610 (HalpAllocateAdapterChannel.c)
+ *     HalpAllocateDmaResources @ 0x1404CA800 (HalpAllocateDmaResources.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     HalpDmaAllocateAndPremapLa @ 0x1404B6D70 (HalpDmaAllocateAndPremapLa.c)
- *     HalpDmaRemoveAdapterFromMasterQueue @ 0x1404B8040 (HalpDmaRemoveAdapterFromMasterQueue.c)
- *     HalpDmaRemoveFromEmergencyLogicalAddressQueue @ 0x1404B8160 (HalpDmaRemoveFromEmergencyLogicalAddressQueue.c)
- *     IoFreeAdapterChannel @ 0x1404B8D10 (IoFreeAdapterChannel.c)
- *     HalpQueueMapBufferWorker @ 0x1404BC5E8 (HalpQueueMapBufferWorker.c)
- *     HalFreeAdapterObject @ 0x1404C5F80 (HalFreeAdapterObject.c)
- *     HalpDmaAllocateMapRegisters @ 0x1404C68FC (HalpDmaAllocateMapRegisters.c)
- *     HalpDmaQueueAdapter @ 0x1404C7D94 (HalpDmaQueueAdapter.c)
- *     HalpAllocateDmaChannels @ 0x1404CE28C (HalpAllocateDmaChannels.c)
- *     HalpDmaRemoveAdapterFromChannelQueue @ 0x1404CEF04 (HalpDmaRemoveAdapterFromChannelQueue.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     HalpDmaAllocateAndPremapLa @ 0x1404B6FB0 (HalpDmaAllocateAndPremapLa.c)
+ *     HalpDmaRemoveAdapterFromMasterQueue @ 0x1404B8280 (HalpDmaRemoveAdapterFromMasterQueue.c)
+ *     HalpDmaRemoveFromEmergencyLogicalAddressQueue @ 0x1404B83A0 (HalpDmaRemoveFromEmergencyLogicalAddressQueue.c)
+ *     IoFreeAdapterChannel @ 0x1404B8F50 (IoFreeAdapterChannel.c)
+ *     HalpQueueMapBufferWorker @ 0x1404BC828 (HalpQueueMapBufferWorker.c)
+ *     HalFreeAdapterObject @ 0x1404C61C0 (HalFreeAdapterObject.c)
+ *     HalpDmaAllocateMapRegisters @ 0x1404C6B3C (HalpDmaAllocateMapRegisters.c)
+ *     HalpDmaQueueAdapter @ 0x1404C7FD4 (HalpDmaQueueAdapter.c)
+ *     HalpAllocateDmaChannels @ 0x1404CE4CC (HalpAllocateDmaChannels.c)
+ *     HalpDmaRemoveAdapterFromChannelQueue @ 0x1404CF144 (HalpDmaRemoveAdapterFromChannelQueue.c)
  */
 
 char __fastcall HalpAllocateDmaResourcesInternal(PDMA_ADAPTER DmaAdapter, char a2, __int64 a3)

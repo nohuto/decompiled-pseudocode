@@ -1,19 +1,19 @@
 /*
- * XREFs of KiIntSteerCalculateDistribution @ 0x140254FB0
+ * XREFs of KiIntSteerCalculateDistribution @ 0x140256910
  * Callers:
- *     KeIntSteerPeriodic @ 0x140254A60 (KeIntSteerPeriodic.c)
+ *     KeIntSteerPeriodic @ 0x1402563C0 (KeIntSteerPeriodic.c)
  * Callees:
- *     KeQueryActiveProcessorCountEx @ 0x140211EA0 (KeQueryActiveProcessorCountEx.c)
- *     KiIntPartGetLowestClassProcessorInMask @ 0x140255408 (KiIntPartGetLowestClassProcessorInMask.c)
- *     KiIntSteerComputeCpuSet @ 0x1402554F4 (KiIntSteerComputeCpuSet.c)
- *     KiIntSteerCalculateUniformDistribution @ 0x1404CABD8 (KiIntSteerCalculateUniformDistribution.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     KeQueryActiveProcessorCountEx @ 0x140211F80 (KeQueryActiveProcessorCountEx.c)
+ *     KiIntPartGetLowestClassProcessorInMask @ 0x140256D68 (KiIntPartGetLowestClassProcessorInMask.c)
+ *     KiIntSteerComputeCpuSet @ 0x140256E54 (KiIntSteerComputeCpuSet.c)
+ *     KiIntSteerCalculateUniformDistribution @ 0x1404C4608 (KiIntSteerCalculateUniformDistribution.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
-__int64 __fastcall KiIntSteerCalculateDistribution(unsigned int *a1, __int64 *a2, __int64 *a3, __int64 *a4)
+__int64 __fastcall KiIntSteerCalculateDistribution(char *a1, __int64 *a2, __int64 *a3, __int64 *a4)
 {
   __int64 v4; // rdi
-  unsigned __int64 v5; // rbx
+  __int64 v5; // rbx
   __int64 v8; // rdi
   unsigned __int16 v11; // r8
   unsigned __int16 v12; // cx
@@ -24,7 +24,7 @@ __int64 __fastcall KiIntSteerCalculateDistribution(unsigned int *a1, __int64 *a2
   __int64 v17; // rax
   __int64 v18; // rdi
   ULONG ActiveProcessorCount; // eax
-  _DWORD *v20; // rdx
+  struct _KTHREAD *Thread; // rdx
   unsigned int v21; // r10d
   __int64 v22; // r8
   _QWORD *v23; // rbx
@@ -55,12 +55,12 @@ __int64 __fastcall KiIntSteerCalculateDistribution(unsigned int *a1, __int64 *a2
   _QWORD v49[3]; // [rsp+68h] [rbp-18h] BYREF
 
   v4 = *a2;
-  v5 = KsepShimDbLock.Spare35[0];
+  v5 = KiIntTrackRootList;
   v42 = &v41;
   v8 = *a3 | *a4 | v4;
   v48 = a4;
   v41 = &v41;
-  if ( (unsigned __int64 *)KsepShimDbLock.Spare35[0] != KsepShimDbLock.Spare35 )
+  if ( (__int64 *)KiIntTrackRootList != &KiIntTrackRootList )
   {
     do
     {
@@ -83,8 +83,8 @@ LABEL_41:
           v34 = *(_QWORD *)(v5 + 160);
           if ( (v8 & v34) != v34 )
           {
-            v37 = *(_DWORD *)(*(_QWORD *)&KiSupervisorXStateFeaturesLock.WaitBlockFill11[112]
-                            + 4LL * (unsigned int)KiIntPartGetLowestClassProcessorInMask(v5 + 64));
+            v37 = *((_DWORD *)&KiSupervisorXStateFeaturesLock.SchedulerApc.Thread->Header.Lock
+                  + (unsigned int)KiIntPartGetLowestClassProcessorInMask(v5 + 64));
             *(_DWORD *)(v5 + 186) = 0;
             *(_WORD *)(v5 + 190) = 0;
             *(_WORD *)(v5 + 184) = v37 >> 6;
@@ -95,7 +95,7 @@ LABEL_41:
       }
       v5 = *(_QWORD *)v5;
     }
-    while ( (unsigned __int64 *)v5 != KsepShimDbLock.Spare35 );
+    while ( (__int64 *)v5 != &KiIntTrackRootList );
     if ( v41 != &v41 )
     {
       v11 = *((_WORD *)a2 + 4);
@@ -128,31 +128,30 @@ LABEL_41:
       v46 = v18;
       if ( !a1 )
       {
-        a1 = (unsigned int *)KiIntSteerDistributionContext;
+        a1 = (char *)KiIntSteerDistributionContext;
         memset_0((char *)KiIntSteerDistributionContext + 260, 0, 0x100uLL);
       }
       ActiveProcessorCount = KeQueryActiveProcessorCountEx(0);
       if ( ActiveProcessorCount )
       {
-        v20 = *(_DWORD **)&KiSupervisorXStateFeaturesLock.WaitBlockFill11[112];
-        v21 = *a1;
+        Thread = KiSupervisorXStateFeaturesLock.SchedulerApc.Thread;
+        v21 = *(_DWORD *)a1;
         v22 = ActiveProcessorCount;
         do
         {
-          if ( v21 <= *(_DWORD *)((char *)v20
-                                + (_QWORD)a1
-                                - *(_QWORD *)&KiSupervisorXStateFeaturesLock.WaitBlockFill11[112]
-                                + 4) )
+          if ( v21 <= *(LONG *)((char *)&Thread->Header.SignalState
+                              + a1
+                              - (char *)KiSupervisorXStateFeaturesLock.SchedulerApc.Thread) )
           {
-            v39 = *v20 & 0x3F;
-            v13 &= ~(1LL << (*(_BYTE *)v20 & 0x3F));
-            v15 &= ~(1LL << (*(_BYTE *)v20 & 0x3F));
+            v39 = Thread->Header.LockNV & 0x3F;
+            v13 &= ~(1LL << (Thread->Header.Type & 0x3F));
+            v15 &= ~(1LL << (Thread->Header.Type & 0x3F));
             v43[0] = v13;
             v18 &= ~(1LL << v39);
             v44 = v15;
             v46 = v18;
           }
-          ++v20;
+          Thread = (struct _KTHREAD *)((char *)Thread + 4);
           --v22;
         }
         while ( v22 );
@@ -183,26 +182,24 @@ LABEL_41:
             if ( v25 >= 3 )
               goto LABEL_28;
           }
-          a1[LowestClassProcessorInMask + 65] += 10000LL
-                                               * *(v23 - 2)
-                                               / (KiIntSteerPreviousPerfSnapDelta
-                                                * (unsigned __int64)*(unsigned int *)(KiProcessorBlock[LowestClassProcessorInMask]
-                                                                                    + 68));
-          if ( *a1 <= a1[LowestClassProcessorInMask + 1] + a1[LowestClassProcessorInMask + 65] )
+          *(_DWORD *)&a1[4 * LowestClassProcessorInMask + 260] += 10000LL
+                                                                * *(v23 - 2)
+                                                                / (*(_QWORD *)&KsepShimDbLock.SchedulerAssistPriorityFloor
+                                                                 * (unsigned __int64)*(unsigned int *)(KiProcessorBlock[LowestClassProcessorInMask] + 68));
+          if ( *(_DWORD *)a1 <= (unsigned int)(*(_DWORD *)&a1[4 * LowestClassProcessorInMask + 4]
+                                             + *(_DWORD *)&a1[4 * LowestClassProcessorInMask + 260]) )
           {
-            v40 = *(_DWORD *)(*(_QWORD *)&KiSupervisorXStateFeaturesLock.WaitBlockFill11[112]
-                            + 4LL * LowestClassProcessorInMask) & 0x3F;
-            v13 &= ~(1LL << (*(_BYTE *)(*(_QWORD *)&KiSupervisorXStateFeaturesLock.WaitBlockFill11[112]
-                                      + 4LL * LowestClassProcessorInMask) & 0x3F));
-            v15 &= ~(1LL << (*(_BYTE *)(*(_QWORD *)&KiSupervisorXStateFeaturesLock.WaitBlockFill11[112]
-                                      + 4LL * LowestClassProcessorInMask) & 0x3F));
+            v40 = *(&KiSupervisorXStateFeaturesLock.SchedulerApc.Thread->Header.LockNV + LowestClassProcessorInMask) & 0x3F;
+            v13 &= ~(1LL << (*(&KiSupervisorXStateFeaturesLock.SchedulerApc.Thread->Header.Type
+                             + 4 * LowestClassProcessorInMask) & 0x3F));
+            v15 &= ~(1LL << (*(&KiSupervisorXStateFeaturesLock.SchedulerApc.Thread->Header.Type
+                             + 4 * LowestClassProcessorInMask) & 0x3F));
             v43[0] = v13;
             v18 &= ~(1LL << v40);
             v44 = v15;
             v46 = v18;
           }
-          v28 = *(_DWORD *)(*(_QWORD *)&KiSupervisorXStateFeaturesLock.WaitBlockFill11[112]
-                          + 4LL * LowestClassProcessorInMask);
+          v28 = *((_DWORD *)&KiSupervisorXStateFeaturesLock.SchedulerApc.Thread->Header.Lock + LowestClassProcessorInMask);
           *(_DWORD *)((char *)v23 - 22) = 0;
           *((_WORD *)v23 - 9) = 0;
           *((_WORD *)v23 - 12) = v28 >> 6;
@@ -230,8 +227,8 @@ LABEL_28:
                 goto LABEL_41;
               v41 = (_QWORD *)*v31;
               v32[1] = &v41;
-              v33 = *(_DWORD *)(*(_QWORD *)&KiSupervisorXStateFeaturesLock.WaitBlockFill11[112]
-                              + 4LL * (unsigned int)KiIntPartGetLowestClassProcessorInMask(v31 - 18));
+              v33 = *((_DWORD *)&KiSupervisorXStateFeaturesLock.SchedulerApc.Thread->Header.Lock
+                    + (unsigned int)KiIntPartGetLowestClassProcessorInMask(v31 - 18));
               *(_DWORD *)((char *)v31 - 22) = 0;
               *((_WORD *)v31 - 9) = 0;
               *((_WORD *)v31 - 12) = v33 >> 6;

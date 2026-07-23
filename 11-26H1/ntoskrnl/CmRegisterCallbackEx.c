@@ -1,9 +1,9 @@
 /*
- * XREFs of CmRegisterCallbackEx @ 0x140B3D770
+ * XREFs of CmRegisterCallbackEx @ 0x140B3F840
  * Callers:
- *     DifCmRegisterCallbackExWrapper @ 0x14064DB00 (DifCmRegisterCallbackExWrapper.c)
+ *     DifCmRegisterCallbackExWrapper @ 0x1406516E0 (DifCmRegisterCallbackExWrapper.c)
  * Callees:
- *     CmpRegisterCallbackInternal @ 0x140A0506C (CmpRegisterCallbackInternal.c)
+ *     CmpRegisterCallbackInternal @ 0x1409F085C (CmpRegisterCallbackInternal.c)
  */
 
 NTSTATUS __stdcall CmRegisterCallbackEx(

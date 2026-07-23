@@ -1,14 +1,14 @@
 /*
- * XREFs of MiAppendSubsectionChain @ 0x1404C7AA8
+ * XREFs of MiAppendSubsectionChain @ 0x1404C17E8
  * Callers:
- *     MiExtendSection @ 0x140A5838C (MiExtendSection.c)
+ *     MiExtendSection @ 0x140A6590C (MiExtendSection.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiFinishExtendAppend @ 0x140488E60 (MiFinishExtendAppend.c)
- *     MiGetAllSubsectionCharges @ 0x1404CE844 (MiGetAllSubsectionCharges.c)
- *     MiReturnCrossPartitionSectionCharges @ 0x1404D1140 (MiReturnCrossPartitionSectionCharges.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiFinishExtendAppend @ 0x1404829A0 (MiFinishExtendAppend.c)
+ *     MiGetAllSubsectionCharges @ 0x1404C8274 (MiGetAllSubsectionCharges.c)
+ *     MiReturnCrossPartitionSectionCharges @ 0x1404CAB70 (MiReturnCrossPartitionSectionCharges.c)
  */
 
 __int64 __fastcall MiAppendSubsectionChain(__int64 *a1, __int64 a2, int a3, int a4, int a5, _QWORD *a6)
@@ -32,7 +32,7 @@ __int64 __fastcall MiAppendSubsectionChain(__int64 *a1, __int64 a2, int a3, int 
     ExReleaseSpinLockExclusive(v12, OldIrql);
   if ( v11 )
     MiReturnCrossPartitionSectionCharges(
-      *(_QWORD *)(stru_140E2EB88.ThreadLock + 8LL * (*(_DWORD *)(v6 + 60) & 0x3FF)),
+      *(_QWORD *)(stru_140E2ED08.ThreadLock + 8LL * (*(_DWORD *)(v6 + 60) & 0x3FF)),
       1LL,
       v11);
   return (unsigned int)AllSubsectionCharges;

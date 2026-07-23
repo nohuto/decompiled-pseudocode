@@ -12,7 +12,7 @@ void __stdcall ExDeleteLookasideListEx(PLOOKASIDE_LIST_EX Lookaside)
   bool v2; // zf
   __int64 *v3; // rcx
   PSLIST_ENTRY v4; // rax
-  struct _SLIST_ENTRY *Next; // rbx
+  _SLIST_ENTRY *Next; // rbx
 
   v2 = (Lookaside->L.Type & 1) == 0;
   v3 = &ExNPagedLookasideLock;

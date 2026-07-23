@@ -1,10 +1,10 @@
 /*
- * XREFs of WmipFindISInDSByGuid @ 0x140B5000C
+ * XREFs of WmipFindISInDSByGuid @ 0x140B5289C
  * Callers:
- *     WmipUpdateModifyGuid @ 0x140824160 (WmipUpdateModifyGuid.c)
- *     WmipUpdateDataSource @ 0x140A0ABF4 (WmipUpdateDataSource.c)
+ *     WmipUpdateModifyGuid @ 0x14082A3AC (WmipUpdateModifyGuid.c)
+ *     WmipUpdateDataSource @ 0x140A09CB4 (WmipUpdateDataSource.c)
  * Callees:
- *     WmipReferenceEntry @ 0x140A0FB50 (WmipReferenceEntry.c)
+ *     WmipReferenceEntry @ 0x140A0ED40 (WmipReferenceEntry.c)
  */
 
 _QWORD *__fastcall WmipFindISInDSByGuid(__int64 a1, _QWORD *a2)

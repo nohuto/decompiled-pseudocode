@@ -1,13 +1,13 @@
 /*
- * XREFs of PopWnfAirplaneModeCallback @ 0x1402D6EA0
+ * XREFs of PopWnfAirplaneModeCallback @ 0x1402D7090
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     ExQueryWnfStateData @ 0x1406C8280 (ExQueryWnfStateData.c)
+ *     KxReleaseSpinLock @ 0x1400630D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14008CE80 (KeAcquireSpinLockRaiseToDpc.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExQueryWnfStateData @ 0x1406C9520 (ExQueryWnfStateData.c)
  */
 
 __int64 __fastcall PopWnfAirplaneModeCallback(__int64 a1)
@@ -26,7 +26,7 @@ __int64 __fastcall PopWnfAirplaneModeCallback(__int64 a1)
     if ( v5 >= 0xC )
     {
       v2 = KeAcquireSpinLockRaiseToDpc(&PopCsResiliencyStatsLock);
-      byte_140418124 = v7[0] == 0;
+      byte_1404191E4 = v7[0] == 0;
       KxReleaseSpinLock(&PopCsResiliencyStatsLock);
       if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && KeGetCurrentIrql() >= 2u && v2 < 2u )
       {

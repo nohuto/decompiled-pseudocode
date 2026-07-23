@@ -3,8 +3,8 @@
  * Callers:
  *     <none>
  * Callees:
- *     WmiVerifierCopyEvent @ 0x14022490C (WmiVerifierCopyEvent.c)
- *     WmiVerifierTakeEventOwnership @ 0x140224960 (WmiVerifierTakeEventOwnership.c)
+ *     WmiVerifierCopyEvent @ 0x140224738 (WmiVerifierCopyEvent.c)
+ *     WmiVerifierTakeEventOwnership @ 0x14022478C (WmiVerifierTakeEventOwnership.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  */
 

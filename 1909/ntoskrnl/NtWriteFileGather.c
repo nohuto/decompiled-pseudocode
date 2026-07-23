@@ -75,7 +75,7 @@ NTSTATUS __stdcall NtWriteFileGather(
   _DWORD *FileObjectExtension; // rax
   struct _KTHREAD *v42; // rax
   PFILE_OBJECT v43; // rbx
-  __int64 v44; // rax
+  PRTL_BALANCED_NODE v44; // rax
   NTSTATUS v45; // ebx
   KPROCESSOR_MODE AccessMode; // [rsp+40h] [rbp-A8h]
   _BYTE v47[15]; // [rsp+41h] [rbp-A7h] BYREF
@@ -262,7 +262,7 @@ LABEL_61:
     else
     {
       if ( v44 )
-        *(_BYTE *)(v44 + 26) |= 1u;
+        BYTE2(v44[1].Left) |= 1u;
       v14 = FileObject;
       ObfReferenceObject(FileObject);
       v45 = 0;

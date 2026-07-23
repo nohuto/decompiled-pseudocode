@@ -1,10 +1,10 @@
 /*
- * XREFs of VerifierIoAllocateErrorLogEntry @ 0x1409288E0
+ * XREFs of VerifierIoAllocateErrorLogEntry @ 0x1409298E0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     VfFaultsInjectResourceFailure @ 0x140938308 (VfFaultsInjectResourceFailure.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     VfFaultsInjectResourceFailure @ 0x140939308 (VfFaultsInjectResourceFailure.c)
  */
 
 __int64 __fastcall VerifierIoAllocateErrorLogEntry(__int64 a1, char a2)

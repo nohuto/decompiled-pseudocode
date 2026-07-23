@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpDmaAllocateContiguousPagesFromContiguousPoolV2 @ 0x1403575A0
+ * XREFs of HalpDmaAllocateContiguousPagesFromContiguousPoolV2 @ 0x140359340
  * Callers:
- *     HalpDmaAllocateContiguousPagesFromContiguousPool @ 0x14035754C (HalpDmaAllocateContiguousPagesFromContiguousPool.c)
+ *     HalpDmaAllocateContiguousPagesFromContiguousPool @ 0x1403592EC (HalpDmaAllocateContiguousPagesFromContiguousPool.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x1402B4730 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x1402B98C0 (KeReleaseInStackQueuedSpinLock.c)
- *     HalpDmaLinkContiguousTranslations @ 0x1403570D8 (HalpDmaLinkContiguousTranslations.c)
- *     RtlFindClearBitsAndSet @ 0x1403586A0 (RtlFindClearBitsAndSet.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402FF400 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x140304580 (KeReleaseInStackQueuedSpinLock.c)
+ *     HalpDmaLinkContiguousTranslations @ 0x140358E78 (HalpDmaLinkContiguousTranslations.c)
+ *     RtlFindClearBitsAndSet @ 0x14035A440 (RtlFindClearBitsAndSet.c)
  */
 
 __int64 __fastcall HalpDmaAllocateContiguousPagesFromContiguousPoolV2(

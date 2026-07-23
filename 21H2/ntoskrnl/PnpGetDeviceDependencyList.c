@@ -1,18 +1,18 @@
 /*
- * XREFs of PnpGetDeviceDependencyList @ 0x14089E0D4
+ * XREFs of PnpGetDeviceDependencyList @ 0x14089E234
  * Callers:
- *     PiControlGetPropertyData @ 0x1406ADDA0 (PiControlGetPropertyData.c)
+ *     PiControlGetPropertyData @ 0x14060C640 (PiControlGetPropertyData.c)
  * Callees:
- *     RtlStringCchLengthW @ 0x140264E74 (RtlStringCchLengthW.c)
- *     RtlStringCchCopyExW @ 0x140265430 (RtlStringCchCopyExW.c)
- *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
- *     PiListEntryToDependencyEdge @ 0x14050C4F8 (PiListEntryToDependencyEdge.c)
- *     PnpUnicodeStringToWstrFree @ 0x140635794 (PnpUnicodeStringToWstrFree.c)
- *     PnpUnicodeStringToWstr @ 0x14063755C (PnpUnicodeStringToWstr.c)
- *     PpDevNodeUnlockTree @ 0x140639BC0 (PpDevNodeUnlockTree.c)
- *     PnpAcquireDependencyRelationsLock @ 0x140639C1C (PnpAcquireDependencyRelationsLock.c)
- *     PiGetProviderList @ 0x140741958 (PiGetProviderList.c)
- *     PiGetDependentList @ 0x14074B374 (PiGetDependentList.c)
+ *     RtlStringCchLengthW @ 0x140252F04 (RtlStringCchLengthW.c)
+ *     RtlStringCchCopyExW @ 0x140253448 (RtlStringCchCopyExW.c)
+ *     ExReleaseResourceLite @ 0x140356140 (ExReleaseResourceLite.c)
+ *     PiListEntryToDependencyEdge @ 0x14050C738 (PiListEntryToDependencyEdge.c)
+ *     PnpUnicodeStringToWstrFree @ 0x14062A5A4 (PnpUnicodeStringToWstrFree.c)
+ *     PnpUnicodeStringToWstr @ 0x14062C36C (PnpUnicodeStringToWstr.c)
+ *     PpDevNodeUnlockTree @ 0x14062E9D0 (PpDevNodeUnlockTree.c)
+ *     PnpAcquireDependencyRelationsLock @ 0x14062EA2C (PnpAcquireDependencyRelationsLock.c)
+ *     PiGetProviderList @ 0x140741B18 (PiGetProviderList.c)
+ *     PiGetDependentList @ 0x14074B534 (PiGetDependentList.c)
  */
 
 __int64 __fastcall PnpGetDeviceDependencyList(__int64 a1, int a2, wchar_t *a3, unsigned int a4, _DWORD *a5)

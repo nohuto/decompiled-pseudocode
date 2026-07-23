@@ -1,10 +1,10 @@
 /*
- * XREFs of PfSnAltProfileFindByScenarioId @ 0x1409EA150
+ * XREFs of PfSnAltProfileFindByScenarioId @ 0x1409D2894
  * Callers:
- *     PfSnBeginAppLaunch @ 0x1409E9DD0 (PfSnBeginAppLaunch.c)
- *     PfSnSetAltPrefetchParam @ 0x140B6B900 (PfSnSetAltPrefetchParam.c)
+ *     PfSnBeginAppLaunch @ 0x1409D1320 (PfSnBeginAppLaunch.c)
+ *     PfSnSetAltPrefetchParam @ 0x140B6E9FC (PfSnSetAltPrefetchParam.c)
  * Callees:
- *     PfSnAltProfileTreeCompareByScenarioId @ 0x1409EA1EC (PfSnAltProfileTreeCompareByScenarioId.c)
+ *     PfSnAltProfileTreeCompareByScenarioId @ 0x1409D2930 (PfSnAltProfileTreeCompareByScenarioId.c)
  */
 
 unsigned __int64 __fastcall PfSnAltProfileFindByScenarioId(wchar_t *Str2)
@@ -14,10 +14,10 @@ unsigned __int64 __fastcall PfSnAltProfileFindByScenarioId(wchar_t *Str2)
   int v4; // eax
   unsigned __int64 v5; // rax
 
-  Blink = (unsigned __int64)stru_140E66FF0.WaitBlock[1].WaitListEntry.Blink;
-  if ( (stru_140E66FF0.WaitBlock[1].WaitType & 1) != 0 && stru_140E66FF0.WaitBlock[1].WaitListEntry.Blink )
-    Blink = (unsigned __int64)&stru_140E66FF0.WaitBlock[1].WaitListEntry.Blink ^ (unsigned __int64)stru_140E66FF0.WaitBlock[1].WaitListEntry.Blink;
-  v3 = stru_140E66FF0.WaitBlock[1].WaitType & 1;
+  Blink = (unsigned __int64)stru_140E67200.WaitBlock[1].WaitListEntry.Blink;
+  if ( (stru_140E67200.WaitBlock[1].WaitType & 1) != 0 && stru_140E67200.WaitBlock[1].WaitListEntry.Blink )
+    Blink = (unsigned __int64)&stru_140E67200.WaitBlock[1].WaitListEntry.Blink ^ (unsigned __int64)stru_140E67200.WaitBlock[1].WaitListEntry.Blink;
+  v3 = stru_140E67200.WaitBlock[1].WaitType & 1;
   if ( !Blink )
     return 0LL;
   do

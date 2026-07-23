@@ -1,10 +1,10 @@
 /*
- * XREFs of ExpAllocateUuids @ 0x1406C6098
+ * XREFs of ExpAllocateUuids @ 0x1406C7338
  * Callers:
- *     ExUuidCreate @ 0x1406062C0 (ExUuidCreate.c)
- *     NtAllocateUuids @ 0x1406C5EC0 (NtAllocateUuids.c)
+ *     ExUuidCreate @ 0x1406072C0 (ExUuidCreate.c)
+ *     NtAllocateUuids @ 0x1406C7160 (NtAllocateUuids.c)
  * Callees:
- *     ExpUuidLoadSequenceNumber @ 0x14075F860 (ExpUuidLoadSequenceNumber.c)
+ *     ExpUuidLoadSequenceNumber @ 0x140760A50 (ExpUuidLoadSequenceNumber.c)
  */
 
 __int64 __fastcall ExpAllocateUuids(__int64 a1, unsigned int *a2, _DWORD *a3)

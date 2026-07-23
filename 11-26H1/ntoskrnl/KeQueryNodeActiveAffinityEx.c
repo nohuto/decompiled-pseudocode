@@ -1,18 +1,18 @@
 /*
- * XREFs of KeQueryNodeActiveAffinityEx @ 0x140476C00
+ * XREFs of KeQueryNodeActiveAffinityEx @ 0x140470380
  * Callers:
- *     MiStoreWriteModifiedPages @ 0x140408D88 (MiStoreWriteModifiedPages.c)
- *     KeQueryLogicalProcessorRelationship @ 0x1404DA4D0 (KeQueryLogicalProcessorRelationship.c)
- *     PpmParkRegisterParking @ 0x14060FE58 (PpmParkRegisterParking.c)
- *     ?SmCompressManagerUpdateTopology@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_MANAGER@1@@Z @ 0x14063CAB0 (-SmCompressManagerUpdateTopology@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_MANAGER@1@@Z.c)
- *     ExpNodeHotAddProcessor @ 0x1406D0BA0 (ExpNodeHotAddProcessor.c)
- *     ExpNodeInitialize @ 0x14083F9C0 (ExpNodeInitialize.c)
- *     ?ExpLookasideMgrComputeWorkerSetAffinity@@YAJPEAU_EXP_LOOKASIDE_MGR_WORKER_SET@@G@Z @ 0x140846BD0 (-ExpLookasideMgrComputeWorkerSetAffinity@@YAJPEAU_EXP_LOOKASIDE_MGR_WORKER_SET@@G@Z.c)
- *     ExpWorkQueueManagerThread @ 0x140A039A0 (ExpWorkQueueManagerThread.c)
- *     ExProcessorCounterSetCallback @ 0x140A68560 (ExProcessorCounterSetCallback.c)
- *     PspCopyNodeRelativeMaskToAffinityEx @ 0x140CD7EF8 (PspCopyNodeRelativeMaskToAffinityEx.c)
+ *     MiStoreWriteModifiedPages @ 0x140401E78 (MiStoreWriteModifiedPages.c)
+ *     KeQueryLogicalProcessorRelationship @ 0x1404D3BB0 (KeQueryLogicalProcessorRelationship.c)
+ *     PpmParkRegisterParking @ 0x1406130BC (PpmParkRegisterParking.c)
+ *     ?SmCompressManagerUpdateTopology@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_MANAGER@1@@Z @ 0x140640690 (-SmCompressManagerUpdateTopology@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_MANAGER@1@@Z.c)
+ *     ExpNodeHotAddProcessor @ 0x1406D4BD0 (ExpNodeHotAddProcessor.c)
+ *     ExpNodeInitialize @ 0x140845C00 (ExpNodeInitialize.c)
+ *     ?ExpLookasideMgrComputeWorkerSetAffinity@@YAJPEAU_EXP_LOOKASIDE_MGR_WORKER_SET@@G@Z @ 0x14084CE30 (-ExpLookasideMgrComputeWorkerSetAffinity@@YAJPEAU_EXP_LOOKASIDE_MGR_WORKER_SET@@G@Z.c)
+ *     ExProcessorCounterSetCallback @ 0x140A75530 (ExProcessorCounterSetCallback.c)
+ *     ExpWorkQueueManagerThread @ 0x140A77D60 (ExpWorkQueueManagerThread.c)
+ *     PspCopyNodeRelativeMaskToAffinityEx @ 0x140CDE278 (PspCopyNodeRelativeMaskToAffinityEx.c)
  * Callees:
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 _UNKNOWN **__fastcall KeQueryNodeActiveAffinityEx(unsigned __int16 a1, unsigned __int16 *a2, _WORD *a3)

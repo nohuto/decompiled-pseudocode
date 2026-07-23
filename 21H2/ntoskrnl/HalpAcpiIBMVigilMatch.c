@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpAcpiIBMVigilMatch @ 0x140A8E100
+ * XREFs of HalpAcpiIBMVigilMatch @ 0x140A8F100
  * Callers:
  *     <none>
  * Callees:
- *     HalpInterruptModel @ 0x14037B354 (HalpInterruptModel.c)
+ *     HalpInterruptModel @ 0x14037AEA4 (HalpInterruptModel.c)
  */
 
 __int64 HalpAcpiIBMVigilMatch()

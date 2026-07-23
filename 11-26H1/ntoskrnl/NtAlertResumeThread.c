@@ -1,47 +1,47 @@
 /*
- * XREFs of NtAlertResumeThread @ 0x1407FCE80
+ * XREFs of NtAlertResumeThread @ 0x1408028B0
  * Callers:
- *     DifNtAlertResumeThreadWrapper @ 0x14066ADE0 (DifNtAlertResumeThreadWrapper.c)
+ *     DifNtAlertResumeThreadWrapper @ 0x14066E9C0 (DifNtAlertResumeThreadWrapper.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     KeAlertResumeThread @ 0x1405EBF70 (KeAlertResumeThread.c)
- *     RtlReadULongFromUser @ 0x14077F590 (RtlReadULongFromUser.c)
- *     RtlWriteULongToUser @ 0x14077F7A0 (RtlWriteULongToUser.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1408FA680 (ObpReferenceObjectByHandleWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     KeAlertResumeThread @ 0x1405EE8E0 (KeAlertResumeThread.c)
+ *     RtlReadULongFromUser @ 0x140782090 (RtlReadULongFromUser.c)
+ *     RtlWriteULongToUser @ 0x1407822A0 (RtlWriteULongToUser.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x14092A610 (ObpReferenceObjectByHandleWithTag.c)
  */
 
-__int64 __fastcall NtAlertResumeThread(ULONG_PTR BugCheckParameter1, unsigned int *a2)
+NTSTATUS __cdecl NtAlertResumeThread(HANDLE ThreadHandle, PULONG PreviousSuspendCount)
 {
   char PreviousMode; // bl
   int ULongFromUser; // eax
-  __int64 result; // rax
+  NTSTATUS result; // eax
   __int64 v7; // rdx
   __int64 v8; // r8
-  unsigned int v9; // esi
+  ULONG v9; // esi
   PVOID Object; // [rsp+70h] [rbp+18h] BYREF
 
   Object = 0LL;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
-  if ( PreviousMode && a2 )
+  if ( PreviousMode && PreviousSuspendCount )
   {
-    ULongFromUser = RtlReadULongFromUser(a2);
-    RtlWriteULongToUser(a2, ULongFromUser);
+    ULongFromUser = RtlReadULongFromUser(PreviousSuspendCount);
+    RtlWriteULongToUser(PreviousSuspendCount, ULongFromUser);
   }
-  result = ObpReferenceObjectByHandleWithTag(BugCheckParameter1, 0x75537350u, (__int64)&Object, 0LL, 0LL);
-  if ( (int)result >= 0 )
+  result = ObpReferenceObjectByHandleWithTag((ULONG_PTR)ThreadHandle, 0x75537350u, (__int64)&Object, 0LL, 0LL);
+  if ( result >= 0 )
   {
     if ( PreviousMode && (*((_DWORD *)Object + 29) & 0x400) != 0 )
     {
       ObfDereferenceObjectWithTag(Object, 0x75537350u);
-      return 3221225506LL;
+      return -1073741790;
     }
     else
     {
       v9 = KeAlertResumeThread((__int64)Object, v7, v8);
       ObfDereferenceObjectWithTag(Object, 0x75537350u);
-      if ( a2 )
-        *a2 = v9;
-      return 0LL;
+      if ( PreviousSuspendCount )
+        *PreviousSuspendCount = v9;
+      return 0;
     }
   }
   return result;

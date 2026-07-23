@@ -16,20 +16,20 @@ __int64 __fastcall ExUnregisterExtension(struct _EX_RUNDOWN_REF *a1)
 {
   struct _KTHREAD *CurrentThread; // rax
   unsigned __int64 *p_Count; // rdi
-  _BYTE *v4; // rax
-  _BYTE *v5; // rbp
+  PRTL_BALANCED_NODE v4; // rax
+  PRTL_BALANCED_NODE v5; // rbp
   void (__fastcall *Count)(__int64, unsigned __int64); // rax
   void (__fastcall *v7)(__int64, unsigned __int64); // rax
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   p_Count = &a1[9].Count;
-  v4 = (_BYTE *)KeAbPreAcquire((ULONG_PTR)&a1[9], 0LL, 0LL);
+  v4 = KeAbPreAcquire((ULONG_PTR)&a1[9], 0LL, 0);
   v5 = v4;
   if ( _interlockedbittestandset64((volatile signed __int32 *)p_Count, 0LL) )
     ExfAcquirePushLockExclusiveEx(p_Count, v4, (ULONG_PTR)p_Count);
   if ( v5 )
-    v5[26] |= 1u;
+    BYTE2(v5[1].Left) |= 1u;
   Count = (void (__fastcall *)(__int64, unsigned __int64))a1[6].Count;
   if ( Count )
     Count(2LL, a1[7].Count);

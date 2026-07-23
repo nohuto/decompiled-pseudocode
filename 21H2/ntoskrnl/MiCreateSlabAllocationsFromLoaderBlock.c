@@ -1,14 +1,14 @@
 /*
- * XREFs of MiCreateSlabAllocationsFromLoaderBlock @ 0x140A564C0
+ * XREFs of MiCreateSlabAllocationsFromLoaderBlock @ 0x140A574C0
  * Callers:
- *     MiInitSystem @ 0x140A53E5C (MiInitSystem.c)
+ *     MiInitSystem @ 0x140A54E5C (MiInitSystem.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140262C90 (VslpEnterIumSecureMode.c)
- *     MiGetSlabAllocator @ 0x1402E824C (MiGetSlabAllocator.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     memset @ 0x140414200 (memset.c)
- *     MiCreateBootSlabEntries @ 0x140A4F8C0 (MiCreateBootSlabEntries.c)
+ *     VslpEnterIumSecureMode @ 0x1402840D0 (VslpEnterIumSecureMode.c)
+ *     MiGetSlabAllocator @ 0x14029959C (MiGetSlabAllocator.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     MiCreateBootSlabEntries @ 0x140A508C0 (MiCreateBootSlabEntries.c)
  */
 
 __int64 __fastcall MiCreateSlabAllocationsFromLoaderBlock(__int64 a1)
@@ -22,7 +22,7 @@ __int64 __fastcall MiCreateSlabAllocationsFromLoaderBlock(__int64 a1)
   ULONG_PTR v8; // rcx
   _QWORD v9[14]; // [rsp+30h] [rbp-88h] BYREF
 
-  if ( (dword_140C50D84 & 8) != 0 )
+  if ( (dword_140C50DC4 & 8) != 0 )
   {
     v3 = (__int64 **)(a1 + 32);
     SlabAllocator = MiGetSlabAllocator((__int64)&MiSystemPartition, 0, 24);
@@ -45,7 +45,7 @@ __int64 __fastcall MiCreateSlabAllocationsFromLoaderBlock(__int64 a1)
   if ( (MiFlags & 0x8000) != 0 )
   {
     memset(v9, 0, 0x68uLL);
-    v9[1] = ((unsigned int)dword_140C50D84 >> 3) & 1;
+    v9[1] = ((unsigned int)dword_140C50DC4 >> 3) & 1;
     return (unsigned int)VslpEnterIumSecureMode(2u, 219, 0, (__int64)v9);
   }
   return (unsigned int)BootSlabEntries;

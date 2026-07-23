@@ -11,7 +11,7 @@
 
 __int64 __fastcall HvlSvmGetDeviceCapabilities(int a1, __int64 a2)
 {
-  union _SLIST_HEADER *v2; // rsi
+  _SLIST_HEADER *v2; // rsi
   char v3; // r15
   unsigned __int8 v4; // bp
   _QWORD *p_Next; // rbx
@@ -21,7 +21,7 @@ __int64 __fastcall HvlSvmGetDeviceCapabilities(int a1, __int64 a2)
   char *v9; // rdi
   PHYSICAL_ADDRESS PhysicalAddress; // r14
   PSLIST_ENTRY v11; // rax
-  struct _SLIST_ENTRY *v12; // r13
+  _SLIST_ENTRY *v12; // r13
   unsigned __int16 v13; // bx
   int v14; // edx
   int v15; // ecx
@@ -33,10 +33,10 @@ __int64 __fastcall HvlSvmGetDeviceCapabilities(int a1, __int64 a2)
   char v22; // [rsp+24h] [rbp-E4h]
   PHYSICAL_ADDRESS Next; // [rsp+28h] [rbp-E0h]
   PSLIST_ENTRY ListEntry; // [rsp+30h] [rbp-D8h]
-  union _SLIST_HEADER *v26; // [rsp+48h] [rbp-C0h]
-  struct _SLIST_ENTRY *v27; // [rsp+50h] [rbp-B8h]
-  union _SLIST_HEADER *v28; // [rsp+68h] [rbp-A0h]
-  struct _SLIST_ENTRY *v29; // [rsp+70h] [rbp-98h]
+  _SLIST_HEADER *v26; // [rsp+48h] [rbp-C0h]
+  _SLIST_ENTRY *v27; // [rsp+50h] [rbp-B8h]
+  _SLIST_HEADER *v28; // [rsp+68h] [rbp-A0h]
+  _SLIST_ENTRY *v29; // [rsp+70h] [rbp-98h]
   _BYTE v31[7]; // [rsp+88h] [rbp-80h] BYREF
   _BYTE v32[17]; // [rsp+97h] [rbp-71h] BYREF
   _BYTE v33[7]; // [rsp+A8h] [rbp-60h] BYREF
@@ -56,7 +56,7 @@ __int64 __fastcall HvlSvmGetDeviceCapabilities(int a1, __int64 a2)
       v4 = (unsigned __int8)CurrentPrcb;
       Next = (PHYSICAL_ADDRESS)v7[1].Next;
       v22 = 1;
-      v28 = (union _SLIST_HEADER *)CurrentPrcb;
+      v28 = (_SLIST_HEADER *)CurrentPrcb;
     }
     else
     {
@@ -87,7 +87,7 @@ __int64 __fastcall HvlSvmGetDeviceCapabilities(int a1, __int64 a2)
   }
   if ( (HvlpFlags & 0x10) != 0 )
   {
-    v2 = (union _SLIST_HEADER *)KeGetCurrentPrcb();
+    v2 = (_SLIST_HEADER *)KeGetCurrentPrcb();
     v11 = RtlpInterlockedPopEntrySList(v2 + 1535);
     v9 = (char *)v11;
     if ( v11 )

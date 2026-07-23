@@ -1,9 +1,9 @@
 /*
  * XREFs of BgpGxParseBitmap @ 0x140AEC42C
  * Callers:
- *     BgpGxProcessQrCodeBitmap @ 0x140384B58 (BgpGxProcessQrCodeBitmap.c)
+ *     BgpGxProcessQrCodeBitmap @ 0x140384D38 (BgpGxProcessQrCodeBitmap.c)
  *     AnFwDisplayFade @ 0x140AEC9E8 (AnFwDisplayFade.c)
- *     BgpGxDrawBitmapImage @ 0x140AF2720 (BgpGxDrawBitmapImage.c)
+ *     BgpGxDrawBitmapImage @ 0x140AF2730 (BgpGxDrawBitmapImage.c)
  * Callees:
  *     BgpGxCopyBitmapToRectangle @ 0x140AEC388 (BgpGxCopyBitmapToRectangle.c)
  *     BgpGxRectangleDestroy @ 0x140AEDA70 (BgpGxRectangleDestroy.c)

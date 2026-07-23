@@ -40,7 +40,7 @@
 __int64 __fastcall CmpSecurityMethod(
         ULONG_PTR *a1,
         int a2,
-        ULONG *a3,
+        DWORD *a3,
         void *a4,
         ULONG *a5,
         __int64 a6,

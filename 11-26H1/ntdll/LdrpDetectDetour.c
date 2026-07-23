@@ -1,13 +1,13 @@
 /*
- * XREFs of LdrpDetectDetour @ 0x180064B60
+ * XREFs of LdrpDetectDetour @ 0x180084FB0
  * Callers:
- *     LdrpLoadDllInternal @ 0x1800520B0 (LdrpLoadDllInternal.c)
- *     LdrpEnableParallelLoading @ 0x1800649F0 (LdrpEnableParallelLoading.c)
+ *     LdrpLoadDllInternal @ 0x18003C630 (LdrpLoadDllInternal.c)
+ *     LdrpEnableParallelLoading @ 0x180084E40 (LdrpEnableParallelLoading.c)
  * Callees:
- *     LdrpLogInternal @ 0x180046B90 (LdrpLogInternal.c)
- *     TpReleaseWork @ 0x180064C60 (TpReleaseWork.c)
- *     TpWaitForWork @ 0x180064D50 (TpWaitForWork.c)
- *     ZwQueryInformationThread @ 0x18015F3E0 (ZwQueryInformationThread.c)
+ *     LdrpLogInternal @ 0x180031100 (LdrpLogInternal.c)
+ *     TpReleaseWork @ 0x1800850B0 (TpReleaseWork.c)
+ *     TpWaitForWork @ 0x1800851A0 (TpWaitForWork.c)
+ *     ZwQueryInformationThread @ 0x18015F2E0 (ZwQueryInformationThread.c)
  */
 
 void LdrpDetectDetour()
@@ -16,9 +16,9 @@ void LdrpDetectDetour()
   unsigned int i; // ecx
   _QWORD *v2; // r8
   __int64 v3; // rax
-  int v4; // [rsp+40h] [rbp+8h] BYREF
+  int ThreadInformation; // [rsp+40h] [rbp+8h] BYREF
 
-  v4 = 0;
+  ThreadInformation = 0;
   if ( !LdrpDetourExist )
   {
     v0 = &LdrpThunkSignature;
@@ -31,8 +31,8 @@ void LdrpDetectDetour()
       if ( v3 )
       {
         LdrpLogInternal(
-          (int)"minkernel\\ldr\\ldrmap.c",
-          4335,
+          "minkernel\\ldr\\ldrmap.c",
+          4380,
           (__int64)"LdrpDetectDetour",
           2,
           "!!! Detour detected, disable parallel loading\n");
@@ -41,7 +41,13 @@ void LdrpDetectDetour()
       }
       v0 += 2;
     }
-    if ( (int)ZwQueryInformationThread(-2LL, 42LL, &v4, 4LL, 0LL) >= 0 && v4 == 1 )
+    if ( ZwQueryInformationThread(
+           (HANDLE)0xFFFFFFFFFFFFFFFELL,
+           ThreadDynamicCodePolicyInfo,
+           &ThreadInformation,
+           4u,
+           0LL) >= 0
+      && ThreadInformation == 1 )
     {
       LdrpDetourExist = 1;
     }
@@ -51,7 +57,7 @@ void LdrpDetectDetour()
     }
     if ( LdrpMapAndSnapWork )
     {
-      TpWaitForWork(LdrpMapAndSnapWork, 1LL);
+      TpWaitForWork(LdrpMapAndSnapWork, 1u);
       TpReleaseWork(LdrpMapAndSnapWork);
       LdrpMapAndSnapWork = 0LL;
     }

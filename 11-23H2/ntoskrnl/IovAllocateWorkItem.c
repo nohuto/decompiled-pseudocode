@@ -1,9 +1,9 @@
 /*
- * XREFs of IovAllocateWorkItem @ 0x140AC0F20
+ * XREFs of IovAllocateWorkItem @ 0x140AC0F10
  * Callers:
  *     <none>
  * Callees:
- *     VfHandlePoolAlloc @ 0x140AD0FE0 (VfHandlePoolAlloc.c)
+ *     VfHandlePoolAlloc @ 0x140AD0FD0 (VfHandlePoolAlloc.c)
  */
 
 __int64 __fastcall IovAllocateWorkItem(__int64 a1, __int64 a2)

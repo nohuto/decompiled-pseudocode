@@ -1,10 +1,10 @@
 /*
- * XREFs of ExSetResourceOwnerPointer @ 0x14043B340
+ * XREFs of ExSetResourceOwnerPointer @ 0x14042DBF0
  * Callers:
- *     CcSetBcbOwnerPointer @ 0x14078A200 (CcSetBcbOwnerPointer.c)
+ *     CcSetBcbOwnerPointer @ 0x14078CD30 (CcSetBcbOwnerPointer.c)
  * Callees:
- *     ExpSetResourceOwnerPointerEx @ 0x14043B3BC (ExpSetResourceOwnerPointerEx.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     ExpSetResourceOwnerPointerEx @ 0x14042DC6C (ExpSetResourceOwnerPointerEx.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 void __stdcall ExSetResourceOwnerPointer(PERESOURCE Resource, PVOID OwnerPointer)

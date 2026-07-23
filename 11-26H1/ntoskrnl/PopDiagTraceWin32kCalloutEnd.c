@@ -1,11 +1,11 @@
 /*
- * XREFs of PopDiagTraceWin32kCalloutEnd @ 0x140ABCDC4
+ * XREFs of PopDiagTraceWin32kCalloutEnd @ 0x140ABEBE4
  * Callers:
- *     PopInvokeWin32Callout @ 0x140ABCA7C (PopInvokeWin32Callout.c)
+ *     PopInvokeWin32Callout @ 0x140ABE89C (PopInvokeWin32Callout.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void __fastcall PopDiagTraceWin32kCalloutEnd(int a1, __int64 a2, int a3)
@@ -46,9 +46,9 @@ void __fastcall PopDiagTraceWin32kCalloutEnd(int a1, __int64 a2, int a3)
     {
       v5 = (const EVENT_DESCRIPTOR *)POP_ETW_EVENT_WIN32_EVENT_CALLOUT_END;
     }
-    if ( byte_140E67628 )
+    if ( PopDiagHandleRegistered )
     {
-      if ( EtwEventEnabled(*(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16], v5) )
+      if ( EtwEventEnabled(PopDiagHandle, v5) )
       {
         UserData.Ptr = (ULONGLONG)&v12;
         *(_QWORD *)&UserData.Size = 8LL;
@@ -56,7 +56,7 @@ void __fastcall PopDiagTraceWin32kCalloutEnd(int a1, __int64 a2, int a3)
         v9 = 4LL;
         v10 = &v6;
         v11 = 4LL;
-        EtwWrite(*(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16], v5, 0LL, 3u, &UserData);
+        EtwWrite(PopDiagHandle, v5, 0LL, 3u, &UserData);
       }
     }
   }

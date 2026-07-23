@@ -1,25 +1,25 @@
 /*
- * XREFs of KeStartThread @ 0x1400D39B4
+ * XREFs of KeStartThread @ 0x1400D3A34
  * Callers:
- *     KiInitializeIdleThread @ 0x140571E48 (KiInitializeIdleThread.c)
- *     PspInsertThread @ 0x140621450 (PspInsertThread.c)
+ *     KiInitializeIdleThread @ 0x140572E48 (KiInitializeIdleThread.c)
+ *     PspInsertThread @ 0x140622450 (PspInsertThread.c)
  * Callees:
  *     KiFreezeSingleThread @ 0x140002A34 (KiFreezeSingleThread.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14007B720 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     KxAcquireQueuedSpinLock @ 0x1400AC9B0 (KxAcquireQueuedSpinLock.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     KiUpdateThreadPriority @ 0x1400D0D40 (KiUpdateThreadPriority.c)
- *     KiUpdateSharedReadyQueueAffinityThread @ 0x1400D15C4 (KiUpdateSharedReadyQueueAffinityThread.c)
- *     KiUpdateNodeAffinitizedFlag @ 0x1400D55BC (KiUpdateNodeAffinitizedFlag.c)
- *     KiSelectIdealProcessor @ 0x1400D5668 (KiSelectIdealProcessor.c)
- *     KiAcquireKobjectLockSafe @ 0x1400FBE10 (KiAcquireKobjectLockSafe.c)
- *     KeSelectNodeForAffinity @ 0x140115768 (KeSelectNodeForAffinity.c)
- *     KeFirstGroupAffinityEx @ 0x14012E230 (KeFirstGroupAffinityEx.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KiExtendProcessAffinity @ 0x14029C080 (KiExtendProcessAffinity.c)
- *     EtwTraceIdealProcessor @ 0x14030FE0C (EtwTraceIdealProcessor.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14007B710 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     KxAcquireQueuedSpinLock @ 0x1400AC8F0 (KxAcquireQueuedSpinLock.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC5A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     KiUpdateThreadPriority @ 0x1400D0DC0 (KiUpdateThreadPriority.c)
+ *     KiUpdateSharedReadyQueueAffinityThread @ 0x1400D1644 (KiUpdateSharedReadyQueueAffinityThread.c)
+ *     KiUpdateNodeAffinitizedFlag @ 0x1400D563C (KiUpdateNodeAffinitizedFlag.c)
+ *     KiSelectIdealProcessor @ 0x1400D56E8 (KiSelectIdealProcessor.c)
+ *     KiAcquireKobjectLockSafe @ 0x1400FBE90 (KiAcquireKobjectLockSafe.c)
+ *     KeSelectNodeForAffinity @ 0x1401157D8 (KeSelectNodeForAffinity.c)
+ *     KeFirstGroupAffinityEx @ 0x14012E300 (KeFirstGroupAffinityEx.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiExtendProcessAffinity @ 0x14029C270 (KiExtendProcessAffinity.c)
+ *     EtwTraceIdealProcessor @ 0x14030FFFC (EtwTraceIdealProcessor.c)
  */
 
 __int64 __fastcall KeStartThread(__int64 a1, unsigned __int64 *a2, unsigned int *a3)
@@ -140,14 +140,14 @@ __int64 __fastcall KeStartThread(__int64 a1, unsigned __int64 *a2, unsigned int 
     v33[0] = 0LL;
     v33[1] = KiProcessListLock;
     KxAcquireQueuedSpinLock((__int64)v33, KiProcessListLock, v12);
-    v24 = (_LIST_ENTRY **)qword_140421D18;
+    v24 = (_LIST_ENTRY **)qword_140422DE8;
     p_ProcessListEntry = &v9->ProcessListEntry;
-    if ( *(__int64 **)qword_140421D18 != &KiProcessListHead )
+    if ( *(__int64 **)qword_140422DE8 != &KiProcessListHead )
       goto LABEL_51;
-    v9->ProcessListEntry.Blink = (struct _LIST_ENTRY *)qword_140421D18;
+    v9->ProcessListEntry.Blink = (struct _LIST_ENTRY *)qword_140422DE8;
     p_ProcessListEntry->Flink = (struct _LIST_ENTRY *)&KiProcessListHead;
     *v24 = p_ProcessListEntry;
-    qword_140421D18 = (__int64)&v9->ProcessListEntry;
+    qword_140422DE8 = (__int64)&v9->ProcessListEntry;
     KxReleaseQueuedSpinLock(v33);
   }
   *(_DWORD *)(a1 + 120) ^= (*(_DWORD *)(a1 + 120) ^ (*(_DWORD *)&v9->0 << 6)) & 0x100;
@@ -202,10 +202,10 @@ LABEL_51:
   }
   result = v32;
   __writecr8(v32);
-  if ( (xmmword_140541350 & 0x8000000) != 0 )
+  if ( (xmmword_140542350 & 0x8000000) != 0 )
   {
     result = EtwTraceIdealProcessor(a1, 1350LL, 0xFFFFFFFFLL, v15);
-    if ( (xmmword_140541350 & 0x8000000) != 0 )
+    if ( (xmmword_140542350 & 0x8000000) != 0 )
       result = EtwTraceIdealProcessor(a1, 1351LL, 0xFFFFFFFFLL, v15);
   }
   _InterlockedExchangeAdd(&v9->StackCount.Value, 8u);

@@ -1,5 +1,5 @@
 /*
- * XREFs of VerifierPoFxSetComponentResidency @ 0x14070CBF0
+ * XREFs of VerifierPoFxSetComponentResidency @ 0x14070CC20
  * Callers:
  *     <none>
  * Callees:

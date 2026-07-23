@@ -1,17 +1,17 @@
 /*
- * XREFs of MiReplenishCloneLeafPage @ 0x14030E9E0
+ * XREFs of MiReplenishCloneLeafPage @ 0x1402F0A60
  * Callers:
- *     MiHandleForkValidPteCopy @ 0x14030DAD8 (MiHandleForkValidPteCopy.c)
- *     MiHandleForkTransitionPte @ 0x14030E420 (MiHandleForkTransitionPte.c)
+ *     MiHandleForkValidPteCopy @ 0x1402EFB58 (MiHandleForkValidPteCopy.c)
+ *     MiHandleForkTransitionPte @ 0x1402F04A0 (MiHandleForkTransitionPte.c)
  * Callees:
- *     MiGetPage @ 0x1402866A0 (MiGetPage.c)
- *     MiUnlockWorkingSetShared @ 0x1402EB6C0 (MiUnlockWorkingSetShared.c)
- *     MiLockWorkingSetShared @ 0x1402EDD60 (MiLockWorkingSetShared.c)
- *     MiMakeSystemAddressValid @ 0x1403028C0 (MiMakeSystemAddressValid.c)
- *     MiUnlockClonePageTable @ 0x14030B67C (MiUnlockClonePageTable.c)
- *     MiComputePreferredNode @ 0x14030EAE0 (MiComputePreferredNode.c)
- *     MiInitializePageColorBase @ 0x14036FE20 (MiInitializePageColorBase.c)
- *     MiWaitForFreePage @ 0x1403D1DB4 (MiWaitForFreePage.c)
+ *     MiGetPage @ 0x140285C00 (MiGetPage.c)
+ *     MiUnlockWorkingSetShared @ 0x1402CD700 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x1402CFDE0 (MiLockWorkingSetShared.c)
+ *     MiMakeSystemAddressValid @ 0x1402E4940 (MiMakeSystemAddressValid.c)
+ *     MiUnlockClonePageTable @ 0x1402ED6FC (MiUnlockClonePageTable.c)
+ *     MiComputePreferredNode @ 0x1402F0B60 (MiComputePreferredNode.c)
+ *     MiInitializePageColorBase @ 0x140371BD0 (MiInitializePageColorBase.c)
+ *     MiWaitForFreePage @ 0x1403D4D84 (MiWaitForFreePage.c)
  */
 
 __int64 __fastcall MiReplenishCloneLeafPage(__int64 a1)
@@ -36,7 +36,7 @@ __int64 __fastcall MiReplenishCloneLeafPage(__int64 a1)
   v15 = 0LL;
   v3 = *(_QWORD *)a1;
   v5 = MiComputePreferredNode(*(_QWORD *)(a1 + 8) + 1024LL, *(_QWORD *)(a1 + 272)) + 1;
-  v6 = *(_QWORD *)(stru_140E2EB88.ThreadLock + 8LL * *(unsigned __int16 *)(v4 + 1198));
+  v6 = *(_QWORD *)(stru_140E2ED08.ThreadLock + 8LL * *(unsigned __int16 *)(v4 + 1198));
   MiInitializePageColorBase(v4 + 1024, 3LL, v5, &v15);
   v7 = (unsigned __int8)_InterlockedExchangeAdd((volatile signed __int32 *)v15, 1u);
   v8 = DWORD2(v15) & 0xFFFFFF00 | v7;

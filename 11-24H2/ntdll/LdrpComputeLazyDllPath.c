@@ -1,76 +1,64 @@
 /*
- * XREFs of LdrpComputeLazyDllPath @ 0x180083D90
+ * XREFs of LdrpComputeLazyDllPath @ 0x180005C40
  * Callers:
- *     LdrpSearchPath @ 0x1800754F0 (LdrpSearchPath.c)
+ *     LdrpSearchPath @ 0x180091DD0 (LdrpSearchPath.c)
  * Callees:
- *     LdrpLogInternal @ 0x180013D80 (LdrpLogInternal.c)
- *     RtlAcquireSRWLockExclusive @ 0x180055AE0 (RtlAcquireSRWLockExclusive.c)
- *     RtlReleaseSRWLockExclusive @ 0x1800567B0 (RtlReleaseSRWLockExclusive.c)
- *     LdrpGetDllPath @ 0x180083EF0 (LdrpGetDllPath.c)
+ *     LdrpGetDllPath @ 0x180005DA0 (LdrpGetDllPath.c)
+ *     LdrpLogInternal @ 0x180040780 (LdrpLogInternal.c)
+ *     RtlAcquireSRWLockExclusive @ 0x18006B6C0 (RtlAcquireSRWLockExclusive.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18006C390 (RtlReleaseSRWLockExclusive.c)
  */
 
-__int64 __fastcall LdrpComputeLazyDllPath(__int64 a1, volatile signed __int32 **a2, unsigned __int64 a3)
+__int64 __fastcall LdrpComputeLazyDllPath(__int64 a1)
 {
-  unsigned int v4; // edi
+  unsigned int v2; // edi
   int DllPath; // eax
-  __int64 v6; // rcx
-  __int64 v7; // rax
-  __int64 v9; // [rsp+50h] [rbp+8h] BYREF
-  __int64 v10; // [rsp+58h] [rbp+10h] BYREF
-  __int64 v11; // [rsp+60h] [rbp+18h] BYREF
+  __int64 v4; // rax
+  __int64 v6; // [rsp+60h] [rbp+18h] BYREF
 
-  v10 = 0LL;
-  v9 = 0LL;
-  v11 = 0LL;
-  v4 = 0;
-  RtlAcquireSRWLockExclusive((volatile signed __int32 *)&LdrpPathLock, a2, a3);
+  v6 = 0LL;
+  v2 = 0;
+  RtlAcquireSRWLockExclusive(&LdrpPathLock);
   if ( !*(_QWORD *)a1 )
   {
-    DllPath = LdrpGetDllPath(
-                *(_QWORD *)(a1 + 32),
-                *(_DWORD *)(a1 + 24),
-                (unsigned int)&v9,
-                (unsigned int)&v10,
-                a1 + 120,
-                a1 + 40,
-                (__int64)&v11);
-    v4 = DllPath;
+    DllPath = LdrpGetDllPath(*(PCWSTR *)(a1 + 32), a1 + 120, a1 + 40, (__int64)&v6);
+    v2 = DllPath;
     if ( DllPath < 0 )
     {
       LdrpLogInternal(
-        (__int64)"minkernel\\ldr\\ldrutil.c",
-        1587,
-        (__int64)"LdrpComputeLazyDllPath",
-        0,
+        "minkernel\\ldr\\ldrutil.c",
+        1587LL,
+        "LdrpComputeLazyDllPath",
+        0LL,
         "Lazy DLL search path computation failed with status: 0x%08lx.\n",
         DllPath);
     }
     else
     {
-      v6 = v9;
-      *(_QWORD *)(a1 + 8) = v10;
-      v7 = v11;
+      *(_QWORD *)(a1 + 8) = 0LL;
+      v4 = v6;
       *(_BYTE *)(a1 + 124) = 1;
-      *(_QWORD *)a1 = v6;
-      *(_QWORD *)(a1 + 16) = v7;
-      if ( v7 )
+      *(_QWORD *)a1 = 0LL;
+      *(_QWORD *)(a1 + 16) = v4;
+      if ( v4 )
         LdrpLogInternal(
-          (__int64)"minkernel\\ldr\\ldrutil.c",
-          1604,
-          (__int64)"LdrpComputeLazyDllPath",
-          2,
+          "minkernel\\ldr\\ldrutil.c",
+          1604LL,
+          "LdrpComputeLazyDllPath",
+          2LL,
           "Packaged DLL search path computed. Package Dirs: %ws, DllPath: %ws\n",
-          v7);
+          v4,
+          0LL);
       else
         LdrpLogInternal(
-          (__int64)"minkernel\\ldr\\ldrutil.c",
-          1598,
-          (__int64)"LdrpComputeLazyDllPath",
-          2,
+          "minkernel\\ldr\\ldrutil.c",
+          1598LL,
+          "LdrpComputeLazyDllPath",
+          2LL,
           "DLL search path computed: %ws\n",
-          v6);
+          0LL);
     }
   }
   RtlReleaseSRWLockExclusive(&LdrpPathLock);
-  return v4;
+  return v2;
 }

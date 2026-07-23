@@ -1,9 +1,9 @@
 /*
- * XREFs of XmImulxOp @ 0x1404E6DC0
+ * XREFs of XmImulxOp @ 0x1404E7000
  * Callers:
- *     XmEmulateStream @ 0x140397208 (XmEmulateStream.c)
+ *     XmEmulateStream @ 0x140397358 (XmEmulateStream.c)
  * Callees:
- *     XmStoreResult @ 0x140396DC0 (XmStoreResult.c)
+ *     XmStoreResult @ 0x140396F10 (XmStoreResult.c)
  */
 
 __int64 __fastcall XmImulxOp(int *a1)

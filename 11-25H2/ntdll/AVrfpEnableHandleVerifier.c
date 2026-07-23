@@ -9,17 +9,19 @@
 
 __int64 AVrfpEnableHandleVerifier()
 {
-  int v0; // ebx
-  int v1; // eax
+  NTSTATUS v0; // ebx
+  NTSTATUS v1; // eax
   int v3; // [rsp+30h] [rbp+8h] BYREF
-  __int64 v4; // [rsp+38h] [rbp+10h] BYREF
+  __int64 ProcessInformation; // [rsp+38h] [rbp+10h] BYREF
 
-  v4 = 0LL;
+  ProcessInformation = 0LL;
   if ( !AVrfpHandleTraces
-    || (HIDWORD(v4) = AVrfpHandleTraces, v0 = NtSetInformationProcess(-1LL, 32LL, &v4, 8LL), v0 < 0) )
+    || (HIDWORD(ProcessInformation) = AVrfpHandleTraces,
+        v0 = NtSetInformationProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, ProcessHandleTracing, &ProcessInformation, 8u),
+        v0 < 0) )
   {
     v3 = 0;
-    v1 = NtSetInformationProcess(-1LL, 32LL, &v3, 4LL);
+    v1 = NtSetInformationProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, ProcessHandleTracing, &v3, 4u);
     v0 = v1;
     if ( v1 < 0 )
       DbgPrint("AVRF: failed to enable handle checking (status %X) \n", v1);

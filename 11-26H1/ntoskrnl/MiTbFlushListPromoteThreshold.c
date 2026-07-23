@@ -1,9 +1,9 @@
 /*
- * XREFs of MiTbFlushListPromoteThreshold @ 0x1402A4C50
+ * XREFs of MiTbFlushListPromoteThreshold @ 0x1402A41A0
  * Callers:
- *     MiConsumeSystemCacheTbFlushNeededView @ 0x1402A3488 (MiConsumeSystemCacheTbFlushNeededView.c)
- *     MiFlushTbNowToAvoidOverflow @ 0x1402A3668 (MiFlushTbNowToAvoidOverflow.c)
- *     MiReleasePteMappings @ 0x1402A3B00 (MiReleasePteMappings.c)
+ *     MiConsumeSystemCacheTbFlushNeededView @ 0x1402A29D8 (MiConsumeSystemCacheTbFlushNeededView.c)
+ *     MiFlushTbNowToAvoidOverflow @ 0x1402A2BB8 (MiFlushTbNowToAvoidOverflow.c)
+ *     MiReleasePteMappings @ 0x1402A3050 (MiReleasePteMappings.c)
  * Callees:
  *     <none>
  */
@@ -22,6 +22,6 @@ __int64 __fastcall MiTbFlushListPromoteThreshold(__int64 a1)
   }
   else
   {
-    return qword_140E2D790;
+    return qword_140E2D910;
   }
 }

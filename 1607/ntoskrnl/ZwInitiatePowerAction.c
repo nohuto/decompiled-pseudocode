@@ -1,7 +1,7 @@
 /*
- * XREFs of ZwInitiatePowerAction @ 0x14015BB20
+ * XREFs of ZwInitiatePowerAction @ 0x14015C090
  * Callers:
- *     PoShutdownBugCheck @ 0x14066E8B4 (PoShutdownBugCheck.c)
+ *     PoShutdownBugCheck @ 0x14066E998 (PoShutdownBugCheck.c)
  * Callees:
  *     <none>
  */
@@ -15,5 +15,5 @@ NTSTATUS __stdcall ZwInitiatePowerAction(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(*(_QWORD *)&SystemAction, *(_QWORD *)&MinSystemState, *(_QWORD *)&Flags);
+  return KiServiceInternal(*(_QWORD *)&SystemAction);
 }

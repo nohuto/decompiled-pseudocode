@@ -1,15 +1,15 @@
 /*
- * XREFs of DifReleaseSpinLockFromDpcLevelSafe @ 0x14064D224
+ * XREFs of DifReleaseSpinLockFromDpcLevelSafe @ 0x140650E04
  * Callers:
- *     DifObjTrkRemoveItem @ 0x1403ADC70 (DifObjTrkRemoveItem.c)
- *     DifObjTrkQeuryInvokeDeleteRange @ 0x14051C810 (DifObjTrkQeuryInvokeDeleteRange.c)
- *     DifObjTrkInsertItem @ 0x14064AED0 (DifObjTrkInsertItem.c)
- *     DifObjTrkLookupItem @ 0x14064B060 (DifObjTrkLookupItem.c)
- *     DifTerminateObjectTracking @ 0x14064B400 (DifTerminateObjectTracking.c)
+ *     DifObjTrkRemoveItem @ 0x1403B7980 (DifObjTrkRemoveItem.c)
+ *     DifObjTrkQeuryInvokeDeleteRange @ 0x14051E9C0 (DifObjTrkQeuryInvokeDeleteRange.c)
+ *     DifObjTrkInsertItem @ 0x14064EAB0 (DifObjTrkInsertItem.c)
+ *     DifObjTrkLookupItem @ 0x14064EC40 (DifObjTrkLookupItem.c)
+ *     DifTerminateObjectTracking @ 0x14064EFE0 (DifTerminateObjectTracking.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402DC6D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402BE490 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
  */
 
 unsigned __int8 __fastcall DifReleaseSpinLockFromDpcLevelSafe(unsigned __int8 *a1, __int64 a2)

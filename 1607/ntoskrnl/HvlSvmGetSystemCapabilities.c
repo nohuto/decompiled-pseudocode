@@ -1,15 +1,15 @@
 /*
- * XREFs of HvlSvmGetSystemCapabilities @ 0x1401BE474
+ * XREFs of HvlSvmGetSystemCapabilities @ 0x1401BE358
  * Callers:
  *     <none>
  * Callees:
- *     HviGetHypervisorFeatures @ 0x14014AF24 (HviGetHypervisorFeatures.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     HvlpAcquireHypercallPage @ 0x1401BB294 (HvlpAcquireHypercallPage.c)
- *     HvlpReleaseHypercallPage @ 0x1401BBD4C (HvlpReleaseHypercallPage.c)
- *     HvlpGetRegister128 @ 0x1401C1340 (HvlpGetRegister128.c)
- *     HviGetHardwareFeatures @ 0x140231EDC (HviGetHardwareFeatures.c)
- *     HviGetHypervisorVendorAndMaxFunction @ 0x140231F40 (HviGetHypervisorVendorAndMaxFunction.c)
+ *     HviGetHypervisorFeatures @ 0x14014B494 (HviGetHypervisorFeatures.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     HvlpAcquireHypercallPage @ 0x1401BB178 (HvlpAcquireHypercallPage.c)
+ *     HvlpReleaseHypercallPage @ 0x1401BBC30 (HvlpReleaseHypercallPage.c)
+ *     HvlpGetRegister128 @ 0x1401C1224 (HvlpGetRegister128.c)
+ *     HviGetHardwareFeatures @ 0x140231D08 (HviGetHardwareFeatures.c)
+ *     HviGetHypervisorVendorAndMaxFunction @ 0x140231D6C (HviGetHypervisorVendorAndMaxFunction.c)
  */
 
 char __fastcall HvlSvmGetSystemCapabilities(__int64 a1)

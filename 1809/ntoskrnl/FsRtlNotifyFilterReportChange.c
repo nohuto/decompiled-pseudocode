@@ -1,24 +1,24 @@
 /*
- * XREFs of FsRtlNotifyFilterReportChange @ 0x1406A0200
+ * XREFs of FsRtlNotifyFilterReportChange @ 0x1406A14A0
  * Callers:
- *     FsRtlNotifyFullReportChange @ 0x140816B50 (FsRtlNotifyFullReportChange.c)
- *     FsRtlNotifyReportChange @ 0x140816BB0 (FsRtlNotifyReportChange.c)
+ *     FsRtlNotifyFullReportChange @ 0x140817D50 (FsRtlNotifyFullReportChange.c)
+ *     FsRtlNotifyReportChange @ 0x140817DB0 (FsRtlNotifyReportChange.c)
  * Callees:
  *     RtlUIntAdd @ 0x140001568 (RtlUIntAdd.c)
  *     ExReleaseFastMutexUnsafe @ 0x140018980 (ExReleaseFastMutexUnsafe.c)
  *     ExAcquireFastMutexUnsafe @ 0x1400189C0 (ExAcquireFastMutexUnsafe.c)
  *     MmMapLockedPagesSpecifyCache @ 0x14005C0C0 (MmMapLockedPagesSpecifyCache.c)
- *     PsReturnProcessPagedPoolQuota @ 0x140090290 (PsReturnProcessPagedPoolQuota.c)
- *     PsChargePoolQuota @ 0x14011B0B0 (PsChargePoolQuota.c)
- *     FsRtlIsNtstatusExpected @ 0x14012F250 (FsRtlIsNtstatusExpected.c)
- *     memcmp @ 0x140196200 (memcmp.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     FsRtlNotifyCompleteIrpList @ 0x1406A13AC (FsRtlNotifyCompleteIrpList.c)
- *     FsRtlNotifyUpdateBuffer @ 0x1406A1AB4 (FsRtlNotifyUpdateBuffer.c)
- *     RtlxOemStringToUnicodeSize @ 0x1406F71B0 (RtlxOemStringToUnicodeSize.c)
+ *     PsReturnProcessPagedPoolQuota @ 0x1400901D0 (PsReturnProcessPagedPoolQuota.c)
+ *     PsChargePoolQuota @ 0x14011B120 (PsChargePoolQuota.c)
+ *     FsRtlIsNtstatusExpected @ 0x14012F320 (FsRtlIsNtstatusExpected.c)
+ *     memcmp @ 0x140196340 (memcmp.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     FsRtlNotifyCompleteIrpList @ 0x1406A264C (FsRtlNotifyCompleteIrpList.c)
+ *     FsRtlNotifyUpdateBuffer @ 0x1406A2D54 (FsRtlNotifyUpdateBuffer.c)
+ *     RtlxOemStringToUnicodeSize @ 0x1406F8450 (RtlxOemStringToUnicodeSize.c)
  */
 
 void __stdcall FsRtlNotifyFilterReportChange(
@@ -37,9 +37,9 @@ void __stdcall FsRtlNotifyFilterReportChange(
   PSTRING v11; // r15
   __int64 v13; // r8
   struct _KTHREAD *CurrentThread; // rbx
-  struct _LIST_ENTRY *Flink; // rbx
-  struct _LIST_ENTRY *v16; // rdi
-  struct _LIST_ENTRY *v17; // rbx
+  _LIST_ENTRY *Flink; // rbx
+  _LIST_ENTRY *v16; // rdi
+  _LIST_ENTRY *v17; // rbx
   char v18; // r11
   char v19; // r12
   struct _LIST_ENTRY *Blink; // r9
@@ -55,7 +55,7 @@ void __stdcall FsRtlNotifyFilterReportChange(
   struct _LIST_ENTRY *v30; // rax
   __int16 v31; // dx
   UINT Flink_high; // r13d
-  struct _LIST_ENTRY *v33; // rcx
+  _LIST_ENTRY *v33; // rcx
   __int16 v34; // dx
   char *v35; // r9
   int v36; // r8d
@@ -88,23 +88,23 @@ void __stdcall FsRtlNotifyFilterReportChange(
   unsigned __int16 v63; // [rsp+4Ch] [rbp-ECh]
   unsigned __int16 Length; // [rsp+50h] [rbp-E8h]
   int v66; // [rsp+54h] [rbp-E4h]
-  STRING OemString; // [rsp+68h] [rbp-D0h] BYREF
+  OEM_STRING OemString; // [rsp+68h] [rbp-D0h] BYREF
   __int64 v68; // [rsp+78h] [rbp-C0h]
   char *v69; // [rsp+80h] [rbp-B8h]
   int v70; // [rsp+88h] [rbp-B0h]
   unsigned int v71; // [rsp+8Ch] [rbp-ACh]
   int v72; // [rsp+90h] [rbp-A8h]
-  STRING v73; // [rsp+98h] [rbp-A0h] BYREF
+  OEM_STRING v73; // [rsp+98h] [rbp-A0h] BYREF
   UINT puResult[2]; // [rsp+A8h] [rbp-90h] BYREF
-  struct _LIST_ENTRY **p_Flink; // [rsp+B0h] [rbp-88h]
+  _LIST_ENTRY **p_Flink; // [rsp+B0h] [rbp-88h]
   struct _LIST_ENTRY **p_Blink; // [rsp+B8h] [rbp-80h]
-  struct _LIST_ENTRY *v77; // [rsp+C0h] [rbp-78h]
-  struct _LIST_ENTRY *v78; // [rsp+C8h] [rbp-70h]
-  struct _LIST_ENTRY *v79; // [rsp+D0h] [rbp-68h]
+  _LIST_ENTRY *v77; // [rsp+C0h] [rbp-78h]
+  _LIST_ENTRY *v78; // [rsp+C8h] [rbp-70h]
+  _LIST_ENTRY *v79; // [rsp+D0h] [rbp-68h]
   _WORD v80[4]; // [rsp+D8h] [rbp-60h] BYREF
   char *Buffer; // [rsp+E0h] [rbp-58h]
   NTSTATUS v82; // [rsp+E8h] [rbp-50h]
-  struct _LIST_ENTRY *v84; // [rsp+148h] [rbp+10h]
+  _LIST_ENTRY *v84; // [rsp+148h] [rbp+10h]
 
   v84 = NotifyList;
   v10 = TargetNameOffset;

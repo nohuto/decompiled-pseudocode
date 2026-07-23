@@ -1,382 +1,383 @@
 /*
- * XREFs of ExReleaseResourceLite @ 0x14025A450
+ * XREFs of ExReleaseResourceLite @ 0x14028AA60
  * Callers:
- *     SepMandatoryIntegrityCheck @ 0x140259F30 (SepMandatoryIntegrityCheck.c)
- *     KeCapturePersistentThreadState @ 0x140262B20 (KeCapturePersistentThreadState.c)
- *     CcUnpinFileDataEx @ 0x1402AB380 (CcUnpinFileDataEx.c)
- *     MiReleaseLoadLock @ 0x1402C7310 (MiReleaseLoadLock.c)
- *     SeSecurityAttributePresent @ 0x1403438C0 (SeSecurityAttributePresent.c)
- *     SepCanTokenMatchAllPackageSid @ 0x1403440B0 (SepCanTokenMatchAllPackageSid.c)
- *     SepQueueWorkItem @ 0x140349B84 (SepQueueWorkItem.c)
- *     SepRmCallLsa @ 0x14034A120 (SepRmCallLsa.c)
- *     SepDesktopAppxSubProcessToken @ 0x140355ABC (SepDesktopAppxSubProcessToken.c)
- *     SepInternalSetSecurityAttributesToken @ 0x1403571CC (SepInternalSetSecurityAttributesToken.c)
- *     SepTrustLevelCheck @ 0x140357F50 (SepTrustLevelCheck.c)
- *     SepInternalQuerySecurityAttributesTokenEx @ 0x140358240 (SepInternalQuerySecurityAttributesTokenEx.c)
- *     SepFilterCheck @ 0x14035B6A0 (SepFilterCheck.c)
- *     SeAccessCheckByType @ 0x14035C8A0 (SeAccessCheckByType.c)
- *     FsRtlReleaseFileForModWrite @ 0x140372004 (FsRtlReleaseFileForModWrite.c)
- *     FsRtlAcquireFileForModWriteEx @ 0x140372ABC (FsRtlAcquireFileForModWriteEx.c)
- *     SeTokenGetNoChildProcessRestricted @ 0x1404519E0 (SeTokenGetNoChildProcessRestricted.c)
- *     SepReleaseOrderedReadLocks @ 0x1404556B4 (SepReleaseOrderedReadLocks.c)
- *     SepExamineGlobalSaclEx @ 0x140462D6C (SepExamineGlobalSaclEx.c)
- *     IopCreateSecurityCheck @ 0x14046DA5C (IopCreateSecurityCheck.c)
- *     PnpUnregisterPlugPlayNotification @ 0x14046F240 (PnpUnregisterPlugPlayNotification.c)
- *     SepGetProcUniqueLuidAndIndexFromTokenEx @ 0x140477780 (SepGetProcUniqueLuidAndIndexFromTokenEx.c)
- *     IoCheckRedirectionTrustLevel @ 0x14047B300 (IoCheckRedirectionTrustLevel.c)
- *     SeTokenGetRedirectionTrustPolicy @ 0x14048CFA0 (SeTokenGetRedirectionTrustPolicy.c)
- *     SeTokenSetRedirectionTrustPolicy @ 0x14049759C (SeTokenSetRedirectionTrustPolicy.c)
- *     SeTokenSetNoChildProcessRestricted @ 0x1404B93F4 (SeTokenSetNoChildProcessRestricted.c)
- *     PiDmaGuardQueueRemoveEntry @ 0x1404BD344 (PiDmaGuardQueueRemoveEntry.c)
- *     IoCaptureLiveDump @ 0x1404E6068 (IoCaptureLiveDump.c)
- *     FsRtlpDedupChangeEventsControlCallbackV2 @ 0x1405818E0 (FsRtlpDedupChangeEventsControlCallbackV2.c)
- *     FsRtlpTieringHeatEventsControlCallbackV2 @ 0x140581DF0 (FsRtlpTieringHeatEventsControlCallbackV2.c)
- *     IoConfigureCrashDump @ 0x140590DB4 (IoConfigureCrashDump.c)
- *     IoFillTriageDumpBuffer @ 0x1405912CC (IoFillTriageDumpBuffer.c)
- *     IoUpdateDumpPhysicalRanges @ 0x140592538 (IoUpdateDumpPhysicalRanges.c)
- *     IoSetDeferredLiveDumpFileHandle @ 0x140597B68 (IoSetDeferredLiveDumpFileHandle.c)
- *     PiSwIrpCancelStartCreate @ 0x1405A8D00 (PiSwIrpCancelStartCreate.c)
- *     PiDrvDbUnloadNodeWaitWorkerCallback @ 0x1405A9910 (PiDrvDbUnloadNodeWaitWorkerCallback.c)
- *     RtlpAllocateHeap @ 0x1405EA9AC (RtlpAllocateHeap.c)
- *     RtlpFreeHeap @ 0x1405ECA10 (RtlpFreeHeap.c)
- *     RtlpSetupExtendedBlock @ 0x1405ED758 (RtlpSetupExtendedBlock.c)
- *     SeTokenIsNoChildProcessRestrictionEnforced @ 0x140609118 (SeTokenIsNoChildProcessRestrictionEnforced.c)
- *     SeSetSecurityAttributesTokenEx @ 0x1406092E0 (SeSetSecurityAttributesTokenEx.c)
- *     DifExReleaseResourceLiteWrapper @ 0x140620F70 (DifExReleaseResourceLiteWrapper.c)
- *     ExReleaseResourceAndLeavePriorityRegion @ 0x140656E00 (ExReleaseResourceAndLeavePriorityRegion.c)
- *     FsRtlMdlReadDev @ 0x14070A280 (FsRtlMdlReadDev.c)
- *     FsRtlPrepareMdlWriteDev @ 0x14070A4B0 (FsRtlPrepareMdlWriteDev.c)
- *     FsRtlDedupChangeUninit @ 0x14070CAB0 (FsRtlDedupChangeUninit.c)
- *     FsRtlpDedupChangeRegisterVolume @ 0x14070CCE0 (FsRtlpDedupChangeRegisterVolume.c)
- *     FsRtlpHeatRegisterVolume @ 0x14070D6DC (FsRtlpHeatRegisterVolume.c)
- *     FsRtlpHeatUnregisterVolume @ 0x14070D880 (FsRtlpHeatUnregisterVolume.c)
- *     IoInitializeCrashDump @ 0x140710A68 (IoInitializeCrashDump.c)
- *     IopBootLogToFile @ 0x140711A34 (IopBootLogToFile.c)
- *     IopCopyBootLogRegistryToFile @ 0x140711E7C (IopCopyBootLogRegistryToFile.c)
- *     IopInitializeBootLogging @ 0x140712428 (IopInitializeBootLogging.c)
- *     IoEnumerateRegisteredFiltersList @ 0x140714080 (IoEnumerateRegisteredFiltersList.c)
- *     IoRegisterFileSystem @ 0x1407142F0 (IoRegisterFileSystem.c)
- *     IoRegisterFsRegistrationChangeMountAware @ 0x1407144C0 (IoRegisterFsRegistrationChangeMountAware.c)
- *     IoUnregisterFileSystem @ 0x140714D40 (IoUnregisterFileSystem.c)
- *     IoUnregisterFsRegistrationChange @ 0x140714E00 (IoUnregisterFsRegistrationChange.c)
- *     PnpShutdownDevices @ 0x14071AAA0 (PnpShutdownDevices.c)
- *     IoReportDetectedDevice @ 0x14071C850 (IoReportDetectedDevice.c)
- *     IoReportRootDevice @ 0x14071D300 (IoReportRootDevice.c)
- *     PiGetDeviceRegistryProperty @ 0x14071EC28 (PiGetDeviceRegistryProperty.c)
- *     PnpNotifyHwProfileChange @ 0x140720684 (PnpNotifyHwProfileChange.c)
- *     PnpNotifyTargetDeviceChangeNotifyEntry @ 0x1407208D4 (PnpNotifyTargetDeviceChangeNotifyEntry.c)
- *     PpReleaseBootDDB @ 0x140724EC4 (PpReleaseBootDDB.c)
- *     PiPnpRtlEnsureObjectCached @ 0x1407264C8 (PiPnpRtlEnsureObjectCached.c)
- *     PpDevCfgProcessDevices @ 0x14072D090 (PpDevCfgProcessDevices.c)
- *     PiSwIrpCleanup @ 0x1407308E0 (PiSwIrpCleanup.c)
- *     PiSwIrpGetAttributes @ 0x140730AD4 (PiSwIrpGetAttributes.c)
- *     PiSwIrpGetLifetime @ 0x140730B74 (PiSwIrpGetLifetime.c)
- *     PiSwIrpSetAttributes @ 0x140730C14 (PiSwIrpSetAttributes.c)
- *     PiSwIrpSetLifetime @ 0x140730D50 (PiSwIrpSetLifetime.c)
- *     PiCMDeleteDeviceWorker @ 0x1407310F0 (PiCMDeleteDeviceWorker.c)
- *     PiCMGenerateDeviceInstance @ 0x14073136C (PiCMGenerateDeviceInstance.c)
- *     PipKsrNotifyDrivers @ 0x14073423C (PipKsrNotifyDrivers.c)
- *     PiInitializeDevice @ 0x140734A0C (PiInitializeDevice.c)
- *     PiDmaGuardQueueInsertEntry @ 0x14073A3A0 (PiDmaGuardQueueInsertEntry.c)
- *     PopPowerAggregatorEngageModernStandby @ 0x140759514 (PopPowerAggregatorEngageModernStandby.c)
- *     PopDripsWatchdogCallbackWorker @ 0x14075FC80 (PopDripsWatchdogCallbackWorker.c)
- *     PopDripsWatchdogDiagnosticWorker @ 0x14075FF20 (PopDripsWatchdogDiagnosticWorker.c)
- *     TtmNotifyDeviceArrival @ 0x140768290 (TtmNotifyDeviceArrival.c)
- *     TtmNotifyDeviceDeparture @ 0x140768590 (TtmNotifyDeviceDeparture.c)
- *     TtmNotifyDeviceInput @ 0x140768650 (TtmNotifyDeviceInput.c)
- *     TtmpStartCallout @ 0x140769844 (TtmpStartCallout.c)
- *     TtmNotifySessionPowerRequestDeleted @ 0x140769BB0 (TtmNotifySessionPowerRequestDeleted.c)
- *     TtmiSessionsRundown @ 0x140769F5C (TtmiSessionsRundown.c)
- *     TtmpInitiateModernStandbyTransition @ 0x14076A7B8 (TtmpInitiateModernStandbyTransition.c)
- *     TtmpInsertPowerRequestToSession @ 0x14076A838 (TtmpInsertPowerRequestToSession.c)
- *     TtmpSessionPowerControl @ 0x14076AC6C (TtmpSessionPowerControl.c)
- *     TtmpSessionWorker @ 0x14076AD00 (TtmpSessionWorker.c)
- *     TtmpTerminal0PowerSettingCallback @ 0x14076AFF0 (TtmpTerminal0PowerSettingCallback.c)
- *     TtmpUpdatePowerRequestAttribute @ 0x14076B174 (TtmpUpdatePowerRequestAttribute.c)
- *     TtmpAcquireSessionFromTerminalHandle @ 0x14076B2E4 (TtmpAcquireSessionFromTerminalHandle.c)
- *     TtmpDispatchAssignDevice @ 0x14076B410 (TtmpDispatchAssignDevice.c)
- *     TtmpDispatchCreateEventQueue @ 0x14076B4B8 (TtmpDispatchCreateEventQueue.c)
- *     TtmpDispatchCreateTerminal @ 0x14076B5F8 (TtmpDispatchCreateTerminal.c)
- *     TtmpDispatchEvacuateDevices @ 0x14076B6E8 (TtmpDispatchEvacuateDevices.c)
- *     TtmpDispatchOpenTerminal @ 0x14076B858 (TtmpDispatchOpenTerminal.c)
- *     TtmpDispatchSetDefaultDeviceAssignment @ 0x14076B8F4 (TtmpDispatchSetDefaultDeviceAssignment.c)
- *     TtmpDispatchSetDisplayPowerRequest @ 0x14076B9B0 (TtmpDispatchSetDisplayPowerRequest.c)
- *     TtmpDispatchSetDisplayState @ 0x14076BA5C (TtmpDispatchSetDisplayState.c)
- *     TtmpDispatchSetDisplayTimeouts @ 0x14076BB10 (TtmpDispatchSetDisplayTimeouts.c)
- *     TtmpDispatchSetInputWakeCapability @ 0x14076BBCC (TtmpDispatchSetInputWakeCapability.c)
- *     TtmiResetInactivityTimer @ 0x14076FA90 (TtmiResetInactivityTimer.c)
- *     TtmpCloseTerminalHandle @ 0x140770130 (TtmpCloseTerminalHandle.c)
- *     TtmpScheduledEvaluationWorker @ 0x140770300 (TtmpScheduledEvaluationWorker.c)
- *     TtmpWnfInactivityTimeoutCallback @ 0x140770730 (TtmpWnfInactivityTimeoutCallback.c)
- *     TtmpDeleteQueue @ 0x140770D60 (TtmpDeleteQueue.c)
- *     TtmpReleaseQueueLock @ 0x140770E60 (TtmpReleaseQueueLock.c)
- *     PsSwapProcessWorkingSet @ 0x140774624 (PsSwapProcessWorkingSet.c)
- *     PspSetIoPriorityLimitJobTree @ 0x140777DA4 (PspSetIoPriorityLimitJobTree.c)
- *     PspSetJobMemoryPartition @ 0x140777E54 (PspSetJobMemoryPartition.c)
- *     PspSetPagePriorityLimitJobTree @ 0x1407784F0 (PspSetPagePriorityLimitJobTree.c)
- *     RtlZeroHeap @ 0x140783280 (RtlZeroHeap.c)
- *     SeSetPrivateNameSpaceToken @ 0x14078F838 (SeSetPrivateNameSpaceToken.c)
- *     SeSetSessionIdTokenWithLinked @ 0x14078F8F0 (SeSetSessionIdTokenWithLinked.c)
- *     SepSetServerSiloToken @ 0x14078FC08 (SepSetServerSiloToken.c)
- *     SepIdAssignableAsGroup @ 0x1407924F0 (SepIdAssignableAsGroup.c)
- *     SeExchangePrimaryToken @ 0x140792C9C (SeExchangePrimaryToken.c)
- *     SepAddTokenLogonSession @ 0x140793570 (SepAddTokenLogonSession.c)
- *     SepDeleteUnreferencedLogonSessionsInSilo @ 0x140793668 (SepDeleteUnreferencedLogonSessionsInSilo.c)
- *     SepMakeLogonSessionsSiblings @ 0x140793804 (SepMakeLogonSessionsSiblings.c)
- *     SepRemoveTokenLogonSession @ 0x140793A58 (SepRemoveTokenLogonSession.c)
- *     SepRmGlobalSaclSetWrkr @ 0x1407947B0 (SepRmGlobalSaclSetWrkr.c)
- *     WmipFindSMBiosStructure @ 0x1407A4174 (WmipFindSMBiosStructure.c)
- *     WmipGetSMBiosEventlog @ 0x1407A4388 (WmipGetSMBiosEventlog.c)
- *     WmipGetSysIds @ 0x1407A45E0 (WmipGetSysIds.c)
- *     ExpRegisterFirmwareTableInformationHandler @ 0x1407B5650 (ExpRegisterFirmwareTableInformationHandler.c)
- *     NtFlushInstallUILanguage @ 0x1407C2F70 (NtFlushInstallUILanguage.c)
- *     NtMapCMFModule @ 0x1407C3080 (NtMapCMFModule.c)
- *     _PnpCtxCloseMachine @ 0x1408171F0 (_PnpCtxCloseMachine.c)
- *     DrvDbSetDriverDatabaseMappedProperty @ 0x1408226F4 (DrvDbSetDriverDatabaseMappedProperty.c)
- *     ObpCreateHandle @ 0x14084DAA0 (ObpCreateHandle.c)
- *     SeOpenObjectAuditAlarmWithTransaction @ 0x1408508E0 (SeOpenObjectAuditAlarmWithTransaction.c)
- *     ObpGrantAccess @ 0x140851390 (ObpGrantAccess.c)
- *     CmpCheckKeyBodyAccess @ 0x140851B40 (CmpCheckKeyBodyAccess.c)
- *     CmpCheckOpenAccessOnKeyBody @ 0x140852140 (CmpCheckOpenAccessOnKeyBody.c)
- *     SepDuplicateToken @ 0x140856520 (SepDuplicateToken.c)
- *     RtlpSetSecurityObject @ 0x140858F70 (RtlpSetSecurityObject.c)
- *     PspAllocateAndQueryNotificationChannel @ 0x14085CCAC (PspAllocateAndQueryNotificationChannel.c)
- *     PspLockRootJobExclusive @ 0x14085D130 (PspLockRootJobExclusive.c)
- *     ExpGetSystemFirmwareTableInformation @ 0x14085D348 (ExpGetSystemFirmwareTableInformation.c)
- *     PspSetJobIoRateControl @ 0x14085E618 (PspSetJobIoRateControl.c)
- *     PspFreezeJobTree @ 0x14085EA8C (PspFreezeJobTree.c)
- *     SeUnlockSubjectContext @ 0x1408684D0 (SeUnlockSubjectContext.c)
- *     IopGetSetSecurityObject @ 0x1408796F0 (IopGetSetSecurityObject.c)
- *     ObCheckObjectAccess @ 0x14087A740 (ObCheckObjectAccess.c)
- *     NtQuerySecurityAttributesToken @ 0x140888DC0 (NtQuerySecurityAttributesToken.c)
- *     SeExamineGlobalSacl @ 0x140889DD8 (SeExamineGlobalSacl.c)
- *     SepRmGlobalSaclFind @ 0x140889F14 (SepRmGlobalSaclFind.c)
- *     SeMaximumAuditMaskFromGlobalSacl @ 0x14088A310 (SeMaximumAuditMaskFromGlobalSacl.c)
- *     PspChargeJobWakeCounter @ 0x14088E1A0 (PspChargeJobWakeCounter.c)
- *     AlpcpExposeTokenAttribute @ 0x140898930 (AlpcpExposeTokenAttribute.c)
- *     IopParseDevice @ 0x14089F880 (IopParseDevice.c)
- *     PspInsertThread @ 0x1408A59BC (PspInsertThread.c)
- *     PspRemoveProcessFromJobChain @ 0x1408A9078 (PspRemoveProcessFromJobChain.c)
- *     PiSwIrpInterfaceSetState @ 0x1408B1C78 (PiSwIrpInterfaceSetState.c)
- *     PiSwIrpPropertySet @ 0x1408B1E40 (PiSwIrpPropertySet.c)
- *     IopDoDeferredSetInterfaceState @ 0x1408B24D0 (IopDoDeferredSetInterfaceState.c)
- *     PiSwIrpInterfaceRegister @ 0x1408B2584 (PiSwIrpInterfaceRegister.c)
- *     IopRegisterDeviceInterface @ 0x1408B3B2C (IopRegisterDeviceInterface.c)
- *     IoSetDeviceInterfaceState @ 0x1408B40B0 (IoSetDeviceInterfaceState.c)
- *     PiDqObjectManagerEnumerateAndRegisterQuery @ 0x1408B4A8C (PiDqObjectManagerEnumerateAndRegisterQuery.c)
- *     PiDmObjectManagerReleaseLock @ 0x1408B523C (PiDmObjectManagerReleaseLock.c)
- *     IoGetDeviceInterfaceAlias @ 0x1408B7090 (IoGetDeviceInterfaceAlias.c)
- *     PiPnpRtlSetObjectProperty @ 0x1408B84A0 (PiPnpRtlSetObjectProperty.c)
- *     PiSwIrpInterfacePropertySet @ 0x1408B9044 (PiSwIrpInterfacePropertySet.c)
- *     PipEnumerateCompleted @ 0x1408B9260 (PipEnumerateCompleted.c)
- *     PiPnpRtlObjectEventWorker @ 0x1408B9D40 (PiPnpRtlObjectEventWorker.c)
- *     PipProcessDevNodeTree @ 0x1408BA630 (PipProcessDevNodeTree.c)
- *     PpHotSwapGetDevnodeRemovalPolicy @ 0x1408BBA94 (PpHotSwapGetDevnodeRemovalPolicy.c)
- *     PiGetDeviceDepth @ 0x1408BC2DC (PiGetDeviceDepth.c)
- *     PiControlGetPropertyData @ 0x1408BD4B0 (PiControlGetPropertyData.c)
- *     PiCMValidateDeviceInstance @ 0x1408BE2FC (PiCMValidateDeviceInstance.c)
- *     PiGetRelatedDevice @ 0x1408BEE58 (PiGetRelatedDevice.c)
- *     IopGetDeviceInterfaces @ 0x1408C8470 (IopGetDeviceInterfaces.c)
- *     PiDmGetObject @ 0x1408CBB70 (PiDmGetObject.c)
- *     PiPnpRtlGetCurrentOperation @ 0x1408CC0A0 (PiPnpRtlGetCurrentOperation.c)
- *     PiPnpRtlEndOperation @ 0x1408CC158 (PiPnpRtlEndOperation.c)
- *     PiPnpRtlOperationListReleaseLock @ 0x1408CC270 (PiPnpRtlOperationListReleaseLock.c)
- *     PiPnpRtlCacheObjectBaseKey @ 0x1408CC2D0 (PiPnpRtlCacheObjectBaseKey.c)
- *     PiPnpRtlObjectActionCallback @ 0x1408CE6A0 (PiPnpRtlObjectActionCallback.c)
- *     PiControlGetDeviceInterfaceEnabled @ 0x1408CFC60 (PiControlGetDeviceInterfaceEnabled.c)
- *     PiDmObjectGetCachedObjectProperty @ 0x1408D0350 (PiDmObjectGetCachedObjectProperty.c)
- *     PiDmEnumObjectsWithCallback @ 0x1408D0E10 (PiDmEnumObjectsWithCallback.c)
- *     IopDeviceInterfaceFilterCallback @ 0x1408D1170 (IopDeviceInterfaceFilterCallback.c)
- *     PiPnpRtlApplyMandatoryFilters @ 0x1408D19E0 (PiPnpRtlApplyMandatoryFilters.c)
- *     PiPnpRtlApplyMandatoryDeviceFilters @ 0x1408D1BF0 (PiPnpRtlApplyMandatoryDeviceFilters.c)
- *     PiCMMandatoryFilterCallback @ 0x1408D21F0 (PiCMMandatoryFilterCallback.c)
- *     PiUEventApplyAdditionalFilters @ 0x1408D25A0 (PiUEventApplyAdditionalFilters.c)
- *     PiDqObjectManagerServiceActionQueue @ 0x1408D2DD0 (PiDqObjectManagerServiceActionQueue.c)
- *     PspUnlockJobsAndProcessExclusive @ 0x1408E7358 (PspUnlockJobsAndProcessExclusive.c)
- *     PspGetMemoryPartitionFromJobList @ 0x1408E7594 (PspGetMemoryPartitionFromJobList.c)
- *     PspUnlockJobChain @ 0x1408E7884 (PspUnlockJobChain.c)
- *     PspApplyWorkingSetLimitsToProcess @ 0x1408E7AC0 (PspApplyWorkingSetLimitsToProcess.c)
- *     PspSetEnergyTrackingStateJobTree @ 0x1408EA030 (PspSetEnergyTrackingStateJobTree.c)
- *     PspSendProcessNotificationToJobChain @ 0x1408EA780 (PspSendProcessNotificationToJobChain.c)
- *     PspQueryJobHierarchyAccountingInformation @ 0x1408EB654 (PspQueryJobHierarchyAccountingInformation.c)
- *     PspLockRootJobShared @ 0x1408EB990 (PspLockRootJobShared.c)
- *     PspEnumJobsAndProcessesInJobHierarchy @ 0x1408EBCAC (PspEnumJobsAndProcessesInJobHierarchy.c)
- *     PspGetNextChildJob @ 0x1408EBF00 (PspGetNextChildJob.c)
- *     PspCallJobHierarchyCallbacks @ 0x1408EBFF8 (PspCallJobHierarchyCallbacks.c)
- *     PspEnforceLimitsJobPostCallback @ 0x1408ECC80 (PspEnforceLimitsJobPostCallback.c)
- *     PspUnlockJob @ 0x1408ED360 (PspUnlockJob.c)
- *     TtmNotifyLowPowerStateExited @ 0x140902F78 (TtmNotifyLowPowerStateExited.c)
- *     TtmNotifySessionPowerStateChange @ 0x140902FF4 (TtmNotifySessionPowerStateChange.c)
- *     TtmNotifySessionTerminalInput @ 0x140903084 (TtmNotifySessionTerminalInput.c)
- *     TtmInitCurrentSession @ 0x140903118 (TtmInitCurrentSession.c)
- *     TtmSessionMonitorControl @ 0x140903874 (TtmSessionMonitorControl.c)
- *     TtmNotifySessionDisplayBurst @ 0x140903A00 (TtmNotifySessionDisplayBurst.c)
- *     TtmpAcquireSessionById @ 0x140903BF4 (TtmpAcquireSessionById.c)
- *     TtmNotifySessionDisplayRequiredChange @ 0x140903D68 (TtmNotifySessionDisplayRequiredChange.c)
- *     _CmGetDeviceSoftwareKeyPath @ 0x1409095F0 (_CmGetDeviceSoftwareKeyPath.c)
- *     SeQueryUserSidToken @ 0x14090A570 (SeQueryUserSidToken.c)
- *     SeQueryInformationToken @ 0x14090D870 (SeQueryInformationToken.c)
- *     NtDuplicateToken @ 0x14090F090 (NtDuplicateToken.c)
- *     SeTokenCanImpersonate @ 0x140910A30 (SeTokenCanImpersonate.c)
- *     NtSetInformationThread @ 0x140911410 (NtSetInformationThread.c)
- *     PspSetProcessPriorityClass @ 0x140913B0C (PspSetProcessPriorityClass.c)
- *     RtlpNewSecurityObject @ 0x14091A290 (RtlpNewSecurityObject.c)
- *     SepAccessCheckAndAuditAlarm @ 0x14091DB90 (SepAccessCheckAndAuditAlarm.c)
- *     EtwpGetSidExtendedHeaderItem @ 0x1409227D0 (EtwpGetSidExtendedHeaderItem.c)
- *     DrvDbReleaseDatabaseNodeBaseKey @ 0x1409251C8 (DrvDbReleaseDatabaseNodeBaseKey.c)
- *     DrvDbAcquireDatabaseNodeBaseKey @ 0x140925270 (DrvDbAcquireDatabaseNodeBaseKey.c)
- *     DrvDbOpenObjectRegKey @ 0x1409254F0 (DrvDbOpenObjectRegKey.c)
- *     PiDrvDbNodeActionCallback @ 0x140925E10 (PiDrvDbNodeActionCallback.c)
- *     PiDrvDbLoadNode @ 0x140925F40 (PiDrvDbLoadNode.c)
- *     NtAdjustPrivilegesToken @ 0x1409377D0 (NtAdjustPrivilegesToken.c)
- *     AlpcpQuerySidToken @ 0x14093D974 (AlpcpQuerySidToken.c)
- *     FsRtlReleaseFile @ 0x140943180 (FsRtlReleaseFile.c)
- *     EtwQueryProcessTelemetryInfo @ 0x14094B234 (EtwQueryProcessTelemetryInfo.c)
- *     PfSnCheckActionsNeeded @ 0x140961228 (PfSnCheckActionsNeeded.c)
- *     PfSnPrefetchCacheEntryUpdate @ 0x140962F24 (PfSnPrefetchCacheEntryUpdate.c)
- *     PiQueryAndAllocateBootResources @ 0x14098DD70 (PiQueryAndAllocateBootResources.c)
- *     PiQueryResourceRequirements @ 0x14098E5B0 (PiQueryResourceRequirements.c)
- *     PipProcessStartPhase3 @ 0x14099006C (PipProcessStartPhase3.c)
- *     PiUpdateDevicePanel @ 0x1409902C0 (PiUpdateDevicePanel.c)
- *     PiPnpRtlSetDeviceRegProperty @ 0x14099B5CC (PiPnpRtlSetDeviceRegProperty.c)
- *     IopInvalidateVolumesForDevice @ 0x1409A4954 (IopInvalidateVolumesForDevice.c)
- *     PspSetQuotaLimits @ 0x1409AFD58 (PspSetQuotaLimits.c)
- *     IoGetLegacyVetoList @ 0x1409B9120 (IoGetLegacyVetoList.c)
- *     PopFilterCapabilities @ 0x1409B923C (PopFilterCapabilities.c)
- *     SeQueryServerSiloToken @ 0x1409BA940 (SeQueryServerSiloToken.c)
- *     TtmNotifyConsoleUserPresent @ 0x1409BAC8C (TtmNotifyConsoleUserPresent.c)
- *     PopReleaseAdaptiveLock @ 0x1409BB1EC (PopReleaseAdaptiveLock.c)
- *     IopQueryInterfaceRecurseUp @ 0x1409C43A8 (IopQueryInterfaceRecurseUp.c)
- *     PnpDelayedRemoveWorker @ 0x1409C6B60 (PnpDelayedRemoveWorker.c)
- *     PpCheckInDriverDatabase @ 0x1409C7E2C (PpCheckInDriverDatabase.c)
- *     IopLoadDriver @ 0x1409C90C0 (IopLoadDriver.c)
- *     IoOpenDeviceRegistryKey @ 0x1409CAEC0 (IoOpenDeviceRegistryKey.c)
- *     FsRtlReleaseFileForCcFlush @ 0x1409D2090 (FsRtlReleaseFileForCcFlush.c)
- *     PiCreateDeviceInstanceKey @ 0x1409D4128 (PiCreateDeviceInstanceKey.c)
- *     SeGetTokenControlInformation @ 0x1409D7510 (SeGetTokenControlInformation.c)
- *     SeQuerySessionIdTokenEx @ 0x1409DF650 (SeQuerySessionIdTokenEx.c)
- *     SeQuerySecurityAttributesToken @ 0x1409ECEB0 (SeQuerySecurityAttributesToken.c)
- *     IoRegisterPlugPlayNotification @ 0x1409ED860 (IoRegisterPlugPlayNotification.c)
- *     PnpNotifyDeviceClassChange @ 0x1409EE72C (PnpNotifyDeviceClassChange.c)
- *     PnpNotifyTargetDeviceChange @ 0x1409EEAA0 (PnpNotifyTargetDeviceChange.c)
- *     PiDcHandleCustomDeviceEvent @ 0x1409EEF24 (PiDcHandleCustomDeviceEvent.c)
- *     NtCreateTimer @ 0x1409F7110 (NtCreateTimer.c)
- *     PiSwFreePdoAssociationsList @ 0x1409F8118 (PiSwFreePdoAssociationsList.c)
- *     PiSwCompleteCreate @ 0x1409F8538 (PiSwCompleteCreate.c)
- *     PiSwIrpStartCreateWorker @ 0x1409F8A64 (PiSwIrpStartCreateWorker.c)
- *     PiSwPdoPnPDispatch @ 0x1409FAA40 (PiSwPdoPnPDispatch.c)
- *     SeQuerySessionIdToken @ 0x1409FBF70 (SeQuerySessionIdToken.c)
- *     CmpStopRMLog @ 0x140A0452C (CmpStopRMLog.c)
- *     CmpAccountForLogReservation @ 0x140A05174 (CmpAccountForLogReservation.c)
- *     CmpCleanupTransactionState @ 0x140A05204 (CmpCleanupTransactionState.c)
- *     CmpTransWriteLog @ 0x140A0592C (CmpTransWriteLog.c)
- *     PpDevNodeLockTree @ 0x140A08C10 (PpDevNodeLockTree.c)
- *     PpDeviceRegistration @ 0x140A0CB38 (PpDeviceRegistration.c)
- *     PnpProcessQueryRemoveAndEject @ 0x140A0DB78 (PnpProcessQueryRemoveAndEject.c)
- *     PnpQueuePendingSurpriseRemoval @ 0x140A0E9B4 (PnpQueuePendingSurpriseRemoval.c)
- *     PnpUnlinkDeviceRemovalRelations @ 0x140A0EDE0 (PnpUnlinkDeviceRemovalRelations.c)
- *     PnpReleaseDependencyRelationsLock @ 0x140A0F814 (PnpReleaseDependencyRelationsLock.c)
- *     PiSwStopDestroy @ 0x140A102F4 (PiSwStopDestroy.c)
- *     PiSwProcessParentRemoveIrp @ 0x140A105F8 (PiSwProcessParentRemoveIrp.c)
- *     IopReleaseDeviceResources @ 0x140A10CF8 (IopReleaseDeviceResources.c)
- *     PnpDisableDeviceInterfaces @ 0x140A10ED8 (PnpDisableDeviceInterfaces.c)
- *     PiSwProcessParentStartIrp @ 0x140A11698 (PiSwProcessParentStartIrp.c)
- *     PpDevNodeUnlockTree @ 0x140A145FC (PpDevNodeUnlockTree.c)
- *     AlpcpCheckConnectionSecurity @ 0x140A167F4 (AlpcpCheckConnectionSecurity.c)
- *     NtGetMUIRegistryInfo @ 0x140A215C0 (NtGetMUIRegistryInfo.c)
- *     SepCreateLogonSessionTrack @ 0x140A22BDC (SepCreateLogonSessionTrack.c)
- *     FsRtlCopyRead @ 0x140A265F0 (FsRtlCopyRead.c)
- *     PopDripsWatchdogStopWatchdog @ 0x140A27D48 (PopDripsWatchdogStopWatchdog.c)
- *     PopDripsWatchdogStartWatchdog @ 0x140A27DB4 (PopDripsWatchdogStartWatchdog.c)
- *     IopMountVolume @ 0x140A29164 (IopMountVolume.c)
- *     SepValidOwnerSubjectContext @ 0x140A2D638 (SepValidOwnerSubjectContext.c)
- *     SeIsTokenAssignableToProcess @ 0x140A31678 (SeIsTokenAssignableToProcess.c)
- *     SepReferenceLogonSessionSilo @ 0x140A31B44 (SepReferenceLogonSessionSilo.c)
- *     NtAdjustGroupsToken @ 0x140A36530 (NtAdjustGroupsToken.c)
- *     PspUnlockJobConditionally @ 0x140A36C28 (PspUnlockJobConditionally.c)
- *     PspAssignProcessQuotaBlock @ 0x140A36D98 (PspAssignProcessQuotaBlock.c)
- *     FsRtlCopyWrite @ 0x140A3A470 (FsRtlCopyWrite.c)
- *     PiQueryDeviceRelations @ 0x140A3E9EC (PiQueryDeviceRelations.c)
- *     WmipGetSMBiosTableData @ 0x140A42038 (WmipGetSMBiosTableData.c)
- *     PnpDiagRundownRegisterCallback @ 0x140A43660 (PnpDiagRundownRegisterCallback.c)
- *     PipForDeviceNodeSubtree @ 0x140A438E0 (PipForDeviceNodeSubtree.c)
- *     SepGetLogonSessionAccountInfo @ 0x140A466DC (SepGetLogonSessionAccountInfo.c)
- *     SeSetMandatoryPolicyToken @ 0x140A4A5C4 (SeSetMandatoryPolicyToken.c)
- *     PspSetProcessAffinitySafe @ 0x140A4B2A4 (PspSetProcessAffinitySafe.c)
- *     SepUpdateLogonSessionTrack @ 0x140A4BA84 (SepUpdateLogonSessionTrack.c)
- *     SeSetSessionIdToken @ 0x140A50448 (SeSetSessionIdToken.c)
- *     SepRmCommandServerThread @ 0x140A52820 (SepRmCommandServerThread.c)
- *     PipMakeGloballyUniqueId @ 0x140A582C0 (PipMakeGloballyUniqueId.c)
- *     PspSetBackgroundJobTree @ 0x140A58988 (PspSetBackgroundJobTree.c)
- *     IopSetDeviceSecurityDescriptor @ 0x140A5AC1C (IopSetDeviceSecurityDescriptor.c)
- *     IopGetRootDevices @ 0x140A624B8 (IopGetRootDevices.c)
- *     SepDeleteLogonSessionTrack @ 0x140A64520 (SepDeleteLogonSessionTrack.c)
- *     PspValidateJobAffinityState @ 0x140A6DEAC (PspValidateJobAffinityState.c)
- *     PipGenerateContainerID @ 0x140A7063C (PipGenerateContainerID.c)
- *     AdtpBuildAccessesString @ 0x140A729FC (AdtpBuildAccessesString.c)
- *     IopBootLog @ 0x140A785F8 (IopBootLog.c)
- *     WmipReleaseSmbiosLockShared @ 0x140A7BAE8 (WmipReleaseSmbiosLockShared.c)
- *     PiProcessNewDeviceNode @ 0x140A7C564 (PiProcessNewDeviceNode.c)
- *     PnpSurpriseFailUnsafeDmaDevices @ 0x140A7F278 (PnpSurpriseFailUnsafeDmaDevices.c)
- *     PnpChainDereferenceComplete @ 0x140A878A4 (PnpChainDereferenceComplete.c)
- *     DrvDbOpenDriverDatabaseRegKey @ 0x140A88D94 (DrvDbOpenDriverDatabaseRegKey.c)
- *     SeSetVirtualizationToken @ 0x140A8A728 (SeSetVirtualizationToken.c)
- *     PiQueryPowerRelations @ 0x140A8C2C8 (PiQueryPowerRelations.c)
- *     IopWriteAllocatedResourcesToRegistry @ 0x140A8D634 (IopWriteAllocatedResourcesToRegistry.c)
- *     PiDrvDbUnloadNodeWorkerCallback @ 0x140A965B0 (PiDrvDbUnloadNodeWorkerCallback.c)
- *     PnpDriverLoadingFailed @ 0x140AA1408 (PnpDriverLoadingFailed.c)
- *     IoLockUnlockPnpDeviceTree @ 0x140AA223C (IoLockUnlockPnpDeviceTree.c)
- *     PiDmaGuardQueueFlush @ 0x140AA2610 (PiDmaGuardQueueFlush.c)
- *     SeMarkLogonSessionForTerminationNotificationEx @ 0x140AA7260 (SeMarkLogonSessionForTerminationNotificationEx.c)
- *     PnpDeleteDeviceInterfaces @ 0x140AA7668 (PnpDeleteDeviceInterfaces.c)
- *     TtmCleanupCurrentSession @ 0x140AAD48C (TtmCleanupCurrentSession.c)
- *     IoOpenDeviceInterfaceRegistryKey @ 0x140AADBF0 (IoOpenDeviceInterfaceRegistryKey.c)
- *     PiCMCreateDevice @ 0x140AB4970 (PiCMCreateDevice.c)
- *     SepBlockAccessForLogonSession @ 0x140ABBB60 (SepBlockAccessForLogonSession.c)
- *     PnpGetDeviceInstanceRegistryValue @ 0x140ABC880 (PnpGetDeviceInstanceRegistryValue.c)
- *     PiCMUnregisterDeviceInterface @ 0x140AC00A8 (PiCMUnregisterDeviceInterface.c)
- *     NtSetInformationJobObject @ 0x140ACE760 (NtSetInformationJobObject.c)
- *     SepFilterToken @ 0x140AD2664 (SepFilterToken.c)
- *     NtQueryInformationToken @ 0x140AD3370 (NtQueryInformationToken.c)
- *     NtSetInformationToken @ 0x140AD6C10 (NtSetInformationToken.c)
- *     NtCreateLowBoxToken @ 0x140AD8020 (NtCreateLowBoxToken.c)
- *     SepDeReferenceLogonSession @ 0x140AD8BA4 (SepDeReferenceLogonSession.c)
- *     CmpStartRMLog @ 0x140AE5884 (CmpStartRMLog.c)
- *     PopReleasePolicyLock @ 0x140B67D00 (PopReleasePolicyLock.c)
- *     CmpUnlockRegistry @ 0x140BB9F50 (CmpUnlockRegistry.c)
- *     IopInitCrashDumpRegCallback @ 0x140C1CA50 (IopInitCrashDumpRegCallback.c)
- *     PipResetMatchingFilteredDevices @ 0x140C22040 (PipResetMatchingFilteredDevices.c)
- *     ExpPrmInitialization @ 0x140C40D54 (ExpPrmInitialization.c)
- *     VslRegisterBootDrivers @ 0x140C6397C (VslRegisterBootDrivers.c)
+ *     FsRtlReleaseFileForModWrite @ 0x14025A8C4 (FsRtlReleaseFileForModWrite.c)
+ *     FsRtlAcquireFileForModWriteEx @ 0x14025B37C (FsRtlAcquireFileForModWriteEx.c)
+ *     CcUnpinFileDataEx @ 0x1402766A0 (CcUnpinFileDataEx.c)
+ *     SepMandatoryIntegrityCheck @ 0x14028A540 (SepMandatoryIntegrityCheck.c)
+ *     MiReleaseLoadLock @ 0x1402BBE90 (MiReleaseLoadLock.c)
+ *     SeSecurityAttributePresent @ 0x140322DA0 (SeSecurityAttributePresent.c)
+ *     SepCanTokenMatchAllPackageSid @ 0x140323590 (SepCanTokenMatchAllPackageSid.c)
+ *     IopCreateSecurityCheck @ 0x1403B5AE0 (IopCreateSecurityCheck.c)
+ *     SepInternalQuerySecurityAttributesTokenEx @ 0x1403B7650 (SepInternalQuerySecurityAttributesTokenEx.c)
+ *     SepInternalSetSecurityAttributesToken @ 0x1403B9324 (SepInternalSetSecurityAttributesToken.c)
+ *     SepFilterCheck @ 0x1403B9AB0 (SepFilterCheck.c)
+ *     SepRmCallLsa @ 0x1403C17F0 (SepRmCallLsa.c)
+ *     SepQueueWorkItem @ 0x1403C35C4 (SepQueueWorkItem.c)
+ *     SepTrustLevelCheck @ 0x1403E33C0 (SepTrustLevelCheck.c)
+ *     KeCapturePersistentThreadState @ 0x140420EC0 (KeCapturePersistentThreadState.c)
+ *     SeAccessCheckByType @ 0x14042DC70 (SeAccessCheckByType.c)
+ *     SeTokenGetNoChildProcessRestricted @ 0x140446A8C (SeTokenGetNoChildProcessRestricted.c)
+ *     SepReleaseOrderedReadLocks @ 0x14044A464 (SepReleaseOrderedReadLocks.c)
+ *     SepExamineGlobalSaclEx @ 0x14045837C (SepExamineGlobalSaclEx.c)
+ *     PnpUnregisterPlugPlayNotification @ 0x140469950 (PnpUnregisterPlugPlayNotification.c)
+ *     SepGetProcUniqueLuidAndIndexFromTokenEx @ 0x140473D20 (SepGetProcUniqueLuidAndIndexFromTokenEx.c)
+ *     IoCheckRedirectionTrustLevel @ 0x1404769B0 (IoCheckRedirectionTrustLevel.c)
+ *     SeTokenGetRedirectionTrustPolicy @ 0x140487CC0 (SeTokenGetRedirectionTrustPolicy.c)
+ *     SeTokenSetRedirectionTrustPolicy @ 0x140491F2C (SeTokenSetRedirectionTrustPolicy.c)
+ *     SeTokenSetNoChildProcessRestricted @ 0x1404B4294 (SeTokenSetNoChildProcessRestricted.c)
+ *     PiDmaGuardQueueRemoveEntry @ 0x1404B84B4 (PiDmaGuardQueueRemoveEntry.c)
+ *     IoCaptureLiveDump @ 0x1404DC764 (IoCaptureLiveDump.c)
+ *     SepDesktopAppxSubProcessToken @ 0x1404EBED4 (SepDesktopAppxSubProcessToken.c)
+ *     FsRtlpDedupChangeEventsControlCallbackV2 @ 0x14057EC60 (FsRtlpDedupChangeEventsControlCallbackV2.c)
+ *     FsRtlpTieringHeatEventsControlCallbackV2 @ 0x14057F170 (FsRtlpTieringHeatEventsControlCallbackV2.c)
+ *     IoConfigureCrashDump @ 0x14058DDD4 (IoConfigureCrashDump.c)
+ *     IoFillTriageDumpBuffer @ 0x14058E2EC (IoFillTriageDumpBuffer.c)
+ *     IoUpdateDumpPhysicalRanges @ 0x14058F55C (IoUpdateDumpPhysicalRanges.c)
+ *     IoSetDeferredLiveDumpFileHandle @ 0x140594AE4 (IoSetDeferredLiveDumpFileHandle.c)
+ *     PiSwIrpCancelStartCreate @ 0x1405A5CF0 (PiSwIrpCancelStartCreate.c)
+ *     PiDrvDbUnloadNodeWaitWorkerCallback @ 0x1405A6880 (PiDrvDbUnloadNodeWaitWorkerCallback.c)
+ *     RtlpAllocateHeap @ 0x1405E7EFC (RtlpAllocateHeap.c)
+ *     RtlpFreeHeap @ 0x1405E9FB0 (RtlpFreeHeap.c)
+ *     RtlpSetupExtendedBlock @ 0x1405EAD40 (RtlpSetupExtendedBlock.c)
+ *     SeTokenIsNoChildProcessRestrictionEnforced @ 0x1406069D8 (SeTokenIsNoChildProcessRestrictionEnforced.c)
+ *     SepCreateAppContainerToken @ 0x140606A30 (SepCreateAppContainerToken.c)
+ *     SeSetSecurityAttributesTokenEx @ 0x140607780 (SeSetSecurityAttributesTokenEx.c)
+ *     DifExReleaseResourceLiteWrapper @ 0x14061F530 (DifExReleaseResourceLiteWrapper.c)
+ *     ExReleaseResourceAndLeavePriorityRegion @ 0x140655500 (ExReleaseResourceAndLeavePriorityRegion.c)
+ *     FsRtlMdlReadDev @ 0x140707E40 (FsRtlMdlReadDev.c)
+ *     FsRtlPrepareMdlWriteDev @ 0x140708070 (FsRtlPrepareMdlWriteDev.c)
+ *     FsRtlDedupChangeUninit @ 0x14070A650 (FsRtlDedupChangeUninit.c)
+ *     FsRtlpDedupChangeRegisterVolume @ 0x14070A880 (FsRtlpDedupChangeRegisterVolume.c)
+ *     FsRtlpHeatRegisterVolume @ 0x14070B27C (FsRtlpHeatRegisterVolume.c)
+ *     FsRtlpHeatUnregisterVolume @ 0x14070B420 (FsRtlpHeatUnregisterVolume.c)
+ *     IoInitializeCrashDump @ 0x14070E5F8 (IoInitializeCrashDump.c)
+ *     IopBootLogToFile @ 0x14070F5C4 (IopBootLogToFile.c)
+ *     IopCopyBootLogRegistryToFile @ 0x14070FA0C (IopCopyBootLogRegistryToFile.c)
+ *     IopInitializeBootLogging @ 0x14070FFB8 (IopInitializeBootLogging.c)
+ *     IoEnumerateRegisteredFiltersList @ 0x140711C10 (IoEnumerateRegisteredFiltersList.c)
+ *     IoRegisterFileSystem @ 0x140711E80 (IoRegisterFileSystem.c)
+ *     IoRegisterFsRegistrationChangeMountAware @ 0x140712050 (IoRegisterFsRegistrationChangeMountAware.c)
+ *     IoUnregisterFileSystem @ 0x1407128D0 (IoUnregisterFileSystem.c)
+ *     IoUnregisterFsRegistrationChange @ 0x140712990 (IoUnregisterFsRegistrationChange.c)
+ *     PnpShutdownDevices @ 0x140718630 (PnpShutdownDevices.c)
+ *     IoReportDetectedDevice @ 0x14071A3E0 (IoReportDetectedDevice.c)
+ *     IoReportRootDevice @ 0x14071AE90 (IoReportRootDevice.c)
+ *     PiGetDeviceRegistryProperty @ 0x14071C7B8 (PiGetDeviceRegistryProperty.c)
+ *     PnpNotifyHwProfileChange @ 0x14071E214 (PnpNotifyHwProfileChange.c)
+ *     PnpNotifyTargetDeviceChangeNotifyEntry @ 0x14071E464 (PnpNotifyTargetDeviceChangeNotifyEntry.c)
+ *     PpReleaseBootDDB @ 0x140722A54 (PpReleaseBootDDB.c)
+ *     PiPnpRtlEnsureObjectCached @ 0x140724058 (PiPnpRtlEnsureObjectCached.c)
+ *     PpDevCfgProcessDevices @ 0x14072B0A4 (PpDevCfgProcessDevices.c)
+ *     PiSwIrpCleanup @ 0x14072E8F0 (PiSwIrpCleanup.c)
+ *     PiSwIrpGetAttributes @ 0x14072EAE4 (PiSwIrpGetAttributes.c)
+ *     PiSwIrpGetLifetime @ 0x14072EB84 (PiSwIrpGetLifetime.c)
+ *     PiSwIrpSetAttributes @ 0x14072EC24 (PiSwIrpSetAttributes.c)
+ *     PiSwIrpSetLifetime @ 0x14072ED60 (PiSwIrpSetLifetime.c)
+ *     PiCMDeleteDeviceWorker @ 0x14072F100 (PiCMDeleteDeviceWorker.c)
+ *     PiCMGenerateDeviceInstance @ 0x14072F37C (PiCMGenerateDeviceInstance.c)
+ *     PipKsrNotifyDrivers @ 0x14073216C (PipKsrNotifyDrivers.c)
+ *     PiInitializeDevice @ 0x14073293C (PiInitializeDevice.c)
+ *     PiDmaGuardQueueInsertEntry @ 0x1407382D0 (PiDmaGuardQueueInsertEntry.c)
+ *     PopPowerAggregatorEngageModernStandby @ 0x140757974 (PopPowerAggregatorEngageModernStandby.c)
+ *     PopDripsWatchdogCallbackWorker @ 0x14075EC80 (PopDripsWatchdogCallbackWorker.c)
+ *     PopDripsWatchdogDiagnosticWorker @ 0x14075EF20 (PopDripsWatchdogDiagnosticWorker.c)
+ *     TtmNotifyDeviceArrival @ 0x1407684B0 (TtmNotifyDeviceArrival.c)
+ *     TtmNotifyDeviceDeparture @ 0x1407687B0 (TtmNotifyDeviceDeparture.c)
+ *     TtmNotifyDeviceInput @ 0x140768870 (TtmNotifyDeviceInput.c)
+ *     TtmpStartCallout @ 0x140769A64 (TtmpStartCallout.c)
+ *     TtmNotifySessionPowerRequestDeleted @ 0x140769DD0 (TtmNotifySessionPowerRequestDeleted.c)
+ *     TtmiSessionsRundown @ 0x14076A17C (TtmiSessionsRundown.c)
+ *     TtmpInitiateModernStandbyTransition @ 0x14076A9D8 (TtmpInitiateModernStandbyTransition.c)
+ *     TtmpInsertPowerRequestToSession @ 0x14076AA58 (TtmpInsertPowerRequestToSession.c)
+ *     TtmpSessionPowerControl @ 0x14076AE8C (TtmpSessionPowerControl.c)
+ *     TtmpSessionWorker @ 0x14076AF20 (TtmpSessionWorker.c)
+ *     TtmpTerminal0PowerSettingCallback @ 0x14076B210 (TtmpTerminal0PowerSettingCallback.c)
+ *     TtmpUpdatePowerRequestAttribute @ 0x14076B394 (TtmpUpdatePowerRequestAttribute.c)
+ *     TtmpAcquireSessionFromTerminalHandle @ 0x14076B504 (TtmpAcquireSessionFromTerminalHandle.c)
+ *     TtmpDispatchAssignDevice @ 0x14076B630 (TtmpDispatchAssignDevice.c)
+ *     TtmpDispatchCreateEventQueue @ 0x14076B6D8 (TtmpDispatchCreateEventQueue.c)
+ *     TtmpDispatchCreateTerminal @ 0x14076B818 (TtmpDispatchCreateTerminal.c)
+ *     TtmpDispatchEvacuateDevices @ 0x14076B908 (TtmpDispatchEvacuateDevices.c)
+ *     TtmpDispatchOpenTerminal @ 0x14076BA78 (TtmpDispatchOpenTerminal.c)
+ *     TtmpDispatchSetDefaultDeviceAssignment @ 0x14076BB14 (TtmpDispatchSetDefaultDeviceAssignment.c)
+ *     TtmpDispatchSetDisplayPowerRequest @ 0x14076BBD0 (TtmpDispatchSetDisplayPowerRequest.c)
+ *     TtmpDispatchSetDisplayState @ 0x14076BC7C (TtmpDispatchSetDisplayState.c)
+ *     TtmpDispatchSetDisplayTimeouts @ 0x14076BD30 (TtmpDispatchSetDisplayTimeouts.c)
+ *     TtmpDispatchSetInputWakeCapability @ 0x14076BDEC (TtmpDispatchSetInputWakeCapability.c)
+ *     TtmiResetInactivityTimer @ 0x14076FCB0 (TtmiResetInactivityTimer.c)
+ *     TtmpCloseTerminalHandle @ 0x140770350 (TtmpCloseTerminalHandle.c)
+ *     TtmpScheduledEvaluationWorker @ 0x140770520 (TtmpScheduledEvaluationWorker.c)
+ *     TtmpWnfInactivityTimeoutCallback @ 0x140770950 (TtmpWnfInactivityTimeoutCallback.c)
+ *     TtmpDeleteQueue @ 0x140770F80 (TtmpDeleteQueue.c)
+ *     TtmpReleaseQueueLock @ 0x140771080 (TtmpReleaseQueueLock.c)
+ *     PsSwapProcessWorkingSet @ 0x140774844 (PsSwapProcessWorkingSet.c)
+ *     PspSetIoPriorityLimitJobTree @ 0x140777F64 (PspSetIoPriorityLimitJobTree.c)
+ *     PspSetJobMemoryPartition @ 0x140778014 (PspSetJobMemoryPartition.c)
+ *     PspSetPagePriorityLimitJobTree @ 0x1407786B0 (PspSetPagePriorityLimitJobTree.c)
+ *     RtlZeroHeap @ 0x1407831B0 (RtlZeroHeap.c)
+ *     SeSetPrivateNameSpaceToken @ 0x14078F808 (SeSetPrivateNameSpaceToken.c)
+ *     SeSetSessionIdTokenWithLinked @ 0x14078F8C0 (SeSetSessionIdTokenWithLinked.c)
+ *     SepSetServerSiloToken @ 0x14078FBD8 (SepSetServerSiloToken.c)
+ *     SepIdAssignableAsGroup @ 0x1407924C0 (SepIdAssignableAsGroup.c)
+ *     SeExchangePrimaryToken @ 0x140792C70 (SeExchangePrimaryToken.c)
+ *     SepAddTokenLogonSession @ 0x140793610 (SepAddTokenLogonSession.c)
+ *     SepDeleteUnreferencedLogonSessionsInSilo @ 0x140793708 (SepDeleteUnreferencedLogonSessionsInSilo.c)
+ *     SepMakeLogonSessionsSiblings @ 0x1407938A4 (SepMakeLogonSessionsSiblings.c)
+ *     SepRemoveTokenLogonSession @ 0x140793AF8 (SepRemoveTokenLogonSession.c)
+ *     SepRmGlobalSaclSetWrkr @ 0x1407948C0 (SepRmGlobalSaclSetWrkr.c)
+ *     WmipFindSMBiosStructure @ 0x1407A4284 (WmipFindSMBiosStructure.c)
+ *     WmipGetSMBiosEventlog @ 0x1407A4498 (WmipGetSMBiosEventlog.c)
+ *     WmipGetSysIds @ 0x1407A46F0 (WmipGetSysIds.c)
+ *     ExpRegisterFirmwareTableInformationHandler @ 0x1407B5AA0 (ExpRegisterFirmwareTableInformationHandler.c)
+ *     NtFlushInstallUILanguage @ 0x1407C41A0 (NtFlushInstallUILanguage.c)
+ *     NtMapCMFModule @ 0x1407C42B0 (NtMapCMFModule.c)
+ *     _PnpCtxCloseMachine @ 0x140817930 (_PnpCtxCloseMachine.c)
+ *     DrvDbSetDriverDatabaseMappedProperty @ 0x140822E34 (DrvDbSetDriverDatabaseMappedProperty.c)
+ *     ObpCreateHandle @ 0x140849D60 (ObpCreateHandle.c)
+ *     SeOpenObjectAuditAlarmWithTransaction @ 0x14084CBA0 (SeOpenObjectAuditAlarmWithTransaction.c)
+ *     ObpGrantAccess @ 0x14084D650 (ObpGrantAccess.c)
+ *     CmpCheckKeyBodyAccess @ 0x14084DE00 (CmpCheckKeyBodyAccess.c)
+ *     CmpCheckOpenAccessOnKeyBody @ 0x14084E400 (CmpCheckOpenAccessOnKeyBody.c)
+ *     SepDuplicateToken @ 0x1408527E0 (SepDuplicateToken.c)
+ *     RtlpSetSecurityObject @ 0x140855250 (RtlpSetSecurityObject.c)
+ *     PspAllocateAndQueryNotificationChannel @ 0x140858A1C (PspAllocateAndQueryNotificationChannel.c)
+ *     PspLockRootJobExclusive @ 0x140858E9C (PspLockRootJobExclusive.c)
+ *     ExpGetSystemFirmwareTableInformation @ 0x1408590B8 (ExpGetSystemFirmwareTableInformation.c)
+ *     PspSetJobIoRateControl @ 0x14085A388 (PspSetJobIoRateControl.c)
+ *     PspSetEnergyTrackingStateJobTree @ 0x14085B860 (PspSetEnergyTrackingStateJobTree.c)
+ *     PspSendProcessNotificationToJobChain @ 0x14085BFB0 (PspSendProcessNotificationToJobChain.c)
+ *     PspQueryJobHierarchyAccountingInformation @ 0x14085CE84 (PspQueryJobHierarchyAccountingInformation.c)
+ *     PspLockRootJobShared @ 0x14085D1C0 (PspLockRootJobShared.c)
+ *     PspEnumJobsAndProcessesInJobHierarchy @ 0x14085D4DC (PspEnumJobsAndProcessesInJobHierarchy.c)
+ *     PspGetNextChildJob @ 0x14085D730 (PspGetNextChildJob.c)
+ *     PspCallJobHierarchyCallbacks @ 0x14085D828 (PspCallJobHierarchyCallbacks.c)
+ *     PspEnforceLimitsJobPostCallback @ 0x14085E4B0 (PspEnforceLimitsJobPostCallback.c)
+ *     PspUnlockJob @ 0x14085EB90 (PspUnlockJob.c)
+ *     SeUnlockSubjectContext @ 0x14086C7C0 (SeUnlockSubjectContext.c)
+ *     IopGetSetSecurityObject @ 0x14087DA20 (IopGetSetSecurityObject.c)
+ *     ObCheckObjectAccess @ 0x14087E5F0 (ObCheckObjectAccess.c)
+ *     NtQuerySecurityAttributesToken @ 0x14088CC70 (NtQuerySecurityAttributesToken.c)
+ *     SeExamineGlobalSacl @ 0x14088DC88 (SeExamineGlobalSacl.c)
+ *     SepRmGlobalSaclFind @ 0x14088DDC4 (SepRmGlobalSaclFind.c)
+ *     SeMaximumAuditMaskFromGlobalSacl @ 0x14088E1C0 (SeMaximumAuditMaskFromGlobalSacl.c)
+ *     AlpcpQuerySidToken @ 0x140892064 (AlpcpQuerySidToken.c)
+ *     AlpcpExposeTokenAttribute @ 0x1408A0FD0 (AlpcpExposeTokenAttribute.c)
+ *     IopParseDevice @ 0x1408A7F20 (IopParseDevice.c)
+ *     IopInvalidateVolumesForDevice @ 0x1408AEAB4 (IopInvalidateVolumesForDevice.c)
+ *     PiSwIrpInterfaceSetState @ 0x1408AF56C (PiSwIrpInterfaceSetState.c)
+ *     PiSwIrpPropertySet @ 0x1408AF734 (PiSwIrpPropertySet.c)
+ *     IopDoDeferredSetInterfaceState @ 0x1408AFDC4 (IopDoDeferredSetInterfaceState.c)
+ *     PiSwIrpInterfaceRegister @ 0x1408AFE78 (PiSwIrpInterfaceRegister.c)
+ *     IopRegisterDeviceInterface @ 0x1408B141C (IopRegisterDeviceInterface.c)
+ *     IoSetDeviceInterfaceState @ 0x1408B19A0 (IoSetDeviceInterfaceState.c)
+ *     PiDqObjectManagerEnumerateAndRegisterQuery @ 0x1408B237C (PiDqObjectManagerEnumerateAndRegisterQuery.c)
+ *     PiDmObjectManagerReleaseLock @ 0x1408B2B2C (PiDmObjectManagerReleaseLock.c)
+ *     IoGetDeviceInterfaceAlias @ 0x1408B4A00 (IoGetDeviceInterfaceAlias.c)
+ *     PiPnpRtlSetObjectProperty @ 0x1408B5E10 (PiPnpRtlSetObjectProperty.c)
+ *     PiSwIrpInterfacePropertySet @ 0x1408B69EC (PiSwIrpInterfacePropertySet.c)
+ *     PipEnumerateCompleted @ 0x1408B6C08 (PipEnumerateCompleted.c)
+ *     PiPnpRtlObjectEventWorker @ 0x1408B76F0 (PiPnpRtlObjectEventWorker.c)
+ *     PipProcessDevNodeTree @ 0x1408B7FE0 (PipProcessDevNodeTree.c)
+ *     PpHotSwapGetDevnodeRemovalPolicy @ 0x1408B93F0 (PpHotSwapGetDevnodeRemovalPolicy.c)
+ *     PiGetDeviceDepth @ 0x1408B9C2C (PiGetDeviceDepth.c)
+ *     PiControlGetPropertyData @ 0x1408BAE00 (PiControlGetPropertyData.c)
+ *     PiCMValidateDeviceInstance @ 0x1408BBC4C (PiCMValidateDeviceInstance.c)
+ *     PiGetRelatedDevice @ 0x1408BC818 (PiGetRelatedDevice.c)
+ *     IopGetDeviceInterfaces @ 0x1408C5EA0 (IopGetDeviceInterfaces.c)
+ *     PiDmGetObject @ 0x1408C95A0 (PiDmGetObject.c)
+ *     PiPnpRtlGetCurrentOperation @ 0x1408C9AD0 (PiPnpRtlGetCurrentOperation.c)
+ *     PiPnpRtlEndOperation @ 0x1408C9B88 (PiPnpRtlEndOperation.c)
+ *     PiPnpRtlOperationListReleaseLock @ 0x1408C9CA0 (PiPnpRtlOperationListReleaseLock.c)
+ *     PiPnpRtlCacheObjectBaseKey @ 0x1408C9D00 (PiPnpRtlCacheObjectBaseKey.c)
+ *     PiPnpRtlObjectActionCallback @ 0x1408CC090 (PiPnpRtlObjectActionCallback.c)
+ *     PiControlGetDeviceInterfaceEnabled @ 0x1408CD650 (PiControlGetDeviceInterfaceEnabled.c)
+ *     PiDmObjectGetCachedObjectProperty @ 0x1408CDD40 (PiDmObjectGetCachedObjectProperty.c)
+ *     PiDmEnumObjectsWithCallback @ 0x1408CE800 (PiDmEnumObjectsWithCallback.c)
+ *     IopDeviceInterfaceFilterCallback @ 0x1408CEB60 (IopDeviceInterfaceFilterCallback.c)
+ *     PiPnpRtlApplyMandatoryFilters @ 0x1408CF3D0 (PiPnpRtlApplyMandatoryFilters.c)
+ *     PiPnpRtlApplyMandatoryDeviceFilters @ 0x1408CF5E0 (PiPnpRtlApplyMandatoryDeviceFilters.c)
+ *     PiCMMandatoryFilterCallback @ 0x1408CFBE0 (PiCMMandatoryFilterCallback.c)
+ *     PiUEventApplyAdditionalFilters @ 0x1408CFF90 (PiUEventApplyAdditionalFilters.c)
+ *     PiDqObjectManagerServiceActionQueue @ 0x1408D07C0 (PiDqObjectManagerServiceActionQueue.c)
+ *     PspUnlockJobsAndProcessExclusive @ 0x1408D7BB8 (PspUnlockJobsAndProcessExclusive.c)
+ *     PspGetMemoryPartitionFromJobList @ 0x1408D7DF0 (PspGetMemoryPartitionFromJobList.c)
+ *     PspUnlockJobChain @ 0x1408D80E0 (PspUnlockJobChain.c)
+ *     PspApplyWorkingSetLimitsToProcess @ 0x1408D8304 (PspApplyWorkingSetLimitsToProcess.c)
+ *     _CmGetDeviceSoftwareKeyPath @ 0x1408E0D10 (_CmGetDeviceSoftwareKeyPath.c)
+ *     SeQueryUserSidToken @ 0x1408E1C90 (SeQueryUserSidToken.c)
+ *     SeQueryInformationToken @ 0x1408E4F90 (SeQueryInformationToken.c)
+ *     NtDuplicateToken @ 0x1408E67E0 (NtDuplicateToken.c)
+ *     SeTokenCanImpersonate @ 0x1408E8180 (SeTokenCanImpersonate.c)
+ *     NtSetInformationThread @ 0x1408E8B60 (NtSetInformationThread.c)
+ *     PspSetProcessPriorityClass @ 0x1408EB3D4 (PspSetProcessPriorityClass.c)
+ *     EtwQueryProcessTelemetryInfo @ 0x1408EF7A4 (EtwQueryProcessTelemetryInfo.c)
+ *     NtGetMUIRegistryInfo @ 0x1408F7D70 (NtGetMUIRegistryInfo.c)
+ *     PspInsertThread @ 0x1408FBFD4 (PspInsertThread.c)
+ *     PspRemoveProcessFromJobChain @ 0x1408FF2D8 (PspRemoveProcessFromJobChain.c)
+ *     RtlpNewSecurityObject @ 0x14090DD00 (RtlpNewSecurityObject.c)
+ *     DrvDbReleaseDatabaseNodeBaseKey @ 0x140927308 (DrvDbReleaseDatabaseNodeBaseKey.c)
+ *     DrvDbAcquireDatabaseNodeBaseKey @ 0x1409273B0 (DrvDbAcquireDatabaseNodeBaseKey.c)
+ *     DrvDbOpenObjectRegKey @ 0x140927630 (DrvDbOpenObjectRegKey.c)
+ *     PiDrvDbNodeActionCallback @ 0x140927F50 (PiDrvDbNodeActionCallback.c)
+ *     PiDrvDbLoadNode @ 0x140928080 (PiDrvDbLoadNode.c)
+ *     PfSnCheckActionsNeeded @ 0x140948CE8 (PfSnCheckActionsNeeded.c)
+ *     PfSnPrefetchCacheEntryUpdate @ 0x14094A9E4 (PfSnPrefetchCacheEntryUpdate.c)
+ *     PiQueryAndAllocateBootResources @ 0x140978DA8 (PiQueryAndAllocateBootResources.c)
+ *     PiQueryResourceRequirements @ 0x1409795E8 (PiQueryResourceRequirements.c)
+ *     PipProcessStartPhase3 @ 0x14097B0A4 (PipProcessStartPhase3.c)
+ *     PiUpdateDevicePanel @ 0x14097B2F8 (PiUpdateDevicePanel.c)
+ *     IopQueryInterfaceRecurseUp @ 0x14098215C (IopQueryInterfaceRecurseUp.c)
+ *     NtAdjustPrivilegesToken @ 0x140984860 (NtAdjustPrivilegesToken.c)
+ *     SepFilterToken @ 0x140985C1C (SepFilterToken.c)
+ *     NtAdjustGroupsToken @ 0x140986940 (NtAdjustGroupsToken.c)
+ *     FsRtlReleaseFile @ 0x14098D3F0 (FsRtlReleaseFile.c)
+ *     EtwpGetSidExtendedHeaderItem @ 0x14098FEE0 (EtwpGetSidExtendedHeaderItem.c)
+ *     PspSetQuotaLimits @ 0x140999A58 (PspSetQuotaLimits.c)
+ *     TtmNotifySessionDisplayRequiredChange @ 0x14099D3C4 (TtmNotifySessionDisplayRequiredChange.c)
+ *     TtmNotifyLowPowerStateExited @ 0x14099D528 (TtmNotifyLowPowerStateExited.c)
+ *     TtmNotifySessionPowerStateChange @ 0x14099D5A4 (TtmNotifySessionPowerStateChange.c)
+ *     TtmNotifySessionTerminalInput @ 0x14099D634 (TtmNotifySessionTerminalInput.c)
+ *     TtmInitCurrentSession @ 0x14099D6C8 (TtmInitCurrentSession.c)
+ *     TtmSessionMonitorControl @ 0x14099DE24 (TtmSessionMonitorControl.c)
+ *     TtmNotifySessionDisplayBurst @ 0x14099DFB0 (TtmNotifySessionDisplayBurst.c)
+ *     TtmpAcquireSessionById @ 0x14099E1A4 (TtmpAcquireSessionById.c)
+ *     IoGetLegacyVetoList @ 0x14099F770 (IoGetLegacyVetoList.c)
+ *     PopFilterCapabilities @ 0x14099F88C (PopFilterCapabilities.c)
+ *     SeQueryServerSiloToken @ 0x1409A0F90 (SeQueryServerSiloToken.c)
+ *     TtmNotifyConsoleUserPresent @ 0x1409A12DC (TtmNotifyConsoleUserPresent.c)
+ *     PopReleaseAdaptiveLock @ 0x1409A183C (PopReleaseAdaptiveLock.c)
+ *     PspChargeJobWakeCounter @ 0x1409AECC0 (PspChargeJobWakeCounter.c)
+ *     IoOpenDeviceRegistryKey @ 0x1409B6100 (IoOpenDeviceRegistryKey.c)
+ *     IopLoadDriver @ 0x1409B6EEC (IopLoadDriver.c)
+ *     PpCheckInDriverDatabase @ 0x1409B89D4 (PpCheckInDriverDatabase.c)
+ *     PnpDelayedRemoveWorker @ 0x1409BABD0 (PnpDelayedRemoveWorker.c)
+ *     PpDeviceRegistration @ 0x1409BAF3C (PpDeviceRegistration.c)
+ *     PnpProcessQueryRemoveAndEject @ 0x1409BBF7C (PnpProcessQueryRemoveAndEject.c)
+ *     PnpQueuePendingSurpriseRemoval @ 0x1409BCDB8 (PnpQueuePendingSurpriseRemoval.c)
+ *     PnpUnlinkDeviceRemovalRelations @ 0x1409BD1E4 (PnpUnlinkDeviceRemovalRelations.c)
+ *     PnpReleaseDependencyRelationsLock @ 0x1409BDC24 (PnpReleaseDependencyRelationsLock.c)
+ *     PiSwStopDestroy @ 0x1409BE704 (PiSwStopDestroy.c)
+ *     PiSwProcessParentRemoveIrp @ 0x1409BEA08 (PiSwProcessParentRemoveIrp.c)
+ *     IopReleaseDeviceResources @ 0x1409BF108 (IopReleaseDeviceResources.c)
+ *     PnpDisableDeviceInterfaces @ 0x1409BF2E8 (PnpDisableDeviceInterfaces.c)
+ *     PiSwProcessParentStartIrp @ 0x1409BFAA8 (PiSwProcessParentStartIrp.c)
+ *     FsRtlReleaseFileForCcFlush @ 0x1409C1EC0 (FsRtlReleaseFileForCcFlush.c)
+ *     PiCreateDeviceInstanceKey @ 0x1409C3F58 (PiCreateDeviceInstanceKey.c)
+ *     PiPnpRtlSetDeviceRegProperty @ 0x1409CDD3C (PiPnpRtlSetDeviceRegProperty.c)
+ *     SeGetTokenControlInformation @ 0x1409CF560 (SeGetTokenControlInformation.c)
+ *     SeQuerySessionIdTokenEx @ 0x1409D9400 (SeQuerySessionIdTokenEx.c)
+ *     SeQuerySecurityAttributesToken @ 0x1409E61E0 (SeQuerySecurityAttributesToken.c)
+ *     NtCreateTimer @ 0x1409EADF0 (NtCreateTimer.c)
+ *     IoRegisterPlugPlayNotification @ 0x1409EB2A0 (IoRegisterPlugPlayNotification.c)
+ *     PnpNotifyDeviceClassChange @ 0x1409EC16C (PnpNotifyDeviceClassChange.c)
+ *     PnpNotifyTargetDeviceChange @ 0x1409EC4E0 (PnpNotifyTargetDeviceChange.c)
+ *     PiDcHandleCustomDeviceEvent @ 0x1409EC964 (PiDcHandleCustomDeviceEvent.c)
+ *     PiSwFreePdoAssociationsList @ 0x1409F0A88 (PiSwFreePdoAssociationsList.c)
+ *     PiSwCompleteCreate @ 0x1409F0EA8 (PiSwCompleteCreate.c)
+ *     PiSwIrpStartCreateWorker @ 0x1409F13D4 (PiSwIrpStartCreateWorker.c)
+ *     PiSwPdoPnPDispatch @ 0x1409F33B0 (PiSwPdoPnPDispatch.c)
+ *     SeQuerySessionIdToken @ 0x1409F4CB0 (SeQuerySessionIdToken.c)
+ *     CmpStopRMLog @ 0x140A00A5C (CmpStopRMLog.c)
+ *     CmpAccountForLogReservation @ 0x140A016A4 (CmpAccountForLogReservation.c)
+ *     CmpCleanupTransactionState @ 0x140A01734 (CmpCleanupTransactionState.c)
+ *     CmpTransWriteLog @ 0x140A01E5C (CmpTransWriteLog.c)
+ *     PpDevNodeLockTree @ 0x140A05140 (PpDevNodeLockTree.c)
+ *     SepAccessCheckAndAuditAlarm @ 0x140A07A00 (SepAccessCheckAndAuditAlarm.c)
+ *     PpDevNodeUnlockTree @ 0x140A0D4DC (PpDevNodeUnlockTree.c)
+ *     AlpcpCheckConnectionSecurity @ 0x140A0F9D4 (AlpcpCheckConnectionSecurity.c)
+ *     SepCreateLogonSessionTrack @ 0x140A16FEC (SepCreateLogonSessionTrack.c)
+ *     FsRtlCopyRead @ 0x140A1B070 (FsRtlCopyRead.c)
+ *     PopDripsWatchdogStopWatchdog @ 0x140A1C7C8 (PopDripsWatchdogStopWatchdog.c)
+ *     PopDripsWatchdogStartWatchdog @ 0x140A1C834 (PopDripsWatchdogStartWatchdog.c)
+ *     IopMountVolume @ 0x140A1DB24 (IopMountVolume.c)
+ *     SepValidOwnerSubjectContext @ 0x140A22078 (SepValidOwnerSubjectContext.c)
+ *     SeIsTokenAssignableToProcess @ 0x140A255F4 (SeIsTokenAssignableToProcess.c)
+ *     SepReferenceLogonSessionSilo @ 0x140A25AB4 (SepReferenceLogonSessionSilo.c)
+ *     PspUnlockJobConditionally @ 0x140A2BA80 (PspUnlockJobConditionally.c)
+ *     PspAssignProcessQuotaBlock @ 0x140A2BBE8 (PspAssignProcessQuotaBlock.c)
+ *     FsRtlCopyWrite @ 0x140A2FA90 (FsRtlCopyWrite.c)
+ *     PiQueryDeviceRelations @ 0x140A3435C (PiQueryDeviceRelations.c)
+ *     WmipGetSMBiosTableData @ 0x140A37918 (WmipGetSMBiosTableData.c)
+ *     PnpDiagRundownRegisterCallback @ 0x140A38EF0 (PnpDiagRundownRegisterCallback.c)
+ *     PipForDeviceNodeSubtree @ 0x140A39170 (PipForDeviceNodeSubtree.c)
+ *     SepGetLogonSessionAccountInfo @ 0x140A3C49C (SepGetLogonSessionAccountInfo.c)
+ *     SeSetMandatoryPolicyToken @ 0x140A412E4 (SeSetMandatoryPolicyToken.c)
+ *     PspSetProcessAffinitySafe @ 0x140A42004 (PspSetProcessAffinitySafe.c)
+ *     SepUpdateLogonSessionTrack @ 0x140A427E4 (SepUpdateLogonSessionTrack.c)
+ *     SeSetSessionIdToken @ 0x140A471F8 (SeSetSessionIdToken.c)
+ *     SepRmCommandServerThread @ 0x140A4A870 (SepRmCommandServerThread.c)
+ *     PipMakeGloballyUniqueId @ 0x140A4FA70 (PipMakeGloballyUniqueId.c)
+ *     PspSetBackgroundJobTree @ 0x140A50138 (PspSetBackgroundJobTree.c)
+ *     IopSetDeviceSecurityDescriptor @ 0x140A524DC (IopSetDeviceSecurityDescriptor.c)
+ *     IopGetRootDevices @ 0x140A5ADB8 (IopGetRootDevices.c)
+ *     SepDeleteLogonSessionTrack @ 0x140A5CE20 (SepDeleteLogonSessionTrack.c)
+ *     PspValidateJobAffinityState @ 0x140A673AC (PspValidateJobAffinityState.c)
+ *     PspFreezeJobTree @ 0x140A67B30 (PspFreezeJobTree.c)
+ *     PipGenerateContainerID @ 0x140A69ACC (PipGenerateContainerID.c)
+ *     AdtpBuildAccessesString @ 0x140A6BDDC (AdtpBuildAccessesString.c)
+ *     IopBootLog @ 0x140A728F8 (IopBootLog.c)
+ *     WmipReleaseSmbiosLockShared @ 0x140A75DE8 (WmipReleaseSmbiosLockShared.c)
+ *     PiProcessNewDeviceNode @ 0x140A76864 (PiProcessNewDeviceNode.c)
+ *     PnpSurpriseFailUnsafeDmaDevices @ 0x140A78A28 (PnpSurpriseFailUnsafeDmaDevices.c)
+ *     PnpChainDereferenceComplete @ 0x140A83D94 (PnpChainDereferenceComplete.c)
+ *     DrvDbOpenDriverDatabaseRegKey @ 0x140A85194 (DrvDbOpenDriverDatabaseRegKey.c)
+ *     SeSetVirtualizationToken @ 0x140A86A68 (SeSetVirtualizationToken.c)
+ *     PiQueryPowerRelations @ 0x140A887F8 (PiQueryPowerRelations.c)
+ *     IopWriteAllocatedResourcesToRegistry @ 0x140A89C08 (IopWriteAllocatedResourcesToRegistry.c)
+ *     PiDrvDbUnloadNodeWorkerCallback @ 0x140A92DE0 (PiDrvDbUnloadNodeWorkerCallback.c)
+ *     PnpDriverLoadingFailed @ 0x140A9C798 (PnpDriverLoadingFailed.c)
+ *     IoLockUnlockPnpDeviceTree @ 0x140A9D5CC (IoLockUnlockPnpDeviceTree.c)
+ *     PiDmaGuardQueueFlush @ 0x140A9D9A0 (PiDmaGuardQueueFlush.c)
+ *     SeMarkLogonSessionForTerminationNotificationEx @ 0x140AA2360 (SeMarkLogonSessionForTerminationNotificationEx.c)
+ *     PnpDeleteDeviceInterfaces @ 0x140AA2768 (PnpDeleteDeviceInterfaces.c)
+ *     TtmCleanupCurrentSession @ 0x140AA850C (TtmCleanupCurrentSession.c)
+ *     IoOpenDeviceInterfaceRegistryKey @ 0x140AA8C70 (IoOpenDeviceInterfaceRegistryKey.c)
+ *     PiCMCreateDevice @ 0x140AB39A4 (PiCMCreateDevice.c)
+ *     SepBlockAccessForLogonSession @ 0x140AB6B80 (SepBlockAccessForLogonSession.c)
+ *     PnpGetDeviceInstanceRegistryValue @ 0x140AB78A0 (PnpGetDeviceInstanceRegistryValue.c)
+ *     PiCMUnregisterDeviceInterface @ 0x140ABB188 (PiCMUnregisterDeviceInterface.c)
+ *     NtSetInformationJobObject @ 0x140ACC7F0 (NtSetInformationJobObject.c)
+ *     NtQueryInformationToken @ 0x140AD09E0 (NtQueryInformationToken.c)
+ *     NtSetInformationToken @ 0x140AD4280 (NtSetInformationToken.c)
+ *     NtCreateLowBoxToken @ 0x140AD5A60 (NtCreateLowBoxToken.c)
+ *     SepDeReferenceLogonSession @ 0x140AD7224 (SepDeReferenceLogonSession.c)
+ *     CmpStartRMLog @ 0x140AE7164 (CmpStartRMLog.c)
+ *     PopReleasePolicyLock @ 0x140B69E40 (PopReleasePolicyLock.c)
+ *     CmpUnlockRegistry @ 0x140BBBF50 (CmpUnlockRegistry.c)
+ *     IopInitCrashDumpRegCallback @ 0x140C1EA90 (IopInitCrashDumpRegCallback.c)
+ *     PipResetMatchingFilteredDevices @ 0x140C24080 (PipResetMatchingFilteredDevices.c)
+ *     ExpPrmInitialization @ 0x140C42EA4 (ExpPrmInitialization.c)
+ *     VslRegisterBootDrivers @ 0x140C65AF8 (VslRegisterBootDrivers.c)
  * Callees:
- *     KiReleaseSpinLockInstrumented @ 0x14024E080 (KiReleaseSpinLockInstrumented.c)
- *     KeInsertQueueDpc @ 0x1402542F0 (KeInsertQueueDpc.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     EtwTraceKernelEvent @ 0x140255180 (EtwTraceKernelEvent.c)
- *     ExReleaseFastResource @ 0x14025BE50 (ExReleaseFastResource.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14025E408 (KiRemoveSystemWorkPriorityKick.c)
- *     RtlCaptureStackBackTrace @ 0x14027C690 (RtlCaptureStackBackTrace.c)
- *     KxWaitForLockOwnerShip @ 0x1402D6990 (KxWaitForLockOwnerShip.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x1402D85F0 (KiAcquireQueuedSpinLockInstrumented.c)
- *     KiAcquireKobjectLockSafe @ 0x14031E740 (KiAcquireKobjectLockSafe.c)
- *     KiExitDispatcher @ 0x14031E7A0 (KiExitDispatcher.c)
- *     KeWakeAddressAll @ 0x140321AA0 (KeWakeAddressAll.c)
- *     KiReleaseQueuedSpinLockInstrumented @ 0x140321C90 (KiReleaseQueuedSpinLockInstrumented.c)
- *     KxWaitForLockChainValid @ 0x140321D40 (KxWaitForLockChainValid.c)
- *     KiHaltOnAddressWakeEntireList @ 0x140321D94 (KiHaltOnAddressWakeEntireList.c)
- *     KeDisableInterrupts @ 0x140321E80 (KeDisableInterrupts.c)
- *     KiRemoveBoostThread @ 0x1403230A4 (KiRemoveBoostThread.c)
- *     KiInsertQueueInternal @ 0x140323B94 (KiInsertQueueInternal.c)
- *     ObpPushStackInfo @ 0x1403407AC (ObpPushStackInfo.c)
- *     ObpDeferObjectDeletion @ 0x1403C485C (ObpDeferObjectDeletion.c)
- *     KiTryUnwaitThread @ 0x1403D95F0 (KiTryUnwaitThread.c)
- *     RtlRemoveHeadCircularList @ 0x140428AD0 (RtlRemoveHeadCircularList.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlCaptureStackBackTrace @ 0x140231C20 (RtlCaptureStackBackTrace.c)
+ *     KiReleaseSpinLockInstrumented @ 0x14027E690 (KiReleaseSpinLockInstrumented.c)
+ *     KeInsertQueueDpc @ 0x140284900 (KeInsertQueueDpc.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     EtwTraceKernelEvent @ 0x140285790 (EtwTraceKernelEvent.c)
+ *     ExReleaseFastResource @ 0x14028C460 (ExReleaseFastResource.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14028EA18 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiAcquireKobjectLockSafe @ 0x1402C72D0 (KiAcquireKobjectLockSafe.c)
+ *     KiExitDispatcher @ 0x1402C7330 (KiExitDispatcher.c)
+ *     KeWakeAddressAll @ 0x1402CA630 (KeWakeAddressAll.c)
+ *     KiReleaseQueuedSpinLockInstrumented @ 0x1402CA820 (KiReleaseQueuedSpinLockInstrumented.c)
+ *     KxWaitForLockChainValid @ 0x1402CA8D0 (KxWaitForLockChainValid.c)
+ *     KiHaltOnAddressWakeEntireList @ 0x1402CA924 (KiHaltOnAddressWakeEntireList.c)
+ *     KeDisableInterrupts @ 0x1402CAA10 (KeDisableInterrupts.c)
+ *     KiRemoveBoostThread @ 0x1402CBC34 (KiRemoveBoostThread.c)
+ *     KiInsertQueueInternal @ 0x1402CC724 (KiInsertQueueInternal.c)
+ *     KiTryUnwaitThread @ 0x1402F28C0 (KiTryUnwaitThread.c)
+ *     ObpPushStackInfo @ 0x14031FC8C (ObpPushStackInfo.c)
+ *     KxWaitForLockOwnerShip @ 0x140357C10 (KxWaitForLockOwnerShip.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x140359870 (KiAcquireQueuedSpinLockInstrumented.c)
+ *     ObpDeferObjectDeletion @ 0x1403B341C (ObpDeferObjectDeletion.c)
+ *     RtlRemoveHeadCircularList @ 0x14041CA50 (RtlRemoveHeadCircularList.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __stdcall ExReleaseResourceLite(PERESOURCE Resource)
@@ -385,190 +386,197 @@ void __stdcall ExReleaseResourceLite(PERESOURCE Resource)
   USHORT Flag; // cx
   ULONG_PTR v4; // r14
   unsigned __int8 v5; // r12
-  struct _KTHREAD *v6; // r8
-  __int64 v7; // rdx
-  ULONG v8; // r13d
+  __int64 v6; // rdx
+  struct _KTHREAD *v7; // r8
+  __int64 v8; // rdx
   ULONG v9; // r13d
+  ULONG v10; // r13d
   ULONG TableSize; // eax
-  ERESOURCE_THREAD v11; // rdi
-  char v12; // r14
-  KIRQL v13; // r12
-  _QWORD *v14; // r13
-  signed __int64 v15; // rax
-  bool v16; // cc
-  signed __int64 v17; // rax
-  ERESOURCE_THREAD v18; // r14
-  ULONG v19; // ecx
-  unsigned __int64 *v20; // rax
-  __int64 v21; // rdx
-  ULONG v22; // eax
-  unsigned __int64 v23; // rdi
-  int v24; // r14d
-  __int64 v25; // rax
-  KSPIN_LOCK *v26; // rcx
-  char v27; // di
-  __int64 v28; // r8
-  __int64 v29; // r10
-  __int64 v30; // rcx
-  struct _KPRCB *v31; // rcx
-  signed __int32 *v32; // r8
-  unsigned int v33; // eax
+  ERESOURCE_THREAD v12; // rdi
+  char v13; // r14
+  KIRQL v14; // r12
+  _QWORD *v15; // r13
+  signed __int64 v16; // rax
+  bool v17; // cc
+  signed __int64 v18; // rax
+  ERESOURCE_THREAD v19; // r14
+  ULONG v20; // ecx
+  unsigned __int64 *v21; // rax
+  __int64 v22; // rdx
+  ULONG v23; // eax
+  unsigned __int64 v24; // rdi
+  int v25; // r14d
+  __int64 v26; // rax
+  KSPIN_LOCK *v27; // rcx
+  char v28; // di
+  __int64 v29; // r8
+  __int64 v30; // r10
+  __int64 v31; // rcx
+  __int64 v32; // r9
+  struct _KPRCB *v33; // rcx
+  unsigned __int32 *v34; // r8
+  unsigned int v35; // eax
   unsigned __int64 OwnerThread; // rdx
   OWNER_ENTRY *p_OwnerEntry; // rdi
-  unsigned __int64 v36; // rcx
+  unsigned __int64 v38; // rcx
   POWNER_ENTRY OwnerTable; // rdi
-  ULONG v38; // eax
-  unsigned __int64 v39; // rdi
-  struct _KPRCB *v40; // r15
-  struct _KTHREAD *v41; // r12
-  unsigned int v42; // ecx
-  signed __int64 v43; // r14
-  int v44; // r8d
-  signed __int64 v45; // rax
-  signed __int64 v46; // rdi
+  ULONG v40; // eax
+  unsigned __int64 v41; // rdi
+  struct _KPRCB *v42; // r15
+  struct _KTHREAD *v43; // r12
+  unsigned int v44; // ecx
+  signed __int64 v45; // r14
+  int v46; // r8d
   signed __int64 v47; // rax
+  signed __int64 v48; // rdi
+  signed __int64 v49; // rax
   unsigned int m; // edx
-  int v49; // r9d
-  ULONG v50; // r13d
-  __int64 v51; // rax
-  KSPIN_LOCK *v52; // rcx
-  char v53; // di
-  __int64 v54; // r8
-  __int64 v55; // r10
-  __int64 v56; // rcx
-  struct _KPRCB *v57; // rcx
-  signed __int32 *v58; // r8
+  int v51; // r9d
+  ULONG v52; // r13d
+  __int64 v53; // rax
+  KSPIN_LOCK *v54; // rcx
+  char v55; // di
+  __int64 v56; // r8
+  __int64 v57; // r10
+  __int64 v58; // rcx
+  __int64 v59; // r9
+  struct _KPRCB *v60; // rcx
+  unsigned __int32 *v61; // r8
   PVOID ExclusiveWaiters; // rcx
-  _QWORD *v60; // rdx
-  PVOID *v61; // rax
-  unsigned __int64 v62; // rax
-  unsigned __int64 *v63; // rax
+  _QWORD *v63; // rdx
+  PVOID *v64; // rax
+  unsigned __int64 v65; // rax
+  unsigned __int64 *v66; // rax
   unsigned __int64 k; // rcx
-  _DWORD *v65; // r9
-  _QWORD *v66; // rax
-  _QWORD *v67; // rcx
-  __int64 v68; // rdx
-  _QWORD *v69; // rcx
-  _QWORD *v70; // rax
-  unsigned int v71; // eax
-  ULONG_PTR v72; // r14
-  char v73; // r12
-  KIRQL v74; // r13
-  _QWORD *v75; // rax
-  signed __int64 v76; // rax
-  signed __int64 v77; // rax
-  ERESOURCE_THREAD v78; // rdi
+  _DWORD *v68; // r9
+  _QWORD *v69; // rax
+  _QWORD *v70; // rcx
+  __int64 v71; // rdx
+  _QWORD *v72; // rcx
+  _QWORD *v73; // rax
+  unsigned int v74; // eax
+  ULONG_PTR v75; // r14
+  char v76; // r12
+  KIRQL v77; // r13
+  _QWORD *v78; // rax
+  signed __int64 v79; // rax
+  signed __int64 v80; // rax
+  ERESOURCE_THREAD v81; // rdi
   ULONG NumberOfSharedWaiters; // ecx
-  ULONG v80; // eax
-  ULONG v81; // eax
-  unsigned __int64 v82; // r14
-  int v83; // r14d
-  __int64 v84; // rax
-  KSPIN_LOCK *v85; // rdx
-  ULONG v86; // r13d
-  unsigned __int64 v87; // rdi
-  struct _KPRCB *v88; // r13
-  struct _KTHREAD *v89; // rcx
-  unsigned int v90; // r12d
+  ULONG v83; // eax
+  ULONG v84; // eax
+  unsigned __int64 v85; // r14
+  int v86; // r14d
+  __int64 v87; // rax
+  KSPIN_LOCK *v88; // rdx
+  ULONG v89; // r13d
+  unsigned __int64 v90; // rdi
+  struct _KPRCB *v91; // r13
+  struct _KTHREAD *v92; // rcx
+  unsigned int v93; // r12d
   signed __int64 Object; // r14
-  int v92; // r8d
+  int v95; // r8d
   signed __int64 Pool2; // rax
-  unsigned __int64 v94; // rcx
-  signed __int64 v95; // rax
+  unsigned __int64 v97; // rcx
+  signed __int64 v98; // rax
   unsigned int j; // edx
-  int v97; // ecx
-  unsigned __int64 v98; // rax
-  unsigned __int64 v99; // r9
-  ULONG v100; // ecx
-  ULONG v101; // r10d
-  unsigned __int64 v102; // rax
-  unsigned __int64 v103; // r9
-  ULONG v104; // ecx
-  ULONG v105; // r10d
-  char v106; // al
-  char v107; // r14
-  __int64 v108; // rax
-  KSPIN_LOCK *v109; // rcx
-  char v110; // di
-  __int64 v111; // r8
-  __int64 v112; // r10
-  __int64 v113; // rcx
-  struct _KPRCB *v114; // rcx
-  signed __int32 *SchedulerAssist; // r8
-  char v116; // al
-  char v117; // al
-  bool v118; // zf
-  struct _KPRCB *v119; // r12
-  unsigned __int64 *v120; // rax
-  unsigned __int64 v121; // rax
-  unsigned __int64 *v122; // r13
+  int v100; // ecx
+  unsigned __int64 v101; // rax
+  unsigned __int64 v102; // r9
+  ULONG v103; // ecx
+  ULONG v104; // r10d
+  unsigned __int64 v105; // rax
+  unsigned __int64 v106; // r9
+  ULONG v107; // ecx
+  ULONG v108; // r10d
+  char v109; // al
+  char v110; // r14
+  __int64 v111; // rax
+  KSPIN_LOCK *v112; // rcx
+  char v113; // di
+  __int64 v114; // r8
+  __int64 v115; // r10
+  __int64 v116; // rcx
+  __int64 v117; // r9
+  struct _KPRCB *v118; // rcx
+  unsigned __int32 *SchedulerAssist; // r8
+  char v120; // al
+  char v121; // al
+  bool v122; // zf
+  struct _KPRCB *v123; // r12
+  unsigned __int64 *v124; // rax
+  unsigned __int64 v125; // rax
+  unsigned __int64 *v126; // r13
   unsigned __int64 *i; // rax
-  _DWORD *v124; // r9
-  _QWORD *v125; // r13
-  _QWORD *v126; // rax
-  _QWORD *v127; // rdx
-  _QWORD *v128; // rax
-  _QWORD *v129; // rcx
-  char v130; // cl
-  char v131; // al
-  struct _KPRCB *v132; // r13
-  signed __int32 v133; // eax
-  signed __int32 v134; // ett
-  signed __int32 v135; // eax
-  signed __int32 v136; // ett
-  unsigned __int64 **v137; // rdx
-  unsigned __int64 *v138; // rax
-  signed __int32 v139; // eax
-  signed __int32 v140; // ett
-  __int128 *v141; // rax
+  _DWORD *v128; // r9
+  _QWORD *v129; // r13
+  _QWORD *v130; // rax
+  _QWORD *v131; // rdx
+  _QWORD *v132; // rax
+  _QWORD *v133; // rcx
+  char v134; // cl
+  char v135; // al
+  struct _KPRCB *v136; // r13
+  unsigned __int32 v137; // eax
+  __int64 v138; // rdx
+  unsigned __int32 v139; // ett
+  unsigned __int32 v140; // eax
+  __int64 v141; // rdx
+  unsigned __int32 v142; // ett
+  unsigned __int64 **v143; // rdx
+  unsigned __int64 *v144; // rax
+  unsigned __int32 v145; // eax
+  __int64 v146; // rdx
+  unsigned __int32 v147; // ett
+  __int128 *v148; // rax
   unsigned __int64 *SharedWaiters; // rax
-  __int64 v143; // rax
-  __int64 v144; // rax
-  __int64 v145; // r13
+  __int64 v150; // rax
+  __int64 v151; // rax
+  __int64 v152; // r13
   ULONG *p_ActiveEntries; // rdi
-  struct _KTHREAD *v147; // r14
-  unsigned __int8 v148; // si
-  char v149; // cl
-  volatile signed __int64 *v150; // rcx
-  volatile signed __int64 *v151; // rcx
+  struct _KTHREAD *v154; // r14
+  unsigned __int8 v155; // si
+  char v156; // cl
+  volatile signed __int64 *v157; // rcx
+  volatile signed __int64 *v158; // rcx
   unsigned __int8 CurrentIrql; // al
   struct _KTHREAD *CurrentThread; // rcx
-  _QWORD *v154; // rcx
-  __int64 **v155; // r14
-  __int64 *v156; // rcx
-  __int64 **v157; // r14
-  __int64 *v158; // rcx
-  __int64 v159; // rax
-  __int64 v160; // rax
-  __int64 **v161; // r12
-  __int64 *v162; // rcx
-  __int64 **v163; // r12
-  __int64 *v164; // rcx
-  __int64 v165; // rax
+  _QWORD *v161; // rcx
+  __int64 **v162; // r14
+  __int64 *v163; // rcx
+  __int64 **v164; // r14
+  __int64 *v165; // rcx
   __int64 v166; // rax
-  signed __int32 v167[6]; // [rsp+8h] [rbp-100h] BYREF
-  __int64 v168; // [rsp+38h] [rbp-D0h]
-  _DWORD *v169; // [rsp+40h] [rbp-C8h]
-  _DWORD *v170; // [rsp+48h] [rbp-C0h]
+  __int64 v167; // rax
+  __int64 **v168; // r12
+  __int64 *v169; // rcx
+  __int64 **v170; // r12
+  __int64 *v171; // rcx
+  __int64 v172; // rax
+  __int64 v173; // rax
+  signed __int32 v174[6]; // [rsp+8h] [rbp-100h] BYREF
+  __int64 v175; // [rsp+38h] [rbp-D0h]
+  _DWORD *v176; // [rsp+40h] [rbp-C8h]
+  _DWORD *v177; // [rsp+48h] [rbp-C0h]
   __int16 Group; // [rsp+50h] [rbp-B8h]
   ULONG ContentionCount; // [rsp+54h] [rbp-B4h]
-  __int64 v173; // [rsp+58h] [rbp-B0h] BYREF
+  __int64 v180; // [rsp+58h] [rbp-B0h] BYREF
   KSPIN_LOCK *p_SpinLock; // [rsp+60h] [rbp-A8h]
-  __int64 v175; // [rsp+68h] [rbp-A0h]
-  _QWORD *v176; // [rsp+70h] [rbp-98h]
-  unsigned __int64 v177; // [rsp+78h] [rbp-90h]
+  __int64 v182; // [rsp+68h] [rbp-A0h]
+  _QWORD *v183; // [rsp+70h] [rbp-98h]
+  unsigned __int64 v184; // [rsp+78h] [rbp-90h]
   struct _KPRCB *CurrentPrcb; // [rsp+80h] [rbp-88h]
-  unsigned __int64 v179; // [rsp+88h] [rbp-80h]
-  unsigned __int64 *v180; // [rsp+90h] [rbp-78h]
-  unsigned __int64 *v181; // [rsp+98h] [rbp-70h]
-  unsigned __int64 *v182; // [rsp+A0h] [rbp-68h]
-  __int128 v183; // [rsp+A8h] [rbp-60h] BYREF
-  __int128 v184; // [rsp+B8h] [rbp-50h]
-  __int128 v185; // [rsp+C8h] [rbp-40h]
-  __int128 v186; // [rsp+D8h] [rbp-30h] BYREF
-  __int128 v187; // [rsp+E8h] [rbp-20h]
-  __int128 v188; // [rsp+F8h] [rbp-10h]
-  _QWORD v189[2]; // [rsp+108h] [rbp+0h] BYREF
+  unsigned __int64 v186; // [rsp+88h] [rbp-80h]
+  unsigned __int64 *v187; // [rsp+90h] [rbp-78h]
+  unsigned __int64 *v188; // [rsp+98h] [rbp-70h]
+  unsigned __int64 *v189; // [rsp+A0h] [rbp-68h]
+  __int128 v190; // [rsp+A8h] [rbp-60h] BYREF
+  __int128 v191; // [rsp+B8h] [rbp-50h]
+  __int128 v192; // [rsp+C8h] [rbp-40h]
+  __int128 v193; // [rsp+D8h] [rbp-30h] BYREF
+  __int128 v194; // [rsp+E8h] [rbp-20h]
+  __int128 v195; // [rsp+F8h] [rbp-10h]
+  _QWORD v196[2]; // [rsp+108h] [rbp+0h] BYREF
   __int64 retaddr; // [rsp+150h] [rbp+48h]
 
   Flag = Resource->Flag;
@@ -582,92 +590,93 @@ void __stdcall ExReleaseResourceLite(PERESOURCE Resource)
       KeBugCheckEx(0x1C6u, 0LL, CurrentIrql, 2uLL, 0LL);
     if ( !CurrentIrql && (CurrentThread->MiscFlags & 0x400) == 0 && !CurrentThread->WaitBlock[3].SpareLong )
       KeBugCheckEx(0x1C6u, 7uLL, 0LL, 0LL, 0LL);
-    v147 = KeGetCurrentThread();
-    v148 = KeGetCurrentIrql();
+    v154 = KeGetCurrentThread();
+    v155 = KeGetCurrentIrql();
     __writecr8(2uLL);
     if ( KiIrqlFlags )
-      KiRaiseIrqlProcessIrqlFlags(v148, 2LL);
-    if ( ((__int64)Resource->SystemResourcesList.Flink & 1) != 0 && Resource->Reserved2 == v147 )
+      KiRaiseIrqlProcessIrqlFlags(v155, 2LL);
+    if ( ((__int64)Resource->SystemResourcesList.Flink & 1) != 0 && Resource->Reserved2 == v154 )
     {
       p_ActiveEntries = &Resource->ActiveEntries;
 LABEL_317:
       if ( p_ActiveEntries )
       {
-        v106 = *((_BYTE *)p_ActiveEntries + 37);
-        if ( (v106 & 2) != 0 )
+        v109 = *((_BYTE *)p_ActiveEntries + 37);
+        if ( (v109 & 2) != 0 )
         {
-          v107 = 0;
+          v110 = 0;
         }
         else
         {
-          v107 = 1;
-          *((_BYTE *)p_ActiveEntries + 37) = v106 & 0xFE;
+          v110 = 1;
+          *((_BYTE *)p_ActiveEntries + 37) = v109 & 0xFE;
         }
         if ( KiIrqlFlags )
-          KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), v148);
-        __writecr8(v148);
+          KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), v155);
+        __writecr8(v155);
         ExReleaseFastResource((ULONG_PTR)Resource, (ULONG_PTR)p_ActiveEntries);
-        if ( v107 )
+        if ( v110 )
           ExFreePoolWithTag(p_ActiveEntries, 0);
         return;
       }
     }
     else
     {
-      for ( p_ActiveEntries = (ULONG *)v147[1].WaitBlock[3].SparePtr;
-            p_ActiveEntries != (ULONG *)&v147[1].LastXStateSaveDebugInfo;
+      for ( p_ActiveEntries = (ULONG *)v154[1].WaitBlock[3].SparePtr;
+            p_ActiveEntries != (ULONG *)&v154[1].LastXStateSaveDebugInfo;
             p_ActiveEntries = *(ULONG **)p_ActiveEntries )
       {
-        v149 = *((_BYTE *)p_ActiveEntries + 37);
-        if ( (v149 & 2) == 0 && *((PERESOURCE *)p_ActiveEntries + 3) == Resource && (v149 & 1) != 0 )
+        v156 = *((_BYTE *)p_ActiveEntries + 37);
+        if ( (v156 & 2) == 0 && *((PERESOURCE *)p_ActiveEntries + 3) == Resource && (v156 & 1) != 0 )
           goto LABEL_317;
       }
     }
-    KeBugCheckEx(0xE3u, (ULONG_PTR)Resource, (ULONG_PTR)v147, 0LL, 0LL);
+    KeBugCheckEx(0xE3u, (ULONG_PTR)Resource, (ULONG_PTR)v154, 0LL, 0LL);
   }
   v4 = (ULONG_PTR)KeGetCurrentThread();
-  v175 = 0LL;
+  v182 = 0LL;
   p_SpinLock = &Resource->SpinLock;
-  v173 = 0LL;
+  v180 = 0LL;
   v5 = KeGetCurrentIrql();
   __writecr8(2uLL);
   if ( KiIrqlFlags )
     KiRaiseIrqlProcessIrqlFlags(v5, 2LL);
-  LOBYTE(v175) = v5;
+  LOBYTE(v182) = v5;
   if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
   {
-    if ( _InterlockedExchange64((volatile __int64 *)&Resource->SpinLock, (__int64)&v173) )
-      KxWaitForLockOwnerShip(&v173);
+    v6 = _InterlockedExchange64((volatile __int64 *)&Resource->SpinLock, (__int64)&v180);
+    if ( v6 )
+      KxWaitForLockOwnerShip(&v180, v6);
   }
   else
   {
-    KiAcquireQueuedSpinLockInstrumented(&v173, &Resource->SpinLock);
+    KiAcquireQueuedSpinLockInstrumented(&v180, &Resource->SpinLock);
   }
-  v6 = KeGetCurrentThread();
-  v7 = Resource->Flag;
-  if ( ((v7 & 1) != 0 || ExpResourceEnforceOwnerTransfer) && (v4 & 3) != 3 && (struct _KTHREAD *)v4 != v6 )
-    KeBugCheckEx(0x16Eu, (ULONG_PTR)Resource, (ULONG_PTR)v6, v4, 0LL);
-  if ( (v7 & 0x80u) == 0LL )
+  v7 = KeGetCurrentThread();
+  v8 = Resource->Flag;
+  if ( ((v8 & 1) != 0 || ExpResourceEnforceOwnerTransfer) && (v4 & 3) != 3 && (struct _KTHREAD *)v4 != v7 )
+    KeBugCheckEx(0x16Eu, (ULONG_PTR)Resource, (ULONG_PTR)v7, v4, 0LL);
+  if ( (v8 & 0x80u) == 0LL )
   {
-    v182 = 0LL;
-    LOBYTE(v168) = (DWORD1(PerfGlobalGroupMask) & 0x20000) != 0;
+    v189 = 0LL;
+    LOBYTE(v175) = (DWORD1(PerfGlobalGroupMask) & 0x20000) != 0;
     if ( (v4 & 3) != 0 )
-      v33 = 0;
+      v35 = 0;
     else
-      v33 = *(unsigned __int8 *)(v4 + 1120);
+      v35 = *(unsigned __int8 *)(v4 + 1120);
     OwnerThread = Resource->OwnerEntry.OwnerThread;
     p_OwnerEntry = &Resource->OwnerEntry;
     if ( OwnerThread == v4 )
       goto LABEL_132;
-    v36 = Resource->OwnerEntry.OwnerThread != 0;
-    if ( v33 )
+    v38 = Resource->OwnerEntry.OwnerThread != 0;
+    if ( v35 )
     {
       OwnerThread = (unsigned __int64)Resource->OwnerTable;
       if ( OwnerThread )
       {
-        if ( v33 < *(_DWORD *)(OwnerThread + 8) )
+        if ( v35 < *(_DWORD *)(OwnerThread + 8) )
         {
-          p_OwnerEntry = (OWNER_ENTRY *)(OwnerThread + 16LL * v33);
+          p_OwnerEntry = (OWNER_ENTRY *)(OwnerThread + 16LL * v35);
           if ( p_OwnerEntry->OwnerThread == v4 )
             goto LABEL_132;
         }
@@ -677,15 +686,15 @@ LABEL_317:
     OwnerThread = Resource->ActiveEntries + (unsigned __int64)Resource->NumberOfSharedWaiters;
     if ( OwnerTable )
     {
-      v6 = (struct _KTHREAD *)&OwnerTable[OwnerTable->TableSize];
+      v7 = (struct _KTHREAD *)&OwnerTable[OwnerTable->TableSize];
       p_OwnerEntry = OwnerTable + 1;
-      if ( v36 < OwnerThread )
+      if ( v38 < OwnerThread )
       {
         while ( p_OwnerEntry->OwnerThread != v4 )
         {
-          if ( !p_OwnerEntry->OwnerThread || (++v36, v36 != OwnerThread) )
+          if ( !p_OwnerEntry->OwnerThread || (++v38, v38 != OwnerThread) )
           {
-            if ( ++p_OwnerEntry != (OWNER_ENTRY *)v6 )
+            if ( ++p_OwnerEntry != (OWNER_ENTRY *)v7 )
               continue;
           }
           goto LABEL_114;
@@ -693,69 +702,69 @@ LABEL_317:
         KeGetCurrentThread()->ResourceIndex = (__int64)(unsigned int)((_DWORD)p_OwnerEntry
                                                                     - LODWORD(Resource->OwnerTable)) >> 4;
 LABEL_132:
-        v71 = p_OwnerEntry->TableSize & 7 | (8 * (p_OwnerEntry->TableSize >> 3) - 8);
-        p_OwnerEntry->TableSize = v71;
-        LODWORD(v170) = v71 >> 3;
-        if ( !(v71 >> 3) )
+        v74 = p_OwnerEntry->TableSize & 7 | (8 * (p_OwnerEntry->TableSize >> 3) - 8);
+        p_OwnerEntry->TableSize = v74;
+        LODWORD(v177) = v74 >> 3;
+        if ( !(v74 >> 3) )
         {
-          v72 = p_OwnerEntry->OwnerThread;
-          if ( (v71 & 2) != 0 )
+          v75 = p_OwnerEntry->OwnerThread;
+          if ( (v74 & 2) != 0 )
           {
-            v72 &= 0xFFFFFFFFFFFFFFFCuLL;
+            v75 &= 0xFFFFFFFFFFFFFFFCuLL;
           }
-          else if ( (v72 & 3) != 0 )
+          else if ( (v75 & 3) != 0 )
           {
             goto LABEL_148;
           }
-          if ( !v72 )
+          if ( !v75 )
             goto LABEL_148;
-          if ( (v71 & 1) == 0 )
+          if ( (v74 & 1) == 0 )
           {
 LABEL_141:
-            if ( (v71 & 4) != 0 )
+            if ( (v74 & 4) != 0 )
             {
-              _InterlockedDecrement((volatile signed __int32 *)(v72 + 1508));
-              v71 = p_OwnerEntry->TableSize & 0xFFFFFFFB;
-              p_OwnerEntry->TableSize = v71;
+              _InterlockedDecrement((volatile signed __int32 *)(v75 + 1508));
+              v74 = p_OwnerEntry->TableSize & 0xFFFFFFFB;
+              p_OwnerEntry->TableSize = v74;
             }
-            if ( (v71 & 2) != 0 )
+            if ( (v74 & 2) != 0 )
             {
               if ( ObpTraceFlags )
-                ObpPushStackInfo(v72 - 48);
-              v76 = _InterlockedExchangeAdd64((volatile signed __int64 *)(v72 - 48), 0xFFFFFFFFFFFFFFFFuLL);
-              v16 = v76 <= 1;
-              v77 = v76 - 1;
-              if ( v16 )
+                ObpPushStackInfo(v75 - 48);
+              v79 = _InterlockedExchangeAdd64((volatile signed __int64 *)(v75 - 48), 0xFFFFFFFFFFFFFFFFuLL);
+              v17 = v79 <= 1;
+              v80 = v79 - 1;
+              if ( v17 )
               {
-                if ( *(_QWORD *)(v72 - 40) )
+                if ( *(_QWORD *)(v75 - 40) )
                   KeBugCheckEx(
                     0x18u,
-                    ObTypeIndexTable[(unsigned __int8)ObHeaderCookie ^ *(unsigned __int8 *)(v72 - 24) ^ (unsigned __int64)(unsigned __int8)((unsigned __int16)(v72 - 48) >> 8)],
-                    v72,
+                    ObTypeIndexTable[(unsigned __int8)ObHeaderCookie ^ *(unsigned __int8 *)(v75 - 24) ^ (unsigned __int64)(unsigned __int8)((unsigned __int16)(v75 - 48) >> 8)],
+                    v75,
                     3uLL,
-                    *(_QWORD *)(v72 - 40));
-                if ( v77 < 0 )
-                  KeBugCheckEx(0x18u, 0LL, v72, 4uLL, v77);
-                ObpDeferObjectDeletion(v72 - 48);
+                    *(_QWORD *)(v75 - 40));
+                if ( v80 < 0 )
+                  KeBugCheckEx(0x18u, 0LL, v75, 4uLL, v80);
+                ObpDeferObjectDeletion(v75 - 48);
               }
               p_OwnerEntry->TableSize &= ~2u;
             }
 LABEL_148:
             p_OwnerEntry->OwnerThread = 0LL;
-            v78 = 0LL;
-            v16 = Resource->ActiveEntries <= 1;
+            v81 = 0LL;
+            v17 = Resource->ActiveEntries <= 1;
             ContentionCount = Resource->ContentionCount;
-            if ( v16 )
+            if ( v17 )
             {
               if ( Resource->NumberOfExclusiveWaiters )
               {
-                v138 = (unsigned __int64 *)RtlRemoveHeadCircularList(&Resource->ExclusiveWaiters, OwnerThread, v6);
-                if ( v138 )
+                v144 = (unsigned __int64 *)RtlRemoveHeadCircularList(&Resource->ExclusiveWaiters, OwnerThread, v7);
+                if ( v144 )
                 {
-                  v78 = v138[2];
-                  v138[1] = (unsigned __int64)v138;
-                  *v138 = (unsigned __int64)v138;
-                  v182 = v138;
+                  v81 = v144[2];
+                  v144[1] = (unsigned __int64)v144;
+                  *v144 = (unsigned __int64)v144;
+                  v189 = v144;
                 }
                 --Resource->NumberOfExclusiveWaiters;
                 Resource->Flag |= 0x80u;
@@ -768,173 +777,173 @@ LABEL_148:
                   goto LABEL_151;
                 SharedWaiters = (unsigned __int64 *)Resource->SharedWaiters;
                 Resource->SharedWaiters = 0LL;
-                v182 = SharedWaiters;
+                v189 = SharedWaiters;
                 Resource->NumberOfSharedWaiters = 0;
               }
 LABEL_152:
-              v80 = Resource->ActiveEntries - 1;
-              Resource->ActiveEntries = v80 + NumberOfSharedWaiters;
-              if ( !(v80 + NumberOfSharedWaiters) )
+              v83 = Resource->ActiveEntries - 1;
+              Resource->ActiveEntries = v83 + NumberOfSharedWaiters;
+              if ( !(v83 + NumberOfSharedWaiters) )
                 Resource->ActiveCount = 0;
               if ( !Resource->NumberOfExclusiveWaiters && !Resource->NumberOfSharedWaiters )
                 Resource->Flag &= 0xF9u;
-              LODWORD(v176) = Resource->WaiterPriority;
-              if ( v78 )
+              LODWORD(v183) = Resource->WaiterPriority;
+              if ( v81 )
               {
-                v81 = Resource->OwnerEntry.TableSize & 7;
-                Resource->OwnerEntry.OwnerThread = v78;
-                Resource->OwnerEntry.TableSize = v81 | 8;
+                v84 = Resource->OwnerEntry.TableSize & 7;
+                Resource->OwnerEntry.OwnerThread = v81;
+                Resource->OwnerEntry.TableSize = v84 | 8;
               }
               if ( (BYTE6(PerfGlobalGroupMask) & 1) != 0 && !PopHibernateInProgress )
               {
-                KiReleaseQueuedSpinLockInstrumented(&v173, retaddr, v6, v1);
+                KiReleaseQueuedSpinLockInstrumented(&v180, retaddr);
 LABEL_162:
-                v82 = (unsigned __int8)v175;
+                v85 = (unsigned __int8)v182;
                 if ( KiIrqlFlags )
-                  KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), (unsigned __int8)v175);
-                __writecr8(v82);
-                if ( v182 )
+                  KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), (unsigned __int8)v182);
+                __writecr8(v85);
+                if ( v189 )
                 {
-                  v121 = KeGetCurrentIrql();
-                  v177 = v121;
+                  v125 = KeGetCurrentIrql();
+                  v184 = v125;
                   __writecr8(2uLL);
                   if ( KiIrqlFlags )
-                    KiRaiseIrqlProcessIrqlFlags((unsigned __int8)v121, 2LL);
-                  v122 = v182;
+                    KiRaiseIrqlProcessIrqlFlags((unsigned __int8)v125, 2LL);
+                  v126 = v189;
                   CurrentPrcb = KeGetCurrentPrcb();
-                  for ( i = (unsigned __int64 *)*v182; ; i = (unsigned __int64 *)*v181 )
+                  for ( i = (unsigned __int64 *)*v189; ; i = (unsigned __int64 *)*v188 )
                   {
-                    v181 = i;
-                    v179 = (unsigned __int64)v122;
-                    v169 = v122 + 3;
-                    KiAcquireKobjectLockSafe(v122 + 3);
-                    v124 = v122 + 3;
-                    *((_DWORD *)v122 + 7) = 1;
-                    v125 = (_QWORD *)v122[4];
-                    v126 = v124 + 2;
-                    v170 = v124 + 2;
-                    while ( v125 != v126 )
+                    v188 = i;
+                    v186 = (unsigned __int64)v126;
+                    v176 = v126 + 3;
+                    KiAcquireKobjectLockSafe(v126 + 3);
+                    v128 = v126 + 3;
+                    *((_DWORD *)v126 + 7) = 1;
+                    v129 = (_QWORD *)v126[4];
+                    v130 = v128 + 2;
+                    v177 = v128 + 2;
+                    while ( v129 != v130 )
                     {
-                      v127 = (_QWORD *)*v125;
-                      v128 = v125;
-                      v125 = v127;
-                      v129 = (_QWORD *)v128[1];
-                      if ( (_QWORD *)v127[1] != v128 || (_QWORD *)*v129 != v128 )
+                      v131 = (_QWORD *)*v129;
+                      v132 = v129;
+                      v129 = v131;
+                      v133 = (_QWORD *)v132[1];
+                      if ( (_QWORD *)v131[1] != v132 || (_QWORD *)*v133 != v132 )
                         goto LABEL_127;
-                      *v129 = v127;
-                      v127[1] = v129;
-                      v130 = *((_BYTE *)v128 + 16);
-                      if ( v130 == 1 )
+                      *v133 = v131;
+                      v131[1] = v133;
+                      v134 = *((_BYTE *)v132 + 16);
+                      if ( v134 == 1 )
                       {
-                        v131 = KiTryUnwaitThread(CurrentPrcb, v128, *((unsigned __int16 *)v128 + 9), 0LL);
-                        v124 = v169;
-                        v118 = v131 == 0;
-                        v126 = v170;
-                        if ( !v118 )
+                        v135 = KiTryUnwaitThread(CurrentPrcb, v132, *((unsigned __int16 *)v132 + 9), 0LL);
+                        v128 = v176;
+                        v122 = v135 == 0;
+                        v130 = v177;
+                        if ( !v122 )
                         {
-                          v118 = v169[1]-- == 1;
-                          if ( v118 )
+                          v122 = v176[1]-- == 1;
+                          if ( v122 )
                             break;
                         }
                       }
-                      else if ( v130 == 2 )
+                      else if ( v134 == 2 )
                       {
-                        *((_BYTE *)v128 + 17) = 5;
-                        KiInsertQueueInternal(v128[3], v128);
-                        v124 = v169;
-                        v118 = v169[1]-- == 1;
-                        if ( v118 )
+                        *((_BYTE *)v132 + 17) = 5;
+                        KiInsertQueueInternal(v132[3], v132);
+                        v128 = v176;
+                        v122 = v176[1]-- == 1;
+                        if ( v122 )
                           break;
-                        v126 = v170;
+                        v130 = v177;
                       }
                       else
                       {
-                        if ( v130 == 4 )
+                        if ( v134 == 4 )
                         {
-                          *((_BYTE *)v128 + 17) = 5;
-                          v124[1] = 0;
-                          KeInsertQueueDpc((PRKDPC)v128[3], v124, v128);
+                          *((_BYTE *)v132 + 17) = 5;
+                          v128[1] = 0;
+                          KeInsertQueueDpc((PRKDPC)v132[3], v128, v132);
                         }
                         else
                         {
-                          KiTryUnwaitThread(CurrentPrcb, v128, 256LL, 0LL);
+                          KiTryUnwaitThread(CurrentPrcb, v132, 256LL, 0LL);
                         }
-                        v126 = v170;
-                        v124 = v169;
+                        v130 = v177;
+                        v128 = v176;
                       }
                     }
-                    _InterlockedAnd((volatile signed __int32 *)(v179 + 24), 0xFFFFFF7F);
-                    if ( v181 == v182 )
+                    _InterlockedAnd((volatile signed __int32 *)(v186 + 24), 0xFFFFFF7F);
+                    if ( v188 == v189 )
                       break;
-                    v122 = v181;
+                    v126 = v188;
                   }
-                  v132 = CurrentPrcb;
+                  v136 = CurrentPrcb;
                   KiRemoveBoostThread(CurrentPrcb);
-                  KiExitDispatcher(v132, v177);
+                  KiExitDispatcher(v136, v184);
                 }
-                v83 = 65602;
-                LODWORD(v170) = 0;
-                LODWORD(v169) = 65602;
+                v86 = 65602;
+                LODWORD(v177) = 0;
+                LODWORD(v176) = 65602;
 LABEL_177:
                 __incgsdword(0x9070u);
-                if ( !(_BYTE)v168 )
+                if ( !(_BYTE)v175 )
                   return;
-                v186 = 0LL;
-                v187 = 0LL;
-                v188 = 0LL;
-                v88 = KeGetCurrentPrcb();
-                v179 = __rdtsc();
-                ++v88->SynchCounters.ExEtwSynchTrackingNotificationsCount;
-                Group = v88->Group;
-                LOBYTE(v168) = v88->GroupIndex;
+                v193 = 0LL;
+                v194 = 0LL;
+                v195 = 0LL;
+                v91 = KeGetCurrentPrcb();
+                v186 = __rdtsc();
+                ++v91->SynchCounters.ExEtwSynchTrackingNotificationsCount;
+                Group = v91->Group;
+                LOBYTE(v175) = v91->GroupIndex;
                 if ( !KeGetCurrentThread()[1].WaitBlock[0].Object )
                   return;
-                v89 = KeGetCurrentThread();
-                v90 = v83 & 0xFFFF0000;
-                v177 = (unsigned __int64)v89;
-                if ( (*(_DWORD *)(&v89[1].SwapListEntry + 1) & 1) != 0 )
+                v92 = KeGetCurrentThread();
+                v93 = v86 & 0xFFFF0000;
+                v184 = (unsigned __int64)v92;
+                if ( (*(_DWORD *)(&v92[1].SwapListEntry + 1) & 1) != 0 )
                   return;
-                Object = (signed __int64)v89[1].WaitBlock[0].Object;
-                v92 = EtwpEthreadSyncTrackingSequence;
-                LODWORD(v176) = EtwpEthreadSyncTrackingSequence;
+                Object = (signed __int64)v92[1].WaitBlock[0].Object;
+                v95 = EtwpEthreadSyncTrackingSequence;
+                LODWORD(v183) = EtwpEthreadSyncTrackingSequence;
                 if ( !Object )
                 {
-                  Pool2 = ExAllocatePool2(0x48uLL);
-                  v46 = Pool2;
+                  Pool2 = ExAllocatePool2(0x48uLL, 0x200uLL, 0x72546552u);
+                  v48 = Pool2;
                   if ( !Pool2 )
                     return;
-                  v94 = v177;
+                  v97 = v184;
                   *(_QWORD *)(Pool2 + 16) = Resource;
-                  *(_DWORD *)(Pool2 + 28) = v90;
+                  *(_DWORD *)(Pool2 + 28) = v93;
                   *(_DWORD *)(Pool2 + 32) = 0;
-                  *(_DWORD *)(Pool2 + 40) = (_DWORD)v176;
-                  Object = _InterlockedCompareExchange64((volatile signed __int64 *)(v94 + 1568), Pool2, 0LL);
+                  *(_DWORD *)(Pool2 + 40) = (_DWORD)v183;
+                  Object = _InterlockedCompareExchange64((volatile signed __int64 *)(v97 + 1568), Pool2, 0LL);
                   if ( !Object )
                   {
 LABEL_196:
-                    if ( !*(_DWORD *)(v46 + 32) )
+                    if ( !*(_DWORD *)(v48 + 32) )
                       goto LABEL_211;
-                    ++v88->SynchCounters.ExEtwSynchTrackingNotificationsAccountedCount;
-                    if ( *(_DWORD *)(v46 + 36) < (unsigned int)((_DWORD)v170 + 1) )
-                      *(_DWORD *)(v46 + 36) = (_DWORD)v170 + 1;
-                    if ( (_DWORD)v169 == 65602 )
+                    ++v91->SynchCounters.ExEtwSynchTrackingNotificationsAccountedCount;
+                    if ( *(_DWORD *)(v48 + 36) < (unsigned int)((_DWORD)v177 + 1) )
+                      *(_DWORD *)(v48 + 36) = (_DWORD)v177 + 1;
+                    if ( (_DWORD)v176 == 65602 )
                     {
-                      v98 = *(_QWORD *)(v46 + 8);
-                      if ( v98 > 2 && *(_WORD *)(v46 + 24) == Group && *(_BYTE *)(v46 + 26) == (_BYTE)v168 )
-                        v99 = v179 - v98;
+                      v101 = *(_QWORD *)(v48 + 8);
+                      if ( v101 > 2 && *(_WORD *)(v48 + 24) == Group && *(_BYTE *)(v48 + 26) == (_BYTE)v175 )
+                        v102 = v186 - v101;
                       else
-                        v99 = 0LL;
-                      if ( *(_QWORD *)v46 <= 1uLL
-                        || (v88->SynchCounters.ExecutiveResourceReleaseExclusiveCount
-                          + v88->SynchCounters.ExecutiveResourceReleaseSharedCount)
+                        v102 = 0LL;
+                      if ( *(_QWORD *)v48 <= 1uLL
+                        || (v91->SynchCounters.ExecutiveResourceReleaseExclusiveCount
+                          + v91->SynchCounters.ExecutiveResourceReleaseSharedCount)
                          % EtwpExecutiveResourceContentionSampleRate )
                       {
-                        v100 = *(_DWORD *)(v46 + 44);
-                        v101 = ContentionCount;
-                        if ( (ContentionCount <= v100
-                           || (ContentionCount - v100) % EtwpExecutiveResourceContentionSampleRate)
-                          && (v88->SynchCounters.ExecutiveResourceReleaseExclusiveCount
-                            + v88->SynchCounters.ExecutiveResourceReleaseSharedCount)
+                        v103 = *(_DWORD *)(v48 + 44);
+                        v104 = ContentionCount;
+                        if ( (ContentionCount <= v103
+                           || (ContentionCount - v103) % EtwpExecutiveResourceContentionSampleRate)
+                          && (v91->SynchCounters.ExecutiveResourceReleaseExclusiveCount
+                            + v91->SynchCounters.ExecutiveResourceReleaseSharedCount)
                            % EtwpExecutiveResourceReleaseSampleRate )
                         {
                           goto LABEL_211;
@@ -942,233 +951,235 @@ LABEL_196:
                       }
                       else
                       {
-                        v101 = ContentionCount;
+                        v104 = ContentionCount;
                       }
-                      DWORD2(v188) = 65602;
-                      *(_QWORD *)&v188 = Resource;
-                      *(_QWORD *)&v186 = *(_QWORD *)(v46 + 8);
-                      DWORD2(v187) = *(_DWORD *)(v46 + 36);
-                      *((_QWORD *)&v186 + 1) = v99;
-                      *(_QWORD *)&v187 = *(_QWORD *)v46;
-                      HIDWORD(v188) = v101 - *(_DWORD *)(v46 + 44);
-                      v141 = &v186;
-                      HIDWORD(v187) = KeGetCurrentThread()[1].CurrentRunTime;
+                      DWORD2(v195) = 65602;
+                      *(_QWORD *)&v195 = Resource;
+                      *(_QWORD *)&v193 = *(_QWORD *)(v48 + 8);
+                      DWORD2(v194) = *(_DWORD *)(v48 + 36);
+                      *((_QWORD *)&v193 + 1) = v102;
+                      *(_QWORD *)&v194 = *(_QWORD *)v48;
+                      HIDWORD(v195) = v104 - *(_DWORD *)(v48 + 44);
+                      v148 = &v193;
+                      HIDWORD(v194) = KeGetCurrentThread()[1].CurrentRunTime;
 LABEL_281:
-                      v189[0] = v141;
-                      v189[1] = 48LL;
-                      EtwTraceKernelEvent((int)v189, 1, 0x20020000u, 1323, 23074818);
+                      v196[0] = v148;
+                      v196[1] = 48LL;
+                      EtwTraceKernelEvent((int)v196, 1, 0x20020000u, 1323, 23074818);
                       goto LABEL_211;
                     }
-                    if ( (_DWORD)v169 == 65618 )
-                      *(_DWORD *)(v46 + 32) = 2;
+                    if ( (_DWORD)v176 == 65618 )
+                      *(_DWORD *)(v48 + 32) = 2;
                     return;
                   }
                   ExFreePoolWithTag((PVOID)Pool2, 0);
-                  v92 = (int)v176;
+                  v95 = (int)v183;
                 }
-                v95 = 0LL;
+                v98 = 0LL;
                 for ( j = 0; j < 8; ++j )
                 {
-                  v97 = *(_DWORD *)(Object + 28);
-                  if ( v97 == v90 && *(PERESOURCE *)(Object + 16) == Resource && *(_DWORD *)(Object + 40) == v92 )
+                  v100 = *(_DWORD *)(Object + 28);
+                  if ( v100 == v93 && *(PERESOURCE *)(Object + 16) == Resource && *(_DWORD *)(Object + 40) == v95 )
                     goto LABEL_195;
-                  if ( !v95 )
+                  if ( !v98 )
                   {
-                    if ( v97 )
+                    if ( v100 )
                     {
-                      if ( *(_DWORD *)(Object + 40) < v92 )
+                      if ( *(_DWORD *)(Object + 40) < v95 )
                       {
-                        v95 = Object;
+                        v98 = Object;
                         break;
                       }
                     }
                     else
                     {
-                      v95 = Object;
+                      v98 = Object;
                     }
                   }
                   Object += 64LL;
                 }
-                Object = v95;
-                if ( v95 )
+                Object = v98;
+                if ( v98 )
                 {
-                  *(_QWORD *)(v95 + 16) = Resource;
-                  *(_DWORD *)(v95 + 28) = v90;
-                  *(_QWORD *)(v95 + 32) = 0LL;
-                  *(_QWORD *)v95 = 0LL;
-                  *(_QWORD *)(v95 + 8) = 0LL;
-                  *(_DWORD *)(v95 + 24) = 0;
-                  *(_DWORD *)(v95 + 40) = v92;
-                  *(_DWORD *)(v95 + 44) = 0;
+                  *(_QWORD *)(v98 + 16) = Resource;
+                  *(_DWORD *)(v98 + 28) = v93;
+                  *(_QWORD *)(v98 + 32) = 0LL;
+                  *(_QWORD *)v98 = 0LL;
+                  *(_QWORD *)(v98 + 8) = 0LL;
+                  *(_DWORD *)(v98 + 24) = 0;
+                  *(_DWORD *)(v98 + 40) = v95;
+                  *(_DWORD *)(v98 + 44) = 0;
                 }
 LABEL_195:
-                v46 = Object;
+                v48 = Object;
                 if ( !Object )
                   return;
                 goto LABEL_196;
               }
-              _m_prefetchw(&v173);
-              v84 = v173;
-              if ( !v173 )
+              _m_prefetchw(&v180);
+              v87 = v180;
+              if ( !v180 )
               {
                 if ( (__int64 *)_InterlockedCompareExchange64(
                                   (volatile signed __int64 *)p_SpinLock,
                                   0LL,
-                                  (signed __int64)&v173) == &v173 )
+                                  (signed __int64)&v180) == &v180 )
                   goto LABEL_162;
-                v84 = KxWaitForLockChainValid(&v173, OwnerThread, v6, v1);
+                v87 = KxWaitForLockChainValid(&v180);
               }
-              v173 = 0LL;
-              v85 = p_SpinLock;
-              if ( (((unsigned __int8)v85 ^ (unsigned __int8)_InterlockedExchange64(
-                                                               (volatile __int64 *)(v84 + 8),
+              v180 = 0LL;
+              v88 = p_SpinLock;
+              if ( (((unsigned __int8)v88 ^ (unsigned __int8)_InterlockedExchange64(
+                                                               (volatile __int64 *)(v87 + 8),
                                                                (__int64)p_SpinLock)) & 4) != 0 )
-                KeWakeAddressAll(v84 + 8, v85, v6, v1);
+                KeWakeAddressAll(v87 + 8, v88, v7, v1);
               goto LABEL_162;
             }
 LABEL_151:
             NumberOfSharedWaiters = 0;
             goto LABEL_152;
           }
-          v73 = 0;
-          v74 = 0;
-          v75 = 0LL;
+          v76 = 0;
+          v77 = 0;
+          v78 = 0LL;
           if ( PspAlwaysTrackIoBoosting )
           {
-            v73 = 1;
-            v144 = ExAllocatePool2(0x40uLL);
-            v177 = v144;
-            v145 = v144;
-            if ( v144 )
+            v76 = 1;
+            v151 = ExAllocatePool2(0x40uLL, 0x70uLL, 0x736F6F42u);
+            v184 = v151;
+            v152 = v151;
+            if ( v151 )
             {
-              RtlCaptureStackBackTrace(1u, 0xAu, (PVOID *)(v144 + 16), 0LL);
-              *(_QWORD *)(v145 + 96) = KeGetCurrentThread();
-              *(_QWORD *)(v145 + 104) = 0LL;
+              RtlCaptureStackBackTrace(1u, 0xAu, (PVOID *)(v151 + 16), 0LL);
+              *(_QWORD *)(v152 + 96) = KeGetCurrentThread();
+              *(_QWORD *)(v152 + 104) = 0LL;
             }
-            v74 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(v72 + 1552));
-            v75 = (_QWORD *)v177;
+            v77 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(v75 + 1552));
+            v78 = (_QWORD *)v184;
           }
-          if ( *(_DWORD *)(v72 + 1504) )
+          if ( *(_DWORD *)(v75 + 1504) )
           {
-            _InterlockedDecrement((volatile signed __int32 *)(v72 + 1504));
-            if ( !v73 )
+            _InterlockedDecrement((volatile signed __int32 *)(v75 + 1504));
+            if ( !v76 )
             {
 LABEL_140:
-              v71 = p_OwnerEntry->TableSize & 0xFFFFFFFE;
-              p_OwnerEntry->TableSize = v71;
+              v74 = p_OwnerEntry->TableSize & 0xFFFFFFFE;
+              p_OwnerEntry->TableSize = v74;
               goto LABEL_141;
             }
-            if ( *(_DWORD *)(v72 + 1504) )
+            if ( *(_DWORD *)(v75 + 1504) )
             {
-              if ( v75 )
+              if ( v78 )
               {
-                OwnerThread = *(_QWORD *)(v72 + 1544);
-                if ( *(_QWORD *)OwnerThread != v72 + 1536 )
+                OwnerThread = *(_QWORD *)(v75 + 1544);
+                if ( *(_QWORD *)OwnerThread != v75 + 1536 )
                   goto LABEL_127;
-                *v75 = v72 + 1536;
-                v75[1] = OwnerThread;
-                *(_QWORD *)OwnerThread = v75;
-                *(_QWORD *)(v72 + 1544) = v75;
+                *v78 = v75 + 1536;
+                v78[1] = OwnerThread;
+                *(_QWORD *)OwnerThread = v78;
+                *(_QWORD *)(v75 + 1544) = v78;
               }
             }
             else
             {
-              if ( v75 )
-                ExFreePoolWithTag(v75, 0x736F6F42u);
-              v161 = (__int64 **)(v72 + 1520);
+              if ( v78 )
+                ExFreePoolWithTag(v78, 0x736F6F42u);
+              v168 = (__int64 **)(v75 + 1520);
               while ( 1 )
               {
-                v162 = *v161;
-                if ( *v161 == (__int64 *)v161 )
+                v169 = *v168;
+                if ( *v168 == (__int64 *)v168 )
                   break;
-                v166 = *v162;
-                if ( (__int64 **)v162[1] != v161 || *(__int64 **)(v166 + 8) != v162 )
+                v173 = *v169;
+                if ( (__int64 **)v169[1] != v168 || *(__int64 **)(v173 + 8) != v169 )
                   goto LABEL_127;
-                *v161 = (__int64 *)v166;
-                *(_QWORD *)(v166 + 8) = v161;
-                ExFreePoolWithTag(v162, 0x736F6F42u);
+                *v168 = (__int64 *)v173;
+                *(_QWORD *)(v173 + 8) = v168;
+                ExFreePoolWithTag(v169, 0x736F6F42u);
               }
-              v163 = (__int64 **)(v72 + 1536);
+              v170 = (__int64 **)(v75 + 1536);
               while ( 1 )
               {
-                v164 = *v163;
-                if ( *v163 == (__int64 *)v163 )
+                v171 = *v170;
+                if ( *v170 == (__int64 *)v170 )
                   break;
-                v165 = *v164;
-                if ( (__int64 **)v164[1] != v163 || *(__int64 **)(v165 + 8) != v164 )
+                v172 = *v171;
+                if ( (__int64 **)v171[1] != v170 || *(__int64 **)(v172 + 8) != v171 )
                   goto LABEL_127;
-                *v163 = (__int64 *)v165;
-                *(_QWORD *)(v165 + 8) = v163;
-                ExFreePoolWithTag(v164, 0x736F6F42u);
+                *v170 = (__int64 *)v172;
+                *(_QWORD *)(v172 + 8) = v170;
+                ExFreePoolWithTag(v171, 0x736F6F42u);
               }
             }
           }
-          else if ( !v73 )
+          else if ( !v76 )
           {
             goto LABEL_140;
           }
-          v151 = (volatile signed __int64 *)(v72 + 1552);
+          v158 = (volatile signed __int64 *)(v75 + 1552);
           if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
-            _InterlockedAnd64(v151, 0LL);
+            _InterlockedAnd64(v158, 0LL);
           else
-            KiReleaseSpinLockInstrumented(v151, retaddr);
+            KiReleaseSpinLockInstrumented(v158, retaddr);
           if ( KiIrqlFlags )
-            KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), v74);
-          __writecr8(v74);
+            KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), v77);
+          __writecr8(v77);
           goto LABEL_140;
         }
-        v83 = 65618;
-        v86 = Resource->ContentionCount;
-        LODWORD(v169) = 65618;
-        ContentionCount = v86;
+        v86 = 65618;
+        v89 = Resource->ContentionCount;
+        LODWORD(v176) = 65618;
+        ContentionCount = v89;
         if ( (BYTE6(PerfGlobalGroupMask) & 1) != 0 && !PopHibernateInProgress )
         {
-          KiReleaseQueuedSpinLockInstrumented(&v173, retaddr, v6, v1);
+          KiReleaseQueuedSpinLockInstrumented(&v180, retaddr);
 LABEL_174:
-          v87 = (unsigned __int8)v175;
+          v90 = (unsigned __int8)v182;
           if ( KiIrqlFlags )
-            KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), (unsigned __int8)v175);
-          __writecr8(v87);
+            KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), (unsigned __int8)v182);
+          __writecr8(v90);
           goto LABEL_177;
         }
-        _m_prefetchw(&v173);
-        v108 = v173;
-        if ( !v173 )
+        _m_prefetchw(&v180);
+        v111 = v180;
+        if ( !v180 )
         {
           if ( (__int64 *)_InterlockedCompareExchange64(
                             (volatile signed __int64 *)p_SpinLock,
                             0LL,
-                            (signed __int64)&v173) == &v173 )
+                            (signed __int64)&v180) == &v180 )
             goto LABEL_174;
-          v108 = KxWaitForLockChainValid(&v173, OwnerThread, v6, v1);
+          v111 = KxWaitForLockChainValid(&v180);
         }
-        v173 = 0LL;
-        v109 = p_SpinLock;
-        if ( (((unsigned __int8)v109 ^ (unsigned __int8)_InterlockedExchange64(
-                                                          (volatile __int64 *)(v108 + 8),
+        v180 = 0LL;
+        v112 = p_SpinLock;
+        if ( (((unsigned __int8)v112 ^ (unsigned __int8)_InterlockedExchange64(
+                                                          (volatile __int64 *)(v111 + 8),
                                                           (__int64)p_SpinLock)) & 4) != 0 )
         {
-          _InterlockedOr(v167, 0);
-          v110 = KeDisableInterrupts(v109, OwnerThread, ((unsigned __int64)(v108 + 8) >> 5) & 0x7F);
+          _InterlockedOr(v174, 0);
+          v113 = KeDisableInterrupts(v112, OwnerThread, ((unsigned __int64)(v111 + 8) >> 5) & 0x7F, v1);
           KiHaltOnAddressWakeEntireList(
-            v113,
-            _InterlockedExchange64((volatile __int64 *)(v112 + 8 * v111 + 15863072), 0LL));
-          if ( v110 )
+            v116,
+            _InterlockedExchange64((volatile __int64 *)(v115 + 8 * v114 + 15863808), 0LL));
+          if ( v113 )
           {
-            v114 = KeGetCurrentPrcb();
-            SchedulerAssist = (signed __int32 *)v114->SchedulerAssist;
+            v118 = KeGetCurrentPrcb();
+            SchedulerAssist = (unsigned __int32 *)v118->SchedulerAssist;
             if ( SchedulerAssist )
             {
               _m_prefetchw(SchedulerAssist);
-              v139 = *SchedulerAssist;
+              v145 = *SchedulerAssist;
               do
               {
-                v140 = v139;
-                v139 = _InterlockedCompareExchange(SchedulerAssist, v139 & 0xFFDFFFFF, v139);
+                v146 = v145;
+                LODWORD(v146) = v145 & 0xFFDFFFFF;
+                v147 = v145;
+                v145 = _InterlockedCompareExchange((volatile signed __int32 *)SchedulerAssist, v145 & 0xFFDFFFFF, v145);
               }
-              while ( v140 != v139 );
-              if ( (v139 & 0x200000) != 0 )
-                KiRemoveSystemWorkPriorityKick(v114);
+              while ( v147 != v145 );
+              if ( (v145 & 0x200000) != 0 )
+                KiRemoveSystemWorkPriorityKick(v118, v146, SchedulerAssist, v117);
             }
             _enable();
           }
@@ -1180,62 +1191,64 @@ LABEL_114:
     }
     KeBugCheckEx(0xE3u, (ULONG_PTR)Resource, v4, (ULONG_PTR)OwnerTable, 2uLL);
   }
-  v180 = 0LL;
-  LOBYTE(v168) = (DWORD1(PerfGlobalGroupMask) & 0x20000) != 0;
-  if ( ((v7 & 1) != 0 || ExpResourceEnforceOwnerTransfer) && Resource->OwnerEntry.OwnerThread != v4 )
+  v187 = 0LL;
+  LOBYTE(v175) = (DWORD1(PerfGlobalGroupMask) & 0x20000) != 0;
+  if ( ((v8 & 1) != 0 || ExpResourceEnforceOwnerTransfer) && Resource->OwnerEntry.OwnerThread != v4 )
     KeBugCheckEx(0xE3u, (ULONG_PTR)Resource, v4, (ULONG_PTR)Resource->OwnerTable, 1uLL);
-  v8 = Resource->OwnerEntry.TableSize & 7 | (8 * (Resource->OwnerEntry.TableSize >> 3) - 8);
-  Resource->OwnerEntry.TableSize = v8;
-  v9 = v8 >> 3;
-  if ( v9 )
+  v9 = Resource->OwnerEntry.TableSize & 7 | (8 * (Resource->OwnerEntry.TableSize >> 3) - 8);
+  Resource->OwnerEntry.TableSize = v9;
+  v10 = v9 >> 3;
+  if ( v10 )
   {
-    v24 = 65586;
-    v38 = Resource->ContentionCount;
-    LODWORD(v176) = 65586;
-    ContentionCount = v38;
+    v25 = 65586;
+    v40 = Resource->ContentionCount;
+    LODWORD(v183) = 65586;
+    ContentionCount = v40;
     if ( (BYTE6(PerfGlobalGroupMask) & 1) != 0 && !PopHibernateInProgress )
     {
-      KiReleaseQueuedSpinLockInstrumented(&v173, retaddr, v6, v1);
+      KiReleaseQueuedSpinLockInstrumented(&v180, retaddr);
 LABEL_66:
-      v39 = (unsigned __int8)v175;
+      v41 = (unsigned __int8)v182;
       if ( KiIrqlFlags )
-        KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), (unsigned __int8)v175);
-      __writecr8(v39);
+        KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), (unsigned __int8)v182);
+      __writecr8(v41);
       goto LABEL_69;
     }
-    _m_prefetchw(&v173);
-    v51 = v173;
-    if ( !v173 )
+    _m_prefetchw(&v180);
+    v53 = v180;
+    if ( !v180 )
     {
-      if ( (__int64 *)_InterlockedCompareExchange64((volatile signed __int64 *)p_SpinLock, 0LL, (signed __int64)&v173) == &v173 )
+      if ( (__int64 *)_InterlockedCompareExchange64((volatile signed __int64 *)p_SpinLock, 0LL, (signed __int64)&v180) == &v180 )
         goto LABEL_66;
-      v51 = KxWaitForLockChainValid(&v173, v7, v6, v1);
+      v53 = KxWaitForLockChainValid(&v180);
     }
-    v173 = 0LL;
-    v52 = p_SpinLock;
-    if ( (((unsigned __int8)v52 ^ (unsigned __int8)_InterlockedExchange64(
-                                                     (volatile __int64 *)(v51 + 8),
+    v180 = 0LL;
+    v54 = p_SpinLock;
+    if ( (((unsigned __int8)v54 ^ (unsigned __int8)_InterlockedExchange64(
+                                                     (volatile __int64 *)(v53 + 8),
                                                      (__int64)p_SpinLock)) & 4) != 0 )
     {
-      _InterlockedOr(v167, 0);
-      v53 = KeDisableInterrupts(v52, v7, ((unsigned __int64)(v51 + 8) >> 5) & 0x7F);
-      KiHaltOnAddressWakeEntireList(v56, _InterlockedExchange64((volatile __int64 *)(v55 + 8 * v54 + 15863072), 0LL));
-      if ( v53 )
+      _InterlockedOr(v174, 0);
+      v55 = KeDisableInterrupts(v54, v8, ((unsigned __int64)(v53 + 8) >> 5) & 0x7F, v1);
+      KiHaltOnAddressWakeEntireList(v58, _InterlockedExchange64((volatile __int64 *)(v57 + 8 * v56 + 15863808), 0LL));
+      if ( v55 )
       {
-        v57 = KeGetCurrentPrcb();
-        v58 = (signed __int32 *)v57->SchedulerAssist;
-        if ( v58 )
+        v60 = KeGetCurrentPrcb();
+        v61 = (unsigned __int32 *)v60->SchedulerAssist;
+        if ( v61 )
         {
-          _m_prefetchw(v58);
-          v133 = *v58;
+          _m_prefetchw(v61);
+          v137 = *v61;
           do
           {
-            v134 = v133;
-            v133 = _InterlockedCompareExchange(v58, v133 & 0xFFDFFFFF, v133);
+            v138 = v137;
+            LODWORD(v138) = v137 & 0xFFDFFFFF;
+            v139 = v137;
+            v137 = _InterlockedCompareExchange((volatile signed __int32 *)v61, v137 & 0xFFDFFFFF, v137);
           }
-          while ( v134 != v133 );
-          if ( (v133 & 0x200000) != 0 )
-            KiRemoveSystemWorkPriorityKick(v57);
+          while ( v139 != v137 );
+          if ( (v137 & 0x200000) != 0 )
+            KiRemoveSystemWorkPriorityKick(v60, v138, v61, v59);
         }
         _enable();
       }
@@ -1243,145 +1256,145 @@ LABEL_66:
     goto LABEL_66;
   }
   TableSize = Resource->OwnerEntry.TableSize;
-  v11 = Resource->OwnerEntry.OwnerThread;
+  v12 = Resource->OwnerEntry.OwnerThread;
   if ( (TableSize & 2) != 0 )
   {
-    v11 &= 0xFFFFFFFFFFFFFFFCuLL;
+    v12 &= 0xFFFFFFFFFFFFFFFCuLL;
   }
-  else if ( (v11 & 3) != 0 )
+  else if ( (v12 & 3) != 0 )
   {
     goto LABEL_31;
   }
-  if ( !v11 )
+  if ( !v12 )
     goto LABEL_31;
   if ( (TableSize & 1) != 0 )
   {
-    v12 = 0;
     v13 = 0;
-    v14 = 0LL;
+    v14 = 0;
+    v15 = 0LL;
     if ( PspAlwaysTrackIoBoosting )
     {
-      v12 = 1;
-      v143 = ExAllocatePool2(0x40uLL);
-      v14 = (_QWORD *)v143;
-      if ( v143 )
+      v13 = 1;
+      v150 = ExAllocatePool2(0x40uLL, 0x70uLL, 0x736F6F42u);
+      v15 = (_QWORD *)v150;
+      if ( v150 )
       {
-        RtlCaptureStackBackTrace(1u, 0xAu, (PVOID *)(v143 + 16), 0LL);
-        v14[12] = KeGetCurrentThread();
-        v14[13] = 0LL;
+        RtlCaptureStackBackTrace(1u, 0xAu, (PVOID *)(v150 + 16), 0LL);
+        v15[12] = KeGetCurrentThread();
+        v15[13] = 0LL;
       }
-      v13 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(v11 + 1552));
+      v14 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(v12 + 1552));
     }
-    if ( *(_DWORD *)(v11 + 1504) )
+    if ( *(_DWORD *)(v12 + 1504) )
     {
-      _InterlockedDecrement((volatile signed __int32 *)(v11 + 1504));
-      if ( !v12 )
+      _InterlockedDecrement((volatile signed __int32 *)(v12 + 1504));
+      if ( !v13 )
       {
 LABEL_23:
         TableSize = Resource->OwnerEntry.TableSize & 0xFFFFFFFE;
         Resource->OwnerEntry.TableSize = TableSize;
         goto LABEL_24;
       }
-      if ( *(_DWORD *)(v11 + 1504) )
+      if ( *(_DWORD *)(v12 + 1504) )
       {
-        if ( v14 )
+        if ( v15 )
         {
-          v154 = *(_QWORD **)(v11 + 1544);
-          if ( *v154 != v11 + 1536 )
+          v161 = *(_QWORD **)(v12 + 1544);
+          if ( *v161 != v12 + 1536 )
             goto LABEL_127;
-          *v14 = v11 + 1536;
-          v14[1] = v154;
-          *v154 = v14;
-          *(_QWORD *)(v11 + 1544) = v14;
+          *v15 = v12 + 1536;
+          v15[1] = v161;
+          *v161 = v15;
+          *(_QWORD *)(v12 + 1544) = v15;
         }
       }
       else
       {
-        if ( v14 )
-          ExFreePoolWithTag(v14, 0x736F6F42u);
-        v155 = (__int64 **)(v11 + 1520);
+        if ( v15 )
+          ExFreePoolWithTag(v15, 0x736F6F42u);
+        v162 = (__int64 **)(v12 + 1520);
         while ( 1 )
         {
-          v156 = *v155;
-          if ( *v155 == (__int64 *)v155 )
+          v163 = *v162;
+          if ( *v162 == (__int64 *)v162 )
             break;
-          v160 = *v156;
-          if ( (__int64 **)v156[1] != v155 || *(__int64 **)(v160 + 8) != v156 )
+          v167 = *v163;
+          if ( (__int64 **)v163[1] != v162 || *(__int64 **)(v167 + 8) != v163 )
             goto LABEL_127;
-          *v155 = (__int64 *)v160;
-          *(_QWORD *)(v160 + 8) = v155;
-          ExFreePoolWithTag(v156, 0x736F6F42u);
+          *v162 = (__int64 *)v167;
+          *(_QWORD *)(v167 + 8) = v162;
+          ExFreePoolWithTag(v163, 0x736F6F42u);
         }
-        v157 = (__int64 **)(v11 + 1536);
+        v164 = (__int64 **)(v12 + 1536);
         while ( 1 )
         {
-          v158 = *v157;
-          if ( *v157 == (__int64 *)v157 )
+          v165 = *v164;
+          if ( *v164 == (__int64 *)v164 )
             break;
-          v159 = *v158;
-          if ( (__int64 **)v158[1] != v157 || *(__int64 **)(v159 + 8) != v158 )
+          v166 = *v165;
+          if ( (__int64 **)v165[1] != v164 || *(__int64 **)(v166 + 8) != v165 )
             goto LABEL_127;
-          *v157 = (__int64 *)v159;
-          *(_QWORD *)(v159 + 8) = v157;
-          ExFreePoolWithTag(v158, 0x736F6F42u);
+          *v164 = (__int64 *)v166;
+          *(_QWORD *)(v166 + 8) = v164;
+          ExFreePoolWithTag(v165, 0x736F6F42u);
         }
       }
     }
-    else if ( !v12 )
+    else if ( !v13 )
     {
       goto LABEL_23;
     }
-    v150 = (volatile signed __int64 *)(v11 + 1552);
+    v157 = (volatile signed __int64 *)(v12 + 1552);
     if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
-      _InterlockedAnd64(v150, 0LL);
+      _InterlockedAnd64(v157, 0LL);
     else
-      KiReleaseSpinLockInstrumented(v150, retaddr);
+      KiReleaseSpinLockInstrumented(v157, retaddr);
     if ( KiIrqlFlags )
-      KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), v13);
-    __writecr8(v13);
+      KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), v14);
+    __writecr8(v14);
     goto LABEL_23;
   }
 LABEL_24:
   if ( (TableSize & 4) != 0 )
   {
-    _InterlockedDecrement((volatile signed __int32 *)(v11 + 1508));
+    _InterlockedDecrement((volatile signed __int32 *)(v12 + 1508));
     TableSize = Resource->OwnerEntry.TableSize & 0xFFFFFFFB;
     Resource->OwnerEntry.TableSize = TableSize;
   }
   if ( (TableSize & 2) != 0 )
   {
     if ( ObpTraceFlags )
-      ObpPushStackInfo(v11 - 48);
-    v15 = _InterlockedExchangeAdd64((volatile signed __int64 *)(v11 - 48), 0xFFFFFFFFFFFFFFFFuLL);
-    v16 = v15 <= 1;
-    v17 = v15 - 1;
-    if ( v16 )
+      ObpPushStackInfo(v12 - 48);
+    v16 = _InterlockedExchangeAdd64((volatile signed __int64 *)(v12 - 48), 0xFFFFFFFFFFFFFFFFuLL);
+    v17 = v16 <= 1;
+    v18 = v16 - 1;
+    if ( v17 )
     {
-      if ( *(_QWORD *)(v11 - 40) )
+      if ( *(_QWORD *)(v12 - 40) )
         KeBugCheckEx(
           0x18u,
-          ObTypeIndexTable[(unsigned __int8)ObHeaderCookie ^ *(unsigned __int8 *)(v11 - 24) ^ (unsigned __int64)(unsigned __int8)((unsigned __int16)(v11 - 48) >> 8)],
-          v11,
+          ObTypeIndexTable[(unsigned __int8)ObHeaderCookie ^ *(unsigned __int8 *)(v12 - 24) ^ (unsigned __int64)(unsigned __int8)((unsigned __int16)(v12 - 48) >> 8)],
+          v12,
           3uLL,
-          *(_QWORD *)(v11 - 40));
-      if ( v17 < 0 )
-        KeBugCheckEx(0x18u, 0LL, v11, 4uLL, v17);
-      ObpDeferObjectDeletion(v11 - 48);
+          *(_QWORD *)(v12 - 40));
+      if ( v18 < 0 )
+        KeBugCheckEx(0x18u, 0LL, v12, 4uLL, v18);
+      ObpDeferObjectDeletion(v12 - 48);
     }
     Resource->OwnerEntry.TableSize &= ~2u;
   }
 LABEL_31:
   Resource->OwnerEntry.OwnerThread = 0LL;
-  v18 = 0LL;
-  v19 = Resource->NumberOfSharedWaiters;
+  v19 = 0LL;
+  v20 = Resource->NumberOfSharedWaiters;
   ContentionCount = Resource->ContentionCount;
-  if ( !v19 )
+  if ( !v20 )
   {
     if ( !Resource->NumberOfExclusiveWaiters )
     {
       Resource->ActiveCount = 0;
       Resource->Flag &= ~0x80u;
-      v21 = 0LL;
+      v22 = 0LL;
       goto LABEL_34;
     }
     ExclusiveWaiters = Resource->ExclusiveWaiters;
@@ -1394,27 +1407,27 @@ LABEL_31:
       else
       {
         Resource->ExclusiveWaiters = *(PVOID *)ExclusiveWaiters;
-        v60 = *(_QWORD **)ExclusiveWaiters;
-        v61 = (PVOID *)*((_QWORD *)ExclusiveWaiters + 1);
-        if ( *(PVOID *)(*(_QWORD *)ExclusiveWaiters + 8LL) != ExclusiveWaiters || *v61 != ExclusiveWaiters )
+        v63 = *(_QWORD **)ExclusiveWaiters;
+        v64 = (PVOID *)*((_QWORD *)ExclusiveWaiters + 1);
+        if ( *(PVOID *)(*(_QWORD *)ExclusiveWaiters + 8LL) != ExclusiveWaiters || *v64 != ExclusiveWaiters )
           goto LABEL_127;
-        *v61 = v60;
-        v60[1] = v61;
+        *v64 = v63;
+        v63[1] = v64;
       }
-      v120 = v180;
-      v18 = *((_QWORD *)ExclusiveWaiters + 2);
-      if ( v180 )
+      v124 = v187;
+      v19 = *((_QWORD *)ExclusiveWaiters + 2);
+      if ( v187 )
       {
-        v137 = (unsigned __int64 **)v180[1];
-        if ( *v137 == v180 )
+        v143 = (unsigned __int64 **)v187[1];
+        if ( *v143 == v187 )
         {
-          *(_QWORD *)ExclusiveWaiters = v180;
-          *((_QWORD *)ExclusiveWaiters + 1) = v137;
-          *v137 = (unsigned __int64 *)ExclusiveWaiters;
-          v120[1] = (unsigned __int64)ExclusiveWaiters;
+          *(_QWORD *)ExclusiveWaiters = v187;
+          *((_QWORD *)ExclusiveWaiters + 1) = v143;
+          *v143 = (unsigned __int64 *)ExclusiveWaiters;
+          v124[1] = (unsigned __int64)ExclusiveWaiters;
           --Resource->NumberOfExclusiveWaiters;
-          v180 = (unsigned __int64 *)ExclusiveWaiters;
-          v19 = 1;
+          v187 = (unsigned __int64 *)ExclusiveWaiters;
+          v20 = 1;
           goto LABEL_33;
         }
 LABEL_127:
@@ -1422,224 +1435,226 @@ LABEL_127:
       }
       *((_QWORD *)ExclusiveWaiters + 1) = ExclusiveWaiters;
       *(_QWORD *)ExclusiveWaiters = ExclusiveWaiters;
-      v180 = (unsigned __int64 *)ExclusiveWaiters;
+      v187 = (unsigned __int64 *)ExclusiveWaiters;
     }
     --Resource->NumberOfExclusiveWaiters;
-    v19 = 1;
+    v20 = 1;
     goto LABEL_33;
   }
-  v20 = (unsigned __int64 *)Resource->SharedWaiters;
+  v21 = (unsigned __int64 *)Resource->SharedWaiters;
   Resource->SharedWaiters = 0LL;
   Resource->Flag &= ~0x80u;
-  v180 = v20;
+  v187 = v21;
   Resource->NumberOfSharedWaiters = 0;
 LABEL_33:
-  v21 = v19 + Resource->ActiveEntries - 1;
+  v22 = v20 + Resource->ActiveEntries - 1;
 LABEL_34:
-  Resource->ActiveEntries = v21;
+  Resource->ActiveEntries = v22;
   if ( !Resource->NumberOfExclusiveWaiters && !Resource->NumberOfSharedWaiters )
     Resource->Flag &= 0xF9u;
-  if ( v18 )
+  if ( v19 )
   {
-    v22 = Resource->OwnerEntry.TableSize & 7;
-    Resource->OwnerEntry.OwnerThread = v18;
-    Resource->OwnerEntry.TableSize = v22 | 8;
+    v23 = Resource->OwnerEntry.TableSize & 7;
+    Resource->OwnerEntry.OwnerThread = v19;
+    Resource->OwnerEntry.TableSize = v23 | 8;
   }
   if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
   {
-    _m_prefetchw(&v173);
-    v25 = v173;
-    if ( !v173 )
+    _m_prefetchw(&v180);
+    v26 = v180;
+    if ( !v180 )
     {
-      if ( (__int64 *)_InterlockedCompareExchange64((volatile signed __int64 *)p_SpinLock, 0LL, (signed __int64)&v173) == &v173 )
+      if ( (__int64 *)_InterlockedCompareExchange64((volatile signed __int64 *)p_SpinLock, 0LL, (signed __int64)&v180) == &v180 )
         goto LABEL_42;
-      v25 = KxWaitForLockChainValid(&v173, v21, v6, v1);
+      v26 = KxWaitForLockChainValid(&v180);
     }
-    v173 = 0LL;
-    v26 = p_SpinLock;
-    if ( (((unsigned __int8)v26 ^ (unsigned __int8)_InterlockedExchange64(
-                                                     (volatile __int64 *)(v25 + 8),
+    v180 = 0LL;
+    v27 = p_SpinLock;
+    if ( (((unsigned __int8)v27 ^ (unsigned __int8)_InterlockedExchange64(
+                                                     (volatile __int64 *)(v26 + 8),
                                                      (__int64)p_SpinLock)) & 4) != 0 )
     {
-      _InterlockedOr(v167, 0);
-      v27 = KeDisableInterrupts(v26, v21, ((unsigned __int64)(v25 + 8) >> 5) & 0x7F);
-      KiHaltOnAddressWakeEntireList(v30, _InterlockedExchange64((volatile __int64 *)(v29 + 8 * v28 + 15863072), 0LL));
-      if ( v27 )
+      _InterlockedOr(v174, 0);
+      v28 = KeDisableInterrupts(v27, v22, ((unsigned __int64)(v26 + 8) >> 5) & 0x7F, v1);
+      KiHaltOnAddressWakeEntireList(v31, _InterlockedExchange64((volatile __int64 *)(v30 + 8 * v29 + 15863808), 0LL));
+      if ( v28 )
       {
-        v31 = KeGetCurrentPrcb();
-        v32 = (signed __int32 *)v31->SchedulerAssist;
-        if ( v32 )
+        v33 = KeGetCurrentPrcb();
+        v34 = (unsigned __int32 *)v33->SchedulerAssist;
+        if ( v34 )
         {
-          _m_prefetchw(v32);
-          v135 = *v32;
+          _m_prefetchw(v34);
+          v140 = *v34;
           do
           {
-            v136 = v135;
-            v135 = _InterlockedCompareExchange(v32, v135 & 0xFFDFFFFF, v135);
+            v141 = v140;
+            LODWORD(v141) = v140 & 0xFFDFFFFF;
+            v142 = v140;
+            v140 = _InterlockedCompareExchange((volatile signed __int32 *)v34, v140 & 0xFFDFFFFF, v140);
           }
-          while ( v136 != v135 );
-          if ( (v135 & 0x200000) != 0 )
-            KiRemoveSystemWorkPriorityKick(v31);
+          while ( v142 != v140 );
+          if ( (v140 & 0x200000) != 0 )
+            KiRemoveSystemWorkPriorityKick(v33, v141, v34, v32);
         }
         _enable();
       }
     }
     goto LABEL_42;
   }
-  KiReleaseQueuedSpinLockInstrumented(&v173, retaddr, v6, v1);
+  KiReleaseQueuedSpinLockInstrumented(&v180, retaddr);
 LABEL_42:
-  v23 = (unsigned __int8)v175;
+  v24 = (unsigned __int8)v182;
   if ( KiIrqlFlags )
-    KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), (unsigned __int8)v175);
-  __writecr8(v23);
-  if ( v180 )
+    KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), (unsigned __int8)v182);
+  __writecr8(v24);
+  if ( v187 )
   {
-    v62 = KeGetCurrentIrql();
-    v177 = v62;
+    v65 = KeGetCurrentIrql();
+    v184 = v65;
     __writecr8(2uLL);
     if ( KiIrqlFlags )
-      KiRaiseIrqlProcessIrqlFlags((unsigned __int8)v62, 2LL);
+      KiRaiseIrqlProcessIrqlFlags((unsigned __int8)v65, 2LL);
     CurrentPrcb = KeGetCurrentPrcb();
-    v63 = v180;
-    for ( k = *v180; ; k = *(_QWORD *)v179 )
+    v66 = v187;
+    for ( k = *v187; ; k = *(_QWORD *)v186 )
     {
-      v181 = v63;
-      v179 = k;
-      v169 = v63 + 3;
-      KiAcquireKobjectLockSafe(v63 + 3);
-      v65 = v181 + 3;
-      *((_DWORD *)v181 + 7) = 1;
-      v66 = (_QWORD *)*((_QWORD *)v65 + 1);
-      v67 = v65 + 2;
-      v170 = v65 + 2;
-      while ( v66 != v67 )
+      v188 = v66;
+      v186 = k;
+      v176 = v66 + 3;
+      KiAcquireKobjectLockSafe(v66 + 3);
+      v68 = v188 + 3;
+      *((_DWORD *)v188 + 7) = 1;
+      v69 = (_QWORD *)*((_QWORD *)v68 + 1);
+      v70 = v68 + 2;
+      v177 = v68 + 2;
+      while ( v69 != v70 )
       {
-        v68 = *v66;
-        v69 = v66;
-        v70 = (_QWORD *)v66[1];
-        v176 = (_QWORD *)v68;
-        if ( *(_QWORD **)(v68 + 8) != v69 || (_QWORD *)*v70 != v69 )
+        v71 = *v69;
+        v72 = v69;
+        v73 = (_QWORD *)v69[1];
+        v183 = (_QWORD *)v71;
+        if ( *(_QWORD **)(v71 + 8) != v72 || (_QWORD *)*v73 != v72 )
           goto LABEL_127;
-        *v70 = v68;
-        *(_QWORD *)(v68 + 8) = v70;
-        v116 = *((_BYTE *)v69 + 16);
-        if ( v116 == 1 )
+        *v73 = v71;
+        *(_QWORD *)(v71 + 8) = v73;
+        v120 = *((_BYTE *)v72 + 16);
+        if ( v120 == 1 )
         {
-          v117 = KiTryUnwaitThread(CurrentPrcb, v69, *((unsigned __int16 *)v69 + 9), 0LL);
-          v67 = v170;
-          v118 = v117 == 0;
-          v66 = v176;
-          v65 = v169;
-          if ( !v118 )
+          v121 = KiTryUnwaitThread(CurrentPrcb, v72, *((unsigned __int16 *)v72 + 9), 0LL);
+          v70 = v177;
+          v122 = v121 == 0;
+          v69 = v183;
+          v68 = v176;
+          if ( !v122 )
           {
-            v118 = v169[1]-- == 1;
-            if ( v118 )
+            v122 = v176[1]-- == 1;
+            if ( v122 )
               break;
           }
         }
-        else if ( v116 == 2 )
+        else if ( v120 == 2 )
         {
-          *((_BYTE *)v69 + 17) = 5;
-          KiInsertQueueInternal(v69[3], v69);
-          v65 = v169;
-          v118 = v169[1]-- == 1;
-          if ( v118 )
+          *((_BYTE *)v72 + 17) = 5;
+          KiInsertQueueInternal(v72[3], v72);
+          v68 = v176;
+          v122 = v176[1]-- == 1;
+          if ( v122 )
             break;
-          v66 = v176;
-          v67 = v170;
+          v69 = v183;
+          v70 = v177;
         }
         else
         {
-          if ( v116 == 4 )
+          if ( v120 == 4 )
           {
-            *((_BYTE *)v69 + 17) = 5;
-            v65[1] = 0;
-            KeInsertQueueDpc((PRKDPC)v69[3], v65, v69);
+            *((_BYTE *)v72 + 17) = 5;
+            v68[1] = 0;
+            KeInsertQueueDpc((PRKDPC)v72[3], v68, v72);
           }
           else
           {
-            KiTryUnwaitThread(CurrentPrcb, v69, 256LL, 0LL);
+            KiTryUnwaitThread(CurrentPrcb, v72, 256LL, 0LL);
           }
-          v66 = v176;
-          v67 = v170;
-          v65 = v169;
+          v69 = v183;
+          v70 = v177;
+          v68 = v176;
         }
       }
-      _InterlockedAnd((volatile signed __int32 *)v181 + 6, 0xFFFFFF7F);
-      if ( (unsigned __int64 *)v179 == v180 )
+      _InterlockedAnd((volatile signed __int32 *)v188 + 6, 0xFFFFFF7F);
+      if ( (unsigned __int64 *)v186 == v187 )
         break;
-      v63 = (unsigned __int64 *)v179;
+      v66 = (unsigned __int64 *)v186;
     }
-    v119 = CurrentPrcb;
+    v123 = CurrentPrcb;
     KiRemoveBoostThread(CurrentPrcb);
-    KiExitDispatcher(v119, v177);
+    KiExitDispatcher(v123, v184);
   }
-  v24 = 65570;
-  v9 = 0;
-  LODWORD(v176) = 65570;
+  v25 = 65570;
+  v10 = 0;
+  LODWORD(v183) = 65570;
 LABEL_69:
   __incgsdword(0x906Cu);
-  if ( (_BYTE)v168 )
+  if ( (_BYTE)v175 )
   {
-    v183 = 0LL;
-    v184 = 0LL;
-    v185 = 0LL;
-    v40 = KeGetCurrentPrcb();
-    v177 = __rdtsc();
-    ++v40->SynchCounters.ExEtwSynchTrackingNotificationsCount;
-    Group = v40->Group;
-    LOBYTE(v168) = v40->GroupIndex;
+    v190 = 0LL;
+    v191 = 0LL;
+    v192 = 0LL;
+    v42 = KeGetCurrentPrcb();
+    v184 = __rdtsc();
+    ++v42->SynchCounters.ExEtwSynchTrackingNotificationsCount;
+    Group = v42->Group;
+    LOBYTE(v175) = v42->GroupIndex;
     if ( KeGetCurrentThread()[1].WaitBlock[0].Object )
     {
-      v41 = KeGetCurrentThread();
-      v42 = v24 & 0xFFFF0000;
-      LODWORD(v169) = v24 & 0xFFFF0000;
-      if ( (*(_DWORD *)(&v41[1].SwapListEntry + 1) & 1) == 0 )
+      v43 = KeGetCurrentThread();
+      v44 = v25 & 0xFFFF0000;
+      LODWORD(v176) = v25 & 0xFFFF0000;
+      if ( (*(_DWORD *)(&v43[1].SwapListEntry + 1) & 1) == 0 )
       {
-        v43 = (signed __int64)v41[1].WaitBlock[0].Object;
-        v44 = EtwpEthreadSyncTrackingSequence;
-        LODWORD(v170) = EtwpEthreadSyncTrackingSequence;
-        if ( !v43 )
+        v45 = (signed __int64)v43[1].WaitBlock[0].Object;
+        v46 = EtwpEthreadSyncTrackingSequence;
+        LODWORD(v177) = EtwpEthreadSyncTrackingSequence;
+        if ( !v45 )
         {
-          v45 = ExAllocatePool2(0x48uLL);
-          v46 = v45;
-          if ( !v45 )
+          v47 = ExAllocatePool2(0x48uLL, 0x200uLL, 0x72546552u);
+          v48 = v47;
+          if ( !v47 )
             return;
-          *(_QWORD *)(v45 + 16) = Resource;
-          *(_DWORD *)(v45 + 28) = (_DWORD)v169;
-          *(_DWORD *)(v45 + 40) = (_DWORD)v170;
-          *(_DWORD *)(v45 + 32) = 0;
-          v43 = _InterlockedCompareExchange64((volatile signed __int64 *)&v41[1].WaitBlock[0].Object, v45, 0LL);
-          if ( !v43 )
+          *(_QWORD *)(v47 + 16) = Resource;
+          *(_DWORD *)(v47 + 28) = (_DWORD)v176;
+          *(_DWORD *)(v47 + 40) = (_DWORD)v177;
+          *(_DWORD *)(v47 + 32) = 0;
+          v45 = _InterlockedCompareExchange64((volatile signed __int64 *)&v43[1].WaitBlock[0].Object, v47, 0LL);
+          if ( !v45 )
           {
 LABEL_88:
-            if ( *(_DWORD *)(v46 + 32) )
+            if ( *(_DWORD *)(v48 + 32) )
             {
-              ++v40->SynchCounters.ExEtwSynchTrackingNotificationsAccountedCount;
-              v50 = v9 + 1;
-              if ( *(_DWORD *)(v46 + 36) < v50 )
-                *(_DWORD *)(v46 + 36) = v50;
-              if ( (_DWORD)v176 != 65570 )
+              ++v42->SynchCounters.ExEtwSynchTrackingNotificationsAccountedCount;
+              v52 = v10 + 1;
+              if ( *(_DWORD *)(v48 + 36) < v52 )
+                *(_DWORD *)(v48 + 36) = v52;
+              if ( (_DWORD)v183 != 65570 )
               {
-                if ( (_DWORD)v176 == 65586 )
-                  *(_DWORD *)(v46 + 32) = 2;
+                if ( (_DWORD)v183 == 65586 )
+                  *(_DWORD *)(v48 + 32) = 2;
                 return;
               }
-              v102 = *(_QWORD *)(v46 + 8);
-              if ( v102 > 2 && *(_WORD *)(v46 + 24) == Group && *(_BYTE *)(v46 + 26) == (_BYTE)v168 )
-                v103 = v177 - v102;
+              v105 = *(_QWORD *)(v48 + 8);
+              if ( v105 > 2 && *(_WORD *)(v48 + 24) == Group && *(_BYTE *)(v48 + 26) == (_BYTE)v175 )
+                v106 = v184 - v105;
               else
-                v103 = 0LL;
-              if ( *(_QWORD *)v46 <= 1uLL
-                || (v40->SynchCounters.ExecutiveResourceReleaseExclusiveCount
-                  + v40->SynchCounters.ExecutiveResourceReleaseSharedCount)
+                v106 = 0LL;
+              if ( *(_QWORD *)v48 <= 1uLL
+                || (v42->SynchCounters.ExecutiveResourceReleaseExclusiveCount
+                  + v42->SynchCounters.ExecutiveResourceReleaseSharedCount)
                  % EtwpExecutiveResourceContentionSampleRate )
               {
-                v104 = *(_DWORD *)(v46 + 44);
-                v105 = ContentionCount;
-                if ( (ContentionCount <= v104 || (ContentionCount - v104) % EtwpExecutiveResourceContentionSampleRate)
-                  && (v40->SynchCounters.ExecutiveResourceReleaseExclusiveCount
-                    + v40->SynchCounters.ExecutiveResourceReleaseSharedCount)
+                v107 = *(_DWORD *)(v48 + 44);
+                v108 = ContentionCount;
+                if ( (ContentionCount <= v107 || (ContentionCount - v107) % EtwpExecutiveResourceContentionSampleRate)
+                  && (v42->SynchCounters.ExecutiveResourceReleaseExclusiveCount
+                    + v42->SynchCounters.ExecutiveResourceReleaseSharedCount)
                    % EtwpExecutiveResourceReleaseSampleRate )
                 {
                   goto LABEL_211;
@@ -1647,65 +1662,65 @@ LABEL_88:
               }
               else
               {
-                v105 = ContentionCount;
+                v108 = ContentionCount;
               }
-              DWORD2(v185) = 65570;
-              *(_QWORD *)&v185 = Resource;
-              *(_QWORD *)&v183 = *(_QWORD *)(v46 + 8);
-              DWORD2(v184) = *(_DWORD *)(v46 + 36);
-              *((_QWORD *)&v183 + 1) = v103;
-              *(_QWORD *)&v184 = *(_QWORD *)v46;
-              HIDWORD(v185) = v105 - *(_DWORD *)(v46 + 44);
-              v141 = &v183;
-              HIDWORD(v184) = KeGetCurrentThread()[1].CurrentRunTime;
+              DWORD2(v192) = 65570;
+              *(_QWORD *)&v192 = Resource;
+              *(_QWORD *)&v190 = *(_QWORD *)(v48 + 8);
+              DWORD2(v191) = *(_DWORD *)(v48 + 36);
+              *((_QWORD *)&v190 + 1) = v106;
+              *(_QWORD *)&v191 = *(_QWORD *)v48;
+              HIDWORD(v192) = v108 - *(_DWORD *)(v48 + 44);
+              v148 = &v190;
+              HIDWORD(v191) = KeGetCurrentThread()[1].CurrentRunTime;
               goto LABEL_281;
             }
 LABEL_211:
-            *(_DWORD *)(v46 + 28) = 0;
+            *(_DWORD *)(v48 + 28) = 0;
             return;
           }
-          ExFreePoolWithTag((PVOID)v45, 0);
-          v42 = (unsigned int)v169;
-          v44 = (int)v170;
+          ExFreePoolWithTag((PVOID)v47, 0);
+          v44 = (unsigned int)v176;
+          v46 = (int)v177;
         }
-        v47 = 0LL;
+        v49 = 0LL;
         for ( m = 0; m < 8; ++m )
         {
-          v49 = *(_DWORD *)(v43 + 28);
-          if ( v49 == v42 && *(PERESOURCE *)(v43 + 16) == Resource && *(_DWORD *)(v43 + 40) == v44 )
+          v51 = *(_DWORD *)(v45 + 28);
+          if ( v51 == v44 && *(PERESOURCE *)(v45 + 16) == Resource && *(_DWORD *)(v45 + 40) == v46 )
             goto LABEL_87;
-          if ( !v47 )
+          if ( !v49 )
           {
-            if ( v49 )
+            if ( v51 )
             {
-              if ( *(_DWORD *)(v43 + 40) < v44 )
+              if ( *(_DWORD *)(v45 + 40) < v46 )
               {
-                v47 = v43;
+                v49 = v45;
                 break;
               }
             }
             else
             {
-              v47 = v43;
+              v49 = v45;
             }
           }
-          v43 += 64LL;
+          v45 += 64LL;
         }
-        v43 = v47;
-        if ( v47 )
+        v45 = v49;
+        if ( v49 )
         {
-          *(_QWORD *)(v47 + 16) = Resource;
-          *(_DWORD *)(v47 + 28) = v42;
-          *(_QWORD *)(v47 + 32) = 0LL;
-          *(_QWORD *)v47 = 0LL;
-          *(_QWORD *)(v47 + 8) = 0LL;
-          *(_DWORD *)(v47 + 24) = 0;
-          *(_DWORD *)(v47 + 40) = v44;
-          *(_DWORD *)(v47 + 44) = 0;
+          *(_QWORD *)(v49 + 16) = Resource;
+          *(_DWORD *)(v49 + 28) = v44;
+          *(_QWORD *)(v49 + 32) = 0LL;
+          *(_QWORD *)v49 = 0LL;
+          *(_QWORD *)(v49 + 8) = 0LL;
+          *(_DWORD *)(v49 + 24) = 0;
+          *(_DWORD *)(v49 + 40) = v46;
+          *(_DWORD *)(v49 + 44) = 0;
         }
 LABEL_87:
-        v46 = v43;
-        if ( v43 )
+        v48 = v45;
+        if ( v45 )
           goto LABEL_88;
       }
     }

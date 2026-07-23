@@ -1,20 +1,20 @@
 /*
- * XREFs of MiHandleTransitionFault @ 0x140262E50
+ * XREFs of MiHandleTransitionFault @ 0x1402630E0
  * Callers:
- *     MiResolveTransitionFault @ 0x1402624D0 (MiResolveTransitionFault.c)
+ *     MiResolveTransitionFault @ 0x140262760 (MiResolveTransitionFault.c)
  * Callees:
  *     MiLocateAddress @ 0x140217240 (MiLocateAddress.c)
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
- *     MiMigratePfn @ 0x1402630E0 (MiMigratePfn.c)
- *     MiUnlinkPageFromListEx @ 0x140266630 (MiUnlinkPageFromListEx.c)
- *     MiUnlockVadTree @ 0x140287878 (MiUnlockVadTree.c)
- *     MiLockVadTree @ 0x14028A8C0 (MiLockVadTree.c)
- *     MiFreeInPageSupportBlock @ 0x1402BD2FC (MiFreeInPageSupportBlock.c)
- *     MiUnlockProtoPoolPage @ 0x1402DAEF0 (MiUnlockProtoPoolPage.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     MiDiscardTransitionPteEx @ 0x140650624 (MiDiscardTransitionPteEx.c)
- *     MiMakeTransitionHeatBatch @ 0x1406542B8 (MiMakeTransitionHeatBatch.c)
- *     MiIdealClusterPage @ 0x14066A490 (MiIdealClusterPage.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
+ *     MiMigratePfn @ 0x140263370 (MiMigratePfn.c)
+ *     MiUnlinkPageFromListEx @ 0x1402668C0 (MiUnlinkPageFromListEx.c)
+ *     MiUnlockVadTree @ 0x140287B08 (MiUnlockVadTree.c)
+ *     MiLockVadTree @ 0x14028AB50 (MiLockVadTree.c)
+ *     MiFreeInPageSupportBlock @ 0x1402BD58C (MiFreeInPageSupportBlock.c)
+ *     MiUnlockProtoPoolPage @ 0x1402DB180 (MiUnlockProtoPoolPage.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     MiDiscardTransitionPteEx @ 0x140650B74 (MiDiscardTransitionPteEx.c)
+ *     MiMakeTransitionHeatBatch @ 0x140654808 (MiMakeTransitionHeatBatch.c)
+ *     MiIdealClusterPage @ 0x14066A9E0 (MiIdealClusterPage.c)
  */
 
 __int64 __fastcall MiHandleTransitionFault(

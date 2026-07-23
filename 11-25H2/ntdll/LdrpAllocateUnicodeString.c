@@ -10,8 +10,8 @@
 
 __int64 __fastcall LdrpAllocateUnicodeString(__int64 a1, int a2)
 {
-  __int16 v2; // bx
-  __int64 Atom; // rax
+  unsigned int v2; // ebx
+  PVOID Atom; // rax
 
   v2 = a2 + 2;
   *(_DWORD *)a1 = 0;
@@ -20,7 +20,7 @@ __int64 __fastcall LdrpAllocateUnicodeString(__int64 a1, int a2)
     return 3221225734LL;
   if ( (v2 & 1) != 0 )
     return 3221225485LL;
-  Atom = RtlpAllocateAtom();
+  Atom = RtlpAllocateAtom(v2);
   *(_QWORD *)(a1 + 8) = Atom;
   if ( !Atom )
     return 3221225495LL;

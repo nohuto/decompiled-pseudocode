@@ -1,7 +1,7 @@
 /*
- * XREFs of IommupGetDeviceCreationConfigEntry @ 0x140526BEC
+ * XREFs of IommupGetDeviceCreationConfigEntry @ 0x14052713C
  * Callers:
- *     IommupDeviceGetPasidSettings @ 0x140829494 (IommupDeviceGetPasidSettings.c)
+ *     IommupDeviceGetPasidSettings @ 0x140829794 (IommupDeviceGetPasidSettings.c)
  * Callees:
  *     <none>
  */

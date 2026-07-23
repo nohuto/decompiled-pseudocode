@@ -1,16 +1,16 @@
 /*
- * XREFs of MiIssuePageExtendRequest @ 0x1401EE988
+ * XREFs of MiIssuePageExtendRequest @ 0x1401EE7B4
  * Callers:
- *     MiChargeCommit @ 0x14002B650 (MiChargeCommit.c)
- *     MmResourcesAvailable @ 0x14007E280 (MmResourcesAvailable.c)
- *     MiPageFileNoFreeSpace @ 0x1401EEBBC (MiPageFileNoFreeSpace.c)
- *     MiCreatePagingFile @ 0x140568224 (MiCreatePagingFile.c)
- *     MiExtendWorkingSetSwapPagefile @ 0x1406632C4 (MiExtendWorkingSetSwapPagefile.c)
+ *     MiChargeCommit @ 0x14002B1D0 (MiChargeCommit.c)
+ *     MmResourcesAvailable @ 0x14007E300 (MmResourcesAvailable.c)
+ *     MiPageFileNoFreeSpace @ 0x1401EE9E8 (MiPageFileNoFreeSpace.c)
+ *     MiCreatePagingFile @ 0x140568764 (MiCreatePagingFile.c)
+ *     MiExtendWorkingSetSwapPagefile @ 0x1406633A8 (MiExtendWorkingSetSwapPagefile.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14002E9A0 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14002EB90 (ExAcquireSpinLockExclusive.c)
- *     KeWaitForSingleObject @ 0x14005C880 (KeWaitForSingleObject.c)
- *     MiQueuePageFileExtension @ 0x1401EED38 (MiQueuePageFileExtension.c)
+ *     ExReleaseSpinLockExclusive @ 0x14002E520 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14002E710 (ExAcquireSpinLockExclusive.c)
+ *     KeWaitForSingleObject @ 0x14005C400 (KeWaitForSingleObject.c)
+ *     MiQueuePageFileExtension @ 0x1401EEB64 (MiQueuePageFileExtension.c)
  */
 
 __int64 __fastcall MiIssuePageExtendRequest(__int64 a1, unsigned __int64 a2, __int64 a3, unsigned int a4)

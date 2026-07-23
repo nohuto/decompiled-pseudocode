@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpReleaseHighLevelLock @ 0x1404D07BC
+ * XREFs of HalpReleaseHighLevelLock @ 0x1404D09FC
  * Callers:
- *     HalpInterruptApplyOverrides @ 0x140378E24 (HalpInterruptApplyOverrides.c)
- *     HalpInterruptSetLineSpecificOverride @ 0x1403EFDC4 (HalpInterruptSetLineSpecificOverride.c)
+ *     HalpInterruptApplyOverrides @ 0x140378974 (HalpInterruptApplyOverrides.c)
+ *     HalpInterruptSetLineSpecificOverride @ 0x1403EFF34 (HalpInterruptSetLineSpecificOverride.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 

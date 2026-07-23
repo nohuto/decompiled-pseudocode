@@ -55,7 +55,7 @@ __int64 __fastcall sub_180063920(__int64 a1, __int64 a2, unsigned int a3, int a4
         if ( v7 )
           break;
         v7 = 1;
-        RtlAcquireSRWLockExclusive((volatile signed __int64 *)(a2 + 24));
+        RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a2 + 24));
         v10 = -1;
       }
       if ( v20 )
@@ -87,6 +87,6 @@ LABEL_11:
     }
   }
   if ( v7 )
-    RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a2 + 24));
+    RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a2 + 24));
   return v15;
 }

@@ -1,17 +1,17 @@
 /*
  * XREFs of FsRtlpAttachOplockKey @ 0x140018B74
  * Callers:
- *     FsRtlpOplockFsctrlInternal @ 0x1405DC640 (FsRtlpOplockFsctrlInternal.c)
- *     FsRtlOplockBreakH @ 0x1406C4C90 (FsRtlOplockBreakH.c)
+ *     FsRtlpOplockFsctrlInternal @ 0x1405DD640 (FsRtlpOplockFsctrlInternal.c)
+ *     FsRtlOplockBreakH @ 0x1406C5F30 (FsRtlOplockBreakH.c)
  * Callees:
  *     IoGetOplockKeyContextEx @ 0x140019C10 (IoGetOplockKeyContextEx.c)
- *     IoSetOplockKeyContext @ 0x140166C04 (IoSetOplockKeyContext.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     FsRtlFreeExtraCreateParameter @ 0x14060CFB0 (FsRtlFreeExtraCreateParameter.c)
- *     FsRtlFindExtraCreateParameter @ 0x140639830 (FsRtlFindExtraCreateParameter.c)
- *     FsRtlRemoveExtraCreateParameter @ 0x1406398C0 (FsRtlRemoveExtraCreateParameter.c)
- *     IoGetIrpExtraCreateParameter @ 0x14063ED90 (IoGetIrpExtraCreateParameter.c)
- *     FsRtlAcknowledgeEcp @ 0x1406C1FC0 (FsRtlAcknowledgeEcp.c)
+ *     IoSetOplockKeyContext @ 0x140166D04 (IoSetOplockKeyContext.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     FsRtlFreeExtraCreateParameter @ 0x14060DFB0 (FsRtlFreeExtraCreateParameter.c)
+ *     FsRtlFindExtraCreateParameter @ 0x14063A850 (FsRtlFindExtraCreateParameter.c)
+ *     FsRtlRemoveExtraCreateParameter @ 0x14063A8E0 (FsRtlRemoveExtraCreateParameter.c)
+ *     IoGetIrpExtraCreateParameter @ 0x14063FDB0 (IoGetIrpExtraCreateParameter.c)
+ *     FsRtlAcknowledgeEcp @ 0x1406C3260 (FsRtlAcknowledgeEcp.c)
  */
 
 __int64 __fastcall FsRtlpAttachOplockKey(PIRP Irp)

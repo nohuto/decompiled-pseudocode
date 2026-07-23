@@ -1,13 +1,13 @@
 /*
- * XREFs of SepLengthSidAndAttributesArray @ 0x140936544
+ * XREFs of SepLengthSidAndAttributesArray @ 0x14098567C
  * Callers:
- *     SepSetTokenCapabilities @ 0x140936380 (SepSetTokenCapabilities.c)
- *     SepCreateClaimAttributes @ 0x140A56BE0 (SepCreateClaimAttributes.c)
- *     SepDuplicateClaimAttributes @ 0x140A5E1D0 (SepDuplicateClaimAttributes.c)
+ *     SepSetTokenCapabilities @ 0x1409854B8 (SepSetTokenCapabilities.c)
+ *     SepCreateClaimAttributes @ 0x140A4EA70 (SepCreateClaimAttributes.c)
+ *     SepDuplicateClaimAttributes @ 0x140A565F0 (SepDuplicateClaimAttributes.c)
  * Callees:
- *     SeCaptureSidAndAttributesArray @ 0x140936600 (SeCaptureSidAndAttributesArray.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     SeCaptureSidAndAttributesArray @ 0x140985730 (SeCaptureSidAndAttributesArray.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SepLengthSidAndAttributesArray(__int64 a1, unsigned int a2, _DWORD *a3)
@@ -18,7 +18,7 @@ __int64 __fastcall SepLengthSidAndAttributesArray(__int64 a1, unsigned int a2, _
   unsigned int v9; // eax
 
   v3 = 0;
-  Pool2 = ExAllocatePool2(0x100uLL);
+  Pool2 = ExAllocatePool2(0x100uLL, 8uLL, 0x61536553u);
   v8 = (void *)Pool2;
   if ( !Pool2 )
     return 3221225626LL;

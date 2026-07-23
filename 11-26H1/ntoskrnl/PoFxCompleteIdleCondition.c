@@ -1,13 +1,13 @@
 /*
- * XREFs of PoFxCompleteIdleCondition @ 0x140489250
+ * XREFs of PoFxCompleteIdleCondition @ 0x140482D90
  * Callers:
- *     HalpTimerPowerComponentIdleCallback @ 0x140582CE0 (HalpTimerPowerComponentIdleCallback.c)
- *     HalpInterruptPowerComponentIdleCallback @ 0x1405910D0 (HalpInterruptPowerComponentIdleCallback.c)
- *     DifPoFxCompleteIdleConditionWrapper @ 0x140693010 (DifPoFxCompleteIdleConditionWrapper.c)
+ *     HalpTimerPowerComponentIdleCallback @ 0x140585200 (HalpTimerPowerComponentIdleCallback.c)
+ *     HalpInterruptPowerComponentIdleCallback @ 0x140593850 (HalpInterruptPowerComponentIdleCallback.c)
+ *     DifPoFxCompleteIdleConditionWrapper @ 0x140696BF0 (DifPoFxCompleteIdleConditionWrapper.c)
  * Callees:
- *     PopFxAddLogEntry @ 0x14021A640 (PopFxAddLogEntry.c)
- *     PopFxIdleWorkerTail @ 0x140395604 (PopFxIdleWorkerTail.c)
- *     PopFxBugCheck @ 0x1403B0E54 (PopFxBugCheck.c)
+ *     PopFxAddLogEntry @ 0x14021BFD0 (PopFxAddLogEntry.c)
+ *     PopFxIdleWorkerTail @ 0x140397384 (PopFxIdleWorkerTail.c)
+ *     PopFxBugCheck @ 0x1403BAB64 (PopFxBugCheck.c)
  */
 
 void __fastcall PoFxCompleteIdleCondition(_QWORD *BugCheckParameter2, ULONG_PTR BugCheckParameter3)

@@ -1,9 +1,9 @@
 /*
- * XREFs of SeSetTokenTrustLink @ 0x1402BF5B4
+ * XREFs of SeSetTokenTrustLink @ 0x14023DA04
  * Callers:
- *     PsImpersonateClient @ 0x14065AEA0 (PsImpersonateClient.c)
+ *     PsImpersonateClient @ 0x14064FCC0 (PsImpersonateClient.c)
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x1402056A0 (ObfReferenceObjectWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x1402A9FE0 (ObfReferenceObjectWithTag.c)
  */
 
 LONG_PTR __fastcall SeSetTokenTrustLink(__int64 a1, void *a2)

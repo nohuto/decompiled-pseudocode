@@ -29,8 +29,8 @@ __int64 KiDeferredBugcheckRecoveryWorker()
   char v4; // [rsp+20h] [rbp-40h] BYREF
   unsigned __int8 v5[7]; // [rsp+21h] [rbp-3Fh] BYREF
   int v6[4]; // [rsp+28h] [rbp-38h] BYREF
-  struct _GROUP_AFFINITY Affinity; // [rsp+38h] [rbp-28h] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+48h] [rbp-18h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+38h] [rbp-28h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+48h] [rbp-18h] BYREF
 
   Affinity = 0LL;
   PreviousAffinity = 0LL;

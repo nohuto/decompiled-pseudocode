@@ -1,19 +1,19 @@
 /*
- * XREFs of RtlpHpVaMgrCtxFree @ 0x14034FEFC
+ * XREFs of RtlpHpVaMgrCtxFree @ 0x140351F7C
  * Callers:
- *     RtlpHpSegMgrCommit @ 0x14034EB50 (RtlpHpSegMgrCommit.c)
- *     RtlpHpFreeVA @ 0x1403501D8 (RtlpHpFreeVA.c)
- *     RtlpHpLargeAlloc @ 0x140351D9C (RtlpHpLargeAlloc.c)
- *     RtlpHpLargeFree @ 0x1403546B4 (RtlpHpLargeFree.c)
+ *     RtlpHpSegMgrCommit @ 0x140350BD0 (RtlpHpSegMgrCommit.c)
+ *     RtlpHpFreeVA @ 0x140352258 (RtlpHpFreeVA.c)
+ *     RtlpHpLargeAlloc @ 0x140353E20 (RtlpHpLargeAlloc.c)
+ *     RtlpHpLargeFree @ 0x14035645C (RtlpHpLargeFree.c)
  * Callees:
- *     RtlpHpAcquireLockExclusive @ 0x14027E170 (RtlpHpAcquireLockExclusive.c)
- *     RtlpHpReleaseLockExclusive @ 0x14034D300 (RtlpHpReleaseLockExclusive.c)
- *     MmFreePoolMemory @ 0x14035029C (MmFreePoolMemory.c)
- *     RtlSparseArrayElementAllocated @ 0x1403505B8 (RtlSparseArrayElementAllocated.c)
- *     RtlpHpVaMgrRangeFree @ 0x140350900 (RtlpHpVaMgrRangeFree.c)
- *     RtlpHpVaMgrRangeSplit @ 0x14035098C (RtlpHpVaMgrRangeSplit.c)
- *     RtlpHpVaMgrFree @ 0x140350A00 (RtlpHpVaMgrFree.c)
- *     RtlSparseArrayElementFindCapped @ 0x14052F41C (RtlSparseArrayElementFindCapped.c)
+ *     RtlpHpAcquireLockExclusive @ 0x14027D6E0 (RtlpHpAcquireLockExclusive.c)
+ *     RtlpHpReleaseLockExclusive @ 0x14034F380 (RtlpHpReleaseLockExclusive.c)
+ *     MmFreePoolMemory @ 0x14035231C (MmFreePoolMemory.c)
+ *     RtlSparseArrayElementAllocated @ 0x140352638 (RtlSparseArrayElementAllocated.c)
+ *     RtlpHpVaMgrRangeFree @ 0x140352980 (RtlpHpVaMgrRangeFree.c)
+ *     RtlpHpVaMgrRangeSplit @ 0x140352A0C (RtlpHpVaMgrRangeSplit.c)
+ *     RtlpHpVaMgrFree @ 0x140352A80 (RtlpHpVaMgrFree.c)
+ *     RtlSparseArrayElementFindCapped @ 0x14053193C (RtlSparseArrayElementFindCapped.c)
  */
 
 void __fastcall RtlpHpVaMgrCtxFree(__int64 a1, unsigned __int64 *a2, unsigned __int64 *a3)

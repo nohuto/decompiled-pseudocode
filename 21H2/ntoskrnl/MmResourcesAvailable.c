@@ -1,18 +1,18 @@
 /*
- * XREFs of MmResourcesAvailable @ 0x14033E660
+ * XREFs of MmResourcesAvailable @ 0x1403493B0
  * Callers:
- *     ExAllocatePoolWithTagPriority @ 0x14033C0E0 (ExAllocatePoolWithTagPriority.c)
+ *     ExAllocatePoolWithTagPriority @ 0x140346E30 (ExAllocatePoolWithTagPriority.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
- *     KePulseEvent @ 0x140271AC0 (KePulseEvent.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     MiFreeExcessSegments @ 0x140314D50 (MiFreeExcessSegments.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KePulseEvent @ 0x14025FA60 (KePulseEvent.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402D3660 (KeAcquireInStackQueuedSpinLock.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     MiFreeExcessSegments @ 0x14031FAA0 (MiFreeExcessSegments.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x140355AE0 (KiLeaveGuardedRegionUnsafe.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     MiIssuePageExtendRequest @ 0x140543944 (MiIssuePageExtendRequest.c)
+ *     MiIssuePageExtendRequest @ 0x140543B84 (MiIssuePageExtendRequest.c)
  */
 
 __int64 __fastcall MmResourcesAvailable(char a1, unsigned __int64 a2, int a3)
@@ -50,14 +50,14 @@ __int64 __fastcall MmResourcesAvailable(char a1, unsigned __int64 a2, int a3)
   v10 = a1 & 1;
   if ( (a1 & 1) == 0 )
   {
-    v11 = MiState[0] - qword_140C4C8C8;
+    v11 = MiState[0] - qword_140C4C908;
 LABEL_8:
     v16 = v11 << 12;
     goto LABEL_9;
   }
   if ( (a1 & 0x20) == 0 )
   {
-    v11 = qword_140C4EF38 - qword_140C4EF28;
+    v11 = qword_140C4EF78 - qword_140C4EF68;
     goto LABEL_8;
   }
   v12 = KeGetCurrentThread()->ApcState.Process[1].AffinityPadding[5];
@@ -67,7 +67,7 @@ LABEL_8:
   if ( v13 <= v14 )
     v15 = 0LL;
   v16 = ((0x10000LL - *(unsigned int *)(v12 + 872)) << 21) + v15;
-  v3 = *(ULONG_PTR **)(qword_140C4E648 + 8LL * *(unsigned __int16 *)(v9 + 430));
+  v3 = *(ULONG_PTR **)(qword_140C4E688 + 8LL * *(unsigned __int16 *)(v9 + 430));
 LABEL_9:
   v17 = a2 + 0x80000;
   if ( a3 != 16 )
@@ -98,13 +98,13 @@ LABEL_30:
     {
       CurrentThread = KeGetCurrentThread();
       --CurrentThread->SpecialApcDisable;
-      ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_140C4EF18, 0LL);
+      ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_140C4EF58, 0LL);
       v29 = (struct _KEVENT *)v3[31];
       if ( !v29->Header.SignalState )
         KePulseEvent(v29, 0, 0);
-      if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140C4EF18, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-        ExfTryToWakePushLock(&qword_140C4EF18);
-      KeAbPostRelease((ULONG_PTR)&qword_140C4EF18);
+      if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140C4EF58, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+        ExfTryToWakePushLock(&qword_140C4EF58);
+      KeAbPostRelease((ULONG_PTR)&qword_140C4EF58);
       KiLeaveGuardedRegionUnsafe(CurrentThread);
     }
     else

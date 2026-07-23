@@ -1,11 +1,11 @@
 /*
- * XREFs of MiFreeCombinePool @ 0x1401F9DBC
+ * XREFs of MiFreeCombinePool @ 0x1401F9BE8
  * Callers:
  *     <none>
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140012750 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14001BD40 (KeAcquireInStackQueuedSpinLock.c)
- *     MiUnlockPagedAddress @ 0x1400B4854 (MiUnlockPagedAddress.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x1400122D0 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14001B8C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     MiUnlockPagedAddress @ 0x1400B26D4 (MiUnlockPagedAddress.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  */
 

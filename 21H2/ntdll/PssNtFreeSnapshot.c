@@ -1,20 +1,20 @@
 /*
- * XREFs of PssNtFreeSnapshot @ 0x180114450
+ * XREFs of PssNtFreeSnapshot @ 0x180114410
  * Callers:
- *     PssNtCaptureSnapshot @ 0x180113CF0 (PssNtCaptureSnapshot.c)
- *     PsspDuplicateSnapshotLocalToRemote @ 0x1801172B8 (PsspDuplicateSnapshotLocalToRemote.c)
+ *     PssNtCaptureSnapshot @ 0x180113CB0 (PssNtCaptureSnapshot.c)
+ *     PsspDuplicateSnapshotLocalToRemote @ 0x180117278 (PsspDuplicateSnapshotLocalToRemote.c)
  * Callees:
  *     RtlFreeHeap @ 0x180024760 (RtlFreeHeap.c)
- *     NtClose @ 0x18009D820 (NtClose.c)
- *     ZwFreeVirtualMemory @ 0x18009DA00 (ZwFreeVirtualMemory.c)
- *     PssNtValidateDescriptor @ 0x1801148C0 (PssNtValidateDescriptor.c)
+ *     NtClose @ 0x18009D7E0 (NtClose.c)
+ *     ZwFreeVirtualMemory @ 0x18009D9C0 (ZwFreeVirtualMemory.c)
+ *     PssNtValidateDescriptor @ 0x180114880 (PssNtValidateDescriptor.c)
  */
 
 __int64 __fastcall PssNtFreeSnapshot(__int64 a1)
 {
   __int64 result; // rax
   int v3; // eax
-  __int64 v4; // r8
+  void *v4; // r8
   void *v5; // rcx
   void *v6; // rcx
   void *v7; // rcx
@@ -23,6 +23,8 @@ __int64 __fastcall PssNtFreeSnapshot(__int64 a1)
   void *v10; // rcx
   int v11; // eax
   void *retaddr; // [rsp+28h] [rbp+0h]
+  ULONG_PTR RegionSize; // [rsp+38h] [rbp+10h] BYREF
+  PVOID BaseAddress; // [rsp+40h] [rbp+18h] BYREF
 
   result = PssNtValidateDescriptor(a1, retaddr);
   if ( (int)result >= 0 )
@@ -30,10 +32,10 @@ __int64 __fastcall PssNtFreeSnapshot(__int64 a1)
     v3 = *(_DWORD *)(a1 + 4);
     if ( (v3 & 2) != 0 )
     {
-      v4 = *(_QWORD *)(a1 + 904);
+      v4 = *(void **)(a1 + 904);
       if ( v4 )
       {
-        RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v4);
+        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v4);
         v3 = *(_DWORD *)(a1 + 4);
         *(_QWORD *)(a1 + 904) = 0LL;
       }
@@ -41,7 +43,9 @@ __int64 __fastcall PssNtFreeSnapshot(__int64 a1)
     }
     else if ( (v3 & 4) != 0 && *(_QWORD *)(a1 + 904) )
     {
-      ZwFreeVirtualMemory();
+      BaseAddress = *(PVOID *)(a1 + 904);
+      RegionSize = 0LL;
+      ZwFreeVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, &RegionSize, 0x8000u);
       *(_DWORD *)(a1 + 4) &= ~4u;
       *(_QWORD *)(a1 + 904) = 0LL;
     }
@@ -91,7 +95,11 @@ __int64 __fastcall PssNtFreeSnapshot(__int64 a1)
       *(_DWORD *)(a1 + 1136) = 0;
     }
     if ( (v11 & 1) != 0 )
-      ZwFreeVirtualMemory();
+    {
+      BaseAddress = (PVOID)a1;
+      RegionSize = 0LL;
+      ZwFreeVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, &RegionSize, 0x8000u);
+    }
     return 0LL;
   }
   return result;

@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlpTraceDatabaseReleaseLock @ 0x14058EF18
+ * XREFs of RtlpTraceDatabaseReleaseLock @ 0x14058F148
  * Callers:
- *     RtlTraceDatabaseAdd @ 0x14058E860 (RtlTraceDatabaseAdd.c)
- *     RtlTraceDatabaseEnumerate @ 0x14058EA80 (RtlTraceDatabaseEnumerate.c)
- *     RtlTraceDatabaseFind @ 0x14058EB50 (RtlTraceDatabaseFind.c)
- *     RtlTraceDatabaseUnlock @ 0x14058EBE0 (RtlTraceDatabaseUnlock.c)
- *     RtlTraceDatabaseValidate @ 0x14058EC00 (RtlTraceDatabaseValidate.c)
+ *     RtlTraceDatabaseAdd @ 0x14058EA90 (RtlTraceDatabaseAdd.c)
+ *     RtlTraceDatabaseEnumerate @ 0x14058ECB0 (RtlTraceDatabaseEnumerate.c)
+ *     RtlTraceDatabaseFind @ 0x14058ED80 (RtlTraceDatabaseFind.c)
+ *     RtlTraceDatabaseUnlock @ 0x14058EE10 (RtlTraceDatabaseUnlock.c)
+ *     RtlTraceDatabaseValidate @ 0x14058EE30 (RtlTraceDatabaseValidate.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     KeReleaseGuardedMutex @ 0x140265CD0 (KeReleaseGuardedMutex.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     KeReleaseGuardedMutex @ 0x140253C70 (KeReleaseGuardedMutex.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 

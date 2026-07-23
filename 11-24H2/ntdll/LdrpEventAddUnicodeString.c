@@ -1,9 +1,9 @@
 /*
- * XREFs of LdrpEventAddUnicodeString @ 0x1800D99F0
+ * XREFs of LdrpEventAddUnicodeString @ 0x1800D4D60
  * Callers:
- *     LdrpFindLoadedDllByName @ 0x180018180 (LdrpFindLoadedDllByName.c)
- *     LdrpLogEtwDllSearchResults @ 0x180076294 (LdrpLogEtwDllSearchResults.c)
- *     LdrpLogEtwEvent @ 0x18009B2F0 (LdrpLogEtwEvent.c)
+ *     LdrpLogEtwEvent @ 0x180030140 (LdrpLogEtwEvent.c)
+ *     LdrpFindLoadedDllByName @ 0x180044B80 (LdrpFindLoadedDllByName.c)
+ *     LdrpLogEtwDllSearchResults @ 0x180092B74 (LdrpLogEtwDllSearchResults.c)
  * Callees:
  *     <none>
  */

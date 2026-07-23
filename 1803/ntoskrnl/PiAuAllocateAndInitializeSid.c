@@ -9,7 +9,7 @@
  *     RtlInitializeSid @ 0x140541FB0 (RtlInitializeSid.c)
  */
 
-__int64 __fastcall PiAuAllocateAndInitializeSid(PVOID *a1, struct _SID_IDENTIFIER_AUTHORITY *a2, unsigned int a3)
+__int64 __fastcall PiAuAllocateAndInitializeSid(PVOID *a1, _SID_IDENTIFIER_AUTHORITY *a2, unsigned int a3)
 {
   UCHAR v3; // di
   unsigned int v6; // eax

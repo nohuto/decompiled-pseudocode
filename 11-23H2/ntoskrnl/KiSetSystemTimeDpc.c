@@ -1,14 +1,14 @@
 /*
- * XREFs of KiSetSystemTimeDpc @ 0x14039A450
+ * XREFs of KiSetSystemTimeDpc @ 0x14039A630
  * Callers:
  *     <none>
  * Callees:
- *     KiExitDispatcher @ 0x14023CD70 (KiExitDispatcher.c)
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     KiSelectActiveTimerTable @ 0x14033BE80 (KiSelectActiveTimerTable.c)
- *     KiAdjustTimerDueTimes @ 0x14039A5E4 (KiAdjustTimerDueTimes.c)
- *     KiUpdateSystemTime @ 0x1403C14F8 (KiUpdateSystemTime.c)
- *     KeAdjustInterruptTime @ 0x14056C174 (KeAdjustInterruptTime.c)
+ *     KiExitDispatcher @ 0x14023CE40 (KiExitDispatcher.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     KiSelectActiveTimerTable @ 0x14033C110 (KiSelectActiveTimerTable.c)
+ *     KiAdjustTimerDueTimes @ 0x14039A7C4 (KiAdjustTimerDueTimes.c)
+ *     KiUpdateSystemTime @ 0x1403C16D8 (KiUpdateSystemTime.c)
+ *     KeAdjustInterruptTime @ 0x14056C834 (KeAdjustInterruptTime.c)
  */
 
 __int64 __fastcall KiSetSystemTimeDpc(__int64 a1, __int64 a2, volatile signed __int32 *a3, __int64 a4)
@@ -100,5 +100,5 @@ __int64 __fastcall KiSetSystemTimeDpc(__int64 a1, __int64 a2, volatile signed __
     }
   }
   _InterlockedDecrement(a3);
-  return KiExitDispatcher((__int64)CurrentPrcb, 0, (struct _PROCESSOR_NUMBER)1, 0, 2u);
+  return KiExitDispatcher((__int64)CurrentPrcb, 0, (_PROCESSOR_NUMBER)1, 0, 2u);
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of PspAssignSiloSystemRootPath @ 0x140905E00
+ * XREFs of PspAssignSiloSystemRootPath @ 0x140905F60
  * Callers:
- *     NtSetInformationJobObject @ 0x140614200 (NtSetInformationJobObject.c)
+ *     NtSetInformationJobObject @ 0x14067DE60 (NtSetInformationJobObject.c)
  * Callees:
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     memmove @ 0x140413F40 (memmove.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     memmove @ 0x140414040 (memmove.c)
  *     PsInsertSiloContext @ 0x1405D25C0 (PsInsertSiloContext.c)
- *     PsCreateSiloContext @ 0x140715B10 (PsCreateSiloContext.c)
+ *     PsCreateSiloContext @ 0x1406C4160 (PsCreateSiloContext.c)
  */
 
 __int64 __fastcall PspAssignSiloSystemRootPath(__int64 a1, unsigned __int16 *a2)
@@ -33,7 +33,7 @@ __int64 __fastcall PspAssignSiloSystemRootPath(__int64 a1, unsigned __int16 *a2)
   {
     return 3221225485LL;
   }
-  result = PsCreateSiloContext(a1, (int)v3 + 16, 1, 0LL, &DmaAdapter);
+  result = PsCreateSiloContext(a1, (unsigned int)(v3 + 16), 1, 0LL, &DmaAdapter);
   if ( (int)result >= 0 )
   {
     v7 = DmaAdapter;

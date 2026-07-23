@@ -1,10 +1,10 @@
 /*
- * XREFs of StEtaCleanup @ 0x14035B3B4
+ * XREFs of StEtaCleanup @ 0x1402A0154
  * Callers:
- *     ?StCleanup@?$ST_STORE@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x14035AF1C (-StCleanup@-$ST_STORE@USM_TRAITS@@@@SAXPEAU1@@Z.c)
- *     SmcCacheCleanup @ 0x14092D3E8 (SmcCacheCleanup.c)
+ *     ?StCleanup@?$ST_STORE@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x14029FCBC (-StCleanup@-$ST_STORE@USM_TRAITS@@@@SAXPEAU1@@Z.c)
+ *     SmcCacheCleanup @ 0x14092D548 (SmcCacheCleanup.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall StEtaCleanup(__int64 a1)

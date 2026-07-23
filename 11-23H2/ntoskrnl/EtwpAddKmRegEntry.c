@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpAddKmRegEntry @ 0x14078DBB8
+ * XREFs of EtwpAddKmRegEntry @ 0x14078DDA8
  * Callers:
- *     EtwpRegisterKMProvider @ 0x14078D8C4 (EtwpRegisterKMProvider.c)
+ *     EtwpRegisterKMProvider @ 0x14078DAB4 (EtwpRegisterKMProvider.c)
  * Callees:
- *     EtwpInitializeRegEntry @ 0x1406BF5C0 (EtwpInitializeRegEntry.c)
+ *     EtwpInitializeRegEntry @ 0x1406BF5F0 (EtwpInitializeRegEntry.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 

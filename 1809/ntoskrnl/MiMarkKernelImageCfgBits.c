@@ -1,19 +1,19 @@
 /*
- * XREFs of MiMarkKernelImageCfgBits @ 0x14070F394
+ * XREFs of MiMarkKernelImageCfgBits @ 0x140710634
  * Callers:
- *     MiProcessKernelCfgImage @ 0x1400F5564 (MiProcessKernelCfgImage.c)
- *     MiUnloadSystemImage @ 0x140651AA4 (MiUnloadSystemImage.c)
- *     MiInitSystem @ 0x1409BC5A8 (MiInitSystem.c)
+ *     MiProcessKernelCfgImage @ 0x1400F55E4 (MiProcessKernelCfgImage.c)
+ *     MiUnloadSystemImage @ 0x140652C64 (MiUnloadSystemImage.c)
+ *     MiInitSystem @ 0x1409BD5A8 (MiInitSystem.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
- *     RtlImageDirectoryEntryToData @ 0x1400F2C40 (RtlImageDirectoryEntryToData.c)
- *     VslpEnterIumSecureMode @ 0x140129CB0 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     MiFlushKernelCfgBitmap @ 0x1402C33E0 (MiFlushKernelCfgBitmap.c)
- *     MiSnapDriverRange @ 0x140653BE0 (MiSnapDriverRange.c)
- *     VslCompleteSecureDriverLoad @ 0x140817EE8 (VslCompleteSecureDriverLoad.c)
- *     MiAllocateKernelCfgBitmapPageTables @ 0x14085BC14 (MiAllocateKernelCfgBitmapPageTables.c)
- *     MiReleaseKernelCfgLock @ 0x14085BF00 (MiReleaseKernelCfgLock.c)
+ *     RtlImageDirectoryEntryToData @ 0x1400F2CC0 (RtlImageDirectoryEntryToData.c)
+ *     VslpEnterIumSecureMode @ 0x140129D80 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     MiFlushKernelCfgBitmap @ 0x1402C35D0 (MiFlushKernelCfgBitmap.c)
+ *     MiSnapDriverRange @ 0x140654DA0 (MiSnapDriverRange.c)
+ *     VslCompleteSecureDriverLoad @ 0x1408190E8 (VslCompleteSecureDriverLoad.c)
+ *     MiAllocateKernelCfgBitmapPageTables @ 0x14085CE74 (MiAllocateKernelCfgBitmapPageTables.c)
+ *     MiReleaseKernelCfgLock @ 0x14085D160 (MiReleaseKernelCfgLock.c)
  */
 
 __int64 __fastcall MiMarkKernelImageCfgBits(__int64 a1, __int64 a2)
@@ -34,7 +34,7 @@ __int64 __fastcall MiMarkKernelImageCfgBits(__int64 a1, __int64 a2)
   {
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->SpecialApcDisable;
-    ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_140438E28, 0LL);
+    ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_140439EE8, 0LL);
     KernelCfgBitmapPageTables = MiAllocateKernelCfgBitmapPageTables(*(_QWORD *)(a1 + 48), *(unsigned int *)(a1 + 64));
     MiReleaseKernelCfgLock();
     if ( KernelCfgBitmapPageTables >= 0 )

@@ -1,22 +1,22 @@
 /*
- * XREFs of SPCallServerHandleQueryPolicy @ 0x140A1DE2C
+ * XREFs of SPCallServerHandleQueryPolicy @ 0x140A27458
  * Callers:
- *     SPCall2ServerInternal @ 0x140A1AE00 (SPCall2ServerInternal.c)
+ *     SPCall2ServerInternal @ 0x140A24430 (SPCall2ServerInternal.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     KeResetEvent @ 0x140395BB0 (KeResetEvent.c)
- *     KeReleaseMutex @ 0x1403DD0F0 (KeReleaseMutex.c)
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     KeQueryTimeIncrement @ 0x140457230 (KeQueryTimeIncrement.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwOpenKey @ 0x140723630 (ZwOpenKey.c)
- *     ZwUpdateWnfStateData @ 0x140727030 (ZwUpdateWnfStateData.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     KeResetEvent @ 0x140397930 (KeResetEvent.c)
+ *     KeReleaseMutex @ 0x1403E02E0 (KeReleaseMutex.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     KeQueryTimeIncrement @ 0x14044EAA0 (KeQueryTimeIncrement.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140728200 (ZwOpenKey.c)
+ *     ZwUpdateWnfStateData @ 0x14072BC00 (ZwUpdateWnfStateData.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SPCallServerHandleQueryPolicy(__int64 a1, void *a2, unsigned int a3, __int64 a4)
@@ -109,7 +109,7 @@ __int64 __fastcall SPCallServerHandleQueryPolicy(__int64 a1, void *a2, unsigned 
   unsigned __int64 v92; // rax
   __int64 v93; // rbx
   unsigned int *Src; // [rsp+48h] [rbp-49h]
-  volatile unsigned int v95; // [rsp+50h] [rbp-41h]
+  int v95; // [rsp+50h] [rbp-41h]
   unsigned int v96; // [rsp+54h] [rbp-3Dh] BYREF
   unsigned int v97; // [rsp+58h] [rbp-39h]
   int v98; // [rsp+5Ch] [rbp-35h] BYREF
@@ -342,10 +342,10 @@ LABEL_188:
             v42 = 0;
             v95 = 0;
           }
-          if ( *(_DWORD *)&ExpPlatformBinaryLock.ApcStateFill[36] != v42 )
+          if ( LODWORD(ExpPlatformBinaryLock.WaitStatus) != v42 )
           {
             ExpPlatformBinaryLock.RelativeTimerBias = v43;
-            *(_DWORD *)&ExpPlatformBinaryLock.ApcStateFill[36] = v42;
+            LODWORD(ExpPlatformBinaryLock.WaitStatus) = v42;
           }
           v45 = v43 - LODWORD(ExpPlatformBinaryLock.RelativeTimerBias);
           if ( (__int64)(v43 - ExpPlatformBinaryLock.RelativeTimerBias) < 0 )
@@ -358,13 +358,13 @@ LABEL_188:
             v46 = (double)v45;
           }
           v47 = 0;
-          if ( !v42 && !*(_DWORD *)&ExpPlatformBinaryLock.ApcStateFill[40] )
+          if ( !v42 && !ExpPlatformBinaryLock.UserIdealProcessor )
           {
             LOBYTE(v47) = v46 >= 9000000.0;
             if ( v47 )
             {
-              *(_DWORD *)&ExpPlatformBinaryLock.ApcStateFill[40] = 1;
-              ZwUpdateWnfStateData((__int64)&WNF_OLIC_OS_LICENSE_NON_GENUINE, 0LL);
+              ExpPlatformBinaryLock.UserIdealProcessor = 1;
+              ZwUpdateWnfStateData(&WNF_OLIC_OS_LICENSE_NON_GENUINE, 0LL, 0, 0LL, 0LL, 0, 0);
             }
           }
           v48 = v100 + 8;
@@ -566,11 +566,11 @@ LABEL_116:
             v6 = Src;
             goto LABEL_44;
           }
-          if ( ExpPlatformBinaryLock.UserIdealProcessor != v95 )
+          if ( *(_DWORD *)&ExpPlatformBinaryLock.ApcStateFill[40] != v95 )
           {
             if ( v95 )
             {
-              KeResetEvent(&stru_140EF49E0);
+              KeResetEvent(&stru_140EF4D40);
             }
             else
             {
@@ -578,7 +578,7 @@ LABEL_116:
               ExpPlatformBinaryLock.StateSaveArea = (_XSAVE_FORMAT *)(v93 * KeQueryTimeIncrement() / 10000);
             }
           }
-          ExpPlatformBinaryLock.UserIdealProcessor = v95;
+          *(_DWORD *)&ExpPlatformBinaryLock.ApcStateFill[40] = v95;
           if ( v95
             || !HIDWORD(ExpPlatformBinaryLock.WaitStatus)
             || (unsigned __int64)KeyHandle - (unsigned __int64)ExpPlatformBinaryLock.StateSaveArea < 0xADF4FC )
@@ -589,11 +589,11 @@ LABEL_116:
             v49 = v101;
             goto LABEL_85;
           }
-          KeSetEvent(&stru_140EF49E0, 1, 0);
+          KeSetEvent(&stru_140EF4D40, 1, 0);
           v96 = 4;
           v99 = 0;
           KeyHandle = 0LL;
-          if ( ZwOpenKey(&KeyHandle, 1u, &stru_140FD5840) >= 0 )
+          if ( ZwOpenKey(&KeyHandle, 1u, &stru_140FD6850) >= 0 )
           {
             v82 = 3;
           }
@@ -622,8 +622,8 @@ LABEL_171:
                 v48 = v100 + 8;
                 v83 = v104;
               }
-              v84 = dword_140FD5058 & 0xFFFF0000 | 0x3211;
-              dword_140FD5058 = v84;
+              v84 = dword_140FD6058 & 0xFFFF0000 | 0x3211;
+              dword_140FD6058 = v84;
               if ( v83 )
                 v7 = v84;
               else

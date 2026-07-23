@@ -12,8 +12,8 @@ int __stdcall RtlpGetStackTraceAddressEx(unsigned __int16 a1, unsigned __int16 a
   unsigned int v2; // ecx
 
   v2 = a1 + (a2 << 16);
-  if ( RtlpStackTraceDatabase && v2 && v2 <= *(_DWORD *)(RtlpStackTraceDatabase + 96) )
-    return *(_DWORD *)(*(_DWORD *)(RtlpStackTraceDatabase + 100) - 4 * v2);
+  if ( RtlpStackTraceDatabase && v2 && v2 <= RtlpStackTraceDatabase[24].Value )
+    return *(_DWORD *)(RtlpStackTraceDatabase[25].Value - 4 * v2);
   else
     return 0;
 }

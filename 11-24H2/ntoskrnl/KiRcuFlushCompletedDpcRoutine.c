@@ -1,12 +1,12 @@
 /*
- * XREFs of KiRcuFlushCompletedDpcRoutine @ 0x1405BBEF0
+ * XREFs of KiRcuFlushCompletedDpcRoutine @ 0x1405B9520
  * Callers:
  *     <none>
  * Callees:
- *     KiRcuFlushCompleted @ 0x14033D510 (KiRcuFlushCompleted.c)
+ *     KiRcuFlushCompleted @ 0x14031C9F0 (KiRcuFlushCompleted.c)
  */
 
-void KiRcuFlushCompletedDpcRoutine()
+void __fastcall KiRcuFlushCompletedDpcRoutine(__int64 a1, __int64 a2)
 {
-  KiRcuFlushCompleted(1);
+  KiRcuFlushCompleted(1LL, a2);
 }

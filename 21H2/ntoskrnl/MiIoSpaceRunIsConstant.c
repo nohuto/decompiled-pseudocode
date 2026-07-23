@@ -1,9 +1,9 @@
 /*
- * XREFs of MiIoSpaceRunIsConstant @ 0x140294DA8
+ * XREFs of MiIoSpaceRunIsConstant @ 0x140216A68
  * Callers:
- *     MiFillSystemPtes @ 0x140226EF0 (MiFillSystemPtes.c)
+ *     MiFillSystemPtes @ 0x1402CB7F0 (MiFillSystemPtes.c)
  * Callees:
- *     MiIoSpaceIsConstant @ 0x140295E20 (MiIoSpaceIsConstant.c)
+ *     MiIoSpaceIsConstant @ 0x140217AE0 (MiIoSpaceIsConstant.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 

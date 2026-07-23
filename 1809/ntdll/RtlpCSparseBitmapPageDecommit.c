@@ -7,20 +7,21 @@
  *     RtlpCSparseBitmapLock @ 0x18005D5B4 (RtlpCSparseBitmapLock.c)
  *     RtlpWakeByAddress @ 0x18005E81C (RtlpWakeByAddress.c)
  *     RtlpWaitOnAddress @ 0x18005EBE8 (RtlpWaitOnAddress.c)
- *     ZwFreeVirtualMemory @ 0x1800A06A0 (ZwFreeVirtualMemory.c)
+ *     ZwFreeVirtualMemory @ 0x1800A06C0 (ZwFreeVirtualMemory.c)
  */
 
-char __fastcall RtlpCSparseBitmapPageDecommit(__int64 a1, unsigned __int64 a2, int a3, __int64 a4)
+char __fastcall RtlpCSparseBitmapPageDecommit(__int64 a1, unsigned __int64 a2, int a3)
 {
-  unsigned __int64 v7; // rcx
-  const signed __int64 *v8; // r14
-  unsigned __int64 v9; // rbx
-  unsigned __int64 v10; // rdi
-  unsigned __int64 v11; // r8
-  __int64 *v12; // rdx
-  __int64 *v13; // r10
+  unsigned __int64 v6; // rcx
+  const signed __int64 *v7; // r14
+  unsigned __int64 v8; // rbx
+  unsigned __int64 v9; // rdi
+  unsigned __int64 v10; // r8
+  const signed __int64 *v11; // rdx
+  const signed __int64 *v12; // r10
+  signed __int64 v13; // r9
   const signed __int64 *v14; // rax
-  __int64 *v15; // rdx
+  const signed __int64 *v15; // rdx
   unsigned __int64 v16; // rdx
   unsigned __int64 v17; // r9
   const signed __int64 *v18; // r8
@@ -32,14 +33,14 @@ char __fastcall RtlpCSparseBitmapPageDecommit(__int64 a1, unsigned __int64 a2, i
   __int64 v25; // [rsp+30h] [rbp-B8h]
   int v26; // [rsp+38h] [rbp-B0h]
   unsigned __int64 v27; // [rsp+40h] [rbp-A8h]
-  __int64 *i; // [rsp+48h] [rbp-A0h]
+  const signed __int64 *i; // [rsp+48h] [rbp-A0h]
   unsigned __int64 v29; // [rsp+50h] [rbp-98h]
   unsigned __int64 v30; // [rsp+58h] [rbp-90h]
   unsigned __int64 v31; // [rsp+60h] [rbp-88h]
   const signed __int64 *v32; // [rsp+68h] [rbp-80h]
   __int64 v33; // [rsp+70h] [rbp-78h] BYREF
-  __int64 v34; // [rsp+78h] [rbp-70h] BYREF
-  unsigned __int64 v35; // [rsp+80h] [rbp-68h] BYREF
+  ULONG_PTR RegionSize; // [rsp+78h] [rbp-70h] BYREF
+  PVOID BaseAddress; // [rsp+80h] [rbp-68h] BYREF
   _BYTE v36[16]; // [rsp+88h] [rbp-60h] BYREF
   __int64 v37; // [rsp+98h] [rbp-50h]
   __int64 v38; // [rsp+A0h] [rbp-48h]
@@ -47,63 +48,63 @@ char __fastcall RtlpCSparseBitmapPageDecommit(__int64 a1, unsigned __int64 a2, i
 
   v25 = a1;
   v39 = 0;
-  v7 = *(_QWORD *)(a1 + 24);
-  v27 = v7;
-  v8 = *(const signed __int64 **)(a1 + 16);
-  v31 = v7;
-  v32 = v8;
-  v9 = a2 << 15;
+  v6 = *(_QWORD *)(a1 + 24);
+  v27 = v6;
+  v7 = *(const signed __int64 **)(a1 + 16);
+  v31 = v6;
+  v32 = v7;
+  v8 = a2 << 15;
   v29 = a2 << 15;
-  v10 = 0x8000LL;
-  if ( v7 - (a2 << 15) <= 0x8000 )
-    v10 = v7 - (a2 << 15);
-  v30 = v10;
+  v9 = 0x8000LL;
+  if ( v6 - (a2 << 15) <= 0x8000 )
+    v9 = v6 - (a2 << 15);
+  v30 = v9;
   v37 = 0LL;
   v38 = 0LL;
   while ( 1 )
   {
     if ( a3 )
       goto LABEL_22;
-    v11 = v10 + v9 - 1;
-    if ( v11 >= v7 )
+    v10 = v9 + v8 - 1;
+    if ( v10 >= v6 )
     {
 LABEL_9:
       LODWORD(v14) = 0;
       goto LABEL_19;
     }
-    if ( v10 <= 1 )
+    if ( v9 <= 1 )
     {
-      if ( v10 != 1 )
+      if ( v9 != 1 )
         goto LABEL_9;
-      LODWORD(v14) = !_bittest64(v8, v9);
+      LODWORD(v14) = !_bittest64(v7, v8);
     }
     else
     {
-      v12 = (__int64 *)&v8[v9 >> 6];
-      i = v12;
-      v13 = (__int64 *)&v8[v11 >> 6];
-      a4 = *v12;
-      if ( v12 == v13 )
+      v11 = &v7[v8 >> 6];
+      i = v11;
+      v12 = &v7[v10 >> 6];
+      v13 = *v11;
+      if ( v11 == v12 )
       {
-        v16 = 0xFFFFFFFFFFFFFFFFuLL >> (64 - (unsigned __int8)v10) << v9;
+        v16 = 0xFFFFFFFFFFFFFFFFuLL >> (64 - (unsigned __int8)v9) << v8;
       }
       else
       {
-        if ( (a4 & (-1LL << v9)) != 0 )
+        if ( (v13 & (-1LL << v8)) != 0 )
           goto LABEL_9;
-        v15 = v12 + 1;
+        v15 = v11 + 1;
         for ( i = v15; ; i = v15 )
         {
-          a4 = *v15;
-          if ( v15 == v13 )
+          v13 = *v15;
+          if ( v15 == v12 )
             break;
-          if ( a4 )
+          if ( v13 )
             goto LABEL_9;
           ++v15;
         }
-        v16 = 0xFFFFFFFFFFFFFFFFuLL >> ~(_BYTE)v11;
+        v16 = 0xFFFFFFFFFFFFFFFFuLL >> ~(_BYTE)v10;
       }
-      LODWORD(v14) = (a4 & v16) == 0;
+      LODWORD(v14) = (v13 & v16) == 0;
     }
 LABEL_19:
     v26 = (int)v14;
@@ -111,7 +112,7 @@ LABEL_19:
       goto LABEL_20;
 LABEL_22:
     a3 = 0;
-    RtlpCSparseBitmapLock(a1, (char *)1, (__int64)v36, a4);
+    RtlpCSparseBitmapLock((_RTL_SRWLOCK *)a1, 1, (__int64)v36);
     v33 = *(_QWORD *)(a1 + 40);
     if ( v33 == -1 )
       break;
@@ -120,7 +121,7 @@ LABEL_22:
     v14 = *(const signed __int64 **)(v25 + 8);
     if ( !_bittest64(v14, a2) )
       goto LABEL_20;
-    v7 = v27;
+    v6 = v27;
   }
   *(_QWORD *)(v25 + 40) = a2;
   RtlpCSparseBitmapUnlock((__int64)v36);
@@ -128,20 +129,20 @@ LABEL_22:
   LOBYTE(v14) = _bittest64(*(const signed __int64 **)(v25 + 8), a2);
   if ( !(_BYTE)v14 )
     goto LABEL_20;
-  v17 = v10 + v9 - 1;
+  v17 = v9 + v8 - 1;
   if ( v17 >= v27 )
     goto LABEL_20;
-  if ( v10 <= 1 )
+  if ( v9 <= 1 )
   {
-    if ( v10 != 1 )
+    if ( v9 != 1 )
       goto LABEL_20;
-    if ( !_bittest64(v8, v9) )
+    if ( !_bittest64(v7, v8) )
     {
 LABEL_34:
       _interlockedbittestandreset64(*(volatile signed __int32 **)(a1 + 8), a2);
-      v35 = *(_QWORD *)(a1 + 16) + (a2 << 12);
-      v34 = 4096LL;
-      LOBYTE(v14) = ZwFreeVirtualMemory(-1LL, &v35, &v34, 0x4000LL);
+      BaseAddress = (PVOID)(*(_QWORD *)(a1 + 16) + (a2 << 12));
+      RegionSize = 4096LL;
+      LOBYTE(v14) = ZwFreeVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, &RegionSize, 0x4000u);
       goto LABEL_20;
     }
     LOBYTE(v14) = 0;
@@ -150,18 +151,18 @@ LABEL_33:
       goto LABEL_20;
     goto LABEL_34;
   }
-  v18 = &v8[v9 >> 6];
-  v19 = &v8[v17 >> 6];
+  v18 = &v7[v8 >> 6];
+  v19 = &v7[v17 >> 6];
   v20 = *v18;
   if ( v18 == v19 )
   {
-    v22 = (v20 & (0xFFFFFFFFFFFFFFFFuLL >> (64 - (unsigned __int8)v10) << v9)) == 0;
+    v22 = (v20 & (0xFFFFFFFFFFFFFFFFuLL >> (64 - (unsigned __int8)v9) << v8)) == 0;
 LABEL_32:
     LOBYTE(v14) = v22;
     goto LABEL_33;
   }
-  v14 = (const signed __int64 *)(-1LL << v9);
-  for ( j = (v20 & (-1LL << v9)) == 0; j; j = *v18 == 0 )
+  v14 = (const signed __int64 *)(-1LL << v8);
+  for ( j = (v20 & (-1LL << v8)) == 0; j; j = *v18 == 0 )
   {
     if ( ++v18 == v19 )
     {

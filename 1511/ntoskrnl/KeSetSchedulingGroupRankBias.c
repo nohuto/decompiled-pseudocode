@@ -95,7 +95,7 @@ LABEL_7:
           }
           KiMoveScbThreadsToNewReadylist(v9, v15, 0LL, v17);
           if ( !*(_QWORD *)(v9 + 376) )
-            KiRemoveSchedulingGroupQueue(v8, v9, 1);
+            KiRemoveSchedulingGroupQueue((_RTL_RB_TREE *)v8, v9, 1);
         }
         *(_BYTE *)(v9 + 112) &= ~4u;
         goto LABEL_7;
@@ -113,7 +113,7 @@ LABEL_9:
     {
       v14 = 1;
 LABEL_17:
-      KiResortScbQueue(v8, v9, v14);
+      KiResortScbQueue((_RTL_RB_TREE *)v8, v9, v14);
     }
     goto LABEL_7;
   }

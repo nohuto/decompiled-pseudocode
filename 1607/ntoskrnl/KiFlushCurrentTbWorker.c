@@ -1,11 +1,11 @@
 /*
- * XREFs of KiFlushCurrentTbWorker @ 0x14009E608
+ * XREFs of KiFlushCurrentTbWorker @ 0x14009DFB4
  * Callers:
  *     <none>
  * Callees:
- *     PsGetCurrentProcess @ 0x140014680 (PsGetCurrentProcess.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     KiSetUserTbFlushPending @ 0x14015E8F0 (KiSetUserTbFlushPending.c)
+ *     PsGetCurrentProcess @ 0x140014200 (PsGetCurrentProcess.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     KiSetUserTbFlushPending @ 0x14015EE60 (KiSetUserTbFlushPending.c)
  */
 
 unsigned __int64 KiFlushCurrentTbWorker()

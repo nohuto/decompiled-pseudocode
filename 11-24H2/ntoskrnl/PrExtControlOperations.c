@@ -1,15 +1,15 @@
 /*
- * XREFs of PrExtControlOperations @ 0x140663EEC
+ * XREFs of PrExtControlOperations @ 0x1406627DC
  * Callers:
- *     HalpMcEnumerateAndSetPatchConfig @ 0x1405594B8 (HalpMcEnumerateAndSetPatchConfig.c)
- *     HalpMcGetRollbackRequest @ 0x14055996C (HalpMcGetRollbackRequest.c)
- *     HalpMcUpdateInitializeBSP @ 0x140559BAC (HalpMcUpdateInitializeBSP.c)
- *     HalpLoadMicrocode @ 0x140701A80 (HalpLoadMicrocode.c)
- *     HalpProcInitSystem @ 0x140B4D1C0 (HalpProcInitSystem.c)
+ *     HalpMcEnumerateAndSetPatchConfig @ 0x1405570E8 (HalpMcEnumerateAndSetPatchConfig.c)
+ *     HalpMcGetRollbackRequest @ 0x14055759C (HalpMcGetRollbackRequest.c)
+ *     HalpMcUpdateInitializeBSP @ 0x1405577DC (HalpMcUpdateInitializeBSP.c)
+ *     HalpLoadMicrocode @ 0x1406FF6C0 (HalpLoadMicrocode.c)
+ *     HalpProcInitSystem @ 0x140B4F200 (HalpProcInitSystem.c)
  * Callees:
- *     MicrocodeValidate @ 0x140664B20 (MicrocodeValidate.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     RtlFindExportedRoutineByName @ 0x1408B0E30 (RtlFindExportedRoutineByName.c)
+ *     MicrocodeValidate @ 0x140663410 (MicrocodeValidate.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     RtlFindExportedRoutineByName @ 0x140907090 (RtlFindExportedRoutineByName.c)
  */
 
 __int64 __fastcall PrExtControlOperations(int a1, unsigned int *a2, int a3)
@@ -22,11 +22,9 @@ __int64 __fastcall PrExtControlOperations(int a1, unsigned int *a2, int a3)
   int v8; // ecx
   __int64 v9; // rcx
   int v10; // eax
-  __int64 v11; // rax
+  PVOID v11; // rax
   __int64 v12; // rdx
-  __int64 v13; // r8
-  __int64 v14; // r9
-  __int64 ExportedRoutineByName; // rax
+  PVOID ExportedRoutineByName; // rax
 
   v3 = a1 - 1;
   if ( !v3 )
@@ -60,9 +58,9 @@ __int64 __fastcall PrExtControlOperations(int a1, unsigned int *a2, int a3)
       if ( a2 )
       {
         MCUpdateRegistryData = *(_OWORD *)a2;
-        xmmword_140EF7830 = *((_OWORD *)a2 + 1);
-        qword_140EF7840 = *((_QWORD *)a2 + 4);
-        dword_140EF7848 = a2[10];
+        xmmword_140EF7AF0 = *((_OWORD *)a2 + 1);
+        qword_140EF7B00 = *((_QWORD *)a2 + 4);
+        dword_140EF7B08 = a2[10];
         return (unsigned int)v9;
       }
     }
@@ -76,7 +74,7 @@ __int64 __fastcall PrExtControlOperations(int a1, unsigned int *a2, int a3)
     if ( !ExportedRoutineByName )
       return (unsigned int)v9;
 LABEL_15:
-    v10 = guard_dispatch_icall_no_overrides(v9, v12, v13, v14);
+    v10 = guard_dispatch_icall_no_overrides(v9, v12);
     goto LABEL_16;
   }
   v7 = v6 - 1;

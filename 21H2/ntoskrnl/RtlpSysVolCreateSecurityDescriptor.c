@@ -1,17 +1,17 @@
 /*
- * XREFs of RtlpSysVolCreateSecurityDescriptor @ 0x140731E9C
+ * XREFs of RtlpSysVolCreateSecurityDescriptor @ 0x14073205C
  * Callers:
- *     RtlCreateSystemVolumeInformationFolder @ 0x140731C60 (RtlCreateSystemVolumeInformationFolder.c)
+ *     RtlCreateSystemVolumeInformationFolder @ 0x140731E20 (RtlCreateSystemVolumeInformationFolder.c)
  * Callees:
- *     RtlLengthSid @ 0x14027EA70 (RtlLengthSid.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     RtlCreateSecurityDescriptor @ 0x140603560 (RtlCreateSecurityDescriptor.c)
- *     RtlpAddKnownAce @ 0x14065C460 (RtlpAddKnownAce.c)
- *     RtlSetDaclSecurityDescriptor @ 0x140660500 (RtlSetDaclSecurityDescriptor.c)
- *     RtlCreateAcl @ 0x140660570 (RtlCreateAcl.c)
- *     RtlSetControlSecurityDescriptor @ 0x1407738B0 (RtlSetControlSecurityDescriptor.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     RtlLengthSid @ 0x14026CA10 (RtlLengthSid.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     RtlpAddKnownAce @ 0x140651280 (RtlpAddKnownAce.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x140655320 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateAcl @ 0x140655390 (RtlCreateAcl.c)
+ *     RtlCreateSecurityDescriptor @ 0x1406F2C90 (RtlCreateSecurityDescriptor.c)
+ *     RtlSetControlSecurityDescriptor @ 0x140773A70 (RtlSetControlSecurityDescriptor.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall RtlpSysVolCreateSecurityDescriptor(_QWORD *a1, ACL **a2)
@@ -50,13 +50,13 @@ __int64 __fastcall RtlpSysVolCreateSecurityDescriptor(_QWORD *a1, ACL **a2)
       v11 = v9;
       if ( Acl >= 0 )
       {
-        Acl = RtlpAddKnownAce((__int64)v9, 2u, 3, 0x1FFFFF, (unsigned __int8 *)&Sid, 0);
+        Acl = RtlpAddKnownAce(v9, 2u, 3, 0x1FFFFF, (unsigned __int8 *)&Sid, 0);
         if ( Acl >= 0 )
         {
           Acl = RtlSetDaclSecurityDescriptor(v5, 1u, v9, 0);
           if ( Acl >= 0 )
           {
-            Acl = RtlSetControlSecurityDescriptor(v5, 4096LL, 4096LL);
+            Acl = RtlSetControlSecurityDescriptor(v5, 0x1000u, 0x1000u);
             if ( Acl >= 0 )
             {
               *a1 = v5;

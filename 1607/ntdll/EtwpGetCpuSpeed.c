@@ -1,5 +1,5 @@
 /*
- * XREFs of EtwpGetCpuSpeed @ 0x180056FD0
+ * XREFs of EtwpGetCpuSpeed @ 0x180056FC0
  * Callers:
  *     <none>
  * Callees:

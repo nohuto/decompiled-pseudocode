@@ -52,7 +52,7 @@ __int64 WdipSemLoadScenarioTable()
   HANDLE KeyHandle; // [rsp+60h] [rbp-A8h]
   HANDLE v23; // [rsp+68h] [rbp-A0h]
   UNICODE_STRING v24; // [rsp+70h] [rbp-98h] BYREF
-  struct _OSVERSIONINFOEXW VersionInfo; // [rsp+88h] [rbp-80h] BYREF
+  _OSVERSIONINFOEXW VersionInfo; // [rsp+88h] [rbp-80h] BYREF
   GUID Guid; // [rsp+1A8h] [rbp+A0h] BYREF
   _DWORD KeyInformation[38]; // [rsp+1B8h] [rbp+B0h] BYREF
 

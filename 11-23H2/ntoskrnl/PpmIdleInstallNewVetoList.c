@@ -1,16 +1,16 @@
 /*
- * XREFs of PpmIdleInstallNewVetoList @ 0x140585078
+ * XREFs of PpmIdleInstallNewVetoList @ 0x140585568
  * Callers:
- *     PpmIdleAllocateVetoReasons @ 0x140981B64 (PpmIdleAllocateVetoReasons.c)
+ *     PpmIdleAllocateVetoReasons @ 0x140981D64 (PpmIdleAllocateVetoReasons.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeRevertToUserGroupAffinityThread @ 0x140305E00 (KeRevertToUserGroupAffinityThread.c)
- *     KeSetSystemGroupAffinityThread @ 0x140306C50 (KeSetSystemGroupAffinityThread.c)
- *     KeFirstGroupAffinityEx @ 0x1403090E0 (KeFirstGroupAffinityEx.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x140306090 (KeRevertToUserGroupAffinityThread.c)
+ *     KeSetSystemGroupAffinityThread @ 0x140306EE0 (KeSetSystemGroupAffinityThread.c)
+ *     KeFirstGroupAffinityEx @ 0x140309370 (KeFirstGroupAffinityEx.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     memmove @ 0x140435B00 (memmove.c)
  */
 
 void __fastcall PpmIdleInstallNewVetoList(__int64 a1, int a2, char *a3)
@@ -30,8 +30,8 @@ void __fastcall PpmIdleInstallNewVetoList(__int64 a1, int a2, char *a3)
   _DWORD *SchedulerAssist; // r9
   int v19; // eax
   bool v20; // zf
-  struct _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-58h] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+30h] [rbp-48h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-58h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+30h] [rbp-48h] BYREF
 
   Affinity = 0LL;
   PreviousAffinity = 0LL;
@@ -72,10 +72,13 @@ LABEL_19:
     }
   }
   KxReleaseSpinLock((volatile signed __int64 *)&PpmIdleVetoLock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v10 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v10 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

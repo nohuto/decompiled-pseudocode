@@ -5,16 +5,16 @@
  *     Phase1InitializationDiscard @ 0x140B4FFBC (Phase1InitializationDiscard.c)
  * Callees:
  *     ExInitializeLookasideListEx @ 0x140222410 (ExInitializeLookasideListEx.c)
- *     ExGenRandom @ 0x1403175D0 (ExGenRandom.c)
- *     CcCreatePartition @ 0x1403A02E0 (CcCreatePartition.c)
- *     CcInitPerVolumeParameters @ 0x1403B5624 (CcInitPerVolumeParameters.c)
- *     ExInitializeNPagedLookasideListInternal @ 0x1403C32D0 (ExInitializeNPagedLookasideListInternal.c)
- *     Feature_CcImprovementsForReFS__private_IsEnabledDeviceUsage @ 0x14040FAB4 (Feature_CcImprovementsForReFS__private_IsEnabledDeviceUsage.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     FsRtlIsMobileOS @ 0x14081E920 (FsRtlIsMobileOS.c)
- *     CcInitializeProcessor @ 0x14081F03C (CcInitializeProcessor.c)
- *     PoRegisterCoalescingCallback @ 0x140842F70 (PoRegisterCoalescingCallback.c)
- *     MmGetNumberOfPhysicalPagesForPartitionObject @ 0x14086B248 (MmGetNumberOfPhysicalPagesForPartitionObject.c)
+ *     ExGenRandom @ 0x140317860 (ExGenRandom.c)
+ *     CcCreatePartition @ 0x1403A04C0 (CcCreatePartition.c)
+ *     CcInitPerVolumeParameters @ 0x1403B5804 (CcInitPerVolumeParameters.c)
+ *     ExInitializeNPagedLookasideListInternal @ 0x1403C34B0 (ExInitializeNPagedLookasideListInternal.c)
+ *     Feature_CcImprovementsForReFS__private_IsEnabledDeviceUsage @ 0x14040FC94 (Feature_CcImprovementsForReFS__private_IsEnabledDeviceUsage.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     FsRtlIsMobileOS @ 0x14081EBF0 (FsRtlIsMobileOS.c)
+ *     CcInitializeProcessor @ 0x14081F33C (CcInitializeProcessor.c)
+ *     PoRegisterCoalescingCallback @ 0x140843270 (PoRegisterCoalescingCallback.c)
+ *     MmGetNumberOfPhysicalPagesForPartitionObject @ 0x14086B488 (MmGetNumberOfPhysicalPagesForPartitionObject.c)
  *     ExInitializeSystemLookasideList @ 0x140A8B4A8 (ExInitializeSystemLookasideList.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
@@ -94,7 +94,7 @@ LABEL_12:
   CcBcbTrimNotificationListLock.Owner = 0LL;
   CcBcbTrimNotificationListLock.Contention = 0;
   LOWORD(CcBcbTrimNotificationListLock.Event.Header.Lock) = 1;
-  CcIdleDelayTick = 0x989680u / KeMaximumIncrement;
+  CcIdleDelayTick = 0x989680 / KeMaximumIncrement;
   qword_140C5FB28 = (__int64)&CcVolumeCacheMapList;
   CcVolumeCacheMapList = (__int64)&CcVolumeCacheMapList;
   CcBcbTrimNotificationListLock.Event.Header.WaitListHead.Blink = &CcBcbTrimNotificationListLock.Event.Header.WaitListHead;

@@ -1,12 +1,12 @@
 /*
- * XREFs of TtmpCallSetInputMode @ 0x1408FC83C
+ * XREFs of TtmpCallSetInputMode @ 0x1408FC99C
  * Callers:
- *     TtmpPushTerminalState @ 0x1408FD150 (TtmpPushTerminalState.c)
+ *     TtmpPushTerminalState @ 0x1408FD2B0 (TtmpPushTerminalState.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     TtmpStartCallout @ 0x1408FD31C (TtmpStartCallout.c)
- *     TtmpStopCallout @ 0x1408FD408 (TtmpStopCallout.c)
- *     TtmiLogError @ 0x140902AC4 (TtmiLogError.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     TtmpStartCallout @ 0x1408FD47C (TtmpStartCallout.c)
+ *     TtmpStopCallout @ 0x1408FD568 (TtmpStopCallout.c)
+ *     TtmiLogError @ 0x140902C24 (TtmiLogError.c)
  */
 
 void __fastcall TtmpCallSetInputMode(int a1, __int64 a2, unsigned int a3)

@@ -1,22 +1,22 @@
 /*
- * XREFs of SepCopyAnonymousTokenAndSetSilo @ 0x1409C9360
+ * XREFs of SepCopyAnonymousTokenAndSetSilo @ 0x1409C9560
  * Callers:
- *     NtImpersonateAnonymousToken @ 0x1407F4FB0 (NtImpersonateAnonymousToken.c)
+ *     NtImpersonateAnonymousToken @ 0x1407F5280 (NtImpersonateAnonymousToken.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     SepDeleteAccessState @ 0x140232270 (SepDeleteAccessState.c)
- *     ObFastDereferenceObject @ 0x140297C80 (ObFastDereferenceObject.c)
- *     ObfReferenceObjectWithTag @ 0x1402B68C0 (ObfReferenceObjectWithTag.c)
- *     PsGetServerSiloServiceSessionId @ 0x1402C0880 (PsGetServerSiloServiceSessionId.c)
- *     SepGetAnonymousToken @ 0x1403711F8 (SepGetAnonymousToken.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     SeCreateAccessState @ 0x1406C2E60 (SeCreateAccessState.c)
- *     SepFinalizeTokenAcls @ 0x14071DDE0 (SepFinalizeTokenAcls.c)
- *     ObInsertObjectEx @ 0x1407359D0 (ObInsertObjectEx.c)
- *     SeReleaseSubjectContext @ 0x140737BC0 (SeReleaseSubjectContext.c)
- *     SeSetSessionIdToken @ 0x1407F1174 (SeSetSessionIdToken.c)
- *     SepSetServerSiloToken @ 0x1409C9A20 (SepSetServerSiloToken.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     SepDeleteAccessState @ 0x140232340 (SepDeleteAccessState.c)
+ *     ObFastDereferenceObject @ 0x140297F10 (ObFastDereferenceObject.c)
+ *     ObfReferenceObjectWithTag @ 0x1402B6B50 (ObfReferenceObjectWithTag.c)
+ *     PsGetServerSiloServiceSessionId @ 0x1402C0B10 (PsGetServerSiloServiceSessionId.c)
+ *     SepGetAnonymousToken @ 0x140371398 (SepGetAnonymousToken.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     SeCreateAccessState @ 0x1406C2E90 (SeCreateAccessState.c)
+ *     SepFinalizeTokenAcls @ 0x14071DFE0 (SepFinalizeTokenAcls.c)
+ *     ObInsertObjectEx @ 0x140735BC0 (ObInsertObjectEx.c)
+ *     SeReleaseSubjectContext @ 0x140737DB0 (SeReleaseSubjectContext.c)
+ *     SeSetSessionIdToken @ 0x1407F1444 (SeSetSessionIdToken.c)
+ *     SepSetServerSiloToken @ 0x1409C9C20 (SepSetServerSiloToken.c)
  */
 
 __int64 __fastcall SepCopyAnonymousTokenAndSetSilo(__int64 a1, PVOID *a2)

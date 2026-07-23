@@ -15,16 +15,16 @@
  *     sub_1800D5274 @ 0x1800D5274 (sub_1800D5274.c)
  */
 
-void LdrShutdownProcess()
+void __noreturn LdrShutdownProcess(void)
 {
   struct _TEB *v0; // rbx
-  struct _PEB *ProcessEnvironmentBlock; // rdi
-  struct _RTL_USER_PROCESS_PARAMETERS *ProcessParameters; // rax
-  void *FlsData; // rcx
+  PPEB ProcessEnvironmentBlock; // rdi
+  PRTL_USER_PROCESS_PARAMETERS ProcessParameters; // rax
+  PVOID FlsData; // rcx
   __int64 *v4; // rdi
   __int64 *v5; // rbx
   __int64 v6; // rsi
-  struct _UNICODE_STRING CommandLine; // [rsp+40h] [rbp-B8h] BYREF
+  UNICODE_STRING CommandLine; // [rsp+40h] [rbp-B8h] BYREF
   __int64 v8; // [rsp+50h] [rbp-A8h] BYREF
   int v9; // [rsp+58h] [rbp-A0h]
   _BYTE v10[56]; // [rsp+60h] [rbp-98h] BYREF
@@ -39,7 +39,7 @@ void LdrShutdownProcess()
     CommandLine = ProcessEnvironmentBlock->ProcessParameters->CommandLine;
     ProcessParameters = ProcessEnvironmentBlock->ProcessParameters;
     if ( (ProcessParameters->Flags & 1) == 0 )
-      CommandLine.Buffer = (wchar_t *)((char *)CommandLine.Buffer + (unsigned __int64)ProcessParameters);
+      CommandLine.Buffer = (PWCH)((char *)CommandLine.Buffer + (unsigned __int64)ProcessParameters);
     if ( (dword_180155A10 & 5) != 0 )
       sub_1800D5274(
         (unsigned int)"minkernel\\ntdll\\ldrinit.c",

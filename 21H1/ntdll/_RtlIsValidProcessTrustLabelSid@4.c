@@ -9,15 +9,21 @@
  *     _memcmp @ 0x4B2F8860 (_memcmp.c)
  */
 
-bool __stdcall RtlIsValidProcessTrustLabelSid(int a1)
+BOOLEAN __cdecl RtlIsValidProcessTrustLabelSid(PSID Sid)
 {
+  BOOLEAN result; // al
+  size_t v2; // [esp-4h] [ebp-18h]
   int Buf2; // [esp+8h] [ebp-Ch] BYREF
-  __int16 v3; // [esp+Ch] [ebp-8h]
+  __int16 v4; // [esp+Ch] [ebp-8h]
 
   Buf2 = 0;
-  v3 = 4864;
-  return *(_BYTE *)(a1 + 1) == 2
-      && *(_BYTE *)a1 == 1
-      && !memcmp((const void *)(a1 + 2), &Buf2, 6u)
-      && (*(_DWORD *)(a1 + 8) || !*(_DWORD *)(a1 + 12));
+  v4 = 4864;
+  result = 0;
+  if ( *((_BYTE *)Sid + 1) == 2 && *(_BYTE *)Sid == 1 )
+  {
+    LODWORD(v2) = 6;
+    if ( !memcmp((char *)Sid + 2, &Buf2, v2) && (*((_DWORD *)Sid + 2) || !*((_DWORD *)Sid + 3)) )
+      return 1;
+  }
+  return result;
 }

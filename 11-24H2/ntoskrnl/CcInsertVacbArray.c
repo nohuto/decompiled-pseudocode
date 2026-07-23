@@ -1,10 +1,10 @@
 /*
- * XREFs of CcInsertVacbArray @ 0x1404897B4
+ * XREFs of CcInsertVacbArray @ 0x1404844C8
  * Callers:
- *     CcGetVirtualAddress @ 0x140273EF0 (CcGetVirtualAddress.c)
- *     CcInitializePartitionVacbs @ 0x14057D3B0 (CcInitializePartitionVacbs.c)
+ *     CcGetVirtualAddress @ 0x140229480 (CcGetVirtualAddress.c)
+ *     CcInitializePartitionVacbs @ 0x14057A840 (CcInitializePartitionVacbs.c)
  * Callees:
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 _QWORD *__fastcall CcInsertVacbArray(__int64 a1, _DWORD *a2)
@@ -53,14 +53,14 @@ LABEL_8:
     }
     else
     {
-      v7 = (_QWORD *)qword_140F8E728;
-      if ( *(__int64 **)qword_140F8E728 != &CcVacbFreeList )
+      v7 = (_QWORD *)qword_140F8E8F8;
+      if ( *(__int64 **)qword_140F8E8F8 != &CcVacbFreeList )
         goto LABEL_8;
       *result = &CcVacbFreeList;
       result[1] = v7;
       *v7 = result;
       ++CcNumberOfFreeVacbs;
-      qword_140F8E728 = (__int64)&a2[10 * v5 + 8];
+      qword_140F8E8F8 = (__int64)&a2[10 * v5 + 8];
     }
     v5 = (unsigned int)(v5 + 1);
   }

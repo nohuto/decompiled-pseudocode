@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpVolumeManagerGetContextForFilePath @ 0x14085755C
+ * XREFs of CmpVolumeManagerGetContextForFilePath @ 0x14085D8EC
  * Callers:
- *     CmpVolumeManagerCreateContextsForWellKnownVolumes @ 0x140774A94 (CmpVolumeManagerCreateContextsForWellKnownVolumes.c)
+ *     CmpVolumeManagerCreateContextsForWellKnownVolumes @ 0x140777A94 (CmpVolumeManagerCreateContextsForWellKnownVolumes.c)
  * Callees:
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwCreateFile @ 0x140723E90 (ZwCreateFile.c)
- *     CmpVolumeManagerGetContextForFile @ 0x14090792C (CmpVolumeManagerGetContextForFile.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwCreateFile @ 0x140728A60 (ZwCreateFile.c)
+ *     CmpVolumeManagerGetContextForFile @ 0x140A2FA8C (CmpVolumeManagerGetContextForFile.c)
  */
 
 __int64 __fastcall CmpVolumeManagerGetContextForFilePath(__int64 a1, UNICODE_STRING *a2, __int64 a3, __int64 a4)

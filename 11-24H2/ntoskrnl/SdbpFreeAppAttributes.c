@@ -1,13 +1,13 @@
 /*
- * XREFs of SdbpFreeAppAttributes @ 0x14080457C
+ * XREFs of SdbpFreeAppAttributes @ 0x140804CBC
  * Callers:
- *     SdbpReleaseSearchDBContext @ 0x1409597F8 (SdbpReleaseSearchDBContext.c)
+ *     SdbpReleaseSearchDBContext @ 0x1409412B8 (SdbpReleaseSearchDBContext.c)
  * Callees:
- *     ULongLongMult @ 0x140441690 (ULongLongMult.c)
- *     wil_details_FeatureReporting_ReportUsageToService @ 0x14053CAC4 (wil_details_FeatureReporting_ReportUsageToService.c)
- *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x14053CB54 (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
- *     AslFree @ 0x14095CD24 (AslFree.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ULongLongMult @ 0x140437FD0 (ULongLongMult.c)
+ *     wil_details_FeatureReporting_ReportUsageToService @ 0x14053A3BC (wil_details_FeatureReporting_ReportUsageToService.c)
+ *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x14053A44C (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
+ *     AslFree @ 0x1409447E4 (AslFree.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall SdbpFreeAppAttributes(__int64 a1)

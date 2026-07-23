@@ -19,11 +19,11 @@
 
 void __fastcall SMKM_STORE<SM_TRAITS>::SmStReadThread(__int64 a1, __int64 a2, __int64 a3)
 {
-  union _SLIST_HEADER *v3; // r15
+  _SLIST_HEADER *v3; // r15
   __int64 v5; // rbp
   __int64 Context; // r14
   NTSTATUS v7; // eax
-  union _SLIST_HEADER *v8; // rdi
+  _SLIST_HEADER *v8; // rdi
   KIRQL v9; // al
   __int64 *v10; // rdx
   __int64 *Alignment; // rsi
@@ -31,7 +31,7 @@ void __fastcall SMKM_STORE<SM_TRAITS>::SmStReadThread(__int64 a1, __int64 a2, __
   unsigned int Issue; // eax
   PVOID Object[2]; // [rsp+40h] [rbp-28h] BYREF
 
-  v3 = *(union _SLIST_HEADER **)a1;
+  v3 = *(_SLIST_HEADER **)a1;
   v5 = *(_QWORD *)a1 + 4936LL;
   KeSetActualBasePriorityThread((__int64)KeGetCurrentThread(), 12LL, a3);
   Context = ST_STORE<SM_TRAITS>::StAcquireReadContext(v3);

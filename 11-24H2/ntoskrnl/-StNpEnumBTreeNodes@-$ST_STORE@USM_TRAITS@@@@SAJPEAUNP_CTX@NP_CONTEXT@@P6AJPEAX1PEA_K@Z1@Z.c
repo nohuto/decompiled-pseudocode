@@ -1,19 +1,19 @@
 /*
- * XREFs of ?StNpEnumBTreeNodes@?$ST_STORE@USM_TRAITS@@@@SAJPEAUNP_CTX@NP_CONTEXT@@P6AJPEAX1PEA_K@Z1@Z @ 0x14060C5A0
+ * XREFs of ?StNpEnumBTreeNodes@?$ST_STORE@USM_TRAITS@@@@SAJPEAUNP_CTX@NP_CONTEXT@@P6AJPEAX1PEA_K@Z1@Z @ 0x14060AB60
  * Callers:
  *     <none>
  * Callees:
- *     ?BTreeWalkPostOrderInternal@?$B_TREE@T_SM_PAGE_KEY@@U_ST_PAGE_ENTRY@?$ST_STORE@USM_TRAITS@@@@$0BAAA@UNP_CONTEXT@@U?$B_TREE_KEY_COMPARATOR@T_SM_PAGE_KEY@@@@@@SAJPEAU1@PEAUNODE@?$B_TREE_HEADER@T_SM_PAGE_KEY@@U_ST_PAGE_ENTRY@?$ST_STORE@USM_TRAITS@@@@@@PEAU_SINGLE_LIST_ENTRY@@P6AJPEAX3PEA_K@Z3PEAPEAU23@@Z @ 0x140609B00 (-BTreeWalkPostOrderInternal@-$B_TREE@T_SM_PAGE_KEY@@U_ST_PAGE_ENTRY@-$ST_STORE@USM_TRAITS@@@@$0B.c)
+ *     ?BTreeWalkPostOrderInternal@?$B_TREE@T_SM_PAGE_KEY@@U_ST_PAGE_ENTRY@?$ST_STORE@USM_TRAITS@@@@$0BAAA@UNP_CONTEXT@@U?$B_TREE_KEY_COMPARATOR@T_SM_PAGE_KEY@@@@@@SAJPEAU1@PEAUNODE@?$B_TREE_HEADER@T_SM_PAGE_KEY@@U_ST_PAGE_ENTRY@?$ST_STORE@USM_TRAITS@@@@@@PEAU_SINGLE_LIST_ENTRY@@P6AJPEAX3PEA_K@Z3PEAPEAU23@@Z @ 0x1406080B8 (-BTreeWalkPostOrderInternal@-$B_TREE@T_SM_PAGE_KEY@@U_ST_PAGE_ENTRY@-$ST_STORE@USM_TRAITS@@@@$0B.c)
  */
 
-__int64 __fastcall ST_STORE<SM_TRAITS>::StNpEnumBTreeNodes(__int64 *a1, __int64 a2, __int64 a3)
+__int64 __fastcall ST_STORE<SM_TRAITS>::StNpEnumBTreeNodes(__int64 *a1, int a2, __int64 a3)
 {
   __int64 v3; // r9
   __int64 result; // rax
   __int64 v6; // rcx
   const void *v7; // rdx
   _QWORD *v8; // [rsp+40h] [rbp+8h] BYREF
-  __int64 v9; // [rsp+58h] [rbp+20h] BYREF
+  __int64 v9; // [rsp+58h] [rbp+20h]
 
   v3 = *a1;
   result = 0LL;
@@ -38,6 +38,5 @@ __int64 __fastcall ST_STORE<SM_TRAITS>::StNpEnumBTreeNodes(__int64 *a1, __int64 
            v7,
            &v8,
            a2,
-           a3,
-           (__int64)&v9);
+           a3);
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of MiCloneLargeFileOnlyVad @ 0x14086CE70
+ * XREFs of MiCloneLargeFileOnlyVad @ 0x140873250
  * Callers:
- *     MiDeletePartialCloneVads @ 0x1409619E4 (MiDeletePartialCloneVads.c)
- *     MiCloneAncillaryVadInfo @ 0x140961D0C (MiCloneAncillaryVadInfo.c)
+ *     MiDeletePartialCloneVads @ 0x140A076D8 (MiDeletePartialCloneVads.c)
+ *     MiCloneAncillaryVadInfo @ 0x140A07A00 (MiCloneAncillaryVadInfo.c)
  * Callees:
- *     MiGetProtoPteAddress @ 0x1402D2540 (MiGetProtoPteAddress.c)
- *     MiDecrementLargeSubsections @ 0x140505D08 (MiDecrementLargeSubsections.c)
- *     MiIncrementLargeSubsections @ 0x1406FA404 (MiIncrementLargeSubsections.c)
+ *     MiGetProtoPteAddress @ 0x1402B4300 (MiGetProtoPteAddress.c)
+ *     MiDecrementLargeSubsections @ 0x1404FF5B8 (MiDecrementLargeSubsections.c)
+ *     MiIncrementLargeSubsections @ 0x1406FF0D4 (MiIncrementLargeSubsections.c)
  */
 
 __int64 __fastcall MiCloneLargeFileOnlyVad(__int64 a1, int a2)

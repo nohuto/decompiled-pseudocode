@@ -1,8 +1,8 @@
 /*
- * XREFs of MiEndDpcGang @ 0x14038B840
+ * XREFs of MiEndDpcGang @ 0x14038BA20
  * Callers:
- *     MiAllocateFastLargePagesForMdl @ 0x14038B504 (MiAllocateFastLargePagesForMdl.c)
- *     MiInitializeDynamicPfns @ 0x14061AEF8 (MiInitializeDynamicPfns.c)
+ *     MiAllocateFastLargePagesForMdl @ 0x14038B6E4 (MiAllocateFastLargePagesForMdl.c)
+ *     MiInitializeDynamicPfns @ 0x14061B448 (MiInitializeDynamicPfns.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */

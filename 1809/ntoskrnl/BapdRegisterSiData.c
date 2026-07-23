@@ -1,13 +1,13 @@
 /*
- * XREFs of BapdRegisterSiData @ 0x14056EBD8
+ * XREFs of BapdRegisterSiData @ 0x14056FBD8
  * Callers:
- *     PopBootLoaderSiData @ 0x1405664E4 (PopBootLoaderSiData.c)
- *     BapdpRegisterWbclData @ 0x1409D14E8 (BapdpRegisterWbclData.c)
+ *     PopBootLoaderSiData @ 0x1405674E4 (PopBootLoaderSiData.c)
+ *     BapdpRegisterWbclData @ 0x1409D24E8 (BapdpRegisterWbclData.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     ZwSetValueKey @ 0x1401B8D90 (ZwSetValueKey.c)
- *     BapdGetISRegistryKey @ 0x14056EEC8 (BapdGetISRegistryKey.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     ZwSetValueKey @ 0x1401B8EF0 (ZwSetValueKey.c)
+ *     BapdGetISRegistryKey @ 0x14056FEC8 (BapdGetISRegistryKey.c)
  */
 
 void __fastcall BapdRegisterSiData(ULONG *a1, unsigned int a2, int a3)

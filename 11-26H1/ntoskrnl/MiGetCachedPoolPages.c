@@ -1,14 +1,14 @@
 /*
- * XREFs of MiGetCachedPoolPages @ 0x1404B2E60
+ * XREFs of MiGetCachedPoolPages @ 0x1404AC4E0
  * Callers:
- *     MiGetPoolPages @ 0x140365A30 (MiGetPoolPages.c)
+ *     MiGetPoolPages @ 0x1403677D0 (MiGetPoolPages.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     MiFillPhysicalPages @ 0x140289560 (MiFillPhysicalPages.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402DED10 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiSplitPageChain @ 0x1404C418C (MiSplitPageChain.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     MiFillPhysicalPages @ 0x140288AC0 (MiFillPhysicalPages.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402C0B20 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiSplitPageChain @ 0x1404BDA6C (MiSplitPageChain.c)
  */
 
 __int64 __fastcall MiGetCachedPoolPages(__int64 a1)
@@ -25,9 +25,9 @@ __int64 __fastcall MiGetCachedPoolPages(__int64 a1)
   _QWORD *i; // rsi
 
   v1 = *(unsigned int *)(a1 + 96);
-  v3 = qword_140E2D6B8;
+  v3 = qword_140E2D838;
   v4 = 384 * v1;
-  v5 = (volatile LONG *)(384 * v1 + qword_140E2D6B8 + 72);
+  v5 = (volatile LONG *)(384 * v1 + qword_140E2D838 + 72);
   if ( *(_BYTE *)(a1 + 102) == 2 )
   {
     *(_BYTE *)(a1 + 103) = 17;
@@ -35,7 +35,7 @@ __int64 __fastcall MiGetCachedPoolPages(__int64 a1)
   }
   else
   {
-    *(_BYTE *)(a1 + 103) = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(384 * v1 + qword_140E2D6B8 + 72));
+    *(_BYTE *)(a1 + 103) = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(384 * v1 + qword_140E2D838 + 72));
   }
   v6 = v4 + v3 + 80;
   v7 = *(_QWORD *)(v6 + 16);

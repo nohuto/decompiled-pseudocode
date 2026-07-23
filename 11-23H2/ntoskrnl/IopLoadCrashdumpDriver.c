@@ -1,21 +1,21 @@
 /*
- * XREFs of IopLoadCrashdumpDriver @ 0x140396270
+ * XREFs of IopLoadCrashdumpDriver @ 0x140396450
  * Callers:
- *     IopInitializeCrashDump @ 0x140832C88 (IopInitializeCrashDump.c)
- *     IoGetDumpStack @ 0x140943A2C (IoGetDumpStack.c)
+ *     IopInitializeCrashDump @ 0x140832F88 (IopInitializeCrashDump.c)
+ *     IoGetDumpStack @ 0x140943C2C (IoGetDumpStack.c)
  * Callees:
  *     RtlImageNtHeader @ 0x140214B30 (RtlImageNtHeader.c)
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     IopGetPhysicalMemoryBlock @ 0x1403963D0 (IopGetPhysicalMemoryBlock.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     MmLoadSystemImageEx @ 0x140703DC0 (MmLoadSystemImageEx.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     IopGetPhysicalMemoryBlock @ 0x1403965B0 (IopGetPhysicalMemoryBlock.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     MmLoadSystemImageEx @ 0x140703FD0 (MmLoadSystemImageEx.c)
  */
 
 __int64 IopLoadCrashdumpDriver()
 {
   __int64 result; // rax
-  __int64 v1; // rax
-  char *v2; // rbx
+  PIMAGE_NT_HEADERS v1; // rax
+  __int64 (__fastcall *v2)(UNICODE_STRING **, int *); // rbx
   UNICODE_STRING DestinationString; // [rsp+40h] [rbp+7h] BYREF
   UNICODE_STRING *v4; // [rsp+50h] [rbp+17h] BYREF
   __int64 PhysicalMemoryBlock; // [rsp+58h] [rbp+1Fh]
@@ -26,24 +26,24 @@ __int64 IopLoadCrashdumpDriver()
   int v10; // [rsp+80h] [rbp+47h]
   int v11; // [rsp+84h] [rbp+4Bh]
   UNICODE_STRING *v12; // [rsp+88h] [rbp+4Fh]
-  char *v13; // [rsp+A0h] [rbp+67h] BYREF
+  PVOID BaseOfImage; // [rsp+A0h] [rbp+67h] BYREF
   __int64 v14; // [rsp+A8h] [rbp+6Fh] BYREF
 
   v14 = 0LL;
   PhysicalMemoryBlock = 0LL;
   v11 = 0;
-  v13 = 0LL;
+  BaseOfImage = 0LL;
   DestinationString = 0LL;
   if ( CrashdmpImageEntry )
     return 0LL;
   RtlInitUnicodeString(&DestinationString, L"\\SystemRoot\\System32\\Drivers\\crashdmp.sys");
-  result = MmLoadSystemImageEx((unsigned int)&DestinationString, 0, 0, 0, 2, (__int64)&v14, (__int64)&v13);
+  result = MmLoadSystemImageEx((unsigned int)&DestinationString, 0, 0, 0, 2, (__int64)&v14, (__int64)&BaseOfImage);
   if ( (_DWORD)result == -1073741554 || (int)result >= 0 )
   {
-    v1 = RtlImageNtHeader((__int64)v13);
+    v1 = RtlImageNtHeader(BaseOfImage);
     if ( !v1 )
       return 3221225473LL;
-    v2 = &v13[*(unsigned int *)(v1 + 40)];
+    v2 = (__int64 (__fastcall *)(UNICODE_STRING **, int *))((char *)BaseOfImage + v1->OptionalHeader.AddressOfEntryPoint);
     v4 = &IoArcBootDeviceName;
     v12 = &PoHiberFileRoot;
     PhysicalMemoryBlock = IopGetPhysicalMemoryBlock();
@@ -56,11 +56,11 @@ __int64 IopLoadCrashdumpDriver()
     v10 = VslVsmEnabled ? ((HvlpFlags & 2) != 0) + 1 : 0;
     CrashdmpCallTable = 1;
     dword_140C6AC44 = 12;
-    result = ((__int64 (__fastcall *)(UNICODE_STRING **, int *))v2)(&v4, &CrashdmpCallTable);
+    result = v2(&v4, &CrashdmpCallTable);
     if ( (int)result >= 0 )
     {
       CrashdmpImageEntry = v14;
-      CrashdmpImageBase = v13;
+      CrashdmpImageBase = BaseOfImage;
       return 0LL;
     }
   }

@@ -1,33 +1,33 @@
 /*
- * XREFs of MiWalkAllWorkingSets @ 0x1402A9370
+ * XREFs of MiWalkAllWorkingSets @ 0x1402A8780
  * Callers:
- *     MiAgingThread @ 0x1402A90D0 (MiAgingThread.c)
- *     MiThreadFaultClusterAgingThread @ 0x1402A96E0 (MiThreadFaultClusterAgingThread.c)
- *     MiTrimNoStealPagesFromWorkingSets @ 0x140531354 (MiTrimNoStealPagesFromWorkingSets.c)
- *     MiCaptureAllWorkingSetAccessBits @ 0x1405318A4 (MiCaptureAllWorkingSetAccessBits.c)
- *     MiEmptyAllWorkingSets @ 0x1406F79C4 (MiEmptyAllWorkingSets.c)
- *     MmTrimFilePagesFromWorkingSets @ 0x1406F7F58 (MmTrimFilePagesFromWorkingSets.c)
+ *     MiAgingThread @ 0x1402A84E0 (MiAgingThread.c)
+ *     MiThreadFaultClusterAgingThread @ 0x1402A8AF0 (MiThreadFaultClusterAgingThread.c)
+ *     MiTrimNoStealPagesFromWorkingSets @ 0x140533854 (MiTrimNoStealPagesFromWorkingSets.c)
+ *     MiCaptureAllWorkingSetAccessBits @ 0x140533D4C (MiCaptureAllWorkingSetAccessBits.c)
+ *     MiEmptyAllWorkingSets @ 0x1406FC690 (MiEmptyAllWorkingSets.c)
+ *     MmTrimFilePagesFromWorkingSets @ 0x1406FCC28 (MmTrimFilePagesFromWorkingSets.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     MiLogPartitionState @ 0x1402A6280 (MiLogPartitionState.c)
- *     MiAttachThreadDone @ 0x1402C66F0 (MiAttachThreadDone.c)
- *     KeForceDetachProcess @ 0x1402C6C30 (KeForceDetachProcess.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiUnlockWorkingSetShared @ 0x1402EB6C0 (MiUnlockWorkingSetShared.c)
- *     MiLockWorkingSetShared @ 0x1402EDD60 (MiLockWorkingSetShared.c)
- *     MiRemoveListSentinel @ 0x14030C498 (MiRemoveListSentinel.c)
- *     MiEmptyTargetedWorkingSet @ 0x1403B9CE8 (MiEmptyTargetedWorkingSet.c)
- *     MiCaptureTargetedWorkingSetAccessBits @ 0x1403B9D78 (MiCaptureTargetedWorkingSetAccessBits.c)
- *     MiTrimWorkingSet @ 0x1403BA50C (MiTrimWorkingSet.c)
- *     MiInsertListSentinel @ 0x14044D320 (MiInsertListSentinel.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     MiAgeThreadFaultClusterContexts @ 0x14046DE80 (MiAgeThreadFaultClusterContexts.c)
- *     MiAttachWorkingSet @ 0x140471654 (MiAttachWorkingSet.c)
- *     MiAgeTargetedWorkingSet @ 0x140476D30 (MiAgeTargetedWorkingSet.c)
- *     MiLogProcessWorkingSetsStart @ 0x1404E17A4 (MiLogProcessWorkingSetsStart.c)
- *     MiLogProcessWorkingSetsStop @ 0x14052E43C (MiLogProcessWorkingSetsStop.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     MiLogPartitionState @ 0x1402A5678 (MiLogPartitionState.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiUnlockWorkingSetShared @ 0x1402CD700 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x1402CFDE0 (MiLockWorkingSetShared.c)
+ *     MiRemoveListSentinel @ 0x1402EE518 (MiRemoveListSentinel.c)
+ *     MiAttachThreadDone @ 0x140311390 (MiAttachThreadDone.c)
+ *     KeForceDetachProcess @ 0x1403118D0 (KeForceDetachProcess.c)
+ *     MiCaptureTargetedWorkingSetAccessBits @ 0x1403C3BE8 (MiCaptureTargetedWorkingSetAccessBits.c)
+ *     MiTrimWorkingSet @ 0x1403C437C (MiTrimWorkingSet.c)
+ *     MiEmptyTargetedWorkingSet @ 0x1403C7C08 (MiEmptyTargetedWorkingSet.c)
+ *     MiInsertListSentinel @ 0x140445440 (MiInsertListSentinel.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     MiAgeThreadFaultClusterContexts @ 0x140467600 (MiAgeThreadFaultClusterContexts.c)
+ *     MiAttachWorkingSet @ 0x14046ADD4 (MiAttachWorkingSet.c)
+ *     MiAgeTargetedWorkingSet @ 0x1404704B0 (MiAgeTargetedWorkingSet.c)
+ *     MiLogProcessWorkingSetsStart @ 0x1404DAE84 (MiLogProcessWorkingSetsStart.c)
+ *     MiLogProcessWorkingSetsStop @ 0x14053095C (MiLogProcessWorkingSetsStop.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void __fastcall MiWalkAllWorkingSets(__int64 a1, int *a2)
@@ -61,13 +61,13 @@ void __fastcall MiWalkAllWorkingSets(__int64 a1, int *a2)
   memset(v23, 0, sizeof(v23));
   if ( (v2 & 0x10) == 0 )
   {
-    if ( stru_140E36558.FirstArgument )
+    if ( stru_140E366D8.FirstArgument )
     {
-      if ( *(_DWORD *)stru_140E36558.FirstArgument )
+      if ( *(_DWORD *)stru_140E366D8.FirstArgument )
       {
-        if ( (*((_BYTE *)stru_140E36558.FirstArgument + 16) & 1) != 0 )
+        if ( (*((_BYTE *)stru_140E366D8.FirstArgument + 16) & 1) != 0 )
         {
-          v6 = *((_QWORD *)stru_140E36558.FirstArgument + 3);
+          v6 = *((_QWORD *)stru_140E366D8.FirstArgument + 3);
           if ( (v6 & 1) == v6 )
             MiLogProcessWorkingSetsStart(v6, a1, a2);
         }
@@ -76,12 +76,12 @@ void __fastcall MiWalkAllWorkingSets(__int64 a1, int *a2)
     v7 = a2[1];
     if ( v3 == 2
       && v7 != 9
-      && stru_140E36558.FirstArgument
-      && *(_DWORD *)stru_140E36558.FirstArgument
-      && (*((_DWORD *)stru_140E36558.FirstArgument + 4) & 0x800LL) != 0
-      && (*((_QWORD *)stru_140E36558.FirstArgument + 3) & 0x800LL) == *((_QWORD *)stru_140E36558.FirstArgument + 3) )
+      && stru_140E366D8.FirstArgument
+      && *(_DWORD *)stru_140E366D8.FirstArgument
+      && (*((_DWORD *)stru_140E366D8.FirstArgument + 4) & 0x800LL) != 0
+      && (*((_QWORD *)stru_140E366D8.FirstArgument + 3) & 0x800LL) == *((_QWORD *)stru_140E366D8.FirstArgument + 3) )
     {
-      MiLogPartitionState(*((_QWORD *)stru_140E36558.FirstArgument + 3), a1);
+      MiLogPartitionState(*((_QWORD *)stru_140E366D8.FirstArgument + 3), a1);
     }
     v8 = (volatile LONG *)(a1 + 21384);
     v9 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(a1 + 21384));
@@ -172,9 +172,9 @@ LABEL_46:
       ExReleaseSpinLockExclusiveFromDpcLevel(v19);
     else
       ExReleaseSpinLockExclusive(v19, v9);
-    if ( stru_140E36558.FirstArgument && *(_DWORD *)stru_140E36558.FirstArgument )
+    if ( stru_140E366D8.FirstArgument && *(_DWORD *)stru_140E366D8.FirstArgument )
     {
-      if ( (unsigned __int8)tlgKeywordOn(stru_140E36558.FirstArgument, 1LL) )
+      if ( (unsigned __int8)tlgKeywordOn(stru_140E366D8.FirstArgument, 1LL) )
         MiLogProcessWorkingSetsStop(v20, a1);
     }
   }

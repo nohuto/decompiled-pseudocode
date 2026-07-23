@@ -5,7 +5,7 @@
  *     ?SetValue@?$RTL_BINARY_ARRAY@URTLP_FLS_SLOT@@$07$03@@SAJPEAU1@KURTLP_FLS_SLOT@@K@Z @ 0x180074868 (-SetValue@-$RTL_BINARY_ARRAY@URTLP_FLS_SLOT@@$07$03@@SAJPEAU1@KURTLP_FLS_SLOT@@K@Z.c)
  * Callees:
  *     RtlAllocateHeap @ 0x18002A9A0 (RtlAllocateHeap.c)
- *     memset @ 0x1800A4780 (memset.c)
+ *     memset @ 0x1800A4740 (memset.c)
  */
 
 _OWORD *__fastcall RTL_BINARY_ARRAY<RTLP_FLS_SLOT,8,4>::ChunkAllocate(__int64 a1, unsigned int a2)
@@ -17,7 +17,7 @@ _OWORD *__fastcall RTL_BINARY_ARRAY<RTLP_FLS_SLOT,8,4>::ChunkAllocate(__int64 a1
 
   v3 = a2;
   v4 = 1 << (a2 + 4);
-  Heap = (_OWORD *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, 8 * v4 + 8);
+  Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, 8 * v4 + 8);
   v6 = Heap;
   if ( Heap )
   {

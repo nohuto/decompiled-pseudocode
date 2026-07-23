@@ -27,7 +27,7 @@ __int64 __fastcall RtlpWalkHeapInternal(__int64 a1, unsigned __int64 *a2, __int6
 
   v3 = a3;
   if ( *(_DWORD *)(a1 + 16) != -571548178 )
-    return (unsigned int)RtlpWalkHeap(a1, a2, a3);
+    return (unsigned int)RtlpWalkHeap(a1);
   v6 = 0;
   if ( (RtlpHpAppCompatFlags & 2) != 0 )
   {

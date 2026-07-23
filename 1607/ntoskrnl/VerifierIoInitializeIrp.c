@@ -1,5 +1,5 @@
 /*
- * XREFs of VerifierIoInitializeIrp @ 0x14070C804
+ * XREFs of VerifierIoInitializeIrp @ 0x14070C834
  * Callers:
  *     <none>
  * Callees:

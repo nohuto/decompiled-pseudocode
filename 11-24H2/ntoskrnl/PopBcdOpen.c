@@ -1,12 +1,12 @@
 /*
- * XREFs of PopBcdOpen @ 0x1409C2170
+ * XREFs of PopBcdOpen @ 0x1409A87C0
  * Callers:
- *     PopAdaptivePersistSystemInitatedRebootState @ 0x1405DAE54 (PopAdaptivePersistSystemInitatedRebootState.c)
+ *     PopAdaptivePersistSystemInitatedRebootState @ 0x1405D8174 (PopAdaptivePersistSystemInitatedRebootState.c)
  * Callees:
- *     BcdOpenStore @ 0x1409C2038 (BcdOpenStore.c)
+ *     BcdOpenStore @ 0x1409A8688 (BcdOpenStore.c)
  */
 
-__int64 __fastcall PopBcdOpen(__int64 *a1)
+NTSTATUS __fastcall PopBcdOpen(UNICODE_STRING *BcdStoreHandle)
 {
-  return BcdOpenStore((__int64)a1, 2, a1);
+  return BcdOpenStore(BcdStoreHandle, BCD_OPEN_SYNC_FIRMWARE_ENTRIES, (PHANDLE)BcdStoreHandle);
 }

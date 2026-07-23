@@ -1,10 +1,10 @@
 /*
- * XREFs of KiFreeLocalSharedReadyQueue @ 0x1405EB21C
+ * XREFs of KiFreeLocalSharedReadyQueue @ 0x1405EDB8C
  * Callers:
- *     KiAssignSubNodeSharedReadyQueues @ 0x1405EA5A0 (KiAssignSubNodeSharedReadyQueues.c)
- *     KiFreeProcessorSchedulerStructures @ 0x1405EB250 (KiFreeProcessorSchedulerStructures.c)
+ *     KiAssignSubNodeSharedReadyQueues @ 0x1405ECF10 (KiAssignSubNodeSharedReadyQueues.c)
+ *     KiFreeProcessorSchedulerStructures @ 0x1405EDBC0 (KiFreeProcessorSchedulerStructures.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall KiFreeLocalSharedReadyQueue(__int64 a1)

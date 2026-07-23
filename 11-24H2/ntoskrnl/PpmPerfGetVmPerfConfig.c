@@ -1,11 +1,11 @@
 /*
- * XREFs of PpmPerfGetVmPerfConfig @ 0x1404D4690
+ * XREFs of PpmPerfGetVmPerfConfig @ 0x1404CD8A0
  * Callers:
- *     PopPowerInformationInternal @ 0x140AC4A30 (PopPowerInformationInternal.c)
+ *     PopPowerInformationInternal @ 0x140AC2410 (PopPowerInformationInternal.c)
  * Callees:
- *     PpmReleaseLock @ 0x1402A1504 (PpmReleaseLock.c)
- *     PpmAcquireLock @ 0x1403B64F8 (PpmAcquireLock.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     PpmReleaseLock @ 0x1402AE140 (PpmReleaseLock.c)
+ *     PpmAcquireLock @ 0x1402AE7DC (PpmAcquireLock.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall PpmPerfGetVmPerfConfig(int a1, _QWORD *a2, unsigned int a3)
@@ -22,26 +22,25 @@ __int64 __fastcall PpmPerfGetVmPerfConfig(int a1, _QWORD *a2, unsigned int a3)
   unsigned int v14; // eax
   unsigned int v15; // ecx
   __int64 v16; // rdx
-  __int64 v17; // r8
+  unsigned int v17; // eax
   unsigned int v18; // eax
   unsigned int v19; // eax
   unsigned int v20; // eax
   unsigned int v21; // eax
   unsigned int v22; // eax
   unsigned int v23; // eax
-  unsigned int v24; // eax
 
   PpmAcquireLock((struct _KTHREAD **)&PpmPerfPolicyLock, (__int64)a2, a3);
   v5 = 0;
   if ( !PpmPerfVmPerfSelectionSupported )
   {
     v5 = -1073741637;
-    goto LABEL_62;
+    goto LABEL_60;
   }
   if ( !a1 )
   {
     *a2 = 0LL;
-    goto LABEL_62;
+    goto LABEL_60;
   }
   Domain = KeGetCurrentPrcb()->PowerState.CheckContext.Domain;
   MaxPercent = Domain->MaxPercent;
@@ -72,82 +71,76 @@ __int64 __fastcall PpmPerfGetVmPerfConfig(int a1, _QWORD *a2, unsigned int a3)
     v14 = MinPolicyPercent;
   if ( v14 <= MinThrottlePercent )
   {
-    v17 = MinThrottlePercent;
-    if ( MinPolicyPercent < (unsigned int)v16 )
-      goto LABEL_32;
+    if ( MinPolicyPercent >= (unsigned int)v16 )
+      goto LABEL_24;
+LABEL_30:
+    v17 = MinPolicyPercent;
+    goto LABEL_25;
+  }
+  if ( MinPolicyPercent < (unsigned int)v16 )
+    goto LABEL_30;
+LABEL_24:
+  v17 = v16;
+LABEL_25:
+  if ( v17 <= v15 )
+  {
+    v18 = v15;
   }
   else
   {
+    v18 = v16;
     if ( MinPolicyPercent < (unsigned int)v16 )
-    {
-      v17 = MinPolicyPercent;
-LABEL_32:
       v18 = MinPolicyPercent;
-      goto LABEL_27;
-    }
-    v17 = (unsigned int)v16;
   }
-  v18 = v16;
-LABEL_27:
-  if ( v18 <= v15 )
+  if ( v18 >= MaxPercent )
   {
-    v19 = v15;
+    v20 = Domain->MaxPercent;
   }
   else
   {
     v19 = v16;
     if ( MinPolicyPercent < (unsigned int)v16 )
       v19 = MinPolicyPercent;
-  }
-  if ( v19 >= MaxPercent )
-  {
-    v21 = Domain->MaxPercent;
-  }
-  else
-  {
-    v20 = v16;
-    if ( MinPolicyPercent < (unsigned int)v16 )
-      v20 = MinPolicyPercent;
-    if ( v20 <= v15 )
+    if ( v19 <= v15 )
     {
-      v21 = v15;
+      v20 = v15;
     }
     else
     {
-      v21 = v16;
+      v20 = v16;
       if ( MinPolicyPercent < (unsigned int)v16 )
-        v21 = MinPolicyPercent;
+        v20 = MinPolicyPercent;
     }
   }
-  if ( v21 <= MinThrottlePercent )
+  if ( v20 <= MinThrottlePercent )
   {
     v16 = MinThrottlePercent;
   }
   else
   {
-    v22 = v16;
+    v21 = v16;
     if ( MinPolicyPercent < (unsigned int)v16 )
-      v22 = MinPolicyPercent;
-    if ( v22 <= v15 )
+      v21 = MinPolicyPercent;
+    if ( v21 <= v15 )
     {
-      v23 = v15;
+      v22 = v15;
+    }
+    else
+    {
+      v22 = v16;
+      if ( MinPolicyPercent < (unsigned int)v16 )
+        v22 = MinPolicyPercent;
+    }
+    if ( v22 >= MaxPercent )
+    {
+      v16 = MaxPercent;
     }
     else
     {
       v23 = v16;
       if ( MinPolicyPercent < (unsigned int)v16 )
         v23 = MinPolicyPercent;
-    }
-    if ( v23 >= MaxPercent )
-    {
-      v16 = MaxPercent;
-    }
-    else
-    {
-      v24 = v16;
-      if ( MinPolicyPercent < (unsigned int)v16 )
-        v24 = MinPolicyPercent;
-      if ( v24 <= v15 )
+      if ( v23 <= v15 )
       {
         v16 = v15;
       }
@@ -157,8 +150,8 @@ LABEL_27:
       }
     }
   }
-  guard_dispatch_icall_no_overrides(Domain->Processors->PerfContext, v16, v17, (unsigned int)v16);
-LABEL_62:
+  guard_dispatch_icall_no_overrides(Domain->Processors->PerfContext, v16);
+LABEL_60:
   PpmReleaseLock(&PpmPerfPolicyLock);
   return v5;
 }

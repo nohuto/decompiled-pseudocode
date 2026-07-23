@@ -1,15 +1,15 @@
 /*
- * XREFs of AdtpInitializeDriveLetters @ 0x1405700B8
+ * XREFs of AdtpInitializeDriveLetters @ 0x1405705F8
  * Callers:
- *     AdtpInitializeAuditingCommon @ 0x14056FBB8 (AdtpInitializeAuditingCommon.c)
+ *     AdtpInitializeAuditingCommon @ 0x1405700F8 (AdtpInitializeAuditingCommon.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     NtOpenSymbolicLinkObject @ 0x140464044 (NtOpenSymbolicLinkObject.c)
- *     NtQuerySymbolicLinkObject @ 0x1404C03C4 (NtQuerySymbolicLinkObject.c)
- *     NtClose @ 0x14050B0E0 (NtClose.c)
+ *     NtOpenSymbolicLinkObject @ 0x140462F14 (NtOpenSymbolicLinkObject.c)
+ *     NtQuerySymbolicLinkObject @ 0x1404AC0F4 (NtQuerySymbolicLinkObject.c)
+ *     NtClose @ 0x1404EE070 (NtClose.c)
  */
 
 __int64 AdtpInitializeDriveLetters()

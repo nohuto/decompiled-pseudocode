@@ -1,19 +1,19 @@
 /*
- * XREFs of IopAllocateIrpPrivate @ 0x14026C684
+ * XREFs of IopAllocateIrpPrivate @ 0x14026BBF4
  * Callers:
- *     IoAllocateIrp @ 0x14026C4D0 (IoAllocateIrp.c)
- *     IoAllocateIrpEx @ 0x14026C530 (IoAllocateIrpEx.c)
- *     IopAllocateIrpExReturn @ 0x14026C640 (IopAllocateIrpExReturn.c)
- *     IopAllocateIrpWithExtension @ 0x14045DC8C (IopAllocateIrpWithExtension.c)
- *     IovAllocateIrp @ 0x140C48150 (IovAllocateIrp.c)
+ *     IoAllocateIrp @ 0x14026BA40 (IoAllocateIrp.c)
+ *     IoAllocateIrpEx @ 0x14026BAA0 (IoAllocateIrpEx.c)
+ *     IopAllocateIrpExReturn @ 0x14026BBB0 (IopAllocateIrpExReturn.c)
+ *     IopAllocateIrpWithExtension @ 0x14045782C (IopAllocateIrpWithExtension.c)
+ *     IovAllocateIrp @ 0x140C4E160 (IovAllocateIrp.c)
  * Callees:
- *     KiInsertQueueDpc @ 0x1402BD330 (KiInsertQueueDpc.c)
- *     IopIsActivityTracingEnabled @ 0x14045BD70 (IopIsActivityTracingEnabled.c)
- *     IopInitActivityIdIrp @ 0x140481F80 (IopInitActivityIdIrp.c)
- *     RtlpInterlockedPopEntrySList @ 0x140730C90 (RtlpInterlockedPopEntrySList.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KiInsertQueueDpc @ 0x140307FF0 (KiInsertQueueDpc.c)
+ *     IopIsActivityTracingEnabled @ 0x1404555A0 (IopIsActivityTracingEnabled.c)
+ *     IopInitActivityIdIrp @ 0x14047B8F0 (IopInitActivityIdIrp.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140735860 (RtlpInterlockedPopEntrySList.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IopAllocateIrpPrivate(__int64 a1, char a2, char a3)
@@ -41,27 +41,22 @@ __int64 __fastcall IopAllocateIrpPrivate(__int64 a1, char a2, char a3)
     v17 = 1;
   }
   CurrentPrcb = KeGetCurrentPrcb();
-  if ( ((__int64)IopSessionNotificationLock.Timer.Header.WaitListHead.Blink & 3) != 0
-    && ((__int64)IopSessionNotificationLock.Timer.Header.WaitListHead.Blink & 4) != 0
-    && v4 < 20 )
+  if ( (IopIrpStackProfilerFlags & 3) != 0 && (IopIrpStackProfilerFlags & 4) != 0 && v4 < 20 )
   {
     ++CurrentPrcb->IoIrpStackProfilerCurrent.Profile[v4];
     ++CurrentPrcb->IoIrpStackProfilerCurrent.TotalIrps;
-    if ( CurrentPrcb->IoIrpStackProfilerCurrent.Profile[v4] - CurrentPrcb->IoIrpStackProfilerPrevious.Profile[v4] > *(_DWORD *)&IopSessionNotificationLock.PriorityFloorCounts[20]
-      && CurrentPrcb->IoIrpStackProfilerCurrent.TotalIrps - CurrentPrcb->IoIrpStackProfilerPrevious.TotalIrps > *(_DWORD *)&IopSessionNotificationLock.PriorityFloorCounts[16] )
+    if ( CurrentPrcb->IoIrpStackProfilerCurrent.Profile[v4] - CurrentPrcb->IoIrpStackProfilerPrevious.Profile[v4] > LODWORD(IopPerfIoTrackingLock.Timer.TimerListEntry.Blink)
+      && CurrentPrcb->IoIrpStackProfilerCurrent.TotalIrps - CurrentPrcb->IoIrpStackProfilerPrevious.TotalIrps > HIDWORD(IopPerfIoTrackingLock.Timer.TimerListEntry.Blink) )
     {
-      _m_prefetchw(&IopSessionNotificationLock.Timer.Header.WaitListHead.Blink);
-      if ( (_InterlockedAnd(
-              (volatile signed __int32 *)&IopSessionNotificationLock.Timer.Header.WaitListHead.Blink,
-              0xFFFFFFFB) & 4) != 0 )
-        KiInsertQueueDpc((ULONG_PTR)&IopSessionNotificationLock.MutantListHead, 0);
+      _m_prefetchw(&IopIrpStackProfilerFlags);
+      if ( (_InterlockedAnd(&IopIrpStackProfilerFlags, 0xFFFFFFFB) & 4) != 0 )
+        KiInsertQueueDpc((ULONG_PTR)&IopPerfIoTrackingLock.320, 0);
     }
   }
   v6 = 0LL;
   v16 = 0;
   v7 = 72 * v4 + 208;
-  if ( v4 <= SBYTE4(IopSessionNotificationLock.SchedulerSharedSwappablePage)
-    && (!a3 || CurrentPrcb->LookasideIrpFloat > 0) )
+  if ( v4 <= SLOBYTE(IopPerfIoTrackingLock.AffinityVersion) && (!a3 || CurrentPrcb->LookasideIrpFloat > 0) )
   {
     v16 = 4;
     if ( v4 == 1 )
@@ -71,17 +66,17 @@ __int64 __fastcall IopAllocateIrpPrivate(__int64 a1, char a2, char a3)
     }
     else
     {
-      if ( v4 <= SLOBYTE(IopSessionNotificationLock.SchedulerSharedSwappablePage) )
+      if ( v4 <= SBYTE4(IopPerfIoTrackingLock.AffinityVersion) )
       {
         v8 = 2128LL;
         v9 = 1LL;
-        v10 = 9 * SLOBYTE(IopSessionNotificationLock.SchedulerSharedSwappablePage);
+        v10 = 9 * SBYTE4(IopPerfIoTrackingLock.AffinityVersion);
       }
       else
       {
         v8 = 2144LL;
         v9 = 2LL;
-        v10 = 9 * SBYTE4(IopSessionNotificationLock.SchedulerSharedSwappablePage);
+        v10 = 9 * SLOBYTE(IopPerfIoTrackingLock.AffinityVersion);
       }
       v7 = 8 * v10 + 208;
     }
@@ -97,7 +92,7 @@ __int64 __fastcall IopAllocateIrpPrivate(__int64 a1, char a2, char a3)
       if ( !v6 )
         ++L->AllocateMisses;
     }
-    if ( ((__int64)IopSessionNotificationLock.Timer.Header.WaitListHead.Blink & 3) != 0 && v6 )
+    if ( (IopIrpStackProfilerFlags & 3) != 0 && v6 )
     {
       if ( *((_QWORD *)&v6[3].Next + 1) >= (unsigned __int64)(unsigned __int16)(72 * v4 + 208) )
       {

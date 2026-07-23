@@ -1,15 +1,15 @@
 /*
- * XREFs of CmpLightWeightPrepareSetSecDescUoW @ 0x140A29814
+ * XREFs of CmpLightWeightPrepareSetSecDescUoW @ 0x140A29AC4
  * Callers:
- *     CmpProcessLightWeightUOW @ 0x140A1C8AC (CmpProcessLightWeightUOW.c)
+ *     CmpProcessLightWeightUOW @ 0x140A1CB5C (CmpProcessLightWeightUOW.c)
  * Callees:
  *     CmpGetSecurityDescriptorNodeEx @ 0x14067F1B8 (CmpGetSecurityDescriptorNodeEx.c)
- *     HvpGetCellPaged @ 0x1406E0150 (HvpGetCellPaged.c)
- *     HvpReleaseCellPaged @ 0x1406E0260 (HvpReleaseCellPaged.c)
- *     HvpReleaseCellFlat @ 0x1407D9470 (HvpReleaseCellFlat.c)
- *     HvpGetCellFlat @ 0x1407FD9F0 (HvpGetCellFlat.c)
- *     HvMarkCellDirty @ 0x1408ABCF6 (HvMarkCellDirty.c)
- *     CmpLightWeightCleanupSetSecDescUoW @ 0x140A27F58 (CmpLightWeightCleanupSetSecDescUoW.c)
+ *     HvpGetCellPaged @ 0x1406E0180 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x1406E0290 (HvpReleaseCellPaged.c)
+ *     HvpReleaseCellFlat @ 0x1407D9740 (HvpReleaseCellFlat.c)
+ *     HvpGetCellFlat @ 0x1407FDCC0 (HvpGetCellFlat.c)
+ *     HvMarkCellDirty @ 0x1408ABF46 (HvMarkCellDirty.c)
+ *     CmpLightWeightCleanupSetSecDescUoW @ 0x140A28208 (CmpLightWeightCleanupSetSecDescUoW.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 

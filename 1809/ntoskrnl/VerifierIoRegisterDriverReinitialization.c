@@ -1,9 +1,9 @@
 /*
- * XREFs of VerifierIoRegisterDriverReinitialization @ 0x140931EA0
+ * XREFs of VerifierIoRegisterDriverReinitialization @ 0x140932EA0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
  */
 
 __int64 VerifierIoRegisterDriverReinitialization()

@@ -3,8 +3,8 @@
  * Callers:
  *     <none>
  * Callees:
- *     PopFxBugCheck @ 0x1405CAE6C (PopFxBugCheck.c)
- *     PopFxRegisterComponentPerfStates @ 0x14098DCC4 (PopFxRegisterComponentPerfStates.c)
+ *     sub_1405CAE6C @ 0x1405CAE6C (sub_1405CAE6C.c)
+ *     sub_14098DCC4 @ 0x14098DCC4 (sub_14098DCC4.c)
  */
 
 __int64 __fastcall PoFxRegisterComponentPerfStates(
@@ -16,9 +16,9 @@ __int64 __fastcall PoFxRegisterComponentPerfStates(
         __int64 a6)
 {
   if ( (unsigned int)BugCheckParameter3 >= *(_DWORD *)(BugCheckParameter2 + 828) )
-    PopFxBugCheck(0x614uLL, BugCheckParameter2, (unsigned int)BugCheckParameter3, 2uLL);
+    sub_1405CAE6C(0x614uLL, BugCheckParameter2, (unsigned int)BugCheckParameter3, 2uLL);
   _mm_lfence();
   if ( *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(BugCheckParameter2 + 832) + 8LL * (unsigned int)BugCheckParameter3) + 424LL) )
-    PopFxBugCheck(0x600uLL, BugCheckParameter2, (unsigned int)BugCheckParameter3, 0LL);
-  return PopFxRegisterComponentPerfStates(BugCheckParameter2, a5, a6);
+    sub_1405CAE6C(0x600uLL, BugCheckParameter2, (unsigned int)BugCheckParameter3, 0LL);
+  return sub_14098DCC4(BugCheckParameter2, a5, a6);
 }

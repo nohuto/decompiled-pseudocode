@@ -6,11 +6,15 @@
  *     <none>
  */
 
-__int64 NtSetInformationTransaction()
+NTSTATUS __cdecl NtSetInformationTransaction(
+        HANDLE TransactionHandle,
+        TRANSACTION_INFORMATION_CLASS TransactionInformationClass,
+        PVOID TransactionInformation,
+        ULONG TransactionInformationLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 412LL;
+  result = 412;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

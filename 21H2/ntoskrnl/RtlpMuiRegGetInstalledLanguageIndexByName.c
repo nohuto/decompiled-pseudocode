@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpMuiRegGetInstalledLanguageIndexByName @ 0x14098158C
+ * XREFs of RtlpMuiRegGetInstalledLanguageIndexByName @ 0x14098176C
  * Callers:
- *     _RtlpRemovePendingDeleteLanguages @ 0x1403ACE1C (_RtlpRemovePendingDeleteLanguages.c)
- *     RtlpMuiRegGetInstalledLanguageIndexByLangId @ 0x140793FA8 (RtlpMuiRegGetInstalledLanguageIndexByLangId.c)
+ *     _RtlpRemovePendingDeleteLanguages @ 0x1403A8490 (_RtlpRemovePendingDeleteLanguages.c)
+ *     RtlpMuiRegGetInstalledLanguageIndexByLangId @ 0x14078FD48 (RtlpMuiRegGetInstalledLanguageIndexByLangId.c)
  * Callees:
- *     RtlpMuiRegGetOrAddString @ 0x140793414 (RtlpMuiRegGetOrAddString.c)
+ *     RtlpMuiRegGetOrAddString @ 0x14078F1B4 (RtlpMuiRegGetOrAddString.c)
  */
 
 __int64 __fastcall RtlpMuiRegGetInstalledLanguageIndexByName(__int64 a1, _WORD *a2, __int64 a3, _WORD *a4)

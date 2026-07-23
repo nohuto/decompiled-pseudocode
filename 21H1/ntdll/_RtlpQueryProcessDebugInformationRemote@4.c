@@ -8,41 +8,44 @@
  *     _RtlQueryProcessDebugInformation@12 @ 0x4B336B50 (_RtlQueryProcessDebugInformation@12.c)
  */
 
-void __stdcall __noreturn RtlpQueryProcessDebugInformationRemote(_DWORD *a1)
+void __stdcall __noreturn RtlpQueryProcessDebugInformationRemote(PRTL_DEBUG_INFORMATION Buffer)
 {
   int ProcessDebugInformation; // ebx
   int v2; // ecx
-  int v3; // eax
-  int v4; // eax
-  unsigned int *v5; // edx
+  int OffsetFree; // eax
+  int OffsetFree_high; // eax
+  unsigned int *CommitSize; // edx
   unsigned int v6; // ebx
   _DWORD *v7; // edi
   int v8; // eax
-  int v9; // eax
-  int v10; // eax
+  int CommitSize_high; // eax
+  PRTL_PROCESS_MODULES Modules; // eax
   int v11; // [esp+Ch] [ebp-4h]
 
-  ProcessDebugInformation = RtlQueryProcessDebugInformation(NtCurrentTeb()->ClientId.UniqueProcess, a1[8], (int)a1);
+  ProcessDebugInformation = RtlQueryProcessDebugInformation(
+                              NtCurrentTeb()->ClientId.UniqueProcess,
+                              (ULONG)Buffer->TargetProcessId,
+                              Buffer);
   v11 = ProcessDebugInformation;
   if ( ProcessDebugInformation >= 0 )
   {
-    v2 = a1[3];
+    v2 = *((_DWORD *)&Buffer->ViewBaseTarget + 1);
     if ( v2 )
     {
-      v3 = a1[12];
-      if ( v3 )
-        a1[12] = v2 + v3;
-      v4 = a1[13];
-      if ( v4 )
-        a1[13] = v2 + v4;
-      v5 = (unsigned int *)a1[14];
-      if ( v5 )
+      OffsetFree = Buffer->OffsetFree;
+      if ( OffsetFree )
+        LODWORD(Buffer->OffsetFree) = v2 + OffsetFree;
+      OffsetFree_high = HIDWORD(Buffer->OffsetFree);
+      if ( OffsetFree_high )
+        HIDWORD(Buffer->OffsetFree) = v2 + OffsetFree_high;
+      CommitSize = (unsigned int *)Buffer->CommitSize;
+      if ( CommitSize )
       {
         v6 = 0;
-        a1[14] = (char *)v5 + v2;
-        if ( *v5 )
+        LODWORD(Buffer->CommitSize) = (char *)CommitSize + v2;
+        if ( *CommitSize )
         {
-          v7 = v5 + 16;
+          v7 = CommitSize + 16;
           do
           {
             v8 = *(v7 - 1);
@@ -53,19 +56,19 @@ void __stdcall __noreturn RtlpQueryProcessDebugInformationRemote(_DWORD *a1)
             ++v6;
             v7 += 16;
           }
-          while ( v6 < *v5 );
+          while ( v6 < *CommitSize );
         }
         ProcessDebugInformation = v11;
       }
-      v9 = a1[15];
-      if ( v9 )
-        a1[15] = v2 + v9;
-      v10 = a1[18];
-      if ( v10 )
-        a1[18] = v2 + v10;
+      CommitSize_high = HIDWORD(Buffer->CommitSize);
+      if ( CommitSize_high )
+        HIDWORD(Buffer->CommitSize) = v2 + CommitSize_high;
+      Modules = Buffer->Modules;
+      if ( Modules )
+        Buffer->Modules = (PRTL_PROCESS_MODULES)((char *)Modules + v2);
     }
   }
-  a1[2] = 0;
-  NtUnmapViewOfSection(-1, (int)a1);
+  Buffer->ViewBaseTarget = 0;
+  NtUnmapViewOfSection((HANDLE)0xFFFFFFFF, Buffer);
   RtlExitUserThread(ProcessDebugInformation);
 }

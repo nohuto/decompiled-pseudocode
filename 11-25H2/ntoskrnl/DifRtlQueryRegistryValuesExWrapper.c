@@ -11,7 +11,12 @@
  *     RtlQueryRegistryValuesEx @ 0x1409B3F70 (RtlQueryRegistryValuesEx.c)
  */
 
-__int64 __fastcall DifRtlQueryRegistryValuesExWrapper(unsigned int a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5)
+__int64 __fastcall DifRtlQueryRegistryValuesExWrapper(
+        ULONG a1,
+        const WCHAR *a2,
+        _RTL_QUERY_REGISTRY_TABLE *a3,
+        void *a4,
+        PVOID Environment)
 {
   __int64 *APIThunkContextById; // rax
   __int64 *v9; // rsi
@@ -44,7 +49,7 @@ __int64 __fastcall DifRtlQueryRegistryValuesExWrapper(unsigned int a1, __int64 a
     }
     v11 = 0;
     DWORD2(v19) = a1;
-    *((_QWORD *)&v17 + 1) = a5;
+    *((_QWORD *)&v17 + 1) = Environment;
     *(_QWORD *)&v19 = a2;
     *((_QWORD *)&v18 + 1) = a3;
     *(_QWORD *)&v18 = a4;
@@ -60,7 +65,7 @@ __int64 __fastcall DifRtlQueryRegistryValuesExWrapper(unsigned int a1, __int64 a
         ExReleaseRundownProtection_0(&DifRebootlessRundown);
     }
   }
-  HIDWORD(v19) = RtlQueryRegistryValuesEx(a1, a2, a3, a4, a5);
+  HIDWORD(v19) = RtlQueryRegistryValuesEx(a1, a2, a3, a4, Environment);
   if ( v9 )
   {
     if ( (v13 = 0, !VfDifRunningWithoutReboot) && (VfOptionFlags & 0x800) == 0

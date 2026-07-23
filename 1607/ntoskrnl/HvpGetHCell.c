@@ -1,10 +1,10 @@
 /*
- * XREFs of HvpGetHCell @ 0x1405151E0
+ * XREFs of HvpGetHCell @ 0x1404F85D0
  * Callers:
- *     HvpDelistFreeCell @ 0x140401978 (HvpDelistFreeCell.c)
- *     HvpDoAllocateCell @ 0x140401D70 (HvpDoAllocateCell.c)
- *     HvpFindFreeCellInBin @ 0x140402190 (HvpFindFreeCellInBin.c)
- *     HvpEnlistFreeCell @ 0x140514E4C (HvpEnlistFreeCell.c)
+ *     HvpDelistFreeCell @ 0x140400838 (HvpDelistFreeCell.c)
+ *     HvpDoAllocateCell @ 0x140400C30 (HvpDoAllocateCell.c)
+ *     HvpFindFreeCellInBin @ 0x140401050 (HvpFindFreeCellInBin.c)
+ *     HvpEnlistFreeCell @ 0x1404F823C (HvpEnlistFreeCell.c)
  * Callees:
  *     <none>
  */

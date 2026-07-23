@@ -23,10 +23,10 @@ void __fastcall WheapPredictiveFailureAnalysis(__int64 a1)
   __int64 v9; // rax
   int v10; // eax
   __int64 v11; // rbx
-  __int64 v12; // rax
+  _RTL_BALANCED_NODE *v12; // rax
   unsigned __int64 v13; // rcx
   signed __int8 v14; // cf
-  __int64 v15; // rdi
+  _RTL_BALANCED_NODE *v15; // rdi
 
   v1 = a1 + 40;
   if ( !WheapPolicyDisableOffline )
@@ -76,7 +76,7 @@ LABEL_12:
               if ( v14 )
                 ExfAcquirePushLockExclusiveEx(&WheapPfaLock, v12, (ULONG_PTR)&WheapPfaLock);
               if ( v15 )
-                *(_BYTE *)(v15 + 26) |= 1u;
+                BYTE2(v15[1].Left) |= 1u;
               WheapPfaMemoryCheck(v13, v11);
               if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&WheapPfaLock, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
                 ExfTryToWakePushLock((volatile signed __int64 *)&WheapPfaLock);

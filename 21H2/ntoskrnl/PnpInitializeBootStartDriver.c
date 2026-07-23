@@ -1,19 +1,19 @@
 /*
- * XREFs of PnpInitializeBootStartDriver @ 0x140A5E4B4
+ * XREFs of PnpInitializeBootStartDriver @ 0x140A5F4B4
  * Callers:
- *     PipInitializeEarlyLaunchDrivers @ 0x140A5B484 (PipInitializeEarlyLaunchDrivers.c)
- *     PnpLoadBootFilterDriver @ 0x140A5B5A0 (PnpLoadBootFilterDriver.c)
- *     PipInitializeCoreDriversByGroup @ 0x140A5D42C (PipInitializeCoreDriversByGroup.c)
- *     IopInitializeBootDrivers @ 0x140A5DB88 (IopInitializeBootDrivers.c)
+ *     PipInitializeEarlyLaunchDrivers @ 0x140A5C484 (PipInitializeEarlyLaunchDrivers.c)
+ *     PnpLoadBootFilterDriver @ 0x140A5C5A0 (PnpLoadBootFilterDriver.c)
+ *     PipInitializeCoreDriversByGroup @ 0x140A5E42C (PipInitializeCoreDriversByGroup.c)
+ *     IopInitializeBootDrivers @ 0x140A5EB88 (IopInitializeBootDrivers.c)
  * Callees:
- *     PnpDiagnosticTraceObject @ 0x140364C6C (PnpDiagnosticTraceObject.c)
- *     PnpDiagnosticTraceObjectWithStatus @ 0x140364DE4 (PnpDiagnosticTraceObjectWithStatus.c)
- *     memset @ 0x140414200 (memset.c)
- *     VfDriverInitStarting @ 0x1409C1F70 (VfDriverInitStarting.c)
- *     VfDriverInitSuccess @ 0x1409C27AC (VfDriverInitSuccess.c)
- *     IopInitializeBuiltinDriver @ 0x140A5E618 (IopInitializeBuiltinDriver.c)
- *     PnpDoPolicyCheck @ 0x140A5EB20 (PnpDoPolicyCheck.c)
- *     PnpNotifyEarlyLaunchImageLoad @ 0x140A5EB80 (PnpNotifyEarlyLaunchImageLoad.c)
+ *     PnpDiagnosticTraceObject @ 0x140364E1C (PnpDiagnosticTraceObject.c)
+ *     PnpDiagnosticTraceObjectWithStatus @ 0x140364F94 (PnpDiagnosticTraceObjectWithStatus.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     VfDriverInitStarting @ 0x1409C2F70 (VfDriverInitStarting.c)
+ *     VfDriverInitSuccess @ 0x1409C37AC (VfDriverInitSuccess.c)
+ *     IopInitializeBuiltinDriver @ 0x140A5F618 (IopInitializeBuiltinDriver.c)
+ *     PnpDoPolicyCheck @ 0x140A5FB20 (PnpDoPolicyCheck.c)
+ *     PnpNotifyEarlyLaunchImageLoad @ 0x140A5FB80 (PnpNotifyEarlyLaunchImageLoad.c)
  */
 
 __int64 __fastcall PnpInitializeBootStartDriver(

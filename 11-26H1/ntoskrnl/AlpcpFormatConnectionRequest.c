@@ -1,16 +1,16 @@
 /*
- * XREFs of AlpcpFormatConnectionRequest @ 0x1408E7C0C
+ * XREFs of AlpcpFormatConnectionRequest @ 0x1408EE1CC
  * Callers:
- *     NtSecureConnectPort @ 0x1408E5CC0 (NtSecureConnectPort.c)
- *     AlpcpProcessConnectionRequest @ 0x1408E7654 (AlpcpProcessConnectionRequest.c)
+ *     NtSecureConnectPort @ 0x1408EC280 (NtSecureConnectPort.c)
+ *     AlpcpProcessConnectionRequest @ 0x1408EDC14 (AlpcpProcessConnectionRequest.c)
  * Callees:
- *     AlpcpMapLegacyPortView @ 0x1408E53FC (AlpcpMapLegacyPortView.c)
- *     AlpcpValidateConnectionMessage @ 0x1408E7580 (AlpcpValidateConnectionMessage.c)
- *     AlpcpSetupMessageDataForDeferredCopy @ 0x1408E7E00 (AlpcpSetupMessageDataForDeferredCopy.c)
- *     AlpcpAllocateMessage @ 0x1409BCB60 (AlpcpAllocateMessage.c)
- *     AlpcpCaptureAttributes @ 0x1409BE688 (AlpcpCaptureAttributes.c)
- *     AlpcpReferenceBlob @ 0x1409BEEB8 (AlpcpReferenceBlob.c)
- *     AlpcpUnlockMessage @ 0x1409C07A0 (AlpcpUnlockMessage.c)
+ *     AlpcpMapLegacyPortView @ 0x1408EB9BC (AlpcpMapLegacyPortView.c)
+ *     AlpcpValidateConnectionMessage @ 0x1408EDB40 (AlpcpValidateConnectionMessage.c)
+ *     AlpcpSetupMessageDataForDeferredCopy @ 0x1408EE3C0 (AlpcpSetupMessageDataForDeferredCopy.c)
+ *     AlpcpAllocateMessage @ 0x14098DB40 (AlpcpAllocateMessage.c)
+ *     AlpcpCaptureAttributes @ 0x14098F668 (AlpcpCaptureAttributes.c)
+ *     AlpcpReferenceBlob @ 0x14098FE98 (AlpcpReferenceBlob.c)
+ *     AlpcpUnlockMessage @ 0x140991780 (AlpcpUnlockMessage.c)
  */
 
 __int64 __fastcall AlpcpFormatConnectionRequest(

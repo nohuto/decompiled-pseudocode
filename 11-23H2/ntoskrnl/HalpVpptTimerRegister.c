@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpVpptTimerRegister @ 0x14050A044
+ * XREFs of HalpVpptTimerRegister @ 0x14050A594
  * Callers:
- *     HalpTimerSelectRoles @ 0x14037A2AC (HalpTimerSelectRoles.c)
+ *     HalpTimerSelectRoles @ 0x14037A44C (HalpTimerSelectRoles.c)
  * Callees:
- *     HalSocRequestApi @ 0x1403783EC (HalSocRequestApi.c)
- *     HalpTimerRegister @ 0x140378AB4 (HalpTimerRegister.c)
- *     ExtEnvInitializeSpinLock @ 0x1403B47DC (ExtEnvInitializeSpinLock.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     HalSocRequestApi @ 0x14037858C (HalSocRequestApi.c)
+ *     HalpTimerRegister @ 0x140378C54 (HalpTimerRegister.c)
+ *     ExtEnvInitializeSpinLock @ 0x1403B49BC (ExtEnvInitializeSpinLock.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 __int64 __fastcall HalpVpptTimerRegister(__int64 a1, char a2)

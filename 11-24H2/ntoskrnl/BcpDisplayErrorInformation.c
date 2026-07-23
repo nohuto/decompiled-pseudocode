@@ -1,14 +1,14 @@
 /*
- * XREFs of BcpDisplayErrorInformation @ 0x1406991EC
+ * XREFs of BcpDisplayErrorInformation @ 0x14069A26C
  * Callers:
- *     BgpFwDisplayBugCheckScreen @ 0x14069A360 (BgpFwDisplayBugCheckScreen.c)
+ *     BgpFwDisplayBugCheckScreen @ 0x14069B3E0 (BgpFwDisplayBugCheckScreen.c)
  * Callees:
- *     BcpConvertBugDataToString @ 0x14069885C (BcpConvertBugDataToString.c)
- *     BcpDisplayCriticalCharacter @ 0x1406989F0 (BcpDisplayCriticalCharacter.c)
- *     BcpDisplayCriticalString @ 0x140698ACC (BcpDisplayCriticalString.c)
- *     BcpSanitizeDriverName @ 0x14069A014 (BcpSanitizeDriverName.c)
- *     BcpSetCursorPosition @ 0x14069A0C8 (BcpSetCursorPosition.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     BcpConvertBugDataToString @ 0x1406998DC (BcpConvertBugDataToString.c)
+ *     BcpDisplayCriticalCharacter @ 0x140699A70 (BcpDisplayCriticalCharacter.c)
+ *     BcpDisplayCriticalString @ 0x140699B4C (BcpDisplayCriticalString.c)
+ *     BcpSanitizeDriverName @ 0x14069B094 (BcpSanitizeDriverName.c)
+ *     BcpSetCursorPosition @ 0x14069B148 (BcpSetCursorPosition.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 __int64 __fastcall BcpDisplayErrorInformation(unsigned int a1, int a2, __int64 a3, __int64 a4, __int64 a5, char a6)
@@ -56,20 +56,20 @@ __int64 __fastcall BcpDisplayErrorInformation(unsigned int a1, int a2, __int64 a
   v39 = a4;
   v34 = a2;
   v33 = BcpCursor;
-  v9 = (int *)((char *)&unk_140E0EED0 + 84 * a1);
+  v9 = (int *)((char *)&unk_140E0EFA0 + 84 * a1);
   BcpTextBoxLeftEdgeOverride = (__int64)&v33;
-  BcpDisplayCriticalString(&stru_140E3EA40, v9[1], a3, a1);
-  BcpDisplayCriticalString(&stru_140E3EA50, v9[1], v10, a1);
+  BcpDisplayCriticalString(&stru_140E3EB80, v9[1], a3, a1);
+  BcpDisplayCriticalString(&stru_140E3EB90, v9[1], v10, a1);
   v11 = v9[11];
-  v12 = (unsigned int)(v11 + dword_140EEFAE8);
+  v12 = (unsigned int)(v11 + dword_140EEFD38);
   v13 = v12 + v11;
   v32 = v12 + v11;
   BcpSetCursorPosition(v6, v12, &v32);
-  BcpDisplayCriticalString(&stru_140E3E990, *v9, v14, a1);
+  BcpDisplayCriticalString(&stru_140E3EAD0, *v9, v14, a1);
   v15 = v13 + v9[11];
   v32 = v15;
   BcpSetCursorPosition(v6, v13, &v32);
-  BcpDisplayCriticalString(&stru_140E3EA30, *v9, v16, a1);
+  BcpDisplayCriticalString(&stru_140E3EB70, *v9, v16, a1);
   BcpDisplayCriticalCharacter(v17, *v9, v18);
   BcpDisplayCriticalString((_WORD *)(a5 + 16), *v9, v19, a1);
   v20 = v39;
@@ -77,7 +77,7 @@ __int64 __fastcall BcpDisplayErrorInformation(unsigned int a1, int a2, __int64 a
   {
     v32 = v15 + v9[11];
     BcpSetCursorPosition(v6, v15, &v32);
-    BcpDisplayCriticalString(&stru_140E3EA20, *v9, v21, a1);
+    BcpDisplayCriticalString(&stru_140E3EB60, *v9, v21, a1);
     BcpDisplayCriticalCharacter(v22, *v9, v23);
     v37[0] = 0x800000;
     v38 = &v40;
@@ -85,7 +85,7 @@ __int64 __fastcall BcpDisplayErrorInformation(unsigned int a1, int a2, __int64 a
     BcpDisplayCriticalString(v37, *v9, v24, a1);
   }
   v35 = *(_QWORD *)&BcpCursor;
-  v36 = dword_140EEFAE8;
+  v36 = dword_140EEFD38;
   v32 = 0;
   BcpSetCursorPosition(0LL, 0LL, &v32);
   v26 = v25;
@@ -96,7 +96,7 @@ __int64 __fastcall BcpDisplayErrorInformation(unsigned int a1, int a2, __int64 a
     if ( BcpDisplayParameters || (a6 & 8) != 0 && v34 == 317 )
     {
       BcpDisplayCriticalString((_WORD *)(v26 + a5 + 32), *v9, v29, a1);
-      BcpSetCursorPosition(0LL, (unsigned int)dword_140EEFAE8, 0LL);
+      BcpSetCursorPosition(0LL, (unsigned int)dword_140EEFD38, 0LL);
     }
     v26 += 16LL;
     ++v7;

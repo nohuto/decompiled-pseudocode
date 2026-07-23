@@ -1,21 +1,21 @@
 /*
- * XREFs of PoBlockConsoleSwitch @ 0x14067E978
+ * XREFs of PoBlockConsoleSwitch @ 0x140672828
  * Callers:
- *     PoPowerOffMonitor @ 0x140382864 (PoPowerOffMonitor.c)
- *     PopAcquireAdaptiveLock @ 0x14067E094 (PopAcquireAdaptiveLock.c)
- *     PopIssueActionRequest @ 0x140775A08 (PopIssueActionRequest.c)
- *     PopBlockSessionSwitch @ 0x140779D60 (PopBlockSessionSwitch.c)
- *     PopDirectedDripsNotifyAppsAndServices @ 0x1408E3608 (PopDirectedDripsNotifyAppsAndServices.c)
- *     PnprQuiesceDevices @ 0x1409AE210 (PnprQuiesceDevices.c)
+ *     PoPowerOffMonitor @ 0x140382A14 (PoPowerOffMonitor.c)
+ *     PopAcquireAdaptiveLock @ 0x140671E84 (PopAcquireAdaptiveLock.c)
+ *     PopIssueActionRequest @ 0x140775BC8 (PopIssueActionRequest.c)
+ *     PopBlockSessionSwitch @ 0x140779F20 (PopBlockSessionSwitch.c)
+ *     PopDirectedDripsNotifyAppsAndServices @ 0x1408E3768 (PopDirectedDripsNotifyAppsAndServices.c)
+ *     PnprQuiesceDevices @ 0x1409AF140 (PnprQuiesceDevices.c)
  * Callees:
- *     KeDelayExecutionThread @ 0x140257490 (KeDelayExecutionThread.c)
- *     RtlGetActiveConsoleId @ 0x140281DB0 (RtlGetActiveConsoleId.c)
- *     PopDispatchStateCallout @ 0x14067E9C8 (PopDispatchStateCallout.c)
+ *     RtlGetActiveConsoleId @ 0x14026FFF0 (RtlGetActiveConsoleId.c)
+ *     KeDelayExecutionThread @ 0x140278A00 (KeDelayExecutionThread.c)
+ *     PopDispatchStateCallout @ 0x140672878 (PopDispatchStateCallout.c)
  */
 
-__int64 __fastcall PoBlockConsoleSwitch(__int64 a1)
+ULONG __fastcall PoBlockConsoleSwitch(__int64 a1)
 {
-  int ActiveConsoleId; // [rsp+30h] [rbp+8h] BYREF
+  ULONG ActiveConsoleId; // [rsp+30h] [rbp+8h] BYREF
   LARGE_INTEGER Interval; // [rsp+38h] [rbp+10h] BYREF
 
   Interval.QuadPart = -100000LL;

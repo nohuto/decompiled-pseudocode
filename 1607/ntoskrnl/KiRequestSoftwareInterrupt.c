@@ -1,20 +1,20 @@
 /*
- * XREFs of KiRequestSoftwareInterrupt @ 0x1400D8230
+ * XREFs of KiRequestSoftwareInterrupt @ 0x1400D60D0
  * Callers:
- *     IopfCompleteRequest @ 0x140053570 (IopfCompleteRequest.c)
- *     KiExitDispatcher @ 0x140056700 (KiExitDispatcher.c)
- *     KeInsertPriQueue @ 0x14005F700 (KeInsertPriQueue.c)
- *     KeRemoveQueueEx @ 0x14006A3B0 (KeRemoveQueueEx.c)
- *     KiReadyOutSwappedThreads @ 0x140091140 (KiReadyOutSwappedThreads.c)
- *     KiRequestTimer2Expiration @ 0x1400C9954 (KiRequestTimer2Expiration.c)
- *     KiFlushQueuedDpcsWorker @ 0x1400C9EDC (KiFlushQueuedDpcsWorker.c)
- *     KiQueueReadyThread @ 0x1400D0C70 (KiQueueReadyThread.c)
- *     KiProcessDeferredReadyList @ 0x1400D3450 (KiProcessDeferredReadyList.c)
- *     KeClockInterruptNotify @ 0x1400D9870 (KeClockInterruptNotify.c)
- *     KeAccumulateTicks @ 0x1400DC3C0 (KeAccumulateTicks.c)
- *     KiCheckForThreadDispatch @ 0x1400F2960 (KiCheckForThreadDispatch.c)
- *     KeRemovePriorityBoost @ 0x1401D2D10 (KeRemovePriorityBoost.c)
- *     KeTransitionProcessorParkState @ 0x1401DBC78 (KeTransitionProcessorParkState.c)
+ *     IopfCompleteRequest @ 0x1400530F0 (IopfCompleteRequest.c)
+ *     KiExitDispatcher @ 0x140056280 (KiExitDispatcher.c)
+ *     KeInsertPriQueue @ 0x14005F280 (KeInsertPriQueue.c)
+ *     KeRemoveQueueEx @ 0x140069F30 (KeRemoveQueueEx.c)
+ *     KiReadyOutSwappedThreads @ 0x1400908A0 (KiReadyOutSwappedThreads.c)
+ *     KiRequestTimer2Expiration @ 0x1400C77F4 (KiRequestTimer2Expiration.c)
+ *     KiFlushQueuedDpcsWorker @ 0x1400C7D7C (KiFlushQueuedDpcsWorker.c)
+ *     KiQueueReadyThread @ 0x1400CEB10 (KiQueueReadyThread.c)
+ *     KiProcessDeferredReadyList @ 0x1400D12F0 (KiProcessDeferredReadyList.c)
+ *     KeClockInterruptNotify @ 0x1400D7710 (KeClockInterruptNotify.c)
+ *     KeAccumulateTicks @ 0x1400DA260 (KeAccumulateTicks.c)
+ *     KiCheckForThreadDispatch @ 0x1400F07B0 (KiCheckForThreadDispatch.c)
+ *     KeRemovePriorityBoost @ 0x1401D2B3C (KeRemovePriorityBoost.c)
+ *     KeTransitionProcessorParkState @ 0x1401DBAA4 (KeTransitionProcessorParkState.c)
  * Callees:
  *     <none>
  */

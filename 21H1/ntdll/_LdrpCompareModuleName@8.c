@@ -6,12 +6,12 @@
  *     _RtlCompareUnicodeString@12 @ 0x4B2D0490 (_RtlCompareUnicodeString@12.c)
  */
 
-int __stdcall LdrpCompareModuleName(int a1, int a2)
+LONG __stdcall LdrpCompareModuleName(int a1, int a2)
 {
-  int result; // eax
+  LONG result; // eax
 
   result = *(_DWORD *)(a2 + 28) - *(_DWORD *)(a1 + 144);
   if ( !result )
-    return RtlCompareUnicodeString((unsigned __int16 *)(a2 - 80), (unsigned __int16 *)(a1 + 36), 1);
+    return RtlCompareUnicodeString((PUNICODE_STRING)(a2 - 80), (PUNICODE_STRING)(a1 + 36), 1u);
   return result;
 }

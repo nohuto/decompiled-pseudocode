@@ -1,14 +1,14 @@
 /*
- * XREFs of HvpViewMapAdjustFlag @ 0x140984734
+ * XREFs of HvpViewMapAdjustFlag @ 0x14096CF44
  * Callers:
- *     HvMarkHiveWithNoSectionExtend @ 0x1406FC1D0 (HvMarkHiveWithNoSectionExtend.c)
- *     HvUnlockHiveFilePages @ 0x140A8E8F0 (HvUnlockHiveFilePages.c)
+ *     HvMarkHiveWithNoSectionExtend @ 0x1406F9E10 (HvMarkHiveWithNoSectionExtend.c)
+ *     HvUnlockHiveFilePages @ 0x140A8AF60 (HvUnlockHiveFilePages.c)
  * Callees:
- *     HvpViewMapFindViewForFileOffset @ 0x14097FF54 (HvpViewMapFindViewForFileOffset.c)
- *     HvpViewMapMakeViewRangeUnCOWByPolicy @ 0x140984538 (HvpViewMapMakeViewRangeUnCOWByPolicy.c)
+ *     HvpViewMapFindViewForFileOffset @ 0x140968764 (HvpViewMapFindViewForFileOffset.c)
+ *     HvpViewMapMakeViewRangeUnCOWByPolicy @ 0x14096CD48 (HvpViewMapMakeViewRangeUnCOWByPolicy.c)
  */
 
-__int64 __fastcall HvpViewMapAdjustFlag(__int64 a1, int a2, char a3)
+__int64 __fastcall HvpViewMapAdjustFlag(ULONG_PTR a1, int a2, char a3)
 {
   char v4; // si
   __int64 i; // rax

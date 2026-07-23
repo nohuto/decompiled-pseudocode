@@ -1,81 +1,81 @@
 /*
- * XREFs of BiBindEfiEntries @ 0x140A9AAF4
+ * XREFs of BiBindEfiEntries @ 0x140A96064
  * Callers:
- *     BiBindEfiNamespaceObjects @ 0x1409C1ADC (BiBindEfiNamespaceObjects.c)
+ *     BiBindEfiNamespaceObjects @ 0x1409A812C (BiBindEfiNamespaceObjects.c)
  * Callees:
- *     BiIsPortableWorkspaceBoot @ 0x1408148AC (BiIsPortableWorkspaceBoot.c)
- *     BiAddBootEntryToNvramDisplayOrder @ 0x140814B14 (BiAddBootEntryToNvramDisplayOrder.c)
- *     BiCreateEfiEntry @ 0x140814FB0 (BiCreateEfiEntry.c)
- *     BiDeleteBootEntry @ 0x14081519C (BiDeleteBootEntry.c)
- *     BiRemoveBootEntryFromNvramDisplayOrder @ 0x1408155D8 (BiRemoveBootEntryFromNvramDisplayOrder.c)
- *     BiUpdateBcdObject @ 0x1408157BC (BiUpdateBcdObject.c)
- *     BcdOpenObject @ 0x1409BE0D4 (BcdOpenObject.c)
- *     BiLogMessage @ 0x1409BE7F8 (BiLogMessage.c)
- *     BcdDeleteObject @ 0x1409C2520 (BcdDeleteObject.c)
- *     BiBindEfiEntryToBcdObject @ 0x140ABC2E0 (BiBindEfiEntryToBcdObject.c)
+ *     BiIsPortableWorkspaceBoot @ 0x140814FEC (BiIsPortableWorkspaceBoot.c)
+ *     BiAddBootEntryToNvramDisplayOrder @ 0x140815254 (BiAddBootEntryToNvramDisplayOrder.c)
+ *     BiCreateEfiEntry @ 0x1408156F0 (BiCreateEfiEntry.c)
+ *     BiDeleteBootEntry @ 0x1408158DC (BiDeleteBootEntry.c)
+ *     BiRemoveBootEntryFromNvramDisplayOrder @ 0x140815D18 (BiRemoveBootEntryFromNvramDisplayOrder.c)
+ *     BiUpdateBcdObject @ 0x140815EFC (BiUpdateBcdObject.c)
+ *     BcdOpenObject @ 0x1409A4724 (BcdOpenObject.c)
+ *     BiLogMessage @ 0x1409A4E48 (BiLogMessage.c)
+ *     BcdDeleteObject @ 0x1409A8B70 (BcdDeleteObject.c)
+ *     BiBindEfiEntryToBcdObject @ 0x140AB7300 (BiBindEfiEntryToBcdObject.c)
  */
 
-__int64 __fastcall BiBindEfiEntries(__int64 a1, __int64 *a2)
+__int64 __fastcall BiBindEfiEntries(HANDLE BcdStoreHandle, const GUID **a2)
 {
   int updated; // edi
-  __int64 v3; // rbx
-  int v6; // eax
-  void *v8; // [rsp+38h] [rbp+10h] BYREF
+  const GUID *v3; // rbx
+  unsigned int Data1; // eax
+  HANDLE BcdObjectHandle; // [rsp+38h] [rbp+10h] BYREF
 
-  v8 = 0LL;
+  BcdObjectHandle = 0LL;
   updated = 0;
   v3 = *a2;
-  if ( (__int64 *)*a2 != a2 )
+  if ( *a2 != (const GUID *)a2 )
   {
     while ( 1 )
     {
-      v6 = *(_DWORD *)(v3 + 48);
-      if ( (v6 & 0x10) != 0 )
+      Data1 = v3[3].Data1;
+      if ( (Data1 & 0x10) != 0 )
         break;
-      if ( (v6 & 1) != 0 )
+      if ( (Data1 & 1) != 0 )
       {
-        if ( (v6 & 0x24) == 0x20 && !BiIsPortableWorkspaceBoot() )
+        if ( (Data1 & 0x24) == 0x20 && !BiIsPortableWorkspaceBoot() )
         {
-          if ( (int)BiDeleteBootEntry(*(_DWORD *)(v3 + 32)) < 0 )
+          if ( (int)BiDeleteBootEntry(v3[2].Data1) < 0 )
             goto LABEL_21;
           goto LABEL_6;
         }
-        updated = BiBindEfiEntryToBcdObject(a1, v3);
-        if ( updated < 0 || (updated = BiUpdateBcdObject(a1, v3), updated < 0) )
+        updated = BiBindEfiEntryToBcdObject(BcdStoreHandle, v3);
+        if ( updated < 0 || (updated = BiUpdateBcdObject(BcdStoreHandle, v3), updated < 0) )
         {
 LABEL_23:
           BiLogMessage();
           return (unsigned int)updated;
         }
       }
-      else if ( (v6 & 4) != 0 )
+      else if ( (Data1 & 4) != 0 )
       {
-        if ( (v6 & 8) != 0 )
+        if ( (Data1 & 8) != 0 )
         {
-          updated = BcdOpenObject(a1, (unsigned int *)(v3 + 16), &v8);
+          updated = BcdOpenObject(BcdStoreHandle, v3 + 1, &BcdObjectHandle);
           if ( updated < 0 )
             goto LABEL_23;
-          BcdDeleteObject(v8);
-          *(_DWORD *)(v3 + 48) &= 0xFFFFFFF9;
+          BcdDeleteObject(BcdObjectHandle);
+          v3[3].Data1 &= 0xFFFFFFF9;
         }
-        else if ( !BiIsPortableWorkspaceBoot() && (int)BiCreateEfiEntry(a1, v3) >= 0 )
+        else if ( !BiIsPortableWorkspaceBoot() && (int)BiCreateEfiEntry(BcdStoreHandle, v3) >= 0 )
         {
-          BiAddBootEntryToNvramDisplayOrder(v3);
+          BiAddBootEntryToNvramDisplayOrder((__int64)v3);
         }
       }
 LABEL_21:
-      v3 = *(_QWORD *)v3;
-      if ( (__int64 *)v3 == a2 )
+      v3 = *(const GUID **)&v3->Data1;
+      if ( v3 == (const GUID *)a2 )
         return (unsigned int)updated;
     }
-    if ( (v6 & 1) == 0 )
+    if ( (Data1 & 1) == 0 )
       goto LABEL_21;
     BiLogMessage();
-    if ( (int)BiDeleteBootEntry(*(_DWORD *)(v3 + 32)) < 0 )
+    if ( (int)BiDeleteBootEntry(v3[2].Data1) < 0 )
       goto LABEL_21;
-    *(_DWORD *)(v3 + 48) &= ~1u;
+    v3[3].Data1 &= ~1u;
 LABEL_6:
-    BiRemoveBootEntryFromNvramDisplayOrder(v3);
+    BiRemoveBootEntryFromNvramDisplayOrder((__int64)v3);
     goto LABEL_21;
   }
   return (unsigned int)updated;

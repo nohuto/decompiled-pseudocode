@@ -1,11 +1,11 @@
 /*
- * XREFs of PiDcInit @ 0x140CC5760
+ * XREFs of PiDcInit @ 0x140CCB840
  * Callers:
- *     IopInitializePlugPlayServices @ 0x140CBFDA0 (IopInitializePlugPlayServices.c)
+ *     IopInitializePlugPlayServices @ 0x140CC5E70 (IopInitializePlugPlayServices.c)
  * Callees:
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     PiDcInitUpdateProperties @ 0x1407A7AFC (PiDcInitUpdateProperties.c)
- *     PiDcGenerateConfigNotificationIfContainerRequiresConfiguration @ 0x140B038D0 (PiDcGenerateConfigNotificationIfContainerRequiresConfiguration.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     PiDcInitUpdateProperties @ 0x1407AA6AC (PiDcInitUpdateProperties.c)
+ *     PiDcGenerateConfigNotificationIfContainerRequiresConfiguration @ 0x140B054E0 (PiDcGenerateConfigNotificationIfContainerRequiresConfiguration.c)
  */
 
 __int64 __fastcall PiDcInit(int a1)

@@ -6,7 +6,7 @@
  *     <none>
  */
 
-__int64 __fastcall RtlSubAuthoritySid(__int64 a1, unsigned int a2)
+PULONG __cdecl RtlSubAuthoritySid(PSID Sid, ULONG SubAuthority)
 {
-  return a1 + 4 * (a2 + 2LL);
+  return (PULONG)((char *)Sid + 4 * SubAuthority + 8);
 }

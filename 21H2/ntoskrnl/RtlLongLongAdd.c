@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlLongLongAdd @ 0x14056F4B8
+ * XREFs of RtlLongLongAdd @ 0x14056F6F8
  * Callers:
- *     PopReadPagesFromHiberFile @ 0x1408E6EEC (PopReadPagesFromHiberFile.c)
- *     RtlParseLeapSecondData @ 0x140980B2C (RtlParseLeapSecondData.c)
+ *     PopReadPagesFromHiberFile @ 0x1408E704C (PopReadPagesFromHiberFile.c)
+ *     RtlParseLeapSecondData @ 0x140980D0C (RtlParseLeapSecondData.c)
  * Callees:
  *     <none>
  */

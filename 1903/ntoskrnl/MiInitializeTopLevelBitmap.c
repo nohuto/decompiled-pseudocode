@@ -12,7 +12,7 @@
 void MiInitializeTopLevelBitmap()
 {
   unsigned __int64 v0; // rbx
-  struct _RTL_BITMAP BitMapHeader; // [rsp+20h] [rbp-18h] BYREF
+  _RTL_BITMAP BitMapHeader; // [rsp+20h] [rbp-18h] BYREF
 
   *(&BitMapHeader.SizeOfBitMap + 1) = 0;
   dword_140465DF0 = (unsigned __int8)ExGenRandom(1);

@@ -1,22 +1,22 @@
 /*
- * XREFs of PpmCheckReInit @ 0x1407BA7E4
+ * XREFs of PpmCheckReInit @ 0x1407BAF74
  * Callers:
- *     PpmCheckResumePpmEngineFromSx @ 0x14038DC9C (PpmCheckResumePpmEngineFromSx.c)
- *     PpmCheckPausePpmEngineForSx @ 0x14038DD2C (PpmCheckPausePpmEngineForSx.c)
- *     PopIntSteerSetMode @ 0x1403C1220 (PopIntSteerSetMode.c)
- *     PpmParkSetLpiCap @ 0x14057DA14 (PpmParkSetLpiCap.c)
- *     PpmCheckInitProcessors @ 0x1407B9B18 (PpmCheckInitProcessors.c)
- *     PpmRegisterPerfStates @ 0x1407B9CE0 (PpmRegisterPerfStates.c)
- *     PpmReapplyPerfPolicy @ 0x1407BA700 (PpmReapplyPerfPolicy.c)
+ *     PpmCheckResumePpmEngineFromSx @ 0x14038DDEC (PpmCheckResumePpmEngineFromSx.c)
+ *     PpmCheckPausePpmEngineForSx @ 0x14038DE7C (PpmCheckPausePpmEngineForSx.c)
+ *     PopIntSteerSetMode @ 0x1403C1650 (PopIntSteerSetMode.c)
+ *     PpmParkSetLpiCap @ 0x14057DC54 (PpmParkSetLpiCap.c)
+ *     PpmCheckInitProcessors @ 0x1407BA2A8 (PpmCheckInitProcessors.c)
+ *     PpmRegisterPerfStates @ 0x1407BA470 (PpmRegisterPerfStates.c)
+ *     PpmReapplyPerfPolicy @ 0x1407BAE90 (PpmReapplyPerfPolicy.c)
  * Callees:
- *     PoEnergyEstimationEnabled @ 0x140205710 (PoEnergyEstimationEnabled.c)
- *     PpmCheckArmPeriod @ 0x1403C1B34 (PpmCheckArmPeriod.c)
- *     PpmPerfClearResponsivenessHints @ 0x1403C1BBC (PpmPerfClearResponsivenessHints.c)
- *     PopInterruptSteeringEnabled @ 0x1403C1C18 (PopInterruptSteeringEnabled.c)
- *     PpmPerfCheckRequired @ 0x1403C1C34 (PpmPerfCheckRequired.c)
- *     PpmParkUpdateConcurrencyTracking @ 0x1407BA938 (PpmParkUpdateConcurrencyTracking.c)
- *     PpmParkParkingAvailable @ 0x1407BAA10 (PpmParkParkingAvailable.c)
- *     PpmPerfResetHistoryAll @ 0x1407BB9A4 (PpmPerfResetHistoryAll.c)
+ *     PoEnergyEstimationEnabled @ 0x1402AA040 (PoEnergyEstimationEnabled.c)
+ *     PpmCheckArmPeriod @ 0x1403C1F64 (PpmCheckArmPeriod.c)
+ *     PpmPerfClearResponsivenessHints @ 0x1403C1FEC (PpmPerfClearResponsivenessHints.c)
+ *     PopInterruptSteeringEnabled @ 0x1403C2048 (PopInterruptSteeringEnabled.c)
+ *     PpmPerfCheckRequired @ 0x1403C2064 (PpmPerfCheckRequired.c)
+ *     PpmParkUpdateConcurrencyTracking @ 0x1407BB0C8 (PpmParkUpdateConcurrencyTracking.c)
+ *     PpmParkParkingAvailable @ 0x1407BB1A0 (PpmParkParkingAvailable.c)
+ *     PpmPerfResetHistoryAll @ 0x1407BC134 (PpmPerfResetHistoryAll.c)
  */
 
 __int64 (__fastcall ***PpmCheckReInit())()
@@ -33,7 +33,7 @@ __int64 (__fastcall ***PpmCheckReInit())()
 
   v0 = 0;
   v1 = 0;
-  v2 = &PpmCurrentProfile[342 * dword_140C23E8C];
+  v2 = &PpmCurrentProfile[342 * dword_140C2332C];
   v3 = 0;
   if ( (__int64 *)PpmPerfDomainHead != &PpmPerfDomainHead )
   {

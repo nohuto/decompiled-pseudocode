@@ -6,10 +6,7 @@
  *     _wcsicmp @ 0x140188860 (_wcsicmp.c)
  */
 
-__int64 __fastcall PiPnpRtlObjectEventCompareObjects(
-        struct _RTL_AVL_TABLE *Table,
-        PVOID FirstStruct,
-        PVOID SecondStruct)
+__int64 __fastcall PiPnpRtlObjectEventCompareObjects(_RTL_AVL_TABLE *a1, PVOID a2, PVOID a3)
 {
   __int64 v3; // rcx
   __int64 v4; // r8
@@ -24,10 +21,10 @@ __int64 __fastcall PiPnpRtlObjectEventCompareObjects(
   int v13; // ecx
   __int64 result; // rax
 
-  if ( *(_QWORD *)FirstStruct == *(_QWORD *)SecondStruct )
+  if ( *(_QWORD *)a2 == *(_QWORD *)a3 )
     return 2LL;
-  v3 = *(_QWORD *)(*(_QWORD *)SecondStruct + 8LL);
-  v4 = *(_QWORD *)(*(_QWORD *)FirstStruct + 8LL);
+  v3 = *(_QWORD *)(*(_QWORD *)a3 + 8LL);
+  v4 = *(_QWORD *)(*(_QWORD *)a2 + 8LL);
   v5 = *(_DWORD *)(v3 + 24);
   v6 = *(_DWORD *)(v4 + 24);
   if ( v6 > v5 )

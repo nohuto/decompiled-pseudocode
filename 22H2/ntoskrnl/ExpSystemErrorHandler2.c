@@ -26,7 +26,7 @@
  *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
  */
 
-void __fastcall ExpSystemErrorHandler2(unsigned int a1, unsigned int a2, int a3, const void *a4, char a5)
+void __fastcall ExpSystemErrorHandler2(ULONG MessageId, unsigned int a2, int a3, const void *a4, char a5)
 {
   unsigned int v8; // eax
   unsigned int v9; // edi
@@ -36,40 +36,40 @@ void __fastcall ExpSystemErrorHandler2(unsigned int a1, unsigned int a2, int a3,
   char *v13; // rsi
   char *v14; // rbx
   __int64 SystemDllInfo; // rax
-  __int64 v16; // r10
+  void *v16; // r10
   unsigned __int16 v17; // di
   char *PoolWithTag; // rax
   char *v19; // rax
   __int64 v20; // rdi
-  const char *v21; // r13
+  BYTE *Text; // r13
   __int64 v22; // rax
   unsigned int v23; // r14d
   char *v24; // rax
   char *v25; // rax
   int j; // edi
-  char *BugCheckParameter4; // rbx
+  char *v27; // rbx
   __int64 v28; // rdx
   __int64 v29; // rcx
   __int64 CurrentServerSilo; // rax
   int v31; // [rsp+40h] [rbp-218h]
   NTSTATUS v32; // [rsp+50h] [rbp-208h]
-  const char *v33; // [rsp+68h] [rbp-1F0h] BYREF
+  PMESSAGE_RESOURCE_ENTRY MessageEntry; // [rsp+68h] [rbp-1F0h] BYREF
   UNICODE_STRING UnicodeString; // [rsp+70h] [rbp-1E8h] BYREF
-  STRING SourceString; // [rsp+80h] [rbp-1D8h] BYREF
-  STRING v36; // [rsp+90h] [rbp-1C8h] BYREF
+  _STRING SourceString; // [rsp+80h] [rbp-1D8h] BYREF
+  _STRING v36; // [rsp+90h] [rbp-1C8h] BYREF
   unsigned int v37; // [rsp+A0h] [rbp-1B8h]
   _DWORD BugCheckParameter1[3]; // [rsp+A4h] [rbp-1B4h]
-  STRING DestinationString; // [rsp+B0h] [rbp-1A8h] BYREF
+  _STRING DestinationString; // [rsp+B0h] [rbp-1A8h] BYREF
   ULONG_PTR BugCheckParameter2[2]; // [rsp+C0h] [rbp-198h] BYREF
   __int128 v41; // [rsp+D0h] [rbp-188h]
   __int64 v42; // [rsp+E0h] [rbp-178h]
   char pszFormat[40]; // [rsp+E8h] [rbp-170h] BYREF
   char pszDest[256]; // [rsp+110h] [rbp-148h] BYREF
 
-  BugCheckParameter1[0] = a1;
+  BugCheckParameter1[0] = MessageId;
   *(_QWORD *)&BugCheckParameter1[1] = a4;
   *(_QWORD *)&DestinationString.Length = 0LL;
-  v33 = 0LL;
+  MessageEntry = 0LL;
   SourceString = 0LL;
   UnicodeString = 0LL;
   v36 = 0LL;
@@ -110,18 +110,18 @@ void __fastcall ExpSystemErrorHandler2(unsigned int a1, unsigned int a2, int a3,
   SystemDllInfo = PsQuerySystemDllInfo(0);
   if ( SystemDllInfo )
   {
-    v16 = *(_QWORD *)(SystemDllInfo + 24);
+    v16 = *(void **)(SystemDllInfo + 24);
     if ( KeGetCurrentThread()->ApcState.Process == PsInitialSystemProcess )
-      v16 = *(_QWORD *)(SystemDllInfo + 32);
-    if ( (int)RtlFindMessage(v16, 0xBu, (_BYTE)NlsMbCodePageTag != 0 ? 0x409 : 0, a1, (unsigned __int16 **)&v33) < 0 )
+      v16 = *(void **)(SystemDllInfo + 32);
+    if ( RtlFindMessage(v16, 0xBu, (_BYTE)NlsMbCodePageTag != 0 ? 0x409 : 0, MessageId, &MessageEntry) < 0 )
     {
       v14 = "Unknown Hard Error";
       v12 = "Unknown Hard Error";
       goto LABEL_42;
     }
-    if ( (v33[2] & 1) != 0 )
+    if ( (MessageEntry->Flags & 1) != 0 )
     {
-      RtlInitUnicodeString(&UnicodeString, (PCWSTR)v33 + 2);
+      RtlInitUnicodeString(&UnicodeString, (PCWSTR)MessageEntry->Text);
       v17 = RtlxUnicodeStringToAnsiSize(&UnicodeString);
       SourceString.Length = v17;
       PoolWithTag = (char *)ExAllocatePoolWithTag(NonPagedPoolNx, v17 + 16LL, 0x20727245u);
@@ -145,12 +145,12 @@ LABEL_20:
     }
     else
     {
-      v21 = v33 + 4;
+      Text = MessageEntry->Text;
       v20 = -1LL;
       v22 = -1LL;
       do
         ++v22;
-      while ( v21[v22] );
+      while ( Text[v22] );
       v23 = v22 + 16;
       v24 = (char *)ExAllocatePoolWithTag(NonPagedPoolNx, (unsigned int)(v22 + 16), 0x20727245u);
       v14 = v24;
@@ -184,17 +184,17 @@ LABEL_28:
           v12 = v19;
         goto LABEL_42;
       }
-      strcpy_s(v24, v23, v21);
+      strcpy_s(v24, v23, (const char *)Text);
     }
     v19 = pszFormat;
     goto LABEL_28;
   }
 LABEL_42:
-  if ( RtlStringCbPrintfA(pszDest, 0x100uLL, "\nSTOP: %lx %s\n", a1, v14) < 0 )
-    RtlStringCbPrintfA(pszDest, 0x100uLL, "\nHardError %lx\n", a1);
+  if ( RtlStringCbPrintfA(pszDest, 0x100uLL, "\nSTOP: %lx %s\n", MessageId, v14) < 0 )
+    RtlStringCbPrintfA(pszDest, 0x100uLL, "\nHardError %lx\n", MessageId);
   MmLockPagableSectionByHandle(ExPageLockHandle);
-  v33 = "Unknown Hard Error";
-  BugCheckParameter4 = "Unknown Hard Error";
+  MessageEntry = (PMESSAGE_RESOURCE_ENTRY)"Unknown Hard Error";
+  v27 = "Unknown Hard Error";
   *(_QWORD *)&BugCheckParameter1[1] = "Unknown Hard Error";
   RtlInitAnsiString(&SourceString, pszDest);
   if ( RtlAnsiStringToUnicodeString(&UnicodeString, &SourceString, 1u) >= 0 )
@@ -203,7 +203,7 @@ LABEL_42:
     v36.MaximumLength = v36.Length;
     v13 = (char *)ExAllocatePoolWithTag(NonPagedPoolNx, v36.Length, 0x20727245u);
     v36.Buffer = v13;
-    v33 = v13;
+    MessageEntry = (PMESSAGE_RESOURCE_ENTRY)v13;
     if ( v13 )
       RtlUnicodeStringToOemString(&v36, &UnicodeString, 0);
   }
@@ -212,7 +212,7 @@ LABEL_42:
       pszDest,
       0x100uLL,
       "Exception Processing Message %lx Parameters %Ix %Ix %Ix %Ix",
-      a1,
+      MessageId,
       LODWORD(BugCheckParameter2[0]),
       LODWORD(BugCheckParameter2[1]),
       (_DWORD)v41,
@@ -222,28 +222,17 @@ LABEL_42:
   {
     v36.Length = RtlxUnicodeStringToOemSize(&UnicodeString);
     v36.MaximumLength = v36.Length;
-    BugCheckParameter4 = (char *)ExAllocatePoolWithTag(NonPagedPoolNx, v36.Length, 0x20727245u);
-    v36.Buffer = BugCheckParameter4;
-    if ( BugCheckParameter4 )
+    v27 = (char *)ExAllocatePoolWithTag(NonPagedPoolNx, v36.Length, 0x20727245u);
+    v36.Buffer = v27;
+    if ( v27 )
       RtlUnicodeStringToOemString(&v36, &UnicodeString, 0);
   }
   CurrentServerSilo = PsGetCurrentServerSilo(v29, v28);
   if ( !CurrentServerSilo )
   {
     if ( a5 )
-      PoShutdownBugCheck(
-        1,
-        0x4Cu,
-        BugCheckParameter1[0],
-        (ULONG_PTR)BugCheckParameter2,
-        (ULONG_PTR)v13,
-        (ULONG_PTR)BugCheckParameter4);
-    KeBugCheckEx(
-      0x4Cu,
-      BugCheckParameter1[0],
-      (ULONG_PTR)BugCheckParameter2,
-      (ULONG_PTR)v13,
-      (ULONG_PTR)BugCheckParameter4);
+      PoShutdownBugCheck(1, 0x4Cu, BugCheckParameter1[0], (ULONG_PTR)BugCheckParameter2, (ULONG_PTR)v13, (ULONG_PTR)v27);
+    KeBugCheckEx(0x4Cu, BugCheckParameter1[0], (ULONG_PTR)BugCheckParameter2, (ULONG_PTR)v13, (ULONG_PTR)v27);
   }
   PsTerminateServerSilo(CurrentServerSilo);
 }

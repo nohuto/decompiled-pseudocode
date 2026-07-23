@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpUpdateRegEntryEnableMask @ 0x140937294
+ * XREFs of EtwpUpdateRegEntryEnableMask @ 0x140912E34
  * Callers:
- *     EtwpNotifyDisallowedGuidChange @ 0x1409399BC (EtwpNotifyDisallowedGuidChange.c)
- *     EtwpEnableGuid @ 0x140ADA008 (EtwpEnableGuid.c)
+ *     EtwpNotifyDisallowedGuidChange @ 0x14091555C (EtwpNotifyDisallowedGuidChange.c)
+ *     EtwpEnableGuid @ 0x140AD6AB8 (EtwpEnableGuid.c)
  * Callees:
- *     EtwpApplyScopeFilters @ 0x140936D60 (EtwpApplyScopeFilters.c)
- *     EtwpTrackDecodeGuidForSession @ 0x140AFD720 (EtwpTrackDecodeGuidForSession.c)
+ *     EtwpApplyScopeFilters @ 0x140912900 (EtwpApplyScopeFilters.c)
+ *     EtwpTrackDecodeGuidForSession @ 0x140AFF290 (EtwpTrackDecodeGuidForSession.c)
  */
 
 __int64 __fastcall EtwpUpdateRegEntryEnableMask(

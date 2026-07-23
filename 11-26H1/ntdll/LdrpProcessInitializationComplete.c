@@ -1,5 +1,5 @@
 /*
- * XREFs of LdrpProcessInitializationComplete @ 0x1800CEC30
+ * XREFs of LdrpProcessInitializationComplete @ 0x1800CC3A0
  * Callers:
  *     <none>
  * Callees:

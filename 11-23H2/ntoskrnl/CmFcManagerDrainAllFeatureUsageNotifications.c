@@ -1,14 +1,14 @@
 /*
- * XREFs of CmFcManagerDrainAllFeatureUsageNotifications @ 0x140A26D60
+ * XREFs of CmFcManagerDrainAllFeatureUsageNotifications @ 0x140A27010
  * Callers:
- *     CmFcShutdownSystem @ 0x140A11C48 (CmFcShutdownSystem.c)
+ *     CmFcShutdownSystem @ 0x140A11EF8 (CmFcShutdownSystem.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
- *     CmFcpManagerDrainUsageNotifications @ 0x14080E008 (CmFcpManagerDrainUsageNotifications.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     KeAbPreAcquire @ 0x140230FD0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402FD0A0 (ExfAcquirePushLockExclusiveEx.c)
+ *     CmFcpManagerDrainUsageNotifications @ 0x14080E2D8 (CmFcpManagerDrainUsageNotifications.c)
  */
 
 _QWORD *CmFcManagerDrainAllFeatureUsageNotifications()
@@ -20,17 +20,17 @@ _QWORD *CmFcManagerDrainAllFeatureUsageNotifications()
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  v1 = KeAbPreAcquire((__int64)&stru_140C14168, 0LL);
-  v2 = _interlockedbittestandset64((volatile signed __int32 *)&stru_140C14168, 0LL);
+  v1 = KeAbPreAcquire((__int64)&stru_140C14128, 0LL);
+  v2 = _interlockedbittestandset64((volatile signed __int32 *)&stru_140C14128, 0LL);
   v3 = v1;
   if ( v2 )
-    ExfAcquirePushLockExclusiveEx(&stru_140C14168, v1, (__int64)&stru_140C14168);
+    ExfAcquirePushLockExclusiveEx((unsigned __int64 *)&stru_140C14128, v1, (__int64)&stru_140C14128);
   if ( v3 )
     *(_BYTE *)(v3 + 18) = 1;
   CmFcpManagerDrainUsageNotifications((__int64)CmFcSystemManager, 1);
   CmFcpManagerDrainUsageNotifications((__int64)CmFcSystemManager, 1);
-  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&stru_140C14168, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock((volatile signed __int64 *)&stru_140C14168);
-  KeAbPostRelease((ULONG_PTR)&stru_140C14168);
+  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&stru_140C14128, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    ExfTryToWakePushLock((volatile signed __int64 *)&stru_140C14128);
+  KeAbPostRelease((ULONG_PTR)&stru_140C14128);
   return KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
 }

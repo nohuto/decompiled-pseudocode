@@ -1,10 +1,10 @@
 /*
- * XREFs of PopErratumUpdateCallback @ 0x14056EDF0
+ * XREFs of PopErratumUpdateCallback @ 0x14056F030
  * Callers:
  *     <none>
  * Callees:
- *     PopSetPowerSettingValueAcDc @ 0x140679E68 (PopSetPowerSettingValueAcDc.c)
- *     ExQueryWnfStateData @ 0x1406BB180 (ExQueryWnfStateData.c)
+ *     ExQueryWnfStateData @ 0x14061A450 (ExQueryWnfStateData.c)
+ *     PopSetPowerSettingValueAcDc @ 0x14066D5A8 (PopSetPowerSettingValueAcDc.c)
  */
 
 __int64 __fastcall PopErratumUpdateCallback(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int a5, const GUID *a6)

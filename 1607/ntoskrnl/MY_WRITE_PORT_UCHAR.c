@@ -1,11 +1,11 @@
 /*
- * XREFs of MY_WRITE_PORT_UCHAR @ 0x140171A80
+ * XREFs of MY_WRITE_PORT_UCHAR @ 0x140171F80
  * Callers:
- *     CpDoesPortExist @ 0x14023DA44 (CpDoesPortExist.c)
- *     CpEnableFifo @ 0x14023DB04 (CpEnableFifo.c)
- *     CpInitialize @ 0x14023DBF0 (CpInitialize.c)
- *     CpPutByte @ 0x14023DC38 (CpPutByte.c)
- *     CpSetBaud @ 0x14023DD4C (CpSetBaud.c)
+ *     CpDoesPortExist @ 0x14023D928 (CpDoesPortExist.c)
+ *     CpEnableFifo @ 0x14023D9E8 (CpEnableFifo.c)
+ *     CpInitialize @ 0x14023DAD4 (CpInitialize.c)
+ *     CpPutByte @ 0x14023DB1C (CpPutByte.c)
+ *     CpSetBaud @ 0x14023DC30 (CpSetBaud.c)
  * Callees:
  *     <none>
  */

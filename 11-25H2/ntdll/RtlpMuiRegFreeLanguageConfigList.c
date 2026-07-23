@@ -9,11 +9,11 @@
  *     <none>
  */
 
-__int64 __fastcall RtlpMuiRegFreeLanguageConfigList(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+LOGICAL __fastcall RtlpMuiRegFreeLanguageConfigList(void *a1)
 {
-  __int64 result; // rax
+  LOGICAL result; // eax
 
   if ( a1 )
-    return RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, a1, a4);
+    return RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, a1);
   return result;
 }

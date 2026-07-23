@@ -8,31 +8,26 @@
  *     _LdrControlFlowGuardEnforced@0 @ 0x4B2D0100 (_LdrControlFlowGuardEnforced@0.c)
  */
 
-int __fastcall RtlGuardCheckImageBase(unsigned int a1)
+char __thiscall RtlGuardCheckImageBase(PVOID BaseAddress)
 {
-  int result; // eax
-  int v3; // [esp+10h] [ebp-10h] BYREF
-  int v4; // [esp+14h] [ebp-Ch]
-  int v5; // [esp+18h] [ebp-8h]
-  int v6; // [esp+1Ch] [ebp-4h]
+  int v2; // eax
+  PVOID v4; // [esp+14h] [ebp-Ch]
 
-  result = LdrControlFlowGuardEnforced();
-  if ( result )
+  LOBYTE(v2) = LdrControlFlowGuardEnforced();
+  if ( v2 )
   {
-    if ( a1 < dword_4B3A9374[0]
-      || (result = dword_4B3A9374[0] + dword_4B3A9378[0], a1 >= dword_4B3A9374[0] + dword_4B3A9378[0]) )
+    if ( (unsigned int)BaseAddress < dword_4B3A9374[0]
+      || (LOBYTE(v2) = LOBYTE(dword_4B3A9374[0]) + LOBYTE(dword_4B3A9378[0]),
+          (unsigned int)BaseAddress >= dword_4B3A9374[0] + dword_4B3A9378[0]) )
     {
-      result = RtlpxLookupFunctionTable(a1, &v3);
+      LOBYTE(v2) = RtlpxLookupFunctionTable(BaseAddress);
     }
     else
     {
-      v3 = dword_4B3A9370[0];
-      v4 = dword_4B3A9370[1];
-      v5 = dword_4B3A9370[2];
-      v6 = dword_4B3A9370[3];
+      v4 = (PVOID)dword_4B3A9370[1];
     }
-    if ( v4 != a1 )
+    if ( v4 != BaseAddress )
       __fastfail(0x18u);
   }
-  return result;
+  return v2;
 }

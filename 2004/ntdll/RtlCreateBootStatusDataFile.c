@@ -12,54 +12,52 @@
  *     RtlpGetBootStatusPath @ 0x1800EDFE4 (RtlpGetBootStatusPath.c)
  */
 
-__int64 __fastcall RtlCreateBootStatusDataFile(PCWSTR SourceString)
+NTSTATUS RtlCreateBootStatusDataFile(void)
 {
+  const WCHAR *v0; // rcx
   char v1; // di
-  int File; // ebx
-  PCWSTR SourceStringa; // [rsp+60h] [rbp-19h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+68h] [rbp-11h] BYREF
-  int v6; // [rsp+88h] [rbp+Fh]
-  __int64 v7; // [rsp+90h] [rbp+17h]
-  UNICODE_STRING *p_DestinationString; // [rsp+98h] [rbp+1Fh]
-  int v9; // [rsp+A0h] [rbp+27h]
-  __int128 v10; // [rsp+A8h] [rbp+2Fh]
-  char v11; // [rsp+E0h] [rbp+67h] BYREF
-  char v12; // [rsp+E8h] [rbp+6Fh]
-  __int64 v13; // [rsp+F0h] [rbp+77h]
-  HANDLE Handle; // [rsp+F8h] [rbp+7Fh]
+  int v2; // ebx
+  PCWSTR SourceString; // [rsp+60h] [rbp-19h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+68h] [rbp-11h] BYREF
+  _IO_STATUS_BLOCK IoStatusBlock; // [rsp+78h] [rbp-1h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+88h] [rbp+Fh] BYREF
+  char v8; // [rsp+E0h] [rbp+67h] BYREF
+  char Buffer; // [rsp+E8h] [rbp+6Fh] BYREF
+  LARGE_INTEGER ByteOffset; // [rsp+F0h] [rbp+77h] BYREF
+  HANDLE FileHandle; // [rsp+F8h] [rbp+7Fh] BYREF
 
-  Handle = 0LL;
+  FileHandle = 0LL;
   v1 = 0;
-  SourceStringa = 0LL;
-  v12 = 1;
-  v11 = 0;
-  if ( SourceString )
+  SourceString = 0LL;
+  Buffer = 1;
+  v8 = 0;
+  if ( v0 )
   {
-    RtlInitUnicodeString(&DestinationString, SourceString);
+    RtlInitUnicodeString(&DestinationString, v0);
   }
   else
   {
-    RtlpGetBootStatusPath(&SourceStringa, &v11);
-    RtlInitUnicodeString(&DestinationString, SourceStringa);
-    v1 = v11;
+    RtlpGetBootStatusPath(&SourceString, &v8);
+    RtlInitUnicodeString(&DestinationString, SourceString);
+    v1 = v8;
   }
-  v7 = 0LL;
-  p_DestinationString = &DestinationString;
-  v6 = 48;
-  v9 = 64;
-  v10 = 0LL;
-  v13 = 67584LL;
-  File = ZwCreateFile();
-  if ( File >= 0 )
+  ObjectAttributes.RootDirectory = 0LL;
+  ObjectAttributes.ObjectName = &DestinationString;
+  ObjectAttributes.Length = 48;
+  ObjectAttributes.Attributes = 64;
+  *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+  ByteOffset.QuadPart = 67584LL;
+  v2 = ZwCreateFile(&FileHandle, 0x12019Fu, &ObjectAttributes, &IoStatusBlock, &ByteOffset, 4u, 0, 2u, 0x8020u, 0LL, 0);
+  if ( v2 >= 0 )
   {
-    --v13;
-    File = NtWriteFile();
-    if ( File >= 0 )
-      File = RtlRestoreBootStatusDefaults(Handle);
+    --ByteOffset.QuadPart;
+    v2 = NtWriteFile(FileHandle, 0LL, 0LL, 0LL, &IoStatusBlock, &Buffer, 1u, &ByteOffset, 0LL);
+    if ( v2 >= 0 )
+      v2 = RtlRestoreBootStatusDefaults(FileHandle);
   }
-  if ( Handle )
-    NtClose(Handle);
+  if ( FileHandle )
+    NtClose(FileHandle);
   if ( v1 )
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (__int64)SourceStringa);
-  return (unsigned int)File;
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, (PVOID)SourceString);
+  return v2;
 }

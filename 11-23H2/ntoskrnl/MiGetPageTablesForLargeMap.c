@@ -1,9 +1,9 @@
 /*
- * XREFs of MiGetPageTablesForLargeMap @ 0x14038E5F8
+ * XREFs of MiGetPageTablesForLargeMap @ 0x14038E7D8
  * Callers:
  *     MiInsertInSystemSpace @ 0x140213D10 (MiInsertInSystemSpace.c)
- *     MiMapContiguousMemoryLarge @ 0x14038E404 (MiMapContiguousMemoryLarge.c)
- *     MiMapSystemImageWithLargePage @ 0x140A49B64 (MiMapSystemImageWithLargePage.c)
+ *     MiMapContiguousMemoryLarge @ 0x14038E5E4 (MiMapContiguousMemoryLarge.c)
+ *     MiMapSystemImageWithLargePage @ 0x140A49E14 (MiMapSystemImageWithLargePage.c)
  * Callees:
  *     MiObtainSystemVa @ 0x140210F9C (MiObtainSystemVa.c)
  *     MiReturnSystemVa @ 0x140213B54 (MiReturnSystemVa.c)

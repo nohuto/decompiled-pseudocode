@@ -1,11 +1,11 @@
 /*
- * XREFs of SeAssignSecurity @ 0x14066A500
+ * XREFs of SeAssignSecurity @ 0x14065F320
  * Callers:
- *     CmpCreateChild @ 0x140667AD4 (CmpCreateChild.c)
- *     CmpCreateHiveRootCell @ 0x14078DBF0 (CmpCreateHiveRootCell.c)
- *     CmFcInitSystem2 @ 0x140A38398 (CmFcInitSystem2.c)
+ *     CmpCreateChild @ 0x14065C8F4 (CmpCreateChild.c)
+ *     CmpCreateHiveRootCell @ 0x14078DDB0 (CmpCreateHiveRootCell.c)
+ *     CmFcInitSystem2 @ 0x140A39398 (CmFcInitSystem2.c)
  * Callees:
- *     RtlpNewSecurityObject @ 0x1406FF5F0 (RtlpNewSecurityObject.c)
+ *     RtlpNewSecurityObject @ 0x1407169D0 (RtlpNewSecurityObject.c)
  */
 
 NTSTATUS __stdcall SeAssignSecurity(
@@ -34,9 +34,9 @@ NTSTATUS __stdcall SeAssignSecurity(
     }
   }
   return RtlpNewSecurityObject(
-           (_DWORD)ParentDescriptor,
-           (_DWORD)ExplicitDescriptor,
-           (_DWORD)NewDescriptor,
+           (int)ParentDescriptor,
+           (int)ExplicitDescriptor,
+           (int)NewDescriptor,
            0,
            0,
            IsDirectoryObject,

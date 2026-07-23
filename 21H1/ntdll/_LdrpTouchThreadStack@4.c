@@ -8,31 +8,41 @@
  *     _LdrpGenericExceptionFilter@8 @ 0x4B334947 (_LdrpGenericExceptionFilter@8.c)
  */
 
-int __fastcall LdrpTouchThreadStack(unsigned int a1)
+NTSTATUS __fastcall LdrpTouchThreadStack(unsigned int a1)
 {
   struct _TEB *v2; // edi
-  int result; // eax
+  NTSTATUS result; // eax
   unsigned int v4; // eax
   unsigned int v5; // ecx
-  _BYTE v6[4]; // [esp+10h] [ebp-3Ch] BYREF
-  int v7; // [esp+14h] [ebp-38h]
-  _BYTE v8[4]; // [esp+2Ch] [ebp-20h] BYREF
-  unsigned int v9; // [esp+30h] [ebp-1Ch]
+  SIZE_T v6; // [esp-8h] [ebp-54h]
+  ULONG_PTR *v7; // [esp+0h] [ebp-4Ch]
+  _BYTE MemoryInformation[4]; // [esp+10h] [ebp-3Ch] BYREF
+  int v9; // [esp+14h] [ebp-38h]
+  char v10; // [esp+2Ch] [ebp-20h] BYREF
+  unsigned int v11; // [esp+30h] [ebp-1Ch]
   CPPEH_RECORD ms_exc; // [esp+34h] [ebp-18h]
 
   v2 = NtCurrentTeb();
-  result = NtQueryVirtualMemory(-1, (int)v2->NtTib.StackLimit, 0, (int)v6, 28, (int)v8);
+  HIDWORD(v6) = &v10;
+  LODWORD(v6) = 28;
+  result = NtQueryVirtualMemory(
+             (HANDLE)0xFFFFFFFF,
+             v2->NtTib.StackLimit,
+             MemoryBasicInformation,
+             MemoryInformation,
+             v6,
+             v7);
   if ( result >= 0 )
   {
     v4 = (unsigned int)v2->NtTib.StackBase - 4096;
-    v9 = v4;
-    if ( v4 <= a1 || (v5 = v4 - a1, v4 - a1 <= v7 + 12288) )
-      v5 = v7 + 12288;
+    v11 = v4;
+    if ( v4 <= a1 || (v5 = v4 - a1, v4 - a1 <= v9 + 12288) )
+      v5 = v9 + 12288;
     ms_exc.registration.TryLevel = 0;
     while ( v4 >= v5 )
     {
-      v4 = v9 - 4096;
-      v9 -= 4096;
+      v4 = v11 - 4096;
+      v11 -= 4096;
     }
     return 0;
   }

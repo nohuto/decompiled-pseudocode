@@ -1,14 +1,14 @@
 /*
- * XREFs of MiWaitForRotateToComplete @ 0x140633C04
+ * XREFs of MiWaitForRotateToComplete @ 0x140634154
  * Callers:
- *     MiUserFault @ 0x140235890 (MiUserFault.c)
+ *     MiUserFault @ 0x140235960 (MiUserFault.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     MiUnlockAndDereferenceVadShared @ 0x140275470 (MiUnlockAndDereferenceVadShared.c)
- *     MiLockVadShared @ 0x140275530 (MiLockVadShared.c)
- *     MiGetSharedVm @ 0x140286E74 (MiGetSharedVm.c)
- *     MiUnlockWorkingSetExclusive @ 0x14028A2F0 (MiUnlockWorkingSetExclusive.c)
- *     MiUnlockFaultWorkingSet @ 0x140362444 (MiUnlockFaultWorkingSet.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     MiUnlockAndDereferenceVadShared @ 0x140275700 (MiUnlockAndDereferenceVadShared.c)
+ *     MiLockVadShared @ 0x1402757C0 (MiLockVadShared.c)
+ *     MiGetSharedVm @ 0x140287104 (MiGetSharedVm.c)
+ *     MiUnlockWorkingSetExclusive @ 0x14028A580 (MiUnlockWorkingSetExclusive.c)
+ *     MiUnlockFaultWorkingSet @ 0x1403625E4 (MiUnlockFaultWorkingSet.c)
  */
 
 __int64 __fastcall MiWaitForRotateToComplete(unsigned __int64 a1, __int64 a2, __int64 a3, __int64 a4)

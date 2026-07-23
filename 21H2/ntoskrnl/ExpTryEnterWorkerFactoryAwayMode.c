@@ -1,11 +1,11 @@
 /*
- * XREFs of ExpTryEnterWorkerFactoryAwayMode @ 0x140286990
+ * XREFs of ExpTryEnterWorkerFactoryAwayMode @ 0x140203B30
  * Callers:
- *     NtSetInformationWorkerFactory @ 0x140285C70 (NtSetInformationWorkerFactory.c)
- *     ExpWorkerFactoryManagerThread @ 0x1403B75A0 (ExpWorkerFactoryManagerThread.c)
+ *     NtSetInformationWorkerFactory @ 0x140202E10 (NtSetInformationWorkerFactory.c)
+ *     ExpWorkerFactoryManagerThread @ 0x1403B7710 (ExpWorkerFactoryManagerThread.c)
  * Callees:
- *     KeRegisterObjectNotification @ 0x140202F18 (KeRegisterObjectNotification.c)
- *     ObfReferenceObjectWithTag @ 0x1402056A0 (ObfReferenceObjectWithTag.c)
+ *     KeRegisterObjectNotification @ 0x1402A7858 (KeRegisterObjectNotification.c)
+ *     ObfReferenceObjectWithTag @ 0x1402A9FE0 (ObfReferenceObjectWithTag.c)
  */
 
 char __fastcall ExpTryEnterWorkerFactoryAwayMode(_QWORD *Object)
@@ -28,10 +28,7 @@ char __fastcall ExpTryEnterWorkerFactoryAwayMode(_QWORD *Object)
       {
         *((_DWORD *)Object + 78) = v3 | 0x600;
         ObfReferenceObjectWithTag(Object, 0x746C6644u);
-        KeRegisterObjectNotification(
-          *(_QWORD *)(v2 + 8),
-          (__int64)&ExpWorkerFactoryManagerQueue,
-          (__int64)(Object + 65));
+        KeRegisterObjectNotification(*(_QWORD *)(v2 + 8), &ExpWorkerFactoryManagerQueue, Object + 65);
       }
     }
   }

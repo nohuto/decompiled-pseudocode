@@ -29,7 +29,7 @@ __int64 __fastcall PopSessionConnectionChange(__int64 a1, char *a2, __int64 a3)
   v9 = "Console";
   if ( !v5 )
     v9 = "Remote";
-  PopPrintEx(3LL, (__int64)"PopAdaptive:>>>>>%s session %u is %s\n", v9, v4, v8);
+  PopPrintEx(3u, (__int64)"PopAdaptive:>>>>>%s session %u is %s\n", v9, v4, v8);
   if ( v3 )
     PopSessionConnected(v4, (__int64)a2, a3);
   else

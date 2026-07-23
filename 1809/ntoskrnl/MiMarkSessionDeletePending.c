@@ -1,12 +1,12 @@
 /*
- * XREFs of MiMarkSessionDeletePending @ 0x140154AE4
+ * XREFs of MiMarkSessionDeletePending @ 0x140154BE4
  * Callers:
- *     MiDereferenceSessionFinal @ 0x1406E05B8 (MiDereferenceSessionFinal.c)
+ *     MiDereferenceSessionFinal @ 0x1406E1858 (MiDereferenceSessionFinal.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     KeWaitForGate @ 0x1400FA304 (KeWaitForGate.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14007DE80 (KeAcquireInStackQueuedSpinLock.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     KeWaitForGate @ 0x1400FA384 (KeWaitForGate.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiMarkSessionDeletePending(__int64 a1)
@@ -18,7 +18,7 @@ __int64 __fastcall MiMarkSessionDeletePending(__int64 a1)
   struct _KPRCB *v6; // rcx
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
 
-  KeAcquireInStackQueuedSpinLock(&qword_14043AE80, &LockHandle);
+  KeAcquireInStackQueuedSpinLock(&qword_14043BF40, &LockHandle);
   *(_DWORD *)(a1 + 4) |= 2u;
   if ( *(_DWORD *)(a1 + 116) )
   {

@@ -1,14 +1,14 @@
 /*
- * XREFs of MiRaisedIrqlFault @ 0x140245EB8
+ * XREFs of MiRaisedIrqlFault @ 0x1402FADDC
  * Callers:
- *     MmAccessFault @ 0x140216750 (MmAccessFault.c)
+ *     MmAccessFault @ 0x140243610 (MmAccessFault.c)
  * Callees:
- *     KeInvalidAccessAllowed @ 0x1402292D0 (KeInvalidAccessAllowed.c)
- *     MiNoFaultFound @ 0x140233220 (MiNoFaultFound.c)
- *     MiTransientCombineAddress @ 0x1402448C4 (MiTransientCombineAddress.c)
- *     MiGenerateAccessViolation @ 0x140246254 (MiGenerateAccessViolation.c)
- *     MiCheckSystemNxFault @ 0x140499024 (MiCheckSystemNxFault.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     MiNoFaultFound @ 0x140203670 (MiNoFaultFound.c)
+ *     MiTransientCombineAddress @ 0x14020D0AC (MiTransientCombineAddress.c)
+ *     MiGenerateAccessViolation @ 0x1402FB178 (MiGenerateAccessViolation.c)
+ *     KeInvalidAccessAllowed @ 0x1402FC4D0 (KeInvalidAccessAllowed.c)
+ *     MiCheckSystemNxFault @ 0x1404939B0 (MiCheckSystemNxFault.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiRaisedIrqlFault(__int64 a1)
@@ -28,7 +28,7 @@ __int64 __fastcall MiRaisedIrqlFault(__int64 a1)
   __int64 v15; // rcx
 
   v2 = *(_QWORD *)(a1 + 16);
-  if ( (v2 & 1) == 0 && KeInvalidAccessAllowed(v2, 1) )
+  if ( (v2 & 1) == 0 && (unsigned __int8)KeInvalidAccessAllowed(v2, 1LL) )
     return 3221225477LL;
   if ( (*(_DWORD *)(a1 + 80) & 0x80u) != 0 )
     KeBugCheckEx(0x50u, *(_QWORD *)a1, *(_QWORD *)(a1 + 8), *(_QWORD *)(a1 + 16), 0xEuLL);
@@ -71,7 +71,7 @@ LABEL_14:
     if ( *v8 == 1 || *v8 == 3 || *v8 == 6 )
       return 3221225477LL;
   }
-  else if ( KeInvalidAccessAllowed(v7, 0) )
+  else if ( (unsigned __int8)KeInvalidAccessAllowed(v7, 0LL) )
   {
     return 3221225477LL;
   }
@@ -118,7 +118,7 @@ LABEL_14:
       || (*(_QWORD *)v15 & 1) == 0
       || (*(_DWORD *)(v15 + 32) & 0x8000000) != 0 )
     {
-      MiNoFaultFound(a1, (volatile signed __int64 *)v13, *(_QWORD *)a1, *(_QWORD *)(a1 + 16), 1, v14);
+      MiNoFaultFound(a1, (volatile signed __int64 *)v13, *(_QWORD *)a1, *(_QWORD *)(a1 + 16), 1u, v14);
       return 0LL;
     }
   }

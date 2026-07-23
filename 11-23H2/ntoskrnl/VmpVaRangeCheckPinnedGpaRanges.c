@@ -1,8 +1,8 @@
 /*
- * XREFs of VmpVaRangeCheckPinnedGpaRanges @ 0x1405FB794
+ * XREFs of VmpVaRangeCheckPinnedGpaRanges @ 0x1405FBD04
  * Callers:
- *     VmpRemoveMemoryRange @ 0x1405FACF4 (VmpRemoveMemoryRange.c)
- *     VmpUnpinMemoryRange @ 0x1405FB554 (VmpUnpinMemoryRange.c)
+ *     VmpRemoveMemoryRange @ 0x1405FB264 (VmpRemoveMemoryRange.c)
+ *     VmpUnpinMemoryRange @ 0x1405FBAC4 (VmpUnpinMemoryRange.c)
  * Callees:
  *     <none>
  */

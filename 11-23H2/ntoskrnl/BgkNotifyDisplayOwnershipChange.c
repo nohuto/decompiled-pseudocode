@@ -1,18 +1,18 @@
 /*
- * XREFs of BgkNotifyDisplayOwnershipChange @ 0x1403ADB80
+ * XREFs of BgkNotifyDisplayOwnershipChange @ 0x1403ADD60
  * Callers:
- *     BgkSetDisplayOwnership @ 0x1403ADB60 (BgkSetDisplayOwnership.c)
- *     BgkNotifyDisplayOwnershipLost @ 0x14054EE60 (BgkNotifyDisplayOwnershipLost.c)
- *     BvgaNotifyDisplayOwnershipChange @ 0x14054F360 (BvgaNotifyDisplayOwnershipChange.c)
+ *     BgkSetDisplayOwnership @ 0x1403ADD40 (BgkSetDisplayOwnership.c)
+ *     BgkNotifyDisplayOwnershipLost @ 0x14054F520 (BgkNotifyDisplayOwnershipLost.c)
+ *     BvgaNotifyDisplayOwnershipChange @ 0x14054FA20 (BvgaNotifyDisplayOwnershipChange.c)
  * Callees:
  *     ExRundownCompleted @ 0x140208880 (ExRundownCompleted.c)
- *     ExWaitForRundownProtectionRelease @ 0x14030A340 (ExWaitForRundownProtectionRelease.c)
- *     InbvSetFunction @ 0x140387F88 (InbvSetFunction.c)
- *     BgkpTryEnableConsole @ 0x140388268 (BgkpTryEnableConsole.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     BgLibraryEnable @ 0x140671A78 (BgLibraryEnable.c)
- *     BgkResumeFinished @ 0x140A99A38 (BgkResumeFinished.c)
+ *     ExWaitForRundownProtectionRelease @ 0x14030A5D0 (ExWaitForRundownProtectionRelease.c)
+ *     InbvSetFunction @ 0x140388168 (InbvSetFunction.c)
+ *     BgkpTryEnableConsole @ 0x140388448 (BgkpTryEnableConsole.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     BgLibraryEnable @ 0x140671FC8 (BgLibraryEnable.c)
+ *     BgkResumeFinished @ 0x140A998A8 (BgkResumeFinished.c)
  *     BgSetFrameBufferAccess @ 0x140AEC008 (BgSetFrameBufferAccess.c)
  *     BgConsoleGetInterface @ 0x140AEE5EC (BgConsoleGetInterface.c)
  *     BgkDestroy @ 0x140AEEA68 (BgkDestroy.c)
@@ -60,8 +60,8 @@ __int64 __fastcall BgkNotifyDisplayOwnershipChange(char a1, __int64 (__fastcall 
       BgDisplayFade();
       byte_140C6AB81 = 0;
       byte_140C6AB79 = 0;
-      ExWaitForRundownProtectionRelease(&stru_140C0BD38);
-      ExRundownCompleted(&stru_140C0BD38);
+      ExWaitForRundownProtectionRelease(&stru_140C0BD48);
+      ExRundownCompleted(&stru_140C0BD48);
       v3 = BgLibraryDisable();
       if ( v3 < 0 )
       {

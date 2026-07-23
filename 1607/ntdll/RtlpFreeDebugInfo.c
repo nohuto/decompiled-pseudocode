@@ -1,23 +1,23 @@
 /*
- * XREFs of RtlpFreeDebugInfo @ 0x1800524D8
+ * XREFs of RtlpFreeDebugInfo @ 0x1800524C8
  * Callers:
- *     RtlInitializeResource @ 0x18002B050 (RtlInitializeResource.c)
- *     RtlpAddDebugInfoToCriticalSection @ 0x18002B140 (RtlpAddDebugInfoToCriticalSection.c)
- *     RtlDeleteResource @ 0x180052360 (RtlDeleteResource.c)
- *     RtlDeleteCriticalSection @ 0x1800523B0 (RtlDeleteCriticalSection.c)
+ *     RtlInitializeResource @ 0x18002B040 (RtlInitializeResource.c)
+ *     RtlpAddDebugInfoToCriticalSection @ 0x18002B130 (RtlpAddDebugInfoToCriticalSection.c)
+ *     RtlDeleteResource @ 0x180052350 (RtlDeleteResource.c)
+ *     RtlDeleteCriticalSection @ 0x1800523A0 (RtlDeleteCriticalSection.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall RtlpFreeDebugInfo(unsigned __int64 a1)
+LOGICAL __fastcall RtlpFreeDebugInfo(char *a1)
 {
   if ( LOWORD(RtlCriticalSectionDebugSList.Alignment) < 0xAu
-    || (unsigned __int64)&RtlpStaticDebugInfo <= a1 && a1 < (unsigned __int64)&RtlpForceCSDebugInfoCreation )
+    || &RtlpStaticDebugInfo <= (_UNKNOWN *)a1 && a1 < &RtlpForceCSDebugInfoCreation )
   {
     return RtlpInterlockedPushEntrySList(&RtlCriticalSectionDebugSList, a1);
   }
   else
   {
-    return RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, a1);
+    return RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, a1);
   }
 }

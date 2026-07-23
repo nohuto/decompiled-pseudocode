@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpTraverseParents @ 0x180033FF0
+ * XREFs of RtlpTraverseParents @ 0x1800022C0
  * Callers:
- *     RtlpTraverseParents @ 0x180033FF0 (RtlpTraverseParents.c)
- *     LdrpMergeParentBaseLanguagesToList @ 0x180034340 (LdrpMergeParentBaseLanguagesToList.c)
- *     RtlpIsQualifiedLanguage @ 0x1800806B0 (RtlpIsQualifiedLanguage.c)
+ *     RtlpIsQualifiedLanguage @ 0x180001530 (RtlpIsQualifiedLanguage.c)
+ *     RtlpTraverseParents @ 0x1800022C0 (RtlpTraverseParents.c)
+ *     LdrpMergeParentBaseLanguagesToList @ 0x1800145C0 (LdrpMergeParentBaseLanguagesToList.c)
  * Callees:
- *     RtlpTraverseParents @ 0x180033FF0 (RtlpTraverseParents.c)
- *     RtlpCompareConfigNodeWithSpec @ 0x1800E9DD4 (RtlpCompareConfigNodeWithSpec.c)
+ *     RtlpTraverseParents @ 0x1800022C0 (RtlpTraverseParents.c)
+ *     RtlpCompareConfigNodeWithSpec @ 0x18000260C (RtlpCompareConfigNodeWithSpec.c)
  */
 
 char __fastcall RtlpTraverseParents(_WORD *a1, __int64 a2, __int64 a3, __int64 a4, unsigned int a5, int a6)

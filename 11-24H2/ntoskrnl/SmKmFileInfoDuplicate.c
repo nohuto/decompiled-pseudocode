@@ -1,24 +1,24 @@
 /*
- * XREFs of SmKmFileInfoDuplicate @ 0x140AB181C
+ * XREFs of SmKmFileInfoDuplicate @ 0x140AAC78C
  * Callers:
- *     ?SmStStart@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_SMST_PARAMETERS@@@Z @ 0x140449680 (-SmStStart@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_SMST_PARAMETERS@@@Z.c)
+ *     ?SmStStart@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_SMST_PARAMETERS@@@Z @ 0x140376D70 (-SmStStart@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_SMST_PARAMETERS@@@Z.c)
  * Callees:
- *     PsReferenceSiloContext @ 0x14033FA90 (PsReferenceSiloContext.c)
- *     SmAllocEx @ 0x14044AB68 (SmAllocEx.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwDuplicateObject @ 0x1406A6B90 (ZwDuplicateObject.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ObReferenceObjectByHandle @ 0x14084AF40 (ObReferenceObjectByHandle.c)
- *     ObOpenObjectByPointer @ 0x140854F10 (ObOpenObjectByPointer.c)
- *     SmKmFileInfoCleanup @ 0x140AB19B0 (SmKmFileInfoCleanup.c)
+ *     SmAllocEx @ 0x1402F5228 (SmAllocEx.c)
+ *     PsReferenceSiloContext @ 0x14031EF70 (PsReferenceSiloContext.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwDuplicateObject @ 0x1406A7B30 (ZwDuplicateObject.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ObReferenceObjectByHandle @ 0x140847200 (ObReferenceObjectByHandle.c)
+ *     ObOpenObjectByPointer @ 0x1408511D0 (ObOpenObjectByPointer.c)
+ *     SmKmFileInfoCleanup @ 0x140AAC920 (SmKmFileInfoCleanup.c)
  */
 
 __int64 __fastcall SmKmFileInfoDuplicate(_OWORD *a1, __int64 a2)
 {
   NTSTATUS v4; // ebx
   void *v5; // rcx
-  size_t v6; // rbx
+  ULONG_PTR v6; // rbx
   void *v7; // rax
   int v8; // eax
   __int128 v9; // xmm1
@@ -52,7 +52,7 @@ __int64 __fastcall SmKmFileInfoDuplicate(_OWORD *a1, __int64 a2)
         *((_QWORD *)&v14 + 1) = *(_QWORD *)(a2 + 24);
       }
       v6 = (unsigned int)(16 * *(_DWORD *)(a2 + 56));
-      v7 = (void *)SmAllocEx(v6, 1951952243LL, -1);
+      v7 = (void *)SmAllocEx(v6, 0x74586D73u, -1);
       *(_QWORD *)&v16 = v7;
       if ( v7 )
       {

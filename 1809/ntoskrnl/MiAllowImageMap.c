@@ -1,17 +1,17 @@
 /*
- * XREFs of MiAllowImageMap @ 0x1405F48B8
+ * XREFs of MiAllowImageMap @ 0x1405F58B8
  * Callers:
- *     MiMapViewOfImageSection @ 0x1405F3660 (MiMapViewOfImageSection.c)
+ *     MiMapViewOfImageSection @ 0x1405F4660 (MiMapViewOfImageSection.c)
  * Callees:
  *     MiDereferenceControlAreaFile @ 0x14001CA78 (MiDereferenceControlAreaFile.c)
  *     MiReferenceControlAreaFile @ 0x14001CBB0 (MiReferenceControlAreaFile.c)
- *     SeGetTrustLabelAce @ 0x1400AA950 (SeGetTrustLabelAce.c)
- *     MiGetControlAreaLoadConfig @ 0x1400D9514 (MiGetControlAreaLoadConfig.c)
- *     ObReleaseObjectSecurity @ 0x1405C93E0 (ObReleaseObjectSecurity.c)
- *     ObpGetObjectSecurity @ 0x1405C9580 (ObpGetObjectSecurity.c)
- *     SeQueryMandatoryLabel @ 0x140654E2C (SeQueryMandatoryLabel.c)
- *     EtwpTimLogMitigationForProcess @ 0x1406BF19C (EtwpTimLogMitigationForProcess.c)
- *     EtwTimLogProhibitLowILImageMap @ 0x1408BCC80 (EtwTimLogProhibitLowILImageMap.c)
+ *     SeGetTrustLabelAce @ 0x1400AA890 (SeGetTrustLabelAce.c)
+ *     MiGetControlAreaLoadConfig @ 0x1400D9594 (MiGetControlAreaLoadConfig.c)
+ *     ObReleaseObjectSecurity @ 0x1405CA3E0 (ObReleaseObjectSecurity.c)
+ *     ObpGetObjectSecurity @ 0x1405CA580 (ObpGetObjectSecurity.c)
+ *     SeQueryMandatoryLabel @ 0x140655FEC (SeQueryMandatoryLabel.c)
+ *     EtwpTimLogMitigationForProcess @ 0x1406C043C (EtwpTimLogMitigationForProcess.c)
+ *     EtwTimLogProhibitLowILImageMap @ 0x1408BDF40 (EtwTimLogProhibitLowILImageMap.c)
  */
 
 __int64 __fastcall MiAllowImageMap(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

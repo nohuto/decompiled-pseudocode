@@ -1,11 +1,11 @@
 /*
- * XREFs of ExpDereferenceHost @ 0x140840D58
+ * XREFs of ExpDereferenceHost @ 0x140846F98
  * Callers:
- *     ExRegisterExtension @ 0x140840790 (ExRegisterExtension.c)
- *     ExRegisterHost @ 0x140840A68 (ExRegisterHost.c)
- *     ExUnregisterExtension @ 0x140840C20 (ExUnregisterExtension.c)
+ *     ExRegisterExtension @ 0x1408469D0 (ExRegisterExtension.c)
+ *     ExRegisterHost @ 0x140846CA8 (ExRegisterHost.c)
+ *     ExUnregisterExtension @ 0x140846E60 (ExUnregisterExtension.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall ExpDereferenceHost(volatile signed __int64 *a1)

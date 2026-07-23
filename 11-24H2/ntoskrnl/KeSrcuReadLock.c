@@ -1,10 +1,10 @@
 /*
- * XREFs of KeSrcuReadLock @ 0x1405C0C80
+ * XREFs of KeSrcuReadLock @ 0x1405BE250
  * Callers:
  *     <none>
  * Callees:
- *     KiRemoveSystemWorkPriorityKick @ 0x14025E408 (KiRemoveSystemWorkPriorityKick.c)
- *     KeDisableInterrupts @ 0x140321E80 (KeDisableInterrupts.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14028EA18 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeDisableInterrupts @ 0x1402CAA10 (KeDisableInterrupts.c)
  */
 
 struct _KTHREAD *__fastcall KeSrcuReadLock(__int64 a1, __int64 a2)

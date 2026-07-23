@@ -1,13 +1,13 @@
 /*
- * XREFs of MiCreatePageChains @ 0x14035B780
+ * XREFs of MiCreatePageChains @ 0x14035B920
  * Callers:
- *     MiZeroAndReleasePages @ 0x1402D3030 (MiZeroAndReleasePages.c)
- *     MiAllocateLargeZeroPages @ 0x1402E77E0 (MiAllocateLargeZeroPages.c)
- *     MiInitializeMdlOneNodeBatchPages @ 0x1402F9810 (MiInitializeMdlOneNodeBatchPages.c)
- *     MiFindLargePageMemory @ 0x140A49768 (MiFindLargePageMemory.c)
+ *     MiZeroAndReleasePages @ 0x1402D32C0 (MiZeroAndReleasePages.c)
+ *     MiAllocateLargeZeroPages @ 0x1402E7A70 (MiAllocateLargeZeroPages.c)
+ *     MiInitializeMdlOneNodeBatchPages @ 0x1402F9AA0 (MiInitializeMdlOneNodeBatchPages.c)
+ *     MiFindLargePageMemory @ 0x140A49A18 (MiFindLargePageMemory.c)
  * Callees:
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     MiSelectEngine @ 0x14035B84C (MiSelectEngine.c)
+ *     MiAllocatePool @ 0x1402DF430 (MiAllocatePool.c)
+ *     MiSelectEngine @ 0x14035B9EC (MiSelectEngine.c)
  */
 
 char *__fastcall MiCreatePageChains(__int64 a1, unsigned int a2, int a3)

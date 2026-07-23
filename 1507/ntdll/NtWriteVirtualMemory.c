@@ -10,11 +10,16 @@
  *     <none>
  */
 
-__int64 NtWriteVirtualMemory()
+NTSTATUS __cdecl NtWriteVirtualMemory(
+        HANDLE ProcessHandle,
+        PVOID BaseAddress,
+        PVOID Buffer,
+        SIZE_T BufferSize,
+        PSIZE_T NumberOfBytesWritten)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 58LL;
+  result = 58;
   __asm { syscall; Low latency system call }
   return result;
 }

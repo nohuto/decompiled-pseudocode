@@ -18,7 +18,7 @@ int __fastcall RtlpPerformHeapMaintenance(__int64 a1)
     *(_DWORD *)(a1 + 120) = result;
     if ( (RtlpDisableHeapLookaside & 1) == 0 )
     {
-      RtlpActivateLowFragmentationHeap(a1);
+      RtlpActivateLowFragmentationHeap((PRTL_CRITICAL_SECTION *)a1);
       result = *(_DWORD *)(a1 + 120);
     }
   }

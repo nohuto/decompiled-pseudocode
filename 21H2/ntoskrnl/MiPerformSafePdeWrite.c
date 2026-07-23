@@ -1,14 +1,14 @@
 /*
- * XREFs of MiPerformSafePdeWrite @ 0x14038179C
+ * XREFs of MiPerformSafePdeWrite @ 0x1403812EC
  * Callers:
- *     MiWalkPageTables @ 0x1402092C0 (MiWalkPageTables.c)
- *     MiLockLowestValidPageTable @ 0x1403055C0 (MiLockLowestValidPageTable.c)
- *     MiGetWsAndMakePageTablesNx @ 0x1403CCBD0 (MiGetWsAndMakePageTablesNx.c)
- *     MiValidVirtualizationFault @ 0x140548F5C (MiValidVirtualizationFault.c)
+ *     MiWalkPageTables @ 0x1402ADBC0 (MiWalkPageTables.c)
+ *     MiLockLowestValidPageTable @ 0x140310310 (MiLockLowestValidPageTable.c)
+ *     MiGetWsAndMakePageTablesNx @ 0x1403CCD40 (MiGetWsAndMakePageTablesNx.c)
+ *     MiValidVirtualizationFault @ 0x14054919C (MiValidVirtualizationFault.c)
  * Callees:
- *     MiWriteValidPteNewProtection @ 0x14030FA00 (MiWriteValidPteNewProtection.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
+ *     MiWriteValidPteNewProtection @ 0x14031A750 (MiWriteValidPteNewProtection.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
  */
 
 char __fastcall MiPerformSafePdeWrite(__int64 a1, unsigned __int64 a2, signed __int64 a3, char a4)

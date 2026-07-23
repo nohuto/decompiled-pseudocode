@@ -1,20 +1,25 @@
 /*
- * XREFs of NtGetNextProcess @ 0x14053F498
+ * XREFs of NtGetNextProcess @ 0x14053F9D8
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14006ACD0 (ObfDereferenceObjectWithTag.c)
- *     PspLockUnlockProcessExclusive @ 0x1400AA9B4 (PspLockUnlockProcessExclusive.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     SeDeleteAccessState @ 0x140405E08 (SeDeleteAccessState.c)
- *     SeCreateAccessState @ 0x1404063B0 (SeCreateAccessState.c)
- *     SeSinglePrivilegeCheck @ 0x140413F70 (SeSinglePrivilegeCheck.c)
- *     ObOpenObjectByPointer @ 0x1404203C0 (ObOpenObjectByPointer.c)
- *     ObReferenceObjectByHandleWithTag @ 0x140425420 (ObReferenceObjectByHandleWithTag.c)
- *     PsGetNextProcess @ 0x140508FFC (PsGetNextProcess.c)
+ *     ObfDereferenceObjectWithTag @ 0x14006A850 (ObfDereferenceObjectWithTag.c)
+ *     PspLockUnlockProcessExclusive @ 0x1400A8F34 (PspLockUnlockProcessExclusive.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     SeDeleteAccessState @ 0x140404CC8 (SeDeleteAccessState.c)
+ *     SeCreateAccessState @ 0x140405270 (SeCreateAccessState.c)
+ *     SeSinglePrivilegeCheck @ 0x140412E30 (SeSinglePrivilegeCheck.c)
+ *     ObOpenObjectByPointer @ 0x14041F280 (ObOpenObjectByPointer.c)
+ *     ObReferenceObjectByHandleWithTag @ 0x1404242E0 (ObReferenceObjectByHandleWithTag.c)
+ *     PsGetNextProcess @ 0x1404EBF8C (PsGetNextProcess.c)
  */
 
-NTSTATUS __fastcall NtGetNextProcess(HANDLE Handle, ACCESS_MASK a2, int a3, int a4, HANDLE *a5)
+NTSTATUS __cdecl NtGetNextProcess(
+        HANDLE ProcessHandle,
+        ACCESS_MASK DesiredAccess,
+        ULONG HandleAttributes,
+        ULONG Flags,
+        PHANDLE NewProcessHandle)
 {
   ACCESS_MASK v5; // edi
   KPROCESSOR_MODE PreviousMode; // r15
@@ -26,33 +31,33 @@ NTSTATUS __fastcall NtGetNextProcess(HANDLE Handle, ACCESS_MASK a2, int a3, int 
   __int64 v13; // r9
   bool v14; // r12
   struct _KTHREAD *CurrentThread; // r13
-  int v16; // edi
+  NTSTATUS v16; // edi
   PVOID Object; // [rsp+48h] [rbp-1F0h] BYREF
   _DWORD *v19; // [rsp+50h] [rbp-1E8h]
-  HANDLE v20; // [rsp+58h] [rbp-1E0h] BYREF
+  HANDLE Handle; // [rsp+58h] [rbp-1E0h] BYREF
   struct _ACCESS_STATE PassedAccessState; // [rsp+70h] [rbp-1C8h] BYREF
   _QWORD v22[28]; // [rsp+110h] [rbp-128h] BYREF
 
-  v5 = a2;
+  v5 = DesiredAccess;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
-    v8 = a3 & 0x1DF2;
+    v8 = HandleAttributes & 0x1DF2;
   else
-    v8 = a3 & 0x11FF2;
+    v8 = HandleAttributes & 0x11FF2;
   if ( PreviousMode )
   {
-    v9 = (__int64)a5;
-    if ( (unsigned __int64)a5 >= 0x7FFFFFFF0000LL )
+    v9 = (__int64)NewProcessHandle;
+    if ( (unsigned __int64)NewProcessHandle >= 0x7FFFFFFF0000LL )
       v9 = 0x7FFFFFFF0000LL;
     *(_QWORD *)v9 = *(_QWORD *)v9;
   }
-  *a5 = 0LL;
-  if ( a4 )
+  *NewProcessHandle = 0LL;
+  if ( Flags )
     return -1073741811;
-  if ( Handle )
+  if ( ProcessHandle )
   {
     result = ObReferenceObjectByHandleWithTag(
-               Handle,
+               ProcessHandle,
                0,
                (POBJECT_TYPE)PsProcessType,
                PreviousMode,
@@ -96,16 +101,16 @@ NTSTATUS __fastcall NtGetNextProcess(HANDLE Handle, ACCESS_MASK a2, int a3, int 
               0,
               (POBJECT_TYPE)PsProcessType,
               PreviousMode,
-              &v20);
+              &Handle);
       SeDeleteAccessState((struct _SECURITY_SUBJECT_CONTEXT *)&PassedAccessState);
       if ( v16 >= 0 )
       {
-        *a5 = v20;
+        *NewProcessHandle = Handle;
         goto LABEL_20;
       }
       if ( v16 != -1073741790 )
         goto LABEL_20;
-      v5 = a2;
+      v5 = DesiredAccess;
     }
     NextProcess = (_DWORD *)PsGetNextProcess(NextProcess);
     v19 = NextProcess;

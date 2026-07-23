@@ -1,11 +1,11 @@
 /*
- * XREFs of MiGetStandbyPageType @ 0x140650774
+ * XREFs of MiGetStandbyPageType @ 0x140650CC4
  * Callers:
- *     MiRebuildStandbyLookasideList @ 0x140330D9C (MiRebuildStandbyLookasideList.c)
- *     MiSkipStandbyEntries @ 0x140330FEC (MiSkipStandbyEntries.c)
- *     MiFindSuitableLookasideReplacement @ 0x140331130 (MiFindSuitableLookasideReplacement.c)
+ *     MiRebuildStandbyLookasideList @ 0x14033102C (MiRebuildStandbyLookasideList.c)
+ *     MiSkipStandbyEntries @ 0x14033127C (MiSkipStandbyEntries.c)
+ *     MiFindSuitableLookasideReplacement @ 0x1403313C0 (MiFindSuitableLookasideReplacement.c)
  * Callees:
- *     MiIsDecayPfn @ 0x14026EBD0 (MiIsDecayPfn.c)
+ *     MiIsDecayPfn @ 0x14026EE60 (MiIsDecayPfn.c)
  */
 
 __int64 __fastcall MiGetStandbyPageType(ULONG_PTR a1)

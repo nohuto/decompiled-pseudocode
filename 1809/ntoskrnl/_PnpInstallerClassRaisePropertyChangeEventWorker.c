@@ -1,9 +1,9 @@
 /*
- * XREFs of _PnpInstallerClassRaisePropertyChangeEventWorker @ 0x1408FAF08
+ * XREFs of _PnpInstallerClassRaisePropertyChangeEventWorker @ 0x1408FC1C8
  * Callers:
- *     _PnpObjectRaisePropertyChangeEvent @ 0x1406E5AE4 (_PnpObjectRaisePropertyChangeEvent.c)
+ *     _PnpObjectRaisePropertyChangeEvent @ 0x1406E6D84 (_PnpObjectRaisePropertyChangeEvent.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall PnpInstallerClassRaisePropertyChangeEventWorker(
@@ -23,7 +23,7 @@ __int64 __fastcall PnpInstallerClassRaisePropertyChangeEventWorker(
   v9 = 0LL;
   while ( 1 )
   {
-    v10 = off_140401E18[v9];
+    v10 = off_140402E10[v9];
     if ( *(_DWORD *)(a5 + 16) == v10->pid )
     {
       v11 = *(_QWORD *)a5 - *(_QWORD *)&v10->fmtid.Data1;

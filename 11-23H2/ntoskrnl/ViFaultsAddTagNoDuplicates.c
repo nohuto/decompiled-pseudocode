@@ -1,14 +1,14 @@
 /*
- * XREFs of ViFaultsAddTagNoDuplicates @ 0x140AD6630
+ * XREFs of ViFaultsAddTagNoDuplicates @ 0x140AD6620
  * Callers:
- *     ViFaultsAddAllTags @ 0x140AD6430 (ViFaultsAddAllTags.c)
+ *     ViFaultsAddAllTags @ 0x140AD6420 (ViFaultsAddAllTags.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
- *     ViFaultsIsTagPresentInList @ 0x140AD6B80 (ViFaultsIsTagPresentInList.c)
+ *     ViFaultsIsTagPresentInList @ 0x140AD6B70 (ViFaultsIsTagPresentInList.c)
  */
 
 __int64 __fastcall ViFaultsAddTagNoDuplicates(__int64 a1, unsigned __int64 a2)
@@ -51,20 +51,23 @@ __int64 __fastcall ViFaultsAddTagNoDuplicates(__int64 a1, unsigned __int64 a2)
       }
       else
       {
-        v10 = (_QWORD *)qword_140C36E08;
+        v10 = (_QWORD *)qword_140C36B48;
         ViHaveFaultTags = 1;
-        if ( *(PVOID **)qword_140C36E08 != &ViFaultTagsList )
+        if ( *(PVOID **)qword_140C36B48 != &ViFaultTagsList )
           __fastfail(3u);
         *v7 = &ViFaultTagsList;
         v7[1] = v10;
         *v10 = v7;
-        qword_140C36E08 = (__int64)v7;
+        qword_140C36B48 = (__int64)v7;
       }
       KxReleaseSpinLock((volatile signed __int64 *)&ViFaultInjectionLock);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v9 <= 0xFu && CurrentIrql >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+          && CurrentIrql <= 0xFu
+          && (unsigned __int8)v9 <= 0xFu
+          && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;

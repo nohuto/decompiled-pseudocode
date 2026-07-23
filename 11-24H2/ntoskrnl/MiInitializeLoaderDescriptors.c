@@ -1,12 +1,12 @@
 /*
- * XREFs of MiInitializeLoaderDescriptors @ 0x140C51834
+ * XREFs of MiInitializeLoaderDescriptors @ 0x140C539C4
  * Callers:
- *     MiInitNucleus @ 0x140C4F298 (MiInitNucleus.c)
+ *     MiInitNucleus @ 0x140C51428 (MiInitNucleus.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     MxComputeFreeNodeDescriptorRequirements @ 0x140C521F8 (MxComputeFreeNodeDescriptorRequirements.c)
- *     MxWalkFreeNodeDescriptors @ 0x140C53438 (MxWalkFreeNodeDescriptors.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     MxComputeFreeNodeDescriptorRequirements @ 0x140C54388 (MxComputeFreeNodeDescriptorRequirements.c)
+ *     MxWalkFreeNodeDescriptors @ 0x140C555C8 (MxWalkFreeNodeDescriptors.c)
  */
 
 __int64 *__fastcall MiInitializeLoaderDescriptors(__int64 a1)
@@ -22,7 +22,7 @@ __int64 *__fastcall MiInitializeLoaderDescriptors(__int64 a1)
   MxWalkFreeNodeDescriptors(a1, v7);
   v2 = 0;
   v3 = v7;
-  v4 = (__int64 **)qword_1410083D8;
+  v4 = (__int64 **)qword_1410093D8;
   while ( 1 )
   {
     result = *v4;
@@ -43,7 +43,7 @@ __int64 *__fastcall MiInitializeLoaderDescriptors(__int64 a1)
 LABEL_6:
   if ( KeNumberNodes )
   {
-    result = qword_1410083F8;
+    result = qword_1410093F8;
     v6 = (unsigned __int16)KeNumberNodes;
     do
     {

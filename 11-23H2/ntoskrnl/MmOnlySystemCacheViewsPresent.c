@@ -1,11 +1,11 @@
 /*
- * XREFs of MmOnlySystemCacheViewsPresent @ 0x1402F0E2C
+ * XREFs of MmOnlySystemCacheViewsPresent @ 0x1402F10BC
  * Callers:
- *     CcCoherencyFlushAndPurgeCache @ 0x1402EF7D0 (CcCoherencyFlushAndPurgeCache.c)
+ *     CcCoherencyFlushAndPurgeCache @ 0x1402EFA60 (CcCoherencyFlushAndPurgeCache.c)
  * Callees:
  *     MiLockSectionControlArea @ 0x1402100C8 (MiLockSectionControlArea.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 char __fastcall MmOnlySystemCacheViewsPresent(_QWORD *a1)
@@ -26,7 +26,9 @@ char __fastcall MmOnlySystemCacheViewsPresent(_QWORD *a1)
     return 1;
   v2 = *(_QWORD *)(v1 + 40) == *(unsigned int *)(v1 + 88);
   ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v1 + 72));
-  if ( KiIrqlFlags && (CurrentIrql = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags
+    && (CurrentIrql = KeGetCurrentIrql(), ((unsigned __int8)KiIrqlFlags & 1) != 0)
+    && CurrentIrql <= 0xFu )
   {
     v3 = v10;
     if ( v10 <= 0xFu && CurrentIrql >= 2u )

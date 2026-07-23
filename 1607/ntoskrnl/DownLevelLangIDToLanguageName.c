@@ -1,18 +1,18 @@
 /*
- * XREFs of DownLevelLangIDToLanguageName @ 0x1401323C4
+ * XREFs of DownLevelLangIDToLanguageName @ 0x140132934
  * Callers:
- *     LdrpResSearchResourceMappedFile @ 0x1400F7358 (LdrpResSearchResourceMappedFile.c)
- *     LdrLoadAlternateResourceModuleEx @ 0x1400FA708 (LdrLoadAlternateResourceModuleEx.c)
- *     RtlpMuiRegCreateKernelRegistryInfo @ 0x140140324 (RtlpMuiRegCreateKernelRegistryInfo.c)
- *     LdrpGetParentLangId @ 0x140213C34 (LdrpGetParentLangId.c)
- *     LdrResSearchResource @ 0x14051B158 (LdrResSearchResource.c)
- *     ExpSetCurrentUserUILanguage @ 0x140548E70 (ExpSetCurrentUserUILanguage.c)
- *     RtlLCIDToCultureName @ 0x140688F04 (RtlLCIDToCultureName.c)
+ *     LdrpResSearchResourceMappedFile @ 0x1400F5198 (LdrpResSearchResourceMappedFile.c)
+ *     LdrLoadAlternateResourceModuleEx @ 0x1400F8494 (LdrLoadAlternateResourceModuleEx.c)
+ *     RtlpMuiRegCreateKernelRegistryInfo @ 0x140140894 (RtlpMuiRegCreateKernelRegistryInfo.c)
+ *     LdrpGetParentLangId @ 0x140213A60 (LdrpGetParentLangId.c)
+ *     LdrResSearchResource @ 0x1404FE548 (LdrResSearchResource.c)
+ *     ExpSetCurrentUserUILanguage @ 0x1405493B0 (ExpSetCurrentUserUILanguage.c)
+ *     RtlLCIDToCultureName @ 0x140688FE8 (RtlLCIDToCultureName.c)
  *     CmSelectQualifiedInstallLanguage @ 0x1407B06B0 (CmSelectQualifiedInstallLanguage.c)
  * Callees:
- *     ?StringCchCopyNW@@YAJPEAG_KPEBG1@Z @ 0x14013248C (-StringCchCopyNW@@YAJPEAG_KPEBG1@Z.c)
- *     ?IsNeutralLanguageItem@@YAHPEBUCultureDataType@@@Z @ 0x140132510 (-IsNeutralLanguageItem@@YAHPEBUCultureDataType@@@Z.c)
- *     bsearch @ 0x14014DAA0 (bsearch.c)
+ *     ?StringCchCopyNW@@YAJPEAG_KPEBG1@Z @ 0x1401329FC (-StringCchCopyNW@@YAJPEAG_KPEBG1@Z.c)
+ *     ?IsNeutralLanguageItem@@YAHPEBUCultureDataType@@@Z @ 0x140132A80 (-IsNeutralLanguageItem@@YAHPEBUCultureDataType@@@Z.c)
+ *     bsearch @ 0x14014E010 (bsearch.c)
  */
 
 __int64 __fastcall DownLevelLangIDToLanguageName(__int16 a1, unsigned __int16 *a2, int a3, int a4)

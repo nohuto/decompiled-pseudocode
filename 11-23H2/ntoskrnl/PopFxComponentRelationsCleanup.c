@@ -1,15 +1,15 @@
 /*
- * XREFs of PopFxComponentRelationsCleanup @ 0x140589914
+ * XREFs of PopFxComponentRelationsCleanup @ 0x140589E04
  * Callers:
- *     PopFxUnregisterDevice @ 0x140985DC4 (PopFxUnregisterDevice.c)
+ *     PopFxUnregisterDevice @ 0x140985FC4 (PopFxUnregisterDevice.c)
  * Callees:
  *     KxTryToAcquireSpinLock @ 0x14020D8E4 (KxTryToAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     PopFxIdleComponent @ 0x140312FC0 (PopFxIdleComponent.c)
- *     PopFxNextComponentChildRelationSafe @ 0x140314824 (PopFxNextComponentChildRelationSafe.c)
- *     PopFxNextParentRelationSafe @ 0x140351AD8 (PopFxNextParentRelationSafe.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PopFxIdleComponent @ 0x140313250 (PopFxIdleComponent.c)
+ *     PopFxNextComponentChildRelationSafe @ 0x140314AB4 (PopFxNextComponentChildRelationSafe.c)
+ *     PopFxNextParentRelationSafe @ 0x140351C78 (PopFxNextParentRelationSafe.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
@@ -124,10 +124,10 @@ LABEL_22:
       ExFreePoolWithTag(v14, 0x4D584650u);
   }
   result = KxReleaseSpinLock(v1);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
       && (unsigned __int8)result <= 0xFu
       && (unsigned __int8)v3 <= 0xFu
       && (unsigned __int8)result >= 2u )

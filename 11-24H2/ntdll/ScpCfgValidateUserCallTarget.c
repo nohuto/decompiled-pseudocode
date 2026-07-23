@@ -1,5 +1,5 @@
 /*
- * XREFs of ScpCfgValidateUserCallTarget @ 0x18016C140
+ * XREFs of ScpCfgValidateUserCallTarget @ 0x18016B140
  * Callers:
  *     <none>
  * Callees:

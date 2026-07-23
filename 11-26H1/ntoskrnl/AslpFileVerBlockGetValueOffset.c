@@ -1,9 +1,9 @@
 /*
- * XREFs of AslpFileVerBlockGetValueOffset @ 0x1404E69FC
+ * XREFs of AslpFileVerBlockGetValueOffset @ 0x1404DFE9C
  * Callers:
- *     AslpFileMakeStringVersionAttributes @ 0x14088EB5C (AslpFileMakeStringVersionAttributes.c)
- *     AslpFileVerStringBlockGetValue @ 0x14088F2B8 (AslpFileVerStringBlockGetValue.c)
- *     AslpFileVerQueryBlock @ 0x1409E5068 (AslpFileVerQueryBlock.c)
+ *     AslpFileMakeStringVersionAttributes @ 0x140894F58 (AslpFileMakeStringVersionAttributes.c)
+ *     AslpFileVerStringBlockGetValue @ 0x1408956B4 (AslpFileVerStringBlockGetValue.c)
+ *     AslpFileVerQueryBlock @ 0x1409D7CBC (AslpFileVerQueryBlock.c)
  * Callees:
  *     <none>
  */

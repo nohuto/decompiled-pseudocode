@@ -1,7 +1,7 @@
 /*
- * XREFs of ExpIsDevicePathForRemovableMedia @ 0x14049A4F8
+ * XREFs of ExpIsDevicePathForRemovableMedia @ 0x140494F1C
  * Callers:
- *     NtEnumerateBootEntries @ 0x140965240 (NtEnumerateBootEntries.c)
+ *     NtEnumerateBootEntries @ 0x14094DCD0 (NtEnumerateBootEntries.c)
  * Callees:
  *     <none>
  */
@@ -35,7 +35,7 @@ __int64 __fastcall ExpIsDevicePathForRemovableMedia(_BYTE *a1)
       {
         v10 = *(_QWORD *)(v3 + 4) - ExpUnknownDeviceGuid;
         if ( !v10 )
-          v10 = *(_QWORD *)(v3 + 12) - qword_140E0EB58;
+          v10 = *(_QWORD *)(v3 + 12) - qword_140E0EC18;
         if ( !v10 )
           v4 = v3;
       }

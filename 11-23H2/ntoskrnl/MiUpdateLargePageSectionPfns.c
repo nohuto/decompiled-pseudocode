@@ -1,21 +1,21 @@
 /*
- * XREFs of MiUpdateLargePageSectionPfns @ 0x140628F7C
+ * XREFs of MiUpdateLargePageSectionPfns @ 0x1406294CC
  * Callers:
- *     MiCreatePagingFileMap @ 0x140747994 (MiCreatePagingFileMap.c)
+ *     MiCreatePagingFileMap @ 0x140747B84 (MiCreatePagingFileMap.c)
  * Callees:
- *     MI_READ_PTE_LOCK_FREE @ 0x1402712F0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiPteInShadowRange @ 0x140271360 (MiPteInShadowRange.c)
- *     MiSwizzleInvalidPte @ 0x1402857A0 (MiSwizzleInvalidPte.c)
- *     MiMakeValidPte @ 0x1402CF2B0 (MiMakeValidPte.c)
- *     MiConvertEntireLargePageToSmall @ 0x1402D2AD0 (MiConvertEntireLargePageToSmall.c)
- *     MiSetPfnPteFrame @ 0x1402E15A0 (MiSetPfnPteFrame.c)
- *     MiSetPfnTbFlushStamp @ 0x1402E1630 (MiSetPfnTbFlushStamp.c)
- *     MiGetPfnPageSizeIndex @ 0x1402E88E0 (MiGetPfnPageSizeIndex.c)
- *     MiLockPageInline @ 0x1402EF680 (MiLockPageInline.c)
- *     MiSetPfnNodeBlinkLow @ 0x14034A2A0 (MiSetPfnNodeBlinkLow.c)
- *     MiWritePteShadow @ 0x14035734C (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x1403573AC (MiPteHasShadow.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140271580 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x1402715F0 (MiPteInShadowRange.c)
+ *     MiSwizzleInvalidPte @ 0x140285A30 (MiSwizzleInvalidPte.c)
+ *     MiMakeValidPte @ 0x1402CF540 (MiMakeValidPte.c)
+ *     MiConvertEntireLargePageToSmall @ 0x1402D2D60 (MiConvertEntireLargePageToSmall.c)
+ *     MiSetPfnPteFrame @ 0x1402E1830 (MiSetPfnPteFrame.c)
+ *     MiSetPfnTbFlushStamp @ 0x1402E18C0 (MiSetPfnTbFlushStamp.c)
+ *     MiGetPfnPageSizeIndex @ 0x1402E8B70 (MiGetPfnPageSizeIndex.c)
+ *     MiLockPageInline @ 0x1402EF910 (MiLockPageInline.c)
+ *     MiSetPfnNodeBlinkLow @ 0x14034A438 (MiSetPfnNodeBlinkLow.c)
+ *     MiWritePteShadow @ 0x1403574EC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x14035754C (MiPteHasShadow.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiUpdateLargePageSectionPfns(__int64 a1, unsigned __int64 a2, __int64 a3)
@@ -107,10 +107,10 @@ LABEL_14:
       *((_BYTE *)v14 - 6) = v21 | 6;
       result = 0x7FFFFFFFFFFFFFFFLL;
       _InterlockedAnd64(v14 - 2, 0x7FFFFFFFFFFFFFFFuLL);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         result = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
           && (unsigned __int8)result <= 0xFu
           && (unsigned __int8)v19 <= 0xFu
           && (unsigned __int8)result >= 2u )

@@ -1,18 +1,18 @@
 /*
- * XREFs of PopPowerButtonBugcheckConfigure @ 0x1407DAA14
+ * XREFs of PopPowerButtonBugcheckConfigure @ 0x1407DE904
  * Callers:
- *     PopPowerButtonBugcheckWatchCallback @ 0x1407DAB50 (PopPowerButtonBugcheckWatchCallback.c)
- *     PopInitializePowerButtonHold @ 0x140CD502C (PopInitializePowerButtonHold.c)
+ *     PopPowerButtonBugcheckWatchCallback @ 0x1407DEA40 (PopPowerButtonBugcheckWatchCallback.c)
+ *     PopInitializePowerButtonHold @ 0x140CDB3CC (PopInitializePowerButtonHold.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     PopQueryPowerButtonConfiguration @ 0x14060D13C (PopQueryPowerButtonConfiguration.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwNotifyChangeKey @ 0x140725870 (ZwNotifyChangeKey.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     PopQueryPowerButtonConfiguration @ 0x14061024C (PopQueryPowerButtonConfiguration.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwNotifyChangeKey @ 0x14072A440 (ZwNotifyChangeKey.c)
  */
 
 void __fastcall PopPowerButtonBugcheckConfigure(HANDLE KeyHandle, char a2, _BYTE *a3, struct _KLOCK_ENTRIES *a4)
@@ -27,16 +27,29 @@ void __fastcall PopPowerButtonBugcheckConfigure(HANDLE KeyHandle, char a2, _BYTE
 
   IoStatusBlock = 0LL;
   if ( a2 )
-    v6 = (unsigned int)ZwNotifyChangeKey(KeyHandle, 0LL, qword_140F0C400, (PVOID)1, &IoStatusBlock, 4u, 0, 0LL, 0, 1u) >> 31;
+    v6 = (unsigned int)ZwNotifyChangeKey(
+                         KeyHandle,
+                         0LL,
+                         (PIO_APC_ROUTINE)&PopPdcDeviceListLock.Spare18,
+                         (PVOID)1,
+                         &IoStatusBlock,
+                         4u,
+                         0,
+                         0LL,
+                         0,
+                         1u) >> 31;
   else
     LOBYTE(v6) = 1;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  v8 = (AutoBoost *)KeAbPreAcquire((__int64)&stru_140F0C428, 0LL, 0LL, a4);
-  v10 = _interlockedbittestandset64(&stru_140F0C428.Header.Lock, 0LL);
+  v8 = (AutoBoost *)KeAbPreAcquire((__int64)&PopPdcDeviceListLock.WaitStatus, 0LL, 0LL, a4);
+  v10 = _interlockedbittestandset64((volatile signed __int32 *)&PopPdcDeviceListLock.WaitStatus, 0LL);
   v11 = v8;
   if ( v10 )
-    ExfAcquirePushLockExclusiveEx((unsigned __int64 *)&stru_140F0C428, v8, (__int64)&stru_140F0C428);
+    ExfAcquirePushLockExclusiveEx(
+      (unsigned __int64 *)&PopPdcDeviceListLock.WaitStatus,
+      v8,
+      (__int64)&PopPdcDeviceListLock.WaitStatus);
   if ( v11 )
   {
     if ( (KiAbpGlobalState & 1) != 0 )
@@ -45,9 +58,9 @@ void __fastcall PopPowerButtonBugcheckConfigure(HANDLE KeyHandle, char a2, _BYTE
       *((_BYTE *)v11 + 10) = 1;
   }
   PopQueryPowerButtonConfiguration(KeyHandle, a3);
-  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&stru_140F0C428, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock((volatile signed __int64 *)&stru_140F0C428.Header.Lock);
-  KeAbPostRelease((unsigned __int64)&stru_140F0C428);
+  if ( (_InterlockedExchangeAdd64(&PopPdcDeviceListLock.WaitStatus, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    ExfTryToWakePushLock(&PopPdcDeviceListLock.WaitStatus);
+  KeAbPostRelease((unsigned __int64)&PopPdcDeviceListLock.WaitStatus);
   KeLeaveCriticalRegion();
   if ( (_BYTE)v6 )
     ZwClose(KeyHandle);

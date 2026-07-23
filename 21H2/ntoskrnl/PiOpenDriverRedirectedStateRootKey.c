@@ -1,18 +1,18 @@
 /*
- * XREFs of PiOpenDriverRedirectedStateRootKey @ 0x14089F7C0
+ * XREFs of PiOpenDriverRedirectedStateRootKey @ 0x14089F920
  * Callers:
- *     PipHardwareConfigClearStartOverrides @ 0x14089B5CC (PipHardwareConfigClearStartOverrides.c)
+ *     PipHardwareConfigClearStartOverrides @ 0x14089B72C (PipHardwareConfigClearStartOverrides.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     ZwOpenKey @ 0x1403FA5E0 (ZwOpenKey.c)
- *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
- *     PiGetStateRootPath @ 0x1407812FC (PiGetStateRootPath.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403FA7C0 (ZwOpenKey.c)
+ *     RtlFreeAnsiString @ 0x14063DA40 (RtlFreeAnsiString.c)
+ *     PiGetStateRootPath @ 0x1407814BC (PiGetStateRootPath.c)
  */
 
 __int64 __fastcall PiOpenDriverRedirectedStateRootKey(__int64 a1, _QWORD *a2)
 {
-  int StateRootPath; // ebx
+  NTSTATUS StateRootPath; // ebx
   HANDLE v4; // rax
   UNICODE_STRING DestinationString; // [rsp+20h] [rbp-40h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+30h] [rbp-30h] BYREF
@@ -24,7 +24,7 @@ __int64 __fastcall PiOpenDriverRedirectedStateRootKey(__int64 a1, _QWORD *a2)
   RtlInitUnicodeString(&DestinationString, 0LL);
   if ( a2 )
   {
-    StateRootPath = PiGetStateRootPath(L"DriverStatePath", 0LL, 0, &DestinationString);
+    StateRootPath = PiGetStateRootPath(L"DriverStatePath", 0LL, LocationTypeRegistry, &DestinationString);
     if ( StateRootPath >= 0 )
     {
       ObjectAttributes.RootDirectory = 0LL;

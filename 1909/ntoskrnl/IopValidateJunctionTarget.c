@@ -33,10 +33,10 @@ __int64 __fastcall IopValidateJunctionTarget(
   void *v9; // r15
   char *PoolWithTag; // rsi
   ULONG v11; // r12d
-  struct _REPARSE_DATA_BUFFER *PoolWithQuota; // rax
+  _REPARSE_DATA_BUFFER *PoolWithQuota; // rax
   const void *v13; // rdx
   size_t v14; // r8
-  struct _REPARSE_DATA_BUFFER *v15; // r14
+  _REPARSE_DATA_BUFFER *v15; // r14
   int appended; // ebx
   _DWORD *v17; // r12
   char v18; // r13
@@ -53,7 +53,7 @@ __int64 __fastcall IopValidateJunctionTarget(
   __int64 v30; // [rsp+60h] [rbp-118h] BYREF
   UNICODE_STRING DestinationString; // [rsp+70h] [rbp-108h] BYREF
   PVOID Object; // [rsp+80h] [rbp-F8h] BYREF
-  struct _REPARSE_DATA_BUFFER *v33; // [rsp+88h] [rbp-F0h]
+  _REPARSE_DATA_BUFFER *v33; // [rsp+88h] [rbp-F0h]
   UNICODE_STRING String2; // [rsp+90h] [rbp-E8h] BYREF
   UNICODE_STRING Destination; // [rsp+A0h] [rbp-D8h] BYREF
   int v36; // [rsp+B0h] [rbp-C8h]
@@ -92,9 +92,7 @@ __int64 __fastcall IopValidateJunctionTarget(
   {
     v11 = v6 - 32;
     v36 = v6 - 32;
-    PoolWithQuota = (struct _REPARSE_DATA_BUFFER *)IopVerifierExAllocatePoolWithQuota(
-                                                     NonPagedPoolNx,
-                                                     (unsigned int)(v6 - 32));
+    PoolWithQuota = (_REPARSE_DATA_BUFFER *)IopVerifierExAllocatePoolWithQuota(NonPagedPoolNx, (unsigned int)(v6 - 32));
     v13 = a2 + 2;
     v14 = (unsigned int)(v6 - 32);
   }
@@ -102,7 +100,7 @@ __int64 __fastcall IopValidateJunctionTarget(
   {
     v11 = v6;
     v36 = v6;
-    PoolWithQuota = (struct _REPARSE_DATA_BUFFER *)IopVerifierExAllocatePoolWithQuota(NonPagedPoolNx, v6);
+    PoolWithQuota = (_REPARSE_DATA_BUFFER *)IopVerifierExAllocatePoolWithQuota(NonPagedPoolNx, v6);
     v14 = v6;
     v13 = a2;
   }

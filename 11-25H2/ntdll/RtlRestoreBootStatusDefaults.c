@@ -10,27 +10,27 @@
  *     memset$thunk$772440563353939046 @ 0x180174030 (memset$thunk$772440563353939046.c)
  */
 
-__int64 __fastcall RtlRestoreBootStatusDefaults(__int64 a1)
+NTSTATUS __cdecl RtlRestoreBootStatusDefaults(HANDLE FileHandle)
 {
-  int *v2; // rax
+  int *p_Buffer; // rax
   char v3; // cl
   __int64 v4; // rdx
-  __int64 v6; // [rsp+50h] [rbp-B0h] BYREF
-  __int128 v7; // [rsp+58h] [rbp-A8h] BYREF
-  int v8; // [rsp+70h] [rbp-90h] BYREF
-  int v9; // [rsp+74h] [rbp-8Ch] BYREF
+  LARGE_INTEGER ByteOffset; // [rsp+50h] [rbp-B0h] BYREF
+  _IO_STATUS_BLOCK IoStatusBlock; // [rsp+58h] [rbp-A8h] BYREF
+  int Buffer; // [rsp+70h] [rbp-90h] BYREF
+  _NT_PRODUCT_TYPE NtProductType; // [rsp+74h] [rbp-8Ch] BYREF
   __int16 v10; // [rsp+79h] [rbp-87h]
   char v11; // [rsp+7Bh] [rbp-85h]
   char v12; // [rsp+A1h] [rbp-5Fh]
   char v13; // [rsp+A2h] [rbp-5Eh]
   int v14; // [rsp+128h] [rbp+28h]
 
-  v7 = 0LL;
-  memset_thunk_772440563353939046(&v9, 0, 0xC4uLL);
-  v8 = 200;
-  RtlGetNtProductType(&v9);
+  IoStatusBlock = 0LL;
+  memset_thunk_772440563353939046(&NtProductType, 0, 0xC4uLL);
+  Buffer = 200;
+  RtlGetNtProductType(&NtProductType);
   v14 = 0;
-  v2 = &v8;
+  p_Buffer = &Buffer;
   v3 = 0;
   v10 = 286;
   v12 = 1;
@@ -38,13 +38,13 @@ __int64 __fastcall RtlRestoreBootStatusDefaults(__int64 a1)
   v11 = 0;
   do
   {
-    v3 -= *(_BYTE *)v2;
-    v2 = (int *)((char *)v2 + 1);
+    v3 -= *(_BYTE *)p_Buffer;
+    p_Buffer = (int *)((char *)p_Buffer + 1);
     --v4;
   }
   while ( v4 );
-  v6 = 0LL;
+  ByteOffset.QuadPart = 0LL;
   v13 = v3;
-  RtlpRecordBootStatusData(0LL, &v8, 0LL, 200LL);
-  return NtWriteFile(a1, 0LL, 0LL, 0LL, &v7, &v8, 200, &v6, 0LL);
+  RtlpRecordBootStatusData(0LL, &Buffer, 0LL, 200LL);
+  return NtWriteFile(FileHandle, 0LL, 0LL, 0LL, &IoStatusBlock, &Buffer, 0xC8u, &ByteOffset, 0LL);
 }

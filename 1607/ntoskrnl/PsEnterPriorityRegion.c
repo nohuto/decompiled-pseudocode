@@ -1,5 +1,5 @@
 /*
- * XREFs of PsEnterPriorityRegion @ 0x14008C580
+ * XREFs of PsEnterPriorityRegion @ 0x14008BCE0
  * Callers:
  *     <none>
  * Callees:

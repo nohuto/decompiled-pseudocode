@@ -1,17 +1,17 @@
 /*
- * XREFs of ExGetSessionBigPoolInformation @ 0x140949F60
+ * XREFs of ExGetSessionBigPoolInformation @ 0x14094A130
  * Callers:
- *     ExpQuerySystemInformation @ 0x140651070 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x140645E90 (ExpQuerySystemInformation.c)
  * Callees:
- *     MmGetSessionId @ 0x140253550 (MmGetSessionId.c)
- *     MmDetachSession @ 0x140298F40 (MmDetachSession.c)
- *     MmAttachSession @ 0x140298FE0 (MmAttachSession.c)
- *     ExUnlockUserBuffer @ 0x1402997FC (ExUnlockUserBuffer.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     MmGetNextSession @ 0x1402D5F90 (MmGetNextSession.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     ExGetBigPoolInfo @ 0x1405B375C (ExGetBigPoolInfo.c)
- *     ExLockUserBuffer @ 0x140683180 (ExLockUserBuffer.c)
+ *     MmDetachSession @ 0x140215920 (MmDetachSession.c)
+ *     MmAttachSession @ 0x1402159C0 (MmAttachSession.c)
+ *     ExUnlockUserBuffer @ 0x1402161DC (ExUnlockUserBuffer.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     MmGetSessionId @ 0x1402863C0 (MmGetSessionId.c)
+ *     MmGetNextSession @ 0x1402872E0 (MmGetNextSession.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     ExGetBigPoolInfo @ 0x1405B398C (ExGetBigPoolInfo.c)
+ *     ExLockUserBuffer @ 0x1405E45FC (ExLockUserBuffer.c)
  */
 
 __int64 __fastcall ExGetSessionBigPoolInformation(unsigned __int64 a1, unsigned int a2, unsigned int *a3, _DWORD *a4)
@@ -74,7 +74,7 @@ LABEL_20:
     if ( !NextSession )
       goto LABEL_24;
   }
-  if ( (int)MmAttachSession((_KPROCESS *)NextSession, (__int64)v24) < 0 )
+  if ( (int)MmAttachSession((ULONG_PTR)NextSession) < 0 )
   {
 LABEL_19:
     if ( *v22 != -1 )

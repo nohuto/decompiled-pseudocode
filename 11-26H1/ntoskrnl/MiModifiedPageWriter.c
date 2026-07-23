@@ -1,18 +1,18 @@
 /*
- * XREFs of MiModifiedPageWriter @ 0x1404064D0
+ * XREFs of MiModifiedPageWriter @ 0x1403FF5C0
  * Callers:
  *     <none>
  * Callees:
- *     KeQueryPriorityThread @ 0x1402052D0 (KeQueryPriorityThread.c)
- *     KeSetActualBasePriorityThread @ 0x140239560 (KeSetActualBasePriorityThread.c)
- *     KiCheckForKernelApcDelivery @ 0x14027DB80 (KiCheckForKernelApcDelivery.c)
- *     KeWaitForMultipleObjects @ 0x140396440 (KeWaitForMultipleObjects.c)
- *     MiModifiedWriterInitialize @ 0x1404048B8 (MiModifiedWriterInitialize.c)
- *     MiModifiedWriterShouldWrite @ 0x1404066FC (MiModifiedWriterShouldWrite.c)
- *     MiStoreCheckCompleteWriteBatch @ 0x14040684C (MiStoreCheckCompleteWriteBatch.c)
- *     MiCheckFreeModifiedReservations @ 0x140406B68 (MiCheckFreeModifiedReservations.c)
- *     MiGatherPagefilePages @ 0x140406D08 (MiGatherPagefilePages.c)
- *     MiModifiedPageWriterExit @ 0x140528408 (MiModifiedPageWriterExit.c)
+ *     KeQueryPriorityThread @ 0x1402053B0 (KeQueryPriorityThread.c)
+ *     KeSetActualBasePriorityThread @ 0x14023AEC0 (KeSetActualBasePriorityThread.c)
+ *     KiCheckForKernelApcDelivery @ 0x14027D0F0 (KiCheckForKernelApcDelivery.c)
+ *     KeWaitForMultipleObjects @ 0x1403981C0 (KeWaitForMultipleObjects.c)
+ *     MiModifiedWriterInitialize @ 0x1403FD9B8 (MiModifiedWriterInitialize.c)
+ *     MiModifiedWriterShouldWrite @ 0x1403FF7EC (MiModifiedWriterShouldWrite.c)
+ *     MiStoreCheckCompleteWriteBatch @ 0x1403FF93C (MiStoreCheckCompleteWriteBatch.c)
+ *     MiCheckFreeModifiedReservations @ 0x1403FFC58 (MiCheckFreeModifiedReservations.c)
+ *     MiGatherPagefilePages @ 0x1403FFDF8 (MiGatherPagefilePages.c)
+ *     MiModifiedPageWriterExit @ 0x14052AA78 (MiModifiedPageWriterExit.c)
  */
 
 __int64 __fastcall MiModifiedPageWriter(__int64 *a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
@@ -81,7 +81,7 @@ __int64 __fastcall MiModifiedPageWriter(__int64 *a1, __int64 a2, __int64 a3, str
           }
           v16 = CurrentThread->SpecialApcDisable++ == -1;
           if ( v16
-            && ($7A85BAF4F1FA08634C1C4A3E45B775B3 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+            && ($241382875694CED3D471BC5892DE3337 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
           {
             KiCheckForKernelApcDelivery(v9, v8);
           }

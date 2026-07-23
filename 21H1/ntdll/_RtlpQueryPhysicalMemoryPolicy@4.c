@@ -12,13 +12,13 @@
 int __thiscall RtlpQueryPhysicalMemoryPolicy(int *this)
 {
   int v2; // eax
-  int v4; // [esp+4h] [ebp-4h] BYREF
+  _NT_PRODUCT_TYPE NtProductType; // [esp+4h] [ebp-4h] BYREF
 
   if ( (_BYTE)RtlpUserPolicies )
   {
     v2 = (unsigned __int8)RtlpUserPolicies;
   }
-  else if ( (unsigned __int8)RtlGetNtProductType(&v4) && v4 == 1 )
+  else if ( RtlGetNtProductType(&NtProductType) && NtProductType == NtProductWinNt )
   {
     v2 = MEMORY[0x7FFE02E8] > 0x51400u ? 20 : 10;
   }

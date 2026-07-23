@@ -10,14 +10,14 @@
  *     RtlRbRemoveNode @ 0x1400F6290 (RtlRbRemoveNode.c)
  */
 
-char __fastcall KiRemoveThreadFromScbQueue(__int64 a1, __int64 a2, __int64 a3, char a4)
+char __fastcall KiRemoveThreadFromScbQueue(_RTL_RB_TREE *a1, __int64 a2, __int64 a3, char a4)
 {
   _QWORD *v5; // rdx
   _QWORD *i; // rax
   int v9; // edx
   __int64 *v10; // rdi
   __int64 v11; // rax
-  __int64 v12; // rcx
+  _RTL_RB_TREE *v12; // rcx
   unsigned __int64 v13; // rcx
   __int64 j; // rcx
   __int64 v15; // rcx
@@ -26,7 +26,7 @@ char __fastcall KiRemoveThreadFromScbQueue(__int64 a1, __int64 a2, __int64 a3, c
   int v18; // r8d
   __int64 *v19; // rdi
   __int64 v20; // rax
-  __int64 v21; // rax
+  _RTL_RB_TREE *v21; // rax
 
   v5 = *(_QWORD **)(a3 + 216);
   i = *(_QWORD **)(a3 + 224);
@@ -47,12 +47,12 @@ char __fastcall KiRemoveThreadFromScbQueue(__int64 a1, __int64 a2, __int64 a3, c
         {
           v10 = (__int64 *)(a2 + 392);
           v11 = *(_QWORD *)(a2 + 392);
-          v12 = v11 + 376;
+          v12 = (_RTL_RB_TREE *)(v11 + 376);
           if ( !v11 )
-            v12 = a1 + 22768;
+            v12 = a1 + 1423;
           *(_QWORD *)(a2 + 56) += MEMORY[0xFFFFF78000000008] - *(_QWORD *)(a2 + 64);
           *(_BYTE *)(a2 + 112) &= ~1u;
-          LOBYTE(i) = RtlRbRemoveNode(v12, a2 + 88);
+          LOBYTE(i) = RtlRbRemoveNode(v12, (PRTL_BALANCED_NODE)(a2 + 88));
           a2 = *v10;
         }
         while ( *v10 && (*(_BYTE *)(a2 + 112) & 1) != 0 && !*(_QWORD *)(a2 + 376) && !*(_WORD *)(a2 + 114) );
@@ -104,11 +104,11 @@ LABEL_17:
               v19 = (__int64 *)(v15 + 392);
               v20 = *(_QWORD *)(v15 + 392);
               if ( v20 )
-                v21 = v20 + 376;
+                v21 = (_RTL_RB_TREE *)(v20 + 376);
               else
-                v21 = a1 + 22768;
+                v21 = a1 + 1423;
               *(_BYTE *)(v15 + 112) &= ~1u;
-              RtlRbRemoveNode(v21, v15 + 88);
+              RtlRbRemoveNode(v21, (PRTL_BALANCED_NODE)(v15 + 88));
               v15 = *v19;
             }
             while ( *v19 && (*(_BYTE *)(v15 + 112) & 1) != 0 && !*(_QWORD *)(v15 + 376) && !*(_WORD *)(v15 + 114) );

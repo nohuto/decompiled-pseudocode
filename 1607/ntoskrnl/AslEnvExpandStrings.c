@@ -1,15 +1,14 @@
 /*
- * XREFs of AslEnvExpandStrings @ 0x1406C6348
+ * XREFs of AslEnvExpandStrings @ 0x1406C6480
  * Callers:
- *     AslEnvExpandStrings2 @ 0x1406C6530 (AslEnvExpandStrings2.c)
+ *     AslEnvExpandStrings2 @ 0x1406C6668 (AslEnvExpandStrings2.c)
  * Callees:
- *     AslLogCallPrintf @ 0x1406C5804 (AslLogCallPrintf.c)
- *     AslEnvVarQuery @ 0x1406C6894 (AslEnvVarQuery.c)
+ *     AslLogCallPrintf @ 0x1406C593C (AslLogCallPrintf.c)
+ *     AslEnvVarQuery @ 0x1406C69CC (AslEnvVarQuery.c)
  */
 
 __int64 __fastcall AslEnvExpandStrings(__int64 a1, _WORD *a2, __int64 a3, _WORD *a4, unsigned __int64 a5, _QWORD *a6)
 {
-  unsigned __int64 v6; // rdi
   __int64 v7; // rbx
   __int64 v9; // r10
   unsigned int v10; // esi
@@ -18,11 +17,9 @@ __int64 __fastcall AslEnvExpandStrings(__int64 a1, _WORD *a2, __int64 a3, _WORD 
   unsigned __int64 v13; // r12
   _WORD *v14; // r13
   int v15; // eax
-  __int64 v17; // [rsp+20h] [rbp-58h]
-  _WORD *v18; // [rsp+30h] [rbp-48h]
-  unsigned __int64 v20; // [rsp+90h] [rbp+18h] BYREF
+  _WORD *v17; // [rsp+30h] [rbp-48h]
+  unsigned __int64 v19; // [rsp+90h] [rbp+18h]
 
-  v6 = a5;
   v7 = a3;
   v9 = a1;
   v10 = 0;
@@ -35,7 +32,7 @@ __int64 __fastcall AslEnvExpandStrings(__int64 a1, _WORD *a2, __int64 a3, _WORD 
       goto LABEL_17;
     v12 = 0LL;
     v13 = v7 - 1;
-    v18 = a2 + 1;
+    v17 = a2 + 1;
     v14 = a2 + 1;
     if ( v7 == 1 )
       goto LABEL_17;
@@ -49,13 +46,12 @@ __int64 __fastcall AslEnvExpandStrings(__int64 a1, _WORD *a2, __int64 a3, _WORD 
     while ( v12 < v13 );
     if ( v12 && v12 < v13 )
     {
-      HIDWORD(v17) = HIDWORD(v6);
       v15 = AslEnvVarQuery(v9, a2 + 1, v12);
       if ( v15 == -1073741789 )
       {
         a2 = v14 + 1;
         v9 = a1;
-        v11 += v20 - 1;
+        v11 += v19 - 1;
         v10 = -1073741789;
         v7 += -2LL - v12;
       }
@@ -63,32 +59,23 @@ __int64 __fastcall AslEnvExpandStrings(__int64 a1, _WORD *a2, __int64 a3, _WORD 
       {
         a2 = v14 + 1;
         v9 = a1;
-        v11 += v20;
+        v11 += v19;
         v7 += -2LL - v12;
-        if ( v6 <= v20 )
+        if ( a5 <= v19 )
         {
           v10 = -1073741789;
         }
         else
         {
-          v6 -= v20;
-          a4 += v20;
+          a5 -= v19;
+          a4 += v19;
         }
       }
       else
       {
         if ( v15 != -1073741568 )
-        {
-          LODWORD(v17) = v15;
-          AslLogCallPrintf(
-            1LL,
-            (unsigned int)"AslEnvExpandStrings",
-            585,
-            (unsigned int)"AslEnvVarQuery failed [%x]",
-            v17,
-            &v20);
-        }
-        a2 = v18;
+          AslLogCallPrintf(1LL);
+        a2 = v17;
         ++v11;
         v9 = a1;
         --v7;
@@ -99,13 +86,13 @@ __int64 __fastcall AslEnvExpandStrings(__int64 a1, _WORD *a2, __int64 a3, _WORD 
 LABEL_17:
       if ( v10 != -1073741789 )
       {
-        if ( v6 <= 1 )
+        if ( a5 <= 1 )
         {
           v10 = -1073741789;
         }
         else
         {
-          --v6;
+          --a5;
           *a4++ = *a2;
         }
       }
@@ -118,7 +105,7 @@ LABEL_17:
   if ( v10 != -1073741789 )
   {
 LABEL_24:
-    if ( v6 )
+    if ( a5 )
       *a4 = 0;
     else
       v10 = -1073741789;

@@ -1,10 +1,10 @@
 /*
- * XREFs of MiUpdateBootDriverHotPatchImports @ 0x140CFB77C
+ * XREFs of MiUpdateBootDriverHotPatchImports @ 0x140D01AFC
  * Callers:
- *     MiInitializeLoadedModuleList @ 0x140D00470 (MiInitializeLoadedModuleList.c)
+ *     MiInitializeLoadedModuleList @ 0x140D06810 (MiInitializeLoadedModuleList.c)
  * Callees:
- *     MiAddEntryToImportList @ 0x140874F0C (MiAddEntryToImportList.c)
- *     MiFreeLoadedImportList @ 0x140B3D6A4 (MiFreeLoadedImportList.c)
+ *     MiAddEntryToImportList @ 0x14087B2F0 (MiAddEntryToImportList.c)
+ *     MiFreeLoadedImportList @ 0x140B3F774 (MiFreeLoadedImportList.c)
  */
 
 __int64 MiUpdateBootDriverHotPatchImports()

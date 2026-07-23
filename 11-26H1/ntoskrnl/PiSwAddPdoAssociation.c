@@ -1,10 +1,10 @@
 /*
- * XREFs of PiSwAddPdoAssociation @ 0x140B27BC4
+ * XREFs of PiSwAddPdoAssociation @ 0x140B29854
  * Callers:
- *     PiSwGetChildPdo @ 0x140A7AAD4 (PiSwGetChildPdo.c)
+ *     PiSwGetChildPdo @ 0x140A8BC18 (PiSwGetChildPdo.c)
  * Callees:
- *     PsReferenceSiloContext @ 0x140277800 (PsReferenceSiloContext.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     PsReferenceSiloContext @ 0x140276D70 (PsReferenceSiloContext.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall PiSwAddPdoAssociation(__int64 a1, void *a2, void *a3)
@@ -30,15 +30,15 @@ __int64 __fastcall PiSwAddPdoAssociation(__int64 a1, void *a2, void *a3)
           *v8 = Pool2,
           *(_QWORD *)(a1 + 136) = Pool2,
           v9 = Pool2 + 2,
-          v10 = (_QWORD *)qword_140F82858,
-          *(__int64 **)qword_140F82858 != &PiSwGlobalPdoAssociationList) )
+          v10 = (_QWORD *)qword_140F82B98,
+          *(__int64 **)qword_140F82B98 != &PiSwGlobalPdoAssociationList) )
     {
       __fastfail(3u);
     }
     *v9 = &PiSwGlobalPdoAssociationList;
     v9[1] = v10;
     *v10 = v9;
-    qword_140F82858 = (__int64)v9;
+    qword_140F82B98 = (__int64)v9;
   }
   else
   {

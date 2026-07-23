@@ -1,11 +1,11 @@
 /*
- * XREFs of PiCMCaptureRegisterInterfaceInputData @ 0x1409680AC
+ * XREFs of PiCMCaptureRegisterInterfaceInputData @ 0x1409682AC
  * Callers:
- *     PiCMRegisterDeviceInterface @ 0x14096A684 (PiCMRegisterDeviceInterface.c)
+ *     PiCMRegisterDeviceInterface @ 0x14096A884 (PiCMRegisterDeviceInterface.c)
  * Callees:
- *     PiControlFreeUserModeCallersBuffer @ 0x14022BC6C (PiControlFreeUserModeCallersBuffer.c)
- *     PiControlMakeUserModeCallersCopy @ 0x1406D41F0 (PiControlMakeUserModeCallersCopy.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00B60 (ExRaiseDatatypeMisalignment.c)
+ *     PiControlFreeUserModeCallersBuffer @ 0x14022BD7C (PiControlFreeUserModeCallersBuffer.c)
+ *     PiControlMakeUserModeCallersCopy @ 0x1406D4220 (PiControlMakeUserModeCallersCopy.c)
+ *     ExRaiseDatatypeMisalignment @ 0x140A00DF0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall PiCMCaptureRegisterInterfaceInputData(unsigned __int64 a1, unsigned int a2, int a3, __int64 a4)

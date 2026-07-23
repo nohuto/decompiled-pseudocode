@@ -51,7 +51,7 @@ __int64 PopCheckForIdleness()
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
   v4 = -1LL;
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     v6 = 4;
@@ -67,10 +67,10 @@ __int64 PopCheckForIdleness()
   v8 = MEMORY[0xFFFFF78000000320];
   v9 = (unsigned int)KiIrqlFlags;
   v23 = MEMORY[0xFFFFF78000000320];
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v10 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v10 <= 0xFu && CurrentIrql <= 0xFu && v10 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v10 <= 0xFu && CurrentIrql <= 0xFu && v10 >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v9 = (unsigned int)CurrentIrql + 1;

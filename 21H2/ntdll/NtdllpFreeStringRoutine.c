@@ -32,20 +32,20 @@
  *     RtlDowncaseUnicodeString @ 0x18007C710 (RtlDowncaseUnicodeString.c)
  *     LdrpCorInitialize @ 0x1800832C4 (LdrpCorInitialize.c)
  *     RtlFreeOemString @ 0x18008B170 (RtlFreeOemString.c)
- *     LdrpEnclaveAddDependentModule @ 0x1800CD57C (LdrpEnclaveAddDependentModule.c)
- *     LdrpGetProcApphelpCheckModule @ 0x1800D0920 (LdrpGetProcApphelpCheckModule.c)
- *     LdrpAddRedirectedFunction @ 0x1800D4C94 (LdrpAddRedirectedFunction.c)
- *     LdrUpdatePackageSearchPath @ 0x1800DEC90 (LdrUpdatePackageSearchPath.c)
- *     RtlUnicodeStringToCountedOemString @ 0x1800EB3B0 (RtlUnicodeStringToCountedOemString.c)
- *     RtlUpcaseUnicodeStringToAnsiString @ 0x1800EB4E0 (RtlUpcaseUnicodeStringToAnsiString.c)
- *     RtlUpcaseUnicodeStringToCountedOemString @ 0x1800EB5F0 (RtlUpcaseUnicodeStringToCountedOemString.c)
- *     RtlpConstructCrossVmObjectPath @ 0x1800F5BDC (RtlpConstructCrossVmObjectPath.c)
- *     RtlUnicodeStringToUTF8String @ 0x180102F60 (RtlUnicodeStringToUTF8String.c)
+ *     LdrpEnclaveAddDependentModule @ 0x1800CD53C (LdrpEnclaveAddDependentModule.c)
+ *     LdrpGetProcApphelpCheckModule @ 0x1800D08E0 (LdrpGetProcApphelpCheckModule.c)
+ *     LdrpAddRedirectedFunction @ 0x1800D4C54 (LdrpAddRedirectedFunction.c)
+ *     LdrUpdatePackageSearchPath @ 0x1800DEC50 (LdrUpdatePackageSearchPath.c)
+ *     RtlUnicodeStringToCountedOemString @ 0x1800EB370 (RtlUnicodeStringToCountedOemString.c)
+ *     RtlUpcaseUnicodeStringToAnsiString @ 0x1800EB4A0 (RtlUpcaseUnicodeStringToAnsiString.c)
+ *     RtlUpcaseUnicodeStringToCountedOemString @ 0x1800EB5B0 (RtlUpcaseUnicodeStringToCountedOemString.c)
+ *     RtlpConstructCrossVmObjectPath @ 0x1800F5B9C (RtlpConstructCrossVmObjectPath.c)
+ *     RtlUnicodeStringToUTF8String @ 0x180102F20 (RtlUnicodeStringToUTF8String.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall NtdllpFreeStringRoutine(__int64 a1)
+LOGICAL __fastcall NtdllpFreeStringRoutine(void *a1)
 {
-  return RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, a1);
+  return RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, a1);
 }

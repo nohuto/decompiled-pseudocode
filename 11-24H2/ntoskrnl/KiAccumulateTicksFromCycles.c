@@ -1,7 +1,7 @@
 /*
- * XREFs of KiAccumulateTicksFromCycles @ 0x1403E41B0
+ * XREFs of KiAccumulateTicksFromCycles @ 0x1403D1D50
  * Callers:
- *     KiEndDebugAccumulation @ 0x1404F4C20 (KiEndDebugAccumulation.c)
+ *     KiEndDebugAccumulation @ 0x1404F2520 (KiEndDebugAccumulation.c)
  * Callees:
  *     <none>
  */

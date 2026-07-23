@@ -1,10 +1,10 @@
 /*
- * XREFs of PsIoRateControlOverQuotaNotify @ 0x1404D714C
+ * XREFs of PsIoRateControlOverQuotaNotify @ 0x1404D091C
  * Callers:
- *     IoNotifyQuotaState @ 0x1404D7080 (IoNotifyQuotaState.c)
+ *     IoNotifyQuotaState @ 0x1404D0850 (IoNotifyQuotaState.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
  */
 
 void __fastcall PsIoRateControlOverQuotaNotify(__int64 a1, int a2, int a3, int a4, int a5)

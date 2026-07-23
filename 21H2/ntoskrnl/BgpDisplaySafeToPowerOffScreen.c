@@ -1,11 +1,11 @@
 /*
- * XREFs of BgpDisplaySafeToPowerOffScreen @ 0x1405C547C
+ * XREFs of BgpDisplaySafeToPowerOffScreen @ 0x1405C56AC
  * Callers:
- *     BgDisplaySafeToPowerOffScreen @ 0x1405C423C (BgDisplaySafeToPowerOffScreen.c)
+ *     BgDisplaySafeToPowerOffScreen @ 0x1405C446C (BgDisplaySafeToPowerOffScreen.c)
  * Callees:
- *     BgpClearScreen @ 0x1405C4274 (BgpClearScreen.c)
- *     BcpDisplayCriticalString @ 0x1405C494C (BcpDisplayCriticalString.c)
- *     BcpGetDisplayType @ 0x1405C52D8 (BcpGetDisplayType.c)
+ *     BgpClearScreen @ 0x1405C44A4 (BgpClearScreen.c)
+ *     BcpDisplayCriticalString @ 0x1405C4B7C (BcpDisplayCriticalString.c)
+ *     BcpGetDisplayType @ 0x1405C5508 (BcpGetDisplayType.c)
  */
 
 __int64 BgpDisplaySafeToPowerOffScreen()
@@ -23,16 +23,16 @@ __int64 BgpDisplaySafeToPowerOffScreen()
     v6[1] = DWORD1(BgInternal);
     v6[2] = HIDWORD(BgInternal);
     DisplayType = BcpGetDisplayType(v6);
-    *(_DWORD *)(*(_QWORD *)(qword_140C53EF0 + 24) + 40LL) = -16777216;
+    *(_DWORD *)(*(_QWORD *)(qword_140C53F30 + 24) + 40LL) = -16777216;
     BgpClearScreen(0xFF000000);
     v0 = 0;
-    v3 = &dword_140C10F10[18 * DisplayType + 5];
-    LODWORD(BcpCursor) = dword_140C10F10[18 * DisplayType + 4];
+    v3 = &dword_140C10EF0[18 * DisplayType + 5];
+    LODWORD(BcpCursor) = dword_140C10EF0[18 * DisplayType + 4];
     v4 = *v3;
     HIDWORD(BcpCursor) = *v3;
     if ( v3 )
-      dword_140C4C5E0 = v4;
-    BcpDisplayCriticalString(&stru_140C53EE0.Length, dword_140C10F10[18 * DisplayType + 2], v2, DisplayType);
+      dword_140C4C628 = v4;
+    BcpDisplayCriticalString(&stru_140C53F20.Length, dword_140C10EF0[18 * DisplayType + 2], v2, DisplayType);
   }
   else
   {

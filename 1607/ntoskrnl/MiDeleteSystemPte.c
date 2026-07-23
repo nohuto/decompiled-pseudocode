@@ -1,19 +1,19 @@
 /*
- * XREFs of MiDeleteSystemPte @ 0x140122F44
+ * XREFs of MiDeleteSystemPte @ 0x1401234B4
  * Callers:
- *     MiDeleteSessionAddressSpace @ 0x140122D08 (MiDeleteSessionAddressSpace.c)
- *     MiDeleteSystemPte @ 0x140122F44 (MiDeleteSystemPte.c)
+ *     MiDeleteSessionAddressSpace @ 0x140123278 (MiDeleteSessionAddressSpace.c)
+ *     MiDeleteSystemPte @ 0x1401234B4 (MiDeleteSystemPte.c)
  * Callees:
- *     MiReleasePageFileSpace @ 0x140022238 (MiReleasePageFileSpace.c)
- *     MiDeleteValidSystemPage @ 0x14004B6A0 (MiDeleteValidSystemPage.c)
- *     MiTryDeleteTransitionPte @ 0x1400B8F70 (MiTryDeleteTransitionPte.c)
- *     MiInsertTbFlushEntry @ 0x1400E0240 (MiInsertTbFlushEntry.c)
- *     MiDeleteSystemPte @ 0x140122F44 (MiDeleteSystemPte.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
- *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F2550 (MI_GET_PAGE_FRAME_FROM_PTE.c)
- *     MI_GET_PFN_FROM_PTE @ 0x1401F2594 (MI_GET_PFN_FROM_PTE.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiReleasePageFileSpace @ 0x140021DB8 (MiReleasePageFileSpace.c)
+ *     MiDeleteValidSystemPage @ 0x14004B220 (MiDeleteValidSystemPage.c)
+ *     MiTryDeleteTransitionPte @ 0x1400B6E00 (MiTryDeleteTransitionPte.c)
+ *     MiInsertTbFlushEntry @ 0x1400DE0E0 (MiInsertTbFlushEntry.c)
+ *     MiDeleteSystemPte @ 0x1401234B4 (MiDeleteSystemPte.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
+ *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F237C (MI_GET_PAGE_FRAME_FROM_PTE.c)
+ *     MI_GET_PFN_FROM_PTE @ 0x1401F23C0 (MI_GET_PFN_FROM_PTE.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
  */
 
 __int64 __fastcall MiDeleteSystemPte(ULONG_PTR a1, __int64 a2, _QWORD *a3, _DWORD *a4)
@@ -70,11 +70,11 @@ LABEL_9:
     MiInsertTbFlushEntry(a2, (__int64)(a1 << 25) >> 16, 1LL, 0);
     v13 = 48 * v12;
     v4 = a4;
-    v8 = v13 - 0x58000000000LL != qword_140327680;
+    v8 = v13 - 0x58000000000LL != qword_1403276C0;
   }
 LABEL_13:
-  if ( a1 >= (((unsigned __int64)qword_1403268B0 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL
-    && a1 < (((unsigned __int64)qword_1403268A8 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL )
+  if ( a1 >= (((unsigned __int64)qword_1403268F0 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL
+    && a1 < (((unsigned __int64)qword_1403268E8 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL )
   {
     v8 = 0;
   }

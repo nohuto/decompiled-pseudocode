@@ -14,56 +14,61 @@
  *     _RtlpHpHeapCompact@8 @ 0x4B378991 (_RtlpHpHeapCompact@8.c)
  */
 
-int __stdcall RtlCompactHeap(_DWORD *a1, int a2)
+SIZE_T __cdecl RtlCompactHeap(PVOID HeapHandle, ULONG Flags)
 {
-  int v3; // edx
-  _BYTE *v4; // eax
-  struct _TEB *v5; // esi
-  unsigned int v6; // [esp+18h] [ebp-20h]
-  char v7; // [esp+1Fh] [ebp-19h]
+  SIZE_T result; // rax
+  ULONG v3; // edx
+  struct _TEB *v4; // esi
+  unsigned int v5; // [esp+18h] [ebp-20h]
+  char v6; // [esp+1Fh] [ebp-19h]
 
-  v7 = 0;
-  if ( a1[2] == -571548178 )
+  v6 = 0;
+  if ( *((_DWORD *)HeapHandle + 2) == -571548178 )
   {
-    RtlpHpHeapCompact(a1, a2 & 1);
-    return 8;
+    RtlpHpHeapCompact(HeapHandle, Flags & 1);
+    LODWORD(result) = 8;
   }
   else
   {
-    v3 = a1[17] | a2;
+    v3 = *((_DWORD *)HeapHandle + 17) | Flags;
     if ( (v3 & 0x61000000) != 0 && (v3 & 0x10000000) == 0 )
     {
-      return RtlDebugCompactHeap(a1);
+      LODWORD(result) = RtlDebugCompactHeap(HeapHandle);
     }
     else
     {
-      v6 = 0;
+      v5 = 0;
       if ( (v3 & 1) == 0 )
       {
-        RtlEnterCriticalSection(a1[50]);
-        v7 = 1;
+        RtlEnterCriticalSection(*((PRTL_CRITICAL_SECTION *)HeapHandle + 50));
+        v6 = 1;
       }
-      v4 = (_BYTE *)RtlpCoalesceHeap(a1);
-      if ( v4 )
+      LODWORD(result) = RtlpCoalesceHeap(HeapHandle);
+      HIDWORD(result) = result;
+      if ( (_DWORD)result )
       {
-        v6 = 8 * *(unsigned __int16 *)v4;
-        if ( a1[19] )
+        v5 = 8 * *(unsigned __int16 *)result;
+        if ( *((_DWORD *)HeapHandle + 19) )
         {
-          v4[3] = *v4 ^ v4[1] ^ v4[2];
-          *(_DWORD *)v4 ^= a1[20];
+          *(_BYTE *)(result + 3) = *(_BYTE *)result ^ *(_BYTE *)(result + 1) ^ *(_BYTE *)(result + 2);
+          *(_DWORD *)result ^= *((_DWORD *)HeapHandle + 20);
         }
       }
-      if ( (_DWORD *)a1[35] != a1 + 35 && *(_DWORD *)(a1[36] + 20) > v6 )
-        v6 = *(_DWORD *)(a1[36] + 20);
-      if ( !v6 )
+      if ( *((PVOID *)HeapHandle + 35) != (char *)HeapHandle + 140
+        && *(_DWORD *)(*((_DWORD *)HeapHandle + 36) + 20) > v5 )
+      {
+        v5 = *(_DWORD *)(*((_DWORD *)HeapHandle + 36) + 20);
+      }
+      if ( !v5 )
       {
         NtCurrentTeb()->LastStatusValue = 0;
-        v5 = NtCurrentTeb();
-        v5->LastErrorValue = RtlNtStatusToDosError(0);
+        v4 = NtCurrentTeb();
+        v4->LastErrorValue = RtlNtStatusToDosError(0);
       }
-      if ( v7 )
-        RtlLeaveCriticalSection(a1[50]);
-      return v6;
+      if ( v6 )
+        RtlLeaveCriticalSection(*((PRTL_CRITICAL_SECTION *)HeapHandle + 50));
+      LODWORD(result) = v5;
     }
   }
+  return result;
 }

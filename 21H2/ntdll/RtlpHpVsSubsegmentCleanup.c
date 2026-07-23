@@ -4,7 +4,7 @@
  *     RtlpHpHeapDestroy @ 0x1800048E4 (RtlpHpHeapDestroy.c)
  *     RtlpHpVsContextFree @ 0x180028500 (RtlpHpVsContextFree.c)
  *     RtlpHpVsChunkSplit @ 0x180029280 (RtlpHpVsChunkSplit.c)
- *     RtlpHpVsChunkFree @ 0x18010FB5C (RtlpHpVsChunkFree.c)
+ *     RtlpHpVsChunkFree @ 0x18010FB1C (RtlpHpVsChunkFree.c)
  * Callees:
  *     <none>
  */

@@ -1,11 +1,11 @@
 /*
- * XREFs of VslGetSecurePebAddress @ 0x14062092C
+ * XREFs of VslGetSecurePebAddress @ 0x1406209E0
  * Callers:
- *     NtQueryInformationProcess @ 0x140422590 (NtQueryInformationProcess.c)
- *     DbgkpPostModuleMessages @ 0x140618B20 (DbgkpPostModuleMessages.c)
+ *     NtQueryInformationProcess @ 0x140421450 (NtQueryInformationProcess.c)
+ *     DbgkpPostModuleMessages @ 0x140618BD4 (DbgkpPostModuleMessages.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x1400AA174 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     VslpEnterIumSecureMode @ 0x1400A86F4 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall VslGetSecurePebAddress(__int64 a1, _QWORD *a2)

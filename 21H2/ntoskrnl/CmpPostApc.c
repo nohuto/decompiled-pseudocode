@@ -1,16 +1,16 @@
 /*
- * XREFs of CmpPostApc @ 0x14069CB80
+ * XREFs of CmpPostApc @ 0x1405FBC50
  * Callers:
  *     <none>
  * Callees:
- *     DbgPrint @ 0x140284160 (DbgPrint.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
- *     CmpFreePostBlock @ 0x140667A60 (CmpFreePostBlock.c)
- *     CmpFreeSubordinatePost @ 0x14069CD10 (CmpFreeSubordinatePost.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     DbgPrint @ 0x140272780 (DbgPrint.c)
+ *     KeSetEvent @ 0x14034E2F0 (KeSetEvent.c)
+ *     CmpFreeSubordinatePost @ 0x1405FBDE0 (CmpFreeSubordinatePost.c)
+ *     CmpFreePostBlock @ 0x14065C880 (CmpFreePostBlock.c)
  */
 
-void __fastcall CmpPostApc(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4, __int64 a5)
+__int64 __fastcall CmpPostApc(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4, __int64 a5)
 {
   _QWORD *v6; // rbx
   _QWORD *v7; // rdx
@@ -85,5 +85,5 @@ void __fastcall CmpPostApc(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4, __int
   *v17 = v16;
   *(_QWORD *)(v16 + 8) = v17;
   CmpFreeSubordinatePost(v6);
-  CmpFreePostBlock(v6);
+  return CmpFreePostBlock(v6);
 }

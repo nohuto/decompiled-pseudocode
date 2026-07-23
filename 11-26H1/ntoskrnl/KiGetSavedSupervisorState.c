@@ -1,7 +1,7 @@
 /*
- * XREFs of KiGetSavedSupervisorState @ 0x1405ECD60
+ * XREFs of KiGetSavedSupervisorState @ 0x1405EF6D0
  * Callers:
- *     KiGetSavedIptState @ 0x1405ECC80 (KiGetSavedIptState.c)
+ *     KiGetSavedIptState @ 0x1405EF5F0 (KiGetSavedIptState.c)
  * Callees:
  *     <none>
  */
@@ -13,7 +13,7 @@ __int64 __fastcall KiGetSavedSupervisorState(unsigned int a1, _QWORD *a2)
   __int64 v5; // rax
 
   CurrentIrql = KeGetCurrentIrql();
-  if ( CurrentIrql < 2u || CurrentIrql < 0xFu && !LOBYTE(stru_140F10828.WriteOperationCount) )
+  if ( CurrentIrql < 2u || CurrentIrql < 0xFu && !PoAllProcIntrDisabled )
     return 3221225473LL;
   if ( a1 >= (unsigned int)KeNumberProcessors_0 )
     return 3221225485LL;

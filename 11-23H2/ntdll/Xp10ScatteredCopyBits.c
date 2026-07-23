@@ -1,10 +1,10 @@
 /*
- * XREFs of Xp10ScatteredCopyBits @ 0x18011FF7C
+ * XREFs of Xp10ScatteredCopyBits @ 0x18011FF4C
  * Callers:
- *     RtlDecompressBuffer2Xp10 @ 0x18011BC40 (RtlDecompressBuffer2Xp10.c)
+ *     RtlDecompressBuffer2Xp10 @ 0x18011BC10 (RtlDecompressBuffer2Xp10.c)
  * Callees:
- *     Xp10BitCopy @ 0x18011BED4 (Xp10BitCopy.c)
- *     Xp10ScatteredNextBuffer @ 0x1801201D8 (Xp10ScatteredNextBuffer.c)
+ *     Xp10BitCopy @ 0x18011BEA4 (Xp10BitCopy.c)
+ *     Xp10ScatteredNextBuffer @ 0x1801201A8 (Xp10ScatteredNextBuffer.c)
  */
 
 __int64 __fastcall Xp10ScatteredCopyBits(__int64 a1, int *a2, unsigned int a3)

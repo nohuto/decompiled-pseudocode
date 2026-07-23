@@ -1,18 +1,18 @@
 /*
- * XREFs of MiWriteCompletePfn @ 0x1402F4750
+ * XREFs of MiWriteCompletePfn @ 0x1402F49E0
  * Callers:
  *     MiBuildMappedCluster @ 0x14021C0D0 (MiBuildMappedCluster.c)
- *     MiWriteComplete @ 0x1402F4320 (MiWriteComplete.c)
- *     MiGatherPagefilePages @ 0x14063A144 (MiGatherPagefilePages.c)
- *     MiUnlockStoreLockedPages @ 0x14065CE10 (MiUnlockStoreLockedPages.c)
+ *     MiWriteComplete @ 0x1402F45B0 (MiWriteComplete.c)
+ *     MiGatherPagefilePages @ 0x14063A694 (MiGatherPagefilePages.c)
+ *     MiUnlockStoreLockedPages @ 0x14065D360 (MiUnlockStoreLockedPages.c)
  * Callees:
- *     MiInsertPageInFreeOrZeroedList @ 0x1402D3670 (MiInsertPageInFreeOrZeroedList.c)
- *     MiPfnReferenceCountIsZero @ 0x1402D8FE0 (MiPfnReferenceCountIsZero.c)
- *     MiIsPfnCommitNotCharged @ 0x1402DC180 (MiIsPfnCommitNotCharged.c)
- *     MiReturnCommit @ 0x1402DC250 (MiReturnCommit.c)
- *     MiRestoreTransitionPte @ 0x1403351BC (MiRestoreTransitionPte.c)
- *     MiCapturePageFileInfoInline @ 0x140348CB4 (MiCapturePageFileInfoInline.c)
- *     MI_IS_PTE_IN_WS_SWAP_SET @ 0x14034F514 (MI_IS_PTE_IN_WS_SWAP_SET.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x1402D3900 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiPfnReferenceCountIsZero @ 0x1402D9270 (MiPfnReferenceCountIsZero.c)
+ *     MiIsPfnCommitNotCharged @ 0x1402DC410 (MiIsPfnCommitNotCharged.c)
+ *     MiReturnCommit @ 0x1402DC4E0 (MiReturnCommit.c)
+ *     MiRestoreTransitionPte @ 0x14033544C (MiRestoreTransitionPte.c)
+ *     MiCapturePageFileInfoInline @ 0x140348F44 (MiCapturePageFileInfoInline.c)
+ *     MI_IS_PTE_IN_WS_SWAP_SET @ 0x14034F6B4 (MI_IS_PTE_IN_WS_SWAP_SET.c)
  */
 
 __int64 __fastcall MiWriteCompletePfn(ULONG_PTR BugCheckParameter2, char a2)

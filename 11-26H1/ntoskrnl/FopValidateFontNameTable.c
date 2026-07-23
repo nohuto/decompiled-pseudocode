@@ -1,13 +1,13 @@
 /*
- * XREFs of FopValidateFontNameTable @ 0x140D14364
+ * XREFs of FopValidateFontNameTable @ 0x140D1A52C
  * Callers:
- *     FopInitializeFonts @ 0x140D13CF0 (FopInitializeFonts.c)
+ *     FopInitializeFonts @ 0x140D19EB8 (FopInitializeFonts.c)
  * Callees:
- *     FioFwReadBytesAtOffset @ 0x140355130 (FioFwReadBytesAtOffset.c)
- *     BgpFwFreeMemory @ 0x140355E00 (BgpFwFreeMemory.c)
- *     BgpFwAllocateMemory @ 0x140355EBC (BgpFwAllocateMemory.c)
- *     FopGetTableOffsetAndSize @ 0x140D13BF0 (FopGetTableOffsetAndSize.c)
- *     FopReadNamingTable @ 0x140D141B8 (FopReadNamingTable.c)
+ *     FioFwReadBytesAtOffset @ 0x140356ED0 (FioFwReadBytesAtOffset.c)
+ *     BgpFwFreeMemory @ 0x140357BA8 (BgpFwFreeMemory.c)
+ *     BgpFwAllocateMemory @ 0x140357C64 (BgpFwAllocateMemory.c)
+ *     FopGetTableOffsetAndSize @ 0x140D19DB8 (FopGetTableOffsetAndSize.c)
+ *     FopReadNamingTable @ 0x140D1A380 (FopReadNamingTable.c)
  */
 
 __int64 __fastcall FopValidateFontNameTable(__int64 a1, unsigned int a2, __int64 *a3)

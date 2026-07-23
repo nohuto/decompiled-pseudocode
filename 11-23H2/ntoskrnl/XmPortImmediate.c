@@ -1,10 +1,10 @@
 /*
- * XREFs of XmPortImmediate @ 0x1403984A0
+ * XREFs of XmPortImmediate @ 0x140398680
  * Callers:
- *     XmEmulateStream @ 0x1403BE4E0 (XmEmulateStream.c)
+ *     XmEmulateStream @ 0x1403BE6C0 (XmEmulateStream.c)
  * Callees:
- *     XmGetCodeByte @ 0x1403B9414 (XmGetCodeByte.c)
- *     XmSetDataType @ 0x1403B94E8 (XmSetDataType.c)
+ *     XmGetCodeByte @ 0x1403B95F4 (XmGetCodeByte.c)
+ *     XmSetDataType @ 0x1403B96C8 (XmSetDataType.c)
  */
 
 __int64 __fastcall XmPortImmediate(__int64 a1)

@@ -1,16 +1,16 @@
 /*
- * XREFs of IopInitializeCrashDump @ 0x140569208
+ * XREFs of IopInitializeCrashDump @ 0x140569748
  * Callers:
- *     IoConfigureCrashDump @ 0x140142EA0 (IoConfigureCrashDump.c)
- *     IoInitializeCrashDump @ 0x14056916C (IoInitializeCrashDump.c)
+ *     IoConfigureCrashDump @ 0x140143410 (IoConfigureCrashDump.c)
+ *     IoInitializeCrashDump @ 0x1405696AC (IoInitializeCrashDump.c)
  *     IopInitCrashDumpRegCallback @ 0x1407B24BC (IopInitCrashDumpRegCallback.c)
  * Callees:
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     IopLoadCrashdumpDriver @ 0x140131B48 (IopLoadCrashdumpDriver.c)
- *     IopReadDumpRegistry @ 0x140143058 (IopReadDumpRegistry.c)
- *     SecureDump_GetSecureDumpSettings @ 0x1401CB918 (SecureDump_GetSecureDumpSettings.c)
- *     ObReferenceObjectByHandle @ 0x140450D40 (ObReferenceObjectByHandle.c)
- *     FsRtlIssueFileNotificationFsctl @ 0x140546D48 (FsRtlIssueFileNotificationFsctl.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     IopLoadCrashdumpDriver @ 0x1401320B8 (IopLoadCrashdumpDriver.c)
+ *     IopReadDumpRegistry @ 0x1401435C8 (IopReadDumpRegistry.c)
+ *     SecureDump_GetSecureDumpSettings @ 0x1401CB7FC (SecureDump_GetSecureDumpSettings.c)
+ *     ObReferenceObjectByHandle @ 0x14044FC10 (ObReferenceObjectByHandle.c)
+ *     FsRtlIssueFileNotificationFsctl @ 0x140547288 (FsRtlIssueFileNotificationFsctl.c)
  */
 
 char __fastcall IopInitializeCrashDump(unsigned int *Handle, __int128 *a2)
@@ -43,18 +43,18 @@ char __fastcall IopInitializeCrashDump(unsigned int *Handle, __int128 *a2)
       return 0;
     if ( (_BYTE)v7 )
     {
-      if ( !qword_140328A28 )
+      if ( !qword_140328A68 )
         return 0;
       v11 = *(_QWORD *)((char *)&v7 + 4);
       v12 = BYTE1(v7);
       v9 = SecureDump_Get_SecureDumpHeader;
       v10 = SecureDump_Encrypt_DmpData;
       v8 = 40;
-      if ( (int)qword_140328A28(&v8) < 0 )
+      if ( (int)qword_140328A68(&v8) < 0 )
         return 0;
     }
     v7 = *a2;
-    if ( (int)qword_1403289C8(Handle, &CrashdmpDumpBlock, &v7) < 0 )
+    if ( (int)qword_140328A08(Handle, &CrashdmpDumpBlock, &v7) < 0 )
     {
       CrashdmpDumpBlock = 0LL;
       return 0;

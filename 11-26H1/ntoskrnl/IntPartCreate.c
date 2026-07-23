@@ -1,15 +1,15 @@
 /*
- * XREFs of IntPartCreate @ 0x140D02274
+ * XREFs of IntPartCreate @ 0x140D08614
  * Callers:
- *     KiIntSteerInit @ 0x140CCBB80 (KiIntSteerInit.c)
+ *     KiIntSteerInit @ 0x140CD1CE0 (KiIntSteerInit.c)
  * Callees:
- *     IntPartCriticalFailure @ 0x1405F3528 (IntPartCriticalFailure.c)
- *     IntpAllocateGroupContext @ 0x1407198A8 (IntpAllocateGroupContext.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
- *     IntpInitClassContext @ 0x140D02060 (IntpInitClassContext.c)
- *     IntpMergeClassContexts @ 0x140D02158 (IntpMergeClassContexts.c)
- *     IntpAssignProcessorsToPartitions @ 0x140D0240C (IntpAssignProcessorsToPartitions.c)
- *     IntpAllocateProcessorContext @ 0x140D02508 (IntpAllocateProcessorContext.c)
+ *     IntPartCriticalFailure @ 0x1405F5EE8 (IntPartCriticalFailure.c)
+ *     IntpAllocateGroupContext @ 0x14071E598 (IntpAllocateGroupContext.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
+ *     IntpInitClassContext @ 0x140D08400 (IntpInitClassContext.c)
+ *     IntpMergeClassContexts @ 0x140D084F8 (IntpMergeClassContexts.c)
+ *     IntpAssignProcessorsToPartitions @ 0x140D087AC (IntpAssignProcessorsToPartitions.c)
+ *     IntpAllocateProcessorContext @ 0x140D088A8 (IntpAllocateProcessorContext.c)
  */
 
 __int64 __fastcall IntPartCreate(__int64 a1, char a2, __int64 a3)

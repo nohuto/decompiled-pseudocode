@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlSetAllBitsEx @ 0x14036F430
+ * XREFs of RtlSetAllBitsEx @ 0x1403711E0
  * Callers:
- *     MiBuildMdlForMappedFileFault @ 0x14036EBF0 (MiBuildMdlForMappedFileFault.c)
- *     IopLiveDumpAllocAndInitResources @ 0x1405CC998 (IopLiveDumpAllocAndInitResources.c)
- *     MiInitializeUltraSpace @ 0x140D01AF0 (MiInitializeUltraSpace.c)
+ *     MiBuildMdlForMappedFileFault @ 0x140370990 (MiBuildMdlForMappedFileFault.c)
+ *     IopLiveDumpAllocAndInitResources @ 0x1405CF1A8 (IopLiveDumpAllocAndInitResources.c)
+ *     MiInitializeUltraSpace @ 0x140D07E90 (MiInitializeUltraSpace.c)
  * Callees:
  *     <none>
  */

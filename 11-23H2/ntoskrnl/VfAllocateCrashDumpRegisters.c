@@ -1,14 +1,14 @@
 /*
- * XREFs of VfAllocateCrashDumpRegisters @ 0x140AC53B0
+ * XREFs of VfAllocateCrashDumpRegisters @ 0x140AC53A0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     VfDisableHalVerifier @ 0x1405CE858 (VfDisableHalVerifier.c)
- *     ADD_MAP_REGISTERS @ 0x140AC41B0 (ADD_MAP_REGISTERS.c)
- *     VF_ASSERT_IRQL @ 0x140AC46DC (VF_ASSERT_IRQL.c)
- *     ViGetAdapterInformationInternal @ 0x140AC8E74 (ViGetAdapterInformationInternal.c)
- *     ViGetRealDmaAdapter @ 0x140AC9188 (ViGetRealDmaAdapter.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     VfDisableHalVerifier @ 0x1405CEDC8 (VfDisableHalVerifier.c)
+ *     ADD_MAP_REGISTERS @ 0x140AC41A0 (ADD_MAP_REGISTERS.c)
+ *     VF_ASSERT_IRQL @ 0x140AC46CC (VF_ASSERT_IRQL.c)
+ *     ViGetAdapterInformationInternal @ 0x140AC8E64 (ViGetAdapterInformationInternal.c)
+ *     ViGetRealDmaAdapter @ 0x140AC9178 (ViGetRealDmaAdapter.c)
  */
 
 __int64 __fastcall VfAllocateCrashDumpRegisters(int a1, unsigned int *a2)

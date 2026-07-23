@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlInsertInvertedFunctionTable @ 0x1403721F8
+ * XREFs of RtlInsertInvertedFunctionTable @ 0x140371D48
  * Callers:
- *     MiProcessLoaderEntry @ 0x140372360 (MiProcessLoaderEntry.c)
+ *     MiProcessLoaderEntry @ 0x140371EB0 (MiProcessLoaderEntry.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     RtlpInsertInvertedFunctionTableEntry @ 0x14037227C (RtlpInsertInvertedFunctionTableEntry.c)
- *     MmLockLoadedModuleListExclusive @ 0x140372568 (MmLockLoadedModuleListExclusive.c)
- *     RtlCaptureImageExceptionValues @ 0x1403725AC (RtlCaptureImageExceptionValues.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140346AD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     RtlpInsertInvertedFunctionTableEntry @ 0x140371DCC (RtlpInsertInvertedFunctionTableEntry.c)
+ *     MmLockLoadedModuleListExclusive @ 0x1403720B8 (MmLockLoadedModuleListExclusive.c)
+ *     RtlCaptureImageExceptionValues @ 0x1403720FC (RtlCaptureImageExceptionValues.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 

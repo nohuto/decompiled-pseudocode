@@ -1,16 +1,16 @@
 /*
- * XREFs of IopLiveDumpMarkRequiredDumpData @ 0x14059BFB0
+ * XREFs of IopLiveDumpMarkRequiredDumpData @ 0x140598F30
  * Callers:
- *     IopLiveDumpCollectPages @ 0x14059A264 (IopLiveDumpCollectPages.c)
+ *     IopLiveDumpCollectPages @ 0x1405971E8 (IopLiveDumpCollectPages.c)
  * Callees:
- *     KeEnumerateNextProcessor @ 0x14040D4F0 (KeEnumerateNextProcessor.c)
- *     IopLiveDumpGetMillisecondCounter @ 0x14049B5E4 (IopLiveDumpGetMillisecondCounter.c)
- *     IopLiveDumpMarkDeviceNode @ 0x14059BB84 (IopLiveDumpMarkDeviceNode.c)
- *     IopLiveDumpMarkLoadedModuleList @ 0x14059BD5C (IopLiveDumpMarkLoadedModuleList.c)
- *     IopLiveDumpMarkProcessorData @ 0x14059BE9C (IopLiveDumpMarkProcessorData.c)
- *     IopLiveDumpTraceMarkRequiredDumpDataDuration @ 0x14059DEC0 (IopLiveDumpTraceMarkRequiredDumpDataDuration.c)
- *     MmAddPrivateDataToCrashDump @ 0x140677874 (MmAddPrivateDataToCrashDump.c)
- *     MmAddRangeToCrashDump @ 0x140677990 (MmAddRangeToCrashDump.c)
+ *     KeEnumerateNextProcessor @ 0x140405740 (KeEnumerateNextProcessor.c)
+ *     IopLiveDumpGetMillisecondCounter @ 0x140495FD4 (IopLiveDumpGetMillisecondCounter.c)
+ *     IopLiveDumpMarkDeviceNode @ 0x140598B04 (IopLiveDumpMarkDeviceNode.c)
+ *     IopLiveDumpMarkLoadedModuleList @ 0x140598CDC (IopLiveDumpMarkLoadedModuleList.c)
+ *     IopLiveDumpMarkProcessorData @ 0x140598E1C (IopLiveDumpMarkProcessorData.c)
+ *     IopLiveDumpTraceMarkRequiredDumpDataDuration @ 0x14059AE40 (IopLiveDumpTraceMarkRequiredDumpDataDuration.c)
+ *     MmAddPrivateDataToCrashDump @ 0x140678A54 (MmAddPrivateDataToCrashDump.c)
+ *     MmAddRangeToCrashDump @ 0x140678B70 (MmAddRangeToCrashDump.c)
  */
 
 __int64 __fastcall IopLiveDumpMarkRequiredDumpData(__int64 a1, __int64 a2)

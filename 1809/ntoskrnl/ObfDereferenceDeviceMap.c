@@ -1,24 +1,24 @@
 /*
- * XREFs of ObfDereferenceDeviceMap @ 0x1406719C0
+ * XREFs of ObfDereferenceDeviceMap @ 0x140672B80
  * Callers:
- *     ObpLookupObjectName @ 0x1405E3BE0 (ObpLookupObjectName.c)
- *     ObDereferenceDeviceMap @ 0x140608F0C (ObDereferenceDeviceMap.c)
- *     ObQueryDeviceMapInformation @ 0x140671540 (ObQueryDeviceMapInformation.c)
- *     ObSetCurrentProcessDeviceMap @ 0x1406A2CA4 (ObSetCurrentProcessDeviceMap.c)
- *     SeGetTokenDeviceMap @ 0x1406A2DBC (SeGetTokenDeviceMap.c)
- *     SepDeReferenceLogonSession @ 0x1406B35E0 (SepDeReferenceLogonSession.c)
- *     ObpSetDeviceMap @ 0x1406C697C (ObpSetDeviceMap.c)
- *     SepDeleteLogonSessionTrack @ 0x1406F71D8 (SepDeleteLogonSessionTrack.c)
- *     PspDeleteServerSiloGlobals @ 0x140887178 (PspDeleteServerSiloGlobals.c)
+ *     ObpLookupObjectName @ 0x1405E4BE0 (ObpLookupObjectName.c)
+ *     ObDereferenceDeviceMap @ 0x140609F0C (ObDereferenceDeviceMap.c)
+ *     ObQueryDeviceMapInformation @ 0x140672700 (ObQueryDeviceMapInformation.c)
+ *     ObSetCurrentProcessDeviceMap @ 0x1406A3F44 (ObSetCurrentProcessDeviceMap.c)
+ *     SeGetTokenDeviceMap @ 0x1406A405C (SeGetTokenDeviceMap.c)
+ *     SepDeReferenceLogonSession @ 0x1406B4880 (SepDeReferenceLogonSession.c)
+ *     ObpSetDeviceMap @ 0x1406C7C1C (ObpSetDeviceMap.c)
+ *     SepDeleteLogonSessionTrack @ 0x1406F8478 (SepDeleteLogonSessionTrack.c)
+ *     PspDeleteServerSiloGlobals @ 0x1408883D8 (PspDeleteServerSiloGlobals.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
  *     ExReleasePushLockEx @ 0x14004F160 (ExReleasePushLockEx.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     PsGetServerSiloGlobals @ 0x14009238C (PsGetServerSiloGlobals.c)
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     PsGetServerSiloGlobals @ 0x1400922CC (PsGetServerSiloGlobals.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 void __fastcall ObfDereferenceDeviceMap(PVOID P)

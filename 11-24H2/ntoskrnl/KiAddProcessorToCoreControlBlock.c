@@ -1,11 +1,11 @@
 /*
- * XREFs of KiAddProcessorToCoreControlBlock @ 0x1405BAB1C
+ * XREFs of KiAddProcessorToCoreControlBlock @ 0x1405B814C
  * Callers:
- *     KiFinalizeCoreControlBlockAssignment @ 0x1405B6C9C (KiFinalizeCoreControlBlockAssignment.c)
- *     KiInitializeKernel @ 0x140B588B0 (KiInitializeKernel.c)
+ *     KiFinalizeCoreControlBlockAssignment @ 0x1405B3F5C (KiFinalizeCoreControlBlockAssignment.c)
+ *     KiInitializeKernel @ 0x140B5A930 (KiInitializeKernel.c)
  * Callees:
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     qsort @ 0x1404FED20 (qsort.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     qsort @ 0x1404FC5E0 (qsort.c)
  */
 
 char __fastcall KiAddProcessorToCoreControlBlock(unsigned __int8 *a1, ULONG_PTR a2)

@@ -1,13 +1,13 @@
 /*
- * XREFs of PopSetHiberFileSize @ 0x1406FA3E4
+ * XREFs of PopSetHiberFileSize @ 0x1406F8024
  * Callers:
- *     NtPowerInformation @ 0x1409F0230 (NtPowerInformation.c)
+ *     NtPowerInformation @ 0x1409EDB00 (NtPowerInformation.c)
  * Callees:
- *     PopSetHiberPersistedRegValue @ 0x1406F596C (PopSetHiberPersistedRegValue.c)
- *     PopSetHiberFileType @ 0x1406F9BCC (PopSetHiberFileType.c)
- *     PopCalculateHiberFileSize @ 0x140751B58 (PopCalculateHiberFileSize.c)
- *     PopDiagTraceSetHiberFileFailurePoint @ 0x140757914 (PopDiagTraceSetHiberFileFailurePoint.c)
- *     PopValidateHiberFileSize @ 0x140A782BC (PopValidateHiberFileSize.c)
+ *     PopSetHiberPersistedRegValue @ 0x1406F396C (PopSetHiberPersistedRegValue.c)
+ *     PopSetHiberFileType @ 0x1406F780C (PopSetHiberFileType.c)
+ *     PopCalculateHiberFileSize @ 0x14074FE78 (PopCalculateHiberFileSize.c)
+ *     PopDiagTraceSetHiberFileFailurePoint @ 0x140755D94 (PopDiagTraceSetHiberFileFailurePoint.c)
+ *     PopValidateHiberFileSize @ 0x140A725BC (PopValidateHiberFileSize.c)
  */
 
 __int64 __fastcall PopSetHiberFileSize(unsigned int a1, _QWORD *a2, unsigned int *a3)

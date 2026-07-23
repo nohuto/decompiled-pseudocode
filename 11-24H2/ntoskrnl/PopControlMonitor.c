@@ -1,12 +1,12 @@
 /*
- * XREFs of PopControlMonitor @ 0x1409B7F80
+ * XREFs of PopControlMonitor @ 0x14099E5D0
  * Callers:
- *     PopScreenOn @ 0x14075D4A0 (PopScreenOn.c)
- *     PopScreenOff @ 0x1409B8008 (PopScreenOff.c)
+ *     PopScreenOn @ 0x14075C440 (PopScreenOn.c)
+ *     PopScreenOff @ 0x14099E658 (PopScreenOff.c)
  * Callees:
- *     TtmSessionMonitorControl @ 0x140903874 (TtmSessionMonitorControl.c)
- *     TtmIsEnabled @ 0x1409BBDE8 (TtmIsEnabled.c)
- *     PopInvokeWin32Callout @ 0x1409BE358 (PopInvokeWin32Callout.c)
+ *     TtmSessionMonitorControl @ 0x14099DE24 (TtmSessionMonitorControl.c)
+ *     TtmIsEnabled @ 0x1409A2438 (TtmIsEnabled.c)
+ *     PopInvokeWin32Callout @ 0x1409A49A8 (PopInvokeWin32Callout.c)
  */
 
 __int64 __fastcall PopControlMonitor(unsigned int *a1, unsigned int a2)

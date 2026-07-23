@@ -1,22 +1,22 @@
 /*
- * XREFs of MiSetOriginalPtePfnFromFreeList @ 0x1401F2FB8
+ * XREFs of MiSetOriginalPtePfnFromFreeList @ 0x1401F2DE4
  * Callers:
- *     MiCoalesceFreePages @ 0x140067870 (MiCoalesceFreePages.c)
- *     MiLargeFreePageToMdl @ 0x14008A124 (MiLargeFreePageToMdl.c)
- *     MiUnlinkNodeLargePageHelper @ 0x14008AA80 (MiUnlinkNodeLargePageHelper.c)
- *     MiFreeLargePageMemory @ 0x140090970 (MiFreeLargePageMemory.c)
- *     MiReplacePageTablePage @ 0x1400A55B8 (MiReplacePageTablePage.c)
- *     MiClaimPhysicalRun @ 0x1401063DC (MiClaimPhysicalRun.c)
- *     MiConvertContiguousPages @ 0x1401069D4 (MiConvertContiguousPages.c)
- *     MiObtainTransitionPage @ 0x140107214 (MiObtainTransitionPage.c)
- *     MiStealPage @ 0x140107E84 (MiStealPage.c)
- *     MiFindLargeNodePage @ 0x1401E3320 (MiFindLargeNodePage.c)
- *     MiSetFreshPfnFromFreeList @ 0x1401F2FAC (MiSetFreshPfnFromFreeList.c)
- *     MiGet64KPage @ 0x1401FB7C4 (MiGet64KPage.c)
- *     MiZeroAndConvertLargePage @ 0x1401FC4CC (MiZeroAndConvertLargePage.c)
- *     MiGetFastLargePage @ 0x1406629F0 (MiGetFastLargePage.c)
+ *     MiCoalesceFreePages @ 0x1400673F0 (MiCoalesceFreePages.c)
+ *     MiLargeFreePageToMdl @ 0x140089824 (MiLargeFreePageToMdl.c)
+ *     MiUnlinkNodeLargePageHelper @ 0x14008A180 (MiUnlinkNodeLargePageHelper.c)
+ *     MiFreeLargePageMemory @ 0x1400900D0 (MiFreeLargePageMemory.c)
+ *     MiReplacePageTablePage @ 0x1400A3B30 (MiReplacePageTablePage.c)
+ *     MiClaimPhysicalRun @ 0x14010415C (MiClaimPhysicalRun.c)
+ *     MiConvertContiguousPages @ 0x140104754 (MiConvertContiguousPages.c)
+ *     MiObtainTransitionPage @ 0x140104F94 (MiObtainTransitionPage.c)
+ *     MiStealPage @ 0x140105C04 (MiStealPage.c)
+ *     MiFindLargeNodePage @ 0x1401E314C (MiFindLargeNodePage.c)
+ *     MiSetFreshPfnFromFreeList @ 0x1401F2DD8 (MiSetFreshPfnFromFreeList.c)
+ *     MiGet64KPage @ 0x1401FB5F0 (MiGet64KPage.c)
+ *     MiZeroAndConvertLargePage @ 0x1401FC2F8 (MiZeroAndConvertLargePage.c)
+ *     MiGetFastLargePage @ 0x140662AD4 (MiGetFastLargePage.c)
  * Callees:
- *     MiSwizzleInvalidPte @ 0x1401F297C (MiSwizzleInvalidPte.c)
+ *     MiSwizzleInvalidPte @ 0x1401F2784 (MiSwizzleInvalidPte.c)
  */
 
 unsigned __int64 __fastcall MiSetOriginalPtePfnFromFreeList(unsigned __int64 *a1)

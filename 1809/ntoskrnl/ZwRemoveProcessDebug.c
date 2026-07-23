@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwRemoveProcessDebug @ 0x1401BAED0
+ * XREFs of ZwRemoveProcessDebug @ 0x1401BB030
  * Callers:
  *     <none>
  * Callees:
@@ -8,9 +8,7 @@
 
 NTSTATUS __stdcall ZwRemoveProcessDebug(HANDLE Process, HANDLE DebugObject)
 {
-  __int64 v2; // r8
-
   _disable();
   __readeflags();
-  return KiServiceInternal(Process, DebugObject, v2);
+  return KiServiceInternal(Process);
 }

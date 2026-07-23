@@ -1,20 +1,20 @@
 /*
- * XREFs of MiUnlockWsle @ 0x140324658
+ * XREFs of MiUnlockWsle @ 0x140326688
  * Callers:
- *     MiDecommitAddToList @ 0x140323520 (MiDecommitAddToList.c)
- *     MiTerminateWsle @ 0x140324930 (MiTerminateWsle.c)
- *     MiUnlockVa @ 0x1404AA78C (MiUnlockVa.c)
+ *     MiDecommitAddToList @ 0x140325550 (MiDecommitAddToList.c)
+ *     MiTerminateWsle @ 0x140326960 (MiTerminateWsle.c)
+ *     MiUnlockVa @ 0x1404A3E1C (MiUnlockVa.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiGetWsleContents @ 0x140297070 (MiGetWsleContents.c)
- *     MiSetVaAgeListEx @ 0x14029D300 (MiSetVaAgeListEx.c)
- *     MiGetContainingPageTable @ 0x1402D9BF0 (MiGetContainingPageTable.c)
- *     MiPteHasShadow @ 0x1403011E0 (MiPteHasShadow.c)
- *     MiUnlockPageTableCharges @ 0x140318F40 (MiUnlockPageTableCharges.c)
- *     MiWritePteShadow @ 0x14031C28C (MiWritePteShadow.c)
- *     MiSanitizeShadowPxe @ 0x140342108 (MiSanitizeShadowPxe.c)
- *     MiGetEffectivePagePriorityThread @ 0x1403719B0 (MiGetEffectivePagePriorityThread.c)
- *     MiReleaseLockedVaLeafCharges @ 0x1404B3E8C (MiReleaseLockedVaLeafCharges.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiGetWsleContents @ 0x1402965D0 (MiGetWsleContents.c)
+ *     MiSetVaAgeListEx @ 0x14029C850 (MiSetVaAgeListEx.c)
+ *     MiGetContainingPageTable @ 0x1402BB9B0 (MiGetContainingPageTable.c)
+ *     MiPteHasShadow @ 0x1402E3260 (MiPteHasShadow.c)
+ *     MiUnlockPageTableCharges @ 0x14031AF70 (MiUnlockPageTableCharges.c)
+ *     MiWritePteShadow @ 0x14031E2BC (MiWritePteShadow.c)
+ *     MiSanitizeShadowPxe @ 0x140344188 (MiSanitizeShadowPxe.c)
+ *     MiGetEffectivePagePriorityThread @ 0x140373760 (MiGetEffectivePagePriorityThread.c)
+ *     MiReleaseLockedVaLeafCharges @ 0x1404AD45C (MiReleaseLockedVaLeafCharges.c)
  */
 
 __int64 __fastcall MiUnlockWsle(__int64 a1, unsigned __int64 a2, __int64 a3, unsigned int a4)

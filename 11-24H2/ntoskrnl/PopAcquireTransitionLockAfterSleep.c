@@ -1,28 +1,28 @@
 /*
- * XREFs of PopAcquireTransitionLockAfterSleep @ 0x140B67AF4
+ * XREFs of PopAcquireTransitionLockAfterSleep @ 0x140B69C34
  * Callers:
- *     PopTransitionSystemPowerStateEx @ 0x140B667DC (PopTransitionSystemPowerStateEx.c)
+ *     PopTransitionSystemPowerStateEx @ 0x140B6891C (PopTransitionSystemPowerStateEx.c)
  * Callees:
- *     PopReleaseRwLock @ 0x1403B5EC8 (PopReleaseRwLock.c)
- *     PopPushPowerStateTransitionRecordWithCallback @ 0x140428294 (PopPushPowerStateTransitionRecordWithCallback.c)
- *     PopAcquireRwLockExclusive @ 0x1404283D4 (PopAcquireRwLockExclusive.c)
- *     PopAcquireTransitionLock @ 0x140A928AC (PopAcquireTransitionLock.c)
+ *     PopReleaseRwLock @ 0x1402AE8FC (PopReleaseRwLock.c)
+ *     PopPushPowerStateTransitionRecordWithCallback @ 0x14041C424 (PopPushPowerStateTransitionRecordWithCallback.c)
+ *     PopAcquireRwLockExclusive @ 0x14041C564 (PopAcquireRwLockExclusive.c)
+ *     PopAcquireTransitionLock @ 0x140A8F05C (PopAcquireTransitionLock.c)
  */
 
 __int64 PopAcquireTransitionLockAfterSleep()
 {
-  PopAcquireRwLockExclusive(&PopUnlockAfterSleepLock);
+  PopAcquireRwLockExclusive((unsigned __int64 *)&PopUnlockAfterSleepLock);
   PopWaitingForTransitionLock = 1;
-  if ( qword_140F0B2D8 )
+  if ( qword_140F0BB58 )
     PopWaitingForTransitionLock = (int)PopPushPowerStateTransitionRecordWithCallback(
-                                         (__int64)KeGetCurrentThread()->ApcState.Process,
-                                         qword_140F0B2D8,
+                                         (LARGE_INTEGER)KeGetCurrentThread()->ApcState.Process,
+                                         qword_140F0BB58,
                                          0LL,
                                          0,
                                          0LL) >= 0;
-  PopReleaseRwLock((signed __int64 *)&PopUnlockAfterSleepLock);
+  PopReleaseRwLock(&PopUnlockAfterSleepLock);
   PopAcquireTransitionLock(1);
-  PopAcquireRwLockExclusive(&PopUnlockAfterSleepLock);
+  PopAcquireRwLockExclusive((unsigned __int64 *)&PopUnlockAfterSleepLock);
   PopWaitingForTransitionLock = 0;
-  return PopReleaseRwLock((signed __int64 *)&PopUnlockAfterSleepLock);
+  return PopReleaseRwLock(&PopUnlockAfterSleepLock);
 }

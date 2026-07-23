@@ -7,7 +7,9 @@
  *     memmove @ 0x180168980 (memmove.c)
  */
 
-__int64 __fastcall RtlCopySecurityDescriptor(_WORD *Src, _QWORD *a2)
+NTSTATUS __cdecl RtlCopySecurityDescriptor(
+        PSECURITY_DESCRIPTOR InputSecurityDescriptor,
+        PSECURITY_DESCRIPTOR *OutputSecurityDescriptor)
 {
   __int16 v3; // cx
   char *v5; // rax
@@ -18,19 +20,19 @@ __int64 __fastcall RtlCopySecurityDescriptor(_WORD *Src, _QWORD *a2)
   __int64 v10; // r8
   __int64 v11; // rcx
   __int64 v12; // rdi
-  void *Heap; // rax
+  PVOID Heap; // rax
   char *v15; // rax
 
-  v3 = Src[1];
+  v3 = *((_WORD *)InputSecurityDescriptor + 1);
   if ( v3 < 0 )
   {
-    if ( !*((_DWORD *)Src + 1) )
+    if ( !*((_DWORD *)InputSecurityDescriptor + 1) )
       goto LABEL_28;
-    v5 = (char *)Src + *((unsigned int *)Src + 1);
+    v5 = (char *)InputSecurityDescriptor + *((unsigned int *)InputSecurityDescriptor + 1);
   }
   else
   {
-    v5 = (char *)*((_QWORD *)Src + 1);
+    v5 = (char *)*((_QWORD *)InputSecurityDescriptor + 1);
   }
   if ( !v5 )
   {
@@ -44,13 +46,13 @@ LABEL_5:
     goto LABEL_6;
   if ( v3 < 0 )
   {
-    if ( !*((_DWORD *)Src + 4) )
+    if ( !*((_DWORD *)InputSecurityDescriptor + 4) )
       goto LABEL_6;
-    v8 = (char *)Src + *((unsigned int *)Src + 4);
+    v8 = (char *)InputSecurityDescriptor + *((unsigned int *)InputSecurityDescriptor + 4);
   }
   else
   {
-    v8 = (char *)*((_QWORD *)Src + 4);
+    v8 = (char *)*((_QWORD *)InputSecurityDescriptor + 4);
   }
   if ( !v8 )
   {
@@ -62,13 +64,13 @@ LABEL_6:
 LABEL_11:
   if ( v3 < 0 )
   {
-    if ( !*((_DWORD *)Src + 2) )
+    if ( !*((_DWORD *)InputSecurityDescriptor + 2) )
       goto LABEL_23;
-    v9 = (char *)Src + *((unsigned int *)Src + 2);
+    v9 = (char *)InputSecurityDescriptor + *((unsigned int *)InputSecurityDescriptor + 2);
   }
   else
   {
-    v9 = (char *)*((_QWORD *)Src + 2);
+    v9 = (char *)*((_QWORD *)InputSecurityDescriptor + 2);
   }
   if ( !v9 )
   {
@@ -82,13 +84,13 @@ LABEL_15:
     goto LABEL_16;
   if ( v3 < 0 )
   {
-    if ( !*((_DWORD *)Src + 3) )
+    if ( !*((_DWORD *)InputSecurityDescriptor + 3) )
       goto LABEL_16;
-    v15 = (char *)Src + *((unsigned int *)Src + 3);
+    v15 = (char *)InputSecurityDescriptor + *((unsigned int *)InputSecurityDescriptor + 3);
   }
   else
   {
-    v15 = (char *)*((_QWORD *)Src + 3);
+    v15 = (char *)*((_QWORD *)InputSecurityDescriptor + 3);
   }
   if ( !v15 )
   {
@@ -99,10 +101,10 @@ LABEL_16:
   v11 = (*((unsigned __int16 *)v15 + 1) + 3LL) & 0xFFFFFFFCLL;
 LABEL_17:
   v12 = v10 + v6 + v7 + v11;
-  Heap = (void *)RtlAllocateHeap((char *)NtCurrentPeb()->ProcessHeap, NtdllBaseTag + 1310720, v12 + 20);
-  *a2 = Heap;
+  Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, NtdllBaseTag + 1310720, v12 + 20);
+  *OutputSecurityDescriptor = Heap;
   if ( !Heap )
-    return 3221225495LL;
-  memmove(Heap, Src, v12 + 20);
-  return 0LL;
+    return -1073741801;
+  memmove(Heap, InputSecurityDescriptor, v12 + 20);
+  return 0;
 }

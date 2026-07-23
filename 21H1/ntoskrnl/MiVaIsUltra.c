@@ -10,5 +10,5 @@
 
 _BOOL8 __fastcall MiVaIsUltra(unsigned __int64 a1)
 {
-  return qword_140C4EB38 && a1 >= qword_140C4EB38 && a1 < qword_140C4EB38 + (qword_140C4EB48 << 30);
+  return qword_140C4EB38 && a1 >= qword_140C4EB38 && a1 < qword_140C4EB38 + (BitMapHeader.SizeOfBitMap << 30);
 }

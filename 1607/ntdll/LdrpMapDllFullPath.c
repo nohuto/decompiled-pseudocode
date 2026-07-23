@@ -1,21 +1,21 @@
 /*
- * XREFs of LdrpMapDllFullPath @ 0x18000E3A0
+ * XREFs of LdrpMapDllFullPath @ 0x18000E390
  * Callers:
- *     LdrpProcessWork @ 0x18000E19C (LdrpProcessWork.c)
+ *     LdrpProcessWork @ 0x18000E18C (LdrpProcessWork.c)
  * Callees:
- *     NtdllpFreeStringRoutine @ 0x1800094E0 (NtdllpFreeStringRoutine.c)
- *     LdrpAppCompatRedirect @ 0x18000E064 (LdrpAppCompatRedirect.c)
- *     LdrpResolveDllName @ 0x18000FA94 (LdrpResolveDllName.c)
- *     LdrpMapDllNtFileName @ 0x18002D3AC (LdrpMapDllNtFileName.c)
- *     LdrpLoadContextReplaceModule @ 0x180073728 (LdrpLoadContextReplaceModule.c)
- *     __security_check_cookie @ 0x180096C40 (__security_check_cookie.c)
+ *     NtdllpFreeStringRoutine @ 0x1800094D0 (NtdllpFreeStringRoutine.c)
+ *     LdrpAppCompatRedirect @ 0x18000E054 (LdrpAppCompatRedirect.c)
+ *     LdrpResolveDllName @ 0x18000FA84 (LdrpResolveDllName.c)
+ *     LdrpMapDllNtFileName @ 0x18002D39C (LdrpMapDllNtFileName.c)
+ *     LdrpLoadContextReplaceModule @ 0x180073718 (LdrpLoadContextReplaceModule.c)
+ *     __security_check_cookie @ 0x180096C30 (__security_check_cookie.c)
  */
 
 __int64 __fastcall LdrpMapDllFullPath(__int64 a1)
 {
   __int64 v1; // rax
   __int64 v3; // rsi
-  int v4; // r14d
+  __int64 v4; // r14
   int v5; // eax
   unsigned int v6; // ebx
   int v7; // eax
@@ -31,7 +31,7 @@ __int64 __fastcall LdrpMapDllFullPath(__int64 a1)
   v12[0] = 0;
   v3 = v1 + 72;
   v4 = v1 + 88;
-  v5 = LdrpResolveDllName(a1, (unsigned int)&v10, (int)v1 + 88, (int)v1 + 72, (__int64)v9, *(_DWORD *)(a1 + 24));
+  v5 = LdrpResolveDllName(a1, &v10, v1 + 88, v1 + 72, v9, *(_DWORD *)(a1 + 24));
   v6 = v5;
   if ( v9[0] || (v7 = LdrpAppCompatRedirect(a1, v3, v4, (__int64)&v10, (__int64)v9, v5), v6 = v7, v9[0]) )
   {
@@ -44,6 +44,6 @@ __int64 __fastcall LdrpMapDllFullPath(__int64 a1)
       v6 = -1073741701;
   }
   if ( v12 != v11 )
-    NtdllpFreeStringRoutine((__int64)v11);
+    NtdllpFreeStringRoutine(v11);
   return v6;
 }

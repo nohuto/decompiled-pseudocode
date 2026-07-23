@@ -11,19 +11,19 @@ unsigned int RtlpHeapTrkGenerateHashRandoms()
 {
   _WORD *v0; // esi
   int v1; // edi
-  unsigned int v2; // eax
+  ULONG v2; // eax
   unsigned int result; // eax
   unsigned int v4; // et2
-  int v5; // [esp+8h] [ebp-Ch] BYREF
-  int v6; // [esp+10h] [ebp-4h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [esp+8h] [ebp-Ch] BYREF
+  ULONG Seed; // [esp+10h] [ebp-4h] BYREF
 
-  NtQueryPerformanceCounter((int)&v5, 0);
+  NtQueryPerformanceCounter(&PerformanceCounter, 0);
   v0 = &unk_4B3A6DA0;
-  v6 = v5;
+  Seed = PerformanceCounter.LowPart;
   v1 = 4;
   do
   {
-    v2 = RtlRandomEx(&v6);
+    v2 = RtlRandomEx(&Seed);
     v4 = v2 % 0x1EEF;
     result = v2 / 0x1EEF;
     *v0++ = v4;

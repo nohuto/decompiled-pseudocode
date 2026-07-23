@@ -1,19 +1,19 @@
 /*
- * XREFs of LdrpResGetResourceDirectory @ 0x1800789A0
+ * XREFs of LdrpResGetResourceDirectory @ 0x180097F40
  * Callers:
- *     LdrpResSearchResourceMappedFile @ 0x180079BD0 (LdrpResSearchResourceMappedFile.c)
+ *     LdrpResSearchResourceMappedFile @ 0x180096010 (LdrpResSearchResourceMappedFile.c)
  * Callees:
- *     RtlGetCurrentServiceSessionId @ 0x180055A20 (RtlGetCurrentServiceSessionId.c)
- *     RtlImageNtHeaderEx @ 0x1800590F0 (RtlImageNtHeaderEx.c)
- *     LdrpTraceLoadMUIDll @ 0x1800790FC (LdrpTraceLoadMUIDll.c)
+ *     RtlGetCurrentServiceSessionId @ 0x18006B600 (RtlGetCurrentServiceSessionId.c)
+ *     RtlImageNtHeaderEx @ 0x18006ECD0 (RtlImageNtHeaderEx.c)
+ *     LdrpTraceLoadMUIDll @ 0x18009540C (LdrpTraceLoadMUIDll.c)
  */
 
-__int64 __fastcall LdrpResGetResourceDirectory(
-        unsigned __int64 a1,
-        unsigned __int64 a2,
+NTSTATUS __fastcall LdrpResGetResourceDirectory(
+        unsigned __int64 BaseOfImage,
+        ULONG64 Size,
         __int16 a3,
-        unsigned __int64 *a4,
-        _QWORD *a5)
+        _QWORD *a4,
+        PIMAGE_NT_HEADERS *a5)
 {
   char v9; // di
   _DWORD *SharedData; // rcx
@@ -21,14 +21,14 @@ __int64 __fastcall LdrpResGetResourceDirectory(
   __int64 v12; // rcx
   char v13; // di
   int v14; // esi
-  __int64 result; // rax
-  __int64 v16; // r9
-  __int128 *v17; // rcx
-  __int16 v18; // ax
+  NTSTATUS result; // eax
+  PIMAGE_NT_HEADERS v16; // r9
+  _IMAGE_OPTIONAL_HEADER64 *p_OptionalHeader; // rcx
+  unsigned __int16 Magic; // ax
   unsigned int v19; // eax
   char v20; // cl
   unsigned int v21; // eax
-  unsigned __int64 v22; // rdx
+  char *v22; // rdx
   unsigned int *v23; // rdx
   int i; // r8d
   __int64 v25; // r10
@@ -38,10 +38,10 @@ __int64 __fastcall LdrpResGetResourceDirectory(
   _DWORD *v29; // rcx
   __int64 v30; // rcx
   __int64 v31; // rax
-  unsigned int v32; // [rsp+20h] [rbp-168h]
-  __int64 v33; // [rsp+38h] [rbp-150h] BYREF
+  int v32; // [rsp+20h] [rbp-168h]
+  PIMAGE_NT_HEADERS OutHeaders; // [rsp+38h] [rbp-150h] BYREF
   unsigned int *v34; // [rsp+40h] [rbp-148h]
-  unsigned __int64 v35; // [rsp+48h] [rbp-140h]
+  char *v35; // [rsp+48h] [rbp-140h]
   _QWORD v36[2]; // [rsp+50h] [rbp-138h] BYREF
   _QWORD v37[2]; // [rsp+60h] [rbp-128h] BYREF
   __int128 v38; // [rsp+70h] [rbp-118h]
@@ -61,7 +61,7 @@ __int64 __fastcall LdrpResGetResourceDirectory(
   __int128 v52; // [rsp+150h] [rbp-38h]
 
   v35 = 0LL;
-  v33 = 0LL;
+  OutHeaders = 0LL;
   v9 = 1;
   v36[0] = 4456514LL;
   v36[1] = L"LdrpResGetResourceDirectory Enter";
@@ -80,68 +80,68 @@ __int64 __fastcall LdrpResGetResourceDirectory(
   }
   if ( (*(_BYTE *)v12 & 1) != 0 )
   {
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+    if ( RtlGetCurrentServiceSessionId() )
       v30 = (__int64)NtCurrentPeb()->SharedData + 554;
     else
       v30 = 2147353476LL;
-    LdrpTraceLoadMUIDll(v36, *(unsigned __int8 *)v30);
+    LdrpTraceLoadMUIDll((unsigned __int16 *)v36, *(unsigned __int8 *)v30);
   }
-  if ( !a1 || !a4 || !a5 )
-    return 3221225485LL;
-  if ( (a1 & 3) != 0 )
+  if ( !BaseOfImage || !a4 || !a5 )
+    return -1073741811;
+  if ( (BaseOfImage & 3) != 0 )
   {
-    v13 = a1 & 1;
-    a1 &= 0xFFFFFFFFFFFFFFFCuLL;
+    v13 = BaseOfImage & 1;
+    BaseOfImage &= 0xFFFFFFFFFFFFFFFCuLL;
     v9 = v13 ^ 1;
   }
   v14 = a3 & 0x1000;
-  result = RtlImageNtHeaderEx(v14 == 0, a1, a2, &v33);
-  if ( (int)result >= 0 )
+  result = RtlImageNtHeaderEx(v14 == 0, (PVOID)BaseOfImage, Size, &OutHeaders);
+  if ( result >= 0 )
   {
-    v16 = v33;
-    v17 = (__int128 *)(v33 + 24);
-    v18 = *(_WORD *)(v33 + 24);
-    if ( v18 == 267 )
+    v16 = OutHeaders;
+    p_OptionalHeader = &OutHeaders->OptionalHeader;
+    Magic = OutHeaders->OptionalHeader.Magic;
+    if ( Magic == 267 )
     {
-      v38 = *v17;
-      v39 = *(_OWORD *)(v33 + 40);
-      v40 = *(_OWORD *)(v33 + 56);
-      v41 = *(_OWORD *)(v33 + 72);
-      v42 = *(_OWORD *)(v33 + 88);
-      v43 = *(_OWORD *)(v33 + 104);
-      v44 = *(_OWORD *)(v33 + 120);
-      v45 = *(_OWORD *)(v33 + 136);
-      v46 = *(_OWORD *)(v33 + 152);
-      v47 = *(_OWORD *)(v33 + 168);
-      v48 = *(_OWORD *)(v33 + 184);
-      v49 = *(_OWORD *)(v33 + 200);
-      v50 = *(_OWORD *)(v33 + 216);
-      v51 = *(_OWORD *)(v33 + 232);
+      v38 = *(_OWORD *)&p_OptionalHeader->Magic;
+      v39 = *(_OWORD *)&OutHeaders->OptionalHeader.AddressOfEntryPoint;
+      v40 = *(_OWORD *)&OutHeaders->OptionalHeader.SectionAlignment;
+      v41 = *(_OWORD *)&OutHeaders->OptionalHeader.MajorSubsystemVersion;
+      v42 = *(_OWORD *)&OutHeaders->OptionalHeader.CheckSum;
+      v43 = *(_OWORD *)&OutHeaders->OptionalHeader.SizeOfStackCommit;
+      v44 = *(_OWORD *)&OutHeaders->OptionalHeader.SizeOfHeapCommit;
+      v45 = *(_OWORD *)&OutHeaders->OptionalHeader.DataDirectory[0].VirtualAddress;
+      v46 = *(_OWORD *)&OutHeaders->OptionalHeader.DataDirectory[2].VirtualAddress;
+      v47 = *(_OWORD *)&OutHeaders->OptionalHeader.DataDirectory[4].VirtualAddress;
+      v48 = *(_OWORD *)&OutHeaders->OptionalHeader.DataDirectory[6].VirtualAddress;
+      v49 = *(_OWORD *)&OutHeaders->OptionalHeader.DataDirectory[8].VirtualAddress;
+      v50 = *(_OWORD *)&OutHeaders->OptionalHeader.DataDirectory[10].VirtualAddress;
+      v51 = *(_OWORD *)&OutHeaders->OptionalHeader.DataDirectory[12].VirtualAddress;
       v19 = HIDWORD(v43);
       v20 = 1;
     }
     else
     {
-      if ( v18 != 523 )
+      if ( Magic != 523 )
       {
         v32 = -1073741701;
         goto LABEL_46;
       }
-      v38 = *v17;
-      v39 = *(_OWORD *)(v33 + 40);
-      v40 = *(_OWORD *)(v33 + 56);
-      v41 = *(_OWORD *)(v33 + 72);
-      v42 = *(_OWORD *)(v33 + 88);
-      v43 = *(_OWORD *)(v33 + 104);
-      v44 = *(_OWORD *)(v33 + 120);
-      v45 = *(_OWORD *)(v33 + 136);
-      v46 = *(_OWORD *)(v33 + 152);
-      v47 = *(_OWORD *)(v33 + 168);
-      v48 = *(_OWORD *)(v33 + 184);
-      v49 = *(_OWORD *)(v33 + 200);
-      v50 = *(_OWORD *)(v33 + 216);
-      v51 = *(_OWORD *)(v33 + 232);
-      v52 = *(_OWORD *)(v33 + 248);
+      v38 = *(_OWORD *)&p_OptionalHeader->Magic;
+      v39 = *(_OWORD *)&OutHeaders->OptionalHeader.AddressOfEntryPoint;
+      v40 = *(_OWORD *)&OutHeaders->OptionalHeader.SectionAlignment;
+      v41 = *(_OWORD *)&OutHeaders->OptionalHeader.MajorSubsystemVersion;
+      v42 = *(_OWORD *)&OutHeaders->OptionalHeader.CheckSum;
+      v43 = *(_OWORD *)&OutHeaders->OptionalHeader.SizeOfStackCommit;
+      v44 = *(_OWORD *)&OutHeaders->OptionalHeader.SizeOfHeapCommit;
+      v45 = *(_OWORD *)&OutHeaders->OptionalHeader.DataDirectory[0].VirtualAddress;
+      v46 = *(_OWORD *)&OutHeaders->OptionalHeader.DataDirectory[2].VirtualAddress;
+      v47 = *(_OWORD *)&OutHeaders->OptionalHeader.DataDirectory[4].VirtualAddress;
+      v48 = *(_OWORD *)&OutHeaders->OptionalHeader.DataDirectory[6].VirtualAddress;
+      v49 = *(_OWORD *)&OutHeaders->OptionalHeader.DataDirectory[8].VirtualAddress;
+      v50 = *(_OWORD *)&OutHeaders->OptionalHeader.DataDirectory[10].VirtualAddress;
+      v51 = *(_OWORD *)&OutHeaders->OptionalHeader.DataDirectory[12].VirtualAddress;
+      v52 = *(_OWORD *)&OutHeaders->OptionalHeader.DataDirectory[14].VirtualAddress;
       v20 = 0;
       v19 = HIDWORD(v44);
     }
@@ -161,14 +161,14 @@ __int64 __fastcall LdrpResGetResourceDirectory(
     if ( !v9 && v21 >= HIDWORD(v41) )
     {
       v34 = 0LL;
-      v16 = v33;
-      v23 = (unsigned int *)(*(unsigned __int16 *)(v33 + 20) + v33 + 24);
+      v16 = OutHeaders;
+      v23 = (unsigned int *)((char *)&OutHeaders->OptionalHeader.Magic + OutHeaders->FileHeader.SizeOfOptionalHeader);
       v34 = v23;
       if ( v23 )
       {
         for ( i = 0;
-              i < *(unsigned __int16 *)(v33 + 6)
-           && (!v14 || (unsigned __int64)(v23 + 10) <= a2 + (a1 & 0xFFFFFFFFFFFFFFFCuLL));
+              i < OutHeaders->FileHeader.NumberOfSections
+           && (!v14 || (unsigned __int64)(v23 + 10) <= Size + (BaseOfImage & 0xFFFFFFFFFFFFFFFCuLL));
               ++i )
         {
           v25 = v23[3];
@@ -176,7 +176,7 @@ __int64 __fastcall LdrpResGetResourceDirectory(
           {
             if ( v23[4] )
             {
-              v22 = a1 + v23[5] - v25 + v21;
+              v22 = (char *)(BaseOfImage + v23[5] - v25 + v21);
               goto LABEL_21;
             }
             v32 = -1073741687;
@@ -189,8 +189,8 @@ __int64 __fastcall LdrpResGetResourceDirectory(
       v32 = -1073741701;
       goto LABEL_46;
     }
-    v22 = a1 + v21;
-    if ( v22 < a1 )
+    v22 = (char *)(BaseOfImage + v21);
+    if ( (unsigned __int64)v22 < BaseOfImage )
     {
       v32 = -1073741701;
       goto LABEL_46;
@@ -207,19 +207,19 @@ LABEL_45:
         v32 = 0;
         goto LABEL_46;
       }
-      if ( v22 > a1 )
+      if ( (unsigned __int64)v22 > BaseOfImage )
       {
-        v26 = (a1 & 0xFFFFFFFFFFFFFFFCuLL) + a2;
-        if ( v22 + 16 <= v26 )
+        v26 = (BaseOfImage & 0xFFFFFFFFFFFFFFFCuLL) + Size;
+        if ( (unsigned __int64)(v22 + 16) <= v26 )
         {
-          v27 = *(unsigned __int16 *)(v22 + 12);
-          v28 = *(unsigned __int16 *)(v22 + 14);
+          v27 = *((unsigned __int16 *)v22 + 6);
+          v28 = *((unsigned __int16 *)v22 + 7);
           if ( !__PAIR32__(v28, v27) )
           {
             v32 = -1073741686;
             goto LABEL_46;
           }
-          if ( v22 + 8LL * (unsigned int)(v27 + v28) <= v26 )
+          if ( (unsigned __int64)&v22[8 * (v27 + v28)] <= v26 )
             goto LABEL_45;
         }
       }
@@ -235,11 +235,11 @@ LABEL_46:
       v11 = (__int64)NtCurrentPeb()->SharedData + 555;
     if ( (*(_BYTE *)v11 & 1) != 0 )
     {
-      if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+      if ( RtlGetCurrentServiceSessionId() )
         v31 = (__int64)NtCurrentPeb()->SharedData + 554;
       else
         v31 = 2147353476LL;
-      LdrpTraceLoadMUIDll(v37, *(unsigned __int8 *)v31);
+      LdrpTraceLoadMUIDll((unsigned __int16 *)v37, *(unsigned __int8 *)v31);
     }
     return v32;
   }

@@ -28,7 +28,7 @@ __int64 __fastcall IoCreateStreamFileObjectEx2(__int64 a1, __int64 a2, ULONG_PTR
   NTSTATUS SetSpecificExtension; // ebx
   char *v11; // r14
   struct _KPRCB *CurrentPrcb; // rdx
-  struct _SLIST_ENTRY *v13; // r8
+  _SLIST_ENTRY *v13; // r8
   _GENERAL_LOOKASIDE *P; // rcx
   PVOID v15; // r14
   ULONG_PTR v16; // rcx
@@ -100,7 +100,7 @@ LABEL_8:
   if ( !v8 )
   {
     CurrentPrcb = KeGetCurrentPrcb();
-    v13 = (struct _SLIST_ENTRY *)*((_QWORD *)v11 - 2);
+    v13 = (_SLIST_ENTRY *)*((_QWORD *)v11 - 2);
     P = CurrentPrcb->PPLookasideList[4].P;
     ++P->TotalFrees;
     if ( LOWORD(P->ListHead.Alignment) < P->Depth
@@ -114,7 +114,7 @@ LABEL_8:
     else
     {
       ++P->FreeMisses;
-      ((void (__fastcall *)(struct _SLIST_ENTRY *))P->FreeEx)(v13);
+      ((void (__fastcall *)(_SLIST_ENTRY *))P->FreeEx)(v13);
     }
     *((_QWORD *)v11 - 2) = 0LL;
 LABEL_13:

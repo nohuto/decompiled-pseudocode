@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlWow64GetCurrentCpuArea @ 0x1800B4170
+ * XREFs of RtlWow64GetCurrentCpuArea @ 0x1800B1690
  * Callers:
  *     <none>
  * Callees:
- *     RtlGetExtendedContextLength3 @ 0x1800B42A0 (RtlGetExtendedContextLength3.c)
+ *     RtlGetExtendedContextLength3 @ 0x1800B17C0 (RtlGetExtendedContextLength3.c)
  */
 
 __int64 __fastcall RtlWow64GetCurrentCpuArea(_WORD *a1, __int64 *a2, _QWORD *a3)

@@ -1,28 +1,28 @@
 /*
- * XREFs of DifNtCreateWorkerFactoryWrapper @ 0x1406754D0
+ * XREFs of DifNtCreateWorkerFactoryWrapper @ 0x1406790B0
  * Callers:
  *     <none>
  * Callees:
- *     DifGetReturnAddressForWrappers @ 0x140260EA4 (DifGetReturnAddressForWrappers.c)
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     DifGetAPIThunkContextById @ 0x1404C17A4 (DifGetAPIThunkContextById.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     NtCreateWorkerFactory @ 0x140A912F0 (NtCreateWorkerFactory.c)
+ *     DifGetReturnAddressForWrappers @ 0x14026040C (DifGetReturnAddressForWrappers.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     DifGetAPIThunkContextById @ 0x1404BAFF4 (DifGetAPIThunkContextById.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     NtCreateWorkerFactory @ 0x140A95E40 (NtCreateWorkerFactory.c)
  */
 
 __int64 __fastcall DifNtCreateWorkerFactoryWrapper(
-        __int64 a1,
-        unsigned int a2,
-        __int64 a3,
-        __int64 a4,
-        __int64 a5,
-        __int64 a6,
-        __int64 a7,
-        int a8,
-        __int64 a9,
-        __int64 a10)
+        HANDLE *a1,
+        ACCESS_MASK a2,
+        OBJECT_ATTRIBUTES *a3,
+        void *a4,
+        HANDLE WorkerProcessHandle,
+        PVOID StartRoutine,
+        PVOID StartParameter,
+        ULONG MaxThreadCount,
+        SIZE_T StackReserve,
+        SIZE_T StackCommit)
 {
   __int128 *APIThunkContextById; // rax
   __int64 v14; // rdx
@@ -34,21 +34,19 @@ __int64 __fastcall DifNtCreateWorkerFactoryWrapper(
   __int64 v20; // rdx
   BOOLEAN v21; // di
   __int128 *j; // rbx
-  PVOID v24; // [rsp+58h] [rbp-59h] BYREF
-  __int64 v25; // [rsp+60h] [rbp-51h]
-  __int64 v26; // [rsp+68h] [rbp-49h]
-  int v27; // [rsp+70h] [rbp-41h]
-  __int64 v28; // [rsp+78h] [rbp-39h]
-  __int64 v29; // [rsp+80h] [rbp-31h]
-  __int64 v30; // [rsp+88h] [rbp-29h]
-  __int64 v31; // [rsp+90h] [rbp-21h]
-  __int64 v32; // [rsp+98h] [rbp-19h]
-  unsigned int v33; // [rsp+A0h] [rbp-11h]
-  __int64 v34; // [rsp+A8h] [rbp-9h]
+  _QWORD v24[3]; // [rsp+58h] [rbp-59h] BYREF
+  ULONG v25; // [rsp+70h] [rbp-41h]
+  PVOID v26; // [rsp+78h] [rbp-39h]
+  PVOID v27; // [rsp+80h] [rbp-31h]
+  HANDLE v28; // [rsp+88h] [rbp-29h]
+  void *v29; // [rsp+90h] [rbp-21h]
+  OBJECT_ATTRIBUTES *v30; // [rsp+98h] [rbp-19h]
+  ACCESS_MASK v31; // [rsp+A0h] [rbp-11h]
+  HANDLE *v32; // [rsp+A8h] [rbp-9h]
   unsigned int WorkerFactory; // [rsp+B0h] [rbp-1h]
   void *retaddr; // [rsp+E0h] [rbp+2Fh]
 
-  memset_0(&v24, 0, 0x60uLL);
+  memset_0(v24, 0, 0x60uLL);
   APIThunkContextById = DifGetAPIThunkContextById(853);
   v15 = APIThunkContextById;
   if ( !APIThunkContextById )
@@ -64,26 +62,26 @@ __int64 __fastcall DifNtCreateWorkerFactoryWrapper(
       goto LABEL_7;
     ReturnAddressForWrappers = DifGetReturnAddressForWrappers();
   }
-  v24 = ReturnAddressForWrappers;
+  v24[0] = ReturnAddressForWrappers;
 LABEL_7:
   v18 = 0;
-  v34 = a1;
-  v30 = a5;
-  v29 = a6;
-  v28 = a7;
-  v27 = a8;
-  v26 = a9;
-  v25 = a10;
-  v33 = a2;
-  v32 = a3;
-  v31 = a4;
+  v32 = a1;
+  v28 = WorkerProcessHandle;
+  v27 = StartRoutine;
+  v26 = StartParameter;
+  v25 = MaxThreadCount;
+  v24[2] = StackReserve;
+  v24[1] = StackCommit;
+  v31 = a2;
+  v30 = a3;
+  v29 = a4;
   if ( !VfDifRunningWithoutReboot && (VfOptionFlags & 0x800) == 0
     || (v18 = ExAcquireRundownProtection_0(&DifRebootlessRundown)) != 0 )
   {
     for ( i = (__int128 *)*((_QWORD *)v15 + 4); i != v15 + 2; i = *(__int128 **)i )
     {
       if ( i != (__int128 *)16 )
-        guard_dispatch_icall_no_overrides(&v24, v14);
+        guard_dispatch_icall_no_overrides(v24, v14);
     }
     if ( v18 )
       ExReleaseRundownProtection_0(&DifRebootlessRundown);
@@ -94,23 +92,12 @@ LABEL_17:
                     a2,
                     a3,
                     a4,
-                    a5,
-                    a6,
-                    a7,
-                    a8,
-                    a9,
-                    a10,
-                    v24,
-                    v25,
-                    v26,
-                    v27,
-                    v28,
-                    v29,
-                    v30,
-                    v31,
-                    v32,
-                    v33,
-                    v34);
+                    WorkerProcessHandle,
+                    StartRoutine,
+                    StartParameter,
+                    MaxThreadCount,
+                    StackReserve,
+                    StackCommit);
   if ( v15 )
   {
     if ( (v21 = 0, !VfDifRunningWithoutReboot) && (VfOptionFlags & 0x800) == 0
@@ -119,7 +106,7 @@ LABEL_17:
       for ( j = (__int128 *)*((_QWORD *)v15 + 6); j != v15 + 3; j = *(__int128 **)j )
       {
         if ( j != (__int128 *)16 )
-          guard_dispatch_icall_no_overrides(&v24, v20);
+          guard_dispatch_icall_no_overrides(v24, v20);
       }
       if ( v21 )
         ExReleaseRundownProtection_0(&DifRebootlessRundown);

@@ -1,9 +1,9 @@
 /*
- * XREFs of PnpAssignResourcesToDevices @ 0x1404C8194
+ * XREFs of PnpAssignResourcesToDevices @ 0x14050B090
  * Callers:
- *     PnpProcessAssignResources @ 0x1403F2054 (PnpProcessAssignResources.c)
+ *     PnpProcessAssignResources @ 0x1403F0F18 (PnpProcessAssignResources.c)
  * Callees:
- *     _PnpGetObjectProperty @ 0x1404FE7B0 (_PnpGetObjectProperty.c)
+ *     _PnpGetObjectProperty @ 0x1404E1740 (_PnpGetObjectProperty.c)
  */
 
 __int64 __fastcall PnpAssignResourcesToDevices(unsigned int a1, _DWORD *a2, __int64 a3)
@@ -30,10 +30,10 @@ __int64 __fastcall PnpAssignResourcesToDevices(unsigned int a1, _DWORD *a2, __in
         v13 = 0;
         v12 = 0;
         if ( (int)PnpGetObjectProperty(
-                    PiPnpRtlCtx,
+                    *(__int64 *)&PiPnpRtlCtx,
                     v10,
-                    1,
-                    0,
+                    1u,
+                    0LL,
                     0LL,
                     (__int64)&DEVPKEY_Device_Reported,
                     (__int64)&v13,

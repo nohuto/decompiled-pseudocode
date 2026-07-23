@@ -15,30 +15,30 @@ void __cdecl qsort(
         size_t SizeOfElements,
         _CoreCrtNonSecureSearchSortCompareFunction CompareFunction)
 {
-  size_t v4; // ebx
-  _CoreCrtNonSecureSearchSortCompareFunction v5; // esi
-  _BYTE *v6; // ecx
+  unsigned int v4; // ebx
+  int (__cdecl *v5)(char *, char *); // esi
+  char *v6; // ecx
   char *v7; // edi
   unsigned int v8; // eax
   char *v9; // eax
   char *v10; // ecx
-  char *v11; // esi
+  unsigned int v11; // esi
   char *v12; // edx
   int v13; // eax
   char v14; // cl
   int v15; // eax
   char *v16; // edi
   bool v17; // cc
-  const void *v18; // eax
+  char *v18; // eax
   char *v19; // esi
-  size_t v20; // edi
+  unsigned int v20; // edi
   char v21; // cl
   char *v22; // edx
-  int v23; // edi
+  char *v23; // edi
   char v24; // al
   char v25; // cl
-  size_t v26; // eax
-  size_t v27; // ebx
+  int v26; // eax
+  int v27; // ebx
   char *v28; // edx
   int v29; // edi
   char v30; // al
@@ -48,19 +48,19 @@ void __cdecl qsort(
   char *v34; // ecx
   char *v35; // edx
   int v36; // esi
-  size_t v37; // ebx
+  int v37; // ebx
   char v38; // al
   char v39; // cl
   int v40; // eax
   bool v41; // zf
   char *v42; // ebx
-  char *v43; // ecx
+  unsigned int v43; // ecx
   int v44; // eax
   int v45; // [esp+14h] [ebp-110h]
   char *v46; // [esp+18h] [ebp-10Ch]
   char *v47; // [esp+18h] [ebp-10Ch]
   char *v48; // [esp+1Ch] [ebp-108h]
-  char *i; // [esp+1Ch] [ebp-108h]
+  char *v49; // [esp+1Ch] [ebp-108h]
   int v50; // [esp+1Ch] [ebp-108h]
   char *v51; // [esp+20h] [ebp-104h]
   char *v52; // [esp+24h] [ebp-100h]
@@ -71,15 +71,15 @@ void __cdecl qsort(
   _DWORD v57[60]; // [esp+30h] [ebp-F4h]
 
   v51 = (char *)Base;
-  v4 = SizeOfElements;
-  v5 = CompareFunction;
-  if ( (Base || !NumOfElements) && SizeOfElements && CompareFunction )
+  v4 = HIDWORD(NumOfElements);
+  v5 = (int (__cdecl *)(char *, char *))SizeOfElements;
+  if ( (Base || !(_DWORD)NumOfElements) && HIDWORD(NumOfElements) && (_DWORD)SizeOfElements )
   {
-    if ( NumOfElements >= 2 )
+    if ( (unsigned int)NumOfElements >= 2 )
     {
-      v6 = Base;
+      v6 = (char *)Base;
       v45 = 0;
-      v7 = (char *)Base + SizeOfElements * (NumOfElements - 1);
+      v7 = (char *)Base + HIDWORD(NumOfElements) * (NumOfElements - 1);
       while ( 2 )
       {
         while ( 2 )
@@ -97,18 +97,24 @@ void __cdecl qsort(
               v52 = v10;
               do
               {
-                v11 = v10;
-                for ( i = v9; v11 <= v7; v11 += v4 )
+                v11 = (unsigned int)v10;
+                v49 = v9;
+                if ( v10 <= v7 )
                 {
-                  if ( CompareFunction(v11, v9) <= 0 )
+                  do
                   {
-                    v9 = i;
+                    if ( ((int (__cdecl *)(unsigned int, char *))SizeOfElements)(v11, v9) <= 0 )
+                    {
+                      v9 = v49;
+                    }
+                    else
+                    {
+                      v9 = (char *)v11;
+                      v49 = (char *)v11;
+                    }
+                    v11 += v4;
                   }
-                  else
-                  {
-                    v9 = v11;
-                    i = v11;
-                  }
+                  while ( v11 <= (unsigned int)v7 );
                 }
                 v12 = v7;
                 if ( v9 != v7 )
@@ -124,7 +130,7 @@ void __cdecl qsort(
                     --v4;
                   }
                   while ( v4 );
-                  v4 = SizeOfElements;
+                  v4 = HIDWORD(NumOfElements);
                 }
                 v9 = v51;
                 v7 -= v4;
@@ -153,21 +159,21 @@ void __cdecl qsort(
                 }
                 while ( v20 );
                 v16 = v46;
-                v4 = SizeOfElements;
+                v4 = HIDWORD(NumOfElements);
                 v18 = v51;
               }
             }
-            if ( CompareFunction(v18, v48) > 0 )
+            if ( ((int (__cdecl *)(char *, char *))SizeOfElements)(v18, v48) > 0 )
             {
               v22 = v48;
               if ( v51 != v48 )
               {
-                v23 = v51 - v48;
+                v23 = (char *)(v51 - v48);
                 do
                 {
                   v24 = *v22++;
-                  v25 = v22[v23 - 1];
-                  v22[v23 - 1] = v24;
+                  v25 = v22[(_DWORD)v23 - 1];
+                  v22[(_DWORD)v23 - 1] = v24;
                   *(v22 - 1) = v25;
                   --v4;
                 }
@@ -175,11 +181,11 @@ void __cdecl qsort(
                 v16 = v46;
               }
             }
-            v17 = CompareFunction(v16, v48) <= 0;
-            v26 = SizeOfElements;
+            v17 = ((int (__cdecl *)(char *, char *))SizeOfElements)(v16, v48) <= 0;
+            v26 = HIDWORD(NumOfElements);
             if ( !v17 )
             {
-              v27 = SizeOfElements;
+              v27 = HIDWORD(NumOfElements);
               v28 = v48;
               if ( v16 != v48 )
               {
@@ -194,7 +200,7 @@ void __cdecl qsort(
                 }
                 while ( v27 );
                 v16 = v46;
-                v26 = SizeOfElements;
+                v26 = HIDWORD(NumOfElements);
               }
             }
             v32 = v48;
@@ -210,8 +216,8 @@ void __cdecl qsort(
                   v47 = v33;
                   if ( v33 >= v16 )
                     break;
-                  v17 = CompareFunction(v33, v16) <= 0;
-                  v26 = SizeOfElements;
+                  v17 = ((int (__cdecl *)(char *, char *))SizeOfElements)(v33, v16) <= 0;
+                  v26 = HIDWORD(NumOfElements);
                   if ( !v17 )
                     goto LABEL_47;
                 }
@@ -221,8 +227,8 @@ void __cdecl qsort(
                 v33 += v26;
                 if ( v33 > v48 )
                   break;
-                v17 = CompareFunction(v33, v16) <= 0;
-                v26 = SizeOfElements;
+                v17 = ((int (__cdecl *)(char *, char *))SizeOfElements)(v33, v16) <= 0;
+                v26 = HIDWORD(NumOfElements);
               }
               while ( v17 );
               v32 = v54;
@@ -230,15 +236,15 @@ void __cdecl qsort(
 LABEL_47:
               while ( 1 )
               {
-                v26 = SizeOfElements;
+                v26 = HIDWORD(NumOfElements);
                 v34 = v32;
-                v32 -= SizeOfElements;
+                v32 -= HIDWORD(NumOfElements);
                 v55 = v34;
                 if ( v32 <= v16 )
                   break;
-                if ( CompareFunction(v32, v16) <= 0 )
+                if ( ((int (__cdecl *)(char *, char *))SizeOfElements)(v32, v16) <= 0 )
                 {
-                  v26 = SizeOfElements;
+                  v26 = HIDWORD(NumOfElements);
                   v34 = v55;
                   break;
                 }
@@ -263,7 +269,7 @@ LABEL_47:
                 while ( v37 );
                 v33 = v47;
                 v32 = v54;
-                v26 = SizeOfElements;
+                v26 = HIDWORD(NumOfElements);
               }
               if ( v16 == v32 )
                 v16 = v33;
@@ -276,10 +282,10 @@ LABEL_47:
                 v56 = v34;
                 if ( v34 <= v16 )
                   break;
-                v40 = CompareFunction(v34, v16);
+                v40 = ((int (__cdecl *)(char *, char *))SizeOfElements)(v34, v16);
                 v34 = v56;
                 v41 = v40 == 0;
-                v26 = SizeOfElements;
+                v26 = HIDWORD(NumOfElements);
                 if ( !v41 )
                 {
                   v42 = v51;
@@ -290,14 +296,14 @@ LABEL_47:
             v42 = v51;
             do
             {
-              v43 = &v34[-v26];
-              v56 = v43;
-              if ( v43 <= v51 )
+              v43 = (unsigned int)&v34[-v26];
+              v56 = (char *)v43;
+              if ( v43 <= (unsigned int)v51 )
                 break;
-              v44 = CompareFunction(v43, v16);
+              v44 = ((int (__cdecl *)(unsigned int, char *))SizeOfElements)(v43, v16);
               v34 = v56;
               v41 = v44 == 0;
-              v26 = SizeOfElements;
+              v26 = HIDWORD(NumOfElements);
             }
             while ( v41 );
             v33 = v47;
@@ -310,11 +316,11 @@ LABEL_65:
               v57[v45 + 30] = v42;
               v57[v45++] = v56;
             }
-            v4 = SizeOfElements;
+            v4 = HIDWORD(NumOfElements);
             if ( v33 >= v48 )
               goto LABEL_21;
             v6 = v33;
-            v5 = CompareFunction;
+            v5 = (int (__cdecl *)(char *, char *))SizeOfElements;
             v51 = v6;
           }
           if ( v33 < v48 )
@@ -323,22 +329,22 @@ LABEL_65:
             v57[v45++] = v48;
           }
           v6 = v51;
-          v4 = SizeOfElements;
+          v4 = HIDWORD(NumOfElements);
           if ( v51 < v56 )
           {
-            v5 = CompareFunction;
+            v5 = (int (__cdecl *)(char *, char *))SizeOfElements;
             v7 = v56;
             continue;
           }
           break;
         }
 LABEL_21:
-        v5 = CompareFunction;
+        v5 = (int (__cdecl *)(char *, char *))SizeOfElements;
 LABEL_22:
         v15 = --v45;
         if ( v45 >= 0 )
         {
-          v6 = (_BYTE *)v57[v15 + 30];
+          v6 = (char *)v57[v15 + 30];
           v7 = (char *)v57[v15];
           v51 = v6;
           continue;

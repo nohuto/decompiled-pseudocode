@@ -1,30 +1,29 @@
 /*
- * XREFs of ExSaFree @ 0x14043A42C
+ * XREFs of ExSaFree @ 0x1402B9C7C
  * Callers:
- *     ExCleanupAutoExpandPushLock @ 0x14043A400 (ExCleanupAutoExpandPushLock.c)
- *     RtlpHpHeapDestroy @ 0x1406050DC (RtlpHpHeapDestroy.c)
- *     PspProcessDelete @ 0x1408A99B0 (PspProcessDelete.c)
+ *     ExCleanupAutoExpandPushLock @ 0x1402B9C50 (ExCleanupAutoExpandPushLock.c)
+ *     RtlpHpHeapDestroy @ 0x14060271C (RtlpHpHeapDestroy.c)
+ *     PspProcessDelete @ 0x1408FFC10 (PspProcessDelete.c)
  * Callees:
- *     ExpSaAllocatorFree @ 0x1402B980C (ExpSaAllocatorFree.c)
- *     KeLeaveGuardedRegion @ 0x1402BB460 (KeLeaveGuardedRegion.c)
+ *     ExpSaAllocatorFree @ 0x140360F4C (ExpSaAllocatorFree.c)
+ *     KeLeaveGuardedRegion @ 0x140362BA0 (KeLeaveGuardedRegion.c)
  */
 
-void __fastcall ExSaFree(__int64 a1, unsigned int a2)
+void __fastcall ExSaFree(unsigned int a1)
 {
-  __int64 v3; // r8
-  unsigned int v4; // ecx
-  unsigned __int64 v5; // r9
+  __int64 v1; // r8
+  unsigned int v2; // ecx
   struct _KTHREAD *CurrentThread; // rax
-  __int64 *v7; // rdx
-  ULONG_PTR v8; // rcx
+  ULONG_PTR v4; // rcx
 
-  v3 = ((unsigned int)a1 >> 13) & 0x3FFFF;
-  _BitScanReverse(&v4, v3);
-  v5 = ((unsigned __int64)a2 + 7) >> 3;
+  v1 = (a1 >> 13) & 0x3FFFF;
+  _BitScanReverse(&v2, v1);
   CurrentThread = KeGetCurrentThread();
-  v7 = *(__int64 **)(*(_QWORD *)(ExSaPageGroupDescriptorArray + 8LL * (v4 - 2)) + 8 * (v3 ^ (unsigned int)(1 << v4)) + 8);
-  v8 = v7[2];
+  v4 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(ExSaPageGroupDescriptorArray + 8LL * (v2 - 2))
+                             + 8 * (v1 ^ (unsigned int)(1 << v2))
+                             + 8)
+                 + 16LL);
   --CurrentThread->SpecialApcDisable;
-  ExpSaAllocatorFree(v8, v7, a1, v5);
+  ExpSaAllocatorFree(v4);
   KeLeaveGuardedRegion();
 }

@@ -1,41 +1,35 @@
 /*
- * XREFs of NtCancelWaitCompletionPacket @ 0x1404E5EF0
+ * XREFs of NtCancelWaitCompletionPacket @ 0x1404DC5F0
  * Callers:
  *     <none>
  * Callees:
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x140275CD0 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x1402D8540 (KeAcquireInStackQueuedSpinLock.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     ObfReferenceObjectWithTag @ 0x1403403E0 (ObfReferenceObjectWithTag.c)
- *     IopCancelWaitCompletionPacket @ 0x1404285C4 (IopCancelWaitCompletionPacket.c)
- *     Feature_1806129466__private_IsEnabledDeviceUsageNoInline @ 0x1405970A0 (Feature_1806129466__private_IsEnabledDeviceUsageNoInline.c)
- *     ObReferenceObjectByHandle @ 0x14084AF40 (ObReferenceObjectByHandle.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x14022B260 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x14031F8C0 (ObfReferenceObjectWithTag.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1403597C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     IopCancelWaitCompletionPacket @ 0x14041B244 (IopCancelWaitCompletionPacket.c)
+ *     ObReferenceObjectByHandle @ 0x140847200 (ObReferenceObjectByHandle.c)
  */
 
-__int64 __fastcall NtCancelWaitCompletionPacket(void *a1, char a2)
+NTSTATUS __cdecl NtCancelWaitCompletionPacket(HANDLE WaitCompletionPacketHandle, BOOLEAN RemoveSignaledPacket)
 {
   NTSTATUS v3; // eax
   PVOID v4; // rbx
-  unsigned int v5; // edi
-  KSPIN_LOCK *v6; // rsi
+  NTSTATUS v5; // edi
+  KSPIN_LOCK *v6; // rbp
   KIRQL v7; // al
-  KSPIN_LOCK *v8; // r15
+  KSPIN_LOCK *v8; // rsi
   KIRQL v9; // r14
   KIRQL v10; // r14
-  __int64 v11; // rdx
-  __int64 v12; // rcx
-  __int64 v13; // r8
-  bool v14; // zf
-  char v15; // al
-  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+30h] [rbp-20h] BYREF
-  PVOID Object; // [rsp+90h] [rbp+40h] BYREF
+  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+30h] [rbp-38h] BYREF
+  PVOID Object; // [rsp+80h] [rbp+18h] BYREF
 
   memset(&LockHandle, 0, sizeof(LockHandle));
   Object = 0LL;
   v3 = ObReferenceObjectByHandle(
-         a1,
+         WaitCompletionPacketHandle,
          1u,
          IopWaitCompletionPacketObjectType,
          KeGetCurrentThread()->PreviousMode,
@@ -55,48 +49,38 @@ __int64 __fastcall NtCancelWaitCompletionPacket(void *a1, char a2)
     if ( !v8 )
     {
       v5 = -1073741536;
-      goto LABEL_18;
+      goto LABEL_15;
     }
     KeAcquireInStackQueuedSpinLock(v8 + 8, &LockHandle);
     v10 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)v4 + 12);
-    v14 = (unsigned int)Feature_1806129466__private_IsEnabledDeviceUsageNoInline(v12, v11, v13) == 0;
-    v15 = *((_BYTE *)v4 + 104);
-    if ( v14 )
+    if ( !*((_BYTE *)v4 + 104) )
     {
-      if ( !v15 )
-        goto LABEL_8;
+      v5 = -1073741536;
+LABEL_13:
+      KeReleaseSpinLock(v6, v10);
       v4 = Object;
+      goto LABEL_14;
+    }
+    v4 = Object;
+    if ( *((KSPIN_LOCK **)Object + 11) == v8 )
+    {
+      if ( !IopCancelWaitCompletionPacket((struct _KWAIT_BLOCK *)Object, RemoveSignaledPacket, v10) )
+      {
+        if ( *((_BYTE *)v4 + 104) )
+          v5 = 259;
+        goto LABEL_13;
+      }
     }
     else
     {
-      if ( !v15 )
-      {
-LABEL_8:
-        v5 = -1073741536;
-LABEL_16:
-        KeReleaseSpinLock(v6, v10);
-        v4 = Object;
-        goto LABEL_17;
-      }
-      v4 = Object;
-      if ( *((KSPIN_LOCK **)Object + 11) != v8 )
-      {
-        v5 = -1073700861;
-        KeReleaseSpinLock(v6, v10);
-        goto LABEL_17;
-      }
+      v5 = -1073700861;
+      KeReleaseSpinLock(v6, v10);
     }
-    if ( !IopCancelWaitCompletionPacket((struct _KWAIT_BLOCK *)v4, a2, v10) )
-    {
-      if ( *((_BYTE *)v4 + 104) )
-        v5 = 259;
-      goto LABEL_16;
-    }
-LABEL_17:
+LABEL_14:
     KeReleaseInStackQueuedSpinLock(&LockHandle);
     ObfDereferenceObjectWithTag(v8, 0x746C6644u);
   }
-LABEL_18:
+LABEL_15:
   if ( v4 )
     ObfDereferenceObjectWithTag(v4, 0x746C6644u);
   return v5;

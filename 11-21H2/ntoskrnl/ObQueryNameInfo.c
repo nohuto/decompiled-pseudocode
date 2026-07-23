@@ -14,7 +14,7 @@ __int64 __fastcall ObQueryNameInfo(__int64 a1)
   v1 = *(_BYTE *)(a1 - 22);
   v2 = a1 - 48;
   if ( (v1 & 2) != 0 )
-    return v2 - ObpInfoMaskToOffset[v1 & 3];
+    return v2 - byte_140C25440[v1 & 3];
   else
     return 0LL;
 }

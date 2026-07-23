@@ -1,13 +1,13 @@
 /*
- * XREFs of IopRetrieveTransactionParameters @ 0x140703B20
+ * XREFs of IopRetrieveTransactionParameters @ 0x14071AF00
  * Callers:
- *     IopParseDevice @ 0x140700F60 (IopParseDevice.c)
- *     IopAllocRealFileObject @ 0x1407030E0 (IopAllocRealFileObject.c)
+ *     IopParseDevice @ 0x140718340 (IopParseDevice.c)
+ *     IopAllocRealFileObject @ 0x14071A4C0 (IopAllocRealFileObject.c)
  * Callees:
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     IopGetSetSpecificExtension @ 0x140356AE8 (IopGetSetSpecificExtension.c)
- *     IopCheckStackForTransactionSupport @ 0x140394D34 (IopCheckStackForTransactionSupport.c)
- *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     IopGetSetSpecificExtension @ 0x140361838 (IopGetSetSpecificExtension.c)
+ *     IopCheckStackForTransactionSupport @ 0x140394E84 (IopCheckStackForTransactionSupport.c)
+ *     ObReferenceObjectByHandle @ 0x140707FA0 (ObReferenceObjectByHandle.c)
  */
 
 __int64 __fastcall IopRetrieveTransactionParameters(__int64 a1, __int64 a2, int a3, __int64 a4)

@@ -1,7 +1,7 @@
 /*
- * XREFs of ExDisableHandleTracing @ 0x140319BB8
+ * XREFs of ExDisableHandleTracing @ 0x140319DA8
  * Callers:
- *     PsSetProcessHandleTracingInformation @ 0x140888754 (PsSetProcessHandleTracingInformation.c)
+ *     PsSetProcessHandleTracingInformation @ 0x1408899B4 (PsSetProcessHandleTracingInformation.c)
  * Callees:
  *     KiAbEntryRemoveFromTree @ 0x140004530 (KiAbEntryRemoveFromTree.c)
  *     KiCheckForKernelApcDelivery @ 0x140005A50 (KiCheckForKernelApcDelivery.c)
@@ -10,9 +10,9 @@
  *     KiAbThreadRemoveBoosts @ 0x14004EFD0 (KiAbThreadRemoveBoosts.c)
  *     MmGetSessionIdEx @ 0x14004F060 (MmGetSessionIdEx.c)
  *     KeLeaveCriticalRegionThread @ 0x140051600 (KeLeaveCriticalRegionThread.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     ExDereferenceHandleDebugInfo @ 0x1408CDC14 (ExDereferenceHandleDebugInfo.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     ExDereferenceHandleDebugInfo @ 0x1408CEED4 (ExDereferenceHandleDebugInfo.c)
  */
 
 _QWORD *__fastcall ExDisableHandleTracing(__int64 a1)
@@ -83,7 +83,7 @@ LABEL_16:
   }
   v11->CrossThreadReleasableAndBusyByte |= 2u;
   if ( (__int64)v11->LockState.LockState < 0 )
-    KiAbEntryRemoveFromTree((__int64)&v5->LockEntries[v10], SessionId);
+    KiAbEntryRemoveFromTree(&v5->LockEntries[v10].TreeNode, SessionId);
   v17 = 0;
   v17 = v11->BoostBitmap.AllFields & 0x1FFFF;
   v11->BoostBitmap.AllFields &= 0xFFFE0000;

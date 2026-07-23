@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpCopyXStateChunk @ 0x1800DE120
+ * XREFs of RtlpCopyXStateChunk @ 0x1800D9290
  * Callers:
- *     RtlpWow64CtxFromAmd64 @ 0x1800DD450 (RtlpWow64CtxFromAmd64.c)
- *     RtlCopyContext @ 0x1800DDBD0 (RtlCopyContext.c)
- *     RtlpCopyExtendedContext @ 0x180143A40 (RtlpCopyExtendedContext.c)
+ *     RtlpWow64CtxFromAmd64 @ 0x1800D85C0 (RtlpWow64CtxFromAmd64.c)
+ *     RtlCopyContext @ 0x1800D8D40 (RtlCopyContext.c)
+ *     RtlpCopyExtendedContext @ 0x180141DF0 (RtlpCopyExtendedContext.c)
  * Callees:
- *     memmove @ 0x180167400 (memmove.c)
+ *     memmove @ 0x1801657C0 (memmove.c)
  */
 
 __int64 __fastcall RtlpCopyXStateChunk(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5)

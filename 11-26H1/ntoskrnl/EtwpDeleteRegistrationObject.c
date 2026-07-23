@@ -1,25 +1,25 @@
 /*
- * XREFs of EtwpDeleteRegistrationObject @ 0x140935AA0
+ * XREFs of EtwpDeleteRegistrationObject @ 0x140911650
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KeLeaveCriticalRegionThread @ 0x1402B8A60 (KeLeaveCriticalRegionThread.c)
- *     ExfReleasePushLock @ 0x1402E3120 (ExfReleasePushLock.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     KeRundownQueueEx @ 0x1403DC2B8 (KeRundownQueueEx.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     EtwpSendNoReplyReply @ 0x1408288A4 (EtwpSendNoReplyReply.c)
- *     EtwpUnreferenceGuidEntry @ 0x140936B20 (EtwpUnreferenceGuidEntry.c)
- *     EtwpRundownNotifications @ 0x140938E90 (EtwpRundownNotifications.c)
- *     EtwpUnreferenceDataBlock @ 0x140939064 (EtwpUnreferenceDataBlock.c)
- *     EtwpReleaseProviderTraitsReference @ 0x140A851FC (EtwpReleaseProviderTraitsReference.c)
- *     EtwpReleaseQueueEntry @ 0x140A86BA8 (EtwpReleaseQueueEntry.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExfReleasePushLock @ 0x14021B220 (ExfReleasePushLock.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeLeaveCriticalRegionThread @ 0x140303720 (KeLeaveCriticalRegionThread.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     KeRundownQueueEx @ 0x1403DF4A8 (KeRundownQueueEx.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     EtwpSendNoReplyReply @ 0x14082EAE4 (EtwpSendNoReplyReply.c)
+ *     EtwpUnreferenceGuidEntry @ 0x1409126C0 (EtwpUnreferenceGuidEntry.c)
+ *     EtwpRundownNotifications @ 0x140914A30 (EtwpRundownNotifications.c)
+ *     EtwpUnreferenceDataBlock @ 0x140914C04 (EtwpUnreferenceDataBlock.c)
+ *     EtwpReleaseProviderTraitsReference @ 0x1409BE87C (EtwpReleaseProviderTraitsReference.c)
+ *     EtwpReleaseQueueEntry @ 0x140A8BB28 (EtwpReleaseQueueEntry.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpDeleteRegistrationObject(
@@ -45,29 +45,25 @@ __int64 __fastcall EtwpDeleteRegistrationObject(
   signed __int64 v19; // rax
   signed __int64 v20; // rdx
   __int64 v21; // rtt
-  __int64 v22; // rdx
-  __int64 v23; // r8
-  __int64 v24; // r8
-  signed __int64 v25; // rax
-  signed __int64 v26; // rdx
-  __int64 v27; // rtt
-  __int64 v28; // rdx
-  __int64 v29; // r8
-  __int16 v30; // ax
-  volatile __int64 *v31; // rbx
-  __int64 v32; // rbp
-  __int64 *v33; // rdi
+  __int64 v22; // r8
+  signed __int64 v23; // rax
+  signed __int64 v24; // rdx
+  __int64 v25; // rtt
+  __int16 v26; // ax
+  volatile __int64 *v27; // rbx
+  __int64 v28; // rbp
+  __int64 *v29; // rdi
   __int64 result; // rax
-  AutoBoost *v35; // rax
-  void *v36; // rdx
-  AutoBoost *v37; // rbx
-  __int64 *v38; // rdx
-  __int64 **v39; // rax
-  void *v40; // rbp
-  __int64 v41; // rax
-  _QWORD *v42; // rsi
-  _QWORD *v43; // rdi
-  _QWORD *v44; // rbx
+  AutoBoost *v31; // rax
+  void *v32; // rdx
+  AutoBoost *v33; // rbx
+  __int64 *v34; // rdx
+  __int64 **v35; // rax
+  void *v36; // rbp
+  __int64 v37; // rax
+  _QWORD *v38; // rsi
+  _QWORD *v39; // rdi
+  _QWORD *v40; // rbx
 
   v4 = BugCheckParameter2[4];
   v6 = BugCheckParameter2[5];
@@ -133,23 +129,23 @@ __int64 __fastcall EtwpDeleteRegistrationObject(
               ExfReleasePushLock((_QWORD *)(v4 + 664));
             }
             KeAbPostRelease(v4 + 664);
-            KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v22, v23);
+            KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
             if ( v6 )
             {
               *(_QWORD *)(v6 + 672) = 0LL;
               _m_prefetchw((const void *)(v6 + 664));
-              v25 = *(_QWORD *)(v6 + 664);
-              v26 = v25 - 16;
-              if ( (v25 & 0xFFFFFFFFFFFFFFF0uLL) <= 0x10 )
-                v26 = 0LL;
-              if ( (v25 & 2) != 0
-                || (v27 = *(_QWORD *)(v6 + 664),
-                    v27 != _InterlockedCompareExchange64((volatile signed __int64 *)(v6 + 664), v26, v25)) )
+              v23 = *(_QWORD *)(v6 + 664);
+              v24 = v23 - 16;
+              if ( (v23 & 0xFFFFFFFFFFFFFFF0uLL) <= 0x10 )
+                v24 = 0LL;
+              if ( (v23 & 2) != 0
+                || (v25 = *(_QWORD *)(v6 + 664),
+                    v25 != _InterlockedCompareExchange64((volatile signed __int64 *)(v6 + 664), v24, v23)) )
               {
                 ExfReleasePushLock((_QWORD *)(v6 + 664));
               }
               KeAbPostRelease(v6 + 664);
-              KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v28, v29);
+              KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
             }
             goto LABEL_28;
           }
@@ -159,71 +155,71 @@ __int64 __fastcall EtwpDeleteRegistrationObject(
 LABEL_39:
     __fastfail(3u);
   }
-  v35 = (AutoBoost *)KeAbPreAcquire((__int64)&ExpSysDbgLock.1144, 0LL, 0LL, a4);
-  v37 = v35;
-  if ( _interlockedbittestandset64((volatile signed __int32 *)&ExpSysDbgLock.1144, 0LL) )
-    ExfAcquirePushLockExclusiveEx((unsigned __int64 *)&ExpSysDbgLock.1144, v35, (__int64)&ExpSysDbgLock.1144);
-  if ( v37 )
+  v31 = (AutoBoost *)KeAbPreAcquire((__int64)&stru_140F03830, 0LL, 0LL, a4);
+  v33 = v31;
+  if ( _interlockedbittestandset64((volatile signed __int32 *)&stru_140F03830, 0LL) )
+    ExfAcquirePushLockExclusiveEx((unsigned __int64 *)&stru_140F03830, v31, (__int64)&stru_140F03830);
+  if ( v33 )
   {
     if ( (KiAbpGlobalState & 1) != 0 )
-      AutoBoost::KiAbpPostAcquire(v37, v36);
+      AutoBoost::KiAbpPostAcquire(v33, v32);
     else
-      *((_BYTE *)v37 + 10) = 1;
+      *((_BYTE *)v33 + 10) = 1;
   }
-  v38 = (__int64 *)*BugCheckParameter2;
+  v34 = (__int64 *)*BugCheckParameter2;
   if ( *(__int64 **)(*BugCheckParameter2 + 8) != BugCheckParameter2 )
     goto LABEL_39;
-  v39 = (__int64 **)BugCheckParameter2[1];
-  if ( *v39 != BugCheckParameter2 )
+  v35 = (__int64 **)BugCheckParameter2[1];
+  if ( *v35 != BugCheckParameter2 )
     goto LABEL_39;
-  *v39 = v38;
-  v38[1] = (__int64)v39;
-  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&ExpSysDbgLock.Spare32, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock((volatile signed __int64 *)&ExpSysDbgLock.1144);
-  KeAbPostRelease((unsigned __int64)&ExpSysDbgLock.1144);
+  *v35 = v34;
+  v34[1] = (__int64)v35;
+  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&stru_140F03830, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    ExfTryToWakePushLock((volatile signed __int64 *)&stru_140F03830.Header.Lock);
+  KeAbPostRelease((unsigned __int64)&stru_140F03830);
 LABEL_28:
   _InterlockedAnd16((volatile signed __int16 *)BugCheckParameter2 + 49, 0xFFBFu);
-  v30 = *((_WORD *)BugCheckParameter2 + 49);
-  if ( (v30 & 2) != 0 )
+  v26 = *((_WORD *)BugCheckParameter2 + 49);
+  if ( (v26 & 2) != 0 )
   {
-    v31 = BugCheckParameter2 + 6;
-    v32 = 4LL;
+    v27 = BugCheckParameter2 + 6;
+    v28 = 4LL;
     do
     {
-      v33 = (__int64 *)_InterlockedExchange64(v31, 0LL);
-      if ( v33 )
+      v29 = (__int64 *)_InterlockedExchange64(v27, 0LL);
+      if ( v29 )
       {
-        EtwpSendNoReplyReply(v33[4], (__int128 *)(v4 + 40));
-        EtwpReleaseQueueEntry(v33);
+        EtwpSendNoReplyReply(v29[4], (__int128 *)(v4 + 40));
+        EtwpReleaseQueueEntry(v29);
       }
-      ++v31;
-      --v32;
+      ++v27;
+      --v28;
     }
-    while ( v32 );
+    while ( v28 );
     EtwpRundownNotifications(BugCheckParameter2[10], BugCheckParameter2);
     ObfDereferenceObjectWithTag((PVOID)BugCheckParameter2[10], 0x52777445u);
     EtwpReleaseProviderTraitsReference(BugCheckParameter2);
   }
   else
   {
-    if ( (v30 & 4) == 0 )
+    if ( (v26 & 4) == 0 )
       KeBugCheckEx(0x11Du, 3uLL, (ULONG_PTR)BugCheckParameter2, *((unsigned __int16 *)BugCheckParameter2 + 49), 0LL);
-    v40 = (void *)BugCheckParameter2[6];
-    v41 = KeRundownQueueEx((__int64)v40, 1, v24);
-    v42 = (_QWORD *)v41;
-    if ( v41 )
+    v36 = (void *)BugCheckParameter2[6];
+    v37 = KeRundownQueueEx((__int64)v36, 1, v22);
+    v38 = (_QWORD *)v37;
+    if ( v37 )
     {
-      v43 = (_QWORD *)v41;
+      v39 = (_QWORD *)v37;
       do
       {
-        v44 = v43;
-        v43 = (_QWORD *)*v43;
-        EtwpUnreferenceDataBlock(v44[2]);
-        ExFreePoolWithTag(v44, 0);
+        v40 = v39;
+        v39 = (_QWORD *)*v39;
+        EtwpUnreferenceDataBlock(v40[2]);
+        ExFreePoolWithTag(v40, 0);
       }
-      while ( v42 != v43 );
+      while ( v38 != v39 );
     }
-    ExFreePoolWithTag(v40, 0);
+    ExFreePoolWithTag(v36, 0);
   }
   result = EtwpUnreferenceGuidEntry(v4);
   if ( v6 )

@@ -1,10 +1,10 @@
 /*
- * XREFs of WheapPropagatePolicyToHal @ 0x140B501A0
+ * XREFs of WheapPropagatePolicyToHal @ 0x140B52A30
  * Callers:
- *     WheaRegChangeNotifyCallback @ 0x140849930 (WheaRegChangeNotifyCallback.c)
- *     WheapLoadPolicy @ 0x140CE85FC (WheapLoadPolicy.c)
+ *     WheaRegChangeNotifyCallback @ 0x14084FC40 (WheaRegChangeNotifyCallback.c)
+ *     WheapLoadPolicy @ 0x140CEE99C (WheapLoadPolicy.c)
  * Callees:
- *     HalWheaUpdateCmciPolicy @ 0x14057A800 (HalWheaUpdateCmciPolicy.c)
+ *     HalWheaUpdateCmciPolicy @ 0x14057CD30 (HalWheaUpdateCmciPolicy.c)
  */
 
 void __fastcall WheapPropagatePolicyToHal(unsigned int a1)

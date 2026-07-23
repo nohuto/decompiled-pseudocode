@@ -9,9 +9,9 @@
  *     <none>
  */
 
-char __fastcall RtlUpperChar(char a1)
+CHAR __cdecl RtlUpperChar(CHAR Character)
 {
-  if ( (unsigned __int8)(a1 - 97) <= 0x19u )
-    return a1 ^ 0x20;
-  return a1;
+  if ( (unsigned __int8)(Character - 97) <= 0x19u )
+    return Character ^ 0x20;
+  return Character;
 }

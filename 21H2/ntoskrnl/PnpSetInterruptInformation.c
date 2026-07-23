@@ -1,11 +1,11 @@
 /*
- * XREFs of PnpSetInterruptInformation @ 0x140772C50
+ * XREFs of PnpSetInterruptInformation @ 0x140772E10
  * Callers:
- *     PnpSetDevicePropertyData @ 0x140746BDC (PnpSetDevicePropertyData.c)
+ *     PnpSetDevicePropertyData @ 0x140746D9C (PnpSetDevicePropertyData.c)
  * Callees:
- *     memmove @ 0x140413F40 (memmove.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PnpSetInterruptInformation(__int64 a1, const void *a2, unsigned int a3)

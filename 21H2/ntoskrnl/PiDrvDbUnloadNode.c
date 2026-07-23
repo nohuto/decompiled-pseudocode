@@ -1,19 +1,22 @@
 /*
- * XREFs of PiDrvDbUnloadNode @ 0x140629E58
+ * XREFs of PiDrvDbUnloadNode @ 0x140693F2C
  * Callers:
- *     PiDrvDbNodeActionCallback @ 0x140629F10 (PiDrvDbNodeActionCallback.c)
+ *     PiDrvDbNodeActionCallback @ 0x140693FE0 (PiDrvDbNodeActionCallback.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     KeSetCoalescableTimer @ 0x14025FC70 (KeSetCoalescableTimer.c)
- *     KiSetTimerEx @ 0x14025FD70 (KiSetTimerEx.c)
- *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
- *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
+ *     KeSetCoalescableTimer @ 0x1402813E0 (KeSetCoalescableTimer.c)
+ *     KiSetTimerEx @ 0x1402814E0 (KiSetTimerEx.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseResourceLite @ 0x140356140 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1403568F0 (ExAcquireResourceExclusiveLite.c)
  */
 
 __int64 __fastcall PiDrvDbUnloadNode(__int64 a1, _QWORD *a2)
 {
   struct _KTHREAD *CurrentThread; // rax
   __int64 v5; // rax
+  __int64 v6; // rdx
+  __int64 v7; // r8
+  __int64 v8; // r9
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
@@ -34,6 +37,6 @@ __int64 __fastcall PiDrvDbUnloadNode(__int64 a1, _QWORD *a2)
   }
   *a2 = 0LL;
   ExReleaseResourceLite((PERESOURCE)(a1 + 88));
-  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v6, v7, v8);
   return 0LL;
 }

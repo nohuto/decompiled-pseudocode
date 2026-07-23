@@ -7,27 +7,27 @@
  *     _RtlpCopyAces@56 @ 0x4B2D886D (_RtlpCopyAces@56.c)
  */
 
-signed int __fastcall RtlpComputeMergedAcl2(
+int __fastcall RtlpComputeMergedAcl2(
         unsigned __int8 *a1,
         __int16 a2,
         unsigned __int8 *a3,
         __int16 a4,
         unsigned __int8 *a5,
         unsigned __int8 *a6,
-        int a7,
+        GENERIC_MAPPING *a7,
         int a8,
-        unsigned int *a9,
-        int a10,
+        ULONG *a9,
+        PACL Acl,
         _DWORD *a11)
 {
   char v11; // bh
-  unsigned int *v12; // edi
+  ULONG *v12; // edi
   char v13; // bl
-  signed int result; // eax
+  int result; // eax
   unsigned int v15; // eax
-  unsigned int v16; // [esp-8h] [ebp-2Ch]
-  unsigned int v19; // [esp+14h] [ebp-10h] BYREF
-  unsigned int v20; // [esp+18h] [ebp-Ch] BYREF
+  ULONG v16; // [esp-8h] [ebp-2Ch]
+  int v19; // [esp+14h] [ebp-10h] BYREF
+  int v20; // [esp+18h] [ebp-Ch] BYREF
   unsigned int v21; // [esp+1Ch] [ebp-8h]
   bool v22; // [esp+23h] [ebp-1h]
 
@@ -38,7 +38,7 @@ signed int __fastcall RtlpComputeMergedAcl2(
   v13 = 1;
   v16 = *a9;
   v21 = 2;
-  RtlCreateAcl(a10, v16, 2u);
+  RtlCreateAcl(Acl, v16, 2u);
   *a11 = 1024;
   if ( (a4 & 0x1000) != 0 )
   {
@@ -47,7 +47,7 @@ signed int __fastcall RtlpComputeMergedAcl2(
     {
       if ( *a3 >= 2u )
         v21 = *a3;
-      result = RtlpCopyAces((int)a3, a7, 2, 16, 1, a5, a6, (int)a5, (int)a6, 1, 0, a8, &v20, (_BYTE *)a10);
+      result = RtlpCopyAces((int)a3, a7, 2, 16, 1, a5, a6, (int)a5, (int)a6, 1, 0, a8, (unsigned int *)&v20, Acl);
 LABEL_6:
       if ( result == -1073741789 )
       {
@@ -68,7 +68,7 @@ LABEL_6:
     {
       if ( *a3 >= 2u )
         v21 = *a3;
-      result = RtlpCopyAces((int)a3, a7, 1, 0, 1, a5, a6, (int)a5, (int)a6, 1, 0, a8, &v20, (_BYTE *)a10);
+      result = RtlpCopyAces((int)a3, a7, 1, 0, 1, a5, a6, (int)a5, (int)a6, 1, 0, a8, (unsigned int *)&v20, Acl);
       if ( result == -1073741789 )
       {
         v11 = 1;
@@ -88,7 +88,7 @@ LABEL_6:
     {
       if ( v21 <= *a1 )
         v21 = *a1;
-      result = RtlpCopyAces((int)a1, a7, 0, 0, 0, 0, 0, 0, 0, 1, 0, a8, &v19, (_BYTE *)a10);
+      result = RtlpCopyAces((int)a1, a7, 0, 0, 0, 0, 0, 0, 0, 1, 0, a8, (unsigned int *)&v19, Acl);
       if ( result == -1073741789 )
       {
         v11 = 1;
@@ -104,7 +104,7 @@ LABEL_6:
   {
     if ( *a3 >= 2u )
       v21 = *a3;
-    result = RtlpCopyAces((int)a3, a7, 2, 0, 1, a5, a6, (int)a5, (int)a6, 1, 1, a8, &v20, (_BYTE *)a10);
+    result = RtlpCopyAces((int)a3, a7, 2, 0, 1, a5, a6, (int)a5, (int)a6, 1, 1, a8, (unsigned int *)&v20, Acl);
     goto LABEL_6;
   }
   if ( a8 == 1 )
@@ -118,8 +118,8 @@ LABEL_16:
     *v12 = v15;
     if ( v11 )
       return -1073741789;
-    *(_WORD *)(a10 + 2) = v15;
-    *(_BYTE *)a10 = v21;
+    Acl->AclSize = v15;
+    Acl->AclRevision = v21;
   }
   else
   {

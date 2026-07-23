@@ -1,27 +1,27 @@
 /*
- * XREFs of WmipIoControl @ 0x1404749C4
+ * XREFs of WmipIoControl @ 0x140473894
  * Callers:
  *     <none>
  * Callees:
- *     IofCompleteRequest @ 0x140053560 (IofCompleteRequest.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     WmipReceiveNotifications @ 0x1400AF3D4 (WmipReceiveNotifications.c)
- *     IoIs32bitProcess @ 0x1400C3800 (IoIs32bitProcess.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     ObOpenObjectByPointer @ 0x1404203C0 (ObOpenObjectByPointer.c)
- *     WmipOpenBlock @ 0x1404744DC (WmipOpenBlock.c)
- *     WmipProbeWmiOpenGuidBlock @ 0x140474D00 (WmipProbeWmiOpenGuidBlock.c)
- *     WmipEnumerateMofResources @ 0x1404E738C (WmipEnumerateMofResources.c)
- *     WmipQueryAllData @ 0x140504C98 (WmipQueryAllData.c)
- *     WmipQuerySetExecuteSI @ 0x14052A4BC (WmipQuerySetExecuteSI.c)
- *     WmipProbeWnodeSingleInstance @ 0x14052AD08 (WmipProbeWnodeSingleInstance.c)
- *     WmipProbeWnodeMethodItem @ 0x14052AD80 (WmipProbeWnodeMethodItem.c)
- *     WmipEnumerateGuids @ 0x14069E028 (WmipEnumerateGuids.c)
- *     WmipQueryAllDataMultiple @ 0x14069E48C (WmipQueryAllDataMultiple.c)
- *     WmipQueryGuidInfo @ 0x14069E748 (WmipQueryGuidInfo.c)
- *     WmipQuerySingleMultiple @ 0x14069E80C (WmipQuerySingleMultiple.c)
- *     WmipProbeWnodeSingleItem @ 0x14069ED5C (WmipProbeWnodeSingleItem.c)
- *     WmipTranslateFileHandle @ 0x14069EDC4 (WmipTranslateFileHandle.c)
+ *     IofCompleteRequest @ 0x1400530E0 (IofCompleteRequest.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     WmipReceiveNotifications @ 0x1400AD93C (WmipReceiveNotifications.c)
+ *     IoIs32bitProcess @ 0x1400C1690 (IoIs32bitProcess.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     ObOpenObjectByPointer @ 0x14041F280 (ObOpenObjectByPointer.c)
+ *     WmipOpenBlock @ 0x1404733AC (WmipOpenBlock.c)
+ *     WmipProbeWmiOpenGuidBlock @ 0x140473BD0 (WmipProbeWmiOpenGuidBlock.c)
+ *     WmipEnumerateMofResources @ 0x1404C9900 (WmipEnumerateMofResources.c)
+ *     WmipQueryAllData @ 0x1404E7C28 (WmipQueryAllData.c)
+ *     WmipQuerySetExecuteSI @ 0x14052B10C (WmipQuerySetExecuteSI.c)
+ *     WmipProbeWnodeSingleInstance @ 0x14052B958 (WmipProbeWnodeSingleInstance.c)
+ *     WmipProbeWnodeMethodItem @ 0x14052B9D0 (WmipProbeWnodeMethodItem.c)
+ *     WmipEnumerateGuids @ 0x14069E10C (WmipEnumerateGuids.c)
+ *     WmipQueryAllDataMultiple @ 0x14069E570 (WmipQueryAllDataMultiple.c)
+ *     WmipQueryGuidInfo @ 0x14069E848 (WmipQueryGuidInfo.c)
+ *     WmipQuerySingleMultiple @ 0x14069E90C (WmipQuerySingleMultiple.c)
+ *     WmipProbeWnodeSingleItem @ 0x14069EE94 (WmipProbeWnodeSingleItem.c)
+ *     WmipTranslateFileHandle @ 0x14069EEFC (WmipTranslateFileHandle.c)
  */
 
 __int64 __fastcall WmipIoControl(__int64 a1, IRP *a2, __int64 a3, __int64 a4)

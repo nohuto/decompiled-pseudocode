@@ -1,19 +1,19 @@
 /*
- * XREFs of PiDcResetChildDeviceContainerCallback @ 0x140727980
+ * XREFs of PiDcResetChildDeviceContainerCallback @ 0x140725510
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     RtlStringCbCopyW @ 0x140433420 (RtlStringCbCopyW.c)
- *     RtlInitUnicodeStringEx @ 0x14045AA10 (RtlInitUnicodeStringEx.c)
- *     _wcsicmp @ 0x1404FE3B0 (_wcsicmp.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     PnpDeviceObjectFromDeviceInstanceWithTag @ 0x1408BDDF0 (PnpDeviceObjectFromDeviceInstanceWithTag.c)
- *     _CmGetDeviceRegProp @ 0x1408C5BB0 (_CmGetDeviceRegProp.c)
- *     _PnpGetObjectProperty @ 0x1408CDFD0 (_PnpGetObjectProperty.c)
- *     _CmIsRootDevice @ 0x140926C14 (_CmIsRootDevice.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     RtlStringCbCopyW @ 0x140425B00 (RtlStringCbCopyW.c)
+ *     RtlInitUnicodeStringEx @ 0x14044FE60 (RtlInitUnicodeStringEx.c)
+ *     _wcsicmp @ 0x1404FBC70 (_wcsicmp.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     PnpDeviceObjectFromDeviceInstanceWithTag @ 0x1408BB740 (PnpDeviceObjectFromDeviceInstanceWithTag.c)
+ *     _CmGetDeviceRegProp @ 0x1408C35E0 (_CmGetDeviceRegProp.c)
+ *     _PnpGetObjectProperty @ 0x1408CB9C0 (_PnpGetObjectProperty.c)
+ *     _CmIsRootDevice @ 0x140928D54 (_CmIsRootDevice.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiDcResetChildDeviceContainerCallback(int a1, const wchar_t *a2, __int64 a3)
@@ -60,7 +60,7 @@ __int64 __fastcall PiDcResetChildDeviceContainerCallback(int a1, const wchar_t *
     }
     if ( !Pool2 )
     {
-      Pool2 = ExAllocatePool2(0x100uLL);
+      Pool2 = ExAllocatePool2(0x100uLL, 0x190uLL, 0x47706E50u);
       if ( !Pool2 )
         return 0LL;
     }
@@ -82,7 +82,7 @@ __int64 __fastcall PiDcResetChildDeviceContainerCallback(int a1, const wchar_t *
     *(_WORD *)(Pool2 + 398) = 0;
     if ( !wcsicmp((const wchar_t *)Pool2, *(const wchar_t **)a3) )
     {
-      v9 = ExAllocatePool2(0x100uLL);
+      v9 = ExAllocatePool2(0x100uLL, 0x1A0uLL, 0x47706E50u);
       v10 = (_QWORD *)v9;
       if ( v9 )
       {

@@ -1,14 +1,14 @@
 /*
- * XREFs of PspGetNextSyscallProviderProcess @ 0x1409B4C04
+ * XREFs of PspGetNextSyscallProviderProcess @ 0x1409B4E04
  * Callers:
- *     PspQuerySyscallProviderProcessList @ 0x1409B4E40 (PspQuerySyscallProviderProcessList.c)
+ *     PspQuerySyscallProviderProcessList @ 0x1409B5040 (PspQuerySyscallProviderProcessList.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1402BD860 (ExfReleasePushLockShared.c)
- *     ObReferenceObjectSafeWithTag @ 0x1402C3650 (ObReferenceObjectSafeWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockSharedEx @ 0x140230E80 (ExAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfReleasePushLockShared @ 0x1402BDAF0 (ExfReleasePushLockShared.c)
+ *     ObReferenceObjectSafeWithTag @ 0x1402C38E0 (ObReferenceObjectSafeWithTag.c)
  */
 
 __int64 __fastcall PspGetNextSyscallProviderProcess(__int64 a1, _QWORD *a2)

@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     RtlpNameprepAsciiWorker @ 0x1409BBD10 (RtlpNameprepAsciiWorker.c)
+ *     sub_1409BBD10 @ 0x1409BBD10 (sub_1409BBD10.c)
  */
 
 NTSTATUS __stdcall RtlIdnToNameprepUnicode(
@@ -13,7 +13,7 @@ NTSTATUS __stdcall RtlIdnToNameprepUnicode(
         PWSTR DestinationString,
         PLONG DestinationStringLength)
 {
-  return RtlpNameprepAsciiWorker(
+  return sub_1409BBD10(
            Flags,
            (_DWORD)SourceString,
            SourceStringLength,

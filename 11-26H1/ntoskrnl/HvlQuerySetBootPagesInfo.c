@@ -1,18 +1,18 @@
 /*
- * XREFs of HvlQuerySetBootPagesInfo @ 0x140776180
+ * XREFs of HvlQuerySetBootPagesInfo @ 0x140779028
  * Callers:
- *     NtSetSystemInformation @ 0x140833840 (NtSetSystemInformation.c)
- *     ExpQuerySystemInformation @ 0x140B145DC (ExpQuerySystemInformation.c)
+ *     NtSetSystemInformation @ 0x140839A80 (NtSetSystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x140B169CC (ExpQuerySystemInformation.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall HvlQuerySetBootPagesInfo(
@@ -41,14 +41,14 @@ __int64 __fastcall HvlQuerySetBootPagesInfo(
   {
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->KernelApcDisable;
-    v10 = (AutoBoost *)KeAbPreAcquire((__int64)&VslpReservedTransferLock.AffinityVersion, 0LL, 0LL, a4);
-    v12 = _interlockedbittestandset64((volatile signed __int32 *)&VslpReservedTransferLock.AffinityVersion, 0LL);
+    v10 = (AutoBoost *)KeAbPreAcquire((__int64)&VslpReservedTransferLock.SavedApcState.ApcListHead[1], 0LL, 0LL, a4);
+    v12 = _interlockedbittestandset64((volatile signed __int32 *)&VslpReservedTransferLock.SavedApcStateFill[16], 0LL);
     v13 = v10;
     if ( v12 )
       ExfAcquirePushLockExclusiveEx(
-        &VslpReservedTransferLock.AffinityVersion,
+        (unsigned __int64 *)&VslpReservedTransferLock.SavedApcState.ApcListHead[1],
         v10,
-        (__int64)&VslpReservedTransferLock.AffinityVersion);
+        (__int64)&VslpReservedTransferLock.SavedApcState.ApcListHead[1]);
     if ( v13 )
     {
       if ( (KiAbpGlobalState & 1) != 0 )
@@ -58,13 +58,13 @@ __int64 __fastcall HvlQuerySetBootPagesInfo(
     }
     if ( v6 )
     {
-      if ( LOBYTE(VslpReservedTransferLock.Affinity)
-        && !BYTE1(VslpReservedTransferLock.Affinity)
-        && VslpReservedTransferLock.SavedApcState.ApcListHead[0].Flink->Flink )
+      if ( VslpReservedTransferLock.SavedApcStateFill[24]
+        && !VslpReservedTransferLock.SavedApcStateFill[25]
+        && **(_DWORD **)&VslpReservedTransferLock.SchedulerApc.Type )
       {
-        v14 = 8 * (__int64)VslpReservedTransferLock.SavedApcState.ApcListHead[0].Flink->Flink + 8;
+        v14 = 8 * **(_DWORD **)&VslpReservedTransferLock.SchedulerApc.Type + 8;
         if ( v14 <= a2 )
-          memmove(a1, VslpReservedTransferLock.SavedApcState.ApcListHead[0].Flink, v14);
+          memmove(a1, *(const void **)&VslpReservedTransferLock.SchedulerApc.Type, v14);
         else
           v5 = -1073741789;
         *a5 = v14;
@@ -74,16 +74,16 @@ __int64 __fastcall HvlQuerySetBootPagesInfo(
         *a5 = 0;
       }
     }
-    else if ( LOBYTE(VslpReservedTransferLock.Affinity)
-           && !BYTE1(VslpReservedTransferLock.Affinity)
-           && VslpReservedTransferLock.SavedApcState.ApcListHead[0].Flink->Flink )
+    else if ( VslpReservedTransferLock.SavedApcStateFill[24]
+           && !VslpReservedTransferLock.SavedApcStateFill[25]
+           && **(_DWORD **)&VslpReservedTransferLock.SchedulerApc.Type )
     {
       if ( a2 == 16 && a1 && !*a1 )
       {
-        ExFreePoolWithTag(VslpReservedTransferLock.SavedApcState.ApcListHead[0].Flink, 0x204C5648u);
-        VslpReservedTransferLock.SavedApcState.ApcListHead[0].Flink = 0LL;
-        BYTE1(VslpReservedTransferLock.Affinity) = 1;
-        KeSetEvent(*(PRKEVENT *)&VslpReservedTransferLock.AffinityPrimaryGroup, 0, 0);
+        ExFreePoolWithTag(*(PVOID *)&VslpReservedTransferLock.SchedulerApc.Type, 0x204C5648u);
+        *(_QWORD *)&VslpReservedTransferLock.SchedulerApc.Type = 0LL;
+        VslpReservedTransferLock.SavedApcStateFill[25] = 1;
+        KeSetEvent((PRKEVENT)VslpReservedTransferLock.SavedApcState.Process, 0, 0);
       }
       else
       {
@@ -95,10 +95,10 @@ __int64 __fastcall HvlQuerySetBootPagesInfo(
       v5 = -1073700861;
     }
     if ( (_InterlockedExchangeAdd64(
-            (volatile signed __int64 *)&VslpReservedTransferLock.AffinityVersion,
+            (volatile signed __int64 *)&VslpReservedTransferLock.SavedApcState.ApcListHead[1].Flink,
             0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-      ExfTryToWakePushLock((volatile signed __int64 *)&VslpReservedTransferLock.AffinityVersion);
-    KeAbPostRelease((unsigned __int64)&VslpReservedTransferLock.AffinityVersion);
+      ExfTryToWakePushLock((volatile signed __int64 *)&VslpReservedTransferLock.SavedApcState.ApcListHead[1]);
+    KeAbPostRelease((unsigned __int64)&VslpReservedTransferLock.SavedApcState.ApcListHead[1]);
     KeLeaveCriticalRegion();
   }
   else

@@ -64,7 +64,7 @@ __int64 __fastcall MiRelocateImage(__int64 a1, __int64 a2, unsigned int a3, unsi
   char *Pool; // rax
   char *v26; // r14
   char *v27; // rcx
-  __int64 v28; // rsi
+  char *v28; // rsi
   char *v29; // rdi
   int updated; // esi
   __int64 v31; // r8
@@ -106,7 +106,7 @@ __int64 __fastcall MiRelocateImage(__int64 a1, __int64 a2, unsigned int a3, unsi
   __int64 ControlAreaPartition; // rax
   unsigned __int64 v69; // r15
   volatile signed __int64 *v70; // rsi
-  int v71; // [rsp+20h] [rbp-158h]
+  __int64 v71; // [rsp+20h] [rbp-158h]
   unsigned int v72; // [rsp+30h] [rbp-148h]
   unsigned int v73; // [rsp+30h] [rbp-148h]
   unsigned int v74; // [rsp+34h] [rbp-144h]
@@ -537,7 +537,7 @@ LABEL_100:
     MiSetDeleteOnClose(v16, 0);
     return 0LL;
   }
-  v28 = v100[0];
+  v28 = (char *)v100[0];
   v81 = v100[0];
   v75 = PsSetSystemPagePriorityThread((__int64)CurrentThread, 1);
   v10 |= 1u;

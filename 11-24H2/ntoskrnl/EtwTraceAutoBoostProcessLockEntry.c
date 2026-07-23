@@ -1,15 +1,15 @@
 /*
- * XREFs of EtwTraceAutoBoostProcessLockEntry @ 0x140250910
+ * XREFs of EtwTraceAutoBoostProcessLockEntry @ 0x140280F20
  * Callers:
- *     KiAbProcessThreadLocks @ 0x1402509C0 (KiAbProcessThreadLocks.c)
- *     KiAbDeferredProcessingWorker @ 0x140253050 (KiAbDeferredProcessingWorker.c)
- *     KiAbConvertWaiterToOwnerEntry @ 0x140323370 (KiAbConvertWaiterToOwnerEntry.c)
- *     KiAbForceProcessLockEntry @ 0x1404183E4 (KiAbForceProcessLockEntry.c)
+ *     KiAbProcessThreadLocks @ 0x140280FD0 (KiAbProcessThreadLocks.c)
+ *     KiAbDeferredProcessingWorker @ 0x140283660 (KiAbDeferredProcessingWorker.c)
+ *     KiAbConvertWaiterToOwnerEntry @ 0x1402CBF00 (KiAbConvertWaiterToOwnerEntry.c)
+ *     KiAbForceProcessLockEntry @ 0x140408194 (KiAbForceProcessLockEntry.c)
  * Callees:
- *     EtwTraceSiloKernelEvent @ 0x140348590 (EtwTraceSiloKernelEvent.c)
- *     MmGetMinWsPagePriority @ 0x1404790C0 (MmGetMinWsPagePriority.c)
- *     Feature_Servicing_AutoBoostEtwEventingFixes__private_IsEnabledWithReporting @ 0x1404790D0 (Feature_Servicing_AutoBoostEtwEventingFixes__private_IsEnabledWithReporting.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     MmGetMinWsPagePriority @ 0x1403C11A0 (MmGetMinWsPagePriority.c)
+ *     Feature_Servicing_AutoBoostEtwEventingFixes__private_IsEnabledWithReporting @ 0x1403C11B0 (Feature_Servicing_AutoBoostEtwEventingFixes__private_IsEnabledWithReporting.c)
+ *     EtwTraceSiloKernelEvent @ 0x1403C1FD0 (EtwTraceSiloKernelEvent.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 __int64 __fastcall EtwTraceAutoBoostProcessLockEntry(__int64 a1, __int64 a2, int a3)

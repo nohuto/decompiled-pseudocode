@@ -1,19 +1,19 @@
 /*
- * XREFs of HvMarkBaseBlockDirty @ 0x140AE37FC
+ * XREFs of HvMarkBaseBlockDirty @ 0x140AE1304
  * Callers:
- *     CmShutdownSystem1 @ 0x1406E2270 (CmShutdownSystem1.c)
- *     NtCompressKey @ 0x14084EBA0 (NtCompressKey.c)
- *     CmThawRegistry @ 0x1408571F0 (CmThawRegistry.c)
- *     CmpCreateHive @ 0x1408B5E6C (CmpCreateHive.c)
- *     CmpCompleteUnloadKey @ 0x1408B9ACC (CmpCompleteUnloadKey.c)
- *     CmpInitCmRM @ 0x140A75780 (CmpInitCmRM.c)
- *     HvHiveStartFileBacked @ 0x140AC226C (HvHiveStartFileBacked.c)
- *     CmFreezeRegistry @ 0x140AE3390 (CmFreezeRegistry.c)
- *     CmpReorganizeHive @ 0x140AE35CC (CmpReorganizeHive.c)
- *     CmpCreateHiveRootCell @ 0x140B4B93C (CmpCreateHiveRootCell.c)
+ *     CmShutdownSystem1 @ 0x1406E64F0 (CmShutdownSystem1.c)
+ *     NtCompressKey @ 0x140854EB0 (NtCompressKey.c)
+ *     CmThawRegistry @ 0x14085D580 (CmThawRegistry.c)
+ *     CmpCreateHive @ 0x1408BC440 (CmpCreateHive.c)
+ *     CmpCompleteUnloadKey @ 0x1408C009C (CmpCompleteUnloadKey.c)
+ *     CmpInitCmRM @ 0x140A7E4A0 (CmpInitCmRM.c)
+ *     HvHiveStartFileBacked @ 0x140AC430C (HvHiveStartFileBacked.c)
+ *     CmFreezeRegistry @ 0x140AE0F10 (CmFreezeRegistry.c)
+ *     CmpReorganizeHive @ 0x140AE10D4 (CmpReorganizeHive.c)
+ *     CmpCreateHiveRootCell @ 0x140B4D6CC (CmpCreateHiveRootCell.c)
  * Callees:
- *     CmpArmLazyWriter @ 0x14046ECD0 (CmpArmLazyWriter.c)
- *     CmpIssueNewDirtyCallback @ 0x140AF8000 (CmpIssueNewDirtyCallback.c)
+ *     CmpArmLazyWriter @ 0x140468450 (CmpArmLazyWriter.c)
+ *     CmpIssueNewDirtyCallback @ 0x140AFA6A0 (CmpIssueNewDirtyCallback.c)
  */
 
 void __fastcall HvMarkBaseBlockDirty(__int64 a1)

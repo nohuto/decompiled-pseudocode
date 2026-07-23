@@ -1,18 +1,18 @@
 /*
- * XREFs of PopFxRegisterComponentPerfStates @ 0x14074E534
+ * XREFs of PopFxRegisterComponentPerfStates @ 0x14074C864
  * Callers:
- *     PoFxRegisterComponentPerfStates @ 0x14074D550 (PoFxRegisterComponentPerfStates.c)
+ *     PoFxRegisterComponentPerfStates @ 0x14074B880 (PoFxRegisterComponentPerfStates.c)
  * Callees:
- *     RtlCopyUnicodeString @ 0x1403FFE80 (RtlCopyUnicodeString.c)
- *     KeInitializeEvent @ 0x140409D80 (KeInitializeEvent.c)
- *     RtlULongLongMult @ 0x140437830 (RtlULongLongMult.c)
- *     PopPluginRegisterComponentPerfStates @ 0x1405D24F8 (PopPluginRegisterComponentPerfStates.c)
- *     PopPepRegisterComponentPerfStates @ 0x1405DBF60 (PopPepRegisterComponentPerfStates.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     PopFxPepPerfInfoFree @ 0x14074E2B4 (PopFxPepPerfInfoFree.c)
- *     PopFxPepPerfInfoQuery @ 0x14074E334 (PopFxPepPerfInfoQuery.c)
- *     PopFxTracePerfRegistration @ 0x140ABE960 (PopFxTracePerfRegistration.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     RtlCopyUnicodeString @ 0x1403FA370 (RtlCopyUnicodeString.c)
+ *     KeInitializeEvent @ 0x140402260 (KeInitializeEvent.c)
+ *     RtlULongLongMult @ 0x14042A2B0 (RtlULongLongMult.c)
+ *     PopPluginRegisterComponentPerfStates @ 0x1405CFC18 (PopPluginRegisterComponentPerfStates.c)
+ *     PopPepRegisterComponentPerfStates @ 0x1405D8E30 (PopPepRegisterComponentPerfStates.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     PopFxPepPerfInfoFree @ 0x14074C5E4 (PopFxPepPerfInfoFree.c)
+ *     PopFxPepPerfInfoQuery @ 0x14074C664 (PopFxPepPerfInfoQuery.c)
+ *     PopFxTracePerfRegistration @ 0x140AB99D0 (PopFxTracePerfRegistration.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall PopFxRegisterComponentPerfStates(
@@ -81,7 +81,7 @@ __int64 __fastcall PopFxRegisterComponentPerfStates(
   }
   if ( !a6 )
     return 3221225485LL;
-  v10 = PopFxPepPerfInfoQuery(BugCheckParameter3, *(unsigned int *)(a2 + 16), (unsigned int **)&P, BugCheckParameter3);
+  v10 = PopFxPepPerfInfoQuery(BugCheckParameter3, *(unsigned int *)(a2 + 16), (unsigned int **)&P);
   v11 = P;
   v12 = v10;
   if ( v10 < 0 )
@@ -162,7 +162,7 @@ LABEL_8:
       if ( v26 + pullResult >= v26 )
       {
         v12 = 0;
-        Pool2 = ExAllocatePool2(0x40uLL);
+        Pool2 = ExAllocatePool2(0x40uLL, v26 + pullResult, 0x4D584650u);
         v28 = Pool2;
         if ( Pool2 )
         {

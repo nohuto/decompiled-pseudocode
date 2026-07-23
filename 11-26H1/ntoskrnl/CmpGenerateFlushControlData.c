@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpGenerateFlushControlData @ 0x1408B4088
+ * XREFs of CmpGenerateFlushControlData @ 0x1408BA65C
  * Callers:
- *     CmpFlushHive @ 0x1408B321C (CmpFlushHive.c)
+ *     CmpFlushHive @ 0x1408B97F0 (CmpFlushHive.c)
  * Callees:
- *     CmpIsWriteQueueActive @ 0x1404BCEB0 (CmpIsWriteQueueActive.c)
- *     HvGetHiveLogFileStatus @ 0x1408B6FC8 (HvGetHiveLogFileStatus.c)
- *     HvGetEffectiveLogSizeCapForHive @ 0x140AAB6F8 (HvGetEffectiveLogSizeCapForHive.c)
- *     HvIsCurrentLogSwappable @ 0x140B10494 (HvIsCurrentLogSwappable.c)
+ *     CmpIsWriteQueueActive @ 0x1404B6690 (CmpIsWriteQueueActive.c)
+ *     HvGetHiveLogFileStatus @ 0x1408BD598 (HvGetHiveLogFileStatus.c)
+ *     HvGetEffectiveLogSizeCapForHive @ 0x140AA8CA4 (HvGetEffectiveLogSizeCapForHive.c)
+ *     HvIsCurrentLogSwappable @ 0x140B11ED4 (HvIsCurrentLogSwappable.c)
  */
 
 char __fastcall CmpGenerateFlushControlData(__int64 a1, char a2, __int64 a3)
@@ -73,7 +73,7 @@ LABEL_8:
   v13 = v9;
   if ( (v12 & 2) != 0
     || (v13 = v11,
-        LOBYTE(v12) = ((__int64)CmpFreezeListLock.Timer.TimerListEntry.Flink & 1) == 0,
+        LOBYTE(v12) = (CmpFreezeListLock.WaitRegister.Flags & 1) == 0,
         (((*(_DWORD *)(a1 + 4120) & 0x800) == 0) & (unsigned __int8)v12) == 0) )
   {
     if ( *(_DWORD *)(a1 + 104) || (v9 = v13, *(_BYTE *)(a1 + 195)) )

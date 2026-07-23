@@ -4,7 +4,7 @@
  *     VhdInitialize @ 0x140B3BDDC (VhdInitialize.c)
  *     IopGetBootDiskInformationLite @ 0x140B55908 (IopGetBootDiskInformationLite.c)
  * Callees:
- *     memset @ 0x140435A00 (memset.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 __int64 __fastcall VhdiGetDiskParameters(_DWORD *a1, _DWORD *a2, _QWORD *a3, char *a4, _QWORD *a5)

@@ -1,17 +1,17 @@
 /*
- * XREFs of AlpcpLockBlobExclusive @ 0x1408EAB1C
+ * XREFs of AlpcpLockBlobExclusive @ 0x1408F10DC
  * Callers:
- *     NtAlpcRevokeSecurityContext @ 0x1407C06A0 (NtAlpcRevokeSecurityContext.c)
- *     AlpcpAcceptConnectPort @ 0x1408E6A30 (AlpcpAcceptConnectPort.c)
- *     AlpcConnectionDestroyProcedure @ 0x1408E9120 (AlpcConnectionDestroyProcedure.c)
- *     AlpcpCreateClientPort @ 0x1408E9A60 (AlpcpCreateClientPort.c)
- *     AlpcpDeletePort @ 0x1408EA7B0 (AlpcpDeletePort.c)
- *     AlpcpDisconnectPort @ 0x1408EAF48 (AlpcpDisconnectPort.c)
- *     AlpcpWalkConnectionList @ 0x140AFBB7C (AlpcpWalkConnectionList.c)
+ *     NtAlpcRevokeSecurityContext @ 0x1407C3700 (NtAlpcRevokeSecurityContext.c)
+ *     AlpcpAcceptConnectPort @ 0x1408ECFF0 (AlpcpAcceptConnectPort.c)
+ *     AlpcConnectionDestroyProcedure @ 0x1408EF6E0 (AlpcConnectionDestroyProcedure.c)
+ *     AlpcpCreateClientPort @ 0x1408F0020 (AlpcpCreateClientPort.c)
+ *     AlpcpDeletePort @ 0x1408F0D70 (AlpcpDeletePort.c)
+ *     AlpcpDisconnectPort @ 0x1408F1508 (AlpcpDisconnectPort.c)
+ *     AlpcpWalkConnectionList @ 0x140AFD7FC (AlpcpWalkConnectionList.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
  */
 
 void __fastcall AlpcpLockBlobExclusive(__int64 a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)

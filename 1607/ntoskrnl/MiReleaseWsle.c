@@ -1,16 +1,16 @@
 /*
- * XREFs of MiReleaseWsle @ 0x1400E2430
+ * XREFs of MiReleaseWsle @ 0x1400E02D0
  * Callers:
- *     MiSwapWslEntries @ 0x140049E70 (MiSwapWslEntries.c)
- *     MiConvertToLinkedWsles @ 0x1400A1844 (MiConvertToLinkedWsles.c)
- *     MiTerminateWsle @ 0x1400E22C0 (MiTerminateWsle.c)
- *     MiRemoveImagePageFromSystemWorkingSet @ 0x1400FDEF0 (MiRemoveImagePageFromSystemWorkingSet.c)
- *     MiMoveWorkingFreeToTail @ 0x1400FE014 (MiMoveWorkingFreeToTail.c)
- *     MiConvertPrivateToProto @ 0x1401F8908 (MiConvertPrivateToProto.c)
+ *     MiSwapWslEntries @ 0x1400499F0 (MiSwapWslEntries.c)
+ *     MiConvertToLinkedWsles @ 0x1400A016C (MiConvertToLinkedWsles.c)
+ *     MiTerminateWsle @ 0x1400E0160 (MiTerminateWsle.c)
+ *     MiRemoveImagePageFromSystemWorkingSet @ 0x1400FBC70 (MiRemoveImagePageFromSystemWorkingSet.c)
+ *     MiMoveWorkingFreeToTail @ 0x1400FBD94 (MiMoveWorkingFreeToTail.c)
+ *     MiConvertPrivateToProto @ 0x1401F8734 (MiConvertPrivateToProto.c)
  * Callees:
- *     MiRemoveEntryWsle @ 0x1400E2580 (MiRemoveEntryWsle.c)
- *     MiVolunteerForTrimFirst @ 0x1400E5F90 (MiVolunteerForTrimFirst.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
+ *     MiRemoveEntryWsle @ 0x1400E0420 (MiRemoveEntryWsle.c)
+ *     MiVolunteerForTrimFirst @ 0x1400E3E30 (MiVolunteerForTrimFirst.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
  */
 
 char __fastcall MiReleaseWsle(ULONG_PTR a1, __int64 a2, unsigned __int64 a3, int a4)
@@ -70,9 +70,9 @@ char __fastcall MiReleaseWsle(ULONG_PTR a1, __int64 a2, unsigned __int64 a3, int
     LOBYTE(v15) = *(_BYTE *)(a2 + 184) & 7;
     if ( (_BYTE)v15 == 2 )
     {
-      --qword_140327D08;
+      --qword_140327D48;
       if ( v16 == 1 )
-        --qword_140327D10;
+        --qword_140327D50;
     }
   }
   return v15;

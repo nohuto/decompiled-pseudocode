@@ -1,8 +1,8 @@
 /*
- * XREFs of CmpSetIoPriorityThread @ 0x1400B4CE0
+ * XREFs of CmpSetIoPriorityThread @ 0x1400B2B18
  * Callers:
- *     CmpDoFileWrite @ 0x1403F9028 (CmpDoFileWrite.c)
- *     CmpDoSystemCacheWrite @ 0x14060405C (CmpDoSystemCacheWrite.c)
+ *     CmpDoFileWrite @ 0x1403F7EE8 (CmpDoFileWrite.c)
+ *     CmpDoSystemCacheWrite @ 0x140604110 (CmpDoSystemCacheWrite.c)
  * Callees:
  *     <none>
  */

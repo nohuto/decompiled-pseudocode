@@ -1,9 +1,9 @@
 /*
- * XREFs of NtCreateToken @ 0x1408A1980
+ * XREFs of NtCreateToken @ 0x1408A2BE0
  * Callers:
  *     <none>
  * Callees:
- *     NtCreateTokenEx @ 0x1405BC550 (NtCreateTokenEx.c)
+ *     NtCreateTokenEx @ 0x1405BD550 (NtCreateTokenEx.c)
  */
 
 NTSTATUS __stdcall NtCreateToken(
@@ -24,19 +24,19 @@ NTSTATUS __stdcall NtCreateToken(
   return NtCreateTokenEx(
            TokenHandle,
            DesiredAccess,
-           (__int64)ObjectAttributes,
+           ObjectAttributes,
            TokenType,
-           (__int64)AuthenticationId,
-           (__int64)ExpirationTime,
+           AuthenticationId,
+           ExpirationTime,
            TokenUser,
-           &TokenGroups->GroupCount,
-           (int *)TokenPrivileges,
+           TokenGroups,
+           TokenPrivileges,
            0LL,
            0LL,
            0LL,
            0LL,
-           (__int64)TokenOwner,
-           (__int64)TokenPrimaryGroup,
-           (__int64)TokenDefaultDacl,
-           (__int64)TokenSource);
+           TokenOwner,
+           TokenPrimaryGroup,
+           TokenDefaultDacl,
+           TokenSource);
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of BapdpInitializePageDatabase @ 0x1406526C0
+ * XREFs of BapdpInitializePageDatabase @ 0x140650E14
  * Callers:
- *     BootApplicationPersistentDataProcess @ 0x140BDE52C (BootApplicationPersistentDataProcess.c)
+ *     BootApplicationPersistentDataProcess @ 0x140BE052C (BootApplicationPersistentDataProcess.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void BapdpInitializePageDatabase()

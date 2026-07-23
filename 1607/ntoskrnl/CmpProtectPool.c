@@ -1,7 +1,7 @@
 /*
- * XREFs of CmpProtectPool @ 0x1400F0310
+ * XREFs of CmpProtectPool @ 0x1400EE190
  * Callers:
- *     HvpFreeBin @ 0x14051450C (HvpFreeBin.c)
+ *     HvpFreeBin @ 0x1404F78FC (HvpFreeBin.c)
  * Callees:
  *     <none>
  */

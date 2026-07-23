@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwSetQuotaInformationFile @ 0x14015CEE0
+ * XREFs of ZwSetQuotaInformationFile @ 0x14015D450
  * Callers:
  *     <none>
  * Callees:
@@ -14,5 +14,5 @@ NTSTATUS __stdcall ZwSetQuotaInformationFile(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(FileHandle, IoStatusBlock, Buffer);
+  return KiServiceInternal(FileHandle);
 }

@@ -12,159 +12,159 @@
  *     <none>
  */
 
-_DWORD *__stdcall RtlSplay(_DWORD *a1)
+PRTL_SPLAY_LINKS __cdecl RtlSplay(PRTL_SPLAY_LINKS Links)
 {
-  _DWORD *result; // eax
-  _DWORD *i; // ecx
-  _DWORD *v3; // esi
-  _DWORD *v4; // edx
-  _DWORD *v5; // edx
-  _DWORD *v6; // esi
-  _DWORD *v7; // esi
-  _DWORD *v8; // esi
-  _DWORD *v9; // edx
-  _DWORD *v10; // esi
-  _DWORD *v11; // esi
-  _DWORD *v12; // esi
-  _DWORD *v13; // esi
-  _DWORD *v14; // esi
-  _DWORD *v15; // esi
-  _DWORD *v16; // esi
-  _DWORD *v17; // esi
+  PRTL_SPLAY_LINKS result; // eax
+  _RTL_SPLAY_LINKS *i; // ecx
+  _RTL_SPLAY_LINKS *LeftChild; // esi
+  _RTL_SPLAY_LINKS *Parent; // edx
+  _RTL_SPLAY_LINKS *v5; // edx
+  _RTL_SPLAY_LINKS *v6; // esi
+  _RTL_SPLAY_LINKS *v7; // esi
+  _RTL_SPLAY_LINKS **v8; // esi
+  _RTL_SPLAY_LINKS *v9; // edx
+  _RTL_SPLAY_LINKS *v10; // esi
+  _RTL_SPLAY_LINKS *v11; // esi
+  _RTL_SPLAY_LINKS **p_RightChild; // esi
+  _RTL_SPLAY_LINKS *v13; // esi
+  _RTL_SPLAY_LINKS *RightChild; // esi
+  _RTL_SPLAY_LINKS **p_LeftChild; // esi
+  _RTL_SPLAY_LINKS *v16; // esi
+  _RTL_SPLAY_LINKS **v17; // esi
 
-  result = a1;
-  for ( i = (_DWORD *)*a1; (_DWORD *)*a1 != a1; i = (_DWORD *)*a1 )
+  result = Links;
+  for ( i = Links->Parent; Links->Parent != Links; i = Links->Parent )
   {
-    v3 = (_DWORD *)i[1];
-    v4 = (_DWORD *)*i;
-    if ( v3 == a1 )
+    LeftChild = i->LeftChild;
+    Parent = i->Parent;
+    if ( LeftChild == Links )
     {
-      if ( v4 != i )
+      if ( Parent != i )
       {
-        if ( (_DWORD *)v4[1] != i )
+        if ( Parent->LeftChild != i )
         {
-          v13 = (_DWORD *)a1[1];
-          v4[2] = v13;
+          v13 = Links->LeftChild;
+          Parent->RightChild = v13;
           if ( v13 )
-            *v13 = v4;
-          v14 = (_DWORD *)a1[2];
-          i[1] = v14;
-          if ( v14 )
-            *v14 = i;
-          if ( (_DWORD *)*v4 == v4 )
+            v13->Parent = Parent;
+          RightChild = Links->RightChild;
+          i->LeftChild = RightChild;
+          if ( RightChild )
+            RightChild->Parent = i;
+          if ( Parent->Parent == Parent )
           {
-            *a1 = a1;
+            Links->Parent = Links;
           }
           else
           {
-            *a1 = *v4;
-            v15 = (_DWORD *)(*v4 + 4);
-            if ( (_DWORD *)*v15 != v4 )
-              v15 = (_DWORD *)(*v4 + 8);
-            *v15 = a1;
+            Links->Parent = Parent->Parent;
+            p_LeftChild = &Parent->Parent->LeftChild;
+            if ( *p_LeftChild != Parent )
+              p_LeftChild = &Parent->Parent->RightChild;
+            *p_LeftChild = Links;
           }
-          a1[1] = v4;
-          *v4 = a1;
-          a1[2] = i;
-          *i = a1;
+          Links->LeftChild = Parent;
+          Parent->Parent = Links;
+          Links->RightChild = i;
+          i->Parent = Links;
           continue;
         }
-        v10 = (_DWORD *)a1[2];
-        i[1] = v10;
+        v10 = Links->RightChild;
+        i->LeftChild = v10;
         if ( v10 )
-          *v10 = i;
-        v11 = (_DWORD *)i[2];
-        v4[1] = v11;
+          v10->Parent = i;
+        v11 = i->RightChild;
+        Parent->LeftChild = v11;
         if ( v11 )
-          *v11 = v4;
-        if ( (_DWORD *)*v4 == v4 )
+          v11->Parent = Parent;
+        if ( Parent->Parent == Parent )
         {
-          *a1 = a1;
+          Links->Parent = Links;
         }
         else
         {
-          *a1 = *v4;
-          v12 = (_DWORD *)(*v4 + 4);
-          if ( (_DWORD *)*v12 != v4 )
-            v12 = (_DWORD *)(*v4 + 8);
-          *v12 = a1;
+          Links->Parent = Parent->Parent;
+          p_RightChild = &Parent->Parent->LeftChild;
+          if ( *p_RightChild != Parent )
+            p_RightChild = &Parent->Parent->RightChild;
+          *p_RightChild = Links;
         }
-        a1[2] = i;
-        i[2] = v4;
+        Links->RightChild = i;
+        i->RightChild = Parent;
 LABEL_56:
-        *i = a1;
-        *v4 = i;
+        i->Parent = Links;
+        Parent->Parent = i;
         continue;
       }
-      v9 = (_DWORD *)a1[2];
-      i[1] = v9;
+      v9 = Links->RightChild;
+      i->LeftChild = v9;
       if ( v9 )
-        *v9 = i;
-      a1[2] = i;
+        v9->Parent = i;
+      Links->RightChild = i;
     }
     else
     {
-      if ( v4 != i )
+      if ( Parent != i )
       {
-        if ( (_DWORD *)v4[2] != i )
+        if ( Parent->RightChild != i )
         {
-          v6 = (_DWORD *)a1[1];
-          i[2] = v6;
+          v6 = Links->LeftChild;
+          i->RightChild = v6;
           if ( v6 )
-            *v6 = i;
-          v7 = (_DWORD *)a1[2];
-          v4[1] = v7;
+            v6->Parent = i;
+          v7 = Links->RightChild;
+          Parent->LeftChild = v7;
           if ( v7 )
-            *v7 = v4;
-          if ( (_DWORD *)*v4 == v4 )
+            v7->Parent = Parent;
+          if ( Parent->Parent == Parent )
           {
-            *a1 = a1;
+            Links->Parent = Links;
           }
           else
           {
-            *a1 = *v4;
-            v8 = (_DWORD *)(*v4 + 4);
-            if ( (_DWORD *)*v8 != v4 )
-              v8 = (_DWORD *)(*v4 + 8);
-            *v8 = a1;
+            Links->Parent = Parent->Parent;
+            v8 = &Parent->Parent->LeftChild;
+            if ( *v8 != Parent )
+              v8 = &Parent->Parent->RightChild;
+            *v8 = Links;
           }
-          a1[1] = i;
-          *i = a1;
-          a1[2] = v4;
-          *v4 = a1;
+          Links->LeftChild = i;
+          i->Parent = Links;
+          Links->RightChild = Parent;
+          Parent->Parent = Links;
           continue;
         }
-        v4[2] = v3;
-        if ( v3 )
-          *v3 = v4;
-        v16 = (_DWORD *)a1[1];
-        i[2] = v16;
+        Parent->RightChild = LeftChild;
+        if ( LeftChild )
+          LeftChild->Parent = Parent;
+        v16 = Links->LeftChild;
+        i->RightChild = v16;
         if ( v16 )
-          *v16 = i;
-        if ( (_DWORD *)*v4 == v4 )
+          v16->Parent = i;
+        if ( Parent->Parent == Parent )
         {
-          *a1 = a1;
+          Links->Parent = Links;
         }
         else
         {
-          *a1 = *v4;
-          v17 = (_DWORD *)(*v4 + 4);
-          if ( (_DWORD *)*v17 != v4 )
-            v17 = (_DWORD *)(*v4 + 8);
-          *v17 = a1;
+          Links->Parent = Parent->Parent;
+          v17 = &Parent->Parent->LeftChild;
+          if ( *v17 != Parent )
+            v17 = &Parent->Parent->RightChild;
+          *v17 = Links;
         }
-        a1[1] = i;
-        i[1] = v4;
+        Links->LeftChild = i;
+        i->LeftChild = Parent;
         goto LABEL_56;
       }
-      v5 = (_DWORD *)a1[1];
-      i[2] = v5;
+      v5 = Links->LeftChild;
+      i->RightChild = v5;
       if ( v5 )
-        *v5 = i;
-      a1[1] = i;
+        v5->Parent = i;
+      Links->LeftChild = i;
     }
-    *i = a1;
-    *a1 = a1;
+    i->Parent = Links;
+    Links->Parent = Links;
   }
   return result;
 }

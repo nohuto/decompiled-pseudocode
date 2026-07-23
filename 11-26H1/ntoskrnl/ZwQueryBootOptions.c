@@ -1,16 +1,16 @@
 /*
- * XREFs of ZwQueryBootOptions @ 0x140725D70
+ * XREFs of ZwQueryBootOptions @ 0x14072A940
  * Callers:
- *     DifZwQueryBootOptionsWrapper @ 0x1406AFCA0 (DifZwQueryBootOptionsWrapper.c)
- *     SiGetEspFromFirmware @ 0x1408950EC (SiGetEspFromFirmware.c)
- *     BiQueryBootOptions @ 0x1409D1A80 (BiQueryBootOptions.c)
+ *     DifZwQueryBootOptionsWrapper @ 0x1406B3880 (DifZwQueryBootOptionsWrapper.c)
+ *     SiGetEspFromFirmware @ 0x14089B4EC (SiGetEspFromFirmware.c)
+ *     BiQueryBootOptions @ 0x1409A2A60 (BiQueryBootOptions.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwQueryBootOptions(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwQueryBootOptions(PBOOT_OPTIONS BootOptions, PULONG BootOptionsLength)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(BootOptions);
 }

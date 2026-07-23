@@ -1,84 +1,74 @@
 /*
- * XREFs of CmpDoLocalizeNextHive @ 0x140AD63C0
+ * XREFs of CmpDoLocalizeNextHive @ 0x1408B76E0
  * Callers:
  *     <none>
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     CmpGetNextActiveHive @ 0x1408B3048 (CmpGetNextActiveHive.c)
- *     CmpLockHiveListShared @ 0x1408B31AC (CmpLockHiveListShared.c)
- *     HvLockHiveFlusherShared @ 0x1408C3818 (HvLockHiveFlusherShared.c)
- *     CmpUnlockHiveList @ 0x1408C8634 (CmpUnlockHiveList.c)
- *     HvUnlockHiveFlusherShared @ 0x1408CFFE8 (HvUnlockHiveFlusherShared.c)
- *     HvLockHiveWriter @ 0x1408DAEB0 (HvLockHiveWriter.c)
- *     HvUnlockHiveWriter @ 0x1408DAF14 (HvUnlockHiveWriter.c)
- *     HvpViewMapConvertLockedPagesToCOWByPolicy @ 0x140AD64C4 (HvpViewMapConvertLockedPagesToCOWByPolicy.c)
- *     CmpLockRegistry @ 0x140C58850 (CmpLockRegistry.c)
- *     CmpReleaseShutdownRundown @ 0x140C58900 (CmpReleaseShutdownRundown.c)
- *     CmpUnlockRegistry @ 0x140C58970 (CmpUnlockRegistry.c)
- *     CmpAcquireShutdownRundown @ 0x140C58AB0 (CmpAcquireShutdownRundown.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     HvpViewMapConvertLockedPagesToCOWByPolicy @ 0x1408B7688 (HvpViewMapConvertLockedPagesToCOWByPolicy.c)
+ *     CmpGetNextActiveHive @ 0x1408B95EC (CmpGetNextActiveHive.c)
+ *     HvLockHiveFlusherShared @ 0x1408C9DE8 (HvLockHiveFlusherShared.c)
+ *     HvUnlockHiveFlusherShared @ 0x1408D65AC (HvUnlockHiveFlusherShared.c)
+ *     HvLockHiveWriter @ 0x1408E1470 (HvLockHiveWriter.c)
+ *     HvUnlockHiveWriter @ 0x1408E14D4 (HvUnlockHiveWriter.c)
+ *     CmpLockRegistry @ 0x140C5E850 (CmpLockRegistry.c)
+ *     CmpReleaseShutdownRundown @ 0x140C5E900 (CmpReleaseShutdownRundown.c)
+ *     CmpUnlockRegistry @ 0x140C5E970 (CmpUnlockRegistry.c)
+ *     CmpAcquireShutdownRundown @ 0x140C5EAB0 (CmpAcquireShutdownRundown.c)
  */
 
-char __fastcall CmpDoLocalizeNextHive(_BYTE *a1, _QWORD *a2)
-{
-  char v2; // si
-  __int64 v3; // rdx
-  __int64 v4; // rcx
-  __int64 v5; // r8
-  struct _KLOCK_ENTRIES *v6; // r9
-  struct _KTHREAD *v7; // rbx
-  unsigned __int8 *PriorityFloorCounts; // rdi
-  __int64 v9; // rcx
-  __int64 v10; // rdx
-  __int64 v11; // rcx
-  __int64 v12; // r8
-  struct _KLOCK_ENTRIES *v13; // r9
-  __int64 v14; // rdx
-  __int64 v15; // r8
-  __int64 v16; // r9
-  __int64 v17; // rdx
-  __int64 v18; // r8
-  struct _KLOCK_ENTRIES *v19; // r9
-  int locked; // ebx
-
-  v2 = 0;
-  *a2 = 10000000LL * (unsigned int)dword_140E022E4;
-  *a1 = 0;
-  if ( !(unsigned __int8)CmpAcquireShutdownRundown(a1, a2) )
-    return 1;
-  v7 = (struct _KTHREAD *)&PspSiloMonitorLock.WaitBlockFill11[112];
-  CmpLockHiveListShared(v4, v3, v5, v6);
-  do
-  {
-    v7 = *(struct _KTHREAD **)&v7->Header.Lock;
-    PriorityFloorCounts = 0LL;
-    if ( v7 == (struct _KTHREAD *)&PspSiloMonitorLock.WaitBlockFill11[112] )
-      break;
-    PriorityFloorCounts = v7[-2].PriorityFloorCounts;
-  }
-  while ( !ExAcquireRundownProtection_0((PEX_RUNDOWN_REF)&v7->QuantumTarget) );
-  CmpUnlockHiveList();
-  while ( PriorityFloorCounts )
-  {
-    CmpLockRegistry(v9);
-    if ( (*((_DWORD *)PriorityFloorCounts + 64) & 4) != 0 )
-    {
-      HvLockHiveFlusherShared((__int64)PriorityFloorCounts, v10, v12, v13);
-      HvLockHiveWriter((__int64)PriorityFloorCounts, v17, v18, v19);
-      locked = HvpViewMapConvertLockedPagesToCOWByPolicy(PriorityFloorCounts + 224);
-      HvUnlockHiveWriter((__int64)PriorityFloorCounts);
-      HvUnlockHiveFlusherShared((__int64)PriorityFloorCounts);
-      if ( locked < 0 )
-      {
-        CmpUnlockRegistry(v11);
-        ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)PriorityFloorCounts + 205);
-        v2 = 1;
-        break;
-      }
-    }
-    CmpUnlockRegistry(v11);
-    PriorityFloorCounts = CmpGetNextActiveHive((struct _EX_RUNDOWN_REF *)PriorityFloorCounts, v14, v15, v16);
-  }
-  CmpReleaseShutdownRundown(v9);
-  return v2;
-}
+/*
+ * Hex-Rays decompilation failed for CmpDoLocalizeNextHive @ 0x1408B76E0
+ * Reason: Hex-Rays returned no pseudocode for 0x1408B76E0
+ * Fallback: raw IDA disassembly follows.
+ *
+ * 00000001408B76E0: mov     [rsp+arg_0], rbx
+ * 00000001408B76E5: mov     [rsp+arg_8], rsi
+ * 00000001408B76EA: push    rdi
+ * 00000001408B76EB: sub     rsp, 20h
+ * 00000001408B76EF: mov     eax, cs:dword_140E022E4
+ * 00000001408B76F5: xor     esi, esi
+ * 00000001408B76F7: imul    r8, rax, 989680h
+ * 00000001408B76FE: mov     [rdx], r8
+ * 00000001408B7701: mov     [rcx], sil
+ * 00000001408B7704: call    CmpAcquireShutdownRundown
+ * 00000001408B7709: test    al, al
+ * 00000001408B770B: jz      loc_1408B7799
+ * 00000001408B7711: xor     ecx, ecx
+ * 00000001408B7713: call    CmpGetNextActiveHive
+ * 00000001408B7718: mov     rdi, rax
+ * 00000001408B771B: test    rax, rax
+ * 00000001408B771E: jz      short loc_1408B7780
+ * 00000001408B7720: call    CmpLockRegistry
+ * 00000001408B7725: mov     ecx, [rdi+100h]
+ * 00000001408B772B: test    cl, 4
+ * 00000001408B772E: jnz     short loc_1408B773A
+ * 00000001408B7730: call    CmpUnlockRegistry
+ * 00000001408B7735: mov     rcx, rdi
+ * 00000001408B7738: jmp     short loc_1408B7713
+ * 00000001408B773A: mov     rcx, rdi
+ * 00000001408B773D: call    HvLockHiveFlusherShared
+ * 00000001408B7742: mov     rcx, rdi
+ * 00000001408B7745: call    HvLockHiveWriter
+ * 00000001408B774A: lea     rcx, [rdi+0E0h]
+ * 00000001408B7751: call    HvpViewMapConvertLockedPagesToCOWByPolicy
+ * 00000001408B7756: mov     rcx, rdi
+ * 00000001408B7759: mov     ebx, eax
+ * 00000001408B775B: call    HvUnlockHiveWriter
+ * 00000001408B7760: mov     rcx, rdi
+ * 00000001408B7763: call    HvUnlockHiveFlusherShared
+ * 00000001408B7768: test    ebx, ebx
+ * 00000001408B776A: jns     short loc_1408B7730
+ * 00000001408B776C: call    CmpUnlockRegistry
+ * 00000001408B7771: lea     rcx, [rdi+668h]; RunRef
+ * 00000001408B7778: call    ExReleaseRundownProtection_0
+ * 00000001408B777D: mov     sil, 1
+ * 00000001408B7780: call    CmpReleaseShutdownRundown
+ * 00000001408B7785: mov     rbx, [rsp+28h+arg_0]
+ * 00000001408B778A: mov     al, sil
+ * 00000001408B778D: mov     rsi, [rsp+28h+arg_8]
+ * 00000001408B7792: add     rsp, 20h
+ * 00000001408B7796: pop     rdi
+ * 00000001408B7797: retn
+ * 00000001408B7799: mov     sil, 1
+ * 00000001408B779C: jmp     short loc_1408B7785
+ */

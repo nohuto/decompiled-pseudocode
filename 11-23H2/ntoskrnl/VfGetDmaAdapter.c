@@ -1,16 +1,16 @@
 /*
- * XREFs of VfGetDmaAdapter @ 0x140AC6590
+ * XREFs of VfGetDmaAdapter @ 0x140AC6580
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     IoGetDevicePropertyData @ 0x140790FE0 (IoGetDevicePropertyData.c)
- *     IoGetDmaAdapter @ 0x140828040 (IoGetDmaAdapter.c)
- *     VF_ASSERT_IRQL @ 0x140AC46DC (VF_ASSERT_IRQL.c)
- *     VF_FIND_INACTIVE_ADAPTER_AND_REMOVE @ 0x140AC4A0C (VF_FIND_INACTIVE_ADAPTER_AND_REMOVE.c)
- *     VfIsPCIBus @ 0x140AC6EA4 (VfIsPCIBus.c)
- *     ViHookDmaAdapter @ 0x140AC9550 (ViHookDmaAdapter.c)
- *     ViReleaseDmaAdapter @ 0x140AC9C4C (ViReleaseDmaAdapter.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     IoGetDevicePropertyData @ 0x1407911D0 (IoGetDevicePropertyData.c)
+ *     IoGetDmaAdapter @ 0x140828340 (IoGetDmaAdapter.c)
+ *     VF_ASSERT_IRQL @ 0x140AC46CC (VF_ASSERT_IRQL.c)
+ *     VF_FIND_INACTIVE_ADAPTER_AND_REMOVE @ 0x140AC49FC (VF_FIND_INACTIVE_ADAPTER_AND_REMOVE.c)
+ *     VfIsPCIBus @ 0x140AC6E94 (VfIsPCIBus.c)
+ *     ViHookDmaAdapter @ 0x140AC9540 (ViHookDmaAdapter.c)
+ *     ViReleaseDmaAdapter @ 0x140AC9C3C (ViReleaseDmaAdapter.c)
  */
 
 struct _DMA_ADAPTER *__fastcall VfGetDmaAdapter(
@@ -18,7 +18,7 @@ struct _DMA_ADAPTER *__fastcall VfGetDmaAdapter(
         struct _DEVICE_DESCRIPTION *DeviceDescription,
         PULONG NumberOfMapRegisters)
 {
-  struct _LIST_ENTRY *v6; // rax
+  _LIST_ENTRY *v6; // rax
   int v7; // eax
   char v8; // bp
   _QWORD *v9; // rax

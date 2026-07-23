@@ -1,20 +1,20 @@
 /*
- * XREFs of BiCleanupLoadedStores @ 0x14053C160
+ * XREFs of BiCleanupLoadedStores @ 0x14053C6A0
  * Callers:
- *     BiOpenSystemStore @ 0x14053BF5C (BiOpenSystemStore.c)
+ *     BiOpenSystemStore @ 0x14053C49C (BiOpenSystemStore.c)
  * Callees:
- *     _wcsnicmp @ 0x14014D8A0 (_wcsnicmp.c)
- *     wcstoul @ 0x14014F48C (wcstoul.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
+ *     _wcsnicmp @ 0x14014DE10 (_wcsnicmp.c)
+ *     wcstoul @ 0x14014FA4C (wcstoul.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     BcdForciblyUnloadStore @ 0x140533BC0 (BcdForciblyUnloadStore.c)
- *     BiUnloadHiveByHandle @ 0x140533C28 (BiUnloadHiveByHandle.c)
- *     BiEnumerateSubKeys @ 0x14053C2A0 (BiEnumerateSubKeys.c)
- *     BiOpenKeyNonBcd @ 0x14053C580 (BiOpenKeyNonBcd.c)
- *     BiIsWinPEBoot @ 0x14053CF20 (BiIsWinPEBoot.c)
- *     BiIsSystemStore @ 0x14053D3D8 (BiIsSystemStore.c)
- *     BiOpenKey @ 0x14053DE4C (BiOpenKey.c)
- *     BiCloseKey @ 0x14053DFCC (BiCloseKey.c)
+ *     BcdForciblyUnloadStore @ 0x140534100 (BcdForciblyUnloadStore.c)
+ *     BiUnloadHiveByHandle @ 0x140534168 (BiUnloadHiveByHandle.c)
+ *     BiEnumerateSubKeys @ 0x14053C7E0 (BiEnumerateSubKeys.c)
+ *     BiOpenKeyNonBcd @ 0x14053CAC0 (BiOpenKeyNonBcd.c)
+ *     BiIsWinPEBoot @ 0x14053D460 (BiIsWinPEBoot.c)
+ *     BiIsSystemStore @ 0x14053D918 (BiIsSystemStore.c)
+ *     BiOpenKey @ 0x14053E38C (BiOpenKey.c)
+ *     BiCloseKey @ 0x14053E50C (BiCloseKey.c)
  */
 
 void __fastcall BiCleanupLoadedStores(char a1)
@@ -23,7 +23,7 @@ void __fastcall BiCleanupLoadedStores(char a1)
   const wchar_t **v3; // rdi
   __int64 v4; // r14
   char IsSystemStore; // al
-  HANDLE v6; // [rsp+48h] [rbp+10h] BYREF
+  HANDLE BcdStoreHandle; // [rsp+48h] [rbp+10h] BYREF
   HANDLE Handle; // [rsp+50h] [rbp+18h] BYREF
   PVOID P; // [rsp+58h] [rbp+20h] BYREF
 
@@ -32,28 +32,28 @@ void __fastcall BiCleanupLoadedStores(char a1)
   IsWinPEBoot = BiIsWinPEBoot();
   if ( (int)BiOpenKeyNonBcd(0LL, L"\\Registry\\Machine", 983103LL, &Handle) >= 0 )
   {
-    if ( (int)BiEnumerateSubKeys(Handle, &P, &v6) >= 0 && (_DWORD)v6 )
+    if ( (int)BiEnumerateSubKeys(Handle, &P, &BcdStoreHandle) >= 0 && (_DWORD)BcdStoreHandle )
     {
       v3 = (const wchar_t **)P;
-      v4 = (unsigned int)v6;
+      v4 = (unsigned int)BcdStoreHandle;
       do
       {
         if ( !wcsnicmp(*v3, L"BCD", 3uLL)
           && wcstoul(*v3 + 3, 0LL, 10) != -1
-          && (int)BiOpenKey(Handle, *v3, 131097LL, &v6) >= 0 )
+          && (int)BiOpenKey(Handle, *v3, 131097LL, &BcdStoreHandle) >= 0 )
         {
-          IsSystemStore = BiIsSystemStore(v6);
+          IsSystemStore = BiIsSystemStore(BcdStoreHandle);
           if ( (a1 & 0x10) != 0 && IsSystemStore )
           {
-            BcdForciblyUnloadStore(v6);
+            BcdForciblyUnloadStore(BcdStoreHandle);
           }
           else if ( (a1 & 8) != 0 || IsWinPEBoot || !IsSystemStore )
           {
-            BiUnloadHiveByHandle(v6, 0);
+            BiUnloadHiveByHandle(BcdStoreHandle, 0);
           }
           else
           {
-            BiCloseKey(v6);
+            BiCloseKey(BcdStoreHandle);
           }
         }
         ++v3;

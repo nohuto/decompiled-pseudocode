@@ -1,14 +1,14 @@
 /*
- * XREFs of KeSetIdealProcessorThreadEx @ 0x1400CA3A4
+ * XREFs of KeSetIdealProcessorThreadEx @ 0x1400C8244
  * Callers:
- *     KeSetIdealProcessorThreadByNumber @ 0x140070B14 (KeSetIdealProcessorThreadByNumber.c)
- *     MiZeroInParallelWorker @ 0x140109B40 (MiZeroInParallelWorker.c)
- *     MiZeroPageThread @ 0x140139C40 (MiZeroPageThread.c)
+ *     KeSetIdealProcessorThreadByNumber @ 0x140070694 (KeSetIdealProcessorThreadByNumber.c)
+ *     MiZeroInParallelWorker @ 0x1401078C0 (MiZeroInParallelWorker.c)
+ *     MiZeroPageThread @ 0x14013A1B0 (MiZeroPageThread.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14002ECB0 (KeYieldProcessorEx.c)
- *     KiPrcbInGroupAffinity @ 0x1400CCD10 (KiPrcbInGroupAffinity.c)
- *     KiAcquireThreadStateLock @ 0x1400D3590 (KiAcquireThreadStateLock.c)
- *     KiUpdateSharedReadyQueueAffinityThread @ 0x1400F2E14 (KiUpdateSharedReadyQueueAffinityThread.c)
+ *     KeYieldProcessorEx @ 0x14002E830 (KeYieldProcessorEx.c)
+ *     KiPrcbInGroupAffinity @ 0x1400CABB0 (KiPrcbInGroupAffinity.c)
+ *     KiAcquireThreadStateLock @ 0x1400D1430 (KiAcquireThreadStateLock.c)
+ *     KiUpdateSharedReadyQueueAffinityThread @ 0x1400F0C64 (KiUpdateSharedReadyQueueAffinityThread.c)
  */
 
 __int64 __fastcall KeSetIdealProcessorThreadEx(__int64 a1, int a2, _DWORD *a3)

@@ -80,11 +80,11 @@ LABEL_24:
       }
       else
       {
-        v27 = (_QWORD *)(qword_1405424C8[0] + 8 * (v25 >> 6));
+        v27 = (_QWORD *)(qword_1405434C8[0] + 8 * (v25 >> 6));
         v28 = ((1LL << (v25 & 0x3F)) - 1) | ~*v27;
         if ( v28 == -1 )
         {
-          while ( (unsigned __int64)++v27 <= qword_1405424C8[0] + 8 * (v26 >> 6) )
+          while ( (unsigned __int64)++v27 <= qword_1405434C8[0] + 8 * (v26 >> 6) )
           {
             v28 = ~*v27;
             if ( *v27 )
@@ -96,7 +96,7 @@ LABEL_69:
         }
 LABEL_29:
         _BitScanForward64((unsigned __int64 *)&v28, ~v28);
-        v29 = v28 + (((__int64)v27 - qword_1405424C8[0]) >> 3 << 6);
+        v29 = v28 + (((__int64)v27 - qword_1405434C8[0]) >> 3 << 6);
         if ( v29 > v26 )
           goto LABEL_69;
         if ( v29 != -1LL )

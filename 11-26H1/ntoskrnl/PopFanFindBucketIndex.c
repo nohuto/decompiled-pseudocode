@@ -1,8 +1,8 @@
 /*
- * XREFs of PopFanFindBucketIndex @ 0x140B55BA8
+ * XREFs of PopFanFindBucketIndex @ 0x140B58448
  * Callers:
- *     PopFanUpdateSpeed @ 0x1407DB0F0 (PopFanUpdateSpeed.c)
- *     PopFanUpdateStatistics @ 0x140B68ADC (PopFanUpdateStatistics.c)
+ *     PopFanUpdateSpeed @ 0x1407DEFE0 (PopFanUpdateSpeed.c)
+ *     PopFanUpdateStatistics @ 0x140B6BA6C (PopFanUpdateStatistics.c)
  * Callees:
  *     <none>
  */

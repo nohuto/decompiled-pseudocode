@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpHeapExceptionFilter @ 0x1402137E0
+ * XREFs of RtlpHeapExceptionFilter @ 0x14021360C
  * Callers:
- *     RtlpLogHeapFailure @ 0x140159514 (RtlpLogHeapFailure.c)
- *     RtlpHeapFatalExceptionFilter @ 0x140211F14 (RtlpHeapFatalExceptionFilter.c)
- *     RtlpAnalyzeHeapFailure @ 0x1402185AC (RtlpAnalyzeHeapFailure.c)
- *     RtlpProbeUserBufferSafe @ 0x14021927C (RtlpProbeUserBufferSafe.c)
- *     RtlCreateHeap @ 0x140540228 (RtlCreateHeap.c)
- *     RtlZeroHeap @ 0x14068889C (RtlZeroHeap.c)
+ *     RtlpLogHeapFailure @ 0x140159A84 (RtlpLogHeapFailure.c)
+ *     RtlpHeapFatalExceptionFilter @ 0x140211D40 (RtlpHeapFatalExceptionFilter.c)
+ *     RtlpAnalyzeHeapFailure @ 0x1402183D8 (RtlpAnalyzeHeapFailure.c)
+ *     RtlpProbeUserBufferSafe @ 0x1402190A8 (RtlpProbeUserBufferSafe.c)
+ *     RtlCreateHeap @ 0x140540768 (RtlCreateHeap.c)
+ *     RtlZeroHeap @ 0x140688980 (RtlZeroHeap.c)
  * Callees:
  *     <none>
  */

@@ -1,14 +1,14 @@
 /*
- * XREFs of PopLoadResumeContext @ 0x140533E50
+ * XREFs of PopLoadResumeContext @ 0x140534390
  * Callers:
- *     PopAllocateHiberContext @ 0x14052F5C4 (PopAllocateHiberContext.c)
+ *     PopAllocateHiberContext @ 0x14052FB04 (PopAllocateHiberContext.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     PopOpenKey @ 0x140132534 (PopOpenKey.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     ZwQueryValueKey @ 0x140159F60 (ZwQueryValueKey.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     PopOpenKey @ 0x140132AA4 (PopOpenKey.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     ZwQueryValueKey @ 0x14015A4D0 (ZwQueryValueKey.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */

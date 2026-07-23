@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpInitializeStackTraceDatabase @ 0x1409BA658
+ * XREFs of RtlpInitializeStackTraceDatabase @ 0x1409BA858
  * Callers:
- *     RtlControlStackTraceDataBase @ 0x1405A94C4 (RtlControlStackTraceDataBase.c)
+ *     RtlControlStackTraceDataBase @ 0x1405A9A34 (RtlControlStackTraceDataBase.c)
  * Callees:
- *     NtFreeVirtualMemory @ 0x140744FF0 (NtFreeVirtualMemory.c)
- *     RtlStdInitializeStackDatabase @ 0x1409BA51C (RtlStdInitializeStackDatabase.c)
+ *     NtFreeVirtualMemory @ 0x1407451E0 (NtFreeVirtualMemory.c)
+ *     RtlStdInitializeStackDatabase @ 0x1409BA71C (RtlStdInitializeStackDatabase.c)
  */
 
 __int64 __fastcall RtlpInitializeStackTraceDatabase(__int64 a1, __int64 a2, unsigned __int64 a3)

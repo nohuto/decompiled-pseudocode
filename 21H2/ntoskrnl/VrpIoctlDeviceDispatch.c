@@ -3,20 +3,20 @@
  * Callers:
  *     <none>
  * Callees:
- *     IofCompleteRequest @ 0x140243490 (IofCompleteRequest.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     EtwActivityIdControl @ 0x1402B1640 (EtwActivityIdControl.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     EtwActivityIdControl @ 0x140272110 (EtwActivityIdControl.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14027E1A4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     IofCompleteRequest @ 0x1402E7CE0 (IofCompleteRequest.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  *     VrpHandleIoctlInitializeJobForVreg @ 0x1405D268C (VrpHandleIoctlInitializeJobForVreg.c)
  *     VrpHandleIoctlLoadDifferencingHive @ 0x1405D29EC (VrpHandleIoctlLoadDifferencingHive.c)
  *     VrpHandleIoctlCreateNamespaceNode @ 0x1405D2C9C (VrpHandleIoctlCreateNamespaceNode.c)
  *     VrpHandleIoctlUnloadDynamicallyLoadedHives @ 0x1405D2FAC (VrpHandleIoctlUnloadDynamicallyLoadedHives.c)
  *     VRegEnabledInJob @ 0x1405D5B40 (VRegEnabledInJob.c)
- *     VrpHandleIoctlCreateMultipleNamespaceNodes @ 0x14088289C (VrpHandleIoctlCreateMultipleNamespaceNodes.c)
- *     VrpHandleIoctlGetVirtualRootKey @ 0x140882BB8 (VrpHandleIoctlGetVirtualRootKey.c)
- *     VrpHandleIoctlLoadDifferencingHiveForHost @ 0x140882D40 (VrpHandleIoctlLoadDifferencingHiveForHost.c)
- *     VrpHandleIoctlModifyFlags @ 0x140882F4C (VrpHandleIoctlModifyFlags.c)
- *     VrpHandleIoctlUnloadDifferencingHiveForHost @ 0x140883050 (VrpHandleIoctlUnloadDifferencingHiveForHost.c)
+ *     VrpHandleIoctlCreateMultipleNamespaceNodes @ 0x1408829FC (VrpHandleIoctlCreateMultipleNamespaceNodes.c)
+ *     VrpHandleIoctlGetVirtualRootKey @ 0x140882D18 (VrpHandleIoctlGetVirtualRootKey.c)
+ *     VrpHandleIoctlLoadDifferencingHiveForHost @ 0x140882EA0 (VrpHandleIoctlLoadDifferencingHiveForHost.c)
+ *     VrpHandleIoctlModifyFlags @ 0x1408830AC (VrpHandleIoctlModifyFlags.c)
+ *     VrpHandleIoctlUnloadDifferencingHiveForHost @ 0x1408831B0 (VrpHandleIoctlUnloadDifferencingHiveForHost.c)
  */
 
 __int64 __fastcall VrpIoctlDeviceDispatch(__int64 a1, __int64 a2)
@@ -65,7 +65,7 @@ __int64 __fastcall VrpIoctlDeviceDispatch(__int64 a1, __int64 a2)
       v28 = 4;
       tlgWriteTransfer_EtwWriteTransfer(
         (__int64)&dword_140C02168,
-        (unsigned __int8 *)byte_14002401B,
+        (unsigned __int8 *)&word_1400240BE,
         &v24,
         0LL,
         3u,
@@ -83,7 +83,7 @@ __int64 __fastcall VrpIoctlDeviceDispatch(__int64 a1, __int64 a2)
     v28 = 4;
     tlgWriteTransfer_EtwWriteTransfer(
       (__int64)&dword_140C02168,
-      (unsigned __int8 *)word_140023FB2,
+      (unsigned __int8 *)word_140024072,
       &v24,
       &ActivityId,
       3u,
@@ -187,7 +187,7 @@ LABEL_8:
     v23 = v20;
     v28 = 4;
     v27 = &v23;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C02168, (unsigned __int8 *)&word_140023F86, &v24, 0LL, 3u, v26);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C02168, (unsigned __int8 *)&word_140024046, &v24, 0LL, 3u, v26);
   }
   v13 = -1073741808;
 LABEL_9:
@@ -199,7 +199,7 @@ LABEL_9:
     v27 = &v23;
     v23 = v13;
     v28 = 4;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C02168, (unsigned __int8 *)&byte_140023FD7, &v24, 0LL, 3u, v26);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C02168, (unsigned __int8 *)&byte_140024097, &v24, 0LL, 3u, v26);
   }
   return v13;
 }

@@ -21,7 +21,7 @@ NTSTATUS __stdcall IoWMIWriteEvent(PVOID WnodeEventItem)
   unsigned __int16 v5; // cx
   int v6; // ebx
   NTSTATUS result; // eax
-  struct _LIST_ENTRY *Pool2; // rbp
+  _LIST_ENTRY *Pool2; // rbp
   int v9; // ebx
   _DWORD *RegEntryByProviderId; // rax
   KIRQL v11; // r8
@@ -54,7 +54,7 @@ LABEL_7:
     return -2147483643;
   }
 LABEL_8:
-  Pool2 = (struct _LIST_ENTRY *)ExAllocatePool2(0x40uLL);
+  Pool2 = (_LIST_ENTRY *)ExAllocatePool2(0x40uLL);
   if ( !Pool2 )
     return -1073741670;
   v9 = *((_DWORD *)WnodeEventItem + 1);

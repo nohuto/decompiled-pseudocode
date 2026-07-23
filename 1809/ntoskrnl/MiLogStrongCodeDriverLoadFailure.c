@@ -1,15 +1,15 @@
 /*
- * XREFs of MiLogStrongCodeDriverLoadFailure @ 0x14084EB8C
+ * XREFs of MiLogStrongCodeDriverLoadFailure @ 0x14084FDEC
  * Callers:
- *     MmLoadSystemImageEx @ 0x140680FF8 (MmLoadSystemImageEx.c)
- *     MiProcessKernelCfgImageLoadConfig @ 0x14085BD84 (MiProcessKernelCfgImageLoadConfig.c)
+ *     MmLoadSystemImageEx @ 0x1406821B8 (MmLoadSystemImageEx.c)
+ *     MiProcessKernelCfgImageLoadConfig @ 0x14085CFE4 (MiProcessKernelCfgImageLoadConfig.c)
  * Callees:
  *     _TlgCreateSz @ 0x140003938 (_TlgCreateSz.c)
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
- *     _TlgWriteEx @ 0x1401008B8 (_TlgWriteEx.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
+ *     _TlgWriteEx @ 0x140100938 (_TlgWriteEx.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
  */
 
 void __fastcall MiLogStrongCodeDriverLoadFailure(const CHAR *Src, __int64 a2)
@@ -62,7 +62,7 @@ void __fastcall MiLogStrongCodeDriverLoadFailure(const CHAR *Src, __int64 a2)
         v19 = 2;
         v24 = 4;
         v27 = 4;
-        TlgWriteEx(v6, &unk_14036DE5A, v5, (ULONG)v6, v12, v13, 7u, &pData);
+        TlgWriteEx(v6, &unk_14036ED91, v5, (ULONG)v6, v12, v13, 7u, &pData);
       }
     }
   }
@@ -85,13 +85,13 @@ void __fastcall MiLogStrongCodeDriverLoadFailure(const CHAR *Src, __int64 a2)
       *(_WORD *)(v9 + 26) = *(_WORD *)(a2 + 88);
       *(_DWORD *)(v9 + 40) = *(_DWORD *)(a2 + 120);
       *(_DWORD *)(v9 + 44) = *(_DWORD *)(a2 + 156);
-      v11 = (__int64 *)qword_140438EF0;
-      if ( *(PVOID **)qword_140438EF0 != &qword_140438EE8 )
+      v11 = (__int64 *)qword_140439FB0;
+      if ( *(PVOID **)qword_140439FB0 != &qword_140439FA8 )
         __fastfail(3u);
-      *(_QWORD *)v9 = &qword_140438EE8;
+      *(_QWORD *)v9 = &qword_140439FA8;
       *(_QWORD *)(v9 + 8) = v11;
       *v11 = v9;
-      qword_140438EF0 = v9;
+      qword_140439FB0 = v9;
     }
   }
 }

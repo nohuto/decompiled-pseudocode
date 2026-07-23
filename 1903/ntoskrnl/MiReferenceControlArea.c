@@ -29,9 +29,9 @@ __int64 __fastcall MiReferenceControlArea(__int64 a1, __int64 a2, __int64 *a3)
   int v10; // ebx
   int v11; // edx
   __int64 active; // rbx
-  __int64 v14; // rax
-  __int64 v15; // rax
-  __int64 v16; // rbx
+  PRTL_BALANCED_NODE v14; // rax
+  PRTL_BALANCED_NODE v15; // rax
+  _RTL_BALANCED_NODE *v16; // rbx
   struct _KPRCB *v17; // rcx
   struct _KPRCB *v18; // rcx
   struct _KPRCB *v19; // rcx
@@ -56,7 +56,7 @@ __int64 __fastcall MiReferenceControlArea(__int64 a1, __int64 a2, __int64 *a3)
       *SectionObjectPointer = a2;
       v14 = KeAbPreAcquire((ULONG_PTR)SectionObjectPointer, 0LL, 0);
       if ( v14 )
-        *(_BYTE *)(v14 + 26) |= 1u;
+        BYTE2(v14[1].Left) |= 1u;
       ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140464580);
       if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && KeGetCurrentIrql() >= 2u && v8 < 2u )
       {

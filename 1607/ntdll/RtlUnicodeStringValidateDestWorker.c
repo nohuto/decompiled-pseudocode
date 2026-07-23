@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlUnicodeStringValidateDestWorker @ 0x18006CAE4
+ * XREFs of RtlUnicodeStringValidateDestWorker @ 0x18006CAD4
  * Callers:
- *     RtlUnicodeStringCbCatStringN @ 0x18006C7A8 (RtlUnicodeStringCbCatStringN.c)
- *     RtlUnicodeStringCbCopyStringN @ 0x18006C844 (RtlUnicodeStringCbCopyStringN.c)
- *     RtlUnicodeStringCat @ 0x18006C92C (RtlUnicodeStringCat.c)
- *     RtlUnicodeStringCopy @ 0x18006C9BC (RtlUnicodeStringCopy.c)
+ *     RtlUnicodeStringCbCatStringN @ 0x18006C798 (RtlUnicodeStringCbCatStringN.c)
+ *     RtlUnicodeStringCbCopyStringN @ 0x18006C834 (RtlUnicodeStringCbCopyStringN.c)
+ *     RtlUnicodeStringCat @ 0x18006C91C (RtlUnicodeStringCat.c)
+ *     RtlUnicodeStringCopy @ 0x18006C9AC (RtlUnicodeStringCopy.c)
  *     RtlUnicodeStringCopyString @ 0x1800CFF08 (RtlUnicodeStringCopyString.c)
  * Callees:
- *     RtlUnicodeStringValidateWorker @ 0x18006CB54 (RtlUnicodeStringValidateWorker.c)
+ *     RtlUnicodeStringValidateWorker @ 0x18006CB44 (RtlUnicodeStringValidateWorker.c)
  */
 
 __int64 __fastcall RtlUnicodeStringValidateDestWorker(__int64 a1, _QWORD *a2, unsigned __int64 *a3, _QWORD *a4)

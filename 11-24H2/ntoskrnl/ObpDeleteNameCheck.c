@@ -1,27 +1,27 @@
 /*
- * XREFs of ObpDeleteNameCheck @ 0x14089B690
+ * XREFs of ObpDeleteNameCheck @ 0x1408A3D30
  * Callers:
- *     ObpDereferenceNamedObject @ 0x1403C1AC8 (ObpDereferenceNamedObject.c)
- *     ObpCreateHandle @ 0x14084DAA0 (ObpCreateHandle.c)
- *     ObpIncrementHandleCountEx @ 0x14084FB60 (ObpIncrementHandleCountEx.c)
- *     ObOpenObjectByNameEx @ 0x14089BB40 (ObOpenObjectByNameEx.c)
- *     ObMakeTemporaryObject @ 0x140A68350 (ObMakeTemporaryObject.c)
+ *     ObpDereferenceNamedObject @ 0x1403B0688 (ObpDereferenceNamedObject.c)
+ *     ObpCreateHandle @ 0x140849D60 (ObpCreateHandle.c)
+ *     ObpIncrementHandleCountEx @ 0x14084BE20 (ObpIncrementHandleCountEx.c)
+ *     ObOpenObjectByNameEx @ 0x1408A41E0 (ObOpenObjectByNameEx.c)
+ *     ObMakeTemporaryObject @ 0x1409B9330 (ObMakeTemporaryObject.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x1402595A0 (KeLeaveCriticalRegionThread.c)
- *     KeAbPostReleaseEx @ 0x14025CCE0 (KeAbPostReleaseEx.c)
- *     ExfReleasePushLock @ 0x14025E260 (ExfReleasePushLock.c)
- *     ObpReleaseLookupContext @ 0x14025E7E0 (ObpReleaseLookupContext.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     PsReferenceSiloContext @ 0x14033FA90 (PsReferenceSiloContext.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     HalPutDmaAdapter @ 0x1404833B0 (HalPutDmaAdapter.c)
- *     ObpUnlockDirectory @ 0x1408424A0 (ObpUnlockDirectory.c)
- *     ObpLookupDirectoryEntry @ 0x140842540 (ObpLookupDirectoryEntry.c)
- *     ObpDeleteSymbolicLinkName @ 0x14084281C (ObpDeleteSymbolicLinkName.c)
- *     ObpDeleteDirectoryName @ 0x1409E4BA0 (ObpDeleteDirectoryName.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x140289BB0 (KeLeaveCriticalRegionThread.c)
+ *     KeAbPostReleaseEx @ 0x14028D2F0 (KeAbPostReleaseEx.c)
+ *     ExfReleasePushLock @ 0x14028E870 (ExfReleasePushLock.c)
+ *     ObpReleaseLookupContext @ 0x14028EDF0 (ObpReleaseLookupContext.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     PsReferenceSiloContext @ 0x14031EF70 (PsReferenceSiloContext.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     HalPutDmaAdapter @ 0x14047E920 (HalPutDmaAdapter.c)
+ *     ObpUnlockDirectory @ 0x14083E760 (ObpUnlockDirectory.c)
+ *     ObpLookupDirectoryEntry @ 0x14083E800 (ObpLookupDirectoryEntry.c)
+ *     ObpDeleteSymbolicLinkName @ 0x14083EADC (ObpDeleteSymbolicLinkName.c)
+ *     ObpDeleteDirectoryName @ 0x1409DF600 (ObpDeleteDirectoryName.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall ObpDeleteNameCheck(__int64 a1)
@@ -29,8 +29,8 @@ void __fastcall ObpDeleteNameCheck(__int64 a1)
   __int64 v2; // rdx
   unsigned __int16 *v3; // rdi
   struct _KTHREAD *CurrentThread; // rax
-  _QWORD *v5; // rax
-  _QWORD *v6; // rbp
+  char *v5; // rax
+  char *v6; // rbp
   __int64 v7; // rbp
   signed __int64 v8; // rax
   signed __int64 v9; // rdx
@@ -51,11 +51,11 @@ void __fastcall ObpDeleteNameCheck(__int64 a1)
   signed __int64 v24; // rdx
   __int64 v25; // rtt
   struct _KTHREAD *v26; // rax
-  _QWORD *v27; // rax
-  _QWORD *v28; // r14
+  char *v27; // rax
+  char *v28; // r14
   struct _KTHREAD *v29; // rax
-  _QWORD *v30; // rax
-  _QWORD *v31; // r14
+  char *v30; // rax
+  char *v31; // r14
   signed __int64 v32; // rax
   signed __int64 v33; // rdx
   __int64 v34; // rtt
@@ -72,12 +72,12 @@ void __fastcall ObpDeleteNameCheck(__int64 a1)
       {
         CurrentThread = KeGetCurrentThread();
         --CurrentThread->KernelApcDisable;
-        v5 = KeAbPreAcquire(a1 + 16, 0LL);
+        v5 = (char *)KeAbPreAcquire(a1 + 16, 0LL);
         v6 = v5;
         if ( _interlockedbittestandset64((volatile signed __int32 *)(a1 + 16), 0LL) )
-          ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(a1 + 16), (__int64)v5, a1 + 16);
+          ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(a1 + 16), v5, a1 + 16);
         if ( v6 )
-          *((_BYTE *)v6 + 10) = 1;
+          v6[10] = 1;
         v7 = *(_QWORD *)v3;
         if ( !*(_QWORD *)v3 )
         {
@@ -141,20 +141,20 @@ LABEL_15:
         KeLeaveCriticalRegionThread();
         v26 = KeGetCurrentThread();
         --v26->KernelApcDisable;
-        v27 = KeAbPreAcquire(v7 + 296, 0LL);
+        v27 = (char *)KeAbPreAcquire(v7 + 296, 0LL);
         v28 = v27;
         if ( _interlockedbittestandset64((volatile signed __int32 *)(v7 + 296), 0LL) )
-          ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(v7 + 296), (__int64)v27, v7 + 296);
+          ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(v7 + 296), v27, v7 + 296);
         if ( v28 )
-          *((_BYTE *)v28 + 10) = 1;
+          v28[10] = 1;
         v29 = KeGetCurrentThread();
         --v29->KernelApcDisable;
-        v30 = KeAbPreAcquire(a1 + 16, 0LL);
+        v30 = (char *)KeAbPreAcquire(a1 + 16, 0LL);
         v31 = v30;
         if ( _interlockedbittestandset64((volatile signed __int32 *)(a1 + 16), 0LL) )
-          ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(a1 + 16), (__int64)v30, a1 + 16);
+          ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(a1 + 16), v30, a1 + 16);
         if ( v31 )
-          *((_BYTE *)v31 + 10) = 1;
+          v31[10] = 1;
         if ( *(_QWORD *)v3 == v7 && (*(_BYTE *)(a1 + 27) & 0x10) == 0 && !*(_QWORD *)(a1 + 8) )
         {
           HalPutDmaAdapter((PADAPTER_OBJECT)v7);

@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlSelfRelativeToAbsoluteSD2 @ 0x140802EA0
+ * XREFs of RtlSelfRelativeToAbsoluteSD2 @ 0x140808940
  * Callers:
- *     RtlpSysVolCheckOwnerAndSecurity @ 0x140A95EB0 (RtlpSysVolCheckOwnerAndSecurity.c)
+ *     RtlpSysVolCheckOwnerAndSecurity @ 0x140A992E0 (RtlpSysVolCheckOwnerAndSecurity.c)
  * Callees:
- *     memmove @ 0x14073D480 (memmove.c)
- *     RtlpQuerySecurityDescriptor @ 0x140A8F9D8 (RtlpQuerySecurityDescriptor.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     RtlpQuerySecurityDescriptor @ 0x140A94530 (RtlpQuerySecurityDescriptor.c)
  */
 
-__int64 __fastcall RtlSelfRelativeToAbsoluteSD2(__int64 a1, unsigned int *a2)
+NTSTATUS __cdecl RtlSelfRelativeToAbsoluteSD2(PSECURITY_DESCRIPTOR SelfRelativeSecurityDescriptor, PULONG BufferSize)
 {
   unsigned __int64 v2; // rbx
   unsigned __int64 v6; // r12
@@ -15,12 +15,12 @@ __int64 __fastcall RtlSelfRelativeToAbsoluteSD2(__int64 a1, unsigned int *a2)
   unsigned __int64 v8; // rax
   unsigned __int64 v9; // r14
   unsigned __int64 v10; // r15
-  unsigned int v11; // ecx
+  ULONG v11; // ecx
   unsigned __int64 v12; // rax
   unsigned __int64 v13; // rax
   unsigned __int64 v14; // rax
   unsigned int v15; // [rsp+50h] [rbp-30h] BYREF
-  unsigned int v16; // [rsp+54h] [rbp-2Ch]
+  ULONG v16; // [rsp+54h] [rbp-2Ch]
   unsigned __int64 v17; // [rsp+58h] [rbp-28h] BYREF
   unsigned __int64 v18; // [rsp+60h] [rbp-20h] BYREF
   unsigned __int64 v19; // [rsp+68h] [rbp-18h] BYREF
@@ -38,17 +38,17 @@ __int64 __fastcall RtlSelfRelativeToAbsoluteSD2(__int64 a1, unsigned int *a2)
   v15 = 0;
   v21 = 0;
   v22 = 0;
-  if ( !a1 )
-    return 3221225711LL;
-  if ( !a2 )
-    return 3221225712LL;
-  v16 = *a2;
+  if ( !SelfRelativeSecurityDescriptor )
+    return -1073741585;
+  if ( !BufferSize )
+    return -1073741584;
+  v16 = *BufferSize;
   if ( v16 < 0x14 )
-    return 3221225485LL;
-  if ( *(__int16 *)(a1 + 2) >= 0 )
-    return 3221225703LL;
+    return -1073741811;
+  if ( *((__int16 *)SelfRelativeSecurityDescriptor + 1) >= 0 )
+    return -1073741593;
   RtlpQuerySecurityDescriptor(
-    a1,
+    (_DWORD)SelfRelativeSecurityDescriptor,
     (unsigned int)&v17,
     (unsigned int)&v21,
     (unsigned int)&v18,
@@ -71,32 +71,32 @@ __int64 __fastcall RtlSelfRelativeToAbsoluteSD2(__int64 a1, unsigned int *a2)
     v8 = v20 + v15;
   v11 = 40;
   if ( v8 )
-    v11 = ((v8 - a1 - 13) & 0xFFFFFFF8) + 40;
+    v11 = ((v8 - (_DWORD)SelfRelativeSecurityDescriptor - 13) & 0xFFFFFFF8) + 40;
   if ( v11 <= v16 )
   {
     if ( v8 )
-      memmove((void *)(a1 + 40), (const void *)(a1 + 20), v11 - 40LL);
-    *(_WORD *)(a1 + 2) &= ~0x8000u;
+      memmove((char *)SelfRelativeSecurityDescriptor + 40, (char *)SelfRelativeSecurityDescriptor + 20, v11 - 40LL);
+    *((_WORD *)SelfRelativeSecurityDescriptor + 1) &= ~0x8000u;
     v12 = v6 + 20;
     if ( !v6 )
       v12 = 0LL;
-    *(_QWORD *)(a1 + 8) = v12;
+    *((_QWORD *)SelfRelativeSecurityDescriptor + 1) = v12;
     v13 = v7 + 20;
     if ( !v7 )
       v13 = 0LL;
-    *(_QWORD *)(a1 + 16) = v13;
+    *((_QWORD *)SelfRelativeSecurityDescriptor + 2) = v13;
     v14 = v10 + 20;
     if ( !v10 )
       v14 = 0LL;
-    *(_QWORD *)(a1 + 24) = v14;
+    *((_QWORD *)SelfRelativeSecurityDescriptor + 3) = v14;
     if ( v9 )
       v2 = v9 + 20;
-    *(_QWORD *)(a1 + 32) = v2;
-    return 0LL;
+    *((_QWORD *)SelfRelativeSecurityDescriptor + 4) = v2;
+    return 0;
   }
   else
   {
-    *a2 = v11;
-    return 3221225507LL;
+    *BufferSize = v11;
+    return -1073741789;
   }
 }

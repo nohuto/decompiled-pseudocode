@@ -1,12 +1,12 @@
 /*
- * XREFs of VfZwWriteFile @ 0x1409EC6F0
+ * XREFs of VfZwWriteFile @ 0x1409ED6F0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     ViZwCheckApcRequirement @ 0x1409EC7F4 (ViZwCheckApcRequirement.c)
- *     ViZwCheckVirtualAddress @ 0x1409EC944 (ViZwCheckVirtualAddress.c)
- *     ViZwShouldCheck @ 0x1409EC990 (ViZwShouldCheck.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     ViZwCheckApcRequirement @ 0x1409ED7F4 (ViZwCheckApcRequirement.c)
+ *     ViZwCheckVirtualAddress @ 0x1409ED944 (ViZwCheckVirtualAddress.c)
+ *     ViZwShouldCheck @ 0x1409ED990 (ViZwShouldCheck.c)
  */
 
 __int64 __fastcall VfZwWriteFile(

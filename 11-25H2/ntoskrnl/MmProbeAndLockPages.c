@@ -65,11 +65,11 @@
 
 void __stdcall MmProbeAndLockPages(PMDL MemoryDescriptorList, KPROCESSOR_MODE AccessMode, LOCK_OPERATION Operation)
 {
-  int v6; // eax
+  NTSTATUS v6; // eax
   __int64 v7; // rdx
   __int64 v8; // r8
   __int64 v9; // r9
-  int v10; // esi
+  NTSTATUS v10; // esi
   __int64 v11; // r8
   struct _MDL *v12; // rdi
   int v13; // ebx

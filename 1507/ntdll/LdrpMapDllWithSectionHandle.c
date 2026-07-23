@@ -13,7 +13,7 @@
  *     LdrpLogNewDllLoadInternal @ 0x1800BD728 (LdrpLogNewDllLoadInternal.c)
  */
 
-__int64 __fastcall LdrpMapDllWithSectionHandle(__int64 a1, __int64 a2)
+__int64 __fastcall LdrpMapDllWithSectionHandle(__int64 a1, void *a2)
 {
   __int64 v2; // rbx
   int v4; // eax
@@ -21,10 +21,10 @@ __int64 __fastcall LdrpMapDllWithSectionHandle(__int64 a1, __int64 a2)
   __int64 v6; // rcx
   __int64 v7; // rax
   __int64 v9; // rdx
-  __int64 v10; // [rsp+40h] [rbp+8h] BYREF
+  __int64 v10; // [rsp+40h] [rbp+8h]
 
   v2 = *(_QWORD *)(a1 + 48);
-  v4 = LdrpMapImage(a2, v2, *(unsigned int *)(a1 + 24), &v10);
+  v4 = LdrpMapImage(a2);
   v5 = v4;
   if ( v4 >= 0 && v4 != 1073741838 )
   {

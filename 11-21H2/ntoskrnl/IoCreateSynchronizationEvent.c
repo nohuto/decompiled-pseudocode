@@ -1,7 +1,7 @@
 /*
  * XREFs of IoCreateSynchronizationEvent @ 0x140936240
  * Callers:
- *     DifIoCreateSynchronizationEventWrapper @ 0x14060E440 (DifIoCreateSynchronizationEventWrapper.c)
+ *     sub_14060E440 @ 0x14060E440 (sub_14060E440.c)
  * Callees:
  *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
  *     ZwCreateEvent @ 0x14041C060 (ZwCreateEvent.c)

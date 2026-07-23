@@ -1,17 +1,17 @@
 /*
- * XREFs of AlpcpCreateSectionView @ 0x14061667C
+ * XREFs of AlpcpCreateSectionView @ 0x14061767C
  * Callers:
- *     NtAlpcCreateSectionView @ 0x140616470 (NtAlpcCreateSectionView.c)
- *     AlpcpMapLegacyPortView @ 0x14061CCE4 (AlpcpMapLegacyPortView.c)
+ *     NtAlpcCreateSectionView @ 0x140617470 (NtAlpcCreateSectionView.c)
+ *     AlpcpMapLegacyPortView @ 0x14061DCE4 (AlpcpMapLegacyPortView.c)
  * Callees:
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
- *     AlpcpCreateRegion @ 0x140616770 (AlpcpCreateRegion.c)
- *     AlpcpLockForCachedReferenceBlob @ 0x140616E4C (AlpcpLockForCachedReferenceBlob.c)
- *     AlpcpCreateView @ 0x140617D0C (AlpcpCreateView.c)
- *     AlpcpDereferenceBlobEx @ 0x140618C70 (AlpcpDereferenceBlobEx.c)
- *     AlpcpUnlockBlob @ 0x140637040 (AlpcpUnlockBlob.c)
+ *     ExfReleasePushLockShared @ 0x1400913F0 (ExfReleasePushLockShared.c)
+ *     AlpcpCreateRegion @ 0x140617770 (AlpcpCreateRegion.c)
+ *     AlpcpLockForCachedReferenceBlob @ 0x140617E4C (AlpcpLockForCachedReferenceBlob.c)
+ *     AlpcpCreateView @ 0x140618D0C (AlpcpCreateView.c)
+ *     AlpcpDereferenceBlobEx @ 0x140619C70 (AlpcpDereferenceBlobEx.c)
+ *     AlpcpUnlockBlob @ 0x140638060 (AlpcpUnlockBlob.c)
  */
 
 __int64 __fastcall AlpcpCreateSectionView(

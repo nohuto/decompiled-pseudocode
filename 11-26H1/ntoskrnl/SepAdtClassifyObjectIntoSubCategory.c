@@ -1,14 +1,14 @@
 /*
- * XREFs of SepAdtClassifyObjectIntoSubCategory @ 0x1409FB810
+ * XREFs of SepAdtClassifyObjectIntoSubCategory @ 0x140920410
  * Callers:
- *     ObpCreateHandle @ 0x14092CA60 (ObpCreateHandle.c)
- *     SeOperationAuditAlarm @ 0x1409FA6B0 (SeOperationAuditAlarm.c)
- *     SeAuditHandleCreation @ 0x1409FAC60 (SeAuditHandleCreation.c)
+ *     ObpCreateHandle @ 0x140908590 (ObpCreateHandle.c)
+ *     SeOperationAuditAlarm @ 0x14091F2B0 (SeOperationAuditAlarm.c)
+ *     SeAuditHandleCreation @ 0x14091F860 (SeAuditHandleCreation.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x1402150C0 (PsGetCurrentServerSiloGlobals.c)
- *     SepAuditingEnabledForSubcategory @ 0x1404703B0 (SepAuditingEnabledForSubcategory.c)
- *     RtlCompareMemory @ 0x140730D90 (RtlCompareMemory.c)
- *     SepIsRemovableStorageDevice @ 0x1409FA064 (SepIsRemovableStorageDevice.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x1402153F0 (PsGetCurrentServerSiloGlobals.c)
+ *     SepAuditingEnabledForSubcategory @ 0x140469B30 (SepAuditingEnabledForSubcategory.c)
+ *     RtlCompareMemory @ 0x140735960 (RtlCompareMemory.c)
+ *     SepIsRemovableStorageDevice @ 0x140AFA9F0 (SepIsRemovableStorageDevice.c)
  */
 
 __int16 __fastcall SepAdtClassifyObjectIntoSubCategory(__int64 a1, unsigned __int16 *a2, char a3, char a4)
@@ -27,7 +27,7 @@ __int16 __fastcall SepAdtClassifyObjectIntoSubCategory(__int64 a1, unsigned __in
   int v17; // ecx
   __int64 v18; // r10
   __int64 v19; // r10
-  bool IsRemovableStorageDevice; // al
+  char IsRemovableStorageDevice; // al
   __int16 v21; // r11
   __int16 v22; // cx
   __int16 v23; // r11
@@ -43,14 +43,17 @@ __int16 __fastcall SepAdtClassifyObjectIntoSubCategory(__int64 a1, unsigned __in
       {
         IsRemovableStorageDevice = SepIsRemovableStorageDevice(v19);
         v22 = 119;
-        if ( IsRemovableStorageDevice )
+        if ( IsRemovableStorageDevice == 1 )
           return v21;
         return v22;
       }
       return 119;
     }
-    if ( SepAuditingEnabledForSubcategory(129, a3, a4) && SepIsRemovableStorageDevice(*(_QWORD *)(v18 + 8)) )
+    if ( SepAuditingEnabledForSubcategory(129, a3, a4)
+      && (unsigned __int8)SepIsRemovableStorageDevice(*(_QWORD *)(v18 + 8)) == 1 )
+    {
       return v23;
+    }
     return 117;
   }
   if ( !a2 )

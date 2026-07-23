@@ -10,30 +10,35 @@
  *     LdrpUnsuppressAddressTakenIat @ 0x1800E02B4 (LdrpUnsuppressAddressTakenIat.c)
  */
 
-__int64 __fastcall LdrpDoPostSnapWork(__int64 a1)
+NTSTATUS __fastcall LdrpDoPostSnapWork(__int64 a1)
 {
   __int64 v1; // rsi
-  unsigned int v3; // ebx
-  __int64 result; // rax
+  int v3; // ebx
+  NTSTATUS result; // eax
   _QWORD *v5; // rax
   int v6; // eax
-  __int64 v7; // [rsp+50h] [rbp+8h] BYREF
+  ULONG v7; // [rsp+50h] [rbp+8h] BYREF
 
   v1 = *(_QWORD *)(a1 + 56);
   v3 = 0;
   if ( !*(_QWORD *)(a1 + 112)
-    || (result = ZwProtectVirtualMemory(-1LL, a1 + 112, a1 + 120, *(unsigned int *)(a1 + 144), &v7),
+    || (result = ZwProtectVirtualMemory(
+                   (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+                   (PVOID *)(a1 + 112),
+                   (PSIZE_T)(a1 + 120),
+                   *(_DWORD *)(a1 + 144),
+                   &v7),
         v3 = result,
-        (int)result >= 0) )
+        result >= 0) )
   {
     v5 = *(_QWORD **)(a1 + 160);
     if ( v5 && *v5 != *(_QWORD *)(a1 + 152) )
       __fastfail(0x13u);
-    if ( *(_WORD *)(v1 + 110) || (result = LdrpHandleTlsData(v1), v3 = result, (int)result >= 0) )
+    if ( *(_WORD *)(v1 + 110) || (result = LdrpHandleTlsData(v1), v3 = result, result >= 0) )
     {
       if ( (unsigned int)LdrControlFlowGuardEnforcedWithExportSuppression() )
       {
-        v6 = LdrpUnsuppressAddressTakenIat(*(_QWORD *)(v1 + 48), 0LL, 0LL);
+        v6 = LdrpUnsuppressAddressTakenIat(*(PVOID *)(v1 + 48));
         v3 = v6;
         if ( v6 < 0 )
           LdrpLogInternal(

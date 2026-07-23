@@ -1,13 +1,13 @@
 /*
- * XREFs of HvlPrepareForSecureHibernate @ 0x140589550
+ * XREFs of HvlPrepareForSecureHibernate @ 0x14058683C
  * Callers:
- *     PopSaveHiberContext @ 0x140B6EC80 (PopSaveHiberContext.c)
+ *     PopSaveHiberContext @ 0x140B70CF0 (PopSaveHiberContext.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140265D90 (VslpEnterIumSecureMode.c)
- *     HvlpReleaseHypercallPage @ 0x1403AF6A0 (HvlpReleaseHypercallPage.c)
- *     HvlpAcquireHypercallPage @ 0x140465ED0 (HvlpAcquireHypercallPage.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     HvlpReleaseHypercallPage @ 0x14039DEB0 (HvlpReleaseHypercallPage.c)
+ *     VslpEnterIumSecureMode @ 0x1403AADB0 (VslpEnterIumSecureMode.c)
+ *     HvlpAcquireHypercallPage @ 0x14045D900 (HvlpAcquireHypercallPage.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall HvlPrepareForSecureHibernate(_OWORD *a1)
@@ -38,7 +38,7 @@ __int64 __fastcall HvlPrepareForSecureHibernate(_OWORD *a1)
   v2[4] = v6;
   memset_0(v11, 0, 0x68uLL);
   v12 = v10 >> 12;
-  LODWORD(a1) = VslpEnterIumSecureMode(2u, 262LL, 0, (__int64)v11);
+  LODWORD(a1) = VslpEnterIumSecureMode(2u, 0x106u, 0, (__int64)v11);
   HvlpReleaseHypercallPage((unsigned int *)&v8);
   return (unsigned int)a1;
 }

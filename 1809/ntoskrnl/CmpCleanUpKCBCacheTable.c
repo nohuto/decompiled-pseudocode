@@ -1,17 +1,17 @@
 /*
- * XREFs of CmpCleanUpKCBCacheTable @ 0x140692B1C
+ * XREFs of CmpCleanUpKCBCacheTable @ 0x140693CDC
  * Callers:
- *     CmpEnumerateAllOpenSubKeys @ 0x1406928E8 (CmpEnumerateAllOpenSubKeys.c)
- *     CmpCleanUpHigherLayerKcbCachesPostCallback @ 0x1407F9900 (CmpCleanUpHigherLayerKcbCachesPostCallback.c)
- *     CmpRefreshHive @ 0x140802DAC (CmpRefreshHive.c)
+ *     CmpEnumerateAllOpenSubKeys @ 0x140693AA8 (CmpEnumerateAllOpenSubKeys.c)
+ *     CmpCleanUpHigherLayerKcbCachesPostCallback @ 0x1407FAB00 (CmpCleanUpHigherLayerKcbCachesPostCallback.c)
+ *     CmpRefreshHive @ 0x140803FAC (CmpRefreshHive.c)
  * Callees:
  *     KiUnstackDetachProcess @ 0x140017190 (KiUnstackDetachProcess.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     CmpAttachToRegistryProcess @ 0x1405D4048 (CmpAttachToRegistryProcess.c)
- *     CmpCleanUpKcbCacheWithLock @ 0x1405D43B8 (CmpCleanUpKcbCacheWithLock.c)
- *     CmpFreeKeyControlBlock @ 0x140692BF4 (CmpFreeKeyControlBlock.c)
- *     CmpRemoveFromDelayedClose @ 0x140692D4C (CmpRemoveFromDelayedClose.c)
- *     CmpRunDownDelayDerefKCBEngine @ 0x140692DD4 (CmpRunDownDelayDerefKCBEngine.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     CmpAttachToRegistryProcess @ 0x1405D5048 (CmpAttachToRegistryProcess.c)
+ *     CmpCleanUpKcbCacheWithLock @ 0x1405D53B8 (CmpCleanUpKcbCacheWithLock.c)
+ *     CmpFreeKeyControlBlock @ 0x140693DB4 (CmpFreeKeyControlBlock.c)
+ *     CmpRemoveFromDelayedClose @ 0x140693F0C (CmpRemoveFromDelayedClose.c)
+ *     CmpRunDownDelayDerefKCBEngine @ 0x140693F94 (CmpRunDownDelayDerefKCBEngine.c)
  */
 
 __int64 __fastcall CmpCleanUpKCBCacheTable(__int64 a1)

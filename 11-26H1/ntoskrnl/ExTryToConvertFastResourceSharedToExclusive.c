@@ -1,11 +1,11 @@
 /*
- * XREFs of ExTryToConvertFastResourceSharedToExclusive @ 0x1406CE460
+ * XREFs of ExTryToConvertFastResourceSharedToExclusive @ 0x1406D2490
  * Callers:
- *     DifExTryToConvertFastResourceSharedToExclusiveWrapper @ 0x140654F30 (DifExTryToConvertFastResourceSharedToExclusiveWrapper.c)
+ *     DifExTryToConvertFastResourceSharedToExclusiveWrapper @ 0x140658B10 (DifExTryToConvertFastResourceSharedToExclusiveWrapper.c)
  * Callees:
- *     KeAbPostReleaseEx @ 0x140272670 (KeAbPostReleaseEx.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     ExpConvertSharedToExclusiveImmediately @ 0x1406CE650 (ExpConvertSharedToExclusiveImmediately.c)
+ *     KeAbPostReleaseEx @ 0x140271BE0 (KeAbPostReleaseEx.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     ExpConvertSharedToExclusiveImmediately @ 0x1406D2680 (ExpConvertSharedToExclusiveImmediately.c)
  */
 
 char __fastcall ExTryToConvertFastResourceSharedToExclusive(struct _KTHREAD *a1, ULONG_PTR BugCheckParameter2)

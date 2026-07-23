@@ -3,18 +3,18 @@
  * Callers:
  *     MiDecommitLargePoolVa @ 0x140211A20 (MiDecommitLargePoolVa.c)
  *     MiDeleteSystemPageTable @ 0x14021DDF0 (MiDeleteSystemPageTable.c)
- *     MiDeleteVa @ 0x14027A5C0 (MiDeleteVa.c)
- *     MiLinkPoolCommitChain @ 0x1402862A0 (MiLinkPoolCommitChain.c)
- *     MiDeletePteRun @ 0x1402D50F0 (MiDeletePteRun.c)
- *     MiZeroAndFlushPtes @ 0x140335E5C (MiZeroAndFlushPtes.c)
+ *     MiDeleteVa @ 0x14027A850 (MiDeleteVa.c)
+ *     MiLinkPoolCommitChain @ 0x140286530 (MiLinkPoolCommitChain.c)
+ *     MiDeletePteRun @ 0x1402D5380 (MiDeletePteRun.c)
+ *     MiZeroAndFlushPtes @ 0x1403360EC (MiZeroAndFlushPtes.c)
  * Callees:
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
- *     MiPteInShadowRange @ 0x140271360 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x14035734C (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x1403573AC (MiPteHasShadow.c)
- *     MiReplicatePteChange @ 0x140368300 (MiReplicatePteChange.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402610F0 (KeAcquireInStackQueuedSpinLock.c)
+ *     MiPteInShadowRange @ 0x1402715F0 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1403574EC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x14035754C (MiPteHasShadow.c)
+ *     MiReplicatePteChange @ 0x1403684A0 (MiReplicatePteChange.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiWriteTopLevelPxe(_QWORD *a1, __int64 a2)
@@ -75,10 +75,10 @@ LABEL_5:
   MiReplicatePteChange(a1, a2, 1LL);
   result = KxReleaseQueuedSpinLock(&v15);
   OldIrql = v15.OldIrql;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
       && (unsigned __int8)result <= 0xFu
       && v15.OldIrql <= 0xFu
       && (unsigned __int8)result >= 2u )

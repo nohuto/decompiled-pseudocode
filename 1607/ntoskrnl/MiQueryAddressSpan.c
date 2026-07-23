@@ -1,16 +1,16 @@
 /*
- * XREFs of MiQueryAddressSpan @ 0x140042CC0
+ * XREFs of MiQueryAddressSpan @ 0x140042840
  * Callers:
- *     MmQueryVirtualMemory @ 0x140432230 (MmQueryVirtualMemory.c)
+ *     MmQueryVirtualMemory @ 0x140431100 (MmQueryVirtualMemory.c)
  * Callees:
- *     MiGetSharedVm @ 0x14002EA30 (MiGetSharedVm.c)
- *     MiQueryAddressState @ 0x140043000 (MiQueryAddressState.c)
- *     MiWorkingSetIsContended @ 0x1400BA9E0 (MiWorkingSetIsContended.c)
- *     ExReleaseSpinLockShared @ 0x1400EA240 (ExReleaseSpinLockShared.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1400EA3E0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExAcquireSpinLockShared @ 0x1400EB1D0 (ExAcquireSpinLockShared.c)
- *     KiResetGlobalDpcWatchdogProfiler @ 0x1401D1EAC (KiResetGlobalDpcWatchdogProfiler.c)
- *     EtwTraceShouldYieldProcessor @ 0x1402261BC (EtwTraceShouldYieldProcessor.c)
+ *     MiGetSharedVm @ 0x14002E5B0 (MiGetSharedVm.c)
+ *     MiQueryAddressState @ 0x140042B80 (MiQueryAddressState.c)
+ *     MiWorkingSetIsContended @ 0x1400B8870 (MiWorkingSetIsContended.c)
+ *     ExReleaseSpinLockShared @ 0x1400E80B0 (ExReleaseSpinLockShared.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1400E8250 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockShared @ 0x1400E9040 (ExAcquireSpinLockShared.c)
+ *     KiResetGlobalDpcWatchdogProfiler @ 0x1401D1CD8 (KiResetGlobalDpcWatchdogProfiler.c)
+ *     EtwTraceShouldYieldProcessor @ 0x140225FE8 (EtwTraceShouldYieldProcessor.c)
  */
 
 unsigned __int64 __fastcall MiQueryAddressSpan(__int64 a1, __int64 a2, __int64 a3)

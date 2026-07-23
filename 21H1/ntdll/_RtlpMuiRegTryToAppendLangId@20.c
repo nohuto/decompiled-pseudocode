@@ -14,24 +14,25 @@
 
 int __fastcall RtlpMuiRegTryToAppendLangId(int a1, int a2, unsigned int *a3, wchar_t *String1, unsigned int a5)
 {
-  int v5; // edi
+  DWORD v5; // edi
   int v6; // esi
   unsigned int v7; // ecx
   unsigned int v8; // edi
   __int16 v10; // ax
-  unsigned int v11; // [esp+Ch] [ebp-28h]
-  int v12; // [esp+14h] [ebp-20h] BYREF
-  UNICODE_STRING DestinationString; // [esp+18h] [ebp-1Ch] BYREF
+  size_t v11; // [esp-4h] [ebp-38h]
+  unsigned int v12; // [esp+Ch] [ebp-28h]
+  DWORD Lcid; // [esp+14h] [ebp-20h] BYREF
+  _UNICODE_STRING DestinationString; // [esp+18h] [ebp-1Ch] BYREF
   _DWORD SourceString[2]; // [esp+20h] [ebp-14h] BYREF
-  __int16 v15; // [esp+28h] [ebp-Ch]
+  __int16 v16; // [esp+28h] [ebp-Ch]
 
-  v12 = 0;
+  Lcid = 0;
   SourceString[0] = 0;
   SourceString[1] = 0;
-  v15 = 0;
+  v16 = 0;
   if ( a2 && a1 && a3 )
   {
-    v11 = *a3;
+    v12 = *a3;
     if ( *(_WORD *)(a2 + 4) )
     {
       v5 = *(unsigned __int16 *)(a2 + 4);
@@ -45,9 +46,9 @@ int __fastcall RtlpMuiRegTryToAppendLangId(int a1, int a2, unsigned int *a3, wch
         &DestinationString,
         (PCWSTR)(*(_DWORD *)(*(_DWORD *)(a1 + 24) + 16)
                + 2 * *(__int16 *)(*(_DWORD *)(*(_DWORD *)(a1 + 24) + 12) + 2 * v10)));
-      if ( !(unsigned __int8)RtlCultureNameToLCID(&DestinationString, &v12) )
+      if ( !RtlCultureNameToLCID(&DestinationString, &Lcid) )
         return -1073741811;
-      v5 = v12;
+      v5 = Lcid;
     }
     v6 = RtlIntegerToUnicode(-4, SourceString);
     if ( v6 >= 0 )
@@ -57,12 +58,13 @@ int __fastcall RtlpMuiRegTryToAppendLangId(int a1, int a2, unsigned int *a3, wch
       if ( v5 == 4096 || !*a3 || *a3 > a5 )
       {
 LABEL_12:
-        v8 = (DestinationString.Length >> 1) + v11 + 1;
-        if ( String1 && v11 < v8 )
+        v8 = (DestinationString.Length >> 1) + v12 + 1;
+        if ( String1 && v12 < v8 )
         {
           if ( v8 < v7 )
           {
-            memcpy(&String1[v11], DestinationString.Buffer, DestinationString.Length);
+            LODWORD(v11) = DestinationString.Length;
+            memcpy(&String1[v12], DestinationString.Buffer, v11);
             String1[v8 - 1] = 0;
 LABEL_16:
             *a3 = v8;

@@ -1,16 +1,16 @@
 /*
- * XREFs of MiFinalizePageAttribute @ 0x1402D85E0
+ * XREFs of MiFinalizePageAttribute @ 0x1402BA3A0
  * Callers:
- *     MiSwapNumaStandbyPage @ 0x1402C8D30 (MiSwapNumaStandbyPage.c)
- *     MiMigratePfn @ 0x1402F6990 (MiMigratePfn.c)
- *     MiCombineInitialFinish @ 0x14030A2B4 (MiCombineInitialFinish.c)
- *     MiHandleForkValidPteCopy @ 0x14030DAD8 (MiHandleForkValidPteCopy.c)
- *     MiHandleForkTransitionPte @ 0x14030E420 (MiHandleForkTransitionPte.c)
- *     MiAllocateKernelStackPages @ 0x1403D1778 (MiAllocateKernelStackPages.c)
- *     MiSwapStackPage @ 0x140415804 (MiSwapStackPage.c)
- *     MiInitializeCacheFlushing @ 0x140CFF38C (MiInitializeCacheFlushing.c)
+ *     MiSwapNumaStandbyPage @ 0x1402AAAF0 (MiSwapNumaStandbyPage.c)
+ *     MiMigratePfn @ 0x1402D8A10 (MiMigratePfn.c)
+ *     MiCombineInitialFinish @ 0x1402EC334 (MiCombineInitialFinish.c)
+ *     MiHandleForkValidPteCopy @ 0x1402EFB58 (MiHandleForkValidPteCopy.c)
+ *     MiHandleForkTransitionPte @ 0x1402F04A0 (MiHandleForkTransitionPte.c)
+ *     MiAllocateKernelStackPages @ 0x1403D4748 (MiAllocateKernelStackPages.c)
+ *     MiSwapStackPage @ 0x140409E34 (MiSwapStackPage.c)
+ *     MiInitializeCacheFlushing @ 0x140D0572C (MiInitializeCacheFlushing.c)
  * Callees:
- *     MiChangePageAttribute @ 0x1402D8660 (MiChangePageAttribute.c)
+ *     MiChangePageAttribute @ 0x1402BA420 (MiChangePageAttribute.c)
  */
 
 __int64 __fastcall MiFinalizePageAttribute(__int64 a1, __int64 a2, __int64 a3)

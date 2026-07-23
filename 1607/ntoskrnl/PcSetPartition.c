@@ -1,15 +1,15 @@
 /*
- * XREFs of PcSetPartition @ 0x14023B6CC
+ * XREFs of PcSetPartition @ 0x14023B5B0
  * Callers:
- *     IoSetPartitionInformation @ 0x14062006C (IoSetPartitionInformation.c)
- *     IoSetPartitionInformationEx @ 0x1406200C4 (IoSetPartitionInformationEx.c)
+ *     IoSetPartitionInformation @ 0x140620120 (IoSetPartitionInformation.c)
+ *     IoSetPartitionInformationEx @ 0x140620178 (IoSetPartitionInformationEx.c)
  * Callees:
- *     ??1PC_DISK@@QEAA@XZ @ 0x1401475A4 (--1PC_DISK@@QEAA@XZ.c)
- *     ?Initialize@PC_DISK@@QEAAJPEAX@Z @ 0x1401475BC (-Initialize@PC_DISK@@QEAAJPEAX@Z.c)
- *     ?Initialize@PC_MBR@@QEAAXPEAVPC_DISK@@@Z @ 0x1401479A4 (-Initialize@PC_MBR@@QEAAXPEAVPC_DISK@@@Z.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     ?SetPartition@PC_MBR@@QEAAJKPEAU_SET_PARTITION_INFORMATION_EX@@@Z @ 0x14023BC98 (-SetPartition@PC_MBR@@QEAAJKPEAU_SET_PARTITION_INFORMATION_EX@@@Z.c)
- *     ?SetPartition@PC_GPT@@QEAAJKPEAU_SET_PARTITION_INFORMATION_EX@@@Z @ 0x14023C52C (-SetPartition@PC_GPT@@QEAAJKPEAU_SET_PARTITION_INFORMATION_EX@@@Z.c)
+ *     ??1PC_DISK@@QEAA@XZ @ 0x140147B14 (--1PC_DISK@@QEAA@XZ.c)
+ *     ?Initialize@PC_DISK@@QEAAJPEAX@Z @ 0x140147B2C (-Initialize@PC_DISK@@QEAAJPEAX@Z.c)
+ *     ?Initialize@PC_MBR@@QEAAXPEAVPC_DISK@@@Z @ 0x140147F14 (-Initialize@PC_MBR@@QEAAXPEAVPC_DISK@@@Z.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     ?SetPartition@PC_MBR@@QEAAJKPEAU_SET_PARTITION_INFORMATION_EX@@@Z @ 0x14023BB7C (-SetPartition@PC_MBR@@QEAAJKPEAU_SET_PARTITION_INFORMATION_EX@@@Z.c)
+ *     ?SetPartition@PC_GPT@@QEAAJKPEAU_SET_PARTITION_INFORMATION_EX@@@Z @ 0x14023C410 (-SetPartition@PC_GPT@@QEAAJKPEAU_SET_PARTITION_INFORMATION_EX@@@Z.c)
  */
 
 __int64 __fastcall PcSetPartition(

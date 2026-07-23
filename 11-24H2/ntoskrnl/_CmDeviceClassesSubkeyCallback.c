@@ -1,21 +1,21 @@
 /*
- * XREFs of _CmDeviceClassesSubkeyCallback @ 0x14081B020
+ * XREFs of _CmDeviceClassesSubkeyCallback @ 0x14081B760
  * Callers:
  *     <none>
  * Callees:
- *     RtlStringCchCopyExW @ 0x14041DC50 (RtlStringCchCopyExW.c)
- *     RtlStringCchCopyW @ 0x14043FE9C (RtlStringCchCopyW.c)
- *     RtlInitUnicodeStringEx @ 0x14045AA10 (RtlInitUnicodeStringEx.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     _PnpCtxRegQueryValue @ 0x1408BC774 (_PnpCtxRegQueryValue.c)
- *     _PnpCtxRegOpenKey @ 0x1408C7AFC (_PnpCtxRegOpenKey.c)
- *     _CmValidateDeviceInterfaceName @ 0x1408C9D90 (_CmValidateDeviceInterfaceName.c)
- *     RtlEqualUnicodeString @ 0x140927050 (RtlEqualUnicodeString.c)
- *     _CmIsDeviceInterfaceEnabled @ 0x1409E6B00 (_CmIsDeviceInterfaceEnabled.c)
- *     _PnpCtxRegEnumKeyWithCallback @ 0x140A89520 (_PnpCtxRegEnumKeyWithCallback.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlStringCchCopyExW @ 0x140412020 (RtlStringCchCopyExW.c)
+ *     RtlStringCchCopyW @ 0x14043615C (RtlStringCchCopyW.c)
+ *     RtlInitUnicodeStringEx @ 0x14044FE60 (RtlInitUnicodeStringEx.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     _PnpCtxRegQueryValue @ 0x1408BA0C4 (_PnpCtxRegQueryValue.c)
+ *     _PnpCtxRegOpenKey @ 0x1408C552C (_PnpCtxRegOpenKey.c)
+ *     _CmValidateDeviceInterfaceName @ 0x1408C77C0 (_CmValidateDeviceInterfaceName.c)
+ *     RtlEqualUnicodeString @ 0x140929190 (RtlEqualUnicodeString.c)
+ *     _CmIsDeviceInterfaceEnabled @ 0x1409E1AC0 (_CmIsDeviceInterfaceEnabled.c)
+ *     _PnpCtxRegEnumKeyWithCallback @ 0x140A85920 (_PnpCtxRegEnumKeyWithCallback.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall CmDeviceClassesSubkeyCallback(__int64 a1, int a2, const wchar_t *a3, unsigned int *a4)
@@ -108,7 +108,7 @@ LABEL_16:
   }
   if ( v16 != 2 || !*((_WORD *)a4 + 506) )
     goto LABEL_32;
-  Pool2 = ExAllocatePool2(0x100uLL);
+  Pool2 = ExAllocatePool2(0x100uLL, 0x190uLL, 0x52504E50u);
   if ( !Pool2 )
     goto LABEL_59;
   v30 = 400;
@@ -122,7 +122,7 @@ LABEL_16:
 LABEL_32:
       if ( *a4 >= 2 )
       {
-        v18 = (wchar_t *)ExAllocatePool2(0x100uLL);
+        v18 = (wchar_t *)ExAllocatePool2(0x100uLL, 0x3F0uLL, 0x52504E50u);
         v11 = v18;
         if ( !v18 )
           goto LABEL_57;
@@ -156,8 +156,7 @@ LABEL_32:
         {
           v26 = v36.MaximumLength >> 1;
           if ( (!*((_BYTE *)a4 + 1428) || (int)CmIsDeviceInterfaceEnabled(a1, v11, v25, &v37) >= 0 && v37)
-            && (!*((_QWORD *)a4 + 179)
-             || (unsigned __int8)guard_dispatch_icall_no_overrides(a1, v11, 3LL, *((_QWORD *)a4 + 180))) )
+            && (!*((_QWORD *)a4 + 179) || (unsigned __int8)guard_dispatch_icall_no_overrides(a1, v11)) )
           {
             a4[365] += v26;
             v27 = a4[364];
@@ -172,7 +171,7 @@ LABEL_32:
       }
       else
       {
-        v23 = ExAllocatePool2(0x100uLL);
+        v23 = ExAllocatePool2(0x100uLL, 0x5B8uLL, 0x52504E50u);
         v24 = v23;
         if ( v23 )
         {

@@ -1,23 +1,23 @@
 /*
- * XREFs of PfSnOpenVolumesForPrefetch @ 0x14065DC4C
+ * XREFs of PfSnOpenVolumesForPrefetch @ 0x14065EE0C
  * Callers:
- *     PfSnAsyncPrefetchWorker @ 0x140666560 (PfSnAsyncPrefetchWorker.c)
+ *     PfSnAsyncPrefetchWorker @ 0x140667720 (PfSnAsyncPrefetchWorker.c)
  * Callees:
  *     RtlStringCbPrintfW @ 0x1400161B0 (RtlStringCbPrintfW.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     IopGetDeviceInterfaces @ 0x14059E6C4 (IopGetDeviceInterfaces.c)
- *     NtClose @ 0x1405E89E0 (NtClose.c)
- *     NtCreateEvent @ 0x14062CF50 (NtCreateEvent.c)
- *     PfSnVolumeCheckSeekPenalty @ 0x14065CCE0 (PfSnVolumeCheckSeekPenalty.c)
- *     PfSnLogOpenVolumesForPrefetch @ 0x14065DAE4 (PfSnLogOpenVolumesForPrefetch.c)
- *     PfMetadataRecordIsEqual @ 0x14065DB78 (PfMetadataRecordIsEqual.c)
- *     PfSnIsVolumeMounted @ 0x14065E214 (PfSnIsVolumeMounted.c)
- *     PfSnQueryVolumeInfo @ 0x14065E318 (PfSnQueryVolumeInfo.c)
- *     PfpOpenHandleCreate @ 0x140660368 (PfpOpenHandleCreate.c)
- *     PfpOpenHandleClose @ 0x1406604CC (PfpOpenHandleClose.c)
- *     PfSnVolumeCheckIsSdBus @ 0x1408657FC (PfSnVolumeCheckIsSdBus.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     IopGetDeviceInterfaces @ 0x14059F6C4 (IopGetDeviceInterfaces.c)
+ *     NtClose @ 0x1405E99E0 (NtClose.c)
+ *     NtCreateEvent @ 0x14062DF70 (NtCreateEvent.c)
+ *     PfSnVolumeCheckSeekPenalty @ 0x14065DEA0 (PfSnVolumeCheckSeekPenalty.c)
+ *     PfSnLogOpenVolumesForPrefetch @ 0x14065ECA4 (PfSnLogOpenVolumesForPrefetch.c)
+ *     PfMetadataRecordIsEqual @ 0x14065ED38 (PfMetadataRecordIsEqual.c)
+ *     PfSnIsVolumeMounted @ 0x14065F3D4 (PfSnIsVolumeMounted.c)
+ *     PfSnQueryVolumeInfo @ 0x14065F4D8 (PfSnQueryVolumeInfo.c)
+ *     PfpOpenHandleCreate @ 0x140661528 (PfpOpenHandleCreate.c)
+ *     PfpOpenHandleClose @ 0x14066168C (PfpOpenHandleClose.c)
+ *     PfSnVolumeCheckIsSdBus @ 0x140866A5C (PfSnVolumeCheckIsSdBus.c)
  */
 
 __int64 __fastcall PfSnOpenVolumesForPrefetch(__int64 *a1, _DWORD *a2)

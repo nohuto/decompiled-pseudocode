@@ -1,10 +1,10 @@
 /*
- * XREFs of VslDeleteSecureSection @ 0x1408184B0
+ * XREFs of VslDeleteSecureSection @ 0x1408196B0
  * Callers:
  *     <none>
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140129CB0 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     VslpEnterIumSecureMode @ 0x140129D80 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall VslDeleteSecureSection(__int64 a1)

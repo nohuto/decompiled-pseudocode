@@ -14,14 +14,14 @@
  *     PfpScenCtxScenarioSet @ 0x14099AB88 (PfpScenCtxScenarioSet.c)
  */
 
-__int64 __fastcall PfpProcessScenarioPhase(_DWORD *a1, __int64 a2)
+__int64 __fastcall PfpProcessScenarioPhase(_DWORD *a1, char a2)
 {
   int v3; // ecx
   unsigned int v4; // edi
-  __int64 v6; // rcx
-  int ActiveConsoleId; // ebx
-  __int64 v8; // rcx
-  int v9; // ebx
+  int v6; // ecx
+  ULONG ActiveConsoleId; // ebx
+  int v8; // ecx
+  ULONG v9; // ebx
   unsigned int v10; // ebx
   struct _DMA_ADAPTER *NextSession; // rax
 
@@ -36,13 +36,13 @@ __int64 __fastcall PfpProcessScenarioPhase(_DWORD *a1, __int64 a2)
   {
     if ( v3 == 4 )
     {
-      v6 = (unsigned int)a1[2];
+      v6 = a1[2];
       v4 = 0;
-      if ( (_DWORD)v6 )
+      if ( v6 )
       {
-        if ( (_DWORD)v6 == 1 )
+        if ( v6 == 1 )
         {
-          ActiveConsoleId = RtlGetActiveConsoleId(v6, a2);
+          ActiveConsoleId = RtlGetActiveConsoleId();
           if ( (unsigned int)PsGetCurrentProcessSessionId() == ActiveConsoleId )
           {
             PfpScenCtxScenarioSet((ULONG_PTR)&qword_140C502E0);
@@ -60,7 +60,7 @@ LABEL_29:
     {
 LABEL_4:
       v4 = 0;
-      if ( (_BYTE)a2 )
+      if ( a2 )
         return (unsigned int)-1073741790;
       else
         PfPowerActionNotify((unsigned int)a1[2]);
@@ -68,17 +68,17 @@ LABEL_4:
     }
     return (unsigned int)-1073741811;
   }
-  v8 = (unsigned int)a1[2];
+  v8 = a1[2];
   v4 = 0;
-  if ( (_DWORD)v8 )
+  if ( v8 )
   {
-    if ( (_DWORD)v8 != 1 || dword_140C50310 != 3 )
+    if ( v8 != 1 || dword_140C50310 != 3 )
       return v4;
     PfpScenCtxPrefetchWait((ULONG_PTR)&qword_140C502E0);
     PfpLogScenarioEvent(3, 0, 0, dword_140C50314, 0);
     goto LABEL_29;
   }
-  v9 = RtlGetActiveConsoleId(v8, a2);
+  v9 = RtlGetActiveConsoleId();
   if ( (unsigned int)PsGetCurrentProcessSessionId() == v9 && dword_140C4FDD8 < (unsigned int)dword_140C4FDDC )
   {
     v10 = 0;

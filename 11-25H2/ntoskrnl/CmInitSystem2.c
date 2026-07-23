@@ -23,7 +23,7 @@ void CmInitSystem2()
   *((_QWORD *)&v1 + 1) = L"\\Driver\\WscVReg";
   CmpRegisterTraceLoggingProvider();
   CmFcInitSystem3();
-  v0 = IoCreateDriver(&v1, (unsigned __int64)VRegSetup);
+  v0 = IoCreateDriver(&v1, VRegSetup);
   if ( v0 < 0 )
     KeBugCheckEx(0x51u, 0x1EuLL, v0, 0LL, 0LL);
   if ( CmBugcheckRecoveryEnabled )

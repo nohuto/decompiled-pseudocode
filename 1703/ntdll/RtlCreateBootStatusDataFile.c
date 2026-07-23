@@ -12,22 +12,24 @@
  *     RtlRestoreBootStatusDefaults @ 0x1800EB450 (RtlRestoreBootStatusDefaults.c)
  */
 
-__int64 __fastcall RtlCreateBootStatusDataFile(wchar_t *a1)
+NTSTATUS RtlCreateBootStatusDataFile(void)
 {
+  wchar_t *v0; // rcx
   wchar_t *v1; // rdx
-  __int64 result; // rax
+  NTSTATUS result; // eax
   int v3; // ebx
-  UNICODE_STRING DestinationString; // [rsp+78h] [rbp-88h] BYREF
-  int v5; // [rsp+98h] [rbp-68h]
-  __int64 v6; // [rsp+A0h] [rbp-60h]
-  UNICODE_STRING *p_DestinationString; // [rsp+A8h] [rbp-58h]
-  int v8; // [rsp+B0h] [rbp-50h]
-  __int128 v9; // [rsp+B8h] [rbp-48h]
+  char Buffer[8]; // [rsp+60h] [rbp-A0h] BYREF
+  LARGE_INTEGER ByteOffset; // [rsp+68h] [rbp-98h] BYREF
+  HANDLE FileHandle; // [rsp+70h] [rbp-90h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+78h] [rbp-88h] BYREF
+  _IO_STATUS_BLOCK IoStatusBlock; // [rsp+88h] [rbp-78h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+98h] [rbp-68h] BYREF
   wchar_t Destination[264]; // [rsp+D0h] [rbp-30h] BYREF
 
-  if ( a1 )
+  Buffer[0] = 1;
+  if ( v0 )
   {
-    v1 = a1;
+    v1 = v0;
   }
   else
   {
@@ -35,19 +37,32 @@ __int64 __fastcall RtlCreateBootStatusDataFile(wchar_t *a1)
     v1 = Destination;
   }
   RtlInitUnicodeString(&DestinationString, v1);
-  v6 = 0LL;
-  p_DestinationString = &DestinationString;
-  v5 = 48;
-  v8 = 64;
-  v9 = 0LL;
-  result = ZwCreateFile();
-  if ( (int)result >= 0 )
+  ObjectAttributes.RootDirectory = 0LL;
+  ObjectAttributes.ObjectName = &DestinationString;
+  ObjectAttributes.Length = 48;
+  ObjectAttributes.Attributes = 64;
+  *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+  ByteOffset.QuadPart = 67584LL;
+  result = ZwCreateFile(
+             &FileHandle,
+             0x12019Fu,
+             &ObjectAttributes,
+             &IoStatusBlock,
+             &ByteOffset,
+             4u,
+             0,
+             2u,
+             0x8020u,
+             0LL,
+             0);
+  if ( result >= 0 )
   {
-    v3 = ZwWriteFile();
+    --ByteOffset.QuadPart;
+    v3 = ZwWriteFile(FileHandle, 0LL, 0LL, 0LL, &IoStatusBlock, Buffer, 1u, &ByteOffset, 0LL);
     if ( v3 >= 0 )
-      v3 = ((__int64 (__fastcall *)())RtlRestoreBootStatusDefaults)();
-    ZwClose();
-    return (unsigned int)v3;
+      v3 = RtlRestoreBootStatusDefaults(FileHandle);
+    ZwClose(FileHandle);
+    return v3;
   }
   return result;
 }

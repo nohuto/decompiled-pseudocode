@@ -1,12 +1,12 @@
 /*
- * XREFs of MiUnlockBootPageSections @ 0x1409BCD50
+ * XREFs of MiUnlockBootPageSections @ 0x1409BDD50
  * Callers:
- *     MiInitSystem @ 0x1409BC5A8 (MiInitSystem.c)
+ *     MiInitSystem @ 0x1409BD5A8 (MiInitSystem.c)
  * Callees:
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceExclusiveLite @ 0x1400505F0 (ExAcquireResourceExclusiveLite.c)
  *     KeLeaveCriticalRegionThread @ 0x140051600 (KeLeaveCriticalRegionThread.c)
- *     MiLockPagableSections @ 0x1409BCE2C (MiLockPagableSections.c)
+ *     MiLockPagableSections @ 0x1409BDE2C (MiLockPagableSections.c)
  */
 
 _QWORD *MiUnlockBootPageSections()

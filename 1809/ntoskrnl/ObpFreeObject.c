@@ -1,19 +1,19 @@
 /*
- * XREFs of ObpFreeObject @ 0x140645F40
+ * XREFs of ObpFreeObject @ 0x140646F60
  * Callers:
- *     ObpRemoveObjectRoutine @ 0x140645E60 (ObpRemoveObjectRoutine.c)
+ *     ObpRemoveObjectRoutine @ 0x140646E80 (ObpRemoveObjectRoutine.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
  *     ExReleasePushLockEx @ 0x14004F160 (ExReleasePushLockEx.c)
- *     PspReturnQuota @ 0x1400BE9D0 (PspReturnQuota.c)
- *     PspReturnResourceQuota @ 0x14012A88C (PspReturnResourceQuota.c)
- *     RtlpInterlockedPushEntrySList @ 0x1401C5410 (RtlpInterlockedPushEntrySList.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     PspDereferenceQuotaBlock @ 0x1405CACF4 (PspDereferenceQuotaBlock.c)
- *     SeReleaseSecurityDescriptor @ 0x140631850 (SeReleaseSecurityDescriptor.c)
- *     PspRemoveQuotaBlock @ 0x140888294 (PspRemoveQuotaBlock.c)
+ *     PspReturnQuota @ 0x1400BE910 (PspReturnQuota.c)
+ *     PspReturnResourceQuota @ 0x14012A95C (PspReturnResourceQuota.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1401C5570 (RtlpInterlockedPushEntrySList.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     PspDereferenceQuotaBlock @ 0x1405CBCF4 (PspDereferenceQuotaBlock.c)
+ *     SeReleaseSecurityDescriptor @ 0x140632870 (SeReleaseSecurityDescriptor.c)
+ *     PspRemoveQuotaBlock @ 0x1408894F4 (PspRemoveQuotaBlock.c)
  */
 
 void __fastcall ObpFreeObject(__int64 a1)

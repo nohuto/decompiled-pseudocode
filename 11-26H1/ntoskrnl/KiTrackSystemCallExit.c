@@ -1,10 +1,10 @@
 /*
- * XREFs of KiTrackSystemCallExit @ 0x1407BB9F0
+ * XREFs of KiTrackSystemCallExit @ 0x1407BEA50
  * Callers:
- *     KiSystemCall64 @ 0x14073B680 (KiSystemCall64.c)
+ *     KiSystemCall64 @ 0x140740280 (KiSystemCall64.c)
  * Callees:
- *     PerfInfoLogSysCallExit @ 0x1404C9BD0 (PerfInfoLogSysCallExit.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     PerfInfoLogSysCallExit @ 0x1404C3600 (PerfInfoLogSysCallExit.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall KiTrackSystemCallExit(__int64 a1, __int64 a2)

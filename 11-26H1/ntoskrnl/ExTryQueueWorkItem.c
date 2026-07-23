@@ -1,19 +1,19 @@
 /*
- * XREFs of ExTryQueueWorkItem @ 0x140382070
+ * XREFs of ExTryQueueWorkItem @ 0x140383E20
  * Callers:
- *     PopFxQueueWorkItem @ 0x140394940 (PopFxQueueWorkItem.c)
- *     PopPepProcessEvent @ 0x1403AFCF0 (PopPepProcessEvent.c)
- *     PopPepRequestWork @ 0x1403B14B8 (PopPepRequestWork.c)
- *     PopPepComponentSetLatency @ 0x1403B1784 (PopPepComponentSetLatency.c)
- *     PopFxRequestWorkerInternal @ 0x1403B1FE4 (PopFxRequestWorkerInternal.c)
+ *     PopFxQueueWorkItem @ 0x1403966C0 (PopFxQueueWorkItem.c)
+ *     PopPepProcessEvent @ 0x1403B9A00 (PopPepProcessEvent.c)
+ *     PopPepRequestWork @ 0x1403BB1C8 (PopPepRequestWork.c)
+ *     PopPepComponentSetLatency @ 0x1403BB494 (PopPepComponentSetLatency.c)
+ *     PopFxRequestWorkerInternal @ 0x1403BBCF4 (PopFxRequestWorkerInternal.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeInsertPriQueue @ 0x1403814C0 (KeInsertPriQueue.c)
- *     Feature_WorkQueueShardingWithinNodes__private_IsEnabledNoReportingNoInline @ 0x140382244 (Feature_WorkQueueShardingWithinNodes__private_IsEnabledNoReportingNoInline.c)
- *     KeIsNodeInitialized @ 0x14038227C (KeIsNodeInitialized.c)
- *     ExpEnumerateNextActiveWorkSubQueue @ 0x1403822A8 (ExpEnumerateNextActiveWorkSubQueue.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeInsertPriQueue @ 0x140383270 (KeInsertPriQueue.c)
+ *     Feature_WorkQueueShardingWithinNodes__private_IsEnabledNoReportingNoInline @ 0x140383FF4 (Feature_WorkQueueShardingWithinNodes__private_IsEnabledNoReportingNoInline.c)
+ *     KeIsNodeInitialized @ 0x14038402C (KeIsNodeInitialized.c)
+ *     ExpEnumerateNextActiveWorkSubQueue @ 0x140384058 (ExpEnumerateNextActiveWorkSubQueue.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 char __fastcall ExTryQueueWorkItem(_QWORD *BugCheckParameter2, __int64 a2)

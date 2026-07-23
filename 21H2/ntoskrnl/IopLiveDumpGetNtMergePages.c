@@ -1,25 +1,19 @@
 /*
- * XREFs of IopLiveDumpGetNtMergePages @ 0x140898444
+ * XREFs of IopLiveDumpGetNtMergePages @ 0x1408985A4
  * Callers:
- *     IopLiveDumpWriteDumpFileWithExtraPages @ 0x140898EA0 (IopLiveDumpWriteDumpFileWithExtraPages.c)
+ *     IopLiveDumpWriteDumpFileWithExtraPages @ 0x140899000 (IopLiveDumpWriteDumpFileWithExtraPages.c)
  * Callees:
- *     IopLiveDumpGetCapturePagesNoLock @ 0x1409AC884 (IopLiveDumpGetCapturePagesNoLock.c)
+ *     IopLiveDumpGetCapturePagesNoLock @ 0x1409AD7B4 (IopLiveDumpGetCapturePagesNoLock.c)
  */
 
-__int64 __fastcall IopLiveDumpGetNtMergePages(__int64 a1, int a2, _QWORD *a3, _DWORD *a4, _QWORD *a5)
+__int64 __fastcall IopLiveDumpGetNtMergePages(_RTL_BITMAP_EX *a1, __int64 a2, _QWORD *a3, _DWORD *a4, _QWORD *a5)
 {
   __int64 result; // rax
 
-  result = IopLiveDumpGetCapturePagesNoLock(
-             (int)a1 + 544,
-             (int)a1 + 680,
-             a2,
-             BufferChunkSizeInPages,
-             (__int64)a4,
-             (__int64)a5);
+  result = IopLiveDumpGetCapturePagesNoLock(a1 + 34, (__int64)a4, (__int64)a5);
   if ( *a4 )
   {
-    result = *(_QWORD *)(a1 + 752);
+    result = a1[47].SizeOfBitMap;
     *a3 = *(_QWORD *)(result + 8LL * *a5);
   }
   return result;

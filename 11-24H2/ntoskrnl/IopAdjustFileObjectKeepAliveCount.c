@@ -1,13 +1,13 @@
 /*
- * XREFs of IopAdjustFileObjectKeepAliveCount @ 0x140426C38
+ * XREFs of IopAdjustFileObjectKeepAliveCount @ 0x14041AAB8
  * Callers:
- *     IoIncrementKeepAliveCount @ 0x140426B20 (IoIncrementKeepAliveCount.c)
+ *     IoIncrementKeepAliveCount @ 0x14041A9A0 (IoIncrementKeepAliveCount.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     IopGetSetSpecificExtension @ 0x140426ED0 (IopGetSetSpecificExtension.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     IopGetSetSpecificExtension @ 0x14041AD50 (IopGetSetSpecificExtension.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IopAdjustFileObjectKeepAliveCount(__int64 a1, __int64 a2, int a3, _DWORD *a4, __int64 *a5)
@@ -40,10 +40,10 @@ __int64 __fastcall IopAdjustFileObjectKeepAliveCount(__int64 a1, __int64 a2, int
     v11 = result;
     if ( (int)result < 0 )
       return result;
-    Pool2 = (_QWORD *)ExAllocatePool2(0x40uLL);
+    Pool2 = (_QWORD *)ExAllocatePool2(0x40uLL, 0x20uLL, 0x614B6F49u);
     if ( Pool2 )
     {
-      v6 = ExAllocatePool2(0x40uLL);
+      v6 = ExAllocatePool2(0x40uLL, 0x38uLL, 0x614B6F49u);
       if ( !v6 )
       {
         ExFreePoolWithTag(Pool2, 0);

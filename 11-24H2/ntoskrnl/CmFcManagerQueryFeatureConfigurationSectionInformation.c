@@ -1,19 +1,19 @@
 /*
- * XREFs of CmFcManagerQueryFeatureConfigurationSectionInformation @ 0x140A25E28
+ * XREFs of CmFcManagerQueryFeatureConfigurationSectionInformation @ 0x140A1A8B0
  * Callers:
- *     CmQueryFeatureConfigurationSections @ 0x140A25CAC (CmQueryFeatureConfigurationSections.c)
+ *     CmQueryFeatureConfigurationSections @ 0x140A1A734 (CmQueryFeatureConfigurationSections.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExfReleasePushLockShared @ 0x14025DE00 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockSharedEx @ 0x14034050C (ExfAcquirePushLockSharedEx.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ObOpenObjectByPointer @ 0x140854F10 (ObOpenObjectByPointer.c)
- *     ObCloseHandle @ 0x1408A2B10 (ObCloseHandle.c)
- *     CmFcpCopySectionState @ 0x140A26050 (CmFcpCopySectionState.c)
- *     CmFcpCleanupSectionState @ 0x140A26080 (CmFcpCleanupSectionState.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExfReleasePushLockShared @ 0x14028E410 (ExfReleasePushLockShared.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockSharedEx @ 0x14031F9EC (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ObOpenObjectByPointer @ 0x1408511D0 (ObOpenObjectByPointer.c)
+ *     ObCloseHandle @ 0x1408AB1B0 (ObCloseHandle.c)
+ *     CmFcpCopySectionState @ 0x140A1AAD8 (CmFcpCopySectionState.c)
+ *     CmFcpCleanupSectionState @ 0x140A1AB08 (CmFcpCleanupSectionState.c)
  */
 
 __int64 __fastcall CmFcManagerQueryFeatureConfigurationSectionInformation(
@@ -23,7 +23,7 @@ __int64 __fastcall CmFcManagerQueryFeatureConfigurationSectionInformation(
         KPROCESSOR_MODE a4)
 {
   struct _KTHREAD *CurrentThread; // rax
-  _QWORD *v8; // rbx
+  char *v8; // rbx
   __int64 v9; // r12
   _QWORD *v10; // rsi
   unsigned int v11; // edi
@@ -44,13 +44,13 @@ __int64 __fastcall CmFcManagerQueryFeatureConfigurationSectionInformation(
   memset_0(v23, 0, 0x60uLL);
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  v8 = KeAbPreAcquire((__int64)&stru_140EF6F08, 0LL);
-  if ( _InterlockedCompareExchange64((volatile signed __int64 *)&stru_140EF6F08, 17LL, 0LL) )
-    ExfAcquirePushLockSharedEx((signed __int64 *)&stru_140EF6F08, 0, v8, (__int64)&stru_140EF6F08);
+  v8 = (char *)KeAbPreAcquire((__int64)&stru_140EF7148, 0LL);
+  if ( _InterlockedCompareExchange64((volatile signed __int64 *)&stru_140EF7148, 17LL, 0LL) )
+    ExfAcquirePushLockSharedEx((signed __int64 *)&stru_140EF7148, 0, v8, (__int64)&stru_140EF7148);
   if ( v8 )
-    *((_BYTE *)v8 + 10) = 1;
-  v9 = qword_140EF6F18;
-  v10 = &unk_140EF6F28;
+    v8[10] = 1;
+  v9 = qword_140EF7158;
+  v10 = &unk_140EF7168;
   v11 = 0;
   v12 = 4LL;
   do
@@ -62,9 +62,9 @@ __int64 __fastcall CmFcManagerQueryFeatureConfigurationSectionInformation(
     v10 += 3;
   }
   while ( v11 < 4 );
-  if ( _InterlockedCompareExchange64((volatile signed __int64 *)&stru_140EF6F08, 0LL, 17LL) != 17 )
-    ExfReleasePushLockShared((signed __int64 *)&stru_140EF6F08);
-  KeAbPostRelease((ULONG_PTR)&stru_140EF6F08);
+  if ( _InterlockedCompareExchange64((volatile signed __int64 *)&stru_140EF7148, 0LL, 17LL) != 17 )
+    ExfReleasePushLockShared((signed __int64 *)&stru_140EF7148);
+  KeAbPostRelease((ULONG_PTR)&stru_140EF7148);
   KeLeaveCriticalRegion();
   for ( i = 0; i < 4; ++i )
   {

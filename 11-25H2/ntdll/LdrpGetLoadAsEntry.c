@@ -10,35 +10,35 @@
  *     RtlLeaveCriticalSection @ 0x18007C000 (RtlLeaveCriticalSection.c)
  */
 
-__int64 __fastcall LdrpGetLoadAsEntry(__int64 a1, _OWORD *a2, __int64 a3, __int64 a4)
+__int64 __fastcall LdrpGetLoadAsEntry(__int64 a1, _OWORD *a2)
 {
-  unsigned int v6; // edi
-  int v7; // ecx
-  __int64 v8; // r8
+  unsigned int v4; // edi
+  int v5; // ecx
+  _OWORD *v6; // r8
 
   if ( !a1 || !a2 )
     return 3221225485LL;
-  v6 = -1073741823;
-  LdrpInitMuiCrits(a1, (__int64)a2, a3, a4);
+  v4 = -1073741823;
+  LdrpInitMuiCrits(a1, (__int64)a2);
   RtlEnterCriticalSection(&LoadAsDataCrits);
-  v7 = LoadAsDataTableCount;
+  v5 = LoadAsDataTableCount;
   if ( LoadAsDataTableCount )
   {
-    v8 = LoadAsDataTable;
-    while ( v7 > 0 )
+    v6 = LoadAsDataTable;
+    while ( v5 > 0 )
     {
-      if ( *(_QWORD *)(v8 + 48LL * --v7) == a1 )
+      if ( *(_QWORD *)&v6[3 * --v5] == a1 )
       {
-        if ( *(_QWORD *)(v8 + 48LL * v7 + 8) )
+        if ( *((_QWORD *)&v6[3 * v5] + 1) )
         {
-          *a2 = *(_OWORD *)(v8 + 48LL * v7);
-          a2[1] = *(_OWORD *)(v8 + 48LL * v7 + 16);
-          a2[2] = *(_OWORD *)(v8 + 48LL * v7 + 32);
-          v6 = 0;
+          *a2 = v6[3 * v5];
+          a2[1] = v6[3 * v5 + 1];
+          a2[2] = v6[3 * v5 + 2];
+          v4 = 0;
         }
       }
     }
   }
   RtlLeaveCriticalSection(&LoadAsDataCrits);
-  return v6;
+  return v4;
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of SdbGetAppPatchDirEx @ 0x1406C440C
+ * XREFs of SdbGetAppPatchDirEx @ 0x1406C4544
  * Callers:
- *     SdbResolveDatabase @ 0x1406C44AC (SdbResolveDatabase.c)
- *     SdbpGetStandardDatabasePath @ 0x1406C4894 (SdbpGetStandardDatabasePath.c)
+ *     SdbResolveDatabase @ 0x1406C45E4 (SdbResolveDatabase.c)
+ *     SdbpGetStandardDatabasePath @ 0x1406C49CC (SdbpGetStandardDatabasePath.c)
  * Callees:
- *     RtlStringCchCopyW @ 0x140084F38 (RtlStringCchCopyW.c)
- *     AslPathToSystemPath @ 0x1406C618C (AslPathToSystemPath.c)
+ *     RtlStringCchCopyW @ 0x14010B1EC (RtlStringCchCopyW.c)
+ *     AslPathToSystemPath @ 0x1406C62C4 (AslPathToSystemPath.c)
  */
 
 void __fastcall SdbGetAppPatchDirEx(__int64 a1, wchar_t *a2, unsigned int a3, int a4)

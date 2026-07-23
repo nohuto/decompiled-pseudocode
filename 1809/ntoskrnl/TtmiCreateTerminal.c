@@ -1,21 +1,21 @@
 /*
- * XREFs of TtmiCreateTerminal @ 0x14087E80C
+ * XREFs of TtmiCreateTerminal @ 0x14087FA6C
  * Callers:
- *     TtmInitCurrentSession @ 0x14087F888 (TtmInitCurrentSession.c)
- *     TtmpDispatchCreateTerminal @ 0x140881CA8 (TtmpDispatchCreateTerminal.c)
+ *     TtmInitCurrentSession @ 0x140880AE8 (TtmInitCurrentSession.c)
+ *     TtmpDispatchCreateTerminal @ 0x140882F08 (TtmpDispatchCreateTerminal.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     ObfReferenceObject @ 0x14004E220 (ObfReferenceObject.c)
- *     KeInitializeTimerEx @ 0x140089FF0 (KeInitializeTimerEx.c)
- *     KeInitializeDpc @ 0x1400A56F0 (KeInitializeDpc.c)
- *     RtlFindClearBitsAndSet @ 0x1400D95E0 (RtlFindClearBitsAndSet.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ObCreateObjectEx @ 0x1405E05E0 (ObCreateObjectEx.c)
- *     ObInsertObjectEx @ 0x14062D080 (ObInsertObjectEx.c)
- *     TtmiLogError @ 0x1407616DC (TtmiLogError.c)
- *     TtmpSetTerminalPendingCleanup @ 0x14087F31C (TtmpSetTerminalPendingCleanup.c)
- *     TtmiUpdateActiveTerminalCount @ 0x14088056C (TtmiUpdateActiveTerminalCount.c)
- *     TtmiLogTerminalCreated @ 0x14088599C (TtmiLogTerminalCreated.c)
+ *     KeInitializeTimerEx @ 0x140089FE0 (KeInitializeTimerEx.c)
+ *     KeInitializeDpc @ 0x1400A5630 (KeInitializeDpc.c)
+ *     RtlFindClearBitsAndSet @ 0x1400D9660 (RtlFindClearBitsAndSet.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ObCreateObjectEx @ 0x1405E15E0 (ObCreateObjectEx.c)
+ *     ObInsertObjectEx @ 0x14062E0A0 (ObInsertObjectEx.c)
+ *     TtmiLogError @ 0x1407628CC (TtmiLogError.c)
+ *     TtmpSetTerminalPendingCleanup @ 0x14088057C (TtmpSetTerminalPendingCleanup.c)
+ *     TtmiUpdateActiveTerminalCount @ 0x1408817CC (TtmiUpdateActiveTerminalCount.c)
+ *     TtmiLogTerminalCreated @ 0x140886BFC (TtmiLogTerminalCreated.c)
  */
 
 __int64 __fastcall TtmiCreateTerminal(

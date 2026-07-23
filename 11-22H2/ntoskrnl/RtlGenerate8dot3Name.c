@@ -154,7 +154,7 @@ LABEL_22:
       }
       while ( (unsigned int)v9 < 4 );
       Context->NameLength += 4;
-      Context->ChecksumInserted = 1;
+      Context->CheckSumInserted = 1;
     }
     if ( v13 == -1 )
     {
@@ -194,7 +194,7 @@ LABEL_42:
   }
   v24 = Context->LastIndexValue + 1;
   Context->LastIndexValue = v24;
-  if ( v24 > 4 && !Context->ChecksumInserted )
+  if ( v24 > 4 && !Context->CheckSumInserted )
   {
     v37 = RtlComputeLfnChecksum(Name);
     Context->Checksum = v37;
@@ -218,7 +218,7 @@ LABEL_42:
     Context->LastIndexValue = 1;
     Context->NameLength = 6 - v38;
     v24 = 1;
-    Context->ChecksumInserted = 1;
+    Context->CheckSumInserted = 1;
   }
   v25 = 1;
   v26 = 1;

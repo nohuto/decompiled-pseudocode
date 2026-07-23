@@ -1,17 +1,17 @@
 /*
- * XREFs of MiLockUnlockVmPrepare @ 0x140960C00
+ * XREFs of MiLockUnlockVmPrepare @ 0x140A064C0
  * Callers:
- *     NtLockVirtualMemory @ 0x140318600 (NtLockVirtualMemory.c)
- *     NtUnlockVirtualMemory @ 0x140960970 (NtUnlockVirtualMemory.c)
+ *     NtLockVirtualMemory @ 0x14031A630 (NtLockVirtualMemory.c)
+ *     NtUnlockVirtualMemory @ 0x140A06230 (NtUnlockVirtualMemory.c)
  * Callees:
- *     KiStackAttachProcess @ 0x140247880 (KiStackAttachProcess.c)
- *     MiGetNextVad @ 0x140326018 (MiGetNextVad.c)
- *     MiLocateAddress @ 0x140326730 (MiLocateAddress.c)
- *     MiVadPagesTradable @ 0x14035C9E0 (MiVadPagesTradable.c)
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     MmGetCurrentProcessorColor @ 0x14044ADC0 (MmGetCurrentProcessorColor.c)
- *     MiGetVmPartition @ 0x14044FD80 (MiGetVmPartition.c)
- *     MiLockVadRange @ 0x140960DAC (MiLockVadRange.c)
+ *     KiStackAttachProcess @ 0x1402491E0 (KiStackAttachProcess.c)
+ *     MiGetNextVad @ 0x140328048 (MiGetNextVad.c)
+ *     MiLocateAddress @ 0x140328760 (MiLocateAddress.c)
+ *     MiVadPagesTradable @ 0x14035E780 (MiVadPagesTradable.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     MmGetCurrentProcessorColor @ 0x140442EF0 (MmGetCurrentProcessorColor.c)
+ *     MiGetVmPartition @ 0x140447EB0 (MiGetVmPartition.c)
+ *     MiLockVadRange @ 0x140A0666C (MiLockVadRange.c)
  */
 
 __int64 __fastcall MiLockUnlockVmPrepare(__int64 a1)

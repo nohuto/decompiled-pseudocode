@@ -1,13 +1,13 @@
 /*
- * XREFs of SymCryptSha256AppendBlocks @ 0x1403EC2B0
+ * XREFs of SymCryptSha256AppendBlocks @ 0x1403EC420
  * Callers:
- *     SymCryptSha256Append @ 0x1403EC1E0 (SymCryptSha256Append.c)
- *     SymCryptSha256Result @ 0x1403EDA20 (SymCryptSha256Result.c)
- *     SymCryptParallelSha256AppendBytes_serial @ 0x1403EF01C (SymCryptParallelSha256AppendBytes_serial.c)
+ *     SymCryptSha256Append @ 0x1403EC350 (SymCryptSha256Append.c)
+ *     SymCryptSha256Result @ 0x1403EDB90 (SymCryptSha256Result.c)
+ *     SymCryptParallelSha256AppendBytes_serial @ 0x1403EF18C (SymCryptParallelSha256AppendBytes_serial.c)
  * Callees:
- *     SymCryptCpuFeaturesNeverPresent @ 0x1402D0BC0 (SymCryptCpuFeaturesNeverPresent.c)
- *     SymCryptSha256AppendBlocks_shani @ 0x1403EC314 (SymCryptSha256AppendBlocks_shani.c)
- *     SymCryptSha256AppendBlocks_ul1 @ 0x1403EC6F4 (SymCryptSha256AppendBlocks_ul1.c)
+ *     SymCryptCpuFeaturesNeverPresent @ 0x14024F050 (SymCryptCpuFeaturesNeverPresent.c)
+ *     SymCryptSha256AppendBlocks_shani @ 0x1403EC484 (SymCryptSha256AppendBlocks_shani.c)
+ *     SymCryptSha256AppendBlocks_ul1 @ 0x1403EC864 (SymCryptSha256AppendBlocks_ul1.c)
  */
 
 __int64 __fastcall SymCryptSha256AppendBlocks(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

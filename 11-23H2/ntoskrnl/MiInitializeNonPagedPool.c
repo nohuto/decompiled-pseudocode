@@ -5,14 +5,14 @@
  * Callees:
  *     MiSystemVaToDynamicBitmap @ 0x140210FC4 (MiSystemVaToDynamicBitmap.c)
  *     MiGetAnyMultiplexedVm @ 0x1402146B4 (MiGetAnyMultiplexedVm.c)
- *     MI_IS_PHYSICAL_ADDRESS @ 0x1402848B0 (MI_IS_PHYSICAL_ADDRESS.c)
- *     MiConvertEntireLargePageToSmall @ 0x1402D2AD0 (MiConvertEntireLargePageToSmall.c)
- *     ExGenRandom @ 0x1403175D0 (ExGenRandom.c)
- *     MiBuildDynamicRegion @ 0x14037620C (MiBuildDynamicRegion.c)
- *     MiVaToPfnEx @ 0x14038A270 (MiVaToPfnEx.c)
- *     MiInitializeNonPagedPoolThresholds @ 0x140398790 (MiInitializeNonPagedPoolThresholds.c)
- *     MiAddExpansionNonPagedPool @ 0x1403988C4 (MiAddExpansionNonPagedPool.c)
- *     MiInitializeSystemWorkingSetList @ 0x1407A9BC8 (MiInitializeSystemWorkingSetList.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x140284B40 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     MiConvertEntireLargePageToSmall @ 0x1402D2D60 (MiConvertEntireLargePageToSmall.c)
+ *     ExGenRandom @ 0x140317860 (ExGenRandom.c)
+ *     MiBuildDynamicRegion @ 0x1403763AC (MiBuildDynamicRegion.c)
+ *     MiVaToPfnEx @ 0x14038A450 (MiVaToPfnEx.c)
+ *     MiInitializeNonPagedPoolThresholds @ 0x140398970 (MiInitializeNonPagedPoolThresholds.c)
+ *     MiAddExpansionNonPagedPool @ 0x140398AA4 (MiAddExpansionNonPagedPool.c)
+ *     MiInitializeSystemWorkingSetList @ 0x1407A9DB8 (MiInitializeSystemWorkingSetList.c)
  */
 
 __int64 MiInitializeNonPagedPool()

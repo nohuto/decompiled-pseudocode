@@ -1,17 +1,17 @@
 /*
- * XREFs of DifZwDeleteBootEntryWrapper @ 0x1406A3DA0
+ * XREFs of DifZwDeleteBootEntryWrapper @ 0x1406A7980
  * Callers:
  *     <none>
  * Callees:
- *     DifGetReturnAddressForWrappers @ 0x140260EA4 (DifGetReturnAddressForWrappers.c)
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     DifGetAPIThunkContextById @ 0x1404C17A4 (DifGetAPIThunkContextById.c)
- *     ZwDeleteBootEntry @ 0x140724F10 (ZwDeleteBootEntry.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     DifGetReturnAddressForWrappers @ 0x14026040C (DifGetReturnAddressForWrappers.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     DifGetAPIThunkContextById @ 0x1404BAFF4 (DifGetAPIThunkContextById.c)
+ *     ZwDeleteBootEntry @ 0x140729AE0 (ZwDeleteBootEntry.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
-__int64 __fastcall DifZwDeleteBootEntryWrapper(unsigned int a1)
+__int64 __fastcall DifZwDeleteBootEntryWrapper(ULONG Id)
 {
   __int128 *APIThunkContextById; // rax
   __int64 v3; // rdx
@@ -41,7 +41,7 @@ __int64 __fastcall DifZwDeleteBootEntryWrapper(unsigned int a1)
       *(_QWORD *)&v13 = DifGetReturnAddressForWrappers();
     }
     v6 = 0;
-    DWORD2(v13) = a1;
+    DWORD2(v13) = Id;
     if ( !VfDifRunningWithoutReboot && (VfOptionFlags & 0x800) == 0
       || (v6 = ExAcquireRundownProtection_0(&DifRebootlessRundown)) != 0 )
     {
@@ -54,7 +54,7 @@ __int64 __fastcall DifZwDeleteBootEntryWrapper(unsigned int a1)
         ExReleaseRundownProtection_0(&DifRebootlessRundown);
     }
   }
-  HIDWORD(v13) = ZwDeleteBootEntry(a1);
+  HIDWORD(v13) = ZwDeleteBootEntry(Id);
   if ( v4 )
   {
     if ( (v9 = 0, !VfDifRunningWithoutReboot) && (VfOptionFlags & 0x800) == 0

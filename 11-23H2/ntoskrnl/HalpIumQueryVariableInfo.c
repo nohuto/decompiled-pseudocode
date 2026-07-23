@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpIumQueryVariableInfo @ 0x1405205B0
+ * XREFs of HalpIumQueryVariableInfo @ 0x140520B00
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall HalpIumQueryVariableInfo(unsigned int a1, _QWORD *a2, _QWORD *a3, _QWORD *a4)

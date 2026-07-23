@@ -121,7 +121,7 @@ void __fastcall IovpCompleteRequest2(ULONG_PTR a1, __int64 **a2)
       v17 = *v2;
       *(_DWORD *)(v17 + 56) &= ~1u;
       *(_QWORD *)(v17 + 240) = 0LL;
-      IovpSessionDataDereference((struct _SLIST_ENTRY *)v2);
+      IovpSessionDataDereference((_SLIST_ENTRY *)v2);
       v18 = (*(_DWORD *)(v5 + 24))-- == 1;
       LOBYTE(v24) = 0;
       if ( v18 )

@@ -28,7 +28,7 @@ __int64 __fastcall EtwpCovSampSampleBufferReserve(__int64 a1, __int16 a2, __int6
   unsigned __int8 v17; // al
   struct _KPRCB *v18; // r10
   _DWORD *v19; // r9
-  struct _SLIST_ENTRY *v20; // rax
+  _SLIST_ENTRY *v20; // rax
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r9
   _DWORD *SchedulerAssist; // r8

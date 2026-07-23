@@ -1,17 +1,20 @@
 /*
- * XREFs of DifZwCreateEventPairWrapper @ 0x14069EF70
+ * XREFs of DifZwCreateEventPairWrapper @ 0x1406A2B50
  * Callers:
  *     <none>
  * Callees:
- *     DifGetReturnAddressForWrappers @ 0x140260EA4 (DifGetReturnAddressForWrappers.c)
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     DifGetAPIThunkContextById @ 0x1404C17A4 (DifGetAPIThunkContextById.c)
- *     ZwCreateEventPair @ 0x1407249F0 (ZwCreateEventPair.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     DifGetReturnAddressForWrappers @ 0x14026040C (DifGetReturnAddressForWrappers.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     DifGetAPIThunkContextById @ 0x1404BAFF4 (DifGetAPIThunkContextById.c)
+ *     ZwCreateEventPair @ 0x1407295C0 (ZwCreateEventPair.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
-__int64 __fastcall DifZwCreateEventPairWrapper(__int64 a1, unsigned int a2, __int64 a3)
+__int64 __fastcall DifZwCreateEventPairWrapper(
+        PHANDLE EventPairHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes)
 {
   __int128 *APIThunkContextById; // rax
   __int64 v7; // rdx
@@ -45,9 +48,9 @@ __int64 __fastcall DifZwCreateEventPairWrapper(__int64 a1, unsigned int a2, __in
       *(_QWORD *)&v17 = DifGetReturnAddressForWrappers();
     }
     v10 = 0;
-    *((_QWORD *)&v18 + 1) = a1;
-    LODWORD(v18) = a2;
-    *((_QWORD *)&v17 + 1) = a3;
+    *((_QWORD *)&v18 + 1) = EventPairHandle;
+    LODWORD(v18) = DesiredAccess;
+    *((_QWORD *)&v17 + 1) = ObjectAttributes;
     if ( !VfDifRunningWithoutReboot && (VfOptionFlags & 0x800) == 0
       || (v10 = ExAcquireRundownProtection_0(&DifRebootlessRundown)) != 0 )
     {
@@ -60,7 +63,7 @@ __int64 __fastcall DifZwCreateEventPairWrapper(__int64 a1, unsigned int a2, __in
         ExReleaseRundownProtection_0(&DifRebootlessRundown);
     }
   }
-  LODWORD(v19) = ZwCreateEventPair(a1, a2, a3);
+  LODWORD(v19) = ZwCreateEventPair(EventPairHandle, DesiredAccess, ObjectAttributes);
   if ( v8 )
   {
     if ( (v13 = 0, !VfDifRunningWithoutReboot) && (VfOptionFlags & 0x800) == 0

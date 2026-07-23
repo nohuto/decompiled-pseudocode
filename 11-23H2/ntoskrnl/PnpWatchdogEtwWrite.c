@@ -1,17 +1,17 @@
 /*
- * XREFs of PnpWatchdogEtwWrite @ 0x140560A70
+ * XREFs of PnpWatchdogEtwWrite @ 0x140561130
  * Callers:
- *     PnpWatchdogSecondChanceCallback @ 0x140560EB0 (PnpWatchdogSecondChanceCallback.c)
- *     PnpDisableWatchdog @ 0x14078266C (PnpDisableWatchdog.c)
- *     PnpDisableAndFreeEventWatchdog @ 0x14078554C (PnpDisableAndFreeEventWatchdog.c)
- *     PnpCallAddDevice @ 0x14079262C (PnpCallAddDevice.c)
- *     PnpCallDriverEntry @ 0x1407E1BC8 (PnpCallDriverEntry.c)
- *     PnpDelayedRemoveWorker @ 0x140881690 (PnpDelayedRemoveWorker.c)
- *     PnpWatchdogFirstChanceCallback @ 0x140957AE0 (PnpWatchdogFirstChanceCallback.c)
+ *     PnpWatchdogSecondChanceCallback @ 0x140561570 (PnpWatchdogSecondChanceCallback.c)
+ *     PnpDisableWatchdog @ 0x14078285C (PnpDisableWatchdog.c)
+ *     PnpDisableAndFreeEventWatchdog @ 0x14078573C (PnpDisableAndFreeEventWatchdog.c)
+ *     PnpCallAddDevice @ 0x14079281C (PnpCallAddDevice.c)
+ *     PnpCallDriverEntry @ 0x1407E1E98 (PnpCallDriverEntry.c)
+ *     PnpDelayedRemoveWorker @ 0x1408818D0 (PnpDelayedRemoveWorker.c)
+ *     PnpWatchdogFirstChanceCallback @ 0x140957CE0 (PnpWatchdogFirstChanceCallback.c)
  * Callees:
- *     McTemplateK0izzx_EtwWriteTransfer @ 0x140560540 (McTemplateK0izzx_EtwWriteTransfer.c)
- *     PnpWatchdogExtractTriageInformation @ 0x140560D9C (PnpWatchdogExtractTriageInformation.c)
- *     PnpTraceWatchdogViolation @ 0x140564A24 (PnpTraceWatchdogViolation.c)
+ *     McTemplateK0izzx_EtwWriteTransfer @ 0x140560C00 (McTemplateK0izzx_EtwWriteTransfer.c)
+ *     PnpWatchdogExtractTriageInformation @ 0x14056145C (PnpWatchdogExtractTriageInformation.c)
+ *     PnpTraceWatchdogViolation @ 0x1405650E4 (PnpTraceWatchdogViolation.c)
  */
 
 char __fastcall PnpWatchdogEtwWrite(__int64 a1, int a2)

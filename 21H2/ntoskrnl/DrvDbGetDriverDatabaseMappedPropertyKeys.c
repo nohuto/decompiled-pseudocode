@@ -1,14 +1,14 @@
 /*
- * XREFs of DrvDbGetDriverDatabaseMappedPropertyKeys @ 0x14097D3A4
+ * XREFs of DrvDbGetDriverDatabaseMappedPropertyKeys @ 0x14097D584
  * Callers:
- *     DrvDbDispatchDriverDatabase @ 0x14063BE70 (DrvDbDispatchDriverDatabase.c)
+ *     DrvDbDispatchDriverDatabase @ 0x140630C80 (DrvDbDispatchDriverDatabase.c)
  * Callees:
- *     DrvDbFindDatabaseNode @ 0x14060258C (DrvDbFindDatabaseNode.c)
- *     _PnpCtxRegCloseKey @ 0x14063B8A4 (_PnpCtxRegCloseKey.c)
- *     DrvDbOpenObjectRegKey @ 0x140640410 (DrvDbOpenObjectRegKey.c)
- *     _RegRtlQueryValue @ 0x140642318 (_RegRtlQueryValue.c)
- *     DrvDbOpenDriverDatabaseRegKey @ 0x140735A04 (DrvDbOpenDriverDatabaseRegKey.c)
- *     DrvDbGetCompositeMappedPropertyKeys @ 0x14097D24C (DrvDbGetCompositeMappedPropertyKeys.c)
+ *     _PnpCtxRegCloseKey @ 0x1406306B4 (_PnpCtxRegCloseKey.c)
+ *     DrvDbOpenObjectRegKey @ 0x140635220 (DrvDbOpenObjectRegKey.c)
+ *     _RegRtlQueryValue @ 0x140637128 (_RegRtlQueryValue.c)
+ *     DrvDbFindDatabaseNode @ 0x1406F1CEC (DrvDbFindDatabaseNode.c)
+ *     DrvDbOpenDriverDatabaseRegKey @ 0x140735BC4 (DrvDbOpenDriverDatabaseRegKey.c)
+ *     DrvDbGetCompositeMappedPropertyKeys @ 0x14097D42C (DrvDbGetCompositeMappedPropertyKeys.c)
  */
 
 __int64 __fastcall DrvDbGetDriverDatabaseMappedPropertyKeys(
@@ -84,7 +84,7 @@ __int64 __fastcall DrvDbGetDriverDatabaseMappedPropertyKeys(
     LODWORD(v33) = 1;
     CompositeMappedPropertyKeys = DrvDbOpenObjectRegKey(
                                     (__int64 *)v10,
-                                    *(const UNICODE_STRING **)(v10 + 32),
+                                    *(__int64 **)(v10 + 32),
                                     1u,
                                     v8,
                                     v33,
@@ -95,7 +95,7 @@ __int64 __fastcall DrvDbGetDriverDatabaseMappedPropertyKeys(
     if ( CompositeMappedPropertyKeys < 0 )
       goto LABEL_47;
     v16 = KeyHandle;
-    v17 = &off_140009DF0;
+    v17 = &off_140009E50;
     LODWORD(a6) = 0;
     v40 = KeyHandle;
     v18 = 0;
@@ -168,7 +168,7 @@ LABEL_22:
     a3 = v38;
   }
   v23 = 0LL;
-  v24 = &off_140004F40;
+  v24 = &off_140004BA0;
   v25 = 0;
   while ( 1 )
   {

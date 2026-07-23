@@ -1,17 +1,17 @@
 /*
- * XREFs of SdbpCreateSearchDBContext @ 0x140A85BE4
+ * XREFs of SdbpCreateSearchDBContext @ 0x140A80724
  * Callers:
- *     SdbGetDatabaseMatch @ 0x1409595F0 (SdbGetDatabaseMatch.c)
- *     SdbpCheckKObject @ 0x140959920 (SdbpCheckKObject.c)
+ *     SdbGetDatabaseMatch @ 0x1409410B0 (SdbGetDatabaseMatch.c)
+ *     SdbpCheckKObject @ 0x1409413E0 (SdbpCheckKObject.c)
  * Callees:
- *     RtlStringCchCopyW @ 0x14043FE9C (RtlStringCchCopyW.c)
- *     RtlStringCchCatW @ 0x1404BC4A0 (RtlStringCchCatW.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     AslFree @ 0x14095CD24 (AslFree.c)
- *     AslAlloc @ 0x14095D3E4 (AslAlloc.c)
- *     AslLogCallPrintf @ 0x1409601DC (AslLogCallPrintf.c)
- *     AslPathSplit @ 0x140AA64AC (AslPathSplit.c)
+ *     RtlStringCchCopyW @ 0x14043615C (RtlStringCchCopyW.c)
+ *     RtlStringCchCatW @ 0x1404B73B0 (RtlStringCchCatW.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     AslFree @ 0x1409447E4 (AslFree.c)
+ *     AslAlloc @ 0x140944EA4 (AslAlloc.c)
+ *     AslLogCallPrintf @ 0x140947C9C (AslLogCallPrintf.c)
+ *     AslPathSplit @ 0x140AA151C (AslPathSplit.c)
  */
 
 __int64 __fastcall SdbpCreateSearchDBContext(_QWORD *a1, const wchar_t **a2)
@@ -39,56 +39,44 @@ __int64 __fastcall SdbpCreateSearchDBContext(_QWORD *a1, const wchar_t **a2)
   memset_0(v22, 0, 0x208uLL);
   v5 = 0LL;
   memset_0(pszSrc, 0, 0x208uLL);
-  if ( !a2 )
+  if ( a2 )
   {
-    v10 = (wchar_t *)AslAlloc(v6, 4uLL);
-    v5 = (wchar_t *)AslAlloc(v16, 2uLL);
-    v18 = AslAlloc(v17, 2uLL);
-    if ( !v10 || !v5 || !v18 )
+    v7 = *a2;
+    v8 = -1LL;
+    do
+      ++v8;
+    while ( v7[v8] );
+    v9 = v8 + 1;
+    v10 = (wchar_t *)AslAlloc(v6, 2LL * (unsigned int)(v8 + 1));
+    if ( !v10 )
     {
-      AslLogCallPrintf(1LL, (__int64)"SdbpCreateSearchDBContext", 470LL, (__int64)"Unable to allocate memory");
-      if ( !v10 )
-        goto LABEL_21;
-      goto LABEL_20;
+      AslLogCallPrintf(1LL, (__int64)"SdbpCreateSearchDBContext");
+      return v4;
     }
+    if ( (int)AslPathSplit(v7, v10, v9, pszSrc, v20, v22) >= 0
+      && (v14 = (wchar_t *)AslAlloc(v12, 0x208uLL), (v5 = v14) != 0LL) )
+    {
+      if ( RtlStringCchCopyW(v14, 0x104uLL, pszSrc) >= 0 && RtlStringCchCatW(v5, v15, v22) >= 0 )
+        goto LABEL_17;
+    }
+    else
+    {
+      AslLogCallPrintf(1LL, (__int64)"SdbpCreateSearchDBContext");
+    }
+LABEL_19:
+    AslFree(v13, v10);
+    goto LABEL_20;
+  }
+  v10 = (wchar_t *)AslAlloc(v6, 4uLL);
+  v5 = (wchar_t *)AslAlloc(v16, 2uLL);
+  v18 = AslAlloc(v17, 2uLL);
+  if ( v10 && v5 && v18 )
+  {
     RtlStringCchCopyW(v10, 2uLL, L".");
     *v5 = 0;
     *v19 = 0;
     a1[3] = v19;
-    goto LABEL_18;
-  }
-  v7 = *a2;
-  v8 = -1LL;
-  do
-    ++v8;
-  while ( v7[v8] );
-  v9 = v8 + 1;
-  v10 = (wchar_t *)AslAlloc(v6, 2LL * (unsigned int)(v8 + 1));
-  if ( !v10 )
-  {
-    AslLogCallPrintf(
-      1LL,
-      (__int64)"SdbpCreateSearchDBContext",
-      438LL,
-      (__int64)"Unable to allocate memory for directory path");
-    return v4;
-  }
-  if ( (int)AslPathSplit(v7, v10, v9, pszSrc, v20, v22) >= 0 )
-  {
-    v14 = (wchar_t *)AslAlloc(v12, 0x208uLL);
-    v5 = v14;
-    if ( !v14 )
-    {
-      AslLogCallPrintf(
-        1LL,
-        (__int64)"SdbpCreateSearchDBContext",
-        455LL,
-        (__int64)"Unable to allocate memory for full name");
-      goto LABEL_20;
-    }
-    if ( RtlStringCchCopyW(v14, 0x104uLL, pszSrc) < 0 || RtlStringCchCatW(v5, v15, v22) < 0 )
-      goto LABEL_20;
-LABEL_18:
+LABEL_17:
     a1[1] = a2;
     v4 = 1;
     a1[7] = 0LL;
@@ -101,14 +89,10 @@ LABEL_18:
     a1[12] = 0LL;
     return v4;
   }
-  AslLogCallPrintf(
-    1LL,
-    (__int64)"SdbpCreateSearchDBContext",
-    449LL,
-    (__int64)"Unable to parse executable path for \"%ws\"");
+  AslLogCallPrintf(1LL, (__int64)"SdbpCreateSearchDBContext");
+  if ( v10 )
+    goto LABEL_19;
 LABEL_20:
-  AslFree(v13, v10);
-LABEL_21:
   if ( v5 )
     AslFree(v13, v5);
   return v4;

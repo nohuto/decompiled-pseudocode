@@ -1,10 +1,10 @@
 /*
- * XREFs of MmExtendSection @ 0x14061C8CC
+ * XREFs of MmExtendSection @ 0x14061D8CC
  * Callers:
- *     CcSetFileSizesEx @ 0x14007CFC0 (CcSetFileSizesEx.c)
- *     MiCreateSection @ 0x1405DDAC0 (MiCreateSection.c)
- *     MiAllocateVirtualMemory @ 0x1405ED650 (MiAllocateVirtualMemory.c)
- *     NtExtendSection @ 0x1406CEC50 (NtExtendSection.c)
+ *     CcSetFileSizesEx @ 0x14007CFB0 (CcSetFileSizesEx.c)
+ *     MiCreateSection @ 0x1405DEAC0 (MiCreateSection.c)
+ *     MiAllocateVirtualMemory @ 0x1405EE650 (MiAllocateVirtualMemory.c)
+ *     NtExtendSection @ 0x1406CFEF0 (NtExtendSection.c)
  * Callees:
  *     MiDereferenceControlAreaFile @ 0x14001CA78 (MiDereferenceControlAreaFile.c)
  *     MiReferenceControlAreaFile @ 0x14001CBB0 (MiReferenceControlAreaFile.c)
@@ -12,17 +12,17 @@
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     MiSectionControlArea @ 0x140075E70 (MiSectionControlArea.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     MiUnlockControlAreaSectionExtend @ 0x140092C28 (MiUnlockControlAreaSectionExtend.c)
- *     MiLockControlAreaSectionExtend @ 0x140092CE0 (MiLockControlAreaSectionExtend.c)
- *     MiFindLastSubsection @ 0x140092DF0 (MiFindLastSubsection.c)
- *     MiUpdateLastSubsectionSize @ 0x140134498 (MiUpdateLastSubsectionSize.c)
- *     MiSubsectionNeedsExtents @ 0x1402B4690 (MiSubsectionNeedsExtents.c)
- *     MiUpdateActiveSubsection @ 0x1402B4718 (MiUpdateActiveSubsection.c)
- *     FsRtlGetFileSize @ 0x14061B4A0 (FsRtlGetFileSize.c)
- *     MiExtendSection @ 0x14061C4C8 (MiExtendSection.c)
- *     FsRtlSetFileSize @ 0x1406CAA60 (FsRtlSetFileSize.c)
+ *     MiSectionControlArea @ 0x140075E60 (MiSectionControlArea.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     MiUnlockControlAreaSectionExtend @ 0x140092B68 (MiUnlockControlAreaSectionExtend.c)
+ *     MiLockControlAreaSectionExtend @ 0x140092C20 (MiLockControlAreaSectionExtend.c)
+ *     MiFindLastSubsection @ 0x140092D30 (MiFindLastSubsection.c)
+ *     MiUpdateLastSubsectionSize @ 0x140134568 (MiUpdateLastSubsectionSize.c)
+ *     MiSubsectionNeedsExtents @ 0x1402B4880 (MiSubsectionNeedsExtents.c)
+ *     MiUpdateActiveSubsection @ 0x1402B4908 (MiUpdateActiveSubsection.c)
+ *     FsRtlGetFileSize @ 0x14061C4A0 (FsRtlGetFileSize.c)
+ *     MiExtendSection @ 0x14061D4C8 (MiExtendSection.c)
+ *     FsRtlSetFileSize @ 0x1406CBD00 (FsRtlSetFileSize.c)
  */
 
 __int64 __fastcall MmExtendSection(__int64 a1, LARGE_INTEGER *a2, int a3)
@@ -86,13 +86,13 @@ LABEL_20:
         {
           CurrentThread = KeGetCurrentThread();
           --CurrentThread->SpecialApcDisable;
-          ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_140438BD0, 0LL);
+          ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_140439C90, 0LL);
           v21 = *(LARGE_INTEGER **)(v8 + 32);
           if ( v21 )
             *v21 = FileSize;
-          if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140438BD0, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-            ExfTryToWakePushLock((volatile signed __int64 *)&qword_140438BD0);
-          KeAbPostRelease((ULONG_PTR)&qword_140438BD0);
+          if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140439C90, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+            ExfTryToWakePushLock((volatile signed __int64 *)&qword_140439C90);
+          KeAbPostRelease((ULONG_PTR)&qword_140439C90);
           KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);
         }
         MiUnlockControlAreaSectionExtend(v7, (__int64)v23);

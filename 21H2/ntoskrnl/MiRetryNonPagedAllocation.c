@@ -1,14 +1,14 @@
 /*
- * XREFs of MiRetryNonPagedAllocation @ 0x140274C3C
+ * XREFs of MiRetryNonPagedAllocation @ 0x140262BDC
  * Callers:
- *     MiGetPoolPages @ 0x140274A0C (MiGetPoolPages.c)
+ *     MiGetPoolPages @ 0x1402629AC (MiGetPoolPages.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
- *     MiSufficientAvailablePages @ 0x140275470 (MiSufficientAvailablePages.c)
- *     KeResetEvent @ 0x14027BC40 (KeResetEvent.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
- *     KeAreInterruptsEnabled @ 0x1403506D0 (KeAreInterruptsEnabled.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     MiSufficientAvailablePages @ 0x140263410 (MiSufficientAvailablePages.c)
+ *     KeResetEvent @ 0x140269BE0 (KeResetEvent.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402D3660 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeWaitForSingleObject @ 0x1403504C0 (KeWaitForSingleObject.c)
+ *     KeAreInterruptsEnabled @ 0x14035B420 (KeAreInterruptsEnabled.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
@@ -42,34 +42,34 @@ __int64 MiRetryNonPagedAllocation()
     return 1LL;
   v1 = 0;
   Timeout = (LARGE_INTEGER *)&Mi30Milliseconds;
-  for ( i = 1; ; i = KeWaitForSingleObject(&stru_140C520E8, WrFreePage, 0, 0, Timeout) )
+  for ( i = 1; ; i = KeWaitForSingleObject(&stru_140C52128, WrFreePage, 0, 0, Timeout) )
   {
-    KeAcquireInStackQueuedSpinLock(&qword_140C520C0, &LockHandle);
+    KeAcquireInStackQueuedSpinLock(&qword_140C52100, &LockHandle);
     if ( (unsigned int)MiSufficientAvailablePages(&MiSystemPartition, 160LL) )
       break;
     if ( i == 1 )
     {
-      if ( byte_140C4C8E4 == 1 )
+      if ( byte_140C4C924 == 1 )
       {
-        if ( dword_140C4C8E0 == dword_140C52100 )
+        if ( dword_140C4C920 == dword_140C52140 )
           goto LABEL_29;
-        byte_140C4C8E4 = 0;
+        byte_140C4C924 = 0;
       }
     }
     else
     {
       if ( i == 258 )
       {
-        if ( !byte_140C4C8E4 )
+        if ( !byte_140C4C924 )
         {
-          dword_140C4C8E0 = dword_140C52100;
-          byte_140C4C8E4 = 1;
+          dword_140C4C920 = dword_140C52140;
+          byte_140C4C924 = 1;
         }
         goto LABEL_29;
       }
       Timeout = (LARGE_INTEGER *)&Mi10Milliseconds;
     }
-    KeResetEvent(&stru_140C520E8);
+    KeResetEvent(&stru_140C52128);
     KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
     OldIrql = LockHandle.OldIrql;
     if ( KiIrqlFlags )
@@ -91,8 +91,8 @@ __int64 MiRetryNonPagedAllocation()
     }
     __writecr8(OldIrql);
   }
-  if ( byte_140C4C8E4 == 1 )
-    byte_140C4C8E4 = 0;
+  if ( byte_140C4C924 == 1 )
+    byte_140C4C924 = 0;
   v1 = 1;
 LABEL_29:
   KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);

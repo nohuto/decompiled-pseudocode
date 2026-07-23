@@ -1,17 +1,17 @@
 /*
- * XREFs of MiInitializeNewPfns @ 0x140375770
+ * XREFs of MiInitializeNewPfns @ 0x140375910
  * Callers:
- *     MiDoGangAssignment @ 0x14038BE64 (MiDoGangAssignment.c)
- *     MiInitializeDynamicPfns @ 0x14061AEF8 (MiInitializeDynamicPfns.c)
+ *     MiDoGangAssignment @ 0x14038C044 (MiDoGangAssignment.c)
+ *     MiInitializeDynamicPfns @ 0x14061B448 (MiInitializeDynamicPfns.c)
  *     MiCreateDescriptorPfns @ 0x140B42404 (MiCreateDescriptorPfns.c)
  * Callees:
  *     MiCreateInitialLargeLeafPfns @ 0x140219E80 (MiCreateInitialLargeLeafPfns.c)
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     MiSwizzleInvalidPte @ 0x1402857A0 (MiSwizzleInvalidPte.c)
- *     MiMakeValidPte @ 0x1402CF2B0 (MiMakeValidPte.c)
- *     MiSetNonResidentPteHeat @ 0x1402D90B0 (MiSetNonResidentPteHeat.c)
- *     MiGetContainingPageTable @ 0x1402E1270 (MiGetContainingPageTable.c)
- *     MiDetermineNewPfnHeatState @ 0x1403478E8 (MiDetermineNewPfnHeatState.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     MiSwizzleInvalidPte @ 0x140285A30 (MiSwizzleInvalidPte.c)
+ *     MiMakeValidPte @ 0x1402CF540 (MiMakeValidPte.c)
+ *     MiSetNonResidentPteHeat @ 0x1402D9340 (MiSetNonResidentPteHeat.c)
+ *     MiGetContainingPageTable @ 0x1402E1500 (MiGetContainingPageTable.c)
+ *     MiDetermineNewPfnHeatState @ 0x140347B78 (MiDetermineNewPfnHeatState.c)
  */
 
 __int64 __fastcall MiInitializeNewPfns(

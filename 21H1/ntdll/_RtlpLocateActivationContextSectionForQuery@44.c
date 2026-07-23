@@ -22,13 +22,13 @@ void __fastcall RtlpLocateActivationContextSectionForQuery(
         int a7,
         int a8,
         int a9,
-        int a10,
-        int a11)
+        int a10)
 {
   int ActivationContextSection; // eax
+  size_t v13; // [esp-4h] [ebp-10h]
 
-  if ( a7
-    && (ActivationContextSection = RtlpLocateActivationContextSection(a9, a10, a11),
+  if ( HIDWORD(Size)
+    && (ActivationContextSection = RtlpLocateActivationContextSection(SHIDWORD(Size), a8, a9, a10),
         *a2 = ActivationContextSection,
         ActivationContextSection != -1072365567) )
   {
@@ -37,13 +37,14 @@ void __fastcall RtlpLocateActivationContextSectionForQuery(
   else
   {
     *a1 = 2;
-    if ( Size > a4 )
+    if ( (unsigned int)Size > a4 )
     {
       *a2 = -1073741789;
     }
     else
     {
-      memset(a3, 0, Size);
+      LODWORD(v13) = Size;
+      memset(a3, 0, v13);
       if ( a5 )
         *a5 = Size;
       *a2 = 0;

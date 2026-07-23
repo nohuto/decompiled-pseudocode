@@ -1,16 +1,16 @@
 /*
- * XREFs of MiDeletePartialCloneVad @ 0x14066313C
+ * XREFs of MiDeletePartialCloneVad @ 0x140663220
  * Callers:
- *     MiAllocateChildVads @ 0x140527B80 (MiAllocateChildVads.c)
+ *     MiAllocateChildVads @ 0x14050ABE0 (MiAllocateChildVads.c)
  * Callees:
- *     MmGetSessionIdEx @ 0x140024FEC (MmGetSessionIdEx.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     MiDereferenceExtendInfo @ 0x14010EAA4 (MiDereferenceExtendInfo.c)
- *     MiFreeVadEvents @ 0x1401E9280 (MiFreeVadEvents.c)
- *     MiRemoveSharedCommitNode @ 0x14042EA70 (MiRemoveSharedCommitNode.c)
- *     MiFreeVadEventBitmap @ 0x140659D2C (MiFreeVadEventBitmap.c)
- *     MiDereferencePerSessionProtos @ 0x140661CF8 (MiDereferencePerSessionProtos.c)
- *     MiFreeLargePageView @ 0x140662878 (MiFreeLargePageView.c)
+ *     MmGetSessionIdEx @ 0x140024B6C (MmGetSessionIdEx.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     MiDereferenceExtendInfo @ 0x14010F008 (MiDereferenceExtendInfo.c)
+ *     MiFreeVadEvents @ 0x1401E90AC (MiFreeVadEvents.c)
+ *     MiRemoveSharedCommitNode @ 0x14042D940 (MiRemoveSharedCommitNode.c)
+ *     MiFreeVadEventBitmap @ 0x140659E10 (MiFreeVadEventBitmap.c)
+ *     MiDereferencePerSessionProtos @ 0x140661DDC (MiDereferencePerSessionProtos.c)
+ *     MiFreeLargePageView @ 0x14066295C (MiFreeLargePageView.c)
  */
 
 void __fastcall MiDeletePartialCloneVad(__int64 a1, char a2)
@@ -37,7 +37,7 @@ void __fastcall MiDeletePartialCloneVad(__int64 a1, char a2)
     MiRemoveSharedCommitNode(**(_QWORD **)(a1 + 72), (unsigned __int64)Process, 0);
   v7 = *(_DWORD *)(a1 + 48);
   if ( (v7 & 7) == 2 && (v7 & 0x10000) != 0 )
-    --*(_QWORD *)(qword_140327F90 + 276840640);
+    --*(_QWORD *)(qword_140327FD0 + 276840640);
   if ( (*(_DWORD *)(a1 + 48) & 0x8000) == 0 && *(__int64 *)(a1 + 120) < 0 )
     MiDereferenceExtendInfo(a1, **(_QWORD **)(a1 + 72));
   MiFreeVadEvents(a1);

@@ -1,21 +1,21 @@
 /*
- * XREFs of EtwGetKernelTraceTimestampSilo @ 0x1402A2FB0
+ * XREFs of EtwGetKernelTraceTimestampSilo @ 0x1402A3240
  * Callers:
- *     KiExecuteAllDpcs @ 0x1402444C0 (KiExecuteAllDpcs.c)
- *     KiExpireTimer2 @ 0x140251A80 (KiExpireTimer2.c)
- *     KiIpiSendRequest @ 0x140254020 (KiIpiSendRequest.c)
- *     PfHardFaultRecord @ 0x1402A2F14 (PfHardFaultRecord.c)
- *     EtwGetKernelTraceTimestamp @ 0x1402A2F90 (EtwGetKernelTraceTimestamp.c)
- *     KiIpiProcessRequests @ 0x1403349F0 (KiIpiProcessRequests.c)
- *     HvcallFastExtended @ 0x1403CC1B0 (HvcallFastExtended.c)
- *     HvlSendSyntheticClusterIpi @ 0x1403CC2A0 (HvlSendSyntheticClusterIpi.c)
+ *     KiExecuteAllDpcs @ 0x140244590 (KiExecuteAllDpcs.c)
+ *     KiExpireTimer2 @ 0x140251B40 (KiExpireTimer2.c)
+ *     KiIpiSendRequest @ 0x1402540E0 (KiIpiSendRequest.c)
+ *     PfHardFaultRecord @ 0x1402A31A4 (PfHardFaultRecord.c)
+ *     EtwGetKernelTraceTimestamp @ 0x1402A3220 (EtwGetKernelTraceTimestamp.c)
+ *     KiIpiProcessRequests @ 0x140334C80 (KiIpiProcessRequests.c)
+ *     HvcallFastExtended @ 0x1403CC390 (HvcallFastExtended.c)
+ *     HvlSendSyntheticClusterIpi @ 0x1403CC480 (HvlSendSyntheticClusterIpi.c)
  * Callees:
- *     RtlGetSystemTimePrecise @ 0x140226E10 (RtlGetSystemTimePrecise.c)
- *     KeQueryPerformanceCounter @ 0x1402C3270 (KeQueryPerformanceCounter.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     RtlGetSystemTimePrecise @ 0x140226F20 (RtlGetSystemTimePrecise.c)
+ *     KeQueryPerformanceCounter @ 0x1402C3500 (KeQueryPerformanceCounter.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
-__int64 __fastcall EtwGetKernelTraceTimestampSilo(LARGE_INTEGER *a1, unsigned int a2, __int64 a3)
+LARGE_INTEGER __fastcall EtwGetKernelTraceTimestampSilo(LARGE_INTEGER *a1, unsigned int a2, __int64 a3)
 {
   unsigned __int64 v3; // r10
   int v5; // ebx
@@ -26,11 +26,11 @@ __int64 __fastcall EtwGetKernelTraceTimestampSilo(LARGE_INTEGER *a1, unsigned in
   __int64 v10; // rdx
   __int64 v11; // r8
   LARGE_INTEGER PerformanceCounter; // rax
-  __int64 result; // rax
-  __int64 v14; // [rsp+40h] [rbp+18h] BYREF
+  LARGE_INTEGER result; // rax
+  LARGE_INTEGER v14; // [rsp+40h] [rbp+18h] BYREF
 
   v3 = a2;
-  LODWORD(v14) = 0;
+  v14.LowPart = 0;
   v5 = 0;
   if ( a3 )
     v6 = *(_QWORD **)(a3 + 1488);
@@ -63,12 +63,12 @@ LABEL_11:
   if ( (v5 & 4) != 0 )
     result = RtlGetSystemTimePrecise();
   else
-    result = 0LL;
-  a1[1].QuadPart = result;
+    result.QuadPart = 0LL;
+  a1[1] = result;
   if ( (v5 & 8) != 0 )
   {
-    result = __rdtsc();
-    a1[2].QuadPart = result;
+    result.QuadPart = __rdtsc();
+    a1[2] = result;
   }
   else
   {
@@ -76,10 +76,10 @@ LABEL_11:
   }
   if ( (v5 & 0x10) != 0 )
   {
-    v14 = 0LL;
-    ((void (__fastcall *)(__int64 *))off_140C01DF0[0])(&v14);
+    v14.QuadPart = 0LL;
+    ((void (__fastcall *)(LARGE_INTEGER *))off_140C01DF0[0])(&v14);
     result = v14;
-    a1[3].QuadPart = v14;
+    a1[3] = v14;
   }
   else
   {

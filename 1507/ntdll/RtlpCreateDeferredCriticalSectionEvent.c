@@ -15,14 +15,14 @@ HANDLE __fastcall RtlpCreateDeferredCriticalSectionEvent(__int64 a1)
 {
   signed __int64 v2; // rdx
   signed __int64 v3; // rbx
-  int v5; // eax
+  NTSTATUS v5; // eax
   HANDLE Handle; // [rsp+40h] [rbp+8h] BYREF
 
   v2 = -1LL;
   Handle = (HANDLE)-1LL;
   if ( RtlpForceCSToUseEvents )
   {
-    v5 = ZwCreateEvent(&Handle, 1048579LL, 0LL, 1LL, 0);
+    v5 = ZwCreateEvent(&Handle, 0x100003u, 0LL, SynchronizationEvent, 0);
     v2 = (signed __int64)Handle;
     if ( v5 < 0 )
       v2 = -1LL;

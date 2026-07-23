@@ -1,25 +1,25 @@
 /*
- * XREFs of SepAppendAceToTokenObjectAcl @ 0x1405C9190
+ * XREFs of SepAppendAceToTokenObjectAcl @ 0x1405CA190
  * Callers:
- *     SepFinalizeTokenAcls @ 0x140582ABC (SepFinalizeTokenAcls.c)
- *     SeCopyClientToken @ 0x140649E74 (SeCopyClientToken.c)
- *     NtCreateLowBoxToken @ 0x140654F70 (NtCreateLowBoxToken.c)
+ *     SepFinalizeTokenAcls @ 0x140583ABC (SepFinalizeTokenAcls.c)
+ *     SeCopyClientToken @ 0x14064B034 (SeCopyClientToken.c)
+ *     NtCreateLowBoxToken @ 0x140656130 (NtCreateLowBoxToken.c)
  * Callees:
  *     RtlFindAceBySid @ 0x1400160E0 (RtlFindAceBySid.c)
  *     RtlGetAce @ 0x140016260 (RtlGetAce.c)
  *     RtlLengthSid @ 0x1400162C0 (RtlLengthSid.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     ObDereferenceSecurityDescriptor @ 0x1405C9410 (ObDereferenceSecurityDescriptor.c)
- *     ObpGetObjectSecurity @ 0x1405C9580 (ObpGetObjectSecurity.c)
- *     RtlQueryInformationAcl @ 0x1405C9890 (RtlQueryInformationAcl.c)
- *     ObSetSecurityObjectByPointer @ 0x1405CAD40 (ObSetSecurityObjectByPointer.c)
- *     RtlSetDaclSecurityDescriptor @ 0x1405CADE0 (RtlSetDaclSecurityDescriptor.c)
- *     RtlAddAce @ 0x1405CAE40 (RtlAddAce.c)
- *     RtlCreateAcl @ 0x1405CAF70 (RtlCreateAcl.c)
- *     RtlpAddKnownAce @ 0x1406315A0 (RtlpAddKnownAce.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     ObDereferenceSecurityDescriptor @ 0x1405CA410 (ObDereferenceSecurityDescriptor.c)
+ *     ObpGetObjectSecurity @ 0x1405CA580 (ObpGetObjectSecurity.c)
+ *     RtlQueryInformationAcl @ 0x1405CA890 (RtlQueryInformationAcl.c)
+ *     ObSetSecurityObjectByPointer @ 0x1405CBD40 (ObSetSecurityObjectByPointer.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x1405CBDE0 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlAddAce @ 0x1405CBE40 (RtlAddAce.c)
+ *     RtlCreateAcl @ 0x1405CBF70 (RtlCreateAcl.c)
+ *     RtlpAddKnownAce @ 0x1406325C0 (RtlpAddKnownAce.c)
  */
 
 __int64 __fastcall SepAppendAceToTokenObjectAcl(__int64 a1, int a2, _WORD *a3)

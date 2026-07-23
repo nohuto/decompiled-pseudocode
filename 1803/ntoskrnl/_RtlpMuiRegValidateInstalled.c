@@ -24,7 +24,7 @@ NTSTATUS __fastcall RtlpMuiRegValidateInstalled(__int64 a1)
   __int16 v2; // di
   int v3; // r14d
   int v4; // esi
-  void *v5; // r12
+  wchar_t *v5; // r12
   LANGID v6; // r15
   unsigned int v7; // r13d
   NTSTATUS result; // eax
@@ -45,7 +45,7 @@ NTSTATUS __fastcall RtlpMuiRegValidateInstalled(__int64 a1)
   int v23; // edi
   __int64 v24; // rsi
   __int64 v25; // r8
-  PVOID v26; // rax
+  wchar_t *v26; // rax
   __int64 v27; // r8
   bool v28; // sf
   LANGID v29; // ax
@@ -53,16 +53,15 @@ NTSTATUS __fastcall RtlpMuiRegValidateInstalled(__int64 a1)
   __int16 v31; // r8
   unsigned int v32; // eax
   LANGID LanguageId[4]; // [rsp+28h] [rbp-E0h] BYREF
-  PVOID v34; // [rsp+30h] [rbp-D8h]
-  __int64 v35; // [rsp+38h] [rbp-D0h] BYREF
-  _BYTE *v36; // [rsp+40h] [rbp-C8h]
-  int v37; // [rsp+48h] [rbp-C0h] BYREF
-  LANGID v38; // [rsp+4Ch] [rbp-BCh]
-  int v39; // [rsp+4Eh] [rbp-BAh]
-  __int16 v40; // [rsp+52h] [rbp-B6h]
-  __int64 v41; // [rsp+54h] [rbp-B4h]
-  __int64 v42; // [rsp+5Ch] [rbp-ACh]
-  _BYTE v43[176]; // [rsp+68h] [rbp-A0h] BYREF
+  wchar_t *v34; // [rsp+30h] [rbp-D8h]
+  UNICODE_STRING String; // [rsp+38h] [rbp-D0h] BYREF
+  int v36; // [rsp+48h] [rbp-C0h] BYREF
+  LANGID v37; // [rsp+4Ch] [rbp-BCh]
+  int v38; // [rsp+4Eh] [rbp-BAh]
+  __int16 v39; // [rsp+52h] [rbp-B6h]
+  __int64 v40; // [rsp+54h] [rbp-B4h]
+  __int64 v41; // [rsp+5Ch] [rbp-ACh]
+  _BYTE v42[176]; // [rsp+68h] [rbp-A0h] BYREF
 
   v2 = -1;
   LanguageId[0] = 0;
@@ -71,7 +70,7 @@ NTSTATUS __fastcall RtlpMuiRegValidateInstalled(__int64 a1)
   v3 = -1;
   v4 = 0;
   v5 = 0LL;
-  memset(v43, 0, 0xAAuLL);
+  memset(v42, 0, 0xAAuLL);
   v6 = *(_WORD *)(a1 + 4);
   v7 = PsUILanguageComitted == 0 ? 0xC0000034 : 0;
   if ( !v6 )
@@ -85,26 +84,26 @@ NTSTATUS __fastcall RtlpMuiRegValidateInstalled(__int64 a1)
   if ( InstalledLanguageIndexByLangId == -1073741772 || InstalledLanguageIndexByLangId == -1073741637 )
   {
     LanguageId[0] = -1;
-    v26 = MuiRegAllocArray(v10, 0x55u);
+    v26 = (wchar_t *)MuiRegAllocArray(v10, 0x55u);
     v34 = v26;
     v5 = v26;
     if ( !v26 )
       return -1073741801;
-    v36 = v26;
-    if ( !(unsigned __int8)RtlLCIDToCultureName(v6, &v35) )
+    String.Buffer = v26;
+    if ( !RtlLCIDToCultureName(v6, &String) )
       goto LABEL_12;
     LOBYTE(v27) = 1;
-    v28 = (int)RtlpMuiRegGetOrAddString(a1, v36, v27, LanguageId) < 0;
+    v28 = (int)RtlpMuiRegGetOrAddString(a1, String.Buffer, v27, LanguageId) < 0;
     v29 = -1;
     if ( !v28 )
       v29 = LanguageId[0];
-    v39 = v29;
-    v37 = 49;
-    v38 = v6;
+    v38 = v29;
+    v36 = 49;
+    v37 = v6;
+    v40 = 0LL;
     v41 = 0LL;
-    v42 = 0LL;
-    v40 = 0;
-    if ( (int)RtlpMuiRegGetOrAddLangInfo(a1 + 24, &v37, 0LL) < 0 )
+    v39 = 0;
+    if ( (int)RtlpMuiRegGetOrAddLangInfo(a1 + 24, &v36, 0LL) < 0 )
       goto LABEL_12;
     v11 = *(_QWORD *)(a1 + 24);
     v3 = *(unsigned __int16 *)(v11 + 6) - 1;
@@ -118,11 +117,11 @@ LABEL_8:
     if ( v3 != -1 )
     {
       v12 = *(_QWORD *)(v11 + 16);
-      v36 = v43;
-      WORD1(v35) = 170;
-      if ( (int)RtlpGetNameFromLangInfoNode(a1, 28LL * v3 + v12, (__int64)&v35) >= 0 )
+      String.Buffer = (wchar_t *)v42;
+      String.MaximumLength = 170;
+      if ( (int)RtlpGetNameFromLangInfoNode(a1, 28LL * v3 + v12, &String) >= 0 )
       {
-        if ( (int)RtlpIsALicensedRegularLanguage(a1, v36) < 0 )
+        if ( (int)RtlpIsALicensedRegularLanguage(a1, String.Buffer) < 0 )
         {
           *(_WORD *)(*(_QWORD *)(*(_QWORD *)(a1 + 24) + 16LL) + 28LL * v3) &= ~0x20u;
           *(_WORD *)(*(_QWORD *)(*(_QWORD *)(a1 + 24) + 16LL) + 28LL * v3) |= 0x8000u;

@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpRunOnceWaitForInit @ 0x1407872A8
+ * XREFs of RtlpRunOnceWaitForInit @ 0x1407871D8
  * Callers:
- *     RtlRunOnceExecuteOnce @ 0x14095F8F0 (RtlRunOnceExecuteOnce.c)
- *     RtlRunOnceBeginInitialize @ 0x140A14360 (RtlRunOnceBeginInitialize.c)
+ *     RtlRunOnceExecuteOnce @ 0x1409473B0 (RtlRunOnceExecuteOnce.c)
+ *     RtlRunOnceBeginInitialize @ 0x140A0D240 (RtlRunOnceBeginInitialize.c)
  * Callees:
- *     KeWaitForAlertByThreadId @ 0x14020765C (KeWaitForAlertByThreadId.c)
+ *     KeWaitForAlertByThreadId @ 0x14032EC3C (KeWaitForAlertByThreadId.c)
  */
 
 signed __int64 __fastcall RtlpRunOnceWaitForInit(signed __int64 a1, volatile signed __int64 *a2)

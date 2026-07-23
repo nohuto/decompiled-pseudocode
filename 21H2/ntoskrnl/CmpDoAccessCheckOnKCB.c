@@ -1,17 +1,17 @@
 /*
- * XREFs of CmpDoAccessCheckOnKCB @ 0x14086FE0C
+ * XREFs of CmpDoAccessCheckOnKCB @ 0x14086FF6C
  * Callers:
- *     CmpVEExecuteCreateLogic @ 0x1406A0C50 (CmpVEExecuteCreateLogic.c)
+ *     CmpVEExecuteCreateLogic @ 0x1405FFF90 (CmpVEExecuteCreateLogic.c)
  * Callees:
- *     SepDeleteAccessState @ 0x14027C660 (SepDeleteAccessState.c)
- *     PsGetCurrentThreadProcess @ 0x1402BDFE0 (PsGetCurrentThreadProcess.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
- *     CmpCheckKeyBodyAccess @ 0x1405D961C (CmpCheckKeyBodyAccess.c)
- *     SeReleaseSubjectContext @ 0x1406568F0 (SeReleaseSubjectContext.c)
- *     SeCreateAccessStateEx @ 0x1406618D0 (SeCreateAccessStateEx.c)
- *     ObCreateObjectEx @ 0x140704810 (ObCreateObjectEx.c)
+ *     PsGetCurrentThreadProcess @ 0x14023C620 (PsGetCurrentThreadProcess.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     SepDeleteAccessState @ 0x14026A600 (SepDeleteAccessState.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     CmpCheckKeyBodyAccess @ 0x1405EA3A4 (CmpCheckKeyBodyAccess.c)
+ *     SeReleaseSubjectContext @ 0x14064B710 (SeReleaseSubjectContext.c)
+ *     SeCreateAccessStateEx @ 0x1406566F0 (SeCreateAccessStateEx.c)
+ *     ObCreateObjectEx @ 0x14071BBF0 (ObCreateObjectEx.c)
  */
 
 BOOLEAN __fastcall CmpDoAccessCheckOnKCB(_DMA_OPERATIONS *a1, __int64 a2, ACCESS_MASK a3, char a4)

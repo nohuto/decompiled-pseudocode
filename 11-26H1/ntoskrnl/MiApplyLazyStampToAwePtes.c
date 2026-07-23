@@ -1,12 +1,12 @@
 /*
- * XREFs of MiApplyLazyStampToAwePtes @ 0x1407009EC
+ * XREFs of MiApplyLazyStampToAwePtes @ 0x1407056BC
  * Callers:
- *     MiFinishPteChangesInPageTable @ 0x140527D9C (MiFinishPteChangesInPageTable.c)
+ *     MiFinishPteChangesInPageTable @ 0x14052A40C (MiFinishPteChangesInPageTable.c)
  * Callees:
- *     MiIssueFlushTbEntire @ 0x140250040 (MiIssueFlushTbEntire.c)
- *     MiPteHasShadow @ 0x1403011E0 (MiPteHasShadow.c)
- *     MiWalkAllBitmapRanges @ 0x14044B8F0 (MiWalkAllBitmapRanges.c)
- *     MiSetPteTimeStamp @ 0x14048051C (MiSetPteTimeStamp.c)
+ *     MiIssueFlushTbEntire @ 0x1402519A0 (MiIssueFlushTbEntire.c)
+ *     MiPteHasShadow @ 0x1402E3260 (MiPteHasShadow.c)
+ *     MiWalkAllBitmapRanges @ 0x140443A20 (MiWalkAllBitmapRanges.c)
+ *     MiSetPteTimeStamp @ 0x140479E5C (MiSetPteTimeStamp.c)
  */
 
 __int64 __fastcall MiApplyLazyStampToAwePtes(__int64 a1)
@@ -48,8 +48,8 @@ __int64 __fastcall MiApplyLazyStampToAwePtes(__int64 a1)
   v7 = MiSetPteTimeStamp(v2, KiTbFlushTimeStamp);
   v12[0] = v7;
   v9 = v7;
-  if ( qword_140E2D740 && (v7 & 0x10) == 0 )
-    v7 &= qword_140E2D748;
+  if ( qword_140E2D8C0 && (v7 & 0x10) == 0 )
+    v7 &= qword_140E2D8C8;
   if ( !(unsigned int)(v7 >> 31) )
     MiIssueFlushTbEntire((_KPROCESS *)2, (volatile _KAFFINITY_EX *)1, v8);
   *(_QWORD *)(a1 + 328) = v9 & 0xFFFFFFFFFFFFFC1FuLL | 0x300;

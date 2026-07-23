@@ -1,12 +1,12 @@
 /*
- * XREFs of NtSetIRTimer @ 0x140339680
+ * XREFs of NtSetIRTimer @ 0x140339910
  * Callers:
  *     <none>
  * Callees:
- *     ExpSetTimer2 @ 0x1403396F0 (ExpSetTimer2.c)
+ *     ExpSetTimer2 @ 0x140339980 (ExpSetTimer2.c)
  */
 
-__int64 __fastcall NtSetIRTimer(void *a1)
+NTSTATUS __cdecl NtSetIRTimer(HANDLE TimerHandle, PLARGE_INTEGER DueTime)
 {
-  return ExpSetTimer2(a1);
+  return ExpSetTimer2(TimerHandle);
 }

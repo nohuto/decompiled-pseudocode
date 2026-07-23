@@ -1,14 +1,14 @@
 /*
- * XREFs of CmpEtwDumpKcb @ 0x14097C780
+ * XREFs of CmpEtwDumpKcb @ 0x14093E790
  * Callers:
- *     CmpLinkHiveToMaster @ 0x14097C11C (CmpLinkHiveToMaster.c)
+ *     CmpLinkHiveToMaster @ 0x14093E12C (CmpLinkHiveToMaster.c)
  * Callees:
- *     CmpFreeTransientPoolWithTag @ 0x140477290 (CmpFreeTransientPoolWithTag.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     CmpConstructName @ 0x1408C53A0 (CmpConstructName.c)
- *     CmpAttachToRegistryProcess @ 0x140C58930 (CmpAttachToRegistryProcess.c)
- *     CmpDetachFromRegistryProcess @ 0x140C58A50 (CmpDetachFromRegistryProcess.c)
+ *     CmpFreeTransientPoolWithTag @ 0x140470A10 (CmpFreeTransientPoolWithTag.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     CmpConstructName @ 0x1408CB970 (CmpConstructName.c)
+ *     CmpAttachToRegistryProcess @ 0x140C5E930 (CmpAttachToRegistryProcess.c)
+ *     CmpDetachFromRegistryProcess @ 0x140C5EA50 (CmpDetachFromRegistryProcess.c)
  */
 
 void __fastcall CmpEtwDumpKcb(__int64 a1, unsigned __int8 a2)

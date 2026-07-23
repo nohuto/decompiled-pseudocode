@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlDeCommitDebugInfo @ 0x1800D76D0
+ * XREFs of RtlDeCommitDebugInfo @ 0x1800D7690
  * Callers:
  *     <none>
  * Callees:
@@ -7,7 +7,7 @@
  */
 
 // attributes: thunk
-__int64 RtlDeCommitDebugInfo()
+void __cdecl RtlDeCommitDebugInfo(PRTL_DEBUG_INFORMATION Buffer, PVOID p, SIZE_T Size)
 {
-  return RtlpDeCommitQueryDebugInfo();
+  RtlpDeCommitQueryDebugInfo(Buffer, p, Size);
 }

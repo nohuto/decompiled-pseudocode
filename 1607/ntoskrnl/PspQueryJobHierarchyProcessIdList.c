@@ -1,11 +1,11 @@
 /*
- * XREFs of PspQueryJobHierarchyProcessIdList @ 0x1404DB784
+ * XREFs of PspQueryJobHierarchyProcessIdList @ 0x1404BED88
  * Callers:
- *     NtQueryInformationJobObject @ 0x140466FD0 (NtQueryInformationJobObject.c)
+ *     NtQueryInformationJobObject @ 0x140465EA0 (NtQueryInformationJobObject.c)
  * Callees:
- *     ExAcquireResourceSharedLite @ 0x1400685B0 (ExAcquireResourceSharedLite.c)
- *     PspEnumJobsAndProcessesInJobHierarchy @ 0x140468674 (PspEnumJobsAndProcessesInJobHierarchy.c)
- *     PspUnlockJob @ 0x140468EB0 (PspUnlockJob.c)
+ *     ExAcquireResourceSharedLite @ 0x140068130 (ExAcquireResourceSharedLite.c)
+ *     PspEnumJobsAndProcessesInJobHierarchy @ 0x140467544 (PspEnumJobsAndProcessesInJobHierarchy.c)
+ *     PspUnlockJob @ 0x140467D80 (PspUnlockJob.c)
  */
 
 __int64 __fastcall PspQueryJobHierarchyProcessIdList(__int64 a1, _DWORD *a2, int a3, _DWORD *a4)

@@ -15,45 +15,45 @@
  *     RtlpReadExtendedContext @ 0x1405E76E4 (RtlpReadExtendedContext.c)
  */
 
-__int64 __fastcall KiContinuePreviousModeUser(__int64 a1, int a2, int a3, __int64 a4)
+int __fastcall KiContinuePreviousModeUser(__int64 a1, int a2, int a3, __int64 a4)
 {
-  __int64 result; // rax
+  int result; // eax
   unsigned __int64 v9; // rax
   void *v10; // rsp
   int v11; // edx
   int v12; // ecx
   __int64 v13; // [rsp+20h] [rbp-10h]
-  unsigned int v14; // [rsp+30h] [rbp+0h] BYREF
-  __int64 v15; // [rsp+38h] [rbp+8h]
+  ULONG ContextFlags; // [rsp+30h] [rbp+0h] BYREF
+  ULONG ContextLength[2]; // [rsp+38h] [rbp+8h] BYREF
 
-  v14 = *(_DWORD *)(a1 + 48);
-  result = RtlpSanitizeContextFlags(&v14);
-  if ( (int)result >= 0 )
+  ContextFlags = *(_DWORD *)(a1 + 48);
+  result = RtlpSanitizeContextFlags(&ContextFlags);
+  if ( result >= 0 )
   {
-    result = RtlGetExtendedContextLength(v14);
-    if ( (int)result >= 0 )
+    result = RtlGetExtendedContextLength(ContextFlags, ContextLength);
+    if ( result >= 0 )
     {
-      v9 = (unsigned int)v15 + 15LL;
-      if ( v9 <= (unsigned int)v15 )
+      v9 = ContextLength[0] + 15LL;
+      if ( v9 <= ContextLength[0] )
         v9 = 0xFFFFFFFFFFFFFF0LL;
       v10 = alloca(v9 & 0xFFFFFFFFFFFFFFF0uLL);
-      memset(&v14, 0, (unsigned int)v15);
-      result = RtlInitializeExtendedContext((__int64)&v14, v14);
-      if ( (int)result >= 0 )
+      memset(&ContextFlags, 0, ContextLength[0]);
+      result = RtlInitializeExtendedContext((PCONTEXT)&ContextFlags, ContextFlags, (PCONTEXT_EX *)ContextLength);
+      if ( result >= 0 )
       {
         LOBYTE(v11) = 1;
-        result = RtlpReadExtendedContext(v12, v11, v15, v14, a1, 0LL);
-        if ( (int)result >= 0 )
+        result = RtlpReadExtendedContext(v12, v11, ContextLength[0], ContextFlags, a1, 0LL);
+        if ( result >= 0 )
         {
-          result = KeVerifyContextRecord(a4, &v14);
-          if ( (int)result >= 0 )
+          result = KeVerifyContextRecord(a4, &ContextFlags);
+          if ( result >= 0 )
           {
-            result = KeVerifyContextXStateCetU(a4, &v14);
-            if ( (int)result >= 0 )
+            result = KeVerifyContextXStateCetU(a4, &ContextFlags);
+            if ( result >= 0 )
             {
               LOBYTE(v13) = 1;
-              KeContextToKframes(a3, a2, (unsigned int)&v14, v14, v13);
-              return 0LL;
+              KeContextToKframes(a3, a2, (unsigned int)&ContextFlags, ContextFlags, v13);
+              return 0;
             }
           }
         }

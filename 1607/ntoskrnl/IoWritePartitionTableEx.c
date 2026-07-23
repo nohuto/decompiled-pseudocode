@@ -1,5 +1,5 @@
 /*
- * XREFs of IoWritePartitionTableEx @ 0x1406201B8
+ * XREFs of IoWritePartitionTableEx @ 0x14062026C
  * Callers:
  *     <none>
  * Callees:

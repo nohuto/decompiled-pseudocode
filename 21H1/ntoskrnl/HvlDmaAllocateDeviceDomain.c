@@ -26,7 +26,7 @@ __int64 __fastcall HvlDmaAllocateDeviceDomain(int *a1)
   v8 = *a1;
   while ( 1 )
   {
-    v1 = HvcallFastExtended(65713LL, (__int64)v6, 24LL, 0LL, 0);
+    v1 = HvcallFastExtended(65713LL, (__int64)v6, 0x18u, 0, 0);
     if ( !(unsigned __int8)HvlpHvStatusIsInsufficientMemory((unsigned __int16)v1, v1) )
       break;
     if ( (int)HvlpHandleInsufficientMemory(v3, v2, v4) < 0 )

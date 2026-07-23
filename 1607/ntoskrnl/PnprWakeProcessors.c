@@ -4,8 +4,8 @@
  *     PnprEndMirroring @ 0x1403DB9D0 (PnprEndMirroring.c)
  *     PnprInitiateReplaceOperation @ 0x1403DBA90 (PnprInitiateReplaceOperation.c)
  * Callees:
- *     xHalTscSynchronization @ 0x1401BA878 (xHalTscSynchronization.c)
- *     KeResumeClockTimerSafe @ 0x1401D24B8 (KeResumeClockTimerSafe.c)
+ *     xHalTscSynchronization @ 0x1401BA75C (xHalTscSynchronization.c)
+ *     KeResumeClockTimerSafe @ 0x1401D22E4 (KeResumeClockTimerSafe.c)
  *     KeRestoreMtrrBroadcast @ 0x1403D36E8 (KeRestoreMtrrBroadcast.c)
  *     xHalDpMaskLevelTriggeredInterrupts @ 0x1403D6AF0 (xHalDpMaskLevelTriggeredInterrupts.c)
  *     PnprGetMillisecondCounter @ 0x1403DBA40 (PnprGetMillisecondCounter.c)

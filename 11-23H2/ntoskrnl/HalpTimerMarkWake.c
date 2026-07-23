@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpTimerMarkWake @ 0x140508FFC
+ * XREFs of HalpTimerMarkWake @ 0x14050954C
  * Callers:
- *     HalpPostSleepMP @ 0x140A96FA8 (HalpPostSleepMP.c)
+ *     HalpPostSleepMP @ 0x140A96E18 (HalpPostSleepMP.c)
  * Callees:
  *     <none>
  */

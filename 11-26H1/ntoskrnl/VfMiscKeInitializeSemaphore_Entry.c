@@ -1,9 +1,9 @@
 /*
- * XREFs of VfMiscKeInitializeSemaphore_Entry @ 0x140C3CD80
+ * XREFs of VfMiscKeInitializeSemaphore_Entry @ 0x140C42D90
  * Callers:
  *     <none>
  * Callees:
- *     ViMiscValidateSynchronizationObject @ 0x140C20518 (ViMiscValidateSynchronizationObject.c)
+ *     ViMiscValidateSynchronizationObject @ 0x140C26524 (ViMiscValidateSynchronizationObject.c)
  */
 
 BOOLEAN __fastcall VfMiscKeInitializeSemaphore_Entry(__int64 a1)

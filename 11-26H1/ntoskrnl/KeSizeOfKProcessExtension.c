@@ -1,9 +1,9 @@
 /*
- * XREFs of KeSizeOfKProcessExtension @ 0x1404D80E0
+ * XREFs of KeSizeOfKProcessExtension @ 0x1404D18B0
  * Callers:
- *     PspAllocateProcess @ 0x140964C24 (PspAllocateProcess.c)
+ *     PspAllocateProcess @ 0x140B7E8A8 (PspAllocateProcess.c)
  * Callees:
- *     KiAbComputeAutoBoostProcessStateSize @ 0x1404D8114 (KiAbComputeAutoBoostProcessStateSize.c)
+ *     KiAbComputeAutoBoostProcessStateSize @ 0x1404D18E4 (KiAbComputeAutoBoostProcessStateSize.c)
  */
 
 __int64 __fastcall KeSizeOfKProcessExtension(__int64 a1)

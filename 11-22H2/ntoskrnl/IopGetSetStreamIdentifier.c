@@ -74,10 +74,13 @@ LABEL_47:
       {
         *a4 = 0LL;
         KxReleaseSpinLock((volatile signed __int64 *)v11);
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           CurrentIrql = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v12 <= 0xFu && CurrentIrql >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+            && CurrentIrql <= 0xFu
+            && (unsigned __int8)v12 <= 0xFu
+            && CurrentIrql >= 2u )
           {
             CurrentPrcb = KeGetCurrentPrcb();
             SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -94,10 +97,10 @@ LABEL_47:
       {
         *a4 = v13[2];
         KxReleaseSpinLock((volatile signed __int64 *)v11);
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v24 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v24 <= 0xFu && (unsigned __int8)v12 <= 0xFu && v24 >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v24 <= 0xFu && (unsigned __int8)v12 <= 0xFu && v24 >= 2u )
           {
             v25 = KeGetCurrentPrcb();
             v26 = v25->SchedulerAssist;
@@ -115,10 +118,10 @@ LABEL_47:
     v13 = (_QWORD *)*v13;
   }
   KxReleaseSpinLock((volatile signed __int64 *)v11);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v14 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v14 <= 0xFu && (unsigned __int8)v12 <= 0xFu && v14 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v14 <= 0xFu && (unsigned __int8)v12 <= 0xFu && v14 >= 2u )
     {
       v15 = KeGetCurrentPrcb();
       v16 = v15->SchedulerAssist;
@@ -151,10 +154,10 @@ LABEL_47:
   Pool2[2] = Pool2 + 4;
   *a4 = Pool2 + 4;
   KxReleaseSpinLock((volatile signed __int64 *)v11);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v30 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v30 <= 0xFu && (unsigned __int8)v28 <= 0xFu && v30 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v30 <= 0xFu && (unsigned __int8)v28 <= 0xFu && v30 >= 2u )
     {
       v31 = KeGetCurrentPrcb();
       v32 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v28 + 1));

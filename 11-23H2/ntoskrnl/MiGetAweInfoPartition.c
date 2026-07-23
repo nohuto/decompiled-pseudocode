@@ -1,15 +1,15 @@
 /*
- * XREFs of MiGetAweInfoPartition @ 0x14064A858
+ * XREFs of MiGetAweInfoPartition @ 0x14064ADA8
  * Callers:
- *     MiFreePhysicalPageChain @ 0x14064A170 (MiFreePhysicalPageChain.c)
- *     MiGetAweVadPartition @ 0x14064A960 (MiGetAweVadPartition.c)
- *     MiAllocateAweInfo @ 0x140A4002C (MiAllocateAweInfo.c)
- *     MiAllocateFastAwePages @ 0x140A401A4 (MiAllocateFastAwePages.c)
- *     MiAllocateUserPhysicalPages @ 0x140A40358 (MiAllocateUserPhysicalPages.c)
- *     MiCreateAweInfoBitMap @ 0x140A41540 (MiCreateAweInfoBitMap.c)
- *     MiCreateUserPhysicalView @ 0x140A41778 (MiCreateUserPhysicalView.c)
- *     MiDeleteAweInfoPages @ 0x140A41A90 (MiDeleteAweInfoPages.c)
- *     NtFreeUserPhysicalPages @ 0x140A42320 (NtFreeUserPhysicalPages.c)
+ *     MiFreePhysicalPageChain @ 0x14064A6C0 (MiFreePhysicalPageChain.c)
+ *     MiGetAweVadPartition @ 0x14064AEB0 (MiGetAweVadPartition.c)
+ *     MiAllocateAweInfo @ 0x140A402DC (MiAllocateAweInfo.c)
+ *     MiAllocateFastAwePages @ 0x140A40454 (MiAllocateFastAwePages.c)
+ *     MiAllocateUserPhysicalPages @ 0x140A40608 (MiAllocateUserPhysicalPages.c)
+ *     MiCreateAweInfoBitMap @ 0x140A417F0 (MiCreateAweInfoBitMap.c)
+ *     MiCreateUserPhysicalView @ 0x140A41A28 (MiCreateUserPhysicalView.c)
+ *     MiDeleteAweInfoPages @ 0x140A41D40 (MiDeleteAweInfoPages.c)
+ *     NtFreeUserPhysicalPages @ 0x140A425D0 (NtFreeUserPhysicalPages.c)
  * Callees:
  *     <none>
  */

@@ -1,9 +1,9 @@
 /*
- * XREFs of PopTranslateDependencyArray @ 0x1404CD8BC
+ * XREFs of PopTranslateDependencyArray @ 0x1404C72EC
  * Callers:
- *     PopProcessorQueryPlatformStateNotification @ 0x1404CD810 (PopProcessorQueryPlatformStateNotification.c)
+ *     PopProcessorQueryPlatformStateNotification @ 0x1404C7240 (PopProcessorQueryPlatformStateNotification.c)
  * Callees:
- *     PopFxBugCheck @ 0x1403B0E54 (PopFxBugCheck.c)
+ *     PopFxBugCheck @ 0x1403BAB64 (PopFxBugCheck.c)
  */
 
 void __fastcall PopTranslateDependencyArray(

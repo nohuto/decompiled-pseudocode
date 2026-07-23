@@ -1,11 +1,11 @@
 /*
- * XREFs of MiDeletePagingFiles @ 0x14065AF04
+ * XREFs of MiDeletePagingFiles @ 0x14065AFE8
  * Callers:
- *     MiDeletePartitionResources @ 0x1401F13D0 (MiDeletePartitionResources.c)
+ *     MiDeletePartitionResources @ 0x1401F11FC (MiDeletePartitionResources.c)
  *     MiShutdownSystem @ 0x1403DE8F8 (MiShutdownSystem.c)
  * Callees:
- *     MiReturnCommit @ 0x14004E500 (MiReturnCommit.c)
- *     MiDeletePagefile @ 0x14065AE08 (MiDeletePagefile.c)
+ *     MiReturnCommit @ 0x14004E080 (MiReturnCommit.c)
+ *     MiDeletePagefile @ 0x14065AEEC (MiDeletePagefile.c)
  */
 
 __int64 __fastcall MiDeletePagingFiles(__int64 a1)

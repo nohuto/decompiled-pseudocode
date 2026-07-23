@@ -11,15 +11,15 @@
  *     _guard_dispatch_icall_nop @ 0x1800A1000 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 __fastcall TppWaitCompletion(__int64 a1, __int64 a2, __int64 a3)
+__int64 __fastcall TppWaitCompletion(PTP_CALLBACK_INSTANCE Instance, __int64 a2, __int64 a3)
 {
-  __int64 v3; // rsi
+  _RTL_SRWLOCK *v3; // rsi
   __int64 v6; // r8
   signed int v7; // edi
   char v8; // cl
 
-  v3 = a3 + 240;
-  RtlAcquireSRWLockExclusive(a3 + 240);
+  v3 = (_RTL_SRWLOCK *)(a3 + 240);
+  RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a3 + 240));
   LOBYTE(v6) = 1;
   v7 = 0;
   if ( (unsigned __int8)TppCancelTimer(a3, *(_QWORD *)(a3 + 144) + 112LL, v6) )
@@ -42,5 +42,5 @@ __int64 __fastcall TppWaitCompletion(__int64 a1, __int64 a2, __int64 a3)
   RtlReleaseSRWLockExclusive(v3);
   if ( v7 < 0 && _InterlockedExchangeAdd((volatile signed __int32 *)a3, v7) == -v7 )
     (**(void (__fastcall ***)(__int64))(a3 + 8))(a3);
-  return TppExecuteWaitCallback(a1, a3, 0LL);
+  return TppExecuteWaitCallback(Instance);
 }

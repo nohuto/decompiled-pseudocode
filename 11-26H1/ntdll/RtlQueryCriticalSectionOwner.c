@@ -1,29 +1,32 @@
 /*
- * XREFs of RtlQueryCriticalSectionOwner @ 0x180090B90
+ * XREFs of RtlQueryCriticalSectionOwner @ 0x1800758F0
  * Callers:
- *     RtlQueryProcessDebugInformation @ 0x18008F550 (RtlQueryProcessDebugInformation.c)
+ *     RtlQueryProcessDebugInformation @ 0x1800742B0 (RtlQueryProcessDebugInformation.c)
  * Callees:
- *     RtlReleaseSRWLockShared @ 0x18002D9F0 (RtlReleaseSRWLockShared.c)
- *     RtlTryAcquireSRWLockShared @ 0x180050CE0 (RtlTryAcquireSRWLockShared.c)
- *     ZwReadVirtualMemory @ 0x18015F720 (ZwReadVirtualMemory.c)
+ *     RtlReleaseSRWLockShared @ 0x180018AF0 (RtlReleaseSRWLockShared.c)
+ *     RtlTryAcquireSRWLockShared @ 0x18003B260 (RtlTryAcquireSRWLockShared.c)
+ *     ZwReadVirtualMemory @ 0x18015F620 (ZwReadVirtualMemory.c)
  */
 
-__int64 __fastcall RtlQueryCriticalSectionOwner(__int64 a1, char a2)
+HANDLE __cdecl RtlQueryCriticalSectionOwner(HANDLE EventHandle)
 {
-  __int64 v4; // r14
+  char v1; // dl
+  char v2; // r12
+  void *v4; // r14
   _UNKNOWN **v5; // rbx
   _QWORD *v6; // rsi
   char v7; // di
   __int64 v8; // rdx
-  __int128 v10; // [rsp+38h] [rbp-40h] BYREF
+  __int128 Buffer; // [rsp+38h] [rbp-40h] BYREF
   __int128 v11; // [rsp+48h] [rbp-30h]
   __int64 v12; // [rsp+58h] [rbp-20h]
 
-  v10 = 0LL;
+  v2 = v1;
+  Buffer = 0LL;
   v11 = 0LL;
   v12 = 0LL;
   v4 = 0LL;
-  if ( !a1 || !RtlTryAcquireSRWLockShared((__int64)&RtlCriticalSectionLock) )
+  if ( !EventHandle || !RtlTryAcquireSRWLockShared(&RtlCriticalSectionLock) )
     return 0LL;
   v5 = (_UNKNOWN **)RtlCriticalSectionList;
   v6 = RtlCriticalSectionList;
@@ -33,11 +36,11 @@ __int64 __fastcall RtlQueryCriticalSectionOwner(__int64 a1, char a2)
     if ( !*((_WORD *)v5 - 8) )
     {
       v8 = (__int64)*(v5 - 1);
-      if ( (!a2 || a1 == v8 + 8)
-        && (int)ZwReadVirtualMemory(-1LL, v8, &v10, 40LL, 0LL) >= 0
-        && (a2 || *((_QWORD *)&v11 + 1) == a1) )
+      if ( (!v2 || EventHandle == (HANDLE)(v8 + 8))
+        && ZwReadVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, (PVOID)v8, &Buffer, 0x28uLL, 0LL) >= 0
+        && (v2 || *((HANDLE *)&v11 + 1) == EventHandle) )
       {
-        v4 = v11;
+        v4 = (void *)v11;
         break;
       }
     }

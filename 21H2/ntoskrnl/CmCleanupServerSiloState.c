@@ -1,10 +1,10 @@
 /*
- * XREFs of CmCleanupServerSiloState @ 0x1408733DC
+ * XREFs of CmCleanupServerSiloState @ 0x14087353C
  * Callers:
- *     PspDeleteExternalServerSiloState @ 0x140906238 (PspDeleteExternalServerSiloState.c)
+ *     PspDeleteExternalServerSiloState @ 0x140906398 (PspDeleteExternalServerSiloState.c)
  * Callees:
- *     PsGetPermanentSiloContext @ 0x14035FF90 (PsGetPermanentSiloContext.c)
- *     CmpStopSiloKeyLockTracker @ 0x140872918 (CmpStopSiloKeyLockTracker.c)
+ *     PsGetPermanentSiloContext @ 0x1402A4EC0 (PsGetPermanentSiloContext.c)
+ *     CmpStopSiloKeyLockTracker @ 0x140872A78 (CmpStopSiloKeyLockTracker.c)
  */
 
 ULONG_PTR *__fastcall CmCleanupServerSiloState(__int64 a1)

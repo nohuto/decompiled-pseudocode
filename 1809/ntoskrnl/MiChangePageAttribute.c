@@ -1,5 +1,5 @@
 /*
- * XREFs of MiChangePageAttribute @ 0x1400EF920
+ * XREFs of MiChangePageAttribute @ 0x1400EF9A0
  * Callers:
  *     MiPageAttributeBatchChangeNeeded @ 0x1400118DC (MiPageAttributeBatchChangeNeeded.c)
  *     MiFinalizePageAttribute @ 0x140029658 (MiFinalizePageAttribute.c)
@@ -11,28 +11,28 @@
  *     MiCompletePrivateZeroFault @ 0x140047940 (MiCompletePrivateZeroFault.c)
  *     MiGetPageChain @ 0x140049670 (MiGetPageChain.c)
  *     MiGetPage @ 0x140049D50 (MiGetPage.c)
- *     MiInitializeReadInProgressPfn @ 0x1400656E0 (MiInitializeReadInProgressPfn.c)
- *     MiAssignNonPagedPoolPtes @ 0x1400992E0 (MiAssignNonPagedPoolPtes.c)
- *     MiCopyPage @ 0x1400B1C50 (MiCopyPage.c)
- *     MiCopyOnWrite @ 0x1400B45E0 (MiCopyOnWrite.c)
- *     MiAllocateKernelStackPages @ 0x1400B5660 (MiAllocateKernelStackPages.c)
- *     MiCopySinglePage @ 0x1400EA628 (MiCopySinglePage.c)
- *     MiMapPagesToZero @ 0x1400F90E0 (MiMapPagesToZero.c)
- *     MiInitializePfn @ 0x140109430 (MiInitializePfn.c)
- *     MiFillCombinePage @ 0x140121784 (MiFillCombinePage.c)
- *     MiSetPfnOwnedAndActive @ 0x1401295CC (MiSetPfnOwnedAndActive.c)
- *     MiAddExpansionNonPagedPool @ 0x14017F9CC (MiAddExpansionNonPagedPool.c)
- *     MiIncrementAweMapCount @ 0x1402B0DB4 (MiIncrementAweMapCount.c)
- *     MiBuildForkPageTable @ 0x1402C790C (MiBuildForkPageTable.c)
- *     MiDuplicateCloneLeaf @ 0x1402C99D8 (MiDuplicateCloneLeaf.c)
- *     MiComputeOptimalZeroPath @ 0x1409BC284 (MiComputeOptimalZeroPath.c)
+ *     MiInitializeReadInProgressPfn @ 0x1400656D0 (MiInitializeReadInProgressPfn.c)
+ *     MiAssignNonPagedPoolPtes @ 0x140099220 (MiAssignNonPagedPoolPtes.c)
+ *     MiCopyPage @ 0x1400B1B90 (MiCopyPage.c)
+ *     MiCopyOnWrite @ 0x1400B4520 (MiCopyOnWrite.c)
+ *     MiAllocateKernelStackPages @ 0x1400B55A0 (MiAllocateKernelStackPages.c)
+ *     MiCopySinglePage @ 0x1400EA6A8 (MiCopySinglePage.c)
+ *     MiMapPagesToZero @ 0x1400F9160 (MiMapPagesToZero.c)
+ *     MiInitializePfn @ 0x1401094B0 (MiInitializePfn.c)
+ *     MiFillCombinePage @ 0x140121854 (MiFillCombinePage.c)
+ *     MiSetPfnOwnedAndActive @ 0x14012969C (MiSetPfnOwnedAndActive.c)
+ *     MiAddExpansionNonPagedPool @ 0x14017FB0C (MiAddExpansionNonPagedPool.c)
+ *     MiIncrementAweMapCount @ 0x1402B0FA4 (MiIncrementAweMapCount.c)
+ *     MiBuildForkPageTable @ 0x1402C7AFC (MiBuildForkPageTable.c)
+ *     MiDuplicateCloneLeaf @ 0x1402C9BC8 (MiDuplicateCloneLeaf.c)
+ *     MiComputeOptimalZeroPath @ 0x1409BD284 (MiComputeOptimalZeroPath.c)
  * Callees:
  *     MiLockPageInline @ 0x14002CE40 (MiLockPageInline.c)
- *     MiAbortCombineScan @ 0x140082668 (MiAbortCombineScan.c)
- *     MiFlushEntireTbDueToAttributeChange @ 0x1400EF380 (MiFlushEntireTbDueToAttributeChange.c)
- *     MiPageCombiningActive @ 0x1400EFAE0 (MiPageCombiningActive.c)
- *     MiFlushCacheForAttributeChange @ 0x140138EC8 (MiFlushCacheForAttributeChange.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiAbortCombineScan @ 0x140082658 (MiAbortCombineScan.c)
+ *     MiFlushEntireTbDueToAttributeChange @ 0x1400EF400 (MiFlushEntireTbDueToAttributeChange.c)
+ *     MiPageCombiningActive @ 0x1400EFB60 (MiPageCombiningActive.c)
+ *     MiFlushCacheForAttributeChange @ 0x140138FC8 (MiFlushCacheForAttributeChange.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 char __fastcall MiChangePageAttribute(__int64 a1, unsigned int a2, char a3)
@@ -49,7 +49,7 @@ char __fastcall MiChangePageAttribute(__int64 a1, unsigned int a2, char a3)
   signed __int32 v15[14]; // [rsp+0h] [rbp-38h] BYREF
 
   v3 = a3;
-  if ( (a3 & 1) != 0 || (struct _KTHREAD *)qword_14043A7A8 == KeGetCurrentThread() )
+  if ( (a3 & 1) != 0 || (struct _KTHREAD *)qword_14043B868 == KeGetCurrentThread() )
     v6 = 17;
   else
     v6 = MiLockPageInline(a1);
@@ -75,7 +75,7 @@ char __fastcall MiChangePageAttribute(__int64 a1, unsigned int a2, char a3)
     }
     if ( a2 != 1 && v7 == 1 )
     {
-      ++dword_14043A098;
+      ++dword_14043B158;
       CurrentIrql = KeGetCurrentIrql();
       __writecr8(2uLL);
       if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql < 2u )

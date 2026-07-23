@@ -1,22 +1,22 @@
 /*
- * XREFs of RtlUpperString @ 0x1800E3690
+ * XREFs of RtlUpperString @ 0x1800E3750
  * Callers:
  *     <none>
  * Callees:
- *     RtlUpperChar @ 0x180073B80 (RtlUpperChar.c)
+ *     RtlUpperChar @ 0x180073B70 (RtlUpperChar.c)
  */
 
-void __fastcall RtlUpperString(__int64 a1, unsigned __int16 *a2)
+void __cdecl RtlUpperString(PSTRING DestinationString, const STRING *SourceString)
 {
-  int v2; // ebx
-  char *v3; // rdi
+  int Length; // ebx
+  char *Buffer; // rdi
   char *v4; // rsi
 
-  v2 = *a2;
-  v3 = *(char **)(a1 + 8);
-  v4 = (char *)*((_QWORD *)a2 + 1);
-  if ( (unsigned __int16)v2 > *(_WORD *)(a1 + 2) )
-    v2 = *(unsigned __int16 *)(a1 + 2);
-  for ( *(_WORD *)a1 = v2; v2; --v2 )
-    *v3++ = RtlUpperChar(*v4++);
+  Length = SourceString->Length;
+  Buffer = DestinationString->Buffer;
+  v4 = SourceString->Buffer;
+  if ( (unsigned __int16)Length > DestinationString->MaximumLength )
+    Length = DestinationString->MaximumLength;
+  for ( DestinationString->Length = Length; Length; --Length )
+    *Buffer++ = RtlUpperChar(*v4++);
 }

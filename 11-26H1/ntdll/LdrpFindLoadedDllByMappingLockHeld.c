@@ -1,22 +1,22 @@
 /*
- * XREFs of LdrpFindLoadedDllByMappingLockHeld @ 0x1800DA170
+ * XREFs of LdrpFindLoadedDllByMappingLockHeld @ 0x1800D7130
  * Callers:
- *     LdrpMapDllWithSectionHandle @ 0x180084430 (LdrpMapDllWithSectionHandle.c)
- *     LdrpFindLoadedDllByMapping @ 0x18008657C (LdrpFindLoadedDllByMapping.c)
+ *     LdrpMapDllWithSectionHandle @ 0x18007B7D0 (LdrpMapDllWithSectionHandle.c)
+ *     LdrpFindLoadedDllByMapping @ 0x18007D91C (LdrpFindLoadedDllByMapping.c)
  * Callees:
- *     RtlImageNtHeaderEx @ 0x180047040 (RtlImageNtHeaderEx.c)
- *     ZwAreMappedFilesTheSame @ 0x180160130 (ZwAreMappedFilesTheSame.c)
- *     memcmp @ 0x1801649D0 (memcmp.c)
+ *     RtlImageNtHeaderEx @ 0x1800315B0 (RtlImageNtHeaderEx.c)
+ *     ZwAreMappedFilesTheSame @ 0x180160030 (ZwAreMappedFilesTheSame.c)
+ *     memcmp @ 0x1801648D0 (memcmp.c)
  */
 
 __int64 __fastcall LdrpFindLoadedDllByMappingLockHeld(
-        __int64 a1,
-        const void *a2,
+        PVOID File2MappedAsFile,
+        void *Buf1,
         unsigned int *a3,
         volatile signed __int32 **a4)
 {
   unsigned int v4; // ebp
-  unsigned __int64 v5; // rax
+  unsigned __int64 Root; // rax
   _QWORD *j; // rbx
   unsigned int v11; // r9d
   unsigned int v12; // ecx
@@ -28,48 +28,48 @@ __int64 __fastcall LdrpFindLoadedDllByMappingLockHeld(
   unsigned int v18; // eax
   unsigned int v19; // eax
   __int64 v21; // rcx
-  void *Buf2; // [rsp+20h] [rbp-28h] BYREF
+  PIMAGE_NT_HEADERS OutHeaders; // [rsp+20h] [rbp-28h] BYREF
 
   v4 = 0;
-  v5 = LdrpMappingInfoIndex;
-  Buf2 = 0LL;
-  if ( (qword_1801CB420 & 1) != 0 )
+  Root = (unsigned __int64)LdrpMappingInfoIndex.Root;
+  OutHeaders = 0LL;
+  if ( (*(_BYTE *)&LdrpMappingInfoIndex.0 & 1) != 0 )
   {
-    if ( !LdrpMappingInfoIndex )
+    if ( !LdrpMappingInfoIndex.Root )
     {
       j = 0LL;
       goto LABEL_36;
     }
-    v5 = (unsigned __int64)&LdrpMappingInfoIndex ^ LdrpMappingInfoIndex;
+    Root = (unsigned __int64)&LdrpMappingInfoIndex ^ (unsigned __int64)LdrpMappingInfoIndex.Root;
   }
   j = 0LL;
-  if ( v5 )
+  if ( Root )
   {
     v11 = *a3;
     while ( 1 )
     {
-      if ( v11 < *(_DWORD *)(v5 - 96) )
+      if ( v11 < *(_DWORD *)(Root - 96) )
         goto LABEL_11;
-      if ( v11 <= *(_DWORD *)(v5 - 96) )
+      if ( v11 <= *(_DWORD *)(Root - 96) )
       {
-        v12 = *(_DWORD *)(v5 - 160);
+        v12 = *(_DWORD *)(Root - 160);
         if ( a3[1] < v12 )
           goto LABEL_11;
         if ( a3[1] <= v12 )
           break;
       }
-      v13 = *(_QWORD *)(v5 + 8);
+      v13 = *(_QWORD *)(Root + 8);
 LABEL_12:
-      if ( (qword_1801CB420 & 1) != 0 && v13 )
-        v5 ^= v13;
+      if ( (*(_BYTE *)&LdrpMappingInfoIndex.0 & 1) != 0 && v13 )
+        Root ^= v13;
       else
-        v5 = v13;
-      if ( !v5 )
+        Root = v13;
+      if ( !Root )
         goto LABEL_19;
     }
-    j = (_QWORD *)v5;
+    j = (_QWORD *)Root;
 LABEL_11:
-    v13 = *(_QWORD *)v5;
+    v13 = *(_QWORD *)Root;
     goto LABEL_12;
   }
 LABEL_19:
@@ -78,9 +78,9 @@ LABEL_19:
     while ( 1 )
     {
       v14 = (volatile signed __int32 *)(j - 28);
-      if ( (int)RtlImageNtHeaderEx(3, *(j - 22), 0LL, &Buf2) >= 0
-        && !memcmp(a2, Buf2, 0x30uLL)
-        && (int)ZwAreMappedFilesTheSame(*((_QWORD *)v14 + 6), a1) >= 0 )
+      if ( RtlImageNtHeaderEx(3u, (PVOID)*(j - 22), 0LL, &OutHeaders) >= 0
+        && !memcmp(Buf1, OutHeaders, 0x30uLL)
+        && ZwAreMappedFilesTheSame(*((PVOID *)v14 + 6), File2MappedAsFile) >= 0 )
       {
         break;
       }

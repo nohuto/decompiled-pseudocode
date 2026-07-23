@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwpContextRegisterTracingDispatcher @ 0x1404CE964
+ * XREFs of EtwpContextRegisterTracingDispatcher @ 0x1404C7B30
  * Callers:
- *     EtwpLogKernelEvent @ 0x140257180 (EtwpLogKernelEvent.c)
- *     EtwpLogSystemEventUnsafe @ 0x1403274F0 (EtwpLogSystemEventUnsafe.c)
- *     EtwpLogContextSwapEvent @ 0x140421EE0 (EtwpLogContextSwapEvent.c)
+ *     EtwpLogKernelEvent @ 0x140287790 (EtwpLogKernelEvent.c)
+ *     EtwpLogSystemEventUnsafe @ 0x1402D0080 (EtwpLogSystemEventUnsafe.c)
+ *     EtwpLogContextSwapEvent @ 0x140415D90 (EtwpLogContextSwapEvent.c)
  * Callees:
- *     KeGetEffectiveIrql @ 0x140257DC0 (KeGetEffectiveIrql.c)
- *     EtwpQueueApc @ 0x1403EE2B0 (EtwpQueueApc.c)
- *     EtwpTraceContextRegisters @ 0x14064D0A8 (EtwpTraceContextRegisters.c)
+ *     KeGetEffectiveIrql @ 0x1402883D0 (KeGetEffectiveIrql.c)
+ *     EtwpQueueApc @ 0x1403DE1A0 (EtwpQueueApc.c)
+ *     EtwpTraceContextRegisters @ 0x14064B6B8 (EtwpTraceContextRegisters.c)
  */
 
 void __fastcall EtwpContextRegisterTracingDispatcher(
@@ -24,7 +24,7 @@ void __fastcall EtwpContextRegisterTracingDispatcher(
     CurrentThread = KeGetCurrentThread();
   if ( (CurrentThread->MiscFlags & 0x400) == 0 )
   {
-    EffectiveIrql = KeGetEffectiveIrql();
+    EffectiveIrql = KeGetEffectiveIrql(a1, (__int64)a2);
     if ( EffectiveIrql < 2u )
       EtwpTraceContextRegisters(a1, a2, CurrentThread, a4);
     else

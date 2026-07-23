@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlValidateUnicodeString @ 0x14047C1A0
+ * XREFs of RtlValidateUnicodeString @ 0x140475B10
  * Callers:
- *     RtlFindCharInUnicodeString @ 0x14080053C (RtlFindCharInUnicodeString.c)
- *     MiDuplicateUnicodeString @ 0x140867860 (MiDuplicateUnicodeString.c)
- *     RtlDuplicateUnicodeString @ 0x14091E750 (RtlDuplicateUnicodeString.c)
+ *     RtlFindCharInUnicodeString @ 0x140805FDC (RtlFindCharInUnicodeString.c)
+ *     MiDuplicateUnicodeString @ 0x14086DC40 (MiDuplicateUnicodeString.c)
+ *     RtlDuplicateUnicodeString @ 0x1409791B0 (RtlDuplicateUnicodeString.c)
  * Callees:
  *     <none>
  */

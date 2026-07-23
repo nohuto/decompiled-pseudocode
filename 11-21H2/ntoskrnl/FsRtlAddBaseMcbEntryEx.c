@@ -4,9 +4,9 @@
  *     FsRtlAddLargeMcbEntry @ 0x14022BC00 (FsRtlAddLargeMcbEntry.c)
  *     FsRtlAddBaseMcbEntry @ 0x14022C200 (FsRtlAddBaseMcbEntry.c)
  * Callees:
- *     FsRtlFindLargeIndex @ 0x14022C700 (FsRtlFindLargeIndex.c)
- *     FsRtlAddEntry @ 0x14022C788 (FsRtlAddEntry.c)
- *     FsRtlRemoveLargeEntry @ 0x14022C8A4 (FsRtlRemoveLargeEntry.c)
+ *     sub_14022C700 @ 0x14022C700 (sub_14022C700.c)
+ *     sub_14022C788 @ 0x14022C788 (sub_14022C788.c)
+ *     sub_14022C8A4 @ 0x14022C8A4 (sub_14022C8A4.c)
  */
 
 NTSTATUS __stdcall FsRtlAddBaseMcbEntryEx(PBASE_MCB Mcb, LONGLONG Vbn, LONGLONG Lbn, LONGLONG SectorCount)
@@ -70,7 +70,7 @@ NTSTATUS __stdcall FsRtlAddBaseMcbEntryEx(PBASE_MCB Mcb, LONGLONG Vbn, LONGLONG 
   v57 = 0;
   v6 = SectorCount;
   v7 = Vbn;
-  if ( (unsigned __int8)FsRtlFindLargeIndex(Mcb, Vbn, &v57) )
+  if ( (unsigned __int8)sub_14022C700(Mcb, Vbn, &v57) )
   {
     Mapping = Mcb->Mapping;
     v14 = v6 + v7 - 1;
@@ -78,7 +78,7 @@ NTSTATUS __stdcall FsRtlAddBaseMcbEntryEx(PBASE_MCB Mcb, LONGLONG Vbn, LONGLONG 
     v15 = Mapping[2 * v57 + 1];
     if ( v15 == -1 )
     {
-      if ( (unsigned __int8)FsRtlFindLargeIndex(Mcb, v14, &v58) )
+      if ( (unsigned __int8)sub_14022C700(Mcb, v14, &v58) )
       {
         v33 = v58 - 1;
         if ( v32 == (_DWORD)v33 )
@@ -151,13 +151,13 @@ LABEL_3:
     }
     if ( !v7 || v10 && *((_DWORD *)Mcb->Mapping + 2 * v10 - 2) == v7 )
     {
-      if ( !(unsigned __int8)FsRtlAddEntry(Mcb, v10, 1LL) )
+      if ( !(unsigned __int8)sub_14022C788(Mcb, v10, 1LL) )
         return -1073741670;
       v11 = v10;
     }
     else
     {
-      if ( !(unsigned __int8)FsRtlAddEntry(Mcb, v10, 2LL) )
+      if ( !(unsigned __int8)sub_14022C788(Mcb, v10, 2LL) )
         return -1073741670;
       v11 = v10 + 1;
       *((_DWORD *)Mcb->Mapping + 2 * v10 + 1) = -1;
@@ -167,7 +167,7 @@ LABEL_3:
     *((_DWORD *)Mcb->Mapping + 2 * v11) = v6 + v7;
     return 0;
   }
-  if ( !(unsigned __int8)FsRtlFindLargeIndex(Mcb, v7, &v57) )
+  if ( !(unsigned __int8)sub_14022C700(Mcb, v7, &v57) )
   {
     v10 = v57;
     goto LABEL_3;
@@ -187,7 +187,7 @@ LABEL_3:
         v23 = 0;
       if ( v23 < v7 && v20 < v22 )
       {
-        if ( (unsigned __int8)FsRtlAddEntry(Mcb, v57, 2LL) )
+        if ( (unsigned __int8)sub_14022C788(Mcb, v57, 2LL) )
         {
           v24 = (unsigned int)(v19 + 1);
           v25 = v58;
@@ -224,14 +224,14 @@ LABEL_3:
             *(_DWORD *)(v18 + 8LL * (v57 - 1)) += v6;
             return 0;
           }
-          if ( (unsigned __int8)FsRtlAddEntry(Mcb, 0LL, 1LL) )
+          if ( (unsigned __int8)sub_14022C788(Mcb, 0LL, 1LL) )
           {
             *((_DWORD *)Mcb->Mapping + 1) = v4;
             *(_DWORD *)Mcb->Mapping = v6;
             return 0;
           }
         }
-        else if ( (unsigned __int8)FsRtlAddEntry(Mcb, v57, 1LL) )
+        else if ( (unsigned __int8)sub_14022C788(Mcb, v57, 1LL) )
         {
           v53 = v58;
           *((_DWORD *)Mcb->Mapping + 2 * v19 + 1) = v4;
@@ -257,7 +257,7 @@ LABEL_90:
           *((_DWORD *)Mcb->Mapping + 2 * (unsigned int)(v19 + 1) + 1) = v4;
           return 0;
         }
-        if ( (unsigned __int8)FsRtlAddEntry(Mcb, v57, 1LL) )
+        if ( (unsigned __int8)sub_14022C788(Mcb, v57, 1LL) )
         {
           *((_DWORD *)Mcb->Mapping + 2 * v19 + 1) = -1;
           *((_DWORD *)Mcb->Mapping + 2 * v19) = v7;
@@ -328,7 +328,7 @@ LABEL_83:
       }
       v48 = (unsigned int)v19;
 LABEL_69:
-      FsRtlRemoveLargeEntry(Mcb, v48, v47);
+      sub_14022C8A4(Mcb, v48, v47);
       return 0;
     }
   }

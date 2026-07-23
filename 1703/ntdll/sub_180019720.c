@@ -7,10 +7,10 @@
  *     ZwClose @ 0x1800A54E0 (ZwClose.c)
  */
 
-__int64 __fastcall sub_180019720(__int64 a1)
+LOGICAL __fastcall sub_180019720(__int64 a1)
 {
-  sub_180019398(a1);
-  ZwClose(*(_QWORD *)(a1 + 368));
+  sub_180019398((_QWORD *)a1);
+  ZwClose(*(HANDLE *)(a1 + 368));
   *(_QWORD *)(a1 + 448) = 0LL;
-  return RtlFreeHeap(NtCurrentPeb()->ProcessHeap, (unsigned int)(dword_18015C000 + 1835008));
+  return RtlFreeHeap(NtCurrentPeb()->ProcessHeap, dword_18015C000 + 1835008, (PVOID)a1);
 }

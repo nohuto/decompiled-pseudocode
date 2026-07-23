@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpGetNonLegacyXStateAreaLength @ 0x1405AB1F4
+ * XREFs of RtlpGetNonLegacyXStateAreaLength @ 0x1405AB764
  * Callers:
- *     KiInitializeUserApc @ 0x14030F1D8 (KiInitializeUserApc.c)
+ *     KiInitializeUserApc @ 0x14030F468 (KiInitializeUserApc.c)
  * Callees:
- *     RtlpGetEntireXStateAreaLength @ 0x1403D75A0 (RtlpGetEntireXStateAreaLength.c)
+ *     RtlpGetEntireXStateAreaLength @ 0x1403D7780 (RtlpGetEntireXStateAreaLength.c)
  */
 
 __int64 __fastcall RtlpGetNonLegacyXStateAreaLength(__int64 a1)

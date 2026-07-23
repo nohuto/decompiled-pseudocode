@@ -1,9 +1,9 @@
 /*
- * XREFs of ExpHotAddProcessorToWorkers @ 0x14022E9FC
+ * XREFs of ExpHotAddProcessorToWorkers @ 0x14022E828
  * Callers:
- *     ExInitializeProcessor @ 0x14013C51C (ExInitializeProcessor.c)
+ *     ExInitializeProcessor @ 0x14013CA8C (ExInitializeProcessor.c)
  * Callees:
- *     ExQueueWorkItemEx @ 0x1400A8A00 (ExQueueWorkItemEx.c)
+ *     ExQueueWorkItemEx @ 0x1400A6F80 (ExQueueWorkItemEx.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */
 

@@ -1,5 +1,5 @@
 /*
- * XREFs of KeRemoveQueue @ 0x140136B10
+ * XREFs of KeRemoveQueue @ 0x140136C10
  * Callers:
  *     <none>
  * Callees:

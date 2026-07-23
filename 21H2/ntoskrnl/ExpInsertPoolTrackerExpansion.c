@@ -1,23 +1,23 @@
 /*
- * XREFs of ExpInsertPoolTrackerExpansion @ 0x140294238
+ * XREFs of ExpInsertPoolTrackerExpansion @ 0x140214DDC
  * Callers:
- *     ExpInsertPoolTrackerExpansion @ 0x140294238 (ExpInsertPoolTrackerExpansion.c)
- *     ExAllocateContiguousHeapPool @ 0x140295320 (ExAllocateContiguousHeapPool.c)
- *     ExInsertPoolTag @ 0x1402955CC (ExInsertPoolTag.c)
- *     ExAllocateHeapPool @ 0x14033C210 (ExAllocateHeapPool.c)
- *     ExpResizeBigPageTable @ 0x1403752C0 (ExpResizeBigPageTable.c)
- *     ExAllocateHeapSpecialPool @ 0x1405B9D7C (ExAllocateHeapSpecialPool.c)
- *     ExInitializePoolTracker @ 0x140A68AF4 (ExInitializePoolTracker.c)
+ *     ExpInsertPoolTrackerExpansion @ 0x140214DDC (ExpInsertPoolTrackerExpansion.c)
+ *     ExAllocateContiguousHeapPool @ 0x140216FE0 (ExAllocateContiguousHeapPool.c)
+ *     ExInsertPoolTag @ 0x14021728C (ExInsertPoolTag.c)
+ *     ExAllocateHeapPool @ 0x140346F60 (ExAllocateHeapPool.c)
+ *     ExpResizeBigPageTable @ 0x140374E10 (ExpResizeBigPageTable.c)
+ *     ExAllocateHeapSpecialPool @ 0x1405B9FAC (ExAllocateHeapSpecialPool.c)
+ *     ExInitializePoolTracker @ 0x140A69AF4 (ExInitializePoolTracker.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     ExpInsertPoolTrackerExpansion @ 0x140294238 (ExpInsertPoolTrackerExpansion.c)
- *     ExAllocateHeapPages @ 0x1403756C8 (ExAllocateHeapPages.c)
- *     ExPoolCleanupExpansionTable @ 0x140389790 (ExPoolCleanupExpansionTable.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     ExpInsertPoolTrackerExpansion @ 0x140214DDC (ExpInsertPoolTrackerExpansion.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402D3660 (KeAcquireInStackQueuedSpinLock.c)
+ *     ExAllocateHeapPages @ 0x140375218 (ExAllocateHeapPages.c)
+ *     ExPoolCleanupExpansionTable @ 0x1403898E0 (ExPoolCleanupExpansionTable.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     memset @ 0x140414200 (memset.c)
- *     EtwTracePool @ 0x1405A7CC4 (EtwTracePool.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     EtwTracePool @ 0x1405A7EF4 (EtwTracePool.c)
  */
 
 __int64 __fastcall ExpInsertPoolTrackerExpansion(unsigned int a1, unsigned __int64 a2, unsigned int a3)

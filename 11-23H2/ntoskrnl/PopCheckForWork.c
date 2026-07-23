@@ -1,22 +1,22 @@
 /*
- * XREFs of PopCheckForWork @ 0x14032CBB8
+ * XREFs of PopCheckForWork @ 0x14032CE48
  * Callers:
- *     PoRegisterDeviceForIdleDetection @ 0x140305040 (PoRegisterDeviceForIdleDetection.c)
- *     PopCheckForIdleness @ 0x14032C620 (PopCheckForIdleness.c)
- *     PopSetNotificationWork @ 0x14032CB30 (PopSetNotificationWork.c)
- *     PopHandleSystemIdleReset @ 0x1403B4A98 (PopHandleSystemIdleReset.c)
- *     PoNotifySystemTimeSet @ 0x1403B64C8 (PoNotifySystemTimeSet.c)
- *     PopCoalescingCheck @ 0x14058D884 (PopCoalescingCheck.c)
- *     PopCoalesingTimerDpcCallback @ 0x14058D9E0 (PopCoalesingTimerDpcCallback.c)
- *     PopBatteryApplyCompositeState @ 0x140870480 (PopBatteryApplyCompositeState.c)
- *     PopPowerAggregatorSystemTransitionExitStateHandler @ 0x140994090 (PopPowerAggregatorSystemTransitionExitStateHandler.c)
+ *     PoRegisterDeviceForIdleDetection @ 0x1403052D0 (PoRegisterDeviceForIdleDetection.c)
+ *     PopCheckForIdleness @ 0x14032C8B0 (PopCheckForIdleness.c)
+ *     PopSetNotificationWork @ 0x14032CDC0 (PopSetNotificationWork.c)
+ *     PopHandleSystemIdleReset @ 0x1403B4C78 (PopHandleSystemIdleReset.c)
+ *     PoNotifySystemTimeSet @ 0x1403B66A8 (PoNotifySystemTimeSet.c)
+ *     PopCoalescingCheck @ 0x14058DD74 (PopCoalescingCheck.c)
+ *     PopCoalesingTimerDpcCallback @ 0x14058DED0 (PopCoalesingTimerDpcCallback.c)
+ *     PopBatteryApplyCompositeState @ 0x1408706C0 (PopBatteryApplyCompositeState.c)
+ *     PopPowerAggregatorSystemTransitionExitStateHandler @ 0x140994290 (PopPowerAggregatorSystemTransitionExitStateHandler.c)
  *     PopReleasePolicyLock @ 0x140A87BA4 (PopReleasePolicyLock.c)
- *     PopTransitionSystemPowerStateEx @ 0x140AA90F0 (PopTransitionSystemPowerStateEx.c)
+ *     PopTransitionSystemPowerStateEx @ 0x140AA8F60 (PopTransitionSystemPowerStateEx.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     ExQueueWorkItem @ 0x1402B7C30 (ExQueueWorkItem.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ExQueueWorkItem @ 0x1402B7EC0 (ExQueueWorkItem.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 PopCheckForWork()
@@ -40,10 +40,10 @@ __int64 PopCheckForWork()
         ExQueueWorkItem(&PopPolicyWorker, DelayedWorkQueue);
       }
       result = KxReleaseSpinLock((volatile signed __int64 *)&PopWorkerSpinLock);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         result = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
           && (unsigned __int8)result <= 0xFu
           && (unsigned __int8)v1 <= 0xFu
           && (unsigned __int8)result >= 2u )

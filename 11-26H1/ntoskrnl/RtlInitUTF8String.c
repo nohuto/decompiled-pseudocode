@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlInitUTF8String @ 0x140617E70
+ * XREFs of RtlInitUTF8String @ 0x14061AEC0
  * Callers:
- *     PiGetDefaultMessageString @ 0x140A26864 (PiGetDefaultMessageString.c)
+ *     PiGetDefaultMessageString @ 0x140A39904 (PiGetDefaultMessageString.c)
  * Callees:
- *     RtlInitAnsiString @ 0x14046C9A0 (RtlInitAnsiString.c)
+ *     RtlInitAnsiString @ 0x140466120 (RtlInitAnsiString.c)
  */
 
-void __fastcall RtlInitUTF8String(STRING *a1, const char *a2)
+void __cdecl RtlInitUTF8String(PUTF8_STRING DestinationString, PCSZ SourceString)
 {
-  RtlInitAnsiString(a1, a2);
+  RtlInitAnsiString(DestinationString, SourceString);
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlTraceDatabaseFind @ 0x1402F5C60
+ * XREFs of RtlTraceDatabaseFind @ 0x1402F5E50
  * Callers:
  *     <none>
  * Callees:
- *     RtlpTraceDatabaseAcquireLock @ 0x1402F5D4C (RtlpTraceDatabaseAcquireLock.c)
- *     RtlpTraceDatabaseInternalFind @ 0x1402F5F6C (RtlpTraceDatabaseInternalFind.c)
- *     RtlpTraceDatabaseReleaseLock @ 0x1402F6020 (RtlpTraceDatabaseReleaseLock.c)
+ *     RtlpTraceDatabaseAcquireLock @ 0x1402F5F3C (RtlpTraceDatabaseAcquireLock.c)
+ *     RtlpTraceDatabaseInternalFind @ 0x1402F615C (RtlpTraceDatabaseInternalFind.c)
+ *     RtlpTraceDatabaseReleaseLock @ 0x1402F6210 (RtlpTraceDatabaseReleaseLock.c)
  */
 
 BOOLEAN __stdcall RtlTraceDatabaseFind(

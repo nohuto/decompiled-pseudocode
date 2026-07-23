@@ -1,12 +1,12 @@
 /*
- * XREFs of MiGetPageFileResizeCandidates @ 0x1404E7480
+ * XREFs of MiGetPageFileResizeCandidates @ 0x1404E083C
  * Callers:
- *     MiAttemptPageFileReduction @ 0x1406F870C (MiAttemptPageFileReduction.c)
- *     MiAttemptPageFileReductionApc @ 0x14070D510 (MiAttemptPageFileReductionApc.c)
- *     MiExtendPagingFiles @ 0x140B2F8D4 (MiExtendPagingFiles.c)
+ *     MiAttemptPageFileReduction @ 0x1406FD3DC (MiAttemptPageFileReduction.c)
+ *     MiAttemptPageFileReductionApc @ 0x1407121C0 (MiAttemptPageFileReductionApc.c)
+ *     MiExtendPagingFiles @ 0x140B316B4 (MiExtendPagingFiles.c)
  * Callees:
- *     MiPageFileChangeCandidate @ 0x1404E75F0 (MiPageFileChangeCandidate.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     MiPageFileChangeCandidate @ 0x1404E09AC (MiPageFileChangeCandidate.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall MiGetPageFileResizeCandidates(__int64 a1, unsigned __int64 a2, unsigned int a3, char *a4)

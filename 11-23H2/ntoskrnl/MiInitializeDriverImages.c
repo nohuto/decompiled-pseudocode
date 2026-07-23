@@ -7,24 +7,24 @@
  *     MiSystemVaToDynamicBitmap @ 0x140210FC4 (MiSystemVaToDynamicBitmap.c)
  *     MiMakeZeroedPageTablesEx @ 0x140214310 (MiMakeZeroedPageTablesEx.c)
  *     RtlImageNtHeader @ 0x140214B30 (RtlImageNtHeader.c)
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402390E0 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x14023D410 (ExReleaseResourceLite.c)
- *     MiReservePtes @ 0x14027D190 (MiReservePtes.c)
- *     MI_IS_PHYSICAL_ADDRESS @ 0x1402848B0 (MI_IS_PHYSICAL_ADDRESS.c)
- *     RtlClearBitsEx @ 0x14028BB20 (RtlClearBitsEx.c)
- *     KeQueryPerformanceCounter @ 0x1402C3270 (KeQueryPerformanceCounter.c)
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     MiProcessKernelCfgImage @ 0x1403682B0 (MiProcessKernelCfgImage.c)
- *     MiBuildDynamicRegion @ 0x14037620C (MiBuildDynamicRegion.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     VslInitializeSecureKernelCfg @ 0x14054B53C (VslInitializeSecureKernelCfg.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402391B0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14023D4E0 (ExReleaseResourceLite.c)
+ *     MiReservePtes @ 0x14027D420 (MiReservePtes.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x140284B40 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     RtlClearBitsEx @ 0x14028BDB0 (RtlClearBitsEx.c)
+ *     KeQueryPerformanceCounter @ 0x1402C3500 (KeQueryPerformanceCounter.c)
+ *     MiAllocatePool @ 0x1402DF430 (MiAllocatePool.c)
+ *     MiProcessKernelCfgImage @ 0x140368450 (MiProcessKernelCfgImage.c)
+ *     MiBuildDynamicRegion @ 0x1403763AC (MiBuildDynamicRegion.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     VslInitializeSecureKernelCfg @ 0x14054BBFC (VslInitializeSecureKernelCfg.c)
  *     MiMarkKernelImageCfgBits @ 0x1406970A4 (MiMarkKernelImageCfgBits.c)
- *     MiProcessKernelCfgImageLoadConfig @ 0x1407D43E4 (MiProcessKernelCfgImageLoadConfig.c)
- *     VslReserveProtectedPages @ 0x140885B64 (VslReserveProtectedPages.c)
- *     MiAllocateKernelCfgBitmapPageTables @ 0x140A43E4C (MiAllocateKernelCfgBitmapPageTables.c)
- *     MiProcessKernelCfgAddressTakenImports @ 0x140A4406C (MiProcessKernelCfgAddressTakenImports.c)
+ *     MiProcessKernelCfgImageLoadConfig @ 0x1407D46B4 (MiProcessKernelCfgImageLoadConfig.c)
+ *     VslReserveProtectedPages @ 0x140885DA4 (VslReserveProtectedPages.c)
+ *     MiAllocateKernelCfgBitmapPageTables @ 0x140A440FC (MiAllocateKernelCfgBitmapPageTables.c)
+ *     MiProcessKernelCfgAddressTakenImports @ 0x140A4431C (MiProcessKernelCfgAddressTakenImports.c)
  *     MiInitializeBootLoadedDriverPfns @ 0x140B43E0C (MiInitializeBootLoadedDriverPfns.c)
  *     MiCreateInitialSystemWsles @ 0x140B456F8 (MiCreateInitialSystemWsles.c)
  *     MiReloadBootLoadedDrivers @ 0x140B469CC (MiReloadBootLoadedDrivers.c)
@@ -72,8 +72,8 @@ __int64 __fastcall MiInitializeDriverImages(__int64 a1)
   PVOID *j; // rbx
   int KernelCfgBitmapPageTables; // eax
   PVOID *v35; // rbx
-  __int64 v36; // rcx
-  __int64 v37; // rax
+  PVOID v36; // rcx
+  PIMAGE_NT_HEADERS v37; // rax
   int Config; // eax
   _QWORD *k; // rbx
   char v40; // [rsp+30h] [rbp-68h] BYREF
@@ -226,11 +226,11 @@ LABEL_9:
                   {
                     if ( ((_DWORD)v35[13] & 0x2000) == 0 )
                     {
-                      v36 = (__int64)v35[6];
+                      v36 = v35[6];
                       if ( v36 == PsNtosImageBase )
                       {
                         v37 = RtlImageNtHeader(v36);
-                        Config = MiMarkKernelImageCfgBits((__int64)v35, v37);
+                        Config = MiMarkKernelImageCfgBits((__int64)v35, (__int64)v37);
                         *((_DWORD *)v35 + 26) |= 0x2000u;
                       }
                       else

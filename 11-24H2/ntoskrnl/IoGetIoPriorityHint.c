@@ -1,8 +1,8 @@
 /*
- * XREFs of IoGetIoPriorityHint @ 0x14040C7C0
+ * XREFs of IoGetIoPriorityHint @ 0x140404E50
  * Callers:
- *     IopSynchronousServiceTail @ 0x1408C3300 (IopSynchronousServiceTail.c)
- *     NtQueryInformationFile @ 0x14096F610 (NtQueryInformationFile.c)
+ *     IopSynchronousServiceTail @ 0x1408C0CC0 (IopSynchronousServiceTail.c)
+ *     NtQueryInformationFile @ 0x140957E20 (NtQueryInformationFile.c)
  * Callees:
  *     <none>
  */

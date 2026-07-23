@@ -1,10 +1,10 @@
 /*
- * XREFs of ExpWnfGetCurrentScopeInstance @ 0x140909CBC
+ * XREFs of ExpWnfGetCurrentScopeInstance @ 0x1408E13DC
  * Callers:
- *     ExpWnfResolveScopeInstance @ 0x1408AD060 (ExpWnfResolveScopeInstance.c)
+ *     ExpWnfResolveScopeInstance @ 0x1409032C0 (ExpWnfResolveScopeInstance.c)
  * Callees:
- *     PsGetSessionId @ 0x1403D5E10 (PsGetSessionId.c)
- *     ExpWnfQueryCurrentUserSID @ 0x140909E2C (ExpWnfQueryCurrentUserSID.c)
+ *     PsGetSessionId @ 0x1403C1560 (PsGetSessionId.c)
+ *     ExpWnfQueryCurrentUserSID @ 0x1408E154C (ExpWnfQueryCurrentUserSID.c)
  */
 
 __int64 __fastcall ExpWnfGetCurrentScopeInstance(__int64 Process, int a2, int a3, _DWORD *a4, _DWORD *a5, _DWORD *a6)

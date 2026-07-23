@@ -8,19 +8,19 @@
  *     ZwProtectVirtualMemory @ 0x1800A4A70 (ZwProtectVirtualMemory.c)
  */
 
-__int64 __fastcall RtlpProtectHeap(__int64 a1, unsigned int a2)
+__int64 __fastcall RtlpProtectHeap(__int64 a1, ULONG a2)
 {
   _QWORD *v2; // r14
   _QWORD *i; // rsi
   _QWORD *v5; // rbp
-  unsigned __int64 j; // rbx
-  int VirtualMemory; // edi
-  _BYTE v9[24]; // [rsp+30h] [rbp-58h] BYREF
-  __int64 v10; // [rsp+48h] [rbp-40h]
+  char *j; // rbx
+  NTSTATUS VirtualMemory; // edi
+  char MemoryInformation[24]; // [rsp+30h] [rbp-58h] BYREF
+  ULONG_PTR v10; // [rsp+48h] [rbp-40h]
   int v11; // [rsp+50h] [rbp-38h]
-  char v12; // [rsp+90h] [rbp+8h] BYREF
-  __int64 v13; // [rsp+A0h] [rbp+18h] BYREF
-  unsigned __int64 v14; // [rsp+A8h] [rbp+20h] BYREF
+  ULONG OldProtect; // [rsp+90h] [rbp+8h] BYREF
+  ULONG_PTR RegionSize; // [rsp+A0h] [rbp+18h] BYREF
+  PVOID BaseAddress; // [rsp+A8h] [rbp+20h] BYREF
 
   v2 = (_QWORD *)(a1 + 288);
   for ( i = *(_QWORD **)(a1 + 288); i != v2; i = (_QWORD *)*i )
@@ -28,9 +28,15 @@ __int64 __fastcall RtlpProtectHeap(__int64 a1, unsigned int a2)
     v5 = i - 3;
     if ( i != (_QWORD *)24 )
     {
-      for ( j = v5[6]; j < v5[9]; j += v10 )
+      for ( j = (char *)v5[6]; (unsigned __int64)j < v5[9]; j += v10 )
       {
-        VirtualMemory = ZwQueryVirtualMemory(-1LL, j, 0LL, v9, 48LL, 0LL);
+        VirtualMemory = ZwQueryVirtualMemory(
+                          (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+                          j,
+                          MemoryBasicInformation,
+                          MemoryInformation,
+                          0x30uLL,
+                          0LL);
         if ( VirtualMemory < 0 )
         {
           if ( NtCurrentPeb()->Ldr )
@@ -42,9 +48,14 @@ __int64 __fastcall RtlpProtectHeap(__int64 a1, unsigned int a2)
         }
         if ( v11 == 4096 )
         {
-          v13 = v10;
-          v14 = j;
-          VirtualMemory = ZwProtectVirtualMemory(-1LL, &v14, &v13, a2, &v12);
+          RegionSize = v10;
+          BaseAddress = j;
+          VirtualMemory = ZwProtectVirtualMemory(
+                            (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+                            &BaseAddress,
+                            &RegionSize,
+                            a2,
+                            &OldProtect);
           if ( VirtualMemory < 0 )
           {
             if ( NtCurrentPeb()->Ldr )

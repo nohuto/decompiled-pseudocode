@@ -108,10 +108,13 @@ LABEL_10:
   else
     MappedSystemVa = MmMapLockedPagesSpecifyCache(MemoryDescriptorList, 0, MmCached, 0LL, 0, 0x40000010u);
   KxReleaseSpinLock((volatile signed __int64 *)(a1 + 80));
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v13 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v13 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -208,10 +211,10 @@ LABEL_41:
           v34 = MmMapLockedPagesSpecifyCache(v26, 0, MmCached, 0LL, 0, 0x40000010u);
         Src = v34;
         KxReleaseSpinLock((volatile signed __int64 *)(a1 + 80));
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v35 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v35 <= 0xFu && (unsigned __int8)v33 <= 0xFu && v35 >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v35 <= 0xFu && (unsigned __int8)v33 <= 0xFu && v35 >= 2u )
           {
             v36 = KeGetCurrentPrcb();
             v25 = v36->SchedulerAssist;

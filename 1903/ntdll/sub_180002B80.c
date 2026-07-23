@@ -19,7 +19,7 @@ __int64 __fastcall sub_180002B80(char *a1, size_t Size)
   int v5; // edi
   char v6; // [rsp+28h] [rbp-D8h]
   int v7; // [rsp+30h] [rbp-D0h] BYREF
-  __int64 v8; // [rsp+38h] [rbp-C8h] BYREF
+  HANDLE Handle; // [rsp+38h] [rbp-C8h] BYREF
   int v9; // [rsp+40h] [rbp-C0h] BYREF
   char *v10; // [rsp+48h] [rbp-B8h]
   int v11; // [rsp+50h] [rbp-B0h] BYREF
@@ -30,7 +30,7 @@ __int64 __fastcall sub_180002B80(char *a1, size_t Size)
 
   v2 = Size;
   v7 = 0;
-  result = sub_180003D40(2LL, L"TimeZoneInformation", 0LL, &v8);
+  result = sub_180003D40(2LL, L"TimeZoneInformation", 0LL, &Handle);
   if ( (int)result >= 0 )
   {
     memset(a1, 0, v2);
@@ -83,10 +83,10 @@ __int64 __fastcall sub_180002B80(char *a1, size_t Size)
       LODWORD(v15[60]) = 0x4000000;
     }
     v6 = 1;
-    v5 = sub_180003474(0x40000000LL, v8, v15, 0LL, 0LL, v6);
+    v5 = sub_180003474(0x40000000LL, Handle, v15, 0LL, 0LL, v6);
     if ( v5 >= 0 && v2 >= 0x1B0 )
       a1[428] = v7 != 0;
-    ZwClose(v8);
+    ZwClose(Handle);
     return (unsigned int)v5;
   }
   return result;

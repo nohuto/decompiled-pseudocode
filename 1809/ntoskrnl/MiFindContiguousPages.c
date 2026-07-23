@@ -1,17 +1,17 @@
 /*
- * XREFs of MiFindContiguousPages @ 0x14009A110
+ * XREFs of MiFindContiguousPages @ 0x14009A050
  * Callers:
  *     MiFindPagesForMdl @ 0x140011954 (MiFindPagesForMdl.c)
  *     MiWaitForInPageComplete @ 0x14001B7E0 (MiWaitForInPageComplete.c)
- *     MiAllocateContiguousMemory @ 0x1400E651C (MiAllocateContiguousMemory.c)
- *     MmMarkPhysicalMemoryAsBad @ 0x1402A7410 (MmMarkPhysicalMemoryAsBad.c)
- *     MiAllocateSlabEntry @ 0x1402C1C9C (MiAllocateSlabEntry.c)
- *     MiIdealClusterPage @ 0x1402C6C14 (MiIdealClusterPage.c)
- *     MiRebuildLargePage @ 0x1402CE3E4 (MiRebuildLargePage.c)
- *     MiAllocateDriverPage @ 0x140653A14 (MiAllocateDriverPage.c)
- *     MiUseLargeDriverPage @ 0x140683260 (MiUseLargeDriverPage.c)
- *     MmRemovePhysicalMemory @ 0x14084D900 (MmRemovePhysicalMemory.c)
- *     MiFindLargePageMemory @ 0x14085D180 (MiFindLargePageMemory.c)
+ *     MiAllocateContiguousMemory @ 0x1400E659C (MiAllocateContiguousMemory.c)
+ *     MmMarkPhysicalMemoryAsBad @ 0x1402A7600 (MmMarkPhysicalMemoryAsBad.c)
+ *     MiAllocateSlabEntry @ 0x1402C1E8C (MiAllocateSlabEntry.c)
+ *     MiIdealClusterPage @ 0x1402C6E04 (MiIdealClusterPage.c)
+ *     MiRebuildLargePage @ 0x1402CE5D4 (MiRebuildLargePage.c)
+ *     MiAllocateDriverPage @ 0x140654BD4 (MiAllocateDriverPage.c)
+ *     MiUseLargeDriverPage @ 0x140684420 (MiUseLargeDriverPage.c)
+ *     MmRemovePhysicalMemory @ 0x14084EB60 (MmRemovePhysicalMemory.c)
+ *     MiFindLargePageMemory @ 0x14085E3E0 (MiFindLargePageMemory.c)
  * Callees:
  *     MiConvertContiguousPages @ 0x1400117AC (MiConvertContiguousPages.c)
  *     MiReturnResidentAvailable @ 0x140022D18 (MiReturnResidentAvailable.c)
@@ -20,22 +20,22 @@
  *     MiChargeResident @ 0x14002DF50 (MiChargeResident.c)
  *     MiChargeCommit @ 0x14004CF20 (MiChargeCommit.c)
  *     MiSufficientAvailablePages @ 0x140055A50 (MiSufficientAvailablePages.c)
- *     MiReturnCommit @ 0x140065D40 (MiReturnCommit.c)
- *     MiCollapseRunTopDown @ 0x14009A71C (MiCollapseRunTopDown.c)
- *     MiPfnsWorthTrying @ 0x14009A7B0 (MiPfnsWorthTrying.c)
- *     MiClaimPhysicalRun @ 0x14009BF20 (MiClaimPhysicalRun.c)
- *     MiPageToNode @ 0x14009D010 (MiPageToNode.c)
- *     EtwTraceKernelEvent @ 0x1400F3710 (EtwTraceKernelEvent.c)
- *     MiSetPfnOwnedAndActive @ 0x1401295CC (MiSetPfnOwnedAndActive.c)
- *     MiDereferencePageRunsEx @ 0x14012B5F8 (MiDereferencePageRunsEx.c)
- *     MiReferencePageRuns @ 0x14012B6D0 (MiReferencePageRuns.c)
- *     MiCreatePteCopyList @ 0x14012EBE0 (MiCreatePteCopyList.c)
- *     MiReleasePteCopyList @ 0x140131860 (MiReleasePteCopyList.c)
- *     MiQueueWorkingSetRequest @ 0x140175CFC (MiQueueWorkingSetRequest.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     MiFindLargeNodePage @ 0x1402A9004 (MiFindLargeNodePage.c)
- *     MiEmptyKernelStackCache @ 0x1402BB684 (MiEmptyKernelStackCache.c)
+ *     MiReturnCommit @ 0x140065D30 (MiReturnCommit.c)
+ *     MiCollapseRunTopDown @ 0x14009A65C (MiCollapseRunTopDown.c)
+ *     MiPfnsWorthTrying @ 0x14009A6F0 (MiPfnsWorthTrying.c)
+ *     MiClaimPhysicalRun @ 0x14009BE60 (MiClaimPhysicalRun.c)
+ *     MiPageToNode @ 0x14009CF50 (MiPageToNode.c)
+ *     EtwTraceKernelEvent @ 0x1400F3790 (EtwTraceKernelEvent.c)
+ *     MiSetPfnOwnedAndActive @ 0x14012969C (MiSetPfnOwnedAndActive.c)
+ *     MiDereferencePageRunsEx @ 0x14012B6C8 (MiDereferencePageRunsEx.c)
+ *     MiReferencePageRuns @ 0x14012B7A0 (MiReferencePageRuns.c)
+ *     MiCreatePteCopyList @ 0x14012ECB0 (MiCreatePteCopyList.c)
+ *     MiReleasePteCopyList @ 0x140131930 (MiReleasePteCopyList.c)
+ *     MiQueueWorkingSetRequest @ 0x140175DFC (MiQueueWorkingSetRequest.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiFindLargeNodePage @ 0x1402A91F4 (MiFindLargeNodePage.c)
+ *     MiEmptyKernelStackCache @ 0x1402BB874 (MiEmptyKernelStackCache.c)
  */
 
 __int64 __fastcall MiFindContiguousPages(
@@ -239,7 +239,7 @@ __int64 __fastcall MiFindContiguousPages(
                   v26 = 0LL;
                   v74 = v19;
                   v22 = v80;
-                  v89 = (unsigned __int16 *)((char *)qword_14043A050
+                  v89 = (unsigned __int16 *)((char *)qword_14043B110
                                            + 2 * v19 * (unsigned int)(unsigned __int16)KeNumberNodes);
                   v20 = (int *)v76;
                   v91 = &v89[(unsigned __int16)KeNumberNodes];
@@ -361,7 +361,7 @@ LABEL_43:
                         *v92 = v38;
                         return 0LL;
                       }
-                      if ( *(_QWORD *)(qword_14043A748 + 8 * ((*(_QWORD *)(v39 + 40) >> 40) & 0x3FFLL)) == a1 )
+                      if ( *(_QWORD *)(qword_14043B808 + 8 * ((*(_QWORD *)(v39 + 40) >> 40) & 0x3FFLL)) == a1 )
                       {
                         if ( (*(_QWORD *)(v39 + 8) | 0x8000000000000000uLL) == 0xFFFFFFFFFFFFFFFCuLL
                           && (*(_BYTE *)(v39 + 34) & 7) == 5 )
@@ -472,7 +472,7 @@ LABEL_63:
             v22 = v80;
             v20 = (int *)v76;
           }
-          if ( byte_14043AED4 )
+          if ( byte_14043BF94 )
           {
             MiQueueWorkingSetRequest(a1, 32LL, v20);
             v22 = v80;

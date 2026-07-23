@@ -1,12 +1,12 @@
 /*
  * XREFs of sub_1403FABD0 @ 0x1403FABD0
  * Callers:
- *     KiMarkBugCheckRegions @ 0x1403EBAC8 (KiMarkBugCheckRegions.c)
+ *     sub_1403EBAC8 @ 0x1403EBAC8 (sub_1403EBAC8.c)
  * Callees:
- *     KeKvaShadowingActive @ 0x1402581D0 (KeKvaShadowingActive.c)
+ *     sub_1402581D0 @ 0x1402581D0 (sub_1402581D0.c)
  *     MmIsAddressValid @ 0x14038DE50 (MmIsAddressValid.c)
- *     IoAddTriageDumpDataBlock @ 0x1403D99B4 (IoAddTriageDumpDataBlock.c)
- *     ExQueryBigPoolTag @ 0x14063B170 (ExQueryBigPoolTag.c)
+ *     sub_1403D99B4 @ 0x1403D99B4 (sub_1403D99B4.c)
+ *     sub_14063B170 @ 0x14063B170 (sub_14063B170.c)
  */
 
 void __fastcall sub_1403FABD0(__int64 a1, __int64 a2, int a3, int a4)
@@ -25,23 +25,23 @@ void __fastcall sub_1403FABD0(__int64 a1, __int64 a2, int a3, int a4)
 
   if ( a4 == 7 && a3 == -1073741694 )
   {
-    v4 = KeKvaShadowingActive();
-    v5 = (unsigned __int64)KiSystemCall64Shadow;
+    v4 = sub_1402581D0();
+    v5 = (unsigned __int64)sub_140AB71C0;
     if ( !v4 )
-      v5 = (unsigned __int64)KiSystemCall64;
-    v6 = (v5 ^ *(_QWORD *)&KiMismatchSummary) & 0xFFFFFFFFFFFFF000uLL;
-    IoAddTriageDumpDataBlock((v5 ^ KiMismatchSummary) & 0xFFFFF000, (PVOID)0x1000);
+      v5 = (unsigned __int64)sub_140434000;
+    v6 = (v5 ^ *(_QWORD *)&qword_140C0E958) & 0xFFFFFFFFFFFFF000uLL;
+    sub_1403D99B4((v5 ^ qword_140C0E958) & 0xFFFFF000, (PVOID)0x1000);
     _mm_lfence();
     if ( MmIsAddressValid((PVOID)v6) )
     {
       v7 = MaxDataSize;
       v8 = 4LL;
-      v9 = MmPteBase + ((v6 >> 9) & 0x7FFFFFFFF8LL);
+      v9 = qword_140D05410 + ((v6 >> 9) & 0x7FFFFFFFF8LL);
       do
       {
         *(_QWORD *)v7 = v9;
         v7 += 2;
-        v9 = MmPteBase + ((v9 >> 9) & 0x7FFFFFFFF8LL);
+        v9 = qword_140D05410 + ((v9 >> 9) & 0x7FFFFFFFF8LL);
         --v8;
       }
       while ( v8 );
@@ -68,12 +68,12 @@ void __fastcall sub_1403FABD0(__int64 a1, __int64 a2, int a3, int a4)
         v13 = *(_QWORD *)&MaxDataSize[2 * (v12 - 1)];
         if ( !v13 )
           break;
-        IoAddTriageDumpDataBlock(v13, (PVOID)8);
+        sub_1403D99B4(v13, (PVOID)8);
         --v12;
       }
       while ( v12 );
     }
-    if ( (unsigned int)ExQueryBigPoolTag(v6, &KiSuspectPoolTag) )
-      IoAddTriageDumpDataBlock((ULONG)&KiSuspectPoolTag, (PVOID)4);
+    if ( (unsigned int)sub_14063B170(v6, &dword_140C0E964) )
+      sub_1403D99B4((ULONG)&dword_140C0E964, (PVOID)4);
   }
 }

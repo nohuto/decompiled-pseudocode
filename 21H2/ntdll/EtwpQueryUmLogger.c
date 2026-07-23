@@ -3,8 +3,8 @@
  * Callers:
  *     EtwProcessPrivateLoggerRequest @ 0x180049AF0 (EtwProcessPrivateLoggerRequest.c)
  *     EtwpFlushUmLogger @ 0x18004FA7C (EtwpFlushUmLogger.c)
- *     EtwpIncrementUmLoggerFile @ 0x180111040 (EtwpIncrementUmLoggerFile.c)
- *     EtwpUpdateUmLogger @ 0x180111500 (EtwpUpdateUmLogger.c)
+ *     EtwpIncrementUmLoggerFile @ 0x180111000 (EtwpIncrementUmLoggerFile.c)
+ *     EtwpUpdateUmLogger @ 0x1801114C0 (EtwpUpdateUmLogger.c)
  * Callees:
  *     RtlCopyUnicodeString @ 0x1800102F0 (RtlCopyUnicodeString.c)
  *     EtwpGetUmLoggerInfoFromContext @ 0x18004863C (EtwpGetUmLoggerInfoFromContext.c)
@@ -36,7 +36,7 @@ __int64 __fastcall EtwpQueryUmLogger(unsigned int a1, _DWORD *a2, _DWORD *a3, __
       {
         *(_QWORD *)(a4 + 152) = a4 + 176;
         *(_WORD *)(a4 + 146) = *(_WORD *)(v9 + 154);
-        RtlCopyUnicodeString((unsigned __int16 *)(a4 + 144), (unsigned __int16 *)(v9 + 152));
+        RtlCopyUnicodeString((PUNICODE_STRING)(a4 + 144), (PCUNICODE_STRING)(v9 + 152));
         *a3 += *(unsigned __int16 *)(v9 + 154);
       }
       EtwpGetUmLoggerInfoFromContext(a4, v9, 0LL);
@@ -45,7 +45,7 @@ __int64 __fastcall EtwpQueryUmLogger(unsigned int a1, _DWORD *a2, _DWORD *a3, __
       {
         *(_QWORD *)(a4 + 136) = a4 + v10;
         *(_WORD *)(a4 + 130) = *(_WORD *)(v9 + 170);
-        RtlCopyUnicodeString((unsigned __int16 *)(a4 + 128), (unsigned __int16 *)(v9 + 168));
+        RtlCopyUnicodeString((PUNICODE_STRING)(a4 + 128), (PCUNICODE_STRING)(v9 + 168));
         *a3 += *(unsigned __int16 *)(v9 + 170);
       }
       *a2 = *a3;

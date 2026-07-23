@@ -1,7 +1,7 @@
 /*
- * XREFs of IopInitializeReserveIrps @ 0x1409DA110
+ * XREFs of IopInitializeReserveIrps @ 0x1409DB110
  * Callers:
- *     IoInitSystemPreDrivers @ 0x1409B1F54 (IoInitSystemPreDrivers.c)
+ *     IoInitSystemPreDrivers @ 0x1409B2F54 (IoInitSystemPreDrivers.c)
  * Callees:
  *     IopAllocateIrpWithExtension @ 0x14000EB44 (IopAllocateIrpWithExtension.c)
  */
@@ -18,39 +18,39 @@ char __fastcall IopInitializeReserveIrps(__int64 a1, __int64 a2)
   IRP *IrpWithExtension; // rax
   char result; // al
 
-  byte_140435DC0 = 42;
+  byte_140436E60 = 42;
   LOBYTE(a2) = 42;
   IopReserveIrps = (PIRP)IopAllocateIrpWithExtension(a1, a2);
   if ( IopReserveIrps )
   {
-    dword_140435CE8 = 0;
-    qword_140435D00 = (__int64)&qword_140435CF8;
-    qword_140435CF8 = (__int64)&qword_140435CF8;
+    dword_140436D88 = 0;
+    qword_140436DA0 = (__int64)&qword_140436D98;
+    qword_140436D98 = (__int64)&qword_140436D98;
     LOBYTE(v2) = 42;
-    word_140435CF0 = 1;
-    byte_140435CF2 = 6;
-    dword_140435CF4 = 0;
-    qword_140435D08 = (PIRP)IopAllocateIrpWithExtension(v3, v2);
-    if ( qword_140435D08 )
+    word_140436D90 = 1;
+    byte_140436D92 = 6;
+    dword_140436D94 = 0;
+    qword_140436DA8 = (PIRP)IopAllocateIrpWithExtension(v3, v2);
+    if ( qword_140436DA8 )
     {
-      dword_140435D10 = 0;
-      qword_140435D28 = (__int64)&qword_140435D20;
-      qword_140435D20 = (__int64)&qword_140435D20;
+      dword_140436DB0 = 0;
+      qword_140436DC8 = (__int64)&qword_140436DC0;
+      qword_140436DC0 = (__int64)&qword_140436DC0;
       LOBYTE(v4) = 42;
-      word_140435D18 = 1;
-      byte_140435D1A = 6;
-      dword_140435D1C = 0;
-      qword_140435D30 = (PIRP)IopAllocateIrpWithExtension(v5, v4);
-      if ( qword_140435D30 )
+      word_140436DB8 = 1;
+      byte_140436DBA = 6;
+      dword_140436DBC = 0;
+      qword_140436DD0 = (PIRP)IopAllocateIrpWithExtension(v5, v4);
+      if ( qword_140436DD0 )
       {
-        dword_140435D38 = 0;
-        stru_140435D40.Header.WaitListHead.Blink = &stru_140435D40.Header.WaitListHead;
+        dword_140436DD8 = 0;
+        stru_140436DE0.Header.WaitListHead.Blink = &stru_140436DE0.Header.WaitListHead;
         v8 = 0;
-        stru_140435D40.Header.WaitListHead.Flink = &stru_140435D40.Header.WaitListHead;
-        LOWORD(stru_140435D40.Header.Lock) = 1;
-        stru_140435D40.Header.Size = 6;
-        stru_140435D40.Header.SignalState = 0;
-        qword_140435DB8 = 0LL;
+        stru_140436DE0.Header.WaitListHead.Flink = &stru_140436DE0.Header.WaitListHead;
+        LOWORD(stru_140436DE0.Header.Lock) = 1;
+        stru_140436DE0.Header.Size = 6;
+        stru_140436DE0.Header.SignalState = 0;
+        qword_140436E58 = 0LL;
         while ( 1 )
         {
           LOBYTE(v6) = 42;
@@ -62,12 +62,12 @@ char __fastcall IopInitializeReserveIrps(__int64 a1, __int64 a2)
           {
             if ( v8 == 1 )
             {
-              qword_140435D88 = IrpWithExtension;
+              qword_140436E28 = IrpWithExtension;
             }
             else
             {
-              *(_QWORD *)&IrpWithExtension->Type = qword_140435DB8;
-              qword_140435DB8 = IrpWithExtension;
+              *(_QWORD *)&IrpWithExtension->Type = qword_140436E58;
+              qword_140436E58 = IrpWithExtension;
             }
           }
           else
@@ -76,21 +76,21 @@ char __fastcall IopInitializeReserveIrps(__int64 a1, __int64 a2)
           }
           if ( (unsigned int)++v8 >= 8 )
           {
-            dword_140435D60 = 0;
-            qword_140435D80 = (__int64)&qword_140435D78;
+            dword_140436E00 = 0;
+            qword_140436E20 = (__int64)&qword_140436E18;
             result = 1;
-            qword_140435D78 = (__int64)&qword_140435D78;
-            stru_140435DA0.Header.WaitListHead.Blink = &stru_140435DA0.Header.WaitListHead;
-            stru_140435DA0.Header.WaitListHead.Flink = &stru_140435DA0.Header.WaitListHead;
-            dword_140435D90 = 0;
-            qword_140435D68 = 0LL;
-            qword_140435D98 = 0LL;
-            word_140435D70 = 1;
-            byte_140435D72 = 6;
-            dword_140435D74 = 0;
-            LOWORD(stru_140435DA0.Header.Lock) = 1;
-            stru_140435DA0.Header.Size = 6;
-            stru_140435DA0.Header.SignalState = 0;
+            qword_140436E18 = (__int64)&qword_140436E18;
+            stru_140436E40.Header.WaitListHead.Blink = &stru_140436E40.Header.WaitListHead;
+            stru_140436E40.Header.WaitListHead.Flink = &stru_140436E40.Header.WaitListHead;
+            dword_140436E30 = 0;
+            qword_140436E08 = 0LL;
+            qword_140436E38 = 0LL;
+            word_140436E10 = 1;
+            byte_140436E12 = 6;
+            dword_140436E14 = 0;
+            LOWORD(stru_140436E40.Header.Lock) = 1;
+            stru_140436E40.Header.Size = 6;
+            stru_140436E40.Header.SignalState = 0;
             return result;
           }
         }

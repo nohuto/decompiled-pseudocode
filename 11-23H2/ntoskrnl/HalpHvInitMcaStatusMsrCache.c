@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpHvInitMcaStatusMsrCache @ 0x14050B480
+ * XREFs of HalpHvInitMcaStatusMsrCache @ 0x14050B9D0
  * Callers:
  *     HalpMceInit @ 0x140A8A918 (HalpMceInit.c)
  * Callees:
- *     HalpQueryMaximumRegisteredProcessorCount @ 0x140377060 (HalpQueryMaximumRegisteredProcessorCount.c)
- *     HalpGetCpuVendor @ 0x1403805F4 (HalpGetCpuVendor.c)
- *     HalpMmAllocCtxAlloc @ 0x14039AE20 (HalpMmAllocCtxAlloc.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
+ *     HalpQueryMaximumRegisteredProcessorCount @ 0x140377200 (HalpQueryMaximumRegisteredProcessorCount.c)
+ *     HalpGetCpuVendor @ 0x140380794 (HalpGetCpuVendor.c)
+ *     HalpMmAllocCtxAlloc @ 0x14039B000 (HalpMmAllocCtxAlloc.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  */
 
 void HalpHvInitMcaStatusMsrCache()

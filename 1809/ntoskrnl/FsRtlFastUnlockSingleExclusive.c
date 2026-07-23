@@ -1,19 +1,19 @@
 /*
- * XREFs of FsRtlFastUnlockSingleExclusive @ 0x14008C4D0
+ * XREFs of FsRtlFastUnlockSingleExclusive @ 0x14008C4C0
  * Callers:
- *     FsRtlFastUnlockSingle @ 0x14008C3F0 (FsRtlFastUnlockSingle.c)
- *     FsRtlPrivateRemoveLock @ 0x14026F614 (FsRtlPrivateRemoveLock.c)
+ *     FsRtlFastUnlockSingle @ 0x14008C3E0 (FsRtlFastUnlockSingle.c)
+ *     FsRtlPrivateRemoveLock @ 0x14026F804 (FsRtlPrivateRemoveLock.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
- *     RtlDelete @ 0x14008D4C0 (RtlDelete.c)
- *     FsRtlPrivateResetLowestLockOffset @ 0x14008D55C (FsRtlPrivateResetLowestLockOffset.c)
- *     ExFreeToNPagedLookasideList @ 0x1400922D8 (ExFreeToNPagedLookasideList.c)
- *     FsRtlFindFirstOverlappingExclusiveNode @ 0x140122590 (FsRtlFindFirstOverlappingExclusiveNode.c)
- *     RtlRealSuccessor @ 0x14012EF60 (RtlRealSuccessor.c)
- *     FsRtlPrivateCheckWaitingLocks @ 0x14012EFA0 (FsRtlPrivateCheckWaitingLocks.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     KxReleaseSpinLock @ 0x1400630D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14008CE80 (KeAcquireSpinLockRaiseToDpc.c)
+ *     RtlDelete @ 0x14008D400 (RtlDelete.c)
+ *     FsRtlPrivateResetLowestLockOffset @ 0x14008D49C (FsRtlPrivateResetLowestLockOffset.c)
+ *     ExFreeToNPagedLookasideList @ 0x140092218 (ExFreeToNPagedLookasideList.c)
+ *     FsRtlFindFirstOverlappingExclusiveNode @ 0x140122660 (FsRtlFindFirstOverlappingExclusiveNode.c)
+ *     RtlRealSuccessor @ 0x14012F030 (RtlRealSuccessor.c)
+ *     FsRtlPrivateCheckWaitingLocks @ 0x14012F070 (FsRtlPrivateCheckWaitingLocks.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall FsRtlFastUnlockSingleExclusive(

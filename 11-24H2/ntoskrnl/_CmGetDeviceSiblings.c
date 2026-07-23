@@ -1,16 +1,16 @@
 /*
- * XREFs of _CmGetDeviceSiblings @ 0x1409B3E64
+ * XREFs of _CmGetDeviceSiblings @ 0x1409AB1F4
  * Callers:
- *     _CmGetDeviceMappedPropertyFromComposite @ 0x1409B4770 (_CmGetDeviceMappedPropertyFromComposite.c)
+ *     _CmGetDeviceMappedPropertyFromComposite @ 0x1409ABB00 (_CmGetDeviceMappedPropertyFromComposite.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     _CmGetDeviceParent @ 0x140926998 (_CmGetDeviceParent.c)
- *     _CmGetDeviceChildren @ 0x1409B400C (_CmGetDeviceChildren.c)
- *     _PnpMultiSzDeleteString @ 0x1409B43BC (_PnpMultiSzDeleteString.c)
- *     _PnpMultiSzGetLen @ 0x1409B6270 (_PnpMultiSzGetLen.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     _CmGetDeviceParent @ 0x140928AD8 (_CmGetDeviceParent.c)
+ *     _CmGetDeviceChildren @ 0x1409AB39C (_CmGetDeviceChildren.c)
+ *     _PnpMultiSzDeleteString @ 0x1409AB74C (_PnpMultiSzDeleteString.c)
+ *     _PnpMultiSzGetLen @ 0x1409AD600 (_PnpMultiSzGetLen.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall CmGetDeviceSiblings(_QWORD *a1, WCHAR *a2, _WORD *a3, unsigned int *a4)
@@ -19,7 +19,7 @@ __int64 __fastcall CmGetDeviceSiblings(_QWORD *a1, WCHAR *a2, _WORD *a3, unsigne
   unsigned int v8; // r12d
   unsigned int DeviceParent; // ebx
   void *Pool2; // rdi
-  int v11; // eax
+  int DeviceChildren; // eax
   unsigned int Len; // eax
   unsigned int v14[4]; // [rsp+20h] [rbp-1F8h] BYREF
   wchar_t v15[200]; // [rsp+30h] [rbp-1E8h] BYREF
@@ -46,17 +46,13 @@ __int64 __fastcall CmGetDeviceSiblings(_QWORD *a1, WCHAR *a2, _WORD *a3, unsigne
     v14[0] = 0;
     do
     {
-      v11 = ((__int64 (__fastcall *)(_QWORD *, wchar_t *, void *, unsigned int *))CmGetDeviceChildren)(
-              a1,
-              v15,
-              Pool2,
-              v14);
-      DeviceParent = v11;
-      if ( !v11 )
+      DeviceChildren = CmGetDeviceChildren(a1, v15, Pool2, v14);
+      DeviceParent = DeviceChildren;
+      if ( !DeviceChildren )
         goto LABEL_6;
-      if ( v11 != -1073741789 )
+      if ( DeviceChildren != -1073741789 )
       {
-        if ( v11 >= 0 )
+        if ( DeviceChildren >= 0 )
         {
 LABEL_6:
           if ( !Pool2 )
@@ -91,7 +87,7 @@ LABEL_6:
       }
       if ( Pool2 )
         ExFreePoolWithTag(Pool2, 0);
-      Pool2 = (void *)ExAllocatePool2(0x100uLL);
+      Pool2 = (void *)ExAllocatePool2(0x100uLL, 2LL * v14[0], 0x52504E50u);
     }
     while ( Pool2 );
     return (unsigned int)-1073741801;

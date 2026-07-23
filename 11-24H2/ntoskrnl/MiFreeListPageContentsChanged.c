@@ -1,13 +1,13 @@
 /*
- * XREFs of MiFreeListPageContentsChanged @ 0x140269BA8
+ * XREFs of MiFreeListPageContentsChanged @ 0x14021F138
  * Callers:
- *     MiPageFreeToZero @ 0x14026ABD0 (MiPageFreeToZero.c)
+ *     MiPageFreeToZero @ 0x140220160 (MiPageFreeToZero.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14020FA40 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140210170 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MI_PAGE_TO_FULL_COLOR @ 0x1402236D0 (MI_PAGE_TO_FULL_COLOR.c)
- *     MiGetPfnPageSizeIndex @ 0x1403070C0 (MiGetPfnPageSizeIndex.c)
- *     MiGetColorHeadBase @ 0x140424080 (MiGetColorHeadBase.c)
+ *     MI_PAGE_TO_FULL_COLOR @ 0x140250420 (MI_PAGE_TO_FULL_COLOR.c)
+ *     MiGetPfnPageSizeIndex @ 0x140310FA0 (MiGetPfnPageSizeIndex.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140338DA0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1403394D0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiGetColorHeadBase @ 0x140417F30 (MiGetColorHeadBase.c)
  */
 
 void __fastcall MiFreeListPageContentsChanged(__int64 a1, ULONG_PTR a2)
@@ -29,10 +29,10 @@ void __fastcall MiFreeListPageContentsChanged(__int64 a1, ULONG_PTR a2)
   v6 = MiPageSizes[(unsigned int)MiGetPfnPageSizeIndex(v4)];
   v7 = MiGetColorHeadBase(a1, v5, 1LL, BYTE2(v13) >> 6) + 88LL * (unsigned __int8)v5;
   ExAcquireSpinLockExclusiveAtDpcLevel((PEX_SPIN_LOCK)(v7 + 32));
-  if ( dword_140E3004C == 1 )
+  if ( dword_140E3018C == 1 )
   {
     v8 = a2 & 0x1F;
-    v9 = (volatile signed __int32 *)(*((_QWORD *)&xmmword_140E300A0 + 1) + 4 * (a2 >> 5));
+    v9 = (volatile signed __int32 *)(*((_QWORD *)&xmmword_140E301E0 + 1) + 4 * (a2 >> 5));
     if ( v8 + v6 <= 0x20 )
     {
       if ( v6 == 32 )

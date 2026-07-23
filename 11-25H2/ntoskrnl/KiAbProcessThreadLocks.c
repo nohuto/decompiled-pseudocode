@@ -58,12 +58,12 @@ void __fastcall KiAbProcessThreadLocks(__int64 a1, char a2, __int64 a3, _QWORD *
   int v34; // eax
   unsigned int v35; // eax
   char v36; // cl
-  unsigned __int64 *v37; // r15
-  __int64 v38; // rax
-  unsigned __int64 v39; // rdx
-  bool v40; // r8
+  _RTL_RB_TREE *v37; // r15
+  _RTL_BALANCED_NODE *Min; // rax
+  unsigned __int64 Root; // rdx
+  BOOLEAN v40; // r8
   int v41; // r9d
-  unsigned __int64 v42; // rax
+  _RTL_BALANCED_NODE *v42; // rax
   char v43; // al
   int v44; // ebx
   __int64 v45; // rax
@@ -73,10 +73,10 @@ void __fastcall KiAbProcessThreadLocks(__int64 a1, char a2, __int64 a3, _QWORD *
   unsigned int v49; // eax
   char v50; // cl
   __int64 v51; // rax
-  unsigned __int64 v52; // rdx
-  bool v53; // r8
+  __int64 v52; // rdx
+  BOOLEAN v53; // r8
   int v54; // r9d
-  unsigned __int64 v55; // rax
+  __int64 v55; // rax
   int v56; // ecx
   __int64 v57; // rax
   char v58; // dl
@@ -88,10 +88,10 @@ void __fastcall KiAbProcessThreadLocks(__int64 a1, char a2, __int64 a3, _QWORD *
   char v64; // al
   unsigned __int64 v65; // r14
   __int64 v66; // rax
-  unsigned __int64 v67; // rdx
-  bool v68; // r8
+  __int64 v67; // rdx
+  BOOLEAN v68; // r8
   int v69; // r9d
-  unsigned __int64 v70; // rax
+  __int64 v70; // rax
   __int64 v71; // rax
   char v72; // r9
   char v73; // dl
@@ -104,25 +104,25 @@ void __fastcall KiAbProcessThreadLocks(__int64 a1, char a2, __int64 a3, _QWORD *
   char v80; // al
   __int64 v81; // rax
   __int64 v82; // r9
-  bool v83; // r8
+  BOOLEAN v83; // r8
   int v84; // r10d
-  unsigned __int64 v85; // rdx
-  unsigned __int64 v86; // rax
+  __int64 v85; // rdx
+  __int64 v86; // rax
   __int64 v87; // rax
   char v88; // r9
   char v89; // dl
   char v90; // al
   __int64 v91; // rax
-  unsigned __int64 v92; // rdx
-  bool v93; // r8
+  __int64 v92; // rdx
+  BOOLEAN v93; // r8
   int v94; // r9d
-  unsigned __int64 v95; // rax
+  __int64 v95; // rax
   char v96; // al
   __int64 v97; // rax
-  unsigned __int64 v98; // rdx
-  bool v99; // r8
+  __int64 v98; // rdx
+  BOOLEAN v99; // r8
   int v100; // r9d
-  unsigned __int64 v101; // rax
+  __int64 v101; // rax
   int v102; // r10d
   signed __int8 v103; // r15
   char v104; // r9
@@ -270,30 +270,30 @@ LABEL_117:
                   if ( *(_BYTE *)(v19 + 40) != v33 )
                   {
                     *(_BYTE *)(v19 + 40) = v33;
-                    v37 = (unsigned __int64 *)(v32 + 40);
-                    RtlRbRemoveNode((unsigned __int64)v37, (unsigned __int64 *)(v19 + 16));
-                    v38 = v37[1];
-                    v39 = *v37;
-                    if ( (v38 & 1) == 0 )
+                    v37 = (_RTL_RB_TREE *)(v32 + 40);
+                    RtlRbRemoveNode(v37, (PRTL_BALANCED_NODE)(v19 + 16));
+                    Min = v37->Min;
+                    Root = (unsigned __int64)v37->Root;
+                    if ( ((unsigned __int8)Min & 1) == 0 )
                       goto LABEL_52;
-                    if ( v39 )
+                    if ( Root )
                     {
-                      v39 ^= (unsigned __int64)v37;
+                      Root ^= (unsigned __int64)v37;
 LABEL_52:
                       v40 = 0;
-                      v41 = v38 & 1;
-                      if ( !v39 )
+                      v41 = (unsigned __int8)Min & 1;
+                      if ( !Root )
                         goto LABEL_87;
                       while ( 1 )
                       {
-                        if ( *(_BYTE *)(v39 + 24) <= *(_BYTE *)(v19 + 40) )
+                        if ( *(_BYTE *)(Root + 24) <= *(_BYTE *)(v19 + 40) )
                         {
-                          v42 = *(_QWORD *)(v39 + 8);
+                          v42 = *(_RTL_BALANCED_NODE **)(Root + 8);
                           if ( v41 )
                           {
                             if ( !v42 )
                               goto LABEL_86;
-                            v42 ^= v39;
+                            v42 = (_RTL_BALANCED_NODE *)(Root ^ (unsigned __int64)v42);
                           }
                           if ( !v42 )
                           {
@@ -304,22 +304,22 @@ LABEL_86:
                         }
                         else
                         {
-                          v42 = *(_QWORD *)v39;
+                          v42 = *(_RTL_BALANCED_NODE **)Root;
                           if ( v41 )
                           {
                             if ( !v42 )
                               goto LABEL_87;
-                            v42 ^= v39;
+                            v42 = (_RTL_BALANCED_NODE *)(Root ^ (unsigned __int64)v42);
                           }
                           if ( !v42 )
                             goto LABEL_87;
                         }
-                        v39 = v42;
+                        Root = (unsigned __int64)v42;
                       }
                     }
                     v40 = 0;
 LABEL_87:
-                    RtlRbInsertNodeEx((__int64 *)v37, v39, v40, v19 + 16);
+                    RtlRbInsertNodeEx(v37, (PRTL_BALANCED_NODE)Root, v40, (PRTL_BALANCED_NODE)(v19 + 16));
                     v32 = (__int64)LockedHeadEntry;
                   }
                   v30 |= 0x10u;
@@ -366,7 +366,7 @@ LABEL_87:
                   if ( *(_BYTE *)(v19 + 40) != v90 )
                   {
                     *(_BYTE *)(v19 + 40) = v90;
-                    RtlRbRemoveNode(v32 + 40, (unsigned __int64 *)(v19 + 16));
+                    RtlRbRemoveNode((PRTL_RB_TREE)(v32 + 40), (PRTL_BALANCED_NODE)(v19 + 16));
                     v91 = *(_QWORD *)(v32 + 48);
                     v92 = *(_QWORD *)(v32 + 40);
                     if ( (v91 & 1) == 0 )
@@ -414,7 +414,11 @@ LABEL_230:
                     }
                     v93 = 0;
 LABEL_231:
-                    RtlRbInsertNodeEx((__int64 *)(v32 + 40), v92, v93, v19 + 16);
+                    RtlRbInsertNodeEx(
+                      (PRTL_RB_TREE)(v32 + 40),
+                      (PRTL_BALANCED_NODE)v92,
+                      v93,
+                      (PRTL_BALANCED_NODE)(v19 + 16));
                   }
                   v30 |= 0x20u;
                 }
@@ -449,7 +453,7 @@ LABEL_116:
               {
                 v65 = (unsigned __int64)(LockedHeadEntry + 7);
                 *(_BYTE *)(v19 + 40) = v64;
-                RtlRbRemoveNode(v32 + 56, (unsigned __int64 *)(v19 + 16));
+                RtlRbRemoveNode((PRTL_RB_TREE)(v32 + 56), (PRTL_BALANCED_NODE)(v19 + 16));
                 v66 = *(_QWORD *)(v32 + 64);
                 v67 = *(_QWORD *)(v32 + 56);
                 if ( (v66 & 1) == 0 )
@@ -497,7 +501,11 @@ LABEL_144:
                 }
                 v68 = 0;
 LABEL_145:
-                RtlRbInsertNodeEx((__int64 *)(v32 + 56), v67, v68, v19 + 16);
+                RtlRbInsertNodeEx(
+                  (PRTL_RB_TREE)(v32 + 56),
+                  (PRTL_BALANCED_NODE)v67,
+                  v68,
+                  (PRTL_BALANCED_NODE)(v19 + 16));
               }
               v30 |= 0x20u;
             }
@@ -666,7 +674,7 @@ LABEL_12:
         if ( *(_BYTE *)(v28 + 40) != v80 )
         {
           *(_BYTE *)(v28 + 40) = v80;
-          RtlRbRemoveNode((unsigned __int64)(v46 + 7), (unsigned __int64 *)(v28 + 16));
+          RtlRbRemoveNode((PRTL_RB_TREE)(v46 + 7), (PRTL_BALANCED_NODE)(v28 + 16));
           v81 = v46[8];
           if ( (v81 & 1) == 0 )
           {
@@ -718,7 +726,7 @@ LABEL_178:
           }
           v83 = 0;
 LABEL_179:
-          RtlRbInsertNodeEx(v46 + 7, v85, v83, v28 + 16);
+          RtlRbInsertNodeEx((PRTL_RB_TREE)(v46 + 7), (PRTL_BALANCED_NODE)v85, v83, (PRTL_BALANCED_NODE)(v28 + 16));
         }
         v44 |= 0x20u;
       }
@@ -799,7 +807,7 @@ LABEL_123:
       if ( *(_BYTE *)(v28 + 40) != v47 )
       {
         *(_BYTE *)(v28 + 40) = v47;
-        RtlRbRemoveNode((unsigned __int64)(v46 + 5), (unsigned __int64 *)(v28 + 16));
+        RtlRbRemoveNode((PRTL_RB_TREE)(v46 + 5), (PRTL_BALANCED_NODE)(v28 + 16));
         v51 = v46[6];
         v52 = v46[5];
         if ( (v51 & 1) == 0 )
@@ -847,7 +855,7 @@ LABEL_100:
         }
         v53 = 0;
 LABEL_101:
-        RtlRbInsertNodeEx(v46 + 5, v52, v53, v28 + 16);
+        RtlRbInsertNodeEx((PRTL_RB_TREE)(v46 + 5), (PRTL_BALANCED_NODE)v52, v53, (PRTL_BALANCED_NODE)(v28 + 16));
       }
       v44 |= 0x10u;
     }
@@ -895,14 +903,14 @@ LABEL_101:
     if ( *(_BYTE *)(v28 + 40) == v96 )
       goto LABEL_237;
     *(_BYTE *)(v28 + 40) = v96;
-    RtlRbRemoveNode((unsigned __int64)(v46 + 5), (unsigned __int64 *)(v28 + 16));
+    RtlRbRemoveNode((PRTL_RB_TREE)(v46 + 5), (PRTL_BALANCED_NODE)(v28 + 16));
     v97 = v46[6];
     v98 = v46[5];
     if ( (v97 & 1) != 0 )
     {
       if ( !v98 )
       {
-        RtlRbInsertNodeEx(v46 + 5, 0LL, 0, v28 + 16);
+        RtlRbInsertNodeEx((PRTL_RB_TREE)(v46 + 5), 0LL, 0, (PRTL_BALANCED_NODE)(v28 + 16));
         v44 |= 0x20u;
         goto LABEL_124;
       }
@@ -941,7 +949,7 @@ LABEL_208:
     }
     v99 = 1;
 LABEL_236:
-    RtlRbInsertNodeEx(v46 + 5, v98, v99, v28 + 16);
+    RtlRbInsertNodeEx((PRTL_RB_TREE)(v46 + 5), (PRTL_BALANCED_NODE)v98, v99, (PRTL_BALANCED_NODE)(v28 + 16));
 LABEL_237:
     v44 |= 0x20u;
 LABEL_124:

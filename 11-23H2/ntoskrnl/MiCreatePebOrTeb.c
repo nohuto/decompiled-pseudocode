@@ -2,8 +2,8 @@
  * XREFs of MiCreatePebOrTeb @ 0x1406AB22C
  * Callers:
  *     MmCreateTeb @ 0x1406AAF44 (MmCreateTeb.c)
- *     MmCreatePeb @ 0x1407A189C (MmCreatePeb.c)
- *     MiInitializeWowPeb @ 0x1407A549C (MiInitializeWowPeb.c)
+ *     MmCreatePeb @ 0x1407A1A8C (MmCreatePeb.c)
+ *     MiInitializeWowPeb @ 0x1407A568C (MiInitializeWowPeb.c)
  * Callees:
  *     MiAllocateFromSubAllocatedRegion @ 0x1406AB290 (MiAllocateFromSubAllocatedRegion.c)
  */

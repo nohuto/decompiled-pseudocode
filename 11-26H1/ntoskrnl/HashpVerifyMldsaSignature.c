@@ -1,12 +1,12 @@
 /*
- * XREFs of HashpVerifyMldsaSignature @ 0x1408ABDEC
+ * XREFs of HashpVerifyMldsaSignature @ 0x1408B2230
  * Callers:
- *     MinCryptVerifySignedHash2 @ 0x1408A04B0 (MinCryptVerifySignedHash2.c)
+ *     MinCryptVerifySignedHash2 @ 0x1408A68C0 (MinCryptVerifySignedHash2.c)
  * Callees:
- *     SymCryptMlDsaVerify @ 0x14055DD70 (SymCryptMlDsaVerify.c)
- *     SymCryptMlDsakeyAllocate @ 0x14055E1CC (SymCryptMlDsakeyAllocate.c)
- *     SymCryptMlDsakeyFree @ 0x14055E274 (SymCryptMlDsakeyFree.c)
- *     SymCryptMlDsakeySetValue @ 0x14055E310 (SymCryptMlDsakeySetValue.c)
+ *     SymCryptMlDsaVerify @ 0x140560288 (SymCryptMlDsaVerify.c)
+ *     SymCryptMlDsakeyAllocate @ 0x1405606F0 (SymCryptMlDsakeyAllocate.c)
+ *     SymCryptMlDsakeyFree @ 0x140560798 (SymCryptMlDsakeyFree.c)
+ *     SymCryptMlDsakeySetValue @ 0x140560834 (SymCryptMlDsakeySetValue.c)
  */
 
 __int64 __fastcall HashpVerifyMldsaSignature(

@@ -1,7 +1,7 @@
 /*
- * XREFs of ?KiAbDetermineMaxWaiterPriority@LegacyAutoBoost@@YAXPEAU_KLOCK_ENTRY@@PEAU_AB_PRIORITY@1@@Z @ 0x1402705B0
+ * XREFs of ?KiAbDetermineMaxWaiterPriority@LegacyAutoBoost@@YAXPEAU_KLOCK_ENTRY@@PEAU_AB_PRIORITY@1@@Z @ 0x14026FB20
  * Callers:
- *     ?KiAbProcessThreadLocks@LegacyAutoBoost@@YAXPEAU_KTHREAD@@T_KI_AB_BOOST_STRATEGY@1@PEAU_SINGLE_LIST_ENTRY@@22@Z @ 0x14027125C (-KiAbProcessThreadLocks@LegacyAutoBoost@@YAXPEAU_KTHREAD@@T_KI_AB_BOOST_STRATEGY@1@PEAU_SINGLE_L.c)
+ *     ?KiAbProcessThreadLocks@LegacyAutoBoost@@YAXPEAU_KTHREAD@@T_KI_AB_BOOST_STRATEGY@1@PEAU_SINGLE_LIST_ENTRY@@22@Z @ 0x1402707CC (-KiAbProcessThreadLocks@LegacyAutoBoost@@YAXPEAU_KTHREAD@@T_KI_AB_BOOST_STRATEGY@1@PEAU_SINGLE_L.c)
  * Callees:
  *     <none>
  */

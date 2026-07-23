@@ -1,22 +1,22 @@
 /*
- * XREFs of DifNtSetSystemEnvironmentValueExWrapper @ 0x14068D780
+ * XREFs of DifNtSetSystemEnvironmentValueExWrapper @ 0x140691360
  * Callers:
  *     <none>
  * Callees:
- *     DifGetReturnAddressForWrappers @ 0x140260EA4 (DifGetReturnAddressForWrappers.c)
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     DifGetAPIThunkContextById @ 0x1404C17A4 (DifGetAPIThunkContextById.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     NtSetSystemEnvironmentValueEx @ 0x14083EAA0 (NtSetSystemEnvironmentValueEx.c)
+ *     DifGetReturnAddressForWrappers @ 0x14026040C (DifGetReturnAddressForWrappers.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     DifGetAPIThunkContextById @ 0x1404BAFF4 (DifGetAPIThunkContextById.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     NtSetSystemEnvironmentValueEx @ 0x140844CE0 (NtSetSystemEnvironmentValueEx.c)
  */
 
 __int64 __fastcall DifNtSetSystemEnvironmentValueExWrapper(
-        __int64 a1,
-        __int64 a2,
-        __int64 a3,
-        unsigned int a4,
-        unsigned int a5)
+        UNICODE_STRING *a1,
+        const GUID *a2,
+        void *a3,
+        ULONG a4,
+        ULONG Attributes)
 {
   __int128 *APIThunkContextById; // rax
   __int64 v9; // rdx
@@ -51,7 +51,7 @@ __int64 __fastcall DifNtSetSystemEnvironmentValueExWrapper(
     }
     v12 = 0;
     *(_QWORD *)&v21 = a1;
-    *((_QWORD *)&v19 + 1) = __PAIR64__(a4, a5);
+    *((_QWORD *)&v19 + 1) = __PAIR64__(a4, Attributes);
     *((_QWORD *)&v20 + 1) = a2;
     *(_QWORD *)&v20 = a3;
     if ( !VfDifRunningWithoutReboot && (VfOptionFlags & 0x800) == 0
@@ -66,7 +66,7 @@ __int64 __fastcall DifNtSetSystemEnvironmentValueExWrapper(
         ExReleaseRundownProtection_0(&DifRebootlessRundown);
     }
   }
-  DWORD2(v21) = NtSetSystemEnvironmentValueEx(a1, a2, a3, a4, a5);
+  DWORD2(v21) = NtSetSystemEnvironmentValueEx(a1, a2, a3, a4, Attributes);
   if ( v10 )
   {
     if ( (v15 = 0, !VfDifRunningWithoutReboot) && (VfOptionFlags & 0x800) == 0

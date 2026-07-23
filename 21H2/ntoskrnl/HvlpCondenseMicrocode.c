@@ -1,12 +1,12 @@
 /*
- * XREFs of HvlpCondenseMicrocode @ 0x14088E938
+ * XREFs of HvlpCondenseMicrocode @ 0x14088EA98
  * Callers:
- *     HvlUpdateMicrocodeDatabase @ 0x14088E910 (HvlUpdateMicrocodeDatabase.c)
+ *     HvlUpdateMicrocodeDatabase @ 0x14088EA70 (HvlUpdateMicrocodeDatabase.c)
  * Callees:
- *     HvcallInitInputControl @ 0x140365D70 (HvcallInitInputControl.c)
- *     HvcallFastExtended @ 0x140390300 (HvcallFastExtended.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     HvlpHvToNtStatus @ 0x1404FACF4 (HvlpHvToNtStatus.c)
+ *     HvcallInitInputControl @ 0x140365F20 (HvcallInitInputControl.c)
+ *     HvcallFastExtended @ 0x140390450 (HvcallFastExtended.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     HvlpHvToNtStatus @ 0x1404FAC74 (HvlpHvToNtStatus.c)
  */
 
 __int64 HvlpCondenseMicrocode()

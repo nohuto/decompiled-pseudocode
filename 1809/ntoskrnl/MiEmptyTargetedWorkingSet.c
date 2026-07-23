@@ -1,13 +1,13 @@
 /*
- * XREFs of MiEmptyTargetedWorkingSet @ 0x1402B2FD8
+ * XREFs of MiEmptyTargetedWorkingSet @ 0x1402B31C8
  * Callers:
- *     MiTrimAllSystemPagableMemory @ 0x1402B3B90 (MiTrimAllSystemPagableMemory.c)
+ *     MiTrimAllSystemPagableMemory @ 0x1402B3D80 (MiTrimAllSystemPagableMemory.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     MiReturnWsToExpansionList @ 0x1400F3384 (MiReturnWsToExpansionList.c)
- *     MiEmptyWorkingSetInitiate @ 0x140142220 (MiEmptyWorkingSetInitiate.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14007DE80 (KeAcquireInStackQueuedSpinLock.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     MiReturnWsToExpansionList @ 0x1400F3404 (MiReturnWsToExpansionList.c)
+ *     MiEmptyWorkingSetInitiate @ 0x140142320 (MiEmptyWorkingSetInitiate.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiEmptyTargetedWorkingSet(__int64 a1)
@@ -22,7 +22,7 @@ __int64 __fastcall MiEmptyTargetedWorkingSet(__int64 a1)
   __int64 result; // rax
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
 
-  KeAcquireInStackQueuedSpinLock(&qword_14043AE80, &LockHandle);
+  KeAcquireInStackQueuedSpinLock(&qword_14043BF40, &LockHandle);
   v2 = (_QWORD *)(a1 + 24);
   v3 = *(_QWORD *)(a1 + 24);
   if ( v3 )
@@ -44,7 +44,7 @@ __int64 __fastcall MiEmptyTargetedWorkingSet(__int64 a1)
     }
     __writecr8(OldIrql);
     MiEmptyWorkingSetInitiate(a1, 0, 0LL, -1LL);
-    KeAcquireInStackQueuedSpinLock(&qword_14043AE80, &LockHandle);
+    KeAcquireInStackQueuedSpinLock(&qword_14043BF40, &LockHandle);
     *(_BYTE *)(a1 + 185) &= 0xF9u;
     MiReturnWsToExpansionList(a1, 0);
   }

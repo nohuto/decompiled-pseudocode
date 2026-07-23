@@ -46,7 +46,9 @@ void __fastcall IopDereferencePassiveInterruptBlock(PVOID P)
     v5[1] = v6;
   }
   KxReleaseSpinLock((volatile signed __int64 *)P + 7);
-  if ( KiIrqlFlags && (CurrentIrql = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags
+    && (CurrentIrql = KeGetCurrentIrql(), ((unsigned __int8)KiIrqlFlags & 1) != 0)
+    && CurrentIrql <= 0xFu )
   {
     v3 = v16;
     if ( v16 <= 0xFu && CurrentIrql >= 2u )
@@ -67,7 +69,7 @@ void __fastcall IopDereferencePassiveInterruptBlock(PVOID P)
   }
   __writecr8(v3);
   KxReleaseSpinLock((volatile signed __int64 *)&PassiveInterruptListLock);
-  if ( KiIrqlFlags && (v12 = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && v12 <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && (v12 = KeGetCurrentIrql(), ((unsigned __int8)KiIrqlFlags & 1) != 0) && v12 <= 0xFu )
   {
     v4 = v17;
     if ( v17 <= 0xFu && v12 >= 2u )

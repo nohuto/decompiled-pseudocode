@@ -1,13 +1,13 @@
 /*
- * XREFs of MiBuildMappedCluster @ 0x14040D8F0
+ * XREFs of MiBuildMappedCluster @ 0x14042A81C
  * Callers:
- *     MiGatherMappedPages @ 0x140496CD8 (MiGatherMappedPages.c)
+ *     MiGatherMappedPages @ 0x140490828 (MiGatherMappedPages.c)
  * Callees:
- *     MiMapPageInHyperSpaceWorker @ 0x140287EE0 (MiMapPageInHyperSpaceWorker.c)
- *     MiBuildMappedClusterComputeBounds @ 0x14040D9C0 (MiBuildMappedClusterComputeBounds.c)
- *     MiBuildMappedClusterFillMdl @ 0x14040DB58 (MiBuildMappedClusterFillMdl.c)
- *     MiBuildMappedClusterInitialize @ 0x14040DE80 (MiBuildMappedClusterInitialize.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     MiMapPageInHyperSpaceWorker @ 0x140287440 (MiMapPageInHyperSpaceWorker.c)
+ *     MiBuildMappedClusterComputeBounds @ 0x14042A8EC (MiBuildMappedClusterComputeBounds.c)
+ *     MiBuildMappedClusterFillMdl @ 0x14042AA84 (MiBuildMappedClusterFillMdl.c)
+ *     MiBuildMappedClusterInitialize @ 0x14042ADAC (MiBuildMappedClusterInitialize.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall MiBuildMappedCluster(__int64 a1, __int64 a2, unsigned int a3)

@@ -1,32 +1,28 @@
 /*
- * XREFs of RtlConvertSharedToExclusive @ 0x18006CE60
+ * XREFs of RtlConvertSharedToExclusive @ 0x18006CE50
  * Callers:
  *     <none>
  * Callees:
- *     RtlReleaseResource @ 0x18006D0B0 (RtlReleaseResource.c)
+ *     RtlReleaseResource @ 0x18006D0A0 (RtlReleaseResource.c)
  */
 
-__int64 __fastcall RtlConvertSharedToExclusive(__int64 a1)
+void __cdecl RtlConvertSharedToExclusive(PRTL_RESOURCE Resource)
 {
-  __int64 result; // rax
-  __int64 v3; // rdx
+  LONG NumberOfActive; // eax
 
-  result = *(unsigned int *)(a1 + 68);
-  if ( (int)result >= 0 )
+  NumberOfActive = Resource->NumberOfActive;
+  if ( NumberOfActive >= 0 )
   {
-    while ( (_DWORD)result == 1 )
+    while ( NumberOfActive == 1 )
     {
-      LODWORD(result) = _InterlockedCompareExchange((volatile signed __int32 *)(a1 + 68), -1, 1);
-      if ( (_DWORD)result == 1 )
+      NumberOfActive = _InterlockedCompareExchange(&Resource->NumberOfActive, -1, 1);
+      if ( NumberOfActive == 1 )
       {
-        result = (__int64)NtCurrentTeb();
-        *(_QWORD *)(a1 + 72) = *(_QWORD *)(result + 72);
-        return result;
+        Resource->ExclusiveOwnerThread = NtCurrentTeb()->ClientId.UniqueThread;
+        return;
       }
     }
-    RtlReleaseResource(a1);
-    LOBYTE(v3) = 1;
-    return RtlAcquireResourceExclusive(a1, v3);
+    RtlReleaseResource(Resource);
+    RtlAcquireResourceExclusive(Resource, 1u);
   }
-  return result;
 }

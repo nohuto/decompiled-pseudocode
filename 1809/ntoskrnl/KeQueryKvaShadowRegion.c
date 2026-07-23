@@ -1,19 +1,19 @@
 /*
- * XREFs of KeQueryKvaShadowRegion @ 0x14012B14C
+ * XREFs of KeQueryKvaShadowRegion @ 0x14012B21C
  * Callers:
- *     MiCheckRelevantKernelShadows @ 0x14012B0DC (MiCheckRelevantKernelShadows.c)
+ *     MiCheckRelevantKernelShadows @ 0x14012B1AC (MiCheckRelevantKernelShadows.c)
  * Callees:
- *     RtlImageNtHeader @ 0x14009DAE0 (RtlImageNtHeader.c)
- *     RtlSectionTableFromVirtualAddress @ 0x1400F3450 (RtlSectionTableFromVirtualAddress.c)
+ *     RtlImageNtHeader @ 0x14009DA20 (RtlImageNtHeader.c)
+ *     RtlSectionTableFromVirtualAddress @ 0x1400F34D0 (RtlSectionTableFromVirtualAddress.c)
  */
 
 __int64 __fastcall KeQueryKvaShadowRegion(__int64 a1, unsigned __int64 **a2, unsigned __int64 *a3)
 {
   __int64 v5; // rcx
-  PIMAGE_NT_HEADERS v6; // rax
-  _DWORD *v7; // rax
-  unsigned int v8; // ecx
-  unsigned int v9; // eax
+  _IMAGE_NT_HEADERS64 *v6; // rax
+  PIMAGE_SECTION_HEADER v7; // rax
+  unsigned int PhysicalAddress; // ecx
+  unsigned int SizeOfRawData; // eax
   struct _KPRCB *CurrentPrcb; // rax
   KPCR *Pcr; // rax
 
@@ -35,16 +35,16 @@ __int64 __fastcall KeQueryKvaShadowRegion(__int64 a1, unsigned __int64 **a2, uns
   if ( v5 == 1 )
   {
     v6 = RtlImageNtHeader((PVOID)0x140000000LL);
-    v7 = (_DWORD *)RtlSectionTableFromVirtualAddress(
-                     (unsigned __int64)v6,
-                     0x140000000LL,
-                     (unsigned int)KiDivideErrorFaultShadow - 0x40000000);
-    *a2 = (unsigned __int64 *)(0x140000000LL + (unsigned int)v7[3]);
-    v8 = v7[2];
-    v9 = v7[4];
-    if ( v8 <= v9 )
-      v8 = v9;
-    *a3 = (v8 + 4095LL) & 0xFFFFFFFFFFFFF000uLL;
+    v7 = RtlSectionTableFromVirtualAddress(
+           v6,
+           (PVOID)0x140000000LL,
+           (unsigned int)KiDivideErrorFaultShadow - 0x40000000);
+    *a2 = (unsigned __int64 *)(0x140000000LL + v7->VirtualAddress);
+    PhysicalAddress = v7->Misc.PhysicalAddress;
+    SizeOfRawData = v7->SizeOfRawData;
+    if ( PhysicalAddress <= SizeOfRawData )
+      PhysicalAddress = SizeOfRawData;
+    *a3 = (PhysicalAddress + 4095LL) & 0xFFFFFFFFFFFFF000uLL;
     return 1LL;
   }
   return 0LL;

@@ -1,13 +1,13 @@
 /*
- * XREFs of LdrpBuildSystem32FileName @ 0x180065710
+ * XREFs of LdrpBuildSystem32FileName @ 0x1800AD5E0
  * Callers:
- *     LdrpCorInitialize @ 0x180065128 (LdrpCorInitialize.c)
- *     LdrpInitShimEngine @ 0x1800654D8 (LdrpInitShimEngine.c)
+ *     LdrpCorInitialize @ 0x1800ACFF8 (LdrpCorInitialize.c)
+ *     LdrpInitShimEngine @ 0x1800AD3A8 (LdrpInitShimEngine.c)
  * Callees:
- *     RtlpAllocateAtom @ 0x18000D2C0 (RtlpAllocateAtom.c)
- *     NtdllpReallocateStringRoutine @ 0x18011EBD8 (NtdllpReallocateStringRoutine.c)
- *     wcslen @ 0x1801277D0 (wcslen.c)
- *     memmove @ 0x180167400 (memmove.c)
+ *     RtlpAllocateAtom @ 0x180039CC0 (RtlpAllocateAtom.c)
+ *     NtdllpReallocateStringRoutine @ 0x18011CE08 (NtdllpReallocateStringRoutine.c)
+ *     wcslen @ 0x180125A00 (wcslen.c)
+ *     memmove @ 0x1801657C0 (memmove.c)
  */
 
 __int64 __fastcall LdrpBuildSystem32FileName(unsigned __int16 *a1, const void **a2)
@@ -31,12 +31,17 @@ __int64 __fastcall LdrpBuildSystem32FileName(unsigned __int16 *a1, const void **
   unsigned __int64 v20; // rdx
   __int64 v21; // rcx
   unsigned int v23; // esi
-  void *v24; // rbp
-  unsigned int v25; // r14d
-  __int64 v26; // rax
-  void *Atom; // r15
-  unsigned int v28; // esi
-  void *v29; // rbp
+  unsigned __int16 *v24; // rdx
+  unsigned int v25; // esi
+  PVOID v26; // rbp
+  unsigned int v27; // r14d
+  unsigned __int16 *v28; // rdx
+  unsigned int v29; // r14d
+  __int64 v30; // rax
+  PVOID Atom; // r15
+  unsigned __int16 *v32; // rdx
+  unsigned int v33; // esi
+  PVOID v34; // rbp
 
   *a1 = 0;
   SharedData = NtCurrentPeb()->SharedData;
@@ -73,28 +78,30 @@ LABEL_9:
     }
     if ( v9 <= 0xFFFE )
     {
-      v25 = (v9 + 63) & 0xFFFFFFC0;
-      if ( v25 > 0xFFFE )
-        v25 = 65534;
-      if ( *((unsigned __int16 **)a1 + 1) == a1 + 8 )
+      v27 = v9 + 63;
+      v28 = (unsigned __int16 *)*((_QWORD *)a1 + 1);
+      v29 = v27 & 0xFFFFFFC0;
+      if ( v29 > 0xFFFE )
+        v29 = 65534;
+      if ( v28 == a1 + 8 )
       {
-        Atom = (void *)RtlpAllocateAtom(v25);
+        Atom = RtlpAllocateAtom(v29);
         if ( Atom )
         {
           if ( *a1 )
             memmove(Atom, *((const void **)a1 + 1), *a1);
           *((_QWORD *)a1 + 1) = Atom;
-          a1[1] = v25;
+          a1[1] = v29;
           goto LABEL_9;
         }
       }
       else
       {
-        v26 = NtdllpReallocateStringRoutine(v25);
-        if ( v26 )
+        v30 = NtdllpReallocateStringRoutine(v29, v28);
+        if ( v30 )
         {
-          *((_QWORD *)a1 + 1) = v26;
-          a1[1] = v25;
+          *((_QWORD *)a1 + 1) = v30;
+          a1[1] = v29;
           goto LABEL_9;
         }
       }
@@ -107,8 +114,8 @@ LABEL_10:
 LABEL_11:
     v13 = *((_QWORD *)a1 + 1) + *a1;
     v14 = a1 + 1;
-    *(_OWORD *)v13 = *(_OWORD *)L"\\SYSTEM32\\";
-    *(_DWORD *)(v13 + 16) = *(_DWORD *)L"2\\";
+    *(_OWORD *)v13 = *(_OWORD *)SlashSystem32SlashString.Buffer;
+    *(_DWORD *)(v13 + 16) = *((_DWORD *)SlashSystem32SlashString.Buffer + 4);
     v15 = (unsigned __int16)(*a1 + 20);
     v16 = *((_QWORD *)a1 + 1);
     *a1 = v15;
@@ -117,25 +124,26 @@ LABEL_11:
   }
   if ( v12 <= 0xFFFE )
   {
-    v28 = (*a1 + 85) & 0xFFFFFFC0;
-    if ( v28 > 0xFFFE )
-      v28 = 65534;
-    if ( *((unsigned __int16 **)a1 + 1) == a1 + 8 )
+    v32 = (unsigned __int16 *)*((_QWORD *)a1 + 1);
+    v33 = (*a1 + 85) & 0xFFFFFFC0;
+    if ( v33 > 0xFFFE )
+      v33 = 65534;
+    if ( v32 == a1 + 8 )
     {
-      v29 = (void *)RtlpAllocateAtom(v28);
-      if ( !v29 )
+      v34 = RtlpAllocateAtom(v33);
+      if ( !v34 )
         goto LABEL_46;
       if ( *a1 )
-        memmove(v29, *((const void **)a1 + 1), *a1);
+        memmove(v34, *((const void **)a1 + 1), *a1);
     }
     else
     {
-      v29 = (void *)NtdllpReallocateStringRoutine(v28);
-      if ( !v29 )
+      v34 = (PVOID)NtdllpReallocateStringRoutine(v33, v32);
+      if ( !v34 )
         goto LABEL_46;
     }
-    *((_QWORD *)a1 + 1) = v29;
-    a1[1] = v28;
+    *((_QWORD *)a1 + 1) = v34;
+    a1[1] = v33;
     goto LABEL_11;
   }
 LABEL_46:
@@ -160,26 +168,28 @@ LABEL_15:
     }
     if ( v19 > 0xFFFE )
       return (unsigned int)-1073741562;
-    v23 = (v19 + 63) & 0xFFFFFFC0;
-    if ( v23 > 0xFFFE )
-      v23 = 65534;
-    if ( *((unsigned __int16 **)a1 + 1) == a1 + 8 )
+    v23 = v19 + 63;
+    v24 = (unsigned __int16 *)*((_QWORD *)a1 + 1);
+    v25 = v23 & 0xFFFFFFC0;
+    if ( v25 > 0xFFFE )
+      v25 = 65534;
+    if ( v24 == a1 + 8 )
     {
-      v24 = (void *)RtlpAllocateAtom(v23);
-      if ( !v24 )
+      v26 = RtlpAllocateAtom(v25);
+      if ( !v26 )
         return (unsigned int)-1073741801;
       if ( *a1 )
-        memmove(v24, *((const void **)a1 + 1), *a1);
+        memmove(v26, *((const void **)a1 + 1), *a1);
     }
     else
     {
-      v24 = (void *)NtdllpReallocateStringRoutine(v23);
-      if ( !v24 )
+      v26 = (PVOID)NtdllpReallocateStringRoutine(v25, v24);
+      if ( !v26 )
         return (unsigned int)-1073741801;
     }
-    a1[1] = v23;
+    a1[1] = v25;
     v18 = 0;
-    *((_QWORD *)a1 + 1) = v24;
+    *((_QWORD *)a1 + 1) = v26;
     goto LABEL_15;
   }
   return v18;

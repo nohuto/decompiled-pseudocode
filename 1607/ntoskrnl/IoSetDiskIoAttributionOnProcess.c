@@ -1,13 +1,13 @@
 /*
- * XREFs of IoSetDiskIoAttributionOnProcess @ 0x14007641C
+ * XREFs of IoSetDiskIoAttributionOnProcess @ 0x14007649C
  * Callers:
- *     PspProcessDelete @ 0x140460828 (PspProcessDelete.c)
- *     PspSetJobIoAttributionProcessCallback @ 0x1404EF41C (PspSetJobIoAttributionProcessCallback.c)
- *     PspEstablishJobHierarchy @ 0x1404F2FFC (PspEstablishJobHierarchy.c)
+ *     PspProcessDelete @ 0x14045F6F8 (PspProcessDelete.c)
+ *     PspSetJobIoAttributionProcessCallback @ 0x1404D14E0 (PspSetJobIoAttributionProcessCallback.c)
+ *     PspEstablishJobHierarchy @ 0x1404D5F88 (PspEstablishJobHierarchy.c)
  * Callees:
- *     IoDiskIoAttributionDereference @ 0x14001F3AC (IoDiskIoAttributionDereference.c)
- *     ExReleaseSpinLockExclusive @ 0x14002E9A0 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14002EB90 (ExAcquireSpinLockExclusive.c)
+ *     IoDiskIoAttributionDereference @ 0x14001EF2C (IoDiskIoAttributionDereference.c)
+ *     ExReleaseSpinLockExclusive @ 0x14002E520 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14002E710 (ExAcquireSpinLockExclusive.c)
  */
 
 void __fastcall IoSetDiskIoAttributionOnProcess(__int64 a1, __int64 a2)

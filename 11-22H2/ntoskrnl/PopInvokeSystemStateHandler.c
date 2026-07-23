@@ -57,7 +57,7 @@ __int64 __fastcall PopInvokeSystemStateHandler(int a1, __int64 a2)
   _DWORD *v24; // r8
   int v25; // eax
   LARGE_INTEGER v26; // [rsp+30h] [rbp-D0h] BYREF
-  struct _GROUP_AFFINITY Affinity; // [rsp+38h] [rbp-C8h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+38h] [rbp-C8h] BYREF
   LARGE_INTEGER v28; // [rsp+48h] [rbp-B8h] BYREF
   struct _KDPC Dpc; // [rsp+50h] [rbp-B0h] BYREF
   _QWORD DeferredContext[10]; // [rsp+90h] [rbp-70h] BYREF
@@ -66,7 +66,7 @@ __int64 __fastcall PopInvokeSystemStateHandler(int a1, __int64 a2)
   int v33; // [rsp+ECh] [rbp-14h]
   _QWORD v34[2]; // [rsp+F0h] [rbp-10h] BYREF
   _QWORD v35[2]; // [rsp+100h] [rbp+0h] BYREF
-  struct _SLIST_ENTRY v36[10]; // [rsp+110h] [rbp+10h] BYREF
+  _SLIST_ENTRY v36[10]; // [rsp+110h] [rbp+10h] BYREF
   __int128 v37; // [rsp+1B0h] [rbp+B0h] BYREF
   __int64 v38; // [rsp+1C0h] [rbp+C0h]
 
@@ -130,7 +130,7 @@ __int64 __fastcall PopInvokeSystemStateHandler(int a1, __int64 a2)
     KeSetSystemGroupAffinityThread(&Affinity, 0LL);
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(2uLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
       if ( CurrentIrql == 2 )
@@ -333,10 +333,10 @@ LABEL_71:
   }
   else
   {
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v22 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v22 <= 0xFu && CurrentIrql <= 0xFu && v22 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v22 <= 0xFu && CurrentIrql <= 0xFu && v22 >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         v24 = CurrentPrcb->SchedulerAssist;

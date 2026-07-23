@@ -19,8 +19,8 @@ __int64 __fastcall AdtpBuildSidListString(unsigned int *a1, __int64 a2, wchar_t 
   char v10; // r15
   unsigned int v11; // r12d
   unsigned int v12; // esi
-  unsigned __int8 **v13; // r14
-  unsigned __int8 *v14; // rcx
+  void **v13; // r14
+  void *v14; // rcx
   unsigned int v15; // ecx
   __int64 v16; // rax
   int v17; // ecx
@@ -29,7 +29,7 @@ __int64 __fastcall AdtpBuildSidListString(unsigned int *a1, __int64 a2, wchar_t 
   __int64 v20; // rsi
   PSID *v21; // rsi
   unsigned int v23; // [rsp+20h] [rbp-E0h]
-  unsigned int v24; // [rsp+24h] [rbp-DCh] BYREF
+  ULONG StringLength; // [rsp+24h] [rbp-DCh] BYREF
   UNICODE_STRING Destination; // [rsp+28h] [rbp-D8h] BYREF
   UNICODE_STRING UnicodeString; // [rsp+38h] [rbp-C8h] BYREF
   char *v27; // [rsp+48h] [rbp-B8h]
@@ -54,14 +54,14 @@ LABEL_23:
     goto LABEL_24;
   }
   v12 = 1;
-  v13 = (unsigned __int8 **)(*((_QWORD *)a1 + 1) + 8LL);
+  v13 = (void **)(*((_QWORD *)a1 + 1) + 8LL);
   v23 = 0;
   do
   {
     v14 = *v13;
-    v24 = 0;
-    RtlLengthSidAsUnicodeString(v14, &v24);
-    v15 = v12 + (v24 >> 1) + 7;
+    StringLength = 0;
+    RtlLengthSidAsUnicodeString(v14, &StringLength);
+    v15 = v12 + (StringLength >> 1) + 7;
     if ( v15 < v12 )
     {
       appended = -1073741675;
@@ -69,7 +69,7 @@ LABEL_23:
     }
     v13 += 2;
     ++v23;
-    v12 += (v24 >> 1) + 7;
+    v12 += (StringLength >> 1) + 7;
     appended = 0;
   }
   while ( v23 < v11 );

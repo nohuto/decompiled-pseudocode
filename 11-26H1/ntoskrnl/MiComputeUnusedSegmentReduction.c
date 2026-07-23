@@ -1,13 +1,13 @@
 /*
- * XREFs of MiComputeUnusedSegmentReduction @ 0x1404C475C
+ * XREFs of MiComputeUnusedSegmentReduction @ 0x1404BE03C
  * Callers:
- *     MiIssueSegmentDereferenceWork @ 0x1404B07E0 (MiIssueSegmentDereferenceWork.c)
+ *     MiIssueSegmentDereferenceWork @ 0x1404A9E70 (MiIssueSegmentDereferenceWork.c)
  * Callees:
- *     ExReleaseSpinLockShared @ 0x14026CEE0 (ExReleaseSpinLockShared.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402DC6D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExAcquireSpinLockShared @ 0x1402EDF10 (ExAcquireSpinLockShared.c)
- *     MiShouldTrimUnusedSegments @ 0x140474D78 (MiShouldTrimUnusedSegments.c)
- *     MiMarkPendingCommitRequests @ 0x1404B4C80 (MiMarkPendingCommitRequests.c)
+ *     ExReleaseSpinLockShared @ 0x14026C450 (ExReleaseSpinLockShared.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402BE490 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockShared @ 0x1402CFF90 (ExAcquireSpinLockShared.c)
+ *     MiShouldTrimUnusedSegments @ 0x14046E4F8 (MiShouldTrimUnusedSegments.c)
+ *     MiMarkPendingCommitRequests @ 0x1404AE0D0 (MiMarkPendingCommitRequests.c)
  */
 
 __int64 __fastcall MiComputeUnusedSegmentReduction(__int64 a1, int a2, __int64 a3)
@@ -60,24 +60,24 @@ __int64 __fastcall MiComputeUnusedSegmentReduction(__int64 a1, int a2, __int64 a
   }
   if ( a2 == 3 )
   {
-    *(_QWORD *)&v16 = qword_140E3C020;
-    if ( qword_140E3D700 > (unsigned __int64)qword_140E3C020 )
+    *(_QWORD *)&v16 = qword_140E3C1A0;
+    if ( qword_140E3D880 > (unsigned __int64)qword_140E3C1A0 )
     {
-      *(_QWORD *)&v16 = qword_140E3C008;
-      if ( qword_140E3D858 == qword_140E3C008 )
+      *(_QWORD *)&v16 = qword_140E3C188;
+      if ( qword_140E3D9D8 == qword_140E3C188 )
       {
         *(_QWORD *)&v16 = MiShouldTrimUnusedSegments(&MiSystemPartition);
         if ( (_DWORD)v16 )
         {
-          *(_QWORD *)&v16 = 1000LL * *(_QWORD *)(a1 + 22288) / qword_140E3D3D0;
+          *(_QWORD *)&v16 = 1000LL * *(_QWORD *)(a1 + 22288) / qword_140E3D550;
           if ( (_QWORD)v16 )
           {
             *(_QWORD *)&v16 = MiShouldTrimUnusedSegments((ULONG *)a1);
             if ( (_DWORD)v16 )
             {
-              v16 = (unsigned __int64)stru_140E2C7D0.Header.WaitListHead.Flink * (unsigned __int128)0x624DD2F1A9FBE77uLL;
+              v16 = (unsigned __int64)stru_140E2C950.Header.WaitListHead.Flink * (unsigned __int128)0x624DD2F1A9FBE77uLL;
               v19 = *((_QWORD *)&v16 + 1)
-                  + (((unsigned __int64)stru_140E2C7D0.Header.WaitListHead.Flink - *((_QWORD *)&v16 + 1)) >> 1);
+                  + (((unsigned __int64)stru_140E2C950.Header.WaitListHead.Flink - *((_QWORD *)&v16 + 1)) >> 1);
               *((_QWORD *)&v16 + 1) = *(_QWORD *)(a1 + 2440);
               v20 = v17 * (v19 >> 9);
               if ( *((_QWORD *)&v16 + 1) > v18 )

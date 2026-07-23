@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlpRunOnceWaitForInit @ 0x180070048
+ * XREFs of RtlpRunOnceWaitForInit @ 0x180090498
  * Callers:
- *     RtlRunOnceBeginInitialize @ 0x18000EC60 (RtlRunOnceBeginInitialize.c)
- *     LdrpInitMuiCrits @ 0x180032024 (LdrpInitMuiCrits.c)
- *     EtwpRegisterProvider @ 0x180057DE0 (EtwpRegisterProvider.c)
- *     RtlRandomEx @ 0x18006EC80 (RtlRandomEx.c)
- *     RtlRunOnceExecuteOnce @ 0x18006EED0 (RtlRunOnceExecuteOnce.c)
- *     LdrpEnableUMGLTracingStateSync @ 0x18006FA5C (LdrpEnableUMGLTracingStateSync.c)
+ *     LdrpInitMuiCrits @ 0x18001D184 (LdrpInitMuiCrits.c)
+ *     EtwpRegisterProvider @ 0x180042360 (EtwpRegisterProvider.c)
+ *     RtlRunOnceBeginInitialize @ 0x18005A390 (RtlRunOnceBeginInitialize.c)
+ *     RtlRandomEx @ 0x18008F0D0 (RtlRandomEx.c)
+ *     RtlRunOnceExecuteOnce @ 0x18008F320 (RtlRunOnceExecuteOnce.c)
+ *     LdrpEnableUMGLTracingStateSync @ 0x18008FEAC (LdrpEnableUMGLTracingStateSync.c)
  * Callees:
- *     NtWaitForAlertByThreadId @ 0x180162BB0 (NtWaitForAlertByThreadId.c)
+ *     NtWaitForAlertByThreadId @ 0x180162AB0 (NtWaitForAlertByThreadId.c)
  */
 
 signed __int64 __fastcall RtlpRunOnceWaitForInit(signed __int64 a1, volatile signed __int64 *a2)
@@ -34,7 +34,7 @@ signed __int64 __fastcall RtlpRunOnceWaitForInit(signed __int64 a1, volatile sig
   {
     do
     {
-      NtWaitForAlertByThreadId(a2, 0LL);
+      NtWaitForAlertByThreadId((PVOID)a2, 0LL);
       a1 = *a2;
     }
     while ( (BYTE4(v6) & 4) == 0 );

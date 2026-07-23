@@ -11,20 +11,22 @@
  *     ObReferenceObjectByHandle @ 0x14062B200 (ObReferenceObjectByHandle.c)
  */
 
-__int64 __fastcall NtAlpcDeleteSecurityContext(void *a1, __int64 a2, __int64 a3, __int64 a4)
+// local variable allocation has failed, the output may be wrong!
+NTSTATUS __cdecl NtAlpcDeleteSecurityContext(HANDLE PortHandle, ULONG Flags, ALPC_HANDLE ContextHandle)
 {
+  __int64 v3; // r9
   struct _KTHREAD *CurrentThread; // rax
   int v5; // edi
-  NTSTATUS v6; // ebx
+  int v6; // ebx
   struct _DMA_ADAPTER *v7; // rsi
   ULONG_PTR v8; // rax
   ULONG_PTR v9; // rdi
   PADAPTER_OBJECT DmaAdapter; // [rsp+58h] [rbp+20h] BYREF
 
   CurrentThread = KeGetCurrentThread();
-  v5 = a3;
+  v5 = (int)ContextHandle;
   --CurrentThread->KernelApcDisable;
-  if ( (_DWORD)a2 )
+  if ( Flags )
   {
     v6 = -1073741811;
   }
@@ -32,7 +34,7 @@ __int64 __fastcall NtAlpcDeleteSecurityContext(void *a1, __int64 a2, __int64 a3,
   {
     DmaAdapter = 0LL;
     v6 = ObReferenceObjectByHandle(
-           a1,
+           PortHandle,
            1u,
            AlpcPortObjectType,
            KeGetCurrentThread()->PreviousMode,
@@ -65,6 +67,6 @@ __int64 __fastcall NtAlpcDeleteSecurityContext(void *a1, __int64 a2, __int64 a3,
       HalPutDmaAdapter(v7);
     }
   }
-  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), a2, a3, a4);
-  return (unsigned int)v6;
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), *(__int64 *)&Flags, (__int64)ContextHandle, v3);
+  return v6;
 }

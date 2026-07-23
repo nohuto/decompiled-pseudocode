@@ -4,7 +4,7 @@
  *     AVrfDllUnloadNotification @ 0x1800DAC24 (AVrfDllUnloadNotification.c)
  * Callees:
  *     DbgPrint @ 0x18004F300 (DbgPrint.c)
- *     _wcsicmp @ 0x1800918E0 (_wcsicmp.c)
+ *     _wcsicmp @ 0x1800918F0 (_wcsicmp.c)
  */
 
 __int64 __fastcall AVrfpDllUnloadNotificationInternal(__int64 a1)

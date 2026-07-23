@@ -1,14 +1,14 @@
 /*
- * XREFs of IopQueryProcessIdsUsingFile @ 0x1408EF610
+ * XREFs of IopQueryProcessIdsUsingFile @ 0x140860E10
  * Callers:
- *     NtQueryInformationFile @ 0x14096F610 (NtQueryInformationFile.c)
+ *     NtQueryInformationFile @ 0x140957E20 (NtQueryInformationFile.c)
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x140245670 (ExReleaseRundownProtection_0.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     PsGetNextProcess @ 0x1408EEB70 (PsGetNextProcess.c)
- *     MmIsFileMapped @ 0x1408EF744 (MmIsFileMapped.c)
- *     ExEnumHandleTable @ 0x1408EF990 (ExEnumHandleTable.c)
- *     ObReferenceProcessHandleTable @ 0x140940570 (ObReferenceProcessHandleTable.c)
+ *     ExReleaseRundownProtection_0 @ 0x14020DE50 (ExReleaseRundownProtection_0.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     PsGetNextProcess @ 0x1408603A0 (PsGetNextProcess.c)
+ *     MmIsFileMapped @ 0x140860F44 (MmIsFileMapped.c)
+ *     ExEnumHandleTable @ 0x140861190 (ExEnumHandleTable.c)
+ *     ObReferenceProcessHandleTable @ 0x140894BB0 (ObReferenceProcessHandleTable.c)
  */
 
 __int64 __fastcall IopQueryProcessIdsUsingFile(__int64 a1, _DWORD *a2, int a3, _DWORD *a4)

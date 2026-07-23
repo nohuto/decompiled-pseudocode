@@ -11,10 +11,10 @@
  *     RtlpHpLfhContextSlotAllocate @ 0x1800B810C (RtlpHpLfhContextSlotAllocate.c)
  */
 
-_BYTE *__fastcall RtlpHpLfhPrivateSlotCreate(__int64 a1, __int64 a2, unsigned __int8 *a3)
+unsigned __int64 *__fastcall RtlpHpLfhPrivateSlotCreate(__int64 a1, __int64 a2, unsigned __int8 *a3)
 {
   _OWORD *v3; // rdi
-  _BYTE *v6; // rbp
+  unsigned __int64 *v6; // rbp
   __int64 v7; // rsi
   unsigned __int64 v8; // r14
   _OWORD *v9; // rsi
@@ -24,20 +24,20 @@ _BYTE *__fastcall RtlpHpLfhPrivateSlotCreate(__int64 a1, __int64 a2, unsigned __
   _WORD *v13; // rcx
 
   v3 = 0LL;
-  v6 = RtlpHpLfhContextSlotAllocate(a1, a3);
+  v6 = (unsigned __int64 *)RtlpHpLfhContextSlotAllocate((_RTL_SRWLOCK *)a1, a3);
   if ( !v6 )
     return 0LL;
   LOWORD(v8) = a2;
   v9 = (_OWORD *)(a1 + ((unsigned __int16)a2 << 6));
   if ( (unsigned __int64)v9 < a1 + ((unsigned __int64)*(unsigned __int8 *)(a1 + 64) << 8) + 1472 )
   {
-    v10 = (_OWORD *)RtlpHpLfhContextMetadataAllocate(a1, 0);
+    v10 = (_OWORD *)RtlpHpLfhContextMetadataAllocate((_RTL_SRWLOCK *)a1, 0);
     v3 = v10;
     if ( !v10 )
     {
       v7 = 0LL;
-      RtlpHpLfhContextMetadataFree(a1, v6, 2);
-      return (_BYTE *)v7;
+      RtlpHpLfhContextMetadataFree((_RTL_SRWLOCK *)a1, v6, 2);
+      return (unsigned __int64 *)v7;
     }
     v11 = 2LL;
     do
@@ -58,7 +58,7 @@ _BYTE *__fastcall RtlpHpLfhPrivateSlotCreate(__int64 a1, __int64 a2, unsigned __
     while ( v11 );
     v9 = v3;
   }
-  *((_WORD *)v9 + ((unsigned __int64)*a3 >> 1)) = (unsigned __int64)&v6[-a1] >> 6;
+  *((_WORD *)v9 + ((unsigned __int64)*a3 >> 1)) = ((unsigned __int64)v6 - a1) >> 6;
   if ( v3 )
   {
     v8 = ((unsigned __int64)v3 - a1) >> 6;
@@ -68,15 +68,15 @@ _BYTE *__fastcall RtlpHpLfhPrivateSlotCreate(__int64 a1, __int64 a2, unsigned __
   *((_WORD *)v6 + 3) = WORD1(a2);
   *((_WORD *)v6 + 2) = v8;
   *((_DWORD *)v6 + 5) = NtCurrentTeb()->ClientId.UniqueThread;
-  RtlAcquireSRWLockExclusive((volatile signed __int32 *)a3 + 20);
+  RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)a3 + 10);
   if ( *((_WORD *)a3 + 45) )
     v13 = (_WORD *)(a1 + (*((unsigned __int16 *)a3 + 45) << 6) + 16LL);
   else
     v13 = a3 + 88;
-  *v13 = (unsigned __int64)&v6[-a1] >> 6;
+  *v13 = ((unsigned __int64)v6 - a1) >> 6;
   *((_WORD *)v6 + 8) = 0;
   *((_WORD *)v6 + 9) = *((_WORD *)a3 + 45);
   *((_WORD *)a3 + 45) = *v13;
-  RtlReleaseSRWLockExclusive((volatile signed __int64 *)a3 + 10);
+  RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)a3 + 10);
   return v6;
 }

@@ -1,49 +1,45 @@
 /*
- * XREFs of RtlExitUserProcess @ 0x1800869E0
+ * XREFs of RtlExitUserProcess @ 0x18007DD80
  * Callers:
- *     RtlExitUserThread @ 0x180086970 (RtlExitUserThread.c)
+ *     RtlExitUserThread @ 0x18007DD10 (RtlExitUserThread.c)
  * Callees:
- *     RtlEnterCriticalSection @ 0x180048D70 (RtlEnterCriticalSection.c)
- *     RtlLeaveCriticalSection @ 0x18004A3E0 (RtlLeaveCriticalSection.c)
- *     LdrpAcquireLoaderLock @ 0x180084090 (LdrpAcquireLoaderLock.c)
- *     LdrpReleaseLoaderLock @ 0x1800854C0 (LdrpReleaseLoaderLock.c)
- *     LdrpDrainWorkQueue @ 0x180087180 (LdrpDrainWorkQueue.c)
- *     RtlLockProcessHeapOnProcessTerminate @ 0x180087520 (RtlLockProcessHeapOnProcessTerminate.c)
- *     RtlUnlockProcessHeapOnProcessTerminate @ 0x180087568 (RtlUnlockProcessHeapOnProcessTerminate.c)
- *     EtwpShutdownPrivateLoggers @ 0x180087608 (EtwpShutdownPrivateLoggers.c)
- *     RtlReportSilentProcessExit @ 0x180087720 (RtlReportSilentProcessExit.c)
- *     LdrShutdownProcess @ 0x180087920 (LdrShutdownProcess.c)
- *     ZwTerminateProcess @ 0x18015F4C0 (ZwTerminateProcess.c)
+ *     RtlEnterCriticalSection @ 0x1800332F0 (RtlEnterCriticalSection.c)
+ *     RtlLeaveCriticalSection @ 0x180034960 (RtlLeaveCriticalSection.c)
+ *     LdrpAcquireLoaderLock @ 0x18007B430 (LdrpAcquireLoaderLock.c)
+ *     LdrpReleaseLoaderLock @ 0x18007C860 (LdrpReleaseLoaderLock.c)
+ *     LdrpDrainWorkQueue @ 0x18007E4F0 (LdrpDrainWorkQueue.c)
+ *     RtlLockProcessHeapOnProcessTerminate @ 0x18007E890 (RtlLockProcessHeapOnProcessTerminate.c)
+ *     RtlUnlockProcessHeapOnProcessTerminate @ 0x18007E8E4 (RtlUnlockProcessHeapOnProcessTerminate.c)
+ *     EtwpShutdownPrivateLoggers @ 0x18007E988 (EtwpShutdownPrivateLoggers.c)
+ *     RtlReportSilentProcessExit @ 0x18007EAA0 (RtlReportSilentProcessExit.c)
+ *     LdrShutdownProcess @ 0x18007ECA0 (LdrShutdownProcess.c)
+ *     ZwTerminateProcess @ 0x18015F3C0 (ZwTerminateProcess.c)
  */
 
-__int64 __fastcall RtlExitUserProcess(unsigned int a1)
+void __cdecl __noreturn RtlExitUserProcess(NTSTATUS ExitStatus)
 {
   __int64 v2; // rcx
-  __int64 v4; // rcx
+  __int64 v3; // rcx
 
   EtwpShutdownPrivateLoggers();
   LdrpDrainWorkQueue((NtCurrentTeb()->SameTebFlags >> 12) & 1);
   LdrpAcquireLoaderLock();
-  RtlEnterCriticalSection((__int64)&FastPebLock);
+  RtlEnterCriticalSection(&FastPebLock);
   RtlLockProcessHeapOnProcessTerminate();
-  if ( (int)ZwTerminateProcess(0LL, a1) < 0 )
-  {
-    RtlUnlockProcessHeapOnProcessTerminate(0LL);
-    RtlLeaveCriticalSection((__int64)&FastPebLock);
-    LdrpReleaseLoaderLock(v4, 18, 0);
-    return NtTerminateThread(-2LL, a1);
-  }
-  else
+  if ( ZwTerminateProcess(0LL, ExitStatus) >= 0 )
   {
     LOBYTE(v2) = 1;
     RtlUnlockProcessHeapOnProcessTerminate(v2);
-    qword_1801CB710 = (__int64)NtCurrentTeb()->ClientId.UniqueThread;
-    dword_1801CB708 = -2;
-    dword_1801CB70C = 1;
-    qword_1801CB718 = 0LL;
-    RtlLeaveCriticalSection((__int64)&FastPebLock);
-    RtlReportSilentProcessExit(-1LL, a1);
+    FastPebLock.OwningThread = NtCurrentTeb()->ClientId.UniqueThread;
+    FastPebLock.LockCount = -2;
+    FastPebLock.RecursionCount = 1;
+    FastPebLock.LockSemaphore = 0LL;
+    RtlLeaveCriticalSection(&FastPebLock);
+    RtlReportSilentProcessExit((HANDLE)0xFFFFFFFFFFFFFFFFLL, ExitStatus);
     LdrShutdownProcess();
-    return ZwTerminateProcess(-1LL, a1);
   }
+  RtlUnlockProcessHeapOnProcessTerminate(0LL);
+  RtlLeaveCriticalSection(&FastPebLock);
+  LdrpReleaseLoaderLock(v3, 18, 0);
+  NtTerminateThread((HANDLE)0xFFFFFFFFFFFFFFFELL, ExitStatus);
 }

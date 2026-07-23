@@ -1,12 +1,12 @@
 /*
- * XREFs of SmcCacheManagerStart @ 0x1408AEB00
+ * XREFs of SmcCacheManagerStart @ 0x1408AFD60
  * Callers:
- *     SmcCacheCreatePrepare @ 0x1408ABC3C (SmcCacheCreatePrepare.c)
+ *     SmcCacheCreatePrepare @ 0x1408ACE9C (SmcCacheCreatePrepare.c)
  * Callees:
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     ZwCreateKey @ 0x1401B8530 (ZwCreateKey.c)
- *     SmKmKeyGenStart @ 0x1408AD2EC (SmKmKeyGenStart.c)
- *     SmpUtilsGetControlDevice @ 0x1408AFC2C (SmpUtilsGetControlDevice.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     ZwCreateKey @ 0x1401B8690 (ZwCreateKey.c)
+ *     SmKmKeyGenStart @ 0x1408AE54C (SmKmKeyGenStart.c)
+ *     SmpUtilsGetControlDevice @ 0x1408B0E8C (SmpUtilsGetControlDevice.c)
  */
 
 int __fastcall SmcCacheManagerStart(__int64 a1, __int64 a2)
@@ -23,7 +23,7 @@ int __fastcall SmcCacheManagerStart(__int64 a1, __int64 a2)
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+50h] [rbp-48h] BYREF
   HANDLE KeyHandle; // [rsp+B0h] [rbp+18h] BYREF
 
-  v2 = (int *)&unk_14055B110;
+  v2 = (int *)&unk_14055C110;
   for ( i = 0; i < 2; ++i )
   {
     v6 = *v2;

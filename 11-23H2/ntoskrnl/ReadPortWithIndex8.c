@@ -1,9 +1,9 @@
 /*
- * XREFs of ReadPortWithIndex8 @ 0x14067D6A0
+ * XREFs of ReadPortWithIndex8 @ 0x14067DBF0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall ReadPortWithIndex8(__int64 a1, unsigned __int8 a2)

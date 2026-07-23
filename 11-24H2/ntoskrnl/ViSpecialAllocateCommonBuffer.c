@@ -1,14 +1,14 @@
 /*
- * XREFs of ViSpecialAllocateCommonBuffer @ 0x140B89BC0
+ * XREFs of ViSpecialAllocateCommonBuffer @ 0x140B8BBC0
  * Callers:
- *     VfAllocateCommonBuffer @ 0x140B85580 (VfAllocateCommonBuffer.c)
+ *     VfAllocateCommonBuffer @ 0x140B87580 (VfAllocateCommonBuffer.c)
  * Callees:
- *     ExInterlockedInsertHeadList @ 0x14042EB80 (ExInterlockedInsertHeadList.c)
- *     VfUtilDbgPrint @ 0x14061029C (VfUtilDbgPrint.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
- *     ViInitializePadding @ 0x140B895A8 (ViInitializePadding.c)
+ *     ExInterlockedInsertHeadList @ 0x1404208B0 (ExInterlockedInsertHeadList.c)
+ *     VfUtilDbgPrint @ 0x14060E85C (VfUtilDbgPrint.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
+ *     ViInitializePadding @ 0x140B8B5A8 (ViInitializePadding.c)
  */
 
 char *__fastcall ViSpecialAllocateCommonBuffer(
@@ -16,65 +16,58 @@ char *__fastcall ViSpecialAllocateCommonBuffer(
         __int64 a2,
         struct _LIST_ENTRY *a3,
         unsigned int a4,
-        _QWORD *a5,
-        char a6)
+        _QWORD *a5)
 {
-  unsigned int v7; // r10d
-  __int64 v9; // rdi
-  struct _LIST_ENTRY *Pool2; // rsi
-  __int64 v11; // r9
-  int v13; // ebx
-  int v14; // ebx
-  unsigned int v15; // r14d
-  char *v16; // rax
-  char *v17; // rbx
-  struct _LIST_ENTRY *v18; // [rsp+68h] [rbp+10h] BYREF
+  __int64 v7; // rdi
+  _LIST_ENTRY *Pool2; // rsi
+  int v10; // ebx
+  int v11; // ebx
+  unsigned int v12; // r14d
+  char *v13; // rax
+  char *v14; // rbx
 
-  v7 = *(_DWORD *)(a2 + 204) - *(_DWORD *)(a2 + 208);
-  v18 = 0LL;
-  v9 = a4;
-  if ( v7 >= 0x20 || a4 > 0xFFFFDFFF )
+  v7 = a4;
+  if ( (unsigned int)(*(_DWORD *)(a2 + 204) - *(_DWORD *)(a2 + 208)) >= 0x20 || a4 > 0xFFFFDFFF )
     return 0LL;
-  Pool2 = (struct _LIST_ENTRY *)ExAllocatePool2(0x40uLL, 0x40uLL, 0x566C6148uLL);
+  Pool2 = (_LIST_ENTRY *)ExAllocatePool2(0x40uLL, 0x40uLL, 0x566C6148uLL);
   if ( !Pool2 )
   {
     VfUtilDbgPrint("Couldn't track common buffer allocation\n");
     return 0LL;
   }
-  if ( (unsigned __int64)(v9 + 8) <= 0x1000 )
+  if ( (unsigned __int64)(v7 + 8) <= 0x1000 )
   {
-    v13 = 4096;
+    v10 = 4096;
 LABEL_10:
-    v14 = v13 - v9;
+    v11 = v10 - v7;
     goto LABEL_12;
   }
-  if ( (v9 & 0xFFF) != 0 )
+  if ( (v7 & 0xFFF) != 0 )
   {
-    v13 = ((v9 + 8) & 0xFFFFF000) + ((((_WORD)v9 + 8) & 0xFFF) != 0LL ? 0x1000 : 0);
+    v10 = ((v7 + 8) & 0xFFFFF000) + ((((_WORD)v7 + 8) & 0xFFF) != 0LL ? 0x1000 : 0);
     goto LABEL_10;
   }
-  v14 = 4096;
+  v11 = 4096;
 LABEL_12:
-  LOBYTE(v11) = a6;
-  v15 = v14 + v9 + 4096;
-  v16 = (char *)guard_dispatch_icall_no_overrides(*(_QWORD *)(a2 + 40), v15, &v18, v11);
-  if ( !v16 )
+  v12 = v11 + v7 + 4096;
+  v13 = (char *)guard_dispatch_icall_no_overrides(*(_QWORD *)(a2 + 40), v12);
+  if ( !v13 )
   {
     ExFreePoolWithTag(Pool2, 0);
     return 0LL;
   }
-  WORD1(Pool2->Flink) = v14;
-  v17 = v16 + 4096;
+  WORD1(Pool2->Flink) = v11;
+  v14 = v13 + 4096;
   LOWORD(Pool2->Flink) = 4096;
-  Pool2[1].Blink = (struct _LIST_ENTRY *)(v16 + 4096);
-  LODWORD(Pool2->Blink) = v9;
-  HIDWORD(Pool2->Flink) = v15;
-  Pool2[1].Flink = (struct _LIST_ENTRY *)v16;
-  Pool2[2].Flink = v18;
+  Pool2[1].Blink = (struct _LIST_ENTRY *)(v13 + 4096);
+  LODWORD(Pool2->Blink) = v7;
+  HIDWORD(Pool2->Flink) = v12;
+  Pool2[1].Flink = (struct _LIST_ENTRY *)v13;
+  Pool2[2].Flink = 0LL;
   Pool2[2].Blink = a3;
-  ViInitializePadding(v16, v15, (unsigned __int64)(v16 + 4096), v9);
-  *a5 = v18 + 256;
+  ViInitializePadding(v13, v12, (unsigned __int64)(v13 + 4096), v7);
+  *a5 = 4096LL;
   ExInterlockedInsertHeadList((PLIST_ENTRY)(a2 + 112), Pool2 + 3, (PKSPIN_LOCK)(a2 + 128));
   _InterlockedIncrement((volatile signed __int32 *)(a2 + 204));
-  return v17;
+  return v14;
 }

@@ -1,33 +1,29 @@
 /*
- * XREFs of RtlpUnregisterLockedMemoryBlockLookaside @ 0x180079990
+ * XREFs of RtlpUnregisterLockedMemoryBlockLookaside @ 0x1800799A0
  * Callers:
- *     RtlUnlockMemoryBlockLookaside @ 0x180079860 (RtlUnlockMemoryBlockLookaside.c)
- *     RtlDestroyMemoryBlockLookaside @ 0x180087FA0 (RtlDestroyMemoryBlockLookaside.c)
+ *     RtlUnlockMemoryBlockLookaside @ 0x180079870 (RtlUnlockMemoryBlockLookaside.c)
+ *     RtlDestroyMemoryBlockLookaside @ 0x180087FB0 (RtlDestroyMemoryBlockLookaside.c)
  * Callees:
  *     RtlAcquireSRWLockExclusive @ 0x180015FF0 (RtlAcquireSRWLockExclusive.c)
- *     RtlUnlockModuleSection @ 0x180079C30 (RtlUnlockModuleSection.c)
+ *     RtlUnlockModuleSection @ 0x180079C40 (RtlUnlockModuleSection.c)
  */
 
-signed __int64 __fastcall RtlpUnregisterLockedMemoryBlockLookaside(
-        __int64 a1,
-        unsigned __int64 a2,
-        unsigned __int64 *a3,
-        __int64 a4)
+void RtlpUnregisterLockedMemoryBlockLookaside()
 {
-  __int64 (__fastcall **v5)(); // rbx
-  __int64 v6; // rdi
+  PVOID *v0; // rbx
+  __int64 v1; // rdi
 
-  RtlAcquireSRWLockExclusive((unsigned __int64)&RtlpMemoryBlockLookasideLock, a2, a3, a4);
+  RtlAcquireSRWLockExclusive(&RtlpMemoryBlockLookasideLock);
   if ( !--RtlpLockedMemoryBlockLookasideCount )
   {
-    v5 = RtlpMemoryBlockLookasideCriticalRoutines;
-    v6 = 4LL;
+    v0 = (PVOID *)RtlpMemoryBlockLookasideCriticalRoutines;
+    v1 = 4LL;
     do
     {
-      RtlUnlockModuleSection(*v5++);
-      --v6;
+      RtlUnlockModuleSection(*v0++);
+      --v1;
     }
-    while ( v6 );
+    while ( v1 );
   }
-  return RtlReleaseSRWLockExclusive(&RtlpMemoryBlockLookasideLock);
+  RtlReleaseSRWLockExclusive(&RtlpMemoryBlockLookasideLock);
 }

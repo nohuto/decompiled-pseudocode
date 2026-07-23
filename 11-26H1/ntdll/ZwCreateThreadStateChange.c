@@ -1,16 +1,21 @@
 /*
- * XREFs of ZwCreateThreadStateChange @ 0x180160870
+ * XREFs of ZwCreateThreadStateChange @ 0x180160770
  * Callers:
- *     RtlpHpEnvThreadSuspend @ 0x18010C3F0 (RtlpHpEnvThreadSuspend.c)
+ *     RtlpHpEnvThreadSuspend @ 0x18010BF40 (RtlpHpEnvThreadSuspend.c)
  * Callees:
  *     <none>
  */
 
-__int64 ZwCreateThreadStateChange()
+NTSTATUS __cdecl ZwCreateThreadStateChange(
+        PHANDLE ThreadStateChangeHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        HANDLE ThreadHandle,
+        ULONG64 Reserved)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 202LL;
+  result = 202;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

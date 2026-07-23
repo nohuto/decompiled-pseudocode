@@ -25,94 +25,94 @@
  *     RtlpReadExtendedContext @ 0x140425F70 (RtlpReadExtendedContext.c)
  */
 
-__int64 __fastcall PspSetContextThreadInternal(PETHREAD Thread, __int64 a2, char a3, char a4, char a5)
+int __fastcall PspSetContextThreadInternal(PETHREAD Thread, CONTEXT *a2, char a3, char a4, char a5)
 {
-  __int64 v6; // r15
+  CONTEXT *v6; // r15
   struct _KTHREAD *CurrentThread; // rsi
-  unsigned int v9; // ebx
-  __int64 result; // rax
+  unsigned int ContextFlags; // ebx
+  int result; // eax
   char v11; // r10
   struct _KPROCESS *v12; // rbx
   char v13; // cl
   __int64 v14; // rcx
   __int16 v15; // ax
-  __int64 v16; // rax
+  __int64 p_ContextFlags; // rax
   unsigned __int64 v17; // rax
   void *v18; // rsp
   __int64 v19; // rcx
-  _DWORD v20[2]; // [rsp+40h] [rbp+0h] BYREF
-  __int64 v21; // [rsp+48h] [rbp+8h] BYREF
+  ULONG ContextLength[2]; // [rsp+40h] [rbp+0h] BYREF
+  PCONTEXT_EX ContextEx; // [rsp+48h] [rbp+8h] BYREF
   _BYTE v22[64]; // [rsp+50h] [rbp+10h] BYREF
   _QWORD v23[3]; // [rsp+90h] [rbp+50h] BYREF
   char v24; // [rsp+A8h] [rbp+68h]
   char v25; // [rsp+A9h] [rbp+69h]
-  unsigned int v26; // [rsp+ACh] [rbp+6Ch]
+  int v26; // [rsp+ACh] [rbp+6Ch]
   _BYTE v27[24]; // [rsp+B0h] [rbp+70h] BYREF
-  _DWORD *v28; // [rsp+C8h] [rbp+88h]
+  PCONTEXT Context; // [rsp+C8h] [rbp+88h]
 
   v6 = a2;
   CurrentThread = KeGetCurrentThread();
   if ( a3 )
   {
-    v16 = a2 + 48;
-    if ( (unsigned __int64)(a2 + 48) >= 0x7FFFFFFF0000LL )
-      v16 = 0x7FFFFFFF0000LL;
-    v9 = *(_DWORD *)v16;
-    v20[1] = *(_DWORD *)v16;
+    p_ContextFlags = (__int64)&a2->ContextFlags;
+    if ( (unsigned __int64)&a2->ContextFlags >= 0x7FFFFFFF0000LL )
+      p_ContextFlags = 0x7FFFFFFF0000LL;
+    ContextFlags = *(_DWORD *)p_ContextFlags;
+    ContextLength[1] = *(_DWORD *)p_ContextFlags;
   }
   else
   {
-    v9 = *(_DWORD *)(a2 + 48);
+    ContextFlags = a2->ContextFlags;
   }
-  result = RtlpValidateContextFlags(v9, 0LL);
-  if ( (int)result < 0 || (v9 & 0x100000) != 0 )
+  result = RtlpValidateContextFlags(ContextFlags, 0LL);
+  if ( result < 0 || (ContextFlags & 0x100000) != 0 )
   {
-    if ( (_DWORD)result != -1073741811 )
+    if ( result != -1073741811 )
       goto LABEL_6;
   }
   else
   {
-    result = 3221225485LL;
+    result = -1073741811;
   }
   if ( v11 )
   {
-    v9 = v9 & 0xD800001F | 0x100000;
+    ContextFlags = ContextFlags & 0xD800001F | 0x100000;
     goto LABEL_7;
   }
 LABEL_6:
-  if ( (int)result < 0 )
+  if ( result < 0 )
     return result;
 LABEL_7:
   if ( v11 )
   {
-    result = RtlGetExtendedContextLength(v9);
-    if ( (int)result < 0 )
+    result = RtlGetExtendedContextLength(ContextFlags, ContextLength);
+    if ( result < 0 )
       return result;
-    v17 = v20[0] + 15LL;
-    if ( v17 <= v20[0] )
+    v17 = ContextLength[0] + 15LL;
+    if ( v17 <= ContextLength[0] )
       v17 = 0xFFFFFFFFFFFFFF0LL;
     v18 = alloca(v17 & 0xFFFFFFFFFFFFFFF0uLL);
-    v28 = v20;
-    memset(v20, 0, v20[0]);
-    result = RtlInitializeExtendedContext((__int64)v28, v9, &v21);
-    if ( (int)result < 0 )
+    Context = (PCONTEXT)ContextLength;
+    memset(ContextLength, 0, ContextLength[0]);
+    result = RtlInitializeExtendedContext(Context, ContextFlags, &ContextEx);
+    if ( result < 0 )
       return result;
-    v28 = (_DWORD *)(v21 - 1232);
-    result = RtlpReadExtendedContext(v19, 1, v21, v9, v6, 0LL);
-    if ( (int)result < 0 )
+    Context = (PCONTEXT)&ContextEx[-39].XState;
+    result = RtlpReadExtendedContext(v19, 1, (__int64)ContextEx, ContextFlags, (__int64)v6, 0LL);
+    if ( result < 0 )
       return result;
-    v6 = (__int64)v28;
+    v6 = Context;
   }
   else
   {
-    v28 = (_DWORD *)v6;
+    Context = v6;
   }
   if ( !a4 )
     goto LABEL_13;
   if ( (Thread->MiscFlags & 0x400) != 0 )
-    return 3221225520LL;
+    return -1073741776;
   v12 = IoThreadToProcess(CurrentThread);
-  if ( IoThreadToProcess(Thread) != v12 || (result = KeVerifyContextRecord((__int64)Thread, v6), (int)result >= 0) )
+  if ( IoThreadToProcess(Thread) != v12 || (result = KeVerifyContextRecord((__int64)Thread, (__int64)v6), result >= 0) )
   {
 LABEL_13:
     v24 = a4;
@@ -138,7 +138,7 @@ LABEL_13:
       KeInitializeGate((__int64)v27);
       KeInitializeApc((__int64)v22, (__int64)Thread, 0, (__int64)PspGetSetContextSpecialApc, 0LL, 0LL, 0, 0LL);
       if ( !(unsigned __int8)KeInsertQueueApc((__int64)v22, 1LL, (__int64)Thread, 2) )
-        return 3221225473LL;
+        return -1073741823;
       KeWaitForGate((__int64)v27, 0);
     }
     return v26;

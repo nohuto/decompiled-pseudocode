@@ -10,22 +10,22 @@
  *     sub_1800D0B18 @ 0x1800D0B18 (sub_1800D0B18.c)
  */
 
-__int64 __fastcall sub_180050AD8(__int64 a1, __int64 a2, int *a3, __int64 a4, unsigned __int64 *a5)
+__int64 __fastcall sub_180050AD8(__int64 a1, __int64 a2, int *a3, __int64 a4, _QWORD *a5)
 {
-  __int64 Heap; // rax
-  unsigned __int64 v9; // rbx
+  _QWORD *Heap; // rax
+  _QWORD *v9; // rbx
   int v10; // edi
   int v11; // edx
-  unsigned __int64 *v12; // rax
+  _QWORD *v12; // rax
 
-  Heap = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, dword_18015C294 + 786432, 72LL);
+  Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, Flags + 786432, 0x48uLL);
   v9 = Heap;
   if ( !Heap )
     return 3221225495LL;
-  *(_OWORD *)(Heap + 16) = *(_OWORD *)a1;
-  *(_OWORD *)(Heap + 32) = *(_OWORD *)(a1 + 16);
-  *(_QWORD *)(Heap + 48) = *(_QWORD *)(a1 + 32);
-  if ( *(_QWORD *)(Heap + 24) < *(_QWORD *)(Heap + 16) )
+  *((_OWORD *)Heap + 1) = *(_OWORD *)a1;
+  *((_OWORD *)Heap + 2) = *(_OWORD *)(a1 + 16);
+  Heap[6] = *(_QWORD *)(a1 + 32);
+  if ( Heap[3] < Heap[2] )
   {
     v10 = -1073741701;
     goto LABEL_13;
@@ -39,19 +39,19 @@ __int64 __fastcall sub_180050AD8(__int64 a1, __int64 a2, int *a3, __int64 a4, un
   if ( v10 < 0 )
   {
 LABEL_13:
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v9);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v9);
     return (unsigned int)v10;
   }
   v11 = *a3;
 LABEL_6:
-  **(_DWORD **)(v9 + 32) = v11;
-  *(_DWORD *)(v9 + 64) = v11;
-  *(_QWORD *)(v9 + 56) = a2;
-  v12 = (unsigned __int64 *)off_1801565E0;
+  *(_DWORD *)v9[4] = v11;
+  *((_DWORD *)v9 + 16) = v11;
+  v9[7] = a2;
+  v12 = off_1801565E0;
   if ( *off_1801565E0 != (_UNKNOWN *)&off_1801565D8 )
     __fastfail(3u);
-  *(_QWORD *)v9 = &off_1801565D8;
-  *(_QWORD *)(v9 + 8) = v12;
+  *v9 = &off_1801565D8;
+  v9[1] = v12;
   *v12 = v9;
   off_1801565E0 = (_UNKNOWN **)v9;
   if ( a5 )

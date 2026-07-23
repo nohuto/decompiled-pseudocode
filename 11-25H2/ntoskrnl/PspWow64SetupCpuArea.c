@@ -16,22 +16,22 @@ __int64 __fastcall PspWow64SetupCpuArea(unsigned __int64 *a1, __int64 a2)
   __int64 v4; // rdx
   __int64 v5; // r8
   __int64 v6; // r9
-  int v7; // eax
-  __int64 CpuAreaEnabledFeatures; // rax
+  ULONG v7; // eax
+  ULONG64 CpuAreaEnabledFeatures; // rax
   unsigned int v10[6]; // [rsp+20h] [rbp-18h] BYREF
-  int v11; // [rsp+50h] [rbp+18h] BYREF
-  unsigned int v12; // [rsp+58h] [rbp+20h] BYREF
+  ULONG ContextFlags; // [rsp+50h] [rbp+18h] BYREF
+  ULONG ContextLength; // [rsp+58h] [rbp+20h] BYREF
 
   v10[0] = 0;
-  v12 = 0;
+  ContextLength = 0;
   ProcessMachine = PsWow64GetProcessMachine(a2);
   v7 = RtlpArchContextFlagFromMachine(ProcessMachine, v4, v5, v6);
-  v11 = v7;
+  ContextFlags = v7;
   if ( !v7 )
     return 3221225485LL;
   RtlpGetLegacyContextLength(v7, 0LL, (int *)v10);
-  CpuAreaEnabledFeatures = RtlWow64GetCpuAreaEnabledFeatures(&v11);
-  RtlGetExtendedContextLength2(v11, &v12, CpuAreaEnabledFeatures);
-  *a1 = ((~(v10[0] - 1LL) & (((((*a1 - 4) & 0xFFFFFFFFFFFFFFFCuLL) - 5) & 0xFFFFFFFFFFFFFFF8uLL) - v12)) - 4) & 0xFFFFFFFFFFFFFFF0uLL;
+  CpuAreaEnabledFeatures = RtlWow64GetCpuAreaEnabledFeatures(&ContextFlags);
+  RtlGetExtendedContextLength2(ContextFlags, &ContextLength, CpuAreaEnabledFeatures);
+  *a1 = ((~(v10[0] - 1LL) & (((((*a1 - 4) & 0xFFFFFFFFFFFFFFFCuLL) - 5) & 0xFFFFFFFFFFFFFFF8uLL) - ContextLength)) - 4) & 0xFFFFFFFFFFFFFFF0uLL;
   return 0LL;
 }

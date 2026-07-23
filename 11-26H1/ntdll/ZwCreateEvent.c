@@ -1,31 +1,36 @@
 /*
- * XREFs of ZwCreateEvent @ 0x18015F840
+ * XREFs of ZwCreateEvent @ 0x18015F740
  * Callers:
- *     LdrpAddUnicodeStringToSnapsBuffer @ 0x1800476B0 (LdrpAddUnicodeStringToSnapsBuffer.c)
- *     RtlLeaveCriticalSection @ 0x18004A3E0 (RtlLeaveCriticalSection.c)
- *     EtwpRegisterTpNotificationOnce @ 0x1800700DC (EtwpRegisterTpNotificationOnce.c)
- *     RtlWaitForWnfMetaNotification @ 0x1800701C0 (RtlWaitForWnfMetaNotification.c)
- *     RtlpWnfRegisterTpNotification @ 0x180070714 (RtlpWnfRegisterTpNotification.c)
- *     EtwpInitLoggerContext @ 0x180077550 (EtwpInitLoggerContext.c)
- *     RtlpCreateDeferredCriticalSectionEvent @ 0x18007AE40 (RtlpCreateDeferredCriticalSectionEvent.c)
- *     RtlReportExceptionHelper @ 0x180088060 (RtlReportExceptionHelper.c)
- *     LdrpInitializeInternal @ 0x1800CEA78 (LdrpInitializeInternal.c)
- *     _LdrpInitialize @ 0x1800CEF48 (_LdrpInitialize.c)
- *     LdrpCheckComponentOnDemandEtwEvent @ 0x1800DBCCC (LdrpCheckComponentOnDemandEtwEvent.c)
- *     LdrpCreateLoaderEvents @ 0x1800FBB94 (LdrpCreateLoaderEvents.c)
- *     WerpCreateCompletionEvent @ 0x1801103B8 (WerpCreateCompletionEvent.c)
- *     RtlCreateProcessReflection @ 0x1801397C0 (RtlCreateProcessReflection.c)
- *     RtlpProcessReflectionStartup @ 0x180139D90 (RtlpProcessReflectionStartup.c)
- *     RtlpCtContextInit @ 0x18014969C (RtlpCtContextInit.c)
+ *     LdrpAddUnicodeStringToSnapsBuffer @ 0x180031C30 (LdrpAddUnicodeStringToSnapsBuffer.c)
+ *     RtlLeaveCriticalSection @ 0x180034960 (RtlLeaveCriticalSection.c)
+ *     EtwpInitLoggerContext @ 0x180065D70 (EtwpInitLoggerContext.c)
+ *     RtlpCreateDeferredCriticalSectionEvent @ 0x180069660 (RtlpCreateDeferredCriticalSectionEvent.c)
+ *     RtlReportExceptionHelper @ 0x18007F3E0 (RtlReportExceptionHelper.c)
+ *     EtwpRegisterTpNotificationOnce @ 0x18009052C (EtwpRegisterTpNotificationOnce.c)
+ *     RtlWaitForWnfMetaNotification @ 0x180090610 (RtlWaitForWnfMetaNotification.c)
+ *     RtlpWnfRegisterTpNotification @ 0x180090B64 (RtlpWnfRegisterTpNotification.c)
+ *     LdrpInitializeInternal @ 0x1800CC1E8 (LdrpInitializeInternal.c)
+ *     _LdrpInitialize @ 0x1800CC6B8 (_LdrpInitialize.c)
+ *     LdrpCheckComponentOnDemandEtwEvent @ 0x1800D8C3C (LdrpCheckComponentOnDemandEtwEvent.c)
+ *     LdrpCreateLoaderEvents @ 0x1800FB2E4 (LdrpCreateLoaderEvents.c)
+ *     WerpCreateCompletionEvent @ 0x18010FF48 (WerpCreateCompletionEvent.c)
+ *     RtlCreateProcessReflection @ 0x180139530 (RtlCreateProcessReflection.c)
+ *     RtlpProcessReflectionStartup @ 0x180139B00 (RtlpProcessReflectionStartup.c)
+ *     RtlpCtContextInit @ 0x18014954C (RtlpCtContextInit.c)
  * Callees:
  *     <none>
  */
 
-__int64 ZwCreateEvent()
+NTSTATUS __cdecl ZwCreateEvent(
+        PHANDLE EventHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        EVENT_TYPE EventType,
+        BOOLEAN InitialState)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 72LL;
+  result = 72;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

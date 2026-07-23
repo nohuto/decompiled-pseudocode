@@ -1,15 +1,15 @@
 /*
- * XREFs of MmQuerySystemWorkingSetInformation @ 0x1400C03A0
+ * XREFs of MmQuerySystemWorkingSetInformation @ 0x1400BE230
  * Callers:
- *     ExpQuerySystemInformation @ 0x140415620 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x1404144E0 (ExpQuerySystemInformation.c)
  * Callees:
- *     MiGetAnyMultiplexedVm @ 0x14001D05C (MiGetAnyMultiplexedVm.c)
- *     MiGetSharedVm @ 0x14002EA30 (MiGetSharedVm.c)
- *     MiPartitionIdToPointer @ 0x1400680A0 (MiPartitionIdToPointer.c)
- *     MiGetStandbyRepurposed @ 0x1400BF4A8 (MiGetStandbyRepurposed.c)
- *     ExReleaseSpinLockShared @ 0x1400EA240 (ExReleaseSpinLockShared.c)
- *     ExAcquireSpinLockShared @ 0x1400EB1D0 (ExAcquireSpinLockShared.c)
- *     MiGetAggregationVm @ 0x1400FF268 (MiGetAggregationVm.c)
+ *     MiGetAnyMultiplexedVm @ 0x14001CBDC (MiGetAnyMultiplexedVm.c)
+ *     MiGetSharedVm @ 0x14002E5B0 (MiGetSharedVm.c)
+ *     MiPartitionIdToPointer @ 0x140067C20 (MiPartitionIdToPointer.c)
+ *     MiGetStandbyRepurposed @ 0x1400BD338 (MiGetStandbyRepurposed.c)
+ *     ExReleaseSpinLockShared @ 0x1400E80B0 (ExReleaseSpinLockShared.c)
+ *     ExAcquireSpinLockShared @ 0x1400E9040 (ExAcquireSpinLockShared.c)
+ *     MiGetAggregationVm @ 0x1400FCFE8 (MiGetAggregationVm.c)
  */
 
 _UNKNOWN **__fastcall MmQuerySystemWorkingSetInformation(int a1, __int64 *a2)
@@ -73,15 +73,15 @@ _UNKNOWN **__fastcall MmQuerySystemWorkingSetInformation(int a1, __int64 *a2)
     *((_DWORD *)a2 + 15) |= 4u;
   if ( (*(_BYTE *)(v11 + 184) & 0x40) != 0 )
     *((_DWORD *)a2 + 15) |= 1u;
-  a2[6] = qword_140327348[v10];
+  a2[6] = qword_140327388[v10];
   v15 = MiGetSharedVm(v11);
   ExReleaseSpinLockShared(v15, v16);
   v17 = MiPartitionIdToPointer(*(_WORD *)(v11 + 164));
   result = (_UNKNOWN **)MiGetStandbyRepurposed((__int64)v17, 1u);
   v18 = *a2;
   *((_DWORD *)a2 + 14) = (_DWORD)result;
-  v19 = v18 + qword_140327340;
-  if ( v18 + qword_140327340 > (unsigned __int64)a2[6] )
+  v19 = v18 + qword_140327380;
+  if ( v18 + qword_140327380 > (unsigned __int64)a2[6] )
     v19 = a2[6];
   a2[1] <<= 12;
   *a2 = v18 << 12;

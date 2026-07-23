@@ -1,7 +1,7 @@
 /*
- * XREFs of HvlSetHardwareMbecAvailable @ 0x14027118C
+ * XREFs of HvlSetHardwareMbecAvailable @ 0x14027137C
  * Callers:
- *     KiSetFeatureBits @ 0x1405707EC (KiSetFeatureBits.c)
+ *     KiSetFeatureBits @ 0x1405717EC (KiSetFeatureBits.c)
  * Callees:
  *     <none>
  */

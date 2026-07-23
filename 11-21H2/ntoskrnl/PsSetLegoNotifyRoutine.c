@@ -6,8 +6,8 @@
  *     <none>
  */
 
-__int64 __fastcall PsSetLegoNotifyRoutine(__int64 (__fastcall *a1)(_QWORD))
+__int64 __fastcall PsSetLegoNotifyRoutine(__int64 a1)
 {
-  PspLegoNotifyRoutine = a1;
+  qword_140D3B240 = a1;
   return 720LL;
 }

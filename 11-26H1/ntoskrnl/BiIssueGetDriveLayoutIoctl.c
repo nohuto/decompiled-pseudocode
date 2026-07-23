@@ -1,12 +1,12 @@
 /*
- * XREFs of BiIssueGetDriveLayoutIoctl @ 0x140B13804
+ * XREFs of BiIssueGetDriveLayoutIoctl @ 0x140B152C8
  * Callers:
- *     BiGetDriveLayoutInformation @ 0x140B13738 (BiGetDriveLayoutInformation.c)
+ *     BiGetDriveLayoutInformation @ 0x140B151FC (BiGetDriveLayoutInformation.c)
  * Callees:
- *     ZwDeviceIoControlFile @ 0x1407234D0 (ZwDeviceIoControlFile.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ZwDeviceIoControlFile @ 0x1407280A0 (ZwDeviceIoControlFile.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall BiIssueGetDriveLayoutIoctl(HANDLE FileHandle, _QWORD *a2)

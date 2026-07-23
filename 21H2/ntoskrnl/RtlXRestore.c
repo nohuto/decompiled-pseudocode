@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlXRestore @ 0x1402C2DBC
+ * XREFs of RtlXRestore @ 0x1402412DC
  * Callers:
- *     KeSaveExtendedAndSupervisorState @ 0x1402C0F5C (KeSaveExtendedAndSupervisorState.c)
- *     KeRestoreExtendedAndSupervisorState @ 0x1402C2C98 (KeRestoreExtendedAndSupervisorState.c)
- *     RtlXRestoreS @ 0x140381D18 (RtlXRestoreS.c)
- *     KiRestoreProcessorState @ 0x1405252F8 (KiRestoreProcessorState.c)
- *     KiParkUmsThread @ 0x140525F20 (KiParkUmsThread.c)
+ *     KeSaveExtendedAndSupervisorState @ 0x14023F3FC (KeSaveExtendedAndSupervisorState.c)
+ *     KeRestoreExtendedAndSupervisorState @ 0x1402411B8 (KeRestoreExtendedAndSupervisorState.c)
+ *     RtlXRestoreS @ 0x140381868 (RtlXRestoreS.c)
+ *     KiRestoreProcessorState @ 0x140525538 (KiRestoreProcessorState.c)
+ *     KiParkUmsThread @ 0x140526160 (KiParkUmsThread.c)
  * Callees:
  *     <none>
  */

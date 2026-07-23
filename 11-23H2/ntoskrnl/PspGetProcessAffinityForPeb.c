@@ -1,9 +1,9 @@
 /*
- * XREFs of PspGetProcessAffinityForPeb @ 0x1407A284C
+ * XREFs of PspGetProcessAffinityForPeb @ 0x1407A2A3C
  * Callers:
- *     PspWritePebAffinityInfo @ 0x1407A26FC (PspWritePebAffinityInfo.c)
+ *     PspWritePebAffinityInfo @ 0x1407A28EC (PspWritePebAffinityInfo.c)
  * Callees:
- *     KeQueryPrimaryGroupAffinityProcess @ 0x14032A1A8 (KeQueryPrimaryGroupAffinityProcess.c)
+ *     KeQueryPrimaryGroupAffinityProcess @ 0x14032A438 (KeQueryPrimaryGroupAffinityProcess.c)
  */
 
 __int64 __fastcall PspGetProcessAffinityForPeb(__int64 a1, __int64 a2)

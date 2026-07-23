@@ -1,11 +1,11 @@
 /*
- * XREFs of IopMcCreateBufferEntry @ 0x1405D7654
+ * XREFs of IopMcCreateBufferEntry @ 0x1405D9E44
  * Callers:
- *     IopIoRingDispatchRegisterBuffers @ 0x1407981A4 (IopIoRingDispatchRegisterBuffers.c)
+ *     IopIoRingDispatchRegisterBuffers @ 0x14079ACD4 (IopIoRingDispatchRegisterBuffers.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall IopMcCreateBufferEntry(__int64 a1, unsigned int a2, char a3, __int64 *a4)
@@ -50,16 +50,16 @@ __int64 __fastcall IopMcCreateBufferEntry(__int64 a1, unsigned int a2, char a3, 
     }
     while ( v14 );
   }
-  v15 = KeAcquireSpinLockRaiseToDpc(&qword_140F84D28);
-  v16 = (_QWORD *)qword_140F84D38;
+  v15 = KeAcquireSpinLockRaiseToDpc(&qword_140F850C8);
+  v16 = (_QWORD *)qword_140F850D8;
   v17 = (_QWORD *)(v10 + 16);
-  if ( *(__int64 **)qword_140F84D38 != &qword_140F84D30 )
+  if ( *(__int64 **)qword_140F850D8 != &qword_140F850D0 )
     __fastfail(3u);
-  *(_QWORD *)(v10 + 24) = qword_140F84D38;
-  *v17 = &qword_140F84D30;
+  *(_QWORD *)(v10 + 24) = qword_140F850D8;
+  *v17 = &qword_140F850D0;
   *v16 = v17;
-  qword_140F84D38 = v10 + 16;
-  KeReleaseSpinLock(&qword_140F84D28, v15);
+  qword_140F850D8 = v10 + 16;
+  KeReleaseSpinLock(&qword_140F850C8, v15);
   result = 0LL;
   *a4 = v10;
   return result;

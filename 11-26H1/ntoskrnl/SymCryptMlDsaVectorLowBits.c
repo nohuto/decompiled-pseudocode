@@ -1,7 +1,7 @@
 /*
- * XREFs of SymCryptMlDsaVectorLowBits @ 0x140574568
+ * XREFs of SymCryptMlDsaVectorLowBits @ 0x1405737CC
  * Callers:
- *     SymCryptMlDsaSignEx @ 0x14055D89C (SymCryptMlDsaSignEx.c)
+ *     SymCryptMlDsaSignEx @ 0x14055FD94 (SymCryptMlDsaSignEx.c)
  * Callees:
  *     <none>
  */

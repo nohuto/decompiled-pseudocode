@@ -1,22 +1,22 @@
 /*
- * XREFs of NtSetInformationObject @ 0x1404B0170
+ * XREFs of NtSetInformationObject @ 0x14049A550
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     ObpUnlockDirectory @ 0x14008BA30 (ObpUnlockDirectory.c)
- *     KiCheckForKernelApcDelivery @ 0x1400C7DE0 (KiCheckForKernelApcDelivery.c)
- *     KiStackAttachProcess @ 0x1400CD1F0 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x1400CE820 (KiUnstackDetachProcess.c)
- *     ObpLockDirectoryExclusive @ 0x1400D1570 (ObpLockDirectoryExclusive.c)
- *     PsGetCurrentProcessSessionId @ 0x1400FB920 (PsGetCurrentProcessSessionId.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     ExfUnblockPushLock @ 0x1401598C0 (ExfUnblockPushLock.c)
- *     MmGetSessionObjectById @ 0x1401EC9D8 (MmGetSessionObjectById.c)
- *     SeSinglePrivilegeCheck @ 0x140413F70 (SeSinglePrivilegeCheck.c)
- *     ObReferenceObjectByHandle @ 0x140450D40 (ObReferenceObjectByHandle.c)
- *     ExpLookupHandleTableEntry @ 0x140451390 (ExpLookupHandleTableEntry.c)
- *     ExpBlockOnLockedHandleEntry @ 0x14049B4BC (ExpBlockOnLockedHandleEntry.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     ObpUnlockDirectory @ 0x14008B190 (ObpUnlockDirectory.c)
+ *     KiCheckForKernelApcDelivery @ 0x1400C5C80 (KiCheckForKernelApcDelivery.c)
+ *     KiStackAttachProcess @ 0x1400CB090 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x1400CC6C0 (KiUnstackDetachProcess.c)
+ *     ObpLockDirectoryExclusive @ 0x1400CF410 (ObpLockDirectoryExclusive.c)
+ *     PsGetCurrentProcessSessionId @ 0x1400F96A0 (PsGetCurrentProcessSessionId.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     ExfUnblockPushLock @ 0x140159E30 (ExfUnblockPushLock.c)
+ *     MmGetSessionObjectById @ 0x1401EC804 (MmGetSessionObjectById.c)
+ *     SeSinglePrivilegeCheck @ 0x140412E30 (SeSinglePrivilegeCheck.c)
+ *     ObReferenceObjectByHandle @ 0x14044FC10 (ObReferenceObjectByHandle.c)
+ *     ExpLookupHandleTableEntry @ 0x140450260 (ExpLookupHandleTableEntry.c)
+ *     ExpBlockOnLockedHandleEntry @ 0x1404AF024 (ExpBlockOnLockedHandleEntry.c)
  */
 
 NTSTATUS __stdcall NtSetInformationObject(
@@ -38,11 +38,11 @@ NTSTATUS __stdcall NtSetInformationObject(
   _DWORD *v15; // rbx
   char v17; // cl
   char v18; // r15
-  __int64 v19; // r14
+  ULONG_PTR v19; // r14
   _KPROCESS *Process; // rcx
   struct _KTHREAD *CurrentThread; // rsi
-  __int64 *v22; // rbx
-  __int64 v23; // r8
+  signed __int64 *v22; // rbx
+  signed __int64 v23; // r8
   int v24; // ecx
   __int16 v25; // ax
   signed __int32 v26[8]; // [rsp+0h] [rbp-F8h] BYREF
@@ -157,7 +157,7 @@ NTSTATUS __stdcall NtSetInformationObject(
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->KernelApcDisable;
     if ( ((unsigned __int16)ObjectHandle & 0x3FC) != 0
-      && (v22 = (__int64 *)ExpLookupHandleTableEntry((unsigned int *)v19, (__int64)ObjectHandle)) != 0LL )
+      && (v22 = (signed __int64 *)ExpLookupHandleTableEntry((unsigned int *)v19, (__int64)ObjectHandle)) != 0LL )
     {
       do
       {

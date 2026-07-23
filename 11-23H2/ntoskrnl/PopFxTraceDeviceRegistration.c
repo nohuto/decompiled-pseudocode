@@ -1,18 +1,18 @@
 /*
- * XREFs of PopFxTraceDeviceRegistration @ 0x140837188
+ * XREFs of PopFxTraceDeviceRegistration @ 0x140837488
  * Callers:
- *     PopDiagTraceFxRundown @ 0x1405888D8 (PopDiagTraceFxRundown.c)
- *     PopFxRegisterDevice @ 0x14083651C (PopFxRegisterDevice.c)
+ *     PopDiagTraceFxRundown @ 0x140588DC8 (PopDiagTraceFxRundown.c)
+ *     PopFxRegisterDevice @ 0x14083681C (PopFxRegisterDevice.c)
  * Callees:
- *     EtwEventEnabled @ 0x140258420 (EtwEventEnabled.c)
- *     PopFxAddLogEntry @ 0x140312AF4 (PopFxAddLogEntry.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     PopPepGetComponentVetoMasks @ 0x14059EDA4 (PopPepGetComponentVetoMasks.c)
- *     PopPepGetDeviceVetoMasks @ 0x14059EFB8 (PopPepGetDeviceVetoMasks.c)
- *     PopDiagTraceFxComponentRegistration @ 0x14098F3E4 (PopDiagTraceFxComponentRegistration.c)
- *     PopDiagTraceFxDeviceRegistration @ 0x14098F4B4 (PopDiagTraceFxDeviceRegistration.c)
- *     PopFxTracePerfRegistration @ 0x1409923C0 (PopFxTracePerfRegistration.c)
+ *     EtwEventEnabled @ 0x1402584E0 (EtwEventEnabled.c)
+ *     PopFxAddLogEntry @ 0x140312D84 (PopFxAddLogEntry.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     PopPepGetComponentVetoMasks @ 0x14059F294 (PopPepGetComponentVetoMasks.c)
+ *     PopPepGetDeviceVetoMasks @ 0x14059F4A8 (PopPepGetDeviceVetoMasks.c)
+ *     PopDiagTraceFxComponentRegistration @ 0x14098F5E4 (PopDiagTraceFxComponentRegistration.c)
+ *     PopDiagTraceFxDeviceRegistration @ 0x14098F6B4 (PopDiagTraceFxDeviceRegistration.c)
+ *     PopFxTracePerfRegistration @ 0x1409925C0 (PopFxTracePerfRegistration.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

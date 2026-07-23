@@ -1,66 +1,71 @@
 /*
- * XREFs of RtlReportSilentProcessExit @ 0x180007310
+ * XREFs of RtlReportSilentProcessExit @ 0x180007300
  * Callers:
- *     RtlExitUserProcess @ 0x180006E60 (RtlExitUserProcess.c)
- *     LdrpFatalExceptionFilter @ 0x1800D2C9C (LdrpFatalExceptionFilter.c)
+ *     RtlExitUserProcess @ 0x180006E50 (RtlExitUserProcess.c)
+ *     LdrpFatalExceptionFilter @ 0x1800D2D5C (LdrpFatalExceptionFilter.c)
  * Callees:
- *     WerpGlobalFlagsForProcess @ 0x1800075CC (WerpGlobalFlagsForProcess.c)
- *     WerpProcessId @ 0x1800077BC (WerpProcessId.c)
- *     SendMessageToWERService @ 0x180008BB0 (SendMessageToWERService.c)
- *     __security_check_cookie @ 0x180096C40 (__security_check_cookie.c)
+ *     WerpGlobalFlagsForProcess @ 0x1800075BC (WerpGlobalFlagsForProcess.c)
+ *     WerpProcessId @ 0x1800077AC (WerpProcessId.c)
+ *     SendMessageToWERService @ 0x180008BA0 (SendMessageToWERService.c)
+ *     __security_check_cookie @ 0x180096C30 (__security_check_cookie.c)
  *     NtWaitForSingleObject @ 0x1800A64A0 (NtWaitForSingleObject.c)
  *     NtClose @ 0x1800A6600 (NtClose.c)
  *     ZwDuplicateObject @ 0x1800A6BA0 (ZwDuplicateObject.c)
  *     memset @ 0x1800ACCC0 (memset.c)
  */
 
-__int64 __fastcall RtlReportSilentProcessExit(__int64 a1, int a2)
+NTSTATUS __cdecl RtlReportSilentProcessExit(HANDLE ProcessHandle, NTSTATUS ExitStatus)
 {
   int v5; // ebx
-  int UniqueProcess; // edi
-  int UniqueThread; // esi
-  int v8; // eax
-  int v9; // ebx
+  unsigned int UniqueProcess; // edi
+  unsigned int UniqueThread; // esi
+  unsigned int v8; // eax
+  unsigned int v9; // ebx
   unsigned int NtGlobalFlag; // eax
   int v11; // eax
-  HANDLE v12; // rdi
+  void *v12; // rdi
   NTSTATUS v13; // eax
-  HANDLE Handle[2]; // [rsp+40h] [rbp-C0h] BYREF
-  HANDLE v15[176]; // [rsp+50h] [rbp-B0h] BYREF
-  _DWORD v16[352]; // [rsp+5D0h] [rbp+4D0h] BYREF
+  HANDLE TargetHandle; // [rsp+40h] [rbp-C0h] BYREF
+  _PORT_MESSAGE ReceiveMessage[35]; // [rsp+50h] [rbp-B0h] BYREF
+  _PORT_MESSAGE SendMessageA[35]; // [rsp+5D0h] [rbp+4D0h] BYREF
 
-  memset(v16, 0, 0x578uLL);
-  memset(v15, 0, 0x578uLL);
-  Handle[0] = 0LL;
-  if ( !a1 )
-    return 3221225485LL;
-  if ( a1 == -1 && (NtCurrentPeb()->NtGlobalFlag & 0x200) == 0 )
-    return 0LL;
-  v5 = ZwDuplicateObject(-1LL, a1, -1LL, Handle, 4096, 0, 0);
+  memset(SendMessageA, 0, sizeof(SendMessageA));
+  memset(ReceiveMessage, 0, sizeof(ReceiveMessage));
+  TargetHandle = 0LL;
+  if ( !ProcessHandle )
+    return -1073741811;
+  if ( ProcessHandle == (HANDLE)-1LL && (NtCurrentPeb()->NtGlobalFlag & 0x200) == 0 )
+    return 0;
+  v5 = ZwDuplicateObject(
+         (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+         ProcessHandle,
+         (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+         &TargetHandle,
+         0x1000u,
+         0,
+         0);
   if ( v5 < 0 )
     goto LABEL_13;
-  UniqueProcess = (int)NtCurrentTeb()->ClientId.UniqueProcess;
-  UniqueThread = (int)NtCurrentTeb()->ClientId.UniqueThread;
-  v8 = WerpProcessId(Handle[0]);
+  UniqueProcess = (unsigned int)NtCurrentTeb()->ClientId.UniqueProcess;
+  UniqueThread = (unsigned int)NtCurrentTeb()->ClientId.UniqueThread;
+  v8 = WerpProcessId(TargetHandle);
   v9 = v8;
   if ( !UniqueProcess || !UniqueThread || !v8 )
-    return 3221225485LL;
+    return -1073741811;
   if ( UniqueProcess == v8 )
     NtGlobalFlag = NtCurrentPeb()->NtGlobalFlag;
   else
-    LOWORD(NtGlobalFlag) = WerpGlobalFlagsForProcess(Handle[0]);
+    LOWORD(NtGlobalFlag) = WerpGlobalFlagsForProcess(TargetHandle);
   if ( (NtGlobalFlag & 0x200) != 0 )
   {
-    memset(v16, 0, 0x578uLL);
-    v16[0] = 91751760;
-    v16[10] = 805306368;
-    v16[12] = UniqueThread;
-    v16[13] = UniqueProcess;
-    v16[14] = v9;
-    v16[15] = a2;
-    memset(v15, 0, 0x578uLL);
-    LODWORD(v15[0]) = 91751760;
-    v11 = SendMessageToWERService(v16, v15);
+    memset(SendMessageA, 0, sizeof(SendMessageA));
+    SendMessageA[0].u1.Length = 91751760;
+    SendMessageA[1].u1.Length = 805306368;
+    SendMessageA[1].ClientId.UniqueProcess = (void *)__PAIR64__(UniqueProcess, UniqueThread);
+    SendMessageA[1].ClientId.UniqueThread = (void *)__PAIR64__(ExitStatus, v9);
+    memset(ReceiveMessage, 0, sizeof(ReceiveMessage));
+    ReceiveMessage[0].u1.Length = 91751760;
+    v11 = SendMessageToWERService(SendMessageA, ReceiveMessage);
     if ( v11 >= 0 )
     {
       if ( v11 == 258 )
@@ -69,7 +74,7 @@ __int64 __fastcall RtlReportSilentProcessExit(__int64 a1, int a2)
       }
       else
       {
-        v12 = v15[6];
+        v12 = ReceiveMessage[1].ClientId.UniqueProcess;
         while ( 1 )
         {
           v13 = NtWaitForSingleObject(v12, 1u, 0LL);
@@ -96,7 +101,7 @@ __int64 __fastcall RtlReportSilentProcessExit(__int64 a1, int a2)
     v5 = 0;
   }
 LABEL_13:
-  if ( Handle[0] )
-    NtClose(Handle[0]);
-  return (unsigned int)v5;
+  if ( TargetHandle )
+    NtClose(TargetHandle);
+  return v5;
 }

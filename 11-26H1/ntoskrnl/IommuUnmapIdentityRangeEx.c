@@ -1,13 +1,13 @@
 /*
- * XREFs of IommuUnmapIdentityRangeEx @ 0x14047ACB0
+ * XREFs of IommuUnmapIdentityRangeEx @ 0x140474620
  * Callers:
  *     <none>
  * Callees:
- *     HalpIommuDomainUnmapIdentityRange @ 0x14047AE04 (HalpIommuDomainUnmapIdentityRange.c)
- *     HalpIommuDomainFreeLogicalAddressRange @ 0x14047B014 (HalpIommuDomainFreeLogicalAddressRange.c)
- *     HalpIommuDomainUnmapLogicalRange @ 0x14047B04C (HalpIommuDomainUnmapLogicalRange.c)
- *     IommupValidateMdl @ 0x140511904 (IommupValidateMdl.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     HalpIommuDomainUnmapIdentityRange @ 0x140474774 (HalpIommuDomainUnmapIdentityRange.c)
+ *     HalpIommuDomainFreeLogicalAddressRange @ 0x140474984 (HalpIommuDomainFreeLogicalAddressRange.c)
+ *     HalpIommuDomainUnmapLogicalRange @ 0x1404749BC (HalpIommuDomainUnmapLogicalRange.c)
+ *     IommupValidateMdl @ 0x14050B374 (IommupValidateMdl.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall IommuUnmapIdentityRangeEx(__int64 a1, __int64 a2)

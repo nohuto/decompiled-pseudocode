@@ -1,25 +1,25 @@
 /*
- * XREFs of CcWaitForCurrentLazyWriterActivityOnNode @ 0x14057AEF8
+ * XREFs of CcWaitForCurrentLazyWriterActivityOnNode @ 0x140578388
  * Callers:
- *     CcWaitForCurrentLazyWriterActivityOnPartition @ 0x14057B0B4 (CcWaitForCurrentLazyWriterActivityOnPartition.c)
+ *     CcWaitForCurrentLazyWriterActivityOnPartition @ 0x140578544 (CcWaitForCurrentLazyWriterActivityOnPartition.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140275CD0 (KeReleaseInStackQueuedSpinLock.c)
- *     CcAllocateWorkQueueEntry @ 0x1402A7D3C (CcAllocateWorkQueueEntry.c)
- *     CcPerfLogWorkItemEnqueue @ 0x1402A7FF0 (CcPerfLogWorkItemEnqueue.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x1402D8540 (KeAcquireInStackQueuedSpinLock.c)
- *     KeDelayExecutionThread @ 0x14033BC60 (KeDelayExecutionThread.c)
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     CcScheduleLazyWriteScan @ 0x14043C9B0 (CcScheduleLazyWriteScan.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x14022B260 (KeReleaseInStackQueuedSpinLock.c)
+ *     CcScheduleLazyWriteScan @ 0x140264F40 (CcScheduleLazyWriteScan.c)
+ *     CcAllocateWorkQueueEntry @ 0x140279B34 (CcAllocateWorkQueueEntry.c)
+ *     CcPerfLogWorkItemEnqueue @ 0x140279DE0 (CcPerfLogWorkItemEnqueue.c)
+ *     KeDelayExecutionThread @ 0x14031B140 (KeDelayExecutionThread.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1403597C0 (KeAcquireInStackQueuedSpinLock.c)
  */
 
 __int64 __fastcall CcWaitForCurrentLazyWriterActivityOnNode(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 result; // rax
-  __int64 *v7; // rbx
-  __int64 v8; // rdi
-  __int64 **v9; // rax
+  PSLIST_ENTRY v7; // rbx
+  _SLIST_ENTRY *v8; // rdi
+  PSLIST_ENTRY *v9; // rax
   volatile signed __int32 *v10; // rbx
-  __int64 **v11; // rcx
+  PSLIST_ENTRY *v11; // rcx
   unsigned int v12; // edi
   __int16 Object; // [rsp+30h] [rbp-50h] BYREF
   char v14; // [rsp+32h] [rbp-4Eh]
@@ -28,34 +28,34 @@ __int64 __fastcall CcWaitForCurrentLazyWriterActivityOnNode(__int64 a1, __int64 
   _QWORD v17[2]; // [rsp+38h] [rbp-48h] BYREF
   struct _KLOCK_QUEUE_HANDLE v18; // [rsp+48h] [rbp-38h] BYREF
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+60h] [rbp-20h] BYREF
-  __int64 v20; // [rsp+B8h] [rbp+38h] BYREF
+  PSLIST_ENTRY v20; // [rsp+B8h] [rbp+38h] BYREF
 
   v20 = 0LL;
   v15 = 0;
   memset(&LockHandle, 0, sizeof(LockHandle));
   memset(&v18, 0, sizeof(v18));
-  result = CcAllocateWorkQueueEntry(a1, a2, a3, &v20);
+  result = CcAllocateWorkQueueEntry(a1, (_SLIST_ENTRY *)a2, a3, &v20);
   if ( (int)result >= 0 )
   {
-    v7 = (__int64 *)v20;
-    v8 = a1 + 848;
-    *(_DWORD *)(v20 + 128) = 4;
+    v7 = v20;
+    v8 = (_SLIST_ENTRY *)(a1 + 848);
+    LODWORD(v20[8].Next) = 4;
     Object = 0;
     v16 = 0;
     v17[1] = v17;
     v17[0] = v17;
     v14 = 6;
-    v7[2] = (__int64)&Object;
-    if ( (xmmword_140FC5B10 & 0x20000) != 0 )
+    v7[1].Next = (_SLIST_ENTRY *)&Object;
+    if ( (xmmword_140FC6B50 & 0x20000) != 0 )
       CcPerfLogWorkItemEnqueue(a1 + 848, (__int64)v7, 0, 0);
     KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(a1 + 768), &LockHandle);
     if ( a2 )
     {
-      v11 = *(__int64 ***)(a2 + 792);
-      if ( *v11 == (__int64 *)(a2 + 784) )
+      v11 = *(PSLIST_ENTRY **)(a2 + 792);
+      if ( *v11 == (PSLIST_ENTRY)(a2 + 784) )
       {
-        *v7 = a2 + 784;
-        v7[1] = (__int64)v11;
+        v7->Next = (_SLIST_ENTRY *)(a2 + 784);
+        *((_QWORD *)&v7->Next + 1) = v11;
         *v11 = v7;
         *(_QWORD *)(a2 + 792) = v7;
         v10 = (volatile signed __int32 *)(a2 + 808);
@@ -80,11 +80,11 @@ LABEL_10:
     }
     else
     {
-      v9 = *(__int64 ***)(a1 + 856);
-      if ( *v9 == (__int64 *)v8 )
+      v9 = *(PSLIST_ENTRY **)(a1 + 856);
+      if ( *v9 == v8 )
       {
-        *v7 = v8;
-        v7[1] = (__int64)v9;
+        v7->Next = v8;
+        *((_QWORD *)&v7->Next + 1) = v9;
         *v9 = v7;
         *(_QWORD *)(a1 + 856) = v7;
         v10 = (volatile signed __int32 *)(a1 + 872);

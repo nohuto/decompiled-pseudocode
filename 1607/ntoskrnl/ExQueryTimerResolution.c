@@ -1,5 +1,5 @@
 /*
- * XREFs of ExQueryTimerResolution @ 0x14022C8F0
+ * XREFs of ExQueryTimerResolution @ 0x14022C71C
  * Callers:
  *     <none>
  * Callees:

@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpDmaRemoveAdapterFromMasterQueue @ 0x140578E84
+ * XREFs of HalpDmaRemoveAdapterFromMasterQueue @ 0x14057B3B4
  * Callers:
- *     HalpAllocateDmaResourcesInternal @ 0x14043E70C (HalpAllocateDmaResourcesInternal.c)
- *     HalCancelAdapterChannelDmaThin @ 0x1404DEC50 (HalCancelAdapterChannelDmaThin.c)
- *     HalCancelAdapterChannelDmarThin @ 0x140512EF0 (HalCancelAdapterChannelDmarThin.c)
- *     HalCancelAdapterChannel @ 0x1405888B0 (HalCancelAdapterChannel.c)
+ *     HalpAllocateDmaResourcesInternal @ 0x14043721C (HalpAllocateDmaResourcesInternal.c)
+ *     HalCancelAdapterChannelDmaThin @ 0x1404D8330 (HalCancelAdapterChannelDmaThin.c)
+ *     HalCancelAdapterChannelDmarThin @ 0x14050C960 (HalCancelAdapterChannelDmarThin.c)
+ *     HalCancelAdapterChannel @ 0x14058AF80 (HalCancelAdapterChannel.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x1402B4730 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x1402B98C0 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402FF400 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x140304580 (KeReleaseInStackQueuedSpinLock.c)
  */
 
 char __fastcall HalpDmaRemoveAdapterFromMasterQueue(__int64 a1)

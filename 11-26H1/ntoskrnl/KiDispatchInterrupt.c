@@ -1,21 +1,21 @@
 /*
- * XREFs of KiDispatchInterrupt @ 0x140223290
+ * XREFs of KiDispatchInterrupt @ 0x140224C20
  * Callers:
- *     KiDpcInterrupt @ 0x14072EF70 (KiDpcInterrupt.c)
- *     KiDpcInterruptBypass @ 0x14072F6C0 (KiDpcInterruptBypass.c)
+ *     KiDpcInterrupt @ 0x140733B40 (KiDpcInterrupt.c)
+ *     KiDpcInterruptBypass @ 0x140734290 (KiDpcInterruptBypass.c)
  * Callees:
- *     KiRcuCheckQuiescent @ 0x140221E10 (KiRcuCheckQuiescent.c)
- *     KiQueueReadyThread @ 0x140223650 (KiQueueReadyThread.c)
- *     KiCaptureTotalCyclesCurrentThread @ 0x140225340 (KiCaptureTotalCyclesCurrentThread.c)
- *     KiDeferGroupSchedulingPreemption @ 0x14022FA60 (KiDeferGroupSchedulingPreemption.c)
- *     KiAbProcessPostContextSwitch @ 0x14023BA80 (KiAbProcessPostContextSwitch.c)
- *     KiAbProcessPreContextSwitch @ 0x14023DEB0 (KiAbProcessPreContextSwitch.c)
- *     HvlNotifyLongSpinWait @ 0x1402BBF00 (HvlNotifyLongSpinWait.c)
- *     KiQuantumEnd @ 0x140331070 (KiQuantumEnd.c)
- *     KeIsUserVaAccessAllowed @ 0x1403A7B70 (KeIsUserVaAccessAllowed.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14052FA20 (KiRemoveSystemWorkPriorityKick.c)
- *     KiSwapStacksAndRetireDpcList @ 0x14072C440 (KiSwapStacksAndRetireDpcList.c)
- *     KiSwapContext @ 0x14072FED0 (KiSwapContext.c)
+ *     KiRcuCheckQuiescent @ 0x1402237A0 (KiRcuCheckQuiescent.c)
+ *     KiQueueReadyThread @ 0x140224FE0 (KiQueueReadyThread.c)
+ *     KiCaptureTotalCyclesCurrentThread @ 0x140226CD0 (KiCaptureTotalCyclesCurrentThread.c)
+ *     KiDeferGroupSchedulingPreemption @ 0x1402313F0 (KiDeferGroupSchedulingPreemption.c)
+ *     KiAbProcessPostContextSwitch @ 0x14023D3E0 (KiAbProcessPostContextSwitch.c)
+ *     KiAbProcessPreContextSwitch @ 0x14023F810 (KiAbProcessPreContextSwitch.c)
+ *     HvlNotifyLongSpinWait @ 0x140306BC0 (HvlNotifyLongSpinWait.c)
+ *     KiQuantumEnd @ 0x1403330A0 (KiQuantumEnd.c)
+ *     KeIsUserVaAccessAllowed @ 0x1403A98D0 (KeIsUserVaAccessAllowed.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x140531F20 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiSwapStacksAndRetireDpcList @ 0x140731010 (KiSwapStacksAndRetireDpcList.c)
+ *     KiSwapContext @ 0x140734AA0 (KiSwapContext.c)
  */
 
 __int64 __fastcall KiDispatchInterrupt(unsigned __int8 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -52,10 +52,10 @@ __int64 __fastcall KiDispatchInterrupt(unsigned __int8 a1, __int64 a2, __int64 a
     v5 = *(void **)(a2 + 360);
     if ( v4 == 51 )
     {
-      if ( v5 > stru_140FC01F0.KernelShadowStack
-        && (unsigned __int64)v5 <= stru_140FC01F0.InGlobalUpdateVpThreadPriorityList )
+      if ( v5 > stru_140FC11F0.KernelShadowStack
+        && (unsigned __int64)v5 <= stru_140FC11F0.InGlobalUpdateVpThreadPriorityList )
       {
-        *(_QWORD *)(a2 + 360) = stru_140FC01F0.KernelShadowStack;
+        *(_QWORD *)(a2 + 360) = stru_140FC11F0.KernelShadowStack;
       }
     }
     else if ( v4 == 16 && v5 > &ExpInterlockedPopEntrySListResume && v5 <= &ExpInterlockedPopEntrySListEnd )

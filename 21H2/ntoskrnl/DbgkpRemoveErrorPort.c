@@ -1,17 +1,17 @@
 /*
- * XREFs of DbgkpRemoveErrorPort @ 0x140887074
+ * XREFs of DbgkpRemoveErrorPort @ 0x1408871D4
  * Callers:
- *     DbgkFlushErrorPort @ 0x1406CDB68 (DbgkFlushErrorPort.c)
- *     DbgkpSendErrorMessage @ 0x140887370 (DbgkpSendErrorMessage.c)
+ *     DbgkFlushErrorPort @ 0x14067C7F8 (DbgkFlushErrorPort.c)
+ *     DbgkpSendErrorMessage @ 0x1408874D0 (DbgkpSendErrorMessage.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     PsGetServerSiloGlobals @ 0x140252E18 (PsGetServerSiloGlobals.c)
- *     HalSystemVectorDispatchEntry @ 0x140252E40 (HalSystemVectorDispatchEntry.c)
- *     KeResetEvent @ 0x14027BC40 (KeResetEvent.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     DbgkpDereferenceErrorPort @ 0x1404EE0D8 (DbgkpDereferenceErrorPort.c)
+ *     HalSystemVectorDispatchEntry @ 0x140251020 (HalSystemVectorDispatchEntry.c)
+ *     KeResetEvent @ 0x140269BE0 (KeResetEvent.c)
+ *     PsGetServerSiloGlobals @ 0x140285C94 (PsGetServerSiloGlobals.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     DbgkpDereferenceErrorPort @ 0x1404EE318 (DbgkpDereferenceErrorPort.c)
  */
 
 int __fastcall DbgkpRemoveErrorPort(__int64 a1, ULONG_PTR a2, volatile signed __int32 *a3)
@@ -19,6 +19,9 @@ int __fastcall DbgkpRemoveErrorPort(__int64 a1, ULONG_PTR a2, volatile signed __
   _UNKNOWN **v3; // rax
   int v7; // r14d
   __int64 v8; // rax
+  __int64 v9; // rdx
+  __int64 v10; // r8
+  __int64 v11; // r9
   _UNKNOWN *retaddr; // [rsp+28h] [rbp+0h] BYREF
 
   v3 = &retaddr;
@@ -39,7 +42,7 @@ int __fastcall DbgkpRemoveErrorPort(__int64 a1, ULONG_PTR a2, volatile signed __
     if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)a2, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
       ExfTryToWakePushLock(a2);
     KeAbPostRelease(a2);
-    LODWORD(v3) = (unsigned int)KeLeaveCriticalRegionThread(a1);
+    LODWORD(v3) = (unsigned int)KeLeaveCriticalRegionThread(a1, v9, v10, v11);
     if ( v7 )
     {
       DbgkpDereferenceErrorPort(a3);

@@ -1,24 +1,24 @@
 /*
- * XREFs of AlpcpCreateSection @ 0x140472868
+ * XREFs of AlpcpCreateSection @ 0x140471738
  * Callers:
- *     AlpcpMapLegacyPortView @ 0x1404724E8 (AlpcpMapLegacyPortView.c)
- *     NtAlpcCreatePortSection @ 0x1404726B8 (NtAlpcCreatePortSection.c)
+ *     AlpcpMapLegacyPortView @ 0x1404713B8 (AlpcpMapLegacyPortView.c)
+ *     NtAlpcCreatePortSection @ 0x140471588 (NtAlpcCreatePortSection.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     ObfReferenceObject @ 0x14006A060 (ObfReferenceObject.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfAcquirePushLockSharedEx @ 0x1400C8280 (ExfAcquirePushLockSharedEx.c)
- *     ExfReleasePushLockShared @ 0x1400C8640 (ExfReleasePushLockShared.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     AlpcpStartInitialization @ 0x14040B7CC (AlpcpStartInitialization.c)
- *     AlpcpReferenceBlob @ 0x14040BD4C (AlpcpReferenceBlob.c)
- *     AlpcAddHandleTableEntry @ 0x14040BE50 (AlpcAddHandleTableEntry.c)
- *     AlpcpEndInitialization @ 0x14040BFAC (AlpcpEndInitialization.c)
- *     AlpcpDereferenceBlobEx @ 0x14040C274 (AlpcpDereferenceBlobEx.c)
- *     AlpcpInsertResourcePort @ 0x14040D574 (AlpcpInsertResourcePort.c)
- *     AlpcpAllocateBlob @ 0x14040D624 (AlpcpAllocateBlob.c)
- *     MmCreateSection @ 0x14042CC10 (MmCreateSection.c)
- *     ObReferenceObjectByHandle @ 0x140450D40 (ObReferenceObjectByHandle.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     ObfReferenceObject @ 0x140069BE0 (ObfReferenceObject.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1400C6120 (ExfAcquirePushLockSharedEx.c)
+ *     ExfReleasePushLockShared @ 0x1400C64E0 (ExfReleasePushLockShared.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     AlpcpStartInitialization @ 0x14040A68C (AlpcpStartInitialization.c)
+ *     AlpcpReferenceBlob @ 0x14040AC0C (AlpcpReferenceBlob.c)
+ *     AlpcAddHandleTableEntry @ 0x14040AD10 (AlpcAddHandleTableEntry.c)
+ *     AlpcpEndInitialization @ 0x14040AE6C (AlpcpEndInitialization.c)
+ *     AlpcpDereferenceBlobEx @ 0x14040B134 (AlpcpDereferenceBlobEx.c)
+ *     AlpcpInsertResourcePort @ 0x14040C434 (AlpcpInsertResourcePort.c)
+ *     AlpcpAllocateBlob @ 0x14040C4E4 (AlpcpAllocateBlob.c)
+ *     MmCreateSection @ 0x14042BAE0 (MmCreateSection.c)
+ *     ObReferenceObjectByHandle @ 0x14044FC10 (ObReferenceObjectByHandle.c)
  */
 
 __int64 __fastcall AlpcpCreateSection(char *Object, unsigned __int8 a2, char a3, void *a4, PVOID a5, ULONG_PTR *a6)

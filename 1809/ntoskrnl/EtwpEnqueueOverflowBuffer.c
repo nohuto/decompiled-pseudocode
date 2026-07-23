@@ -1,5 +1,5 @@
 /*
- * XREFs of EtwpEnqueueOverflowBuffer @ 0x14013A80C
+ * XREFs of EtwpEnqueueOverflowBuffer @ 0x14013A90C
  * Callers:
  *     EtwpSwitchBuffer @ 0x140014FB8 (EtwpSwitchBuffer.c)
  *     EtwpDequeueFreeBuffer @ 0x140015278 (EtwpDequeueFreeBuffer.c)

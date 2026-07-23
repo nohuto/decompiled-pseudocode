@@ -33,9 +33,9 @@ NTSTATUS __stdcall SeQuerySecurityDescriptorInfo(
   __int64 *v18; // r11
   unsigned __int64 v19; // rdx
   unsigned int v20; // ebx
-  ULONG v21; // r9d
-  ULONG v22; // ecx
-  ULONG v23; // eax
+  DWORD v21; // r9d
+  DWORD v22; // ecx
+  DWORD v23; // eax
   int v24; // eax
   unsigned int v25; // r9d
   __int16 v26; // cx

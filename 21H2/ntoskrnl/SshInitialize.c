@@ -1,29 +1,29 @@
 /*
- * XREFs of SshInitialize @ 0x140A40584
+ * XREFs of SshInitialize @ 0x140A41584
  * Callers:
- *     PoInitSystem @ 0x140A3F948 (PoInitSystem.c)
+ *     PoInitSystem @ 0x140A40948 (PoInitSystem.c)
  * Callees:
- *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x14078D094 (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
- *     CmSiRWLockInitialize @ 0x140795710 (CmSiRWLockInitialize.c)
- *     SshpQueryRegistryValues @ 0x1407968F0 (SshpQueryRegistryValues.c)
- *     SSHSupportEtwRegister @ 0x140796BE0 (SSHSupportEtwRegister.c)
- *     SshpSubscribeCallbacks @ 0x140A40C14 (SshpSubscribeCallbacks.c)
- *     SshpUninitialize @ 0x140A935A4 (SshpUninitialize.c)
+ *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x14078D254 (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
+ *     CmSiRWLockInitialize @ 0x140795910 (CmSiRWLockInitialize.c)
+ *     SshpQueryRegistryValues @ 0x140796AF0 (SshpQueryRegistryValues.c)
+ *     SSHSupportEtwRegister @ 0x140796DE0 (SSHSupportEtwRegister.c)
+ *     SshpSubscribeCallbacks @ 0x140A41C14 (SshpSubscribeCallbacks.c)
+ *     SshpUninitialize @ 0x140A945A4 (SshpUninitialize.c)
  */
 
 __int64 __fastcall SshInitialize(int a1)
 {
-  union _RTL_RUN_ONCE *v1; // rax
-  union _RTL_RUN_ONCE *v2; // rax
+  _RTL_RUN_ONCE *v1; // rax
+  _RTL_RUN_ONCE *v2; // rax
   __int64 v3; // rdx
   int v4; // ebx
 
   if ( !a1 )
   {
-    CmSiRWLockInitialize((PRTL_RUN_ONCE)&SshpLibraryListLock);
-    qword_140C1E338 = (__int64)&SshpLibraryList;
+    CmSiRWLockInitialize(&SshpLibraryListLock);
+    qword_140C1E408 = (__int64)&SshpLibraryList;
     SshpLibraryList = (__int64)&SshpLibraryList;
-    v1 = (union _RTL_RUN_ONCE *)&unk_140C1E370;
+    v1 = (_RTL_RUN_ONCE *)&unk_140C1E330;
     do
     {
       CmSiRWLockInitialize(v1 - 2);

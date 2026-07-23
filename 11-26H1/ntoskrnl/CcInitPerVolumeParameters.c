@@ -1,9 +1,9 @@
 /*
- * XREFs of CcInitPerVolumeParameters @ 0x1405B32BC
+ * XREFs of CcInitPerVolumeParameters @ 0x1405B5ACC
  * Callers:
- *     CcInitializeCacheManager @ 0x140C7F4E8 (CcInitializeCacheManager.c)
+ *     CcInitializeCacheManager @ 0x140C854E8 (CcInitializeCacheManager.c)
  * Callees:
- *     DbgPrintEx @ 0x140397530 (DbgPrintEx.c)
+ *     DbgPrintEx @ 0x1403992B0 (DbgPrintEx.c)
  */
 
 __int64 CcInitPerVolumeParameters()
@@ -54,12 +54,12 @@ __int64 CcInitPerVolumeParameters()
   {
     CcEnableAsyncLazywriteMulti = 0;
   }
-  result = (unsigned int)(LODWORD(ExSaPageGroupDescriptorArrayLock.ThreadListEntry.Flink) - 1);
-  *(_QWORD *)&EmpParseLock.PriorityFloorSummary = -600000000LL;
-  *(_DWORD *)&EmpParseLock.PriorityFloorCounts[28] = 16;
+  result = (unsigned int)(*(_DWORD *)&ExSaPageGroupDescriptorArrayLock.WaitBlockFill11[48] - 1);
+  *(_QWORD *)&EmpParseLock.AbCompletedIoQoSBoostCount = -600000000LL;
+  EmpParseLock.ForegroundLossTime = 16;
   if ( (unsigned int)result > 0x32 )
     result = 50LL;
-  *(_DWORD *)&EmpParseLock.PriorityFloorCounts[20] = 8;
-  *(_DWORD *)&EmpParseLock.PriorityFloorCounts[24] = result;
+  *(&EmpParseLock.ForegroundLossTime + 1) = 8;
+  EmpParseLock.PriorityFloorSummary = result;
   return result;
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of HvlRegisterLogicalProcessorFrequency @ 0x1403E66D0
+ * XREFs of HvlRegisterLogicalProcessorFrequency @ 0x1402F35B0
  * Callers:
- *     PpmScaleIdleStateValues @ 0x1403E6518 (PpmScaleIdleStateValues.c)
+ *     PpmScaleIdleStateValues @ 0x1402F33F8 (PpmScaleIdleStateValues.c)
  * Callees:
- *     HvlpSetPowerProperty @ 0x1403E672C (HvlpSetPowerProperty.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     HvlpSetPowerProperty @ 0x1402F360C (HvlpSetPowerProperty.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall HvlRegisterLogicalProcessorFrequency(int a1, int a2)

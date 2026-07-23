@@ -8,7 +8,7 @@
  *     BgpConsoleInitialize @ 0x140728460 (BgpConsoleInitialize.c)
  *     BgpFoDetermineFontInformation @ 0x1407D4168 (BgpFoDetermineFontInformation.c)
  * Callees:
- *     _wcsicmp @ 0x14014D79C (_wcsicmp.c)
+ *     _wcsicmp @ 0x14014DD0C (_wcsicmp.c)
  */
 
 __int64 __fastcall BgpFoGetFontHandle(wchar_t *Str2, __int64 **a2)

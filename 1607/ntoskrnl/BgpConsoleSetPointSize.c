@@ -1,9 +1,9 @@
 /*
- * XREFs of BgpConsoleSetPointSize @ 0x1401412F0
+ * XREFs of BgpConsoleSetPointSize @ 0x140141860
  * Callers:
  *     BgpConsoleInitialize @ 0x140728460 (BgpConsoleInitialize.c)
  * Callees:
- *     BgpFoGetTextMetrics @ 0x140127E00 (BgpFoGetTextMetrics.c)
+ *     BgpFoGetTextMetrics @ 0x140128370 (BgpFoGetTextMetrics.c)
  */
 
 __int64 __fastcall BgpConsoleSetPointSize(

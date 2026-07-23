@@ -1,22 +1,22 @@
 /*
- * XREFs of SiGetEfiSystemDevice @ 0x140816348
+ * XREFs of SiGetEfiSystemDevice @ 0x140816A88
  * Callers:
- *     SiGetSystemDisk @ 0x140A2D7C0 (SiGetSystemDisk.c)
- *     SiGetFirmwareSystemPartition @ 0x140A2D870 (SiGetFirmwareSystemPartition.c)
+ *     SiGetSystemDisk @ 0x140A22200 (SiGetSystemDisk.c)
+ *     SiGetFirmwareSystemPartition @ 0x140A222B0 (SiGetFirmwareSystemPartition.c)
  * Callees:
- *     RtlStringCbPrintfW @ 0x14040BC90 (RtlStringCbPrintfW.c)
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwOpenDirectoryObject @ 0x1406A6F10 (ZwOpenDirectoryObject.c)
- *     ZwQueryDirectoryObject @ 0x1406A8DD0 (ZwQueryDirectoryObject.c)
- *     SiGetDriveLayoutInformation @ 0x140816014 (SiGetDriveLayoutInformation.c)
- *     SiIssueSynchronousIoctl @ 0x140816114 (SiIssueSynchronousIoctl.c)
- *     SiDisambiguateSystemDevice @ 0x14081627C (SiDisambiguateSystemDevice.c)
- *     SiGetEspFromFirmware @ 0x1408167A0 (SiGetEspFromFirmware.c)
- *     SiIsValidDiskDevice @ 0x140816B50 (SiIsValidDiskDevice.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlStringCbPrintfW @ 0x140404170 (RtlStringCbPrintfW.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwOpenDirectoryObject @ 0x1406A7EB0 (ZwOpenDirectoryObject.c)
+ *     ZwQueryDirectoryObject @ 0x1406A9D70 (ZwQueryDirectoryObject.c)
+ *     SiGetDriveLayoutInformation @ 0x140816754 (SiGetDriveLayoutInformation.c)
+ *     SiIssueSynchronousIoctl @ 0x140816854 (SiIssueSynchronousIoctl.c)
+ *     SiDisambiguateSystemDevice @ 0x1408169BC (SiDisambiguateSystemDevice.c)
+ *     SiGetEspFromFirmware @ 0x140816EE0 (SiGetEspFromFirmware.c)
+ *     SiIsValidDiskDevice @ 0x140817290 (SiIsValidDiskDevice.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SiGetEfiSystemDevice(unsigned int a1, __int64 a2, wchar_t **a3)
@@ -30,8 +30,8 @@ __int64 __fastcall SiGetEfiSystemDevice(unsigned int a1, __int64 a2, wchar_t **a
   int v9; // r9d
   wchar_t *v10; // rdi
   NTSTATUS EspFromFirmware; // ebx
-  int i; // r14d
-  NTSTATUS DirectoryObject; // eax
+  ULONG i; // r14d
+  NTSTATUS v13; // eax
   int v14; // r12d
   wchar_t **v15; // rbx
   bool v16; // r14
@@ -43,58 +43,56 @@ __int64 __fastcall SiGetEfiSystemDevice(unsigned int a1, __int64 a2, wchar_t **a
   __int64 v22; // rax
   bool v23; // cf
   NTSTATUS v24; // eax
-  __int64 v26; // [rsp+28h] [rbp-E0h]
-  int *v27; // [rsp+30h] [rbp-D8h]
-  __int64 v28; // [rsp+38h] [rbp-D0h]
-  int v29; // [rsp+48h] [rbp-C0h]
-  int v30; // [rsp+4Ch] [rbp-BCh] BYREF
-  unsigned int v31; // [rsp+50h] [rbp-B8h]
-  int v32; // [rsp+54h] [rbp-B4h] BYREF
-  __int64 v33; // [rsp+58h] [rbp-B0h] BYREF
+  BOOLEAN RestartScan[8]; // [rsp+28h] [rbp-E0h]
+  int v27; // [rsp+48h] [rbp-C0h]
+  int v28; // [rsp+4Ch] [rbp-BCh] BYREF
+  unsigned int v29; // [rsp+50h] [rbp-B8h]
+  ULONG Context; // [rsp+54h] [rbp-B4h] BYREF
+  __int64 v31; // [rsp+58h] [rbp-B0h] BYREF
   PVOID P; // [rsp+60h] [rbp-A8h] BYREF
-  wchar_t *v35; // [rsp+68h] [rbp-A0h]
-  wchar_t **v36; // [rsp+70h] [rbp-98h]
+  wchar_t *v33; // [rsp+68h] [rbp-A0h]
+  wchar_t **v34; // [rsp+70h] [rbp-98h]
   HANDLE DirectoryHandle; // [rsp+78h] [rbp-90h] BYREF
   __int64 Pool2; // [rsp+80h] [rbp-88h]
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+88h] [rbp-80h] BYREF
   UNICODE_STRING DestinationString; // [rsp+B8h] [rbp-50h] BYREF
-  _QWORD v41[2]; // [rsp+C8h] [rbp-40h] BYREF
-  __int128 v42; // [rsp+D8h] [rbp-30h] BYREF
-  __int64 v43; // [rsp+E8h] [rbp-20h]
-  __int128 v44; // [rsp+F0h] [rbp-18h] BYREF
-  __int128 v45; // [rsp+100h] [rbp-8h]
+  _QWORD v39[2]; // [rsp+C8h] [rbp-40h] BYREF
+  __int128 v40; // [rsp+D8h] [rbp-30h] BYREF
+  __int64 v41; // [rsp+E8h] [rbp-20h]
+  __int128 v42; // [rsp+F0h] [rbp-18h] BYREF
+  __int128 v43; // [rsp+100h] [rbp-8h]
 
-  v36 = a3;
-  v31 = a1;
-  v43 = 0LL;
+  v34 = a3;
+  v29 = a1;
+  v41 = 0LL;
   v3 = a3;
-  v32 = 0;
+  Context = 0;
   v4 = 0LL;
-  memset(v41, 0, 12);
+  memset(v39, 0, 12);
   DirectoryHandle = 0LL;
-  v44 = 0LL;
+  v42 = 0LL;
   v5 = 0LL;
   v6 = 0LL;
-  v45 = 0LL;
+  v43 = 0LL;
   P = 0LL;
   v7 = 0;
-  v42 = 0LL;
-  v35 = 0LL;
+  v40 = 0LL;
+  v33 = 0LL;
   DestinationString = 0LL;
-  LODWORD(v33) = 0;
+  LODWORD(v31) = 0;
   memset(&ObjectAttributes, 0, 44);
-  v30 = 0;
-  v29 = 0;
-  Pool2 = ExAllocatePool2(0x100uLL);
+  v28 = 0;
+  v27 = 0;
+  Pool2 = ExAllocatePool2(0x100uLL, 0x6AuLL, 0x4B505953u);
   v10 = (wchar_t *)Pool2;
   if ( !Pool2 )
   {
     EspFromFirmware = -1073741801;
     goto LABEL_57;
   }
-  if ( (int)SiDisambiguateSystemDevice(&v33, &v30, v8, v9) >= 0 )
+  if ( (int)SiDisambiguateSystemDevice(&v31, &v28, v8, v9) >= 0 )
   {
-    v14 = v30;
+    v14 = v28;
     goto LABEL_47;
   }
   RtlInitUnicodeString(&DestinationString, L"\\Device");
@@ -108,47 +106,44 @@ __int64 __fastcall SiGetEfiSystemDevice(unsigned int a1, __int64 a2, wchar_t **a
     goto LABEL_51;
   for ( i = 4096; ; i += 4096 )
   {
-    v5 = (wchar_t **)ExAllocatePool2(0x100uLL);
+    v5 = (wchar_t **)ExAllocatePool2(0x100uLL, i, 0x4B505953u);
     if ( !v5 )
     {
       EspFromFirmware = -1073741801;
       goto LABEL_51;
     }
-    v28 = 0LL;
-    v27 = &v32;
-    LOBYTE(v26) = 1;
-    v32 = 0;
-    DirectoryObject = ZwQueryDirectoryObject((__int64)DirectoryHandle, (__int64)v5);
-    EspFromFirmware = DirectoryObject;
-    if ( DirectoryObject != 261 )
+    Context = 0;
+    v13 = ZwQueryDirectoryObject(DirectoryHandle, v5, i, 0, 1u, &Context, 0LL);
+    EspFromFirmware = v13;
+    if ( v13 != 261 )
       break;
     ExFreePoolWithTag(v5, 0);
   }
-  if ( (int)(DirectoryObject + 0x80000000) >= 0 && DirectoryObject != -2147483622 )
+  if ( (int)(v13 + 0x80000000) >= 0 && v13 != -2147483622 )
     goto LABEL_51;
   if ( !*(_WORD *)v5 )
     goto LABEL_43;
-  v14 = v30;
+  v14 = v28;
   v15 = v5 + 1;
   while ( 2 )
   {
     if ( (unsigned __int8)SiIsValidDiskDevice(*v15, v15[2]) )
     {
-      RtlStringCbPrintfW(v10, 0x6AuLL, L"\\Device\\%s\\Partition%lu", *v15, 0LL, v27, v28);
-      v43 = 0LL;
-      v42 = 0LL;
-      if ( (int)SiIssueSynchronousIoctl(v10, 0x700010u, 0LL, 0, &v42, 0x18u) < 0 || DWORD1(v42) != 2 )
+      RtlStringCbPrintfW(v10, 0x6AuLL, L"\\Device\\%s\\Partition%lu", *v15, 0LL);
+      v41 = 0LL;
+      v40 = 0LL;
+      if ( (int)SiIssueSynchronousIoctl(v10, 0x700010u, 0LL, 0, &v40, 0x18u) < 0 || DWORD1(v40) != 2 )
       {
-        *(_QWORD *)((char *)v41 + 4) = 0LL;
+        *(_QWORD *)((char *)v39 + 4) = 0LL;
         v16 = 0;
-        LODWORD(v41[0]) = 1;
-        v44 = 0LL;
-        v45 = 0LL;
-        if ( (int)SiIssueSynchronousIoctl(v10, 0x2D1400u, v41, 0xCu, &v44, 0x20u) < 0 )
+        LODWORD(v39[0]) = 1;
+        v42 = 0LL;
+        v43 = 0LL;
+        if ( (int)SiIssueSynchronousIoctl(v10, 0x2D1400u, v39, 0xCu, &v42, 0x20u) < 0 )
           goto LABEL_19;
-        if ( BYTE8(v45) != 15 )
+        if ( BYTE8(v43) != 15 )
         {
-          v16 = BYTE8(v45) == 16;
+          v16 = BYTE8(v43) == 16;
 LABEL_19:
           if ( v6 )
           {
@@ -162,7 +157,7 @@ LABEL_19:
             v18 = *((_DWORD *)P + 1);
             if ( v18 )
             {
-              v19 = v29;
+              v19 = v27;
               v20 = (char *)P + 72;
               v21 = v18;
               do
@@ -175,7 +170,7 @@ LABEL_19:
                   if ( !v7 || !v19 && v16 )
                   {
                     v14 = *(_DWORD *)v20;
-                    v35 = *v15;
+                    v33 = *v15;
                   }
                   ++v7;
                   if ( v16 )
@@ -185,7 +180,7 @@ LABEL_19:
                 --v21;
               }
               while ( v21 );
-              v29 = v19;
+              v27 = v19;
               v10 = (wchar_t *)Pool2;
             }
           }
@@ -203,18 +198,23 @@ LABEL_43:
     EspFromFirmware = -1073740718;
     goto LABEL_51;
   }
-  if ( v7 <= 1 || v29 == 1 )
+  if ( v7 <= 1 || v27 == 1 )
   {
-    v3 = v36;
-    v4 = v35;
+    v3 = v34;
+    v4 = v33;
 LABEL_47:
-    v23 = v31 != 0;
-    v31 = -v31;
-    LODWORD(v26) = v23 ? v14 : 0;
+    v23 = v29 != 0;
+    v29 = -v29;
+    *(_DWORD *)RestartScan = v23 ? v14 : 0;
     if ( v4 )
-      v24 = RtlStringCbPrintfW(v10, 0x6AuLL, L"\\Device\\%s\\Partition%lu", v4, v26);
+      v24 = RtlStringCbPrintfW(v10, 0x6AuLL, L"\\Device\\%s\\Partition%lu", v4, *(_QWORD *)RestartScan);
     else
-      v24 = RtlStringCbPrintfW(v10, 0x6AuLL, L"\\Device\\Harddisk%lu\\Partition%lu", (unsigned int)v33, v26);
+      v24 = RtlStringCbPrintfW(
+              v10,
+              0x6AuLL,
+              L"\\Device\\Harddisk%lu\\Partition%lu",
+              (unsigned int)v31,
+              *(_QWORD *)RestartScan);
     EspFromFirmware = v24;
     if ( v24 >= 0 )
     {
@@ -225,13 +225,13 @@ LABEL_51:
     ExFreePoolWithTag(v10, 0);
     goto LABEL_53;
   }
-  EspFromFirmware = SiGetEspFromFirmware(v31, v10, 0LL, 1LL, v26);
+  EspFromFirmware = SiGetEspFromFirmware(v29, v10, 0LL, 1LL);
   if ( EspFromFirmware < 0 )
   {
     EspFromFirmware = -1073740719;
     goto LABEL_51;
   }
-  *v36 = v10;
+  *v34 = v10;
 LABEL_53:
   if ( v6 )
     ExFreePoolWithTag(v6, 0);

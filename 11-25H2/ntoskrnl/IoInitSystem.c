@@ -12,17 +12,17 @@
  *     IopInitializeSystemDrivers @ 0x140C51698 (IopInitializeSystemDrivers.c)
  */
 
-__int64 IoInitSystem()
+__int64 __fastcall IoInitSystem(void *a1)
 {
   __int64 result; // rax
-  int v1; // ebx
+  int v2; // ebx
 
-  result = IoInitSystemPreDrivers();
+  result = IoInitSystemPreDrivers(a1);
   if ( (int)result >= 0 )
   {
     WerLiveKernelInitSystem();
-    v1 = IopInitializeSystemDrivers();
-    if ( v1 >= 0 )
+    v2 = IopInitializeSystemDrivers();
+    if ( v2 >= 0 )
     {
       if ( !PnpBootOptions )
         PnpSerializeBoot();
@@ -35,7 +35,7 @@ __int64 IoInitSystem()
     else
     {
       HeadlessKernelAddLogEntry();
-      result = (unsigned int)v1;
+      result = (unsigned int)v2;
       LODWORD(IopInitFailCode) = 8;
     }
   }

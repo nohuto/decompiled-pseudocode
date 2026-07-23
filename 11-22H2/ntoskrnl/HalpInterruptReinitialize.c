@@ -63,7 +63,7 @@ __int64 __fastcall HalpInterruptReinitialize(int a1, __int64 a2, __int64 a3, __i
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(0xFuLL);
   result = (unsigned int)KiIrqlFlags;
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     result = (__int64)KeGetCurrentPrcb();
     if ( CurrentIrql == 15 )

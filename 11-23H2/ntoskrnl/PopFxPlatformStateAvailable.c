@@ -1,14 +1,14 @@
 /*
- * XREFs of PopFxPlatformStateAvailable @ 0x14058B35C
+ * XREFs of PopFxPlatformStateAvailable @ 0x14058B84C
  * Callers:
- *     PopPepUpdateIdleStateRefCount @ 0x14035DFAC (PopPepUpdateIdleStateRefCount.c)
+ *     PopPepUpdateIdleStateRefCount @ 0x14035E14C (PopPepUpdateIdleStateRefCount.c)
  * Callees:
- *     PopDeepSleepClearDisengageReason @ 0x14028E75C (PopDeepSleepClearDisengageReason.c)
- *     PopDeepSleepSetDisengageReason @ 0x14028E848 (PopDeepSleepSetDisengageReason.c)
- *     PpmIdleCsVetoAccountingDeviceUpdate @ 0x140584E20 (PpmIdleCsVetoAccountingDeviceUpdate.c)
- *     PopFxSetDripsBlockedByDeviceActivity @ 0x14058BA44 (PopFxSetDripsBlockedByDeviceActivity.c)
- *     PopUpdateNonAttributedCpuTimeReference @ 0x1405998E8 (PopUpdateNonAttributedCpuTimeReference.c)
- *     PopIdleWakeNotifyDevicesActive @ 0x14059D89C (PopIdleWakeNotifyDevicesActive.c)
+ *     PopDeepSleepClearDisengageReason @ 0x14028E9EC (PopDeepSleepClearDisengageReason.c)
+ *     PopDeepSleepSetDisengageReason @ 0x14028EAD8 (PopDeepSleepSetDisengageReason.c)
+ *     PpmIdleCsVetoAccountingDeviceUpdate @ 0x140585310 (PpmIdleCsVetoAccountingDeviceUpdate.c)
+ *     PopFxSetDripsBlockedByDeviceActivity @ 0x14058BF34 (PopFxSetDripsBlockedByDeviceActivity.c)
+ *     PopUpdateNonAttributedCpuTimeReference @ 0x140599DD8 (PopUpdateNonAttributedCpuTimeReference.c)
+ *     PopIdleWakeNotifyDevicesActive @ 0x14059DD8C (PopIdleWakeNotifyDevicesActive.c)
  */
 
 __int64 __fastcall PopFxPlatformStateAvailable(unsigned int a1, char a2)

@@ -1,10 +1,10 @@
 /*
- * XREFs of KeGetTbSize @ 0x1409B9EEC
+ * XREFs of KeGetTbSize @ 0x1409BAEEC
  * Callers:
- *     MiInitializeTbFlushing @ 0x1409B9BB8 (MiInitializeTbFlushing.c)
+ *     MiInitializeTbFlushing @ 0x1409BABB8 (MiInitializeTbFlushing.c)
  * Callees:
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KiGetTbLeafInfo @ 0x1409F6CE0 (KiGetTbLeafInfo.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KiGetTbLeafInfo @ 0x1409F7CE0 (KiGetTbLeafInfo.c)
  */
 
 __int64 KeGetTbSize()

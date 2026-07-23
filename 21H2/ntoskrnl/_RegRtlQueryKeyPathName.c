@@ -1,15 +1,15 @@
 /*
- * XREFs of _RegRtlQueryKeyPathName @ 0x1407D2068
+ * XREFs of _RegRtlQueryKeyPathName @ 0x1407D21D8
  * Callers:
- *     _PnpCtxRegQueryKeyPathName @ 0x1407A30A0 (_PnpCtxRegQueryKeyPathName.c)
+ *     _PnpCtxRegQueryKeyPathName @ 0x1407A32A0 (_PnpCtxRegQueryKeyPathName.c)
  * Callees:
- *     RtlULongSub @ 0x14028FDDC (RtlULongSub.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     ZwQueryObject @ 0x1403FA5A0 (ZwQueryObject.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     _RegRtlOpenPredefinedKey @ 0x1407CDA94 (_RegRtlOpenPredefinedKey.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     RtlULongSub @ 0x14020DD44 (RtlULongSub.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     ZwQueryObject @ 0x1403FA780 (ZwQueryObject.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     _RegRtlOpenPredefinedKey @ 0x1407CDC04 (_RegRtlOpenPredefinedKey.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall RegRtlQueryKeyPathName(__int64 a1, const void **a2, unsigned int *a3)

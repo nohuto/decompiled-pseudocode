@@ -1,12 +1,12 @@
 /*
- * XREFs of MiLogMapFileEvent @ 0x140657130
+ * XREFs of MiLogMapFileEvent @ 0x140657214
  * Callers:
- *     MiMapViewOfImageSection @ 0x140429AC0 (MiMapViewOfImageSection.c)
- *     MiUnmapVad @ 0x14042EEF0 (MiUnmapVad.c)
- *     MiMapViewOfDataSection @ 0x1404354C0 (MiMapViewOfDataSection.c)
+ *     MiMapViewOfImageSection @ 0x140428990 (MiMapViewOfImageSection.c)
+ *     MiUnmapVad @ 0x14042DDC0 (MiUnmapVad.c)
+ *     MiMapViewOfDataSection @ 0x140434390 (MiMapViewOfDataSection.c)
  * Callees:
- *     MiLogPerfMemoryEvent @ 0x1401E2978 (MiLogPerfMemoryEvent.c)
- *     MiFillMapFileInfo @ 0x140656F64 (MiFillMapFileInfo.c)
+ *     MiLogPerfMemoryEvent @ 0x1401E27A4 (MiLogPerfMemoryEvent.c)
+ *     MiFillMapFileInfo @ 0x140657048 (MiFillMapFileInfo.c)
  */
 
 char __fastcall MiLogMapFileEvent(__int64 a1, __int16 a2)

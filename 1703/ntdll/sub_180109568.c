@@ -13,7 +13,7 @@ __int64 __fastcall sub_180109568(__int64 a1, unsigned int a2, __int64 a3)
 {
   unsigned int v6; // r12d
   int v7; // eax
-  unsigned __int64 v8; // rbx
+  _QWORD *v8; // rbx
   __int64 v9; // rcx
   __int64 v10; // rax
   __int64 v11; // rcx
@@ -23,18 +23,18 @@ __int64 __fastcall sub_180109568(__int64 a1, unsigned int a2, __int64 a3)
   __int64 v15; // rdi
   __int64 v16; // rsi
   __int64 v17; // rax
-  unsigned __int64 v18; // r8
-  unsigned __int64 v20; // [rsp+68h] [rbp+20h] BYREF
+  void *v18; // r8
+  PVOID BaseAddress; // [rsp+68h] [rbp+20h] BYREF
 
-  v20 = 0LL;
+  BaseAddress = 0LL;
   v6 = 0;
-  v7 = sub_18010E3D0(&v20);
-  v8 = v20;
-  if ( v7 && (unsigned int)sub_180109740(a2, v20) )
+  v7 = sub_18010E3D0(&BaseAddress);
+  v8 = BaseAddress;
+  if ( v7 && (unsigned int)sub_180109740(a2, BaseAddress) )
   {
     while ( v8 )
     {
-      v9 = *(_QWORD *)(v8 + 8);
+      v9 = v8[1];
       if ( !v9 || !*(_DWORD *)v8 )
         break;
       v10 = (unsigned int)(*(_DWORD *)v8 - 1);
@@ -79,10 +79,10 @@ __int64 __fastcall sub_180109568(__int64 a1, unsigned int a2, __int64 a3)
 LABEL_23:
   if ( v8 )
   {
-    v18 = *(_QWORD *)(v8 + 8);
+    v18 = (void *)v8[1];
     if ( v18 )
-      RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v18);
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v20);
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v18);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, BaseAddress);
   }
   return v6;
 }

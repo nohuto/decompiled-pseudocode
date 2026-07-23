@@ -1,22 +1,22 @@
 /*
- * XREFs of PopDeactiveThermalRequest @ 0x1407CBAF8
+ * XREFs of PopDeactiveThermalRequest @ 0x1407CEB98
  * Callers:
- *     PoDeleteThermalRequest @ 0x1407CB670 (PoDeleteThermalRequest.c)
+ *     PoDeleteThermalRequest @ 0x1407CE710 (PoDeleteThermalRequest.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     PopPropogateCoolingChange @ 0x1404357C4 (PopPropogateCoolingChange.c)
- *     PopReleaseRwLock @ 0x14043630C (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x140436378 (PopAcquireRwLockExclusive.c)
- *     PopTraceThermalRequestActiveActivity @ 0x14043661C (PopTraceThermalRequestActiveActivity.c)
- *     PopTraceThermalRequestPassiveHistogram @ 0x140436950 (PopTraceThermalRequestPassiveHistogram.c)
- *     PopGetDope @ 0x140438170 (PopGetDope.c)
- *     KeInitializeEvent @ 0x140466F30 (KeInitializeEvent.c)
- *     PopThermalUpdateTelemetryClientCount @ 0x140607C84 (PopThermalUpdateTelemetryClientCount.c)
- *     PopCleanCoolingExtension @ 0x1407CB9D0 (PopCleanCoolingExtension.c)
- *     PopDiagTraceCoolingExtension @ 0x140AC1740 (PopDiagTraceCoolingExtension.c)
- *     PopDiagTraceThermalRequest @ 0x140AC18EC (PopDiagTraceThermalRequest.c)
- *     PopThermalUpdatePassiveTimeTracking @ 0x140B2F378 (PopThermalUpdatePassiveTimeTracking.c)
- *     PopThermalUpdateActiveTimeTracking @ 0x140B41620 (PopThermalUpdateActiveTimeTracking.c)
+ *     PopReleaseRwLock @ 0x14021B1A8 (PopReleaseRwLock.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     PopPropogateCoolingChange @ 0x140424D08 (PopPropogateCoolingChange.c)
+ *     PopAcquireRwLockExclusive @ 0x140425310 (PopAcquireRwLockExclusive.c)
+ *     PopTraceThermalRequestActiveActivity @ 0x1404255AC (PopTraceThermalRequestActiveActivity.c)
+ *     PopTraceThermalRequestPassiveHistogram @ 0x1404258E0 (PopTraceThermalRequestPassiveHistogram.c)
+ *     PopGetDope @ 0x140427090 (PopGetDope.c)
+ *     KeInitializeEvent @ 0x140460680 (KeInitializeEvent.c)
+ *     PopThermalUpdateTelemetryClientCount @ 0x14060A834 (PopThermalUpdateTelemetryClientCount.c)
+ *     PopCleanCoolingExtension @ 0x1407CEA70 (PopCleanCoolingExtension.c)
+ *     PopDiagTraceCoolingExtension @ 0x140AC37E0 (PopDiagTraceCoolingExtension.c)
+ *     PopDiagTraceThermalRequest @ 0x140AC398C (PopDiagTraceThermalRequest.c)
+ *     PopThermalUpdatePassiveTimeTracking @ 0x140B31158 (PopThermalUpdatePassiveTimeTracking.c)
+ *     PopThermalUpdateActiveTimeTracking @ 0x140B43630 (PopThermalUpdateActiveTimeTracking.c)
  */
 
 void __fastcall PopDeactiveThermalRequest(__int64 a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
@@ -71,7 +71,7 @@ void __fastcall PopDeactiveThermalRequest(__int64 a1, __int64 a2, __int64 a3, st
     PopPropogateCoolingChange((__int64)v4);
   }
   PopReleaseRwLock((struct _KTHREAD *)(v4 + 4));
-  PopAcquireRwLockExclusive((unsigned __int64 *)&stru_140F10828.SavedApcState.Process, v11, v12, v13);
+  PopAcquireRwLockExclusive((unsigned __int64 *)&PopCoolingExtensionLock, v11, v12, v13);
   PopAcquireRwLockExclusive(v4 + 4, v14, v15, v16);
   v17 = *(_QWORD *)a1;
   if ( *(_QWORD *)(*(_QWORD *)a1 + 8LL) != a1 )
@@ -108,7 +108,7 @@ LABEL_16:
   v6 = 1;
 LABEL_17:
   PopReleaseRwLock((struct _KTHREAD *)(v4 + 4));
-  PopReleaseRwLock((struct _KTHREAD *)&stru_140F10828.SavedApcStateFill[32]);
+  PopReleaseRwLock((struct _KTHREAD *)&PopCoolingExtensionLock);
   if ( v6 )
   {
     PopAcquireRwLockExclusive(v4 + 4, v22, v23, v24);

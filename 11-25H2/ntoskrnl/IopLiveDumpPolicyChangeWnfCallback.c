@@ -51,7 +51,7 @@ __int64 __fastcall IopLiveDumpPolicyChangeWnfCallback(__int64 a1, _QWORD *a2)
   {
     IopInitializeDumpPolicySettings(0LL);
     Data = (unsigned __int8)AllowLiveDump;
-    if ( (unsigned __int8)RtlIsStateSeparationEnabled() )
+    if ( RtlIsStateSeparationEnabled() )
     {
       RtlInitUnicodeString(
         &DestinationString,

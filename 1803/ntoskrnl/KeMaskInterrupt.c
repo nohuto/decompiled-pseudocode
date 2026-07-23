@@ -31,7 +31,7 @@ __int64 __fastcall KeMaskInterrupt(__int64 *a1, unsigned __int8 a2, __int64 a3, 
   __int64 v18; // r8
   __int64 v20; // rbp
   unsigned __int8 v21[4]; // [rsp+30h] [rbp-58h] BYREF
-  struct _PROCESSOR_NUMBER ProcNumber; // [rsp+34h] [rbp-54h] BYREF
+  _PROCESSOR_NUMBER ProcNumber; // [rsp+34h] [rbp-54h] BYREF
   struct _GROUP_AFFINITY PreviousAffinity; // [rsp+38h] [rbp-50h] BYREF
 
   IsInterruptTypeSecondary = KiIsInterruptTypeSecondary(a3);

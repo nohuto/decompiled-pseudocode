@@ -1,11 +1,11 @@
 /*
- * XREFs of ViSettingsIoCheckForChanges @ 0x140ADAF48
+ * XREFs of ViSettingsIoCheckForChanges @ 0x140ADAF38
  * Callers:
- *     VfInitVerifierComponents @ 0x140AC2E70 (VfInitVerifierComponents.c)
- *     VfSettingsCheckForChanges @ 0x140ADADD4 (VfSettingsCheckForChanges.c)
+ *     VfInitVerifierComponents @ 0x140AC2E60 (VfInitVerifierComponents.c)
+ *     VfSettingsCheckForChanges @ 0x140ADADC4 (VfSettingsCheckForChanges.c)
  * Callees:
- *     IoVerifierCheckForSettingsChange @ 0x140AC0BF0 (IoVerifierCheckForSettingsChange.c)
- *     VfWdCheckForSettingsChange @ 0x140ADE064 (VfWdCheckForSettingsChange.c)
+ *     IoVerifierCheckForSettingsChange @ 0x140AC0BE0 (IoVerifierCheckForSettingsChange.c)
+ *     VfWdCheckForSettingsChange @ 0x140ADE054 (VfWdCheckForSettingsChange.c)
  */
 
 void __fastcall ViSettingsIoCheckForChanges(unsigned int a1)

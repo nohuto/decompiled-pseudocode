@@ -1,16 +1,16 @@
 /*
- * XREFs of MiDeletePteWsleCluster @ 0x1402C0C2C
+ * XREFs of MiDeletePteWsleCluster @ 0x14023F0C8
  * Callers:
- *     MiDecommitPages @ 0x140334820 (MiDecommitPages.c)
+ *     MiDecommitPages @ 0x14033F570 (MiDecommitPages.c)
  * Callees:
- *     MiDeletePteList @ 0x140231820 (MiDeletePteList.c)
- *     MiInsertTbFlushEntry @ 0x140335D70 (MiInsertTbFlushEntry.c)
- *     MiTerminateWsleCluster @ 0x14033AD20 (MiTerminateWsleCluster.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
+ *     MiDeletePteList @ 0x1402D6070 (MiDeletePteList.c)
+ *     MiInsertTbFlushEntry @ 0x140340AC0 (MiInsertTbFlushEntry.c)
+ *     MiTerminateWsleCluster @ 0x140345A70 (MiTerminateWsleCluster.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
  */
 
-__int64 __fastcall MiDeletePteWsleCluster(__int64 a1, __int64 a2, unsigned __int64 a3, _QWORD *a4)
+__int64 __fastcall MiDeletePteWsleCluster(__int64 a1, int a2, int a3, int a4)
 {
   __int64 v8; // rdx
   _QWORD v10[24]; // [rsp+30h] [rbp-F8h] BYREF
@@ -26,5 +26,5 @@ __int64 __fastcall MiDeletePteWsleCluster(__int64 a1, __int64 a2, unsigned __int
   LODWORD(v10[1]) = 20;
   MiInsertTbFlushEntry(v10, v8 << 25 >> 16, *(_QWORD *)(a1 + 16), 0LL);
   MiTerminateWsleCluster(a1);
-  return MiDeletePteList((__int64)v10, a2, a3, a4, 0);
+  return MiDeletePteList((unsigned int)v10, a2, a3, a4, 0);
 }

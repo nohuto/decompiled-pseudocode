@@ -1,17 +1,17 @@
 /*
- * XREFs of HalAllocateAdapterChannelV2 @ 0x14038DACC
+ * XREFs of HalAllocateAdapterChannelV2 @ 0x14038740C
  * Callers:
- *     HalRealAllocateAdapterChannelV2 @ 0x14038D950 (HalRealAllocateAdapterChannelV2.c)
- *     HalAllocateAdapterChannel @ 0x14053D6F0 (HalAllocateAdapterChannel.c)
+ *     HalRealAllocateAdapterChannelV2 @ 0x140387290 (HalRealAllocateAdapterChannelV2.c)
+ *     HalAllocateAdapterChannel @ 0x14053AFF0 (HalAllocateAdapterChannel.c)
  * Callees:
- *     KeInsertDeviceQueue @ 0x14038E850 (KeInsertDeviceQueue.c)
- *     HalpDmaAllocateMapRegisters @ 0x14038E95C (HalpDmaAllocateMapRegisters.c)
- *     IoFreeAdapterChannelV2 @ 0x14038F310 (IoFreeAdapterChannelV2.c)
- *     HalpQueueMapBufferWorker @ 0x14049D1A8 (HalpQueueMapBufferWorker.c)
- *     HalpDmaQueueAdapter @ 0x1404D9E04 (HalpDmaQueueAdapter.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     KeInsertDeviceQueue @ 0x140388190 (KeInsertDeviceQueue.c)
+ *     HalpDmaAllocateMapRegisters @ 0x14038829C (HalpDmaAllocateMapRegisters.c)
+ *     IoFreeAdapterChannelV2 @ 0x140388C50 (IoFreeAdapterChannelV2.c)
+ *     HalpQueueMapBufferWorker @ 0x140497EF8 (HalpQueueMapBufferWorker.c)
+ *     HalpDmaQueueAdapter @ 0x1404D3844 (HalpDmaQueueAdapter.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall HalAllocateAdapterChannelV2(__int64 a1, __int64 a2, unsigned int a3, __int64 a4)
@@ -22,13 +22,10 @@ __int64 __fastcall HalAllocateAdapterChannelV2(__int64 a1, __int64 a2, unsigned 
   struct _KDEVICE_QUEUE_ENTRY *v8; // rsi
   __int64 v10; // rcx
   __int64 v11; // rdx
-  __int64 v12; // r8
-  __int64 v13; // r9
   __int64 MapRegisters; // rax
-  __int64 v15; // rcx
-  __int64 v16; // r8
-  int v17; // eax
-  __int64 v19; // rdx
+  __int64 v13; // rcx
+  int v14; // eax
+  __int64 v16; // rdx
 
   *(_DWORD *)(a2 + 20) &= ~4u;
   v4 = 0;
@@ -71,21 +68,16 @@ __int64 __fastcall HalAllocateAdapterChannelV2(__int64 a1, __int64 a2, unsigned 
       HalpQueueMapBufferWorker(a1, a3);
     }
 LABEL_8:
-    v15 = *(_QWORD *)(a1 + 432);
-    if ( v15 )
-      guard_dispatch_icall_no_overrides(v15, v11, v12, v13);
+    v13 = *(_QWORD *)(a1 + 432);
+    if ( v13 )
+      guard_dispatch_icall_no_overrides(v13, v11);
     if ( v4 )
       goto LABEL_15;
-    v16 = *(_QWORD *)(a1 + 240);
     *(_QWORD *)(a1 + 352) = v8;
-    v17 = guard_dispatch_icall_no_overrides(
-            v8[2].DeviceListEntry.Flink,
-            v8[2].DeviceListEntry.Blink,
-            v16,
-            v8[1].DeviceListEntry.Blink);
-    if ( v17 != 2 )
+    v14 = guard_dispatch_icall_no_overrides(v8[2].DeviceListEntry.Flink, v8[2].DeviceListEntry.Blink);
+    if ( v14 != 2 )
     {
-      if ( v17 != 3 )
+      if ( v14 != 3 )
       {
 LABEL_15:
         if ( v5 )
@@ -110,8 +102,8 @@ LABEL_15:
   {
     if ( KiIrqlFlags )
     {
-      LOBYTE(v19) = CurrentIrql;
-      KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), v19);
+      LOBYTE(v16) = CurrentIrql;
+      KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), v16);
     }
     __writecr8(CurrentIrql);
   }

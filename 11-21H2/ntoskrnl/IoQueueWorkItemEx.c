@@ -3,8 +3,8 @@
  * Callers:
  *     <none>
  * Callees:
- *     ExQueueWorkItemFromIo @ 0x140345DA0 (ExQueueWorkItemFromIo.c)
- *     IopQueueWorkItemProlog @ 0x1403467F0 (IopQueueWorkItemProlog.c)
+ *     sub_140345DA0 @ 0x140345DA0 (sub_140345DA0.c)
+ *     sub_1403467F0 @ 0x1403467F0 (sub_1403467F0.c)
  */
 
 void __stdcall IoQueueWorkItemEx(
@@ -15,6 +15,6 @@ void __stdcall IoQueueWorkItemEx(
 {
   ULONG_PTR v4; // rax
 
-  v4 = IopQueueWorkItemProlog(IoWorkItem, WorkerRoutine, Context);
-  ExQueueWorkItemFromIo(v4);
+  v4 = sub_1403467F0(IoWorkItem, WorkerRoutine, Context);
+  sub_140345DA0(v4);
 }

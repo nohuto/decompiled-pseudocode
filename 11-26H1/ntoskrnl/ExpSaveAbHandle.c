@@ -1,8 +1,8 @@
 /*
- * XREFs of ExpSaveAbHandle @ 0x140276630
+ * XREFs of ExpSaveAbHandle @ 0x140275BA0
  * Callers:
- *     ExAcquireFastResourceShared @ 0x140276AE0 (ExAcquireFastResourceShared.c)
- *     ExAcquireResourceSharedLite @ 0x1402B3C80 (ExAcquireResourceSharedLite.c)
+ *     ExAcquireFastResourceShared @ 0x140276050 (ExAcquireFastResourceShared.c)
+ *     ExAcquireResourceSharedLite @ 0x1402FE950 (ExAcquireResourceSharedLite.c)
  * Callees:
  *     <none>
  */

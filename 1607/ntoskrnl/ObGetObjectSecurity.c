@@ -1,5 +1,5 @@
 /*
- * XREFs of ObGetObjectSecurity @ 0x1404ED17C
+ * XREFs of ObGetObjectSecurity @ 0x1404CF2E8
  * Callers:
  *     <none>
  * Callees:

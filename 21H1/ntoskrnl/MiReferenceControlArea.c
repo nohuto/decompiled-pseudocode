@@ -81,7 +81,7 @@ __int64 __fastcall MiReferenceControlArea(__int64 a1, __int64 a2, __int64 *a3)
     if ( !*SectionObjectPointer )
     {
       *SectionObjectPointer = a2;
-      v18 = KeAbPreAcquire((ULONG_PTR)SectionObjectPointer, 0LL, 0LL);
+      v18 = KeAbPreAcquire((ULONG_PTR)SectionObjectPointer, 0LL, 0);
       if ( v18 )
         *(_BYTE *)(v18 + 26) |= 1u;
       ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C4C8C0);
@@ -215,7 +215,7 @@ LABEL_55:
       *a3 = v12;
       return 0LL;
     }
-    v19 = KeAbPreAcquire((ULONG_PTR)SectionObjectPointer, 0LL, 0LL);
+    v19 = KeAbPreAcquire((ULONG_PTR)SectionObjectPointer, 0LL, 0);
     v20 = v19;
     if ( v19 )
       KeAbPreWait(v19);
@@ -255,7 +255,7 @@ LABEL_55:
     KeWaitForGate(&v46, 18LL);
     if ( v20 )
     {
-      KeAbPreAcquire((ULONG_PTR)SectionObjectPointer, v20, 0LL);
+      KeAbPreAcquire((ULONG_PTR)SectionObjectPointer, v20, 0);
       KeAbPostReleaseEx((ULONG_PTR)SectionObjectPointer);
     }
     *a3 = 0LL;

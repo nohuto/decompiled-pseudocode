@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpHpSegTlsCleanup @ 0x1800A43A0
+ * XREFs of RtlpHpSegTlsCleanup @ 0x1800D5F50
  * Callers:
  *     <none>
  * Callees:
- *     RtlpHpLfhContextTlsCleanup @ 0x1800A4410 (RtlpHpLfhContextTlsCleanup.c)
- *     RtlpHpEnvAcquireGlobalLockSharedContended @ 0x18011CBF4 (RtlpHpEnvAcquireGlobalLockSharedContended.c)
+ *     RtlpHpLfhContextTlsCleanup @ 0x1800D5FC0 (RtlpHpLfhContextTlsCleanup.c)
+ *     RtlpHpEnvAcquireGlobalLockSharedContended @ 0x18011AE24 (RtlpHpEnvAcquireGlobalLockSharedContended.c)
  */
 
 __int64 __fastcall RtlpHpSegTlsCleanup(__int64 a1, __int64 a2)

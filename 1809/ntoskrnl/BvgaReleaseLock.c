@@ -1,15 +1,15 @@
 /*
- * XREFs of BvgaReleaseLock @ 0x14027E190
+ * XREFs of BvgaReleaseLock @ 0x14027E380
  * Callers:
- *     BvgaBitBlt @ 0x14027DF50 (BvgaBitBlt.c)
- *     BvgaDisplayString @ 0x14027DFD0 (BvgaDisplayString.c)
- *     BvgaEnableBootDriver @ 0x14027E040 (BvgaEnableBootDriver.c)
- *     BvgaNotifyDisplayOwnershipLost @ 0x14027E120 (BvgaNotifyDisplayOwnershipLost.c)
- *     BvgaSolidColorFill @ 0x14027E2C0 (BvgaSolidColorFill.c)
- *     BvgaUpdateProgressBar @ 0x14027E380 (BvgaUpdateProgressBar.c)
+ *     BvgaBitBlt @ 0x14027E140 (BvgaBitBlt.c)
+ *     BvgaDisplayString @ 0x14027E1C0 (BvgaDisplayString.c)
+ *     BvgaEnableBootDriver @ 0x14027E230 (BvgaEnableBootDriver.c)
+ *     BvgaNotifyDisplayOwnershipLost @ 0x14027E310 (BvgaNotifyDisplayOwnershipLost.c)
+ *     BvgaSolidColorFill @ 0x14027E4B0 (BvgaSolidColorFill.c)
+ *     BvgaUpdateProgressBar @ 0x14027E570 (BvgaUpdateProgressBar.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1400630D0 (KxReleaseSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void BvgaReleaseLock()

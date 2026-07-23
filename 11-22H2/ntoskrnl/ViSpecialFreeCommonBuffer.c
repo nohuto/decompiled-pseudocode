@@ -45,10 +45,13 @@ unsigned __int16 *__fastcall ViSpecialFreeCommonBuffer(
     *v12 = (unsigned __int16 *)v11;
     *(_QWORD *)(v11 + 8) = v12;
     KxReleaseSpinLock((volatile signed __int64 *)(a2 + 128));
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v10 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v10 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;

@@ -1,11 +1,11 @@
 /*
- * XREFs of MiTryLockPageTableUnordered @ 0x1402D4830
+ * XREFs of MiTryLockPageTableUnordered @ 0x140355AB0
  * Callers:
- *     MiLockActivePageTableInList @ 0x1403CF89C (MiLockActivePageTableInList.c)
- *     MiSwapStackPage @ 0x1404303C4 (MiSwapStackPage.c)
- *     MiJumpStackTarget @ 0x140480E20 (MiJumpStackTarget.c)
+ *     MiLockActivePageTableInList @ 0x14039094C (MiLockActivePageTableInList.c)
+ *     MiSwapStackPage @ 0x140421D74 (MiSwapStackPage.c)
+ *     MiJumpStackTarget @ 0x14047B8F0 (MiJumpStackTarget.c)
  * Callees:
- *     MiLockPageTableInternal @ 0x1402D4E40 (MiLockPageTableInternal.c)
+ *     MiLockPageTableInternal @ 0x1403560C0 (MiLockPageTableInternal.c)
  */
 
 __int64 __fastcall MiTryLockPageTableUnordered(__int64 a1, __int64 a2)

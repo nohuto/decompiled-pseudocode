@@ -1,16 +1,14 @@
 /*
- * XREFs of RtlUnsubscribeWnfStateChangeNotification @ 0x180065AC0
+ * XREFs of RtlUnsubscribeWnfStateChangeNotification @ 0x180065AB0
  * Callers:
- *     RtlSubscribeWnfStateChangeNotificationInternal @ 0x18002943C (RtlSubscribeWnfStateChangeNotificationInternal.c)
- *     RtlUnsubscribeWnfNotificationWithCompletionCallback @ 0x180065A30 (RtlUnsubscribeWnfNotificationWithCompletionCallback.c)
- *     RtlUnsubscribeWnfNotificationWaitForCompletion @ 0x180065A60 (RtlUnsubscribeWnfNotificationWaitForCompletion.c)
+ *     RtlSubscribeWnfStateChangeNotificationInternal @ 0x18002942C (RtlSubscribeWnfStateChangeNotificationInternal.c)
+ *     RtlUnsubscribeWnfNotificationWithCompletionCallback @ 0x180065A20 (RtlUnsubscribeWnfNotificationWithCompletionCallback.c)
+ *     RtlUnsubscribeWnfNotificationWaitForCompletion @ 0x180065A50 (RtlUnsubscribeWnfNotificationWaitForCompletion.c)
  * Callees:
- *     RtlpRemoveUserSubFromNameSub @ 0x180065AE0 (RtlpRemoveUserSubFromNameSub.c)
+ *     RtlpRemoveUserSubFromNameSub @ 0x180065AD0 (RtlpRemoveUserSubFromNameSub.c)
  */
 
-__int64 __fastcall RtlUnsubscribeWnfStateChangeNotification(__int64 a1)
+NTSTATUS __cdecl RtlUnsubscribeWnfStateChangeNotification(PWNF_USER_CALLBACK Callback)
 {
-  char v2; // [rsp+30h] [rbp+8h] BYREF
-
-  return RtlpRemoveUserSubFromNameSub(*(_QWORD *)(a1 + 24), a1, &v2);
+  return RtlpRemoveUserSubFromNameSub(*((PVOID *)Callback + 3), Callback);
 }

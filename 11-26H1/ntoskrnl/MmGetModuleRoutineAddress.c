@@ -1,19 +1,19 @@
 /*
- * XREFs of MmGetModuleRoutineAddress @ 0x140864A10
+ * XREFs of MmGetModuleRoutineAddress @ 0x14086ADF0
  * Callers:
  *     <none>
  * Callees:
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     MmGetCurrentProcessorColor @ 0x14044ADC0 (MmGetCurrentProcessorColor.c)
- *     MiLockLoadedDataTableEntryIfNecessary @ 0x1404ABD44 (MiLockLoadedDataTableEntryIfNecessary.c)
- *     MmEnumerateSystemImagesShared @ 0x1404E5168 (MmEnumerateSystemImagesShared.c)
- *     MmUnlockLoadedDataTableEntry @ 0x14051E3A8 (MmUnlockLoadedDataTableEntry.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     MiFindEntryInImportListRecursively @ 0x140875010 (MiFindEntryInImportListRecursively.c)
- *     RtlUnicodeStringToAnsiString @ 0x14096C2C0 (RtlUnicodeStringToAnsiString.c)
- *     MiEnableExportCallers @ 0x140A866C0 (MiEnableExportCallers.c)
- *     MiSnapThunk @ 0x140ADD2D8 (MiSnapThunk.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     MmGetCurrentProcessorColor @ 0x140442EF0 (MmGetCurrentProcessorColor.c)
+ *     MiLockLoadedDataTableEntryIfNecessary @ 0x1404A53D4 (MiLockLoadedDataTableEntryIfNecessary.c)
+ *     MmEnumerateSystemImagesShared @ 0x1404DE708 (MmEnumerateSystemImagesShared.c)
+ *     MmUnlockLoadedDataTableEntry @ 0x1405209B8 (MmUnlockLoadedDataTableEntry.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     MiFindEntryInImportListRecursively @ 0x14087B3F4 (MiFindEntryInImportListRecursively.c)
+ *     RtlUnicodeStringToAnsiString @ 0x14097CC00 (RtlUnicodeStringToAnsiString.c)
+ *     MiSnapThunk @ 0x14097ECD8 (MiSnapThunk.c)
+ *     MiEnableExportCallers @ 0x140A8B640 (MiEnableExportCallers.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __fastcall MmGetModuleRoutineAddress(
@@ -40,7 +40,7 @@ NTSTATUS __fastcall MmGetModuleRoutineAddress(
   int v21; // edi
   __int64 v22; // [rsp+30h] [rbp-20h] BYREF
   unsigned __int64 v23; // [rsp+38h] [rbp-18h]
-  STRING DestinationString; // [rsp+40h] [rbp-10h] BYREF
+  _STRING DestinationString; // [rsp+40h] [rbp-10h] BYREF
   int v25; // [rsp+98h] [rbp+48h] BYREF
 
   v5 = a5;

@@ -3,7 +3,7 @@
  * Callers:
  *     MiInitializeLoadedModuleList @ 0x1407B1234 (MiInitializeLoadedModuleList.c)
  * Callees:
- *     RtlpxLookupFunctionTable @ 0x140051540 (RtlpxLookupFunctionTable.c)
+ *     RtlpxLookupFunctionTable @ 0x1400510C0 (RtlpxLookupFunctionTable.c)
  */
 
 void __fastcall RtlCreateInvertedFunctionTableCacheEntry(ULONG_PTR a1, int a2)

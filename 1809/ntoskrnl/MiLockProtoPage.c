@@ -1,15 +1,15 @@
 /*
- * XREFs of MiLockProtoPage @ 0x1400962A4
+ * XREFs of MiLockProtoPage @ 0x1400961E4
  * Callers:
- *     MiGetWorkingSetInfoList @ 0x1400965F0 (MiGetWorkingSetInfoList.c)
+ *     MiGetWorkingSetInfoList @ 0x140096530 (MiGetWorkingSetInfoList.c)
  * Callees:
  *     MiLockPageInline @ 0x14002CE40 (MiLockPageInline.c)
  *     MiRemoveLockedPageChargeAndDecRef @ 0x140030B20 (MiRemoveLockedPageChargeAndDecRef.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  *     MiUnlockWorkingSetShared @ 0x140046970 (MiUnlockWorkingSetShared.c)
- *     MiLockWorkingSetShared @ 0x140076050 (MiLockWorkingSetShared.c)
- *     MiMakeProtoAddressValid @ 0x1400959AC (MiMakeProtoAddressValid.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiLockWorkingSetShared @ 0x140076040 (MiLockWorkingSetShared.c)
+ *     MiMakeProtoAddressValid @ 0x1400958EC (MiMakeProtoAddressValid.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 unsigned __int64 __fastcall MiLockProtoPage(unsigned __int64 a1, unsigned __int64 a2, unsigned __int8 a3)

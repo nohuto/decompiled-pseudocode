@@ -1,24 +1,29 @@
 /*
- * XREFs of PsspDuplicateSnapshotRemoteToRemote @ 0x18011A7DC
+ * XREFs of PsspDuplicateSnapshotRemoteToRemote @ 0x180118A0C
  * Callers:
- *     PssNtDuplicateSnapshot @ 0x1800C4570 (PssNtDuplicateSnapshot.c)
+ *     PssNtDuplicateSnapshot @ 0x1800BC130 (PssNtDuplicateSnapshot.c)
  * Callees:
- *     PssNtFreeRemoteSnapshot @ 0x1801126D0 (PssNtFreeRemoteSnapshot.c)
- *     Feature_3078821176__private_IsEnabledDeviceUsageNoInline @ 0x18015CF44 (Feature_3078821176__private_IsEnabledDeviceUsageNoInline.c)
- *     PssValidateSnapshotDescriptor @ 0x18015CF88 (PssValidateSnapshotDescriptor.c)
- *     ZwAllocateVirtualMemory @ 0x180161F90 (ZwAllocateVirtualMemory.c)
- *     ZwFreeVirtualMemory @ 0x180162050 (ZwFreeVirtualMemory.c)
- *     NtWriteVirtualMemory @ 0x1801623D0 (NtWriteVirtualMemory.c)
- *     ZwDuplicateObject @ 0x180162410 (ZwDuplicateObject.c)
- *     ZwReadVirtualMemory @ 0x180162470 (ZwReadVirtualMemory.c)
- *     __security_check_cookie @ 0x1801659C0 (__security_check_cookie.c)
- *     memset$thunk$772440563353939046 @ 0x180172030 (memset$thunk$772440563353939046.c)
+ *     PssNtFreeRemoteSnapshot @ 0x18010D9B0 (PssNtFreeRemoteSnapshot.c)
+ *     Feature_3078821176__private_IsEnabledDeviceUsageNoInline @ 0x18015B304 (Feature_3078821176__private_IsEnabledDeviceUsageNoInline.c)
+ *     PssValidateSnapshotDescriptor @ 0x18015B348 (PssValidateSnapshotDescriptor.c)
+ *     ZwAllocateVirtualMemory @ 0x180160350 (ZwAllocateVirtualMemory.c)
+ *     ZwFreeVirtualMemory @ 0x180160410 (ZwFreeVirtualMemory.c)
+ *     NtWriteVirtualMemory @ 0x180160790 (NtWriteVirtualMemory.c)
+ *     ZwDuplicateObject @ 0x1801607D0 (ZwDuplicateObject.c)
+ *     ZwReadVirtualMemory @ 0x180160830 (ZwReadVirtualMemory.c)
+ *     __security_check_cookie @ 0x180163D80 (__security_check_cookie.c)
+ *     memset$thunk$772440563353939046 @ 0x180171030 (memset$thunk$772440563353939046.c)
  */
 
-__int64 __fastcall PsspDuplicateSnapshotRemoteToRemote(__int64 a1, __int64 a2, __int64 a3, _QWORD *a4, char a5)
+__int64 __fastcall PsspDuplicateSnapshotRemoteToRemote(
+        HANDLE ProcessHandle,
+        PVOID BaseAddress,
+        HANDLE SourceProcessHandle,
+        PVOID *a4,
+        char a5)
 {
   unsigned int v9; // r14d
-  int v10; // ebx
+  NTSTATUS v10; // ebx
   unsigned __int64 v11; // r15
   unsigned int v12; // esi
   __int64 v13; // rdx
@@ -31,7 +36,7 @@ __int64 __fastcall PsspDuplicateSnapshotRemoteToRemote(__int64 a1, __int64 a2, _
   __int128 v20; // xmm1
   __int128 v21; // xmm0
   __int128 v22; // xmm1
-  __int64 v23; // rdx
+  HANDLE v23; // rdx
   __int128 v24; // xmm1
   __int128 v25; // xmm0
   __int128 v26; // xmm1
@@ -39,71 +44,70 @@ __int64 __fastcall PsspDuplicateSnapshotRemoteToRemote(__int64 a1, __int64 a2, _
   __int128 v28; // xmm1
   __int128 v29; // xmm0
   __int64 v30; // rax
-  int v31; // eax
+  NTSTATUS v31; // eax
   unsigned __int64 v32; // rsi
   unsigned __int64 i; // r12
-  unsigned __int64 v34; // r15
-  __int64 v36; // [rsp+30h] [rbp-D0h]
-  unsigned __int64 v37; // [rsp+40h] [rbp-C0h] BYREF
-  __int64 v38; // [rsp+48h] [rbp-B8h] BYREF
-  __int64 v39; // [rsp+50h] [rbp-B0h] BYREF
-  __int64 v40; // [rsp+58h] [rbp-A8h] BYREF
-  __int64 v41; // [rsp+60h] [rbp-A0h] BYREF
-  _QWORD *v42; // [rsp+68h] [rbp-98h]
-  __int64 v43; // [rsp+70h] [rbp-90h]
-  _BYTE v44[4]; // [rsp+80h] [rbp-80h] BYREF
-  unsigned int v45; // [rsp+84h] [rbp-7Ch]
-  __int16 v46; // [rsp+198h] [rbp+98h]
-  __int64 v47; // [rsp+1A0h] [rbp+A0h]
-  _QWORD v48[3]; // [rsp+3E8h] [rbp+2E8h] BYREF
-  __int64 v49; // [rsp+400h] [rbp+300h] BYREF
-  __int64 v50; // [rsp+408h] [rbp+308h]
-  _QWORD v51[3]; // [rsp+418h] [rbp+318h] BYREF
-  _QWORD v52[4]; // [rsp+430h] [rbp+330h] BYREF
-  _QWORD v53[4]; // [rsp+450h] [rbp+350h] BYREF
-  _QWORD v54[15]; // [rsp+470h] [rbp+370h] BYREF
-  _QWORD v55[3]; // [rsp+4E8h] [rbp+3E8h] BYREF
-  _DWORD v56[218]; // [rsp+500h] [rbp+400h] BYREF
-  __int64 v57; // [rsp+868h] [rbp+768h]
-  unsigned int v58; // [rsp+878h] [rbp+778h]
-  __int64 v59; // [rsp+880h] [rbp+780h]
-  __int64 v60; // [rsp+888h] [rbp+788h]
-  __int64 v61; // [rsp+898h] [rbp+798h]
-  __int64 v62; // [rsp+8B0h] [rbp+7B0h]
-  __int64 v63; // [rsp+8D0h] [rbp+7D0h]
-  __int64 v64; // [rsp+8F0h] [rbp+7F0h]
-  __int64 v65; // [rsp+968h] [rbp+868h]
+  ULONG_PTR v34; // r15
+  ULONG_PTR RegionSize; // [rsp+40h] [rbp-C0h] BYREF
+  PVOID BaseAddressa; // [rsp+48h] [rbp-B8h] BYREF
+  PVOID v38; // [rsp+50h] [rbp-B0h] BYREF
+  ULONG_PTR BufferSize; // [rsp+58h] [rbp-A8h] BYREF
+  ULONG_PTR NumberOfBytesWritten; // [rsp+60h] [rbp-A0h] BYREF
+  PVOID *v41; // [rsp+68h] [rbp-98h]
+  PVOID v42; // [rsp+70h] [rbp-90h]
+  _BYTE v43[4]; // [rsp+80h] [rbp-80h] BYREF
+  unsigned int v44; // [rsp+84h] [rbp-7Ch]
+  __int16 v45; // [rsp+198h] [rbp+98h]
+  char *v46; // [rsp+1A0h] [rbp+A0h]
+  HANDLE TargetHandle; // [rsp+3E8h] [rbp+2E8h] BYREF
+  HANDLE v48; // [rsp+400h] [rbp+300h] BYREF
+  char *v49; // [rsp+408h] [rbp+308h]
+  HANDLE v50; // [rsp+418h] [rbp+318h] BYREF
+  HANDLE v51; // [rsp+430h] [rbp+330h] BYREF
+  HANDLE v52; // [rsp+450h] [rbp+350h] BYREF
+  HANDLE v53; // [rsp+470h] [rbp+370h] BYREF
+  HANDLE v54; // [rsp+4E8h] [rbp+3E8h] BYREF
+  _DWORD Buffer[218]; // [rsp+500h] [rbp+400h] BYREF
+  HANDLE SourceHandle; // [rsp+868h] [rbp+768h]
+  unsigned int v57; // [rsp+878h] [rbp+778h]
+  HANDLE v58; // [rsp+880h] [rbp+780h]
+  __int64 v59; // [rsp+888h] [rbp+788h]
+  HANDLE v60; // [rsp+898h] [rbp+798h]
+  HANDLE v61; // [rsp+8B0h] [rbp+7B0h]
+  HANDLE v62; // [rsp+8D0h] [rbp+7D0h]
+  HANDLE v63; // [rsp+8F0h] [rbp+7F0h]
+  HANDLE v64; // [rsp+968h] [rbp+868h]
 
-  v43 = a2;
-  v42 = a4;
-  v38 = 0LL;
-  memset_thunk_772440563353939046(v56, 0, 0x478uLL);
-  v40 = 0LL;
-  v41 = 0LL;
-  v37 = 0LL;
+  v42 = BaseAddress;
+  v41 = a4;
+  BaseAddressa = 0LL;
+  memset_thunk_772440563353939046(Buffer, 0, 0x478uLL);
+  BufferSize = 0LL;
+  NumberOfBytesWritten = 0LL;
+  RegionSize = 0LL;
   v9 = 0;
-  v39 = 0LL;
+  v38 = 0LL;
   *a4 = 0LL;
-  memset_thunk_772440563353939046(v44, 0, 0x478uLL);
-  v10 = ZwReadVirtualMemory(a1, a2, v56, 1144LL, &v40);
+  memset_thunk_772440563353939046(v43, 0, 0x478uLL);
+  v10 = ZwReadVirtualMemory(ProcessHandle, BaseAddress, Buffer, 0x478uLL, &BufferSize);
   if ( v10 < 0 )
     goto LABEL_47;
-  if ( v40 == 1144 )
+  if ( BufferSize == 1144 )
   {
-    if ( v56[0] == 1146311504 )
+    if ( Buffer[0] == 1146311504 )
     {
-      v10 = PssValidateSnapshotDescriptor(v56);
+      v10 = PssValidateSnapshotDescriptor(Buffer);
       if ( v10 >= 0 )
       {
-        v11 = (unsigned __int64)v58 << 6;
+        v11 = (unsigned __int64)v57 << 6;
         if ( v11 <= 0xFFFFFFFF )
         {
           v12 = v11 + 1144;
           if ( (unsigned int)v11 < 0xFFFFFB88 )
           {
             v13 = 8LL;
-            v14 = v44;
-            v15 = v56;
+            v14 = v43;
+            v15 = Buffer;
             do
             {
               v16 = v15[1];
@@ -126,7 +130,7 @@ __int64 __fastcall PsspDuplicateSnapshotRemoteToRemote(__int64 a1, __int64 a2, _
               --v13;
             }
             while ( v13 );
-            v23 = v57;
+            v23 = SourceHandle;
             v24 = v15[1];
             *(_OWORD *)v14 = *v15;
             v25 = v15[2];
@@ -142,118 +146,117 @@ __int64 __fastcall PsspDuplicateSnapshotRemoteToRemote(__int64 a1, __int64 a2, _
             *((_OWORD *)v14 + 5) = v28;
             *((_OWORD *)v14 + 6) = v29;
             *((_QWORD *)v14 + 14) = v30;
-            v48[0] = 0LL;
-            v49 = 0LL;
-            v51[0] = 0LL;
-            v52[0] = 0LL;
-            v53[0] = 0LL;
-            v54[0] = 0LL;
-            v55[0] = 0LL;
+            TargetHandle = 0LL;
+            v48 = 0LL;
+            v50 = 0LL;
+            v51 = 0LL;
+            v52 = 0LL;
+            v53 = 0LL;
+            v54 = 0LL;
             if ( v23 )
             {
-              v10 = ZwDuplicateObject(a1, v23, a3, v48, 0, 0, 2);
+              v10 = ZwDuplicateObject(ProcessHandle, v23, SourceProcessHandle, &TargetHandle, 0, 0, 2u);
               v9 = v11 + 1144;
               if ( v10 < 0 )
                 goto LABEL_47;
             }
-            if ( v59 )
+            if ( v58 )
             {
-              LODWORD(v36) = 2;
-              v10 = ZwDuplicateObject(a1, v59, a3, &v49, 0, 0, v36);
+              v10 = ZwDuplicateObject(ProcessHandle, v58, SourceProcessHandle, &v48, 0, 0, 2u);
+              v9 = v11 + 1144;
+              if ( v10 < 0 )
+                goto LABEL_47;
+            }
+            if ( v60 )
+            {
+              v10 = ZwDuplicateObject(ProcessHandle, v60, SourceProcessHandle, &v50, 0, 0, 2u);
               v9 = v11 + 1144;
               if ( v10 < 0 )
                 goto LABEL_47;
             }
             if ( v61 )
             {
-              LODWORD(v36) = 2;
-              v10 = ZwDuplicateObject(a1, v61, a3, v51, 0, 0, v36);
+              v10 = ZwDuplicateObject(ProcessHandle, v61, SourceProcessHandle, &v51, 0, 0, 2u);
               v9 = v11 + 1144;
               if ( v10 < 0 )
                 goto LABEL_47;
             }
             if ( v62 )
             {
-              LODWORD(v36) = 2;
-              v10 = ZwDuplicateObject(a1, v62, a3, v52, 0, 0, v36);
+              v10 = ZwDuplicateObject(ProcessHandle, v62, SourceProcessHandle, &v52, 0, 0, 2u);
               v9 = v11 + 1144;
               if ( v10 < 0 )
                 goto LABEL_47;
             }
             if ( v63 )
             {
-              LODWORD(v36) = 2;
-              v10 = ZwDuplicateObject(a1, v63, a3, v53, 0, 0, v36);
+              v10 = ZwDuplicateObject(ProcessHandle, v63, SourceProcessHandle, &v53, 0, 0, 2u);
               v9 = v11 + 1144;
               if ( v10 < 0 )
                 goto LABEL_47;
             }
             if ( v64 )
             {
-              LODWORD(v36) = 2;
-              v10 = ZwDuplicateObject(a1, v64, a3, v54, 0, 0, v36);
+              v10 = ZwDuplicateObject(ProcessHandle, v64, SourceProcessHandle, &v54, 0, 0, 2u);
               v9 = v11 + 1144;
               if ( v10 < 0 )
                 goto LABEL_47;
             }
-            if ( v65 )
-            {
-              LODWORD(v36) = 2;
-              v10 = ZwDuplicateObject(a1, v65, a3, v55, 0, 0, v36);
-              v9 = v11 + 1144;
-              if ( v10 < 0 )
-                goto LABEL_47;
-            }
-            v38 = 0LL;
-            v37 = v12;
-            v10 = ZwAllocateVirtualMemory(a3, &v38, 0LL, &v37, 4096, 4);
+            BaseAddressa = 0LL;
+            RegionSize = v12;
+            v10 = ZwAllocateVirtualMemory(SourceProcessHandle, &BaseAddressa, 0LL, &RegionSize, 0x1000u, 4u);
             v9 = v11 + 1144;
             if ( v10 < 0 )
               goto LABEL_47;
-            v45 = v45 & 0xFFFFFFF8 | 1;
-            if ( v50 )
-              v50 = v38 + 1144;
-            if ( v46 )
-              v47 = v38 + 296;
-            v31 = (unsigned int)Feature_3078821176__private_IsEnabledDeviceUsageNoInline(v38)
-                ? NtWriteVirtualMemory(a3, v38, v44, 1144LL, 0LL)
-                : NtWriteVirtualMemory(a3, v38, v44, v12, 0LL);
+            v44 = v44 & 0xFFFFFFF8 | 1;
+            if ( v49 )
+              v49 = (char *)BaseAddressa + 1144;
+            if ( v45 )
+              v46 = (char *)BaseAddressa + 296;
+            v31 = (unsigned int)Feature_3078821176__private_IsEnabledDeviceUsageNoInline(BaseAddressa)
+                ? NtWriteVirtualMemory(SourceProcessHandle, BaseAddressa, v43, 0x478uLL, 0LL)
+                : NtWriteVirtualMemory(SourceProcessHandle, BaseAddressa, v43, v12, 0LL);
             v10 = v31;
             if ( v31 < 0 )
               goto LABEL_47;
-            if ( v60 )
+            if ( v59 )
             {
-              v39 = 0LL;
-              v37 = 1LL;
-              v10 = ZwAllocateVirtualMemory(-1LL, &v39, 0LL, &v37, 4096, 4);
+              v38 = 0LL;
+              RegionSize = 1LL;
+              v10 = ZwAllocateVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &v38, 0LL, &RegionSize, 0x1000u, 4u);
               if ( v10 < 0 )
                 goto LABEL_47;
               v32 = 0LL;
-              for ( i = (unsigned int)v11; v32 < i; v32 += v41 )
+              for ( i = (unsigned int)v11; v32 < i; v32 += NumberOfBytesWritten )
               {
                 v34 = i - v32;
-                if ( v37 <= i - v32 )
-                  v34 = v37;
-                v10 = ZwReadVirtualMemory(a1, v32 + v60, v39, v34, &v40);
+                if ( RegionSize <= i - v32 )
+                  v34 = RegionSize;
+                v10 = ZwReadVirtualMemory(ProcessHandle, (PVOID)(v32 + v59), v38, v34, &BufferSize);
                 if ( v10 < 0 )
                   goto LABEL_47;
-                if ( v40 != v34 )
+                if ( BufferSize != v34 )
                   goto LABEL_46;
-                v10 = NtWriteVirtualMemory(a3, v32 + v38 + 1144, v39, v40, &v41);
+                v10 = NtWriteVirtualMemory(
+                        SourceProcessHandle,
+                        (char *)BaseAddressa + v32 + 1144,
+                        v38,
+                        BufferSize,
+                        &NumberOfBytesWritten);
                 if ( v10 < 0 )
                   goto LABEL_47;
-                if ( v41 != v40 )
+                if ( NumberOfBytesWritten != BufferSize )
                 {
 LABEL_46:
                   v10 = -2147483635;
                   goto LABEL_47;
                 }
               }
-              ZwFreeVirtualMemory(-1LL, &v39, &v37, 0x8000LL);
-              v39 = 0LL;
+              ZwFreeVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &v38, &RegionSize, 0x8000u);
+              v38 = 0LL;
             }
             v10 = 0;
-            *v42 = v38;
+            *v41 = BaseAddressa;
             goto LABEL_65;
           }
           v9 = -1;
@@ -271,53 +274,32 @@ LABEL_46:
     v10 = -2147483635;
   }
 LABEL_47:
-  if ( v39 )
-  {
-    v37 = 0LL;
-    ZwFreeVirtualMemory(-1LL, &v39, &v37, 0x8000LL);
-  }
   if ( v38 )
   {
-    v37 = v9;
-    ZwFreeVirtualMemory(-1LL, &v38, &v37, 0x8000LL);
+    RegionSize = 0LL;
+    ZwFreeVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &v38, &RegionSize, 0x8000u);
   }
-  if ( v54[0] )
+  if ( BaseAddressa )
   {
-    LODWORD(v36) = 1;
-    ZwDuplicateObject(a3, v54[0], 0LL, 0LL, 0, 0, v36);
+    RegionSize = v9;
+    ZwFreeVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddressa, &RegionSize, 0x8000u);
   }
-  if ( v53[0] )
-  {
-    LODWORD(v36) = 1;
-    ZwDuplicateObject(a3, v53[0], 0LL, 0LL, 0, 0, v36);
-  }
-  if ( v51[0] )
-  {
-    LODWORD(v36) = 1;
-    ZwDuplicateObject(a3, v51[0], 0LL, 0LL, 0, 0, v36);
-  }
-  if ( v52[0] )
-  {
-    LODWORD(v36) = 1;
-    ZwDuplicateObject(a3, v52[0], 0LL, 0LL, 0, 0, v36);
-  }
-  if ( v49 )
-  {
-    LODWORD(v36) = 1;
-    ZwDuplicateObject(a3, v49, 0LL, 0LL, 0, 0, v36);
-  }
-  if ( v48[0] )
-  {
-    LODWORD(v36) = 1;
-    ZwDuplicateObject(a3, v48[0], 0LL, 0LL, 0, 0, v36);
-  }
-  if ( v55[0] )
-  {
-    LODWORD(v36) = 1;
-    ZwDuplicateObject(a3, v55[0], 0LL, 0LL, 0, 0, v36);
-  }
+  if ( v53 )
+    ZwDuplicateObject(SourceProcessHandle, v53, 0LL, 0LL, 0, 0, 1u);
+  if ( v52 )
+    ZwDuplicateObject(SourceProcessHandle, v52, 0LL, 0LL, 0, 0, 1u);
+  if ( v50 )
+    ZwDuplicateObject(SourceProcessHandle, v50, 0LL, 0LL, 0, 0, 1u);
+  if ( v51 )
+    ZwDuplicateObject(SourceProcessHandle, v51, 0LL, 0LL, 0, 0, 1u);
+  if ( v48 )
+    ZwDuplicateObject(SourceProcessHandle, v48, 0LL, 0LL, 0, 0, 1u);
+  if ( TargetHandle )
+    ZwDuplicateObject(SourceProcessHandle, TargetHandle, 0LL, 0LL, 0, 0, 1u);
+  if ( v54 )
+    ZwDuplicateObject(SourceProcessHandle, v54, 0LL, 0LL, 0, 0, 1u);
 LABEL_65:
   if ( (a5 & 1) != 0 )
-    PssNtFreeRemoteSnapshot(a1, v43);
+    PssNtFreeRemoteSnapshot(ProcessHandle, (PVOID *)v42);
   return (unsigned int)v10;
 }

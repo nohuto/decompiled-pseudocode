@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlUnicodeStringValidateWorker @ 0x140439150
+ * XREFs of RtlUnicodeStringValidateWorker @ 0x140427DB0
  * Callers:
- *     RtlUnicodeStringCatString @ 0x140438C68 (RtlUnicodeStringCatString.c)
- *     RtlStringCbCopyUnicodeString @ 0x1404390A4 (RtlStringCbCopyUnicodeString.c)
- *     CmpIsFileInSystemConfig @ 0x140A77570 (CmpIsFileInSystemConfig.c)
+ *     RtlUnicodeStringCatString @ 0x1404278C8 (RtlUnicodeStringCatString.c)
+ *     RtlStringCbCopyUnicodeString @ 0x140427D04 (RtlStringCbCopyUnicodeString.c)
+ *     CmpIsFileInSystemConfig @ 0x140A80290 (CmpIsFileInSystemConfig.c)
  * Callees:
  *     <none>
  */

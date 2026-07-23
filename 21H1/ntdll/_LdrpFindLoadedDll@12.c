@@ -13,26 +13,25 @@
  *     @__security_check_cookie@4 @ 0x4B2F4B20 (@__security_check_cookie@4.c)
  */
 
-int __thiscall LdrpFindLoadedDll(unsigned __int16 *this, int *a2)
+int __thiscall LdrpFindLoadedDll(PUNICODE_STRING OriginalName, char **a2)
 {
-  int v3; // eax
+  NTSTATUS v3; // eax
   int LoadedDllInternal; // esi
   bool v6; // [esp+13h] [ebp-11Dh]
   int v7; // [esp+14h] [ebp-11Ch] BYREF
   int v8; // [esp+18h] [ebp-118h] BYREF
-  void *v9; // [esp+1Ch] [ebp-114h] BYREF
-  int v10; // [esp+20h] [ebp-110h] BYREF
-  _WORD *v11; // [esp+24h] [ebp-10Ch]
-  _WORD v12[130]; // [esp+28h] [ebp-108h] BYREF
+  PVOID OldFsRedirectionLevel; // [esp+1Ch] [ebp-114h] BYREF
+  _UNICODE_STRING SystemPath; // [esp+20h] [ebp-110h] BYREF
+  _WORD v11[130]; // [esp+28h] [ebp-108h] BYREF
 
-  v3 = RtlWow64EnableFsRedirectionEx(0, &v9);
-  v10 = 0x1000000;
+  v3 = RtlWow64EnableFsRedirectionEx(0, &OldFsRedirectionLevel);
+  *(_DWORD *)&SystemPath.Length = 0x1000000;
   v6 = v3 >= 0;
-  v11 = v12;
-  v12[0] = 0;
+  SystemPath.Buffer = v11;
+  v11[0] = 0;
   v7 = 0;
   *a2 = 0;
-  LoadedDllInternal = LdrpPreprocessDllName(this, (unsigned __int16 *)&v10, 0, &v7);
+  LoadedDllInternal = LdrpPreprocessDllName(OriginalName, &SystemPath, 0, &v7);
   if ( LoadedDllInternal >= 0 )
   {
     LoadedDllInternal = LdrpFindLoadedDllInternal(a2, &v8, v7);
@@ -51,12 +50,12 @@ int __thiscall LdrpFindLoadedDll(unsigned __int16 *this, int *a2)
       }
     }
   }
-  if ( v12 != v11 )
-    RtlDeleteBoundaryDescriptor((int)v11);
-  v10 = 0x1000000;
-  v11 = v12;
-  v12[0] = 0;
+  if ( v11 != SystemPath.Buffer )
+    RtlDeleteBoundaryDescriptor((POBJECT_BOUNDARY_DESCRIPTOR)SystemPath.Buffer);
+  *(_DWORD *)&SystemPath.Length = 0x1000000;
+  SystemPath.Buffer = v11;
+  v11[0] = 0;
   if ( v6 )
-    RtlWow64EnableFsRedirectionEx(v9, &v9);
+    RtlWow64EnableFsRedirectionEx(OldFsRedirectionLevel, &OldFsRedirectionLevel);
   return LoadedDllInternal;
 }

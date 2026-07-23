@@ -1,13 +1,13 @@
 /*
- * XREFs of CmpLightWeightCreateModificationData @ 0x140A1F6DC
+ * XREFs of CmpLightWeightCreateModificationData @ 0x140A147DC
  * Callers:
- *     CmpLightWeightPrepareDeleteKeyUoW @ 0x140A1EC80 (CmpLightWeightPrepareDeleteKeyUoW.c)
- *     CmpLightWeightPrepareAddKeyUoW @ 0x140A1F3F0 (CmpLightWeightPrepareAddKeyUoW.c)
+ *     CmpLightWeightPrepareDeleteKeyUoW @ 0x140A13D80 (CmpLightWeightPrepareDeleteKeyUoW.c)
+ *     CmpLightWeightPrepareAddKeyUoW @ 0x140A144F0 (CmpLightWeightPrepareAddKeyUoW.c)
  * Callees:
- *     CmpAllocatePool @ 0x1403E1834 (CmpAllocatePool.c)
- *     CmpLightWeightDuplicateParentLists @ 0x140A1F7A8 (CmpLightWeightDuplicateParentLists.c)
- *     CmpLightWeightCleanupModifyKeyDataUoW @ 0x140A1FAD8 (CmpLightWeightCleanupModifyKeyDataUoW.c)
- *     CmpLightWeightUpdateModificationActions @ 0x140A1FDD0 (CmpLightWeightUpdateModificationActions.c)
+ *     CmpAllocatePool @ 0x1403C9EA4 (CmpAllocatePool.c)
+ *     CmpLightWeightDuplicateParentLists @ 0x140A148A8 (CmpLightWeightDuplicateParentLists.c)
+ *     CmpLightWeightCleanupModifyKeyDataUoW @ 0x140A14BD8 (CmpLightWeightCleanupModifyKeyDataUoW.c)
+ *     CmpLightWeightUpdateModificationActions @ 0x140A14ED0 (CmpLightWeightUpdateModificationActions.c)
  */
 
 __int64 __fastcall CmpLightWeightCreateModificationData(__int64 a1, __int64 *a2)
@@ -18,7 +18,7 @@ __int64 __fastcall CmpLightWeightCreateModificationData(__int64 a1, __int64 *a2)
   int updated; // ebx
 
   v4 = *(_QWORD *)(*(_QWORD *)(a1 + 48) + 32LL);
-  Pool = CmpAllocatePool(0x100uLL);
+  Pool = CmpAllocatePool(0x100uLL, 0x14uLL, 0x77554D43u);
   v6 = Pool;
   if ( Pool )
   {

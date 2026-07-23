@@ -1,14 +1,14 @@
 /*
- * XREFs of SymCryptTwistedEdwardsIsEqual @ 0x14052BBF0
+ * XREFs of SymCryptTwistedEdwardsIsEqual @ 0x140535BB0
  * Callers:
  *     <none>
  * Callees:
- *     SymCryptModElementCreate @ 0x140523BD8 (SymCryptModElementCreate.c)
- *     SymCryptModElementIsEqual @ 0x140523C24 (SymCryptModElementIsEqual.c)
- *     SymCryptModMul @ 0x140523E80 (SymCryptModMul.c)
- *     SymCryptModNeg @ 0x140523EBC (SymCryptModNeg.c)
- *     SymCryptSizeofModElementFromModulus @ 0x140524014 (SymCryptSizeofModElementFromModulus.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     SymCryptModElementCreate @ 0x1405214F0 (SymCryptModElementCreate.c)
+ *     SymCryptModElementIsEqual @ 0x14052153C (SymCryptModElementIsEqual.c)
+ *     SymCryptModMul @ 0x140521798 (SymCryptModMul.c)
+ *     SymCryptModNeg @ 0x1405217D4 (SymCryptModNeg.c)
+ *     SymCryptSizeofModElementFromModulus @ 0x14052192C (SymCryptSizeofModElementFromModulus.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 unsigned __int64 __fastcall SymCryptTwistedEdwardsIsEqual(

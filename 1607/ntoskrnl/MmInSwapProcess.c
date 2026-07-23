@@ -1,24 +1,24 @@
 /*
- * XREFs of MmInSwapProcess @ 0x140091564
+ * XREFs of MmInSwapProcess @ 0x140090CC4
  * Callers:
- *     KiInSwapProcesses @ 0x140090F20 (KiInSwapProcesses.c)
+ *     KiInSwapProcesses @ 0x140090680 (KiInSwapProcesses.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140012750 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14001BD40 (KeAcquireInStackQueuedSpinLock.c)
- *     MiUnmapPageInHyperSpaceWorker @ 0x14001DBA0 (MiUnmapPageInHyperSpaceWorker.c)
- *     MiLockPageInline @ 0x140022E70 (MiLockPageInline.c)
- *     MiMapPageInHyperSpaceWorker @ 0x140034990 (MiMapPageInHyperSpaceWorker.c)
- *     MiReturnWsToExpansionList @ 0x14007BEAC (MiReturnWsToExpansionList.c)
- *     MiVaToPfn @ 0x140083A00 (MiVaToPfn.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     KeMakeKernelDirectoryTableBase @ 0x1401DBB88 (KeMakeKernelDirectoryTableBase.c)
- *     MiMakeOutswappedPageResident @ 0x1401DFDE0 (MiMakeOutswappedPageResident.c)
- *     MiReAcquireOutSwappedProcessCommit @ 0x1401E0630 (MiReAcquireOutSwappedProcessCommit.c)
- *     MiUpdateSystemPdes @ 0x1401E0EC4 (MiUpdateSystemPdes.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
- *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F2550 (MI_GET_PAGE_FRAME_FROM_PTE.c)
- *     EtwTraceInswapProcess @ 0x140225C9C (EtwTraceInswapProcess.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x1400122D0 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14001B8C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     MiUnmapPageInHyperSpaceWorker @ 0x14001D720 (MiUnmapPageInHyperSpaceWorker.c)
+ *     MiLockPageInline @ 0x1400229F0 (MiLockPageInline.c)
+ *     MiMapPageInHyperSpaceWorker @ 0x140034510 (MiMapPageInHyperSpaceWorker.c)
+ *     MiReturnWsToExpansionList @ 0x14007BF2C (MiReturnWsToExpansionList.c)
+ *     MiVaToPfn @ 0x140081B60 (MiVaToPfn.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     KeMakeKernelDirectoryTableBase @ 0x1401DB9B4 (KeMakeKernelDirectoryTableBase.c)
+ *     MiMakeOutswappedPageResident @ 0x1401DFC0C (MiMakeOutswappedPageResident.c)
+ *     MiReAcquireOutSwappedProcessCommit @ 0x1401E045C (MiReAcquireOutSwappedProcessCommit.c)
+ *     MiUpdateSystemPdes @ 0x1401E0CF0 (MiUpdateSystemPdes.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
+ *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F237C (MI_GET_PAGE_FRAME_FROM_PTE.c)
+ *     EtwTraceInswapProcess @ 0x140225AC8 (EtwTraceInswapProcess.c)
  */
 
 char __fastcall MmInSwapProcess(char *Object)
@@ -85,7 +85,7 @@ char __fastcall MmInSwapProcess(char *Object)
     __writecr8(v12);
     v16 = 3;
     v17 = &v30;
-    v30 = (((unsigned __int64)(qword_140327F90 + 276840816) >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
+    v30 = (((unsigned __int64)(qword_140327FD0 + 276840816) >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
     do
     {
       --v17;
@@ -120,13 +120,13 @@ char __fastcall MmInSwapProcess(char *Object)
     *((_QWORD *)Object + 174) = v23;
     *((_QWORD *)Object + 175) = v23;
     *((_QWORD *)Object + 5) = KeMakeKernelDirectoryTableBase(v6 << 12);
-    KeAcquireInStackQueuedSpinLock(&qword_140327740, &LockHandle);
+    KeAcquireInStackQueuedSpinLock(&qword_140327780, &LockHandle);
     while ( (*((_DWORD *)Object + 193) & 0x800000) != 0 )
     {
       _InterlockedAnd((volatile signed __int32 *)Object + 193, 0xFF7FFFFF);
       KeReleaseInStackQueuedSpinLock(&LockHandle);
       MiUpdateSystemPdes(Object);
-      KeAcquireInStackQueuedSpinLock(&qword_140327740, &LockHandle);
+      KeAcquireInStackQueuedSpinLock(&qword_140327780, &LockHandle);
     }
     MiReturnWsToExpansionList((__int64)(Object + 1280));
     _InterlockedAnd((volatile signed __int32 *)Object + 193, 0xFFFFFF7F);

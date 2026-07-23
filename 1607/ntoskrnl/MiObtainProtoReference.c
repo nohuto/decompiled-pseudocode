@@ -1,21 +1,21 @@
 /*
- * XREFs of MiObtainProtoReference @ 0x140023658
+ * XREFs of MiObtainProtoReference @ 0x1400231D8
  * Callers:
- *     MiFinishMdlForMappedFileFault @ 0x1400232A0 (MiFinishMdlForMappedFileFault.c)
- *     MiCopyDataPageToImagePage @ 0x140023A40 (MiCopyDataPageToImagePage.c)
- *     MiFlushSectionInternal @ 0x140029DB0 (MiFlushSectionInternal.c)
- *     MiResolveTransitionFault @ 0x140035F90 (MiResolveTransitionFault.c)
- *     MiWalkEntireImage @ 0x14004C570 (MiWalkEntireImage.c)
- *     MiPfPutPagesInTransition @ 0x1400E5100 (MiPfPutPagesInTransition.c)
- *     MiResolvePageFileFault @ 0x140121360 (MiResolvePageFileFault.c)
- *     MiTranslatePageForCopy @ 0x1401E4C54 (MiTranslatePageForCopy.c)
- *     MiIdealClusterPage @ 0x1401F6748 (MiIdealClusterPage.c)
- *     MiMakeImagePageOk @ 0x1401F6F38 (MiMakeImagePageOk.c)
+ *     MiFinishMdlForMappedFileFault @ 0x140022E20 (MiFinishMdlForMappedFileFault.c)
+ *     MiCopyDataPageToImagePage @ 0x1400235C0 (MiCopyDataPageToImagePage.c)
+ *     MiFlushSectionInternal @ 0x140029930 (MiFlushSectionInternal.c)
+ *     MiResolveTransitionFault @ 0x140035B10 (MiResolveTransitionFault.c)
+ *     MiWalkEntireImage @ 0x14004C0F0 (MiWalkEntireImage.c)
+ *     MiPfPutPagesInTransition @ 0x1400E2FA0 (MiPfPutPagesInTransition.c)
+ *     MiResolvePageFileFault @ 0x1401218D0 (MiResolvePageFileFault.c)
+ *     MiTranslatePageForCopy @ 0x1401E4A80 (MiTranslatePageForCopy.c)
+ *     MiIdealClusterPage @ 0x1401F6574 (MiIdealClusterPage.c)
+ *     MiMakeImagePageOk @ 0x1401F6D64 (MiMakeImagePageOk.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14002ECB0 (KeYieldProcessorEx.c)
- *     MiAreChargesNeededToLockPage @ 0x14004ED00 (MiAreChargesNeededToLockPage.c)
- *     MiLockNestedPageAtDpcInline @ 0x14009E2E0 (MiLockNestedPageAtDpcInline.c)
- *     MiChargeForLockedPage @ 0x140103380 (MiChargeForLockedPage.c)
+ *     KeYieldProcessorEx @ 0x14002E830 (KeYieldProcessorEx.c)
+ *     MiAreChargesNeededToLockPage @ 0x14004E880 (MiAreChargesNeededToLockPage.c)
+ *     MiLockNestedPageAtDpcInline @ 0x14009DAE0 (MiLockNestedPageAtDpcInline.c)
+ *     MiChargeForLockedPage @ 0x140101100 (MiChargeForLockedPage.c)
  */
 
 __int64 __fastcall MiObtainProtoReference(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

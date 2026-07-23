@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpBlkPoPerformPpmOperation @ 0x140A19DC4
+ * XREFs of HalpBlkPoPerformPpmOperation @ 0x140A1ADC4
  * Callers:
- *     HalpBlkHandleIpi @ 0x140A1A190 (HalpBlkHandleIpi.c)
+ *     HalpBlkHandleIpi @ 0x140A1B190 (HalpBlkHandleIpi.c)
  * Callees:
- *     HalpBlkPoPerformPpmOperationForIoPort @ 0x140A19E50 (HalpBlkPoPerformPpmOperationForIoPort.c)
- *     HalpBlkPoPerformPpmOperationForMsr @ 0x140A19EE0 (HalpBlkPoPerformPpmOperationForMsr.c)
+ *     HalpBlkPoPerformPpmOperationForIoPort @ 0x140A1AE50 (HalpBlkPoPerformPpmOperationForIoPort.c)
+ *     HalpBlkPoPerformPpmOperationForMsr @ 0x140A1AEE0 (HalpBlkPoPerformPpmOperationForMsr.c)
  */
 
 char HalpBlkPoPerformPpmOperation()

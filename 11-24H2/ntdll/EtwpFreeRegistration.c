@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpFreeRegistration @ 0x18001D368
+ * XREFs of EtwpFreeRegistration @ 0x180049D68
  * Callers:
- *     EtwNotificationUnregister @ 0x18001D140 (EtwNotificationUnregister.c)
- *     EtwNotificationRegister @ 0x18001D450 (EtwNotificationRegister.c)
+ *     EtwNotificationUnregister @ 0x180049B40 (EtwNotificationUnregister.c)
+ *     EtwNotificationRegister @ 0x180049E50 (EtwNotificationRegister.c)
  * Callees:
- *     RtlpInterlockedPushEntrySList @ 0x180165A40 (RtlpInterlockedPushEntrySList.c)
- *     memset$thunk$772440563353939046 @ 0x180172030 (memset$thunk$772440563353939046.c)
+ *     RtlpInterlockedPushEntrySList @ 0x180163E00 (RtlpInterlockedPushEntrySList.c)
+ *     memset$thunk$772440563353939046 @ 0x180171030 (memset$thunk$772440563353939046.c)
  */
 
 __int64 __fastcall EtwpFreeRegistration(__int64 a1)

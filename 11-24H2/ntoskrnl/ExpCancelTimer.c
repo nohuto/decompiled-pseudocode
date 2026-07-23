@@ -1,14 +1,14 @@
 /*
- * XREFs of ExpCancelTimer @ 0x140333A40
+ * XREFs of ExpCancelTimer @ 0x1402BE0F0
  * Callers:
- *     ExTimerRundown @ 0x14024D3F4 (ExTimerRundown.c)
- *     NtCancelTimer @ 0x1403320A0 (NtCancelTimer.c)
+ *     ExTimerRundown @ 0x14027DA04 (ExTimerRundown.c)
+ *     NtCancelTimer @ 0x1402BCF30 (NtCancelTimer.c)
  * Callees:
- *     KeRemoveQueueApc @ 0x140205700 (KeRemoveQueueApc.c)
- *     KxAcquireSpinLock @ 0x140254AE0 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x140279CC0 (KxReleaseSpinLock.c)
- *     KeCancelTimer @ 0x140333B20 (KeCancelTimer.c)
- *     KeRemoveQueueDpcEx @ 0x140464090 (KeRemoveQueueDpcEx.c)
+ *     KxReleaseSpinLock @ 0x14022F250 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x1402850F0 (KxAcquireSpinLock.c)
+ *     KeCancelTimer @ 0x1402BE1D0 (KeCancelTimer.c)
+ *     KeRemoveQueueApc @ 0x14032CCE0 (KeRemoveQueueApc.c)
+ *     KeRemoveQueueDpcEx @ 0x14045A7C0 (KeRemoveQueueDpcEx.c)
  */
 
 __int64 __fastcall ExpCancelTimer(PKTIMER a1)
@@ -37,7 +37,7 @@ __int64 __fastcall ExpCancelTimer(PKTIMER a1)
     {
       v1 = 1;
     }
-    if ( KeRemoveQueueApc((__int64)&a1[1].Header.WaitListHead) )
+    if ( (unsigned __int8)KeRemoveQueueApc(&a1[1].Header.WaitListHead) )
       ++v1;
   }
   else

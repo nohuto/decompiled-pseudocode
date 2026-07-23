@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwTraceContextSwap @ 0x14017C900
+ * XREFs of EtwTraceContextSwap @ 0x14017CA40
  * Callers:
  *     KiSwapThread @ 0x140056210 (KiSwapThread.c)
- *     SwapContext @ 0x1401C42C0 (SwapContext.c)
+ *     SwapContext @ 0x1401C4420 (SwapContext.c)
  * Callees:
- *     PsGetEffectiveServerSilo @ 0x14008FD30 (PsGetEffectiveServerSilo.c)
- *     EtwpLogContextSwapEvent @ 0x14017CA10 (EtwpLogContextSwapEvent.c)
- *     EtwpCoverageSamplerContextSwap @ 0x14031789C (EtwpCoverageSamplerContextSwap.c)
+ *     PsGetEffectiveServerSilo @ 0x14008FC70 (PsGetEffectiveServerSilo.c)
+ *     EtwpLogContextSwapEvent @ 0x14017CB50 (EtwpLogContextSwapEvent.c)
+ *     EtwpCoverageSamplerContextSwap @ 0x140317A8C (EtwpCoverageSamplerContextSwap.c)
  */
 
 __int64 __fastcall EtwTraceContextSwap(__int64 a1, __int64 a2)

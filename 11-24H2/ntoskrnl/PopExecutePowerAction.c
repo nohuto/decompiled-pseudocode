@@ -1,35 +1,35 @@
 /*
- * XREFs of PopExecutePowerAction @ 0x140753574
+ * XREFs of PopExecutePowerAction @ 0x140751894
  * Callers:
- *     PopThermalStateTransitionWorker @ 0x140754760 (PopThermalStateTransitionWorker.c)
- *     NtInitiatePowerAction @ 0x140754BF0 (NtInitiatePowerAction.c)
- *     PopPowerAggregatorNotifyPdcPhaseState @ 0x140759914 (PopPowerAggregatorNotifyPdcPhaseState.c)
- *     PopPowerAggregatorScreenOffEnterStateHandler @ 0x140759B90 (PopPowerAggregatorScreenOffEnterStateHandler.c)
- *     PopPowerAggregatorTriggerAdaptiveAction @ 0x140759F40 (PopPowerAggregatorTriggerAdaptiveAction.c)
- *     PopIdleAoAcDozeToS4 @ 0x14075C370 (PopIdleAoAcDozeToS4.c)
- *     PdcPoSetPowerAction @ 0x14075D280 (PdcPoSetPowerAction.c)
- *     PoTtmInitiatePowerStateTransition @ 0x14075D348 (PoTtmInitiatePowerStateTransition.c)
- *     PopBatteryApplyCompositeState @ 0x140A3AD08 (PopBatteryApplyCompositeState.c)
- *     NtSetSystemPowerState @ 0x140B5F390 (NtSetSystemPowerState.c)
+ *     PopThermalStateTransitionWorker @ 0x140752A80 (PopThermalStateTransitionWorker.c)
+ *     NtInitiatePowerAction @ 0x140752F10 (NtInitiatePowerAction.c)
+ *     PopPowerAggregatorNotifyPdcPhaseState @ 0x140757DB4 (PopPowerAggregatorNotifyPdcPhaseState.c)
+ *     PopPowerAggregatorScreenOffEnterStateHandler @ 0x140757FE0 (PopPowerAggregatorScreenOffEnterStateHandler.c)
+ *     PopPowerAggregatorTriggerAdaptiveAction @ 0x140758390 (PopPowerAggregatorTriggerAdaptiveAction.c)
+ *     PopIdleAoAcDozeToS4 @ 0x14075B3A0 (PopIdleAoAcDozeToS4.c)
+ *     PdcPoSetPowerAction @ 0x14075C220 (PdcPoSetPowerAction.c)
+ *     PoTtmInitiatePowerStateTransition @ 0x14075C2E8 (PoTtmInitiatePowerStateTransition.c)
+ *     PopBatteryApplyCompositeState @ 0x140A304E8 (PopBatteryApplyCompositeState.c)
+ *     NtSetSystemPowerState @ 0x140B61410 (NtSetSystemPowerState.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x140255180 (EtwTraceKernelEvent.c)
- *     PoStoreDiagnosticContext @ 0x1403312F4 (PoStoreDiagnosticContext.c)
- *     KeQueryPerformanceCounter @ 0x14034FA10 (KeQueryPerformanceCounter.c)
- *     PopSetPowerActionState @ 0x1403CB224 (PopSetPowerActionState.c)
- *     PopSetNotificationWork @ 0x1403F2D58 (PopSetNotificationWork.c)
- *     PopGetPolicyWorker @ 0x1403F2E04 (PopGetPolicyWorker.c)
- *     PopDiagTraceShutdownAction @ 0x1405D5604 (PopDiagTraceShutdownAction.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     PopResetActionDefaults @ 0x1406FBF94 (PopResetActionDefaults.c)
- *     PopVerifyPowerActionPolicy @ 0x1409B8F6C (PopVerifyPowerActionPolicy.c)
- *     TtmIsEnabled @ 0x1409BBDE8 (TtmIsEnabled.c)
- *     PopVerifySystemPowerState @ 0x140A7DC9C (PopVerifySystemPowerState.c)
- *     PopCompleteAction @ 0x140A88118 (PopCompleteAction.c)
- *     PopCompareActions @ 0x140A88D60 (PopCompareActions.c)
- *     PopDiagTraceExecutePowerAction @ 0x140A9B7B8 (PopDiagTraceExecutePowerAction.c)
- *     PopPromoteActionFlag @ 0x140AA8EB4 (PopPromoteActionFlag.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     EtwTraceKernelEvent @ 0x140285790 (EtwTraceKernelEvent.c)
+ *     PopSetPowerActionState @ 0x1402B8248 (PopSetPowerActionState.c)
+ *     PoStoreDiagnosticContext @ 0x1402BA9FC (PoStoreDiagnosticContext.c)
+ *     KeQueryPerformanceCounter @ 0x14036DEF0 (KeQueryPerformanceCounter.c)
+ *     PopSetNotificationWork @ 0x1403E6A78 (PopSetNotificationWork.c)
+ *     PopGetPolicyWorker @ 0x1403E6B24 (PopGetPolicyWorker.c)
+ *     PopDiagTraceShutdownAction @ 0x1405D2C18 (PopDiagTraceShutdownAction.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     PopResetActionDefaults @ 0x1406F9BD4 (PopResetActionDefaults.c)
+ *     PopVerifyPowerActionPolicy @ 0x14099F5BC (PopVerifyPowerActionPolicy.c)
+ *     TtmIsEnabled @ 0x1409A2438 (TtmIsEnabled.c)
+ *     PopVerifySystemPowerState @ 0x140A77F9C (PopVerifySystemPowerState.c)
+ *     PopCompleteAction @ 0x140A84608 (PopCompleteAction.c)
+ *     PopCompareActions @ 0x140A85160 (PopCompareActions.c)
+ *     PopDiagTraceExecutePowerAction @ 0x140A96D28 (PopDiagTraceExecutePowerAction.c)
+ *     PopPromoteActionFlag @ 0x140AA3F60 (PopPromoteActionFlag.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PopExecutePowerAction(_DWORD *a1, unsigned int a2, _DWORD *a3, int a4, unsigned int a5)
@@ -67,7 +67,7 @@ __int64 __fastcall PopExecutePowerAction(_DWORD *a1, unsigned int a2, _DWORD *a3
   int v39; // [rsp+68h] [rbp-39h] BYREF
   __int64 v40; // [rsp+70h] [rbp-31h] BYREF
   int v41; // [rsp+78h] [rbp-29h]
-  unsigned __int64 v42; // [rsp+80h] [rbp-21h] BYREF
+  ULONG_PTR v42; // [rsp+80h] [rbp-21h] BYREF
   _DWORD *v43; // [rsp+88h] [rbp-19h] BYREF
   int v44; // [rsp+90h] [rbp-11h]
   int v45; // [rsp+94h] [rbp-Dh]
@@ -84,7 +84,7 @@ __int64 __fastcall PopExecutePowerAction(_DWORD *a1, unsigned int a2, _DWORD *a3
   v12 = 1;
   v39 = a4;
   v41 = v8;
-  if ( (xmmword_140FC5B10 & 0x8000) != 0 )
+  if ( (xmmword_140FC6B50 & 0x8000) != 0 )
   {
     v48 = 0;
     v45 = a4;
@@ -132,7 +132,7 @@ LABEL_18:
       {
         v11 = 0;
         LODWORD(v40) = 0;
-        v5 = byte_140F0BA84 != 0 ? 32 : 16;
+        v5 = byte_140F0B3C4 != 0 ? 32 : 16;
         PopShutdownButtonPressTime = KeQueryPerformanceCounter(0LL).QuadPart;
         goto LABEL_19;
       }
@@ -145,7 +145,7 @@ LABEL_18:
 LABEL_19:
     if ( v11 - 4 <= 2 )
       PopDiagTraceShutdownAction(v11, v5, *a1);
-    if ( !byte_140F0B101 )
+    if ( !byte_140F0B981 )
       PopResetActionDefaults();
     if ( v11 )
     {
@@ -159,7 +159,7 @@ LABEL_19:
       if ( v11 == 4 )
         v6 = 6;
       v39 = v6;
-      if ( (int)PopCompareActions(v11, (unsigned int)dword_140F0B104) >= 0 )
+      if ( (int)PopCompareActions(v11, (unsigned int)dword_140F0B984) >= 0 )
       {
         PopPromoteActionFlag((unsigned int)&v38, 1, v17, 0, 1);
         PopPromoteActionFlag((unsigned int)&v38, v19 + 1, v17, v19, 2);
@@ -170,10 +170,10 @@ LABEL_19:
             v6 = *((_DWORD *)PopPolicy + 17);
           v39 = v6;
         }
-        if ( v6 > dword_140F0B108 )
+        if ( v6 > dword_140F0B988 )
         {
           LOBYTE(v38) = v38 | 4;
-          dword_140F0B108 = v6;
+          dword_140F0B988 = v6;
         }
       }
       LOBYTE(v18) = 1;
@@ -182,7 +182,7 @@ LABEL_19:
       PopPromoteActionFlag((unsigned int)&v38, 0, v17, v22, 0x40000000);
       PopPromoteActionFlag((unsigned int)&v38, 0, v17, v23, 8);
       PopPromoteActionFlag((unsigned int)&v38, 0, v17, v24, 32);
-      if ( (int)PopCompareActions(v11, (unsigned int)dword_140F0B104) <= 0 )
+      if ( (int)PopCompareActions(v11, (unsigned int)dword_140F0B984) <= 0 )
       {
         v28 = v38;
       }
@@ -194,50 +194,50 @@ LABEL_19:
           v27 = v38 | 2;
         if ( !(unsigned int)PopCompareActions(v26, 8LL) )
           v27 |= 2u;
-        dword_140F0B104 = v11;
+        dword_140F0B984 = v11;
         v28 = v27 | 5;
         v29 = *a1;
-        dword_140F0B118 = 0;
-        dword_140F0B114 = v29;
+        dword_140F0B998 = 0;
+        dword_140F0B994 = v29;
         v30 = *a1 == 0;
         LOBYTE(v38) = v28;
         if ( v30 )
-          dword_140F0B118 = a1[6];
+          dword_140F0B998 = a1[6];
         if ( (a1[1] & 0x100) == 0 )
         {
-          if ( qword_140F0B120 )
+          if ( qword_140F0B9A0 )
           {
-            ExFreePoolWithTag(qword_140F0B120, 0x67696450u);
-            qword_140F0B120 = 0LL;
+            ExFreePoolWithTag(qword_140F0B9A0, 0x67696450u);
+            qword_140F0B9A0 = 0LL;
           }
           v31 = *((_QWORD *)a1 + 2);
           if ( v31 )
           {
             PoStoreDiagnosticContext(v31, 0LL, &v42);
-            Pool2 = (void *)ExAllocatePool2(0x100uLL);
-            qword_140F0B120 = Pool2;
+            Pool2 = (void *)ExAllocatePool2(0x100uLL, v42, 0x67696450u);
+            qword_140F0B9A0 = Pool2;
             if ( Pool2 )
             {
               if ( (int)PoStoreDiagnosticContext(*((_QWORD *)a1 + 2), (unsigned __int64 *)Pool2, &v42) < 0 )
               {
-                ExFreePoolWithTag(qword_140F0B120, 0x67696450u);
-                qword_140F0B120 = 0LL;
+                ExFreePoolWithTag(qword_140F0B9A0, 0x67696450u);
+                qword_140F0B9A0 = 0LL;
               }
             }
           }
         }
       }
-      if ( dword_140F0B104 == 3 )
-        dword_140F0B104 = 2;
+      if ( dword_140F0B984 == 3 )
+        dword_140F0B984 = 2;
       if ( v28 )
       {
         if ( (unsigned __int8)TtmIsEnabled() )
           PopTtmIsSxTransitionInProgress = 1;
         BYTE1(v38) = 1;
-        if ( (unsigned __int8)byte_140F0B101 < 2u )
+        if ( (unsigned __int8)byte_140F0B981 < 2u )
         {
           PopSetPowerActionState(1);
-          dword_140F0B110 = 0;
+          dword_140F0B990 = 0;
           v33 = 2;
         }
         else
@@ -269,14 +269,14 @@ LABEL_72:
           {
             if ( v14 )
             {
-              v35 = (_QWORD *)qword_140F0BAF8;
+              v35 = (_QWORD *)qword_140F0B288;
               v36 = (_QWORD *)(*((_QWORD *)a1 + 1) + 32LL);
-              if ( *(__int64 **)qword_140F0BAF8 != &PopActionWaiters )
+              if ( *(__int64 **)qword_140F0B288 != &PopActionWaiters )
                 __fastfail(3u);
               *v36 = &PopActionWaiters;
               v36[1] = v35;
               *v35 = v36;
-              qword_140F0BAF8 = (__int64)v36;
+              qword_140F0B288 = (__int64)v36;
             }
             else
             {

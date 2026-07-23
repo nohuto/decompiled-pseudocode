@@ -6,11 +6,19 @@
  *     <none>
  */
 
-__int64 ZwLoadKey3()
+NTSTATUS __cdecl ZwLoadKey3(
+        POBJECT_ATTRIBUTES TargetKey,
+        POBJECT_ATTRIBUTES SourceFile,
+        ULONG Flags,
+        PCM_EXTENDED_PARAMETER ExtendedParameters,
+        ULONG ExtendedParameterCount,
+        ACCESS_MASK DesiredAccess,
+        PHANDLE RootHandle,
+        PVOID Reserved)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 441LL;
+  result = 441;
   __asm { syscall; Low latency system call }
   return result;
 }

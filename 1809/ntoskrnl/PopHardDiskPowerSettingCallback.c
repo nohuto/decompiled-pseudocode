@@ -1,12 +1,12 @@
 /*
- * XREFs of PopHardDiskPowerSettingCallback @ 0x140746DA0
+ * XREFs of PopHardDiskPowerSettingCallback @ 0x140747F90
  * Callers:
  *     <none>
  * Callees:
- *     PopReleasePolicyLock @ 0x140565370 (PopReleasePolicyLock.c)
- *     PopAcquirePolicyLock @ 0x140565690 (PopAcquirePolicyLock.c)
- *     PopApplyPolicy @ 0x1407476B4 (PopApplyPolicy.c)
- *     PopUpdateDiskIdleTimeoutSetting @ 0x140747FA8 (PopUpdateDiskIdleTimeoutSetting.c)
+ *     PopReleasePolicyLock @ 0x140566370 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140566690 (PopAcquirePolicyLock.c)
+ *     PopApplyPolicy @ 0x1407488A4 (PopApplyPolicy.c)
+ *     PopUpdateDiskIdleTimeoutSetting @ 0x140749198 (PopUpdateDiskIdleTimeoutSetting.c)
  */
 
 __int64 __fastcall PopHardDiskPowerSettingCallback(__int64 *a1, int *a2, int a3)
@@ -45,7 +45,7 @@ __int64 __fastcall PopHardDiskPowerSettingCallback(__int64 *a1, int *a2, int a3)
       v7 = *(_QWORD *)GUID_DISK_BURST_IGNORE_THRESHOLD.Data4 - a1[1];
     if ( !v7 && a3 == 4 && a2 )
     {
-      dword_1404180E4 = *a2;
+      dword_1404191A4 = *a2;
       return 0;
     }
     return (unsigned int)-1073741811;

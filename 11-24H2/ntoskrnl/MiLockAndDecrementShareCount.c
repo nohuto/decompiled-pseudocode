@@ -1,88 +1,90 @@
 /*
- * XREFs of MiLockAndDecrementShareCount @ 0x14039EFA4
+ * XREFs of MiLockAndDecrementShareCount @ 0x14021D444
  * Callers:
- *     MiResolveTransitionFault @ 0x14021A2F0 (MiResolveTransitionFault.c)
- *     MiCompleteRestrictedImageFault @ 0x140238F64 (MiCompleteRestrictedImageFault.c)
- *     MiCompleteProtoPteFault @ 0x1402EBD20 (MiCompleteProtoPteFault.c)
- *     MiCreateSharedZeroPages @ 0x1402EED80 (MiCreateSharedZeroPages.c)
- *     MiCombineWithStandbyExisting @ 0x140313D4C (MiCombineWithStandbyExisting.c)
- *     MiCombineInitialInstance @ 0x14036C3E0 (MiCombineInitialInstance.c)
- *     MiHandleForkTransitionPte @ 0x14036D640 (MiHandleForkTransitionPte.c)
- *     MiReleaseInPageRefs @ 0x14036FDF4 (MiReleaseInPageRefs.c)
- *     MiIssueHardFault @ 0x140397B2C (MiIssueHardFault.c)
- *     MiAddSystemPageTableToList @ 0x14039E874 (MiAddSystemPageTableToList.c)
- *     MmFreeIndependentPages @ 0x14039EC60 (MmFreeIndependentPages.c)
- *     MiOutPageSingleKernelStack @ 0x14039F510 (MiOutPageSingleKernelStack.c)
- *     MiDecommitLargePoolVa @ 0x1403A3F50 (MiDecommitLargePoolVa.c)
- *     MiDemoteCombinedPte @ 0x1403FABBC (MiDemoteCombinedPte.c)
- *     MmOutSwapProcess @ 0x14042D50C (MmOutSwapProcess.c)
- *     MiMakeSystemCachePteValid @ 0x14046F7A8 (MiMakeSystemCachePteValid.c)
- *     MiResolveProtoCombine @ 0x140481604 (MiResolveProtoCombine.c)
- *     MiUnmapKernelScp @ 0x14049DF98 (MiUnmapKernelScp.c)
- *     MiMarkBootGuardPage @ 0x14067FECC (MiMarkBootGuardPage.c)
- *     MiOutSwapFreeSoftWslePxe @ 0x140691118 (MiOutSwapFreeSoftWslePxe.c)
- *     MiCaptureSparsePages @ 0x1407FA6FC (MiCaptureSparsePages.c)
- *     MiClearStaleSecurePageMapping @ 0x140C50F58 (MiClearStaleSecurePageMapping.c)
- *     MiInitializeBootShadowStackPage @ 0x140C5712C (MiInitializeBootShadowStackPage.c)
- *     MiFreeBootDriverPages @ 0x140C66B6C (MiFreeBootDriverPages.c)
+ *     MiCompleteRestrictedImageFault @ 0x140213BC4 (MiCompleteRestrictedImageFault.c)
+ *     MiOutPageSingleKernelStack @ 0x140215F40 (MiOutPageSingleKernelStack.c)
+ *     MiDecommitLargePoolVa @ 0x14021BCD4 (MiDecommitLargePoolVa.c)
+ *     MiReleaseInPageRefs @ 0x14021C2D8 (MiReleaseInPageRefs.c)
+ *     MiMakeSystemCachePteValid @ 0x14021C440 (MiMakeSystemCachePteValid.c)
+ *     MiAddSystemPageTableToList @ 0x14021C950 (MiAddSystemPageTableToList.c)
+ *     MmFreeIndependentPages @ 0x14021D100 (MmFreeIndependentPages.c)
+ *     MiResolveTransitionFault @ 0x140247040 (MiResolveTransitionFault.c)
+ *     MiHandleForkTransitionPte @ 0x1402678C4 (MiHandleForkTransitionPte.c)
+ *     MiCombineInitialInstance @ 0x140294F94 (MiCombineInitialInstance.c)
+ *     MiDemoteCombinedPte @ 0x140296374 (MiDemoteCombinedPte.c)
+ *     MmOutSwapProcess @ 0x1402DDEEC (MmOutSwapProcess.c)
+ *     MiCreateSharedZeroPages @ 0x140342A48 (MiCreateSharedZeroPages.c)
+ *     MiCompleteProtoPteFault @ 0x14034D360 (MiCompleteProtoPteFault.c)
+ *     MiIssueHardFault @ 0x140350280 (MiIssueHardFault.c)
+ *     MiCombineWithStandbyExisting @ 0x1403F1098 (MiCombineWithStandbyExisting.c)
+ *     MiResolveProtoCombine @ 0x14047C8C4 (MiResolveProtoCombine.c)
+ *     MiUnmapKernelScp @ 0x140498D98 (MiUnmapKernelScp.c)
+ *     MiMarkBootGuardPage @ 0x1406810CC (MiMarkBootGuardPage.c)
+ *     MiOutSwapFreeSoftWslePxe @ 0x1406921E8 (MiOutSwapFreeSoftWslePxe.c)
+ *     MiCaptureSparsePages @ 0x1407FAE6C (MiCaptureSparsePages.c)
+ *     MiClearStaleSecurePageMapping @ 0x140C530E8 (MiClearStaleSecurePageMapping.c)
+ *     MiInitializeBootShadowStackPage @ 0x140C592BC (MiInitializeBootShadowStackPage.c)
+ *     MiFreeBootDriverPages @ 0x140C68CE8 (MiFreeBootDriverPages.c)
  * Callees:
- *     MiDecrementShareCountEx @ 0x140220590 (MiDecrementShareCountEx.c)
- *     MiLockPageInline @ 0x140291550 (MiLockPageInline.c)
- *     HvlNotifyLongSpinWait @ 0x140293260 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140293290 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     MiDecreaseUsedPtesInPfn @ 0x14039EEFC (MiDecreaseUsedPtesInPfn.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
+ *     MiDecreaseUsedPtesInPfn @ 0x14021D39C (MiDecreaseUsedPtesInPfn.c)
+ *     MiDecrementShareCountEx @ 0x14024D2E0 (MiDecrementShareCountEx.c)
+ *     MiLockPageInline @ 0x1402A1150 (MiLockPageInline.c)
+ *     HvlNotifyLongSpinWait @ 0x1402A2E60 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402A2E90 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
  */
 
-__int64 __fastcall MiLockAndDecrementShareCount(ULONG_PTR BugCheckParameter2, char a2)
+__int64 __fastcall MiLockAndDecrementShareCount(ULONG_PTR BugCheckParameter2, __int64 a2, __int64 a3, __int64 a4)
 {
-  volatile signed __int32 *v2; // rbx
-  unsigned __int8 v5; // di
-  unsigned int v6; // esi
-  __int64 v7; // rdx
+  volatile signed __int32 *v4; // rbx
+  char v5; // r14
+  unsigned __int8 v7; // di
   unsigned int v8; // esi
+  __int64 v9; // rdx
+  unsigned int v10; // esi
 
-  v2 = (volatile signed __int32 *)(BugCheckParameter2 + 24);
+  v4 = (volatile signed __int32 *)(BugCheckParameter2 + 24);
+  v5 = a2;
   if ( (a2 & 2) != 0 )
   {
-    v5 = 17;
-    v6 = 0;
-    while ( _interlockedbittestandset64(v2, 0x3FuLL) )
+    v7 = 17;
+    v8 = 0;
+    while ( _interlockedbittestandset64(v4, 0x3FuLL) )
     {
       do
       {
-        if ( (++v6 & HvlLongSpinCountMask) == 0
+        if ( (++v8 & HvlLongSpinCountMask) == 0
           && (HvlEnlightenments & 0x40) != 0
-          && KiCheckVpBackingLongSpinWaitHypercall() )
+          && (unsigned __int8)KiCheckVpBackingLongSpinWaitHypercall(BugCheckParameter2, a2, a3, a4) )
         {
-          HvlNotifyLongSpinWait(v6);
+          HvlNotifyLongSpinWait(v8);
         }
         else
         {
           _mm_pause();
         }
       }
-      while ( *(__int64 *)v2 < 0 );
+      while ( *(__int64 *)v4 < 0 );
     }
   }
   else
   {
-    v5 = MiLockPageInline(BugCheckParameter2);
+    v7 = MiLockPageInline(BugCheckParameter2);
   }
-  if ( (a2 & 1) != 0 )
-    *(_QWORD *)(BugCheckParameter2 + 24) = *(_QWORD *)v2 | 0x4000000000000000LL;
-  if ( (a2 & 4) != 0 )
+  if ( (v5 & 1) != 0 )
+    *(_QWORD *)(BugCheckParameter2 + 24) = *(_QWORD *)v4 | 0x4000000000000000LL;
+  if ( (v5 & 4) != 0 )
     MiDecreaseUsedPtesInPfn(BugCheckParameter2, 1uLL);
-  v8 = MiDecrementShareCountEx(BugCheckParameter2, 0LL);
-  _InterlockedAnd64((volatile signed __int64 *)v2, 0x7FFFFFFFFFFFFFFFuLL);
-  if ( v5 < 2u )
+  v10 = MiDecrementShareCountEx(BugCheckParameter2, 0LL);
+  _InterlockedAnd64((volatile signed __int64 *)v4, 0x7FFFFFFFFFFFFFFFuLL);
+  if ( v7 < 2u )
   {
     if ( KiIrqlFlags )
     {
-      LOBYTE(v7) = v5;
-      KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), v7);
+      LOBYTE(v9) = v7;
+      KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), v9);
     }
-    __writecr8(v5);
+    __writecr8(v7);
   }
-  return v8;
+  return v10;
 }

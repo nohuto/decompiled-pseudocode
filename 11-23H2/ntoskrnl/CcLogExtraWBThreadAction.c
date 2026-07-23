@@ -1,12 +1,12 @@
 /*
- * XREFs of CcLogExtraWBThreadAction @ 0x1405368C8
+ * XREFs of CcLogExtraWBThreadAction @ 0x140536E18
  * Callers:
- *     CcWorkerThread @ 0x140298940 (CcWorkerThread.c)
+ *     CcWorkerThread @ 0x140298BD0 (CcWorkerThread.c)
  * Callees:
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
- *     CcPerfLogExtraWBThreadAction @ 0x14053A798 (CcPerfLogExtraWBThreadAction.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402610F0 (KeAcquireInStackQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     CcPerfLogExtraWBThreadAction @ 0x14053ACE8 (CcPerfLogExtraWBThreadAction.c)
  */
 
 __int64 __fastcall CcLogExtraWBThreadAction(__int64 a1, __int64 a2, int a3)
@@ -29,10 +29,10 @@ __int64 __fastcall CcLogExtraWBThreadAction(__int64 a1, __int64 a2, int a3)
   v8 = *(_DWORD *)(a2 + 152);
   KxReleaseQueuedSpinLock((volatile signed __int64 **)&v16);
   OldIrql = v16.OldIrql;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v16.OldIrql <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v16.OldIrql <= 0xFu && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -40,7 +40,7 @@ __int64 __fastcall CcLogExtraWBThreadAction(__int64 a1, __int64 a2, int a3)
       v14 = (v13 & SchedulerAssist[5]) == 0;
       SchedulerAssist[5] &= v13;
       if ( v14 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
     }
   }
   __writecr8(OldIrql);

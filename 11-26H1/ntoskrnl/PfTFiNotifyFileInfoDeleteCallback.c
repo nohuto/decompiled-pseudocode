@@ -1,10 +1,10 @@
 /*
- * XREFs of PfTFiNotifyFileInfoDeleteCallback @ 0x14048B470
+ * XREFs of PfTFiNotifyFileInfoDeleteCallback @ 0x140484FB0
  * Callers:
  *     <none>
  * Callees:
- *     PfFbLogEntryReserve @ 0x14048B598 (PfFbLogEntryReserve.c)
- *     PfFbLogEntryComplete @ 0x14048B690 (PfFbLogEntryComplete.c)
+ *     PfFbLogEntryReserve @ 0x1404850D8 (PfFbLogEntryReserve.c)
+ *     PfFbLogEntryComplete @ 0x1404851D0 (PfFbLogEntryComplete.c)
  */
 
 __int64 __fastcall PfTFiNotifyFileInfoDeleteCallback(__int64 a1, __int64 a2)
@@ -33,7 +33,7 @@ __int64 __fastcall PfTFiNotifyFileInfoDeleteCallback(__int64 a1, __int64 a2)
     *(_DWORD *)(v6 + 16) = v7 | (4 * *(_DWORD *)(a2 + 24));
     *(_QWORD *)(v6 + 24) = *(_QWORD *)(a2 + 8);
     *(_DWORD *)v6 = *(_DWORD *)v6 & 0x80000000 | 0x103;
-    *(_DWORD *)(v6 + 4) = HIDWORD(stru_140E66B30.WriteOperationCount)
+    *(_DWORD *)(v6 + 4) = HIDWORD(stru_140E66D40.WriteOperationCount)
                         + ((((MEMORY[0xFFFFF78000000004] * HIDWORD(MEMORY[0xFFFFF78000000320])) << 8)
                           + ((MEMORY[0xFFFFF78000000004] * (unsigned __int64)MEMORY[0xFFFFF78000000320]) >> 24)) >> 10);
     v8 = v11;

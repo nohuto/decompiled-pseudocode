@@ -1,9 +1,9 @@
 /*
- * XREFs of ExGetHeapFromType @ 0x1403BA3BC
+ * XREFs of ExGetHeapFromType @ 0x1403BA59C
  * Callers:
- *     ExAllocateHeapPages @ 0x1403B9BBC (ExAllocateHeapPages.c)
- *     ExAllocateContiguousHeapPool @ 0x1403BA114 (ExAllocateContiguousHeapPool.c)
- *     ExAllocateHeapSpecialPool @ 0x14060ED30 (ExAllocateHeapSpecialPool.c)
+ *     ExAllocateHeapPages @ 0x1403B9D9C (ExAllocateHeapPages.c)
+ *     ExAllocateContiguousHeapPool @ 0x1403BA2F4 (ExAllocateContiguousHeapPool.c)
+ *     ExAllocateHeapSpecialPool @ 0x14060F280 (ExAllocateHeapSpecialPool.c)
  * Callees:
  *     <none>
  */

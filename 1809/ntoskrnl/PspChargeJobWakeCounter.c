@@ -1,15 +1,15 @@
 /*
- * XREFs of PspChargeJobWakeCounter @ 0x1405FD81C
+ * XREFs of PspChargeJobWakeCounter @ 0x1405FE81C
  * Callers:
- *     PspAssignProcessToJob @ 0x140605664 (PspAssignProcessToJob.c)
- *     PspChargeProcessWakeCounter @ 0x140636C70 (PspChargeProcessWakeCounter.c)
+ *     PspAssignProcessToJob @ 0x140606664 (PspAssignProcessToJob.c)
+ *     PspChargeProcessWakeCounter @ 0x140637C90 (PspChargeProcessWakeCounter.c)
  * Callees:
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceSharedLite @ 0x140050860 (ExAcquireResourceSharedLite.c)
- *     PspUnlockJob @ 0x1405FE0C0 (PspUnlockJob.c)
- *     PspLockRootJobShared @ 0x1405FE1FC (PspLockRootJobShared.c)
- *     PspSendWakeNotification @ 0x1406000F4 (PspSendWakeNotification.c)
- *     EtwTraceWakeCounter @ 0x1408B7E84 (EtwTraceWakeCounter.c)
+ *     PspUnlockJob @ 0x1405FF0C0 (PspUnlockJob.c)
+ *     PspLockRootJobShared @ 0x1405FF1FC (PspLockRootJobShared.c)
+ *     PspSendWakeNotification @ 0x1406010F4 (PspSendWakeNotification.c)
+ *     EtwTraceWakeCounter @ 0x1408B9144 (EtwTraceWakeCounter.c)
  */
 
 void __fastcall PspChargeJobWakeCounter(
@@ -62,7 +62,7 @@ void __fastcall PspChargeJobWakeCounter(
       {
         if ( (a5 & 2) != 0 && (_BYTE)KdDebuggerEnabled )
           __int2c();
-        if ( (xmmword_140541350 & 0x200) != 0 )
+        if ( (xmmword_140542350 & 0x200) != 0 )
           EtwTraceWakeCounter(v8, v10, 0, a6, a7);
       }
       if ( (a5 & 1) != 0 )

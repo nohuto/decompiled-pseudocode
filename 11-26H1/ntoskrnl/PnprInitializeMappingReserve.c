@@ -1,11 +1,11 @@
 /*
- * XREFs of PnprInitializeMappingReserve @ 0x1407AF578
+ * XREFs of PnprInitializeMappingReserve @ 0x1407B25D8
  * Callers:
- *     PnprAllocateMappingReserves @ 0x1407AEC04 (PnprAllocateMappingReserves.c)
+ *     PnprAllocateMappingReserves @ 0x1407B1C64 (PnprAllocateMappingReserves.c)
  * Callees:
- *     IoAllocateMdl @ 0x14040BA40 (IoAllocateMdl.c)
- *     MmAllocateMappingAddressEx @ 0x140AF1F50 (MmAllocateMappingAddressEx.c)
- *     MmFreeMappingAddress @ 0x140B12E50 (MmFreeMappingAddress.c)
+ *     IoAllocateMdl @ 0x1404046D0 (IoAllocateMdl.c)
+ *     MmAllocateMappingAddressEx @ 0x140AF4820 (MmAllocateMappingAddressEx.c)
+ *     MmFreeMappingAddress @ 0x140B14CF0 (MmFreeMappingAddress.c)
  */
 
 __int64 __fastcall PnprInitializeMappingReserve(__int16 a1, __int64 a2)
@@ -33,11 +33,11 @@ __int64 __fastcall PnprInitializeMappingReserve(__int16 a1, __int64 a2)
       return v4;
     }
     MmFreeMappingAddress(v6, 0x51706E50u);
-    v7 = 3936;
+    v7 = 3594;
   }
   else
   {
-    v7 = 3921;
+    v7 = 3579;
   }
   v8 = PnprContext;
   v4 = -1073741670;

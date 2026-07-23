@@ -1,9 +1,9 @@
 /*
- * XREFs of _exception_enabled @ 0x180129FA0
+ * XREFs of _exception_enabled @ 0x1801281D0
  * Callers:
- *     _handle_error @ 0x18012A070 (_handle_error.c)
+ *     _handle_error @ 0x1801282A0 (_handle_error.c)
  * Callees:
- *     _set_statfp @ 0x18012B420 (_set_statfp.c)
+ *     _set_statfp @ 0x180129650 (_set_statfp.c)
  */
 
 _BOOL8 __fastcall exception_enabled(char a1, __int16 a2)

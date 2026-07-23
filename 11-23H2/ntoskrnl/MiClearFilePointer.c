@@ -1,12 +1,12 @@
 /*
- * XREFs of MiClearFilePointer @ 0x140355690
+ * XREFs of MiClearFilePointer @ 0x140355830
  * Callers:
  *     MiDestroySection @ 0x14020184C (MiDestroySection.c)
- *     MiCheckControlArea @ 0x14029FBC0 (MiCheckControlArea.c)
- *     MiCheckForControlAreaDeletion @ 0x140339C78 (MiCheckForControlAreaDeletion.c)
+ *     MiCheckControlArea @ 0x14029FE50 (MiCheckControlArea.c)
+ *     MiCheckForControlAreaDeletion @ 0x140339F08 (MiCheckForControlAreaDeletion.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14028A930 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14028ABC0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
  */
 
 void __fastcall MiClearFilePointer(__int64 a1)

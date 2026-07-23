@@ -13,51 +13,108 @@
  *     NtQueryValueKey @ 0x1800A4350 (NtQueryValueKey.c)
  */
 
-__int64 __fastcall OpenGlobalizationUserSettingsKey_ForSingleUserModel(__int64 a1, _QWORD *a2)
+__int64 __fastcall OpenGlobalizationUserSettingsKey_ForSingleUserModel(ACCESS_MASK DesiredAccess, PHANDLE KeyHandle)
 {
-  int v3; // ebx
-  _QWORD v5[2]; // [rsp+48h] [rbp-21h] BYREF
-  UNICODE_STRING v6; // [rsp+58h] [rbp-11h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+68h] [rbp-1h] BYREF
-  int v8; // [rsp+78h] [rbp+Fh]
-  __int64 v9; // [rsp+80h] [rbp+17h]
-  UNICODE_STRING *p_DestinationString; // [rsp+88h] [rbp+1Fh]
-  int v11; // [rsp+90h] [rbp+27h]
-  __int128 v12; // [rsp+98h] [rbp+2Fh]
+  NTSTATUS v4; // ebx
+  NTSTATUS v5; // eax
+  WCHAR *Heap; // rsi
+  HANDLE v7; // rax
+  HANDLE v8; // rax
+  HANDLE v10; // [rsp+30h] [rbp-39h] BYREF
+  _UNICODE_STRING SourceString; // [rsp+38h] [rbp-31h] BYREF
+  _UNICODE_STRING v12; // [rsp+48h] [rbp-21h] BYREF
+  _UNICODE_STRING v13; // [rsp+58h] [rbp-11h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+68h] [rbp-1h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+78h] [rbp+Fh] BYREF
+  ULONG ResultLength; // [rsp+E0h] [rbp+77h] BYREF
+  HANDLE KeyHandlea; // [rsp+E8h] [rbp+7Fh] BYREF
 
   if ( dword_18017F024 )
   {
     RtlInitUnicodeString(&DestinationString, &word_18017B350);
-    v9 = 0LL;
-    p_DestinationString = &DestinationString;
-    v8 = 48;
-    v11 = 576;
-    v12 = 0LL;
-    return (unsigned int)NtOpenKey();
+    ObjectAttributes.RootDirectory = 0LL;
+    ObjectAttributes.ObjectName = &DestinationString;
+    ObjectAttributes.Length = 48;
+    ObjectAttributes.Attributes = 576;
+    *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+    return (unsigned int)NtOpenKey(KeyHandle, DesiredAccess, &ObjectAttributes);
   }
-  else
+  KeyHandlea = 0LL;
+  RtlInitUnicodeString(&v13, L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\CommonGlobUserSettings\\");
+  ObjectAttributes.RootDirectory = 0LL;
+  ObjectAttributes.ObjectName = &v13;
+  ObjectAttributes.Length = 48;
+  ObjectAttributes.Attributes = 576;
+  *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+  v4 = NtOpenKey(&KeyHandlea, DesiredAccess, &ObjectAttributes);
+  if ( v4 >= 0 )
   {
-    RtlInitUnicodeString(&v6, L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\CommonGlobUserSettings\\");
-    v9 = 0LL;
-    p_DestinationString = &v6;
-    v8 = 48;
-    v11 = 576;
-    v12 = 0LL;
-    v3 = NtOpenKey();
-    if ( v3 >= 0 )
+    ResultLength = 0;
+    RtlInitUnicodeString(&DestinationString, L"RedirectedKey");
+    v5 = NtQueryValueKey(KeyHandlea, &DestinationString, KeyValuePartialInformation, 0LL, 0, &ResultLength);
+    if ( !ResultLength || v5 != -1073741789 && v5 != -2147483643 )
     {
-      RtlInitUnicodeString(&DestinationString, L"RedirectedKey");
-      NtQueryValueKey();
-      v5[0] = 11141120LL;
-      v5[1] = &word_18017B350;
-      if ( v6.Length <= 0xAAu )
+      *(_QWORD *)&v12.Length = 11141120LL;
+      v12.Buffer = &word_18017B350;
+      if ( v13.Length <= 0xAAu )
       {
-        RtlCopyUnicodeString((unsigned __int16 *)v5, &v6.Length);
+        RtlCopyUnicodeString(&v12, &v13);
         dword_18017F024 = 1;
       }
-      v3 = 0;
-      *a2 = 0LL;
+      v8 = KeyHandlea;
+      KeyHandlea = 0LL;
+      v4 = 0;
+      *KeyHandle = v8;
+      goto LABEL_21;
     }
+    Heap = (WCHAR *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, ResultLength);
+    if ( Heap )
+    {
+      v4 = NtQueryValueKey(
+             KeyHandlea,
+             &DestinationString,
+             KeyValuePartialInformation,
+             Heap,
+             ResultLength,
+             &ResultLength);
+      if ( v4 >= 0 )
+      {
+        if ( *((_DWORD *)Heap + 1) != 1 )
+        {
+          v7 = KeyHandlea;
+          KeyHandlea = 0LL;
+LABEL_15:
+          *KeyHandle = v7;
+          goto LABEL_16;
+        }
+        RtlInitUnicodeString(&SourceString, Heap + 6);
+        ObjectAttributes.RootDirectory = 0LL;
+        ObjectAttributes.ObjectName = &SourceString;
+        ObjectAttributes.Length = 48;
+        ObjectAttributes.Attributes = 576;
+        *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+        v4 = NtOpenKey(&v10, DesiredAccess, &ObjectAttributes);
+        if ( v4 >= 0 )
+        {
+          *(_QWORD *)&v12.Length = 11141120LL;
+          v12.Buffer = &word_18017B350;
+          if ( SourceString.Length <= 0xAAu )
+          {
+            RtlCopyUnicodeString(&v12, &SourceString);
+            dword_18017F024 = 1;
+          }
+          v7 = v10;
+          goto LABEL_15;
+        }
+      }
+LABEL_16:
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Heap);
+      goto LABEL_21;
+    }
+    v4 = -1073741801;
   }
-  return (unsigned int)v3;
+LABEL_21:
+  if ( KeyHandlea )
+    NtClose(KeyHandlea);
+  return (unsigned int)v4;
 }

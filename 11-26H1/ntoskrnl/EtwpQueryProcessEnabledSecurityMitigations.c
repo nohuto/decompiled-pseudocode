@@ -1,7 +1,7 @@
 /*
- * XREFs of EtwpQueryProcessEnabledSecurityMitigations @ 0x1404CE9B8
+ * XREFs of EtwpQueryProcessEnabledSecurityMitigations @ 0x1404C83E8
  * Callers:
- *     EtwpPsProvTraceProcess @ 0x140952CBC (EtwpPsProvTraceProcess.c)
+ *     EtwpPsProvTraceProcess @ 0x1409CE5FC (EtwpPsProvTraceProcess.c)
  * Callees:
  *     <none>
  */

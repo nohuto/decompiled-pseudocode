@@ -20,17 +20,17 @@ __int64 __fastcall RtlSetProcessPreferredUILanguages(int a1, WCHAR *a2, _DWORD *
   __int64 result; // rax
   int v7; // ebx
   __int64 v8; // rdx
-  __int64 v9; // rcx
-  __int64 v10; // rdi
+  PVOID v9; // rcx
+  PVOID v10; // rdi
   __int64 v11; // rax
-  __int64 v12; // rsi
+  void *v12; // rsi
   __int64 v13; // rdx
-  __int64 v14; // [rsp+40h] [rbp-28h] BYREF
-  __int64 v15[4]; // [rsp+48h] [rbp-20h] BYREF
+  PVOID BaseAddress; // [rsp+40h] [rbp-28h] BYREF
+  _QWORD v15[4]; // [rsp+48h] [rbp-20h] BYREF
   unsigned int v16; // [rsp+88h] [rbp+20h] BYREF
 
   v15[0] = 0LL;
-  v14 = 0LL;
+  BaseAddress = 0LL;
   v5 = a1;
   if ( NtCurrentTeb()->IsImpersonating )
     return 3221225741LL;
@@ -56,40 +56,40 @@ __int64 __fastcall RtlSetProcessPreferredUILanguages(int a1, WCHAR *a2, _DWORD *
   {
     if ( v16 < 2 || *a2 || a2[1] )
     {
-      v7 = RtlpMuiRegAddMultiSzToLangFallbackList(g_RegInfo, a2, v16, v5 | 2u, 26, 5u, &v14);
+      v7 = RtlpMuiRegAddMultiSzToLangFallbackList((__int64)g_RegInfo, a2, v16, v5 | 2u, 26, 5u, (__int64 *)&BaseAddress);
       if ( v7 < 0 )
       {
-        v9 = v14;
+        v9 = BaseAddress;
 LABEL_28:
         RtlpMuiRegFreeLanguageList(v9);
         return (unsigned int)v7;
       }
-      v10 = v14;
-      if ( !v14 || !*(_WORD *)(v14 + 4) )
+      v10 = BaseAddress;
+      if ( !BaseAddress || !*((_WORD *)BaseAddress + 2) )
       {
-        RtlpMuiRegFreeLanguageList(v14);
+        RtlpMuiRegFreeLanguageList(BaseAddress);
         return (unsigned int)-1073741823;
       }
       if ( a3 )
-        *a3 = *(unsigned __int16 *)(v14 + 4);
+        *a3 = *((unsigned __int16 *)BaseAddress + 2);
 LABEL_24:
       RtlpInitMuiCriticalSection();
-      RtlEnterCriticalSection((__int64)&RegistryInfoCritSect);
+      RtlEnterCriticalSection(&RegistryInfoCritSect);
       v11 = v15[0];
-      v12 = *(_QWORD *)(v15[0] + 72);
-      *(_QWORD *)(v15[0] + 72) = v10;
+      v12 = *(void **)(v15[0] + 72LL);
+      *(_QWORD *)(v15[0] + 72LL) = v10;
       ++*(_DWORD *)(v11 + 16);
       v13 = *(_QWORD *)(v11 + 96);
       if ( v13 )
         *(_DWORD *)(v13 + 40) |= 0x80u;
-      RtlLeaveCriticalSection((__int64)&RegistryInfoCritSect);
+      RtlLeaveCriticalSection(&RegistryInfoCritSect);
       if ( !v12 )
         return (unsigned int)v7;
       v9 = v12;
       goto LABEL_28;
     }
 LABEL_23:
-    v10 = v14;
+    v10 = BaseAddress;
     goto LABEL_24;
   }
   return (unsigned int)-1073741811;

@@ -19,72 +19,84 @@
  *     LdrpLogDbgPrint @ 0x1800C9198 (LdrpLogDbgPrint.c)
  */
 
-__int64 __fastcall LdrpProcessWork(__int64 a1, char a2)
+int __fastcall LdrpProcessWork(__int64 a1, char a2)
 {
-  __int64 result; // rax
+  __int64 v4; // rax
   int v5; // edi
-  __int64 v6; // rdx
-  int v7; // eax
-  char v8; // bl
+  __int64 v6; // rax
+  __int64 v7; // rdx
+  int v8; // eax
+  char v9; // bl
+  int v11; // [rsp+20h] [rbp-28h]
+  __int64 v12; // [rsp+28h] [rbp-20h]
+  __int64 v13; // [rsp+30h] [rbp-18h]
+  int v14; // [rsp+38h] [rbp-10h]
 
-  result = *(_QWORD *)(a1 + 32);
-  if ( *(int *)result < 0 )
-    goto LABEL_19;
+  v4 = *(_QWORD *)(a1 + 32);
+  if ( *(int *)v4 < 0 )
+    goto LABEL_21;
   if ( *(_DWORD *)(*(_QWORD *)(*(_QWORD *)(a1 + 48) + 152LL) + 56LL) )
   {
-    result = LdrpSnapModule(a1);
-    v5 = result;
+    LODWORD(v4) = LdrpSnapModule(a1);
+    v5 = v4;
   }
   else
   {
     if ( (*(_DWORD *)(a1 + 24) & 0x200) != 0 )
-      result = LdrpMapDllFullPath(a1);
+      LODWORD(v4) = LdrpMapDllFullPath(a1);
     else
-      result = LdrpMapDllSearchPath(a1);
-    v5 = result;
-    if ( (int)result >= 0 )
-      goto LABEL_19;
-    result = (unsigned int)LdrpDebugFlags;
+      LODWORD(v4) = LdrpMapDllSearchPath(a1);
+    v5 = v4;
+    if ( (int)v4 >= 0 )
+      goto LABEL_21;
+    LODWORD(v4) = LdrpDebugFlags;
     if ( (LdrpDebugFlags & 3) != 0 )
     {
+      v6 = *(_QWORD *)(a1 + 40);
+      if ( v6 )
+        v6 += 72LL;
+      v14 = v5;
+      v13 = v6;
+      v12 = a1;
       LdrpLogDbgPrint(
         (unsigned int)"minkernel\\ntdll\\ldrmap.c",
         1544,
         (unsigned int)"LdrpProcessWork",
         0,
         (__int64)"Unable to load DLL: \"%wZ\", Parent Module: \"%wZ\", Status: 0x%x\n");
-      result = (unsigned int)LdrpDebugFlags;
+      LODWORD(v4) = LdrpDebugFlags;
     }
-    if ( (result & 0x10) != 0 )
+    if ( (v4 & 0x10) != 0 )
       __debugbreak();
     if ( v5 == -1073741515 )
     {
       LdrpLogError(-1073741515, 25, 0, a1);
       LdrpLogDeprecatedDllEtwEvent(a1);
-      v6 = *(_QWORD *)(a1 + 40);
-      if ( v6 )
-        LODWORD(v6) = v6 + 72;
-      LdrpLogLoadFailureEtwEvent(a1, v6, -1073741515, (unsigned int)&LoadFailure, 0);
-      result = *(_QWORD *)(a1 + 48);
-      if ( (*(_BYTE *)(result + 104) & 0x20) != 0 )
-        result = LdrpReportError(a1, 0LL, 3221225781LL);
+      v7 = *(_QWORD *)(a1 + 40);
+      if ( v7 )
+        v7 += 72LL;
+      LOBYTE(v11) = 0;
+      LdrpLogLoadFailureEtwEvent(a1, v7, 3221225781LL, &LoadFailure, v11, v12, v13, v14);
+      v4 = *(_QWORD *)(a1 + 48);
+      if ( (*(_BYTE *)(v4 + 104) & 0x20) != 0 )
+        LODWORD(v4) = LdrpReportError(a1, 0LL, 3221225781LL);
     }
   }
   if ( v5 < 0 )
   {
-    result = *(_QWORD *)(a1 + 32);
-    *(_DWORD *)result = v5;
+    v4 = *(_QWORD *)(a1 + 32);
+    *(_DWORD *)v4 = v5;
   }
-LABEL_19:
+LABEL_21:
   if ( !a2 )
   {
     RtlEnterCriticalSection(&LdrpWorkQueueLock);
-    v7 = --LdrpWorkInProgress;
-    if ( (__int64 *)LdrpWorkQueue != &LdrpWorkQueue || (v8 = 1, v7 != 1) )
-      v8 = 0;
-    result = RtlLeaveCriticalSection(&LdrpWorkQueueLock);
-    if ( v8 )
-      return ZwSetEvent(LdrpWorkCompleteEvent, 0LL);
+    v8 = --LdrpWorkInProgress;
+    if ( (__int64 *)LdrpWorkQueue != &LdrpWorkQueue || (v9 = 1, v8 != 1) )
+      v9 = 0;
+    LODWORD(v4) = RtlLeaveCriticalSection(&LdrpWorkQueueLock);
+    if ( v9 )
+      LODWORD(v4) = ZwSetEvent(LdrpWorkCompleteEvent, 0LL);
   }
-  return result;
+  return v4;
 }

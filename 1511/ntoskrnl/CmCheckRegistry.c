@@ -15,7 +15,7 @@
 
 __int64 __fastcall CmCheckRegistry(ULONG_PTR BugCheckParameter2, int a2)
 {
-  struct _RTL_BITMAP *v4; // r12
+  _RTL_BITMAP *v4; // r12
   void *v5; // r14
   __int64 v6; // r15
   unsigned int v7; // edi
@@ -45,7 +45,7 @@ __int64 __fastcall CmCheckRegistry(ULONG_PTR BugCheckParameter2, int a2)
   if ( v8 && (PoolWithTag = ExAllocatePoolWithTag(PagedPool, v8, 0x624C4D43u), (v5 = PoolWithTag) != 0LL) )
   {
     v15 = v7;
-    v4 = (struct _RTL_BITMAP *)&v15;
+    v4 = (_RTL_BITMAP *)&v15;
     v16 = PoolWithTag;
     while ( 1 )
     {

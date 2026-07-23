@@ -1,10 +1,10 @@
 /*
- * XREFs of PopDirectedDripsDiagInsertErrorRecord @ 0x1408F7088
+ * XREFs of PopDirectedDripsDiagInsertErrorRecord @ 0x1408F71E8
  * Callers:
- *     PopDirectedDripsDiagTraceBroadcastFailureDevice @ 0x1408F800C (PopDirectedDripsDiagTraceBroadcastFailureDevice.c)
- *     PopDirectedDripsDiagTraceProblemDevice @ 0x1408F838C (PopDirectedDripsDiagTraceProblemDevice.c)
+ *     PopDirectedDripsDiagTraceBroadcastFailureDevice @ 0x1408F816C (PopDirectedDripsDiagTraceBroadcastFailureDevice.c)
+ *     PopDirectedDripsDiagTraceProblemDevice @ 0x1408F84EC (PopDirectedDripsDiagTraceProblemDevice.c)
  * Callees:
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 _QWORD *__fastcall PopDirectedDripsDiagInsertErrorRecord(__int64 a1, __int64 a2, int a3)

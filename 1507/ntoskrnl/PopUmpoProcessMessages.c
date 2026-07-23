@@ -13,29 +13,37 @@
  *     PopUmpoProcessMessage @ 0x1404FFA1C (PopUmpoProcessMessage.c)
  */
 
-ULONG PopUmpoProcessMessages()
+NTSTATUS PopUmpoProcessMessages()
 {
-  ULONG result; // eax
-  ULONG v1; // r8d
-  char *MessageAttribute; // rax
-  __int64 v3; // [rsp+40h] [rbp-2D8h] BYREF
-  __int64 v4; // [rsp+48h] [rbp-2D0h] BYREF
-  _BYTE v5[16]; // [rsp+50h] [rbp-2C8h] BYREF
-  _DWORD v6[40]; // [rsp+60h] [rbp-2B8h] BYREF
-  _BYTE v7[512]; // [rsp+100h] [rbp-218h] BYREF
+  NTSTATUS result; // eax
+  NTSTATUS v1; // r8d
+  _ALPC_CONTEXT_ATTR *MessageAttribute; // rax
+  LARGE_INTEGER Timeout; // [rsp+40h] [rbp-2D8h] BYREF
+  ULONG_PTR BufferLength; // [rsp+48h] [rbp-2D0h] BYREF
+  ULONG_PTR RequiredBufferSize[2]; // [rsp+50h] [rbp-2C8h] BYREF
+  _ALPC_MESSAGE_ATTRIBUTES Buffer[20]; // [rsp+60h] [rbp-2B8h] BYREF
+  _PORT_MESSAGE ConnectionRequest; // [rsp+100h] [rbp-218h] BYREF
 
-  v3 = 0LL;
-  memset(v6, 0, 0x98uLL);
+  Timeout.QuadPart = 0LL;
+  memset(Buffer, 0, 0x98uLL);
   while ( 1 )
   {
-    AlpcInitializeMessageAttribute(0x20000000LL, v6, 152LL, v5);
-    v4 = 512LL;
-    result = ZwAlpcSendWaitReceivePort(PopAlpcServerPort, 0LL, 0LL, 0LL, v7, &v4, v6, &v3);
+    AlpcInitializeMessageAttribute(0x20000000u, Buffer, 0x98uLL, RequiredBufferSize);
+    BufferLength = 512LL;
+    result = ZwAlpcSendWaitReceivePort(
+               PopAlpcServerPort,
+               0,
+               0LL,
+               0LL,
+               &ConnectionRequest,
+               &BufferLength,
+               Buffer,
+               &Timeout);
     v1 = result;
     if ( result )
       break;
-    MessageAttribute = AlpcGetMessageAttribute(v6, 0x20000000);
-    PopUmpoProcessMessage(v7, MessageAttribute);
+    MessageAttribute = (_ALPC_CONTEXT_ATTR *)AlpcGetMessageAttribute(Buffer, 0x20000000u);
+    PopUmpoProcessMessage(&ConnectionRequest, MessageAttribute);
   }
   if ( result != 258 )
   {

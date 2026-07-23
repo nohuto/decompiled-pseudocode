@@ -1,12 +1,12 @@
 /*
- * XREFs of MiAllocateSubsectionProtos @ 0x140458B54
+ * XREFs of MiAllocateSubsectionProtos @ 0x1404503C4
  * Callers:
- *     MiGetAllSubsectionCharges @ 0x1404CE844 (MiGetAllSubsectionCharges.c)
+ *     MiGetAllSubsectionCharges @ 0x1404C8274 (MiGetAllSubsectionCharges.c)
  * Callees:
- *     MiAllocateProtoPool @ 0x140396B20 (MiAllocateProtoPool.c)
- *     MiSetSubsectionBase @ 0x140458C48 (MiSetSubsectionBase.c)
- *     MiUpdateSystemProtoPtesTree @ 0x140458D20 (MiUpdateSystemProtoPtesTree.c)
- *     MiInitializePrototypePtes @ 0x1409B8000 (MiInitializePrototypePtes.c)
+ *     MiAllocateProtoPool @ 0x1403988A0 (MiAllocateProtoPool.c)
+ *     MiSetSubsectionBase @ 0x1404504B8 (MiSetSubsectionBase.c)
+ *     MiUpdateSystemProtoPtesTree @ 0x140450590 (MiUpdateSystemProtoPtesTree.c)
+ *     MiInitializePrototypePtes @ 0x140988FE0 (MiInitializePrototypePtes.c)
  */
 
 __int64 __fastcall MiAllocateSubsectionProtos(ULONG_PTR BugCheckParameter2, unsigned __int64 a2, unsigned __int64 a3)

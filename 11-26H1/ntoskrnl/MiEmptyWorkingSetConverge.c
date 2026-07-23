@@ -1,14 +1,14 @@
 /*
- * XREFs of MiEmptyWorkingSetConverge @ 0x1403BAD38
+ * XREFs of MiEmptyWorkingSetConverge @ 0x1403C4BA8
  * Callers:
- *     MiTrimWorkingSet @ 0x1403BA50C (MiTrimWorkingSet.c)
+ *     MiTrimWorkingSet @ 0x1403C437C (MiTrimWorkingSet.c)
  * Callees:
- *     MiLockWorkingSetExclusive @ 0x14027E5A0 (MiLockWorkingSetExclusive.c)
- *     MiUnlockWorkingSetExclusive @ 0x14027E758 (MiUnlockWorkingSetExclusive.c)
- *     MiUnlockWorkingSetShared @ 0x1402EB6C0 (MiUnlockWorkingSetShared.c)
- *     MiLockWorkingSetShared @ 0x1402EDD60 (MiLockWorkingSetShared.c)
- *     MiEmptyWorkingSetBuckets @ 0x1403BAEEC (MiEmptyWorkingSetBuckets.c)
- *     MiEmptyWorkingSetInitiate @ 0x1403BC020 (MiEmptyWorkingSetInitiate.c)
+ *     MiLockWorkingSetExclusive @ 0x14027DB10 (MiLockWorkingSetExclusive.c)
+ *     MiUnlockWorkingSetExclusive @ 0x14027DCC8 (MiUnlockWorkingSetExclusive.c)
+ *     MiUnlockWorkingSetShared @ 0x1402CD700 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x1402CFDE0 (MiLockWorkingSetShared.c)
+ *     MiEmptyWorkingSetBuckets @ 0x1403C4D5C (MiEmptyWorkingSetBuckets.c)
+ *     MiEmptyWorkingSetInitiate @ 0x1403C5E90 (MiEmptyWorkingSetInitiate.c)
  */
 
 __int64 __fastcall MiEmptyWorkingSetConverge(__int64 a1, __int16 a2)
@@ -105,7 +105,7 @@ LABEL_14:
       MiUnlockWorkingSetShared(v3, v12);
     else
       MiUnlockWorkingSetExclusive(v3, v5);
-    MiEmptyWorkingSetInitiate(v3, 1LL, 0LL, -1LL);
+    MiEmptyWorkingSetInitiate(v3, 1LL, 0LL);
     return MiLockWorkingSetShared(v3, v17, v18);
   }
   if ( !(_DWORD)result )

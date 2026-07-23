@@ -1,24 +1,24 @@
 /*
- * XREFs of KiEndThreadAccountingPeriod @ 0x1400D2030
+ * XREFs of KiEndThreadAccountingPeriod @ 0x1400D20B0
  * Callers:
  *     KeDelayExecutionThread @ 0x14004DA20 (KeDelayExecutionThread.c)
- *     KiChooseTargetProcessor @ 0x1400C43D0 (KiChooseTargetProcessor.c)
- *     KeQueryTotalCycleTimeThread @ 0x1400D1D80 (KeQueryTotalCycleTimeThread.c)
- *     KiEndThreadCycleAccumulation @ 0x1400D1FA0 (KiEndThreadCycleAccumulation.c)
- *     KiScanInterruptObjectList @ 0x1401BD5E0 (KiScanInterruptObjectList.c)
- *     KiInterruptSubDispatch @ 0x1401BD7C0 (KiInterruptSubDispatch.c)
- *     KiInterruptSubDispatchNoLock @ 0x1401BD910 (KiInterruptSubDispatchNoLock.c)
- *     KiInterruptSubDispatchNoLockNoEtw @ 0x1401BDA60 (KiInterruptSubDispatchNoLockNoEtw.c)
- *     KiSpuriousDispatchNoEOI @ 0x1401BEAF0 (KiSpuriousDispatchNoEOI.c)
- *     KxIsrLinkage @ 0x1401BF730 (KxIsrLinkage.c)
- *     KiHvInterruptSubDispatch @ 0x1401C27E0 (KiHvInterruptSubDispatch.c)
- *     KiVmbusInterruptSubDispatch @ 0x1401C2940 (KiVmbusInterruptSubDispatch.c)
- *     KiSwInterrupt @ 0x1401C2AA0 (KiSwInterrupt.c)
- *     KiIpiInterruptSubDispatch @ 0x1401C3EC0 (KiIpiInterruptSubDispatch.c)
- *     KxDispatchInterrupt @ 0x1401C40E0 (KxDispatchInterrupt.c)
+ *     KiChooseTargetProcessor @ 0x1400C4310 (KiChooseTargetProcessor.c)
+ *     KeQueryTotalCycleTimeThread @ 0x1400D1E00 (KeQueryTotalCycleTimeThread.c)
+ *     KiEndThreadCycleAccumulation @ 0x1400D2020 (KiEndThreadCycleAccumulation.c)
+ *     KiScanInterruptObjectList @ 0x1401BD740 (KiScanInterruptObjectList.c)
+ *     KiInterruptSubDispatch @ 0x1401BD920 (KiInterruptSubDispatch.c)
+ *     KiInterruptSubDispatchNoLock @ 0x1401BDA70 (KiInterruptSubDispatchNoLock.c)
+ *     KiInterruptSubDispatchNoLockNoEtw @ 0x1401BDBC0 (KiInterruptSubDispatchNoLockNoEtw.c)
+ *     KiSpuriousDispatchNoEOI @ 0x1401BEC50 (KiSpuriousDispatchNoEOI.c)
+ *     KxIsrLinkage @ 0x1401BF890 (KxIsrLinkage.c)
+ *     KiHvInterruptSubDispatch @ 0x1401C2940 (KiHvInterruptSubDispatch.c)
+ *     KiVmbusInterruptSubDispatch @ 0x1401C2AA0 (KiVmbusInterruptSubDispatch.c)
+ *     KiSwInterrupt @ 0x1401C2C00 (KiSwInterrupt.c)
+ *     KiIpiInterruptSubDispatch @ 0x1401C4020 (KiIpiInterruptSubDispatch.c)
+ *     KxDispatchInterrupt @ 0x1401C4240 (KxDispatchInterrupt.c)
  * Callees:
- *     KiEndCounterAccumulation @ 0x140295F70 (KiEndCounterAccumulation.c)
- *     KiSetVpThreadSystemWork @ 0x140299760 (KiSetVpThreadSystemWork.c)
+ *     KiEndCounterAccumulation @ 0x140296160 (KiEndCounterAccumulation.c)
+ *     KiSetVpThreadSystemWork @ 0x140299950 (KiSetVpThreadSystemWork.c)
  */
 
 void __fastcall KiEndThreadAccountingPeriod(__int64 a1, __int64 a2, unsigned __int64 a3)

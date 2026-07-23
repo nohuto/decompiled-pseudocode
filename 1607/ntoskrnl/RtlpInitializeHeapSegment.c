@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlpInitializeHeapSegment @ 0x14012E79C
+ * XREFs of RtlpInitializeHeapSegment @ 0x14012ED0C
  * Callers:
- *     RtlpExtendHeap @ 0x140092FE4 (RtlpExtendHeap.c)
- *     RtlCreateHeap @ 0x140540228 (RtlCreateHeap.c)
+ *     RtlpExtendHeap @ 0x1400927E4 (RtlpExtendHeap.c)
+ *     RtlCreateHeap @ 0x140540768 (RtlCreateHeap.c)
  * Callees:
- *     RtlpInsertFreeBlock @ 0x1400930CC (RtlpInsertFreeBlock.c)
- *     RtlpCreateUCREntry @ 0x140094EF8 (RtlpCreateUCREntry.c)
- *     RtlpLogHeapFailure @ 0x140159514 (RtlpLogHeapFailure.c)
- *     ZwAllocateVirtualMemory @ 0x140159F80 (ZwAllocateVirtualMemory.c)
- *     RtlpLogHeapCommit @ 0x140218EA8 (RtlpLogHeapCommit.c)
+ *     RtlpInsertFreeBlock @ 0x1400928CC (RtlpInsertFreeBlock.c)
+ *     RtlpCreateUCREntry @ 0x1400946F8 (RtlpCreateUCREntry.c)
+ *     RtlpLogHeapFailure @ 0x140159A84 (RtlpLogHeapFailure.c)
+ *     ZwAllocateVirtualMemory @ 0x14015A4F0 (ZwAllocateVirtualMemory.c)
+ *     RtlpLogHeapCommit @ 0x140218CD4 (RtlpLogHeapCommit.c)
  */
 
 char __fastcall RtlpInitializeHeapSegment(

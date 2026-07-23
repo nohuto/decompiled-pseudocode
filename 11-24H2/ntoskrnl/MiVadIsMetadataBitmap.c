@@ -1,8 +1,8 @@
 /*
- * XREFs of MiVadIsMetadataBitmap @ 0x1408E8D78
+ * XREFs of MiVadIsMetadataBitmap @ 0x1408D9558
  * Callers:
- *     NtAreMappedFilesTheSame @ 0x1408E8130 (NtAreMappedFilesTheSame.c)
- *     MiLockVadRange @ 0x1408E8B10 (MiLockVadRange.c)
+ *     NtAreMappedFilesTheSame @ 0x1408D8910 (NtAreMappedFilesTheSame.c)
+ *     MiLockVadRange @ 0x1408D92F0 (MiLockVadRange.c)
  * Callees:
  *     <none>
  */

@@ -8,93 +8,87 @@
  *     ZwAllocateVirtualMemory @ 0x1800A4370 (ZwAllocateVirtualMemory.c)
  */
 
-unsigned __int64 *__fastcall RtlAllocateHandle(__int64 a1, _DWORD *a2)
+PRTL_HANDLE_TABLE_ENTRY __cdecl RtlAllocateHandle(PRTL_HANDLE_TABLE HandleTable, PULONG HandleIndex)
 {
-  unsigned __int64 *v2; // rdi
-  unsigned __int64 *v5; // rcx
-  unsigned int v7; // ecx
-  int v8; // eax
-  __int64 v9; // r8
+  PRTL_HANDLE_TABLE_ENTRY *p_FreeHandles; // rdi
+  _QWORD *v5; // rcx
+  ULONG v7; // ecx
+  ULONG SizeOfHandleTableEntry; // eax
+  PRTL_HANDLE_TABLE_ENTRY CommittedHandles; // r8
   unsigned int v10; // esi
   void *ProcessHeap; // rcx
   __int64 v12; // r14
-  __int64 v13; // rax
-  char *v14; // rdx
-  unsigned __int64 v15; // rcx
-  unsigned __int64 *v16; // rax
-  unsigned __int64 *v17; // rax
-  __int64 v18; // rax
-  __int64 v19; // rcx
-  __int64 v20; // [rsp+30h] [rbp-10h] BYREF
-  unsigned __int64 *v21; // [rsp+70h] [rbp+30h] BYREF
-  __int64 v22; // [rsp+80h] [rbp+40h] BYREF
-  __int64 v23; // [rsp+88h] [rbp+48h] BYREF
+  _RTL_HANDLE_TABLE_ENTRY *v13; // rax
+  _RTL_HANDLE_TABLE_ENTRY *v14; // rdx
+  _RTL_HANDLE_TABLE_ENTRY *v15; // rcx
+  _QWORD *i; // rax
+  PRTL_HANDLE_TABLE_ENTRY UnCommittedHandles; // rax
+  ULONG_PTR v18; // rax
+  _RTL_HANDLE_TABLE_ENTRY *v19; // rcx
+  ULONG_PTR v20[2]; // [rsp+30h] [rbp-10h] BYREF
+  PVOID v21; // [rsp+70h] [rbp+30h] BYREF
+  PVOID BaseAddress; // [rsp+80h] [rbp+40h] BYREF
+  ULONG_PTR RegionSize; // [rsp+88h] [rbp+48h] BYREF
 
-  v2 = (unsigned __int64 *)(a1 + 16);
-  if ( !*(_QWORD *)(a1 + 16) )
+  p_FreeHandles = &HandleTable->FreeHandles;
+  if ( !HandleTable->FreeHandles )
   {
-    if ( *(_DWORD *)(a1 + 8) )
+    if ( HandleTable->Reserved[0] )
     {
-      v7 = *(_DWORD *)(a1 + 12);
-      if ( v7 <= *(_DWORD *)a1 )
+      v7 = HandleTable->Reserved[1];
+      if ( v7 <= HandleTable->MaximumNumberOfHandles )
       {
-        v8 = *(_DWORD *)(a1 + 4);
-        v9 = *(_QWORD *)(a1 + 24);
-        v10 = v7 * v8;
+        SizeOfHandleTableEntry = HandleTable->SizeOfHandleTableEntry;
+        CommittedHandles = HandleTable->CommittedHandles;
+        v10 = v7 * SizeOfHandleTableEntry;
         ProcessHeap = NtCurrentPeb()->ProcessHeap;
-        v12 = v10 + 8 * v8;
-        v13 = v9
-            ? RtlReAllocateHeap((__int64)ProcessHeap, 8, v9, (unsigned int)v12)
-            : RtlAllocateHeap((__int64)ProcessHeap, 8u, v10 + 8 * v8);
-        v22 = v13;
+        v12 = v10 + 8 * SizeOfHandleTableEntry;
+        v13 = (_RTL_HANDLE_TABLE_ENTRY *)(CommittedHandles
+                                        ? RtlReAllocateHeap(ProcessHeap, 8u, CommittedHandles, (unsigned int)v12)
+                                        : RtlAllocateHeap(ProcessHeap, 8u, v10 + 8 * SizeOfHandleTableEntry));
+        BaseAddress = v13;
         if ( v13 )
         {
-          *(_DWORD *)(a1 + 12) += 8;
-          v14 = (char *)(v12 + v13);
-          v15 = v13 + v10;
-          *(_QWORD *)(a1 + 24) = v13;
-          v21 = (unsigned __int64 *)v15;
+          HandleTable->Reserved[1] += 8;
+          v14 = (_RTL_HANDLE_TABLE_ENTRY *)((char *)v13 + v12);
+          v15 = (_RTL_HANDLE_TABLE_ENTRY *)((char *)v13 + v10);
+          HandleTable->CommittedHandles = v13;
+          v21 = v15;
           goto LABEL_11;
         }
       }
     }
     else
     {
-      v17 = *(unsigned __int64 **)(a1 + 32);
-      if ( !v17 )
+      UnCommittedHandles = HandleTable->UnCommittedHandles;
+      if ( !UnCommittedHandles )
       {
-        v18 = (unsigned int)(*(_DWORD *)a1 * *(_DWORD *)(a1 + 4));
-        v22 = 0LL;
-        v23 = v18;
-        if ( (int)ZwAllocateVirtualMemory(-1LL, &v22, 0LL, &v23, 0x2000, 4) < 0 )
+        v18 = HandleTable->MaximumNumberOfHandles * HandleTable->SizeOfHandleTableEntry;
+        BaseAddress = 0LL;
+        RegionSize = v18;
+        if ( ZwAllocateVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, 0LL, &RegionSize, 0x2000u, 4u) < 0 )
           return 0LL;
-        v19 = v22;
-        *(_QWORD *)(a1 + 32) = v22;
-        v17 = *(unsigned __int64 **)(a1 + 32);
-        *(_QWORD *)(a1 + 24) = v19;
-        *(_QWORD *)(a1 + 40) = v23 + v19;
+        v19 = (_RTL_HANDLE_TABLE_ENTRY *)BaseAddress;
+        HandleTable->UnCommittedHandles = (PRTL_HANDLE_TABLE_ENTRY)BaseAddress;
+        UnCommittedHandles = HandleTable->UnCommittedHandles;
+        HandleTable->CommittedHandles = v19;
+        HandleTable->MaxReservedHandles = (_RTL_HANDLE_TABLE_ENTRY *)((char *)v19 + RegionSize);
       }
-      v21 = v17;
-      if ( (unsigned __int64)v17 < *(_QWORD *)(a1 + 40) )
+      v21 = UnCommittedHandles;
+      if ( UnCommittedHandles < HandleTable->MaxReservedHandles )
       {
-        v20 = 4096LL;
-        if ( (int)ZwAllocateVirtualMemory(-1LL, &v21, 0LL, &v20, 4096, 4) >= 0 )
+        v20[0] = 4096LL;
+        if ( ZwAllocateVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &v21, 0LL, v20, 0x1000u, 4u) >= 0 )
         {
-          v15 = (unsigned __int64)v21;
-          v14 = (char *)v21 + v20;
+          v15 = (_RTL_HANDLE_TABLE_ENTRY *)v21;
+          v14 = (_RTL_HANDLE_TABLE_ENTRY *)((char *)v21 + v20[0]);
 LABEL_11:
-          *(_QWORD *)(a1 + 32) = v14;
-          v16 = v2;
-          if ( v15 < (unsigned __int64)v14 )
+          HandleTable->UnCommittedHandles = v14;
+          for ( i = p_FreeHandles; v15 < HandleTable->UnCommittedHandles; v21 = v15 )
           {
-            do
-            {
-              *v16 = v15;
-              v16 = v21;
-              v15 = (unsigned __int64)v21 + *(unsigned int *)(a1 + 4);
-              v21 = (unsigned __int64 *)v15;
-            }
-            while ( v15 < *(_QWORD *)(a1 + 32) );
+            *i = v15;
+            i = v21;
+            v15 = (_RTL_HANDLE_TABLE_ENTRY *)((char *)v21 + HandleTable->SizeOfHandleTableEntry);
           }
           goto LABEL_2;
         }
@@ -103,11 +97,12 @@ LABEL_11:
     return 0LL;
   }
 LABEL_2:
-  v5 = (unsigned __int64 *)*v2;
+  v5 = *p_FreeHandles;
   v21 = v5;
-  *v2 = *v5;
+  *p_FreeHandles = (PRTL_HANDLE_TABLE_ENTRY)*v5;
   *v5 = 0LL;
-  if ( a2 )
-    *a2 = ((__int64)v21 - *(_QWORD *)(a1 + 24)) / *(unsigned int *)(a1 + 4);
-  return v21;
+  if ( HandleIndex )
+    *HandleIndex = (signed __int64)((__int64)v21 - (unsigned __int64)HandleTable->CommittedHandles)
+                 / HandleTable->SizeOfHandleTableEntry;
+  return (PRTL_HANDLE_TABLE_ENTRY)v21;
 }

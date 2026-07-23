@@ -1,22 +1,22 @@
 /*
- * XREFs of SepCreateClientSecurityEx @ 0x14065E160
+ * XREFs of SepCreateClientSecurityEx @ 0x140652F80
  * Callers:
- *     SeCreateClientSecurityFromSubjectContextEx @ 0x1405970C0 (SeCreateClientSecurityFromSubjectContextEx.c)
- *     SeCreateClientSecurity @ 0x14065DD70 (SeCreateClientSecurity.c)
- *     SeCreateClientSecurityEx @ 0x14065DF60 (SeCreateClientSecurityEx.c)
- *     SeCreateClientSecurityFromSubjectContext @ 0x1406BE420 (SeCreateClientSecurityFromSubjectContext.c)
+ *     SeCreateClientSecurityFromSubjectContextEx @ 0x1405972F0 (SeCreateClientSecurityFromSubjectContextEx.c)
+ *     SeCreateClientSecurityFromSubjectContext @ 0x14061D680 (SeCreateClientSecurityFromSubjectContext.c)
+ *     SeCreateClientSecurity @ 0x140652B90 (SeCreateClientSecurity.c)
+ *     SeCreateClientSecurityEx @ 0x140652D80 (SeCreateClientSecurityEx.c)
  * Callees:
- *     PsGetCurrentServerSilo @ 0x14025C9C0 (PsGetCurrentServerSilo.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     PsIsCurrentThreadInServerSilo @ 0x140351230 (PsIsCurrentThreadInServerSilo.c)
- *     PsIsHostSilo @ 0x140354A80 (PsIsHostSilo.c)
- *     SepGetAnonymousToken @ 0x14036016C (SepGetAnonymousToken.c)
- *     SeCopyClientToken @ 0x140661D04 (SeCopyClientToken.c)
- *     SeQueryServerSiloToken @ 0x1406B04A0 (SeQueryServerSiloToken.c)
- *     ObInsertObjectEx @ 0x140704A20 (ObInsertObjectEx.c)
- *     PsReferencePrimaryToken @ 0x140706D00 (PsReferencePrimaryToken.c)
- *     SepCopyClientTokenAndSetSilo @ 0x14091C7CC (SepCopyClientTokenAndSetSilo.c)
- *     SeGetTokenControlInformation @ 0x140922AE4 (SeGetTokenControlInformation.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     PsGetCurrentServerSilo @ 0x14027DF30 (PsGetCurrentServerSilo.c)
+ *     SepGetAnonymousToken @ 0x1402A509C (SepGetAnonymousToken.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x14035BF80 (PsIsCurrentThreadInServerSilo.c)
+ *     PsIsHostSilo @ 0x14035F7D0 (PsIsHostSilo.c)
+ *     SeQueryServerSiloToken @ 0x14060EDA0 (SeQueryServerSiloToken.c)
+ *     SeCopyClientToken @ 0x140656B24 (SeCopyClientToken.c)
+ *     ObInsertObjectEx @ 0x14071BE00 (ObInsertObjectEx.c)
+ *     PsReferencePrimaryToken @ 0x14071E0E0 (PsReferencePrimaryToken.c)
+ *     SepCopyClientTokenAndSetSilo @ 0x14091C92C (SepCopyClientTokenAndSetSilo.c)
+ *     SeGetTokenControlInformation @ 0x140922C44 (SeGetTokenControlInformation.c)
  */
 
 __int64 __fastcall SepCreateClientSecurityEx(
@@ -49,16 +49,14 @@ __int64 __fastcall SepCreateClientSecurityEx(
   __int64 v26; // rcx
   _DMA_OPERATIONS *DmaOperations; // r14
   int v28; // r8d
-  __int64 v29; // rdx
-  __int64 v30; // rcx
   __int64 CurrentServerSilo; // rax
-  struct _DMA_ADAPTER *v32; // [rsp+40h] [rbp-28h] BYREF
-  __int64 v33[4]; // [rsp+48h] [rbp-20h] BYREF
+  struct _DMA_ADAPTER *v30; // [rsp+40h] [rbp-28h] BYREF
+  __int64 v31[4]; // [rsp+48h] [rbp-20h] BYREF
   PADAPTER_OBJECT DmaAdapter; // [rsp+78h] [rbp+10h] BYREF
 
   v11 = a2;
   LOBYTE(a2) = 0;
-  v32 = 0LL;
+  v30 = 0LL;
   DmaAdapter = 0LL;
   v13 = (PADAPTER_OBJECT)a1;
   if ( *(_BYTE *)(v11 + 8) >= 2u )
@@ -155,22 +153,24 @@ LABEL_9:
   if ( PsIsCurrentThreadInServerSilo(a1, a2) )
   {
     DmaOperations = v13[1].DmaOperations;
-    v33[0] = 0LL;
-    if ( (int)SeQueryServerSiloToken(v13, v33) >= 0 && PsIsHostSilo(v33[0]) && DmaOperations == (_DMA_OPERATIONS *)999 )
+    v31[0] = 0LL;
+    if ( (int)SeQueryServerSiloToken((__int64)v13, (__int64)v31) >= 0
+      && PsIsHostSilo(v31[0])
+      && DmaOperations == (_DMA_OPERATIONS *)999 )
     {
-      CurrentServerSilo = PsGetCurrentServerSilo(v30, v29);
-      result = SepCopyClientTokenAndSetSilo(v13, *(unsigned int *)(v11 + 4), CurrentServerSilo, &v32);
+      CurrentServerSilo = PsGetCurrentServerSilo();
+      result = SepCopyClientTokenAndSetSilo(v13, *(unsigned int *)(v11 + 4), CurrentServerSilo, &v30);
     }
     else
     {
-      result = SeCopyClientToken((_DWORD)v13, *(_DWORD *)(v11 + 4), v28, 0, 0LL, (__int64)&v32);
+      result = SeCopyClientToken((_DWORD)v13, *(_DWORD *)(v11 + 4), v28, 0, 0LL, (__int64)&v30);
     }
   }
   else
   {
-    result = SeCopyClientToken((_DWORD)v13, *(_DWORD *)(v11 + 4), v19, a9, a10, (__int64)&v32);
+    result = SeCopyClientToken((_DWORD)v13, *(_DWORD *)(v11 + 4), v19, a9, a10, (__int64)&v30);
   }
-  v13 = v32;
+  v13 = v30;
   if ( (int)result >= 0 )
     goto LABEL_8;
   return result;

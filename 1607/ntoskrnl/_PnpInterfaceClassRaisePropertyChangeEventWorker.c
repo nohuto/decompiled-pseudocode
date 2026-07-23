@@ -1,9 +1,9 @@
 /*
- * XREFs of _PnpInterfaceClassRaisePropertyChangeEventWorker @ 0x1406DC114
+ * XREFs of _PnpInterfaceClassRaisePropertyChangeEventWorker @ 0x1406DC24C
  * Callers:
- *     _PnpObjectRaisePropertyChangeEvent @ 0x1405067F4 (_PnpObjectRaisePropertyChangeEvent.c)
+ *     _PnpObjectRaisePropertyChangeEvent @ 0x1404E9784 (_PnpObjectRaisePropertyChangeEvent.c)
  * Callees:
- *     _PnpNotifyDerivedKeys @ 0x140506728 (_PnpNotifyDerivedKeys.c)
+ *     _PnpNotifyDerivedKeys @ 0x1404E96B8 (_PnpNotifyDerivedKeys.c)
  */
 
 _UNKNOWN **__fastcall PnpInterfaceClassRaisePropertyChangeEventWorker(

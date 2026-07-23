@@ -1,9 +1,9 @@
 /*
- * XREFs of ObpReferenceNamedObject @ 0x140457C10
+ * XREFs of ObpReferenceNamedObject @ 0x14044CF28
  * Callers:
- *     ObpInsertOrLocateNamedObject @ 0x1409E45C0 (ObpInsertOrLocateNamedObject.c)
+ *     ObpInsertOrLocateNamedObject @ 0x1409DF020 (ObpInsertOrLocateNamedObject.c)
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x1403403E0 (ObfReferenceObjectWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x14031F8C0 (ObfReferenceObjectWithTag.c)
  */
 
 __int64 __fastcall ObpReferenceNamedObject(__int64 a1)

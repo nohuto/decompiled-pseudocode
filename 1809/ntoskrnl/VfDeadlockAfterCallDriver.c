@@ -1,13 +1,13 @@
 /*
- * XREFs of VfDeadlockAfterCallDriver @ 0x14093BBEC
+ * XREFs of VfDeadlockAfterCallDriver @ 0x14093CBEC
  * Callers:
- *     VfAfterCallDriver @ 0x14092FEB4 (VfAfterCallDriver.c)
+ *     VfAfterCallDriver @ 0x140930EB4 (VfAfterCallDriver.c)
  * Callees:
- *     ViLowerIrql @ 0x14030B50C (ViLowerIrql.c)
- *     ViRaiseIrqlToDpcLevel @ 0x14030B568 (ViRaiseIrqlToDpcLevel.c)
- *     ViDeadlockDetectionLock @ 0x14093D1AC (ViDeadlockDetectionLock.c)
- *     ViDeadlockDetectionUnlock @ 0x14093D1E4 (ViDeadlockDetectionUnlock.c)
- *     ViDeadlockSearchThread @ 0x14093DCD8 (ViDeadlockSearchThread.c)
+ *     ViLowerIrql @ 0x14030B6FC (ViLowerIrql.c)
+ *     ViRaiseIrqlToDpcLevel @ 0x14030B758 (ViRaiseIrqlToDpcLevel.c)
+ *     ViDeadlockDetectionLock @ 0x14093E1AC (ViDeadlockDetectionLock.c)
+ *     ViDeadlockDetectionUnlock @ 0x14093E1E4 (ViDeadlockDetectionUnlock.c)
+ *     ViDeadlockSearchThread @ 0x14093ECD8 (ViDeadlockSearchThread.c)
  */
 
 void __fastcall VfDeadlockAfterCallDriver(int a1)

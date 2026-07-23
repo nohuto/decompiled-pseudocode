@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpHpStackTraceHeapDisable @ 0x1801177F0
+ * XREFs of RtlpHpStackTraceHeapDisable @ 0x1801177C0
  * Callers:
  *     <none>
  * Callees:
- *     RtlpHpPerHeapStackTraceCleanup @ 0x180116A70 (RtlpHpPerHeapStackTraceCleanup.c)
+ *     RtlpHpPerHeapStackTraceCleanup @ 0x180116A40 (RtlpHpPerHeapStackTraceCleanup.c)
  */
 
 __int64 __fastcall RtlpHpStackTraceHeapDisable(__int64 a1)
@@ -17,6 +17,6 @@ __int64 __fastcall RtlpHpStackTraceHeapDisable(__int64 a1)
   v3 = 112LL;
   if ( *(_DWORD *)(a1 + 16) != -571548178 )
     v3 = 368LL;
-  RtlpHpPerHeapStackTraceCleanup((volatile signed __int64 *)(a1 + v3), *(_WORD *)(v2 + a1) == 0xFFFF, 1);
+  RtlpHpPerHeapStackTraceCleanup((_RTL_RUN_ONCE *)(a1 + v3), *(_WORD *)(v2 + a1) == 0xFFFF, 1);
   return 0LL;
 }

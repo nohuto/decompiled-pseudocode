@@ -1,5 +1,5 @@
 /*
- * XREFs of LdrpEventAddAnsiString @ 0x1800CEE68
+ * XREFs of LdrpEventAddAnsiString @ 0x1800CEE28
  * Callers:
  *     LdrpLogDelayLoadTrigger @ 0x1800165B0 (LdrpLogDelayLoadTrigger.c)
  * Callees:

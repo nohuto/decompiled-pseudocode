@@ -1,9 +1,9 @@
 /*
- * XREFs of _CmSetInstallerClassMappedPropertyFromRegProp @ 0x1408FF728
+ * XREFs of _CmSetInstallerClassMappedPropertyFromRegProp @ 0x1409009E8
  * Callers:
- *     _CmSetInstallerClassMappedProperty @ 0x1408FF480 (_CmSetInstallerClassMappedProperty.c)
+ *     _CmSetInstallerClassMappedProperty @ 0x140900740 (_CmSetInstallerClassMappedProperty.c)
  * Callees:
- *     _CmSetInstallerClassRegProp @ 0x1408F83E8 (_CmSetInstallerClassRegProp.c)
+ *     _CmSetInstallerClassRegProp @ 0x1408F96A8 (_CmSetInstallerClassRegProp.c)
  */
 
 __int64 __fastcall CmSetInstallerClassMappedPropertyFromRegProp(

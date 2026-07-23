@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpLookasideAdjustDepth @ 0x140330030
+ * XREFs of RtlpLookasideAdjustDepth @ 0x1403302C0
  * Callers:
- *     RtlpDynamicLookasideRebalance @ 0x14032FED0 (RtlpDynamicLookasideRebalance.c)
+ *     RtlpDynamicLookasideRebalance @ 0x140330160 (RtlpDynamicLookasideRebalance.c)
  * Callees:
  *     <none>
  */

@@ -1,7 +1,7 @@
 /*
- * XREFs of MiFillSessionWorkingSetEntry @ 0x1400B1450
+ * XREFs of MiFillSessionWorkingSetEntry @ 0x1400AF390
  * Callers:
- *     PfpPrivSourceEnum @ 0x140508A08 (PfpPrivSourceEnum.c)
+ *     PfpPrivSourceEnum @ 0x1404EB998 (PfpPrivSourceEnum.c)
  * Callees:
  *     <none>
  */

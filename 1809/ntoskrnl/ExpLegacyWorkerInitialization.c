@@ -1,7 +1,7 @@
 /*
- * XREFs of ExpLegacyWorkerInitialization @ 0x14018CFE4
+ * XREFs of ExpLegacyWorkerInitialization @ 0x14018D124
  * Callers:
- *     ExpWorkerInitialization @ 0x1409D4C50 (ExpWorkerInitialization.c)
+ *     ExpWorkerInitialization @ 0x1409D5C50 (ExpWorkerInitialization.c)
  * Callees:
  *     <none>
  */
@@ -29,7 +29,7 @@ __int64 ExpLegacyWorkerInitialization()
     ExpAdditionalDelayedWorkerThreads = 100;
   }
   v2 = 5;
-  if ( (_BYTE)dword_14054019C )
+  if ( (_BYTE)dword_14054119C )
     v2 = 10;
   ExCriticalWorkerThreads = v0 + v2;
   ExDelayedWorkerThreads = v1 + 7;

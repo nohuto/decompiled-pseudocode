@@ -14,30 +14,29 @@
 __int64 __fastcall sub_18005040C(__int64 a1)
 {
   __int64 v2; // rcx
-  __m128i *v3; // rsi
+  _UNICODE_STRING *v3; // rsi
   int v4; // ebx
   __int64 v6; // [rsp+20h] [rbp-138h] BYREF
-  int v7; // [rsp+30h] [rbp-128h] BYREF
-  _WORD *v8; // [rsp+38h] [rbp-120h]
-  _WORD v9[128]; // [rsp+40h] [rbp-118h] BYREF
+  _UNICODE_STRING v7; // [rsp+30h] [rbp-128h] BYREF
+  _WORD v8[128]; // [rsp+40h] [rbp-118h] BYREF
 
-  v7 = 0x1000000;
+  *(_DWORD *)&v7.Length = 0x1000000;
   v2 = *(_QWORD *)(a1 + 48);
-  v8 = v9;
-  v9[0] = 0;
-  v3 = (__m128i *)(v2 + 72);
-  v4 = sub_18004C728((unsigned __int16 *)(v2 + 88), (unsigned __int16 *)(v2 + 72), *(_DWORD *)(a1 + 24), &v6);
+  v7.Buffer = v8;
+  v8[0] = 0;
+  v3 = (_UNICODE_STRING *)(v2 + 72);
+  v4 = sub_18004C728((PUNICODE_STRING)(v2 + 88), (PUNICODE_STRING)(v2 + 72), *(_DWORD *)(a1 + 24), &v6);
   if ( v6 )
   {
     sub_180050570(a1);
   }
   else
   {
-    v4 = sub_18004AB20(v3, (__int64)&v7);
+    v4 = sub_18004AB20(v3, &v7);
     if ( v4 >= 0 )
-      v4 = sub_18004C7E0(a1, (__int64)&v7);
+      v4 = sub_18004C7E0(a1, &v7);
   }
-  if ( v9 != v8 )
-    RtlDeleteBoundaryDescriptor();
+  if ( v8 != v7.Buffer )
+    RtlDeleteBoundaryDescriptor((POBJECT_BOUNDARY_DESCRIPTOR)v7.Buffer);
   return (unsigned int)v4;
 }

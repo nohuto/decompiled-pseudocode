@@ -1,21 +1,21 @@
 /*
- * XREFs of MiTradeBootImagePage @ 0x1409B86AC
+ * XREFs of MiTradeBootImagePage @ 0x1409B96AC
  * Callers:
- *     MiReloadBootLoadedDrivers @ 0x1409B7C6C (MiReloadBootLoadedDrivers.c)
+ *     MiReloadBootLoadedDrivers @ 0x1409B8C6C (MiReloadBootLoadedDrivers.c)
  * Callees:
  *     MiLockPageInline @ 0x14002CE40 (MiLockPageInline.c)
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
- *     MiFlushTbList @ 0x1400740C0 (MiFlushTbList.c)
- *     MiDecrementShareCount @ 0x140081EA0 (MiDecrementShareCount.c)
- *     MiClearPfnImageVerified @ 0x140082954 (MiClearPfnImageVerified.c)
- *     MiCopyPage @ 0x1400B1C50 (MiCopyPage.c)
- *     MiInsertTbFlushEntry @ 0x1400B3AF0 (MiInsertTbFlushEntry.c)
- *     MiWriteValidPteNewPage @ 0x1400EEB2C (MiWriteValidPteNewPage.c)
- *     MiCopyPfnEntryEx @ 0x14010E000 (MiCopyPfnEntryEx.c)
- *     MiLockNestedPageAtDpcInline @ 0x140120F04 (MiLockNestedPageAtDpcInline.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeCopyPrivilegedPage @ 0x14028DB8C (KeCopyPrivilegedPage.c)
+ *     MiFlushTbList @ 0x1400740B0 (MiFlushTbList.c)
+ *     MiDecrementShareCount @ 0x140081E90 (MiDecrementShareCount.c)
+ *     MiClearPfnImageVerified @ 0x140082944 (MiClearPfnImageVerified.c)
+ *     MiCopyPage @ 0x1400B1B90 (MiCopyPage.c)
+ *     MiInsertTbFlushEntry @ 0x1400B3A30 (MiInsertTbFlushEntry.c)
+ *     MiWriteValidPteNewPage @ 0x1400EEBAC (MiWriteValidPteNewPage.c)
+ *     MiCopyPfnEntryEx @ 0x14010E080 (MiCopyPfnEntryEx.c)
+ *     MiLockNestedPageAtDpcInline @ 0x140120FD4 (MiLockNestedPageAtDpcInline.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeCopyPrivilegedPage @ 0x14028DD7C (KeCopyPrivilegedPage.c)
  */
 
 __int64 __fastcall MiTradeBootImagePage(__int64 *a1, ULONG_PTR a2)

@@ -1,9 +1,9 @@
 /*
- * XREFs of MmPrefetchPages @ 0x140955410
+ * XREFs of MmPrefetchPages @ 0x140938DC0
  * Callers:
  *     <none>
  * Callees:
- *     MmPrefetchPagesEx @ 0x140955430 (MmPrefetchPagesEx.c)
+ *     MmPrefetchPagesEx @ 0x140938DE0 (MmPrefetchPagesEx.c)
  */
 
 NTSTATUS __stdcall MmPrefetchPages(ULONG NumberOfLists, PREAD_LIST *ReadLists)

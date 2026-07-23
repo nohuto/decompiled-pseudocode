@@ -9,11 +9,11 @@
  *     NpUnmapViewOfSection @ 0x180162E00 (NpUnmapViewOfSection.c)
  */
 
-__int64 __fastcall LdrpLoadCustomNtdllWithSectionHandle(__int64 a1, __int64 *a2)
+__int64 __fastcall LdrpLoadCustomNtdllWithSectionHandle(__int64 a1, PVOID *a2)
 {
   int v3; // ebx
-  unsigned __int64 v4; // rdx
-  __int64 v6; // [rsp+68h] [rbp+10h] BYREF
+  PVOID v4; // rdx
+  PIMAGE_NT_HEADERS OutHeaders; // [rsp+68h] [rbp+10h] BYREF
   __int64 v7; // [rsp+70h] [rbp+18h] BYREF
 
   v7 = 0LL;
@@ -24,9 +24,9 @@ __int64 __fastcall LdrpLoadCustomNtdllWithSectionHandle(__int64 a1, __int64 *a2)
   if ( v3 >= 0 )
   {
     v4 = *a2;
-    v6 = 0LL;
-    RtlImageNtHeaderEx(1, v4, 0LL, &v6);
-    if ( v6 )
+    OutHeaders = 0LL;
+    RtlImageNtHeaderEx(1u, v4, 0LL, &OutHeaders);
+    if ( OutHeaders )
       return (unsigned int)v3;
     v3 = -1073741701;
   }

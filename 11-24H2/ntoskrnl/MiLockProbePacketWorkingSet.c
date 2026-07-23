@@ -1,17 +1,17 @@
 /*
- * XREFs of MiLockProbePacketWorkingSet @ 0x1402C3B90
+ * XREFs of MiLockProbePacketWorkingSet @ 0x14020AFF0
  * Callers:
- *     MiProbeAndLockPacket @ 0x140282730 (MiProbeAndLockPacket.c)
- *     MiProbeLeafPteAccess @ 0x140283F40 (MiProbeLeafPteAccess.c)
- *     MmProbeAndLockSelectedPages @ 0x140286070 (MmProbeAndLockSelectedPages.c)
- *     MiFaultInProbeAddress @ 0x1402C3798 (MiFaultInProbeAddress.c)
- *     MiInitializeProbePacketVm @ 0x1402C38D0 (MiInitializeProbePacketVm.c)
- *     MiSplitReducedCommitClonePage @ 0x1404F9378 (MiSplitReducedCommitClonePage.c)
+ *     MiFaultInProbeAddress @ 0x14020ABF4 (MiFaultInProbeAddress.c)
+ *     MiInitializeProbePacketVm @ 0x14020AD30 (MiInitializeProbePacketVm.c)
+ *     MiProbeAndLockPacket @ 0x140237CC0 (MiProbeAndLockPacket.c)
+ *     MiProbeLeafPteAccess @ 0x1402394D0 (MiProbeLeafPteAccess.c)
+ *     MmProbeAndLockSelectedPages @ 0x140390AC0 (MmProbeAndLockSelectedPages.c)
+ *     MiSplitReducedCommitClonePage @ 0x1404F6C58 (MiSplitReducedCommitClonePage.c)
  * Callees:
- *     ExpWaitForSpinLockSharedAndAcquire @ 0x1402C4AD0 (ExpWaitForSpinLockSharedAndAcquire.c)
- *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x1402DFAA0 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
- *     MiLockWorkingSetSharedAtDpc @ 0x1402E3A1C (MiLockWorkingSetSharedAtDpc.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     MiLockWorkingSetSharedAtDpc @ 0x14020BF58 (MiLockWorkingSetSharedAtDpc.c)
+ *     ExpWaitForSpinLockSharedAndAcquire @ 0x140219B50 (ExpWaitForSpinLockSharedAndAcquire.c)
+ *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x140241380 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 char __fastcall MiLockProbePacketWorkingSet(__int64 a1)
@@ -46,7 +46,7 @@ char __fastcall MiLockProbePacketWorkingSet(__int64 a1)
     else
     {
       if ( (*(_DWORD *)(v2 + 184) & 0xF) == 1 )
-        v3 = &unk_140E38740;
+        v3 = &unk_140E38880;
       else
         v3 = (_QWORD *)(v2 + 192);
       v4 = (KeGetPcr()->Prcb.Number >> 1) & 3;

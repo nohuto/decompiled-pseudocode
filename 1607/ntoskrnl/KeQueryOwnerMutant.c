@@ -1,9 +1,9 @@
 /*
- * XREFs of KeQueryOwnerMutant @ 0x1400AB79C
+ * XREFs of KeQueryOwnerMutant @ 0x1400A9D04
  * Callers:
- *     NtQueryMutant @ 0x1404DB624 (NtQueryMutant.c)
+ *     NtQueryMutant @ 0x1404BEC28 (NtQueryMutant.c)
  * Callees:
- *     KiAcquireKobjectLockSafe @ 0x1400EE7C0 (KiAcquireKobjectLockSafe.c)
+ *     KiAcquireKobjectLockSafe @ 0x1400EC640 (KiAcquireKobjectLockSafe.c)
  */
 
 void __stdcall KeQueryOwnerMutant(PKMUTANT Mutant, PCLIENT_ID ClientId)

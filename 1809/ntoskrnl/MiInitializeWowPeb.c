@@ -1,12 +1,12 @@
 /*
- * XREFs of MiInitializeWowPeb @ 0x14068B5F4
+ * XREFs of MiInitializeWowPeb @ 0x14068C7B4
  * Callers:
- *     MmCreatePeb @ 0x140678530 (MmCreatePeb.c)
+ *     MmCreatePeb @ 0x1406796F0 (MmCreatePeb.c)
  * Callees:
- *     RtlImageDirectoryEntryToData @ 0x1400F2C40 (RtlImageDirectoryEntryToData.c)
- *     MiCreatePebOrTeb @ 0x1405F8B40 (MiCreatePebOrTeb.c)
- *     MmCheckImageMapping @ 0x14068B5B0 (MmCheckImageMapping.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
+ *     RtlImageDirectoryEntryToData @ 0x1400F2CC0 (RtlImageDirectoryEntryToData.c)
+ *     MiCreatePebOrTeb @ 0x1405F9B40 (MiCreatePebOrTeb.c)
+ *     MmCheckImageMapping @ 0x14068C770 (MmCheckImageMapping.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D7880 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall MiInitializeWowPeb(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -47,7 +47,7 @@ __int64 __fastcall MiInitializeWowPeb(__int64 a1, __int64 a2, __int64 a3, __int6
       if ( ((unsigned __int8)v11 & 3) != 0 )
         ExRaiseDatatypeMisalignment();
       v13 = v26[12];
-      if ( ((unsigned int)v13 & (unsigned __int64)qword_1405416A8[*(unsigned __int16 *)(a4 + 8)]) != v13 )
+      if ( ((unsigned int)v13 & (unsigned __int64)qword_1405426A8[*(unsigned __int16 *)(a4 + 8)]) != v13 )
         v13 = 0LL;
       *(_QWORD *)a4 = v13;
       v12 = v26;
@@ -117,10 +117,10 @@ __int64 __fastcall MiInitializeWowPeb(__int64 a1, __int64 a2, __int64 a3, __int6
       *(_DWORD *)(v18 + 100) = KeNumberProcessors_0;
       *(_DWORD *)(v18 + 104) = NtGlobalFlag;
       *(_DWORD *)(v18 + 1144) = NtGlobalFlag2;
-      *(_QWORD *)(v18 + 112) = qword_140439FE0;
-      *(_DWORD *)(v18 + 520) = dword_140540198;
-      *(_DWORD *)(v18 + 128) = qword_1405401A8;
-      *(_DWORD *)(v18 + 132) = qword_1405401A0;
+      *(_QWORD *)(v18 + 112) = qword_14043B0A0;
+      *(_DWORD *)(v18 + 520) = dword_140541198;
+      *(_DWORD *)(v18 + 128) = qword_1405411A8;
+      *(_DWORD *)(v18 + 132) = qword_1405411A0;
       *(_DWORD *)(v18 + 468) = *(_DWORD *)(a1 + 60);
       *(_DWORD *)(v18 + 180) = *(_DWORD *)a1;
       *(_DWORD *)(v18 + 184) = *(_DWORD *)(a1 + 4);
@@ -147,10 +147,10 @@ __int64 __fastcall MiInitializeWowPeb(__int64 a1, __int64 a2, __int64 a3, __int6
       *(_DWORD *)(v18 + 184) = KeNumberProcessors_0;
       *(_DWORD *)(v18 + 188) = NtGlobalFlag;
       *(_DWORD *)(v18 + 1988) = NtGlobalFlag2;
-      *(_QWORD *)(v18 + 192) = qword_140439FE0;
-      *(_QWORD *)(v18 + 792) = (unsigned int)dword_140540198;
-      *(_QWORD *)(v18 + 216) = qword_1405401A8;
-      *(_QWORD *)(v18 + 224) = qword_1405401A0;
+      *(_QWORD *)(v18 + 192) = qword_14043B0A0;
+      *(_QWORD *)(v18 + 792) = (unsigned int)dword_140541198;
+      *(_QWORD *)(v18 + 216) = qword_1405411A8;
+      *(_QWORD *)(v18 + 224) = qword_1405411A0;
       *(_DWORD *)(v18 + 704) = *(_DWORD *)(a1 + 60);
       *(_DWORD *)(v18 + 296) = *(_DWORD *)a1;
       *(_DWORD *)(v18 + 300) = *(_DWORD *)(a1 + 4);

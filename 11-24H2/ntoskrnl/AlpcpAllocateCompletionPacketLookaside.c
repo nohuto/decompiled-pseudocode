@@ -1,14 +1,14 @@
 /*
- * XREFs of AlpcpAllocateCompletionPacketLookaside @ 0x140A0AA80
+ * XREFs of AlpcpAllocateCompletionPacketLookaside @ 0x140A06FB0
  * Callers:
- *     AlpcpAssociateIoCompletionPort @ 0x140A0A810 (AlpcpAssociateIoCompletionPort.c)
- *     AlpcpInitializeCompletionList @ 0x140A0AC54 (AlpcpInitializeCompletionList.c)
+ *     AlpcpAssociateIoCompletionPort @ 0x140A06D40 (AlpcpAssociateIoCompletionPort.c)
+ *     AlpcpInitializeCompletionList @ 0x140A07184 (AlpcpInitializeCompletionList.c)
  * Callees:
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     IopFreeMiniCompletionPacket @ 0x1409A71B0 (IopFreeMiniCompletionPacket.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
- *     ExAllocatePool3 @ 0x140B746D0 (ExAllocatePool3.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     IopFreeMiniCompletionPacket @ 0x140990680 (IopFreeMiniCompletionPacket.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
+ *     ExAllocatePool3 @ 0x140B76270 (ExAllocatePool3.c)
  */
 
 _DWORD *__fastcall AlpcpAllocateCompletionPacketLookaside(unsigned int a1, __int64 a2, __int64 a3)
@@ -19,14 +19,11 @@ _DWORD *__fastcall AlpcpAllocateCompletionPacketLookaside(unsigned int a1, __int
   __int64 v8; // rdi
   _QWORD *v9; // rsi
   __int64 Pool3; // rax
-  __int64 v11; // rdx
-  __int64 v12; // r8
-  __int64 v13; // r9
-  ULONG_PTR *v15; // rsi
-  ULONG_PTR v16; // rcx
+  ULONG_PTR *v12; // rsi
+  ULONG_PTR v13; // rcx
 
   v3 = a1;
-  Pool2 = (_DWORD *)ExAllocatePool2(0x40uLL);
+  Pool2 = (_DWORD *)ExAllocatePool2(0x40uLL, 24LL * a1 + 56, 0x6E496C41u);
   v7 = Pool2;
   if ( Pool2 )
   {
@@ -59,13 +56,13 @@ _DWORD *__fastcall AlpcpAllocateCompletionPacketLookaside(unsigned int a1, __int
     }
     if ( (_DWORD)v8 )
     {
-      v15 = (ULONG_PTR *)&v7[6 * v8 + 16];
+      v12 = (ULONG_PTR *)&v7[6 * v8 + 16];
       do
       {
-        v15 -= 3;
-        v16 = *v15;
-        *(_QWORD *)(v16 + 56) = 0LL;
-        IopFreeMiniCompletionPacket(v16, v11, v12, v13);
+        v12 -= 3;
+        v13 = *v12;
+        *(_QWORD *)(v13 + 56) = 0LL;
+        IopFreeMiniCompletionPacket(v13);
         LODWORD(v8) = v8 - 1;
       }
       while ( (_DWORD)v8 );

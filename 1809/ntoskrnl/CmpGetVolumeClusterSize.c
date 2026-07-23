@@ -1,20 +1,20 @@
 /*
- * XREFs of CmpGetVolumeClusterSize @ 0x1405A4094
+ * XREFs of CmpGetVolumeClusterSize @ 0x1405A5094
  * Callers:
- *     CmpCreateHive @ 0x1405A6574 (CmpCreateHive.c)
- *     CmpOpenHiveFile @ 0x1405B4330 (CmpOpenHiveFile.c)
+ *     CmpCreateHive @ 0x1405A7574 (CmpCreateHive.c)
+ *     CmpOpenHiveFile @ 0x1405B5330 (CmpOpenHiveFile.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     IoAllocateIrp @ 0x14008E4E0 (IoAllocateIrp.c)
- *     IoGetAttachedDeviceReference @ 0x1400ACE40 (IoGetAttachedDeviceReference.c)
- *     IofCallDriver @ 0x1400B8DF0 (IofCallDriver.c)
- *     IoFreeIrp @ 0x1400B9670 (IoFreeIrp.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     ZwQueryVolumeInformationFile @ 0x1401B8AB0 (ZwQueryVolumeInformationFile.c)
- *     CmpCreateEvent @ 0x1405B487C (CmpCreateEvent.c)
- *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
+ *     IoAllocateIrp @ 0x14008E400 (IoAllocateIrp.c)
+ *     IoGetAttachedDeviceReference @ 0x1400ACD80 (IoGetAttachedDeviceReference.c)
+ *     IofCallDriver @ 0x1400B8D30 (IofCallDriver.c)
+ *     IoFreeIrp @ 0x1400B95B0 (IoFreeIrp.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     ZwQueryVolumeInformationFile @ 0x1401B8C10 (ZwQueryVolumeInformationFile.c)
+ *     CmpCreateEvent @ 0x1405B587C (CmpCreateEvent.c)
+ *     ObReferenceObjectByHandle @ 0x1405E9350 (ObReferenceObjectByHandle.c)
  */
 
 NTSTATUS __fastcall CmpGetVolumeClusterSize(HANDLE FileHandle, int *a2)

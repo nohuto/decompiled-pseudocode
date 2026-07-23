@@ -1,18 +1,18 @@
 /*
- * XREFs of PsIsProcessAppContainer @ 0x1406AD854
+ * XREFs of PsIsProcessAppContainer @ 0x14060BF44
  * Callers:
- *     IopFileObjectRevoked @ 0x14027BCE0 (IopFileObjectRevoked.c)
- *     IopReferenceFileObject @ 0x140348A20 (IopReferenceFileObject.c)
- *     IoRevokeHandlesForProcess @ 0x1405071D0 (IoRevokeHandlesForProcess.c)
- *     ExpGetSystemFirmwareTableInformation @ 0x1406AD66C (ExpGetSystemFirmwareTableInformation.c)
- *     NtQuerySystemEnvironmentValueEx @ 0x1406C0810 (NtQuerySystemEnvironmentValueEx.c)
- *     IopSynchronousServiceTail @ 0x1406FED80 (IopSynchronousServiceTail.c)
- *     PiUEventGetDeviceInstanceIdFromUserHandle @ 0x14076E25C (PiUEventGetDeviceInstanceIdFromUserHandle.c)
- *     NtSetSystemEnvironmentValueEx @ 0x140955660 (NtSetSystemEnvironmentValueEx.c)
+ *     IopFileObjectRevoked @ 0x140269C80 (IopFileObjectRevoked.c)
+ *     IopReferenceFileObject @ 0x140353770 (IopReferenceFileObject.c)
+ *     IoRevokeHandlesForProcess @ 0x140507150 (IoRevokeHandlesForProcess.c)
+ *     ExpGetSystemFirmwareTableInformation @ 0x14060BD5C (ExpGetSystemFirmwareTableInformation.c)
+ *     NtQuerySystemEnvironmentValueEx @ 0x14061F720 (NtQuerySystemEnvironmentValueEx.c)
+ *     IopSynchronousServiceTail @ 0x140716160 (IopSynchronousServiceTail.c)
+ *     PiUEventGetDeviceInstanceIdFromUserHandle @ 0x14076E41C (PiUEventGetDeviceInstanceIdFromUserHandle.c)
+ *     NtSetSystemEnvironmentValueEx @ 0x140955830 (NtSetSystemEnvironmentValueEx.c)
  * Callees:
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     SeQueryInformationToken @ 0x140656BD0 (SeQueryInformationToken.c)
- *     PsReferencePrimaryToken @ 0x140706D00 (PsReferencePrimaryToken.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     SeQueryInformationToken @ 0x14064B9F0 (SeQueryInformationToken.c)
+ *     PsReferencePrimaryToken @ 0x14071E0E0 (PsReferencePrimaryToken.c)
  */
 
 bool __fastcall PsIsProcessAppContainer(struct _KPROCESS *a1)

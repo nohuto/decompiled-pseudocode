@@ -1,19 +1,19 @@
 /*
- * XREFs of MiFindEmptyAddressRange @ 0x1405FAB40
+ * XREFs of MiFindEmptyAddressRange @ 0x1406EA2A0
  * Callers:
- *     MiSelectUserAddress @ 0x1405FA9A0 (MiSelectUserAddress.c)
+ *     MiSelectUserAddress @ 0x1406EA100 (MiSelectUserAddress.c)
  * Callees:
- *     RtlFindClearBitsEx @ 0x1402285A0 (RtlFindClearBitsEx.c)
- *     MiFindEmptyAddressRangeInTree @ 0x1406926DC (MiFindEmptyAddressRangeInTree.c)
- *     MiFindClearVadBitsAligned @ 0x140694390 (MiFindClearVadBitsAligned.c)
- *     MiExpandVadBitMap @ 0x140711880 (MiExpandVadBitMap.c)
+ *     RtlFindClearBitsEx @ 0x1402CCEA0 (RtlFindClearBitsEx.c)
+ *     MiFindEmptyAddressRangeInTree @ 0x1405F1C70 (MiFindEmptyAddressRangeInTree.c)
+ *     MiFindClearVadBitsAligned @ 0x1405F38E0 (MiFindClearVadBitsAligned.c)
+ *     MiExpandVadBitMap @ 0x1406BFED0 (MiExpandVadBitMap.c)
  */
 
 __int64 __fastcall MiFindEmptyAddressRange(
         __int64 a1,
         unsigned __int64 a2,
-        __int64 a3,
-        __int64 a4,
+        unsigned __int64 a3,
+        unsigned __int64 a4,
         unsigned __int64 a5,
         unsigned __int64 a6,
         char a7,
@@ -21,8 +21,8 @@ __int64 __fastcall MiFindEmptyAddressRange(
         _DWORD *a9)
 {
   unsigned __int64 v9; // r12
-  int v10; // esi
-  __int64 v12; // r10
+  unsigned __int64 v10; // rsi
+  unsigned __int64 v12; // r10
   int v15; // edi
   _DWORD *v16; // rcx
   _KPROCESS *Process; // rdx
@@ -33,24 +33,24 @@ __int64 __fastcall MiFindEmptyAddressRange(
   unsigned __int64 v22; // r9
   __int64 v23; // r14
   unsigned __int64 ClearBits; // rax
-  unsigned __int64 v25; // rcx
+  __int64 v25; // r8
+  _DWORD *v26; // r9
+  unsigned __int64 v27; // rcx
   __int64 result; // rax
-  unsigned __int64 v27; // rdx
-  unsigned __int64 v28; // rax
-  unsigned __int64 v29; // rax
-  unsigned __int64 v30; // r8
-  unsigned __int64 v31; // rcx
-  unsigned __int64 v32; // rbx
-  bool v33; // cf
-  int v34; // r14d
-  __int64 v35; // rax
-  unsigned __int64 v36; // rdx
-  _KPROCESS *v37; // [rsp+88h] [rbp+10h]
-  int v39; // [rsp+98h] [rbp+20h]
-  unsigned __int64 v40; // [rsp+A0h] [rbp+28h]
-  unsigned __int64 v41; // [rsp+A8h] [rbp+30h]
+  unsigned __int64 v29; // rdx
+  unsigned __int64 v30; // rax
+  unsigned __int64 v31; // rax
+  unsigned __int64 v32; // r8
+  unsigned __int64 v33; // rcx
+  unsigned __int64 v34; // rbx
+  bool v35; // cf
+  unsigned __int8 *v36; // r14
+  __int64 v37; // rax
+  unsigned __int64 v38; // rdx
+  _KPROCESS *v39; // [rsp+88h] [rbp+10h]
+  unsigned __int64 v42; // [rsp+A0h] [rbp+28h]
+  unsigned __int64 v43; // [rsp+A8h] [rbp+30h]
 
-  v39 = a4;
   v9 = a6;
   v10 = a4;
   v12 = a3;
@@ -59,25 +59,25 @@ __int64 __fastcall MiFindEmptyAddressRange(
   v15 = 1;
   v16 = a9;
   Process = KeGetCurrentThread()->ApcState.Process;
-  v37 = Process;
+  v39 = Process;
   *a9 = 1;
   if ( (a7 & 2) != 0 )
   {
-    v27 = Process[1].ActiveProcessors.Bitmap[5];
+    v29 = Process[1].ActiveProcessors.Bitmap[5];
     v18 = (unsigned __int8)*(_DWORD *)(a1 + 64);
     v19 = *(_QWORD *)(a1 + 48) >> 16;
-    v40 = v19;
-    v41 = v18;
-    if ( v27 > 0x100000000LL )
+    v42 = v19;
+    v43 = v18;
+    if ( v29 > 0x100000000LL )
     {
-      v19 = (v27 >> 16) - (unsigned __int8)v19 - 1;
-      v40 = v19;
+      v19 = (v29 >> 16) - (unsigned __int8)v19 - 1;
+      v42 = v19;
     }
-    Process = v37;
+    Process = v39;
     if ( !(unsigned __int8)*(_DWORD *)(a1 + 64) )
     {
       v18 = 1LL;
-      v41 = 1LL;
+      v43 = 1LL;
     }
   }
   else
@@ -85,8 +85,8 @@ __int64 __fastcall MiFindEmptyAddressRange(
     v18 = 0LL;
     v15 = 0;
     v19 = 0LL;
-    v41 = 0LL;
-    v40 = 0LL;
+    v43 = 0LL;
+    v42 = 0LL;
   }
   if ( !a4 )
   {
@@ -96,7 +96,7 @@ __int64 __fastcall MiFindEmptyAddressRange(
     }
     else
     {
-      if ( (unsigned __int64)(v12 - 0x200000) > 0x7FE00000 || ((v12 - 1) & a2) != 0 )
+      if ( v12 - 0x200000 > 0x7FE00000 || ((v12 - 1) & a2) != 0 )
         goto LABEL_35;
       v20 = a2;
     }
@@ -108,11 +108,11 @@ __int64 __fastcall MiFindEmptyAddressRange(
         v22 = *(_QWORD *)(a1 + 16);
         if ( v21 != 1 && v21 >= *(_QWORD *)(a1 + 24) )
           v22 = *(_QWORD *)(a1 + 32);
-        v23 = *(_QWORD *)(a1 + 8) - qword_140C4E360;
+        v23 = *(_QWORD *)(a1 + 8) - qword_140C4E3A0;
         if ( v15 == 1 )
         {
-          v28 = v22 + 8 * v23;
-          if ( v28 < v18 || v28 >= v19 )
+          v30 = v22 + 8 * v23;
+          if ( v30 < v18 || v30 >= v19 )
           {
             v22 = v18;
             *v16 = 0;
@@ -121,72 +121,72 @@ __int64 __fastcall MiFindEmptyAddressRange(
         if ( v12 == 0x10000 )
           ClearBits = RtlFindClearBitsEx((unsigned __int64 *)a1, v21, v22);
         else
-          ClearBits = MiFindClearVadBitsAligned(a1, v12, v21, v22);
-        v25 = ClearBits;
+          ClearBits = MiFindClearVadBitsAligned((unsigned __int64 *)a1, v12, v21, v22);
+        v27 = ClearBits;
         if ( ClearBits != -1LL )
         {
-          if ( v15 != 1 || (v29 = ClearBits + 8 * v23, v29 >= v41) && v29 < v40 )
+          if ( v15 != 1 || (v31 = ClearBits + 8 * v23, v31 >= v43) && v31 < v42 )
           {
-            *a8 = (v25 + 8 * (*(_QWORD *)(a1 + 8) - qword_140C4E360)) << 16;
+            *a8 = (v27 + 8 * (*(_QWORD *)(a1 + 8) - qword_140C4E3A0)) << 16;
             return 0LL;
           }
         }
-        if ( (unsigned int)MiExpandVadBitMap(a1, v21) != 1 )
+        if ( (unsigned int)MiExpandVadBitMap((unsigned __int64 *)a1, v21, v25, v26) != 1 )
           break;
         v12 = a3;
         v16 = a9;
-        v19 = v40;
-        v18 = v41;
+        v19 = v42;
+        v18 = v43;
       }
       if ( v15 == 1 )
         return 3221225495LL;
-      LODWORD(v12) = a3;
+      v12 = a3;
       v16 = a9;
-      v19 = v40;
-      v18 = v41;
-      Process = v37;
+      v19 = v42;
+      v18 = v43;
+      Process = v39;
     }
-    v10 = v39;
+    v10 = a4;
   }
 LABEL_35:
   *v16 = 0;
   if ( v15 == 1 )
   {
-    v30 = v19 << 16;
-    if ( v9 > v30 )
-      v9 = v30;
+    v32 = v19 << 16;
+    if ( v9 > v32 )
+      v9 = v32;
   }
-  v31 = *(_QWORD *)(a1 + 56);
-  v32 = a5;
-  if ( v31 > a5 )
-    v32 = v31;
-  v33 = v32 < v9;
-  if ( v32 > v9 )
+  v33 = *(_QWORD *)(a1 + 56);
+  v34 = a5;
+  if ( v33 > a5 )
+    v34 = v33;
+  v35 = v34 < v9;
+  if ( v34 > v9 )
   {
-    if ( ((__int64)Process[2].ReadyListHead.Blink & 0x20) == 0 || (v35 = 0x3FFFFFFFLL, v9 <= 0x3FFFFFFF) )
-      v35 = 0xFFFFFFLL;
-    v32 &= v35;
-    if ( !v32 || v32 > v9 )
-      v32 = 0x10000LL;
-    if ( v15 == 1 && v32 < v31 )
-      v32 = v18 << 16;
-    if ( v32 < a5 )
-      v32 = a5;
-    v33 = v32 < v9;
+    if ( ((__int64)Process[2].ReadyListHead.Blink & 0x20) == 0 || (v37 = 0x3FFFFFFFLL, v9 <= 0x3FFFFFFF) )
+      v37 = 0xFFFFFFLL;
+    v34 &= v37;
+    if ( !v34 || v34 > v9 )
+      v34 = 0x10000LL;
+    if ( v15 == 1 && v34 < v33 )
+      v34 = v18 << 16;
+    if ( v34 < a5 )
+      v34 = a5;
+    v35 = v34 < v9;
   }
-  if ( !v33 || v9 - v32 + 1 < a2 )
+  if ( !v35 || v9 - v34 + 1 < a2 )
     return 3221225495LL;
-  v34 = (_DWORD)Process + 2008;
-  result = MiFindEmptyAddressRangeInTree((int)Process + 2008, a2, v12, v10, v32, v9, (__int64)a8);
+  v36 = &Process[1].Spare2[15];
+  result = MiFindEmptyAddressRangeInTree((_QWORD **)&Process[1].Spare2[15], a2, v12, v10, v34, v9, a8);
   if ( (int)result < 0 )
   {
-    v36 = v41 << 16;
+    v38 = v43 << 16;
     if ( v15 != 1 )
-      v36 = 0x10000LL;
-    if ( v36 < a5 )
-      v36 = a5;
-    if ( v36 < v32 )
-      return MiFindEmptyAddressRangeInTree(v34, a2, a3, v10, v36, v9, (__int64)a8);
+      v38 = 0x10000LL;
+    if ( v38 < a5 )
+      v38 = a5;
+    if ( v38 < v34 )
+      return MiFindEmptyAddressRangeInTree((_QWORD **)v36, a2, a3, v10, v38, v9, a8);
   }
   return result;
 }

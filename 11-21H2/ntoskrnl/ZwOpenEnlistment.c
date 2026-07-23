@@ -1,8 +1,8 @@
 /*
  * XREFs of ZwOpenEnlistment @ 0x14041DBC0
  * Callers:
- *     DifZwOpenEnlistmentWrapper @ 0x1406217A0 (DifZwOpenEnlistmentWrapper.c)
- *     CmpRecoverEnlistment @ 0x14091BA74 (CmpRecoverEnlistment.c)
+ *     sub_1406217A0 @ 0x1406217A0 (sub_1406217A0.c)
+ *     sub_14091BA74 @ 0x14091BA74 (sub_14091BA74.c)
  * Callees:
  *     <none>
  */
@@ -17,5 +17,5 @@ NTSTATUS __stdcall ZwOpenEnlistment(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(EnlistmentHandle, *(_QWORD *)&DesiredAccess);
+  return sub_140433F80(EnlistmentHandle, *(_QWORD *)&DesiredAccess);
 }

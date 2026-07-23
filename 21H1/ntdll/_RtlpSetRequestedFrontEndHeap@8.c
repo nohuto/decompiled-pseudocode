@@ -17,24 +17,24 @@ int __thiscall RtlpSetRequestedFrontEndHeap(int this)
 
   v2 = 0;
   v4 = 0;
-  RtlEnterCriticalSection((int)&RtlpProcessHeapsListLock);
+  RtlEnterCriticalSection(&RtlpProcessHeapsListLock);
   if ( RtlpIsProtectedHeap(this) )
   {
     v2 = -1073741811;
   }
   else
   {
-    RtlEnterCriticalSection(*(_DWORD *)(this + 200));
+    RtlEnterCriticalSection(*(PRTL_CRITICAL_SECTION *)(this + 200));
     v4 = 1;
     if ( !*(_BYTE *)(this + 235) )
     {
       *(_BYTE *)(this + 235) = 2;
-      RtlLeaveCriticalSection(*(_DWORD *)(this + 200));
+      RtlLeaveCriticalSection(*(PRTL_CRITICAL_SECTION *)(this + 200));
       v4 = 0;
     }
   }
   if ( v4 )
-    RtlLeaveCriticalSection(*(_DWORD *)(this + 200));
-  RtlLeaveCriticalSection((int)&RtlpProcessHeapsListLock);
+    RtlLeaveCriticalSection(*(PRTL_CRITICAL_SECTION *)(this + 200));
+  RtlLeaveCriticalSection(&RtlpProcessHeapsListLock);
   return v2;
 }

@@ -78,7 +78,7 @@ NTSTATUS __stdcall IoCreateDevice(
   int v34; // r9d
   void *Src; // [rsp+20h] [rbp-E0h]
   PVOID Object; // [rsp+50h] [rbp-B0h] BYREF
-  int v37; // [rsp+58h] [rbp-A8h] BYREF
+  _NT_PRODUCT_TYPE NtProductType; // [rsp+58h] [rbp-A8h] BYREF
   PVOID P; // [rsp+60h] [rbp-A0h] BYREF
   unsigned int v39; // [rsp+68h] [rbp-98h]
   ULONG v40; // [rsp+6Ch] [rbp-94h]
@@ -154,11 +154,11 @@ LABEL_7:
         v13 = 2LL;
         goto LABEL_8;
       }
-      v37 = 0;
+      NtProductType = 0;
       AclSize = SePublicDefaultUnrestrictedDacl->AclSize;
-      if ( !RtlGetNtProductType(&v37) )
+      if ( !RtlGetNtProductType(&NtProductType) )
         goto LABEL_9;
-      if ( v37 == 1 )
+      if ( NtProductType == NtProductWinNt )
       {
         v31 = (unsigned __int8 *)SeInteractiveSid;
       }
@@ -179,7 +179,7 @@ LABEL_9:
         goto LABEL_10;
       }
       memmove(Pool2, SePublicDefaultUnrestrictedDacl, SePublicDefaultUnrestrictedDacl->AclSize);
-      v29 = v37 == 1;
+      v29 = NtProductType == NtProductWinNt;
       v7->AclSize = AclSize;
       if ( v29 )
       {
@@ -200,7 +200,7 @@ LABEL_90:
         v33 = (unsigned __int8 *)SeWorldSid;
         v34 = 0x80000000;
       }
-      RtlpAddKnownAce((__int64)v7, 2u, 0, v34, v33, 0);
+      RtlpAddKnownAce(v7, 2u, 0, v34, v33, 0);
       goto LABEL_90;
     }
     if ( (_DWORD)v10 == 32 || (_DWORD)v10 == 20 || (_DWORD)v10 == 36 || (_DWORD)v10 == 45 )

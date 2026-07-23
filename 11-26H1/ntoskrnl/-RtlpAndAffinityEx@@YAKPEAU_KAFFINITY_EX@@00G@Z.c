@@ -1,10 +1,9 @@
 /*
- * XREFs of ?RtlpAndAffinityEx@@YAKPEAU_KAFFINITY_EX@@00G@Z @ 0x14025A790
+ * XREFs of ?RtlpAndAffinityEx@@YAKPEAU_KAFFINITY_EX@@00G@Z @ 0x14025BF70
  * Callers:
- *     PpmParkReportParkedCores @ 0x14025A2F0 (PpmParkReportParkedCores.c)
- *     KiSetLegacyAffinityThread @ 0x14025A52C (KiSetLegacyAffinityThread.c)
- *     PpmHeteroUpdateHgsConfiguration @ 0x14025B888 (PpmHeteroUpdateHgsConfiguration.c)
- *     KeAndAffinityEx @ 0x14052FC90 (KeAndAffinityEx.c)
+ *     PpmParkReportParkedCores @ 0x14025BAD0 (PpmParkReportParkedCores.c)
+ *     KiSetLegacyAffinityThread @ 0x14025BD0C (KiSetLegacyAffinityThread.c)
+ *     KeAndAffinityEx @ 0x140532190 (KeAndAffinityEx.c)
  * Callees:
  *     <none>
  */

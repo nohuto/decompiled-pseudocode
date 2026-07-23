@@ -1,5 +1,5 @@
 /*
- * XREFs of BvgaSetScrollRegion @ 0x14054F4F0
+ * XREFs of BvgaSetScrollRegion @ 0x14054FBB0
  * Callers:
  *     <none>
  * Callees:

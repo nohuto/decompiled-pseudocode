@@ -1,17 +1,17 @@
 /*
- * XREFs of PopDirectedDripsDiagNotifySessionStop @ 0x1408F71A4
+ * XREFs of PopDirectedDripsDiagNotifySessionStop @ 0x1408F7304
  * Callers:
- *     PopDirectedDripsSendSessionData @ 0x1408E3964 (PopDirectedDripsSendSessionData.c)
+ *     PopDirectedDripsSendSessionData @ 0x1408E3AC4 (PopDirectedDripsSendSessionData.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     PopDirectedDripsDiagQueryAndResetPnpAccounting @ 0x14057C974 (PopDirectedDripsDiagQueryAndResetPnpAccounting.c)
- *     PopDirectedDripsDiagRundownBroadcastTrees @ 0x1408F73B0 (PopDirectedDripsDiagRundownBroadcastTrees.c)
- *     PopDirectedDripsDiagRundownDevices @ 0x1408F77C4 (PopDirectedDripsDiagRundownDevices.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14027E1A4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x1402864F4 (_tlgKeywordOn.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     PopDirectedDripsDiagQueryAndResetPnpAccounting @ 0x14057CBB4 (PopDirectedDripsDiagQueryAndResetPnpAccounting.c)
+ *     PopDirectedDripsDiagRundownBroadcastTrees @ 0x1408F7510 (PopDirectedDripsDiagRundownBroadcastTrees.c)
+ *     PopDirectedDripsDiagRundownDevices @ 0x1408F7924 (PopDirectedDripsDiagRundownDevices.c)
  */
 
 char __fastcall PopDirectedDripsDiagNotifySessionStop(__int64 a1, int a2, int a3)
@@ -109,7 +109,7 @@ char __fastcall PopDirectedDripsDiagNotifySessionStop(__int64 a1, int a2, int a3
       v16 = 0x1000000LL;
       tlgWriteTransfer_EtwWriteTransfer(
         (__int64)&dword_140D2D900,
-        (unsigned __int8 *)word_140029F6A,
+        (unsigned __int8 *)&byte_14002A117,
         0LL,
         0LL,
         0xAu,

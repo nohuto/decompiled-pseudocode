@@ -1,13 +1,13 @@
 /*
- * XREFs of MiGetSystemPage @ 0x140338B90
+ * XREFs of MiGetSystemPage @ 0x14033AC10
  * Callers:
- *     MiGetPageForHeader @ 0x14033897C (MiGetPageForHeader.c)
+ *     MiGetPageForHeader @ 0x14033A9FC (MiGetPageForHeader.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiGetPage @ 0x1402866A0 (MiGetPage.c)
- *     MiWaitForFreePage @ 0x1403D1DB4 (MiWaitForFreePage.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiGetPage @ 0x140285C00 (MiGetPage.c)
+ *     MiWaitForFreePage @ 0x1403D4D84 (MiWaitForFreePage.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall MiGetSystemPage(__int64 a1, int a2, __int64 a3)

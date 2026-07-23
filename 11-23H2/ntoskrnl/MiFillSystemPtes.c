@@ -1,25 +1,25 @@
 /*
- * XREFs of MiFillSystemPtes @ 0x14027E8C0
+ * XREFs of MiFillSystemPtes @ 0x14027EB50
  * Callers:
- *     MmMapLockedPagesSpecifyCache @ 0x14027CF60 (MmMapLockedPagesSpecifyCache.c)
- *     MiMapContiguousMemory @ 0x1403359F8 (MiMapContiguousMemory.c)
- *     MmMapMdl @ 0x14062F0A0 (MmMapMdl.c)
- *     MiLockAndMapEntireDriver @ 0x140A342C8 (MiLockAndMapEntireDriver.c)
- *     MiMapHotPatchImageInSystemSpace @ 0x140A3A104 (MiMapHotPatchImageInSystemSpace.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x14027D1F0 (MmMapLockedPagesSpecifyCache.c)
+ *     MiMapContiguousMemory @ 0x140335C88 (MiMapContiguousMemory.c)
+ *     MmMapMdl @ 0x14062F5F0 (MmMapMdl.c)
+ *     MiLockAndMapEntireDriver @ 0x140A34578 (MiLockAndMapEntireDriver.c)
+ *     MiMapHotPatchImageInSystemSpace @ 0x140A3A3B4 (MiMapHotPatchImageInSystemSpace.c)
  * Callees:
  *     MiMakeProtectionPfnCompatible @ 0x140217E64 (MiMakeProtectionPfnCompatible.c)
- *     MiMakeValidPte @ 0x1402CF2B0 (MiMakeValidPte.c)
- *     MiGetLeafVa @ 0x1402E5A20 (MiGetLeafVa.c)
- *     MiGetPfnPageSizeIndexUnsynchronized @ 0x1402E90A0 (MiGetPfnPageSizeIndexUnsynchronized.c)
- *     MiZeroAndFlushPtes @ 0x140335E5C (MiZeroAndFlushPtes.c)
- *     MiReferenceIoPages @ 0x140336500 (MiReferenceIoPages.c)
- *     MiIoSpaceGetBounds @ 0x140336CF0 (MiIoSpaceGetBounds.c)
- *     MiUserPdeOrAbove @ 0x14033C630 (MiUserPdeOrAbove.c)
- *     MiIoPagesInRun @ 0x1403601C8 (MiIoPagesInRun.c)
- *     MiAssignInitialPageAttribute @ 0x1403A2BA4 (MiAssignInitialPageAttribute.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiShowBadMapper @ 0x1406310BC (MiShowBadMapper.c)
+ *     MiMakeValidPte @ 0x1402CF540 (MiMakeValidPte.c)
+ *     MiGetLeafVa @ 0x1402E5CB0 (MiGetLeafVa.c)
+ *     MiGetPfnPageSizeIndexUnsynchronized @ 0x1402E9330 (MiGetPfnPageSizeIndexUnsynchronized.c)
+ *     MiZeroAndFlushPtes @ 0x1403360EC (MiZeroAndFlushPtes.c)
+ *     MiReferenceIoPages @ 0x140336790 (MiReferenceIoPages.c)
+ *     MiIoSpaceGetBounds @ 0x140336F80 (MiIoSpaceGetBounds.c)
+ *     MiUserPdeOrAbove @ 0x14033C8C0 (MiUserPdeOrAbove.c)
+ *     MiIoPagesInRun @ 0x140360368 (MiIoPagesInRun.c)
+ *     MiAssignInitialPageAttribute @ 0x1403A2D84 (MiAssignInitialPageAttribute.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     MiShowBadMapper @ 0x14063160C (MiShowBadMapper.c)
  */
 
 __int64 __fastcall MiFillSystemPtes(
@@ -259,7 +259,7 @@ LABEL_63:
       {
         CurrentIrql = KeGetCurrentIrql();
         __writecr8(2uLL);
-        if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+        if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
         {
           SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
           if ( CurrentIrql == 2 )
@@ -271,10 +271,10 @@ LABEL_63:
           v62 = v49;
         }
         MiIoSpaceGetBounds(&v67, v22);
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v53 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v53 <= 0xFu && CurrentIrql <= 0xFu && v53 >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v53 <= 0xFu && CurrentIrql <= 0xFu && v53 >= 2u )
           {
             CurrentPrcb = KeGetCurrentPrcb();
             v55 = CurrentPrcb->SchedulerAssist;

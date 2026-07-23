@@ -1,18 +1,18 @@
 /*
- * XREFs of MiInitializeNewImageSectionProtos @ 0x140312D98
+ * XREFs of MiInitializeNewImageSectionProtos @ 0x1403F0B48
  * Callers:
- *     MiSectionCreated @ 0x140312C30 (MiSectionCreated.c)
+ *     MiSectionCreated @ 0x1403F09E0 (MiSectionCreated.c)
  * Callees:
- *     MiLockProtoPoolPageForce @ 0x140215A80 (MiLockProtoPoolPageForce.c)
- *     MiUnlockProtoPoolPage @ 0x14028CBF0 (MiUnlockProtoPoolPage.c)
- *     MmUnmapLockedPages @ 0x14028D9C0 (MmUnmapLockedPages.c)
- *     HvlNotifyLongSpinWait @ 0x140293260 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140293290 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     MiReturnPfnReferenceCountAtDpc @ 0x1402E6850 (MiReturnPfnReferenceCountAtDpc.c)
- *     MiReferenceControlAreaPfn @ 0x1402E68C4 (MiReferenceControlAreaPfn.c)
- *     MiLockLeafPage @ 0x1402E8100 (MiLockLeafPage.c)
- *     MiReturnPfnReferenceCount @ 0x140311244 (MiReturnPfnReferenceCount.c)
- *     MiInitializeTransitionPfn @ 0x14031359C (MiInitializeTransitionPfn.c)
+ *     MiUnlockProtoPoolPage @ 0x14029C7F0 (MiUnlockProtoPoolPage.c)
+ *     MmUnmapLockedPages @ 0x14029D5C0 (MmUnmapLockedPages.c)
+ *     HvlNotifyLongSpinWait @ 0x1402A2E60 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402A2E90 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     MiLockProtoPoolPageForce @ 0x140333E20 (MiLockProtoPoolPageForce.c)
+ *     MiReturnPfnReferenceCountAtDpc @ 0x140347E90 (MiReturnPfnReferenceCountAtDpc.c)
+ *     MiReferenceControlAreaPfn @ 0x140347F04 (MiReferenceControlAreaPfn.c)
+ *     MiLockLeafPage @ 0x140349740 (MiLockLeafPage.c)
+ *     MiReturnPfnReferenceCount @ 0x1403F02E4 (MiReturnPfnReferenceCount.c)
+ *     MiInitializeTransitionPfn @ 0x1403F2C1C (MiInitializeTransitionPfn.c)
  */
 
 void __fastcall MiInitializeNewImageSectionProtos(__int64 a1, __int64 *a2)
@@ -22,122 +22,124 @@ void __fastcall MiInitializeNewImageSectionProtos(__int64 a1, __int64 *a2)
   unsigned int v4; // esi
   unsigned __int64 v6; // rdx
   __int64 v7; // r8
-  unsigned int v8; // ecx
-  __int64 *v9; // r15
-  int v10; // ebp
-  unsigned __int64 v11; // r12
-  ULONG_PTR v12; // r14
-  ULONG_PTR v13; // rbx
-  ULONG_PTR v14; // rdi
-  ULONG_PTR v15; // rax
-  __int64 v16; // rdx
-  __int64 v17; // r8
-  unsigned int v18; // esi
-  __int64 v19; // [rsp+20h] [rbp-58h]
-  ULONG_PTR v20; // [rsp+20h] [rbp-58h]
-  __int64 v21; // [rsp+28h] [rbp-50h]
-  unsigned __int8 v22; // [rsp+80h] [rbp+8h] BYREF
-  __int64 *v23; // [rsp+88h] [rbp+10h]
-  unsigned int v24; // [rsp+90h] [rbp+18h]
-  unsigned int v25; // [rsp+98h] [rbp+20h]
+  __int64 v8; // r9
+  unsigned int v9; // ecx
+  __int64 *v10; // r15
+  int v11; // ebp
+  unsigned __int64 v12; // r12
+  ULONG_PTR v13; // r14
+  __int64 v14; // rbx
+  __int64 v15; // rdi
+  __int64 v16; // rax
+  __int64 v17; // rdx
+  __int64 v18; // r8
+  __int64 v19; // r9
+  unsigned int v20; // esi
+  __int64 v21; // [rsp+20h] [rbp-58h]
+  __int64 v22; // [rsp+20h] [rbp-58h]
+  __int64 v23; // [rsp+28h] [rbp-50h]
+  unsigned __int8 v24; // [rsp+80h] [rbp+8h] BYREF
+  __int64 *v25; // [rsp+88h] [rbp+10h]
+  unsigned int v26; // [rsp+90h] [rbp+18h]
+  unsigned int v27; // [rsp+98h] [rbp+20h]
 
   if ( !a2 )
     return;
-  v23 = a2;
+  v25 = a2;
   v2 = *(_QWORD *)(a1 + 136);
   v3 = a2;
   v4 = *(_DWORD *)(a1 + 172);
-  v21 = v2;
-  v24 = v4;
+  v23 = v2;
+  v26 = v4;
   do
   {
     if ( (*((_BYTE *)v3 + 10) & 4) != 0 )
       goto LABEL_5;
     MmUnmapLockedPages((PVOID)v3[3], (PMDL)v3);
-    v9 = v3 + 6;
-    v10 = *((_DWORD *)v3 + 10) >> 12;
-    v11 = 0LL;
-    v25 = *((_DWORD *)v3 + 4);
-    v8 = v25;
-    v22 = 17;
-    v12 = v2 + 8LL * v25;
-    if ( !v10 )
+    v10 = v3 + 6;
+    v11 = *((_DWORD *)v3 + 10) >> 12;
+    v12 = 0LL;
+    v27 = *((_DWORD *)v3 + 4);
+    v9 = v27;
+    v24 = 17;
+    v13 = v2 + 8LL * v27;
+    if ( !v11 )
       goto LABEL_5;
-    v13 = 0LL;
+    v14 = 0LL;
     do
     {
-      v19 = *v9;
-      v14 = 48 * *v9 - 0x220000000000LL;
-      if ( v8 < v4 )
+      v21 = *v10;
+      v15 = 48 * *v10 - 0x220000000000LL;
+      if ( v9 < v4 )
       {
-        if ( (v12 & 0xFFFFFFFFFFFFF000uLL) != v11 )
+        if ( (v13 & 0xFFFFFFFFFFFFF000uLL) != v12 )
         {
-          if ( v11 )
+          if ( v12 )
           {
-            LOBYTE(v6) = v22;
-            MiUnlockProtoPoolPage(v13, v6, v7);
+            LOBYTE(v6) = v24;
+            MiUnlockProtoPoolPage(v14, v6, v7, v8);
           }
-          v13 = MiLockProtoPoolPageForce(v12, &v22);
-          v11 = v12 & 0xFFFFFFFFFFFFF000uLL;
+          v14 = MiLockProtoPoolPageForce(v13, &v24);
+          v12 = v13 & 0xFFFFFFFFFFFFF000uLL;
         }
-        v15 = MiLockLeafPage((unsigned __int64 *)v12, 0);
-        if ( v15 )
+        v16 = MiLockLeafPage((unsigned __int64 *)v13, 0);
+        if ( v16 )
         {
-          _InterlockedAnd64((volatile signed __int64 *)(v15 + 24), 0x7FFFFFFFFFFFFFFFuLL);
+          _InterlockedAnd64((volatile signed __int64 *)(v16 + 24), 0x7FFFFFFFFFFFFFFFuLL);
         }
-        else if ( (*(_QWORD *)v12 & 0x400LL) != 0 )
+        else if ( (*(_QWORD *)v13 & 0x400LL) != 0 )
         {
-          v18 = 0;
-          while ( _interlockedbittestandset64((volatile signed __int32 *)(v14 + 24), 0x3FuLL) )
+          v20 = 0;
+          while ( _interlockedbittestandset64((volatile signed __int32 *)(v15 + 24), 0x3FuLL) )
           {
             do
             {
-              if ( (++v18 & HvlLongSpinCountMask) == 0
+              if ( (++v20 & HvlLongSpinCountMask) == 0
                 && (HvlEnlightenments & 0x40) != 0
                 && KiCheckVpBackingLongSpinWaitHypercall() )
               {
-                HvlNotifyLongSpinWait(v18);
+                HvlNotifyLongSpinWait(v20);
               }
               else
               {
                 _mm_pause();
               }
             }
-            while ( *(__int64 *)(v14 + 24) < 0 );
+            while ( *(__int64 *)(v15 + 24) < 0 );
           }
-          MiInitializeTransitionPfn(v19, v12, -1LL);
-          _InterlockedAnd64((volatile signed __int64 *)(v14 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-          if ( (*(_DWORD *)(v14 + 16) & 0x400LL) != 0 )
+          MiInitializeTransitionPfn(v21, v13, -1LL);
+          _InterlockedAnd64((volatile signed __int64 *)(v15 + 24), 0x7FFFFFFFFFFFFFFFuLL);
+          if ( (*(_DWORD *)(v15 + 16) & 0x400LL) != 0 )
             MiReferenceControlAreaPfn(a1, 0LL, 1u);
           goto LABEL_16;
         }
-        MiReturnPfnReferenceCountAtDpc(v14, v16, v17);
-        *v9 = -1LL;
+        MiReturnPfnReferenceCountAtDpc(v15, v17, v18, v19);
+        *v10 = -1LL;
 LABEL_16:
-        v4 = v24;
+        v4 = v26;
         goto LABEL_17;
       }
-      MiReturnPfnReferenceCount(48 * v19 - 0x220000000000LL, v6, v7);
-      *v9 = -1LL;
+      MiReturnPfnReferenceCount(48 * v21 - 0x220000000000LL, v6, v7, v8);
+      *v10 = -1LL;
 LABEL_17:
-      v12 += 8LL;
-      v8 = v25 + 1;
-      ++v9;
-      ++v25;
-      --v10;
+      v13 += 8LL;
+      v9 = v27 + 1;
+      ++v10;
+      ++v27;
+      --v11;
     }
-    while ( v10 );
-    v20 = v13;
-    v3 = v23;
-    if ( v11 )
+    while ( v11 );
+    v22 = v14;
+    v3 = v25;
+    if ( v12 )
     {
-      LOBYTE(v6) = v22;
-      MiUnlockProtoPoolPage(v20, v6, v7);
+      LOBYTE(v6) = v24;
+      MiUnlockProtoPoolPage(v22, v6, v7, v8);
     }
-    v2 = v21;
+    v2 = v23;
 LABEL_5:
     v3 = (__int64 *)*v3;
-    v23 = v3;
+    v25 = v3;
   }
   while ( v3 );
 }

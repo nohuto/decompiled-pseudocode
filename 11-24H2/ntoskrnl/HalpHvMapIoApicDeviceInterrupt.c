@@ -1,66 +1,60 @@
 /*
- * XREFs of HalpHvMapIoApicDeviceInterrupt @ 0x140B4C838
+ * XREFs of HalpHvMapIoApicDeviceInterrupt @ 0x140B4E878
  * Callers:
- *     HalpInterruptEnableNmi @ 0x1404A356C (HalpInterruptEnableNmi.c)
- *     HalpInterruptRemap @ 0x140540EC4 (HalpInterruptRemap.c)
- *     HalpInterruptRemapFixedLines @ 0x140542550 (HalpInterruptRemapFixedLines.c)
+ *     HalpInterruptEnableNmi @ 0x14049E4CC (HalpInterruptEnableNmi.c)
+ *     HalpInterruptRemap @ 0x14053E7C4 (HalpInterruptRemap.c)
+ *     HalpInterruptRemapFixedLines @ 0x14053FEA0 (HalpInterruptRemapFixedLines.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
-__int64 __fastcall HalpHvMapIoApicDeviceInterrupt(char a1, __int64 a2, __int64 a3)
+__int64 __fastcall HalpHvMapIoApicDeviceInterrupt(char a1, __int64 a2)
 {
+  int v3; // ecx
   int v4; // ecx
   int v5; // ecx
-  int v6; // ecx
   __int64 result; // rax
-  __int64 v8; // rdx
-  int v9; // ecx
-  unsigned __int64 v10; // [rsp+30h] [rbp-40h]
-  __int128 v11; // [rsp+38h] [rbp-38h] BYREF
-  __int128 v12; // [rsp+48h] [rbp-28h] BYREF
-  __int128 v13; // [rsp+58h] [rbp-18h]
+  unsigned __int64 v7; // [rsp+30h] [rbp-40h]
+  __int128 v8; // [rsp+48h] [rbp-28h] BYREF
+  __int128 v9; // [rsp+58h] [rbp-18h]
 
-  v10 = 0x8000000000000000uLL;
-  LOBYTE(v10) = a1;
-  v4 = *(_DWORD *)(a2 + 20);
-  v11 = 0LL;
-  v12 = 0LL;
-  v13 = 0LL;
-  v5 = v4 - 1;
-  if ( v5 )
+  v7 = 0x8000000000000000uLL;
+  LOBYTE(v7) = a1;
+  v3 = *(_DWORD *)(a2 + 20);
+  v8 = 0LL;
+  v9 = 0LL;
+  v4 = v3 - 1;
+  if ( v4 )
   {
-    v6 = v5 - 1;
-    if ( v6 )
+    v5 = v4 - 1;
+    if ( v5 )
     {
-      if ( v6 == 1 )
-        LODWORD(v12) = 2;
+      if ( v5 == 1 )
+        LODWORD(v8) = 2;
     }
     else
     {
-      LODWORD(v12) = 4;
+      LODWORD(v8) = 4;
     }
   }
   else
   {
-    LODWORD(v13) = *(_DWORD *)(a2 + 48);
+    LODWORD(v9) = *(_DWORD *)(a2 + 48);
   }
-  DWORD2(v12) = 1;
-  DWORD1(v12) = *(_DWORD *)(a2 + 8) == 0;
-  result = guard_dispatch_icall_no_overrides(v10, &v12, a3, &v11);
+  DWORD2(v8) = 1;
+  DWORD1(v8) = *(_DWORD *)(a2 + 8) == 0;
+  result = guard_dispatch_icall_no_overrides(v7, &v8);
   if ( (int)result < 0 )
   {
     *(_DWORD *)(a2 + 12) &= ~0x10u;
   }
   else
   {
-    v8 = *((_QWORD *)&v11 + 1);
-    v9 = HIDWORD(v11);
-    *(_DWORD *)(a2 + 32) = DWORD2(v11);
-    *(_QWORD *)(a2 + 40) = v8;
+    *(_DWORD *)(a2 + 32) = 0;
+    *(_QWORD *)(a2 + 40) = 0LL;
     *(_DWORD *)(a2 + 24) = 8;
-    *(_DWORD *)(a2 + 36) = v9;
+    *(_DWORD *)(a2 + 36) = 0;
   }
   return result;
 }

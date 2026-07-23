@@ -16,19 +16,19 @@
  *     MiInsertPageInFreeOrZeroedList @ 0x1400387F0 (MiInsertPageInFreeOrZeroedList.c)
  *     MiGetPage @ 0x140049D50 (MiGetPage.c)
  *     MiChargeCommit @ 0x14004CF20 (MiChargeCommit.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     MiReturnFreeZeroPage @ 0x14008229C (MiReturnFreeZeroPage.c)
- *     MiWriteValidPteVolatile @ 0x140085FA0 (MiWriteValidPteVolatile.c)
- *     MiLocateAddress @ 0x140087860 (MiLocateAddress.c)
- *     MiCopyPage @ 0x1400B1C50 (MiCopyPage.c)
- *     MiChangePageAttribute @ 0x1400EF920 (MiChangePageAttribute.c)
- *     MiCopyPfnEntryEx @ 0x14010E000 (MiCopyPfnEntryEx.c)
- *     MiCapturePageFileInfoInline @ 0x140119DD0 (MiCapturePageFileInfoInline.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     MiLockNestedPageAtDpcInline @ 0x140120F04 (MiLockNestedPageAtDpcInline.c)
- *     MiReturnFaultCharges @ 0x140134854 (MiReturnFaultCharges.c)
- *     RtlpInterlockedPopEntrySList @ 0x1401C53D0 (RtlpInterlockedPopEntrySList.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     MiReturnFreeZeroPage @ 0x14008228C (MiReturnFreeZeroPage.c)
+ *     MiWriteValidPteVolatile @ 0x140085F90 (MiWriteValidPteVolatile.c)
+ *     MiLocateAddress @ 0x140087850 (MiLocateAddress.c)
+ *     MiCopyPage @ 0x1400B1B90 (MiCopyPage.c)
+ *     MiChangePageAttribute @ 0x1400EF9A0 (MiChangePageAttribute.c)
+ *     MiCopyPfnEntryEx @ 0x14010E080 (MiCopyPfnEntryEx.c)
+ *     MiCapturePageFileInfoInline @ 0x140119E40 (MiCapturePageFileInfoInline.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     MiLockNestedPageAtDpcInline @ 0x140120FD4 (MiLockNestedPageAtDpcInline.c)
+ *     MiReturnFaultCharges @ 0x140134924 (MiReturnFaultCharges.c)
+ *     RtlpInterlockedPopEntrySList @ 0x1401C5530 (RtlpInterlockedPopEntrySList.c)
  */
 
 __int64 __fastcall MiMigratePfn(ULONG_PTR *a1, __int64 a2, ULONG_PTR a3, PSLIST_ENTRY *a4)
@@ -130,10 +130,10 @@ __int64 __fastcall MiMigratePfn(ULONG_PTR *a1, __int64 a2, ULONG_PTR a3, PSLIST_
   v91 = v7;
   if ( (v6 & 0x10000000000000LL) != 0 )
     return v92;
-  if ( byte_14043DBDE )
+  if ( byte_14043EC9E )
   {
     v10 = (__int64)((unsigned __int128)((a2 + 0x58000000000LL) * (__int128)0x2AAAAAAAAAAAAAABLL) >> 64) >> 3;
-    if ( _bittest64((const signed __int64 *)qword_14043E218, ((v10 >> 63) + v10) >> 9) )
+    if ( _bittest64((const signed __int64 *)qword_14043F2D8, ((v10 >> 63) + v10) >> 9) )
       return v92;
     a2 = v92;
   }
@@ -148,8 +148,8 @@ __int64 __fastcall MiMigratePfn(ULONG_PTR *a1, __int64 a2, ULONG_PTR a3, PSLIST_
     v11 = *(_QWORD *)(a2 + 16);
     if ( (v11 & 0x400) != 0 )
     {
-      if ( qword_14043A0C0 && (v11 & 0x10) == 0 )
-        v11 &= ~qword_14043A0C0;
+      if ( qword_14043B180 && (v11 & 0x10) == 0 )
+        v11 &= ~qword_14043B180;
       v12 = v11 >> 16;
       v13 = *(_QWORD *)v12;
       if ( v12 != *(_QWORD *)v12 + 128LL
@@ -183,7 +183,7 @@ __int64 __fastcall MiMigratePfn(ULONG_PTR *a1, __int64 a2, ULONG_PTR a3, PSLIST_
     {
 LABEL_23:
       CurrentPrcb = KeGetCurrentPrcb();
-      NodeShiftedColor = ((_WORD)v14 - 1) << byte_14043A049;
+      NodeShiftedColor = ((_WORD)v14 - 1) << byte_14043B109;
       goto LABEL_24;
     }
   }
@@ -230,15 +230,15 @@ LABEL_51:
 LABEL_24:
   if ( !p_PageColor || (p_PageColor[46] & 7) >= 2 )
     p_PageColor = &CurrentPrcb->PageColor;
-  v20 = NodeShiftedColor >> byte_14043A049;
+  v20 = NodeShiftedColor >> byte_14043B109;
   v21 = *(_QWORD *)(v92 + 40);
   if ( v20 == v21 >> 58 )
     return v92;
-  v22 = *(struct _KEVENT **)(qword_14043A748 + 8 * ((v21 >> 40) & 0x3FF));
+  v22 = *(struct _KEVENT **)(qword_14043B808 + 8 * ((v21 >> 40) & 0x3FF));
   v80 = v22;
-  v19 = (1 << byte_14043A04A) - 1;
+  v19 = (1 << byte_14043B10A) - 1;
   LODWORD(v81) = NodeShiftedColor | v19 & _InterlockedExchangeAdd((volatile signed __int32 *)p_PageColor, 1u);
-  v23 = (char *)qword_14043A050 + 2 * v20 * (unsigned int)(unsigned __int16)KeNumberNodes;
+  v23 = (char *)qword_14043B110 + 2 * v20 * (unsigned int)(unsigned __int16)KeNumberNodes;
   v24 = &v23[(unsigned __int16)KeNumberNodes];
   if ( v23 < v24 )
   {
@@ -307,7 +307,7 @@ LABEL_62:
     return v92;
   v38 = 1LL;
   if ( (v91 & 1) != 0 && *(_BYTE *)(v91 & 0xFFFFFFFFFFFFFFFEuLL) == 4
-    || BugCheckParameter2 >= 0xFFFF800000000000uLL && byte_14043B950[((BugCheckParameter2 >> 39) & 0x1FF) - 256] == 12 )
+    || BugCheckParameter2 >= 0xFFFF800000000000uLL && byte_14043CA10[((BugCheckParameter2 >> 39) & 0x1FF) - 256] == 12 )
   {
     v38 = 9LL;
   }
@@ -328,7 +328,7 @@ LABEL_62:
   {
     v43 = v20 * (unsigned int)(unsigned __int16)KeNumberNodes;
     v44 = v92;
-    v45 = (char *)qword_14043A050 + 2 * v43;
+    v45 = (char *)qword_14043B110 + 2 * v43;
     if ( v45 < v24 )
     {
       while ( *v45 != ((*(_QWORD *)(v92 + 40) >> 58) & 0x3F) )
@@ -343,7 +343,7 @@ LABEL_62:
 LABEL_84:
   if ( a3 )
   {
-    if ( !LOWORD(stru_14043AD90.Alignment) || (v46 = RtlpInterlockedPopEntrySList(&stru_14043AD90), (v93 = v46) == 0LL) )
+    if ( !LOWORD(stru_14043BE50.Alignment) || (v46 = RtlpInterlockedPopEntrySList(&stru_14043BE50), (v93 = v46) == 0LL) )
     {
 LABEL_88:
       MiLockNestedPageAtDpcInline(v41);
@@ -404,26 +404,26 @@ LABEL_88:
         v52 = v56 | 0x42;
     }
   }
-  if ( qword_14043A0C0 )
+  if ( qword_14043B180 )
   {
     if ( (v52 & 0x10) != 0 )
       v52 &= ~0x10uLL;
     else
-      v52 &= ~qword_14043A0C0;
+      v52 &= ~qword_14043B180;
   }
   v57 = v52 ^ (v52 ^ (v81 << 12)) & 0xFFFFFFFFF000LL;
-  if ( qword_14043A0C0 )
+  if ( qword_14043B180 )
   {
-    if ( (v57 & qword_14043A0C0) != 0 )
+    if ( (v57 & qword_14043B180) != 0 )
       v57 |= 0x10uLL;
     else
-      v57 |= qword_14043A0C0;
+      v57 |= qword_14043B180;
   }
   if ( v50 >= v51 && v50 <= v53 )
   {
-    if ( (unsigned int)MiPteHasShadow(qword_14043A0C0, v57) )
+    if ( (unsigned int)MiPteHasShadow(qword_14043B180, v57) )
     {
-      if ( !HIBYTE(word_14043A1AC) && (v57 & 1) != 0 )
+      if ( !HIBYTE(word_14043B26C) && (v57 & 1) != 0 )
         v57 |= v58;
       *(_QWORD *)v50 = v57;
       MiWritePteShadow(v50);

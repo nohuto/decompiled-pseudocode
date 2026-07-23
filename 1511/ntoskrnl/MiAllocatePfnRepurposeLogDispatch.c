@@ -16,22 +16,22 @@
 void MiAllocatePfnRepurposeLogDispatch()
 {
   _SLIST_ENTRY *v0; // rsi
-  struct _SLIST_ENTRY *PoolWithTag; // rax
-  struct _SLIST_ENTRY *v2; // rdi
+  _SLIST_ENTRY *PoolWithTag; // rax
+  _SLIST_ENTRY *v2; // rdi
   PSLIST_ENTRY v3; // rbx
-  struct _SLIST_ENTRY *Next; // rax
+  _SLIST_ENTRY *Next; // rax
   __int64 v5; // rax
   unsigned int Alignment_low; // edi
   int v7; // edi
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
 
   v0 = (_SLIST_ENTRY *)MEMORY[0xFFFFF78000000320];
-  PoolWithTag = (struct _SLIST_ENTRY *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x1000uLL, 0x70526D4Du);
+  PoolWithTag = (_SLIST_ENTRY *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x1000uLL, 0x70526D4Du);
   v2 = PoolWithTag;
   if ( PoolWithTag )
   {
     PoolWithTag->Next = 0LL;
-    PoolWithTag[2].Next = (struct _SLIST_ENTRY *)((char *)PoolWithTag + 72);
+    PoolWithTag[2].Next = (_SLIST_ENTRY *)((char *)PoolWithTag + 72);
     *((_QWORD *)&PoolWithTag[2].Next + 1) = (char *)PoolWithTag + 4088;
     *((_DWORD *)&PoolWithTag->Next + 2) = 2;
     PoolWithTag[1].Next = v0;
@@ -63,7 +63,7 @@ LABEL_6:
   if ( v3 )
   {
     Next = v3[2].Next;
-    if ( Next == (struct _SLIST_ENTRY *)(&v3[4].Next + 1) )
+    if ( Next == (_SLIST_ENTRY *)(&v3[4].Next + 1) )
       goto LABEL_24;
     if ( ((unsigned __int16)Next & 0xFFF) != 0 )
     {

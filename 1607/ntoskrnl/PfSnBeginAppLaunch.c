@@ -1,21 +1,21 @@
 /*
- * XREFs of PfSnBeginAppLaunch @ 0x1403E64A0
+ * XREFs of PfSnBeginAppLaunch @ 0x1403E7AD0
  * Callers:
- *     PfProcessCreateNotification @ 0x1403E6410 (PfProcessCreateNotification.c)
- *     PfSnAppLaunchScenarioControl @ 0x140669BC8 (PfSnAppLaunchScenarioControl.c)
+ *     PfProcessCreateNotification @ 0x1403E7A40 (PfProcessCreateNotification.c)
+ *     PfSnAppLaunchScenarioControl @ 0x140669CAC (PfSnAppLaunchScenarioControl.c)
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     PfSnIsHostingApplication @ 0x1403E6324 (PfSnIsHostingApplication.c)
- *     PfSnCheckScenario @ 0x1403E6638 (PfSnCheckScenario.c)
- *     PfCalculateProcessHash @ 0x1403E67F0 (PfCalculateProcessHash.c)
- *     PfSnBeginScenario @ 0x1403E6ED0 (PfSnBeginScenario.c)
- *     PfSnLogScenarioDecision @ 0x1403E71A4 (PfSnLogScenarioDecision.c)
- *     PfSnCheckModernApp @ 0x1403E7318 (PfSnCheckModernApp.c)
- *     PfSnScanCommandLine @ 0x1403E7638 (PfSnScanCommandLine.c)
- *     PfSnFindImageFileName @ 0x1403E791C (PfSnFindImageFileName.c)
+ *     PfSnIsHostingApplication @ 0x1403E7954 (PfSnIsHostingApplication.c)
+ *     PfSnCheckScenario @ 0x1403E7C68 (PfSnCheckScenario.c)
+ *     PfCalculateProcessHash @ 0x1403E7E20 (PfCalculateProcessHash.c)
+ *     PfSnBeginScenario @ 0x1403E8500 (PfSnBeginScenario.c)
+ *     PfSnLogScenarioDecision @ 0x1403E87D4 (PfSnLogScenarioDecision.c)
+ *     PfSnCheckModernApp @ 0x1403E8948 (PfSnCheckModernApp.c)
+ *     PfSnScanCommandLine @ 0x1403E8C68 (PfSnScanCommandLine.c)
+ *     PfSnFindImageFileName @ 0x1403E8F4C (PfSnFindImageFileName.c)
  */
 
 __int64 __fastcall PfSnBeginAppLaunch(__int64 a1, void *a2, int a3)
@@ -85,7 +85,7 @@ LABEL_17:
     v7 = 8;
   }
   *(_DWORD *)&SubStr[30] = a3 + v14;
-  if ( (dword_1403287D0 & 0x20) != 0 || v19[0] == 2 )
+  if ( (dword_140328810 & 0x20) != 0 || v19[0] == 2 )
     v7 |= 2u;
   v8 = PfSnBeginScenario(a1, SubStr, 0LL, v7);
   if ( v8 >= 0 )

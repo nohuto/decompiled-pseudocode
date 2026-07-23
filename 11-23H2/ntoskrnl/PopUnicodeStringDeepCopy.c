@@ -1,8 +1,8 @@
 /*
- * XREFs of PopUnicodeStringDeepCopy @ 0x1408597A0
+ * XREFs of PopUnicodeStringDeepCopy @ 0x1408599E0
  * Callers:
  *     PoGetRequester @ 0x140209D2C (PoGetRequester.c)
- *     PopPowerRequestStatsGetIdForRequest @ 0x1407A7D30 (PopPowerRequestStatsGetIdForRequest.c)
+ *     PopPowerRequestStatsGetIdForRequest @ 0x1407A7F20 (PopPowerRequestStatsGetIdForRequest.c)
  * Callees:
  *     RtlUnicodeStringCopy @ 0x140208E68 (RtlUnicodeStringCopy.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)

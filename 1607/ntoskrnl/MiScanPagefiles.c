@@ -1,10 +1,10 @@
 /*
- * XREFs of MiScanPagefiles @ 0x1400BE8D0
+ * XREFs of MiScanPagefiles @ 0x1400BC760
  * Callers:
- *     MiWorkingSetManager @ 0x1400BDF08 (MiWorkingSetManager.c)
+ *     MiWorkingSetManager @ 0x1400BBD98 (MiWorkingSetManager.c)
  * Callees:
- *     ExQueueWorkItem @ 0x14005FE5C (ExQueueWorkItem.c)
- *     MiFreePageFileHashPfns @ 0x1400BE8F8 (MiFreePageFileHashPfns.c)
+ *     ExQueueWorkItem @ 0x14005F9DC (ExQueueWorkItem.c)
+ *     MiFreePageFileHashPfns @ 0x1400BC788 (MiFreePageFileHashPfns.c)
  */
 
 void __fastcall MiScanPagefiles(__int64 a1)

@@ -1,69 +1,97 @@
 /*
- * XREFs of PsspCaptureIptTrace @ 0x1801298CC
+ * XREFs of PsspCaptureIptTrace @ 0x18012989C
  * Callers:
- *     PssNtCaptureSnapshot @ 0x180128820 (PssNtCaptureSnapshot.c)
+ *     PssNtCaptureSnapshot @ 0x1801287F0 (PssNtCaptureSnapshot.c)
  * Callees:
  *     NtClose @ 0x1800A1090 (NtClose.c)
  *     ZwMapViewOfSection @ 0x1800A13B0 (ZwMapViewOfSection.c)
  *     NtUnmapViewOfSection @ 0x1800A13F0 (NtUnmapViewOfSection.c)
  *     NtCreateSection @ 0x1800A17F0 (NtCreateSection.c)
- *     GetProcessIptTrace @ 0x18012CBD0 (GetProcessIptTrace.c)
- *     GetProcessIptTraceSize @ 0x18012CD2C (GetProcessIptTraceSize.c)
+ *     GetProcessIptTrace @ 0x18012CBFC (GetProcessIptTrace.c)
+ *     GetProcessIptTraceSize @ 0x18012CD58 (GetProcessIptTraceSize.c)
  *     memset$thunk$772440563353939046 @ 0x180132010 (memset$thunk$772440563353939046.c)
  */
 
-__int64 __fastcall PsspCaptureIptTrace(__int64 a1, __int64 a2)
+NTSTATUS __fastcall PsspCaptureIptTrace(__int64 a1, __int64 a2)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
   size_t v5; // rdi
-  int v6; // esi
-  int ProcessIptTrace; // edi
-  int v8; // eax
+  NTSTATUS v6; // esi
+  int ProcessIptTrace; // eax
+  _DWORD *v8; // rdx
+  int v9; // edi
+  int v10; // eax
+  PVOID BaseAddress; // [rsp+50h] [rbp-20h] BYREF
+  LARGE_INTEGER MaximumSize; // [rsp+58h] [rbp-18h] BYREF
+  ULONG_PTR ViewSize[2]; // [rsp+60h] [rbp-10h] BYREF
   size_t Size; // [rsp+B0h] [rbp+40h] BYREF
-  HANDLE Handle; // [rsp+B8h] [rbp+48h]
+  HANDLE SectionHandle; // [rsp+B8h] [rbp+48h] BYREF
 
+  BaseAddress = 0LL;
   LODWORD(Size) = 0;
-  Handle = 0LL;
+  SectionHandle = 0LL;
+  MaximumSize.QuadPart = 0LL;
+  ViewSize[0] = 0LL;
   result = GetProcessIptTraceSize(a2, &Size);
-  if ( (int)result >= 0 )
+  if ( result >= 0 )
   {
     v5 = (unsigned int)Size;
     if ( (_DWORD)Size )
     {
-      result = NtCreateSection();
-      if ( (int)result >= 0 )
+      MaximumSize.LowPart = Size;
+      result = NtCreateSection(
+                 &SectionHandle,
+                 0xF0007u,
+                 (POBJECT_ATTRIBUTES)&stru_18015C5D8,
+                 &MaximumSize,
+                 4u,
+                 0x8000000u,
+                 0LL);
+      if ( result >= 0 )
       {
-        v6 = ZwMapViewOfSection();
+        v6 = ZwMapViewOfSection(
+               SectionHandle,
+               (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+               &BaseAddress,
+               0LL,
+               0LL,
+               0LL,
+               ViewSize,
+               ViewShare,
+               0,
+               4u);
         if ( v6 >= 0 )
         {
-          memset_thunk_772440563353939046(0LL, 0, v5);
-          ProcessIptTrace = GetProcessIptTrace(a2, 0LL, (unsigned int)v5);
+          memset_thunk_772440563353939046(BaseAddress, 0, v5);
+          ProcessIptTrace = GetProcessIptTrace(a2, BaseAddress, (unsigned int)v5);
+          v8 = BaseAddress;
+          v9 = ProcessIptTrace;
           if ( ProcessIptTrace >= 0 )
           {
-            *(_QWORD *)(a1 + 1128) = Handle;
-            v8 = MEMORY[4];
+            *(_QWORD *)(a1 + 1128) = SectionHandle;
+            v10 = v8[1];
             *(_DWORD *)(a1 + 4) |= 0x10u;
-            *(_DWORD *)(a1 + 1136) = v8 + 8;
-            NtUnmapViewOfSection();
-            return 0LL;
+            *(_DWORD *)(a1 + 1136) = v10 + 8;
+            NtUnmapViewOfSection((HANDLE)0xFFFFFFFFFFFFFFFFLL, v8);
+            return 0;
           }
           else
           {
-            NtUnmapViewOfSection();
-            NtClose(Handle);
-            return (unsigned int)ProcessIptTrace;
+            NtUnmapViewOfSection((HANDLE)0xFFFFFFFFFFFFFFFFLL, BaseAddress);
+            NtClose(SectionHandle);
+            return v9;
           }
         }
         else
         {
-          NtClose(Handle);
-          return (unsigned int)v6;
+          NtClose(SectionHandle);
+          return v6;
         }
       }
     }
     else
     {
-      return 3221226021LL;
+      return -1073741275;
     }
   }
   return result;

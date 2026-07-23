@@ -1,19 +1,18 @@
 /*
- * XREFs of FsRtlpCancelOplockRHIrp @ 0x1404190F0
+ * XREFs of FsRtlpCancelOplockRHIrp @ 0x140408EA0
  * Callers:
- *     FsRtlpOplockRHIrpCancelRoutine @ 0x1404190D0 (FsRtlpOplockRHIrpCancelRoutine.c)
- *     FsRtlpRequestShareableOplock @ 0x1404E4EB0 (FsRtlpRequestShareableOplock.c)
+ *     FsRtlpOplockRHIrpCancelRoutine @ 0x140408E80 (FsRtlpOplockRHIrpCancelRoutine.c)
+ *     FsRtlpRequestShareableOplock @ 0x1404DB6D0 (FsRtlpRequestShareableOplock.c)
  * Callees:
- *     KeReleaseGuardedMutex @ 0x14031E470 (KeReleaseGuardedMutex.c)
- *     KeReleaseQueuedSpinLock @ 0x140322C90 (KeReleaseQueuedSpinLock.c)
- *     FsRtlpReleaseIrpsWaitingForRH @ 0x140330618 (FsRtlpReleaseIrpsWaitingForRH.c)
- *     FsRtlpComputeShareableOplockState @ 0x140330A70 (FsRtlpComputeShareableOplockState.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     ExAcquireFastMutex @ 0x14033E850 (ExAcquireFastMutex.c)
- *     FsRtlpRemoveAndCompleteRHIrp @ 0x1404E42B0 (FsRtlpRemoveAndCompleteRHIrp.c)
- *     Feature_5466_1379__private_IsEnabledDeviceUsageNoInline @ 0x14057F78C (Feature_5466_1379__private_IsEnabledDeviceUsageNoInline.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     FsRtlpOplockPerfSendData @ 0x14070BDB4 (FsRtlpOplockPerfSendData.c)
+ *     FsRtlpReleaseIrpsWaitingForRH @ 0x1402B8E90 (FsRtlpReleaseIrpsWaitingForRH.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     KeReleaseGuardedMutex @ 0x1402C7000 (KeReleaseGuardedMutex.c)
+ *     KeReleaseQueuedSpinLock @ 0x1402CB820 (KeReleaseQueuedSpinLock.c)
+ *     ExAcquireFastMutex @ 0x14031DD30 (ExAcquireFastMutex.c)
+ *     FsRtlpComputeShareableOplockState @ 0x1404DA8E8 (FsRtlpComputeShareableOplockState.c)
+ *     FsRtlpRemoveAndCompleteRHIrp @ 0x1404DAB70 (FsRtlpRemoveAndCompleteRHIrp.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     FsRtlpOplockPerfSendData @ 0x140709948 (FsRtlpOplockPerfSendData.c)
  */
 
 void __fastcall FsRtlpCancelOplockRHIrp(__int64 a1, char a2, char a3)
@@ -22,7 +21,7 @@ void __fastcall FsRtlpCancelOplockRHIrp(__int64 a1, char a2, char a3)
   char v6; // r14
   _QWORD *v7; // rsi
   _QWORD *i; // rbx
-  _QWORD *v9; // r15
+  _QWORD *v9; // rcx
   char v10; // [rsp+40h] [rbp-128h] BYREF
   char v11; // [rsp+41h] [rbp-127h] BYREF
   char v12; // [rsp+42h] [rbp-126h]
@@ -65,7 +64,7 @@ void __fastcall FsRtlpCancelOplockRHIrp(__int64 a1, char a2, char a3)
     v15 = *(_DWORD *)(v5 + 144);
     v34 = &v15;
     v35 = 4LL;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E06C30, (unsigned __int8 *)byte_140043D1D, 0LL, 0LL, 5u, &v29);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E06C30, (unsigned __int8 *)byte_140043EAB, 0LL, 0LL, 5u, &v29);
   }
   v6 = 0;
   v12 = 0;
@@ -82,13 +81,10 @@ void __fastcall FsRtlpCancelOplockRHIrp(__int64 a1, char a2, char a3)
     {
       i = (_QWORD *)i[1];
       v17 = i;
-      if ( (unsigned int)Feature_5466_1379__private_IsEnabledDeviceUsageNoInline() )
-      {
-        if ( a3 )
-          FsRtlpOplockPerfSendData(v9 + 9);
-        else
-          v9[11] = 0LL;
-      }
+      if ( a3 )
+        FsRtlpOplockPerfSendData(v9 + 9);
+      else
+        v9[11] = 0LL;
       FsRtlpRemoveAndCompleteRHIrp((PVOID)*i, 0, 0, 0, 0);
       v6 = 1;
       v12 = 1;
@@ -117,6 +113,6 @@ void __fastcall FsRtlpCancelOplockRHIrp(__int64 a1, char a2, char a3)
     v14 = *(_DWORD *)(v5 + 144);
     v27 = &v14;
     v28 = 4LL;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E06C30, (unsigned __int8 *)byte_140043D79, 0LL, 0LL, 6u, &v20);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E06C30, (unsigned __int8 *)byte_140043E41, 0LL, 0LL, 6u, &v20);
   }
 }

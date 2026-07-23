@@ -1,18 +1,18 @@
 /*
- * XREFs of CmpDereferenceSecurityNode @ 0x1403F06FC
+ * XREFs of CmpDereferenceSecurityNode @ 0x1403F086C
  * Callers:
  *     CmpUndoDeleteKeyForTransEx @ 0x1405CD308 (CmpUndoDeleteKeyForTransEx.c)
- *     CmpCleanupLightWeightUoWData @ 0x1406A3D24 (CmpCleanupLightWeightUoWData.c)
- *     CmRenameKey @ 0x14086CA04 (CmRenameKey.c)
- *     CmpCopySaclToVirtualKey @ 0x1408717C4 (CmpCopySaclToVirtualKey.c)
- *     CmpLightWeightCleanupSetSecDescUoW @ 0x14087EB18 (CmpLightWeightCleanupSetSecDescUoW.c)
- *     CmpLightWeightCommitSetSecDescUoW @ 0x14087F0BC (CmpLightWeightCommitSetSecDescUoW.c)
+ *     CmpCleanupLightWeightUoWData @ 0x1405E17F4 (CmpCleanupLightWeightUoWData.c)
+ *     CmRenameKey @ 0x14086CB64 (CmRenameKey.c)
+ *     CmpCopySaclToVirtualKey @ 0x140871924 (CmpCopySaclToVirtualKey.c)
+ *     CmpLightWeightCleanupSetSecDescUoW @ 0x14087EC78 (CmpLightWeightCleanupSetSecDescUoW.c)
+ *     CmpLightWeightCommitSetSecDescUoW @ 0x14087F21C (CmpLightWeightCommitSetSecDescUoW.c)
  * Callees:
- *     CmpRemoveSecurityCellList @ 0x1402CD674 (CmpRemoveSecurityCellList.c)
- *     CmpKeySecurityDecrementReferenceCount @ 0x1403F079C (CmpKeySecurityDecrementReferenceCount.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     HvFreeCell @ 0x140709534 (HvFreeCell.c)
- *     HvpGetCellContextInitialize @ 0x140875CF8 (HvpGetCellContextInitialize.c)
+ *     CmpRemoveSecurityCellList @ 0x14024BB74 (CmpRemoveSecurityCellList.c)
+ *     CmpKeySecurityDecrementReferenceCount @ 0x1403F090C (CmpKeySecurityDecrementReferenceCount.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     HvFreeCell @ 0x140720914 (HvFreeCell.c)
+ *     HvpGetCellContextInitialize @ 0x140875E58 (HvpGetCellContextInitialize.c)
  */
 
 __int64 __fastcall CmpDereferenceSecurityNode(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter3)

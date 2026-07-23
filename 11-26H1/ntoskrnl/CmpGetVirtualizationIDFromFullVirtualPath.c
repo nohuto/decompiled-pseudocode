@@ -1,8 +1,8 @@
 /*
- * XREFs of CmpGetVirtualizationIDFromFullVirtualPath @ 0x1408B185C
+ * XREFs of CmpGetVirtualizationIDFromFullVirtualPath @ 0x1408B7E68
  * Callers:
- *     CmpVirtualPathPresent @ 0x1407734E0 (CmpVirtualPathPresent.c)
- *     CmpVirtualBranchIsReplicated @ 0x1408B1674 (CmpVirtualBranchIsReplicated.c)
+ *     CmpVirtualPathPresent @ 0x1407764E0 (CmpVirtualPathPresent.c)
+ *     CmpVirtualBranchIsReplicated @ 0x1408B7C80 (CmpVirtualBranchIsReplicated.c)
  * Callees:
  *     <none>
  */

@@ -1,20 +1,20 @@
 /*
  * XREFs of IoGetDeviceObjectPointer @ 0x140710E60
  * Callers:
- *     DifIoGetDeviceObjectPointerWrapper @ 0x14060F200 (DifIoGetDeviceObjectPointerWrapper.c)
+ *     sub_14060F200 @ 0x14060F200 (sub_14060F200.c)
  *     IoVolumeDeviceNameToGuidPath @ 0x14068BB80 (IoVolumeDeviceNameToGuidPath.c)
- *     IoVolumeDeviceToDosName @ 0x140710B90 (IoVolumeDeviceToDosName.c)
- *     NtApphelpCacheControl @ 0x140780D40 (NtApphelpCacheControl.c)
- *     HalpDynamicDeviceInterfaceNotification @ 0x140908CD0 (HalpDynamicDeviceInterfaceNotification.c)
- *     IopOpenSystemVariableDevice @ 0x14093F56C (IopOpenSystemVariableDevice.c)
- *     PopRegisterCoolingExtensionProtection @ 0x14098B980 (PopRegisterCoolingExtensionProtection.c)
- *     IopCreateArcNamesDisk @ 0x140B0E1A8 (IopCreateArcNamesDisk.c)
- *     IopCreateArcNamesCd @ 0x140B0E310 (IopCreateArcNamesCd.c)
- *     IopAssignBootDriveLetter @ 0x140B0EB5C (IopAssignBootDriveLetter.c)
- *     IopGetBootDiskInformation @ 0x140B4F04C (IopGetBootDiskInformation.c)
- *     VhdiMountVhdFile @ 0x140B54AE4 (VhdiMountVhdFile.c)
- *     SbpAddTransportToInstance @ 0x140B55478 (SbpAddTransportToInstance.c)
- *     SbpStartLanman @ 0x140B55668 (SbpStartLanman.c)
+ *     RtlVolumeDeviceToDosName @ 0x140710B90 (RtlVolumeDeviceToDosName.c)
+ *     sub_140780D40 @ 0x140780D40 (sub_140780D40.c)
+ *     sub_140908CD0 @ 0x140908CD0 (sub_140908CD0.c)
+ *     sub_14093F56C @ 0x14093F56C (sub_14093F56C.c)
+ *     sub_14098B980 @ 0x14098B980 (sub_14098B980.c)
+ *     sub_140B0E1A8 @ 0x140B0E1A8 (sub_140B0E1A8.c)
+ *     sub_140B0E310 @ 0x140B0E310 (sub_140B0E310.c)
+ *     sub_140B0EB5C @ 0x140B0EB5C (sub_140B0EB5C.c)
+ *     sub_140B4F04C @ 0x140B4F04C (sub_140B4F04C.c)
+ *     sub_140B54AE4 @ 0x140B54AE4 (sub_140B54AE4.c)
+ *     sub_140B55478 @ 0x140B55478 (sub_140B55478.c)
+ *     sub_140B55668 @ 0x140B55668 (sub_140B55668.c)
  * Callees:
  *     IoGetRelatedDeviceObject @ 0x1402AC1B0 (IoGetRelatedDeviceObject.c)
  *     KeLeaveCriticalRegion @ 0x1402AD060 (KeLeaveCriticalRegion.c)
@@ -43,9 +43,9 @@ NTSTATUS __stdcall IoGetDeviceObjectPointer(
   *(_QWORD *)&ObjectAttributes.Length = 48LL;
   ObjectAttributes.ObjectName = ObjectName;
   IoStatusBlock = 0LL;
-  ObjectAttributes.Attributes = IopCaseInsensitive != 0 ? 576 : 512;
+  ObjectAttributes.Attributes = dword_140C0C628 != 0 ? 576 : 512;
   CurrentThread = KeGetCurrentThread();
-  --CurrentThread->KernelApcDisable;
+  --*((_WORD *)CurrentThread + 242);
   v7 = ZwOpenFile(&FileHandle, DesiredAccess, &ObjectAttributes, &IoStatusBlock, 3u, 0x40u);
   if ( v7 >= 0 )
   {

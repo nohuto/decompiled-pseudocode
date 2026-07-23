@@ -1,19 +1,19 @@
 /*
- * XREFs of HalFreeCommonBufferVector @ 0x1404C6020
+ * XREFs of HalFreeCommonBufferVector @ 0x1404C6260
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     MiFreePagesFromMdl @ 0x1402FF4EC (MiFreePagesFromMdl.c)
- *     MmUnmapLockedPages @ 0x14031CA30 (MmUnmapLockedPages.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
- *     HalpMmAllocCtxFree @ 0x140379460 (HalpMmAllocCtxFree.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     MiFreePagesFromMdl @ 0x14030A23C (MiFreePagesFromMdl.c)
+ *     MmUnmapLockedPages @ 0x140327780 (MmUnmapLockedPages.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
+ *     HalpMmAllocCtxFree @ 0x140378FB0 (HalpMmAllocCtxFree.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     HalpDmaDereferenceDomainObject @ 0x1404C4AF8 (HalpDmaDereferenceDomainObject.c)
- *     HalpDomainLaDelete @ 0x1404C4DF4 (HalpDomainLaDelete.c)
- *     HalpIommuDomainUnmapLogicalRange @ 0x1404C9334 (HalpIommuDomainUnmapLogicalRange.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     HalpDmaDereferenceDomainObject @ 0x1404C4D38 (HalpDmaDereferenceDomainObject.c)
+ *     HalpDomainLaDelete @ 0x1404C5034 (HalpDomainLaDelete.c)
+ *     HalpIommuDomainUnmapLogicalRange @ 0x1404C9574 (HalpIommuDomainUnmapLogicalRange.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall HalFreeCommonBufferVector(__int64 a1, __int64 a2)
@@ -29,9 +29,8 @@ __int64 __fastcall HalFreeCommonBufferVector(__int64 a1, __int64 a2)
   _DWORD *SchedulerAssist; // r9
   int v12; // eax
   bool v13; // zf
-  __int64 v14; // r8
+  __int64 v14; // rcx
   __int64 v15; // rcx
-  __int64 v16; // rcx
 
   v2 = *(_QWORD *)(a2 + 32);
   CurrentIrql = KeGetCurrentIrql();
@@ -71,8 +70,8 @@ __int64 __fastcall HalFreeCommonBufferVector(__int64 a1, __int64 a2)
   }
   HalpDmaDereferenceDomainObject((__int64 *)v2);
   MmUnmapLockedPages(*(PVOID *)(a2 + 48), *(PMDL *)(a2 + 40));
-  MiFreePagesFromMdl(*(_QWORD *)(a2 + 40), 0, v14);
+  MiFreePagesFromMdl(*(_QWORD *)(a2 + 40), 0);
   ExFreePoolWithTag(*(PVOID *)(a2 + 40), 0);
-  HalpMmAllocCtxFree(v15, *(_QWORD *)(a2 + 64));
-  return HalpMmAllocCtxFree(v16, a2);
+  HalpMmAllocCtxFree(v14, *(_QWORD *)(a2 + 64));
+  return HalpMmAllocCtxFree(v15, a2);
 }

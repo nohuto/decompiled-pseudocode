@@ -1,10 +1,10 @@
 /*
- * XREFs of PiDmObjectManagerAcquireExclusiveLock @ 0x140506370
+ * XREFs of PiDmObjectManagerAcquireExclusiveLock @ 0x1404E9300
  * Callers:
- *     PiDmListAddObjectWorker @ 0x14050605C (PiDmListAddObjectWorker.c)
- *     PiDmRemoveCacheReferenceForObject @ 0x140506180 (PiDmRemoveCacheReferenceForObject.c)
- *     PiDmAddCacheReferenceForObject @ 0x140506288 (PiDmAddCacheReferenceForObject.c)
- *     PiDmListRemoveObjectWorker @ 0x14062FDFC (PiDmListRemoveObjectWorker.c)
+ *     PiDmListAddObjectWorker @ 0x1404E8FEC (PiDmListAddObjectWorker.c)
+ *     PiDmRemoveCacheReferenceForObject @ 0x1404E9110 (PiDmRemoveCacheReferenceForObject.c)
+ *     PiDmAddCacheReferenceForObject @ 0x1404E9218 (PiDmAddCacheReferenceForObject.c)
+ *     PiDmListRemoveObjectWorker @ 0x14062FEB0 (PiDmListRemoveObjectWorker.c)
  * Callees:
  *     <none>
  */

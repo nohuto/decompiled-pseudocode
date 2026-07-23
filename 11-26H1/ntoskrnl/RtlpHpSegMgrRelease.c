@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlpHpSegMgrRelease @ 0x14034E480
+ * XREFs of RtlpHpSegMgrRelease @ 0x140350500
  * Callers:
- *     RtlpHpSegPageRangeShrink @ 0x14034DB40 (RtlpHpSegPageRangeShrink.c)
- *     RtlpHpSegSegmentFree @ 0x14034F76C (RtlpHpSegSegmentFree.c)
- *     RtlpHpSegMgrAllocate @ 0x14034F948 (RtlpHpSegMgrAllocate.c)
+ *     RtlpHpSegPageRangeShrink @ 0x14034FBC0 (RtlpHpSegPageRangeShrink.c)
+ *     RtlpHpSegSegmentFree @ 0x1403517EC (RtlpHpSegSegmentFree.c)
+ *     RtlpHpSegMgrAllocate @ 0x1403519C8 (RtlpHpSegMgrAllocate.c)
  * Callees:
- *     RtlpHpSegMgrCommit @ 0x14034EB50 (RtlpHpSegMgrCommit.c)
- *     RtlpHpFreeVA @ 0x1403501D8 (RtlpHpFreeVA.c)
- *     RtlpHpQueryVA @ 0x1403504C0 (RtlpHpQueryVA.c)
- *     RtlpHpSegMgrVaCtxFree @ 0x1404AC7C4 (RtlpHpSegMgrVaCtxFree.c)
+ *     RtlpHpSegMgrCommit @ 0x140350BD0 (RtlpHpSegMgrCommit.c)
+ *     RtlpHpFreeVA @ 0x140352258 (RtlpHpFreeVA.c)
+ *     RtlpHpQueryVA @ 0x140352540 (RtlpHpQueryVA.c)
+ *     RtlpHpSegMgrVaCtxFree @ 0x1404A5E54 (RtlpHpSegMgrVaCtxFree.c)
  */
 
 char __fastcall RtlpHpSegMgrRelease(__int64 a1, __int64 a2, int a3)

@@ -40,7 +40,7 @@ __int64 MiPerformImageHotPatch(__int64 a1, __int64 a2, ...)
   __int64 v2; // rsi
   void *v3; // r14
   _QWORD *v4; // r15
-  _DWORD *v5; // rcx
+  unsigned int *v5; // rcx
   ULONG_PTR Process; // r12
   int v7; // esi
   __int64 v8; // r13
@@ -74,7 +74,7 @@ __int64 MiPerformImageHotPatch(__int64 a1, __int64 a2, ...)
   char v37[8]; // [rsp+100h] [rbp-1B8h] BYREF
   __int64 v38[18]; // [rsp+110h] [rbp-1A8h] BYREF
   _QWORD v39[18]; // [rsp+1A0h] [rbp-118h] BYREF
-  _OWORD v40[8]; // [rsp+230h] [rbp-88h] BYREF
+  PVOID BaseOfImage[17]; // [rsp+230h] [rbp-88h] BYREF
   __int64 v43; // [rsp+2D0h] [rbp+18h] BYREF
   va_list va; // [rsp+2D0h] [rbp+18h]
   __int64 v45; // [rsp+2D8h] [rbp+20h]
@@ -83,7 +83,7 @@ __int64 MiPerformImageHotPatch(__int64 a1, __int64 a2, ...)
   __int64 v48; // [rsp+2F0h] [rbp+38h]
   __int64 v49; // [rsp+2F8h] [rbp+40h]
   __int64 v50; // [rsp+300h] [rbp+48h]
-  _QWORD *v51; // [rsp+308h] [rbp+50h]
+  unsigned int *v51; // [rsp+308h] [rbp+50h]
   va_list va1; // [rsp+310h] [rbp+58h] BYREF
 
   va_start(va1, a2);
@@ -95,9 +95,9 @@ __int64 MiPerformImageHotPatch(__int64 a1, __int64 a2, ...)
   v48 = va_arg(va1, _QWORD);
   v49 = va_arg(va1, _QWORD);
   v50 = va_arg(va1, _QWORD);
-  v51 = va_arg(va1, _QWORD *);
+  v51 = va_arg(va1, unsigned int *);
   v2 = a2;
-  memset(v40, 0, 0x50uLL);
+  memset(BaseOfImage, 0, 0x50uLL);
   v36 = 0LL;
   v32 = 0;
   memset(v39, 0, sizeof(v39));
@@ -111,7 +111,7 @@ __int64 MiPerformImageHotPatch(__int64 a1, __int64 a2, ...)
   MiInitializeImageHotPatchContext(v39, 0LL);
   MiInitializeImageHotPatchContext(v38, 0LL);
   v5 = v51;
-  *v51 = 0LL;
+  *(_QWORD *)v51 = 0LL;
   Process = (ULONG_PTR)KeGetCurrentThread()->ApcState.Process;
   v29 = Process;
   DmaAdapter[1] = (PADAPTER_OBJECT)Process;
@@ -197,17 +197,17 @@ LABEL_23:
     Process = v29;
     goto LABEL_36;
   }
-  v7 = MiOpenHotPatchFile(v47, 0, v50, &Handle, DmaAdapter, v40, 0LL, v5);
+  v7 = MiOpenHotPatchFile(v47, 0, v50, &Handle, DmaAdapter, BaseOfImage, 0LL, v5);
   if ( v7 < 0 )
     goto LABEL_36;
-  v9 = (unsigned __int64)LODWORD(v40[1]) << 12;
+  v9 = (unsigned __int64)LODWORD(BaseOfImage[2]) << 12;
   if ( v9 > 0xFFFFFFFF )
   {
 LABEL_8:
     v7 = -1073741701;
     goto LABEL_36;
   }
-  HotPatchInformation = RtlFindHotPatchInformation(*(_QWORD *)&v40[0]);
+  HotPatchInformation = RtlFindHotPatchInformation(BaseOfImage[0]);
   v11 = (const void *)HotPatchInformation;
   v36 = HotPatchInformation;
   if ( !HotPatchInformation )
@@ -238,7 +238,7 @@ LABEL_12:
     v7 = -1073741735;
     goto LABEL_36;
   }
-  if ( *(_DWORD *)(a2 + 88) && *v51 == *(_QWORD *)(a2 + 80) )
+  if ( *(_DWORD *)(a2 + 88) && *(_QWORD *)v51 == *(_QWORD *)(a2 + 80) )
   {
     v7 = 255;
     goto LABEL_36;
@@ -281,8 +281,8 @@ LABEL_12:
 LABEL_36:
   if ( Handle )
     ZwClose(Handle);
-  if ( *(_QWORD *)&v40[0] )
-    MiUnmapImageInSystemSpace((unsigned __int64 *)v40);
+  if ( BaseOfImage[0] )
+    MiUnmapImageInSystemSpace((unsigned __int64 *)BaseOfImage);
   if ( DmaAdapter[0] )
     HalPutDmaAdapter(DmaAdapter[0]);
   if ( SecureHandle )

@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpLogTxrInitEvent @ 0x140AB22F4
+ * XREFs of CmpLogTxrInitEvent @ 0x140AAD264
  * Callers:
- *     CmpInitCmRM @ 0x140AE4D94 (CmpInitCmRM.c)
+ *     CmpInitCmRM @ 0x140AE6674 (CmpInitCmRM.c)
  * Callees:
- *     EtwWrite @ 0x14041C1B0 (EtwWrite.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     EtwWrite @ 0x14040FFB0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall CmpLogTxrInitEvent(__int64 a1, __int64 a2, int a3)
@@ -37,7 +37,7 @@ NTSTATUS __fastcall CmpLogTxrInitEvent(__int64 a1, __int64 a2, int a3)
   LOWORD(v5) = 68;
   if ( EtwKernelProvRegHandle )
   {
-    if ( qword_140E09A70 != a2 )
+    if ( qword_140E09AE0 != a2 )
     {
       v3 = *(const wchar_t **)(a2 + 1848);
       v5 = *(_DWORD *)(a2 + 1840);

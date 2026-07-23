@@ -1,55 +1,61 @@
 /*
- * XREFs of ZwQueryVirtualMemory @ 0x18015F3A0
+ * XREFs of ZwQueryVirtualMemory @ 0x18015F2A0
  * Callers:
- *     RtlpWalkFrameChain @ 0x180010544 (RtlpWalkFrameChain.c)
- *     RtlFlushSecureMemoryCache @ 0x180017520 (RtlFlushSecureMemoryCache.c)
- *     RtlpFreeUserBlockToHeap @ 0x180017EA0 (RtlpFreeUserBlockToHeap.c)
- *     RtlpFreeUserBlock @ 0x1800181A0 (RtlpFreeUserBlock.c)
- *     RtlpFreeNTHeapInternal @ 0x1800185E0 (RtlpFreeNTHeapInternal.c)
- *     RtlpCommitBlock @ 0x1800274E0 (RtlpCommitBlock.c)
- *     RtlpFindAndCommitPages @ 0x180027970 (RtlpFindAndCommitPages.c)
- *     LdrLoadAlternateResourceModuleEx @ 0x180030230 (LdrLoadAlternateResourceModuleEx.c)
- *     LdrpGetImageSize @ 0x1800317E0 (LdrpGetImageSize.c)
- *     LdrpAccessResourceDataNoMultipleLanguage @ 0x1800318E0 (LdrpAccessResourceDataNoMultipleLanguage.c)
- *     RtlpxLookupFunctionTable @ 0x18004B2A0 (RtlpxLookupFunctionTable.c)
- *     RtlpCreateHeap @ 0x18007C890 (RtlpCreateHeap.c)
- *     RtlpSecMemFreeVirtualMemory @ 0x18007F200 (RtlpSecMemFreeVirtualMemory.c)
- *     RtlpProtectHeap @ 0x18007F550 (RtlpProtectHeap.c)
- *     RtlpGetHeapProtection @ 0x18007F750 (RtlpGetHeapProtection.c)
- *     RtlpInsertOrRemoveScpCfgFunctionTable @ 0x18007FBF0 (RtlpInsertOrRemoveScpCfgFunctionTable.c)
- *     LdrpMapDllWithSectionHandle @ 0x180084430 (LdrpMapDllWithSectionHandle.c)
- *     RtlpHpHeapValidateProtection @ 0x18008B8C0 (RtlpHpHeapValidateProtection.c)
- *     LdrpResGetMappingSize @ 0x1800A7DC0 (LdrpResGetMappingSize.c)
- *     LdrpResValdiateMappedAddress @ 0x1800AB9F0 (LdrpResValdiateMappedAddress.c)
- *     RtlpScanProcessVirtualMemory @ 0x1800C4B70 (RtlpScanProcessVirtualMemory.c)
- *     RtlpGetTargetRvaFlag @ 0x1800C71F4 (RtlpGetTargetRvaFlag.c)
- *     LdrpTouchThreadStack @ 0x1800CED2C (LdrpTouchThreadStack.c)
- *     LdrpProtectAndRelocateImage @ 0x1800D8074 (LdrpProtectAndRelocateImage.c)
- *     LdrpIsExecutableRelocatedImage @ 0x1800DC0E0 (LdrpIsExecutableRelocatedImage.c)
- *     LdrpGetModuleInfoFromVirtualMemory @ 0x1800E6C70 (LdrpGetModuleInfoFromVirtualMemory.c)
- *     LdrpCaptureCriticalThunks @ 0x1800E85C4 (LdrpCaptureCriticalThunks.c)
- *     PsspCaptureAuxiliaryPages @ 0x1801059D8 (PsspCaptureAuxiliaryPages.c)
- *     LdrpCheckPagesForTampering @ 0x180108054 (LdrpCheckPagesForTampering.c)
- *     RtlpHpSegProtect @ 0x18010E8A8 (RtlpHpSegProtect.c)
- *     RtlpUnsuppressForwardReferencingCallTarget @ 0x18011041C (RtlpUnsuppressForwardReferencingCallTarget.c)
- *     LdrIsEnclaveAddress @ 0x180110A04 (LdrIsEnclaveAddress.c)
- *     RtlDebugCreateHeap @ 0x180113EEC (RtlDebugCreateHeap.c)
- *     LdrpInitializeNtdllDataTableEntry @ 0x180118DB0 (LdrpInitializeNtdllDataTableEntry.c)
- *     RtlpHpLargeAllocationProtect @ 0x18011FA84 (RtlpHpLargeAllocationProtect.c)
- *     RtlResetStackOverflow @ 0x18013AFA8 (RtlResetStackOverflow.c)
- *     RtlpIsHeapAccessibleInClone @ 0x1801453DC (RtlpIsHeapAccessibleInClone.c)
- *     RtlGetNonVolatileToken @ 0x1801473B0 (RtlGetNonVolatileToken.c)
- *     RtlpHpHeapProtect @ 0x1801580D0 (RtlpHpHeapProtect.c)
- *     PsspQueryVmBulkMode @ 0x180159930 (PsspQueryVmBulkMode.c)
+ *     RtlFlushSecureMemoryCache @ 0x180002600 (RtlFlushSecureMemoryCache.c)
+ *     RtlpFreeUserBlockToHeap @ 0x180002F80 (RtlpFreeUserBlockToHeap.c)
+ *     RtlpFreeUserBlock @ 0x180003280 (RtlpFreeUserBlock.c)
+ *     RtlpFreeNTHeapInternal @ 0x1800036C0 (RtlpFreeNTHeapInternal.c)
+ *     RtlpCommitBlock @ 0x1800125B0 (RtlpCommitBlock.c)
+ *     RtlpFindAndCommitPages @ 0x180012A40 (RtlpFindAndCommitPages.c)
+ *     LdrLoadAlternateResourceModuleEx @ 0x18001B390 (LdrLoadAlternateResourceModuleEx.c)
+ *     LdrpGetImageSize @ 0x18001C940 (LdrpGetImageSize.c)
+ *     LdrpAccessResourceDataNoMultipleLanguage @ 0x18001CA40 (LdrpAccessResourceDataNoMultipleLanguage.c)
+ *     RtlpxLookupFunctionTable @ 0x180035820 (RtlpxLookupFunctionTable.c)
+ *     RtlpWalkFrameChain @ 0x18005BC74 (RtlpWalkFrameChain.c)
+ *     RtlpCreateHeap @ 0x18006B0B0 (RtlpCreateHeap.c)
+ *     RtlpSecMemFreeVirtualMemory @ 0x18006D540 (RtlpSecMemFreeVirtualMemory.c)
+ *     RtlpHpHeapValidateProtection @ 0x18006ED00 (RtlpHpHeapValidateProtection.c)
+ *     RtlpProtectHeap @ 0x1800768F0 (RtlpProtectHeap.c)
+ *     RtlpGetHeapProtection @ 0x180076AF0 (RtlpGetHeapProtection.c)
+ *     RtlpInsertOrRemoveScpCfgFunctionTable @ 0x180076F90 (RtlpInsertOrRemoveScpCfgFunctionTable.c)
+ *     LdrpMapDllWithSectionHandle @ 0x18007B7D0 (LdrpMapDllWithSectionHandle.c)
+ *     LdrpResGetMappingSize @ 0x1800A6EF0 (LdrpResGetMappingSize.c)
+ *     LdrpResValdiateMappedAddress @ 0x1800AAB20 (LdrpResValdiateMappedAddress.c)
+ *     RtlpScanProcessVirtualMemory @ 0x1800C2330 (RtlpScanProcessVirtualMemory.c)
+ *     RtlpGetTargetRvaFlag @ 0x1800C49B4 (RtlpGetTargetRvaFlag.c)
+ *     LdrpTouchThreadStack @ 0x1800CC49C (LdrpTouchThreadStack.c)
+ *     LdrpProtectAndRelocateImage @ 0x1800D5034 (LdrpProtectAndRelocateImage.c)
+ *     LdrpIsExecutableRelocatedImage @ 0x1800D9050 (LdrpIsExecutableRelocatedImage.c)
+ *     LdrpGetModuleInfoFromVirtualMemory @ 0x1800E56D0 (LdrpGetModuleInfoFromVirtualMemory.c)
+ *     LdrpCaptureCriticalThunks @ 0x1800E77D4 (LdrpCaptureCriticalThunks.c)
+ *     PsspCaptureAuxiliaryPages @ 0x180105228 (PsspCaptureAuxiliaryPages.c)
+ *     LdrpCheckPagesForTampering @ 0x180107A54 (LdrpCheckPagesForTampering.c)
+ *     RtlpHpSegProtect @ 0x18010E3F8 (RtlpHpSegProtect.c)
+ *     RtlpUnsuppressForwardReferencingCallTarget @ 0x18010FFAC (RtlpUnsuppressForwardReferencingCallTarget.c)
+ *     LdrIsEnclaveAddress @ 0x180110594 (LdrIsEnclaveAddress.c)
+ *     RtlDebugCreateHeap @ 0x1801136E8 (RtlDebugCreateHeap.c)
+ *     LdrpInitializeNtdllDataTableEntry @ 0x180118B60 (LdrpInitializeNtdllDataTableEntry.c)
+ *     RtlpHpLargeAllocationProtect @ 0x18011F834 (RtlpHpLargeAllocationProtect.c)
+ *     RtlResetStackOverflow @ 0x18013AD18 (RtlResetStackOverflow.c)
+ *     RtlpIsHeapAccessibleInClone @ 0x18014528C (RtlpIsHeapAccessibleInClone.c)
+ *     RtlGetNonVolatileToken @ 0x180147260 (RtlGetNonVolatileToken.c)
+ *     RtlpHpHeapProtect @ 0x180157FA0 (RtlpHpHeapProtect.c)
+ *     PsspQueryVmBulkMode @ 0x180159800 (PsspQueryVmBulkMode.c)
  * Callees:
  *     <none>
  */
 
-__int64 ZwQueryVirtualMemory()
+NTSTATUS __cdecl ZwQueryVirtualMemory(
+        HANDLE ProcessHandle,
+        PVOID BaseAddress,
+        MEMORY_INFORMATION_CLASS MemoryInformationClass,
+        PVOID MemoryInformation,
+        SIZE_T MemoryInformationLength,
+        PSIZE_T ReturnLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 35LL;
+  result = 35;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

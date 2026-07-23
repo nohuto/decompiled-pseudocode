@@ -11,6 +11,6 @@ errno_t __cdecl _itow_s(int Value, wchar_t *Buffer, size_t BufferCount, int Radi
 {
   BOOL v4; // eax
 
-  v4 = Radix == 10 && Value < 0;
-  return xtow_s(Value, Buffer, BufferCount, Radix, v4);
+  v4 = HIDWORD(BufferCount) == 10 && Value < 0;
+  return xtow_s(Value, Buffer, BufferCount, HIDWORD(BufferCount), v4);
 }

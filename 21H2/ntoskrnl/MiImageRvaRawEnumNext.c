@@ -1,9 +1,9 @@
 /*
- * XREFs of MiImageRvaRawEnumNext @ 0x140681E60
+ * XREFs of MiImageRvaRawEnumNext @ 0x1405DCEA0
  * Callers:
- *     RtlpCompressRvaList @ 0x1406E9E60 (RtlpCompressRvaList.c)
+ *     RtlpCompressRvaList @ 0x140701240 (RtlpCompressRvaList.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall MiImageRvaRawEnumNext(_DWORD *a1, _DWORD *a2)

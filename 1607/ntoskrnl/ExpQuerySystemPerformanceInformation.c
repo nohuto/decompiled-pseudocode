@@ -1,22 +1,22 @@
 /*
- * XREFs of ExpQuerySystemPerformanceInformation @ 0x140414000
+ * XREFs of ExpQuerySystemPerformanceInformation @ 0x140412EC0
  * Callers:
- *     ExpQuerySystemInformation @ 0x140415620 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x1404144E0 (ExpQuerySystemInformation.c)
  * Callees:
- *     MiFreePoolPagesLeft @ 0x140028190 (MiFreePoolPagesLeft.c)
- *     MmGetAvailablePages @ 0x14006D5BC (MmGetAvailablePages.c)
- *     MiMaximumCommitmentAvailable @ 0x14007E4D0 (MiMaximumCommitmentAvailable.c)
- *     ExQueryPoolUsage @ 0x14008C300 (ExQueryPoolUsage.c)
- *     MmGetTotalCommittedPages @ 0x1400AB0E0 (MmGetTotalCommittedPages.c)
- *     MmGetTotalCommitLimit @ 0x1400AB0F4 (MmGetTotalCommitLimit.c)
- *     MmGetPeakCommitment @ 0x1400AB108 (MmGetPeakCommitment.c)
- *     MmGetResidentAvailablePages @ 0x1400AB11C (MmGetResidentAvailablePages.c)
- *     MmGetSystemPageCounts @ 0x1400AD208 (MmGetSystemPageCounts.c)
- *     MmGetSharedCommit @ 0x1400AD8EC (MmGetSharedCommit.c)
- *     MmGetNumberOfFreeSystemPtes @ 0x1400BEE84 (MmGetNumberOfFreeSystemPtes.c)
- *     MmGetWorkingSetLeafSize @ 0x1400FF22C (MmGetWorkingSetLeafSize.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     PsQueryRuntimeProcess @ 0x1404B9F30 (PsQueryRuntimeProcess.c)
+ *     MiFreePoolPagesLeft @ 0x140027D10 (MiFreePoolPagesLeft.c)
+ *     MmGetAvailablePages @ 0x14006D13C (MmGetAvailablePages.c)
+ *     MiMaximumCommitmentAvailable @ 0x14007E550 (MiMaximumCommitmentAvailable.c)
+ *     ExQueryPoolUsage @ 0x14008BA60 (ExQueryPoolUsage.c)
+ *     MmGetTotalCommittedPages @ 0x1400A9660 (MmGetTotalCommittedPages.c)
+ *     MmGetTotalCommitLimit @ 0x1400A9674 (MmGetTotalCommitLimit.c)
+ *     MmGetPeakCommitment @ 0x1400A9688 (MmGetPeakCommitment.c)
+ *     MmGetResidentAvailablePages @ 0x1400A969C (MmGetResidentAvailablePages.c)
+ *     MmGetSystemPageCounts @ 0x1400AB770 (MmGetSystemPageCounts.c)
+ *     MmGetSharedCommit @ 0x1400ABE54 (MmGetSharedCommit.c)
+ *     MmGetNumberOfFreeSystemPtes @ 0x1400BCD14 (MmGetNumberOfFreeSystemPtes.c)
+ *     MmGetWorkingSetLeafSize @ 0x1400FCFAC (MmGetWorkingSetLeafSize.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     PsQueryRuntimeProcess @ 0x1404A5C60 (PsQueryRuntimeProcess.c)
  */
 
 void *__fastcall ExpQuerySystemPerformanceInformation(unsigned int a1, void *a2, unsigned int a3)

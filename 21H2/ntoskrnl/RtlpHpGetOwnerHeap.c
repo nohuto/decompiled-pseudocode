@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpHpGetOwnerHeap @ 0x1402FACE4
+ * XREFs of RtlpHpGetOwnerHeap @ 0x140305A34
  * Callers:
- *     ExGetHeapFromVA @ 0x1402FAC7C (ExGetHeapFromVA.c)
+ *     ExGetHeapFromVA @ 0x1403059CC (ExGetHeapFromVA.c)
  * Callees:
- *     RtlCSparseBitmapBitmaskRead @ 0x1402A2380 (RtlCSparseBitmapBitmaskRead.c)
- *     RtlpHpQueryVA @ 0x1402A5CA4 (RtlpHpQueryVA.c)
- *     RtlpHpEnvGetHeapManager @ 0x140309414 (RtlpHpEnvGetHeapManager.c)
+ *     RtlCSparseBitmapBitmaskRead @ 0x14021F7C0 (RtlCSparseBitmapBitmaskRead.c)
+ *     RtlpHpQueryVA @ 0x1402230E4 (RtlpHpQueryVA.c)
+ *     RtlpHpEnvGetHeapManager @ 0x140314164 (RtlpHpEnvGetHeapManager.c)
  */
 
 __int64 __fastcall RtlpHpGetOwnerHeap(__int64 a1, __int128 *a2)

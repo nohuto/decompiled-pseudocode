@@ -1,5 +1,5 @@
 /*
- * XREFs of HvlQueryStartedProcessors @ 0x1401B3AE0
+ * XREFs of HvlQueryStartedProcessors @ 0x1401B3980
  * Callers:
  *     <none>
  * Callees:
@@ -29,7 +29,7 @@ __int64 __fastcall HvlQueryStartedProcessors(unsigned int *a1, int *a2)
       v7 = HvlpLogicalProcessorCount;
     if ( v7 )
     {
-      v8 = &dword_140548744;
+      v8 = &dword_140549744;
       v9 = v7;
       do
       {

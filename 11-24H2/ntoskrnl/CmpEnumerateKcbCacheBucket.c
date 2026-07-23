@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpEnumerateKcbCacheBucket @ 0x14097BEE8
+ * XREFs of CmpEnumerateKcbCacheBucket @ 0x1409646F8
  * Callers:
- *     CmpPrepareForSubtreeInvalidation @ 0x14097BCB4 (CmpPrepareForSubtreeInvalidation.c)
- *     CmpDoesKeyHaveOpenSubkeys @ 0x14097BD78 (CmpDoesKeyHaveOpenSubkeys.c)
- *     CmpEnumerateAllOpenSubKeys @ 0x14097BE20 (CmpEnumerateAllOpenSubKeys.c)
+ *     CmpPrepareForSubtreeInvalidation @ 0x1409644C4 (CmpPrepareForSubtreeInvalidation.c)
+ *     CmpDoesKeyHaveOpenSubkeys @ 0x140964588 (CmpDoesKeyHaveOpenSubkeys.c)
+ *     CmpEnumerateAllOpenSubKeys @ 0x140964630 (CmpEnumerateAllOpenSubKeys.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall CmpEnumerateKcbCacheBucket(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -39,7 +39,7 @@ __int64 __fastcall CmpEnumerateKcbCacheBucket(__int64 a1, __int64 a2, __int64 a3
       while ( v13 );
       if ( v12 == a1 )
       {
-        result = guard_dispatch_icall_no_overrides(v8, a4, 0LL, a4);
+        result = guard_dispatch_icall_no_overrides(v8, a4);
         if ( (_DWORD)result )
           return result;
       }

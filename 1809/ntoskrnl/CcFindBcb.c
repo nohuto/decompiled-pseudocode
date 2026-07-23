@@ -3,7 +3,7 @@
  * Callers:
  *     CcAcquireByteRangeForWrite @ 0x14001F590 (CcAcquireByteRangeForWrite.c)
  * Callees:
- *     CcGetBcbListHeadLargeOffset @ 0x1400AE160 (CcGetBcbListHeadLargeOffset.c)
+ *     CcGetBcbListHeadLargeOffset @ 0x1400AE0A0 (CcGetBcbListHeadLargeOffset.c)
  */
 
 __int64 __fastcall CcFindBcb(__int64 a1, _QWORD *a2, _QWORD *a3, __int64 *a4)

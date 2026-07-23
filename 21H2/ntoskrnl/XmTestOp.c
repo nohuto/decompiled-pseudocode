@@ -1,9 +1,9 @@
 /*
- * XREFs of XmTestOp @ 0x1403966B0
+ * XREFs of XmTestOp @ 0x140396800
  * Callers:
- *     XmEmulateStream @ 0x140397208 (XmEmulateStream.c)
+ *     XmEmulateStream @ 0x140397358 (XmEmulateStream.c)
  * Callees:
- *     XmSetLogicalResult @ 0x140396998 (XmSetLogicalResult.c)
+ *     XmSetLogicalResult @ 0x140396AE8 (XmSetLogicalResult.c)
  */
 
 __int64 __fastcall XmTestOp(__int64 a1)

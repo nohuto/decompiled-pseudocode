@@ -1,8 +1,8 @@
 /*
- * XREFs of _CmGetDeviceContainerMappedPropertyKeys @ 0x140A9D344
+ * XREFs of _CmGetDeviceContainerMappedPropertyKeys @ 0x140A988B4
  * Callers:
- *     _CmDeleteDeviceContainerWorker @ 0x140819A5C (_CmDeleteDeviceContainerWorker.c)
- *     _PnpDispatchDeviceContainer @ 0x1408B5FD0 (_PnpDispatchDeviceContainer.c)
+ *     _CmDeleteDeviceContainerWorker @ 0x14081A19C (_CmDeleteDeviceContainerWorker.c)
+ *     _PnpDispatchDeviceContainer @ 0x1408B3940 (_PnpDispatchDeviceContainer.c)
  * Callees:
  *     <none>
  */

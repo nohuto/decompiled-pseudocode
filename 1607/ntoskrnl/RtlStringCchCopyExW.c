@@ -1,40 +1,40 @@
 /*
- * XREFs of RtlStringCchCopyExW @ 0x1400C34A8
+ * XREFs of RtlStringCchCopyExW @ 0x1400C1338
  * Callers:
- *     _CmGetDeviceInterfaceName @ 0x140487220 (_CmGetDeviceInterfaceName.c)
- *     _CmIsDeviceSafeRemovalRequired @ 0x1404CF88C (_CmIsDeviceSafeRemovalRequired.c)
- *     _CmGetDeviceParent @ 0x1404CFAC4 (_CmGetDeviceParent.c)
- *     DrvDbGetDeviceIdDriverInfMatches @ 0x1404D5918 (DrvDbGetDeviceIdDriverInfMatches.c)
- *     PiPnpRtlGetFilteredDeviceList @ 0x1404E2820 (PiPnpRtlGetFilteredDeviceList.c)
- *     IopGetDeviceInterfaces @ 0x1404F69DC (IopGetDeviceInterfaces.c)
- *     _RegRtlCreateTreeTransacted @ 0x1404FA878 (_RegRtlCreateTreeTransacted.c)
- *     _CmGetDeviceInterfaceSubkeyPath @ 0x1404FC150 (_CmGetDeviceInterfaceSubkeyPath.c)
- *     PiDmGetObjectListCallback @ 0x140500C10 (PiDmGetObjectListCallback.c)
- *     DrvDbGetDriverDatabaseList @ 0x140502B1C (DrvDbGetDriverDatabaseList.c)
- *     DrvDbGetDriverPackageMappedProperty @ 0x140503A30 (DrvDbGetDriverPackageMappedProperty.c)
- *     _CmGetDeviceInterfaceReferenceString @ 0x140528F14 (_CmGetDeviceInterfaceReferenceString.c)
- *     PipHardwareConfigOpenKey @ 0x14054FB84 (PipHardwareConfigOpenKey.c)
- *     _CmGetMatchingDeviceListForSubkey @ 0x140561A98 (_CmGetMatchingDeviceListForSubkey.c)
- *     _CmGetMatchingFilteredDeviceInterfaceListWorker @ 0x140561D68 (_CmGetMatchingFilteredDeviceInterfaceListWorker.c)
- *     _CmDeviceClassesSubkeyCallback @ 0x140562834 (_CmDeviceClassesSubkeyCallback.c)
- *     _CmEnumSubkeyCallback @ 0x140562C98 (_CmEnumSubkeyCallback.c)
- *     _CmClassSubkeyCallback @ 0x140562FC0 (_CmClassSubkeyCallback.c)
- *     _PnpObjectListCallback @ 0x140563074 (_PnpObjectListCallback.c)
- *     PnpGetDeviceDependencyList @ 0x14062B650 (PnpGetDeviceDependencyList.c)
- *     PiDevCfgQueryPolicyStringList @ 0x14063D1DC (PiDevCfgQueryPolicyStringList.c)
- *     PiCMCreateDevice @ 0x1406461E4 (PiCMCreateDevice.c)
- *     PiCMGenerateDeviceInstance @ 0x1406477EC (PiCMGenerateDeviceInstance.c)
- *     _PnpGetGenericStorePropertyLocales @ 0x1406DC50C (_PnpGetGenericStorePropertyLocales.c)
- *     _CmGetDeviceChildren @ 0x1406DCF24 (_CmGetDeviceChildren.c)
- *     _RegRtlDeletePathInternal @ 0x1406E06D0 (_RegRtlDeletePathInternal.c)
- *     DrvDbBuildDeviceIdDriverInfMatch @ 0x1406E09D8 (DrvDbBuildDeviceIdDriverInfMatch.c)
- *     DrvDbDeleteObjectSubKey @ 0x1406E0C4C (DrvDbDeleteObjectSubKey.c)
- *     DrvDbGetObjectSubKeyCallback @ 0x1406E1AC8 (DrvDbGetObjectSubKeyCallback.c)
+ *     DrvDbGetDeviceIdDriverInfMatches @ 0x1404B8F1C (DrvDbGetDeviceIdDriverInfMatches.c)
+ *     PiPnpRtlGetFilteredDeviceList @ 0x1404C5784 (PiPnpRtlGetFilteredDeviceList.c)
+ *     IopGetDeviceInterfaces @ 0x1404D9968 (IopGetDeviceInterfaces.c)
+ *     _RegRtlCreateTreeTransacted @ 0x1404DD804 (_RegRtlCreateTreeTransacted.c)
+ *     _CmGetDeviceInterfaceSubkeyPath @ 0x1404DF0E0 (_CmGetDeviceInterfaceSubkeyPath.c)
+ *     PiDmGetObjectListCallback @ 0x1404E3BA0 (PiDmGetObjectListCallback.c)
+ *     DrvDbGetDriverDatabaseList @ 0x1404E5AAC (DrvDbGetDriverDatabaseList.c)
+ *     DrvDbGetDriverPackageMappedProperty @ 0x1404E69C0 (DrvDbGetDriverPackageMappedProperty.c)
+ *     _CmIsDeviceSafeRemovalRequired @ 0x14050C958 (_CmIsDeviceSafeRemovalRequired.c)
+ *     _CmGetDeviceParent @ 0x14050CB90 (_CmGetDeviceParent.c)
+ *     _CmGetDeviceInterfaceName @ 0x140512634 (_CmGetDeviceInterfaceName.c)
+ *     _CmGetDeviceInterfaceReferenceString @ 0x140529454 (_CmGetDeviceInterfaceReferenceString.c)
+ *     PipHardwareConfigOpenKey @ 0x1405500C4 (PipHardwareConfigOpenKey.c)
+ *     _CmGetMatchingDeviceListForSubkey @ 0x140561FD8 (_CmGetMatchingDeviceListForSubkey.c)
+ *     _CmGetMatchingFilteredDeviceInterfaceListWorker @ 0x1405622A8 (_CmGetMatchingFilteredDeviceInterfaceListWorker.c)
+ *     _CmDeviceClassesSubkeyCallback @ 0x140562D74 (_CmDeviceClassesSubkeyCallback.c)
+ *     _CmEnumSubkeyCallback @ 0x1405631D8 (_CmEnumSubkeyCallback.c)
+ *     _CmClassSubkeyCallback @ 0x140563500 (_CmClassSubkeyCallback.c)
+ *     _PnpObjectListCallback @ 0x1405635B4 (_PnpObjectListCallback.c)
+ *     PnpGetDeviceDependencyList @ 0x14062B704 (PnpGetDeviceDependencyList.c)
+ *     PiDevCfgQueryPolicyStringList @ 0x14063D290 (PiDevCfgQueryPolicyStringList.c)
+ *     PiCMCreateDevice @ 0x1406462C8 (PiCMCreateDevice.c)
+ *     PiCMGenerateDeviceInstance @ 0x1406478D0 (PiCMGenerateDeviceInstance.c)
+ *     _PnpGetGenericStorePropertyLocales @ 0x1406DC644 (_PnpGetGenericStorePropertyLocales.c)
+ *     _CmGetDeviceChildren @ 0x1406DD05C (_CmGetDeviceChildren.c)
+ *     _RegRtlDeletePathInternal @ 0x1406E0808 (_RegRtlDeletePathInternal.c)
+ *     DrvDbBuildDeviceIdDriverInfMatch @ 0x1406E0B10 (DrvDbBuildDeviceIdDriverInfMatch.c)
+ *     DrvDbDeleteObjectSubKey @ 0x1406E0D84 (DrvDbDeleteObjectSubKey.c)
+ *     DrvDbGetObjectSubKeyCallback @ 0x1406E1C00 (DrvDbGetObjectSubKeyCallback.c)
  * Callees:
- *     RtlStringCopyWorkerW_2 @ 0x1400C35B0 (RtlStringCopyWorkerW_2.c)
- *     RtlStringExValidateDestW @ 0x1400C3620 (RtlStringExValidateDestW.c)
- *     RtlStringExHandleFillBehindNullW @ 0x1401CCBB4 (RtlStringExHandleFillBehindNullW.c)
- *     RtlStringExHandleOtherFlagsW @ 0x1401CCBD8 (RtlStringExHandleOtherFlagsW.c)
+ *     RtlStringCopyWorkerW_0 @ 0x1400C1440 (RtlStringCopyWorkerW_0.c)
+ *     RtlStringExValidateDestW @ 0x1400C14B0 (RtlStringExValidateDestW.c)
+ *     RtlStringExHandleFillBehindNullW @ 0x1401CCA98 (RtlStringExHandleFillBehindNullW.c)
+ *     RtlStringExHandleOtherFlagsW @ 0x1401CCABC (RtlStringExHandleOtherFlagsW.c)
  */
 
 NTSTATUS __stdcall RtlStringCchCopyExW(
@@ -84,7 +84,7 @@ NTSTATUS __stdcall RtlStringCchCopyExW(
     else if ( cchDest )
     {
       pcchNewDestLength = 0LL;
-      v9 = RtlStringCopyWorkerW_2(pszDest, cchDest, &pcchNewDestLength, v10, (size_t)v16);
+      v9 = RtlStringCopyWorkerW_0(pszDest, cchDest, &pcchNewDestLength, v10, (size_t)v16);
       v14 = pcchNewDestLength;
       v12 = cchDest - pcchNewDestLength;
       pcchNewDestLength = cchDest - pcchNewDestLength;

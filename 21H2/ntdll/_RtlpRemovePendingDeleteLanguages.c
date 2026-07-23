@@ -1,21 +1,21 @@
 /*
- * XREFs of _RtlpRemovePendingDeleteLanguages @ 0x180107BA8
+ * XREFs of _RtlpRemovePendingDeleteLanguages @ 0x180107B68
  * Callers:
- *     _RtlpMuiRegValidateInstalled @ 0x180107458 (_RtlpMuiRegValidateInstalled.c)
+ *     _RtlpMuiRegValidateInstalled @ 0x180107418 (_RtlpMuiRegValidateInstalled.c)
  * Callees:
  *     RtlpMuiRegGetInstalledLanguageIndexByName @ 0x18003AA98 (RtlpMuiRegGetInstalledLanguageIndexByName.c)
  *     RtlInitUnicodeString @ 0x18003BA40 (RtlInitUnicodeString.c)
  *     __security_check_cookie @ 0x18008C940 (__security_check_cookie.c)
- *     NtClose @ 0x18009D820 (NtClose.c)
- *     NtOpenKey @ 0x18009D880 (NtOpenKey.c)
- *     NtEnumerateKey @ 0x18009DC80 (NtEnumerateKey.c)
+ *     NtClose @ 0x18009D7E0 (NtClose.c)
+ *     NtOpenKey @ 0x18009D840 (NtOpenKey.c)
+ *     NtEnumerateKey @ 0x18009DC40 (NtEnumerateKey.c)
  */
 
 __int64 __fastcall RtlpRemovePendingDeleteLanguages(__int64 a1, __int16 a2)
 {
   __int16 *v2; // rbp
-  int v6; // ebx
-  int v7; // esi
+  ULONG v6; // ebx
+  NTSTATUS v7; // esi
   unsigned __int64 v8; // rdx
   __int64 v9; // rax
   __int64 v10; // rdx
@@ -37,12 +37,18 @@ __int64 __fastcall RtlpRemovePendingDeleteLanguages(__int64 a1, __int16 a2)
   *(_QWORD *)(((unsigned __int64)v12 & 0xFFFFFFFFFFFFFFE0uLL) + 0x28) = 0LL;
   *(_DWORD *)(((unsigned __int64)v12 & 0xFFFFFFFFFFFFFFE0uLL) + 0x38) = 64;
   *(_OWORD *)(((unsigned __int64)v12 & 0xFFFFFFFFFFFFFFE0uLL) + 0x40) = 0LL;
-  if ( (int)NtOpenKey() >= 0 )
+  if ( NtOpenKey((PHANDLE)v2 + 1, 0x20019u, (POBJECT_ATTRIBUTES)(v2 + 16)) >= 0 )
   {
     v6 = 0;
     do
     {
-      v7 = NtEnumerateKey();
+      v7 = NtEnumerateKey(
+             *(HANDLE *)(((unsigned __int64)v12 & 0xFFFFFFFFFFFFFFE0uLL) + 8),
+             v6,
+             KeyBasicInformation,
+             v2 + 48,
+             0x200u,
+             (PULONG)v2 + 1);
       if ( v7 >= 0 )
       {
         v8 = *(unsigned int *)(((unsigned __int64)v12 & 0xFFFFFFFFFFFFFFE0uLL) + 0x6C);

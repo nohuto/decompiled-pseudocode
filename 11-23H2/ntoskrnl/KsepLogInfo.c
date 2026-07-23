@@ -1,16 +1,16 @@
 /*
- * XREFs of KsepLogInfo @ 0x1403740AC
+ * XREFs of KsepLogInfo @ 0x14037424C
  * Callers:
  *     KsepGetShimCallbacksForDriver @ 0x140693B60 (KsepGetShimCallbacksForDriver.c)
  *     KseShimDriverIoCallbacks @ 0x140693D74 (KseShimDriverIoCallbacks.c)
  *     KsepGetShimsForDriver @ 0x140694008 (KsepGetShimsForDriver.c)
  *     KseDriverLoadImage @ 0x140694730 (KseDriverLoadImage.c)
  *     KseDriverUnloadImage @ 0x140697128 (KseDriverUnloadImage.c)
- *     KseQueryDeviceData @ 0x140808000 (KseQueryDeviceData.c)
- *     KseRegisterShimEx @ 0x140808730 (KseRegisterShimEx.c)
- *     KsepResolveApplicableShimsForDriver @ 0x14085B7BC (KsepResolveApplicableShimsForDriver.c)
- *     KsepApplyShimsToDriver @ 0x14085E5C4 (KsepApplyShimsToDriver.c)
- *     KseUnregisterShim @ 0x1409770A0 (KseUnregisterShim.c)
+ *     KseQueryDeviceData @ 0x1408082D0 (KseQueryDeviceData.c)
+ *     KseRegisterShimEx @ 0x140808A00 (KseRegisterShimEx.c)
+ *     KsepResolveApplicableShimsForDriver @ 0x14085B9FC (KsepResolveApplicableShimsForDriver.c)
+ *     KsepApplyShimsToDriver @ 0x14085E804 (KsepApplyShimsToDriver.c)
+ *     KseUnregisterShim @ 0x1409772A0 (KseUnregisterShim.c)
  *     KseInitialize @ 0x140B495CC (KseInitialize.c)
  *     KsepEngineReadFlags @ 0x140B6126C (KsepEngineReadFlags.c)
  *     KsepMatchInitBiosInfo @ 0x140B6162C (KsepMatchInitBiosInfo.c)

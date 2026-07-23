@@ -1,11 +1,11 @@
 /*
- * XREFs of PpmParkRecordNodeStatistics @ 0x1400D77A0
+ * XREFs of PpmParkRecordNodeStatistics @ 0x1400D5640
  * Callers:
- *     PpmCheckRecordAllUtility @ 0x1400D74D0 (PpmCheckRecordAllUtility.c)
+ *     PpmCheckRecordAllUtility @ 0x1400D5370 (PpmCheckRecordAllUtility.c)
  * Callees:
- *     EtwWrite @ 0x140013320 (EtwWrite.c)
- *     EtwpLevelKeywordEnabled @ 0x1400D81F0 (EtwpLevelKeywordEnabled.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     EtwWrite @ 0x140012EA0 (EtwWrite.c)
+ *     EtwpLevelKeywordEnabled @ 0x1400D6090 (EtwpLevelKeywordEnabled.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 __int64 PpmParkRecordNodeStatistics()
@@ -51,11 +51,11 @@ __int64 PpmParkRecordNodeStatistics()
   char *v38; // [rsp+B8h] [rbp+17h]
   __int64 v39; // [rsp+C0h] [rbp+1Fh]
 
-  result = dword_140303E0C;
+  result = dword_140303D4C;
   v1 = 0;
   v2 = PpmParkNumNodes;
   v3 = PpmCheckMakeupCount;
-  v4 = 174LL * dword_140303E0C;
+  v4 = 174LL * dword_140303D4C;
   v5 = BYTE2(PpmCurrentProfile[v4 + 14]);
   for ( i = BYTE4(PpmCurrentProfile[v4 + 14]); v1 < v2; result = v1 )
   {

@@ -57,7 +57,7 @@ __int64 MiInitializeCacheFlushing()
   _OWORD v33[2]; // [rsp+30h] [rbp-58h] BYREF
 
   memset(v33, 0, sizeof(v33));
-  if ( (int)ZwQuerySystemInformation(192LL, (__int64)v33) >= 0 && (BYTE8(v33[0]) & 1) != 0 )
+  if ( ZwQuerySystemInformation(SystemFlushInformation, v33, 0x20u, 0LL) >= 0 && (BYTE8(v33[0]) & 1) != 0 )
     byte_140C4DD68 = 1;
   result = MiGetPage((__int64)&MiSystemPartition, 0, 0LL);
   v1 = result;

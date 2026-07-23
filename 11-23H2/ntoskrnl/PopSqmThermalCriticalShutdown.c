@@ -1,9 +1,9 @@
 /*
- * XREFs of PopSqmThermalCriticalShutdown @ 0x1409A0E18
+ * XREFs of PopSqmThermalCriticalShutdown @ 0x1409A1018
  * Callers:
- *     PopCheckAndHandleThermalConditions @ 0x1403A1854 (PopCheckAndHandleThermalConditions.c)
+ *     PopCheckAndHandleThermalConditions @ 0x1403A1A34 (PopCheckAndHandleThermalConditions.c)
  * Callees:
- *     PopSqmThermalCriticalEvent @ 0x1409A0C48 (PopSqmThermalCriticalEvent.c)
+ *     PopSqmThermalCriticalEvent @ 0x1409A0E48 (PopSqmThermalCriticalEvent.c)
  */
 
 void *__fastcall PopSqmThermalCriticalShutdown(__int64 a1)

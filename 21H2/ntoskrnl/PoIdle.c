@@ -1,22 +1,22 @@
 /*
- * XREFs of PoIdle @ 0x140221ED0
+ * XREFs of PoIdle @ 0x1402C67D0
  * Callers:
- *     KiIdleLoop @ 0x140402950 (KiIdleLoop.c)
+ *     KiIdleLoop @ 0x140402B30 (KiIdleLoop.c)
  * Callees:
- *     PpmIdleExecuteTransition @ 0x1402224B0 (PpmIdleExecuteTransition.c)
- *     PpmIdlePrepare @ 0x140224F90 (PpmIdlePrepare.c)
- *     KeAddProcessorAffinityEx @ 0x140229380 (KeAddProcessorAffinityEx.c)
- *     HalRequestIpi @ 0x14027AEA0 (HalRequestIpi.c)
- *     MmGetNextNode @ 0x1402936D4 (MmGetNextNode.c)
- *     PpmEventIdleStateChange @ 0x1402B0470 (PpmEventIdleStateChange.c)
- *     KeIdleSpecCtrl @ 0x1403655E0 (KeIdleSpecCtrl.c)
- *     PpmIdleSelectStates @ 0x140395580 (PpmIdleSelectStates.c)
- *     PpmResetProcessorIdleAccounting @ 0x1403C47D4 (PpmResetProcessorIdleAccounting.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     HalProcessorIdle @ 0x1403F9CA0 (HalProcessorIdle.c)
- *     KeExecuteVerw @ 0x140413F00 (KeExecuteVerw.c)
- *     memset @ 0x140414200 (memset.c)
- *     PpmSetPlatformIdleDurationHint @ 0x140567758 (PpmSetPlatformIdleDurationHint.c)
+ *     MmGetNextNode @ 0x140211644 (MmGetNextNode.c)
+ *     PpmEventIdleStateChange @ 0x14022E7D0 (PpmEventIdleStateChange.c)
+ *     HalRequestIpi @ 0x140268E40 (HalRequestIpi.c)
+ *     PpmIdleExecuteTransition @ 0x1402C6DB0 (PpmIdleExecuteTransition.c)
+ *     PpmIdlePrepare @ 0x1402C9890 (PpmIdlePrepare.c)
+ *     KeAddProcessorAffinityEx @ 0x1402CDC80 (KeAddProcessorAffinityEx.c)
+ *     KeIdleSpecCtrl @ 0x140365790 (KeIdleSpecCtrl.c)
+ *     PpmIdleSelectStates @ 0x1403956D0 (PpmIdleSelectStates.c)
+ *     PpmResetProcessorIdleAccounting @ 0x1403C4C04 (PpmResetProcessorIdleAccounting.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     HalProcessorIdle @ 0x1403F9E80 (HalProcessorIdle.c)
+ *     KeExecuteVerw @ 0x140414000 (KeExecuteVerw.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     PpmSetPlatformIdleDurationHint @ 0x140567998 (PpmSetPlatformIdleDurationHint.c)
  */
 
 __int64 __fastcall PoIdle(ULONG_PTR BugCheckParameter4)
@@ -52,7 +52,7 @@ __int64 __fastcall PoIdle(ULONG_PTR BugCheckParameter4)
   __int64 v31; // rsi
   struct _KPRCB *CurrentPrcb; // r8
   _KNODE *ParentNode; // r9
-  unsigned int v34; // r10d
+  int v34; // r10d
   int NextNode; // eax
   __int64 v36; // r11
   char v37; // [rsp+40h] [rbp-C0h] BYREF
@@ -77,8 +77,8 @@ __int64 __fastcall PoIdle(ULONG_PTR BugCheckParameter4)
   v42 = 0;
   v39 = 0;
   memset(&v48[2], 0, 0xA0uLL);
-  result = dword_140C23E8C;
-  if ( BYTE5(PpmCurrentProfile[342 * dword_140C23E8C + 23]) )
+  result = dword_140C2332C;
+  if ( BYTE5(PpmCurrentProfile[342 * dword_140C2332C + 23]) )
     return result;
   v4 = *(_QWORD *)(BugCheckParameter4 + 0x8000);
   v5 = *(_QWORD *)(BugCheckParameter4 + 32776);
@@ -237,7 +237,7 @@ LABEL_21:
   {
     *(_DWORD *)(v4 + 24) = v26;
     *(_DWORD *)(v4 + 16) = v18;
-    PpmEventIdleStateChange(v18);
+    PpmEventIdleStateChange(v18, v26);
   }
   if ( (*(_DWORD *)(v5 + 4))++ == -1 )
     PpmResetProcessorIdleAccounting(v5, v43);
@@ -294,7 +294,7 @@ LABEL_73:
       if ( ++v1 >= v30 )
         return PpmIdleExecuteTransition(BugCheckParameter4, v38[0], v43, v45, v37);
     }
-    HalRequestIpi(0LL, v48);
+    HalRequestIpi(0, (__int64)v48);
   }
   return PpmIdleExecuteTransition(BugCheckParameter4, v38[0], v43, v45, v37);
 }

@@ -27,7 +27,7 @@ __int64 __fastcall EtwpTraceUmEvent(unsigned __int16 a1, unsigned __int16 *a2, u
   unsigned int i; // ecx
   int v16; // r12d
   struct _TEB *v17; // rax
-  unsigned __int64 *v18; // r9
+  LARGE_INTEGER *v18; // r9
   char *v19; // rax
   char *v20; // rsi
   unsigned int j; // r15d
@@ -135,7 +135,7 @@ LABEL_5:
       v16 = v10 & 0x200;
       v17 = NtCurrentTeb();
       v44 = v17;
-      v18 = &v40;
+      v18 = (LARGE_INTEGER *)&v40;
       if ( v16 )
         v18 = 0LL;
       v6 = v32;

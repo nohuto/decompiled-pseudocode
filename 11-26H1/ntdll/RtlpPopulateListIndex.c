@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlpPopulateListIndex @ 0x18007E1BC
+ * XREFs of RtlpPopulateListIndex @ 0x18006C8A8
  * Callers:
- *     RtlpCreateHeap @ 0x18007C890 (RtlpCreateHeap.c)
- *     RtlpExtendListLookup @ 0x18007DDA4 (RtlpExtendListLookup.c)
+ *     RtlpCreateHeap @ 0x18006B0B0 (RtlpCreateHeap.c)
+ *     RtlpExtendListLookup @ 0x18006CE74 (RtlpExtendListLookup.c)
  * Callees:
- *     DbgPrint @ 0x180025720 (DbgPrint.c)
- *     RtlpAnalyzeHeapFailure @ 0x1800257B0 (RtlpAnalyzeHeapFailure.c)
- *     RtlpHeapRemoveListEntry @ 0x180025AF0 (RtlpHeapRemoveListEntry.c)
- *     RtlpHeapHandleError @ 0x1800274C0 (RtlpHeapHandleError.c)
- *     RtlpHeapAddListEntry @ 0x18007E3B0 (RtlpHeapAddListEntry.c)
+ *     DbgPrint @ 0x1800107F0 (DbgPrint.c)
+ *     RtlpAnalyzeHeapFailure @ 0x180010880 (RtlpAnalyzeHeapFailure.c)
+ *     RtlpHeapRemoveListEntry @ 0x180010BC0 (RtlpHeapRemoveListEntry.c)
+ *     RtlpHeapHandleError @ 0x180012590 (RtlpHeapHandleError.c)
+ *     RtlpHeapAddListEntry @ 0x18006CAA0 (RtlpHeapAddListEntry.c)
  */
 
 __int64 __fastcall RtlpPopulateListIndex(unsigned __int64 a1, __int64 a2)

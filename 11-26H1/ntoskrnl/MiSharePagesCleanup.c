@@ -1,22 +1,22 @@
 /*
- * XREFs of MiSharePagesCleanup @ 0x1402C65C0
+ * XREFs of MiSharePagesCleanup @ 0x140311260
  * Callers:
- *     MiSharePages @ 0x140306F88 (MiSharePages.c)
+ *     MiSharePages @ 0x1402E9008 (MiSharePages.c)
  * Callees:
- *     MiReleaseFreshPage @ 0x140292190 (MiReleaseFreshPage.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402BA1B0 (KiLeaveCriticalRegionUnsafe.c)
- *     MiAttachThreadDone @ 0x1402C66F0 (MiAttachThreadDone.c)
- *     MiFreeCombineBlock @ 0x1402C67C4 (MiFreeCombineBlock.c)
- *     KeForceDetachProcess @ 0x1402C6C30 (KeForceDetachProcess.c)
- *     MiUnlockPageTableInternal @ 0x1402D13E0 (MiUnlockPageTableInternal.c)
- *     MiUnlockWorkingSetShared @ 0x1402EB6C0 (MiUnlockWorkingSetShared.c)
+ *     MiReleaseFreshPage @ 0x1402916F0 (MiReleaseFreshPage.c)
+ *     MiUnlockPageTableInternal @ 0x1402B31A0 (MiUnlockPageTableInternal.c)
+ *     MiUnlockWorkingSetShared @ 0x1402CD700 (MiUnlockWorkingSetShared.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140304E70 (KiLeaveCriticalRegionUnsafe.c)
+ *     MiAttachThreadDone @ 0x140311390 (MiAttachThreadDone.c)
+ *     MiFreeCombineBlock @ 0x140311464 (MiFreeCombineBlock.c)
+ *     KeForceDetachProcess @ 0x1403118D0 (KeForceDetachProcess.c)
  */
 
 __int64 __fastcall MiSharePagesCleanup(__int64 *a1, __int64 a2, __int64 a3)
 {
   __int64 v3; // rax
   __int64 v5; // rdi
-  __int64 v6; // rdx
+  unsigned __int64 v6; // rdx
   __int64 v7; // r14
   _QWORD *v8; // rsi
   __int64 v9; // rbp

@@ -1,15 +1,15 @@
 /*
- * XREFs of SeIsAppContainerOrIdentifyLevelContext @ 0x140A14EAC
+ * XREFs of SeIsAppContainerOrIdentifyLevelContext @ 0x140A0DCC4
  * Callers:
- *     IopParseDevice @ 0x14089F880 (IopParseDevice.c)
- *     PfpPrivSourceEnum @ 0x1408EE170 (PfpPrivSourceEnum.c)
- *     NtPowerInformation @ 0x1409F0230 (NtPowerInformation.c)
- *     PopPowerRequestActionInfo @ 0x140A14DA0 (PopPowerRequestActionInfo.c)
- *     PopPowerInformationInternal @ 0x140AC4A30 (PopPowerInformationInternal.c)
+ *     PfpPrivSourceEnum @ 0x14085F9A0 (PfpPrivSourceEnum.c)
+ *     IopParseDevice @ 0x1408A7F20 (IopParseDevice.c)
+ *     NtPowerInformation @ 0x1409EDB00 (NtPowerInformation.c)
+ *     PopPowerRequestActionInfo @ 0x140A0DBB8 (PopPowerRequestActionInfo.c)
+ *     PopPowerInformationInternal @ 0x140AC2410 (PopPowerInformationInternal.c)
  * Callees:
- *     SeAccessCheck @ 0x14035A5B0 (SeAccessCheck.c)
- *     SeReleaseSubjectContext @ 0x14084D7E0 (SeReleaseSubjectContext.c)
- *     SeCaptureSubjectContext @ 0x14084D8F0 (SeCaptureSubjectContext.c)
+ *     SeAccessCheck @ 0x1403B6900 (SeAccessCheck.c)
+ *     SeReleaseSubjectContext @ 0x140849AA0 (SeReleaseSubjectContext.c)
+ *     SeCaptureSubjectContext @ 0x140849BB0 (SeCaptureSubjectContext.c)
  */
 
 __int64 __fastcall SeIsAppContainerOrIdentifyLevelContext(PSECURITY_SUBJECT_CONTEXT SubjectContext, _BYTE *a2)

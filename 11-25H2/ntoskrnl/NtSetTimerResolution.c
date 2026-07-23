@@ -17,15 +17,15 @@
  *     ExFreePoolWithTag @ 0x140B62CD0 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall NtSetTimerResolution(unsigned int a1, char a2, int *a3)
+NTSTATUS __cdecl NtSetTimerResolution(ULONG DesiredTime, BOOLEAN SetResolution, PULONG ActualTime)
 {
   __int64 v6; // r9
   _KPROCESS *Process; // rbx
-  unsigned int v8; // r12d
+  NTSTATUS v8; // r12d
   struct _KTHREAD *CurrentThread; // rax
   __int64 *v10; // rax
   __int64 *v11; // rsi
-  int updated; // esi
+  ULONG updated; // esi
   signed __int32 DirectoryTableBase_high; // eax
   signed __int32 v14; // ett
   _KAB_UM_PROCESS_TREE *Trees; // r14
@@ -42,8 +42,8 @@ __int64 __fastcall NtSetTimerResolution(unsigned int a1, char a2, int *a3)
   if ( KeGetCurrentThread()->PreviousMode )
   {
     v6 = 0x7FFFFFFF0000LL;
-    if ( (unsigned __int64)a3 < 0x7FFFFFFF0000LL )
-      v6 = (__int64)a3;
+    if ( (unsigned __int64)ActualTime < 0x7FFFFFFF0000LL )
+      v6 = (__int64)ActualTime;
     *(_DWORD *)v6 = *(_DWORD *)v6;
   }
   Process = KeGetCurrentThread()->ApcState.Process;
@@ -60,7 +60,7 @@ __int64 __fastcall NtSetTimerResolution(unsigned int a1, char a2, int *a3)
   updated = KeTimeIncrement;
   _m_prefetchw((char *)&Process[1].DirectoryTableBase + 4);
   DirectoryTableBase_high = HIDWORD(Process[1].DirectoryTableBase);
-  if ( a2 )
+  if ( SetResolution )
   {
     v18 = 1;
     do
@@ -77,21 +77,21 @@ __int64 __fastcall NtSetTimerResolution(unsigned int a1, char a2, int *a3)
       ExpInsertTimerResolutionEntry((__int64)Process);
     if ( (v20 & 0x1000) != 0 )
     {
-      if ( a1 > Process[3].AutoBoostState.TreeCount )
+      if ( DesiredTime > Process[3].AutoBoostState.TreeCount )
         v18 = 0;
     }
     else
     {
       ++ExpTimerResolutionCount;
     }
-    if ( !Process[3].AutoBoostState.Trees || a1 < *(&Process[3].AutoBoostState.TreeCount + 1) )
+    if ( !Process[3].AutoBoostState.Trees || DesiredTime < *(&Process[3].AutoBoostState.TreeCount + 1) )
       v25 = 1;
-    Process[3].AutoBoostState.TreeCount = a1;
+    Process[3].AutoBoostState.TreeCount = DesiredTime;
     PoTraceSystemTimerResolution(0LL, Process);
     if ( (Process[3].ActiveGroupsMask.Masks[1] & 0x400000000000000LL) != 0 )
       updated = KePseudoHrTimeIncrement;
     else
-      updated = ExpUpdateTimerResolution(v18, a1, 0LL);
+      updated = ExpUpdateTimerResolution(v18, DesiredTime, 0LL);
   }
   else
   {
@@ -132,7 +132,7 @@ __int64 __fastcall NtSetTimerResolution(unsigned int a1, char a2, int *a3)
       v23 = p_AutoBoostState->Trees == 0LL;
       if ( p_AutoBoostState->Trees )
       {
-        if ( a1 >= *(&Process[3].AutoBoostState.TreeCount + 1) )
+        if ( DesiredTime >= *(&Process[3].AutoBoostState.TreeCount + 1) )
         {
 LABEL_38:
           ExReleaseTimeRefreshLockExclusive();
@@ -142,7 +142,7 @@ LABEL_38:
       }
       if ( !v23 )
         Trees = p_AutoBoostState->Trees;
-      *(&Process[3].AutoBoostState.TreeCount + 1) = a1;
+      *(&Process[3].AutoBoostState.TreeCount + 1) = DesiredTime;
       Process[3].AutoBoostState.Trees = v16;
       v16 = 0LL;
       goto LABEL_38;
@@ -153,6 +153,6 @@ LABEL_16:
     ExFreePoolWithTag(Trees, 0x50455654u);
   if ( v16 )
     ExFreePoolWithTag(v16, 0x50455654u);
-  *a3 = updated;
+  *ActualTime = updated;
   return v8;
 }

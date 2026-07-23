@@ -3,7 +3,7 @@
  * Callers:
  *     sub_14063A000 @ 0x14063A000 (sub_14063A000.c)
  *     sub_1409F9AD0 @ 0x1409F9AD0 (sub_1409F9AD0.c)
- *     ExpGenuinePolicyPostProcess @ 0x1409F9E40 (ExpGenuinePolicyPostProcess.c)
+ *     sub_1409F9E40 @ 0x1409F9E40 (sub_1409F9E40.c)
  *     sub_1409FA290 @ 0x1409FA290 (sub_1409FA290.c)
  *     sub_1409FA310 @ 0x1409FA310 (sub_1409FA310.c)
  * Callees:

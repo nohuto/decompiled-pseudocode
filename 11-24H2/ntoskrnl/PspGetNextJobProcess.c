@@ -1,17 +1,17 @@
 /*
- * XREFs of PspGetNextJobProcess @ 0x1408EB458
+ * XREFs of PspGetNextJobProcess @ 0x14085CC88
  * Callers:
- *     PspExecuteJobFreezeThawCallback @ 0x140483210 (PspExecuteJobFreezeThawCallback.c)
- *     PspTerminateSiloSubsystemProcesses @ 0x1407736B8 (PspTerminateSiloSubsystemProcesses.c)
- *     PspWaitOnAllProcessesJobCallback @ 0x140778890 (PspWaitOnAllProcessesJobCallback.c)
- *     PspSetCpuRateControlJobPostCallback @ 0x1408E8DC0 (PspSetCpuRateControlJobPostCallback.c)
- *     PspTerminateProcessesJobCallback @ 0x1408EA6B0 (PspTerminateProcessesJobCallback.c)
- *     PspAssignProcessToJob @ 0x140A173D0 (PspAssignProcessToJob.c)
+ *     PspExecuteJobFreezeThawCallback @ 0x14047E350 (PspExecuteJobFreezeThawCallback.c)
+ *     PspTerminateSiloSubsystemProcesses @ 0x1407738D8 (PspTerminateSiloSubsystemProcesses.c)
+ *     PspWaitOnAllProcessesJobCallback @ 0x140778990 (PspWaitOnAllProcessesJobCallback.c)
+ *     PspTerminateProcessesJobCallback @ 0x14085BEE0 (PspTerminateProcessesJobCallback.c)
+ *     PspSetCpuRateControlJobPostCallback @ 0x1408D77E0 (PspSetCpuRateControlJobPostCallback.c)
+ *     PspAssignProcessToJob @ 0x140A105B0 (PspAssignProcessToJob.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     ObReferenceObjectSafeWithTag @ 0x14033E7D0 (ObReferenceObjectSafeWithTag.c)
- *     PspLockJobExclusive @ 0x1408EB430 (PspLockJobExclusive.c)
- *     PspUnlockJob @ 0x1408ED360 (PspUnlockJob.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     ObReferenceObjectSafeWithTag @ 0x14031DCB0 (ObReferenceObjectSafeWithTag.c)
+ *     PspLockJobExclusive @ 0x14085CC60 (PspLockJobExclusive.c)
+ *     PspUnlockJob @ 0x14085EB90 (PspUnlockJob.c)
  */
 
 _QWORD *__fastcall PspGetNextJobProcess(__int64 a1, __int64 a2, _QWORD *a3, void *a4)

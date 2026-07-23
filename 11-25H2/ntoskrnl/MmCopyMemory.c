@@ -15,7 +15,12 @@
  *     memset_0 @ 0x1406B4D40 (memset_0.c)
  */
 
-__int64 __fastcall MmCopyMemory(char *a1, unsigned __int64 a2, unsigned __int64 a3, int a4, _QWORD *a5)
+NTSTATUS __fastcall MmCopyMemory(
+        char *Buffer,
+        unsigned __int64 BaseAddress,
+        SIZE_T BufferSize,
+        int a4,
+        PSIZE_T NumberOfBytesRead)
 {
   int v9; // r8d
   __int16 v11; // cx
@@ -45,50 +50,56 @@ __int64 __fastcall MmCopyMemory(char *a1, unsigned __int64 a2, unsigned __int64 
   __int64 v35; // [rsp+50h] [rbp-B0h] BYREF
   ULONG_PTR v36; // [rsp+58h] [rbp-A8h] BYREF
   struct _KTHREAD *v37; // [rsp+60h] [rbp-A0h]
-  _QWORD *v38; // [rsp+68h] [rbp-98h]
+  PSIZE_T v38; // [rsp+68h] [rbp-98h]
   __int128 v39; // [rsp+70h] [rbp-90h] BYREF
   _BYTE v40[24]; // [rsp+80h] [rbp-80h] BYREF
   __int64 v41; // [rsp+98h] [rbp-68h]
 
-  v32 = a1;
-  v38 = a5;
+  v32 = Buffer;
+  v38 = NumberOfBytesRead;
   memset_0(v40, 0, 0x80uLL);
-  *a5 = 0LL;
+  *NumberOfBytesRead = 0LL;
   v34 = 0LL;
   if ( !a4 || (a4 & 0xFFFFFFFC) != 0 || ((a4 - 1) & a4) != 0 || KeGetCurrentIrql() > 1u )
-    return 3221225714LL;
+    return -1073741582;
   v9 = a4 & 1;
   if ( (a4 & 1) != 0 )
   {
-    if ( (unsigned int)MiCheckPhysicalAddressRange(a2, a3) )
+    if ( (unsigned int)MiCheckPhysicalAddressRange(BaseAddress, BufferSize) )
     {
       v9 = a4 & 1;
       goto LABEL_13;
     }
   }
-  else if ( a3 + a2 > a2 )
+  else if ( BufferSize + BaseAddress > BaseAddress )
   {
-    if ( a2 <= 0x7FFFFFFEFFFFLL )
+    if ( BaseAddress <= 0x7FFFFFFEFFFFLL )
     {
-      if ( a3 + a2 <= 0x7FFFFFFEFFFFLL )
-        return ZwReadVirtualMemoryEx(-1LL, a2, a1, a3, a5, 1);
-      return 3221225496LL;
+      if ( BufferSize + BaseAddress <= 0x7FFFFFFEFFFFLL )
+        return ZwReadVirtualMemoryEx(
+                 (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+                 (PVOID)BaseAddress,
+                 Buffer,
+                 BufferSize,
+                 NumberOfBytesRead,
+                 1u);
+      return -1073741800;
     }
-    if ( a2 >= 0xFFFF800000000000uLL )
+    if ( BaseAddress >= 0xFFFF800000000000uLL )
     {
-      v11 = a2;
+      v11 = BaseAddress;
 LABEL_13:
-      if ( (a3 + (v11 & 0xFFF) + 4095LL) >> 12 >= 0x100000000LL )
-        return 3221225713LL;
+      if ( (BufferSize + (v11 & 0xFFF) + 4095LL) >> 12 >= 0x100000000LL )
+        return -1073741583;
       CurrentThread = KeGetCurrentThread();
       v13 = 0;
       v37 = CurrentThread;
-      v14 = a2 & 0xFFF;
+      v14 = BaseAddress & 0xFFF;
       v15 = 4096 - v14;
-      if ( 4096 - v14 > a3 )
-        v15 = a3;
+      if ( 4096 - v14 > BufferSize )
+        v15 = BufferSize;
       if ( v9 )
-        v16 = a2 >> 12;
+        v16 = BaseAddress >> 12;
       else
         v16 = -1LL;
       v33 = v16;
@@ -96,11 +107,11 @@ LABEL_19:
       v17 = v32;
       while ( 1 )
       {
-        if ( !a3 )
+        if ( !BufferSize )
         {
 LABEL_21:
           *v38 += v34;
-          return (unsigned int)v13;
+          return v13;
         }
         v36 = 0LL;
         v35 = 0LL;
@@ -110,7 +121,7 @@ LABEL_21:
         }
         else
         {
-          v18 = MiTranslatePageForCopy(a2, v40, &v33, &v36, &v35);
+          v18 = MiTranslatePageForCopy(BaseAddress, v40, &v33, &v36, &v35);
           v13 = v18;
           if ( v18 < 0 )
           {
@@ -118,13 +129,13 @@ LABEL_21:
               goto LABEL_21;
             v39 = 0LL;
             EffectivePagePriorityThread = MiGetEffectivePagePriorityThread(CurrentThread, v19, v20);
-            *(_QWORD *)&v39 = a2;
+            *(_QWORD *)&v39 = BaseAddress;
             v30 = EffectivePagePriorityThread & 7 | 0x80B8;
-            v31 = a3;
-            if ( a3 > 0x200000 - (a2 & 0x1FFFFF) )
-              v31 = 0x200000 - (a2 & 0x1FFFFF);
+            v31 = BufferSize;
+            if ( BufferSize > 0x200000 - (BaseAddress & 0x1FFFFF) )
+              v31 = 0x200000 - (BaseAddress & 0x1FFFFF);
             *((_QWORD *)&v39 + 1) = v31;
-            if ( a2 >= qword_140E2F040 && a2 <= qword_140E2F050 )
+            if ( BaseAddress >= qword_140E2F040 && BaseAddress <= qword_140E2F050 )
             {
               v13 = -1073741585;
               goto LABEL_21;
@@ -171,19 +182,19 @@ LABEL_21:
           goto LABEL_21;
 LABEL_31:
         v34 += v15;
-        a3 -= v15;
-        a2 += v15;
+        BufferSize -= v15;
+        BaseAddress += v15;
         ++v33;
         v17 = &v32[v15];
         v9 = a4 & 1;
         CurrentThread = v37;
-        v15 = a3;
+        v15 = BufferSize;
         v32 = v17;
-        if ( a3 > 0x1000 )
+        if ( BufferSize > 0x1000 )
           v15 = 4096LL;
         v14 = 0LL;
       }
     }
   }
-  return 3221225496LL;
+  return -1073741800;
 }

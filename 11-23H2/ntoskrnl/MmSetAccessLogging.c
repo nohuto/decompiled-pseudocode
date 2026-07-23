@@ -1,15 +1,15 @@
 /*
- * XREFs of MmSetAccessLogging @ 0x14036AE90
+ * XREFs of MmSetAccessLogging @ 0x14036B030
  * Callers:
  *     PfTAccessTracingCleanup @ 0x140A874E0 (PfTAccessTracingCleanup.c)
  *     PfTAccessTracingStart @ 0x140A88964 (PfTAccessTracingStart.c)
- *     PfTSetTracingPriority @ 0x140AA0714 (PfTSetTracingPriority.c)
+ *     PfTSetTracingPriority @ 0x140AA0584 (PfTSetTracingPriority.c)
  * Callees:
- *     KiInsertQueueDpc @ 0x140254790 (KiInsertQueueDpc.c)
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
- *     ExQueueWorkItem @ 0x1402B7C30 (ExQueueWorkItem.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiInsertQueueDpc @ 0x140254850 (KiInsertQueueDpc.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402610F0 (KeAcquireInStackQueuedSpinLock.c)
+ *     ExQueueWorkItem @ 0x1402B7EC0 (ExQueueWorkItem.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MmSetAccessLogging(int a1, int a2)
@@ -34,10 +34,13 @@ __int64 __fastcall MmSetAccessLogging(int a1, int a2)
     KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
     result = (unsigned int)KiIrqlFlags;
     OldIrql = LockHandle.OldIrql;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && LockHandle.OldIrql <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -68,10 +71,10 @@ __int64 __fastcall MmSetAccessLogging(int a1, int a2)
     }
     result = KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
     v6 = LockHandle.OldIrql;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       result = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
         && (unsigned __int8)result <= 0xFu
         && LockHandle.OldIrql <= 0xFu
         && (unsigned __int8)result >= 2u )

@@ -10,7 +10,7 @@
  *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180174020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
  */
 
-__int64 __fastcall LdrpSendDllNotifications(__int64 a1, unsigned int a2)
+NTSTATUS __fastcall LdrpSendDllNotifications(__int64 a1, unsigned int a2)
 {
   _UNKNOWN **i; // rbx
   _DWORD v5[2]; // [rsp+20h] [rbp-38h] BYREF

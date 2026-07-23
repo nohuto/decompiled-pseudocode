@@ -1,16 +1,32 @@
 /*
- * XREFs of RtlCompressBuffer @ 0x1800ED650
+ * XREFs of RtlCompressBuffer @ 0x1800ECE70
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180170020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x18016F020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
  */
 
-__int64 __fastcall RtlCompressBuffer(unsigned __int16 a1)
+NTSTATUS __cdecl RtlCompressBuffer(
+        USHORT CompressionFormatAndEngine,
+        PUCHAR UncompressedBuffer,
+        ULONG UncompressedBufferSize,
+        PUCHAR CompressedBuffer,
+        ULONG CompressedBufferSize,
+        ULONG UncompressedChunkSize,
+        PULONG FinalCompressedSize,
+        PVOID WorkSpace)
 {
-  if ( !(_BYTE)a1 || (unsigned __int8)a1 == 1 )
-    return 3221225485LL;
-  if ( (unsigned __int8)a1 > 8u )
-    return 3221226079LL;
-  return ((__int64 (__fastcall *)(_QWORD))RtlCompressBufferProcs[(unsigned __int8)a1])(a1 & 0xFF00);
+  if ( !(_BYTE)CompressionFormatAndEngine || (unsigned __int8)CompressionFormatAndEngine == 1 )
+    return -1073741811;
+  if ( (unsigned __int8)CompressionFormatAndEngine > 8u )
+    return -1073741217;
+  return ((__int64 (__fastcall *)(_QWORD, PUCHAR, ULONG, PUCHAR, ULONG, ULONG, PULONG, PVOID))RtlCompressBufferProcs[(unsigned __int8)CompressionFormatAndEngine])(
+           CompressionFormatAndEngine & 0xFF00,
+           UncompressedBuffer,
+           UncompressedBufferSize,
+           CompressedBuffer,
+           CompressedBufferSize,
+           UncompressedChunkSize,
+           FinalCompressedSize,
+           WorkSpace);
 }

@@ -1,30 +1,30 @@
 /*
- * XREFs of _RtlpMuiRegLoadInstalled @ 0x1408453D0
+ * XREFs of _RtlpMuiRegLoadInstalled @ 0x1408456D0
  * Callers:
- *     RtlpMuiRegLoadRegistryInfo @ 0x140845360 (RtlpMuiRegLoadRegistryInfo.c)
+ *     RtlpMuiRegLoadRegistryInfo @ 0x140845660 (RtlpMuiRegLoadRegistryInfo.c)
  * Callees:
- *     _RtlpMuiRegLoadInstalledFromKey @ 0x1403A1240 (_RtlpMuiRegLoadInstalledFromKey.c)
- *     ZwQueryInstallUILanguage @ 0x14041D8A0 (ZwQueryInstallUILanguage.c)
- *     RtlpLoadInstallLanguageFallback @ 0x14084484C (RtlpLoadInstallLanguageFallback.c)
- *     _RtlpMuiRegValidateInstalled @ 0x140844C40 (_RtlpMuiRegValidateInstalled.c)
- *     RtlpMuiRegCreateLanguages @ 0x1408454AC (RtlpMuiRegCreateLanguages.c)
- *     RtlpMuiRegCreateStringPool @ 0x1408456BC (RtlpMuiRegCreateStringPool.c)
- *     RtlpMuiRegFreeRegistryInfo @ 0x140845BB8 (RtlpMuiRegFreeRegistryInfo.c)
+ *     _RtlpMuiRegLoadInstalledFromKey @ 0x1403A1420 (_RtlpMuiRegLoadInstalledFromKey.c)
+ *     ZwQueryInstallUILanguage @ 0x14041DC30 (ZwQueryInstallUILanguage.c)
+ *     RtlpLoadInstallLanguageFallback @ 0x140844B4C (RtlpLoadInstallLanguageFallback.c)
+ *     _RtlpMuiRegValidateInstalled @ 0x140844F40 (_RtlpMuiRegValidateInstalled.c)
+ *     RtlpMuiRegCreateLanguages @ 0x1408457AC (RtlpMuiRegCreateLanguages.c)
+ *     RtlpMuiRegCreateStringPool @ 0x1408459BC (RtlpMuiRegCreateStringPool.c)
+ *     RtlpMuiRegFreeRegistryInfo @ 0x140845EB8 (RtlpMuiRegFreeRegistryInfo.c)
  */
 
-__int64 __fastcall RtlpMuiRegLoadInstalled(__int64 a1, __int64 a2)
+NTSTATUS __fastcall RtlpMuiRegLoadInstalled(__int64 a1)
 {
   int InstallUILanguage; // edi
   __int64 Languages; // rax
   __int64 StringPool; // rax
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
   InstallUILanguage = 0;
   if ( !a1 )
-    return 3221225485LL;
+    return -1073741811;
   if ( PsUILanguageComitted )
   {
-    InstallUILanguage = ZwQueryInstallUILanguage(a1 + 4, a2);
+    InstallUILanguage = ZwQueryInstallUILanguage((LANGID *)(a1 + 4));
     if ( InstallUILanguage < 0 || ((*(_WORD *)(a1 + 4) - 4096) & 0xFBFF) == 0 )
       goto LABEL_10;
     RtlpLoadInstallLanguageFallback(a1, (_WORD *)(a1 + 6), (_WORD *)(a1 + 8));
@@ -37,7 +37,7 @@ __int64 __fastcall RtlpMuiRegLoadInstalled(__int64 a1, __int64 a2)
     InstallUILanguage = -1073741801;
 LABEL_10:
     RtlpMuiRegFreeRegistryInfo(a1, 1023LL);
-    return (unsigned int)InstallUILanguage;
+    return InstallUILanguage;
   }
   *(_DWORD *)a1 |= 1u;
   StringPool = RtlpMuiRegCreateStringPool(0xFFFFFFFFLL, 0xFFFFFFFFLL);
@@ -50,7 +50,7 @@ LABEL_10:
     goto LABEL_10;
   result = RtlpMuiRegValidateInstalled(a1);
   InstallUILanguage = result;
-  if ( (int)result < 0 )
+  if ( result < 0 )
     goto LABEL_10;
   return result;
 }

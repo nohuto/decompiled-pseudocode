@@ -25,21 +25,20 @@ void __fastcall LdrpAddUnicodeStringToSnapsBuffer(const void **a1)
   unsigned int v7; // edx
   bool v8; // zf
   signed __int64 v9; // rdi
-  signed __int32 v10; // esi
+  signed __int32 LockCount; // esi
   char *SchedulerSharedDataSlot; // rdx
   unsigned int i; // ecx
   char *v13; // rbx
-  HANDLE v14; // rbx
-  int v15; // eax
+  void *LockSemaphore; // rbx
+  NTSTATUS v15; // eax
   char *v16; // rdx
   unsigned int j; // ecx
   unsigned int v18; // edi
   unsigned int v19; // edx
   signed __int32 v20[8]; // [rsp+0h] [rbp-68h] BYREF
-  int v21; // [rsp+20h] [rbp-48h]
-  _QWORD v22[2]; // [rsp+30h] [rbp-38h] BYREF
-  int v23; // [rsp+78h] [rbp+10h] BYREF
-  HANDLE Handle; // [rsp+88h] [rbp+20h] BYREF
+  _QWORD ThreadInformation[2]; // [rsp+30h] [rbp-38h] BYREF
+  int v22; // [rsp+78h] [rbp+10h] BYREF
+  HANDLE EventHandle; // [rsp+88h] [rbp+20h] BYREF
 
   if ( !qword_1801D47E8 )
     return;
@@ -95,14 +94,14 @@ LABEL_5:
     LOWORD(LdrpSnapsUnicodeString2) = v3;
     qword_1801D47D8 = (__int64)qword_1801D47E8 + 2 * ((unsigned __int64)v6 >> 1) + 2;
   }
-  v8 = dword_1801CE81C-- == 1;
+  v8 = LdrpSnapsLock.RecursionCount-- == 1;
   HIWORD(LdrpSnapsUnicodeString2) = v3;
   if ( v8 )
   {
-    qword_1801CE820 = 0LL;
+    LdrpSnapsLock.OwningThread = 0LL;
     v9 = -1LL;
-    v10 = _InterlockedCompareExchange(&dword_1801CE818, -1, -2);
-    if ( v10 == -2 )
+    LockCount = _InterlockedCompareExchange(&LdrpSnapsLock.LockCount, -1, -2);
+    if ( LockCount == -2 )
     {
       SchedulerSharedDataSlot = (char *)NtCurrentTeb()->SchedulerSharedDataSlot;
       if ( SchedulerSharedDataSlot )
@@ -124,51 +123,56 @@ LABEL_5:
     }
     else
     {
-      if ( (dword_1801CE818 & 1) != 0 )
+      if ( (LdrpSnapsLock.LockCount & 1) != 0 )
         RtlpNotOwnerCriticalSection(&LdrpSnapsLock);
-      v14 = (HANDLE)qword_1801CE828;
-      if ( !qword_1801CE828 )
+      LockSemaphore = LdrpSnapsLock.LockSemaphore;
+      if ( !LdrpSnapsLock.LockSemaphore )
       {
-        Handle = (HANDLE)-1LL;
+        EventHandle = (HANDLE)-1LL;
         if ( RtlpForceCSToUseEvents )
         {
-          LOBYTE(v21) = 0;
-          if ( (int)ZwCreateEvent(&Handle, 1048579LL, 0LL, 1LL, v21) >= 0 )
-            v9 = (signed __int64)Handle;
+          if ( ZwCreateEvent(&EventHandle, 0x100003u, 0LL, SynchronizationEvent, 0) >= 0 )
+            v9 = (signed __int64)EventHandle;
           else
-            Handle = (HANDLE)-1LL;
+            EventHandle = (HANDLE)-1LL;
         }
-        v14 = (HANDLE)_InterlockedCompareExchange64(&qword_1801CE828, v9, 0LL);
-        if ( v14 )
+        LockSemaphore = (void *)_InterlockedCompareExchange64(
+                                  (volatile signed __int64 *)&LdrpSnapsLock.LockSemaphore,
+                                  v9,
+                                  0LL);
+        if ( LockSemaphore )
         {
-          if ( Handle != (HANDLE)-1LL )
-            NtClose(Handle);
-          Handle = v14;
+          if ( EventHandle != (HANDLE)-1LL )
+            NtClose(EventHandle);
+          EventHandle = LockSemaphore;
         }
         else
         {
-          v14 = Handle;
+          LockSemaphore = EventHandle;
         }
       }
-      v23 = 0;
-      while ( v10 != _InterlockedCompareExchange(&dword_1801CE818, (v10 & 2 | 1) + v10, v10) )
+      v22 = 0;
+      while ( LockCount != _InterlockedCompareExchange(
+                             &LdrpSnapsLock.LockCount,
+                             (LockCount & 2 | 1) + LockCount,
+                             LockCount) )
       {
-        RtlBackoff(&v23);
-        _m_prefetchw(&dword_1801CE818);
-        v10 = dword_1801CE818;
+        RtlBackoff(&v22);
+        _m_prefetchw(&LdrpSnapsLock.LockCount);
+        LockCount = LdrpSnapsLock.LockCount;
       }
-      if ( (v10 & 2) != 0 )
+      if ( (LockCount & 2) != 0 )
       {
-        if ( v14 == (HANDLE)-1LL )
+        if ( LockSemaphore == (void *)-1LL )
         {
           _InterlockedOr(v20, 0);
-          RtlpWakeByAddress(&dword_1801CE818, 0LL, &LdrpSnapsLock);
+          RtlpWakeByAddress(&LdrpSnapsLock.LockCount, 0LL, &LdrpSnapsLock);
         }
         else
         {
-          v15 = ZwSetEventEx(v14, 0LL, &LdrpSnapsLock);
+          v15 = ZwSetEventEx(LockSemaphore, 0LL, &LdrpSnapsLock);
           if ( v15 < 0 )
-            RtlRaiseStatus((unsigned int)v15);
+            RtlRaiseStatus(v15);
         }
       }
       v16 = (char *)NtCurrentTeb()->SchedulerSharedDataSlot;
@@ -185,9 +189,13 @@ LABEL_5:
               if ( v13[7] < 0 )
               {
 LABEL_50:
-                v22[1] = 0LL;
-                v22[0] = (v13 - (char *)NtCurrentTeb()->SchedulerSharedDataSlot) >> 3;
-                NtSetInformationThread(-2LL, 56LL, v22);
+                ThreadInformation[1] = 0LL;
+                ThreadInformation[0] = (v13 - (char *)NtCurrentTeb()->SchedulerSharedDataSlot) >> 3;
+                NtSetInformationThread(
+                  (HANDLE)0xFFFFFFFFFFFFFFFELL,
+                  ThreadUpdateLockOwnership,
+                  ThreadInformation,
+                  0x10u);
               }
 LABEL_51:
               *(_QWORD *)v13 = 0LL;

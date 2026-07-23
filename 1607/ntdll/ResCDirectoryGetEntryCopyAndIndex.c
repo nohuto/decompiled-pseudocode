@@ -1,10 +1,10 @@
 /*
- * XREFs of ResCDirectoryGetEntryCopyAndIndex @ 0x18008A1C0
+ * XREFs of ResCDirectoryGetEntryCopyAndIndex @ 0x18008A1B0
  * Callers:
- *     ResCRuntimeGetResourceDataEx @ 0x180095F1C (ResCRuntimeGetResourceDataEx.c)
+ *     ResCRuntimeGetResourceDataEx @ 0x180095F0C (ResCRuntimeGetResourceDataEx.c)
  * Callees:
- *     RtlSetLastWin32Error @ 0x18005A470 (RtlSetLastWin32Error.c)
- *     ResCDirectoryGetEntryIndexEx @ 0x18008A148 (ResCDirectoryGetEntryIndexEx.c)
+ *     RtlSetLastWin32Error @ 0x18005A460 (RtlSetLastWin32Error.c)
+ *     ResCDirectoryGetEntryIndexEx @ 0x18008A138 (ResCDirectoryGetEntryIndexEx.c)
  */
 
 __int64 __fastcall ResCDirectoryGetEntryCopyAndIndex(__int64 a1, __int128 *a2, __int64 a3, _OWORD *a4, _DWORD *a5)
@@ -26,7 +26,7 @@ __int64 __fastcall ResCDirectoryGetEntryCopyAndIndex(__int64 a1, __int128 *a2, _
   else
   {
     if ( !NtCurrentTeb()->LastErrorValue )
-      RtlSetLastWin32Error(0x57u);
+      RtlSetLastWin32Error(87);
     v9 = 0LL;
   }
   if ( !v9 )

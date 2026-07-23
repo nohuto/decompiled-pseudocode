@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlCSparseBitmapLeaveLockingRegion @ 0x1403523D0
+ * XREFs of RtlCSparseBitmapLeaveLockingRegion @ 0x140354454
  * Callers:
- *     RtlpCSparseBitmapPageCommit @ 0x1403513A4 (RtlpCSparseBitmapPageCommit.c)
+ *     RtlpCSparseBitmapPageCommit @ 0x140353424 (RtlpCSparseBitmapPageCommit.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeLeaveGuardedRegion @ 0x14027DB10 (KeLeaveGuardedRegion.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeLeaveGuardedRegion @ 0x14027D080 (KeLeaveGuardedRegion.c)
  */
 
 void __fastcall RtlCSparseBitmapLeaveLockingRegion(unsigned __int8 *a1)

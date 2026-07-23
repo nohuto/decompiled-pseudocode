@@ -1,50 +1,50 @@
 /*
- * XREFs of PnpRequestDeviceAction @ 0x140482588
+ * XREFs of PnpRequestDeviceAction @ 0x14047BEF8
  * Callers:
- *     PnpCheckForWaitingReportedDevice @ 0x14044F1AC (PnpCheckForWaitingReportedDevice.c)
- *     IoInvalidateDeviceState @ 0x1404824A0 (IoInvalidateDeviceState.c)
- *     IoInvalidateDeviceRelations @ 0x1404D2B60 (IoInvalidateDeviceRelations.c)
- *     PnpInitializeProcessor @ 0x1405D870C (PnpInitializeProcessor.c)
- *     PnpBootPhaseComplete @ 0x14079BF3C (PnpBootPhaseComplete.c)
- *     IoReportRootDevice @ 0x14079EAB0 (IoReportRootDevice.c)
- *     PipAttemptDependentStart @ 0x14079FD20 (PipAttemptDependentStart.c)
- *     IoRequestDeviceRemovalForReset @ 0x1407A2630 (IoRequestDeviceRemovalForReset.c)
- *     PpSystemHiveLimitCallback @ 0x1407A4340 (PpSystemHiveLimitCallback.c)
- *     IopReleaseFilteredBootResources @ 0x1407A6484 (IopReleaseFilteredBootResources.c)
- *     PiDevCfgProcessDeviceCallback @ 0x1407AA380 (PiDevCfgProcessDeviceCallback.c)
- *     PpDevCfgProcessDevices @ 0x1407ACC4C (PpDevCfgProcessDevices.c)
- *     PnpWaitForQuiescentDeviceActionQueue @ 0x1407ACE7C (PnpWaitForQuiescentDeviceActionQueue.c)
- *     PipDmgRequestRestartOnBlockedDevice @ 0x1407B1310 (PipDmgRequestRestartOnBlockedDevice.c)
- *     PipDmgRequestUpdateConsoleLockState @ 0x1407B15E0 (PipDmgRequestUpdateConsoleLockState.c)
- *     PipKsrDeferredHardwareInit @ 0x1407B2E04 (PipKsrDeferredHardwareInit.c)
- *     PnpInvalidateRelationsInList @ 0x14091164C (PnpInvalidateRelationsInList.c)
- *     PnpProcessQueryRemoveAndEject @ 0x140911B30 (PnpProcessQueryRemoveAndEject.c)
- *     PiCMDeviceAction @ 0x14098CC84 (PiCMDeviceAction.c)
- *     PiControlGetSetDeviceStatus @ 0x1409A74C0 (PiControlGetSetDeviceStatus.c)
- *     IopReleaseDeviceResources @ 0x140A8AE94 (IopReleaseDeviceResources.c)
- *     PnpDriverObjectDereferenceComplete @ 0x140AC7624 (PnpDriverObjectDereferenceComplete.c)
- *     PiResetProblemDevicesWorker @ 0x140AE92C0 (PiResetProblemDevicesWorker.c)
- *     IopProcessInvalidateBusRelationsRequest @ 0x140B39A10 (IopProcessInvalidateBusRelationsRequest.c)
- *     PiQueueDeviceRequest @ 0x140B60570 (PiQueueDeviceRequest.c)
- *     IopResourceRequirementsChanged @ 0x140B6E108 (IopResourceRequirementsChanged.c)
- *     IopInitializeBootDrivers @ 0x140CBF2A4 (IopInitializeBootDrivers.c)
- *     IopInitializePlugPlayServices @ 0x140CBFDA0 (IopInitializePlugPlayServices.c)
- *     IopInitializeSystemDrivers @ 0x140D04488 (IopInitializeSystemDrivers.c)
- *     PipInitializeCoreDriversByGroup @ 0x140D05030 (PipInitializeCoreDriversByGroup.c)
+ *     PnpCheckForWaitingReportedDevice @ 0x1404472DC (PnpCheckForWaitingReportedDevice.c)
+ *     IoInvalidateDeviceState @ 0x14047BE10 (IoInvalidateDeviceState.c)
+ *     IoInvalidateDeviceRelations @ 0x1404CC3D0 (IoInvalidateDeviceRelations.c)
+ *     PnpInitializeProcessor @ 0x1405DAF0C (PnpInitializeProcessor.c)
+ *     PnpBootPhaseComplete @ 0x14079EA7C (PnpBootPhaseComplete.c)
+ *     IoReportRootDevice @ 0x1407A15F0 (IoReportRootDevice.c)
+ *     PipAttemptDependentStart @ 0x1407A2860 (PipAttemptDependentStart.c)
+ *     IoRequestDeviceRemovalForReset @ 0x1407A5170 (IoRequestDeviceRemovalForReset.c)
+ *     PpSystemHiveLimitCallback @ 0x1407A6E80 (PpSystemHiveLimitCallback.c)
+ *     IopReleaseFilteredBootResources @ 0x1407A9034 (IopReleaseFilteredBootResources.c)
+ *     PiDevCfgProcessDeviceCallback @ 0x1407AD0C0 (PiDevCfgProcessDeviceCallback.c)
+ *     PpDevCfgProcessDevices @ 0x1407AFCB0 (PpDevCfgProcessDevices.c)
+ *     PnpWaitForQuiescentDeviceActionQueue @ 0x1407AFEE0 (PnpWaitForQuiescentDeviceActionQueue.c)
+ *     PipDmgRequestRestartOnBlockedDevice @ 0x1407B4370 (PipDmgRequestRestartOnBlockedDevice.c)
+ *     PipDmgRequestUpdateConsoleLockState @ 0x1407B4640 (PipDmgRequestUpdateConsoleLockState.c)
+ *     PipKsrDeferredHardwareInit @ 0x1407B5E64 (PipKsrDeferredHardwareInit.c)
+ *     PiCMDeviceAction @ 0x14094D6E4 (PiCMDeviceAction.c)
+ *     PiControlGetSetDeviceStatus @ 0x140967F20 (PiControlGetSetDeviceStatus.c)
+ *     PnpInvalidateRelationsInList @ 0x1409B372C (PnpInvalidateRelationsInList.c)
+ *     PnpProcessQueryRemoveAndEject @ 0x1409B3C10 (PnpProcessQueryRemoveAndEject.c)
+ *     IopReleaseDeviceResources @ 0x1409B7CB4 (IopReleaseDeviceResources.c)
+ *     PnpDriverObjectDereferenceComplete @ 0x140AC9214 (PnpDriverObjectDereferenceComplete.c)
+ *     PiResetProblemDevicesWorker @ 0x140AEB670 (PiResetProblemDevicesWorker.c)
+ *     IopProcessInvalidateBusRelationsRequest @ 0x140B3BC20 (IopProcessInvalidateBusRelationsRequest.c)
+ *     PiQueueDeviceRequest @ 0x140B63610 (PiQueueDeviceRequest.c)
+ *     IopResourceRequirementsChanged @ 0x140B715B8 (IopResourceRequirementsChanged.c)
+ *     IopInitializeBootDrivers @ 0x140CC5374 (IopInitializeBootDrivers.c)
+ *     IopInitializePlugPlayServices @ 0x140CC5E70 (IopInitializePlugPlayServices.c)
+ *     IopInitializeSystemDrivers @ 0x140D0A758 (IopInitializeSystemDrivers.c)
+ *     PipInitializeCoreDriversByGroup @ 0x140D0B300 (PipInitializeCoreDriversByGroup.c)
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x140278B30 (ObfReferenceObjectWithTag.c)
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     ExQueueWorkItem @ 0x140381C70 (ExQueueWorkItem.c)
- *     KeResetEvent @ 0x140395BB0 (KeResetEvent.c)
- *     PnpIsSafeToExamineUserModeTeb @ 0x140482A30 (PnpIsSafeToExamineUserModeTeb.c)
- *     PnpDeviceActionWorker @ 0x140482AA0 (PnpDeviceActionWorker.c)
- *     PnpLogActionQueueEvent @ 0x140483158 (PnpLogActionQueueEvent.c)
- *     PopDirectedDripsSetDisengageReason @ 0x1404833B0 (PopDirectedDripsSetDisengageReason.c)
- *     RtlCopyFromUser @ 0x140533E38 (RtlCopyFromUser.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     PiPdcDeactivate @ 0x1409DE320 (PiPdcDeactivate.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     ObfReferenceObjectWithTag @ 0x1402780A0 (ObfReferenceObjectWithTag.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ExQueueWorkItem @ 0x140383A20 (ExQueueWorkItem.c)
+ *     KeResetEvent @ 0x140397930 (KeResetEvent.c)
+ *     PnpIsSafeToExamineUserModeTeb @ 0x14047C3A0 (PnpIsSafeToExamineUserModeTeb.c)
+ *     PnpDeviceActionWorker @ 0x14047C410 (PnpDeviceActionWorker.c)
+ *     PnpLogActionQueueEvent @ 0x14047CAC8 (PnpLogActionQueueEvent.c)
+ *     PopDirectedDripsSetDisengageReason @ 0x14047CD20 (PopDirectedDripsSetDisengageReason.c)
+ *     RtlCopyFromUser @ 0x1405362B8 (RtlCopyFromUser.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     PiPdcDeactivate @ 0x140A1B44C (PiPdcDeactivate.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall PnpRequestDeviceAction(
@@ -70,7 +70,7 @@ __int64 __fastcall PnpRequestDeviceAction(
   __int64 *v21; // rax
   KIRQL NewIrql; // [rsp+20h] [rbp-A8h]
   __int64 v26; // [rsp+40h] [rbp-88h]
-  __int128 v27; // [rsp+80h] [rbp-48h] BYREF
+  GUID v27; // [rsp+80h] [rbp-48h] BYREF
 
   v7 = a4;
   v11 = a4;
@@ -117,14 +117,14 @@ LABEL_14:
         Flink = KeGetCurrentThread()[1].WaitBlock[1].WaitListEntry.Flink;
         if ( Flink )
         {
-          v27 = (__int128)*Flink;
+          v27 = (GUID)*Flink;
         }
         else if ( (unsigned __int8)PnpIsSafeToExamineUserModeTeb()
-               && KeGetPcr()->NtTib.$1A4E1036E6CD9573DBF0CCD06E827B69::$8A7F5B5E2BB4B7163F26170312D282BB::Self )
+               && KeGetPcr()->NtTib.$52D3C1DA33407D154F0BDE5002546D79::$6F04B0361B22895021FCD2048B05DFAB::Self )
         {
           RtlCopyFromUser(
             &v27,
-            &KeGetPcr()->NtTib.$1A4E1036E6CD9573DBF0CCD06E827B69::$8A7F5B5E2BB4B7163F26170312D282BB::Self[105].SubSystemTib,
+            &KeGetPcr()->NtTib.$52D3C1DA33407D154F0BDE5002546D79::$6F04B0361B22895021FCD2048B05DFAB::Self[105].SubSystemTib,
             0x10uLL);
         }
       }
@@ -135,36 +135,36 @@ LABEL_44:
     goto LABEL_14;
   }
 LABEL_18:
-  *(_OWORD *)(Pool2 + 64) = v27;
+  *(GUID *)(Pool2 + 64) = v27;
   if ( Object )
     v16 = *(_QWORD *)(*((_QWORD *)Object + 39) + 40LL);
   else
     v16 = 0LL;
   PnpLogActionQueueEvent(v16, a2, 0LL, 0LL);
   v17 = *(unsigned int *)(Pool2 + 24);
-  NewIrql = KeAcquireSpinLockRaiseToDpc(&qword_140F12D00);
-  if ( ++dword_140F12D08 == 1 )
+  NewIrql = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)&stru_140F12EA0.WaitBlock[2]);
+  if ( ++*(_DWORD *)&stru_140F12EA0.WaitBlockFill11[104] == 1 )
     PopDirectedDripsSetDisengageReason(4LL);
-  KeReleaseSpinLock(&qword_140F12D00, NewIrql);
-  v18 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)&PopDirectedDripsUmLock.WaitListEntry.Blink);
+  KeReleaseSpinLock((PKSPIN_LOCK)&stru_140F12EA0.WaitBlock[2], NewIrql);
+  v18 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)&PopDirectedDripsDiagLock.CycleTime);
   v19 = (struct _LIST_ENTRY *)MEMORY[0xFFFFF78000000008];
-  ++LODWORD(PopDirectedDripsUmLock.Queue);
-  ++*((_DWORD *)&PopDirectedDripsUmLock.Teb + v17);
-  if ( PopDirectedDripsUmLock.WaitBlockFill5[40] )
+  ++PopDirectedDripsDiagLock.CurrentRunTime;
+  ++*((_DWORD *)&PopDirectedDripsDiagLock.KernelStack + v17);
+  if ( LOBYTE(PopDirectedDripsDiagLock.WaitBlockList) )
   {
-    ++*(_DWORD *)&PopDirectedDripsUmLock.SavedApcStateFill[4 * v17 + 32];
-    if ( LODWORD(PopDirectedDripsUmLock.Queue) == 1 )
-      PopDirectedDripsUmLock.WaitBlock[1].WaitListEntry.Blink = v19;
+    ++*(_DWORD *)&PopDirectedDripsDiagLock.WaitBlockFill11[4 * v17 + 160];
+    if ( PopDirectedDripsDiagLock.CurrentRunTime == 1 )
+      PopDirectedDripsDiagLock.WaitListEntry.Blink = v19;
   }
-  KeReleaseSpinLock((PKSPIN_LOCK)&PopDirectedDripsUmLock.WaitListEntry.Blink, v18);
+  KeReleaseSpinLock((PKSPIN_LOCK)&PopDirectedDripsDiagLock.CycleTime, v18);
   v20 = KeAcquireSpinLockRaiseToDpc(&PnpSpinLock);
-  v21 = (__int64 *)qword_140F82AC8;
-  if ( *(__int64 **)qword_140F82AC8 != &PnpEnumerationRequestList )
+  v21 = (__int64 *)qword_140F82E08;
+  if ( *(__int64 **)qword_140F82E08 != &PnpEnumerationRequestList )
     __fastfail(3u);
   *(_QWORD *)Pool2 = &PnpEnumerationRequestList;
   *(_QWORD *)(Pool2 + 8) = v21;
   *v21 = Pool2;
-  qword_140F82AC8 = Pool2;
+  qword_140F82E08 = Pool2;
   if ( a2 != 29 )
     _InterlockedAdd(&PnpActionRequestCount, 1u);
   if ( a7 )

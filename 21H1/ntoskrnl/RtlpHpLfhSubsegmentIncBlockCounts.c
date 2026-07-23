@@ -37,14 +37,14 @@ __int64 __fastcall RtlpHpLfhSubsegmentIncBlockCounts(
   __int64 v18; // r9
   volatile signed __int64 *v19; // rsi
   struct _KTHREAD *CurrentThread; // rbx
-  __int64 SessionId; // r8
+  unsigned int SessionId; // r8d
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
   int v26; // edx
   bool v27; // zf
   unsigned __int8 v28; // bp
-  __int64 v29; // rdx
+  unsigned int v29; // edx
   __int64 v30; // rcx
   __int64 v31; // rdi
   __int64 v32; // rdx
@@ -157,12 +157,12 @@ LABEL_10:
       v40 = 0;
       CurrentThread = KeGetCurrentThread();
       if ( (unsigned int)MiGetSystemRegionType(a2 + 24) == 1 )
-        SessionId = (unsigned int)MmGetSessionIdEx((__int64)CurrentThread->ApcState.Process);
+        SessionId = MmGetSessionIdEx((__int64)CurrentThread->ApcState.Process);
       else
-        SessionId = 0xFFFFFFFFLL;
+        SessionId = -1;
       --CurrentThread->SpecialApcDisable;
       v28 = ++CurrentThread->AbAllocationRegionCount;
-      LODWORD(v29) = ((char)CurrentThread->AbEntrySummary | (char)CurrentThread->AbOrphanedEntrySummary) ^ 0x3F;
+      v29 = ((char)CurrentThread->AbEntrySummary | (char)CurrentThread->AbOrphanedEntrySummary) ^ 0x3F;
       while ( 1 )
       {
         v27 = !_BitScanReverse((unsigned int *)&v30, v29);
@@ -170,11 +170,11 @@ LABEL_10:
         if ( v27 )
           break;
         v31 = (__int64)&CurrentThread->LockEntries[v30];
-        v29 = ~(1 << v30) & (unsigned int)v29;
+        v29 &= ~(1 << v30);
         if ( (*(_BYTE *)(v31 + 26) & 1) != 0
           && (*(_DWORD *)(v31 + 32) & 1) == 0
           && (*(_QWORD *)(v31 + 32) & 0x7FFFFFFFFFFFFFFCLL) == ((unsigned __int64)v19 & 0x7FFFFFFFFFFFFFFCLL)
-          && *(_DWORD *)(v31 + 40) == (_DWORD)SessionId )
+          && *(_DWORD *)(v31 + 40) == SessionId )
         {
           *(_BYTE *)(v31 + 26) &= ~1u;
           if ( *(_QWORD *)(v31 + 32) )
@@ -183,7 +183,7 @@ LABEL_10:
             {
               *(_BYTE *)(v31 + 32) |= 2u;
               if ( *(__int64 *)(v31 + 32) < 0 )
-                KiAbEntryRemoveFromTree(v31, v29, SessionId);
+                KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v31);
               v40 = *(_DWORD *)(v31 + 88) & 0x1FFFF;
               *(_DWORD *)(v31 + 88) &= 0xFFFE0000;
               *(_BYTE *)(v31 + 25) &= ~1u;
@@ -200,7 +200,7 @@ LABEL_10:
         }
       }
       if ( (*((_DWORD *)&CurrentThread->0 + 1) & 0x10000) == 0 )
-        KeBugCheckEx(0x162u, (ULONG_PTR)CurrentThread, a2 + 24, (unsigned int)SessionId, 0LL);
+        KeBugCheckEx(0x162u, (ULONG_PTR)CurrentThread, a2 + 24, SessionId, 0LL);
 LABEL_44:
       --CurrentThread->AbAllocationRegionCount;
       KiAbThreadRemoveBoosts((ULONG_PTR)CurrentThread, a2 + 24, &v40);

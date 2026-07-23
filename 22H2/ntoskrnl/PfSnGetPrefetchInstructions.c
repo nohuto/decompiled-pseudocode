@@ -23,22 +23,22 @@
 __int64 __fastcall PfSnGetPrefetchInstructions(__int64 a1, int a2, _QWORD *a3)
 {
   __int64 v3; // rbx
-  void *v7; // rsi
+  char *v7; // rsi
   struct _KTHREAD *CurrentThread; // rax
   unsigned int v9; // ebx
   wchar_t *PoolWithTag; // r14
   int v11; // ebx
   ULONG Length; // edi
-  PVOID v13; // rax
+  char *v13; // rax
   _DWORD *v14; // rdi
   _DWORD *v16; // [rsp+50h] [rbp-89h] BYREF
   unsigned int v17; // [rsp+58h] [rbp-81h] BYREF
   HANDLE FileHandle; // [rsp+60h] [rbp-79h] BYREF
-  int v19; // [rsp+68h] [rbp-71h] BYREF
+  __int64 v19; // [rsp+68h] [rbp-71h] BYREF
   int v20; // [rsp+70h] [rbp-69h] BYREF
   struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+78h] [rbp-61h] BYREF
   UNICODE_STRING DestinationString; // [rsp+88h] [rbp-51h] BYREF
-  __int64 (__fastcall *v23[2])(_QWORD); // [rsp+98h] [rbp-41h] BYREF
+  __int64 v23[2]; // [rsp+98h] [rbp-41h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+A8h] [rbp-31h] BYREF
   __int128 FileInformation; // [rsp+D8h] [rbp-1h] BYREF
   __int64 v26; // [rsp+E8h] [rbp+Fh]
@@ -92,13 +92,13 @@ LABEL_25:
     goto LABEL_16;
   }
   Length = DWORD2(FileInformation);
-  v19 = 0x10000000;
+  LODWORD(v19) = 0x10000000;
   if ( (unsigned int)(DWORD2(FileInformation) - 1) > 0xFFFFFFF || HIDWORD(FileInformation) )
   {
     v11 = -1073741823;
     goto LABEL_25;
   }
-  v13 = ExAllocatePoolWithTag(PagedPool, DWORD2(FileInformation), 0x70506343u);
+  v13 = (char *)ExAllocatePoolWithTag(PagedPool, DWORD2(FileInformation), 0x70506343u);
   v7 = v13;
   if ( !v13 )
   {
@@ -108,9 +108,9 @@ LABEL_25:
   v11 = NtReadFile(FileHandle, 0LL, 0LL, 0LL, &IoStatusBlock, v13, Length, 0LL, 0LL);
   if ( v11 < 0 )
     goto LABEL_25;
-  v23[0] = PfSnScenarioAlloc;
-  v23[1] = (__int64 (__fastcall *)(_QWORD))SC_ENV::Free;
-  v11 = SmDecompressBuffer((__int64)v7, Length, &v16, &v17, &v19, v23);
+  v23[0] = (__int64)PfSnScenarioAlloc;
+  v23[1] = (__int64)SC_ENV::Free;
+  v11 = SmDecompressBuffer(v7, Length, &v16, &v17, &v19, (__int64 (__fastcall **)(_QWORD))v23);
   if ( v11 < 0 )
     goto LABEL_25;
   v14 = v16;

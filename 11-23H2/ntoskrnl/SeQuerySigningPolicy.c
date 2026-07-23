@@ -1,12 +1,12 @@
 /*
- * XREFs of SeQuerySigningPolicy @ 0x1406B97BC
+ * XREFs of SeQuerySigningPolicy @ 0x1406B97EC
  * Callers:
- *     NtCreateUserProcess @ 0x1406B82E0 (NtCreateUserProcess.c)
- *     PspCreateProcess @ 0x14085C7C0 (PspCreateProcess.c)
+ *     NtCreateUserProcess @ 0x1406B8310 (NtCreateUserProcess.c)
+ *     PspCreateProcess @ 0x14085CA00 (PspCreateProcess.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     SeQuerySigningPolicyWorker @ 0x1406B7CC4 (SeQuerySigningPolicyWorker.c)
- *     SepIsMinTCB @ 0x1406B9B9C (SepIsMinTCB.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     SeQuerySigningPolicyWorker @ 0x1406B7CF4 (SeQuerySigningPolicyWorker.c)
+ *     SepIsMinTCB @ 0x1406B9BCC (SepIsMinTCB.c)
  */
 
 __int64 __fastcall SeQuerySigningPolicy(
@@ -46,30 +46,30 @@ __int64 __fastcall SeQuerySigningPolicy(
     v14 = 8;
     if ( (*a5 & 0xF) != 8 )
     {
-      if ( qword_140C379E0 )
+      if ( qword_140C37980 )
       {
         LOBYTE(v11) = 8;
         LOBYTE(v13) = *a5;
-        if ( (unsigned int)qword_140C379E0(v13, v11) )
+        if ( (unsigned int)qword_140C37980(v13, v11) )
         {
           if ( (SeCiDebugOptions & 4) != 0
             || (SeCiDebugOptions & 2) != 0 && (_BYTE)KdDebuggerEnabled && !(_BYTE)KdDebuggerNotPresent )
           {
-            if ( qword_140C379E0 && (LOBYTE(v15) = 8, LOBYTE(v16) = v7, (unsigned int)qword_140C379E0(v16, v15))
+            if ( qword_140C37980 && (LOBYTE(v15) = 8, LOBYTE(v16) = v7, (unsigned int)qword_140C37980(v16, v15))
               || (*a7 & 7) == 0 )
             {
               v14 = v7 & 0xF;
               *a5 = v7 & 0xF | *a5 & 0x30;
-              v18 = (unsigned int (__fastcall *)(__int64, __int64))qword_140C379E0;
-              if ( !qword_140C379E0 )
+              v18 = (unsigned int (__fastcall *)(__int64, __int64))qword_140C37980;
+              if ( !qword_140C37980 )
                 goto LABEL_22;
               LOBYTE(v16) = v7;
             }
             else
             {
               *a5 = *a5 & 0x30 | 8;
-              v18 = (unsigned int (__fastcall *)(__int64, __int64))qword_140C379E0;
-              if ( !qword_140C379E0 )
+              v18 = (unsigned int (__fastcall *)(__int64, __int64))qword_140C37980;
+              if ( !qword_140C37980 )
               {
 LABEL_22:
                 *a6 = v14 | *a6 & 0x30;

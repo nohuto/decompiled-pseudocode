@@ -1,11 +1,11 @@
 /*
- * XREFs of PopSetConnectedStandbyMarker @ 0x14087847C
+ * XREFs of PopSetConnectedStandbyMarker @ 0x1408786BC
  * Callers:
- *     PopCaptureSleepStudyStatistics @ 0x1403C7F00 (PopCaptureSleepStudyStatistics.c)
+ *     PopCaptureSleepStudyStatistics @ 0x1403C80E0 (PopCaptureSleepStudyStatistics.c)
  * Callees:
- *     PopReleaseRwLock @ 0x14032C480 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x14032C5E4 (PopAcquireRwLockExclusive.c)
- *     PopBsdHandleRequest @ 0x14032D388 (PopBsdHandleRequest.c)
+ *     PopReleaseRwLock @ 0x14032C710 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14032C874 (PopAcquireRwLockExclusive.c)
+ *     PopBsdHandleRequest @ 0x14032D618 (PopBsdHandleRequest.c)
  */
 
 void __fastcall PopSetConnectedStandbyMarker(__int64 a1, int a2)

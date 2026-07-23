@@ -1,12 +1,12 @@
 /*
- * XREFs of SepIdAssignableAsGroup @ 0x1407924F0
+ * XREFs of SepIdAssignableAsGroup @ 0x1407924C0
  * Callers:
- *     NtSetInformationToken @ 0x140AD6C10 (NtSetInformationToken.c)
+ *     NtSetInformationToken @ 0x140AD4280 (NtSetInformationToken.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x14025A450 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x140341E80 (ExAcquireResourceSharedLite.c)
- *     RtlEqualSid @ 0x140364150 (RtlEqualSid.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x14028AA60 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x140321360 (ExAcquireResourceSharedLite.c)
+ *     RtlEqualSid @ 0x1403EB6C0 (RtlEqualSid.c)
  */
 
 BOOLEAN __fastcall SepIdAssignableAsGroup(__int64 a1, void *a2)

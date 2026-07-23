@@ -6,9 +6,11 @@
  *     <none>
  */
 
-__int64 __fastcall ZwDisableLastKnownGood(__int64 a1, __int64 a2, __int64 a3)
+NTSTATUS ZwDisableLastKnownGood(void)
 {
+  __int64 v0; // rcx
+
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2, a3);
+  return KiServiceInternal(v0);
 }

@@ -1,7 +1,7 @@
 /*
- * XREFs of PopDiagTraceSuperfetchNotification @ 0x14052FEC8
+ * XREFs of PopDiagTraceSuperfetchNotification @ 0x140530408
  * Callers:
- *     PopDispatchSuperfetchNotification @ 0x14052FE74 (PopDispatchSuperfetchNotification.c)
+ *     PopDispatchSuperfetchNotification @ 0x1405303B4 (PopDispatchSuperfetchNotification.c)
  * Callees:
  *     <none>
  */

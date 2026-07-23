@@ -67,7 +67,7 @@ __int64 __fastcall EtwpEventWriteFull(
         unsigned __int64 *a17)
 {
   unsigned int v18; // r12d
-  struct _SLIST_ENTRY *v19; // r15
+  _SLIST_ENTRY *v19; // r15
   unsigned __int16 v20; // r8
   __int64 v21; // rax
   unsigned __int16 *v22; // rax
@@ -198,7 +198,7 @@ __int64 __fastcall EtwpEventWriteFull(
   void *v149; // [rsp+6D0h] [rbp+90h]
   _OWORD *v150; // [rsp+6D8h] [rbp+98h]
   __int64 v151; // [rsp+6E0h] [rbp+A0h]
-  struct _SLIST_ENTRY *v152; // [rsp+6E8h] [rbp+A8h]
+  _SLIST_ENTRY *v152; // [rsp+6E8h] [rbp+A8h]
   struct _KTHREAD *v153; // [rsp+6F0h] [rbp+B0h]
   unsigned __int64 v154; // [rsp+6F8h] [rbp+B8h]
   char *v155; // [rsp+700h] [rbp+C0h]
@@ -376,7 +376,7 @@ LABEL_42:
                               L->Tag)) != 0LL) )
       {
         Number = CurrentPrcb->Number;
-        v19 = (struct _SLIST_ENTRY *)v138;
+        v19 = (_SLIST_ENTRY *)v138;
         *(_DWORD *)v138 = Number;
       }
       else
@@ -574,7 +574,7 @@ LABEL_33:
             1u);
           v52 = v137;
         }
-        v19 = (struct _SLIST_ENTRY *)v138;
+        v19 = (_SLIST_ENTRY *)v138;
         if ( v52 == 3 )
         {
           v117 = -1073741058;
@@ -849,7 +849,7 @@ LABEL_66:
         EtwpSendTraceEvent(v142, &v162);
       }
       v69 = v157;
-      v19 = (struct _SLIST_ENTRY *)v138;
+      v19 = (_SLIST_ENTRY *)v138;
       if ( v157 )
       {
         v70 = *v157;
@@ -872,7 +872,7 @@ LABEL_66:
     }
     if ( v54 )
       ExReleaseRundownProtectionCacheAwareEx(*(PEX_RUNDOWN_REF_CACHE_AWARE *)(SiloDriverState + 8LL * v137 + 400), 1u);
-    v19 = (struct _SLIST_ENTRY *)v138;
+    v19 = (_SLIST_ENTRY *)v138;
   }
   while ( ReserveTraceBufferStatus != -1073741675 );
   v139 = -1073741675;
@@ -920,7 +920,7 @@ LABEL_43:
     else
     {
       ++v95->FreeMisses;
-      ((void (__fastcall *)(struct _SLIST_ENTRY *))v95->FreeEx)(v19);
+      ((void (__fastcall *)(_SLIST_ENTRY *))v95->FreeEx)(v19);
     }
   }
   PspDereferenceMonitorContextServerSilo(v46 - 128);

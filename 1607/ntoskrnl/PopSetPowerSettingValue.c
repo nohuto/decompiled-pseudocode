@@ -1,31 +1,31 @@
 /*
- * XREFs of PopSetPowerSettingValue @ 0x1403F80D0
+ * XREFs of PopSetPowerSettingValue @ 0x1403F6F90
  * Callers:
- *     PopScanIdleList @ 0x140009938 (PopScanIdleList.c)
- *     PopInitilizeAcDcSettings @ 0x140139B7C (PopInitilizeAcDcSettings.c)
- *     PopSetPowerSettingValueAcDc @ 0x1403F5BE4 (PopSetPowerSettingValueAcDc.c)
- *     PopSetNewPolicyValue @ 0x1403F7D98 (PopSetNewPolicyValue.c)
- *     NtPowerInformation @ 0x14051E834 (NtPowerInformation.c)
- *     PopSetSessionUserStatus @ 0x14052E674 (PopSetSessionUserStatus.c)
- *     PopSetSessionDisplayStatus @ 0x140546224 (PopSetSessionDisplayStatus.c)
+ *     PopScanIdleList @ 0x1400094AC (PopScanIdleList.c)
+ *     PopInitilizeAcDcSettings @ 0x14013A0EC (PopInitilizeAcDcSettings.c)
+ *     PopSetPowerSettingValueAcDc @ 0x1403F4AA8 (PopSetPowerSettingValueAcDc.c)
+ *     PopSetNewPolicyValue @ 0x1403F6C58 (PopSetNewPolicyValue.c)
+ *     NtPowerInformation @ 0x14050189C (NtPowerInformation.c)
+ *     PopSetSessionUserStatus @ 0x14052EBB4 (PopSetSessionUserStatus.c)
+ *     PopSetSessionDisplayStatus @ 0x140546764 (PopSetSessionDisplayStatus.c)
  * Callees:
- *     PopSetNotificationWork @ 0x140008A40 (PopSetNotificationWork.c)
- *     PopIncrementPowerSettingPendingUpdates @ 0x14000A0C0 (PopIncrementPowerSettingPendingUpdates.c)
- *     PopDecrementPowerSettingPendingUpdates @ 0x14000A130 (PopDecrementPowerSettingPendingUpdates.c)
- *     KeReleaseGuardedMutex @ 0x14000CA40 (KeReleaseGuardedMutex.c)
- *     ExAcquireFastMutex @ 0x14002D0A0 (ExAcquireFastMutex.c)
- *     ZwUpdateWnfStateData @ 0x14015D3C0 (ZwUpdateWnfStateData.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     PopSetNotificationWork @ 0x1400085B4 (PopSetNotificationWork.c)
+ *     PopIncrementPowerSettingPendingUpdates @ 0x140009C40 (PopIncrementPowerSettingPendingUpdates.c)
+ *     PopDecrementPowerSettingPendingUpdates @ 0x140009CB0 (PopDecrementPowerSettingPendingUpdates.c)
+ *     KeReleaseGuardedMutex @ 0x14000C5C0 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x14002CC20 (ExAcquireFastMutex.c)
+ *     ZwUpdateWnfStateData @ 0x14015D930 (ZwUpdateWnfStateData.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     PoRegisterPowerSettingCallback @ 0x1403F2E38 (PoRegisterPowerSettingCallback.c)
- *     PopUnreferencePowerSetting @ 0x1403F5C54 (PopUnreferencePowerSetting.c)
- *     PopArePowerSettingsEqual @ 0x1403F8504 (PopArePowerSettingsEqual.c)
- *     PopFindPowerSettingConfiguration @ 0x1403F853C (PopFindPowerSettingConfiguration.c)
- *     PopGetListHead @ 0x1403F85BC (PopGetListHead.c)
- *     PopStateIsSessionSpecific @ 0x1403F862C (PopStateIsSessionSpecific.c)
- *     PopValidatePowerSettingData @ 0x1403F8664 (PopValidatePowerSettingData.c)
+ *     PoRegisterPowerSettingCallback @ 0x1403F1CFC (PoRegisterPowerSettingCallback.c)
+ *     PopUnreferencePowerSetting @ 0x1403F4B18 (PopUnreferencePowerSetting.c)
+ *     PopArePowerSettingsEqual @ 0x1403F73C4 (PopArePowerSettingsEqual.c)
+ *     PopFindPowerSettingConfiguration @ 0x1403F73FC (PopFindPowerSettingConfiguration.c)
+ *     PopGetListHead @ 0x1403F747C (PopGetListHead.c)
+ *     PopStateIsSessionSpecific @ 0x1403F74EC (PopStateIsSessionSpecific.c)
+ *     PopValidatePowerSettingData @ 0x1403F7524 (PopValidatePowerSettingData.c)
  */
 
 __int64 __fastcall PopSetPowerSettingValue(const GUID *a1, unsigned int a2, int a3, unsigned int a4, void *Src)
@@ -138,7 +138,7 @@ __int64 __fastcall PopSetPowerSettingValue(const GUID *a1, unsigned int a2, int 
     *v33 = v11;
     *(_QWORD *)(v26 + 8) = v11;
     v35 = 1;
-    if ( PopPopPowerSettingSetChangeNotification )
+    if ( PopPopPowerSettingSetChangeNotification.Data[0] || PopPopPowerSettingSetChangeNotification.Data[1] )
       v36 = 1;
   }
   v12 = *(_DWORD **)&v11[8 * a3 + 64];
@@ -205,7 +205,7 @@ LABEL_37:
     }
     v8 = 0;
     *(_QWORD *)(PowerSettingConfiguration + 8LL * a3 + 64) = v9;
-    if ( dword_140303E0C == a3 )
+    if ( dword_140303D4C == a3 )
       v8 = IsSessionSpecific == 0;
     if ( *(_DWORD *)(PowerSettingConfiguration + 56) || *(_DWORD *)(PowerSettingConfiguration + 60) )
     {
@@ -229,7 +229,7 @@ LABEL_6:
   if ( (unsigned int)PopOsInitPhase >= 3 )
   {
     if ( v36 )
-      ZwUpdateWnfStateData((__int64)&PopPopPowerSettingSetChangeNotification, 0LL, 0LL);
+      ZwUpdateWnfStateData(&PopPopPowerSettingSetChangeNotification, 0LL, 0, 0LL, 0LL, 0, 0);
     if ( v8 )
     {
       PopIncrementPowerSettingPendingUpdates(1);

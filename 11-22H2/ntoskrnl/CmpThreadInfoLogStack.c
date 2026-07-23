@@ -53,9 +53,9 @@ char CmpThreadInfoLogStack()
   do
   {
     v2 = (void (__fastcall *)(const struct _GUID *, unsigned int, unsigned __int8, unsigned __int64, unsigned __int64, struct _EVENT_FILTER_DESCRIPTOR *, void *))Callers[v1];
-    if ( (unsigned __int64)v2 >= PsNtosImageBase && (unsigned __int64)v2 <= PsNtosImageEnd )
+    if ( (char *)v2 >= PsNtosImageBase && (unsigned __int64)v2 <= PsNtosImageEnd )
     {
-      v2 = (void (__fastcall *)(const struct _GUID *, unsigned int, unsigned __int8, unsigned __int64, unsigned __int64, struct _EVENT_FILTER_DESCRIPTOR *, void *))((char *)v2 - PsNtosImageBase);
+      v2 = (void (__fastcall *)(const struct _GUID *, unsigned int, unsigned __int8, unsigned __int64, unsigned __int64, struct _EVENT_FILTER_DESCRIPTOR *, void *))((char *)v2 - (unsigned __int64)PsNtosImageBase);
       v29[v1] = v2;
     }
     ++v1;

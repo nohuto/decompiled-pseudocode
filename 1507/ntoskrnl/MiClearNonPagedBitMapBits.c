@@ -11,12 +11,12 @@
 
 __int64 __fastcall MiClearNonPagedBitMapBits(__int64 a1, volatile signed __int32 *a2, ULONG a3, ULONG a4)
 {
-  struct _RTL_BITMAP *v4; // r14
+  _RTL_BITMAP *v4; // r14
   unsigned __int8 CurrentIrql; // r15
   unsigned int v9; // edi
   signed __int32 v10; // eax
 
-  v4 = *(struct _RTL_BITMAP **)(a1 + 80);
+  v4 = *(_RTL_BITMAP **)(a1 + 80);
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
   if ( (BYTE6(PerfGlobalGroupMask) & 0x21) != 0 )

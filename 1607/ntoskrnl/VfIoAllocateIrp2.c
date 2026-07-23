@@ -1,5 +1,5 @@
 /*
- * XREFs of VfIoAllocateIrp2 @ 0x14070BBEC
+ * XREFs of VfIoAllocateIrp2 @ 0x14070BC1C
  * Callers:
  *     IovAllocateIrp @ 0x14070066C (IovAllocateIrp.c)
  * Callees:

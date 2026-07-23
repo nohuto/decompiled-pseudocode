@@ -4,7 +4,7 @@
  *     InitBootProcessor @ 0x1407937C4 (InitBootProcessor.c)
  *     Phase1InitializationDiscard @ 0x140794438 (Phase1InitializationDiscard.c)
  * Callees:
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
  */
 
 char SeInitSystem()

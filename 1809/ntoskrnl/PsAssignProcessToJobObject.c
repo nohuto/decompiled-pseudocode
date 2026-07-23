@@ -1,13 +1,13 @@
 /*
- * XREFs of PsAssignProcessToJobObject @ 0x140605DB0
+ * XREFs of PsAssignProcessToJobObject @ 0x140606DB0
  * Callers:
- *     NtAssignProcessToJobObject @ 0x140605E30 (NtAssignProcessToJobObject.c)
- *     PsCreateMinimalProcess @ 0x14075752C (PsCreateMinimalProcess.c)
- *     PspSetJobMemoryPartition @ 0x14088A380 (PspSetJobMemoryPartition.c)
- *     PspAssignProcessToJobList @ 0x14088AA9C (PspAssignProcessToJobList.c)
+ *     NtAssignProcessToJobObject @ 0x140606E30 (NtAssignProcessToJobObject.c)
+ *     PsCreateMinimalProcess @ 0x14075871C (PsCreateMinimalProcess.c)
+ *     PspSetJobMemoryPartition @ 0x14088B5E0 (PspSetJobMemoryPartition.c)
+ *     PspAssignProcessToJobList @ 0x14088BCFC (PspAssignProcessToJobList.c)
  * Callees:
- *     PspAssignProcessToJob @ 0x140605664 (PspAssignProcessToJob.c)
- *     PspGetJobAssignmentDisposition @ 0x140605BD4 (PspGetJobAssignmentDisposition.c)
+ *     PspAssignProcessToJob @ 0x140606664 (PspAssignProcessToJob.c)
+ *     PspGetJobAssignmentDisposition @ 0x140606BD4 (PspGetJobAssignmentDisposition.c)
  */
 
 __int64 __fastcall PsAssignProcessToJobObject(PVOID Object, __int64 BugCheckParameter1, __int64 a3)

@@ -1,10 +1,10 @@
 /*
- * XREFs of ViIrpCheckKernelAddressForIrp @ 0x140B8E228
+ * XREFs of ViIrpCheckKernelAddressForIrp @ 0x140B90228
  * Callers:
- *     VfBeforeCallDriver @ 0x140B8DC68 (VfBeforeCallDriver.c)
+ *     VfBeforeCallDriver @ 0x140B8FC68 (VfBeforeCallDriver.c)
  * Callees:
- *     CarReportRuleViolationFromNt @ 0x140B8D914 (CarReportRuleViolationFromNt.c)
- *     VfTargetDriversIsEnabled @ 0x140BA7F30 (VfTargetDriversIsEnabled.c)
+ *     CarReportRuleViolationFromNt @ 0x140B8F914 (CarReportRuleViolationFromNt.c)
+ *     VfTargetDriversIsEnabled @ 0x140BA9F30 (VfTargetDriversIsEnabled.c)
  */
 
 struct _KTHREAD *__fastcall ViIrpCheckKernelAddressForIrp(

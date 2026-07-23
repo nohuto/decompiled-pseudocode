@@ -3,10 +3,10 @@
  * Callers:
  *     CmpFreeCallbackObjectContexts @ 0x14068EF1C (CmpFreeCallbackObjectContexts.c)
  *     CmSetCallbackObjectContext @ 0x14068F0A0 (CmSetCallbackObjectContext.c)
- *     CmUnRegisterCallback @ 0x140A0F1C0 (CmUnRegisterCallback.c)
+ *     CmUnRegisterCallback @ 0x140A0F470 (CmUnRegisterCallback.c)
  * Callees:
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x140230FD0 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402FD0A0 (ExfAcquirePushLockExclusiveEx.c)
  */
 
 __int64 CmpLockContextListExclusive()

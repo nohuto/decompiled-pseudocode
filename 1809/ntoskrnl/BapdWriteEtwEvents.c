@@ -1,19 +1,19 @@
 /*
- * XREFs of BapdWriteEtwEvents @ 0x140178708
+ * XREFs of BapdWriteEtwEvents @ 0x140178808
  * Callers:
- *     BapdpProcessEtwEvents @ 0x1401861A0 (BapdpProcessEtwEvents.c)
- *     PopBootLoaderTraceProcess @ 0x1406DCF68 (PopBootLoaderTraceProcess.c)
+ *     BapdpProcessEtwEvents @ 0x1401862E0 (BapdpProcessEtwEvents.c)
+ *     PopBootLoaderTraceProcess @ 0x1406DE208 (PopBootLoaderTraceProcess.c)
  * Callees:
  *     EtwEventEnabled @ 0x14005B2D0 (EtwEventEnabled.c)
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     EtwWriteEx @ 0x1400CAD60 (EtwWriteEx.c)
- *     BapdpParseEventParts @ 0x140178A30 (BapdpParseEventParts.c)
- *     BapdRegisterEtwProvider @ 0x140178AD4 (BapdRegisterEtwProvider.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ZwUpdateWnfStateData @ 0x1401BBA70 (ZwUpdateWnfStateData.c)
- *     BapdpWriteEventDataToRegistry @ 0x14056F4B0 (BapdpWriteEventDataToRegistry.c)
- *     EtwUnregister @ 0x140707370 (EtwUnregister.c)
- *     EtwSetInformation @ 0x14070BDB0 (EtwSetInformation.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     EtwWriteEx @ 0x1400CAE40 (EtwWriteEx.c)
+ *     BapdpParseEventParts @ 0x140178B30 (BapdpParseEventParts.c)
+ *     BapdRegisterEtwProvider @ 0x140178BD4 (BapdRegisterEtwProvider.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ZwUpdateWnfStateData @ 0x1401BBBD0 (ZwUpdateWnfStateData.c)
+ *     BapdpWriteEventDataToRegistry @ 0x1405704B0 (BapdpWriteEventDataToRegistry.c)
+ *     EtwUnregister @ 0x140708610 (EtwUnregister.c)
+ *     EtwSetInformation @ 0x14070D050 (EtwSetInformation.c)
  */
 
 __int64 __fastcall BapdWriteEtwEvents(unsigned __int64 a1, __int64 a2)
@@ -150,7 +150,7 @@ LABEL_42:
                 break;
               case 20:
                 if ( !*v8 )
-                  ZwUpdateWnfStateData(&WNF_BOOT_DIRTY_SHUTDOWN, 0LL, 0LL, 0LL, 0LL, 0, 0);
+                  ZwUpdateWnfStateData(&WNF_BOOT_DIRTY_SHUTDOWN, 0LL, 0, 0LL, 0LL, 0, 0);
                 break;
               case 16:
               case 29:

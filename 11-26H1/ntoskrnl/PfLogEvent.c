@@ -1,23 +1,23 @@
 /*
- * XREFs of PfLogEvent @ 0x1403829A0
+ * XREFs of PfLogEvent @ 0x140384750
  * Callers:
- *     PfLogForegroundProcess @ 0x14025875C (PfLogForegroundProcess.c)
- *     PfFileInfoNotify @ 0x1402B8A80 (PfFileInfoNotify.c)
- *     PfLogFileDataAccess @ 0x1403817A0 (PfLogFileDataAccess.c)
- *     PfHardFaultLog @ 0x14038E8C4 (PfHardFaultLog.c)
- *     PfpLogApplicationEvent @ 0x140446FB0 (PfpLogApplicationEvent.c)
- *     PfpRpLogDeprioEvent @ 0x1404BABF4 (PfpRpLogDeprioEvent.c)
- *     PfpPartitionLogEventCallback @ 0x1404D9770 (PfpPartitionLogEventCallback.c)
- *     PfpLogScenarioEventCallback @ 0x1407C5760 (PfpLogScenarioEventCallback.c)
- *     PfpLogEventRequest @ 0x140B4F4BC (PfpLogEventRequest.c)
- *     PfpPowerActionStartScenarioTracingCallback @ 0x140BF87E0 (PfpPowerActionStartScenarioTracingCallback.c)
+ *     PfLogForegroundProcess @ 0x140259F3C (PfLogForegroundProcess.c)
+ *     PfFileInfoNotify @ 0x140303740 (PfFileInfoNotify.c)
+ *     PfLogFileDataAccess @ 0x140383550 (PfLogFileDataAccess.c)
+ *     PfHardFaultLog @ 0x140390674 (PfHardFaultLog.c)
+ *     PfpLogApplicationEvent @ 0x14043FAA0 (PfpLogApplicationEvent.c)
+ *     PfpRpLogDeprioEvent @ 0x1404B4484 (PfpRpLogDeprioEvent.c)
+ *     PfpPartitionLogEventCallback @ 0x1404D2E50 (PfpPartitionLogEventCallback.c)
+ *     PfpLogScenarioEventCallback @ 0x1407C87C0 (PfpLogScenarioEventCallback.c)
+ *     PfpLogEventRequest @ 0x140B51D4C (PfpLogEventRequest.c)
+ *     PfpPowerActionStartScenarioTracingCallback @ 0x140BFE7E0 (PfpPowerActionStartScenarioTracingCallback.c)
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     RtlpInterlockedPopEntrySList @ 0x140730C90 (RtlpInterlockedPopEntrySList.c)
- *     RtlpInterlockedPushEntrySList @ 0x140730CD0 (RtlpInterlockedPushEntrySList.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memmove @ 0x14073D480 (memmove.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140735860 (RtlpInterlockedPopEntrySList.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1407358A0 (RtlpInterlockedPushEntrySList.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memmove @ 0x140742080 (memmove.c)
  */
 
 __int64 __fastcall PfLogEvent(__int64 a1, int a2, int a3, const void *a4, size_t Size)

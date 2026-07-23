@@ -29,7 +29,7 @@ __int64 __fastcall KiDeregisterNmiSxCallback(PVOID a1)
   struct _KPRCB *v15; // r10
   _DWORD *v16; // r8
   int v17; // eax
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+20h] [rbp-28h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+20h] [rbp-28h] BYREF
 
   v2 = 0;
   PreviousAffinity = 0LL;

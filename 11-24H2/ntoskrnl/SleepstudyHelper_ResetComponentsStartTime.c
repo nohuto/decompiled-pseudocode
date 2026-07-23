@@ -1,23 +1,21 @@
 /*
- * XREFs of SleepstudyHelper_ResetComponentsStartTime @ 0x1405E4730
+ * XREFs of SleepstudyHelper_ResetComponentsStartTime @ 0x1405E1C50
  * Callers:
  *     <none>
  * Callees:
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     Feature_SPR_HardenInClient__private_IsEnabledDeviceUsageNoInline @ 0x1405E45D8 (Feature_SPR_HardenInClient__private_IsEnabledDeviceUsageNoInline.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
  */
 
 __int64 __fastcall SleepstudyHelper_ResetComponentsStartTime(PKSPIN_LOCK SpinLock)
 {
-  unsigned int v1; // ebx
+  unsigned int v1; // edi
   KIRQL v3; // dl
 
   v1 = 0;
   if ( SpinLock )
   {
-    if ( !(unsigned int)Feature_SPR_HardenInClient__private_IsEnabledDeviceUsageNoInline()
-      || SpinLock != (PKSPIN_LOCK)&SleepstudyHelperUnsupportedHandle )
+    if ( SpinLock != (PKSPIN_LOCK)&SleepstudyHelperUnsupportedHandle )
     {
       v3 = KeAcquireSpinLockRaiseToDpc(SpinLock);
       if ( (SpinLock[1] & 3) == 3 )

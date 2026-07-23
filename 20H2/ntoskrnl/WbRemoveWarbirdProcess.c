@@ -31,7 +31,7 @@ __int64 __fastcall WbRemoveWarbirdProcess(__int64 a1)
   CurrentThread = KeGetCurrentThread();
   v11 = 0LL;
   --CurrentThread->SpecialApcDisable;
-  v3 = KeAbPreAcquire((ULONG_PTR)&qword_140C53C38, 0LL, 0LL);
+  v3 = KeAbPreAcquire((ULONG_PTR)&qword_140C53C38, 0LL, 0);
   if ( _InterlockedCompareExchange64((volatile signed __int64 *)&qword_140C53C38, 17LL, 0LL) )
     ExfAcquirePushLockSharedEx(&qword_140C53C38, v3, (ULONG_PTR)&qword_140C53C38);
   if ( v3 )
@@ -45,7 +45,7 @@ __int64 __fastcall WbRemoveWarbirdProcess(__int64 a1)
   {
     v6 = KeGetCurrentThread();
     --v6->SpecialApcDisable;
-    v7 = KeAbPreAcquire((ULONG_PTR)&qword_140C53C38, 0LL, 0LL);
+    v7 = KeAbPreAcquire((ULONG_PTR)&qword_140C53C38, 0LL, 0);
     v8 = _interlockedbittestandset64((volatile signed __int32 *)&qword_140C53C38, 0LL);
     v9 = v7;
     if ( v8 )

@@ -1,12 +1,12 @@
 /*
- * XREFs of MiMapHotPatchImageInSystemSpace @ 0x140856768
+ * XREFs of MiMapHotPatchImageInSystemSpace @ 0x1408579C8
  * Callers:
- *     MiPrepareToHotPatchImage @ 0x140857348 (MiPrepareToHotPatchImage.c)
+ *     MiPrepareToHotPatchImage @ 0x1408585A8 (MiPrepareToHotPatchImage.c)
  * Callees:
  *     MiFillSystemPtes @ 0x14005C300 (MiFillSystemPtes.c)
  *     MiReservePtes @ 0x14005C890 (MiReservePtes.c)
- *     IoAllocateMdl @ 0x1400DFCD0 (IoAllocateMdl.c)
- *     IoFreeMdl @ 0x1400E0B60 (IoFreeMdl.c)
+ *     IoAllocateMdl @ 0x1400DFD50 (IoAllocateMdl.c)
+ *     IoFreeMdl @ 0x1400E0BE0 (IoFreeMdl.c)
  */
 
 __int64 __fastcall MiMapHotPatchImageInSystemSpace(_QWORD *a1)
@@ -48,7 +48,7 @@ __int64 __fastcall MiMapHotPatchImageInSystemSpace(_QWORD *a1)
       do
       {
         ++v10;
-        v11->Next = (struct _MDL *)qword_14043ADD8;
+        v11->Next = (struct _MDL *)qword_14043BE98;
         v11 = (struct _MDL *)((char *)v11 + 8);
       }
       while ( v10 < v9 );
@@ -70,7 +70,7 @@ __int64 __fastcall MiMapHotPatchImageInSystemSpace(_QWORD *a1)
         while ( v16 );
       }
     }
-    v18 = MiReservePtes((__int64)&qword_14043AFA0, (unsigned __int64 *)(unsigned int)v3);
+    v18 = MiReservePtes((__int64)&qword_14043C060, (unsigned __int64 *)(unsigned int)v3);
     if ( v18 )
     {
       MiFillSystemPtes(v18, v8, v7, 4LL, 4, &v20);

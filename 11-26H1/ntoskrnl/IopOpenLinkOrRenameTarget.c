@@ -1,18 +1,18 @@
 /*
- * XREFs of IopOpenLinkOrRenameTarget @ 0x1409B321C
+ * XREFs of IopOpenLinkOrRenameTarget @ 0x1409842DC
  * Callers:
- *     NtSetInformationFile @ 0x14026A2F0 (NtSetInformationFile.c)
- *     IoSetInformation @ 0x140B326A0 (IoSetInformation.c)
+ *     NtSetInformationFile @ 0x140269860 (NtSetInformationFile.c)
+ *     IoSetInformation @ 0x140B34AF0 (IoSetInformation.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     IoGetRelatedDeviceObject @ 0x14026CA30 (IoGetRelatedDeviceObject.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ObReferenceObjectByHandle @ 0x1408F9550 (ObReferenceObjectByHandle.c)
- *     IopCreateFile @ 0x1409B3A58 (IopCreateFile.c)
- *     IopGetBasicInformationFile @ 0x1409B4538 (IopGetBasicInformationFile.c)
- *     FsRtlpPrepareExtraCreateParametersForCreate @ 0x1409B4620 (FsRtlpPrepareExtraCreateParametersForCreate.c)
- *     ObCloseHandle @ 0x140A00740 (ObCloseHandle.c)
- *     IoConvertFileHandleToKernelHandle @ 0x140A77400 (IoConvertFileHandleToKernelHandle.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     IoGetRelatedDeviceObject @ 0x14026BFA0 (IoGetRelatedDeviceObject.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ObCloseHandle @ 0x14091D2C0 (ObCloseHandle.c)
+ *     ObReferenceObjectByHandle @ 0x1409294E0 (ObReferenceObjectByHandle.c)
+ *     IopCreateFile @ 0x140984B18 (IopCreateFile.c)
+ *     IopGetBasicInformationFile @ 0x1409855F8 (IopGetBasicInformationFile.c)
+ *     FsRtlpPrepareExtraCreateParametersForCreate @ 0x1409856E0 (FsRtlpPrepareExtraCreateParametersForCreate.c)
+ *     IoConvertFileHandleToKernelHandle @ 0x140A80120 (IoConvertFileHandleToKernelHandle.c)
  */
 
 __int64 __fastcall IopOpenLinkOrRenameTarget(HANDLE *a1, __int64 a2, __int64 a3, struct _FILE_OBJECT *a4)

@@ -8,13 +8,13 @@
  *     CcPostDeferredWrites @ 0x1401A8F40 (CcPostDeferredWrites.c)
  */
 
-struct _LIST_ENTRY *__fastcall CcDeductDirtyPagesFromExternalCache(__int64 a1, unsigned __int64 a2)
+_LIST_ENTRY *__fastcall CcDeductDirtyPagesFromExternalCache(__int64 a1, unsigned __int64 a2)
 {
   unsigned __int64 v2; // rdi
   unsigned int v4; // esi
   KIRQL v5; // al
   unsigned __int64 v6; // rdx
-  struct _LIST_ENTRY *result; // rax
+  _LIST_ENTRY *result; // rax
 
   v2 = a2;
   while ( v2 )
@@ -33,6 +33,6 @@ struct _LIST_ENTRY *__fastcall CcDeductDirtyPagesFromExternalCache(__int64 a1, u
   }
   result = &CcDeferredWrites;
   if ( CcDeferredWrites.Flink != &CcDeferredWrites )
-    return (struct _LIST_ENTRY *)CcPostDeferredWrites(a1);
+    return (_LIST_ENTRY *)CcPostDeferredWrites(a1);
   return result;
 }

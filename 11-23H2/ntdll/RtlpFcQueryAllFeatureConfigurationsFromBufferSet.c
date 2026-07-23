@@ -4,7 +4,7 @@
  *     RtlQueryAllFeatureConfigurations @ 0x180071040 (RtlQueryAllFeatureConfigurations.c)
  * Callees:
  *     RtlpFcValidateFeatureConfigurationType @ 0x180071220 (RtlpFcValidateFeatureConfigurationType.c)
- *     RtlpFcConvertFeatureConfigurationsInternalToExternal @ 0x1800A0670 (RtlpFcConvertFeatureConfigurationsInternalToExternal.c)
+ *     RtlpFcConvertFeatureConfigurationsInternalToExternal @ 0x1800A0630 (RtlpFcConvertFeatureConfigurationsInternalToExternal.c)
  */
 
 __int64 __fastcall RtlpFcQueryAllFeatureConfigurationsFromBufferSet(__int64 a1, unsigned int a2)

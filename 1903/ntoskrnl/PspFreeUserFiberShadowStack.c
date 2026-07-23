@@ -20,14 +20,14 @@ __int64 __fastcall PspFreeUserFiberShadowStack(PVOID BaseAddress)
   unsigned __int8 v6; // r9
   unsigned __int64 v8; // [rsp+30h] [rbp-D0h] BYREF
   unsigned __int64 MemoryInformation[5]; // [rsp+38h] [rbp-C8h] BYREF
-  struct _EXCEPTION_RECORD ExceptionRecord; // [rsp+60h] [rbp-A0h] BYREF
+  EXCEPTION_RECORD ExceptionRecord; // [rsp+60h] [rbp-A0h] BYREF
 
   memset(&ExceptionRecord, 0, sizeof(ExceptionRecord));
   memset(MemoryInformation, 0, sizeof(MemoryInformation));
   VirtualMemory = ZwQueryVirtualMemory(
                     (HANDLE)0xFFFFFFFFFFFFFFFFLL,
                     BaseAddress,
-                    MemoryBasicVlmInformation,
+                    MemoryRegionInformation,
                     MemoryInformation,
                     0x28uLL,
                     0LL);

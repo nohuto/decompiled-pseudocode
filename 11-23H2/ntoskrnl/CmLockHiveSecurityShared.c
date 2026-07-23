@@ -1,14 +1,14 @@
 /*
  * XREFs of CmLockHiveSecurityShared @ 0x140AF50A0
  * Callers:
- *     CmpCreateKeyControlBlock @ 0x1406D8790 (CmpCreateKeyControlBlock.c)
- *     CmpAssignSecurityToKcb @ 0x14076AA60 (CmpAssignSecurityToKcb.c)
- *     CmpLockTwoSecurityCachesExclusiveShared @ 0x1407DDDFC (CmpLockTwoSecurityCachesExclusiveShared.c)
- *     CmDumpKeyToFile @ 0x140A0AAA4 (CmDumpKeyToFile.c)
- *     CmSaveMergedKeys @ 0x140A0BD84 (CmSaveMergedKeys.c)
+ *     CmpCreateKeyControlBlock @ 0x1406D87C0 (CmpCreateKeyControlBlock.c)
+ *     CmpAssignSecurityToKcb @ 0x14076AC50 (CmpAssignSecurityToKcb.c)
+ *     CmpLockTwoSecurityCachesExclusiveShared @ 0x1407DE0CC (CmpLockTwoSecurityCachesExclusiveShared.c)
+ *     CmDumpKeyToFile @ 0x140A0AD54 (CmDumpKeyToFile.c)
+ *     CmSaveMergedKeys @ 0x140A0C034 (CmSaveMergedKeys.c)
  * Callees:
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockSharedEx @ 0x1402FD040 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x140230FD0 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1402FD2D0 (ExfAcquirePushLockSharedEx.c)
  */
 
 signed __int64 __fastcall CmLockHiveSecurityShared(__int64 a1)

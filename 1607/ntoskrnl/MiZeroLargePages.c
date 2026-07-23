@@ -1,15 +1,15 @@
 /*
- * XREFs of MiZeroLargePages @ 0x14013F2D0
+ * XREFs of MiZeroLargePages @ 0x14013F840
  * Callers:
- *     MiZeroLargePageThread @ 0x14013F190 (MiZeroLargePageThread.c)
+ *     MiZeroLargePageThread @ 0x14013F700 (MiZeroLargePageThread.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140012750 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14001BD40 (KeAcquireInStackQueuedSpinLock.c)
- *     KeSetEvent @ 0x1400562D0 (KeSetEvent.c)
- *     MiGetLargePageToZero @ 0x14008A680 (MiGetLargePageToZero.c)
- *     MiZeroLargePage @ 0x14008B1C0 (MiZeroLargePage.c)
- *     MiOkToZeroNextLargePage @ 0x14013F418 (MiOkToZeroNextLargePage.c)
- *     MiReassessZeroThreads @ 0x14013F4D4 (MiReassessZeroThreads.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x1400122D0 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14001B8C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeSetEvent @ 0x140055E50 (KeSetEvent.c)
+ *     MiGetLargePageToZero @ 0x140089D80 (MiGetLargePageToZero.c)
+ *     MiZeroLargePage @ 0x14008A8C0 (MiZeroLargePage.c)
+ *     MiOkToZeroNextLargePage @ 0x14013F988 (MiOkToZeroNextLargePage.c)
+ *     MiReassessZeroThreads @ 0x14013FA44 (MiReassessZeroThreads.c)
  */
 
 __int64 __fastcall MiZeroLargePages(__int64 a1, __int64 a2)

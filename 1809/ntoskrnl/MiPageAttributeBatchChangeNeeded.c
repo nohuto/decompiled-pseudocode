@@ -3,9 +3,9 @@
  * Callers:
  *     MiInitializeMdlBatchPages @ 0x140011478 (MiInitializeMdlBatchPages.c)
  *     MiConvertContiguousPages @ 0x1400117AC (MiConvertContiguousPages.c)
- *     MiSwitchToTransition @ 0x1402AF640 (MiSwitchToTransition.c)
+ *     MiSwitchToTransition @ 0x1402AF830 (MiSwitchToTransition.c)
  * Callees:
- *     MiChangePageAttribute @ 0x1400EF920 (MiChangePageAttribute.c)
+ *     MiChangePageAttribute @ 0x1400EF9A0 (MiChangePageAttribute.c)
  */
 
 __int64 __fastcall MiPageAttributeBatchChangeNeeded(__int64 a1, int a2)

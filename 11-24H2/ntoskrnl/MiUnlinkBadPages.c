@@ -1,18 +1,18 @@
 /*
- * XREFs of MiUnlinkBadPages @ 0x1406747FC
+ * XREFs of MiUnlinkBadPages @ 0x1406759CC
  * Callers:
- *     MmMarkPhysicalMemoryAsGood @ 0x140675100 (MmMarkPhysicalMemoryAsGood.c)
+ *     MmMarkPhysicalMemoryAsGood @ 0x1406762D0 (MmMarkPhysicalMemoryAsGood.c)
  * Callees:
- *     MiReleaseNonPagedResources @ 0x14020C57C (MiReleaseNonPagedResources.c)
- *     MiSafeLockPage @ 0x140216290 (MiSafeLockPage.c)
- *     MiInsertPageInFreeOrZeroedList @ 0x140222210 (MiInsertPageInFreeOrZeroedList.c)
- *     MiUnlockPage @ 0x1402915F0 (MiUnlockPage.c)
- *     MiIsPageOnBadList @ 0x14030492C (MiIsPageOnBadList.c)
- *     MiUnlinkPageFromBadList @ 0x14039398C (MiUnlinkPageFromBadList.c)
- *     MiIsPageInHugePfn @ 0x1403CEEA0 (MiIsPageInHugePfn.c)
- *     MiMarkHugePfnGood @ 0x140671374 (MiMarkHugePfnGood.c)
- *     MiSetPfnRemovalRequested @ 0x1406745D0 (MiSetPfnRemovalRequested.c)
- *     MiMarkFileOnlyPfnGood @ 0x14067B63C (MiMarkFileOnlyPfnGood.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x14024EF60 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiUnlockPage @ 0x1402A11F0 (MiUnlockPage.c)
+ *     MiIsPageOnBadList @ 0x14030E80C (MiIsPageOnBadList.c)
+ *     MiSafeLockPage @ 0x140334630 (MiSafeLockPage.c)
+ *     MiReleaseNonPagedResources @ 0x1403358DC (MiReleaseNonPagedResources.c)
+ *     MiIsPageInHugePfn @ 0x14038ED20 (MiIsPageInHugePfn.c)
+ *     MiUnlinkPageFromBadList @ 0x1403F6AAC (MiUnlinkPageFromBadList.c)
+ *     MiMarkHugePfnGood @ 0x140672544 (MiMarkHugePfnGood.c)
+ *     MiSetPfnRemovalRequested @ 0x1406757A0 (MiSetPfnRemovalRequested.c)
+ *     MiMarkFileOnlyPfnGood @ 0x14067C81C (MiMarkFileOnlyPfnGood.c)
  */
 
 __int64 __fastcall MiUnlinkBadPages(ULONG_PTR BugCheckParameter2, ULONG_PTR a2)
@@ -20,16 +20,14 @@ __int64 __fastcall MiUnlinkBadPages(ULONG_PTR BugCheckParameter2, ULONG_PTR a2)
   ULONG_PTR v3; // rdi
   __int64 v4; // rsi
   ULONG_PTR i; // rbx
-  __int64 v6; // rdx
-  __int64 v7; // r8
-  int v8; // eax
-  ULONG_PTR v9; // rcx
-  ULONG_PTR v10; // rcx
-  __int64 v11; // rcx
-  char v12; // bp
-  __int64 v13; // r15
-  int v15; // [rsp+50h] [rbp+8h]
-  int v16; // [rsp+50h] [rbp+8h]
+  int v6; // eax
+  ULONG_PTR v7; // rcx
+  ULONG_PTR v8; // rcx
+  __int64 v9; // rcx
+  char v10; // bp
+  __int64 v11; // r15
+  int v13; // [rsp+50h] [rbp+8h]
+  int v14; // [rsp+50h] [rbp+8h]
 
   v3 = BugCheckParameter2;
   v4 = 0LL;
@@ -37,50 +35,50 @@ __int64 __fastcall MiUnlinkBadPages(ULONG_PTR BugCheckParameter2, ULONG_PTR a2)
   {
     if ( (unsigned int)MiIsPageInHugePfn(v3) )
     {
-      v8 = MiMarkHugePfnGood(v3);
-      v9 = i - 48;
-      if ( v8 >= 0 )
-        v9 = i;
-      i = v9;
-      v10 = v3 - 1;
-      if ( v8 >= 0 )
-        v10 = v3;
-      v3 = v10;
-      v11 = v4 + 1;
-      if ( v8 != 274 )
-        v11 = v4;
-      v4 = v11;
+      v6 = MiMarkHugePfnGood(v3);
+      v7 = i - 48;
+      if ( v6 >= 0 )
+        v7 = i;
+      i = v7;
+      v8 = v3 - 1;
+      if ( v6 >= 0 )
+        v8 = v3;
+      v3 = v8;
+      v9 = v4 + 1;
+      if ( v6 != 274 )
+        v9 = v4;
+      v4 = v9;
     }
     else
     {
-      v12 = MiSafeLockPage(v3, v6, v7);
-      if ( v12 != 17 )
+      v10 = MiSafeLockPage(v3);
+      if ( v10 != 17 )
       {
-        v13 = *((_QWORD *)qword_140E2FF88 + ((*(_QWORD *)(i + 40) >> 43) & 0x3FFLL));
+        v11 = *((_QWORD *)qword_140E300C8 + ((*(_QWORD *)(i + 40) >> 43) & 0x3FFLL));
         if ( (*(_DWORD *)(i + 32) & 0x40000000) != 0 )
         {
           MiSetPfnRemovalRequested(i, 0, 1, 0LL);
           ++v4;
-          v15 = *(_DWORD *)(i + 32);
-          HIBYTE(v15) &= ~0x80u;
-          *(_DWORD *)(i + 32) = v15;
+          v13 = *(_DWORD *)(i + 32);
+          HIBYTE(v13) &= ~0x80u;
+          *(_DWORD *)(i + 32) = v13;
           if ( _bittest64((const signed __int64 *)(i + 40), 0x35u) )
             MiMarkFileOnlyPfnGood(i);
           else
-            MiReleaseNonPagedResources(v13, 1uLL);
+            MiReleaseNonPagedResources(v11, 1uLL);
         }
         else if ( MiIsPageOnBadList(i) )
         {
-          v16 = *(_DWORD *)(i + 32);
-          HIBYTE(v16) &= ~0x80u;
-          *(_DWORD *)(i + 32) = v16;
+          v14 = *(_DWORD *)(i + 32);
+          HIBYTE(v14) &= ~0x80u;
+          *(_DWORD *)(i + 32) = v14;
           MiUnlinkPageFromBadList(i, 0);
           *(_QWORD *)(i + 24) |= 0x4000000000000000uLL;
           MiInsertPageInFreeOrZeroedList(v3, 2LL);
-          MiReleaseNonPagedResources(v13, 1uLL);
+          MiReleaseNonPagedResources(v11, 1uLL);
           ++v4;
         }
-        MiUnlockPage(i, v12);
+        MiUnlockPage(i, v10);
       }
     }
     ++v3;

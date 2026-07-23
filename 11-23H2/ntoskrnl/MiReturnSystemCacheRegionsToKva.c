@@ -1,13 +1,13 @@
 /*
- * XREFs of MiReturnSystemCacheRegionsToKva @ 0x1403D4058
+ * XREFs of MiReturnSystemCacheRegionsToKva @ 0x1403D4238
  * Callers:
- *     MiObtainSystemCacheView @ 0x14029FE90 (MiObtainSystemCacheView.c)
- *     MiReleaseSystemCacheView @ 0x1402A0140 (MiReleaseSystemCacheView.c)
+ *     MiObtainSystemCacheView @ 0x1402A0120 (MiObtainSystemCacheView.c)
+ *     MiReleaseSystemCacheView @ 0x1402A03D0 (MiReleaseSystemCacheView.c)
  * Callees:
  *     MiReturnSystemVa @ 0x140213B54 (MiReturnSystemVa.c)
- *     MiUnlockWorkingSetShared @ 0x14023C500 (MiUnlockWorkingSetShared.c)
- *     MiLockWorkingSetOptimal @ 0x14028596C (MiLockWorkingSetOptimal.c)
- *     MiUnlockPageTableInternal @ 0x1403195C0 (MiUnlockPageTableInternal.c)
+ *     MiUnlockWorkingSetShared @ 0x14023C5D0 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetOptimal @ 0x140285BFC (MiLockWorkingSetOptimal.c)
+ *     MiUnlockPageTableInternal @ 0x140319850 (MiUnlockPageTableInternal.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

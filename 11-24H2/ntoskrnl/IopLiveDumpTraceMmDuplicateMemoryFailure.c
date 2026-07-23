@@ -1,12 +1,12 @@
 /*
- * XREFs of IopLiveDumpTraceMmDuplicateMemoryFailure @ 0x14059DFFC
+ * XREFs of IopLiveDumpTraceMmDuplicateMemoryFailure @ 0x14059AF7C
  * Callers:
- *     IopLiveDumpCaptureMemoryPages @ 0x140599FDC (IopLiveDumpCaptureMemoryPages.c)
- *     IopLiveDumpEstimateMemoryPages @ 0x14059A9C0 (IopLiveDumpEstimateMemoryPages.c)
+ *     IopLiveDumpCaptureMemoryPages @ 0x140596F60 (IopLiveDumpCaptureMemoryPages.c)
+ *     IopLiveDumpEstimateMemoryPages @ 0x140597940 (IopLiveDumpEstimateMemoryPages.c)
  * Callees:
- *     IopLiveDumpIsTracingEnabled @ 0x1404FA9A4 (IopLiveDumpIsTracingEnabled.c)
- *     IopLiveDumpTrace @ 0x1405A3070 (IopLiveDumpTrace.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     IopLiveDumpIsTracingEnabled @ 0x1404F8284 (IopLiveDumpIsTracingEnabled.c)
+ *     IopLiveDumpTrace @ 0x14059FFB0 (IopLiveDumpTrace.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 char __fastcall IopLiveDumpTraceMmDuplicateMemoryFailure(__int64 a1, int a2)

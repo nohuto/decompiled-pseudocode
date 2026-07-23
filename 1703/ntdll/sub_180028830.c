@@ -14,7 +14,7 @@
  *     sub_180105AEC @ 0x180105AEC (sub_180105AEC.c)
  */
 
-__int64 __fastcall sub_180028830(__int64 a1, __int64 a2, __int64 **a3)
+__int64 __fastcall sub_180028830(__int64 a1, __int64 a2, __int64 ***a3)
 {
   BYTE Number; // bl
   unsigned int v6; // r9d
@@ -30,12 +30,12 @@ __int64 __fastcall sub_180028830(__int64 a1, __int64 a2, __int64 **a3)
   unsigned int v16; // edi
   _QWORD *v17; // r12
   __int64 v18; // rcx
-  __int64 *v19; // rbx
+  __int64 **v19; // rbx
   volatile signed __int64 *v20; // rsi
-  __int64 *v21; // rdi
+  __int64 **v21; // rdi
   __int64 v22; // rax
   signed __int64 v23; // rax
-  __int64 *v24; // rax
+  __int64 **v24; // rax
   int v25; // ecx
   __int64 v26; // rbx
   int v27; // eax
@@ -58,9 +58,9 @@ __int64 __fastcall sub_180028830(__int64 a1, __int64 a2, __int64 **a3)
   int v45; // [rsp+30h] [rbp-88h] BYREF
   int v46; // [rsp+38h] [rbp-80h] BYREF
   __int64 v47; // [rsp+40h] [rbp-78h]
-  __int64 **v48; // [rsp+48h] [rbp-70h]
+  __int64 ***v48; // [rsp+48h] [rbp-70h]
   __int64 v49; // [rsp+50h] [rbp-68h]
-  _QWORD v50[2]; // [rsp+58h] [rbp-60h] BYREF
+  _QWORD ThreadInformation[2]; // [rsp+58h] [rbp-60h] BYREF
   _QWORD v51[2]; // [rsp+68h] [rbp-50h] BYREF
 
   v48 = a3;
@@ -121,18 +121,18 @@ LABEL_8:
     v41 = *(_QWORD *)(a1 + 48);
     v42 = *(_WORD *)(v41 + 16LL * v7 + 8);
     v43 = *(_WORD *)(v41 + 16 * v14 + 8);
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-      v44 = (__int64)NtCurrentPeb()->HotpatchInformation + 556;
+    if ( RtlGetCurrentServiceSessionId() )
+      v44 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[3];
     else
       v44 = 2147353478LL;
     if ( *(_BYTE *)v44 )
       sub_180105AEC(a1, v14, v7, v43, v42);
     if ( v43 != v42 )
     {
-      v50[0] = 0LL;
-      v50[1] = v42;
-      ZwSetInformationThread(-2LL, 30LL, v50);
-      ZwSetInformationThread(-2LL, 13LL, &v45);
+      ThreadInformation[0] = 0LL;
+      ThreadInformation[1] = v42;
+      ZwSetInformationThread((HANDLE)0xFFFFFFFFFFFFFFFELL, ThreadGroupInformation, ThreadInformation, 0x10u);
+      ZwSetInformationThread((HANDLE)0xFFFFFFFFFFFFFFFELL, ThreadIdealProcessor, &v45, 4u);
     }
   }
   v16 = v7;
@@ -144,14 +144,14 @@ LABEL_8:
     v49 = v18;
     while ( 1 )
     {
-      v19 = (__int64 *)(v18 + *v17);
-      v20 = v19 + 2;
-      RtlAcquireSRWLockExclusive(v19 + 2);
-      v21 = (__int64 *)*v19;
-      v22 = *(_QWORD *)*v19;
-      if ( *(__int64 **)(*v19 + 8) != v19 || *(__int64 **)(v22 + 8) != v21 )
+      v19 = (__int64 **)(v18 + *v17);
+      v20 = (volatile signed __int64 *)(v19 + 2);
+      RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)v19 + 2);
+      v21 = (__int64 **)*v19;
+      v22 = **v19;
+      if ( (__int64 **)(*v19)[1] != v19 || *(__int64 ***)(v22 + 8) != v21 )
         __fastfail(3u);
-      *v19 = v22;
+      *v19 = (__int64 *)v22;
       *(_QWORD *)(v22 + 8) = v19;
       v23 = _InterlockedCompareExchange64(v20, 0LL, 1LL);
       if ( v23 != 1 )
@@ -210,8 +210,8 @@ LABEL_21:
       v37 = *(_QWORD *)(a1 + 48);
       v38 = *(_WORD *)(v37 + 16LL * v16 + 8);
       v39 = *(_WORD *)(v37 + 16 * v26 + 8);
-      if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-        v40 = (__int64)NtCurrentPeb()->HotpatchInformation + 556;
+      if ( RtlGetCurrentServiceSessionId() )
+        v40 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[3];
       else
         v40 = 2147353478LL;
       if ( *(_BYTE *)v40 )
@@ -220,8 +220,8 @@ LABEL_21:
       {
         v51[0] = 0LL;
         v51[1] = v38;
-        ZwSetInformationThread(-2LL, 30LL, v51);
-        ZwSetInformationThread(-2LL, 13LL, &v46);
+        ZwSetInformationThread((HANDLE)0xFFFFFFFFFFFFFFFELL, ThreadGroupInformation, v51, 0x10u);
+        ZwSetInformationThread((HANDLE)0xFFFFFFFFFFFFFFFELL, ThreadIdealProcessor, &v46, 4u);
       }
     }
     if ( v16 == v7 )
@@ -247,7 +247,7 @@ LABEL_32:
         v32 = sub_18008FDBC(*v31 + 24LL * v16);
         if ( v32 )
         {
-          v24 = (__int64 *)(v32 - 16);
+          v24 = (__int64 **)(v32 - 16);
           goto LABEL_21;
         }
         if ( ++v16 >= dword_18015BFF0 )

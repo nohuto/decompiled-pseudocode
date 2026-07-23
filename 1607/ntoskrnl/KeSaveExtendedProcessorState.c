@@ -1,9 +1,9 @@
 /*
- * XREFs of KeSaveExtendedProcessorState @ 0x140082E80
+ * XREFs of KeSaveExtendedProcessorState @ 0x140083B00
  * Callers:
- *     SymCryptParallelSha256Process @ 0x140237334 (SymCryptParallelSha256Process.c)
+ *     SymCryptParallelSha256Process @ 0x140237160 (SymCryptParallelSha256Process.c)
  * Callees:
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
  */
 
 NTSTATUS __stdcall KeSaveExtendedProcessorState(ULONG64 Mask, PXSTATE_SAVE XStateSave)

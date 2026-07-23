@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpEnsureTailingSlashAndAddToList @ 0x18011D730
+ * XREFs of RtlpEnsureTailingSlashAndAddToList @ 0x18011D4E0
  * Callers:
- *     RtlpLookupSafeCurDirList @ 0x180106064 (RtlpLookupSafeCurDirList.c)
+ *     RtlpLookupSafeCurDirList @ 0x180105A64 (RtlpLookupSafeCurDirList.c)
  * Callees:
- *     RtlUnicodeStringCopy @ 0x1800C8E70 (RtlUnicodeStringCopy.c)
- *     RtlUnicodeStringValidateWorker_0 @ 0x1800D7510 (RtlUnicodeStringValidateWorker_0.c)
- *     RtlWideCharArrayCopyStringWorker_0 @ 0x18011D7FC (RtlWideCharArrayCopyStringWorker_0.c)
- *     RtlpAllocateDirPrefixBlock @ 0x18015B898 (RtlpAllocateDirPrefixBlock.c)
+ *     RtlUnicodeStringCopy @ 0x1800C6630 (RtlUnicodeStringCopy.c)
+ *     RtlUnicodeStringValidateWorker_0 @ 0x1800D44D0 (RtlUnicodeStringValidateWorker_0.c)
+ *     RtlWideCharArrayCopyStringWorker_0 @ 0x18011D5AC (RtlWideCharArrayCopyStringWorker_0.c)
+ *     RtlpAllocateDirPrefixBlock @ 0x18015B758 (RtlpAllocateDirPrefixBlock.c)
  */
 
 __int64 __fastcall RtlpEnsureTailingSlashAndAddToList(__int64 a1, unsigned __int16 *a2)

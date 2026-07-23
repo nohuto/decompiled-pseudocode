@@ -1,13 +1,13 @@
 /*
- * XREFs of IvtProcessDeviceExceptions @ 0x140A98E94
+ * XREFs of IvtProcessDeviceExceptions @ 0x140A98D04
  * Callers:
  *     IvtInitializeIommu @ 0x140A89E10 (IvtInitializeIommu.c)
  * Callees:
- *     memset @ 0x140435A00 (memset.c)
- *     HalpIommuGetExceptionList @ 0x1405154B8 (HalpIommuGetExceptionList.c)
- *     IvtAllocateTranslationStructures @ 0x14052B77C (IvtAllocateTranslationStructures.c)
- *     IvtUpdateTranslationStructures @ 0x14052E0DC (IvtUpdateTranslationStructures.c)
- *     HalpIvtpInitializeReservedDomain @ 0x140A99938 (HalpIvtpInitializeReservedDomain.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     HalpIommuGetExceptionList @ 0x140515A08 (HalpIommuGetExceptionList.c)
+ *     IvtAllocateTranslationStructures @ 0x14052BCCC (IvtAllocateTranslationStructures.c)
+ *     IvtUpdateTranslationStructures @ 0x14052E62C (IvtUpdateTranslationStructures.c)
+ *     HalpIvtpInitializeReservedDomain @ 0x140A997A8 (HalpIvtpInitializeReservedDomain.c)
  */
 
 __int64 __fastcall IvtProcessDeviceExceptions(__int64 a1)

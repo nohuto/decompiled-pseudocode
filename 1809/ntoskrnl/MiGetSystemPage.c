@@ -1,13 +1,13 @@
 /*
- * XREFs of MiGetSystemPage @ 0x1400935E4
+ * XREFs of MiGetSystemPage @ 0x140093524
  * Callers:
- *     MiGetPageForHeader @ 0x1400934B8 (MiGetPageForHeader.c)
- *     MiMapNewSession @ 0x140715F38 (MiMapNewSession.c)
+ *     MiGetPageForHeader @ 0x1400933F8 (MiGetPageForHeader.c)
+ *     MiMapNewSession @ 0x1407171D8 (MiMapNewSession.c)
  * Callees:
  *     MiLockPageInline @ 0x14002CE40 (MiLockPageInline.c)
  *     MiGetPage @ 0x140049D50 (MiGetPage.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     MiWaitForFreePage @ 0x1402CB4A4 (MiWaitForFreePage.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiWaitForFreePage @ 0x1402CB694 (MiWaitForFreePage.c)
  */
 
 __int64 __fastcall MiGetSystemPage(__int64 a1, __int64 a2)

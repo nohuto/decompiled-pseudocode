@@ -1,24 +1,24 @@
 /*
- * XREFs of PspJobIoRateVolumeEntryRemove @ 0x140615E00
+ * XREFs of PspJobIoRateVolumeEntryRemove @ 0x140618D94
  * Callers:
- *     PspSetJobIoRateControlForVolume @ 0x140B5A3A0 (PspSetJobIoRateControlForVolume.c)
+ *     PspSetJobIoRateControlForVolume @ 0x140B5D6BC (PspSetJobIoRateControlForVolume.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     RtlRbRemoveNode @ 0x140377C60 (RtlRbRemoveNode.c)
- *     PspIoRateEntryVolumeCompare @ 0x1404BCA3C (PspIoRateEntryVolumeCompare.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     RtlRbRemoveNode @ 0x140379A10 (RtlRbRemoveNode.c)
+ *     PspIoRateEntryVolumeCompare @ 0x1404B621C (PspIoRateEntryVolumeCompare.c)
  */
 
-__int64 __fastcall PspJobIoRateVolumeEntryRemove(__int64 a1, unsigned __int64 a2)
+signed __int64 __fastcall PspJobIoRateVolumeEntryRemove(__int64 a1, unsigned __int64 a2)
 {
   volatile LONG *v2; // r14
   __int64 v4; // rsi
-  __int64 v5; // rdi
+  signed __int64 v5; // rdi
   KIRQL v6; // r15
-  __int64 v7; // rbx
+  signed __int64 v7; // rbx
   int v8; // ebp
   int v9; // eax
-  __int64 v10; // rax
+  signed __int64 v10; // rax
 
   v2 = (volatile LONG *)(a1 + 1688);
   v4 = a1 + 1696;
@@ -53,7 +53,7 @@ __int64 __fastcall PspJobIoRateVolumeEntryRemove(__int64 a1, unsigned __int64 a2
   }
   if ( v7 )
   {
-    RtlRbRemoveNode(v4, v7);
+    RtlRbRemoveNode((PRTL_RB_TREE)v4, (PRTL_BALANCED_NODE)v7);
     v5 = v7;
     *(_QWORD *)(v7 + 16) = -1LL;
   }

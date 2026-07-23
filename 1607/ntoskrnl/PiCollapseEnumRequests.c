@@ -1,12 +1,12 @@
 /*
- * XREFs of PiCollapseEnumRequests @ 0x140130644
+ * XREFs of PiCollapseEnumRequests @ 0x140130BB4
  * Callers:
- *     PipProcessDevNodeTree @ 0x1403F41E0 (PipProcessDevNodeTree.c)
+ *     PipProcessDevNodeTree @ 0x1403F30A4 (PipProcessDevNodeTree.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14006ACD0 (ObfDereferenceObjectWithTag.c)
- *     KeReleaseSpinLock @ 0x1400E9A70 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1400EFE30 (KeAcquireSpinLockRaiseToDpc.c)
- *     PiMarkDeviceTreeForReenumeration @ 0x14051D8EC (PiMarkDeviceTreeForReenumeration.c)
+ *     ObfDereferenceObjectWithTag @ 0x14006A850 (ObfDereferenceObjectWithTag.c)
+ *     KeReleaseSpinLock @ 0x1400EB600 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1400EDCB0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PiMarkDeviceTreeForReenumeration @ 0x1404887B0 (PiMarkDeviceTreeForReenumeration.c)
  */
 
 bool __fastcall PiCollapseEnumRequests(PVOID *a1)

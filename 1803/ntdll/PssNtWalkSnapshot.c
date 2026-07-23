@@ -8,21 +8,21 @@
  *     memset @ 0x1800A16C0 (memset.c)
  */
 
-__int64 __fastcall PssNtWalkSnapshot(__int64 a1, int a2, _QWORD *a3, _QWORD *a4, int a5)
+NTSTATUS __fastcall PssNtWalkSnapshot(__int64 a1, int a2, __int64 a3, _QWORD *a4, int a5)
 {
-  __int64 result; // rax
-  __int64 v10; // rcx
+  NTSTATUS result; // eax
+  void *v10; // rcx
   unsigned __int64 v11; // r14
   unsigned __int64 v12; // r15
   int v13; // edx
   int v14; // eax
   unsigned __int16 v15; // cx
   int v16; // ebp
-  _QWORD v17[5]; // [rsp+50h] [rbp-28h] BYREF
+  ULONG_PTR ViewSize[5]; // [rsp+50h] [rbp-28h] BYREF
   void *retaddr; // [rsp+78h] [rbp+0h]
 
   result = PssNtValidateDescriptor(a1, retaddr);
-  if ( (int)result < 0 )
+  if ( result < 0 )
     return result;
   if ( a2 != 1 )
   {
@@ -32,7 +32,7 @@ __int64 __fastcall PssNtWalkSnapshot(__int64 a1, int a2, _QWORD *a3, _QWORD *a4,
       if ( v16 )
       {
         if ( v16 != 1 )
-          return 3221225475LL;
+          return -1073741821;
         if ( !a4 || a5 == 136 )
           return sub_180085234(a1, a3, a4);
       }
@@ -45,29 +45,39 @@ __int64 __fastcall PssNtWalkSnapshot(__int64 a1, int a2, _QWORD *a3, _QWORD *a4,
     {
       return sub_180084FA4(a1, a3, a4);
     }
-    return 3221225476LL;
+    return -1073741820;
   }
   if ( a4 && a5 != 80 )
-    return 3221225476LL;
-  v10 = *(_QWORD *)(a1 + 920);
+    return -1073741820;
+  v10 = *(void **)(a1 + 920);
   if ( !v10 )
-    return 3221226021LL;
+    return -1073741275;
   if ( !a3 )
-    return 3221225485LL;
-  if ( !*a3 )
+    return -1073741811;
+  if ( !*(_QWORD *)a3 )
   {
-    v17[0] = 0LL;
-    result = ZwMapViewOfSection(v10, -1LL, a3, 0LL, 0LL, 0LL, v17, 1, 0, 2);
-    if ( (int)result < 0 )
+    ViewSize[0] = 0LL;
+    result = ZwMapViewOfSection(
+               v10,
+               (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+               (PVOID *)a3,
+               0LL,
+               0LL,
+               0LL,
+               ViewSize,
+               ViewShare,
+               0,
+               2u);
+    if ( result < 0 )
       return result;
-    a3[1] = 0LL;
+    *(_QWORD *)(a3 + 8) = 0LL;
   }
-  v11 = *((unsigned int *)a3 + 2);
+  v11 = *(unsigned int *)(a3 + 8);
   if ( v11 >= *(unsigned int *)(a1 + 916) )
-    return 2147483674LL;
+    return -2147483622;
   if ( !a4 )
-    return 261LL;
-  v12 = v11 + *a3;
+    return 261;
+  v12 = v11 + *(_QWORD *)a3;
   memset(a4, 0, 0x50uLL);
   v13 = 72;
   *a4 = *(_QWORD *)v12;
@@ -93,6 +103,6 @@ __int64 __fastcall PssNtWalkSnapshot(__int64 a1, int a2, _QWORD *a3, _QWORD *a4,
       v13 = v15 + 74;
     }
   }
-  a3[1] = v11 + ((v13 + 7) & 0xFFFFFFF8);
-  return 0LL;
+  *(_QWORD *)(a3 + 8) = v11 + ((v13 + 7) & 0xFFFFFFF8);
+  return 0;
 }

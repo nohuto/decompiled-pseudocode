@@ -14,14 +14,14 @@ char __fastcall LdrpLogVerifyAlternateResourceModuleWithServiceChecksumFailure(
         __int64 a2,
         __int64 a3)
 {
-  int v6; // eax
+  NTSTATUS v6; // eax
   __int64 v7; // rcx
   __int64 v8; // r9
   int v9; // r10d
   __int16 v11; // [rsp+38h] [rbp-59h] BYREF
   __int16 v12; // [rsp+3Ch] [rbp-55h] BYREF
   __int64 v13; // [rsp+40h] [rbp-51h] BYREF
-  _BYTE v14[32]; // [rsp+48h] [rbp-49h] BYREF
+  _EVENT_DATA_DESCRIPTOR v14; // [rsp+48h] [rbp-49h] BYREF
   __int64 *v15; // [rsp+68h] [rbp-29h]
   __int64 v16; // [rsp+70h] [rbp-21h]
   _DWORD *v17; // [rsp+78h] [rbp-19h]
@@ -38,8 +38,8 @@ char __fastcall LdrpLogVerifyAlternateResourceModuleWithServiceChecksumFailure(
   __int64 v28; // [rsp+D0h] [rbp+3Fh]
 
   v6 = RtlRunOnceExecuteOnce(
-         &qword_18016B250,
-         (unsigned int (__fastcall *)(volatile signed __int64 *, __int64, unsigned __int64 *))LdrpResReportResourceAccessInternalInitOnce,
+         &stru_18016B250,
+         (PRTL_RUN_ONCE_INIT_FN)LdrpResReportResourceAccessInternalInitOnce,
          0LL,
          0LL);
   if ( v6 >= 0 && (unsigned int)dword_180164450 > 5 )
@@ -67,11 +67,11 @@ char __fastcall LdrpLogVerifyAlternateResourceModuleWithServiceChecksumFailure(
       v28 = 16LL;
       LOBYTE(v6) = tlgWriteTransfer_EtwEventWriteTransfer(
                      v7,
-                     byte_18012FE2D,
+                     (unsigned __int8 *)dword_18012FE2D,
                      (unsigned int)(v9 + 4),
                      v8,
-                     9,
-                     (__int64)v14);
+                     9u,
+                     &v14);
     }
   }
   return v6;

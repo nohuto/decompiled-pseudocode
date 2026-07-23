@@ -5,8 +5,8 @@
  * Callees:
  *     RtlpHpLfhBucketInitialize @ 0x140008FE0 (RtlpHpLfhBucketInitialize.c)
  *     RtlpHpLfhOwnerInitialize @ 0x140009734 (RtlpHpLfhOwnerInitialize.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1880 (memset.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1980 (memset.c)
  */
 
 signed __int64 __fastcall RtlpHpLfhBucketActivate(__int64 a1, unsigned int a2)

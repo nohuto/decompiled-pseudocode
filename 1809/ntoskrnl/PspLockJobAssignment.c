@@ -1,9 +1,9 @@
 /*
- * XREFs of PspLockJobAssignment @ 0x14060093C
+ * XREFs of PspLockJobAssignment @ 0x14060193C
  * Callers:
- *     PspLockJobChain @ 0x1406007CC (PspLockJobChain.c)
- *     PspAssignProcessToJob @ 0x140605664 (PspAssignProcessToJob.c)
- *     PspGetJobLockHierarchyForDeletion @ 0x1406066F0 (PspGetJobLockHierarchyForDeletion.c)
+ *     PspLockJobChain @ 0x1406017CC (PspLockJobChain.c)
+ *     PspAssignProcessToJob @ 0x140606664 (PspAssignProcessToJob.c)
+ *     PspGetJobLockHierarchyForDeletion @ 0x1406076F0 (PspGetJobLockHierarchyForDeletion.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  */

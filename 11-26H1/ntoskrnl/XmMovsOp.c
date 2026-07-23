@@ -1,11 +1,11 @@
 /*
- * XREFs of XmMovsOp @ 0x1405ADD60
+ * XREFs of XmMovsOp @ 0x1405B0570
  * Callers:
  *     <none>
  * Callees:
- *     XmSetSourceValue @ 0x1404A8BDC (XmSetSourceValue.c)
- *     XmStoreResult @ 0x1404A8E3C (XmStoreResult.c)
- *     XmGetStringAddress @ 0x1405AE9A8 (XmGetStringAddress.c)
+ *     XmSetSourceValue @ 0x1404A226C (XmSetSourceValue.c)
+ *     XmStoreResult @ 0x1404A24CC (XmStoreResult.c)
+ *     XmGetStringAddress @ 0x1405B11B8 (XmGetStringAddress.c)
  */
 
 _WORD *__fastcall XmMovsOp(__int64 a1)

@@ -1,19 +1,19 @@
 /*
- * XREFs of MiDeleteClusterPage @ 0x1403C6268
+ * XREFs of MiDeleteClusterPage @ 0x1403D0168
  * Callers:
- *     MiDecommitFreePagesTail @ 0x1402DA750 (MiDecommitFreePagesTail.c)
+ *     MiDecommitFreePagesTail @ 0x1402BC510 (MiDecommitFreePagesTail.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiPageToNode @ 0x140289710 (MiPageToNode.c)
- *     MiIsPageOnBadList @ 0x14028F9D0 (MiIsPageOnBadList.c)
- *     MiChangePageAttribute @ 0x1402D8660 (MiChangePageAttribute.c)
- *     MiGetContainingPageTable @ 0x1402D9BF0 (MiGetContainingPageTable.c)
- *     MiReleasePageFileInfo @ 0x1402DAD50 (MiReleasePageFileInfo.c)
- *     MiBadShareCount @ 0x1402DC710 (MiBadShareCount.c)
- *     MiInsertPageInFreeOrZeroedList @ 0x1402DCDD0 (MiInsertPageInFreeOrZeroedList.c)
- *     MiClearPfnReuseFields @ 0x14031A250 (MiClearPfnReuseFields.c)
- *     MiConvertLockedSmallPageToLarge @ 0x1403C5CF0 (MiConvertLockedSmallPageToLarge.c)
- *     MiClearPfnImageVerified @ 0x14046FA64 (MiClearPfnImageVerified.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiPageToNode @ 0x140288C70 (MiPageToNode.c)
+ *     MiIsPageOnBadList @ 0x14028EF30 (MiIsPageOnBadList.c)
+ *     MiChangePageAttribute @ 0x1402BA420 (MiChangePageAttribute.c)
+ *     MiGetContainingPageTable @ 0x1402BB9B0 (MiGetContainingPageTable.c)
+ *     MiReleasePageFileInfo @ 0x1402BCB10 (MiReleasePageFileInfo.c)
+ *     MiBadShareCount @ 0x1402BE4D0 (MiBadShareCount.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x1402BEB90 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiClearPfnReuseFields @ 0x14031C280 (MiClearPfnReuseFields.c)
+ *     MiConvertLockedSmallPageToLarge @ 0x1403CFBF0 (MiConvertLockedSmallPageToLarge.c)
+ *     MiClearPfnImageVerified @ 0x1404691E4 (MiClearPfnImageVerified.c)
  */
 
 __int64 __fastcall MiDeleteClusterPage(unsigned __int64 a1, ULONG_PTR a2, ULONG_PTR a3)
@@ -119,7 +119,7 @@ __int64 __fastcall MiDeleteClusterPage(unsigned __int64 a1, ULONG_PTR a2, ULONG_
       if ( ((*(_QWORD *)(v15 + 40) >> 60) & 7) == 3 )
       {
         MiClearPfnImageVerified(v15, 12LL);
-        LOBYTE(v11) = 1;
+        LODWORD(v11) = 1;
       }
       v30 = *(_QWORD *)(v15 + 16);
       if ( (v30 & 0x400) != 0 )
@@ -165,9 +165,9 @@ LABEL_27:
         _InterlockedAnd64((volatile signed __int64 *)(v26 - 0x220000000000LL + 24), 0x7FFFFFFFFFFFFFFFuLL);
         return 1LL;
       }
-      LOBYTE(v11) = 1;
+      LODWORD(v11) = 1;
     }
-    MiReleasePageFileInfo(v19, v21, v11);
+    MiReleasePageFileInfo(v19, v21, (unsigned int)v11);
 LABEL_40:
     v22 = *(_QWORD *)&CLFS_LSN_NULL_EXT;
     goto LABEL_27;

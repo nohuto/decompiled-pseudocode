@@ -1,9 +1,9 @@
 /*
- * XREFs of LdrpCallInitRoutineInternal @ 0x18015F968
+ * XREFs of LdrpCallInitRoutineInternal @ 0x18015DD28
  * Callers:
- *     LdrpCallInitRoutine @ 0x180012C90 (LdrpCallInitRoutine.c)
+ *     LdrpCallInitRoutine @ 0x18003F690 (LdrpCallInitRoutine.c)
  * Callees:
- *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180172020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180171020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
  */
 
 __int64 __fastcall LdrpCallInitRoutineInternal(

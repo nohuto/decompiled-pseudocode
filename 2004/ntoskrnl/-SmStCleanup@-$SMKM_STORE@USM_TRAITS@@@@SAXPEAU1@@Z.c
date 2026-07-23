@@ -128,7 +128,7 @@ void __fastcall SMKM_STORE<SM_TRAITS>::SmStCleanup(__int64 a1)
           {
             *(_BYTE *)(v12 + 32) |= 2u;
             if ( *(__int64 *)(v12 + 32) < 0 )
-              KiAbEntryRemoveFromTree(v12);
+              KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v12);
             v20 = *(_DWORD *)(v12 + 88) & 0x1FFFF;
             *(_DWORD *)(v12 + 88) &= 0xFFFE0000;
             *(_BYTE *)(v12 + 25) &= ~1u;

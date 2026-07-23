@@ -1,9 +1,9 @@
 /*
- * XREFs of IopIsIosbInLockedRange @ 0x140A2151C
+ * XREFs of IopIsIosbInLockedRange @ 0x140A16BB8
  * Callers:
- *     IopSynchronousServiceTail @ 0x1408C3300 (IopSynchronousServiceTail.c)
+ *     IopSynchronousServiceTail @ 0x1408C0CC0 (IopSynchronousServiceTail.c)
  * Callees:
- *     IopQueueIrpToFileObject @ 0x1404E5980 (IopQueueIrpToFileObject.c)
+ *     IopQueueIrpToFileObject @ 0x1404DC180 (IopQueueIrpToFileObject.c)
  */
 
 char __fastcall IopIsIosbInLockedRange(__int64 a1, __int64 a2)

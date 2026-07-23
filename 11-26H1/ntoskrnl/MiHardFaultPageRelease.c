@@ -1,26 +1,26 @@
 /*
- * XREFs of MiHardFaultPageRelease @ 0x14031C920
+ * XREFs of MiHardFaultPageRelease @ 0x14031E950
  * Callers:
- *     MiFinishHardFault @ 0x14031D830 (MiFinishHardFault.c)
- *     MiAddPageToInsertList @ 0x14031EF60 (MiAddPageToInsertList.c)
- *     MiFaultGetFileExtents @ 0x14050CBDC (MiFaultGetFileExtents.c)
+ *     MiFinishHardFault @ 0x14031F860 (MiFinishHardFault.c)
+ *     MiAddPageToInsertList @ 0x140320F90 (MiAddPageToInsertList.c)
+ *     MiFaultGetFileExtents @ 0x14050664C (MiFaultGetFileExtents.c)
  * Callees:
- *     MiInsertProtectedStandbyPage @ 0x1402CCD38 (MiInsertProtectedStandbyPage.c)
- *     MiReleasePageFileInfo @ 0x1402DAD50 (MiReleasePageFileInfo.c)
- *     MiAreChargesNeededToLockPage @ 0x1402E5D80 (MiAreChargesNeededToLockPage.c)
- *     MiRemoveLockedPageChargeAndDecRef @ 0x1402E8BF0 (MiRemoveLockedPageChargeAndDecRef.c)
- *     MiChargeForLockedPage @ 0x1402F5F60 (MiChargeForLockedPage.c)
- *     MiChargeCommit @ 0x1402F64A0 (MiChargeCommit.c)
- *     MiMakeTransitionPteValid @ 0x1403035C0 (MiMakeTransitionPteValid.c)
- *     MiReadPteShadow @ 0x140314FF0 (MiReadPteShadow.c)
- *     MiCaptureDirtyBitToPfn @ 0x14031AE30 (MiCaptureDirtyBitToPfn.c)
- *     MiWritePteShadow @ 0x14031C28C (MiWritePteShadow.c)
- *     MiMakeProtoReadOnly @ 0x14031C2E0 (MiMakeProtoReadOnly.c)
- *     MiPfnReferenceCountIsZero @ 0x14031C374 (MiPfnReferenceCountIsZero.c)
- *     MiSwapHardFaultPage @ 0x14031CCEC (MiSwapHardFaultPage.c)
- *     MiRemoveLockedPageCharge @ 0x14031D180 (MiRemoveLockedPageCharge.c)
- *     MiSanitizeShadowPxe @ 0x140342108 (MiSanitizeShadowPxe.c)
- *     MiHandleInPageError @ 0x1404B6438 (MiHandleInPageError.c)
+ *     MiInsertProtectedStandbyPage @ 0x1402AEAF8 (MiInsertProtectedStandbyPage.c)
+ *     MiReleasePageFileInfo @ 0x1402BCB10 (MiReleasePageFileInfo.c)
+ *     MiAreChargesNeededToLockPage @ 0x1402C7DC0 (MiAreChargesNeededToLockPage.c)
+ *     MiRemoveLockedPageChargeAndDecRef @ 0x1402CAC30 (MiRemoveLockedPageChargeAndDecRef.c)
+ *     MiChargeForLockedPage @ 0x1402D7FE0 (MiChargeForLockedPage.c)
+ *     MiChargeCommit @ 0x1402D8520 (MiChargeCommit.c)
+ *     MiMakeTransitionPteValid @ 0x1402E5640 (MiMakeTransitionPteValid.c)
+ *     MiReadPteShadow @ 0x140317020 (MiReadPteShadow.c)
+ *     MiCaptureDirtyBitToPfn @ 0x14031CE60 (MiCaptureDirtyBitToPfn.c)
+ *     MiWritePteShadow @ 0x14031E2BC (MiWritePteShadow.c)
+ *     MiMakeProtoReadOnly @ 0x14031E310 (MiMakeProtoReadOnly.c)
+ *     MiPfnReferenceCountIsZero @ 0x14031E3A4 (MiPfnReferenceCountIsZero.c)
+ *     MiSwapHardFaultPage @ 0x14031ED1C (MiSwapHardFaultPage.c)
+ *     MiRemoveLockedPageCharge @ 0x14031F1B0 (MiRemoveLockedPageCharge.c)
+ *     MiSanitizeShadowPxe @ 0x140344188 (MiSanitizeShadowPxe.c)
+ *     MiHandleInPageError @ 0x1404AF888 (MiHandleInPageError.c)
  */
 
 void __fastcall MiHardFaultPageRelease(__int64 *a1, ULONG_PTR a2)
@@ -73,7 +73,7 @@ LABEL_20:
        || (*(_QWORD *)(a2 + 8) | 0x8000000000000000uLL) < 0xFFFFF68000000000uLL
        || (*(_BYTE *)(a2 + 35) & 0x20) == 0) )
     {
-      MiChargeCommit(*(ULONG **)(stru_140E2EB88.ThreadLock + 8 * ((*(_QWORD *)(a2 + 40) >> 43) & 0x3FFLL)), 1uLL, 4u);
+      MiChargeCommit(*(ULONG **)(stru_140E2ED08.ThreadLock + 8 * ((*(_QWORD *)(a2 + 40) >> 43) & 0x3FFLL)), 1uLL, 4u);
     }
     MiHandleInPageError(v4);
     goto LABEL_23;
@@ -106,13 +106,13 @@ LABEL_20:
     MiRemoveLockedPageChargeAndDecRef(v4);
     if ( (*(_DWORD *)(v4 + 16) & 0x400LL) == 0 )
     {
-      v19 = *(struct _KEVENT **)(stru_140E2EB88.ThreadLock + 8 * ((*(_QWORD *)(v4 + 40) >> 43) & 0x3FFLL));
+      v19 = *(struct _KEVENT **)(stru_140E2ED08.ThreadLock + 8 * ((*(_QWORD *)(v4 + 40) >> 43) & 0x3FFLL));
       v20 = *(_QWORD *)(v4 + 16);
       if ( (v20 & 8) != 0 && (unsigned __int16)v20 >> 12 == v19[54].Header.SignalState )
       {
         v21 = MiCaptureDirtyBitToPfn(v4);
         if ( v21 )
-          MiReleasePageFileInfo(v19, v21, 1);
+          MiReleasePageFileInfo(v19, v21, 1LL);
       }
     }
     if ( *(__int64 *)(v4 + 40) < 0 )

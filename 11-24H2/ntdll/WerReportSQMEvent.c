@@ -1,9 +1,9 @@
 /*
- * XREFs of WerReportSQMEvent @ 0x1800E29D0
+ * XREFs of WerReportSQMEvent @ 0x1800DDFA0
  * Callers:
  *     <none>
  * Callees:
- *     WerEscalationLazyInit @ 0x1800E2D10 (WerEscalationLazyInit.c)
+ *     WerEscalationLazyInit @ 0x1800DE2E0 (WerEscalationLazyInit.c)
  */
 
 __int64 __fastcall WerReportSQMEvent(int a1, __int64 a2, int a3)

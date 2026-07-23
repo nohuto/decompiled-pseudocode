@@ -1,5 +1,5 @@
 /*
- * XREFs of HdlspUTF8Encode @ 0x14022C89C
+ * XREFs of HdlspUTF8Encode @ 0x14022C6C8
  * Callers:
  *     HdlspPutString @ 0x140723C8C (HdlspPutString.c)
  *     HdlspPutWideString @ 0x140723DEC (HdlspPutWideString.c)

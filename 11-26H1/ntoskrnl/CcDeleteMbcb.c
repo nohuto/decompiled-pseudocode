@@ -1,18 +1,18 @@
 /*
- * XREFs of CcDeleteMbcb @ 0x14039C204
+ * XREFs of CcDeleteMbcb @ 0x14039DF64
  * Callers:
- *     CcDeleteSharedCacheMap @ 0x14039BBF0 (CcDeleteSharedCacheMap.c)
- *     CcSetFileSizesEx @ 0x14039E300 (CcSetFileSizesEx.c)
+ *     CcDeleteSharedCacheMap @ 0x14039D950 (CcDeleteSharedCacheMap.c)
+ *     CcSetFileSizesEx @ 0x1403A0060 (CcSetFileSizesEx.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x140278070 (ExAcquireFastMutex.c)
- *     KeReleaseGuardedMutex @ 0x140278D40 (KeReleaseGuardedMutex.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x1402B4730 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x1402B98C0 (KeReleaseInStackQueuedSpinLock.c)
- *     CcDeductDirtyPages @ 0x1403E2F2C (CcDeductDirtyPages.c)
- *     CcDeallocateBcb @ 0x1404749E4 (CcDeallocateBcb.c)
- *     RtlpInterlockedPushEntrySList @ 0x140730CD0 (RtlpInterlockedPushEntrySList.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExAcquireFastMutex @ 0x1402775E0 (ExAcquireFastMutex.c)
+ *     KeReleaseGuardedMutex @ 0x1402782B0 (KeReleaseGuardedMutex.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402FF400 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x140304580 (KeReleaseInStackQueuedSpinLock.c)
+ *     CcDeductDirtyPages @ 0x1403E611C (CcDeductDirtyPages.c)
+ *     CcDeallocateBcb @ 0x14046E164 (CcDeallocateBcb.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1407358A0 (RtlpInterlockedPushEntrySList.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall CcDeleteMbcb(__int64 a1)
@@ -25,7 +25,7 @@ void __fastcall CcDeleteMbcb(__int64 a1)
   unsigned int *v7; // rbx
   __int64 v8; // rax
   unsigned int **v9; // rcx
-  struct _SLIST_ENTRY *v10; // rdx
+  _SLIST_ENTRY *v10; // rdx
   PVOID v11; // rcx
   PVOID *v12; // rax
   __int64 v13; // rax
@@ -57,13 +57,13 @@ LABEL_17:
         __fastfail(3u);
       *v9 = (unsigned int *)v8;
       *(_QWORD *)(v8 + 8) = v9;
-      v10 = (struct _SLIST_ENTRY *)*((_QWORD *)v7 + 5);
-      if ( v10 && v10 != (struct _SLIST_ENTRY *)(v4 + 24) )
+      v10 = (_SLIST_ENTRY *)*((_QWORD *)v7 + 5);
+      if ( v10 && v10 != (_SLIST_ENTRY *)(v4 + 24) )
       {
-        ++dword_140E1105C;
-        if ( LOWORD(CcBitmapLookasideList.Alignment) >= (unsigned __int16)word_140E11050 )
+        ++dword_140E1101C;
+        if ( LOWORD(CcBitmapLookasideList.Alignment) >= (unsigned __int16)word_140E11010 )
         {
-          ++dword_140E11060;
+          ++dword_140E11020;
           guard_dispatch_icall_no_overrides(v10, v10, v5);
         }
         else

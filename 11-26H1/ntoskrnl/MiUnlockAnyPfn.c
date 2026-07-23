@@ -1,10 +1,10 @@
 /*
- * XREFs of MiUnlockAnyPfn @ 0x140703774
+ * XREFs of MiUnlockAnyPfn @ 0x140708444
  * Callers:
- *     MiReleaseScrubProtection @ 0x14070BF60 (MiReleaseScrubProtection.c)
- *     MiScrubLargePage @ 0x14070C4BC (MiScrubLargePage.c)
+ *     MiReleaseScrubProtection @ 0x140710C10 (MiReleaseScrubProtection.c)
+ *     MiScrubLargePage @ 0x14071116C (MiScrubLargePage.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
  */
 
 volatile signed __int64 *__fastcall MiUnlockAnyPfn(unsigned __int64 a1, int a2, unsigned __int8 a3)
@@ -15,9 +15,9 @@ volatile signed __int64 *__fastcall MiUnlockAnyPfn(unsigned __int64 a1, int a2, 
   v3 = a3;
   if ( a2 == 1 )
   {
-    result = *(volatile signed __int64 **)&stru_140E2EB88.SystemCallNumber;
+    result = *(volatile signed __int64 **)&stru_140E2ED08.SystemCallNumber;
     _InterlockedAnd(
-      (volatile signed __int32 *)(*(_QWORD *)&stru_140E2EB88.SystemCallNumber + 4 * (((a1 >> 18) & 0x3FFFFF) >> 5)),
+      (volatile signed __int32 *)(*(_QWORD *)&stru_140E2ED08.SystemCallNumber + 4 * (((a1 >> 18) & 0x3FFFFF) >> 5)),
       ~(1 << (a1 >> 18)));
     if ( a3 == 17 )
       return result;

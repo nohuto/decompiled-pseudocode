@@ -14,13 +14,13 @@
  *     PsTestProtectedProcessIncompatibility @ 0x1409BC040 (PsTestProtectedProcessIncompatibility.c)
  */
 
-__int64 __fastcall NtRemoveProcessDebug(ULONG_PTR a1, void *a2)
+NTSTATUS __cdecl NtRemoveProcessDebug(HANDLE ProcessHandle, HANDLE DebugObjectHandle)
 {
   char PreviousMode; // si
-  __int64 result; // rax
+  NTSTATUS result; // eax
   __int64 v5; // rcx
   struct _KPROCESS *v6; // rdi
-  int v7; // ebx
+  NTSTATUS v7; // ebx
   unsigned __int64 SecureHandle; // rbx
   PVOID Object[2]; // [rsp+40h] [rbp-A8h] BYREF
   char v10[8]; // [rsp+50h] [rbp-98h] BYREF
@@ -30,7 +30,7 @@ __int64 __fastcall NtRemoveProcessDebug(ULONG_PTR a1, void *a2)
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   Object[0] = 0LL;
   result = ObpReferenceObjectByHandleWithTag(
-             a1,
+             (ULONG_PTR)ProcessHandle,
              2048,
              (__int64)PsProcessType,
              PreviousMode,
@@ -38,7 +38,7 @@ __int64 __fastcall NtRemoveProcessDebug(ULONG_PTR a1, void *a2)
              Object,
              0LL,
              0LL);
-  if ( (int)result >= 0 )
+  if ( result >= 0 )
   {
     LOBYTE(v5) = PreviousMode;
     v6 = (struct _KPROCESS *)Object[0];
@@ -57,7 +57,7 @@ __int64 __fastcall NtRemoveProcessDebug(ULONG_PTR a1, void *a2)
             v7 >= 0) )
       {
         Object[0] = 0LL;
-        v7 = ObReferenceObjectByHandle(a2, 2u, DbgkDebugObjectType, PreviousMode, Object, 0LL);
+        v7 = ObReferenceObjectByHandle(DebugObjectHandle, 2u, DbgkDebugObjectType, PreviousMode, Object, 0LL);
         if ( v7 >= 0 )
         {
           v7 = DbgkClearProcessDebugObject(v6);
@@ -66,7 +66,7 @@ __int64 __fastcall NtRemoveProcessDebug(ULONG_PTR a1, void *a2)
       }
     }
     ObfDereferenceObjectWithTag(v6, 0x4F676244u);
-    return (unsigned int)v7;
+    return v7;
   }
   return result;
 }

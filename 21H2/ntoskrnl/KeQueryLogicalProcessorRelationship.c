@@ -1,16 +1,16 @@
 /*
- * XREFs of KeQueryLogicalProcessorRelationship @ 0x1402AFA30
+ * XREFs of KeQueryLogicalProcessorRelationship @ 0x14022DD90
  * Callers:
- *     ExpQuerySystemInformation @ 0x140651070 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x140645E90 (ExpQuerySystemInformation.c)
  * Callees:
- *     KeAndAffinityEx @ 0x14022A080 (KeAndAffinityEx.c)
- *     KeOrAffinityEx @ 0x14022B850 (KeOrAffinityEx.c)
- *     KeQueryActiveProcessorCountEx @ 0x14027B610 (KeQueryActiveProcessorCountEx.c)
- *     KeQueryMaximumProcessorCountEx @ 0x14027B730 (KeQueryMaximumProcessorCountEx.c)
- *     KeGetProcessorIndexFromNumber @ 0x14027BE80 (KeGetProcessorIndexFromNumber.c)
- *     KeAndGroupAffinityEx @ 0x1403746A0 (KeAndGroupAffinityEx.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
+ *     KeQueryActiveProcessorCountEx @ 0x1402695B0 (KeQueryActiveProcessorCountEx.c)
+ *     KeQueryMaximumProcessorCountEx @ 0x1402696D0 (KeQueryMaximumProcessorCountEx.c)
+ *     KeGetProcessorIndexFromNumber @ 0x140269E20 (KeGetProcessorIndexFromNumber.c)
+ *     KeAndAffinityEx @ 0x1402CE930 (KeAndAffinityEx.c)
+ *     KeOrAffinityEx @ 0x1402D0100 (KeOrAffinityEx.c)
+ *     KeAndGroupAffinityEx @ 0x1403741F0 (KeAndGroupAffinityEx.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
  */
 
 NTSTATUS __stdcall KeQueryLogicalProcessorRelationship(
@@ -27,8 +27,8 @@ NTSTATUS __stdcall KeQueryLogicalProcessorRelationship(
   LOGICAL_PROCESSOR_RELATIONSHIP v12; // r12d
   PPROCESSOR_NUMBER v13; // r13
   __int64 v14; // rbx
-  ULONG v15; // ebx
-  ULONG v16; // r9d
+  DWORD v15; // ebx
+  DWORD v16; // r9d
   __int64 v17; // rcx
   unsigned __int64 v18; // r10
   int v19; // r11d
@@ -44,18 +44,18 @@ NTSTATUS __stdcall KeQueryLogicalProcessorRelationship(
   __int64 v30; // rax
   int v31; // eax
   unsigned __int16 v32; // r9
-  USHORT v33; // dx
+  WORD v33; // dx
   _QWORD *v34; // r8
   __int64 v35; // r10
   bool v36; // zf
-  USHORT v37; // cx
+  WORD v37; // cx
   __int64 v38; // rax
   unsigned __int16 v39; // dx
   GROUP_AFFINITY *GroupMask; // rcx
   unsigned __int64 *v41; // r8
   unsigned __int64 v42; // r10
   int v43; // edx
-  ULONG v44; // eax
+  DWORD v44; // eax
   unsigned int v45; // r12d
   __int64 v46; // rbx
   __int64 v47; // rdi
@@ -156,10 +156,10 @@ NTSTATUS __stdcall KeQueryLogicalProcessorRelationship(
         v74[8] = v28;
         v74[9] = v29;
         v75 = v30;
-        v31 = KeAndAffinityEx((unsigned __int16 *)v73, (unsigned __int16 *)v74, 0LL);
+        v31 = KeAndAffinityEx(v73, v74, 0LL);
         if ( v13 || !v31 )
         {
-          KeOrAffinityEx((unsigned __int16 *)v73, (unsigned __int16 *)v74, v73);
+          KeOrAffinityEx(v73, v74, v73);
           v32 = v74[0];
           v33 = 0;
           if ( LOWORD(v74[0]) )

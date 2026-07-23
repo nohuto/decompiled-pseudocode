@@ -1,36 +1,36 @@
 /*
  * XREFs of NtSetEvent @ 0x14069E0C0
  * Callers:
- *     SepAdtInitializeAuditingOptions @ 0x140B22004 (SepAdtInitializeAuditingOptions.c)
+ *     sub_140B22004 @ 0x140B22004 (sub_140B22004.c)
  * Callees:
  *     ObfDereferenceObject @ 0x1402AD3E0 (ObfDereferenceObject.c)
  *     KeSetEvent @ 0x1402AFD30 (KeSetEvent.c)
  *     ObReferenceObjectByHandle @ 0x140732D00 (ObReferenceObjectByHandle.c)
- *     ExpSetCrossVmEvent @ 0x140A08204 (ExpSetCrossVmEvent.c)
+ *     sub_140A08204 @ 0x140A08204 (sub_140A08204.c)
  */
 
-__int64 __fastcall NtSetEvent(HANDLE Handle, LONG *a2)
+NTSTATUS __cdecl NtSetEvent(HANDLE EventHandle, PLONG PreviousState)
 {
-  KPROCESSOR_MODE PreviousMode; // r15
+  KPROCESSOR_MODE v4; // r15
   __int64 v5; // rcx
   NTSTATUS v6; // eax
-  NTSTATUS v7; // edi
+  int v7; // edi
   struct _KEVENT *v8; // rbx
   LONG v9; // eax
   LONG v11; // [rsp+80h] [rbp+18h] BYREF
   PVOID Object; // [rsp+88h] [rbp+20h] BYREF
 
   v11 = 0;
-  PreviousMode = KeGetCurrentThread()->PreviousMode;
-  if ( a2 && PreviousMode )
+  v4 = *((_BYTE *)KeGetCurrentThread() + 562);
+  if ( PreviousState && v4 )
   {
-    v5 = (__int64)a2;
-    if ( (unsigned __int64)a2 >= 0x7FFFFFFF0000LL )
+    v5 = (__int64)PreviousState;
+    if ( (unsigned __int64)PreviousState >= 0x7FFFFFFF0000LL )
       v5 = 0x7FFFFFFF0000LL;
     *(_DWORD *)v5 = *(_DWORD *)v5;
   }
   Object = 0LL;
-  v6 = ObReferenceObjectByHandle(Handle, 2u, (POBJECT_TYPE)ExEventObjectType, PreviousMode, &Object, 0LL);
+  v6 = ObReferenceObjectByHandle(EventHandle, 2u, (POBJECT_TYPE)ExEventObjectType, v4, &Object, 0LL);
   v7 = v6;
   v8 = (struct _KEVENT *)Object;
   LODWORD(Object) = v6;
@@ -38,15 +38,15 @@ __int64 __fastcall NtSetEvent(HANDLE Handle, LONG *a2)
   {
     if ( v6 == -1073741788 )
     {
-      if ( ExCrossVmEventObjectType )
+      if ( qword_140C10D28 )
       {
         Object = 0LL;
-        v7 = ObReferenceObjectByHandle(Handle, 2u, ExCrossVmEventObjectType, PreviousMode, &Object, 0LL);
+        v7 = ObReferenceObjectByHandle(EventHandle, 2u, qword_140C10D28, v4, &Object, 0LL);
         v8 = (struct _KEVENT *)Object;
         LODWORD(Object) = v7;
         if ( v7 >= 0 )
         {
-          v7 = ExpSetCrossVmEvent(v8, &v11);
+          v7 = sub_140A08204(v8, &v11);
           LODWORD(Object) = v7;
         }
       }
@@ -58,9 +58,9 @@ __int64 __fastcall NtSetEvent(HANDLE Handle, LONG *a2)
     v9 = KeSetEvent(v8, 1, 0);
     v11 = v9;
   }
-  if ( v7 >= 0 && a2 )
-    *a2 = v9;
+  if ( v7 >= 0 && PreviousState )
+    *PreviousState = v9;
   if ( v8 )
     ObfDereferenceObject(v8);
-  return (unsigned int)v7;
+  return v7;
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwpStartLoggerThread @ 0x140343944
+ * XREFs of EtwpStartLoggerThread @ 0x140343BD4
  * Callers:
- *     EtwpStartLogger @ 0x1406BBFB0 (EtwpStartLogger.c)
+ *     EtwpStartLogger @ 0x1406BBFE0 (EtwpStartLogger.c)
  *     EtwpFixBootLoggers @ 0x140B6801C (EtwpFixBootLoggers.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140243CE0 (KeWaitForSingleObject.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     PsCreateSystemThread @ 0x1407B8100 (PsCreateSystemThread.c)
+ *     KeWaitForSingleObject @ 0x140243DB0 (KeWaitForSingleObject.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     PsCreateSystemThread @ 0x1407B83E0 (PsCreateSystemThread.c)
  */
 
 int __fastcall EtwpStartLoggerThread(__int64 a1, __int64 a2)

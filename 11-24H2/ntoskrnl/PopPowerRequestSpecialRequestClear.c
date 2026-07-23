@@ -1,12 +1,12 @@
 /*
- * XREFs of PopPowerRequestSpecialRequestClear @ 0x140A150A4
+ * XREFs of PopPowerRequestSpecialRequestClear @ 0x140A0DEBC
  * Callers:
- *     PopPowerRequestActionInfo @ 0x140A14DA0 (PopPowerRequestActionInfo.c)
+ *     PopPowerRequestActionInfo @ 0x140A0DBB8 (PopPowerRequestActionInfo.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     PopReleaseRwLock @ 0x1403B5EC8 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x1404283D4 (PopAcquireRwLockExclusive.c)
- *     PsReleaseProcessWakeCounter @ 0x14088E750 (PsReleaseProcessWakeCounter.c)
+ *     PopReleaseRwLock @ 0x1402AE8FC (PopReleaseRwLock.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     PopAcquireRwLockExclusive @ 0x14041C564 (PopAcquireRwLockExclusive.c)
+ *     PsReleaseProcessWakeCounter @ 0x140898050 (PsReleaseProcessWakeCounter.c)
  */
 
 __int64 __fastcall PopPowerRequestSpecialRequestClear(__int64 a1, int a2)
@@ -22,7 +22,7 @@ __int64 __fastcall PopPowerRequestSpecialRequestClear(__int64 a1, int a2)
     v5 = 0LL;
     v6 = 0LL;
     v7 = 0;
-    PopAcquireRwLockExclusive(&PopPowerRequestLock);
+    PopAcquireRwLockExclusive((unsigned __int64 *)&PopPowerRequestLock);
     v8 = *(void **)(a1 + 136);
     if ( v8 )
     {
@@ -37,7 +37,7 @@ __int64 __fastcall PopPowerRequestSpecialRequestClear(__int64 a1, int a2)
     {
       v3 = -1073741811;
     }
-    PopReleaseRwLock((signed __int64 *)&PopPowerRequestLock);
+    PopReleaseRwLock(&PopPowerRequestLock);
     if ( v7 )
     {
       if ( v6 )

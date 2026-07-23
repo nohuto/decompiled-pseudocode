@@ -29,7 +29,7 @@ __int64 __fastcall KiSynchronizeStibpPairing(__int64 a1)
   memset(&v13[2], 0, 0x100uLL);
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(0xCuLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 12 )
@@ -44,10 +44,10 @@ __int64 __fastcall KiSynchronizeStibpPairing(__int64 a1)
   KeAddProcessorAffinityEx((unsigned __int16 *)v13, *(_DWORD *)(v5 + 36));
   KiIpiSendPacket(0, (int)v13, (__int64)KiSynchronizeStibpPairingTarget, 0LL, 0LL, 0LL);
   KiIpiStallOnPacketTargetsPrcb(v6, a1);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v7 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v7 <= 0xFu && CurrentIrql <= 0xFu && v7 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v7 <= 0xFu && CurrentIrql <= 0xFu && v7 >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v9 = CurrentPrcb->SchedulerAssist;

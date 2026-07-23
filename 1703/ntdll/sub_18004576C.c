@@ -11,7 +11,7 @@
  *     RtlInitUnicodeString @ 0x1800461D0 (RtlInitUnicodeString.c)
  */
 
-__int64 __fastcall sub_18004576C(__int64 a1, _WORD *a2, UNICODE_STRING *a3)
+__int64 __fastcall sub_18004576C(__int64 a1, _WORD *a2, _UNICODE_STRING *a3)
 {
   unsigned int v3; // ebx
   __int64 v6; // rdx
@@ -26,7 +26,7 @@ __int64 __fastcall sub_18004576C(__int64 a1, _WORD *a2, UNICODE_STRING *a3)
     switch ( *a2 )
     {
       case 1:
-        if ( !RtlLCIDToCultureName((__int16)a2[2], (__int64)a3) )
+        if ( !RtlLCIDToCultureName((__int16)a2[2], a3) )
           return (unsigned int)-1073741595;
         return v3;
       case 2:
@@ -41,7 +41,7 @@ LABEL_8:
           RtlInitUnicodeString(a3, (PCWSTR)(*(_QWORD *)(v9 + 24) + 2LL * *(__int16 *)(*(_QWORD *)(v9 + 16) + 2 * v10)));
           return v3;
         }
-        if ( v8 && RtlLCIDToCultureName(v8, (__int64)a3) )
+        if ( v8 && RtlLCIDToCultureName(v8, a3) )
           return v3;
         break;
       case 3:

@@ -34,7 +34,7 @@ LONG __fastcall MiAttemptPageFileReductionApc(__int64 a1)
   __int64 v14; // rcx
   int v15; // r9d
   __int64 v16; // r11
-  RTL_BITMAP *v17; // r10
+  _RTL_BITMAP *v17; // r10
   unsigned __int64 v18; // r8
   char v19; // cl
   int v21; // ecx
@@ -49,7 +49,7 @@ LONG __fastcall MiAttemptPageFileReductionApc(__int64 a1)
   ULONG v30; // eax
   __int64 v31; // rdx
   unsigned int v32; // eax
-  RTL_BITMAP *v33; // rcx
+  _RTL_BITMAP *v33; // rcx
   KIRQL v34; // al
   unsigned __int8 v35; // r15
   __int64 v36; // rbx
@@ -60,8 +60,8 @@ LONG __fastcall MiAttemptPageFileReductionApc(__int64 a1)
   ULONG v41; // [rsp+40h] [rbp-29h] BYREF
   __int64 v42; // [rsp+48h] [rbp-21h]
   _DWORD *v43; // [rsp+50h] [rbp-19h]
-  RTL_BITMAP BitMapHeader; // [rsp+58h] [rbp-11h] BYREF
-  RTL_BITMAP v45; // [rsp+68h] [rbp-1h] BYREF
+  _RTL_BITMAP BitMapHeader; // [rsp+58h] [rbp-11h] BYREF
+  _RTL_BITMAP v45; // [rsp+68h] [rbp-1h] BYREF
   PRTL_BITMAP v46; // [rsp+78h] [rbp+Fh]
   PRTL_BITMAP v47; // [rsp+80h] [rbp+17h]
   unsigned __int8 v49; // [rsp+E8h] [rbp+7Fh]
@@ -113,7 +113,7 @@ LONG __fastcall MiAttemptPageFileReductionApc(__int64 a1)
       v15 = *(_DWORD *)v11;
       v49 = v13;
       v16 = *(_QWORD *)(v14 + 16);
-      v17 = (RTL_BITMAP *)(v14 + 24);
+      v17 = (_RTL_BITMAP *)(v14 + 24);
       v18 = (unsigned __int64)(unsigned int)(*(_DWORD *)v11 - 1) >> 3;
       v46 = (PRTL_BITMAP)(v14 + 8);
       v19 = (v15 - 1) & 7;

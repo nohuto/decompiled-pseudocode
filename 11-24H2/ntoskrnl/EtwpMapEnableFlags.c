@@ -1,7 +1,7 @@
 /*
- * XREFs of EtwpMapEnableFlags @ 0x140A390F4
+ * XREFs of EtwpMapEnableFlags @ 0x140A2E1B4
  * Callers:
- *     EtwpInitialize @ 0x140C3D0FC (EtwpInitialize.c)
+ *     EtwpInitialize @ 0x140C3F24C (EtwpInitialize.c)
  * Callees:
  *     <none>
  */

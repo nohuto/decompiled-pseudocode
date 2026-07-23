@@ -23,11 +23,10 @@ __int64 LdrpInitializeImportRedirection()
   _UNICODE_STRING *p_RedirectionDllName; // rdi
   char v3; // al
   __int64 v4; // rcx
-  __int64 v5; // rcx
-  _BYTE v6[8]; // [rsp+38h] [rbp-49h] BYREF
-  __int64 v7; // [rsp+40h] [rbp-41h] BYREF
-  __int64 v8[15]; // [rsp+48h] [rbp-39h] BYREF
-  char v9; // [rsp+C4h] [rbp+43h]
+  _BYTE v5[8]; // [rsp+38h] [rbp-49h] BYREF
+  __int64 v6; // [rsp+40h] [rbp-41h] BYREF
+  PWSTR Path[15]; // [rsp+48h] [rbp-39h] BYREF
+  char v8; // [rsp+C4h] [rbp+43h]
 
   Dll = 0;
   p_RedirectionDllName = &NtCurrentPeb()->ProcessParameters->RedirectionDllName;
@@ -41,26 +40,26 @@ __int64 LdrpInitializeImportRedirection()
         2,
         (__int64)"Loading import redirection DLL: '%wZ'\n",
         p_RedirectionDllName);
-    LdrpInitializeDllPath(0LL, 0LL, v8);
-    Dll = LdrpLoadDll((__int64)p_RedirectionDllName, (int)v8, 16777217, (__int64)&v7);
-    if ( v9 )
-      RtlReleasePath(v8[0]);
+    LdrpInitializeDllPath(0LL, 0LL, (__int64 *)Path);
+    Dll = LdrpLoadDll((__int64)p_RedirectionDllName, (__int64)Path, 16777217, (__int64)&v6);
+    if ( v8 )
+      RtlReleasePath(Path[0]);
     if ( Dll >= 0 )
     {
-      Dll = LdrpBuildImportRedirection(v7);
+      Dll = LdrpBuildImportRedirection(v6);
       if ( Dll >= 0 )
       {
         LdrpDrainWorkQueue(0);
-        LdrpAcquireLoaderLock(v4);
-        v6[0] = 0;
-        Dll = LdrpInitializeGraphRecurse(*(__int64 **)(v7 + 152), 0LL, v6);
-        LdrpReleaseLoaderLock(v5, 2, Dll);
+        LdrpAcquireLoaderLock();
+        v5[0] = 0;
+        Dll = LdrpInitializeGraphRecurse(*(__int64 **)(v6 + 152), 0LL, v5);
+        LdrpReleaseLoaderLock(v4, 2, Dll);
         LdrpDropLastInProgressCount();
         if ( Dll >= 0 )
         {
-          *(_DWORD *)(*(_QWORD *)(v7 + 152) + 24LL) = -1;
-          *(_WORD *)(**(_QWORD **)(v7 + 152) - 52LL) = -1;
-          LdrpLogImportRedirectionTelemetry(v7);
+          *(_DWORD *)(*(_QWORD *)(v6 + 152) + 24LL) = -1;
+          *(_WORD *)(**(_QWORD **)(v6 + 152) - 52LL) = -1;
+          LdrpLogImportRedirectionTelemetry(v6);
           LdrpImportRedirectionPresent = 1;
         }
       }

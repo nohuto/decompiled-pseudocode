@@ -8,12 +8,15 @@
 
 PSTR __stdcall RtlIpv4AddressToStringA(const struct in_addr *Addr, PSTR S)
 {
+  size_t v3; // [esp-18h] [ebp-18h]
+
+  HIDWORD(v3) = "%u.%u.%u.%u";
+  LODWORD(v3) = 16;
   return &S[sprintf_s(
               S,
-              0x10u,
-              "%u.%u.%u.%u",
-              Addr->S_un.S_un_b.s_b1,
-              Addr->S_un.S_un_b.s_b2,
-              Addr->S_un.S_un_b.s_b3,
-              Addr->S_un.S_un_b.s_b4)];
+              v3,
+              (const char *const)*(unsigned __int8 *)Addr,
+              *((unsigned __int8 *)Addr + 1),
+              *((unsigned __int8 *)Addr + 2),
+              *((unsigned __int8 *)Addr + 3))];
 }

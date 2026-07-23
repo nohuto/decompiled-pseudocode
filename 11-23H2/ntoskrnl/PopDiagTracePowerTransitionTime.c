@@ -1,12 +1,12 @@
 /*
- * XREFs of PopDiagTracePowerTransitionTime @ 0x1409911F8
+ * XREFs of PopDiagTracePowerTransitionTime @ 0x1409913F8
  * Callers:
- *     PopIssueActionRequest @ 0x140989CA4 (PopIssueActionRequest.c)
+ *     PopIssueActionRequest @ 0x140989EA4 (PopIssueActionRequest.c)
  * Callees:
- *     EtwWrite @ 0x1402578A0 (EtwWrite.c)
- *     EtwEventEnabled @ 0x140258420 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     PopPowerTransitionTimesInMs @ 0x1405834C0 (PopPowerTransitionTimesInMs.c)
+ *     EtwWrite @ 0x140257960 (EtwWrite.c)
+ *     EtwEventEnabled @ 0x1402584E0 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     PopPowerTransitionTimesInMs @ 0x1405839B0 (PopPowerTransitionTimesInMs.c)
  */
 
 void PopDiagTracePowerTransitionTime()
@@ -48,11 +48,11 @@ void PopDiagTracePowerTransitionTime()
       *(_QWORD *)&UserData.Size = 4LL;
       v7 = &v1;
       v8 = 4LL;
-      v9 = &qword_140C3D4C8;
+      v9 = &qword_140C3D488;
       v10 = 4LL;
       v11 = &v2;
       v13 = &v3;
-      v15 = &dword_140C3D510;
+      v15 = &dword_140C3D4D0;
       v17 = &v4;
       v19 = v5;
       v12 = 4LL;

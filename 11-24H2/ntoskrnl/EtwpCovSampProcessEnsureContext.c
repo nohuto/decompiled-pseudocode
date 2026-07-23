@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpCovSampProcessEnsureContext @ 0x140901F18
+ * XREFs of EtwpCovSampProcessEnsureContext @ 0x1409247F8
  * Callers:
- *     EtwpCovSampImageNotify @ 0x140900000 (EtwpCovSampImageNotify.c)
+ *     EtwpCovSampImageNotify @ 0x1409228E0 (EtwpCovSampImageNotify.c)
  * Callees:
- *     EtwpCovSampProcessCleanup @ 0x140902250 (EtwpCovSampProcessCleanup.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     EtwpCovSampProcessCleanup @ 0x140924B30 (EtwpCovSampProcessCleanup.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpCovSampProcessEnsureContext(__int64 a1)
@@ -24,7 +24,7 @@ __int64 __fastcall EtwpCovSampProcessEnsureContext(__int64 a1)
     }
     else
     {
-      Pool2 = ExAllocatePool2(0x100uLL);
+      Pool2 = ExAllocatePool2(0x100uLL, 0x38uLL, 0x56777445u);
       v6 = (void *)Pool2;
       if ( Pool2 )
       {

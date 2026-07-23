@@ -1,12 +1,12 @@
 /*
- * XREFs of HvlGetReferenceTime @ 0x1403C85E4
+ * XREFs of HvlGetReferenceTime @ 0x1403C87C4
  * Callers:
- *     PpmCheckSnapAllDeliveredPerformance @ 0x140256E80 (PpmCheckSnapAllDeliveredPerformance.c)
- *     HvlGetPpmStatsForProcessor @ 0x1403C854C (HvlGetPpmStatsForProcessor.c)
- *     PpmHvSnapPerformanceAccumulation @ 0x1405A0104 (PpmHvSnapPerformanceAccumulation.c)
+ *     PpmCheckSnapAllDeliveredPerformance @ 0x140256F40 (PpmCheckSnapAllDeliveredPerformance.c)
+ *     HvlGetPpmStatsForProcessor @ 0x1403C872C (HvlGetPpmStatsForProcessor.c)
+ *     PpmHvSnapPerformanceAccumulation @ 0x1405A05F4 (PpmHvSnapPerformanceAccumulation.c)
  * Callees:
- *     HvlGetReferenceTimeUsingTscPage @ 0x1403C8620 (HvlGetReferenceTimeUsingTscPage.c)
- *     HvlpGetRegister64 @ 0x140548CE0 (HvlpGetRegister64.c)
+ *     HvlGetReferenceTimeUsingTscPage @ 0x1403C8800 (HvlGetReferenceTimeUsingTscPage.c)
+ *     HvlpGetRegister64 @ 0x1405493A0 (HvlpGetRegister64.c)
  */
 
 __int64 HvlGetReferenceTime()

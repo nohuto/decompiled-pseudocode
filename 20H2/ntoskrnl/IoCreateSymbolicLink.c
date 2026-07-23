@@ -12,12 +12,21 @@
 
 NTSTATUS __stdcall IoCreateSymbolicLink(PUNICODE_STRING SymbolicLinkName, PUNICODE_STRING DeviceName)
 {
-  NTSTATUS SymbolicLinkObject; // ebx
-  HANDLE Handle; // [rsp+60h] [rbp+10h] BYREF
+  int v2; // ebx
+  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+20h] [rbp-30h] BYREF
+  HANDLE LinkHandle; // [rsp+60h] [rbp+10h] BYREF
 
-  Handle = 0LL;
-  SymbolicLinkObject = ZwCreateSymbolicLinkObject((__int64)&Handle, 983041LL);
-  if ( SymbolicLinkObject >= 0 )
-    ZwClose(Handle);
-  return SymbolicLinkObject;
+  *(&ObjectAttributes.Length + 1) = 0;
+  *(&ObjectAttributes.Attributes + 1) = 0;
+  LinkHandle = 0LL;
+  ObjectAttributes.RootDirectory = 0LL;
+  ObjectAttributes.SecurityQualityOfService = 0LL;
+  ObjectAttributes.ObjectName = SymbolicLinkName;
+  ObjectAttributes.SecurityDescriptor = (PVOID)SePublicDefaultUnrestrictedSd;
+  ObjectAttributes.Length = 48;
+  ObjectAttributes.Attributes = 592;
+  v2 = ZwCreateSymbolicLinkObject(&LinkHandle, 0xF0001u, &ObjectAttributes, DeviceName);
+  if ( v2 >= 0 )
+    ZwClose(LinkHandle);
+  return v2;
 }

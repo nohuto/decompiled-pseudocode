@@ -1,12 +1,12 @@
 /*
- * XREFs of PopDiagTraceSleepStudyStart @ 0x140671B60
+ * XREFs of PopDiagTraceSleepStudyStart @ 0x140671C44
  * Callers:
- *     PopWdiTimerWorkerThread @ 0x14020A258 (PopWdiTimerWorkerThread.c)
- *     PopDiagNextCsSleepStudySession @ 0x140670804 (PopDiagNextCsSleepStudySession.c)
+ *     PopWdiTimerWorkerThread @ 0x14020A084 (PopWdiTimerWorkerThread.c)
+ *     PopDiagNextCsSleepStudySession @ 0x1406708E8 (PopDiagNextCsSleepStudySession.c)
  * Callees:
- *     EtwWrite @ 0x140013320 (EtwWrite.c)
- *     EtwEventEnabled @ 0x1400D54D0 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     EtwWrite @ 0x140012EA0 (EtwWrite.c)
+ *     EtwEventEnabled @ 0x1400D3370 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 void PopDiagTraceSleepStudyStart()

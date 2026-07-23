@@ -1,17 +1,17 @@
 /*
  * XREFs of MmInitializeProcessor @ 0x140A89098
  * Callers:
- *     KiStartDynamicProcessor @ 0x140973808 (KiStartDynamicProcessor.c)
+ *     KiStartDynamicProcessor @ 0x140973A08 (KiStartDynamicProcessor.c)
  *     MiInitNucleus @ 0x140B41888 (MiInitNucleus.c)
  *     KeStartAllProcessors @ 0x140B47590 (KeStartAllProcessors.c)
  * Callees:
- *     MiReservePtes @ 0x14027D190 (MiReservePtes.c)
- *     MiInitializePageColorBase @ 0x1402E1690 (MiInitializePageColorBase.c)
- *     ExAllocatePoolMm @ 0x1402E26E0 (ExAllocatePoolMm.c)
- *     MiDeleteUltraThreadContext @ 0x1402E92A4 (MiDeleteUltraThreadContext.c)
- *     MiCreateUltraThreadContext @ 0x1402EC3F0 (MiCreateUltraThreadContext.c)
- *     KeGetProcessorNodeNumber @ 0x140368180 (KeGetProcessorNodeNumber.c)
- *     MmDeleteProcessor @ 0x140617BCC (MmDeleteProcessor.c)
+ *     MiReservePtes @ 0x14027D420 (MiReservePtes.c)
+ *     MiInitializePageColorBase @ 0x1402E1920 (MiInitializePageColorBase.c)
+ *     ExAllocatePoolMm @ 0x1402E2970 (ExAllocatePoolMm.c)
+ *     MiDeleteUltraThreadContext @ 0x1402E9534 (MiDeleteUltraThreadContext.c)
+ *     MiCreateUltraThreadContext @ 0x1402EC680 (MiCreateUltraThreadContext.c)
+ *     KeGetProcessorNodeNumber @ 0x140368320 (KeGetProcessorNodeNumber.c)
+ *     MmDeleteProcessor @ 0x14061811C (MmDeleteProcessor.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

@@ -1,12 +1,12 @@
 /*
- * XREFs of PopPowerRequestNotificationsBegin @ 0x140749CD4
+ * XREFs of PopPowerRequestNotificationsBegin @ 0x140748004
  * Callers:
- *     PopUmpoProcessPowerMessage @ 0x140A23DB4 (PopUmpoProcessPowerMessage.c)
+ *     PopUmpoProcessPowerMessage @ 0x140A181C4 (PopUmpoProcessPowerMessage.c)
  * Callees:
- *     PopReleaseRwLock @ 0x1403B5EC8 (PopReleaseRwLock.c)
- *     PopUmpoSendPowerRequestAction @ 0x14075D040 (PopUmpoSendPowerRequestAction.c)
- *     PopAcquirePowerRequestPushLock @ 0x140A50600 (PopAcquirePowerRequestPushLock.c)
- *     PopUmpoSendPowerRequestCreate @ 0x140A66258 (PopUmpoSendPowerRequestCreate.c)
+ *     PopReleaseRwLock @ 0x1402AE8FC (PopReleaseRwLock.c)
+ *     PopUmpoSendPowerRequestAction @ 0x14075BFE0 (PopUmpoSendPowerRequestAction.c)
+ *     PopAcquirePowerRequestPushLock @ 0x140A473B0 (PopAcquirePowerRequestPushLock.c)
+ *     PopUmpoSendPowerRequestCreate @ 0x140A5E938 (PopUmpoSendPowerRequestCreate.c)
  */
 
 __int64 __fastcall PopPowerRequestNotificationsBegin(__int64 a1)
@@ -41,5 +41,5 @@ __int64 __fastcall PopPowerRequestNotificationsBegin(__int64 a1)
     }
     v1 = (PVOID *)*v1;
   }
-  return PopReleaseRwLock((signed __int64 *)&PopPowerRequestLock);
+  return PopReleaseRwLock(&PopPowerRequestLock);
 }

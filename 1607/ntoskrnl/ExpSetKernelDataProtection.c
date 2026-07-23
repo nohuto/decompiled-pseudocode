@@ -1,24 +1,24 @@
 /*
- * XREFs of ExpSetKernelDataProtection @ 0x140497230
+ * XREFs of ExpSetKernelDataProtection @ 0x140497CC0
  * Callers:
  *     ExpTimeRefreshWork @ 0x1403C9110 (ExpTimeRefreshWork.c)
- *     ExUpdateLicenseDataInternal @ 0x140496474 (ExUpdateLicenseDataInternal.c)
- *     ExpGenuinePolicyCacheProvider @ 0x140497450 (ExpGenuinePolicyCacheProvider.c)
- *     ExpLoadAndSortLicensingCacheDescriptors @ 0x1404A475C (ExpLoadAndSortLicensingCacheDescriptors.c)
- *     ExGetLicenseTamperState @ 0x1406ADC34 (ExGetLicenseTamperState.c)
- *     ExSetLicenseTamperState @ 0x1406AE220 (ExSetLicenseTamperState.c)
- *     sub_1406AF850 @ 0x1406AF850 (sub_1406AF850.c)
- *     sub_1406AF9A8 @ 0x1406AF9A8 (sub_1406AF9A8.c)
+ *     ExUpdateLicenseDataInternal @ 0x140496F04 (ExUpdateLicenseDataInternal.c)
+ *     ExpGenuinePolicyCacheProvider @ 0x140497EE0 (ExpGenuinePolicyCacheProvider.c)
+ *     ExpLoadAndSortLicensingCacheDescriptors @ 0x14051CB5C (ExpLoadAndSortLicensingCacheDescriptors.c)
+ *     ExGetLicenseTamperState @ 0x1406ADD6C (ExGetLicenseTamperState.c)
+ *     ExSetLicenseTamperState @ 0x1406AE358 (ExSetLicenseTamperState.c)
+ *     sub_1406AF988 @ 0x1406AF988 (sub_1406AF988.c)
+ *     sub_1406AFAE0 @ 0x1406AFAE0 (sub_1406AFAE0.c)
  *     ExInitLicenseData @ 0x1407B505C (ExInitLicenseData.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     sub_140497880 @ 0x140497880 (sub_140497880.c)
- *     sub_140576AEC @ 0x140576AEC (sub_140576AEC.c)
+ *     sub_140498310 @ 0x140498310 (sub_140498310.c)
+ *     sub_14057702C @ 0x14057702C (sub_14057702C.c)
  */
 
 __int64 __fastcall ExpSetKernelDataProtection(__int64 a1, char a2, char a3)
@@ -59,7 +59,7 @@ __int64 __fastcall ExpSetKernelDataProtection(__int64 a1, char a2, char a3)
   if ( qword_140747C68 )
   {
     v18 = *(_DWORD **)qword_140747C68;
-    v15 = sub_140497880(&v18);
+    v15 = sub_140498310(&v18);
     if ( v15 >= 0 )
     {
       PoolWithTag = v18;
@@ -93,7 +93,7 @@ LABEL_11:
       *((_QWORD *)PoolWithTag + 3) = 0LL;
       *((_QWORD *)PoolWithTag + 4) = 0LL;
       *((_BYTE *)PoolWithTag + 40) = 1;
-      v15 = sub_140576AEC(v11);
+      v15 = sub_14057702C(v11);
       if ( v15 >= 0 )
       {
         qword_140747C68 = v12;

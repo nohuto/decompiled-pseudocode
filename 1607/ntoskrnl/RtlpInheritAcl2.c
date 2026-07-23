@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpInheritAcl2 @ 0x14041DCB0
+ * XREFs of RtlpInheritAcl2 @ 0x14041CB70
  * Callers:
- *     RtlpNewSecurityObject @ 0x14041BF40 (RtlpNewSecurityObject.c)
+ *     RtlpNewSecurityObject @ 0x14041AE00 (RtlpNewSecurityObject.c)
  * Callees:
- *     memmove @ 0x140171280 (memmove.c)
- *     RtlpGenerateInheritAcl @ 0x1404145E0 (RtlpGenerateInheritAcl.c)
- *     RtlpCopyAces @ 0x14041E7A0 (RtlpCopyAces.c)
- *     RtlFirstFreeAce @ 0x140420A70 (RtlFirstFreeAce.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     RtlpGenerateInheritAcl @ 0x1404134A0 (RtlpGenerateInheritAcl.c)
+ *     RtlpCopyAces @ 0x14041D660 (RtlpCopyAces.c)
+ *     RtlFirstFreeAce @ 0x14041F930 (RtlFirstFreeAce.c)
  */
 
 __int64 __fastcall RtlpInheritAcl2(
@@ -182,22 +182,7 @@ LABEL_32:
     if ( (unsigned int)v28 <= (unsigned __int8)*a1 )
       LOBYTE(v28) = *a1;
     LOBYTE(v43) = v28;
-    result = RtlpGenerateInheritAcl(
-               (__int64)a1,
-               a4,
-               v29,
-               a7,
-               a8,
-               a9,
-               a10,
-               a11,
-               a13,
-               a14,
-               a12,
-               v24,
-               &v44,
-               (__int64)v19,
-               &a5);
+    result = RtlpGenerateInheritAcl((__int64)a1, a4, v29, a7, a8, a9, a10, a11, a13, a14, a12, v24, &v44, v19, &a5);
     if ( (_DWORD)result == -1073741789 )
     {
       v24 = 1;

@@ -1,36 +1,36 @@
 /*
- * XREFs of CcUnpinFileDataEx @ 0x1400CF860
+ * XREFs of CcUnpinFileDataEx @ 0x1400CD700
  * Callers:
- *     CcPinFileData @ 0x140031DE0 (CcPinFileData.c)
- *     CcMapDataForOverwrite @ 0x14006D414 (CcMapDataForOverwrite.c)
- *     CcZeroDataInCache @ 0x14006D5D0 (CcZeroDataInCache.c)
- *     CcAcquireByteRangeForWrite @ 0x1400CBDC0 (CcAcquireByteRangeForWrite.c)
- *     CcReleaseByteRangeFromWrite @ 0x1400CEE30 (CcReleaseByteRangeFromWrite.c)
- *     CcGetDirtyPages @ 0x1400CF5A0 (CcGetDirtyPages.c)
- *     CcUnpinRepinnedBcb @ 0x1401B1E6C (CcUnpinRepinnedBcb.c)
- *     CcMapData @ 0x1404475F0 (CcMapData.c)
- *     CcUnpinData @ 0x14050C700 (CcUnpinData.c)
- *     CcUnpinDataForThread @ 0x1405F8FF0 (CcUnpinDataForThread.c)
+ *     CcPinFileData @ 0x140031960 (CcPinFileData.c)
+ *     CcMapDataForOverwrite @ 0x14006CF94 (CcMapDataForOverwrite.c)
+ *     CcZeroDataInCache @ 0x14006D150 (CcZeroDataInCache.c)
+ *     CcAcquireByteRangeForWrite @ 0x1400C9C60 (CcAcquireByteRangeForWrite.c)
+ *     CcReleaseByteRangeFromWrite @ 0x1400CCCD0 (CcReleaseByteRangeFromWrite.c)
+ *     CcGetDirtyPages @ 0x1400CD440 (CcGetDirtyPages.c)
+ *     CcUnpinRepinnedBcb @ 0x1401B1D50 (CcUnpinRepinnedBcb.c)
+ *     CcMapData @ 0x1404464C0 (CcMapData.c)
+ *     CcUnpinData @ 0x1404EF690 (CcUnpinData.c)
+ *     CcUnpinDataForThread @ 0x1405F90A4 (CcUnpinDataForThread.c)
  * Callees:
- *     KeReleaseGuardedMutex @ 0x14000CA40 (KeReleaseGuardedMutex.c)
- *     ExpReleaseFastMutexContended @ 0x14000CA8C (ExpReleaseFastMutexContended.c)
- *     MmGetSessionIdEx @ 0x140024FEC (MmGetSessionIdEx.c)
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KeSetEvent @ 0x1400562D0 (KeSetEvent.c)
- *     ExpReleaseResourceForThreadLite @ 0x140068950 (ExpReleaseResourceForThreadLite.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     CcAdjustVacbLevelLockCount @ 0x14006CB4C (CcAdjustVacbLevelLockCount.c)
- *     CcDeallocateBcb @ 0x140088578 (CcDeallocateBcb.c)
- *     KiCheckForKernelApcDelivery @ 0x1400C7DE0 (KiCheckForKernelApcDelivery.c)
- *     ExpAcquireFastMutexContended @ 0x1400C7E28 (ExpAcquireFastMutexContended.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfReleasePushLock @ 0x1400C8620 (ExfReleasePushLock.c)
- *     CcInsertIntoCleanSharedCacheMapList @ 0x1400CBCE8 (CcInsertIntoCleanSharedCacheMapList.c)
- *     CcDeductDirtyPages @ 0x1400CC864 (CcDeductDirtyPages.c)
- *     KeAcquireQueuedSpinLock @ 0x1400E8D30 (KeAcquireQueuedSpinLock.c)
- *     KeReleaseQueuedSpinLock @ 0x1400E8DA0 (KeReleaseQueuedSpinLock.c)
- *     EtwTraceAutoBoostEntryExhaustion @ 0x14015964C (EtwTraceAutoBoostEntryExhaustion.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
+ *     KeReleaseGuardedMutex @ 0x14000C5C0 (KeReleaseGuardedMutex.c)
+ *     ExpReleaseFastMutexContended @ 0x14000C60C (ExpReleaseFastMutexContended.c)
+ *     MmGetSessionIdEx @ 0x140024B6C (MmGetSessionIdEx.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KeSetEvent @ 0x140055E50 (KeSetEvent.c)
+ *     ExpReleaseResourceForThreadLite @ 0x1400684D0 (ExpReleaseResourceForThreadLite.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     CcAdjustVacbLevelLockCount @ 0x14006C6CC (CcAdjustVacbLevelLockCount.c)
+ *     KiCheckForKernelApcDelivery @ 0x1400C5C80 (KiCheckForKernelApcDelivery.c)
+ *     ExpAcquireFastMutexContended @ 0x1400C5CC8 (ExpAcquireFastMutexContended.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfReleasePushLock @ 0x1400C64C0 (ExfReleasePushLock.c)
+ *     CcInsertIntoCleanSharedCacheMapList @ 0x1400C9B88 (CcInsertIntoCleanSharedCacheMapList.c)
+ *     CcDeductDirtyPages @ 0x1400CA704 (CcDeductDirtyPages.c)
+ *     KeAcquireQueuedSpinLock @ 0x1400E6BD0 (KeAcquireQueuedSpinLock.c)
+ *     KeReleaseQueuedSpinLock @ 0x1400E6C40 (KeReleaseQueuedSpinLock.c)
+ *     CcDeallocateBcb @ 0x14010C768 (CcDeallocateBcb.c)
+ *     EtwTraceAutoBoostEntryExhaustion @ 0x140159BBC (EtwTraceAutoBoostEntryExhaustion.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
  */
 
 void __fastcall CcUnpinFileDataEx(__int64 a1, char a2, int a3)
@@ -110,7 +110,7 @@ void __fastcall CcUnpinFileDataEx(__int64 a1, char a2, int a3)
   v14 = (__int64)CurrentThread->LockEntries + a1;
   if ( v14 )
   {
-    if ( v10 < qword_140326910 || v10 >= qword_140326910 + 0x8000000000LL )
+    if ( v10 < qword_140326950 || v10 >= qword_140326950 + 0x8000000000LL )
       SessionId = -1;
     else
       SessionId = MmGetSessionIdEx(CurrentThread->ApcState.Process);
@@ -231,6 +231,6 @@ LABEL_14:
       }
     }
     KeReleaseGuardedMutex((PKGUARDED_MUTEX)(v8 + 280));
-    CcDeallocateBcb((char *)v5);
+    CcDeallocateBcb(v5);
   }
 }

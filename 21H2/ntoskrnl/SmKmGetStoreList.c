@@ -1,9 +1,9 @@
 /*
- * XREFs of SmKmGetStoreList @ 0x14092B598
+ * XREFs of SmKmGetStoreList @ 0x14092B6F8
  * Callers:
- *     SmProcessListRequest @ 0x140929B84 (SmProcessListRequest.c)
+ *     SmProcessListRequest @ 0x140929CE4 (SmProcessListRequest.c)
  * Callees:
- *     SmKmStoreRefFromStoreIndex @ 0x1402D95D8 (SmKmStoreRefFromStoreIndex.c)
+ *     SmKmStoreRefFromStoreIndex @ 0x14028A928 (SmKmStoreRefFromStoreIndex.c)
  */
 
 __int64 __fastcall SmKmGetStoreList(__int64 a1)

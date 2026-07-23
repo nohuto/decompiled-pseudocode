@@ -1,7 +1,7 @@
 /*
- * XREFs of ExpSaPageGroupDescriptorFree @ 0x14031F5BC
+ * XREFs of ExpSaPageGroupDescriptorFree @ 0x14031F7AC
  * Callers:
- *     ExpSaAllocatorOptimizeList @ 0x14031F4A4 (ExpSaAllocatorOptimizeList.c)
+ *     ExpSaAllocatorOptimizeList @ 0x14031F694 (ExpSaAllocatorOptimizeList.c)
  * Callees:
  *     KiAbEntryRemoveFromTree @ 0x140004530 (KiAbEntryRemoveFromTree.c)
  *     ExfAcquirePushLockExclusiveEx @ 0x140005760 (ExfAcquirePushLockExclusiveEx.c)
@@ -10,19 +10,19 @@
  *     MiGetSystemRegionType @ 0x14004EC30 (MiGetSystemRegionType.c)
  *     KiAbThreadRemoveBoosts @ 0x14004EFD0 (KiAbThreadRemoveBoosts.c)
  *     MmGetSessionIdEx @ 0x14004F060 (MmGetSessionIdEx.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KeQueryMaximumProcessorCountEx @ 0x1400A6A80 (KeQueryMaximumProcessorCountEx.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     ExpSaBinaryArrayRemove @ 0x14031F574 (ExpSaBinaryArrayRemove.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     KeQueryMaximumProcessorCountEx @ 0x1400A69C0 (KeQueryMaximumProcessorCountEx.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     ExpSaBinaryArrayRemove @ 0x14031F764 (ExpSaBinaryArrayRemove.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 void __fastcall ExpSaPageGroupDescriptorFree(_DWORD *P)
 {
   __int64 MaximumProcessorCount; // rdi
-  __int64 v3; // rax
+  _RTL_BALANCED_NODE *v3; // rax
   signed __int8 v4; // cf
-  __int64 v5; // rbx
+  _RTL_BALANCED_NODE *v5; // rbx
   __int64 v6; // rsi
   unsigned int v7; // edx
   unsigned int v8; // ecx
@@ -52,7 +52,7 @@ void __fastcall ExpSaPageGroupDescriptorFree(_DWORD *P)
   if ( v4 )
     ExfAcquirePushLockExclusiveEx(&ExSaPageGroupDescriptorArrayLock, v3, (ULONG_PTR)&ExSaPageGroupDescriptorArrayLock);
   if ( v5 )
-    *(_BYTE *)(v5 + 26) |= 1u;
+    BYTE2(v5[1].Left) |= 1u;
   if ( (_DWORD)MaximumProcessorCount )
   {
     v6 = 0LL;
@@ -118,7 +118,7 @@ LABEL_20:
   }
   v19->CrossThreadReleasableAndBusyByte |= 2u;
   if ( (__int64)v19->LockState.LockState < 0 )
-    KiAbEntryRemoveFromTree((__int64)&CurrentThread->LockEntries[v18], SessionId);
+    KiAbEntryRemoveFromTree(&CurrentThread->LockEntries[v18].TreeNode, SessionId);
   v24 = 0;
   v24 = v19->BoostBitmap.AllFields & 0x1FFFF;
   v19->BoostBitmap.AllFields &= 0xFFFE0000;

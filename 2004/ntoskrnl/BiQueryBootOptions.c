@@ -12,49 +12,49 @@
  *     ExAllocatePoolWithTag @ 0x1409B1160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall BiQueryBootOptions(_QWORD *a1, _DWORD *a2)
+__int64 __fastcall BiQueryBootOptions(_BOOT_OPTIONS **a1, ULONG *a2)
 {
-  void *v2; // rdi
-  int BootOptions; // ebx
-  PVOID PoolWithTag; // rax
-  SIZE_T NumberOfBytes; // [rsp+40h] [rbp+8h] BYREF
+  _BOOT_OPTIONS *v2; // rdi
+  NTSTATUS v5; // ebx
+  _BOOT_OPTIONS *PoolWithTag; // rax
+  ULONG BootOptionsLength; // [rsp+40h] [rbp+8h] BYREF
   __int64 v9; // [rsp+48h] [rbp+10h] BYREF
 
   *a1 = 0LL;
   v2 = 0LL;
   *a2 = 0;
   v9 = 0LL;
-  LODWORD(NumberOfBytes) = 0;
-  BootOptions = BiAcquirePrivilege(0x16u, (__int64)&v9);
-  if ( BootOptions >= 0 )
+  BootOptionsLength = 0;
+  v5 = BiAcquirePrivilege(0x16u, (__int64)&v9);
+  if ( v5 >= 0 )
   {
-    BootOptions = ZwQueryBootOptions(0LL, (__int64)&NumberOfBytes);
-    if ( BootOptions != -1073741789 )
+    v5 = ZwQueryBootOptions(0LL, &BootOptionsLength);
+    if ( v5 != -1073741789 )
       goto LABEL_6;
-    PoolWithTag = ExAllocatePoolWithTag(PagedPool, (unsigned int)NumberOfBytes, 0x4B444342u);
+    PoolWithTag = (_BOOT_OPTIONS *)ExAllocatePoolWithTag(PagedPool, BootOptionsLength, 0x4B444342u);
     v2 = PoolWithTag;
     if ( !PoolWithTag )
     {
-      BootOptions = -1073741670;
+      v5 = -1073741670;
 LABEL_10:
       BiReleasePrivilege((unsigned int *)&v9);
-      return (unsigned int)BootOptions;
+      return (unsigned int)v5;
     }
-    BootOptions = ZwQueryBootOptions((__int64)PoolWithTag, (__int64)&NumberOfBytes);
-    if ( BootOptions < 0 )
+    v5 = ZwQueryBootOptions(PoolWithTag, &BootOptionsLength);
+    if ( v5 < 0 )
     {
 LABEL_6:
-      BiLogMessage(4LL, L"Failed to query boot options. Status: %x", (unsigned int)BootOptions);
-      if ( BootOptions < 0 )
+      BiLogMessage(4LL, L"Failed to query boot options. Status: %x", (unsigned int)v5);
+      if ( v5 < 0 )
       {
         if ( v2 )
           ExFreePoolWithTag(v2, 0x4B444342u);
         goto LABEL_10;
       }
     }
-    *a2 = NumberOfBytes;
+    *a2 = BootOptionsLength;
     *a1 = v2;
     goto LABEL_10;
   }
-  return (unsigned int)BootOptions;
+  return (unsigned int)v5;
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlDllShutdownInProgress @ 0x18002A640
+ * XREFs of RtlDllShutdownInProgress @ 0x18002A630
  * Callers:
- *     RtlResetNtUserPfn @ 0x180096AB0 (RtlResetNtUserPfn.c)
+ *     RtlResetNtUserPfn @ 0x180096AA0 (RtlResetNtUserPfn.c)
  * Callees:
  *     <none>
  */
 
-_BOOL8 RtlDllShutdownInProgress()
+BOOLEAN RtlDllShutdownInProgress(void)
 {
   return byte_180152408 != 0;
 }

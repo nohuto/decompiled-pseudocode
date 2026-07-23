@@ -1,13 +1,13 @@
 /*
- * XREFs of MmFreeSecureKernelPages @ 0x140657EAC
+ * XREFs of MmFreeSecureKernelPages @ 0x1406583FC
  * Callers:
- *     PspIumAllocatePhysicalPages @ 0x1405A5B00 (PspIumAllocatePhysicalPages.c)
- *     PspIumFreePhysicalPages @ 0x1405A6050 (PspIumFreePhysicalPages.c)
+ *     PspIumAllocatePhysicalPages @ 0x1405A6070 (PspIumAllocatePhysicalPages.c)
+ *     PspIumFreePhysicalPages @ 0x1405A65C0 (PspIumFreePhysicalPages.c)
  * Callees:
- *     MiFreePagesFromMdl @ 0x1402EBB80 (MiFreePagesFromMdl.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     MiFreeSecureKernelPage @ 0x140656984 (MiFreeSecureKernelPage.c)
+ *     MiFreePagesFromMdl @ 0x1402EBE10 (MiFreePagesFromMdl.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     MiFreeSecureKernelPage @ 0x140656ED4 (MiFreeSecureKernelPage.c)
  */
 
 __int64 __fastcall MmFreeSecureKernelPages(__int64 a1, int a2)

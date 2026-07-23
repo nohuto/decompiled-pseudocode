@@ -1,21 +1,21 @@
 /*
- * XREFs of PopEtEnergyTrackerQuery @ 0x14068E738
+ * XREFs of PopEtEnergyTrackerQuery @ 0x1405EE5A8
  * Callers:
- *     NtPowerInformation @ 0x1406777D0 (NtPowerInformation.c)
+ *     NtPowerInformation @ 0x14066AF10 (NtPowerInformation.c)
  * Callees:
- *     KeQueryTimelineBitmapTime @ 0x140205720 (KeQueryTimelineBitmapTime.c)
- *     KiQueryUnbiasedInterruptTime @ 0x1402546F4 (KiQueryUnbiasedInterruptTime.c)
- *     PopReleaseRwLock @ 0x14027C284 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x140281AD4 (PopAcquireRwLockExclusive.c)
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
- *     memset @ 0x140414200 (memset.c)
- *     PopEtDataSectionCopyData @ 0x14068F3A0 (PopEtDataSectionCopyData.c)
- *     PopEtDataSectionReserve @ 0x14068F3EC (PopEtDataSectionReserve.c)
- *     PopEtDataSectionStart @ 0x14068F43C (PopEtDataSectionStart.c)
- *     PopEtEnergyTrackerCleanupAggregates @ 0x14068F45C (PopEtEnergyTrackerCleanupAggregates.c)
- *     ObReferenceObjectByHandleWithTag @ 0x1406F0B80 (ObReferenceObjectByHandleWithTag.c)
- *     PopEtDataSectionCopyString @ 0x1408F299C (PopEtDataSectionCopyString.c)
- *     PopEtEnergyTrackerSnapshotProcesses @ 0x1408F2B98 (PopEtEnergyTrackerSnapshotProcesses.c)
+ *     PopReleaseRwLock @ 0x14026A224 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14026FD14 (PopAcquireRwLockExclusive.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x140275C64 (KiQueryUnbiasedInterruptTime.c)
+ *     KeQueryTimelineBitmapTime @ 0x1402AA050 (KeQueryTimelineBitmapTime.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     PopEtDataSectionCopyData @ 0x1405EF210 (PopEtDataSectionCopyData.c)
+ *     PopEtDataSectionReserve @ 0x1405EF25C (PopEtDataSectionReserve.c)
+ *     PopEtDataSectionStart @ 0x1405EF2AC (PopEtDataSectionStart.c)
+ *     PopEtEnergyTrackerCleanupAggregates @ 0x1405EF2CC (PopEtEnergyTrackerCleanupAggregates.c)
+ *     ObReferenceObjectByHandleWithTag @ 0x140707F60 (ObReferenceObjectByHandleWithTag.c)
+ *     PopEtDataSectionCopyString @ 0x1408F2AFC (PopEtDataSectionCopyString.c)
+ *     PopEtEnergyTrackerSnapshotProcesses @ 0x1408F2CF8 (PopEtEnergyTrackerSnapshotProcesses.c)
  */
 
 __int64 __fastcall PopEtEnergyTrackerQuery(void *a1, __int64 a2, unsigned int a3)

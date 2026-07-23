@@ -1,29 +1,29 @@
 /*
- * XREFs of VhdiMountVhdFile @ 0x14082A068
+ * XREFs of VhdiMountVhdFile @ 0x14082A898
  * Callers:
- *     VhdiAutoAttachOneVhd @ 0x140829E6C (VhdiAutoAttachOneVhd.c)
- *     VhdInitialize @ 0x140C5D2CC (VhdInitialize.c)
+ *     VhdiAutoAttachOneVhd @ 0x14082A69C (VhdiAutoAttachOneVhd.c)
+ *     VhdInitialize @ 0x140C5F424 (VhdInitialize.c)
  * Callees:
- *     IoBuildDeviceIoControlRequest @ 0x1402678C0 (IoBuildDeviceIoControlRequest.c)
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     IoGetRelatedDeviceObject @ 0x140373C70 (IoGetRelatedDeviceObject.c)
- *     IofCallDriver @ 0x140374160 (IofCallDriver.c)
- *     KeInitializeEvent @ 0x140409D80 (KeInitializeEvent.c)
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     wcscat_s @ 0x140504740 (wcscat_s.c)
- *     wcsncat_s @ 0x140504870 (wcsncat_s.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwCreateFile @ 0x1406A6EB0 (ZwCreateFile.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ObReferenceObjectByHandle @ 0x14084AF40 (ObReferenceObjectByHandle.c)
- *     IopGetDeviceInterfaces @ 0x1408C8470 (IopGetDeviceInterfaces.c)
- *     IoGetDeviceObjectPointer @ 0x140967A30 (IoGetDeviceObjectPointer.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     IoGetRelatedDeviceObject @ 0x14025C530 (IoGetRelatedDeviceObject.c)
+ *     IofCallDriver @ 0x14025CA20 (IofCallDriver.c)
+ *     IoBuildDeviceIoControlRequest @ 0x14025EEA0 (IoBuildDeviceIoControlRequest.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     KeInitializeEvent @ 0x140402260 (KeInitializeEvent.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     wcscat_s @ 0x140502000 (wcscat_s.c)
+ *     wcsncat_s @ 0x140502130 (wcsncat_s.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwCreateFile @ 0x1406A7E50 (ZwCreateFile.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ObReferenceObjectByHandle @ 0x140847200 (ObReferenceObjectByHandle.c)
+ *     IopGetDeviceInterfaces @ 0x1408C5EA0 (IopGetDeviceInterfaces.c)
+ *     IoGetDeviceObjectPointer @ 0x1409504C0 (IoGetDeviceObjectPointer.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall VhdiMountVhdFile(void *a1, unsigned int a2, int a3, char a4, _OWORD *a5)
@@ -120,7 +120,7 @@ __int64 __fastcall VhdiMountVhdFile(void *a1, unsigned int a2, int a3, char a4, 
     {
       v12 = v5 + 2;
       v13 = v5 + 34;
-      Pool2 = ExAllocatePool2(0x40uLL);
+      Pool2 = ExAllocatePool2(0x40uLL, (unsigned int)(v5 + 34), 0x42646856u);
       v8 = (void *)Pool2;
       if ( !Pool2 )
         goto LABEL_9;
@@ -133,7 +133,7 @@ __int64 __fastcall VhdiMountVhdFile(void *a1, unsigned int a2, int a3, char a4, 
       memmove((void *)(Pool2 + 32), v15, v5);
       v16 = v5 + 516;
       OutputBufferLength = v12 + 542;
-      OutputBuffer = (_DWORD *)ExAllocatePool2(0x40uLL);
+      OutputBuffer = (_DWORD *)ExAllocatePool2(0x40uLL, OutputBufferLength, 0x42646856u);
       if ( !OutputBuffer )
       {
 LABEL_9:

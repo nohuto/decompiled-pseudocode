@@ -1,5 +1,5 @@
 /*
- * XREFs of KiBreakpointTrapShadow @ 0x140C592C0
+ * XREFs of KiBreakpointTrapShadow @ 0x140C5F2C0
  * Callers:
  *     <none>
  * Callees:

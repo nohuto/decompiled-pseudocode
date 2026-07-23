@@ -1,12 +1,12 @@
 /*
- * XREFs of KeSetIdealProcessorThreadByNumber @ 0x140427F74
+ * XREFs of KeSetIdealProcessorThreadByNumber @ 0x140202C34
  * Callers:
- *     NtQueryInformationThread @ 0x140A1F330 (NtQueryInformationThread.c)
- *     NtSetInformationThread @ 0x140A833F0 (NtSetInformationThread.c)
+ *     NtSetInformationThread @ 0x14094C4F0 (NtSetInformationThread.c)
+ *     NtQueryInformationThread @ 0x140A28950 (NtQueryInformationThread.c)
  * Callees:
- *     KeSetIdealProcessorThreadEx @ 0x140204850 (KeSetIdealProcessorThreadEx.c)
- *     KeGetProcessorIndexFromNumber @ 0x140428990 (KeGetProcessorIndexFromNumber.c)
- *     KeGetProcessorNumberFromIndex @ 0x1404289E0 (KeGetProcessorNumberFromIndex.c)
+ *     KeGetProcessorNumberFromIndex @ 0x140202CC0 (KeGetProcessorNumberFromIndex.c)
+ *     KeSetIdealProcessorThreadEx @ 0x140204930 (KeSetIdealProcessorThreadEx.c)
+ *     KeGetProcessorIndexFromNumber @ 0x14021AC70 (KeGetProcessorIndexFromNumber.c)
  */
 
 __int64 __fastcall KeSetIdealProcessorThreadByNumber(
@@ -14,13 +14,11 @@ __int64 __fastcall KeSetIdealProcessorThreadByNumber(
         PPROCESSOR_NUMBER ProcNumber,
         PPROCESSOR_NUMBER a3)
 {
-  volatile unsigned int ProcessorIndexFromNumber; // eax
+  ULONG ProcessorIndexFromNumber; // eax
   unsigned int v6; // edi
   volatile unsigned int IdealProcessor; // ecx
   unsigned int v9; // eax
-  volatile unsigned int v10; // [rsp+48h] [rbp+20h] BYREF
 
-  v10 = 0;
   ProcessorIndexFromNumber = KeGetProcessorIndexFromNumber(ProcNumber);
   if ( ProcessorIndexFromNumber == -1 )
   {
@@ -32,8 +30,8 @@ __int64 __fastcall KeSetIdealProcessorThreadByNumber(
   }
   else
   {
-    v9 = KeSetIdealProcessorThreadEx(a1, ProcessorIndexFromNumber, (unsigned int *)&v10);
-    IdealProcessor = v10;
+    v9 = KeSetIdealProcessorThreadEx(a1, ProcessorIndexFromNumber);
+    IdealProcessor = 0;
     v6 = v9;
   }
   KeGetProcessorNumberFromIndex(IdealProcessor, a3);

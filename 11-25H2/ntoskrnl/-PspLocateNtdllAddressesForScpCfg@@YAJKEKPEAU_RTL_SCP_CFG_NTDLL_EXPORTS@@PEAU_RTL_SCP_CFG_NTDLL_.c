@@ -20,10 +20,10 @@ __int64 __fastcall PspLocateNtdllAddressesForScpCfg(
 {
   __int64 SystemDllInfo; // rsi
   unsigned int v8; // ebx
-  __int64 v9; // r14
+  PIMAGE_NT_HEADERS v9; // r14
   __int64 result; // rax
   unsigned __int64 v11; // r9
-  __int64 v12; // r10
+  __int64 SizeOfImage; // r10
   unsigned int i; // r11d
   unsigned __int64 *v14; // r8
   unsigned __int64 v15; // rcx
@@ -43,26 +43,26 @@ __int64 __fastcall PspLocateNtdllAddressesForScpCfg(
   int v29; // edx
   unsigned int v30; // eax
   __int64 v31; // r9
-  __int64 v32; // [rsp+30h] [rbp-78h] BYREF
+  PIMAGE_NT_HEADERS OutHeaders; // [rsp+30h] [rbp-78h] BYREF
   __int64 v33; // [rsp+40h] [rbp-68h]
   _QWORD v34[9]; // [rsp+48h] [rbp-60h]
 
   memset_0(a5, 0, 0x40uLL);
   SystemDllInfo = PsQuerySystemDllInfo(a2 == 0 ? 3 : 0);
   v8 = 0;
-  v32 = 0LL;
-  RtlImageNtHeaderEx(1, *(_QWORD *)(SystemDllInfo + 32), 0LL, &v32);
-  v9 = v32;
+  OutHeaders = 0LL;
+  RtlImageNtHeaderEx(1u, *(PVOID *)(SystemDllInfo + 32), 0LL, &OutHeaders);
+  v9 = OutHeaders;
   result = PspCopyNtdllExport(
              (const struct _PS_SYSTEM_DLL_INFO *)SystemDllInfo,
-             *(_DWORD *)(v32 + 80),
+             OutHeaders->OptionalHeader.SizeOfImage,
              "RtlpScpCfgNtdllExports",
              a4,
              0x68uLL);
   if ( (int)result >= 0 )
   {
     v11 = *(_QWORD *)(SystemDllInfo + 24);
-    v12 = *(unsigned int *)(v9 + 80);
+    SizeOfImage = v9->OptionalHeader.SizeOfImage;
     for ( i = 0; i < 4; ++i )
     {
       v14 = (unsigned __int64 *)((char *)a4 + 16 * i);
@@ -70,9 +70,9 @@ __int64 __fastcall PspLocateNtdllAddressesForScpCfg(
       v16 = *v14;
       if ( v15 <= *v14
         || v15 - v16 > 0x1000
-        || (v17 = *(_QWORD *)(SystemDllInfo + 24), v17 + v12 <= v17)
+        || (v17 = *(_QWORD *)(SystemDllInfo + 24), v17 + SizeOfImage <= v17)
         || v16 < v17
-        || v15 > v17 + v12 )
+        || v15 > v17 + SizeOfImage )
       {
         result = 3221225485LL;
         v18 = 0;
@@ -101,11 +101,11 @@ __int64 __fastcall PspLocateNtdllAddressesForScpCfg(
     {
       v19 = v34[2 * v8 - 1];
       v20 = v19 + v34[2 * v8];
-      if ( v11 + v12 <= v11 || v20 <= v19 || v19 < v11 || v20 > v11 + v12 )
+      if ( v11 + SizeOfImage <= v11 || v20 <= v19 || v19 < v11 || v20 > v11 + SizeOfImage )
         return 3221225485LL;
       ++v8;
     }
-    ScpCfgFunctionOffset = MmGetScpCfgFunctionOffset(320, v12);
+    ScpCfgFunctionOffset = MmGetScpCfgFunctionOffset(320, SizeOfImage);
     PspNtdllScpFunctions = v22 + ScpCfgFunctionOffset;
     v24 = MmGetScpCfgFunctionOffset(448, v23);
     qword_140FC6608 = v25 + v24;

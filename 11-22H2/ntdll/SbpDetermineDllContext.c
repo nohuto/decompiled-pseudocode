@@ -12,69 +12,64 @@
  *     __security_check_cookie @ 0x18008E790 (__security_check_cookie.c)
  */
 
-__int64 __fastcall SbpDetermineDllContext(__int64 a1, _QWORD *a2)
+__int64 __fastcall SbpDetermineDllContext(PACTIVATION_CONTEXT ActivationContext, _QWORD *a2)
 {
   unsigned int v2; // ebx
-  __int64 v5; // rax
-  unsigned int v6; // edi
-  unsigned int v7; // esi
+  PIMAGE_NT_HEADERS v5; // rax
+  unsigned int MajorSubsystemVersion; // edi
+  unsigned int MinorSubsystemVersion; // esi
   __int64 v8; // rdx
-  _BYTE *v10; // r14
-  __int64 v11; // r15
-  _DWORD *v12; // rdi
-  _DWORD *v13; // [rsp+20h] [rbp-E0h] BYREF
-  __int64 v14; // [rsp+28h] [rbp-D8h] BYREF
-  __int64 v15; // [rsp+30h] [rbp-D0h] BYREF
-  __int64 v16; // [rsp+38h] [rbp-C8h] BYREF
-  __int64 v17; // [rsp+40h] [rbp-C0h] BYREF
-  _BYTE v18[512]; // [rsp+50h] [rbp-B0h] BYREF
+  __int64 v10; // r15
+  __int64 *v11; // rdi
+  __int64 v12; // [rsp+28h] [rbp-D8h] BYREF
+  __int64 v13; // [rsp+30h] [rbp-D0h] BYREF
+  _QWORD v14[3]; // [rsp+38h] [rbp-C8h] BYREF
+  unsigned int v15; // [rsp+50h] [rbp-B0h] BYREF
+  __int64 v16; // [rsp+58h] [rbp-A8h] BYREF
 
   v2 = 0;
-  v17 = 512LL;
-  v14 = 0LL;
-  v16 = 0LL;
-  v15 = 0LL;
-  v13 = v18;
-  if ( a2 && a1 )
+  v14[1] = 512LL;
+  v12 = 0LL;
+  v14[0] = 0LL;
+  v13 = 0LL;
+  if ( a2 && ActivationContext )
   {
-    v5 = RtlImageNtHeader(a1);
-    v6 = *(unsigned __int16 *)(v5 + 72);
-    v7 = *(unsigned __int16 *)(v5 + 74);
-    SbGetContextDetailsById(4LL, &v14);
-    v8 = v14;
-    if ( (unsigned __int16)v6 <= *(_WORD *)(v14 + 20)
-      && ((_WORD)v6 != *(_WORD *)(v14 + 20) || (unsigned __int16)v7 < *(_WORD *)(v14 + 22)) )
+    v5 = RtlImageNtHeader(ActivationContext);
+    MajorSubsystemVersion = v5->OptionalHeader.MajorSubsystemVersion;
+    MinorSubsystemVersion = v5->OptionalHeader.MinorSubsystemVersion;
+    SbGetContextDetailsById(4LL, &v12);
+    v8 = v12;
+    if ( (unsigned __int16)MajorSubsystemVersion <= *(_WORD *)(v12 + 20)
+      && ((_WORD)MajorSubsystemVersion != *(_WORD *)(v12 + 20)
+       || (unsigned __int16)MinorSubsystemVersion < *(_WORD *)(v12 + 22)) )
     {
-      if ( (unsigned int)SbpRetrieveCompatibilityManifest(a1, &v13, &v17) )
+      if ( (unsigned int)SbpRetrieveCompatibilityManifest(ActivationContext) && &v15 )
       {
-        v10 = v13;
-        if ( v13 )
+        MinorSubsystemVersion += MajorSubsystemVersion << 16;
+        if ( v15 )
         {
-          v7 += v6 << 16;
-          if ( *v13 )
+          v10 = v15;
+          v11 = &v16;
+          do
           {
-            v11 = (unsigned int)*v13;
-            v12 = v13 + 2;
-            do
+            if ( *((_DWORD *)v11 + 4) == 1
+              && (unsigned int)SbGetContextDetailsByGuid(v11, &v13)
+              && *(unsigned __int16 *)(v13 + 22) + (*(unsigned __int16 *)(v13 + 20) << 16) >= MinorSubsystemVersion )
             {
-              if ( v12[4] == 1
-                && (unsigned int)SbGetContextDetailsByGuid(v12, &v15)
-                && *(unsigned __int16 *)(v15 + 22) + (*(unsigned __int16 *)(v15 + 20) << 16) >= v7 )
-              {
-                v7 = *(unsigned __int16 *)(v15 + 22) + (*(unsigned __int16 *)(v15 + 20) << 16);
-              }
-              v12 += 8;
-              --v11;
+              MinorSubsystemVersion = *(unsigned __int16 *)(v13 + 22) + (*(unsigned __int16 *)(v13 + 20) << 16);
             }
-            while ( v11 );
+            v11 += 4;
+            --v10;
           }
-          if ( v10 != v18 )
-            RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, v13);
-          v6 = HIWORD(v7);
+          while ( v10 );
         }
+        MajorSubsystemVersion = HIWORD(MinorSubsystemVersion);
       }
-      SbGetContextDetailsByVersion((unsigned __int16)v6, (unsigned __int16)v7, &v16);
-      v8 = v16;
+      SbGetContextDetailsByVersion(
+        (unsigned __int16)MajorSubsystemVersion,
+        (unsigned __int16)MinorSubsystemVersion,
+        v14);
+      v8 = v14[0];
     }
     v2 = 1;
     *a2 = v8;

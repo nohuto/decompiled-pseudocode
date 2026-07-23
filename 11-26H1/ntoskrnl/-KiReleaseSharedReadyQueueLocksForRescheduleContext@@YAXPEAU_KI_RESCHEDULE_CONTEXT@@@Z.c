@@ -1,10 +1,10 @@
 /*
- * XREFs of ?KiReleaseSharedReadyQueueLocksForRescheduleContext@@YAXPEAU_KI_RESCHEDULE_CONTEXT@@@Z @ 0x1402BA3C0
+ * XREFs of ?KiReleaseSharedReadyQueueLocksForRescheduleContext@@YAXPEAU_KI_RESCHEDULE_CONTEXT@@@Z @ 0x140305080
  * Callers:
- *     KiSearchForNewThreadsForRescheduleContext @ 0x14022CBE0 (KiSearchForNewThreadsForRescheduleContext.c)
+ *     KiSearchForNewThreadsForRescheduleContext @ 0x14022E570 (KiSearchForNewThreadsForRescheduleContext.c)
  * Callees:
- *     KxWaitForLockChainValid @ 0x1402BA360 (KxWaitForLockChainValid.c)
- *     KiWakeAddressAll @ 0x1402BA5A8 (KiWakeAddressAll.c)
+ *     KxWaitForLockChainValid @ 0x140305020 (KxWaitForLockChainValid.c)
+ *     KiWakeAddressAll @ 0x140305268 (KiWakeAddressAll.c)
  */
 
 void __fastcall KiReleaseSharedReadyQueueLocksForRescheduleContext(struct _KI_RESCHEDULE_CONTEXT *a1)

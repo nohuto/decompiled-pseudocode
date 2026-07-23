@@ -1,5 +1,5 @@
 /*
- * XREFs of IvtSetMessageInterruptRouting @ 0x140BF0870
+ * XREFs of IvtSetMessageInterruptRouting @ 0x140BF6870
  * Callers:
  *     <none>
  * Callees:

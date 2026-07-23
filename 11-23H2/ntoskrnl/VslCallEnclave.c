@@ -1,14 +1,14 @@
 /*
- * XREFs of VslCallEnclave @ 0x1408A4A98
+ * XREFs of VslCallEnclave @ 0x1408A4CE8
  * Callers:
- *     PsCallEnclave @ 0x1409B6800 (PsCallEnclave.c)
+ *     PsCallEnclave @ 0x1409B6A00 (PsCallEnclave.c)
  * Callees:
- *     MmProbeAndLockPages @ 0x140238790 (MmProbeAndLockPages.c)
- *     KeAlertThreadByThreadId @ 0x1402B97E0 (KeAlertThreadByThreadId.c)
- *     MmUnlockPages @ 0x1402CAB10 (MmUnlockPages.c)
- *     VslpEnterIumSecureMode @ 0x14033FCF0 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     MmProbeAndLockPages @ 0x140238860 (MmProbeAndLockPages.c)
+ *     KeAlertThreadByThreadId @ 0x1402B9A70 (KeAlertThreadByThreadId.c)
+ *     MmUnlockPages @ 0x1402CADA0 (MmUnlockPages.c)
+ *     VslpEnterIumSecureMode @ 0x14033FF80 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 __int64 __fastcall VslCallEnclave(

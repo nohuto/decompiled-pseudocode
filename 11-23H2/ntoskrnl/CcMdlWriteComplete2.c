@@ -1,19 +1,19 @@
 /*
- * XREFs of CcMdlWriteComplete2 @ 0x14036B88C
+ * XREFs of CcMdlWriteComplete2 @ 0x14036BA2C
  * Callers:
- *     FsRtlMdlWriteCompleteDev @ 0x1407E82C0 (FsRtlMdlWriteCompleteDev.c)
- *     CcMdlWriteComplete @ 0x1407E9DD0 (CcMdlWriteComplete.c)
+ *     FsRtlMdlWriteCompleteDev @ 0x1407E8590 (FsRtlMdlWriteCompleteDev.c)
+ *     CcMdlWriteComplete @ 0x1407EA0A0 (CcMdlWriteComplete.c)
  * Callees:
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
- *     MmFlushSection @ 0x140287490 (MmFlushSection.c)
- *     CcDecrementOpenCount @ 0x14029CB20 (CcDecrementOpenCount.c)
- *     IoFreeMdl @ 0x1402ACFE0 (IoFreeMdl.c)
- *     CcSetDirtyInMask @ 0x1402C8FF0 (CcSetDirtyInMask.c)
- *     MmUnlockPages @ 0x1402CAB10 (MmUnlockPages.c)
- *     RtlRaiseStatus @ 0x1403217B0 (RtlRaiseStatus.c)
- *     FsRtlIsNtstatusExpected @ 0x140359D00 (FsRtlIsNtstatusExpected.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402610F0 (KeAcquireInStackQueuedSpinLock.c)
+ *     MmFlushSection @ 0x140287720 (MmFlushSection.c)
+ *     CcDecrementOpenCount @ 0x14029CDB0 (CcDecrementOpenCount.c)
+ *     IoFreeMdl @ 0x1402AD270 (IoFreeMdl.c)
+ *     CcSetDirtyInMask @ 0x1402C9280 (CcSetDirtyInMask.c)
+ *     MmUnlockPages @ 0x1402CADA0 (MmUnlockPages.c)
+ *     RtlRaiseStatus @ 0x140321A40 (RtlRaiseStatus.c)
+ *     FsRtlIsNtstatusExpected @ 0x140359EA0 (FsRtlIsNtstatusExpected.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void __fastcall CcMdlWriteComplete2(__int64 a1, __int64 *a2, struct _MDL *a3)
@@ -37,7 +37,7 @@ void __fastcall CcMdlWriteComplete2(__int64 a1, __int64 *a2, struct _MDL *a3)
   int v20; // eax
   bool v21; // zf
   BOOLEAN IsNtstatusExpected; // al
-  int v23; // ecx
+  NTSTATUS v23; // ecx
   struct _IO_STATUS_BLOCK v24; // [rsp+30h] [rbp-30h] BYREF
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+40h] [rbp-20h] BYREF
   __int64 v26; // [rsp+A8h] [rbp+48h] BYREF
@@ -83,10 +83,13 @@ void __fastcall CcMdlWriteComplete2(__int64 a1, __int64 *a2, struct _MDL *a3)
     CcDecrementOpenCount(v10);
     KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
     OldIrql = LockHandle.OldIrql;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && LockHandle.OldIrql <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;

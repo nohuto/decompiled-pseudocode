@@ -17,7 +17,7 @@ __int64 SshpSessionManagerControlSessionCallback()
   v0 = KeAbPreAcquire((__int64)&SshpSessionManagerLock, 0LL);
   v1 = v0;
   if ( _interlockedbittestandset64((volatile signed __int32 *)&SshpSessionManagerLock, 0LL) )
-    ExfAcquirePushLockExclusiveEx(&SshpSessionManagerLock, v0, (__int64)&SshpSessionManagerLock);
+    ExfAcquirePushLockExclusiveEx((unsigned __int64 *)&SshpSessionManagerLock, v0, (__int64)&SshpSessionManagerLock);
   if ( v1 )
     *((_BYTE *)v1 + 10) = 1;
   SshpSessionManagerFlushControlEventBuffer();

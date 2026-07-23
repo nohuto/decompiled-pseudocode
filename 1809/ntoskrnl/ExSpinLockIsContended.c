@@ -1,10 +1,10 @@
 /*
- * XREFs of ExSpinLockIsContended @ 0x14031C008
+ * XREFs of ExSpinLockIsContended @ 0x14031C1F8
  * Callers:
  *     MiQueryAddressState @ 0x14003EAF0 (MiQueryAddressState.c)
  *     MiDispatchFault @ 0x140045FD0 (MiDispatchFault.c)
- *     MiWalkPageTablesRecursively @ 0x14006EE80 (MiWalkPageTablesRecursively.c)
- *     MiPageTableLockIsContended @ 0x140096404 (MiPageTableLockIsContended.c)
+ *     MiWalkPageTablesRecursively @ 0x14006EE70 (MiWalkPageTablesRecursively.c)
+ *     MiPageTableLockIsContended @ 0x140096344 (MiPageTableLockIsContended.c)
  * Callees:
  *     <none>
  */

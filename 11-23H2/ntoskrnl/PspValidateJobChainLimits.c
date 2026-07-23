@@ -2,7 +2,7 @@
  * XREFs of PspValidateJobChainLimits @ 0x1406A048C
  * Callers:
  *     PspAssignProcessToJob @ 0x14069FFF0 (PspAssignProcessToJob.c)
- *     PspImplicitAssignProcessToJob @ 0x1407E5FBC (PspImplicitAssignProcessToJob.c)
+ *     PspImplicitAssignProcessToJob @ 0x1407E628C (PspImplicitAssignProcessToJob.c)
  * Callees:
  *     PspValidateJobAssignmentProcessLimits @ 0x1406A04F8 (PspValidateJobAssignmentProcessLimits.c)
  */

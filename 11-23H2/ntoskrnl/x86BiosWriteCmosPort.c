@@ -1,9 +1,9 @@
 /*
- * XREFs of x86BiosWriteCmosPort @ 0x140508728
+ * XREFs of x86BiosWriteCmosPort @ 0x140508C78
  * Callers:
- *     x86BiosWriteIoSpace @ 0x1403C2970 (x86BiosWriteIoSpace.c)
+ *     x86BiosWriteIoSpace @ 0x1403C2B50 (x86BiosWriteIoSpace.c)
  * Callees:
- *     x86BiosWriteCmosPortByte @ 0x1405087A0 (x86BiosWriteCmosPortByte.c)
+ *     x86BiosWriteCmosPortByte @ 0x140508CF0 (x86BiosWriteCmosPortByte.c)
  */
 
 __int64 __fastcall x86BiosWriteCmosPort(int a1, __int64 a2, unsigned int a3)

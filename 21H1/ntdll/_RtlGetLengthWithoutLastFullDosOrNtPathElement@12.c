@@ -6,7 +6,7 @@
  *     _RtlpGetLengthWithoutLastPathElement@16 @ 0x4B2E3F17 (_RtlpGetLengthWithoutLastPathElement@16.c)
  */
 
-int __stdcall RtlGetLengthWithoutLastFullDosOrNtPathElement(int a1, int a2, int a3)
+NTSTATUS __cdecl RtlGetLengthWithoutLastFullDosOrNtPathElement(ULONG Flags, PUNICODE_STRING PathString, PULONG Length)
 {
-  return RtlpGetLengthWithoutLastPathElement(a2, a3);
+  return RtlpGetLengthWithoutLastPathElement(PathString, Length);
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of PsMakeSiloContextPermanent @ 0x140886810
+ * XREFs of PsMakeSiloContextPermanent @ 0x140887A70
  * Callers:
  *     <none>
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     PspGetStorageArray @ 0x140730B78 (PspGetStorageArray.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     PspGetStorageArray @ 0x140731D68 (PspGetStorageArray.c)
  */
 
 __int64 __fastcall PsMakeSiloContextPermanent(__int64 a1, unsigned int a2)
@@ -20,7 +20,7 @@ __int64 __fastcall PsMakeSiloContextPermanent(__int64 a1, unsigned int a2)
   if ( a1 )
     v2 = *(_QWORD *)(a1 + 1288);
   else
-    v2 = qword_14055B988;
+    v2 = qword_14055C988;
   StorageArray = PspGetStorageArray(v2, a2, &v6, &v7);
   if ( StorageArray >= 0 )
   {

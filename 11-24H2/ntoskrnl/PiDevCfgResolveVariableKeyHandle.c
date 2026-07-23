@@ -1,26 +1,26 @@
 /*
- * XREFs of PiDevCfgResolveVariableKeyHandle @ 0x140A9C7E4
+ * XREFs of PiDevCfgResolveVariableKeyHandle @ 0x140A97D54
  * Callers:
- *     PiDevCfgResolveVariableKeyCopy @ 0x14072BD90 (PiDevCfgResolveVariableKeyCopy.c)
- *     PiDevCfgResolveVariableKeyValue @ 0x14072BE70 (PiDevCfgResolveVariableKeyValue.c)
+ *     PiDevCfgResolveVariableKeyCopy @ 0x140729D80 (PiDevCfgResolveVariableKeyCopy.c)
+ *     PiDevCfgResolveVariableKeyValue @ 0x140729E60 (PiDevCfgResolveVariableKeyValue.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     PnpValidateRegistryString @ 0x1404ACEE0 (PnpValidateRegistryString.c)
- *     _wcsicmp @ 0x1404FE3B0 (_wcsicmp.c)
- *     wcschr @ 0x1404FFD90 (wcschr.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     _CmGetDeviceRegProp @ 0x1408C5BB0 (_CmGetDeviceRegProp.c)
- *     _CmOpenDeviceRegKey @ 0x1408C6880 (_CmOpenDeviceRegKey.c)
- *     _PnpCtxOpenContextBaseKey @ 0x1409642EC (_PnpCtxOpenContextBaseKey.c)
- *     IopGetRegistryValue @ 0x1409CAD5C (IopGetRegistryValue.c)
- *     IopOpenRegistryKeyEx @ 0x140A43B04 (IopOpenRegistryKeyEx.c)
- *     PnpRegSzToString @ 0x140A48EA0 (PnpRegSzToString.c)
- *     PiDevCfgResolveVariable @ 0x140A6A668 (PiDevCfgResolveVariable.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePool @ 0x140B72CB0 (ExFreePool.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     PnpValidateRegistryString @ 0x1404A75C4 (PnpValidateRegistryString.c)
+ *     _wcsicmp @ 0x1404FBC70 (_wcsicmp.c)
+ *     wcschr @ 0x1404FD650 (wcschr.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     _CmGetDeviceRegProp @ 0x1408C35E0 (_CmGetDeviceRegProp.c)
+ *     _CmOpenDeviceRegKey @ 0x1408C42B0 (_CmOpenDeviceRegKey.c)
+ *     _PnpCtxOpenContextBaseKey @ 0x14094C0C4 (_PnpCtxOpenContextBaseKey.c)
+ *     IopGetRegistryValue @ 0x1409B5F9C (IopGetRegistryValue.c)
+ *     IopOpenRegistryKeyEx @ 0x140A39394 (IopOpenRegistryKeyEx.c)
+ *     PnpRegSzToString @ 0x140A3FBB8 (PnpRegSzToString.c)
+ *     PiDevCfgResolveVariable @ 0x140A63A18 (PiDevCfgResolveVariable.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePool @ 0x140B74850 (ExFreePool.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiDevCfgResolveVariableKeyHandle(__int64 *a1, void *a2, _QWORD *a3)
@@ -120,7 +120,7 @@ LABEL_3:
     {
       if ( v9 >= 7 )
         goto LABEL_22;
-      v11 = &(&off_140B3DA10)[4 * v9];
+      v11 = &(&off_140B3F810)[4 * v9];
       if ( !wcsicmp(*v11, v10) )
         break;
       ++v9;
@@ -207,7 +207,7 @@ LABEL_31:
           v57 = v22;
           if ( v22 )
           {
-            Pool2 = (PVOID)ExAllocatePool2(0x100uLL);
+            Pool2 = (PVOID)ExAllocatePool2(0x100uLL, 8LL * v22, 0x63647050u);
             if ( !Pool2 )
             {
               DeviceRegProp = -1073741670;
@@ -292,7 +292,7 @@ LABEL_66:
             if ( DeviceRegProp < 0 )
               goto LABEL_66;
             v63.Length = v23 - 2;
-            v37 = (void *)ExAllocatePool2(0x100uLL);
+            v37 = (void *)ExAllocatePool2(0x100uLL, (unsigned __int16)v23, 0x63647050u);
             v60 = v37;
             v63.Buffer = (wchar_t *)v37;
             if ( !v37 )

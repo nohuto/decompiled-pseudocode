@@ -14,25 +14,25 @@
 __int64 __fastcall CsrpClientConnectToServer(int a1, void *a2, unsigned int a3)
 {
   __int64 CaptureBuffer; // rax
-  __int64 v7; // rbx
+  void *v7; // rbx
   unsigned int v8; // ebp
   int v9; // edi
-  _BYTE v11[64]; // [rsp+20h] [rbp-3C8h] BYREF
+  _PORT_MESSAGE SendMessageA; // [rsp+20h] [rbp-3C8h] BYREF
   int v12; // [rsp+60h] [rbp-388h]
   void *Src; // [rsp+68h] [rbp-380h] BYREF
   unsigned int v14; // [rsp+70h] [rbp-378h]
 
-  memset_thunk_772440563353939046(v11, 0, 0x3B8uLL);
+  memset_thunk_772440563353939046(&SendMessageA, 0, 0x3B8uLL);
   v12 = a1;
   v14 = a3;
   CaptureBuffer = CsrAllocateCaptureBuffer(1LL, a3);
-  v7 = CaptureBuffer;
+  v7 = (void *)CaptureBuffer;
   if ( !CaptureBuffer )
     return 3221225495LL;
   CsrAllocateMessagePointer(CaptureBuffer, a3, &Src);
   v8 = a3;
   memmove(Src, a2, a3);
-  v9 = CsrClientCallServer(v11, v7, 0LL, 24LL);
+  v9 = CsrClientCallServer(&SendMessageA);
   if ( v9 >= 0 )
     memmove(a2, Src, v8);
   CsrFreeCaptureBuffer(v7);

@@ -1,10 +1,10 @@
 /*
- * XREFs of PspEnforceLimitsJobPreCallback @ 0x1405A7E50
+ * XREFs of PspEnforceLimitsJobPreCallback @ 0x1405A8E50
  * Callers:
  *     <none>
  * Callees:
- *     memset @ 0x1401D1880 (memset.c)
- *     PspQueryRateControlHistory @ 0x1405A7F5C (PspQueryRateControlHistory.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     PspQueryRateControlHistory @ 0x1405A8F5C (PspQueryRateControlHistory.c)
  */
 
 __int64 __fastcall PspEnforceLimitsJobPreCallback(__int64 a1, _QWORD *a2)

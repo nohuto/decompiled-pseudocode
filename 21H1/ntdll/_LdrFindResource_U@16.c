@@ -8,13 +8,17 @@
  *     _LdrpTraceLoadMUIDll@8 @ 0x4B33FAF1 (_LdrpTraceLoadMUIDll@8.c)
  */
 
-int __stdcall LdrFindResource_U(int a1, int a2, int a3, int a4)
+NTSTATUS __cdecl LdrFindResource_U(
+        PVOID DllHandle,
+        PLDR_RESOURCE_INFO ResourceInfo,
+        ULONG Level,
+        PIMAGE_RESOURCE_DATA_ENTRY *ResourceDataEntry)
 {
   _DWORD *SharedData; // eax
   int v5; // edi
   int v6; // eax
   int v7; // esi
-  int v8; // ebx
+  NTSTATUS v8; // ebx
   _DWORD *v9; // ecx
   int v11; // eax
 
@@ -33,7 +37,7 @@ int __stdcall LdrFindResource_U(int a1, int a2, int a3, int a4)
       v11 = 2147353476;
     LdrpTraceLoadMUIDll(&dword_4B281C08, *(unsigned __int8 *)v11);
   }
-  v8 = LdrpSearchResourceSection_U(a3, 0, a4);
+  v8 = LdrpSearchResourceSection_U(DllHandle, Level, 0, (int)ResourceDataEntry);
   v9 = NtCurrentPeb()->SharedData;
   if ( v9 && *v9 )
     v5 = (int)NtCurrentPeb()->SharedData + 555;

@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlQueryAllInternalFeatureConfigurations @ 0x180148B60
+ * XREFs of RtlQueryAllInternalFeatureConfigurations @ 0x180148A10
  * Callers:
  *     <none>
  * Callees:
- *     RtlpFcBufferManagerDereferenceBuffers @ 0x180013B08 (RtlpFcBufferManagerDereferenceBuffers.c)
- *     RtlpFcReferenceFeatureConfigurationBuffers @ 0x180014134 (RtlpFcReferenceFeatureConfigurationBuffers.c)
- *     RtlpFcQueryAllInternalFeatureConfigurationsFromBufferSet @ 0x180152FF0 (RtlpFcQueryAllInternalFeatureConfigurationsFromBufferSet.c)
+ *     RtlpFcBufferManagerDereferenceBuffers @ 0x18005F238 (RtlpFcBufferManagerDereferenceBuffers.c)
+ *     RtlpFcReferenceFeatureConfigurationBuffers @ 0x18005F864 (RtlpFcReferenceFeatureConfigurationBuffers.c)
+ *     RtlpFcQueryAllInternalFeatureConfigurationsFromBufferSet @ 0x180152EC0 (RtlpFcQueryAllInternalFeatureConfigurationsFromBufferSet.c)
  */
 
 __int64 __fastcall RtlQueryAllInternalFeatureConfigurations(__int64 a1, _QWORD *a2, __int64 a3, __int64 a4)
@@ -34,6 +34,6 @@ __int64 __fastcall RtlQueryAllInternalFeatureConfigurations(__int64 a1, _QWORD *
     }
   }
   if ( v10 )
-    RtlpFcBufferManagerDereferenceBuffers((volatile signed __int64 *)&xmmword_1801CCC48, v10);
+    RtlpFcBufferManagerDereferenceBuffers((unsigned __int64 *)&xmmword_1801CBC88, v10);
   return (unsigned int)AllInternalFeatureConfigurationsFromBufferSet;
 }

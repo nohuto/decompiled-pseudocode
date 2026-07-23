@@ -1,16 +1,16 @@
 /*
- * XREFs of FsRtlHeatLogTierMove @ 0x140790480
+ * XREFs of FsRtlHeatLogTierMove @ 0x140792FB0
  * Callers:
  *     <none>
  * Callees:
- *     McTemplateK0xxxqqqq_EtwWriteTransfer @ 0x1405B7F0C (McTemplateK0xxxqqqq_EtwWriteTransfer.c)
+ *     McTemplateK0xxxqqqq_EtwWriteTransfer @ 0x1405BA77C (McTemplateK0xxxqqqq_EtwWriteTransfer.c)
  */
 
 __int64 __fastcall FsRtlHeatLogTierMove(int *a1, _QWORD *a2, __int64 a3, int a4, int a5, int a6, const GUID *a7)
 {
   int v11; // [rsp+48h] [rbp-10h]
 
-  if ( (VslpReservedTransferLock.PriorityFloorCounts[24] & 0x10) != 0 )
+  if ( (VslpReservedTransferLock.ReadOperationCount & 0x10) != 0 )
   {
     v11 = *a1;
     McTemplateK0xxxqqqq_EtwWriteTransfer((__int64)a1, (__int64)a2, a7, *a2, a2[1], a3, a4, a5, a6, v11);

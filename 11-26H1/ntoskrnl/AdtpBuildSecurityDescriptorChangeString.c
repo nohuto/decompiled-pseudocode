@@ -1,10 +1,10 @@
 /*
- * XREFs of AdtpBuildSecurityDescriptorChangeString @ 0x140A9BF60
+ * XREFs of AdtpBuildSecurityDescriptorChangeString @ 0x140A9EAD0
  * Callers:
- *     AdtpPackageParameters @ 0x140475440 (AdtpPackageParameters.c)
+ *     AdtpPackageParameters @ 0x14046EBC0 (AdtpPackageParameters.c)
  * Callees:
- *     AdtpBuildSecurityDescriptorUnicodeString @ 0x140A9C030 (AdtpBuildSecurityDescriptorUnicodeString.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     AdtpBuildSecurityDescriptorUnicodeString @ 0x140A9EBA0 (AdtpBuildSecurityDescriptorUnicodeString.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall AdtpBuildSecurityDescriptorChangeString(

@@ -1,9 +1,9 @@
 /*
- * XREFs of PsResumeThread @ 0x140A3D490
+ * XREFs of PsResumeThread @ 0x140A32DA0
  * Callers:
  *     <none>
  * Callees:
- *     PsMultiResumeThread @ 0x14046086C (PsMultiResumeThread.c)
+ *     PsMultiResumeThread @ 0x140455D04 (PsMultiResumeThread.c)
  */
 
 __int64 __fastcall PsResumeThread(__int64 a1, unsigned int *a2)

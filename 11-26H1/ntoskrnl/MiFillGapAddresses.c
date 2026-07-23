@@ -1,11 +1,11 @@
 /*
- * XREFs of MiFillGapAddresses @ 0x140CF9610
+ * XREFs of MiFillGapAddresses @ 0x140CFF990
  * Callers:
- *     MiFillPfnGaps @ 0x140CF2AE8 (MiFillPfnGaps.c)
- *     MiInitializeKasan @ 0x140CF35B0 (MiInitializeKasan.c)
+ *     MiFillPfnGaps @ 0x140CF8E68 (MiFillPfnGaps.c)
+ *     MiInitializeKasan @ 0x140CF9930 (MiInitializeKasan.c)
  * Callees:
- *     MiWalkPageTables @ 0x140326A80 (MiWalkPageTables.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     MiWalkPageTables @ 0x140328AB0 (MiWalkPageTables.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall MiFillGapAddresses(__int64 a1, __int64 a2)
@@ -18,7 +18,7 @@ __int64 __fastcall MiFillGapAddresses(__int64 a1, __int64 a2)
 
   memset_0(v5, 0, 0xC0uLL);
   v5[0] = 70400;
-  v9 = qword_140E36000;
+  v9 = qword_140E36180;
   v6 = a1;
   v8 = &MiFillGapPtes;
   v7 = a2;

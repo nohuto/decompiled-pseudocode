@@ -1,10 +1,10 @@
 /*
- * XREFs of MiIsPageEligibleForProtectedStandby @ 0x1403350F0
+ * XREFs of MiIsPageEligibleForProtectedStandby @ 0x140335380
  * Callers:
- *     MiCanBatchHardFaultPages @ 0x1402CDC60 (MiCanBatchHardFaultPages.c)
- *     MiInsertProtectedStandbyPage @ 0x140335030 (MiInsertProtectedStandbyPage.c)
+ *     MiCanBatchHardFaultPages @ 0x1402CDEF0 (MiCanBatchHardFaultPages.c)
+ *     MiInsertProtectedStandbyPage @ 0x1403352C0 (MiInsertProtectedStandbyPage.c)
  * Callees:
- *     MiCheckSlabPfnBitmap @ 0x140324730 (MiCheckSlabPfnBitmap.c)
+ *     MiCheckSlabPfnBitmap @ 0x1403249C0 (MiCheckSlabPfnBitmap.c)
  */
 
 _BOOL8 __fastcall MiIsPageEligibleForProtectedStandby(__int64 a1, __int64 a2)

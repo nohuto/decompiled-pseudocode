@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlpHpAffinityMgrUpdateComplete @ 0x18011C7B8
+ * XREFs of RtlpHpAffinityMgrUpdateComplete @ 0x18011A9E8
  * Callers:
- *     RtlpHpLfhBucketUpdateAffinityMapping @ 0x180119830 (RtlpHpLfhBucketUpdateAffinityMapping.c)
- *     RtlpHpVsContextHandleContention @ 0x18011C474 (RtlpHpVsContextHandleContention.c)
+ *     RtlpHpLfhBucketUpdateAffinityMapping @ 0x180117A60 (RtlpHpLfhBucketUpdateAffinityMapping.c)
+ *     RtlpHpVsContextHandleContention @ 0x18011A6A4 (RtlpHpVsContextHandleContention.c)
  * Callees:
  *     <none>
  */

@@ -1,15 +1,15 @@
 /*
- * XREFs of CmpAllocateKeyControlBlock @ 0x140437410
+ * XREFs of CmpAllocateKeyControlBlock @ 0x1404362E0
  * Callers:
- *     CmpCloneToUnbackedKcb @ 0x1401B484C (CmpCloneToUnbackedKcb.c)
- *     CmpCreateKeyControlBlock @ 0x140434610 (CmpCreateKeyControlBlock.c)
+ *     CmpCloneToUnbackedKcb @ 0x1401B4730 (CmpCloneToUnbackedKcb.c)
+ *     CmpCreateKeyControlBlock @ 0x1404334E0 (CmpCreateKeyControlBlock.c)
  * Callees:
- *     KeReleaseGuardedMutex @ 0x14000CA40 (KeReleaseGuardedMutex.c)
- *     ExpReleaseFastMutexContended @ 0x14000CA8C (ExpReleaseFastMutexContended.c)
- *     ExAcquireFastMutex @ 0x14002D0A0 (ExAcquireFastMutex.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     CmpAllocatePoolWithTag @ 0x1400A7788 (CmpAllocatePoolWithTag.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     KeReleaseGuardedMutex @ 0x14000C5C0 (KeReleaseGuardedMutex.c)
+ *     ExpReleaseFastMutexContended @ 0x14000C60C (ExpReleaseFastMutexContended.c)
+ *     ExAcquireFastMutex @ 0x14002CC20 (ExAcquireFastMutex.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     CmpAllocatePoolWithTag @ 0x1400A5D00 (CmpAllocatePoolWithTag.c)
+ *     memset @ 0x140171AC0 (memset.c)
  */
 
 _DWORD *CmpAllocateKeyControlBlock()
@@ -50,13 +50,13 @@ _DWORD *CmpAllocateKeyControlBlock()
         v9 = 74LL * i;
         v10 = &v7[v9 + 30];
         v7[v9 + 3] |= 0x10000u;
-        v11 = (_QWORD *)qword_140322C88;
-        if ( *(__int64 **)qword_140322C88 != &CmpFreeKCBListHead )
+        v11 = (_QWORD *)qword_140322CA8;
+        if ( *(__int64 **)qword_140322CA8 != &CmpFreeKCBListHead )
           __fastfail(3u);
         *v10 = &CmpFreeKCBListHead;
         v10[1] = v11;
         *v11 = v10;
-        qword_140322C88 = (__int64)&v7[v9 + 30];
+        qword_140322CA8 = (__int64)&v7[v9 + 30];
         _InterlockedIncrement64(&qword_1407481E8);
       }
     }

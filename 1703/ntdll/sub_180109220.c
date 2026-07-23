@@ -35,7 +35,7 @@ __int64 __fastcall sub_180109220(int *a1, int *a2)
     v6 = 0LL;
   if ( a1 )
   {
-    v8 = (_QWORD *)sub_18005D9D8();
+    v8 = sub_18005D9D8();
     if ( v8 )
     {
       v10 = v8[2];
@@ -85,7 +85,7 @@ __int64 __fastcall sub_180109220(int *a1, int *a2)
   else
   {
     if ( !NtCurrentTeb()->LastErrorValue )
-      RtlSetLastWin32Error(0x57u);
+      RtlSetLastWin32Error(87);
     return 0LL;
   }
 }

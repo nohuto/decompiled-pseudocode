@@ -1,9 +1,9 @@
 /*
- * XREFs of AuthzBasepSetTypeListAccessReasons @ 0x14015C154
+ * XREFs of AuthzBasepSetTypeListAccessReasons @ 0x14015C254
  * Callers:
- *     SepAccessCheckEx @ 0x14015BDD8 (SepAccessCheckEx.c)
+ *     SepAccessCheckEx @ 0x14015BED8 (SepAccessCheckEx.c)
  * Callees:
- *     AuthzBasepSetAccessReasons @ 0x1401147B0 (AuthzBasepSetAccessReasons.c)
+ *     AuthzBasepSetAccessReasons @ 0x140114820 (AuthzBasepSetAccessReasons.c)
  */
 
 __int64 __fastcall AuthzBasepSetTypeListAccessReasons(int a1, int a2, int a3, __int64 a4, unsigned int a5, char a6)

@@ -6,7 +6,7 @@
  *     DWORDToBigEndian @ 0x180040474 (DWORDToBigEndian.c)
  *     SHA256Update @ 0x180040498 (SHA256Update.c)
  *     __security_check_cookie @ 0x18008C940 (__security_check_cookie.c)
- *     memset @ 0x1800A4780 (memset.c)
+ *     memset @ 0x1800A4740 (memset.c)
  */
 
 __int64 __fastcall SHA256Final(_DWORD *a1, __int64 a2)

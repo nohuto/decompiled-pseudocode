@@ -1,41 +1,41 @@
 /*
- * XREFs of KeInitSystem @ 0x140A4C33C
+ * XREFs of KeInitSystem @ 0x140A4D33C
  * Callers:
- *     InitBootProcessor @ 0x140A3AAF4 (InitBootProcessor.c)
- *     Phase1InitializationDiscard @ 0x140A3B6A4 (Phase1InitializationDiscard.c)
- *     IoInitSystemPreDrivers @ 0x140A3EB60 (IoInitSystemPreDrivers.c)
- *     Phase1InitializationIoReady @ 0x140A4C104 (Phase1InitializationIoReady.c)
+ *     InitBootProcessor @ 0x140A3BAF4 (InitBootProcessor.c)
+ *     Phase1InitializationDiscard @ 0x140A3C6A4 (Phase1InitializationDiscard.c)
+ *     IoInitSystemPreDrivers @ 0x140A3FB60 (IoInitSystemPreDrivers.c)
+ *     Phase1InitializationIoReady @ 0x140A4D104 (Phase1InitializationIoReady.c)
  * Callees:
- *     ExAcquireFastMutexUnsafe @ 0x1402067E0 (ExAcquireFastMutexUnsafe.c)
- *     ExReleaseFastMutexUnsafe @ 0x140206970 (ExReleaseFastMutexUnsafe.c)
- *     KeQueryActiveProcessorCountEx @ 0x14027B610 (KeQueryActiveProcessorCountEx.c)
- *     KeExpandKernelStackAndCalloutInternal @ 0x140329FF0 (KeExpandKernelStackAndCalloutInternal.c)
- *     HviIsAnyHypervisorPresent @ 0x1403A5A10 (HviIsAnyHypervisorPresent.c)
- *     KeInitializeCatRegisters @ 0x1403A7B18 (KeInitializeCatRegisters.c)
- *     KiDetectTsx @ 0x1403B4FF0 (KiDetectTsx.c)
- *     KiRegisterForDisableFgBoostDecayRegistryNotification @ 0x1403B5070 (KiRegisterForDisableFgBoostDecayRegistryNotification.c)
- *     KdEncodeDataBlock @ 0x1403B5728 (KdEncodeDataBlock.c)
- *     KiInitMachineDependent @ 0x1403B588C (KiInitMachineDependent.c)
- *     SymCryptInitEnvWindowsKernelmodeWin8_1nLater @ 0x1403EC02C (SymCryptInitEnvWindowsKernelmodeWin8_1nLater.c)
+ *     KeQueryActiveProcessorCountEx @ 0x1402695B0 (KeQueryActiveProcessorCountEx.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1402AB110 (ExAcquireFastMutexUnsafe.c)
+ *     ExReleaseFastMutexUnsafe @ 0x1402AB2A0 (ExReleaseFastMutexUnsafe.c)
+ *     KeExpandKernelStackAndCalloutInternal @ 0x140334D40 (KeExpandKernelStackAndCalloutInternal.c)
+ *     HviIsAnyHypervisorPresent @ 0x1403A5B60 (HviIsAnyHypervisorPresent.c)
+ *     KeInitializeCatRegisters @ 0x1403A7C68 (KeInitializeCatRegisters.c)
+ *     KiDetectTsx @ 0x1403B5160 (KiDetectTsx.c)
+ *     KiRegisterForDisableFgBoostDecayRegistryNotification @ 0x1403B51E0 (KiRegisterForDisableFgBoostDecayRegistryNotification.c)
+ *     KdEncodeDataBlock @ 0x1403B5898 (KdEncodeDataBlock.c)
+ *     KiInitMachineDependent @ 0x1403B59FC (KiInitMachineDependent.c)
+ *     SymCryptInitEnvWindowsKernelmodeWin8_1nLater @ 0x1403EC19C (SymCryptInitEnvWindowsKernelmodeWin8_1nLater.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     HvlSetupPhysicalFaultNotificationQueue @ 0x1404F2660 (HvlSetupPhysicalFaultNotificationQueue.c)
- *     KeRelaxTimingConstraints @ 0x140511F98 (KeRelaxTimingConstraints.c)
- *     KiEpfDrainCompletionQueue @ 0x1405241A8 (KiEpfDrainCompletionQueue.c)
- *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x14078D094 (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
- *     ExRegisterHost @ 0x14079DA20 (ExRegisterHost.c)
- *     KiStartDpcThread @ 0x14079F674 (KiStartDpcThread.c)
- *     KeInitializeTimerTable @ 0x14079FB34 (KeInitializeTimerTable.c)
- *     KiInitializeProcessor @ 0x14099F1D4 (KiInitializeProcessor.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
- *     KeFreeInitializationCode @ 0x140A1BB5C (KeFreeInitializationCode.c)
- *     KeInitializeSchedulerAssist @ 0x140A4C0AC (KeInitializeSchedulerAssist.c)
- *     KiInitializeVelocity @ 0x140A4C6E8 (KiInitializeVelocity.c)
- *     MmFreeLoaderBlock @ 0x140A4C7D0 (MmFreeLoaderBlock.c)
- *     KiInitializeReservedCpuSets @ 0x140A4CD9C (KiInitializeReservedCpuSets.c)
- *     KiIntSteerInit @ 0x140A4D1CC (KiIntSteerInit.c)
- *     KiComputeNumaCosts @ 0x140A4D2E0 (KiComputeNumaCosts.c)
- *     KiInitDynamicTraceSupport @ 0x140A4D370 (KiInitDynamicTraceSupport.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     HvlSetupPhysicalFaultNotificationQueue @ 0x1404F25E0 (HvlSetupPhysicalFaultNotificationQueue.c)
+ *     KeRelaxTimingConstraints @ 0x1405121D8 (KeRelaxTimingConstraints.c)
+ *     KiEpfDrainCompletionQueue @ 0x1405243E8 (KiEpfDrainCompletionQueue.c)
+ *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x14078D254 (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
+ *     ExRegisterHost @ 0x14079DC20 (ExRegisterHost.c)
+ *     KiStartDpcThread @ 0x14079F874 (KiStartDpcThread.c)
+ *     KeInitializeTimerTable @ 0x14079FD34 (KeInitializeTimerTable.c)
+ *     KiInitializeProcessor @ 0x1409A0104 (KiInitializeProcessor.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
+ *     KeFreeInitializationCode @ 0x140A1CB5C (KeFreeInitializationCode.c)
+ *     KeInitializeSchedulerAssist @ 0x140A4D0AC (KeInitializeSchedulerAssist.c)
+ *     KiInitializeVelocity @ 0x140A4D6E8 (KiInitializeVelocity.c)
+ *     MmFreeLoaderBlock @ 0x140A4D7D0 (MmFreeLoaderBlock.c)
+ *     KiInitializeReservedCpuSets @ 0x140A4DD9C (KiInitializeReservedCpuSets.c)
+ *     KiIntSteerInit @ 0x140A4E1CC (KiIntSteerInit.c)
+ *     KiComputeNumaCosts @ 0x140A4E2E0 (KiComputeNumaCosts.c)
+ *     KiInitDynamicTraceSupport @ 0x140A4E370 (KiInitDynamicTraceSupport.c)
  */
 
 char __fastcall KeInitSystem(int a1)
@@ -94,7 +94,7 @@ char __fastcall KeInitSystem(int a1)
     v18 = KeInitializeTimerTable(v17);
     if ( v18 < 0 )
       KeBugCheckEx(0x31u, v18, 1uLL, 0LL, 0LL);
-    if ( KiHrIncrement < (unsigned int)KeMinimumIncrement || KiHrIncrement > (unsigned int)KeMaximumIncrement )
+    if ( KiHrIncrement < (unsigned int)KeMinimumIncrement || KiHrIncrement > KeMaximumIncrement )
       KiHrIncrement = KeMinimumIncrement;
     return 1;
   }
@@ -138,10 +138,10 @@ char __fastcall KeInitSystem(int a1)
           }
           while ( v25 );
           LODWORD(KiEpfCompletionDpc) = 275;
-          qword_140C2B0D8 = (__int64)KiEpfCompletionDpcRoutine;
-          qword_140C2B0E0 = 0LL;
-          qword_140C2B0F8 = 0LL;
-          qword_140C2B0D0 = 0LL;
+          qword_140C2B0B8 = (__int64)KiEpfCompletionDpcRoutine;
+          qword_140C2B0C0 = 0LL;
+          qword_140C2B0D8 = 0LL;
+          qword_140C2B0B0 = 0LL;
           if ( (int)HvlSetupPhysicalFaultNotificationQueue(&v39, &v38, v23, v24) >= 0 )
           {
             KiEpfCompletionQueueSize = (unsigned int)(v38 - 16) >> 3;
@@ -183,7 +183,7 @@ char __fastcall KeInitSystem(int a1)
   _InterlockedOr(dword_140D2527C, 0x400000u);
   KiInitDynamicTraceSupport();
   ActiveProcessorCount = KeQueryActiveProcessorCountEx(0xFFFFu);
-  KiClockKeepAliveCycle = (ActiveProcessorCount + (KeMaximumIncrement + 29999999) / (unsigned int)KeMaximumIncrement - 1)
+  KiClockKeepAliveCycle = (ActiveProcessorCount + (KeMaximumIncrement + 29999999) / KeMaximumIncrement - 1)
                         / ActiveProcessorCount;
   if ( HviIsAnyHypervisorPresent() )
   {
@@ -314,7 +314,7 @@ LABEL_40:
       if ( (KeFeatureBits & 0x800000) != 0 && MEMORY[0xFFFFF780000005F0] || (_DWORD)KiIptMsrMask )
       {
         v33[1] = 6;
-        v35 = off_1400090E8;
+        v35 = off_1400090F8;
         v34 = 512LL;
         v33[0] = 65548;
         v36 = 0LL;
@@ -325,7 +325,7 @@ LABEL_40:
       if ( KiInitMachineDependent() )
       {
         v11 = *(unsigned int *)(KiProcessorBlock[0] + 68);
-        v12 = v11 * (unsigned __int64)(unsigned int)KeMaximumIncrement / 0xA;
+        v12 = v11 * (unsigned __int64)KeMaximumIncrement / 0xA;
         KiShortExecutionCycles = v12 / 0xF0;
         KiCyclesPerClockQuantum = v12 / 3;
         KiDirectQuantumTarget = v12 / 3;

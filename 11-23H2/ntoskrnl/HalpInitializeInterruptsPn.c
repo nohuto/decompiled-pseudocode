@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpInitializeInterruptsPn @ 0x14037D15C
+ * XREFs of HalpInitializeInterruptsPn @ 0x14037D2FC
  * Callers:
  *     HalpInterruptInitSystem @ 0x140A89A80 (HalpInterruptInitSystem.c)
  * Callees:
- *     HalpInterruptReinitializeThisProcessor @ 0x14037B2B0 (HalpInterruptReinitializeThisProcessor.c)
- *     HalpInterruptSetIdtEntry @ 0x14037D270 (HalpInterruptSetIdtEntry.c)
- *     HalpInterruptInitializeIpis @ 0x14037E6B0 (HalpInterruptInitializeIpis.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
+ *     HalpInterruptReinitializeThisProcessor @ 0x14037B450 (HalpInterruptReinitializeThisProcessor.c)
+ *     HalpInterruptSetIdtEntry @ 0x14037D410 (HalpInterruptSetIdtEntry.c)
+ *     HalpInterruptInitializeIpis @ 0x14037E850 (HalpInterruptInitializeIpis.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall HalpInitializeInterruptsPn(__int64 a1, __int64 a2, __int64 a3, int a4)

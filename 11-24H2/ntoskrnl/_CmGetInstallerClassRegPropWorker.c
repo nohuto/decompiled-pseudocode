@@ -1,15 +1,15 @@
 /*
- * XREFs of _CmGetInstallerClassRegPropWorker @ 0x140994210
+ * XREFs of _CmGetInstallerClassRegPropWorker @ 0x14097F250
  * Callers:
- *     _CmGetInstallerClassRegProp @ 0x14099405C (_CmGetInstallerClassRegProp.c)
+ *     _CmGetInstallerClassRegProp @ 0x14097F09C (_CmGetInstallerClassRegProp.c)
  * Callees:
- *     _CmClassPropertyRead @ 0x140459D24 (_CmClassPropertyRead.c)
- *     _MapCmClassPropertyToRegValue @ 0x1404696DC (_MapCmClassPropertyToRegValue.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     _PnpRegQueryValueIndirect @ 0x1408C6550 (_PnpRegQueryValueIndirect.c)
- *     _CmOpenCommonClassRegKey @ 0x1408C82AC (_CmOpenCommonClassRegKey.c)
- *     _PnpOpenPropertiesKey @ 0x1409937F0 (_PnpOpenPropertiesKey.c)
+ *     _CmClassPropertyRead @ 0x14044F170 (_CmClassPropertyRead.c)
+ *     _MapCmClassPropertyToRegValue @ 0x140462230 (_MapCmClassPropertyToRegValue.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     _PnpRegQueryValueIndirect @ 0x1408C3F80 (_PnpRegQueryValueIndirect.c)
+ *     _CmOpenCommonClassRegKey @ 0x1408C5CDC (_CmOpenCommonClassRegKey.c)
+ *     _PnpOpenPropertiesKey @ 0x14097E830 (_PnpOpenPropertiesKey.c)
  */
 
 __int64 __fastcall CmGetInstallerClassRegPropWorker(
@@ -99,7 +99,7 @@ LABEL_37:
   if ( !v17 || v17 == PnpRegQueryValueIndirect )
     ValueIndirect = PnpRegQueryValueIndirect((__int64)a1, a3, v16, (int *)&v23 + 1, v13, (ULONG *)&v23, 0LL);
   else
-    ValueIndirect = guard_dispatch_icall_no_overrides(a1, a3, v16, (char *)&v23 + 4);
+    ValueIndirect = guard_dispatch_icall_no_overrides(a1, a3);
   if ( ValueIndirect == -1073741772 || ValueIndirect == -1073741444 )
     goto LABEL_37;
   if ( (int)(ValueIndirect + 0x80000000) < 0 || ValueIndirect == -1073741789 )

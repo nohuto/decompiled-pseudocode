@@ -100,18 +100,18 @@
  *     LdrpInitializeNlsInfo @ 0x1800DDB38 (LdrpInitializeNlsInfo.c)
  *     LdrpInitializeProcessHeap @ 0x1800DFB48 (LdrpInitializeProcessHeap.c)
  *     AVrfInitializeVerifier @ 0x1800E5114 (AVrfInitializeVerifier.c)
- *     RtlInitializeExceptionLog @ 0x18010EAE8 (RtlInitializeExceptionLog.c)
- *     RtlControlStackTraceDataBase @ 0x18010F2A8 (RtlControlStackTraceDataBase.c)
- *     RtlRaiseStatus @ 0x1801106D0 (RtlRaiseStatus.c)
- *     TpSetDefaultPoolCpuSets @ 0x180126B18 (TpSetDefaultPoolCpuSets.c)
+ *     RtlInitializeExceptionLog @ 0x18010EAB8 (RtlInitializeExceptionLog.c)
+ *     RtlControlStackTraceDataBase @ 0x18010F278 (RtlControlStackTraceDataBase.c)
+ *     RtlRaiseStatus @ 0x1801106A0 (RtlRaiseStatus.c)
+ *     TpSetDefaultPoolCpuSets @ 0x180126AE8 (TpSetDefaultPoolCpuSets.c)
  *     memset$thunk$772440563353939046 @ 0x180132010 (memset$thunk$772440563353939046.c)
  */
 
-__int64 __fastcall LdrpInitializeProcess(__int64 a1, __int64 a2)
+__int64 __fastcall LdrpInitializeProcess(__int64 a1, void *a2)
 {
   __int64 v3; // rax
   int v4; // r15d
-  NTSTATUS v5; // eax
+  int v5; // eax
   int v6; // r13d
   struct _TEB *v7; // rdi
   __int64 ProcessEnvironmentBlock; // rsi
@@ -122,17 +122,17 @@ __int64 __fastcall LdrpInitializeProcess(__int64 a1, __int64 a2)
   __int64 v13; // rcx
   _WORD *v14; // rdx
   unsigned __int16 v15; // r8
-  __int64 v16; // r14
+  PIMAGE_NT_HEADERS v16; // r14
   __int64 v17; // rcx
   _QWORD *v19; // rax
   int v20; // eax
   char v21; // al
   int v22; // eax
   int WowTebOffset; // ecx
-  __int64 v24; // rcx
-  int v25; // eax
+  int inited; // ecx
+  NTSTATUS v25; // eax
   __int64 v26; // rcx
-  __int64 v27; // r13
+  PRTL_USER_PROCESS_PARAMETERS v27; // r13
   _DWORD *Config; // r15
   int v29; // eax
   char v30; // al
@@ -142,147 +142,134 @@ __int64 __fastcall LdrpInitializeProcess(__int64 a1, __int64 a2)
   int v34; // ecx
   unsigned __int64 v35; // r14
   __int64 v36; // rax
-  __int64 *v37; // r15
+  void *v37; // r15
   __int64 v38; // rcx
-  int v39; // r14d
-  int inited; // eax
-  __int64 v41; // r8
-  __int64 v42; // r9
-  __int64 v43; // r13
-  HANDLE v44; // rdx
-  bool v45; // r12
-  __int64 NtSystemRoot; // rax
-  __int16 v47; // r14
-  __int64 Heap; // rax
-  __int64 v49; // r14
-  __int64 v50; // rdx
-  int v51; // eax
-  int SymbolicLinkObject; // eax
-  __int64 v53; // r12
-  __m128i v54; // xmm0
-  wchar_t *v55; // xmm0_8
-  __int64 v56; // rdx
-  __int64 v57; // rcx
+  int DefaultThreadpoolThreadMaximum; // r14d
+  __int64 v40; // r13
+  bool v41; // r12
+  const WCHAR *NtSystemRoot; // rax
+  unsigned __int16 v43; // r14
+  wchar_t *Heap; // rax
+  SIZE_T v45; // r14
+  int v46; // edx
+  NTSTATUS v47; // eax
+  NTSTATUS v48; // eax
+  wchar_t *v49; // r12
+  __m128i v50; // xmm0
+  wchar_t *v51; // xmm0_8
+  wchar_t *v52; // r14
+  PWSTR v53; // rax
+  unsigned __int64 Length; // r14
+  __int64 v55; // rdx
+  SIZE_T v56; // r15
+  __int64 v57; // rdx
   __int64 v58; // r8
-  __int64 v59; // r9
-  wchar_t *v60; // r14
-  __int64 v61; // rax
-  unsigned __int64 v62; // r14
-  __int64 v63; // rdx
-  unsigned __int64 v64; // r15
-  __int64 v65; // rdx
-  __int64 v66; // r8
-  unsigned __int64 v67; // rdx
-  _WORD *v68; // rax
-  _WORD *v69; // r9
-  __int16 v70; // dx
-  __int64 v71; // rax
-  unsigned __int64 v72; // rcx
-  _QWORD *v73; // rax
-  __int64 v74; // rcx
-  _QWORD *v75; // rcx
-  int v76; // eax
-  __int64 ModuleEntry; // rax
-  __int64 v78; // rcx
-  __int64 v79; // rdx
-  __int64 v80; // rcx
-  int v81; // eax
-  char v82; // dl
+  wchar_t *v59; // rdx
+  wchar_t *v60; // rax
+  wchar_t *v61; // r9
+  __int16 v62; // dx
+  __int64 v63; // rax
+  void *v64; // rcx
+  _QWORD *v65; // rax
+  __int64 v66; // rcx
+  _QWORD *v67; // rcx
+  int v68; // eax
+  char *ModuleEntry; // rax
+  __int64 v70; // rcx
+  __int64 v71; // rdx
+  __int64 v72; // rcx
+  int v73; // eax
+  char v74; // dl
+  int v75; // eax
+  PIMAGE_NT_HEADERS v76; // r13
+  int v77; // eax
+  char *v78; // rax
+  __int64 v79; // r14
+  __int64 v80; // r15
+  char v81; // r15
+  NTSTATUS v82; // eax
   int v83; // eax
-  __int64 v84; // r13
-  int v85; // eax
-  __int64 v86; // rax
-  __int64 v87; // r14
-  __int64 v88; // r15
-  char v89; // r15
-  int v90; // eax
-  int v91; // eax
-  int v92; // eax
-  int v93; // eax
-  int ProcedureAddressForCaller; // eax
+  int v84; // eax
+  NTSTATUS v85; // eax
+  NTSTATUS ProcedureAddressForCaller; // eax
   int LoadedDll; // eax
-  unsigned __int64 v96; // rcx
-  int v97; // eax
-  unsigned int v98; // eax
-  int v99; // eax
-  int v100; // eax
-  __int64 v101; // r14
-  char v102; // al
-  __int64 v103; // rax
-  unsigned int v104; // eax
-  int v105; // ecx
+  PVOID v88; // rcx
+  NTSTATUS v89; // eax
+  unsigned int v90; // eax
+  NTSTATUS v91; // eax
+  int v92; // eax
+  __int64 v93; // r14
+  char v94; // al
+  __int64 v95; // rax
+  unsigned int v96; // eax
+  int v97; // ecx
   int PatchImage; // eax
-  __int64 v107; // rcx
-  unsigned __int64 v108; // r8
-  unsigned __int64 v109; // r9
-  void (*v110)(void); // rax
-  __int64 v111; // [rsp+28h] [rbp-3A0h]
-  __int64 v112; // [rsp+28h] [rbp-3A0h]
-  int *v113; // [rsp+28h] [rbp-3A0h]
-  __int64 v114; // [rsp+28h] [rbp-3A0h]
-  __int64 v115; // [rsp+30h] [rbp-398h]
-  __int64 v116; // [rsp+30h] [rbp-398h]
-  __int64 v117; // [rsp+38h] [rbp-390h]
+  __int64 v99; // rcx
+  void (*v100)(void); // rax
+  PVOID *Callback; // [rsp+28h] [rbp-3A0h]
+  PVOID *Callbacka; // [rsp+28h] [rbp-3A0h]
+  PVOID *Callbackb; // [rsp+28h] [rbp-3A0h]
+  PVOID *Callbackc; // [rsp+28h] [rbp-3A0h]
+  __int64 v105; // [rsp+30h] [rbp-398h]
+  __int64 v106; // [rsp+30h] [rbp-398h]
+  __int64 v107; // [rsp+38h] [rbp-390h]
   unsigned int ApplicationKeyOption; // [rsp+50h] [rbp-378h] BYREF
-  char v119; // [rsp+54h] [rbp-374h] BYREF
-  _BYTE v120[3]; // [rsp+55h] [rbp-373h] BYREF
-  int v121; // [rsp+58h] [rbp-370h]
-  __int64 v122; // [rsp+60h] [rbp-368h] BYREF
+  char v109; // [rsp+54h] [rbp-374h] BYREF
+  _BYTE v110[3]; // [rsp+55h] [rbp-373h] BYREF
+  int v111; // [rsp+58h] [rbp-370h]
+  PVOID DllHandle; // [rsp+60h] [rbp-368h] BYREF
   __int64 **ProcessInformation; // [rsp+68h] [rbp-360h] BYREF
-  __int128 v124; // [rsp+70h] [rbp-358h] BYREF
-  int v125; // [rsp+80h] [rbp-348h] BYREF
-  int v126; // [rsp+84h] [rbp-344h] BYREF
-  int v127; // [rsp+88h] [rbp-340h]
-  HANDLE v128; // [rsp+90h] [rbp-338h] BYREF
-  UNICODE_STRING UnicodeString; // [rsp+A0h] [rbp-328h] BYREF
-  __int128 v130; // [rsp+B0h] [rbp-318h] BYREF
-  unsigned __int16 v131; // [rsp+C0h] [rbp-308h] BYREF
-  __int16 v132; // [rsp+C2h] [rbp-306h]
-  unsigned __int64 v133; // [rsp+C8h] [rbp-300h]
-  HANDLE v134; // [rsp+D0h] [rbp-2F8h] BYREF
-  __m128i v135; // [rsp+E0h] [rbp-2E8h] BYREF
-  unsigned int v136; // [rsp+F0h] [rbp-2D8h]
-  __int64 v137; // [rsp+F8h] [rbp-2D0h] BYREF
-  __int64 v138; // [rsp+100h] [rbp-2C8h] BYREF
-  struct _TEB *v139; // [rsp+108h] [rbp-2C0h]
-  __int64 v140; // [rsp+110h] [rbp-2B8h]
-  UNICODE_STRING v141; // [rsp+120h] [rbp-2A8h] BYREF
-  __m128i v142; // [rsp+130h] [rbp-298h] BYREF
-  __int64 v143; // [rsp+140h] [rbp-288h]
-  __int64 v144; // [rsp+148h] [rbp-280h]
-  __int64 v145[2]; // [rsp+150h] [rbp-278h] BYREF
-  int v146; // [rsp+160h] [rbp-268h] BYREF
-  const WCHAR *v147; // [rsp+168h] [rbp-260h]
+  _UNICODE_STRING v114; // [rsp+70h] [rbp-358h] BYREF
+  int v115; // [rsp+80h] [rbp-348h] BYREF
+  int v116; // [rsp+84h] [rbp-344h] BYREF
+  int v117; // [rsp+88h] [rbp-340h]
+  HANDLE v118; // [rsp+90h] [rbp-338h] BYREF
+  _UNICODE_STRING UnicodeString; // [rsp+A0h] [rbp-328h] BYREF
+  _UNICODE_STRING Destination; // [rsp+B0h] [rbp-318h] BYREF
+  unsigned __int16 v121; // [rsp+C0h] [rbp-308h] BYREF
+  __int16 v122; // [rsp+C2h] [rbp-306h]
+  unsigned __int64 v123; // [rsp+C8h] [rbp-300h]
+  HANDLE Handle; // [rsp+D0h] [rbp-2F8h] BYREF
+  __m128i ImagePathName; // [rsp+E0h] [rbp-2E8h] BYREF
+  ULONG ReturnedLength; // [rsp+F0h] [rbp-2D8h] BYREF
+  __int64 v127; // [rsp+F8h] [rbp-2D0h] BYREF
+  PIMAGE_NT_HEADERS OutHeaders; // [rsp+100h] [rbp-2C8h] BYREF
+  struct _TEB *v129; // [rsp+108h] [rbp-2C0h]
+  __int64 v130; // [rsp+110h] [rbp-2B8h]
+  _UNICODE_STRING DestinationString; // [rsp+120h] [rbp-2A8h] BYREF
+  __m128i v132; // [rsp+130h] [rbp-298h] BYREF
+  __int64 v133; // [rsp+140h] [rbp-288h]
+  __int64 v134; // [rsp+148h] [rbp-280h]
+  __int64 v135; // [rsp+150h] [rbp-278h] BYREF
+  HANDLE LinkHandle; // [rsp+158h] [rbp-270h] BYREF
+  int v137; // [rsp+160h] [rbp-268h] BYREF
+  const WCHAR *v138; // [rsp+168h] [rbp-260h]
   __int64 SystemInformation; // [rsp+170h] [rbp-258h] BYREF
-  __int64 v149; // [rsp+178h] [rbp-250h] BYREF
-  _DWORD *v150; // [rsp+180h] [rbp-248h] BYREF
-  __int64 v151; // [rsp+188h] [rbp-240h] BYREF
-  __int64 (*v152)(void); // [rsp+190h] [rbp-238h] BYREF
-  int v153; // [rsp+198h] [rbp-230h] BYREF
-  int v154; // [rsp+1A0h] [rbp-228h]
-  __int64 v155; // [rsp+1A8h] [rbp-220h]
-  int *v156; // [rsp+1B0h] [rbp-218h]
-  int v157; // [rsp+1B8h] [rbp-210h]
-  __int128 v158; // [rsp+1C0h] [rbp-208h]
-  _QWORD v159[4]; // [rsp+1D0h] [rbp-1F8h] BYREF
-  __int64 v160; // [rsp+1F0h] [rbp-1D8h] BYREF
-  int v161; // [rsp+1F8h] [rbp-1D0h]
-  __int128 v162; // [rsp+200h] [rbp-1C8h]
-  __int128 v163; // [rsp+210h] [rbp-1B8h]
-  __int128 v164; // [rsp+220h] [rbp-1A8h]
-  __int64 v165; // [rsp+230h] [rbp-198h]
-  __m128i v166; // [rsp+240h] [rbp-188h] BYREF
-  __int64 *v167; // [rsp+250h] [rbp-178h]
-  int v168; // [rsp+260h] [rbp-168h]
+  __int64 v140; // [rsp+178h] [rbp-250h] BYREF
+  PIMAGE_NT_HEADERS v141; // [rsp+180h] [rbp-248h] BYREF
+  _QWORD *v142; // [rsp+188h] [rbp-240h] BYREF
+  PVOID ProcedureAddress; // [rsp+190h] [rbp-238h] BYREF
+  unsigned int v144; // [rsp+198h] [rbp-230h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+1A0h] [rbp-228h] BYREF
+  _QWORD v146[4]; // [rsp+1D0h] [rbp-1F8h] BYREF
+  __int64 v147; // [rsp+1F0h] [rbp-1D8h] BYREF
+  int v148; // [rsp+1F8h] [rbp-1D0h]
+  __int128 v149; // [rsp+200h] [rbp-1C8h]
+  __int128 v150; // [rsp+210h] [rbp-1B8h]
+  __int128 v151; // [rsp+220h] [rbp-1A8h]
+  __int64 v152; // [rsp+230h] [rbp-198h]
+  __m128i v153; // [rsp+240h] [rbp-188h] BYREF
+  PWSTR *v154; // [rsp+250h] [rbp-178h]
+  int v155; // [rsp+260h] [rbp-168h]
   unsigned int *p_ApplicationKeyOption; // [rsp+268h] [rbp-160h]
-  __int64 v170[15]; // [rsp+310h] [rbp-B8h] BYREF
-  char v171; // [rsp+38Ch] [rbp-3Ch]
-  unsigned __int64 retaddr; // [rsp+3C8h] [rbp+0h]
+  PWSTR Path[15]; // [rsp+310h] [rbp-B8h] BYREF
+  char v158; // [rsp+38Ch] [rbp-3Ch]
+  PVOID *retaddr; // [rsp+3C8h] [rbp+0h]
 
-  v122 = a2;
-  v140 = a1;
-  v146 = 1441812;
-  v147 = L"\\KnownDlls";
+  DllHandle = a2;
+  v130 = a1;
+  v137 = 1441812;
+  v138 = L"\\KnownDlls";
   v3 = (unsigned int)`RtlpGetCookieValue'::`2'::CookieValue;
   v4 = 0;
   if ( !`RtlpGetCookieValue'::`2'::CookieValue )
@@ -294,14 +281,14 @@ __int64 __fastcall LdrpInitializeProcess(__int64 a1, __int64 a2)
            4u,
            0LL);
     if ( v5 < 0 )
-      RtlRaiseStatus((unsigned int)v5);
+      RtlRaiseStatus(v5);
     v3 = (unsigned int)ProcessInformation;
     `RtlpGetCookieValue'::`2'::CookieValue = (int)ProcessInformation;
   }
   v6 = 63;
   RtlpUnhandledExceptionFilter = __ROR8__(v3, v3 & 0x3F);
   v7 = NtCurrentTeb();
-  v139 = v7;
+  v129 = v7;
   ProcessEnvironmentBlock = (__int64)v7->ProcessEnvironmentBlock;
   PebLdr = 88;
   byte_180187444 = 1;
@@ -331,8 +318,8 @@ __int64 __fastcall LdrpInitializeProcess(__int64 a1, __int64 a2)
   memset_thunk_772440563353939046(&RtlpFcProcessManager, 0, 0xE8uLL);
   memset_thunk_772440563353939046(&unk_180185E40, 0, 0xA0uLL);
   memset_thunk_772440563353939046(qword_180185E28, 0, 0xA8uLL);
-  qword_180185EE0 = 0LL;
-  qword_180185EF0 = 0LL;
+  RunOnce.Value = 0LL;
+  stru_180185EF0.0 = 0LL;
   qword_180185F00 = (__int64)&qword_180185EF8;
   qword_180185EF8 = (__int64)&qword_180185EF8;
   RtlpInitializeNonVolatileFlush();
@@ -340,35 +327,35 @@ __int64 __fastcall LdrpInitializeProcess(__int64 a1, __int64 a2)
   v14 = (_WORD *)(*(_QWORD *)(v13 + 104) + v13);
   if ( (*(_BYTE *)(v13 + 8) & 1) != 0 )
     v14 = *(_WORD **)(v13 + 104);
-  v133 = (unsigned __int64)v14;
-  v131 = *(_WORD *)(v13 + 96);
-  v15 = v131;
-  v132 = v131 + 2;
-  if ( v131 >= 8u && *v14 == 92 && v14[1] == 63 && v14[2] == 63 && v14[3] == 92 )
+  v123 = (unsigned __int64)v14;
+  v121 = *(_WORD *)(v13 + 96);
+  v15 = v121;
+  v122 = v121 + 2;
+  if ( v121 >= 8u && *v14 == 92 && v14[1] == 63 && v14[2] == 63 && v14[3] == 92 )
   {
-    v131 -= 8;
-    v132 = v15 - 6;
-    v133 = (unsigned __int64)(v14 + 4);
+    v121 -= 8;
+    v122 = v15 - 6;
+    v123 = (unsigned __int64)(v14 + 4);
     *(_WORD *)(v13 + 96) -= 8;
     *(_WORD *)(v13 + 98) -= 8;
     *(_QWORD *)(v13 + 104) += 8LL;
   }
-  v127 = 1;
+  v117 = 1;
   UseCOR = 0;
   LOBYTE(v6) = 0;
-  v121 = v6;
-  v126 = 0;
-  RtlImageNtHeaderEx(3, *(_QWORD *)(ProcessEnvironmentBlock + 16), 0LL, &v138);
-  v16 = v138;
-  LdrpAppHeaders = v138;
+  v111 = v6;
+  v116 = 0;
+  RtlImageNtHeaderEx(3u, *(PVOID *)(ProcessEnvironmentBlock + 16), 0LL, &OutHeaders);
+  v16 = OutHeaders;
+  LdrpAppHeaders = (__int64)OutHeaders;
   v17 = 32LL;
-  if ( LdrpIsSecureProcess && (*(_BYTE *)(v138 + 22) & 0x20) == 0 )
+  if ( LdrpIsSecureProcess && (OutHeaders->FileHeader.Characteristics & 0x20) == 0 )
   {
     LdrpLogInternal(
       (unsigned int)"minkernel\\ntdll\\ldrinit.c",
-      4908LL,
+      4908,
       (__int64)"LdrpInitializeProcess",
-      0LL,
+      0,
       "Secure processes must be large address aware\n");
     return 3221225659LL;
   }
@@ -387,21 +374,21 @@ __int64 __fastcall LdrpInitializeProcess(__int64 a1, __int64 a2)
   LOBYTE(v20) = LdrControlFlowGuardEnforcedWithExportSuppression();
   if ( v20 == 1 )
     LdrpSuppressedExportOverrideListPtr = (__int64)&LdrpSuppressedExportOverrideList;
-  v21 = ((unsigned __int64)qword_18019C3B8 >> 4) & 3;
+  v21 = (LdrSystemDllInitBlock.MitigationOptionsMap.Map[1] >> 4) & 3;
   LdrpEnforceIntegrityContinuity = v21 == 1;
   LdrpAuditIntegrityContinuity = ((v21 - 1) & 0xFD) == 0;
-  v22 = LdrpInitializeExecutionOptions(&v131, ProcessEnvironmentBlock, a2, &v134, &v128, (__int64)&v149);
+  v22 = LdrpInitializeExecutionOptions(&v121, ProcessEnvironmentBlock, (__int64)a2, &Handle, &v118, (__int64)&v140);
   ApplicationKeyOption = v22;
   if ( v22 < 0 )
   {
-    LODWORD(v111) = v7->ClientId.UniqueProcess;
+    LODWORD(Callback) = v7->ClientId.UniqueProcess;
     LdrpLogInternal(
       (unsigned int)"minkernel\\ntdll\\ldrinit.c",
-      5054LL,
+      5054,
       (__int64)"LdrpInitializeProcess",
-      0LL,
+      0,
       "Initializing the execution options for the process %lx failed with status 0x%08lx\n",
-      v111,
+      Callback,
       v22);
     return ApplicationKeyOption;
   }
@@ -409,54 +396,54 @@ __int64 __fastcall LdrpInitializeProcess(__int64 a1, __int64 a2)
     LdrpDebugFlags |= 1u;
   LdrpLogInternal(
     (unsigned int)"minkernel\\ntdll\\ldrinit.c",
-    5101LL,
+    5101,
     (__int64)"LdrpInitializeProcess",
-    2LL,
+    2u,
     "Initializing process 0x%p\n",
     v7->ClientId.UniqueProcess);
-  v143 = 0LL;
-  WowTebOffset = v139->WowTebOffset;
+  v133 = 0LL;
+  WowTebOffset = v129->WowTebOffset;
   UseWOW64 = WowTebOffset > 0;
   if ( v16 )
   {
-    if ( *(_WORD *)(v16 + 24) == 267 && WowTebOffset <= 0 )
+    if ( v16->OptionalHeader.Magic == 267 && WowTebOffset <= 0 )
     {
       UseCOR = 1;
       LOBYTE(v6) = 1;
-      v121 = v6;
+      v111 = v6;
       v4 = 1;
-      LODWORD(v24) = LdrpCorFixupImage(*(_QWORD *)(ProcessEnvironmentBlock + 16));
-      ApplicationKeyOption = v24;
-      if ( (int)v24 < 0 )
-        return (unsigned int)v24;
+      inited = LdrpCorFixupImage(*(void **)(ProcessEnvironmentBlock + 16));
+      ApplicationKeyOption = inited;
+      if ( inited < 0 )
+        return (unsigned int)inited;
     }
   }
   if ( !UseWOW64 && !UseCOR )
   {
-    v25 = RtlpImageDirectoryEntryToDataEx(*(_QWORD *)(ProcessEnvironmentBlock + 16), 1, 0xEu, &v153, v145);
-    v26 = v145[0];
+    v25 = RtlpImageDirectoryEntryToDataEx(*(_QWORD *)(ProcessEnvironmentBlock + 16), 1, 0xEu, &v144, &v135);
+    v26 = v135;
     if ( v25 < 0 )
       v26 = 0LL;
-    v145[0] = v26;
+    v135 = v26;
     if ( v26 )
     {
       UseCOR = 1;
       v6 = (unsigned __int8)v6;
       if ( (*(_BYTE *)(v26 + 16) & 1) != 0 )
         v6 = 1;
-      v121 = v6;
+      v111 = v6;
     }
   }
-  LdrpSystemDllBase = v122;
+  LdrpSystemDllBase = (__int64)DllHandle;
   if ( !UseWOW64 )
-    v143 = *(_QWORD *)(ProcessEnvironmentBlock + 728);
+    v133 = *(_QWORD *)(ProcessEnvironmentBlock + 728);
   RtlpTimeout = *(_QWORD *)(ProcessEnvironmentBlock + 192);
-  v27 = RtlNormalizeProcessParams(*(_QWORD *)(ProcessEnvironmentBlock + 32));
-  v135 = *(__m128i *)(v27 + 96);
+  v27 = RtlNormalizeProcessParams(*(PRTL_USER_PROCESS_PARAMETERS *)(ProcessEnvironmentBlock + 32));
+  ImagePathName = (__m128i)v27->ImagePathName;
   if ( UseWOW64 || UseCOR && v4 )
     Config = 0LL;
   else
-    Config = LdrImageDirectoryEntryToLoadConfig(*(_QWORD *)(ProcessEnvironmentBlock + 16));
+    Config = LdrImageDirectoryEntryToLoadConfig(*(PVOID *)(ProcessEnvironmentBlock + 16));
   if ( Config )
   {
     if ( *Config < 0x10u )
@@ -505,21 +492,27 @@ __int64 __fastcall LdrpInitializeProcess(__int64 a1, __int64 a2)
   TlsExpansionBitMap = 1024;
   qword_180187388 = ProcessEnvironmentBlock + 576;
   if ( UseWOW64 )
-    RtlSetBits(*(_QWORD *)(ProcessEnvironmentBlock + 120), 0, 0x13u);
-  RtlSetBits(*(_QWORD *)(ProcessEnvironmentBlock + 120), 0x10u, 1u);
+    RtlSetBits(*(PRTL_BITMAP *)(ProcessEnvironmentBlock + 120), 0, 0x13u);
+  RtlSetBits(*(PRTL_BITMAP *)(ProcessEnvironmentBlock + 120), 0x10u, 1u);
   if ( (*(_DWORD *)(ProcessEnvironmentBlock + 188) & 0x1000) != 0 || (v32 = LdrpShouldCreateStackTraceDb) != 0 )
   {
     v33 = 24;
-    v125 = 24;
+    v115 = 24;
     if ( LdrpIsSecureProcess )
     {
       v34 = -1073741772;
     }
     else
     {
-      LOBYTE(v115) = 0;
-      v34 = RtlQueryImageFileExecutionOptions(&v131, (__int64)L"StackTraceDatabaseSizeInMb", 4u, (__int64)&v125, 4, 0LL);
-      v33 = v125;
+      LOBYTE(v105) = 0;
+      v34 = RtlQueryImageFileExecutionOptions(
+              &v121,
+              (__int64)L"StackTraceDatabaseSizeInMb",
+              4LL,
+              (__int64)&v115,
+              4,
+              0LL);
+      v33 = v115;
     }
     if ( v34 >= 0 && v33 >= 0x18 )
     {
@@ -534,15 +527,15 @@ __int64 __fastcall LdrpInitializeProcess(__int64 a1, __int64 a2)
     }
     LdrpLogInternal(
       (unsigned int)"minkernel\\ntdll\\ldrinit.c",
-      5349LL,
+      5349,
       (__int64)"LdrpInitializeProcess",
-      2LL,
+      2u,
       "Stack trace database size is %Id Mb\n",
       v35 >> 20);
-    v159[0] = 0LL;
-    v159[1] = 0LL;
-    v159[2] = v35;
-    RtlControlStackTraceDataBase(0LL, 24LL, v159);
+    v146[0] = 0LL;
+    v146[1] = 0LL;
+    v146[2] = v35;
+    RtlControlStackTraceDataBase(0LL, 24LL, v146);
     v32 = LdrpShouldCreateStackTraceDb;
   }
   if ( (*(_DWORD *)(ProcessEnvironmentBlock + 188) & 0x1000) != 0 || v32 )
@@ -552,39 +545,39 @@ __int64 __fastcall LdrpInitializeProcess(__int64 a1, __int64 a2)
     RtlpForceCSDebugInfoCreation = 1;
     RtlpForceCSToUseEvents = 1;
   }
-  LODWORD(v24) = RtlInitializeCriticalSectionEx((__int64)&FastPebLock, 0, 0);
-  ApplicationKeyOption = v24;
-  if ( (int)v24 < 0 )
-    return (unsigned int)v24;
+  inited = RtlInitializeCriticalSectionEx(&FastPebLock, 0, 0);
+  ApplicationKeyOption = inited;
+  if ( inited < 0 )
+    return (unsigned int)inited;
   *(_QWORD *)(ProcessEnvironmentBlock + 56) = &FastPebLock;
-  LODWORD(v24) = RtlInitializeHeapManager((__int64)&v131);
-  ApplicationKeyOption = v24;
-  if ( (int)v24 < 0 )
-    return (unsigned int)v24;
-  if ( (((unsigned __int64)qword_18019C3B0 >> 12) & 3) == 1 )
-    RtlSetHeapInformation(0LL, 1, 0LL, 0LL);
-  v36 = LdrpInitializeProcessHeap(Config, v138, v27);
-  v37 = (__int64 *)v36;
+  inited = RtlInitializeHeapManager((__int64)&v121);
+  ApplicationKeyOption = inited;
+  if ( inited < 0 )
+    return (unsigned int)inited;
+  if ( ((LdrSystemDllInitBlock.MitigationOptionsMap.Map[0] >> 12) & 3) == 1 )
+    RtlSetHeapInformation(0LL, HeapEnableTerminationOnCorruption, 0LL, 0LL);
+  v36 = LdrpInitializeProcessHeap(Config, OutHeaders, v27);
+  v37 = (void *)v36;
   if ( !v36 )
   {
     LdrpLogInternal(
       (unsigned int)"minkernel\\ntdll\\ldrinit.c",
-      5421LL,
+      5421,
       (__int64)"LdrpInitializeProcess",
-      0LL,
+      0,
       "Creating the process heap failed\n");
     return 3221225495LL;
   }
   *(_QWORD *)(ProcessEnvironmentBlock + 48) = v36;
-  RtlInitializeCriticalSection((__int64)&LdrpEnclaveListLock);
+  RtlInitializeCriticalSection(&LdrpEnclaveListLock);
   qword_180187B88 = (__int64)&LdrpEnclaveList;
   LdrpEnclaveList = (__int64)&LdrpEnclaveList;
   if ( (*(_DWORD *)(ProcessEnvironmentBlock + 188) & 0x800000) != 0 )
     RtlInitializeExceptionLog();
-  RtlpInitializeThreadActivationContextStack((__int64)v139);
-  LdrpHeap = (__int64)v37;
+  RtlpInitializeThreadActivationContextStack((__int64)v129);
+  LdrpHeap = v37;
   if ( ((unsigned __int8)&EtwpFreeRegistrationList & 0xF) != 0 )
-    RtlRaiseStatus(2147483650LL);
+    RtlRaiseStatus(-2147483646);
   EtwpFreeRegistrationList = 0LL;
   PrivateLoggerNotificationEntry = 0LL;
   ApplicationKeyOption = NtQuerySystemInformation(SystemHypervisorSharedPageInformation, &SystemInformation, 8u, 0LL);
@@ -592,636 +585,626 @@ __int64 __fastcall LdrpInitializeProcess(__int64 a1, __int64 a2)
   if ( (ApplicationKeyOption & 0x80000000) == 0 )
     v38 = SystemInformation;
   RtlpHypervisorSharedUserVa = v38;
-  NtdllBaseTag = RtlCreateTagHeap(v37, 0, (__int64)L"NTDLL!", L"!Process");
-  LODWORD(v24) = TpInitializePackage();
-  ApplicationKeyOption = v24;
-  if ( (int)v24 < 0 )
-    return (unsigned int)v24;
-  if ( *(_DWORD *)(v27 + 1080) )
-    TpSetDefaultPoolCpuSets(*(void **)(v27 + 1072));
-  v39 = *(_DWORD *)(v27 + 1084);
-  if ( v39 )
-  {
-    RtlAcquireSRWLockExclusive(&TppPoolpGlobalPoolLock);
-    TppPoolpGlobalPoolMaxThreadsOverride = v39;
-    RtlReleaseSRWLockExclusive(&TppPoolpGlobalPoolLock);
-  }
-  TraceLoggingRegisterEx_EtwEventRegister_EtwEventSetInformation((__int64 *)&dword_1801814A0);
-  EtwEventRegister((int)&PrivateLoggerNotificationGuid, 0LL, 0LL, (__int64)&g_hPrivLoggerNotificationProvider);
-  EtwEventRegister(
-    (int)&UserDiagnosticGuid,
-    (__int64)UserDiagnosticProviderCallback,
-    0LL,
-    (__int64)&g_hUserDiagnosticProvider);
-  TraceLoggingRegisterEx_EtwEventRegister_EtwEventSetInformation((__int64 *)&dword_180181468);
-  EtwEventRegister(
-    (int)&WindowsHeapSnapshotProvider,
-    (__int64)RtlpHpStackTraceEtwCallback,
-    0LL,
-    (__int64)&RtlpHpStackTraceProviderHandle);
-  if ( (RtlpHpHeapFeatures & 8) != 0 )
-    TraceLoggingRegisterEx_EtwEventRegister_EtwEventSetInformation((__int64 *)&dword_180181430);
-  LODWORD(v24) = RtlpInitEnvironmentBlock();
-  ApplicationKeyOption = v24;
-  if ( (int)v24 < 0 )
-    return (unsigned int)v24;
-  inited = RtlpInitParameterBlock();
-  v24 = (unsigned int)inited;
+  NtdllBaseTag = RtlCreateTagHeap(v37, 0, (PWSTR)L"NTDLL!", (PWSTR)L"!Process");
+  inited = TpInitializePackage();
   ApplicationKeyOption = inited;
   if ( inited < 0 )
-    return (unsigned int)v24;
-  v43 = *(_QWORD *)(ProcessEnvironmentBlock + 32);
-  v144 = v43;
-  v135 = *(__m128i *)(v43 + 96);
-  v133 = _mm_srli_si128(v135, 8).m128i_u64[0];
-  v44 = v134;
-  if ( v134 || v128 )
+    return (unsigned int)inited;
+  if ( v27->DefaultThreadpoolCpuSetMaskCount )
+    TpSetDefaultPoolCpuSets(v27->DefaultThreadpoolCpuSetMasks);
+  DefaultThreadpoolThreadMaximum = v27->DefaultThreadpoolThreadMaximum;
+  if ( DefaultThreadpoolThreadMaximum )
+  {
+    RtlAcquireSRWLockExclusive(&TppPoolpGlobalPoolLock);
+    TppPoolpGlobalPoolMaxThreadsOverride = DefaultThreadpoolThreadMaximum;
+    RtlReleaseSRWLockExclusive(&TppPoolpGlobalPoolLock);
+  }
+  TraceLoggingRegisterEx_EtwEventRegister_EtwEventSetInformation((char *)&dword_1801814A0);
+  EtwEventRegister(&PrivateLoggerNotificationGuid, 0LL, 0LL, &g_hPrivLoggerNotificationProvider);
+  EtwEventRegister(&UserDiagnosticGuid, UserDiagnosticProviderCallback, 0LL, &g_hUserDiagnosticProvider);
+  TraceLoggingRegisterEx_EtwEventRegister_EtwEventSetInformation((char *)&dword_180181468);
+  EtwEventRegister(&WindowsHeapSnapshotProvider, RtlpHpStackTraceEtwCallback, 0LL, &RtlpHpStackTraceProviderHandle);
+  if ( (RtlpHpHeapFeatures & 8) != 0 )
+    TraceLoggingRegisterEx_EtwEventRegister_EtwEventSetInformation((char *)&dword_180181430);
+  inited = RtlpInitEnvironmentBlock();
+  ApplicationKeyOption = inited;
+  if ( inited < 0 )
+    return (unsigned int)inited;
+  inited = RtlpInitParameterBlock();
+  ApplicationKeyOption = inited;
+  if ( inited < 0 )
+    return (unsigned int)inited;
+  v40 = *(_QWORD *)(ProcessEnvironmentBlock + 32);
+  v134 = v40;
+  ImagePathName = *(__m128i *)(v40 + 96);
+  v123 = _mm_srli_si128(ImagePathName, 8).m128i_u64[0];
+  if ( Handle || v118 )
   {
     ApplicationKeyOption = RtlQueryApplicationKeyOption(
-                             (__int64)v128,
-                             (__int64)v134,
+                             v118,
+                             Handle,
                              (__int64)L"DebugProcessHeapOnly",
-                             4u,
-                             (__int64)&v126,
+                             4LL,
+                             (__int64)&v116,
                              4,
-                             v115,
+                             v105,
                              0LL);
-    v45 = 0;
-    if ( (ApplicationKeyOption & 0x80000000) == 0 && dword_180181238 && v126 )
+    v41 = 0;
+    if ( (ApplicationKeyOption & 0x80000000) == 0 && dword_180181238 && v116 )
     {
       dword_180181238 = 0;
-      *(_DWORD *)RtlpDebugPageHeapTable &= ~0x400u;
+      *RtlpDebugPageHeapTable &= ~0x400u;
     }
   }
   else
   {
-    v45 = 0;
+    v41 = 0;
   }
-  NtSystemRoot = RtlGetNtSystemRoot(v24, (__int64)v44, v41, v42);
-  RtlInitUnicodeStringEx((__int64)&v141, NtSystemRoot);
-  v47 = v141.Length + 40;
-  Heap = RtlAllocateHeap((__int64)v37, 0, (unsigned int)v141.Length + 38 + 2LL);
+  NtSystemRoot = RtlGetNtSystemRoot();
+  RtlInitUnicodeStringEx(&DestinationString, NtSystemRoot);
+  v43 = DestinationString.Length + 40;
+  Heap = (wchar_t *)RtlAllocateHeap(v37, 0, (unsigned int)DestinationString.Length + 38 + 2LL);
   if ( !Heap )
     return 3221225495LL;
-  LOWORD(v130) = 0;
-  WORD1(v130) = v47;
-  *((_QWORD *)&v130 + 1) = Heap;
-  RtlAppendUnicodeStringToString((unsigned __int16 *)&v130, (const void **)&v141);
-  RtlAppendUnicodeStringToString((unsigned __int16 *)&v130, &SlashSystem32SlashString);
+  Destination.Length = 0;
+  Destination.MaximumLength = v43;
+  Destination.Buffer = Heap;
+  RtlAppendUnicodeStringToString(&Destination, &DestinationString);
+  RtlAppendUnicodeStringToString(&Destination, &SlashSystem32SlashString);
   if ( (*(_BYTE *)(ProcessEnvironmentBlock + 3) & 2) == 0 )
   {
-    v49 = 48LL;
-    v154 = 48;
-    v155 = 0LL;
-    v157 = 64;
-    v156 = &v146;
-    v158 = 0LL;
+    v45 = 48LL;
+    ObjectAttributes.Length = 48;
+    ObjectAttributes.RootDirectory = 0LL;
+    ObjectAttributes.Attributes = 64;
+    ObjectAttributes.ObjectName = (PUNICODE_STRING)&v137;
+    *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
     LdrProtectMrdata(0);
-    ApplicationKeyOption = ZwOpenDirectoryObject();
+    ApplicationKeyOption = ZwOpenDirectoryObject(&LdrpKnownDllDirectoryHandle, 3u, &ObjectAttributes);
     LdrProtectMrdata(1);
     if ( (ApplicationKeyOption & 0x80000000) != 0 )
     {
-      LODWORD(v115) = ApplicationKeyOption;
-      v113 = &v146;
-      v50 = 5693LL;
+      LODWORD(v105) = ApplicationKeyOption;
+      Callbackb = (PVOID *)&v137;
+      v46 = 5693;
 LABEL_116:
       LdrpLogInternal(
         (unsigned int)"minkernel\\ntdll\\ldrinit.c",
-        v50,
+        v46,
         (__int64)"LdrpInitializeProcess",
-        0LL,
+        0,
         "Failed to open %wZ with status 0x%08lx\n",
-        v113,
-        v115);
+        Callbackb,
+        v105);
       return ApplicationKeyOption;
     }
-    v154 = 48;
-    v155 = LdrpKnownDllDirectoryHandle;
-    v157 = 64;
-    v156 = dword_180133D90;
-    v158 = 0LL;
-    v51 = ZwOpenSymbolicLinkObject();
-    ApplicationKeyOption = v51;
-    if ( v51 < 0 )
+    ObjectAttributes.Length = 48;
+    ObjectAttributes.RootDirectory = LdrpKnownDllDirectoryHandle;
+    ObjectAttributes.Attributes = 64;
+    ObjectAttributes.ObjectName = (PUNICODE_STRING)dword_180133D90;
+    *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+    v47 = ZwOpenSymbolicLinkObject(&LinkHandle, 1u, &ObjectAttributes);
+    ApplicationKeyOption = v47;
+    if ( v47 < 0 )
     {
-      LODWORD(v115) = v51;
-      v113 = dword_180133D90;
-      v50 = 5716LL;
+      LODWORD(v105) = v47;
+      Callbackb = (PVOID *)dword_180133D90;
+      v46 = 5716;
       goto LABEL_116;
     }
     while ( 1 )
     {
-      v53 = RtlAllocateHeap((__int64)v37, 0, v49);
-      if ( !v53 )
+      v49 = (wchar_t *)RtlAllocateHeap(v37, 0, v45);
+      if ( !v49 )
         return 3221225495LL;
-      LdrpKnownDllPath = 0;
-      word_180186F72 = v49;
-      qword_180186F78 = v53;
-      SymbolicLinkObject = NtQuerySymbolicLinkObject();
-      ApplicationKeyOption = SymbolicLinkObject;
-      if ( SymbolicLinkObject >= 0 )
+      LdrpKnownDllPath.Length = 0;
+      LdrpKnownDllPath.MaximumLength = v45;
+      LdrpKnownDllPath.Buffer = v49;
+      v48 = NtQuerySymbolicLinkObject(LinkHandle, &LdrpKnownDllPath, &ReturnedLength);
+      ApplicationKeyOption = v48;
+      if ( v48 >= 0 )
         break;
-      if ( SymbolicLinkObject != -1073741789 )
+      if ( v48 != -1073741789 )
       {
-        LODWORD(v112) = SymbolicLinkObject;
+        LODWORD(Callbacka) = v48;
         LdrpLogInternal(
           (unsigned int)"minkernel\\ntdll\\ldrinit.c",
-          5751LL,
+          5751,
           (__int64)"LdrpInitializeProcess",
-          0LL,
+          0,
           "Querying the known DLL directory link object failed with status 0x%08lx\n",
-          v112);
+          Callbacka);
         return ApplicationKeyOption;
       }
-      RtlFreeHeap((__int64)v37, 0, v53);
-      v49 = v136;
+      RtlFreeHeap(v37, 0, v49);
+      v45 = ReturnedLength;
     }
-    NtClose((HANDLE)v145[1]);
-    v45 = 0;
+    NtClose(LinkHandle);
+    v41 = 0;
   }
   if ( UseWOW64 || LdrpIsSecureProcess )
   {
-    UnicodeString = v141;
+    UnicodeString = DestinationString;
   }
   else
   {
-    v54 = *(__m128i *)(v43 + 56);
-    *(_QWORD *)&UnicodeString.Length = *(_QWORD *)(v43 + 56);
-    v55 = (wchar_t *)_mm_srli_si128(v54, 8).m128i_u64[0];
-    UnicodeString.Buffer = v55;
-    if ( !v55 || !UnicodeString.Length || !*v55 )
+    v50 = *(__m128i *)(v40 + 56);
+    *(_QWORD *)&UnicodeString.Length = *(_QWORD *)(v40 + 56);
+    v51 = (wchar_t *)_mm_srli_si128(v50, 8).m128i_u64[0];
+    UnicodeString.Buffer = v51;
+    if ( !v51 || !UnicodeString.Length || !*v51 )
     {
-      v60 = (wchar_t *)RtlAllocateHeap((__int64)v37, 0, 8LL);
-      UnicodeString.Buffer = v60;
-      if ( !v60 )
+      v52 = (wchar_t *)RtlAllocateHeap(v37, 0, 8uLL);
+      UnicodeString.Buffer = v52;
+      if ( !v52 )
       {
         LdrpLogInternal(
           (unsigned int)"minkernel\\ntdll\\ldrinit.c",
-          5798LL,
+          5798,
           (__int64)"LdrpInitializeProcess",
-          0LL,
+          0,
           "Allocating a buffer to hold the current working directory failed\n");
         return 3221225495LL;
       }
-      v127 = 0;
-      v61 = RtlGetNtSystemRoot(v57, v56, v58, v59);
-      *(_DWORD *)v60 = *(_DWORD *)v61;
-      v60[2] = *(_WORD *)(v61 + 4);
+      v117 = 0;
+      v53 = RtlGetNtSystemRoot();
+      *(_DWORD *)v52 = *(_DWORD *)v53;
+      v52[2] = v53[2];
       UnicodeString.Buffer[3] = 0;
       *(_DWORD *)&UnicodeString.Length = 524294;
     }
   }
   LdrpInitializePolicy();
-  v62 = (unsigned __int16)v130;
+  Length = Destination.Length;
   if ( (*(_DWORD *)(*(_QWORD *)(ProcessEnvironmentBlock + 32) + 8LL) & 0x20000000) != 0 )
   {
-    v45 = LdrpIncludeAlternateForwarders();
-    v62 = 2 * v63 + 22;
-    if ( v45 )
-      v62 = v63 + 2 * v63 + 52;
+    v41 = LdrpIncludeAlternateForwarders();
+    Length = 2 * v55 + 22;
+    if ( v41 )
+      Length = v55 + 2 * v55 + 52;
   }
-  v64 = v62;
+  v56 = Length;
   if ( (LdrpPolicyBits & 1) == 0 )
   {
-    v64 = v62 + 2 * (v141.Length + 9LL);
+    v56 = Length + 2 * (DestinationString.Length + 9LL);
     if ( (*(_BYTE *)(ProcessEnvironmentBlock + 3) & 2) != 0 )
-      *(_WORD *)(v43 + 80) = 0;
+      *(_WORD *)(v40 + 80) = 0;
   }
-  *((_QWORD *)&v124 + 1) = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v64);
-  if ( !*((_QWORD *)&v124 + 1) )
+  v114.Buffer = (wchar_t *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, v56);
+  if ( !v114.Buffer )
   {
     LdrpLogInternal(
       (unsigned int)"minkernel\\ntdll\\ldrinit.c",
-      5889LL,
+      5889,
       (__int64)"LdrpInitializeProcess",
-      0LL,
+      0,
       "Failed to allocate the system dirs string!\n");
     return 3221225495LL;
   }
-  LOWORD(v124) = 0;
-  WORD1(v124) = v64;
-  RtlAppendUnicodeStringToString((unsigned __int16 *)&v124, (const void **)&v130);
-  v65 = (unsigned __int16)v124;
-  *(_WORD *)(*((_QWORD *)&v124 + 1) + 2 * ((unsigned __int64)(unsigned __int16)v124 >> 1) - 2) = 59;
-  RtlpSystem32Dirs = v124;
-  LdrpSystem32 = v124;
-  LOWORD(v65) = v65 - 2;
-  LOWORD(LdrpSystem32) = v65;
+  v114.Length = 0;
+  v114.MaximumLength = v56;
+  RtlAppendUnicodeStringToString(&v114, &Destination);
+  v57 = v114.Length;
+  v114.Buffer[((unsigned __int64)v114.Length >> 1) - 1] = 59;
+  RtlpSystem32Dirs = (__int128)v114;
+  LdrpSystem32 = v114;
+  LOWORD(v57) = v57 - 2;
+  LdrpSystem32.Length = v57;
   if ( (*(_DWORD *)(*(_QWORD *)(ProcessEnvironmentBlock + 32) + 8LL) & 0x20000000) != 0 )
   {
-    if ( v45 )
+    if ( v41 )
     {
-      RtlAppendUnicodeStringToString((unsigned __int16 *)&v124, (const void **)&v130);
-      RtlAppendUnicodeToString((unsigned __int16 *)&v124, L"forwarders\\alt;");
+      RtlAppendUnicodeStringToString(&v114, &Destination);
+      RtlAppendUnicodeToString(&v114, L"forwarders\\alt;");
     }
-    RtlAppendUnicodeStringToString((unsigned __int16 *)&v124, (const void **)&v130);
-    RtlAppendUnicodeToString((unsigned __int16 *)&v124, L"forwarders;");
+    RtlAppendUnicodeStringToString(&v114, &Destination);
+    RtlAppendUnicodeToString(&v114, L"forwarders;");
   }
-  if ( v64 > v62 )
+  if ( v56 > Length )
   {
-    RtlAppendUnicodeStringToString((unsigned __int16 *)&v124, (const void **)&v141);
-    RtlAppendUnicodeToString((unsigned __int16 *)&v124, L"\\system;");
-    RtlAppendUnicodeStringToString((unsigned __int16 *)&v124, (const void **)&v141);
-    RtlAppendUnicodeToString((unsigned __int16 *)&v124, L";");
-    RtlpSystemDirs = v124;
+    RtlAppendUnicodeStringToString(&v114, &DestinationString);
+    RtlAppendUnicodeToString(&v114, L"\\system;");
+    RtlAppendUnicodeStringToString(&v114, &DestinationString);
+    RtlAppendUnicodeToString(&v114, L";");
+    RtlpSystemDirs = v114;
   }
   if ( (unsigned int)(LdrpIllegalCWDDevices - 1) <= 0xFFFFFFFD )
-    LdrpCheckAppDirType(&v135, v65);
-  LODWORD(v24) = LdrpInitializeNtdllDataTableEntry(v122, &LdrpNtDllDataTableEntry, 0LL, 0LL, &v130);
-  ApplicationKeyOption = v24;
-  if ( (int)v24 < 0 )
-    return (unsigned int)v24;
-  v66 = 0LL;
-  v67 = v135.m128i_i64[1] + v135.m128i_u16[0];
-  v68 = (_WORD *)v67;
-  if ( v67 && v67 > v135.m128i_i64[1] )
+    LdrpCheckAppDirType((_UNICODE_STRING *)&ImagePathName, v57);
+  inited = LdrpInitializeNtdllDataTableEntry(DllHandle, &LdrpNtDllDataTableEntry, 0LL, 0LL, &Destination);
+  ApplicationKeyOption = inited;
+  if ( inited < 0 )
+    return (unsigned int)inited;
+  v58 = 0LL;
+  v59 = (wchar_t *)(ImagePathName.m128i_i64[1] + ImagePathName.m128i_u16[0]);
+  v60 = v59;
+  if ( v59 && (unsigned __int64)v59 > ImagePathName.m128i_i64[1] )
   {
     while ( 1 )
     {
-      v69 = v68--;
-      if ( *v68 == 92 )
+      v61 = v60--;
+      if ( *v60 == 92 )
         break;
-      if ( (unsigned __int64)v68 <= v135.m128i_i64[1] )
+      if ( (unsigned __int64)v60 <= ImagePathName.m128i_i64[1] )
         goto LABEL_158;
     }
-    v66 = (__int64)v69;
+    v58 = (__int64)v61;
   }
 LABEL_158:
-  if ( v66 )
+  if ( v58 )
   {
-    v70 = v67 - v66;
-    v142.m128i_i16[0] = v70;
-    if ( v135.m128i_u16[1] - (unsigned __int64)v135.m128i_u16[0] >= 2 )
-      v70 += 2;
-    v142.m128i_i16[1] = v70;
-    v142.m128i_i64[1] = v66;
+    v62 = (_WORD)v59 - v58;
+    v132.m128i_i16[0] = v62;
+    if ( ImagePathName.m128i_u16[1] - (unsigned __int64)ImagePathName.m128i_u16[0] >= 2 )
+      v62 += 2;
+    v132.m128i_i16[1] = v62;
+    v132.m128i_i64[1] = v58;
   }
   else
   {
-    v142 = v135;
+    v132 = ImagePathName;
   }
-  v71 = LdrpNtdllHotPatchContext;
+  v63 = LdrpNtdllHotPatchContext;
   if ( *(_WORD *)LdrpNtdllHotPatchContext )
   {
     LdrpLogEtwHotPatchStatus(
-      (unsigned __int16 *)&v142,
+      (unsigned __int16 *)&v132,
       LdrpNtDllDataTableEntry,
       (unsigned __int16 *)LdrpNtdllHotPatchContext,
       *(_DWORD *)(LdrpNtdllHotPatchContext + 544),
       0);
-    v71 = LdrpNtdllHotPatchContext;
+    v63 = LdrpNtdllHotPatchContext;
   }
-  if ( *(int *)(v71 + 544) < 0 )
+  if ( *(int *)(v63 + 544) < 0 )
     __fastfail(0x45u);
-  v137 = 0LL;
-  v72 = *(_QWORD *)(v71 + 536);
-  if ( v72 )
+  v127 = 0LL;
+  v64 = *(void **)(v63 + 536);
+  if ( v64 )
   {
-    LODWORD(v24) = LdrpInitializeNtdllDataTableEntry(v72, &v137, LdrpNtDllDataTableEntry, (unsigned __int16 *)v71, 0LL);
-    ApplicationKeyOption = v24;
-    if ( (int)v24 < 0 )
-      return (unsigned int)v24;
+    inited = LdrpInitializeNtdllDataTableEntry(v64, &v127, LdrpNtDllDataTableEntry, (const UNICODE_STRING *)v63, 0LL);
+    ApplicationKeyOption = inited;
+    if ( inited < 0 )
+      return (unsigned int)inited;
   }
   RtlInitializeHistoryTable();
-  v73 = (_QWORD *)(LdrpNtDllDataTableEntry + 32);
-  v74 = qword_180187470;
+  v65 = (_QWORD *)(LdrpNtDllDataTableEntry + 32);
+  v66 = qword_180187470;
   if ( *(__int64 **)(qword_180187470 + 8) != &qword_180187470 )
     goto LABEL_295;
-  *v73 = qword_180187470;
-  v73[1] = &qword_180187470;
-  *(_QWORD *)(v74 + 8) = v73;
-  qword_180187470 = (__int64)v73;
-  if ( !v137 )
+  *v65 = qword_180187470;
+  v65[1] = &qword_180187470;
+  *(_QWORD *)(v66 + 8) = v65;
+  qword_180187470 = (__int64)v65;
+  if ( !v127 )
     goto LABEL_173;
-  v75 = (_QWORD *)(v137 + 32);
-  if ( (__int64 *)v73[1] != &qword_180187470 )
+  v67 = (_QWORD *)(v127 + 32);
+  if ( (__int64 *)v65[1] != &qword_180187470 )
 LABEL_295:
     __fastfail(3u);
-  *v75 = v73;
-  v75[1] = &qword_180187470;
-  v73[1] = v75;
-  qword_180187470 = (__int64)v75;
+  *v67 = v65;
+  v67[1] = &qword_180187470;
+  v65[1] = v67;
+  qword_180187470 = (__int64)v67;
 LABEL_173:
-  v76 = LdrpInitParallelLoadingSupport();
-  ApplicationKeyOption = v76;
-  if ( v76 < 0 )
+  v68 = LdrpInitParallelLoadingSupport();
+  ApplicationKeyOption = v68;
+  if ( v68 < 0 )
   {
-    LODWORD(v112) = v76;
+    LODWORD(Callbacka) = v68;
     LdrpLogInternal(
       (unsigned int)"minkernel\\ntdll\\ldrinit.c",
-      6126LL,
+      6126,
       (__int64)"LdrpInitializeProcess",
-      0LL,
+      0,
       "Failed to initialize Parallel loader, st = 0x%x\n",
-      v112);
+      Callbacka);
     return ApplicationKeyOption;
   }
   LdrpDrainWorkQueue(0);
-  LdrpInitializeDllPath(0LL, 0LL, v170);
-  memset_thunk_772440563353939046(&v166, 0, 0xC8uLL);
-  v167 = v170;
-  v168 = 512;
-  v166 = v135;
+  LdrpInitializeDllPath(0LL, 0LL, (__int64 *)Path);
+  memset_thunk_772440563353939046(&v153, 0, 0xC8uLL);
+  v154 = Path;
+  v155 = 512;
+  v153 = ImagePathName;
   p_ApplicationKeyOption = &ApplicationKeyOption;
-  ModuleEntry = LdrpAllocateModuleEntry((__int64)&v166);
+  ModuleEntry = LdrpAllocateModuleEntry((__int64)&v153);
   if ( !ModuleEntry )
   {
     LdrpLogInternal(
       (unsigned int)"minkernel\\ntdll\\ldrinit.c",
-      6147LL,
+      6147,
       (__int64)"LdrpInitializeProcess",
-      0LL,
+      0,
       "Allocating a data table entry for the executable failed\n");
     return 3221225495LL;
   }
-  LdrpImageEntry = ModuleEntry;
-  v78 = 2LL;
+  LdrpImageEntry = (__int64)ModuleEntry;
+  v70 = 2LL;
   do
   {
-    v79 = LdrpImageEntry;
+    v71 = LdrpImageEntry;
     *(_DWORD *)(*(_QWORD *)(LdrpImageEntry + 152) + 24LL) = -1;
-    --v78;
+    --v70;
   }
-  while ( v78 );
-  *(_WORD *)(**(_QWORD **)(v79 + 152) - 52LL) = -1;
-  v80 = LdrpImageEntry;
-  *(__m128i *)(LdrpImageEntry + 72) = v135;
-  v81 = *(_DWORD *)(v80 + 104) | 4;
-  *(_DWORD *)(v80 + 104) = v81;
+  while ( v70 );
+  *(_WORD *)(**(_QWORD **)(v71 + 152) - 52LL) = -1;
+  v72 = LdrpImageEntry;
+  *(__m128i *)(LdrpImageEntry + 72) = ImagePathName;
+  v73 = *(_DWORD *)(v72 + 104) | 4;
+  *(_DWORD *)(v72 + 104) = v73;
   if ( (*(_BYTE *)(ProcessEnvironmentBlock + 3) & 0x10) != 0 )
   {
-    v81 |= 1u;
-    *(_DWORD *)(v80 + 104) = v81;
+    v73 |= 1u;
+    *(_DWORD *)(v72 + 104) = v73;
   }
-  v82 = v121;
+  v74 = v111;
   if ( UseCOR )
   {
-    v83 = v81 | 0x400000;
-    *(_DWORD *)(v80 + 104) = v83;
-    if ( v82 )
-      *(_DWORD *)(v80 + 104) = v83 | 0x1000000;
+    v75 = v73 | 0x400000;
+    *(_DWORD *)(v72 + 104) = v75;
+    if ( v74 )
+      *(_DWORD *)(v72 + 104) = v75 | 0x1000000;
   }
   if ( (*(_BYTE *)(ProcessEnvironmentBlock + 3) & 4) != 0 )
-    *(_QWORD *)(v80 + 248) = 0LL;
-  *(__m128i *)(v80 + 88) = v142;
-  v84 = v138;
-  if ( *(_QWORD *)(v138 + 48) != *(_QWORD *)(ProcessEnvironmentBlock + 16) && !v82 && !UseWOW64 )
+    *(_QWORD *)(v72 + 248) = 0LL;
+  *(__m128i *)(v72 + 88) = v132;
+  v76 = OutHeaders;
+  if ( OutHeaders->OptionalHeader.ImageBase != *(_QWORD *)(ProcessEnvironmentBlock + 16) && !v74 && !UseWOW64 )
   {
-    LODWORD(v24) = LdrpProtectAndRelocateImage(*(const void **)(ProcessEnvironmentBlock + 16));
-    ApplicationKeyOption = v24;
-    if ( (int)v24 < 0 )
-      return (unsigned int)v24;
-    v80 = LdrpImageEntry;
+    inited = LdrpProtectAndRelocateImage(*(PVOID *)(ProcessEnvironmentBlock + 16));
+    ApplicationKeyOption = inited;
+    if ( inited < 0 )
+      return (unsigned int)inited;
+    v72 = LdrpImageEntry;
   }
-  *(_QWORD *)(v80 + 48) = *(_QWORD *)(ProcessEnvironmentBlock + 16);
-  LdrpInsertDataTableEntry(v80);
+  *(_QWORD *)(v72 + 48) = *(_QWORD *)(ProcessEnvironmentBlock + 16);
+  LdrpInsertDataTableEntry(v72);
   LdrpLogInternal(
     (unsigned int)"minkernel\\ntdll\\ldrinit.c",
-    6234LL,
+    6234,
     (__int64)"LdrpInitializeProcess",
-    2LL,
+    2u,
     "Beginning execution of %wZ (%wZ)\n\tCurrent directory: %wZ\n\tPackage directories: %wZ\n",
     LdrpImageEntry + 88,
     LdrpImageEntry + 72,
     &UnicodeString,
     &LdrpAppPackagesPath);
   LdrpLogDllState(*(_QWORD *)(LdrpImageEntry + 48), LdrpImageEntry + 72, 0x14A5u);
-  LdrpInsertModuleToIndex(LdrpImageEntry, (_DWORD *)v84);
-  LODWORD(v24) = LdrpProcessMappedModule(LdrpImageEntry, 0, UseWOW64 == 0);
-  ApplicationKeyOption = v24;
-  if ( (int)v24 < 0 )
-    return (unsigned int)v24;
+  LdrpInsertModuleToIndex(LdrpImageEntry, v76);
+  inited = LdrpProcessMappedModule(LdrpImageEntry, 0, UseWOW64 == 0);
+  ApplicationKeyOption = inited;
+  if ( inited < 0 )
+    return (unsigned int)inited;
   *(_DWORD *)(*(_QWORD *)(LdrpImageEntry + 152) + 56LL) = 9;
-  v85 = RtlpInitCurrentDir((__int64)&UnicodeString);
-  ApplicationKeyOption = v85;
-  if ( v85 < 0 )
+  v77 = RtlpInitCurrentDir((__int64)&UnicodeString);
+  ApplicationKeyOption = v77;
+  if ( v77 < 0 )
   {
-    LODWORD(v116) = v85;
+    LODWORD(v106) = v77;
     LdrpLogInternal(
       (unsigned int)"minkernel\\ntdll\\ldrinit.c",
-      6271LL,
+      6271,
       (__int64)"LdrpInitializeProcess",
-      0LL,
+      0,
       "Initializing the current directory to \"%wZ\" failed with status 0x%08lx\n",
       &UnicodeString,
-      v116);
+      v106);
   }
-  if ( !v127 )
+  if ( !v117 )
     RtlFreeUnicodeString(&UnicodeString);
   if ( AvrfAppVerifierMode )
   {
-    v86 = LdrpAllocateModuleEntry(0LL);
-    v87 = v86;
-    if ( !v86 )
+    v78 = LdrpAllocateModuleEntry(0LL);
+    v79 = (__int64)v78;
+    if ( !v78 )
     {
       LdrpLogInternal(
         (unsigned int)"minkernel\\ntdll\\ldrinit.c",
-        6294LL,
+        6294,
         (__int64)"LdrpInitializeProcess",
-        0LL,
+        0,
         "Allocating a data table entry for the application verifier DLL failed\n");
       return 3221225495LL;
     }
-    *(_DWORD *)(*(_QWORD *)(v86 + 152) + 24LL) = -1;
-    *(_WORD *)(**(_QWORD **)(v86 + 152) - 52LL) = -1;
-    v88 = v149;
-    *(_DWORD *)(v86 + 104) |= *(_DWORD *)(v149 + 104);
-    *(_QWORD *)(v86 + 248) = *(_QWORD *)(v88 + 248);
-    *(_WORD *)(v86 + 110) = 0;
-    *(_OWORD *)(v86 + 72) = *(_OWORD *)(v88 + 72);
-    *(_OWORD *)(v86 + 88) = *(_OWORD *)(v88 + 88);
-    *(_DWORD *)(v86 + 128) = *(_DWORD *)(v88 + 128);
-    *(_DWORD *)(v86 + 288) = *(_DWORD *)(v88 + 288);
-    *(_QWORD *)(v86 + 48) = *(_QWORD *)(v88 + 48);
-    LdrpInsertDataTableEntry(v86);
-    LdrpLogDllState(*(_QWORD *)(v87 + 48), v87 + 72, 0x14A5u);
-    LODWORD(v24) = RtlImageNtHeaderEx(3, *(_QWORD *)(v87 + 48), 0LL, &v150);
-    ApplicationKeyOption = v24;
-    if ( (int)v24 < 0 )
-      return (unsigned int)v24;
-    LdrpInsertModuleToIndex(v87, v150);
-    LODWORD(v24) = LdrpProcessMappedModule(v87, 0, 1);
-    ApplicationKeyOption = v24;
-    if ( (int)v24 < 0 )
-      return (unsigned int)v24;
-    *(_QWORD *)(v87 + 56) = *(_QWORD *)(v88 + 56);
-    LdrpLogDllState(*(_QWORD *)(v87 + 48), v87 + 72, 0x14ADu);
-    *(_DWORD *)(*(_QWORD *)(v87 + 152) + 56LL) = 7;
+    *(_DWORD *)(*((_QWORD *)v78 + 19) + 24LL) = -1;
+    *(_WORD *)(**((_QWORD **)v78 + 19) - 52LL) = -1;
+    v80 = v140;
+    *((_DWORD *)v78 + 26) |= *(_DWORD *)(v140 + 104);
+    *((_QWORD *)v78 + 31) = *(_QWORD *)(v80 + 248);
+    *((_WORD *)v78 + 55) = 0;
+    *(_OWORD *)(v78 + 72) = *(_OWORD *)(v80 + 72);
+    *(_OWORD *)(v78 + 88) = *(_OWORD *)(v80 + 88);
+    *((_DWORD *)v78 + 32) = *(_DWORD *)(v80 + 128);
+    *((_DWORD *)v78 + 72) = *(_DWORD *)(v80 + 288);
+    *((_QWORD *)v78 + 6) = *(_QWORD *)(v80 + 48);
+    LdrpInsertDataTableEntry((__int64)v78);
+    LdrpLogDllState(*(_QWORD *)(v79 + 48), v79 + 72, 0x14A5u);
+    inited = RtlImageNtHeaderEx(3u, *(PVOID *)(v79 + 48), 0LL, &v141);
+    ApplicationKeyOption = inited;
+    if ( inited < 0 )
+      return (unsigned int)inited;
+    LdrpInsertModuleToIndex(v79, v141);
+    inited = LdrpProcessMappedModule(v79, 0, 1);
+    ApplicationKeyOption = inited;
+    if ( inited < 0 )
+      return (unsigned int)inited;
+    *(_QWORD *)(v79 + 56) = *(_QWORD *)(v80 + 56);
+    LdrpLogDllState(*(_QWORD *)(v79 + 48), v79 + 72, 0x14ADu);
+    *(_DWORD *)(*(_QWORD *)(v79 + 152) + 56LL) = 7;
     if ( (*(_DWORD *)(ProcessEnvironmentBlock + 188) & 0x100) != 0 || (AvrfAppVerifierMode & 2) != 0 )
     {
-      LODWORD(v24) = AVrfInitializeVerifier(0, 0, 0, 1, v122, 0LL);
-      ApplicationKeyOption = v24;
-      if ( (int)v24 >= 0 && (AvrfAppVerifierMode & 2) != 0 )
+      inited = AVrfInitializeVerifier(0, 0, 0, 1, (__int64)DllHandle, 0LL);
+      ApplicationKeyOption = inited;
+      if ( inited >= 0 && (AvrfAppVerifierMode & 2) != 0 )
       {
-        *(_DWORD *)(*(_QWORD *)(v87 + 152) + 56LL) = 9;
-        LODWORD(v24) = ApplicationKeyOption;
+        *(_DWORD *)(*(_QWORD *)(v79 + 152) + 56LL) = 9;
+        inited = ApplicationKeyOption;
       }
     }
     else
     {
-      v120[0] = 0;
-      LODWORD(v24) = LdrpInitializeGraphRecurse(*(__int64 **)(v87 + 152), 0LL, v120);
-      ApplicationKeyOption = v24;
+      v110[0] = 0;
+      inited = LdrpInitializeGraphRecurse(*(__int64 **)(v79 + 152), 0LL, v110);
+      ApplicationKeyOption = inited;
     }
-    if ( (int)v24 < 0 )
-      return (unsigned int)v24;
+    if ( inited < 0 )
+      return (unsigned int)inited;
   }
   LdrpDropLastInProgressCount();
   if ( UseWOW64 )
   {
-    if ( v134 )
+    if ( Handle )
     {
-      NtClose(v134);
-      v134 = 0LL;
+      NtClose(Handle);
+      Handle = 0LL;
       if ( LdrpLargePageDllKeyHandle )
       {
         NtClose(LdrpLargePageDllKeyHandle);
         LdrpLargePageDllKeyHandle = 0LL;
       }
     }
-    if ( v128 )
+    if ( v118 )
     {
-      NtClose(v128);
-      v128 = 0LL;
+      NtClose(v118);
+      v118 = 0LL;
     }
-    LODWORD(v24) = LdrpLoadWow64((const void **)&v130);
-    ApplicationKeyOption = v24;
-    if ( (int)v24 >= 0 )
+    inited = LdrpLoadWow64(&Destination);
+    ApplicationKeyOption = inited;
+    if ( inited >= 0 )
     {
       if ( *(_BYTE *)(ProcessEnvironmentBlock + 2) )
         LdrpDoDebuggerBreak();
       LdrInitState = 3;
       _interlockedbittestandreset((volatile signed __int32 *)(ProcessEnvironmentBlock + 80), 1u);
-      g_LdrpWow64LdrpInitialize(v140);
+      g_LdrpWow64LdrpInitialize(v130);
       goto LABEL_290;
     }
-    return (unsigned int)v24;
+    return (unsigned int)inited;
   }
   ProcessInformation = 0LL;
   if ( UseCOR )
   {
-    LODWORD(v24) = LdrpCorInitialize(&ProcessInformation);
-    ApplicationKeyOption = v24;
-    if ( (int)v24 < 0 )
-      return (unsigned int)v24;
-    v89 = v121;
-    if ( (_BYTE)v121 )
+    inited = LdrpCorInitialize((PVOID *)&ProcessInformation);
+    ApplicationKeyOption = inited;
+    if ( inited < 0 )
+      return (unsigned int)inited;
+    v81 = v111;
+    if ( (_BYTE)v111 )
     {
-      LODWORD(v24) = LdrpCorValidateImage(*(_QWORD *)(ProcessEnvironmentBlock + 16));
-      ApplicationKeyOption = v24;
-      if ( (int)v24 < 0 )
-        return (unsigned int)v24;
+      inited = LdrpCorValidateImage(*(_QWORD *)(ProcessEnvironmentBlock + 16));
+      ApplicationKeyOption = inited;
+      if ( inited < 0 )
+        return (unsigned int)inited;
     }
-    if ( (v139->SameTebFlags & 0x400) != 0 )
-      *(_QWORD *)(v140 + 128) = __ROR8__(LdrpCorExeMainRoutine, 64 - (MEMORY[0x7FFE0330] & 0x3Fu)) ^ MEMORY[0x7FFE0330];
+    if ( (v129->SameTebFlags & 0x400) != 0 )
+      *(_QWORD *)(v130 + 128) = __ROR8__(LdrpCorExeMainRoutine, 64 - (MEMORY[0x7FFE0330] & 0x3Fu)) ^ MEMORY[0x7FFE0330];
   }
   else
   {
-    v89 = v121;
+    v81 = v111;
   }
-  v90 = LdrpInitializeTls();
-  ApplicationKeyOption = v90;
-  if ( v90 < 0 )
+  v82 = LdrpInitializeTls();
+  ApplicationKeyOption = v82;
+  if ( v82 < 0 )
   {
-    LODWORD(v114) = v90;
+    LODWORD(Callbackc) = v82;
     LdrpLogInternal(
       (unsigned int)"minkernel\\ntdll\\ldrinit.c",
-      6533LL,
+      6533,
       (__int64)"LdrpInitializeProcess",
-      0LL,
+      0,
       "Initializing TLS slots failed with status 0x%08lx\n",
-      v114);
+      Callbackc);
     return ApplicationKeyOption;
   }
   if ( ProcessInformation )
   {
-    v119 = 0;
-    v91 = LdrpInitializeGraphRecurse(ProcessInformation[19], 0LL, &v119);
-    ApplicationKeyOption = v91;
-    if ( v91 < 0 )
+    v109 = 0;
+    v83 = LdrpInitializeGraphRecurse(ProcessInformation[19], 0LL, &v109);
+    ApplicationKeyOption = v83;
+    if ( v83 < 0 )
     {
-      LODWORD(v114) = v91;
+      LODWORD(Callbackc) = v83;
       LdrpLogInternal(
         (unsigned int)"minkernel\\ntdll\\ldrinit.c",
-        6552LL,
+        6552,
         (__int64)"LdrpInitializeProcess",
-        0LL,
+        0,
         "DllMain of MSCOREE (or its dependents) failed with status 0x%08lx\n",
-        v114);
+        Callbackc);
       return ApplicationKeyOption;
     }
   }
-  v92 = LdrpInitializeImportRedirection();
-  ApplicationKeyOption = v92;
-  if ( v92 < 0 )
+  v84 = LdrpInitializeImportRedirection();
+  ApplicationKeyOption = v84;
+  if ( v84 < 0 )
   {
-    LODWORD(v114) = v92;
+    LODWORD(Callbackc) = v84;
     LdrpLogInternal(
       (unsigned int)"minkernel\\ntdll\\ldrinit.c",
-      6568LL,
+      6568,
       (__int64)"LdrpInitializeProcess",
-      0LL,
+      0,
       "Loading of import redirection module failed with status 0x%08x\n",
-      v114);
+      Callbackc);
     return ApplicationKeyOption;
   }
   ProcessInformation = 0LL;
-  if ( (unsigned __int16)(*(_WORD *)(v84 + 92) - 2) <= 1u )
+  if ( (unsigned __int16)(v76->OptionalHeader.Subsystem - 2) <= 1u )
   {
-    v93 = LdrLoadDll(16385LL, 0LL, (__int64)LdrpKernel32DllName, &v122);
-    ApplicationKeyOption = v93;
-    if ( v93 < 0 )
+    v85 = LdrLoadDll((PWSTR)0x4001, 0LL, (PUNICODE_STRING)&LdrpKernel32DllName, &DllHandle);
+    ApplicationKeyOption = v85;
+    if ( v85 < 0 )
     {
-      if ( v93 != -1073741515 )
+      if ( v85 != -1073741515 )
       {
-        LODWORD(v116) = v93;
+        LODWORD(v106) = v85;
         LdrpLogInternal(
           (unsigned int)"minkernel\\ntdll\\ldrinit.c",
-          6726LL,
+          6726,
           (__int64)"LdrpInitializeProcess",
-          0LL,
+          0,
           "Loading Windows subsystem DLL \"%wZ\" failed with status 0x%08lx\n",
-          LdrpKernel32DllName,
-          v116);
+          &LdrpKernel32DllName,
+          v106);
         return ApplicationKeyOption;
       }
-      v97 = LdrLoadDll(16385LL, 0LL, (__int64)&LdrpKernelbaseDllName, &v122);
-      ApplicationKeyOption = v97;
-      if ( v97 < 0 )
+      v89 = LdrLoadDll((PWSTR)0x4001, 0LL, (PUNICODE_STRING)&LdrpKernelbaseDllName, &DllHandle);
+      ApplicationKeyOption = v89;
+      if ( v89 < 0 )
       {
-        LODWORD(v116) = v97;
+        LODWORD(v106) = v89;
         LdrpLogInternal(
           (unsigned int)"minkernel\\ntdll\\ldrinit.c",
-          6699LL,
+          6699,
           (__int64)"LdrpInitializeProcess",
-          0LL,
+          0,
           "Loading Windows subsystem DLL \"%wZ\" failed with status 0x%08lx\n",
           &LdrpKernelbaseDllName,
-          v116);
+          v106);
         return ApplicationKeyOption;
       }
-      v98 = LdrpCodeAuthzInitialize();
-      ApplicationKeyOption = v98;
-      if ( (int)(v98 + 0x80000000) >= 0 && v98 != -1073741515 )
+      v90 = LdrpCodeAuthzInitialize();
+      ApplicationKeyOption = v90;
+      if ( (int)(v90 + 0x80000000) >= 0 && v90 != -1073741515 )
       {
-        LODWORD(v114) = v98;
+        LODWORD(Callbackc) = v90;
         LdrpLogInternal(
           (unsigned int)"minkernel\\ntdll\\ldrinit.c",
-          6715LL,
+          6715,
           (__int64)"LdrpInitializeProcess",
-          0LL,
+          0,
           "LdrpCodeAuthzInitialize failed with status 0x%08lx\n",
-          v114);
+          Callbackc);
         return ApplicationKeyOption;
       }
       ApplicationKeyOption = 0;
-      v96 = v122;
+      v88 = DllHandle;
     }
     else
     {
       ProcedureAddressForCaller = LdrGetProcedureAddressForCaller(
-                                    v122,
-                                    &qword_180133DA0,
+                                    DllHandle,
+                                    (PANSI_STRING)&stru_180133DA0,
                                     0,
                                     &Kernel32ThreadInitThunkFunction,
                                     0,
@@ -1229,146 +1212,152 @@ LABEL_173:
       ApplicationKeyOption = ProcedureAddressForCaller;
       if ( ProcedureAddressForCaller < 0 )
       {
-        LODWORD(v117) = ProcedureAddressForCaller;
+        LODWORD(v107) = ProcedureAddressForCaller;
         LdrpLogInternal(
           (unsigned int)"minkernel\\ntdll\\ldrinit.c",
-          6613LL,
+          6613,
           (__int64)"LdrpInitializeProcess",
-          0LL,
+          0,
           "Locating procedure \"%Z\" in Windows subsystem DLL \"%wZ\" failed with status 0x%08lx\n",
-          &qword_180133DA0,
-          LdrpKernel32DllName,
-          v117);
+          &stru_180133DA0,
+          &LdrpKernel32DllName,
+          v107);
         return ApplicationKeyOption;
       }
-      LdrGetProcedureAddressForCaller(v122, &qword_180133DC0, 0, &ProcessInformation, 0, retaddr);
-      LODWORD(v24) = LdrpSnapKernelBaseExtensions();
-      ApplicationKeyOption = v24;
-      if ( (int)v24 < 0 )
-        return (unsigned int)v24;
-      LODWORD(v24) = LdrpCodeAuthzInitialize();
-      ApplicationKeyOption = v24;
-      if ( (int)v24 < 0 )
-        return (unsigned int)v24;
-      LoadedDll = LdrpFindLoadedDll((__int64)&LdrpKernelbaseDllName, 0, &v151);
+      LdrGetProcedureAddressForCaller(
+        DllHandle,
+        (PANSI_STRING)&stru_180133DC0,
+        0,
+        (PVOID *)&ProcessInformation,
+        0,
+        retaddr);
+      inited = LdrpSnapKernelBaseExtensions();
+      ApplicationKeyOption = inited;
+      if ( inited < 0 )
+        return (unsigned int)inited;
+      inited = LdrpCodeAuthzInitialize();
+      ApplicationKeyOption = inited;
+      if ( inited < 0 )
+        return (unsigned int)inited;
+      LoadedDll = LdrpFindLoadedDll((__int64)&LdrpKernelbaseDllName, 0LL, (PVOID *)&v142);
       ApplicationKeyOption = LoadedDll;
       if ( LoadedDll < 0 )
       {
-        LODWORD(v116) = LoadedDll;
+        LODWORD(v106) = LoadedDll;
         LdrpLogInternal(
           (unsigned int)"minkernel\\ntdll\\ldrinit.c",
-          6681LL,
+          6681,
           (__int64)"LdrpInitializeProcess",
-          0LL,
+          0,
           "Finding \"%wZ\" failed with status 0x%08lx\n",
           &LdrpKernelbaseDllName,
-          v116);
+          v106);
         return ApplicationKeyOption;
       }
-      v96 = *(_QWORD *)(v151 + 48);
+      v88 = (PVOID)v142[6];
     }
-    v99 = LdrGetProcedureAddressForCaller(v96, &qword_180133DE0, 0, &v152, 0, retaddr);
-    ApplicationKeyOption = v99;
-    if ( v99 < 0 )
+    v91 = LdrGetProcedureAddressForCaller(v88, (PANSI_STRING)&stru_180133DE0, 0, &ProcedureAddress, 0, retaddr);
+    ApplicationKeyOption = v91;
+    if ( v91 < 0 )
     {
-      LODWORD(v114) = v99;
+      LODWORD(Callbackc) = v91;
       LdrpLogInternal(
         (unsigned int)"minkernel\\ntdll\\ldrinit.c",
-        6744LL,
+        6744,
         (__int64)"LdrpInitializeProcess",
-        0LL,
+        0,
         "Finding KernelbasePostInit failed with status 0x%08lx\n",
-        v114);
+        Callbackc);
       return ApplicationKeyOption;
     }
-    v100 = v152();
-    ApplicationKeyOption = v100;
-    if ( v100 < 0 )
+    v92 = ((__int64 (*)(void))ProcedureAddress)();
+    ApplicationKeyOption = v92;
+    if ( v92 < 0 )
     {
-      LODWORD(v114) = v100;
+      LODWORD(Callbackc) = v92;
       LdrpLogInternal(
         (unsigned int)"minkernel\\ntdll\\ldrinit.c",
-        6752LL,
+        6752,
         (__int64)"LdrpInitializeProcess",
-        0LL,
+        0,
         "Calling KernelbasePostInit failed with status 0x%08lx\n",
-        v114);
+        Callbackc);
       return ApplicationKeyOption;
     }
     ApplicationKeyOption = 0;
   }
   LdrpDrainWorkQueue(0);
   SbObtainTraceHandle(0LL);
-  v101 = v143;
-  if ( v143 && *(_DWORD *)(v143 + 528) )
+  v93 = v133;
+  if ( v133 && *(_DWORD *)(v133 + 528) )
   {
     *(_QWORD *)(ProcessEnvironmentBlock + 736) = 0LL;
-    LdrpInitShimEngine(v101);
+    LdrpInitShimEngine(v93);
   }
-  v102 = RtlpForceCSDebugInfoCreation;
+  v94 = RtlpForceCSDebugInfoCreation;
   if ( (NtCurrentPeb()->AppCompatFlags.LowPart & 0x400000) != 0 )
-    v102 = 1;
-  RtlpForceCSDebugInfoCreation = v102;
-  v103 = v144;
+    v94 = 1;
+  RtlpForceCSDebugInfoCreation = v94;
+  v95 = v134;
   if ( (NtCurrentPeb()->AppCompatFlags.LowPart & 0x10000000) != 0 )
-    *(_DWORD *)(v144 + 1036) = 1;
-  LdrpEnableParallelLoading(*(_DWORD *)(v103 + 1036));
+    *(_DWORD *)(v134 + 1036) = 1;
+  LdrpEnableParallelLoading(*(_DWORD *)(v95 + 1036));
   LdrInitState = 1;
   *(_DWORD *)(*(_QWORD *)(LdrpImageEntry + 152) + 56LL) = 2;
   *p_ApplicationKeyOption = 0;
-  if ( v89 )
+  if ( v81 )
   {
-    v104 = LdrpCorProcessImports(LdrpImageEntry);
+    v96 = LdrpCorProcessImports(LdrpImageEntry);
 LABEL_267:
-    ApplicationKeyOption = v104;
-    v105 = v104;
+    ApplicationKeyOption = v96;
+    v97 = v96;
     goto LABEL_268;
   }
   LdrpThreadTokenSetMainThreadToken();
-  v168 |= 1u;
-  LdrpMapAndSnapDependency((__int64)&v166);
+  v155 |= 1u;
+  LdrpMapAndSnapDependency((__int64)&v153);
   LdrpDrainWorkQueue(1);
   if ( LdrpMainThreadToken )
     LdrpThreadTokenUnsetMainThreadToken();
-  v105 = ApplicationKeyOption;
+  v97 = ApplicationKeyOption;
   if ( (ApplicationKeyOption & 0x80000000) == 0 )
   {
-    v104 = LdrpPrepareModuleForExecution(LdrpImageEntry, (__int64)p_ApplicationKeyOption);
+    v96 = LdrpPrepareModuleForExecution(LdrpImageEntry, (__int64)p_ApplicationKeyOption);
     goto LABEL_267;
   }
 LABEL_268:
-  if ( v105 < 0 )
+  if ( v97 < 0 )
   {
-    LODWORD(v114) = v105;
+    LODWORD(Callbackc) = v97;
     LdrpLogInternal(
       (unsigned int)"minkernel\\ntdll\\ldrinit.c",
-      6969LL,
+      6969,
       (__int64)"LdrpInitializeProcess",
-      0LL,
+      0,
       "Walking the import tables of the executable and its static imports failed with status 0x%08lx\n",
-      v114);
+      Callbackc);
     return ApplicationKeyOption;
   }
   LdrInitState = 2;
-  LODWORD(v24) = LdrpInitializePatchData();
-  ApplicationKeyOption = v24;
-  if ( (int)v24 < 0 )
-    return (unsigned int)v24;
+  inited = LdrpInitializePatchData();
+  ApplicationKeyOption = inited;
+  if ( inited < 0 )
+    return (unsigned int)inited;
   if ( LdrpIsHotPatchingEnabled )
   {
     PatchImage = LdrpLoadPatchImage(*(const void **)(LdrpImageEntry + 48));
     ApplicationKeyOption = PatchImage;
     if ( PatchImage < 0 )
     {
-      LODWORD(v116) = PatchImage;
+      LODWORD(v106) = PatchImage;
       LdrpLogInternal(
         (unsigned int)"minkernel\\ntdll\\ldrinit.c",
-        7001LL,
+        7001,
         (__int64)"LdrpInitializeProcess",
-        0LL,
+        0,
         "Loading Windows subsystem DLL \"%wZ\" failed with status 0x%08lx\n",
         LdrpImageEntry + 88,
-        v116);
+        v106);
       return ApplicationKeyOption;
     }
   }
@@ -1377,72 +1366,72 @@ LABEL_268:
   LdrpDropLastInProgressCount();
   if ( Kernel32ThreadInitThunkFunction )
   {
-    LODWORD(v24) = Kernel32ThreadInitThunkFunction(1LL, 0LL, 0LL);
-    ApplicationKeyOption = v24;
-    if ( (int)v24 < 0 )
-      return (unsigned int)v24;
-    LODWORD(v24) = LdrpInitializePerUserWindowsDirectory((__int64 (__fastcall *)(_BYTE *, __int64))ProcessInformation);
-    ApplicationKeyOption = v24;
-    if ( (int)v24 < 0 )
-      return (unsigned int)v24;
+    inited = ((__int64 (__fastcall *)(__int64, _QWORD, _QWORD))Kernel32ThreadInitThunkFunction)(1LL, 0LL, 0LL);
+    ApplicationKeyOption = inited;
+    if ( inited < 0 )
+      return (unsigned int)inited;
+    inited = LdrpInitializePerUserWindowsDirectory((__int64 (__fastcall *)(_BYTE *, __int64))ProcessInformation);
+    ApplicationKeyOption = inited;
+    if ( inited < 0 )
+      return (unsigned int)inited;
   }
-  LdrpProcessInitContextRecord = v140;
+  LdrpProcessInitContextRecord = v130;
   LdrpDrainWorkQueue(0);
   LdrpAcquireLoaderLock();
-  v119 = 0;
+  v109 = 0;
   ApplicationKeyOption = LdrpInitializeGraphRecurse(
                            *(__int64 **)(LdrpImageEntry + 152),
                            (__int64)p_ApplicationKeyOption,
-                           &v119);
-  LdrpReleaseLoaderLock(v107, 9, ApplicationKeyOption);
+                           &v109);
+  LdrpReleaseLoaderLock(v99, 9, ApplicationKeyOption);
   LdrpFreeLoadContextOfNode(*(_QWORD **)(LdrpImageEntry + 152), (__int64)p_ApplicationKeyOption);
   LdrpDropLastInProgressCount();
   LdrpProcessInitContextRecord = 0LL;
-  if ( v171 )
-    RtlReleasePath(v170[0]);
+  if ( v158 )
+    RtlReleasePath(Path[0]);
   if ( (ApplicationKeyOption & 0x80000000) != 0 )
   {
-    LODWORD(v114) = ApplicationKeyOption;
+    LODWORD(Callbackc) = ApplicationKeyOption;
     LdrpLogInternal(
       (unsigned int)"minkernel\\ntdll\\ldrinit.c",
-      7132LL,
+      7132,
       (__int64)"LdrpInitializeProcess",
-      0LL,
+      0,
       "Running the init routines of the executable's static imports failed with status 0x%08lx\n",
-      v114);
+      Callbackc);
     return ApplicationKeyOption;
   }
   LdrpInitializeSmtDelayedSleep();
   if ( *(_WORD *)(LdrpImageEntry + 110) )
   {
-    v160 = 72LL;
-    v161 = 1;
-    v162 = 0LL;
-    v163 = 0LL;
-    v164 = 0LL;
-    v165 = 0LL;
-    RtlActivateActivationContextUnsafeFast((__int64)&v160, *(_QWORD *)(LdrpImageEntry + 136));
-    LdrpCallTlsInitializers(1u, LdrpImageEntry, v108, v109);
-    RtlDeactivateActivationContextUnsafeFast((__int64)&v160);
+    v147 = 72LL;
+    v148 = 1;
+    v149 = 0LL;
+    v150 = 0LL;
+    v151 = 0LL;
+    v152 = 0LL;
+    RtlActivateActivationContextUnsafeFast((__int64)&v147, *(_QWORD *)(LdrpImageEntry + 136));
+    LdrpCallTlsInitializers(1u, LdrpImageEntry);
+    RtlDeactivateActivationContextUnsafeFast((__int64)&v147);
   }
   if ( g_ShimsEnabled
     && !((unsigned __int8 (__fastcall *)(unsigned __int16 *, __int64))(__ROR8__(
                                                                          g_pfnSE_InstallAfterInit,
                                                                          64 - (MEMORY[0x7FFE0330] & 0x3Fu)) ^ MEMORY[0x7FFE0330]))(
-          &v131,
-          v101) )
+          &v121,
+          v93) )
   {
     g_ShimsEnabled = 0;
     LdrUnloadDll(g_pShimEngineModule);
     g_pShimEngineModule = 0LL;
   }
-  v110 = *(void (**)(void))(ProcessEnvironmentBlock + 560);
-  if ( v110 )
-    v110();
+  v100 = *(void (**)(void))(ProcessEnvironmentBlock + 560);
+  if ( v100 )
+    v100();
 LABEL_290:
-  if ( v134 )
-    NtClose(v134);
-  if ( v128 )
-    NtClose(v128);
+  if ( Handle )
+    NtClose(Handle);
+  if ( v118 )
+    NtClose(v118);
   return 0LL;
 }

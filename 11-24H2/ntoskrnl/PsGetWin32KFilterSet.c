@@ -1,7 +1,7 @@
 /*
- * XREFs of PsGetWin32KFilterSet @ 0x1404528B0
+ * XREFs of PsGetWin32KFilterSet @ 0x140447960
  * Callers:
- *     NtQueryInformationProcess @ 0x1409AB830 (NtQueryInformationProcess.c)
+ *     NtQueryInformationProcess @ 0x140995530 (NtQueryInformationProcess.c)
  * Callees:
  *     <none>
  */

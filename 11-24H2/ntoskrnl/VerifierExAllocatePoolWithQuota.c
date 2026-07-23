@@ -1,11 +1,11 @@
 /*
- * XREFs of VerifierExAllocatePoolWithQuota @ 0x140B91480
+ * XREFs of VerifierExAllocatePoolWithQuota @ 0x140B93480
  * Callers:
  *     <none>
  * Callees:
- *     RtlRaiseStatus @ 0x140280B30 (RtlRaiseStatus.c)
- *     ExAllocatePoolWithQuota @ 0x140653E00 (ExAllocatePoolWithQuota.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     RtlRaiseStatus @ 0x1402360C0 (RtlRaiseStatus.c)
+ *     ExAllocatePoolWithQuota @ 0x140652560 (ExAllocatePoolWithQuota.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall VerifierExAllocatePoolWithQuota(POOL_TYPE PoolType, SIZE_T a2)
@@ -21,7 +21,7 @@ __int64 __fastcall VerifierExAllocatePoolWithQuota(POOL_TYPE PoolType, SIZE_T a2
   if ( (char *)VfExAllocPoolInternal == (char *)pXdvExAllocatePoolWithTagPriority || !pXdvExAllocatePoolWithTagPriority )
     result = (__int64)ExAllocatePoolWithQuota(v2, a2);
   else
-    result = guard_dispatch_icall_no_overrides(v2 | 0x80u, 0LL, a2, 1885434455LL);
+    result = guard_dispatch_icall_no_overrides(v2 | 0x80u, 0LL);
   if ( !result && !v3 )
     RtlRaiseStatus(-1073741670);
   return result;

@@ -1,12 +1,12 @@
 /*
- * XREFs of ExpGetSystemFlushInformation @ 0x140A43F14
+ * XREFs of ExpGetSystemFlushInformation @ 0x140A397A4
  * Callers:
- *     ExpQuerySystemInformation @ 0x140ADC240 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x140ADDAE0 (ExpQuerySystemInformation.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ExpGetSystemFirmwareTableInformation @ 0x14085D348 (ExpGetSystemFirmwareTableInformation.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ExpGetSystemFirmwareTableInformation @ 0x1408590B8 (ExpGetSystemFirmwareTableInformation.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall ExpGetSystemFlushInformation(__int64 a1)
@@ -20,11 +20,11 @@ __int64 __fastcall ExpGetSystemFlushInformation(__int64 a1)
   unsigned __int64 v9; // rdx
   unsigned int *i; // rcx
   __int64 v11; // rax
-  _QWORD v12[2]; // [rsp+28h] [rbp-50h] BYREF
+  unsigned int v12[4]; // [rsp+28h] [rbp-50h] BYREF
   _DWORD Src[3]; // [rsp+38h] [rbp-40h] BYREF
   __int64 v14; // [rsp+44h] [rbp-34h]
 
-  v12[0] = a1;
+  *(_QWORD *)v12 = a1;
   v2 = ((unsigned __int64)KeFeatureBits >> 34) & 4 | 1;
   if ( _bittest64(&KeFeatureBits, 0x23u) )
     v2 = ((unsigned __int64)KeFeatureBits >> 34) & 4 | 3;
@@ -37,14 +37,14 @@ __int64 __fastcall ExpGetSystemFlushInformation(__int64 a1)
   {
     v4 = 0LL;
     v14 = 0LL;
-    LODWORD(v12[0]) = 0;
+    v12[0] = 0;
     Src[0] = 1094930505;
     Src[1] = 1;
     Src[2] = 1414088270;
     if ( (unsigned int)ExpGetSystemFirmwareTableInformation((char *)Src, 0, 0x14u, v12) == -1073741789 )
     {
       v5 = v12[0];
-      Pool2 = ExAllocatePool2(0x100uLL);
+      Pool2 = ExAllocatePool2(0x100uLL, v12[0], 0x54425057u);
       v7 = (unsigned int *)Pool2;
       if ( Pool2 )
       {
@@ -55,7 +55,7 @@ __int64 __fastcall ExpGetSystemFlushInformation(__int64 a1)
         if ( (int)ExpGetSystemFirmwareTableInformation((char *)Pool2, 0, v5, v12) >= 0 )
         {
           v8 = v7[5];
-          if ( (unsigned int)v8 >= LODWORD(v12[0]) - 16 )
+          if ( (unsigned int)v8 >= v12[0] - 16 )
           {
             v9 = (unsigned __int64)v7 + v8 + 16;
             for ( i = v7 + 14; (unsigned __int64)(i + 1) <= v9; i = (unsigned int *)((char *)i + v11) )

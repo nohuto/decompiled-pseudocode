@@ -1,20 +1,20 @@
 /*
- * XREFs of WheapAttemptPhysicalPageOffline @ 0x14095D69C
+ * XREFs of WheapAttemptPhysicalPageOffline @ 0x14095D87C
  * Callers:
- *     WheaAttemptClearPoison @ 0x14095D290 (WheaAttemptClearPoison.c)
- *     WheaAttemptPhysicalPageOffline @ 0x14095D350 (WheaAttemptPhysicalPageOffline.c)
- *     WheapAttemptPhysicalPageOfflineWorker @ 0x14095D830 (WheapAttemptPhysicalPageOfflineWorker.c)
+ *     WheaAttemptClearPoison @ 0x14095D470 (WheaAttemptClearPoison.c)
+ *     WheaAttemptPhysicalPageOffline @ 0x14095D530 (WheaAttemptPhysicalPageOffline.c)
+ *     WheapAttemptPhysicalPageOfflineWorker @ 0x14095DA10 (WheapAttemptPhysicalPageOfflineWorker.c)
  * Callees:
- *     WheaLogInternalEvent @ 0x1403BAD50 (WheaLogInternalEvent.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     MmMarkPhysicalMemoryAsBad @ 0x14052F930 (MmMarkPhysicalMemoryAsBad.c)
- *     WheaPersistBadPageToBcd @ 0x1405BC750 (WheaPersistBadPageToBcd.c)
- *     WheapLogPageOfflineAttemptEvent @ 0x1405BD628 (WheapLogPageOfflineAttemptEvent.c)
- *     WheapCallInUsePageNotificationCallbacks @ 0x14095D874 (WheapCallInUsePageNotificationCallbacks.c)
- *     WheapClearPoison @ 0x14095D954 (WheapClearPoison.c)
+ *     WheaLogInternalEvent @ 0x1403BAEC0 (WheaLogInternalEvent.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     MmMarkPhysicalMemoryAsBad @ 0x14052FB70 (MmMarkPhysicalMemoryAsBad.c)
+ *     WheaPersistBadPageToBcd @ 0x1405BC980 (WheaPersistBadPageToBcd.c)
+ *     WheapLogPageOfflineAttemptEvent @ 0x1405BD858 (WheapLogPageOfflineAttemptEvent.c)
+ *     WheapCallInUsePageNotificationCallbacks @ 0x14095DA54 (WheapCallInUsePageNotificationCallbacks.c)
+ *     WheapClearPoison @ 0x14095DB34 (WheapClearPoison.c)
  */
 
-__int64 __fastcall WheapAttemptPhysicalPageOffline(LARGE_INTEGER a1, __int64 a2, char a3, char a4, char a5)
+__int64 __fastcall WheapAttemptPhysicalPageOffline(LARGE_INTEGER a1, UNICODE_STRING *a2, char a3, char a4, char a5)
 {
   __int64 v5; // r12
   char v6; // r13
@@ -34,10 +34,10 @@ __int64 __fastcall WheapAttemptPhysicalPageOffline(LARGE_INTEGER a1, __int64 a2,
   _QWORD v24[2]; // [rsp+70h] [rbp-11h] BYREF
 
   StartAddress = a1;
-  v5 = a2 << 12;
+  v5 = (_QWORD)a2 << 12;
   v6 = 0;
   memset(v24, 0, 9);
-  v19 = a2 << 12;
+  v19 = (_QWORD)a2 << 12;
   v20 = 4096LL;
   Src = 0LL;
   v23 = 0LL;
@@ -73,7 +73,7 @@ __int64 __fastcall WheapAttemptPhysicalPageOffline(LARGE_INTEGER a1, __int64 a2,
       *((_QWORD *)&v23 + 1) = 0x900000002LL;
       LODWORD(v24[0]) = v8;
       BYTE4(v24[0]) = v10;
-      *(_DWORD *)((char *)v24 + 5) = a2;
+      *(_DWORD *)((char *)v24 + 5) = (_DWORD)a2;
       WheaLogInternalEvent(&Src);
     }
   }

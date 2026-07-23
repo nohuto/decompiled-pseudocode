@@ -1,18 +1,18 @@
 /*
- * XREFs of EtwpFindMatchingPmcRegistryGroup @ 0x1407A7B6C
+ * XREFs of EtwpFindMatchingPmcRegistryGroup @ 0x1407A7CAC
  * Callers:
- *     EtwpAddMicroarchitecturalPmcToRegistry @ 0x1407A6C78 (EtwpAddMicroarchitecturalPmcToRegistry.c)
- *     EtwpRemoveMicroarchitecturalPmcFromRegistry @ 0x1407A91EC (EtwpRemoveMicroarchitecturalPmcFromRegistry.c)
+ *     EtwpAddMicroarchitecturalPmcToRegistry @ 0x1407A6DB8 (EtwpAddMicroarchitecturalPmcToRegistry.c)
+ *     EtwpRemoveMicroarchitecturalPmcFromRegistry @ 0x1407A932C (EtwpRemoveMicroarchitecturalPmcFromRegistry.c)
  * Callees:
- *     RtlStringCbPrintfW @ 0x14040BC90 (RtlStringCbPrintfW.c)
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwOpenKey @ 0x1406A6650 (ZwOpenKey.c)
- *     ZwCreateKey @ 0x1406A67B0 (ZwCreateKey.c)
- *     ZwEnumerateKey @ 0x1406A6A50 (ZwEnumerateKey.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     EtwpGetPmcCpuHierarchyRegistry @ 0x1407A7F9C (EtwpGetPmcCpuHierarchyRegistry.c)
+ *     RtlStringCbPrintfW @ 0x140404170 (RtlStringCbPrintfW.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwOpenKey @ 0x1406A75F0 (ZwOpenKey.c)
+ *     ZwCreateKey @ 0x1406A7750 (ZwCreateKey.c)
+ *     ZwEnumerateKey @ 0x1406A79F0 (ZwEnumerateKey.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     EtwpGetPmcCpuHierarchyRegistry @ 0x1407A80DC (EtwpGetPmcCpuHierarchyRegistry.c)
  */
 
 __int64 __fastcall EtwpFindMatchingPmcRegistryGroup(__int64 a1, int a2, __int64 a3, unsigned int a4, wchar_t *pszDest)

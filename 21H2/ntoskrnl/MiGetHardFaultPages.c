@@ -1,15 +1,15 @@
 /*
- * XREFs of MiGetHardFaultPages @ 0x1402E7D84
+ * XREFs of MiGetHardFaultPages @ 0x1402990D4
  * Callers:
- *     MiBuildMdlForMappedFileFault @ 0x14023DDD0 (MiBuildMdlForMappedFileFault.c)
+ *     MiBuildMdlForMappedFileFault @ 0x1402E2620 (MiBuildMdlForMappedFileFault.c)
  * Callees:
- *     MiGetPageChain @ 0x140212D10 (MiGetPageChain.c)
- *     MiProtectionToCacheAttribute @ 0x140241E40 (MiProtectionToCacheAttribute.c)
- *     MiGetAvailablePagesBelowPriority @ 0x14027191C (MiGetAvailablePagesBelowPriority.c)
- *     MiRetainSubsection @ 0x1402C9564 (MiRetainSubsection.c)
- *     MiGetSlabPage @ 0x1402E803C (MiGetSlabPage.c)
- *     MiSetPfnBlink @ 0x140318130 (MiSetPfnBlink.c)
- *     MiUseSlabAllocator @ 0x140318198 (MiUseSlabAllocator.c)
+ *     MiRetainSubsection @ 0x140247E44 (MiRetainSubsection.c)
+ *     MiGetAvailablePagesBelowPriority @ 0x14025F8BC (MiGetAvailablePagesBelowPriority.c)
+ *     MiGetSlabPage @ 0x14029938C (MiGetSlabPage.c)
+ *     MiGetPageChain @ 0x1402B7610 (MiGetPageChain.c)
+ *     MiProtectionToCacheAttribute @ 0x1402E6690 (MiProtectionToCacheAttribute.c)
+ *     MiSetPfnBlink @ 0x140322E80 (MiSetPfnBlink.c)
+ *     MiUseSlabAllocator @ 0x140322EE8 (MiUseSlabAllocator.c)
  */
 
 unsigned __int64 __fastcall MiGetHardFaultPages(
@@ -17,7 +17,7 @@ unsigned __int64 __fastcall MiGetHardFaultPages(
         unsigned __int64 a2,
         _QWORD *a3,
         __int64 a4,
-        __int64 *a5,
+        _QWORD *a5,
         __int64 a6,
         __int64 a7)
 {
@@ -28,11 +28,11 @@ unsigned __int64 __fastcall MiGetHardFaultPages(
   unsigned int v13; // r14d
   unsigned __int64 result; // rax
   int v15; // r11d
-  __int64 *v16; // r13
+  _QWORD *v16; // r13
   unsigned __int64 v17; // rdx
-  unsigned int v18; // eax
+  int v18; // eax
   int v19; // r8d
-  __int64 v20; // r11
+  int v20; // r11d
   __int64 v21; // rax
   __int64 v22; // rbx
   __int64 v23; // rcx
@@ -103,7 +103,7 @@ unsigned __int64 __fastcall MiGetHardFaultPages(
       v23 = a6;
       v16[16] = a2 - a1[1];
       v24 = *(__int64 **)(v23 + 208);
-      v16[13] = (__int64)v24;
+      v16[13] = v24;
       result = MiRetainSubsection(v24);
       a2 = a1[1];
     }
@@ -114,7 +114,7 @@ LABEL_5:
   {
     a6 = a2 - v17;
     v18 = MiProtectionToCacheAttribute(v13);
-    result = MiGetPageChain(v20, v16[7], v19, v18, 0, -1LL, (unsigned __int64 *)&a6);
+    result = MiGetPageChain(v20, v16[7], v19, v18, 0, -1LL, (__int64)&a6);
     if ( result )
     {
       if ( *a1 )

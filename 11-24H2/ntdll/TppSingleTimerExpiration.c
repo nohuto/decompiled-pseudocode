@@ -1,40 +1,39 @@
 /*
- * XREFs of TppSingleTimerExpiration @ 0x18006BE80
+ * XREFs of TppSingleTimerExpiration @ 0x180088760
  * Callers:
- *     TppTimerQueueExpiration @ 0x18006B9F0 (TppTimerQueueExpiration.c)
+ *     TppTimerQueueExpiration @ 0x1800882D0 (TppTimerQueueExpiration.c)
  * Callees:
- *     TppWorkpFree @ 0x180020C20 (TppWorkpFree.c)
- *     TppCleanupGroupMemberDestroy @ 0x180021980 (TppCleanupGroupMemberDestroy.c)
- *     RtlFreeHeap @ 0x1800269F0 (RtlFreeHeap.c)
- *     RtlAcquireSRWLockExclusive @ 0x180055AE0 (RtlAcquireSRWLockExclusive.c)
- *     TppWorkPost @ 0x180055B40 (TppWorkPost.c)
- *     RtlReleaseSRWLockExclusive @ 0x1800567B0 (RtlReleaseSRWLockExclusive.c)
- *     TppWaitTimerExpiration @ 0x18006A560 (TppWaitTimerExpiration.c)
- *     TppUpdateSubQueueTimer @ 0x18006C700 (TppUpdateSubQueueTimer.c)
- *     TppAlpcpFree @ 0x18006C970 (TppAlpcpFree.c)
- *     TppEnqueueTimer @ 0x18006C9E0 (TppEnqueueTimer.c)
- *     TppIteWakeWaiters @ 0x18006CB10 (TppIteWakeWaiters.c)
- *     TppETWTimerExpiration @ 0x180111020 (TppETWTimerExpiration.c)
- *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180172020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ *     TppWorkpFree @ 0x18004D620 (TppWorkpFree.c)
+ *     TppCleanupGroupMemberDestroy @ 0x18004E380 (TppCleanupGroupMemberDestroy.c)
+ *     RtlFreeHeap @ 0x1800533F0 (RtlFreeHeap.c)
+ *     RtlAcquireSRWLockExclusive @ 0x18006B6C0 (RtlAcquireSRWLockExclusive.c)
+ *     TppWorkPost @ 0x18006B720 (TppWorkPost.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18006C390 (RtlReleaseSRWLockExclusive.c)
+ *     TppWaitTimerExpiration @ 0x180086C50 (TppWaitTimerExpiration.c)
+ *     TppUpdateSubQueueTimer @ 0x180088FE0 (TppUpdateSubQueueTimer.c)
+ *     TppAlpcpFree @ 0x180089250 (TppAlpcpFree.c)
+ *     TppEnqueueTimer @ 0x1800892C0 (TppEnqueueTimer.c)
+ *     TppIteWakeWaiters @ 0x1800893F0 (TppIteWakeWaiters.c)
+ *     TppETWTimerExpiration @ 0x18010C2E0 (TppETWTimerExpiration.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180171020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
  */
 
-__int64 __fastcall TppSingleTimerExpiration(unsigned __int64 a1, volatile signed __int32 *a2, char a3)
+signed __int32 __fastcall TppSingleTimerExpiration(_RTL_SRWLOCK *BaseAddress, PRTL_SRWLOCK SRWLock, char a3)
 {
   _DWORD *SharedData; // rcx
   __int64 v7; // rcx
-  volatile signed __int64 *v8; // rsi
+  _RTL_SRWLOCK *v8; // rsi
   __int64 v9; // rdi
-  volatile signed __int32 **v10; // rdx
-  unsigned __int64 v11; // r8
+  char **v10; // rdx
+  __int64 v11; // r8
   char *v12; // r9
   char v13; // al
-  __int64 v14; // rax
-  __int64 result; // rax
-  __int64 (__fastcall *v16)(unsigned __int64); // rax
-  __int64 v17; // rcx
-  __int64 v18; // rdx
-  __int64 v19; // rdi
-  __int64 v20; // rcx
+  __int64 Ptr_high; // rax
+  signed __int32 result; // eax
+  __int64 (__fastcall *v16)(_RTL_SRWLOCK *); // rax
+  __int64 v17; // rdx
+  unsigned __int64 Value; // rdi
+  __int64 v19; // rcx
 
   SharedData = NtCurrentPeb()->SharedData;
   if ( SharedData && *SharedData )
@@ -43,81 +42,77 @@ __int64 __fastcall TppSingleTimerExpiration(unsigned __int64 a1, volatile signed
     v7 = 2147353478LL;
   if ( *(_BYTE *)v7 )
   {
-    v20 = 2LL;
+    v19 = 1LL;
     if ( !a3 )
-      v20 = 32LL;
-    TppETWTimerExpiration(&a2[v20], a1);
+      v19 = 16LL;
+    TppETWTimerExpiration(&SRWLock[v19], BaseAddress);
   }
-  v8 = (volatile signed __int64 *)(a1 + 240);
+  v8 = BaseAddress + 30;
   v9 = MEMORY[0x7FFE0008] - RtlpFreezeTimeBias - MEMORY[0x7FFE03B0];
-  RtlAcquireSRWLockExclusive((volatile signed __int32 *)(a1 + 240), MEMORY[0x7FFE03B0], 0x7FFE03B0uLL);
-  v13 = *(_BYTE *)(a1 + 354);
-  *(_BYTE *)(a1 + 354) = 0;
+  RtlAcquireSRWLockExclusive(BaseAddress + 30);
+  v13 = BYTE2(BaseAddress[44].Value);
+  BYTE2(BaseAddress[44].Value) = 0;
   if ( (v13 & 4) == 0 )
   {
-    if ( *(_BYTE *)(a1 + 353) )
+    if ( *((_BYTE *)&BaseAddress[44].0 + 1) )
     {
-      *(_QWORD *)(a1 + 328) = 0LL;
-      if ( !TppWaitTimerExpiration(a1) )
+      BaseAddress[41].Value = 0LL;
+      if ( !TppWaitTimerExpiration((__int64)BaseAddress) )
         goto LABEL_8;
     }
     else
     {
-      v14 = *(unsigned int *)(a1 + 348);
-      if ( (_DWORD)v14 )
+      Ptr_high = HIDWORD(BaseAddress[43].Ptr);
+      if ( (_DWORD)Ptr_high )
       {
         if ( a3 )
         {
-          *(_QWORD *)(a1 + 328) = v9;
-          v8 = (volatile signed __int64 *)(a1 + 240);
+          BaseAddress[41].Value = v9;
+          v8 = BaseAddress + 30;
         }
-        v17 = 10000 * v14;
-        v18 = 10000 * v14 + *(_QWORD *)(a1 + 328);
-        *(_QWORD *)(a1 + 328) = v18;
-        if ( v18 <= v9 )
-        {
-          v18 = (v9 - v18) % v17;
-          *(_QWORD *)(a1 + 328) = v9 + v17 - v18;
-        }
-        _InterlockedIncrement((volatile signed __int32 *)a1);
-        RtlAcquireSRWLockExclusive(a2, (volatile signed __int32 **)v18, v11);
-        TppEnqueueTimer(a2 + 32, a1);
-        TppUpdateSubQueueTimer(a2 + 32, 0LL);
-        RtlReleaseSRWLockExclusive((volatile signed __int64 *)a2);
+        v17 = 10000 * Ptr_high + BaseAddress[41].Value;
+        BaseAddress[41].Value = v17;
+        if ( v17 <= v9 )
+          BaseAddress[41].Value = v9 + 10000 * Ptr_high - (v9 - v17) % (10000 * Ptr_high);
+        _InterlockedIncrement((volatile signed __int32 *)BaseAddress);
+        RtlAcquireSRWLockExclusive(SRWLock);
+        TppEnqueueTimer(&SRWLock[16], BaseAddress);
+        TppUpdateSubQueueTimer(&SRWLock[16], 0LL);
+        RtlReleaseSRWLockExclusive(SRWLock);
       }
     }
-    TppWorkPost(a1, v10, v11, v12);
+    TppWorkPost(BaseAddress, v10, v11, v12);
 LABEL_8:
     RtlReleaseSRWLockExclusive(v8);
     goto LABEL_9;
   }
-  *(_DWORD *)(a1 + 348) = 0;
-  *(_QWORD *)(a1 + 328) = 0LL;
-  v19 = *(_QWORD *)(a1 + 336);
-  *(_QWORD *)(a1 + 336) = 0LL;
-  RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a1 + 240));
-  TppIteWakeWaiters(v19);
+  HIDWORD(BaseAddress[43].Ptr) = 0;
+  BaseAddress[41].Value = 0LL;
+  Value = BaseAddress[42].Value;
+  BaseAddress[42].Value = 0LL;
+  RtlReleaseSRWLockExclusive(BaseAddress + 30);
+  TppIteWakeWaiters(Value);
 LABEL_9:
-  result = (unsigned int)_InterlockedExchangeAdd((volatile signed __int32 *)a1, 0xFFFFFFFF);
-  if ( (_DWORD)result == 1 )
+  result = _InterlockedExchangeAdd((volatile signed __int32 *)BaseAddress, 0xFFFFFFFF);
+  if ( result == 1 )
   {
-    v16 = **(__int64 (__fastcall ***)(unsigned __int64))(a1 + 8);
+    v16 = *(__int64 (__fastcall **)(_RTL_SRWLOCK *))BaseAddress[1].Value;
     if ( (char *)v16 == (char *)TppSimplepFree )
     {
-      TppCleanupGroupMemberDestroy((_QWORD *)a1);
-      return RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, TppHeapTag + 0x200000, a1);
+      TppCleanupGroupMemberDestroy(BaseAddress);
+      return RtlFreeHeap(NtCurrentPeb()->ProcessHeap, TppHeapTag + 0x200000, BaseAddress);
     }
-    else if ( v16 == TppAlpcpFree )
+    else if ( (char *)v16 == (char *)TppAlpcpFree )
     {
-      return TppAlpcpFree(a1);
+      return TppAlpcpFree(BaseAddress);
     }
     else if ( (char *)v16 == (char *)TppWorkpFree )
     {
-      return TppWorkpFree(a1);
+      return TppWorkpFree(BaseAddress);
     }
     else
     {
-      return v16(a1);
+      return v16(BaseAddress);
     }
   }
   return result;

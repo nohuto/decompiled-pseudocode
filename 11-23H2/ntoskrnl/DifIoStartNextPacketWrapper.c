@@ -1,12 +1,12 @@
 /*
- * XREFs of DifIoStartNextPacketWrapper @ 0x1405E16F0
+ * XREFs of DifIoStartNextPacketWrapper @ 0x1405E1C60
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     DifGetAPIThunkContextById @ 0x1404664BE (DifGetAPIThunkContextById.c)
- *     IoStartNextPacket @ 0x140557240 (IoStartNextPacket.c)
- *     DifGetReturnAddressForWrappers @ 0x1405F88C4 (DifGetReturnAddressForWrappers.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x1404668BE (DifGetAPIThunkContextById.c)
+ *     IoStartNextPacket @ 0x140557900 (IoStartNextPacket.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F8E34 (DifGetReturnAddressForWrappers.c)
  */
 
 void __fastcall DifIoStartNextPacketWrapper(PDEVICE_OBJECT DeviceObject, BOOLEAN a2)

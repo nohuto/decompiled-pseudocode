@@ -1,13 +1,13 @@
 /*
- * XREFs of KiBugCheckRecoveryPrepareForCrashDump @ 0x14057AB48
+ * XREFs of KiBugCheckRecoveryPrepareForCrashDump @ 0x14057B038
  * Callers:
- *     KiCaptureDumpPostRecovery @ 0x14057AC90 (KiCaptureDumpPostRecovery.c)
+ *     KiCaptureDumpPostRecovery @ 0x14057B180 (KiCaptureDumpPostRecovery.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     HvlPrepareForRootCrashdump @ 0x1405450B4 (HvlPrepareForRootCrashdump.c)
- *     IoRevertFromDemotedDumpType @ 0x1405509B4 (IoRevertFromDemotedDumpType.c)
- *     KiBugCheckRecoveryFreezeOtherProcessors @ 0x14057A7BC (KiBugCheckRecoveryFreezeOtherProcessors.c)
- *     KiUpdateBugcheckRecoveryProgress @ 0x14057B878 (KiUpdateBugcheckRecoveryProgress.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     HvlPrepareForRootCrashdump @ 0x140545774 (HvlPrepareForRootCrashdump.c)
+ *     IoRevertFromDemotedDumpType @ 0x140551074 (IoRevertFromDemotedDumpType.c)
+ *     KiBugCheckRecoveryFreezeOtherProcessors @ 0x14057ACAC (KiBugCheckRecoveryFreezeOtherProcessors.c)
+ *     KiUpdateBugcheckRecoveryProgress @ 0x14057BD68 (KiUpdateBugcheckRecoveryProgress.c)
  */
 
 char __fastcall KiBugCheckRecoveryPrepareForCrashDump(unsigned __int8 *a1, bool *a2)
@@ -45,7 +45,7 @@ char __fastcall KiBugCheckRecoveryPrepareForCrashDump(unsigned __int8 *a1, bool 
   *a2 = (v5 & 0x200) != 0;
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(0xFuLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     v8 = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 15 )

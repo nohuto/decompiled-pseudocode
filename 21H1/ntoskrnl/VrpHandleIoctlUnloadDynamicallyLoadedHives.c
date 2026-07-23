@@ -31,12 +31,7 @@ __int64 __fastcall VrpHandleIoctlUnloadDynamicallyLoadedHives(
   __int64 *v11; // rax
   __int64 v12; // rsi
   unsigned __int64 v14; // rcx
-  _DWORD v15[2]; // [rsp+48h] [rbp-38h] BYREF
-  __int64 v16; // [rsp+50h] [rbp-30h]
-  __int64 v17; // [rsp+58h] [rbp-28h]
-  int v18; // [rsp+60h] [rbp-20h]
-  int v19; // [rsp+64h] [rbp-1Ch]
-  __int128 v20; // [rsp+68h] [rbp-18h]
+  OBJECT_ATTRIBUTES TargetKey; // [rsp+48h] [rbp-38h] BYREF
 
   Object = 0LL;
   a6 = 0LL;
@@ -86,14 +81,13 @@ LABEL_15:
               v12 = *v11;
               if ( *(int *)(*v11 + 56) < 0 )
               {
-                v15[1] = 0;
-                v19 = 0;
-                v16 = 0LL;
-                v17 = v12 + 24;
-                v20 = 0LL;
-                v15[0] = 48;
-                v18 = 576;
-                ZwUnloadKey2((__int64)v15, 1LL);
+                *(&TargetKey.Length + 1) = 0;
+                memset(&TargetKey.Attributes + 1, 0, 20);
+                TargetKey.RootDirectory = 0LL;
+                TargetKey.ObjectName = (PUNICODE_STRING)(v12 + 24);
+                TargetKey.Length = 48;
+                TargetKey.Attributes = 576;
+                ZwUnloadKey2(&TargetKey, 1u);
                 VrpDestroyNamespaceNode(v8, v12);
                 v9 = *(_QWORD *)(v8 + 48);
               }

@@ -1,18 +1,18 @@
 /*
- * XREFs of PopFxIssueComponentPerfStateChanges @ 0x1404B6EAC
+ * XREFs of PopFxIssueComponentPerfStateChanges @ 0x1404B168C
  * Callers:
- *     PoFxIssueComponentPerfStateChangeMultiple @ 0x1405D0260 (PoFxIssueComponentPerfStateChangeMultiple.c)
+ *     PoFxIssueComponentPerfStateChangeMultiple @ 0x1405CD980 (PoFxIssueComponentPerfStateChangeMultiple.c)
  * Callees:
- *     KeResetEvent @ 0x14028EEC0 (KeResetEvent.c)
- *     PopFxQueueWorkOrder @ 0x14029F720 (PopFxQueueWorkOrder.c)
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     PopFxBugCheck @ 0x140377108 (PopFxBugCheck.c)
- *     PopFxAddLogEntry @ 0x1403782D8 (PopFxAddLogEntry.c)
- *     PopFxCompleteComponentPerfState @ 0x1404B6CBC (PopFxCompleteComponentPerfState.c)
- *     PopDiagTraceFxPerfRequestProgress @ 0x1404B70E4 (PopDiagTraceFxPerfRequestProgress.c)
- *     PopPluginRequestComponentPerfState @ 0x1404B71C4 (PopPluginRequestComponentPerfState.c)
- *     PopDiagTraceFxPerfRequest @ 0x1404B7244 (PopDiagTraceFxPerfRequest.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
+ *     KeResetEvent @ 0x14029EAC0 (KeResetEvent.c)
+ *     PopFxAddLogEntry @ 0x1402E69B4 (PopFxAddLogEntry.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     PopFxBugCheck @ 0x1403A9948 (PopFxBugCheck.c)
+ *     PopFxQueueWorkOrder @ 0x1403AA1E0 (PopFxQueueWorkOrder.c)
+ *     PopFxCompleteComponentPerfState @ 0x1404B149C (PopFxCompleteComponentPerfState.c)
+ *     PopDiagTraceFxPerfRequestProgress @ 0x1404B18C4 (PopDiagTraceFxPerfRequestProgress.c)
+ *     PopPluginRequestComponentPerfState @ 0x1404B19A4 (PopPluginRequestComponentPerfState.c)
+ *     PopDiagTraceFxPerfRequest @ 0x1404B1A24 (PopDiagTraceFxPerfRequest.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
  */
 
 NTSTATUS __fastcall PopFxIssueComponentPerfStateChanges(

@@ -1,8 +1,8 @@
 /*
- * XREFs of EtwpFreePlaceholderList @ 0x14031F348
+ * XREFs of EtwpFreePlaceholderList @ 0x14031F5D8
  * Callers:
- *     EtwpFreeCompression @ 0x14031F2D0 (EtwpFreeCompression.c)
- *     EtwpInitializeCompression @ 0x1403B4558 (EtwpInitializeCompression.c)
+ *     EtwpFreeCompression @ 0x14031F560 (EtwpFreeCompression.c)
+ *     EtwpInitializeCompression @ 0x1403B4738 (EtwpInitializeCompression.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */

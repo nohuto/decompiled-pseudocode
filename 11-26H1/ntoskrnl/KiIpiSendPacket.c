@@ -1,12 +1,12 @@
 /*
- * XREFs of KiIpiSendPacket @ 0x140497DF4
+ * XREFs of KiIpiSendPacket @ 0x140491944
  * Callers:
- *     KeFlushRsb @ 0x1405F18C8 (KeFlushRsb.c)
- *     KiSrcuReadUnlockRemote @ 0x1405F5A1C (KiSrcuReadUnlockRemote.c)
- *     KiIpiTargetCall @ 0x1405FB790 (KiIpiTargetCall.c)
- *     KiInitializeDynamicProcessorDpc @ 0x140BF5030 (KiInitializeDynamicProcessorDpc.c)
+ *     KeFlushRsb @ 0x1405F4288 (KeFlushRsb.c)
+ *     KiSrcuReadUnlockRemote @ 0x1405F83DC (KiSrcuReadUnlockRemote.c)
+ *     KiIpiTargetCall @ 0x1405FE1E0 (KiIpiTargetCall.c)
+ *     KiInitializeDynamicProcessorDpc @ 0x140BFB030 (KiInitializeDynamicProcessorDpc.c)
  * Callees:
- *     KiIpiSendRequest @ 0x140329ED0 (KiIpiSendRequest.c)
+ *     KiIpiSendRequest @ 0x14032BF00 (KiIpiSendRequest.c)
  */
 
 __int64 __fastcall KiIpiSendPacket(unsigned int a1, char *a2, __int64 a3, __int64 a4, __int64 a5, __int64 a6)

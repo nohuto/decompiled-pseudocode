@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpMuiRegResizeStringPool @ 0x140A750A4
+ * XREFs of RtlpMuiRegResizeStringPool @ 0x140A75354
  * Callers:
- *     RtlpMuiRegGrowStringPool @ 0x140A74D60 (RtlpMuiRegGrowStringPool.c)
+ *     RtlpMuiRegGrowStringPool @ 0x140A75010 (RtlpMuiRegGrowStringPool.c)
  * Callees:
- *     memmove @ 0x140435700 (memmove.c)
- *     RtlpMuiRegCreateStringPool @ 0x1408456BC (RtlpMuiRegCreateStringPool.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     RtlpMuiRegCreateStringPool @ 0x1408459BC (RtlpMuiRegCreateStringPool.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

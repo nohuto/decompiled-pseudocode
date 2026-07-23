@@ -1,13 +1,13 @@
 /*
- * XREFs of MmManagePartitionNodeInformation @ 0x1407FD160
+ * XREFs of MmManagePartitionNodeInformation @ 0x1407FD8D0
  * Callers:
- *     NtManagePartition @ 0x140933FF0 (NtManagePartition.c)
+ *     NtManagePartition @ 0x1408F6B10 (NtManagePartition.c)
  * Callees:
- *     MiAllocatePool @ 0x1402ACA70 (MiAllocatePool.c)
- *     MiGetPartitionNodeInformation @ 0x1403D4C28 (MiGetPartitionNodeInformation.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ProbeForWrite @ 0x1408C0590 (ProbeForWrite.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     MiGetPartitionNodeInformation @ 0x1402636C4 (MiGetPartitionNodeInformation.c)
+ *     MiAllocatePool @ 0x140277450 (MiAllocatePool.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ProbeForWrite @ 0x1408BDF50 (ProbeForWrite.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MmManagePartitionNodeInformation(_QWORD *a1, unsigned int *a2, char a3)

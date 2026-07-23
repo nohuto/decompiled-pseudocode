@@ -1,11 +1,11 @@
 /*
- * XREFs of PfpServiceMainThreadBoostPrep @ 0x1405345E0
+ * XREFs of PfpServiceMainThreadBoostPrep @ 0x140534B20
  * Callers:
  *     PfpScenCtxScenarioSet @ 0x1403D2AF4 (PfpScenCtxScenarioSet.c)
  * Callees:
- *     ObDereferenceObjectDeferDelete @ 0x14005DB70 (ObDereferenceObjectDeferDelete.c)
+ *     ObDereferenceObjectDeferDelete @ 0x14005D6F0 (ObDereferenceObjectDeferDelete.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     PsLookupThreadByThreadId @ 0x1404207F0 (PsLookupThreadByThreadId.c)
+ *     PsLookupThreadByThreadId @ 0x14041F6B0 (PsLookupThreadByThreadId.c)
  */
 
 __int64 __fastcall PfpServiceMainThreadBoostPrep(__int64 a1, _QWORD *a2)

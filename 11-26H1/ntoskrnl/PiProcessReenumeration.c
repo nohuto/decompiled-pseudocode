@@ -1,12 +1,12 @@
 /*
- * XREFs of PiProcessReenumeration @ 0x140AC6B74
+ * XREFs of PiProcessReenumeration @ 0x140AC8764
  * Callers:
- *     PnpDeviceActionWorker @ 0x140482AA0 (PnpDeviceActionWorker.c)
+ *     PnpDeviceActionWorker @ 0x14047C410 (PnpDeviceActionWorker.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     PipProcessDevNodeTree @ 0x14090C86C (PipProcessDevNodeTree.c)
- *     PipClearDevNodeFlags @ 0x14090E080 (PipClearDevNodeFlags.c)
- *     PiMarkDeviceTreeForReenumeration @ 0x140AC6C40 (PiMarkDeviceTreeForReenumeration.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     PipProcessDevNodeTree @ 0x1409AE99C (PipProcessDevNodeTree.c)
+ *     PipClearDevNodeFlags @ 0x1409B01B0 (PipClearDevNodeFlags.c)
+ *     PiMarkDeviceTreeForReenumeration @ 0x140AC8830 (PiMarkDeviceTreeForReenumeration.c)
  */
 
 __int64 __fastcall PiProcessReenumeration(__int64 a1, __int64 a2)
@@ -42,7 +42,7 @@ __int64 __fastcall PiProcessReenumeration(__int64 a1, __int64 a2)
     PiMarkDeviceTreeForReenumeration(v4, a2);
     BYTE4(v8) = PnPBootDriversInitialized;
     LODWORD(v8) = 3;
-    PipProcessDevNodeTree(v4, a1, (int)&v8, v7, 0, 0, 0);
+    PipProcessDevNodeTree(v4, a1, (__int64)&v8, v7, 0, 0, 0);
     return 0LL;
   }
 }

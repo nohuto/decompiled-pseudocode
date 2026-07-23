@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwpAllocateTraceBufferPool @ 0x140A6D988
+ * XREFs of EtwpAllocateTraceBufferPool @ 0x140AB272C
  * Callers:
- *     EtwpStartLogger @ 0x140A6E1B4 (EtwpStartLogger.c)
+ *     EtwpStartLogger @ 0x140AB0F2C (EtwpStartLogger.c)
  * Callees:
- *     EtwpAllocateFreeBuffers @ 0x1402199DC (EtwpAllocateFreeBuffers.c)
- *     EtwpQueryUsedProcessorCount @ 0x140488A24 (EtwpQueryUsedProcessorCount.c)
- *     EtwpFreePfnArray @ 0x140825DC0 (EtwpFreePfnArray.c)
- *     EtwpAllocatePhysicalMemoryForTraceBuffers @ 0x140A6D2F4 (EtwpAllocatePhysicalMemoryForTraceBuffers.c)
- *     EtwpGetSystemMaximumBufferCount @ 0x140A6DAC8 (EtwpGetSystemMaximumBufferCount.c)
+ *     EtwpAllocateFreeBuffers @ 0x140219B3C (EtwpAllocateFreeBuffers.c)
+ *     EtwpQueryUsedProcessorCount @ 0x140482564 (EtwpQueryUsedProcessorCount.c)
+ *     EtwpFreePfnArray @ 0x14082C000 (EtwpFreePfnArray.c)
+ *     EtwpGetSystemMaximumBufferCount @ 0x140AB286C (EtwpGetSystemMaximumBufferCount.c)
+ *     EtwpAllocatePhysicalMemoryForTraceBuffers @ 0x140AB295C (EtwpAllocatePhysicalMemoryForTraceBuffers.c)
  */
 
 __int64 __fastcall EtwpAllocateTraceBufferPool(_DWORD *a1)
@@ -73,8 +73,7 @@ __int64 __fastcall EtwpAllocateTraceBufferPool(_DWORD *a1)
     if ( v13 > v20 )
       a1[53] = v20;
   }
-  if ( (a1[204] & 0x20000000) == 0
-    || (result = EtwpAllocatePhysicalMemoryForTraceBuffers((__int64)a1), (int)result >= 0) )
+  if ( (a1[204] & 0x20000000) == 0 || (result = EtwpAllocatePhysicalMemoryForTraceBuffers(a1), (int)result >= 0) )
   {
     v14 = a1[56];
     FreeBuffers = EtwpAllocateFreeBuffers((ULONG_PTR)a1, v14);

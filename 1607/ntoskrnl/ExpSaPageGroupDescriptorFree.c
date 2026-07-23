@@ -1,14 +1,14 @@
 /*
- * XREFs of ExpSaPageGroupDescriptorFree @ 0x140134EE4
+ * XREFs of ExpSaPageGroupDescriptorFree @ 0x140135454
  * Callers:
- *     ExpSaAllocatorOptimizeList @ 0x140134E60 (ExpSaAllocatorOptimizeList.c)
+ *     ExpSaAllocatorOptimizeList @ 0x1401353D0 (ExpSaAllocatorOptimizeList.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     KeQueryMaximumProcessorCountEx @ 0x140085F34 (KeQueryMaximumProcessorCountEx.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
- *     ExpSaBinaryArrayRemove @ 0x140134FD0 (ExpSaBinaryArrayRemove.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     KeQueryMaximumProcessorCountEx @ 0x140087824 (KeQueryMaximumProcessorCountEx.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
+ *     ExpSaBinaryArrayRemove @ 0x140135540 (ExpSaBinaryArrayRemove.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  */
 

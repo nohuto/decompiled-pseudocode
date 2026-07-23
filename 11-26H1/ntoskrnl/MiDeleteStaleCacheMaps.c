@@ -1,23 +1,23 @@
 /*
- * XREFs of MiDeleteStaleCacheMaps @ 0x1406F3AF0
+ * XREFs of MiDeleteStaleCacheMaps @ 0x1406F8760
  * Callers:
  *     <none>
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     MiFlushEntireTbDueToAttributeChange @ 0x14024FD8C (MiFlushEntireTbDueToAttributeChange.c)
- *     KeShouldYieldProcessor @ 0x1402D49D0 (KeShouldYieldProcessor.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     RtlAvlRemoveNode @ 0x14030C5E0 (RtlAvlRemoveNode.c)
- *     MiIsPageInIoHugeRangeTransition @ 0x14031388C (MiIsPageInIoHugeRangeTransition.c)
- *     MiIsPageInHugePfn @ 0x1403138E0 (MiIsPageInHugePfn.c)
- *     MiIoPfnTreeLockContended @ 0x1404D30C4 (MiIoPfnTreeLockContended.c)
- *     MiConvertIoPfnTreeLockExclusiveToShared @ 0x1405019B4 (MiConvertIoPfnTreeLockExclusiveToShared.c)
- *     MiDereferenceIoHugeRange @ 0x1406EB388 (MiDereferenceIoHugeRange.c)
- *     MiFlushStaleCacheMap @ 0x1406F3FF0 (MiFlushStaleCacheMap.c)
- *     MiLockIoPfnTree @ 0x1406F4668 (MiLockIoPfnTree.c)
- *     MiUnlockIoPfnTree @ 0x1406F4E8C (MiUnlockIoPfnTree.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     MiFlushEntireTbDueToAttributeChange @ 0x1402516EC (MiFlushEntireTbDueToAttributeChange.c)
+ *     KeShouldYieldProcessor @ 0x1402B6790 (KeShouldYieldProcessor.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     RtlAvlRemoveNode @ 0x1402EE660 (RtlAvlRemoveNode.c)
+ *     MiIsPageInIoHugeRangeTransition @ 0x1403158BC (MiIsPageInIoHugeRangeTransition.c)
+ *     MiIsPageInHugePfn @ 0x140315910 (MiIsPageInHugePfn.c)
+ *     MiIoPfnTreeLockContended @ 0x1404CC934 (MiIoPfnTreeLockContended.c)
+ *     MiConvertIoPfnTreeLockExclusiveToShared @ 0x1404FB1A4 (MiConvertIoPfnTreeLockExclusiveToShared.c)
+ *     MiDereferenceIoHugeRange @ 0x1406F0028 (MiDereferenceIoHugeRange.c)
+ *     MiFlushStaleCacheMap @ 0x1406F8C5C (MiFlushStaleCacheMap.c)
+ *     MiLockIoPfnTree @ 0x1406F92D4 (MiLockIoPfnTree.c)
+ *     MiUnlockIoPfnTree @ 0x1406F9AFC (MiUnlockIoPfnTree.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiDeleteStaleCacheMaps(__int64 a1)
@@ -77,7 +77,7 @@ void __fastcall MiDeleteStaleCacheMaps(__int64 a1)
 
 LABEL_1:
   P[1] = P;
-  v1 = (__int64 *)&unk_140E35E60;
+  v1 = (__int64 *)&unk_140E35FE0;
   v2 = 0;
   P[0] = P;
   v3 = 2LL;
@@ -100,202 +100,202 @@ LABEL_1:
   while ( v3 );
   v6 = 0LL;
   OldIrql = MiLockIoPfnTree(1LL);
-  v9 = (volatile signed __int64 *)&unk_140E35E48;
+  v9 = (volatile signed __int64 *)&unk_140E35FC8;
   v10 = 2LL;
   v48 = 2LL;
   do
   {
     v11 = (PVOID *)*((_QWORD *)v9 + 2);
-    if ( !v11 )
-      goto LABEL_65;
-LABEL_5:
-    v12 = *(PVOID **)((char *)v49 + v6 * 8);
-    if ( v12 > v11 )
+    if ( v11 )
     {
-      v12 = v11;
-      *(_QWORD *)((char *)v49 + v6 * 8) = v11;
-    }
-    if ( *v9 < 0x400uLL && !*((_QWORD *)v9 + 1) )
-      goto LABEL_64;
-    v13 = *((_QWORD *)v9 - 1);
-    v11 = (PVOID *)v47[v6];
-    if ( v13 )
-    {
-      while ( 1 )
-      {
-        v14 = *(_QWORD *)(v13 + 24);
-        if ( (unsigned __int64)v11 < v14 )
-        {
-          v15 = *(_QWORD *)v13;
-        }
-        else
-        {
-          if ( (unsigned __int64)v11 < v14 + 512 )
-            goto LABEL_16;
-          v15 = *(_QWORD *)(v13 + 8);
-        }
-        if ( !v15 )
-          break;
-        v13 = v15;
-      }
       do
       {
-LABEL_16:
-        v16 = *(_QWORD *)(v13 + 8);
-        v17 = v13;
-        if ( v16 )
+        v12 = *(PVOID **)((char *)v49 + v6 * 8);
+        if ( v12 > v11 )
         {
-          v11 = *(PVOID **)v16;
-          if ( *(_QWORD *)v16 )
+          v12 = v11;
+          *(_QWORD *)((char *)v49 + v6 * 8) = v11;
+        }
+        if ( *v9 < 0x400uLL && !*((_QWORD *)v9 + 1) )
+          break;
+        v13 = *((_QWORD *)v9 - 1);
+        v11 = (PVOID *)v47[v6];
+        if ( v13 )
+        {
+          while ( 1 )
           {
-            do
+            v14 = *(_QWORD *)(v13 + 24);
+            if ( (unsigned __int64)v11 < v14 )
             {
-              v16 = (unsigned __int64)v11;
-              v11 = (PVOID *)*v11;
+              v15 = *(_QWORD *)v13;
             }
-            while ( v11 );
-          }
-        }
-        else
-        {
-          for ( i = *(_QWORD *)(v13 + 16); ; i = *(_QWORD *)(v16 + 16) )
-          {
-            v16 = i & 0xFFFFFFFFFFFFFFFCuLL;
-            if ( !v16 || *(_QWORD *)v16 == v17 )
+            else
+            {
+              if ( (unsigned __int64)v11 < v14 + 512 )
+                goto LABEL_16;
+              v15 = *(_QWORD *)(v13 + 8);
+            }
+            if ( !v15 )
               break;
-            v17 = v16;
+            v13 = v15;
           }
-        }
-        v19 = v43;
-        if ( v43 )
-        {
-          --v43;
-          if ( v19 == 1 )
+          while ( 1 )
           {
-            MiConvertIoPfnTreeLockExclusiveToShared();
-            v2 = 0;
-            v51 = 0;
-          }
-        }
-        v20 = *(_QWORD *)(v13 + 24);
-        if ( *(_DWORD *)(v13 + 32) )
-        {
-          v12 = (PVOID *)((char *)v12 - 1);
-          v47[v6] = v20 + 512;
-          *(_QWORD *)((char *)v49 + v6 * 8) = v12;
-          if ( !v12 )
-            goto LABEL_64;
-          if ( (++v42 & 0xF) == 0
-            && ((unsigned int)MiIoPfnTreeLockContended(v2) || OldIrql != 17 && KeShouldYieldProcessor()) )
-          {
-            LOBYTE(v11) = OldIrql;
-            MiUnlockIoPfnTree(v11, (unsigned int)(v2 != 0) + 1, v7, v8);
-            MiLockIoPfnTree(1LL);
-            v21 = 0;
-            if ( !v2 )
-              v21 = v43;
-            goto LABEL_35;
-          }
-        }
-        else
-        {
-          if ( !v2 )
-          {
-            v47[v6] = v20;
-            LOBYTE(v11) = OldIrql;
-            MiUnlockIoPfnTree(v11, 1LL, v7, v8);
-            v2 = 1;
-            v51 = 1;
-            v43 = 64;
-            _InterlockedOr(v41, 0);
-            v45 = KiCacheFlushTimeStamp;
-            LOBYTE(v44) = 0;
-            v52 = 0;
-            MiLockIoPfnTree(2LL);
-LABEL_63:
-            v11 = (PVOID *)*((_QWORD *)v9 + 2);
-            if ( !v11 )
-              goto LABEL_64;
-            goto LABEL_5;
-          }
-          v22 = *(_QWORD *)(v13 + 24);
-          ++v42;
-          IsPageInHugePfn = MiIsPageInHugePfn(v22);
-          v25 = IsPageInHugePfn;
-          if ( !v52 && !IsPageInHugePfn )
-          {
-            MiFlushEntireTbDueToAttributeChange();
-            v24 = v25 + 1;
-            v52 = v25 + 1;
-          }
-          if ( (_BYTE)v44
-            || v25
-            || !*(_BYTE *)(v13 + 40)
-            || (v26 = *(_DWORD *)(v13 + 36), (unsigned int)(v45 - v26) > 2)
-            || ((unsigned __int8)v26 & v24) == 0 && (unsigned int)(v45 - v26) >= 2 )
-          {
-            v29 = v42;
-          }
-          else
-          {
-            v27 = MiFlushStaleCacheMap(v13);
-            v28 = (unsigned __int8)v44;
-            if ( v27 )
-              v28 = 1;
-            v29 = 0;
-            v42 = 0;
-            v44 = v28;
-          }
-          RtlAvlRemoveNode((unsigned __int64 *)v9 - 1, v13);
-          if ( (unsigned int)MiIsPageInIoHugeRangeTransition(*(_QWORD *)(v13 + 24)) )
-            _InterlockedDecrement64(v9 + 1);
-          v30 = _InterlockedExchangeAdd64(v9, 0xFFFFFFFFFFFFFFFFuLL);
-          _InterlockedDecrement64(v9 + 2);
-          v31 = P[0];
-          v32 = v30 - 1;
-          if ( *((PVOID **)P[0] + 1) != P )
-            __fastfail(3u);
-          *(PVOID *)v13 = P[0];
-          v11 = P;
-          *(_QWORD *)(v13 + 8) = P;
-          v31[1] = v13;
-          P[0] = (PVOID)v13;
-          v47[v6] = *(_QWORD *)(v13 + 24) + 512LL;
-          if ( v32 <= 0x300 )
-            goto LABEL_64;
-          v12 = (PVOID *)((char *)v12 - 1);
-          *(_QWORD *)((char *)v49 + v6 * 8) = v12;
-          if ( !v12 )
-            goto LABEL_64;
-          v33 = (v29 & 0xF) == 0;
-          v2 = v51;
-          if ( v33 && ((unsigned int)MiIoPfnTreeLockContended(v51) || OldIrql != 17 && KeShouldYieldProcessor()) )
-          {
-            LOBYTE(v11) = OldIrql;
-            MiUnlockIoPfnTree(v11, 2LL, v7, v8);
-            MiLockIoPfnTree(1LL);
-            v21 = 0;
+LABEL_16:
+            v16 = *(_QWORD *)(v13 + 8);
+            v17 = v13;
+            if ( v16 )
+            {
+              v11 = *(PVOID **)v16;
+              if ( *(_QWORD *)v16 )
+              {
+                do
+                {
+                  v16 = (unsigned __int64)v11;
+                  v11 = (PVOID *)*v11;
+                }
+                while ( v11 );
+              }
+            }
+            else
+            {
+              for ( i = *(_QWORD *)(v13 + 16); ; i = *(_QWORD *)(v16 + 16) )
+              {
+                v16 = i & 0xFFFFFFFFFFFFFFFCuLL;
+                if ( !v16 || *(_QWORD *)v16 == v17 )
+                  break;
+                v17 = v16;
+              }
+            }
+            v19 = v43;
+            if ( v43 )
+            {
+              --v43;
+              if ( v19 == 1 )
+              {
+                MiConvertIoPfnTreeLockExclusiveToShared();
+                v2 = 0;
+                v51 = 0;
+              }
+            }
+            v20 = *(_QWORD *)(v13 + 24);
+            if ( *(_DWORD *)(v13 + 32) )
+            {
+              v12 = (PVOID *)((char *)v12 - 1);
+              v47[v6] = v20 + 512;
+              *(_QWORD *)((char *)v49 + v6 * 8) = v12;
+              if ( !v12 )
+                goto LABEL_67;
+              if ( (++v42 & 0xF) == 0
+                && ((unsigned int)MiIoPfnTreeLockContended(v2) || OldIrql != 17 && KeShouldYieldProcessor()) )
+              {
+                LOBYTE(v11) = OldIrql;
+                MiUnlockIoPfnTree(v11, (unsigned int)(v2 != 0) + 1, v7, v8);
+                MiLockIoPfnTree(1LL);
+                v21 = 0;
+                if ( !v2 )
+                  v21 = v43;
+                goto LABEL_35;
+              }
+            }
+            else
+            {
+              if ( !v2 )
+              {
+                v47[v6] = v20;
+                LOBYTE(v11) = OldIrql;
+                MiUnlockIoPfnTree(v11, 1LL, v7, v8);
+                v2 = 1;
+                v51 = 1;
+                v43 = 64;
+                _InterlockedOr(v41, 0);
+                v45 = KiCacheFlushTimeStamp;
+                LOBYTE(v44) = 0;
+                v52 = 0;
+                MiLockIoPfnTree(2LL);
+                goto LABEL_66;
+              }
+              v22 = *(_QWORD *)(v13 + 24);
+              ++v42;
+              IsPageInHugePfn = MiIsPageInHugePfn(v22);
+              v25 = IsPageInHugePfn;
+              if ( !v52 && !IsPageInHugePfn )
+              {
+                MiFlushEntireTbDueToAttributeChange();
+                v24 = v25 + 1;
+                v52 = v25 + 1;
+              }
+              if ( (_BYTE)v44
+                || v25
+                || !*(_BYTE *)(v13 + 40)
+                || (v26 = *(_DWORD *)(v13 + 36), (unsigned int)(v45 - v26) > 2)
+                || ((unsigned __int8)v26 & v24) == 0 && (unsigned int)(v45 - v26) >= 2 )
+              {
+                v29 = v42;
+              }
+              else
+              {
+                v27 = MiFlushStaleCacheMap(v13);
+                v28 = (unsigned __int8)v44;
+                if ( v27 )
+                  v28 = 1;
+                v29 = 0;
+                v42 = 0;
+                v44 = v28;
+              }
+              RtlAvlRemoveNode((unsigned __int64 *)v9 - 1, v13);
+              if ( (unsigned int)MiIsPageInIoHugeRangeTransition(*(_QWORD *)(v13 + 24)) )
+                _InterlockedDecrement64(v9 + 1);
+              v30 = _InterlockedExchangeAdd64(v9, 0xFFFFFFFFFFFFFFFFuLL);
+              _InterlockedDecrement64(v9 + 2);
+              v31 = P[0];
+              v32 = v30 - 1;
+              if ( *((PVOID **)P[0] + 1) != P )
+                __fastfail(3u);
+              *(PVOID *)v13 = P[0];
+              v11 = P;
+              *(_QWORD *)(v13 + 8) = P;
+              v31[1] = v13;
+              P[0] = (PVOID)v13;
+              v47[v6] = *(_QWORD *)(v13 + 24) + 512LL;
+              if ( v32 <= 0x300 )
+                goto LABEL_67;
+              v12 = (PVOID *)((char *)v12 - 1);
+              *(_QWORD *)((char *)v49 + v6 * 8) = v12;
+              if ( !v12 )
+                goto LABEL_67;
+              v33 = (v29 & 0xF) == 0;
+              v2 = v51;
+              if ( v33 && ((unsigned int)MiIoPfnTreeLockContended(v51) || OldIrql != 17 && KeShouldYieldProcessor()) )
+              {
+                LOBYTE(v11) = OldIrql;
+                MiUnlockIoPfnTree(v11, 2LL, v7, v8);
+                MiLockIoPfnTree(1LL);
+                v21 = 0;
 LABEL_35:
-            v2 = 0;
-            v43 = v21;
-            v51 = 0;
-            goto LABEL_63;
+                v2 = 0;
+                v43 = v21;
+                v51 = 0;
+                goto LABEL_66;
+              }
+            }
+            if ( !v16 )
+              break;
+            v13 = v16;
           }
         }
-        v13 = v16;
+        if ( !*(_QWORD *)((char *)&v49[1] + v6 * 8 + 8) )
+          break;
+        v47[v6] = 0LL;
+        *(_QWORD *)((char *)&v49[1] + v6 * 8 + 8) = 0LL;
+LABEL_66:
+        v11 = (PVOID *)*((_QWORD *)v9 + 2);
       }
-      while ( v16 );
+      while ( v11 );
+LABEL_67:
+      v2 = v51;
+      v10 = v48;
     }
-    if ( *(_QWORD *)((char *)&v49[1] + v6 * 8 + 8) )
-    {
-      v47[v6] = 0LL;
-      *(_QWORD *)((char *)&v49[1] + v6 * 8 + 8) = 0LL;
-      goto LABEL_63;
-    }
-LABEL_64:
-    v2 = v51;
-    v10 = v48;
-LABEL_65:
     v9 += 8;
     ++v6;
     v48 = --v10;
@@ -303,7 +303,7 @@ LABEL_65:
   while ( v10 );
   LOBYTE(v11) = OldIrql;
   MiUnlockIoPfnTree(v11, (unsigned int)(v2 != 0) + 1, v7, v8);
-  v34 = (struct _LIST_ENTRY **)&unk_140E35E60;
+  v34 = (struct _LIST_ENTRY **)&unk_140E35FE0;
   v35 = (struct _LIST_ENTRY **)v47;
   do
   {
@@ -311,7 +311,7 @@ LABEL_65:
     *v34 = v36;
     v34 += 8;
   }
-  while ( (__int64)v34 < (__int64)&stru_140E35ED8.List.Blink );
+  while ( (__int64)v34 < (__int64)&stru_140E36058.List.Blink );
   while ( 1 )
   {
     v37 = (unsigned __int64 *)P[0];
@@ -325,21 +325,21 @@ LABEL_65:
     MiDereferenceIoHugeRange(v37[3]);
     ExFreePoolWithTag(v37, 0);
   }
-  ExAcquireSpinLockExclusive(&dword_140E35ED0);
+  ExAcquireSpinLockExclusive(&dword_140E36050);
   for ( j = 0LL; j < 128; j += 64LL )
   {
     if ( *(_QWORD *)((char *)&MiState + j + 39112) >= 0x400uLL || *(_QWORD *)((char *)&MiState + j + 39120) )
     {
       if ( OldIrql == 17 )
-        ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140E35ED0);
+        ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140E36050);
       else
-        ExReleaseSpinLockExclusive(&dword_140E35ED0, OldIrql);
+        ExReleaseSpinLockExclusive(&dword_140E36050, OldIrql);
       goto LABEL_1;
     }
   }
   *(_QWORD *)(a1 + 24) = 0LL;
   if ( OldIrql == 17 )
-    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140E35ED0);
+    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140E36050);
   else
-    ExReleaseSpinLockExclusive(&dword_140E35ED0, OldIrql);
+    ExReleaseSpinLockExclusive(&dword_140E36050, OldIrql);
 }

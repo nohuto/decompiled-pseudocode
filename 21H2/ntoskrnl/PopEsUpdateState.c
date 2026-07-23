@@ -1,15 +1,15 @@
 /*
- * XREFs of PopEsUpdateState @ 0x14039A908
+ * XREFs of PopEsUpdateState @ 0x14039AA58
  * Callers:
- *     PopEsWorker @ 0x1407811F0 (PopEsWorker.c)
+ *     PopEsWorker @ 0x1407813B0 (PopEsWorker.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     PopDiagTraceEsState @ 0x140571A88 (PopDiagTraceEsState.c)
- *     PopCurrentPowerState @ 0x140678D9C (PopCurrentPowerState.c)
- *     PopEsSnapTelemetry @ 0x140779230 (PopEsSnapTelemetry.c)
- *     PopEsPublishState @ 0x1407D3D90 (PopEsPublishState.c)
+ *     PopDiagTraceEsState @ 0x140571CC8 (PopDiagTraceEsState.c)
+ *     PopCurrentPowerState @ 0x14066C4DC (PopCurrentPowerState.c)
+ *     PopEsSnapTelemetry @ 0x1407793F0 (PopEsSnapTelemetry.c)
+ *     PopEsPublishState @ 0x1407D3F00 (PopEsPublishState.c)
  */
 
 __int64 __fastcall PopEsUpdateState(char a1)
@@ -44,7 +44,7 @@ LABEL_19:
   }
   if ( PopEsMode == 2 )
   {
-    if ( dword_140C23ED0 )
+    if ( dword_140C23370 )
     {
       if ( BYTE1(v14[0]) )
       {
@@ -52,7 +52,7 @@ LABEL_19:
         {
           v2 = (unsigned int)(v14[2] + 100 * v14[3] - 1) % v14[2];
           result = (unsigned int)(v14[2] + 100 * v14[3] - 1) / v14[2];
-          if ( (unsigned int)result <= dword_140C23ED0 )
+          if ( (unsigned int)result <= dword_140C23370 )
           {
             v6 = 2;
             goto LABEL_19;
@@ -61,7 +61,7 @@ LABEL_19:
       }
     }
   }
-  if ( byte_140C23ED4 && dword_140C23ED0 && PopEsBgActivityPolicy == 1 )
+  if ( byte_140C23374 && dword_140C23370 && PopEsBgActivityPolicy == 1 )
   {
     v6 = 8;
     goto LABEL_19;
@@ -79,7 +79,7 @@ LABEL_6:
     PopEsState = v4;
     PopEsReason = v6;
     if ( PopCsResiliencyStats[0] && (v4 != v5 || v6 != v7) )
-      ++dword_140C23108;
+      ++dword_140C23708;
     KxReleaseSpinLock(&PopCsResiliencyStatsLock);
     if ( KiIrqlFlags )
     {

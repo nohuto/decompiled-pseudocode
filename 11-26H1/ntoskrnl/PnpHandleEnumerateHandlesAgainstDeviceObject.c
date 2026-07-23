@@ -1,13 +1,13 @@
 /*
- * XREFs of PnpHandleEnumerateHandlesAgainstDeviceObject @ 0x140972A58
+ * XREFs of PnpHandleEnumerateHandlesAgainstDeviceObject @ 0x1409BDC4C
  * Callers:
- *     PnpHandleEnumerateHandlesAgainstPdoStack @ 0x1404FF8CC (PnpHandleEnumerateHandlesAgainstPdoStack.c)
+ *     PnpHandleEnumerateHandlesAgainstPdoStack @ 0x1404F90BC (PnpHandleEnumerateHandlesAgainstPdoStack.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     ExEnumHandleTable @ 0x1408FBBA0 (ExEnumHandleTable.c)
- *     PsGetNextProcess @ 0x14096EE20 (PsGetNextProcess.c)
- *     ObReferenceProcessHandleTable @ 0x1409717D0 (ObReferenceProcessHandleTable.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     ExEnumHandleTable @ 0x14092BB30 (ExEnumHandleTable.c)
+ *     ObReferenceProcessHandleTable @ 0x1409BB940 (ObReferenceProcessHandleTable.c)
+ *     PsGetNextProcess @ 0x1409BC470 (PsGetNextProcess.c)
  */
 
 __int64 __fastcall PnpHandleEnumerateHandlesAgainstDeviceObject(

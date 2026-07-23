@@ -1,13 +1,13 @@
 /*
- * XREFs of MmFreeAccessPfnBuffer @ 0x1404A3E88
+ * XREFs of MmFreeAccessPfnBuffer @ 0x14049D998
  * Callers:
- *     PfpReturnAccessBuffer @ 0x1404D94E0 (PfpReturnAccessBuffer.c)
- *     PfpFlushBuffers @ 0x140A05BE0 (PfpFlushBuffers.c)
- *     PfTAccessTracingCleanup @ 0x140BF8DFC (PfTAccessTracingCleanup.c)
+ *     PfpReturnAccessBuffer @ 0x1404D2BC0 (PfpReturnAccessBuffer.c)
+ *     PfpFlushBuffers @ 0x1409F13D0 (PfpFlushBuffers.c)
+ *     PfTAccessTracingCleanup @ 0x140BFEDFC (PfTAccessTracingCleanup.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     ObDereferenceObjectDeferDeleteWithTag @ 0x14027C870 (ObDereferenceObjectDeferDeleteWithTag.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     ObDereferenceObjectDeferDeleteWithTag @ 0x14027BDE0 (ObDereferenceObjectDeferDeleteWithTag.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MmFreeAccessPfnBuffer(_QWORD *P, char a2)

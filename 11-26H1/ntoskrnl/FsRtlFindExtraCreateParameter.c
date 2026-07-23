@@ -1,8 +1,8 @@
 /*
- * XREFs of FsRtlFindExtraCreateParameter @ 0x140A072F0
+ * XREFs of FsRtlFindExtraCreateParameter @ 0x1409F2AE0
  * Callers:
- *     FsRtlpAttachOplockKey @ 0x1402C2000 (FsRtlpAttachOplockKey.c)
- *     IopSymlinkGetECP @ 0x14048345C (IopSymlinkGetECP.c)
+ *     FsRtlpAttachOplockKey @ 0x14030CCC0 (FsRtlpAttachOplockKey.c)
+ *     IopSymlinkGetECP @ 0x14047CDCC (IopSymlinkGetECP.c)
  * Callees:
  *     <none>
  */

@@ -1,22 +1,22 @@
 /*
- * XREFs of EtwTiLogProtectExecVm @ 0x140A79D30
+ * XREFs of EtwTiLogProtectExecVm @ 0x140A81C70
  * Callers:
- *     NtProtectVirtualMemory @ 0x14095E180 (NtProtectVirtualMemory.c)
+ *     NtProtectVirtualMemory @ 0x140A03A40 (NtProtectVirtualMemory.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     KiUnstackDetachProcess @ 0x1402307C0 (KiUnstackDetachProcess.c)
- *     KiStackAttachProcess @ 0x140247880 (KiStackAttachProcess.c)
- *     EtwProviderEnabled @ 0x1402563E0 (EtwProviderEnabled.c)
- *     EtwpTiFillProcessIdentity @ 0x140257DB0 (EtwpTiFillProcessIdentity.c)
- *     EtwpTiFillZeroVad @ 0x140492140 (EtwpTiFillZeroVad.c)
- *     EtwpTiFillVad @ 0x1404921A8 (EtwpTiFillVad.c)
- *     EtwpTiFillThreadIdentity @ 0x1404A21B8 (EtwpTiFillThreadIdentity.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwQueryVirtualMemory @ 0x140723850 (ZwQueryVirtualMemory.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     KiUnstackDetachProcess @ 0x140232120 (KiUnstackDetachProcess.c)
+ *     KiStackAttachProcess @ 0x1402491E0 (KiStackAttachProcess.c)
+ *     EtwProviderEnabled @ 0x140257D70 (EtwProviderEnabled.c)
+ *     EtwpTiFillProcessIdentity @ 0x140259590 (EtwpTiFillProcessIdentity.c)
+ *     EtwpTiFillZeroVad @ 0x14048BC90 (EtwpTiFillZeroVad.c)
+ *     EtwpTiFillVad @ 0x14048BCF8 (EtwpTiFillVad.c)
+ *     EtwpTiFillThreadIdentity @ 0x14049BCE8 (EtwpTiFillThreadIdentity.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwQueryVirtualMemory @ 0x140728420 (ZwQueryVirtualMemory.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void EtwTiLogProtectExecVm(_KPROCESS *BugCheckParameter1, char a2, __int64 a3, __int64 a4, ...)
@@ -84,7 +84,7 @@ void EtwTiLogProtectExecVm(_KPROCESS *BugCheckParameter1, char a2, __int64 a3, _
   memset_0(&VirtualMemory, 0, 0x40uLL);
   v6 = 0;
   v7 = 0;
-  if ( EtwProviderEnabled(*(REGHANDLE *)&EtwpSecurityLock.AbWaitEntryCount, 0, 0xF0uLL) )
+  if ( EtwProviderEnabled(EtwThreatIntProvRegHandle, 0, 0xF0uLL) )
   {
     v8 = 0LL;
     Process = KeGetCurrentThread()->ApcState.Process;
@@ -94,7 +94,7 @@ void EtwTiLogProtectExecVm(_KPROCESS *BugCheckParameter1, char a2, __int64 a3, _
     v11 = 2LL;
     if ( a2 )
       v11 = 0LL;
-    v12 = (const EVENT_DESCRIPTOR *)off_1400045F8[v11 + v8];
+    v12 = (const EVENT_DESCRIPTOR *)off_140004618[v11 + v8];
     if ( Process == BugCheckParameter1 )
     {
       v13 = 0x800000000LL;
@@ -109,9 +109,9 @@ void EtwTiLogProtectExecVm(_KPROCESS *BugCheckParameter1, char a2, __int64 a3, _
     {
       v13 = 0x2000000000LL;
     }
-    v14 = EtwProviderEnabled(*(REGHANDLE *)&EtwpSecurityLock.AbWaitEntryCount, 0, v13);
+    v14 = EtwProviderEnabled(EtwThreatIntProvRegHandle, 0, v13);
     v36 = v14;
-    if ( EtwEventEnabled(*(REGHANDLE *)&EtwpSecurityLock.AbWaitEntryCount, v12) )
+    if ( EtwEventEnabled(EtwThreatIntProvRegHandle, v12) )
     {
       if ( v14 )
       {
@@ -125,7 +125,7 @@ void EtwTiLogProtectExecVm(_KPROCESS *BugCheckParameter1, char a2, __int64 a3, _
         VirtualMemory = ZwQueryVirtualMemory(
                           (HANDLE)0xFFFFFFFFFFFFFFFFLL,
                           v15,
-                          (MEMORY_INFORMATION_CLASS)3,
+                          MemoryRegionInformation,
                           MemoryInformation,
                           0x30uLL,
                           0LL);
@@ -139,7 +139,7 @@ void EtwTiLogProtectExecVm(_KPROCESS *BugCheckParameter1, char a2, __int64 a3, _
             if ( ZwQueryVirtualMemory(
                    (HANDLE)0xFFFFFFFFFFFFFFFFLL,
                    v15,
-                   (MEMORY_INFORMATION_CLASS)2,
+                   MemoryMappedFilenameInformation,
                    Pool2,
                    0x200uLL,
                    0LL) < 0 )
@@ -182,7 +182,7 @@ void EtwTiLogProtectExecVm(_KPROCESS *BugCheckParameter1, char a2, __int64 a3, _
       *(_QWORD *)&UserData[v33].Size = 8LL;
       v34 = v32;
       UserData[v34].Ptr = (ULONGLONG)va1;
-      v35 = *(_QWORD *)&EtwpSecurityLock.AbWaitEntryCount;
+      v35 = EtwThreatIntProvRegHandle;
       *(_QWORD *)&UserData[v34].Size = 8LL;
       EtwWrite(v35, v12, 0LL, v32 + 1, UserData);
       if ( v7 )

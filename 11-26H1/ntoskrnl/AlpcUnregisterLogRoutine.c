@@ -1,14 +1,14 @@
 /*
- * XREFs of AlpcUnregisterLogRoutine @ 0x1407C1948
+ * XREFs of AlpcUnregisterLogRoutine @ 0x1407C49A8
  * Callers:
- *     EtwpDisableKernelTrace @ 0x14095A8C0 (EtwpDisableKernelTrace.c)
+ *     EtwpDisableKernelTrace @ 0x140A00180 (EtwpDisableKernelTrace.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall AlpcUnregisterLogRoutine(__int64 a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
@@ -23,14 +23,14 @@ __int64 __fastcall AlpcUnregisterLogRoutine(__int64 a1, __int64 a2, __int64 a3, 
   __int64 (__fastcall ***v11)(__int64, int); // rdx
 
   v4 = -1073741275;
-  v5 = (AutoBoost *)KeAbPreAcquire((__int64)&AlpcpMessageLogLock.CurrentRunTime, 0LL, 0LL, a4);
-  v7 = _interlockedbittestandset64((volatile signed __int32 *)&AlpcpMessageLogLock.CurrentRunTime, 0LL);
+  v5 = (AutoBoost *)KeAbPreAcquire((__int64)&AlpcpMessageLogLock.CycleTime, 0LL, 0LL, a4);
+  v7 = _interlockedbittestandset64((volatile signed __int32 *)&AlpcpMessageLogLock.CycleTime, 0LL);
   v8 = v5;
   if ( v7 )
     ExfAcquirePushLockExclusiveEx(
-      (unsigned __int64 *)&AlpcpMessageLogLock.CurrentRunTime,
+      (unsigned __int64 *)&AlpcpMessageLogLock.CycleTime,
       v5,
-      (__int64)&AlpcpMessageLogLock.CurrentRunTime);
+      (__int64)&AlpcpMessageLogLock.CycleTime);
   if ( v8 )
   {
     if ( (KiAbpGlobalState & 1) != 0 )
@@ -57,9 +57,9 @@ __int64 __fastcall AlpcUnregisterLogRoutine(__int64 a1, __int64 a2, __int64 a3, 
       break;
     }
   }
-  BYTE4(stru_140E66B30.StackBase) = AlpcpLogCallbackListHead != &AlpcpLogCallbackListHead;
-  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&AlpcpMessageLogLock.CurrentRunTime, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock((volatile signed __int64 *)&AlpcpMessageLogLock.CurrentRunTime);
-  KeAbPostRelease((unsigned __int64)&AlpcpMessageLogLock.CurrentRunTime);
+  LOBYTE(stru_140E66D40.CycleTime) = AlpcpLogCallbackListHead != &AlpcpLogCallbackListHead;
+  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&AlpcpMessageLogLock.CycleTime, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    ExfTryToWakePushLock((volatile signed __int64 *)&AlpcpMessageLogLock.CycleTime);
+  KeAbPostRelease((unsigned __int64)&AlpcpMessageLogLock.CycleTime);
   return v4;
 }

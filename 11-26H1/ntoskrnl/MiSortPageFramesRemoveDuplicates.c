@@ -1,10 +1,10 @@
 /*
- * XREFs of MiSortPageFramesRemoveDuplicates @ 0x1406F1F64
+ * XREFs of MiSortPageFramesRemoveDuplicates @ 0x1406F6BD4
  * Callers:
- *     MiGetListOfPendingBadPages @ 0x14052AB58 (MiGetListOfPendingBadPages.c)
- *     MmEnumerateBadPages @ 0x140B5D81C (MmEnumerateBadPages.c)
+ *     MiGetListOfPendingBadPages @ 0x14052D078 (MiGetListOfPendingBadPages.c)
+ *     MmEnumerateBadPages @ 0x140B6099C (MmEnumerateBadPages.c)
  * Callees:
- *     qsort @ 0x140536F00 (qsort.c)
+ *     qsort @ 0x140539380 (qsort.c)
  */
 
 __int64 __fastcall MiSortPageFramesRemoveDuplicates(__int64 *a1, size_t a2)

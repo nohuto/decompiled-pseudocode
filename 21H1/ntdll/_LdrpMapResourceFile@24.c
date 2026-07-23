@@ -13,61 +13,64 @@
  *     _NtCreateSection@28 @ 0x4B2F2E20 (_NtCreateSection@28.c)
  */
 
-int __fastcall LdrpMapResourceFile(int a1, int *a2, char a3, HANDLE *a4, _DWORD *a5, _DWORD *a6)
+int __fastcall LdrpMapResourceFile(int a1, int *a2, char a3, HANDLE *a4, PVOID *a5, _DWORD *a6)
 {
-  int v7; // edi
-  int v8; // eax
-  int v9; // ebx
+  void *v7; // edi
+  PIMAGE_NT_HEADERS v8; // eax
+  signed int v9; // ebx
   NTSTATUS v10; // esi
   void *v11; // eax
-  volatile signed __int32 *v12; // edi
-  OBJECT_ATTRIBUTES ObjectAttributes; // [esp+10h] [ebp-50h] BYREF
-  _DWORD v15[3]; // [esp+28h] [ebp-38h] BYREF
-  volatile signed __int32 *v16; // [esp+34h] [ebp-2Ch]
-  _DWORD v17[2]; // [esp+38h] [ebp-28h] BYREF
-  int v18; // [esp+40h] [ebp-20h] BYREF
-  int v19; // [esp+44h] [ebp-1Ch]
-  char v20[4]; // [esp+48h] [ebp-18h]
-  int v21; // [esp+4Ch] [ebp-14h] BYREF
-  int v22; // [esp+50h] [ebp-10h]
-  int v23; // [esp+54h] [ebp-Ch] BYREF
-  HANDLE Handle; // [esp+58h] [ebp-8h] BYREF
+  HANDLE *v12; // edi
+  SIZE_T v14; // [esp-14h] [ebp-74h]
+  ULONG v15; // [esp+0h] [ebp-60h]
+  ULONG v16; // [esp+4h] [ebp-5Ch]
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [esp+10h] [ebp-50h] BYREF
+  _DWORD v18[3]; // [esp+28h] [ebp-38h] BYREF
+  PVOID v19; // [esp+34h] [ebp-2Ch]
+  SIZE_T CommitSize; // [esp+38h] [ebp-28h] BYREF
+  int v21; // [esp+40h] [ebp-20h] BYREF
+  void *v22; // [esp+44h] [ebp-1Ch]
+  char v23[4]; // [esp+48h] [ebp-18h]
+  int v24; // [esp+4Ch] [ebp-14h] BYREF
+  PVOID BaseAddress; // [esp+50h] [ebp-10h]
+  PVOID BaseOfImage; // [esp+54h] [ebp-Ch] BYREF
+  HANDLE SectionHandle; // [esp+58h] [ebp-8h] BYREF
   HANDLE FileHandle; // [esp+5Ch] [ebp-4h] BYREF
 
   v7 = 0;
-  *(_DWORD *)v20 = a1;
+  *(_DWORD *)v23 = a1;
   FileHandle = 0;
-  Handle = 0;
-  v23 = 0;
-  v21 = 0;
+  SectionHandle = 0;
+  BaseOfImage = 0;
+  v24 = 0;
   if ( a1 && a2 && a5 )
   {
-    v8 = RtlImageNtHeader(a1 & 0xFFFFFFFC);
+    v8 = RtlImageNtHeader((PVOID)(a1 & 0xFFFFFFFC));
     if ( !v8 )
     {
       v10 = -1073741701;
       goto LABEL_27;
     }
-    v9 = *(_WORD *)(v8 + 72) < 6u ? 8 : 2;
+    v9 = v8->OptionalHeader.MajorSubsystemVersion < 6u ? 8 : 2;
     if ( a3 )
     {
-      v18 = *a2;
-      v19 = a2[1];
-      v22 = 0;
+      v21 = *a2;
+      v22 = (void *)a2[1];
+      BaseAddress = 0;
       ObjectAttributes.Length = 24;
     }
     else
     {
-      v10 = RtlpDosPathNameToRelativeNtPathName_U(&v18, 0, v15);
+      v10 = RtlpDosPathNameToRelativeNtPathName_U(&v21, 0, v18);
       if ( v10 < 0 )
         goto LABEL_27;
-      v7 = v19;
-      v22 = v19;
-      if ( LOWORD(v15[0]) )
+      v7 = v22;
+      BaseAddress = v22;
+      if ( LOWORD(v18[0]) )
       {
-        v18 = v15[0];
-        v19 = v15[1];
-        v11 = (void *)v15[2];
+        v21 = v18[0];
+        v22 = (void *)v18[1];
+        v11 = (void *)v18[2];
       }
       else
       {
@@ -85,40 +88,51 @@ LABEL_11:
     ObjectAttributes.SecurityDescriptor = 0;
     ObjectAttributes.SecurityQualityOfService = 0;
     ObjectAttributes.Attributes = 64;
-    ObjectAttributes.ObjectName = (PUNICODE_STRING)&v18;
-    v10 = LdrpNtOpenFileUnredirected(&FileHandle, &ObjectAttributes, v20[0]);
+    ObjectAttributes.ObjectName = (PUNICODE_STRING)&v21;
+    v10 = LdrpNtOpenFileUnredirected(&FileHandle, &ObjectAttributes, v23[0]);
     if ( v7 )
     {
-      v12 = v16;
-      if ( v16 && !_InterlockedExchangeAdd(v16, 0xFFFFFFFF) )
+      v12 = (HANDLE *)v19;
+      if ( v19 && !_InterlockedExchangeAdd((volatile signed __int32 *)v19, 0xFFFFFFFF) )
       {
-        NtClose(*((HANDLE *)v12 + 1));
+        NtClose(v12[1]);
         RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v12);
       }
-      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v22);
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, BaseAddress);
     }
     if ( v10 >= 0 )
     {
-      v10 = NtCreateSection(&Handle, 983045, 0, 0, v9, 0x8000000, FileHandle);
+      v10 = NtCreateSection(&SectionHandle, 0xF0005u, 0, 0, v9, 0x8000000u, FileHandle);
       if ( v10 >= 0 )
       {
-        v17[0] = 0;
-        v17[1] = 0;
-        v10 = ZwMapViewOfSection(Handle, -1, &v23, 0, 0, v17, &v21, 1, 0, v9);
-        if ( Handle )
+        CommitSize = 0LL;
+        HIDWORD(v14) = &v24;
+        LODWORD(v14) = &CommitSize;
+        v10 = ZwMapViewOfSection(
+                SectionHandle,
+                (HANDLE)0xFFFFFFFF,
+                &BaseOfImage,
+                0LL,
+                v14,
+                (PLARGE_INTEGER)1,
+                0,
+                (SECTION_INHERIT)v9,
+                v15,
+                v16);
+        if ( SectionHandle )
         {
-          NtClose(Handle);
-          Handle = 0;
+          NtClose(SectionHandle);
+          SectionHandle = 0;
         }
         if ( v10 >= 0 )
         {
-          if ( !RtlImageNtHeader(v23) )
+          if ( !RtlImageNtHeader(BaseOfImage) )
             v10 = -1073741701;
           if ( v10 >= 0 )
           {
-            *a5 = v23;
+            *a5 = BaseOfImage;
             if ( a6 )
-              *a6 = v21;
+              *a6 = v24;
             if ( a4 )
             {
               *a4 = FileHandle;
@@ -138,8 +152,8 @@ LABEL_27:
       NtClose(FileHandle);
       FileHandle = 0;
     }
-    if ( v23 )
-      NtUnmapViewOfSection(-1, v23);
+    if ( BaseOfImage )
+      NtUnmapViewOfSection((HANDLE)0xFFFFFFFF, BaseOfImage);
     return v10;
   }
   return -1073741811;

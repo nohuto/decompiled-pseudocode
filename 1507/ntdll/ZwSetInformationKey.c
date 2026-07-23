@@ -6,11 +6,15 @@
  *     <none>
  */
 
-__int64 ZwSetInformationKey()
+NTSTATUS __cdecl ZwSetInformationKey(
+        HANDLE KeyHandle,
+        KEY_SET_INFORMATION_CLASS KeySetInformationClass,
+        PVOID KeySetInformation,
+        ULONG KeySetInformationLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 380LL;
+  result = 380;
   __asm { syscall; Low latency system call }
   return result;
 }

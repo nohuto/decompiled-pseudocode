@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpUnregisterPartitionPages @ 0x140601824
+ * XREFs of EtwpUnregisterPartitionPages @ 0x140601D74
  * Callers:
- *     EtwpFreePartitionMemory @ 0x1406013A4 (EtwpFreePartitionMemory.c)
+ *     EtwpFreePartitionMemory @ 0x1406018F4 (EtwpFreePartitionMemory.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
@@ -31,15 +31,15 @@ __int64 __fastcall EtwpUnregisterPartitionPages(_QWORD *a1, __int64 a2)
 
   v3 = 0LL;
   v4 = 0LL;
-  v6 = ExAcquireSpinLockExclusive(&dword_140C31C30);
-  v7 = (unsigned int)dword_140C31C24 >> 5;
-  v8 = -1LL << (dword_140C31C24 & 0x1F);
+  v6 = ExAcquireSpinLockExclusive(&dword_140C31BD0);
+  v7 = (unsigned int)dword_140C31BC4 >> 5;
+  v8 = -1LL << (dword_140C31BC4 & 0x1F);
   v9 = a2 & v8;
-  if ( (unsigned int)dword_140C31C24 >> 5 )
+  if ( (unsigned int)dword_140C31BC4 >> 5 )
   {
     v10 = v7 - 1;
     v21 = a2 & v8;
-    v11 = (_QWORD **)(qword_140C31C28
+    v11 = (_QWORD **)(qword_140C31BC8
                     + 8LL
                     * ((v7 - 1) & (HIBYTE(v21)
                                  + 37
@@ -66,7 +66,7 @@ __int64 __fastcall EtwpUnregisterPartitionPages(_QWORD *a1, __int64 a2)
           if ( a1 )
             *a1 = v12[3];
           v20 = v8 & v12[1];
-          for ( i = (_QWORD *)(qword_140C31C28
+          for ( i = (_QWORD *)(qword_140C31BC8
                              + 8LL
                              * (v10 & (HIBYTE(v20)
                                      + 37
@@ -96,11 +96,14 @@ __int64 __fastcall EtwpUnregisterPartitionPages(_QWORD *a1, __int64 a2)
     }
   }
 LABEL_13:
-  ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C31C30);
-  if ( KiIrqlFlags )
+  ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C31BD0);
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v6 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v6 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v16 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v6 + 1));

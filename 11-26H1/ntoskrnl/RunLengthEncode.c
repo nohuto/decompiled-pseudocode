@@ -1,7 +1,7 @@
 /*
- * XREFs of RunLengthEncode @ 0x1405E3FF4
+ * XREFs of RunLengthEncode @ 0x1405E6964
  * Callers:
- *     KdpReadPhysicalMemory @ 0x140C145BC (KdpReadPhysicalMemory.c)
+ *     KdpReadPhysicalMemory @ 0x140C1A5BC (KdpReadPhysicalMemory.c)
  * Callees:
  *     <none>
  */

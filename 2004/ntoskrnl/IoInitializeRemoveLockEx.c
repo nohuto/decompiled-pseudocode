@@ -35,7 +35,7 @@ LABEL_3:
     {
       *(_DWORD *)&Lock[1].Common.Removed = 1129270354;
       Lock[1].Common.IoCount = HighWatermark;
-      v6 = MaxLockedMinutes * (unsigned __int64)(unsigned int)KeMaximumIncrement;
+      v6 = MaxLockedMinutes * (unsigned __int64)KeMaximumIncrement;
       LODWORD(Lock[1].Common.RemoveEvent.Header.WaitListHead.Flink) = AllocateTag;
       *(_QWORD *)&Lock[2].Common.RemoveEvent.Header.Lock = 0LL;
       *(_QWORD *)&Lock[1].Common.RemoveEvent.Header.Lock = 600000000 * v6;

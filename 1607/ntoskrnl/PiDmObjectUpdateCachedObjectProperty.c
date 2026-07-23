@@ -1,20 +1,20 @@
 /*
- * XREFs of PiDmObjectUpdateCachedObjectProperty @ 0x1404FFCDC
+ * XREFs of PiDmObjectUpdateCachedObjectProperty @ 0x1404E2C6C
  * Callers:
- *     PiPnpRtlObjectActionCallback @ 0x1404FE930 (PiPnpRtlObjectActionCallback.c)
- *     PiDmObjectUpdateCachedCmProperty @ 0x140500534 (PiDmObjectUpdateCachedCmProperty.c)
+ *     PiPnpRtlObjectActionCallback @ 0x1404E18C0 (PiPnpRtlObjectActionCallback.c)
+ *     PiDmObjectUpdateCachedCmProperty @ 0x1404E34C4 (PiDmObjectUpdateCachedCmProperty.c)
  * Callees:
- *     memcmp @ 0x14014DE90 (memcmp.c)
- *     PiDmCacheDataEncode @ 0x1404E0974 (PiDmCacheDataEncode.c)
- *     PiDmCacheDataFree @ 0x1404E9A74 (PiDmCacheDataFree.c)
- *     PiDmObjectReleaseLock @ 0x1404EC1C8 (PiDmObjectReleaseLock.c)
- *     PnpGetObjectProperty @ 0x1404FBC64 (PnpGetObjectProperty.c)
- *     PiDmObjectRelease @ 0x1404FEFC0 (PiDmObjectRelease.c)
- *     PiDmGetObject @ 0x1404FF000 (PiDmGetObject.c)
- *     PiDmGetCacheKeys @ 0x1404FF4E4 (PiDmGetCacheKeys.c)
- *     PiDmGetCachedKeyIndex @ 0x1404FF530 (PiDmGetCachedKeyIndex.c)
- *     PiDmObjectAcquireExclusiveLock @ 0x140506124 (PiDmObjectAcquireExclusiveLock.c)
- *     PiDmFreeMem @ 0x14062F8CC (PiDmFreeMem.c)
+ *     memcmp @ 0x14014E450 (memcmp.c)
+ *     PiDmCacheDataEncode @ 0x1404C3F78 (PiDmCacheDataEncode.c)
+ *     PiDmCacheDataFree @ 0x1404CBCD0 (PiDmCacheDataFree.c)
+ *     PiDmObjectReleaseLock @ 0x1404CE250 (PiDmObjectReleaseLock.c)
+ *     PnpGetObjectProperty @ 0x1404DEBF4 (PnpGetObjectProperty.c)
+ *     PiDmObjectRelease @ 0x1404E1F50 (PiDmObjectRelease.c)
+ *     PiDmGetObject @ 0x1404E1F90 (PiDmGetObject.c)
+ *     PiDmGetCacheKeys @ 0x1404E2474 (PiDmGetCacheKeys.c)
+ *     PiDmGetCachedKeyIndex @ 0x1404E24C0 (PiDmGetCachedKeyIndex.c)
+ *     PiDmObjectAcquireExclusiveLock @ 0x1404E90B4 (PiDmObjectAcquireExclusiveLock.c)
+ *     PiDmFreeMem @ 0x14062F980 (PiDmFreeMem.c)
  */
 
 void __fastcall PiDmObjectUpdateCachedObjectProperty(

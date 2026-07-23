@@ -6,7 +6,10 @@
  *     _Wow64SystemServiceCall@0 @ 0x4B308730 (_Wow64SystemServiceCall@0.c)
  */
 
-int __stdcall NtAllocateReserveObject(int a1, int a2, int a3)
+NTSTATUS __cdecl NtAllocateReserveObject(
+        PHANDLE MemoryReserveHandle,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        MEMORY_RESERVE_TYPE Type)
 {
   return Wow64SystemServiceCall();
 }

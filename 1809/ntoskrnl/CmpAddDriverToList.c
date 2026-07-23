@@ -1,18 +1,18 @@
 /*
- * XREFs of CmpAddDriverToList @ 0x1409CD9F8
+ * XREFs of CmpAddDriverToList @ 0x1409CE9F8
  * Callers:
- *     CmpFindDrivers @ 0x1409CE508 (CmpFindDrivers.c)
+ *     CmpFindDrivers @ 0x1409CF508 (CmpFindDrivers.c)
  * Callees:
  *     RtlAppendUnicodeToString @ 0x140015E00 (RtlAppendUnicodeToString.c)
  *     RtlInitUnicodeStringEx @ 0x140015EB0 (RtlInitUnicodeStringEx.c)
- *     RtlAppendUnicodeStringToString @ 0x1400F51D0 (RtlAppendUnicodeStringToString.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     CmpFindValueByName @ 0x14073D858 (CmpFindValueByName.c)
- *     CmpValueToData @ 0x14073D888 (CmpValueToData.c)
- *     CmpFindTagIndex @ 0x1409CD830 (CmpFindTagIndex.c)
- *     CmpGetNodeName @ 0x1409CEA0C (CmpGetNodeName.c)
+ *     RtlAppendUnicodeStringToString @ 0x1400F5250 (RtlAppendUnicodeStringToString.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     CmpFindValueByName @ 0x14073EA48 (CmpFindValueByName.c)
+ *     CmpValueToData @ 0x14073EA78 (CmpValueToData.c)
+ *     CmpFindTagIndex @ 0x1409CE830 (CmpFindTagIndex.c)
+ *     CmpGetNodeName @ 0x1409CFA0C (CmpGetNodeName.c)
  */
 
 char __fastcall CmpAddDriverToList(

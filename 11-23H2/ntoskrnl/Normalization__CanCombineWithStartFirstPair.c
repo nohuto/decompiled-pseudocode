@@ -1,11 +1,11 @@
 /*
- * XREFs of Normalization__CanCombineWithStartFirstPair @ 0x1409C06D4
+ * XREFs of Normalization__CanCombineWithStartFirstPair @ 0x1409C08D4
  * Callers:
- *     Normalization__IsNormalized @ 0x1409C0ABC (Normalization__IsNormalized.c)
+ *     Normalization__IsNormalized @ 0x1409C0CBC (Normalization__IsNormalized.c)
  * Callees:
- *     Normalization__CanCombinableCharactersCombine @ 0x1409C0510 (Normalization__CanCombinableCharactersCombine.c)
- *     Normalization__GetFirstDecomposedCharPlane0 @ 0x1409C079C (Normalization__GetFirstDecomposedCharPlane0.c)
- *     Normalization__GetSecondDecomposedCharPlane0 @ 0x1409C09AC (Normalization__GetSecondDecomposedCharPlane0.c)
+ *     Normalization__CanCombinableCharactersCombine @ 0x1409C0710 (Normalization__CanCombinableCharactersCombine.c)
+ *     Normalization__GetFirstDecomposedCharPlane0 @ 0x1409C099C (Normalization__GetFirstDecomposedCharPlane0.c)
+ *     Normalization__GetSecondDecomposedCharPlane0 @ 0x1409C0BAC (Normalization__GetSecondDecomposedCharPlane0.c)
  */
 
 __int64 __fastcall Normalization__CanCombineWithStartFirstPair(__int64 a1, int *a2, int *a3, unsigned int a4, int a5)

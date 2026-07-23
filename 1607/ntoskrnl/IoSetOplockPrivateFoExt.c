@@ -1,14 +1,14 @@
 /*
- * XREFs of IoSetOplockPrivateFoExt @ 0x140078384
+ * XREFs of IoSetOplockPrivateFoExt @ 0x140078404
  * Callers:
- *     FsRtlpOplockEnqueueRH @ 0x140078320 (FsRtlpOplockEnqueueRH.c)
+ *     FsRtlpOplockEnqueueRH @ 0x1400783A0 (FsRtlpOplockEnqueueRH.c)
  * Callees:
- *     ExFreeToNPagedLookasideList @ 0x14000F4A4 (ExFreeToNPagedLookasideList.c)
- *     ExAllocateFromNPagedLookasideList @ 0x14006FEB0 (ExAllocateFromNPagedLookasideList.c)
- *     IopGetFileObjectExtension @ 0x14007B520 (IopGetFileObjectExtension.c)
- *     IopSetTypeSpecificFoExtension @ 0x14007B5C0 (IopSetTypeSpecificFoExtension.c)
- *     IopAllocateFileObjectExtension @ 0x1400EB590 (IopAllocateFileObjectExtension.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     ExFreeToNPagedLookasideList @ 0x14000F024 (ExFreeToNPagedLookasideList.c)
+ *     ExAllocateFromNPagedLookasideList @ 0x14006FA30 (ExAllocateFromNPagedLookasideList.c)
+ *     IopGetFileObjectExtension @ 0x14007B5A0 (IopGetFileObjectExtension.c)
+ *     IopSetTypeSpecificFoExtension @ 0x14007B640 (IopSetTypeSpecificFoExtension.c)
+ *     IopAllocateFileObjectExtension @ 0x1400E9400 (IopAllocateFileObjectExtension.c)
+ *     memset @ 0x140171AC0 (memset.c)
  */
 
 __int64 __fastcall IoSetOplockPrivateFoExt(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

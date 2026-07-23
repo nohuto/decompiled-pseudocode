@@ -1,9 +1,9 @@
 /*
- * XREFs of Amd64ConfigureCounter @ 0x1404DD80C
+ * XREFs of Amd64ConfigureCounter @ 0x1404DDA4C
  * Callers:
- *     Amd64DisableMonitoring @ 0x1404DD880 (Amd64DisableMonitoring.c)
- *     Amd64EnableMonitoring @ 0x1404DD920 (Amd64EnableMonitoring.c)
- *     Amd64RestartProfiling @ 0x1409A9860 (Amd64RestartProfiling.c)
+ *     Amd64DisableMonitoring @ 0x1404DDAC0 (Amd64DisableMonitoring.c)
+ *     Amd64EnableMonitoring @ 0x1404DDB60 (Amd64EnableMonitoring.c)
+ *     Amd64RestartProfiling @ 0x1409AA790 (Amd64RestartProfiling.c)
  * Callees:
  *     <none>
  */

@@ -18,9 +18,9 @@
 PVOID __stdcall MmGetSystemRoutineAddress(PUNICODE_STRING SystemRoutineName)
 {
   NTSTATUS i; // eax
-  __int64 v3; // rcx
-  void *ExportedRoutineByName; // rbx
-  STRING DestinationString; // [rsp+20h] [rbp-18h] BYREF
+  void *v3; // rcx
+  PVOID ExportedRoutineByName; // rbx
+  _STRING DestinationString; // [rsp+20h] [rbp-18h] BYREF
 
   DestinationString = 0LL;
   for ( i = RtlUnicodeStringToAnsiString(&DestinationString, SystemRoutineName, 1u);
@@ -29,10 +29,10 @@ PVOID __stdcall MmGetSystemRoutineAddress(PUNICODE_STRING SystemRoutineName)
   {
     KeDelayExecutionThread(0, 0, (PLARGE_INTEGER)&MiShortTime);
   }
-  v3 = *(_QWORD *)&KeNumberProcessorsGroup0[9];
-  ExportedRoutineByName = (void *)RtlFindExportedRoutineByName(v3, DestinationString.Buffer);
+  v3 = *(void **)&KeNumberProcessorsGroup0[9];
+  ExportedRoutineByName = RtlFindExportedRoutineByName(v3, DestinationString.Buffer);
   if ( !ExportedRoutineByName )
-    ExportedRoutineByName = (void *)RtlFindExportedRoutineByName(PsHalImageBase, DestinationString.Buffer);
+    ExportedRoutineByName = RtlFindExportedRoutineByName(PsHalImageBase, DestinationString.Buffer);
   if ( DestinationString.Buffer )
     ExFreePool(DestinationString.Buffer);
   if ( ExportedRoutineByName && (int)MiMarkKernelCfgTarget() < 0 )

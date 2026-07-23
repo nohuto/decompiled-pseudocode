@@ -1,18 +1,18 @@
 /*
- * XREFs of MiInsertUnusedSubsection @ 0x14028BD00
+ * XREFs of MiInsertUnusedSubsection @ 0x14028BF90
  * Callers:
- *     MiFlushSectionInternal @ 0x140275750 (MiFlushSectionInternal.c)
- *     MiAppendSubsectionChain @ 0x1402932D8 (MiAppendSubsectionChain.c)
- *     MiRemoveViewsFromSection @ 0x14029F8E8 (MiRemoveViewsFromSection.c)
- *     MiDecrementSubsections @ 0x14029FA30 (MiDecrementSubsections.c)
- *     MmPurgeSection @ 0x1402DC8D0 (MmPurgeSection.c)
- *     MiDereferenceControlAreaPfnList @ 0x140339B70 (MiDereferenceControlAreaPfnList.c)
- *     MiDeleteCachedSubsection @ 0x140623B48 (MiDeleteCachedSubsection.c)
+ *     MiFlushSectionInternal @ 0x1402759E0 (MiFlushSectionInternal.c)
+ *     MiAppendSubsectionChain @ 0x140293568 (MiAppendSubsectionChain.c)
+ *     MiRemoveViewsFromSection @ 0x14029FB78 (MiRemoveViewsFromSection.c)
+ *     MiDecrementSubsections @ 0x14029FCC0 (MiDecrementSubsections.c)
+ *     MmPurgeSection @ 0x1402DCB60 (MmPurgeSection.c)
+ *     MiDereferenceControlAreaPfnList @ 0x140339E00 (MiDereferenceControlAreaPfnList.c)
+ *     MiDeleteCachedSubsection @ 0x140624098 (MiDeleteCachedSubsection.c)
  * Callees:
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14028A930 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiUpdateSubsectionCrossPartitionRefs @ 0x14066B494 (MiUpdateSubsectionCrossPartitionRefs.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14028ABC0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiUpdateSubsectionCrossPartitionRefs @ 0x14066B9E4 (MiUpdateSubsectionCrossPartitionRefs.c)
  */
 
 __int64 __fastcall MiInsertUnusedSubsection(__int64 a1)

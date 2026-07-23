@@ -82,7 +82,7 @@ __int64 __fastcall ExShareAddressSpaceWithDevice(__int64 a1, unsigned int *a2)
   unsigned __int8 v53; // r14
   unsigned int v54; // r8d
   __int64 v55; // rcx
-  unsigned __int64 v56; // rsi
+  __int64 v56; // rsi
   int v57; // eax
   unsigned int v58; // ecx
   unsigned __int8 v59; // al
@@ -104,7 +104,7 @@ __int64 __fastcall ExShareAddressSpaceWithDevice(__int64 a1, unsigned int *a2)
   struct _KTHREAD *v75; // rbx
   unsigned __int8 v76; // r14
   unsigned int v77; // edx
-  unsigned __int64 v78; // rdi
+  __int64 v78; // rdi
   __int64 v79; // rcx
   int v80; // ecx
   unsigned int v81; // edx
@@ -353,7 +353,7 @@ LABEL_98:
         v20 = !_BitScanReverse((unsigned int *)&v55, v54);
         if ( v20 )
           break;
-        v56 = (unsigned __int64)&v51->LockEntries[v55];
+        v56 = (__int64)&v51->LockEntries[v55];
         v54 &= ~(1 << v55);
         if ( (*(_BYTE *)(v56 + 26) & 1) != 0
           && (*(_DWORD *)(v56 + 32) & 1) == 0
@@ -367,7 +367,7 @@ LABEL_98:
             {
               *(_BYTE *)(v56 + 32) |= 2u;
               if ( *(__int64 *)(v56 + 32) < 0 )
-                KiAbEntryRemoveFromTree(v56);
+                KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v56);
               v57 = *(_DWORD *)(v56 + 88) & 0x1FFFF;
               v58 = *(_DWORD *)(v56 + 88) & 0xFFFE0000;
               *(_BYTE *)(v56 + 25) &= ~1u;
@@ -552,7 +552,7 @@ LABEL_150:
     v88[1] = v79;
     if ( v20 )
       goto LABEL_161;
-    v78 = (unsigned __int64)&v75->LockEntries[v79];
+    v78 = (__int64)&v75->LockEntries[v79];
     v77 &= ~(1 << v79);
     if ( (*(_BYTE *)(v78 + 26) & 1) != 0
       && (*(_DWORD *)(v78 + 32) & 1) == 0
@@ -573,14 +573,14 @@ LABEL_161:
   }
   *(_BYTE *)(v78 + 32) |= 2u;
   if ( *(__int64 *)(v78 + 32) < 0 )
-    KiAbEntryRemoveFromTree(v78);
+    KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v78);
   v80 = *(_DWORD *)(v78 + 88) & 0x1FFFF;
   v81 = *(_DWORD *)(v78 + 88) & 0xFFFE0000;
   *(_BYTE *)(v78 + 25) &= ~1u;
   v89 = v80;
   *(_DWORD *)(v78 + 88) = v81;
   *(_QWORD *)(v78 + 32) = 0LL;
-  v82 = (__int64)(v78 - (unsigned __int64)v75->LockEntries) / 96;
+  v82 = (signed __int64)(v78 - (unsigned __int64)v75->LockEntries) / 96;
   if ( v76 == 1 )
     v75->AbEntrySummary |= 1 << v82;
   else

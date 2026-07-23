@@ -1,12 +1,12 @@
 /*
- * XREFs of IoGetIrpExtraCreateParameter @ 0x14063ED90
+ * XREFs of IoGetIrpExtraCreateParameter @ 0x14063FDB0
  * Callers:
  *     FsRtlpAttachOplockKey @ 0x140018B74 (FsRtlpAttachOplockKey.c)
- *     FsRtlCheckOplockEx @ 0x1400B7C80 (FsRtlCheckOplockEx.c)
- *     IopParseDevice @ 0x14063CCE0 (IopParseDevice.c)
- *     IopSymlinkUpdateECP @ 0x1406ABCB0 (IopSymlinkUpdateECP.c)
- *     IopSymlinkAllocateAndAddECP @ 0x1406AC144 (IopSymlinkAllocateAndAddECP.c)
- *     IopGraftName @ 0x1406AC26C (IopGraftName.c)
+ *     FsRtlCheckOplockEx @ 0x1400B7BC0 (FsRtlCheckOplockEx.c)
+ *     IopParseDevice @ 0x14063DD00 (IopParseDevice.c)
+ *     IopSymlinkUpdateECP @ 0x1406ACF50 (IopSymlinkUpdateECP.c)
+ *     IopSymlinkAllocateAndAddECP @ 0x1406AD3E4 (IopSymlinkAllocateAndAddECP.c)
+ *     IopGraftName @ 0x1406AD50C (IopGraftName.c)
  * Callees:
  *     <none>
  */

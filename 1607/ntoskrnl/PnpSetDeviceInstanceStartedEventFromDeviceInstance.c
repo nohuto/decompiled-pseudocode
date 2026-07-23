@@ -1,11 +1,11 @@
 /*
- * XREFs of PnpSetDeviceInstanceStartedEventFromDeviceInstance @ 0x1400B2E78
+ * XREFs of PnpSetDeviceInstanceStartedEventFromDeviceInstance @ 0x140085FF0
  * Callers:
- *     PnpSetDeviceInstanceStartedEvent @ 0x1400B2E6C (PnpSetDeviceInstanceStartedEvent.c)
+ *     PnpSetDeviceInstanceStartedEvent @ 0x140085FE4 (PnpSetDeviceInstanceStartedEvent.c)
  * Callees:
- *     memmove @ 0x140171280 (memmove.c)
- *     PnpInsertEventInQueue @ 0x1403F0BD4 (PnpInsertEventInQueue.c)
- *     PnpCreateDeviceEventEntry @ 0x1403F0D68 (PnpCreateDeviceEventEntry.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     PnpCreateDeviceEventEntry @ 0x140489C28 (PnpCreateDeviceEventEntry.c)
+ *     PnpInsertEventInQueue @ 0x14048AC64 (PnpInsertEventInQueue.c)
  */
 
 __int64 __fastcall PnpSetDeviceInstanceStartedEventFromDeviceInstance(unsigned __int16 *a1)

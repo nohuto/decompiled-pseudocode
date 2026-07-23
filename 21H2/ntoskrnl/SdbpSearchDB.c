@@ -1,23 +1,23 @@
 /*
- * XREFs of SdbpSearchDB @ 0x14077E7B4
+ * XREFs of SdbpSearchDB @ 0x14077E974
  * Callers:
- *     SdbGetDatabaseMatch @ 0x14077E648 (SdbGetDatabaseMatch.c)
+ *     SdbGetDatabaseMatch @ 0x14077E808 (SdbGetDatabaseMatch.c)
  * Callees:
- *     memset @ 0x140414200 (memset.c)
- *     SdbpFindNextIndexedWildCardTag @ 0x1407535EC (SdbpFindNextIndexedWildCardTag.c)
- *     AslLogCallPrintf @ 0x140755F64 (AslLogCallPrintf.c)
- *     SdbGetStringTagPtr @ 0x140756580 (SdbGetStringTagPtr.c)
- *     SdbpFindFirstIndexedWildCardTag @ 0x140759788 (SdbpFindFirstIndexedWildCardTag.c)
- *     SdbFindFirstStringIndexedTag @ 0x140759C00 (SdbFindFirstStringIndexedTag.c)
- *     SdbFindFirstTag @ 0x14075A184 (SdbFindFirstTag.c)
- *     SdbGetIndex @ 0x14075A670 (SdbGetIndex.c)
- *     SdbFindNextStringIndexedTag @ 0x1407C0D1C (SdbFindNextStringIndexedTag.c)
- *     SdbFindFirstNamedTag @ 0x1407C198C (SdbFindFirstNamedTag.c)
- *     SdbpCheckExe @ 0x1407D220C (SdbpCheckExe.c)
- *     SdbpFindNextNamedTag @ 0x1409660D0 (SdbpFindNextNamedTag.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     SdbpFindNextIndexedWildCardTag @ 0x1407537AC (SdbpFindNextIndexedWildCardTag.c)
+ *     AslLogCallPrintf @ 0x140756124 (AslLogCallPrintf.c)
+ *     SdbGetStringTagPtr @ 0x140756740 (SdbGetStringTagPtr.c)
+ *     SdbpFindFirstIndexedWildCardTag @ 0x140759948 (SdbpFindFirstIndexedWildCardTag.c)
+ *     SdbFindFirstStringIndexedTag @ 0x140759DC0 (SdbFindFirstStringIndexedTag.c)
+ *     SdbFindFirstTag @ 0x14075A344 (SdbFindFirstTag.c)
+ *     SdbGetIndex @ 0x14075A830 (SdbGetIndex.c)
+ *     SdbFindNextStringIndexedTag @ 0x1407C123C (SdbFindNextStringIndexedTag.c)
+ *     SdbFindFirstNamedTag @ 0x1407C1EAC (SdbFindFirstNamedTag.c)
+ *     SdbpCheckExe @ 0x1407D237C (SdbpCheckExe.c)
+ *     SdbpFindNextNamedTag @ 0x1409662B0 (SdbpFindNextNamedTag.c)
  */
 
-__int64 __fastcall SdbpSearchDB(int a1, union _RTL_RUN_ONCE *a2, __int64 a3, __int64 a4, unsigned int *a5, int a6)
+__int64 __fastcall SdbpSearchDB(int a1, _RTL_RUN_ONCE *a2, __int64 a3, __int64 a4, unsigned int *a5, int a6)
 {
   unsigned int *v6; // r15
   unsigned int v9; // edi

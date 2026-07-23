@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlDumpResource @ 0x18013DFD0
+ * XREFs of RtlDumpResource @ 0x18013DE80
  * Callers:
  *     <none>
  * Callees:
- *     DbgPrint @ 0x180025720 (DbgPrint.c)
+ *     DbgPrint @ 0x1800107F0 (DbgPrint.c)
  */
 
-__int64 __fastcall RtlDumpResource(_DWORD *a1)
+ULONG __fastcall RtlDumpResource(_DWORD *a1)
 {
   DbgPrint("Resource @ %p\n", a1);
   DbgPrint(" NumberOfWaitingShared = %lx\n", a1[12]);

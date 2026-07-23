@@ -41,7 +41,13 @@
  *     _Wow64SystemServiceCall@0 @ 0x4B308730 (_Wow64SystemServiceCall@0.c)
  */
 
-int __stdcall NtQueryVirtualMemory(int a1, int a2, int a3, int a4, int a5, int a6)
+NTSTATUS __cdecl NtQueryVirtualMemory(
+        HANDLE ProcessHandle,
+        PVOID BaseAddress,
+        MEMORY_INFORMATION_CLASS MemoryInformationClass,
+        PVOID MemoryInformation,
+        SIZE_T MemoryInformationLength,
+        PSIZE_T ReturnLength)
 {
   return Wow64SystemServiceCall();
 }

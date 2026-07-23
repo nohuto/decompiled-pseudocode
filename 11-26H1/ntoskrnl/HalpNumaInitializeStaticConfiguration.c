@@ -1,20 +1,20 @@
 /*
- * XREFs of HalpNumaInitializeStaticConfiguration @ 0x140CB19FC
+ * XREFs of HalpNumaInitializeStaticConfiguration @ 0x140CB7A3C
  * Callers:
- *     HalpSetupAcpiPhase0 @ 0x140CB3904 (HalpSetupAcpiPhase0.c)
+ *     HalpSetupAcpiPhase0 @ 0x140CB9944 (HalpSetupAcpiPhase0.c)
  * Callees:
- *     HalpAcpiGetTable @ 0x140342AEC (HalpAcpiGetTable.c)
- *     qsort @ 0x140536F00 (qsort.c)
- *     HalpMmAllocateMemoryInternal @ 0x14057DCF0 (HalpMmAllocateMemoryInternal.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     HalpAllocateNumaConfigData @ 0x140CB1210 (HalpAllocateNumaConfigData.c)
- *     HalpGetAvailableProximityId @ 0x140CB13B4 (HalpGetAvailableProximityId.c)
- *     HalpGetNumaProcMemoryCount @ 0x140CB1440 (HalpGetNumaProcMemoryCount.c)
- *     HalpInitializeConfigurationFromMadt @ 0x140CB1670 (HalpInitializeConfigurationFromMadt.c)
- *     HalpNumaSortProcessors @ 0x140CB2648 (HalpNumaSortProcessors.c)
- *     HalpUpdateConfigurationFromMsct @ 0x140CB26E4 (HalpUpdateConfigurationFromMsct.c)
- *     HalpVerifySratEntryLengthAndFlag @ 0x140CB2A8C (HalpVerifySratEntryLengthAndFlag.c)
- *     HalpChannelInitializeStaticConfiguration @ 0x140CB4C98 (HalpChannelInitializeStaticConfiguration.c)
+ *     HalpAcpiGetTable @ 0x140344B6C (HalpAcpiGetTable.c)
+ *     qsort @ 0x140539380 (qsort.c)
+ *     HalpMmAllocateMemoryInternal @ 0x140580210 (HalpMmAllocateMemoryInternal.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     HalpAllocateNumaConfigData @ 0x140CB7250 (HalpAllocateNumaConfigData.c)
+ *     HalpGetAvailableProximityId @ 0x140CB73F4 (HalpGetAvailableProximityId.c)
+ *     HalpGetNumaProcMemoryCount @ 0x140CB7480 (HalpGetNumaProcMemoryCount.c)
+ *     HalpInitializeConfigurationFromMadt @ 0x140CB76B0 (HalpInitializeConfigurationFromMadt.c)
+ *     HalpNumaSortProcessors @ 0x140CB8688 (HalpNumaSortProcessors.c)
+ *     HalpUpdateConfigurationFromMsct @ 0x140CB8724 (HalpUpdateConfigurationFromMsct.c)
+ *     HalpVerifySratEntryLengthAndFlag @ 0x140CB8ACC (HalpVerifySratEntryLengthAndFlag.c)
+ *     HalpChannelInitializeStaticConfiguration @ 0x140CBACD8 (HalpChannelInitializeStaticConfiguration.c)
  */
 
 char __fastcall HalpNumaInitializeStaticConfiguration(__int64 a1)

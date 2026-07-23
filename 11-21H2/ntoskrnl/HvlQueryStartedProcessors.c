@@ -1,7 +1,7 @@
 /*
  * XREFs of HvlQueryStartedProcessors @ 0x140543D70
  * Callers:
- *     EtwpQueryUsedProcessorCount @ 0x1402E1C80 (EtwpQueryUsedProcessorCount.c)
+ *     sub_1402E1C80 @ 0x1402E1C80 (sub_1402E1C80.c)
  * Callees:
  *     <none>
  */
@@ -16,7 +16,7 @@ __int64 __fastcall HvlQueryStartedProcessors(unsigned int *a1, int *a2)
   __int64 v9; // rdx
   int v10; // eax
 
-  if ( (HvlpFlags & 2) == 0 )
+  if ( (dword_140D0688C & 2) == 0 )
     return 3221225506LL;
   v5 = 0;
   if ( !a1 )
@@ -25,8 +25,8 @@ __int64 __fastcall HvlQueryStartedProcessors(unsigned int *a1, int *a2)
   {
     v6 = *a1;
     v7 = v6;
-    if ( (unsigned int)HvlpLogicalProcessorCount < v6 )
-      v7 = HvlpLogicalProcessorCount;
+    if ( (unsigned int)NumOfElements < v6 )
+      v7 = NumOfElements;
     if ( v7 )
     {
       v8 = dword_140D125E4;
@@ -41,9 +41,9 @@ __int64 __fastcall HvlQueryStartedProcessors(unsigned int *a1, int *a2)
       while ( v9 );
       v6 = *a1;
     }
-    v5 = v6 < (unsigned int)HvlpLogicalProcessorCount ? 0xC0000023 : 0;
+    v5 = v6 < (unsigned int)NumOfElements ? 0xC0000023 : 0;
   }
   result = v5;
-  *a1 = HvlpLogicalProcessorCount;
+  *a1 = NumOfElements;
   return result;
 }

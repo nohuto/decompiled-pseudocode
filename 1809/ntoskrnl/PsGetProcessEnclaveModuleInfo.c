@@ -1,15 +1,15 @@
 /*
- * XREFs of PsGetProcessEnclaveModuleInfo @ 0x1402EBED0
+ * XREFs of PsGetProcessEnclaveModuleInfo @ 0x1402EC0C0
  * Callers:
- *     DbgkpPostModuleMessages @ 0x14080F1A4 (DbgkpPostModuleMessages.c)
+ *     DbgkpPostModuleMessages @ 0x1408103A4 (DbgkpPostModuleMessages.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     MmGetEnclaveModuleList @ 0x1402BEBC0 (MmGetEnclaveModuleList.c)
- *     PsFreeEnclaveModuleInfo @ 0x1402EBE74 (PsFreeEnclaveModuleInfo.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     MmGetEnclaveModuleList @ 0x1402BEDB0 (MmGetEnclaveModuleList.c)
+ *     PsFreeEnclaveModuleInfo @ 0x1402EC064 (PsFreeEnclaveModuleInfo.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PsGetProcessEnclaveModuleInfo(__int64 a1, char **a2, unsigned int *a3)

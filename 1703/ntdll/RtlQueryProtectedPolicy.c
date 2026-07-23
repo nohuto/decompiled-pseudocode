@@ -9,22 +9,22 @@
  *     bsearch @ 0x1800986E0 (bsearch.c)
  */
 
-__int64 __fastcall RtlQueryProtectedPolicy(void *Key, _QWORD *a2)
+NTSTATUS __cdecl RtlQueryProtectedPolicy(PGUID PolicyGuid, PULONG_PTR PolicyValue)
 {
-  unsigned int v4; // ebx
+  NTSTATUS v4; // ebx
   _QWORD *v6; // rax
 
   v4 = -1073741275;
   if ( Base )
   {
-    RtlAcquireSRWLockShared(&qword_18015C290);
-    v6 = bsearch(Key, Base, (unsigned int)NumOfElements, 0x18uLL, sub_18007A010);
+    RtlAcquireSRWLockShared(&stru_18015C290);
+    v6 = bsearch(PolicyGuid, Base, (unsigned int)NumOfElements, 0x18uLL, sub_18007A010);
     if ( v6 )
     {
       v4 = 0;
-      *a2 = v6[2];
+      *PolicyValue = v6[2];
     }
-    RtlReleaseSRWLockShared(&qword_18015C290);
+    RtlReleaseSRWLockShared(&stru_18015C290);
   }
   return v4;
 }

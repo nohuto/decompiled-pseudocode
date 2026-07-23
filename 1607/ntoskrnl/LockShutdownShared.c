@@ -1,11 +1,11 @@
 /*
- * XREFs of LockShutdownShared @ 0x1404A1EFC
+ * XREFs of LockShutdownShared @ 0x14051A308
  * Callers:
- *     CmpLoadKeyCommon @ 0x140087994 (CmpLoadKeyCommon.c)
- *     CmpLazyCommitWorker @ 0x140603320 (CmpLazyCommitWorker.c)
+ *     CmpLoadKeyCommon @ 0x14010BB8C (CmpLoadKeyCommon.c)
+ *     CmpLazyCommitWorker @ 0x1406033D4 (CmpLazyCommitWorker.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockSharedEx @ 0x1400C8280 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1400C6120 (ExfAcquirePushLockSharedEx.c)
  */
 
 signed __int64 LockShutdownShared()

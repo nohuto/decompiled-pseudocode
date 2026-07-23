@@ -1,22 +1,22 @@
 /*
- * XREFs of MmFreePoolMemory @ 0x14035029C
+ * XREFs of MmFreePoolMemory @ 0x14035231C
  * Callers:
- *     RtlpHpSegMgrCommit @ 0x14034EB50 (RtlpHpSegMgrCommit.c)
- *     RtlpHpVaMgrCtxFree @ 0x14034FEFC (RtlpHpVaMgrCtxFree.c)
- *     RtlpHpFreeVA @ 0x1403501D8 (RtlpHpFreeVA.c)
- *     RtlpHpEnvFreeVA @ 0x140350258 (RtlpHpEnvFreeVA.c)
- *     RtlpHpVaMgrRangeFree @ 0x140350900 (RtlpHpVaMgrRangeFree.c)
- *     RtlpHpVaMgrAlloc @ 0x140350BAC (RtlpHpVaMgrAlloc.c)
- *     RtlpCSparseBitmapPageDecommit @ 0x140351604 (RtlpCSparseBitmapPageDecommit.c)
- *     RtlpHpEnvAllocVA @ 0x140364570 (RtlpHpEnvAllocVA.c)
- *     RtlpHpVaMgrRangeDecommit @ 0x140638F80 (RtlpHpVaMgrRangeDecommit.c)
+ *     RtlpHpSegMgrCommit @ 0x140350BD0 (RtlpHpSegMgrCommit.c)
+ *     RtlpHpVaMgrCtxFree @ 0x140351F7C (RtlpHpVaMgrCtxFree.c)
+ *     RtlpHpFreeVA @ 0x140352258 (RtlpHpFreeVA.c)
+ *     RtlpHpEnvFreeVA @ 0x1403522D8 (RtlpHpEnvFreeVA.c)
+ *     RtlpHpVaMgrRangeFree @ 0x140352980 (RtlpHpVaMgrRangeFree.c)
+ *     RtlpHpVaMgrAlloc @ 0x140352C2C (RtlpHpVaMgrAlloc.c)
+ *     RtlpCSparseBitmapPageDecommit @ 0x140353684 (RtlpCSparseBitmapPageDecommit.c)
+ *     RtlpHpEnvAllocVA @ 0x140366310 (RtlpHpEnvAllocVA.c)
+ *     RtlpHpVaMgrRangeDecommit @ 0x14063BF90 (RtlpHpVaMgrRangeDecommit.c)
  * Callees:
- *     MiGetSystemRegionType @ 0x140264F40 (MiGetSystemRegionType.c)
- *     MiReturnSystemVa @ 0x1402A4238 (MiReturnSystemVa.c)
- *     MiDeterminePoolType @ 0x140351CB8 (MiDeterminePoolType.c)
- *     MiDecommitPagedPool @ 0x140351CF4 (MiDecommitPagedPool.c)
- *     MiClearNonPagedPtes @ 0x1403633B8 (MiClearNonPagedPtes.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     MiGetSystemRegionType @ 0x1402644B0 (MiGetSystemRegionType.c)
+ *     MiReturnSystemVa @ 0x1402A3788 (MiReturnSystemVa.c)
+ *     MiDeterminePoolType @ 0x140353D3C (MiDeterminePoolType.c)
+ *     MiDecommitPagedPool @ 0x140353D78 (MiDecommitPagedPool.c)
+ *     MiClearNonPagedPtes @ 0x140365158 (MiClearNonPagedPtes.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MmFreePoolMemory(ULONG_PTR *a1, ULONG_PTR *a2, unsigned int a3)
@@ -68,9 +68,9 @@ __int64 __fastcall MmFreePoolMemory(ULONG_PTR *a1, ULONG_PTR *a2, unsigned int a
     if ( v10 )
     {
       v11 = -v10;
-      p_Process = &qword_140E2C588;
+      p_Process = &qword_140E2C708;
       if ( v7 != 64 )
-        p_Process = (volatile signed __int64 *)&stru_140E36558.ApcState.Process;
+        p_Process = (volatile signed __int64 *)&stru_140E366D8.ApcState.Process;
       _InterlockedAdd64(p_Process, v11);
     }
   }

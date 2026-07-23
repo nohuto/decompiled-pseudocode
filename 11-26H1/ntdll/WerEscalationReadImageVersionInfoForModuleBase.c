@@ -1,225 +1,245 @@
 /*
- * XREFs of WerEscalationReadImageVersionInfoForModuleBase @ 0x1800D6820
+ * XREFs of WerEscalationReadImageVersionInfoForModuleBase @ 0x1800D37E0
  * Callers:
- *     WerEscalationReadImageVersionInfoForModuleBaseSafe @ 0x1800D67AC (WerEscalationReadImageVersionInfoForModuleBaseSafe.c)
+ *     WerEscalationReadImageVersionInfoForModuleBaseSafe @ 0x1800D376C (WerEscalationReadImageVersionInfoForModuleBaseSafe.c)
  * Callees:
- *     RtlImageNtHeaderEx @ 0x180047040 (RtlImageNtHeaderEx.c)
- *     wcslen @ 0x18012DAE0 (wcslen.c)
- *     RtlCompareMemory @ 0x1801631E0 (RtlCompareMemory.c)
+ *     RtlImageNtHeaderEx @ 0x1800315B0 (RtlImageNtHeaderEx.c)
+ *     wcslen @ 0x18012D850 (wcslen.c)
+ *     RtlCompareMemory @ 0x1801630E0 (RtlCompareMemory.c)
  */
 
-unsigned __int64 __fastcall WerEscalationReadImageVersionInfoForModuleBase(unsigned __int64 a1, __int64 a2)
+int __fastcall WerEscalationReadImageVersionInfoForModuleBase(char *BaseOfImage, __int64 a2)
 {
-  unsigned __int64 result; // rax
-  unsigned int *v5; // rcx
-  __int64 v6; // r9
-  unsigned __int64 v7; // r8
-  unsigned __int64 v8; // rcx
+  size_t VirtualAddress; // rax
+  PIMAGE_NT_HEADERS v5; // rcx
+  __int64 SizeOfImage; // r9
+  char *v7; // r8
+  char *v8; // rcx
   __int64 v9; // rdx
   unsigned int v10; // r11d
-  unsigned __int64 v11; // rdx
+  size_t v11; // rdx
   unsigned int i; // edx
   __int64 v13; // rcx
-  unsigned __int64 v14; // rdx
+  char *v14; // rdx
   unsigned __int64 v15; // rcx
   __int64 v16; // rdx
   unsigned int v17; // r10d
-  unsigned __int64 v18; // rcx
-  unsigned __int64 v19; // rdx
+  size_t v18; // rcx
+  char *v19; // rdx
   unsigned int v20; // r11d
   unsigned int v21; // edx
-  unsigned __int64 v22; // r10
+  char *v22; // r10
   __int64 v23; // rcx
   unsigned __int64 v24; // rdx
-  unsigned __int64 v25; // rcx
+  char *v25; // rcx
   unsigned __int64 v26; // rdx
   unsigned int *v27; // rcx
-  unsigned __int64 v28; // rdx
+  unsigned int *v28; // rdx
   __int64 v29; // rbp
-  unsigned __int64 v30; // rcx
-  _DWORD *v31; // rbp
+  char *v30; // rcx
+  char *v31; // rbp
   char *v32; // rcx
-  unsigned __int64 v33; // rdx
-  size_t v34; // rax
-  _WORD *v35; // rcx
-  unsigned __int64 v36; // rdx
-  unsigned __int16 v37; // r8
-  unsigned __int64 v38; // rdi
-  unsigned __int64 v39; // rbx
-  unsigned __int64 v40; // rsi
-  unsigned __int64 v41; // rcx
-  int v42; // edi
-  unsigned __int64 v43; // r10
-  unsigned __int64 v44; // rcx
-  unsigned __int64 v45; // rcx
-  unsigned int *v46; // [rsp+50h] [rbp+8h] BYREF
+  char *v33; // rdx
+  _WORD *v34; // rcx
+  unsigned __int64 v35; // rdx
+  unsigned __int16 v36; // r8
+  unsigned __int64 v37; // rdi
+  unsigned __int64 v38; // rbx
+  unsigned __int64 v39; // rsi
+  size_t v40; // rcx
+  int v41; // edi
+  char *v42; // r10
+  size_t v43; // rcx
+  size_t v44; // rcx
+  PIMAGE_NT_HEADERS OutHeaders; // [rsp+50h] [rbp+8h] BYREF
 
   *(_OWORD *)a2 = 0LL;
-  v46 = 0LL;
-  result = RtlImageNtHeaderEx(3, a1, 0LL, &v46);
-  if ( (result & 0x80000000) == 0LL )
+  OutHeaders = 0LL;
+  LODWORD(VirtualAddress) = RtlImageNtHeaderEx(3u, BaseOfImage, 0LL, &OutHeaders);
+  if ( (VirtualAddress & 0x80000000) == 0LL )
   {
-    v5 = v46;
-    *(_DWORD *)a2 = v46[2];
-    result = v5[22];
-    *(_DWORD *)(a2 + 4) = result;
-    v6 = v5[20];
-    if ( v5[33] > 2 )
+    v5 = OutHeaders;
+    *(_DWORD *)a2 = OutHeaders->FileHeader.TimeDateStamp;
+    LODWORD(VirtualAddress) = v5->OptionalHeader.CheckSum;
+    *(_DWORD *)(a2 + 4) = VirtualAddress;
+    SizeOfImage = v5->OptionalHeader.SizeOfImage;
+    if ( v5->OptionalHeader.NumberOfRvaAndSizes > 2 )
     {
-      result = v5[38];
-      if ( (_DWORD)result )
+      VirtualAddress = v5->OptionalHeader.DataDirectory[2].VirtualAddress;
+      if ( (_DWORD)VirtualAddress )
       {
-        if ( v5[39] >= 0x10 )
+        if ( v5->OptionalHeader.DataDirectory[2].Size >= 0x10 )
         {
-          v7 = a1 + result;
-          result += a1 + 16;
-          v8 = v6 + a1;
-          if ( result >= a1 && result <= v8 && result >= v7 && v7 >= a1 && v7 <= v8 && v8 >= a1 )
+          v7 = &BaseOfImage[VirtualAddress];
+          VirtualAddress += (size_t)(BaseOfImage + 16);
+          v8 = &BaseOfImage[SizeOfImage];
+          if ( VirtualAddress >= (unsigned __int64)BaseOfImage
+            && VirtualAddress <= (unsigned __int64)v8
+            && VirtualAddress >= (unsigned __int64)v7
+            && v7 >= BaseOfImage
+            && v7 <= v8
+            && v8 >= BaseOfImage )
           {
             if ( v7 )
             {
-              v9 = *(unsigned __int16 *)(v7 + 12);
-              v10 = *(unsigned __int16 *)(v7 + 14);
-              result = v10 + (unsigned int)v9;
-              if ( (unsigned int)v9 < (unsigned int)result )
+              v9 = *((unsigned __int16 *)v7 + 6);
+              v10 = *((unsigned __int16 *)v7 + 7);
+              LODWORD(VirtualAddress) = v10 + v9;
+              if ( (unsigned int)v9 < v10 + (unsigned int)v9 )
               {
-                result = v7 + 8 * (v9 + 2);
-                v11 = result + 8;
-                if ( result + 8 >= a1 && v11 <= v8 && v11 >= result && result >= a1 && result <= v8 && result )
+                VirtualAddress = (size_t)&v7[8 * v9 + 16];
+                v11 = VirtualAddress + 8;
+                if ( VirtualAddress + 8 >= (unsigned __int64)BaseOfImage
+                  && v11 <= (unsigned __int64)v8
+                  && v11 >= VirtualAddress
+                  && VirtualAddress >= (unsigned __int64)BaseOfImage
+                  && VirtualAddress <= (unsigned __int64)v8
+                  && VirtualAddress )
                 {
                   for ( i = 0; i < v10; ++i )
                   {
-                    if ( *(int *)result >= 0 && (unsigned __int16)*(_DWORD *)result == 16 )
+                    if ( *(int *)VirtualAddress >= 0 && (unsigned __int16)*(_DWORD *)VirtualAddress == 16 )
                     {
-                      result = *(unsigned int *)(result + 4);
-                      v13 = (unsigned int)result;
-                      if ( (result & 0x80000000) != 0LL )
+                      LODWORD(VirtualAddress) = *(_DWORD *)(VirtualAddress + 4);
+                      v13 = (unsigned int)VirtualAddress;
+                      if ( (VirtualAddress & 0x80000000) != 0LL )
                       {
-                        LODWORD(v13) = result & 0x7FFFFFFF;
-                        v14 = v6 + a1;
-                        v15 = v7 + v13;
-                        result = v15 + 16;
-                        if ( v15 + 16 >= a1 && result <= v14 && result >= v15 && v15 >= a1 && v15 <= v14 )
+                        LODWORD(v13) = VirtualAddress & 0x7FFFFFFF;
+                        v14 = &BaseOfImage[SizeOfImage];
+                        v15 = (unsigned __int64)&v7[v13];
+                        VirtualAddress = v15 + 16;
+                        if ( v15 + 16 >= (unsigned __int64)BaseOfImage
+                          && VirtualAddress <= (unsigned __int64)v14
+                          && VirtualAddress >= v15
+                          && v15 >= (unsigned __int64)BaseOfImage
+                          && v15 <= (unsigned __int64)v14 )
                         {
                           v16 = *(unsigned __int16 *)(v15 + 12);
                           v17 = *(unsigned __int16 *)(v15 + 14);
-                          result = (unsigned int)v16 + v17;
-                          if ( (unsigned int)v16 < (unsigned int)result )
+                          LODWORD(VirtualAddress) = v16 + v17;
+                          if ( (unsigned int)v16 < (unsigned int)v16 + v17 )
                           {
-                            result = v15 + 16 + 8 * v16;
-                            v18 = result + 8;
-                            v19 = v6 + a1;
-                            if ( result + 8 >= a1
-                              && v18 <= v19
-                              && v18 >= result
-                              && result >= a1
-                              && result <= v19
-                              && result )
+                            VirtualAddress = v15 + 16 + 8 * v16;
+                            v18 = VirtualAddress + 8;
+                            v19 = &BaseOfImage[SizeOfImage];
+                            if ( VirtualAddress + 8 >= (unsigned __int64)BaseOfImage
+                              && v18 <= (unsigned __int64)v19
+                              && v18 >= VirtualAddress
+                              && VirtualAddress >= (unsigned __int64)BaseOfImage
+                              && VirtualAddress <= (unsigned __int64)v19
+                              && VirtualAddress )
                             {
                               v20 = v17;
                               v21 = 0;
-                              v22 = v6 + a1;
+                              v22 = &BaseOfImage[SizeOfImage];
                               while ( v21 < v20 )
                               {
-                                if ( *(int *)result >= 0 && (unsigned __int16)*(_DWORD *)result == 1 )
+                                if ( *(int *)VirtualAddress >= 0 && (unsigned __int16)*(_DWORD *)VirtualAddress == 1 )
                                 {
-                                  result = *(unsigned int *)(result + 4);
-                                  v23 = (unsigned int)result;
-                                  if ( (result & 0x80000000) != 0LL )
+                                  LODWORD(VirtualAddress) = *(_DWORD *)(VirtualAddress + 4);
+                                  v23 = (unsigned int)VirtualAddress;
+                                  if ( (VirtualAddress & 0x80000000) != 0LL )
                                   {
-                                    LODWORD(v23) = result & 0x7FFFFFFF;
-                                    v24 = v23 + v7;
-                                    result = v23 + v7 + 16;
-                                    v25 = v6 + a1;
-                                    if ( result >= a1 && result <= v25 && result >= v24 && v24 >= a1 && v24 <= v25 )
+                                    LODWORD(v23) = VirtualAddress & 0x7FFFFFFF;
+                                    v24 = (unsigned __int64)&v7[v23];
+                                    VirtualAddress = (size_t)&v7[v23 + 16];
+                                    v25 = &BaseOfImage[SizeOfImage];
+                                    if ( VirtualAddress >= (unsigned __int64)BaseOfImage
+                                      && VirtualAddress <= (unsigned __int64)v25
+                                      && VirtualAddress >= v24
+                                      && v24 >= (unsigned __int64)BaseOfImage
+                                      && v24 <= (unsigned __int64)v25 )
                                     {
-                                      result = *(unsigned __int16 *)(v24 + 12);
-                                      if ( (_DWORD)result + *(unsigned __int16 *)(v24 + 14) )
+                                      LODWORD(VirtualAddress) = *(unsigned __int16 *)(v24 + 12);
+                                      if ( (_DWORD)VirtualAddress + *(unsigned __int16 *)(v24 + 14) )
                                       {
                                         v26 = v24 + 16;
-                                        result = v26 + 8;
-                                        if ( v26 + 8 >= a1 && result <= v6 + a1 && result >= v26 && v26 >= a1 )
+                                        VirtualAddress = v26 + 8;
+                                        if ( v26 + 8 >= (unsigned __int64)BaseOfImage
+                                          && VirtualAddress <= (unsigned __int64)&BaseOfImage[SizeOfImage]
+                                          && VirtualAddress >= v26
+                                          && v26 >= (unsigned __int64)BaseOfImage )
                                         {
                                           if ( v26 )
                                           {
-                                            result = *(unsigned int *)(v26 + 4);
-                                            if ( (result & 0x80000000) == 0LL )
+                                            VirtualAddress = *(unsigned int *)(v26 + 4);
+                                            if ( (VirtualAddress & 0x80000000) == 0LL )
                                             {
-                                              v27 = (unsigned int *)(v7 + result);
-                                              result += v7 + 16;
-                                              v28 = v6 + a1;
-                                              if ( result >= a1
-                                                && result <= v28
-                                                && result >= (unsigned __int64)v27
-                                                && (unsigned __int64)v27 >= a1
-                                                && (unsigned __int64)v27 <= v28
+                                              v27 = (unsigned int *)&v7[VirtualAddress];
+                                              VirtualAddress += (size_t)(v7 + 16);
+                                              v28 = (unsigned int *)&BaseOfImage[SizeOfImage];
+                                              if ( VirtualAddress >= (unsigned __int64)BaseOfImage
+                                                && VirtualAddress <= (unsigned __int64)v28
+                                                && VirtualAddress >= (unsigned __int64)v27
+                                                && v27 >= (unsigned int *)BaseOfImage
+                                                && v27 <= v28
                                                 && v27[1] >= 0x5C )
                                               {
                                                 v29 = *v27;
-                                                v30 = v6 + a1;
-                                                v31 = (_DWORD *)(a1 + v29);
-                                                result = (unsigned __int64)(v31 + 23);
-                                                if ( (unsigned __int64)(v31 + 23) >= a1
-                                                  && result <= v30
-                                                  && result >= (unsigned __int64)v31
-                                                  && (unsigned __int64)v31 >= a1
-                                                  && (unsigned __int64)v31 <= v30 )
+                                                v30 = &BaseOfImage[SizeOfImage];
+                                                v31 = &BaseOfImage[v29];
+                                                VirtualAddress = (size_t)(v31 + 92);
+                                                if ( v31 + 92 >= BaseOfImage
+                                                  && VirtualAddress <= (unsigned __int64)v30
+                                                  && VirtualAddress >= (unsigned __int64)v31
+                                                  && v31 >= BaseOfImage
+                                                  && v31 <= v30 )
                                                 {
                                                   if ( v31 )
                                                   {
-                                                    result = (unsigned __int64)v31 + 6;
-                                                    v32 = (char *)v31 + 38;
-                                                    v33 = v6 + a1;
-                                                    if ( (unsigned __int64)v31 + 38 >= a1
-                                                      && (unsigned __int64)v32 <= v33
-                                                      && (unsigned __int64)v32 >= result
-                                                      && result >= a1
-                                                      && result <= v33 )
+                                                    VirtualAddress = (size_t)(v31 + 6);
+                                                    v32 = v31 + 38;
+                                                    v33 = &BaseOfImage[SizeOfImage];
+                                                    if ( v31 + 38 >= BaseOfImage
+                                                      && v32 <= v33
+                                                      && (unsigned __int64)v32 >= VirtualAddress
+                                                      && VirtualAddress >= (unsigned __int64)BaseOfImage
+                                                      && VirtualAddress <= (unsigned __int64)v33 )
                                                     {
-                                                      v34 = wcslen(L"VS_VERSION_INFO");
-                                                      v35 = (_WORD *)v31 + 3;
-                                                      v36 = 2 * v34;
-                                                      result = 65532LL;
-                                                      if ( v36 >= 0xFFFE )
-                                                        LOWORD(v36) = -4;
-                                                      if ( v31 != (_DWORD *)-6LL )
+                                                      VirtualAddress = wcslen(L"VS_VERSION_INFO");
+                                                      v34 = v31 + 6;
+                                                      v35 = 2 * VirtualAddress;
+                                                      LODWORD(VirtualAddress) = 65532;
+                                                      if ( v35 >= 0xFFFE )
+                                                        LOWORD(v35) = -4;
+                                                      if ( v31 != (char *)-6LL )
                                                       {
-                                                        result = 16LL;
+                                                        VirtualAddress = 16LL;
                                                         do
                                                         {
-                                                          if ( !*v35 )
+                                                          if ( !*v34 )
                                                             break;
-                                                          ++v35;
-                                                          --result;
+                                                          ++v34;
+                                                          --VirtualAddress;
                                                         }
-                                                        while ( result );
-                                                        if ( result )
+                                                        while ( VirtualAddress );
+                                                        if ( VirtualAddress )
                                                         {
-                                                          v37 = 2 * (16 - result);
-                                                          v38 = (unsigned __int64)(unsigned __int16)v36 >> 1;
-                                                          v39 = v38;
-                                                          v40 = (unsigned __int64)v37 >> 1;
-                                                          if ( v38 > v40 )
-                                                            v39 = (unsigned __int64)v37 >> 1;
-                                                          result = RtlCompareMemory(
-                                                                     L"VS_VERSION_INFO",
-                                                                     (char *)v31 + 6,
-                                                                     2 * v39);
-                                                          v41 = result >> 1;
-                                                          if ( result >> 1 < v39 )
+                                                          v36 = 2 * (16 - VirtualAddress);
+                                                          v37 = (unsigned __int64)(unsigned __int16)v35 >> 1;
+                                                          v38 = v37;
+                                                          v39 = (unsigned __int64)v36 >> 1;
+                                                          if ( v37 > v39 )
+                                                            v38 = (unsigned __int64)v36 >> 1;
+                                                          VirtualAddress = RtlCompareMemory(
+                                                                             L"VS_VERSION_INFO",
+                                                                             v31 + 6,
+                                                                             2 * v38);
+                                                          v40 = VirtualAddress >> 1;
+                                                          if ( VirtualAddress >> 1 < v38 )
                                                           {
-                                                            result = *((unsigned __int16 *)v31 + v41 + 3);
-                                                            v42 = aVsVersionInfo[v41] - (_DWORD)result;
+                                                            LODWORD(VirtualAddress) = *(unsigned __int16 *)&v31[2 * v40 + 6];
+                                                            v41 = aVsVersionInfo[v40] - (_DWORD)VirtualAddress;
                                                           }
                                                           else
                                                           {
-                                                            v42 = v38 - v40;
+                                                            v41 = v37 - v39;
                                                           }
-                                                          if ( !v42 )
+                                                          if ( !v41 )
                                                           {
-                                                            *(_DWORD *)(a2 + 8) = v31[12];
-                                                            result = (unsigned int)v31[13];
-                                                            *(_DWORD *)(a2 + 12) = result;
+                                                            *(_DWORD *)(a2 + 8) = *((_DWORD *)v31 + 12);
+                                                            LODWORD(VirtualAddress) = *((_DWORD *)v31 + 13);
+                                                            *(_DWORD *)(a2 + 12) = VirtualAddress;
                                                           }
                                                         }
                                                       }
@@ -233,25 +253,37 @@ unsigned __int64 __fastcall WerEscalationReadImageVersionInfoForModuleBase(unsig
                                       }
                                     }
                                   }
-                                  return result;
+                                  return VirtualAddress;
                                 }
-                                result += 8LL;
-                                v45 = result + 8;
-                                if ( result + 8 < a1 || v45 > v22 || v45 < result || result < a1 || result > v22 )
-                                  return result;
+                                VirtualAddress += 8LL;
+                                v44 = VirtualAddress + 8;
+                                if ( VirtualAddress + 8 < (unsigned __int64)BaseOfImage
+                                  || v44 > (unsigned __int64)v22
+                                  || v44 < VirtualAddress
+                                  || VirtualAddress < (unsigned __int64)BaseOfImage
+                                  || VirtualAddress > (unsigned __int64)v22 )
+                                {
+                                  return VirtualAddress;
+                                }
                                 ++v21;
                               }
                             }
                           }
                         }
                       }
-                      return result;
+                      return VirtualAddress;
                     }
-                    result += 8LL;
-                    v43 = v6 + a1;
-                    v44 = result + 8;
-                    if ( result + 8 < a1 || v44 > v43 || v44 < result || result < a1 || result > v43 )
-                      return result;
+                    VirtualAddress += 8LL;
+                    v42 = &BaseOfImage[SizeOfImage];
+                    v43 = VirtualAddress + 8;
+                    if ( VirtualAddress + 8 < (unsigned __int64)BaseOfImage
+                      || v43 > (unsigned __int64)v42
+                      || v43 < VirtualAddress
+                      || VirtualAddress < (unsigned __int64)BaseOfImage
+                      || VirtualAddress > (unsigned __int64)v42 )
+                    {
+                      return VirtualAddress;
+                    }
                   }
                 }
               }
@@ -261,5 +293,5 @@ unsigned __int64 __fastcall WerEscalationReadImageVersionInfoForModuleBase(unsig
       }
     }
   }
-  return result;
+  return VirtualAddress;
 }

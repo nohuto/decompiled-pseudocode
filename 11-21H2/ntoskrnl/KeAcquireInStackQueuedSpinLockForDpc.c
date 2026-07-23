@@ -6,15 +6,15 @@
  *     KeInsertByKeyDeviceQueue @ 0x14045A4A0 (KeInsertByKeyDeviceQueue.c)
  *     KeRemoveByKeyDeviceQueue @ 0x140570810 (KeRemoveByKeyDeviceQueue.c)
  *     KeRemoveByKeyDeviceQueueIfBusy @ 0x1405708F0 (KeRemoveByKeyDeviceQueueIfBusy.c)
- *     DifKeAcquireInStackQueuedSpinLockForDpcWrapper @ 0x140612040 (DifKeAcquireInStackQueuedSpinLockForDpcWrapper.c)
+ *     sub_140612040 @ 0x140612040 (sub_140612040.c)
  * Callees:
  *     KeAcquireInStackQueuedSpinLock @ 0x140311930 (KeAcquireInStackQueuedSpinLock.c)
- *     KxAcquireQueuedSpinLock @ 0x1403119F0 (KxAcquireQueuedSpinLock.c)
+ *     sub_1403119F0 @ 0x1403119F0 (sub_1403119F0.c)
  */
 
 void __stdcall KeAcquireInStackQueuedSpinLockForDpc(PKSPIN_LOCK SpinLock, PKLOCK_QUEUE_HANDLE LockHandle)
 {
-  if ( (KeGetCurrentPrcb()->DpcRequestSummary & 0x10000) != 0 )
+  if ( (*((_DWORD *)KeGetCurrentPrcb() + 3311) & 0x10000) != 0 )
   {
     KeAcquireInStackQueuedSpinLock(SpinLock, LockHandle);
   }
@@ -22,6 +22,6 @@ void __stdcall KeAcquireInStackQueuedSpinLockForDpc(PKSPIN_LOCK SpinLock, PKLOCK
   {
     LockHandle->LockQueue.Next = 0LL;
     LockHandle->LockQueue.Lock = SpinLock;
-    KxAcquireQueuedSpinLock(LockHandle);
+    sub_1403119F0(LockHandle);
   }
 }

@@ -1,14 +1,21 @@
 /*
- * XREFs of ZwQuerySystemInformationEx @ 0x14041DAE0
+ * XREFs of ZwQuerySystemInformationEx @ 0x14041DE70
  * Callers:
  *     PopCheckShutdownMarker @ 0x140B6E32C (PopCheckShutdownMarker.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwQuerySystemInformationEx(__int64 a1, __int64 a2)
+// local variable allocation has failed, the output may be wrong!
+NTSTATUS __cdecl ZwQuerySystemInformationEx(
+        SYSTEM_INFORMATION_CLASS SystemInformationClass,
+        PVOID InputBuffer,
+        ULONG InputBufferLength,
+        PVOID SystemInformation,
+        ULONG SystemInformationLength,
+        PULONG ReturnLength)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(*(_QWORD *)&SystemInformationClass);
 }

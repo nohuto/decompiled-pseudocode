@@ -1,12 +1,12 @@
 /*
- * XREFs of ExIsFastResourceHeld @ 0x140401F50
+ * XREFs of ExIsFastResourceHeld @ 0x1403FC4D0
  * Callers:
- *     DifExIsFastResourceHeldWrapper @ 0x14061F500 (DifExIsFastResourceHeldWrapper.c)
+ *     DifExIsFastResourceHeldWrapper @ 0x14061DAC0 (DifExIsFastResourceHeldWrapper.c)
  * Callees:
- *     KiRemoveSystemWorkPriorityKick @ 0x14025E408 (KiRemoveSystemWorkPriorityKick.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14028EA18 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall ExIsFastResourceHeld(ULONG_PTR BugCheckParameter2)

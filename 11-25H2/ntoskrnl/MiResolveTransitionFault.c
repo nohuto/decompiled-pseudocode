@@ -105,7 +105,7 @@ __int64 __fastcall MiResolveTransitionFault(
   int v66; // eax
   ULONG_PTR v67; // rbx
   _QWORD *v68; // r14
-  struct _SLIST_ENTRY *v69; // rdi
+  _SLIST_ENTRY *v69; // rdi
   __int64 v70; // rdx
   __int64 v71; // rax
   __int64 v72; // [rsp+40h] [rbp-41h]

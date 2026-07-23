@@ -8,10 +8,10 @@
  *     ZwUnmapViewOfSection @ 0x18009CC20 (ZwUnmapViewOfSection.c)
  */
 
-__int64 __fastcall RtlDestroyQueryDebugBuffer(_QWORD *a1)
+NTSTATUS __cdecl RtlDestroyQueryDebugBuffer(PRTL_DEBUG_INFORMATION Buffer)
 {
-  sub_1800757D8(a1, 0LL, 0LL, 0LL);
-  ZwClose(*a1);
-  ZwUnmapViewOfSection(-1LL);
-  return 0LL;
+  sub_1800757D8(Buffer, 0LL, 0LL, 0LL);
+  ZwClose(Buffer->SectionHandleClient);
+  ZwUnmapViewOfSection((HANDLE)0xFFFFFFFFFFFFFFFFLL, Buffer);
+  return 0;
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpQueryPrimaryInterruptInformation @ 0x1408655D0
+ * XREFs of HalpQueryPrimaryInterruptInformation @ 0x140865730
  * Callers:
- *     HalpSecondaryInterruptQueryPrimaryInformation @ 0x140865670 (HalpSecondaryInterruptQueryPrimaryInformation.c)
+ *     HalpSecondaryInterruptQueryPrimaryInformation @ 0x1408657D0 (HalpSecondaryInterruptQueryPrimaryInformation.c)
  * Callees:
- *     HalpIsInterruptTypeSecondary @ 0x1403C5290 (HalpIsInterruptTypeSecondary.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     HalpFindSecondaryIcEntry @ 0x1404D0C58 (HalpFindSecondaryIcEntry.c)
- *     HalpReleaseSecondaryIcEntryShared @ 0x1404D14C4 (HalpReleaseSecondaryIcEntryShared.c)
+ *     HalpIsInterruptTypeSecondary @ 0x1403C56C0 (HalpIsInterruptTypeSecondary.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     HalpFindSecondaryIcEntry @ 0x1404D0E98 (HalpFindSecondaryIcEntry.c)
+ *     HalpReleaseSecondaryIcEntryShared @ 0x1404D1704 (HalpReleaseSecondaryIcEntryShared.c)
  */
 
 __int64 __fastcall HalpQueryPrimaryInterruptInformation(int *a1, __int64 a2)

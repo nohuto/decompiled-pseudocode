@@ -6,7 +6,7 @@
  *     <none>
  */
 
-void __fastcall InbvInstallDisplayStringFilter(__int64 (__fastcall *a1)(_QWORD))
+void __fastcall InbvInstallDisplayStringFilter(__int64 a1)
 {
   qword_140C54D18 = a1;
 }

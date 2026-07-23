@@ -1,11 +1,11 @@
 /*
- * XREFs of ApiSetQuerySchemaInfo_V7 @ 0x140416A50
+ * XREFs of ApiSetQuerySchemaInfo_V7 @ 0x140416DE0
  * Callers:
- *     ApiSetQuerySchemaInfo @ 0x14035F1D4 (ApiSetQuerySchemaInfo.c)
+ *     ApiSetQuerySchemaInfo @ 0x14035F374 (ApiSetQuerySchemaInfo.c)
  * Callees:
- *     ApiSetpGetSearchKeyInfo_V7 @ 0x140417F64 (ApiSetpGetSearchKeyInfo_V7.c)
- *     ApiSetpSearchForSectionIndex_V7 @ 0x1404180EC (ApiSetpSearchForSectionIndex_V7.c)
- *     RtlCompareUnicodeString @ 0x1406DA140 (RtlCompareUnicodeString.c)
+ *     ApiSetpGetSearchKeyInfo_V7 @ 0x1404182F4 (ApiSetpGetSearchKeyInfo_V7.c)
+ *     ApiSetpSearchForSectionIndex_V7 @ 0x14041847C (ApiSetpSearchForSectionIndex_V7.c)
+ *     RtlCompareUnicodeString @ 0x1406DA170 (RtlCompareUnicodeString.c)
  */
 
 __int64 __fastcall ApiSetQuerySchemaInfo_V7(__int64 a1, unsigned __int16 *a2, char *a3, bool *a4)

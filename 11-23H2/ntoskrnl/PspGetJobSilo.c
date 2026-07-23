@@ -1,9 +1,9 @@
 /*
- * XREFs of PspGetJobSilo @ 0x14031C814
+ * XREFs of PspGetJobSilo @ 0x14031CAA4
  * Callers:
- *     PsIsProcessInSilo @ 0x140289FEC (PsIsProcessInSilo.c)
- *     PsGetJobSilo @ 0x14031C7E0 (PsGetJobSilo.c)
- *     PsGetProcessSilo @ 0x1405A3D50 (PsGetProcessSilo.c)
+ *     PsIsProcessInSilo @ 0x14028A27C (PsIsProcessInSilo.c)
+ *     PsGetJobSilo @ 0x14031CA70 (PsGetJobSilo.c)
+ *     PsGetProcessSilo @ 0x1405A4240 (PsGetProcessSilo.c)
  *     PsGetParentSilo @ 0x1406831E0 (PsGetParentSilo.c)
  *     NtQueryInformationJobObject @ 0x1406A1130 (NtQueryInformationJobObject.c)
  * Callees:

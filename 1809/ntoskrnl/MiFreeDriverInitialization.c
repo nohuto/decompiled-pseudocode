@@ -1,13 +1,13 @@
 /*
- * XREFs of MiFreeDriverInitialization @ 0x1406C778C
+ * XREFs of MiFreeDriverInitialization @ 0x1406C8A2C
  * Callers:
- *     IopLoadDriver @ 0x14067FA34 (IopLoadDriver.c)
- *     MiLoadImportDll @ 0x14071B658 (MiLoadImportDll.c)
- *     MmFreeBootDriverInitializationCode @ 0x14074B61C (MmFreeBootDriverInitializationCode.c)
+ *     IopLoadDriver @ 0x140680BF4 (IopLoadDriver.c)
+ *     MiLoadImportDll @ 0x14071C8F8 (MiLoadImportDll.c)
+ *     MmFreeBootDriverInitializationCode @ 0x14074C80C (MmFreeBootDriverInitializationCode.c)
  * Callees:
- *     MI_IS_PHYSICAL_ADDRESS @ 0x14009D910 (MI_IS_PHYSICAL_ADDRESS.c)
- *     MiSnapDriverRange @ 0x140653BE0 (MiSnapDriverRange.c)
- *     MiFreeInitializationCode @ 0x1406C781C (MiFreeInitializationCode.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x14009D850 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     MiSnapDriverRange @ 0x140654DA0 (MiSnapDriverRange.c)
+ *     MiFreeInitializationCode @ 0x1406C8ABC (MiFreeInitializationCode.c)
  */
 
 __int64 __fastcall MiFreeDriverInitialization(__int64 a1)
@@ -20,7 +20,7 @@ __int64 __fastcall MiFreeDriverInitialization(__int64 a1)
 
   v1 = *(PVOID *)(a1 + 48);
   result = MI_IS_PHYSICAL_ADDRESS((unsigned __int64)v1);
-  if ( (!(_DWORD)result || v1 == (PVOID)PsNtosImageBase || v1 == PsHalImageBase) && (*(_DWORD *)(a1 + 104) & 0x800) == 0 )
+  if ( (!(_DWORD)result || v1 == PsNtosImageBase || v1 == PsHalImageBase) && (*(_DWORD *)(a1 + 104) & 0x800) == 0 )
   {
     v4 = 0;
     do

@@ -1,12 +1,12 @@
 /*
- * XREFs of DifDeregisterPlugin @ 0x14064B66C
+ * XREFs of DifDeregisterPlugin @ 0x14064F24C
  * Callers:
- *     VfVolatileClearDifRuleClass @ 0x140647964 (VfVolatileClearDifRuleClass.c)
- *     DifRegisterPlugin @ 0x14064BBB0 (DifRegisterPlugin.c)
+ *     VfVolatileClearDifRuleClass @ 0x14064B544 (VfVolatileClearDifRuleClass.c)
+ *     DifRegisterPlugin @ 0x14064F790 (DifRegisterPlugin.c)
  * Callees:
- *     ViUnbindDifThunk @ 0x1406415C0 (ViUnbindDifThunk.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ViUnbindDifThunk @ 0x1406451A0 (ViUnbindDifThunk.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall DifDeregisterPlugin(_DWORD *a1)

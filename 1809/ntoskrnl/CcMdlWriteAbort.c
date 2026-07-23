@@ -1,15 +1,15 @@
 /*
- * XREFs of CcMdlWriteAbort @ 0x14026B0C0
+ * XREFs of CcMdlWriteAbort @ 0x14026B2B0
  * Callers:
  *     <none>
  * Callees:
  *     MmUnlockPages @ 0x140033580 (MmUnlockPages.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     CcDecrementOpenCount @ 0x1400ACFA0 (CcDecrementOpenCount.c)
- *     CcGetPartition @ 0x1400AD030 (CcGetPartition.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     IoFreeMdl @ 0x1400E0B60 (IoFreeMdl.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14007DE80 (KeAcquireInStackQueuedSpinLock.c)
+ *     CcDecrementOpenCount @ 0x1400ACEE0 (CcDecrementOpenCount.c)
+ *     CcGetPartition @ 0x1400ACF70 (CcGetPartition.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     IoFreeMdl @ 0x1400E0BE0 (IoFreeMdl.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void __stdcall CcMdlWriteAbort(PFILE_OBJECT FileObject, PMDL MdlChain)

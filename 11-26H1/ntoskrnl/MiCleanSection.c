@@ -1,17 +1,17 @@
 /*
- * XREFs of MiCleanSection @ 0x1404DF994
+ * XREFs of MiCleanSection @ 0x1404D9074
  * Callers:
- *     MiCheckControlArea @ 0x14036DCC0 (MiCheckControlArea.c)
- *     MiAttemptSectionDelete @ 0x1404BF538 (MiAttemptSectionDelete.c)
+ *     MiCheckControlArea @ 0x14036FA60 (MiCheckControlArea.c)
+ *     MiAttemptSectionDelete @ 0x1404B8D88 (MiAttemptSectionDelete.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiInsertUnusedSegment @ 0x1404807E0 (MiInsertUnusedSegment.c)
- *     MiMarkControlAreaDeleted @ 0x14048CEE8 (MiMarkControlAreaDeleted.c)
- *     MiFlushSection @ 0x1404ADA20 (MiFlushSection.c)
- *     MiReturnCrossPartitionSectionCharges @ 0x1404D1140 (MiReturnCrossPartitionSectionCharges.c)
- *     MiDestroySection @ 0x1404E6B64 (MiDestroySection.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiInsertUnusedSegment @ 0x14047A120 (MiInsertUnusedSegment.c)
+ *     MiMarkControlAreaDeleted @ 0x140486A28 (MiMarkControlAreaDeleted.c)
+ *     MiFlushSection @ 0x1404A70A8 (MiFlushSection.c)
+ *     MiReturnCrossPartitionSectionCharges @ 0x1404CAB70 (MiReturnCrossPartitionSectionCharges.c)
+ *     MiDestroySection @ 0x1404E0004 (MiDestroySection.c)
  */
 
 __int64 __fastcall MiCleanSection(__int64 a1, __int128 *a2, char a3)
@@ -108,7 +108,7 @@ LABEL_17:
       *(_DWORD *)(a1 + 56) |= 0x40000u;
     inserted = 0LL;
     if ( v7 == 2 && (inserted = MiInsertUnusedSegment(a1)) != 0 )
-      v17 = *(_QWORD *)(stru_140E2EB88.ThreadLock + 8LL * (*(_DWORD *)(a1 + 60) & 0x3FF));
+      v17 = *(_QWORD *)(stru_140E2ED08.ThreadLock + 8LL * (*(_DWORD *)(a1 + 60) & 0x3FF));
     else
       v17 = 0LL;
     if ( v5 == 17 )

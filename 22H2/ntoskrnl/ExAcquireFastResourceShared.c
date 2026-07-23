@@ -34,38 +34,36 @@ char __fastcall ExAcquireFastResourceShared(ULONG_PTR BugCheckParameter2, ULONG_
   __int64 FastOwnerEntryForThread; // rax
   unsigned __int8 v15; // r11
   __int64 v16; // rax
-  __int64 v17; // rdx
-  __int64 v18; // r8
-  char v19; // r15
-  _QWORD *v20; // r8
-  _QWORD *v21; // rdx
-  ULONG_PTR *v22; // rax
-  __int64 v23; // rcx
-  _QWORD *v25; // rcx
-  _QWORD *v26; // rdx
-  __int64 v27; // rdx
-  ULONG_PTR *v28; // rcx
-  __int64 v29; // rax
+  char v17; // r15
+  _QWORD *v18; // r8
+  _QWORD *v19; // rdx
+  ULONG_PTR *v20; // rax
+  __int64 v21; // rcx
+  _QWORD *v23; // rcx
+  _QWORD *v24; // rdx
+  __int64 v25; // rdx
+  ULONG_PTR *v26; // rcx
+  __int64 v27; // rax
   _DWORD *SchedulerAssist; // r9
-  unsigned __int8 v31; // al
+  unsigned __int8 v29; // al
   struct _KPRCB *CurrentPrcb; // r9
-  _DWORD *v33; // r8
-  int v34; // eax
-  bool v35; // zf
-  unsigned __int8 v36; // al
-  struct _KPRCB *v37; // r9
-  _DWORD *v38; // r8
-  int v39; // eax
+  _DWORD *v31; // r8
+  int v32; // eax
+  bool v33; // zf
+  unsigned __int8 v34; // al
+  struct _KPRCB *v35; // r9
+  _DWORD *v36; // r8
+  int v37; // eax
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+30h] [rbp-50h] BYREF
-  _OWORD v41[3]; // [rsp+48h] [rbp-38h] BYREF
-  __int64 v42; // [rsp+B0h] [rbp+30h]
+  _OWORD v39[3]; // [rsp+48h] [rbp-38h] BYREF
+  __int64 v40; // [rsp+B0h] [rbp+30h]
 
   v6 = 0LL;
   v7 = 2 - (a3 != 0);
-  memset(v41, 0, sizeof(v41));
+  memset(v39, 0, sizeof(v39));
   memset(&LockHandle, 0, sizeof(LockHandle));
   CurrentThread = KeGetCurrentThread();
-  v42 = (__int64)CurrentThread;
+  v40 = (__int64)CurrentThread;
   if ( (*(_BYTE *)(BugCheckParameter2 + 26) & 1) == 0 )
     KeBugCheckEx(0x1C6u, 3uLL, BugCheckParameter2, 0LL, 0LL);
   CurrentIrql = KeGetCurrentIrql();
@@ -98,29 +96,29 @@ char __fastcall ExAcquireFastResourceShared(ULONG_PTR BugCheckParameter2, ULONG_
     FastOwnerEntryForThread = ExpFindFastOwnerEntryForThread(CurrentThread, BugCheckParameter2, 0LL, 0LL);
     if ( FastOwnerEntryForThread )
     {
-      v28 = *(ULONG_PTR **)(FastOwnerEntryForThread + 48);
-      v29 = FastOwnerEntryForThread + 40;
-      if ( *v28 == v29 )
+      v26 = *(ULONG_PTR **)(FastOwnerEntryForThread + 48);
+      v27 = FastOwnerEntryForThread + 40;
+      if ( *v26 == v27 )
       {
-        *(_QWORD *)a2 = v29;
-        v19 = 1;
-        *(_QWORD *)(a2 + 8) = v28;
-        *v28 = a2;
-        *(_QWORD *)(v29 + 8) = a2;
+        *(_QWORD *)a2 = v27;
+        v17 = 1;
+        *(_QWORD *)(a2 + 8) = v26;
+        *v26 = a2;
+        *(_QWORD *)(v27 + 8) = a2;
 LABEL_20:
         if ( KiIrqlFlags )
         {
           if ( (KiIrqlFlags & 1) != 0 )
           {
-            v31 = KeGetCurrentIrql();
-            if ( v31 <= 0xFu && v13 <= 0xFu && v31 >= v15 )
+            v29 = KeGetCurrentIrql();
+            if ( v29 <= 0xFu && v13 <= 0xFu && v29 >= v15 )
             {
               CurrentPrcb = KeGetCurrentPrcb();
-              v33 = CurrentPrcb->SchedulerAssist;
-              v34 = ~(unsigned __int16)(-1LL << (v13 + 1));
-              v35 = (v34 & v33[5]) == 0;
-              v33[5] &= v34;
-              if ( v35 )
+              v31 = CurrentPrcb->SchedulerAssist;
+              v32 = ~(unsigned __int16)(-1LL << (v13 + 1));
+              v33 = (v32 & v31[5]) == 0;
+              v31[5] &= v32;
+              if ( v33 )
                 KiRemoveSystemWorkPriorityKick(CurrentPrcb);
             }
           }
@@ -138,29 +136,29 @@ LABEL_20:
   LockHandle.LockQueue.Next = 0LL;
   LockHandle.LockQueue.Lock = (unsigned __int64 *volatile)(BugCheckParameter2 + 96);
   KxAcquireQueuedSpinLock((__int64)&LockHandle, (volatile __int64 *)(BugCheckParameter2 + 96));
-  v19 = ExpTryAcquireResourceShared(BugCheckParameter2);
-  if ( v19 )
+  v17 = ExpTryAcquireResourceShared(BugCheckParameter2);
+  if ( v17 )
   {
-    v20 = *(_QWORD **)(BugCheckParameter2 + 56);
-    v21 = (_QWORD *)(a2 + 56);
-    if ( *v20 == BugCheckParameter2 + 48 )
+    v18 = *(_QWORD **)(BugCheckParameter2 + 56);
+    v19 = (_QWORD *)(a2 + 56);
+    if ( *v18 == BugCheckParameter2 + 48 )
     {
-      *v21 = BugCheckParameter2 + 48;
-      *(_QWORD *)(a2 + 64) = v20;
-      *v20 = v21;
-      *(_QWORD *)(BugCheckParameter2 + 56) = v21;
+      *v19 = BugCheckParameter2 + 48;
+      *(_QWORD *)(a2 + 64) = v18;
+      *v18 = v19;
+      *(_QWORD *)(BugCheckParameter2 + 56) = v19;
       KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
       *(_BYTE *)(a2 + 18) = 1;
       *(_QWORD *)(a2 + 48) = a2 + 40;
       *(_QWORD *)(a2 + 40) = a2 + 40;
-      v22 = (ULONG_PTR *)(v42 + 1576);
-      v23 = *(_QWORD *)(v42 + 1576);
-      if ( *(_QWORD *)(v23 + 8) == v42 + 1576 )
+      v20 = (ULONG_PTR *)(v40 + 1576);
+      v21 = *(_QWORD *)(v40 + 1576);
+      if ( *(_QWORD *)(v21 + 8) == v40 + 1576 )
       {
-        *(_QWORD *)a2 = v23;
-        *(_QWORD *)(a2 + 8) = v22;
-        *(_QWORD *)(v23 + 8) = a2;
-        *v22 = a2;
+        *(_QWORD *)a2 = v21;
+        *(_QWORD *)(a2 + 8) = v20;
+        *(_QWORD *)(v21 + 8) = a2;
+        *v20 = a2;
 LABEL_19:
         v15 = 2;
         goto LABEL_20;
@@ -177,50 +175,50 @@ LABEL_19:
     goto LABEL_19;
   }
   if ( v6 )
-    KeAbPreWait(v6, v17, v18);
-  v25 = *(_QWORD **)(BugCheckParameter2 + 56);
-  v26 = (_QWORD *)(a2 + 56);
-  if ( *v25 != BugCheckParameter2 + 48 )
+    KeAbPreWait(v6);
+  v23 = *(_QWORD **)(BugCheckParameter2 + 56);
+  v24 = (_QWORD *)(a2 + 56);
+  if ( *v23 != BugCheckParameter2 + 48 )
 LABEL_36:
     __fastfail(3u);
-  *(_QWORD *)(a2 + 64) = v25;
-  *v26 = BugCheckParameter2 + 48;
-  *v25 = v26;
-  *(_QWORD *)(BugCheckParameter2 + 56) = v26;
-  ExpPrepareToWaitForResourceShared(BugCheckParameter2, v42, (__int64)v41);
+  *(_QWORD *)(a2 + 64) = v23;
+  *v24 = BugCheckParameter2 + 48;
+  *v23 = v24;
+  *(_QWORD *)(BugCheckParameter2 + 56) = v24;
+  ExpPrepareToWaitForResourceShared(BugCheckParameter2, v40, (__int64)v39);
   *(_BYTE *)(a2 + 19) = 1;
   KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
-  ExpAddFastOwnerEntryToThreadList(v42, v27, 0LL, a2);
+  ExpAddFastOwnerEntryToThreadList(v40, v25, 0LL, a2);
   if ( KiIrqlFlags )
   {
     if ( (KiIrqlFlags & 1) != 0 )
     {
-      v36 = KeGetCurrentIrql();
-      if ( v36 <= 0xFu && v13 <= 0xFu && v36 >= 2u )
+      v34 = KeGetCurrentIrql();
+      if ( v34 <= 0xFu && v13 <= 0xFu && v34 >= 2u )
       {
-        v37 = KeGetCurrentPrcb();
-        v38 = v37->SchedulerAssist;
-        v39 = ~(unsigned __int16)(-1LL << (v13 + 1));
-        v35 = (v39 & v38[5]) == 0;
-        v38[5] &= v39;
-        if ( v35 )
-          KiRemoveSystemWorkPriorityKick(v37);
+        v35 = KeGetCurrentPrcb();
+        v36 = v35->SchedulerAssist;
+        v37 = ~(unsigned __int16)(-1LL << (v13 + 1));
+        v33 = (v37 & v36[5]) == 0;
+        v36[5] &= v37;
+        if ( v33 )
+          KiRemoveSystemWorkPriorityKick(v35);
       }
     }
   }
   __writecr8(v13);
-  ExpWaitForResource((struct _LIST_ENTRY *)BugCheckParameter2, (__int64)v41, 0x10244u, 0LL);
+  ExpWaitForResource((struct _LIST_ENTRY *)BugCheckParameter2, (__int64)v39, 0x10244u, 0LL);
   *(_BYTE *)(a2 + 19) = 0;
   if ( v6 )
-    KeAbPreAcquire(BugCheckParameter2, v6, 0LL);
-  v19 = 1;
+    KeAbPreAcquire(BugCheckParameter2, v6, 0);
+  v17 = 1;
 LABEL_22:
   if ( v6 )
   {
-    if ( v19 )
+    if ( v17 )
       *(_BYTE *)(v6 + 26) |= 1u;
     else
       KeAbPostReleaseEx(BugCheckParameter2, v6);
   }
-  return v19;
+  return v17;
 }

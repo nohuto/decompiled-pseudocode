@@ -1,21 +1,21 @@
 /*
- * XREFs of AlpcpCreateConnectionPort @ 0x1404B36C8
+ * XREFs of AlpcpCreateConnectionPort @ 0x14049DAA8
  * Callers:
- *     NtAlpcCreatePort @ 0x1404B3690 (NtAlpcCreatePort.c)
- *     NtCreatePort @ 0x140547544 (NtCreatePort.c)
- *     NtCreateWaitablePort @ 0x1405483BC (NtCreateWaitablePort.c)
+ *     NtAlpcCreatePort @ 0x14049DA70 (NtAlpcCreatePort.c)
+ *     NtCreatePort @ 0x140547A84 (NtCreatePort.c)
+ *     NtCreateWaitablePort @ 0x1405488FC (NtCreateWaitablePort.c)
  * Callees:
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     AlpcpSetOwnerProcessPort @ 0x140408970 (AlpcpSetOwnerProcessPort.c)
- *     AlpcpAllocateBlob @ 0x14040D624 (AlpcpAllocateBlob.c)
- *     ObInsertObject @ 0x140471424 (ObInsertObject.c)
- *     AlpcInitializeHandleTable @ 0x1404B3964 (AlpcInitializeHandleTable.c)
- *     AlpcpValidateAndSetPortAttributes @ 0x1404B56B4 (AlpcpValidateAndSetPortAttributes.c)
- *     AlpcpInitializePort @ 0x1404B58C0 (AlpcpInitializePort.c)
- *     AlpcpCreatePort @ 0x1404B5A80 (AlpcpCreatePort.c)
- *     NtClose @ 0x14050B0E0 (NtClose.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     AlpcpSetOwnerProcessPort @ 0x140407830 (AlpcpSetOwnerProcessPort.c)
+ *     AlpcpAllocateBlob @ 0x14040C4E4 (AlpcpAllocateBlob.c)
+ *     ObInsertObject @ 0x1404702F4 (ObInsertObject.c)
+ *     AlpcInitializeHandleTable @ 0x14049DD44 (AlpcInitializeHandleTable.c)
+ *     AlpcpValidateAndSetPortAttributes @ 0x14049FA94 (AlpcpValidateAndSetPortAttributes.c)
+ *     AlpcpInitializePort @ 0x14049FCA0 (AlpcpInitializePort.c)
+ *     AlpcpCreatePort @ 0x14049FE60 (AlpcpCreatePort.c)
+ *     NtClose @ 0x1404EE070 (NtClose.c)
  */
 
 __int64 __fastcall AlpcpCreateConnectionPort(HANDLE *a1, __int64 a2, unsigned __int64 a3, int a4, char a5, char a6)

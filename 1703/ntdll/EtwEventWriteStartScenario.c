@@ -12,47 +12,41 @@
  *     memset @ 0x1800ABDC0 (memset.c)
  */
 
-__int64 __fastcall EtwEventWriteStartScenario(unsigned __int64 a1, _OWORD *a2, int a3, __int64 a4)
+ULONG __cdecl EtwEventWriteStartScenario(
+        REGHANDLE RegHandle,
+        PCEVENT_DESCRIPTOR EventDescriptor,
+        ULONG UserDataCount,
+        PEVENT_DATA_DESCRIPTOR UserData)
 {
-  unsigned int v8; // ebx
-  int v10; // [rsp+30h] [rbp-40h] BYREF
-  _QWORD v11[6]; // [rsp+38h] [rbp-38h] BYREF
+  ULONG v8; // ebx
+  ULONG ReturnLength; // [rsp+30h] [rbp-40h] BYREF
+  _QWORD InputBuffer[6]; // [rsp+38h] [rbp-38h] BYREF
 
-  v10 = 0;
-  if ( a2 )
-  {
-    if ( EtwEventEnabled(a1, (__int64)a2) )
-    {
-      memset(v11, 0, sizeof(v11));
-      v8 = sub_180060FFC(a1, v11);
-      if ( !v8 )
-      {
-        *(_OWORD *)&v11[1] = *a2;
-        *(struct _GUID *)&v11[3] = NtCurrentTeb()->ActivityId;
-        if ( _mm_cvtsi128_si32(*(__m128i *)&v11[3])
-          || HIDWORD(v11[3])
-          || LOBYTE(v11[4])
-          || __PAIR16__(BYTE1(v11[4]), 0) != BYTE2(v11[4])
-          || *(_WORD *)((char *)&v11[4] + 3)
-          || __PAIR16__(BYTE5(v11[4]), 0) != BYTE6(v11[4])
-          || HIBYTE(v11[4])
-          || (v8 = EtwEventActivityIdControl(3, (struct _GUID *)&v11[3])) == 0
-          && (v8 = EtwEventActivityIdControl(2, (struct _GUID *)&v11[3])) == 0 )
-        {
-          LODWORD(v11[5]) = 10;
-          v8 = EtwEventWrite(a1, (int)a2, a3, a4);
-          ZwTraceControl(13LL, v11, 48LL, 0LL, 0, &v10);
-        }
-      }
-    }
-    else
-    {
-      return 6;
-    }
-  }
-  else
-  {
+  ReturnLength = 0;
+  if ( !EventDescriptor )
     return 87;
+  if ( !EtwEventEnabled(RegHandle, EventDescriptor) )
+    return 6;
+  memset(InputBuffer, 0, sizeof(InputBuffer));
+  v8 = sub_180060FFC(RegHandle, InputBuffer);
+  if ( !v8 )
+  {
+    *(EVENT_DESCRIPTOR *)&InputBuffer[1] = *EventDescriptor;
+    *(GUID *)&InputBuffer[3] = NtCurrentTeb()->ActivityId;
+    if ( _mm_cvtsi128_si32(*(__m128i *)&InputBuffer[3])
+      || HIDWORD(InputBuffer[3])
+      || LOBYTE(InputBuffer[4])
+      || __PAIR16__(BYTE1(InputBuffer[4]), 0) != BYTE2(InputBuffer[4])
+      || *(_WORD *)((char *)&InputBuffer[4] + 3)
+      || BYTE5(InputBuffer[4])
+      || __PAIR16__(BYTE6(InputBuffer[4]), 0) != HIBYTE(InputBuffer[4])
+      || (v8 = EtwEventActivityIdControl(3u, (LPGUID)&InputBuffer[3])) == 0
+      && (v8 = EtwEventActivityIdControl(2u, (LPGUID)&InputBuffer[3])) == 0 )
+    {
+      LODWORD(InputBuffer[5]) = 10;
+      v8 = EtwEventWrite(RegHandle, EventDescriptor, UserDataCount, UserData);
+      ZwTraceControl(EtwWdiScenarioCode, InputBuffer, 0x30u, 0LL, 0, &ReturnLength);
+    }
   }
   return v8;
 }

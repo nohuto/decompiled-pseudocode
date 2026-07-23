@@ -1,23 +1,23 @@
 /*
- * XREFs of SiGetEspFromFirmware @ 0x1408F566C
+ * XREFs of SiGetEspFromFirmware @ 0x1408F692C
  * Callers:
- *     SiGetEfiSystemDevice @ 0x1408F52B8 (SiGetEfiSystemDevice.c)
+ *     SiGetEfiSystemDevice @ 0x1408F6578 (SiGetEfiSystemDevice.c)
  * Callees:
- *     _wcsicmp @ 0x140195930 (_wcsicmp.c)
- *     ZwEnumerateBootEntries @ 0x1401B9C90 (ZwEnumerateBootEntries.c)
- *     ZwQueryBootEntryOrder @ 0x1401BA890 (ZwQueryBootEntryOrder.c)
- *     ZwQueryBootOptions @ 0x1401BA8B0 (ZwQueryBootOptions.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     BiReleasePrivilege @ 0x1407114A4 (BiReleasePrivilege.c)
- *     BiAcquirePrivilege @ 0x1407114F4 (BiAcquirePrivilege.c)
- *     SiBootEntryGetNtFilePath @ 0x1408F5130 (SiBootEntryGetNtFilePath.c)
- *     SiGetEfiBootEntryById @ 0x1408F5298 (SiGetEfiBootEntryById.c)
- *     SiIsValidWindowsBootEntry @ 0x1408F5A88 (SiIsValidWindowsBootEntry.c)
+ *     _wcsicmp @ 0x140195A70 (_wcsicmp.c)
+ *     ZwEnumerateBootEntries @ 0x1401B9DF0 (ZwEnumerateBootEntries.c)
+ *     ZwQueryBootEntryOrder @ 0x1401BA9F0 (ZwQueryBootEntryOrder.c)
+ *     ZwQueryBootOptions @ 0x1401BAA10 (ZwQueryBootOptions.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     BiReleasePrivilege @ 0x140712744 (BiReleasePrivilege.c)
+ *     BiAcquirePrivilege @ 0x140712794 (BiAcquirePrivilege.c)
+ *     SiBootEntryGetNtFilePath @ 0x1408F63F0 (SiBootEntryGetNtFilePath.c)
+ *     SiGetEfiBootEntryById @ 0x1408F6558 (SiGetEfiBootEntryById.c)
+ *     SiIsValidWindowsBootEntry @ 0x1408F6D48 (SiIsValidWindowsBootEntry.c)
  */
 
-__int64 __fastcall SiGetEspFromFirmware(void *a1, ULONG a2)
+NTSTATUS __fastcall SiGetEspFromFirmware(void *a1, ULONG a2)
 {
   ULONG v2; // r14d
   void *v3; // r15
@@ -25,11 +25,11 @@ __int64 __fastcall SiGetEspFromFirmware(void *a1, ULONG a2)
   int *v5; // r13
   wchar_t *v6; // rdi
   wchar_t *v7; // rsi
-  __int64 result; // rax
+  NTSTATUS result; // eax
   NTSTATUS v9; // ebx
   PVOID PoolWithTag; // rax
   ULONG v11; // eax
-  struct _BOOT_OPTIONS *v12; // rax
+  _BOOT_OPTIONS *v12; // rax
   ULONG v13; // r14d
   NTSTATUS v14; // eax
   unsigned int *EfiBootEntryById; // rax
@@ -61,7 +61,7 @@ __int64 __fastcall SiGetEspFromFirmware(void *a1, ULONG a2)
   v6 = 0LL;
   v7 = 0LL;
   result = BiAcquirePrivilege(0x16u, (__int64)v29);
-  if ( (int)result >= 0 )
+  if ( result >= 0 )
   {
     BufferLength = 0;
     v9 = ZwEnumerateBootEntries(0LL, &BufferLength);
@@ -94,7 +94,7 @@ __int64 __fastcall SiGetEspFromFirmware(void *a1, ULONG a2)
             ExFreePoolWithTag(v5, 0);
             v11 = BufferLength;
           }
-          v12 = (struct _BOOT_OPTIONS *)ExAllocatePoolWithTag(PagedPool, v11, 0x4B505953u);
+          v12 = (_BOOT_OPTIONS *)ExAllocatePoolWithTag(PagedPool, v11, 0x4B505953u);
           v5 = (int *)v12;
           if ( !v12 )
             break;
@@ -108,7 +108,7 @@ __int64 __fastcall SiGetEspFromFirmware(void *a1, ULONG a2)
             EfiBootEntryById = SiGetEfiBootEntryById((unsigned int *)v3, v5[3]);
             v16 = EfiBootEntryById;
             if ( EfiBootEntryById
-              && (NtFilePath = SiBootEntryGetNtFilePath((__int64)EfiBootEntryById, (struct _FILE_PATH **)&P),
+              && (NtFilePath = SiBootEntryGetNtFilePath((__int64)EfiBootEntryById, (_FILE_PATH **)&P),
                   v6 = (wchar_t *)P,
                   v9 = NtFilePath,
                   NtFilePath >= 0) )
@@ -153,7 +153,7 @@ __int64 __fastcall SiGetEspFromFirmware(void *a1, ULONG a2)
                 v23 = v22;
                 if ( v22 )
                 {
-                  v24 = SiBootEntryGetNtFilePath((__int64)v22, (struct _FILE_PATH **)&v33);
+                  v24 = SiBootEntryGetNtFilePath((__int64)v22, (_FILE_PATH **)&v33);
                   v7 = (wchar_t *)v33;
                   if ( v24 >= 0 && (unsigned __int8)SiIsValidWindowsBootEntry(v23, v33) )
                   {
@@ -232,7 +232,7 @@ LABEL_45:
       ExFreePoolWithTag(v6, 0);
     if ( v7 )
       ExFreePoolWithTag(v7, 0);
-    return (unsigned int)v9;
+    return v9;
   }
   return result;
 }

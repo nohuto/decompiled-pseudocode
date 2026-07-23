@@ -1,21 +1,21 @@
 /*
- * XREFs of CmpNotifyMachineHiveLoaded @ 0x140667888
+ * XREFs of CmpNotifyMachineHiveLoaded @ 0x140666178
  * Callers:
- *     CmpFinishSystemHivesLoad @ 0x1407CA230 (CmpFinishSystemHivesLoad.c)
+ *     CmpFinishSystemHivesLoad @ 0x1407CA720 (CmpFinishSystemHivesLoad.c)
  * Callees:
- *     ExfReleasePushLock @ 0x14025E260 (ExfReleasePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     CmpWorkItemQueueWork @ 0x1403A68B0 (CmpWorkItemQueueWork.c)
+ *     CmpWorkItemQueueWork @ 0x14021E9B0 (CmpWorkItemQueueWork.c)
+ *     ExfReleasePushLock @ 0x14028E870 (ExfReleasePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
  */
 
 __int64 __fastcall CmpNotifyMachineHiveLoaded(unsigned int a1)
 {
   __int64 v1; // rsi
   volatile signed __int32 *v2; // rbx
-  _QWORD *v3; // rax
-  _QWORD *v4; // rdi
+  char *v3; // rax
+  char *v4; // rdi
   wchar_t **v5; // rdi
   wchar_t *v6; // rcx
   __int64 v7; // rax
@@ -25,15 +25,15 @@ __int64 __fastcall CmpNotifyMachineHiveLoaded(unsigned int a1)
 
   v1 = 23LL * a1;
   v2 = (volatile signed __int32 *)&CmpMachineHiveList[v1 + 18];
-  v3 = KeAbPreAcquire((__int64)v2, 0LL);
+  v3 = (char *)KeAbPreAcquire((__int64)v2, 0LL);
   v4 = v3;
   if ( _interlockedbittestandset64(v2, 0LL) )
     ExfAcquirePushLockExclusiveEx(
       (unsigned __int64 *)&CmpMachineHiveList[v1 + 18],
-      (__int64)v3,
+      v3,
       (__int64)&CmpMachineHiveList[v1 + 18]);
   if ( v4 )
-    *((_BYTE *)v4 + 10) = 1;
+    v4[10] = 1;
   v5 = &CmpMachineHiveList[v1 + 19];
   while ( 1 )
   {

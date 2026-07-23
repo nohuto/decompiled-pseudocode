@@ -1,15 +1,15 @@
 /*
- * XREFs of VmpProcessContextSetup @ 0x14081D0A4
+ * XREFs of VmpProcessContextSetup @ 0x1408232B4
  * Callers:
- *     VmCreateMemoryRange @ 0x14081BDE0 (VmCreateMemoryRange.c)
- *     VmPreallocateForRangeCreate @ 0x140B00210 (VmPreallocateForRangeCreate.c)
+ *     VmCreateMemoryRange @ 0x140821FF0 (VmCreateMemoryRange.c)
+ *     VmPreallocateForRangeCreate @ 0x140B01F40 (VmPreallocateForRangeCreate.c)
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     VmpProcessContextCleanup @ 0x14081D08C (VmpProcessContextCleanup.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     VmpProcessContextCleanup @ 0x14082329C (VmpProcessContextCleanup.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall VmpProcessContextSetup(__int64 a1)

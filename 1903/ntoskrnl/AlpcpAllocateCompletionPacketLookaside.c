@@ -56,7 +56,7 @@ char *__fastcall AlpcpAllocateCompletionPacketLookaside(unsigned int a1, __int64
         v12 -= 24;
         v13 = *(_QWORD *)v12;
         *(_QWORD *)(v13 + 56) = 0LL;
-        IopFreeMiniCompletionPacket((struct _SLIST_ENTRY *)v13);
+        IopFreeMiniCompletionPacket((_SLIST_ENTRY *)v13);
         LODWORD(v8) = v8 - 1;
       }
       while ( (_DWORD)v8 );

@@ -9,36 +9,41 @@
  *     RtlFreeAnsiString @ 0x1404BA0E0 (RtlFreeAnsiString.c)
  */
 
-__int64 __fastcall RtlIsNameInUnUpcasedExpression(
-        UNICODE_STRING *a1,
-        UNICODE_STRING *p_UnicodeString,
-        char a3,
-        __int64 a4)
+BOOLEAN __cdecl RtlIsNameInUnUpcasedExpression(
+        PUNICODE_STRING Expression,
+        PUNICODE_STRING Name,
+        BOOLEAN IgnoreCase,
+        PWCH UpcaseTable)
 {
-  __int64 v4; // rbx
+  PWCH v4; // rbx
   NTSTATUS v6; // eax
   NTSTATUS v7; // eax
-  unsigned __int8 IsNameInExpressionPrivate; // bl
+  BOOLEAN IsNameInExpressionPrivate; // bl
   UNICODE_STRING UnicodeString; // [rsp+30h] [rbp-28h] BYREF
   UNICODE_STRING v11; // [rsp+40h] [rbp-18h] BYREF
 
-  v4 = a4;
+  v4 = UpcaseTable;
   UnicodeString.Buffer = 0LL;
   v11.Buffer = 0LL;
-  if ( a3 && !a4 )
+  if ( IgnoreCase && !UpcaseTable )
   {
-    v6 = RtlpUpcaseUnicodeStringPrivate(&UnicodeString, p_UnicodeString);
+    v6 = RtlpUpcaseUnicodeStringPrivate(&UnicodeString, Name);
     if ( v6 < 0 )
       RtlRaiseStatus(v6);
-    v7 = RtlpUpcaseUnicodeStringPrivate(&v11, a1);
+    v7 = RtlpUpcaseUnicodeStringPrivate(&v11, Expression);
     if ( v7 < 0 )
       RtlRaiseStatus(v7);
-    p_UnicodeString = &UnicodeString;
-    a1 = &v11;
-    a3 = 0;
+    Name = &UnicodeString;
+    Expression = &v11;
+    IgnoreCase = 0;
   }
-  LOBYTE(a4) = 1;
-  IsNameInExpressionPrivate = RtlpIsNameInExpressionPrivate((_DWORD)a1, (_DWORD)p_UnicodeString, a3, a4, v4);
+  LOBYTE(UpcaseTable) = 1;
+  IsNameInExpressionPrivate = RtlpIsNameInExpressionPrivate(
+                                (_DWORD)Expression,
+                                (_DWORD)Name,
+                                IgnoreCase,
+                                (_DWORD)UpcaseTable,
+                                (__int64)v4);
   if ( UnicodeString.Buffer )
     RtlFreeAnsiString(&UnicodeString);
   if ( v11.Buffer )

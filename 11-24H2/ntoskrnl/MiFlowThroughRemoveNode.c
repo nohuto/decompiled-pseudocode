@@ -1,11 +1,11 @@
 /*
- * XREFs of MiFlowThroughRemoveNode @ 0x1403976A4
+ * XREFs of MiFlowThroughRemoveNode @ 0x1403517F4
  * Callers:
- *     MiWaitForInPageComplete @ 0x140398598 (MiWaitForInPageComplete.c)
+ *     MiWaitForInPageComplete @ 0x140350CE8 (MiWaitForInPageComplete.c)
  * Callees:
- *     RtlAvlRemoveNode @ 0x140260BC0 (RtlAvlRemoveNode.c)
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
+ *     RtlAvlRemoveNode @ 0x1402911D0 (RtlAvlRemoveNode.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
  */
 
 void __fastcall MiFlowThroughRemoveNode(__int64 a1)

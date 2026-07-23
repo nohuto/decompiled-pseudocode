@@ -1,12 +1,12 @@
 /*
- * XREFs of HvlSvmGetDeviceCapabilities @ 0x1401BE340
+ * XREFs of HvlSvmGetDeviceCapabilities @ 0x1401BE224
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     HvlpAcquireHypercallPage @ 0x1401BB294 (HvlpAcquireHypercallPage.c)
- *     HvlpReleaseHypercallPage @ 0x1401BBD4C (HvlpReleaseHypercallPage.c)
- *     HvlpHvToNtStatus @ 0x1401BFFC0 (HvlpHvToNtStatus.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     HvlpAcquireHypercallPage @ 0x1401BB178 (HvlpAcquireHypercallPage.c)
+ *     HvlpReleaseHypercallPage @ 0x1401BBC30 (HvlpReleaseHypercallPage.c)
+ *     HvlpHvToNtStatus @ 0x1401BFEA4 (HvlpHvToNtStatus.c)
  */
 
 __int64 __fastcall HvlSvmGetDeviceCapabilities(int a1, __int64 a2)

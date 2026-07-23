@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlConvertLuidToUlonglong @ 0x140596660
+ * XREFs of RtlConvertLuidToUlonglong @ 0x140596890
  * Callers:
- *     SepLogTokenSidManagement @ 0x14091CE74 (SepLogTokenSidManagement.c)
+ *     SepLogTokenSidManagement @ 0x14091CFD4 (SepLogTokenSidManagement.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall RtlConvertLuidToUlonglong(__int64 a1)
+ULONGLONG __cdecl RtlConvertLuidToUlonglong(LUID Luid)
 {
-  return *(_QWORD *)a1;
+  return **(_QWORD **)&Luid;
 }

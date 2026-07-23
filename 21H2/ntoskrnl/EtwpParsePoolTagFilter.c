@@ -1,7 +1,7 @@
 /*
- * XREFs of EtwpParsePoolTagFilter @ 0x14093FFEC
+ * XREFs of EtwpParsePoolTagFilter @ 0x1409401BC
  * Callers:
- *     EtwStartAutoLogger @ 0x14079B594 (EtwStartAutoLogger.c)
+ *     EtwStartAutoLogger @ 0x14079B794 (EtwStartAutoLogger.c)
  * Callees:
  *     <none>
  */

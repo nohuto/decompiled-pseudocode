@@ -1,18 +1,18 @@
 /*
- * XREFs of MiComputeNodeMemory @ 0x1407CD0A0
+ * XREFs of MiComputeNodeMemory @ 0x1407CD210
  * Callers:
- *     MiUpdatePartitionMemory @ 0x140563474 (MiUpdatePartitionMemory.c)
- *     MiAddPhysicalMemory @ 0x1408C4E90 (MiAddPhysicalMemory.c)
- *     MiRemovePhysicalMemory @ 0x1408C5F8C (MiRemovePhysicalMemory.c)
- *     MiInitNucleus @ 0x140A42F34 (MiInitNucleus.c)
+ *     MiUpdatePartitionMemory @ 0x1405636B4 (MiUpdatePartitionMemory.c)
+ *     MiAddPhysicalMemory @ 0x1408C4FF0 (MiAddPhysicalMemory.c)
+ *     MiRemovePhysicalMemory @ 0x1408C60EC (MiRemovePhysicalMemory.c)
+ *     MiInitNucleus @ 0x140A43F34 (MiInitNucleus.c)
  * Callees:
- *     MiReferencePageRuns @ 0x14022FB90 (MiReferencePageRuns.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
- *     MiDereferencePageRuns @ 0x14037EFC0 (MiDereferencePageRuns.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     MiReferencePageRuns @ 0x1402D43E0 (MiReferencePageRuns.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x140355AE0 (KiLeaveGuardedRegionUnsafe.c)
+ *     MiDereferencePageRuns @ 0x14037EB10 (MiDereferencePageRuns.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 void __fastcall MiComputeNodeMemory(_QWORD *a1, int a2, __int64 a3, _DWORD *a4)

@@ -1,9 +1,9 @@
 /*
- * XREFs of MiFlushTbNowToAvoidOverflow @ 0x140424914
+ * XREFs of MiFlushTbNowToAvoidOverflow @ 0x1404187C4
  * Callers:
- *     MiBuildPhysicalPageFreeChain @ 0x140681434 (MiBuildPhysicalPageFreeChain.c)
+ *     MiBuildPhysicalPageFreeChain @ 0x140682624 (MiBuildPhysicalPageFreeChain.c)
  * Callees:
- *     MiTbFlushListPromoteThreshold @ 0x140424950 (MiTbFlushListPromoteThreshold.c)
+ *     MiTbFlushListPromoteThreshold @ 0x140418800 (MiTbFlushListPromoteThreshold.c)
  */
 
 _BOOL8 __fastcall MiFlushTbNowToAvoidOverflow(__int64 a1)

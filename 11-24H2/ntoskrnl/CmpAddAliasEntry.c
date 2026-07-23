@@ -1,15 +1,15 @@
 /*
- * XREFs of CmpAddAliasEntry @ 0x140C45A78
+ * XREFs of CmpAddAliasEntry @ 0x140C47BC8
  * Callers:
- *     CmpCreateHardwareProfiles @ 0x140C463E8 (CmpCreateHardwareProfiles.c)
+ *     CmpCreateHardwareProfiles @ 0x140C48538 (CmpCreateHardwareProfiles.c)
  * Callees:
- *     RtlUnicodeStringPrintf @ 0x140480894 (RtlUnicodeStringPrintf.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwOpenKey @ 0x1406A6650 (ZwOpenKey.c)
- *     ZwCreateKey @ 0x1406A67B0 (ZwCreateKey.c)
- *     ZwSetValueKey @ 0x1406A7010 (ZwSetValueKey.c)
- *     CmpAddDockingInfo @ 0x140C45CA8 (CmpAddDockingInfo.c)
+ *     RtlUnicodeStringPrintf @ 0x14047B368 (RtlUnicodeStringPrintf.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwOpenKey @ 0x1406A75F0 (ZwOpenKey.c)
+ *     ZwCreateKey @ 0x1406A7750 (ZwCreateKey.c)
+ *     ZwSetValueKey @ 0x1406A7FB0 (ZwSetValueKey.c)
+ *     CmpAddDockingInfo @ 0x140C47DF8 (CmpAddDockingInfo.c)
  */
 
 __int64 __fastcall CmpAddAliasEntry(void *a1, __int64 a2, int a3)
@@ -73,7 +73,7 @@ LABEL_10:
   v5 = ZwCreateKey(&Handle, 0x2001Fu, &ObjectAttributes, 0, 0LL, 0, &Disposition);
   if ( v5 < 0 )
     goto LABEL_9;
-  CmpAddDockingInfo((int)Handle);
+  CmpAddDockingInfo(Handle);
   Data = a3;
   v5 = ZwSetValueKey(Handle, (PUNICODE_STRING)&CmpStrProfileNumberString, 0, 4u, &Data, 4u);
 LABEL_12:

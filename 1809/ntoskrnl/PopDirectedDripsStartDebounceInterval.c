@@ -1,9 +1,9 @@
 /*
- * XREFs of PopDirectedDripsStartDebounceInterval @ 0x14086871C
+ * XREFs of PopDirectedDripsStartDebounceInterval @ 0x14086997C
  * Callers:
- *     PopDirectedDripsProcessWork @ 0x140868438 (PopDirectedDripsProcessWork.c)
+ *     PopDirectedDripsProcessWork @ 0x140869698 (PopDirectedDripsProcessWork.c)
  * Callees:
- *     KeSetTimer2 @ 0x1400FC170 (KeSetTimer2.c)
+ *     KeSetTimer2 @ 0x1400FC1F0 (KeSetTimer2.c)
  */
 
 char __fastcall PopDirectedDripsStartDebounceInterval(signed __int32 *a1)
@@ -20,7 +20,7 @@ char __fastcall PopDirectedDripsStartDebounceInterval(signed __int32 *a1)
     v1 = _InterlockedCompareExchange(a1, v1, v1);
   }
   while ( v2 != v1 );
-  if ( (byte_1404190D0 & 2) != 0 )
+  if ( (byte_14041A1B0 & 2) != 0 )
   {
     LOBYTE(v1) = v1 & 0x24;
     if ( (_BYTE)v1 == 32 )

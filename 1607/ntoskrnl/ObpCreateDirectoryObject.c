@@ -1,15 +1,15 @@
 /*
- * XREFs of ObpCreateDirectoryObject @ 0x140470CE4
+ * XREFs of ObpCreateDirectoryObject @ 0x14046FBB4
  * Callers:
- *     NtCreateDirectoryObject @ 0x140470CCC (NtCreateDirectoryObject.c)
- *     NtCreateDirectoryObjectEx @ 0x1404F0880 (NtCreateDirectoryObjectEx.c)
+ *     NtCreateDirectoryObject @ 0x14046FB9C (NtCreateDirectoryObject.c)
+ *     NtCreateDirectoryObjectEx @ 0x1404D2974 (NtCreateDirectoryObjectEx.c)
  * Callees:
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     RtlIsSandboxedToken @ 0x140412A10 (RtlIsSandboxedToken.c)
- *     ObReferenceObjectByHandle @ 0x140450D40 (ObReferenceObjectByHandle.c)
- *     ObInsertObject @ 0x140471424 (ObInsertObject.c)
- *     ObCreateObject @ 0x14047181C (ObCreateObject.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     RtlIsSandboxedToken @ 0x1404118D0 (RtlIsSandboxedToken.c)
+ *     ObReferenceObjectByHandle @ 0x14044FC10 (ObReferenceObjectByHandle.c)
+ *     ObInsertObject @ 0x1404702F4 (ObInsertObject.c)
+ *     ObCreateObject @ 0x1404706EC (ObCreateObject.c)
  */
 
 NTSTATUS __fastcall ObpCreateDirectoryObject(unsigned __int64 a1, ACCESS_MASK a2, int a3, void *a4, char a5)

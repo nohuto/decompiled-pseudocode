@@ -1,7 +1,7 @@
 /*
- * XREFs of KiIncrementConcurrencyCount @ 0x1402D2C4C
+ * XREFs of KiIncrementConcurrencyCount @ 0x1402511CC
  * Callers:
- *     KiCommitThreadWait @ 0x140345FB0 (KiCommitThreadWait.c)
+ *     KiCommitThreadWait @ 0x140350D00 (KiCommitThreadWait.c)
  * Callees:
  *     <none>
  */

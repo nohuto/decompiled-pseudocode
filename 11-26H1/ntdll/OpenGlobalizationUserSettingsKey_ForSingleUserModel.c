@@ -1,159 +1,152 @@
 /*
- * XREFs of OpenGlobalizationUserSettingsKey_ForSingleUserModel @ 0x18000B81C
+ * XREFs of OpenGlobalizationUserSettingsKey_ForSingleUserModel @ 0x180056F4C
  * Callers:
- *     RtlpMuiRegCreateAndLoadRegistryInfo @ 0x18000844C (RtlpMuiRegCreateAndLoadRegistryInfo.c)
- *     OpenGlobalizationUserSettingsKey_ForMua @ 0x18000B504 (OpenGlobalizationUserSettingsKey_ForMua.c)
- *     RtlpMuiRegLoadPreferredUILanguages @ 0x18000BB60 (RtlpMuiRegLoadPreferredUILanguages.c)
- *     OpenGlobalizationUserSettingsKey @ 0x18000C970 (OpenGlobalizationUserSettingsKey.c)
- *     RtlpLoadLanguageConfigList @ 0x18000CA10 (RtlpLoadLanguageConfigList.c)
- *     RtlpLoadUserUIByPolicy @ 0x1800DB8B0 (RtlpLoadUserUIByPolicy.c)
+ *     RtlpMuiRegCreateAndLoadRegistryInfo @ 0x180053B7C (RtlpMuiRegCreateAndLoadRegistryInfo.c)
+ *     OpenGlobalizationUserSettingsKey_ForMua @ 0x180056C34 (OpenGlobalizationUserSettingsKey_ForMua.c)
+ *     RtlpMuiRegLoadPreferredUILanguages @ 0x180057290 (RtlpMuiRegLoadPreferredUILanguages.c)
+ *     OpenGlobalizationUserSettingsKey @ 0x1800580A0 (OpenGlobalizationUserSettingsKey.c)
+ *     RtlpLoadLanguageConfigList @ 0x180058140 (RtlpLoadLanguageConfigList.c)
+ *     RtlpLoadUserUIByPolicy @ 0x1800D8790 (RtlpLoadUserUIByPolicy.c)
  * Callees:
- *     RtlpSysVolFree @ 0x180038000 (RtlpSysVolFree.c)
- *     IdnaMemAlloc @ 0x1800ABC20 (IdnaMemAlloc.c)
- *     wcslen @ 0x18012DAE0 (wcslen.c)
- *     NtClose @ 0x18015F120 (NtClose.c)
- *     NtOpenKey @ 0x18015F180 (NtOpenKey.c)
- *     NtQueryValueKey @ 0x18015F220 (NtQueryValueKey.c)
- *     memmove @ 0x180164700 (memmove.c)
+ *     RtlpSysVolFree @ 0x180001CD0 (RtlpSysVolFree.c)
+ *     IdnaMemAlloc @ 0x1800AAD50 (IdnaMemAlloc.c)
+ *     wcslen @ 0x18012D850 (wcslen.c)
+ *     NtClose @ 0x18015F020 (NtClose.c)
+ *     NtOpenKey @ 0x18015F080 (NtOpenKey.c)
+ *     NtQueryValueKey @ 0x18015F120 (NtQueryValueKey.c)
+ *     memmove @ 0x180164600 (memmove.c)
  */
 
-__int64 __fastcall OpenGlobalizationUserSettingsKey_ForSingleUserModel(unsigned int a1, HANDLE *a2)
+__int64 __fastcall OpenGlobalizationUserSettingsKey_ForSingleUserModel(ACCESS_MASK DesiredAccess, PHANDLE KeyHandle)
 {
   size_t v4; // rax
-  int v5; // edi
+  NTSTATUS v5; // edi
   size_t v6; // rax
-  int v7; // eax
-  __int64 v8; // r14
+  NTSTATUS v7; // eax
+  _DWORD *v8; // r14
   size_t v9; // rax
   unsigned __int64 v10; // r15
   HANDLE v11; // rax
   unsigned __int64 v13; // rdi
   size_t v14; // rax
-  void *v15; // [rsp+30h] [rbp-49h] BYREF
+  HANDLE v15; // [rsp+30h] [rbp-49h] BYREF
   __int64 v16; // [rsp+38h] [rbp-41h] BYREF
   void *Src; // [rsp+40h] [rbp-39h]
   _WORD v18[2]; // [rsp+48h] [rbp-31h] BYREF
   int v19; // [rsp+4Ch] [rbp-2Dh]
   void *v20; // [rsp+50h] [rbp-29h]
-  __int16 v21; // [rsp+58h] [rbp-21h] BYREF
-  __int16 v22; // [rsp+5Ah] [rbp-1Fh]
-  int v23; // [rsp+5Ch] [rbp-1Dh]
-  wchar_t *v24; // [rsp+60h] [rbp-19h]
-  __int64 v25; // [rsp+68h] [rbp-11h] BYREF
-  __int64 v26; // [rsp+70h] [rbp-9h]
-  __int16 *v27; // [rsp+78h] [rbp-1h]
-  __int64 v28; // [rsp+80h] [rbp+7h]
-  __int128 v29; // [rsp+88h] [rbp+Fh]
-  unsigned int v30; // [rsp+F0h] [rbp+77h] BYREF
-  HANDLE Handle; // [rsp+F8h] [rbp+7Fh] BYREF
+  _UNICODE_STRING ValueName; // [rsp+58h] [rbp-21h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+68h] [rbp-11h] BYREF
+  ULONG ResultLength; // [rsp+F0h] [rbp+77h] BYREF
+  HANDLE KeyHandlea; // [rsp+F8h] [rbp+7Fh] BYREF
 
-  if ( !dword_1801CB2C4 )
+  if ( !dword_1801CA314 )
   {
-    Handle = 0LL;
+    KeyHandlea = 0LL;
     v20 = (void *)L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\CommonGlobUserSettings\\";
     v19 = 0;
     v4 = 2 * wcslen(L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\CommonGlobUserSettings\\");
-    v25 = 48LL;
-    v28 = 576LL;
-    v26 = 0LL;
+    *(_QWORD *)&ObjectAttributes.Length = 48LL;
+    *(_QWORD *)&ObjectAttributes.Attributes = 576LL;
+    ObjectAttributes.RootDirectory = 0LL;
     if ( v4 >= 0xFFFE )
       LOWORD(v4) = -4;
     v18[0] = v4;
     v18[1] = v4 + 2;
-    v27 = v18;
-    v29 = 0LL;
-    v5 = NtOpenKey(&Handle, a1, &v25);
+    ObjectAttributes.ObjectName = (PUNICODE_STRING)v18;
+    *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+    v5 = NtOpenKey(&KeyHandlea, DesiredAccess, &ObjectAttributes);
     if ( v5 < 0 )
       goto LABEL_24;
-    v30 = 0;
-    v24 = (wchar_t *)L"RedirectedKey";
-    v23 = 0;
+    ResultLength = 0;
+    ValueName.Buffer = (wchar_t *)L"RedirectedKey";
+    *(_DWORD *)(&ValueName.MaximumLength + 1) = 0;
     v6 = 2 * wcslen(L"RedirectedKey");
     if ( v6 >= 0xFFFE )
       LOWORD(v6) = -4;
-    v21 = v6;
-    v22 = v6 + 2;
-    v7 = NtQueryValueKey(Handle, &v21, 2LL, 0LL, 0, &v30);
-    if ( !v30 || v7 != -1073741789 && v7 != -2147483643 )
+    ValueName.Length = v6;
+    ValueName.MaximumLength = v6 + 2;
+    v7 = NtQueryValueKey(KeyHandlea, &ValueName, KeyValuePartialInformation, 0LL, 0, &ResultLength);
+    if ( !ResultLength || v7 != -1073741789 && v7 != -2147483643 )
     {
       if ( v18[0] <= 0xAAu )
       {
         v13 = v18[0];
-        memmove(word_1801C72F0, v20, v18[0]);
+        memmove(word_1801C62F0, v20, v18[0]);
         if ( v13 + 2 <= 0xAA )
-          word_1801C72F0[v13 >> 1] = 0;
-        dword_1801CB2C4 = 1;
+          word_1801C62F0[v13 >> 1] = 0;
+        dword_1801CA314 = 1;
       }
       v5 = 0;
-      *a2 = Handle;
-      Handle = 0LL;
+      *KeyHandle = KeyHandlea;
+      KeyHandlea = 0LL;
       goto LABEL_24;
     }
-    v8 = IdnaMemAlloc(v30);
+    v8 = (_DWORD *)IdnaMemAlloc(ResultLength);
     if ( !v8 )
     {
       v5 = -1073741801;
 LABEL_24:
-      if ( Handle )
-        NtClose(Handle);
+      if ( KeyHandlea )
+        NtClose(KeyHandlea);
       return (unsigned int)v5;
     }
-    v5 = NtQueryValueKey(Handle, &v21, 2LL, v8, v30, &v30);
+    v5 = NtQueryValueKey(KeyHandlea, &ValueName, KeyValuePartialInformation, v8, ResultLength, &ResultLength);
     if ( v5 >= 0 )
     {
-      if ( *(_DWORD *)(v8 + 4) == 1 )
+      if ( v8[1] == 1 )
       {
         v15 = 0LL;
         v16 = 0LL;
-        Src = (void *)(v8 + 12);
-        if ( v8 != -12 )
+        Src = v8 + 3;
+        if ( v8 != (_DWORD *)-12LL )
         {
-          v9 = 2 * wcslen((const wchar_t *)(v8 + 12));
+          v9 = 2 * wcslen((const wchar_t *)v8 + 6);
           if ( v9 >= 0xFFFE )
             LOWORD(v9) = -4;
           LOWORD(v16) = v9;
           WORD1(v16) = v9 + 2;
         }
-        v26 = 0LL;
-        v27 = (__int16 *)&v16;
-        v25 = 48LL;
-        v28 = 576LL;
-        v29 = 0LL;
-        v5 = NtOpenKey(&v15, a1, &v25);
+        ObjectAttributes.RootDirectory = 0LL;
+        ObjectAttributes.ObjectName = (PUNICODE_STRING)&v16;
+        *(_QWORD *)&ObjectAttributes.Length = 48LL;
+        *(_QWORD *)&ObjectAttributes.Attributes = 576LL;
+        *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+        v5 = NtOpenKey(&v15, DesiredAccess, &ObjectAttributes);
         if ( v5 < 0 )
           goto LABEL_23;
         if ( (unsigned __int16)v16 <= 0xAAu )
         {
           v10 = (unsigned __int16)v16;
-          memmove(word_1801C72F0, Src, (unsigned __int16)v16);
+          memmove(word_1801C62F0, Src, (unsigned __int16)v16);
           if ( v10 + 2 <= 0xAA )
-            word_1801C72F0[v10 >> 1] = 0;
-          dword_1801CB2C4 = 1;
+            word_1801C62F0[v10 >> 1] = 0;
+          dword_1801CA314 = 1;
         }
         v11 = v15;
       }
       else
       {
-        v11 = Handle;
-        Handle = 0LL;
+        v11 = KeyHandlea;
+        KeyHandlea = 0LL;
       }
-      *a2 = v11;
+      *KeyHandle = v11;
     }
 LABEL_23:
     RtlpSysVolFree(v8);
     goto LABEL_24;
   }
-  v23 = 0;
-  v24 = word_1801C72F0;
-  v14 = 2 * wcslen(word_1801C72F0);
-  v25 = 48LL;
-  v28 = 576LL;
-  v26 = 0LL;
+  *(_DWORD *)(&ValueName.MaximumLength + 1) = 0;
+  ValueName.Buffer = word_1801C62F0;
+  v14 = 2 * wcslen(word_1801C62F0);
+  *(_QWORD *)&ObjectAttributes.Length = 48LL;
+  *(_QWORD *)&ObjectAttributes.Attributes = 576LL;
+  ObjectAttributes.RootDirectory = 0LL;
   if ( v14 >= 0xFFFE )
     LOWORD(v14) = -4;
-  v21 = v14;
-  v22 = v14 + 2;
-  v27 = &v21;
-  v29 = 0LL;
-  return (unsigned int)NtOpenKey(a2, a1, &v25);
+  ValueName.Length = v14;
+  ValueName.MaximumLength = v14 + 2;
+  ObjectAttributes.ObjectName = &ValueName;
+  *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+  return (unsigned int)NtOpenKey(KeyHandle, DesiredAccess, &ObjectAttributes);
 }

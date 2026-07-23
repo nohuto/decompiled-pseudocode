@@ -1,28 +1,28 @@
 /*
- * XREFs of IoPageReadEx @ 0x14026BD90
+ * XREFs of IoPageReadEx @ 0x14026B300
  * Callers:
- *     MiPageRead @ 0x14026B708 (MiPageRead.c)
- *     MiIssueHardFaultIo @ 0x14038EA50 (MiIssueHardFaultIo.c)
- *     MiPfIssueCoalescedSupport @ 0x1404CB7F0 (MiPfIssueCoalescedSupport.c)
- *     IoPageRead @ 0x1404F8B80 (IoPageRead.c)
- *     MiReadPagefilePage @ 0x1406E4AA0 (MiReadPagefilePage.c)
+ *     MiPageRead @ 0x14026AC78 (MiPageRead.c)
+ *     MiIssueHardFaultIo @ 0x140390800 (MiIssueHardFaultIo.c)
+ *     MiPfIssueCoalescedSupport @ 0x1404C5220 (MiPfIssueCoalescedSupport.c)
+ *     IoPageRead @ 0x1404F2190 (IoPageRead.c)
+ *     MiReadPagefilePage @ 0x1406E9750 (MiReadPagefilePage.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     IofCallDriver @ 0x1402655A0 (IofCallDriver.c)
- *     IopSetDiskIoAttributionExtension @ 0x140269D74 (IopSetDiskIoAttributionExtension.c)
- *     MmIsFileObjectAPagingFile @ 0x14026C320 (MmIsFileObjectAPagingFile.c)
- *     IopAllocateIrpExReturn @ 0x14026C640 (IopAllocateIrpExReturn.c)
- *     IoGetRelatedDeviceObject @ 0x14026CA30 (IoGetRelatedDeviceObject.c)
- *     ExReleaseSpinLockShared @ 0x14026CEE0 (ExReleaseSpinLockShared.c)
- *     IopSetDiskIoAttributionFromProcess @ 0x14026EDA0 (IopSetDiskIoAttributionFromProcess.c)
- *     IopAllocateReserveIrp @ 0x14027006C (IopAllocateReserveIrp.c)
- *     ObfReferenceObjectWithTag @ 0x140278B30 (ObfReferenceObjectWithTag.c)
- *     ObDereferenceObjectDeferDeleteWithTag @ 0x14027C870 (ObDereferenceObjectDeferDeleteWithTag.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402DC6D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExAcquireSpinLockShared @ 0x1402EDF10 (ExAcquireSpinLockShared.c)
- *     IopQueueThreadIrp @ 0x14032F090 (IopQueueThreadIrp.c)
- *     IopAllocateBackpocketIrp @ 0x140531A0C (IopAllocateBackpocketIrp.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     IofCallDriver @ 0x140264B10 (IofCallDriver.c)
+ *     IopSetDiskIoAttributionExtension @ 0x1402692E4 (IopSetDiskIoAttributionExtension.c)
+ *     MmIsFileObjectAPagingFile @ 0x14026B890 (MmIsFileObjectAPagingFile.c)
+ *     IopAllocateIrpExReturn @ 0x14026BBB0 (IopAllocateIrpExReturn.c)
+ *     IoGetRelatedDeviceObject @ 0x14026BFA0 (IoGetRelatedDeviceObject.c)
+ *     ExReleaseSpinLockShared @ 0x14026C450 (ExReleaseSpinLockShared.c)
+ *     IopSetDiskIoAttributionFromProcess @ 0x14026E310 (IopSetDiskIoAttributionFromProcess.c)
+ *     IopAllocateReserveIrp @ 0x14026F5DC (IopAllocateReserveIrp.c)
+ *     ObfReferenceObjectWithTag @ 0x1402780A0 (ObfReferenceObjectWithTag.c)
+ *     ObDereferenceObjectDeferDeleteWithTag @ 0x14027BDE0 (ObDereferenceObjectDeferDeleteWithTag.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402BE490 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockShared @ 0x1402CFF90 (ExAcquireSpinLockShared.c)
+ *     IopQueueThreadIrp @ 0x1403310C0 (IopQueueThreadIrp.c)
+ *     IopAllocateBackpocketIrp @ 0x140533EB4 (IopAllocateBackpocketIrp.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 NTSTATUS __fastcall IoPageReadEx(
@@ -127,11 +127,11 @@ LABEL_10:
            || (a6 & 1) == 1
            || (*(_DWORD *)(&KeGetCurrentThread()[1].SwapListEntry + 1) & 0x2000000) != 0 )
     {
-      ++LODWORD(IopSessionNotificationLock.InitialStack);
+      ++IoPagingReadLowPriorityCount;
     }
     else
     {
-      ++HIDWORD(IopSessionNotificationLock.QuantumTarget);
+      ++IoPagingReadLowPriorityBumpedCount;
       v18 = 2;
     }
   }
@@ -163,7 +163,7 @@ LABEL_10:
   {
     if ( v22 == KeGetCurrentThread() )
       goto LABEL_51;
-    v32 = ExAcquireSpinLockShared((PEX_SPIN_LOCK)&PsAltSystemCallRegistrationLock.CurrentRunTime);
+    v32 = ExAcquireSpinLockShared((PEX_SPIN_LOCK)&PsAltSystemCallRegistrationLock.FirstArgument);
     Object = v22[1].WaitBlock[1].Object;
     v41 = v32;
     if ( Object )
@@ -172,7 +172,7 @@ LABEL_10:
       v32 = v41;
       v25 = 1;
     }
-    ExReleaseSpinLockShared((PEX_SPIN_LOCK)&PsAltSystemCallRegistrationLock.CurrentRunTime, v32);
+    ExReleaseSpinLockShared((PEX_SPIN_LOCK)&PsAltSystemCallRegistrationLock.FirstArgument, v32);
     if ( Object )
     {
 LABEL_51:
@@ -180,12 +180,12 @@ LABEL_51:
 LABEL_23:
       if ( Process[3].UserWaitTime )
       {
-        v40[0] = ExAcquireSpinLockShared((PEX_SPIN_LOCK)&IopSessionNotificationLock.TrapFrame + 1);
+        v40[0] = ExAcquireSpinLockShared(&IopDiskIoAttributionLock);
         UserWaitTime = Process[3].UserWaitTime;
         v37 = UserWaitTime;
         if ( UserWaitTime )
           v24 = *(_QWORD *)(UserWaitTime + 24);
-        ExReleaseSpinLockSharedFromDpcLevel((PEX_SPIN_LOCK)&IopSessionNotificationLock.TrapFrame + 1);
+        ExReleaseSpinLockSharedFromDpcLevel(&IopDiskIoAttributionLock);
         if ( KiIrqlFlags )
           KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), v40[0]);
         __writecr8(v40[0]);

@@ -6,11 +6,16 @@
  *     <none>
  */
 
-__int64 ZwQueryInformationWorkerFactory()
+NTSTATUS __cdecl ZwQueryInformationWorkerFactory(
+        HANDLE WorkerFactoryHandle,
+        WORKERFACTORYINFOCLASS WorkerFactoryInformationClass,
+        PVOID WorkerFactoryInformation,
+        ULONG WorkerFactoryInformationLength,
+        PULONG ReturnLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 310LL;
+  result = 310;
   __asm { syscall; Low latency system call }
   return result;
 }

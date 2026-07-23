@@ -1,7 +1,7 @@
 /*
- * XREFs of TtmpTsmTestTimeout @ 0x14087F514
+ * XREFs of TtmpTsmTestTimeout @ 0x140880774
  * Callers:
- *     TtmpTsmEvaluateTimeouts @ 0x14087F3E4 (TtmpTsmEvaluateTimeouts.c)
+ *     TtmpTsmEvaluateTimeouts @ 0x140880644 (TtmpTsmEvaluateTimeouts.c)
  * Callees:
  *     <none>
  */

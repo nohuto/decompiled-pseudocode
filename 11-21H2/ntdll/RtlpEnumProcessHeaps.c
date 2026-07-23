@@ -30,8 +30,8 @@ __int64 __fastcall RtlpEnumProcessHeaps(__int64 (__fastcall *a1)(void *, __int64
   __int64 i; // rbx
   __int64 j; // rbx
   __int64 k; // rax
-  signed __int32 v10; // ebx
-  __int64 DeferredCriticalSectionEvent; // r10
+  signed __int32 LockCount; // ebx
+  void *LockSemaphore; // r10
   int v13; // eax
   signed __int32 v14[8]; // [rsp+38h] [rbp-58h] BYREF
   int v15; // [rsp+58h] [rbp-38h]
@@ -43,7 +43,7 @@ __int64 __fastcall RtlpEnumProcessHeaps(__int64 (__fastcall *a1)(void *, __int64
   v6 = NtCurrentPeb();
   v16 = 0;
   if ( (a3 & 1) == 0 )
-    RtlEnterCriticalSection((__int64)&RtlpProcessHeapsListLock);
+    RtlEnterCriticalSection(&RtlpProcessHeapsListLock);
   for ( i = 0LL; ; i = (unsigned int)(i + 1) )
   {
     v15 = i;
@@ -80,41 +80,41 @@ __int64 __fastcall RtlpEnumProcessHeaps(__int64 (__fastcall *a1)(void *, __int64
     }
   }
 LABEL_18:
-  if ( (a3 & 1) == 0 && !--dword_180178D4C )
+  if ( (a3 & 1) == 0 && !--RtlpProcessHeapsListLock.RecursionCount )
   {
-    qword_180178D50 = 0LL;
-    v10 = _InterlockedCompareExchange(&dword_180178D48, -1, -2);
-    if ( v10 != -2 )
+    RtlpProcessHeapsListLock.OwningThread = 0LL;
+    LockCount = _InterlockedCompareExchange(&RtlpProcessHeapsListLock.LockCount, -1, -2);
+    if ( LockCount != -2 )
     {
-      if ( (dword_180178D48 & 1) != 0 )
+      if ( (RtlpProcessHeapsListLock.LockCount & 1) != 0 )
         RtlpNotOwnerCriticalSection(&RtlpProcessHeapsListLock);
-      DeferredCriticalSectionEvent = qword_180178D58;
-      if ( !qword_180178D58 )
-        DeferredCriticalSectionEvent = RtlpCreateDeferredCriticalSectionEvent(&RtlpProcessHeapsListLock);
+      LockSemaphore = RtlpProcessHeapsListLock.LockSemaphore;
+      if ( !RtlpProcessHeapsListLock.LockSemaphore )
+        LockSemaphore = (void *)RtlpCreateDeferredCriticalSectionEvent(&RtlpProcessHeapsListLock);
       v19 = 0;
-      while ( v10 != _InterlockedCompareExchange(&dword_180178D48, (v10 & 2 | 1) + v10, v10) )
+      while ( LockCount != _InterlockedCompareExchange(
+                             &RtlpProcessHeapsListLock.LockCount,
+                             (LockCount & 2 | 1) + LockCount,
+                             LockCount) )
       {
         RtlBackoff(&v19);
-        _m_prefetchw(&dword_180178D48);
-        v10 = dword_180178D48;
+        _m_prefetchw(&RtlpProcessHeapsListLock.LockCount);
+        LockCount = RtlpProcessHeapsListLock.LockCount;
       }
-      if ( (v10 & 2) != 0 )
+      if ( (LockCount & 2) != 0 )
       {
-        if ( DeferredCriticalSectionEvent == -1 )
+        if ( LockSemaphore == (void *)-1LL )
         {
           _InterlockedOr(v14, 0);
-          RtlpWakeByAddress((unsigned __int64)&dword_180178D48, 0);
+          RtlpWakeByAddress((unsigned __int64)&RtlpProcessHeapsListLock.LockCount, 0);
           v13 = 0;
         }
         else
         {
-          v13 = ZwSetEvent(DeferredCriticalSectionEvent, 0LL);
+          v13 = ZwSetEvent(LockSemaphore, 0LL);
         }
         if ( v13 < 0 )
-        {
-          RtlRaiseStatus((unsigned int)v13);
-          __debugbreak();
-        }
+          RtlRaiseStatus(v13);
       }
     }
   }

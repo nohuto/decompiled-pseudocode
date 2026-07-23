@@ -1,13 +1,13 @@
 /*
- * XREFs of KiCheckPreferredHeteroProcessor @ 0x140258C00
+ * XREFs of KiCheckPreferredHeteroProcessor @ 0x14027A170
  * Callers:
- *     KiUpdateRunTime @ 0x1402275D0 (KiUpdateRunTime.c)
- *     KiQuantumEnd @ 0x140257CF0 (KiQuantumEnd.c)
- *     KiSendHeteroRescheduleIntRequestHelper @ 0x14051FFF0 (KiSendHeteroRescheduleIntRequestHelper.c)
+ *     KiQuantumEnd @ 0x140279260 (KiQuantumEnd.c)
+ *     KiUpdateRunTime @ 0x1402CBED0 (KiUpdateRunTime.c)
+ *     KiSendHeteroRescheduleIntRequestHelper @ 0x140520230 (KiSendHeteroRescheduleIntRequestHelper.c)
  * Callees:
- *     KiIsQosGroupingActive @ 0x140398E54 (KiIsQosGroupingActive.c)
- *     KiConvertDynamicHeteroPolicy @ 0x14051F1A0 (KiConvertDynamicHeteroPolicy.c)
- *     KiGenerateHeteroSets @ 0x14051F2B8 (KiGenerateHeteroSets.c)
+ *     KiIsQosGroupingActive @ 0x140398FA4 (KiIsQosGroupingActive.c)
+ *     KiConvertDynamicHeteroPolicy @ 0x14051F3E0 (KiConvertDynamicHeteroPolicy.c)
+ *     KiGenerateHeteroSets @ 0x14051F4F8 (KiGenerateHeteroSets.c)
  */
 
 __int64 __fastcall KiCheckPreferredHeteroProcessor(__int64 a1, __int64 a2, int a3)

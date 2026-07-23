@@ -1,17 +1,17 @@
 /*
- * XREFs of CsrAllocateCaptureBuffer @ 0x1800CA9E0
+ * XREFs of CsrAllocateCaptureBuffer @ 0x1800C8150
  * Callers:
- *     CsrpClientConnectToServer @ 0x1800CA6BC (CsrpClientConnectToServer.c)
- *     CsrCaptureMessageMultiUnicodeStringsInPlace @ 0x1800CA790 (CsrCaptureMessageMultiUnicodeStringsInPlace.c)
+ *     CsrpClientConnectToServer @ 0x1800C7E2C (CsrpClientConnectToServer.c)
+ *     CsrCaptureMessageMultiUnicodeStringsInPlace @ 0x1800C7F00 (CsrCaptureMessageMultiUnicodeStringsInPlace.c)
  * Callees:
- *     RtlAllocateHeap_0 @ 0x1800439E0 (RtlAllocateHeap_0.c)
- *     memset$thunk$772440563353939046 @ 0x180170030 (memset$thunk$772440563353939046.c)
+ *     RtlAllocateHeap_0 @ 0x18002DF50 (RtlAllocateHeap_0.c)
+ *     memset$thunk$772440563353939046 @ 0x18016F030 (memset$thunk$772440563353939046.c)
  */
 
 _DWORD *__fastcall CsrAllocateCaptureBuffer(unsigned int a1, unsigned int a2)
 {
   __int64 v2; // rbx
-  unsigned int v3; // esi
+  SIZE_T v3; // rsi
   _DWORD *Heap_0; // rax
   _DWORD *v5; // rdi
   _DWORD *result; // rax
@@ -28,7 +28,7 @@ _DWORD *__fastcall CsrAllocateCaptureBuffer(unsigned int a1, unsigned int a2)
   if ( a1 + 1 >= (2147483612 - a2 - 8 * a1) / 3 )
     return 0LL;
   v3 = (a2 + 35 + 11 * a1) & 0xFFFFFFFC;
-  Heap_0 = (_DWORD *)RtlAllocateHeap_0();
+  Heap_0 = RtlAllocateHeap_0(CsrPortHeap, CsrPortBaseTag, v3);
   v5 = Heap_0;
   if ( !Heap_0 )
     return 0LL;

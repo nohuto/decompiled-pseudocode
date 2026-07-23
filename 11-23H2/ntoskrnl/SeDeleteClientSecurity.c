@@ -1,17 +1,17 @@
 /*
- * XREFs of SeDeleteClientSecurity @ 0x14071D180
+ * XREFs of SeDeleteClientSecurity @ 0x14071D380
  * Callers:
- *     AlpcpQuerySidMessage @ 0x140714B3C (AlpcpQuerySidMessage.c)
- *     AlpcpDeletePort @ 0x140718710 (AlpcpDeletePort.c)
- *     AlpcSecurityDestroyProcedure @ 0x14071C950 (AlpcSecurityDestroyProcedure.c)
- *     AlpcpImpersonateMessage @ 0x14071CE00 (AlpcpImpersonateMessage.c)
- *     AlpcpExposeTokenAttribute @ 0x14073C230 (AlpcpExposeTokenAttribute.c)
- *     EtwpFreeLoggerContext @ 0x14078DC9C (EtwpFreeLoggerContext.c)
- *     NtImpersonateThread @ 0x1407F5C80 (NtImpersonateThread.c)
- *     EtwpUpdateTrace @ 0x1407F7F7C (EtwpUpdateTrace.c)
- *     AlpcpQueryTokenModifiedIdMessage @ 0x1409789B4 (AlpcpQueryTokenModifiedIdMessage.c)
+ *     AlpcpQuerySidMessage @ 0x140714D4C (AlpcpQuerySidMessage.c)
+ *     AlpcpDeletePort @ 0x140718910 (AlpcpDeletePort.c)
+ *     AlpcSecurityDestroyProcedure @ 0x14071CB50 (AlpcSecurityDestroyProcedure.c)
+ *     AlpcpImpersonateMessage @ 0x14071D000 (AlpcpImpersonateMessage.c)
+ *     AlpcpExposeTokenAttribute @ 0x14073C420 (AlpcpExposeTokenAttribute.c)
+ *     EtwpFreeLoggerContext @ 0x14078DE8C (EtwpFreeLoggerContext.c)
+ *     NtImpersonateThread @ 0x1407F5F50 (NtImpersonateThread.c)
+ *     EtwpUpdateTrace @ 0x1407F824C (EtwpUpdateTrace.c)
+ *     AlpcpQueryTokenModifiedIdMessage @ 0x140978BB4 (AlpcpQueryTokenModifiedIdMessage.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
  */
 
 LONG_PTR __fastcall SeDeleteClientSecurity(__int64 a1)

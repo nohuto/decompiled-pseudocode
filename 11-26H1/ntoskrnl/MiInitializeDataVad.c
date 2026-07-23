@@ -1,21 +1,21 @@
 /*
- * XREFs of MiInitializeDataVad @ 0x1409C5B30
+ * XREFs of MiInitializeDataVad @ 0x140996B10
  * Callers:
- *     MiMapViewOfDataSection @ 0x1409C47B0 (MiMapViewOfDataSection.c)
+ *     MiMapViewOfDataSection @ 0x140995790 (MiMapViewOfDataSection.c)
  * Callees:
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     MmGetCurrentProcessorColor @ 0x14044ADC0 (MmGetCurrentProcessorColor.c)
- *     MiWriteVadFlags2 @ 0x14045BBE0 (MiWriteVadFlags2.c)
- *     MiReadVadFlags @ 0x1404655D0 (MiReadVadFlags.c)
- *     MiComputeContiguousSubsectionPte @ 0x14049129C (MiComputeContiguousSubsectionPte.c)
- *     MiUpdateVadStartVpn @ 0x14049B0E4 (MiUpdateVadStartVpn.c)
- *     MiInsertVadEvent @ 0x14049B0F8 (MiInsertVadEvent.c)
- *     MiLocateExclusiveSecure @ 0x1404B8DBC (MiLocateExclusiveSecure.c)
- *     MiWriteSecureFlags @ 0x1404CD974 (MiWriteSecureFlags.c)
- *     MiInsertVadCharges @ 0x1409C5DC0 (MiInsertVadCharges.c)
- *     MiInsertSharedCommitNode @ 0x1409C6360 (MiInsertSharedCommitNode.c)
- *     MiCreateExtendInfo @ 0x1409C6A2C (MiCreateExtendInfo.c)
- *     MiChargeSegmentCommit @ 0x1409C9BB0 (MiChargeSegmentCommit.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     MmGetCurrentProcessorColor @ 0x140442EF0 (MmGetCurrentProcessorColor.c)
+ *     MiWriteVadFlags2 @ 0x140455410 (MiWriteVadFlags2.c)
+ *     MiReadVadFlags @ 0x14045E590 (MiReadVadFlags.c)
+ *     MiComputeContiguousSubsectionPte @ 0x14048ADEC (MiComputeContiguousSubsectionPte.c)
+ *     MiUpdateVadStartVpn @ 0x140494C34 (MiUpdateVadStartVpn.c)
+ *     MiInsertVadEvent @ 0x140494C48 (MiInsertVadEvent.c)
+ *     MiLocateExclusiveSecure @ 0x1404B25EC (MiLocateExclusiveSecure.c)
+ *     MiWriteSecureFlags @ 0x1404C73A4 (MiWriteSecureFlags.c)
+ *     MiInsertVadCharges @ 0x140996DA0 (MiInsertVadCharges.c)
+ *     MiInsertSharedCommitNode @ 0x140997340 (MiInsertSharedCommitNode.c)
+ *     MiCreateExtendInfo @ 0x140997A0C (MiCreateExtendInfo.c)
+ *     MiChargeSegmentCommit @ 0x14099AB90 (MiChargeSegmentCommit.c)
  */
 
 __int64 __fastcall MiInitializeDataVad(__int64 *a1)

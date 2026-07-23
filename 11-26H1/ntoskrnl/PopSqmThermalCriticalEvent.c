@@ -1,15 +1,15 @@
 /*
- * XREFs of PopSqmThermalCriticalEvent @ 0x1407E33B4
+ * XREFs of PopSqmThermalCriticalEvent @ 0x1407E8444
  * Callers:
- *     PopSqmThermalCriticalShutdown @ 0x1407E357C (PopSqmThermalCriticalShutdown.c)
- *     PopSqmThermalHibernate @ 0x1407E35A0 (PopSqmThermalHibernate.c)
+ *     PopSqmThermalCriticalShutdown @ 0x1407E860C (PopSqmThermalCriticalShutdown.c)
+ *     PopSqmThermalHibernate @ 0x1407E8630 (PopSqmThermalHibernate.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     IoGetDeviceAttachmentBaseRefWithTag @ 0x14026F2B4 (IoGetDeviceAttachmentBaseRefWithTag.c)
- *     _tlgCreate1Sz_wchar_t @ 0x140437A60 (_tlgCreate1Sz_wchar_t.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     IoGetDeviceAttachmentBaseRefWithTag @ 0x14026E824 (IoGetDeviceAttachmentBaseRefWithTag.c)
+ *     _tlgCreate1Sz_wchar_t @ 0x1404269F0 (_tlgCreate1Sz_wchar_t.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void *__fastcall PopSqmThermalCriticalEvent(__int64 a1, unsigned int a2, int a3)
@@ -53,8 +53,8 @@ void *__fastcall PopSqmThermalCriticalEvent(__int64 a1, unsigned int a2, int a3)
   if ( result )
   {
     if ( *(_QWORD *)(*((_QWORD *)result + 39) + 40LL)
-      && (unsigned int)dword_140E07598 > 5
-      && tlgKeywordOn((__int64)&dword_140E07598, 0x800000000000LL) )
+      && (unsigned int)dword_140E07560 > 5
+      && tlgKeywordOn((__int64)&dword_140E07560, 0x800000000000LL) )
     {
       v11 = *(_BYTE *)(a1 + 65);
       v12 = *(_BYTE *)(a1 + 228) == (unsigned __int8)v10;
@@ -83,8 +83,8 @@ void *__fastcall PopSqmThermalCriticalEvent(__int64 a1, unsigned int a2, int a3)
       tlgCreate1Sz_wchar_t((__int64)v37, v13);
       tlgCreate1Sz_wchar_t((__int64)v38, v14);
       tlgWriteTransfer_EtwWriteTransfer(
-        (__int64)&dword_140E07598,
-        (unsigned __int8 *)byte_1400509B3,
+        (__int64)&dword_140E07560,
+        (unsigned __int8 *)byte_140051AB3,
         0LL,
         0LL,
         0xBu,

@@ -1,9 +1,9 @@
 /*
- * XREFs of KiCustomAccessRoutine6 @ 0x140168AB0
+ * XREFs of KiCustomAccessRoutine6 @ 0x140169020
  * Callers:
- *     KiBalanceSetManagerDeferredRoutine @ 0x1400A9690 (KiBalanceSetManagerDeferredRoutine.c)
+ *     KiBalanceSetManagerDeferredRoutine @ 0x1400A7C10 (KiBalanceSetManagerDeferredRoutine.c)
  * Callees:
- *     KiCustomRecurseRoutine6 @ 0x140168A90 (KiCustomRecurseRoutine6.c)
+ *     KiCustomRecurseRoutine6 @ 0x140169000 (KiCustomRecurseRoutine6.c)
  */
 
 __int64 __fastcall KiCustomAccessRoutine6(unsigned int *a1)

@@ -1,19 +1,19 @@
 /*
- * XREFs of MiQueuePageAccessLog @ 0x1403BA328
+ * XREFs of MiQueuePageAccessLog @ 0x1403C4198
  * Callers:
- *     MiEmptyPageAccessLog @ 0x1402CFDDC (MiEmptyPageAccessLog.c)
- *     MiPeriodicTrimWorkingSet @ 0x1403B9E10 (MiPeriodicTrimWorkingSet.c)
- *     MiCheckAndProcessCcAccessLog @ 0x1403BA2D4 (MiCheckAndProcessCcAccessLog.c)
- *     MiReturnCcAccessLog @ 0x1403BA494 (MiReturnCcAccessLog.c)
- *     MiAgeTargetedWorkingSet @ 0x140476D30 (MiAgeTargetedWorkingSet.c)
- *     MiGetCcAccessLog @ 0x140A52AF4 (MiGetCcAccessLog.c)
+ *     MiEmptyPageAccessLog @ 0x1402B1B9C (MiEmptyPageAccessLog.c)
+ *     MiPeriodicTrimWorkingSet @ 0x1403C3C80 (MiPeriodicTrimWorkingSet.c)
+ *     MiCheckAndProcessCcAccessLog @ 0x1403C4144 (MiCheckAndProcessCcAccessLog.c)
+ *     MiReturnCcAccessLog @ 0x1403C4304 (MiReturnCcAccessLog.c)
+ *     MiAgeTargetedWorkingSet @ 0x1404704B0 (MiAgeTargetedWorkingSet.c)
+ *     MiGetCcAccessLog @ 0x140A5BDE4 (MiGetCcAccessLog.c)
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     ObDereferenceObjectDeferDeleteWithTag @ 0x14027C870 (ObDereferenceObjectDeferDeleteWithTag.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     RtlpInterlockedPushEntrySList @ 0x140730CD0 (RtlpInterlockedPushEntrySList.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     ObDereferenceObjectDeferDeleteWithTag @ 0x14027BDE0 (ObDereferenceObjectDeferDeleteWithTag.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1407358A0 (RtlpInterlockedPushEntrySList.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiQueuePageAccessLog(__int64 a1, __int64 a2)
@@ -27,7 +27,7 @@ void __fastcall MiQueuePageAccessLog(__int64 a1, __int64 a2)
   void *v9; // rcx
 
   *(_QWORD *)(a2 + 24) = MEMORY[0xFFFFF78000000320];
-  *(_DWORD *)(a2 + 12) = stru_140F12D20.Padding[2];
+  *(_DWORD *)(a2 + 12) = xmmword_140F13528;
   v3 = *(_QWORD *)(*(_QWORD *)(a1 + 256) + 32LL);
   v4 = (struct _EX_RUNDOWN_REF *)(v3 + 728);
   if ( !ExAcquireRundownProtection_0((PEX_RUNDOWN_REF)(v3 + 728)) )

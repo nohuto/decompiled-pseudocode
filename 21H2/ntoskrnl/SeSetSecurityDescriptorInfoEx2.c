@@ -1,9 +1,9 @@
 /*
- * XREFs of SeSetSecurityDescriptorInfoEx2 @ 0x14066DEBC
+ * XREFs of SeSetSecurityDescriptorInfoEx2 @ 0x140662CDC
  * Callers:
- *     CmpSetSecurityDescriptorInfo @ 0x14066CCFC (CmpSetSecurityDescriptorInfo.c)
+ *     CmpSetSecurityDescriptorInfo @ 0x140661B1C (CmpSetSecurityDescriptorInfo.c)
  * Callees:
- *     RtlpSetSecurityObject @ 0x14065E3C0 (RtlpSetSecurityObject.c)
+ *     RtlpSetSecurityObject @ 0x1406531E0 (RtlpSetSecurityObject.c)
  */
 
 __int64 __fastcall SeSetSecurityDescriptorInfoEx2(

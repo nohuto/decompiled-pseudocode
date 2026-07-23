@@ -12,6 +12,6 @@ __int64 sub_180059D2C()
   qword_18015C270 = (__int64)&qword_18015C270;
   qword_18015C218 = (__int64)&qword_18015C210;
   qword_18015C210 = (__int64)&qword_18015C210;
-  RtlInitializeCriticalSectionEx(&unk_18015C240, 0LL, 0LL);
+  RtlInitializeCriticalSectionEx(&stru_18015C240, 0, 0);
   return sub_18005CE48();
 }

@@ -27,7 +27,7 @@ __int64 __fastcall RtlpHpSegFree(__int64 a1, unsigned __int64 a2, unsigned int a
   __int64 v16; // rcx
   __int64 v17; // rcx
   __int64 v18; // r8
-  unsigned int v19; // [rsp+58h] [rbp+20h] BYREF
+  __int64 v19; // [rsp+58h] [rbp+20h] BYREF
 
   if ( (RtlpHpAppCompatFlags & 1) != 0 )
   {
@@ -71,19 +71,19 @@ LABEL_39:
   {
     if ( (*(_BYTE *)(DescriptorValidateSafe + 24) & 0xC) == 8 )
     {
-      v10 = RtlpHpLfhSubsegmentFreeBlock(*(__int16 **)(a1 + 24), v9, a2, a3);
+      v10 = RtlpHpLfhSubsegmentFreeBlock(*(_QWORD *)(a1 + 24), v9, a2, a3);
       v14 = 0;
     }
     else
     {
-      v10 = RtlpHpVsContextFree(*(_QWORD *)(a1 + 32), v9, a2, a3, &v19);
+      v10 = RtlpHpVsContextFree(*(PRTL_SRWLOCK *)(a1 + 32), v9, a2, a3, (unsigned int *)&v19);
       v14 = 1;
       if ( v10 )
       {
         v17 = *(_QWORD *)(a1 + 24);
-        if ( v19 <= (unsigned int)*(unsigned __int16 *)(v17 + 60) - 16 )
+        if ( (unsigned int)v19 <= (unsigned int)*(unsigned __int16 *)(v17 + 60) - 16 )
         {
-          RtlpHpLfhBucketUpdateStats(v17, v19, 0LL);
+          RtlpHpLfhBucketUpdateStats(v17, (unsigned int)v19, 0LL);
           v14 = 1;
         }
       }

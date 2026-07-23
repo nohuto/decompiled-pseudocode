@@ -1,11 +1,11 @@
 /*
- * XREFs of PoFxPowerControl @ 0x1403B7120
+ * XREFs of PoFxPowerControl @ 0x1403C1020
  * Callers:
- *     DifPoFxPowerControlWrapper @ 0x1406935D0 (DifPoFxPowerControlWrapper.c)
+ *     DifPoFxPowerControlWrapper @ 0x1406971B0 (DifPoFxPowerControlWrapper.c)
  * Callees:
- *     PopFxTryReferenceDevice @ 0x140218E68 (PopFxTryReferenceDevice.c)
- *     PopFxDereferenceDevice @ 0x1403B61F4 (PopFxDereferenceDevice.c)
- *     PopPluginRequestPowerControl @ 0x1403B71D8 (PopPluginRequestPowerControl.c)
+ *     PopFxTryReferenceDevice @ 0x14021B7B8 (PopFxTryReferenceDevice.c)
+ *     PopFxDereferenceDevice @ 0x1403C00F4 (PopFxDereferenceDevice.c)
+ *     PopPluginRequestPowerControl @ 0x1403C10D8 (PopPluginRequestPowerControl.c)
  */
 
 __int64 __fastcall PoFxPowerControl(__int64 a1, int a2, int a3, int a4, __int64 a5, __int64 a6, _QWORD *a7)

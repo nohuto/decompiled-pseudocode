@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwpCCSwapFlush @ 0x140073B1C
+ * XREFs of EtwpCCSwapFlush @ 0x14007369C
  * Callers:
- *     EtwpCCSwapTrace @ 0x1400D6590 (EtwpCCSwapTrace.c)
+ *     EtwpCCSwapTrace @ 0x1400D4430 (EtwpCCSwapTrace.c)
  * Callees:
- *     EtwpLogKernelEvent @ 0x140059740 (EtwpLogKernelEvent.c)
- *     EtwpCloseLogger @ 0x140073C30 (EtwpCloseLogger.c)
- *     EtwpOpenLogger @ 0x140073C68 (EtwpOpenLogger.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     EtwpLogKernelEvent @ 0x1400592C0 (EtwpLogKernelEvent.c)
+ *     EtwpCloseLogger @ 0x1400737B0 (EtwpCloseLogger.c)
+ *     EtwpOpenLogger @ 0x1400737E8 (EtwpOpenLogger.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall EtwpCCSwapFlush(int *a1, int a2)

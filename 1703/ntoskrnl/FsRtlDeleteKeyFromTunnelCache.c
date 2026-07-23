@@ -12,7 +12,7 @@
 
 void __stdcall FsRtlDeleteKeyFromTunnelCache(TUNNEL *Cache, ULONGLONG DirectoryKey)
 {
-  struct _RTL_SPLAY_LINKS *v2; // rbx
+  _RTL_SPLAY_LINKS *v2; // rbx
   PRTL_SPLAY_LINKS v5; // rax
   ULONGLONG Parent; // rcx
   PRTL_SPLAY_LINKS v7; // rbp

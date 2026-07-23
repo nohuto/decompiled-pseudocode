@@ -1,8 +1,8 @@
 /*
- * XREFs of HvpViewMapCountPinMaskSetBits @ 0x14060FF08
+ * XREFs of HvpViewMapCountPinMaskSetBits @ 0x14060FFBC
  * Callers:
- *     HvpViewMapPinForFileOffset @ 0x1401B68C8 (HvpViewMapPinForFileOffset.c)
- *     HvpViewMapUnpinForFileOffset @ 0x1401B6B34 (HvpViewMapUnpinForFileOffset.c)
+ *     HvpViewMapPinForFileOffset @ 0x1401B67AC (HvpViewMapPinForFileOffset.c)
+ *     HvpViewMapUnpinForFileOffset @ 0x1401B6A18 (HvpViewMapUnpinForFileOffset.c)
  * Callees:
  *     <none>
  */

@@ -40,7 +40,9 @@ __int64 __fastcall PopBlackBoxUpdate(__int64 a1, char a2)
   v4 = &PopBlackBoxEntries + 13 * v3;
   if ( a2
     && ((_DWORD)v4[2] & 1) != 0
-    && !RtlTestProtectedAccess(BYTE2(KeGetCurrentThread()->Process[3].ActiveGroupsMask.Masks[1]), 0x61u) )
+    && !RtlTestProtectedAccess(
+          (PS_PROTECTION)SBYTE2(KeGetCurrentThread()->Process[3].ActiveGroupsMask.Masks[1]),
+          (PS_PROTECTION)97) )
   {
     v12 = -1073741790;
     goto LABEL_16;

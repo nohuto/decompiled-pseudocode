@@ -1,7 +1,7 @@
 /*
  * XREFs of Normalization__CanCombinableCharactersCombine @ 0x1800FC694
  * Callers:
- *     Normalization__NormalizeCharacter @ 0x180083C50 (Normalization__NormalizeCharacter.c)
+ *     Normalization__NormalizeCharacter @ 0x180083C60 (Normalization__NormalizeCharacter.c)
  *     NormBuffer__LastStartBasePair @ 0x1800FC174 (NormBuffer__LastStartBasePair.c)
  *     NormBuffer__RecheckStartCombinations @ 0x1800FC1C0 (NormBuffer__RecheckStartCombinations.c)
  *     Normalization__CanCombineWithStartBase @ 0x1800FC7F4 (Normalization__CanCombineWithStartBase.c)

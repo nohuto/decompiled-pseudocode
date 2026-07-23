@@ -1,20 +1,20 @@
 /*
- * XREFs of HvHiveCleanup @ 0x140709C24
+ * XREFs of HvHiveCleanup @ 0x140721004
  * Callers:
- *     CmpCompleteUnloadKey @ 0x14071CB34 (CmpCompleteUnloadKey.c)
- *     CmpDestroyHive @ 0x140728F38 (CmpDestroyHive.c)
- *     CmShutdownSystem @ 0x14086B8F8 (CmShutdownSystem.c)
+ *     CmpCompleteUnloadKey @ 0x1405E0268 (CmpCompleteUnloadKey.c)
+ *     CmpDestroyHive @ 0x1407293E8 (CmpDestroyHive.c)
+ *     CmShutdownSystem @ 0x14086BA58 (CmShutdownSystem.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     CmpFreeBootRegistry @ 0x1404EDED8 (CmpFreeBootRegistry.c)
- *     HvpFreeHiveFreeDisplay @ 0x1406A7628 (HvpFreeHiveFreeDisplay.c)
- *     HvpViewMapCleanup @ 0x1406B58BC (HvpViewMapCleanup.c)
- *     HvpFreeMap @ 0x1406BB0F8 (HvpFreeMap.c)
- *     HvpMapEntryGetFreeBin @ 0x14070810C (HvpMapEntryGetFreeBin.c)
- *     HvpGetCellMap @ 0x140708730 (HvpGetCellMap.c)
- *     CmpReleaseGlobalQuota @ 0x140709E4C (CmpReleaseGlobalQuota.c)
- *     HvpFreeBin @ 0x140725BD0 (HvpFreeBin.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     CmpFreeBootRegistry @ 0x1404EE118 (CmpFreeBootRegistry.c)
+ *     HvpFreeHiveFreeDisplay @ 0x1406050A8 (HvpFreeHiveFreeDisplay.c)
+ *     HvpViewMapCleanup @ 0x140614D78 (HvpViewMapCleanup.c)
+ *     HvpFreeMap @ 0x14061A3C8 (HvpFreeMap.c)
+ *     HvpFreeBin @ 0x140621684 (HvpFreeBin.c)
+ *     HvpMapEntryGetFreeBin @ 0x14071F4EC (HvpMapEntryGetFreeBin.c)
+ *     HvpGetCellMap @ 0x14071FB10 (HvpGetCellMap.c)
+ *     CmpReleaseGlobalQuota @ 0x14072122C (CmpReleaseGlobalQuota.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 _UNKNOWN **__fastcall HvHiveCleanup(__int64 a1)
@@ -70,7 +70,7 @@ _UNKNOWN **__fastcall HvHiveCleanup(__int64 a1)
           }
           v13 = *(unsigned int *)(v9 + 16);
           if ( (v11 & 8) != 0 )
-            HvpFreeBin(a1, (unsigned int)v13, v11 & 0xFFFFFFFFFFFFFFF0uLL);
+            HvpFreeBin(a1, v13, v11 & 0xFFFFFFFFFFFFFFF0uLL);
           else
             CmpReleaseGlobalQuota(v13);
         }

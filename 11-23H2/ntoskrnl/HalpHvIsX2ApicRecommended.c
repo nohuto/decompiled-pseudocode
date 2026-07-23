@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpHvIsX2ApicRecommended @ 0x14050B5D8
+ * XREFs of HalpHvIsX2ApicRecommended @ 0x14050BB28
  * Callers:
- *     HalpInterruptGetX2ApicPolicy @ 0x1403785AC (HalpInterruptGetX2ApicPolicy.c)
+ *     HalpInterruptGetX2ApicPolicy @ 0x14037874C (HalpInterruptGetX2ApicPolicy.c)
  * Callees:
- *     HalpIsMicrosoftCompatibleHvLoaded @ 0x140377F3C (HalpIsMicrosoftCompatibleHvLoaded.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     HalpIsMicrosoftCompatibleHvLoaded @ 0x1403780DC (HalpIsMicrosoftCompatibleHvLoaded.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 bool __fastcall HalpHvIsX2ApicRecommended(__int64 a1, __int64 a2)

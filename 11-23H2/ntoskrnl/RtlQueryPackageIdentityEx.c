@@ -1,31 +1,39 @@
 /*
- * XREFs of RtlQueryPackageIdentityEx @ 0x140225FE0
+ * XREFs of RtlQueryPackageIdentityEx @ 0x1402260F0
  * Callers:
- *     RtlQueryPackageIdentity @ 0x140225F90 (RtlQueryPackageIdentity.c)
- *     PspIdentityBasedJobBreakaway @ 0x1407EA410 (PspIdentityBasedJobBreakaway.c)
+ *     RtlQueryPackageIdentity @ 0x1402260A0 (RtlQueryPackageIdentity.c)
+ *     PspIdentityBasedJobBreakaway @ 0x1407EA6E0 (PspIdentityBasedJobBreakaway.c)
  * Callees:
- *     RtlQueryPackageClaims @ 0x140226040 (RtlQueryPackageClaims.c)
+ *     RtlQueryPackageClaims @ 0x140226150 (RtlQueryPackageClaims.c)
  */
 
-__int64 __fastcall RtlQueryPackageIdentityEx(
-        __int64 a1,
-        __int64 a2,
-        __int64 a3,
-        __int64 a4,
-        __int64 a5,
-        __int64 a6,
-        _QWORD *a7)
+NTSTATUS __cdecl RtlQueryPackageIdentityEx(
+        HANDLE TokenHandle,
+        PWSTR PackageFullName,
+        PSIZE_T PackageSize,
+        PWSTR AppId,
+        PSIZE_T AppIdSize,
+        PGUID DynamicId,
+        PULONG64 Flags)
 {
-  _QWORD *v7; // rbx
-  __int64 result; // rax
+  PULONG64 v7; // rbx
+  NTSTATUS result; // eax
 
-  a6 = 0LL;
-  v7 = a7;
-  result = RtlQueryPackageClaims(a1, a2, a3, a4, a5, 0LL, (unsigned __int64)&a6 & -(__int64)(a7 != 0LL), 0LL);
-  if ( (int)result >= 0 )
+  DynamicId = 0LL;
+  v7 = Flags;
+  result = RtlQueryPackageClaims(
+             TokenHandle,
+             PackageFullName,
+             PackageSize,
+             AppId,
+             AppIdSize,
+             0LL,
+             (PPS_PKG_CLAIM)((unsigned __int64)&DynamicId & -(__int64)(Flags != 0LL)),
+             0LL);
+  if ( result >= 0 )
   {
     if ( v7 )
-      *v7 = (unsigned int)a6;
+      *v7 = (unsigned int)DynamicId;
   }
   return result;
 }

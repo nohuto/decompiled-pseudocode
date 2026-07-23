@@ -1,16 +1,16 @@
 /*
- * XREFs of IopAllocateIrpPrivate @ 0x14022EFA0
+ * XREFs of IopAllocateIrpPrivate @ 0x14022F0B0
  * Callers:
- *     IoAllocateIrp @ 0x14022E610 (IoAllocateIrp.c)
- *     IopAllocateIrpExReturn @ 0x14022EF70 (IopAllocateIrpExReturn.c)
- *     IopAllocateIrpWithExtension @ 0x14028FDC0 (IopAllocateIrpWithExtension.c)
- *     IoAllocateIrpEx @ 0x140310FB0 (IoAllocateIrpEx.c)
- *     IovAllocateIrp @ 0x140AC0CE0 (IovAllocateIrp.c)
+ *     IoAllocateIrp @ 0x14022E720 (IoAllocateIrp.c)
+ *     IopAllocateIrpExReturn @ 0x14022F080 (IopAllocateIrpExReturn.c)
+ *     IopAllocateIrpWithExtension @ 0x140290050 (IopAllocateIrpWithExtension.c)
+ *     IoAllocateIrpEx @ 0x140311240 (IoAllocateIrpEx.c)
+ *     IovAllocateIrp @ 0x140AC0CD0 (IovAllocateIrp.c)
  * Callees:
- *     KiInsertQueueDpc @ 0x140254790 (KiInsertQueueDpc.c)
- *     RtlpInterlockedPopEntrySList @ 0x140428EB0 (RtlpInterlockedPopEntrySList.c)
- *     memset @ 0x140435A00 (memset.c)
- *     IopInitActivityIdIrp @ 0x140555724 (IopInitActivityIdIrp.c)
+ *     KiInsertQueueDpc @ 0x140254850 (KiInsertQueueDpc.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140429240 (RtlpInterlockedPopEntrySList.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     IopInitActivityIdIrp @ 0x140555DE4 (IopInitActivityIdIrp.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

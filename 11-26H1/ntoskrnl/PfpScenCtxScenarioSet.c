@@ -1,23 +1,23 @@
 /*
- * XREFs of PfpScenCtxScenarioSet @ 0x140C09F08
+ * XREFs of PfpScenCtxScenarioSet @ 0x140C10118
  * Callers:
- *     PfpProcessScenarioPhase @ 0x140B1CEB8 (PfpProcessScenarioPhase.c)
- *     PfPowerActionNotify @ 0x140C071B0 (PfPowerActionNotify.c)
+ *     PfpProcessScenarioPhase @ 0x140B1F0C8 (PfpProcessScenarioPhase.c)
+ *     PfPowerActionNotify @ 0x140C0D3C0 (PfPowerActionNotify.c)
  * Callees:
- *     ObDereferenceObjectDeferDelete @ 0x140265670 (ObDereferenceObjectDeferDelete.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     PfpScenCtxWaiterTimedOut @ 0x1405FFE04 (PfpScenCtxWaiterTimedOut.c)
- *     PfpServiceMainThreadBoost @ 0x1405FFE34 (PfpServiceMainThreadBoost.c)
- *     PfpServiceMainThreadBoostPrep @ 0x1407C60A8 (PfpServiceMainThreadBoostPrep.c)
- *     PfpScenCtxPrefetchAbortSet @ 0x140BF88B0 (PfpScenCtxPrefetchAbortSet.c)
- *     PfpScenCtxPrefetchStateSet @ 0x140BF89BC (PfpScenCtxPrefetchStateSet.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ObDereferenceObjectDeferDelete @ 0x140264BE0 (ObDereferenceObjectDeferDelete.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     PfpScenCtxWaiterTimedOut @ 0x1406028B4 (PfpScenCtxWaiterTimedOut.c)
+ *     PfpServiceMainThreadBoost @ 0x1406028E4 (PfpServiceMainThreadBoost.c)
+ *     PfpServiceMainThreadBoostPrep @ 0x1407C9108 (PfpServiceMainThreadBoostPrep.c)
+ *     PfpScenCtxPrefetchAbortSet @ 0x140BFE8B0 (PfpScenCtxPrefetchAbortSet.c)
+ *     PfpScenCtxPrefetchStateSet @ 0x140BFE9BC (PfpScenCtxPrefetchStateSet.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PfpScenCtxScenarioSet(struct _KTHREAD *a1, int a2, int a3, struct _KLOCK_ENTRIES *a4)

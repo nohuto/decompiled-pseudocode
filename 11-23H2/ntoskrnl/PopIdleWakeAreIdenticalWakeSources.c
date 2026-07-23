@@ -1,9 +1,9 @@
 /*
- * XREFs of PopIdleWakeAreIdenticalWakeSources @ 0x14059D4C0
+ * XREFs of PopIdleWakeAreIdenticalWakeSources @ 0x14059D9B0
  * Callers:
- *     PopIdleWakeFindOrAllocateWakeSource @ 0x14059D70C (PopIdleWakeFindOrAllocateWakeSource.c)
+ *     PopIdleWakeFindOrAllocateWakeSource @ 0x14059DBFC (PopIdleWakeFindOrAllocateWakeSource.c)
  * Callees:
- *     _wcsnicmp @ 0x1403D9B90 (_wcsnicmp.c)
+ *     _wcsnicmp @ 0x1403D9D70 (_wcsnicmp.c)
  */
 
 bool __fastcall PopIdleWakeAreIdenticalWakeSources(int a1, _BYTE *a2, _QWORD *a3)

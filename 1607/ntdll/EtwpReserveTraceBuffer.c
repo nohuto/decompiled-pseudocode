@@ -1,16 +1,16 @@
 /*
- * XREFs of EtwpReserveTraceBuffer @ 0x18005BD10
+ * XREFs of EtwpReserveTraceBuffer @ 0x18005BD00
  * Callers:
- *     EtwpTraceUmMessage @ 0x18005ABB4 (EtwpTraceUmMessage.c)
- *     EtwpWriteToPrivateBuffers @ 0x18005B254 (EtwpWriteToPrivateBuffers.c)
- *     EtwpTraceUmEvent @ 0x18005B8D8 (EtwpTraceUmEvent.c)
- *     EtwpRelogEvent @ 0x18005BC20 (EtwpRelogEvent.c)
+ *     EtwpTraceUmMessage @ 0x18005ABA4 (EtwpTraceUmMessage.c)
+ *     EtwpWriteToPrivateBuffers @ 0x18005B244 (EtwpWriteToPrivateBuffers.c)
+ *     EtwpTraceUmEvent @ 0x18005B8C8 (EtwpTraceUmEvent.c)
+ *     EtwpRelogEvent @ 0x18005BC10 (EtwpRelogEvent.c)
  * Callees:
- *     RtlQueryPerformanceCounter @ 0x18005BEE0 (RtlQueryPerformanceCounter.c)
- *     EtwpSwitchBuffer @ 0x18005CE98 (EtwpSwitchBuffer.c)
+ *     RtlQueryPerformanceCounter @ 0x18005BED0 (RtlQueryPerformanceCounter.c)
+ *     EtwpSwitchBuffer @ 0x18005CE88 (EtwpSwitchBuffer.c)
  */
 
-__int64 __fastcall EtwpReserveTraceBuffer(__int64 a1, unsigned int a2, unsigned int a3, _QWORD *a4, _QWORD *a5)
+__int64 __fastcall EtwpReserveTraceBuffer(__int64 a1, unsigned int a2, unsigned int a3, LARGE_INTEGER *a4, _QWORD *a5)
 {
   unsigned int v6; // esi
   unsigned int v8; // r14d
@@ -45,11 +45,11 @@ __int64 __fastcall EtwpReserveTraceBuffer(__int64 a1, unsigned int a2, unsigned 
             {
               if ( *(_DWORD *)(a1 + 16) == 2 )
               {
-                *a4 = MEMORY[0x7FFE0014];
+                a4->QuadPart = MEMORY[0x7FFE0014];
               }
               else if ( *(_DWORD *)(a1 + 16) == 3 )
               {
-                *a4 = __rdtsc();
+                a4->QuadPart = __rdtsc();
               }
               else
               {

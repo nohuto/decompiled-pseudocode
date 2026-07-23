@@ -43,26 +43,24 @@ __int64 __fastcall MiWaitForCollidedFaultComplete(_QWORD *a1, __int64 a2, __int6
   __int64 v20; // r9
   __int64 v21; // r8
   __int64 v23; // rax
-  __int64 v24; // rdx
-  __int64 v25; // r8
-  unsigned __int8 v26; // si
+  unsigned __int8 v24; // si
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  int v30; // eax
-  bool v31; // zf
-  unsigned int v32; // ebx
-  __int64 v33; // [rsp+70h] [rbp+8h] BYREF
-  unsigned __int64 v34; // [rsp+78h] [rbp+10h]
-  unsigned __int8 v35; // [rsp+88h] [rbp+20h] BYREF
+  int v28; // eax
+  bool v29; // zf
+  unsigned int v30; // ebx
+  __int64 v31; // [rsp+70h] [rbp+8h] BYREF
+  unsigned __int64 v32; // [rsp+78h] [rbp+10h]
+  unsigned __int8 v33; // [rsp+88h] [rbp+20h] BYREF
 
-  v35 = a4;
+  v33 = a4;
   v6 = a5;
-  v34 = *(_QWORD *)(a2 + 8) | 0x8000000000000000uLL;
-  v9 = MI_READ_PTE_LOCK_FREE(v34);
+  v32 = *(_QWORD *)(a2 + 8) | 0x8000000000000000uLL;
+  v9 = MI_READ_PTE_LOCK_FREE(v32);
   v10 = *v6;
   v11 = *(_QWORD *)a2 - 32LL;
-  v33 = v9;
+  v31 = v9;
   if ( !v10 )
   {
     if ( (unsigned int)MiAddLockedPageCharge(a2, 2) )
@@ -92,40 +90,40 @@ __int64 __fastcall MiWaitForCollidedFaultComplete(_QWORD *a1, __int64 a2, __int6
   _InterlockedAnd64((volatile signed __int64 *)(a2 + 24), 0x7FFFFFFFFFFFFFFFuLL);
   if ( a3 )
   {
-    MiUnlockProtoPoolPage(a3, v35);
+    MiUnlockProtoPoolPage(a3, v33);
   }
   else
   {
     if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && (CurrentIrql = KeGetCurrentIrql(), CurrentIrql <= 0xFu) )
     {
-      v26 = v35;
-      if ( v35 <= 0xFu && CurrentIrql >= 2u )
+      v24 = v33;
+      if ( v33 <= 0xFu && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        v26 = v35;
-        v30 = ~(unsigned __int16)(-1LL << (v35 + 1));
-        v31 = (v30 & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= v30;
-        if ( v31 )
+        v24 = v33;
+        v28 = ~(unsigned __int16)(-1LL << (v33 + 1));
+        v29 = (v28 & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= v28;
+        if ( v29 )
           KiRemoveSystemWorkPriorityKick(CurrentPrcb);
       }
     }
     else
     {
-      v26 = v35;
+      v24 = v33;
     }
-    __writecr8(v26);
+    __writecr8(v24);
   }
   v13 = 0LL;
   if ( a1[7] )
     v13 = MiReleaseFaultState((__int64)(a1 + 7), 0x11u, 0LL);
   if ( *(_QWORD *)(v11 + 216) )
   {
-    v23 = KeAbPreAcquire(v11, 0LL, 0LL);
+    v23 = KeAbPreAcquire(v11, 0LL, 0);
     v14 = v23;
     if ( v23 )
-      KeAbPreWait(v23, v24, v25);
+      KeAbPreWait(v23);
   }
   else
   {
@@ -134,7 +132,7 @@ __int64 __fastcall MiWaitForCollidedFaultComplete(_QWORD *a1, __int64 a2, __int6
   KeWaitForSingleObject((PVOID)(v11 + 56), WrPageIn, 0, 0, 0LL);
   if ( v14 )
   {
-    KeAbPreAcquire(v11, v14, 0LL);
+    KeAbPreAcquire(v11, v14, 0);
     KeAbPostReleaseEx(v11);
   }
   MiFreeInPageSupportBlock((PSLIST_ENTRY)v11);
@@ -144,7 +142,7 @@ __int64 __fastcall MiWaitForCollidedFaultComplete(_QWORD *a1, __int64 a2, __int6
     return 3221226548LL;
   if ( a3 )
   {
-    MiRelockProtoPoolPage(a3, (char *)&v35, v16, v17);
+    MiRelockProtoPoolPage(a3, (char *)&v33, v16, v17);
     LODWORD(a5) = 0;
     while ( _interlockedbittestandset64((volatile signed __int32 *)(a2 + 24), 0x3FuLL) )
     {
@@ -159,12 +157,12 @@ __int64 __fastcall MiWaitForCollidedFaultComplete(_QWORD *a1, __int64 a2, __int6
   }
   if ( (*(_QWORD *)(a2 + 24) & 0x4000000000000000LL) == 0 )
   {
-    if ( (unsigned int)MiIsFaultPteIntact(a1, *a1, v34, &v33) && (unsigned int)MiImagePageOk(*a1, a2, v21, 0LL) )
+    if ( (unsigned int)MiIsFaultPteIntact(a1, *a1, v32, &v31) && (unsigned int)MiImagePageOk(*a1, a2, v21, 0LL) )
       return 0LL;
     MiRemoveLockedPageChargeAndDecRef(a2);
     return 3221226548LL;
   }
-  v32 = (*(_BYTE *)(a2 + 35) & 0x10) != 0 ? 0xFFFFFBE3 : 0;
+  v30 = (*(_BYTE *)(a2 + 35) & 0x10) != 0 ? 0xFFFFFBE3 : 0;
   MiRemoveLockedPageChargeAndDecRef(a2);
-  return v32 - 1073740748;
+  return v30 - 1073740748;
 }

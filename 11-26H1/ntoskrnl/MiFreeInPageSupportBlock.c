@@ -1,36 +1,36 @@
 /*
- * XREFs of MiFreeInPageSupportBlock @ 0x14031D5D8
+ * XREFs of MiFreeInPageSupportBlock @ 0x14031F608
  * Callers:
- *     MiHandleTransitionFault @ 0x1402F6550 (MiHandleTransitionFault.c)
- *     MiFinishHardFault @ 0x14031D830 (MiFinishHardFault.c)
- *     MiResolveMappedFileFault @ 0x14036F5D0 (MiResolveMappedFileFault.c)
- *     MiResolveMappedFileFaultGetInPageSupport @ 0x14036FF50 (MiResolveMappedFileFaultGetInPageSupport.c)
- *     MiResolvePageFileFault @ 0x1403701DC (MiResolvePageFileFault.c)
- *     MiAllocateInPageSupport @ 0x140371500 (MiAllocateInPageSupport.c)
- *     MiAllocatePageFileReadResources @ 0x1403719F8 (MiAllocatePageFileReadResources.c)
- *     MiPfPutPagesInTransition @ 0x140372C60 (MiPfPutPagesInTransition.c)
- *     MiWaitForCollidedFaultComplete @ 0x14038B588 (MiWaitForCollidedFaultComplete.c)
- *     MiResolveTransitionFault @ 0x1403A6F04 (MiResolveTransitionFault.c)
- *     MiResolveMappedFileFaultByCopying @ 0x1404893DC (MiResolveMappedFileFaultByCopying.c)
- *     MiFaultGetFileExtents @ 0x14050CBDC (MiFaultGetFileExtents.c)
- *     MiPrivateFixup @ 0x14051D784 (MiPrivateFixup.c)
- *     MiDeleteVadEventRotate @ 0x14086ABE0 (MiDeleteVadEventRotate.c)
- *     MmPrefetchPagesEx @ 0x140A51A98 (MmPrefetchPagesEx.c)
- *     MiPfAllocateMdls @ 0x140A526F0 (MiPfAllocateMdls.c)
- *     MiPfOptimizeMdl @ 0x140AB5C08 (MiPfOptimizeMdl.c)
- *     MiGetReadyInPageBlock @ 0x140B3C89C (MiGetReadyInPageBlock.c)
+ *     MiHandleTransitionFault @ 0x1402D85D0 (MiHandleTransitionFault.c)
+ *     MiFinishHardFault @ 0x14031F860 (MiFinishHardFault.c)
+ *     MiResolveMappedFileFault @ 0x140371380 (MiResolveMappedFileFault.c)
+ *     MiResolveMappedFileFaultGetInPageSupport @ 0x140371D00 (MiResolveMappedFileFaultGetInPageSupport.c)
+ *     MiResolvePageFileFault @ 0x140371F8C (MiResolvePageFileFault.c)
+ *     MiAllocateInPageSupport @ 0x1403732B0 (MiAllocateInPageSupport.c)
+ *     MiAllocatePageFileReadResources @ 0x1403737A8 (MiAllocatePageFileReadResources.c)
+ *     MiPfPutPagesInTransition @ 0x140374A10 (MiPfPutPagesInTransition.c)
+ *     MiWaitForCollidedFaultComplete @ 0x14038D338 (MiWaitForCollidedFaultComplete.c)
+ *     MiResolveTransitionFault @ 0x1403A8C64 (MiResolveTransitionFault.c)
+ *     MiResolveMappedFileFaultByCopying @ 0x140482F1C (MiResolveMappedFileFaultByCopying.c)
+ *     MiFaultGetFileExtents @ 0x14050664C (MiFaultGetFileExtents.c)
+ *     MiPrivateFixup @ 0x14051FCB0 (MiPrivateFixup.c)
+ *     MiDeleteVadEventRotate @ 0x140870FC0 (MiDeleteVadEventRotate.c)
+ *     MmPrefetchPagesEx @ 0x140A5AD88 (MmPrefetchPagesEx.c)
+ *     MiPfAllocateMdls @ 0x140A5B9E0 (MiPfAllocateMdls.c)
+ *     MiPfOptimizeMdl @ 0x140AB6FA8 (MiPfOptimizeMdl.c)
+ *     MiGetReadyInPageBlock @ 0x140B3EB1C (MiGetReadyInPageBlock.c)
  * Callees:
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     MiInsertInPageBlock @ 0x14031C624 (MiInsertInPageBlock.c)
- *     MiDereferenceInPageAutoBoostLock @ 0x1403A001C (MiDereferenceInPageAutoBoostLock.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     MiInsertInPageBlock @ 0x14031E654 (MiInsertInPageBlock.c)
+ *     MiDereferenceInPageAutoBoostLock @ 0x1403A1D7C (MiDereferenceInPageAutoBoostLock.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiFreeInPageSupportBlock(PSLIST_ENTRY ListEntry)
 {
-  struct _SLIST_ENTRY *Next; // rcx
-  struct _SLIST_ENTRY *v3; // rcx
-  struct _SLIST_ENTRY *v4; // rcx
+  _SLIST_ENTRY *Next; // rcx
+  _SLIST_ENTRY *v3; // rcx
+  _SLIST_ENTRY *v4; // rcx
 
   Next = ListEntry[14].Next;
   if ( Next == ListEntry && *((struct _KTHREAD **)&ListEntry[9].Next + 1) == KeGetCurrentThread() )

@@ -1,23 +1,23 @@
 /*
- * XREFs of CcPostDeferredWrites @ 0x1404EA2F0
+ * XREFs of CcPostDeferredWrites @ 0x1404EA530
  * Callers:
- *     CcFlushCachePriv @ 0x14022CBA0 (CcFlushCachePriv.c)
- *     CcNotifyOfMappedWriteComplete @ 0x1402D0220 (CcNotifyOfMappedWriteComplete.c)
- *     CcLazyWriteScan @ 0x1402F5894 (CcLazyWriteScan.c)
- *     CcCanIWrite @ 0x1403131D0 (CcCanIWrite.c)
- *     CcDeductDirtyPagesFromExternalCache @ 0x140392340 (CcDeductDirtyPagesFromExternalCache.c)
- *     CcDeferWrite @ 0x1404EA040 (CcDeferWrite.c)
- *     CcUnpinRepinnedBcb @ 0x1404EA760 (CcUnpinRepinnedBcb.c)
- *     CcExitPartition @ 0x1404EC154 (CcExitPartition.c)
+ *     CcNotifyOfMappedWriteComplete @ 0x14024E5A0 (CcNotifyOfMappedWriteComplete.c)
+ *     CcFlushCachePriv @ 0x1402D13F0 (CcFlushCachePriv.c)
+ *     CcLazyWriteScan @ 0x1403005E4 (CcLazyWriteScan.c)
+ *     CcCanIWrite @ 0x14031DF20 (CcCanIWrite.c)
+ *     CcDeductDirtyPagesFromExternalCache @ 0x140392490 (CcDeductDirtyPagesFromExternalCache.c)
+ *     CcDeferWrite @ 0x1404EA280 (CcDeferWrite.c)
+ *     CcUnpinRepinnedBcb @ 0x1404EA9A0 (CcUnpinRepinnedBcb.c)
+ *     CcExitPartition @ 0x1404EC394 (CcExitPartition.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     CcDereferencePartition @ 0x1402F6D2C (CcDereferencePartition.c)
- *     CcCanIWriteStreamEx @ 0x1403134D0 (CcCanIWriteStreamEx.c)
- *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     CcDereferencePartition @ 0x140301A7C (CcDereferencePartition.c)
+ *     CcCanIWriteStreamEx @ 0x14031E220 (CcCanIWriteStreamEx.c)
+ *     KeSetEvent @ 0x14034E2F0 (KeSetEvent.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall CcPostDeferredWrites(__int64 a1)
@@ -58,7 +58,7 @@ __int64 __fastcall CcPostDeferredWrites(__int64 a1)
       if ( CcCanIWriteStreamEx((unsigned __int64 *)a1, v5[1], v9, v3, 2, 0LL)
         && (!*((_BYTE *)v5 + 80)
          || MEMORY[0xFFFFF78000000320] >= (__int64)((unsigned int)(10000 * CcSoftThrottleDelay)
-                                                  / (unsigned __int64)(unsigned int)KeMaximumIncrement
+                                                  / (unsigned __int64)KeMaximumIncrement
                                                   + v5[11])) )
       {
         v3 = v10;

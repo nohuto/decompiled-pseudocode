@@ -1,14 +1,14 @@
 /*
- * XREFs of KiDoesThreadDominateRescheduleContextEntry @ 0x140243810
+ * XREFs of KiDoesThreadDominateRescheduleContextEntry @ 0x1402438E0
  * Callers:
- *     KiDeferredReadySingleThread @ 0x14023A2D0 (KiDeferredReadySingleThread.c)
- *     KiCanLocalReadyThreadBeScheduledToRescheduleContext @ 0x140243740 (KiCanLocalReadyThreadBeScheduledToRescheduleContext.c)
- *     KiExecuteAllDpcs @ 0x1402444C0 (KiExecuteAllDpcs.c)
- *     KiDirectSwitchThread @ 0x1402B18A0 (KiDirectSwitchThread.c)
- *     KiDeferGroupSchedulingPreemption @ 0x140307584 (KiDeferGroupSchedulingPreemption.c)
- *     KiGroupSchedulingGenerationEnd @ 0x1403082A8 (KiGroupSchedulingGenerationEnd.c)
+ *     KiDeferredReadySingleThread @ 0x14023A3A0 (KiDeferredReadySingleThread.c)
+ *     KiCanLocalReadyThreadBeScheduledToRescheduleContext @ 0x140243810 (KiCanLocalReadyThreadBeScheduledToRescheduleContext.c)
+ *     KiExecuteAllDpcs @ 0x140244590 (KiExecuteAllDpcs.c)
+ *     KiDirectSwitchThread @ 0x1402B1B30 (KiDirectSwitchThread.c)
+ *     KiDeferGroupSchedulingPreemption @ 0x140307814 (KiDeferGroupSchedulingPreemption.c)
+ *     KiGroupSchedulingGenerationEnd @ 0x140308538 (KiGroupSchedulingGenerationEnd.c)
  * Callees:
- *     KiEvaluateGroupSchedulingPreemption @ 0x1402B3000 (KiEvaluateGroupSchedulingPreemption.c)
+ *     KiEvaluateGroupSchedulingPreemption @ 0x1402B3290 (KiEvaluateGroupSchedulingPreemption.c)
  */
 
 char __fastcall KiDoesThreadDominateRescheduleContextEntry(__int64 a1, __int64 a2, __int64 a3, _QWORD *a4)

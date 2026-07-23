@@ -1,17 +1,17 @@
 /*
- * XREFs of MiZeroPageFile @ 0x14052D750
+ * XREFs of MiZeroPageFile @ 0x14052D990
  * Callers:
- *     MiZeroAllPageFiles @ 0x1409AFF70 (MiZeroAllPageFiles.c)
+ *     MiZeroAllPageFiles @ 0x1409B0EA0 (MiZeroAllPageFiles.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
- *     MmZeroPageWrite @ 0x1402BFC98 (MmZeroPageWrite.c)
- *     MmUnmapLockedPages @ 0x14031CA30 (MmUnmapLockedPages.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     MmZeroPageWrite @ 0x14023E0E8 (MmZeroPageWrite.c)
+ *     ExAcquireSpinLockExclusive @ 0x1402C1960 (ExAcquireSpinLockExclusive.c)
+ *     MmUnmapLockedPages @ 0x140327780 (MmUnmapLockedPages.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140346AD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KeSetEvent @ 0x14034E2F0 (KeSetEvent.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     memset @ 0x140414200 (memset.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 LONG __fastcall MiZeroPageFile(PVOID P)
@@ -57,7 +57,7 @@ LONG __fastcall MiZeroPageFile(PVOID P)
   else
   {
     *(_DWORD *)&MemoryDescriptorList[8] = 131120;
-    memset64(&MemoryDescriptorList[48], qword_140C4ED80, 0x10uLL);
+    memset64(&MemoryDescriptorList[48], qword_140C4EDC0, 0x10uLL);
   }
   v22 = 0;
   v4 = 0;

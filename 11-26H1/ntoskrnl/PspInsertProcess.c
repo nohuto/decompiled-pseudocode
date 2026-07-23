@@ -1,36 +1,36 @@
 /*
- * XREFs of PspInsertProcess @ 0x140983A9C
+ * XREFs of PspInsertProcess @ 0x140945AAC
  * Callers:
- *     PsCreateMinimalProcess @ 0x1407FC198 (PsCreateMinimalProcess.c)
- *     PspCreateProcess @ 0x140ADC7C0 (PspCreateProcess.c)
- *     NtCreateUserProcess @ 0x140B77FE0 (NtCreateUserProcess.c)
+ *     PsCreateMinimalProcess @ 0x140801BC8 (PsCreateMinimalProcess.c)
+ *     PspCreateProcess @ 0x140AD9D10 (PspCreateProcess.c)
+ *     NtCreateUserProcess @ 0x140B7D6F0 (NtCreateUserProcess.c)
  * Callees:
- *     PspLockProcessListExclusive @ 0x140215EEC (PspLockProcessListExclusive.c)
- *     PspUnlockProcessListExclusive @ 0x140215F5C (PspUnlockProcessListExclusive.c)
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     ObfReferenceObjectWithTag @ 0x140278B30 (ObfReferenceObjectWithTag.c)
- *     PspUnlockProcessExclusive @ 0x14048FE44 (PspUnlockProcessExclusive.c)
- *     SepAuditingForSubCategory @ 0x1404C210C (SepAuditingForSubCategory.c)
- *     SepAdtIncorporatePerUserPolicy @ 0x140813628 (SepAdtIncorporatePerUserPolicy.c)
- *     SeReleaseSubjectContext @ 0x1408CB2E0 (SeReleaseSubjectContext.c)
- *     SeDeleteAccessState @ 0x1408F16E0 (SeDeleteAccessState.c)
- *     ObReferenceObjectByHandle @ 0x1408F9550 (ObReferenceObjectByHandle.c)
- *     ObInsertObjectEx @ 0x14092B470 (ObInsertObjectEx.c)
- *     SeCaptureSubjectContext @ 0x140933620 (SeCaptureSubjectContext.c)
- *     SeAuditProcessCreation @ 0x140983DEC (SeAuditProcessCreation.c)
- *     SeCreateAccessStateEx @ 0x1409843E0 (SeCreateAccessStateEx.c)
- *     DbgkCopyProcessDebugPort @ 0x1409845B8 (DbgkCopyProcessDebugPort.c)
- *     ObCheckRefTraceProcess @ 0x140984928 (ObCheckRefTraceProcess.c)
- *     PspInheritSyscallProvider @ 0x140984984 (PspInheritSyscallProvider.c)
- *     PspImplicitAssignProcessToJob @ 0x140984FA8 (PspImplicitAssignProcessToJob.c)
- *     PspValidateJobAffinityState @ 0x140985390 (PspValidateJobAffinityState.c)
+ *     PspLockProcessListExclusive @ 0x14021621C (PspLockProcessListExclusive.c)
+ *     PspUnlockProcessListExclusive @ 0x14021628C (PspUnlockProcessListExclusive.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x1402780A0 (ObfReferenceObjectWithTag.c)
+ *     PspUnlockProcessExclusive @ 0x1404898F4 (PspUnlockProcessExclusive.c)
+ *     SepAuditingForSubCategory @ 0x1404BB95C (SepAuditingForSubCategory.c)
+ *     SepAdtIncorporatePerUserPolicy @ 0x140819488 (SepAdtIncorporatePerUserPolicy.c)
+ *     SeReleaseSubjectContext @ 0x1408D1890 (SeReleaseSubjectContext.c)
+ *     SeDeleteAccessState @ 0x1408F7CA0 (SeDeleteAccessState.c)
+ *     ObInsertObjectEx @ 0x140906FA0 (ObInsertObjectEx.c)
+ *     SeCaptureSubjectContext @ 0x14090F1D0 (SeCaptureSubjectContext.c)
+ *     ObReferenceObjectByHandle @ 0x1409294E0 (ObReferenceObjectByHandle.c)
+ *     SeAuditProcessCreation @ 0x140945DFC (SeAuditProcessCreation.c)
+ *     SeCreateAccessStateEx @ 0x1409463F0 (SeCreateAccessStateEx.c)
+ *     DbgkCopyProcessDebugPort @ 0x1409465C8 (DbgkCopyProcessDebugPort.c)
+ *     ObCheckRefTraceProcess @ 0x140946938 (ObCheckRefTraceProcess.c)
+ *     PspInheritSyscallProvider @ 0x140946994 (PspInheritSyscallProvider.c)
+ *     PspImplicitAssignProcessToJob @ 0x140946FB8 (PspImplicitAssignProcessToJob.c)
+ *     PspValidateJobAffinityState @ 0x140947398 (PspValidateJobAffinityState.c)
  */
 
 __int64 __fastcall PspInsertProcess(
         char *Object,
         struct _KPROCESS *a2,
-        unsigned int a3,
+        int a3,
         unsigned int a4,
         HANDLE Handle,
         char a6,
@@ -44,19 +44,19 @@ __int64 __fastcall PspInsertProcess(
   _KPROCESS *Process; // r13
   char v16; // al
   int AccessState; // edi
-  _QWORD *v18; // rcx
-  _QWORD *v19; // rax
+  struct _LIST_ENTRY *Blink; // rcx
+  struct _LIST_ENTRY *v19; // rax
   char v20; // r14
   int v21; // edx
   struct _ACCESS_STATE *v22; // rsi
-  unsigned int v23; // r13d
+  int v23; // r13d
   __int64 v24; // rcx
   NTSTATUS v26; // eax
   PACCESS_TOKEN PrimaryToken; // r9
   struct _SECURITY_SUBJECT_CONTEXT SubjectContext; // [rsp+40h] [rbp-20h] BYREF
   PVOID v29; // [rsp+A0h] [rbp+40h] BYREF
   char v30; // [rsp+A8h] [rbp+48h]
-  unsigned int v31; // [rsp+B0h] [rbp+50h]
+  int v31; // [rsp+B0h] [rbp+50h]
   unsigned int v32; // [rsp+B8h] [rbp+58h]
 
   v32 = a4;
@@ -70,7 +70,7 @@ __int64 __fastcall PspInsertProcess(
   *(_DWORD *)(v10 + 40) = v12;
   v16 = SepAuditingForSubCategory(134, 1);
   LOBYTE(v29) = v16;
-  if ( *(_DWORD *)&SepRmCapTableLock.WaitBlockFill11[64] )
+  if ( *(_DWORD *)&SepRmCapTableLock.WaitBlockFill11[96] )
   {
     memset(&SubjectContext, 0, sizeof(SubjectContext));
     SeCaptureSubjectContext(&SubjectContext);
@@ -89,15 +89,15 @@ __int64 __fastcall PspInsertProcess(
     && (AccessState = PspInheritSyscallProvider(Object, a2), AccessState >= 0) )
   {
     PspLockProcessListExclusive((__int64)CurrentThread);
-    v18 = PsAltSystemCallRegistrationLock.WaitBlock[0].Object;
-    v19 = Object + 472;
-    if ( *(struct _KTHREAD **)PsAltSystemCallRegistrationLock.WaitBlock[0].Object != (struct _KTHREAD *)&PsAltSystemCallRegistrationLock.WaitBlockFill11[24] )
+    Blink = PsAltSystemCallRegistrationLock.WaitBlock[2].WaitListEntry.Blink;
+    v19 = (struct _LIST_ENTRY *)(Object + 472);
+    if ( PsAltSystemCallRegistrationLock.WaitBlock[2].WaitListEntry.Blink->Flink != (struct _LIST_ENTRY *)&PsAltSystemCallRegistrationLock.WaitBlockFill11[96] )
       __fastfail(3u);
-    *((_QWORD *)Object + 60) = PsAltSystemCallRegistrationLock.WaitBlock[0].Object;
-    *v19 = &PsAltSystemCallRegistrationLock.WaitBlock[0].Thread;
-    *v18 = v19;
-    PsAltSystemCallRegistrationLock.WaitBlock[0].Object = Object + 472;
-    *((_QWORD *)Object + 207) = ++PsAltSystemCallRegistrationLock.WaitBlock[1].SparePtr;
+    *((_QWORD *)Object + 60) = PsAltSystemCallRegistrationLock.WaitBlock[2].WaitListEntry.Blink;
+    v19->Flink = &PsAltSystemCallRegistrationLock.WaitBlock[2].WaitListEntry;
+    Blink->Flink = v19;
+    PsAltSystemCallRegistrationLock.WaitBlock[2].WaitListEntry.Blink = (struct _LIST_ENTRY *)(Object + 472);
+    *((_QWORD *)Object + 207) = ++PsAltSystemCallRegistrationLock.Affinity;
     PspUnlockProcessListExclusive(CurrentThread);
     if ( (Process[1].DirectoryTableBase & 0x800000000LL) != 0 )
     {

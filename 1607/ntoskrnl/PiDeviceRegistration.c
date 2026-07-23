@@ -1,19 +1,19 @@
 /*
- * XREFs of PiDeviceRegistration @ 0x1404C7D00
+ * XREFs of PiDeviceRegistration @ 0x14050F534
  * Callers:
- *     PpDeviceRegistration @ 0x1404C7C74 (PpDeviceRegistration.c)
+ *     PpDeviceRegistration @ 0x14050F4A8 (PpDeviceRegistration.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x1400C39C0 (RtlInitUnicodeStringEx.c)
+ *     RtlInitUnicodeStringEx @ 0x1400C1850 (RtlInitUnicodeStringEx.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     PpForEachDeviceInstanceDriver @ 0x1404C7E9C (PpForEachDeviceInstanceDriver.c)
- *     _CmGetDeviceRegProp @ 0x1404FCE4C (_CmGetDeviceRegProp.c)
- *     PnpUnicodeStringToWstrFree @ 0x140500F80 (PnpUnicodeStringToWstrFree.c)
- *     PnpUnicodeStringToWstr @ 0x140500FB4 (PnpUnicodeStringToWstr.c)
- *     PnpConcatenateUnicodeStrings @ 0x140538568 (PnpConcatenateUnicodeStrings.c)
+ *     _CmGetDeviceRegProp @ 0x1404DFDDC (_CmGetDeviceRegProp.c)
+ *     PnpUnicodeStringToWstrFree @ 0x1404E3F10 (PnpUnicodeStringToWstrFree.c)
+ *     PnpUnicodeStringToWstr @ 0x1404E3F44 (PnpUnicodeStringToWstr.c)
+ *     PpForEachDeviceInstanceDriver @ 0x14050F6D0 (PpForEachDeviceInstanceDriver.c)
+ *     PnpConcatenateUnicodeStrings @ 0x140538AA8 (PnpConcatenateUnicodeStrings.c)
  */
 
-__int64 __fastcall PiDeviceRegistration(unsigned __int16 *a1, char a2, UNICODE_STRING *a3)
+__int64 __fastcall PiDeviceRegistration(__int64 a1, char a2, UNICODE_STRING *a3)
 {
   WCHAR *PoolWithTag; // r14
   unsigned __int16 v7; // dx
@@ -21,7 +21,7 @@ __int64 __fastcall PiDeviceRegistration(unsigned __int16 *a1, char a2, UNICODE_S
   __int64 v9; // rdx
   __int64 v10; // rdx
   UNICODE_STRING DestinationString; // [rsp+40h] [rbp-10h] BYREF
-  __int64 v13; // [rsp+90h] [rbp+40h] BYREF
+  void *v13; // [rsp+90h] [rbp+40h] BYREF
   int v14; // [rsp+A0h] [rbp+50h] BYREF
   unsigned int v15; // [rsp+A8h] [rbp+58h] BYREF
 
@@ -32,15 +32,15 @@ __int64 __fastcall PiDeviceRegistration(unsigned __int16 *a1, char a2, UNICODE_S
     *(_DWORD *)&a3->Length = 0;
     a3->Buffer = 0LL;
   }
-  v7 = *a1;
-  if ( *a1 <= 2u )
+  v7 = *(_WORD *)a1;
+  if ( *(_WORD *)a1 <= 2u )
   {
     DeviceRegProp = -1073741811;
     goto LABEL_22;
   }
-  if ( *(_WORD *)(*((_QWORD *)a1 + 1) + 2 * ((unsigned __int64)v7 >> 1) - 2) == 92 )
-    *a1 = v7 - 2;
-  DeviceRegProp = PnpUnicodeStringToWstr(&v13, 0LL, a1);
+  if ( *(_WORD *)(*(_QWORD *)(a1 + 8) + 2 * ((unsigned __int64)v7 >> 1) - 2) == 92 )
+    *(_WORD *)a1 = v7 - 2;
+  DeviceRegProp = PnpUnicodeStringToWstr(&v13, 0LL, (unsigned __int16 *)a1);
   if ( DeviceRegProp < 0 )
     goto LABEL_22;
   v15 = 512;
@@ -50,7 +50,15 @@ __int64 __fastcall PiDeviceRegistration(unsigned __int16 *a1, char a2, UNICODE_S
     DeviceRegProp = -1073741670;
     goto LABEL_22;
   }
-  DeviceRegProp = CmGetDeviceRegProp(PiPnpRtlCtx, v13, 0, 5, (__int64)&v14, (__int64)PoolWithTag, (__int64)&v15, 0);
+  DeviceRegProp = CmGetDeviceRegProp(
+                    *(__int64 *)&PiPnpRtlCtx,
+                    (__int64)v13,
+                    0LL,
+                    5,
+                    (__int64)&v14,
+                    (__int64)PoolWithTag,
+                    (__int64)&v15,
+                    0);
   PnpUnicodeStringToWstrFree(v13, a1);
   if ( DeviceRegProp < 0 )
   {

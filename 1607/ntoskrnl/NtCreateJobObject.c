@@ -1,22 +1,22 @@
 /*
- * XREFs of NtCreateJobObject @ 0x1404A20AC
+ * XREFs of NtCreateJobObject @ 0x14051A4B8
  * Callers:
  *     <none>
  * Callees:
- *     ExInitializeResourceLite @ 0x14000ECC0 (ExInitializeResourceLite.c)
- *     KeInitializeEvent @ 0x14002DEA0 (KeInitializeEvent.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     KeDelayExecutionThread @ 0x1400D0580 (KeDelayExecutionThread.c)
- *     PoEnergyEstimationEnabled @ 0x1400F2054 (PoEnergyEstimationEnabled.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     ObInsertObject @ 0x140471424 (ObInsertObject.c)
- *     ObCreateObject @ 0x14047181C (ObCreateObject.c)
- *     PspIoRateEntryInitialize @ 0x1404A23C4 (PspIoRateEntryInitialize.c)
- *     ExUuidCreate @ 0x1404A2404 (ExUuidCreate.c)
- *     PspUnlockJobListExclusive @ 0x1404A2554 (PspUnlockJobListExclusive.c)
- *     PspLockJobListExclusive @ 0x1404A2590 (PspLockJobListExclusive.c)
- *     ExCreateHandleEx @ 0x14050DBE0 (ExCreateHandleEx.c)
- *     EtwTraceJob @ 0x1406A179C (EtwTraceJob.c)
+ *     ExInitializeResourceLite @ 0x14000E840 (ExInitializeResourceLite.c)
+ *     KeInitializeEvent @ 0x14002DA20 (KeInitializeEvent.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     KeDelayExecutionThread @ 0x1400CE420 (KeDelayExecutionThread.c)
+ *     PoEnergyEstimationEnabled @ 0x1400EFEA4 (PoEnergyEstimationEnabled.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     ObInsertObject @ 0x1404702F4 (ObInsertObject.c)
+ *     ObCreateObject @ 0x1404706EC (ObCreateObject.c)
+ *     ExCreateHandleEx @ 0x1404F0B70 (ExCreateHandleEx.c)
+ *     PspIoRateEntryInitialize @ 0x14051A7D0 (PspIoRateEntryInitialize.c)
+ *     ExUuidCreate @ 0x14051A810 (ExUuidCreate.c)
+ *     PspUnlockJobListExclusive @ 0x14051A960 (PspUnlockJobListExclusive.c)
+ *     PspLockJobListExclusive @ 0x14051A99C (PspLockJobListExclusive.c)
+ *     EtwTraceJob @ 0x1406A18D4 (EtwTraceJob.c)
  */
 
 NTSTATUS __stdcall NtCreateJobObject(PHANDLE JobHandle, ACCESS_MASK DesiredAccess, POBJECT_ATTRIBUTES ObjectAttributes)

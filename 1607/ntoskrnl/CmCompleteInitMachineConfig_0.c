@@ -1,7 +1,7 @@
 /*
  * XREFs of CmCompleteInitMachineConfig_0 @ 0x140001278
  * Callers:
- *     NtInitializeRegistry @ 0x140547164 (NtInitializeRegistry.c)
+ *     NtInitializeRegistry @ 0x1405476A4 (NtInitializeRegistry.c)
  * Callees:
  *     <none>
  */

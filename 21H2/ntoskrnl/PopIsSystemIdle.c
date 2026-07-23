@@ -1,10 +1,10 @@
 /*
- * XREFs of PopIsSystemIdle @ 0x1408F0F04
+ * XREFs of PopIsSystemIdle @ 0x1408F1064
  * Callers:
- *     PopSystemIdleWorker @ 0x1408F1100 (PopSystemIdleWorker.c)
+ *     PopSystemIdleWorker @ 0x1408F1260 (PopSystemIdleWorker.c)
  * Callees:
- *     PopDiagTraceSystemIdleAssessment @ 0x1408EB804 (PopDiagTraceSystemIdleAssessment.c)
- *     PopAssessSystemIdleEvent @ 0x1408F0D60 (PopAssessSystemIdleEvent.c)
+ *     PopDiagTraceSystemIdleAssessment @ 0x1408EB964 (PopDiagTraceSystemIdleAssessment.c)
+ *     PopAssessSystemIdleEvent @ 0x1408F0EC0 (PopAssessSystemIdleEvent.c)
  */
 
 bool __fastcall PopIsSystemIdle(__int64 a1, unsigned int a2, unsigned __int64 *a3, __int64 a4)

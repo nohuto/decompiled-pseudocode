@@ -9,26 +9,21 @@
  *     sub_180076258 @ 0x180076258 (sub_180076258.c)
  */
 
-__int64 __fastcall LdrFindEntryForAddress(__int64 a1, unsigned __int64 *a2)
+NTSTATUS __cdecl LdrFindEntryForAddress(PVOID DllHandle, PLDR_DATA_TABLE_ENTRY *Entry)
 {
-  int v3; // ebx
-  unsigned __int64 v4; // rcx
+  NTSTATUS v3; // ebx
+  char *v4; // rcx
   char v6; // [rsp+30h] [rbp+8h] BYREF
-  unsigned __int64 v7; // [rsp+40h] [rbp+18h] BYREF
+  PVOID BaseAddress; // [rsp+40h] [rbp+18h] BYREF
 
-  if ( a1 )
+  if ( !DllHandle )
+    return -1073741515;
+  v3 = sub_180076258(DllHandle, &BaseAddress, &v6);
+  if ( v3 >= 0 )
   {
-    v3 = sub_180076258(a1, &v7, &v6);
-    if ( v3 >= 0 )
-    {
-      v4 = v7;
-      *a2 = v7;
-      sub_18003015C(v4);
-    }
+    v4 = (char *)BaseAddress;
+    *Entry = (PLDR_DATA_TABLE_ENTRY)BaseAddress;
+    sub_18003015C(v4);
   }
-  else
-  {
-    return (unsigned int)-1073741515;
-  }
-  return (unsigned int)v3;
+  return v3;
 }

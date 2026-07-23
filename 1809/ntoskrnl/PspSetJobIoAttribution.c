@@ -1,17 +1,17 @@
 /*
- * XREFs of PspSetJobIoAttribution @ 0x14068CAF8
+ * XREFs of PspSetJobIoAttribution @ 0x14068DCB8
  * Callers:
- *     PspSetJobIoRateControl @ 0x140584F0C (PspSetJobIoRateControl.c)
- *     NtSetInformationJobObject @ 0x140600B10 (NtSetInformationJobObject.c)
+ *     PspSetJobIoRateControl @ 0x140585F0C (PspSetJobIoRateControl.c)
+ *     NtSetInformationJobObject @ 0x140601B10 (NtSetInformationJobObject.c)
  * Callees:
  *     EtwEventEnabled @ 0x14005B2D0 (EtwEventEnabled.c)
- *     EtwWrite @ 0x1400CAD20 (EtwWrite.c)
- *     IoStartDiskIoAttributionForContext @ 0x1401052C8 (IoStartDiskIoAttributionForContext.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     PspEnumJobsAndProcessesInJobHierarchy @ 0x1405FD9F4 (PspEnumJobsAndProcessesInJobHierarchy.c)
- *     PspIsSetJobIoAttribution @ 0x14068CCE0 (PspIsSetJobIoAttribution.c)
- *     IoDiskIoAttributionAllocate @ 0x14068CD40 (IoDiskIoAttributionAllocate.c)
- *     PspRemoveIoAttribution @ 0x14068CDF8 (PspRemoveIoAttribution.c)
+ *     EtwWrite @ 0x1400CAE00 (EtwWrite.c)
+ *     IoStartDiskIoAttributionForContext @ 0x140105348 (IoStartDiskIoAttributionForContext.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     PspEnumJobsAndProcessesInJobHierarchy @ 0x1405FE9F4 (PspEnumJobsAndProcessesInJobHierarchy.c)
+ *     PspIsSetJobIoAttribution @ 0x14068DEA0 (PspIsSetJobIoAttribution.c)
+ *     IoDiskIoAttributionAllocate @ 0x14068DF00 (IoDiskIoAttributionAllocate.c)
+ *     PspRemoveIoAttribution @ 0x14068DFB8 (PspRemoveIoAttribution.c)
  */
 
 __int64 __fastcall PspSetJobIoAttribution(_DWORD *Object, char a2, char a3, unsigned int a4)
@@ -19,7 +19,7 @@ __int64 __fastcall PspSetJobIoAttribution(_DWORD *Object, char a2, char a3, unsi
   char v4; // r15
   unsigned int v9; // eax
   unsigned int v10; // eax
-  _QWORD *v11; // rax
+  _RTL_BALANCED_NODE *v11; // rax
   __int64 v12; // rdi
   unsigned int v13; // esi
   const EVENT_DESCRIPTOR *v14; // rbx
@@ -111,7 +111,7 @@ LABEL_25:
     Object[333] = v10 + a4;
     goto LABEL_25;
   }
-  v11 = (_QWORD *)IoDiskIoAttributionAllocate(Object, 0LL);
+  v11 = (_RTL_BALANCED_NODE *)IoDiskIoAttributionAllocate(Object, 0LL);
   v12 = (__int64)v11;
   if ( v11 )
   {

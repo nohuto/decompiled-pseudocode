@@ -1,11 +1,11 @@
 /*
- * XREFs of PopDiagTraceCsFanPerfTrack @ 0x1402DFC08
+ * XREFs of PopDiagTraceCsFanPerfTrack @ 0x1402DFDF8
  * Callers:
- *     PopFanEndCsFanPeriod @ 0x14087661C (PopFanEndCsFanPeriod.c)
+ *     PopFanEndCsFanPeriod @ 0x14087787C (PopFanEndCsFanPeriod.c)
  * Callees:
  *     EtwEventEnabled @ 0x14005B2D0 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x1400CAD60 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x1400CAE40 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 void __fastcall PopDiagTraceCsFanPerfTrack(int a1, int a2)

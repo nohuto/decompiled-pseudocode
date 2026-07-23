@@ -10,17 +10,17 @@
  *     _guard_dispatch_icall_nop @ 0x1800A8C20 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 __fastcall sub_18001FA18(unsigned __int64 a1, __int64 a2, unsigned int a3)
+__int64 __fastcall sub_18001FA18(__int64 a1, __int64 a2, unsigned int a3)
 {
   __int64 v6; // rbp
   unsigned int v7; // eax
   __int64 v8; // r14
   unsigned int v9; // ebx
   char v11; // cl
-  __int64 (__fastcall *v12)(__int64, __int64, __int64); // rax
+  __int64 (__fastcall *v12)(PVOID); // rax
   __int64 v13; // r8
   __int64 v14; // rdx
-  __int64 v15; // rcx
+  void *v15; // rcx
   int v16; // eax
   unsigned __int64 v17; // rdx
   _WORD *v18; // r9
@@ -37,14 +37,14 @@ __int64 __fastcall sub_18001FA18(unsigned __int64 a1, __int64 a2, unsigned int a
   else
   {
     v11 = *(_BYTE *)(a2 + 44);
-    v12 = (__int64 (__fastcall *)(__int64, __int64, __int64))(a1 ^ qword_18015BFA8 ^ *(_QWORD *)(a1 + 24));
+    v12 = (__int64 (__fastcall *)(PVOID))(a1 ^ qword_18015BFA8 ^ *(_QWORD *)(a1 + 24));
     v13 = v20 << v11;
     v14 = a2 + (unsigned int)((_DWORD)v8 << v11);
-    v15 = *(_QWORD *)a1;
+    v15 = *(void **)a1;
     if ( v12 == sub_180020D20 )
-      v16 = sub_180020D20(v15, v14, v13);
+      v16 = sub_180020D20(v15);
     else
-      v16 = v12(v15, v14, v13);
+      v16 = ((__int64 (__fastcall *)(void *, __int64, __int64))v12)(v15, v14, v13);
     v9 = v16;
     if ( v16 < 0 )
     {
@@ -70,7 +70,7 @@ __int64 __fastcall sub_18001FA18(unsigned __int64 a1, __int64 a2, unsigned int a
       }
       v9 = 0;
     }
-    RtlReleaseSRWLockExclusive(a2 + 24);
+    RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a2 + 24));
   }
   return v9;
 }

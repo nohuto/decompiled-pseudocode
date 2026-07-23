@@ -1,9 +1,9 @@
 /*
- * XREFs of TtmpPublishDisplayRequiredPowerRequestEvents @ 0x1409A57CC
+ * XREFs of TtmpPublishDisplayRequiredPowerRequestEvents @ 0x1409A59CC
  * Callers:
- *     TtmiWriteEnumerationEventsToQueue @ 0x1409A4E1C (TtmiWriteEnumerationEventsToQueue.c)
+ *     TtmiWriteEnumerationEventsToQueue @ 0x1409A501C (TtmiWriteEnumerationEventsToQueue.c)
  * Callees:
- *     TtmpWriteDisplayRequiredPowerRequestUpdatedEvent @ 0x1409A5EE0 (TtmpWriteDisplayRequiredPowerRequestUpdatedEvent.c)
+ *     TtmpWriteDisplayRequiredPowerRequestUpdatedEvent @ 0x1409A60E0 (TtmpWriteDisplayRequiredPowerRequestUpdatedEvent.c)
  */
 
 unsigned __int64 __fastcall TtmpPublishDisplayRequiredPowerRequestEvents(__int64 a1, __int64 a2)

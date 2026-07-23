@@ -1,11 +1,11 @@
 /*
  * XREFs of VfFaultsInjectResourceFailure @ 0x140710DF0
  * Callers:
- *     VerifierIoAllocateDriverObjectExtension @ 0x1407053F4 (VerifierIoAllocateDriverObjectExtension.c)
- *     VerifierIoAllocateErrorLogEntry @ 0x140705454 (VerifierIoAllocateErrorLogEntry.c)
- *     VerifierIoAllocateIrp @ 0x140705488 (VerifierIoAllocateIrp.c)
- *     VerifierIoSetCompletionRoutineEx @ 0x1407056F8 (VerifierIoSetCompletionRoutineEx.c)
- *     VerifierPortIoAllocateIrp @ 0x1407057D0 (VerifierPortIoAllocateIrp.c)
+ *     VerifierIoAllocateDriverObjectExtension @ 0x140705424 (VerifierIoAllocateDriverObjectExtension.c)
+ *     VerifierIoAllocateErrorLogEntry @ 0x140705484 (VerifierIoAllocateErrorLogEntry.c)
+ *     VerifierIoAllocateIrp @ 0x1407054B8 (VerifierIoAllocateIrp.c)
+ *     VerifierIoSetCompletionRoutineEx @ 0x140705728 (VerifierIoSetCompletionRoutineEx.c)
+ *     VerifierPortIoAllocateIrp @ 0x140705800 (VerifierPortIoAllocateIrp.c)
  *     VfFaultsInjectPoolAllocationFailure @ 0x140710D70 (VfFaultsInjectPoolAllocationFailure.c)
  *     ViKeInjectStatusAlerted @ 0x140712F08 (ViKeInjectStatusAlerted.c)
  *     VerifierMmAllocateContiguousMemory @ 0x14071B638 (VerifierMmAllocateContiguousMemory.c)
@@ -23,7 +23,7 @@
  *     VerifierMmProbeAndLockPages @ 0x14071C228 (VerifierMmProbeAndLockPages.c)
  *     VerifierMmProbeAndLockProcessPages @ 0x14071C310 (VerifierMmProbeAndLockProcessPages.c)
  * Callees:
- *     VfRandomGetNumber @ 0x140702AD0 (VfRandomGetNumber.c)
+ *     VfRandomGetNumber @ 0x140702B00 (VfRandomGetNumber.c)
  *     VfFaultsIsSystemSufficientlyBooted @ 0x140710F24 (VfFaultsIsSystemSufficientlyBooted.c)
  *     ViFaultsInjectionNotification @ 0x1407114AC (ViFaultsInjectionNotification.c)
  *     ViFaultsIsCurrentAppTarget @ 0x1407115A4 (ViFaultsIsCurrentAppTarget.c)

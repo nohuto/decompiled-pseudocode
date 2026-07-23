@@ -1,10 +1,10 @@
 /*
- * XREFs of PnpDiagnosticTraceAppVeto @ 0x140289E9C
+ * XREFs of PnpDiagnosticTraceAppVeto @ 0x14028A08C
  * Callers:
- *     PnpLogVetoInformation @ 0x1408330D0 (PnpLogVetoInformation.c)
+ *     PnpLogVetoInformation @ 0x140834330 (PnpLogVetoInformation.c)
  * Callees:
- *     PnpDiagnosticTrace @ 0x1401371E4 (PnpDiagnosticTrace.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     PnpDiagnosticTrace @ 0x1401372E4 (PnpDiagnosticTrace.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall PnpDiagnosticTraceAppVeto(__int64 a1, int a2, __int64 a3, __int64 a4)

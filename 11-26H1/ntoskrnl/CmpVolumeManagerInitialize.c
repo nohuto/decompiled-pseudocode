@@ -1,18 +1,18 @@
 /*
- * XREFs of CmpVolumeManagerInitialize @ 0x140857620
+ * XREFs of CmpVolumeManagerInitialize @ 0x14085D9B0
  * Callers:
- *     CmInitSystem1 @ 0x140CE888C (CmInitSystem1.c)
+ *     CmInitSystem1 @ 0x140CEEC2C (CmInitSystem1.c)
  * Callees:
  *     <none>
  */
 
-struct _LIST_ENTRY **CmpVolumeManagerInitialize()
+int *CmpVolumeManagerInitialize()
 {
-  struct _LIST_ENTRY **result; // rax
+  int *result; // rax
 
-  result = &KiSystemServiceTraceCallbackLock.GlobalUpdateVpThreadPriorityListEntry.Blink;
-  KiSystemServiceTraceCallbackLock.GlobalUpdateVpThreadPriorityListEntry.Flink = 0LL;
-  *(_QWORD *)&KiSystemServiceTraceCallbackLock.SchedulerAssistPriorityFloor = &KiSystemServiceTraceCallbackLock.GlobalUpdateVpThreadPriorityListEntry.Blink;
-  KiSystemServiceTraceCallbackLock.InGlobalUpdateVpThreadPriorityList = (unsigned __int64)&KiSystemServiceTraceCallbackLock.InGlobalUpdateVpThreadPriorityList;
+  result = &KiSystemServiceTraceCallbackLock.SchedulerAssistPriorityFloor;
+  KiSystemServiceTraceCallbackLock.InGlobalUpdateVpThreadPriorityList = 0LL;
+  KiSystemServiceTraceCallbackLock.KernelShadowStack = &KiSystemServiceTraceCallbackLock.SchedulerAssistPriorityFloor;
+  *(_QWORD *)&KiSystemServiceTraceCallbackLock.SchedulerAssistPriorityFloor = &KiSystemServiceTraceCallbackLock.SchedulerAssistPriorityFloor;
   return result;
 }

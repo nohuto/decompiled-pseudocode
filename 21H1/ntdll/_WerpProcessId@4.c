@@ -9,12 +9,12 @@
  *     _ZwQueryInformationProcess@20 @ 0x4B2F2AF0 (_ZwQueryInformationProcess@20.c)
  */
 
-int __thiscall WerpProcessId(void *this)
+int __thiscall WerpProcessId(HANDLE ProcessHandle)
 {
-  _BYTE v2[16]; // [esp+0h] [ebp-18h] BYREF
+  _BYTE ProcessInformation[16]; // [esp+0h] [ebp-18h] BYREF
   int v3; // [esp+10h] [ebp-8h]
 
-  if ( ZwQueryInformationProcess((int)this, 0, (int)v2, 24, 0) >= 0 )
+  if ( ZwQueryInformationProcess(ProcessHandle, ProcessBasicInformation, ProcessInformation, 0x18u, 0) >= 0 )
     return v3;
   else
     return 0;

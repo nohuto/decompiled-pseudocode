@@ -1,22 +1,22 @@
 /*
- * XREFs of KiProcessThreadWaitList @ 0x14024B2D0
+ * XREFs of KiProcessThreadWaitList @ 0x1402EFB20
  * Callers:
- *     KeRemoveQueueEx @ 0x1402047D0 (KeRemoveQueueEx.c)
- *     KeRemovePriQueue @ 0x1402421D0 (KeRemovePriQueue.c)
- *     KiProcessExpiredTimerList @ 0x140247AA0 (KiProcessExpiredTimerList.c)
- *     KiTimer2Expiration @ 0x1402487E0 (KiTimer2Expiration.c)
- *     KiExpireTimer2 @ 0x14024B5C0 (KiExpireTimer2.c)
- *     KeTerminateThread @ 0x1402784F0 (KeTerminateThread.c)
- *     KiPriQueueThreadPriorityChanged @ 0x14029F3A0 (KiPriQueueThreadPriorityChanged.c)
- *     KiCommitThreadWait @ 0x140345FB0 (KiCommitThreadWait.c)
- *     KiSwapThread @ 0x1403466D0 (KiSwapThread.c)
+ *     KiPriQueueThreadPriorityChanged @ 0x14021C900 (KiPriQueueThreadPriorityChanged.c)
+ *     KeTerminateThread @ 0x140266490 (KeTerminateThread.c)
+ *     KeRemoveQueueEx @ 0x1402A9110 (KeRemoveQueueEx.c)
+ *     KeRemovePriQueue @ 0x1402E6A20 (KeRemovePriQueue.c)
+ *     KiProcessExpiredTimerList @ 0x1402EC2F0 (KiProcessExpiredTimerList.c)
+ *     KiTimer2Expiration @ 0x1402ED030 (KiTimer2Expiration.c)
+ *     KiExpireTimer2 @ 0x1402EFE10 (KiExpireTimer2.c)
+ *     KiCommitThreadWait @ 0x140350D00 (KiCommitThreadWait.c)
+ *     KiSwapThread @ 0x140351420 (KiSwapThread.c)
  * Callees:
- *     KiReadyThread @ 0x140248640 (KiReadyThread.c)
- *     KiAcquireKobjectLockSafe @ 0x14024C4A0 (KiAcquireKobjectLockSafe.c)
- *     EtwTraceReadyThread @ 0x1405A7F70 (EtwTraceReadyThread.c)
+ *     KiReadyThread @ 0x1402ECE90 (KiReadyThread.c)
+ *     KiAcquireKobjectLockSafe @ 0x1402F0CF0 (KiAcquireKobjectLockSafe.c)
+ *     EtwTraceReadyThread @ 0x1405A81A0 (EtwTraceReadyThread.c)
  */
 
-int __fastcall KiProcessThreadWaitList(__int64 a1, unsigned __int8 a2, unsigned __int8 a3, unsigned int a4)
+char __fastcall KiProcessThreadWaitList(__int64 a1, unsigned __int8 a2, unsigned __int8 a3, unsigned int a4)
 {
   __int64 **v4; // r14
   __int64 v8; // rax
@@ -25,7 +25,7 @@ int __fastcall KiProcessThreadWaitList(__int64 a1, unsigned __int8 a2, unsigned 
   __int64 *v11; // rdi
   volatile signed __int32 *v12; // rbp
   __int64 *v13; // rax
-  int result; // eax
+  char result; // al
   __int64 **v15; // rcx
 
   v4 = *(__int64 ***)(a1 + 11528);

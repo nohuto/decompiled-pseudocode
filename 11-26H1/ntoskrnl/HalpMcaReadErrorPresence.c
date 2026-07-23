@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpMcaReadErrorPresence @ 0x1404537F4
+ * XREFs of HalpMcaReadErrorPresence @ 0x14044B924
  * Callers:
- *     HalpCmcPollProcessor @ 0x140453548 (HalpCmcPollProcessor.c)
- *     HalpMceHandlerCore @ 0x14057B360 (HalpMceHandlerCore.c)
- *     HalpHandlePreviousMcaErrorsOnProcessor @ 0x140BE9CC8 (HalpHandlePreviousMcaErrorsOnProcessor.c)
+ *     HalpCmcPollProcessor @ 0x14044B678 (HalpCmcPollProcessor.c)
+ *     HalpMceHandlerCore @ 0x14057D890 (HalpMceHandlerCore.c)
+ *     HalpHandlePreviousMcaErrorsOnProcessor @ 0x140BEFCC8 (HalpHandlePreviousMcaErrorsOnProcessor.c)
  * Callees:
- *     HalpGetCpuVendor @ 0x140453A00 (HalpGetCpuVendor.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     HalpGetCpuVendor @ 0x14044BB30 (HalpGetCpuVendor.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall HalpMcaReadErrorPresence(__int64 a1, unsigned __int64 a2, __int64 a3, __int64 a4)

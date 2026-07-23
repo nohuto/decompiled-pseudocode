@@ -4,8 +4,8 @@
  *     <none>
  * Callees:
  *     memmove @ 0x140435B40 (memmove.c)
- *     WmipQuerySetExecuteSI @ 0x14078362C (WmipQuerySetExecuteSI.c)
- *     WmipAllocateSingleInstanceWnode @ 0x1409DC140 (WmipAllocateSingleInstanceWnode.c)
+ *     sub_14078362C @ 0x14078362C (sub_14078362C.c)
+ *     sub_1409DC140 @ 0x1409DC140 (sub_1409DC140.c)
  *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
  */
 
@@ -16,7 +16,7 @@ NTSTATUS __stdcall IoWMISetSingleInstance(
         ULONG ValueBufferSize,
         PVOID ValueBuffer)
 {
-  NTSTATUS SingleInstanceWnode; // ebx
+  NTSTATUS v9; // ebx
   _QWORD *v10; // rdi
   __int64 v11; // rax
   unsigned int v12; // ebx
@@ -30,15 +30,15 @@ NTSTATUS __stdcall IoWMISetSingleInstance(
   v15 = 0;
   v16 = 0;
   LODWORD(v17) = 0;
-  SingleInstanceWnode = WmipAllocateSingleInstanceWnode(
-                          64,
-                          (_DWORD)InstanceName,
-                          ValueBufferSize,
-                          (unsigned int)&v16,
-                          (__int64)&v17,
-                          (__int64)&v15,
-                          (__int64)P);
-  if ( SingleInstanceWnode >= 0 )
+  v9 = sub_1409DC140(
+         64,
+         (_DWORD)InstanceName,
+         ValueBufferSize,
+         (unsigned int)&v16,
+         (__int64)&v17,
+         (__int64)&v15,
+         (__int64)P);
+  if ( v9 >= 0 )
   {
     v10 = P[0];
     v11 = v16;
@@ -56,8 +56,8 @@ NTSTATUS __stdcall IoWMISetSingleInstance(
     *((_DWORD *)v10 + 14) = v13;
     memmove((char *)v10 + v13, ValueBuffer, ValueBufferSize);
     LODWORD(v17) = *(_DWORD *)v10;
-    SingleInstanceWnode = WmipQuerySetExecuteSI(DataBlockObject, 0LL, 0, 2u, (__int64)v10, v12, (unsigned int *)&v17);
+    v9 = sub_14078362C(DataBlockObject, 0LL, 0, 2u, (__int64)v10, v12, (unsigned int *)&v17);
     ExFreePoolWithTag(v10, 0);
   }
-  return SingleInstanceWnode;
+  return v9;
 }

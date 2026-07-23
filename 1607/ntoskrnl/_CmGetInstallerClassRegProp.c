@@ -1,20 +1,20 @@
 /*
- * XREFs of _CmGetInstallerClassRegProp @ 0x140504368
+ * XREFs of _CmGetInstallerClassRegProp @ 0x1404E72F8
  * Callers:
- *     PnpCallDriverQueryServiceHelper @ 0x1403F554C (PnpCallDriverQueryServiceHelper.c)
- *     PpForEachDeviceInstanceDriver @ 0x1404C7E9C (PpForEachDeviceInstanceDriver.c)
- *     PipGetRegistryDwordWithFallback @ 0x1404E22DC (PipGetRegistryDwordWithFallback.c)
- *     PipGetRegistrySecurityWithFallback @ 0x1404E23B8 (PipGetRegistrySecurityWithFallback.c)
- *     PiPnpRtlCmActionCallback @ 0x1404FCFB8 (PiPnpRtlCmActionCallback.c)
- *     _CmGetDeviceRegPropWorker @ 0x1404FE360 (_CmGetDeviceRegPropWorker.c)
- *     PiCMGetRegistryProperty @ 0x140502DC0 (PiCMGetRegistryProperty.c)
- *     PiPnpRtlServiceFilterCallback @ 0x14062F290 (PiPnpRtlServiceFilterCallback.c)
- *     _CmServiceFilterCallback @ 0x1406DBAC0 (_CmServiceFilterCallback.c)
- *     _CmGetInstallerClassMappedPropertyFromRegProp @ 0x1406DDC68 (_CmGetInstallerClassMappedPropertyFromRegProp.c)
+ *     PnpCallDriverQueryServiceHelper @ 0x1403F4410 (PnpCallDriverQueryServiceHelper.c)
+ *     PipGetRegistryDwordWithFallback @ 0x1404D3EC8 (PipGetRegistryDwordWithFallback.c)
+ *     PipGetRegistrySecurityWithFallback @ 0x1404D3FA4 (PipGetRegistrySecurityWithFallback.c)
+ *     PiPnpRtlCmActionCallback @ 0x1404DFF48 (PiPnpRtlCmActionCallback.c)
+ *     _CmGetDeviceRegPropWorker @ 0x1404E12F0 (_CmGetDeviceRegPropWorker.c)
+ *     PiCMGetRegistryProperty @ 0x1404E5D50 (PiCMGetRegistryProperty.c)
+ *     PpForEachDeviceInstanceDriver @ 0x14050F6D0 (PpForEachDeviceInstanceDriver.c)
+ *     PiPnpRtlServiceFilterCallback @ 0x14062F344 (PiPnpRtlServiceFilterCallback.c)
+ *     _CmServiceFilterCallback @ 0x1406DBBF8 (_CmServiceFilterCallback.c)
+ *     _CmGetInstallerClassMappedPropertyFromRegProp @ 0x1406DDDA0 (_CmGetInstallerClassMappedPropertyFromRegProp.c)
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     _CmGetInstallerClassRegPropWorker @ 0x140504104 (_CmGetInstallerClassRegPropWorker.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     _CmGetInstallerClassRegPropWorker @ 0x1404E7094 (_CmGetInstallerClassRegPropWorker.c)
  */
 
 __int64 __fastcall CmGetInstallerClassRegProp(__int64 *a1, __int64 a2, void *a3, int a4, void *a5, void *a6, void *a7)

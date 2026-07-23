@@ -1,19 +1,19 @@
 /*
- * XREFs of WbGetWarbirdProcess @ 0x140763600
+ * XREFs of WbGetWarbirdProcess @ 0x1407637F0
  * Callers:
- *     WbDispatchOperation @ 0x140763418 (WbDispatchOperation.c)
+ *     WbDispatchOperation @ 0x140763608 (WbDispatchOperation.c)
  * Callees:
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1402BD860 (ExfReleasePushLockShared.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfAcquirePushLockSharedEx @ 0x1402FD040 (ExfAcquirePushLockSharedEx.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F820 (KiCheckForKernelApcDelivery.c)
- *     sub_140763820 @ 0x140763820 (sub_140763820.c)
- *     sub_140763858 @ 0x140763858 (sub_140763858.c)
- *     sub_140763D04 @ 0x140763D04 (sub_140763D04.c)
- *     WbCreateWarbirdProcess @ 0x1407E769C (WbCreateWarbirdProcess.c)
+ *     KeAbPreAcquire @ 0x140230FD0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfReleasePushLockShared @ 0x1402BDAF0 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402FD0A0 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1402FD2D0 (ExfAcquirePushLockSharedEx.c)
+ *     KiCheckForKernelApcDelivery @ 0x14030FAB0 (KiCheckForKernelApcDelivery.c)
+ *     sub_140763A10 @ 0x140763A10 (sub_140763A10.c)
+ *     sub_140763A48 @ 0x140763A48 (sub_140763A48.c)
+ *     sub_140763EF4 @ 0x140763EF4 (sub_140763EF4.c)
+ *     WbCreateWarbirdProcess @ 0x1407E796C (WbCreateWarbirdProcess.c)
  */
 
 __int64 __fastcall WbGetWarbirdProcess(__int64 a1, int a2, _QWORD *a3)
@@ -43,7 +43,7 @@ __int64 __fastcall WbGetWarbirdProcess(__int64 a1, int a2, _QWORD *a3)
     ExfAcquirePushLockSharedEx((signed __int64 *)&qword_140C70A68, 0LL, v8, (__int64)&qword_140C70A68);
   if ( v8 )
     *(_BYTE *)(v8 + 18) = 1;
-  v9 = sub_140763858(a1, &v21);
+  v9 = sub_140763A48(a1, &v21);
   if ( _InterlockedCompareExchange64((volatile signed __int64 *)&qword_140C70A68, 0LL, 17LL) != 17 )
     ExfReleasePushLockShared((signed __int64 *)&qword_140C70A68);
   KeAbPostRelease((ULONG_PTR)&qword_140C70A68);
@@ -68,7 +68,7 @@ __int64 __fastcall WbGetWarbirdProcess(__int64 a1, int a2, _QWORD *a3)
     if ( v17 )
       *(_BYTE *)(v17 + 18) = 1;
     v18 = v21;
-    v9 = sub_140763D04((unsigned int)&dword_140C70A40, (_DWORD)v21, v15, *v21, 8, -1);
+    v9 = sub_140763EF4((unsigned int)&dword_140C70A40, (_DWORD)v21, v15, *v21, 8, -1);
     if ( v9 >= 0 )
       _InterlockedAdd64(v18 + 29, 1uLL);
     v19 = _InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140C70A68, 0xFFFFFFFFFFFFFFFFuLL);
@@ -88,6 +88,6 @@ LABEL_29:
   }
   *a3 = v21;
 LABEL_14:
-  sub_140763820(v6);
+  sub_140763A10(v6);
   return (unsigned int)v9;
 }

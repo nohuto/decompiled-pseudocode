@@ -1,14 +1,14 @@
 /*
- * XREFs of WheapInitializeErrorSource @ 0x140727D98
+ * XREFs of WheapInitializeErrorSource @ 0x140729038
  * Callers:
- *     WheapInitializeDeferredErrorSources @ 0x14031FA54 (WheapInitializeDeferredErrorSources.c)
- *     WheaAddErrorSource @ 0x1408DB880 (WheaAddErrorSource.c)
- *     WheapInitializeErrorSourceTable @ 0x1409AEE9C (WheapInitializeErrorSourceTable.c)
+ *     WheapInitializeDeferredErrorSources @ 0x14031FC44 (WheapInitializeDeferredErrorSources.c)
+ *     WheaAddErrorSource @ 0x1408DCB40 (WheaAddErrorSource.c)
+ *     WheapInitializeErrorSourceTable @ 0x1409AFE9C (WheapInitializeErrorSourceTable.c)
  * Callees:
- *     WheapInitializeErrorRecordWrapper @ 0x14017D254 (WheapInitializeErrorRecordWrapper.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
+ *     WheapInitializeErrorRecordWrapper @ 0x14017D394 (WheapInitializeErrorRecordWrapper.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall WheapInitializeErrorSource(__int64 a1)
@@ -30,7 +30,7 @@ __int64 __fastcall WheapInitializeErrorSource(__int64 a1)
   if ( (unsigned int)v1 > 0xD )
     return (unsigned int)-1073741811;
   v3 = 0;
-  if ( (*((int (__fastcall **)(__int64, __int64))&unk_1404DC0B0 + 6 * v1))(a1 + 89, a1 + 68) >= 0 )
+  if ( (*((int (__fastcall **)(__int64, __int64))&unk_1404DD170 + 6 * v1))(a1 + 89, a1 + 68) >= 0 )
   {
     v4 = *(_DWORD *)(a1 + 68);
     *(_DWORD *)(a1 + 20) = *(_DWORD *)(a1 + 121);

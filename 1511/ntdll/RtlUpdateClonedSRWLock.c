@@ -6,11 +6,7 @@
  *     <none>
  */
 
-__int64 __fastcall RtlUpdateClonedSRWLock(__int64 *a1, int a2)
+void __cdecl RtlUpdateClonedSRWLock(PRTL_SRWLOCK SRWLock, LOGICAL Shared)
 {
-  __int64 result; // rax
-
-  result = (a2 != 0 ? 0x10 : 0) | 1LL;
-  *a1 = result;
-  return result;
+  SRWLock->Value = (Shared != 0 ? 0x10 : 0) | 1LL;
 }

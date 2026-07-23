@@ -1,25 +1,25 @@
 /*
- * XREFs of RtlRunOnceExecuteOnce @ 0x140757D90
+ * XREFs of RtlRunOnceExecuteOnce @ 0x140757F80
  * Callers:
  *     LdrUnloadAlternateResourceModuleEx @ 0x14020B640 (LdrUnloadAlternateResourceModuleEx.c)
- *     LdrpGetAlternateResourceModuleHandleEx @ 0x1402F6DF0 (LdrpGetAlternateResourceModuleHandleEx.c)
- *     LdrpGetFromMUIMemCache @ 0x1402F7A78 (LdrpGetFromMUIMemCache.c)
- *     RtlpHpMetadataHeapStart @ 0x140324654 (RtlpHpMetadataHeapStart.c)
- *     LdrpSetAlternateResourceModuleHandle @ 0x1403A24F4 (LdrpSetAlternateResourceModuleHandle.c)
- *     ExPoolSetLimit @ 0x140607704 (ExPoolSetLimit.c)
- *     SdbGetIndex @ 0x1407554C8 (SdbGetIndex.c)
- *     SdbpGetStringTableItemFromStringRef @ 0x140757CB4 (SdbpGetStringTableItemFromStringRef.c)
- *     ExCheckFullProcessInformationAccess @ 0x1407E0A68 (ExCheckFullProcessInformationAccess.c)
- *     RtlpLogCapabilityCheckLatency @ 0x1407ECBD0 (RtlpLogCapabilityCheckLatency.c)
- *     ExQueryBootEntropyInformation @ 0x140821840 (ExQueryBootEntropyInformation.c)
- *     ExpCheckTestsigningEnabled @ 0x1409FBA68 (ExpCheckTestsigningEnabled.c)
- *     ExpFirmwareAccessAppContainerCheck @ 0x1409FC7E4 (ExpFirmwareAccessAppContainerCheck.c)
+ *     LdrpGetAlternateResourceModuleHandleEx @ 0x1402F7080 (LdrpGetAlternateResourceModuleHandleEx.c)
+ *     LdrpGetFromMUIMemCache @ 0x1402F7D08 (LdrpGetFromMUIMemCache.c)
+ *     RtlpHpMetadataHeapStart @ 0x1403248E4 (RtlpHpMetadataHeapStart.c)
+ *     LdrpSetAlternateResourceModuleHandle @ 0x1403A26D4 (LdrpSetAlternateResourceModuleHandle.c)
+ *     ExPoolSetLimit @ 0x140607C54 (ExPoolSetLimit.c)
+ *     SdbGetIndex @ 0x1407556B8 (SdbGetIndex.c)
+ *     SdbpGetStringTableItemFromStringRef @ 0x140757EA4 (SdbpGetStringTableItemFromStringRef.c)
+ *     ExCheckFullProcessInformationAccess @ 0x1407E0D38 (ExCheckFullProcessInformationAccess.c)
+ *     RtlpLogCapabilityCheckLatency @ 0x1407ECEA0 (RtlpLogCapabilityCheckLatency.c)
+ *     ExQueryBootEntropyInformation @ 0x140821B40 (ExQueryBootEntropyInformation.c)
+ *     ExpCheckTestsigningEnabled @ 0x1409FBCF8 (ExpCheckTestsigningEnabled.c)
+ *     ExpFirmwareAccessAppContainerCheck @ 0x1409FCA74 (ExpFirmwareAccessAppContainerCheck.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     RtlRaiseStatus @ 0x1403217B0 (RtlRaiseStatus.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     RtlRunOnceBeginInitialize @ 0x140757E70 (RtlRunOnceBeginInitialize.c)
- *     RtlRunOnceComplete @ 0x1407D9230 (RtlRunOnceComplete.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     RtlRaiseStatus @ 0x140321A40 (RtlRaiseStatus.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     RtlRunOnceBeginInitialize @ 0x140758060 (RtlRunOnceBeginInitialize.c)
+ *     RtlRunOnceComplete @ 0x1407D9500 (RtlRunOnceComplete.c)
  */
 
 NTSTATUS __stdcall RtlRunOnceExecuteOnce(
@@ -30,7 +30,7 @@ NTSTATUS __stdcall RtlRunOnceExecuteOnce(
 {
   struct _KTHREAD *CurrentThread; // rax
   NTSTATUS v9; // eax
-  NTSTATUS v10; // ebx
+  int v10; // ebx
   PVOID v12; // r8
   NTSTATUS v13; // eax
 

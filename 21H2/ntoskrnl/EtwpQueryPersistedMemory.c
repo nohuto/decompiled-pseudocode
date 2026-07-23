@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpQueryPersistedMemory @ 0x140948BA0
+ * XREFs of EtwpQueryPersistedMemory @ 0x140948D70
  * Callers:
- *     EtwpSavePersistedLogger @ 0x140948C8C (EtwpSavePersistedLogger.c)
+ *     EtwpSavePersistedLogger @ 0x140948E5C (EtwpSavePersistedLogger.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpQueryPersistedMemory(__int64 a1, __int64 a2, _QWORD *a3, unsigned int *a4)

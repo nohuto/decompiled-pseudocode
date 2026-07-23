@@ -1,9 +1,9 @@
 /*
- * XREFs of KseDsCompletionHookForPowerDevice @ 0x1405CADD0
+ * XREFs of KseDsCompletionHookForPowerDevice @ 0x1405C84F0
  * Callers:
  *     <none>
  * Callees:
- *     KsepDsEventDevicePowerCompleted @ 0x1405CB348 (KsepDsEventDevicePowerCompleted.c)
+ *     KsepDsEventDevicePowerCompleted @ 0x1405C8A68 (KsepDsEventDevicePowerCompleted.c)
  */
 
 __int64 __fastcall KseDsCompletionHookForPowerDevice(__int64 a1, __int64 a2)

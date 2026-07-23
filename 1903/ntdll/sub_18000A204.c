@@ -7,39 +7,39 @@
  *     memset @ 0x1800A3600 (memset.c)
  */
 
-__int64 __fastcall sub_18000A204(__int64 *a1, int a2, __int64 a3, __int64 a4, __int64 a5, int a6, int a7)
+__int64 __fastcall sub_18000A204(_QWORD *a1, int a2, __int64 a3, __int64 a4, __int64 a5, int a6, int a7)
 {
-  __int64 Heap; // rax
-  __int64 v12; // rbx
+  char *Heap; // rax
+  char *v12; // rbx
   struct _TEB *v13; // rax
-  void *SubProcessTag; // rcx
+  PVOID SubProcessTag; // rcx
   __int64 result; // rax
 
   *a1 = 0LL;
-  Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0LL, 168LL);
+  Heap = (char *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, 0xA8uLL);
   v12 = Heap;
   if ( !Heap )
     return 3221225495LL;
-  memset((void *)(Heap + 4), 0, 0xA4uLL);
+  memset(Heap + 4, 0, 0xA4uLL);
   *(_DWORD *)v12 = 11012372;
   v13 = NtCurrentTeb();
   *a1 = v12;
   SubProcessTag = v13->SubProcessTag;
-  *(_QWORD *)(v12 + 24) = 0LL;
-  *(_QWORD *)(v12 + 88) = 0LL;
-  *(_DWORD *)(v12 + 96) = 0;
-  *(_QWORD *)(v12 + 104) = 0LL;
-  *(_QWORD *)(v12 + 112) = 0LL;
-  *(_QWORD *)(v12 + 152) = 0LL;
-  *(_DWORD *)(v12 + 160) = 0;
-  *(_QWORD *)(v12 + 72) = a5;
-  *(_DWORD *)(v12 + 60) = a6;
-  *(_DWORD *)(v12 + 64) = a7;
+  *((_QWORD *)v12 + 3) = 0LL;
+  *((_QWORD *)v12 + 11) = 0LL;
+  *((_DWORD *)v12 + 24) = 0;
+  *((_QWORD *)v12 + 13) = 0LL;
+  *((_QWORD *)v12 + 14) = 0LL;
+  *((_QWORD *)v12 + 19) = 0LL;
+  *((_DWORD *)v12 + 40) = 0;
+  *((_QWORD *)v12 + 9) = a5;
+  *((_DWORD *)v12 + 15) = a6;
+  *((_DWORD *)v12 + 16) = a7;
   result = 0LL;
-  *(_QWORD *)(v12 + 48) = SubProcessTag;
-  *(_QWORD *)(v12 + 32) = a3;
-  *(_QWORD *)(v12 + 40) = a4;
-  *(_DWORD *)(v12 + 56) = a2;
-  *(_DWORD *)(v12 + 80) = 1;
+  *((_QWORD *)v12 + 6) = SubProcessTag;
+  *((_QWORD *)v12 + 4) = a3;
+  *((_QWORD *)v12 + 5) = a4;
+  *((_DWORD *)v12 + 14) = a2;
+  *((_DWORD *)v12 + 20) = 1;
   return result;
 }

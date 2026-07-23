@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpUpdateLastBranchTracingConfiguration @ 0x1408C9A98
+ * XREFs of EtwpUpdateLastBranchTracingConfiguration @ 0x1408CAD58
  * Callers:
- *     EtwSetPerformanceTraceInformation @ 0x1408B9A4C (EtwSetPerformanceTraceInformation.c)
+ *     EtwSetPerformanceTraceInformation @ 0x1408BAD0C (EtwSetPerformanceTraceInformation.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     EtwpAllocateLbrData @ 0x1408C99CC (EtwpAllocateLbrData.c)
- *     EtwpReferenceLastBranchLookasideList @ 0x1408C9A18 (EtwpReferenceLastBranchLookasideList.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     EtwpAllocateLbrData @ 0x1408CAC8C (EtwpAllocateLbrData.c)
+ *     EtwpReferenceLastBranchLookasideList @ 0x1408CACD8 (EtwpReferenceLastBranchLookasideList.c)
  */
 
 __int64 __fastcall EtwpUpdateLastBranchTracingConfiguration(__int64 a1, __int64 a2)
@@ -32,7 +32,7 @@ __int64 __fastcall EtwpUpdateLastBranchTracingConfiguration(__int64 a1, __int64 
         }
         else
         {
-          LbrData = ((__int64 (__fastcall *)(_QWORD))off_1403FE6F0[0])(v4);
+          LbrData = ((__int64 (__fastcall *)(_QWORD))off_1403FF6F0[0])(v4);
           if ( LbrData >= 0 )
           {
             EtwpReferenceLastBranchLookasideList();

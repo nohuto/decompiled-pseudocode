@@ -1,17 +1,17 @@
 /*
- * XREFs of PopSetWatchdog @ 0x1403700AC
+ * XREFs of PopSetWatchdog @ 0x14037024C
  * Callers:
- *     PopPowerInformationInternal @ 0x1407ED06C (PopPowerInformationInternal.c)
+ *     PopPowerInformationInternal @ 0x1407ED33C (PopPowerInformationInternal.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140243CE0 (KeWaitForSingleObject.c)
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiSetTimerEx @ 0x140252820 (KiSetTimerEx.c)
- *     KeCancelTimer @ 0x140252AA0 (KeCancelTimer.c)
- *     RtlGetInterruptTimePrecise @ 0x1402C42E0 (RtlGetInterruptTimePrecise.c)
- *     PopUpdateWatchdogNoWorkersEvent @ 0x1403703F0 (PopUpdateWatchdogNoWorkersEvent.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     PopCacheDisplayOnPhaseDuration @ 0x1405999B4 (PopCacheDisplayOnPhaseDuration.c)
+ *     KeWaitForSingleObject @ 0x140243DB0 (KeWaitForSingleObject.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiSetTimerEx @ 0x1402528E0 (KiSetTimerEx.c)
+ *     KeCancelTimer @ 0x140252B60 (KeCancelTimer.c)
+ *     RtlGetInterruptTimePrecise @ 0x1402C4570 (RtlGetInterruptTimePrecise.c)
+ *     PopUpdateWatchdogNoWorkersEvent @ 0x140370590 (PopUpdateWatchdogNoWorkersEvent.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     PopCacheDisplayOnPhaseDuration @ 0x140599EA4 (PopCacheDisplayOnPhaseDuration.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
@@ -23,15 +23,15 @@ char *__fastcall PopSetWatchdog(char *P, unsigned int *a2, char a3)
   unsigned int v7; // r13d
   KIRQL v8; // si
   __int64 v9; // rax
-  __int64 v10; // rax
+  LARGE_INTEGER v10; // rax
   bool v11; // zf
   char *result; // rax
   __int64 v13; // rbx
   __int64 v14; // xmm0_8
-  __int64 InterruptTimePrecise; // rax
+  LARGE_INTEGER InterruptTimePrecise; // rax
   _QWORD *v16; // rax
   __int64 v17; // rax
-  _QWORD *v18; // rcx
+  LARGE_INTEGER v18; // rcx
   PVOID *v19; // rax
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
@@ -42,7 +42,7 @@ char *__fastcall PopSetWatchdog(char *P, unsigned int *a2, char a3)
   _DWORD *v26; // r9
   int v27; // eax
   LARGE_INTEGER v28; // [rsp+30h] [rbp-48h] BYREF
-  LARGE_INTEGER v29; // [rsp+38h] [rbp-40h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+38h] [rbp-40h] BYREF
   LARGE_INTEGER v30; // [rsp+40h] [rbp-38h] BYREF
   LARGE_INTEGER v31; // [rsp+48h] [rbp-30h] BYREF
   char v32; // [rsp+80h] [rbp+8h]
@@ -107,8 +107,8 @@ char *__fastcall PopSetWatchdog(char *P, unsigned int *a2, char a3)
     v33.QuadPart = 0LL;
     *((_QWORD *)v5 + 35) = v14;
     InterruptTimePrecise = RtlGetInterruptTimePrecise(&v33);
-    *((_QWORD *)v5 + 37) = InterruptTimePrecise;
-    *((_QWORD *)v5 + 38) = v13 + InterruptTimePrecise;
+    *((LARGE_INTEGER *)v5 + 37) = InterruptTimePrecise;
+    *((_QWORD *)v5 + 38) = v13 + InterruptTimePrecise.QuadPart;
     *((_QWORD *)v5 + 36) = KeGetCurrentThread();
     *((_WORD *)v5 + 104) = 1;
     if ( !(unsigned __int8)KiSetTimerEx((__int64)(v5 + 48), -v13, 0, 0, (__int64)(v5 + 112)) )
@@ -117,18 +117,18 @@ char *__fastcall PopSetWatchdog(char *P, unsigned int *a2, char a3)
       PopUpdateWatchdogNoWorkersEvent(v5);
     }
     v28.QuadPart = 0LL;
-    *((_QWORD *)v5 + 39) = RtlGetInterruptTimePrecise(&v28);
+    *((LARGE_INTEGER *)v5 + 39) = RtlGetInterruptTimePrecise(&v28);
     goto LABEL_10;
   }
-  v29.QuadPart = 0LL;
-  v10 = RtlGetInterruptTimePrecise(&v29);
+  PerformanceCounter.QuadPart = 0LL;
+  v10 = RtlGetInterruptTimePrecise(&PerformanceCounter);
   v11 = *((_DWORD *)v5 + 56) == 412;
-  *((_QWORD *)v5 + 40) = v10;
+  *((LARGE_INTEGER *)v5 + 40) = v10;
   if ( v11 && *((_QWORD *)v5 + 29) > 0x20uLL )
   {
     v7 = *((_DWORD *)v5 + 58);
     v32 = 1;
-    v6 = (v10 - *((_QWORD *)v5 + 37)) / 0xAuLL;
+    v6 = (v10.QuadPart - *((_QWORD *)v5 + 37)) / 0xAuLL;
   }
   v5[208] = 0;
   if ( KeCancelTimer((PKTIMER)(v5 + 48)) )
@@ -137,14 +137,14 @@ char *__fastcall PopSetWatchdog(char *P, unsigned int *a2, char a3)
     PopUpdateWatchdogNoWorkersEvent(v5);
   }
   v30.QuadPart = 0LL;
-  *((_QWORD *)v5 + 40) = RtlGetInterruptTimePrecise(&v30);
+  *((LARGE_INTEGER *)v5 + 40) = RtlGetInterruptTimePrecise(&v30);
   if ( !*((_DWORD *)v5 + 7) )
   {
     KxReleaseSpinLock((volatile signed __int64 *)&PopWatchdogLock);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v8 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v8 <= 0xFu && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -160,26 +160,26 @@ char *__fastcall PopSetWatchdog(char *P, unsigned int *a2, char a3)
     v8 = KeAcquireSpinLockRaiseToDpc(&PopWatchdogLock);
   }
   v31.QuadPart = 0LL;
-  *((_QWORD *)v5 + 42) = RtlGetInterruptTimePrecise(&v31);
+  *((LARGE_INTEGER *)v5 + 42) = RtlGetInterruptTimePrecise(&v31);
   *((_QWORD *)v5 + 36) = 0LL;
   if ( !a3 )
     goto LABEL_10;
-  v18 = *(_QWORD **)v5;
+  v18 = *(LARGE_INTEGER *)v5;
   v19 = (PVOID *)*((_QWORD *)v5 + 1);
   if ( *(char **)(*(_QWORD *)v5 + 8LL) != v5 || *v19 != v5 )
 LABEL_24:
     __fastfail(3u);
-  *v19 = v18;
-  v18[1] = v19;
+  *v19 = (PVOID)v18.QuadPart;
+  *(_QWORD *)(v18.QuadPart + 8) = v19;
   *((_DWORD *)v5 + 4) = 1330532174;
   ExFreePoolWithTag(v5, 0x44574F50u);
   v5 = 0LL;
 LABEL_10:
   KxReleaseSpinLock((volatile signed __int64 *)&PopWatchdogLock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v24 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v24 <= 0xFu && v8 <= 0xFu && v24 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v24 <= 0xFu && v8 <= 0xFu && v24 >= 2u )
     {
       v25 = KeGetCurrentPrcb();
       v26 = v25->SchedulerAssist;

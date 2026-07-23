@@ -1,16 +1,16 @@
 /*
- * XREFs of EtwpTraceImageUnload @ 0x1404760E8
+ * XREFs of EtwpTraceImageUnload @ 0x14046F868
  * Callers:
- *     EtwpTraceImageUnloadApc @ 0x140475FE0 (EtwpTraceImageUnloadApc.c)
- *     EtwpCancelTraceImageUnloadApc @ 0x1406C5420 (EtwpCancelTraceImageUnloadApc.c)
- *     EtwpEnumerateAddressSpace @ 0x1409FD0D0 (EtwpEnumerateAddressSpace.c)
- *     PerfLogImageUnload @ 0x140AB9C84 (PerfLogImageUnload.c)
+ *     EtwpTraceImageUnloadApc @ 0x14046F760 (EtwpTraceImageUnloadApc.c)
+ *     EtwpCancelTraceImageUnloadApc @ 0x1406C9060 (EtwpCancelTraceImageUnloadApc.c)
+ *     EtwpEnumerateAddressSpace @ 0x140921CD0 (EtwpEnumerateAddressSpace.c)
+ *     PerfLogImageUnload @ 0x140ABB148 (PerfLogImageUnload.c)
  * Callees:
- *     PsGetServerSiloGlobals @ 0x140216B70 (PsGetServerSiloGlobals.c)
- *     EtwTraceKernelEvent @ 0x1402DAC90 (EtwTraceKernelEvent.c)
- *     EtwpLogKernelEvent @ 0x14032CDC0 (EtwpLogKernelEvent.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     EtwpPsProvTraceImage @ 0x140A798C4 (EtwpPsProvTraceImage.c)
+ *     PsGetServerSiloGlobals @ 0x140216EA0 (PsGetServerSiloGlobals.c)
+ *     EtwTraceKernelEvent @ 0x1402BCA50 (EtwTraceKernelEvent.c)
+ *     EtwpLogKernelEvent @ 0x14032EDF0 (EtwpLogKernelEvent.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     EtwpPsProvTraceImage @ 0x140A8B330 (EtwpPsProvTraceImage.c)
  */
 
 void __fastcall EtwpTraceImageUnload(

@@ -1,11 +1,11 @@
 /*
- * XREFs of VfZwQueryFullAttributesFile_Entry @ 0x140C32E10
+ * XREFs of VfZwQueryFullAttributesFile_Entry @ 0x140C38E20
  * Callers:
  *     <none>
  * Callees:
- *     ViZwCheckVirtualAddress @ 0x140C20574 (ViZwCheckVirtualAddress.c)
- *     ViZwCheckObjectAttributes @ 0x140C33120 (ViZwCheckObjectAttributes.c)
- *     ViZwShouldCheck @ 0x140C47B84 (ViZwShouldCheck.c)
+ *     ViZwCheckVirtualAddress @ 0x140C26580 (ViZwCheckVirtualAddress.c)
+ *     ViZwCheckObjectAttributes @ 0x140C39130 (ViZwCheckObjectAttributes.c)
+ *     ViZwShouldCheck @ 0x140C4DB94 (ViZwShouldCheck.c)
  */
 
 void __fastcall VfZwQueryFullAttributesFile_Entry(ULONG_PTR *a1, __int64 a2, __int64 a3)

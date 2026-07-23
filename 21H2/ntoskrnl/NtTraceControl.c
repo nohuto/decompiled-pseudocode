@@ -1,162 +1,162 @@
 /*
- * XREFs of NtTraceControl @ 0x1405EAF60
+ * XREFs of NtTraceControl @ 0x1406DA6C0
  * Callers:
- *     PerfDiagpProxyWorker @ 0x14079C220 (PerfDiagpProxyWorker.c)
- *     PerfDiagpUpdatePerfDiagLoggerEnableFlags @ 0x14079C468 (PerfDiagpUpdatePerfDiagLoggerEnableFlags.c)
- *     PerfDiagpSaveActiveDCLLogFileName @ 0x14092FBC8 (PerfDiagpSaveActiveDCLLogFileName.c)
+ *     PerfDiagpProxyWorker @ 0x14079C420 (PerfDiagpProxyWorker.c)
+ *     PerfDiagpUpdatePerfDiagLoggerEnableFlags @ 0x14079C668 (PerfDiagpUpdatePerfDiagLoggerEnableFlags.c)
+ *     PerfDiagpSaveActiveDCLLogFileName @ 0x14092FD28 (PerfDiagpSaveActiveDCLLogFileName.c)
  * Callees:
- *     EtwpCreateActivityId @ 0x1402B17B8 (EtwpCreateActivityId.c)
- *     PtrToUlong @ 0x1402C7CC0 (PtrToUlong.c)
- *     PsGetCurrentThreadProcessId @ 0x1402ED5E0 (PsGetCurrentThreadProcessId.c)
- *     ExAllocatePoolWithQuotaTag @ 0x140353020 (ExAllocatePoolWithQuotaTag.c)
- *     EtwpTransitionToRealtime @ 0x1403F9098 (EtwpTransitionToRealtime.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     memset @ 0x140414200 (memset.c)
- *     WdiUpdateSem @ 0x1405A55F0 (WdiUpdateSem.c)
- *     EtwpGetCurrentSiloState @ 0x1405AA724 (EtwpGetCurrentSiloState.c)
- *     EtwpGetCompressionSettings @ 0x1405AD394 (EtwpGetCompressionSettings.c)
- *     EtwpSetCompressionSettings @ 0x1405AD864 (EtwpSetCompressionSettings.c)
- *     EtwpRegisterUMGuid @ 0x1405EBAF0 (EtwpRegisterUMGuid.c)
- *     EtwpSetProviderTraitsUm @ 0x140643070 (EtwpSetProviderTraitsUm.c)
- *     ProbeForWrite @ 0x1406547A0 (ProbeForWrite.c)
- *     EtwpRealtimeDisconnectConsumerByHandle @ 0x1406B8844 (EtwpRealtimeDisconnectConsumerByHandle.c)
- *     EtwpRealtimeConnect @ 0x1406B88C8 (EtwpRealtimeConnect.c)
- *     EtwpSendReplyDataBlock @ 0x1406BB2E8 (EtwpSendReplyDataBlock.c)
- *     EtwpTrackProviderBinary @ 0x1406BFE18 (EtwpTrackProviderBinary.c)
- *     EtwpReceiveReplyDataBlock @ 0x1406C1360 (EtwpReceiveReplyDataBlock.c)
- *     EtwpStartTrace @ 0x1406C1AB4 (EtwpStartTrace.c)
- *     EtwpFlushTrace @ 0x1406DD6A4 (EtwpFlushTrace.c)
- *     EtwpStopTrace @ 0x1406DDFBC (EtwpStopTrace.c)
- *     EtwpQueryTrace @ 0x1406DEE18 (EtwpQueryTrace.c)
- *     EtwpValidateUserModeLoggerInfo @ 0x1406DEFE0 (EtwpValidateUserModeLoggerInfo.c)
- *     EtwpNotifyGuid @ 0x1406E1804 (EtwpNotifyGuid.c)
- *     EtwpEnableGuid @ 0x1406E2404 (EtwpEnableGuid.c)
- *     EtwpAddNotificationEvent @ 0x1406E4414 (EtwpAddNotificationEvent.c)
- *     EtwpReceiveNotification @ 0x1406E478C (EtwpReceiveNotification.c)
- *     EtwpEnumerateTraceGuids @ 0x14072AA88 (EtwpEnumerateTraceGuids.c)
- *     EtwpGetTraceGuidInfo @ 0x14072E6C8 (EtwpGetTraceGuidInfo.c)
- *     WdiDispatchControl @ 0x1407892E0 (WdiDispatchControl.c)
- *     EtwpUpdateTrace @ 0x140796D68 (EtwpUpdateTrace.c)
- *     EtwpRegisterSecurityProvider @ 0x1407D5260 (EtwpRegisterSecurityProvider.c)
- *     EtwpUpdateDisallowList @ 0x1409343E0 (EtwpUpdateDisallowList.c)
- *     EtwpGetDisallowList @ 0x140934678 (EtwpGetDisallowList.c)
- *     EtwpGetTraceGroupInfo @ 0x140934754 (EtwpGetTraceGroupInfo.c)
- *     EtwpGetTraceGroupList @ 0x1409349C8 (EtwpGetTraceGroupList.c)
- *     EtwpGetTraceGuidList @ 0x140934A68 (EtwpGetTraceGuidList.c)
- *     EtwpUseDescriptorTypeUm @ 0x140934B54 (EtwpUseDescriptorTypeUm.c)
- *     EtwpIncrementTraceFile @ 0x140934BE4 (EtwpIncrementTraceFile.c)
- *     EtwpQueryReferenceTime @ 0x140934CD0 (EtwpQueryReferenceTime.c)
- *     EtwpGetPrivateSessionTraceHandle @ 0x14093F1B0 (EtwpGetPrivateSessionTraceHandle.c)
- *     EtwpQuerySessionDemuxObject @ 0x14093F32C (EtwpQuerySessionDemuxObject.c)
- *     EtwpRegisterPrivateSession @ 0x14093F3A8 (EtwpRegisterPrivateSession.c)
- *     EtwpUpdatePeriodicCaptureState @ 0x14093F664 (EtwpUpdatePeriodicCaptureState.c)
- *     EtwpSetProviderBinaryTracking @ 0x140940E40 (EtwpSetProviderBinaryTracking.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     PtrToUlong @ 0x140246520 (PtrToUlong.c)
+ *     EtwpCreateActivityId @ 0x140272288 (EtwpCreateActivityId.c)
+ *     PsGetCurrentThreadProcessId @ 0x14029E930 (PsGetCurrentThreadProcessId.c)
+ *     ExAllocatePoolWithQuotaTag @ 0x14035DD70 (ExAllocatePoolWithQuotaTag.c)
+ *     EtwpTransitionToRealtime @ 0x1403F91C4 (EtwpTransitionToRealtime.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     WdiUpdateSem @ 0x1405A5820 (WdiUpdateSem.c)
+ *     EtwpGetCurrentSiloState @ 0x1405AA954 (EtwpGetCurrentSiloState.c)
+ *     EtwpGetCompressionSettings @ 0x1405AD5C4 (EtwpGetCompressionSettings.c)
+ *     EtwpSetCompressionSettings @ 0x1405ADA94 (EtwpSetCompressionSettings.c)
+ *     EtwpRealtimeDisconnectConsumerByHandle @ 0x140617E44 (EtwpRealtimeDisconnectConsumerByHandle.c)
+ *     EtwpRealtimeConnect @ 0x140617EC8 (EtwpRealtimeConnect.c)
+ *     EtwpTrackProviderBinary @ 0x14061ED28 (EtwpTrackProviderBinary.c)
+ *     EtwpStartTrace @ 0x1406207BC (EtwpStartTrace.c)
+ *     EtwpSetProviderTraitsUm @ 0x140637E80 (EtwpSetProviderTraitsUm.c)
+ *     ProbeForWrite @ 0x1406495C0 (ProbeForWrite.c)
+ *     EtwpFlushTrace @ 0x1406B4984 (EtwpFlushTrace.c)
+ *     EtwpStopTrace @ 0x1406B529C (EtwpStopTrace.c)
+ *     EtwpQueryTrace @ 0x1406B60F8 (EtwpQueryTrace.c)
+ *     EtwpValidateUserModeLoggerInfo @ 0x1406B62C0 (EtwpValidateUserModeLoggerInfo.c)
+ *     EtwpNotifyGuid @ 0x1406B8AE4 (EtwpNotifyGuid.c)
+ *     EtwpEnableGuid @ 0x1406B96E4 (EtwpEnableGuid.c)
+ *     EtwpAddNotificationEvent @ 0x1406BB6F4 (EtwpAddNotificationEvent.c)
+ *     EtwpReceiveNotification @ 0x1406BBA6C (EtwpReceiveNotification.c)
+ *     EtwpReceiveReplyDataBlock @ 0x1406BCA6C (EtwpReceiveReplyDataBlock.c)
+ *     EtwpSendReplyDataBlock @ 0x1406BCB68 (EtwpSendReplyDataBlock.c)
+ *     EtwpRegisterUMGuid @ 0x1406DB250 (EtwpRegisterUMGuid.c)
+ *     EtwpEnumerateTraceGuids @ 0x14072AF38 (EtwpEnumerateTraceGuids.c)
+ *     EtwpGetTraceGuidInfo @ 0x14072E894 (EtwpGetTraceGuidInfo.c)
+ *     WdiDispatchControl @ 0x1407894A0 (WdiDispatchControl.c)
+ *     EtwpUpdateTrace @ 0x140796F68 (EtwpUpdateTrace.c)
+ *     EtwpRegisterSecurityProvider @ 0x1407D53D0 (EtwpRegisterSecurityProvider.c)
+ *     EtwpUpdateDisallowList @ 0x1409345B0 (EtwpUpdateDisallowList.c)
+ *     EtwpGetDisallowList @ 0x140934848 (EtwpGetDisallowList.c)
+ *     EtwpGetTraceGroupInfo @ 0x140934924 (EtwpGetTraceGroupInfo.c)
+ *     EtwpGetTraceGroupList @ 0x140934B98 (EtwpGetTraceGroupList.c)
+ *     EtwpGetTraceGuidList @ 0x140934C38 (EtwpGetTraceGuidList.c)
+ *     EtwpUseDescriptorTypeUm @ 0x140934D24 (EtwpUseDescriptorTypeUm.c)
+ *     EtwpIncrementTraceFile @ 0x140934DB4 (EtwpIncrementTraceFile.c)
+ *     EtwpQueryReferenceTime @ 0x140934EA0 (EtwpQueryReferenceTime.c)
+ *     EtwpGetPrivateSessionTraceHandle @ 0x14093F380 (EtwpGetPrivateSessionTraceHandle.c)
+ *     EtwpQuerySessionDemuxObject @ 0x14093F4FC (EtwpQuerySessionDemuxObject.c)
+ *     EtwpRegisterPrivateSession @ 0x14093F578 (EtwpRegisterPrivateSession.c)
+ *     EtwpUpdatePeriodicCaptureState @ 0x14093F834 (EtwpUpdatePeriodicCaptureState.c)
+ *     EtwpSetProviderBinaryTracking @ 0x140941010 (EtwpSetProviderBinaryTracking.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall NtTraceControl(
-        __int64 a1,
-        unsigned int *a2,
-        unsigned int a3,
-        volatile void *a4,
-        unsigned int Length,
-        _DWORD *a6)
+// local variable allocation has failed, the output may be wrong!
+NTSTATUS __cdecl NtTraceControl(
+        ETWTRACECONTROLCODE FunctionCode,
+        PVOID InputBuffer,
+        ULONG InputBufferLength,
+        PVOID OutputBuffer,
+        ULONG OutputBufferLength,
+        PULONG ReturnLength)
 {
-  unsigned int v7; // r14d
+  ETWTRACECONTROLCODE v7; // r14d
   _QWORD *v8; // rdi
   _QWORD *v9; // rsi
   char PreviousMode; // bl
   __int64 v11; // rdx
-  unsigned __int64 v12; // rcx
-  __int64 v13; // r8
+  char *v12; // rcx
   __int64 CurrentSiloState; // r15
-  unsigned int v15; // r13d
-  int v16; // eax
-  __int64 v17; // rbx
-  int v18; // eax
-  unsigned int v19; // r14d
-  unsigned int v20; // ebx
-  SIZE_T v21; // rdx
+  unsigned int v14; // r13d
+  int v15; // eax
+  __int64 v16; // rbx
+  int v17; // eax
+  ULONG v18; // r14d
+  ULONG v19; // ebx
+  SIZE_T v20; // rdx
   _QWORD *PoolWithQuotaTag; // rax
-  __int64 v23; // r9
-  __int64 v25; // rax
-  void *v26; // rcx
-  unsigned __int64 v27; // rbx
-  __int64 v28; // rcx
-  unsigned int v29; // edx
-  __int64 v30; // r8
-  __int64 v31; // rdx
-  __int64 v32; // rax
-  _DWORD *v33; // rcx
-  __int64 v34; // rdx
-  _WORD v36[2]; // [rsp+30h] [rbp-68h] BYREF
-  unsigned int v37; // [rsp+34h] [rbp-64h]
-  size_t Size; // [rsp+38h] [rbp-60h] BYREF
-  int v39; // [rsp+40h] [rbp-58h]
+  __int64 v22; // r9
+  void *v24; // rax
+  PVOID v25; // rcx
+  unsigned __int64 v26; // rbx
+  void *v27; // rcx
+  unsigned int v28; // edx
+  __int64 v29; // r8
+  __int64 v30; // rdx
+  __int64 v31; // rax
+  PULONG v32; // rcx
+  __int64 v33; // rdx
+  _WORD v35[2]; // [rsp+30h] [rbp-68h] BYREF
+  ETWTRACECONTROLCODE v36; // [rsp+34h] [rbp-64h]
+  ULONG Size; // [rsp+38h] [rbp-60h] BYREF
+  unsigned int Size_4[3]; // [rsp+3Ch] [rbp-5Ch] BYREF
   void *Src; // [rsp+48h] [rbp-50h]
-  __int64 v41; // [rsp+50h] [rbp-48h]
-  __int64 v42; // [rsp+58h] [rbp-40h]
+  void *v40; // [rsp+50h] [rbp-48h]
+  void *v41; // [rsp+58h] [rbp-40h]
 
-  v7 = a1;
-  v37 = a1;
+  v7 = FunctionCode;
+  v36 = FunctionCode;
   v8 = 0LL;
   v9 = 0LL;
   Src = 0LL;
-  LODWORD(Size) = 0;
+  Size = 0;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
-  CurrentSiloState = EtwpGetCurrentSiloState(a1, (__int64)a2);
-  LOBYTE(v15) = 0;
+  CurrentSiloState = EtwpGetCurrentSiloState(*(__int64 *)&FunctionCode, (__int64)InputBuffer);
+  LOBYTE(v14) = 0;
   if ( PreviousMode )
   {
-    v15 = v7 >> 31;
-    v16 = v7 & 0x7FFFFFFF;
-    if ( (v7 & 0x80000000) == 0 )
-      v16 = v7;
-    v7 = v16;
-    v37 = v16;
-    v17 = 0x7FFFFFFF0000LL;
-    if ( a2 )
+    v14 = (unsigned int)v7 >> 31;
+    v15 = v7 & 0x7FFFFFFF;
+    if ( v7 >= 0 )
+      v15 = v7;
+    v7 = v15;
+    v36 = v15;
+    v16 = 0x7FFFFFFF0000LL;
+    if ( InputBuffer )
     {
-      if ( a3 )
+      if ( InputBufferLength )
       {
-        v12 = (unsigned __int64)a2 + a3;
-        if ( v12 > 0x7FFFFFFF0000LL || v12 < (unsigned __int64)a2 )
+        v12 = (char *)InputBuffer + InputBufferLength;
+        if ( (unsigned __int64)v12 > 0x7FFFFFFF0000LL || v12 < InputBuffer )
           MEMORY[0x7FFFFFFF0000] = 0;
       }
     }
     else
     {
-      a3 = 0;
+      InputBufferLength = 0;
     }
-    if ( a4 )
-      ProbeForWrite(a4, Length, 1u);
+    if ( OutputBuffer )
+      ProbeForWrite(OutputBuffer, OutputBufferLength, 1u);
     else
-      Length = 0;
-    if ( !a6 )
+      OutputBufferLength = 0;
+    if ( !ReturnLength )
     {
       LODWORD(v8) = -1073741811;
-      v39 = -1073741811;
+      Size_4[1] = -1073741811;
       goto LABEL_151;
     }
-    if ( (unsigned __int64)a6 < 0x7FFFFFFF0000LL )
-      v17 = (__int64)a6;
-    *(_DWORD *)v17 = *(_DWORD *)v17;
+    if ( (unsigned __int64)ReturnLength < 0x7FFFFFFF0000LL )
+      v16 = (__int64)ReturnLength;
+    *(_DWORD *)v16 = *(_DWORD *)v16;
   }
-  if ( v7 <= 0x1B && (v18 = 134238208, _bittest(&v18, v7)) )
+  if ( (unsigned int)v7 <= EtwAddNotificationEvent && (v17 = 134238208, _bittest(&v17, v7)) )
   {
-    v19 = Length;
-    v20 = a3;
+    v18 = OutputBufferLength;
+    v19 = InputBufferLength;
   }
   else
   {
-    v20 = a3;
-    v19 = Length;
-    if ( a3 || Length )
+    v19 = InputBufferLength;
+    v18 = OutputBufferLength;
+    if ( InputBufferLength || OutputBufferLength )
     {
-      v21 = Length;
-      if ( a3 > Length )
-        v21 = a3;
-      PoolWithQuotaTag = ExAllocatePoolWithQuotaTag((POOL_TYPE)9, v21, 0x50777445u);
+      v20 = OutputBufferLength;
+      if ( InputBufferLength > OutputBufferLength )
+        v20 = InputBufferLength;
+      PoolWithQuotaTag = ExAllocatePoolWithQuotaTag((POOL_TYPE)9, v20, 0x50777445u);
       v9 = PoolWithQuotaTag;
       Src = PoolWithQuotaTag;
       if ( !PoolWithQuotaTag )
@@ -164,284 +164,283 @@ __int64 __fastcall NtTraceControl(
         LODWORD(v8) = -1073741801;
         goto LABEL_151;
       }
-      memset(PoolWithQuotaTag, 0, Length);
-      if ( a2 )
-        memmove(v9, a2, a3);
+      memset(PoolWithQuotaTag, 0, OutputBufferLength);
+      if ( InputBuffer )
+        memmove(v9, InputBuffer, InputBufferLength);
     }
   }
-  switch ( v37 )
+  switch ( v36 )
   {
-    case 1u:
-    case 2u:
-    case 3u:
-    case 4u:
-    case 5u:
-    case 6u:
-    case 7u:
-      LODWORD(v8) = EtwpValidateUserModeLoggerInfo(v9, v20, v19);
+    case EtwStartLoggerCode:
+    case EtwStopLoggerCode:
+    case EtwQueryLoggerCode:
+    case EtwUpdateLoggerCode:
+    case EtwFlushLoggerCode:
+    case EtwIncrementLoggerFile:
+    case EtwRealtimeTransition:
+      LODWORD(v8) = EtwpValidateUserModeLoggerInfo((__int64)v9, v19, v18, (unsigned int)(v36 - 1));
       if ( (int)v8 >= 0 )
       {
-        if ( (unsigned int)v23 <= 6 )
+        if ( (unsigned int)v22 <= 6 )
           __asm { jmp     rcx }
-        LODWORD(Size) = 176;
+        Size = 176;
       }
       goto LABEL_139;
-    case 0xBu:
-      if ( v20 != 96 || v19 != 96 )
+    case EtwRealtimeConnectCode:
+      if ( v19 != 96 || v18 != 96 )
         goto LABEL_61;
-      LODWORD(v8) = EtwpRealtimeConnect(v9);
-      LODWORD(Size) = 96;
+      LODWORD(v8) = EtwpRealtimeConnect((int *)v9);
+      Size = 96;
       goto LABEL_139;
-    case 0xCu:
-      if ( v19 != 16 )
+    case EtwActivityIdCreate:
+      if ( v18 != 16 )
         goto LABEL_61;
-      EtwpCreateActivityId((volatile signed __int64 *)a4);
-      v27 = v37;
+      EtwpCreateActivityId((volatile signed __int64 *)OutputBuffer);
+      v26 = (unsigned int)v36;
       goto LABEL_140;
-    case 0xDu:
-      if ( v20 != 48 || v19 )
+    case EtwWdiScenarioCode:
+      if ( v19 != 48 || v18 )
         goto LABEL_61;
       LODWORD(v8) = WdiDispatchControl(v9);
       goto LABEL_139;
-    case 0xEu:
-      if ( v20 != 8 || v19 )
+    case EtwRealtimeDisconnectCode:
+      if ( v19 != 8 || v18 )
         goto LABEL_61;
-      LODWORD(v25) = PtrToUlong((const void *)*a2);
-      v41 = v25;
-      LODWORD(v8) = EtwpRealtimeDisconnectConsumerByHandle(v25);
+      LODWORD(v24) = PtrToUlong((const void *)*(unsigned int *)InputBuffer);
+      v40 = v24;
+      LODWORD(v8) = EtwpRealtimeDisconnectConsumerByHandle(v24);
       goto LABEL_139;
-    case 0xFu:
-      if ( v20 != 160 || v19 - 160 > 0xFF60 )
+    case EtwRegisterGuidsCode:
+      if ( v19 != 160 || v18 - 160 > 0xFF60 )
         goto LABEL_61;
-      LODWORD(v8) = EtwpRegisterUMGuid(CurrentSiloState, (_DWORD)v9, v19, (unsigned __int8)v15, (__int64)&Size);
+      LODWORD(v8) = EtwpRegisterUMGuid(CurrentSiloState, (_DWORD)v9, v18, (unsigned __int8)v14, (__int64)&Size);
       goto LABEL_139;
-    case 0x10u:
-      if ( v20 || v19 - 72 > 0xFFB8 )
+    case EtwReceiveNotification:
+      if ( v19 || v18 - 72 > 0xFFB8 )
         goto LABEL_61;
-      LODWORD(v8) = EtwpReceiveNotification(v9);
+      LODWORD(v8) = EtwpReceiveNotification(v9, v18, v14, &Size);
       goto LABEL_139;
-    case 0x11u:
-      if ( v20 < 0x48 || v19 != 72 || *((_DWORD *)v9 + 1) != v20 )
+    case EtwSendDataBlock:
+      if ( v19 < 0x48 || v18 != 72 || *((_DWORD *)v9 + 1) != v19 )
         goto LABEL_61;
       if ( *(_DWORD *)v9 == 3 )
       {
-        if ( v20 < 0x78 )
+        if ( v19 < 0x78 )
           goto LABEL_61;
-        LOBYTE(v13) = 1;
-        LODWORD(v8) = EtwpEnableGuid(CurrentSiloState, v9, v13);
-        LODWORD(Size) = 72;
+        LODWORD(v8) = EtwpEnableGuid(CurrentSiloState, (__int64)v9, 1);
+        Size = 72;
       }
       else
       {
-        LOBYTE(v13) = 1;
-        LODWORD(v8) = EtwpNotifyGuid(CurrentSiloState, v9, v13);
-        LODWORD(Size) = 72;
+        LODWORD(v8) = EtwpNotifyGuid(CurrentSiloState, (__int64)v9, 1);
+        Size = 72;
       }
       goto LABEL_139;
-    case 0x12u:
-      if ( v20 < 0x48 || *((_DWORD *)v9 + 1) != v20 )
+    case EtwSendReplyDataBlock:
+      if ( v19 < 0x48 || *((_DWORD *)v9 + 1) != v19 )
         goto LABEL_61;
       *((_DWORD *)v9 + 9) = PsGetCurrentThreadProcessId();
-      LODWORD(v8) = EtwpSendReplyDataBlock(v9);
+      LODWORD(v8) = EtwpSendReplyDataBlock((__int64)v9);
       goto LABEL_139;
-    case 0x13u:
-      if ( v20 != 8 )
+    case EtwReceiveReplyDataBlock:
+      if ( v19 != 8 )
         goto LABEL_61;
-      LODWORD(v8) = EtwpReceiveReplyDataBlock(v9);
-      Size = 0LL;
+      Size_4[0] = 0;
+      LODWORD(v8) = EtwpReceiveReplyDataBlock((unsigned int *)v9, v18, Size_4);
+      Size = Size_4[0];
       goto LABEL_139;
-    case 0x14u:
-      if ( v20 || v19 )
+    case EtwWdiSemUpdate:
+      if ( v19 || v18 )
         goto LABEL_61;
       LODWORD(v8) = WdiUpdateSem();
       goto LABEL_139;
-    case 0x15u:
-      LODWORD(Size) = v19;
+    case EtwEnumTraceGuidList:
+      Size = v18;
       LODWORD(v8) = EtwpGetTraceGuidList(CurrentSiloState, v9, &Size);
       goto LABEL_139;
-    case 0x16u:
-      if ( v20 != 16 )
+    case EtwGetTraceGuidInfo:
+      if ( v19 != 16 )
         goto LABEL_61;
-      LODWORD(Size) = v19;
+      Size = v18;
       LODWORD(v8) = EtwpGetTraceGuidInfo(CurrentSiloState, v9, v9, &Size);
       goto LABEL_139;
-    case 0x17u:
-      LODWORD(Size) = v19;
+    case EtwEnumerateTraceGuids:
+      Size = v18;
       LODWORD(v8) = EtwpEnumerateTraceGuids(CurrentSiloState, v9, &Size);
       goto LABEL_139;
-    case 0x18u:
-      if ( v20 || v19 )
+    case EtwRegisterSecurityProv:
+      if ( v19 || v18 )
         goto LABEL_61;
       LODWORD(v8) = EtwpRegisterSecurityProvider(CurrentSiloState);
       goto LABEL_139;
-    case 0x19u:
-      if ( v20 != 4 || v19 != 16 )
+    case EtwReferenceTimeCode:
+      if ( v19 != 4 || v18 != 16 )
         goto LABEL_61;
       LODWORD(v8) = EtwpQueryReferenceTime(CurrentSiloState, *(unsigned int *)v9, v9);
-      LODWORD(Size) = 16;
+      Size = 16;
       goto LABEL_139;
-    case 0x1Au:
-      if ( v20 != 8 )
+    case EtwTrackBinaryCode:
+      if ( v19 != 8 )
         goto LABEL_61;
-      LODWORD(v8) = EtwpTrackProviderBinary(CurrentSiloState, v9);
+      LODWORD(v8) = EtwpTrackProviderBinary(CurrentSiloState, (void **)v9);
       goto LABEL_139;
-    case 0x1Bu:
-      if ( v20 != 4 )
+    case EtwAddNotificationEvent:
+      if ( v19 != 4 )
         goto LABEL_61;
-      v28 = *a2;
-      v42 = v28;
-      if ( !v28 )
+      v27 = (void *)*(unsigned int *)InputBuffer;
+      v41 = v27;
+      if ( !v27 )
         goto LABEL_61;
-      LODWORD(v8) = EtwpAddNotificationEvent(v28, (unsigned __int8)v15);
+      LODWORD(v8) = EtwpAddNotificationEvent(v27, v14);
       goto LABEL_139;
-    case 0x1Cu:
-      if ( v20 < 8 )
+    case EtwUpdateDisallowList:
+      if ( v19 < 8 )
         goto LABEL_61;
-      v29 = *((_DWORD *)v9 + 1);
-      if ( 16LL * v29 + 8 != v20 )
+      v28 = *((_DWORD *)v9 + 1);
+      if ( 16LL * v28 + 8 != v19 )
         goto LABEL_61;
-      if ( v29 )
+      if ( v28 )
         v8 = v9 + 1;
-      LODWORD(v8) = EtwpUpdateDisallowList(CurrentSiloState, *(unsigned int *)v9, v29, v8);
+      LODWORD(v8) = EtwpUpdateDisallowList(CurrentSiloState, *(unsigned int *)v9, v28, v8);
       goto LABEL_139;
-    case 0x1Eu:
-      if ( v20 != 24 || v19 - 120 > 0xFF88 )
+    case EtwSetProviderTraitsCode:
+      if ( v19 != 24 || v18 - 120 > 0xFF88 )
         goto LABEL_61;
-      LODWORD(v8) = EtwpSetProviderTraitsUm((_DWORD)v9, v19, (unsigned int)&Size);
+      LODWORD(v8) = EtwpSetProviderTraitsUm((__int64)v9, v18, (int)&Size);
       goto LABEL_139;
-    case 0x1Fu:
-      if ( v20 != 16 || v19 )
+    case EtwUseDescriptorTypeCode:
+      if ( v19 != 16 || v18 )
         goto LABEL_61;
       LODWORD(v8) = EtwpUseDescriptorTypeUm(v9);
       goto LABEL_139;
-    case 0x20u:
-      LODWORD(Size) = v19;
+    case EtwEnumTraceGroupList:
+      Size = v18;
       LODWORD(v8) = EtwpGetTraceGroupList(CurrentSiloState, v9, &Size);
       goto LABEL_139;
-    case 0x21u:
-      if ( v20 != 16 )
+    case EtwGetTraceGroupInfo:
+      if ( v19 != 16 )
         goto LABEL_61;
-      LODWORD(Size) = v19;
+      Size = v18;
       LODWORD(v8) = EtwpGetTraceGroupInfo(CurrentSiloState, v9, v9, &Size);
       goto LABEL_139;
-    case 0x22u:
-      if ( v20 != 8 )
+    case EtwGetDisallowList:
+      if ( v19 != 8 )
         goto LABEL_61;
-      LODWORD(Size) = v19;
+      Size = v18;
       LODWORD(v8) = EtwpGetDisallowList(CurrentSiloState, v9, v9, &Size);
       goto LABEL_139;
-    case 0x23u:
-      if ( v20 != 16 || v19 )
+    case EtwSetCompressionSettings:
+      if ( v19 != 16 || v18 )
         goto LABEL_61;
       LODWORD(v8) = EtwpSetCompressionSettings((unsigned int *)v9, v11);
       goto LABEL_139;
-    case 0x24u:
-      if ( v20 != 8 || v19 != 16 )
+    case EtwGetCompressionSettings:
+      if ( v19 != 8 || v18 != 16 )
         goto LABEL_61;
-      LODWORD(Size) = 16;
+      Size = 16;
       LODWORD(v8) = EtwpGetCompressionSettings((unsigned __int16 *)v9, (unsigned int *)v9);
       goto LABEL_139;
-    case 0x25u:
-      if ( v20 < 0xC )
+    case EtwUpdatePeriodicCaptureState:
+      if ( v19 < 0xC )
         goto LABEL_61;
-      v30 = *((unsigned __int16 *)v9 + 4);
-      if ( (unsigned int)v30 > 0x10 )
+      v29 = *((unsigned __int16 *)v9 + 4);
+      if ( (unsigned int)v29 > 0x10 )
       {
         LODWORD(v8) = -1073741811;
         goto LABEL_139;
       }
-      v31 = *((unsigned int *)v9 + 1);
-      if ( (unsigned int)(v31 - 1) <= 3 )
+      v30 = *((unsigned int *)v9 + 1);
+      if ( (unsigned int)(v30 - 1) <= 3 )
       {
         LODWORD(v8) = -1073741811;
         goto LABEL_139;
       }
-      if ( (_WORD)v30 )
+      if ( (_WORD)v29 )
       {
-        if ( !(_DWORD)v31 )
+        if ( !(_DWORD)v30 )
         {
           LODWORD(v8) = -1073741811;
           goto LABEL_139;
         }
       }
-      else if ( (_DWORD)v31 )
+      else if ( (_DWORD)v30 )
       {
 LABEL_61:
         LODWORD(v8) = -1073741811;
         goto LABEL_139;
       }
-      if ( 16 * v30 + 12 != v20 )
+      if ( 16 * v29 + 12 != v19 )
         goto LABEL_61;
-      if ( (_WORD)v30 )
+      if ( (_WORD)v29 )
         v8 = (_QWORD *)((char *)v9 + 12);
-      LODWORD(v8) = EtwpUpdatePeriodicCaptureState(*(unsigned int *)v9, v31, v30, v8);
+      LODWORD(v8) = EtwpUpdatePeriodicCaptureState(*(unsigned int *)v9, v30, v29, v8);
 LABEL_139:
-      v26 = (void *)a4;
-      v27 = v37;
+      v25 = OutputBuffer;
+      v26 = (unsigned int)v36;
 LABEL_140:
       if ( (int)v8 < 0 )
       {
-        v33 = a6;
+        v32 = ReturnLength;
       }
       else
       {
-        if ( (_DWORD)Size )
-          memmove(v26, v9, (unsigned int)Size);
-        v33 = a6;
-        *a6 = Size;
+        if ( Size )
+          memmove(v25, v9, Size);
+        v32 = ReturnLength;
+        *ReturnLength = Size;
       }
-      if ( (_DWORD)v8 == -1073741789 && ((unsigned int)(v27 - 15) <= 1 || (unsigned int)(v27 - 21) <= 1)
-        || (unsigned int)v27 <= 0x28 && (v34 = 0x1D700880000LL, _bittest64(&v34, v27)) )
+      if ( (_DWORD)v8 == -1073741789 && ((unsigned int)(v26 - 15) <= 1 || (unsigned int)(v26 - 21) <= 1)
+        || (unsigned int)v26 <= 0x28 && (v33 = 0x1D700880000LL, _bittest64(&v33, v26)) )
       {
-        *v33 = Size;
+        *v32 = Size;
       }
 LABEL_151:
       if ( v9 )
         ExFreePoolWithTag(v9, 0);
-      return (unsigned int)v8;
-    case 0x26u:
-      if ( v20 < 8 || (v20 & 7) != 0 || v19 < 2 )
+      return (int)v8;
+    case EtwGetPrivateSessionTraceHandle:
+      if ( v19 < 8 || (v19 & 7) != 0 || v18 < 2 )
         goto LABEL_61;
-      v36[0] = 0;
-      LODWORD(v8) = EtwpGetPrivateSessionTraceHandle(v9, v20 >> 3, v36);
+      v35[0] = 0;
+      LODWORD(v8) = EtwpGetPrivateSessionTraceHandle(v9, v19 >> 3, v35);
       if ( !(_DWORD)v8 )
       {
-        LODWORD(Size) = 2;
-        *(_WORD *)v9 = v36[0];
+        Size = 2;
+        *(_WORD *)v9 = v35[0];
       }
       goto LABEL_139;
-    case 0x27u:
-      if ( v20 < 2 || v19 < 8 )
+    case EtwRegisterPrivateSession:
+      if ( v19 < 2 || v18 < 8 )
         goto LABEL_61;
-      v32 = EtwpGetCurrentSiloState(v12, v11);
-      LODWORD(v8) = EtwpRegisterPrivateSession(v32, *(unsigned __int16 *)v9, (char *)v9 + 4, v9);
+      v31 = EtwpGetCurrentSiloState((__int64)v12, v11);
+      LODWORD(v8) = EtwpRegisterPrivateSession(v31, *(unsigned __int16 *)v9, (char *)v9 + 4, v9);
       if ( !(_DWORD)v8 )
-        LODWORD(Size) = 8;
+        Size = 8;
       goto LABEL_139;
-    case 0x28u:
-      if ( v20 < 8 || v19 < 2 )
+    case EtwQuerySessionDemuxObject:
+      if ( v19 < 8 || v18 < 2 )
         goto LABEL_61;
       LODWORD(v8) = EtwpQuerySessionDemuxObject(*v9, v9);
       if ( !(_DWORD)v8 )
-        LODWORD(Size) = 2;
+        Size = 2;
       goto LABEL_139;
-    case 0x29u:
-      if ( v20 < 8 )
+    case EtwSetProviderBinaryTracking:
+      if ( v19 < 8 )
         goto LABEL_61;
       LODWORD(v8) = EtwpSetProviderBinaryTracking(CurrentSiloState, *(unsigned int *)v9, *((unsigned __int8 *)v9 + 4));
       goto LABEL_139;
-    case 0x2Au:
-      v27 = v37;
-      v26 = (void *)a4;
-      if ( v19 < 4 )
+    case EtwMaxLoggers:
+      v26 = (unsigned int)v36;
+      v25 = OutputBuffer;
+      if ( v18 < 4 )
         goto LABEL_135;
       *(_DWORD *)v9 = *(_DWORD *)(CurrentSiloState + 16);
-      LODWORD(Size) = 4;
+      Size = 4;
       goto LABEL_140;
-    case 0x2Bu:
-      v27 = v37;
-      v26 = (void *)a4;
-      if ( v19 < 4 )
+    case EtwMaxPmcCounter:
+      v26 = (unsigned int)v36;
+      v25 = OutputBuffer;
+      if ( v18 < 4 )
       {
 LABEL_135:
         LODWORD(v8) = -1073741811;
@@ -449,7 +448,7 @@ LABEL_135:
       else
       {
         *(_DWORD *)v9 = EtwpMaxPmcCounter;
-        LODWORD(Size) = 4;
+        Size = 4;
       }
       goto LABEL_140;
     default:

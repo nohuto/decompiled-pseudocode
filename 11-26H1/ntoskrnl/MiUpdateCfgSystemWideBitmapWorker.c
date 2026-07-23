@@ -1,23 +1,23 @@
 /*
- * XREFs of MiUpdateCfgSystemWideBitmapWorker @ 0x1409C9790
+ * XREFs of MiUpdateCfgSystemWideBitmapWorker @ 0x14099A770
  * Callers:
- *     MiUpdateCfgSystemWideBitmap @ 0x1409C96A0 (MiUpdateCfgSystemWideBitmap.c)
+ *     MiUpdateCfgSystemWideBitmap @ 0x14099A680 (MiUpdateCfgSystemWideBitmap.c)
  * Callees:
- *     MiLocatePagefileSubsection @ 0x140340310 (MiLocatePagefileSubsection.c)
- *     RtlSetBitsEx @ 0x14036F510 (RtlSetBitsEx.c)
- *     MiSectionControlArea @ 0x14038A9B0 (MiSectionControlArea.c)
- *     MiCheckPurgeAndUpMapCount @ 0x140442A20 (MiCheckPurgeAndUpMapCount.c)
- *     MiGetAnyMultiplexedVm @ 0x140457870 (MiGetAnyMultiplexedVm.c)
- *     RtlClearAllBitsEx @ 0x140483500 (RtlClearAllBitsEx.c)
- *     MiRemoveFromSystemSpace @ 0x14048FFF8 (MiRemoveFromSystemSpace.c)
- *     MiInsertInSystemSpace @ 0x1404EDA44 (MiInsertInSystemSpace.c)
- *     MiDereferenceControlArea @ 0x1404EF3F0 (MiDereferenceControlArea.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     MiImageCfgEnumNextImageExtensionRva @ 0x14077D11C (MiImageCfgEnumNextImageExtensionRva.c)
- *     MiChargeSegmentCommit @ 0x1409C9BB0 (MiChargeSegmentCommit.c)
- *     MiEliminateZeroPages @ 0x1409C9F7C (MiEliminateZeroPages.c)
- *     MiImageCfgEnumRvaListFirst @ 0x1409CA158 (MiImageCfgEnumRvaListFirst.c)
+ *     MiLocatePagefileSubsection @ 0x140342390 (MiLocatePagefileSubsection.c)
+ *     RtlSetBitsEx @ 0x1403712C0 (RtlSetBitsEx.c)
+ *     MiSectionControlArea @ 0x14038C760 (MiSectionControlArea.c)
+ *     MiCheckPurgeAndUpMapCount @ 0x14043B530 (MiCheckPurgeAndUpMapCount.c)
+ *     MiGetAnyMultiplexedVm @ 0x14044F0E0 (MiGetAnyMultiplexedVm.c)
+ *     RtlClearAllBitsEx @ 0x14047CE30 (RtlClearAllBitsEx.c)
+ *     MiRemoveFromSystemSpace @ 0x140489AA8 (MiRemoveFromSystemSpace.c)
+ *     MiInsertInSystemSpace @ 0x1404E7024 (MiInsertInSystemSpace.c)
+ *     MiDereferenceControlArea @ 0x1404E89D0 (MiDereferenceControlArea.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     MiImageCfgEnumNextImageExtensionRva @ 0x14077FC10 (MiImageCfgEnumNextImageExtensionRva.c)
+ *     MiChargeSegmentCommit @ 0x14099AB90 (MiChargeSegmentCommit.c)
+ *     MiEliminateZeroPages @ 0x14099AF5C (MiEliminateZeroPages.c)
+ *     MiImageCfgEnumRvaListFirst @ 0x14099B138 (MiImageCfgEnumRvaListFirst.c)
  */
 
 __int64 __fastcall MiUpdateCfgSystemWideBitmapWorker(
@@ -38,7 +38,7 @@ __int64 __fastcall MiUpdateCfgSystemWideBitmapWorker(
   ULONG_PTR v15; // r15
   unsigned __int64 v16; // rax
   unsigned int *v17; // rax
-  __int64 v18; // r13
+  unsigned __int64 SizeOfBitMap; // r13
   __int64 v19; // rsi
   unsigned int ImageExtensionRva; // eax
   unsigned int i; // ebx
@@ -58,7 +58,7 @@ __int64 __fastcall MiUpdateCfgSystemWideBitmapWorker(
   char *AnyMultiplexedVm; // rax
   int *v37; // r8
   unsigned __int64 v38; // [rsp+30h] [rbp-40h] BYREF
-  _QWORD v39[2]; // [rsp+38h] [rbp-38h] BYREF
+  _RTL_BITMAP_EX BitMapHeader; // [rsp+38h] [rbp-38h] BYREF
   ULONG_PTR BugCheckParameter1; // [rsp+48h] [rbp-28h]
   ULONG_PTR BugCheckParameter3[2]; // [rsp+50h] [rbp-20h] BYREF
   __int64 v42; // [rsp+60h] [rbp-10h]
@@ -76,7 +76,7 @@ __int64 __fastcall MiUpdateCfgSystemWideBitmapWorker(
   v10 = a4 >> 3;
   v45 = a3 >> 3;
   v46 = 0LL;
-  v39[0] = (a4 >> 15) + ((((a3 >> 3) & 0xFFF) + 4095 + ((a4 >> 3) & 0xFFF)) >> 12);
+  BitMapHeader.SizeOfBitMap = (a4 >> 15) + ((((a3 >> 3) & 0xFFF) + 4095 + ((a4 >> 3) & 0xFFF)) >> 12);
   v11 = MiSectionControlArea(a1);
   MiCheckPurgeAndUpMapCount(v11);
   if ( v10 )
@@ -106,15 +106,15 @@ LABEL_43:
   BugCheckParameter1 = v46;
   v16 = MiSectionControlArea(a1);
   v17 = MiLocatePagefileSubsection((unsigned int *)(v16 + 128), &v38);
-  v18 = v39[0];
+  SizeOfBitMap = BitMapHeader.SizeOfBitMap;
   if ( (unsigned int)MiChargeSegmentCommit(v17, *((_QWORD *)v17 + 1) + 8 * v38) )
   {
     v19 = a2;
     if ( a2 && (*(_DWORD *)a2 & 1) != 0 && v8 )
     {
-      v39[1] = v15;
-      v39[0] = a4;
-      RtlClearAllBitsEx((__int64)v39);
+      BitMapHeader.Buffer = (unsigned __int64 *)v15;
+      BitMapHeader.SizeOfBitMap = a4;
+      RtlClearAllBitsEx(&BitMapHeader);
       ImageExtensionRva = MiImageCfgEnumRvaListFirst(v8, BugCheckParameter3, a6);
       for ( i = 0; ImageExtensionRva; LODWORD(BugCheckParameter3[0]) = ImageExtensionRva )
       {
@@ -130,7 +130,7 @@ LABEL_43:
           }
           else
           {
-            RtlSetBitsEx((__int64)v39, v22, 2uLL);
+            RtlSetBitsEx((__int64)&BitMapHeader, v22, 2uLL);
           }
         }
         ImageExtensionRva = BugCheckParameter3[0];
@@ -203,7 +203,7 @@ LABEL_43:
           ImageExtensionRva = MiImageCfgEnumNextImageExtensionRva(BugCheckParameter3);
       }
       AnyMultiplexedVm = MiGetAnyMultiplexedVm(2);
-      MiEliminateZeroPages(AnyMultiplexedVm, v15 & 0xFFFFFFFFFFFFF000uLL, v18 << 12, 0LL);
+      MiEliminateZeroPages(AnyMultiplexedVm, v15 & 0xFFFFFFFFFFFFF000uLL, SizeOfBitMap << 12, 0LL);
     }
     else
     {

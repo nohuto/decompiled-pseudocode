@@ -1,11 +1,11 @@
 /*
- * XREFs of MiFreeReadListPageList @ 0x14072147C
+ * XREFs of MiFreeReadListPageList @ 0x14072167C
  * Callers:
- *     MiFreeReadListPages @ 0x1407213E0 (MiFreeReadListPages.c)
+ *     MiFreeReadListPages @ 0x1407215E0 (MiFreeReadListPages.c)
  * Callees:
  *     MiPartitionIdToPointer @ 0x14020B9C4 (MiPartitionIdToPointer.c)
- *     MiReleaseFreshPage @ 0x1402E7F20 (MiReleaseFreshPage.c)
- *     MiGetPfnLink @ 0x14037479C (MiGetPfnLink.c)
+ *     MiReleaseFreshPage @ 0x1402E81B0 (MiReleaseFreshPage.c)
+ *     MiGetPfnLink @ 0x14037493C (MiGetPfnLink.c)
  */
 
 __int64 __fastcall MiFreeReadListPageList(__int64 *a1, __int64 *a2)

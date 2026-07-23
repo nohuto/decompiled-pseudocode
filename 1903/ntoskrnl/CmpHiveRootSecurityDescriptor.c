@@ -38,15 +38,15 @@ ACL *CmpHiveRootSecurityDescriptor()
   ACL *v11; // rax
   ACL *v12; // rdi
   _BYTE *v14; // [rsp+38h] [rbp-59h] BYREF
-  struct _SID_IDENTIFIER_AUTHORITY v15; // [rsp+40h] [rbp-51h] BYREF
+  _SID_IDENTIFIER_AUTHORITY v15; // [rsp+40h] [rbp-51h] BYREF
   size_t IdentifierAuthority; // [rsp+48h] [rbp-49h] BYREF
-  UNICODE_STRING SourceString; // [rsp+50h] [rbp-41h] BYREF
-  unsigned __int8 Src[48]; // [rsp+60h] [rbp-31h] BYREF
-  char Sid[48]; // [rsp+90h] [rbp-1h] BYREF
+  UNICODE_STRING UnicodeString; // [rsp+50h] [rbp-41h] BYREF
+  unsigned __int8 CapabilitySid[48]; // [rsp+60h] [rbp-31h] BYREF
+  _BYTE CapabilityGroupSid[48]; // [rsp+90h] [rbp-1h] BYREF
 
-  *(_QWORD *)&SourceString.Length = 1703960LL;
+  *(_QWORD *)&UnicodeString.Length = 1703960LL;
   LODWORD(IdentifierAuthority) = 0;
-  SourceString.Buffer = L"registryRead";
+  UnicodeString.Buffer = L"registryRead";
   WORD2(IdentifierAuthority) = 256;
   *(_DWORD *)v15.Value = 0;
   *(_WORD *)&v15.Value[4] = 1280;
@@ -75,9 +75,9 @@ ACL *CmpHiveRootSecurityDescriptor()
   *RtlSubAuthoritySid(v3, 1u) = 544;
   *RtlSubAuthoritySid(v5, 0) = 2;
   *RtlSubAuthoritySid(v5, 1u) = 1;
-  if ( RtlDeriveCapabilitySidsFromName(&SourceString, Sid, Src) < 0 )
+  if ( RtlDeriveCapabilitySidsFromName(&UnicodeString, CapabilityGroupSid, CapabilitySid) < 0 )
     KeBugCheckEx(0x51u, 0xBuLL, 3uLL, 0LL, 0LL);
-  v6 = 4 * (Src[1] + PoolWithTag[1] + v1[1] + v2[1] + v3[1] + v5[1]) + 104;
+  v6 = 4 * (CapabilitySid[1] + PoolWithTag[1] + v1[1] + v2[1] + v3[1] + v5[1]) + 104;
   IdentifierAuthority = v6;
   v7 = (ACL *)ExAllocatePoolWithTag(PagedPool, v6, 0x20204D43u);
   v8 = v7;
@@ -92,7 +92,7 @@ ACL *CmpHiveRootSecurityDescriptor()
     || (v10 = RtlpAddKnownAce(v8, 2u, 0, 131097, PoolWithTag, 0), v10 < 0)
     || (v10 = RtlpAddKnownAce(v8, 2u, 0, 131097, v1, 0), v10 < 0)
     || (v10 = RtlpAddKnownAce(v8, 2u, 0, 131097, v5, 0), v10 < 0)
-    || (v10 = RtlpAddKnownAce(v8, 2u, 0, 131097, Src, 0), v10 < 0) )
+    || (v10 = RtlpAddKnownAce(v8, 2u, 0, 131097, CapabilitySid, 0), v10 < 0) )
   {
     KeBugCheckEx(0x51u, 0xBuLL, 6uLL, v10, 0LL);
   }

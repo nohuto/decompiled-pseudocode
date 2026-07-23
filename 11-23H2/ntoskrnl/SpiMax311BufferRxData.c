@@ -1,9 +1,9 @@
 /*
- * XREFs of SpiMax311BufferRxData @ 0x14067D224
+ * XREFs of SpiMax311BufferRxData @ 0x14067D774
  * Callers:
- *     SpiMax311PutByte @ 0x14067D330 (SpiMax311PutByte.c)
- *     SpiMax311RxReady @ 0x14067D3C0 (SpiMax311RxReady.c)
- *     SpiMax311TxEmpty @ 0x14067D574 (SpiMax311TxEmpty.c)
+ *     SpiMax311PutByte @ 0x14067D880 (SpiMax311PutByte.c)
+ *     SpiMax311RxReady @ 0x14067D910 (SpiMax311RxReady.c)
+ *     SpiMax311TxEmpty @ 0x14067DAC4 (SpiMax311TxEmpty.c)
  * Callees:
  *     <none>
  */

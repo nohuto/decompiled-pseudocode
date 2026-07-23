@@ -1,11 +1,11 @@
 /*
- * XREFs of KiEpfComplete @ 0x14029BCFC
+ * XREFs of KiEpfComplete @ 0x14029BEEC
  * Callers:
- *     KiEpfDrainCompletionQueue @ 0x14029BE54 (KiEpfDrainCompletionQueue.c)
+ *     KiEpfDrainCompletionQueue @ 0x14029C044 (KiEpfDrainCompletionQueue.c)
  * Callees:
  *     KxAcquireSpinLock @ 0x140062A90 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
- *     KeSignalGate @ 0x1401276B0 (KeSignalGate.c)
+ *     KxReleaseSpinLock @ 0x1400630D0 (KxReleaseSpinLock.c)
+ *     KeSignalGate @ 0x140127780 (KeSignalGate.c)
  */
 
 void __fastcall KiEpfComplete(unsigned __int64 a1)
@@ -64,7 +64,7 @@ LABEL_12:
   KxReleaseSpinLock((PKSPIN_LOCK)(v2 + 16));
   if ( v4 )
   {
-    _InterlockedIncrement(&dword_14041B164);
+    _InterlockedIncrement(&dword_14041C224);
     KeSignalGate((__int64)(v4 + 3), 0LL, v8);
   }
 }

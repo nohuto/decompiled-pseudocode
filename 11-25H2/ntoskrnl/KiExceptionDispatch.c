@@ -57,7 +57,7 @@
  * 00000001406B3A53: mov     [rax+20h], r13
  * 00000001406B3A57: mov     [rax+28h], r14
  * 00000001406B3A5B: mov     [rax+30h], r15
- * 00000001406B3A5F: lea     rax, [rsp+1D8h+var_A0]
+ * 00000001406B3A5F: lea     rax, [rsp+1D8h+ExceptionRecord]
  * 00000001406B3A67: mov     [rax], ecx
  * 00000001406B3A69: xor     ecx, ecx
  * 00000001406B3A6B: mov     [rax+4], ecx
@@ -72,7 +72,7 @@
  * 00000001406B3A90: mov     [rsp+1D8h+var_1B8], 1; char
  * 00000001406B3A95: lea     r8, [rbp-80h]
  * 00000001406B3A99: mov     rdx, rsp
- * 00000001406B3A9C: mov     rcx, rax; ULONG_PTR
+ * 00000001406B3A9C: mov     rcx, rax; ExceptionRecord
  * 00000001406B3A9F: jnz     loc_1406B3B40
  * 00000001406B3AA5: mov     r10, cr8
  * 00000001406B3AA9: mov     r11, 2

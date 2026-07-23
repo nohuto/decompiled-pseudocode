@@ -10,26 +10,24 @@
  *     _TppAdjustRunningThreadGoalWithLock@4 @ 0x4B384257 (_TppAdjustRunningThreadGoalWithLock@4.c)
  */
 
-signed __int32 __stdcall TpStartAsyncIoOperation(int a1)
+void __cdecl TpStartAsyncIoOperation(PTP_IO Io)
 {
-  signed __int32 result; // eax
-  int v2; // edi
+  _RTL_SRWLOCK *v1; // edi
+  unsigned int Value; // eax
 
-  result = TppIopValidateIo(1);
-  if ( result )
+  if ( TppIopValidateIo(1) )
   {
-    TppBarrierAdjust((signed __int64 *)(a1 + 32), 1, 0);
-    _InterlockedIncrement((volatile signed __int32 *)(a1 + 168));
-    _InterlockedIncrement((volatile signed __int32 *)a1);
-    v2 = *(_DWORD *)(a1 + 92);
-    if ( !v2 || (result = *(_DWORD *)(v2 + 272)) == 0 )
-      result = MEMORY[0x7FFE03C0];
-    if ( *(_DWORD *)(v2 + 256) != result )
+    TppBarrierAdjust((signed __int64 *)Io + 4, 1, 0);
+    _InterlockedIncrement((volatile signed __int32 *)Io + 42);
+    _InterlockedIncrement((volatile signed __int32 *)Io);
+    v1 = (_RTL_SRWLOCK *)*((_DWORD *)Io + 23);
+    if ( !v1 || (Value = v1[68].Value) == 0 )
+      Value = MEMORY[0x7FFE03C0];
+    if ( v1[64].Value != Value )
     {
-      RtlAcquireSRWLockExclusive((volatile signed __int32 *)(v2 + 44));
-      TppAdjustRunningThreadGoalWithLock(v2);
-      return RtlReleaseSRWLockExclusive((volatile signed __int32 *)(v2 + 44));
+      RtlAcquireSRWLockExclusive(v1 + 11);
+      TppAdjustRunningThreadGoalWithLock(v1);
+      RtlReleaseSRWLockExclusive(v1 + 11);
     }
   }
-  return result;
 }

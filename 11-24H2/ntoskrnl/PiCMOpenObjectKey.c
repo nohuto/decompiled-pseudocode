@@ -1,26 +1,26 @@
 /*
- * XREFs of PiCMOpenObjectKey @ 0x140963AF8
+ * XREFs of PiCMOpenObjectKey @ 0x14094B5B8
  * Callers:
- *     PiCMHandleIoctl @ 0x1408C3A00 (PiCMHandleIoctl.c)
+ *     PiCMHandleIoctl @ 0x1408C13C0 (PiCMHandleIoctl.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     _PnpCreateObject @ 0x14081A95C (_PnpCreateObject.c)
- *     ObReferenceObjectByHandle @ 0x14084AF40 (ObReferenceObjectByHandle.c)
- *     ObOpenObjectByPointer @ 0x140854F10 (ObOpenObjectByPointer.c)
- *     ObCloseHandle @ 0x1408A2B10 (ObCloseHandle.c)
- *     PiAuDoesClientHaveAccess @ 0x1408BC6A8 (PiAuDoesClientHaveAccess.c)
- *     _PnpOpenObjectRegKey @ 0x1408CD438 (_PnpOpenObjectRegKey.c)
- *     PiCMCaptureRegistryInputData @ 0x140963DF8 (PiCMCaptureRegistryInputData.c)
- *     PiCMReturnHandleResultData @ 0x1409640DC (PiCMReturnHandleResultData.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     _PnpCreateObject @ 0x14081B09C (_PnpCreateObject.c)
+ *     ObReferenceObjectByHandle @ 0x140847200 (ObReferenceObjectByHandle.c)
+ *     ObOpenObjectByPointer @ 0x1408511D0 (ObOpenObjectByPointer.c)
+ *     ObCloseHandle @ 0x1408AB1B0 (ObCloseHandle.c)
+ *     PiAuDoesClientHaveAccess @ 0x1408B9FF8 (PiAuDoesClientHaveAccess.c)
+ *     _PnpOpenObjectRegKey @ 0x1408CAE28 (_PnpOpenObjectRegKey.c)
+ *     PiCMCaptureRegistryInputData @ 0x14094B8B8 (PiCMCaptureRegistryInputData.c)
+ *     PiCMReturnHandleResultData @ 0x14094BBB4 (PiCMReturnHandleResultData.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiCMOpenObjectKey(__int64 a1, __int64 a2, __int64 a3, unsigned int a4, unsigned int a5, _DWORD *a6)
 {
   KPROCESSOR_MODE PreviousMode; // r13
   int v9; // ebx
-  unsigned int v10; // ebx
+  int v10; // ebx
   int v11; // edi
   NTSTATUS v12; // eax
   PVOID v13; // rbx
@@ -69,7 +69,7 @@ __int64 __fastcall PiCMOpenObjectKey(__int64 a1, __int64 a2, __int64 a3, unsigne
     }
     if ( PiDrvDbCtx )
     {
-      if ( v10 - 5 > 1 )
+      if ( (unsigned int)(v10 - 5) > 1 )
         goto LABEL_12;
       goto LABEL_31;
     }

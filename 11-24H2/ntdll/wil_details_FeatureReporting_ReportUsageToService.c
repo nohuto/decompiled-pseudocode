@@ -1,12 +1,12 @@
 /*
- * XREFs of wil_details_FeatureReporting_ReportUsageToService @ 0x1800D5B10
+ * XREFs of wil_details_FeatureReporting_ReportUsageToService @ 0x1800D0E80
  * Callers:
- *     wil_details_IsEnabledFallback @ 0x1800D5838 (wil_details_IsEnabledFallback.c)
- *     RtlpAreLegacyDosDeviceNamesEnabled @ 0x180116E44 (RtlpAreLegacyDosDeviceNamesEnabled.c)
+ *     wil_details_IsEnabledFallback @ 0x1800D0BA8 (wil_details_IsEnabledFallback.c)
+ *     RtlpAreLegacyDosDeviceNamesEnabled @ 0x180111E30 (RtlpAreLegacyDosDeviceNamesEnabled.c)
  * Callees:
- *     wil_details_MapReportingKind @ 0x1800D5BA0 (wil_details_MapReportingKind.c)
- *     wil_details_FeatureReporting_ReportUsageToServiceDirect @ 0x1800D5C3C (wil_details_FeatureReporting_ReportUsageToServiceDirect.c)
- *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180172020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ *     wil_details_MapReportingKind @ 0x1800D0F10 (wil_details_MapReportingKind.c)
+ *     wil_details_FeatureReporting_ReportUsageToServiceDirect @ 0x1800D0FAC (wil_details_FeatureReporting_ReportUsageToServiceDirect.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180171020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
  */
 
 __int64 (__fastcall *__fastcall wil_details_FeatureReporting_ReportUsageToService(

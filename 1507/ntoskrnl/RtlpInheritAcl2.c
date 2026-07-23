@@ -127,21 +127,7 @@ __int64 __fastcall RtlpInheritAcl2(
       v34 = 0;
       v35 = 0;
     }
-    result = RtlpCopyAces(
-               (__int64)a2,
-               a11,
-               v22,
-               v34,
-               v35,
-               a7,
-               a8,
-               a9,
-               a10,
-               a4,
-               0,
-               a12,
-               (unsigned int *)&v45 + 1,
-               (__int64)v19);
+    result = RtlpCopyAces((__int64)a2, a11, v22, v34, v35, a7, a8, a9, a10, a4, 0, a12, (unsigned int *)&v45 + 1, v19);
     v26 = HIDWORD(v45);
     v25 = HIDWORD(v45);
     if ( (_DWORD)result == -1073741789 )
@@ -197,22 +183,7 @@ LABEL_32:
     if ( v28 <= (unsigned __int8)*a1 )
       LOBYTE(v28) = *a1;
     LOBYTE(v44) = v28;
-    result = RtlpGenerateInheritAcl(
-               (__int64)a1,
-               a4,
-               v29,
-               a7,
-               a8,
-               a9,
-               a10,
-               a11,
-               a13,
-               a14,
-               a12,
-               v24,
-               &v45,
-               (__int64)v19,
-               &a5);
+    result = RtlpGenerateInheritAcl((__int64)a1, a4, v29, a7, a8, a9, a10, a11, a13, a14, a12, v24, &v45, v19, &a5);
     if ( (_DWORD)result == -1073741789 )
     {
       v24 = 1;

@@ -1,15 +1,15 @@
 /*
- * XREFs of PiBuildDeviceNodeInstancePath @ 0x140A68158
+ * XREFs of PiBuildDeviceNodeInstancePath @ 0x140A61658
  * Callers:
- *     PiProcessNewDeviceNode @ 0x140A7C564 (PiProcessNewDeviceNode.c)
+ *     PiProcessNewDeviceNode @ 0x140A76864 (PiProcessNewDeviceNode.c)
  * Callees:
- *     RtlStringCbPrintfW @ 0x14040BC90 (RtlStringCbPrintfW.c)
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     _wcsicmp @ 0x1404FE3B0 (_wcsicmp.c)
- *     PnpCleanupDeviceRegistryValues @ 0x140A0D54C (PnpCleanupDeviceRegistryValues.c)
- *     PnpFreeDeviceInstancePath @ 0x140A10994 (PnpFreeDeviceInstancePath.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlStringCbPrintfW @ 0x140404170 (RtlStringCbPrintfW.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     _wcsicmp @ 0x1404FBC70 (_wcsicmp.c)
+ *     PnpCleanupDeviceRegistryValues @ 0x1409BB950 (PnpCleanupDeviceRegistryValues.c)
+ *     PnpFreeDeviceInstancePath @ 0x1409BEDA4 (PnpFreeDeviceInstancePath.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiBuildDeviceNodeInstancePath(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -18,7 +18,7 @@ __int64 __fastcall PiBuildDeviceNodeInstancePath(__int64 a1, __int64 a2, __int64
   __int64 v9; // rcx
   __int64 v10; // rdx
   int v11; // ecx
-  size_t v12; // r15
+  ULONG_PTR v12; // r15
   wchar_t *Pool2; // rax
   wchar_t *v14; // rsi
   NTSTATUS v15; // edi
@@ -42,7 +42,7 @@ __int64 __fastcall PiBuildDeviceNodeInstancePath(__int64 a1, __int64 a2, __int64
       ++v8;
     while ( *(_WORD *)(a4 + 2 * v8) );
     v12 = (unsigned int)(2 * (v8 + v11) + 6);
-    Pool2 = (wchar_t *)ExAllocatePool2(0x40uLL);
+    Pool2 = (wchar_t *)ExAllocatePool2(0x40uLL, v12, 0x49706E50u);
     v14 = Pool2;
     if ( Pool2 )
     {

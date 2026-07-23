@@ -1,14 +1,14 @@
 /*
- * XREFs of HvpMapEntryGetFreeBin @ 0x1408B8FF0
+ * XREFs of HvpMapEntryGetFreeBin @ 0x1408BF5C0
  * Callers:
- *     HvFreeHivePartial @ 0x1408B7A44 (HvFreeHivePartial.c)
- *     HvpTruncateBins @ 0x1408B8A10 (HvpTruncateBins.c)
- *     HvpFindNextDirtyBlock @ 0x1408B8B70 (HvpFindNextDirtyBlock.c)
- *     HvpSetRangeProtection @ 0x1408B8E6C (HvpSetRangeProtection.c)
- *     HvpMarkDirty @ 0x1408DAF50 (HvpMarkDirty.c)
- *     HvpDropPagedBins @ 0x140A87E90 (HvpDropPagedBins.c)
+ *     HvFreeHivePartial @ 0x1408BE014 (HvFreeHivePartial.c)
+ *     HvpTruncateBins @ 0x1408BEFE0 (HvpTruncateBins.c)
+ *     HvpFindNextDirtyBlock @ 0x1408BF140 (HvpFindNextDirtyBlock.c)
+ *     HvpSetRangeProtection @ 0x1408BF43C (HvpSetRangeProtection.c)
+ *     HvpMarkDirty @ 0x1408E1510 (HvpMarkDirty.c)
+ *     HvpDropPagedBins @ 0x140A8EFC0 (HvpDropPagedBins.c)
  * Callees:
- *     HvpMapEntryIsDiscardable @ 0x1408D9350 (HvpMapEntryIsDiscardable.c)
+ *     HvpMapEntryIsDiscardable @ 0x1408DF910 (HvpMapEntryIsDiscardable.c)
  */
 
 __int64 __fastcall HvpMapEntryGetFreeBin(__int64 a1)

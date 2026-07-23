@@ -1,19 +1,19 @@
 /*
- * XREFs of MiLockDynamicMemoryExclusive @ 0x1405278F0
+ * XREFs of MiLockDynamicMemoryExclusive @ 0x140529F60
  * Callers:
- *     MiFreeUnusedPfnPages @ 0x1406E88D0 (MiFreeUnusedPfnPages.c)
- *     MiClearPartitionPageBitMap @ 0x140708808 (MiClearPartitionPageBitMap.c)
- *     MiInsertPartitionPageNodes @ 0x140708F28 (MiInsertPartitionPageNodes.c)
- *     MiRebuildPartitionMemoryBlock @ 0x1407095C0 (MiRebuildPartitionMemoryBlock.c)
- *     MiReturnPartitionPagesToParent @ 0x1407098B8 (MiReturnPartitionPagesToParent.c)
- *     MiAcquireAddMemoryLocks @ 0x140864F14 (MiAcquireAddMemoryLocks.c)
- *     MiUpdatePartitionLargePfnBitMap @ 0x14087CD4C (MiUpdatePartitionLargePfnBitMap.c)
- *     MiNodeZeroConductor @ 0x140B27510 (MiNodeZeroConductor.c)
- *     MiInitializeMirroring @ 0x140CF8AE4 (MiInitializeMirroring.c)
+ *     MiFreeUnusedPfnPages @ 0x1406ED570 (MiFreeUnusedPfnPages.c)
+ *     MiClearPartitionPageBitMap @ 0x14070D4BC (MiClearPartitionPageBitMap.c)
+ *     MiInsertPartitionPageNodes @ 0x14070DBDC (MiInsertPartitionPageNodes.c)
+ *     MiRebuildPartitionMemoryBlock @ 0x14070E274 (MiRebuildPartitionMemoryBlock.c)
+ *     MiReturnPartitionPagesToParent @ 0x14070E56C (MiReturnPartitionPagesToParent.c)
+ *     MiAcquireAddMemoryLocks @ 0x14086B2F4 (MiAcquireAddMemoryLocks.c)
+ *     MiUpdatePartitionLargePfnBitMap @ 0x14088314C (MiUpdatePartitionLargePfnBitMap.c)
+ *     MiNodeZeroConductor @ 0x140B29DD0 (MiNodeZeroConductor.c)
+ *     MiInitializeMirroring @ 0x140CFEE64 (MiInitializeMirroring.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
  */
 
 void __fastcall MiLockDynamicMemoryExclusive(__int64 a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)

@@ -1,14 +1,14 @@
 /*
- * XREFs of HvlpSecureFlushLargeRangeList @ 0x1406A0EC0
+ * XREFs of HvlpSecureFlushLargeRangeList @ 0x1406A1F18
  * Callers:
- *     HvlFlushRangeListTb @ 0x1403AEEF0 (HvlFlushRangeListTb.c)
- *     HvlpSlowFlushListTbEx @ 0x1403CA27C (HvlpSlowFlushListTbEx.c)
+ *     HvlFlushRangeListTb @ 0x14039D700 (HvlFlushRangeListTb.c)
+ *     HvlpSlowFlushListTbEx @ 0x1403A4E4C (HvlpSlowFlushListTbEx.c)
  * Callees:
- *     HvlpReleaseHypercallPage @ 0x1403AF6A0 (HvlpReleaseHypercallPage.c)
- *     VslSlowFlushSecureRangeList @ 0x1403AF848 (VslSlowFlushSecureRangeList.c)
- *     VslFastFlushSecureRangeList @ 0x1403AF954 (VslFastFlushSecureRangeList.c)
- *     HvlpAcquireHypercallPage @ 0x140465ED0 (HvlpAcquireHypercallPage.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
+ *     HvlpReleaseHypercallPage @ 0x14039DEB0 (HvlpReleaseHypercallPage.c)
+ *     VslSlowFlushSecureRangeList @ 0x14039E058 (VslSlowFlushSecureRangeList.c)
+ *     VslFastFlushSecureRangeList @ 0x14039E164 (VslFastFlushSecureRangeList.c)
+ *     HvlpAcquireHypercallPage @ 0x14045D900 (HvlpAcquireHypercallPage.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
  */
 
 char __fastcall HvlpSecureFlushLargeRangeList(int a1, unsigned int a2, char *a3)

@@ -8,7 +8,7 @@
  *     RtlEqualUnicodeString @ 0x180029C70 (RtlEqualUnicodeString.c)
  */
 
-__int64 __fastcall RtlpDetermineDosPathNameType4(__int64 a1, __m128i *a2, _DWORD *a3, int *a4)
+__int64 __fastcall RtlpDetermineDosPathNameType4(__int64 a1, _UNICODE_STRING *a2, _DWORD *a3, int *a4)
 {
   unsigned int v4; // ebx
   char v7; // r14
@@ -35,30 +35,31 @@ __int64 __fastcall RtlpDetermineDosPathNameType4(__int64 a1, __m128i *a2, _DWORD
   if ( !a2 || !a3 || !a4 )
     return (unsigned int)-1073741811;
   v11 = RtlDetermineDosPathNameType_Ustr((__int64)a2);
-  v12 = a2->m128i_i16[0] == 4;
+  v12 = a2->Length == 4;
   *v13 = v11;
   if ( v12 )
     goto LABEL_27;
-  if ( RtlEqualUnicodeString(RtlpWin32NtRoot, (__int64)a2, 1) || RtlEqualUnicodeString(L"\b\n", (__int64)a2, 1) )
+  if ( RtlEqualUnicodeString((PUNICODE_STRING)&RtlpWin32NtRoot, a2, 1u)
+    || RtlEqualUnicodeString((PUNICODE_STRING)&RtlpWin32NtRootSlash, a2, 1u) )
   {
     v10 = 1;
   }
-  else if ( !RtlPrefixUnicodeString(L"\b\n", (__int64)a2, 1) )
+  else if ( !RtlPrefixUnicodeString((PUNICODE_STRING)&RtlpWin32NtRootSlash, a2, 1u) )
   {
     return v4;
   }
   v7 = 1;
-  if ( RtlEqualUnicodeString(RtlpWin32NtUncRoot, (__int64)a2, 1)
-    || RtlEqualUnicodeString(RtlpWin32NtUncRootSlash, (__int64)a2, 1) )
+  if ( RtlEqualUnicodeString((PUNICODE_STRING)&RtlpWin32NtUncRoot, a2, 1u)
+    || RtlEqualUnicodeString((PUNICODE_STRING)&RtlpWin32NtUncRootSlash, a2, 1u) )
   {
     v10 = 1;
   }
-  else if ( !RtlPrefixUnicodeString(RtlpWin32NtUncRootSlash, (__int64)a2, 1) )
+  else if ( !RtlPrefixUnicodeString((PUNICODE_STRING)&RtlpWin32NtUncRootSlash, a2, 1u) )
   {
     if ( !v10 )
     {
-      v15 = *a2;
-      v18[0] = a2->m128i_i64[0];
+      v15 = *(__m128i *)a2;
+      v18[0] = *(_QWORD *)&a2->Length;
       v18[1] = _mm_srli_si128(v15, 8).m128i_u64[0] + 8;
       LOWORD(v18[0]) -= 8;
       WORD1(v18[0]) -= 8;

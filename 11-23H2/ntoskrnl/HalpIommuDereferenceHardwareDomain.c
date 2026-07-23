@@ -1,16 +1,16 @@
 /*
- * XREFs of HalpIommuDereferenceHardwareDomain @ 0x140517AEC
+ * XREFs of HalpIommuDereferenceHardwareDomain @ 0x14051803C
  * Callers:
- *     IommupDomainAttachPasidDevice @ 0x14050E190 (IommupDomainAttachPasidDevice.c)
- *     IommupDomainDetachPasidDevice @ 0x14050E4B8 (IommupDomainDetachPasidDevice.c)
- *     HalpIommuJoinDmaDomain @ 0x140518344 (HalpIommuJoinDmaDomain.c)
- *     HalpIommuLeaveDmaDomain @ 0x1405184B4 (HalpIommuLeaveDmaDomain.c)
+ *     IommupDomainAttachPasidDevice @ 0x14050E6E0 (IommupDomainAttachPasidDevice.c)
+ *     IommupDomainDetachPasidDevice @ 0x14050EA08 (IommupDomainDetachPasidDevice.c)
+ *     HalpIommuJoinDmaDomain @ 0x140518894 (HalpIommuJoinDmaDomain.c)
+ *     HalpIommuLeaveDmaDomain @ 0x140518A04 (HalpIommuLeaveDmaDomain.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     HalpMmAllocCtxFree @ 0x1403A56C0 (HalpMmAllocCtxFree.c)
- *     HalpIommuFreeDomain @ 0x140515384 (HalpIommuFreeDomain.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     HalpMmAllocCtxFree @ 0x1403A58A0 (HalpMmAllocCtxFree.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     HalpIommuFreeDomain @ 0x1405158D4 (HalpIommuFreeDomain.c)
  */
 
 __int64 __fastcall HalpIommuDereferenceHardwareDomain(__int64 a1, _QWORD *a2)
@@ -39,10 +39,10 @@ __int64 __fastcall HalpIommuDereferenceHardwareDomain(__int64 a1, _QWORD *a2)
     HalpMmAllocCtxFree(v7, (__int64)a2);
   }
   result = KxReleaseSpinLock((volatile signed __int64 *)(a1 + 32));
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
       && (unsigned __int8)result <= 0xFu
       && (unsigned __int8)v4 <= 0xFu
       && (unsigned __int8)result >= 2u )
@@ -53,7 +53,7 @@ __int64 __fastcall HalpIommuDereferenceHardwareDomain(__int64 a1, _QWORD *a2)
       v11 = ((unsigned int)result & SchedulerAssist[5]) == 0;
       SchedulerAssist[5] &= result;
       if ( v11 )
-        result = KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        result = KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
     }
   }
   __writecr8(v4);

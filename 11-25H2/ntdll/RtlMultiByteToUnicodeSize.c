@@ -6,47 +6,50 @@
  *     RtlUTF8ToUnicodeN @ 0x18004B290 (RtlUTF8ToUnicodeN.c)
  */
 
-__int64 __fastcall RtlMultiByteToUnicodeSize(int *a1, char *a2, unsigned int a3)
+NTSTATUS __cdecl RtlMultiByteToUnicodeSize(
+        PULONG BytesInUnicodeString,
+        PCSTR MultiByteString,
+        ULONG BytesInMultiByteString)
 {
-  int v3; // r9d
+  ULONG v3; // r9d
   __int64 v6; // rax
   signed __int32 v7[8]; // [rsp+0h] [rbp-38h] BYREF
 
   _InterlockedOr(v7, 0);
-  if ( word_1801CEFD0 != -535 && GlobalRtlNlsState != -535 )
+  if ( CodePageTable.CodePage != 0xFDE9 && GlobalRtlNlsState.CodePage != 0xFDE9 )
   {
     _InterlockedOr(v7, 0);
     v3 = 0;
-    if ( word_1801CEF9C )
+    if ( GlobalRtlNlsState.DBCSCodePage )
     {
-      while ( a3-- )
+      while ( BytesInMultiByteString-- )
       {
-        v6 = (unsigned __int8)*a2++;
+        v6 = *(unsigned __int8 *)MultiByteString++;
         if ( *(_WORD *)(qword_1801CF020 + 2 * v6) )
         {
-          if ( !a3 )
+          if ( !BytesInMultiByteString )
           {
-            *a1 = v3 + 2;
-            return 0LL;
+            *BytesInUnicodeString = v3 + 2;
+            return 0;
           }
-          --a3;
-          ++a2;
+          --BytesInMultiByteString;
+          ++MultiByteString;
         }
         v3 += 2;
       }
     }
     else
     {
-      v3 = 2 * a3;
+      v3 = 2 * BytesInMultiByteString;
     }
-    *a1 = v3;
-    return 0LL;
+    *BytesInUnicodeString = v3;
+    return 0;
   }
-  if ( a3 )
+  if ( BytesInMultiByteString )
   {
-    RtlUTF8ToUnicodeN(0LL, 0, a1, a2, a3);
-    return 0LL;
+    RtlUTF8ToUnicodeN(0LL, 0, BytesInUnicodeString, MultiByteString, BytesInMultiByteString);
+    return 0;
   }
-  *a1 = 0;
-  return 0LL;
+  *BytesInUnicodeString = 0;
+  return 0;
 }

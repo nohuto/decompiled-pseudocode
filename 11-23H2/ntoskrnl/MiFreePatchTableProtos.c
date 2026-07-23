@@ -1,10 +1,10 @@
 /*
- * XREFs of MiFreePatchTableProtos @ 0x140A36F3C
+ * XREFs of MiFreePatchTableProtos @ 0x140A371EC
  * Callers:
  *     MiUnloadSystemImage @ 0x1406962FC (MiUnloadSystemImage.c)
- *     MmLoadSystemImageEx @ 0x140703DC0 (MmLoadSystemImageEx.c)
+ *     MmLoadSystemImageEx @ 0x140703FD0 (MmLoadSystemImageEx.c)
  * Callees:
- *     MiUnlockPagedAddress @ 0x14035B2A4 (MiUnlockPagedAddress.c)
+ *     MiUnlockPagedAddress @ 0x14035B444 (MiUnlockPagedAddress.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

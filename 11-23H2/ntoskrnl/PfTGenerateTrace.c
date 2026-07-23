@@ -1,11 +1,11 @@
 /*
- * XREFs of PfTGenerateTrace @ 0x14079CBA4
+ * XREFs of PfTGenerateTrace @ 0x14079CD94
  * Callers:
- *     PfTLoggingWorker @ 0x140838BD0 (PfTLoggingWorker.c)
+ *     PfTLoggingWorker @ 0x140838ED0 (PfTLoggingWorker.c)
  * Callees:
- *     KiQueryUnbiasedInterruptTime @ 0x1402E7464 (KiQueryUnbiasedInterruptTime.c)
- *     PfTTraceListAdd @ 0x14075ECD8 (PfTTraceListAdd.c)
- *     PfTCreateTraceDump @ 0x14079CBF0 (PfTCreateTraceDump.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x1402E76F4 (KiQueryUnbiasedInterruptTime.c)
+ *     PfTTraceListAdd @ 0x14075EEC8 (PfTTraceListAdd.c)
+ *     PfTCreateTraceDump @ 0x14079CDE0 (PfTCreateTraceDump.c)
  */
 
 __int64 PfTGenerateTrace()

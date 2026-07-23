@@ -1,16 +1,16 @@
 /*
- * XREFs of MiCopyTradePageMetaData @ 0x1402938DC
+ * XREFs of MiCopyTradePageMetaData @ 0x140292E3C
  * Callers:
- *     MiTradePageMarkedActive @ 0x1402931C0 (MiTradePageMarkedActive.c)
+ *     MiTradePageMarkedActive @ 0x140292720 (MiTradePageMarkedActive.c)
  * Callees:
- *     MiCopyPfnEntryEx @ 0x140294570 (MiCopyPfnEntryEx.c)
- *     HvlNotifyLongSpinWait @ 0x1402BBF00 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402BC760 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     MiChangePageAttribute @ 0x1402D8660 (MiChangePageAttribute.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402DED10 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiSmallVaStillMapsFrame @ 0x1403147CC (MiSmallVaStillMapsFrame.c)
- *     MiVaIsPageFileHash @ 0x140455A20 (MiVaIsPageFileHash.c)
+ *     MiCopyPfnEntryEx @ 0x140293AD0 (MiCopyPfnEntryEx.c)
+ *     MiChangePageAttribute @ 0x1402BA420 (MiChangePageAttribute.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402C0B20 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     HvlNotifyLongSpinWait @ 0x140306BC0 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140307420 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     MiSmallVaStillMapsFrame @ 0x1403167FC (MiSmallVaStillMapsFrame.c)
+ *     MiVaIsPageFileHash @ 0x14044DB50 (MiVaIsPageFileHash.c)
  */
 
 __int64 __fastcall MiCopyTradePageMetaData(__int64 a1, __int64 a2, __int64 a3)
@@ -96,7 +96,7 @@ LABEL_6:
       }
     }
   }
-  _InterlockedIncrement(&dword_140EF8CB8);
+  _InterlockedIncrement(&dword_140EF9018);
   if ( v17 )
     ExReleaseSpinLockExclusiveFromDpcLevel(v18);
   _InterlockedAnd64((volatile signed __int64 *)(*(_QWORD *)(a1 + 264) + 24LL), 0x7FFFFFFFFFFFFFFFuLL);

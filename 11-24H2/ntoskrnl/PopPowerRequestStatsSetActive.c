@@ -1,10 +1,10 @@
 /*
- * XREFs of PopPowerRequestStatsSetActive @ 0x140A667D4
+ * XREFs of PopPowerRequestStatsSetActive @ 0x140A5F5B8
  * Callers:
- *     PopPowerRequestCallbackWorker @ 0x14046C280 (PopPowerRequestCallbackWorker.c)
+ *     PopPowerRequestCallbackWorker @ 0x140464F00 (PopPowerRequestCallbackWorker.c)
  * Callees:
- *     SleepstudyHelperBlockerActiveDereference @ 0x14044DC00 (SleepstudyHelperBlockerActiveDereference.c)
- *     SleepstudyHelperBlockerActiveReference @ 0x14044DCA0 (SleepstudyHelperBlockerActiveReference.c)
+ *     SleepstudyHelperBlockerActiveDereference @ 0x140444B00 (SleepstudyHelperBlockerActiveDereference.c)
+ *     SleepstudyHelperBlockerActiveReference @ 0x140444BA0 (SleepstudyHelperBlockerActiveReference.c)
  */
 
 __int64 __fastcall PopPowerRequestStatsSetActive(__int64 a1, int a2, char a3)

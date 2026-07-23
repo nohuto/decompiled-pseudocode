@@ -1,13 +1,13 @@
 /*
- * XREFs of qsort_s @ 0x180125FA0
+ * XREFs of qsort_s @ 0x1801241D0
  * Callers:
  *     <none>
  * Callees:
- *     _invalid_parameter @ 0x180120778 (_invalid_parameter.c)
- *     __security_check_cookie @ 0x1801659C0 (__security_check_cookie.c)
- *     _guard_check_icall$thunk$15021643654165956172 @ 0x180172010 (_guard_check_icall$thunk$15021643654165956172.c)
- *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180172020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
- *     memset$thunk$772440563353939046 @ 0x180172030 (memset$thunk$772440563353939046.c)
+ *     _invalid_parameter @ 0x18011E9A8 (_invalid_parameter.c)
+ *     __security_check_cookie @ 0x180163D80 (__security_check_cookie.c)
+ *     _guard_check_icall$thunk$15021643654165956172 @ 0x180171010 (_guard_check_icall$thunk$15021643654165956172.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180171020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ *     memset$thunk$772440563353939046 @ 0x180171030 (memset$thunk$772440563353939046.c)
  */
 
 void __cdecl qsort_s(

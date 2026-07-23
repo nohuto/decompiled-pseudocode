@@ -1,20 +1,20 @@
 /*
- * XREFs of MiInsertPteTracker @ 0x1406913D4
+ * XREFs of MiInsertPteTracker @ 0x1406924A4
  * Callers:
- *     MmMapLockedPagesSpecifyCache @ 0x14028F9F0 (MmMapLockedPagesSpecifyCache.c)
- *     MiMapContiguousMemory @ 0x1402E9A9C (MiMapContiguousMemory.c)
- *     MmAllocateMappingAddressEx @ 0x140A5B620 (MmAllocateMappingAddressEx.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x14029F5F0 (MmMapLockedPagesSpecifyCache.c)
+ *     MiMapContiguousMemory @ 0x14034B0DC (MiMapContiguousMemory.c)
+ *     MmAllocateMappingAddressEx @ 0x140A531F0 (MmAllocateMappingAddressEx.c)
  * Callees:
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140210170 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     MiAllocatePool @ 0x1402ACA70 (MiAllocatePool.c)
- *     MiGetInstructionPointer @ 0x14066BBC8 (MiGetInstructionPointer.c)
- *     MiCaptureStackTraceEx @ 0x14069088C (MiCaptureStackTraceEx.c)
- *     RtlpInterlockedPopEntrySList @ 0x1406B3890 (RtlpInterlockedPopEntrySList.c)
- *     RtlpInterlockedFlushSList @ 0x1406B3910 (RtlpInterlockedFlushSList.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     MiAllocatePool @ 0x140277450 (MiAllocatePool.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1403394D0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiGetInstructionPointer @ 0x14066CD98 (MiGetInstructionPointer.c)
+ *     MiCaptureStackTraceEx @ 0x14069195C (MiCaptureStackTraceEx.c)
+ *     RtlpInterlockedPopEntrySList @ 0x1406B4830 (RtlpInterlockedPopEntrySList.c)
+ *     RtlpInterlockedFlushSList @ 0x1406B48B0 (RtlpInterlockedFlushSList.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiInsertPteTracker(__int64 a1, int a2, char a3, char a4)
@@ -42,9 +42,9 @@ __int64 __fastcall MiInsertPteTracker(__int64 a1, int a2, char a3, char a4)
   _UNKNOWN *retaddr; // [rsp+D8h] [rbp+0h]
 
   memset_0(v26, 0, 0xA0uLL);
-  if ( LOWORD(stru_140E35D00.Alignment) >= 0xAu )
+  if ( LOWORD(ListHead.Alignment) >= 0xAu )
   {
-    v10 = RtlpInterlockedFlushSList(&stru_140E35D00);
+    v10 = RtlpInterlockedFlushSList(&ListHead);
     v8 = v10;
     if ( v10 )
     {
@@ -64,7 +64,7 @@ __int64 __fastcall MiInsertPteTracker(__int64 a1, int a2, char a3, char a4)
   }
   else
   {
-    v8 = RtlpInterlockedPopEntrySList(&stru_140E35D00);
+    v8 = RtlpInterlockedPopEntrySList(&ListHead);
     if ( v8 )
       goto LABEL_8;
   }
@@ -72,7 +72,7 @@ __int64 __fastcall MiInsertPteTracker(__int64 a1, int a2, char a3, char a4)
   v8 = (PSLIST_ENTRY)result;
   if ( !result )
   {
-    byte_140E35EA5 = 1;
+    byte_140E35FE5 = 1;
     return result;
   }
 LABEL_8:
@@ -121,13 +121,13 @@ LABEL_14:
   if ( KeGetCurrentIrql() == 2 )
   {
     v22 = 17;
-    ExAcquireSpinLockExclusiveAtDpcLevel(&dword_140E35D10);
+    ExAcquireSpinLockExclusiveAtDpcLevel(&dword_140E35E50);
   }
   else
   {
-    v22 = ExAcquireSpinLockExclusive(&dword_140E35D10);
+    v22 = ExAcquireSpinLockExclusive(&dword_140E35E50);
   }
-  v23 = (char *)&unk_140E387F0 + 16 * (v21 & 0xF);
+  v23 = (char *)&unk_140E38930 + 16 * (v21 & 0xF);
   v24 = *(_QWORD *)v23;
   if ( *(char **)(*(_QWORD *)v23 + 8LL) != v23 )
     __fastfail(3u);
@@ -135,9 +135,9 @@ LABEL_14:
   *((_QWORD *)&v8->Next + 1) = v23;
   *(_QWORD *)(v24 + 8) = v8;
   *(_QWORD *)v23 = v8;
-  qword_140E388F0 += v19;
-  v25 = ++qword_140E388F8;
-  if ( qword_140E388F8 > (unsigned __int64)qword_140E38900 )
-    qword_140E38900 = v25;
-  return MiReleaseSpinLockExclusive(&dword_140E35D10, v22);
+  qword_140E38A30 += v19;
+  v25 = ++qword_140E38A38;
+  if ( qword_140E38A38 > (unsigned __int64)qword_140E38A40 )
+    qword_140E38A40 = v25;
+  return MiReleaseSpinLockExclusive(&dword_140E35E50, v22);
 }

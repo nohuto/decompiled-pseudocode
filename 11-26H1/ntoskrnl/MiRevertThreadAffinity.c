@@ -1,12 +1,12 @@
 /*
- * XREFs of MiRevertThreadAffinity @ 0x1403C354C
+ * XREFs of MiRevertThreadAffinity @ 0x1403CD44C
  * Callers:
- *     MiThreadWorker @ 0x1403C32F0 (MiThreadWorker.c)
+ *     MiThreadWorker @ 0x1403CD1F0 (MiThreadWorker.c)
  * Callees:
- *     KeSetIdealProcessorThreadEx @ 0x140204850 (KeSetIdealProcessorThreadEx.c)
- *     PsDereferencePartition @ 0x140381940 (PsDereferencePartition.c)
- *     MiDereferencePageChains @ 0x1403C36A4 (MiDereferencePageChains.c)
- *     MiDereferenceAccelerator @ 0x14070F68C (MiDereferenceAccelerator.c)
+ *     KeSetIdealProcessorThreadEx @ 0x140204930 (KeSetIdealProcessorThreadEx.c)
+ *     PsDereferencePartition @ 0x1403836F0 (PsDereferencePartition.c)
+ *     MiDereferencePageChains @ 0x1403CD5A4 (MiDereferencePageChains.c)
+ *     MiDereferenceAccelerator @ 0x140714388 (MiDereferenceAccelerator.c)
  */
 
 __int64 __fastcall MiRevertThreadAffinity(__int64 a1)

@@ -1,11 +1,11 @@
 /*
- * XREFs of PspRemovePartitionFromGlobalList @ 0x1405A65C8
+ * XREFs of PspRemovePartitionFromGlobalList @ 0x1405A6B38
  * Callers:
- *     PspDeletePartition @ 0x1409B6670 (PspDeletePartition.c)
+ *     PspDeletePartition @ 0x1409B6870 (PspDeletePartition.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void __fastcall PspRemovePartitionFromGlobalList(__int64 a1)
@@ -29,10 +29,13 @@ void __fastcall PspRemovePartitionFromGlobalList(__int64 a1)
   *v4 = v3;
   *(_QWORD *)(v3 + 8) = v4;
   ExReleaseSpinLockExclusiveFromDpcLevel(&PspActivePartitionListLock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v2 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v2 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

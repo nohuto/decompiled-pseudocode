@@ -1,13 +1,13 @@
 /*
- * XREFs of ExFreePoolSanityChecks @ 0x1409ECF50
+ * XREFs of ExFreePoolSanityChecks @ 0x1409EDF50
  * Callers:
- *     VerifierExFreePool @ 0x1409D5190 (VerifierExFreePool.c)
- *     VerifierExFreePoolWithTag @ 0x1409D5220 (VerifierExFreePoolWithTag.c)
+ *     VerifierExFreePool @ 0x1409D6190 (VerifierExFreePool.c)
+ *     VerifierExFreePoolWithTag @ 0x1409D6220 (VerifierExFreePoolWithTag.c)
  * Callees:
- *     MmDeterminePoolType @ 0x1402D2AAC (MmDeterminePoolType.c)
- *     ExIsSpecialPoolAddress @ 0x1405BA0C0 (ExIsSpecialPoolAddress.c)
- *     KevSkipVerification @ 0x1405CA2CC (KevSkipVerification.c)
- *     VerifierBugCheckIfAppropriate @ 0x1409D0D54 (VerifierBugCheckIfAppropriate.c)
+ *     MmDeterminePoolType @ 0x14025102C (MmDeterminePoolType.c)
+ *     ExIsSpecialPoolAddress @ 0x1405BA2F0 (ExIsSpecialPoolAddress.c)
+ *     KevSkipVerification @ 0x1405CA4FC (KevSkipVerification.c)
+ *     VerifierBugCheckIfAppropriate @ 0x1409D1D54 (VerifierBugCheckIfAppropriate.c)
  */
 
 __int64 __fastcall ExFreePoolSanityChecks(ULONG_PTR a1)

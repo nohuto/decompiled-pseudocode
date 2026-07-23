@@ -1,35 +1,35 @@
 /*
- * XREFs of KiFlushCurrentTbWorker @ 0x1402A7E60
+ * XREFs of KiFlushCurrentTbWorker @ 0x140225FA0
  * Callers:
- *     KxFlushEntireTb @ 0x14022F980 (KxFlushEntireTb.c)
+ *     KxFlushEntireTb @ 0x1402D41D0 (KxFlushEntireTb.c)
  * Callees:
- *     KiSetUserTbFlushPending @ 0x1403FF4F0 (KiSetUserTbFlushPending.c)
+ *     KiSetUserTbFlushPending @ 0x1403FF6D0 (KiSetUserTbFlushPending.c)
  */
 
-struct _KTHREAD *__fastcall KiFlushCurrentTbWorker(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+struct _KTHREAD *__fastcall KiFlushCurrentTbWorker(__int64 a1, __int64 a2, __int64 a3)
 {
-  unsigned __int64 v4; // rax
+  unsigned __int64 v3; // rax
   struct _KTHREAD *result; // rax
   _KPROCESS *Process; // rcx
-  unsigned __int64 v7; // rcx
+  unsigned __int64 v6; // rcx
 
   if ( KiFlushPcid )
   {
-    v4 = __readcr3();
-    __writecr3(v4);
+    v3 = __readcr3();
+    __writecr3(v3);
     result = KeGetCurrentThread();
     Process = result->ApcState.Process;
     if ( !Process->AddressPolicy )
-      return (struct _KTHREAD *)KiSetUserTbFlushPending(Process, a2, a3, a4);
+      return (struct _KTHREAD *)KiSetUserTbFlushPending(Process, a2, a3);
   }
   else
   {
-    v7 = __readcr4();
-    if ( (v7 & 0x20080) != 0 )
+    v6 = __readcr4();
+    if ( (v6 & 0x20080) != 0 )
     {
-      result = (struct _KTHREAD *)(v7 ^ 0x80);
-      __writecr4(v7 ^ 0x80);
-      __writecr4(v7);
+      result = (struct _KTHREAD *)(v6 ^ 0x80);
+      __writecr4(v6 ^ 0x80);
+      __writecr4(v6);
     }
     else
     {

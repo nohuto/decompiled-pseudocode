@@ -11,12 +11,14 @@
 
 __int64 LdrControlFlowGuardXfgEnabled()
 {
+  int v0; // eax
   __int64 result; // rax
 
-  if ( !(unsigned int)LdrControlFlowGuardEnforced() )
+  LOBYTE(v0) = LdrControlFlowGuardEnforced();
+  if ( !v0 )
     return 0LL;
   result = 1LL;
-  if ( (BYTE1(qword_18018F3A0) & 3) != 1 )
+  if ( (BYTE1(LdrSystemDllInitBlock.MitigationOptionsMap.Map[2]) & 3) != 1 )
     return 0LL;
   return result;
 }

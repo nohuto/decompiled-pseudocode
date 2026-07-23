@@ -1,19 +1,19 @@
 /*
- * XREFs of HalpInterruptSetIdtEntry @ 0x140594700
+ * XREFs of HalpInterruptSetIdtEntry @ 0x140596E80
  * Callers:
- *     HalpInitializeInterruptsPn @ 0x14057D1EC (HalpInitializeInterruptsPn.c)
- *     HalpTimerClockActivate @ 0x1405810E0 (HalpTimerClockActivate.c)
- *     HalpTimerInitializeClock @ 0x14058144C (HalpTimerInitializeClock.c)
- *     HalpTimerInitializeClockPn @ 0x140581638 (HalpTimerInitializeClockPn.c)
- *     HalpTimerConfigureInterrupt @ 0x1405819FC (HalpTimerConfigureInterrupt.c)
- *     HalpTimerInitializeProfiling @ 0x1405844A8 (HalpTimerInitializeProfiling.c)
- *     HalpTimerTestHypervisorTimer @ 0x140584B0C (HalpTimerTestHypervisorTimer.c)
- *     HalpConnectThermalInterrupt @ 0x14058FBA0 (HalpConnectThermalInterrupt.c)
- *     IommuHvInitializeSvmLibrary @ 0x14059D61C (IommuHvInitializeSvmLibrary.c)
- *     HalpIommuInitInterrupts @ 0x140BEBBD8 (HalpIommuInitInterrupts.c)
- *     HalpInitializeInterrupts @ 0x140CADD98 (HalpInitializeInterrupts.c)
+ *     HalpInitializeInterruptsPn @ 0x14057F70C (HalpInitializeInterruptsPn.c)
+ *     HalpTimerClockActivate @ 0x140583600 (HalpTimerClockActivate.c)
+ *     HalpTimerInitializeClock @ 0x14058396C (HalpTimerInitializeClock.c)
+ *     HalpTimerInitializeClockPn @ 0x140583B58 (HalpTimerInitializeClockPn.c)
+ *     HalpTimerConfigureInterrupt @ 0x140583F1C (HalpTimerConfigureInterrupt.c)
+ *     HalpTimerInitializeProfiling @ 0x1405869C8 (HalpTimerInitializeProfiling.c)
+ *     HalpTimerTestHypervisorTimer @ 0x14058702C (HalpTimerTestHypervisorTimer.c)
+ *     HalpConnectThermalInterrupt @ 0x140592320 (HalpConnectThermalInterrupt.c)
+ *     IommuHvInitializeSvmLibrary @ 0x14059FD9C (IommuHvInitializeSvmLibrary.c)
+ *     HalpIommuInitInterrupts @ 0x140BF1BD8 (HalpIommuInitInterrupts.c)
+ *     HalpInitializeInterrupts @ 0x140CB3DD8 (HalpInitializeInterrupts.c)
  * Callees:
- *     HalpCreateInterrupt @ 0x140594620 (HalpCreateInterrupt.c)
+ *     HalpCreateInterrupt @ 0x140596DA0 (HalpCreateInterrupt.c)
  */
 
 _DWORD *__fastcall HalpInterruptSetIdtEntry(

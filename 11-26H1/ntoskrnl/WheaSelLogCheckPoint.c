@@ -1,13 +1,13 @@
 /*
- * XREFs of WheaSelLogCheckPoint @ 0x1406D43A4
+ * XREFs of WheaSelLogCheckPoint @ 0x1406D8424
  * Callers:
- *     PnpLogBootFailuresSel @ 0x1405DA220 (PnpLogBootFailuresSel.c)
- *     InitBootProcessor @ 0x140CAA7CC (InitBootProcessor.c)
- *     IoInitSystemPreDrivers @ 0x140CBACA0 (IoInitSystemPreDrivers.c)
+ *     PnpLogBootFailuresSel @ 0x1405DCA20 (PnpLogBootFailuresSel.c)
+ *     InitBootProcessor @ 0x140CB07CC (InitBootProcessor.c)
+ *     IoInitSystemPreDrivers @ 0x140CC0D18 (IoInitSystemPreDrivers.c)
  * Callees:
- *     EnterWheaIpmiContextLock @ 0x1406D4278 (EnterWheaIpmiContextLock.c)
- *     LeaveWheaIpmiContextLock @ 0x1406D4364 (LeaveWheaIpmiContextLock.c)
- *     IpmiLibAddSelCheckpointRecord @ 0x14071D570 (IpmiLibAddSelCheckpointRecord.c)
+ *     EnterWheaIpmiContextLock @ 0x1406D82F8 (EnterWheaIpmiContextLock.c)
+ *     LeaveWheaIpmiContextLock @ 0x1406D83E4 (LeaveWheaIpmiContextLock.c)
+ *     IpmiLibAddSelCheckpointRecord @ 0x140722200 (IpmiLibAddSelCheckpointRecord.c)
  */
 
 __int64 __fastcall WheaSelLogCheckPoint(unsigned __int16 a1, unsigned int a2)

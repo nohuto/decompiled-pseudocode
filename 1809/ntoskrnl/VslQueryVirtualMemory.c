@@ -1,10 +1,10 @@
 /*
- * XREFs of VslQueryVirtualMemory @ 0x14027BA70
+ * XREFs of VslQueryVirtualMemory @ 0x14027BC60
  * Callers:
- *     MmQueryVirtualMemory @ 0x1405EE910 (MmQueryVirtualMemory.c)
+ *     MmQueryVirtualMemory @ 0x1405EF910 (MmQueryVirtualMemory.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140129CB0 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     VslpEnterIumSecureMode @ 0x140129D80 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall VslQueryVirtualMemory(__int64 a1, __int64 a2, _OWORD *a3)

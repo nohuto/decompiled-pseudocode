@@ -1,14 +1,14 @@
 /*
- * XREFs of PspIumAllocatePhysicalPages @ 0x140583854
+ * XREFs of PspIumAllocatePhysicalPages @ 0x140583A84
  * Callers:
- *     PsDispatchIumService @ 0x140582CF4 (PsDispatchIumService.c)
+ *     PsDispatchIumService @ 0x140582F24 (PsDispatchIumService.c)
  * Callees:
- *     MmMapLockedPagesSpecifyCache @ 0x140226CC0 (MmMapLockedPagesSpecifyCache.c)
- *     MmUnmapLockedPages @ 0x14031CA30 (MmUnmapLockedPages.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     MmAllocateSecureKernelPages @ 0x1405533D4 (MmAllocateSecureKernelPages.c)
- *     MmFreeSecureKernelPages @ 0x140553704 (MmFreeSecureKernelPages.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x1402CB5C0 (MmMapLockedPagesSpecifyCache.c)
+ *     MmUnmapLockedPages @ 0x140327780 (MmUnmapLockedPages.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     MmAllocateSecureKernelPages @ 0x140553614 (MmAllocateSecureKernelPages.c)
+ *     MmFreeSecureKernelPages @ 0x140553944 (MmFreeSecureKernelPages.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PspIumAllocatePhysicalPages(int a1, ULONG_PTR **a2, unsigned int a3, ULONG_PTR *a4, _DWORD *a5)

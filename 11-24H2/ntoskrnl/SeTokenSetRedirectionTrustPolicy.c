@@ -1,11 +1,11 @@
 /*
- * XREFs of SeTokenSetRedirectionTrustPolicy @ 0x14049759C
+ * XREFs of SeTokenSetRedirectionTrustPolicy @ 0x140491F2C
  * Callers:
- *     PspSetRedirectionTrustPolicy @ 0x140A65014 (PspSetRedirectionTrustPolicy.c)
+ *     PspSetRedirectionTrustPolicy @ 0x140A5D7E4 (PspSetRedirectionTrustPolicy.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x14025A450 (ExReleaseResourceLite.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402769C0 (ExAcquireResourceExclusiveLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14022BF50 (ExAcquireResourceExclusiveLite.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x14028AA60 (ExReleaseResourceLite.c)
  */
 
 void __fastcall SeTokenSetRedirectionTrustPolicy(__int64 a1, char a2)

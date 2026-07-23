@@ -15,69 +15,69 @@
  *     sub_1800D0B18 @ 0x1800D0B18 (sub_1800D0B18.c)
  */
 
-__int64 __fastcall sub_18005088C(__int64 a1, char *a2, __int64 a3, __int64 a4)
+__int64 sub_18005088C()
 {
-  struct _TEB *v4; // rsi
-  void *ProcessHeap; // r15
-  unsigned int v6; // r14d
-  void **p_ThreadLocalStoragePointer; // rbx
-  _UNKNOWN **v8; // rax
-  _QWORD *v9; // r12
-  _QWORD *v10; // r13
-  __int64 Heap; // rax
-  _QWORD *v12; // rcx
+  struct _TEB *v0; // rsi
+  PVOID ProcessHeap; // r15
+  ULONG SizeOfBitMap; // r14d
+  PVOID *p_ThreadLocalStoragePointer; // rbx
+  _UNKNOWN **v4; // rax
+  _QWORD *v5; // r12
+  _QWORD *v6; // r13
+  PVOID Heap; // rax
+  _QWORD *v8; // rcx
   __int64 i; // rsi
-  _QWORD *v15; // r8
+  PVOID *v11; // r8
   __int64 Size; // [rsp+50h] [rbp-78h]
-  unsigned int v17; // [rsp+D0h] [rbp+8h] BYREF
-  int v18; // [rsp+D8h] [rbp+10h]
-  _UNKNOWN **v19; // [rsp+E0h] [rbp+18h]
-  __int64 v20; // [rsp+E8h] [rbp+20h]
+  unsigned int v13; // [rsp+D0h] [rbp+8h] BYREF
+  ULONG v14; // [rsp+D8h] [rbp+10h]
+  _UNKNOWN **v15; // [rsp+E0h] [rbp+18h]
+  __int64 v16; // [rsp+E8h] [rbp+20h]
 
-  v4 = NtCurrentTeb();
+  v0 = NtCurrentTeb();
   ProcessHeap = NtCurrentPeb()->ProcessHeap;
-  RtlAcquireSRWLockShared(&qword_18015D118, a2, a3, a4);
-  v6 = dword_18015C1D0;
-  v18 = dword_18015C1D0;
-  if ( !dword_18015C1D0 )
+  RtlAcquireSRWLockShared(&stru_18015D118);
+  SizeOfBitMap = BitMapHeader.SizeOfBitMap;
+  v14 = BitMapHeader.SizeOfBitMap;
+  if ( !BitMapHeader.SizeOfBitMap )
   {
-    p_ThreadLocalStoragePointer = &v4->ThreadLocalStoragePointer;
+    p_ThreadLocalStoragePointer = &v0->ThreadLocalStoragePointer;
 LABEL_9:
-    v4->ThreadLocalStoragePointer = p_ThreadLocalStoragePointer;
+    v0->ThreadLocalStoragePointer = p_ThreadLocalStoragePointer;
     _InterlockedIncrement(&dword_18015C1C0);
-    RtlReleaseSRWLockShared(&qword_18015D118);
+    RtlReleaseSRWLockShared(&stru_18015D118);
     return 0LL;
   }
-  p_ThreadLocalStoragePointer = (void **)sub_180050A6C((unsigned int)dword_18015C1D0);
+  p_ThreadLocalStoragePointer = (PVOID *)sub_180050A6C(BitMapHeader.SizeOfBitMap);
   if ( p_ThreadLocalStoragePointer )
   {
-    v8 = &off_1801565D8;
-    v19 = &off_1801565D8;
-    v9 = off_1801565D8;
-    while ( v9 != v8 )
+    v4 = &off_1801565D8;
+    v15 = &off_1801565D8;
+    v5 = off_1801565D8;
+    while ( v5 != v4 )
     {
-      v10 = v9;
-      v9 = (_QWORD *)*v9;
-      Size = sub_180050A28(v10, &v17);
-      v20 = v17;
-      Heap = RtlAllocateHeap((__int64)ProcessHeap, dword_18015C294 + 786432, v17 + 1LL + Size);
+      v6 = v5;
+      v5 = (_QWORD *)*v5;
+      Size = sub_180050A28(v6, &v13);
+      v16 = v13;
+      Heap = RtlAllocateHeap(ProcessHeap, Flags + 786432, v13 + 1LL + Size);
       if ( !Heap )
       {
-        RtlReleaseSRWLockShared(&qword_18015D118);
-        for ( i = 0LL; (unsigned int)i < v6; i = (unsigned int)(i + 1) )
+        RtlReleaseSRWLockShared(&stru_18015D118);
+        for ( i = 0LL; (unsigned int)i < SizeOfBitMap; i = (unsigned int)(i + 1) )
         {
-          v15 = p_ThreadLocalStoragePointer[i];
-          if ( v15 )
-            RtlFreeHeap((__int64)ProcessHeap, 0, *(v15 - 1));
+          v11 = (PVOID *)p_ThreadLocalStoragePointer[i];
+          if ( v11 )
+            RtlFreeHeap(ProcessHeap, 0, *(v11 - 1));
         }
-        RtlFreeHeap((__int64)ProcessHeap, 0, (unsigned __int64)(p_ThreadLocalStoragePointer - 2));
+        RtlFreeHeap(ProcessHeap, 0, p_ThreadLocalStoragePointer - 2);
         return 3221225495LL;
       }
-      v12 = (_QWORD *)(~v20 & (Heap + v17 + 1));
-      *(v12 - 1) = Heap;
-      p_ThreadLocalStoragePointer[*((unsigned int *)v10 + 16)] = v12;
-      memmove(v12, (const void *)v10[2], Size);
-      v8 = v19;
+      v8 = (_QWORD *)(~v16 & ((unsigned __int64)Heap + v13 + 1));
+      *(v8 - 1) = Heap;
+      p_ThreadLocalStoragePointer[*((unsigned int *)v6 + 16)] = v8;
+      memmove(v8, (const void *)v6[2], Size);
+      v4 = v15;
       if ( (dword_180156A70 & 5) != 0 )
       {
         sub_1800CA554(
@@ -87,15 +87,15 @@ LABEL_9:
           2,
           "TlsVector %p Index %d : %d bytes copied from %p to %p\n",
           p_ThreadLocalStoragePointer,
-          *((_DWORD *)v10 + 16),
-          *((_DWORD *)v10 + 6) - v10[2],
-          (const void *)v10[2],
-          p_ThreadLocalStoragePointer[*((unsigned int *)v10 + 16)]);
-        v8 = v19;
+          *((_DWORD *)v6 + 16),
+          *((_DWORD *)v6 + 6) - v6[2],
+          (const void *)v6[2],
+          p_ThreadLocalStoragePointer[*((unsigned int *)v6 + 16)]);
+        v4 = v15;
       }
     }
     goto LABEL_9;
   }
-  RtlReleaseSRWLockShared(&qword_18015D118);
+  RtlReleaseSRWLockShared(&stru_18015D118);
   return 3221225495LL;
 }

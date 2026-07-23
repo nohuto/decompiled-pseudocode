@@ -1,25 +1,25 @@
 /*
- * XREFs of KeTerminateThread @ 0x140203388
+ * XREFs of KeTerminateThread @ 0x140203468
  * Callers:
- *     PspExitThread @ 0x14095771C (PspExitThread.c)
+ *     PspExitThread @ 0x14094B14C (PspExitThread.c)
  * Callees:
- *     KiAcquireProcessLockExclusive @ 0x140203690 (KiAcquireProcessLockExclusive.c)
- *     KiSetThreadSchedulingGroup @ 0x140203774 (KiSetThreadSchedulingGroup.c)
- *     KiCheckIfStackExpandCalloutActive @ 0x1402038B0 (KiCheckIfStackExpandCalloutActive.c)
- *     ?KiAbpPreCleanupThreadState@AutoBoost@@YAXPEAU_KTHREAD@@@Z @ 0x1402038E4 (-KiAbpPreCleanupThreadState@AutoBoost@@YAXPEAU_KTHREAD@@@Z.c)
- *     ExQueueWorkItemEx @ 0x140203EF0 (ExQueueWorkItemEx.c)
- *     KiActivateWaiterQueueWithNoLocks @ 0x140223020 (KiActivateWaiterQueueWithNoLocks.c)
- *     KiProcessThreadWaitList @ 0x14023BDB0 (KiProcessThreadWaitList.c)
- *     KiSwapThread @ 0x14023C0A0 (KiSwapThread.c)
- *     KiTryUnwaitThread @ 0x1402735B4 (KiTryUnwaitThread.c)
- *     KiInsertQueueInternal @ 0x140274E80 (KiInsertQueueInternal.c)
- *     KiAcquireKobjectLockSafe @ 0x140277760 (KiAcquireKobjectLockSafe.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     KxAcquireQueuedSpinLock @ 0x1402B47E0 (KxAcquireQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402B9F90 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     KiInsertQueueDpc @ 0x1402BD330 (KiInsertQueueDpc.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KeDisableProfiling @ 0x140514DC0 (KeDisableProfiling.c)
+ *     KiAcquireProcessLockExclusive @ 0x140203770 (KiAcquireProcessLockExclusive.c)
+ *     KiSetThreadSchedulingGroup @ 0x140203854 (KiSetThreadSchedulingGroup.c)
+ *     KiCheckIfStackExpandCalloutActive @ 0x140203990 (KiCheckIfStackExpandCalloutActive.c)
+ *     ?KiAbpPreCleanupThreadState@AutoBoost@@YAXPEAU_KTHREAD@@@Z @ 0x1402039C4 (-KiAbpPreCleanupThreadState@AutoBoost@@YAXPEAU_KTHREAD@@@Z.c)
+ *     ExQueueWorkItemEx @ 0x140203FD0 (ExQueueWorkItemEx.c)
+ *     KiActivateWaiterQueueWithNoLocks @ 0x1402249B0 (KiActivateWaiterQueueWithNoLocks.c)
+ *     KiProcessThreadWaitList @ 0x14023D710 (KiProcessThreadWaitList.c)
+ *     KiSwapThread @ 0x14023DA00 (KiSwapThread.c)
+ *     KiTryUnwaitThread @ 0x140272B24 (KiTryUnwaitThread.c)
+ *     KiInsertQueueInternal @ 0x1402743F0 (KiInsertQueueInternal.c)
+ *     KiAcquireKobjectLockSafe @ 0x140276CD0 (KiAcquireKobjectLockSafe.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KxAcquireQueuedSpinLock @ 0x1402FF4B0 (KxAcquireQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140304C50 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KiInsertQueueDpc @ 0x140307FF0 (KiInsertQueueDpc.c)
+ *     KeDisableProfiling @ 0x14050E830 (KeDisableProfiling.c)
  */
 
 __int64 __fastcall KeTerminateThread(LegacyAutoBoost *this)
@@ -40,7 +40,7 @@ __int64 __fastcall KeTerminateThread(LegacyAutoBoost *this)
   char v15; // cl
   __int64 v16; // r8
   struct _LIST_ENTRY **v17; // r8
-  struct _LIST_ENTRY *Blink; // rax
+  struct _LIST_ENTRY *Flink; // rax
   struct _LIST_ENTRY *v19; // rcx
   __int64 v20; // r8
   signed __int32 v22[8]; // [rsp+0h] [rbp-58h] BYREF
@@ -123,22 +123,24 @@ LABEL_17:
   if ( CurrentPrcb->DeferredReadyListHead.Next )
     KiProcessThreadWaitList(CurrentPrcb, 1LL, 0LL);
   v17 = (struct _LIST_ENTRY **)((char *)this + 1256);
-  _m_prefetchw(&PsAltSystemCallRegistrationLock.WaitBlockFill10[8]);
-  Blink = PsAltSystemCallRegistrationLock.WaitBlock[0].WaitListEntry.Blink;
+  _m_prefetchw(&PsAltSystemCallRegistrationLock.WaitBlockFill11[144]);
+  Flink = PsAltSystemCallRegistrationLock.WaitBlock[3].WaitListEntry.Flink;
   do
   {
-    *v17 = Blink;
-    v19 = Blink;
-    Blink = (struct _LIST_ENTRY *)_InterlockedCompareExchange64(
-                                    (volatile signed __int64 *)&PsAltSystemCallRegistrationLock.WaitBlock[0].WaitListEntry.Blink,
+    *v17 = Flink;
+    v19 = Flink;
+    Flink = (struct _LIST_ENTRY *)_InterlockedCompareExchange64(
+                                    (volatile signed __int64 *)&PsAltSystemCallRegistrationLock.WaitBlock[3].WaitListEntry.Flink,
                                     (signed __int64)v17,
-                                    (signed __int64)Blink);
+                                    (signed __int64)Flink);
   }
-  while ( Blink != v19 );
-  if ( Blink )
+  while ( Flink != v19 );
+  if ( Flink )
   {
-    if ( PsAltSystemCallRegistrationLock.WaitBlock[0].WaitListEntry.Flink
-      && _interlockedbittestandreset((volatile signed __int32 *)&PsAltSystemCallRegistrationLock.320, 0) )
+    if ( PsAltSystemCallRegistrationLock.WaitBlock[2].SparePtr
+      && _interlockedbittestandreset(
+           (volatile signed __int32 *)&PsAltSystemCallRegistrationLock.WaitBlockFill11[136],
+           0) )
     {
       v20 = 0xFFFFLL;
       goto LABEL_25;
@@ -148,8 +150,8 @@ LABEL_17:
   {
     v20 = 0xFFFFFFFFLL;
 LABEL_25:
-    if ( !(unsigned __int8)ExQueueWorkItemEx(&PsAltSystemCallRegistrationLock.Timer.TimerListEntry.Blink, 2LL, v20) )
-      _interlockedbittestandset((volatile signed __int32 *)&PsAltSystemCallRegistrationLock.320, 0);
+    if ( !(unsigned __int8)ExQueueWorkItemEx(&PsAltSystemCallRegistrationLock.WaitBlockFill11[112], 2LL, v20) )
+      _interlockedbittestandset((volatile signed __int32 *)&PsAltSystemCallRegistrationLock.WaitBlockFill11[136], 0);
   }
   if ( (KiAbpGlobalState & 1) != 0 )
     AutoBoost::KiAbpPreCleanupThreadState(this, v11);

@@ -1,18 +1,18 @@
 /*
- * XREFs of MmUnloadSystemImage @ 0x140A8AD10
+ * XREFs of MmUnloadSystemImage @ 0x140A87050
  * Callers:
- *     PnpReplacePartitionUnit @ 0x14072E220 (PnpReplacePartitionUnit.c)
- *     PnprLoadPluginDriver @ 0x14072FC94 (PnprLoadPluginDriver.c)
- *     MiApplyHotPatchToLoadedDriver @ 0x1407F13E8 (MiApplyHotPatchToLoadedDriver.c)
- *     IopLoadDriver @ 0x1409C90C0 (IopLoadDriver.c)
- *     IopDeleteDriver @ 0x140A8AC00 (IopDeleteDriver.c)
- *     NtSetSystemInformation @ 0x140AE1300 (NtSetSystemInformation.c)
+ *     PnpReplacePartitionUnit @ 0x14072C230 (PnpReplacePartitionUnit.c)
+ *     PnprLoadPluginDriver @ 0x14072DCA4 (PnprLoadPluginDriver.c)
+ *     MiApplyHotPatchToLoadedDriver @ 0x1407F19B8 (MiApplyHotPatchToLoadedDriver.c)
+ *     IopLoadDriver @ 0x1409B6EEC (IopLoadDriver.c)
+ *     IopDeleteDriver @ 0x140A86F40 (IopDeleteDriver.c)
+ *     NtSetSystemInformation @ 0x140AE2BE0 (NtSetSystemInformation.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x140347D10 (PsGetCurrentServerSiloGlobals.c)
- *     PsAttachSiloToCurrentThread @ 0x14043CF50 (PsAttachSiloToCurrentThread.c)
- *     PsDetachSiloFromCurrentThread @ 0x140444750 (PsDetachSiloFromCurrentThread.c)
- *     PdcCreateWatchdogAroundClientCall @ 0x140484160 (PdcCreateWatchdogAroundClientCall.c)
- *     MiUnloadSystemImage @ 0x140A8AD84 (MiUnloadSystemImage.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140326710 (PsGetCurrentServerSiloGlobals.c)
+ *     PsAttachSiloToCurrentThread @ 0x14042FBB0 (PsAttachSiloToCurrentThread.c)
+ *     PsDetachSiloFromCurrentThread @ 0x14043A1F0 (PsDetachSiloFromCurrentThread.c)
+ *     PdcCreateWatchdogAroundClientCall @ 0x14047F700 (PdcCreateWatchdogAroundClientCall.c)
+ *     MiUnloadSystemImage @ 0x140A870C4 (MiUnloadSystemImage.c)
  */
 
 __int64 __fastcall MmUnloadSystemImage(ULONG_PTR BugCheckParameter3)

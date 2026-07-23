@@ -1,9 +1,9 @@
 /*
- * XREFs of MiCheckSpecialPoolSlop @ 0x1401EB574
+ * XREFs of MiCheckSpecialPoolSlop @ 0x1401EB3A0
  * Callers:
- *     MmFreeSpecialPool @ 0x1401EC0A4 (MmFreeSpecialPool.c)
+ *     MmFreeSpecialPool @ 0x1401EBED0 (MmFreeSpecialPool.c)
  * Callees:
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
  */
 
 unsigned __int64 __fastcall MiCheckSpecialPoolSlop(_BYTE *BugCheckParameter2, ULONG_PTR a2, unsigned int *a3)

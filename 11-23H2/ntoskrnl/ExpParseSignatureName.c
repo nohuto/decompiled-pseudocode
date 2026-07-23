@@ -1,13 +1,13 @@
 /*
- * XREFs of ExpParseSignatureName @ 0x1409FCE70
+ * XREFs of ExpParseSignatureName @ 0x1409FD100
  * Callers:
- *     ExpConvertSignatureName @ 0x1409FBC5C (ExpConvertSignatureName.c)
+ *     ExpConvertSignatureName @ 0x1409FBEEC (ExpConvertSignatureName.c)
  * Callees:
- *     wcsncpy_s @ 0x1403DFF30 (wcsncpy_s.c)
- *     RtlGUIDFromString @ 0x1406CF6C0 (RtlGUIDFromString.c)
- *     ExpTranslateHexStringToGUID @ 0x1409FE194 (ExpTranslateHexStringToGUID.c)
- *     ExpTranslateHexStringToULONG @ 0x1409FE318 (ExpTranslateHexStringToULONG.c)
- *     ExpTranslateHexStringToULONGLONG @ 0x1409FE3B8 (ExpTranslateHexStringToULONGLONG.c)
+ *     wcsncpy_s @ 0x1403E0110 (wcsncpy_s.c)
+ *     RtlGUIDFromString @ 0x1406CF6F0 (RtlGUIDFromString.c)
+ *     ExpTranslateHexStringToGUID @ 0x1409FE424 (ExpTranslateHexStringToGUID.c)
+ *     ExpTranslateHexStringToULONG @ 0x1409FE5A8 (ExpTranslateHexStringToULONG.c)
+ *     ExpTranslateHexStringToULONGLONG @ 0x1409FE648 (ExpTranslateHexStringToULONGLONG.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

@@ -11,11 +11,11 @@
 
 void MakeGdtReadOnly()
 {
-  struct _GROUP_AFFINITY *p_PreviousAffinity; // rdi
+  _GROUP_AFFINITY *p_PreviousAffinity; // rdi
   __int64 v1; // rbx
   char v2; // cl
-  struct _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-38h] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+30h] [rbp-28h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-38h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+30h] [rbp-28h] BYREF
 
   p_PreviousAffinity = &PreviousAffinity;
   v1 = 0LL;

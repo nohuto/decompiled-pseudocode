@@ -1,30 +1,30 @@
 /*
  * XREFs of ZwCreateFile @ 0x14041C200
  * Callers:
- *     RtlFileMapInitializeByNtPath @ 0x1402D8914 (RtlFileMapInitializeByNtPath.c)
- *     LdrpMapResourceFile @ 0x1403D79F4 (LdrpMapResourceFile.c)
- *     DifZwCreateFileWrapper @ 0x14061E6A0 (DifZwCreateFileWrapper.c)
- *     PspIoRateEntryActivate @ 0x1406D4DF0 (PspIoRateEntryActivate.c)
- *     EtwpCreateDirectoryFile @ 0x1406F0DC8 (EtwpCreateDirectoryFile.c)
- *     CmpOpenHiveFile @ 0x140713F8C (CmpOpenHiveFile.c)
- *     FsRtlpOpenDev @ 0x14085698C (FsRtlpOpenDev.c)
- *     CmpVolumeContextStart @ 0x140857634 (CmpVolumeContextStart.c)
- *     PopGetPolicyDeviceObject @ 0x140858E74 (PopGetPolicyDeviceObject.c)
- *     CmpVolumeManagerGetContextForFilePath @ 0x14085A75C (CmpVolumeManagerGetContextForFilePath.c)
- *     ExpGetSystemWriteConstraintInformation @ 0x1408624E8 (ExpGetSystemWriteConstraintInformation.c)
- *     CmpInitBackupHive @ 0x140917E18 (CmpInitBackupHive.c)
- *     CmpOpenFileWithExtremePrejudice @ 0x140919908 (CmpOpenFileWithExtremePrejudice.c)
- *     IopBootLogToFile @ 0x140933C14 (IopBootLogToFile.c)
- *     PiCreateDirectoryPath @ 0x140943B34 (PiCreateDirectoryPath.c)
- *     SmKmStoreFileOpenVolume @ 0x1409D71F0 (SmKmStoreFileOpenVolume.c)
- *     SmpUtilsGetControlDevice @ 0x1409D8B9C (SmpUtilsGetControlDevice.c)
- *     PopFlushVolumeWorker @ 0x140A51F50 (PopFlushVolumeWorker.c)
- *     KdpCreateFileCallback @ 0x140A72AC0 (KdpCreateFileCallback.c)
- *     EmInitSystem @ 0x140B0B630 (EmInitSystem.c)
- *     BapdpProcessVsmKeyBlobs @ 0x140B1C49C (BapdpProcessVsmKeyBlobs.c)
- *     BapdpProcessBCDCache @ 0x140B1C78C (BapdpProcessBCDCache.c)
- *     PiCreateDriverDataDirectoryRoot @ 0x140B286CC (PiCreateDriverDataDirectoryRoot.c)
- *     VhdiMountVhdFile @ 0x140B54AE4 (VhdiMountVhdFile.c)
+ *     sub_1402D8914 @ 0x1402D8914 (sub_1402D8914.c)
+ *     sub_1403D79F4 @ 0x1403D79F4 (sub_1403D79F4.c)
+ *     sub_14061E6A0 @ 0x14061E6A0 (sub_14061E6A0.c)
+ *     sub_1406D4DF0 @ 0x1406D4DF0 (sub_1406D4DF0.c)
+ *     sub_1406F0DC8 @ 0x1406F0DC8 (sub_1406F0DC8.c)
+ *     sub_140713F8C @ 0x140713F8C (sub_140713F8C.c)
+ *     sub_14085698C @ 0x14085698C (sub_14085698C.c)
+ *     sub_140857634 @ 0x140857634 (sub_140857634.c)
+ *     sub_140858E74 @ 0x140858E74 (sub_140858E74.c)
+ *     sub_14085A75C @ 0x14085A75C (sub_14085A75C.c)
+ *     sub_1408624E8 @ 0x1408624E8 (sub_1408624E8.c)
+ *     sub_140917E18 @ 0x140917E18 (sub_140917E18.c)
+ *     sub_140919908 @ 0x140919908 (sub_140919908.c)
+ *     sub_140933C14 @ 0x140933C14 (sub_140933C14.c)
+ *     sub_140943B34 @ 0x140943B34 (sub_140943B34.c)
+ *     sub_1409D71F0 @ 0x1409D71F0 (sub_1409D71F0.c)
+ *     sub_1409D8B9C @ 0x1409D8B9C (sub_1409D8B9C.c)
+ *     sub_140A51F50 @ 0x140A51F50 (sub_140A51F50.c)
+ *     sub_140A72AC0 @ 0x140A72AC0 (sub_140A72AC0.c)
+ *     sub_140B0B630 @ 0x140B0B630 (sub_140B0B630.c)
+ *     sub_140B1C49C @ 0x140B1C49C (sub_140B1C49C.c)
+ *     sub_140B1C78C @ 0x140B1C78C (sub_140B1C78C.c)
+ *     sub_140B286CC @ 0x140B286CC (sub_140B286CC.c)
+ *     sub_140B54AE4 @ 0x140B54AE4 (sub_140B54AE4.c)
  * Callees:
  *     <none>
  */
@@ -45,5 +45,5 @@ NTSTATUS __stdcall ZwCreateFile(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(FileHandle, *(_QWORD *)&DesiredAccess);
+  return sub_140433F80(FileHandle, *(_QWORD *)&DesiredAccess);
 }

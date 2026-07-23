@@ -9,24 +9,24 @@
  *     _NtAllocateVirtualMemoryEx@28 @ 0x4B2F30E0 (_NtAllocateVirtualMemoryEx@28.c)
  */
 
-int __userpurge RtlpHpEnvAllocVA@<eax>(
-        int a1@<edx>,
-        int a2@<ecx>,
+NTSTATUS __userpurge RtlpHpEnvAllocVA@<eax>(
+        ULONG_PTR *a1@<edx>,
+        PVOID *a2@<ecx>,
         int a3@<ebp>,
         int a4,
         int a5,
-        int a6,
+        ULONG a6,
         int a7,
         int a8,
         int a9,
         int a10)
 {
-  unsigned int v10; // esi
-  int v11; // ecx
+  ULONG v10; // esi
+  ULONG v11; // ecx
   _DWORD v13[9]; // [esp-38h] [ebp-44h] BYREF
   _DWORD v14[3]; // [esp-14h] [ebp-20h] BYREF
-  int v15; // [esp-8h] [ebp-14h]
-  int v16; // [esp-4h] [ebp-10h]
+  PVOID *v15; // [esp-8h] [ebp-14h]
+  PSIZE_T v16; // [esp-4h] [ebp-10h]
   int v17; // [esp+0h] [ebp-Ch]
   void *v18; // [esp+4h] [ebp-8h]
   void *retaddr; // [esp+Ch] [ebp+0h]
@@ -60,5 +60,12 @@ int __userpurge RtlpHpEnvAllocVA@<eax>(
       v13[6] = a9;
     }
   }
-  return NtAllocateVirtualMemoryEx(-1, v15, v16, v10, a6, v11 != 0 ? (unsigned int)v13 : 0, v11);
+  return NtAllocateVirtualMemoryEx(
+           (HANDLE)0xFFFFFFFF,
+           v15,
+           v16,
+           v10,
+           a6,
+           v11 != 0 ? (PMEM_EXTENDED_PARAMETER)v13 : 0,
+           v11);
 }

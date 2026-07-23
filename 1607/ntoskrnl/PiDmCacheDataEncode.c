@@ -1,15 +1,15 @@
 /*
- * XREFs of PiDmCacheDataEncode @ 0x1404E0974
+ * XREFs of PiDmCacheDataEncode @ 0x1404C3F78
  * Callers:
- *     PiDmObjectUpdateCachedObjectProperty @ 0x1404FFCDC (PiDmObjectUpdateCachedObjectProperty.c)
- *     PiDmObjectProcessPropertyChange @ 0x14050539C (PiDmObjectProcessPropertyChange.c)
- *     PiDmObjectCreate @ 0x1405641DC (PiDmObjectCreate.c)
+ *     PiDmObjectUpdateCachedObjectProperty @ 0x1404E2C6C (PiDmObjectUpdateCachedObjectProperty.c)
+ *     PiDmObjectProcessPropertyChange @ 0x1404E832C (PiDmObjectProcessPropertyChange.c)
+ *     PiDmObjectCreate @ 0x14056471C (PiDmObjectCreate.c)
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memmove @ 0x140171280 (memmove.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memmove @ 0x140171780 (memmove.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     _PnpStringFromGuid @ 0x1404E9270 (_PnpStringFromGuid.c)
- *     PiDmGetObject @ 0x1404FF000 (PiDmGetObject.c)
+ *     _PnpStringFromGuid @ 0x1404CB360 (_PnpStringFromGuid.c)
+ *     PiDmGetObject @ 0x1404E1F90 (PiDmGetObject.c)
  */
 
 __int64 __fastcall PiDmCacheDataEncode(int a1, __int128 *a2, unsigned int a3, int a4, unsigned int a5, __int64 a6)

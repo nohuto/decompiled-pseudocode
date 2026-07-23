@@ -6,19 +6,21 @@
  *     _memmove @ 0x4B2F8BF0 (_memmove.c)
  */
 
-int __stdcall RtlAppendStringToString(unsigned __int16 *a1, const void **a2)
+NTSTATUS __cdecl RtlAppendStringToString(PSTRING Destination, PSTRING Source)
 {
-  int v2; // esi
+  int Length; // esi
   int v3; // ebx
+  size_t v5; // [esp-4h] [ebp-14h]
 
-  v2 = *(unsigned __int16 *)a2;
-  if ( (_WORD)v2 )
+  Length = Source->Length;
+  if ( (_WORD)Length )
   {
-    v3 = *a1;
-    if ( v2 + v3 > (unsigned int)a1[1] )
+    v3 = Destination->Length;
+    if ( Length + v3 > (unsigned int)Destination->MaximumLength )
       return -1073741789;
-    memmove((void *)(v3 + *((_DWORD *)a1 + 1)), a2[1], *(unsigned __int16 *)a2);
-    *a1 += v2;
+    LODWORD(v5) = Source->Length;
+    memmove(&Destination->Buffer[v3], Source->Buffer, v5);
+    Destination->Length += Length;
   }
   return 0;
 }

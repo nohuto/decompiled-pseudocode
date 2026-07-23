@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlpDebugPageHeapDestroy @ 0x18010B140
+ * XREFs of RtlpDebugPageHeapDestroy @ 0x18010B100
  * Callers:
  *     <none>
  * Callees:

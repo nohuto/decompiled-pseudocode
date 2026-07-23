@@ -1,18 +1,18 @@
 /*
- * XREFs of PspOneDirectionSecurityDomainCombine @ 0x1406B7EA8
+ * XREFs of PspOneDirectionSecurityDomainCombine @ 0x1406B7ED8
  * Callers:
- *     PspDisablePrimaryTokenExchange @ 0x14076F8E0 (PspDisablePrimaryTokenExchange.c)
+ *     PspDisablePrimaryTokenExchange @ 0x14076FAD0 (PspDisablePrimaryTokenExchange.c)
  * Callees:
- *     PspIsParentProcess @ 0x1402268AC (PspIsParentProcess.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     SepDeleteAccessState @ 0x140232270 (SepDeleteAccessState.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     SeCreateAccessStateEx @ 0x1406C2EA0 (SeCreateAccessStateEx.c)
- *     PsLookupProcessByProcessId @ 0x1406FA370 (PsLookupProcessByProcessId.c)
- *     ObOpenObjectByPointer @ 0x1407374D0 (ObOpenObjectByPointer.c)
- *     SeReleaseSubjectContext @ 0x140737BC0 (SeReleaseSubjectContext.c)
- *     ObCloseHandle @ 0x14076B890 (ObCloseHandle.c)
+ *     PspIsParentProcess @ 0x1402269BC (PspIsParentProcess.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     SepDeleteAccessState @ 0x140232340 (SepDeleteAccessState.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     SeCreateAccessStateEx @ 0x1406C2ED0 (SeCreateAccessStateEx.c)
+ *     PsLookupProcessByProcessId @ 0x1406FA580 (PsLookupProcessByProcessId.c)
+ *     ObOpenObjectByPointer @ 0x1407376C0 (ObOpenObjectByPointer.c)
+ *     SeReleaseSubjectContext @ 0x140737DB0 (SeReleaseSubjectContext.c)
+ *     ObCloseHandle @ 0x14076BA80 (ObCloseHandle.c)
  */
 
 void __fastcall PspOneDirectionSecurityDomainCombine(__int64 Object)

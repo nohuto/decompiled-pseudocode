@@ -3,9 +3,9 @@
  * Callers:
  *     InitBootProcessor @ 0x140B52774 (InitBootProcessor.c)
  * Callees:
- *     WheaSelLogSetNtSchedulerAvailability @ 0x14061019C (WheaSelLogSetNtSchedulerAvailability.c)
- *     IpmiHwInitializeContext @ 0x1406777A8 (IpmiHwInitializeContext.c)
- *     WheaSelLogCheckPoint @ 0x140A077D4 (WheaSelLogCheckPoint.c)
+ *     WheaSelLogSetNtSchedulerAvailability @ 0x1406106EC (WheaSelLogSetNtSchedulerAvailability.c)
+ *     IpmiHwInitializeContext @ 0x140677CF8 (IpmiHwInitializeContext.c)
+ *     WheaSelLogCheckPoint @ 0x140A07A64 (WheaSelLogCheckPoint.c)
  */
 
 __int64 __fastcall WheaSelLogInitialize(__int64 a1)

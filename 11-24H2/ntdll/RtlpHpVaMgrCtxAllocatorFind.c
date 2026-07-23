@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpHpVaMgrCtxAllocatorFind @ 0x180090EC8
+ * XREFs of RtlpHpVaMgrCtxAllocatorFind @ 0x18009BA54
  * Callers:
- *     RtlpHpVaMgrCtxAllocatorReference @ 0x180090D68 (RtlpHpVaMgrCtxAllocatorReference.c)
+ *     RtlpHpVaMgrCtxAllocatorReference @ 0x18009B8F4 (RtlpHpVaMgrCtxAllocatorReference.c)
  * Callees:
  *     <none>
  */

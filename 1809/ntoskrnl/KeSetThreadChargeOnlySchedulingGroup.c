@@ -1,13 +1,13 @@
 /*
- * XREFs of KeSetThreadChargeOnlySchedulingGroup @ 0x1400D2F78
+ * XREFs of KeSetThreadChargeOnlySchedulingGroup @ 0x1400D2FF8
  * Callers:
  *     PsImpersonateContainerOfThread @ 0x14005AE90 (PsImpersonateContainerOfThread.c)
- *     NtSetInformationThread @ 0x1405E9EA0 (NtSetInformationThread.c)
- *     PspExitThread @ 0x1405F75E0 (PspExitThread.c)
+ *     NtSetInformationThread @ 0x1405EAEA0 (NtSetInformationThread.c)
+ *     PspExitThread @ 0x1405F85E0 (PspExitThread.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     KiUpdateTotalCyclesCurrentThread @ 0x1400D1D3C (KiUpdateTotalCyclesCurrentThread.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     KiUpdateTotalCyclesCurrentThread @ 0x1400D1DBC (KiUpdateTotalCyclesCurrentThread.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 char __fastcall KeSetThreadChargeOnlySchedulingGroup(__int64 a1, __int64 a2)

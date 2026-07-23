@@ -9,7 +9,7 @@
  *     MiCheckProtoPtePageState @ 0x140030780 (MiCheckProtoPtePageState.c)
  *     MiRemoveLockedPageChargeAndDecRef @ 0x140030B20 (MiRemoveLockedPageChargeAndDecRef.c)
  *     MiMigratePfn @ 0x14003C640 (MiMigratePfn.c)
- *     MiReferenceDriverPage @ 0x1402A6138 (MiReferenceDriverPage.c)
+ *     MiReferenceDriverPage @ 0x1402A6328 (MiReferenceDriverPage.c)
  * Callees:
  *     <none>
  */

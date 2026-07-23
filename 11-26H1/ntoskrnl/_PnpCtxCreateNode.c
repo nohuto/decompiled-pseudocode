@@ -1,14 +1,14 @@
 /*
- * XREFs of _PnpCtxCreateNode @ 0x140AE7B14
+ * XREFs of _PnpCtxCreateNode @ 0x140AE59C4
  * Callers:
- *     _PnpCtxRegisterMachineNode @ 0x140895FF8 (_PnpCtxRegisterMachineNode.c)
- *     _PnpCtxOpenMachine @ 0x140AE79B0 (_PnpCtxOpenMachine.c)
+ *     _PnpCtxRegisterMachineNode @ 0x14089C3F8 (_PnpCtxRegisterMachineNode.c)
+ *     _PnpCtxOpenMachine @ 0x140AE5860 (_PnpCtxOpenMachine.c)
  * Callees:
- *     _PnpCtxDestroyNode @ 0x140895CB4 (_PnpCtxDestroyNode.c)
- *     _SysCtxCloseMachine @ 0x14089C9A0 (_SysCtxCloseMachine.c)
- *     _SysCtxOpenMachine @ 0x14089CC70 (_SysCtxOpenMachine.c)
- *     RtlCreateUnicodeString @ 0x140A70410 (RtlCreateUnicodeString.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     _PnpCtxDestroyNode @ 0x14089C0B4 (_PnpCtxDestroyNode.c)
+ *     _SysCtxCloseMachine @ 0x1408A2DA0 (_SysCtxCloseMachine.c)
+ *     _SysCtxOpenMachine @ 0x1408A3070 (_SysCtxOpenMachine.c)
+ *     RtlCreateUnicodeString @ 0x140A478B0 (RtlCreateUnicodeString.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall PnpCtxCreateNode(

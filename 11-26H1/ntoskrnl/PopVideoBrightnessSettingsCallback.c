@@ -1,13 +1,13 @@
 /*
- * XREFs of PopVideoBrightnessSettingsCallback @ 0x1404E8D00
+ * XREFs of PopVideoBrightnessSettingsCallback @ 0x1404E20C0
  * Callers:
  *     <none>
  * Callees:
- *     PopAcquirePolicyLock @ 0x140C04BF0 (PopAcquirePolicyLock.c)
- *     PopReleasePolicyLock @ 0x140C04C40 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140C0AE00 (PopAcquirePolicyLock.c)
+ *     PopReleasePolicyLock @ 0x140C0AE50 (PopReleasePolicyLock.c)
  */
 
-__int64 __fastcall PopVideoBrightnessSettingsCallback(__int64 *a1, int *a2, int a3)
+__int64 __fastcall PopVideoBrightnessSettingsCallback(__int64 *a1, volatile int *a2, int a3)
 {
   __int64 v3; // rax
   unsigned int v6; // edx
@@ -51,35 +51,35 @@ __int64 __fastcall PopVideoBrightnessSettingsCallback(__int64 *a1, int *a2, int 
             if ( !v13 && a3 == 4 && a2 )
             {
               PopAcquirePolicyLock(a1, 3221225485LL);
-              dword_140F106EC = *a2;
+              *(_DWORD *)&PpmIdlePolicyLock.PriorityFloorCounts[20] = *a2;
               goto LABEL_13;
             }
           }
           else if ( a3 == 4 && a2 )
           {
             PopAcquirePolicyLock(a1, 3221225485LL);
-            dword_140F10700 = *a2;
+            PpmIdlePolicyLock.AbCompletedIoQoSBoostCount = *a2;
             goto LABEL_13;
           }
         }
         else if ( a3 == 4 && a2 )
         {
           PopAcquirePolicyLock(a1, 3221225485LL);
-          HIDWORD(qword_140F106F8) = *a2;
+          PpmIdlePolicyLock.AbCompletedIoBoostCount = *a2;
           goto LABEL_13;
         }
       }
       else if ( a3 == 4 && a2 )
       {
         PopAcquirePolicyLock(a1, 3221225485LL);
-        HIDWORD(qword_140F106F0) = *a2;
+        *(_DWORD *)&PpmIdlePolicyLock.PriorityFloorCounts[28] = *a2;
         goto LABEL_13;
       }
     }
     else if ( a3 == 4 && a2 )
     {
       PopAcquirePolicyLock(a1, 3221225485LL);
-      LODWORD(qword_140F106F0) = *a2;
+      *(_DWORD *)&PpmIdlePolicyLock.PriorityFloorCounts[24] = *a2;
       goto LABEL_13;
     }
   }
@@ -88,7 +88,7 @@ __int64 __fastcall PopVideoBrightnessSettingsCallback(__int64 *a1, int *a2, int 
     if ( !*a2 )
       return 0;
     PopAcquirePolicyLock(a1, 3221225485LL);
-    stru_140F10828.WaitBlockFill5[34] = 1;
+    BYTE2(PpmIdlePolicyLock.Padding[2]) = 1;
 LABEL_13:
     PopReleasePolicyLock();
     return 0;

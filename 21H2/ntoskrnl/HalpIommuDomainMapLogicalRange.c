@@ -1,16 +1,16 @@
 /*
- * XREFs of HalpIommuDomainMapLogicalRange @ 0x1404C92D4
+ * XREFs of HalpIommuDomainMapLogicalRange @ 0x1404C9514
  * Callers:
- *     IoMapTransfer @ 0x140388C70 (IoMapTransfer.c)
- *     HalMapTransferEx @ 0x14039F6E0 (HalMapTransferEx.c)
- *     HalpAllocateDomainCommonBufferInternal @ 0x1403A11F4 (HalpAllocateDomainCommonBufferInternal.c)
- *     HalDmaAllocateCrashDumpRegistersEx @ 0x1403A6380 (HalDmaAllocateCrashDumpRegistersEx.c)
- *     HalJoinDmaDomain @ 0x1403C7110 (HalJoinDmaDomain.c)
- *     HalpDmaAllocateAndPremapLa @ 0x1404B6D70 (HalpDmaAllocateAndPremapLa.c)
- *     HalpDmaAddReservedRangesToDomain @ 0x1404C4A10 (HalpDmaAddReservedRangesToDomain.c)
+ *     IoMapTransfer @ 0x140388DC0 (IoMapTransfer.c)
+ *     HalMapTransferEx @ 0x14039F830 (HalMapTransferEx.c)
+ *     HalpAllocateDomainCommonBufferInternal @ 0x1403A1344 (HalpAllocateDomainCommonBufferInternal.c)
+ *     HalDmaAllocateCrashDumpRegistersEx @ 0x1403A64D0 (HalDmaAllocateCrashDumpRegistersEx.c)
+ *     HalJoinDmaDomain @ 0x1403C72B0 (HalJoinDmaDomain.c)
+ *     HalpDmaAllocateAndPremapLa @ 0x1404B6FB0 (HalpDmaAllocateAndPremapLa.c)
+ *     HalpDmaAddReservedRangesToDomain @ 0x1404C4C50 (HalpDmaAddReservedRangesToDomain.c)
  * Callees:
- *     IommupHvMapDeviceLogicalRange @ 0x1404DA284 (IommupHvMapDeviceLogicalRange.c)
- *     HalpIommuMapLogicalRange @ 0x1404DC20C (HalpIommuMapLogicalRange.c)
+ *     IommupHvMapDeviceLogicalRange @ 0x1404DA4C4 (IommupHvMapDeviceLogicalRange.c)
+ *     HalpIommuMapLogicalRange @ 0x1404DC44C (HalpIommuMapLogicalRange.c)
  */
 
 __int64 __fastcall HalpIommuDomainMapLogicalRange(__int64 a1, int a2, int a3, __int64 a4, __int64 a5)

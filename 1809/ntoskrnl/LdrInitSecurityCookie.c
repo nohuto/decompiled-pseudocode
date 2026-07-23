@@ -1,9 +1,9 @@
 /*
- * XREFs of LdrInitSecurityCookie @ 0x140681EAC
+ * XREFs of LdrInitSecurityCookie @ 0x14068306C
  * Callers:
- *     MiProcessLoadConfigForDriver @ 0x140681E48 (MiProcessLoadConfigForDriver.c)
+ *     MiProcessLoadConfigForDriver @ 0x140683008 (MiProcessLoadConfigForDriver.c)
  * Callees:
- *     LdrpFetchAddressOfSecurityCookie @ 0x140681F5C (LdrpFetchAddressOfSecurityCookie.c)
+ *     LdrpFetchAddressOfSecurityCookie @ 0x14068311C (LdrpFetchAddressOfSecurityCookie.c)
  */
 
 __int64 __fastcall LdrInitSecurityCookie(void *a1, __int64 a2, __int64 a3, unsigned __int64 a4)

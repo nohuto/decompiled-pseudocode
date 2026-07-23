@@ -1,11 +1,11 @@
 /*
- * XREFs of DbgkpWerInvokeCallbacks @ 0x140B3F598
+ * XREFs of DbgkpWerInvokeCallbacks @ 0x140B415C8
  * Callers:
- *     DbgkpWerCaptureLiveTriageDump @ 0x14078BF90 (DbgkpWerCaptureLiveTriageDump.c)
- *     DbgkpWerCaptureLiveFullDump @ 0x140B3F37C (DbgkpWerCaptureLiveFullDump.c)
+ *     DbgkpWerCaptureLiveTriageDump @ 0x14078EAC0 (DbgkpWerCaptureLiveTriageDump.c)
+ *     DbgkpWerCaptureLiveFullDump @ 0x140B413AC (DbgkpWerCaptureLiveFullDump.c)
  * Callees:
- *     DbgPrintEx @ 0x140397530 (DbgPrintEx.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     DbgPrintEx @ 0x1403992B0 (DbgPrintEx.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall DbgkpWerInvokeCallbacks(_QWORD *a1)

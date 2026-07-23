@@ -1,23 +1,23 @@
 /*
- * XREFs of NtQueryObject @ 0x140968970
+ * XREFs of NtQueryObject @ 0x140951400
  * Callers:
- *     IopQueryRegistryKeySystemPath @ 0x1409C8568 (IopQueryRegistryKeySystemPath.c)
- *     IopLoadDriver @ 0x1409C90C0 (IopLoadDriver.c)
+ *     IopLoadDriver @ 0x1409B6EEC (IopLoadDriver.c)
+ *     IopQueryRegistryKeySystemPath @ 0x1409B81B0 (IopQueryRegistryKeySystemPath.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x1402595A0 (KeLeaveCriticalRegionThread.c)
- *     ExfReleasePushLockShared @ 0x14025DE00 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     PsReferenceSiloContext @ 0x14033FA90 (PsReferenceSiloContext.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockSharedEx @ 0x14034050C (ExfAcquirePushLockSharedEx.c)
- *     OBJECT_HEADER_TO_QUOTA_INFO @ 0x14040A520 (OBJECT_HEADER_TO_QUOTA_INFO.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     ObReferenceObjectByHandle @ 0x14084AF40 (ObReferenceObjectByHandle.c)
- *     ExRaiseDatatypeMisalignment @ 0x14089B1F0 (ExRaiseDatatypeMisalignment.c)
- *     ExRaiseAccessViolation @ 0x1408C10E0 (ExRaiseAccessViolation.c)
- *     ObQueryNameStringMode @ 0x140969A30 (ObQueryNameStringMode.c)
- *     ObQueryTypeInfo @ 0x14096A80C (ObQueryTypeInfo.c)
+ *     KeLeaveCriticalRegionThread @ 0x140289BB0 (KeLeaveCriticalRegionThread.c)
+ *     ExfReleasePushLockShared @ 0x14028E410 (ExfReleasePushLockShared.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     PsReferenceSiloContext @ 0x14031EF70 (PsReferenceSiloContext.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockSharedEx @ 0x14031F9EC (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     OBJECT_HEADER_TO_QUOTA_INFO @ 0x140402A00 (OBJECT_HEADER_TO_QUOTA_INFO.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     ObReferenceObjectByHandle @ 0x140847200 (ObReferenceObjectByHandle.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408A3890 (ExRaiseDatatypeMisalignment.c)
+ *     ExRaiseAccessViolation @ 0x1408BEAA0 (ExRaiseAccessViolation.c)
+ *     ObQueryNameStringMode @ 0x1409524C0 (ObQueryNameStringMode.c)
+ *     ObQueryTypeInfo @ 0x14095329C (ObQueryTypeInfo.c)
  */
 
 NTSTATUS __stdcall NtQueryObject(
@@ -55,7 +55,7 @@ NTSTATUS __stdcall NtQueryObject(
   __int64 v32; // rax
   struct _KTHREAD *CurrentThread; // rax
   signed __int64 *v34; // r15
-  _QWORD *v35; // rdi
+  char *v35; // rdi
   volatile signed __int64 *v36; // rdi
   void **v37; // rcx
   __int32 v38; // r15d
@@ -65,7 +65,7 @@ NTSTATUS __stdcall NtQueryObject(
   __int32 v42; // eax
   void *v43; // r14
   struct _KTHREAD *v44; // rax
-  _QWORD *v45; // rcx
+  char *v45; // rcx
   volatile signed __int64 *v46; // r10
   char *v47; // rcx
   char *v48; // rdx
@@ -82,9 +82,9 @@ NTSTATUS __stdcall NtQueryObject(
   KPROCESSOR_MODE v59; // [rsp+5Ah] [rbp-FEh]
   ULONG_PTR BugCheckParameter2; // [rsp+60h] [rbp-F8h]
   unsigned int v61; // [rsp+68h] [rbp-F0h]
-  _QWORD *v62; // [rsp+70h] [rbp-E8h]
+  char *v62; // [rsp+70h] [rbp-E8h]
   ACCESS_MASK v63; // [rsp+78h] [rbp-E0h]
-  int v64; // [rsp+7Ch] [rbp-DCh] BYREF
+  int v64; // [rsp+7Ch] [rbp-DCh]
   __int32 v65; // [rsp+80h] [rbp-D8h]
   PVOID v66; // [rsp+88h] [rbp-D0h]
   struct _OBJECT_HANDLE_INFORMATION HandleInformation; // [rsp+90h] [rbp-C8h] BYREF
@@ -236,11 +236,11 @@ LABEL_23:
       CurrentThread = KeGetCurrentThread();
       --CurrentThread->KernelApcDisable;
       v34 = (signed __int64 *)(v30 + 16);
-      v35 = KeAbPreAcquire(v30 + 16, 0LL);
+      v35 = (char *)KeAbPreAcquire(v30 + 16, 0LL);
       if ( _InterlockedCompareExchange64(v34, 17LL, 0LL) )
         ExfAcquirePushLockSharedEx(v34, 0, v35, (__int64)v34);
       if ( v35 )
-        *((_BYTE *)v35 + 10) = 1;
+        v35[10] = 1;
       v36 = v69;
       if ( (*((_BYTE *)v69 + 26) & 2) != 0 )
       {
@@ -272,7 +272,7 @@ LABEL_23:
           v44 = KeGetCurrentThread();
           --v44->KernelApcDisable;
           BugCheckParameter2 = (ULONG_PTR)(v50 - 32);
-          v45 = KeAbPreAcquire(BugCheckParameter2, 0LL);
+          v45 = (char *)KeAbPreAcquire(BugCheckParameter2, 0LL);
           v62 = v45;
           v46 = (volatile signed __int64 *)BugCheckParameter2;
           if ( _InterlockedCompareExchange64((volatile signed __int64 *)BugCheckParameter2, 17LL, 0LL) )
@@ -282,7 +282,7 @@ LABEL_23:
             v46 = (volatile signed __int64 *)BugCheckParameter2;
           }
           if ( v45 )
-            *((_BYTE *)v45 + 10) = 1;
+            v45[10] = 1;
           v47 = (v71[26] & 2) != 0 ? &v71[-ObpInfoMaskToOffset[v71[26] & 3]] : 0LL;
           if ( !v47 )
             break;
@@ -332,7 +332,7 @@ LABEL_23:
       if ( (v63 & 0x20000) != 0 && *((_QWORD *)v36 + 5) )
       {
         v64 = 15;
-        guard_dispatch_icall_no_overrides(v21, 1LL, &v64, 0LL);
+        guard_dispatch_icall_no_overrides(v21, 1LL);
       }
       v73.m256i_i32[7] = v65;
       *(_OWORD *)v6 = v72;

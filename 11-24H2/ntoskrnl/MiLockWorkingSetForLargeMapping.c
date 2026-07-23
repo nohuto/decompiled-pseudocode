@@ -1,14 +1,14 @@
 /*
- * XREFs of MiLockWorkingSetForLargeMapping @ 0x1404D8A64
+ * XREFs of MiLockWorkingSetForLargeMapping @ 0x1404D1EB4
  * Callers:
- *     MiCommitExistingVad @ 0x140213020 (MiCommitExistingVad.c)
- *     MiMapUserLargePages @ 0x14036E280 (MiMapUserLargePages.c)
+ *     MiMapUserLargePages @ 0x14026A20C (MiMapUserLargePages.c)
+ *     MiCommitExistingVad @ 0x140306380 (MiCommitExistingVad.c)
  * Callees:
- *     MiLockWorkingSetExclusive @ 0x14020D480 (MiLockWorkingSetExclusive.c)
- *     MiUnlockWorkingSetExclusive @ 0x140218550 (MiUnlockWorkingSetExclusive.c)
- *     ExAllocatePoolMm @ 0x1402ACBC0 (ExAllocatePoolMm.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     MiUnlockWorkingSetExclusive @ 0x140243400 (MiUnlockWorkingSetExclusive.c)
+ *     ExAllocatePoolMm @ 0x1402775A0 (ExAllocatePoolMm.c)
+ *     MiLockWorkingSetExclusive @ 0x1403367E0 (MiLockWorkingSetExclusive.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 unsigned __int8 __fastcall MiLockWorkingSetForLargeMapping(__int64 a1, __int64 a2, int a3)

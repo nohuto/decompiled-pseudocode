@@ -1,10 +1,10 @@
 /*
- * XREFs of IoChangeFileObjectFilterContext @ 0x140356BBC
+ * XREFs of IoChangeFileObjectFilterContext @ 0x14036190C
  * Callers:
- *     FsRtlInsertPerFileObjectContext @ 0x1402A2990 (FsRtlInsertPerFileObjectContext.c)
- *     FsRtlPTeardownPerFileObjectContexts @ 0x14068A814 (FsRtlPTeardownPerFileObjectContexts.c)
+ *     FsRtlInsertPerFileObjectContext @ 0x14021FDD0 (FsRtlInsertPerFileObjectContext.c)
+ *     FsRtlPTeardownPerFileObjectContexts @ 0x1405E9CA4 (FsRtlPTeardownPerFileObjectContexts.c)
  * Callees:
- *     IopGetFileObjectExtension @ 0x1403567E0 (IopGetFileObjectExtension.c)
+ *     IopGetFileObjectExtension @ 0x140361530 (IopGetFileObjectExtension.c)
  */
 
 __int64 __fastcall IoChangeFileObjectFilterContext(__int64 a1)

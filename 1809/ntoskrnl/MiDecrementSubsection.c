@@ -1,15 +1,15 @@
 /*
- * XREFs of MiDecrementSubsection @ 0x1400E7718
+ * XREFs of MiDecrementSubsection @ 0x1400E7798
  * Callers:
- *     MiTrimSharedPage @ 0x1400E9770 (MiTrimSharedPage.c)
- *     MiTrimSection @ 0x1400EABA4 (MiTrimSection.c)
- *     MiPurgeBadFileOnlyPages @ 0x1402B6620 (MiPurgeBadFileOnlyPages.c)
+ *     MiTrimSharedPage @ 0x1400E97F0 (MiTrimSharedPage.c)
+ *     MiTrimSection @ 0x1400EAC24 (MiTrimSection.c)
+ *     MiPurgeBadFileOnlyPages @ 0x1402B6810 (MiPurgeBadFileOnlyPages.c)
  * Callees:
- *     MiDecrementSubsections @ 0x140079410 (MiDecrementSubsections.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     MiReturnCrossPartitionSectionCharges @ 0x1402C4CB4 (MiReturnCrossPartitionSectionCharges.c)
+ *     MiDecrementSubsections @ 0x140079400 (MiDecrementSubsections.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC420 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC5A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiReturnCrossPartitionSectionCharges @ 0x1402C4EA4 (MiReturnCrossPartitionSectionCharges.c)
  */
 
 __int64 __fastcall MiDecrementSubsection(__int64 *BugCheckParameter2)
@@ -38,7 +38,7 @@ __int64 __fastcall MiDecrementSubsection(__int64 *BugCheckParameter2)
   {
     LOBYTE(v5) = *(_QWORD *)(v1 + 64) != 0LL;
     return MiReturnCrossPartitionSectionCharges(
-             *(_QWORD *)(qword_14043A748 + 8LL * (*(_WORD *)(v1 + 60) & 0x3FF)),
+             *(_QWORD *)(qword_14043B808 + 8LL * (*(_WORD *)(v1 + 60) & 0x3FF)),
              v5,
              v4);
   }

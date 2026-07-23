@@ -1,22 +1,22 @@
 /*
- * XREFs of HashpVerifyPkcs1Signature @ 0x140A7730C
+ * XREFs of HashpVerifyPkcs1Signature @ 0x140A775BC
  * Callers:
- *     MinCryptVerifySignedHash2 @ 0x140A6F330 (MinCryptVerifySignedHash2.c)
+ *     MinCryptVerifySignedHash2 @ 0x140A6F5E0 (MinCryptVerifySignedHash2.c)
  * Callees:
- *     ExAllocateFromNPagedLookasideList @ 0x1402B6B30 (ExAllocateFromNPagedLookasideList.c)
- *     ExFreeToNPagedLookasideList @ 0x1402B6B70 (ExFreeToNPagedLookasideList.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     SymCryptLoadMsbFirstUint64 @ 0x1403F64B8 (SymCryptLoadMsbFirstUint64.c)
- *     SymCryptRsakeyCreate @ 0x1403F7864 (SymCryptRsakeyCreate.c)
- *     SymCryptRsakeySetValue @ 0x1403F7B0C (SymCryptRsakeySetValue.c)
- *     SymCryptRsakeySizeofModulus @ 0x1403F7FF0 (SymCryptRsakeySizeofModulus.c)
- *     SymCryptRsakeyWipe @ 0x1403F8004 (SymCryptRsakeyWipe.c)
- *     SymCryptDigitsFromBits @ 0x1403F9240 (SymCryptDigitsFromBits.c)
- *     SymCryptIntBitsizeOfValue @ 0x1403F92D0 (SymCryptIntBitsizeOfValue.c)
- *     SymCryptIntCreate @ 0x1403F9348 (SymCryptIntCreate.c)
- *     SymCryptIntSetValue @ 0x1403F949C (SymCryptIntSetValue.c)
- *     SymCryptIntWipe @ 0x1403F95BC (SymCryptIntWipe.c)
- *     SymCryptRsaPkcs1Verify @ 0x1403FA3B0 (SymCryptRsaPkcs1Verify.c)
+ *     ExAllocateFromNPagedLookasideList @ 0x1402B6DC0 (ExAllocateFromNPagedLookasideList.c)
+ *     ExFreeToNPagedLookasideList @ 0x1402B6E00 (ExFreeToNPagedLookasideList.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     SymCryptLoadMsbFirstUint64 @ 0x1403F6698 (SymCryptLoadMsbFirstUint64.c)
+ *     SymCryptRsakeyCreate @ 0x1403F7A44 (SymCryptRsakeyCreate.c)
+ *     SymCryptRsakeySetValue @ 0x1403F7CEC (SymCryptRsakeySetValue.c)
+ *     SymCryptRsakeySizeofModulus @ 0x1403F81D0 (SymCryptRsakeySizeofModulus.c)
+ *     SymCryptRsakeyWipe @ 0x1403F81E4 (SymCryptRsakeyWipe.c)
+ *     SymCryptDigitsFromBits @ 0x1403F9420 (SymCryptDigitsFromBits.c)
+ *     SymCryptIntBitsizeOfValue @ 0x1403F94B0 (SymCryptIntBitsizeOfValue.c)
+ *     SymCryptIntCreate @ 0x1403F9528 (SymCryptIntCreate.c)
+ *     SymCryptIntSetValue @ 0x1403F967C (SymCryptIntSetValue.c)
+ *     SymCryptIntWipe @ 0x1403F979C (SymCryptIntWipe.c)
+ *     SymCryptRsaPkcs1Verify @ 0x1403FA590 (SymCryptRsaPkcs1Verify.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
@@ -57,9 +57,9 @@ __int64 __fastcall HashpVerifyPkcs1Signature(
   v29 = a3;
   v30 = a2;
   v27 = 0LL;
-  v26 = byte_140D1C338;
+  v26 = byte_140D1C328;
   v31 = 0LL;
-  if ( byte_140D1C338 )
+  if ( byte_140D1C328 )
     Pool2 = ExAllocateFromNPagedLookasideList(&stru_140D1B980);
   else
     Pool2 = (PVOID)ExAllocatePool2(258LL, 6816LL, 1919109443LL);

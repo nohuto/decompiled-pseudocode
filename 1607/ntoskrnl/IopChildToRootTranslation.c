@@ -1,11 +1,11 @@
 /*
- * XREFs of IopChildToRootTranslation @ 0x140556850
+ * XREFs of IopChildToRootTranslation @ 0x140556D90
  * Callers:
- *     PnpBuildCmResourceList @ 0x1405563CC (PnpBuildCmResourceList.c)
+ *     PnpBuildCmResourceList @ 0x14055690C (PnpBuildCmResourceList.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     IopFindLegacyBusDeviceNode @ 0x14055741C (IopFindLegacyBusDeviceNode.c)
+ *     IopFindLegacyBusDeviceNode @ 0x14055795C (IopFindLegacyBusDeviceNode.c)
  */
 
 __int64 __fastcall IopChildToRootTranslation(

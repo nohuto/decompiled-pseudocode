@@ -1,21 +1,21 @@
 /*
- * XREFs of CmpCheckKeyBodyAccess @ 0x140601F80
+ * XREFs of CmpCheckKeyBodyAccess @ 0x140602034
  * Callers:
- *     CmpVEPerformOpenAccessCheck @ 0x1404DB888 (CmpVEPerformOpenAccessCheck.c)
- *     CmpDoAccessCheckOnKCB @ 0x140600AC8 (CmpDoAccessCheckOnKCB.c)
+ *     CmpVEPerformOpenAccessCheck @ 0x1404BEE8C (CmpVEPerformOpenAccessCheck.c)
+ *     CmpDoAccessCheckOnKCB @ 0x140600B7C (CmpDoAccessCheckOnKCB.c)
  * Callees:
- *     SeAccessCheck @ 0x140062B10 (SeAccessCheck.c)
- *     MiDeleteSubsection @ 0x140087410 (MiDeleteSubsection.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     CmpGetSecurityDescriptorForKcbStackEx @ 0x1401B511C (CmpGetSecurityDescriptorForKcbStackEx.c)
- *     CmpCleanupKcbStack @ 0x140404934 (CmpCleanupKcbStack.c)
- *     CmpStartKcbStackForTopLayerKcb @ 0x140404FE8 (CmpStartKcbStackForTopLayerKcb.c)
- *     SeOpenObjectAuditAlarmWithTransaction @ 0x1404070A0 (SeOpenObjectAuditAlarmWithTransaction.c)
- *     CmpIsKeyDeletedForKeyBody @ 0x140439400 (CmpIsKeyDeletedForKeyBody.c)
- *     SeLockSubjectContext @ 0x14044DBB0 (SeLockSubjectContext.c)
- *     SeUnlockSubjectContext @ 0x14044DC10 (SeUnlockSubjectContext.c)
- *     SeAppendPrivileges @ 0x1404C0F9C (SeAppendPrivileges.c)
- *     SeOpenObjectAuditAlarm @ 0x1404D88C8 (SeOpenObjectAuditAlarm.c)
+ *     SeAccessCheck @ 0x140062690 (SeAccessCheck.c)
+ *     MiDeleteSubsection @ 0x1400A6E14 (MiDeleteSubsection.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     CmpGetSecurityDescriptorForKcbStackEx @ 0x1401B5000 (CmpGetSecurityDescriptorForKcbStackEx.c)
+ *     CmpCleanupKcbStack @ 0x1404037F4 (CmpCleanupKcbStack.c)
+ *     CmpStartKcbStackForTopLayerKcb @ 0x140403EA8 (CmpStartKcbStackForTopLayerKcb.c)
+ *     SeOpenObjectAuditAlarmWithTransaction @ 0x140405F60 (SeOpenObjectAuditAlarmWithTransaction.c)
+ *     CmpIsKeyDeletedForKeyBody @ 0x1404382D0 (CmpIsKeyDeletedForKeyBody.c)
+ *     SeLockSubjectContext @ 0x14044CA80 (SeLockSubjectContext.c)
+ *     SeUnlockSubjectContext @ 0x14044CAE0 (SeUnlockSubjectContext.c)
+ *     SeAppendPrivileges @ 0x1404ACCCC (SeAppendPrivileges.c)
+ *     SeOpenObjectAuditAlarm @ 0x1404BBECC (SeOpenObjectAuditAlarm.c)
  */
 
 BOOLEAN __fastcall CmpCheckKeyBodyAccess(

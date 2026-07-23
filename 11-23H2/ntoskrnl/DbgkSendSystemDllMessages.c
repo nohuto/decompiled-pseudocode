@@ -1,20 +1,20 @@
 /*
- * XREFs of DbgkSendSystemDllMessages @ 0x140936DD4
+ * XREFs of DbgkSendSystemDllMessages @ 0x140936FD4
  * Callers:
- *     DbgkCreateThread @ 0x14076FC1C (DbgkCreateThread.c)
- *     DbgkpPostFakeThreadMessages @ 0x140937784 (DbgkpPostFakeThreadMessages.c)
+ *     DbgkCreateThread @ 0x14076FE0C (DbgkCreateThread.c)
+ *     DbgkpPostFakeThreadMessages @ 0x140937984 (DbgkpPostFakeThreadMessages.c)
  * Callees:
  *     RtlImageNtHeader @ 0x140214B30 (RtlImageNtHeader.c)
- *     RtlStringCbCopyW @ 0x14022B004 (RtlStringCbCopyW.c)
- *     KiStackAttachProcess @ 0x14022D600 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x14022D9C0 (KiUnstackDetachProcess.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     ZwOpenFile @ 0x14041B3C0 (ZwOpenFile.c)
- *     ObCloseHandle @ 0x14076B890 (ObCloseHandle.c)
- *     PsQuerySystemDllInfo @ 0x14076F1B4 (PsQuerySystemDllInfo.c)
- *     PsWow64GetProcessNtdllType @ 0x1407A1740 (PsWow64GetProcessNtdllType.c)
- *     DbgkpQueueMessage @ 0x140937E4C (DbgkpQueueMessage.c)
- *     DbgkpSendApiMessage @ 0x14093A050 (DbgkpSendApiMessage.c)
+ *     RtlStringCbCopyW @ 0x14022B114 (RtlStringCbCopyW.c)
+ *     KiStackAttachProcess @ 0x14022D710 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x14022DAD0 (KiUnstackDetachProcess.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     ZwOpenFile @ 0x14041B750 (ZwOpenFile.c)
+ *     ObCloseHandle @ 0x14076BA80 (ObCloseHandle.c)
+ *     PsQuerySystemDllInfo @ 0x14076F3A4 (PsQuerySystemDllInfo.c)
+ *     PsWow64GetProcessNtdllType @ 0x1407A1930 (PsWow64GetProcessNtdllType.c)
+ *     DbgkpQueueMessage @ 0x14093804C (DbgkpQueueMessage.c)
+ *     DbgkpSendApiMessage @ 0x14093A250 (DbgkpSendApiMessage.c)
  */
 
 int __fastcall DbgkSendSystemDllMessages(_QWORD *a1, struct _KEVENT *a2, _DWORD *a3)
@@ -24,8 +24,8 @@ int __fastcall DbgkSendSystemDllMessages(_QWORD *a1, struct _KEVENT *a2, _DWORD 
   _DWORD *v7; // rdi
   int i; // esi
   struct _KTHREAD *v9; // r12
-  __int64 SListFaultAddress; // rbx
-  __int64 v11; // rax
+  void *SListFaultAddress; // rbx
+  PIMAGE_NT_HEADERS v11; // rax
   struct _KTHREAD *v12; // rcx
   _QWORD *v13; // r11
   char v15; // [rsp+30h] [rbp-108h]
@@ -62,7 +62,7 @@ int __fastcall DbgkSendSystemDllMessages(_QWORD *a1, struct _KEVENT *a2, _DWORD 
         *(_OWORD *)v7 = 0LL;
         *((_OWORD *)v7 + 1) = 0LL;
         Teb = 0LL;
-        SListFaultAddress = (__int64)v9->SListFaultAddress;
+        SListFaultAddress = v9->SListFaultAddress;
         *((_QWORD *)v7 + 1) = SListFaultAddress;
         if ( a1 && i )
         {
@@ -76,8 +76,8 @@ int __fastcall DbgkSendSystemDllMessages(_QWORD *a1, struct _KEVENT *a2, _DWORD 
         v11 = RtlImageNtHeader(SListFaultAddress);
         if ( v11 )
         {
-          v7[4] = *(_DWORD *)(v11 + 12);
-          v7[5] = *(_DWORD *)(v11 + 16);
+          v7[4] = v11->FileHeader.PointerToSymbolTable;
+          v7[5] = v11->FileHeader.NumberOfSymbols;
         }
         if ( !a1 )
         {

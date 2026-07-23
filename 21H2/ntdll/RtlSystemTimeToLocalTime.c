@@ -4,10 +4,10 @@
  *     <none>
  * Callees:
  *     __security_check_cookie @ 0x18008C940 (__security_check_cookie.c)
- *     NtQuerySystemInformation @ 0x18009DD00 (NtQuerySystemInformation.c)
+ *     NtQuerySystemInformation @ 0x18009DCC0 (NtQuerySystemInformation.c)
  */
 
-NTSTATUS __fastcall RtlSystemTimeToLocalTime(_QWORD *a1, _QWORD *a2)
+NTSTATUS __cdecl RtlSystemTimeToLocalTime(PLARGE_INTEGER SystemTime, PLARGE_INTEGER LocalTime)
 {
   NTSTATUS result; // eax
   _BYTE SystemInformation[16]; // [rsp+20h] [rbp-48h] BYREF
@@ -16,7 +16,7 @@ NTSTATUS __fastcall RtlSystemTimeToLocalTime(_QWORD *a1, _QWORD *a2)
   result = NtQuerySystemInformation(SystemTimeOfDayInformation, SystemInformation, 0x30u, 0LL);
   if ( result >= 0 )
   {
-    *a2 = *a1 - v6;
+    LocalTime->QuadPart = SystemTime->QuadPart - v6;
     return 0;
   }
   return result;

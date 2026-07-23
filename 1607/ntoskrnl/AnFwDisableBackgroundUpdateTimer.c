@@ -7,17 +7,17 @@
  *     AnFwDisplayBackgroundUpdate @ 0x140728B84 (AnFwDisplayBackgroundUpdate.c)
  *     AnFwpBackgroundUpdateTimer @ 0x14072ACB4 (AnFwpBackgroundUpdateTimer.c)
  * Callees:
- *     KeCancelTimer @ 0x1400C3480 (KeCancelTimer.c)
+ *     KeCancelTimer @ 0x1400C1310 (KeCancelTimer.c)
  */
 
 BOOLEAN AnFwDisableBackgroundUpdateTimer()
 {
   BOOLEAN result; // al
 
-  if ( byte_140341C50 )
+  if ( byte_140341C98 )
   {
     result = KeCancelTimer(&stru_1403580B0);
-    byte_140341C50 = 0;
+    byte_140341C98 = 0;
   }
   return result;
 }

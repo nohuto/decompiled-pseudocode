@@ -16,6 +16,6 @@
 void __stdcall RtlInitializeSListHead(PSLIST_HEADER ListHead)
 {
   if ( ((unsigned __int8)ListHead & 0xF) != 0 )
-    RtlRaiseStatus(2147483650LL);
+    RtlRaiseStatus(-2147483646);
   *ListHead = 0LL;
 }

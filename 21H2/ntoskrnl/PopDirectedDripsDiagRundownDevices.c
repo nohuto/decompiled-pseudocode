@@ -1,17 +1,17 @@
 /*
- * XREFs of PopDirectedDripsDiagRundownDevices @ 0x1408F77C4
+ * XREFs of PopDirectedDripsDiagRundownDevices @ 0x1408F7924
  * Callers:
- *     PopDirectedDripsDiagNotifySessionStop @ 0x1408F71A4 (PopDirectedDripsDiagNotifySessionStop.c)
+ *     PopDirectedDripsDiagNotifySessionStop @ 0x1408F7304 (PopDirectedDripsDiagNotifySessionStop.c)
  * Callees:
- *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
- *     EtwWrite @ 0x14025DC90 (EtwWrite.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     PopDirectedDripsDiagCreateBlockerEntryBoolean @ 0x1408F6D5C (PopDirectedDripsDiagCreateBlockerEntryBoolean.c)
- *     PopDirectedDripsDiagCreateBlockerEntryULong @ 0x1408F6DC8 (PopDirectedDripsDiagCreateBlockerEntryULong.c)
- *     PopDirectedDripsDiagFreeDeviceDiagnostic @ 0x1408F7008 (PopDirectedDripsDiagFreeDeviceDiagnostic.c)
- *     PopDirectedDripsDiagSanitizeHardwareId @ 0x1408F7F64 (PopDirectedDripsDiagSanitizeHardwareId.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14027E1A4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     EtwWrite @ 0x14027F7C0 (EtwWrite.c)
+ *     _tlgKeywordOn @ 0x1402864F4 (_tlgKeywordOn.c)
+ *     EtwEventEnabled @ 0x1402C0830 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     PopDirectedDripsDiagCreateBlockerEntryBoolean @ 0x1408F6EBC (PopDirectedDripsDiagCreateBlockerEntryBoolean.c)
+ *     PopDirectedDripsDiagCreateBlockerEntryULong @ 0x1408F6F28 (PopDirectedDripsDiagCreateBlockerEntryULong.c)
+ *     PopDirectedDripsDiagFreeDeviceDiagnostic @ 0x1408F7168 (PopDirectedDripsDiagFreeDeviceDiagnostic.c)
+ *     PopDirectedDripsDiagSanitizeHardwareId @ 0x1408F80C4 (PopDirectedDripsDiagSanitizeHardwareId.c)
  */
 
 void PopDirectedDripsDiagRundownDevices()
@@ -119,17 +119,17 @@ void PopDirectedDripsDiagRundownDevices()
   v49 = PopWnfCsEnterScenarioId;
   while ( 1 )
   {
-    v0 = (char *)qword_140C1EB90;
-    if ( qword_140C1EB90 == &qword_140C1EB90 )
+    v0 = (char *)qword_140C1E9D0;
+    if ( qword_140C1E9D0 == &qword_140C1E9D0 )
       break;
-    if ( *((PVOID **)qword_140C1EB90 + 1) != &qword_140C1EB90
-      || (v1 = *(_QWORD *)qword_140C1EB90, *(PVOID *)(*(_QWORD *)qword_140C1EB90 + 8LL) != qword_140C1EB90) )
+    if ( *((PVOID **)qword_140C1E9D0 + 1) != &qword_140C1E9D0
+      || (v1 = *(_QWORD *)qword_140C1E9D0, *(PVOID *)(*(_QWORD *)qword_140C1E9D0 + 8LL) != qword_140C1E9D0) )
     {
       __fastfail(3u);
     }
-    qword_140C1EB90 = *(PVOID *)qword_140C1EB90;
+    qword_140C1E9D0 = *(PVOID *)qword_140C1E9D0;
     v2 = 0;
-    *(_QWORD *)(v1 + 8) = &qword_140C1EB90;
+    *(_QWORD *)(v1 + 8) = &qword_140C1E9D0;
     v3 = 0;
     v36 = 0;
     v4 = *((_DWORD *)v0 + 39);
@@ -262,7 +262,7 @@ void PopDirectedDripsDiagRundownDevices()
         v90 = &v43;
         tlgWriteTransfer_EtwWriteTransfer(
           (__int64)&dword_140D2D900,
-          (unsigned __int8 *)&dword_14002A024,
+          (unsigned __int8 *)byte_140029E95,
           0LL,
           0LL,
           0x16u,
@@ -277,44 +277,44 @@ void PopDirectedDripsDiagRundownDevices()
         {
           PopDirectedDripsDiagEventData.Ptr = (ULONGLONG)v35;
           *(_QWORD *)&PopDirectedDripsDiagEventData.Size = 1LL;
-          qword_140C1EA10 = (__int64)(v0 + 16);
-          qword_140C1EA18 = 8LL;
+          qword_140C1EC10 = (__int64)(v0 + 16);
+          qword_140C1EC18 = 8LL;
           v38 = v10->Length >> 1;
-          qword_140C1EA20 = (__int64)&v38;
-          qword_140C1EA28 = 4LL;
+          qword_140C1EC20 = (__int64)&v38;
+          qword_140C1EC28 = 4LL;
           Length = v10->Length;
-          qword_140C1EA30 = (__int64)v10->Buffer;
-          dword_140C1EA38 = Length;
-          dword_140C1EA3C = 0;
+          qword_140C1EC30 = (__int64)v10->Buffer;
+          dword_140C1EC38 = Length;
+          dword_140C1EC3C = 0;
           v39 = v48->Length >> 1;
-          qword_140C1EA40 = (__int64)&v39;
-          qword_140C1EA48 = 4LL;
+          qword_140C1EC40 = (__int64)&v39;
+          qword_140C1EC48 = 4LL;
           v19 = v48->Length;
-          qword_140C1EA50 = (__int64)v48->Buffer;
-          dword_140C1EA58 = v19;
-          dword_140C1EA5C = 0;
+          qword_140C1EC50 = (__int64)v48->Buffer;
+          dword_140C1EC58 = v19;
+          dword_140C1EC5C = 0;
           v40 = v12->Length >> 1;
-          qword_140C1EA60 = (__int64)&v40;
-          qword_140C1EA68 = 4LL;
+          qword_140C1EC60 = (__int64)&v40;
+          qword_140C1EC68 = 4LL;
           v20 = v12->Length;
-          qword_140C1EA70 = (__int64)v12->Buffer;
-          dword_140C1EA78 = v20;
-          dword_140C1EA7C = 0;
+          qword_140C1EC70 = (__int64)v12->Buffer;
+          dword_140C1EC78 = v20;
+          dword_140C1EC7C = 0;
           LODWORD(v41) = v13->Length >> 1;
-          qword_140C1EA80 = (__int64)&v41;
-          qword_140C1EA88 = 4LL;
+          qword_140C1EC80 = (__int64)&v41;
+          qword_140C1EC88 = 4LL;
           v21 = v13->Length;
-          qword_140C1EA90 = (__int64)v13->Buffer;
-          qword_140C1EAA0 = (__int64)(v0 + 148);
-          qword_140C1EAB0 = (__int64)(v0 + 156);
-          qword_140C1EAD0 = (__int64)(v0 + 152);
-          dword_140C1EA98 = v21;
-          qword_140C1EAC0 = (__int64)(v0 + 160);
-          dword_140C1EA9C = 0;
-          qword_140C1EAA8 = 4LL;
-          qword_140C1EAB8 = 4LL;
-          qword_140C1EAC8 = 4LL;
-          qword_140C1EAD8 = 4LL;
+          qword_140C1EC90 = (__int64)v13->Buffer;
+          qword_140C1ECA0 = (__int64)(v0 + 148);
+          qword_140C1ECB0 = (__int64)(v0 + 156);
+          qword_140C1ECD0 = (__int64)(v0 + 152);
+          dword_140C1EC98 = v21;
+          qword_140C1ECC0 = (__int64)(v0 + 160);
+          dword_140C1EC9C = 0;
+          qword_140C1ECA8 = 4LL;
+          qword_140C1ECB8 = 4LL;
+          qword_140C1ECC8 = 4LL;
+          qword_140C1ECD8 = 4LL;
           EtwWrite(v17, &POP_ETW_EVENT_DIRECTED_DRIPS_DEVICE_STATS, 0LL, 0xEu, &PopDirectedDripsDiagEventData);
           v2 = v36;
         }
@@ -353,8 +353,8 @@ void PopDirectedDripsDiagRundownDevices()
       *(_QWORD *)&PopDirectedDripsDiagEventData.Size = 1LL;
       PopDirectedDripsDiagEventData.Ptr = (ULONGLONG)v35;
       v33 = 2LL * (unsigned int)(v24 + 7);
-      qword_140C1EA18 = 4LL;
-      qword_140C1EA10 = (__int64)&v36;
+      qword_140C1EC18 = 4LL;
+      qword_140C1EC10 = (__int64)&v36;
       *(&PopDirectedDripsDiagEventData.Ptr + v33) = (ULONGLONG)&v49;
       *((_QWORD *)&PopDirectedDripsDiagEventData.Size + v33) = 8LL;
       EtwWrite(

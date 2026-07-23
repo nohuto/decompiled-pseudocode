@@ -1,10 +1,10 @@
 /*
- * XREFs of MiCheckVadSequential @ 0x1402FFA20
+ * XREFs of MiCheckVadSequential @ 0x14030A1A0
  * Callers:
- *     MiZeroFault @ 0x1402FEA50 (MiZeroFault.c)
+ *     MiZeroFault @ 0x1403091D0 (MiZeroFault.c)
  * Callees:
- *     HvlNotifyLongSpinWait @ 0x140293260 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140293290 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     HvlNotifyLongSpinWait @ 0x1402A2E60 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402A2E90 (KiCheckVpBackingLongSpinWaitHypercall.c)
  */
 
 __int64 __fastcall MiCheckVadSequential(int *a1)

@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlpCallInterceptRoutine @ 0x1800F3654
+ * XREFs of RtlpCallInterceptRoutine @ 0x1800F3614
  * Callers:
  *     RtlpHpAllocateHeap @ 0x18000776C (RtlpHpAllocateHeap.c)
  *     RtlDestroyHeap @ 0x180009680 (RtlDestroyHeap.c)
@@ -9,7 +9,7 @@
  *     RtlpFreeHeapInternal @ 0x180025710 (RtlpFreeHeapInternal.c)
  *     RtlpHpSegReAlloc @ 0x1800271D0 (RtlpHpSegReAlloc.c)
  *     RtlpAllocateHeapInternal @ 0x18002AA20 (RtlpAllocateHeapInternal.c)
- *     RtlpSetHeapDebuggingInformation @ 0x1800F4AF0 (RtlpSetHeapDebuggingInformation.c)
+ *     RtlpSetHeapDebuggingInformation @ 0x1800F4AB0 (RtlpSetHeapDebuggingInformation.c)
  * Callees:
  *     <none>
  */

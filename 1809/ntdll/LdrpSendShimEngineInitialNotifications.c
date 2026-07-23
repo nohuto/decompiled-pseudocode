@@ -6,7 +6,7 @@
  *     LdrpSendShimEngineInitialNotifications @ 0x1800705F8 (LdrpSendShimEngineInitialNotifications.c)
  * Callees:
  *     LdrpSendShimEngineInitialNotifications @ 0x1800705F8 (LdrpSendShimEngineInitialNotifications.c)
- *     _guard_dispatch_icall_nop @ 0x1800A3CE0 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800A3D00 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall LdrpSendShimEngineInitialNotifications(__int64 *a1, __int64 (__fastcall *a2)(__int64 *))

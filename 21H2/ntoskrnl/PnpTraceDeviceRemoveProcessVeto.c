@@ -1,11 +1,11 @@
 /*
- * XREFs of PnpTraceDeviceRemoveProcessVeto @ 0x1408B1A14
+ * XREFs of PnpTraceDeviceRemoveProcessVeto @ 0x1408B1B74
  * Callers:
- *     PnpLogVetoInformation @ 0x140732794 (PnpLogVetoInformation.c)
+ *     PnpLogVetoInformation @ 0x140732954 (PnpLogVetoInformation.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14027E1A4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x1402864F4 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 void PnpTraceDeviceRemoveProcessVeto()
@@ -27,9 +27,9 @@ void PnpTraceDeviceRemoveProcessVeto()
   __int64 v14; // [rsp+A0h] [rbp+37h]
   _DWORD v15[2]; // [rsp+A8h] [rbp+3Fh] BYREF
 
-  if ( (unsigned int)dword_140C02E00 > 5 )
+  if ( (unsigned int)dword_140C02D90 > 5 )
   {
-    if ( tlgKeywordOn((__int64)&dword_140C02E00, 0x400000000000LL) )
+    if ( tlgKeywordOn((__int64)&dword_140C02D90, 0x400000000000LL) )
     {
       v5 = 2LL;
       v4 = v7;
@@ -46,13 +46,7 @@ void PnpTraceDeviceRemoveProcessVeto()
       v11[1] = 0;
       v13 = 2LL;
       v15[1] = 0;
-      tlgWriteTransfer_EtwWriteTransfer(
-        (__int64)&dword_140C02E00,
-        (unsigned __int8 *)&byte_14002551F,
-        0LL,
-        0LL,
-        8u,
-        &v3);
+      tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C02D90, (unsigned __int8 *)byte_1400257E1, 0LL, 0LL, 8u, &v3);
     }
   }
 }

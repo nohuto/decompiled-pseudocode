@@ -9,9 +9,9 @@
  *     <none>
  */
 
-__int64 __fastcall ZwFlushInstructionCache(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwFlushInstructionCache(HANDLE ProcessHandle, PVOID BaseAddress, SIZE_T Length)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(ProcessHandle);
 }

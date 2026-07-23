@@ -87,7 +87,7 @@ LABEL_11:
       if ( v14 < 0 )
         v15 = 1;
       v36 = v15;
-      *(_OWORD *)(a2 + 40) = PrivateLoggerNotificationGuid;
+      *(GUID *)(a2 + 40) = PrivateLoggerNotificationGuid;
     }
     else
     {

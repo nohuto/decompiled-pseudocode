@@ -1,24 +1,24 @@
 /*
- * XREFs of SmKmKeyGenGenerate @ 0x140799E00
+ * XREFs of SmKmKeyGenGenerate @ 0x140799F10
  * Callers:
- *     SmcStoreCreate @ 0x14079D7E4 (SmcStoreCreate.c)
+ *     SmcStoreCreate @ 0x14079D8F4 (SmcStoreCreate.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExfReleasePushLockShared @ 0x14025DE00 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockSharedEx @ 0x14034050C (ExfAcquirePushLockSharedEx.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     SmKmKeyGenKeyDelete @ 0x140799F40 (SmKmKeyGenKeyDelete.c)
- *     SmKmKeyGenKeyFind @ 0x14079A004 (SmKmKeyGenKeyFind.c)
- *     SmKmKeyGenNewKey @ 0x14079A1C4 (SmKmKeyGenNewKey.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExfReleasePushLockShared @ 0x14028E410 (ExfReleasePushLockShared.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockSharedEx @ 0x14031F9EC (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     SmKmKeyGenKeyDelete @ 0x14079A050 (SmKmKeyGenKeyDelete.c)
+ *     SmKmKeyGenKeyFind @ 0x14079A114 (SmKmKeyGenKeyFind.c)
+ *     SmKmKeyGenNewKey @ 0x14079A2D4 (SmKmKeyGenNewKey.c)
  */
 
 __int64 __fastcall SmKmKeyGenGenerate(signed __int64 *BugCheckParameter2, void *a2, void *a3, unsigned int a4)
 {
   size_t v4; // rsi
   struct _KTHREAD *CurrentThread; // rax
-  _QWORD *v9; // rdi
+  char *v9; // rdi
   __int64 v10; // rax
   struct _PRIVILEGE_SET *v11; // rdi
   int v12; // edi
@@ -30,11 +30,11 @@ __int64 __fastcall SmKmKeyGenGenerate(signed __int64 *BugCheckParameter2, void *
     {
       CurrentThread = KeGetCurrentThread();
       --CurrentThread->KernelApcDisable;
-      v9 = KeAbPreAcquire((__int64)BugCheckParameter2, 0LL);
+      v9 = (char *)KeAbPreAcquire((__int64)BugCheckParameter2, 0LL);
       if ( _InterlockedCompareExchange64(BugCheckParameter2, 17LL, 0LL) )
         ExfAcquirePushLockSharedEx(BugCheckParameter2, 0, v9, (__int64)BugCheckParameter2);
       if ( v9 )
-        *((_BYTE *)v9 + 10) = 1;
+        v9[10] = 1;
       v10 = SmKmKeyGenKeyFind(BugCheckParameter2, a2);
       v11 = (struct _PRIVILEGE_SET *)v10;
       if ( v10 )

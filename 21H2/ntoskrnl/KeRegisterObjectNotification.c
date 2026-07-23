@@ -1,20 +1,20 @@
 /*
- * XREFs of KeRegisterObjectNotification @ 0x140202F18
+ * XREFs of KeRegisterObjectNotification @ 0x1402A7858
  * Callers:
- *     NtWaitForWorkViaWorkerFactory @ 0x140203150 (NtWaitForWorkViaWorkerFactory.c)
- *     ExpTryEnterWorkerFactoryAwayMode @ 0x140286990 (ExpTryEnterWorkerFactoryAwayMode.c)
- *     ExpWorkerFactoryManagerThread @ 0x1403B75A0 (ExpWorkerFactoryManagerThread.c)
- *     NtCreateWorkerFactory @ 0x1406D3E40 (NtCreateWorkerFactory.c)
- *     ExpWorkerFactoryInitialization @ 0x140A71A20 (ExpWorkerFactoryInitialization.c)
+ *     ExpTryEnterWorkerFactoryAwayMode @ 0x140203B30 (ExpTryEnterWorkerFactoryAwayMode.c)
+ *     NtWaitForWorkViaWorkerFactory @ 0x1402A7A90 (NtWaitForWorkViaWorkerFactory.c)
+ *     ExpWorkerFactoryManagerThread @ 0x1403B7710 (ExpWorkerFactoryManagerThread.c)
+ *     NtCreateWorkerFactory @ 0x1406AB120 (NtCreateWorkerFactory.c)
+ *     ExpWorkerFactoryInitialization @ 0x140A72A20 (ExpWorkerFactoryInitialization.c)
  * Callees:
- *     KiWakeOtherQueueWaiters @ 0x140243310 (KiWakeOtherQueueWaiters.c)
- *     KiAcquireKobjectLockSafe @ 0x14024C4A0 (KiAcquireKobjectLockSafe.c)
- *     KiWakeQueueWaiter @ 0x14024C4F0 (KiWakeQueueWaiter.c)
- *     KiWaitSatisfyOther @ 0x14029A518 (KiWaitSatisfyOther.c)
- *     KiExitDispatcher @ 0x140343AC0 (KiExitDispatcher.c)
+ *     KiWaitSatisfyOther @ 0x14022AA88 (KiWaitSatisfyOther.c)
+ *     KiWakeOtherQueueWaiters @ 0x1402E7B60 (KiWakeOtherQueueWaiters.c)
+ *     KiAcquireKobjectLockSafe @ 0x1402F0CF0 (KiAcquireKobjectLockSafe.c)
+ *     KiWakeQueueWaiter @ 0x1402F0D40 (KiWakeQueueWaiter.c)
+ *     KiExitDispatcher @ 0x14034E810 (KiExitDispatcher.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     KeIsThreadRunning @ 0x140513054 (KeIsThreadRunning.c)
- *     EtwTraceEnqueueWork @ 0x1405A77C0 (EtwTraceEnqueueWork.c)
+ *     KeIsThreadRunning @ 0x140513294 (KeIsThreadRunning.c)
+ *     EtwTraceEnqueueWork @ 0x1405A79F0 (EtwTraceEnqueueWork.c)
  */
 
 char __fastcall KeRegisterObjectNotification(__int64 a1, __int64 a2, __int64 a3)

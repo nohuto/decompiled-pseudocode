@@ -1,17 +1,22 @@
 /*
- * XREFs of DifZwPrivilegedServiceAuditAlarmWrapper @ 0x1406AF050
+ * XREFs of DifZwPrivilegedServiceAuditAlarmWrapper @ 0x1406B2C30
  * Callers:
  *     <none>
  * Callees:
- *     DifGetReturnAddressForWrappers @ 0x140260EA4 (DifGetReturnAddressForWrappers.c)
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     DifGetAPIThunkContextById @ 0x1404C17A4 (DifGetAPIThunkContextById.c)
- *     ZwPrivilegedServiceAuditAlarm @ 0x140725C90 (ZwPrivilegedServiceAuditAlarm.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     DifGetReturnAddressForWrappers @ 0x14026040C (DifGetReturnAddressForWrappers.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     DifGetAPIThunkContextById @ 0x1404BAFF4 (DifGetAPIThunkContextById.c)
+ *     ZwPrivilegedServiceAuditAlarm @ 0x14072A860 (ZwPrivilegedServiceAuditAlarm.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
-__int64 __fastcall DifZwPrivilegedServiceAuditAlarmWrapper(__int64 a1, __int64 a2, __int64 a3, __int64 a4, char a5)
+__int64 __fastcall DifZwPrivilegedServiceAuditAlarmWrapper(
+        UNICODE_STRING *a1,
+        UNICODE_STRING *a2,
+        void *a3,
+        struct _PRIVILEGE_SET *a4,
+        BOOLEAN AccessGranted)
 {
   __int128 *APIThunkContextById; // rax
   __int64 v9; // rdx
@@ -47,7 +52,7 @@ __int64 __fastcall DifZwPrivilegedServiceAuditAlarmWrapper(__int64 a1, __int64 a
     }
     v12 = 0;
     *((_QWORD *)&v20 + 1) = a1;
-    BYTE8(v18) = a5;
+    BYTE8(v18) = AccessGranted;
     *(_QWORD *)&v20 = a2;
     *((_QWORD *)&v19 + 1) = a3;
     *(_QWORD *)&v19 = a4;
@@ -63,7 +68,7 @@ __int64 __fastcall DifZwPrivilegedServiceAuditAlarmWrapper(__int64 a1, __int64 a
         ExReleaseRundownProtection_0(&DifRebootlessRundown);
     }
   }
-  LODWORD(v21) = ZwPrivilegedServiceAuditAlarm(a1, a2, a3, a4, a5);
+  LODWORD(v21) = ZwPrivilegedServiceAuditAlarm(a1, a2, a3, a4, AccessGranted);
   if ( v10 )
   {
     if ( (v15 = 0, !VfDifRunningWithoutReboot) && (VfOptionFlags & 0x800) == 0

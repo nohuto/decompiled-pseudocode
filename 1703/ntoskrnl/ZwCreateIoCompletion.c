@@ -6,7 +6,6 @@
  *     <none>
  */
 
-// local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall ZwCreateIoCompletion(
         PHANDLE IoCompletionHandle,
         ACCESS_MASK DesiredAccess,
@@ -15,5 +14,5 @@ NTSTATUS __stdcall ZwCreateIoCompletion(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(IoCompletionHandle, *(_QWORD *)&DesiredAccess, ObjectAttributes);
+  return KiServiceInternal(IoCompletionHandle);
 }

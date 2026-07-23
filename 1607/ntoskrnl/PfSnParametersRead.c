@@ -1,15 +1,15 @@
 /*
- * XREFs of PfSnParametersRead @ 0x140571EAC
+ * XREFs of PfSnParametersRead @ 0x1405723EC
  * Callers:
- *     PfpParametersWatcher @ 0x140669ED4 (PfpParametersWatcher.c)
+ *     PfpParametersWatcher @ 0x140669FB8 (PfpParametersWatcher.c)
  *     PfpParametersInitialize @ 0x1407B3C34 (PfpParametersInitialize.c)
  * Callees:
- *     RtlStringCbCopyW @ 0x1400C47BC (RtlStringCbCopyW.c)
- *     RtlStringCbCatW @ 0x1400C49B8 (RtlStringCbCatW.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     _wcsupr @ 0x14014DA38 (_wcsupr.c)
- *     PfpGetParameter @ 0x1405722AC (PfpGetParameter.c)
- *     PfSnParametersVerify @ 0x14057238C (PfSnParametersVerify.c)
+ *     RtlStringCbCopyW @ 0x1400C265C (RtlStringCbCopyW.c)
+ *     RtlStringCbCatW @ 0x1400C2858 (RtlStringCbCatW.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     _wcsupr @ 0x14014DFA8 (_wcsupr.c)
+ *     PfpGetParameter @ 0x1405727EC (PfpGetParameter.c)
+ *     PfSnParametersVerify @ 0x1405728CC (PfSnParametersVerify.c)
  */
 
 __int64 __fastcall PfSnParametersRead(__int64 a1)

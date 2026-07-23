@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpComputeExePath @ 0x180008F10
+ * XREFs of RtlpComputeExePath @ 0x180008F00
  * Callers:
  *     <none>
  * Callees:
- *     RtlpComputePath @ 0x18000CD84 (RtlpComputePath.c)
+ *     RtlpComputePath @ 0x18000CD74 (RtlpComputePath.c)
  */
 
 __int64 __fastcall RtlpComputeExePath(__int64 a1)

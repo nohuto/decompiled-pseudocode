@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpFreeSectionList @ 0x1409BDDE4
+ * XREFs of CmpFreeSectionList @ 0x1409BEDE4
  * Callers:
- *     EmpParseInfDatabase @ 0x1409BDD1C (EmpParseInfDatabase.c)
+ *     EmpParseInfDatabase @ 0x1409BED1C (EmpParseInfDatabase.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     CmpFreeLineList @ 0x1409BDE3C (CmpFreeLineList.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     CmpFreeLineList @ 0x1409BEE3C (CmpFreeLineList.c)
  */
 
 void __fastcall CmpFreeSectionList(PVOID P)

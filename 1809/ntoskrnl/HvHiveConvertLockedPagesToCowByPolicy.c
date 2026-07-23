@@ -1,14 +1,14 @@
 /*
- * XREFs of HvHiveConvertLockedPagesToCowByPolicy @ 0x14070875C
+ * XREFs of HvHiveConvertLockedPagesToCowByPolicy @ 0x1407099FC
  * Callers:
- *     CmpDoLocalizeNextHive @ 0x1407086B0 (CmpDoLocalizeNextHive.c)
+ *     CmpDoLocalizeNextHive @ 0x140709950 (CmpDoLocalizeNextHive.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     HvpViewMapConvertLockedPagesToCOWByPolicy @ 0x140708814 (HvpViewMapConvertLockedPagesToCOWByPolicy.c)
+ *     ExfReleasePushLockShared @ 0x1400913F0 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     HvpViewMapConvertLockedPagesToCOWByPolicy @ 0x140709AB4 (HvpViewMapConvertLockedPagesToCOWByPolicy.c)
  */
 
 __int64 __fastcall HvHiveConvertLockedPagesToCowByPolicy(__int64 a1)

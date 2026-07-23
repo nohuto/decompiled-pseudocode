@@ -1,12 +1,12 @@
 /*
- * XREFs of FsRtlCheckNoExclusiveConflict @ 0x1401B8C20
+ * XREFs of FsRtlCheckNoExclusiveConflict @ 0x1401B8864
  * Callers:
- *     FsRtlFastCheckLockForRead @ 0x1400A8B58 (FsRtlFastCheckLockForRead.c)
- *     FsRtlFastCheckLockForWrite @ 0x1400ACE7C (FsRtlFastCheckLockForWrite.c)
+ *     FsRtlFastCheckLockForRead @ 0x1400A70D8 (FsRtlFastCheckLockForRead.c)
+ *     FsRtlFastCheckLockForWrite @ 0x1400AB3E4 (FsRtlFastCheckLockForWrite.c)
  * Callees:
- *     RtlRealSuccessor @ 0x1400AB488 (RtlRealSuccessor.c)
- *     RtlSplay @ 0x1400C59E0 (RtlSplay.c)
- *     FsRtlFindFirstOverlappingExclusiveNode @ 0x1400C5F48 (FsRtlFindFirstOverlappingExclusiveNode.c)
+ *     RtlRealSuccessor @ 0x1400A9A08 (RtlRealSuccessor.c)
+ *     RtlSplay @ 0x1400C3880 (RtlSplay.c)
+ *     FsRtlFindFirstOverlappingExclusiveNode @ 0x1400C3DE8 (FsRtlFindFirstOverlappingExclusiveNode.c)
  */
 
 char __fastcall FsRtlCheckNoExclusiveConflict(

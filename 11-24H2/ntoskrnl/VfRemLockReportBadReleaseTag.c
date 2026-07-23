@@ -1,9 +1,9 @@
 /*
- * XREFs of VfRemLockReportBadReleaseTag @ 0x140B928C8
+ * XREFs of VfRemLockReportBadReleaseTag @ 0x140B948C8
  * Callers:
- *     IoReleaseRemoveLockEx @ 0x140270610 (IoReleaseRemoveLockEx.c)
+ *     IoReleaseRemoveLockEx @ 0x140225BA0 (IoReleaseRemoveLockEx.c)
  * Callees:
- *     CarReportRuleViolationFromNt @ 0x140B8D914 (CarReportRuleViolationFromNt.c)
+ *     CarReportRuleViolationFromNt @ 0x140B8F914 (CarReportRuleViolationFromNt.c)
  */
 
 __int64 __fastcall VfRemLockReportBadReleaseTag(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter3, __int64 a3)

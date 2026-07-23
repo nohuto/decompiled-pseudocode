@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpInvalidateAllHigherLayerKcbs @ 0x1407E11F0
+ * XREFs of CmpInvalidateAllHigherLayerKcbs @ 0x1407E1740
  * Callers:
- *     CmpSaveBootControlSet @ 0x1407CC764 (CmpSaveBootControlSet.c)
- *     CmRestoreKey @ 0x1407CCF24 (CmRestoreKey.c)
- *     CmRenameKey @ 0x1407D9068 (CmRenameKey.c)
- *     CmpTransMgrFreeVolatileData @ 0x14087B284 (CmpTransMgrFreeVolatileData.c)
+ *     CmpSaveBootControlSet @ 0x1407CCC54 (CmpSaveBootControlSet.c)
+ *     CmRestoreKey @ 0x1407CD414 (CmRestoreKey.c)
+ *     CmRenameKey @ 0x1407D95B8 (CmRenameKey.c)
+ *     CmpTransMgrFreeVolatileData @ 0x14087F134 (CmpTransMgrFreeVolatileData.c)
  * Callees:
- *     CmpEnumerateAllHigherLayerKcbs @ 0x140A1FE28 (CmpEnumerateAllHigherLayerKcbs.c)
+ *     CmpEnumerateAllHigherLayerKcbs @ 0x140A14F28 (CmpEnumerateAllHigherLayerKcbs.c)
  */
 
 __int64 __fastcall CmpInvalidateAllHigherLayerKcbs(int a1, int a2, int a3, int a4)

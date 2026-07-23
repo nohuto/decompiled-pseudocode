@@ -1,15 +1,15 @@
 /*
- * XREFs of DrvDbDestroyDatabaseNode @ 0x140A6D950
+ * XREFs of DrvDbDestroyDatabaseNode @ 0x140A6DC00
  * Callers:
- *     DrvDbOpenContext @ 0x140812A40 (DrvDbOpenContext.c)
- *     DrvDbCreateDatabaseNode @ 0x1408132C0 (DrvDbCreateDatabaseNode.c)
- *     DrvDbOpenDriverDatabaseRegKey @ 0x14086624C (DrvDbOpenDriverDatabaseRegKey.c)
- *     DrvDbDispatchDriverDatabase @ 0x140876140 (DrvDbDispatchDriverDatabase.c)
- *     DrvDbUnregisterDatabase @ 0x140A6D8F4 (DrvDbUnregisterDatabase.c)
+ *     DrvDbOpenContext @ 0x140812D10 (DrvDbOpenContext.c)
+ *     DrvDbCreateDatabaseNode @ 0x140813590 (DrvDbCreateDatabaseNode.c)
+ *     DrvDbOpenDriverDatabaseRegKey @ 0x14086648C (DrvDbOpenDriverDatabaseRegKey.c)
+ *     DrvDbDispatchDriverDatabase @ 0x140876380 (DrvDbDispatchDriverDatabase.c)
+ *     DrvDbUnregisterDatabase @ 0x140A6DBA4 (DrvDbUnregisterDatabase.c)
  * Callees:
- *     ExDeleteResourceLite @ 0x1402A8DC0 (ExDeleteResourceLite.c)
- *     RtlFreeUnicodeString @ 0x14076F3D0 (RtlFreeUnicodeString.c)
- *     DrvDbUnloadDatabaseNode @ 0x1408773D8 (DrvDbUnloadDatabaseNode.c)
+ *     ExDeleteResourceLite @ 0x1402A9050 (ExDeleteResourceLite.c)
+ *     RtlFreeUnicodeString @ 0x14076F5C0 (RtlFreeUnicodeString.c)
+ *     DrvDbUnloadDatabaseNode @ 0x140877618 (DrvDbUnloadDatabaseNode.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

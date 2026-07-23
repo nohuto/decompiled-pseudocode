@@ -1,11 +1,11 @@
 /*
- * XREFs of KeQueryUserAffinityThread @ 0x14032974C
+ * XREFs of KeQueryUserAffinityThread @ 0x1403299DC
  * Callers:
- *     NtQueryInformationThread @ 0x14079F6D0 (NtQueryInformationThread.c)
+ *     NtQueryInformationThread @ 0x14079F8C0 (NtQueryInformationThread.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     KiCopyAffinityEx @ 0x1402545C0 (KiCopyAffinityEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     KiCopyAffinityEx @ 0x140254680 (KiCopyAffinityEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall KeQueryUserAffinityThread(__int64 a1, __int64 a2)
@@ -23,7 +23,7 @@ __int64 __fastcall KeQueryUserAffinityThread(__int64 a1, __int64 a2)
 
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     LODWORD(v7) = 4;
@@ -40,10 +40,10 @@ __int64 __fastcall KeQueryUserAffinityThread(__int64 a1, __int64 a2)
   }
   KiCopyAffinityEx(a2, *(_WORD *)(a2 + 2), *(unsigned __int16 **)(a1 + 552));
   *(_QWORD *)(a1 + 64) = 0LL;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v8 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v8 <= 0xFu && CurrentIrql <= 0xFu && v8 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v8 <= 0xFu && CurrentIrql <= 0xFu && v8 >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v10 = CurrentPrcb->SchedulerAssist;

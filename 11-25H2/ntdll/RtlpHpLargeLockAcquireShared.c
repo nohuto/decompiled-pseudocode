@@ -6,8 +6,8 @@
  *     RtlAcquireSRWLockShared @ 0x18004F0C0 (RtlAcquireSRWLockShared.c)
  */
 
-char __fastcall RtlpHpLargeLockAcquireShared(__int64 a1)
+char __fastcall RtlpHpLargeLockAcquireShared(_RTL_SRWLOCK *a1)
 {
-  RtlAcquireSRWLockShared((volatile signed __int64 *)(a1 + 64));
+  RtlAcquireSRWLockShared(a1 + 8);
   return -1;
 }

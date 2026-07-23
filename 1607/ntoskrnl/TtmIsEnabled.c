@@ -1,7 +1,7 @@
 /*
- * XREFs of TtmIsEnabled @ 0x1403F3924
+ * XREFs of TtmIsEnabled @ 0x1403F27E8
  * Callers:
- *     PopGetConsoleDisplayRequestCount @ 0x140008CFC (PopGetConsoleDisplayRequestCount.c)
+ *     PopGetConsoleDisplayRequestCount @ 0x140008870 (PopGetConsoleDisplayRequestCount.c)
  * Callees:
  *     <none>
  */

@@ -37,7 +37,7 @@
 void __fastcall SepRmCommandServerThread(PVOID StartContext)
 {
   NTSTATUS v1; // ebx
-  struct _PORT_MESSAGE *v2; // rdi
+  _PORT_MESSAGE *v2; // rdi
   NTSTATUS v3; // eax
   _QWORD *v4; // rbx
   __int16 v5; // ax
@@ -53,7 +53,7 @@ void __fastcall SepRmCommandServerThread(PVOID StartContext)
   struct _KEVENT Object; // [rsp+48h] [rbp-C0h] BYREF
   struct _KEVENT v16; // [rsp+60h] [rbp-A8h] BYREF
   struct _KEVENT Event; // [rsp+78h] [rbp-90h] BYREF
-  struct _PORT_MESSAGE ReceiveMessage; // [rsp+98h] [rbp-70h] BYREF
+  _PORT_MESSAGE ReceiveMessage; // [rsp+98h] [rbp-70h] BYREF
   int v19; // [rsp+C0h] [rbp-48h]
   __int64 v20; // [rsp+298h] [rbp+190h] BYREF
   $899616CA535F31E7B2C291907A0FBA2E v21; // [rsp+2A0h] [rbp+198h]
@@ -98,7 +98,7 @@ void __fastcall SepRmCommandServerThread(PVOID StartContext)
             v6 = PsAttachSiloToCurrentThread(v4);
             ((void (__fastcall *)(__int64, __int64))SepRmCommandDispatch[v19])((__int64)&ReceiveMessage, (__int64)&v20);
             PsDetachSiloFromCurrentThread(v6);
-            v2 = (struct _PORT_MESSAGE *)&v20;
+            v2 = (_PORT_MESSAGE *)&v20;
             MessageId = ReceiveMessage.MessageId;
             v21 = ReceiveMessage.8;
           }

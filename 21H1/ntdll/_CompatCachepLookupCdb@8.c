@@ -16,23 +16,28 @@ int __fastcall CompatCachepLookupCdb(wchar_t *Str, int a2)
 {
   int v2; // esi
   wchar_t *v5; // eax
-  wchar_t *v6; // eax
-  _DWORD v8[49]; // [esp+Ch] [ebp-C8h] BYREF
-  int v9; // [esp+D0h] [ebp-4h] BYREF
+  const WCHAR *v6; // eax
+  size_t v8; // [esp-4h] [ebp-D8h]
+  _BYTE v9[124]; // [esp+Ch] [ebp-C8h] BYREF
+  _UNICODE_STRING DestinationString; // [esp+88h] [ebp-4Ch] BYREF
+  int *v11; // [esp+C8h] [ebp-Ch]
+  int v12; // [esp+CCh] [ebp-8h]
+  int v13; // [esp+D0h] [ebp-4h] BYREF
 
+  LODWORD(v8) = 196;
   v2 = 0;
-  memset(v8, 0, sizeof(v8));
-  v9 = 0;
+  memset(v9, 0, v8);
+  v13 = 0;
   v5 = wcsrchr(Str, 0x5Cu);
   if ( v5 )
-    v6 = v5 + 1;
+    v6 = (const WCHAR *)(v5 + 1);
   else
-    v6 = Str;
-  if ( (int)RtlInitUnicodeStringEx(&v8[31], v6) < 0 )
+    v6 = (const WCHAR *)Str;
+  if ( RtlInitUnicodeStringEx(&DestinationString, v6) < 0 )
     return 0;
-  v8[48] = 4;
-  v8[47] = &v9;
-  if ( (int)NtApphelpCacheControl(6, v8) >= 0 && (a2 & v9) != 0 )
+  v12 = 4;
+  v11 = &v13;
+  if ( (int)NtApphelpCacheControl(6, v9) >= 0 && (a2 & v13) != 0 )
     return 1;
   return v2;
 }

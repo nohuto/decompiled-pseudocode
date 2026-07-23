@@ -1,5 +1,5 @@
 /*
- * XREFs of VerifierKeEnterGuardedRegion @ 0x14070C9DC
+ * XREFs of VerifierKeEnterGuardedRegion @ 0x14070CA0C
  * Callers:
  *     <none>
  * Callees:

@@ -1,20 +1,20 @@
 /*
- * XREFs of MiFindDriverNonPagedSections @ 0x14065569C
+ * XREFs of MiFindDriverNonPagedSections @ 0x14065685C
  * Callers:
- *     MiHandleDriverNonPagedSections @ 0x14065578C (MiHandleDriverNonPagedSections.c)
+ *     MiHandleDriverNonPagedSections @ 0x14065694C (MiHandleDriverNonPagedSections.c)
  * Callees:
  *     RtlFindNextForwardRunClear @ 0x140028C00 (RtlFindNextForwardRunClear.c)
- *     MiGetPteAddress @ 0x140065DE8 (MiGetPteAddress.c)
- *     RtlFindSetBits @ 0x14008BE50 (RtlFindSetBits.c)
- *     MiUnlockLoaderEntry @ 0x1400DBB2C (MiUnlockLoaderEntry.c)
- *     MiLockLoaderEntry @ 0x1400DBD64 (MiLockLoaderEntry.c)
+ *     MiGetPteAddress @ 0x140065DD8 (MiGetPteAddress.c)
+ *     RtlFindSetBits @ 0x14008BE40 (RtlFindSetBits.c)
+ *     MiUnlockLoaderEntry @ 0x1400DBBAC (MiUnlockLoaderEntry.c)
+ *     MiLockLoaderEntry @ 0x1400DBDE4 (MiLockLoaderEntry.c)
  */
 
 __int64 __fastcall MiFindDriverNonPagedSections(__int64 a1, ULONG *a2, __int64 *a3, _QWORD *a4)
 {
   __int64 v4; // r13
   __int64 v5; // rsi
-  struct _RTL_BITMAP *v9; // rdi
+  _RTL_BITMAP *v9; // rdi
   ULONG v10; // ebp
   ULONG SetBits; // eax
   ULONG v12; // ebx
@@ -27,7 +27,7 @@ __int64 __fastcall MiFindDriverNonPagedSections(__int64 a1, ULONG *a2, __int64 *
   v4 = *(_QWORD *)(a1 + 48);
   v5 = a1 + 160;
   MiLockLoaderEntry(a1 + 160, 2uLL);
-  v9 = *(struct _RTL_BITMAP **)(v5 + 112);
+  v9 = *(_RTL_BITMAP **)(v5 + 112);
   v10 = *a2;
   if ( *a2 == v9->SizeOfBitMap
     || (SetBits = RtlFindSetBits(*(PRTL_BITMAP *)(v5 + 112), 1u, v10), v12 = SetBits, SetBits < v10)

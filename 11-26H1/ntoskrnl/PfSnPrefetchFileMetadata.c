@@ -1,12 +1,12 @@
 /*
- * XREFs of PfSnPrefetchFileMetadata @ 0x1409B8960
+ * XREFs of PfSnPrefetchFileMetadata @ 0x140989940
  * Callers:
- *     PfSnPrefetchMetadata @ 0x140A501C8 (PfSnPrefetchMetadata.c)
+ *     PfSnPrefetchMetadata @ 0x140A594B8 (PfSnPrefetchMetadata.c)
  * Callees:
- *     memmove @ 0x14073D480 (memmove.c)
- *     IopXxxControlFile @ 0x1408F5EA0 (IopXxxControlFile.c)
- *     NtWaitForSingleObject @ 0x1408FA270 (NtWaitForSingleObject.c)
- *     NtResetEvent @ 0x1409B8AC0 (NtResetEvent.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     IopXxxControlFile @ 0x140925E30 (IopXxxControlFile.c)
+ *     NtWaitForSingleObject @ 0x14092A200 (NtWaitForSingleObject.c)
+ *     NtResetEvent @ 0x140989AA0 (NtResetEvent.c)
  */
 
 __int64 __fastcall PfSnPrefetchFileMetadata(
@@ -15,7 +15,7 @@ __int64 __fastcall PfSnPrefetchFileMetadata(
         __int64 a3,
         unsigned int a4,
         unsigned int a5,
-        HANDLE a6)
+        HANDLE EventHandle)
 {
   unsigned int v6; // r10d
   unsigned int v10; // ebx
@@ -53,12 +53,12 @@ __int64 __fastcall PfSnPrefetchFileMetadata(
           *(_DWORD *)(v13 + 4) = v15;
           memmove((void *)(v13 + 16), (const void *)(a3 + 8 * (v14 + a4 + 2LL)), (unsigned int)(8 * v15));
           v16 = 8 * *(_DWORD *)(v13 + 4) + 16;
-          NtResetEvent(a6);
+          NtResetEvent(EventHandle, 0LL);
           LODWORD(Size) = v16;
-          v6 = IopXxxControlFile(a2, a6, 0LL, 0LL, &v18, 0x90120u, (unsigned int *)v13, Size, 0LL, 0, 0);
+          v6 = IopXxxControlFile(a2, EventHandle, 0LL, 0LL, &v18, 0x90120u, (unsigned int *)v13, Size, 0LL, 0, 0);
           if ( v6 == 259 )
           {
-            NtWaitForSingleObject((int)a6, 0, 0LL);
+            NtWaitForSingleObject(EventHandle, 0, 0LL);
             v6 = v18;
           }
           if ( (v6 & 0xC0000000) == 0xC0000000 )
@@ -70,12 +70,12 @@ __int64 __fastcall PfSnPrefetchFileMetadata(
       {
         *(_QWORD *)(a3 + 8) = v11;
         *(_DWORD *)(a3 + 4) = a5;
-        NtResetEvent(a6);
+        NtResetEvent(EventHandle, 0LL);
         LODWORD(Size) = 8 * a5 + 16;
-        v6 = IopXxxControlFile(a2, a6, 0LL, 0LL, &v18, 0x90120u, (unsigned int *)a3, Size, 0LL, 0, 0);
+        v6 = IopXxxControlFile(a2, EventHandle, 0LL, 0LL, &v18, 0x90120u, (unsigned int *)a3, Size, 0LL, 0, 0);
         if ( v6 == 259 )
         {
-          NtWaitForSingleObject((int)a6, 0, 0LL);
+          NtWaitForSingleObject(EventHandle, 0, 0LL);
           v6 = v18;
         }
         *(_DWORD *)(a3 + 4) = v10;

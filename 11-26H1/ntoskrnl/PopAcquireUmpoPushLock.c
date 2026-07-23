@@ -1,13 +1,13 @@
 /*
- * XREFs of PopAcquireUmpoPushLock @ 0x140AE47FC
+ * XREFs of PopAcquireUmpoPushLock @ 0x140AE230C
  * Callers:
- *     PopUmpoSendPowerMessage @ 0x140437684 (PopUmpoSendPowerMessage.c)
- *     PopUmpoProcessMessage @ 0x140AAA1C8 (PopUmpoProcessMessage.c)
+ *     PopUmpoSendPowerMessage @ 0x140426614 (PopUmpoSendPowerMessage.c)
+ *     PopUmpoProcessMessage @ 0x140AA77A8 (PopUmpoProcessMessage.c)
  * Callees:
- *     ExfAcquirePushLockSharedEx @ 0x140277CC0 (ExfAcquirePushLockSharedEx.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     ExfAcquirePushLockSharedEx @ 0x140277230 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
  */
 
 void __fastcall PopAcquireUmpoPushLock(char a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
@@ -21,23 +21,23 @@ void __fastcall PopAcquireUmpoPushLock(char a1, __int64 a2, __int64 a3, struct _
   --CurrentThread->KernelApcDisable;
   if ( a1 )
   {
-    v7 = (AutoBoost *)KeAbPreAcquire((__int64)&PopModernStandbyStateNotify.WriteTransferCount, 0LL, 0LL, a4);
+    v7 = (AutoBoost *)KeAbPreAcquire((__int64)&PopPdcDeviceListLock.116 + 4, 0LL, 0LL, a4);
     v6 = v7;
-    if ( _interlockedbittestandset64((volatile signed __int32 *)&PopModernStandbyStateNotify.WriteTransferCount, 0LL) )
+    if ( _interlockedbittestandset64((_DWORD *)&PopPdcDeviceListLock.0 + 1, 0LL) )
       ExfAcquirePushLockExclusiveEx(
-        (unsigned __int64 *)&PopModernStandbyStateNotify.WriteTransferCount,
+        (unsigned __int64 *)((char *)&PopPdcDeviceListLock.116 + 4),
         v7,
-        (__int64)&PopModernStandbyStateNotify.WriteTransferCount);
+        (__int64)&PopPdcDeviceListLock.116 + 4);
   }
   else
   {
-    v6 = (LegacyAutoBoost *)KeAbPreAcquire((__int64)&PopModernStandbyStateNotify.WriteTransferCount, 0LL, 0LL, a4);
-    if ( _InterlockedCompareExchange64(&PopModernStandbyStateNotify.WriteTransferCount, 17LL, 0LL) )
+    v6 = (LegacyAutoBoost *)KeAbPreAcquire((__int64)&PopPdcDeviceListLock.116 + 4, 0LL, 0LL, a4);
+    if ( _InterlockedCompareExchange64((volatile signed __int64 *)((char *)&PopPdcDeviceListLock.116 + 4), 17LL, 0LL) )
       ExfAcquirePushLockSharedEx(
-        &PopModernStandbyStateNotify.WriteTransferCount,
+        (signed __int64 *)((char *)&PopPdcDeviceListLock.116 + 4),
         0,
         v6,
-        (struct _KTHREAD *)&PopModernStandbyStateNotify.WriteTransferCount);
+        (struct _KTHREAD *)((char *)&PopPdcDeviceListLock.116 + 4));
   }
   if ( v6 )
   {

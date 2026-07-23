@@ -1,9 +1,9 @@
 /*
- * XREFs of IoFreeWorkItem @ 0x14031D5B0
+ * XREFs of IoFreeWorkItem @ 0x14031D840
  * Callers:
- *     PnpDeviceCompletionRequestDestroyWorkItem @ 0x14031D560 (PnpDeviceCompletionRequestDestroyWorkItem.c)
+ *     PnpDeviceCompletionRequestDestroyWorkItem @ 0x14031D7F0 (PnpDeviceCompletionRequestDestroyWorkItem.c)
  * Callees:
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

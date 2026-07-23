@@ -42,7 +42,7 @@ __int64 __fastcall SmcStoreResize(__int64 a1, _DWORD *a2)
   _DWORD *v21; // rdx
   struct _PRIVILEGE_SET *v22; // r8
   ULONG v23; // eax
-  RTL_BITMAP BitMapHeader; // [rsp+30h] [rbp-38h] BYREF
+  _RTL_BITMAP BitMapHeader; // [rsp+30h] [rbp-38h] BYREF
   __int128 v26; // [rsp+40h] [rbp-28h] BYREF
   __int64 v27; // [rsp+50h] [rbp-18h]
   int v29; // [rsp+B8h] [rbp+50h]

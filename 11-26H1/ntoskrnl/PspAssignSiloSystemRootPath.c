@@ -1,12 +1,12 @@
 /*
- * XREFs of PspAssignSiloSystemRootPath @ 0x1407EE930
+ * XREFs of PspAssignSiloSystemRootPath @ 0x1407F4490
  * Callers:
- *     NtSetInformationJobObject @ 0x1407F4C70 (NtSetInformationJobObject.c)
+ *     NtSetInformationJobObject @ 0x1407FA7D0 (NtSetInformationJobObject.c)
  * Callees:
- *     HalPutDmaAdapter @ 0x140269C10 (HalPutDmaAdapter.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     PsCreateSiloContext @ 0x140A30D20 (PsCreateSiloContext.c)
- *     PsInsertSiloContext @ 0x140A31020 (PsInsertSiloContext.c)
+ *     HalPutDmaAdapter @ 0x140269180 (HalPutDmaAdapter.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     PsCreateSiloContext @ 0x140A4BC80 (PsCreateSiloContext.c)
+ *     PsInsertSiloContext @ 0x140A4BF80 (PsInsertSiloContext.c)
  */
 
 __int64 __fastcall PspAssignSiloSystemRootPath(__int64 a1, unsigned __int16 *a2)

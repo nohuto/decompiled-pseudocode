@@ -1,11 +1,11 @@
 /*
- * XREFs of VmUpdateCommitMemoryRange @ 0x14079F090
+ * XREFs of VmUpdateCommitMemoryRange @ 0x14079F1A0
  * Callers:
  *     <none>
  * Callees:
- *     FsRtlAcquirePushLockExclusive @ 0x1403C5B9C (FsRtlAcquirePushLockExclusive.c)
- *     VmpReleasePushLockExclusive @ 0x1404860F0 (VmpReleasePushLockExclusive.c)
- *     VmpUpdateCommitStateMemoryRange @ 0x14064B5C0 (VmpUpdateCommitStateMemoryRange.c)
+ *     FsRtlAcquirePushLockExclusive @ 0x1403B475C (FsRtlAcquirePushLockExclusive.c)
+ *     VmpReleasePushLockExclusive @ 0x1404816E0 (VmpReleasePushLockExclusive.c)
+ *     VmpUpdateCommitStateMemoryRange @ 0x140649B80 (VmpUpdateCommitStateMemoryRange.c)
  */
 
 __int64 __fastcall VmUpdateCommitMemoryRange(__int128 *a1, ULONG a2, struct _LIST_ENTRY *a3)

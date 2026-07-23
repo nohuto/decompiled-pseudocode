@@ -1,5 +1,5 @@
 /*
- * XREFs of FsRtlAreVolumeStartupApplicationsComplete @ 0x140A67000
+ * XREFs of FsRtlAreVolumeStartupApplicationsComplete @ 0x140A5FDE0
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 BOOLEAN FsRtlAreVolumeStartupApplicationsComplete(void)
 {
-  return FsRtlpVolumeStartupApplicationsComplete;
+  return BYTE2(NlsMbCodePageTag);
 }

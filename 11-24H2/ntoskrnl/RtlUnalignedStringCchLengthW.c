@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlUnalignedStringCchLengthW @ 0x140409EA0
+ * XREFs of RtlUnalignedStringCchLengthW @ 0x140402380
  * Callers:
- *     DrvDbValidateDeviceIdName @ 0x140823524 (DrvDbValidateDeviceIdName.c)
- *     _CmSetDeviceMappedPropertyFromDriverKeyRegValue @ 0x140995494 (_CmSetDeviceMappedPropertyFromDriverKeyRegValue.c)
+ *     DrvDbValidateDeviceIdName @ 0x140823C64 (DrvDbValidateDeviceIdName.c)
+ *     _CmSetDeviceMappedPropertyFromDriverKeyRegValue @ 0x1409804D4 (_CmSetDeviceMappedPropertyFromDriverKeyRegValue.c)
  * Callees:
  *     <none>
  */

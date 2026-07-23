@@ -1,19 +1,19 @@
 /*
- * XREFs of ExpWnfAllocateNextPersistentNameSequence @ 0x1408DB2A0
+ * XREFs of ExpWnfAllocateNextPersistentNameSequence @ 0x1408DC560
  * Callers:
- *     ExpWnfGenerateStateName @ 0x14060E3A8 (ExpWnfGenerateStateName.c)
+ *     ExpWnfGenerateStateName @ 0x14060F3A8 (ExpWnfGenerateStateName.c)
  * Callees:
  *     ExfAcquirePushLockExclusiveEx @ 0x140005760 (ExfAcquirePushLockExclusiveEx.c)
  *     PsDetachSiloFromCurrentThread @ 0x14000FBB0 (PsDetachSiloFromCurrentThread.c)
  *     PsAttachSiloToCurrentThread @ 0x14000FBD0 (PsAttachSiloToCurrentThread.c)
  *     KeAbPreAcquire @ 0x14004E270 (KeAbPreAcquire.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     PsGetCurrentServerSiloGlobals @ 0x140109D40 (PsGetCurrentServerSiloGlobals.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ZwQueryValueKey @ 0x1401B8470 (ZwQueryValueKey.c)
- *     ZwSetValueKey @ 0x1401B8D90 (ZwSetValueKey.c)
- *     ExpWnfGetNameStoreRegistryRoot @ 0x1405AAB0C (ExpWnfGetNameStoreRegistryRoot.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140109DC0 (PsGetCurrentServerSiloGlobals.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ZwQueryValueKey @ 0x1401B85D0 (ZwQueryValueKey.c)
+ *     ZwSetValueKey @ 0x1401B8EF0 (ZwSetValueKey.c)
+ *     ExpWnfGetNameStoreRegistryRoot @ 0x1405ABB0C (ExpWnfGetNameStoreRegistryRoot.c)
  */
 
 __int64 __fastcall ExpWnfAllocateNextPersistentNameSequence(struct _LIST_ENTRY *a1, unsigned __int64 *a2)
@@ -23,12 +23,12 @@ __int64 __fastcall ExpWnfAllocateNextPersistentNameSequence(struct _LIST_ENTRY *
   struct _LIST_ENTRY *v5; // r12
   _QWORD *CurrentServerSiloGlobals; // rax
   char *v7; // rbx
-  __int64 v8; // rax
-  __int64 v9; // rsi
+  _RTL_BALANCED_NODE *v8; // rax
+  _RTL_BALANCED_NODE *v9; // rsi
   NTSTATUS v10; // eax
   unsigned __int64 v11; // rsi
-  __int64 v12; // rax
-  __int64 v13; // r14
+  _RTL_BALANCED_NODE *v12; // rax
+  _RTL_BALANCED_NODE *v13; // r14
   unsigned __int64 v14; // r8
   unsigned __int64 Data; // [rsp+30h] [rbp-40h] BYREF
   HANDLE KeyHandle; // [rsp+38h] [rbp-38h] BYREF
@@ -54,7 +54,7 @@ __int64 __fastcall ExpWnfAllocateNextPersistentNameSequence(struct _LIST_ENTRY *
   if ( _interlockedbittestandset64((volatile signed __int32 *)v7 + 8, 0LL) )
     ExfAcquirePushLockExclusiveEx((unsigned __int64 *)v7 + 4, v8, (ULONG_PTR)(v7 + 32));
   if ( v9 )
-    *(_BYTE *)(v9 + 26) |= 1u;
+    BYTE2(v9[1].Left) |= 1u;
   v2 = 1;
   if ( *((_QWORD *)v7 + 5) )
     goto LABEL_13;
@@ -90,7 +90,7 @@ LABEL_13:
         if ( _interlockedbittestandset64((volatile signed __int32 *)v7 + 8, 0LL) )
           ExfAcquirePushLockExclusiveEx((unsigned __int64 *)v7 + 4, v12, (ULONG_PTR)(v7 + 32));
         if ( v13 )
-          *(_BYTE *)(v13 + 26) |= 1u;
+          BYTE2(v13[1].Left) |= 1u;
         v2 = 1;
       }
       if ( v11 <= *((_QWORD *)v7 + 5) )

@@ -1,16 +1,16 @@
 /*
- * XREFs of MiFreeUnusedPfnPagesDpc @ 0x1403B9650
+ * XREFs of MiFreeUnusedPfnPagesDpc @ 0x1403B97C0
  * Callers:
  *     <none>
  * Callees:
- *     MiGetSharedVm @ 0x14021AF50 (MiGetSharedVm.c)
- *     MiUnlockWorkingSetExclusive @ 0x14021CAE0 (MiUnlockWorkingSetExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
- *     ExQueueWorkItem @ 0x14023E750 (ExQueueWorkItem.c)
- *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
- *     MiGetAnyMultiplexedVm @ 0x1402FD0FC (MiGetAnyMultiplexedVm.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiFreedUnusedPfnPagesWorker @ 0x1403B9758 (MiFreedUnusedPfnPagesWorker.c)
+ *     MiGetSharedVm @ 0x1402BF850 (MiGetSharedVm.c)
+ *     MiUnlockWorkingSetExclusive @ 0x1402C13E0 (MiUnlockWorkingSetExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x1402C1960 (ExAcquireSpinLockExclusive.c)
+ *     ExQueueWorkItem @ 0x1402E2FA0 (ExQueueWorkItem.c)
+ *     KeYieldProcessorEx @ 0x1402EFAD0 (KeYieldProcessorEx.c)
+ *     MiGetAnyMultiplexedVm @ 0x140307E4C (MiGetAnyMultiplexedVm.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140346AD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiFreedUnusedPfnPagesWorker @ 0x1403B98C8 (MiFreedUnusedPfnPagesWorker.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
@@ -49,8 +49,8 @@ __int64 __fastcall MiFreeUnusedPfnPagesDpc(__int64 a1, __int64 a2, volatile sign
     v12 = ExAcquireSpinLockExclusive(SharedVm);
     SharedVm[1] = 0;
     v13 = v12;
-    ExAcquireSpinLockExclusive(&dword_140C50E48);
-    if ( qword_140C50DA8 )
+    ExAcquireSpinLockExclusive(&dword_140C50E88);
+    if ( qword_140C50DE8 )
     {
       if ( *(_QWORD *)a2 )
       {
@@ -60,16 +60,16 @@ __int64 __fastcall MiFreeUnusedPfnPagesDpc(__int64 a1, __int64 a2, volatile sign
         *(_QWORD *)(v15 + 16) = v15 + 16;
         *(_WORD *)(v15 + 8) = 263;
         *(_BYTE *)(v15 + 10) = 6;
-        *(_QWORD *)v15 = qword_140C50DD8;
-        qword_140C50DD8 = v15;
+        *(_QWORD *)v15 = qword_140C50E18;
+        qword_140C50E18 = v15;
       }
       else
       {
-        stru_140C50DB0.List.Flink = 0LL;
-        stru_140C50DB0.WorkerRoutine = (void (__fastcall *)(void *))MiFreeUnusedPfnPages;
-        stru_140C50DB0.Parameter = &MiSystemPartition;
-        ExQueueWorkItem(&stru_140C50DB0, DelayedWorkQueue);
-        byte_140C50E4C = 1;
+        stru_140C50DF0.List.Flink = 0LL;
+        stru_140C50DF0.WorkerRoutine = (void (__fastcall *)(void *))MiFreeUnusedPfnPages;
+        stru_140C50DF0.Parameter = &MiSystemPartition;
+        ExQueueWorkItem(&stru_140C50DF0, DelayedWorkQueue);
+        byte_140C50E8C = 1;
       }
       v14 = 259;
     }
@@ -79,7 +79,7 @@ __int64 __fastcall MiFreeUnusedPfnPagesDpc(__int64 a1, __int64 a2, volatile sign
       v14 = 0;
     }
     *(_DWORD *)(a2 + 16) = v14;
-    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C50E48);
+    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C50E88);
     if ( KiIrqlFlags )
     {
       if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)(KeGetCurrentIrql() - 2) <= 0xDu )

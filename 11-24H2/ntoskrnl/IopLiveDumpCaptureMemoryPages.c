@@ -1,18 +1,18 @@
 /*
- * XREFs of IopLiveDumpCaptureMemoryPages @ 0x140599FDC
+ * XREFs of IopLiveDumpCaptureMemoryPages @ 0x140596F60
  * Callers:
- *     IoCaptureLiveDump @ 0x1404E6068 (IoCaptureLiveDump.c)
+ *     IoCaptureLiveDump @ 0x1404DC764 (IoCaptureLiveDump.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     IopLiveDumpGetMillisecondCounter @ 0x14049B5E4 (IopLiveDumpGetMillisecondCounter.c)
- *     VslFinalizeLiveDumpInSk @ 0x14058CE7C (VslFinalizeLiveDumpInSk.c)
- *     IopLiveDumpCapture @ 0x140599EC4 (IopLiveDumpCapture.c)
- *     IopLiveDumpTraceCaptureMemoryPages @ 0x14059D578 (IopLiveDumpTraceCaptureMemoryPages.c)
- *     IopLiveDumpTraceMmDuplicateMemoryFailure @ 0x14059DFFC (IopLiveDumpTraceMmDuplicateMemoryFailure.c)
- *     IopLiveDumpUncorralProcessors @ 0x14059E420 (IopLiveDumpUncorralProcessors.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     IopLiveDumpGetMillisecondCounter @ 0x140495FD4 (IopLiveDumpGetMillisecondCounter.c)
+ *     VslFinalizeLiveDumpInSk @ 0x14058A16C (VslFinalizeLiveDumpInSk.c)
+ *     IopLiveDumpCapture @ 0x140596E48 (IopLiveDumpCapture.c)
+ *     IopLiveDumpTraceCaptureMemoryPages @ 0x14059A4F8 (IopLiveDumpTraceCaptureMemoryPages.c)
+ *     IopLiveDumpTraceMmDuplicateMemoryFailure @ 0x14059AF7C (IopLiveDumpTraceMmDuplicateMemoryFailure.c)
+ *     IopLiveDumpUncorralProcessors @ 0x14059B3A0 (IopLiveDumpUncorralProcessors.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall IopLiveDumpCaptureMemoryPages(__int64 a1)
@@ -71,7 +71,7 @@ __int64 __fastcall IopLiveDumpCaptureMemoryPages(__int64 a1)
   {
     if ( VslVsmEnabled && (*(_QWORD *)(a1 + 696) || *(_QWORD *)(a1 + 704)) )
       VslFinalizeLiveDumpInSk((_QWORD *)(a1 + 192), (_QWORD *)(a1 + 200), a1 + 144);
-    if ( HvlpOfflineDumpFeatureEnabled && qword_140F8DFE0 && *(_QWORD *)&HvlpLocalCrashdumpArea )
+    if ( HvlpOfflineDumpFeatureEnabled && qword_140F8E1C0 && *(_QWORD *)&HvlpLocalCrashdumpArea )
       memset_0(*(void **)&HvlpLocalCrashdumpArea, 0, (unsigned int)HvlpCrashDumpAreaSize);
     *(_QWORD *)(a1 + 480) = IopLiveDumpGetMillisecondCounter(0) - v3;
     IopLiveDumpTraceCaptureMemoryPages(a1);
@@ -105,7 +105,7 @@ __int64 __fastcall IopLiveDumpCaptureMemoryPages(__int64 a1)
     v32 = 8LL;
     tlgWriteTransfer_EtwWriteTransfer(
       (__int64)&dword_140E06E80,
-      (unsigned __int8 *)word_140045EF2,
+      (unsigned __int8 *)&dword_140045F34,
       (const GUID *)(a1 + 968),
       (const GUID *)(a1 + 952),
       0xAu,

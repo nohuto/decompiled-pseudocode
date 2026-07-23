@@ -1,15 +1,15 @@
 /*
- * XREFs of MiRebalanceZeroFreeLists @ 0x140551200
+ * XREFs of MiRebalanceZeroFreeLists @ 0x140551440
  * Callers:
  *     <none>
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     PsDereferencePartition @ 0x1402ABFDC (PsDereferencePartition.c)
- *     MiNodeFreeZeroPages @ 0x140318CA4 (MiNodeFreeZeroPages.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     PsDereferencePartition @ 0x140274588 (PsDereferencePartition.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402D3660 (KeAcquireInStackQueuedSpinLock.c)
+ *     MiNodeFreeZeroPages @ 0x1403239F4 (MiNodeFreeZeroPages.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     MiGetNodeStandbyPageCount @ 0x140550758 (MiGetNodeStandbyPageCount.c)
- *     MiPruneStandbyPages @ 0x140550DD4 (MiPruneStandbyPages.c)
+ *     MiGetNodeStandbyPageCount @ 0x140550998 (MiGetNodeStandbyPageCount.c)
+ *     MiPruneStandbyPages @ 0x140551014 (MiPruneStandbyPages.c)
  */
 
 void __fastcall MiRebalanceZeroFreeLists(_QWORD *a1)
@@ -41,7 +41,7 @@ void __fastcall MiRebalanceZeroFreeLists(_QWORD *a1)
     }
   }
   v6 = a1[22];
-  KeAcquireInStackQueuedSpinLock(&qword_140C4E600, &LockHandle);
+  KeAcquireInStackQueuedSpinLock(&qword_140C4E640, &LockHandle);
   a1[790] = 0LL;
   KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
   OldIrql = LockHandle.OldIrql;

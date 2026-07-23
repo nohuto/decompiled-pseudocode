@@ -1,9 +1,9 @@
 /*
- * XREFs of FsRtlFindInTunnelCache @ 0x14088B730
+ * XREFs of FsRtlFindInTunnelCache @ 0x14088B890
  * Callers:
  *     <none>
  * Callees:
- *     FsRtlFindInTunnelCacheEx @ 0x1406889F0 (FsRtlFindInTunnelCacheEx.c)
+ *     FsRtlFindInTunnelCacheEx @ 0x1405E7E80 (FsRtlFindInTunnelCacheEx.c)
  */
 
 BOOLEAN __stdcall FsRtlFindInTunnelCache(

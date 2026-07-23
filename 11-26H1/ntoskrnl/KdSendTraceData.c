@@ -1,14 +1,14 @@
 /*
- * XREFs of KdSendTraceData @ 0x140C13D0C
+ * XREFs of KdSendTraceData @ 0x140C19D0C
  * Callers:
- *     EtwpSendTraceEvent @ 0x1404A92C8 (EtwpSendTraceEvent.c)
- *     EtwpSendBufferToDebugger @ 0x14082C62C (EtwpSendBufferToDebugger.c)
+ *     EtwpSendTraceEvent @ 0x1404A2958 (EtwpSendTraceEvent.c)
+ *     EtwpSendBufferToDebugger @ 0x14083286C (EtwpSendBufferToDebugger.c)
  * Callees:
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     KdExitDebugger @ 0x140C12008 (KdExitDebugger.c)
- *     KdEnterDebugger @ 0x140C17858 (KdEnterDebugger.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     KdExitDebugger @ 0x140C18008 (KdExitDebugger.c)
+ *     KdEnterDebugger @ 0x140C1D858 (KdEnterDebugger.c)
  */
 
 __int64 __fastcall KdSendTraceData(__int64 a1, unsigned int a2)

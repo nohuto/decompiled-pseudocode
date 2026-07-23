@@ -1,21 +1,21 @@
 /*
- * XREFs of MiIssueAsynchronousFlush @ 0x1403724FC
+ * XREFs of MiIssueAsynchronousFlush @ 0x14025ADBC
  * Callers:
- *     MiFlushSection @ 0x14023A550 (MiFlushSection.c)
+ *     MiFlushSection @ 0x140272630 (MiFlushSection.c)
  * Callees:
- *     IopQueueThreadIrp @ 0x140253C60 (IopQueueThreadIrp.c)
- *     IopAllocateIrpExReturn @ 0x140253DC0 (IopAllocateIrpExReturn.c)
- *     KeWaitForMultipleObjects @ 0x14033D720 (KeWaitForMultipleObjects.c)
- *     MiFlushComplete @ 0x140370EF0 (MiFlushComplete.c)
- *     IoGetRelatedDeviceObject @ 0x140373C70 (IoGetRelatedDeviceObject.c)
- *     MmIsFileObjectAPagingFile @ 0x140373D0C (MmIsFileObjectAPagingFile.c)
- *     IofCallDriver @ 0x140374160 (IofCallDriver.c)
- *     IoSetDiskIoAttributionFromThread @ 0x140374220 (IoSetDiskIoAttributionFromThread.c)
- *     IopSetDiskIoAttributionExtension @ 0x1403743E4 (IopSetDiskIoAttributionExtension.c)
- *     IopAllocateReserveIrp @ 0x140374518 (IopAllocateReserveIrp.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     IopAllocateBackpocketIrp @ 0x140595CD8 (IopAllocateBackpocketIrp.c)
+ *     MiFlushComplete @ 0x140259230 (MiFlushComplete.c)
+ *     IoGetRelatedDeviceObject @ 0x14025C530 (IoGetRelatedDeviceObject.c)
+ *     MmIsFileObjectAPagingFile @ 0x14025C5CC (MmIsFileObjectAPagingFile.c)
+ *     IofCallDriver @ 0x14025CA20 (IofCallDriver.c)
+ *     IoSetDiskIoAttributionFromThread @ 0x14025CAE0 (IoSetDiskIoAttributionFromThread.c)
+ *     IopSetDiskIoAttributionExtension @ 0x14025CCA4 (IopSetDiskIoAttributionExtension.c)
+ *     IopAllocateReserveIrp @ 0x14025CDD8 (IopAllocateReserveIrp.c)
+ *     IopQueueThreadIrp @ 0x140284270 (IopQueueThreadIrp.c)
+ *     IopAllocateIrpExReturn @ 0x1402843D0 (IopAllocateIrpExReturn.c)
+ *     KeWaitForMultipleObjects @ 0x14031CC00 (KeWaitForMultipleObjects.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     IopAllocateBackpocketIrp @ 0x140592D08 (IopAllocateBackpocketIrp.c)
  */
 
 unsigned __int64 __fastcall MiIssueAsynchronousFlush(
@@ -37,19 +37,17 @@ unsigned __int64 __fastcall MiIssueAsynchronousFlush(
   IRP *Irp; // rdi
   struct _IO_STACK_LOCATION *CurrentStackLocation; // rcx
   struct _KTHREAD *CurrentThread; // rdx
-  __int64 v20; // rdx
-  __int64 v21; // r8
-  NTSTATUS v22; // eax
-  __int64 v23; // rdx
-  __int64 v24; // rcx
-  int v25; // edi
-  int v26; // esi
-  unsigned __int8 v27; // di
-  __int64 v29; // rdx
-  __int64 v30; // rcx
+  NTSTATUS v20; // eax
+  __int64 v21; // rdx
+  __int64 v22; // rcx
+  int v23; // edi
+  int v24; // esi
+  unsigned __int8 v25; // di
+  __int64 v27; // rdx
+  __int64 v28; // rcx
   __int64 ReserveIrp; // rax
-  unsigned __int8 v32; // si
-  __int64 v33; // rdx
+  unsigned __int8 v30; // si
+  __int64 v31; // rdx
   unsigned __int8 CurrentIrql; // di
 
   *(_BYTE *)(a2 + 50) = 6;
@@ -73,25 +71,25 @@ unsigned __int64 __fastcall MiIssueAsynchronousFlush(
   }
   RelatedDeviceObject = IoGetRelatedDeviceObject(FileObject);
   LOBYTE(v16) = RelatedDeviceObject->StackSize;
-  Irp = (IRP *)IopAllocateIrpExReturn((__int64)RelatedDeviceObject, v16, 0LL);
+  Irp = (IRP *)IopAllocateIrpExReturn(RelatedDeviceObject, v16, 0LL);
   if ( !Irp )
   {
     if ( (unsigned int)MmIsFileObjectAPagingFile(FileObject) )
     {
       _InterlockedIncrement(&IoAsynchronousPageWriteIrpAllocationFailure);
-      LOBYTE(v29) = RelatedDeviceObject->StackSize;
-      ReserveIrp = IopAllocateReserveIrp(v30, v29, 1LL);
+      LOBYTE(v27) = RelatedDeviceObject->StackSize;
+      ReserveIrp = IopAllocateReserveIrp(v28, v27, 1LL);
     }
     else
     {
       _InterlockedIncrement(&IoAsynchronousPageWriteNonPagefileIrpAllocationFailure);
-      LOBYTE(v29) = RelatedDeviceObject->StackSize;
-      ReserveIrp = IopAllocateBackpocketIrp(RelatedDeviceObject, v29, 0LL);
+      LOBYTE(v27) = RelatedDeviceObject->StackSize;
+      ReserveIrp = IopAllocateBackpocketIrp(RelatedDeviceObject, v27, 0LL);
     }
     Irp = (IRP *)ReserveIrp;
     if ( !ReserveIrp )
     {
-      v25 = -1073741670;
+      v23 = -1073741670;
       goto LABEL_25;
     }
   }
@@ -118,65 +116,65 @@ unsigned __int64 __fastcall MiIssueAsynchronousFlush(
     IopSetDiskIoAttributionExtension(Irp, *(_QWORD *)(a8 + 24), CurrentThread, 0LL);
   else
     IoSetDiskIoAttributionFromThread(Irp, CurrentThread);
-  IopQueueThreadIrp((__int64)Irp, v20, v21);
-  v22 = IofCallDriver(RelatedDeviceObject, Irp);
-  v24 = v22 & 0xC0000000;
-  v25 = v22;
-  if ( (_DWORD)v24 == -1073741824 )
+  IopQueueThreadIrp(Irp);
+  v20 = IofCallDriver(RelatedDeviceObject, Irp);
+  v22 = v20 & 0xC0000000;
+  v23 = v20;
+  if ( (_DWORD)v22 == -1073741824 )
   {
-    *(_DWORD *)v11 = v22;
+    *(_DWORD *)v11 = v20;
     *(_QWORD *)(v11 + 8) = 0LL;
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(1uLL);
     if ( KiIrqlFlags )
     {
-      LOBYTE(v23) = 1;
-      LOBYTE(v24) = CurrentIrql;
-      KiRaiseIrqlProcessIrqlFlags(v24, v23);
+      LOBYTE(v21) = 1;
+      LOBYTE(v22) = CurrentIrql;
+      KiRaiseIrqlProcessIrqlFlags(v22, v21);
     }
     MiFlushComplete(v11, v11);
     if ( KiIrqlFlags )
     {
-      LOBYTE(v23) = CurrentIrql;
-      KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), v23);
+      LOBYTE(v21) = CurrentIrql;
+      KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), v21);
     }
     __writecr8(CurrentIrql);
-    v25 = 259;
+    v23 = 259;
   }
-  if ( (v25 & 0xC0000000) == 0xC0000000 )
+  if ( (v23 & 0xC0000000) == 0xC0000000 )
   {
 LABEL_25:
-    *(_DWORD *)v11 = v25;
+    *(_DWORD *)v11 = v23;
     *(_QWORD *)(v11 + 8) = 0LL;
-    v32 = KeGetCurrentIrql();
+    v30 = KeGetCurrentIrql();
     __writecr8(1uLL);
     if ( KiIrqlFlags )
     {
-      LOBYTE(v23) = 1;
-      LOBYTE(v24) = v32;
-      KiRaiseIrqlProcessIrqlFlags(v24, v23);
+      LOBYTE(v21) = 1;
+      LOBYTE(v22) = v30;
+      KiRaiseIrqlProcessIrqlFlags(v22, v21);
     }
     MiFlushComplete(v11, v11);
     if ( KiIrqlFlags )
     {
-      LOBYTE(v33) = v32;
-      KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), v33);
+      LOBYTE(v31) = v30;
+      KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), v31);
     }
-    __writecr8(v32);
+    __writecr8(v30);
     if ( a4 )
-      *(_DWORD *)(a4 + 20) = v25;
+      *(_DWORD *)(a4 + 20) = v23;
     v12->ByteCount = 0;
     return 0LL;
   }
-  v26 = 0;
-  v27 = KeGetCurrentIrql();
+  v24 = 0;
+  v25 = KeGetCurrentIrql();
   __writecr8(1uLL);
   if ( !KiIrqlFlags )
     goto LABEL_15;
 LABEL_14:
-  LOBYTE(v23) = 1;
-  LOBYTE(v24) = v27;
-  KiRaiseIrqlProcessIrqlFlags(v24, v23);
+  LOBYTE(v21) = 1;
+  LOBYTE(v22) = v25;
+  KiRaiseIrqlProcessIrqlFlags(v22, v21);
   while ( 1 )
   {
 LABEL_15:
@@ -185,17 +183,17 @@ LABEL_15:
       v11 = a3;
     if ( !*(_QWORD *)(v11 + 16) || *(_DWORD *)(v11 + 52) )
       break;
-    if ( ++v26 == 8 )
+    if ( ++v24 == 8 )
     {
       if ( KiIrqlFlags )
       {
-        LOBYTE(v23) = v27;
-        KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), v23);
+        LOBYTE(v21) = v25;
+        KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), v21);
       }
-      __writecr8(v27);
+      __writecr8(v25);
       KeWaitForMultipleObjects(8u, (PVOID *)(a3 + 2112), WaitAny, WrPageOut, 0, 0, 0LL, (PKWAIT_BLOCK)(a3 + 2176));
       v11 = a3;
-      while ( v26 )
+      while ( v24 )
       {
         if ( *(int *)v11 < 0 )
         {
@@ -203,9 +201,9 @@ LABEL_15:
           return 0LL;
         }
         v11 += 264LL;
-        --v26;
+        --v24;
       }
-      v27 = KeGetCurrentIrql();
+      v25 = KeGetCurrentIrql();
       __writecr8(1uLL);
       if ( !KiIrqlFlags )
         continue;
@@ -214,9 +212,9 @@ LABEL_15:
   }
   if ( KiIrqlFlags )
   {
-    LOBYTE(v23) = v27;
-    KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), v23);
+    LOBYTE(v21) = v25;
+    KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), v21);
   }
-  __writecr8(v27);
+  __writecr8(v25);
   return v11;
 }

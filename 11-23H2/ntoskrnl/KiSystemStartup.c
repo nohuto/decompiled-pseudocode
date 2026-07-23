@@ -3,12 +3,12 @@
  * Callers:
  *     <none>
  * Callees:
- *     KiIdleLoop @ 0x1404239C0 (KiIdleLoop.c)
- *     KzSetIrqlUnsafe @ 0x14056C060 (KzSetIrqlUnsafe.c)
+ *     KiIdleLoop @ 0x140423D50 (KiIdleLoop.c)
+ *     KzSetIrqlUnsafe @ 0x14056C720 (KzSetIrqlUnsafe.c)
  *     KiInitializeBootStructures @ 0x140A8B590 (KiInitializeBootStructures.c)
  *     KiInitializeKernel @ 0x140A8BF10 (KiInitializeKernel.c)
- *     KiInitializeXSave @ 0x140A8FF30 (KiInitializeXSave.c)
- *     KiInitializeKernelShadowStacks @ 0x140A92090 (KiInitializeKernelShadowStacks.c)
+ *     KiInitializeXSave @ 0x140A8FDB0 (KiInitializeXSave.c)
+ *     KiInitializeKernelShadowStacks @ 0x140A91F10 (KiInitializeKernelShadowStacks.c)
  *     KdInitSystem @ 0x140AB1040 (KdInitSystem.c)
  */
 
@@ -98,7 +98,7 @@ NTSTATUS __stdcall __noreturn KiSystemStartup(PDRIVER_OBJECT DriverObject, PUNIC
   if ( !*MK_FP(43, *MK_FP(43, KeLoaderBlock_0 + 136) + 36LL) )
     KdInitSystem(0LL, KeLoaderBlock_0);
   KiInitializeXSave(KeLoaderBlock_0, (unsigned int)*MK_FP(43, *MK_FP(43, KeLoaderBlock_0 + 136) + 36LL));
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
     KzSetIrqlUnsafe(0xFu);
   else
     __writecr8(0xFuLL);

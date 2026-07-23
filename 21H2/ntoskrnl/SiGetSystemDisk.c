@@ -1,14 +1,14 @@
 /*
- * XREFs of SiGetSystemDisk @ 0x14077ADF0
+ * XREFs of SiGetSystemDisk @ 0x14077AFB0
  * Callers:
  *     <none>
  * Callees:
- *     SiIsWinPEBoot @ 0x1406A4930 (SiIsWinPEBoot.c)
- *     SiGetBootDeviceName @ 0x1406A49A4 (SiGetBootDeviceName.c)
- *     SiTranslateSymbolicLink @ 0x1406A4F0C (SiTranslateSymbolicLink.c)
- *     SiGetBiosSystemDisk @ 0x14077AEC0 (SiGetBiosSystemDisk.c)
- *     SiGetEfiSystemDevice @ 0x140973BD0 (SiGetEfiSystemDevice.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     SiIsWinPEBoot @ 0x140602560 (SiIsWinPEBoot.c)
+ *     SiGetBootDeviceName @ 0x1406025D4 (SiGetBootDeviceName.c)
+ *     SiTranslateSymbolicLink @ 0x140602B3C (SiTranslateSymbolicLink.c)
+ *     SiGetBiosSystemDisk @ 0x14077B080 (SiGetBiosSystemDisk.c)
+ *     SiGetEfiSystemDevice @ 0x140973DB0 (SiGetEfiSystemDevice.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SiGetSystemDisk(int a1, PCWSTR *a2, __int64 a3, int a4)

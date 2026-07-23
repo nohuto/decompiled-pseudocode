@@ -1,25 +1,25 @@
 /*
- * XREFs of CmQueryMultipleValueForLayeredKey @ 0x140913E28
+ * XREFs of CmQueryMultipleValueForLayeredKey @ 0x14090789C
  * Callers:
- *     CmQueryMultipleValueKey @ 0x14086C850 (CmQueryMultipleValueKey.c)
+ *     CmQueryMultipleValueKey @ 0x140870B80 (CmQueryMultipleValueKey.c)
  * Callees:
- *     CmSiFreeMemory @ 0x14046B8D0 (CmSiFreeMemory.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     CmpFindNameInListWithStatus @ 0x14086C510 (CmpFindNameInListWithStatus.c)
- *     CmpStartKcbStackForTopLayerKcb @ 0x14086DD20 (CmpStartKcbStackForTopLayerKcb.c)
- *     CmpUnlockKcbStack @ 0x14086E6E0 (CmpUnlockKcbStack.c)
- *     HvpGetCellFlat @ 0x140874470 (HvpGetCellFlat.c)
- *     HvpGetCellPaged @ 0x1408744C0 (HvpGetCellPaged.c)
- *     HvpGetCellContextInitialize @ 0x140875730 (HvpGetCellContextInitialize.c)
- *     HvpReleaseCellPaged @ 0x140875760 (HvpReleaseCellPaged.c)
- *     CmpGetKeyNodeForKcb @ 0x140875C90 (CmpGetKeyNodeForKcb.c)
- *     CmpGetValueData @ 0x1408765B0 (CmpGetValueData.c)
- *     HvpReleaseCellFlat @ 0x140884BB0 (HvpReleaseCellFlat.c)
- *     CmpIsValueTombstone @ 0x140914310 (CmpIsValueTombstone.c)
- *     CmpGetEffectiveKcbSemantics @ 0x1409145A0 (CmpGetEffectiveKcbSemantics.c)
- *     CmpLockKcbStackShared @ 0x140917710 (CmpLockKcbStackShared.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
- *     CmpPerformKeyBodyDeletionCheck @ 0x140BB97D0 (CmpPerformKeyBodyDeletionCheck.c)
+ *     CmSiFreeMemory @ 0x140464550 (CmSiFreeMemory.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     CmpFindNameInListWithStatus @ 0x140870840 (CmpFindNameInListWithStatus.c)
+ *     CmpStartKcbStackForTopLayerKcb @ 0x140872050 (CmpStartKcbStackForTopLayerKcb.c)
+ *     CmpUnlockKcbStack @ 0x140872A10 (CmpUnlockKcbStack.c)
+ *     HvpGetCellFlat @ 0x1408787A0 (HvpGetCellFlat.c)
+ *     HvpGetCellPaged @ 0x1408787F0 (HvpGetCellPaged.c)
+ *     HvpGetCellContextInitialize @ 0x140879A60 (HvpGetCellContextInitialize.c)
+ *     HvpReleaseCellPaged @ 0x140879A90 (HvpReleaseCellPaged.c)
+ *     CmpGetKeyNodeForKcb @ 0x140879FC0 (CmpGetKeyNodeForKcb.c)
+ *     CmpGetValueData @ 0x14087A8E0 (CmpGetValueData.c)
+ *     HvpReleaseCellFlat @ 0x140888A60 (HvpReleaseCellFlat.c)
+ *     CmpIsValueTombstone @ 0x140907D80 (CmpIsValueTombstone.c)
+ *     CmpGetEffectiveKcbSemantics @ 0x140908010 (CmpGetEffectiveKcbSemantics.c)
+ *     CmpLockKcbStackShared @ 0x14090B180 (CmpLockKcbStackShared.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
+ *     CmpPerformKeyBodyDeletionCheck @ 0x140BBB7D0 (CmpPerformKeyBodyDeletionCheck.c)
  */
 
 __int64 __fastcall CmQueryMultipleValueForLayeredKey(

@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpFcHasEffectiveStateInGovernedFeatureInfoTable @ 0x140A492D0
+ * XREFs of RtlpFcHasEffectiveStateInGovernedFeatureInfoTable @ 0x140A525C0
  * Callers:
- *     RtlQueryFeatureConfigurationFromBuffers @ 0x1406178CC (RtlQueryFeatureConfigurationFromBuffers.c)
- *     RtlpFcQueryFeatureConfigurationFromBufferSet @ 0x140A48F68 (RtlpFcQueryFeatureConfigurationFromBufferSet.c)
+ *     RtlQueryFeatureConfigurationFromBuffers @ 0x14061A91C (RtlQueryFeatureConfigurationFromBuffers.c)
+ *     RtlpFcQueryFeatureConfigurationFromBufferSet @ 0x140A52258 (RtlpFcQueryFeatureConfigurationFromBufferSet.c)
  * Callees:
- *     RtlpFcGetFeatureHasSubscriptionsFromBuffer @ 0x140A4911C (RtlpFcGetFeatureHasSubscriptionsFromBuffer.c)
- *     RtlFindLowerBoundInSortedArray @ 0x140A49220 (RtlFindLowerBoundInSortedArray.c)
- *     RtlpFcLinearSearchInSortedArray @ 0x140B47204 (RtlpFcLinearSearchInSortedArray.c)
+ *     RtlpFcGetFeatureHasSubscriptionsFromBuffer @ 0x140A5240C (RtlpFcGetFeatureHasSubscriptionsFromBuffer.c)
+ *     RtlFindLowerBoundInSortedArray @ 0x140A52510 (RtlFindLowerBoundInSortedArray.c)
+ *     RtlpFcLinearSearchInSortedArray @ 0x140B49234 (RtlpFcLinearSearchInSortedArray.c)
  */
 
 char __fastcall RtlpFcHasEffectiveStateInGovernedFeatureInfoTable(

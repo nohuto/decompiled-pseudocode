@@ -1,30 +1,30 @@
 /*
- * XREFs of HalpReportResourceUsage @ 0x140C0E954
+ * XREFs of HalpReportResourceUsage @ 0x140C10954
  * Callers:
- *     HalReportResourceUsage @ 0x140C0D6E0 (HalReportResourceUsage.c)
+ *     HalReportResourceUsage @ 0x140C0F6E0 (HalReportResourceUsage.c)
  * Callees:
- *     ?KiCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z @ 0x1403B1720 (-KiCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z.c)
- *     HalTranslateBusAddress @ 0x140458FE0 (HalTranslateBusAddress.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     HalpClaimDebugResource @ 0x140546394 (HalpClaimDebugResource.c)
- *     RtlCmEncodeMemIoResource @ 0x1405E9950 (RtlCmEncodeMemIoResource.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
- *     HalpGetResourceSortValue @ 0x140C0E904 (HalpGetResourceSortValue.c)
- *     IoReportHalResourceUsage @ 0x140C22DA0 (IoReportHalResourceUsage.c)
+ *     ?KiCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z @ 0x14039FF30 (-KiCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z.c)
+ *     HalTranslateBusAddress @ 0x14044E090 (HalTranslateBusAddress.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     HalpClaimDebugResource @ 0x140543C54 (HalpClaimDebugResource.c)
+ *     RtlCmEncodeMemIoResource @ 0x1405E6EA0 (RtlCmEncodeMemIoResource.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
+ *     HalpGetResourceSortValue @ 0x140C10904 (HalpGetResourceSortValue.c)
+ *     IoReportHalResourceUsage @ 0x140C24DD0 (IoReportHalResourceUsage.c)
  */
 
 void __fastcall HalpReportResourceUsage(__int64 a1)
 {
   __int64 v1; // r11
   unsigned int *v2; // rsi
-  ULONG_PTR v3; // rax
+  __int64 v3; // rax
   _DWORD *v4; // r13
   __int64 v5; // r15
   unsigned int v6; // edx
-  ULONG_PTR v7; // r12
+  __int64 v7; // r12
   _DWORD *v8; // r14
   char *v9; // rcx
   char *v10; // r8
@@ -55,7 +55,7 @@ void __fastcall HalpReportResourceUsage(__int64 a1)
   __int64 v35; // r14
   __int64 v36; // r10
   __int64 v37; // rdi
-  ULONG_PTR v38; // r13
+  __int64 v38; // r13
   __int64 v39; // r10
   int v40; // r11d
   bool v41; // cc
@@ -82,7 +82,7 @@ void __fastcall HalpReportResourceUsage(__int64 a1)
   LARGE_INTEGER TranslatedAddress; // [rsp+B0h] [rbp-58h] BYREF
   _DWORD *v63; // [rsp+B8h] [rbp-50h]
   _DWORD *v64; // [rsp+C0h] [rbp-48h]
-  ULONG_PTR Pool2; // [rsp+C8h] [rbp-40h]
+  __int64 Pool2; // [rsp+C8h] [rbp-40h]
   __int64 v66; // [rsp+D0h] [rbp-38h]
   struct _KAFFINITY_EX v67; // [rsp+D8h] [rbp-30h] BYREF
 
@@ -115,7 +115,7 @@ void __fastcall HalpReportResourceUsage(__int64 a1)
   v8 = v2 + 1;
   v61 = (_DWORD *)(v3 + 4);
   v9 = HalpIDTUsageFlags;
-  v10 = byte_141007AD1;
+  v10 = byte_141008AD1;
   do
   {
     if ( (*v9 & 1) == 0 )

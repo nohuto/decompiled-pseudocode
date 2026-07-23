@@ -1,16 +1,16 @@
 /*
- * XREFs of ZwGetCurrentProcessorNumber @ 0x180163C00
+ * XREFs of ZwGetCurrentProcessorNumber @ 0x180161FC0
  * Callers:
- *     RtlGetCurrentProcessorNumber @ 0x180166200 (RtlGetCurrentProcessorNumber.c)
+ *     RtlGetCurrentProcessorNumber @ 0x1801645C0 (RtlGetCurrentProcessorNumber.c)
  * Callees:
  *     <none>
  */
 
-__int64 ZwGetCurrentProcessorNumber()
+ULONG ZwGetCurrentProcessorNumber(void)
 {
-  __int64 result; // rax
+  ULONG result; // eax
 
-  result = 252LL;
+  result = 252;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

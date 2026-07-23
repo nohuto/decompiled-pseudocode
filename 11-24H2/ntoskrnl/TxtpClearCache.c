@@ -1,9 +1,9 @@
 /*
- * XREFs of TxtpClearCache @ 0x140BB437C
+ * XREFs of TxtpClearCache @ 0x140BB637C
  * Callers:
- *     BgpTxtCacheDestroy @ 0x140BB4354 (BgpTxtCacheDestroy.c)
+ *     BgpTxtCacheDestroy @ 0x140BB6354 (BgpTxtCacheDestroy.c)
  * Callees:
- *     TxtpDestroyCacheEntry @ 0x140BB43D4 (TxtpDestroyCacheEntry.c)
+ *     TxtpDestroyCacheEntry @ 0x140BB63D4 (TxtpDestroyCacheEntry.c)
  */
 
 _UNKNOWN **TxtpClearCache()
@@ -23,6 +23,6 @@ _UNKNOWN **TxtpClearCache()
       break;
     TxtpDestroyCacheEntry(result);
   }
-  dword_140E0A240 = 0;
+  dword_140E0A2B0 = 0;
   return result;
 }

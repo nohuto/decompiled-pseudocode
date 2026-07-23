@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlUnicodeToMultiByteSize @ 0x1404E1658
+ * XREFs of RtlUnicodeToMultiByteSize @ 0x1404C4C5C
  * Callers:
- *     wcstombs @ 0x14014F1B4 (wcstombs.c)
- *     RtlxUnicodeStringToOemSize @ 0x140685814 (RtlxUnicodeStringToOemSize.c)
+ *     wcstombs @ 0x14014F774 (wcstombs.c)
+ *     RtlxUnicodeStringToOemSize @ 0x1406858F8 (RtlxUnicodeStringToOemSize.c)
  * Callees:
  *     <none>
  */

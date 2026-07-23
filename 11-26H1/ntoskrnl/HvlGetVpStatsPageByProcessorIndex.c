@@ -1,5 +1,5 @@
 /*
- * XREFs of HvlGetVpStatsPageByProcessorIndex @ 0x1405B94B0
+ * XREFs of HvlGetVpStatsPageByProcessorIndex @ 0x1405BBD20
  * Callers:
  *     <none>
  * Callees:

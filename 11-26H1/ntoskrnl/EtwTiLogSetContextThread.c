@@ -1,16 +1,16 @@
 /*
- * XREFs of EtwTiLogSetContextThread @ 0x140A7EE10
+ * XREFs of EtwTiLogSetContextThread @ 0x140A84C80
  * Callers:
- *     PspSetContextThreadInternal @ 0x1409EC360 (PspSetContextThreadInternal.c)
- *     PspWow64SetContextThread @ 0x140B796B0 (PspWow64SetContextThread.c)
+ *     PspSetContextThreadInternal @ 0x1409E8B30 (PspSetContextThreadInternal.c)
+ *     PspWow64SetContextThread @ 0x140B81920 (PspWow64SetContextThread.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwProviderEnabled @ 0x1402563E0 (EtwProviderEnabled.c)
- *     EtwpTiFillProcessIdentity @ 0x140257DB0 (EtwpTiFillProcessIdentity.c)
- *     EtwpTiVadQueryEventWrite @ 0x140258ACC (EtwpTiVadQueryEventWrite.c)
- *     EtwpTiFillThreadIdentity @ 0x1404A21B8 (EtwpTiFillThreadIdentity.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     EtwpTiParseContextRecord @ 0x140A7F2A8 (EtwpTiParseContextRecord.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwProviderEnabled @ 0x140257D70 (EtwProviderEnabled.c)
+ *     EtwpTiFillProcessIdentity @ 0x140259590 (EtwpTiFillProcessIdentity.c)
+ *     EtwpTiVadQueryEventWrite @ 0x14025A2AC (EtwpTiVadQueryEventWrite.c)
+ *     EtwpTiFillThreadIdentity @ 0x14049BCE8 (EtwpTiFillThreadIdentity.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     EtwpTiParseContextRecord @ 0x140A85118 (EtwpTiParseContextRecord.c)
  */
 
 char __fastcall EtwTiLogSetContextThread(char a1, __int64 a2, __int64 a3, unsigned int a4)
@@ -84,7 +84,7 @@ char __fastcall EtwTiLogSetContextThread(char a1, __int64 a2, __int64 a3, unsign
   unsigned int v74; // [rsp+398h] [rbp+298h] BYREF
 
   v74 = a4;
-  LOBYTE(CurrentThread) = EtwProviderEnabled(*(REGHANDLE *)&EtwpSecurityLock.AbWaitEntryCount, 0, 0xC000uLL);
+  LOBYTE(CurrentThread) = EtwProviderEnabled(EtwThreatIntProvRegHandle, 0, 0xC000uLL);
   if ( (_BYTE)CurrentThread )
   {
     CurrentThread = KeGetCurrentThread();
@@ -95,7 +95,7 @@ char __fastcall EtwTiLogSetContextThread(char a1, __int64 a2, __int64 a3, unsign
       EventDescriptor = (const EVENT_DESCRIPTOR *)THREATINT_SETTHREADCONTEXT_REMOTE_KERNEL_CALLER;
       if ( a1 )
         EventDescriptor = &THREATINT_SETTHREADCONTEXT_REMOTE;
-      LOBYTE(CurrentThread) = EtwEventEnabled(*(REGHANDLE *)&EtwpSecurityLock.AbWaitEntryCount, EventDescriptor);
+      LOBYTE(CurrentThread) = EtwEventEnabled(EtwThreatIntProvRegHandle, EventDescriptor);
       if ( (_BYTE)CurrentThread )
       {
         v11 = EtwpTiFillProcessIdentity(UserData, Process, &v59);
@@ -105,7 +105,7 @@ char __fastcall EtwTiLogSetContextThread(char a1, __int64 a2, __int64 a3, unsign
         v18 = v16 + v17;
         v19 = v16 + v17 + 1;
         v20 = &UserData[v16 + v17];
-        v21 = EtwProviderEnabled(*(REGHANDLE *)&EtwpSecurityLock.AbWaitEntryCount, 0, 0x4000000uLL);
+        v21 = EtwProviderEnabled(EtwThreatIntProvRegHandle, 0, 0x4000000uLL);
         v22 = (unsigned int)(v18 + 2);
         v20->Reserved = 0;
         v23 = &UserData[v22];
@@ -163,7 +163,7 @@ char __fastcall EtwTiLogSetContextThread(char a1, __int64 a2, __int64 a3, unsign
           v42 = v19 + 13;
           UserData[v41].Ptr = (ULONGLONG)&v72;
           *(_QWORD *)&UserData[v41].Size = 8LL;
-          if ( (v28 & 1) != 0 && EtwProviderEnabled(*(REGHANDLE *)&EtwpSecurityLock.AbWaitEntryCount, 0, 0x8000000uLL) )
+          if ( (v28 & 1) != 0 && EtwProviderEnabled(EtwThreatIntProvRegHandle, 0, 0x8000000uLL) )
           {
             v43 = 1;
 LABEL_13:
@@ -174,43 +174,43 @@ LABEL_13:
         else
         {
           v20->Size = 2;
-          v20->Ptr = (ULONGLONG)&qword_14001A4D8;
-          v23->Ptr = (ULONGLONG)&qword_14001A4D8;
+          v20->Ptr = (ULONGLONG)&qword_140019CF8;
+          v23->Ptr = (ULONGLONG)&qword_140019CF8;
           v44 = (unsigned int)(v18 + 3);
           v55 = 0;
-          v25->Ptr = (ULONGLONG)&qword_14001A4D8;
+          v25->Ptr = (ULONGLONG)&qword_140019CF8;
           *(_QWORD *)&UserData[v19].Size = 8LL;
           *p_Size = 8;
-          UserData[v44].Ptr = (ULONGLONG)&qword_14001A4D8;
+          UserData[v44].Ptr = (ULONGLONG)&qword_140019CF8;
           *(_QWORD *)&UserData[v44].Size = 8LL;
           v45 = (unsigned int)(v18 + 4);
           *v26 = 0;
-          UserData[v45].Ptr = (ULONGLONG)&qword_14001A4D8;
+          UserData[v45].Ptr = (ULONGLONG)&qword_140019CF8;
           *(_QWORD *)&UserData[v45].Size = 8LL;
           v46 = (unsigned int)(v18 + 5);
-          UserData[v46].Ptr = (ULONGLONG)&qword_14001A4D8;
+          UserData[v46].Ptr = (ULONGLONG)&qword_140019CF8;
           *(_QWORD *)&UserData[v46].Size = 8LL;
           v47 = (unsigned int)(v18 + 6);
-          UserData[v47].Ptr = (ULONGLONG)&qword_14001A4D8;
+          UserData[v47].Ptr = (ULONGLONG)&qword_140019CF8;
           *(_QWORD *)&UserData[v47].Size = 8LL;
           v48 = (unsigned int)(v18 + 7);
-          UserData[v48].Ptr = (ULONGLONG)&qword_14001A4D8;
+          UserData[v48].Ptr = (ULONGLONG)&qword_140019CF8;
           *(_QWORD *)&UserData[v48].Size = 8LL;
           v49 = (unsigned int)(v18 + 8);
-          UserData[v49].Ptr = (ULONGLONG)&qword_14001A4D8;
+          UserData[v49].Ptr = (ULONGLONG)&qword_140019CF8;
           *(_QWORD *)&UserData[v49].Size = 8LL;
           v50 = (unsigned int)(v18 + 9);
-          UserData[v50].Ptr = (ULONGLONG)&qword_14001A4D8;
+          UserData[v50].Ptr = (ULONGLONG)&qword_140019CF8;
           *(_QWORD *)&UserData[v50].Size = 8LL;
           v51 = (unsigned int)(v18 + 10);
-          UserData[v51].Ptr = (ULONGLONG)&qword_14001A4D8;
+          UserData[v51].Ptr = (ULONGLONG)&qword_140019CF8;
           *(_QWORD *)&UserData[v51].Size = 8LL;
           v52 = (unsigned int)(v18 + 11);
-          UserData[v52].Ptr = (ULONGLONG)&qword_14001A4D8;
+          UserData[v52].Ptr = (ULONGLONG)&qword_140019CF8;
           *(_QWORD *)&UserData[v52].Size = 8LL;
           v53 = (unsigned int)(v18 + 12);
           v42 = v18 + 13;
-          UserData[v53].Ptr = (ULONGLONG)&qword_14001A4D8;
+          UserData[v53].Ptr = (ULONGLONG)&qword_140019CF8;
           *(_QWORD *)&UserData[v53].Size = 8LL;
         }
         v43 = 0;

@@ -3,10 +3,10 @@
  * Callers:
  *     VrpHandleIoctlInitializeJobForVreg @ 0x1405D268C (VrpHandleIoctlInitializeJobForVreg.c)
  *     VrpPostOpenOrCreate @ 0x1405D4420 (VrpPostOpenOrCreate.c)
- *     VrpPreLoadKey @ 0x14088338C (VrpPreLoadKey.c)
+ *     VrpPreLoadKey @ 0x1408834EC (VrpPreLoadKey.c)
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x1402056A0 (ObfReferenceObjectWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x1402A9FE0 (ObfReferenceObjectWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 _OWORD *__fastcall VrpAllocateKeyContext(PVOID Object)

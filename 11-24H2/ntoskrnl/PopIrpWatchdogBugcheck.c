@@ -1,17 +1,17 @@
 /*
- * XREFs of PopIrpWatchdogBugcheck @ 0x1405CD0D8
+ * XREFs of PopIrpWatchdogBugcheck @ 0x1405CA848
  * Callers:
- *     PopCompleteIrpWatchdog @ 0x140331C98 (PopCompleteIrpWatchdog.c)
- *     PopDisableIrpWatchdog @ 0x14049F5CC (PopDisableIrpWatchdog.c)
- *     PopIrpWatchdog @ 0x1405CD0C0 (PopIrpWatchdog.c)
- *     PopBroadcastBlameBugcheckCallback @ 0x140B5F640 (PopBroadcastBlameBugcheckCallback.c)
+ *     PopCompleteIrpWatchdog @ 0x1402BC618 (PopCompleteIrpWatchdog.c)
+ *     PopDisableIrpWatchdog @ 0x14049A414 (PopDisableIrpWatchdog.c)
+ *     PopIrpWatchdog @ 0x1405CA830 (PopIrpWatchdog.c)
+ *     PopBroadcastBlameBugcheckCallback @ 0x140B616C0 (PopBroadcastBlameBugcheckCallback.c)
  * Callees:
- *     EtwWriteEx @ 0x140259680 (EtwWriteEx.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x1402D8540 (KeAcquireInStackQueuedSpinLock.c)
- *     IoAddTriageDumpDataBlock @ 0x1403F2880 (IoAddTriageDumpDataBlock.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     PopInternalAddToDumpFile @ 0x1405CCEA0 (PopInternalAddToDumpFile.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x140289C90 (EtwWriteEx.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1403597C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     IoAddTriageDumpDataBlock @ 0x1403E65A0 (IoAddTriageDumpDataBlock.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     PopInternalAddToDumpFile @ 0x1405CA610 (PopInternalAddToDumpFile.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall PopIrpWatchdogBugcheck(__int64 MaxDataSize)

@@ -3,7 +3,7 @@
  * Callers:
  *     IoInitSystemPreDrivers @ 0x140B4B914 (IoInitSystemPreDrivers.c)
  * Callees:
- *     IopAllocateIrpWithExtension @ 0x14028FDC0 (IopAllocateIrpWithExtension.c)
+ *     IopAllocateIrpWithExtension @ 0x140290050 (IopAllocateIrpWithExtension.c)
  */
 
 char __fastcall IopInitializeReserveIrps(__int64 a1)

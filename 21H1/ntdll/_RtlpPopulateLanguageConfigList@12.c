@@ -12,12 +12,12 @@
  *     _RtlpMuiRegValidateConfigNode@8 @ 0x4B36BE8D (_RtlpMuiRegValidateConfigNode@8.c)
  */
 
-int __userpurge RtlpPopulateLanguageConfigList@<eax>(int *a1@<edx>, int a2@<ecx>, int a3@<ebp>, int a4)
+int __userpurge RtlpPopulateLanguageConfigList@<eax>(HANDLE KeyHandle@<ecx>, int *a2@<edx>, int a3@<ebp>, int a4)
 {
-  int v5; // edx
+  HANDLE v5; // edx
   int v6; // edi
-  int v7; // eax
-  int v8; // eax
+  ULONG v7; // eax
+  NTSTATUS v8; // eax
   int LanguageSpec; // esi
   int v11; // ecx
   const WCHAR *v12; // esi
@@ -27,8 +27,8 @@ int __userpurge RtlpPopulateLanguageConfigList@<eax>(int *a1@<edx>, int a2@<ecx>
   int *v16; // ecx
   int LanguageConfigList; // eax
   int v18; // eax
-  int v19; // [esp-260h] [ebp-26Ch] BYREF
-  int v20; // [esp-25Ch] [ebp-268h]
+  ULONG v19; // [esp-260h] [ebp-26Ch] BYREF
+  HANDLE v20; // [esp-25Ch] [ebp-268h]
   int v21; // [esp-258h] [ebp-264h] BYREF
   int *v22; // [esp-254h] [ebp-260h]
   int v23; // [esp-250h] [ebp-25Ch]
@@ -36,7 +36,7 @@ int __userpurge RtlpPopulateLanguageConfigList@<eax>(int *a1@<edx>, int a2@<ecx>
   __int16 v25; // [esp-248h] [ebp-254h] BYREF
   __int16 v26; // [esp-244h] [ebp-250h] BYREF
   const WCHAR *v27; // [esp-240h] [ebp-24Ch]
-  int v28; // [esp-23Ch] [ebp-248h]
+  ULONG v28; // [esp-23Ch] [ebp-248h]
   int v29; // [esp-238h] [ebp-244h]
   int v30; // [esp-234h] [ebp-240h]
   __int16 v31; // [esp-230h] [ebp-23Ch]
@@ -57,20 +57,20 @@ int __userpurge RtlpPopulateLanguageConfigList@<eax>(int *a1@<edx>, int a2@<ecx>
 
   v43 = a3;
   v44 = retaddr;
-  v5 = a2;
-  v22 = a1;
-  v20 = a2;
+  v5 = KeyHandle;
+  v22 = a2;
+  v20 = KeyHandle;
   v23 = a4;
   v6 = 0;
-  if ( a2 && a1 && a4 )
+  if ( KeyHandle && a2 && a4 )
   {
-    v6 = *a1;
+    v6 = *a2;
     v7 = 0;
     v29 = v6;
     v28 = 0;
     while ( 1 )
     {
-      v8 = NtEnumerateValueKey(v5, v7, 1, v37, 512, &v19);
+      v8 = NtEnumerateValueKey(v5, v7, KeyValueFullInformation, v37, 0x200u, &v19);
       LanguageSpec = v8;
       if ( v8 < 0 )
         break;
@@ -78,7 +78,7 @@ int __userpurge RtlpPopulateLanguageConfigList@<eax>(int *a1@<edx>, int a2@<ecx>
       {
         v11 = v41 >> 1;
         v27 = (const WCHAR *)v11;
-        v30 = v42[v41 >> 1];
+        v30 = (unsigned __int16)v42[v41 >> 1];
         v42[v11] = 0;
         LanguageSpec = RtlpMuiRegGetLanguageSpec(v23, v42, (char *)&v33, v11, &v26);
         if ( LanguageSpec >= 0 )

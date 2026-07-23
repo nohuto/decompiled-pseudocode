@@ -1,20 +1,20 @@
 /*
- * XREFs of KeQueryValuesThread @ 0x1402BAA70
+ * XREFs of KeQueryValuesThread @ 0x140305730
  * Callers:
- *     PsQueryStatisticsProcess @ 0x140952680 (PsQueryStatisticsProcess.c)
- *     ExpGetProcessInformation @ 0x14096767C (ExpGetProcessInformation.c)
- *     ExpCopyProcessInfo @ 0x140968E30 (ExpCopyProcessInfo.c)
- *     NtQueryInformationThread @ 0x140A1F330 (NtQueryInformationThread.c)
+ *     ExpCopyProcessInfo @ 0x14091E820 (ExpCopyProcessInfo.c)
+ *     PsQueryStatisticsProcess @ 0x1409CDFC0 (PsQueryStatisticsProcess.c)
+ *     ExpGetProcessInformation @ 0x1409DC1B8 (ExpGetProcessInformation.c)
+ *     NtQueryInformationThread @ 0x140A28950 (NtQueryInformationThread.c)
  * Callees:
- *     KiReleasePrcbLocksForIsolationUnit @ 0x140237A80 (KiReleasePrcbLocksForIsolationUnit.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     KxWaitForLockOwnerShip @ 0x1402B29C0 (KxWaitForLockOwnerShip.c)
- *     KxWaitForLockChainValid @ 0x1402BA360 (KxWaitForLockChainValid.c)
- *     KiWakeAddressAll @ 0x1402BA5A8 (KiWakeAddressAll.c)
- *     KiAcquirePrcbLocksForIsolationUnit @ 0x1402BBDD0 (KiAcquirePrcbLocksForIsolationUnit.c)
- *     HvlNotifyLongSpinWait @ 0x1402BBF00 (HvlNotifyLongSpinWait.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiReleasePrcbLocksForIsolationUnit @ 0x1402393E0 (KiReleasePrcbLocksForIsolationUnit.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     KxWaitForLockOwnerShip @ 0x1402FD690 (KxWaitForLockOwnerShip.c)
+ *     KxWaitForLockChainValid @ 0x140305020 (KxWaitForLockChainValid.c)
+ *     KiWakeAddressAll @ 0x140305268 (KiWakeAddressAll.c)
+ *     KiAcquirePrcbLocksForIsolationUnit @ 0x140306A90 (KiAcquirePrcbLocksForIsolationUnit.c)
+ *     HvlNotifyLongSpinWait @ 0x140306BC0 (HvlNotifyLongSpinWait.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall KeQueryValuesThread(__int64 a1, __int64 a2)
@@ -108,7 +108,7 @@ LABEL_9:
         goto LABEL_6;
     }
   }
-  if ( *(_UNKNOWN **)(a1 + 544) == &unk_140FC8F40 )
+  if ( *(_UNKNOWN **)(a1 + 544) == &unk_140FC9F40 )
   {
     LOBYTE(v10) = *(_BYTE *)(a1 + 388);
     *(_BYTE *)(a2 + 10) = 1;

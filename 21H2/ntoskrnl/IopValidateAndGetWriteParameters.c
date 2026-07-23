@@ -1,20 +1,20 @@
 /*
- * XREFs of IopValidateAndGetWriteParameters @ 0x1403F2018
+ * XREFs of IopValidateAndGetWriteParameters @ 0x1403F2068
  * Callers:
- *     IopPopulateCopyWriteWorkerData @ 0x1403F1BE4 (IopPopulateCopyWriteWorkerData.c)
+ *     IopPopulateCopyWriteWorkerData @ 0x1403F1AB4 (IopPopulateCopyWriteWorkerData.c)
  *     IopWriteFile @ 0x1405CEB78 (IopWriteFile.c)
  * Callees:
- *     KeResetEvent @ 0x14027BC40 (KeResetEvent.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     KeAbPreAcquire @ 0x14034A230 (KeAbPreAcquire.c)
- *     ObfReferenceObject @ 0x14034B230 (ObfReferenceObject.c)
- *     IopReleaseFileObjectLock @ 0x14034D750 (IopReleaseFileObjectLock.c)
- *     IoGetRelatedDeviceObject @ 0x140351920 (IoGetRelatedDeviceObject.c)
- *     IopMarkApcRoutineIfAsynchronousIo32 @ 0x140351EA0 (IopMarkApcRoutineIfAsynchronousIo32.c)
- *     IopExceptionFilter @ 0x140500A60 (IopExceptionFilter.c)
- *     IopWaitAndAcquireFileObjectLock @ 0x1406E7BB8 (IopWaitAndAcquireFileObjectLock.c)
- *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
- *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     KeResetEvent @ 0x140269BE0 (KeResetEvent.c)
+ *     KeAbPreAcquire @ 0x140354F80 (KeAbPreAcquire.c)
+ *     ObfReferenceObject @ 0x140355F80 (ObfReferenceObject.c)
+ *     IopReleaseFileObjectLock @ 0x1403584A0 (IopReleaseFileObjectLock.c)
+ *     IoGetRelatedDeviceObject @ 0x14035C670 (IoGetRelatedDeviceObject.c)
+ *     IopMarkApcRoutineIfAsynchronousIo32 @ 0x14035CBF0 (IopMarkApcRoutineIfAsynchronousIo32.c)
+ *     IopExceptionFilter @ 0x1405009E0 (IopExceptionFilter.c)
+ *     IopWaitAndAcquireFileObjectLock @ 0x1406FEF98 (IopWaitAndAcquireFileObjectLock.c)
+ *     ObReferenceObjectByHandle @ 0x140707FA0 (ObReferenceObjectByHandle.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BFB0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall IopValidateAndGetWriteParameters(__int64 a1, void *a2, _QWORD *a3, _DWORD *a4, char a5)
@@ -39,7 +39,7 @@ __int64 __fastcall IopValidateAndGetWriteParameters(__int64 a1, void *a2, _QWORD
   struct _KEVENT *v26; // rcx
   volatile __int32 *v27; // r15
   struct _KTHREAD *v28; // rax
-  __int64 v29; // rax
+  PRTL_BALANCED_NODE v29; // rax
   int v30; // eax
   _QWORD *v31; // rdx
   int v32; // eax
@@ -179,7 +179,7 @@ LABEL_45:
     else
     {
       if ( v29 )
-        *(_BYTE *)(v29 + 26) |= 1u;
+        BYTE2(v29[1].Left) |= 1u;
       ObfReferenceObject((PVOID)v27);
       v30 = 0;
     }

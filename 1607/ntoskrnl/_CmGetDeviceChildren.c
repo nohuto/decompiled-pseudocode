@@ -1,15 +1,15 @@
 /*
- * XREFs of _CmGetDeviceChildren @ 0x1406DCF24
+ * XREFs of _CmGetDeviceChildren @ 0x1406DD05C
  * Callers:
- *     _CmGetDeviceMappedPropertyFromComposite @ 0x1404CE780 (_CmGetDeviceMappedPropertyFromComposite.c)
- *     _CmGetDeviceSiblings @ 0x1406DD82C (_CmGetDeviceSiblings.c)
+ *     _CmGetDeviceMappedPropertyFromComposite @ 0x14050B84C (_CmGetDeviceMappedPropertyFromComposite.c)
+ *     _CmGetDeviceSiblings @ 0x1406DD964 (_CmGetDeviceSiblings.c)
  * Callees:
- *     RtlStringCchCopyExW @ 0x1400C34A8 (RtlStringCchCopyExW.c)
- *     RtlInitUnicodeStringEx @ 0x1400C39C0 (RtlInitUnicodeStringEx.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     __report_rangecheckfailure @ 0x1401B1250 (__report_rangecheckfailure.c)
- *     _NtPlugPlayGetDeviceRelatedDevice @ 0x1404CFC5C (_NtPlugPlayGetDeviceRelatedDevice.c)
- *     _PnpMultiSzAppend @ 0x1406DFEE0 (_PnpMultiSzAppend.c)
+ *     RtlStringCchCopyExW @ 0x1400C1338 (RtlStringCchCopyExW.c)
+ *     RtlInitUnicodeStringEx @ 0x1400C1850 (RtlInitUnicodeStringEx.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     __report_rangecheckfailure @ 0x1401B1134 (__report_rangecheckfailure.c)
+ *     _NtPlugPlayGetDeviceRelatedDevice @ 0x14050CD28 (_NtPlugPlayGetDeviceRelatedDevice.c)
+ *     _PnpMultiSzAppend @ 0x1406E0018 (_PnpMultiSzAppend.c)
  */
 
 int __fastcall CmGetDeviceChildren(__int64 a1, const WCHAR *a2, wchar_t *a3, unsigned int *a4)

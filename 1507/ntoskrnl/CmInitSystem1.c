@@ -78,8 +78,8 @@ char __fastcall CmInitSystem1(ULONG_PTR BugCheckParameter3)
   __int64 v24; // rcx
   int v26; // ebx
   unsigned int v27; // ebx
-  union _SLIST_HEADER *PoolWithTag; // rax
-  union _SLIST_HEADER *v29; // rsi
+  _SLIST_HEADER *PoolWithTag; // rax
+  _SLIST_HEADER *v29; // rsi
   unsigned int v30; // ebx
   __int64 i; // rdx
   __int64 *Count; // r8
@@ -306,7 +306,7 @@ char __fastcall CmInitSystem1(ULONG_PTR BugCheckParameter3)
         v26 = 20;
       }
       v27 = v26 << 12;
-      PoolWithTag = (union _SLIST_HEADER *)ExAllocatePoolWithTag(NonPagedPoolNx, v27, 0x744C4D43u);
+      PoolWithTag = (_SLIST_HEADER *)ExAllocatePoolWithTag(NonPagedPoolNx, v27, 0x744C4D43u);
       CmpLockTable = PoolWithTag;
       v29 = PoolWithTag;
       if ( !PoolWithTag )

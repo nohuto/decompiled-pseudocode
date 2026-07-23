@@ -1,19 +1,19 @@
 /*
- * XREFs of MiChargeControlAreaPartition @ 0x140027BE0
+ * XREFs of MiChargeControlAreaPartition @ 0x140027760
  * Callers:
- *     MiInsertSharedCommitNode @ 0x14042E680 (MiInsertSharedCommitNode.c)
+ *     MiInsertSharedCommitNode @ 0x14042D550 (MiInsertSharedCommitNode.c)
  * Callees:
- *     KiLeaveGuardedRegionUnsafe @ 0x140013B70 (KiLeaveGuardedRegionUnsafe.c)
- *     MiChargeCommit @ 0x14002B650 (MiChargeCommit.c)
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     MiReturnCommit @ 0x14004E500 (MiReturnCommit.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
- *     MiSubsectionUsingExtents @ 0x1400E7F14 (MiSubsectionUsingExtents.c)
- *     MiChargeResident @ 0x140103450 (MiChargeResident.c)
- *     MiGetCrossPartitionCharges @ 0x1401F1AF0 (MiGetCrossPartitionCharges.c)
- *     MiReturnCrossPartitionCharges @ 0x1401F1F3C (MiReturnCrossPartitionCharges.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1400136F0 (KiLeaveGuardedRegionUnsafe.c)
+ *     MiChargeCommit @ 0x14002B1D0 (MiChargeCommit.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     MiReturnCommit @ 0x14004E080 (MiReturnCommit.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
+ *     MiSubsectionUsingExtents @ 0x1400E5DB4 (MiSubsectionUsingExtents.c)
+ *     MiChargeResident @ 0x1401011D0 (MiChargeResident.c)
+ *     MiGetCrossPartitionCharges @ 0x1401F191C (MiGetCrossPartitionCharges.c)
+ *     MiReturnCrossPartitionCharges @ 0x1401F1D68 (MiReturnCrossPartitionCharges.c)
  */
 
 __int64 __fastcall MiChargeControlAreaPartition(__int64 *a1, __int64 a2)
@@ -35,12 +35,12 @@ __int64 __fastcall MiChargeControlAreaPartition(__int64 *a1, __int64 a2)
   if ( v3 == 1023 )
     v4 = MiSystemPartition;
   else
-    v4 = *(int **)(qword_140326FF8 + 8LL * v3);
+    v4 = *(int **)(qword_140327038 + 8LL * v3);
   v5 = *(_WORD *)(a2 + 1444);
   if ( v5 == 1023 )
     v6 = MiSystemPartition;
   else
-    v6 = *(int **)(qword_140326FF8 + 8LL * v5);
+    v6 = *(int **)(qword_140327038 + 8LL * v5);
   if ( v4 == v6 )
     return 0LL;
   if ( v4 != MiSystemPartition )
@@ -74,7 +74,7 @@ __int64 __fastcall MiChargeControlAreaPartition(__int64 *a1, __int64 a2)
   }
   if ( !v13 )
     goto LABEL_34;
-  if ( !(unsigned int)MiGetCrossPartitionCharges(&unk_1403266B8, v13) )
+  if ( !(unsigned int)MiGetCrossPartitionCharges(&unk_1403266F8, v13) )
   {
     if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)(v9 + 40), 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
       ExfTryToWakePushLock(v9 + 40);
@@ -88,7 +88,7 @@ __int64 __fastcall MiChargeControlAreaPartition(__int64 *a1, __int64 a2)
       ExfTryToWakePushLock(v9 + 40);
     KeAbPostRelease(v9 + 40);
     KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);
-    MiReturnCrossPartitionCharges(&unk_1403266B8, v13);
+    MiReturnCrossPartitionCharges(&unk_1403266F8, v13);
     return 3221225773LL;
   }
   if ( (unsigned int)MiChargeResident(v4, v13, 0LL) )
@@ -109,7 +109,7 @@ LABEL_34:
     KeAbPostRelease(v9 + 40);
     KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);
     MiReturnCommit(v4, v13);
-    MiReturnCrossPartitionCharges(&unk_1403266B8, v13);
+    MiReturnCrossPartitionCharges(&unk_1403266F8, v13);
     return 3221225495LL;
   }
 }

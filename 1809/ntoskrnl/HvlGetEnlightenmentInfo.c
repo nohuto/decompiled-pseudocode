@@ -1,11 +1,11 @@
 /*
- * XREFs of HvlGetEnlightenmentInfo @ 0x140273D80
+ * XREFs of HvlGetEnlightenmentInfo @ 0x140273F70
  * Callers:
  *     <none>
  * Callees:
- *     VslGetNestedPageProtectionFlags @ 0x14018DD50 (VslGetNestedPageProtectionFlags.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     VslGetSecurePciEnabled @ 0x14027B3E0 (VslGetSecurePciEnabled.c)
+ *     VslGetNestedPageProtectionFlags @ 0x14018DE90 (VslGetNestedPageProtectionFlags.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     VslGetSecurePciEnabled @ 0x14027B5D0 (VslGetSecurePciEnabled.c)
  */
 
 __int64 __fastcall HvlGetEnlightenmentInfo(_DWORD *a1)

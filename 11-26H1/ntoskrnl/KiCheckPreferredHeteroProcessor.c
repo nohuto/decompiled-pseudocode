@@ -1,23 +1,23 @@
 /*
- * XREFs of KiCheckPreferredHeteroProcessor @ 0x14021EB80
+ * XREFs of KiCheckPreferredHeteroProcessor @ 0x140220510
  * Callers:
- *     KiSendHeteroRescheduleIntRequestHelper @ 0x14021E510 (KiSendHeteroRescheduleIntRequestHelper.c)
- *     KiUpdateRunTime @ 0x14021F420 (KiUpdateRunTime.c)
- *     KeUpdateThreadTag @ 0x1402C4800 (KeUpdateThreadTag.c)
- *     KiQuantumEnd @ 0x140331070 (KiQuantumEnd.c)
+ *     KiSendHeteroRescheduleIntRequestHelper @ 0x14021FEA0 (KiSendHeteroRescheduleIntRequestHelper.c)
+ *     KiUpdateRunTime @ 0x140220DB0 (KiUpdateRunTime.c)
+ *     KeUpdateThreadTag @ 0x14030F4C0 (KeUpdateThreadTag.c)
+ *     KiQuantumEnd @ 0x1403330A0 (KiQuantumEnd.c)
  * Callees:
  *     KiFindBiasedProcessorIndex @ 0x140201890 (KiFindBiasedProcessorIndex.c)
- *     KiGetProcessorClassForPolicy @ 0x140230634 (KiGetProcessorClassForPolicy.c)
- *     KiHeteroScanQueueForPreemptionSwapTarget @ 0x140235418 (KiHeteroScanQueueForPreemptionSwapTarget.c)
- *     Feature_HeteroRescheduleFixes__private_IsEnabledNoReportingNoInline @ 0x14023DE70 (Feature_HeteroRescheduleFixes__private_IsEnabledNoReportingNoInline.c)
- *     KiGenerateHeteroSets @ 0x1404156A0 (KiGenerateHeteroSets.c)
- *     KiHeteroComputeThreadWorkloadProperties @ 0x1404301F0 (KiHeteroComputeThreadWorkloadProperties.c)
- *     KiIsQosGroupingClass @ 0x140458260 (KiIsQosGroupingClass.c)
- *     KiIsQosGroupingActive @ 0x140474CC0 (KiIsQosGroupingActive.c)
- *     KiReduceAffinityToRankListValuesEqualTo @ 0x140486940 (KiReduceAffinityToRankListValuesEqualTo.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     KiGetProcessorClassForPolicy @ 0x140231FC4 (KiGetProcessorClassForPolicy.c)
+ *     KiHeteroScanQueueForPreemptionSwapTarget @ 0x140236D78 (KiHeteroScanQueueForPreemptionSwapTarget.c)
+ *     Feature_HeteroRescheduleFixes__private_IsEnabledNoReportingNoInline @ 0x14023F7D0 (Feature_HeteroRescheduleFixes__private_IsEnabledNoReportingNoInline.c)
+ *     KiGenerateHeteroSets @ 0x140409CD0 (KiGenerateHeteroSets.c)
+ *     KiHeteroComputeThreadWorkloadProperties @ 0x14041D220 (KiHeteroComputeThreadWorkloadProperties.c)
+ *     KiIsQosGroupingClass @ 0x14044FAD0 (KiIsQosGroupingClass.c)
+ *     KiIsQosGroupingActive @ 0x14046E440 (KiIsQosGroupingActive.c)
+ *     KiReduceAffinityToRankListValuesEqualTo @ 0x1404802B8 (KiReduceAffinityToRankListValuesEqualTo.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall KiCheckPreferredHeteroProcessor(__int64 a1, __int64 a2, int a3)
@@ -156,8 +156,7 @@ __int64 __fastcall KiCheckPreferredHeteroProcessor(__int64 a1, __int64 a2, int a
         LOBYTE(v35) = v47;
         _BitScanReverse64(&v39, v33);
         if ( (unsigned __int8)KiGetProcessorClassForPolicy(
-                                KiProcessorBlock[*((unsigned int *)&KiSupervisorXStateFeaturesLock.WaitBlock[2].Thread->Header.Lock
-                                                 + 64 * *(unsigned __int16 *)(v9 + 136)
+                                KiProcessorBlock[*((unsigned int *)&KiSupervisorXStateFeaturesLock.SchedulerApc.ApcListEntry.Flink[16 * *(unsigned __int16 *)(v9 + 136)].Flink
                                                  + (unsigned int)v39)],
                                 v36,
                                 v35) > ProcessorClassForPolicy )

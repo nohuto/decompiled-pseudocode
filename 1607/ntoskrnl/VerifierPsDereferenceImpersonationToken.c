@@ -1,5 +1,5 @@
 /*
- * XREFs of VerifierPsDereferenceImpersonationToken @ 0x14070CC5C
+ * XREFs of VerifierPsDereferenceImpersonationToken @ 0x14070CC8C
  * Callers:
  *     <none>
  * Callees:

@@ -1,26 +1,26 @@
 /*
- * XREFs of ExpRefreshTimeZoneInformation @ 0x14055EB0C
+ * XREFs of ExpRefreshTimeZoneInformation @ 0x14055F04C
  * Callers:
  *     ExpSetSystemTime @ 0x1403D230C (ExpSetSystemTime.c)
- *     ExpRefreshSystemTime @ 0x14055E2B0 (ExpRefreshSystemTime.c)
- *     NtSetSystemTime @ 0x1406AD104 (NtSetSystemTime.c)
+ *     ExpRefreshSystemTime @ 0x14055E7F0 (ExpRefreshSystemTime.c)
+ *     NtSetSystemTime @ 0x1406AD23C (NtSetSystemTime.c)
  *     Phase1InitializationDiscard @ 0x140794438 (Phase1InitializationDiscard.c)
  * Callees:
- *     KiSetTimerEx @ 0x140006E00 (KiSetTimerEx.c)
- *     KeInitializeDpc @ 0x14000D6DC (KeInitializeDpc.c)
- *     ExLocalTimeToSystemTime @ 0x1400A4D0C (ExLocalTimeToSystemTime.c)
- *     RtlTimeFieldsToTime @ 0x1400A4D20 (RtlTimeFieldsToTime.c)
- *     RtlTimeToTimeFields @ 0x1400AADE8 (RtlTimeToTimeFields.c)
- *     KeCancelTimer @ 0x1400C3480 (KeCancelTimer.c)
- *     KeInitializeTimerEx @ 0x1400F0C50 (KeInitializeTimerEx.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     ZwUpdateWnfStateData @ 0x14015D3C0 (ZwUpdateWnfStateData.c)
- *     RtlpQueryTimeZoneInformationWorker @ 0x14049429C (RtlpQueryTimeZoneInformationWorker.c)
- *     RtlCutoverTimeToSystemTime @ 0x14055EFD4 (RtlCutoverTimeToSystemTime.c)
- *     RtlpUpdateDynamicTimeZones @ 0x14055F130 (RtlpUpdateDynamicTimeZones.c)
- *     RtlSetActiveTimeBias @ 0x14055F354 (RtlSetActiveTimeBias.c)
- *     RtlpCheckDynamicTimeZoneInformation @ 0x14055F418 (RtlpCheckDynamicTimeZoneInformation.c)
- *     RtlpSetTimeZoneInformationWorker @ 0x1406885BC (RtlpSetTimeZoneInformationWorker.c)
+ *     KiSetTimerEx @ 0x140006F70 (KiSetTimerEx.c)
+ *     KeInitializeDpc @ 0x14000D25C (KeInitializeDpc.c)
+ *     ExLocalTimeToSystemTime @ 0x1400A3284 (ExLocalTimeToSystemTime.c)
+ *     RtlTimeFieldsToTime @ 0x1400A3298 (RtlTimeFieldsToTime.c)
+ *     RtlTimeToTimeFields @ 0x1400A9368 (RtlTimeToTimeFields.c)
+ *     KeCancelTimer @ 0x1400C1310 (KeCancelTimer.c)
+ *     KeInitializeTimerEx @ 0x1400EEAA0 (KeInitializeTimerEx.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     ZwUpdateWnfStateData @ 0x14015D930 (ZwUpdateWnfStateData.c)
+ *     RtlpQueryTimeZoneInformationWorker @ 0x140494D2C (RtlpQueryTimeZoneInformationWorker.c)
+ *     RtlCutoverTimeToSystemTime @ 0x14055F514 (RtlCutoverTimeToSystemTime.c)
+ *     RtlpUpdateDynamicTimeZones @ 0x14055F670 (RtlpUpdateDynamicTimeZones.c)
+ *     RtlSetActiveTimeBias @ 0x14055F894 (RtlSetActiveTimeBias.c)
+ *     RtlpCheckDynamicTimeZoneInformation @ 0x14055F958 (RtlpCheckDynamicTimeZoneInformation.c)
+ *     RtlpSetTimeZoneInformationWorker @ 0x1406886A0 (RtlpSetTimeZoneInformationWorker.c)
  *     ExInitializeTimeRefresh @ 0x1407AE678 (ExInitializeTimeRefresh.c)
  */
 
@@ -52,16 +52,16 @@ char ExpRefreshTimeZoneInformation()
   __int16 v23; // bx
   char result; // al
   LARGE_INTEGER LocalTime; // [rsp+48h] [rbp-C0h] BYREF
-  unsigned __int64 v26; // [rsp+50h] [rbp-B8h] BYREF
+  unsigned __int64 Buffer; // [rsp+50h] [rbp-B8h] BYREF
   LARGE_INTEGER Time; // [rsp+58h] [rbp-B0h] BYREF
   LARGE_INTEGER v28; // [rsp+60h] [rbp-A8h] BYREF
-  struct _TIME_FIELDS TimeFields; // [rsp+68h] [rbp-A0h] BYREF
+  _TIME_FIELDS TimeFields; // [rsp+68h] [rbp-A0h] BYREF
   LARGE_INTEGER SystemTime; // [rsp+78h] [rbp-90h] BYREF
   LARGE_INTEGER v31; // [rsp+80h] [rbp-88h] BYREF
   char ValueData[68]; // [rsp+88h] [rbp-80h] BYREF
-  struct _TIME_FIELDS CutoverTimeFields; // [rsp+CCh] [rbp-3Ch] BYREF
+  _TIME_FIELDS CutoverTimeFields; // [rsp+CCh] [rbp-3Ch] BYREF
   int v34; // [rsp+DCh] [rbp-2Ch]
-  struct _TIME_FIELDS v35; // [rsp+120h] [rbp+18h] BYREF
+  _TIME_FIELDS v35; // [rsp+120h] [rbp+18h] BYREF
   int v36; // [rsp+130h] [rbp+28h]
   __int16 v37; // [rsp+134h] [rbp+2Ch]
   char v38; // [rsp+234h] [rbp+12Ch]
@@ -155,8 +155,8 @@ LABEL_19:
   ExpCurrentTimeZoneId = v7;
   if ( ExpLastTimeZoneBias != v3 )
   {
-    v26 = 0xFFFFFFFF00000000uLL;
-    ZwUpdateWnfStateData((__int64)&WNF_SEB_TIME_ZONE_CHANGE, (__int64)&v26, 8LL);
+    Buffer = 0xFFFFFFFF00000000uLL;
+    ZwUpdateWnfStateData(&WNF_SEB_TIME_ZONE_CHANGE, &Buffer, 8u, 0LL, 0LL, 0, 0);
     v7 = ExpCurrentTimeZoneId;
   }
   v8 = 3LL;

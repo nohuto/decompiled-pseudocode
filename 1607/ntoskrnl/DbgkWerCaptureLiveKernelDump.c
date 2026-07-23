@@ -1,20 +1,20 @@
 /*
- * XREFs of DbgkWerCaptureLiveKernelDump @ 0x14061BB3C
+ * XREFs of DbgkWerCaptureLiveKernelDump @ 0x14061BBF0
  * Callers:
- *     ExpWorkerThreadBalanceManager @ 0x140566108 (ExpWorkerThreadBalanceManager.c)
- *     PopDeepSleepWatchdogTakeAction @ 0x14067513C (PopDeepSleepWatchdogTakeAction.c)
- *     PopDripsWatchdogTakeAction @ 0x140675208 (PopDripsWatchdogTakeAction.c)
+ *     ExpWorkerThreadBalanceManager @ 0x140566648 (ExpWorkerThreadBalanceManager.c)
+ *     PopDeepSleepWatchdogTakeAction @ 0x140675220 (PopDeepSleepWatchdogTakeAction.c)
+ *     PopDripsWatchdogTakeAction @ 0x1406752EC (PopDripsWatchdogTakeAction.c)
  * Callees:
  *     WerLiveKernelCreateReport_0 @ 0x140001318 (WerLiveKernelCreateReport_0.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     DbgPrintEx @ 0x140081B0C (DbgPrintEx.c)
- *     RtlStringCchCopyW @ 0x140084F38 (RtlStringCchCopyW.c)
- *     RtlStringCchLengthW @ 0x1400C4760 (RtlStringCchLengthW.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     DbgPrintEx @ 0x140084C90 (DbgPrintEx.c)
+ *     RtlStringCchLengthW @ 0x1400C2600 (RtlStringCchLengthW.c)
+ *     RtlStringCchCopyW @ 0x14010B1EC (RtlStringCchCopyW.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     DbgkpWerCleanupContext @ 0x14061C01C (DbgkpWerCleanupContext.c)
- *     DbgkpWerFreePool @ 0x14061C2B4 (DbgkpWerFreePool.c)
- *     DbgkpWerProcessPolicyResult @ 0x14061C4CC (DbgkpWerProcessPolicyResult.c)
+ *     DbgkpWerCleanupContext @ 0x14061C0D0 (DbgkpWerCleanupContext.c)
+ *     DbgkpWerFreePool @ 0x14061C368 (DbgkpWerFreePool.c)
+ *     DbgkpWerProcessPolicyResult @ 0x14061C580 (DbgkpWerProcessPolicyResult.c)
  */
 
 __int64 __fastcall DbgkWerCaptureLiveKernelDump(

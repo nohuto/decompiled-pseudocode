@@ -1,7 +1,7 @@
 /*
- * XREFs of AccelSetDescriptorAddressSpace @ 0x1406DF1A4
+ * XREFs of AccelSetDescriptorAddressSpace @ 0x1406E3444
  * Callers:
- *     SmHwInitializeAccelDescriptor @ 0x14081BA80 (SmHwInitializeAccelDescriptor.c)
+ *     SmHwInitializeAccelDescriptor @ 0x140821C90 (SmHwInitializeAccelDescriptor.c)
  * Callees:
  *     <none>
  */

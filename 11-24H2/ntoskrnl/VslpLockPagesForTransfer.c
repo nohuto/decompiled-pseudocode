@@ -1,55 +1,53 @@
 /*
- * XREFs of VslpLockPagesForTransfer @ 0x140266DCC
+ * XREFs of VslpLockPagesForTransfer @ 0x14025E3AC
  * Callers:
- *     VslValidateSecureImagePages @ 0x140266C70 (VslValidateSecureImagePages.c)
- *     VslIumEfiRuntimeService @ 0x140490F50 (VslIumEfiRuntimeService.c)
- *     VslCreateSecureImageSection @ 0x1404AC6A0 (VslCreateSecureImageSection.c)
- *     VslFillSecureAllocation @ 0x1404AFBF0 (VslFillSecureAllocation.c)
- *     VslAllocatePool @ 0x1404B0800 (VslAllocatePool.c)
- *     VslTransferSecureImageVersionResource @ 0x1404B8FF0 (VslTransferSecureImageVersionResource.c)
- *     VslPrepareSecureImageRelocations @ 0x1404C63A0 (VslPrepareSecureImageRelocations.c)
- *     VslRegisterLogPages @ 0x1404C95C0 (VslRegisterLogPages.c)
- *     VslFinishStartSecureProcessor @ 0x14058CF6C (VslFinishStartSecureProcessor.c)
- *     VslGetEtwDebugId @ 0x14058D0C4 (VslGetEtwDebugId.c)
- *     VslInitializeSecureProcess @ 0x14058D77C (VslInitializeSecureProcess.c)
- *     VslQueryActiveSecurePatches @ 0x14058DA90 (VslQueryActiveSecurePatches.c)
- *     VslQuerySecureKernelProfileInformation @ 0x14058DC54 (VslQuerySecureKernelProfileInformation.c)
- *     VslRegisterSecurePatch @ 0x14058DDCC (VslRegisterSecurePatch.c)
- *     VslRetrieveMailbox @ 0x14058E1C0 (VslRetrieveMailbox.c)
- *     VslSecurePoolAllocate @ 0x14058E2EC (VslSecurePoolAllocate.c)
- *     VslSecurePoolUpdate @ 0x14058E5B4 (VslSecurePoolUpdate.c)
- *     VslCaptureImageHotPatchMetadata @ 0x14058EE90 (VslCaptureImageHotPatchMetadata.c)
- *     VslInitFunctionOverrideCapabilities @ 0x14058F0A8 (VslInitFunctionOverrideCapabilities.c)
- *     VslCapturePgoData @ 0x14070F5D0 (VslCapturePgoData.c)
- *     VslGetOnDemandDebugChallenge @ 0x14070F8C8 (VslGetOnDemandDebugChallenge.c)
- *     VslGetSetSecureContext @ 0x14070F9FC (VslGetSetSecureContext.c)
- *     VslInitializeEnclave @ 0x14070FAD4 (VslInitializeEnclave.c)
- *     VslObtainHotPatchUndoTable @ 0x14070FCC0 (VslObtainHotPatchUndoTable.c)
- *     VslQueryRuntimeAttestationReport @ 0x14070FE70 (VslQueryRuntimeAttestationReport.c)
- *     VslRegisterSyscallProviderServiceTableMetadata @ 0x140710134 (VslRegisterSyscallProviderServiceTableMetadata.c)
- *     VslStartSecureProcessor @ 0x1407103F8 (VslStartSecureProcessor.c)
- *     VslTransformDumpKey @ 0x1407106EC (VslTransformDumpKey.c)
- *     VslReapplyImportOptimizationForDriverVerifier @ 0x1407108B8 (VslReapplyImportOptimizationForDriverVerifier.c)
- *     VslLoadEnclaveModule @ 0x1408DAF58 (VslLoadEnclaveModule.c)
- *     VslDebugReadWriteSecureProcess @ 0x1409AA8A8 (VslDebugReadWriteSecureProcess.c)
- *     VslValidateDynamicCodePages @ 0x140A460AC (VslValidateDynamicCodePages.c)
- *     VslCreateSecureSection @ 0x140A5B480 (VslCreateSecureSection.c)
- *     VslCreateEnclave @ 0x140A850B4 (VslCreateEnclave.c)
- *     VslCaptureSecureImageIat @ 0x140AA0A10 (VslCaptureSecureImageIat.c)
- *     VslRegisterBootDrivers @ 0x140C6397C (VslRegisterBootDrivers.c)
- *     VslConnectSwInterrupt @ 0x140C650B0 (VslConnectSwInterrupt.c)
+ *     VslValidateSecureImagePages @ 0x14025E250 (VslValidateSecureImagePages.c)
+ *     VslIumEfiRuntimeService @ 0x140260670 (VslIumEfiRuntimeService.c)
+ *     VslCreateSecureImageSection @ 0x1404A6C40 (VslCreateSecureImageSection.c)
+ *     VslFillSecureAllocation @ 0x1404AA5E0 (VslFillSecureAllocation.c)
+ *     VslAllocatePool @ 0x1404AB090 (VslAllocatePool.c)
+ *     VslTransferSecureImageVersionResource @ 0x1404B3E90 (VslTransferSecureImageVersionResource.c)
+ *     VslPrepareSecureImageRelocations @ 0x1404BF800 (VslPrepareSecureImageRelocations.c)
+ *     VslRegisterLogPages @ 0x1404C2A70 (VslRegisterLogPages.c)
+ *     VslFinishStartSecureProcessor @ 0x14058A25C (VslFinishStartSecureProcessor.c)
+ *     VslGetEtwDebugId @ 0x14058A3B4 (VslGetEtwDebugId.c)
+ *     VslInitializeSecureProcess @ 0x14058AA6C (VslInitializeSecureProcess.c)
+ *     VslQueryActiveSecurePatches @ 0x14058ADE8 (VslQueryActiveSecurePatches.c)
+ *     VslQuerySecureKernelProfileInformation @ 0x14058AFAC (VslQuerySecureKernelProfileInformation.c)
+ *     VslRegisterSecurePatch @ 0x14058B124 (VslRegisterSecurePatch.c)
+ *     VslRetrieveMailbox @ 0x14058B5D0 (VslRetrieveMailbox.c)
+ *     VslCaptureImageHotPatchMetadata @ 0x14058BEB0 (VslCaptureImageHotPatchMetadata.c)
+ *     VslInitFunctionOverrideCapabilities @ 0x14058C0C8 (VslInitFunctionOverrideCapabilities.c)
+ *     VslCapturePgoData @ 0x14070D160 (VslCapturePgoData.c)
+ *     VslGetOnDemandDebugChallenge @ 0x14070D458 (VslGetOnDemandDebugChallenge.c)
+ *     VslGetSetSecureContext @ 0x14070D58C (VslGetSetSecureContext.c)
+ *     VslInitializeEnclave @ 0x14070D664 (VslInitializeEnclave.c)
+ *     VslObtainHotPatchUndoTable @ 0x14070D850 (VslObtainHotPatchUndoTable.c)
+ *     VslQueryRuntimeAttestationReport @ 0x14070DA00 (VslQueryRuntimeAttestationReport.c)
+ *     VslRegisterSyscallProviderServiceTableMetadata @ 0x14070DCC4 (VslRegisterSyscallProviderServiceTableMetadata.c)
+ *     VslStartSecureProcessor @ 0x14070DF88 (VslStartSecureProcessor.c)
+ *     VslTransformDumpKey @ 0x14070E27C (VslTransformDumpKey.c)
+ *     VslReapplyImportOptimizationForDriverVerifier @ 0x14070E448 (VslReapplyImportOptimizationForDriverVerifier.c)
+ *     VslDebugReadWriteSecureProcess @ 0x140993CB8 (VslDebugReadWriteSecureProcess.c)
+ *     VslLoadEnclaveModule @ 0x140A2A9E8 (VslLoadEnclaveModule.c)
+ *     VslValidateDynamicCodePages @ 0x140A3BD6C (VslValidateDynamicCodePages.c)
+ *     VslCreateSecureSection @ 0x140A52D90 (VslCreateSecureSection.c)
+ *     VslCreateEnclave @ 0x140A7FBF4 (VslCreateEnclave.c)
+ *     VslCaptureSecureImageIat @ 0x140A9BDA0 (VslCaptureSecureImageIat.c)
+ *     VslRegisterBootDrivers @ 0x140C65AF8 (VslRegisterBootDrivers.c)
+ *     VslConnectSwInterrupt @ 0x140C6722C (VslConnectSwInterrupt.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     MmBuildMdlForNonPagedPool @ 0x140263DD0 (MmBuildMdlForNonPagedPool.c)
- *     VslpLockMdlForTransfer @ 0x1402670CC (VslpLockMdlForTransfer.c)
- *     MmUnlockPages @ 0x140267F30 (MmUnlockPages.c)
- *     MmProbeAndLockPages @ 0x140282330 (MmProbeAndLockPages.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     MmProbeAndLockPages @ 0x1402378C0 (MmProbeAndLockPages.c)
+ *     VslpLockMdlForTransfer @ 0x14025E6AC (VslpLockMdlForTransfer.c)
+ *     MmUnlockPages @ 0x14025F510 (MmUnlockPages.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     MmBuildMdlForNonPagedPool @ 0x140293640 (MmBuildMdlForNonPagedPool.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall VslpLockPagesForTransfer(
@@ -104,7 +102,7 @@ LABEL_2:
       }
       else
       {
-        Pool2 = (struct _MDL *)ExAllocatePool2((v9 & 0x20) + 64);
+        Pool2 = (struct _MDL *)ExAllocatePool2((v9 & 0x20) + 64, v11, 0x54736D56u);
         v6 = v22;
         v7 = v21;
         v5 = a4;
@@ -185,7 +183,7 @@ LABEL_32:
   if ( v17 )
   {
     if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&VslpReservedTransferLock, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-      ExfTryToWakePushLock((volatile signed __int64 *)&VslpReservedTransferLock);
+      ExfTryToWakePushLock(&VslpReservedTransferLock);
     KeAbPostRelease((ULONG_PTR)&VslpReservedTransferLock);
     KeLeaveCriticalRegion();
   }

@@ -12,8 +12,8 @@ __int64 ViSetupBTSPerProcNoEnable()
 {
   __int64 v0; // rdi
   unsigned int v1; // ecx
-  struct _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-38h] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+30h] [rbp-28h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-38h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+30h] [rbp-28h] BYREF
 
   v0 = 0LL;
   Affinity = 0LL;

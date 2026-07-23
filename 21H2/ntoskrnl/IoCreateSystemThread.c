@@ -1,14 +1,14 @@
 /*
- * XREFs of IoCreateSystemThread @ 0x14076DE10
+ * XREFs of IoCreateSystemThread @ 0x14076DFD0
  * Callers:
  *     <none>
  * Callees:
- *     IopVerifierExAllocatePool @ 0x14022C9E0 (IopVerifierExAllocatePool.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     ObfReferenceObject @ 0x14034B230 (ObfReferenceObject.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     PsCreateSystemThreadEx @ 0x1406D0190 (PsCreateSystemThreadEx.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     IopVerifierExAllocatePool @ 0x1402336E0 (IopVerifierExAllocatePool.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     ObfReferenceObject @ 0x140355F80 (ObfReferenceObject.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     PsCreateSystemThreadEx @ 0x1406A7470 (PsCreateSystemThreadEx.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IoCreateSystemThread(

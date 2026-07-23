@@ -14,93 +14,94 @@
  *     ZwGetNextThread @ 0x1800A6020 (ZwGetNextThread.c)
  */
 
-__int64 __fastcall PsspCaptureThreadInformation(__int64 a1, __int64 a2, unsigned int a3, unsigned int a4)
+__int64 __fastcall PsspCaptureThreadInformation(__int64 a1, void *a2, unsigned int a3, ULONG a4)
 {
   unsigned int v4; // ebx
-  __int64 *v6; // r14
-  __int64 *v7; // rdi
-  unsigned int v8; // r12d
+  _WORD *v6; // r14
+  _WORD *v7; // rdi
+  ACCESS_MASK v8; // r12d
   unsigned int v9; // r15d
-  int NextThread; // eax
+  NTSTATUS NextThread; // eax
   int v11; // ecx
-  __int64 v12; // rdx
-  int v13; // esi
+  HANDLE v12; // rdx
+  NTSTATUS v13; // esi
   unsigned __int16 v14; // ax
   int v15; // edi
   unsigned __int64 v16; // rcx
-  int v17; // r15d
-  __int64 *v18; // rsi
-  unsigned int v19; // r12d
-  int v20; // eax
-  int v21; // r15d
-  int ExtendedContextLength; // eax
-  int v24; // [rsp+28h] [rbp-69h]
-  __int64 v25; // [rsp+58h] [rbp-39h] BYREF
-  __int64 v26; // [rsp+60h] [rbp-31h] BYREF
-  __int64 *v27; // [rsp+68h] [rbp-29h] BYREF
-  __int64 v28; // [rsp+70h] [rbp-21h] BYREF
-  __int64 v29; // [rsp+78h] [rbp-19h] BYREF
-  HANDLE Handle; // [rsp+80h] [rbp-11h] BYREF
-  int v31; // [rsp+88h] [rbp-9h]
-  __int64 v32; // [rsp+90h] [rbp-1h] BYREF
-  int v33; // [rsp+98h] [rbp+7h]
-  __int64 v34; // [rsp+9Ch] [rbp+Bh]
-  _QWORD v35[8]; // [rsp+A8h] [rbp+17h] BYREF
+  PVOID v17; // rdx
+  int v18; // r15d
+  _WORD *v19; // rsi
+  unsigned int v20; // r12d
+  int v21; // eax
+  NTSTATUS v22; // r15d
+  NTSTATUS ExtendedContextLength; // eax
+  int Flags; // [rsp+28h] [rbp-69h]
+  ULONG_PTR RegionSize; // [rsp+58h] [rbp-39h] BYREF
+  HANDLE ThreadHandle; // [rsp+60h] [rbp-31h] BYREF
+  PVOID BaseAddress; // [rsp+68h] [rbp-29h] BYREF
+  HANDLE NewThreadHandle; // [rsp+70h] [rbp-21h] BYREF
+  PVOID v30; // [rsp+78h] [rbp-19h] BYREF
+  HANDLE SectionHandle; // [rsp+80h] [rbp-11h] BYREF
+  int v32; // [rsp+88h] [rbp-9h]
+  int v33[2]; // [rsp+90h] [rbp-1h] BYREF
+  int v34; // [rsp+98h] [rbp+7h]
+  __int64 v35; // [rsp+9Ch] [rbp+Bh]
+  LARGE_INTEGER MaximumSize; // [rsp+A8h] [rbp+17h] BYREF
 
   v4 = 0;
-  v31 = a3 & 0x100;
+  v32 = a3 & 0x100;
   v6 = 0LL;
   v7 = 0LL;
-  v8 = (a3 >> 7) & 8 | (v31 != 0 ? 72 : 64);
+  v8 = (a3 >> 7) & 8 | (v32 != 0 ? 72 : 64);
   v9 = 0;
-  NextThread = ZwGetNextThread(a2, 0LL, v8, 0LL, 0, &v28);
+  NextThread = ZwGetNextThread(a2, 0LL, v8, 0, 0, &NewThreadHandle);
   if ( NextThread != -2147483622 )
   {
     while ( 1 )
     {
-      v11 = v28;
-      v26 = v28;
-      v12 = v28;
+      v11 = (int)NewThreadHandle;
+      ThreadHandle = NewThreadHandle;
+      v12 = NewThreadHandle;
       if ( NextThread < 0 )
         break;
-      if ( !v7 || (v14 = *((_WORD *)v7 + 5), v14 >= *((_WORD *)v7 + 4)) )
+      if ( !v7 || (v14 = v7[5], v14 >= v7[4]) )
       {
-        v25 = 1LL;
-        v27 = 0LL;
-        v13 = ZwAllocateVirtualMemory(-1LL, &v27, 0LL, &v25, 4096, 4);
+        RegionSize = 1LL;
+        BaseAddress = 0LL;
+        v13 = ZwAllocateVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, 0LL, &RegionSize, 0x1000u, 4u);
         if ( v13 < 0 )
           goto LABEL_35;
         if ( v6 )
         {
-          *v7 = (__int64)v27;
-          v7 = v27;
+          *(_QWORD *)v7 = BaseAddress;
+          v7 = BaseAddress;
         }
         else
         {
-          v7 = v27;
-          v6 = v27;
+          v7 = BaseAddress;
+          v6 = BaseAddress;
         }
-        v12 = v26;
-        *((_WORD *)v7 + 4) = (unsigned __int64)(v25 - 16) >> 2;
+        v12 = ThreadHandle;
+        v7[4] = (RegionSize - 16) >> 2;
         v14 = 0;
-        *((_WORD *)v7 + 5) = 0;
-        v11 = v28;
+        v7[5] = 0;
+        v11 = (int)NewThreadHandle;
       }
       ++v9;
-      *((_DWORD *)v7 + v14 + 3) = v11;
-      ++*((_WORD *)v7 + 5);
-      NextThread = ZwGetNextThread(a2, v12, v8, 0LL, 0, &v28);
+      *(_DWORD *)&v7[2 * v14 + 6] = v11;
+      ++v7[5];
+      NextThread = ZwGetNextThread(a2, v12, v8, 0, 0, &NewThreadHandle);
       if ( NextThread == -2147483622 )
       {
         if ( !v9 )
           return 0LL;
         v15 = 0;
-        LODWORD(v26) = 0;
-        if ( v31 )
+        LODWORD(ThreadHandle) = 0;
+        if ( v32 )
         {
           if ( (a3 & 0x200) == 0
-            || (ExtendedContextLength = RtlGetExtendedContextLength(a4, (__int64)&v26),
-                v15 = v26,
+            || (ExtendedContextLength = RtlGetExtendedContextLength(a4, (PULONG)&ThreadHandle),
+                v15 = (int)ThreadHandle,
                 ExtendedContextLength < 0) )
           {
             v15 = 1232;
@@ -114,62 +115,81 @@ __int64 __fastcall PsspCaptureThreadInformation(__int64 a1, __int64 a2, unsigned
         }
         else
         {
-          v35[0] = (unsigned int)v16;
-          v13 = NtCreateSection(&Handle, 983047LL, &unk_180131F88, v35, 4, 0x8000000, 0LL);
+          MaximumSize.QuadPart = (unsigned int)v16;
+          v13 = NtCreateSection(
+                  &SectionHandle,
+                  0xF0007u,
+                  (POBJECT_ATTRIBUTES)&ObjectAttributes,
+                  &MaximumSize,
+                  4u,
+                  0x8000000u,
+                  0LL);
           if ( v13 >= 0 )
           {
-            v29 = 0LL;
-            v25 = 0LL;
-            v13 = ZwMapViewOfSection(Handle, -1LL, &v29, 0LL, 0LL, 0LL, &v25, 1, 0, 4);
+            v30 = 0LL;
+            RegionSize = 0LL;
+            v13 = ZwMapViewOfSection(
+                    SectionHandle,
+                    (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+                    &v30,
+                    0LL,
+                    0LL,
+                    0LL,
+                    &RegionSize,
+                    ViewShare,
+                    0,
+                    4u);
             if ( v13 >= 0 )
             {
-              v17 = 0;
-              v18 = v6;
-              v32 = v29;
-              v33 = v25;
-              v34 = 0LL;
+              v17 = v30;
+              v18 = 0;
+              v19 = v6;
+              *(_QWORD *)v33 = v30;
+              v34 = RegionSize;
+              v35 = 0LL;
               if ( v6 )
               {
                 do
                 {
-                  v19 = 0;
-                  if ( *((_WORD *)v18 + 5) )
+                  v20 = 0;
+                  if ( v19[5] )
                   {
                     do
                     {
-                      v28 = *((unsigned int *)v18 + v19 + 3);
-                      v20 = PsspDumpThread((unsigned int)&v32, a3, a4, v15, v24, v28);
-                      v21 = v20;
-                      if ( v20 == -1073741789 )
+                      NewThreadHandle = (HANDLE)*(unsigned int *)&v19[2 * v20 + 6];
+                      v21 = PsspDumpThread((int)v33, a3, a4, v15, Flags, NewThreadHandle);
+                      v22 = v21;
+                      if ( v21 == -1073741789 )
                         break;
-                      if ( v20 < 0 )
+                      if ( v21 < 0 )
                       {
-                        NtUnmapViewOfSection(-1LL);
-                        NtClose(Handle);
-                        v13 = v21;
+                        NtUnmapViewOfSection((HANDLE)0xFFFFFFFFFFFFFFFFLL, v30);
+                        NtClose(SectionHandle);
+                        v13 = v22;
                         goto LABEL_35;
                       }
-                      ++v19;
+                      ++v20;
                     }
-                    while ( v19 < *((unsigned __int16 *)v18 + 5) );
-                    if ( v20 < 0 )
+                    while ( v20 < (unsigned __int16)v19[5] );
+                    if ( v21 < 0 )
                       break;
                   }
-                  v18 = (__int64 *)*v18;
+                  v19 = *(_WORD **)v19;
                 }
-                while ( v18 );
-                v17 = HIDWORD(v34);
-                v4 = v34;
+                while ( v19 );
+                v17 = v30;
+                v18 = HIDWORD(v35);
+                v4 = v35;
               }
-              NtUnmapViewOfSection(-1LL);
+              NtUnmapViewOfSection((HANDLE)0xFFFFFFFFFFFFFFFFLL, v17);
               PsspFreeLinkedHandleList(v6);
               *(_QWORD *)(a1 + 1000) = v4;
-              *(_QWORD *)(a1 + 1008) = Handle;
-              *(_DWORD *)(a1 + 992) = v17;
+              *(_QWORD *)(a1 + 1008) = SectionHandle;
+              *(_DWORD *)(a1 + 992) = v18;
               *(_QWORD *)(a1 + 1016) = MEMORY[0x7FFE0014];
               return 0LL;
             }
-            NtClose(Handle);
+            NtClose(SectionHandle);
           }
         }
 LABEL_35:

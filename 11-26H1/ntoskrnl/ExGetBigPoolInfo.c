@@ -1,16 +1,16 @@
 /*
- * XREFs of ExGetBigPoolInfo @ 0x1403460C8
+ * XREFs of ExGetBigPoolInfo @ 0x140348148
  * Callers:
- *     EtwpPoolRunDown @ 0x14082F9B8 (EtwpPoolRunDown.c)
- *     ExpQuerySystemInformation @ 0x140B145DC (ExpQuerySystemInformation.c)
+ *     EtwpPoolRunDown @ 0x140835BF8 (EtwpPoolRunDown.c)
+ *     ExpQuerySystemInformation @ 0x140B169CC (ExpQuerySystemInformation.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     ExAllocateHeapPages @ 0x140346060 (ExAllocateHeapPages.c)
- *     ExFreeHeapPages @ 0x140346358 (ExFreeHeapPages.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     RtlWriteULong64ToUser @ 0x14077F758 (RtlWriteULong64ToUser.c)
- *     RtlWriteULongToUser @ 0x14077F7A0 (RtlWriteULongToUser.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     ExAllocateHeapPages @ 0x1403480E0 (ExAllocateHeapPages.c)
+ *     ExFreeHeapPages @ 0x1403483D8 (ExFreeHeapPages.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     RtlWriteULong64ToUser @ 0x140782258 (RtlWriteULong64ToUser.c)
+ *     RtlWriteULongToUser @ 0x1407822A0 (RtlWriteULongToUser.c)
  */
 
 __int64 __fastcall ExGetBigPoolInfo(int a1, unsigned int *a2, unsigned int a3, unsigned int *a4, char a5)
@@ -21,7 +21,7 @@ __int64 __fastcall ExGetBigPoolInfo(int a1, unsigned int *a2, unsigned int a3, u
   _QWORD *v9; // r12
   KIRQL v10; // al
   KIRQL v11; // si
-  void *SListFaultAddress; // rdi
+  __int64 v12; // rdi
   __int64 v13; // rdi
   char *v14; // rsi
   char *v15; // rax
@@ -31,7 +31,7 @@ __int64 __fastcall ExGetBigPoolInfo(int a1, unsigned int *a2, unsigned int a3, u
   unsigned int *v19; // rcx
   _QWORD *v20; // rcx
   __int64 v22; // rcx
-  void *v24; // [rsp+A8h] [rbp+10h]
+  unsigned __int64 v24; // [rsp+A8h] [rbp+10h]
   char *v25; // [rsp+A8h] [rbp+10h]
 
   HeapPages = 0LL;
@@ -48,30 +48,30 @@ __int64 __fastcall ExGetBigPoolInfo(int a1, unsigned int *a2, unsigned int a3, u
   }
   while ( 1 )
   {
-    v10 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)&stru_140EFEF90.Header.WaitListHead.Flink + 1);
+    v10 = ExAcquireSpinLockExclusive(&ExpLargePoolTableLock);
     v11 = v10;
-    SListFaultAddress = stru_140EFEF90.SListFaultAddress;
-    if ( !stru_140EFEF90.StackLimit )
+    v12 = PoolBigPageTableSize;
+    if ( !PoolBigPageTable )
     {
-      ExReleaseSpinLockExclusive((PEX_SPIN_LOCK)&stru_140EFEF90.Header.WaitListHead.Flink + 1, v10);
+      ExReleaseSpinLockExclusive(&ExpLargePoolTableLock, v10);
       if ( HeapPages )
         ExFreeHeapPages((ULONG_PTR)HeapPages);
       *a4 = 0;
       return 0LL;
     }
-    if ( HeapPages && v24 >= stru_140EFEF90.SListFaultAddress )
+    if ( HeapPages && v24 >= PoolBigPageTableSize )
       break;
-    v24 = stru_140EFEF90.SListFaultAddress;
-    ExReleaseSpinLockExclusive((PEX_SPIN_LOCK)&stru_140EFEF90.Header.WaitListHead.Flink + 1, v10);
+    v24 = PoolBigPageTableSize;
+    ExReleaseSpinLockExclusive(&ExpLargePoolTableLock, v10);
     if ( HeapPages )
       ExFreeHeapPages((ULONG_PTR)HeapPages);
-    HeapPages = (char *)ExAllocateHeapPages(v22, 32LL * (_QWORD)SListFaultAddress);
+    HeapPages = (char *)ExAllocateHeapPages(v22, 32 * v12);
     if ( !HeapPages )
       return 3221225626LL;
   }
-  v13 = 32 * (__int64)stru_140EFEF90.SListFaultAddress;
-  memmove(HeapPages, stru_140EFEF90.StackLimit, 32 * (__int64)stru_140EFEF90.SListFaultAddress);
-  ExReleaseSpinLockExclusive((PEX_SPIN_LOCK)&stru_140EFEF90.Header.WaitListHead.Flink + 1, v11);
+  v13 = 32 * PoolBigPageTableSize;
+  memmove(HeapPages, PoolBigPageTable, 32 * PoolBigPageTableSize);
+  ExReleaseSpinLockExclusive(&ExpLargePoolTableLock, v11);
   v14 = HeapPages;
   v15 = &HeapPages[v13];
   v25 = &HeapPages[v13];

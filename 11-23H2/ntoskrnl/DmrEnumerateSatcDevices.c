@@ -1,11 +1,11 @@
 /*
- * XREFs of DmrEnumerateSatcDevices @ 0x14037EFA0
+ * XREFs of DmrEnumerateSatcDevices @ 0x14037F140
  * Callers:
- *     HalpIvtProcessDmarTable @ 0x14037EF08 (HalpIvtProcessDmarTable.c)
+ *     HalpIvtProcessDmarTable @ 0x14037F0A8 (HalpIvtProcessDmarTable.c)
  * Callees:
- *     DmrGetNextRemappingStructure @ 0x14037F34C (DmrGetNextRemappingStructure.c)
- *     DmrGetNextDeviceScope @ 0x14037F470 (DmrGetNextDeviceScope.c)
- *     ExtEnvAllocateMemory @ 0x14037FC68 (ExtEnvAllocateMemory.c)
+ *     DmrGetNextRemappingStructure @ 0x14037F4EC (DmrGetNextRemappingStructure.c)
+ *     DmrGetNextDeviceScope @ 0x14037F610 (DmrGetNextDeviceScope.c)
+ *     ExtEnvAllocateMemory @ 0x14037FE08 (ExtEnvAllocateMemory.c)
  */
 
 __int64 __fastcall DmrEnumerateSatcDevices(__int64 a1, __int64 a2)

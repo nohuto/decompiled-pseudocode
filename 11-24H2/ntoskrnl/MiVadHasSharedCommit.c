@@ -1,10 +1,10 @@
 /*
- * XREFs of MiVadHasSharedCommit @ 0x1409C29F4
+ * XREFs of MiVadHasSharedCommit @ 0x140A47B8C
  * Callers:
- *     MiDeletePartialCloneVads @ 0x1408003E4 (MiDeletePartialCloneVads.c)
- *     MiAllocateChildVads @ 0x1409C2580 (MiAllocateChildVads.c)
+ *     MiDeletePartialCloneVads @ 0x140800B24 (MiDeletePartialCloneVads.c)
+ *     MiAllocateChildVads @ 0x140A47718 (MiAllocateChildVads.c)
  * Callees:
- *     MiIncludeSharedCommit @ 0x14041FB70 (MiIncludeSharedCommit.c)
+ *     MiIncludeSharedCommit @ 0x1404152F0 (MiIncludeSharedCommit.c)
  */
 
 __int64 __fastcall MiVadHasSharedCommit(__int64 a1)

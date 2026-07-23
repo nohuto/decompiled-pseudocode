@@ -1,7 +1,7 @@
 /*
- * XREFs of ExpLicensingDescriptorCompare @ 0x1404971A0
+ * XREFs of ExpLicensingDescriptorCompare @ 0x140497C30
  * Callers:
- *     ExUpdateLicenseDataInternal @ 0x140496474 (ExUpdateLicenseDataInternal.c)
+ *     ExUpdateLicenseDataInternal @ 0x140496F04 (ExUpdateLicenseDataInternal.c)
  * Callees:
  *     <none>
  */

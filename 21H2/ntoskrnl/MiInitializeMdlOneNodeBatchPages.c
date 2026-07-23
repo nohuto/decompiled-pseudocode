@@ -1,18 +1,18 @@
 /*
- * XREFs of MiInitializeMdlOneNodeBatchPages @ 0x1402E3D24
+ * XREFs of MiInitializeMdlOneNodeBatchPages @ 0x140295074
  * Callers:
- *     MiInitializeMdlBatchPages @ 0x1402E38E4 (MiInitializeMdlBatchPages.c)
+ *     MiInitializeMdlBatchPages @ 0x140294C34 (MiInitializeMdlBatchPages.c)
  * Callees:
- *     MiPfnZeroingNeeded @ 0x140238B60 (MiPfnZeroingNeeded.c)
- *     MiZeroAndConvertPage @ 0x1402B70D0 (MiZeroAndConvertPage.c)
- *     MiCreateColorAnchors @ 0x1402E2394 (MiCreateColorAnchors.c)
- *     MiZeroInParallel @ 0x1402E2D60 (MiZeroInParallel.c)
- *     MiPageAttributeBatchChangeNeeded @ 0x1402E3FE0 (MiPageAttributeBatchChangeNeeded.c)
- *     MiInsertMdlPageNeedsZero @ 0x1402E4048 (MiInsertMdlPageNeedsZero.c)
- *     MiDeleteColorAnchors @ 0x1402E40AC (MiDeleteColorAnchors.c)
- *     MiChangePageAttributeBatch @ 0x1403035A0 (MiChangePageAttributeBatch.c)
- *     MiSearchNumaNodeTable @ 0x14032B790 (MiSearchNumaNodeTable.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     MiZeroAndConvertPage @ 0x1402352B0 (MiZeroAndConvertPage.c)
+ *     MiCreateColorAnchors @ 0x1402936E4 (MiCreateColorAnchors.c)
+ *     MiZeroInParallel @ 0x1402940B0 (MiZeroInParallel.c)
+ *     MiPageAttributeBatchChangeNeeded @ 0x140295330 (MiPageAttributeBatchChangeNeeded.c)
+ *     MiInsertMdlPageNeedsZero @ 0x140295398 (MiInsertMdlPageNeedsZero.c)
+ *     MiDeleteColorAnchors @ 0x1402953FC (MiDeleteColorAnchors.c)
+ *     MiPfnZeroingNeeded @ 0x1402DD3B0 (MiPfnZeroingNeeded.c)
+ *     MiChangePageAttributeBatch @ 0x14030E2F0 (MiChangePageAttributeBatch.c)
+ *     MiSearchNumaNodeTable @ 0x1403364E0 (MiSearchNumaNodeTable.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall MiInitializeMdlOneNodeBatchPages(__int64 a1, _QWORD *a2, __int64 a3)
@@ -65,7 +65,7 @@ __int64 __fastcall MiInitializeMdlOneNodeBatchPages(__int64 a1, _QWORD *a2, __in
   {
     v12 = 0;
     v13 = v10 + 48LL * *v4;
-    if ( v11 || !MiPfnZeroingNeeded(v10 + 48LL * *v4, v3) )
+    if ( v11 || !(unsigned int)MiPfnZeroingNeeded(v10 + 48LL * *v4, (unsigned int)v3) )
     {
       if ( *(unsigned __int8 *)(v13 + 34) >> 6 == (_DWORD)v3 )
         goto LABEL_5;
@@ -102,7 +102,7 @@ LABEL_15:
       }
       else if ( (unsigned int)MiPageAttributeBatchChangeNeeded(v13) == 1 )
       {
-        if ( !v12 || dword_140C4DF98[4 * ((unsigned __int64)*(unsigned __int8 *)(v13 + 34) >> 6) + v3] == (_DWORD)v3 )
+        if ( !v12 || dword_140C4DFD8[4 * ((unsigned __int64)*(unsigned __int8 *)(v13 + 34) >> 6) + v3] == (_DWORD)v3 )
         {
           *(_QWORD *)(v13 + 16) = v8;
           v8 = v13;

@@ -1,10 +1,10 @@
 /*
- * XREFs of MiWow64SetApiSetMap @ 0x140B27AF4
+ * XREFs of MiWow64SetApiSetMap @ 0x140B29784
  * Callers:
- *     MmMapApiSetView @ 0x140863ED4 (MmMapApiSetView.c)
+ *     MmMapApiSetView @ 0x14086A2B4 (MmMapApiSetView.c)
  * Callees:
- *     RtlWriteULong64ToUser @ 0x14077F758 (RtlWriteULong64ToUser.c)
- *     RtlWriteULongToUser @ 0x14077F7A0 (RtlWriteULongToUser.c)
+ *     RtlWriteULong64ToUser @ 0x140782258 (RtlWriteULong64ToUser.c)
+ *     RtlWriteULongToUser @ 0x1407822A0 (RtlWriteULongToUser.c)
  */
 
 void __fastcall MiWow64SetApiSetMap(__int64 a1, __int64 a2)

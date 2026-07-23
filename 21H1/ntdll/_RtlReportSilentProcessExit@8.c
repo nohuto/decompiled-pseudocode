@@ -15,7 +15,7 @@
  *     _WerpProcessId@4 @ 0x4B33B2CF (_WerpProcessId@4.c)
  */
 
-int __stdcall RtlReportSilentProcessExit(int a1, int a2)
+NTSTATUS __cdecl RtlReportSilentProcessExit(HANDLE ProcessHandle, NTSTATUS ExitStatus)
 {
   int v3; // esi
   void *UniqueProcess; // edi
@@ -25,42 +25,48 @@ int __stdcall RtlReportSilentProcessExit(int a1, int a2)
   unsigned int NtGlobalFlag; // eax
   int v9; // eax
   void *v10; // edi
-  int v11; // eax
-  HANDLE v12; // [esp+Ch] [ebp-ADCh] BYREF
-  _DWORD v13[346]; // [esp+10h] [ebp-AD8h] BYREF
-  _DWORD v14[347]; // [esp+578h] [ebp-570h] BYREF
+  NTSTATUS v11; // eax
+  size_t v12; // [esp-4h] [ebp-AECh]
+  size_t v13; // [esp-4h] [ebp-AECh]
+  size_t v14; // [esp-4h] [ebp-AECh]
+  HANDLE StackCookie; // [esp+Ch] [ebp-ADCh] BYREF
+  _DWORD StackCookie_4[346]; // [esp+10h] [ebp-AD8h] BYREF
+  _DWORD v17[347]; // [esp+578h] [ebp-570h] BYREF
 
-  memset(v14, 0, 0x568u);
-  memset(v13, 0, sizeof(v13));
-  v12 = 0;
-  if ( !a1 )
+  LODWORD(v12) = 1384;
+  memset(v17, 0, v12);
+  LODWORD(v13) = 1384;
+  memset(StackCookie_4, 0, v13);
+  StackCookie = 0;
+  if ( !ProcessHandle )
     return -1073741811;
-  if ( a1 == -1 && (NtCurrentPeb()->NtGlobalFlag & 0x200) == 0 )
+  if ( ProcessHandle == (HANDLE)-1 && (NtCurrentPeb()->NtGlobalFlag & 0x200) == 0 )
     return 0;
-  v3 = ZwDuplicateObject(-1, a1, -1, &v12, 4096, 0, 0);
+  v3 = ZwDuplicateObject((HANDLE)0xFFFFFFFF, ProcessHandle, (HANDLE)0xFFFFFFFF, &StackCookie, 0x1000u, 0, 0);
   if ( v3 < 0 )
     goto LABEL_27;
   UniqueProcess = NtCurrentTeb()->ClientId.UniqueProcess;
   UniqueThread = NtCurrentTeb()->ClientId.UniqueThread;
-  v6 = WerpProcessId(v12);
+  v6 = WerpProcessId(StackCookie);
   v7 = v6;
   if ( !UniqueProcess || !UniqueThread || !v6 )
     return -1073741811;
   if ( UniqueProcess == (void *)v6 )
     NtGlobalFlag = NtCurrentPeb()->NtGlobalFlag;
   else
-    LOWORD(NtGlobalFlag) = WerpGlobalFlagsForProcess(v12);
+    LOWORD(NtGlobalFlag) = WerpGlobalFlagsForProcess(StackCookie);
   if ( (NtGlobalFlag & 0x200) != 0 )
   {
-    v14[11] = a2;
-    v14[0] = 90703184;
-    v14[6] = 805306368;
-    v14[8] = UniqueThread;
-    v14[9] = UniqueProcess;
-    v14[10] = v7;
-    memset(&v13[1], 0, 0x564u);
-    v13[0] = 90703184;
-    v9 = SendMessageToWERService(v14, v13);
+    LODWORD(v14) = 1380;
+    v17[11] = ExitStatus;
+    v17[0] = 90703184;
+    v17[6] = 805306368;
+    v17[8] = UniqueThread;
+    v17[9] = UniqueProcess;
+    v17[10] = v7;
+    memset(&StackCookie_4[1], 0, v14);
+    StackCookie_4[0] = 90703184;
+    v9 = SendMessageToWERService(v17, StackCookie_4);
     if ( v9 >= 0 )
     {
       if ( v9 == 258 )
@@ -69,10 +75,10 @@ int __stdcall RtlReportSilentProcessExit(int a1, int a2)
       }
       else
       {
-        v10 = (void *)v13[8];
+        v10 = (void *)StackCookie_4[8];
         while ( 1 )
         {
-          v11 = ZwWaitForSingleObject(v10, 1, 0);
+          v11 = ZwWaitForSingleObject(v10, 1u, 0);
           v3 = v11;
           if ( v11 == 258 || v11 < 0 )
             break;
@@ -96,7 +102,7 @@ int __stdcall RtlReportSilentProcessExit(int a1, int a2)
     v3 = 0;
   }
 LABEL_27:
-  if ( v12 )
-    NtClose(v12);
+  if ( StackCookie )
+    NtClose(StackCookie);
   return v3;
 }

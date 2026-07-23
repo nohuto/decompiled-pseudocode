@@ -1,31 +1,31 @@
 /*
- * XREFs of CmpIsKeyDeletedForKeyBody @ 0x1406FC600
+ * XREFs of CmpIsKeyDeletedForKeyBody @ 0x1407139E0
  * Callers:
  *     CmQueryLayeredKey @ 0x140200A78 (CmQueryLayeredKey.c)
- *     CmpLoadKeyCommon @ 0x14036195C (CmpLoadKeyCommon.c)
- *     CmDeleteLayeredKey @ 0x1404ED078 (CmDeleteLayeredKey.c)
- *     CmpCheckKeyBodyAccess @ 0x1405D961C (CmpCheckKeyBodyAccess.c)
- *     CmEnumerateValueKey @ 0x1405F4EF0 (CmEnumerateValueKey.c)
- *     CmQueryKey @ 0x1405F5810 (CmQueryKey.c)
- *     CmQueryValueKey @ 0x1405F7700 (CmQueryValueKey.c)
- *     NtNotifyChangeMultipleKeys @ 0x140663230 (NtNotifyChangeMultipleKeys.c)
- *     CmSetValueKey @ 0x1406646C0 (CmSetValueKey.c)
- *     CmDeleteValueKey @ 0x140666544 (CmDeleteValueKey.c)
- *     CmQueryMultipleValueKey @ 0x140669674 (CmQueryMultipleValueKey.c)
- *     CmpCloseKeyObject @ 0x14066AF80 (CmpCloseKeyObject.c)
- *     CmDeleteKey @ 0x14066B9F4 (CmDeleteKey.c)
- *     CmKeyBodyNeedsVirtualImage @ 0x1406C3180 (CmKeyBodyNeedsVirtualImage.c)
- *     CmpDoParseKey @ 0x1406F9170 (CmpDoParseKey.c)
- *     CmEnumerateValueFromLayeredKey @ 0x14086C260 (CmEnumerateValueFromLayeredKey.c)
- *     CmpIsHiveAlreadyLoaded @ 0x14086E5DC (CmpIsHiveAlreadyLoaded.c)
- *     CmpResolveHiveLoadConflict @ 0x14086E724 (CmpResolveHiveLoadConflict.c)
- *     CmEnumerateValueKeyFromMergedView @ 0x14086F410 (CmEnumerateValueKeyFromMergedView.c)
- *     CmRestoreKey @ 0x14087BF30 (CmRestoreKey.c)
- *     CmSaveMergedKeys @ 0x14087CA90 (CmSaveMergedKeys.c)
- *     CmpLoadHiveVolatile @ 0x14087CF5C (CmpLoadHiveVolatile.c)
+ *     CmpLoadKeyCommon @ 0x14026D10C (CmpLoadKeyCommon.c)
+ *     CmDeleteLayeredKey @ 0x1404ED2B8 (CmDeleteLayeredKey.c)
+ *     CmpCheckKeyBodyAccess @ 0x1405EA3A4 (CmpCheckKeyBodyAccess.c)
+ *     CmKeyBodyNeedsVirtualImage @ 0x140621E0C (CmKeyBodyNeedsVirtualImage.c)
+ *     NtNotifyChangeMultipleKeys @ 0x140658050 (NtNotifyChangeMultipleKeys.c)
+ *     CmSetValueKey @ 0x1406594E0 (CmSetValueKey.c)
+ *     CmDeleteValueKey @ 0x14065B364 (CmDeleteValueKey.c)
+ *     CmQueryMultipleValueKey @ 0x14065E494 (CmQueryMultipleValueKey.c)
+ *     CmpCloseKeyObject @ 0x14065FDA0 (CmpCloseKeyObject.c)
+ *     CmDeleteKey @ 0x140660814 (CmDeleteKey.c)
+ *     CmEnumerateValueKey @ 0x1406E4650 (CmEnumerateValueKey.c)
+ *     CmQueryKey @ 0x1406E4F70 (CmQueryKey.c)
+ *     CmQueryValueKey @ 0x1406E6E60 (CmQueryValueKey.c)
+ *     CmpDoParseKey @ 0x140710550 (CmpDoParseKey.c)
+ *     CmEnumerateValueFromLayeredKey @ 0x14086C3C0 (CmEnumerateValueFromLayeredKey.c)
+ *     CmpIsHiveAlreadyLoaded @ 0x14086E73C (CmpIsHiveAlreadyLoaded.c)
+ *     CmpResolveHiveLoadConflict @ 0x14086E884 (CmpResolveHiveLoadConflict.c)
+ *     CmEnumerateValueKeyFromMergedView @ 0x14086F570 (CmEnumerateValueKeyFromMergedView.c)
+ *     CmRestoreKey @ 0x14087C090 (CmRestoreKey.c)
+ *     CmSaveMergedKeys @ 0x14087CBF0 (CmSaveMergedKeys.c)
+ *     CmpLoadHiveVolatile @ 0x14087D0BC (CmpLoadHiveVolatile.c)
  * Callees:
- *     CmListGetNextElement @ 0x1406A3CF4 (CmListGetNextElement.c)
- *     CmEqualTrans @ 0x14071D970 (CmEqualTrans.c)
+ *     CmListGetNextElement @ 0x1405E17C4 (CmListGetNextElement.c)
+ *     CmEqualTrans @ 0x14066440C (CmEqualTrans.c)
  */
 
 char __fastcall CmpIsKeyDeletedForKeyBody(__int64 a1, __int64 a2)
@@ -56,7 +56,7 @@ char __fastcall CmpIsKeyDeletedForKeyBody(__int64 a1, __int64 a2)
     NextElement = CmListGetNextElement(v7, &v10, 32);
   }
   while ( NextElement );
-  if ( (unsigned __int8)CmEqualTrans(*((_QWORD *)NextElement + 7), v6) )
+  if ( CmEqualTrans(*((_QWORD *)NextElement + 7), v6) )
 LABEL_9:
     LOBYTE(NextElement) = 1;
   else

@@ -1,13 +1,13 @@
 /*
- * XREFs of VslpIumInitializeTelemetry @ 0x1409DE60C
+ * XREFs of VslpIumInitializeTelemetry @ 0x1409DF60C
  * Callers:
- *     VslpIumPhase4Initialize @ 0x140193010 (VslpIumPhase4Initialize.c)
+ *     VslpIumPhase4Initialize @ 0x140193150 (VslpIumPhase4Initialize.c)
  * Callees:
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     EtwUnregister @ 0x140707370 (EtwUnregister.c)
- *     TraceLoggingRegisterEx @ 0x14071DC38 (TraceLoggingRegisterEx.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     EtwUnregister @ 0x140708610 (EtwUnregister.c)
+ *     TraceLoggingRegisterEx @ 0x14071EED8 (TraceLoggingRegisterEx.c)
  */
 
 char VslpIumInitializeTelemetry()
@@ -29,12 +29,12 @@ char VslpIumInitializeTelemetry()
   int v14; // [rsp+88h] [rbp+3Fh]
   int v15; // [rsp+8Ch] [rbp+43h]
 
-  result = TraceLoggingRegisterEx(&stru_140400A40, 0LL, 0LL);
+  result = TraceLoggingRegisterEx(&stru_140401A40, 0LL, 0LL);
   if ( (*(_DWORD *)(KeLoaderBlock_0 + 264) & 1) != 0 )
   {
-    if ( stru_140400A40.LevelPlus1 <= 5 )
+    if ( stru_140401A40.LevelPlus1 <= 5 )
       goto LABEL_5;
-    result = TlgKeywordOn(&stru_140400A40, 0x400000000000uLL);
+    result = TlgKeywordOn(&stru_140401A40, 0x400000000000uLL);
     if ( result )
     {
       v3 = *(_QWORD *)(v2 + 240);
@@ -50,27 +50,27 @@ char VslpIumInitializeTelemetry()
       v9 = 2;
       v12[0] = v4;
       v14 = 4;
-      result = TlgWrite(&stru_140400A40, &unk_14036CE61, 0LL, 0LL, 5u, &pData);
+      result = TlgWrite(&stru_140401A40, &unk_14036DDCC, 0LL, 0LL, 5u, &pData);
     }
   }
-  if ( stru_140400A40.LevelPlus1 > 5 )
+  if ( stru_140401A40.LevelPlus1 > 5 )
   {
-    result = TlgKeywordOn(&stru_140400A40, 0x400000000000uLL);
+    result = TlgKeywordOn(&stru_140401A40, 0x400000000000uLL);
     if ( result )
     {
       v10 = 0;
       v6[0] = (unsigned __int8)VslVsmEnabled;
       v8 = v6;
       v9 = 4;
-      result = TlgWrite(&stru_140400A40, &unk_14036CE3C, 0LL, 0LL, 3u, &pData);
+      result = TlgWrite(&stru_140401A40, &unk_14036DE08, 0LL, 0LL, 3u, &pData);
     }
   }
 LABEL_5:
   if ( !VslVsmEnabled )
   {
-    result = EtwUnregister(stru_140400A40.RegHandle);
-    stru_140400A40.RegHandle = 0LL;
-    stru_140400A40.LevelPlus1 = 0;
+    result = EtwUnregister(stru_140401A40.RegHandle);
+    stru_140401A40.RegHandle = 0LL;
+    stru_140401A40.LevelPlus1 = 0;
   }
   return result;
 }

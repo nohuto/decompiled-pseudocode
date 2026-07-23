@@ -6,29 +6,32 @@
  *     TppBarrierAdjust @ 0x180041550 (TppBarrierAdjust.c)
  */
 
-void __fastcall TpDisassociateCallback(__int64 a1)
+void __cdecl TpDisassociateCallback(PTP_CALLBACK_INSTANCE Instance)
 {
-  __int64 v1; // rbx
+  _RTL_SRWLOCK *CleanupGroupMember; // rbx
   char v2; // al
   unsigned int v3; // eax
-  __int64 v4; // rdx
+  unsigned __int64 Value; // rdx
 
-  if ( !a1 || (v1 = *(_QWORD *)(a1 + 184)) == 0 || *(_QWORD *)(a1 + 176) || (v2 = *(_BYTE *)(a1 + 76), (v2 & 2) != 0) )
+  if ( !Instance
+    || (CleanupGroupMember = (_RTL_SRWLOCK *)Instance->CleanupGroupMember) == 0LL
+    || Instance->CleanupGroup
+    || (v2 = *((_BYTE *)Instance + 76), (v2 & 2) != 0) )
   {
     TppRaiseInvalidParameter();
   }
   else
   {
-    *(_BYTE *)(a1 + 76) = v2 | 2;
-    v3 = *(_DWORD *)(a1 + 144) & 0xFFFFFFBF;
-    *(_DWORD *)(a1 + 144) = v3;
-    v4 = *(_QWORD *)(v1 + 16);
-    *(_QWORD *)(a1 + 176) = v4;
-    if ( v4 )
+    *((_BYTE *)Instance + 76) = v2 | 2;
+    v3 = Instance->CallbackEpilogFlags & 0xFFFFFFBF;
+    Instance->CallbackEpilogFlags = v3;
+    Value = CleanupGroupMember[2].Value;
+    Instance->CleanupGroup = (_TP_CLEANUP_GROUP *)Value;
+    if ( Value )
     {
-      *(_DWORD *)(a1 + 144) = v3 | 0x20;
-      TppBarrierAdjust((volatile signed __int64 *)(v4 + 32), 1, 0);
+      Instance->CallbackEpilogFlags = v3 | 0x20;
+      TppBarrierAdjust((_RTL_SRWLOCK *)(Value + 32), 1, 0);
     }
-    TppBarrierAdjust((volatile signed __int64 *)(v1 + 56), -1, 0);
+    TppBarrierAdjust(CleanupGroupMember + 7, -1, 0);
   }
 }

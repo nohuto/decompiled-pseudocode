@@ -1,18 +1,18 @@
 /*
- * XREFs of KeIsEqualAffinityEx @ 0x14018A2F0
+ * XREFs of KeIsEqualAffinityEx @ 0x14018A430
  * Callers:
- *     PpmPerfApplyDomainStates @ 0x140063AC0 (PpmPerfApplyDomainStates.c)
- *     PpmPerfApplyDomainState @ 0x140112920 (PpmPerfApplyDomainState.c)
- *     PpmParkReportMask @ 0x1401223D0 (PpmParkReportMask.c)
- *     KeIsSubsetAffinityEx @ 0x14028E3D0 (KeIsSubsetAffinityEx.c)
- *     PpmIdleCheckCoordinatedStateEligibility @ 0x1402D4694 (PpmIdleCheckCoordinatedStateEligibility.c)
- *     PpmIdleRecheckCoordinatedIdleMask @ 0x1402D4EB0 (PpmIdleRecheckCoordinatedIdleMask.c)
- *     PpmUpdateIdleDomains @ 0x1402D6120 (PpmUpdateIdleDomains.c)
- *     PspSetEffectiveJobLimits @ 0x1406B9964 (PspSetEffectiveJobLimits.c)
- *     PpmRegisterPerfStates @ 0x14074E4BC (PpmRegisterPerfStates.c)
- *     PpmHeteroComputeRelativePerformance @ 0x14074FECC (PpmHeteroComputeRelativePerformance.c)
- *     PsUpdateActiveProcessAffinity @ 0x1408888C0 (PsUpdateActiveProcessAffinity.c)
- *     PspSetProcessAffinitySafe @ 0x140889054 (PspSetProcessAffinitySafe.c)
+ *     PpmPerfApplyDomainStates @ 0x140063AB0 (PpmPerfApplyDomainStates.c)
+ *     PpmPerfApplyDomainState @ 0x140112990 (PpmPerfApplyDomainState.c)
+ *     PpmParkReportMask @ 0x1401224A0 (PpmParkReportMask.c)
+ *     KeIsSubsetAffinityEx @ 0x14028E5C0 (KeIsSubsetAffinityEx.c)
+ *     PpmIdleCheckCoordinatedStateEligibility @ 0x1402D4884 (PpmIdleCheckCoordinatedStateEligibility.c)
+ *     PpmIdleRecheckCoordinatedIdleMask @ 0x1402D50A0 (PpmIdleRecheckCoordinatedIdleMask.c)
+ *     PpmUpdateIdleDomains @ 0x1402D6310 (PpmUpdateIdleDomains.c)
+ *     PspSetEffectiveJobLimits @ 0x1406BAC04 (PspSetEffectiveJobLimits.c)
+ *     PpmRegisterPerfStates @ 0x14074F6AC (PpmRegisterPerfStates.c)
+ *     PpmHeteroComputeRelativePerformance @ 0x1407510BC (PpmHeteroComputeRelativePerformance.c)
+ *     PsUpdateActiveProcessAffinity @ 0x140889B20 (PsUpdateActiveProcessAffinity.c)
+ *     PspSetProcessAffinitySafe @ 0x14088A2B4 (PspSetProcessAffinitySafe.c)
  * Callees:
  *     <none>
  */

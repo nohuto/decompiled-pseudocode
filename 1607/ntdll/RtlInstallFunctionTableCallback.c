@@ -1,16 +1,16 @@
 /*
- * XREFs of RtlInstallFunctionTableCallback @ 0x18006F130
+ * XREFs of RtlInstallFunctionTableCallback @ 0x18006F120
  * Callers:
  *     <none>
  * Callees:
- *     LdrProtectMrdata @ 0x1800190A8 (LdrProtectMrdata.c)
- *     RtlReleaseSRWLockExclusive @ 0x18001C550 (RtlReleaseSRWLockExclusive.c)
- *     RtlAcquireSRWLockExclusive @ 0x180020BF0 (RtlAcquireSRWLockExclusive.c)
- *     RtlAllocateHeap @ 0x180022DB0 (RtlAllocateHeap.c)
- *     RtlProtectHeap @ 0x18002D7A0 (RtlProtectHeap.c)
- *     RtlStringCbCopyW @ 0x180040FD4 (RtlStringCbCopyW.c)
- *     RtlAvlInsertNodeEx @ 0x18006F960 (RtlAvlInsertNodeEx.c)
- *     LdrEnsureMrdataHeapExists @ 0x180081D00 (LdrEnsureMrdataHeapExists.c)
+ *     LdrProtectMrdata @ 0x180019098 (LdrProtectMrdata.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18001C540 (RtlReleaseSRWLockExclusive.c)
+ *     RtlAcquireSRWLockExclusive @ 0x180020BE0 (RtlAcquireSRWLockExclusive.c)
+ *     RtlAllocateHeap @ 0x180022DA0 (RtlAllocateHeap.c)
+ *     RtlProtectHeap @ 0x18002D790 (RtlProtectHeap.c)
+ *     RtlStringCbCopyW @ 0x180040FC4 (RtlStringCbCopyW.c)
+ *     RtlAvlInsertNodeEx @ 0x18006F950 (RtlAvlInsertNodeEx.c)
+ *     LdrEnsureMrdataHeapExists @ 0x180081CF0 (LdrEnsureMrdataHeapExists.c)
  *     ZwQuerySystemTime @ 0x1800A6F60 (ZwQuerySystemTime.c)
  */
 
@@ -25,30 +25,21 @@ BOOLEAN __cdecl RtlInstallFunctionTableCallback(
   __int64 v6; // rbp
   unsigned __int64 v10; // rsi
   __int64 v11; // rax
-  char *v12; // rdx
-  __int64 v13; // r8
-  __int64 v14; // r9
-  __int64 v15; // rax
-  int v16; // ebx
-  unsigned __int64 v17; // r8
-  void *ProcessHeap; // rcx
-  __int64 Heap; // rax
-  __int64 v20; // rbx
-  char *v21; // rdx
+  ULONG_PTR v12; // rax
+  int v13; // ebx
+  SIZE_T v14; // r8
+  PVOID ProcessHeap; // rcx
+  LARGE_INTEGER *Heap; // rax
+  __int64 v17; // rbx
+  _QWORD *v18; // rdx
+  __int64 v19; // r8
+  _QWORD *v20; // rax
+  _QWORD *v21; // rdx
   __int64 v22; // r8
-  __int64 v23; // r9
-  _QWORD *v24; // rdx
-  __int64 v25; // r8
-  _QWORD *v26; // rax
-  _QWORD *v27; // rdx
-  __int64 v28; // r8
-  _QWORD *v29; // rax
-  __int64 *v30; // rax
-  char *v31; // rdx
-  __int64 v32; // r8
-  __int64 v33; // r9
-  int v34; // edx
-  int v36; // ecx
+  _QWORD *v23; // rax
+  __int64 *v24; // rax
+  int v25; // edx
+  int v27; // ecx
 
   v6 = Length;
   if ( (TableIdentifier & 3) != 3 || (Length & 0x80000000) != 0 )
@@ -64,141 +55,141 @@ BOOLEAN __cdecl RtlInstallFunctionTableCallback(
   }
   if ( (int)LdrEnsureMrdataHeapExists() < 0 )
     return 0;
-  v15 = qword_180163310;
-  if ( qword_180163310 )
+  v12 = LdrSystemDllInitBlock.Wow64SharedInformation[9];
+  if ( LdrSystemDllInitBlock.Wow64SharedInformation[9] )
   {
-    RtlAcquireSRWLockExclusive((unsigned __int64)&LdrpMrdataLock, v12, v13, v14);
-    v16 = *(_DWORD *)LdrpMrdataHeapUnprotected;
+    RtlAcquireSRWLockExclusive(&LdrpMrdataLock);
+    v13 = *(_DWORD *)LdrpMrdataHeapUnprotected;
     if ( !*(_DWORD *)LdrpMrdataHeapUnprotected )
       RtlProtectHeap(LdrpMrdataHeap, 0);
-    if ( v16 == -1 )
+    if ( v13 == -1 )
     {
       RtlReleaseSRWLockExclusive(&LdrpMrdataLock);
       __fastfail(0xEu);
     }
-    *(_DWORD *)LdrpMrdataHeapUnprotected = v16 + 1;
+    *(_DWORD *)LdrpMrdataHeapUnprotected = v13 + 1;
     RtlReleaseSRWLockExclusive(&LdrpMrdataLock);
-    v15 = qword_180163310;
+    v12 = LdrSystemDllInitBlock.Wow64SharedInformation[9];
   }
-  v17 = v10 + 136;
-  if ( v15 )
+  v14 = v10 + 136;
+  if ( v12 )
   {
-    if ( v17 >= 0xFF000 )
+    if ( v14 >= 0xFF000 )
       goto LABEL_45;
-    ProcessHeap = (void *)LdrpMrdataHeap;
+    ProcessHeap = LdrpMrdataHeap;
   }
   else
   {
     ProcessHeap = NtCurrentPeb()->ProcessHeap;
   }
-  Heap = RtlAllocateHeap((__int64)ProcessHeap, 0, v17);
-  v20 = Heap;
+  Heap = (LARGE_INTEGER *)RtlAllocateHeap(ProcessHeap, 0, v14);
+  v17 = (__int64)Heap;
   if ( !Heap )
   {
-    v15 = qword_180163310;
+    v12 = LdrSystemDllInitBlock.Wow64SharedInformation[9];
 LABEL_45:
-    if ( v15 )
+    if ( v12 )
     {
-      RtlAcquireSRWLockExclusive((unsigned __int64)&LdrpMrdataLock, v12, v17, v14);
-      v36 = *(_DWORD *)LdrpMrdataHeapUnprotected;
+      RtlAcquireSRWLockExclusive(&LdrpMrdataLock);
+      v27 = *(_DWORD *)LdrpMrdataHeapUnprotected;
       if ( !*(_DWORD *)LdrpMrdataHeapUnprotected )
       {
         RtlReleaseSRWLockExclusive(&LdrpMrdataLock);
         __fastfail(0xEu);
       }
-      *(_DWORD *)LdrpMrdataHeapUnprotected = v36 - 1;
-      if ( v36 == 1 )
-        RtlProtectHeap(LdrpMrdataHeap, 1);
+      *(_DWORD *)LdrpMrdataHeapUnprotected = v27 - 1;
+      if ( v27 == 1 )
+        RtlProtectHeap(LdrpMrdataHeap, 1u);
       RtlReleaseSRWLockExclusive(&LdrpMrdataLock);
     }
     return 0;
   }
-  *(_QWORD *)(Heap + 16) = TableIdentifier;
-  ZwQuerySystemTime(Heap + 24);
-  *(_QWORD *)(v20 + 32) = BaseAddress;
-  *(_QWORD *)(v20 + 40) = BaseAddress + v6;
-  *(_QWORD *)(v20 + 64) = Context;
-  *(_QWORD *)(v20 + 48) = BaseAddress;
-  *(_QWORD *)(v20 + 56) = Callback;
-  *(_DWORD *)(v20 + 80) = 2;
-  *(_QWORD *)(v20 + 72) = 0LL;
+  Heap[2].QuadPart = TableIdentifier;
+  ZwQuerySystemTime(Heap + 3);
+  *(_QWORD *)(v17 + 32) = BaseAddress;
+  *(_QWORD *)(v17 + 40) = BaseAddress + v6;
+  *(_QWORD *)(v17 + 64) = Context;
+  *(_QWORD *)(v17 + 48) = BaseAddress;
+  *(_QWORD *)(v17 + 56) = Callback;
+  *(_DWORD *)(v17 + 80) = 2;
+  *(_QWORD *)(v17 + 72) = 0LL;
   if ( OutOfProcessCallbackDll )
   {
-    *(_QWORD *)(v20 + 72) = v20 + 136;
-    RtlStringCbCopyW((_WORD *)(v20 + 136), v10, (__int64)OutOfProcessCallbackDll);
+    *(_QWORD *)(v17 + 72) = v17 + 136;
+    RtlStringCbCopyW((_WORD *)(v17 + 136), v10, (__int64)OutOfProcessCallbackDll);
   }
   LdrProtectMrdata(0);
-  RtlAcquireSRWLockExclusive((unsigned __int64)&RtlpDynamicFunctionTableLock, v21, v22, v23);
-  v24 = (_QWORD *)RtlpDynamicCallbackTableTreeMin;
-  LOBYTE(v25) = 0;
+  RtlAcquireSRWLockExclusive(&RtlpDynamicFunctionTableLock);
+  v18 = (_QWORD *)RtlpDynamicCallbackTableTreeMin;
+  LOBYTE(v19) = 0;
   if ( !RtlpDynamicCallbackTableTreeMin )
     goto LABEL_28;
-  while ( *(_QWORD *)(v20 + 32) >= *(v24 - 7) )
+  while ( *(_QWORD *)(v17 + 32) >= *(v18 - 7) )
   {
-    v26 = (_QWORD *)v24[1];
-    if ( !v26 )
+    v20 = (_QWORD *)v18[1];
+    if ( !v20 )
     {
-      LOBYTE(v25) = 1;
+      LOBYTE(v19) = 1;
       goto LABEL_28;
     }
 LABEL_26:
-    v24 = v26;
+    v18 = v20;
   }
-  v26 = (_QWORD *)*v24;
-  if ( *v24 )
+  v20 = (_QWORD *)*v18;
+  if ( *v18 )
     goto LABEL_26;
-  LOBYTE(v25) = 0;
+  LOBYTE(v19) = 0;
 LABEL_28:
-  RtlAvlInsertNodeEx(&RtlpDynamicCallbackTableTreeMin, v24, v25, v20 + 88);
-  v27 = (_QWORD *)RtlpDynamicCallbackTableTreeMax;
-  LOBYTE(v28) = 0;
+  RtlAvlInsertNodeEx(&RtlpDynamicCallbackTableTreeMin, v18, v19, v17 + 88);
+  v21 = (_QWORD *)RtlpDynamicCallbackTableTreeMax;
+  LOBYTE(v22) = 0;
   if ( !RtlpDynamicCallbackTableTreeMax )
     goto LABEL_35;
   while ( 2 )
   {
-    if ( *(_QWORD *)(v20 + 40) >= *(v27 - 10) )
+    if ( *(_QWORD *)(v17 + 40) >= *(v21 - 10) )
     {
-      v29 = (_QWORD *)v27[1];
-      if ( !v29 )
+      v23 = (_QWORD *)v21[1];
+      if ( !v23 )
       {
-        LOBYTE(v28) = 1;
+        LOBYTE(v22) = 1;
         goto LABEL_35;
       }
       goto LABEL_33;
     }
-    v29 = (_QWORD *)*v27;
-    if ( *v27 )
+    v23 = (_QWORD *)*v21;
+    if ( *v21 )
     {
 LABEL_33:
-      v27 = v29;
+      v21 = v23;
       continue;
     }
     break;
   }
-  LOBYTE(v28) = 0;
+  LOBYTE(v22) = 0;
 LABEL_35:
-  RtlAvlInsertNodeEx(&RtlpDynamicCallbackTableTreeMax, v27, v28, v20 + 112);
-  v30 = (__int64 *)qword_180163280;
+  RtlAvlInsertNodeEx(&RtlpDynamicCallbackTableTreeMax, v21, v22, v17 + 112);
+  v24 = (__int64 *)qword_180163280;
   if ( *(__int64 **)qword_180163280 != &RtlpDynamicFunctionTable )
     __fastfail(3u);
-  *(_QWORD *)v20 = &RtlpDynamicFunctionTable;
-  *(_QWORD *)(v20 + 8) = v30;
-  *v30 = v20;
-  qword_180163280 = v20;
+  *(_QWORD *)v17 = &RtlpDynamicFunctionTable;
+  *(_QWORD *)(v17 + 8) = v24;
+  *v24 = v17;
+  qword_180163280 = v17;
   RtlReleaseSRWLockExclusive(&RtlpDynamicFunctionTableLock);
   LdrProtectMrdata(1);
-  if ( qword_180163310 )
+  if ( LdrSystemDllInitBlock.Wow64SharedInformation[9] )
   {
-    RtlAcquireSRWLockExclusive((unsigned __int64)&LdrpMrdataLock, v31, v32, v33);
-    v34 = *(_DWORD *)LdrpMrdataHeapUnprotected;
+    RtlAcquireSRWLockExclusive(&LdrpMrdataLock);
+    v25 = *(_DWORD *)LdrpMrdataHeapUnprotected;
     if ( !*(_DWORD *)LdrpMrdataHeapUnprotected )
     {
       RtlReleaseSRWLockExclusive(&LdrpMrdataLock);
       __fastfail(0xEu);
     }
-    *(_DWORD *)LdrpMrdataHeapUnprotected = v34 - 1;
-    if ( v34 == 1 )
-      RtlProtectHeap(LdrpMrdataHeap, 1);
+    *(_DWORD *)LdrpMrdataHeapUnprotected = v25 - 1;
+    if ( v25 == 1 )
+      RtlProtectHeap(LdrpMrdataHeap, 1u);
     RtlReleaseSRWLockExclusive(&LdrpMrdataLock);
   }
   return 1;

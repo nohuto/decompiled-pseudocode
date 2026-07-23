@@ -1,8 +1,8 @@
 /*
- * XREFs of KiSetStandardizedCacheInformation @ 0x140BF7E14
+ * XREFs of KiSetStandardizedCacheInformation @ 0x140BFDE14
  * Callers:
- *     KiSetCacheInformation @ 0x140BF6FC0 (KiSetCacheInformation.c)
- *     KiSetCacheInformationAmd @ 0x140BF70E8 (KiSetCacheInformationAmd.c)
+ *     KiSetCacheInformation @ 0x140BFCFC0 (KiSetCacheInformation.c)
+ *     KiSetCacheInformationAmd @ 0x140BFD0E8 (KiSetCacheInformationAmd.c)
  * Callees:
  *     <none>
  */

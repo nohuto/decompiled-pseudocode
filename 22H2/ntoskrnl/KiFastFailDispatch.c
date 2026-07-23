@@ -18,14 +18,14 @@
  */
 
 // positive sp value has been detected, the output may be wrong!
-__int64 __fastcall KiFastFailDispatch(NTSTATUS a1, int a2, __int64 a3, ULONG_PTR a4, char a5)
+__int64 __fastcall KiFastFailDispatch(int a1, unsigned int a2, void *a3, unsigned __int64 a4, char a5)
 {
   __int64 v5; // rbx
   __int64 v6; // rbp
   __int64 v7; // rdi
   __int64 v8; // rsi
-  __int64 v9; // r10
-  __int64 v10; // r11
+  unsigned __int64 v9; // r10
+  unsigned __int64 v10; // r11
   __int64 v11; // r12
   __int64 v12; // r13
   __int64 v13; // r14
@@ -74,40 +74,22 @@ __int64 __fastcall KiFastFailDispatch(NTSTATUS a1, int a2, __int64 a3, ULONG_PTR
   __int64 v59; // [rsp-220h] [rbp-3F8h]
   __int64 v60; // [rsp-218h] [rbp-3F0h]
   __int64 v61; // [rsp-210h] [rbp-3E8h]
-  NTSTATUS v62[2]; // [rsp-200h] [rbp-3D8h] BYREF
-  __int64 v63; // [rsp-1F8h] [rbp-3D0h]
-  __int64 v64; // [rsp-1F0h] [rbp-3C8h]
-  __int64 v65; // [rsp-1E8h] [rbp-3C0h]
-  ULONG_PTR v66; // [rsp-1E0h] [rbp-3B8h]
-  __int64 v67; // [rsp-1D8h] [rbp-3B0h]
-  __int64 v68; // [rsp-1D0h] [rbp-3A8h]
-  __int64 v69; // [rsp-1C8h] [rbp-3A0h]
-  __int64 v70; // [rsp-1C0h] [rbp-398h]
-  __int64 v71; // [rsp-1B8h] [rbp-390h]
-  __int64 v72; // [rsp-1B0h] [rbp-388h]
-  __int64 v73; // [rsp-1A8h] [rbp-380h]
-  __int64 v74; // [rsp-1A0h] [rbp-378h]
-  __int64 v75; // [rsp-198h] [rbp-370h]
-  __int64 v76; // [rsp-190h] [rbp-368h]
-  __int64 v77; // [rsp-188h] [rbp-360h]
-  __int64 v78; // [rsp-180h] [rbp-358h]
-  __int64 v79; // [rsp-178h] [rbp-350h]
-  __int64 v80; // [rsp-170h] [rbp-348h]
-  __int64 v81; // [rsp-168h] [rbp-340h]
-  __int64 v82; // [rsp-160h] [rbp-338h]
-  __int64 v83; // [rsp-158h] [rbp-330h]
-  __int64 v84; // [rsp-150h] [rbp-328h]
-  __int64 v85; // [rsp-148h] [rbp-320h]
-  __int64 v86; // [rsp-140h] [rbp-318h]
-  __int64 v87; // [rsp-138h] [rbp-310h]
-  __int64 v88; // [rsp-130h] [rbp-308h]
-  __int64 v89; // [rsp-128h] [rbp-300h]
-  __int64 v90; // [rsp-120h] [rbp-2F8h]
-  __int64 v91; // [rsp-118h] [rbp-2F0h]
-  __int64 v92; // [rsp-110h] [rbp-2E8h]
-  __int64 v93; // [rsp-108h] [rbp-2E0h]
-  __int64 v94; // [rsp-100h] [rbp-2D8h]
-  __int64 v95; // [rsp-F8h] [rbp-2D0h]
+  EXCEPTION_RECORD v62; // [rsp-200h] [rbp-3D8h] BYREF
+  __int64 v63; // [rsp-168h] [rbp-340h]
+  __int64 v64; // [rsp-160h] [rbp-338h]
+  __int64 v65; // [rsp-158h] [rbp-330h]
+  __int64 v66; // [rsp-150h] [rbp-328h]
+  __int64 v67; // [rsp-148h] [rbp-320h]
+  __int64 v68; // [rsp-140h] [rbp-318h]
+  __int64 v69; // [rsp-138h] [rbp-310h]
+  __int64 v70; // [rsp-130h] [rbp-308h]
+  __int64 v71; // [rsp-128h] [rbp-300h]
+  __int64 v72; // [rsp-120h] [rbp-2F8h]
+  __int64 v73; // [rsp-118h] [rbp-2F0h]
+  __int64 v74; // [rsp-110h] [rbp-2E8h]
+  __int64 v75; // [rsp-108h] [rbp-2E0h]
+  __int64 v76; // [rsp-100h] [rbp-2D8h]
+  __int64 v77; // [rsp-F8h] [rbp-2D0h]
 
   v40 = v14;
   v41 = v15;
@@ -129,7 +111,7 @@ __int64 __fastcall KiFastFailDispatch(NTSTATUS a1, int a2, __int64 a3, ULONG_PTR
     KiUmsExceptionEntry(
       a1,
       a2,
-      a3,
+      (_DWORD)a3,
       a4,
       v38,
       v39,
@@ -165,18 +147,18 @@ __int64 __fastcall KiFastFailDispatch(NTSTATUS a1, int a2, __int64 a3, ULONG_PTR
       v59,
       v60,
       v61);
-  v62[0] = a1;
-  v62[1] = 1;
-  v63 = 0LL;
-  v64 = a3;
-  LODWORD(v65) = a2;
-  v66 = a4;
-  v67 = v9;
-  v68 = v10;
+  v62.ExceptionCode = a1;
+  v62.ExceptionFlags = 1;
+  v62.ExceptionRecord = 0LL;
+  v62.ExceptionAddress = a3;
+  v62.NumberParameters = a2;
+  v62.ExceptionInformation[0] = a4;
+  v62.ExceptionInformation[1] = v9;
+  v62.ExceptionInformation[2] = v10;
   v24 = *(_BYTE *)(v6 + 240) & 1;
   if ( !v24 )
-    KiBugCheckDispatch(0x139u, v66, v6 - 128, (ULONG_PTR)v62);
-  KiDispatchException(v62, (unsigned __int64)&v37, v6 - 128, v24, 0);
+    KiBugCheckDispatch(0x139u, v62.ExceptionInformation[0], v6 - 128, (ULONG_PTR)&v62);
+  KiDispatchException(&v62, (unsigned __int64)&v37, v6 - 128, v24, 0);
   _disable();
   if ( (*(_BYTE *)(v6 + 240) & 1) == 0 )
   {
@@ -230,38 +212,38 @@ __int64 __fastcall KiFastFailDispatch(NTSTATUS a1, int a2, __int64 a3, ULONG_PTR
   v33 = _bittestandreset16(MK_FP(__GS__, 2144LL), 5u);
   if ( v33 )
   {
-    v64 = 0x1404124FCLL;
-    v95 = 0x140412613LL;
-    v94 = 0x14041260ALL;
-    v93 = 0x140412601LL;
-    v92 = 0x1404125F8LL;
-    v91 = 0x1404125EFLL;
-    v90 = 0x1404125E6LL;
-    v89 = 0x1404125DDLL;
-    v88 = 0x1404125D4LL;
-    v87 = 0x1404125CBLL;
-    v86 = 0x1404125C2LL;
-    v85 = 0x1404125B9LL;
-    v84 = 0x1404125B0LL;
-    v83 = 0x1404125A7LL;
-    v82 = 0x14041259ELL;
-    v81 = 0x140412595LL;
-    v80 = 0x14041258CLL;
-    v79 = 0x140412583LL;
-    v78 = 0x14041257ALL;
-    v77 = 0x140412571LL;
-    v76 = 0x140412568LL;
-    v75 = 0x14041255FLL;
-    v74 = 0x140412556LL;
-    v73 = 0x14041254DLL;
-    v72 = 0x140412544LL;
-    v71 = 0x14041253BLL;
-    v70 = 0x140412532LL;
-    v69 = 0x140412529LL;
-    v68 = 0x140412520LL;
-    v67 = 0x140412517LL;
-    v66 = 0x14041250ELL;
-    v65 = 0x140412505LL;
+    v62.ExceptionAddress = &loc_1404124FC;
+    v77 = 0x140412613LL;
+    v76 = 0x14041260ALL;
+    v75 = 0x140412601LL;
+    v74 = 0x1404125F8LL;
+    v73 = 0x1404125EFLL;
+    v72 = 0x1404125E6LL;
+    v71 = 0x1404125DDLL;
+    v70 = 0x1404125D4LL;
+    v69 = 0x1404125CBLL;
+    v68 = 0x1404125C2LL;
+    v67 = 0x1404125B9LL;
+    v66 = 0x1404125B0LL;
+    v65 = 0x1404125A7LL;
+    v64 = 0x14041259ELL;
+    v63 = 0x140412595LL;
+    v62.ExceptionInformation[14] = 0x14041258CLL;
+    v62.ExceptionInformation[13] = 0x140412583LL;
+    v62.ExceptionInformation[12] = 0x14041257ALL;
+    v62.ExceptionInformation[11] = 0x140412571LL;
+    v62.ExceptionInformation[10] = 0x140412568LL;
+    v62.ExceptionInformation[9] = 0x14041255FLL;
+    v62.ExceptionInformation[8] = 0x140412556LL;
+    v62.ExceptionInformation[7] = 0x14041254DLL;
+    v62.ExceptionInformation[6] = 0x140412544LL;
+    v62.ExceptionInformation[5] = 0x14041253BLL;
+    v62.ExceptionInformation[4] = 0x140412532LL;
+    v62.ExceptionInformation[3] = 0x140412529LL;
+    v62.ExceptionInformation[2] = 0x140412520LL;
+    v62.ExceptionInformation[1] = 0x140412517LL;
+    v62.ExceptionInformation[0] = 0x14041250ELL;
+    *(_QWORD *)&v62.NumberParameters = 0x140412505LL;
   }
   if ( (KiKvaShadow & 1) == 0 )
   {

@@ -1,21 +1,21 @@
 /*
- * XREFs of MiCoalesceFreeSmallPages @ 0x14028D060
+ * XREFs of MiCoalesceFreeSmallPages @ 0x14028C5C0
  * Callers:
- *     MiInsertFreeZeroPage @ 0x1402DCE70 (MiInsertFreeZeroPage.c)
- *     MiProcessLargeCoalesceBitmapCandidates @ 0x1403C8C60 (MiProcessLargeCoalesceBitmapCandidates.c)
+ *     MiInsertFreeZeroPage @ 0x1402BEC30 (MiInsertFreeZeroPage.c)
+ *     MiProcessLargeCoalesceBitmapCandidates @ 0x1403D2B10 (MiProcessLargeCoalesceBitmapCandidates.c)
  * Callees:
- *     MiMakeDemandZeroPte @ 0x14028B2D0 (MiMakeDemandZeroPte.c)
- *     MiUnlinkFreeOrZeroedPage @ 0x14028C8F4 (MiUnlinkFreeOrZeroedPage.c)
- *     MiInitializeAllResidentPageBasePfns @ 0x14028E4A4 (MiInitializeAllResidentPageBasePfns.c)
- *     MiReturnFreeZeroPage @ 0x1402AA690 (MiReturnFreeZeroPage.c)
- *     MiSearchChannelTable @ 0x1402CBEE8 (MiSearchChannelTable.c)
- *     MiChangePageAttribute @ 0x1402D8660 (MiChangePageAttribute.c)
- *     MiInsertPageInFreeOrZeroedList @ 0x1402DCDD0 (MiInsertPageInFreeOrZeroedList.c)
- *     MiPfnZeroingNeeded @ 0x14033AAB0 (MiPfnZeroingNeeded.c)
- *     MiInitializePageHeatList @ 0x14046BE50 (MiInitializePageHeatList.c)
- *     MiAddPageToHeatList @ 0x140491430 (MiAddPageToHeatList.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     MiMakeDemandZeroPte @ 0x14028A830 (MiMakeDemandZeroPte.c)
+ *     MiUnlinkFreeOrZeroedPage @ 0x14028BE54 (MiUnlinkFreeOrZeroedPage.c)
+ *     MiInitializeAllResidentPageBasePfns @ 0x14028DA04 (MiInitializeAllResidentPageBasePfns.c)
+ *     MiReturnFreeZeroPage @ 0x1402A9A90 (MiReturnFreeZeroPage.c)
+ *     MiSearchChannelTable @ 0x1402ADCA8 (MiSearchChannelTable.c)
+ *     MiChangePageAttribute @ 0x1402BA420 (MiChangePageAttribute.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x1402BEB90 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiPfnZeroingNeeded @ 0x14033CB30 (MiPfnZeroingNeeded.c)
+ *     MiInitializePageHeatList @ 0x1404655D0 (MiInitializePageHeatList.c)
+ *     MiAddPageToHeatList @ 0x14048AF80 (MiAddPageToHeatList.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall MiCoalesceFreeSmallPages(ULONG_PTR a1, char a2)
@@ -109,22 +109,22 @@ __int64 __fastcall MiCoalesceFreeSmallPages(ULONG_PTR a1, char a2)
     v5 = 0LL;
     goto LABEL_6;
   }
-  if ( (unsigned __int8)byte_140E3BD26 < 2u || (*(_WORD *)(qword_140E3BE38 + 2 * (a1 >> 4)) & 0x1Fu) < 0xF )
+  if ( (unsigned __int8)byte_140E3BEA6 < 2u || (*(_WORD *)(qword_140E3BFB8 + 2 * (a1 >> 4)) & 0x1Fu) < 0xF )
     return 0LL;
   v5 = 48 * a1 - 0x220000000000LL;
   v3 = a1 & 0xFFFFFFFFFFFFFFF0uLL;
 LABEL_6:
   v73 = v5;
   v72 = HIWORD(*(_DWORD *)(v4 + 32)) & 7;
-  v77 = *(unsigned __int16 **)(stru_140E2EB88.ThreadLock + 8 * ((*(_QWORD *)(v4 + 40) >> 43) & 0x3FFLL));
+  v77 = *(unsigned __int16 **)(stru_140E2ED08.ThreadLock + 8 * ((*(_QWORD *)(v4 + 40) >> 43) & 0x3FFLL));
   v71 = *v77;
   v6 = 48 * v3 - 0x220000000000LL;
-  v7 = dword_140E2D684;
+  v7 = dword_140E2D804;
   v76 = v6 + 768;
   v75 = v6;
-  if ( dword_140E2D680 > (unsigned int)dword_140E2D684
-    || (v8 = (char *)qword_140E2D6E0 + 16 * dword_140E2D680, v3 < *(_QWORD *)v8)
-    || dword_140E2D680 != dword_140E2D684 && v3 >= *((_QWORD *)v8 + 2) )
+  if ( dword_140E2D800 > (unsigned int)dword_140E2D804
+    || (v8 = (char *)qword_140E2D860 + 16 * dword_140E2D800, v3 < *(_QWORD *)v8)
+    || dword_140E2D800 != dword_140E2D804 && v3 >= *((_QWORD *)v8 + 2) )
   {
     for ( i = 0; ; i = v22 + 1 )
     {
@@ -134,24 +134,24 @@ LABEL_6:
 LABEL_33:
           KeBugCheckEx(0x1Au, 0x5180uLL, v3, 0LL, 0LL);
         v22 = (i + v7) >> 1;
-        v8 = (char *)qword_140E2D6E0 + 16 * v22;
+        v8 = (char *)qword_140E2D860 + 16 * v22;
         if ( v3 >= *(_QWORD *)v8 )
           break;
         if ( !v22 )
-          KeBugCheckEx(0x1Au, 0x5180uLL, v3, (ULONG_PTR)qword_140E2D6E0, 0LL);
+          KeBugCheckEx(0x1Au, 0x5180uLL, v3, (ULONG_PTR)qword_140E2D860, 0LL);
         v7 = v22 - 1;
       }
-      if ( v22 == dword_140E2D684 || v3 < *((_QWORD *)v8 + 2) )
+      if ( v22 == dword_140E2D804 || v3 < *((_QWORD *)v8 + 2) )
         break;
     }
-    dword_140E2D680 = (i + v7) >> 1;
+    dword_140E2D800 = (i + v7) >> 1;
   }
   v9 = 16LL;
-  v10 = dword_140E2D684;
+  v10 = dword_140E2D804;
   v11 = *((unsigned int *)v8 + 2);
-  if ( dword_140E2D680 > (unsigned int)dword_140E2D684
-    || (v12 = (char *)qword_140E2D6E0 + 16 * dword_140E2D680, v3 < *(_QWORD *)v12)
-    || dword_140E2D680 != dword_140E2D684 && v3 >= *((_QWORD *)v12 + 2) )
+  if ( dword_140E2D800 > (unsigned int)dword_140E2D804
+    || (v12 = (char *)qword_140E2D860 + 16 * dword_140E2D800, v3 < *(_QWORD *)v12)
+    || dword_140E2D800 != dword_140E2D804 && v3 >= *((_QWORD *)v12 + 2) )
   {
     for ( j = 0; ; j = v20 + 1 )
     {
@@ -160,22 +160,22 @@ LABEL_33:
         if ( v10 < j )
           goto LABEL_33;
         v20 = (j + v10) >> 1;
-        v12 = (char *)qword_140E2D6E0 + 16 * v20;
+        v12 = (char *)qword_140E2D860 + 16 * v20;
         if ( v3 >= *(_QWORD *)v12 )
           break;
         if ( !v20 )
-          KeBugCheckEx(0x1Au, 0x5180uLL, v3, (ULONG_PTR)qword_140E2D6E0, 0LL);
+          KeBugCheckEx(0x1Au, 0x5180uLL, v3, (ULONG_PTR)qword_140E2D860, 0LL);
         v10 = v20 - 1;
       }
-      if ( v20 == dword_140E2D684 || v3 < *((_QWORD *)v12 + 2) )
+      if ( v20 == dword_140E2D804 || v3 < *((_QWORD *)v12 + 2) )
         break;
     }
-    dword_140E2D680 = (j + v10) >> 1;
+    dword_140E2D800 = (j + v10) >> 1;
   }
   v13 = *((_QWORD *)v12 + 2);
   if ( v3 + 16 > v13 )
     v9 = v13 - v3;
-  if ( qword_140E2D6E8 )
+  if ( qword_140E2D868 )
   {
     v66 = *(_QWORD *)(MiSearchChannelTable(v3) + 16);
     if ( v9 + v3 > v66 )
@@ -225,7 +225,7 @@ LABEL_33:
     }
     else
     {
-      if ( v23 > qword_140E2D7A0
+      if ( v23 > qword_140E2D920
         || (*v28 & 0x40000000000000LL) == 0
         || ((*(_QWORD *)(v26 + 40) >> 43) & 0x3FF) != (_WORD)v15
         || (v30 & 0x70000u) > 0x10000 )
@@ -355,19 +355,19 @@ LABEL_83:
       LODWORD(v41) = 0;
     }
     v45 = *(_QWORD *)(v42 + 16);
-    if ( qword_140E2D740 && (v45 & 0x10) == 0 )
-      HIDWORD(v45) &= HIDWORD(qword_140E2D748);
+    if ( qword_140E2D8C0 && (v45 & 0x10) == 0 )
+      HIDWORD(v45) &= HIDWORD(qword_140E2D8C8);
     *(_QWORD *)(v42 + 16) = *(_QWORD *)&CLFS_LSN_NULL_EXT;
     ++v44;
     v42 -= 48LL;
     v43 |= (HIDWORD(v45) != -3) + 1;
   }
   while ( v44 < 0x10 );
-  if ( (stru_140E36558.WaitRegister.Flags & 2) == 0
-    || (stru_140E36558.WaitRegister.Flags & 4) != 0
+  if ( (stru_140E366D8.WaitRegister.Flags & 2) == 0
+    || (stru_140E366D8.WaitRegister.Flags & 4) != 0
     || v74 && (*(_DWORD *)(v74 + 14096) & 2) != 0 )
   {
-    v46 = (stru_140E36558.WaitRegister.Flags & 1) == 0 || v74 && (*(_DWORD *)(v74 + 14096) & 2) != 0 || (v43 & 1) == 0;
+    v46 = (stru_140E366D8.WaitRegister.Flags & 1) == 0 || v74 && (*(_DWORD *)(v74 + 14096) & 2) != 0 || (v43 & 1) == 0;
     v47 = v72;
   }
   else
@@ -384,7 +384,7 @@ LABEL_83:
       {
         v79.m128i_i64[0] = 0LL;
         si128 = 0LL;
-        if ( (stru_140E36558.WaitRegister.Flags & 4) == 0 )
+        if ( (stru_140E366D8.WaitRegister.Flags & 4) == 0 )
         {
           MiInitializePageHeatList(&si128, 0LL, 0LL, 1LL);
           MiAddPageToHeatList(&si128, v3, 2LL);
@@ -396,10 +396,10 @@ LABEL_83:
   v48 = *v77;
   v49 = 16LL;
   v50 = v3;
-  si128 = _mm_load_si128((const __m128i *)&xmmword_140E2EA80);
-  v51 = _mm_load_si128((const __m128i *)&xmmword_140E2EA90);
+  si128 = _mm_load_si128((const __m128i *)&xmmword_140E2EC00);
+  v51 = _mm_load_si128((const __m128i *)&xmmword_140E2EC10);
   v79.m128i_i64[0] = v51.m128i_i64[0];
-  v52 = _mm_load_si128((const __m128i *)&xmmword_140E2EAA0);
+  v52 = _mm_load_si128((const __m128i *)&xmmword_140E2EC20);
   v80.m128i_i64[0] = v52.m128i_i64[0];
   v53 = (__m128i *)(48 * v3 - 0x220000000000LL);
   v80.m128i_i64[1] = (v48 << 43) ^ ((v48 << 43) ^ v52.m128i_i64[1]) & 0xFFE007FFFFFFFFFFuLL;

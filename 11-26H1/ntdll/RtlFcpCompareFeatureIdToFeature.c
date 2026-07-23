@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlFcpCompareFeatureIdToFeature @ 0x18016F680
+ * XREFs of RtlFcpCompareFeatureIdToFeature @ 0x18016E680
  * Callers:
- *     RtlpFcQueryFeatureConfigurationFromBuffers @ 0x18016F36C (RtlpFcQueryFeatureConfigurationFromBuffers.c)
+ *     RtlpFcQueryFeatureConfigurationFromBuffers @ 0x18016E36C (RtlpFcQueryFeatureConfigurationFromBuffers.c)
  * Callees:
  *     <none>
  */

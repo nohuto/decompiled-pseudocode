@@ -3,9 +3,9 @@
  * Callers:
  *     MiInitNucleus @ 0x140B41888 (MiInitNucleus.c)
  * Callees:
- *     MiGetPartitionLargePageListCount @ 0x140375BE4 (MiGetPartitionLargePageListCount.c)
- *     MiPopulateFreeKernelShadowStackCacheEntries @ 0x1403A0F30 (MiPopulateFreeKernelShadowStackCacheEntries.c)
- *     MiInitializePartition @ 0x1408372A0 (MiInitializePartition.c)
+ *     MiGetPartitionLargePageListCount @ 0x140375D84 (MiGetPartitionLargePageListCount.c)
+ *     MiPopulateFreeKernelShadowStackCacheEntries @ 0x1403A1110 (MiPopulateFreeKernelShadowStackCacheEntries.c)
+ *     MiInitializePartition @ 0x1408375A0 (MiInitializePartition.c)
  *     MiCreateSparsePfnDatabase @ 0x140B42C90 (MiCreateSparsePfnDatabase.c)
  *     MiInitializePartitions @ 0x140B45318 (MiInitializePartitions.c)
  *     MiInitializeColors @ 0x140B6EF18 (MiInitializeColors.c)
@@ -80,8 +80,8 @@ __int64 __fastcall MiCreatePfnDatabase(__int64 a1)
   MiInitializePartitions(0LL);
   MiInitializePartition((unsigned __int64)MiSystemPartition, 0);
   MiPopulateFreeKernelShadowStackCacheEntries(
-    (union _SLIST_HEADER *)MiSystemPartition,
-    (struct _SLIST_ENTRY *)(v15 + MmPfnDatabase),
+    (_SLIST_HEADER *)MiSystemPartition,
+    (_SLIST_ENTRY *)(v15 + MmPfnDatabase),
     v14);
   MiInitializeNumaGraph(a1);
   return 1LL;

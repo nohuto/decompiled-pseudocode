@@ -1,14 +1,14 @@
 /*
- * XREFs of ObpInsertHandleCount @ 0x14062DDEC
+ * XREFs of ObpInsertHandleCount @ 0x1405E786C
  * Callers:
- *     ObpLockHandleDataBaseEntry @ 0x14062DC70 (ObpLockHandleDataBaseEntry.c)
+ *     ObpLockHandleDataBaseEntry @ 0x1405E76F0 (ObpLockHandleDataBaseEntry.c)
  * Callees:
- *     OBJECT_HEADER_TO_HANDLE_INFO @ 0x1402642D4 (OBJECT_HEADER_TO_HANDLE_INFO.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     memset @ 0x140414200 (memset.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     OBJECT_HEADER_TO_HANDLE_INFO @ 0x14021CE08 (OBJECT_HEADER_TO_HANDLE_INFO.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 char *__fastcall ObpInsertHandleCount(__int64 a1)

@@ -17,7 +17,7 @@ __int64 __fastcall LdrpAppendUnicodeStringToFilenameBuffer(const void **a1, cons
   unsigned __int64 v6; // rcx
   _WORD *v7; // rax
   unsigned int v9; // esi
-  void *Atom; // rbp
+  PVOID Atom; // rbp
 
   v2 = *(unsigned __int16 *)a2;
   if ( !(_WORD)v2 )
@@ -32,7 +32,7 @@ __int64 __fastcall LdrpAppendUnicodeStringToFilenameBuffer(const void **a1, cons
       v9 = 65534;
     if ( a1[1] == a1 + 2 )
     {
-      Atom = (void *)RtlpAllocateAtom();
+      Atom = RtlpAllocateAtom(v9);
       if ( !Atom )
         return 3221225495LL;
       if ( *(_WORD *)a1 )
@@ -40,7 +40,7 @@ __int64 __fastcall LdrpAppendUnicodeStringToFilenameBuffer(const void **a1, cons
     }
     else
     {
-      Atom = (void *)NtdllpReallocateStringRoutine(v9);
+      Atom = (PVOID)NtdllpReallocateStringRoutine(v9);
       if ( !Atom )
         return 3221225495LL;
     }

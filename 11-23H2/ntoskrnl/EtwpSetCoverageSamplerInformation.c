@@ -1,23 +1,23 @@
 /*
- * XREFs of EtwpSetCoverageSamplerInformation @ 0x1409F3BDC
+ * XREFs of EtwpSetCoverageSamplerInformation @ 0x1409F3E6C
  * Callers:
- *     EtwSetPerformanceTraceInformation @ 0x1409E1E84 (EtwSetPerformanceTraceInformation.c)
+ *     EtwSetPerformanceTraceInformation @ 0x1409E2114 (EtwSetPerformanceTraceInformation.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ObfReferenceObject @ 0x140233C40 (ObfReferenceObject.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     NtClose @ 0x1406E44C0 (NtClose.c)
- *     ObReferenceObjectByHandle @ 0x1406E62C0 (ObReferenceObjectByHandle.c)
- *     ProbeForWrite @ 0x140729380 (ProbeForWrite.c)
- *     ObCreateObjectEx @ 0x1407308B0 (ObCreateObjectEx.c)
- *     ObInsertObjectEx @ 0x1407359D0 (ObInsertObjectEx.c)
- *     ExCheckFullProcessInformationAccess @ 0x1407E0A68 (ExCheckFullProcessInformationAccess.c)
- *     EtwpCovSampApplyBounds @ 0x1409F07F0 (EtwpCovSampApplyBounds.c)
- *     EtwpCovSampSplitSegments @ 0x1409F2C78 (EtwpCovSampSplitSegments.c)
- *     EtwpCoverageSamplerInitialize @ 0x1409F3144 (EtwpCoverageSamplerInitialize.c)
- *     EtwpCoverageSamplerSetBloomFilter @ 0x1409F320C (EtwpCoverageSamplerSetBloomFilter.c)
- *     EtwpCoverageSamplerStart @ 0x1409F33D8 (EtwpCoverageSamplerStart.c)
- *     EtwpCoverageSamplerStop @ 0x1409F36C4 (EtwpCoverageSamplerStop.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     ObfReferenceObject @ 0x140233D10 (ObfReferenceObject.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     NtClose @ 0x1406E44F0 (NtClose.c)
+ *     ObReferenceObjectByHandle @ 0x1406E62F0 (ObReferenceObjectByHandle.c)
+ *     ProbeForWrite @ 0x140729580 (ProbeForWrite.c)
+ *     ObCreateObjectEx @ 0x140730AA0 (ObCreateObjectEx.c)
+ *     ObInsertObjectEx @ 0x140735BC0 (ObInsertObjectEx.c)
+ *     ExCheckFullProcessInformationAccess @ 0x1407E0D38 (ExCheckFullProcessInformationAccess.c)
+ *     EtwpCovSampApplyBounds @ 0x1409F0A80 (EtwpCovSampApplyBounds.c)
+ *     EtwpCovSampSplitSegments @ 0x1409F2F08 (EtwpCovSampSplitSegments.c)
+ *     EtwpCoverageSamplerInitialize @ 0x1409F33D4 (EtwpCoverageSamplerInitialize.c)
+ *     EtwpCoverageSamplerSetBloomFilter @ 0x1409F349C (EtwpCoverageSamplerSetBloomFilter.c)
+ *     EtwpCoverageSamplerStart @ 0x1409F3668 (EtwpCoverageSamplerStart.c)
+ *     EtwpCoverageSamplerStop @ 0x1409F3954 (EtwpCoverageSamplerStop.c)
  */
 
 __int64 __fastcall EtwpSetCoverageSamplerInformation(_OWORD *Address, SIZE_T Length, KPROCESSOR_MODE AccessMode)
@@ -131,7 +131,7 @@ LABEL_4:
       v52 = v5[1];
       *(_QWORD *)&v53 = *((_QWORD *)v5 + 4);
       v48 = 0LL;
-      inserted = ObReferenceObjectByHandle(Handle[1], 1u, qword_140C31CB0, AccessMode, &v48, 0LL);
+      inserted = ObReferenceObjectByHandle(Handle[1], 1u, qword_140C31C50, AccessMode, &v48, 0LL);
       v6 = (char *)v48;
       if ( inserted >= 0 )
       {
@@ -252,7 +252,7 @@ LABEL_2:
   DWORD2(v52) = 0;
   *(_QWORD *)&v52 = 0LL;
   v53 = 0LL;
-  inserted = ObCreateObjectEx(0, qword_140C31CB0, (__int64)&v51, AccessMode, (__int64)Object, 1736, 0, 0, &v48, 0LL);
+  inserted = ObCreateObjectEx(0, qword_140C31C50, (__int64)&v51, AccessMode, (__int64)Object, 1736, 0, 0, &v48, 0LL);
   v6 = (char *)v48;
   if ( inserted >= 0 )
   {

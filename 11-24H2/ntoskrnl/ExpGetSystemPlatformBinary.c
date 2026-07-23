@@ -1,23 +1,23 @@
 /*
- * XREFs of ExpGetSystemPlatformBinary @ 0x1407B42C0
+ * XREFs of ExpGetSystemPlatformBinary @ 0x1407B4710
  * Callers:
- *     ExpQuerySystemInformation @ 0x140ADC240 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x140ADDAE0 (ExpQuerySystemInformation.c)
  * Callees:
- *     KiLeaveCriticalRegionUnsafe @ 0x1402595C0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExfReleasePushLockShared @ 0x14025DE00 (ExfReleasePushLockShared.c)
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     MmUnmapIoSpace @ 0x140263160 (MmUnmapIoSpace.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     MmMapIoSpaceEx @ 0x1402E9A50 (MmMapIoSpaceEx.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockSharedEx @ 0x14034050C (ExfAcquirePushLockSharedEx.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ExpGetSystemFirmwareTableInformation @ 0x14085D348 (ExpGetSystemFirmwareTableInformation.c)
- *     ProbeForWrite @ 0x1408C0590 (ProbeForWrite.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140289BD0 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExfReleasePushLockShared @ 0x14028E410 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     MmUnmapIoSpace @ 0x1402929D0 (MmUnmapIoSpace.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockSharedEx @ 0x14031F9EC (ExfAcquirePushLockSharedEx.c)
+ *     MmMapIoSpaceEx @ 0x14034B090 (MmMapIoSpaceEx.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ExpGetSystemFirmwareTableInformation @ 0x1408590B8 (ExpGetSystemFirmwareTableInformation.c)
+ *     ProbeForWrite @ 0x1408BDF50 (ProbeForWrite.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall ExpGetSystemPlatformBinary(__int64 a1, unsigned int a2, char a3)
@@ -26,37 +26,28 @@ __int64 __fastcall ExpGetSystemPlatformBinary(__int64 a1, unsigned int a2, char 
   char v5; // r12
   int v6; // edi
   struct _KTHREAD *CurrentThread; // rax
-  _QWORD *v8; // rdi
-  __int64 v9; // rdx
-  __int64 v10; // r8
-  __int64 v11; // r9
+  char *v8; // rdi
   int SystemFirmwareTableInformation; // edi
   _DWORD *Pool2; // rax
-  struct _KTHREAD *v14; // rax
-  _QWORD *v15; // rax
-  _QWORD *v16; // rdi
+  struct _KTHREAD *v11; // rax
+  char *v12; // rax
+  char *v13; // rdi
+  _QWORD *v14; // rbx
+  unsigned int v15; // r8d
+  __int64 v16; // rcx
   __int64 v17; // rdx
-  __int64 v18; // r8
-  __int64 v19; // r9
-  _QWORD *v20; // rbx
-  unsigned int v21; // r8d
-  __int64 v22; // rcx
-  __int64 v23; // rdx
-  void *v24; // rdi
-  __int64 v25; // rdx
-  __int64 v26; // r8
-  __int64 v27; // r9
+  void *v18; // rdi
   unsigned int Length; // [rsp+28h] [rbp-90h]
-  unsigned int v31; // [rsp+30h] [rbp-88h]
+  unsigned int v22; // [rsp+30h] [rbp-88h]
   volatile void *Address; // [rsp+40h] [rbp-78h]
-  volatile void *v33; // [rsp+48h] [rbp-70h]
+  volatile void *v24; // [rsp+48h] [rbp-70h]
   PVOID BaseAddress; // [rsp+50h] [rbp-68h]
   SIZE_T NumberOfBytes; // [rsp+58h] [rbp-60h]
   __int128 Src; // [rsp+80h] [rbp-38h] BYREF
-  int v37; // [rsp+90h] [rbp-28h]
+  int v28; // [rsp+90h] [rbp-28h]
 
   Src = 0LL;
-  v37 = 0;
+  v28 = 0;
   v4 = 0LL;
   v5 = 0;
   BaseAddress = 0LL;
@@ -67,17 +58,17 @@ LABEL_2:
     v6 = -1073741811;
     goto LABEL_50;
   }
-  v31 = *(_DWORD *)(a1 + 28);
+  v22 = *(_DWORD *)(a1 + 28);
   Length = *(_DWORD *)(a1 + 24);
   Address = *(volatile void **)(a1 + 8);
-  v33 = *(volatile void **)(a1 + 16);
+  v24 = *(volatile void **)(a1 + 16);
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  v8 = KeAbPreAcquire((__int64)&ExpPlatformBinaryLock, 0LL);
+  v8 = (char *)KeAbPreAcquire((__int64)&ExpPlatformBinaryLock, 0LL);
   if ( _InterlockedCompareExchange64((volatile signed __int64 *)&ExpPlatformBinaryLock, 17LL, 0LL) )
     ExfAcquirePushLockSharedEx((signed __int64 *)&ExpPlatformBinaryLock, 0, v8, (__int64)&ExpPlatformBinaryLock);
   if ( v8 )
-    *((_BYTE *)v8 + 10) = 1;
+    v8[10] = 1;
   v5 = 1;
   if ( ExpPlatformBinaryTableInformation == (PVOID)-1LL )
     goto LABEL_8;
@@ -86,9 +77,9 @@ LABEL_2:
     if ( _InterlockedCompareExchange64((volatile signed __int64 *)&ExpPlatformBinaryLock, 0LL, 17LL) != 17 )
       ExfReleasePushLockShared((signed __int64 *)&ExpPlatformBinaryLock);
     KeAbPostRelease((ULONG_PTR)&ExpPlatformBinaryLock);
-    KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread(), v9, v10, v11);
+    KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
     v5 = 0;
-    if ( Length || v31 )
+    if ( Length || v22 )
       goto LABEL_2;
     *(_QWORD *)&Src = 0x141435049LL;
     *((_QWORD *)&Src + 1) = 1413632087LL;
@@ -98,7 +89,7 @@ LABEL_2:
       v6 = ((SystemFirmwareTableInformation >> 31) & 0x40) - 1073741701;
       goto LABEL_50;
     }
-    Pool2 = (_DWORD *)ExAllocatePool2(0x40uLL);
+    Pool2 = (_DWORD *)ExAllocatePool2(0x40uLL, 0LL, 0x54425057u);
     v4 = Pool2;
     if ( !Pool2 )
     {
@@ -112,14 +103,14 @@ LABEL_2:
     v6 = ExpGetSystemFirmwareTableInformation(Pool2);
     if ( v6 < 0 )
       goto LABEL_50;
-    v14 = KeGetCurrentThread();
-    --v14->KernelApcDisable;
-    v15 = KeAbPreAcquire((__int64)&ExpPlatformBinaryLock, 0LL);
-    v16 = v15;
+    v11 = KeGetCurrentThread();
+    --v11->KernelApcDisable;
+    v12 = (char *)KeAbPreAcquire((__int64)&ExpPlatformBinaryLock, 0LL);
+    v13 = v12;
     if ( _interlockedbittestandset64((volatile signed __int32 *)&ExpPlatformBinaryLock, 0LL) )
-      ExfAcquirePushLockExclusiveEx(&ExpPlatformBinaryLock, (__int64)v15, (__int64)&ExpPlatformBinaryLock);
-    if ( v16 )
-      *((_BYTE *)v16 + 10) = 1;
+      ExfAcquirePushLockExclusiveEx(&ExpPlatformBinaryLock, v12, (__int64)&ExpPlatformBinaryLock);
+    if ( v13 )
+      v13[10] = 1;
     if ( ExpPlatformBinaryTableInformation )
     {
       if ( ExpPlatformBinaryTableInformation == (PVOID)-1LL )
@@ -127,7 +118,7 @@ LABEL_2:
         if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&ExpPlatformBinaryLock, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
           ExfTryToWakePushLock((volatile signed __int64 *)&ExpPlatformBinaryLock);
         KeAbPostRelease((ULONG_PTR)&ExpPlatformBinaryLock);
-        KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread(), v17, v18, v19);
+        KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
 LABEL_8:
         v6 = -1073741637;
         goto LABEL_50;
@@ -140,43 +131,43 @@ LABEL_8:
     }
     _InterlockedCompareExchange64((volatile signed __int64 *)&ExpPlatformBinaryLock, 17LL, 1LL);
   }
-  if ( (v31 & 1) == 0 )
+  if ( (v22 & 1) == 0 )
   {
-    v20 = ExpPlatformBinaryTableInformation;
+    v14 = ExpPlatformBinaryTableInformation;
     if ( *((_BYTE *)ExpPlatformBinaryTableInformation + 64) != 1
       || *((_BYTE *)ExpPlatformBinaryTableInformation + 65) != 1
-      || (v21 = *((unsigned __int16 *)ExpPlatformBinaryTableInformation + 33), (v21 & 1) != 0)
-      || (v22 = *((_QWORD *)ExpPlatformBinaryTableInformation + 7)) == 0
+      || (v15 = *((unsigned __int16 *)ExpPlatformBinaryTableInformation + 33), (v15 & 1) != 0)
+      || (v16 = *((_QWORD *)ExpPlatformBinaryTableInformation + 7)) == 0
       || *((_DWORD *)ExpPlatformBinaryTableInformation + 10) != 1 )
     {
       v6 = -1073741701;
       goto LABEL_51;
     }
-    v23 = *((unsigned int *)ExpPlatformBinaryTableInformation + 13);
-    if ( (unsigned int)v23 > Length || v21 > v31 )
+    v17 = *((unsigned int *)ExpPlatformBinaryTableInformation + 13);
+    if ( (unsigned int)v17 > Length || v15 > v22 )
     {
       v6 = -1073741789;
-      *(_DWORD *)(a1 + 24) = v23;
-      *(_DWORD *)(a1 + 28) = *((unsigned __int16 *)v20 + 33);
+      *(_DWORD *)(a1 + 24) = v17;
+      *(_DWORD *)(a1 + 28) = *((unsigned __int16 *)v14 + 33);
       goto LABEL_51;
     }
     NumberOfBytes = *((unsigned int *)ExpPlatformBinaryTableInformation + 13);
-    v24 = (void *)MmMapIoSpaceEx(v22, v23, 2u);
-    BaseAddress = v24;
-    if ( !v24 )
+    v18 = (void *)MmMapIoSpaceEx(v16, v17, 2LL);
+    BaseAddress = v18;
+    if ( !v18 )
     {
       v6 = -1073741670;
       goto LABEL_51;
     }
-    *(_QWORD *)a1 = v20[7];
+    *(_QWORD *)a1 = v14[7];
     if ( a3 )
       ProbeForWrite(Address, Length, 4u);
-    memmove((void *)Address, v24, *((unsigned int *)v20 + 13));
-    if ( *((_WORD *)v20 + 33) )
+    memmove((void *)Address, v18, *((unsigned int *)v14 + 13));
+    if ( *((_WORD *)v14 + 33) )
     {
       if ( a3 )
-        ProbeForWrite(v33, v31, 2u);
-      memmove((void *)v33, (char *)v20 + 68, *((unsigned __int16 *)v20 + 33));
+        ProbeForWrite(v24, v22, 2u);
+      memmove((void *)v24, (char *)v14 + 68, *((unsigned __int16 *)v14 + 33));
     }
     v6 = 0;
     v5 = 1;
@@ -190,7 +181,7 @@ LABEL_51:
   if ( _InterlockedCompareExchange64((volatile signed __int64 *)&ExpPlatformBinaryLock, 0LL, 17LL) != 17 )
     ExfReleasePushLockShared((signed __int64 *)&ExpPlatformBinaryLock);
   KeAbPostRelease((ULONG_PTR)&ExpPlatformBinaryLock);
-  KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread(), v25, v26, v27);
+  KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
 LABEL_54:
   if ( BaseAddress )
     MmUnmapIoSpace(BaseAddress, NumberOfBytes);

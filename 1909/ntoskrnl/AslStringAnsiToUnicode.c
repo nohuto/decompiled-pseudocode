@@ -14,7 +14,7 @@
  *     AslAlloc @ 0x14070EABC (AslAlloc.c)
  */
 
-__int64 __fastcall AslStringAnsiToUnicode(wchar_t **a1, const char *a2)
+__int64 __fastcall AslStringAnsiToUnicode(wchar_t **a1, const CHAR *a2)
 {
   ULONG v3; // eax
   __int64 v4; // rcx

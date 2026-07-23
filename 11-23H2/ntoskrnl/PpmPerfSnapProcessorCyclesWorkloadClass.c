@@ -1,7 +1,7 @@
 /*
- * XREFs of PpmPerfSnapProcessorCyclesWorkloadClass @ 0x140255A1C
+ * XREFs of PpmPerfSnapProcessorCyclesWorkloadClass @ 0x140255ADC
  * Callers:
- *     PpmPerfSnapDeliveredPerformance @ 0x140255F80 (PpmPerfSnapDeliveredPerformance.c)
+ *     PpmPerfSnapDeliveredPerformance @ 0x140256040 (PpmPerfSnapDeliveredPerformance.c)
  * Callees:
  *     <none>
  */

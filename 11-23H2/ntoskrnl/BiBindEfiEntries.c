@@ -1,44 +1,44 @@
 /*
- * XREFs of BiBindEfiEntries @ 0x1408037E8
+ * XREFs of BiBindEfiEntries @ 0x140803AB8
  * Callers:
- *     BiBindEfiNamespaceObjects @ 0x1408027BC (BiBindEfiNamespaceObjects.c)
+ *     BiBindEfiNamespaceObjects @ 0x140802A8C (BiBindEfiNamespaceObjects.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     RtlGUIDFromString @ 0x1406CF6C0 (RtlGUIDFromString.c)
- *     BcdDeleteObject @ 0x140802D00 (BcdDeleteObject.c)
- *     BiCreateObject @ 0x140803298 (BiCreateObject.c)
- *     BiUpdateBcdObject @ 0x140804304 (BiUpdateBcdObject.c)
- *     BcdCloseObject @ 0x140804F00 (BcdCloseObject.c)
- *     BcdOpenObject @ 0x140804F44 (BcdOpenObject.c)
- *     BiLogMessage @ 0x140805620 (BiLogMessage.c)
- *     BiGetKeyName @ 0x1408057C4 (BiGetKeyName.c)
- *     BiIsPortableWorkspaceBoot @ 0x140A5D6AC (BiIsPortableWorkspaceBoot.c)
- *     BiAddBootEntryToNvramDisplayOrder @ 0x140A5D914 (BiAddBootEntryToNvramDisplayOrder.c)
- *     BiCreateEfiEntry @ 0x140A5DDE0 (BiCreateEfiEntry.c)
- *     BiDeleteBootEntry @ 0x140A5E310 (BiDeleteBootEntry.c)
- *     BiRemoveBootEntryFromNvramDisplayOrder @ 0x140A5EC38 (BiRemoveBootEntryFromNvramDisplayOrder.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     RtlGUIDFromString @ 0x1406CF6F0 (RtlGUIDFromString.c)
+ *     BcdDeleteObject @ 0x140802FD0 (BcdDeleteObject.c)
+ *     BiCreateObject @ 0x140803568 (BiCreateObject.c)
+ *     BiUpdateBcdObject @ 0x1408045D4 (BiUpdateBcdObject.c)
+ *     BcdCloseObject @ 0x1408051D0 (BcdCloseObject.c)
+ *     BcdOpenObject @ 0x140805214 (BcdOpenObject.c)
+ *     BiLogMessage @ 0x1408058F0 (BiLogMessage.c)
+ *     BiGetKeyName @ 0x140805A94 (BiGetKeyName.c)
+ *     BiIsPortableWorkspaceBoot @ 0x140A5D95C (BiIsPortableWorkspaceBoot.c)
+ *     BiAddBootEntryToNvramDisplayOrder @ 0x140A5DBC4 (BiAddBootEntryToNvramDisplayOrder.c)
+ *     BiCreateEfiEntry @ 0x140A5E090 (BiCreateEfiEntry.c)
+ *     BiDeleteBootEntry @ 0x140A5E5C0 (BiDeleteBootEntry.c)
+ *     BiRemoveBootEntryFromNvramDisplayOrder @ 0x140A5EEE8 (BiRemoveBootEntryFromNvramDisplayOrder.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall BiBindEfiEntries(__int64 a1, GUID **a2)
+__int64 __fastcall BiBindEfiEntries(HANDLE BcdStoreHandle, const GUID **a2)
 {
-  NTSTATUS KeyName; // edi
-  GUID *v3; // rbx
+  NTSTATUS Object; // edi
+  const GUID *v3; // rbx
   unsigned int Data1; // eax
   unsigned int v7; // eax
   GUID v9; // xmm0
   PCWSTR SourceString; // [rsp+30h] [rbp-50h] BYREF
-  __int64 v11; // [rsp+38h] [rbp-48h] BYREF
+  HANDLE v11; // [rsp+38h] [rbp-48h] BYREF
   __int64 v12; // [rsp+40h] [rbp-40h] BYREF
-  void *v13; // [rsp+48h] [rbp-38h] BYREF
+  HANDLE BcdObjectHandle; // [rsp+48h] [rbp-38h] BYREF
   UNICODE_STRING DestinationString; // [rsp+50h] [rbp-30h] BYREF
   GUID Guid; // [rsp+60h] [rbp-20h] BYREF
 
-  v13 = 0LL;
-  KeyName = 0;
+  BcdObjectHandle = 0LL;
+  Object = 0;
   v3 = *a2;
-  if ( *a2 != (GUID *)a2 )
+  if ( *a2 != (const GUID *)a2 )
   {
     while ( 1 )
     {
@@ -62,15 +62,15 @@ __int64 __fastcall BiBindEfiEntries(__int64 a1, GUID **a2)
         if ( (v7 & 4) == 0 )
         {
           v12 = 0x101FFFFF00000001LL;
-          KeyName = BiCreateObject(a1, 0LL, (unsigned int *)&v12, 1LL, &v11);
-          if ( KeyName >= 0 )
+          Object = BiCreateObject((__int64)BcdStoreHandle, 0LL, (unsigned int *)&v12, 1LL, (__int64 *)&v11);
+          if ( Object >= 0 )
           {
-            KeyName = BiGetKeyName(v11, &SourceString);
-            if ( KeyName >= 0 )
+            Object = BiGetKeyName(v11, &SourceString);
+            if ( Object >= 0 )
             {
               RtlInitUnicodeString(&DestinationString, SourceString);
-              KeyName = RtlGUIDFromString(&DestinationString, &Guid);
-              if ( KeyName >= 0 )
+              Object = RtlGUIDFromString(&DestinationString, &Guid);
+              if ( Object >= 0 )
               {
                 v9 = Guid;
                 v3[3].Data1 |= 4u;
@@ -82,36 +82,36 @@ __int64 __fastcall BiBindEfiEntries(__int64 a1, GUID **a2)
           }
           if ( v11 )
             BcdCloseObject(v11);
-          if ( KeyName < 0 )
+          if ( Object < 0 )
             goto LABEL_35;
         }
-        KeyName = BiUpdateBcdObject(a1, v3);
-        if ( KeyName < 0 )
+        Object = BiUpdateBcdObject(BcdStoreHandle, v3);
+        if ( Object < 0 )
         {
 LABEL_35:
-          BiLogMessage(4LL, L"BiBindEfiEntries failed %x", (unsigned int)KeyName);
-          return (unsigned int)KeyName;
+          BiLogMessage(4LL, L"BiBindEfiEntries failed %x", (unsigned int)Object);
+          return (unsigned int)Object;
         }
       }
       else if ( (Data1 & 4) != 0 )
       {
         if ( (Data1 & 8) != 0 )
         {
-          KeyName = BcdOpenObject(a1, &v3[1], &v13);
-          if ( KeyName < 0 )
+          Object = BcdOpenObject(BcdStoreHandle, v3 + 1, &BcdObjectHandle);
+          if ( Object < 0 )
             goto LABEL_35;
-          BcdDeleteObject(v13);
+          BcdDeleteObject(BcdObjectHandle);
           v3[3].Data1 &= 0xFFFFFFF9;
         }
-        else if ( !(unsigned __int8)BiIsPortableWorkspaceBoot() && (int)BiCreateEfiEntry(a1, v3) >= 0 )
+        else if ( !(unsigned __int8)BiIsPortableWorkspaceBoot() && (int)BiCreateEfiEntry(BcdStoreHandle, v3) >= 0 )
         {
           BiAddBootEntryToNvramDisplayOrder(v3);
         }
       }
 LABEL_7:
-      v3 = *(GUID **)&v3->Data1;
-      if ( v3 == (GUID *)a2 )
-        return (unsigned int)KeyName;
+      v3 = *(const GUID **)&v3->Data1;
+      if ( v3 == (const GUID *)a2 )
+        return (unsigned int)Object;
     }
     if ( (Data1 & 1) == 0 )
       goto LABEL_7;
@@ -123,5 +123,5 @@ LABEL_15:
     BiRemoveBootEntryFromNvramDisplayOrder(v3);
     goto LABEL_7;
   }
-  return (unsigned int)KeyName;
+  return (unsigned int)Object;
 }

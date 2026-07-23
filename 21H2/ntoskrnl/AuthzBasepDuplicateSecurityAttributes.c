@@ -1,21 +1,21 @@
 /*
- * XREFs of AuthzBasepDuplicateSecurityAttributes @ 0x1403560E0
+ * XREFs of AuthzBasepDuplicateSecurityAttributes @ 0x140360E30
  * Callers:
- *     SepInternalQuerySecurityAttributesTokenEx @ 0x14024E760 (SepInternalQuerySecurityAttributesTokenEx.c)
- *     SepGetAnonymousToken @ 0x14036016C (SepGetAnonymousToken.c)
- *     SepValidateAndCopyGlobalEntry @ 0x1405979EC (SepValidateAndCopyGlobalEntry.c)
- *     SepFilterToken @ 0x1405DB0FC (SepFilterToken.c)
- *     SepDuplicateToken @ 0x140703E00 (SepDuplicateToken.c)
- *     SepDuplicateClaimAttributes @ 0x140925070 (SepDuplicateClaimAttributes.c)
+ *     SepGetAnonymousToken @ 0x1402A509C (SepGetAnonymousToken.c)
+ *     SepInternalQuerySecurityAttributesTokenEx @ 0x1402F2FB0 (SepInternalQuerySecurityAttributesTokenEx.c)
+ *     SepValidateAndCopyGlobalEntry @ 0x140597C1C (SepValidateAndCopyGlobalEntry.c)
+ *     SepFilterToken @ 0x1406CA87C (SepFilterToken.c)
+ *     SepDuplicateToken @ 0x14071B1E0 (SepDuplicateToken.c)
+ *     SepDuplicateClaimAttributes @ 0x1409251D0 (SepDuplicateClaimAttributes.c)
  * Callees:
- *     AuthzBasepAddSecurityAttributeValueToLists @ 0x140250E90 (AuthzBasepAddSecurityAttributeValueToLists.c)
- *     RtlCopyUnicodeString @ 0x1403534C0 (RtlCopyUnicodeString.c)
- *     AuthzBasepAllocateSecurityAttribute @ 0x140356350 (AuthzBasepAllocateSecurityAttribute.c)
- *     AuthzBasepFinaliseSecurityAttributesList @ 0x140356420 (AuthzBasepFinaliseSecurityAttributesList.c)
- *     AuthzBasepAllocateSecurityAttributeValue @ 0x1403566A4 (AuthzBasepAllocateSecurityAttributeValue.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     memset @ 0x140414200 (memset.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     AuthzBasepAddSecurityAttributeValueToLists @ 0x1402F56A0 (AuthzBasepAddSecurityAttributeValueToLists.c)
+ *     RtlCopyUnicodeString @ 0x14035E210 (RtlCopyUnicodeString.c)
+ *     AuthzBasepAllocateSecurityAttribute @ 0x1403610A0 (AuthzBasepAllocateSecurityAttribute.c)
+ *     AuthzBasepFinaliseSecurityAttributesList @ 0x140361170 (AuthzBasepFinaliseSecurityAttributesList.c)
+ *     AuthzBasepAllocateSecurityAttributeValue @ 0x1403613F4 (AuthzBasepAllocateSecurityAttributeValue.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall AuthzBasepDuplicateSecurityAttributes(__int64 a1, _QWORD *a2, char a3)

@@ -1,11 +1,11 @@
 /*
- * XREFs of PfSnLogPrefetchMetadata @ 0x1406C77C8
+ * XREFs of PfSnLogPrefetchMetadata @ 0x1406760B8
  * Callers:
- *     PfSnPrefetchMetadata @ 0x1406C8184 (PfSnPrefetchMetadata.c)
+ *     PfSnPrefetchMetadata @ 0x140676A74 (PfSnPrefetchMetadata.c)
  * Callees:
- *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
- *     EtwWrite @ 0x14025DC90 (EtwWrite.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     EtwWrite @ 0x14027F7C0 (EtwWrite.c)
+ *     EtwEventEnabled @ 0x1402C0830 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 void __fastcall PfSnLogPrefetchMetadata(__int64 a1, int a2, char a3)

@@ -1,12 +1,12 @@
 /*
- * XREFs of PopVerifyPowerActionPolicy @ 0x140944AA0
+ * XREFs of PopVerifyPowerActionPolicy @ 0x1409C0410
  * Callers:
- *     PdcPoVerifyActionPolicy @ 0x1407DB7A0 (PdcPoVerifyActionPolicy.c)
- *     PopVerifySystemPowerPolicy @ 0x1409442F4 (PopVerifySystemPowerPolicy.c)
- *     PopExecutePowerAction @ 0x140A37D58 (PopExecutePowerAction.c)
+ *     PdcPoVerifyActionPolicy @ 0x1407DF7B0 (PdcPoVerifyActionPolicy.c)
+ *     PopVerifySystemPowerPolicy @ 0x1409BFC64 (PopVerifySystemPowerPolicy.c)
+ *     PopExecutePowerAction @ 0x1409F3918 (PopExecutePowerAction.c)
  * Callees:
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     PopFilterCapabilities @ 0x140944D5C (PopFilterCapabilities.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     PopFilterCapabilities @ 0x1409C06CC (PopFilterCapabilities.c)
  */
 
 char __fastcall PopVerifyPowerActionPolicy(int *a1)
@@ -34,7 +34,7 @@ char __fastcall PopVerifyPowerActionPolicy(int *a1)
     return 0;
   if ( v3 < 0 )
     a1[1] = v3 & 0xFFFFFFF8 | 4;
-  if ( (int)PopFilterCapabilities(&stru_140F10828.WaitBlockFill11[24], v10) >= 0 )
+  if ( (int)PopFilterCapabilities(&PpmIdlePolicyLock.Padding[1], v10) >= 0 )
   {
     v4 = v10[3] != 0;
     if ( v10[4] )

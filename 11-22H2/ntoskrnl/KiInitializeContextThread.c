@@ -12,7 +12,7 @@
  *     RtlLocateSupervisorFeature @ 0x1405AFAE0 (RtlLocateSupervisorFeature.c)
  */
 
-__int64 __fastcall KiInitializeContextThread(__int64 a1, __int64 a2)
+unsigned __int64 __fastcall KiInitializeContextThread(__int64 a1, __int64 a2)
 {
   __int64 v2; // rbx
   _OWORD *ExtendedFeature2; // rbp
@@ -28,7 +28,7 @@ __int64 __fastcall KiInitializeContextThread(__int64 a1, __int64 a2)
   _QWORD *v15; // rbx
   _QWORD *v16; // r13
   __int64 v17; // r11
-  __int64 result; // rax
+  unsigned __int64 result; // rax
   _QWORD *v19; // [rsp+30h] [rbp-528h]
   __int64 v20; // [rsp+38h] [rbp-520h]
   _BYTE v21[48]; // [rsp+40h] [rbp-518h] BYREF
@@ -113,7 +113,7 @@ __int64 __fastcall KiInitializeContextThread(__int64 a1, __int64 a2)
     KiSetSwitchingNpxState(a1, v10, v8);
     *(_BYTE *)(a1 + 562) = (*(_BYTE *)(a2 + 60) & 0x10) != 0;
   }
-  result = (__int64)(v19 + 16);
+  result = (unsigned __int64)(v19 + 16);
   *((_BYTE *)v16 + 40) = 1;
   v16[6] = v19 + 16;
   if ( MEMORY[0xFFFFF780000003D8] )
@@ -129,7 +129,7 @@ __int64 __fastcall KiInitializeContextThread(__int64 a1, __int64 a2)
           ExtendedFeature2 = (_OWORD *)RtlLocateExtendedFeature2(v17 + 1232, 11LL, 0xFFFFF780000003D8uLL);
         *(_QWORD *)(v5 + 512) |= 0x800uLL;
         *(_QWORD *)(v5 + 520) |= 0x800uLL;
-        result = RtlLocateSupervisorFeature(v5 + 512, 11LL, 0LL);
+        result = (unsigned __int64)RtlLocateSupervisorFeature((PXSAVE_AREA_HEADER)(v5 + 512), 0xBu, 0LL);
         *(_OWORD *)result = *ExtendedFeature2;
       }
     }

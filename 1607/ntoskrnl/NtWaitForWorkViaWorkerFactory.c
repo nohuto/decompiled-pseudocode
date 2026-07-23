@@ -1,64 +1,64 @@
 /*
- * XREFs of NtWaitForWorkViaWorkerFactory @ 0x14005E910
+ * XREFs of NtWaitForWorkViaWorkerFactory @ 0x14005E490
  * Callers:
  *     <none>
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140012750 (KeReleaseInStackQueuedSpinLock.c)
- *     KxWaitForLockOwnerShip @ 0x14001BDA0 (KxWaitForLockOwnerShip.c)
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KeYieldProcessorEx @ 0x14002ECB0 (KeYieldProcessorEx.c)
- *     KeReleaseSemaphore @ 0x1400529B0 (KeReleaseSemaphore.c)
- *     KeSetEvent @ 0x1400562D0 (KeSetEvent.c)
- *     KiExitDispatcher @ 0x140056700 (KiExitDispatcher.c)
- *     KiTryUnwaitThread @ 0x140057DA0 (KiTryUnwaitThread.c)
- *     KeLeaveCriticalRegion @ 0x140069D00 (KeLeaveCriticalRegion.c)
- *     IoRemoveIoCompletion @ 0x14006A0E0 (IoRemoveIoCompletion.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     ObfDereferenceObjectWithTag @ 0x14006ACD0 (ObfDereferenceObjectWithTag.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     AlpcpQueueIoCompletionPort @ 0x1400A5470 (AlpcpQueueIoCompletionPort.c)
- *     AlpcpReleaseDirectAttribute @ 0x1400A97D0 (AlpcpReleaseDirectAttribute.c)
- *     ExpRemoveCurrentThreadFromThreadHistory @ 0x1400AB130 (ExpRemoveCurrentThreadFromThreadHistory.c)
- *     ExpWorkerFactoryWantsToCreate @ 0x1400AC6B0 (ExpWorkerFactoryWantsToCreate.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
- *     KeRegisterObjectNotification @ 0x1400EDDA0 (KeRegisterObjectNotification.c)
- *     ObfReferenceObjectWithTag @ 0x1400EE4F0 (ObfReferenceObjectWithTag.c)
- *     KiAcquireKobjectLockSafe @ 0x1400EE7C0 (KiAcquireKobjectLockSafe.c)
- *     KiWakeQueueWaiter @ 0x1400EE800 (KiWakeQueueWaiter.c)
- *     RtlRaiseStatus @ 0x1400F6738 (RtlRaiseStatus.c)
- *     ExpWorkerFactoryCheckCreate @ 0x1400F8F30 (ExpWorkerFactoryCheckCreate.c)
- *     KxWaitForLockChainValid @ 0x1400F9530 (KxWaitForLockChainValid.c)
- *     ExpLeaveWorkerFactoryAwayMode @ 0x1400F9B2C (ExpLeaveWorkerFactoryAwayMode.c)
- *     KiWakeOtherQueueWaiters @ 0x1400F9DBC (KiWakeOtherQueueWaiters.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     KeIsThreadRunning @ 0x1401D2C78 (KeIsThreadRunning.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x1401D39E0 (KiAcquireQueuedSpinLockInstrumented.c)
- *     KiReleaseQueuedSpinLockInstrumented @ 0x1401D3B5C (KiReleaseQueuedSpinLockInstrumented.c)
- *     EtwTraceEnqueueWork @ 0x140225C20 (EtwTraceEnqueueWork.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x1400122D0 (KeReleaseInStackQueuedSpinLock.c)
+ *     KxWaitForLockOwnerShip @ 0x14001B920 (KxWaitForLockOwnerShip.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KeYieldProcessorEx @ 0x14002E830 (KeYieldProcessorEx.c)
+ *     KeReleaseSemaphore @ 0x140052530 (KeReleaseSemaphore.c)
+ *     KeSetEvent @ 0x140055E50 (KeSetEvent.c)
+ *     KiExitDispatcher @ 0x140056280 (KiExitDispatcher.c)
+ *     KiTryUnwaitThread @ 0x140057920 (KiTryUnwaitThread.c)
+ *     KeLeaveCriticalRegion @ 0x140069880 (KeLeaveCriticalRegion.c)
+ *     IoRemoveIoCompletion @ 0x140069C60 (IoRemoveIoCompletion.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     ObfDereferenceObjectWithTag @ 0x14006A850 (ObfDereferenceObjectWithTag.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     AlpcpQueueIoCompletionPort @ 0x1400A39E8 (AlpcpQueueIoCompletionPort.c)
+ *     AlpcpReleaseDirectAttribute @ 0x1400A7D50 (AlpcpReleaseDirectAttribute.c)
+ *     ExpRemoveCurrentThreadFromThreadHistory @ 0x1400A96B0 (ExpRemoveCurrentThreadFromThreadHistory.c)
+ *     ExpWorkerFactoryWantsToCreate @ 0x1400AAC18 (ExpWorkerFactoryWantsToCreate.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
+ *     KeRegisterObjectNotification @ 0x1400EBC20 (KeRegisterObjectNotification.c)
+ *     ObfReferenceObjectWithTag @ 0x1400EC370 (ObfReferenceObjectWithTag.c)
+ *     KiAcquireKobjectLockSafe @ 0x1400EC640 (KiAcquireKobjectLockSafe.c)
+ *     KiWakeQueueWaiter @ 0x1400EC680 (KiWakeQueueWaiter.c)
+ *     RtlRaiseStatus @ 0x1400F4588 (RtlRaiseStatus.c)
+ *     ExpWorkerFactoryCheckCreate @ 0x1400F6D70 (ExpWorkerFactoryCheckCreate.c)
+ *     KxWaitForLockChainValid @ 0x1400F7370 (KxWaitForLockChainValid.c)
+ *     ExpLeaveWorkerFactoryAwayMode @ 0x1400F7920 (ExpLeaveWorkerFactoryAwayMode.c)
+ *     KiWakeOtherQueueWaiters @ 0x1400F7B48 (KiWakeOtherQueueWaiters.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     KeIsThreadRunning @ 0x1401D2AA4 (KeIsThreadRunning.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x1401D380C (KiAcquireQueuedSpinLockInstrumented.c)
+ *     KiReleaseQueuedSpinLockInstrumented @ 0x1401D3988 (KiReleaseQueuedSpinLockInstrumented.c)
+ *     EtwTraceEnqueueWork @ 0x140225A4C (EtwTraceEnqueueWork.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     NtAlpcSendWaitReceivePort @ 0x140449270 (NtAlpcSendWaitReceivePort.c)
- *     AlpcpSendMessage @ 0x14044A880 (AlpcpSendMessage.c)
- *     ProbeForWrite @ 0x14044DAC0 (ProbeForWrite.c)
- *     AlpciDestroyDeferredMessageContext @ 0x14044DB30 (AlpciDestroyDeferredMessageContext.c)
- *     ObReferenceObjectByHandle @ 0x140450D40 (ObReferenceObjectByHandle.c)
- *     ExSystemExceptionFilter @ 0x1404BBBFC (ExSystemExceptionFilter.c)
- *     ExRaiseDatatypeMisalignment @ 0x1406B6058 (ExRaiseDatatypeMisalignment.c)
+ *     NtAlpcSendWaitReceivePort @ 0x140448140 (NtAlpcSendWaitReceivePort.c)
+ *     AlpcpSendMessage @ 0x140449750 (AlpcpSendMessage.c)
+ *     ProbeForWrite @ 0x14044C990 (ProbeForWrite.c)
+ *     AlpciDestroyDeferredMessageContext @ 0x14044CA00 (AlpciDestroyDeferredMessageContext.c)
+ *     ObReferenceObjectByHandle @ 0x14044FC10 (ObReferenceObjectByHandle.c)
+ *     ExSystemExceptionFilter @ 0x1404A792C (ExSystemExceptionFilter.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1406B6190 (ExRaiseDatatypeMisalignment.c)
  */
 
-__int64 __fastcall NtWaitForWorkViaWorkerFactory(
-        _DWORD *Handle,
-        volatile void *Address,
-        unsigned int a3,
-        unsigned __int64 a4,
-        unsigned __int64 a5)
+NTSTATUS __cdecl NtWaitForWorkViaWorkerFactory(
+        HANDLE WorkerFactoryHandle,
+        PFILE_IO_COMPLETION_INFORMATION MiniPackets,
+        ULONG Count,
+        PULONG PacketsReturned,
+        PWORKER_FACTORY_DEFERRED_WORK DeferredWork)
 {
-  unsigned int v6; // r12d
+  ULONG v6; // r12d
   char PreviousMode; // cl
   __int64 v9; // rcx
   KPROCESSOR_MODE v10; // bl
-  NTSTATUS v11; // r14d
+  int v11; // r14d
   char *v12; // rsi
   unsigned __int64 *volatile *v13; // r13
   unsigned __int64 *v14; // rcx
@@ -68,7 +68,7 @@ __int64 __fastcall NtWaitForWorkViaWorkerFactory(
   _DWORD *v18; // rcx
   _KSPIN_LOCK_QUEUE *volatile v19; // rax
   HANDLE v20; // r12
-  int v21; // r15d
+  ULONG v21; // r15d
   HANDLE v22; // rcx
   struct _KTHREAD *v23; // rax
   unsigned int v24; // r15d
@@ -80,7 +80,7 @@ __int64 __fastcall NtWaitForWorkViaWorkerFactory(
   __int64 v30; // rsi
   struct _KEVENT *v31; // rcx
   __int64 v32; // r13
-  unsigned __int64 v33; // rdx
+  ULONG *v33; // rdx
   struct _KPRCB *CurrentPrcb; // r10
   int v35; // eax
   int v36; // ecx
@@ -126,29 +126,29 @@ __int64 __fastcall NtWaitForWorkViaWorkerFactory(
   int v76; // edx
   _KSPIN_LOCK_QUEUE *volatile Next; // rax
   int HandleInformation; // [rsp+28h] [rbp-200h]
-  int v80; // [rsp+38h] [rbp-1F0h]
+  int Timeout; // [rsp+38h] [rbp-1F0h]
   unsigned __int8 v81; // [rsp+40h] [rbp-1E8h]
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+48h] [rbp-1E0h] BYREF
   PVOID Object; // [rsp+60h] [rbp-1C8h] BYREF
-  int v84; // [rsp+68h] [rbp-1C0h]
-  int v85; // [rsp+6Ch] [rbp-1BCh] BYREF
+  ULONG v84; // [rsp+68h] [rbp-1C0h]
+  ULONG v85; // [rsp+6Ch] [rbp-1BCh] BYREF
   struct _KPRCB *v86; // [rsp+70h] [rbp-1B8h]
   _DWORD *v87; // [rsp+78h] [rbp-1B0h]
   PVOID P; // [rsp+80h] [rbp-1A8h]
-  unsigned __int64 v89; // [rsp+88h] [rbp-1A0h]
-  _DWORD *v90; // [rsp+90h] [rbp-198h]
+  PULONG v89; // [rsp+88h] [rbp-1A0h]
+  PFILE_IO_COMPLETION_INFORMATION v90; // [rsp+90h] [rbp-198h]
   _DWORD *v91; // [rsp+98h] [rbp-190h]
   __int64 v92; // [rsp+A0h] [rbp-188h] BYREF
   PVOID v93; // [rsp+A8h] [rbp-180h]
-  HANDLE Handlea[2]; // [rsp+B0h] [rbp-178h]
-  __int64 v95; // [rsp+C0h] [rbp-168h]
+  HANDLE Handle[2]; // [rsp+B0h] [rbp-178h]
+  ULONG Flags[2]; // [rsp+C0h] [rbp-168h]
   int v96; // [rsp+C8h] [rbp-160h] BYREF
   int v97; // [rsp+CCh] [rbp-15Ch] BYREF
   int v98; // [rsp+D0h] [rbp-158h] BYREF
   PVOID v99; // [rsp+D8h] [rbp-150h] BYREF
   unsigned __int64 *volatile *v100; // [rsp+E0h] [rbp-148h]
-  _DWORD *v101; // [rsp+E8h] [rbp-140h]
-  volatile void *v102; // [rsp+F0h] [rbp-138h]
+  PULONG v101; // [rsp+E8h] [rbp-140h]
+  PFILE_IO_COMPLETION_INFORMATION v102; // [rsp+F0h] [rbp-138h]
   PVOID v103; // [rsp+F8h] [rbp-130h]
   PVOID v104[3]; // [rsp+100h] [rbp-128h] BYREF
   __int64 v105; // [rsp+118h] [rbp-110h]
@@ -162,47 +162,47 @@ __int64 __fastcall NtWaitForWorkViaWorkerFactory(
   _BYTE v113[128]; // [rsp+160h] [rbp-C8h] BYREF
   void *retaddr; // [rsp+228h] [rbp+0h]
 
-  v101 = (_DWORD *)a4;
-  v6 = a3;
-  v84 = a3;
-  v102 = Address;
-  v91 = Handle;
-  v90 = Address;
-  LODWORD(v86) = a3;
-  v89 = a4;
+  v101 = PacketsReturned;
+  v6 = Count;
+  v84 = Count;
+  v102 = MiniPackets;
+  v91 = WorkerFactoryHandle;
+  v90 = MiniPackets;
+  LODWORD(v86) = Count;
+  v89 = PacketsReturned;
   v85 = 0;
   v103 = 0LL;
   CurrentThread = KeGetCurrentThread();
   PreviousMode = CurrentThread->PreviousMode;
   v81 = PreviousMode;
   P = v113;
-  HIDWORD(v95) = 0;
-  if ( a3 - 1 > 0x7FFFFFE )
+  Flags[1] = 0;
+  if ( Count - 1 > 0x7FFFFFE )
   {
     v11 = -1073741811;
     goto LABEL_171;
   }
   if ( PreviousMode )
   {
-    ProbeForWrite(Address, 32LL * a3, 8u);
-    v9 = a4;
-    if ( a4 >= 0x7FFFFFFF0000LL )
+    ProbeForWrite(MiniPackets, 32LL * Count, 8u);
+    v9 = (__int64)PacketsReturned;
+    if ( (unsigned __int64)PacketsReturned >= 0x7FFFFFFF0000LL )
       v9 = 0x7FFFFFFF0000LL;
     *(_DWORD *)v9 = *(_DWORD *)v9;
-    if ( (a5 & 7) != 0 )
+    if ( ((unsigned __int8)DeferredWork & 7) != 0 )
       ExRaiseDatatypeMisalignment();
-    if ( a5 + 24 > 0x7FFFFFFF0000LL || a5 + 24 < a5 )
+    if ( (unsigned __int64)&DeferredWork[1] > 0x7FFFFFFF0000LL || &DeferredWork[1] < DeferredWork )
       MEMORY[0x7FFFFFFF0000] = 0;
-    *(_OWORD *)Handlea = *(_OWORD *)a5;
-    v95 = *(_QWORD *)(a5 + 16);
+    *(_OWORD *)Handle = *(_OWORD *)&DeferredWork->AlpcSendMessage;
+    *(_QWORD *)Flags = *(_QWORD *)&DeferredWork->AlpcSendMessageFlags;
   }
   else
   {
-    *(_OWORD *)Handlea = *(_OWORD *)a5;
-    v95 = *(_QWORD *)(a5 + 16);
+    *(_OWORD *)Handle = *(_OWORD *)&DeferredWork->AlpcSendMessage;
+    *(_QWORD *)Flags = *(_QWORD *)&DeferredWork->AlpcSendMessageFlags;
   }
   v10 = v81;
-  v11 = ObReferenceObjectByHandle(Handle, 2u, ExpWorkerFactoryObjectType, v81, &Object, 0LL);
+  v11 = ObReferenceObjectByHandle(WorkerFactoryHandle, 2u, ExpWorkerFactoryObjectType, v81, &Object, 0LL);
   v12 = (char *)Object;
   v103 = Object;
   if ( v11 >= 0 )
@@ -242,7 +242,7 @@ __int64 __fastcall NtWaitForWorkViaWorkerFactory(
       v11 = 128;
       goto LABEL_171;
     }
-    v90 = v12 + 152;
+    v90 = (PFILE_IO_COMPLETION_INFORMATION)(v12 + 152);
     if ( (*((_DWORD *)v12 + 38) & 0x200) != 0 )
       ExpLeaveWorkerFactoryAwayMode(v12);
     ++*((_DWORD *)*v13 + 7);
@@ -267,7 +267,7 @@ LABEL_143:
         else
         {
           v67 = v90;
-          if ( (*v90 & 7) != 4 )
+          if ( ((__int64)v90->KeyContext & 7) != 4 )
           {
             v68 = KeGetCurrentThread();
             v69 = 0;
@@ -368,11 +368,11 @@ LABEL_34:
       v12 = (char *)Object;
 LABEL_35:
       __writecr8(LockHandle.OldIrql);
-      if ( (v95 & 0x100000000LL) != 0 )
+      if ( (Flags[1] & 1) != 0 )
       {
-        v20 = Handlea[0];
-        v21 = v95;
-        v22 = Handlea[1];
+        v20 = Handle[0];
+        v21 = Flags[0];
+        v22 = Handle[1];
         memset(v104, 0, sizeof(v104));
         v105 = 0LL;
         v106 = 0LL;
@@ -445,7 +445,7 @@ LABEL_125:
         v32 = v105;
         if ( v105 )
         {
-          v33 = KeGetCurrentIrql();
+          v33 = (ULONG *)KeGetCurrentIrql();
           v89 = v33;
           __writecr8(2uLL);
           CurrentPrcb = KeGetCurrentPrcb();
@@ -461,7 +461,7 @@ LABEL_125:
             }
             while ( _interlockedbittestandset((volatile signed __int32 *)(v32 + 1600), 7u) );
             CurrentPrcb = v86;
-            LOBYTE(v33) = v89;
+            LOBYTE(v33) = (_BYTE)v89;
           }
           v35 = *(_DWORD *)(v32 + 1604);
           v36 = v35 + 1;
@@ -638,7 +638,7 @@ LABEL_96:
           }
 LABEL_118:
           _InterlockedAnd((volatile signed __int32 *)(v32 + 1600), 0xFFFFFF7F);
-          KiExitDispatcher((__int64)v86, 1LL, 1LL, 1LL, v89);
+          KiExitDispatcher((__int64)v86, 1LL, 1LL, 1LL, (unsigned __int8)v89);
         }
         else
         {
@@ -655,13 +655,13 @@ LABEL_118:
         goto LABEL_125;
       }
 LABEL_126:
-      LOBYTE(v80) = 1;
+      LOBYTE(Timeout) = 1;
       LOBYTE(HandleInformation) = v10;
-      v11 = IoRemoveIoCompletion(*((_QWORD *)*v13 + 1), v102, P, v6, &v85, HandleInformation, 0LL, v80);
-      if ( (v95 & 0x100000000LL) != 0 )
+      v11 = IoRemoveIoCompletion(*((_QWORD *)*v13 + 1), v102, P, v6, &v85, HandleInformation, 0LL, Timeout);
+      if ( (Flags[1] & 1) != 0 )
       {
         AlpciDestroyDeferredMessageContext(&v92);
-        HIDWORD(v95) &= ~1u;
+        Flags[1] &= ~1u;
       }
       v63 = (volatile __int64 *)*v13;
       LockHandle.LockQueue.Lock = *v13;
@@ -700,7 +700,7 @@ LABEL_171:
     ExFreePoolWithTag(P, 0);
   if ( v103 )
     ObfDereferenceObjectWithTag(v103, 0x746C6644u);
-  if ( (v95 & 0x100000000LL) != 0 )
-    NtAlpcSendWaitReceivePort(Handlea[1], (unsigned int)v95, Handlea[0], 0LL, 0LL, 0LL, 0LL, 0LL);
-  return (unsigned int)v11;
+  if ( (Flags[1] & 1) != 0 )
+    NtAlpcSendWaitReceivePort(Handle[1], Flags[0], (PPORT_MESSAGE)Handle[0], 0LL, 0LL, 0LL, 0LL, 0LL);
+  return v11;
 }

@@ -1,13 +1,13 @@
 /*
- * XREFs of PopReadLegacySimulatedArchitecturalClasses @ 0x140C30D18
+ * XREFs of PopReadLegacySimulatedArchitecturalClasses @ 0x140C32E38
  * Callers:
- *     PopReadSimulatedArchitecturalClasses @ 0x140C30E64 (PopReadSimulatedArchitecturalClasses.c)
+ *     PopReadSimulatedArchitecturalClasses @ 0x140C32F84 (PopReadSimulatedArchitecturalClasses.c)
  * Callees:
- *     KeAddGroupAffinityEx @ 0x140257100 (KeAddGroupAffinityEx.c)
- *     KeCheckProcessorAffinityEx @ 0x1403C9F30 (KeCheckProcessorAffinityEx.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwQueryValueKey @ 0x1406A66F0 (ZwQueryValueKey.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     KeAddGroupAffinityEx @ 0x140287710 (KeAddGroupAffinityEx.c)
+ *     KeCheckProcessorAffinityEx @ 0x1403A4AD0 (KeCheckProcessorAffinityEx.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwQueryValueKey @ 0x1406A7690 (ZwQueryValueKey.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 char __fastcall PopReadLegacySimulatedArchitecturalClasses(__int64 a1, unsigned __int16 a2, void *a3, unsigned int a4)

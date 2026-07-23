@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlVirtualUnwind2 @ 0x180015F20
+ * XREFs of RtlVirtualUnwind2 @ 0x180042920
  * Callers:
  *     <none>
  * Callees:
- *     RtlpxVirtualUnwind @ 0x180016C30 (RtlpxVirtualUnwind.c)
- *     RtlpValidateContextFlags @ 0x180017E20 (RtlpValidateContextFlags.c)
+ *     RtlpxVirtualUnwind @ 0x180043630 (RtlpxVirtualUnwind.c)
+ *     RtlpValidateContextFlags @ 0x180044820 (RtlpValidateContextFlags.c)
  */
 
 __int64 __fastcall RtlVirtualUnwind2(

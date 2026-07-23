@@ -1,5 +1,5 @@
 /*
- * XREFs of NtShutdownSystem @ 0x1406AD00C
+ * XREFs of NtShutdownSystem @ 0x1406AD144
  * Callers:
  *     <none>
  * Callees:

@@ -3,25 +3,25 @@
  * Callers:
  *     KiSystemStartup @ 0x140A87010 (KiSystemStartup.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     KeCompactServiceTable @ 0x14034BE74 (KeCompactServiceTable.c)
- *     KeGetXSaveFeatureFlags @ 0x140381210 (KeGetXSaveFeatureFlags.c)
- *     KiSetHardwareSpeculationControlFeatures @ 0x14038125C (KiSetHardwareSpeculationControlFeatures.c)
- *     KiStartPrcbThreads @ 0x1403828B0 (KiStartPrcbThreads.c)
- *     HvlEnlightenProcessor @ 0x1403828D0 (HvlEnlightenProcessor.c)
- *     KiStartIdleThread @ 0x140382914 (KiStartIdleThread.c)
- *     HviGetHypervisorFeatures @ 0x140382D40 (HviGetHypervisorFeatures.c)
- *     KiConfigureInitialNodes @ 0x1403A8B08 (KiConfigureInitialNodes.c)
- *     KiInitializeAndStartInitialThread @ 0x1403B394C (KiInitializeAndStartInitialThread.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     KeBugCheck @ 0x14041EA30 (KeBugCheck.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     KiSetUserTbFlushPending @ 0x140420160 (KiSetUserTbFlushPending.c)
- *     memset @ 0x140435A00 (memset.c)
- *     KiFatalFilter @ 0x14056CC50 (KiFatalFilter.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     KeGetTopologyIdForProcessor @ 0x140570788 (KeGetTopologyIdForProcessor.c)
- *     HvlPhase0Initialize @ 0x14081FE98 (HvlPhase0Initialize.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     KeCompactServiceTable @ 0x14034C014 (KeCompactServiceTable.c)
+ *     KeGetXSaveFeatureFlags @ 0x1403813B0 (KeGetXSaveFeatureFlags.c)
+ *     KiSetHardwareSpeculationControlFeatures @ 0x1403813FC (KiSetHardwareSpeculationControlFeatures.c)
+ *     KiStartPrcbThreads @ 0x140382A50 (KiStartPrcbThreads.c)
+ *     HvlEnlightenProcessor @ 0x140382A70 (HvlEnlightenProcessor.c)
+ *     KiStartIdleThread @ 0x140382AB4 (KiStartIdleThread.c)
+ *     HviGetHypervisorFeatures @ 0x140382EE0 (HviGetHypervisorFeatures.c)
+ *     KiConfigureInitialNodes @ 0x1403A8CE8 (KiConfigureInitialNodes.c)
+ *     KiInitializeAndStartInitialThread @ 0x1403B3B2C (KiInitializeAndStartInitialThread.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheck @ 0x14041EDC0 (KeBugCheck.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     KiSetUserTbFlushPending @ 0x1404204F0 (KiSetUserTbFlushPending.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     KiFatalFilter @ 0x14056D310 (KiFatalFilter.c)
+ *     KeGetTopologyIdForProcessor @ 0x140570CC8 (KeGetTopologyIdForProcessor.c)
+ *     HvlPhase0Initialize @ 0x140820198 (HvlPhase0Initialize.c)
  *     KiDetectFpuLeakage @ 0x140A872D0 (KiDetectFpuLeakage.c)
  *     KiConfigureProcessorBlock @ 0x140A88BB0 (KiConfigureProcessorBlock.c)
  *     HalpInitSystemPhase1 @ 0x140A8BABC (HalpInitSystemPhase1.c)
@@ -32,7 +32,7 @@
  *     PoInitializePrcb @ 0x140A8C9B0 (PoInitializePrcb.c)
  *     KiCompleteKernelInit @ 0x140A8CAE0 (KiCompleteKernelInit.c)
  *     KiInitializeTopologyStructures @ 0x140A8D0F8 (KiInitializeTopologyStructures.c)
- *     KeInitializeClockOtherProcessors @ 0x140A9195C (KeInitializeClockOtherProcessors.c)
+ *     KeInitializeClockOtherProcessors @ 0x140A917DC (KeInitializeClockOtherProcessors.c)
  *     InitBootProcessor @ 0x140B52774 (InitBootProcessor.c)
  *     KiInitSystem @ 0x140B5E764 (KiInitSystem.c)
  *     KiIsKernelCfgActive @ 0x140B75F18 (KiIsKernelCfgActive.c)
@@ -108,7 +108,7 @@ __int64 __fastcall KiInitializeKernel(__int64 a1, __int64 a2, __int64 a3, ULONG_
   v8 = *(_BYTE *)(a4 + 141);
   if ( v8 == 2 || ((v8 - 1) & 0xFD) == 0 )
     KiSetHardwareSpeculationControlFeatures(a4, *(_QWORD *)(a4 + 35232));
-  KiCheckMicrocode(a4, a2);
+  KiCheckMicrocode(a4);
   memset(v64, 0, sizeof(v64));
   _fxsave(v64);
   if ( a5 )
@@ -183,7 +183,7 @@ __int64 __fastcall KiInitializeKernel(__int64 a1, __int64 a2, __int64 a3, ULONG_
       v31 = v64[7];
     KiMxCsrMask = v31;
     KeCompactServiceTable(
-      (ULONG_PTR)KiServiceTable,
+      (ULONG_PTR)&KiServiceTable,
       (unsigned __int8 *)&KiArgumentTable,
       KiServiceLimit,
       0LL,
@@ -271,10 +271,10 @@ LABEL_127:
     {
       KeBugCheckEx(0x3Eu, v7, v22, 0LL, 0LL);
     }
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)(CurrentIrql - 2) <= 0xDu )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && (unsigned __int8)(CurrentIrql - 2) <= 0xDu )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -293,10 +293,10 @@ LABEL_127:
     KeProcessorLevel = *(char *)(a4 + 64);
     KeProcessorRevision = *(_WORD *)(a4 + 66);
     KeFeatureBits = v7;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v39 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)(v39 - 2) <= 0xDu )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && (unsigned __int8)(v39 - 2) <= 0xDu )
       {
         v40 = KeGetCurrentPrcb();
         v41 = v40->SchedulerAssist;

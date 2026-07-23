@@ -1,13 +1,13 @@
 /*
- * XREFs of KiInitializeProcessorCycleAccumulation @ 0x1405B0FC4
+ * XREFs of KiInitializeProcessorCycleAccumulation @ 0x1405ADF34
  * Callers:
- *     KiInitializeKernel @ 0x140B588B0 (KiInitializeKernel.c)
- *     KeInitializeClock @ 0x140C60350 (KeInitializeClock.c)
+ *     KiInitializeKernel @ 0x140B5A930 (KiInitializeKernel.c)
+ *     KeInitializeClock @ 0x140C624A0 (KeInitializeClock.c)
  * Callees:
- *     KiRemoveSystemWorkPriorityKick @ 0x14025E408 (KiRemoveSystemWorkPriorityKick.c)
- *     KeDisableInterrupts @ 0x140321E80 (KeDisableInterrupts.c)
- *     KiRebaselineProcessorStartCycles @ 0x1405B109C (KiRebaselineProcessorStartCycles.c)
- *     RtlpComputeFraction @ 0x1405F08C8 (RtlpComputeFraction.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14028EA18 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeDisableInterrupts @ 0x1402CAA10 (KeDisableInterrupts.c)
+ *     KiRebaselineProcessorStartCycles @ 0x1405AE00C (KiRebaselineProcessorStartCycles.c)
+ *     RtlpComputeFraction @ 0x1405EDEA8 (RtlpComputeFraction.c)
  */
 
 __int64 __fastcall KiInitializeProcessorCycleAccumulation(__int64 a1)

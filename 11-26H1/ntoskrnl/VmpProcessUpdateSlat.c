@@ -1,10 +1,10 @@
 /*
- * XREFs of VmpProcessUpdateSlat @ 0x1406C1888
+ * XREFs of VmpProcessUpdateSlat @ 0x1406C5468
  * Callers:
- *     VmpAccessFaultBatch @ 0x1406C09D0 (VmpAccessFaultBatch.c)
+ *     VmpAccessFaultBatch @ 0x1406C45B0 (VmpAccessFaultBatch.c)
  * Callees:
- *     VmpFillSlat @ 0x1406C0FB4 (VmpFillSlat.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     VmpFillSlat @ 0x1406C4B94 (VmpFillSlat.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall VmpProcessUpdateSlat(__int64 a1, __int64 a2, unsigned int a3, __int64 a4, char a5)

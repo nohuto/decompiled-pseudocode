@@ -1,18 +1,18 @@
 /*
- * XREFs of PopNetInitialize @ 0x1409B2AB4
+ * XREFs of PopNetInitialize @ 0x1409B3AB4
  * Callers:
- *     PoInitSystem @ 0x1409B2C10 (PoInitSystem.c)
+ *     PoInitSystem @ 0x1409B3C10 (PoInitSystem.c)
  * Callees:
- *     PopInitializeIRTimer @ 0x14017DCA4 (PopInitializeIRTimer.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     RtlLengthRequiredSid @ 0x1405BD5C0 (RtlLengthRequiredSid.c)
- *     RtlInitializeSid @ 0x140655670 (RtlInitializeSid.c)
- *     ExSubscribeWnfStateChange @ 0x1406BC470 (ExSubscribeWnfStateChange.c)
- *     PopNetSetConnectivityConstraint @ 0x1407298A4 (PopNetSetConnectivityConstraint.c)
- *     PopTraceStandbyConnectivityUpdate @ 0x14075DAF4 (PopTraceStandbyConnectivityUpdate.c)
- *     PopNetPublishWnfStateUpdate @ 0x14075DC24 (PopNetPublishWnfStateUpdate.c)
+ *     PopInitializeIRTimer @ 0x14017DDE4 (PopInitializeIRTimer.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     RtlLengthRequiredSid @ 0x1405BE5C0 (RtlLengthRequiredSid.c)
+ *     RtlInitializeSid @ 0x140656830 (RtlInitializeSid.c)
+ *     ExSubscribeWnfStateChange @ 0x1406BD710 (ExSubscribeWnfStateChange.c)
+ *     PopNetSetConnectivityConstraint @ 0x14072AA94 (PopNetSetConnectivityConstraint.c)
+ *     PopTraceStandbyConnectivityUpdate @ 0x14075ECE4 (PopTraceStandbyConnectivityUpdate.c)
+ *     PopNetPublishWnfStateUpdate @ 0x14075EE14 (PopNetPublishWnfStateUpdate.c)
  */
 
 __int64 __fastcall PopNetInitialize(int a1)
@@ -28,7 +28,7 @@ __int64 __fastcall PopNetInitialize(int a1)
   int v10; // [rsp+20h] [rbp-28h]
   int v11; // [rsp+30h] [rbp-18h]
   int v12; // [rsp+30h] [rbp-18h]
-  struct _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+58h] [rbp+10h] BYREF
+  _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+58h] [rbp+10h] BYREF
 
   *(_WORD *)&IdentifierAuthority.Value[4] = 1280;
   *(_DWORD *)IdentifierAuthority.Value = 0;
@@ -90,7 +90,7 @@ LABEL_13:
     v3[5] = 378231328;
     v3[6] = -1590824699;
     v3[7] = 890457928;
-    PopNetBIServiceSid = (__int64)v3;
+    PopNetBIServiceSid = v3;
     PopInitializeIRTimer(
       (__int64)&PopNetEvaluationTimer,
       (__int64)PopNetEvaluationTimerCallback,

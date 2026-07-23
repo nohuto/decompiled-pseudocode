@@ -23,9 +23,9 @@ __int64 __fastcall EtwpAcquireLoggerContext(__int64 a1, __int64 *a2)
 
   v4 = 0xFFFFFFFFLL;
   *a2 = 0LL;
-  v5 = *(_QWORD *)(a1 + 24) - SystemTraceControlGuid;
+  v5 = *(_QWORD *)(a1 + 24) - *(_QWORD *)&SystemTraceControlGuid.Data1;
   if ( !v5 )
-    v5 = *(_QWORD *)(a1 + 32) - 0x3969A8086000829ALL;
+    v5 = *(_QWORD *)(a1 + 32) - *(_QWORD *)SystemTraceControlGuid.Data4;
   v6 = (unsigned __int16)EtwpSystemLogger[0];
   if ( !v5 )
     v4 = (unsigned __int16)EtwpSystemLogger[0];

@@ -1,8 +1,8 @@
 /*
- * XREFs of WmipDoFindRegEntryByProviderId @ 0x1400C48A4
+ * XREFs of WmipDoFindRegEntryByProviderId @ 0x1400C2744
  * Callers:
- *     WmipFindRegEntryByProviderId @ 0x1400C4838 (WmipFindRegEntryByProviderId.c)
- *     IoWMIWriteEvent @ 0x14012F930 (IoWMIWriteEvent.c)
+ *     WmipFindRegEntryByProviderId @ 0x1400C26D8 (WmipFindRegEntryByProviderId.c)
+ *     IoWMIWriteEvent @ 0x14012FEA0 (IoWMIWriteEvent.c)
  * Callees:
  *     <none>
  */

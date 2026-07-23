@@ -1,20 +1,20 @@
 /*
- * XREFs of MiBuildMdlForMappedFileFault @ 0x1400BF5B0
+ * XREFs of MiBuildMdlForMappedFileFault @ 0x1400BD440
  * Callers:
- *     MiResolveMappedFileFault @ 0x1400E68A0 (MiResolveMappedFileFault.c)
+ *     MiResolveMappedFileFault @ 0x1400E4740 (MiResolveMappedFileFault.c)
  * Callees:
- *     MiChangePageAttribute @ 0x14001D088 (MiChangePageAttribute.c)
- *     KeYieldProcessorEx @ 0x14002ECB0 (KeYieldProcessorEx.c)
- *     MiGetPage @ 0x14003DA50 (MiGetPage.c)
- *     MiReleaseFreshPage @ 0x1400AC5F4 (MiReleaseFreshPage.c)
- *     MiAdvanceFaultList @ 0x1400C01B0 (MiAdvanceFaultList.c)
- *     MiGetAvailablePagesBelowPriority @ 0x1400C0250 (MiGetAvailablePagesBelowPriority.c)
- *     MiProtectionToCacheAttribute @ 0x1400E74EC (MiProtectionToCacheAttribute.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
- *     MI_GET_PAGE_FRAME_FROM_TRANSITION_PTE @ 0x1401F2570 (MI_GET_PAGE_FRAME_FROM_TRANSITION_PTE.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiMakeTransitionPte @ 0x1401F279C (MiMakeTransitionPte.c)
+ *     MiChangePageAttribute @ 0x14001CC08 (MiChangePageAttribute.c)
+ *     KeYieldProcessorEx @ 0x14002E830 (KeYieldProcessorEx.c)
+ *     MiGetPage @ 0x14003D5D0 (MiGetPage.c)
+ *     MiReleaseFreshPage @ 0x1400AAB5C (MiReleaseFreshPage.c)
+ *     MiAdvanceFaultList @ 0x1400BE040 (MiAdvanceFaultList.c)
+ *     MiGetAvailablePagesBelowPriority @ 0x1400BE0E0 (MiGetAvailablePagesBelowPriority.c)
+ *     MiProtectionToCacheAttribute @ 0x1400E538C (MiProtectionToCacheAttribute.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
+ *     MI_GET_PAGE_FRAME_FROM_TRANSITION_PTE @ 0x1401F239C (MI_GET_PAGE_FRAME_FROM_TRANSITION_PTE.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
+ *     MiMakeTransitionPte @ 0x1401F25C8 (MiMakeTransitionPte.c)
  */
 
 __int64 __fastcall MiBuildMdlForMappedFileFault(
@@ -107,7 +107,7 @@ LABEL_17:
       do
       {
         v32 = *(__int64 *)((char *)v14 + v31);
-        if ( v32 == qword_140327698 )
+        if ( v32 == qword_1403276D8 )
         {
           v25 = 1;
         }
@@ -184,7 +184,7 @@ LABEL_17:
   v19 = a6;
   while ( MI_READ_PTE_LOCK_FREE(v16) != v9 )
   {
-    *v13 = qword_140327698;
+    *v13 = qword_1403276D8;
 LABEL_14:
     ++v16;
     ++v13;
@@ -242,7 +242,7 @@ LABEL_22:
       {
         v37 = v35[1];
         ++v35;
-        if ( v37 != qword_140327698 )
+        if ( v37 != qword_1403276D8 )
         {
           MiReleaseFreshPage(48 * v37 - 0x58000000000LL);
           v33 = v57;

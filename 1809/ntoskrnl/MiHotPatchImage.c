@@ -1,8 +1,8 @@
 /*
- * XREFs of MiHotPatchImage @ 0x140855330
+ * XREFs of MiHotPatchImage @ 0x140856590
  * Callers:
- *     MiHotPatchProcess @ 0x140855604 (MiHotPatchProcess.c)
- *     MiSetImageHotPatchAllowed @ 0x140857FC4 (MiSetImageHotPatchAllowed.c)
+ *     MiHotPatchProcess @ 0x140856864 (MiHotPatchProcess.c)
+ *     MiSetImageHotPatchAllowed @ 0x140859224 (MiSetImageHotPatchAllowed.c)
  * Callees:
  *     MiUnlockVadShared @ 0x14001AF48 (MiUnlockVadShared.c)
  *     ExReleaseRundownProtection_0 @ 0x14004D2F0 (ExReleaseRundownProtection_0.c)
@@ -10,21 +10,21 @@
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     MiVadDeleted @ 0x140075560 (MiVadDeleted.c)
- *     MiLockVadShared @ 0x140075570 (MiLockVadShared.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     RtlFreeAnsiString @ 0x140623790 (RtlFreeAnsiString.c)
- *     MiDeleteHotPatchEntry @ 0x140854B38 (MiDeleteHotPatchEntry.c)
- *     MiDeleteImageHotPatchState @ 0x140854CDC (MiDeleteImageHotPatchState.c)
- *     MiFindProcessImageHotPatchRecord @ 0x140854E18 (MiFindProcessImageHotPatchRecord.c)
- *     MiGetHotPatchEntry @ 0x140854FD8 (MiGetHotPatchEntry.c)
- *     MiGetProcessHotPatchContext @ 0x1408551F0 (MiGetProcessHotPatchContext.c)
- *     MiLogHotPatchOperation @ 0x140856398 (MiLogHotPatchOperation.c)
- *     MiPerformImageHotPatch @ 0x140856C80 (MiPerformImageHotPatch.c)
+ *     MiVadDeleted @ 0x140075550 (MiVadDeleted.c)
+ *     MiLockVadShared @ 0x140075560 (MiLockVadShared.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     RtlFreeAnsiString @ 0x140624790 (RtlFreeAnsiString.c)
+ *     MiDeleteHotPatchEntry @ 0x140855D98 (MiDeleteHotPatchEntry.c)
+ *     MiDeleteImageHotPatchState @ 0x140855F3C (MiDeleteImageHotPatchState.c)
+ *     MiFindProcessImageHotPatchRecord @ 0x140856078 (MiFindProcessImageHotPatchRecord.c)
+ *     MiGetHotPatchEntry @ 0x140856238 (MiGetHotPatchEntry.c)
+ *     MiGetProcessHotPatchContext @ 0x140856450 (MiGetProcessHotPatchContext.c)
+ *     MiLogHotPatchOperation @ 0x1408575F8 (MiLogHotPatchOperation.c)
+ *     MiPerformImageHotPatch @ 0x140857EE0 (MiPerformImageHotPatch.c)
  */
 
-__int64 __fastcall MiHotPatchImage(__int64 a1, int a2, __int64 a3, int a4, int a5, char a6, int a7)
+__int64 __fastcall MiHotPatchImage(__int64 a1, int a2, _RTL_BALANCED_NODE *a3, int a4, int a5, char a6, int a7)
 {
   int v7; // edi
   struct _KTHREAD *CurrentThread; // r13
@@ -95,7 +95,7 @@ __int64 __fastcall MiHotPatchImage(__int64 a1, int a2, __int64 a3, int a4, int a
           goto LABEL_25;
         }
       }
-      HotPatchEntry = MiGetHotPatchEntry((unsigned __int64)ProcessHotPatchContext, a3, v15, &v25);
+      HotPatchEntry = MiGetHotPatchEntry((PRTL_RB_TREE)ProcessHotPatchContext, a3, v15, &v25);
       v18 = HotPatchEntry;
       if ( !HotPatchEntry )
         break;
@@ -105,7 +105,7 @@ __int64 __fastcall MiHotPatchImage(__int64 a1, int a2, __int64 a3, int a4, int a
               HotPatchEntry,
               v17,
               a2,
-              a3,
+              (__int64)a3,
               (__int64)&DestinationString,
               a4,
               a5,
@@ -158,11 +158,11 @@ LABEL_26:
     if ( !v22 )
       goto LABEL_29;
 LABEL_27:
-    MiLockVadShared((__int64)CurrentThread, a3);
-    v23 = MiVadDeleted(a3);
-    MiUnlockVadShared((__int64)CurrentThread, a3);
+    MiLockVadShared((__int64)CurrentThread, (__int64)a3);
+    v23 = MiVadDeleted((__int64)a3);
+    MiUnlockVadShared((__int64)CurrentThread, (__int64)a3);
     if ( v23 )
-      MiDeleteImageHotPatchState(a3);
+      MiDeleteImageHotPatchState((__int64)a3);
 LABEL_29:
     ExReleaseRundownProtection_0(RunRef);
   }

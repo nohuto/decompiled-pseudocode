@@ -1,7 +1,7 @@
 /*
- * XREFs of PopPotsGetActionEntryReason @ 0x140B57CB4
+ * XREFs of PopPotsGetActionEntryReason @ 0x140B5AC04
  * Callers:
- *     PopIssueActionRequest @ 0x140A37878 (PopIssueActionRequest.c)
+ *     PopIssueActionRequest @ 0x1409F3438 (PopIssueActionRequest.c)
  * Callees:
  *     <none>
  */

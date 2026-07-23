@@ -53,7 +53,7 @@ unsigned __int64 __fastcall sub_180039500(__int64 a1, __int64 a2, unsigned __int
     v14 = qword_180163540 ^ *(_QWORD *)v13 ^ v13;
     if ( (v14 & 0xFF000000000000LL) == 0 )
     {
-      RtlRbRemoveNode(a1 + 16, v13 + 8);
+      RtlRbRemoveNode((PRTL_RB_TREE)(a1 + 16), (PRTL_BALANCED_NODE)(v13 + 8));
       v17 = v4 + 16 * v9;
       v18 = qword_180163540 ^ *(_DWORD *)v13 ^ v13;
       v19 = 16 * HIWORD(v18);

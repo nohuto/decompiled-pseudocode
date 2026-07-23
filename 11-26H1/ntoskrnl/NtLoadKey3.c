@@ -1,23 +1,23 @@
 /*
- * XREFs of NtLoadKey3 @ 0x14084EF30
+ * XREFs of NtLoadKey3 @ 0x140855240
  * Callers:
- *     DifNtLoadKey3Wrapper @ 0x14067A7B0 (DifNtLoadKey3Wrapper.c)
+ *     DifNtLoadKey3Wrapper @ 0x14067E390 (DifNtLoadKey3Wrapper.c)
  * Callees:
- *     RtlCopyFromUser @ 0x140533E38 (RtlCopyFromUser.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408F29F0 (ExRaiseDatatypeMisalignment.c)
- *     CmLoadDifferencingKey @ 0x14097B3F0 (CmLoadDifferencingKey.c)
+ *     RtlCopyFromUser @ 0x1405362B8 (RtlCopyFromUser.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408F8FB0 (ExRaiseDatatypeMisalignment.c)
+ *     CmLoadDifferencingKey @ 0x14093D400 (CmLoadDifferencingKey.c)
  */
 
-__int64 __fastcall NtLoadKey3(
-        void *a1,
-        __int64 a2,
-        __int64 a3,
-        char *a4,
-        int a5,
+NTSTATUS __cdecl NtLoadKey3(
+        POBJECT_ATTRIBUTES TargetKey,
+        POBJECT_ATTRIBUTES SourceFile,
+        ULONG Flags,
+        PCM_EXTENDED_PARAMETER ExtendedParameters,
+        ULONG ExtendedParameterCount,
         ACCESS_MASK DesiredAccess,
-        __int64 a7,
-        int a8)
+        PHANDLE RootHandle,
+        PVOID Reserved)
 {
   __int64 v9; // r12
   __int64 v10; // r15
@@ -32,43 +32,53 @@ __int64 __fastcall NtLoadKey3(
   v11 = 0;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   v13 = 0LL;
-  while ( a5 )
+  while ( ExtendedParameterCount )
   {
     if ( PreviousMode )
     {
-      if ( ((unsigned __int8)a4 & 7) != 0 )
+      if ( ((unsigned __int8)ExtendedParameters & 7) != 0 )
         ExRaiseDatatypeMisalignment();
-      RtlCopyFromUser(v16, a4, 0x10uLL);
+      RtlCopyFromUser(v16, ExtendedParameters, 0x10uLL);
     }
     else
     {
-      RtlCopyVolatileMemory(v16, a4, 0x10uLL);
+      RtlCopyVolatileMemory(v16, ExtendedParameters, 0x10uLL);
     }
     switch ( LOBYTE(v16[0]) )
     {
       case 1u:
         if ( (v11 & 2) != 0 )
-          return 3221225714LL;
+          return -1073741582;
         v13 = *((_QWORD *)&v16[0] + 1);
         v11 |= 2u;
         break;
       case 2u:
         if ( (v11 & 4) != 0 )
-          return 3221225714LL;
+          return -1073741582;
         v9 = *((_QWORD *)&v16[0] + 1);
         v11 |= 4u;
         break;
       case 3u:
         if ( (v11 & 8) != 0 )
-          return 3221225714LL;
+          return -1073741582;
         v10 = *((_QWORD *)&v16[0] + 1);
         v11 |= 8u;
         break;
       default:
-        return 3221225714LL;
+        return -1073741582;
     }
-    a4 += 16;
-    --a5;
+    ++ExtendedParameters;
+    --ExtendedParameterCount;
   }
-  return CmLoadDifferencingKey(a1, v13, v9, DesiredAccess, a7, a8, 0LL, 0, v10, PreviousMode);
+  return CmLoadDifferencingKey(
+           TargetKey,
+           v13,
+           v9,
+           DesiredAccess,
+           (__int64)RootHandle,
+           (int)Reserved,
+           0LL,
+           0,
+           v10,
+           PreviousMode);
 }

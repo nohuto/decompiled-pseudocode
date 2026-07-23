@@ -1,16 +1,16 @@
 /*
- * XREFs of SeCreateAccessStateEx @ 0x1406C2EA0
+ * XREFs of SeCreateAccessStateEx @ 0x1406C2ED0
  * Callers:
  *     CmpCheckKeySecurityDescriptorAccess @ 0x14069A1C8 (CmpCheckKeySecurityDescriptorAccess.c)
- *     PspOneDirectionSecurityDomainCombine @ 0x1406B7EA8 (PspOneDirectionSecurityDomainCombine.c)
- *     PspInsertProcess @ 0x1406B9FA4 (PspInsertProcess.c)
- *     SeCreateAccessState @ 0x1406C2E60 (SeCreateAccessState.c)
- *     PspInsertThread @ 0x14073EE9C (PspInsertThread.c)
- *     PspCombineSecurityDomains @ 0x1407C6D0C (PspCombineSecurityDomains.c)
- *     CmpDoAccessCheckOnKCB @ 0x140A18F2C (CmpDoAccessCheckOnKCB.c)
+ *     PspOneDirectionSecurityDomainCombine @ 0x1406B7ED8 (PspOneDirectionSecurityDomainCombine.c)
+ *     PspInsertProcess @ 0x1406B9FD4 (PspInsertProcess.c)
+ *     SeCreateAccessState @ 0x1406C2E90 (SeCreateAccessState.c)
+ *     PspInsertThread @ 0x14073F08C (PspInsertThread.c)
+ *     PspCombineSecurityDomains @ 0x1407C6FDC (PspCombineSecurityDomains.c)
+ *     CmpDoAccessCheckOnKCB @ 0x140A191DC (CmpDoAccessCheckOnKCB.c)
  * Callees:
- *     SepCreateAccessStateFromSubjectContext @ 0x140232B40 (SepCreateAccessStateFromSubjectContext.c)
- *     SeCaptureSubjectContextEx @ 0x140737CA0 (SeCaptureSubjectContextEx.c)
+ *     SepCreateAccessStateFromSubjectContext @ 0x140232C10 (SepCreateAccessStateFromSubjectContext.c)
+ *     SeCaptureSubjectContextEx @ 0x140737E90 (SeCaptureSubjectContextEx.c)
  */
 
 __int64 __fastcall SeCreateAccessStateEx(

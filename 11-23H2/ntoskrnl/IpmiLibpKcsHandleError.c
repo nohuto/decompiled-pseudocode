@@ -1,12 +1,12 @@
 /*
- * XREFs of IpmiLibpKcsHandleError @ 0x14067811C
+ * XREFs of IpmiLibpKcsHandleError @ 0x14067866C
  * Callers:
- *     IpmiLibpKcsBmcTransact @ 0x140678074 (IpmiLibpKcsBmcTransact.c)
+ *     IpmiLibpKcsBmcTransact @ 0x1406785C4 (IpmiLibpKcsBmcTransact.c)
  * Callees:
- *     IpmiLibReadOneByte @ 0x140677C6C (IpmiLibReadOneByte.c)
- *     IpmiLibWriteOneByte @ 0x140677CAC (IpmiLibWriteOneByte.c)
- *     IpmiLibpKcsSpinRegister @ 0x1406786C0 (IpmiLibpKcsSpinRegister.c)
- *     IpmiLibpHandleErrorInterrupt @ 0x1406787F8 (IpmiLibpHandleErrorInterrupt.c)
+ *     IpmiLibReadOneByte @ 0x1406781BC (IpmiLibReadOneByte.c)
+ *     IpmiLibWriteOneByte @ 0x1406781FC (IpmiLibWriteOneByte.c)
+ *     IpmiLibpKcsSpinRegister @ 0x140678C10 (IpmiLibpKcsSpinRegister.c)
+ *     IpmiLibpHandleErrorInterrupt @ 0x140678D48 (IpmiLibpHandleErrorInterrupt.c)
  */
 
 __int64 __fastcall IpmiLibpKcsHandleError(__int64 a1, __int64 a2)
@@ -28,7 +28,7 @@ __int64 __fastcall IpmiLibpKcsHandleError(__int64 a1, __int64 a2)
   v3 = 0;
   while ( !(unsigned int)IpmiLibpKcsSpinRegister(a1, a2, 2LL) )
   {
-    dword_140C2CC74 = 4;
+    dword_140C2CC34 = 4;
     IpmiLibWriteOneByte(a1, 1u, 0x60u);
     v5 = IpmiLibpHandleErrorInterrupt(v4, a2, &v12, &v13);
     if ( v5 != -1073741822 )
@@ -36,7 +36,7 @@ __int64 __fastcall IpmiLibpKcsHandleError(__int64 a1, __int64 a2)
       if ( v5 )
         break;
     }
-    dword_140C2CC74 = 5;
+    dword_140C2CC34 = 5;
     IpmiLibWriteOneByte(a1, 0, 0);
     v7 = IpmiLibpHandleErrorInterrupt(v6, a2, &v12, &v13);
     if ( v7 != -1073741822 )
@@ -49,10 +49,10 @@ __int64 __fastcall IpmiLibpKcsHandleError(__int64 a1, __int64 a2)
       break;
     if ( (unsigned __int8)v12 != 255 )
     {
-      if ( (dword_140C2CC40 & 1) == 0 )
+      if ( (dword_140C2CC00 & 1) == 0 )
         IpmiLibReadOneByte(a1, 0);
       IpmiLibWriteOneByte(a1, 0, 0x68u);
-      dword_140C2CC74 = 6;
+      dword_140C2CC34 = 6;
       v9 = IpmiLibpHandleErrorInterrupt(v8, a2, &v12, &v13);
       v10 = v9;
       if ( v9 == -1073741822 )

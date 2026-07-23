@@ -1,7 +1,7 @@
 /*
- * XREFs of SymCryptLoadMsbFirstUint64 @ 0x1403F64B8
+ * XREFs of SymCryptLoadMsbFirstUint64 @ 0x1403F6698
  * Callers:
- *     HashpVerifyPkcs1Signature @ 0x140A7730C (HashpVerifyPkcs1Signature.c)
+ *     HashpVerifyPkcs1Signature @ 0x140A775BC (HashpVerifyPkcs1Signature.c)
  * Callees:
  *     <none>
  */

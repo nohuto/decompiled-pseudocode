@@ -1,9 +1,9 @@
 /*
- * XREFs of AdtpEtwBuildDashString @ 0x1406D0B60
+ * XREFs of AdtpEtwBuildDashString @ 0x1406D1E00
  * Callers:
- *     AdtpPackageParameters @ 0x140188D9C (AdtpPackageParameters.c)
- *     AdtpBuildMultiSzStringListString @ 0x1401892DC (AdtpBuildMultiSzStringListString.c)
- *     AdtpBuildAccessReasonAuditString @ 0x140325BEC (AdtpBuildAccessReasonAuditString.c)
+ *     AdtpPackageParameters @ 0x140188EDC (AdtpPackageParameters.c)
+ *     AdtpBuildMultiSzStringListString @ 0x14018941C (AdtpBuildMultiSzStringListString.c)
+ *     AdtpBuildAccessReasonAuditString @ 0x140325DDC (AdtpBuildAccessReasonAuditString.c)
  * Callees:
  *     <none>
  */

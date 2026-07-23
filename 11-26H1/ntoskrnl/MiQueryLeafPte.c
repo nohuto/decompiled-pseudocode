@@ -1,11 +1,11 @@
 /*
- * XREFs of MiQueryLeafPte @ 0x1403DA3A0
+ * XREFs of MiQueryLeafPte @ 0x1403DD590
  * Callers:
  *     <none>
  * Callees:
- *     MiIdentifyPfnWrapper @ 0x1402F0D20 (MiIdentifyPfnWrapper.c)
- *     MiLocateCloneAddress @ 0x14036BA4C (MiLocateCloneAddress.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     MiIdentifyPfnWrapper @ 0x1402D2DA0 (MiIdentifyPfnWrapper.c)
+ *     MiLocateCloneAddress @ 0x14036D7EC (MiLocateCloneAddress.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiQueryLeafPte(__int64 a1, _QWORD *a2, int a3)
@@ -47,17 +47,17 @@ __int64 __fastcall MiQueryLeafPte(__int64 a1, _QWORD *a2, int a3)
 
   v3 = *(_QWORD *)(a1 + 184);
   v4 = (__int64)((_QWORD)a2 << 25) >> 16;
-  if ( v4 >= qword_140E2DE48 )
+  if ( v4 >= qword_140E2DFC8 )
   {
-    v33 = qword_140E2DE60;
-    if ( !qword_140E2DE60 )
+    v33 = qword_140E2DFE0;
+    if ( !qword_140E2DFE0 )
     {
       v33 = 276840448LL;
-      qword_140E2DE70 = 0x10000000LL;
-      qword_140E2DE60 = 276840448LL;
-      qword_140E2DE68 = 276824064LL;
+      qword_140E2DFF0 = 0x10000000LL;
+      qword_140E2DFE0 = 276840448LL;
+      qword_140E2DFE8 = 276824064LL;
     }
-    if ( v4 < v33 + qword_140E2DE48 )
+    if ( v4 < v33 + qword_140E2DFC8 )
       return 0LL;
   }
   if ( a3 >= 1 || (*a2 & 1) == 0 )
@@ -72,10 +72,10 @@ __int64 __fastcall MiQueryLeafPte(__int64 a1, _QWORD *a2, int a3)
     {
       v8 = *(_QWORD *)(v3 + 8) + 8 * v7;
       *(_QWORD *)(v8 - 8) ^= (v4 ^ *(_QWORD *)(v8 - 8)) & 0xFFFFFFFFFFFFF000uLL;
-      v9 = dword_140E2D684;
-      if ( dword_140E2D680 > (unsigned int)dword_140E2D684
-        || (v10 = (char *)qword_140E2D6E0 + 16 * dword_140E2D680, v5 < *(_QWORD *)v10)
-        || dword_140E2D680 != dword_140E2D684 && v5 >= *((_QWORD *)v10 + 2) )
+      v9 = dword_140E2D804;
+      if ( dword_140E2D800 > (unsigned int)dword_140E2D804
+        || (v10 = (char *)qword_140E2D860 + 16 * dword_140E2D800, v5 < *(_QWORD *)v10)
+        || dword_140E2D800 != dword_140E2D804 && v5 >= *((_QWORD *)v10 + 2) )
       {
         for ( i = 0; ; i = v23 + 1 )
         {
@@ -85,17 +85,17 @@ __int64 __fastcall MiQueryLeafPte(__int64 a1, _QWORD *a2, int a3)
               KeBugCheckEx(0x1Au, 0x5180uLL, v5, 0LL, 0LL);
             v23 = (i + v9) >> 1;
             v24 = 16LL * v23;
-            v10 = (char *)qword_140E2D6E0 + v24;
-            if ( v5 >= *(_QWORD *)((char *)qword_140E2D6E0 + v24) )
+            v10 = (char *)qword_140E2D860 + v24;
+            if ( v5 >= *(_QWORD *)((char *)qword_140E2D860 + v24) )
               break;
             if ( !v23 )
-              KeBugCheckEx(0x1Au, 0x5180uLL, v5, (ULONG_PTR)qword_140E2D6E0 + v24, 0LL);
+              KeBugCheckEx(0x1Au, 0x5180uLL, v5, (ULONG_PTR)qword_140E2D860 + v24, 0LL);
             v9 = v23 - 1;
           }
-          if ( v23 == dword_140E2D684 || v5 < *((_QWORD *)v10 + 2) )
+          if ( v23 == dword_140E2D804 || v5 < *((_QWORD *)v10 + 2) )
             break;
         }
-        dword_140E2D680 = (i + v9) >> 1;
+        dword_140E2D800 = (i + v9) >> 1;
       }
       *(_QWORD *)(v8 - 8) = ((unsigned __int64)*((unsigned int *)v10 + 2) << 9) ^ (*(_QWORD *)(v8 - 8) ^ ((unsigned __int64)*((unsigned int *)v10 + 2) << 9)) & 0xFFFFFFFFFFFFF1FFuLL;
       *(_QWORD *)(v8 - 8) = *(_QWORD *)(v8 - 8) & 0xFFFFFFFFFFFFFEFFuLL | (*(_QWORD *)(v6 + 40) >> 55) & 0x100LL;

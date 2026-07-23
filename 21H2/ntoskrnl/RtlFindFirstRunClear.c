@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlFindFirstRunClear @ 0x14026A3A0
+ * XREFs of RtlFindFirstRunClear @ 0x140258340
  * Callers:
- *     PnprMirrorMarkedPages @ 0x1409AE02C (PnprMirrorMarkedPages.c)
+ *     PnprMirrorMarkedPages @ 0x1409AEF5C (PnprMirrorMarkedPages.c)
  * Callees:
  *     <none>
  */
@@ -44,7 +44,7 @@ ULONG __stdcall RtlFindFirstRunClear(PRTL_BITMAP BitMapHeader, PULONG StartingIn
   if ( Buffer == v8 )
     goto LABEL_13;
   v10 = v7 & 0x1F;
-  if ( (*Buffer & ~*((_DWORD *)qword_140011C70 + v10)) != 0 )
+  if ( (*Buffer & ~*((_DWORD *)qword_140012120 + v10)) != 0 )
     goto LABEL_13;
   v9 = 32 - v10;
   if ( (_DWORD)v10 != 33 )

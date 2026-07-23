@@ -1,12 +1,12 @@
 /*
- * XREFs of MiDeletePendingBadPageNodesAwaitingDeleteList @ 0x1406F0E50
+ * XREFs of MiDeletePendingBadPageNodesAwaitingDeleteList @ 0x1406F5AC0
  * Callers:
  *     <none>
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void MiDeletePendingBadPageNodesAwaitingDeleteList()
@@ -16,29 +16,29 @@ void MiDeletePendingBadPageNodesAwaitingDeleteList()
   PVOID *v2; // rcx
   PVOID v3; // rbx
 
-  for ( i = ExAcquireSpinLockExclusive(&dword_140E2EB10); ; i = ExAcquireSpinLockExclusive(&dword_140E2EB10) )
+  for ( i = ExAcquireSpinLockExclusive(&dword_140E2EC90); ; i = ExAcquireSpinLockExclusive(&dword_140E2EC90) )
   {
-    v3 = qword_140E2EB20;
-    if ( qword_140E2EB20 == &qword_140E2EB20 )
+    v3 = qword_140E2ECA0;
+    if ( qword_140E2ECA0 == &qword_140E2ECA0 )
       break;
-    v1 = *(_QWORD **)qword_140E2EB20;
-    if ( *(PVOID *)(*(_QWORD *)qword_140E2EB20 + 8LL) != qword_140E2EB20
-      || (v2 = (PVOID *)*((_QWORD *)qword_140E2EB20 + 1), *v2 != qword_140E2EB20) )
+    v1 = *(_QWORD **)qword_140E2ECA0;
+    if ( *(PVOID *)(*(_QWORD *)qword_140E2ECA0 + 8LL) != qword_140E2ECA0
+      || (v2 = (PVOID *)*((_QWORD *)qword_140E2ECA0 + 1), *v2 != qword_140E2ECA0) )
     {
       __fastfail(3u);
     }
     *v2 = v1;
     v1[1] = v2;
-    --qword_140E2EB30;
+    --qword_140E2ECB0;
     if ( i == 17 )
-      ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140E2EB10);
+      ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140E2EC90);
     else
-      ExReleaseSpinLockExclusive(&dword_140E2EB10, i);
+      ExReleaseSpinLockExclusive(&dword_140E2EC90, i);
     ExFreePoolWithTag(v3, 0);
   }
-  byte_140E2EB38 = 0;
+  byte_140E2ECB8 = 0;
   if ( i == 17 )
-    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140E2EB10);
+    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140E2EC90);
   else
-    ExReleaseSpinLockExclusive(&dword_140E2EB10, i);
+    ExReleaseSpinLockExclusive(&dword_140E2EC90, i);
 }

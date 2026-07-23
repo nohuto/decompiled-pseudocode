@@ -1,8 +1,8 @@
 /*
- * XREFs of MiComputeContiguousSubsectionPte @ 0x140316AB0
+ * XREFs of MiComputeContiguousSubsectionPte @ 0x140321800
  * Callers:
- *     MiAdvanceVadView @ 0x1402FE5F4 (MiAdvanceVadView.c)
- *     MiMapViewOfDataSection @ 0x1406EC100 (MiMapViewOfDataSection.c)
+ *     MiAdvanceVadView @ 0x140309344 (MiAdvanceVadView.c)
+ *     MiMapViewOfDataSection @ 0x1407034E0 (MiMapViewOfDataSection.c)
  * Callees:
  *     <none>
  */

@@ -1,11 +1,11 @@
 /*
- * XREFs of _vscprintf_helper @ 0x180128B0C
+ * XREFs of _vscprintf_helper @ 0x18012887C
  * Callers:
- *     _vscprintf @ 0x180128AF0 (_vscprintf.c)
- *     _vscwprintf @ 0x180128C30 (_vscwprintf.c)
+ *     _vscprintf @ 0x180128860 (_vscprintf.c)
+ *     _vscwprintf @ 0x1801289A0 (_vscwprintf.c)
  * Callees:
- *     _invalid_parameter @ 0x180126898 (_invalid_parameter.c)
- *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180170020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ *     _invalid_parameter @ 0x180126608 (_invalid_parameter.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x18016F020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
  */
 
 __int64 __fastcall vscprintf_helper(__int64 (__fastcall *a1)(__int64 *), __int64 a2)

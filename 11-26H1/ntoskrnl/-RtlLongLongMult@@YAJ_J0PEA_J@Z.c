@@ -1,7 +1,7 @@
 /*
- * XREFs of ?RtlLongLongMult@@YAJ_J0PEA_J@Z @ 0x14071CEBC
+ * XREFs of ?RtlLongLongMult@@YAJ_J0PEA_J@Z @ 0x140721B4C
  * Callers:
- *     I_MinAsn1MultiplyAndDivide @ 0x1408A4120 (I_MinAsn1MultiplyAndDivide.c)
+ *     I_MinAsn1MultiplyAndDivide @ 0x1408AA530 (I_MinAsn1MultiplyAndDivide.c)
  * Callees:
  *     <none>
  */

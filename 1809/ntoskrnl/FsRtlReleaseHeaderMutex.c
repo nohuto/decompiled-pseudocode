@@ -1,12 +1,12 @@
 /*
  * XREFs of FsRtlReleaseHeaderMutex @ 0x1400511C0
  * Callers:
- *     FsRtlpWaitForIoAtEof @ 0x1400E14A8 (FsRtlpWaitForIoAtEof.c)
- *     FsRtlReleaseEofLock @ 0x140103100 (FsRtlReleaseEofLock.c)
+ *     FsRtlpWaitForIoAtEof @ 0x1400E1528 (FsRtlpWaitForIoAtEof.c)
+ *     FsRtlReleaseEofLock @ 0x140103180 (FsRtlReleaseEofLock.c)
  * Callees:
  *     ExpReleaseFastMutexContended @ 0x140023F40 (ExpReleaseFastMutexContended.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall FsRtlReleaseHeaderMutex(__int64 a1, volatile signed __int32 *a2)

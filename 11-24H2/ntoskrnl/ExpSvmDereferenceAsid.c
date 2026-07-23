@@ -1,11 +1,11 @@
 /*
- * XREFs of ExpSvmDereferenceAsid @ 0x1406595F0
+ * XREFs of ExpSvmDereferenceAsid @ 0x140657C90
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     ExpAcquireSvmAgentsLock @ 0x1406589FC (ExpAcquireSvmAgentsLock.c)
- *     ExpReleaseSvmAgentsLock @ 0x140658FF4 (ExpReleaseSvmAgentsLock.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     ExpAcquireSvmAgentsLock @ 0x14065709C (ExpAcquireSvmAgentsLock.c)
+ *     ExpReleaseSvmAgentsLock @ 0x140657694 (ExpReleaseSvmAgentsLock.c)
  */
 
 char __fastcall ExpSvmDereferenceAsid(unsigned int a1)
@@ -22,16 +22,16 @@ char __fastcall ExpSvmDereferenceAsid(unsigned int a1)
   v1 = a1;
   memset(&LockHandle, 0, sizeof(LockHandle));
   v2 = ExpAcquireSvmAgentsLock(&LockHandle);
-  v3 = qword_140EFA450;
+  v3 = qword_140EFA6D0;
   v4 = 3 * v1;
   v5 = v2;
-  v6 = *((_QWORD *)qword_140EFA450 + 3 * v1 + 1) - 1LL;
-  *((_QWORD *)qword_140EFA450 + 3 * v1 + 1) = v6;
+  v6 = *((_QWORD *)qword_140EFA6D0 + 3 * v1 + 1) - 1LL;
+  *((_QWORD *)qword_140EFA6D0 + 3 * v1 + 1) = v6;
   if ( v6 < 0 && (v6 & 0x7FFFFFFFFFFFFFFFLL) == 0 )
   {
     v7 = (void *)v3[3 * v1];
     v3[3 * v1] = 0LL;
-    --dword_140EFA448;
+    --dword_140EFA6C8;
     ObfDereferenceObjectWithTag(v7, 0x746C6644u);
   }
   LOBYTE(v4) = v5;

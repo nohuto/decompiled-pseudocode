@@ -205,7 +205,7 @@ __int64 KeStartAllProcessors()
       if ( !v26 )
         goto LABEL_96;
       v27 = (_OWORD *)KeNodeBlock[(unsigned __int16)v65];
-      if ( (unsigned int)HvlInitializeProcessor((union _SLIST_HEADER *)v26, Size_4, v25)
+      if ( (unsigned int)HvlInitializeProcessor((_SLIST_HEADER *)v26, Size_4, v25)
         || !(unsigned int)MmInitializeProcessor(v26, v28, v29)
         || (int)KiInitializePrcbContext(v26, (unsigned __int16)v65) < 0
         || (int)KeInitializeTimerTable(v26) < 0 )

@@ -1,12 +1,12 @@
 /*
- * XREFs of PopDiagTraceFxDeviceStartPowerManagement @ 0x1407B53A4
+ * XREFs of PopDiagTraceFxDeviceStartPowerManagement @ 0x1407B4AF0
  * Callers:
- *     PoFxStartDevicePowerManagement @ 0x1403BE830 (PoFxStartDevicePowerManagement.c)
+ *     PoFxStartDevicePowerManagement @ 0x1403BE190 (PoFxStartDevicePowerManagement.c)
  * Callees:
- *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
- *     EtwWrite @ 0x14025DC90 (EtwWrite.c)
- *     PopFxAddLogEntry @ 0x140260CB4 (PopFxAddLogEntry.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     EtwWrite @ 0x14027F7C0 (EtwWrite.c)
+ *     PopFxAddLogEntry @ 0x140282184 (PopFxAddLogEntry.c)
+ *     EtwEventEnabled @ 0x1402C0830 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 void __fastcall PopDiagTraceFxDeviceStartPowerManagement(__int64 a1)

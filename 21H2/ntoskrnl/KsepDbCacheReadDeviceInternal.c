@@ -1,15 +1,15 @@
 /*
- * XREFs of KsepDbCacheReadDeviceInternal @ 0x140755D74
+ * XREFs of KsepDbCacheReadDeviceInternal @ 0x140755F34
  * Callers:
- *     KsepDbCacheReadDevice @ 0x140755E7C (KsepDbCacheReadDevice.c)
+ *     KsepDbCacheReadDevice @ 0x14075603C (KsepDbCacheReadDevice.c)
  * Callees:
- *     SdbGetDatabaseMatchEx @ 0x140759A08 (SdbGetDatabaseMatchEx.c)
- *     SdbFindNextTag @ 0x140759E48 (SdbFindNextTag.c)
- *     SdbFindFirstTag @ 0x14075A184 (SdbFindFirstTag.c)
- *     KsepDbReadKFlag @ 0x1407B3980 (KsepDbReadKFlag.c)
- *     SdbTagRefToTagID @ 0x1407C2090 (SdbTagRefToTagID.c)
- *     KsepCacheDeviceInsertData @ 0x1407CC6F0 (KsepCacheDeviceInsertData.c)
- *     KsepDbReadKData @ 0x1408BFC50 (KsepDbReadKData.c)
+ *     SdbGetDatabaseMatchEx @ 0x140759BC8 (SdbGetDatabaseMatchEx.c)
+ *     SdbFindNextTag @ 0x14075A008 (SdbFindNextTag.c)
+ *     SdbFindFirstTag @ 0x14075A344 (SdbFindFirstTag.c)
+ *     KsepDbReadKFlag @ 0x1407B3B20 (KsepDbReadKFlag.c)
+ *     SdbTagRefToTagID @ 0x1407C25B0 (SdbTagRefToTagID.c)
+ *     KsepCacheDeviceInsertData @ 0x1407CC860 (KsepCacheDeviceInsertData.c)
+ *     KsepDbReadKData @ 0x1408BFDB0 (KsepDbReadKData.c)
  */
 
 __int64 __fastcall KsepDbCacheReadDeviceInternal(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

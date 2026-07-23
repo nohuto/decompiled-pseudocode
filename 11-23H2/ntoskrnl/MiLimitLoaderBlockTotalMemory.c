@@ -3,8 +3,8 @@
  * Callers:
  *     MiMemoryLicense @ 0x140B5F220 (MiMemoryLicense.c)
  * Callees:
- *     RtlRbRemoveNode @ 0x14024B930 (RtlRbRemoveNode.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
+ *     RtlRbRemoveNode @ 0x14024BA00 (RtlRbRemoveNode.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  */
 
 unsigned __int64 __fastcall MiLimitLoaderBlockTotalMemory(__int64 a1, ULONG_PTR a2)
@@ -31,7 +31,7 @@ unsigned __int64 __fastcall MiLimitLoaderBlockTotalMemory(__int64 a1, ULONG_PTR 
   unsigned __int64 v22; // rax
   __int64 v23; // rdx
   unsigned __int64 v24; // rdx
-  unsigned __int64 v25; // rdi
+  _QWORD *v25; // rdi
   _QWORD *v26; // rcx
   unsigned int v28; // eax
   unsigned __int64 v29; // rax
@@ -118,7 +118,7 @@ LABEL_15:
   while ( v17 )
   {
     v21 = (_QWORD *)*v17;
-    v25 = (unsigned __int64)v17;
+    v25 = v17;
     v26 = v17;
     if ( *v17 )
     {
@@ -142,33 +142,33 @@ LABEL_15:
     }
     if ( v18 )
     {
-      v28 = *(_DWORD *)(v25 + 24);
+      v28 = *((_DWORD *)v25 + 6);
       if ( v28 <= 0x18 )
       {
         if ( _bittest(&v9, v28) )
         {
-          v29 = *(_QWORD *)(v25 + 40);
+          v29 = v25[5];
           if ( v29 > v18 )
           {
-            *(_QWORD *)(v25 + 40) = v29 - v18;
+            v25[5] = v29 - v18;
             v18 = 0LL;
           }
           else
           {
-            RtlRbRemoveNode((unsigned __int64 *)v2, v25);
-            v18 -= *(_QWORD *)(v25 + 40);
-            *(_QWORD *)(v25 + 40) = 0LL;
+            RtlRbRemoveNode((PRTL_RB_TREE)v2, (PRTL_BALANCED_NODE)v25);
+            v18 -= v25[5];
+            v25[5] = 0LL;
           }
         }
       }
     }
-    v22 = *(int *)(v25 + 24);
+    v22 = *((int *)v25 + 6);
     if ( (unsigned int)v22 > 0x2A || !_bittest64(&v8, v22) )
     {
-      v23 = *(_QWORD *)(v25 + 40);
+      v23 = v25[5];
       if ( v23 )
       {
-        v24 = *(_QWORD *)(v25 + 32) + v23;
+        v24 = v25[4] + v23;
         if ( v24 > v6 )
           v6 = v24;
       }

@@ -1,15 +1,15 @@
 /*
- * XREFs of HalpInterruptRemapFixedLines @ 0x14057D558
+ * XREFs of HalpInterruptRemapFixedLines @ 0x14057FA78
  * Callers:
- *     HalpInitializeInterruptsBspLate @ 0x14057D120 (HalpInitializeInterruptsBspLate.c)
+ *     HalpInitializeInterruptsBspLate @ 0x14057F640 (HalpInitializeInterruptsBspLate.c)
  * Callees:
- *     HalpReleaseHighLevelLock @ 0x1402C4DEC (HalpReleaseHighLevelLock.c)
- *     HalpInterruptSetLineStateInternal @ 0x14032DC5C (HalpInterruptSetLineStateInternal.c)
- *     HalpAcquireHighLevelLock @ 0x140426EEC (HalpAcquireHighLevelLock.c)
- *     HalpIommuUpdateRemappingTableEntry @ 0x140428A2C (HalpIommuUpdateRemappingTableEntry.c)
- *     HalpInterruptSetProblemEx @ 0x14042A15C (HalpInterruptSetProblemEx.c)
- *     HalpIrtAllocateIndex @ 0x140784614 (HalpIrtAllocateIndex.c)
- *     HalpHvMapIoApicDeviceInterrupt @ 0x140BEABC4 (HalpHvMapIoApicDeviceInterrupt.c)
+ *     HalpReleaseHighLevelLock @ 0x14030FAAC (HalpReleaseHighLevelLock.c)
+ *     HalpInterruptSetLineStateInternal @ 0x14032FC8C (HalpInterruptSetLineStateInternal.c)
+ *     HalpAcquireHighLevelLock @ 0x140433FFC (HalpAcquireHighLevelLock.c)
+ *     HalpIommuUpdateRemappingTableEntry @ 0x140435084 (HalpIommuUpdateRemappingTableEntry.c)
+ *     HalpInterruptSetProblemEx @ 0x140436244 (HalpInterruptSetProblemEx.c)
+ *     HalpIrtAllocateIndex @ 0x140787148 (HalpIrtAllocateIndex.c)
+ *     HalpHvMapIoApicDeviceInterrupt @ 0x140BF0BC4 (HalpHvMapIoApicDeviceInterrupt.c)
  */
 
 __int64 HalpInterruptRemapFixedLines()
@@ -40,7 +40,7 @@ __int64 HalpInterruptRemapFixedLines()
   v0 = 0;
   v19 = 0;
   v21 = 0LL;
-  if ( HalpInterruptFixedLines && ((*(_DWORD *)(HalpInterruptController + 244) & 0x100) != 0 || qword_140FBB068) )
+  if ( HalpInterruptFixedLines && ((*(_DWORD *)(HalpInterruptController + 244) & 0x100) != 0 || qword_140FBB408) )
   {
     v1 = (ULONG_PTR *)HalpRegisteredInterruptControllers;
     v2 = 0;
@@ -99,7 +99,7 @@ LABEL_8:
                   *(_DWORD *)(v10 + 24) = 7;
                   *(_DWORD *)(v10 + 32) = v13;
                 }
-                if ( qword_140FBB068 )
+                if ( qword_140FBB408 )
                 {
                   v14 = HalpHvMapIoApicDeviceInterrupt(*(unsigned int *)(v3 + 256), v10, 0LL);
                   v0 = v14;
@@ -114,9 +114,11 @@ LABEL_8:
                     return v0;
                   }
                 }
-                v15 = HalpAcquireHighLevelLock(&HalpDeviceBlockUnblockPushLock.Timer.DueTime.QuadPart);
+                v15 = HalpAcquireHighLevelLock((PKSPIN_LOCK)&HalpDeviceBlockUnblockPushLock.Timer.Header.WaitListHead.Blink);
                 v0 = HalpInterruptSetLineStateInternal(v3, (__int64)&v21, v22);
-                HalpReleaseHighLevelLock(&HalpDeviceBlockUnblockPushLock.Timer.DueTime.QuadPart, v15);
+                HalpReleaseHighLevelLock(
+                  (KSPIN_LOCK *)&HalpDeviceBlockUnblockPushLock.Timer.Header.WaitListHead.Blink,
+                  v15);
                 if ( (v0 & 0x80000000) != 0 )
                   return v0;
                 v8 = v18;

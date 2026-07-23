@@ -1,37 +1,39 @@
 /*
- * XREFs of RtlPrefixString @ 0x1800DEAD0
+ * XREFs of RtlPrefixString @ 0x1800D9C40
  * Callers:
  *     <none>
  * Callees:
- *     RtlUpperChar @ 0x1800708F0 (RtlUpperChar.c)
- *     memcmp @ 0x1801676D0 (memcmp.c)
+ *     RtlUpperChar @ 0x18008D1D0 (RtlUpperChar.c)
+ *     memcmp @ 0x180165A90 (memcmp.c)
  */
 
-bool __fastcall RtlPrefixString(unsigned __int16 *a1, __int64 a2, char a3)
+BOOLEAN __cdecl RtlPrefixString(PSTRING String1, PSTRING String2, BOOLEAN CaseInSensitive)
 {
-  __int64 v3; // rax
-  _BYTE *v4; // rbx
-  _BYTE *v5; // rsi
-  _BYTE *v6; // r14
-  char v8; // di
+  __int64 Length; // rax
+  char *Buffer; // rbx
+  char *v5; // rsi
+  char *v6; // r14
+  CHAR v7; // bp
+  CHAR v9; // di
 
-  v3 = *a1;
-  v4 = (_BYTE *)*((_QWORD *)a1 + 1);
-  v5 = *(_BYTE **)(a2 + 8);
-  if ( *(_WORD *)a2 < (unsigned __int16)v3 )
+  Length = String1->Length;
+  Buffer = String1->Buffer;
+  v5 = String2->Buffer;
+  if ( String2->Length < (unsigned __int16)Length )
     return 0;
-  v6 = &v4[v3];
-  if ( !a3 )
-    return memcmp(*((const void **)a1 + 1), *(const void **)(a2 + 8), *a1) == 0;
-  while ( v4 < v6 )
+  v6 = &Buffer[Length];
+  if ( !CaseInSensitive )
+    return memcmp(String1->Buffer, String2->Buffer, String1->Length) == 0;
+  while ( Buffer < v6 )
   {
-    if ( *v4 != *v5 )
+    v7 = *Buffer;
+    if ( *Buffer != *v5 )
     {
-      v8 = RtlUpperChar();
-      if ( RtlUpperChar() != v8 )
+      v9 = RtlUpperChar(*v5);
+      if ( RtlUpperChar(v7) != v9 )
         return 0;
     }
-    ++v4;
+    ++Buffer;
     ++v5;
   }
   return 1;

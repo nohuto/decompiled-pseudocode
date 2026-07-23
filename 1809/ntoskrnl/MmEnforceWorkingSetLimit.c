@@ -1,19 +1,19 @@
 /*
- * XREFs of MmEnforceWorkingSetLimit @ 0x14008FB50
+ * XREFs of MmEnforceWorkingSetLimit @ 0x14008FA70
  * Callers:
- *     PspApplyWorkingSetLimitsToProcess @ 0x140604D74 (PspApplyWorkingSetLimitsToProcess.c)
- *     PspSetQuotaLimits @ 0x1406D10F8 (PspSetQuotaLimits.c)
- *     PspAddProcessToWorkingSetChangeList @ 0x140889720 (PspAddProcessToWorkingSetChangeList.c)
- *     PspApplyWorkingSetLimits @ 0x1408897E4 (PspApplyWorkingSetLimits.c)
+ *     PspApplyWorkingSetLimitsToProcess @ 0x140605D74 (PspApplyWorkingSetLimitsToProcess.c)
+ *     PspSetQuotaLimits @ 0x1406D2398 (PspSetQuotaLimits.c)
+ *     PspAddProcessToWorkingSetChangeList @ 0x14088A980 (PspAddProcessToWorkingSetChangeList.c)
+ *     PspApplyWorkingSetLimits @ 0x14088AA44 (PspApplyWorkingSetLimits.c)
  * Callees:
  *     KiStackAttachProcess @ 0x140016DB0 (KiStackAttachProcess.c)
  *     KiUnstackDetachProcess @ 0x140017190 (KiUnstackDetachProcess.c)
- *     MiUnlockWorkingSetExclusive @ 0x140063CE0 (MiUnlockWorkingSetExclusive.c)
- *     MiGetSharedVm @ 0x140064D30 (MiGetSharedVm.c)
- *     KxAcquireQueuedSpinLock @ 0x1400AC9B0 (KxAcquireQueuedSpinLock.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     MiUnlockWorkingSetExclusive @ 0x140063CD0 (MiUnlockWorkingSetExclusive.c)
+ *     MiGetSharedVm @ 0x140064D20 (MiGetSharedVm.c)
+ *     KxAcquireQueuedSpinLock @ 0x1400AC8F0 (KxAcquireQueuedSpinLock.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC420 (ExAcquireSpinLockExclusive.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 __int64 __fastcall MmEnforceWorkingSetLimit(_KPROCESS *BugCheckParameter1, char a2)
@@ -59,7 +59,7 @@ __int64 __fastcall MmEnforceWorkingSetLimit(_KPROCESS *BugCheckParameter1, char 
   v8 = ExAcquireSpinLockExclusive(SharedVm);
   SharedVm[1] = 0;
   v20[0] = 0LL;
-  v20[1] = &qword_14043AE80;
+  v20[1] = &qword_14043BF40;
   v9 = v8;
   KxAcquireQueuedSpinLock(v20);
   v10 = *(_DWORD *)(v2 + 184);

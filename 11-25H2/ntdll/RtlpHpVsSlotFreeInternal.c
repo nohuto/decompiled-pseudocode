@@ -15,7 +15,7 @@ __int64 __fastcall RtlpHpVsSlotFreeInternal(__int64 a1, unsigned __int64 a2, uns
   __int64 v9; // rbx
   unsigned __int64 v10; // rax
   unsigned __int64 v11; // rcx
-  unsigned __int64 v12; // r11
+  __int64 v12; // r11
   char v14; // al
   unsigned __int64 v15; // rcx
   __int64 v16; // rdx

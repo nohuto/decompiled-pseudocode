@@ -1,16 +1,16 @@
 /*
- * XREFs of HsaIommuSendCommand @ 0x1405305C8
+ * XREFs of HsaIommuSendCommand @ 0x140530B18
  * Callers:
- *     HsaDismissPageFault @ 0x14052F600 (HsaDismissPageFault.c)
- *     HsaFlushDeviceTbOnly @ 0x14052F890 (HsaFlushDeviceTbOnly.c)
- *     HsaFlushTbInternal @ 0x14052F99C (HsaFlushTbInternal.c)
- *     HsaInvalidateRemappingTableEntries @ 0x140530534 (HsaInvalidateRemappingTableEntries.c)
- *     HsaUpdateDeviceTableEntry @ 0x140530D20 (HsaUpdateDeviceTableEntry.c)
+ *     HsaDismissPageFault @ 0x14052FB50 (HsaDismissPageFault.c)
+ *     HsaFlushDeviceTbOnly @ 0x14052FDE0 (HsaFlushDeviceTbOnly.c)
+ *     HsaFlushTbInternal @ 0x14052FEEC (HsaFlushTbInternal.c)
+ *     HsaInvalidateRemappingTableEntries @ 0x140530A84 (HsaInvalidateRemappingTableEntries.c)
+ *     HsaUpdateDeviceTableEntry @ 0x140531270 (HsaUpdateDeviceTableEntry.c)
  * Callees:
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14029CBD0 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14029CE60 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 KSPIN_LOCK __fastcall HsaIommuSendCommand(KSPIN_LOCK *a1, KSPIN_LOCK *a2, int a3)
@@ -47,7 +47,7 @@ KSPIN_LOCK __fastcall HsaIommuSendCommand(KSPIN_LOCK *a1, KSPIN_LOCK *a2, int a3
   {
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(0xFuLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
       if ( CurrentIrql == 15 )
@@ -115,10 +115,10 @@ KSPIN_LOCK __fastcall HsaIommuSendCommand(KSPIN_LOCK *a1, KSPIN_LOCK *a2, int a3
   if ( !a3 )
   {
     KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v18 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v18 <= 0xFu && CurrentIrql <= 0xFu && v18 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v18 <= 0xFu && CurrentIrql <= 0xFu && v18 >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         v20 = CurrentPrcb->SchedulerAssist;
@@ -126,7 +126,7 @@ KSPIN_LOCK __fastcall HsaIommuSendCommand(KSPIN_LOCK *a1, KSPIN_LOCK *a2, int a3
         v22 = (v21 & v20[5]) == 0;
         v20[5] &= v21;
         if ( v22 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
       }
     }
     result = CurrentIrql;

@@ -1,15 +1,15 @@
 /*
- * XREFs of MiAllocateAweInfo @ 0x140A4002C
+ * XREFs of MiAllocateAweInfo @ 0x140A402DC
  * Callers:
- *     MiCreatePagingFileMap @ 0x140747994 (MiCreatePagingFileMap.c)
- *     MiCreateProcessDefaultAweInfo @ 0x140A41690 (MiCreateProcessDefaultAweInfo.c)
+ *     MiCreatePagingFileMap @ 0x140747B84 (MiCreatePagingFileMap.c)
+ *     MiCreateProcessDefaultAweInfo @ 0x140A41940 (MiCreateProcessDefaultAweInfo.c)
  * Callees:
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     ExInitializeAutoExpandPushLock @ 0x140338350 (ExInitializeAutoExpandPushLock.c)
- *     MiGetAweInfoPartition @ 0x14064A858 (MiGetAweInfoPartition.c)
- *     SeSinglePrivilegeCheck @ 0x140737B00 (SeSinglePrivilegeCheck.c)
- *     MiCreateAweInfoBitMap @ 0x140A41540 (MiCreateAweInfoBitMap.c)
- *     MiDeleteAweInfo @ 0x140A41A48 (MiDeleteAweInfo.c)
+ *     MiAllocatePool @ 0x1402DF430 (MiAllocatePool.c)
+ *     ExInitializeAutoExpandPushLock @ 0x1403385E0 (ExInitializeAutoExpandPushLock.c)
+ *     MiGetAweInfoPartition @ 0x14064ADA8 (MiGetAweInfoPartition.c)
+ *     SeSinglePrivilegeCheck @ 0x140737CF0 (SeSinglePrivilegeCheck.c)
+ *     MiCreateAweInfoBitMap @ 0x140A417F0 (MiCreateAweInfoBitMap.c)
+ *     MiDeleteAweInfo @ 0x140A41CF8 (MiDeleteAweInfo.c)
  */
 
 __int64 __fastcall MiAllocateAweInfo(__int64 a1, int a2, char a3, KPROCESSOR_MODE a4, _QWORD *a5)

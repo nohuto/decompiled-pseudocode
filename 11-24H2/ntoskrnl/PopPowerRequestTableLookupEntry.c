@@ -1,9 +1,9 @@
 /*
- * XREFs of PopPowerRequestTableLookupEntry @ 0x140A60F5C
+ * XREFs of PopPowerRequestTableLookupEntry @ 0x140A5963C
  * Callers:
- *     PopPowerRequestHandleRequestOverrideQueryResponse @ 0x14046BFAC (PopPowerRequestHandleRequestOverrideQueryResponse.c)
+ *     PopPowerRequestHandleRequestOverrideQueryResponse @ 0x140464C2C (PopPowerRequestHandleRequestOverrideQueryResponse.c)
  * Callees:
- *     RtlLookupElementGenericTableAvl @ 0x1403FFF00 (RtlLookupElementGenericTableAvl.c)
+ *     RtlLookupElementGenericTableAvl @ 0x1403FA3F0 (RtlLookupElementGenericTableAvl.c)
  */
 
 __int64 __fastcall PopPowerRequestTableLookupEntry(int a1)

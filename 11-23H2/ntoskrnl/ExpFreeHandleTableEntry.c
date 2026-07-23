@@ -1,15 +1,15 @@
 /*
- * XREFs of ExpFreeHandleTableEntry @ 0x140740398
+ * XREFs of ExpFreeHandleTableEntry @ 0x140740588
  * Callers:
- *     ObpCreateHandle @ 0x1406E4510 (ObpCreateHandle.c)
- *     ObDuplicateObject @ 0x1406FB8F0 (ObDuplicateObject.c)
- *     ExDestroyHandle @ 0x14073FA9C (ExDestroyHandle.c)
- *     ExCreateHandleEx @ 0x140740464 (ExCreateHandleEx.c)
+ *     ObpCreateHandle @ 0x1406E4540 (ObpCreateHandle.c)
+ *     ObDuplicateObject @ 0x1406FBB00 (ObDuplicateObject.c)
+ *     ExDestroyHandle @ 0x14073FC8C (ExDestroyHandle.c)
+ *     ExCreateHandleEx @ 0x140740654 (ExCreateHandleEx.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     ExpGetHandleExtraInfo @ 0x1408AB4CA (ExpGetHandleExtraInfo.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     ExpGetHandleExtraInfo @ 0x1408AB71A (ExpGetHandleExtraInfo.c)
  */
 
 signed __int32 __fastcall ExpFreeHandleTableEntry(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

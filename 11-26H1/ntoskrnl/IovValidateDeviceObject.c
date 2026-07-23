@@ -1,8 +1,8 @@
 /*
- * XREFs of IovValidateDeviceObject @ 0x140C2AC4C
+ * XREFs of IovValidateDeviceObject @ 0x140C30C5C
  * Callers:
- *     IovCallDriver @ 0x1404F36FC (IovCallDriver.c)
- *     IovStatelessIoCallDriverRules @ 0x140C2AADC (IovStatelessIoCallDriverRules.c)
+ *     IovCallDriver @ 0x1404ECCDC (IovCallDriver.c)
+ *     IovStatelessIoCallDriverRules @ 0x140C30AEC (IovStatelessIoCallDriverRules.c)
  * Callees:
  *     <none>
  */

@@ -7,14 +7,14 @@
  *     _RtlFreeHeap@12 @ 0x4B2C3B70 (_RtlFreeHeap@12.c)
  */
 
-int __thiscall EtwpFreeStreamIndexMap(int *this)
+LOGICAL __thiscall EtwpFreeStreamIndexMap(PVOID *this)
 {
-  int result; // eax
+  LOGICAL result; // eax
 
-  result = this[88];
+  result = (LOGICAL)this[88];
   if ( result )
   {
-    result = RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, this[88]);
+    result = RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, this[88]);
     this[88] = 0;
   }
   return result;

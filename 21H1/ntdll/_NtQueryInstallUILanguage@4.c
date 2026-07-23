@@ -12,7 +12,7 @@
  *     _Wow64SystemServiceCall@0 @ 0x4B308730 (_Wow64SystemServiceCall@0.c)
  */
 
-int __stdcall NtQueryInstallUILanguage(int a1)
+NTSTATUS __cdecl NtQueryInstallUILanguage(LANGID *InstallUILanguageId)
 {
   return Wow64SystemServiceCall();
 }

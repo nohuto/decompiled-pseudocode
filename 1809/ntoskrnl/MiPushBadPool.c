@@ -1,12 +1,12 @@
 /*
- * XREFs of MiPushBadPool @ 0x1402AC70C
+ * XREFs of MiPushBadPool @ 0x1402AC8FC
  * Callers:
- *     MiScrubNonPagedPool @ 0x14084F0D8 (MiScrubNonPagedPool.c)
+ *     MiScrubNonPagedPool @ 0x140850338 (MiScrubNonPagedPool.c)
  * Callees:
  *     MiLockPageInline @ 0x14002CE40 (MiLockPageInline.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14007DE80 (KeAcquireInStackQueuedSpinLock.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiPushBadPool(__int64 a1, __int64 a2)
@@ -29,8 +29,8 @@ __int64 __fastcall MiPushBadPool(__int64 a1, __int64 a2)
   }
   __writecr8(v4);
   KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(a1 + 304), &LockHandle);
-  *(_QWORD *)a2 = qword_140438A60;
-  qword_140438A60 = a2;
+  *(_QWORD *)a2 = qword_140439B20;
+  qword_140439B20 = a2;
   KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
   OldIrql = LockHandle.OldIrql;
   if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && KeGetCurrentIrql() >= 2u && LockHandle.OldIrql < 2u )

@@ -1,14 +1,17 @@
 /*
- * XREFs of ZwOpenIoCompletion @ 0x14041D240
+ * XREFs of ZwOpenIoCompletion @ 0x14041D5D0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwOpenIoCompletion(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwOpenIoCompletion(
+        PHANDLE IoCompletionHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(IoCompletionHandle);
 }

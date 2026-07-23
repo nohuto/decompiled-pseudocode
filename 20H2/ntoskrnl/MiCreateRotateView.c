@@ -13,11 +13,11 @@
 
 __int64 __fastcall MiCreateRotateView(__int64 a1)
 {
-  struct _SLIST_ENTRY *Pool; // rbx
+  _SLIST_ENTRY *Pool; // rbx
   PSLIST_ENTRY v3; // rdi
   PSLIST_ENTRY v5; // rcx
 
-  Pool = (struct _SLIST_ENTRY *)MiAllocatePool(64, 0x48uLL, 0x77776D4Du);
+  Pool = (_SLIST_ENTRY *)MiAllocatePool(64, 0x48uLL, 0x77776D4Du);
   if ( Pool )
   {
     v3 = MiGetInPageSupportBlock(0);

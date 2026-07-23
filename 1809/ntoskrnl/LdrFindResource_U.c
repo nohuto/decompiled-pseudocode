@@ -1,10 +1,10 @@
 /*
- * XREFs of LdrFindResource_U @ 0x140756B50
+ * XREFs of LdrFindResource_U @ 0x140757D40
  * Callers:
- *     InitBootProcessor @ 0x1409B4EDC (InitBootProcessor.c)
- *     FindBitmapResource @ 0x1409D7120 (FindBitmapResource.c)
+ *     InitBootProcessor @ 0x1409B5EDC (InitBootProcessor.c)
+ *     FindBitmapResource @ 0x1409D8120 (FindBitmapResource.c)
  * Callees:
- *     LdrpSearchResourceSection_U @ 0x14067AEF0 (LdrpSearchResourceSection_U.c)
+ *     LdrpSearchResourceSection_U @ 0x14067C0B0 (LdrpSearchResourceSection_U.c)
  */
 
 NTSTATUS __stdcall LdrFindResource_U(

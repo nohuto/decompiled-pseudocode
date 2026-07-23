@@ -10,35 +10,22 @@
 
 __int64 __fastcall PspGetProcessProtectionRequirementsFromImage(__int64 a1)
 {
-  unsigned __int64 v1; // rax
-  __int64 v2; // rdx
-  _BYTE *v3; // r8
-  char v4; // r9
-  char *v5; // r11
-  __int64 v6; // rcx
-  char v8; // r10
-  char v9; // r9
+  unsigned __int8 *v1; // r8
+  PS_PROTECTION v2; // r9
+  char *v3; // r11
+  char v5; // r10
+  char v6; // r9
 
-  v1 = MiSectionControlArea(a1);
-  v6 = *(_QWORD *)v1;
-  if ( (*(_BYTE *)(*(_QWORD *)v1 + 15LL) & 0xF0) == 0x50 )
+  if ( (*(_BYTE *)(*(_QWORD *)MiSectionControlArea(a1) + 15LL) & 0xF0) == 0x50 )
   {
-    v8 = -127;
-    if ( v4 )
-    {
-      if ( v4 != -127 )
-      {
-        LOBYTE(v2) = -127;
-        LOBYTE(v6) = v4;
-        if ( (unsigned __int8)RtlTestProtectedAccess(v6, v2) )
-          v8 = v9;
-      }
-    }
-    *v5 = v8;
+    v5 = -127;
+    if ( v2.Level && v2.Level != 0x81 && RtlTestProtectedAccess(v2, (PS_PROTECTION)-127) )
+      v5 = v6;
+    *v3 = v5;
   }
   else
   {
-    *v3 = v4;
+    *v1 = v2.Level;
   }
   return 0LL;
 }

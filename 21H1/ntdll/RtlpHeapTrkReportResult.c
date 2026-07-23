@@ -10,40 +10,45 @@
  *     RtlpHeapTrkSyncWithDiagnoser @ 0x4B364D91 (RtlpHeapTrkSyncWithDiagnoser.c)
  */
 
-char __fastcall RtlpHeapTrkReportResult(size_t Size, unsigned __int16 a2, int a3, int a4, void *Src, size_t Sizea)
+char __fastcall RtlpHeapTrkReportResult(int a1, unsigned __int16 a2, int a3, int a4, void *Src, unsigned int Size)
 {
   int v6; // edi
-  int v8; // esi
-  unsigned int v11; // [esp+14h] [ebp-114h] BYREF
-  _DWORD v12[4]; // [esp+18h] [ebp-110h] BYREF
-  _BYTE v13[256]; // [esp+28h] [ebp-100h] BYREF
+  char *v8; // esi
+  size_t v10; // [esp-4h] [ebp-12Ch]
+  unsigned int v12; // [esp+14h] [ebp-114h] BYREF
+  _DWORD v13[4]; // [esp+18h] [ebp-110h] BYREF
+  _BYTE v14[256]; // [esp+28h] [ebp-100h] BYREF
 
   v6 = dword_4B3A3958;
-  if ( (RtlULongPtrAdd(dword_4B3A3958, Size, (int *)&v11) & 0xC0000000) == 0xC0000000 )
+  if ( (RtlULongPtrAdd(dword_4B3A3958, a1, (int *)&v12) & 0xC0000000) == 0xC0000000 )
     return 0;
-  v8 = TrkContext;
+  v8 = (char *)TrkContext;
   if ( !TrkContext )
     return 0;
-  if ( v11 > *(_DWORD *)TrkContext )
+  if ( v12 > *(_DWORD *)TrkContext )
   {
     if ( (unsigned __int8)RtlpHeapTrkSyncWithDiagnoser() )
     {
       v6 = 64;
-      *(_DWORD *)(TrkContext + 36) = 0;
-      v8 = TrkContext;
+      *((_DWORD *)TrkContext + 9) = 0;
+      v8 = (char *)TrkContext;
       goto LABEL_6;
     }
     return 0;
   }
 LABEL_6:
-  v12[1] = a2;
-  v12[2] = a3;
-  v12[0] = Size;
-  v12[3] = a4;
-  if ( Sizea <= 0x100 )
-    memcpy(v13, Src, Sizea);
-  memcpy((void *)(v8 + v6), v12, Size);
-  dword_4B3A3958 = Size + v6;
-  ++*(_DWORD *)(TrkContext + 36);
+  v13[1] = a2;
+  v13[2] = a3;
+  v13[0] = a1;
+  v13[3] = a4;
+  if ( Size <= 0x100 )
+  {
+    LODWORD(v10) = Size;
+    memcpy(v14, Src, v10);
+  }
+  LODWORD(v10) = a1;
+  memcpy(&v8[v6], v13, v10);
+  dword_4B3A3958 = a1 + v6;
+  ++*((_DWORD *)TrkContext + 9);
   return 1;
 }

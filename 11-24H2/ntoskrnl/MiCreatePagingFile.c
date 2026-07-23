@@ -1,47 +1,47 @@
 /*
- * XREFs of MiCreatePagingFile @ 0x1407EE364
+ * XREFs of MiCreatePagingFile @ 0x1407EE934
  * Callers:
- *     NtCreatePagingFile @ 0x1407EFC10 (NtCreatePagingFile.c)
- *     NtManagePartition @ 0x140933FF0 (NtManagePartition.c)
+ *     NtCreatePagingFile @ 0x1407F01E0 (NtCreatePagingFile.c)
+ *     NtManagePartition @ 0x1408F6B10 (NtManagePartition.c)
  * Callees:
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     MiAllocatePool @ 0x1402ACA70 (MiAllocatePool.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     KiCheckForKernelApcDelivery @ 0x1402BB4D0 (KiCheckForKernelApcDelivery.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     IoGetRelatedDeviceObject @ 0x140373C70 (IoGetRelatedDeviceObject.c)
- *     PsIsCurrentThreadInServerSilo @ 0x14042F240 (PsIsCurrentThreadInServerSilo.c)
- *     RtlLengthSid @ 0x140456300 (RtlLengthSid.c)
- *     MiIssuePageExtendRequest @ 0x14046B438 (MiIssuePageExtendRequest.c)
- *     MiAttemptChangePagingFileMaximum @ 0x140679D30 (MiAttemptChangePagingFileMaximum.c)
- *     MiCheckAndUpdatePagingFileMinimum @ 0x14067A188 (MiCheckAndUpdatePagingFileMinimum.c)
- *     MiCheckPageFileMapping @ 0x14067A1E0 (MiCheckPageFileMapping.c)
- *     MiIncreaseCommitLimits @ 0x14068620C (MiIncreaseCommitLimits.c)
- *     MiReduceCommitLimits @ 0x1406864D0 (MiReduceCommitLimits.c)
- *     ZwSetInformationFile @ 0x1406A68F0 (ZwSetInformationFile.c)
- *     ZwSetSecurityObject @ 0x1406A9B30 (ZwSetSecurityObject.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     FsRtlIssueFileNotificationFsctl @ 0x14070CF48 (FsRtlIssueFileNotificationFsctl.c)
- *     IoInitializeCrashDump @ 0x140710A68 (IoInitializeCrashDump.c)
- *     PiPagePathSetState @ 0x140722960 (PiPagePathSetState.c)
- *     MiCreatePagefile @ 0x1407EDFA0 (MiCreatePagefile.c)
- *     MiDeletePagefile @ 0x1407EEEF8 (MiDeletePagefile.c)
- *     MiInsertPageFileInList @ 0x1407EF2F0 (MiInsertPageFileInList.c)
- *     MiZeroPageFileFirstPage @ 0x1407EF9E8 (MiZeroPageFileFirstPage.c)
- *     MiCreateSpecialPurposeMemoryPageFile @ 0x1407FE114 (MiCreateSpecialPurposeMemoryPageFile.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x14084B7E0 (ObpReferenceObjectByHandleWithTag.c)
- *     SeSinglePrivilegeCheck @ 0x140853E90 (SeSinglePrivilegeCheck.c)
- *     RtlCreateAcl @ 0x14085CAA0 (RtlCreateAcl.c)
- *     ExRaiseDatatypeMisalignment @ 0x14089B1F0 (ExRaiseDatatypeMisalignment.c)
- *     ObCloseHandle @ 0x1408A2B10 (ObCloseHandle.c)
- *     RtlpAddKnownAce @ 0x14091DA10 (RtlpAddKnownAce.c)
- *     IopQueryXxxInformation @ 0x14096A530 (IopQueryXxxInformation.c)
- *     IopCreateFile @ 0x14096CD60 (IopCreateFile.c)
- *     RtlSetDaclSecurityDescriptor @ 0x1409E56A0 (RtlSetDaclSecurityDescriptor.c)
- *     RtlCreateSecurityDescriptor @ 0x1409E6710 (RtlCreateSecurityDescriptor.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     IoGetRelatedDeviceObject @ 0x14025C530 (IoGetRelatedDeviceObject.c)
+ *     MiAllocatePool @ 0x140277450 (MiAllocatePool.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x140362C10 (KiCheckForKernelApcDelivery.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x140421410 (PsIsCurrentThreadInServerSilo.c)
+ *     RtlLengthSid @ 0x14044B2D0 (RtlLengthSid.c)
+ *     MiIssuePageExtendRequest @ 0x140464038 (MiIssuePageExtendRequest.c)
+ *     MiAttemptChangePagingFileMaximum @ 0x14067AF10 (MiAttemptChangePagingFileMaximum.c)
+ *     MiCheckAndUpdatePagingFileMinimum @ 0x14067B368 (MiCheckAndUpdatePagingFileMinimum.c)
+ *     MiCheckPageFileMapping @ 0x14067B3C0 (MiCheckPageFileMapping.c)
+ *     MiIncreaseCommitLimits @ 0x14068733C (MiIncreaseCommitLimits.c)
+ *     MiReduceCommitLimits @ 0x140687600 (MiReduceCommitLimits.c)
+ *     ZwSetInformationFile @ 0x1406A7890 (ZwSetInformationFile.c)
+ *     ZwSetSecurityObject @ 0x1406AAAD0 (ZwSetSecurityObject.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     FsRtlIssueFileNotificationFsctl @ 0x14070AAE8 (FsRtlIssueFileNotificationFsctl.c)
+ *     IoInitializeCrashDump @ 0x14070E5F8 (IoInitializeCrashDump.c)
+ *     PiPagePathSetState @ 0x1407204F0 (PiPagePathSetState.c)
+ *     MiCreatePagefile @ 0x1407EE570 (MiCreatePagefile.c)
+ *     MiDeletePagefile @ 0x1407EF4C8 (MiDeletePagefile.c)
+ *     MiInsertPageFileInList @ 0x1407EF8C0 (MiInsertPageFileInList.c)
+ *     MiZeroPageFileFirstPage @ 0x1407EFFB8 (MiZeroPageFileFirstPage.c)
+ *     MiCreateSpecialPurposeMemoryPageFile @ 0x1407FE884 (MiCreateSpecialPurposeMemoryPageFile.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x140847AA0 (ObpReferenceObjectByHandleWithTag.c)
+ *     SeSinglePrivilegeCheck @ 0x140850150 (SeSinglePrivilegeCheck.c)
+ *     RtlCreateAcl @ 0x140858810 (RtlCreateAcl.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408A3890 (ExRaiseDatatypeMisalignment.c)
+ *     ObCloseHandle @ 0x1408AB1B0 (ObCloseHandle.c)
+ *     RtlpAddKnownAce @ 0x140911480 (RtlpAddKnownAce.c)
+ *     IopQueryXxxInformation @ 0x140952FC0 (IopQueryXxxInformation.c)
+ *     IopCreateFile @ 0x1409557C0 (IopCreateFile.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x1409DFF30 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateSecurityDescriptor @ 0x1409E16D0 (RtlCreateSecurityDescriptor.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiCreatePagingFile(
@@ -76,14 +76,14 @@ __int64 __fastcall MiCreatePagingFile(
   unsigned int v32; // r13d
   __int64 v33; // r12
   unsigned __int64 *v34; // rbx
-  _QWORD *v35; // rax
-  _QWORD *v36; // rdi
+  char *v35; // rax
+  char *v36; // rdi
   __int64 v37; // rcx
   __int64 v38; // rdx
   __int16 v39; // r8
   __int64 v40; // rdi
   volatile signed __int64 *v41; // rbx
-  __int64 v42; // rcx
+  struct _KTHREAD *v42; // rcx
   bool v43; // zf
   unsigned __int64 v44; // rdi
   unsigned __int64 v45; // rbx
@@ -269,12 +269,12 @@ LABEL_95:
       CurrentThread = KeGetCurrentThread();
       --CurrentThread->SpecialApcDisable;
       v34 = (unsigned __int64 *)(a6 + 1088);
-      v35 = KeAbPreAcquire(a6 + 1088, 0LL);
+      v35 = (char *)KeAbPreAcquire(a6 + 1088, 0LL);
       v36 = v35;
       if ( _interlockedbittestandset64((volatile signed __int32 *)v34, 0LL) )
-        ExfAcquirePushLockExclusiveEx(v34, (__int64)v35, (__int64)v34);
+        ExfAcquirePushLockExclusiveEx(v34, v35, (__int64)v34);
       if ( v36 )
-        *((_BYTE *)v36 + 10) = 1;
+        v36[10] = 1;
       v37 = a6;
       while ( v32 < *(_DWORD *)(a6 + 18520) )
       {
@@ -354,10 +354,10 @@ LABEL_82:
       if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)(a6 + 1088), 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
         ExfTryToWakePushLock(v41);
       KeAbPostRelease((ULONG_PTR)v41);
-      v42 = (__int64)CurrentThread;
+      v42 = CurrentThread;
       v43 = CurrentThread->SpecialApcDisable++ == -1;
-      if ( v43 && *(_QWORD *)(v42 + 152) != v42 + 152 )
-        KiCheckForKernelApcDelivery(v42, 1LL);
+      if ( v43 && ($727077A9B6E167EAE1398C74674DC5A5 *)v42->ApcState.ApcListHead[0].Flink != &v42->152 )
+        KiCheckForKernelApcDelivery();
       if ( v58 )
         MiReduceCommitLimits(v40, 0LL, v58);
       v15 = P;
@@ -441,10 +441,10 @@ LABEL_92:
   inserted = MiInsertPageFileInList(Pagefile);
   if ( inserted >= 0 )
   {
-    if ( v28 == &MiSystemPartition && !byte_140E30040 && (v30[172] & 0x10) == 0 )
+    if ( v28 == &MiSystemPartition && !byte_140E30180 && (v30[172] & 0x10) == 0 )
     {
       v66 = *((_OWORD *)v30 + 4);
-      byte_140E30040 = IoInitializeCrashDump(Handle);
+      byte_140E30180 = IoInitializeCrashDump(Handle);
     }
     return 0LL;
   }

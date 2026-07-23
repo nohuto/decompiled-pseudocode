@@ -200,7 +200,7 @@ int __fastcall ExpQuerySystemInformation(
   _DWORD *v82; // rax
   int SystemBasicInformation; // [rsp+30h] [rbp-398h]
   UINT Size; // [rsp+34h] [rbp-394h] BYREF
-  struct _PROCESSOR_NUMBER Size_4; // [rsp+38h] [rbp-390h] BYREF
+  _PROCESSOR_NUMBER Size_4; // [rsp+38h] [rbp-390h] BYREF
   unsigned int i; // [rsp+3Ch] [rbp-38Ch]
   unsigned __int8 v87; // [rsp+40h] [rbp-388h]
   char v88[3]; // [rsp+41h] [rbp-387h] BYREF

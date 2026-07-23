@@ -1,14 +1,14 @@
 /*
- * XREFs of ExpAeThresholdInitialization @ 0x140C43E94
+ * XREFs of ExpAeThresholdInitialization @ 0x140C45FE4
  * Callers:
- *     ExpInitSystemPhase1 @ 0x140C40A64 (ExpInitSystemPhase1.c)
+ *     ExpInitSystemPhase1 @ 0x140C42BB4 (ExpInitSystemPhase1.c)
  * Callees:
- *     KeGenericCallDpcEx @ 0x140414C8C (KeGenericCallDpcEx.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     ExpAeMeasureContention @ 0x14065B16C (ExpAeMeasureContention.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     KeGenericCallDpcEx @ 0x140270AE8 (KeGenericCallDpcEx.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     ExpAeMeasureContention @ 0x14065988C (ExpAeMeasureContention.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 char ExpAeThresholdInitialization()

@@ -1,26 +1,26 @@
 /*
- * XREFs of ExAddPrivateDataToCrashDump @ 0x1406CB960
+ * XREFs of ExAddPrivateDataToCrashDump @ 0x1406CF990
  * Callers:
- *     IopLiveDumpAddPoolTrackTables @ 0x1405CC5D0 (IopLiveDumpAddPoolTrackTables.c)
- *     IopAddLiveDumpPagesToPartialKernelDump @ 0x1405D4BE0 (IopAddLiveDumpPagesToPartialKernelDump.c)
+ *     IopLiveDumpAddPoolTrackTables @ 0x1405CEDE0 (IopLiveDumpAddPoolTrackTables.c)
+ *     IopAddLiveDumpPagesToPartialKernelDump @ 0x1405D73D0 (IopAddLiveDumpPagesToPartialKernelDump.c)
  * Callees:
- *     MiAddRangeToCrashDump @ 0x1406F61BC (MiAddRangeToCrashDump.c)
+ *     MiAddRangeToCrashDump @ 0x1406FAE2C (MiAddRangeToCrashDump.c)
  */
 
 __int64 __fastcall ExAddPrivateDataToCrashDump(__int64 a1)
 {
   unsigned int v1; // esi
-  unsigned int *p_CurrentRunTime; // rdi
+  unsigned __int64 *p_ThreadLock; // rdi
   unsigned int i; // ebx
   int v5; // eax
 
   v1 = 0;
-  p_CurrentRunTime = &stru_140EFEF90.CurrentRunTime;
+  p_ThreadLock = &stru_140EFF2C0.ThreadLock;
   for ( i = 0; i < 0x800; ++i )
   {
-    if ( *(_QWORD *)p_CurrentRunTime )
+    if ( *p_ThreadLock )
     {
-      v5 = MiAddRangeToCrashDump(a1, *(_QWORD *)p_CurrentRunTime, 80 * PoolTrackTableSize, 0LL);
+      v5 = MiAddRangeToCrashDump(a1, *p_ThreadLock, 80 * (__int64)stru_140EFF2C0.StackLimit, 0LL);
       if ( v5 < 0 )
       {
         v1 = v5;
@@ -28,7 +28,7 @@ __int64 __fastcall ExAddPrivateDataToCrashDump(__int64 a1)
           break;
       }
     }
-    p_CurrentRunTime += 2;
+    ++p_ThreadLock;
   }
   return v1;
 }

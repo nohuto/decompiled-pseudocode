@@ -1,10 +1,10 @@
 /*
- * XREFs of MmPrefetchVirtualAddresses @ 0x1404F4814
+ * XREFs of MmPrefetchVirtualAddresses @ 0x1404D77A0
  * Callers:
  *     <none>
  * Callees:
- *     MiGetEffectivePagePriorityThread @ 0x140026DB4 (MiGetEffectivePagePriorityThread.c)
- *     PsGetIoPriorityThread @ 0x1400E7E30 (PsGetIoPriorityThread.c)
+ *     MiGetEffectivePagePriorityThread @ 0x140026934 (MiGetEffectivePagePriorityThread.c)
+ *     PsGetIoPriorityThread @ 0x1400E5CD0 (PsGetIoPriorityThread.c)
  */
 
 NTSTATUS __fastcall MmPrefetchVirtualAddresses(_DWORD *a1)

@@ -1,16 +1,16 @@
 /*
  * XREFs of MiClearNonPagedPtes @ 0x1400282C4
  * Callers:
- *     MmFreePoolMemory @ 0x14007BD58 (MmFreePoolMemory.c)
+ *     MmFreePoolMemory @ 0x14007BD48 (MmFreePoolMemory.c)
  * Callees:
  *     MiReturnPhysicalPoolPages @ 0x140025380 (MiReturnPhysicalPoolPages.c)
  *     MiGetAnyMultiplexedVm @ 0x140028884 (MiGetAnyMultiplexedVm.c)
  *     MiUnlockWorkingSetShared @ 0x140046970 (MiUnlockWorkingSetShared.c)
- *     MiWalkPageTables @ 0x14006E940 (MiWalkPageTables.c)
- *     MiLockWorkingSetShared @ 0x140076050 (MiLockWorkingSetShared.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     MiLogNonPagedPoolReleaseEvent @ 0x1402B9038 (MiLogNonPagedPoolReleaseEvent.c)
+ *     MiWalkPageTables @ 0x14006E930 (MiWalkPageTables.c)
+ *     MiLockWorkingSetShared @ 0x140076040 (MiLockWorkingSetShared.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     MiLogNonPagedPoolReleaseEvent @ 0x1402B9228 (MiLogNonPagedPoolReleaseEvent.c)
  */
 
 __int64 __fastcall MiClearNonPagedPtes(__int64 a1, __int64 a2, int a3)

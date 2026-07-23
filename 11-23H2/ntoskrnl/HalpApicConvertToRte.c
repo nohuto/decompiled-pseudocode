@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpApicConvertToRte @ 0x1403A3B34
+ * XREFs of HalpApicConvertToRte @ 0x1403A3D14
  * Callers:
- *     HalpApicSetLineState @ 0x1403A3A40 (HalpApicSetLineState.c)
+ *     HalpApicSetLineState @ 0x1403A3C20 (HalpApicSetLineState.c)
  * Callees:
- *     HalpApicConvertId @ 0x1403B28E0 (HalpApicConvertId.c)
+ *     HalpApicConvertId @ 0x1403B2AC0 (HalpApicConvertId.c)
  */
 
 __int64 __fastcall HalpApicConvertToRte(_DWORD *a1, int *a2, int *a3)

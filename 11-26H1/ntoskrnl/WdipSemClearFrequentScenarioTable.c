@@ -1,17 +1,17 @@
 /*
- * XREFs of WdipSemClearFrequentScenarioTable @ 0x1406C3478
+ * XREFs of WdipSemClearFrequentScenarioTable @ 0x1406C7058
  * Callers:
- *     WdipSemInitializeGlobalState @ 0x14081F55C (WdipSemInitializeGlobalState.c)
- *     WdipSemShutdown @ 0x1408208C4 (WdipSemShutdown.c)
+ *     WdipSemInitializeGlobalState @ 0x14082576C (WdipSemInitializeGlobalState.c)
+ *     WdipSemShutdown @ 0x140826AD4 (WdipSemShutdown.c)
  * Callees:
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 void *WdipSemClearFrequentScenarioTable()
 {
   void *result; // rax
 
-  result = memset_0(&stru_140F060A8.AffinityVersion, 0, 0x408uLL);
-  *(_QWORD *)&stru_140F066E8.Header.Lock = 0LL;
+  result = memset_0(&stru_140F042A0.PriorityFloorCounts[8], 0, 0x408uLL);
+  *(_QWORD *)&stru_140F049E8.Header.Lock = 0LL;
   return result;
 }

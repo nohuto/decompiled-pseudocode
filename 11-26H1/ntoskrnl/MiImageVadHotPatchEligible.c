@@ -1,12 +1,12 @@
 /*
- * XREFs of MiImageVadHotPatchEligible @ 0x140870654
+ * XREFs of MiImageVadHotPatchEligible @ 0x1408769B4
  * Callers:
- *     MiGetVadForHotPatchInProgress @ 0x140870088 (MiGetVadForHotPatchInProgress.c)
- *     MiHotPatchProcess @ 0x140870248 (MiHotPatchProcess.c)
- *     MmCommitHotPatchTable @ 0x140874A28 (MmCommitHotPatchTable.c)
- *     MmPrepareImagePagesForHotPatch @ 0x140874C50 (MmPrepareImagePagesForHotPatch.c)
+ *     MiGetVadForHotPatchInProgress @ 0x1408763E8 (MiGetVadForHotPatchInProgress.c)
+ *     MiHotPatchProcess @ 0x1408765A8 (MiHotPatchProcess.c)
+ *     MmCommitHotPatchTable @ 0x14087AD88 (MmCommitHotPatchTable.c)
+ *     MmPrepareImagePagesForHotPatch @ 0x14087B034 (MmPrepareImagePagesForHotPatch.c)
  * Callees:
- *     MiReadVadFlags2 @ 0x14047A070 (MiReadVadFlags2.c)
+ *     MiReadVadFlags2 @ 0x1404739E0 (MiReadVadFlags2.c)
  */
 
 _BOOL8 __fastcall MiImageVadHotPatchEligible(__int64 a1)
@@ -20,7 +20,7 @@ _BOOL8 __fastcall MiImageVadHotPatchEligible(__int64 a1)
   result = 0;
   if ( (VadFlags2 & 0x20) != 0 )
   {
-    if ( HIDWORD(stru_140E36558.SListFaultAddress) )
+    if ( HIDWORD(stru_140E366D8.SListFaultAddress) )
     {
       if ( (VadFlags2 & 1) == 0 )
       {

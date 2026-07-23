@@ -1,13 +1,13 @@
 /*
- * XREFs of PopBatteryQueryStatus @ 0x140AFEBC0
+ * XREFs of PopBatteryQueryStatus @ 0x140B00C30
  * Callers:
- *     PopBatteryWorker @ 0x1407D7EF0 (PopBatteryWorker.c)
+ *     PopBatteryWorker @ 0x1407DB910 (PopBatteryWorker.c)
  * Callees:
- *     IofCallDriver @ 0x1402655A0 (IofCallDriver.c)
- *     IoReuseIrp @ 0x140268650 (IoReuseIrp.c)
- *     DbgPrintEx @ 0x140397530 (DbgPrintEx.c)
- *     IoSynchronousCallDriver @ 0x1404B2910 (IoSynchronousCallDriver.c)
- *     Feature_AdapterAndNewBatteryIoctlSupport__private_IsEnabledDeviceUsageNoInline @ 0x1404E11C4 (Feature_AdapterAndNewBatteryIoctlSupport__private_IsEnabledDeviceUsageNoInline.c)
+ *     IofCallDriver @ 0x140264B10 (IofCallDriver.c)
+ *     IoReuseIrp @ 0x140267BC0 (IoReuseIrp.c)
+ *     DbgPrintEx @ 0x1403992B0 (DbgPrintEx.c)
+ *     IoSynchronousCallDriver @ 0x1404ABE20 (IoSynchronousCallDriver.c)
+ *     Feature_AdapterAndNewBatteryIoctlSupport__private_IsEnabledDeviceUsageNoInline @ 0x1404DA8A4 (Feature_AdapterAndNewBatteryIoctlSupport__private_IsEnabledDeviceUsageNoInline.c)
  */
 
 NTSTATUS __fastcall PopBatteryQueryStatus(__int64 a1, char a2)

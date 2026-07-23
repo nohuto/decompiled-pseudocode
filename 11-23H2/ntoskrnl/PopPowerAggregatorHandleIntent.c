@@ -1,12 +1,12 @@
 /*
- * XREFs of PopPowerAggregatorHandleIntent @ 0x1407A936C
+ * XREFs of PopPowerAggregatorHandleIntent @ 0x1407A955C
  * Callers:
- *     PopTriggerMonitorPowerEvent @ 0x1407A923C (PopTriggerMonitorPowerEvent.c)
- *     PopDirectedDripsInitializeBroadcast @ 0x1409836E8 (PopDirectedDripsInitializeBroadcast.c)
+ *     PopTriggerMonitorPowerEvent @ 0x1407A942C (PopTriggerMonitorPowerEvent.c)
+ *     PopDirectedDripsInitializeBroadcast @ 0x1409838E8 (PopDirectedDripsInitializeBroadcast.c)
  * Callees:
- *     PopReleaseRwLock @ 0x14032C480 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x14032C5E4 (PopAcquireRwLockExclusive.c)
- *     PopPowerAggregatorHandleIntentUnsafe @ 0x1407A93D4 (PopPowerAggregatorHandleIntentUnsafe.c)
+ *     PopReleaseRwLock @ 0x14032C710 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14032C874 (PopAcquireRwLockExclusive.c)
+ *     PopPowerAggregatorHandleIntentUnsafe @ 0x1407A95C4 (PopPowerAggregatorHandleIntentUnsafe.c)
  */
 
 __int64 __fastcall PopPowerAggregatorHandleIntent(unsigned int a1, __int64 a2, unsigned int a3, unsigned int a4)

@@ -1,19 +1,19 @@
 /*
- * XREFs of SepCreateLogonSessionTrack @ 0x1406A07EC
+ * XREFs of SepCreateLogonSessionTrack @ 0x1405FFB2C
  * Callers:
- *     SepRmCreateLogonSessionWrkr @ 0x1406A07C0 (SepRmCreateLogonSessionWrkr.c)
- *     SeInitServerSilo @ 0x14091C0D4 (SeInitServerSilo.c)
- *     SepRmDbInitialization @ 0x140A6E540 (SepRmDbInitialization.c)
+ *     SepRmCreateLogonSessionWrkr @ 0x1405FFB00 (SepRmCreateLogonSessionWrkr.c)
+ *     SeInitServerSilo @ 0x14091C234 (SeInitServerSilo.c)
+ *     SepRmDbInitialization @ 0x140A6F540 (SepRmDbInitialization.c)
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x1402056A0 (ObfReferenceObjectWithTag.c)
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     PsGetCurrentServerSilo @ 0x14025C9C0 (PsGetCurrentServerSilo.c)
- *     ExInitializePushLock @ 0x140278EE0 (ExInitializePushLock.c)
- *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
- *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
- *     memset @ 0x140414200 (memset.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     ExInitializePushLock @ 0x140266E80 (ExInitializePushLock.c)
+ *     PsGetCurrentServerSilo @ 0x14027DF30 (PsGetCurrentServerSilo.c)
+ *     ObfReferenceObjectWithTag @ 0x1402A9FE0 (ObfReferenceObjectWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseResourceLite @ 0x140356140 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1403568F0 (ExAcquireResourceExclusiveLite.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall SepCreateLogonSessionTrack(__int64 a1)
@@ -25,9 +25,13 @@ __int64 __fastcall SepCreateLogonSessionTrack(__int64 a1)
   struct _KTHREAD *CurrentThread; // rax
   struct _ERESOURCE *v7; // rbp
   KSPIN_LOCK v8; // rdi
-  __int64 v9; // rdx
-  __int64 v10; // rcx
   void *CurrentServerSilo; // rsi
+  __int64 v10; // rdx
+  __int64 v11; // r8
+  __int64 v12; // r9
+  __int64 v14; // rdx
+  __int64 v15; // r8
+  __int64 v16; // r9
 
   PoolWithTag = (KSPIN_LOCK *)ExAllocatePoolWithTag(PagedPool, 0xC0uLL, 0x734C6553u);
   v3 = PoolWithTag;
@@ -52,7 +56,7 @@ __int64 __fastcall SepCreateLogonSessionTrack(__int64 a1)
   v7 = &SepRmDbLock + (v4 & 3);
   ExAcquireResourceExclusiveLite(v7, 1u);
   v8 = *v5;
-  CurrentServerSilo = (void *)PsGetCurrentServerSilo(v10, v9);
+  CurrentServerSilo = (void *)PsGetCurrentServerSilo();
   while ( v8 )
   {
     if ( CurrentServerSilo == *(void **)(v8 + 160)
@@ -60,7 +64,7 @@ __int64 __fastcall SepCreateLogonSessionTrack(__int64 a1)
       && *(_DWORD *)(a1 + 4) == *(_DWORD *)(v8 + 12) )
     {
       ExReleaseResourceLite(v7);
-      KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+      KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v14, v15, v16);
       ExFreePoolWithTag(v3, 0);
       return 3221225710LL;
     }
@@ -72,6 +76,6 @@ __int64 __fastcall SepCreateLogonSessionTrack(__int64 a1)
   *v3 = *v5;
   *v5 = (KSPIN_LOCK)v3;
   ExReleaseResourceLite(v7);
-  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v10, v11, v12);
   return 0LL;
 }

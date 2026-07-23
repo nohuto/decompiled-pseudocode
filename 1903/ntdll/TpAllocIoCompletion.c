@@ -13,73 +13,82 @@
  *     sub_18010EFC8 @ 0x18010EFC8 (sub_18010EFC8.c)
  */
 
-__int64 __fastcall TpAllocIoCompletion(struct _PEB_LDR_DATA *Ldr, __int64 a2, __int64 a3, __int64 a4, __int64 a5)
+NTSTATUS __cdecl TpAllocIoCompletion(
+        PTP_IO *IoReturn,
+        HANDLE File,
+        PTP_IO_CALLBACK Callback,
+        PVOID Context,
+        PTP_CALLBACK_ENVIRON CallbackEnviron)
 {
-  struct _PEB_LDR_DATA *v8; // r13
-  unsigned int v9; // edi
-  __int64 Heap; // rax
-  __int64 v11; // rbx
-  int v12; // edi
+  PTP_IO *v8; // r13
+  DWORD Flags; // edi
+  char *Heap; // rax
+  char *v11; // rbx
+  NTSTATUS v12; // edi
   __int64 v13; // rcx
-  _BYTE *v14; // r14
+  char *v14; // r14
   _DWORD *v15; // r15
   int v17; // [rsp+30h] [rbp-38h]
   _UNKNOWN *retaddr; // [rsp+68h] [rbp+0h]
-  __int64 v19; // [rsp+70h] [rbp+8h]
+  char *BaseAddress; // [rsp+70h] [rbp+8h]
 
-  v8 = Ldr;
-  if ( a5 )
-    v9 = *(_DWORD *)(a5 + 56);
+  v8 = IoReturn;
+  if ( CallbackEnviron )
+    Flags = CallbackEnviron->u.Flags;
   else
-    v9 = 0;
-  if ( Ldr && a2 && a3 && (v9 & 0xFFFFFFFC) == 0 && (Ldr = NtCurrentPeb()->Ldr, !Ldr->ShutdownInProgress) )
+    Flags = 0;
+  if ( IoReturn
+    && File
+    && Callback
+    && (Flags & 0xFFFFFFFC) == 0
+    && (IoReturn = (PTP_IO *)NtCurrentPeb()->Ldr, !*((_BYTE *)IoReturn + 72)) )
   {
-    *(_QWORD *)&v8->Length = 0LL;
-    Heap = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, (dword_180166080 + 0x40000) | 8u, 288LL);
+    *v8 = 0LL;
+    Heap = (char *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, (dword_180166080 + 0x40000) | 8, 0x120uLL);
     v11 = Heap;
-    v19 = Heap;
+    BaseAddress = Heap;
     if ( Heap )
     {
-      *(_QWORD *)(Heap + 176) = retaddr;
-      v12 = sub_180037DCC(Heap, a4, a5, v9, (__int64)off_180118410);
+      *((_QWORD *)Heap + 22) = retaddr;
+      v12 = sub_180037DCC((__int64)Heap, (__int64)Context, (__int64)CallbackEnviron, Flags, (__int64)&off_180118410);
       v17 = v12;
       if ( v12 >= 0 )
       {
-        *(_QWORD *)(v11 + 80) = a3;
-        *(_QWORD *)(v11 + 272) = a2;
-        *(_DWORD *)(v11 + 280) = 0;
-        v13 = *(_QWORD *)(v11 + 144);
-        *(_QWORD *)(v11 + 256) = sub_180033520;
-        v14 = (_BYTE *)(v11 + 268);
-        v15 = (_DWORD *)(v11 + 264);
+        *((_QWORD *)v11 + 10) = Callback;
+        *((_QWORD *)v11 + 34) = File;
+        *((_DWORD *)v11 + 70) = 0;
+        v13 = *((_QWORD *)v11 + 18);
+        *((_QWORD *)v11 + 32) = sub_180033520;
+        v14 = v11 + 268;
+        v15 = v11 + 264;
         if ( v13 )
         {
-          sub_180031620(v13, (_DWORD *)(v11 + 264), (BYTE *)(v11 + 268));
+          sub_180031620(v13, (_DWORD *)v11 + 66, (BYTE *)v11 + 268);
         }
         else
         {
           *v15 = 0;
           *v14 = 0;
         }
-        *(_QWORD *)(v11 + 232) = 0LL;
-        *(_QWORD *)(v11 + 248) = v11 + 240;
-        *(_QWORD *)(v11 + 240) = v11 + 240;
-        *(_QWORD *)(v11 + 200) = off_180118320;
-        *(_DWORD *)(v11 + 208) = *v15;
-        *(_BYTE *)(v11 + 212) = *v14;
-        v12 = sub_180062AF0(a2, v11 + 200, *(_QWORD *)(v11 + 144));
+        *((_QWORD *)v11 + 29) = 0LL;
+        *((_QWORD *)v11 + 31) = v11 + 240;
+        *((_QWORD *)v11 + 30) = v11 + 240;
+        *((_QWORD *)v11 + 25) = off_180118320;
+        *((_DWORD *)v11 + 52) = *v15;
+        v11[212] = *v14;
+        v12 = sub_180062AF0(File, v11 + 200, *((_QWORD *)v11 + 18));
         v17 = v12;
         if ( v12 >= 0 )
         {
           v12 = 0;
           v17 = 0;
-          if ( a5 )
-            *(_QWORD *)(v11 + 32) = *(_QWORD *)(a5 + 48);
-          if ( *(_QWORD *)(v11 + 16) )
+          if ( CallbackEnviron )
+            *((_QWORD *)v11 + 4) = CallbackEnviron->FinalizationCallback;
+          if ( *((_QWORD *)v11 + 2) )
             sub_180062DB0(v11);
         }
         if ( v12 < 0 )
-          sub_18003741C((_QWORD *)v11);
+          sub_18003741C(v11);
       }
     }
     else
@@ -91,18 +100,18 @@ __int64 __fastcall TpAllocIoCompletion(struct _PEB_LDR_DATA *Ldr, __int64 a2, __
       goto LABEL_22;
     if ( v11 )
     {
-      RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, dword_180166080 + 0x40000, v19);
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, dword_180166080 + 0x40000, BaseAddress);
       v11 = 0LL;
       v12 = v17;
     }
     if ( v12 >= 0 )
 LABEL_22:
-      *(_QWORD *)&v8->Length = v11;
-    return (unsigned int)v12;
+      *v8 = (PTP_IO)v11;
+    return v12;
   }
   else
   {
-    sub_18010EFC8(Ldr, a2, a3, a4);
-    return 3221225485LL;
+    sub_18010EFC8(IoReturn, File, Callback);
+    return -1073741811;
   }
 }

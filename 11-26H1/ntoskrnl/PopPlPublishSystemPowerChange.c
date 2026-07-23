@@ -1,14 +1,14 @@
 /*
- * XREFs of PopPlPublishSystemPowerChange @ 0x1406128F0
+ * XREFs of PopPlPublishSystemPowerChange @ 0x140615730
  * Callers:
- *     PopPlNotifyDeviceFState @ 0x1403AE02C (PopPlNotifyDeviceFState.c)
- *     PopPlNotifyDeviceDState @ 0x1403B39DC (PopPlNotifyDeviceDState.c)
- *     PopPlUnregisterDevice @ 0x140510374 (PopPlUnregisterDevice.c)
- *     PopPlPublishInitialPowerDraw @ 0x140612780 (PopPlPublishInitialPowerDraw.c)
+ *     PopPlNotifyDeviceFState @ 0x1403B7D3C (PopPlNotifyDeviceFState.c)
+ *     PopPlNotifyDeviceDState @ 0x1403BD6EC (PopPlNotifyDeviceDState.c)
+ *     PopPlUnregisterDevice @ 0x140509DE4 (PopPlUnregisterDevice.c)
+ *     PopPlPublishInitialPowerDraw @ 0x1406155C0 (PopPlPublishInitialPowerDraw.c)
  * Callees:
- *     _tlgWriteEx_EtwWriteEx @ 0x1404E33C4 (_tlgWriteEx_EtwWriteEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x1404DC958 (_tlgWriteEx_EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall PopPlPublishSystemPowerChange(unsigned __int16 *a1, int a2, __int64 a3)
@@ -35,7 +35,7 @@ __int64 __fastcall PopPlPublishSystemPowerChange(unsigned __int16 *a1, int a2, _
 
   if ( a2 )
   {
-    if ( (unsigned int)dword_140E07598 > 5 )
+    if ( (unsigned int)dword_140E07560 > 5 )
     {
       v19[1] = 0;
       v10 = 1;
@@ -52,7 +52,7 @@ __int64 __fastcall PopPlPublishSystemPowerChange(unsigned __int16 *a1, int a2, _
       v11 = a2;
       v21 = 4LL;
       v23 = 4LL;
-      tlgWriteEx_EtwWriteEx((__int64)&dword_140E07598, (unsigned __int8 *)&byte_1400501F3, a3, 1u, v8, v9, 7u, &v13);
+      tlgWriteEx_EtwWriteEx((__int64)&dword_140E07560, (unsigned __int8 *)&byte_140051369, a3, 1u, v8, v9, 7u, &v13);
     }
     v6 = *((_QWORD *)a1 + 4);
     *((_DWORD *)a1 + 7) += a2;

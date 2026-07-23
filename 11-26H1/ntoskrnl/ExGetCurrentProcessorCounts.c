@@ -1,5 +1,5 @@
 /*
- * XREFs of ExGetCurrentProcessorCounts @ 0x1404D2F50
+ * XREFs of ExGetCurrentProcessorCounts @ 0x1404CC7C0
  * Callers:
  *     <none>
  * Callees:

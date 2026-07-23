@@ -1,7 +1,7 @@
 /*
- * XREFs of SymCryptFdefRawSquareAsm @ 0x140406070
+ * XREFs of SymCryptFdefRawSquareAsm @ 0x140406250
  * Callers:
- *     SymCryptFdefRawSquare @ 0x140403CE8 (SymCryptFdefRawSquare.c)
+ *     SymCryptFdefRawSquare @ 0x140403EC8 (SymCryptFdefRawSquare.c)
  * Callees:
  *     <none>
  */

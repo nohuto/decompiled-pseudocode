@@ -1,18 +1,18 @@
 /*
- * XREFs of IoSetIoCompletionEx2 @ 0x1402B91F0
+ * XREFs of IoSetIoCompletionEx2 @ 0x1402B9480
  * Callers:
- *     IopXxxControlFile @ 0x1406E54E0 (IopXxxControlFile.c)
- *     NtSetIoCompletion @ 0x14073DF20 (NtSetIoCompletion.c)
- *     NtLockFile @ 0x140765490 (NtLockFile.c)
- *     IoSetIoCompletion @ 0x1407E99F0 (IoSetIoCompletion.c)
+ *     IopXxxControlFile @ 0x1406E5510 (IopXxxControlFile.c)
+ *     NtSetIoCompletion @ 0x14073E110 (NtSetIoCompletion.c)
+ *     NtLockFile @ 0x140765680 (NtLockFile.c)
+ *     IoSetIoCompletion @ 0x1407E9CC0 (IoSetIoCompletion.c)
  * Callees:
- *     KiExitDispatcher @ 0x14023CD70 (KiExitDispatcher.c)
- *     KiAcquireKobjectLockSafe @ 0x140252030 (KiAcquireKobjectLockSafe.c)
- *     KiWakeQueueWaiter @ 0x1402B8780 (KiWakeQueueWaiter.c)
- *     KiWakeOtherQueueWaiters @ 0x14031AC98 (KiWakeOtherQueueWaiters.c)
- *     KeIsThreadRunning @ 0x14056EDD0 (KeIsThreadRunning.c)
- *     EtwTraceEnqueueWork @ 0x1405FCD0C (EtwTraceEnqueueWork.c)
- *     IopAllocateMiniCompletionPacket @ 0x14073DFC8 (IopAllocateMiniCompletionPacket.c)
+ *     KiExitDispatcher @ 0x14023CE40 (KiExitDispatcher.c)
+ *     KiAcquireKobjectLockSafe @ 0x1402520F0 (KiAcquireKobjectLockSafe.c)
+ *     KiWakeQueueWaiter @ 0x1402B8A10 (KiWakeQueueWaiter.c)
+ *     KiWakeOtherQueueWaiters @ 0x14031AF28 (KiWakeOtherQueueWaiters.c)
+ *     KeIsThreadRunning @ 0x14056F310 (KeIsThreadRunning.c)
+ *     EtwTraceEnqueueWork @ 0x1405FD27C (EtwTraceEnqueueWork.c)
+ *     IopAllocateMiniCompletionPacket @ 0x14073E1B8 (IopAllocateMiniCompletionPacket.c)
  */
 
 __int64 __fastcall IoSetIoCompletionEx2(
@@ -48,7 +48,7 @@ __int64 __fastcall IoSetIoCompletionEx2(
     *(_DWORD *)(MiniCompletionPacket + 40) = a4;
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(2uLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
       if ( CurrentIrql == 2 )
@@ -88,7 +88,7 @@ __int64 __fastcall IoSetIoCompletionEx2(
       *(_QWORD *)MiniCompletionPacket = 0LL;
     }
     _InterlockedAnd((volatile signed __int32 *)v11, 0xFFFFFF7F);
-    KiExitDispatcher((__int64)CurrentPrcb, 0, (struct _PROCESSOR_NUMBER)1, 0, CurrentIrql);
+    KiExitDispatcher((__int64)CurrentPrcb, 0, (_PROCESSOR_NUMBER)1, 0, CurrentIrql);
   }
   else
   {

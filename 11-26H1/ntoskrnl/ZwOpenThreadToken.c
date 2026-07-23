@@ -1,14 +1,18 @@
 /*
- * XREFs of ZwOpenThreadToken @ 0x140723870
+ * XREFs of ZwOpenThreadToken @ 0x140728440
  * Callers:
- *     DifZwOpenThreadTokenWrapper @ 0x1406ADC40 (DifZwOpenThreadTokenWrapper.c)
+ *     DifZwOpenThreadTokenWrapper @ 0x1406B1820 (DifZwOpenThreadTokenWrapper.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwOpenThreadToken(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwOpenThreadToken(
+        HANDLE ThreadHandle,
+        ACCESS_MASK DesiredAccess,
+        BOOLEAN OpenAsSelf,
+        PHANDLE TokenHandle)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(ThreadHandle);
 }

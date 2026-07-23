@@ -7,15 +7,15 @@
  *     PsGetCurrentServerSilo @ 0x140289E70 (PsGetCurrentServerSilo.c)
  */
 
-__int64 RtlGetCurrentServiceSessionId()
+ULONG RtlGetCurrentServiceSessionId(void)
 {
   __int64 CurrentServerSilo; // rax
-  unsigned int **v1; // rax
+  _DWORD **v1; // rax
 
   CurrentServerSilo = PsGetCurrentServerSilo();
   if ( CurrentServerSilo )
-    v1 = *(unsigned int ***)(CurrentServerSilo + 1488);
+    v1 = *(_DWORD ***)(CurrentServerSilo + 1488);
   else
-    v1 = (unsigned int **)&PspHostSiloGlobals;
+    v1 = (_DWORD **)&PspHostSiloGlobals;
   return *v1[165];
 }

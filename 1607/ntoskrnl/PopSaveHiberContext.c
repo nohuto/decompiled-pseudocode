@@ -1,32 +1,32 @@
 /*
  * XREFs of PopSaveHiberContext @ 0x1403CCB40
  * Callers:
- *     PopSaveHiberContextWrapper @ 0x140166C10 (PopSaveHiberContextWrapper.c)
+ *     PopSaveHiberContextWrapper @ 0x140167180 (PopSaveHiberContextWrapper.c)
  * Callees:
- *     xHalTimerWatchdogStop @ 0x140002DFC (xHalTimerWatchdogStop.c)
- *     RtlSetAllBits @ 0x1400055D0 (RtlSetAllBits.c)
- *     RtlNumberOfClearBits @ 0x140076A5C (RtlNumberOfClearBits.c)
- *     RtlCopyBitMap @ 0x140076A78 (RtlCopyBitMap.c)
- *     PopResetRangeEnum @ 0x1400B5FA8 (PopResetRangeEnum.c)
- *     IoGetDumpHiberRanges @ 0x140112DA8 (IoGetDumpHiberRanges.c)
- *     IoDumpStackResumeCapable @ 0x14011331C (IoDumpStackResumeCapable.c)
- *     IoInitializeDumpStack @ 0x140113340 (IoInitializeDumpStack.c)
- *     IoNotifyDump @ 0x1401133B8 (IoNotifyDump.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     HvlDisableEnlightenment @ 0x1401BA884 (HvlDisableEnlightenment.c)
- *     HvlDiscardPagesFromHibernation @ 0x1401BEF0C (HvlDiscardPagesFromHibernation.c)
- *     HvlDiscardSecurePagesFromHibernation @ 0x1401BEF68 (HvlDiscardSecurePagesFromHibernation.c)
- *     HvlPrepareForHibernate @ 0x1401BF250 (HvlPrepareForHibernate.c)
- *     HvlPrepareForSecureHibernate @ 0x1401BF360 (HvlPrepareForSecureHibernate.c)
- *     VslNotifyShutdown @ 0x1401C2D5C (VslNotifyShutdown.c)
- *     KdPowerTransition @ 0x1401D1768 (KdPowerTransition.c)
- *     PopInternalAddToDumpFile @ 0x1401FF078 (PopInternalAddToDumpFile.c)
- *     _PopInternalError @ 0x1401FF460 (_PopInternalError.c)
- *     PopWriteSecurePages @ 0x140205BF4 (PopWriteSecurePages.c)
- *     DbgUnLoadImageSymbols @ 0x1402113D4 (DbgUnLoadImageSymbols.c)
+ *     xHalTimerWatchdogStop @ 0x140002F70 (xHalTimerWatchdogStop.c)
+ *     RtlSetAllBits @ 0x140005744 (RtlSetAllBits.c)
+ *     RtlNumberOfClearBits @ 0x140076ADC (RtlNumberOfClearBits.c)
+ *     RtlCopyBitMap @ 0x140076AF8 (RtlCopyBitMap.c)
+ *     PopResetRangeEnum @ 0x1400B3DD0 (PopResetRangeEnum.c)
+ *     IoGetDumpHiberRanges @ 0x140113318 (IoGetDumpHiberRanges.c)
+ *     IoDumpStackResumeCapable @ 0x14011388C (IoDumpStackResumeCapable.c)
+ *     IoInitializeDumpStack @ 0x1401138B0 (IoInitializeDumpStack.c)
+ *     IoNotifyDump @ 0x140113928 (IoNotifyDump.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     HvlDisableEnlightenment @ 0x1401BA768 (HvlDisableEnlightenment.c)
+ *     HvlDiscardPagesFromHibernation @ 0x1401BEDF0 (HvlDiscardPagesFromHibernation.c)
+ *     HvlDiscardSecurePagesFromHibernation @ 0x1401BEE4C (HvlDiscardSecurePagesFromHibernation.c)
+ *     HvlPrepareForHibernate @ 0x1401BF134 (HvlPrepareForHibernate.c)
+ *     HvlPrepareForSecureHibernate @ 0x1401BF244 (HvlPrepareForSecureHibernate.c)
+ *     VslNotifyShutdown @ 0x1401C2C40 (VslNotifyShutdown.c)
+ *     KdPowerTransition @ 0x1401D1594 (KdPowerTransition.c)
+ *     PopInternalAddToDumpFile @ 0x1401FEEA4 (PopInternalAddToDumpFile.c)
+ *     _PopInternalError @ 0x1401FF28C (_PopInternalError.c)
+ *     PopWriteSecurePages @ 0x140205A20 (PopWriteSecurePages.c)
+ *     DbgUnLoadImageSymbols @ 0x140211200 (DbgUnLoadImageSymbols.c)
  *     PopMarkComponentsBootPhase @ 0x1403CAFB4 (PopMarkComponentsBootPhase.c)
  *     PopWriteHeaderPages @ 0x1403CBC90 (PopWriteHeaderPages.c)
  *     PopCreateDumpMdl @ 0x1403CCEFC (PopCreateDumpMdl.c)
@@ -37,7 +37,7 @@
  *     PopWriteChecksumPages @ 0x1403DF160 (PopWriteChecksumPages.c)
  *     PopWriteImageHeader @ 0x1403DF1F4 (PopWriteImageHeader.c)
  *     PopNotifyShutdownListener @ 0x1403DF960 (PopNotifyShutdownListener.c)
- *     CmpMarkLockTryAcquired @ 0x1405281C8 (CmpMarkLockTryAcquired.c)
+ *     CmpMarkLockTryAcquired @ 0x140528708 (CmpMarkLockTryAcquired.c)
  */
 
 __int64 __fastcall PopSaveHiberContext(char *Address, __int64 a2, __int64 a3)
@@ -46,11 +46,11 @@ __int64 __fastcall PopSaveHiberContext(char *Address, __int64 a2, __int64 a3)
   __int64 v5; // rdi
   bool v6; // zf
   __int64 v7; // r13
-  struct _RTL_BITMAP *v8; // rsi
+  _RTL_BITMAP *v8; // rsi
   unsigned int v9; // r8d
   _DWORD *v10; // rcx
   _DWORD *v11; // rdx
-  struct _RTL_BITMAP *v12; // rcx
+  _RTL_BITMAP *v12; // rcx
   __int64 v13; // rdx
   __int64 v14; // rcx
   unsigned __int64 v15; // rdi
@@ -140,18 +140,18 @@ __int64 __fastcall PopSaveHiberContext(char *Address, __int64 a2, __int64 a3)
     v46 = IoDumpStackResumeCapable();
     if ( !v46 )
     {
-      dword_140303648 |= 4u;
-      byte_1403035C1 = 1;
+      dword_140303588 |= 4u;
+      byte_140303501 = 1;
     }
     if ( (unsigned int)PshedArePluginsPresent() )
     {
-      dword_140303648 |= 8u;
-      byte_1403035C1 = 1;
+      dword_140303588 |= 8u;
+      byte_140303501 = 1;
     }
     if ( !(unsigned __int8)off_1402F2560() )
     {
-      dword_140303648 |= 1u;
-      byte_1403035C1 = 1;
+      dword_140303588 |= 1u;
+      byte_140303501 = 1;
     }
     v6 = HvlHypervisorConnected == 0;
     v7 = *((_QWORD *)Address + 25);
@@ -167,19 +167,19 @@ __int64 __fastcall PopSaveHiberContext(char *Address, __int64 a2, __int64 a3)
         _InterlockedIncrement((volatile signed __int32 *)Address + 5);
         while ( *((_DWORD *)Address + 5) != (_DWORD)KeNumberProcessors_0 )
           _mm_pause();
-        *(_QWORD *)&v48 = qword_14033E748;
-        *((_QWORD *)&v48 + 1) = qword_14033E6E8;
-        *(_QWORD *)&v49 = qword_14033E6F0;
-        *((_QWORD *)&v49 + 1) = qword_14033E6E0;
-        *(_QWORD *)&v50 = qword_14033E700;
-        *((_QWORD *)&v50 + 1) = qword_14033E6F8;
+        *(_QWORD *)&v48 = qword_14033E788;
+        *((_QWORD *)&v48 + 1) = qword_14033E728;
+        *(_QWORD *)&v49 = qword_14033E730;
+        *((_QWORD *)&v49 + 1) = qword_14033E720;
+        *(_QWORD *)&v50 = qword_14033E740;
+        *((_QWORD *)&v50 + 1) = qword_14033E738;
         if ( Address[460] )
         {
           v51[0] = v48;
           v51[2] = v50;
           v51[1] = v49;
-          v51[4] = xmmword_14033E738;
-          v51[3] = xmmword_14033E728;
+          v51[4] = xmmword_14033E778;
+          v51[3] = xmmword_14033E768;
           v33 = HvlPrepareForSecureHibernate(v51);
         }
         else
@@ -187,8 +187,8 @@ __int64 __fastcall PopSaveHiberContext(char *Address, __int64 a2, __int64 a3)
           v52[0] = v48;
           v52[2] = v50;
           v52[1] = v49;
-          v52[4] = xmmword_14033E738;
-          v52[3] = xmmword_14033E728;
+          v52[4] = xmmword_14033E778;
+          v52[3] = xmmword_14033E768;
           v33 = HvlPrepareForHibernate(
                   v52,
                   (_QWORD *)(v7 + 856),
@@ -215,7 +215,7 @@ __int64 __fastcall PopSaveHiberContext(char *Address, __int64 a2, __int64 a3)
         HvlDiscardPagesFromHibernation(Address);
     }
     ++*(_DWORD *)v7;
-    v8 = (struct _RTL_BITMAP *)(Address + 48);
+    v8 = (_RTL_BITMAP *)(Address + 48);
     v9 = 0;
     v10 = (_DWORD *)*((_QWORD *)Address + 7);
     v11 = (_DWORD *)*((_QWORD *)Address + 5);
@@ -228,25 +228,25 @@ __int64 __fastcall PopSaveHiberContext(char *Address, __int64 a2, __int64 a3)
       }
       while ( v9 < v8->SizeOfBitMap >> 5 );
     }
-    if ( byte_1403035C1 )
+    if ( byte_140303501 )
     {
-      v12 = (struct _RTL_BITMAP *)(Address + 32);
+      v12 = (_RTL_BITMAP *)(Address + 32);
     }
     else
     {
-      RtlCopyBitMap((unsigned int *)Address + 12, (__int64)(Address + 32), 0);
-      v12 = (struct _RTL_BITMAP *)(Address + 48);
+      RtlCopyBitMap((PRTL_BITMAP)Address + 3, (PRTL_BITMAP)Address + 2, 0);
+      v12 = (_RTL_BITMAP *)(Address + 48);
     }
     RtlSetAllBits(v12);
     v13 = *((_QWORD *)Address + 21);
     *((_DWORD *)Address + 46) = 8;
     IoGetDumpHiberRanges(v14, v13);
-    if ( !byte_1403035C1 )
+    if ( !byte_140303501 )
       IoNotifyDump(1);
     v15 = __rdtsc();
     v16 = (int)IoInitializeDumpStack(*((_QWORD *)Address + 21));
     v17 = __rdtsc();
-    qword_1403038C8 += (((unsigned __int64)HIDWORD(v17) << 32) | (unsigned int)v17) - v15;
+    qword_140303808 += (((unsigned __int64)HIDWORD(v17) << 32) | (unsigned int)v17) - v15;
     if ( (v16 & 0x80000000) != 0LL || PopSimulateHiberBugcheck == 1 )
     {
       PopCheckpointSystemSleep(20LL);
@@ -272,12 +272,12 @@ __int64 __fastcall PopSaveHiberContext(char *Address, __int64 a2, __int64 a3)
         }
       }
       while ( v18 != Address + 64 );
-      v8 = (struct _RTL_BITMAP *)(Address + 48);
+      v8 = (_RTL_BITMAP *)(Address + 48);
     }
     PopResetRangeEnum(Address);
     v22 = (_QWORD *)*((_QWORD *)Address + 20);
-    v23 = qword_140303598;
-    *v22 = qword_140303598;
+    v23 = qword_1403034D8;
+    *v22 = qword_1403034D8;
     v22[1] = v23;
     v22[2] = 0LL;
     v47 = __rdtsc();
@@ -292,22 +292,22 @@ __int64 __fastcall PopSaveHiberContext(char *Address, __int64 a2, __int64 a3)
         *((_DWORD *)Address + 46) = 3;
         *(_QWORD *)(v7 + 96) = v36 + ((unsigned __int64)(4 * v35 + 4095) >> 12);
         PopWriteSecurePages((ULONG_PTR)Address);
-        qword_140303A40 = *((unsigned int *)Address + 65);
+        qword_140303980 = *((unsigned int *)Address + 65);
       }
       *((_DWORD *)Address + 46) = 4;
       *((_QWORD *)Address + 12) = v8;
       v26 = RtlNumberOfClearBits(v8);
-      v27 = qword_140303618;
+      v27 = qword_140303558;
       v28 = *((_DWORD *)Address + 72);
       v29 = *((_QWORD *)Address + 35);
       v30 = (v26 + *((_QWORD *)Address + 11)) << 12;
-      memset(qword_140303618, 0, 0x40uLL);
+      memset(qword_140303558, 0, 0x40uLL);
       v27[6] = 0;
       *(_QWORD *)v27 = v29;
       v27[2] = v28;
       *((_QWORD *)v27 + 2) = v30;
-      qword_140303A48 = 0LL;
-      qword_140303A50 = 0LL;
+      qword_140303988 = 0LL;
+      qword_140303990 = 0LL;
       *((_DWORD *)Address + 84) = 0;
       *((_QWORD *)Address + 44) = 0LL;
       if ( v46 && *(_QWORD *)(*((_QWORD *)Address + 21) + 128LL) )
@@ -326,21 +326,21 @@ __int64 __fastcall PopSaveHiberContext(char *Address, __int64 a2, __int64 a3)
       {
         v38 = i++;
         v38 <<= 7;
-        qword_140303A48 += *(_QWORD *)(v38 + *((_QWORD *)Address + 34) + 56);
+        qword_140303988 += *(_QWORD *)(v38 + *((_QWORD *)Address + 34) + 56);
       }
-      qword_140303A58 = qword_140303A78;
-      qword_140303A68 = (unsigned int)dword_140303A80;
-      qword_140303A78 = 0LL;
-      dword_140303A80 = 0;
+      qword_140303998 = qword_1403039B8;
+      qword_1403039A8 = (unsigned int)dword_1403039C0;
+      qword_1403039B8 = 0LL;
+      dword_1403039C0 = 0;
       *((_DWORD *)Address + 46) = 5;
       *((_QWORD *)Address + 12) = Address + 32;
       *((_QWORD *)Address + 14) = 0LL;
       v39 = RtlNumberOfClearBits((PRTL_BITMAP)Address + 2);
-      v40 = qword_140303618;
+      v40 = qword_140303558;
       v41 = *((_DWORD *)Address + 72);
       v42 = *((_QWORD *)Address + 35);
       v43 = (unsigned __int64)v39 << 12;
-      memset(qword_140303618, 0, 0x40uLL);
+      memset(qword_140303558, 0, 0x40uLL);
       v40[6] = 0;
       *(_QWORD *)v40 = v42;
       v40[2] = v41;
@@ -357,7 +357,7 @@ __int64 __fastcall PopSaveHiberContext(char *Address, __int64 a2, __int64 a3)
       if ( v24 >= 0 )
       {
         v44 = PopSimulate;
-        if ( (PopSimulate & 0x8000) == 0 && dword_140303480 == dword_140303488 )
+        if ( (PopSimulate & 0x8000) == 0 && dword_1403033C0 == dword_1403033C8 )
         {
           DbgUnLoadImageSymbols(0LL, (PVOID)0xFFFFFFFFFFFFFFFELL, 0LL);
           VslNotifyShutdown(1u);
@@ -367,7 +367,7 @@ __int64 __fastcall PopSaveHiberContext(char *Address, __int64 a2, __int64 a3)
       }
     }
     KdPowerTransition(4);
-    if ( v24 >= 0 && v24 != 1073742484 && dword_140303480 == 5 )
+    if ( v24 >= 0 && v24 != 1073742484 && dword_1403033C0 == 5 )
       PopNotifyShutdownListener();
     PopCheckpointSystemSleep(24LL);
     off_1402F25D8();

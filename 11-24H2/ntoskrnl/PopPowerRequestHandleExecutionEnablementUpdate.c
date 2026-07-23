@@ -1,15 +1,15 @@
 /*
- * XREFs of PopPowerRequestHandleExecutionEnablementUpdate @ 0x140A3BCEC
+ * XREFs of PopPowerRequestHandleExecutionEnablementUpdate @ 0x140A314CC
  * Callers:
- *     PopPowerRequestExecutionRequiredTimeoutWorker @ 0x140749CA0 (PopPowerRequestExecutionRequiredTimeoutWorker.c)
- *     PopPowerRequestNotifyMobileHotspotChanged @ 0x140749D6C (PopPowerRequestNotifyMobileHotspotChanged.c)
- *     PopUpdatePdcSystemIdleState @ 0x140A27CB4 (PopUpdatePdcSystemIdleState.c)
- *     PopWnfAudioCallback @ 0x140A3B7C0 (PopWnfAudioCallback.c)
- *     PopPowerRequestExecutionRequiredSettingCallback @ 0x140AACF80 (PopPowerRequestExecutionRequiredSettingCallback.c)
+ *     PopPowerRequestExecutionRequiredTimeoutWorker @ 0x140747FD0 (PopPowerRequestExecutionRequiredTimeoutWorker.c)
+ *     PopPowerRequestNotifyMobileHotspotChanged @ 0x14074809C (PopPowerRequestNotifyMobileHotspotChanged.c)
+ *     PopUpdatePdcSystemIdleState @ 0x140A1C734 (PopUpdatePdcSystemIdleState.c)
+ *     PopWnfAudioCallback @ 0x140A30FA0 (PopWnfAudioCallback.c)
+ *     PopPowerRequestExecutionRequiredSettingCallback @ 0x140AA8000 (PopPowerRequestExecutionRequiredSettingCallback.c)
  * Callees:
- *     PopPowerRequestUnrevokeRequests @ 0x1404B4CB0 (PopPowerRequestUnrevokeRequests.c)
- *     PopPowerRequestRevokeRequests @ 0x1404B659C (PopPowerRequestRevokeRequests.c)
- *     PopPowerRequestEvaluateExecutionRequiredStatus @ 0x140A3BD2C (PopPowerRequestEvaluateExecutionRequiredStatus.c)
+ *     PopPowerRequestUnrevokeRequests @ 0x1404AF4B0 (PopPowerRequestUnrevokeRequests.c)
+ *     PopPowerRequestRevokeRequests @ 0x1404B0D7C (PopPowerRequestRevokeRequests.c)
+ *     PopPowerRequestEvaluateExecutionRequiredStatus @ 0x140A3150C (PopPowerRequestEvaluateExecutionRequiredStatus.c)
  */
 
 void __fastcall PopPowerRequestHandleExecutionEnablementUpdate(__int64 a1, __int64 a2, __int64 a3)

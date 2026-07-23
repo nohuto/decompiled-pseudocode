@@ -1,17 +1,17 @@
 /*
- * XREFs of RtlpAllocateHeapInternal @ 0x14034CB38
+ * XREFs of RtlpAllocateHeapInternal @ 0x14034CCD8
  * Callers:
- *     RtlAllocateHeap @ 0x14034CAE0 (RtlAllocateHeap.c)
- *     RtlpHpAllocWithExceptionProtection @ 0x1405A9D8C (RtlpHpAllocWithExceptionProtection.c)
+ *     RtlAllocateHeap @ 0x14034CC80 (RtlAllocateHeap.c)
+ *     RtlpHpAllocWithExceptionProtection @ 0x1405AA2FC (RtlpHpAllocWithExceptionProtection.c)
  * Callees:
- *     RtlFreeHeap @ 0x14034CA00 (RtlFreeHeap.c)
- *     RtlpHpVsContextAllocate @ 0x14034CBB4 (RtlpHpVsContextAllocate.c)
- *     RtlpHpConvertFlagsToSegmentFlags @ 0x14034CC1C (RtlpHpConvertFlagsToSegmentFlags.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     RtlpAllocateHeap @ 0x1405AB248 (RtlpAllocateHeap.c)
- *     RtlpAllocateHeapRaiseException @ 0x1405ABB50 (RtlpAllocateHeapRaiseException.c)
- *     RtlpSetupExtendedBlock @ 0x1405AE0DC (RtlpSetupExtendedBlock.c)
- *     RtlpHpCheckAllocationSizeLimit @ 0x1405B5E44 (RtlpHpCheckAllocationSizeLimit.c)
+ *     RtlFreeHeap @ 0x14034CBA0 (RtlFreeHeap.c)
+ *     RtlpHpVsContextAllocate @ 0x14034CD54 (RtlpHpVsContextAllocate.c)
+ *     RtlpHpConvertFlagsToSegmentFlags @ 0x14034CDBC (RtlpHpConvertFlagsToSegmentFlags.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     RtlpAllocateHeap @ 0x1405AB7B8 (RtlpAllocateHeap.c)
+ *     RtlpAllocateHeapRaiseException @ 0x1405AC0C0 (RtlpAllocateHeapRaiseException.c)
+ *     RtlpSetupExtendedBlock @ 0x1405AE64C (RtlpSetupExtendedBlock.c)
+ *     RtlpHpCheckAllocationSizeLimit @ 0x1405B63B4 (RtlpHpCheckAllocationSizeLimit.c)
  */
 
 void *__fastcall RtlpAllocateHeapInternal(_DWORD *HeapHandle, unsigned __int64 a2, unsigned int a3, __int16 a4)

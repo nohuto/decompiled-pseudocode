@@ -43,5 +43,5 @@ __int64 SepInitializeCodeIntegrity()
     if ( v1 )
       v2 = v1 + 48;
   }
-  return CiInitialize(v0, v2, &SeCiCallbacks, SeCiPrivateApis);
+  return CiInitialize(v0, v2, &SeCiCallbacks, &SeCiPrivateApis);
 }

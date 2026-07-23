@@ -1,14 +1,14 @@
 /*
- * XREFs of FsRtlFastCheckLockForWrite @ 0x1402C4100
+ * XREFs of FsRtlFastCheckLockForWrite @ 0x14030EDC0
  * Callers:
- *     FsRtlCheckLockForWriteAccess @ 0x1403FEB60 (FsRtlCheckLockForWriteAccess.c)
+ *     FsRtlCheckLockForWriteAccess @ 0x1403FB350 (FsRtlCheckLockForWriteAccess.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KxReleaseSpinLock @ 0x1402BDEF0 (KxReleaseSpinLock.c)
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     FsRtlCheckNoExclusiveConflict @ 0x1402C22BC (FsRtlCheckNoExclusiveConflict.c)
- *     FsRtlCheckNoSharedConflict @ 0x1402C4230 (FsRtlCheckNoSharedConflict.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KxReleaseSpinLock @ 0x140308BB0 (KxReleaseSpinLock.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     FsRtlCheckNoExclusiveConflict @ 0x14030CF7C (FsRtlCheckNoExclusiveConflict.c)
+ *     FsRtlCheckNoSharedConflict @ 0x14030EEF0 (FsRtlCheckNoSharedConflict.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
  */
 
 BOOLEAN __stdcall FsRtlFastCheckLockForWrite(

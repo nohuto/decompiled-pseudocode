@@ -4,13 +4,13 @@
  *     <none>
  * Callees:
  *     TppDestroyTimer @ 0x18000F1E8 (TppDestroyTimer.c)
- *     NtClose @ 0x18009D820 (NtClose.c)
+ *     NtClose @ 0x18009D7E0 (NtClose.c)
  */
 
-__int64 __fastcall TppFreeWait(__int64 a1)
+LOGICAL __fastcall TppFreeWait(__int64 a1)
 {
   TppDestroyTimer();
   NtClose(*(HANDLE *)(a1 + 368));
   *(_QWORD *)(a1 + 448) = 0LL;
-  return RtlFreeHeap(NtCurrentPeb()->ProcessHeap, (unsigned int)(TppHeapTag + 1835008), a1);
+  return RtlFreeHeap(NtCurrentPeb()->ProcessHeap, TppHeapTag + 1835008, (PVOID)a1);
 }

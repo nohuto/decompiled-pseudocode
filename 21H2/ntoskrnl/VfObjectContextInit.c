@@ -1,9 +1,9 @@
 /*
- * XREFs of VfObjectContextInit @ 0x1409C8408
+ * XREFs of VfObjectContextInit @ 0x1409C9408
  * Callers:
- *     VfInitBootDriversLoaded @ 0x140A4ED74 (VfInitBootDriversLoaded.c)
+ *     VfInitBootDriversLoaded @ 0x140A4FD74 (VfInitBootDriversLoaded.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 __int64 VfObjectContextInit()

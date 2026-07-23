@@ -1,16 +1,16 @@
 /*
- * XREFs of HalpEnumerateEnvironmentVariablesWithFilter @ 0x14039C740
+ * XREFs of HalpEnumerateEnvironmentVariablesWithFilter @ 0x14039C920
  * Callers:
- *     HalEnumerateEnvironmentVariablesEx @ 0x1405047C0 (HalEnumerateEnvironmentVariablesEx.c)
+ *     HalEnumerateEnvironmentVariablesEx @ 0x140504D10 (HalEnumerateEnvironmentVariablesEx.c)
  * Callees:
- *     KeRevertToUserGroupAffinityThread @ 0x140305E00 (KeRevertToUserGroupAffinityThread.c)
- *     KeSetSystemGroupAffinityThread @ 0x140306C50 (KeSetSystemGroupAffinityThread.c)
- *     HalpEfiDecrementEfiCall @ 0x14035EB04 (HalpEfiDecrementEfiCall.c)
- *     HalpEfiIncrementEfiCall @ 0x14035EB60 (HalpEfiIncrementEfiCall.c)
- *     HalpEfiStartRuntimeCode @ 0x14035EB88 (HalpEfiStartRuntimeCode.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     memmove @ 0x140435700 (memmove.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x140306090 (KeRevertToUserGroupAffinityThread.c)
+ *     KeSetSystemGroupAffinityThread @ 0x140306EE0 (KeSetSystemGroupAffinityThread.c)
+ *     HalpEfiDecrementEfiCall @ 0x14035ECA4 (HalpEfiDecrementEfiCall.c)
+ *     HalpEfiIncrementEfiCall @ 0x14035ED00 (HalpEfiIncrementEfiCall.c)
+ *     HalpEfiStartRuntimeCode @ 0x14035ED28 (HalpEfiStartRuntimeCode.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     memmove @ 0x140435B00 (memmove.c)
  */
 
 __int64 __fastcall HalpEnumerateEnvironmentVariablesWithFilter(
@@ -44,12 +44,12 @@ __int64 __fastcall HalpEnumerateEnvironmentVariablesWithFilter(
   int v27; // [rsp+48h] [rbp-B8h]
   int v28; // [rsp+4Ch] [rbp-B4h]
   unsigned int v29; // [rsp+50h] [rbp-B0h]
-  struct _GROUP_AFFINITY Affinity; // [rsp+58h] [rbp-A8h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+58h] [rbp-A8h] BYREF
   unsigned __int8 (__fastcall *v31)(__int128 *, _WORD *); // [rsp+68h] [rbp-98h]
   unsigned __int64 v32; // [rsp+70h] [rbp-90h]
   _DWORD *v33; // [rsp+78h] [rbp-88h]
   __int128 v34; // [rsp+80h] [rbp-80h] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+90h] [rbp-70h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+90h] [rbp-70h] BYREF
   _WORD Src[256]; // [rsp+A0h] [rbp-60h] BYREF
 
   v31 = a2;

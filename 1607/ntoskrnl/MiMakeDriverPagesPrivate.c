@@ -1,29 +1,29 @@
 /*
- * XREFs of MiMakeDriverPagesPrivate @ 0x140086098
+ * XREFs of MiMakeDriverPagesPrivate @ 0x140087988
  * Callers:
- *     MiLockCode @ 0x1400155F0 (MiLockCode.c)
- *     MiSetSystemCodeProtection @ 0x1400FE0F4 (MiSetSystemCodeProtection.c)
- *     MiSplitDriverPage @ 0x1401E1A20 (MiSplitDriverPage.c)
- *     MiBackSingleImageWithPagefile @ 0x1405473D8 (MiBackSingleImageWithPagefile.c)
+ *     MiLockCode @ 0x140015170 (MiLockCode.c)
+ *     MiSetSystemCodeProtection @ 0x1400FBE74 (MiSetSystemCodeProtection.c)
+ *     MiSplitDriverPage @ 0x1401E184C (MiSplitDriverPage.c)
+ *     MiBackSingleImageWithPagefile @ 0x140547918 (MiBackSingleImageWithPagefile.c)
  * Callees:
- *     MiGetAnyMultiplexedVm @ 0x14001D05C (MiGetAnyMultiplexedVm.c)
- *     MiUnlockWorkingSetExclusive @ 0x14002E930 (MiUnlockWorkingSetExclusive.c)
- *     MiGetSharedVm @ 0x14002EA30 (MiGetSharedVm.c)
- *     MiLockPageAtDpcInline @ 0x14002EB30 (MiLockPageAtDpcInline.c)
- *     ExAcquireSpinLockExclusive @ 0x14002EB90 (ExAcquireSpinLockExclusive.c)
- *     MmAccessFault @ 0x14003E7A0 (MmAccessFault.c)
- *     MiRemoveLockedPageChargeAndDecRef @ 0x14004E740 (MiRemoveLockedPageChargeAndDecRef.c)
- *     MiAddLockedPageCharge @ 0x14004F188 (MiAddLockedPageCharge.c)
- *     MiDriverPageMustStayResident @ 0x140083FBC (MiDriverPageMustStayResident.c)
- *     MiSessionLookupImage @ 0x1400865D4 (MiSessionLookupImage.c)
- *     MiReleaseFreshPage @ 0x1400AC5F4 (MiReleaseFreshPage.c)
- *     MiFlushTbList @ 0x1400E0490 (MiFlushTbList.c)
- *     MiCopyOnWriteEx @ 0x1400E2730 (MiCopyOnWriteEx.c)
- *     MiRemoveImagePageFromSystemWorkingSet @ 0x1400FDEF0 (MiRemoveImagePageFromSystemWorkingSet.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiAllocateDriverPage @ 0x140526790 (MiAllocateDriverPage.c)
+ *     MiGetAnyMultiplexedVm @ 0x14001CBDC (MiGetAnyMultiplexedVm.c)
+ *     MiUnlockWorkingSetExclusive @ 0x14002E4B0 (MiUnlockWorkingSetExclusive.c)
+ *     MiGetSharedVm @ 0x14002E5B0 (MiGetSharedVm.c)
+ *     MiLockPageAtDpcInline @ 0x14002E6B0 (MiLockPageAtDpcInline.c)
+ *     ExAcquireSpinLockExclusive @ 0x14002E710 (ExAcquireSpinLockExclusive.c)
+ *     MmAccessFault @ 0x14003E320 (MmAccessFault.c)
+ *     MiRemoveLockedPageChargeAndDecRef @ 0x14004E2C0 (MiRemoveLockedPageChargeAndDecRef.c)
+ *     MiAddLockedPageCharge @ 0x14004ED08 (MiAddLockedPageCharge.c)
+ *     MiDriverPageMustStayResident @ 0x14008211C (MiDriverPageMustStayResident.c)
+ *     MiSessionLookupImage @ 0x140087EC4 (MiSessionLookupImage.c)
+ *     MiReleaseFreshPage @ 0x1400AAB5C (MiReleaseFreshPage.c)
+ *     MiFlushTbList @ 0x1400DE330 (MiFlushTbList.c)
+ *     MiCopyOnWriteEx @ 0x1400E05D0 (MiCopyOnWriteEx.c)
+ *     MiRemoveImagePageFromSystemWorkingSet @ 0x1400FBC70 (MiRemoveImagePageFromSystemWorkingSet.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
+ *     MiAllocateDriverPage @ 0x1405097F0 (MiAllocateDriverPage.c)
  */
 
 __int64 __fastcall MiMakeDriverPagesPrivate(__int64 a1, unsigned __int64 a2, unsigned __int64 a3, KIRQL a4, char a5)
@@ -80,7 +80,7 @@ __int64 __fastcall MiMakeDriverPagesPrivate(__int64 a1, unsigned __int64 a2, uns
   v9 = a2;
   v10 = a1;
   v11 = (__int64)(a2 << 25) >> 16;
-  if ( v11 < qword_140326910 || v11 >= qword_140326910 + 0x8000000000LL )
+  if ( v11 < qword_140326950 || v11 >= qword_140326950 + 0x8000000000LL )
   {
     v40 = 0LL;
     AnyMultiplexedVm = MiGetAnyMultiplexedVm(1);

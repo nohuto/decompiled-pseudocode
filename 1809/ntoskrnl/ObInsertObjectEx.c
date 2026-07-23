@@ -1,59 +1,59 @@
 /*
- * XREFs of ObInsertObjectEx @ 0x14062D080
+ * XREFs of ObInsertObjectEx @ 0x14062E0A0
  * Callers:
- *     PopPowerRequestCreateInfo @ 0x140588318 (PopPowerRequestCreateInfo.c)
- *     IoCreateStreamFileObjectEx2 @ 0x1405A35A0 (IoCreateStreamFileObjectEx2.c)
- *     EtwpAddUmRegEntry @ 0x1405C44C0 (EtwpAddUmRegEntry.c)
- *     MiCreateSectionCommon @ 0x1405DD7A0 (MiCreateSectionCommon.c)
- *     NtCreateSemaphore @ 0x1405F8710 (NtCreateSemaphore.c)
- *     NtCreateJobObject @ 0x140605F80 (NtCreateJobObject.c)
- *     PspInsertProcess @ 0x1406093A8 (PspInsertProcess.c)
- *     MmCreateSpecialImageSection @ 0x14060A404 (MmCreateSpecialImageSection.c)
- *     WmipCreateGuidObject @ 0x140611BC8 (WmipCreateGuidObject.c)
- *     AlpcpCreateClientPort @ 0x14061506C (AlpcpCreateClientPort.c)
- *     AlpcpAcceptConnectPort @ 0x140619CD8 (AlpcpAcceptConnectPort.c)
- *     ObInsertObject @ 0x14061B280 (ObInsertObject.c)
- *     PspInsertThread @ 0x140621450 (PspInsertThread.c)
- *     NtCreateTimer @ 0x140623F30 (NtCreateTimer.c)
- *     NtCreateEvent @ 0x14062CF50 (NtCreateEvent.c)
- *     SepCreateClientSecurityEx @ 0x140631EC0 (SepCreateClientSecurityEx.c)
- *     NtOpenThreadTokenEx @ 0x140648880 (NtOpenThreadTokenEx.c)
- *     SeCopyClientToken @ 0x140649E74 (SeCopyClientToken.c)
- *     NtDuplicateToken @ 0x14064A010 (NtDuplicateToken.c)
- *     SeSubProcessToken @ 0x14064EA4C (SeSubProcessToken.c)
- *     IoCreateDevice @ 0x1406529D0 (IoCreateDevice.c)
- *     NtCreatePrivateNamespace @ 0x140654360 (NtCreatePrivateNamespace.c)
- *     NtCreateLowBoxToken @ 0x140654F70 (NtCreateLowBoxToken.c)
- *     NtCreateMutant @ 0x14065B3C0 (NtCreateMutant.c)
- *     IopLoadDriver @ 0x14067FA34 (IopLoadDriver.c)
- *     NtCreateWorkerFactory @ 0x14068A1F0 (NtCreateWorkerFactory.c)
- *     NtCreateTimer2 @ 0x14068A550 (NtCreateTimer2.c)
- *     NtCreateWaitCompletionPacket @ 0x1406A00D0 (NtCreateWaitCompletionPacket.c)
- *     EtwpCreateUmReplyObject @ 0x1406A62D8 (EtwpCreateUmReplyObject.c)
- *     NtCreateIoCompletion @ 0x1406A64A0 (NtCreateIoCompletion.c)
- *     ObpCreateDirectoryObject @ 0x1406ADCDC (ObpCreateDirectoryObject.c)
- *     AlpcpCreateConnectionPort @ 0x1406B66A8 (AlpcpCreateConnectionPort.c)
- *     ObCreateSymbolicLink @ 0x1406B71FC (ObCreateSymbolicLink.c)
- *     NtAllocateReserveObject @ 0x1406BDB70 (NtAllocateReserveObject.c)
- *     EtwpRealtimeConnect @ 0x1406C2AF8 (EtwpRealtimeConnect.c)
- *     NtFilterToken @ 0x1406C6B60 (NtFilterToken.c)
- *     NtCreateRegistryTransaction @ 0x1406C7CE0 (NtCreateRegistryTransaction.c)
- *     ExCreateCallback @ 0x1406CA380 (ExCreateCallback.c)
- *     PspCreateActivityReference @ 0x1406D61DC (PspCreateActivityReference.c)
- *     MiSessionObjectCreate @ 0x1407152BC (MiSessionObjectCreate.c)
- *     SepInitializationPhase1 @ 0x140726F24 (SepInitializationPhase1.c)
- *     IoCreateDriver @ 0x14073A090 (IoCreateDriver.c)
- *     NtCreateKeyedEvent @ 0x1407566A0 (NtCreateKeyedEvent.c)
- *     SeFilterToken @ 0x140757A70 (SeFilterToken.c)
- *     PopEtEnergyTrackerCreate @ 0x14075C380 (PopEtEnergyTrackerCreate.c)
- *     PspAllocatePartition @ 0x14075CA48 (PspAllocatePartition.c)
- *     NtCreateDebugObject @ 0x14080FA50 (NtCreateDebugObject.c)
- *     IoCreateController @ 0x14081C1E0 (IoCreateController.c)
- *     TtmiCreateTerminal @ 0x14087E80C (TtmiCreateTerminal.c)
- *     SeGetLogonSessionToken @ 0x1408A1BE0 (SeGetLogonSessionToken.c)
- *     EtwpRegisterPrivateSession @ 0x1408C0098 (EtwpRegisterPrivateSession.c)
- *     EtwpSetCoverageSamplerInformation @ 0x1408C92BC (EtwpSetCoverageSamplerInformation.c)
- *     ExpProfileCreate @ 0x1408D9BCC (ExpProfileCreate.c)
+ *     PopPowerRequestCreateInfo @ 0x140589318 (PopPowerRequestCreateInfo.c)
+ *     IoCreateStreamFileObjectEx2 @ 0x1405A45A0 (IoCreateStreamFileObjectEx2.c)
+ *     EtwpAddUmRegEntry @ 0x1405C54C0 (EtwpAddUmRegEntry.c)
+ *     MiCreateSectionCommon @ 0x1405DE7A0 (MiCreateSectionCommon.c)
+ *     NtCreateSemaphore @ 0x1405F9710 (NtCreateSemaphore.c)
+ *     NtCreateJobObject @ 0x140606F80 (NtCreateJobObject.c)
+ *     PspInsertProcess @ 0x14060A3A8 (PspInsertProcess.c)
+ *     MmCreateSpecialImageSection @ 0x14060B404 (MmCreateSpecialImageSection.c)
+ *     WmipCreateGuidObject @ 0x140612BC8 (WmipCreateGuidObject.c)
+ *     AlpcpCreateClientPort @ 0x14061606C (AlpcpCreateClientPort.c)
+ *     AlpcpAcceptConnectPort @ 0x14061ACD8 (AlpcpAcceptConnectPort.c)
+ *     ObInsertObject @ 0x14061C280 (ObInsertObject.c)
+ *     PspInsertThread @ 0x140622450 (PspInsertThread.c)
+ *     NtCreateTimer @ 0x140624F50 (NtCreateTimer.c)
+ *     NtCreateEvent @ 0x14062DF70 (NtCreateEvent.c)
+ *     SepCreateClientSecurityEx @ 0x140632EE0 (SepCreateClientSecurityEx.c)
+ *     NtOpenThreadTokenEx @ 0x140649A40 (NtOpenThreadTokenEx.c)
+ *     SeCopyClientToken @ 0x14064B034 (SeCopyClientToken.c)
+ *     NtDuplicateToken @ 0x14064B1D0 (NtDuplicateToken.c)
+ *     SeSubProcessToken @ 0x14064FC0C (SeSubProcessToken.c)
+ *     IoCreateDevice @ 0x140653B90 (IoCreateDevice.c)
+ *     NtCreatePrivateNamespace @ 0x140655520 (NtCreatePrivateNamespace.c)
+ *     NtCreateLowBoxToken @ 0x140656130 (NtCreateLowBoxToken.c)
+ *     NtCreateMutant @ 0x14065C580 (NtCreateMutant.c)
+ *     IopLoadDriver @ 0x140680BF4 (IopLoadDriver.c)
+ *     NtCreateWorkerFactory @ 0x14068B3B0 (NtCreateWorkerFactory.c)
+ *     NtCreateTimer2 @ 0x14068B710 (NtCreateTimer2.c)
+ *     NtCreateWaitCompletionPacket @ 0x1406A1390 (NtCreateWaitCompletionPacket.c)
+ *     EtwpCreateUmReplyObject @ 0x1406A7578 (EtwpCreateUmReplyObject.c)
+ *     NtCreateIoCompletion @ 0x1406A7740 (NtCreateIoCompletion.c)
+ *     ObpCreateDirectoryObject @ 0x1406AEF7C (ObpCreateDirectoryObject.c)
+ *     AlpcpCreateConnectionPort @ 0x1406B7948 (AlpcpCreateConnectionPort.c)
+ *     ObCreateSymbolicLink @ 0x1406B849C (ObCreateSymbolicLink.c)
+ *     NtAllocateReserveObject @ 0x1406BEE10 (NtAllocateReserveObject.c)
+ *     EtwpRealtimeConnect @ 0x1406C3D98 (EtwpRealtimeConnect.c)
+ *     NtFilterToken @ 0x1406C7E00 (NtFilterToken.c)
+ *     NtCreateRegistryTransaction @ 0x1406C8F80 (NtCreateRegistryTransaction.c)
+ *     ExCreateCallback @ 0x1406CB620 (ExCreateCallback.c)
+ *     PspCreateActivityReference @ 0x1406D747C (PspCreateActivityReference.c)
+ *     MiSessionObjectCreate @ 0x14071655C (MiSessionObjectCreate.c)
+ *     SepInitializationPhase1 @ 0x1407281C4 (SepInitializationPhase1.c)
+ *     IoCreateDriver @ 0x14073B280 (IoCreateDriver.c)
+ *     NtCreateKeyedEvent @ 0x140757890 (NtCreateKeyedEvent.c)
+ *     SeFilterToken @ 0x140758C60 (SeFilterToken.c)
+ *     PopEtEnergyTrackerCreate @ 0x14075D570 (PopEtEnergyTrackerCreate.c)
+ *     PspAllocatePartition @ 0x14075DC38 (PspAllocatePartition.c)
+ *     NtCreateDebugObject @ 0x140810C50 (NtCreateDebugObject.c)
+ *     IoCreateController @ 0x14081D3E0 (IoCreateController.c)
+ *     TtmiCreateTerminal @ 0x14087FA6C (TtmiCreateTerminal.c)
+ *     SeGetLogonSessionToken @ 0x1408A2E40 (SeGetLogonSessionToken.c)
+ *     EtwpRegisterPrivateSession @ 0x1408C1358 (EtwpRegisterPrivateSession.c)
+ *     EtwpSetCoverageSamplerInformation @ 0x1408CA57C (EtwpSetCoverageSamplerInformation.c)
+ *     ExpProfileCreate @ 0x1408DAE8C (ExpProfileCreate.c)
  * Callees:
  *     SepCreateAccessStateFromSubjectContext @ 0x14004D710 (SepCreateAccessStateFromSubjectContext.c)
  *     SepDeleteAccessState @ 0x14004D950 (SepDeleteAccessState.c)
@@ -61,21 +61,21 @@
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     ExReleasePushLockEx @ 0x14004F160 (ExReleasePushLockEx.c)
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
- *     SeAssignSecurityEx2 @ 0x1400A8F30 (SeAssignSecurityEx2.c)
- *     SeComputeAutoInheritByObjectTypeEx @ 0x1400A9070 (SeComputeAutoInheritByObjectTypeEx.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     RtlpInterlockedPushEntrySList @ 0x1401C5410 (RtlpInterlockedPushEntrySList.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     ObpAdjustCreatorAccessState @ 0x1405C84C8 (ObpAdjustCreatorAccessState.c)
- *     ObpChargeQuotaForObject @ 0x1405C9A24 (ObpChargeQuotaForObject.c)
- *     SeCaptureSubjectContextEx @ 0x1405E07F0 (SeCaptureSubjectContextEx.c)
- *     SeReleaseSubjectContext @ 0x1405E1240 (SeReleaseSubjectContext.c)
- *     ObpCreateHandle @ 0x1405E12B0 (ObpCreateHandle.c)
- *     SeReleaseSecurityDescriptor @ 0x140631850 (SeReleaseSecurityDescriptor.c)
- *     RtlValidSecurityDescriptor @ 0x14069B990 (RtlValidSecurityDescriptor.c)
- *     SeDeassignSecurity @ 0x1406ADB90 (SeDeassignSecurity.c)
- *     SeObjectCreateSaclAccessBits @ 0x1406B0F98 (SeObjectCreateSaclAccessBits.c)
+ *     SeAssignSecurityEx2 @ 0x1400A8E70 (SeAssignSecurityEx2.c)
+ *     SeComputeAutoInheritByObjectTypeEx @ 0x1400A8FB0 (SeComputeAutoInheritByObjectTypeEx.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1401C5570 (RtlpInterlockedPushEntrySList.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     ObpAdjustCreatorAccessState @ 0x1405C94C8 (ObpAdjustCreatorAccessState.c)
+ *     ObpChargeQuotaForObject @ 0x1405CAA24 (ObpChargeQuotaForObject.c)
+ *     SeCaptureSubjectContextEx @ 0x1405E17F0 (SeCaptureSubjectContextEx.c)
+ *     SeReleaseSubjectContext @ 0x1405E2240 (SeReleaseSubjectContext.c)
+ *     ObpCreateHandle @ 0x1405E22B0 (ObpCreateHandle.c)
+ *     SeReleaseSecurityDescriptor @ 0x140632870 (SeReleaseSecurityDescriptor.c)
+ *     RtlValidSecurityDescriptor @ 0x14069CB50 (RtlValidSecurityDescriptor.c)
+ *     SeDeassignSecurity @ 0x1406AEE30 (SeDeassignSecurity.c)
+ *     SeObjectCreateSaclAccessBits @ 0x1406B2238 (SeObjectCreateSaclAccessBits.c)
  */
 
 __int64 __fastcall ObInsertObjectEx(
@@ -116,9 +116,9 @@ __int64 __fastcall ObInsertObjectEx(
   PVOID *v36; // [rsp+48h] [rbp-230h]
   char v37; // [rsp+60h] [rbp-218h]
   ACCESS_MASK v38; // [rsp+64h] [rbp-214h]
-  unsigned int v39; // [rsp+68h] [rbp-210h] BYREF
+  int v39; // [rsp+68h] [rbp-210h] BYREF
   int v40; // [rsp+6Ch] [rbp-20Ch]
-  __int64 v41; // [rsp+70h] [rbp-208h] BYREF
+  ULONG Index[2]; // [rsp+70h] [rbp-208h] BYREF
   PSECURITY_DESCRIPTOR SecurityDescriptor; // [rsp+78h] [rbp-200h] BYREF
   char *v43; // [rsp+80h] [rbp-1F8h]
   PVOID *v44; // [rsp+88h] [rbp-1F0h]
@@ -214,9 +214,10 @@ LABEL_15:
   if ( !v10 && ((v14->TypeInfo.ObjectTypeFlags & 8) != 0 || *(_QWORD *)(v7 + 32)) )
   {
     v23 = AccessState->SecurityDescriptor;
+    Index[1] = 0;
     SecurityDescriptor = 0LL;
-    v41 = 8LL;
-    v24 = SeComputeAutoInheritByObjectTypeEx((__int64)v14, (__int64)v23, 0LL, &v39, &v41);
+    Index[0] = 8;
+    v24 = SeComputeAutoInheritByObjectTypeEx((__int64)v14, (__int64)v23, 0LL, &v39, Index);
     if ( v24 < 0 )
       goto LABEL_30;
     v24 = SeAssignSecurityEx2(
@@ -225,8 +226,8 @@ LABEL_15:
             (int)&SecurityDescriptor,
             0LL,
             v14 == ObpDirectoryObjectType,
-            (16 * (a5 & 1)) | v39,
-            &v41,
+            (16 * (a5 & 1)) | (unsigned int)v39,
+            Index,
             (__int64)&AccessState->SubjectSecurityContext,
             (__int64)&v14->TypeInfo.GenericMapping);
     if ( v24 < 0 )

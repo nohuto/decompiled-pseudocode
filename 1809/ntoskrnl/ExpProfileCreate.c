@@ -1,22 +1,22 @@
 /*
- * XREFs of ExpProfileCreate @ 0x1408D9BCC
+ * XREFs of ExpProfileCreate @ 0x1408DAE8C
  * Callers:
- *     NtCreateProfile @ 0x1408DA220 (NtCreateProfile.c)
- *     NtCreateProfileEx @ 0x1408DA300 (NtCreateProfileEx.c)
+ *     NtCreateProfile @ 0x1408DB4E0 (NtCreateProfile.c)
+ *     NtCreateProfileEx @ 0x1408DB5C0 (NtCreateProfileEx.c)
  * Callees:
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     KeCopyAffinityEx @ 0x1400EDAB0 (KeCopyAffinityEx.c)
- *     KeVerifyGroupAffinity @ 0x14016B72C (KeVerifyGroupAffinity.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ObCreateObjectEx @ 0x1405E05E0 (ObCreateObjectEx.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1405E8390 (ObpReferenceObjectByHandleWithTag.c)
- *     SeSinglePrivilegeCheck @ 0x140612160 (SeSinglePrivilegeCheck.c)
- *     ProbeForWrite @ 0x140629A60 (ProbeForWrite.c)
- *     ObInsertObjectEx @ 0x14062D080 (ObInsertObjectEx.c)
- *     ExIsRestrictedCaller @ 0x1406AD9EC (ExIsRestrictedCaller.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
+ *     KeCopyAffinityEx @ 0x1400EDB30 (KeCopyAffinityEx.c)
+ *     KeVerifyGroupAffinity @ 0x14016B82C (KeVerifyGroupAffinity.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ObCreateObjectEx @ 0x1405E15E0 (ObCreateObjectEx.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x1405E9390 (ObpReferenceObjectByHandleWithTag.c)
+ *     SeSinglePrivilegeCheck @ 0x140613160 (SeSinglePrivilegeCheck.c)
+ *     ProbeForWrite @ 0x14062AA80 (ProbeForWrite.c)
+ *     ObInsertObjectEx @ 0x14062E0A0 (ObInsertObjectEx.c)
+ *     ExIsRestrictedCaller @ 0x1406AEC8C (ExIsRestrictedCaller.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D7880 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall ExpProfileCreate(
@@ -75,7 +75,7 @@ __int64 __fastcall ExpProfileCreate(
     return 2147483653LL;
   v32 = a8;
   v25 = 0;
-  if ( ((int (__fastcall *)(__int64, __int64, int *, int *))off_140400458[0])(1LL, 24LL, &v32, &v25) < 0
+  if ( ((int (__fastcall *)(__int64, __int64, int *, int *))off_140401458[0])(1LL, 24LL, &v32, &v25) < 0
     || v25 != 24
     || !v33 )
   {

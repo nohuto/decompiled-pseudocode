@@ -19,49 +19,48 @@
  *     _TppRaiseInvalidParameter@0 @ 0x4B3848BD (_TppRaiseInvalidParameter@0.c)
  */
 
-BOOL __stdcall TpSetWaitEx(int a1, int a2, _DWORD *a3, int a4)
+NTSTATUS __cdecl TpSetWaitEx(PTP_WAIT Wait, HANDLE Handle, PLARGE_INTEGER Timeout, PVOID Reserved)
 {
   char v4; // al
   signed int v5; // esi
   char v7; // al
-  BOOL v8; // [esp+Ch] [ebp-4h] BYREF
+  NTSTATUS v8; // [esp+Ch] [ebp-4h] BYREF
 
-  if ( !TppWaitpValidateWait(a2 != 0) )
+  if ( !TppWaitpValidateWait(Handle != 0) )
     return 0;
-  if ( a4 )
+  if ( Reserved )
     TppRaiseInvalidParameter();
-  RtlAcquireSRWLockExclusive(a1 + 144);
+  RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)Wait + 36);
   v4 = TppCancelWait(0, &v8);
   v5 = v8;
-  v8 = v8;
-  if ( a2 && !*(_BYTE *)(a1 + 223) )
+  v8 = v8 != 0;
+  if ( Handle && !*((_BYTE *)Wait + 223) )
   {
     if ( !v4 )
     {
-      v7 = *(_BYTE *)(a1 + 292) | 1;
-      *(_DWORD *)(a1 + 232) = a2;
-      *(_BYTE *)(a1 + 292) = v7;
-      if ( a3 )
+      v7 = *((_BYTE *)Wait + 292) | 1;
+      *((_DWORD *)Wait + 58) = Handle;
+      *((_BYTE *)Wait + 292) = v7;
+      if ( Timeout )
       {
-        *(_BYTE *)(a1 + 292) = v7 | 2;
-        *(_DWORD *)(a1 + 240) = *a3;
-        *(_DWORD *)(a1 + 244) = a3[1];
+        *((_BYTE *)Wait + 292) = v7 | 2;
+        *((LARGE_INTEGER *)Wait + 30) = *Timeout;
       }
       goto LABEL_8;
     }
-    if ( !*(_DWORD *)(a1 + 224) )
+    if ( !*((_DWORD *)Wait + 56) )
     {
-      v5 += TppSetupNextWait(a3);
+      v5 += TppSetupNextWait(Wait, Handle, (int)Timeout);
 LABEL_8:
       if ( v5 > 0 )
       {
-        _InterlockedExchangeAdd((volatile signed __int32 *)a1, v5);
+        _InterlockedExchangeAdd((volatile signed __int32 *)Wait, v5);
         v5 = 0;
       }
     }
   }
-  RtlReleaseSRWLockExclusive(a1 + 144);
-  if ( v5 < 0 && _InterlockedExchangeAdd((volatile signed __int32 *)a1, v5) == -v5 )
-    (**(void (__thiscall ***)(_DWORD, int))(a1 + 4))(**(_DWORD **)(a1 + 4), a1);
+  RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)Wait + 36);
+  if ( v5 < 0 && _InterlockedExchangeAdd((volatile signed __int32 *)Wait, v5) == -v5 )
+    (**((void (__thiscall ***)(_DWORD, PTP_WAIT))Wait + 1))(**((_DWORD **)Wait + 1), Wait);
   return v8;
 }

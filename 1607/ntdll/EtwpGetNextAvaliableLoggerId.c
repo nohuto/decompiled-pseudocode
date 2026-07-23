@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpGetNextAvaliableLoggerId @ 0x180056E2C
+ * XREFs of EtwpGetNextAvaliableLoggerId @ 0x180056E1C
  * Callers:
- *     EtwpStartUmLogger @ 0x18005396C (EtwpStartUmLogger.c)
+ *     EtwpStartUmLogger @ 0x18005395C (EtwpStartUmLogger.c)
  * Callees:
- *     RtlAllocateHeap @ 0x180022DB0 (RtlAllocateHeap.c)
+ *     RtlAllocateHeap @ 0x180022DA0 (RtlAllocateHeap.c)
  */
 
 __int64 __fastcall EtwpGetNextAvaliableLoggerId(__int64 a1, unsigned int *a2)
@@ -20,7 +20,7 @@ __int64 __fastcall EtwpGetNextAvaliableLoggerId(__int64 a1, unsigned int *a2)
   v3 = 0;
   if ( !EtwpLoggerArray )
   {
-    Heap = (_QWORD *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, 0x400uLL);
+    Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, 0x400uLL);
     v2 = (__int64)Heap;
     if ( !Heap )
       return 1450LL;

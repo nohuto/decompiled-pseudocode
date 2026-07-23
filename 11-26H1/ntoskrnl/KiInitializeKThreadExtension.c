@@ -1,9 +1,9 @@
 /*
- * XREFs of KiInitializeKThreadExtension @ 0x140520C4C
+ * XREFs of KiInitializeKThreadExtension @ 0x1405232F0
  * Callers:
- *     KeInitThread @ 0x140C07424 (KeInitThread.c)
+ *     KeInitThread @ 0x140C0D634 (KeInitThread.c)
  * Callees:
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 unsigned __int64 __fastcall KiInitializeKThreadExtension(_QWORD *a1, char a2, __int64 a3)

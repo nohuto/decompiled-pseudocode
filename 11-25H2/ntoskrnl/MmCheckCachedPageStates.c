@@ -91,7 +91,7 @@ __int64 __fastcall MmCheckCachedPageStates(unsigned __int64 a1, __int64 a2, unsi
   __int64 v49; // r8
   unsigned __int64 v50; // r9
   int v51; // ecx
-  struct _SLIST_ENTRY *TransitionHeatBatch; // rbx
+  _SLIST_ENTRY *TransitionHeatBatch; // rbx
   __int64 v53; // r8
   unsigned __int64 v54; // r9
   unsigned __int8 v55; // [rsp+20h] [rbp-128h] BYREF
@@ -373,16 +373,13 @@ LABEL_39:
           LOBYTE(v31) = *(_QWORD *)(v29 + 16) >> 11;
         if ( (v31 & 1) != 0 )
         {
-          TransitionHeatBatch = (struct _SLIST_ENTRY *)MiMakeTransitionHeatBatch(
-                                                         v29,
-                                                         0LL,
-                                                         ((__int64)(v10 - v9) >> 3) + 1);
+          TransitionHeatBatch = (_SLIST_ENTRY *)MiMakeTransitionHeatBatch(v29, 0LL, ((__int64)(v10 - v9) >> 3) + 1);
           if ( TransitionHeatBatch )
           {
             _InterlockedAnd64((volatile signed __int64 *)(v29 + 24), 0x7FFFFFFFFFFFFFFFuLL);
             MiUnlockProtoPoolPage(v8, v55, v53, v54);
             v8 = 0LL;
-            if ( TransitionHeatBatch == (struct _SLIST_ENTRY *)-1LL )
+            if ( TransitionHeatBatch == (_SLIST_ENTRY *)-1LL )
             {
               MiReplenishTransitionPageHeatList();
             }

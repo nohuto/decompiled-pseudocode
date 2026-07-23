@@ -1,26 +1,26 @@
 /*
- * XREFs of ObFastReferenceObject @ 0x14027C6E0
+ * XREFs of ObFastReferenceObject @ 0x14026A680
  * Callers:
- *     CcReferenceSharedCacheMapFileObject @ 0x1402F57D0 (CcReferenceSharedCacheMapFileObject.c)
- *     MiLogPageAccess @ 0x14033A650 (MiLogPageAccess.c)
- *     PfQuerySuperfetchInformation @ 0x140654810 (PfQuerySuperfetchInformation.c)
- *     SeCaptureSubjectContext @ 0x140655B30 (SeCaptureSubjectContext.c)
- *     ObOpenObjectByNameEx @ 0x140655CD0 (ObOpenObjectByNameEx.c)
- *     SeCaptureSubjectContextEx @ 0x140657C60 (SeCaptureSubjectContextEx.c)
- *     PsImpersonateClient @ 0x14065AEA0 (PsImpersonateClient.c)
- *     PsReferenceEffectiveToken @ 0x14065CD50 (PsReferenceEffectiveToken.c)
- *     SeCreateClientSecurity @ 0x14065DD70 (SeCreateClientSecurity.c)
- *     SeCreateClientSecurityEx @ 0x14065DF60 (SeCreateClientSecurityEx.c)
- *     ExpGetProcessInformation @ 0x1406F1260 (ExpGetProcessInformation.c)
- *     NtOpenProcessTokenEx @ 0x1407066C0 (NtOpenProcessTokenEx.c)
- *     ObOpenObjectByPointer @ 0x140706880 (ObOpenObjectByPointer.c)
- *     PsReferencePrimaryToken @ 0x140706D00 (PsReferencePrimaryToken.c)
- *     PspReferenceSystemDll @ 0x140712A44 (PspReferenceSystemDll.c)
+ *     CcReferenceSharedCacheMapFileObject @ 0x140300520 (CcReferenceSharedCacheMapFileObject.c)
+ *     MiLogPageAccess @ 0x1403453A0 (MiLogPageAccess.c)
+ *     PfQuerySuperfetchInformation @ 0x140649630 (PfQuerySuperfetchInformation.c)
+ *     SeCaptureSubjectContext @ 0x14064A950 (SeCaptureSubjectContext.c)
+ *     ObOpenObjectByNameEx @ 0x14064AAF0 (ObOpenObjectByNameEx.c)
+ *     SeCaptureSubjectContextEx @ 0x14064CA80 (SeCaptureSubjectContextEx.c)
+ *     PsImpersonateClient @ 0x14064FCC0 (PsImpersonateClient.c)
+ *     PsReferenceEffectiveToken @ 0x140651B70 (PsReferenceEffectiveToken.c)
+ *     SeCreateClientSecurity @ 0x140652B90 (SeCreateClientSecurity.c)
+ *     SeCreateClientSecurityEx @ 0x140652D80 (SeCreateClientSecurityEx.c)
+ *     PspReferenceSystemDll @ 0x1406C1094 (PspReferenceSystemDll.c)
+ *     ExpGetProcessInformation @ 0x140708640 (ExpGetProcessInformation.c)
+ *     NtOpenProcessTokenEx @ 0x14071DAA0 (NtOpenProcessTokenEx.c)
+ *     ObOpenObjectByPointer @ 0x14071DC60 (ObOpenObjectByPointer.c)
+ *     PsReferencePrimaryToken @ 0x14071E0E0 (PsReferencePrimaryToken.c)
  * Callees:
- *     ObpTraceObjectDereferenceIfActive @ 0x14024A170 (ObpTraceObjectDereferenceIfActive.c)
- *     ObReferenceObjectExWithTag @ 0x14029E140 (ObReferenceObjectExWithTag.c)
- *     ObpDeferObjectDeletion @ 0x1402BC2D0 (ObpDeferObjectDeletion.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     ObReferenceObjectExWithTag @ 0x14021B6A0 (ObReferenceObjectExWithTag.c)
+ *     ObpDeferObjectDeletion @ 0x14023A834 (ObpDeferObjectDeletion.c)
+ *     ObpTraceObjectDereferenceIfActive @ 0x1402EE9C0 (ObpTraceObjectDereferenceIfActive.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
  */
 
 ULONG_PTR __fastcall ObFastReferenceObject(signed __int64 *a1)
@@ -54,7 +54,7 @@ ULONG_PTR __fastcall ObFastReferenceObject(signed __int64 *a1)
     return v6;
   if ( v5 )
   {
-    ObReferenceObjectExWithTag(v6);
+    ObReferenceObjectExWithTag(v6, 15);
     _m_prefetchw(a1);
     v8 = *a1;
     while ( (v8 & 0xF) == 0 )
@@ -66,7 +66,7 @@ ULONG_PTR __fastcall ObFastReferenceObject(signed __int64 *a1)
       if ( v9 == v8 )
         return v6;
     }
-    ObpTraceObjectDereferenceIfActive(v6 - 48);
+    ObpTraceObjectDereferenceIfActive(v6 - 48, 15LL, 1953261124LL);
     BugCheckParameter4 = _InterlockedExchangeAdd64((volatile signed __int64 *)(v6 - 48), 0xFFFFFFFFFFFFFFF1uLL) - 15;
     if ( BugCheckParameter4 <= 0 )
     {

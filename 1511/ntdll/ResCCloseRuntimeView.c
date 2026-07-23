@@ -11,65 +11,73 @@
  *     ResCFreeCultureMap @ 0x1800FAF48 (ResCFreeCultureMap.c)
  */
 
-_BOOL8 __fastcall ResCCloseRuntimeView(_QWORD *a1)
+_BOOL8 __fastcall ResCCloseRuntimeView(PVOID BaseAddress)
 {
   __int64 v1; // rbp
   int v3; // edi
-  int v5; // eax
-  __int64 v6; // rcx
-  BOOL v7; // edi
-  __int64 v8; // rsi
+  void *v5; // rcx
+  int v6; // eax
+  __int64 v7; // rcx
+  void *v8; // rcx
+  _QWORD *v9; // rcx
+  BOOL v10; // edi
+  __int64 v11; // rsi
+  void *v12; // rcx
 
   v1 = 0LL;
   v3 = 1;
-  if ( !a1 )
+  if ( !BaseAddress )
     return 0LL;
-  if ( a1[1] )
+  v5 = (void *)*((_QWORD *)BaseAddress + 1);
+  if ( v5 )
   {
-    v5 = ResCFreeCultureMap();
-    a1[1] = 0LL;
-    v3 = v5;
+    v6 = ResCFreeCultureMap(v5);
+    *((_QWORD *)BaseAddress + 1) = 0LL;
+    v3 = v6;
   }
-  v6 = a1[2];
-  if ( v6 )
+  v7 = *((_QWORD *)BaseAddress + 2);
+  if ( v7 )
   {
-    if ( *(_QWORD *)(v6 + 64) )
+    v8 = *(void **)(v7 + 64);
+    if ( v8 )
     {
-      ResCHitsFree();
-      *(_QWORD *)(a1[2] + 64LL) = 0LL;
+      ResCHitsFree(v8);
+      *(_QWORD *)(*((_QWORD *)BaseAddress + 2) + 64LL) = 0LL;
     }
-    v1 = *(unsigned int *)(*(_QWORD *)(a1[2] + 24LL) + 68LL);
-    v7 = (unsigned int)ResCDirectoryFree() && v3;
-    a1[2] = 0LL;
+    v9 = (_QWORD *)*((_QWORD *)BaseAddress + 2);
+    v1 = *(unsigned int *)(v9[3] + 68LL);
+    v10 = (unsigned int)ResCDirectoryFree(v9) && v3;
+    *((_QWORD *)BaseAddress + 2) = 0LL;
   }
   else
   {
-    v7 = 0;
+    v10 = 0;
   }
-  if ( a1[3] )
+  if ( *((_QWORD *)BaseAddress + 3) )
   {
     if ( (_DWORD)v1 )
     {
-      v8 = 0LL;
+      v11 = 0LL;
       do
       {
-        if ( *(_QWORD *)(v8 + a1[3]) )
+        v12 = *(void **)(v11 + *((_QWORD *)BaseAddress + 3));
+        if ( v12 )
         {
-          v7 = (unsigned int)ResCSegmentFree() && v7;
-          *(_QWORD *)(v8 + a1[3]) = 0LL;
+          v10 = (unsigned int)ResCSegmentFree(v12) && v10;
+          *(_QWORD *)(v11 + *((_QWORD *)BaseAddress + 3)) = 0LL;
         }
-        v8 += 8LL;
+        v11 += 8LL;
         --v1;
       }
       while ( v1 );
     }
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, a1[3]);
-    a1[3] = 0LL;
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, *((PVOID *)BaseAddress + 3));
+    *((_QWORD *)BaseAddress + 3) = 0LL;
   }
   else
   {
-    v7 = 0;
+    v10 = 0;
   }
-  RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (unsigned __int64)a1);
-  return v7;
+  RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, BaseAddress);
+  return v10;
 }

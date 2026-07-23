@@ -37,7 +37,7 @@ LABEL_4:
     goto LABEL_7;
   }
   if ( !a2 )
-    RtlRaiseStatus(0xC000009A);
+    RtlRaiseStatus(-1073741670);
 LABEL_7:
   KeReleaseGuardedMutex(&FsRtlCreateLockInfo);
   return v4;

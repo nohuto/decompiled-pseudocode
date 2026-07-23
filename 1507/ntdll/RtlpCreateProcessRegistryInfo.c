@@ -24,10 +24,10 @@
  *     RtlpInitializeLangRegistryInfo @ 0x180048F30 (RtlpInitializeLangRegistryInfo.c)
  */
 
-__int64 __fastcall RtlpCreateProcessRegistryInfo(__int64 *a1)
+__int64 __fastcall RtlpCreateProcessRegistryInfo(_QWORD *a1)
 {
-  __int64 v1; // rax
-  __int64 v2; // rbx
+  PVOID v1; // rax
+  PVOID v2; // rbx
   int v4; // edi
 
   v1 = g_RegInfo;

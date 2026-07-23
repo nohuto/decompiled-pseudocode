@@ -1,15 +1,15 @@
 /*
- * XREFs of ObpInitStackAndObjectTables @ 0x1408DE970
+ * XREFs of ObpInitStackAndObjectTables @ 0x1408DEAD0
  * Callers:
- *     ObpStartRuntimeStackTrace @ 0x1408DEFB8 (ObpStartRuntimeStackTrace.c)
- *     ObpInitStackTrace @ 0x140A709B0 (ObpInitStackTrace.c)
+ *     ObpStartRuntimeStackTrace @ 0x1408DF118 (ObpStartRuntimeStackTrace.c)
+ *     ObpInitStackTrace @ 0x140A719B0 (ObpInitStackTrace.c)
  * Callees:
- *     RtlRaiseStatus @ 0x14029AF80 (RtlRaiseStatus.c)
- *     RtlpInterlockedPushEntrySList @ 0x140407970 (RtlpInterlockedPushEntrySList.c)
- *     RtlpInterlockedFlushSList @ 0x1404079B0 (RtlpInterlockedFlushSList.c)
- *     memset @ 0x140414200 (memset.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     RtlRaiseStatus @ 0x140212910 (RtlRaiseStatus.c)
+ *     RtlpInterlockedPushEntrySList @ 0x140407B50 (RtlpInterlockedPushEntrySList.c)
+ *     RtlpInterlockedFlushSList @ 0x140407B90 (RtlpInterlockedFlushSList.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 ObpInitStackAndObjectTables()
@@ -20,7 +20,7 @@ __int64 ObpInitStackAndObjectTables()
   _WORD *v3; // rbx
   PVOID v4; // rax
   int v5; // ebx
-  struct _SLIST_ENTRY *v6; // rax
+  _SLIST_ENTRY *v6; // rax
   PSLIST_ENTRY v8; // rbx
   PSLIST_ENTRY v9; // rcx
   void *v10; // rcx
@@ -52,12 +52,12 @@ LABEL_14:
       }
       memset(v4, 0, 0xC88uLL);
       if ( ((unsigned __int8)&ObpWorkItemFreeList & 0xF) != 0 )
-        RtlRaiseStatus(0x80000002);
+        RtlRaiseStatus(-2147483646);
       v5 = 0;
       ObpWorkItemFreeList = 0LL;
       while ( 1 )
       {
-        v6 = (struct _SLIST_ENTRY *)ExAllocatePoolWithTag(NonPagedPoolNx, 0xB0uLL, 0x7452624Fu);
+        v6 = (_SLIST_ENTRY *)ExAllocatePoolWithTag(NonPagedPoolNx, 0xB0uLL, 0x7452624Fu);
         if ( !v6 )
           break;
         RtlpInterlockedPushEntrySList(&ObpWorkItemFreeList, v6);

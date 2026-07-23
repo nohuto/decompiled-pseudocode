@@ -8,12 +8,8 @@
  *     TppWorkPost @ 0x180038510 (TppWorkPost.c)
  */
 
-__int64 __fastcall TpPostWork(_PEB_LDR_DATA *a1)
+void __cdecl TpPostWork(PTP_WORK Work)
 {
-  __int64 result; // rax
-
-  result = TppWorkpValidateWork(a1, 0LL, 1LL);
-  if ( (_DWORD)result )
-    return TppWorkPost(a1);
-  return result;
+  if ( (unsigned int)TppWorkpValidateWork((_PEB_LDR_DATA *)Work, 0LL, 1LL) )
+    TppWorkPost(Work);
 }

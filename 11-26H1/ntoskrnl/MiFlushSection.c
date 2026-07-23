@@ -1,29 +1,29 @@
 /*
- * XREFs of MiFlushSection @ 0x1404ADA20
+ * XREFs of MiFlushSection @ 0x1404A70A8
  * Callers:
- *     MmFlushSection @ 0x14039AA40 (MmFlushSection.c)
- *     MiFlushSection @ 0x1404ADA20 (MiFlushSection.c)
- *     MiCleanSection @ 0x1404DF994 (MiCleanSection.c)
- *     MiDeleteCachedSubsection @ 0x1405108F0 (MiDeleteCachedSubsection.c)
- *     MmFlushVirtualMemory @ 0x140A5CF70 (MmFlushVirtualMemory.c)
+ *     MmFlushSection @ 0x14039C7A0 (MmFlushSection.c)
+ *     MiFlushSection @ 0x1404A70A8 (MiFlushSection.c)
+ *     MiCleanSection @ 0x1404D9074 (MiCleanSection.c)
+ *     MiDeleteCachedSubsection @ 0x14050A360 (MiDeleteCachedSubsection.c)
+ *     MmFlushVirtualMemory @ 0x140A69F30 (MmFlushVirtualMemory.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     IoDiskIoAttributionDereference @ 0x14021D5D4 (IoDiskIoAttributionDereference.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     ObFastDereferenceObjectDeferDelete @ 0x140264A20 (ObFastDereferenceObjectDeferDelete.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402BA1B0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiIncrementSubsectionViewCount @ 0x14030BE90 (MiIncrementSubsectionViewCount.c)
- *     MiEndingOffset @ 0x14036CB30 (MiEndingOffset.c)
- *     MiDecrementSubsectionViewCount @ 0x14036E5D0 (MiDecrementSubsectionViewCount.c)
- *     MiInsertUnusedSubsectionInternal @ 0x14036E724 (MiInsertUnusedSubsectionInternal.c)
- *     MiInitializeFlushPacket @ 0x14038CD08 (MiInitializeFlushPacket.c)
- *     MiFlushSubsection @ 0x1403C1390 (MiFlushSubsection.c)
- *     MiFlushSection @ 0x1404ADA20 (MiFlushSection.c)
- *     MiReturnCrossPartitionSectionCharges @ 0x1404D1140 (MiReturnCrossPartitionSectionCharges.c)
- *     MiWaitForAsynchronousFlushes @ 0x14050D4B0 (MiWaitForAsynchronousFlushes.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     IoDiskIoAttributionDereference @ 0x14021EF64 (IoDiskIoAttributionDereference.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     ObFastDereferenceObjectDeferDelete @ 0x140263F90 (ObFastDereferenceObjectDeferDelete.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiIncrementSubsectionViewCount @ 0x1402EDF10 (MiIncrementSubsectionViewCount.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140304E70 (KiLeaveCriticalRegionUnsafe.c)
+ *     MiEndingOffset @ 0x14036E8D0 (MiEndingOffset.c)
+ *     MiDecrementSubsectionViewCount @ 0x140370370 (MiDecrementSubsectionViewCount.c)
+ *     MiInsertUnusedSubsectionInternal @ 0x1403704C4 (MiInsertUnusedSubsectionInternal.c)
+ *     MiInitializeFlushPacket @ 0x14038EAB4 (MiInitializeFlushPacket.c)
+ *     MiFlushSubsection @ 0x1403CB290 (MiFlushSubsection.c)
+ *     MiFlushSection @ 0x1404A70A8 (MiFlushSection.c)
+ *     MiReturnCrossPartitionSectionCharges @ 0x1404CAB70 (MiReturnCrossPartitionSectionCharges.c)
+ *     MiWaitForAsynchronousFlushes @ 0x140506F20 (MiWaitForAsynchronousFlushes.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 MiFlushSection(__int64 a1, __int64 a2, ULONG_PTR a3, __int64 a4, ...)
@@ -295,7 +295,7 @@ LABEL_77:
       ObFastDereferenceObjectDeferDelete((signed __int64 *)(v46 + 64), v53, 0x63536D4Du);
       if ( v47 )
         MiReturnCrossPartitionSectionCharges(
-          *(_QWORD *)(stru_140E2EB88.ThreadLock + 8LL * (*(_DWORD *)(v46 + 60) & 0x3FF)),
+          *(_QWORD *)(stru_140E2ED08.ThreadLock + 8LL * (*(_DWORD *)(v46 + 60) & 0x3FF)),
           1LL,
           v47);
       if ( v56 )

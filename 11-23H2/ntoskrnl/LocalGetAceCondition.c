@@ -3,9 +3,9 @@
  * Callers:
  *     LocalConvertAclToString @ 0x14069D4D0 (LocalConvertAclToString.c)
  * Callees:
- *     RtlLengthSid @ 0x140227A40 (RtlLengthSid.c)
- *     LocalGetStringForRelativeAttribute @ 0x1409D5C1C (LocalGetStringForRelativeAttribute.c)
- *     LocalpGetStringForCondition @ 0x1409D6474 (LocalpGetStringForCondition.c)
+ *     RtlLengthSid @ 0x140227B50 (RtlLengthSid.c)
+ *     LocalGetStringForRelativeAttribute @ 0x1409D5E1C (LocalGetStringForRelativeAttribute.c)
+ *     LocalpGetStringForCondition @ 0x1409D6674 (LocalpGetStringForCondition.c)
  */
 
 __int64 __fastcall LocalGetAceCondition(

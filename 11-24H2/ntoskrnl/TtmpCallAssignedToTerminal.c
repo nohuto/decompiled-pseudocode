@@ -1,34 +1,32 @@
 /*
- * XREFs of TtmpCallAssignedToTerminal @ 0x140768D10
+ * XREFs of TtmpCallAssignedToTerminal @ 0x140768F30
  * Callers:
- *     TtmiSessionDeviceListWorker @ 0x140768A40 (TtmiSessionDeviceListWorker.c)
+ *     TtmiSessionDeviceListWorker @ 0x140768C60 (TtmiSessionDeviceListWorker.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     TtmpStartCallout @ 0x140769844 (TtmpStartCallout.c)
- *     TtmpStopCallout @ 0x1407699C4 (TtmpStopCallout.c)
- *     TtmiLogError @ 0x140903A9C (TtmiLogError.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     TtmpStartCallout @ 0x140769A64 (TtmpStartCallout.c)
+ *     TtmpStopCallout @ 0x140769BE4 (TtmpStopCallout.c)
+ *     TtmiLogError @ 0x14099E04C (TtmiLogError.c)
  */
 
 void __fastcall TtmpCallAssignedToTerminal(int a1, __int64 a2)
 {
   __int64 v2; // rdi
-  __int64 v4; // r8
-  __int64 v5; // r9
-  int v6; // ebx
-  int v7; // [rsp+28h] [rbp-40h]
-  _OWORD v8[2]; // [rsp+30h] [rbp-38h] BYREF
-  __int64 v9; // [rsp+50h] [rbp-18h]
+  int v4; // ebx
+  int v5; // [rsp+28h] [rbp-40h]
+  _OWORD v6[2]; // [rsp+30h] [rbp-38h] BYREF
+  __int64 v7; // [rsp+50h] [rbp-18h]
 
   v2 = *(_QWORD *)(a2 + 48);
   if ( v2 )
   {
-    v7 = *(_DWORD *)(a2 + 596);
-    memset(v8, 0, sizeof(v8));
-    v9 = 0LL;
-    TtmpStartCallout((unsigned int)v8, a1, a2, 1, v2, v7);
-    v6 = guard_dispatch_icall_no_overrides(*(_QWORD *)(a2 + 24), *(unsigned int *)(a2 + 596), v4, v5);
-    TtmpStopCallout(v8, (unsigned int)v6);
-    if ( v6 < 0 )
-      TtmiLogError("TtmpCallAssignedToTerminal", 2380LL, (unsigned int)v6, 0xFFFFFFFFLL);
+    v5 = *(_DWORD *)(a2 + 596);
+    memset(v6, 0, sizeof(v6));
+    v7 = 0LL;
+    TtmpStartCallout((unsigned int)v6, a1, a2, 1, v2, v5);
+    v4 = guard_dispatch_icall_no_overrides(*(_QWORD *)(a2 + 24), *(unsigned int *)(a2 + 596));
+    TtmpStopCallout(v6, (unsigned int)v4);
+    if ( v4 < 0 )
+      TtmiLogError("TtmpCallAssignedToTerminal", 2380LL, (unsigned int)v4, 0xFFFFFFFFLL);
   }
 }

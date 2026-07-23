@@ -1,14 +1,14 @@
 /*
- * XREFs of KsepRegistryQueryValue @ 0x1407BF4FC
+ * XREFs of KsepRegistryQueryValue @ 0x1407C255C
  * Callers:
- *     KsepDbQueryRegistryDeviceData @ 0x1409E5B5C (KsepDbQueryRegistryDeviceData.c)
+ *     KsepDbQueryRegistryDeviceData @ 0x1409D70DC (KsepDbQueryRegistryDeviceData.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     KsepPoolAllocatePaged @ 0x1404DE51C (KsepPoolAllocatePaged.c)
- *     KsepPoolFreePaged @ 0x1404E2A70 (KsepPoolFreePaged.c)
- *     RtlAssert @ 0x140619AB0 (RtlAssert.c)
- *     ZwQueryValueKey @ 0x1407236D0 (ZwQueryValueKey.c)
- *     memmove @ 0x14073D480 (memmove.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     KsepPoolAllocatePaged @ 0x1404D7BFC (KsepPoolAllocatePaged.c)
+ *     KsepPoolFreePaged @ 0x1404DC150 (KsepPoolFreePaged.c)
+ *     RtlAssert @ 0x14061CB00 (RtlAssert.c)
+ *     ZwQueryValueKey @ 0x1407282A0 (ZwQueryValueKey.c)
+ *     memmove @ 0x140742080 (memmove.c)
  */
 
 __int64 __fastcall KsepRegistryQueryValue(
@@ -39,35 +39,35 @@ __int64 __fastcall KsepRegistryQueryValue(
   if ( !KeyHandle )
   {
     v10 = ((unsigned __int8)_InterlockedExchangeAdd(
-                              (volatile signed __int32 *)&AlpcpMessageLogLock.PriorityFloorCounts[8],
+                              (volatile signed __int32 *)&AlpcpMessageLogLock.AbWaitEntryCount,
                               1u)
          + 1) & 0x3F;
-    *(_DWORD *)&AlpcpMessageLogLock.WaitBlockFill6[8 * v10 + 4] = -1073740768;
-    *((_DWORD *)&AlpcpMessageLogLock.WaitBlock[0].WaitListEntry.Flink + 2 * v10) = 263111;
-    if ( ((__int64)stru_140E66B30.StackBase & 4) != 0 )
+    *(&AlpcpMessageLogLock.Timer.DueTime.HighPart + 2 * v10) = -1073740768;
+    *(&AlpcpMessageLogLock.Timer.DueTime.LowPart + 2 * v10) = 263111;
+    if ( ((__int64)stru_140E66D40.StackBase & 4) != 0 )
       RtlAssert("KeyHandle != NULL", "minkernel\\ntos\\kshim\\kseregistry.c", 0x3C7u, 0LL);
   }
   if ( !a4 )
   {
     v11 = ((unsigned __int8)_InterlockedExchangeAdd(
-                              (volatile signed __int32 *)&AlpcpMessageLogLock.PriorityFloorCounts[8],
+                              (volatile signed __int32 *)&AlpcpMessageLogLock.AbWaitEntryCount,
                               1u)
          + 1) & 0x3F;
-    *(_DWORD *)&AlpcpMessageLogLock.WaitBlockFill6[8 * v11 + 4] = -1073740768;
-    *((_DWORD *)&AlpcpMessageLogLock.WaitBlock[0].WaitListEntry.Flink + 2 * v11) = 263112;
-    if ( ((__int64)stru_140E66B30.StackBase & 4) != 0 )
+    *(&AlpcpMessageLogLock.Timer.DueTime.HighPart + 2 * v11) = -1073740768;
+    *(&AlpcpMessageLogLock.Timer.DueTime.LowPart + 2 * v11) = 263112;
+    if ( ((__int64)stru_140E66D40.StackBase & 4) != 0 )
       RtlAssert("ValueBuffer != NULL", "minkernel\\ntos\\kshim\\kseregistry.c", 0x3C8u, 0LL);
   }
   v12 = a6;
   if ( !a6 )
   {
     v13 = ((unsigned __int8)_InterlockedExchangeAdd(
-                              (volatile signed __int32 *)&AlpcpMessageLogLock.PriorityFloorCounts[8],
+                              (volatile signed __int32 *)&AlpcpMessageLogLock.AbWaitEntryCount,
                               1u)
          + 1) & 0x3F;
-    *(_DWORD *)&AlpcpMessageLogLock.WaitBlockFill6[8 * v13 + 4] = -1073740768;
-    *((_DWORD *)&AlpcpMessageLogLock.WaitBlock[0].WaitListEntry.Flink + 2 * v13) = 263113;
-    if ( ((__int64)stru_140E66B30.StackBase & 4) != 0 )
+    *(&AlpcpMessageLogLock.Timer.DueTime.HighPart + 2 * v13) = -1073740768;
+    *(&AlpcpMessageLogLock.Timer.DueTime.LowPart + 2 * v13) = 263113;
+    if ( ((__int64)stru_140E66D40.StackBase & 4) != 0 )
       RtlAssert("ActualLength != NULL", "minkernel\\ntos\\kshim\\kseregistry.c", 0x3C9u, 0LL);
   }
   RtlInitUnicodeString(&DestinationString, SourceString);
@@ -113,13 +113,13 @@ __int64 __fastcall KsepRegistryQueryValue(
   {
     if ( v14 >= 0 )
     {
-      StackBase = (char)stru_140E66B30.StackBase;
+      StackBase = (char)stru_140E66D40.StackBase;
       v17 = ((unsigned __int8)_InterlockedExchangeAdd(
-                                (volatile signed __int32 *)&AlpcpMessageLogLock.PriorityFloorCounts[8],
+                                (volatile signed __int32 *)&AlpcpMessageLogLock.AbWaitEntryCount,
                                 1u)
            + 1) & 0x3F;
-      *(_DWORD *)&AlpcpMessageLogLock.WaitBlockFill6[8 * v17 + 4] = -1073740768;
-      *((_DWORD *)&AlpcpMessageLogLock.WaitBlock[0].WaitListEntry.Flink + 2 * v17) = 263131;
+      *(&AlpcpMessageLogLock.Timer.DueTime.HighPart + 2 * v17) = -1073740768;
+      *(&AlpcpMessageLogLock.Timer.DueTime.LowPart + 2 * v17) = 263131;
       if ( (StackBase & 4) != 0 )
         RtlAssert("!NT_SUCCESS(Status)", "minkernel\\ntos\\kshim\\kseregistry.c", 0x3DBu, 0LL);
     }

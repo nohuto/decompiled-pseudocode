@@ -1,16 +1,16 @@
 /*
- * XREFs of NtPrePrepareEnlistment @ 0x180164460
+ * XREFs of NtPrePrepareEnlistment @ 0x180162820
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 NtPrePrepareEnlistment()
+NTSTATUS __cdecl NtPrePrepareEnlistment(HANDLE EnlistmentHandle, PLARGE_INTEGER TmVirtualClock)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 319LL;
+  result = 319;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

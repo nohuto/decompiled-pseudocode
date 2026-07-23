@@ -1,19 +1,19 @@
 /*
- * XREFs of SymCryptMlDsaSkDecode @ 0x140573AF4
+ * XREFs of SymCryptMlDsaSkDecode @ 0x140572D4C
  * Callers:
- *     SymCryptMlDsakeySetValue @ 0x14055E310 (SymCryptMlDsakeySetValue.c)
+ *     SymCryptMlDsakeySetValue @ 0x140560834 (SymCryptMlDsakeySetValue.c)
  * Callees:
- *     SymCryptWipe @ 0x140556458 (SymCryptWipe.c)
- *     SymCryptMlDsaExpandA @ 0x140572788 (SymCryptMlDsaExpandA.c)
- *     SymCryptMlDsaPkEncode @ 0x140572FE0 (SymCryptMlDsaPkEncode.c)
- *     SymCryptMlDsaTemporariesAllocateAndInitialize @ 0x140573FA0 (SymCryptMlDsaTemporariesAllocateAndInitialize.c)
- *     SymCryptMlDsaVectorDecode @ 0x1405742F8 (SymCryptMlDsaVectorDecode.c)
- *     SymCryptMlDsaVectorNTT @ 0x14057463C (SymCryptMlDsaVectorNTT.c)
- *     SymCryptMlDsaVectorSetZero @ 0x140574748 (SymCryptMlDsaVectorSetZero.c)
- *     SymCryptMlDsakeyComputeT @ 0x1405747F8 (SymCryptMlDsakeyComputeT.c)
- *     SymCryptShake256 @ 0x1405749AC (SymCryptShake256.c)
- *     SymCryptCallbackFree @ 0x1407228C8 (SymCryptCallbackFree.c)
- *     memcmp @ 0x14073D750 (memcmp.c)
+ *     SymCryptWipe @ 0x1405588E8 (SymCryptWipe.c)
+ *     SymCryptMlDsaExpandA @ 0x140571968 (SymCryptMlDsaExpandA.c)
+ *     SymCryptMlDsaPkEncode @ 0x1405721EC (SymCryptMlDsaPkEncode.c)
+ *     SymCryptMlDsaTemporariesAllocateAndInitialize @ 0x140573204 (SymCryptMlDsaTemporariesAllocateAndInitialize.c)
+ *     SymCryptMlDsaVectorDecode @ 0x14057355C (SymCryptMlDsaVectorDecode.c)
+ *     SymCryptMlDsaVectorNTT @ 0x1405738A0 (SymCryptMlDsaVectorNTT.c)
+ *     SymCryptMlDsaVectorSetZero @ 0x1405739AC (SymCryptMlDsaVectorSetZero.c)
+ *     SymCryptMlDsakeyComputeT @ 0x140573A5C (SymCryptMlDsakeyComputeT.c)
+ *     SymCryptShake256 @ 0x140573C10 (SymCryptShake256.c)
+ *     SymCryptCallbackFree @ 0x140727498 (SymCryptCallbackFree.c)
+ *     memcmp @ 0x140742350 (memcmp.c)
  */
 
 __int64 __fastcall SymCryptMlDsaSkDecode(_OWORD *a1, __int64 a2, __int64 a3, __int64 a4)
@@ -23,11 +23,11 @@ __int64 __fastcall SymCryptMlDsaSkDecode(_OWORD *a1, __int64 a2, __int64 a3, __i
   __int64 v8; // rax
   unsigned int *v9; // r14
   __int64 *v10; // rax
-  _OWORD *v11; // r12
+  _OWORD *v11; // r15
   __int64 v12; // r13
-  unsigned int *v13; // r15
+  unsigned int *v13; // r12
   __int64 v14; // rax
-  unsigned __int8 *v15; // r8
+  _BYTE *v15; // r8
   __int128 v16; // xmm1
   __int128 v17; // xmm0
   __int128 v18; // xmm1
@@ -42,7 +42,7 @@ __int64 __fastcall SymCryptMlDsaSkDecode(_OWORD *a1, __int64 a2, __int64 a3, __i
   if ( a2 != *(_DWORD *)(v4 + 44) )
   {
     v7 = 32769;
-LABEL_14:
+LABEL_15:
     *(_QWORD *)(a4 + 54) = 0LL;
     *(_QWORD *)(a4 + 62) = 0LL;
     *(_QWORD *)(a4 + 70) = 0LL;
@@ -57,7 +57,7 @@ LABEL_14:
   if ( !v8 )
   {
     v7 = 32783;
-    goto LABEL_14;
+    goto LABEL_15;
   }
   v10 = *(__int64 **)(v8 + 272);
   v11 = (_OWORD *)*((_QWORD *)v9 + 37);
@@ -69,7 +69,7 @@ LABEL_14:
   *(_QWORD *)(a4 + 30) = 0LL;
   *(_QWORD *)(a4 + 38) = 0LL;
   *(_QWORD *)(a4 + 46) = 0LL;
-  v15 = *(unsigned __int8 **)(a4 + 184);
+  v15 = *(_BYTE **)(a4 + 184);
   v25 = v14;
   *(_OWORD *)(a4 + 86) = *a1;
   *(_OWORD *)(a4 + 102) = a1[1];
@@ -83,60 +83,63 @@ LABEL_14:
   v19 = a1 + 8;
   Buf2[2] = v17;
   Buf2[3] = v18;
-  SymCryptMlDsaExpandA((void *)(a4 + 86), 0x20uLL, v15);
-  v7 = SymCryptMlDsaVectorDecode(
-         v19,
-         *(unsigned __int8 *)(v4 + 23),
-         *(unsigned __int8 *)(v4 + 22),
-         *(_QWORD *)(a4 + 200));
+  v7 = SymCryptMlDsaExpandA((void *)(a4 + 86), 0x20uLL, v15);
   if ( !v7 )
   {
-    v20 = *(unsigned __int8 *)(v4 + 23);
-    v21 = (char *)v19 + ((unsigned __int64)(((unsigned int)v20 * **(unsigned __int8 **)(a4 + 200)) << 8) >> 3);
-    v7 = SymCryptMlDsaVectorDecode(v21, v20, *(unsigned __int8 *)(v4 + 22), *(_QWORD *)(a4 + 208));
+    v7 = SymCryptMlDsaVectorDecode(
+           v19,
+           *(unsigned __int8 *)(v4 + 23),
+           *(unsigned __int8 *)(v4 + 22),
+           *(_QWORD *)(a4 + 200));
     if ( !v7 )
     {
-      v7 = SymCryptMlDsaVectorDecode(
-             &v21[(32 * *(unsigned __int8 *)(v4 + 23) * (unsigned __int64)**(unsigned __int8 **)(a4 + 208)) & 0x1FFFFFFFFFFFFFFFLL],
-             13LL,
-             4096LL,
-             v13);
+      v20 = *(unsigned __int8 *)(v4 + 23);
+      v21 = (char *)v19 + ((unsigned __int64)(((unsigned int)v20 * **(unsigned __int8 **)(a4 + 200)) << 8) >> 3);
+      v7 = SymCryptMlDsaVectorDecode(v21, v20, *(unsigned __int8 *)(v4 + 22), *(_QWORD *)(a4 + 208));
       if ( !v7 )
       {
-        SymCryptMlDsaVectorNTT(*(_QWORD *)(a4 + 200));
-        SymCryptMlDsaVectorNTT(*(_QWORD *)(a4 + 208));
-        SymCryptMlDsakeyComputeT(
-          *(_QWORD *)(a4 + 184),
-          *(_QWORD *)(a4 + 200),
-          *(_QWORD *)(a4 + 208),
-          *(_QWORD *)(a4 + 216),
-          *(_QWORD *)(a4 + 192),
-          v12,
-          v25);
-        v22 = *(const void **)(a4 + 216);
-        if ( memcmp(v22, v13, v13[1]) )
-        {
-LABEL_9:
-          v7 = 32780;
-          goto LABEL_13;
-        }
-        SymCryptMlDsaVectorNTT(v22);
-        SymCryptMlDsaVectorNTT(*(_QWORD *)(a4 + 192));
-        v7 = SymCryptMlDsaPkEncode(a4, v11, *(unsigned int *)(v4 + 48));
+        v7 = SymCryptMlDsaVectorDecode(
+               &v21[(32 * *(unsigned __int8 *)(v4 + 23) * (unsigned __int64)**(unsigned __int8 **)(a4 + 208)) & 0x1FFFFFFFFFFFFFFFLL],
+               13LL,
+               4096LL,
+               v13);
         if ( !v7 )
         {
-          SymCryptShake256(v11, *(unsigned int *)(v4 + 48), a4 + 118, 64LL);
-          if ( memcmp((const void *)(a4 + 118), Buf2, 0x40uLL) )
-            goto LABEL_9;
-          *(_BYTE *)(a4 + 21) = 1;
+          SymCryptMlDsaVectorNTT(*(_QWORD *)(a4 + 200));
+          SymCryptMlDsaVectorNTT(*(_QWORD *)(a4 + 208));
+          SymCryptMlDsakeyComputeT(
+            *(_QWORD *)(a4 + 184),
+            *(_QWORD *)(a4 + 200),
+            *(_QWORD *)(a4 + 208),
+            *(_QWORD *)(a4 + 216),
+            *(_QWORD *)(a4 + 192),
+            v12,
+            v25);
+          v22 = *(const void **)(a4 + 216);
+          if ( memcmp(v22, v13, v13[1]) )
+          {
+LABEL_10:
+            v7 = 32780;
+            goto LABEL_14;
+          }
+          SymCryptMlDsaVectorNTT(v22);
+          SymCryptMlDsaVectorNTT(*(_QWORD *)(a4 + 192));
+          v7 = SymCryptMlDsaPkEncode(a4, v11, *(unsigned int *)(v4 + 48));
+          if ( !v7 )
+          {
+            SymCryptShake256(v11, *(unsigned int *)(v4 + 48), a4 + 118, 64LL);
+            if ( memcmp((const void *)(a4 + 118), Buf2, 0x40uLL) )
+              goto LABEL_10;
+            *(_BYTE *)(a4 + 21) = 1;
+          }
         }
       }
     }
   }
-LABEL_13:
+LABEL_14:
   SymCryptWipe((__int64)v9, *v9);
   SymCryptCallbackFree(v9);
   if ( v7 )
-    goto LABEL_14;
+    goto LABEL_15;
   return v7;
 }

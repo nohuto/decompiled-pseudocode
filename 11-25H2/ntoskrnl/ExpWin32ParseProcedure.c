@@ -20,7 +20,7 @@ __int64 __fastcall ExpWin32ParseProcedure(
         __int64 a9,
         __int64 a10)
 {
-  union _RTL_RUN_ONCE *Win32Callouts; // rax
+  _RTL_RUN_ONCE *Win32Callouts; // rax
   unsigned int v11; // r10d
   __int128 v13; // [rsp+30h] [rbp-39h] BYREF
   _DWORD *v14; // [rsp+40h] [rbp-29h]

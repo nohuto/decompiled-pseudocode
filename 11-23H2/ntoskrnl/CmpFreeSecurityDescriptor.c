@@ -1,16 +1,16 @@
 /*
- * XREFs of CmpFreeSecurityDescriptor @ 0x14070BFD0
+ * XREFs of CmpFreeSecurityDescriptor @ 0x14070C1E0
  * Callers:
- *     CmpCreateChild @ 0x1406D0F70 (CmpCreateChild.c)
- *     CmpFreeKeyByCell @ 0x14070B214 (CmpFreeKeyByCell.c)
- *     CmpCopySaclToVirtualKey @ 0x140A1B38C (CmpCopySaclToVirtualKey.c)
- *     CmpSyncKeyValues @ 0x140A22DD4 (CmpSyncKeyValues.c)
+ *     CmpCreateChild @ 0x1406D0FA0 (CmpCreateChild.c)
+ *     CmpFreeKeyByCell @ 0x14070B424 (CmpFreeKeyByCell.c)
+ *     CmpCopySaclToVirtualKey @ 0x140A1B63C (CmpCopySaclToVirtualKey.c)
+ *     CmpSyncKeyValues @ 0x140A23084 (CmpSyncKeyValues.c)
  * Callees:
- *     CmpDereferenceSecurityNode @ 0x140297450 (CmpDereferenceSecurityNode.c)
- *     HvpGetCellPaged @ 0x1406E0150 (HvpGetCellPaged.c)
- *     HvpReleaseCellPaged @ 0x1406E0260 (HvpReleaseCellPaged.c)
- *     HvpReleaseCellFlat @ 0x1407D9470 (HvpReleaseCellFlat.c)
- *     HvpGetCellFlat @ 0x1407FD9F0 (HvpGetCellFlat.c)
+ *     CmpDereferenceSecurityNode @ 0x1402976E0 (CmpDereferenceSecurityNode.c)
+ *     HvpGetCellPaged @ 0x1406E0180 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x1406E0290 (HvpReleaseCellPaged.c)
+ *     HvpReleaseCellFlat @ 0x1407D9740 (HvpReleaseCellFlat.c)
+ *     HvpGetCellFlat @ 0x1407FDCC0 (HvpGetCellFlat.c)
  */
 
 __int64 __fastcall CmpFreeSecurityDescriptor(ULONG_PTR BugCheckParameter3, ULONG_PTR a2)

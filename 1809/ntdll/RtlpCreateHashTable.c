@@ -1,34 +1,32 @@
 /*
- * XREFs of RtlpCreateHashTable @ 0x180077968
+ * XREFs of RtlpCreateHashTable @ 0x180077978
  * Callers:
- *     RtlCreateHashTable @ 0x180077950 (RtlCreateHashTable.c)
- *     RtlCreateHashTableEx @ 0x18008C510 (RtlCreateHashTableEx.c)
+ *     RtlCreateHashTable @ 0x180077960 (RtlCreateHashTable.c)
+ *     RtlCreateHashTableEx @ 0x18008C520 (RtlCreateHashTableEx.c)
  * Callees:
  *     RtlAllocateHeap @ 0x18000F2A0 (RtlAllocateHeap.c)
- *     RtlpInitializeSecondLevelDir @ 0x180077AD8 (RtlpInitializeSecondLevelDir.c)
- *     RtlpAllocateSecondLevelDir @ 0x180077AF8 (RtlpAllocateSecondLevelDir.c)
- *     RtlDeleteHashTable @ 0x18007F530 (RtlDeleteHashTable.c)
+ *     RtlpInitializeSecondLevelDir @ 0x180077AE8 (RtlpInitializeSecondLevelDir.c)
+ *     RtlpAllocateSecondLevelDir @ 0x180077B08 (RtlpAllocateSecondLevelDir.c)
+ *     RtlDeleteHashTable @ 0x18007F540 (RtlDeleteHashTable.c)
  *     memset @ 0x1800A7100 (memset.c)
  */
 
-char __fastcall RtlpCreateHashTable(_DWORD **a1, unsigned int a2, int a3, int a4)
+char __fastcall RtlpCreateHashTable(_RTL_DYNAMIC_HASH_TABLE **a1, unsigned int a2, unsigned int a3, int a4)
 {
   unsigned int v4; // ebp
-  _DWORD *Heap; // rbx
+  _RTL_DYNAMIC_HASH_TABLE *Heap; // rbx
   int v10; // esi
   __int64 v11; // rax
-  __int64 v12; // rdx
-  __int64 v13; // r8
-  __int64 v14; // r8
-  unsigned int v16; // ecx
-  int v17; // ebp
-  _QWORD *v18; // rax
-  _QWORD *v19; // rsi
-  __int64 v20; // rdi
+  void *v12; // r8
+  unsigned int v14; // ecx
+  int v15; // ebp
+  PVOID v16; // rax
+  PVOID v17; // rsi
+  __int64 v18; // rdi
   __int64 SecondLevelDir; // rax
-  __int64 v22; // rdx
-  __int64 v23; // r8
-  unsigned int v24; // [rsp+58h] [rbp+10h]
+  __int64 v20; // rdx
+  __int64 v21; // r8
+  unsigned int v22; // [rsp+58h] [rbp+10h]
 
   v4 = a2 - 1;
   if ( ((a2 - 1) & a2) != 0 || a2 - 128 > 0x7FFF00 )
@@ -37,58 +35,56 @@ char __fastcall RtlpCreateHashTable(_DWORD **a1, unsigned int a2, int a3, int a4
   v10 = 0;
   if ( !*a1 )
   {
-    Heap = (_DWORD *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, 40LL);
+    Heap = (_RTL_DYNAMIC_HASH_TABLE *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, 0x28uLL);
     if ( !Heap )
       return 0;
     v10 = 1;
   }
-  memset(Heap, 0, 0x28uLL);
-  Heap[3] = 0;
-  *Heap = a4 | v10;
-  Heap[2] = a2;
-  Heap[4] = v4;
-  Heap[1] = a3;
+  memset(Heap, 0, sizeof(_RTL_DYNAMIC_HASH_TABLE));
+  Heap->Pivot = 0;
+  Heap->Flags = a4 | v10;
+  Heap->TableSize = a2;
+  Heap->DivisorMask = v4;
+  Heap->Shift = a3;
   if ( a2 > 0x80 )
   {
-    _BitScanReverse(&v16, a2 + 127);
-    v24 = v16 - 7;
-    v17 = (a2 + 127) ^ (1 << v16);
-    v18 = (_QWORD *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, 128LL);
-    v19 = v18;
-    if ( v18 )
+    _BitScanReverse(&v14, a2 + 127);
+    v22 = v14 - 7;
+    v15 = (a2 + 127) ^ (1 << v14);
+    v16 = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, 0x80uLL);
+    v17 = v16;
+    if ( v16 )
     {
-      memset(v18, 0, 0x80uLL);
-      v20 = 0LL;
-      *((_QWORD *)Heap + 4) = v19;
+      memset(v16, 0, 0x80uLL);
+      v18 = 0LL;
+      Heap->Directory = v17;
       while ( 1 )
       {
-        SecondLevelDir = RtlpAllocateSecondLevelDir((unsigned int)v20);
-        v13 = SecondLevelDir;
+        SecondLevelDir = RtlpAllocateSecondLevelDir((unsigned int)v18);
         if ( !SecondLevelDir )
           break;
-        if ( (unsigned int)v20 >= v24 )
-          v22 = (unsigned int)(v17 + 1);
+        if ( (unsigned int)v18 >= v22 )
+          v20 = (unsigned int)(v15 + 1);
         else
-          v22 = (unsigned int)(1 << (v20 + 7));
-        RtlpInitializeSecondLevelDir(SecondLevelDir, v22);
-        v19[v20] = v23;
-        v20 = (unsigned int)(v20 + 1);
-        if ( (unsigned int)v20 > v24 )
+          v20 = (unsigned int)(1 << (v18 + 7));
+        RtlpInitializeSecondLevelDir(SecondLevelDir, v20);
+        *((_QWORD *)v17 + v18) = v21;
+        v18 = (unsigned int)(v18 + 1);
+        if ( (unsigned int)v18 > v22 )
           goto LABEL_9;
       }
     }
     goto LABEL_18;
   }
   v11 = RtlpAllocateSecondLevelDir(0LL);
-  v13 = v11;
   if ( !v11 )
   {
 LABEL_18:
-    RtlDeleteHashTable(Heap, v12, v13);
+    RtlDeleteHashTable(Heap);
     return 0;
   }
-  RtlpInitializeSecondLevelDir(v11, (unsigned int)Heap[2]);
-  *((_QWORD *)Heap + 4) = v14;
+  RtlpInitializeSecondLevelDir(v11, Heap->TableSize);
+  Heap->Directory = v12;
 LABEL_9:
   *a1 = Heap;
   return 1;

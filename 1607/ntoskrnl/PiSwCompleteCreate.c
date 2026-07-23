@@ -1,28 +1,28 @@
 /*
- * XREFs of PiSwCompleteCreate @ 0x1404C6A1C
+ * XREFs of PiSwCompleteCreate @ 0x140487650
  * Callers:
- *     PiSwPdoPnPDispatch @ 0x1403F1680 (PiSwPdoPnPDispatch.c)
+ *     PiSwPdoPnPDispatch @ 0x1403F0544 (PiSwPdoPnPDispatch.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     IofCompleteRequest @ 0x140053560 (IofCompleteRequest.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExReleaseResourceLite @ 0x140068940 (ExReleaseResourceLite.c)
- *     ObfReferenceObject @ 0x14006A060 (ObfReferenceObject.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     RtlStringCbLengthW @ 0x14009ED7C (RtlStringCbLengthW.c)
- *     RtlStringCbCopyW @ 0x1400C47BC (RtlStringCbCopyW.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     PiSwLock @ 0x1403F1A74 (PiSwLock.c)
- *     RtlFreeAnsiString @ 0x140458CF0 (RtlFreeAnsiString.c)
- *     PiSwPropertySet @ 0x140487AA0 (PiSwPropertySet.c)
- *     PiSwInterfaceCreate @ 0x1404C6888 (PiSwInterfaceCreate.c)
- *     PiSwFreeInterfaceList @ 0x1404C6C98 (PiSwFreeInterfaceList.c)
- *     PnpCopyDevPropertyArray @ 0x1404C70A4 (PnpCopyDevPropertyArray.c)
- *     _CmGetDeviceInterfaceClassGuid @ 0x1404F8A48 (_CmGetDeviceInterfaceClassGuid.c)
- *     PnpAllocatePWSTR @ 0x140501D70 (PnpAllocatePWSTR.c)
- *     PnpFreeDevPropertyArray @ 0x140502730 (PnpFreeDevPropertyArray.c)
- *     _CmGetDeviceInterfaceReferenceString @ 0x140528F14 (_CmGetDeviceInterfaceReferenceString.c)
- *     IoRegisterDeviceInterface @ 0x140540868 (IoRegisterDeviceInterface.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     IofCompleteRequest @ 0x1400530E0 (IofCompleteRequest.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExReleaseResourceLite @ 0x1400684C0 (ExReleaseResourceLite.c)
+ *     ObfReferenceObject @ 0x140069BE0 (ObfReferenceObject.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     RtlStringCbLengthW @ 0x140085E34 (RtlStringCbLengthW.c)
+ *     RtlStringCbCopyW @ 0x1400C265C (RtlStringCbCopyW.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     PiSwLock @ 0x1403F0938 (PiSwLock.c)
+ *     RtlFreeAnsiString @ 0x140457BC0 (RtlFreeAnsiString.c)
+ *     PiSwInterfaceCreate @ 0x140486FEC (PiSwInterfaceCreate.c)
+ *     PiSwFreeInterfaceList @ 0x1404878CC (PiSwFreeInterfaceList.c)
+ *     PnpCopyDevPropertyArray @ 0x140487E24 (PnpCopyDevPropertyArray.c)
+ *     _CmGetDeviceInterfaceClassGuid @ 0x1404DB9D4 (_CmGetDeviceInterfaceClassGuid.c)
+ *     PnpAllocatePWSTR @ 0x1404E4D00 (PnpAllocatePWSTR.c)
+ *     PnpFreeDevPropertyArray @ 0x1404E56C0 (PnpFreeDevPropertyArray.c)
+ *     PiSwPropertySet @ 0x140510214 (PiSwPropertySet.c)
+ *     _CmGetDeviceInterfaceReferenceString @ 0x140529454 (_CmGetDeviceInterfaceReferenceString.c)
+ *     IoRegisterDeviceInterface @ 0x140540DA8 (IoRegisterDeviceInterface.c)
  */
 
 void __fastcall PiSwCompleteCreate(struct _DEVICE_OBJECT *Object)
@@ -44,7 +44,7 @@ void __fastcall PiSwCompleteCreate(struct _DEVICE_OBJECT *Object)
   __int64 v16; // r9
   __int64 v17; // rcx
   __int64 v18; // r14
-  __int64 *j; // rdi
+  __int64 **j; // rdi
   __int64 **v20; // rcx
   __int64 **v21; // rax
   __int64 v22; // rcx
@@ -143,8 +143,8 @@ LABEL_15:
   if ( PWSTR >= 0 )
   {
     if ( v28 )
-      PWSTR = PiSwPropertySet(*(_QWORD *)(v4 + 8), 1u, v28, v25);
-    for ( j = v26; j != (__int64 *)&v26; j = (__int64 *)*j )
+      PWSTR = PiSwPropertySet(*(_QWORD *)(v4 + 8), 1LL, v28, (unsigned int)v25);
+    for ( j = (__int64 **)v26; j != &v26; j = (__int64 **)*j )
     {
       PWSTR = CmGetDeviceInterfaceClassGuid(v17, j[2], &InterfaceClassGuid);
       if ( PWSTR < 0 )
@@ -165,7 +165,7 @@ LABEL_15:
       PWSTR = IoRegisterDeviceInterface(v5, &InterfaceClassGuid, p_DestinationString, &UnicodeString);
       if ( PWSTR < 0 )
         break;
-      PWSTR = PiSwPropertySet(j[2], 3u, j[3], *((_DWORD *)j + 8));
+      PWSTR = PiSwPropertySet(j[2], 3LL, j[3], *((unsigned int *)j + 8));
       if ( PWSTR < 0 )
         break;
     }

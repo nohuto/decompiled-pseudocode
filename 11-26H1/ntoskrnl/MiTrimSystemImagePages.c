@@ -1,16 +1,16 @@
 /*
- * XREFs of MiTrimSystemImagePages @ 0x14030F0A4
+ * XREFs of MiTrimSystemImagePages @ 0x1402F1124
  * Callers:
- *     MiSetPagingOfDriver @ 0x14030F6BC (MiSetPagingOfDriver.c)
+ *     MiSetPagingOfDriver @ 0x1402F173C (MiSetPagingOfDriver.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiMakePrototypePteDirect @ 0x1402D27B0 (MiMakePrototypePteDirect.c)
- *     MiGetContainingPageTable @ 0x1402D9BF0 (MiGetContainingPageTable.c)
- *     MiReleasePageFileInfo @ 0x1402DAD50 (MiReleasePageFileInfo.c)
- *     MiBadShareCount @ 0x1402DC710 (MiBadShareCount.c)
- *     MiPfnShareCountIsZero @ 0x1402DC770 (MiPfnShareCountIsZero.c)
- *     MiMakeTransitionPte @ 0x14030DC00 (MiMakeTransitionPte.c)
- *     MiCaptureDirtyBitToPfn @ 0x14031AE30 (MiCaptureDirtyBitToPfn.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiMakePrototypePteDirect @ 0x1402B4570 (MiMakePrototypePteDirect.c)
+ *     MiGetContainingPageTable @ 0x1402BB9B0 (MiGetContainingPageTable.c)
+ *     MiReleasePageFileInfo @ 0x1402BCB10 (MiReleasePageFileInfo.c)
+ *     MiBadShareCount @ 0x1402BE4D0 (MiBadShareCount.c)
+ *     MiPfnShareCountIsZero @ 0x1402BE530 (MiPfnShareCountIsZero.c)
+ *     MiMakeTransitionPte @ 0x1402EFC80 (MiMakeTransitionPte.c)
+ *     MiCaptureDirtyBitToPfn @ 0x14031CE60 (MiCaptureDirtyBitToPfn.c)
  */
 
 __int64 __fastcall MiTrimSystemImagePages(unsigned __int64 *BugCheckParameter4, unsigned __int64 *a2, int a3)
@@ -54,7 +54,7 @@ __int64 __fastcall MiTrimSystemImagePages(unsigned __int64 *BugCheckParameter4, 
           KeYieldProcessorEx(&v15);
         while ( *(__int64 *)(v7 + 24) < 0 );
       }
-      v10 = *(struct _KEVENT **)(stru_140E2EB88.ThreadLock + 8 * ((*(_QWORD *)(v7 + 40) >> 43) & 0x3FFLL));
+      v10 = *(struct _KEVENT **)(stru_140E2ED08.ThreadLock + 8 * ((*(_QWORD *)(v7 + 40) >> 43) & 0x3FFLL));
       *(_BYTE *)(v7 + 35) &= ~8u;
       if ( (v6 & 0x40) != 0 || (v6 & 2) != 0 )
         v9 = MiCaptureDirtyBitToPfn(v7);
@@ -90,7 +90,7 @@ __int64 __fastcall MiTrimSystemImagePages(unsigned __int64 *BugCheckParameter4, 
       }
       _InterlockedAnd64((volatile signed __int64 *)(v7 + 24), 0x7FFFFFFFFFFFFFFFuLL);
       if ( v9 )
-        MiReleasePageFileInfo(v10, v9, 1);
+        MiReleasePageFileInfo(v10, v9, 1LL);
       ++v3;
     }
   }

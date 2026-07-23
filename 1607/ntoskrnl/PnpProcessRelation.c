@@ -1,35 +1,35 @@
 /*
- * XREFs of PnpProcessRelation @ 0x1404C47D8
+ * XREFs of PnpProcessRelation @ 0x1404861B0
  * Callers:
- *     PnpBuildRemovalRelationList @ 0x1404C473C (PnpBuildRemovalRelationList.c)
- *     PnpProcessRelation @ 0x1404C47D8 (PnpProcessRelation.c)
- *     PnpProcessDependencyRelations @ 0x1404C4960 (PnpProcessDependencyRelations.c)
- *     PnpProcessBusRelations @ 0x1404C4D60 (PnpProcessBusRelations.c)
+ *     PnpBuildRemovalRelationList @ 0x140485F74 (PnpBuildRemovalRelationList.c)
+ *     PnpProcessBusRelations @ 0x140486164 (PnpProcessBusRelations.c)
+ *     PnpProcessRelation @ 0x1404861B0 (PnpProcessRelation.c)
+ *     PnpProcessDependencyRelations @ 0x140486338 (PnpProcessDependencyRelations.c)
  * Callees:
- *     RtlCopyUnicodeString @ 0x14002DD60 (RtlCopyUnicodeString.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     IoAddTriageDumpDataBlock @ 0x14014B3B4 (IoAddTriageDumpDataBlock.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
+ *     RtlCopyUnicodeString @ 0x14002D8E0 (RtlCopyUnicodeString.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     IoAddTriageDumpDataBlock @ 0x14014B924 (IoAddTriageDumpDataBlock.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     PnpQueryDeviceRelations @ 0x1403F1B44 (PnpQueryDeviceRelations.c)
- *     PipClearDevNodeFlags @ 0x1403F3414 (PipClearDevNodeFlags.c)
- *     PnpProcessRelation @ 0x1404C47D8 (PnpProcessRelation.c)
- *     PnpProcessDependencyRelations @ 0x1404C4960 (PnpProcessDependencyRelations.c)
- *     PnpProcessBusRelations @ 0x1404C4D60 (PnpProcessBusRelations.c)
- *     IopAddRelationToList @ 0x1404C4DAC (IopAddRelationToList.c)
- *     PipIsDeviceInDeviceObjectList @ 0x1404C4E98 (PipIsDeviceInDeviceObjectList.c)
- *     IopCancelPendingEject @ 0x140649D40 (IopCancelPendingEject.c)
- *     IopMergeRelationLists @ 0x14064B9C8 (IopMergeRelationLists.c)
- *     IopRemoveRelationFromList @ 0x14064BB20 (IopRemoveRelationFromList.c)
+ *     PnpQueryDeviceRelations @ 0x1403F0A08 (PnpQueryDeviceRelations.c)
+ *     PipClearDevNodeFlags @ 0x1403F22D8 (PipClearDevNodeFlags.c)
+ *     IopAddRelationToList @ 0x140486010 (IopAddRelationToList.c)
+ *     PipIsDeviceInDeviceObjectList @ 0x1404860FC (PipIsDeviceInDeviceObjectList.c)
+ *     PnpProcessBusRelations @ 0x140486164 (PnpProcessBusRelations.c)
+ *     PnpProcessRelation @ 0x1404861B0 (PnpProcessRelation.c)
+ *     PnpProcessDependencyRelations @ 0x140486338 (PnpProcessDependencyRelations.c)
+ *     IopCancelPendingEject @ 0x140649E24 (IopCancelPendingEject.c)
+ *     IopMergeRelationLists @ 0x14064BAAC (IopMergeRelationLists.c)
+ *     IopRemoveRelationFromList @ 0x14064BC04 (IopRemoveRelationFromList.c)
  */
 
 __int64 __fastcall PnpProcessRelation(
         __int64 a1,
-        unsigned int a2,
+        int a2,
         __int64 a3,
         _DWORD *a4,
         PUNICODE_STRING DestinationString,
-        ULONG_PTR BugCheckParameter3)
+        _BYTE *BugCheckParameter3)
 {
   __int64 v6; // rbx
   int v9; // eax
@@ -74,7 +74,7 @@ __int64 __fastcall PnpProcessRelation(
   __int64 v48; // rax
   __int64 v49; // rcx
   __int64 *v50; // rsi
-  _QWORD *v51; // rcx
+  unsigned int **v51; // rcx
   __int64 v52; // rcx
   __int64 v53; // rcx
   _WORD *v54; // rcx
@@ -120,7 +120,7 @@ __int64 __fastcall PnpProcessRelation(
   int v94; // [rsp+38h] [rbp-30h]
   __int64 v95; // [rsp+38h] [rbp-30h]
   PVOID P[5]; // [rsp+40h] [rbp-28h] BYREF
-  unsigned int v98; // [rsp+80h] [rbp+18h]
+  int v98; // [rsp+80h] [rbp+18h]
 
   v98 = a3;
   v6 = 0LL;
@@ -143,14 +143,20 @@ __int64 __fastcall PnpProcessRelation(
     if ( (unsigned int)(v14 - 778) <= 1 )
       return 3221225488LL;
   }
-  v9 = IopAddRelationToList(BugCheckParameter3, *(_QWORD *)(a1 + 32), a3, 0LL);
+  v9 = IopAddRelationToList(BugCheckParameter3, *(_QWORD *)(a1 + 32), a3, 0);
   BugCheckParameter4 = v9;
   v90 = v9;
   if ( v9 )
   {
     if ( v9 == -1073741771 )
     {
-      LODWORD(BugCheckParameter4) = PnpProcessBusRelations(a1, a2, v98, a4, DestinationString, BugCheckParameter3);
+      LODWORD(BugCheckParameter4) = PnpProcessBusRelations(
+                                      a1,
+                                      a2,
+                                      v98,
+                                      (int)a4,
+                                      DestinationString,
+                                      (ULONG_PTR)BugCheckParameter3);
     }
     else if ( v9 != -1073741670 )
     {
@@ -244,7 +250,7 @@ __int64 __fastcall PnpProcessRelation(
           }
         }
       }
-      KeBugCheckEx(0xCAu, 7uLL, *(_QWORD *)(a1 + 32), BugCheckParameter3, BugCheckParameter4);
+      KeBugCheckEx(0xCAu, 7uLL, *(_QWORD *)(a1 + 32), (ULONG_PTR)BugCheckParameter3, BugCheckParameter4);
     }
     return (unsigned int)BugCheckParameter4;
   }
@@ -255,10 +261,10 @@ __int64 __fastcall PnpProcessRelation(
       goto LABEL_104;
     while ( 1 )
     {
-      v51 = (_QWORD *)v50[8];
+      v51 = (unsigned int **)v50[8];
       if ( v51 )
       {
-        if ( (unsigned __int8)PipIsDeviceInDeviceObjectList(*v51, *(_QWORD *)(a1 + 32), 0LL) )
+        if ( PipIsDeviceInDeviceObjectList(*v51, *(_QWORD *)(a1 + 32), 0LL) )
           break;
       }
       v50 = (__int64 *)*v50;
@@ -271,7 +277,7 @@ __int64 __fastcall PnpProcessRelation(
       IopCancelPendingEject(v50);
       IopMergeRelationLists(BugCheckParameter3, v50[8], 0LL);
       if ( v98 == 2 )
-        IopAddRelationToList(BugCheckParameter3, *(_QWORD *)(a1 + 32), 2LL, 0LL);
+        IopAddRelationToList(BugCheckParameter3, *(_QWORD *)(a1 + 32), 2LL, 0);
 LABEL_102:
       if ( v50 != &IopPendingEjects )
       {
@@ -381,7 +387,7 @@ LABEL_104:
     }
     return 3221225473LL;
   }
-  result = PnpProcessBusRelations(a1, a2, v98, a4, DestinationString, BugCheckParameter3);
+  result = PnpProcessBusRelations(a1, a2, v98, (int)a4, DestinationString, (ULONG_PTR)BugCheckParameter3);
   if ( (int)result < 0 )
     return result;
   v12 = *(_DWORD *)(a1 + 300);
@@ -487,7 +493,7 @@ LABEL_104:
           }
           KeBugCheckEx(0xCAu, 0xBuLL, BugCheckParameter4, 3uLL, 0LL);
         }
-        v93 = PnpProcessRelation(v18, a2, 0, (int)a4, DestinationString, BugCheckParameter3);
+        v93 = PnpProcessRelation(v18, a2, 0, (int)a4, DestinationString, (ULONG_PTR)BugCheckParameter3);
         ObfDereferenceObject((PVOID)BugCheckParameter4);
         LODWORD(BugCheckParameter4) = v93;
         v15 = P[0];
@@ -499,7 +505,7 @@ LABEL_104:
     }
   }
   v13 = a2;
-  if ( a2 - 5 > 1 )
+  if ( (unsigned int)(a2 - 5) > 1 )
   {
     if ( a2 )
     {
@@ -608,7 +614,7 @@ LABEL_104:
                 }
                 KeBugCheckEx(0xCAu, 0xBuLL, BugCheckParameter4, 1uLL, 0LL);
               }
-              v94 = PnpProcessRelation(v35, a2, 0, (int)a4, DestinationString, BugCheckParameter3);
+              v94 = PnpProcessRelation(v35, a2, 0, (int)a4, DestinationString, (ULONG_PTR)BugCheckParameter3);
               ObfDereferenceObject((PVOID)BugCheckParameter4);
               LODWORD(BugCheckParameter4) = v94;
               v15 = P[0];

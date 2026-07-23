@@ -1,15 +1,15 @@
 /*
- * XREFs of PsSuspendProcess @ 0x14088CCF0
+ * XREFs of PsSuspendProcess @ 0x14088DF50
  * Callers:
- *     PspFreezeProcessWorker @ 0x14088B640 (PspFreezeProcessWorker.c)
- *     NtSuspendProcess @ 0x14088CC70 (NtSuspendProcess.c)
+ *     PspFreezeProcessWorker @ 0x14088C8A0 (PspFreezeProcessWorker.c)
+ *     NtSuspendProcess @ 0x14088DED0 (NtSuspendProcess.c)
  * Callees:
  *     ExReleaseRundownProtection_0 @ 0x14004D2F0 (ExReleaseRundownProtection_0.c)
  *     ExAcquireRundownProtection_0 @ 0x14004D320 (ExAcquireRundownProtection_0.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     PsGetNextProcessThread @ 0x1406758E0 (PsGetNextProcessThread.c)
- *     PsSuspendThread @ 0x1406C2180 (PsSuspendThread.c)
- *     EtwTiLogSuspendResumeProcess @ 0x1408BC9B4 (EtwTiLogSuspendResumeProcess.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     PsGetNextProcessThread @ 0x140676AA0 (PsGetNextProcessThread.c)
+ *     PsSuspendThread @ 0x1406C3420 (PsSuspendThread.c)
+ *     EtwTiLogSuspendResumeProcess @ 0x1408BDC74 (EtwTiLogSuspendResumeProcess.c)
  */
 
 __int64 __fastcall PsSuspendProcess(__int64 a1)

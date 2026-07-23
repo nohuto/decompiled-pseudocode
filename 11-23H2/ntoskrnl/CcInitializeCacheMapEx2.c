@@ -1,9 +1,9 @@
 /*
- * XREFs of CcInitializeCacheMapEx2 @ 0x1403532E0
+ * XREFs of CcInitializeCacheMapEx2 @ 0x140353480
  * Callers:
  *     <none>
  * Callees:
- *     CcInitializeCacheMapInternal @ 0x14025E8D0 (CcInitializeCacheMapInternal.c)
+ *     CcInitializeCacheMapInternal @ 0x14025EB60 (CcInitializeCacheMapInternal.c)
  */
 
 void __fastcall CcInitializeCacheMapEx2(__int64 a1, __m128i *a2, char a3, _WORD *a4, __int64 a5, int a6)

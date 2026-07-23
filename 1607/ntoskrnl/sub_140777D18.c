@@ -5,11 +5,11 @@
  *     sub_14024FE34 @ 0x14024FE34 (sub_14024FE34.c)
  *     sub_140778D9C @ 0x140778D9C (sub_140778D9C.c)
  * Callees:
- *     sub_140158348 @ 0x140158348 (sub_140158348.c)
- *     sub_1401583AC @ 0x1401583AC (sub_1401583AC.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
+ *     sub_1401588B8 @ 0x1401588B8 (sub_1401588B8.c)
+ *     sub_14015891C @ 0x14015891C (sub_14015891C.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
  *     sub_140251E08 @ 0x140251E08 (sub_140251E08.c)
- *     MmImageSectionPagable @ 0x14047DC20 (MmImageSectionPagable.c)
+ *     MmImageSectionPagable @ 0x14047C974 (MmImageSectionPagable.c)
  */
 
 __int64 __fastcall sub_140777D18(__int64 a1, ULONG_PTR a2, char a3)
@@ -778,7 +778,7 @@ LABEL_151:
               while ( v72 < (unsigned int)v118 );
               v129 = v180;
               v130 = v178;
-              sub_1401583AC((__int64)v21, v178, v118);
+              sub_14015891C((__int64)v21, v178, v118);
               v131 = (char *)(v130 + 16);
               v132 = (_QWORD *)v129;
               v133 = (unsigned int)v118;
@@ -878,7 +878,7 @@ LABEL_210:
       *(_DWORD *)v156 = (v175 != 0) + 13;
       *(_QWORD *)(v156 + 8) = v40;
       if ( (v175 != 0) == 19 && (_DWORD)v144 )
-        sub_140158348(v148, v40, v144, v156 + 24);
+        sub_1401588B8(v148, v40, v144, v156 + 24);
       *(_DWORD *)(v156 + 16) = v144;
       *(_DWORD *)(v148 + 1504) += v144;
       v160 = (_QWORD *)v40;
@@ -923,7 +923,7 @@ LABEL_210:
       if ( (*(_DWORD *)(v148 + 1752) & 0x40000000) != 0 )
       {
         if ( (_DWORD)v144 )
-          sub_140158348(v148, v40, v144, v156 + 28);
+          sub_1401588B8(v148, v40, v144, v156 + 28);
       }
       *(_DWORD *)(v156 + 24) = 1;
       *(_QWORD *)a1 = v148;

@@ -1,21 +1,21 @@
 /*
- * XREFs of EtwTraceEvent @ 0x140468382
+ * XREFs of EtwTraceEvent @ 0x140468782
  * Callers:
- *     NtTraceEvent @ 0x1402578E0 (NtTraceEvent.c)
- *     IoWMIWriteEvent @ 0x1403A8480 (IoWMIWriteEvent.c)
+ *     NtTraceEvent @ 0x1402579A0 (NtTraceEvent.c)
+ *     IoWMIWriteEvent @ 0x1403A8660 (IoWMIWriteEvent.c)
  * Callees:
- *     EtwpOpenLogger @ 0x1402275F0 (EtwpOpenLogger.c)
- *     EtwpReleaseTraceBuffer @ 0x140227698 (EtwpReleaseTraceBuffer.c)
- *     PsGetCurrentServerSiloGlobals @ 0x14022D370 (PsGetCurrentServerSiloGlobals.c)
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     EtwpReserveTraceBuffer @ 0x140234100 (EtwpReserveTraceBuffer.c)
- *     ExReleaseRundownProtectionCacheAwareEx @ 0x140259CD0 (ExReleaseRundownProtectionCacheAwareEx.c)
- *     EtwpGetReserveTraceBufferStatus @ 0x14036AB98 (EtwpGetReserveTraceBufferStatus.c)
- *     EtwpSendTraceEvent @ 0x1403A2088 (EtwpSendTraceEvent.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     EtwpInvokeEventCallback @ 0x140600F98 (EtwpInvokeEventCallback.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00B60 (ExRaiseDatatypeMisalignment.c)
+ *     EtwpOpenLogger @ 0x140227700 (EtwpOpenLogger.c)
+ *     EtwpReleaseTraceBuffer @ 0x1402277A8 (EtwpReleaseTraceBuffer.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x14022D480 (PsGetCurrentServerSiloGlobals.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     EtwpReserveTraceBuffer @ 0x1402341D0 (EtwpReserveTraceBuffer.c)
+ *     ExReleaseRundownProtectionCacheAwareEx @ 0x140259F60 (ExReleaseRundownProtectionCacheAwareEx.c)
+ *     EtwpGetReserveTraceBufferStatus @ 0x14036AD38 (EtwpGetReserveTraceBufferStatus.c)
+ *     EtwpSendTraceEvent @ 0x1403A2268 (EtwpSendTraceEvent.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     EtwpInvokeEventCallback @ 0x1406014E8 (EtwpInvokeEventCallback.c)
+ *     ExRaiseDatatypeMisalignment @ 0x140A00DF0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall EtwTraceEvent(unsigned __int16 a1, unsigned __int16 *a2, unsigned int a3, int a4, char a5)
@@ -58,7 +58,7 @@ __int64 __fastcall EtwTraceEvent(unsigned __int16 a1, unsigned __int16 *a2, unsi
   int v41; // [rsp+6Ch] [rbp-18Ch]
   void *v42; // [rsp+70h] [rbp-188h]
   __int64 v43; // [rsp+78h] [rbp-180h]
-  __int64 v44[2]; // [rsp+80h] [rbp-178h] BYREF
+  LARGE_INTEGER v44[2]; // [rsp+80h] [rbp-178h] BYREF
   _DWORD *v45; // [rsp+90h] [rbp-168h]
   __int128 v46; // [rsp+98h] [rbp-160h] BYREF
   __int64 v47; // [rsp+A8h] [rbp-150h]
@@ -73,7 +73,7 @@ __int64 __fastcall EtwTraceEvent(unsigned __int16 a1, unsigned __int16 *a2, unsi
   v30[0] = 0;
   v33 = 0LL;
   v31 = 0;
-  v44[0] = 0LL;
+  v44[0].QuadPart = 0LL;
   v7 = a1;
   v34 = a1;
   if ( a5 )
@@ -86,7 +86,7 @@ __int64 __fastcall EtwTraceEvent(unsigned __int16 a1, unsigned __int16 *a2, unsi
     return 3221225480LL;
   v10 = EtwpOpenLogger(v7, v8, a5, v30);
   v11 = v10;
-  v44[1] = v10;
+  v44[1].QuadPart = v10;
   if ( !v10 )
     return 3221225480LL;
   v45 = (_DWORD *)(v10 + 12);
@@ -173,7 +173,7 @@ LABEL_37:
       v8 = v38;
       CurrentThread = KeGetCurrentThread();
       *(_DWORD *)v21 = a4 | v33;
-      *((_QWORD *)v21 + 2) = v44[0];
+      *((LARGE_INTEGER *)v21 + 2) = v44[0];
       *((_DWORD *)v21 + 10) = CurrentThread->SchedulerApc.SpareLong0;
       *((_DWORD *)v21 + 11) = CurrentThread->UserTime;
       *((_DWORD *)v21 + 2) = CurrentThread[1].CurrentRunTime;

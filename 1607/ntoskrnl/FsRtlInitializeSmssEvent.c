@@ -3,10 +3,10 @@
  * Callers:
  *     FsRtlInitSystem @ 0x1407B6884 (FsRtlInitSystem.c)
  * Callees:
- *     ExQueueWorkItem @ 0x14005FE5C (ExQueueWorkItem.c)
- *     NtCreateEvent @ 0x14041EDE0 (NtCreateEvent.c)
- *     ObReferenceObjectByHandle @ 0x140450D40 (ObReferenceObjectByHandle.c)
- *     NtClose @ 0x14050B0E0 (NtClose.c)
+ *     ExQueueWorkItem @ 0x14005F9DC (ExQueueWorkItem.c)
+ *     NtCreateEvent @ 0x14041DCA0 (NtCreateEvent.c)
+ *     ObReferenceObjectByHandle @ 0x14044FC10 (ObReferenceObjectByHandle.c)
+ *     NtClose @ 0x1404EE070 (NtClose.c)
  */
 
 NTSTATUS FsRtlInitializeSmssEvent()

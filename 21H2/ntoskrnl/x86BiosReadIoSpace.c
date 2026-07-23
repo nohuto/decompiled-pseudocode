@@ -1,12 +1,12 @@
 /*
- * XREFs of x86BiosReadIoSpace @ 0x1403996B0
+ * XREFs of x86BiosReadIoSpace @ 0x140399800
  * Callers:
- *     XmInOp @ 0x1403965D0 (XmInOp.c)
- *     XmInsOp @ 0x1404E6320 (XmInsOp.c)
+ *     XmInOp @ 0x140396720 (XmInOp.c)
+ *     XmInsOp @ 0x1404E6560 (XmInsOp.c)
  * Callees:
- *     x86BiosReadPciDataPort @ 0x1403CA518 (x86BiosReadPciDataPort.c)
- *     x86BiosReadCmosPort @ 0x1404BF250 (x86BiosReadCmosPort.c)
- *     x86BiosReadPciAddressPort @ 0x1404BF31C (x86BiosReadPciAddressPort.c)
+ *     x86BiosReadPciDataPort @ 0x1403CA6B8 (x86BiosReadPciDataPort.c)
+ *     x86BiosReadCmosPort @ 0x1404BF490 (x86BiosReadCmosPort.c)
+ *     x86BiosReadPciAddressPort @ 0x1404BF55C (x86BiosReadPciAddressPort.c)
  */
 
 unsigned __int32 __fastcall x86BiosReadIoSpace(unsigned int a1, __int16 a2)

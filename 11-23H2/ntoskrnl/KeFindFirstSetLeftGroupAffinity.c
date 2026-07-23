@@ -1,8 +1,8 @@
 /*
- * XREFs of KeFindFirstSetLeftGroupAffinity @ 0x140355730
+ * XREFs of KeFindFirstSetLeftGroupAffinity @ 0x1403558D0
  * Callers:
  *     KiIntPartGetLowestClassProcessorInMask @ 0x140221BB4 (KiIntPartGetLowestClassProcessorInMask.c)
- *     KeBuildLogicalProcessorSystemInformation @ 0x1407C47B4 (KeBuildLogicalProcessorSystemInformation.c)
+ *     KeBuildLogicalProcessorSystemInformation @ 0x1407C4A84 (KeBuildLogicalProcessorSystemInformation.c)
  * Callees:
  *     <none>
  */

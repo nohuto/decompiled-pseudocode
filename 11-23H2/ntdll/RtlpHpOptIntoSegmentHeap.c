@@ -24,10 +24,10 @@ __int64 __fastcall RtlpHpOptIntoSegmentHeap(unsigned __int16 *a1, _DWORD *a2)
   size_t v12; // r12
   const wchar_t *v13; // r13
   __int64 v14; // rax
-  _QWORD v16[2]; // [rsp+40h] [rbp-C0h] BYREF
+  _PS_PKG_CLAIM PkgClaim; // [rsp+40h] [rbp-C0h] BYREF
   _QWORD v17[24]; // [rsp+50h] [rbp-B0h] BYREF
-  wchar_t String1[16]; // [rsp+110h] [rbp+10h] BYREF
-  wchar_t v19[128]; // [rsp+130h] [rbp+30h] BYREF
+  WCHAR String1[16]; // [rsp+110h] [rbp+10h] BYREF
+  WCHAR PackageFullName[128]; // [rsp+130h] [rbp+30h] BYREF
 
   v2 = NtCurrentPeb();
   v17[0] = L"svchost.exe";
@@ -58,14 +58,14 @@ __int64 __fastcall RtlpHpOptIntoSegmentHeap(unsigned __int16 *a1, _DWORD *a2)
   v17[23] = L"rdpclip.exe";
   if ( (RtlGetSuiteMask() & 0x10000) != 0 )
     return 1;
-  if ( (int)RtlQueryActivationContextApplicationSettings(
-              0LL,
-              0LL,
-              L"http://schemas.microsoft.com/SMI/2020/WindowsSettings",
-              L"heapType",
-              String1,
-              0xFuLL,
-              0LL) >= 0
+  if ( RtlQueryActivationContextApplicationSettings(
+         0,
+         0LL,
+         (PWSTR)L"http://schemas.microsoft.com/SMI/2020/WindowsSettings",
+         (PWSTR)L"heapType",
+         String1,
+         0xFuLL,
+         0LL) >= 0
     && !wcsnicmp(String1, L"SegmentHeap", 0xFuLL) )
   {
     v5 = 1;
@@ -75,8 +75,8 @@ __int64 __fastcall RtlpHpOptIntoSegmentHeap(unsigned __int16 *a1, _DWORD *a2)
   if ( (v2->BitField & 0x10) != 0 )
   {
     v5 = 1;
-    if ( (int)RtlQueryPackageClaims(-4, 0LL, 0LL, 0LL, 0LL, 0LL, (__int64)v16, 0LL) >= 0 )
-      return (v16[0] & 0x8000) == 0;
+    if ( RtlQueryPackageClaims((HANDLE)0xFFFFFFFFFFFFFFFCLL, 0LL, 0LL, 0LL, 0LL, 0LL, &PkgClaim, 0LL) >= 0 )
+      return (PkgClaim.Flags & 0x8000) == 0;
   }
   else
   {
@@ -97,9 +97,9 @@ __int64 __fastcall RtlpHpOptIntoSegmentHeap(unsigned __int16 *a1, _DWORD *a2)
       if ( !v6 || (v9 = i + 1, i == (_WORD *)-2LL) )
       {
 LABEL_24:
-        v16[0] = 256LL;
-        if ( (int)RtlQueryPackageIdentity(-4, (int)v19, (int)v16, 0, 0LL, 0LL) >= 0
-          && !wcsnicmp(v19, L"DefaultBrowser_NOPUBLISHERID", 0x1DuLL) )
+        PkgClaim = (_PS_PKG_CLAIM)256LL;
+        if ( RtlQueryPackageIdentity((HANDLE)0xFFFFFFFFFFFFFFFCLL, PackageFullName, (PSIZE_T)&PkgClaim, 0LL, 0LL, 0LL) >= 0
+          && !wcsnicmp(PackageFullName, L"DefaultBrowser_NOPUBLISHERID", 0x1DuLL) )
         {
           return 1;
         }

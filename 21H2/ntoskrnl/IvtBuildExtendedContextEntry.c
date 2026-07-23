@@ -1,8 +1,8 @@
 /*
- * XREFs of IvtBuildExtendedContextEntry @ 0x1404DF86C
+ * XREFs of IvtBuildExtendedContextEntry @ 0x1404DFAAC
  * Callers:
- *     IvtUpdateExtendedContextEntry @ 0x1404E0D70 (IvtUpdateExtendedContextEntry.c)
- *     IvtInitializeIommu @ 0x1409A9950 (IvtInitializeIommu.c)
+ *     IvtUpdateExtendedContextEntry @ 0x1404E0FB0 (IvtUpdateExtendedContextEntry.c)
+ *     IvtInitializeIommu @ 0x1409AA880 (IvtInitializeIommu.c)
  * Callees:
  *     <none>
  */

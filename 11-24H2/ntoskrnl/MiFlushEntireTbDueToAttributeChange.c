@@ -1,30 +1,30 @@
 /*
- * XREFs of MiFlushEntireTbDueToAttributeChange @ 0x1403AE894
+ * XREFs of MiFlushEntireTbDueToAttributeChange @ 0x14039D0A4
  * Callers:
- *     MiChangePageAttribute @ 0x14021F58C (MiChangePageAttribute.c)
- *     MiCopyPage @ 0x1402254C0 (MiCopyPage.c)
- *     MiChangePageAttributeBatch @ 0x1402668E4 (MiChangePageAttributeBatch.c)
- *     MiReferenceIoPages @ 0x140283108 (MiReferenceIoPages.c)
- *     MiFlushCacheForAttributeChange @ 0x1403AE6F8 (MiFlushCacheForAttributeChange.c)
- *     MiValidateInPage @ 0x140436770 (MiValidateInPage.c)
- *     MiRemovePhysicalMemoryBatchComplete @ 0x14066E884 (MiRemovePhysicalMemoryBatchComplete.c)
- *     MiDeleteStaleCacheMaps @ 0x140675880 (MiDeleteStaleCacheMaps.c)
- *     MiIoPfnTreeExclusionCompatible @ 0x140675F9C (MiIoPfnTreeExclusionCompatible.c)
- *     MiMakeIoRangePermanent @ 0x140676394 (MiMakeIoRangePermanent.c)
- *     MiCombiningInProgress @ 0x14068549C (MiCombiningInProgress.c)
- *     MiRemovePhysicalMemory @ 0x1407E9DAC (MiRemovePhysicalMemory.c)
- *     MiValidateSectionCreate @ 0x140957B50 (MiValidateSectionCreate.c)
- *     MiInitializeCacheFlushing @ 0x140C5A2D8 (MiInitializeCacheFlushing.c)
+ *     MiReferenceIoPages @ 0x140238698 (MiReferenceIoPages.c)
+ *     MiChangePageAttribute @ 0x14024C2DC (MiChangePageAttribute.c)
+ *     MiCopyPage @ 0x140252870 (MiCopyPage.c)
+ *     MiFlushCacheForAttributeChange @ 0x14039CF08 (MiFlushCacheForAttributeChange.c)
+ *     MiChangePageAttributeBatch @ 0x1403A8860 (MiChangePageAttributeBatch.c)
+ *     MiValidateInPage @ 0x1404291F0 (MiValidateInPage.c)
+ *     MiRemovePhysicalMemoryBatchComplete @ 0x14066FA58 (MiRemovePhysicalMemoryBatchComplete.c)
+ *     MiDeleteStaleCacheMaps @ 0x140676A50 (MiDeleteStaleCacheMaps.c)
+ *     MiIoPfnTreeExclusionCompatible @ 0x14067716C (MiIoPfnTreeExclusionCompatible.c)
+ *     MiMakeIoRangePermanent @ 0x140677564 (MiMakeIoRangePermanent.c)
+ *     MiCombiningInProgress @ 0x1406865CC (MiCombiningInProgress.c)
+ *     MiRemovePhysicalMemory @ 0x1407EA37C (MiRemovePhysicalMemory.c)
+ *     MiValidateSectionCreate @ 0x14093C5D8 (MiValidateSectionCreate.c)
+ *     MiInitializeCacheFlushing @ 0x140C5C468 (MiInitializeCacheFlushing.c)
  * Callees:
- *     HvlFlushTbAllPartitions @ 0x1403AEB30 (HvlFlushTbAllPartitions.c)
- *     KiPreprocessFlushTb @ 0x1403AEBC0 (KiPreprocessFlushTb.c)
- *     KiFlushAddressSpaceTb @ 0x1403AFCAC (KiFlushAddressSpaceTb.c)
- *     KxFlushEntireTb @ 0x1403B07A4 (KxFlushEntireTb.c)
- *     KxFlushNonGlobalTb @ 0x1403B0E50 (KxFlushNonGlobalTb.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     KiSetUserTbFlushPending @ 0x1406AB3E0 (KiSetUserTbFlushPending.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     HvlFlushTbAllPartitions @ 0x14039D340 (HvlFlushTbAllPartitions.c)
+ *     KiPreprocessFlushTb @ 0x14039D3D0 (KiPreprocessFlushTb.c)
+ *     KiFlushAddressSpaceTb @ 0x14039E4BC (KiFlushAddressSpaceTb.c)
+ *     KxFlushEntireTb @ 0x14039EFB4 (KxFlushEntireTb.c)
+ *     KxFlushNonGlobalTb @ 0x14039F660 (KxFlushNonGlobalTb.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiSetUserTbFlushPending @ 0x1406AC380 (KiSetUserTbFlushPending.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 MiFlushEntireTbDueToAttributeChange()
@@ -43,7 +43,7 @@ __int64 MiFlushEntireTbDueToAttributeChange()
   unsigned __int8 v11; // [rsp+40h] [rbp+8h] BYREF
   char v12; // [rsp+48h] [rbp+10h] BYREF
 
-  ++dword_140E2DB50;
+  ++dword_140E2DC90;
   HvlFlushTbAllPartitions();
   v12 = 0;
   LOBYTE(v0) = 1;
@@ -105,7 +105,7 @@ __int64 MiFlushEntireTbDueToAttributeChange()
       LOBYTE(Process) = CurrentIrql;
       KiRaiseIrqlProcessIrqlFlags(Process, 15LL);
     }
-    guard_dispatch_icall_no_overrides(ExpSvmIommuSystemContext, 0LL, 0LL, v6);
+    guard_dispatch_icall_no_overrides(ExpSvmIommuSystemContext, 0LL);
     if ( KiIrqlFlags )
     {
       LOBYTE(v8) = CurrentIrql;

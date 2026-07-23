@@ -1,9 +1,9 @@
 /*
- * XREFs of SshSessionManagerTraceDirtyTransition @ 0x1407E3E48
+ * XREFs of SshSessionManagerTraceDirtyTransition @ 0x1407E9278
  * Callers:
- *     PopDiagTraceDirtyTransition @ 0x140CD1D84 (PopDiagTraceDirtyTransition.c)
+ *     PopDiagTraceDirtyTransition @ 0x140CD7F2C (PopDiagTraceDirtyTransition.c)
  * Callees:
- *     SshpSessionManagerSendControlEvent @ 0x140B2FF48 (SshpSessionManagerSendControlEvent.c)
+ *     SshpSessionManagerSendControlEvent @ 0x140B31D28 (SshpSessionManagerSendControlEvent.c)
  */
 
 __int64 __fastcall SshSessionManagerTraceDirtyTransition(__int64 a1)
@@ -20,41 +20,41 @@ __int64 __fastcall SshSessionManagerTraceDirtyTransition(__int64 a1)
   int v11; // [rsp+188h] [rbp+88h] BYREF
 
   v8 = a1;
-  v7[0] = &stru_140E66FF0.ReadOperationCount;
+  v7[0] = &stru_140E67200.WaitBlock[3].Object;
   v7[1] = 4LL;
-  v7[2] = &stru_140E66FF0.WriteOperationCount;
-  v7[4] = &stru_140E66FF0.OtherOperationCount;
-  v7[6] = &stru_140E66FF0.ReadTransferCount;
-  v7[8] = &stru_140E66FF0.WriteTransferCount;
-  v10 = LOBYTE(stru_140E66FF0.QueuedScb->MinQuotaCycleTarget) >> 4;
+  v7[2] = &stru_140E67200.WaitBlock[3].SparePtr;
+  v7[4] = &stru_140E67200.512;
+  v7[6] = &stru_140E67200.QueueListEntry;
+  v7[8] = &stru_140E67200.QueueListEntry.Blink;
+  v10 = LOBYTE(stru_140E67200.Process->Header.WaitListHead.Flink) >> 4;
   v7[10] = &v10;
-  v7[14] = (char *)&stru_140E66FF0.AbWaitObject + 4;
-  v7[16] = stru_140E66FF0.TracingPrivate;
-  v1 = (LOBYTE(stru_140E66FF0.QueuedScb->MinQuotaCycleTarget) >> 1) & 1;
+  v7[14] = (char *)&stru_140E67200.Affinity + 4;
+  v7[16] = &stru_140E67200.UserAffinityPrimaryGroup;
+  v1 = (LOBYTE(stru_140E67200.Process->Header.WaitListHead.Flink) >> 1) & 1;
   v7[3] = 8LL;
   v11 = v1;
   v7[18] = &v11;
-  v7[20] = (char *)&stru_140E66FF0.QueuedScb->MinQuotaCycleTarget + 4;
-  v7[22] = *(_QWORD *)&stru_140E66FF0.ThreadTimerDelay + 24LL;
-  LOBYTE(v1) = BYTE6(stru_140E66FF0.QueuedScb->MinQuotaCycleTarget) & 0xF;
+  v7[20] = (char *)&stru_140E67200.Process->Header.WaitListHead.Flink + 4;
+  v7[22] = &stru_140E67200.UserAffinity->StaticBitmap[2];
+  LOBYTE(v1) = BYTE6(stru_140E67200.Process->Header.WaitListHead.Flink) & 0xF;
   v7[5] = 8LL;
   LOBYTE(v8) = v1;
   v7[24] = &v8;
-  v2 = (BYTE6(stru_140E66FF0.QueuedScb->MinQuotaCycleTarget) >> 5) & 1;
+  v2 = (BYTE6(stru_140E67200.Process->Header.WaitListHead.Flink) >> 5) & 1;
   v7[7] = 8LL;
   v5 = v2;
   v7[26] = &v5;
-  v3 = (*(unsigned __int8 *)(*(_QWORD *)&stru_140E66FF0.ThreadTimerDelay + 1LL) >> 4) & 1;
+  v3 = (HIBYTE(stru_140E67200.UserAffinity->Count) >> 4) & 1;
   v7[9] = 8LL;
   v6 = v3;
   v7[28] = &v6;
-  v7[30] = *(_QWORD *)&stru_140E66FF0.ThreadTimerDelay + 3LL;
-  v7[32] = *(_QWORD *)&stru_140E66FF0.ThreadTimerDelay + 4LL;
-  v9 = BYTE3(stru_140E66FF0.QueuedScb->MinQuotaCycleTarget) >> 6;
+  v7[30] = (char *)&stru_140E67200.UserAffinity->Size + 1;
+  v7[32] = &stru_140E67200.UserAffinity->Reserved;
+  v9 = BYTE3(stru_140E67200.Process->Header.WaitListHead.Flink) >> 6;
   v7[34] = &v9;
-  v7[36] = &stru_140E66FF0.AbWaitObject;
+  v7[36] = &stru_140E67200.Affinity;
   v7[11] = 4LL;
-  v7[12] = stru_140E66FF0.QueuedScb;
+  v7[12] = stru_140E67200.Process;
   v7[13] = 8LL;
   v7[15] = 4LL;
   v7[17] = 1LL;

@@ -1,11 +1,11 @@
 /*
- * XREFs of _sinput_s @ 0x1403E2294
+ * XREFs of _sinput_s @ 0x1403E2474
  * Callers:
- *     _snscanf_s @ 0x1403DECE0 (_snscanf_s.c)
- *     sscanf_s @ 0x1403DF7A0 (sscanf_s.c)
+ *     _snscanf_s @ 0x1403DEEC0 (_snscanf_s.c)
+ *     sscanf_s @ 0x1403DF980 (sscanf_s.c)
  * Callees:
- *     xHalTimerWatchdogStop @ 0x14036E3C0 (xHalTimerWatchdogStop.c)
- *     _input_s @ 0x1403E19D4 (_input_s.c)
+ *     xHalTimerWatchdogStop @ 0x14036E560 (xHalTimerWatchdogStop.c)
+ *     _input_s @ 0x1403E1BB4 (_input_s.c)
  */
 
 __int64 __fastcall sinput_s(char *a1, unsigned __int64 a2, unsigned __int8 *a3, __int64 a4)

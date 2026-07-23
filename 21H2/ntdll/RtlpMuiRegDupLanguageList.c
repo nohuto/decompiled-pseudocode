@@ -4,10 +4,10 @@
  *     RtlGetThreadPreferredUILanguages @ 0x180035CA0 (RtlGetThreadPreferredUILanguages.c)
  *     RtlSetThreadPreferredUILanguages2 @ 0x18003EC00 (RtlSetThreadPreferredUILanguages2.c)
  *     RtlSetThreadPreferredUILanguages @ 0x18003EC50 (RtlSetThreadPreferredUILanguages.c)
- *     RtlpDupTebLanguageList @ 0x1800F0588 (RtlpDupTebLanguageList.c)
+ *     RtlpDupTebLanguageList @ 0x1800F0548 (RtlpDupTebLanguageList.c)
  * Callees:
  *     RtlpMuiRegCreateLanguageList @ 0x1800389BC (RtlpMuiRegCreateLanguageList.c)
- *     memmove @ 0x1800A44C0 (memmove.c)
+ *     memmove @ 0x1800A4480 (memmove.c)
  */
 
 __int64 __fastcall RtlpMuiRegDupLanguageList(__int64 a1)

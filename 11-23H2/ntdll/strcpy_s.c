@@ -1,7 +1,7 @@
 /*
  * XREFs of strcpy_s @ 0x18009AB90
  * Callers:
- *     RtlIncrementCorrelationVector @ 0x180109A90 (RtlIncrementCorrelationVector.c)
+ *     RtlIncrementCorrelationVector @ 0x180109A60 (RtlIncrementCorrelationVector.c)
  * Callees:
  *     _invalid_parameter @ 0x18008EEB8 (_invalid_parameter.c)
  */

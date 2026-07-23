@@ -1,25 +1,25 @@
 /*
- * XREFs of NtCreateKeyTransacted @ 0x1404E0B28
+ * XREFs of NtCreateKeyTransacted @ 0x1404C412C
  * Callers:
  *     <none>
  * Callees:
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExAcquireRundownProtection @ 0x1400D3ED0 (ExAcquireRundownProtection.c)
- *     ExReleaseRundownProtection @ 0x1400D3F00 (ExReleaseRundownProtection.c)
- *     CmpTransDereferenceTransaction @ 0x1403FF128 (CmpTransDereferenceTransaction.c)
- *     ObReferenceObjectByHandle @ 0x140450D40 (ObReferenceObjectByHandle.c)
- *     CmCreateKey @ 0x140464100 (CmCreateKey.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExAcquireRundownProtection @ 0x1400D1D70 (ExAcquireRundownProtection.c)
+ *     ExReleaseRundownProtection @ 0x1400D1DA0 (ExReleaseRundownProtection.c)
+ *     CmpTransDereferenceTransaction @ 0x1403FDFE8 (CmpTransDereferenceTransaction.c)
+ *     ObReferenceObjectByHandle @ 0x14044FC10 (ObReferenceObjectByHandle.c)
+ *     CmCreateKey @ 0x140462FD0 (CmCreateKey.c)
  */
 
-__int64 __fastcall NtCreateKeyTransacted(
-        HANDLE *a1,
-        int a2,
-        ULONG_PTR a3,
-        __int64 a4,
-        __int128 *a5,
-        int a6,
-        HANDLE Handle,
-        _DWORD *a8)
+NTSTATUS __cdecl NtCreateKeyTransacted(
+        PHANDLE KeyHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        ULONG TitleIndex,
+        PUNICODE_STRING Class,
+        ULONG CreateOptions,
+        HANDLE TransactionHandle,
+        PULONG Disposition)
 {
   struct _KTHREAD *CurrentThread; // rax
   __int64 v12; // rdx
@@ -32,7 +32,7 @@ __int64 __fastcall NtCreateKeyTransacted(
   __int64 v19; // rdx
   __int64 v20; // r8
   __int64 v21; // r9
-  int Key; // edi
+  NTSTATUS Key; // edi
   PVOID Object; // [rsp+40h] [rbp-18h] BYREF
   PVOID v25; // [rsp+48h] [rbp-10h] BYREF
 
@@ -41,10 +41,10 @@ __int64 __fastcall NtCreateKeyTransacted(
   if ( !ExAcquireRundownProtection(&CmpShutdownRundown) )
   {
     KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread(), v12, v13, v14);
-    return (unsigned int)-1073741431;
+    return -1073741431;
   }
   v15 = ObReferenceObjectByHandle(
-          Handle,
+          TransactionHandle,
           4u,
           CmRegistryTransactionType,
           KeGetCurrentThread()->PreviousMode,
@@ -55,7 +55,7 @@ __int64 __fastcall NtCreateKeyTransacted(
   if ( v15 == -1073741788 )
   {
     v18 = ObReferenceObjectByHandle(
-            Handle,
+            TransactionHandle,
             4u,
             (POBJECT_TYPE)TmTransactionObjectType,
             KeGetCurrentThread()->PreviousMode,
@@ -70,11 +70,19 @@ __int64 __fastcall NtCreateKeyTransacted(
     v17 = (unsigned __int64)Object | 1;
 LABEL_5:
     if ( Key >= 0 )
-      Key = CmCreateKey(a1, a2, a3, v16, a5, a6, a8, v17);
+      Key = CmCreateKey(
+              KeyHandle,
+              DesiredAccess,
+              (ULONG_PTR)ObjectAttributes,
+              v16,
+              (__int128 *)Class,
+              CreateOptions,
+              Disposition,
+              v17);
   }
   if ( v17 )
     CmpTransDereferenceTransaction(v17);
   ExReleaseRundownProtection(&CmpShutdownRundown);
   KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread(), v19, v20, v21);
-  return (unsigned int)Key;
+  return Key;
 }

@@ -1,19 +1,19 @@
 /*
- * XREFs of PopFxIdleWorkerTail @ 0x1400C1860
+ * XREFs of PopFxIdleWorkerTail @ 0x1400BF6F0
  * Callers:
- *     PoFxCompleteIdleCondition @ 0x1400ACCA4 (PoFxCompleteIdleCondition.c)
- *     PopFxIdleWorker @ 0x1400C178C (PopFxIdleWorker.c)
+ *     PoFxCompleteIdleCondition @ 0x1400AB20C (PoFxCompleteIdleCondition.c)
+ *     PopFxIdleWorker @ 0x1400BF61C (PopFxIdleWorker.c)
  * Callees:
- *     PopFxProcessWork @ 0x1400C124C (PopFxProcessWork.c)
- *     PopFxActivateComponentWorker @ 0x1400C1660 (PopFxActivateComponentWorker.c)
- *     PopFxAddRefDevice @ 0x1400C16F4 (PopFxAddRefDevice.c)
- *     PopDiagTraceFxComponentLogicalCondition @ 0x1400C19EC (PopDiagTraceFxComponentLogicalCondition.c)
- *     PopFxCompleteComponentActivation @ 0x1400C1A64 (PopFxCompleteComponentActivation.c)
- *     PoFxIdleComponent @ 0x1400C1AF8 (PoFxIdleComponent.c)
- *     PpmInterlockedUpdateTimeNoFence @ 0x1400C1C90 (PpmInterlockedUpdateTimeNoFence.c)
- *     PopPluginComponentActive @ 0x1400C215C (PopPluginComponentActive.c)
- *     KeReleaseSpinLock @ 0x1400E9A70 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1400EFE30 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PopFxProcessWork @ 0x1400BF0DC (PopFxProcessWork.c)
+ *     PopFxActivateComponentWorker @ 0x1400BF4F0 (PopFxActivateComponentWorker.c)
+ *     PopFxAddRefDevice @ 0x1400BF584 (PopFxAddRefDevice.c)
+ *     PopDiagTraceFxComponentLogicalCondition @ 0x1400BF87C (PopDiagTraceFxComponentLogicalCondition.c)
+ *     PopFxCompleteComponentActivation @ 0x1400BF8F4 (PopFxCompleteComponentActivation.c)
+ *     PoFxIdleComponent @ 0x1400BF988 (PoFxIdleComponent.c)
+ *     PpmInterlockedUpdateTimeNoFence @ 0x1400BFB20 (PpmInterlockedUpdateTimeNoFence.c)
+ *     PopPluginComponentActive @ 0x1400BFFEC (PopPluginComponentActive.c)
+ *     KeReleaseSpinLock @ 0x1400EB600 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1400EDCB0 (KeAcquireSpinLockRaiseToDpc.c)
  */
 
 void __fastcall PopFxIdleWorkerTail(_QWORD *BugCheckParameter2, unsigned int a2, int *a3)

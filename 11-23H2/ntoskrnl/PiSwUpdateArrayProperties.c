@@ -1,12 +1,12 @@
 /*
- * XREFs of PiSwUpdateArrayProperties @ 0x14079C958
+ * XREFs of PiSwUpdateArrayProperties @ 0x14079CB48
  * Callers:
- *     PiSwIrpPropertySet @ 0x14079C6F8 (PiSwIrpPropertySet.c)
- *     PiSwIrpInterfaceRegister @ 0x14081AD94 (PiSwIrpInterfaceRegister.c)
- *     PiSwIrpInterfacePropertySet @ 0x14081B124 (PiSwIrpInterfacePropertySet.c)
+ *     PiSwIrpPropertySet @ 0x14079C8E8 (PiSwIrpPropertySet.c)
+ *     PiSwIrpInterfaceRegister @ 0x14081B064 (PiSwIrpInterfaceRegister.c)
+ *     PiSwIrpInterfacePropertySet @ 0x14081B3F4 (PiSwIrpInterfacePropertySet.c)
  * Callees:
- *     _wcsicmp @ 0x1403D9A50 (_wcsicmp.c)
- *     memmove @ 0x140435700 (memmove.c)
+ *     _wcsicmp @ 0x1403D9C30 (_wcsicmp.c)
+ *     memmove @ 0x140435B00 (memmove.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

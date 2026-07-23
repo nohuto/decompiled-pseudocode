@@ -1,14 +1,14 @@
 /*
- * XREFs of PsConvertToGuiThread @ 0x1406AAFA0
+ * XREFs of PsConvertToGuiThread @ 0x1406AC240
  * Callers:
- *     KiConvertToGuiThread @ 0x1401C06A0 (KiConvertToGuiThread.c)
+ *     KiConvertToGuiThread @ 0x1401C0800 (KiConvertToGuiThread.c)
  * Callees:
- *     MmSessionGetWin32Callouts @ 0x140088A60 (MmSessionGetWin32Callouts.c)
- *     SeCaptureAtomTableCallout @ 0x140125578 (SeCaptureAtomTableCallout.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     ExCallCallBack @ 0x1405F4BA4 (ExCallCallBack.c)
- *     PsQuerySectionSignatureInformation @ 0x1406AB0F0 (PsQuerySectionSignatureInformation.c)
- *     EtwTimLogProhibitWin32kSystemCalls @ 0x1408BD368 (EtwTimLogProhibitWin32kSystemCalls.c)
+ *     MmSessionGetWin32Callouts @ 0x140088A50 (MmSessionGetWin32Callouts.c)
+ *     SeCaptureAtomTableCallout @ 0x140125648 (SeCaptureAtomTableCallout.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     ExCallCallBack @ 0x1405F5BA4 (ExCallCallBack.c)
+ *     PsQuerySectionSignatureInformation @ 0x1406AC390 (PsQuerySectionSignatureInformation.c)
+ *     EtwTimLogProhibitWin32kSystemCalls @ 0x1408BE628 (EtwTimLogProhibitWin32kSystemCalls.c)
  */
 
 __int64 PsConvertToGuiThread()
@@ -21,9 +21,9 @@ __int64 PsConvertToGuiThread()
   __int64 v5; // rdx
   __int64 v6; // rcx
   char v7; // al
-  union _RTL_RUN_ONCE *Win32Callouts; // rax
+  _RTL_RUN_ONCE *Win32Callouts; // rax
   int v9; // esi
-  union _RTL_RUN_ONCE *v10; // rax
+  _RTL_RUN_ONCE *v10; // rax
   int v11; // edi
   _KPROCESS *v12; // [rsp+20h] [rbp-28h] BYREF
   int v13; // [rsp+28h] [rbp-20h]
@@ -49,12 +49,12 @@ __int64 PsConvertToGuiThread()
   v13 = 1;
   if ( (int)PsQuerySectionSignatureInformation(Process, &v16) >= 0 )
   {
-    v7 = (char)qword_14040DDA0;
-    if ( qword_14040DDA0 )
+    v7 = (char)qword_14040EE00;
+    if ( qword_14040EE00 )
     {
       LOBYTE(v6) = v16;
       LOBYTE(v5) = 12;
-      v7 = qword_14040DDA0(v6, v5);
+      v7 = qword_14040EE00(v6, v5);
       v4 = v13;
     }
     v13 = ((unsigned __int8)v4 ^ (unsigned __int8)(2 * v7)) & 2 ^ v4;

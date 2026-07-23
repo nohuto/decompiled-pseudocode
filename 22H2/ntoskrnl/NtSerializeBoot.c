@@ -7,7 +7,7 @@
  *     SeSinglePrivilegeCheck @ 0x140627A60 (SeSinglePrivilegeCheck.c)
  */
 
-NTSTATUS NtSerializeBoot()
+NTSTATUS NtSerializeBoot(void)
 {
   if ( KeGetCurrentThread()->PreviousMode != 1 )
     return -1073741790;

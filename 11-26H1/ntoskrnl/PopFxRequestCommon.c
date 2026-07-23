@@ -1,10 +1,10 @@
 /*
- * XREFs of PopFxRequestCommon @ 0x1406059C0
+ * XREFs of PopFxRequestCommon @ 0x1406084C0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     PpmIdleAllocateVetoReasons @ 0x1407C96B4 (PpmIdleAllocateVetoReasons.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     PpmIdleAllocateVetoReasons @ 0x1407CC754 (PpmIdleAllocateVetoReasons.c)
  */
 
 __int64 __fastcall PopFxRequestCommon(int a1, __int64 a2)

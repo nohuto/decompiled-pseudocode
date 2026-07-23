@@ -1,12 +1,12 @@
 /*
- * XREFs of VerifierKeReleaseInStackQueuedSpinLockFromDpcLevelCommon @ 0x1409DB180
+ * XREFs of VerifierKeReleaseInStackQueuedSpinLockFromDpcLevelCommon @ 0x1409DC180
  * Callers:
- *     VerifierKeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1409DB140 (VerifierKeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     VerifierKeReleaseInStackQueuedSpinLockFromDpcLevelNoReboot @ 0x1409DB1F0 (VerifierKeReleaseInStackQueuedSpinLockFromDpcLevelNoReboot.c)
+ *     VerifierKeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1409DC140 (VerifierKeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     VerifierKeReleaseInStackQueuedSpinLockFromDpcLevelNoReboot @ 0x1409DC1F0 (VerifierKeReleaseInStackQueuedSpinLockFromDpcLevelNoReboot.c)
  * Callees:
- *     KeAreInterruptsEnabled @ 0x1403506D0 (KeAreInterruptsEnabled.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     VerifierBugCheckIfAppropriate @ 0x1409D0D54 (VerifierBugCheckIfAppropriate.c)
+ *     KeAreInterruptsEnabled @ 0x14035B420 (KeAreInterruptsEnabled.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     VerifierBugCheckIfAppropriate @ 0x1409D1D54 (VerifierBugCheckIfAppropriate.c)
  */
 
 __int64 __fastcall VerifierKeReleaseInStackQueuedSpinLockFromDpcLevelCommon(ULONG_PTR BugCheckParameter3)

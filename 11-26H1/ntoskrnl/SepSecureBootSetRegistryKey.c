@@ -1,13 +1,13 @@
 /*
- * XREFs of SepSecureBootSetRegistryKey @ 0x140CDE1B0
+ * XREFs of SepSecureBootSetRegistryKey @ 0x140CE4548
  * Callers:
- *     SeSecureBootRegisterPolicy @ 0x140CDDE10 (SeSecureBootRegisterPolicy.c)
+ *     SeSecureBootRegisterPolicy @ 0x140CE41A8 (SeSecureBootRegisterPolicy.c)
  * Callees:
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwCreateKey @ 0x140723790 (ZwCreateKey.c)
- *     ZwSetValueKey @ 0x140723FF0 (ZwSetValueKey.c)
- *     RtlFreeAnsiString @ 0x140A007C0 (RtlFreeAnsiString.c)
- *     RtlStringFromGUID @ 0x140A3DEC0 (RtlStringFromGUID.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwCreateKey @ 0x140728360 (ZwCreateKey.c)
+ *     ZwSetValueKey @ 0x140728BC0 (ZwSetValueKey.c)
+ *     RtlStringFromGUID @ 0x1409F98E0 (RtlStringFromGUID.c)
+ *     RtlFreeAnsiString @ 0x140A169F0 (RtlFreeAnsiString.c)
  */
 
 __int64 __fastcall SepSecureBootSetRegistryKey(__int64 a1)
@@ -24,7 +24,7 @@ __int64 __fastcall SepSecureBootSetRegistryKey(__int64 a1)
   Handle = 0LL;
   memset(&ObjectAttributes, 0, 44);
   GuidString = 0LL;
-  if ( (RtlpBootStatHandleLock.SchedulerApcFill3[4] & 8) == 0 && !a1 )
+  if ( (RtlpBootStatHandleLock.SchedulerApcFill3[20] & 8) == 0 && !a1 )
   {
     v2 = 0;
     goto LABEL_14;
@@ -38,17 +38,17 @@ __int64 __fastcall SepSecureBootSetRegistryKey(__int64 a1)
   if ( v2 >= 0 )
   {
     ObjectAttributes.RootDirectory = KeyHandle;
-    ObjectAttributes.ObjectName = (PUNICODE_STRING)&qword_14000D6D0;
+    ObjectAttributes.ObjectName = (PUNICODE_STRING)&qword_14000D968;
     ObjectAttributes.Length = 48;
     ObjectAttributes.Attributes = 576;
     *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
     v2 = ZwCreateKey(&Handle, 0x20006u, &ObjectAttributes, 0, 0LL, 1u, 0LL);
     if ( v2 >= 0 )
     {
-      if ( (RtlpBootStatHandleLock.SchedulerApcFill3[4] & 8) != 0 )
+      if ( (RtlpBootStatHandleLock.SchedulerApcFill3[20] & 8) != 0 )
       {
-        Data = RtlpBootStatHandleLock.SchedulerApcFill3[4] & 1;
-        v2 = ZwSetValueKey(Handle, (PUNICODE_STRING)&stru_14000D6A0, 0, 4u, &Data, 4u);
+        Data = RtlpBootStatHandleLock.SchedulerApcFill3[20] & 1;
+        v2 = ZwSetValueKey(Handle, (PUNICODE_STRING)&stru_14000D978, 0, 4u, &Data, 4u);
         if ( v2 < 0 )
           goto LABEL_14;
         if ( Data )
@@ -59,9 +59,9 @@ __int64 __fastcall SepSecureBootSetRegistryKey(__int64 a1)
         v2 = RtlStringFromGUID((const GUID *const)(a1 + 4), &GuidString);
         if ( v2 >= 0 )
         {
-          v2 = ZwSetValueKey(Handle, (PUNICODE_STRING)&stru_14000D6B0, 0, 1u, GuidString.Buffer, GuidString.Length + 2);
+          v2 = ZwSetValueKey(Handle, (PUNICODE_STRING)&stru_14000D988, 0, 1u, GuidString.Buffer, GuidString.Length + 2);
           if ( v2 >= 0 )
-            v2 = ZwSetValueKey(Handle, (PUNICODE_STRING)&stru_14000D6E0, 0, 4u, (PVOID)(a1 + 20), 4u);
+            v2 = ZwSetValueKey(Handle, (PUNICODE_STRING)&stru_14000D998, 0, 4u, (PVOID)(a1 + 20), 4u);
         }
       }
     }

@@ -1,5 +1,5 @@
 /*
- * XREFs of NtLockVirtualMemory @ 0x18009F7F0
+ * XREFs of NtLockVirtualMemory @ 0x18009F7B0
  * Callers:
  *     RtlExtendMemoryZone @ 0x180001A70 (RtlExtendMemoryZone.c)
  *     RtlLockMemoryZone @ 0x18005EA20 (RtlLockMemoryZone.c)
@@ -10,11 +10,11 @@
  *     <none>
  */
 
-__int64 NtLockVirtualMemory()
+NTSTATUS __cdecl NtLockVirtualMemory(HANDLE ProcessHandle, PVOID *BaseAddress, PSIZE_T RegionSize, ULONG MapType)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 270LL;
+  result = 270;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

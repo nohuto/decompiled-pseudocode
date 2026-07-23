@@ -6,9 +6,15 @@
  *     <none>
  */
 
-__int64 __fastcall ZwReadVirtualMemoryEx(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwReadVirtualMemoryEx(
+        HANDLE ProcessHandle,
+        PVOID BaseAddress,
+        PVOID Buffer,
+        SIZE_T BufferSize,
+        PSIZE_T NumberOfBytesRead,
+        ULONG Flags)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(ProcessHandle);
 }

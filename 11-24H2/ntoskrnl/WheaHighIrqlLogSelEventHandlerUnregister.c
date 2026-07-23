@@ -1,24 +1,24 @@
 /*
- * XREFs of WheaHighIrqlLogSelEventHandlerUnregister @ 0x14065E010
+ * XREFs of WheaHighIrqlLogSelEventHandlerUnregister @ 0x14065C7E0
  * Callers:
  *     <none>
  * Callees:
- *     WheapHighIrqlLogSelEventHandlerAcquireLock @ 0x14065E3A8 (WheapHighIrqlLogSelEventHandlerAcquireLock.c)
+ *     WheapHighIrqlLogSelEventHandlerAcquireLock @ 0x14065CB78 (WheapHighIrqlLogSelEventHandlerAcquireLock.c)
  */
 
 __int64 __fastcall WheaHighIrqlLogSelEventHandlerUnregister(__int64 a1)
 {
   __int64 result; // rax
-  __int64 v2; // r9
+  struct _LIST_ENTRY *v2; // r9
 
-  if ( (_DWORD)WheapHighIrqlLogSelHandler )
+  if ( WheapDispatchPtr.DeviceLock.Header.LockNV )
   {
     LOBYTE(a1) = 1;
     result = WheapHighIrqlLogSelEventHandlerAcquireLock(a1);
-    *((_QWORD *)&WheapHighIrqlLogSelHandler + 1) = v2;
-    qword_140EF9A10 = v2;
-    LODWORD(WheapHighIrqlLogSelHandler) = v2;
-    _InterlockedExchange((_DWORD *)&WheapHighIrqlLogSelHandler + 1, v2);
+    WheapDispatchPtr.DeviceLock.Header.WaitListHead.Flink = v2;
+    WheapDispatchPtr.DeviceLock.Header.WaitListHead.Blink = v2;
+    WheapDispatchPtr.DeviceLock.Header.LockNV = (int)v2;
+    _InterlockedExchange(&WheapDispatchPtr.DeviceLock.Header.SignalState, (__int32)v2);
   }
   return result;
 }

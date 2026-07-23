@@ -26,7 +26,12 @@
  *     _Wow64SystemServiceCall@0 @ 0x4B308730 (_Wow64SystemServiceCall@0.c)
  */
 
-int __stdcall ZwProtectVirtualMemory(int a1, int a2, int a3, int a4, int a5)
+NTSTATUS __cdecl ZwProtectVirtualMemory(
+        HANDLE ProcessHandle,
+        PVOID *BaseAddress,
+        PSIZE_T RegionSize,
+        ULONG NewProtect,
+        PULONG OldProtect)
 {
   return Wow64SystemServiceCall();
 }

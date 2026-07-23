@@ -24,13 +24,13 @@ __int64 __fastcall SepAdjustAccessStateForConstraints(__int64 a1, __int64 a2, ch
   int v16; // eax
   int v17; // edi
   int v18; // ebx
-  __int64 v19; // r15
-  __int64 TokenTrustLevel; // rax
+  void *v19; // r15
+  void *TokenTrustLevel; // rax
   int v21; // ecx
   __int64 v22; // [rsp+30h] [rbp-38h] BYREF
-  char v23; // [rsp+88h] [rbp+20h] BYREF
+  BOOLEAN DominatesTrust; // [rsp+88h] [rbp+20h] BYREF
 
-  v23 = 0;
+  DominatesTrust = 0;
   v22 = 0LL;
   v7 = -1;
   v8 = -1;
@@ -63,11 +63,11 @@ __int64 __fastcall SepAdjustAccessStateForConstraints(__int64 a1, __int64 a2, ch
     v15 = TrustLabelAce;
     if ( TrustLabelAce )
     {
-      v19 = TrustLabelAce + 8;
+      v19 = (void *)(TrustLabelAce + 8);
       if ( TrustLabelAce == -8
-        || (TokenTrustLevel = SepLocateTokenTrustLevel((__int64 *)(a4 + 32)),
-            RtlSidDominatesForTrust(TokenTrustLevel, v19, &v23),
-            !v23) )
+        || (TokenTrustLevel = (void *)SepLocateTokenTrustLevel((__int64 *)(a4 + 32)),
+            RtlSidDominatesForTrust(TokenTrustLevel, v19, &DominatesTrust),
+            !DominatesTrust) )
       {
         v8 = *(_DWORD *)(v15 + 4);
       }

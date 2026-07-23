@@ -1,9 +1,9 @@
 /*
- * XREFs of Feature_TrustedLaunch__private_IsEnabledDeviceUsageNoInline @ 0x14063ACC8
+ * XREFs of Feature_TrustedLaunch__private_IsEnabledDeviceUsageNoInline @ 0x14063DD90
  * Callers:
- *     SeQuerySigningPolicyWorker @ 0x140A2A0A4 (SeQuerySigningPolicyWorker.c)
+ *     SeQuerySigningPolicyWorker @ 0x140A3D144 (SeQuerySigningPolicyWorker.c)
  * Callees:
- *     Feature_TrustedLaunch__private_IsEnabledFallback @ 0x14063AD04 (Feature_TrustedLaunch__private_IsEnabledFallback.c)
+ *     Feature_TrustedLaunch__private_IsEnabledFallback @ 0x14063DDCC (Feature_TrustedLaunch__private_IsEnabledFallback.c)
  */
 
 __int64 Feature_TrustedLaunch__private_IsEnabledDeviceUsageNoInline()

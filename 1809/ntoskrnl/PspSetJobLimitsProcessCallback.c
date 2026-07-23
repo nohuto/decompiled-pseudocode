@@ -1,10 +1,10 @@
 /*
- * XREFs of PspSetJobLimitsProcessCallback @ 0x14088A330
+ * XREFs of PspSetJobLimitsProcessCallback @ 0x14088B590
  * Callers:
  *     <none>
  * Callees:
- *     PspApplyJobLimitsToProcess @ 0x140604550 (PspApplyJobLimitsToProcess.c)
- *     PspAddProcessToWorkingSetChangeList @ 0x140889720 (PspAddProcessToWorkingSetChangeList.c)
+ *     PspApplyJobLimitsToProcess @ 0x140605550 (PspApplyJobLimitsToProcess.c)
+ *     PspAddProcessToWorkingSetChangeList @ 0x14088A980 (PspAddProcessToWorkingSetChangeList.c)
  */
 
 __int64 __fastcall PspSetJobLimitsProcessCallback(_KPROCESS *Object, __int64 a2)

@@ -1,10 +1,10 @@
 /*
- * XREFs of PopTracePowerReconfig @ 0x1404F1A9C
+ * XREFs of PopTracePowerReconfig @ 0x1404EB07C
  * Callers:
- *     PopBatteryApplyCompositeState @ 0x140946EB0 (PopBatteryApplyCompositeState.c)
+ *     PopBatteryApplyCompositeState @ 0x1409C2820 (PopBatteryApplyCompositeState.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 NTSTATUS PopTracePowerReconfig()
@@ -35,30 +35,30 @@ NTSTATUS PopTracePowerReconfig()
   __int64 v23; // [rsp+D8h] [rbp+3Fh]
 
   v0 = 0;
-  if ( (_DWORD)xmmword_140F0FED8 )
+  if ( (_DWORD)xmmword_140F10698 )
   {
-    result = 100 * DWORD1(xmmword_140F0FEA0) / (unsigned int)xmmword_140F0FED8;
+    result = 100 * DWORD1(xmmword_140F10660) / (unsigned int)xmmword_140F10698;
     v0 = result;
   }
   v8[0] = MEMORY[0xFFFFF78000000014];
   v8[1] = MEMORY[0xFFFFF78000000018];
-  if ( (unsigned int)dword_140E07598 > 5 && (qword_140E075A8 & 0x400000000000LL) != 0 )
+  if ( (unsigned int)dword_140E07560 > 5 && (qword_140E07570 & 0x400000000000LL) != 0 )
   {
     result = 0;
-    if ( (qword_140E075B0 & 0x400000000000LL) == qword_140E075B0 )
+    if ( (qword_140E07578 & 0x400000000000LL) == qword_140E07578 )
     {
       v4 = v0;
       v10 = v8;
-      v2 = dword_140F0FE74;
-      v5 = xmmword_140F0FEA0 & 1;
+      v2 = dword_140F10634;
+      v5 = xmmword_140F10660 & 1;
       v12 = &v2;
-      v3 = xmmword_140F0FED8;
+      v3 = xmmword_140F10698;
       v14 = &v3;
       v16 = &v4;
       v18 = &v5;
-      v6 = (unsigned __int8)byte_140F10040;
+      v6 = (unsigned __int8)byte_140F10800;
       v20 = &v6;
-      v7 = qword_140F10054;
+      v7 = qword_140F10814;
       v22 = &v7;
       v11 = 8LL;
       v13 = 4LL;
@@ -68,8 +68,8 @@ NTSTATUS PopTracePowerReconfig()
       v21 = 4LL;
       v23 = 4LL;
       return tlgWriteTransfer_EtwWriteTransfer(
-               (__int64)&dword_140E07598,
-               (unsigned __int8 *)word_14004B6BA,
+               (__int64)&dword_140E07560,
+               (unsigned __int8 *)&byte_14004BB57,
                0LL,
                0LL,
                9u,

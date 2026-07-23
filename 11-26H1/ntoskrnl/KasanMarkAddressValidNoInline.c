@@ -1,22 +1,22 @@
 /*
- * XREFs of KasanMarkAddressValidNoInline @ 0x140523160
+ * XREFs of KasanMarkAddressValidNoInline @ 0x1405257D0
  * Callers:
- *     RtlpHpVsFreeChunkInsert @ 0x14024AA50 (RtlpHpVsFreeChunkInsert.c)
- *     RtlpHpVsSubsegmentCreate @ 0x14024ACAC (RtlpHpVsSubsegmentCreate.c)
- *     MiUnmapContiguousMemory @ 0x140343628 (MiUnmapContiguousMemory.c)
- *     ExpFreeHeapSpecialPool @ 0x140345B28 (ExpFreeHeapSpecialPool.c)
- *     RtlpHpVsChunkFree @ 0x1403532B0 (RtlpHpVsChunkFree.c)
- *     RtlpHpVsSubsegmentFree @ 0x140353CE8 (RtlpHpVsSubsegmentFree.c)
- *     RtlpHpVsFreeChunkRemove @ 0x140378D40 (RtlpHpVsFreeChunkRemove.c)
- *     ExFreeHeapPool @ 0x1403A7BB0 (ExFreeHeapPool.c)
- *     MmDeleteKernelStack @ 0x1404162AC (MmDeleteKernelStack.c)
- *     KasanWrapperRtlRestoreContext @ 0x14047DE40 (KasanWrapperRtlRestoreContext.c)
- *     KasanDriverLoadImageInternal @ 0x140523630 (KasanDriverLoadImageInternal.c)
- *     KasanDriverUnloadImage @ 0x1405DD480 (KasanDriverUnloadImage.c)
- *     KasanHibernationResume @ 0x1405DD6F0 (KasanHibernationResume.c)
- *     MmFreeIsrStack @ 0x140875EE8 (MmFreeIsrStack.c)
+ *     RtlpHpVsFreeChunkInsert @ 0x14024C3B0 (RtlpHpVsFreeChunkInsert.c)
+ *     RtlpHpVsSubsegmentCreate @ 0x14024C60C (RtlpHpVsSubsegmentCreate.c)
+ *     MiUnmapContiguousMemory @ 0x1403456A8 (MiUnmapContiguousMemory.c)
+ *     ExpFreeHeapSpecialPool @ 0x140347BA8 (ExpFreeHeapSpecialPool.c)
+ *     RtlpHpVsChunkFree @ 0x140355330 (RtlpHpVsChunkFree.c)
+ *     RtlpHpVsSubsegmentFree @ 0x140355D68 (RtlpHpVsSubsegmentFree.c)
+ *     RtlpHpVsFreeChunkRemove @ 0x14037AAF0 (RtlpHpVsFreeChunkRemove.c)
+ *     ExFreeHeapPool @ 0x1403A9910 (ExFreeHeapPool.c)
+ *     MmDeleteKernelStack @ 0x14040A8BC (MmDeleteKernelStack.c)
+ *     KasanWrapperRtlRestoreContext @ 0x1404777B0 (KasanWrapperRtlRestoreContext.c)
+ *     KasanDriverLoadImageInternal @ 0x140525CA0 (KasanDriverLoadImageInternal.c)
+ *     KasanDriverUnloadImage @ 0x1405DFDF0 (KasanDriverUnloadImage.c)
+ *     KasanHibernationResume @ 0x1405E0060 (KasanHibernationResume.c)
+ *     MmFreeIsrStack @ 0x14087C2CC (MmFreeIsrStack.c)
  * Callees:
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 _BYTE *__fastcall KasanMarkAddressValidNoInline(ULONG_PTR BugCheckParameter3, ULONG_PTR BugCheckParameter4)

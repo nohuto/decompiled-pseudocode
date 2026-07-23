@@ -1,10 +1,10 @@
 /*
- * XREFs of MiConvertWorkingSetLockSharedToExclusive @ 0x140684808
+ * XREFs of MiConvertWorkingSetLockSharedToExclusive @ 0x140685934
  * Callers:
- *     MiInsertLargeVadMapping @ 0x1403F3B88 (MiInsertLargeVadMapping.c)
+ *     MiInsertLargeVadMapping @ 0x1404CE7F4 (MiInsertLargeVadMapping.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14020FA40 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x14022E850 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x140302160 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140338DA0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
  */
 
 __int64 __fastcall MiConvertWorkingSetLockSharedToExclusive(__int64 a1)
@@ -14,17 +14,18 @@ __int64 __fastcall MiConvertWorkingSetLockSharedToExclusive(__int64 a1)
   _DWORD *MmInternal; // rcx
   int v4; // ebp
   unsigned int i; // ebx
-  signed __int32 v6; // eax
-  signed __int32 v7; // ecx
-  signed __int32 v8; // ett
-  volatile signed __int32 *v9; // rdi
-  signed __int32 v10; // r8d
-  signed __int32 v11; // eax
-  signed __int32 v12; // ecx
-  unsigned int v13; // ecx
-  signed __int32 v14; // ecx
+  unsigned __int64 v6; // rdx
+  signed __int32 v7; // eax
+  signed __int32 v8; // ecx
+  signed __int32 v9; // ett
+  volatile signed __int32 *v10; // rdi
+  signed __int32 v11; // r8d
+  signed __int32 v12; // eax
+  signed __int32 v13; // ecx
+  unsigned int v14; // ecx
+  signed __int32 v15; // ecx
 
-  v1 = (__int64 *)&unk_140E38740;
+  v1 = (__int64 *)&unk_140E38880;
   if ( (*(_DWORD *)(a1 + 184) & 0xF) != 1 )
     v1 = (__int64 *)(a1 + 192);
   v2 = *v1;
@@ -35,29 +36,30 @@ __int64 __fastcall MiConvertWorkingSetLockSharedToExclusive(__int64 a1)
     v4 = 0;
   for ( i = 0; i < 4; ++i )
   {
+    v6 = (unsigned __int64)i << 6;
     if ( i == v4 )
     {
-      v6 = 1;
-      v7 = 0x80000000;
+      v7 = 1;
+      v8 = 0x80000000;
       while ( 1 )
       {
-        v8 = v6;
-        v6 = _InterlockedCompareExchange((volatile signed __int32 *)(((unsigned __int64)i << 6) + v2), v7, v6);
-        if ( v8 == v6 )
+        v9 = v7;
+        v7 = _InterlockedCompareExchange((volatile signed __int32 *)(v6 + v2), v8, v7);
+        if ( v9 == v7 )
           break;
-        if ( v6 == 1 )
+        if ( v7 == 1 )
         {
-          v7 &= ~0x40000000u;
+          v8 &= ~0x40000000u;
         }
         else
         {
-          if ( v6 != 1073741825 )
+          if ( v7 != 1073741825 )
             goto LABEL_16;
-          v7 |= 0x40000000u;
+          v8 |= 0x40000000u;
         }
       }
     }
-    else if ( !(unsigned int)ExTryAcquireSpinLockExclusiveAtDpcLevel() )
+    else if ( !(unsigned int)ExTryAcquireSpinLockExclusiveAtDpcLevel((volatile signed __int32 *)(v6 + v2)) )
     {
       break;
     }
@@ -67,33 +69,33 @@ LABEL_16:
     return 1LL;
   if ( i )
   {
-    v9 = (volatile signed __int32 *)(v2 + ((unsigned __int64)i << 6));
+    v10 = (volatile signed __int32 *)(v2 + ((unsigned __int64)i << 6));
     do
     {
       --i;
-      v9 -= 16;
+      v10 -= 16;
       if ( i == v4 )
       {
-        v10 = 1;
-        v11 = _InterlockedCompareExchange(v9, 1, 0x80000000);
-        if ( v11 != 0x80000000 )
+        v11 = 1;
+        v12 = _InterlockedCompareExchange(v10, 1, 0x80000000);
+        if ( v12 != 0x80000000 )
         {
           do
           {
-            v12 = v10;
-            v10 |= 0x40000000u;
-            v13 = v12 & 0xBFFFFFFF;
-            if ( (v11 & 0x40000000) == 0 )
-              v10 = v13;
-            v14 = v11;
-            v11 = _InterlockedCompareExchange(v9, v10, v11);
+            v13 = v11;
+            v11 |= 0x40000000u;
+            v14 = v13 & 0xBFFFFFFF;
+            if ( (v12 & 0x40000000) == 0 )
+              v11 = v14;
+            v15 = v12;
+            v12 = _InterlockedCompareExchange(v10, v11, v12);
           }
-          while ( v11 != v14 );
+          while ( v12 != v15 );
         }
       }
       else
       {
-        ExReleaseSpinLockExclusiveFromDpcLevel(v9);
+        ExReleaseSpinLockExclusiveFromDpcLevel(v10);
       }
     }
     while ( i );

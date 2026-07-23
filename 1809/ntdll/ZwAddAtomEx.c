@@ -1,16 +1,16 @@
 /*
- * XREFs of ZwAddAtomEx @ 0x1800A0FD0
+ * XREFs of ZwAddAtomEx @ 0x1800A0FF0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 ZwAddAtomEx()
+NTSTATUS __cdecl ZwAddAtomEx(PWSTR AtomName, ULONG Length, PRTL_ATOM Atom, ULONG Flags)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 104LL;
+  result = 104;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

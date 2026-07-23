@@ -1,13 +1,13 @@
 /*
- * XREFs of DbgkpWerCleanupContext @ 0x1408837C4
+ * XREFs of DbgkpWerCleanupContext @ 0x140883A04
  * Callers:
- *     DbgkWerCaptureLiveKernelDump2 @ 0x140883560 (DbgkWerCaptureLiveKernelDump2.c)
- *     DbgkpWerDeferredWriteRoutine @ 0x14093B9F0 (DbgkpWerDeferredWriteRoutine.c)
+ *     DbgkWerCaptureLiveKernelDump2 @ 0x1408837A0 (DbgkWerCaptureLiveKernelDump2.c)
+ *     DbgkpWerDeferredWriteRoutine @ 0x14093BBF0 (DbgkpWerDeferredWriteRoutine.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     DbgPrintEx @ 0x14032A740 (DbgPrintEx.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     IoDiscardDeferredLiveDumpData @ 0x14094C278 (IoDiscardDeferredLiveDumpData.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     DbgPrintEx @ 0x14032A9D0 (DbgPrintEx.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     IoDiscardDeferredLiveDumpData @ 0x14094C478 (IoDiscardDeferredLiveDumpData.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

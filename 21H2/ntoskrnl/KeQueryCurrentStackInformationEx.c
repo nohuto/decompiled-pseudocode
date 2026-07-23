@@ -1,15 +1,15 @@
 /*
- * XREFs of KeQueryCurrentStackInformationEx @ 0x1403504A0
+ * XREFs of KeQueryCurrentStackInformationEx @ 0x14035B1F0
  * Callers:
- *     KeQueryCurrentStackInformation @ 0x140277230 (KeQueryCurrentStackInformation.c)
- *     RtlpGetStackLimitsEx @ 0x140277280 (RtlpGetStackLimitsEx.c)
- *     KeCheckStackAndTargetAddress @ 0x1402B2030 (KeCheckStackAndTargetAddress.c)
- *     KiExpandKernelStackAndCalloutSwitchStack @ 0x14032A0D0 (KiExpandKernelStackAndCalloutSwitchStack.c)
- *     KiExpandKernelStackAndCalloutOnStackSegment @ 0x14032A230 (KiExpandKernelStackAndCalloutOnStackSegment.c)
- *     RtlpGetStackLimits @ 0x140350450 (RtlpGetStackLimits.c)
+ *     KeCheckStackAndTargetAddress @ 0x1402301E0 (KeCheckStackAndTargetAddress.c)
+ *     KeQueryCurrentStackInformation @ 0x1402651D0 (KeQueryCurrentStackInformation.c)
+ *     RtlpGetStackLimitsEx @ 0x140265220 (RtlpGetStackLimitsEx.c)
+ *     KiExpandKernelStackAndCalloutSwitchStack @ 0x140334E20 (KiExpandKernelStackAndCalloutSwitchStack.c)
+ *     KiExpandKernelStackAndCalloutOnStackSegment @ 0x140334F80 (KiExpandKernelStackAndCalloutOnStackSegment.c)
+ *     RtlpGetStackLimits @ 0x14035B1A0 (RtlpGetStackLimits.c)
  * Callees:
- *     KeAreInterruptsEnabled @ 0x1403506D0 (KeAreInterruptsEnabled.c)
- *     KiRspInIstStack @ 0x140518BF8 (KiRspInIstStack.c)
+ *     KeAreInterruptsEnabled @ 0x14035B420 (KeAreInterruptsEnabled.c)
+ *     KiRspInIstStack @ 0x140518E38 (KiRspInIstStack.c)
  */
 
 bool __fastcall KeQueryCurrentStackInformationEx(

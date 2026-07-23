@@ -1,14 +1,14 @@
 /*
- * XREFs of MincrypK_ParseCertificateChainWithPolicy2 @ 0x14082581C
+ * XREFs of MincrypK_ParseCertificateChainWithPolicy2 @ 0x140825FE8
  * Callers:
- *     MincrypK_ParseCertificateChainWithPolicy @ 0x140825804 (MincrypK_ParseCertificateChainWithPolicy.c)
+ *     MincrypK_ParseCertificateChainWithPolicy @ 0x140825FD0 (MincrypK_ParseCertificateChainWithPolicy.c)
  * Callees:
- *     memcmp @ 0x1406BFF10 (memcmp.c)
- *     MinCryptVerifyCertificateWithPolicy2 @ 0x140824ED4 (MinCryptVerifyCertificateWithPolicy2.c)
- *     I_MinCryptBuildErrorPolicy @ 0x1408274E4 (I_MinCryptBuildErrorPolicy.c)
- *     MinAsn1ExtractParsedCertificatesFromSignedData @ 0x140828398 (MinAsn1ExtractParsedCertificatesFromSignedData.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     memcmp @ 0x1406C0E10 (memcmp.c)
+ *     MinCryptVerifyCertificateWithPolicy2 @ 0x1408256A0 (MinCryptVerifyCertificateWithPolicy2.c)
+ *     I_MinCryptBuildErrorPolicy @ 0x140827CB4 (I_MinCryptBuildErrorPolicy.c)
+ *     MinAsn1ExtractParsedCertificatesFromSignedData @ 0x140828B68 (MinAsn1ExtractParsedCertificatesFromSignedData.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MincrypK_ParseCertificateChainWithPolicy2(__int64 a1, unsigned int a2, __int64 a3, __int64 a4)
@@ -31,7 +31,7 @@ __int64 __fastcall MincrypK_ParseCertificateChainWithPolicy2(__int64 a1, unsigne
   v21 = HIDWORD(a4);
   v4 = a3;
   v20 = 10;
-  Pool2 = ExAllocatePool2(0x102uLL);
+  Pool2 = ExAllocatePool2(0x102uLL, 0x960uLL, 0x72634943u);
   v8 = (char *)Pool2;
   if ( Pool2 )
   {

@@ -3,7 +3,7 @@
  * Callers:
  *     SbpResolveBasedOnName @ 0x1800FEBF4 (SbpResolveBasedOnName.c)
  * Callees:
- *     StringCchCopyW @ 0x1800D90D0 (StringCchCopyW.c)
+ *     StringCchCopyW @ 0x1800D9190 (StringCchCopyW.c)
  *     StringCchCopyNW @ 0x1800FECA8 (StringCchCopyNW.c)
  */
 

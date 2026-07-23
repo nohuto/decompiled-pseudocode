@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwTiLogAllocExecVm @ 0x1409F3D60
+ * XREFs of EtwTiLogAllocExecVm @ 0x1409F0530
  * Callers:
- *     MiAllocateVirtualMemory @ 0x1409F3464 (MiAllocateVirtualMemory.c)
+ *     MiAllocateVirtualMemory @ 0x1409EFC34 (MiAllocateVirtualMemory.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     EtwProviderEnabled @ 0x1402563E0 (EtwProviderEnabled.c)
- *     EtwpTiFillProcessIdentity @ 0x140257DB0 (EtwpTiFillProcessIdentity.c)
- *     EtwpTiFillThreadIdentity @ 0x1404A21B8 (EtwpTiFillThreadIdentity.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     EtwProviderEnabled @ 0x140257D70 (EtwProviderEnabled.c)
+ *     EtwpTiFillProcessIdentity @ 0x140259590 (EtwpTiFillProcessIdentity.c)
+ *     EtwpTiFillThreadIdentity @ 0x14049BCE8 (EtwpTiFillThreadIdentity.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 BOOLEAN EtwTiLogAllocExecVm(__int64 a1, char a2, ...)
@@ -52,7 +52,7 @@ BOOLEAN EtwTiLogAllocExecVm(__int64 a1, char a2, ...)
   v28 = va_arg(va2, _QWORD);
   va_copy(va3, va2);
   v30 = va_arg(va3, _QWORD);
-  result = EtwProviderEnabled(*(REGHANDLE *)&EtwpSecurityLock.AbWaitEntryCount, 0, 0xFuLL);
+  result = EtwProviderEnabled(EtwThreatIntProvRegHandle, 0, 0xFuLL);
   if ( result )
   {
     v5 = 0LL;
@@ -60,8 +60,8 @@ BOOLEAN EtwTiLogAllocExecVm(__int64 a1, char a2, ...)
     v7 = KeGetCurrentThread()->Process;
     if ( v7 == (_KPROCESS *)a1 )
       v5 = 8LL;
-    v8 = *(const EVENT_DESCRIPTOR **)((char *)off_140004008 + (a2 != 0 ? 0 : 0x10) + v5);
-    result = EtwEventEnabled(*(REGHANDLE *)&EtwpSecurityLock.AbWaitEntryCount, v8);
+    v8 = *(const EVENT_DESCRIPTOR **)((char *)off_140003FF8 + (a2 != 0 ? 0 : 0x10) + v5);
+    result = EtwEventEnabled(EtwThreatIntProvRegHandle, v8);
     if ( result )
     {
       v9 = EtwpTiFillProcessIdentity(UserData, (__int64)Process, &v22);
@@ -82,7 +82,7 @@ BOOLEAN EtwTiLogAllocExecVm(__int64 a1, char a2, ...)
       *((_QWORD *)&UserData[0].Size + v19) = 4LL;
       v20 = v16;
       UserData[v20].Ptr = (ULONGLONG)va3;
-      v21 = *(_QWORD *)&EtwpSecurityLock.AbWaitEntryCount;
+      v21 = EtwThreatIntProvRegHandle;
       *(_QWORD *)&UserData[v20].Size = 4LL;
       return EtwWrite(v21, v8, 0LL, v16 + 1, UserData);
     }

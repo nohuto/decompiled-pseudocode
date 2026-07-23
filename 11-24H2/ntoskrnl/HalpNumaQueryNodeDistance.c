@@ -1,5 +1,5 @@
 /*
- * XREFs of HalpNumaQueryNodeDistance @ 0x140558210
+ * XREFs of HalpNumaQueryNodeDistance @ 0x140555B50
  * Callers:
  *     <none>
  * Callees:

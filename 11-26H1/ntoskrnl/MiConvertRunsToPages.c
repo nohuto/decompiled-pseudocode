@@ -1,10 +1,10 @@
 /*
- * XREFs of MiConvertRunsToPages @ 0x14086CFFC
+ * XREFs of MiConvertRunsToPages @ 0x1408733DC
  * Callers:
- *     MiAllocateFileExtents @ 0x140B5F8D8 (MiAllocateFileExtents.c)
+ *     MiAllocateFileExtents @ 0x140B62A58 (MiAllocateFileExtents.c)
  * Callees:
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     MmGetCurrentProcessorColor @ 0x14044ADC0 (MmGetCurrentProcessorColor.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     MmGetCurrentProcessorColor @ 0x140442EF0 (MmGetCurrentProcessorColor.c)
  */
 
 __int64 __fastcall MiConvertRunsToPages(__int64 a1, __int64 a2, _QWORD *a3, unsigned int *a4)

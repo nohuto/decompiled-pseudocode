@@ -26,7 +26,7 @@ __int64 __fastcall MiInitializeLoadedModuleList(__int64 a1)
   __int64 v3; // rdi
   __int64 v4; // rsi
   __int64 v5; // rcx
-  __int64 v6; // r14
+  PVOID v6; // r14
   __int64 v7; // rcx
   int v8; // eax
   struct _KTHREAD *Lock; // rsi
@@ -52,7 +52,7 @@ __int64 __fastcall MiInitializeLoadedModuleList(__int64 a1)
   ExpCovUnloadedModuleList = (__int64)&ExpCovUnloadedModuleList;
   *(&PsLoadedModuleList + 1) = &PsLoadedModuleList;
   PsLoadedModuleList = &PsLoadedModuleList;
-  NtSetDebugFilterState(0x7Eu, 0, 1);
+  NtSetDebugFilterState(0x7Eu, 0, 1u);
   v3 = *(_QWORD *)(a1 + 16);
   MiLocateKernelSections(v3);
   while ( v3 != a1 + 16 )
@@ -65,7 +65,7 @@ __int64 __fastcall MiInitializeLoadedModuleList(__int64 a1)
     v5 = v21;
     if ( qword_140C65A18 == v3 )
       qword_140C65A18 = v21;
-    v6 = *(_QWORD *)(v21 + 48);
+    v6 = *(PVOID *)(v21 + 48);
     if ( v6 == PsNtosImageBase && (MiFlags & 0x40000) == 0 )
     {
       v15 = *(_DWORD *)(v21 + 64);
@@ -76,7 +76,7 @@ __int64 __fastcall MiInitializeLoadedModuleList(__int64 a1)
       qword_140E00040 = v20;
       xmmword_140E00030 = v19;
       LODWORD(qword_140E00040) = v15;
-      RtlRemoveInvertedFunctionTable(v6);
+      RtlRemoveInvertedFunctionTable((__int64)v6);
       v5 = v21;
     }
     MiLockdownSections(v5);
@@ -85,7 +85,7 @@ __int64 __fastcall MiInitializeLoadedModuleList(__int64 a1)
       v7 = v21;
       if ( (*(_DWORD *)(v21 + 104) & 0x800000) != 0 )
         goto LABEL_13;
-      v8 = MiCaptureBootDriverRetpolineInfo(*(_QWORD *)(v21 + 48), *(_DWORD *)(v21 + 64), (_QWORD *)(v4 + 320));
+      v8 = MiCaptureBootDriverRetpolineInfo(*(PVOID *)(v21 + 48), *(unsigned int *)(v21 + 64), (_QWORD *)(v4 + 320));
       if ( ((v8 + 0x80000000) & 0x80000000) == 0 && v8 != -1073741637 )
         return 0LL;
     }

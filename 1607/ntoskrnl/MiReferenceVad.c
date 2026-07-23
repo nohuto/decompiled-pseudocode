@@ -1,18 +1,18 @@
 /*
- * XREFs of MiReferenceVad @ 0x14002C37C
+ * XREFs of MiReferenceVad @ 0x14002BEFC
  * Callers:
- *     MiMapViewOfImageSection @ 0x140429AC0 (MiMapViewOfImageSection.c)
- *     MiAllocateVirtualMemory @ 0x140430E80 (MiAllocateVirtualMemory.c)
- *     MmQueryVirtualMemory @ 0x140432230 (MmQueryVirtualMemory.c)
- *     MiMapViewOfDataSection @ 0x1404354C0 (MiMapViewOfDataSection.c)
- *     MmCleanProcessAddressSpace @ 0x14045EDFC (MmCleanProcessAddressSpace.c)
- *     MiCfgInitializeProcess @ 0x14046CF1C (MiCfgInitializeProcess.c)
- *     MiLockVadRange @ 0x1404F38DC (MiLockVadRange.c)
- *     MiCreatePebOrTeb @ 0x14050B230 (MiCreatePebOrTeb.c)
- *     MiMapViewOfPhysicalSection @ 0x140572C40 (MiMapViewOfPhysicalSection.c)
- *     MiAllocateEnclaveVad @ 0x14065E4C4 (MiAllocateEnclaveVad.c)
- *     MiDeleteAllPartialCloneVads @ 0x14066305C (MiDeleteAllPartialCloneVads.c)
- *     MiScrubProcesses @ 0x140664E40 (MiScrubProcesses.c)
+ *     MiMapViewOfImageSection @ 0x140428990 (MiMapViewOfImageSection.c)
+ *     MiAllocateVirtualMemory @ 0x14042FD50 (MiAllocateVirtualMemory.c)
+ *     MmQueryVirtualMemory @ 0x140431100 (MmQueryVirtualMemory.c)
+ *     MiMapViewOfDataSection @ 0x140434390 (MiMapViewOfDataSection.c)
+ *     MmCleanProcessAddressSpace @ 0x14045DCCC (MmCleanProcessAddressSpace.c)
+ *     MiCfgInitializeProcess @ 0x14046BDEC (MiCfgInitializeProcess.c)
+ *     MiLockVadRange @ 0x1404D6868 (MiLockVadRange.c)
+ *     MiCreatePebOrTeb @ 0x1404EE1C0 (MiCreatePebOrTeb.c)
+ *     MiMapViewOfPhysicalSection @ 0x140573180 (MiMapViewOfPhysicalSection.c)
+ *     MiAllocateEnclaveVad @ 0x14065E5A8 (MiAllocateEnclaveVad.c)
+ *     MiDeleteAllPartialCloneVads @ 0x140663140 (MiDeleteAllPartialCloneVads.c)
+ *     MiScrubProcesses @ 0x140664F24 (MiScrubProcesses.c)
  * Callees:
  *     <none>
  */

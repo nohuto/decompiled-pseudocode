@@ -1,15 +1,15 @@
 /*
- * XREFs of MiInitializeMdlPfn @ 0x140413588
+ * XREFs of MiInitializeMdlPfn @ 0x1403954E8
  * Callers:
- *     MiInitializeMdlSinglePage @ 0x1404132BC (MiInitializeMdlSinglePage.c)
- *     MmAllocateNonChargedSecurePages @ 0x14049D980 (MmAllocateNonChargedSecurePages.c)
- *     MmAllocateSecureKernelPages @ 0x140688AC4 (MmAllocateSecureKernelPages.c)
+ *     MiInitializeMdlSinglePage @ 0x140393930 (MiInitializeMdlSinglePage.c)
+ *     MmAllocateNonChargedSecurePages @ 0x140498780 (MmAllocateNonChargedSecurePages.c)
+ *     MmAllocateSecureKernelPages @ 0x140689BF4 (MmAllocateSecureKernelPages.c)
  * Callees:
- *     MiAbortCombineScan @ 0x140265104 (MiAbortCombineScan.c)
- *     MiSetPfnContainingFrame @ 0x1402E6800 (MiSetPfnContainingFrame.c)
- *     MiUpdatePageFileHighInPte @ 0x140368F40 (MiUpdatePageFileHighInPte.c)
- *     MiSetPfnIdentity @ 0x1403A00D0 (MiSetPfnIdentity.c)
- *     MiInitializeAwePfn @ 0x1404F5F48 (MiInitializeAwePfn.c)
+ *     MiSetPfnIdentity @ 0x140216B00 (MiSetPfnIdentity.c)
+ *     MiUpdatePageFileHighInPte @ 0x1402EACE0 (MiUpdatePageFileHighInPte.c)
+ *     MiSetPfnContainingFrame @ 0x140347E40 (MiSetPfnContainingFrame.c)
+ *     MiAbortCombineScan @ 0x1403A9DB0 (MiAbortCombineScan.c)
+ *     MiInitializeAwePfn @ 0x1404F3848 (MiInitializeAwePfn.c)
  */
 
 __int64 __fastcall MiInitializeMdlPfn(__int64 a1, int a2)
@@ -49,7 +49,7 @@ __int64 __fastcall MiInitializeMdlPfn(__int64 a1, int a2)
         MiAbortCombineScan(a1);
         MiSetPfnIdentity(a1, 3u);
         if ( (a2 & 0x20000) == 0 )
-          _InterlockedIncrement64(&qword_140E2DBE8);
+          _InterlockedIncrement64(&qword_140E2DD28);
         *(_QWORD *)(a1 + 16) = MiUpdatePageFileHighInPte(*(_QWORD *)(a1 + 16), 1LL);
       }
       else

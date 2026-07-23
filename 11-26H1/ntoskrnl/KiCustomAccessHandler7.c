@@ -1,5 +1,5 @@
 /*
- * XREFs of KiCustomAccessHandler7 @ 0x140732970
+ * XREFs of KiCustomAccessHandler7 @ 0x140737540
  * Callers:
  *     <none>
  * Callees:
@@ -17,8 +17,8 @@ __int64 __fastcall KiCustomAccessHandler7(__int64 a1, __int64 a2, _QWORD *a3)
     *(_QWORD *)(a1 + 40) ^= HIDWORD(v3);
     a3[19] -= ((unsigned int)v3 >> 5) & 0x70;
     *(_DWORD *)a1 = BYTE4(v3) & 0x7F | 0xC0000000;
-    *(_QWORD *)(a1 + 16) = &loc_140732977;
-    a3[31] = &loc_140732977;
+    *(_QWORD *)(a1 + 16) = &loc_140737547;
+    a3[31] = &loc_140737547;
     a3[17] = 0LL;
   }
   return 1LL;

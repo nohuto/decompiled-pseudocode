@@ -1,12 +1,12 @@
 /*
- * XREFs of DifPoFxNotifySurprisePowerOnWrapper @ 0x1405E96D0
+ * XREFs of DifPoFxNotifySurprisePowerOnWrapper @ 0x1405E9C40
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     DifGetAPIThunkContextById @ 0x1404664BE (DifGetAPIThunkContextById.c)
- *     PoFxNotifySurprisePowerOn @ 0x140587FB0 (PoFxNotifySurprisePowerOn.c)
- *     DifGetReturnAddressForWrappers @ 0x1405F88C4 (DifGetReturnAddressForWrappers.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x1404668BE (DifGetAPIThunkContextById.c)
+ *     PoFxNotifySurprisePowerOn @ 0x1405884A0 (PoFxNotifySurprisePowerOn.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F8E34 (DifGetReturnAddressForWrappers.c)
  */
 
 int __fastcall DifPoFxNotifySurprisePowerOnWrapper(__int64 a1)

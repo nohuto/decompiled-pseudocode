@@ -1,10 +1,10 @@
 /*
- * XREFs of WheapPrmTranslatePhysicalAddressAmd @ 0x1406D7998
+ * XREFs of WheapPrmTranslatePhysicalAddressAmd @ 0x1406DBB28
  * Callers:
- *     WheaPrmTranslatePhysicalAddress @ 0x1406D7570 (WheaPrmTranslatePhysicalAddress.c)
+ *     WheaPrmTranslatePhysicalAddress @ 0x1406DB700 (WheaPrmTranslatePhysicalAddress.c)
  * Callees:
- *     WheapPrmInvokeHandler @ 0x1406D75C0 (WheapPrmInvokeHandler.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     WheapPrmInvokeHandler @ 0x1406DB750 (WheapPrmInvokeHandler.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall WheapPrmTranslatePhysicalAddressAmd(__int64 a1, __int64 a2)

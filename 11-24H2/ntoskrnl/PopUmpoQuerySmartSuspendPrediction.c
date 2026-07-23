@@ -1,10 +1,10 @@
 /*
- * XREFs of PopUmpoQuerySmartSuspendPrediction @ 0x14075CF9C
+ * XREFs of PopUmpoQuerySmartSuspendPrediction @ 0x14075BF3C
  * Callers:
- *     PopSmartSuspendMakePredictions @ 0x140ABFAB8 (PopSmartSuspendMakePredictions.c)
+ *     PopSmartSuspendMakePredictions @ 0x140ABAB98 (PopSmartSuspendMakePredictions.c)
  * Callees:
- *     PopUmpoSendPowerMessage @ 0x140331990 (PopUmpoSendPowerMessage.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     PopUmpoSendPowerMessage @ 0x1402BB090 (PopUmpoSendPowerMessage.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall PopUmpoQuerySmartSuspendPrediction(__int64 a1, int a2)
@@ -14,5 +14,5 @@ __int64 __fastcall PopUmpoQuerySmartSuspendPrediction(__int64 a1, int a2)
   memset_0(Src, 0, 0x48uLL);
   Src[0] = 18;
   Src[2] = a2;
-  return PopUmpoSendPowerMessage(Src, 0x48uLL, 1, a1);
+  return PopUmpoSendPowerMessage(Src, 0x48uLL, 1);
 }

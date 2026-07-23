@@ -9,43 +9,54 @@
  *     TppRaiseInvalidParameter @ 0x1800F5658 (TppRaiseInvalidParameter.c)
  */
 
-__int64 __fastcall TpAllocTimer(__int64 *a1, __int64 a2, int a3, __int64 a4)
+NTSTATUS __cdecl TpAllocTimer(
+        PTP_TIMER *Timer,
+        PTP_TIMER_CALLBACK Callback,
+        PVOID Context,
+        PTP_CALLBACK_ENVIRON CallbackEnviron)
 {
   int v4; // edi
-  __int64 Heap; // rax
-  __int64 v9; // rbx
-  __int64 result; // rax
+  int v5; // ebp
+  PTP_TIMER *v7; // r14
+  _TP_TIMER *Heap; // rax
+  _TP_TIMER *v9; // rbx
+  NTSTATUS result; // eax
   _UNKNOWN *retaddr; // [rsp+38h] [rbp+0h]
 
-  v4 = a4;
-  if ( !a1 || !a2 || a4 && (*(_DWORD *)(a4 + 56) & 0xFFFFFFFC) != 0 || NtCurrentPeb()->Ldr->ShutdownInProgress )
+  v4 = (int)CallbackEnviron;
+  v5 = (int)Context;
+  v7 = Timer;
+  if ( !Timer
+    || !Callback
+    || CallbackEnviron && (CallbackEnviron->u.Flags & 0xFFFFFFFC) != 0
+    || (Timer = (PTP_TIMER *)NtCurrentPeb()->Ldr, *((_BYTE *)Timer + 72)) )
   {
-    TppRaiseInvalidParameter();
-    return 3221225485LL;
+    TppRaiseInvalidParameter(Timer, Callback);
+    return -1073741811;
   }
   else
   {
-    Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, (TppHeapTag + 0x100000) | 8u, 352LL);
+    Heap = (_TP_TIMER *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, (TppHeapTag + 0x100000) | 8, 0x160uLL);
     v9 = Heap;
     if ( Heap )
     {
-      *(_QWORD *)(Heap + 168) = retaddr;
+      *((_QWORD *)Heap + 21) = retaddr;
       result = TppInitializeTimer(
-                 Heap,
+                 (_DWORD)Heap,
                  0,
-                 a3,
+                 v5,
                  v4,
                  (__int64)TppTimerpCleanupGroupMemberVFuncs,
-                 (__int64)TppTimerpTaskVFuncs);
-      if ( (int)result >= 0 )
+                 (__int64)&TppTimerpTaskVFuncs);
+      if ( result >= 0 )
       {
-        *(_QWORD *)(v9 + 80) = a2;
-        *a1 = v9;
+        *((_QWORD *)v9 + 10) = Callback;
+        *v7 = v9;
       }
     }
     else
     {
-      return 3221225495LL;
+      return -1073741801;
     }
   }
   return result;

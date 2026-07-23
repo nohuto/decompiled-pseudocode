@@ -1,13 +1,13 @@
 /*
- * XREFs of AlpcSectionDeleteProcedure @ 0x140893220
+ * XREFs of AlpcSectionDeleteProcedure @ 0x14089CDC0
  * Callers:
- *     AlpcpDeleteBlob @ 0x140893140 (AlpcpDeleteBlob.c)
+ *     AlpcpDeleteBlob @ 0x14089CCE0 (AlpcpDeleteBlob.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     AlpcpLockForCachedReferenceBlob @ 0x140890590 (AlpcpLockForCachedReferenceBlob.c)
- *     AlpcpUnlockBlob @ 0x140890620 (AlpcpUnlockBlob.c)
- *     AlpcDeleteBlobByHandle @ 0x1409E6514 (AlpcDeleteBlobByHandle.c)
- *     AlpcpRemoveResourcePort @ 0x1409E65DC (AlpcpRemoveResourcePort.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     AlpcpUnlockBlob @ 0x1408980A0 (AlpcpUnlockBlob.c)
+ *     AlpcpLockForCachedReferenceBlob @ 0x14089ED30 (AlpcpLockForCachedReferenceBlob.c)
+ *     AlpcDeleteBlobByHandle @ 0x1409E0DA4 (AlpcDeleteBlobByHandle.c)
+ *     AlpcpRemoveResourcePort @ 0x1409E0E6C (AlpcpRemoveResourcePort.c)
  */
 
 LONG_PTR __fastcall AlpcSectionDeleteProcedure(_QWORD *BugCheckParameter2)
@@ -15,9 +15,6 @@ LONG_PTR __fastcall AlpcSectionDeleteProcedure(_QWORD *BugCheckParameter2)
   __int64 v2; // rcx
   LONG_PTR result; // rax
   void *v4; // rdi
-  __int64 v5; // rdx
-  __int64 v6; // r8
-  __int64 v7; // r9
 
   v2 = BugCheckParameter2[2];
   if ( v2 )
@@ -31,7 +28,7 @@ LONG_PTR __fastcall AlpcSectionDeleteProcedure(_QWORD *BugCheckParameter2)
     AlpcpLockForCachedReferenceBlob((ULONG_PTR)BugCheckParameter2);
     AlpcpRemoveResourcePort(v4, BugCheckParameter2);
     BugCheckParameter2[5] = 0LL;
-    AlpcpUnlockBlob((ULONG_PTR)BugCheckParameter2, v5, v6, v7);
+    AlpcpUnlockBlob((ULONG_PTR)BugCheckParameter2);
     return ObfDereferenceObject(v4);
   }
   return result;

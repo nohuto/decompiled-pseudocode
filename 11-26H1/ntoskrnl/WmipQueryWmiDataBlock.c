@@ -1,20 +1,20 @@
 /*
- * XREFs of WmipQueryWmiDataBlock @ 0x140AC49C0
+ * XREFs of WmipQueryWmiDataBlock @ 0x140AC6630
  * Callers:
- *     IoWMISystemControl @ 0x140AC4764 (IoWMISystemControl.c)
+ *     IoWMISystemControl @ 0x140AC63D4 (IoWMISystemControl.c)
  * Callees:
- *     WmipUnreferenceRegEntry @ 0x1403B7080 (WmipUnreferenceRegEntry.c)
- *     WmipFindRegEntryByDevice @ 0x1404961EC (WmipFindRegEntryByDevice.c)
- *     IoGetDeviceInstanceName @ 0x1404E056C (IoGetDeviceInstanceName.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     WmipGetSMBiosEventlog @ 0x1408229B8 (WmipGetSMBiosEventlog.c)
- *     WmipGetSysIds @ 0x140822C0C (WmipGetSysIds.c)
- *     RtlFreeAnsiString @ 0x140A007C0 (RtlFreeAnsiString.c)
- *     RtlpQueryRegistryValues @ 0x140A10F94 (RtlpQueryRegistryValues.c)
- *     IoWMICompleteRequest @ 0x140AC4B48 (IoWMICompleteRequest.c)
- *     WmipGetSMBiosTableData @ 0x140AC4C90 (WmipGetSMBiosTableData.c)
+ *     WmipUnreferenceRegEntry @ 0x1403C0F80 (WmipUnreferenceRegEntry.c)
+ *     WmipFindRegEntryByDevice @ 0x14048FD3C (WmipFindRegEntryByDevice.c)
+ *     IoGetDeviceInstanceName @ 0x1404D9C4C (IoGetDeviceInstanceName.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     WmipGetSMBiosEventlog @ 0x140828BC8 (WmipGetSMBiosEventlog.c)
+ *     WmipGetSysIds @ 0x140828E1C (WmipGetSysIds.c)
+ *     RtlpQueryRegistryValues @ 0x140A10184 (RtlpQueryRegistryValues.c)
+ *     RtlFreeAnsiString @ 0x140A169F0 (RtlFreeAnsiString.c)
+ *     IoWMICompleteRequest @ 0x140AC67B8 (IoWMICompleteRequest.c)
+ *     WmipGetSMBiosTableData @ 0x140AC6900 (WmipGetSMBiosTableData.c)
  */
 
 __int64 __fastcall WmipQueryWmiDataBlock(

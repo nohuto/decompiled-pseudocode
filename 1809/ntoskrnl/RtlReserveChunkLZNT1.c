@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlReserveChunkLZNT1 @ 0x14089A1E0
+ * XREFs of RtlReserveChunkLZNT1 @ 0x14089B440
  * Callers:
  *     <none>
  * Callees:
- *     memmove @ 0x1401D1540 (memmove.c)
- *     RtlDescribeChunkLZNT1 @ 0x14089A110 (RtlDescribeChunkLZNT1.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     RtlDescribeChunkLZNT1 @ 0x14089B370 (RtlDescribeChunkLZNT1.c)
  */
 
 __int64 __fastcall RtlReserveChunkLZNT1(__int16 **a1, unsigned __int64 a2, __int16 **a3, unsigned int a4)

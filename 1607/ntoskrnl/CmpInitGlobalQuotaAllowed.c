@@ -3,7 +3,7 @@
  * Callers:
  *     CmInitSystem1 @ 0x1407ADA6C (CmInitSystem1.c)
  * Callees:
- *     MmGetNumberOfPhysicalPages @ 0x1404145C8 (MmGetNumberOfPhysicalPages.c)
+ *     MmGetNumberOfPhysicalPages @ 0x140413488 (MmGetNumberOfPhysicalPages.c)
  */
 
 __int64 CmpInitGlobalQuotaAllowed()

@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpReleaseBootStatusLock @ 0x1403F86A8
+ * XREFs of RtlpReleaseBootStatusLock @ 0x1403F86D8
  * Callers:
- *     RtlLockBootStatusData @ 0x14077F570 (RtlLockBootStatusData.c)
- *     RtlUnlockBootStatusData @ 0x14078C6B0 (RtlUnlockBootStatusData.c)
+ *     RtlLockBootStatusData @ 0x14077F730 (RtlLockBootStatusData.c)
+ *     RtlUnlockBootStatusData @ 0x14078C870 (RtlUnlockBootStatusData.c)
  * Callees:
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x140356100 (KeLeaveCriticalRegion.c)
  */
 
 void RtlpReleaseBootStatusLock()

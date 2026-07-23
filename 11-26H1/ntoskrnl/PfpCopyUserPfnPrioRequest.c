@@ -1,16 +1,16 @@
 /*
- * XREFs of PfpCopyUserPfnPrioRequest @ 0x140A53668
+ * XREFs of PfpCopyUserPfnPrioRequest @ 0x140A5C958
  * Callers:
- *     PfpPfnPrioRequest @ 0x140A5345C (PfpPfnPrioRequest.c)
+ *     PfpPfnPrioRequest @ 0x140A5C74C (PfpPfnPrioRequest.c)
  * Callees:
- *     MmGetHighestPhysicalPage @ 0x1404C3B80 (MmGetHighestPhysicalPage.c)
- *     RtlCopyFromUser @ 0x140533E38 (RtlCopyFromUser.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     RtlReadULong64FromUser @ 0x14077F554 (RtlReadULong64FromUser.c)
- *     ProbeForRead @ 0x1408EF880 (ProbeForRead.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     MmGetHighestPhysicalPage @ 0x1404BD3D0 (MmGetHighestPhysicalPage.c)
+ *     RtlCopyFromUser @ 0x1405362B8 (RtlCopyFromUser.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     RtlReadULong64FromUser @ 0x140782054 (RtlReadULong64FromUser.c)
+ *     ProbeForRead @ 0x1408F5E40 (ProbeForRead.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PfpCopyUserPfnPrioRequest(char *Src, SIZE_T Length, int a3, _QWORD *a4, char a5, int a6)

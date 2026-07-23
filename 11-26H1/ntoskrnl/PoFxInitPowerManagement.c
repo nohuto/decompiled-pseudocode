@@ -1,11 +1,11 @@
 /*
- * XREFs of PoFxInitPowerManagement @ 0x140CD0E44
+ * XREFs of PoFxInitPowerManagement @ 0x140CD6FEC
  * Callers:
- *     PoInitSystem @ 0x140CCE870 (PoInitSystem.c)
+ *     PoInitSystem @ 0x140CD49D0 (PoInitSystem.c)
  * Callees:
- *     Feature_Sx_PEP_Notification_Synchronization__private_ReportUsage @ 0x140601284 (Feature_Sx_PEP_Notification_Synchronization__private_ReportUsage.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     PopFxInitializeWorkPool @ 0x1407CD590 (PopFxInitializeWorkPool.c)
+ *     Feature_Sx_PEP_Notification_Synchronization__private_ReportUsage @ 0x140603D34 (Feature_Sx_PEP_Notification_Synchronization__private_ReportUsage.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     PopFxInitializeWorkPool @ 0x1407D0630 (PopFxInitializeWorkPool.c)
  */
 
 __int64 PoFxInitPowerManagement()
@@ -13,95 +13,96 @@ __int64 PoFxInitPowerManagement()
   __int64 result; // rax
 
   Feature_Sx_PEP_Notification_Synchronization__private_ReportUsage();
-  BYTE2(stru_140F12420.ThreadLock) = 6;
-  *(_QWORD *)&stru_140F12420.Timer.Header.Lock = 9LL;
-  qword_140F123E8 = (__int64)&qword_140F123E0;
-  qword_140F123E0 = (ULONG_PTR)&qword_140F123E0;
-  qword_140F123C8 = (__int64)&qword_140F123C0;
-  qword_140F123C0 = (__int64)&qword_140F123C0;
-  stru_140F12420.QueueListEntry.Flink = (struct _LIST_ENTRY *)&stru_140F12420.512;
-  *(_QWORD *)&stru_140F12420.ThreadFlags2 = &stru_140F12420.512;
-  stru_140F12420.WaitBlockList = (_KWAIT_BLOCK *)PopFxResidentTimeoutRoutine;
-  stru_140F12420.StackLimit = &stru_140F12420.InitialStack;
-  stru_140F12420.InitialStack = &stru_140F12420.InitialStack;
-  *(_QWORD *)&stru_140F12420.CurrentRunTime = &stru_140F12420.CycleTime;
-  stru_140F12420.CycleTime = (volatile unsigned __int64)&stru_140F12420.CycleTime;
-  stru_140F12420.ApcState.ApcListHead[0].Flink = (struct _LIST_ENTRY *)PopFxResidentTimeoutDpcRoutine;
-  stru_140F12420.Timer.Header.WaitListHead.Blink = &stru_140F12420.Timer.Header.WaitListHead;
-  stru_140F12420.Timer.Header.WaitListHead.Flink = &stru_140F12420.Timer.Header.WaitListHead;
-  qword_140F123F8 = (__int64)&qword_140F123F0;
-  qword_140F123F0 = (ULONG_PTR)&qword_140F123F0;
-  qword_140F12400 = (__int64)&qword_140F123F0;
+  PopFxBlockingDeviceListLock.FreezeFlags = 6;
+  PopFxBlockingDeviceListLock.ApcState.ApcListHead[0].Flink = (struct _LIST_ENTRY *)9;
+  PopFxBlockingDeviceListLock.GlobalForegroundListEntry.Flink = (struct _LIST_ENTRY *)&PopFxBlockingDeviceListLock.ForegroundLossTime;
+  *(_QWORD *)&PopFxBlockingDeviceListLock.ForegroundLossTime = &PopFxBlockingDeviceListLock.ForegroundLossTime;
+  *(_QWORD *)&PopFxBlockingDeviceListLock.AbCompletedIoQoSBoostCount = &PopFxBlockingDeviceListLock.PriorityFloorSummary;
+  *(_QWORD *)&PopFxBlockingDeviceListLock.PriorityFloorSummary = &PopFxBlockingDeviceListLock.PriorityFloorSummary;
+  *(_QWORD *)&PopFxBlockingDeviceListLock.SuspendEvent.Header.Lock = &PopFxBlockingDeviceListLock.SchedulerApcFill5[80];
+  *(_QWORD *)&PopFxBlockingDeviceListLock.SchedulerApcFill5[80] = &PopFxBlockingDeviceListLock.SchedulerApcFill5[80];
+  PopFxBlockingDeviceListLock.InitialStack = PopFxResidentTimeoutRoutine;
+  PopFxBlockingDeviceListLock.MutantListHead.Flink = (struct _LIST_ENTRY *)&PopFxBlockingDeviceListLock.ThreadListEntry.Blink;
+  PopFxBlockingDeviceListLock.ThreadListEntry.Blink = (struct _LIST_ENTRY *)&PopFxBlockingDeviceListLock.ThreadListEntry.Blink;
+  PopFxBlockingDeviceListLock.PropagateBoostsEntry.Next = (struct _SINGLE_LIST_ENTRY *)&PopFxBlockingDeviceListLock.SchedulerSharedSystemSlot;
+  PopFxBlockingDeviceListLock.SchedulerSharedSystemSlot = &PopFxBlockingDeviceListLock.SchedulerSharedSystemSlot;
+  *(_QWORD *)&PopFxBlockingDeviceListLock.WaitRegister.Flags = PopFxResidentTimeoutDpcRoutine;
+  PopFxBlockingDeviceListLock.ApcState.ApcListHead[1].Flink = (struct _LIST_ENTRY *)&PopFxBlockingDeviceListLock.ApcState.ApcListHead[0].Blink;
+  PopFxBlockingDeviceListLock.ApcState.ApcListHead[0].Blink = (struct _LIST_ENTRY *)&PopFxBlockingDeviceListLock.ApcState.ApcListHead[0].Blink;
+  *(_QWORD *)&PopFxBlockingDeviceListLock.Timer.Header.Lock = &PopFxBlockingDeviceListLock.RelativeTimerBias;
+  PopFxBlockingDeviceListLock.RelativeTimerBias = (unsigned __int64)&PopFxBlockingDeviceListLock.RelativeTimerBias;
+  PopFxBlockingDeviceListLock.Queue = (_DISPATCHER_HEADER *volatile)&PopFxBlockingDeviceListLock.RelativeTimerBias;
   PopFxActiveIdleThreshold *= 10000;
-  *(_QWORD *)&qword_140F123D0.Header.Lock = 0LL;
-  stru_140F12420.StateSaveArea = 0LL;
-  *(_QWORD *)&stru_140F12420.PriorityFloorCounts[24] = 0LL;
-  stru_140F12420.WaitListEntry.Flink = 0LL;
-  *(_QWORD *)&stru_140F12420.Header.Lock = 0LL;
-  stru_140F12420.QuantumTarget = 0LL;
-  LOWORD(stru_140F12420.ThreadLock) = 0;
-  HIDWORD(stru_140F12420.ThreadLock) = 1;
-  stru_140F12420.SystemCallNumber = 275;
-  stru_140F12420.ApcState.ApcListHead[0].Blink = 0LL;
-  *(_OWORD *)&stru_140F12420.ApcStateFill[32] = 0uLL;
-  stru_140F12420.TrapFrame = 0LL;
-  stru_140F12420.Timer.DueTime.QuadPart = 0LL;
-  stru_140F12420.Timer.Period = 0;
-  stru_140F12420.Timer.Processor = 0;
-  stru_140F12420.Timer.TimerDifObjTracking = 0;
+  PopFxBlockingDeviceListLock.Teb = 0LL;
+  PopFxBlockingDeviceListLock.WaitListEntry.Blink = 0LL;
+  PopFxBlockingDeviceListLock.SchedulerApc.SystemArgument1 = 0LL;
+  PopFxBlockingDeviceListLock.StackLimit = 0LL;
+  PopFxBlockingDeviceListLock.SListFaultAddress = 0LL;
+  *(_QWORD *)&PopFxBlockingDeviceListLock.Header.Lock = 0LL;
+  PopFxBlockingDeviceListLock.ThreadListEntry.Flink = 0LL;
+  PopFxBlockingDeviceListLock.AbEntryCountValue = 0;
+  PopFxBlockingDeviceListLock.SecureThreadCookie = 1;
+  LODWORD(PopFxBlockingDeviceListLock.KernelStack) = 275;
+  *($C9C4F79064DE35237E3F199A7D1BD3E1 *)((char *)&PopFxBlockingDeviceListLock.116 + 4) = 0LL;
+  PopFxBlockingDeviceListLock.TrapFrame = 0LL;
+  PopFxBlockingDeviceListLock.SchedulingGroup = 0LL;
+  PopFxBlockingDeviceListLock.ApcState.ApcListHead[1].Blink = 0LL;
+  HIDWORD(PopFxBlockingDeviceListLock.WaitBlockList) = 0;
+  LOWORD(PopFxBlockingDeviceListLock.WaitBlockList) = 0;
+  BYTE3(PopFxBlockingDeviceListLock.WaitBlockList) = 0;
   if ( (unsigned int)PopFxActiveIdleLevel >= 3 )
     PopFxActiveIdleLevel = 1;
-  stru_140F12420.WaitBlock[0].WaitListEntry.Flink = 0LL;
-  memset_0(&stru_140F12420.WaitBlockFill11[33], 0, 0x6FuLL);
-  stru_140F12420.WaitBlockFill5[32] = 1;
-  if ( !HIDWORD(stru_140F10828.KernelShadowStack) )
+  PopFxBlockingDeviceListLock.Timer.Header.WaitListHead.Flink = 0LL;
+  memset_0((char *)&PopFxBlockingDeviceListLock.SavedApcState.ApcListHead[0].Flink + 1, 0, 0x6FuLL);
+  PopFxBlockingDeviceListLock.SavedApcStateFill[0] = 1;
+  if ( !PopSleepStudyDisabled )
   {
     if ( (PopSleepStudyDeviceAccountingLevel & 1) != 0 )
     {
-      LODWORD(stru_140E66FF0.SchedulerAssistLastYieldBoostTime) = 1;
+      dword_140E676E0 = 1;
     }
     else if ( (PopSleepStudyDeviceAccountingLevel & 2) != 0 )
     {
-      LODWORD(stru_140E66FF0.SchedulerAssistLastYieldBoostTime) = 2;
+      dword_140E676E0 = 2;
     }
     else if ( (PopSleepStudyDeviceAccountingLevel & 4) != 0 )
     {
-      LODWORD(stru_140E66FF0.SchedulerAssistLastYieldBoostTime) = 3;
+      dword_140E676E0 = 3;
     }
   }
-  qword_140F12418 = (__int64)&qword_140F12410;
-  qword_140F12410 = (__int64)&qword_140F12410;
-  PopFxInitializeWorkPool((struct _KSEMAPHORE *)&unk_140F12260, 0LL);
-  PopFxInitializeWorkPool((struct _KSEMAPHORE *)&stru_140F12420.Process, 0LL);
-  *(_QWORD *)&qword_140F0B000.Header.Lock = 9LL;
-  PopDirectedDripsUmLock.Padding[4] = (unsigned __int64)&PopDirectedDripsUmLock.Padding[3];
-  PopDirectedDripsUmLock.Padding[3] = (unsigned __int64)&PopDirectedDripsUmLock.Padding[3];
-  qword_140F0B090 = (__int64)PopPepIdleTimeoutRoutine;
-  qword_140F0B058 = (__int64)PopPepIdleTimeoutDpcRoutine;
-  qword_140F0B010 = (__int64)&qword_140F0B008;
-  qword_140F0B008 = (__int64)&qword_140F0B008;
-  qword_140F0A9D0 = 0LL;
-  *(_QWORD *)&qword_140F0AFD0.Header.Lock = 0LL;
-  qword_140F0B098 = 0LL;
-  qword_140F0B080 = 0LL;
-  dword_140F0B040.TargetInfoAsUlong = 275;
-  qword_140F0B060 = 0LL;
-  qword_140F0B078 = 0LL;
-  qword_140F0B050 = 0LL;
-  qword_140F0B018 = 0LL;
-  dword_140F0B03C = 0;
-  word_140F0B038 = 0;
-  byte_140F0B03B = 0;
-  dword_140F12408 = 0;
+  *(_QWORD *)&PopFxBlockingDeviceListLock.PriorityFloorCounts[8] = PopFxBlockingDeviceListLock.PriorityFloorCounts;
+  *(_QWORD *)PopFxBlockingDeviceListLock.PriorityFloorCounts = PopFxBlockingDeviceListLock.PriorityFloorCounts;
+  PopFxInitializeWorkPool((struct _KSEMAPHORE *)&PopFxBlockingDeviceListLock.ReadTransferCount, 0LL);
+  PopFxInitializeWorkPool((struct _KSEMAPHORE *)&PopFxBlockingDeviceListLock.Timer.DueTime, 0LL);
+  *(_QWORD *)&PopDirectedDripsDiagLock.SchedulerApcFill5[80] = 9LL;
+  PopDirectedDripsDiagLock.GlobalForegroundListEntry.Flink = (struct _LIST_ENTRY *)&PopDirectedDripsDiagLock.ForegroundLossTime;
+  *(_QWORD *)&PopDirectedDripsDiagLock.ForegroundLossTime = &PopDirectedDripsDiagLock.ForegroundLossTime;
+  PopDirectedDripsDiagLock.SchedulerApc.Reserved[0] = PopPepIdleTimeoutRoutine;
+  PopDirectedDripsDiagLock.IoSelfBoostsEntry.Next = (struct _SINGLE_LIST_ENTRY *)PopPepIdleTimeoutDpcRoutine;
+  PopDirectedDripsDiagLock.SuspendEvent.Header.WaitListHead.Flink = (struct _LIST_ENTRY *)&PopDirectedDripsDiagLock.SuspendEvent;
+  *(_QWORD *)&PopDirectedDripsDiagLock.SuspendEvent.Header.Lock = &PopDirectedDripsDiagLock.SuspendEvent;
+  qword_140F0AD70 = 0LL;
+  *(_QWORD *)&PopDirectedDripsDiagLock.PriorityFloorSummary = 0LL;
+  PopDirectedDripsDiagLock.SchedulerApc.Reserved[1] = 0LL;
+  PopDirectedDripsDiagLock.SchedulerApc.ApcListEntry.Flink = 0LL;
+  *(_DWORD *)&PopDirectedDripsDiagLock.AbWaitEntryCount = 275;
+  *(_QWORD *)PopDirectedDripsDiagLock.PriorityFloorCounts = 0LL;
+  *(_QWORD *)&PopDirectedDripsDiagLock.PriorityFloorCounts[24] = 0LL;
+  PopDirectedDripsDiagLock.PropagateBoostsEntry.Next = 0LL;
+  PopDirectedDripsDiagLock.SuspendEvent.Header.WaitListHead.Blink = 0LL;
+  HIDWORD(PopDirectedDripsDiagLock.MutantListHead.Blink) = 0;
+  LOWORD(PopDirectedDripsDiagLock.MutantListHead.Blink) = 0;
+  BYTE3(PopDirectedDripsDiagLock.MutantListHead.Blink) = 0;
+  *(_DWORD *)&PopFxBlockingDeviceListLock.PriorityFloorCounts[20] = 0;
   PopFxPlatformInterface = 0LL;
   if ( PopWatchdogResumeTimeout )
-    dword_140F12408 = 1000 * (PopWatchdogResumeTimeout + 120);
+    *(_DWORD *)&PopFxBlockingDeviceListLock.PriorityFloorCounts[20] = 1000 * (PopWatchdogResumeTimeout + 120);
   result = (unsigned int)PopWatchdogSleepTimeout;
-  dword_140F123D8 = 0;
+  *(_DWORD *)&PopFxBlockingDeviceListLock.PriorityFloorCounts[16] = 0;
   if ( (_DWORD)PopWatchdogSleepTimeout )
   {
     result = (unsigned int)(PopWatchdogSleepTimeout + 120);
-    dword_140F123D8 = 1000 * result;
+    *(_DWORD *)&PopFxBlockingDeviceListLock.PriorityFloorCounts[16] = 1000 * result;
   }
   return result;
 }

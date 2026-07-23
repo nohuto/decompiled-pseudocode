@@ -1,10 +1,10 @@
 /*
- * XREFs of PnpDiagRundownInterruptResourceForEachDevice @ 0x1407A38F0
+ * XREFs of PnpDiagRundownInterruptResourceForEachDevice @ 0x1407A6430
  * Callers:
  *     <none>
  * Callees:
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall PnpDiagRundownInterruptResourceForEachDevice(__int64 a1)

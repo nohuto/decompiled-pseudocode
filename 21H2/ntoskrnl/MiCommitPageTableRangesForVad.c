@@ -1,19 +1,19 @@
 /*
- * XREFs of MiCommitPageTableRangesForVad @ 0x14054528C
+ * XREFs of MiCommitPageTableRangesForVad @ 0x1405454CC
  * Callers:
- *     MiInsertChildVads @ 0x1408D9780 (MiInsertChildVads.c)
+ *     MiInsertChildVads @ 0x1408D98E0 (MiInsertChildVads.c)
  * Callees:
- *     KiCheckForKernelApcDelivery @ 0x14024A6E0 (KiCheckForKernelApcDelivery.c)
- *     KiAbEntryRemoveFromTree @ 0x14028F490 (KiAbEntryRemoveFromTree.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     MiGetSystemRegionType @ 0x14034A950 (MiGetSystemRegionType.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     KiAbThreadRemoveBoosts @ 0x14034AD00 (KiAbThreadRemoveBoosts.c)
- *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
- *     MmGetSessionIdEx @ 0x14034AE60 (MmGetSessionIdEx.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     MiCommitPageTablesForVad @ 0x1405F91A0 (MiCommitPageTablesForVad.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     KiAbEntryRemoveFromTree @ 0x14020C630 (KiAbEntryRemoveFromTree.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402EEF30 (KiCheckForKernelApcDelivery.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     MiGetSystemRegionType @ 0x1403556A0 (MiGetSystemRegionType.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     KiAbThreadRemoveBoosts @ 0x140355A50 (KiAbThreadRemoveBoosts.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x140355AE0 (KiLeaveGuardedRegionUnsafe.c)
+ *     MmGetSessionIdEx @ 0x140355BB0 (MmGetSessionIdEx.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     MiCommitPageTablesForVad @ 0x1406E8900 (MiCommitPageTablesForVad.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiCommitPageTableRangesForVad(__int64 a1)
@@ -30,14 +30,12 @@ __int64 __fastcall MiCommitPageTableRangesForVad(__int64 a1)
   struct _KTHREAD *v11; // rbx
   unsigned int SessionId; // edx
   unsigned __int8 v13; // bp
-  _DWORD *v14; // r9
-  unsigned int v15; // r8d
-  bool v16; // zf
-  __int64 v17; // rcx
-  __int64 v18; // rdi
-  __int64 v19; // rdx
-  __int64 v20; // rcx
-  int v21; // [rsp+78h] [rbp+10h] BYREF
+  unsigned int v14; // r8d
+  bool v15; // zf
+  __int64 v16; // rcx
+  __int64 v17; // rdi
+  __int64 v18; // rdx
+  int v19; // [rsp+78h] [rbp+10h] BYREF
 
   v1 = *(_QWORD **)(a1 + 8);
   v3 = 0;
@@ -78,7 +76,7 @@ __int64 __fastcall MiCommitPageTableRangesForVad(__int64 a1)
   while ( v8 );
   if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)v7, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
     ExfTryToWakePushLock(v7);
-  v21 = 0;
+  v19 = 0;
   v11 = KeGetCurrentThread();
   if ( (unsigned int)MiGetSystemRegionType(v7) == 1 )
     SessionId = MmGetSessionIdEx((__int64)v11->ApcState.Process);
@@ -86,37 +84,36 @@ __int64 __fastcall MiCommitPageTableRangesForVad(__int64 a1)
     SessionId = -1;
   --v11->SpecialApcDisable;
   v13 = ++v11->AbAllocationRegionCount;
-  v14 = (_DWORD *)(v7 & 0x7FFFFFFFFFFFFFFCLL);
-  v15 = ((char)v11->AbEntrySummary | (char)v11->AbOrphanedEntrySummary) ^ 0x3F;
+  v14 = ((char)v11->AbEntrySummary | (char)v11->AbOrphanedEntrySummary) ^ 0x3F;
   while ( 1 )
   {
-    v16 = !_BitScanReverse((unsigned int *)&v17, v15);
-    if ( v16 )
+    v15 = !_BitScanReverse((unsigned int *)&v16, v14);
+    if ( v15 )
       break;
-    v18 = (__int64)&v11->LockEntries[v17];
-    v15 &= ~(1 << v17);
-    if ( (*(_BYTE *)(v18 + 26) & 1) != 0
-      && (*(_DWORD *)(v18 + 32) & 1) == 0
-      && (_DWORD *)(*(_QWORD *)(v18 + 32) & 0x7FFFFFFFFFFFFFFCLL) == v14
-      && *(_DWORD *)(v18 + 40) == SessionId )
+    v17 = (__int64)&v11->LockEntries[v16];
+    v14 &= ~(1 << v16);
+    if ( (*(_BYTE *)(v17 + 26) & 1) != 0
+      && (*(_DWORD *)(v17 + 32) & 1) == 0
+      && (*(_QWORD *)(v17 + 32) & 0x7FFFFFFFFFFFFFFCLL) == (v7 & 0x7FFFFFFFFFFFFFFCLL)
+      && *(_DWORD *)(v17 + 40) == SessionId )
     {
-      *(_BYTE *)(v18 + 26) &= ~1u;
-      if ( *(_QWORD *)(v18 + 32) )
+      *(_BYTE *)(v17 + 26) &= ~1u;
+      if ( *(_QWORD *)(v17 + 32) )
       {
-        if ( v18 )
+        if ( v17 )
         {
-          *(_BYTE *)(v18 + 32) |= 2u;
-          if ( *(__int64 *)(v18 + 32) < 0 )
-            KiAbEntryRemoveFromTree(v18);
-          v21 = *(_DWORD *)(v18 + 88) & 0x1FFFF;
-          *(_DWORD *)(v18 + 88) &= 0xFFFE0000;
-          *(_BYTE *)(v18 + 25) &= ~1u;
-          *(_QWORD *)(v18 + 32) = 0LL;
-          v19 = (signed __int64)(v18 - (unsigned __int64)v11->LockEntries) / 96;
+          *(_BYTE *)(v17 + 32) |= 2u;
+          if ( *(__int64 *)(v17 + 32) < 0 )
+            KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v17);
+          v19 = *(_DWORD *)(v17 + 88) & 0x1FFFF;
+          *(_DWORD *)(v17 + 88) &= 0xFFFE0000;
+          *(_BYTE *)(v17 + 25) &= ~1u;
+          *(_QWORD *)(v17 + 32) = 0LL;
+          v18 = (signed __int64)(v17 - (unsigned __int64)v11->LockEntries) / 96;
           if ( v13 == 1 )
-            v11->AbEntrySummary |= 1 << v19;
+            v11->AbEntrySummary |= 1 << v18;
           else
-            _InterlockedOr8((volatile signed __int8 *)&v11->AbOrphanedEntrySummary, 1 << v19);
+            _InterlockedOr8((volatile signed __int8 *)&v11->AbOrphanedEntrySummary, 1 << v18);
           goto LABEL_28;
         }
         break;
@@ -127,10 +124,10 @@ __int64 __fastcall MiCommitPageTableRangesForVad(__int64 a1)
     KeBugCheckEx(0x162u, (ULONG_PTR)v11, v7, SessionId, 0LL);
 LABEL_28:
   --v11->AbAllocationRegionCount;
-  KiAbThreadRemoveBoosts((ULONG_PTR)v11, v7, (__int64)&v21, v14);
-  v16 = v11->SpecialApcDisable++ == -1;
-  if ( v16 && ($C459BD0D405E8E46662177FB3D0A143F *)v11->ApcState.ApcListHead[0].Flink != &v11->152 )
-    KiCheckForKernelApcDelivery(v20);
+  KiAbThreadRemoveBoosts((ULONG_PTR)v11, v7, (unsigned int *)&v19);
+  v15 = v11->SpecialApcDisable++ == -1;
+  if ( v15 && ($C459BD0D405E8E46662177FB3D0A143F *)v11->ApcState.ApcListHead[0].Flink != &v11->152 )
+    KiCheckForKernelApcDelivery();
   KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);
   result = (unsigned int)v3;
   *(_QWORD *)(a1 + 16) = -2LL;

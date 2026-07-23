@@ -1,20 +1,20 @@
 /*
- * XREFs of RtlpCheckRelativeDrive @ 0x18009B244
+ * XREFs of RtlpCheckRelativeDrive @ 0x18009A374
  * Callers:
- *     RtlGetFullPathName_Ustr @ 0x180047AE0 (RtlGetFullPathName_Ustr.c)
+ *     RtlGetFullPathName_Ustr @ 0x180032060 (RtlGetFullPathName_Ustr.c)
  * Callees:
- *     RtlpResetDriveEnvironment @ 0x18009B16C (RtlpResetDriveEnvironment.c)
- *     RtlQueryEnvironmentVariable @ 0x18009CD10 (RtlQueryEnvironmentVariable.c)
- *     wcslen @ 0x18012DAE0 (wcslen.c)
- *     NtClose @ 0x18015F120 (NtClose.c)
- *     NtOpenFile @ 0x18015F5A0 (NtOpenFile.c)
- *     __security_check_cookie @ 0x180162C90 (__security_check_cookie.c)
+ *     RtlpResetDriveEnvironment @ 0x18009A29C (RtlpResetDriveEnvironment.c)
+ *     RtlQueryEnvironmentVariable @ 0x18009BE40 (RtlQueryEnvironmentVariable.c)
+ *     wcslen @ 0x18012D850 (wcslen.c)
+ *     NtClose @ 0x18015F020 (NtClose.c)
+ *     NtOpenFile @ 0x18015F4A0 (NtOpenFile.c)
+ *     __security_check_cookie @ 0x180162B90 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall RtlpCheckRelativeDrive(wchar_t a1)
 {
   size_t v2; // rax
-  int v3; // eax
+  NTSTATUS v3; // eax
   struct _TEB *v4; // rcx
   __int64 WowTebOffset; // rax
   __int64 v6; // rax
@@ -25,15 +25,15 @@ NTSTATUS __fastcall RtlpCheckRelativeDrive(wchar_t a1)
   __int16 v12; // [rsp+38h] [rbp-D0h] BYREF
   __int16 v13; // [rsp+3Ah] [rbp-CEh]
   int v14; // [rsp+3Ch] [rbp-CCh]
-  __int64 *v15; // [rsp+40h] [rbp-C8h]
-  unsigned __int64 v16; // [rsp+48h] [rbp-C0h] BYREF
+  WCHAR *v15; // [rsp+40h] [rbp-C8h]
+  ULONG_PTR ReturnLength; // [rsp+48h] [rbp-C0h] BYREF
   HANDLE FileHandle; // [rsp+50h] [rbp-B8h] BYREF
-  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+58h] [rbp-B0h] BYREF
-  struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+88h] [rbp-80h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+58h] [rbp-B0h] BYREF
+  _IO_STATUS_BLOCK IoStatusBlock; // [rsp+88h] [rbp-80h] BYREF
   wchar_t String[2]; // [rsp+98h] [rbp-70h] BYREF
   int v21; // [rsp+9Ch] [rbp-6Ch]
   __int64 v22; // [rsp+A8h] [rbp-60h] BYREF
-  _BYTE v23[536]; // [rsp+B0h] [rbp-58h] BYREF
+  WCHAR Value[268]; // [rsp+B0h] [rbp-58h] BYREF
 
   String[1] = a1;
   v14 = 0;
@@ -44,27 +44,33 @@ NTSTATUS __fastcall RtlpCheckRelativeDrive(wchar_t a1)
   v21 = 58;
   IoStatusBlock = 0LL;
   v2 = 2 * wcslen(String);
-  v16 = 0LL;
+  ReturnLength = 0LL;
   if ( v2 >= 0xFFFE )
     LOWORD(v2) = -4;
   v22 = 0x5C003F003F005CLL;
   v13 = 520;
-  v15 = (__int64 *)v23;
-  v3 = RtlQueryEnvironmentVariable(0LL, String, (unsigned __int64)(unsigned __int16)v2 >> 1, v23, 260LL, &v16);
-  if ( v16 > 0x7FFF || v3 < 0 )
+  v15 = Value;
+  v3 = RtlQueryEnvironmentVariable(
+         0LL,
+         String,
+         (unsigned __int64)(unsigned __int16)v2 >> 1,
+         Value,
+         0x104uLL,
+         &ReturnLength);
+  if ( ReturnLength > 0x7FFF || v3 < 0 )
   {
-    *(_WORD *)v15 = a1;
-    *((_WORD *)v15 + 1) = 58;
-    *((_WORD *)v15 + 2) = 92;
-    *((_WORD *)v15 + 3) = 0;
+    *v15 = a1;
+    v15[1] = 58;
+    v15[2] = 92;
+    v15[3] = 0;
     v12 = 6;
     return RtlpResetDriveEnvironment(a1);
   }
   ObjectAttributes.Length = 48;
-  v12 = 2 * v16 + 8;
+  v12 = 2 * ReturnLength + 8;
   v13 = 544;
   ObjectAttributes.RootDirectory = 0LL;
-  v15 = &v22;
+  v15 = (WCHAR *)&v22;
   ObjectAttributes.ObjectName = (PUNICODE_STRING)&v12;
   ObjectAttributes.Attributes = 64;
   *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;

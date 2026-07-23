@@ -1,33 +1,33 @@
 /*
- * XREFs of LdrpLoadDllInternal @ 0x18000B460
+ * XREFs of LdrpLoadDllInternal @ 0x180037E60
  * Callers:
- *     LdrpLoadDll @ 0x18000B1F0 (LdrpLoadDll.c)
- *     LdrpLoadForwardedDll @ 0x18000B980 (LdrpLoadForwardedDll.c)
- *     LdrpLoadPatchImage @ 0x18015EBFC (LdrpLoadPatchImage.c)
+ *     LdrpLoadDll @ 0x180037BF0 (LdrpLoadDll.c)
+ *     LdrpLoadForwardedDll @ 0x180038380 (LdrpLoadForwardedDll.c)
+ *     LdrpLoadPatchImage @ 0x18015CFBC (LdrpLoadPatchImage.c)
  * Callees:
- *     LdrpDropLastInProgressCount @ 0x180001F40 (LdrpDropLastInProgressCount.c)
- *     LdrpDrainWorkQueue @ 0x180003E20 (LdrpDrainWorkQueue.c)
- *     LdrpPrepareModuleForExecution @ 0x180004BA4 (LdrpPrepareModuleForExecution.c)
- *     LdrpFindLoadedDllByHandle @ 0x18000F8E0 (LdrpFindLoadedDllByHandle.c)
- *     LdrpFindOrPrepareLoadingModule @ 0x18000FA80 (LdrpFindOrPrepareLoadingModule.c)
- *     LdrpLogInternal @ 0x180013D80 (LdrpLogInternal.c)
- *     LdrpFastpthReloadedDll @ 0x180019870 (LdrpFastpthReloadedDll.c)
- *     LdrpDereferenceModule @ 0x18001B350 (LdrpDereferenceModule.c)
- *     LdrpDecrementModuleLoadCountEx @ 0x18001C830 (LdrpDecrementModuleLoadCountEx.c)
- *     LdrpProcessWork @ 0x180021E60 (LdrpProcessWork.c)
- *     LdrpQueryCurrentPatch @ 0x1800665B8 (LdrpQueryCurrentPatch.c)
- *     LdrpDetectDetour @ 0x18006CBA0 (LdrpDetectDetour.c)
- *     LdrpPinModule @ 0x18006D2E8 (LdrpPinModule.c)
- *     LdrpFreeUnicodeString @ 0x18007625C (LdrpFreeUnicodeString.c)
- *     LdrpFreeLoadContextOfNode @ 0x1800D9018 (LdrpFreeLoadContextOfNode.c)
- *     LdrpFreeReplacedModule @ 0x1800D91A8 (LdrpFreeReplacedModule.c)
- *     LdrpHandleReplacedModule @ 0x1800D91E0 (LdrpHandleReplacedModule.c)
- *     LdrpBuildForwarderLink @ 0x1800DF720 (LdrpBuildForwarderLink.c)
- *     LdrpCondenseGraph @ 0x1800EA3D0 (LdrpCondenseGraph.c)
- *     LdrpThreadTokenSetMainThreadToken @ 0x1800F0760 (LdrpThreadTokenSetMainThreadToken.c)
- *     LdrpThreadTokenUnsetMainThreadToken @ 0x1800F93E8 (LdrpThreadTokenUnsetMainThreadToken.c)
- *     LdrpLogError @ 0x1800FB40C (LdrpLogError.c)
- *     LdrpApplyPatchImage @ 0x180117730 (LdrpApplyPatchImage.c)
+ *     LdrpPrepareModuleForExecution @ 0x1800315A4 (LdrpPrepareModuleForExecution.c)
+ *     LdrpFindLoadedDllByHandle @ 0x18003C2E0 (LdrpFindLoadedDllByHandle.c)
+ *     LdrpFindOrPrepareLoadingModule @ 0x18003C480 (LdrpFindOrPrepareLoadingModule.c)
+ *     LdrpLogInternal @ 0x180040780 (LdrpLogInternal.c)
+ *     LdrpFastpthReloadedDll @ 0x180046270 (LdrpFastpthReloadedDll.c)
+ *     LdrpDereferenceModule @ 0x180047D50 (LdrpDereferenceModule.c)
+ *     LdrpDecrementModuleLoadCountEx @ 0x180049230 (LdrpDecrementModuleLoadCountEx.c)
+ *     LdrpProcessWork @ 0x18004E860 (LdrpProcessWork.c)
+ *     LdrpDetectDetour @ 0x180089480 (LdrpDetectDetour.c)
+ *     LdrpPinModule @ 0x180089BC8 (LdrpPinModule.c)
+ *     LdrpFreeUnicodeString @ 0x180092B3C (LdrpFreeUnicodeString.c)
+ *     LdrpDrainWorkQueue @ 0x1800AB680 (LdrpDrainWorkQueue.c)
+ *     LdrpDropLastInProgressCount @ 0x1800ACA84 (LdrpDropLastInProgressCount.c)
+ *     LdrpQueryCurrentPatch @ 0x1800AE798 (LdrpQueryCurrentPatch.c)
+ *     LdrpFreeLoadContextOfNode @ 0x1800D4388 (LdrpFreeLoadContextOfNode.c)
+ *     LdrpFreeReplacedModule @ 0x1800D4518 (LdrpFreeReplacedModule.c)
+ *     LdrpHandleReplacedModule @ 0x1800D4550 (LdrpHandleReplacedModule.c)
+ *     LdrpBuildForwarderLink @ 0x1800DA890 (LdrpBuildForwarderLink.c)
+ *     LdrpCondenseGraph @ 0x1800E5B60 (LdrpCondenseGraph.c)
+ *     LdrpThreadTokenSetMainThreadToken @ 0x1800EB3E0 (LdrpThreadTokenSetMainThreadToken.c)
+ *     LdrpThreadTokenUnsetMainThreadToken @ 0x1800F3FB8 (LdrpThreadTokenUnsetMainThreadToken.c)
+ *     LdrpLogError @ 0x1800F633C (LdrpLogError.c)
+ *     LdrpApplyPatchImage @ 0x1801127D0 (LdrpApplyPatchImage.c)
  */
 
 __int64 __fastcall LdrpLoadDllInternal(
@@ -35,35 +35,37 @@ __int64 __fastcall LdrpLoadDllInternal(
         int a2,
         unsigned int a3,
         int a4,
-        __int64 a5,
-        __int64 a6,
+        char *a5,
+        char *a6,
         __int64 *a7,
         int *a8,
         __int64 a9,
         char a10)
 {
   __int64 *v13; // r15
-  __int64 v14; // r13
+  char *v14; // r13
   int v15; // eax
   int *v16; // rbx
-  __int64 v17; // r14
+  char *v17; // r14
   char v19; // bl
   int v20; // eax
-  __int64 v21; // rsi
-  __int64 v22; // rax
-  int v23; // eax
-  int v24; // eax
+  __int64 v21; // rdx
+  char *v22; // rsi
+  __int64 v23; // rax
+  void *v24; // rcx
   int v25; // eax
+  int v26; // eax
+  int v27; // eax
   int LoadedDllByHandle; // eax
-  __int64 v27[9]; // [rsp+40h] [rbp-48h] BYREF
-  char v29; // [rsp+A8h] [rbp+20h]
+  PVOID BaseAddress[9]; // [rsp+40h] [rbp-48h] BYREF
+  char v31; // [rsp+A8h] [rbp+20h]
 
   a10 = 0;
-  LdrpLogInternal((int)"minkernel\\ldr\\ldrapi.c", 1671, (int)"LdrpLoadDllInternal", 3, "DLL name: %wZ\n", a1);
-  LdrpLogInternal((int)"minkernel\\ldr\\ldrapi.c", 1672, (int)"LdrpLoadDllInternal", 5, "%wZ\n", a1);
+  LdrpLogInternal("minkernel\\ldr\\ldrapi.c", 1671LL, "LdrpLoadDllInternal", 3LL, "DLL name: %wZ\n", a1);
+  LdrpLogInternal("minkernel\\ldr\\ldrapi.c", 1672LL, "LdrpLoadDllInternal", 5LL, "%wZ\n", a1);
   v13 = a7;
   *a7 = 0LL;
-  v27[0] = 0LL;
+  BaseAddress[0] = 0LL;
   v14 = a6;
   if ( a4 != 9 )
   {
@@ -79,13 +81,13 @@ __int64 __fastcall LdrpLoadDllInternal(
   if ( (NtCurrentTeb()->SameTebFlags & 0x1000) != 0 )
   {
     v19 = 1;
-    v29 = 1;
+    v31 = 1;
   }
   else
   {
     v19 = 0;
-    v29 = 0;
-    LdrpDrainWorkQueue(0);
+    v31 = 0;
+    LdrpDrainWorkQueue(0LL);
   }
   if ( a4 == 9 )
   {
@@ -94,7 +96,7 @@ __int64 __fastcall LdrpLoadDllInternal(
     v17 = a5;
     if ( LoadedDllByHandle >= 0 )
     {
-      if ( *(_DWORD *)(a5 + 304) == 4 )
+      if ( *((_DWORD *)a5 + 76) == 4 )
       {
         LoadedDllByHandle = -1073740628;
         LODWORD(a7) = -1073740628;
@@ -102,15 +104,15 @@ __int64 __fastcall LdrpLoadDllInternal(
       else
       {
         v14 = a5;
-        LoadedDllByHandle = LdrpQueryCurrentPatch(*(_QWORD *)(a5 + 48), &a10);
+        LoadedDllByHandle = LdrpQueryCurrentPatch(*((_QWORD *)a5 + 6), &a10);
         LODWORD(a7) = LoadedDllByHandle;
         if ( LoadedDllByHandle >= 0 && a10 )
         {
           LdrpLogInternal(
-            (int)"minkernel\\ldr\\ldrapi.c",
-            1796,
-            (int)"LdrpLoadDllInternal",
-            2,
+            "minkernel\\ldr\\ldrapi.c",
+            1796LL,
+            "LdrpLoadDllInternal",
+            2LL,
             "Loading patch image for the following base image: %wZ\n",
             v17 + 88);
           goto LABEL_11;
@@ -124,21 +126,22 @@ __int64 __fastcall LdrpLoadDllInternal(
     }
     v16 = a8;
     *a8 = LoadedDllByHandle;
-    if ( !v29 )
+    if ( !v31 )
       goto LABEL_48;
     goto LABEL_4;
   }
   v17 = a5;
 LABEL_11:
   LdrpThreadTokenSetMainThreadToken();
-  if ( !v14 || v19 || *(_DWORD *)(*(_QWORD *)(v14 + 152) + 24LL) )
+  if ( !v14 || v19 || *(_DWORD *)(*((_QWORD *)v14 + 19) + 24LL) )
   {
     LdrpDetectDetour();
     v16 = a8;
-    v20 = LdrpFindOrPrepareLoadingModule(a1, a2, a3, a4, v17, (__int64)v27, (__int64)a8);
+    v20 = LdrpFindOrPrepareLoadingModule(a1, a2, a3, a4, (__int64)v17, (__int64)BaseAddress, (__int64)a8);
     if ( v20 == -1073741515 )
     {
-      LdrpProcessWork(*(_QWORD *)(v27[0] + 176));
+      LOBYTE(v21) = 1;
+      LdrpProcessWork(*((_QWORD *)BaseAddress[0] + 22), v21);
     }
     else if ( v20 != -1073741267 && v20 < 0 )
     {
@@ -150,59 +153,59 @@ LABEL_11:
     v16 = a8;
     *a8 = -1073741515;
   }
-  LdrpDrainWorkQueue(1);
+  LdrpDrainWorkQueue(1LL);
   if ( LdrpMainThreadToken )
     LdrpThreadTokenUnsetMainThreadToken();
-  v21 = v27[0];
-  if ( v27[0] )
+  v22 = (char *)BaseAddress[0];
+  if ( BaseAddress[0] )
   {
-    v22 = LdrpHandleReplacedModule(v27[0]);
-    *v13 = v22;
-    if ( v21 != v22 )
+    v23 = LdrpHandleReplacedModule(BaseAddress[0]);
+    *v13 = v23;
+    if ( v22 != (char *)v23 )
     {
-      LdrpFreeReplacedModule();
-      v21 = *v13;
-      v27[0] = v21;
-      if ( *(_DWORD *)(v21 + 268) == 9 && a4 != 9 )
+      LdrpFreeReplacedModule(v24);
+      v22 = (char *)*v13;
+      BaseAddress[0] = v22;
+      if ( *((_DWORD *)v22 + 67) == 9 && a4 != 9 )
         *v16 = -1073740608;
     }
-    if ( *(_QWORD *)(v21 + 176) )
+    if ( *((_QWORD *)v22 + 22) )
     {
-      LdrpCondenseGraph(*(_QWORD *)(v21 + 152));
-      *(_QWORD *)(*(_QWORD *)(v21 + 176) + 200LL) = 0LL;
+      LdrpCondenseGraph(*((_QWORD *)v22 + 19));
+      *(_QWORD *)(*((_QWORD *)v22 + 22) + 200LL) = 0LL;
     }
     if ( *v16 < 0 )
       goto LABEL_28;
-    v23 = LdrpPrepareModuleForExecution(v21, (__int64)v16);
-    *v16 = v23;
-    if ( v23 >= 0 )
+    v25 = LdrpPrepareModuleForExecution((__int64)v22, (__int64)v16);
+    *v16 = v25;
+    if ( v25 >= 0 )
     {
-      v24 = LdrpBuildForwarderLink(v14, v21);
-      *v16 = v24;
-      if ( v24 >= 0 && !LdrInitState )
-        LdrpPinModule(v21);
+      v26 = LdrpBuildForwarderLink(v14, v22);
+      *v16 = v26;
+      if ( v26 >= 0 && !LdrInitState )
+        LdrpPinModule(v22);
     }
     if ( a4 == 9 )
     {
       v17 = a5;
-      if ( *(_QWORD *)(a5 + 296) != *(_QWORD *)(v21 + 48) )
+      if ( *((_QWORD *)a5 + 37) != *((_QWORD *)v22 + 6) )
       {
-        if ( *(_DWORD *)(v21 + 304) == 4 || *(_DWORD *)(a5 + 304) == 4 )
+        if ( *((_DWORD *)v22 + 76) == 4 || *((_DWORD *)a5 + 76) == 4 )
         {
           *v16 = -1073741502;
         }
         else
         {
-          v25 = LdrpApplyPatchImage(v21);
-          *v16 = v25;
-          if ( v25 < 0 )
+          v27 = LdrpApplyPatchImage(v22);
+          *v16 = v27;
+          if ( v27 < 0 )
             LdrpLogInternal(
-              (int)"minkernel\\ldr\\ldrapi.c",
-              1997,
-              (int)"LdrpLoadDllInternal",
-              0,
+              "minkernel\\ldr\\ldrapi.c",
+              1997LL,
+              "LdrpLoadDllInternal",
+              0LL,
               "Applying patch \"%wZ\" failed\n",
-              v21 + 72);
+              v22 + 72);
         }
       }
     }
@@ -211,12 +214,12 @@ LABEL_11:
 LABEL_28:
       v17 = a5;
     }
-    LdrpFreeLoadContextOfNode(*(_QWORD *)(v21 + 152), v16);
-    if ( *v16 < 0 && (a4 != 9 || *(_DWORD *)(v21 + 304) != 2) )
+    LdrpFreeLoadContextOfNode(*((_QWORD *)v22 + 19), v16);
+    if ( *v16 < 0 && (a4 != 9 || *((_DWORD *)v22 + 76) != 2) )
     {
       *v13 = 0LL;
-      LdrpDecrementModuleLoadCountEx(v21, 0LL);
-      LdrpDereferenceModule(v21);
+      LdrpDecrementModuleLoadCountEx(v22, 0LL);
+      LdrpDereferenceModule(v22);
     }
   }
   else
@@ -224,12 +227,12 @@ LABEL_28:
     *v16 = -1073741801;
     v17 = a5;
   }
-  if ( !v29 )
+  if ( !v31 )
 LABEL_48:
     LdrpDropLastInProgressCount();
 LABEL_4:
   if ( a4 == 9 && v17 )
     LdrpDereferenceModule(v17);
-  LdrpLogInternal((int)"minkernel\\ldr\\ldrapi.c", 2122, (int)"LdrpLoadDllInternal", 4, "Status: 0x%08lx\n", *v16);
-  return LdrpLogInternal((int)"minkernel\\ldr\\ldrapi.c", 2123, (int)"LdrpLoadDllInternal", 6, "%x\n", *v16);
+  LdrpLogInternal("minkernel\\ldr\\ldrapi.c", 2122LL, "LdrpLoadDllInternal", 4LL, "Status: 0x%08lx\n", *v16);
+  return LdrpLogInternal("minkernel\\ldr\\ldrapi.c", 2123LL, "LdrpLoadDllInternal", 6LL, "%x\n", *v16);
 }

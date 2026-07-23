@@ -11,7 +11,7 @@ __int64 KeInitAmd64SpecificState()
   __int64 result; // rax
 
   _mm_lfence();
-  if ( *(_QWORD *)&HvlpVsmVtlCallVa || !(_DWORD)InitSafeBootMode )
+  if ( *(_QWORD *)&HvlpVsmVtlCallVa || !InitSafeBootMode )
     return (unsigned int)(__ROR4__((unsigned __int8)KdPitchDebugger | (unsigned __int8)KdDebuggerNotPresent, 1)
                         / (((unsigned __int8)KdPitchDebugger | (unsigned __int8)KdDebuggerNotPresent) != 0 ? -1 : 17));
   return result;

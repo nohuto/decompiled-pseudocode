@@ -1,9 +1,9 @@
 /*
- * XREFs of SeOpenObjectForDeleteAuditAlarm @ 0x1409F88C0
+ * XREFs of SeOpenObjectForDeleteAuditAlarm @ 0x140A61400
  * Callers:
  *     <none>
  * Callees:
- *     SeOpenObjectForDeleteAuditAlarmWithTransaction @ 0x1409F8930 (SeOpenObjectForDeleteAuditAlarmWithTransaction.c)
+ *     SeOpenObjectForDeleteAuditAlarmWithTransaction @ 0x140A61470 (SeOpenObjectForDeleteAuditAlarmWithTransaction.c)
  */
 
 void __stdcall SeOpenObjectForDeleteAuditAlarm(

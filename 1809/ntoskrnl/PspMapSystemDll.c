@@ -1,15 +1,15 @@
 /*
- * XREFs of PspMapSystemDll @ 0x1406779AC
+ * XREFs of PspMapSystemDll @ 0x140678B6C
  * Callers:
- *     PsMapSystemDlls @ 0x140677B70 (PsMapSystemDlls.c)
- *     PspLocateSystemDll @ 0x14075613C (PspLocateSystemDll.c)
- *     PspInitPhase3 @ 0x1409DF584 (PspInitPhase3.c)
+ *     PsMapSystemDlls @ 0x140678D30 (PsMapSystemDlls.c)
+ *     PspLocateSystemDll @ 0x14075732C (PspLocateSystemDll.c)
+ *     PspInitPhase3 @ 0x1409E0584 (PspInitPhase3.c)
  * Callees:
  *     ObFastDereferenceObject @ 0x14004D9D0 (ObFastDereferenceObject.c)
- *     RtlImageNtHeader @ 0x14009DAE0 (RtlImageNtHeader.c)
- *     MmMapViewOfSectionEx @ 0x1400F2938 (MmMapViewOfSectionEx.c)
- *     ZwSetInformationVirtualMemory @ 0x1401BB470 (ZwSetInformationVirtualMemory.c)
- *     PspReferenceSystemDll @ 0x140677B28 (PspReferenceSystemDll.c)
+ *     RtlImageNtHeader @ 0x14009DA20 (RtlImageNtHeader.c)
+ *     MmMapViewOfSectionEx @ 0x1400F29B8 (MmMapViewOfSectionEx.c)
+ *     ZwSetInformationVirtualMemory @ 0x1401BB5D0 (ZwSetInformationVirtualMemory.c)
+ *     PspReferenceSystemDll @ 0x140678CE8 (PspReferenceSystemDll.c)
  */
 
 __int64 __fastcall PspMapSystemDll(struct _KPROCESS *a1, __int64 a2, int a3, int a4)
@@ -24,8 +24,10 @@ __int64 __fastcall PspMapSystemDll(struct _KPROCESS *a1, __int64 a2, int a3, int
   PVOID BaseAddress; // [rsp+68h] [rbp-9h] BYREF
   __int64 v17; // [rsp+70h] [rbp-1h] BYREF
   __int64 v18; // [rsp+78h] [rbp+7h] BYREF
-  _QWORD v19[4]; // [rsp+80h] [rbp+Fh] BYREF
-  _QWORD v20[3]; // [rsp+A0h] [rbp+2Fh] BYREF
+  _QWORD v19[2]; // [rsp+80h] [rbp+Fh] BYREF
+  _MEMORY_RANGE_ENTRY VirtualAddresses; // [rsp+90h] [rbp+1Fh] BYREF
+  _QWORD v21[3]; // [rsp+A0h] [rbp+2Fh] BYREF
+  int VmInformation; // [rsp+E0h] [rbp+6Fh] BYREF
 
   v8 = PspReferenceSystemDll(a2);
   if ( !v8 )
@@ -34,13 +36,13 @@ __int64 __fastcall PspMapSystemDll(struct _KPROCESS *a1, __int64 a2, int a3, int
   v18 = 0LL;
   v17 = 0LL;
   v9 = 0LL;
-  v19[1] = v20;
-  v20[0] = 0LL;
-  v20[2] = 0LL;
+  v19[1] = v21;
+  v21[0] = 0LL;
+  v21[2] = 0LL;
   v19[0] = 1LL;
   if ( (*(_BYTE *)(a2 + 16) & 8) == 0 )
     v9 = 0x7FFFFFFEFFFFLL;
-  v20[1] = v9;
+  v21[1] = v9;
   v10 = MmMapViewOfSectionEx(
           v8,
           (int)a1,
@@ -78,9 +80,16 @@ LABEL_5:
   }
   if ( *(PVOID *)(a2 + 40) == BaseAddress )
   {
-    v19[2] = BaseAddress;
-    v19[3] = 4096LL;
-    ZwSetInformationVirtualMemory(-1LL, 4LL, 1LL);
+    VirtualAddresses.VirtualAddress = BaseAddress;
+    VmInformation = 1;
+    VirtualAddresses.NumberOfBytes = 4096LL;
+    ZwSetInformationVirtualMemory(
+      (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+      VmImageHotPatchInformation,
+      1uLL,
+      &VirtualAddresses,
+      &VmInformation,
+      4u);
     return v10;
   }
   return 3221225473LL;

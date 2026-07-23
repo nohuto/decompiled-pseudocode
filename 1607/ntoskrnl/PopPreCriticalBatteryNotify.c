@@ -1,9 +1,9 @@
 /*
- * XREFs of PopPreCriticalBatteryNotify @ 0x140672610
+ * XREFs of PopPreCriticalBatteryNotify @ 0x1406726F4
  * Callers:
- *     PopPolicyWorkerThread @ 0x140009874 (PopPolicyWorkerThread.c)
+ *     PopPolicyWorkerThread @ 0x1400093E8 (PopPolicyWorkerThread.c)
  * Callees:
- *     PopForceCompleteCsSleepStudySession @ 0x140126C08 (PopForceCompleteCsSleepStudySession.c)
+ *     PopForceCompleteCsSleepStudySession @ 0x140127178 (PopForceCompleteCsSleepStudySession.c)
  */
 
 __int64 PopPreCriticalBatteryNotify()

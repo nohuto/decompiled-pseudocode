@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlLongLongAdd @ 0x14053230C
+ * XREFs of RtlLongLongAdd @ 0x1405347AC
  * Callers:
- *     PopReadPagesFromHiberFile @ 0x140775074 (PopReadPagesFromHiberFile.c)
- *     RtlParseLeapSecondData @ 0x1408A7624 (RtlParseLeapSecondData.c)
- *     PspChargeJobWakeCounter @ 0x140AAE650 (PspChargeJobWakeCounter.c)
+ *     PopReadPagesFromHiberFile @ 0x140778074 (PopReadPagesFromHiberFile.c)
+ *     RtlParseLeapSecondData @ 0x1408ADA94 (RtlParseLeapSecondData.c)
+ *     PspChargeJobWakeCounter @ 0x140AAC2B0 (PspChargeJobWakeCounter.c)
  * Callees:
  *     <none>
  */

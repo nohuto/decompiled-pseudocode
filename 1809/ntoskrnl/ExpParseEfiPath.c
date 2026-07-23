@@ -1,11 +1,11 @@
 /*
- * XREFs of ExpParseEfiPath @ 0x1408D1190
+ * XREFs of ExpParseEfiPath @ 0x1408D2450
  * Callers:
- *     ExpTranslateEfiPath @ 0x1408D280C (ExpTranslateEfiPath.c)
+ *     ExpTranslateEfiPath @ 0x1408D3ACC (ExpTranslateEfiPath.c)
  * Callees:
- *     memmove @ 0x1401D1540 (memmove.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall ExpParseEfiPath(char *Src, _QWORD *a2, _QWORD *a3, char *a4)

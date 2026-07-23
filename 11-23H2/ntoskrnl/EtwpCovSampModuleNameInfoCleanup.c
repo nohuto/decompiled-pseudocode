@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwpCovSampModuleNameInfoCleanup @ 0x1409F2804
+ * XREFs of EtwpCovSampModuleNameInfoCleanup @ 0x1409F2A94
  * Callers:
- *     EtwpCoverageSamplerQuery @ 0x1408A9F98 (EtwpCoverageSamplerQuery.c)
- *     EtwpCovSampContextGetModule @ 0x1409F128C (EtwpCovSampContextGetModule.c)
- *     EtwpCovSampModuleCleanup @ 0x1409F26A8 (EtwpCovSampModuleCleanup.c)
+ *     EtwpCoverageSamplerQuery @ 0x1408AA1E8 (EtwpCoverageSamplerQuery.c)
+ *     EtwpCovSampContextGetModule @ 0x1409F151C (EtwpCovSampContextGetModule.c)
+ *     EtwpCovSampModuleCleanup @ 0x1409F2938 (EtwpCovSampModuleCleanup.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     RtlFreeUnicodeString @ 0x14076F3D0 (RtlFreeUnicodeString.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     RtlFreeUnicodeString @ 0x14076F5C0 (RtlFreeUnicodeString.c)
  */
 
 void __fastcall EtwpCovSampModuleNameInfoCleanup(__int64 *a1)

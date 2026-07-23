@@ -3,7 +3,7 @@
  * Callers:
  *     KeSetTimerEx @ 0x14001DF70 (KeSetTimerEx.c)
  *     KiCommitThreadWait @ 0x140055AD0 (KiCommitThreadWait.c)
- *     KiResumeThread @ 0x1400F1C60 (KiResumeThread.c)
+ *     KiResumeThread @ 0x1400F1CE0 (KiResumeThread.c)
  * Callees:
  *     <none>
  */

@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpProbeUserBufferSafe @ 0x1404F60C4
+ * XREFs of RtlpProbeUserBufferSafe @ 0x1404F39C4
  * Callers:
- *     RtlpFreeNTHeapInternal @ 0x14047DEEC (RtlpFreeNTHeapInternal.c)
- *     RtlpSizeHeapInternal @ 0x1405ED8E8 (RtlpSizeHeapInternal.c)
+ *     RtlpFreeNTHeapInternal @ 0x14047917C (RtlpFreeNTHeapInternal.c)
+ *     RtlpSizeHeapInternal @ 0x1405EAED0 (RtlpSizeHeapInternal.c)
  * Callees:
- *     RtlpLogHeapFailure @ 0x1402B2E04 (RtlpLogHeapFailure.c)
- *     RtlpHeapExceptionFilter @ 0x1405F28D0 (RtlpHeapExceptionFilter.c)
+ *     RtlpLogHeapFailure @ 0x14035B9C4 (RtlpLogHeapFailure.c)
+ *     RtlpHeapExceptionFilter @ 0x1405EFF10 (RtlpHeapExceptionFilter.c)
  */
 
 unsigned __int8 *__fastcall RtlpProbeUserBufferSafe(ULONG_PTR a1, ULONG_PTR a2)

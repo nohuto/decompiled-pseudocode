@@ -1,11 +1,11 @@
 /*
- * XREFs of MiInitializeCreateSectionPacket @ 0x140705930
+ * XREFs of MiInitializeCreateSectionPacket @ 0x14071CD10
  * Callers:
- *     MiCreateSection @ 0x140705710 (MiCreateSection.c)
+ *     MiCreateSection @ 0x14071CAF0 (MiCreateSection.c)
  * Callees:
- *     MiMakeProtectionMask @ 0x14021AA20 (MiMakeProtectionMask.c)
- *     PsDereferencePartition @ 0x1402ABFDC (PsDereferencePartition.c)
- *     PsReferencePartitionByHandle @ 0x140692204 (PsReferencePartitionByHandle.c)
+ *     PsDereferencePartition @ 0x140274588 (PsDereferencePartition.c)
+ *     MiMakeProtectionMask @ 0x1402BF320 (MiMakeProtectionMask.c)
+ *     PsReferencePartitionByHandle @ 0x14067CE44 (PsReferencePartitionByHandle.c)
  */
 
 __int64 __fastcall MiInitializeCreateSectionPacket(

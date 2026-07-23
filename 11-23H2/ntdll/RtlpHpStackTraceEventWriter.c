@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpHpStackTraceEventWriter @ 0x1801176F0
+ * XREFs of RtlpHpStackTraceEventWriter @ 0x1801176C0
  * Callers:
  *     <none>
  * Callees:
  *     memmove @ 0x1800A7A40 (memmove.c)
- *     RtlpHpStackDbLogStackDbEnd @ 0x180116D78 (RtlpHpStackDbLogStackDbEnd.c)
- *     RtlpHpStackDbLogStackDbSnapshot @ 0x180116DF4 (RtlpHpStackDbLogStackDbSnapshot.c)
+ *     RtlpHpStackDbLogStackDbEnd @ 0x180116D48 (RtlpHpStackDbLogStackDbEnd.c)
+ *     RtlpHpStackDbLogStackDbSnapshot @ 0x180116DC4 (RtlpHpStackDbLogStackDbSnapshot.c)
  *     memset$thunk$772440563353939046 @ 0x180132010 (memset$thunk$772440563353939046.c)
  */
 

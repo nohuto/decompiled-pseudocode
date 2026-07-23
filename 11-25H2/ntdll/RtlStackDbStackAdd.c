@@ -133,7 +133,7 @@ LABEL_15:
     goto LABEL_15;
   }
 LABEL_21:
-  RtlAcquireSRWLockShared((volatile signed __int64 *)(a1 + 32));
+  RtlAcquireSRWLockShared((PRTL_SRWLOCK)(a1 + 32));
   v17 = 0LL;
   v18 = -1LL << (*(_BYTE *)(a1 + 20) & 0x1F);
   v19 = v7 & v18;
@@ -167,18 +167,18 @@ LABEL_25:
         if ( (unsigned int)RtlpStackDbEntryIsEqual(v17, v45) )
         {
           v3 = v17 & -(__int64)((unsigned int)RtlpStackDbRefCountIncrement(v17 + 16, v21) != 0);
-          RtlReleaseSRWLockShared((volatile signed __int64 *)(a1 + 32));
+          RtlReleaseSRWLockShared((PRTL_SRWLOCK)(a1 + 32));
           return v3;
         }
         goto LABEL_22;
       }
     }
   }
-  RtlReleaseSRWLockShared((volatile signed __int64 *)(a1 + 32));
+  RtlReleaseSRWLockShared((PRTL_SRWLOCK)(a1 + 32));
   v44 = (_QWORD *)RtlpStackDbEntryCreate(a1, v45, v7);
   if ( v44 )
   {
-    RtlAcquireSRWLockExclusive((volatile signed __int32 *)(a1 + 32));
+    RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 32));
     v22 = *(_DWORD *)(a1 + 20);
     v23 = 0LL;
     v50 = -1LL << (*(_BYTE *)(a1 + 20) & 0x1F);
@@ -295,7 +295,7 @@ LABEL_35:
       else if ( *(_DWORD *)(a1 + 20) < 0x20u )
       {
 LABEL_66:
-        RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a1 + 32));
+        RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 32));
         RtlpStackDbEntryCleanup(a1, v44);
         return v3;
       }
@@ -315,7 +315,7 @@ LABEL_66:
     *v44 = *(_QWORD *)(v41 + 8 * v42);
     *(_QWORD *)(v41 + 8 * v42) = v44;
     ++*(_DWORD *)v28;
-    RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a1 + 32));
+    RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 32));
   }
   return v3;
 }

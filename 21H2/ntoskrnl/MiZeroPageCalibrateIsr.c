@@ -1,13 +1,13 @@
 /*
- * XREFs of MiZeroPageCalibrateIsr @ 0x1403BC430
+ * XREFs of MiZeroPageCalibrateIsr @ 0x1403BC5A0
  * Callers:
  *     <none>
  * Callees:
- *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
- *     MiComputeOptimalWriteProcessors @ 0x1403BC914 (MiComputeOptimalWriteProcessors.c)
+ *     KeYieldProcessorEx @ 0x1402EFAD0 (KeYieldProcessorEx.c)
+ *     MiComputeOptimalWriteProcessors @ 0x1403BCA84 (MiComputeOptimalWriteProcessors.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     KeZeroPages @ 0x140402DB0 (KeZeroPages.c)
- *     memset @ 0x140414200 (memset.c)
+ *     KeZeroPages @ 0x140402F90 (KeZeroPages.c)
+ *     memset @ 0x140414300 (memset.c)
  */
 
 ULONG_PTR __fastcall MiZeroPageCalibrateIsr(ULONG_PTR Argument, __int64 a2, __int64 a3)
@@ -178,7 +178,7 @@ LABEL_25:
         v28 = *(_QWORD *)(v11 + 4424);
         v29 = (void *)(*(_QWORD *)(v11 + 4408) + v28 * (v27 - 1));
         if ( *(_DWORD *)(Argument + 48) == 1 )
-          KeZeroPages(v29, *(_QWORD *)(v11 + 4424), v28);
+          KeZeroPages(v29, *(_QWORD *)(v11 + 4424));
         else
           memset(v29, 0, v28);
         v33 = _InterlockedExchangeAdd((volatile signed __int32 *)(v11 + 4448), 1u);

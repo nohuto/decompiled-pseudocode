@@ -1,12 +1,12 @@
 /*
- * XREFs of DbgkWerAddSecondaryData @ 0x140708780
+ * XREFs of DbgkWerAddSecondaryData @ 0x140706340
  * Callers:
  *     <none>
  * Callees:
- *     DbgPrintEx @ 0x1402CB2F0 (DbgPrintEx.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     DbgkpWerFreePool @ 0x140708D50 (DbgkpWerFreePool.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     DbgPrintEx @ 0x140275B40 (DbgPrintEx.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     DbgkpWerFreePool @ 0x140706910 (DbgkpWerFreePool.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall DbgkWerAddSecondaryData(__int64 a1, __int128 *a2, const void *a3, unsigned int a4)
@@ -54,10 +54,10 @@ LABEL_10:
       *(_DWORD *)(a1 + 84));
     return 3221225626LL;
   }
-  Pool2 = ExAllocatePool2(0x100uLL);
+  Pool2 = ExAllocatePool2(0x100uLL, 0x28uLL, 0x57676244u);
   if ( !Pool2 )
     return 3221225495LL;
-  v14 = (void *)ExAllocatePool2(0x100uLL);
+  v14 = (void *)ExAllocatePool2(0x100uLL, (v4 + 4095) & 0xFFFFFFFFFFFFF000uLL, 0x57676244u);
   *(_QWORD *)(Pool2 + 16) = v14;
   if ( !v14 )
   {

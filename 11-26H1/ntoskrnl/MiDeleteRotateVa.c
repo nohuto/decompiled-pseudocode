@@ -1,15 +1,15 @@
 /*
- * XREFs of MiDeleteRotateVa @ 0x140312450
+ * XREFs of MiDeleteRotateVa @ 0x140314480
  * Callers:
- *     MiDeleteVa @ 0x140322AC0 (MiDeleteVa.c)
+ *     MiDeleteVa @ 0x140324AF0 (MiDeleteVa.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiGetContainingPageTable @ 0x1402D9BF0 (MiGetContainingPageTable.c)
- *     MiReduceShareCount @ 0x1402DAC20 (MiReduceShareCount.c)
- *     MiRotatedToFrameBuffer @ 0x1403125B4 (MiRotatedToFrameBuffer.c)
- *     MiUnmapFrameBuffer @ 0x140312AA4 (MiUnmapFrameBuffer.c)
- *     MiInsertTbFlushEntry @ 0x14035E7E0 (MiInsertTbFlushEntry.c)
- *     MiCaptureWriteWatchDirtyBit @ 0x14049754C (MiCaptureWriteWatchDirtyBit.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiGetContainingPageTable @ 0x1402BB9B0 (MiGetContainingPageTable.c)
+ *     MiReduceShareCount @ 0x1402BC9E0 (MiReduceShareCount.c)
+ *     MiRotatedToFrameBuffer @ 0x1403145E4 (MiRotatedToFrameBuffer.c)
+ *     MiUnmapFrameBuffer @ 0x140314AD4 (MiUnmapFrameBuffer.c)
+ *     MiInsertTbFlushEntry @ 0x140360580 (MiInsertTbFlushEntry.c)
+ *     MiCaptureWriteWatchDirtyBit @ 0x14049109C (MiCaptureWriteWatchDirtyBit.c)
  */
 
 __int64 __fastcall MiDeleteRotateVa(__int64 a1, ULONG_PTR a2, __int64 a3, __int64 a4)

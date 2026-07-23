@@ -1,15 +1,15 @@
 /*
- * XREFs of PfFbLogEntryReserve @ 0x1402D4EEC
+ * XREFs of PfFbLogEntryReserve @ 0x140273BCC
  * Callers:
- *     PfLogDeleteHelper @ 0x1402D4C80 (PfLogDeleteHelper.c)
- *     PfLogEvent @ 0x1402D4DFC (PfLogEvent.c)
- *     PfFileInfoNotify @ 0x14031D600 (PfFileInfoNotify.c)
+ *     PfLogDeleteHelper @ 0x140273960 (PfLogDeleteHelper.c)
+ *     PfLogEvent @ 0x140273ADC (PfLogEvent.c)
+ *     PfFileInfoNotify @ 0x140328350 (PfFileInfoNotify.c)
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x14027C4F0 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection_0 @ 0x14027C9B0 (ExAcquireRundownProtection_0.c)
- *     RtlpInterlockedPopEntrySList @ 0x140407930 (RtlpInterlockedPopEntrySList.c)
- *     RtlpInterlockedPushEntrySList @ 0x140407970 (RtlpInterlockedPushEntrySList.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     ExReleaseRundownProtection @ 0x14026A490 (ExReleaseRundownProtection.c)
+ *     ExAcquireRundownProtection @ 0x14026A950 (ExAcquireRundownProtection.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140407B10 (RtlpInterlockedPopEntrySList.c)
+ *     RtlpInterlockedPushEntrySList @ 0x140407B50 (RtlpInterlockedPushEntrySList.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall PfFbLogEntryReserve(PEX_RUNDOWN_REF RunRef, PSLIST_ENTRY *a2, _QWORD *a3, unsigned int a4)
@@ -22,7 +22,7 @@ __int64 __fastcall PfFbLogEntryReserve(PEX_RUNDOWN_REF RunRef, PSLIST_ENTRY *a2,
 
   v4 = a4;
   v7 = RunRef;
-  while ( ExAcquireRundownProtection_0(RunRef) )
+  while ( ExAcquireRundownProtection(RunRef) )
   {
     while ( 1 )
     {
@@ -51,7 +51,7 @@ __int64 __fastcall PfFbLogEntryReserve(PEX_RUNDOWN_REF RunRef, PSLIST_ENTRY *a2,
 LABEL_9:
       ++HIDWORD(v7[13].Ptr);
       LODWORD(v7[14].Count) += v4;
-      ExReleaseRundownProtection_0(v7);
+      ExReleaseRundownProtection(v7);
       return (unsigned int)v10;
     }
     ((void (__fastcall *)(PSLIST_ENTRY))v7[12].Count)(v8);

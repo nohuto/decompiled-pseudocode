@@ -28,99 +28,95 @@ __int64 __fastcall RtlpQueryRegistryValues(__int64 a1, const wchar_t *a2, __int6
   int v9; // r13d
   __int64 result; // rax
   size_t v11; // rax
-  int v12; // edi
-  __int64 v13; // rsi
+  NTSTATUS v12; // edi
+  char *v13; // rsi
   HANDLE v14; // rcx
   HANDLE v15; // r10
-  unsigned int v16; // r12d
+  ULONG v16; // r12d
   int v17; // edx
   int v18; // eax
   const wchar_t *v19; // rcx
   int v20; // r15d
-  unsigned int j; // r14d
-  int v22; // eax
+  ULONG i; // r14d
+  NTSTATUS v22; // eax
   int v23; // eax
   int v24; // r14d
   size_t v25; // rax
   int v26; // eax
-  int v27; // eax
+  NTSTATUS v27; // eax
   const wchar_t *v28; // rax
   const wchar_t *v29; // rcx
   size_t v30; // rax
   int v31; // eax
-  unsigned int v32; // [rsp+40h] [rbp-99h] BYREF
-  HANDLE i; // [rsp+48h] [rbp-91h] BYREF
-  __int64 v34; // [rsp+50h] [rbp-89h] BYREF
-  HANDLE Handle; // [rsp+58h] [rbp-81h] BYREF
-  __int64 v36; // [rsp+60h] [rbp-79h] BYREF
-  const wchar_t *v37; // [rsp+68h] [rbp-71h]
-  __int128 v38; // [rsp+70h] [rbp-69h] BYREF
-  __int64 v39; // [rsp+80h] [rbp-59h] BYREF
-  __int64 v40; // [rsp+88h] [rbp-51h] BYREF
-  __int64 v41; // [rsp+90h] [rbp-49h] BYREF
-  __int64 v42; // [rsp+98h] [rbp-41h] BYREF
-  __int64 v43; // [rsp+A0h] [rbp-39h] BYREF
-  __int64 v44; // [rsp+A8h] [rbp-31h] BYREF
-  __int64 v45; // [rsp+B0h] [rbp-29h] BYREF
-  __int64 v46; // [rsp+B8h] [rbp-21h] BYREF
-  __int64 v47; // [rsp+C0h] [rbp-19h] BYREF
-  __int64 v48; // [rsp+C8h] [rbp-11h] BYREF
-  __int128 v49; // [rsp+D0h] [rbp-9h] BYREF
-  __int128 v50; // [rsp+E0h] [rbp+7h]
-  __int128 v51; // [rsp+F0h] [rbp+17h]
+  int v32; // [rsp+30h] [rbp-A9h]
+  ULONG ResultLength; // [rsp+40h] [rbp-99h] BYREF
+  HANDLE Handle; // [rsp+48h] [rbp-91h] BYREF
+  ULONG_PTR RegionSize; // [rsp+50h] [rbp-89h] BYREF
+  HANDLE KeyHandle; // [rsp+58h] [rbp-81h] BYREF
+  __int64 v37; // [rsp+60h] [rbp-79h] BYREF
+  const wchar_t *v38; // [rsp+68h] [rbp-71h]
+  _UNICODE_STRING ValueName; // [rsp+70h] [rbp-69h] BYREF
+  PVOID BaseAddress; // [rsp+80h] [rbp-59h] BYREF
+  PVOID v41; // [rsp+88h] [rbp-51h] BYREF
+  PVOID v42; // [rsp+90h] [rbp-49h] BYREF
+  PVOID v43; // [rsp+98h] [rbp-41h] BYREF
+  ULONG_PTR v44; // [rsp+A0h] [rbp-39h] BYREF
+  PVOID v45; // [rsp+A8h] [rbp-31h] BYREF
+  ULONG_PTR v46; // [rsp+B0h] [rbp-29h] BYREF
+  PVOID v47; // [rsp+B8h] [rbp-21h] BYREF
+  ULONG_PTR v48; // [rsp+C0h] [rbp-19h] BYREF
+  PVOID v49; // [rsp+C8h] [rbp-11h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+D0h] [rbp-9h] BYREF
 
   v6 = a4;
-  *(_QWORD *)&v51 = 0LL;
-  DWORD2(v51) = 0;
-  Handle = 0LL;
-  v49 = 0LL;
-  v32 = 0;
-  v50 = 0LL;
+  KeyHandle = 0LL;
+  memset(&ObjectAttributes, 0, 44);
+  ResultLength = 0;
   v9 = a1;
-  v38 = 0LL;
-  result = RtlpGetRegistryHandle(a1, a2, 0LL, &Handle);
+  ValueName = 0LL;
+  result = RtlpGetRegistryHandle(a1, a2, 0LL, &KeyHandle);
   if ( (int)result < 0 )
     return result;
-  v36 = 0LL;
+  v37 = 0LL;
   if ( (v9 & 0x40000000) != 0 )
   {
-    v37 = 0LL;
+    v38 = 0LL;
   }
   else
   {
-    v37 = a2;
+    v38 = a2;
     if ( a2 )
     {
       v11 = 2 * wcslen(a2);
       if ( v11 >= 0xFFFE )
         LOWORD(v11) = -4;
-      LOWORD(v36) = v11;
-      WORD1(v36) = v11 + 2;
+      LOWORD(v37) = v11;
+      WORD1(v37) = v11 + 2;
     }
   }
-  v34 = 4096LL;
-  v39 = 0LL;
-  v12 = ZwAllocateVirtualMemory(-1LL, &v39, 0LL, &v34, 4096, 4);
+  RegionSize = 4096LL;
+  BaseAddress = 0LL;
+  v12 = ZwAllocateVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, 0LL, &RegionSize, 0x1000u, 4u);
   if ( v12 >= 0 )
   {
-    v13 = v39;
+    v13 = (char *)BaseAddress;
   }
   else
   {
     v13 = 0LL;
-    v39 = 0LL;
+    BaseAddress = 0LL;
   }
   if ( !v13 )
   {
     if ( (v9 & 0x40000000) == 0 )
-      NtClose(Handle);
+      NtClose(KeyHandle);
     return (unsigned int)v12;
   }
-  *(_DWORD *)(v13 + 8) = 0;
-  v14 = Handle;
-  v15 = Handle;
-  v16 = v34 - 2;
-  for ( i = Handle; ; v15 = i )
+  *((_DWORD *)v13 + 2) = 0;
+  v14 = KeyHandle;
+  v15 = KeyHandle;
+  v16 = RegionSize - 2;
+  for ( Handle = KeyHandle; ; v15 = Handle )
   {
     if ( !*(_QWORD *)a3 && (*(_BYTE *)(a3 + 8) & 0x21) == 0 )
       goto LABEL_40;
@@ -134,9 +130,9 @@ LABEL_70:
     if ( (v17 & 3) != 0 && v15 != v14 )
     {
       NtClose(v15);
-      v14 = Handle;
-      v15 = Handle;
-      i = Handle;
+      v14 = KeyHandle;
+      v15 = KeyHandle;
+      Handle = KeyHandle;
     }
     v18 = *(_DWORD *)(a3 + 8);
     if ( (v18 & 1) == 0 )
@@ -145,41 +141,41 @@ LABEL_70:
     if ( !v28 )
       goto LABEL_70;
     v29 = *(const wchar_t **)(a3 + 16);
-    v36 = 0LL;
-    v37 = v28;
+    v37 = 0LL;
+    v38 = v28;
     v30 = 2 * wcslen(v29);
-    LODWORD(v49) = 48;
-    DWORD2(v50) = 576;
+    ObjectAttributes.Length = 48;
+    ObjectAttributes.Attributes = 576;
     if ( v30 >= 0xFFFE )
       LOWORD(v30) = -4;
-    LOWORD(v36) = v30;
-    WORD1(v36) = v30 + 2;
-    *((_QWORD *)&v49 + 1) = Handle;
-    *(_QWORD *)&v50 = &v36;
-    v51 = 0LL;
-    v12 = NtOpenKey(&i, 0x2000000LL, &v49);
+    LOWORD(v37) = v30;
+    WORD1(v37) = v30 + 2;
+    ObjectAttributes.RootDirectory = KeyHandle;
+    ObjectAttributes.ObjectName = (PUNICODE_STRING)&v37;
+    *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+    v12 = NtOpenKey(&Handle, 0x2000000u, &ObjectAttributes);
     if ( v12 < 0 )
       goto LABEL_63;
     if ( *(_QWORD *)a3 )
     {
-      v15 = i;
+      v15 = Handle;
       goto LABEL_18;
     }
 LABEL_64:
-    v14 = Handle;
+    v14 = KeyHandle;
     a3 += 56LL;
   }
   v19 = *(const wchar_t **)(a3 + 16);
   if ( v19 )
   {
     v24 = 0;
-    *((_QWORD *)&v38 + 1) = *(_QWORD *)(a3 + 16);
-    *(_QWORD *)&v38 = 0LL;
+    ValueName.Buffer = *(wchar_t **)(a3 + 16);
+    *(_QWORD *)&ValueName.Length = 0LL;
     v25 = 2 * wcslen(v19);
     if ( v25 >= 0xFFFE )
       LOWORD(v25) = -4;
-    LOWORD(v38) = v25;
-    WORD1(v38) = v25 + 2;
+    ValueName.Length = v25;
+    ValueName.MaximumLength = v25 + 2;
     while ( 1 )
     {
       v26 = v24++;
@@ -188,75 +184,77 @@ LABEL_64:
         DbgPrint("RtlpQueryRegistryValues: Miscomputed buffer size at line %d\n", 1277);
         goto LABEL_39;
       }
-      v27 = NtQueryValueKey(i, &v38, 1LL, v13, v16, &v32);
+      v27 = NtQueryValueKey(Handle, &ValueName, KeyValueFullInformation, v13, v16, &ResultLength);
       v12 = v27;
       if ( v27 == -2147483643 )
         goto LABEL_32;
       if ( v27 < 0 )
         break;
-      if ( *(_DWORD *)(v13 + 4) == 7 )
+      if ( *((_DWORD *)v13 + 1) == 7 )
       {
-        *(_WORD *)(v32 + v13) = 0;
-        *(_DWORD *)(v13 + 12) += 2;
+        *(_WORD *)&v13[ResultLength] = 0;
+        *((_DWORD *)v13 + 3) += 2;
       }
-      v32 = v16;
-      v31 = RtlpCallQueryRegistryRoutine((_DWORD)i, a3, v13, (unsigned int)&v32, v6, a5, a6);
+      LOBYTE(v32) = a6;
+      ResultLength = v16;
+      v31 = RtlpCallQueryRegistryRoutine(Handle, a3, v13, &ResultLength, v6, a5, v32);
       v12 = v31;
       if ( v31 != -1073741789 )
       {
         if ( v31 < 0 )
           goto LABEL_63;
         if ( (*(_BYTE *)(a3 + 8) & 0x40) != 0 )
-          ZwDeleteValueKey(i, &v38);
+          ZwDeleteValueKey(Handle, &ValueName);
         goto LABEL_64;
       }
-      v46 = v13;
-      v34 = v32 + 10LL;
-      v45 = v34;
-      v40 = 0LL;
-      ZwFreeVirtualMemory(-1LL, &v46, &v45, 0x8000LL);
-      v12 = ZwAllocateVirtualMemory(-1LL, &v40, 0LL, &v34, 4096, 4);
+      v47 = v13;
+      RegionSize = ResultLength + 10LL;
+      v46 = RegionSize;
+      v41 = 0LL;
+      ZwFreeVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &v47, &v46, 0x8000u);
+      v12 = ZwAllocateVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &v41, 0LL, &RegionSize, 0x1000u, 4u);
       if ( v12 >= 0 )
       {
-        v13 = v40;
+        v13 = (char *)v41;
       }
       else
       {
         v13 = 0LL;
-        v40 = 0LL;
+        v41 = 0LL;
       }
 LABEL_36:
       if ( !v13 )
         goto LABEL_39;
-      *(_DWORD *)(v13 + 8) = 0;
-      v16 = v34 - 2;
+      *((_DWORD *)v13 + 2) = 0;
+      v16 = RegionSize - 2;
     }
     if ( v27 == -1073741772 )
     {
-      *(_DWORD *)(v13 + 4) = 0;
-      *(_DWORD *)(v13 + 12) = 0;
-      v32 = v16;
-      v27 = RtlpCallQueryRegistryRoutine((_DWORD)i, a3, v13, (unsigned int)&v32, v6, a5, a6);
+      *((_DWORD *)v13 + 1) = 0;
+      *((_DWORD *)v13 + 3) = 0;
+      LOBYTE(v32) = a6;
+      ResultLength = v16;
+      v27 = RtlpCallQueryRegistryRoutine(Handle, a3, v13, &ResultLength, v6, a5, v32);
       v12 = v27;
     }
     if ( v27 != -1073741789 )
       goto LABEL_63;
 LABEL_32:
-    v48 = v13;
-    v34 = v32 + 10LL;
-    v47 = v34;
-    v41 = 0LL;
+    v49 = v13;
+    RegionSize = ResultLength + 10LL;
+    v48 = RegionSize;
+    v42 = 0LL;
     if ( v13 )
-      ZwFreeVirtualMemory(-1LL, &v48, &v47, 0x8000LL);
-    v12 = ZwAllocateVirtualMemory(-1LL, &v41, 0LL, &v34, 4096, 4);
+      ZwFreeVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &v49, &v48, 0x8000u);
+    v12 = ZwAllocateVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &v42, 0LL, &RegionSize, 0x1000u, 4u);
     if ( v12 >= 0 )
     {
-      v13 = v41;
+      v13 = (char *)v42;
     }
     else
     {
       v13 = 0LL;
-      v41 = 0LL;
+      v42 = 0LL;
     }
     goto LABEL_36;
   }
@@ -273,9 +271,9 @@ LABEL_32:
   }
 LABEL_18:
   v20 = 0;
-  for ( j = 0; ; ++j )
+  for ( i = 0; ; ++i )
   {
-    v22 = ZwEnumerateValueKey(v15, j, 1LL, v13, v16, &v32);
+    v22 = ZwEnumerateValueKey(v15, i, KeyValueFullInformation, v13, v16, &ResultLength);
     v12 = v22;
     if ( v22 == -2147483643 )
       goto LABEL_20;
@@ -283,8 +281,9 @@ LABEL_18:
       break;
     if ( v22 >= 0 )
     {
-      v32 = v16;
-      v22 = RtlpCallQueryRegistryRoutine((_DWORD)i, a3, v13, (unsigned int)&v32, a4, a5, a6);
+      LOBYTE(v32) = a6;
+      ResultLength = v16;
+      v22 = RtlpCallQueryRegistryRoutine(Handle, a3, v13, &ResultLength, a4, a5, v32);
       v12 = v22;
     }
     if ( v22 != -1073741789 )
@@ -294,37 +293,37 @@ LABEL_18:
       v20 = 0;
       if ( (*(_BYTE *)(a3 + 8) & 0x40) != 0 )
       {
-        *((_QWORD *)&v38 + 1) = v13 + 20;
-        LOWORD(v38) = *(_WORD *)(v13 + 16);
-        WORD1(v38) = *(_WORD *)(v13 + 16);
-        if ( (int)ZwDeleteValueKey(i, &v38) >= 0 )
-          --j;
+        ValueName.Buffer = (wchar_t *)(v13 + 20);
+        ValueName.Length = *((_WORD *)v13 + 8);
+        ValueName.MaximumLength = *((_WORD *)v13 + 8);
+        if ( ZwDeleteValueKey(Handle, &ValueName) >= 0 )
+          --i;
       }
       goto LABEL_75;
     }
 LABEL_20:
-    v44 = v13;
-    v34 = v32 + 10LL;
-    v43 = v34;
-    v42 = 0LL;
+    v45 = v13;
+    RegionSize = ResultLength + 10LL;
+    v44 = RegionSize;
+    v43 = 0LL;
     if ( v13 )
-      ZwFreeVirtualMemory(-1LL, &v44, &v43, 0x8000LL);
-    v12 = ZwAllocateVirtualMemory(-1LL, &v42, 0LL, &v34, 4096, 4);
+      ZwFreeVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &v45, &v44, 0x8000u);
+    v12 = ZwAllocateVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &v43, 0LL, &RegionSize, 0x1000u, 4u);
     if ( v12 >= 0 )
     {
-      v13 = v42;
+      v13 = (char *)v43;
     }
     else
     {
       v13 = 0LL;
-      v42 = 0LL;
+      v43 = 0LL;
     }
     if ( !v13 )
       goto LABEL_62;
-    *(_DWORD *)(v13 + 8) = 0;
-    --j;
+    *((_DWORD *)v13 + 2) = 0;
+    --i;
     v23 = v20;
-    v16 = v34 - 2;
+    v16 = RegionSize - 2;
     ++v20;
     if ( v23 > 4 )
     {
@@ -332,9 +331,9 @@ LABEL_20:
       goto LABEL_62;
     }
 LABEL_75:
-    v15 = i;
+    v15 = Handle;
   }
-  if ( j || (*(_BYTE *)(a3 + 8) & 4) == 0 )
+  if ( i || (*(_BYTE *)(a3 + 8) & 4) == 0 )
     v12 = 0;
   else
     v12 = -1073741772;
@@ -344,20 +343,20 @@ LABEL_63:
   if ( v12 >= 0 )
     goto LABEL_64;
 LABEL_39:
-  v15 = i;
-  v14 = Handle;
+  v15 = Handle;
+  v14 = KeyHandle;
 LABEL_40:
   if ( v14 && (v9 & 0x40000000) == 0 )
   {
     NtClose(v14);
-    v14 = Handle;
-    v15 = i;
+    v14 = KeyHandle;
+    v15 = Handle;
   }
   if ( v15 && v15 != v14 )
     NtClose(v15);
-  v44 = v34;
-  v43 = v13;
+  v45 = (PVOID)RegionSize;
+  v44 = (ULONG_PTR)v13;
   if ( v13 )
-    ZwFreeVirtualMemory(-1LL, &v43, &v44, 0x8000LL);
+    ZwFreeVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, (PVOID *)&v44, (PSIZE_T)&v45, 0x8000u);
   return (unsigned int)v12;
 }

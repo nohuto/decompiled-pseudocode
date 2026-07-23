@@ -1,10 +1,10 @@
 /*
- * XREFs of EmpEvaluatePermuteRuleEntries @ 0x1405B4F4C
+ * XREFs of EmpEvaluatePermuteRuleEntries @ 0x1405B775C
  * Callers:
- *     EmpEvaluatePermuteRuleEntries @ 0x1405B4F4C (EmpEvaluatePermuteRuleEntries.c)
- *     EmpEvaluateUpdateRuleEvalState @ 0x1405B4FF4 (EmpEvaluateUpdateRuleEvalState.c)
+ *     EmpEvaluatePermuteRuleEntries @ 0x1405B775C (EmpEvaluatePermuteRuleEntries.c)
+ *     EmpEvaluateUpdateRuleEvalState @ 0x1405B7804 (EmpEvaluateUpdateRuleEvalState.c)
  * Callees:
- *     EmpEvaluatePermuteRuleEntries @ 0x1405B4F4C (EmpEvaluatePermuteRuleEntries.c)
+ *     EmpEvaluatePermuteRuleEntries @ 0x1405B775C (EmpEvaluatePermuteRuleEntries.c)
  */
 
 char __fastcall EmpEvaluatePermuteRuleEntries(__int64 a1, int a2, __int64 a3, char a4)

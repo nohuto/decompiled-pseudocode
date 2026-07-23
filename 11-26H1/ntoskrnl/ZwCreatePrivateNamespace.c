@@ -1,14 +1,18 @@
 /*
- * XREFs of ZwCreatePrivateNamespace @ 0x140724BD0
+ * XREFs of ZwCreatePrivateNamespace @ 0x1407297A0
  * Callers:
- *     DifZwCreatePrivateNamespaceWrapper @ 0x1406A0BA0 (DifZwCreatePrivateNamespaceWrapper.c)
+ *     DifZwCreatePrivateNamespaceWrapper @ 0x1406A4780 (DifZwCreatePrivateNamespaceWrapper.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwCreatePrivateNamespace(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwCreatePrivateNamespace(
+        PHANDLE NamespaceHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        POBJECT_BOUNDARY_DESCRIPTOR BoundaryDescriptor)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(NamespaceHandle);
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of AdtpAppendString @ 0x1406D149C
+ * XREFs of AdtpAppendString @ 0x1406D15D4
  * Callers:
- *     AdtpAppendZString @ 0x1406D1638 (AdtpAppendZString.c)
- *     AdtpBuildObjectTypeStrings @ 0x1406D1B10 (AdtpBuildObjectTypeStrings.c)
+ *     AdtpAppendZString @ 0x1406D1770 (AdtpAppendZString.c)
+ *     AdtpBuildObjectTypeStrings @ 0x1406D1C48 (AdtpBuildObjectTypeStrings.c)
  * Callees:
- *     RtlAppendUnicodeStringToString @ 0x140087614 (RtlAppendUnicodeStringToString.c)
- *     memmove @ 0x140171280 (memmove.c)
+ *     RtlAppendUnicodeStringToString @ 0x14010B80C (RtlAppendUnicodeStringToString.c)
+ *     memmove @ 0x140171780 (memmove.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */

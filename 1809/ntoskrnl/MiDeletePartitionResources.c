@@ -1,7 +1,7 @@
 /*
- * XREFs of MiDeletePartitionResources @ 0x1402D0FAC
+ * XREFs of MiDeletePartitionResources @ 0x1402D119C
  * Callers:
- *     MiDeletePartition @ 0x1402B4540 (MiDeletePartition.c)
+ *     MiDeletePartition @ 0x1402B4730 (MiDeletePartition.c)
  * Callees:
  *     KiAbEntryRemoveFromTree @ 0x140004530 (KiAbEntryRemoveFromTree.c)
  *     KiCheckForKernelApcDelivery @ 0x140005A50 (KiCheckForKernelApcDelivery.c)
@@ -14,33 +14,33 @@
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     RtlAvlInsertNodeEx @ 0x140064B40 (RtlAvlInsertNodeEx.c)
- *     MiReturnCommit @ 0x140065D40 (MiReturnCommit.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     MiUnlinkWorkingSet @ 0x140091C7C (MiUnlinkWorkingSet.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
- *     KeSetActualBasePriorityThread @ 0x1400CCF40 (KeSetActualBasePriorityThread.c)
- *     ExFreeCacheAwareRundownProtection @ 0x14010C8E0 (ExFreeCacheAwareRundownProtection.c)
- *     MiDereferencePageRunsEx @ 0x14012B5F8 (MiDereferencePageRunsEx.c)
- *     MiIncreaseCommitLimits @ 0x140187E88 (MiIncreaseCommitLimits.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     ZwWaitForSingleObject @ 0x1401B8210 (ZwWaitForSingleObject.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     CcExitPartition @ 0x14026B5B0 (CcExitPartition.c)
- *     MiFreeSlabEntries @ 0x1402C21D8 (MiFreeSlabEntries.c)
- *     MiFreeClonePool @ 0x1402C9FE8 (MiFreeClonePool.c)
- *     MiMergePageNodes @ 0x1402D2410 (MiMergePageNodes.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
- *     ObCloseHandle @ 0x1405F5700 (ObCloseHandle.c)
- *     MiDeletePagingFiles @ 0x140853200 (MiDeletePagingFiles.c)
- *     MiDeletePfnBitMaps @ 0x14085F510 (MiDeletePfnBitMaps.c)
- *     MiFreePartitionPhysicalPages @ 0x1408603AC (MiFreePartitionPhysicalPages.c)
- *     MiMakePartitionMemoryBlock @ 0x14086065C (MiMakePartitionMemoryBlock.c)
+ *     RtlAvlInsertNodeEx @ 0x140064B30 (RtlAvlInsertNodeEx.c)
+ *     MiReturnCommit @ 0x140065D30 (MiReturnCommit.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14007DE80 (KeAcquireInStackQueuedSpinLock.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     MiUnlinkWorkingSet @ 0x140091BBC (MiUnlinkWorkingSet.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC420 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC5A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     KeSetEvent @ 0x1400C2A40 (KeSetEvent.c)
+ *     KeSetActualBasePriorityThread @ 0x1400CCFC0 (KeSetActualBasePriorityThread.c)
+ *     ExFreeCacheAwareRundownProtection @ 0x14010C960 (ExFreeCacheAwareRundownProtection.c)
+ *     MiDereferencePageRunsEx @ 0x14012B6C8 (MiDereferencePageRunsEx.c)
+ *     MiIncreaseCommitLimits @ 0x140187FC8 (MiIncreaseCommitLimits.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     ZwWaitForSingleObject @ 0x1401B8370 (ZwWaitForSingleObject.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     CcExitPartition @ 0x14026B7A0 (CcExitPartition.c)
+ *     MiFreeSlabEntries @ 0x1402C23C8 (MiFreeSlabEntries.c)
+ *     MiFreeClonePool @ 0x1402CA1D8 (MiFreeClonePool.c)
+ *     MiMergePageNodes @ 0x1402D2600 (MiMergePageNodes.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     ObReferenceObjectByHandle @ 0x1405E9350 (ObReferenceObjectByHandle.c)
+ *     ObCloseHandle @ 0x1405F6700 (ObCloseHandle.c)
+ *     MiDeletePagingFiles @ 0x140854460 (MiDeletePagingFiles.c)
+ *     MiDeletePfnBitMaps @ 0x140860770 (MiDeletePfnBitMaps.c)
+ *     MiFreePartitionPhysicalPages @ 0x14086160C (MiFreePartitionPhysicalPages.c)
+ *     MiMakePartitionMemoryBlock @ 0x1408618BC (MiMakePartitionMemoryBlock.c)
  */
 
 void __fastcall MiDeletePartitionResources(__int64 a1)
@@ -158,7 +158,7 @@ void __fastcall MiDeletePartitionResources(__int64 a1)
     --v9;
   }
   while ( v9 );
-  MiFreeClonePool((union _SLIST_HEADER *)a1);
+  MiFreeClonePool((_SLIST_HEADER *)a1);
   v11 = *(_QWORD *)(a1 + 7120);
   v12 = **(_QWORD **)(*(_QWORD *)(a1 + 168) + 56LL);
   *(_QWORD *)(a1 + 7784) -= MiDeletePagingFiles(a1);
@@ -264,7 +264,7 @@ LABEL_55:
     }
   }
   MiReturnCommit(v12, v17);
-  _InterlockedExchangeAdd64(&qword_14043B018, -(__int64)v17);
+  _InterlockedExchangeAdd64(&qword_14043C0D8, -(__int64)v17);
   v18 = *v16;
   v19 = 0LL;
   while ( v18 )
@@ -345,7 +345,7 @@ LABEL_77:
   }
   v41->CrossThreadReleasableAndBusyByte |= 2u;
   if ( (__int64)v41->LockState.LockState < 0 )
-    KiAbEntryRemoveFromTree((__int64)&v35->LockEntries[v40], SessionId);
+    KiAbEntryRemoveFromTree(&v35->LockEntries[v40].TreeNode, SessionId);
   v44 = v41->BoostBitmap.AllFields & 0x1FFFF;
   v45 = v41->BoostBitmap.AllFields & 0xFFFE0000;
   v41->ThreadLocalFlags &= ~1u;

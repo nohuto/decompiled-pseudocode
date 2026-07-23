@@ -1,24 +1,24 @@
 /*
- * XREFs of PopDiagTracePowerLimitExtension @ 0x14075706C
+ * XREFs of PopDiagTracePowerLimitExtension @ 0x1407554EC
  * Callers:
- *     PopAssociatePowerLimitRequest @ 0x14074B078 (PopAssociatePowerLimitRequest.c)
- *     PopDisablePowerLimitExtension @ 0x14074B2F8 (PopDisablePowerLimitExtension.c)
- *     PopPowerLimitPnpNotification @ 0x14074B970 (PopPowerLimitPnpNotification.c)
- *     PopRundownPowerLimitRequests @ 0x140A38A64 (PopRundownPowerLimitRequests.c)
+ *     PopAssociatePowerLimitRequest @ 0x1407493A8 (PopAssociatePowerLimitRequest.c)
+ *     PopDisablePowerLimitExtension @ 0x140749628 (PopDisablePowerLimitExtension.c)
+ *     PopPowerLimitPnpNotification @ 0x140749CA0 (PopPowerLimitPnpNotification.c)
+ *     PopRundownPowerLimitRequests @ 0x140A2DB24 (PopRundownPowerLimitRequests.c)
  * Callees:
- *     EtwEventEnabled @ 0x1402A1BD0 (EtwEventEnabled.c)
- *     IoGetDeviceAttachmentBaseRefWithTag @ 0x1402D4B68 (IoGetDeviceAttachmentBaseRefWithTag.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     EtwWrite @ 0x14041C1B0 (EtwWrite.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     EtwEventEnabled @ 0x1402D1300 (EtwEventEnabled.c)
+ *     IoGetDeviceAttachmentBaseRefWithTag @ 0x140355DE8 (IoGetDeviceAttachmentBaseRefWithTag.c)
+ *     EtwWrite @ 0x14040FFB0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PopDiagTracePowerLimitExtension(__int64 a1, const EVENT_DESCRIPTOR *a2)
 {
   _DWORD *v4; // rsi
-  int v5; // r15d
+  unsigned int v5; // r15d
   char *Pool2; // rdi
   void *DeviceAttachmentBaseRefWithTag; // rax
   void *v8; // r14
@@ -42,7 +42,7 @@ void __fastcall PopDiagTracePowerLimitExtension(__int64 a1, const EVENT_DESCRIPT
   int v26; // [rsp+78h] [rbp+Fh]
   int v27; // [rsp+7Ch] [rbp+13h]
   char *v28; // [rsp+80h] [rbp+17h]
-  int v29; // [rsp+88h] [rbp+1Fh]
+  unsigned int v29; // [rsp+88h] [rbp+1Fh]
   int v30; // [rsp+8Ch] [rbp+23h]
 
   v16 = 0;
@@ -55,7 +55,7 @@ void __fastcall PopDiagTracePowerLimitExtension(__int64 a1, const EVENT_DESCRIPT
       v5 = 44 * *(_DWORD *)(a1 + 72);
       if ( v5 )
       {
-        Pool2 = (char *)ExAllocatePool2(0x100uLL);
+        Pool2 = (char *)ExAllocatePool2(0x100uLL, v5, 0x67696450u);
         if ( Pool2 )
         {
           DeviceAttachmentBaseRefWithTag = IoGetDeviceAttachmentBaseRefWithTag(*(_QWORD *)(a1 + 56), 0x67446F50u);

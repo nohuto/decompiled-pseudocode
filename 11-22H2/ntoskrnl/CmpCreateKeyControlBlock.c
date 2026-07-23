@@ -140,7 +140,7 @@ LABEL_10:
     else
     {
       _InterlockedIncrement64(&CmPerfCounters);
-      v15 = (char *)ExAllocateFromLookasideListEx(&CmpKcbLookaside);
+      v15 = (char *)ExAllocateFromLookasideListEx((PLOOKASIDE_LIST_EX)&CmpKcbLookaside);
       v16 = v15;
       if ( v15 )
       {

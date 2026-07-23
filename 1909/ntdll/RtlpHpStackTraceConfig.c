@@ -11,13 +11,13 @@
 
 __int64 __fastcall RtlpHpStackTraceConfig(__int64 a1)
 {
-  __int64 v1; // rdi
+  void *v1; // rdi
   unsigned __int16 v2; // bx
-  _QWORD v4[13]; // [rsp+20h] [rbp-68h] BYREF
+  HANDLE Buffer[13]; // [rsp+20h] [rbp-68h] BYREF
 
-  v1 = *(_QWORD *)(a1 + 8);
+  v1 = *(void **)(a1 + 8);
   v2 = *(_WORD *)(a1 + 2);
-  if ( v1 == -1 )
+  if ( v1 == (void *)-1LL )
   {
     if ( (v2 & 1) != 0 )
       RtlpHpStackTraceEnable();
@@ -27,9 +27,9 @@ __int64 __fastcall RtlpHpStackTraceConfig(__int64 a1)
   }
   else
   {
-    memset(v4, 0, 0x60uLL);
-    v4[10] = v2;
-    LODWORD(v4[3]) = 0x10000000;
-    return RtlpHeapPerformCrossProcessQuery(v1, (__int64)v4);
+    memset(Buffer, 0, 0x60uLL);
+    Buffer[10] = (HANDLE)v2;
+    LODWORD(Buffer[3]) = 0x10000000;
+    return RtlpHeapPerformCrossProcessQuery(v1, Buffer);
   }
 }

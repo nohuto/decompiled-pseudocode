@@ -472,7 +472,7 @@ __int64 __fastcall CmpDoParseKey(
   ULONG_PTR v363; // rcx
   int v364; // eax
   __int64 v365; // rdx
-  struct _SLIST_ENTRY *v366; // rdx
+  _SLIST_ENTRY *v366; // rdx
   struct _KPRCB *CurrentPrcb; // r8
   _GENERAL_LOOKASIDE *P; // rcx
   PGENERIC_MAPPING GenericMapping; // [rsp+30h] [rbp-D0h]
@@ -3112,7 +3112,7 @@ LABEL_725:
   }
   if ( (*(_DWORD *)(v10 + 160) & 1) != 0 )
     KiUnstackDetachProcess(v10 + 168, 0LL);
-  v366 = *(struct _SLIST_ENTRY **)&v431[40];
+  v366 = *(_SLIST_ENTRY **)&v431[40];
   if ( !*(_QWORD *)&v431[40] )
     return (unsigned int)v18;
   CurrentPrcb = KeGetCurrentPrcb();
@@ -3129,7 +3129,7 @@ LABEL_725:
   else
   {
     ++P->FreeMisses;
-    ((void (__fastcall *)(struct _SLIST_ENTRY *))P->FreeEx)(v366);
+    ((void (__fastcall *)(_SLIST_ENTRY *))P->FreeEx)(v366);
     return (unsigned int)Child;
   }
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of PsChargeProcessPoolQuota @ 0x1403EF000
+ * XREFs of PsChargeProcessPoolQuota @ 0x1403E1A90
  * Callers:
- *     PsChargePoolQuota @ 0x1403EEFD0 (PsChargePoolQuota.c)
+ *     PsChargePoolQuota @ 0x1403E1A60 (PsChargePoolQuota.c)
  * Callees:
- *     PspExpandQuota @ 0x14024B688 (PspExpandQuota.c)
+ *     PspExpandQuota @ 0x14027BC98 (PspExpandQuota.c)
  */
 
 NTSTATUS __stdcall PsChargeProcessPoolQuota(PEPROCESS Process, POOL_TYPE PoolType, ULONG_PTR Amount)

@@ -1,12 +1,12 @@
 /*
- * XREFs of PopDiagTraceIrpPended @ 0x14050FAB0
+ * XREFs of PopDiagTraceIrpPended @ 0x140509520
  * Callers:
- *     PopFxNotifyPostSIrpCompletion @ 0x1406053A8 (PopFxNotifyPostSIrpCompletion.c)
- *     PopSystemIrpCompletion @ 0x140C0DBB0 (PopSystemIrpCompletion.c)
+ *     PopFxNotifyPostSIrpCompletion @ 0x140607EA8 (PopFxNotifyPostSIrpCompletion.c)
+ *     PopSystemIrpCompletion @ 0x140C13DC0 (PopSystemIrpCompletion.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void __fastcall PopDiagTraceIrpPended(__int64 a1)
@@ -15,21 +15,13 @@ void __fastcall PopDiagTraceIrpPended(__int64 a1)
   __int64 v2; // [rsp+70h] [rbp+8h] BYREF
 
   v2 = a1;
-  if ( byte_140E67628 )
+  if ( PopDiagHandleRegistered )
   {
-    if ( EtwEventEnabled(*(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16], &POP_ETW_EVENT_IRPPENDED) )
+    if ( EtwEventEnabled(PopDiagHandle, &POP_ETW_EVENT_IRPPENDED) )
     {
       UserData.Ptr = (ULONGLONG)&v2;
       *(_QWORD *)&UserData.Size = 8LL;
-      EtwWriteEx(
-        *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-        &POP_ETW_EVENT_IRPPENDED,
-        0LL,
-        0,
-        0LL,
-        0LL,
-        1u,
-        &UserData);
+      EtwWriteEx(PopDiagHandle, &POP_ETW_EVENT_IRPPENDED, 0LL, 0, 0LL, 0LL, 1u, &UserData);
     }
   }
 }

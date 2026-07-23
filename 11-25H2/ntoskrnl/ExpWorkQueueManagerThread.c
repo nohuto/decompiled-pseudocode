@@ -91,7 +91,7 @@ void __fastcall ExpWorkQueueManagerThread(_QWORD *a1)
   v38[0] = 0LL;
   KeSetTimer2(
     (__int64)(a1 + 16),
-    -((10000000LL * (unsigned int)ExpWorkerThreadTimeoutInSeconds) >> 2),
+    (LARGE_INTEGER)-((10000000LL * (unsigned int)ExpWorkerThreadTimeoutInSeconds) >> 2),
     (10000000LL * (unsigned int)ExpWorkerThreadTimeoutInSeconds) >> 2,
     (__int64)v38);
   v6 = (unsigned __int16 **)(a1 + 1);

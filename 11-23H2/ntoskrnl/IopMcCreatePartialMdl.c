@@ -1,10 +1,10 @@
 /*
- * XREFs of IopMcCreatePartialMdl @ 0x1409516CC
+ * XREFs of IopMcCreatePartialMdl @ 0x1409518CC
  * Callers:
- *     IopMcGetBuffer @ 0x140951780 (IopMcGetBuffer.c)
+ *     IopMcGetBuffer @ 0x140951980 (IopMcGetBuffer.c)
  * Callees:
- *     IopAllocateMdl @ 0x1402FC0EC (IopAllocateMdl.c)
- *     IoBuildPartialMdl @ 0x140324B40 (IoBuildPartialMdl.c)
+ *     IopAllocateMdl @ 0x1402FC37C (IopAllocateMdl.c)
+ *     IoBuildPartialMdl @ 0x140324DD0 (IoBuildPartialMdl.c)
  */
 
 struct _MDL *__fastcall IopMcCreatePartialMdl(__int64 a1, void *a2, unsigned int a3, __int64 a4)

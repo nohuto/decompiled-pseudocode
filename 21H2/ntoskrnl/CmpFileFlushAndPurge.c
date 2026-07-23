@@ -1,21 +1,21 @@
 /*
- * XREFs of CmpFileFlushAndPurge @ 0x14071DC38
+ * XREFs of CmpFileFlushAndPurge @ 0x1406FA1C8
  * Callers:
- *     CmpFlushHive @ 0x14062A0D8 (CmpFlushHive.c)
- *     HvWriteLogFile @ 0x14071DA5C (HvWriteLogFile.c)
- *     HvWriteHivePrimaryFile @ 0x140725240 (HvWriteHivePrimaryFile.c)
- *     HvValidateOrInvalidatePrimaryFileHeader @ 0x14072570C (HvValidateOrInvalidatePrimaryFileHeader.c)
- *     HvExtendHivePrimaryFileValidDataLength @ 0x1408768E4 (HvExtendHivePrimaryFileValidDataLength.c)
+ *     HvWriteHivePrimaryFile @ 0x140613AFC (HvWriteHivePrimaryFile.c)
+ *     HvValidateOrInvalidatePrimaryFileHeader @ 0x14061A9CC (HvValidateOrInvalidatePrimaryFileHeader.c)
+ *     CmpFlushHive @ 0x1406A48D8 (CmpFlushHive.c)
+ *     HvWriteLogFile @ 0x1406F9FEC (HvWriteLogFile.c)
+ *     HvExtendHivePrimaryFileValidDataLength @ 0x140876A44 (HvExtendHivePrimaryFileValidDataLength.c)
  * Callees:
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
- *     IoGetRelatedDeviceObject @ 0x140351920 (IoGetRelatedDeviceObject.c)
- *     IofCallDriver @ 0x1403519C0 (IofCallDriver.c)
- *     IoFreeIrp @ 0x140353540 (IoFreeIrp.c)
- *     KeInitializeEvent @ 0x1403538F0 (KeInitializeEvent.c)
- *     IoAllocateIrp @ 0x140361FF0 (IoAllocateIrp.c)
- *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
- *     CmpFileFlush @ 0x14071DA34 (CmpFileFlush.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     IoAllocateIrp @ 0x1402F76C0 (IoAllocateIrp.c)
+ *     KeWaitForSingleObject @ 0x1403504C0 (KeWaitForSingleObject.c)
+ *     IoGetRelatedDeviceObject @ 0x14035C670 (IoGetRelatedDeviceObject.c)
+ *     IofCallDriver @ 0x14035C710 (IofCallDriver.c)
+ *     IoFreeIrp @ 0x14035E290 (IoFreeIrp.c)
+ *     KeInitializeEvent @ 0x14035E640 (KeInitializeEvent.c)
+ *     CmpFileFlush @ 0x1406FC904 (CmpFileFlush.c)
+ *     ObReferenceObjectByHandle @ 0x140707FA0 (ObReferenceObjectByHandle.c)
  */
 
 __int64 __fastcall CmpFileFlushAndPurge(__int64 a1, unsigned int a2)
@@ -40,7 +40,7 @@ __int64 __fastcall CmpFileFlushAndPurge(__int64 a1, unsigned int a2)
   v4 = 0LL;
   if ( (*(_DWORD *)(a1 + 160) & 0x20000) != 0 && !(_DWORD)v2 )
   {
-    return (unsigned int)CmpFileFlush(a1, 0);
+    return (unsigned int)CmpFileFlush(a1, 0LL);
   }
   else
   {

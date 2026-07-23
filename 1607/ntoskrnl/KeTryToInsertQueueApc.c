@@ -1,12 +1,12 @@
 /*
- * XREFs of KeTryToInsertQueueApc @ 0x1401D678C
+ * XREFs of KeTryToInsertQueueApc @ 0x1401D65B8
  * Callers:
- *     EtwpQueueStackWalkApc @ 0x140229234 (EtwpQueueStackWalkApc.c)
+ *     EtwpQueueStackWalkApc @ 0x140229060 (EtwpQueueStackWalkApc.c)
  * Callees:
- *     KeGetEffectiveIrql @ 0x1400516A4 (KeGetEffectiveIrql.c)
- *     KiSignalThreadForApc @ 0x1400CA134 (KiSignalThreadForApc.c)
- *     KiInsertQueueApc @ 0x1400CA2B4 (KiInsertQueueApc.c)
- *     KeIsThreadRunning @ 0x1401D2C78 (KeIsThreadRunning.c)
+ *     KeGetEffectiveIrql @ 0x140051224 (KeGetEffectiveIrql.c)
+ *     KiSignalThreadForApc @ 0x1400C7FD4 (KiSignalThreadForApc.c)
+ *     KiInsertQueueApc @ 0x1400C8154 (KiInsertQueueApc.c)
+ *     KeIsThreadRunning @ 0x1401D2AA4 (KeIsThreadRunning.c)
  */
 
 char __fastcall KeTryToInsertQueueApc(__int64 a1, __int64 a2, __int64 a3)

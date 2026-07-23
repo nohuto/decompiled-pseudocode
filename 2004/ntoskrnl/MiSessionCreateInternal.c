@@ -35,8 +35,8 @@ __int64 __fastcall MiSessionCreateInternal(ULONG_PTR *a1)
   __int64 Process; // rax
   ULONG ClearBitsAndSet; // r14d
   unsigned int v5; // edi
-  RTL_BITMAP *Pool; // rax
-  RTL_BITMAP *v7; // r14
+  _RTL_BITMAP *Pool; // rax
+  _RTL_BITMAP *v7; // r14
   __int64 v8; // r8
   unsigned __int64 v9; // r9
   ULONG_PTR v10; // rax
@@ -45,7 +45,7 @@ __int64 __fastcall MiSessionCreateInternal(ULONG_PTR *a1)
   unsigned __int16 v13; // ax
   int v14; // ecx
   unsigned __int16 v15; // si
-  __int64 v16; // rax
+  LARGE_INTEGER v16; // rax
   __int64 v17; // r15
   unsigned __int64 v18; // rcx
   void *CurrentServerSilo; // rax
@@ -70,7 +70,7 @@ __int64 __fastcall MiSessionCreateInternal(ULONG_PTR *a1)
     v5 = qword_140C4ED10->SizeOfBitMap + 128;
     if ( v5 > 0x7FFFF )
       v5 = 0x7FFFF;
-    Pool = (RTL_BITMAP *)MiAllocatePool(256, 8 * ((v5 >> 6) + ((v5 & 0x3F) != 0) + 2), 0x20206D4Du);
+    Pool = (_RTL_BITMAP *)MiAllocatePool(256, 8 * ((v5 >> 6) + ((v5 & 0x3F) != 0) + 2), 0x20206D4Du);
     v7 = Pool;
     if ( !Pool )
       goto LABEL_21;
@@ -108,7 +108,7 @@ __int64 __fastcall MiSessionCreateInternal(ULONG_PTR *a1)
         v16 = KeQueryInterruptTimePrecise(&v24);
         v17 = v22;
         v18 = v22;
-        *(_QWORD *)(v12 + 1056) = v16;
+        *(LARGE_INTEGER *)(v12 + 1056) = v16;
         v21 = MI_READ_PTE_LOCK_FREE(8 * ((v18 >> 39) & 0x1FF) - 0x90482413000LL);
         *(_QWORD *)(v12 + 32) = ((unsigned __int64)MI_READ_PTE_LOCK_FREE((unsigned __int64)&v21) >> 12) & 0xFFFFFFFFFLL;
         *(_WORD *)(v12 + 430) = *(_WORD *)a1;

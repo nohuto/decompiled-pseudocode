@@ -2,9 +2,9 @@
  * XREFs of PopDiagInterruptTimeToLocalTime @ 0x1403DF4CC
  * Callers:
  *     PopDiagTracePostSleepNotification @ 0x1403D09D8 (PopDiagTracePostSleepNotification.c)
- *     PopTraceSystemIdleS0LowPowerDozeTimerArmed @ 0x140672878 (PopTraceSystemIdleS0LowPowerDozeTimerArmed.c)
+ *     PopTraceSystemIdleS0LowPowerDozeTimerArmed @ 0x14067295C (PopTraceSystemIdleS0LowPowerDozeTimerArmed.c)
  * Callees:
- *     ExSystemTimeToLocalTime @ 0x1400B53D0 (ExSystemTimeToLocalTime.c)
+ *     ExSystemTimeToLocalTime @ 0x1400B3208 (ExSystemTimeToLocalTime.c)
  */
 
 void __fastcall PopDiagInterruptTimeToLocalTime(__int64 a1, LARGE_INTEGER *a2)

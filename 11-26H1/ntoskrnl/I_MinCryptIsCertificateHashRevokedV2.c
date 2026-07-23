@@ -1,10 +1,10 @@
 /*
- * XREFs of I_MinCryptIsCertificateHashRevokedV2 @ 0x14071C960
+ * XREFs of I_MinCryptIsCertificateHashRevokedV2 @ 0x1407215F0
  * Callers:
- *     MinCryptVerifyCertificateWithPolicy2 @ 0x1408A0AA4 (MinCryptVerifyCertificateWithPolicy2.c)
- *     MincryptIsTimestampBeforeRevocation @ 0x1408A1ED4 (MincryptIsTimestampBeforeRevocation.c)
+ *     MinCryptVerifyCertificateWithPolicy2 @ 0x1408A6EB4 (MinCryptVerifyCertificateWithPolicy2.c)
+ *     MincryptIsTimestampBeforeRevocation @ 0x1408A82E4 (MincryptIsTimestampBeforeRevocation.c)
  * Callees:
- *     bsearch_s @ 0x140536A50 (bsearch_s.c)
+ *     bsearch_s @ 0x140538ED0 (bsearch_s.c)
  */
 
 char __fastcall I_MinCryptIsCertificateHashRevokedV2(
@@ -26,7 +26,7 @@ char __fastcall I_MinCryptIsCertificateHashRevokedV2(
   char *v15; // rax
   int v16; // ecx
 
-  if ( !qword_140FD5098 )
+  if ( !qword_140FD6098 )
     return 0;
   v7 = a1 - 32771;
   if ( v7 )
@@ -68,13 +68,13 @@ char __fastcall I_MinCryptIsCertificateHashRevokedV2(
     v11 = 112LL;
     v12 = 120LL;
   }
-  v13 = *(_DWORD *)(v11 + qword_140FD5098);
+  v13 = *(_DWORD *)(v11 + qword_140FD6098);
   if ( !v13 )
     return 0;
   v14 = a3;
   v15 = (char *)bsearch_s(
                   a2,
-                  *(const void **)(v12 + qword_140FD5098),
+                  *(const void **)(v12 + qword_140FD6098),
                   v13 / (a3 + 12),
                   a3 + 12,
                   I_MinCryptHashSearchCompare,

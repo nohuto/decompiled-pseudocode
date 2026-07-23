@@ -1,9 +1,9 @@
 /*
- * XREFs of wcsncat_s @ 0x18009B960
+ * XREFs of wcsncat_s @ 0x18009B970
  * Callers:
  *     <none>
  * Callees:
- *     _invalid_parameter @ 0x18008FDE8 (_invalid_parameter.c)
+ *     _invalid_parameter @ 0x18008FDF8 (_invalid_parameter.c)
  */
 
 errno_t __cdecl wcsncat_s(wchar_t *Destination, rsize_t SizeInWords, const wchar_t *Source, rsize_t MaxCount)

@@ -20,101 +20,92 @@
  *     ExAllocatePool2 @ 0x140AAF6B0 (ExAllocatePool2.c)
  */
 
-NTSTATUS __fastcall ExpWatchLicenseInfoWork(__int64 a1)
+NTSTATUS __fastcall ExpWatchLicenseInfoWork(PHANDLE KeyHandle)
 {
   char v2; // si
   HANDLE v3; // rcx
-  int v4; // eax
-  int Key; // eax
-  unsigned int v6; // r15d
+  NTSTATUS v4; // eax
+  NTSTATUS v5; // eax
+  ULONG v6; // r15d
   __int64 Pool2; // r14
-  __int64 v8; // r10
+  _WORD *v8; // r10
   __int64 v9; // rdx
   __int64 v10; // rcx
   unsigned __int16 v11; // cx
   __int64 v12; // r9
   unsigned __int64 v13; // rax
-  int v14; // eax
-  unsigned int v15; // edi
-  unsigned int i; // edx
+  NTSTATUS v14; // eax
+  ULONG v15; // edi
+  ULONG i; // edx
   __int64 v17; // rax
-  int v18; // eax
-  int v19; // eax
-  int v20; // eax
+  NTSTATUS v18; // eax
+  NTSTATUS v19; // eax
+  NTSTATUS v20; // eax
   NTSTATUS result; // eax
-  ULONG_PTR BugCheckParameter4; // [rsp+20h] [rbp-99h]
-  size_t Size; // [rsp+28h] [rbp-91h]
-  size_t Sizea; // [rsp+28h] [rbp-91h]
   UNICODE_STRING DestinationString; // [rsp+50h] [rbp-69h] BYREF
-  __int64 v26; // [rsp+60h] [rbp-59h] BYREF
-  HANDLE Handle; // [rsp+68h] [rbp-51h]
-  HANDLE v28; // [rsp+70h] [rbp-49h] BYREF
-  int v29; // [rsp+78h] [rbp-41h]
-  int v30; // [rsp+7Ch] [rbp-3Dh]
-  __int64 v31; // [rsp+80h] [rbp-39h]
-  UNICODE_STRING *p_DestinationString; // [rsp+88h] [rbp-31h]
-  int v33; // [rsp+90h] [rbp-29h]
-  int v34; // [rsp+94h] [rbp-25h]
-  __int128 v35; // [rsp+98h] [rbp-21h]
-  UNICODE_STRING v36; // [rsp+A8h] [rbp-11h] BYREF
-  __int128 v37; // [rsp+B8h] [rbp-1h] BYREF
-  __int128 v38; // [rsp+C8h] [rbp+Fh]
-  __int128 v39; // [rsp+D8h] [rbp+1Fh]
+  ULONG ResultLength; // [rsp+60h] [rbp-59h] BYREF
+  HANDLE KeyHandlea; // [rsp+68h] [rbp-51h] BYREF
+  HANDLE Handle; // [rsp+70h] [rbp-49h] BYREF
+  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+78h] [rbp-41h] BYREF
+  UNICODE_STRING ValueName; // [rsp+A8h] [rbp-11h] BYREF
+  __int128 KeyInformation; // [rsp+B8h] [rbp-1h] BYREF
+  __int128 v29; // [rsp+C8h] [rbp+Fh]
+  __int128 v30; // [rsp+D8h] [rbp+1Fh]
 
-  v28 = 0LL;
-  v2 = 0;
-  v37 = 0LL;
-  LODWORD(v26) = 0;
-  v38 = 0LL;
   Handle = 0LL;
-  v39 = 0LL;
-  v30 = 0;
+  v2 = 0;
+  KeyInformation = 0LL;
+  ResultLength = 0;
+  v29 = 0LL;
+  KeyHandlea = 0LL;
+  v30 = 0LL;
+  *(&ObjectAttributes.Length + 1) = 0;
   DestinationString = 0LL;
-  v34 = 0;
-  v36 = 0LL;
+  *(&ObjectAttributes.Attributes + 1) = 0;
+  ValueName = 0LL;
   if ( !ExpSetupModeDetected )
   {
-    RtlInitUnicodeString(&DestinationString, *(PCWSTR *)(a1 + 16));
-    v3 = *(HANDLE *)a1;
-    p_DestinationString = &DestinationString;
-    v31 = 0LL;
-    v35 = 0LL;
-    v29 = 48;
-    v33 = 576;
+    RtlInitUnicodeString(&DestinationString, (PCWSTR)KeyHandle[2]);
+    v3 = *KeyHandle;
+    ObjectAttributes.ObjectName = &DestinationString;
+    ObjectAttributes.RootDirectory = 0LL;
+    *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+    ObjectAttributes.Length = 48;
+    ObjectAttributes.Attributes = 576;
     NtClose(v3);
-    v4 = NtOpenKey();
+    v4 = NtOpenKey(KeyHandle, 0x2001Fu, &ObjectAttributes);
     if ( v4 < 0 )
       KeBugCheckEx(0x9Au, 0x12uLL, v4, 0LL, 0LL);
-    Key = NtQueryKey(*(HANDLE *)a1, 2u, (unsigned __int64)&v37, 0x30u, (unsigned int *)&v26);
-    if ( Key < 0 )
-      KeBugCheckEx(0x9Au, 0x13uLL, Key, 0LL, 0LL);
-    v6 = 2 * DWORD2(v38) + 56;
-    if ( v6 < DWORD2(v38) || v6 < 2 * (unsigned __int64)(unsigned int)(DWORD2(v38) + 16) )
+    v5 = NtQueryKey(*KeyHandle, KeyFullInformation, &KeyInformation, 0x30u, &ResultLength);
+    if ( v5 < 0 )
+      KeBugCheckEx(0x9Au, 0x13uLL, v5, 0LL, 0LL);
+    v6 = 2 * DWORD2(v29) + 56;
+    if ( v6 < DWORD2(v29) || v6 < 2 * (unsigned __int64)(unsigned int)(DWORD2(v29) + 16) )
       v2 = 1;
     Pool2 = ExAllocatePool2(64LL, v6, 544826699LL);
     if ( !Pool2 || v2 )
       KeBugCheckEx(0x9Au, 0x14uLL, v6, 0LL, 0LL);
-    v8 = *(_QWORD *)(a1 + 16);
+    v8 = KeyHandle[2];
     v9 = -1LL;
     v10 = -1LL;
     do
       ++v10;
-    while ( *(_WORD *)(v8 + 2 * v10 + 32) );
-    v11 = 2 * (WORD4(v38) + v10);
+    while ( v8[v10 + 16] );
+    v11 = 2 * (WORD4(v29) + v10);
     DestinationString.Length = v11;
-    if ( (unsigned int)v11 < DWORD2(v38) )
+    if ( (unsigned int)v11 < DWORD2(v29) )
       goto LABEL_19;
     v12 = v11;
     v13 = -1LL;
     do
       ++v13;
-    while ( *(_WORD *)(v8 + 2 * v13 + 32) );
+    while ( v8[v13 + 16] );
     if ( v11 < v13 )
       goto LABEL_19;
     do
       ++v9;
-    while ( *(_WORD *)(v8 + 2 * v9 + 32) );
-    if ( v11 < (unsigned __int64)DWORD2(v38) + v9 )
+    while ( v8[v9 + 16] );
+    if ( v11 < (unsigned __int64)DWORD2(v29) + v9 )
     {
 LABEL_19:
       v2 = 1;
@@ -124,16 +115,14 @@ LABEL_19:
     DestinationString.Buffer = (wchar_t *)ExAllocatePool2(64LL, v12, 544826699LL);
     if ( !DestinationString.Buffer || v2 )
       KeBugCheckEx(0x9Au, 0x14uLL, DestinationString.Length, 1uLL, 0LL);
-    RtlInitUnicodeString(&v36, L"ConcurrentLimit");
-    LODWORD(Size) = 4;
-    v14 = NtSetValueKey(*(_QWORD *)a1, &v36, 0, 4u, (struct _PRIVILEGE_SET *)(a1 + 8), Size);
+    RtlInitUnicodeString(&ValueName, L"ConcurrentLimit");
+    v14 = NtSetValueKey(*KeyHandle, &ValueName, 0, 4u, KeyHandle + 1, 4u);
     if ( v14 < 0 )
       KeBugCheckEx(0x9Au, 0x15uLL, v14, 0LL, 0LL);
     v15 = 0;
     for ( i = 0; ; i = v15 )
     {
-      LODWORD(BugCheckParameter4) = v6;
-      v20 = NtEnumerateKey(*(HANDLE *)a1, i, 0, (volatile void *)Pool2, BugCheckParameter4, &v26);
+      v20 = NtEnumerateKey(*KeyHandle, i, KeyBasicInformation, (PVOID)Pool2, v6, &ResultLength);
       if ( v20 == -2147483622 )
         break;
       if ( v20 >= 0 )
@@ -142,7 +131,7 @@ LABEL_19:
         wcscpy_s(
           DestinationString.Buffer,
           (unsigned __int64)DestinationString.MaximumLength >> 1,
-          *(const wchar_t **)(a1 + 16));
+          (const wchar_t *)KeyHandle[2]);
         wcscat_s(DestinationString.Buffer, (unsigned __int64)DestinationString.MaximumLength >> 1, L"\\");
         wcscat_s(
           DestinationString.Buffer,
@@ -152,20 +141,19 @@ LABEL_19:
         do
           ++v17;
         while ( DestinationString.Buffer[v17] );
-        v29 = 48;
+        ObjectAttributes.Length = 48;
         DestinationString.Length = 2 * v17;
-        v31 = 0LL;
-        p_DestinationString = &DestinationString;
-        v33 = 576;
-        v35 = 0LL;
-        v18 = NtOpenKey();
+        ObjectAttributes.RootDirectory = 0LL;
+        ObjectAttributes.ObjectName = &DestinationString;
+        ObjectAttributes.Attributes = 576;
+        *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+        v18 = NtOpenKey(&KeyHandlea, 0x2001Fu, &ObjectAttributes);
         if ( v18 < 0 )
           KeBugCheckEx(0x9Au, 0x16uLL, v18, 0LL, 0LL);
-        LODWORD(Sizea) = 4;
-        v19 = NtSetValueKey((__int64)Handle, &v36, 0, 4u, (struct _PRIVILEGE_SET *)(a1 + 8), Sizea);
+        v19 = NtSetValueKey(KeyHandlea, &ValueName, 0, 4u, KeyHandle + 1, 4u);
         if ( v19 < 0 )
           KeBugCheckEx(0x9Au, 0x17uLL, v19, 0LL, 0LL);
-        NtClose(Handle);
+        NtClose(KeyHandlea);
       }
       ++v15;
     }
@@ -173,22 +161,22 @@ LABEL_19:
     ExFreePoolWithTag(DestinationString.Buffer, 0);
   }
   result = NtNotifyChangeKey(
-             *(void **)a1,
+             *KeyHandle,
              0LL,
-             (void (__stdcall *)(POPLOCK))(a1 + 24),
-             1LL,
-             (NTSTATUS *)(a1 + 56),
+             (PIO_APC_ROUTINE)(KeyHandle + 3),
+             (PVOID)1,
+             (PIO_STATUS_BLOCK)(KeyHandle + 7),
              0x10000005u,
-             1,
-             (volatile void *)(a1 + 72),
-             4,
-             1);
+             1u,
+             KeyHandle + 9,
+             4u,
+             1u);
   if ( result < 0 )
     KeBugCheckEx(0x9Au, 0x18uLL, result, 0LL, 0LL);
   if ( !ExpSetupModeDetected )
   {
     result = PsCreateSystemThreadEx(
-               (__int64)&v28,
+               (__int64)&Handle,
                0x1FFFFF,
                0LL,
                0LL,
@@ -198,7 +186,7 @@ LABEL_19:
                0LL,
                0LL);
     if ( result >= 0 )
-      return ZwClose(v28);
+      return ZwClose(Handle);
   }
   return result;
 }

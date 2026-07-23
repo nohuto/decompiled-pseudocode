@@ -24,29 +24,29 @@
 
 char __thiscall LdrpLoadShimEngine(PCWSTR SourceString)
 {
-  void (__thiscall *v2)(_DWORD, int); // ebx
+  void (__thiscall *v2)(_DWORD, _DWORD); // ebx
   int v3; // ecx
-  int *v4; // eax
-  int v5; // esi
+  _DWORD *v4; // eax
+  NTSTATUS v5; // esi
   char v6; // bl
   void (__thiscall *v7)(_DWORD); // ecx
   int v8; // edi
-  int *v9; // esi
+  PLDR_DATA_TABLE_ENTRY Flink; // esi
   char v11; // al
   char v12; // al
-  int i; // eax
-  UNICODE_STRING DestinationString; // [esp+10h] [ebp-68h] BYREF
-  int *v15; // [esp+18h] [ebp-60h] BYREF
+  PLDR_DATA_TABLE_ENTRY i; // eax
+  _UNICODE_STRING DestinationString; // [esp+10h] [ebp-68h] BYREF
+  PVOID BaseAddress; // [esp+18h] [ebp-60h] BYREF
   char v16; // [esp+1Fh] [ebp-59h]
-  int v17[19]; // [esp+20h] [ebp-58h] BYREF
+  PWSTR Path[19]; // [esp+20h] [ebp-58h] BYREF
   char v18; // [esp+6Ch] [ebp-Ch]
 
   v16 = 1;
-  LdrpInitializeDllPath(v17);
+  LdrpInitializeDllPath(Path);
   g_ShimsLoading = 1;
-  v2 = (void (__thiscall *)(_DWORD, int))(MEMORY[0x7FFE0330] ^ __ROR4__(
-                                                                 g_pfnSE_ShimDllLoaded,
-                                                                 32 - (MEMORY[0x7FFE0330] & 0x1F)));
+  v2 = (void (__thiscall *)(_DWORD, _DWORD))(MEMORY[0x7FFE0330] ^ __ROR4__(
+                                                                    g_pfnSE_ShimDllLoaded,
+                                                                    32 - (MEMORY[0x7FFE0330] & 0x1F)));
   if ( !*SourceString )
   {
 LABEL_8:
@@ -56,7 +56,7 @@ LABEL_8:
   while ( 1 )
   {
     RtlInitUnicodeString(&DestinationString, SourceString);
-    v3 = LdrpLoadDll(1, &v15);
+    v3 = LdrpLoadDll(&DestinationString, 1, &BaseAddress);
     if ( v3 < 0 )
     {
       v11 = ShowSnaps;
@@ -77,14 +77,14 @@ LABEL_8:
       v16 = 0;
       goto LABEL_7;
     }
-    v15[13] |= 0x100u;
-    LdrpPinModule(v15);
-    v4 = v15;
-    if ( *(_DWORD *)(v15[20] + 32) == 7 )
+    *((_DWORD *)BaseAddress + 13) |= 0x100u;
+    LdrpPinModule(BaseAddress);
+    v4 = BaseAddress;
+    if ( *(_DWORD *)(*((_DWORD *)BaseAddress + 20) + 32) == 7 )
       break;
 LABEL_6:
     v2(v2, v4[6]);
-    LdrpDereferenceModule(v15);
+    LdrpDereferenceModule(BaseAddress);
 LABEL_7:
     SourceString += DestinationString.MaximumLength >> 1;
     if ( !*SourceString )
@@ -93,7 +93,7 @@ LABEL_7:
   v5 = LdrpInitializeNode();
   if ( v5 >= 0 )
   {
-    v4 = v15;
+    v4 = BaseAddress;
     goto LABEL_6;
   }
   v12 = ShowSnaps;
@@ -113,10 +113,10 @@ LABEL_7:
   if ( (v12 & 0x10) != 0 )
     __debugbreak();
   LdrpInitializationFailure(v5);
-  ZwTerminateProcess(-1, v5);
+  ZwTerminateProcess((HANDLE)0xFFFFFFFF, v5);
 LABEL_9:
   if ( v18 )
-    RtlReleasePath(v17[0]);
+    RtlReleasePath(Path[0]);
   v7 = (void (__thiscall *)(_DWORD))(MEMORY[0x7FFE0330] ^ __ROR4__(
                                                             g_pfnSE_InstallBeforeInit,
                                                             32 - (MEMORY[0x7FFE0330] & 0x1F)));
@@ -125,19 +125,21 @@ LABEL_9:
   RtlEnterCriticalSection(&LdrpDllNotificationLock);
   if ( g_ShimsEnabled )
   {
-    for ( i = dword_4B3A5D8C; (int *)i != &dword_4B3A5D8C; i = *(_DWORD *)i )
+    for ( i = dword_4B3A5D8C;
+          i != (PLDR_DATA_TABLE_ENTRY)&dword_4B3A5D8C;
+          i = (PLDR_DATA_TABLE_ENTRY)i->InLoadOrderLinks.Flink )
     {
-      v15 = (int *)i;
-      *(_BYTE *)(i + 53) &= ~8u;
+      BaseAddress = i;
+      i->FlagGroup[1] &= ~8u;
     }
   }
-  v9 = (int *)dword_4B3A5D8C;
+  Flink = dword_4B3A5D8C;
   if ( LdrInitState < 2 )
-    v9 = *(int **)dword_4B3A5D8C;
-  for ( ; v9 != &dword_4B3A5D8C; v9 = (int *)*v9 )
+    Flink = (PLDR_DATA_TABLE_ENTRY)dword_4B3A5D8C->InLoadOrderLinks.Flink;
+  for ( ; Flink != (PLDR_DATA_TABLE_ENTRY)&dword_4B3A5D8C; Flink = (PLDR_DATA_TABLE_ENTRY)Flink->InLoadOrderLinks.Flink )
   {
-    v15 = v9;
-    LdrpSendShimEngineInitialNotifications(v9[20], v8);
+    BaseAddress = Flink;
+    LdrpSendShimEngineInitialNotifications(Flink->DdagNode, v8);
   }
   g_ShimsEnabled = 1;
   g_ShimsLoading = 0;

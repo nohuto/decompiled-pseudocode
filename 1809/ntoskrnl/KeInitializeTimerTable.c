@@ -1,16 +1,16 @@
 /*
- * XREFs of KeInitializeTimerTable @ 0x140729BC8
+ * XREFs of KeInitializeTimerTable @ 0x14072ADB8
  * Callers:
- *     KiStartDynamicProcessor @ 0x140842DC8 (KiStartDynamicProcessor.c)
- *     KeStartAllProcessors @ 0x1409B5DAC (KeStartAllProcessors.c)
- *     KeInitSystem @ 0x1409C4988 (KeInitSystem.c)
+ *     KiStartDynamicProcessor @ 0x140844028 (KiStartDynamicProcessor.c)
+ *     KeStartAllProcessors @ 0x1409B6DAC (KeStartAllProcessors.c)
+ *     KeInitSystem @ 0x1409C5988 (KeInitSystem.c)
  * Callees:
- *     KeInitializeDpc @ 0x1400A56F0 (KeInitializeDpc.c)
- *     KiInitializeTimer2Data @ 0x14017EA58 (KiInitializeTimer2Data.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     KiInitializeForceIdle @ 0x140729D08 (KiInitializeForceIdle.c)
+ *     KeInitializeDpc @ 0x1400A5630 (KeInitializeDpc.c)
+ *     KiInitializeTimer2Data @ 0x14017EB98 (KiInitializeTimer2Data.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     KiInitializeForceIdle @ 0x14072AEF8 (KiInitializeForceIdle.c)
  */
 
 __int64 __fastcall KeInitializeTimerTable(__int64 a1)
@@ -32,7 +32,7 @@ __int64 __fastcall KeInitializeTimerTable(__int64 a1)
     }
     else
     {
-      KiSerializeTimerExpiration = (unsigned __int8)off_1403FE5A0[0]() != 0;
+      KiSerializeTimerExpiration = (unsigned __int8)off_1403FF5A0[0]() != 0;
     }
     KiInitializeTimer2Data();
   }

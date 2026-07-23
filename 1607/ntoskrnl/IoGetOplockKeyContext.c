@@ -1,15 +1,15 @@
 /*
- * XREFs of IoGetOplockKeyContext @ 0x1401C8C34
+ * XREFs of IoGetOplockKeyContext @ 0x1401C8AD4
  * Callers:
  *     <none>
  * Callees:
- *     IopGetFileObjectExtension @ 0x14007B520 (IopGetFileObjectExtension.c)
+ *     IopGetFileObjectExtension @ 0x14007B5A0 (IopGetFileObjectExtension.c)
  */
 
 POPLOCK_KEY_ECP_CONTEXT __stdcall IoGetOplockKeyContext(PFILE_OBJECT FileObject)
 {
   __int64 FileObjectExtension; // rax
-  struct _OPLOCK_KEY_ECP_CONTEXT *v2; // r9
+  _OPLOCK_KEY_ECP_CONTEXT *v2; // r9
 
   FileObjectExtension = IopGetFileObjectExtension((__int64)FileObject, 6, 0LL);
   if ( FileObjectExtension && (*(_BYTE *)(FileObjectExtension + 2) & 2) != 0 )

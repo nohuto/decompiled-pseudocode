@@ -6,7 +6,7 @@
  *     <none>
  */
 
-int __stdcall RtlSetCurrentTransaction(void *a1)
+LOGICAL __cdecl RtlSetCurrentTransaction(HANDLE TransactionHandle)
 {
   struct _TEB *v1; // ecx
   int WowTebOffset; // eax
@@ -17,9 +17,9 @@ int __stdcall RtlSetCurrentTransaction(void *a1)
   struct _TEB *v7; // ecx
   int v8; // eax
 
-  if ( a1 == (void *)-1 )
+  if ( TransactionHandle == (HANDLE)-1 )
     return 0;
-  NtCurrentTeb()->CurrentTransactionHandle = a1;
+  NtCurrentTeb()->CurrentTransactionHandle = TransactionHandle;
   v1 = NtCurrentTeb();
   WowTebOffset = v1->WowTebOffset;
   if ( WowTebOffset < 0 )

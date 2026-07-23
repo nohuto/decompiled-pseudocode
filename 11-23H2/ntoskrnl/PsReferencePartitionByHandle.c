@@ -1,23 +1,23 @@
 /*
- * XREFs of PsReferencePartitionByHandle @ 0x14076003C
+ * XREFs of PsReferencePartitionByHandle @ 0x14076022C
  * Callers:
- *     EtwpSetPartitionContext @ 0x140601794 (EtwpSetPartitionContext.c)
- *     MiAllocateVirtualMemoryCommon @ 0x1406F6A20 (MiAllocateVirtualMemoryCommon.c)
- *     MiInitializeCreateSectionPacket @ 0x140723010 (MiInitializeCreateSectionPacket.c)
- *     NtManagePartition @ 0x14075FD70 (NtManagePartition.c)
- *     SmProcessCompressionInfoRequest @ 0x1408414C4 (SmProcessCompressionInfoRequest.c)
- *     PsCreatePartition @ 0x140858F1C (PsCreatePartition.c)
- *     SmProcessConfigRequest @ 0x14085BB0C (SmProcessConfigRequest.c)
- *     IopSetFileMemoryPartitionInformation @ 0x140947ACC (IopSetFileMemoryPartitionInformation.c)
- *     PspSetJobMemoryPartition @ 0x1409B2C24 (PspSetJobMemoryPartition.c)
- *     SmProcessListRequest @ 0x1409D6DAC (SmProcessListRequest.c)
- *     SmProcessStatsRequest @ 0x1409D7378 (SmProcessStatsRequest.c)
- *     SmProcessSystemStoreTrimRequest @ 0x1409D768C (SmProcessSystemStoreTrimRequest.c)
- *     MiInitializePartitionSpecialPurposeMemory @ 0x140A4736C (MiInitializePartitionSpecialPurposeMemory.c)
+ *     EtwpSetPartitionContext @ 0x140601CE4 (EtwpSetPartitionContext.c)
+ *     MiAllocateVirtualMemoryCommon @ 0x1406F6C30 (MiAllocateVirtualMemoryCommon.c)
+ *     MiInitializeCreateSectionPacket @ 0x140723210 (MiInitializeCreateSectionPacket.c)
+ *     NtManagePartition @ 0x14075FF60 (NtManagePartition.c)
+ *     SmProcessCompressionInfoRequest @ 0x1408417C4 (SmProcessCompressionInfoRequest.c)
+ *     PsCreatePartition @ 0x14085915C (PsCreatePartition.c)
+ *     SmProcessConfigRequest @ 0x14085BD4C (SmProcessConfigRequest.c)
+ *     IopSetFileMemoryPartitionInformation @ 0x140947CCC (IopSetFileMemoryPartitionInformation.c)
+ *     PspSetJobMemoryPartition @ 0x1409B2E24 (PspSetJobMemoryPartition.c)
+ *     SmProcessListRequest @ 0x1409D6FAC (SmProcessListRequest.c)
+ *     SmProcessStatsRequest @ 0x1409D7578 (SmProcessStatsRequest.c)
+ *     SmProcessSystemStoreTrimRequest @ 0x1409D788C (SmProcessSystemStoreTrimRequest.c)
+ *     MiInitializePartitionSpecialPurposeMemory @ 0x140A4761C (MiInitializePartitionSpecialPurposeMemory.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     PsReferencePartitionSafe @ 0x1402F9C1C (PsReferencePartitionSafe.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1406E6300 (ObpReferenceObjectByHandleWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     PsReferencePartitionSafe @ 0x1402F9EAC (PsReferencePartitionSafe.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x1406E6330 (ObpReferenceObjectByHandleWithTag.c)
  */
 
 __int64 __fastcall PsReferencePartitionByHandle(ULONG_PTR a1, int a2, char a3, ULONG Tag, _QWORD *a5)

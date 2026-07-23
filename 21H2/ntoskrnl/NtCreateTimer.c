@@ -1,23 +1,27 @@
 /*
- * XREFs of NtCreateTimer @ 0x14064CD60
+ * XREFs of NtCreateTimer @ 0x140641B80
  * Callers:
  *     <none>
  * Callees:
- *     KeInitializeTimerEx @ 0x140278AE0 (KeInitializeTimerEx.c)
- *     KeInitializeDpc @ 0x14027B6B0 (KeInitializeDpc.c)
- *     PsInsertVirtualizedTimer @ 0x1402C1F18 (PsInsertVirtualizedTimer.c)
- *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
- *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
- *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
- *     ObCreateObjectEx @ 0x140704810 (ObCreateObjectEx.c)
- *     ObInsertObjectEx @ 0x140704A20 (ObInsertObjectEx.c)
+ *     PsInsertVirtualizedTimer @ 0x1402403B8 (PsInsertVirtualizedTimer.c)
+ *     KeInitializeTimerEx @ 0x140266A80 (KeInitializeTimerEx.c)
+ *     KeInitializeDpc @ 0x140269650 (KeInitializeDpc.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x140355AE0 (KiLeaveGuardedRegionUnsafe.c)
+ *     ExReleaseResourceLite @ 0x140356140 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1403568F0 (ExAcquireResourceExclusiveLite.c)
+ *     ObCreateObjectEx @ 0x14071BBF0 (ObCreateObjectEx.c)
+ *     ObInsertObjectEx @ 0x14071BE00 (ObInsertObjectEx.c)
  */
 
-__int64 __fastcall NtCreateTimer(__int64 a1, __int64 a2, int a3, TIMER_TYPE a4)
+NTSTATUS __cdecl NtCreateTimer(
+        PHANDLE TimerHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        TIMER_TYPE TimerType)
 {
-  _QWORD *v5; // r14
+  HANDLE *v5; // r14
   char PreviousMode; // si
-  int Object; // ecx
+  NTSTATUS Object; // ecx
   __int64 v8; // r9
   _KPROCESS *Process; // r15
   unsigned __int64 v11; // rdi
@@ -26,24 +30,24 @@ __int64 __fastcall NtCreateTimer(__int64 a1, __int64 a2, int a3, TIMER_TYPE a4)
   __int64 v14; // [rsp+58h] [rbp-40h] BYREF
   __int64 v15; // [rsp+60h] [rbp-38h]
 
-  v5 = (_QWORD *)a1;
+  v5 = TimerHandle;
   v14 = 0LL;
-  if ( (unsigned int)a4 > SynchronizationTimer )
-    return 3221225714LL;
+  if ( (unsigned int)TimerType > SynchronizationTimer )
+    return -1073741582;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
   {
-    a1 = 0x7FFFFFFF0000LL;
+    TimerHandle = (PHANDLE)0x7FFFFFFF0000LL;
     if ( (unsigned __int64)v5 < 0x7FFFFFFF0000LL )
-      a1 = (__int64)v5;
-    *(_QWORD *)a1 = *(_QWORD *)a1;
+      TimerHandle = v5;
+    *TimerHandle = *TimerHandle;
   }
-  LOBYTE(a1) = PreviousMode;
-  Object = ObCreateObjectEx(a1, (_DWORD)ExTimerObjectType, a3, PreviousMode);
+  LOBYTE(TimerHandle) = PreviousMode;
+  Object = ObCreateObjectEx((_DWORD)TimerHandle, (_DWORD)ExTimerObjectType, (_DWORD)ObjectAttributes, PreviousMode);
   if ( Object >= 0 )
   {
     KeInitializeDpc((PRKDPC)0xA0, (PKDEFERRED_ROUTINE)ExpTimerDpcRoutine, 0LL);
-    KeInitializeTimerEx(0LL, a4);
+    KeInitializeTimerEx(0LL, TimerType);
     MEMORY[0x40] = 0LL;
     MEMORY[0x130] = 0;
     MEMORY[0x100] = 0LL;
@@ -79,7 +83,7 @@ __int64 __fastcall NtCreateTimer(__int64 a1, __int64 a2, int a3, TIMER_TYPE a4)
     }
     Object = ObInsertObjectEx(0LL, 0LL, 0, 0LL, (__int64)&v14);
     if ( Object >= 0 )
-      *v5 = v14;
+      *v5 = (HANDLE)v14;
   }
-  return (unsigned int)Object;
+  return Object;
 }

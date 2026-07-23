@@ -148,7 +148,7 @@ __int64 __fastcall SMKM_STORE_MGR<SM_TRAITS>::SmFeStoreDelete(__int64 a1, int a2
         {
           v22->CrossThreadReleasableAndBusyByte |= 2u;
           if ( (__int64)v22->LockState.LockState < 0 )
-            KiAbEntryRemoveFromTree(&v14->LockEntries[v21]);
+            KiAbEntryRemoveFromTree(&v14->LockEntries[v21].TreeNode);
           v26 = 0;
           v26 = v22->BoostBitmap.AllFields & 0x1FFFF;
           v22->BoostBitmap.AllFields &= 0xFFFE0000;

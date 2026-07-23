@@ -71,12 +71,12 @@ __int64 __fastcall RtlpHpVsChunkSplit(__int64 a1, __int64 a2, __int64 a3, __int6
   __int64 v62; // rax
   int v63; // ecx
   unsigned int v64; // edx
-  __int64 v65; // r12
+  _RTL_RB_TREE *v65; // r12
   __int64 v66; // rax
   __int64 v67; // r11
-  unsigned __int64 v68; // rdx
+  __int64 v68; // rdx
   int v69; // r8d
-  bool v70; // al
+  BOOLEAN v70; // al
   unsigned __int64 v71; // rax
   __int64 v72; // r8
   unsigned __int64 v73; // r10
@@ -87,8 +87,8 @@ __int64 __fastcall RtlpHpVsChunkSplit(__int64 a1, __int64 a2, __int64 a3, __int6
   int v78; // ecx
   __int64 v79; // rax
   unsigned int v80; // ebx
-  unsigned __int64 v81; // rdx
-  bool v82; // al
+  unsigned __int64 Root; // rdx
+  BOOLEAN v82; // al
   unsigned __int64 v83; // rax
   unsigned int v84; // r9d
   unsigned int v85; // r8d
@@ -125,7 +125,7 @@ __int64 __fastcall RtlpHpVsChunkSplit(__int64 a1, __int64 a2, __int64 a3, __int6
 
   v7 = WORD1(RtlpHpHeapGlobals) ^ WORD1(a4) ^ *(unsigned __int16 *)(a4 + 2);
   v10 = a4;
-  RtlRbRemoveNode(a2 + 16, (unsigned __int64 *)(a4 + 8));
+  RtlRbRemoveNode((PRTL_RB_TREE)(a2 + 16), (PRTL_BALANCED_NODE)(a4 + 8));
   v11 = 0;
   v12 = *(__int16 *)(a1 + 6);
   v13 = a4 - a3;
@@ -267,7 +267,7 @@ __int64 __fastcall RtlpHpVsChunkSplit(__int64 a1, __int64 a2, __int64 a3, __int6
       }
       else
       {
-        RtlRbRemoveNode(a2 + 16, (unsigned __int64 *)(v36 + 8));
+        RtlRbRemoveNode((PRTL_RB_TREE)(a2 + 16), (PRTL_BALANCED_NODE)(v36 + 8));
         v38 = *(__int16 *)(a1 + 6);
         v39 = (v36 - a3 + 4127) & 0xFFFFF000;
         v33 = 16 * (WORD1(RtlpHpHeapGlobals) ^ (((unsigned int)v36 ^ *(_DWORD *)v36) >> 16));
@@ -295,7 +295,7 @@ __int64 __fastcall RtlpHpVsChunkSplit(__int64 a1, __int64 a2, __int64 a3, __int6
       v108 = RtlpHpHeapGlobals ^ *(_QWORD *)v43 ^ v43;
       if ( (v108 & 0xFF000000000000LL) == 0 )
       {
-        RtlRbRemoveNode(a2 + 16, (unsigned __int64 *)(v43 + 8));
+        RtlRbRemoveNode((PRTL_RB_TREE)(a2 + 16), (PRTL_BALANCED_NODE)(v43 + 8));
         v44 = *(__int16 *)(a1 + 6);
         v45 = (v43 - a3 + 4127) & 0xFFFFF000;
         v33 = 16 * (WORD1(RtlpHpHeapGlobals) ^ (((unsigned int)v43 ^ *(_DWORD *)v43) >> 16));
@@ -324,7 +324,7 @@ __int64 __fastcall RtlpHpVsChunkSplit(__int64 a1, __int64 a2, __int64 a3, __int6
         v49 = RtlpHpHeapGlobals ^ *(_QWORD *)v48 ^ v48;
         if ( (v49 & 0xFF000000000000LL) == 0 )
         {
-          RtlRbRemoveNode(a2 + 16, (unsigned __int64 *)(v48 + 8));
+          RtlRbRemoveNode((PRTL_RB_TREE)(a2 + 16), (PRTL_BALANCED_NODE)(v48 + 8));
           v50 = ((_DWORD)v109 - a3 + 4127) & 0xFFFFF000;
           v51 = *(__int16 *)(a1 + 6);
           v32 = 16 * (WORD1(RtlpHpHeapGlobals) ^ (((unsigned int)v109 ^ *v109) >> 16));
@@ -431,7 +431,7 @@ __int64 __fastcall RtlpHpVsChunkSplit(__int64 a1, __int64 a2, __int64 a3, __int6
       _InterlockedAdd64((volatile signed __int64 *)(v62 + a1 + 32), v63);
     else
       *(_QWORD *)(a1 + 88) += v63;
-    v65 = a2;
+    v65 = (_RTL_RB_TREE *)a2;
     *(_WORD *)v54 = RtlpHpHeapGlobals ^ v54 ^ (v59 + v64 - v63);
     v66 = *(_QWORD *)(a2 + 24);
     if ( (v66 & 1) == 0 )
@@ -484,12 +484,12 @@ LABEL_61:
     }
     v70 = 0;
 LABEL_62:
-    RtlRbInsertNodeEx((__int64 *)(a2 + 16), v68, v70, v54 + 8);
+    RtlRbInsertNodeEx((PRTL_RB_TREE)(a2 + 16), (PRTL_BALANCED_NODE)v68, v70, (PRTL_BALANCED_NODE)(v54 + 8));
   }
   else
   {
 LABEL_63:
-    v65 = a2;
+    v65 = (_RTL_RB_TREE *)a2;
   }
   v72 = 16 * (WORD1(RtlpHpHeapGlobals) ^ WORD1(v30) ^ *(unsigned __int16 *)(v30 + 2));
   v73 = v72 + (v30 & 0xFFF) + 4095;
@@ -515,35 +515,35 @@ LABEL_63:
   else
     *(_QWORD *)(a1 + 88) += v78;
   *(_WORD *)v30 = RtlpHpHeapGlobals ^ v30 ^ (v76 + v80 - v78);
-  v81 = *(_QWORD *)(v65 + 16);
-  if ( (*(_QWORD *)(v65 + 24) & 1) == 0 )
+  Root = (unsigned __int64)v65[1].Root;
+  if ( ((__int64)v65[1].Min & 1) == 0 )
   {
 LABEL_69:
     v82 = 0;
-    if ( !v81 )
+    if ( !Root )
       goto LABEL_74;
     while ( 1 )
     {
-      if ( ((unsigned int)RtlpHpHeapGlobals ^ *(_DWORD *)v30 ^ (unsigned int)v30) < ((unsigned int)RtlpHpHeapGlobals ^ *(_DWORD *)(v81 - 8) ^ ((_DWORD)v81 - 8)) )
+      if ( ((unsigned int)RtlpHpHeapGlobals ^ *(_DWORD *)v30 ^ (unsigned int)v30) < ((unsigned int)RtlpHpHeapGlobals ^ *(_DWORD *)(Root - 8) ^ ((_DWORD)Root - 8)) )
       {
-        v83 = *(_QWORD *)v81;
-        if ( (*(_QWORD *)(v65 + 24) & 1) != 0 )
+        v83 = *(_QWORD *)Root;
+        if ( ((__int64)v65[1].Min & 1) != 0 )
         {
           if ( !v83 )
             goto LABEL_127;
-          v83 ^= v81;
+          v83 ^= Root;
         }
         if ( !v83 )
           goto LABEL_127;
       }
       else
       {
-        v83 = *(_QWORD *)(v81 + 8);
-        if ( (*(_QWORD *)(v65 + 24) & 1) != 0 )
+        v83 = *(_QWORD *)(Root + 8);
+        if ( ((__int64)v65[1].Min & 1) != 0 )
         {
           if ( !v83 )
             goto LABEL_73;
-          v83 ^= v81;
+          v83 ^= Root;
         }
         if ( !v83 )
         {
@@ -552,17 +552,17 @@ LABEL_73:
           goto LABEL_74;
         }
       }
-      v81 = v83;
+      Root = v83;
     }
   }
-  if ( v81 )
+  if ( Root )
   {
-    v81 ^= v65 + 16;
+    Root ^= (unsigned __int64)&v65[1];
     goto LABEL_69;
   }
 LABEL_127:
   v82 = 0;
 LABEL_74:
-  RtlRbInsertNodeEx((__int64 *)(v65 + 16), v81, v82, v30 + 8);
+  RtlRbInsertNodeEx(v65 + 1, (PRTL_BALANCED_NODE)Root, v82, (PRTL_BALANCED_NODE)(v30 + 8));
   return v115;
 }

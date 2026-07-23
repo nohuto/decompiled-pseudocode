@@ -1,9 +1,9 @@
 /*
- * XREFs of PopCriticalShutdown @ 0x1408E76F4
+ * XREFs of PopCriticalShutdown @ 0x1408E7854
  * Callers:
- *     PopCheckAndHandleThermalConditions @ 0x1403C50F8 (PopCheckAndHandleThermalConditions.c)
+ *     PopCheckAndHandleThermalConditions @ 0x1403C5528 (PopCheckAndHandleThermalConditions.c)
  * Callees:
- *     PopExecutePowerAction @ 0x1407751C8 (PopExecutePowerAction.c)
+ *     PopExecutePowerAction @ 0x140775388 (PopExecutePowerAction.c)
  */
 
 int PopCriticalShutdown()

@@ -1,16 +1,16 @@
 /*
- * XREFs of SiGetBiosSystemDisk @ 0x14077AEC0
+ * XREFs of SiGetBiosSystemDisk @ 0x14077B080
  * Callers:
- *     SiGetBiosSystemPartition @ 0x14077ABD4 (SiGetBiosSystemPartition.c)
- *     SiGetSystemDisk @ 0x14077ADF0 (SiGetSystemDisk.c)
+ *     SiGetBiosSystemPartition @ 0x14077AD94 (SiGetBiosSystemPartition.c)
+ *     SiGetSystemDisk @ 0x14077AFB0 (SiGetSystemDisk.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     ZwQuerySymbolicLinkObject @ 0x1403FCF80 (ZwQuerySymbolicLinkObject.c)
- *     SiOpenArcNameObject @ 0x14077AFC8 (SiOpenArcNameObject.c)
- *     SiIsWinPeHardDiskZeroUfdBoot @ 0x14077B054 (SiIsWinPeHardDiskZeroUfdBoot.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     ZwQuerySymbolicLinkObject @ 0x1403FD160 (ZwQuerySymbolicLinkObject.c)
+ *     SiOpenArcNameObject @ 0x14077B188 (SiOpenArcNameObject.c)
+ *     SiIsWinPeHardDiskZeroUfdBoot @ 0x14077B214 (SiIsWinPeHardDiskZeroUfdBoot.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall SiGetBiosSystemDisk(wchar_t **a1)

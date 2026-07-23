@@ -1,20 +1,20 @@
 /*
- * XREFs of ExMapHandleToPointer @ 0x1405F56A0
+ * XREFs of ExMapHandleToPointer @ 0x1405F66A0
  * Callers:
- *     PspJobDelete @ 0x14008FE10 (PspJobDelete.c)
- *     RtlpAtomMapAtomToHandleEntry @ 0x1405F5614 (RtlpAtomMapAtomToHandleEntry.c)
- *     ObpCloseHandle @ 0x1405F573C (ObpCloseHandle.c)
- *     PspClearProcessThreadCidRefs @ 0x1405F6DAC (PspClearProcessThreadCidRefs.c)
- *     PspThreadDelete @ 0x1405FB0B0 (PspThreadDelete.c)
- *     ExMapHandleToPointerEx @ 0x1405FC384 (ExMapHandleToPointerEx.c)
- *     PspProcessDelete @ 0x140607590 (PspProcessDelete.c)
- *     ObSetHandleAttributes @ 0x14068D8D0 (ObSetHandleAttributes.c)
- *     ObQueryObjectAuditingByHandle @ 0x140697980 (ObQueryObjectAuditingByHandle.c)
- *     RtlpFreeHandleForAtom @ 0x1406AD4A0 (RtlpFreeHandleForAtom.c)
- *     RtlpInsertStringAtom @ 0x1406B73FC (RtlpInsertStringAtom.c)
+ *     PspJobDelete @ 0x14008FD50 (PspJobDelete.c)
+ *     RtlpAtomMapAtomToHandleEntry @ 0x1405F6614 (RtlpAtomMapAtomToHandleEntry.c)
+ *     ObpCloseHandle @ 0x1405F673C (ObpCloseHandle.c)
+ *     PspClearProcessThreadCidRefs @ 0x1405F7DAC (PspClearProcessThreadCidRefs.c)
+ *     PspThreadDelete @ 0x1405FC0B0 (PspThreadDelete.c)
+ *     ExMapHandleToPointerEx @ 0x1405FD384 (ExMapHandleToPointerEx.c)
+ *     PspProcessDelete @ 0x140608590 (PspProcessDelete.c)
+ *     ObSetHandleAttributes @ 0x14068EA90 (ObSetHandleAttributes.c)
+ *     ObQueryObjectAuditingByHandle @ 0x140698B40 (ObQueryObjectAuditingByHandle.c)
+ *     RtlpFreeHandleForAtom @ 0x1406AE740 (RtlpFreeHandleForAtom.c)
+ *     RtlpInsertStringAtom @ 0x1406B869C (RtlpInsertStringAtom.c)
  * Callees:
- *     ExpLookupHandleTableEntry @ 0x1405E8990 (ExpLookupHandleTableEntry.c)
- *     ExpBlockOnLockedHandleEntry @ 0x140697864 (ExpBlockOnLockedHandleEntry.c)
+ *     ExpLookupHandleTableEntry @ 0x1405E9990 (ExpLookupHandleTableEntry.c)
+ *     ExpBlockOnLockedHandleEntry @ 0x140698A24 (ExpBlockOnLockedHandleEntry.c)
  */
 
 signed __int64 *__fastcall ExMapHandleToPointer(unsigned int *a1, __int64 a2)

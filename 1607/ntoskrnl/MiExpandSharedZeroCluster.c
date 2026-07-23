@@ -1,18 +1,18 @@
 /*
- * XREFs of MiExpandSharedZeroCluster @ 0x1400B9458
+ * XREFs of MiExpandSharedZeroCluster @ 0x1400B72E8
  * Callers:
- *     MiResolveDemandZeroFault @ 0x14003AA90 (MiResolveDemandZeroFault.c)
+ *     MiResolveDemandZeroFault @ 0x14003A610 (MiResolveDemandZeroFault.c)
  * Callees:
- *     MiUpdatePageTableUseCount @ 0x140037450 (MiUpdatePageTableUseCount.c)
- *     MiGetProtoPteAddress @ 0x140042460 (MiGetProtoPteAddress.c)
- *     MiComputeZeroClusterMaximum @ 0x1400B76A4 (MiComputeZeroClusterMaximum.c)
- *     MiIsPteEvaluated @ 0x1400B9738 (MiIsPteEvaluated.c)
- *     MiGetPagingFileOffset @ 0x1400B9780 (MiGetPagingFileOffset.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiMakePrototypePteDirect @ 0x1401F2758 (MiMakePrototypePteDirect.c)
- *     MiMakePrototypePteVadLookup @ 0x1401F2768 (MiMakePrototypePteVadLookup.c)
+ *     MiUpdatePageTableUseCount @ 0x140036FD0 (MiUpdatePageTableUseCount.c)
+ *     MiGetProtoPteAddress @ 0x140041FE0 (MiGetProtoPteAddress.c)
+ *     MiComputeZeroClusterMaximum @ 0x1400B553C (MiComputeZeroClusterMaximum.c)
+ *     MiIsPteEvaluated @ 0x1400B75C8 (MiIsPteEvaluated.c)
+ *     MiGetPagingFileOffset @ 0x1400B7610 (MiGetPagingFileOffset.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
+ *     MiMakePrototypePteDirect @ 0x1401F2584 (MiMakePrototypePteDirect.c)
+ *     MiMakePrototypePteVadLookup @ 0x1401F2594 (MiMakePrototypePteVadLookup.c)
  */
 
 __int64 __fastcall MiExpandSharedZeroCluster(__int64 a1)

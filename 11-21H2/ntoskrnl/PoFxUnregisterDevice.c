@@ -1,11 +1,11 @@
 /*
  * XREFs of PoFxUnregisterDevice @ 0x140864C90
  * Callers:
- *     DifPoFxUnregisterDeviceWrapper @ 0x140619F90 (DifPoFxUnregisterDeviceWrapper.c)
+ *     sub_140619F90 @ 0x140619F90 (sub_140619F90.c)
  * Callees:
- *     PopFxDestroyDeviceDpm @ 0x1403DCAD0 (PopFxDestroyDeviceDpm.c)
- *     PopFxUnregisterDeviceOrWait @ 0x14080D7EC (PopFxUnregisterDeviceOrWait.c)
- *     PopFxUnregisterDevice @ 0x14082310C (PopFxUnregisterDevice.c)
+ *     sub_1403DCAD0 @ 0x1403DCAD0 (sub_1403DCAD0.c)
+ *     sub_14080D7EC @ 0x14080D7EC (sub_14080D7EC.c)
+ *     sub_14082310C @ 0x14082310C (sub_14082310C.c)
  */
 
 __int64 __fastcall PoFxUnregisterDevice(ULONG_PTR a1)
@@ -14,8 +14,8 @@ __int64 __fastcall PoFxUnregisterDevice(ULONG_PTR a1)
 
   v1 = *(_QWORD *)(a1 + 48);
   if ( v1 )
-    PopFxUnregisterDeviceOrWait(*(struct _KEVENT **)(a1 + 48));
+    sub_14080D7EC(*(struct _KEVENT **)(a1 + 48));
   else
-    PopFxUnregisterDevice(a1);
-  return PopFxDestroyDeviceDpm(v1, a1);
+    sub_14082310C(a1);
+  return sub_1403DCAD0(v1, a1);
 }

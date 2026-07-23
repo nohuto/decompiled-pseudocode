@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     _invalid_parameter @ 0x180096B68 (_invalid_parameter.c)
+ *     _invalid_parameter @ 0x180096B58 (_invalid_parameter.c)
  *     _swinput_s @ 0x1800A4FD0 (_swinput_s.c)
  */
 

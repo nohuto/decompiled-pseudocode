@@ -12,9 +12,9 @@
  *     IopProcessIoRingEntry @ 0x14094A028 (IopProcessIoRingEntry.c)
  */
 
-__int64 __fastcall NtSubmitIoRing(HANDLE Handle, __int16 a2, unsigned int a3, LARGE_INTEGER *a4)
+NTSTATUS __cdecl NtSubmitIoRing(HANDLE IoRingHandle, ULONG Flags, ULONG WaitOperations, PLARGE_INTEGER Timeout)
 {
-  unsigned int v4; // r13d
+  ULONG v4; // r13d
   KPROCESSOR_MODE PreviousMode; // r9
   PVOID v6; // rdi
   char v7; // r12
@@ -33,7 +33,7 @@ __int64 __fastcall NtSubmitIoRing(HANDLE Handle, __int16 a2, unsigned int a3, LA
   unsigned int v21; // eax
   char v22; // [rsp+30h] [rbp-A8h] BYREF
   char v23; // [rsp+31h] [rbp-A7h]
-  int v24; // [rsp+34h] [rbp-A4h]
+  NTSTATUS v24; // [rsp+34h] [rbp-A4h]
   KPROCESSOR_MODE v25; // [rsp+39h] [rbp-9Fh]
   int v26; // [rsp+3Ch] [rbp-9Ch]
   PVOID Object; // [rsp+40h] [rbp-98h] BYREF
@@ -45,8 +45,8 @@ __int64 __fastcall NtSubmitIoRing(HANDLE Handle, __int16 a2, unsigned int a3, LA
   __int128 v33; // [rsp+90h] [rbp-48h]
   char v34; // [rsp+E8h] [rbp+10h]
 
-  v34 = a2;
-  v4 = a3;
+  v34 = Flags;
+  v4 = WaitOperations;
   v24 = 0;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   v25 = PreviousMode;
@@ -54,21 +54,21 @@ __int64 __fastcall NtSubmitIoRing(HANDLE Handle, __int16 a2, unsigned int a3, LA
   v7 = 0;
   v29 = 0LL;
   v22 = 0;
-  if ( a2 )
+  if ( (_WORD)Flags )
   {
     v24 = -1069154303;
     goto LABEL_25;
   }
-  if ( a3 && a4 && PreviousMode )
+  if ( WaitOperations && Timeout && PreviousMode )
   {
     v8 = 0x7FFFFFFF0000LL;
-    if ( (unsigned __int64)a4 < 0x7FFFFFFF0000LL )
-      v8 = (__int64)a4;
+    if ( (unsigned __int64)Timeout < 0x7FFFFFFF0000LL )
+      v8 = (__int64)Timeout;
     v29 = *(_QWORD *)v8;
-    a4 = (LARGE_INTEGER *)&v29;
+    Timeout = (PLARGE_INTEGER)&v29;
   }
   Object = 0LL;
-  v9 = ObReferenceObjectByHandle(Handle, 0, IoRingObjectType, PreviousMode, &Object, 0LL);
+  v9 = ObReferenceObjectByHandle(IoRingHandle, 0, IoRingObjectType, PreviousMode, &Object, 0LL);
   v6 = Object;
   v24 = v9;
   if ( v9 >= 0 )
@@ -131,14 +131,14 @@ __int64 __fastcall NtSubmitIoRing(HANDLE Handle, __int16 a2, unsigned int a3, LA
       }
       while ( v13 != v15 );
       v14 = v23;
-      v4 = a3;
+      v4 = WaitOperations;
     }
     if ( v22 )
     {
       if ( !v14 || (v24 = IopIoRingSetupCompletionWait((__int64)v12, 0, v4, 1, &v22), v24 >= 0) )
       {
         if ( v22 )
-          v24 = IopIoRingWaitForCompletionEvent((__int64)v12, v25, v34 & 1, a4);
+          v24 = IopIoRingWaitForCompletionEvent((__int64)v12, v25, v34 & 1, Timeout);
       }
     }
   }
@@ -147,5 +147,5 @@ LABEL_25:
     _InterlockedExchange((volatile __int32 *)v6 + 24, 0);
   if ( v6 )
     ObfDereferenceObjectWithTag(v6, 0x746C6644u);
-  return (unsigned int)v24;
+  return v24;
 }

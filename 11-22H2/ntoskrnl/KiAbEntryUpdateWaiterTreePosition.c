@@ -10,65 +10,65 @@
  *     RtlRbInsertNodeEx @ 0x14024CCA0 (RtlRbInsertNodeEx.c)
  */
 
-char __fastcall KiAbEntryUpdateWaiterTreePosition(__int64 a1, __int64 a2)
+char __fastcall KiAbEntryUpdateWaiterTreePosition(__int64 a1, _RTL_RB_TREE *a2)
 {
   char result; // al
-  __int64 v4; // rbx
-  bool v5; // cl
-  unsigned __int64 v6; // rdx
-  unsigned __int64 v7; // rax
+  _RTL_RB_TREE *v4; // rbx
+  BOOLEAN v5; // cl
+  _RTL_BALANCED_NODE *Root; // rdx
+  _RTL_BALANCED_NODE *v7; // rax
 
   result = *(_BYTE *)(a1 - 96LL * *(unsigned __int8 *)(a1 + 16) - 1501);
   if ( result > 30 )
     result = 30;
   if ( *(_BYTE *)(a1 + 48) != result )
   {
-    v4 = a2 + 64;
+    v4 = a2 + 4;
     *(_BYTE *)(a1 + 48) = result;
-    RtlRbRemoveNode((unsigned __int64 *)(a2 + 64), a1 + 24);
+    RtlRbRemoveNode(a2 + 4, (PRTL_BALANCED_NODE)(a1 + 24));
     v5 = 0;
-    v6 = *(_QWORD *)v4;
-    if ( (*(_BYTE *)(v4 + 8) & 1) != 0 )
+    Root = v4->Root;
+    if ( (*(_BYTE *)&v4->0 & 1) != 0 )
     {
-      if ( v6 )
-        v6 ^= v4;
+      if ( Root )
+        Root = (_RTL_BALANCED_NODE *)((unsigned __int64)v4 ^ (unsigned __int64)Root);
     }
-    if ( v6 )
+    if ( Root )
     {
       while ( 1 )
       {
-        if ( *(_BYTE *)(v6 + 24) < *(_BYTE *)(a1 + 48) )
+        if ( SLOBYTE(Root[1].Children[0]) < *(_BYTE *)(a1 + 48) )
         {
-          v7 = *(_QWORD *)v6;
-          if ( (*(_BYTE *)(v4 + 8) & 1) != 0 )
+          v7 = Root->Children[0];
+          if ( (*(_BYTE *)&v4->0 & 1) != 0 )
           {
             if ( !v7 )
-              return RtlRbInsertNodeEx((unsigned __int64 *)v4, v6, v5, a1 + 24);
-            v7 ^= v6;
+              return RtlRbInsertNodeEx(v4, Root, v5, (PRTL_BALANCED_NODE)(a1 + 24));
+            v7 = (_RTL_BALANCED_NODE *)((unsigned __int64)Root ^ (unsigned __int64)v7);
           }
           if ( !v7 )
-            return RtlRbInsertNodeEx((unsigned __int64 *)v4, v6, v5, a1 + 24);
+            return RtlRbInsertNodeEx(v4, Root, v5, (PRTL_BALANCED_NODE)(a1 + 24));
         }
         else
         {
-          v7 = *(_QWORD *)(v6 + 8);
-          if ( (*(_BYTE *)(v4 + 8) & 1) != 0 )
+          v7 = Root->Children[1];
+          if ( (*(_BYTE *)&v4->0 & 1) != 0 )
           {
             if ( !v7 )
               goto LABEL_11;
-            v7 ^= v6;
+            v7 = (_RTL_BALANCED_NODE *)((unsigned __int64)Root ^ (unsigned __int64)v7);
           }
           if ( !v7 )
           {
 LABEL_11:
             v5 = 1;
-            return RtlRbInsertNodeEx((unsigned __int64 *)v4, v6, v5, a1 + 24);
+            return RtlRbInsertNodeEx(v4, Root, v5, (PRTL_BALANCED_NODE)(a1 + 24));
           }
         }
-        v6 = v7;
+        Root = v7;
       }
     }
-    return RtlRbInsertNodeEx((unsigned __int64 *)v4, v6, v5, a1 + 24);
+    return RtlRbInsertNodeEx(v4, Root, v5, (PRTL_BALANCED_NODE)(a1 + 24));
   }
   return result;
 }

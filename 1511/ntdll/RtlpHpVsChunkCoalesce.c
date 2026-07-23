@@ -55,7 +55,7 @@ unsigned __int64 __fastcall RtlpHpVsChunkCoalesce(__int64 a1, __int64 a2, unsign
     v15 = v14 ^ v5 ^ *(_QWORD *)v14;
     if ( (v15 & 0xFF000000000000LL) == 0 )
     {
-      RtlRbRemoveNode(a1 + 8, v14 + 8);
+      RtlRbRemoveNode((PRTL_RB_TREE)(a1 + 8), (PRTL_BALANCED_NODE)(v14 + 8));
       v16 = v5 ^ *(_DWORD *)v14 ^ v14;
       v17 = 16 * HIWORD(v16);
       v18 = (((v14 & 0xFFF) + v17 + 4095) >> 12) - ((unsigned __int64)(v17 + 4095) >> 12);

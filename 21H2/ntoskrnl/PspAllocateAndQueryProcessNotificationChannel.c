@@ -1,105 +1,108 @@
 /*
- * XREFs of PspAllocateAndQueryProcessNotificationChannel @ 0x140604C58
+ * XREFs of PspAllocateAndQueryProcessNotificationChannel @ 0x1406F4388
  * Callers:
- *     NtQueryInformationProcess @ 0x1406212A0 (NtQueryInformationProcess.c)
+ *     NtQueryInformationProcess @ 0x14068AF10 (NtQueryInformationProcess.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     ZwCreateWnfStateName @ 0x1403FBD20 (ZwCreateWnfStateName.c)
- *     ZwDeleteWnfStateName @ 0x1403FBEC0 (ZwDeleteWnfStateName.c)
- *     ZwUpdateWnfStateData @ 0x1403FDDA0 (ZwUpdateWnfStateData.c)
- *     RtlCreateSecurityDescriptor @ 0x140603560 (RtlCreateSecurityDescriptor.c)
- *     RtlpAddKnownAce @ 0x14065C460 (RtlpAddKnownAce.c)
- *     RtlSetDaclSecurityDescriptor @ 0x140660500 (RtlSetDaclSecurityDescriptor.c)
- *     RtlCreateAcl @ 0x140660570 (RtlCreateAcl.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     ZwCreateWnfStateName @ 0x1403FBF00 (ZwCreateWnfStateName.c)
+ *     ZwDeleteWnfStateName @ 0x1403FC0A0 (ZwDeleteWnfStateName.c)
+ *     ZwUpdateWnfStateData @ 0x1403FDF80 (ZwUpdateWnfStateData.c)
+ *     RtlpAddKnownAce @ 0x140651280 (RtlpAddKnownAce.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x140655320 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateAcl @ 0x140655390 (RtlCreateAcl.c)
+ *     RtlCreateSecurityDescriptor @ 0x1406F2C90 (RtlCreateSecurityDescriptor.c)
  */
 
-__int64 __fastcall PspAllocateAndQueryProcessNotificationChannel(__int64 a1, __int64 a2, __int64 a3)
+NTSTATUS __fastcall PspAllocateAndQueryProcessNotificationChannel(__int64 a1, __int64 a2, __int64 a3)
 {
   char v3; // al
   __int64 v4; // rdi
   char v5; // bl
   char v9; // r15
-  __int64 result; // rax
-  unsigned int v11; // ecx
-  int *v12; // rdx
-  int v13; // r8d
-  int v14; // eax
-  unsigned __int8 v15; // cf
-  char v16; // [rsp+40h] [rbp-89h]
-  char v17; // [rsp+41h] [rbp-88h]
+  NTSTATUS result; // eax
+  __int64 v11; // rdx
+  __int64 v12; // r8
+  __int64 v13; // r9
+  unsigned int v14; // ecx
+  int *v15; // rdx
+  int v16; // r8d
+  int v17; // eax
+  unsigned __int8 v18; // cf
+  char v19; // [rsp+40h] [rbp-89h]
+  char v20; // [rsp+41h] [rbp-88h]
   _OWORD SecurityDescriptor[2]; // [rsp+48h] [rbp-81h] BYREF
-  __int64 v19; // [rsp+68h] [rbp-61h]
-  _QWORD v20[2]; // [rsp+70h] [rbp-59h] BYREF
+  __int64 v22; // [rsp+68h] [rbp-61h]
+  _WNF_STATE_NAME StateName; // [rsp+70h] [rbp-59h] BYREF
   ACL Acl; // [rsp+80h] [rbp-49h] BYREF
 
   v3 = 0;
   v4 = a2 + 2464;
-  v19 = 0LL;
+  v22 = 0LL;
   v5 = 0;
   v9 = 0;
-  v17 = 0;
+  v20 = 0;
   memset(SecurityDescriptor, 0, sizeof(SecurityDescriptor));
-  v16 = 0;
-  v20[0] = 0LL;
+  v19 = 0;
+  StateName = 0LL;
   if ( !*(_QWORD *)(a2 + 2464) )
   {
     RtlCreateAcl(&Acl, 0x58u, 2u);
-    RtlpAddKnownAce((int)&Acl, 2, 0, 1, SeWorldSid, 0);
+    RtlpAddKnownAce(&Acl, 2u, 0, 1, (unsigned __int8 *)SeWorldSid, 0);
     RtlCreateSecurityDescriptor(SecurityDescriptor, 1u);
     RtlSetDaclSecurityDescriptor(SecurityDescriptor, 1u, &Acl, 0);
-    result = ZwCreateWnfStateName((__int64)v20, 3LL);
-    if ( (int)result < 0 )
+    result = ZwCreateWnfStateName(&StateName, WnfTemporaryStateName, WnfDataScopeMachine, 0, 0LL, 0, SecurityDescriptor);
+    if ( result < 0 )
       return result;
     --*(_WORD *)(a1 + 484);
     ExAcquirePushLockExclusiveEx(a2 + 1080, 0LL);
     if ( *(_QWORD *)v4 )
     {
-      v17 = 1;
+      v20 = 1;
     }
     else
     {
-      *(_QWORD *)v4 = v20[0];
+      *(_WNF_STATE_NAME *)v4 = StateName;
       *(_QWORD *)(a2 + 2500) = *(_QWORD *)(a3 + 36);
-      v16 = 1;
+      v19 = 1;
     }
     if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)(a2 + 1080), 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
       ExfTryToWakePushLock(a2 + 1080);
     KeAbPostRelease(a2 + 1080);
-    KeLeaveCriticalRegionThread(a1);
-    v5 = v17;
-    v3 = v16;
+    KeLeaveCriticalRegionThread(a1, v11, v12, v13);
+    v5 = v20;
+    v3 = v19;
   }
-  v11 = 0;
-  v12 = (int *)(a3 + 8);
+  v14 = 0;
+  v15 = (int *)(a3 + 8);
   *(_OWORD *)a3 = *(_OWORD *)v4;
   *(_OWORD *)(a3 + 16) = *(_OWORD *)(v4 + 16);
   *(_OWORD *)(a3 + 32) = *(_OWORD *)(v4 + 32);
   do
   {
-    v13 = *v12 & 0x7FFFFFFF;
-    *v12 = v13;
+    v16 = *v15 & 0x7FFFFFFF;
+    *v15 = v16;
     if ( v3 )
     {
-      v14 = *(_DWORD *)(a3 + 36);
-      v15 = _bittest(&v14, v11);
-      v3 = v16;
-      if ( v15 )
+      v17 = *(_DWORD *)(a3 + 36);
+      v18 = _bittest(&v17, v14);
+      v3 = v19;
+      if ( v18 )
       {
-        if ( v13 )
+        if ( v16 )
           v9 = 1;
       }
     }
-    ++v11;
-    ++v12;
+    ++v14;
+    ++v15;
   }
-  while ( v11 < 7 );
+  while ( v14 < 7 );
   if ( v9 )
-    ZwUpdateWnfStateData(v4, 0LL);
+    ZwUpdateWnfStateData((PCWNF_STATE_NAME)v4, 0LL, 0, 0LL, 0LL, 0, 0);
   if ( v5 )
-    ZwDeleteWnfStateName((__int64)v20, (__int64)v12);
-  return 0LL;
+    ZwDeleteWnfStateName(&StateName);
+  return 0;
 }

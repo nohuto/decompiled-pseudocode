@@ -1,60 +1,60 @@
 /*
- * XREFs of PspProcessDelete @ 0x1407FB2E0
+ * XREFs of PspProcessDelete @ 0x140800D10
  * Callers:
  *     <none>
  * Callees:
- *     PspLockProcessListExclusive @ 0x140215EEC (PspLockProcessListExclusive.c)
- *     PspUnlockProcessListExclusive @ 0x140215F5C (PspUnlockProcessListExclusive.c)
- *     KiUnstackDetachProcess @ 0x1402307C0 (KiUnstackDetachProcess.c)
- *     KiStackAttachProcess @ 0x140247880 (KiStackAttachProcess.c)
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     SmKmStoreDereference @ 0x140265B10 (SmKmStoreDereference.c)
- *     ObDereferenceObjectDeferDeleteWithTag @ 0x14027C870 (ObDereferenceObjectDeferDeleteWithTag.c)
- *     KiCheckForKernelApcDelivery @ 0x14027DB80 (KiCheckForKernelApcDelivery.c)
- *     KeInsertQueueDpc @ 0x1402BDB30 (KeInsertQueueDpc.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     SmKmStoreGet @ 0x140354B70 (SmKmStoreGet.c)
- *     PsDereferencePartition @ 0x140381940 (PsDereferencePartition.c)
- *     PsReturnProcessNonPagedPoolQuota @ 0x1403BD130 (PsReturnProcessNonPagedPoolQuota.c)
- *     SmpKeyedStoreEntryGet @ 0x140409DF0 (SmpKeyedStoreEntryGet.c)
- *     KiQueryUnbiasedInterruptTime @ 0x140446880 (KiQueryUnbiasedInterruptTime.c)
- *     ExSaFree @ 0x1404638EC (ExSaFree.c)
- *     KiRemoveAndFreeCpuPartitionAssignmentProcess @ 0x140463968 (KiRemoveAndFreeCpuPartitionAssignmentProcess.c)
- *     KiRundownAvailableCpusWorkItem @ 0x140463B20 (KiRundownAvailableCpusWorkItem.c)
- *     PsGetProcessId @ 0x140466BE0 (PsGetProcessId.c)
- *     KeInitializeDpc @ 0x140481A50 (KeInitializeDpc.c)
- *     SmKmStoreDeleteWhenEmpty @ 0x14048EBAC (SmKmStoreDeleteWhenEmpty.c)
- *     CmSiFreeMemory @ 0x140495010 (CmSiFreeMemory.c)
- *     IoSetDiskIoAttributionOnProcess @ 0x1404C7ED4 (IoSetDiskIoAttributionOnProcess.c)
- *     SmpGetProcessPartition @ 0x1404D6C0C (SmpGetProcessPartition.c)
- *     RtlIsZeroMemory @ 0x1404D9FD0 (RtlIsZeroMemory.c)
- *     KeBugCheck @ 0x140533990 (KeBugCheck.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     KeUnsecureProcess @ 0x1405E5A08 (KeUnsecureProcess.c)
- *     PspDereferenceSyscallProvider @ 0x140614630 (PspDereferenceSyscallProvider.c)
- *     PspLockSyscallProviderExclusive @ 0x140614664 (PspLockSyscallProviderExclusive.c)
- *     PspUnlockSyscallProviderExclusive @ 0x1406147FC (PspUnlockSyscallProviderExclusive.c)
- *     SmCompressionProcessHoldsPartitionReference @ 0x14063E760 (SmCompressionProcessHoldsPartitionReference.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwDeleteWnfStateName @ 0x140725010 (ZwDeleteWnfStateName.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     VmpProcessContextCleanup @ 0x14081D08C (VmpProcessContextCleanup.c)
- *     ExMapHandleToPointer @ 0x1408FA200 (ExMapHandleToPointer.c)
- *     ExDestroyHandle @ 0x14092C030 (ExDestroyHandle.c)
- *     EtwExitProcess @ 0x140940A60 (EtwExitProcess.c)
- *     PoEnergyContextCleanup @ 0x14095042C (PoEnergyContextCleanup.c)
- *     PspRemoveProcessFromJobChain @ 0x140959638 (PspRemoveProcessFromJobChain.c)
- *     sub_1409EEEFC @ 0x1409EEEFC (sub_1409EEEFC.c)
- *     SeDeassignPrimaryToken @ 0x140A2DF94 (SeDeassignPrimaryToken.c)
- *     LpcExitProcess @ 0x140A41C24 (LpcExitProcess.c)
- *     ExWnfExitProcess @ 0x140A41D44 (ExWnfExitProcess.c)
- *     PspExitProcess @ 0x140A43620 (PspExitProcess.c)
- *     ObClearProcessDeviceMap @ 0x140ADD8B8 (ObClearProcessDeviceMap.c)
- *     PspDereferenceQuota @ 0x140AF15EC (PspDereferenceQuota.c)
- *     PspReleaseReferenceToSession @ 0x140B000D8 (PspReleaseReferenceToSession.c)
- *     MmDeleteProcessAddressSpace @ 0x140B3F940 (MmDeleteProcessAddressSpace.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     PspLockProcessListExclusive @ 0x14021621C (PspLockProcessListExclusive.c)
+ *     PspUnlockProcessListExclusive @ 0x14021628C (PspUnlockProcessListExclusive.c)
+ *     KiUnstackDetachProcess @ 0x140232120 (KiUnstackDetachProcess.c)
+ *     KiStackAttachProcess @ 0x1402491E0 (KiStackAttachProcess.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     SmKmStoreDereference @ 0x140265080 (SmKmStoreDereference.c)
+ *     ObDereferenceObjectDeferDeleteWithTag @ 0x14027BDE0 (ObDereferenceObjectDeferDeleteWithTag.c)
+ *     KiCheckForKernelApcDelivery @ 0x14027D0F0 (KiCheckForKernelApcDelivery.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     KeInsertQueueDpc @ 0x1403087F0 (KeInsertQueueDpc.c)
+ *     SmKmStoreGet @ 0x140356910 (SmKmStoreGet.c)
+ *     PsDereferencePartition @ 0x1403836F0 (PsDereferencePartition.c)
+ *     PsReturnProcessNonPagedPoolQuota @ 0x1403C6FA0 (PsReturnProcessNonPagedPoolQuota.c)
+ *     SmpKeyedStoreEntryGet @ 0x140402EE0 (SmpKeyedStoreEntryGet.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x14043F380 (KiQueryUnbiasedInterruptTime.c)
+ *     ExSaFree @ 0x14045C8AC (ExSaFree.c)
+ *     KiRemoveAndFreeCpuPartitionAssignmentProcess @ 0x14045C928 (KiRemoveAndFreeCpuPartitionAssignmentProcess.c)
+ *     KiRundownAvailableCpusWorkItem @ 0x14045CAE0 (KiRundownAvailableCpusWorkItem.c)
+ *     PsGetProcessId @ 0x140460330 (PsGetProcessId.c)
+ *     KeInitializeDpc @ 0x14047B3C0 (KeInitializeDpc.c)
+ *     SmKmStoreDeleteWhenEmpty @ 0x1404886EC (SmKmStoreDeleteWhenEmpty.c)
+ *     CmSiFreeMemory @ 0x14048EB60 (CmSiFreeMemory.c)
+ *     IoSetDiskIoAttributionOnProcess @ 0x1404C1C14 (IoSetDiskIoAttributionOnProcess.c)
+ *     SmpGetProcessPartition @ 0x1404D03DC (SmpGetProcessPartition.c)
+ *     RtlIsZeroMemory @ 0x1404D36B0 (RtlIsZeroMemory.c)
+ *     KeBugCheck @ 0x140535E10 (KeBugCheck.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     KeUnsecureProcess @ 0x1405E8378 (KeUnsecureProcess.c)
+ *     PspDereferenceSyscallProvider @ 0x140617470 (PspDereferenceSyscallProvider.c)
+ *     PspLockSyscallProviderExclusive @ 0x1406174A4 (PspLockSyscallProviderExclusive.c)
+ *     PspUnlockSyscallProviderExclusive @ 0x14061763C (PspUnlockSyscallProviderExclusive.c)
+ *     SmCompressionProcessHoldsPartitionReference @ 0x140642340 (SmCompressionProcessHoldsPartitionReference.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwDeleteWnfStateName @ 0x140729BE0 (ZwDeleteWnfStateName.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     VmpProcessContextCleanup @ 0x14082329C (VmpProcessContextCleanup.c)
+ *     ExDestroyHandle @ 0x140907B60 (ExDestroyHandle.c)
+ *     ExMapHandleToPointer @ 0x14092A190 (ExMapHandleToPointer.c)
+ *     PoEnergyContextCleanup @ 0x1409CBD6C (PoEnergyContextCleanup.c)
+ *     sub_1409EB6CC @ 0x1409EB6CC (sub_1409EB6CC.c)
+ *     LpcExitProcess @ 0x1409FD5D4 (LpcExitProcess.c)
+ *     ExWnfExitProcess @ 0x1409FD6F4 (ExWnfExitProcess.c)
+ *     PspExitProcess @ 0x1409FE380 (PspExitProcess.c)
+ *     PspRemoveProcessFromJobChain @ 0x1409FEEF8 (PspRemoveProcessFromJobChain.c)
+ *     EtwExitProcess @ 0x140A33B70 (EtwExitProcess.c)
+ *     SeDeassignPrimaryToken @ 0x140A7C400 (SeDeassignPrimaryToken.c)
+ *     ObClearProcessDeviceMap @ 0x140ADA628 (ObClearProcessDeviceMap.c)
+ *     PspDereferenceQuota @ 0x140AF422C (PspDereferenceQuota.c)
+ *     PspReleaseReferenceToSession @ 0x140B01E0C (PspReleaseReferenceToSession.c)
+ *     MmDeleteProcessAddressSpace @ 0x140B41970 (MmDeleteProcessAddressSpace.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PspProcessDelete(ULONG_PTR BugCheckParameter1)
@@ -91,18 +91,18 @@ void __fastcall PspProcessDelete(ULONG_PTR BugCheckParameter1)
   __int64 v31; // rcx
   void *v32; // rcx
   __int128 *v33; // r10
-  __int64 v34; // r8
+  struct _LIST_ENTRY *Affinity; // r8
   int v35; // r9d
-  char v36; // bl
-  __int64 v37; // rdx
+  char AffinityPrimaryGroup; // bl
+  struct _LIST_ENTRY *v37; // rdx
   __int64 v38; // rax
   __int64 v39; // rax
-  __int64 v40; // rdx
+  unsigned __int64 Blink; // rdx
   _QWORD *v41; // r11
   const char *v42; // rcx
   unsigned __int64 v43; // r9
   unsigned int v44; // r10d
-  __int64 v45; // r9
+  struct _LIST_ENTRY *v45; // r9
   unsigned __int64 v46; // rax
   __int64 v47; // rax
   _KWAIT_BLOCK *v48; // r10
@@ -147,8 +147,8 @@ void __fastcall PspProcessDelete(ULONG_PTR BugCheckParameter1)
     *(_QWORD *)(BugCheckParameter1 + 848) = 0LL;
   }
   ObClearProcessDeviceMap(BugCheckParameter1);
-  if ( !RtlIsZeroMemory((_BYTE *)(BugCheckParameter1 + 1824), 8uLL) )
-    ZwDeleteWnfStateName(BugCheckParameter1 + 1824, v8);
+  if ( !RtlIsZeroMemory((PVOID)(BugCheckParameter1 + 1824), 8uLL) )
+    ZwDeleteWnfStateName((PCWNF_STATE_NAME)(BugCheckParameter1 + 1824));
   v11 = *(void **)(BugCheckParameter1 + 776);
   if ( v11 )
   {
@@ -184,7 +184,7 @@ LABEL_48:
   }
 LABEL_22:
   ProcessId = PsGetProcessId((PEPROCESS)BugCheckParameter1);
-  sub_1409EEEFC(ProcessId);
+  sub_1409EB6CC(ProcessId);
   if ( _bittest((const signed __int32 *)(BugCheckParameter1 + 500), 0x12u) )
   {
     KiStackAttachProcess((_KPROCESS *)BugCheckParameter1, 0, (__int64)v56);
@@ -215,7 +215,7 @@ LABEL_22:
       KeBugCheck(0x17u);
     ExDestroyHandle(PspCidTable, *(_QWORD *)(BugCheckParameter1 + 464), v19);
     v22 = CurrentThread->SpecialApcDisable++ == -1;
-    if ( v22 && ($7A85BAF4F1FA08634C1C4A3E45B775B3 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+    if ( v22 && ($241382875694CED3D471BC5892DE3337 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
       KiCheckForKernelApcDelivery(v21, v20);
   }
   if ( *(_QWORD *)(BugCheckParameter1 + 584) )
@@ -273,18 +273,18 @@ LABEL_22:
     VmpProcessContextCleanup();
     ExFreePoolWithTag(*(PVOID *)(BugCheckParameter1 + 1648), 0);
   }
-  if ( KiQueryUnbiasedInterruptTime() >= (unsigned __int64)qword_140E624C0 )
+  if ( KiQueryUnbiasedInterruptTime() >= stru_140E62450.NpxState )
   {
     v33 = &KeServiceDescriptorTable;
     _mm_prefetch((const char *)&KeServiceDescriptorTable, 0);
-    v34 = qword_140E624B0;
+    Affinity = (struct _LIST_ENTRY *)stru_140E62450.Affinity;
     v35 = 64;
-    v36 = qword_140E624B8;
-    v37 = qword_140E624B0;
+    AffinityPrimaryGroup = stru_140E62450.AffinityPrimaryGroup;
+    v37 = (struct _LIST_ENTRY *)stru_140E62450.Affinity;
     v38 = 8LL;
     do
     {
-      v37 = __ROR8__(v37 - *(_QWORD *)v33, qword_140E624B8);
+      v37 = (struct _LIST_ENTRY *)__ROR8__((char *)v37 - *(_QWORD *)v33, stru_140E62450.AffinityPrimaryGroup);
       v33 = (__int128 *)((char *)v33 + 8);
       v35 -= 8;
       --v38;
@@ -294,20 +294,20 @@ LABEL_22:
     {
       v39 = *(unsigned __int8 *)v33;
       v33 = (__int128 *)((char *)v33 + 1);
-      v37 = __ROR8__(v37 - v39, qword_140E624B8);
+      v37 = (struct _LIST_ENTRY *)__ROR8__((char *)v37 - v39, stru_140E62450.AffinityPrimaryGroup);
     }
-    v22 = qword_140E624C8 == v37;
-    v40 = qword_140E62480;
-    if ( !v22 && !qword_140E62480 )
+    v22 = stru_140E62450.SavedApcState.ApcListHead[0].Flink == v37;
+    Blink = (unsigned __int64)stru_140E62450.QueueListEntry.Blink;
+    if ( !v22 && !stru_140E62450.QueueListEntry.Blink )
     {
       LODWORD(v55) = 8684291;
-      v36 = qword_140E624B8;
-      v34 = qword_140E624B0;
-      v40 = (unsigned int)__ROR4__(8683520, 15);
-      qword_140E62480 = (unsigned int)v40;
-      xmmword_140E62488 = 0LL;
-      qword_140E62498 = 267LL;
-      qword_140E624A0 = (__int64)&KeServiceDescriptorTable;
+      AffinityPrimaryGroup = stru_140E62450.AffinityPrimaryGroup;
+      Affinity = (struct _LIST_ENTRY *)stru_140E62450.Affinity;
+      Blink = (unsigned int)__ROR4__(8683520, 15);
+      stru_140E62450.QueueListEntry.Blink = (struct _LIST_ENTRY *)(unsigned int)Blink;
+      *(_OWORD *)&stru_140E62450.NextProcessor = 0LL;
+      stru_140E62450.UserAffinity = (_KAFFINITY_EX *)267;
+      *(_QWORD *)&stru_140E62450.UserAffinityPrimaryGroup = &KeServiceDescriptorTable;
     }
     v41 = (_QWORD *)KeServiceDescriptorTable;
     v42 = (const char *)KeServiceDescriptorTable;
@@ -322,13 +322,13 @@ LABEL_22:
       while ( (unsigned __int64)v42 < v43 );
     }
     v44 = 4 * xmmword_1412018D0;
-    v45 = v34;
+    v45 = Affinity;
     if ( (unsigned int)(4 * xmmword_1412018D0) >= 8 )
     {
       v46 = (unsigned __int64)v44 >> 3;
       do
       {
-        v45 = __ROR8__(v45 - *v41++, v36);
+        v45 = (struct _LIST_ENTRY *)__ROR8__((char *)v45 - *v41++, AffinityPrimaryGroup);
         v44 -= 8;
         --v46;
       }
@@ -338,26 +338,28 @@ LABEL_22:
     {
       v47 = *(unsigned __int8 *)v41;
       v41 = (_QWORD *)((char *)v41 + 1);
-      v45 = __ROR8__(v45 - v47, v36);
+      v45 = (struct _LIST_ENTRY *)__ROR8__((char *)v45 - v47, AffinityPrimaryGroup);
     }
-    if ( qword_140E624D0 != v45 && !v40 )
+    if ( stru_140E62450.SavedApcState.ApcListHead[0].Blink != v45 && !Blink )
     {
       LODWORD(v55) = 17367040;
-      v36 = qword_140E624B8;
-      v34 = qword_140E624B0;
-      v40 = (unsigned int)__ROL4__(17367040, 16);
-      qword_140E62480 = (unsigned int)v40;
-      xmmword_140E62488 = 0LL;
-      qword_140E62498 = 267LL;
-      qword_140E624A0 = KeServiceDescriptorTable;
+      AffinityPrimaryGroup = stru_140E62450.AffinityPrimaryGroup;
+      Affinity = (struct _LIST_ENTRY *)stru_140E62450.Affinity;
+      Blink = (unsigned int)__ROL4__(17367040, 16);
+      stru_140E62450.QueueListEntry.Blink = (struct _LIST_ENTRY *)(unsigned int)Blink;
+      *(_OWORD *)&stru_140E62450.NextProcessor = 0LL;
+      stru_140E62450.UserAffinity = (_KAFFINITY_EX *)267;
+      *(_QWORD *)&stru_140E62450.UserAffinityPrimaryGroup = KeServiceDescriptorTable;
     }
-    v48 = &stru_140FC01F0.WaitBlock[3];
-    _mm_prefetch((const char *)&stru_140FC01F0.WaitBlockFill7[144], 0);
+    v48 = &stru_140FC11F0.WaitBlock[3];
+    _mm_prefetch((const char *)&stru_140FC11F0.WaitBlockFill7[144], 0);
     v49 = 4LL;
     v50 = 32;
     do
     {
-      v34 = __ROR8__(v34 - (unsigned __int64)v48->WaitListEntry.Flink, v36);
+      Affinity = (struct _LIST_ENTRY *)__ROR8__(
+                                         (char *)Affinity - (char *)v48->WaitListEntry.Flink,
+                                         AffinityPrimaryGroup);
       v48 = (_KWAIT_BLOCK *)((char *)v48 + 8);
       v50 -= 8;
       --v49;
@@ -367,40 +369,45 @@ LABEL_22:
     {
       Flink_low = LOBYTE(v48->WaitListEntry.Flink);
       v48 = (_KWAIT_BLOCK *)((char *)v48 + 1);
-      v34 = __ROR8__(v34 - Flink_low, v36);
+      Affinity = (struct _LIST_ENTRY *)__ROR8__((char *)Affinity - Flink_low, AffinityPrimaryGroup);
     }
-    if ( qword_140E624D8 != v34 && !v40 )
+    if ( stru_140E62450.SavedApcState.ApcListHead[1].Flink != Affinity && !Blink )
     {
       LODWORD(v55) = 4240;
-      v40 = (unsigned int)__ROL4__(4240, 28);
-      qword_140E62480 = (unsigned int)v40;
-      xmmword_140E62488 = 0LL;
-      qword_140E62498 = 267LL;
-      qword_140E624A0 = (__int64)&stru_140FC01F0.WaitBlock[3];
+      Blink = (unsigned int)__ROL4__(4240, 28);
+      stru_140E62450.QueueListEntry.Blink = (struct _LIST_ENTRY *)(unsigned int)Blink;
+      *(_OWORD *)&stru_140E62450.NextProcessor = 0LL;
+      stru_140E62450.UserAffinity = (_KAFFINITY_EX *)267;
+      *(_QWORD *)&stru_140E62450.UserAffinityPrimaryGroup = &stru_140FC11F0.WaitBlock[3];
     }
-    if ( stru_140FC01F0.WaitBlock[3].WaitListEntry.Flink != (struct _LIST_ENTRY *)KeServiceDescriptorTable
-      || *(_DWORD *)&stru_140FC01F0.WaitBlockFill11[160] != (_DWORD)xmmword_1412018D0 )
+    if ( stru_140FC11F0.WaitBlock[3].WaitListEntry.Flink != (struct _LIST_ENTRY *)KeServiceDescriptorTable
+      || *(_DWORD *)&stru_140FC11F0.WaitBlockFill11[160] != (_DWORD)xmmword_1412018D0 )
     {
-      if ( v40 )
+      if ( Blink )
         goto LABEL_88;
       LODWORD(v55) = 69468964;
-      v40 = (unsigned int)__ROR4__(69468160, 114);
-      qword_140E62480 = (unsigned int)v40;
-      xmmword_140E62488 = 0LL;
-      qword_140E62498 = 267LL;
-      qword_140E624A0 = (__int64)stru_140FC01F0.WaitBlock[3].WaitListEntry.Flink;
+      Blink = (unsigned int)__ROR4__(69468160, 114);
+      stru_140E62450.QueueListEntry.Blink = (struct _LIST_ENTRY *)(unsigned int)Blink;
+      *(_OWORD *)&stru_140E62450.NextProcessor = 0LL;
+      stru_140E62450.UserAffinity = (_KAFFINITY_EX *)267;
+      *(_QWORD *)&stru_140E62450.UserAffinityPrimaryGroup = stru_140FC11F0.WaitBlock[3].WaitListEntry.Flink;
     }
-    if ( !v40 )
+    if ( !Blink )
     {
 LABEL_91:
-      qword_140E624C0 = KiQueryUnbiasedInterruptTime() + 41929663 * (__rdtsc() >> 4) % 0x12A05F2000LL + 288000000000LL;
+      stru_140E62450.NpxState = KiQueryUnbiasedInterruptTime()
+                              + 41929663 * (__rdtsc() >> 4) % 0x12A05F2000LL
+                              + 288000000000LL;
       goto LABEL_92;
     }
 LABEL_88:
-    if ( (void (__fastcall __noreturn *)(struct _KDPC *, _QWORD *, PVOID, PVOID))DeferredContext.DeferredRoutine != KiSchedulerDpc )
-      KeInitializeDpc(&DeferredContext, (PKDEFERRED_ROUTINE)KiSchedulerDpc, &DeferredContext);
-    qword_140E624A8 = 1759552LL;
-    KeInsertQueueDpc(&DeferredContext, 0LL, 0LL);
+    if ( stru_140E62450.WaitBlock[3].Thread != (struct _KTHREAD *)KiSchedulerDpc )
+      KeInitializeDpc(
+        (PRKDPC)&stru_140E62450.WaitBlockFill11[144],
+        (PKDEFERRED_ROUTINE)KiSchedulerDpc,
+        &stru_140E62450.WaitBlockFill11[144]);
+    stru_140E62450.AffinityVersion = 1759552LL;
+    KeInsertQueueDpc((PRKDPC)&stru_140E62450.WaitBlockFill11[144], 0LL, 0LL);
     goto LABEL_91;
   }
 LABEL_92:

@@ -1,8 +1,8 @@
 /*
- * XREFs of MiFreePoolPagesLeft @ 0x14047E2B4
+ * XREFs of MiFreePoolPagesLeft @ 0x140477C24
  * Callers:
- *     ExpQuerySystemPerformanceInformation @ 0x140A5C194 (ExpQuerySystemPerformanceInformation.c)
- *     MiInitializePagedPoolEvents @ 0x140CF9D74 (MiInitializePagedPoolEvents.c)
+ *     ExpQuerySystemPerformanceInformation @ 0x140A69154 (ExpQuerySystemPerformanceInformation.c)
+ *     MiInitializePagedPoolEvents @ 0x140D000F4 (MiInitializePagedPoolEvents.c)
  * Callees:
  *     <none>
  */
@@ -14,13 +14,13 @@ __int64 __fastcall MiFreePoolPagesLeft(int a1)
 
   if ( a1 == 4 )
   {
-    Process = (_KPROCESS *)qword_140E2C588;
+    Process = (_KPROCESS *)qword_140E2C708;
     WaitStatus = *(_QWORD *)&MiState;
   }
   else
   {
-    Process = stru_140E36558.ApcState.Process;
-    WaitStatus = stru_140E36558.WaitStatus;
+    Process = stru_140E366D8.ApcState.Process;
+    WaitStatus = stru_140E366D8.WaitStatus;
   }
   return WaitStatus - (_QWORD)Process;
 }

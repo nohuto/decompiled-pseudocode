@@ -6,7 +6,7 @@
  *     <none>
  */
 
-__int64 __fastcall RtlCreateAtomTable(unsigned int a1, _QWORD *a2)
+NTSTATUS __cdecl RtlCreateAtomTable(ULONG NumberOfBuckets, PVOID *AtomTableHandle)
 {
-  return sub_18005AF40(a1, (__int64)a2, a2);
+  return sub_18005AF40(NumberOfBuckets, (__int64)AtomTableHandle, AtomTableHandle);
 }

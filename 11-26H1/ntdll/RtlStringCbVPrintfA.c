@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlStringCbVPrintfA @ 0x1800DE9C0
+ * XREFs of RtlStringCbVPrintfA @ 0x1800DB930
  * Callers:
- *     vDbgPrintExWithPrefixInternalHelper @ 0x1800DE744 (vDbgPrintExWithPrefixInternalHelper.c)
+ *     vDbgPrintExWithPrefixInternalHelper @ 0x1800DB6B4 (vDbgPrintExWithPrefixInternalHelper.c)
  * Callees:
- *     _vsnprintf @ 0x180128D30 (_vsnprintf.c)
+ *     _vsnprintf @ 0x180128AA0 (_vsnprintf.c)
  */
 
 __int64 __fastcall RtlStringCbVPrintfA(char *a1, __int64 a2, const char *a3, va_list a4)

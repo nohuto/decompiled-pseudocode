@@ -1,12 +1,12 @@
 /*
- * XREFs of ExpTryConvertSharedToExclusiveLite @ 0x14031BDC8
+ * XREFs of ExpTryConvertSharedToExclusiveLite @ 0x14031BFB8
  * Callers:
- *     ExTryConvertSharedToExclusiveLite @ 0x14031BB08 (ExTryConvertSharedToExclusiveLite.c)
+ *     ExTryConvertSharedToExclusiveLite @ 0x14031BCF8 (ExTryConvertSharedToExclusiveLite.c)
  * Callees:
  *     KeReleaseInStackQueuedSpinLock @ 0x14001F500 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     ExpFindCurrentThread @ 0x1401083C0 (ExpFindCurrentThread.c)
- *     ExpTryUpgradeResource @ 0x14031F29C (ExpTryUpgradeResource.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14007DE80 (KeAcquireInStackQueuedSpinLock.c)
+ *     ExpFindCurrentThread @ 0x140108440 (ExpFindCurrentThread.c)
+ *     ExpTryUpgradeResource @ 0x14031F48C (ExpTryUpgradeResource.c)
  */
 
 char ExpTryConvertSharedToExclusiveLite()

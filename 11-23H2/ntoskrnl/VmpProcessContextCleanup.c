@@ -1,8 +1,8 @@
 /*
- * XREFs of VmpProcessContextCleanup @ 0x1409DD70C
+ * XREFs of VmpProcessContextCleanup @ 0x1409DD90C
  * Callers:
- *     PspProcessDelete @ 0x1407610B0 (PspProcessDelete.c)
- *     VmpProcessContextSetup @ 0x1409DD720 (VmpProcessContextSetup.c)
+ *     PspProcessDelete @ 0x1407612A0 (PspProcessDelete.c)
+ *     VmpProcessContextSetup @ 0x1409DD920 (VmpProcessContextSetup.c)
  * Callees:
  *     <none>
  */

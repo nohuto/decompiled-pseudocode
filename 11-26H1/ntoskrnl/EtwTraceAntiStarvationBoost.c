@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwTraceAntiStarvationBoost @ 0x14052F264
+ * XREFs of EtwTraceAntiStarvationBoost @ 0x140531784
  * Callers:
- *     KiQuantumEnd @ 0x140331070 (KiQuantumEnd.c)
- *     KiNormalPriorityReadyScan @ 0x1403BF1A4 (KiNormalPriorityReadyScan.c)
- *     KiScanSharedReadyThreads @ 0x1403BF4BC (KiScanSharedReadyThreads.c)
+ *     KiQuantumEnd @ 0x1403330A0 (KiQuantumEnd.c)
+ *     KiNormalPriorityReadyScan @ 0x1403C90A4 (KiNormalPriorityReadyScan.c)
+ *     KiScanSharedReadyThreads @ 0x1403C93BC (KiScanSharedReadyThreads.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x1402DAC90 (EtwTraceKernelEvent.c)
+ *     EtwTraceKernelEvent @ 0x1402BCA50 (EtwTraceKernelEvent.c)
  */
 
 __int64 __fastcall EtwTraceAntiStarvationBoost(__int64 a1, char a2, char a3)

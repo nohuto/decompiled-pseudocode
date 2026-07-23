@@ -1,9 +1,9 @@
 /*
- * XREFs of HalSendSoftwareInterrupt @ 0x14031FC90
+ * XREFs of HalSendSoftwareInterrupt @ 0x1402C8820
  * Callers:
  *     <none>
  * Callees:
- *     HalpInterruptSendIpi @ 0x14031FDE0 (HalpInterruptSendIpi.c)
+ *     HalpInterruptSendIpi @ 0x1402C8970 (HalpInterruptSendIpi.c)
  */
 
 __int64 __fastcall HalSendSoftwareInterrupt(int a1, char a2)

@@ -9,5 +9,5 @@
 // attributes: thunk
 __int64 TmIsKTMCommitCoordinator()
 {
-  return __imp_TmIsKTMCommitCoordinator();
+  return TmIsKTMCommitCoordinator_0();
 }

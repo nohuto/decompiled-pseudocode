@@ -1,9 +1,9 @@
 /*
- * XREFs of PpmUpdateIdleContext @ 0x1408673C4
+ * XREFs of PpmUpdateIdleContext @ 0x140868624
  * Callers:
- *     PpmUpdateIdleStates @ 0x140729630 (PpmUpdateIdleStates.c)
+ *     PpmUpdateIdleStates @ 0x14072A820 (PpmUpdateIdleStates.c)
  * Callees:
- *     KeGetPrcb @ 0x1400A62C4 (KeGetPrcb.c)
+ *     KeGetPrcb @ 0x1400A6204 (KeGetPrcb.c)
  */
 
 __int64 __fastcall PpmUpdateIdleContext(ULONG a1, __int64 a2)

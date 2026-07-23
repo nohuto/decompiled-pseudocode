@@ -1,9 +1,9 @@
 /*
- * XREFs of ExInterlockedPopEntryList @ 0x14022E7D4
+ * XREFs of ExInterlockedPopEntryList @ 0x14022E600
  * Callers:
  *     <none>
  * Callees:
- *     ExpAcquireSpinLockDisabled @ 0x1400A7BD4 (ExpAcquireSpinLockDisabled.c)
+ *     ExpAcquireSpinLockDisabled @ 0x1400A614C (ExpAcquireSpinLockDisabled.c)
  */
 
 PSINGLE_LIST_ENTRY __stdcall ExInterlockedPopEntryList(PSINGLE_LIST_ENTRY ListHead, PKSPIN_LOCK Lock)

@@ -1,18 +1,18 @@
 /*
- * XREFs of BgpTxtDisplayString @ 0x1409545A0
+ * XREFs of BgpTxtDisplayString @ 0x1409555A0
  * Callers:
- *     BgDisplayString @ 0x14095342C (BgDisplayString.c)
+ *     BgDisplayString @ 0x14095442C (BgDisplayString.c)
  * Callees:
- *     BgpGxDrawRectangle @ 0x14016EE30 (BgpGxDrawRectangle.c)
- *     BgpFoGetTextMetrics @ 0x14016F6E4 (BgpFoGetTextMetrics.c)
- *     BgpGxFillRectangle @ 0x14016F928 (BgpGxFillRectangle.c)
- *     BgpRasPrintGlyph @ 0x14017A1D4 (BgpRasPrintGlyph.c)
- *     BgpFoGetAdvanceWidth @ 0x1403279C4 (BgpFoGetAdvanceWidth.c)
- *     BgpGxRectangleDestroy @ 0x14094F21C (BgpGxRectangleDestroy.c)
- *     BgpGxRectangleCreate @ 0x14095021C (BgpGxRectangleCreate.c)
- *     BgpGxBlendRectangle @ 0x140954208 (BgpGxBlendRectangle.c)
- *     BgpTxtClearRegion @ 0x140954570 (BgpTxtClearRegion.c)
- *     TxtpJustifyRectangle @ 0x1409547C0 (TxtpJustifyRectangle.c)
+ *     BgpGxDrawRectangle @ 0x14016EF30 (BgpGxDrawRectangle.c)
+ *     BgpFoGetTextMetrics @ 0x14016F7E4 (BgpFoGetTextMetrics.c)
+ *     BgpGxFillRectangle @ 0x14016FA28 (BgpGxFillRectangle.c)
+ *     BgpRasPrintGlyph @ 0x14017A2D4 (BgpRasPrintGlyph.c)
+ *     BgpFoGetAdvanceWidth @ 0x140327BB4 (BgpFoGetAdvanceWidth.c)
+ *     BgpGxRectangleDestroy @ 0x14095021C (BgpGxRectangleDestroy.c)
+ *     BgpGxRectangleCreate @ 0x14095121C (BgpGxRectangleCreate.c)
+ *     BgpGxBlendRectangle @ 0x140955208 (BgpGxBlendRectangle.c)
+ *     BgpTxtClearRegion @ 0x140955570 (BgpTxtClearRegion.c)
+ *     TxtpJustifyRectangle @ 0x1409557C0 (TxtpJustifyRectangle.c)
  */
 
 __int64 __fastcall BgpTxtDisplayString(__int64 a1, unsigned __int16 *a2, int a3, __int64 a4, __int64 a5)

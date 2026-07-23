@@ -1,10 +1,10 @@
 /*
- * XREFs of MiUseLargeDriverPage @ 0x1407E2E54
+ * XREFs of MiUseLargeDriverPage @ 0x1407E3124
  * Callers:
- *     MmLoadSystemImageEx @ 0x140703DC0 (MmLoadSystemImageEx.c)
+ *     MmLoadSystemImageEx @ 0x140703FD0 (MmLoadSystemImageEx.c)
  *     MiHandleBootImage @ 0x140B46AA8 (MiHandleBootImage.c)
  * Callees:
- *     RtlEqualUnicodeString @ 0x1406DA2F0 (RtlEqualUnicodeString.c)
+ *     RtlEqualUnicodeString @ 0x1406DA320 (RtlEqualUnicodeString.c)
  */
 
 __int64 __fastcall MiUseLargeDriverPage(PCUNICODE_STRING String1)

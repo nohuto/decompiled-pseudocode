@@ -1,7 +1,7 @@
 /*
  * XREFs of RtlReleaseStackTrace @ 0x1800F25A0
  * Callers:
- *     RtlDeleteCriticalSection @ 0x1800523B0 (RtlDeleteCriticalSection.c)
+ *     RtlDeleteCriticalSection @ 0x1800523A0 (RtlDeleteCriticalSection.c)
  * Callees:
  *     RtlStdReleaseStackTrace @ 0x1800F28B0 (RtlStdReleaseStackTrace.c)
  */

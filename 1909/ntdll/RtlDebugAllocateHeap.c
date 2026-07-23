@@ -20,13 +20,13 @@
  *     RtlpHeapExceptionFilter @ 0x18010A6B0 (RtlpHeapExceptionFilter.c)
  */
 
-__int64 __fastcall RtlDebugAllocateHeap(_DWORD *Src, int a2, unsigned __int64 a3)
+PVOID __fastcall RtlDebugAllocateHeap(_DWORD *Src, int a2, SIZE_T a3)
 {
-  unsigned int v7; // ebx
+  ULONG v7; // ebx
   __int64 v8; // rax
   unsigned __int64 v9; // rax
-  unsigned __int64 v10; // rax
-  __int64 Heap; // rbx
+  SIZE_T v10; // rax
+  PVOID Heap; // rbx
   unsigned __int64 v12; // rbx
   _WORD *ExtraStuffPointer; // rax
   _WORD *v14; // r14
@@ -34,12 +34,12 @@ __int64 __fastcall RtlDebugAllocateHeap(_DWORD *Src, int a2, unsigned __int64 a3
   struct _PEB *v16; // rax
   wchar_t *TagName; // rax
   char v18; // [rsp+20h] [rbp-38h]
-  __int64 v19; // [rsp+28h] [rbp-30h]
+  PVOID v19; // [rsp+28h] [rbp-30h]
   unsigned __int16 v20; // [rsp+78h] [rbp+20h]
 
   v18 = 0;
   if ( (Src[29] & 0x1000000) != 0 )
-    return _guard_dispatch_icall_fptr();
+    return (PVOID)_guard_dispatch_icall_fptr();
   if ( !RtlpCheckHeapSignature(Src, "RtlAllocateHeap") )
     goto LABEL_46;
   v7 = Src[29] | 0x10000100 | a2;
@@ -63,17 +63,17 @@ LABEL_46:
   }
   if ( (v7 & 1) == 0 )
   {
-    RtlEnterCriticalSection(*((_QWORD *)Src + 44));
+    RtlEnterCriticalSection(*((PRTL_CRITICAL_SECTION *)Src + 44));
     v18 = 1;
     v7 |= 1u;
   }
-  RtlpValidateHeap(Src, 0LL);
-  Heap = RtlAllocateHeap((__int64)Src, v7, a3);
+  RtlpValidateHeap((_DWORD)Src);
+  Heap = RtlAllocateHeap(Src, v7, a3);
   v19 = Heap;
   RtlpValidateHeapHeaders(Src);
   if ( !Heap )
     goto LABEL_47;
-  v12 = Heap - 16;
+  v12 = (unsigned __int64)Heap - 16;
   _m_prefetchw((const void *)v12);
   if ( *(_BYTE *)(v12 + 15) == 5 )
     v12 -= 16LL * *(unsigned __int8 *)(v12 + 14);
@@ -104,9 +104,9 @@ LABEL_46:
     *(_DWORD *)(v12 + 8) ^= Src[34];
   }
   if ( (Src[28] & 0x20000000) != 0 )
-    RtlpValidateHeap(Src, 0LL);
+    RtlpValidateHeap((_DWORD)Src);
   v16 = NtCurrentPeb();
-  if ( v19 == RtlpHeapStopOn )
+  if ( v19 == (PVOID)RtlpHeapStopOn )
   {
     if ( v16->Ldr )
       DbgPrint("HEAP[%wZ]: ", &NtCurrentPeb()->Ldr->InLoadOrderModuleList.Flink[5].Blink);
@@ -129,6 +129,6 @@ LABEL_33:
   }
 LABEL_47:
   if ( v18 )
-    RtlLeaveCriticalSection(*((_QWORD *)Src + 44));
+    RtlLeaveCriticalSection(*((PRTL_CRITICAL_SECTION *)Src + 44));
   return v19;
 }

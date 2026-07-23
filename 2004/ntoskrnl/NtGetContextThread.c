@@ -8,7 +8,7 @@
  *     PspGetContextThreadInternal @ 0x1406AD5A8 (PspGetContextThreadInternal.c)
  */
 
-__int64 __fastcall NtGetContextThread(void *a1, __int64 a2)
+NTSTATUS __cdecl NtGetContextThread(HANDLE ThreadHandle, PCONTEXT ThreadContext)
 {
   KPROCESSOR_MODE PreviousMode; // si
   int ContextThreadInternal; // edi
@@ -18,7 +18,7 @@ __int64 __fastcall NtGetContextThread(void *a1, __int64 a2)
   DmaAdapter = 0LL;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   ContextThreadInternal = ObReferenceObjectByHandle(
-                            a1,
+                            ThreadHandle,
                             8u,
                             (POBJECT_TYPE)PsThreadType,
                             PreviousMode,
@@ -30,8 +30,13 @@ __int64 __fastcall NtGetContextThread(void *a1, __int64 a2)
     if ( (*(_DWORD *)(&DmaAdapter[7].Size + 1) & 0x400) != 0 )
       ContextThreadInternal = -1073741816;
     else
-      ContextThreadInternal = PspGetContextThreadInternal((__int64)DmaAdapter, a2, PreviousMode, PreviousMode, 1);
+      ContextThreadInternal = PspGetContextThreadInternal(
+                                (__int64)DmaAdapter,
+                                (__int64)ThreadContext,
+                                PreviousMode,
+                                PreviousMode,
+                                1);
     HalPutDmaAdapter(v5);
   }
-  return (unsigned int)ContextThreadInternal;
+  return ContextThreadInternal;
 }

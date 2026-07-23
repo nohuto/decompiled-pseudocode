@@ -1,10 +1,10 @@
 /*
- * XREFs of ViFaultsInjectionNotification @ 0x140AD6988
+ * XREFs of ViFaultsInjectionNotification @ 0x140AD6978
  * Callers:
- *     VfFaultsInjectResourceFailure @ 0x140AD5FDC (VfFaultsInjectResourceFailure.c)
+ *     VfFaultsInjectResourceFailure @ 0x140AD5FCC (VfFaultsInjectResourceFailure.c)
  * Callees:
- *     RtlCaptureStackBackTrace @ 0x1402276E0 (RtlCaptureStackBackTrace.c)
- *     ViTargetIncrementCounter @ 0x140ACBC0C (ViTargetIncrementCounter.c)
+ *     RtlCaptureStackBackTrace @ 0x1402277F0 (RtlCaptureStackBackTrace.c)
+ *     ViTargetIncrementCounter @ 0x140ACBBFC (ViTargetIncrementCounter.c)
  */
 
 void __fastcall ViFaultsInjectionNotification(int a1)

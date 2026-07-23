@@ -1,21 +1,21 @@
 /*
- * XREFs of EtwpCoverageResetCP @ 0x1408B6C08
+ * XREFs of EtwpCoverageResetCP @ 0x1408B7EC8
  * Callers:
- *     EtwSetProcessTelemetryCoverage @ 0x1406B3F80 (EtwSetProcessTelemetryCoverage.c)
+ *     EtwSetProcessTelemetryCoverage @ 0x1406B5220 (EtwSetProcessTelemetryCoverage.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     EtwTelemetryCoverageReport @ 0x14012A580 (EtwTelemetryCoverageReport.c)
- *     TelemetryCoverageTableLocateInternal @ 0x14012A658 (TelemetryCoverageTableLocateInternal.c)
- *     EtwpCoverageValidateCP @ 0x14012A6AC (EtwpCoverageValidateCP.c)
- *     TelemetryCoverageStringHashInternal @ 0x14012A768 (TelemetryCoverageStringHashInternal.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     EtwpCoverageFlushPending @ 0x140684810 (EtwpCoverageFlushPending.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     EtwTelemetryCoverageReport @ 0x14012A650 (EtwTelemetryCoverageReport.c)
+ *     TelemetryCoverageTableLocateInternal @ 0x14012A728 (TelemetryCoverageTableLocateInternal.c)
+ *     EtwpCoverageValidateCP @ 0x14012A77C (EtwpCoverageValidateCP.c)
+ *     TelemetryCoverageStringHashInternal @ 0x14012A838 (TelemetryCoverageStringHashInternal.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     EtwpCoverageFlushPending @ 0x1406859D0 (EtwpCoverageFlushPending.c)
  */
 
 __int64 __fastcall EtwpCoverageResetCP(__int64 a1, __int64 a2)
@@ -46,11 +46,11 @@ __int64 __fastcall EtwpCoverageResetCP(__int64 a1, __int64 a2)
   PoolWithTag = 0LL;
   v3 = 0;
   *(_DWORD *)(a2 + 12) = 0;
-  if ( (unsigned int)dword_140401CD4 < MEMORY[0xFFFFF7800000037C] )
+  if ( (unsigned int)dword_140402CBC < MEMORY[0xFFFFF7800000037C] )
   {
-    if ( !dword_140401CD0 )
-      dword_140401CD0 = TelemetryCoverageStringHashInternal(off_140401CC8, &v25);
-    EtwTelemetryCoverageReport(&off_140401CC8);
+    if ( !dword_140402CB8 )
+      dword_140402CB8 = TelemetryCoverageStringHashInternal(off_140402CB0, &v25);
+    EtwTelemetryCoverageReport(&off_140402CB0);
   }
   if ( (unsigned int)EtwpCoverageValidateCP((_QWORD *)a2, &v24) )
   {

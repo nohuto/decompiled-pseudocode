@@ -1,10 +1,10 @@
 /*
- * XREFs of ExpHeapDumpEnumLargeAllocs @ 0x1406D2E70
+ * XREFs of ExpHeapDumpEnumLargeAllocs @ 0x1406D6EA0
  * Callers:
- *     IoAddPagesForPartialKernelDump @ 0x1405D4728 (IoAddPagesForPartialKernelDump.c)
+ *     IoAddPagesForPartialKernelDump @ 0x1405D6F18 (IoAddPagesForPartialKernelDump.c)
  * Callees:
- *     MmIsAddressValidEx @ 0x14034DFD0 (MmIsAddressValidEx.c)
- *     IopRemoveLargeAllocsFromPartialDump @ 0x1405D5F90 (IopRemoveLargeAllocsFromPartialDump.c)
+ *     MmIsAddressValidEx @ 0x140350050 (MmIsAddressValidEx.c)
+ *     IopRemoveLargeAllocsFromPartialDump @ 0x1405D8780 (IopRemoveLargeAllocsFromPartialDump.c)
  */
 
 __int64 __fastcall ExpHeapDumpEnumLargeAllocs(__int64 a1)

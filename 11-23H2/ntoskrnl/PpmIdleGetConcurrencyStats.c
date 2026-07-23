@@ -1,12 +1,12 @@
 /*
- * XREFs of PpmIdleGetConcurrencyStats @ 0x14085E7F8
+ * XREFs of PpmIdleGetConcurrencyStats @ 0x14085EA38
  * Callers:
- *     PopPowerInformationInternal @ 0x1407ED06C (PopPowerInformationInternal.c)
+ *     PopPowerInformationInternal @ 0x1407ED33C (PopPowerInformationInternal.c)
  * Callees:
- *     PpmReleaseLock @ 0x14032C280 (PpmReleaseLock.c)
- *     PpmAcquireLock @ 0x14032C2D0 (PpmAcquireLock.c)
- *     PpmParkGetParkNode @ 0x1404113DC (PpmParkGetParkNode.c)
- *     memmove @ 0x140435700 (memmove.c)
+ *     PpmReleaseLock @ 0x14032C510 (PpmReleaseLock.c)
+ *     PpmAcquireLock @ 0x14032C560 (PpmAcquireLock.c)
+ *     PpmParkGetParkNode @ 0x1404115E8 (PpmParkGetParkNode.c)
+ *     memmove @ 0x140435B00 (memmove.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

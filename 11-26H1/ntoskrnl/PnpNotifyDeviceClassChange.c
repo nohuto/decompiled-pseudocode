@@ -1,20 +1,20 @@
 /*
- * XREFs of PnpNotifyDeviceClassChange @ 0x1409DC660
+ * XREFs of PnpNotifyDeviceClassChange @ 0x140A19910
  * Callers:
- *     PnpDeviceEventWorker @ 0x1409DCD90 (PnpDeviceEventWorker.c)
+ *     PnpDeviceEventWorker @ 0x140A1A040 (PnpDeviceEventWorker.c)
  * Callees:
- *     PsGetCurrentServerSilo @ 0x140215E70 (PsGetCurrentServerSilo.c)
- *     ExAcquireResourceExclusiveLite @ 0x140275200 (ExAcquireResourceExclusiveLite.c)
- *     ExAcquireFastMutex @ 0x140278070 (ExAcquireFastMutex.c)
- *     KeReleaseGuardedMutex @ 0x140278D40 (KeReleaseGuardedMutex.c)
- *     ExReleaseResourceLite @ 0x1402B4CF0 (ExReleaseResourceLite.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     PsGetServerSiloServiceSessionId @ 0x140487140 (PsGetServerSiloServiceSessionId.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     RtlCompareMemory @ 0x140730D90 (RtlCompareMemory.c)
- *     PnpDereferenceNotify @ 0x1409DD548 (PnpDereferenceNotify.c)
- *     PnpNotifyDriverCallback @ 0x1409DD5EC (PnpNotifyDriverCallback.c)
- *     IopGetSessionIdFromSymbolicName @ 0x140A97B50 (IopGetSessionIdFromSymbolicName.c)
+ *     PsGetCurrentServerSilo @ 0x1402161A0 (PsGetCurrentServerSilo.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140274770 (ExAcquireResourceExclusiveLite.c)
+ *     ExAcquireFastMutex @ 0x1402775E0 (ExAcquireFastMutex.c)
+ *     KeReleaseGuardedMutex @ 0x1402782B0 (KeReleaseGuardedMutex.c)
+ *     ExReleaseResourceLite @ 0x1402FF9C0 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     PsGetServerSiloServiceSessionId @ 0x140480B10 (PsGetServerSiloServiceSessionId.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     RtlCompareMemory @ 0x140735960 (RtlCompareMemory.c)
+ *     PnpDereferenceNotify @ 0x140A1A800 (PnpDereferenceNotify.c)
+ *     PnpNotifyDriverCallback @ 0x140A1A8A4 (PnpNotifyDriverCallback.c)
+ *     IopGetSessionIdFromSymbolicName @ 0x140A9BCD0 (IopGetSessionIdFromSymbolicName.c)
  */
 
 __int64 __fastcall PnpNotifyDeviceClassChange(__int128 *a1, _DWORD *a2, __int64 a3)
@@ -40,7 +40,7 @@ __int64 __fastcall PnpNotifyDeviceClassChange(__int128 *a1, _DWORD *a2, __int64 
   *(_OWORD *)&v15[20] = v3;
   *(_OWORD *)&v15[4] = v7;
   ExAcquireFastMutex(&PnpDeviceClassNotifyLock);
-  v8 = (_QWORD *)((char *)&unk_140FD77A0 + 16 * ((*a2 + a2[1] + a2[2] + a2[3]) % 0xDu));
+  v8 = (_QWORD *)((char *)&unk_140FD87B0 + 16 * ((*a2 + a2[1] + a2[2] + a2[3]) % 0xDu));
   v9 = (_QWORD *)*v8;
   while ( v9 != v8 )
   {

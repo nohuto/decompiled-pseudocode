@@ -1,11 +1,11 @@
 /*
- * XREFs of MiCreatePageChainsForNode @ 0x14071166C
+ * XREFs of MiCreatePageChainsForNode @ 0x14071636C
  * Callers:
- *     MiFindClosestNode @ 0x14050424C (MiFindClosestNode.c)
+ *     MiFindClosestNode @ 0x1404FDFBC (MiFindClosestNode.c)
  * Callees:
- *     MiGetOptimalEngineMix @ 0x140510C58 (MiGetOptimalEngineMix.c)
- *     MiAllocatePageChainHeader @ 0x140517510 (MiAllocatePageChainHeader.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     MiGetOptimalEngineMix @ 0x14050A6C8 (MiGetOptimalEngineMix.c)
+ *     MiAllocatePageChainHeader @ 0x140510F80 (MiAllocatePageChainHeader.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiCreatePageChainsForNode(__int64 a1, unsigned int a2, __int64 a3)

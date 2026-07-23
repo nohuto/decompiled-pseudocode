@@ -1,12 +1,12 @@
 /*
- * XREFs of PerfDiagpRequestState @ 0x14085F24C
+ * XREFs of PerfDiagpRequestState @ 0x14085F48C
  * Callers:
- *     PerfDiagpBootSystemProxyCallback @ 0x14085F1F0 (PerfDiagpBootSystemProxyCallback.c)
- *     PerfDiagpBootUserProxyCallback @ 0x14085F220 (PerfDiagpBootUserProxyCallback.c)
- *     PerfDiagpSecondaryLogonProxyCallback @ 0x1409DDB30 (PerfDiagpSecondaryLogonProxyCallback.c)
- *     PerfDiagpShutdownProxyCallback @ 0x1409DDB60 (PerfDiagpShutdownProxyCallback.c)
+ *     PerfDiagpBootSystemProxyCallback @ 0x14085F430 (PerfDiagpBootSystemProxyCallback.c)
+ *     PerfDiagpBootUserProxyCallback @ 0x14085F460 (PerfDiagpBootUserProxyCallback.c)
+ *     PerfDiagpSecondaryLogonProxyCallback @ 0x1409DDD30 (PerfDiagpSecondaryLogonProxyCallback.c)
+ *     PerfDiagpShutdownProxyCallback @ 0x1409DDD60 (PerfDiagpShutdownProxyCallback.c)
  * Callees:
- *     ExQueueWorkItem @ 0x1402B7C30 (ExQueueWorkItem.c)
+ *     ExQueueWorkItem @ 0x1402B7EC0 (ExQueueWorkItem.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 

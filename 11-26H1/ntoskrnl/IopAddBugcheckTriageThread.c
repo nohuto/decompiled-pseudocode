@@ -1,20 +1,20 @@
 /*
- * XREFs of IopAddBugcheckTriageThread @ 0x1405D44EC
+ * XREFs of IopAddBugcheckTriageThread @ 0x1405D6CDC
  * Callers:
- *     IopAddBugcheckTriageDataFromParameters @ 0x14044A38C (IopAddBugcheckTriageDataFromParameters.c)
- *     IoAddBugcheckTriageThread @ 0x1405C6150 (IoAddBugcheckTriageThread.c)
- *     IopAddBugcheckDirectedTransitionTriageData @ 0x1405D3CAC (IopAddBugcheckDirectedTransitionTriageData.c)
- *     IopAddBugcheckPnpTriageData @ 0x1405D3D9C (IopAddBugcheckPnpTriageData.c)
- *     IopAddBugcheckPnpWatchdogTriageData @ 0x1405D3E14 (IopAddBugcheckPnpWatchdogTriageData.c)
- *     IopAddBugcheckTriagePowerIrpWorkers @ 0x1405D4378 (IopAddBugcheckTriagePowerIrpWorkers.c)
- *     IopAddBugcheckTriageWorkQueue @ 0x1405D4674 (IopAddBugcheckTriageWorkQueue.c)
- *     KiCollectTriageDumpDataBlocks @ 0x1405E7B6C (KiCollectTriageDumpDataBlocks.c)
- *     PopBSDiagBugcheckCallback @ 0x14060D990 (PopBSDiagBugcheckCallback.c)
+ *     IopAddBugcheckTriageDataFromParameters @ 0x1404424BC (IopAddBugcheckTriageDataFromParameters.c)
+ *     IoAddBugcheckTriageThread @ 0x1405C8A20 (IoAddBugcheckTriageThread.c)
+ *     IopAddBugcheckDirectedTransitionTriageData @ 0x1405D649C (IopAddBugcheckDirectedTransitionTriageData.c)
+ *     IopAddBugcheckPnpTriageData @ 0x1405D658C (IopAddBugcheckPnpTriageData.c)
+ *     IopAddBugcheckPnpWatchdogTriageData @ 0x1405D6604 (IopAddBugcheckPnpWatchdogTriageData.c)
+ *     IopAddBugcheckTriagePowerIrpWorkers @ 0x1405D6B68 (IopAddBugcheckTriagePowerIrpWorkers.c)
+ *     IopAddBugcheckTriageWorkQueue @ 0x1405D6E64 (IopAddBugcheckTriageWorkQueue.c)
+ *     KiCollectTriageDumpDataBlocks @ 0x1405EA4DC (KiCollectTriageDumpDataBlocks.c)
+ *     PopBSDiagBugcheckCallback @ 0x140610A90 (PopBSDiagBugcheckCallback.c)
  * Callees:
- *     IoAddTriageDumpDataBlock @ 0x14044AB54 (IoAddTriageDumpDataBlock.c)
- *     IopIsAddressRangeValid @ 0x1404EC1EC (IopIsAddressRangeValid.c)
- *     IopGetMaxValidMemorySize @ 0x1405C97BC (IopGetMaxValidMemorySize.c)
- *     IopAddBugcheckTriageIrp @ 0x1405D4218 (IopAddBugcheckTriageIrp.c)
+ *     IoAddTriageDumpDataBlock @ 0x140442C84 (IoAddTriageDumpDataBlock.c)
+ *     IopIsAddressRangeValid @ 0x1404E57CC (IopIsAddressRangeValid.c)
+ *     IopGetMaxValidMemorySize @ 0x1405CC08C (IopGetMaxValidMemorySize.c)
+ *     IopAddBugcheckTriageIrp @ 0x1405D6A08 (IopAddBugcheckTriageIrp.c)
  */
 
 __int64 __fastcall IopAddBugcheckTriageThread(__int64 MaxDataSize)

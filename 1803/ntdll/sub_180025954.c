@@ -13,7 +13,7 @@
 __int64 __fastcall sub_180025954(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 v3; // rdx
-  struct _PEB_LDR_DATA *Ldr; // rcx
+  PPEB_LDR_DATA Ldr; // rcx
   __int64 v5; // r8
   __int64 v6; // r9
   int v7; // r10d

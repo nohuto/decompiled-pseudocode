@@ -1,18 +1,18 @@
 /*
- * XREFs of RtlCompareMemoryUlong @ 0x1404298A0
+ * XREFs of RtlCompareMemoryUlong @ 0x140429C30
  * Callers:
  *     MiHashIsCommon @ 0x140215F30 (MiHashIsCommon.c)
  *     MiDeleteSystemPageTable @ 0x14021DDF0 (MiDeleteSystemPageTable.c)
- *     MiEvictPageTableLock @ 0x1402E5230 (MiEvictPageTableLock.c)
- *     MiDoGangAssignment @ 0x14038BE64 (MiDoGangAssignment.c)
- *     MiFreedUnusedPfnPagesWorker @ 0x14038ED1C (MiFreedUnusedPfnPagesWorker.c)
- *     RtlpAllocateHeap @ 0x1405AB248 (RtlpAllocateHeap.c)
- *     RtlpCoalesceFreeBlocks @ 0x1405ABBD8 (RtlpCoalesceFreeBlocks.c)
- *     RtlpCreateSplitBlock @ 0x1405ABFC8 (RtlpCreateSplitBlock.c)
- *     MiZeroHugeRangeWorker @ 0x140622DD0 (MiZeroHugeRangeWorker.c)
- *     RtlScrubMemory @ 0x14067AF98 (RtlScrubMemory.c)
- *     MmQueryVirtualMemory @ 0x1406F8350 (MmQueryVirtualMemory.c)
- *     IopTrackLink @ 0x1407E4318 (IopTrackLink.c)
+ *     MiEvictPageTableLock @ 0x1402E54C0 (MiEvictPageTableLock.c)
+ *     MiDoGangAssignment @ 0x14038C044 (MiDoGangAssignment.c)
+ *     MiFreedUnusedPfnPagesWorker @ 0x14038EEFC (MiFreedUnusedPfnPagesWorker.c)
+ *     RtlpAllocateHeap @ 0x1405AB7B8 (RtlpAllocateHeap.c)
+ *     RtlpCoalesceFreeBlocks @ 0x1405AC148 (RtlpCoalesceFreeBlocks.c)
+ *     RtlpCreateSplitBlock @ 0x1405AC538 (RtlpCreateSplitBlock.c)
+ *     MiZeroHugeRangeWorker @ 0x140623320 (MiZeroHugeRangeWorker.c)
+ *     RtlScrubMemory @ 0x14067B4E8 (RtlScrubMemory.c)
+ *     MmQueryVirtualMemory @ 0x1406F8560 (MmQueryVirtualMemory.c)
+ *     IopTrackLink @ 0x1407E45E8 (IopTrackLink.c)
  * Callees:
  *     <none>
  */

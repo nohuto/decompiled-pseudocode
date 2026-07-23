@@ -33,9 +33,9 @@ _QWORD *__fastcall RtlpHpSegContextCompact(__int64 a1, int a2)
   __int64 v12; // rcx
   _QWORD *v13; // rax
   struct _KTHREAD *CurrentThread; // rdi
-  __int64 SessionId; // r8
+  unsigned int SessionId; // r8d
   unsigned __int8 v16; // bp
-  __int64 v17; // rdx
+  unsigned int v17; // edx
   __int64 v18; // rcx
   __int64 v19; // rbx
   __int64 v20; // rdx
@@ -139,12 +139,12 @@ LABEL_6:
         v33 = 0;
         CurrentThread = KeGetCurrentThread();
         if ( (unsigned int)MiGetSystemRegionType(a1 + 64) == 1 )
-          SessionId = (unsigned int)MmGetSessionIdEx((__int64)CurrentThread->ApcState.Process);
+          SessionId = MmGetSessionIdEx((__int64)CurrentThread->ApcState.Process);
         else
-          SessionId = 0xFFFFFFFFLL;
+          SessionId = -1;
         --CurrentThread->SpecialApcDisable;
         v16 = ++CurrentThread->AbAllocationRegionCount;
-        LODWORD(v17) = ((char)CurrentThread->AbEntrySummary | (char)CurrentThread->AbOrphanedEntrySummary) ^ 0x3F;
+        v17 = ((char)CurrentThread->AbEntrySummary | (char)CurrentThread->AbOrphanedEntrySummary) ^ 0x3F;
         v2 = !_BitScanReverse((unsigned int *)&v18, v17);
         v32 = v18;
         if ( v2 )
@@ -152,11 +152,11 @@ LABEL_6:
         while ( 1 )
         {
           v19 = (__int64)&CurrentThread->LockEntries[v18];
-          v17 = ~(1 << v18) & (unsigned int)v17;
+          v17 &= ~(1 << v18);
           if ( (*(_BYTE *)(v19 + 26) & 1) != 0
             && (*(_DWORD *)(v19 + 32) & 1) == 0
             && (*(_QWORD *)(v19 + 32) & 0x7FFFFFFFFFFFFFFCLL) == ((a1 + 64) & 0x7FFFFFFFFFFFFFFCLL)
-            && *(_DWORD *)(v19 + 40) == (_DWORD)SessionId )
+            && *(_DWORD *)(v19 + 40) == SessionId )
           {
             *(_BYTE *)(v19 + 26) &= ~1u;
             if ( *(_QWORD *)(v19 + 32) )
@@ -171,13 +171,13 @@ LABEL_6:
         {
 LABEL_38:
           if ( (*((_DWORD *)&CurrentThread->0 + 1) & 0x10000) == 0 )
-            KeBugCheckEx(0x162u, (ULONG_PTR)CurrentThread, a1 + 64, (unsigned int)SessionId, 0LL);
+            KeBugCheckEx(0x162u, (ULONG_PTR)CurrentThread, a1 + 64, SessionId, 0LL);
         }
         else
         {
           *(_BYTE *)(v19 + 32) |= 2u;
           if ( *(__int64 *)(v19 + 32) < 0 )
-            KiAbEntryRemoveFromTree(v19, v17, SessionId);
+            KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v19);
           v33 = *(_DWORD *)(v19 + 88) & 0x1FFFF;
           *(_DWORD *)(v19 + 88) &= 0xFFFE0000;
           *(_BYTE *)(v19 + 25) &= ~1u;

@@ -1,13 +1,13 @@
 /*
- * XREFs of PfxInitialize @ 0x180138C60
+ * XREFs of PfxInitialize @ 0x180136E90
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-void __fastcall PfxInitialize(__int64 a1)
+void __cdecl PfxInitialize(PPREFIX_TABLE PrefixTable)
 {
-  *(_DWORD *)a1 = 512;
-  *(_QWORD *)(a1 + 8) = a1;
+  *(_DWORD *)&PrefixTable->NodeTypeCode = 512;
+  PrefixTable->NextPrefixTree = (PPREFIX_TABLE_ENTRY)PrefixTable;
 }

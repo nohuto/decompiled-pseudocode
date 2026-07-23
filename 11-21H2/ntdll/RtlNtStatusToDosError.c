@@ -57,7 +57,7 @@
 
 ULONG __stdcall RtlNtStatusToDosError(NTSTATUS Status)
 {
-  unsigned int v1; // edx
+  unsigned __int32 v1; // edx
   struct _TEB *v2; // rax
   ULONG result; // eax
   unsigned int v4; // eax

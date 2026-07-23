@@ -1,13 +1,13 @@
 /*
- * XREFs of SepLogUnmatchedSessionFlagImpersonationAttempt @ 0x1405972B8
+ * XREFs of SepLogUnmatchedSessionFlagImpersonationAttempt @ 0x1405974E8
  * Callers:
- *     SeTokenCanImpersonate @ 0x14065B420 (SeTokenCanImpersonate.c)
+ *     SeTokenCanImpersonate @ 0x140650240 (SeTokenCanImpersonate.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     EtwpQueryProcessCommandLine @ 0x140602968 (EtwpQueryProcessCommandLine.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14027E1A4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x1402864F4 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     EtwpQueryProcessCommandLine @ 0x1406F20C8 (EtwpQueryProcessCommandLine.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall SepLogUnmatchedSessionFlagImpersonationAttempt(__int64 a1, __int64 a2)
@@ -66,7 +66,7 @@ void __fastcall SepLogUnmatchedSessionFlagImpersonationAttempt(__int64 a1, __int
     v24 = 2LL;
     v25 = v6;
     v26[1] = 0;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C02B70, (unsigned __int8 *)word_14002C382, 0LL, 0LL, 8u, &v14);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C02B70, (unsigned __int8 *)word_14002C442, 0LL, 0LL, 8u, &v14);
   }
   if ( v6 )
     ExFreePoolWithTag(v6, 0);

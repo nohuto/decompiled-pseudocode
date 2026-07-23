@@ -1,12 +1,12 @@
 /*
- * XREFs of MiPreparePlaceholderVadReplacement @ 0x14085C830
+ * XREFs of MiPreparePlaceholderVadReplacement @ 0x14085DA90
  * Callers:
- *     MiMapViewOfDataSection @ 0x1405F0BB0 (MiMapViewOfDataSection.c)
- *     MiReserveUserMemory @ 0x1405F1600 (MiReserveUserMemory.c)
+ *     MiMapViewOfDataSection @ 0x1405F1BB0 (MiMapViewOfDataSection.c)
+ *     MiReserveUserMemory @ 0x1405F2600 (MiReserveUserMemory.c)
  * Callees:
- *     MiReferenceVad @ 0x1400755A0 (MiReferenceVad.c)
- *     MiRemovePlaceholderVad @ 0x1402C4EBC (MiRemovePlaceholderVad.c)
- *     PerfInfoLogVirtualFree @ 0x1408B9190 (PerfInfoLogVirtualFree.c)
+ *     MiReferenceVad @ 0x140075590 (MiReferenceVad.c)
+ *     MiRemovePlaceholderVad @ 0x1402C50AC (MiRemovePlaceholderVad.c)
+ *     PerfInfoLogVirtualFree @ 0x1408BA450 (PerfInfoLogVirtualFree.c)
  */
 
 __int64 __fastcall MiPreparePlaceholderVadReplacement(__int64 a1, __int64 a2, __int64 a3)

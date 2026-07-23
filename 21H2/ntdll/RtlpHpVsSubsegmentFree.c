@@ -3,9 +3,9 @@
  * Callers:
  *     RtlpHpHeapDestroy @ 0x1800048E4 (RtlpHpHeapDestroy.c)
  *     RtlpHpVsContextFree @ 0x180028500 (RtlpHpVsContextFree.c)
- *     RtlpHpVsContextFreeInternal @ 0x18010FC48 (RtlpHpVsContextFreeInternal.c)
+ *     RtlpHpVsContextFreeInternal @ 0x18010FC08 (RtlpHpVsContextFreeInternal.c)
  * Callees:
- *     _guard_dispatch_icall_nop @ 0x1800A1160 (_guard_dispatch_icall_nop.c)
+ *     _guard_dispatch_icall_nop @ 0x1800A1120 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall RtlpHpVsSubsegmentFree(__int64 a1, __int64 a2, unsigned int a3)

@@ -1,13 +1,13 @@
 /*
- * XREFs of ExpFastResourceLegacyAcquireExclusive @ 0x140164AD4
+ * XREFs of ExpFastResourceLegacyAcquireExclusive @ 0x140164BD4
  * Callers:
  *     ExEnterCriticalRegionAndAcquireResourceExclusive @ 0x140050530 (ExEnterCriticalRegionAndAcquireResourceExclusive.c)
  *     ExAcquireResourceExclusiveLite @ 0x1400505F0 (ExAcquireResourceExclusiveLite.c)
- *     ExTryToAcquireResourceExclusiveLite @ 0x14031BB50 (ExTryToAcquireResourceExclusiveLite.c)
+ *     ExTryToAcquireResourceExclusiveLite @ 0x14031BD40 (ExTryToAcquireResourceExclusiveLite.c)
  * Callees:
- *     ExAcquireFastResourceExclusive @ 0x1401652D0 (ExAcquireFastResourceExclusive.c)
- *     ExpAllocateOwnerEntryForLegacyShim @ 0x140166364 (ExpAllocateOwnerEntryForLegacyShim.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     ExAcquireFastResourceExclusive @ 0x1401653D0 (ExAcquireFastResourceExclusive.c)
+ *     ExpAllocateOwnerEntryForLegacyShim @ 0x140166464 (ExpAllocateOwnerEntryForLegacyShim.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 char __fastcall ExpFastResourceLegacyAcquireExclusive(ULONG_PTR BugCheckParameter2)

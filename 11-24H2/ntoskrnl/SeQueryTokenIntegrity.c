@@ -1,10 +1,10 @@
 /*
- * XREFs of SeQueryTokenIntegrity @ 0x140419484
+ * XREFs of SeQueryTokenIntegrity @ 0x140409224
  * Callers:
- *     EtwpPsProvTraceProcess @ 0x14094D000 (EtwpPsProvTraceProcess.c)
- *     NtQueryInformationToken @ 0x140AD3370 (NtQueryInformationToken.c)
+ *     EtwpPsProvTraceProcess @ 0x1408F1570 (EtwpPsProvTraceProcess.c)
+ *     NtQueryInformationToken @ 0x140AD09E0 (NtQueryInformationToken.c)
  * Callees:
- *     SepCopyTokenIntegrity @ 0x1404194A0 (SepCopyTokenIntegrity.c)
+ *     SepCopyTokenIntegrity @ 0x140409240 (SepCopyTokenIntegrity.c)
  */
 
 void __stdcall SeQueryTokenIntegrity(PACCESS_TOKEN Token, PSID_AND_ATTRIBUTES IntegritySA)

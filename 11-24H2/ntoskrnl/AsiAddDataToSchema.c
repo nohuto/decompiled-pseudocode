@@ -1,10 +1,10 @@
 /*
- * XREFs of AsiAddDataToSchema @ 0x1406609A0
+ * XREFs of AsiAddDataToSchema @ 0x14065F170
  * Callers:
- *     ApiSetComposeSchema @ 0x1406602AC (ApiSetComposeSchema.c)
+ *     ApiSetComposeSchema @ 0x14065EA7C (ApiSetComposeSchema.c)
  * Callees:
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall AsiAddDataToSchema(__int64 a1, unsigned int *a2, const void *a3, unsigned int a4)

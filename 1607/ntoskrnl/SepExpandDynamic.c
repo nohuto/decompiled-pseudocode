@@ -1,10 +1,10 @@
 /*
- * XREFs of SepExpandDynamic @ 0x14047AF14
+ * XREFs of SepExpandDynamic @ 0x140479DE4
  * Callers:
- *     SepAppendAceToTokenDefaultDacl @ 0x1400807C0 (SepAppendAceToTokenDefaultDacl.c)
- *     NtSetInformationToken @ 0x1404797D0 (NtSetInformationToken.c)
+ *     SepAppendAceToTokenDefaultDacl @ 0x140080840 (SepAppendAceToTokenDefaultDacl.c)
+ *     NtSetInformationToken @ 0x1404786A0 (NtSetInformationToken.c)
  * Callees:
- *     memmove @ 0x140171280 (memmove.c)
+ *     memmove @ 0x140171780 (memmove.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */

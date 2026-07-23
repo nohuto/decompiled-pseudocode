@@ -1,41 +1,41 @@
 /*
- * XREFs of PiCMCreateDevice @ 0x1408AF440
+ * XREFs of PiCMCreateDevice @ 0x1408AF5A0
  * Callers:
- *     PiCMHandleIoctl @ 0x140634850 (PiCMHandleIoctl.c)
+ *     PiCMHandleIoctl @ 0x140629660 (PiCMHandleIoctl.c)
  * Callees:
- *     PiControlFreeUserModeCallersBuffer @ 0x1402647E0 (PiControlFreeUserModeCallersBuffer.c)
- *     RtlStringCchLengthW @ 0x140264E74 (RtlStringCchLengthW.c)
- *     RtlStringCchCopyExW @ 0x140265430 (RtlStringCchCopyExW.c)
- *     RtlInitUnicodeStringEx @ 0x140265AF0 (RtlInitUnicodeStringEx.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
- *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
- *     PiPnpRtlEndOperation @ 0x140633ED8 (PiPnpRtlEndOperation.c)
- *     PiPnpRtlBeginOperation @ 0x140634680 (PiPnpRtlBeginOperation.c)
- *     PiCMReturnBufferResultData @ 0x140637784 (PiCMReturnBufferResultData.c)
- *     PnpDeviceObjectFromDeviceInstanceWithTag @ 0x1406386D0 (PnpDeviceObjectFromDeviceInstanceWithTag.c)
- *     PpDevNodeUnlockTree @ 0x140639BC0 (PpDevNodeUnlockTree.c)
- *     PpDevNodeLockTree @ 0x140639C54 (PpDevNodeLockTree.c)
- *     _PnpCtxRegCloseKey @ 0x14063B8A4 (_PnpCtxRegCloseKey.c)
- *     _CmGetDeviceRegProp @ 0x14064146C (_CmGetDeviceRegProp.c)
- *     _CmOpenDeviceRegKey @ 0x140641B70 (_CmOpenDeviceRegKey.c)
- *     _CmValidateDeviceName @ 0x140642270 (_CmValidateDeviceName.c)
- *     PiAuDoesClientHaveAccess @ 0x1406A04D4 (PiAuDoesClientHaveAccess.c)
- *     _CmIsRootDevice @ 0x1406B0B44 (_CmIsRootDevice.c)
- *     _PnpCtxRegQueryValue @ 0x1406BADC4 (_PnpCtxRegQueryValue.c)
- *     PpDeviceRegistration @ 0x14074BD60 (PpDeviceRegistration.c)
- *     _CmCreateDevice @ 0x14074CBC8 (_CmCreateDevice.c)
- *     IopIsRootEnumeratedDeviceObjectActive @ 0x14074F080 (IopIsRootEnumeratedDeviceObjectActive.c)
- *     PnpGetDeviceInstanceCsConfigFlags @ 0x140752D7C (PnpGetDeviceInstanceCsConfigFlags.c)
- *     PiPnpRtlEnsureObjectCached @ 0x1408A317C (PiPnpRtlEnsureObjectCached.c)
- *     PiCMCaptureCreateDeviceInputData @ 0x1408AEDBC (PiCMCaptureCreateDeviceInputData.c)
- *     PiCMGenerateDeviceInstance @ 0x1408B0590 (PiCMGenerateDeviceInstance.c)
- *     PiInitializeDevice @ 0x1408B3C6C (PiInitializeDevice.c)
- *     _PnpCtxRegDeleteValue @ 0x140974908 (_PnpCtxRegDeleteValue.c)
- *     _PnpCtxRegSetValue @ 0x140974944 (_PnpCtxRegSetValue.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     PiControlFreeUserModeCallersBuffer @ 0x140252870 (PiControlFreeUserModeCallersBuffer.c)
+ *     RtlStringCchLengthW @ 0x140252F04 (RtlStringCchLengthW.c)
+ *     RtlStringCchCopyExW @ 0x140253448 (RtlStringCchCopyExW.c)
+ *     RtlInitUnicodeStringEx @ 0x140253A90 (RtlInitUnicodeStringEx.c)
+ *     KeLeaveCriticalRegion @ 0x140356100 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x140356140 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1403568F0 (ExAcquireResourceExclusiveLite.c)
+ *     PiAuDoesClientHaveAccess @ 0x1405FF814 (PiAuDoesClientHaveAccess.c)
+ *     _CmIsRootDevice @ 0x14060FAF4 (_CmIsRootDevice.c)
+ *     _PnpCtxRegQueryValue @ 0x14061A094 (_PnpCtxRegQueryValue.c)
+ *     PiPnpRtlEndOperation @ 0x140628F64 (PiPnpRtlEndOperation.c)
+ *     PiPnpRtlBeginOperation @ 0x140629498 (PiPnpRtlBeginOperation.c)
+ *     PiCMReturnBufferResultData @ 0x14062C594 (PiCMReturnBufferResultData.c)
+ *     PnpDeviceObjectFromDeviceInstanceWithTag @ 0x14062D4E0 (PnpDeviceObjectFromDeviceInstanceWithTag.c)
+ *     PpDevNodeUnlockTree @ 0x14062E9D0 (PpDevNodeUnlockTree.c)
+ *     PpDevNodeLockTree @ 0x14062EA64 (PpDevNodeLockTree.c)
+ *     _PnpCtxRegCloseKey @ 0x1406306B4 (_PnpCtxRegCloseKey.c)
+ *     _CmGetDeviceRegProp @ 0x14063627C (_CmGetDeviceRegProp.c)
+ *     _CmOpenDeviceRegKey @ 0x140636980 (_CmOpenDeviceRegKey.c)
+ *     _CmValidateDeviceName @ 0x140637080 (_CmValidateDeviceName.c)
+ *     PpDeviceRegistration @ 0x14074BF20 (PpDeviceRegistration.c)
+ *     _CmCreateDevice @ 0x14074CD88 (_CmCreateDevice.c)
+ *     IopIsRootEnumeratedDeviceObjectActive @ 0x14074F240 (IopIsRootEnumeratedDeviceObjectActive.c)
+ *     PnpGetDeviceInstanceCsConfigFlags @ 0x140752F3C (PnpGetDeviceInstanceCsConfigFlags.c)
+ *     PiPnpRtlEnsureObjectCached @ 0x1408A32DC (PiPnpRtlEnsureObjectCached.c)
+ *     PiCMCaptureCreateDeviceInputData @ 0x1408AEF1C (PiCMCaptureCreateDeviceInputData.c)
+ *     PiCMGenerateDeviceInstance @ 0x1408B06F0 (PiCMGenerateDeviceInstance.c)
+ *     PiInitializeDevice @ 0x1408B3DCC (PiInitializeDevice.c)
+ *     _PnpCtxRegDeleteValue @ 0x140974AE8 (_PnpCtxRegDeleteValue.c)
+ *     _PnpCtxRegSetValue @ 0x140974B24 (_PnpCtxRegSetValue.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PiCMCreateDevice(
@@ -297,8 +297,12 @@ LABEL_35:
         goto LABEL_36;
       }
       v43 = 4;
-      if ( (int)PnpCtxRegQueryValue(v36, v46, L"Phantom", &v44, &v50, &v43) < 0 || v44 != 4 || (v38 = v50, v43 != 4) )
+      if ( (int)PnpCtxRegQueryValue(v36, v46, (__int64)L"Phantom", (__int64)&v44, (__int64)&v50, (__int64)&v43) < 0
+        || v44 != 4
+        || (v38 = v50, v43 != 4) )
+      {
         v38 = 0;
+      }
       if ( v38 )
         PnpCtxRegDeleteValue(v37, v46, L"Phantom");
       if ( (BYTE4(pszSrc[0]) & 8) != 0 )

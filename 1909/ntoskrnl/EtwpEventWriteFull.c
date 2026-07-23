@@ -172,7 +172,7 @@ __int64 __fastcall EtwpEventWriteFull(
   size_t v128; // rbx
   char *v129; // rcx
   __int64 v130; // rbx
-  struct _SLIST_ENTRY *v131; // r14
+  _SLIST_ENTRY *v131; // r14
   struct _KPRCB *v132; // rdx
   _GENERAL_LOOKASIDE *v133; // rcx
   int BugCheckParameter4; // [rsp+0h] [rbp-640h]
@@ -1074,7 +1074,7 @@ LABEL_158:
   }
   if ( v145 )
     KeLeaveCriticalRegionThread((__int64)v168);
-  v131 = (struct _SLIST_ENTRY *)Src;
+  v131 = (_SLIST_ENTRY *)Src;
   if ( Src )
   {
     v132 = KeGetCurrentPrcb();
@@ -1091,7 +1091,7 @@ LABEL_158:
     else
     {
       ++v133->FreeMisses;
-      ((void (__fastcall *)(struct _SLIST_ENTRY *, struct _KPRCB *, __int64))v133->FreeEx)(v131, v132, v28);
+      ((void (__fastcall *)(_SLIST_ENTRY *, struct _KPRCB *, __int64))v133->FreeEx)(v131, v132, v28);
     }
   }
   return (unsigned int)v152;

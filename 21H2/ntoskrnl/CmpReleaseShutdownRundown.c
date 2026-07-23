@@ -1,31 +1,35 @@
 /*
- * XREFs of CmpReleaseShutdownRundown @ 0x140655680
+ * XREFs of CmpReleaseShutdownRundown @ 0x14064A4A0
  * Callers:
- *     CmpTryToRundownHive @ 0x140361574 (CmpTryToRundownHive.c)
- *     CmOpenKey @ 0x140655330 (CmOpenKey.c)
- *     NtNotifyChangeMultipleKeys @ 0x140663230 (NtNotifyChangeMultipleKeys.c)
- *     CmpSetKeySecurity @ 0x14066DF0C (CmpSetKeySecurity.c)
- *     CmLoadDifferencingKey @ 0x14066E58C (CmLoadDifferencingKey.c)
- *     CmCreateKey @ 0x14066F690 (CmCreateKey.c)
- *     CmUnloadKey @ 0x140719C78 (CmUnloadKey.c)
- *     CmpLateUnloadHiveWorker @ 0x14071C570 (CmpLateUnloadHiveWorker.c)
- *     CmpCreateHive @ 0x14071E618 (CmpCreateHive.c)
- *     CmpReorganizeHive @ 0x140720AB8 (CmpReorganizeHive.c)
- *     CmpLoadHiveThread @ 0x14079ED50 (CmpLoadHiveThread.c)
- *     NtLockRegistryKey @ 0x1407C2F50 (NtLockRegistryKey.c)
- *     CmpAssignKeySecurity @ 0x1407D0450 (CmpAssignKeySecurity.c)
- *     CmpSaveBootControlSet @ 0x140867A80 (CmpSaveBootControlSet.c)
- *     NtQueryOpenSubKeys @ 0x1408686D0 (NtQueryOpenSubKeys.c)
- *     NtQueryOpenSubKeysEx @ 0x1408688F0 (NtQueryOpenSubKeysEx.c)
- *     CmpLoadHiveVolatile @ 0x14087CF5C (CmpLoadHiveVolatile.c)
- *     CmGetSystemDriverList @ 0x140A5F174 (CmGetSystemDriverList.c)
+ *     CmpTryToRundownHive @ 0x140213B70 (CmpTryToRundownHive.c)
+ *     CmUnloadKey @ 0x1405DF54C (CmUnloadKey.c)
+ *     CmpLateUnloadHiveWorker @ 0x1405DFF10 (CmpLateUnloadHiveWorker.c)
+ *     CmOpenKey @ 0x14064A150 (CmOpenKey.c)
+ *     NtNotifyChangeMultipleKeys @ 0x140658050 (NtNotifyChangeMultipleKeys.c)
+ *     CmpSetKeySecurity @ 0x140662D2C (CmpSetKeySecurity.c)
+ *     CmLoadDifferencingKey @ 0x140664A6C (CmLoadDifferencingKey.c)
+ *     CmCreateKey @ 0x140665B70 (CmCreateKey.c)
+ *     CmpCreateHive @ 0x1406F756C (CmpCreateHive.c)
+ *     CmpReorganizeHive @ 0x1406F7F2C (CmpReorganizeHive.c)
+ *     CmpLoadHiveThread @ 0x14079EF50 (CmpLoadHiveThread.c)
+ *     NtLockRegistryKey @ 0x1407C3470 (NtLockRegistryKey.c)
+ *     CmpAssignKeySecurity @ 0x1407D05C0 (CmpAssignKeySecurity.c)
+ *     CmpSaveBootControlSet @ 0x140867BE0 (CmpSaveBootControlSet.c)
+ *     NtQueryOpenSubKeys @ 0x140868830 (NtQueryOpenSubKeys.c)
+ *     NtQueryOpenSubKeysEx @ 0x140868A50 (NtQueryOpenSubKeysEx.c)
+ *     CmpLoadHiveVolatile @ 0x14087D0BC (CmpLoadHiveVolatile.c)
+ *     CmGetSystemDriverList @ 0x140A60174 (CmGetSystemDriverList.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     ExReleaseRundownProtection_0 @ 0x14027C4F0 (ExReleaseRundownProtection_0.c)
+ *     ExReleaseRundownProtection @ 0x14026A490 (ExReleaseRundownProtection.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
  */
 
 _QWORD *CmpReleaseShutdownRundown()
 {
-  ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)&CmpShutdownRundown);
-  return KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+  __int64 v0; // rdx
+  __int64 v1; // r8
+  __int64 v2; // r9
+
+  ExReleaseRundownProtection((PEX_RUNDOWN_REF)&CmpShutdownRundown);
+  return KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v0, v1, v2);
 }

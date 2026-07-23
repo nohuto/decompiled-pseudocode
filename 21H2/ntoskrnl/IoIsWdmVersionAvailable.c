@@ -1,5 +1,5 @@
 /*
- * XREFs of IoIsWdmVersionAvailable @ 0x14089E400
+ * XREFs of IoIsWdmVersionAvailable @ 0x14089E560
  * Callers:
  *     <none>
  * Callees:

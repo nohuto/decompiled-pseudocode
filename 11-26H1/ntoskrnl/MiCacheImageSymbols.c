@@ -1,18 +1,18 @@
 /*
- * XREFs of MiCacheImageSymbols @ 0x140A78F14
+ * XREFs of MiCacheImageSymbols @ 0x1409E4F28
  * Callers:
- *     MiDriverLoadSucceeded @ 0x140A78E84 (MiDriverLoadSucceeded.c)
+ *     MiDriverLoadSucceeded @ 0x1409E4E98 (MiDriverLoadSucceeded.c)
  * Callees:
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     RtlImageDirectoryEntryToData @ 0x14040E290 (RtlImageDirectoryEntryToData.c)
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     RtlStringCbPrintfW @ 0x140433060 (RtlStringCbPrintfW.c)
- *     MmGetCurrentProcessorColor @ 0x14044ADC0 (MmGetCurrentProcessorColor.c)
- *     DbgLoadImageSymbolsUnicode @ 0x1404DF564 (DbgLoadImageSymbolsUnicode.c)
- *     MiModeCopyExceptionFilterEx @ 0x1404E5578 (MiModeCopyExceptionFilterEx.c)
- *     _wcsnicmp @ 0x1405366B0 (_wcsnicmp.c)
- *     RtlGetNtSystemRoot @ 0x140A79090 (RtlGetNtSystemRoot.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     RtlStringCbPrintfW @ 0x140420090 (RtlStringCbPrintfW.c)
+ *     RtlImageDirectoryEntryToData @ 0x14042B1C0 (RtlImageDirectoryEntryToData.c)
+ *     MmGetCurrentProcessorColor @ 0x140442EF0 (MmGetCurrentProcessorColor.c)
+ *     DbgLoadImageSymbolsUnicode @ 0x1404D8C44 (DbgLoadImageSymbolsUnicode.c)
+ *     MiModeCopyExceptionFilterEx @ 0x1404DEB18 (MiModeCopyExceptionFilterEx.c)
+ *     _wcsnicmp @ 0x140538B30 (_wcsnicmp.c)
+ *     RtlGetNtSystemRoot @ 0x1409E50B0 (RtlGetNtSystemRoot.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiCacheImageSymbols(__int64 a1, UNICODE_STRING *a2, __int64 a3)
@@ -20,18 +20,14 @@ void __fastcall MiCacheImageSymbols(__int64 a1, UNICODE_STRING *a2, __int64 a3)
   __int64 *v6; // r14
   int CurrentProcessorColor; // eax
   wchar_t *PoolMm; // rsi
-  __int64 v9; // rdx
-  __int64 v10; // rcx
-  __int64 v11; // r8
-  __int64 v12; // r9
-  __int64 NtSystemRoot; // rax
-  NTSTATUS v14; // eax
+  PWSTR NtSystemRoot; // rax
+  NTSTATUS v10; // eax
   UNICODE_STRING DestinationString; // [rsp+38h] [rbp-50h] BYREF
-  int v16; // [rsp+A8h] [rbp+20h] BYREF
+  ULONG v12; // [rsp+A8h] [rbp+20h] BYREF
 
   v6 = (__int64 *)(a1 + 48);
   *(_QWORD *)&DestinationString.Length = a1 + 48;
-  if ( RtlImageDirectoryEntryToData(*(_QWORD *)(a1 + 48), 1, 6u, &v16) )
+  if ( RtlImageDirectoryEntryToData(*(PVOID *)(a1 + 48), 1u, 6u, &v12) )
   {
     DestinationString = 0LL;
     CurrentProcessorColor = MmGetCurrentProcessorColor();
@@ -40,17 +36,17 @@ void __fastcall MiCacheImageSymbols(__int64 a1, UNICODE_STRING *a2, __int64 a3)
     {
       if ( a2->Length <= 0x16u || wcsnicmp(a2->Buffer, L"\\SystemRoot", 0xBuLL) )
       {
-        v14 = RtlStringCbPrintfW(PoolMm, 0x100uLL, L"%wZ", a3);
+        v10 = RtlStringCbPrintfW(PoolMm, 0x100uLL, L"%wZ", a3);
       }
       else
       {
         DestinationString = *a2;
         DestinationString.Buffer = a2->Buffer + 11;
         DestinationString.Length -= 22;
-        NtSystemRoot = RtlGetNtSystemRoot(v10, v9, v11, v12);
-        v14 = RtlStringCbPrintfW(PoolMm, 0x100uLL, L"%ws%wZ", NtSystemRoot + 4, &DestinationString);
+        NtSystemRoot = RtlGetNtSystemRoot();
+        v10 = RtlStringCbPrintfW(PoolMm, 0x100uLL, L"%ws%wZ", NtSystemRoot + 2, &DestinationString);
       }
-      if ( v14 >= 0 )
+      if ( v10 >= 0 )
       {
         RtlInitUnicodeString(&DestinationString, PoolMm);
         if ( (unsigned int)DbgLoadImageSymbolsUnicode(&DestinationString, *v6) == 1 )

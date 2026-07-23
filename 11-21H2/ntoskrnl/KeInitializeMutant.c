@@ -3,10 +3,10 @@
  * Callers:
  *     <none>
  * Callees:
- *     KiInitializeMutant @ 0x140261ADC (KiInitializeMutant.c)
+ *     sub_140261ADC @ 0x140261ADC (sub_140261ADC.c)
  */
 
 void __stdcall KeInitializeMutant(PRKMUTANT Mutant, BOOLEAN InitialOwner)
 {
-  KiInitializeMutant((__int64)Mutant, InitialOwner, 0, 0);
+  sub_140261ADC((__int64)Mutant, InitialOwner, 0, 0);
 }

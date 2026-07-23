@@ -1,9 +1,9 @@
 /*
- * XREFs of AdtpLookupDriveLetter @ 0x14091F3E8
+ * XREFs of AdtpLookupDriveLetter @ 0x140979E48
  * Callers:
- *     AdtpSubstituteDriveLetter @ 0x14091F374 (AdtpSubstituteDriveLetter.c)
+ *     AdtpSubstituteDriveLetter @ 0x140979DD4 (AdtpSubstituteDriveLetter.c)
  * Callees:
- *     RtlEqualUnicodeString @ 0x14091F0E0 (RtlEqualUnicodeString.c)
+ *     RtlEqualUnicodeString @ 0x140979B40 (RtlEqualUnicodeString.c)
  */
 
 char __fastcall AdtpLookupDriveLetter(PCUNICODE_STRING String1, _WORD *a2, _WORD *a3)
@@ -15,7 +15,7 @@ char __fastcall AdtpLookupDriveLetter(PCUNICODE_STRING String1, _WORD *a2, _WORD
   _WORD *v10; // r14
   char result; // al
 
-  v4 = (unsigned __int16 *)&unk_140FD7BD0;
+  v4 = (unsigned __int16 *)&unk_140FD8BE0;
   for ( i = 25; i >= 0; --i )
   {
     if ( *((_QWORD *)v4 + 1) )

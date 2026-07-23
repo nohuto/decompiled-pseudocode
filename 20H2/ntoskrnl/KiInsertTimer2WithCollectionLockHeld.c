@@ -18,20 +18,20 @@ __int64 __fastcall KiInsertTimer2WithCollectionLockHeld(__int64 a1, char a2, _BY
   __int64 v12; // rcx
   __int64 v13; // rax
   unsigned __int64 v14; // rdx
-  unsigned __int64 *v15; // rdi
-  bool v16; // r8
+  _RTL_RB_TREE *v15; // rdi
+  BOOLEAN v16; // r8
   int v17; // r9d
   unsigned __int64 v18; // rax
-  unsigned __int64 v19; // rax
+  _RTL_BALANCED_NODE *Min; // rax
   __int64 v20; // rcx
   char v21; // cl
-  unsigned __int64 *v22; // rsi
+  _RTL_RB_TREE *v22; // rsi
   __int64 v23; // rax
-  unsigned __int64 v24; // rdx
-  bool v25; // r8
+  unsigned __int64 Root; // rdx
+  BOOLEAN v25; // r8
   int v26; // ecx
   unsigned __int64 v27; // rax
-  unsigned __int64 v28; // rcx
+  _RTL_BALANCED_NODE *v28; // rcx
   __int64 v29; // rax
   bool v31; // dl
   signed __int32 *v32; // r8
@@ -56,7 +56,7 @@ __int64 __fastcall KiInsertTimer2WithCollectionLockHeld(__int64 a1, char a2, _BY
     v12 = 3LL * (v6 & 7);
     v13 = KiTimer2Collections[v12 + 1];
     v14 = KiTimer2Collections[v12];
-    v15 = &KiTimer2Collections[v12];
+    v15 = (_RTL_RB_TREE *)&KiTimer2Collections[v12];
     if ( (v13 & 1) != 0 )
     {
       if ( v14 )
@@ -101,22 +101,22 @@ LABEL_20:
         v14 = v18;
       }
     }
-    RtlRbInsertNodeEx(v15, v14, v16, a1 + 24);
-    v19 = v15[1];
-    if ( (v19 & 1) != 0 )
+    RtlRbInsertNodeEx(v15, (PRTL_BALANCED_NODE)v14, v16, (PRTL_BALANCED_NODE)(a1 + 24));
+    Min = v15->Min;
+    if ( ((unsigned __int8)Min & 1) != 0 )
     {
-      if ( v19 == 1 )
+      if ( Min == (_RTL_BALANCED_NODE *)1 )
         v20 = 0LL;
       else
-        v20 = v19 ^ ((unsigned __int64)v15 | 1);
+        v20 = (unsigned __int64)Min ^ ((unsigned __int64)v15 | 1);
     }
     else
     {
-      v20 = v15[1];
+      v20 = (__int64)v15->Min;
     }
     if ( v20 == a1 + 24 )
     {
-      v15[2] = *(_QWORD *)(a1 + 72);
+      v15[1].Root = *(_RTL_BALANCED_NODE **)(a1 + 72);
       v11 = 1;
     }
     else
@@ -132,30 +132,30 @@ LABEL_20:
   else
   {
     *(_BYTE *)(a1 + 131) = v21 & 0xEF;
-    v22 = (unsigned __int64 *)(0x140000000LL + 24LL * (v21 & 7) + 12786496);
+    v22 = (_RTL_RB_TREE *)(0x140000000LL + 24LL * (v21 & 7) + 12786496);
     v23 = *(_QWORD *)(0x140000008LL + 24LL * (v21 & 7) + 12786496);
-    v24 = *v22;
+    Root = (unsigned __int64)v22->Root;
     if ( (v23 & 1) != 0 )
     {
-      if ( v24 )
-        v24 ^= (unsigned __int64)v22;
+      if ( Root )
+        Root ^= (unsigned __int64)v22;
       else
-        v24 = 0LL;
+        Root = 0LL;
     }
     v25 = 0;
     v26 = v23 & 1;
-    if ( v24 )
+    if ( Root )
     {
       while ( 1 )
       {
-        if ( *(_QWORD *)(a1 + 80) < *(_QWORD *)(v24 + 32) )
+        if ( *(_QWORD *)(a1 + 80) < *(_QWORD *)(Root + 32) )
         {
-          v27 = *(_QWORD *)v24;
+          v27 = *(_QWORD *)Root;
           if ( v26 )
           {
             if ( !v27 )
               goto LABEL_40;
-            v27 ^= v24;
+            v27 ^= Root;
           }
           if ( !v27 )
           {
@@ -166,12 +166,12 @@ LABEL_40:
         }
         else
         {
-          v27 = *(_QWORD *)(v24 + 8);
+          v27 = *(_QWORD *)(Root + 8);
           if ( v26 )
           {
             if ( !v27 )
               goto LABEL_63;
-            v27 ^= v24;
+            v27 ^= Root;
           }
           if ( !v27 )
           {
@@ -180,26 +180,26 @@ LABEL_63:
             break;
           }
         }
-        v24 = v27;
+        Root = v27;
       }
     }
-    RtlRbInsertNodeEx(v22, v24, v25, a1 + 48);
-    v28 = v22[1];
-    if ( (v28 & 1) != 0 )
+    RtlRbInsertNodeEx(v22, (PRTL_BALANCED_NODE)Root, v25, (PRTL_BALANCED_NODE)(a1 + 48));
+    v28 = v22->Min;
+    if ( ((unsigned __int8)v28 & 1) != 0 )
     {
-      if ( v28 == 1 )
+      if ( v28 == (_RTL_BALANCED_NODE *)1 )
         v29 = 0LL;
       else
-        v29 = v28 ^ ((unsigned __int64)v22 | 1);
+        v29 = (unsigned __int64)v28 ^ ((unsigned __int64)v22 | 1);
     }
     else
     {
-      v29 = v22[1];
+      v29 = (__int64)v22->Min;
     }
     if ( v29 == a1 + 48 )
     {
       v10 = 1;
-      v22[2] = *(_QWORD *)(a1 + 80);
+      v22[1].Root = *(_RTL_BALANCED_NODE **)(a1 + 80);
     }
     v7 = a2;
     v11 |= v10;

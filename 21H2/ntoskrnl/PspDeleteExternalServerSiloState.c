@@ -1,16 +1,16 @@
 /*
- * XREFs of PspDeleteExternalServerSiloState @ 0x140906238
+ * XREFs of PspDeleteExternalServerSiloState @ 0x140906398
  * Callers:
- *     PspCompleteServerSiloShutdownDeferred @ 0x140905F60 (PspCompleteServerSiloShutdownDeferred.c)
- *     PspInitializeServerSiloDeferred @ 0x140906470 (PspInitializeServerSiloDeferred.c)
+ *     PspCompleteServerSiloShutdownDeferred @ 0x1409060C0 (PspCompleteServerSiloShutdownDeferred.c)
+ *     PspInitializeServerSiloDeferred @ 0x1409065D0 (PspInitializeServerSiloDeferred.c)
  * Callees:
- *     PsGetServerSiloGlobals @ 0x140252E18 (PsGetServerSiloGlobals.c)
- *     PsDetachSiloFromCurrentThread @ 0x140264010 (PsDetachSiloFromCurrentThread.c)
- *     PsAttachSiloToCurrentThread @ 0x140264030 (PsAttachSiloToCurrentThread.c)
+ *     PsDetachSiloFromCurrentThread @ 0x14026D070 (PsDetachSiloFromCurrentThread.c)
+ *     PsAttachSiloToCurrentThread @ 0x14026D090 (PsAttachSiloToCurrentThread.c)
+ *     PsGetServerSiloGlobals @ 0x140285C94 (PsGetServerSiloGlobals.c)
  *     ExpTimeZoneCleanupSiloState @ 0x1405D1AD0 (ExpTimeZoneCleanupSiloState.c)
- *     EtwShutdown @ 0x140773FC0 (EtwShutdown.c)
- *     CmCleanupServerSiloState @ 0x1408733DC (CmCleanupServerSiloState.c)
- *     SeShutdownServerSilo @ 0x14091C1C4 (SeShutdownServerSilo.c)
+ *     EtwShutdown @ 0x140774180 (EtwShutdown.c)
+ *     CmCleanupServerSiloState @ 0x14087353C (CmCleanupServerSiloState.c)
+ *     SeShutdownServerSilo @ 0x14091C324 (SeShutdownServerSilo.c)
  */
 
 __int64 __fastcall PspDeleteExternalServerSiloState(__int64 a1)

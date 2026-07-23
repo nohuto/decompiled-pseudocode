@@ -50,7 +50,7 @@ __int64 __fastcall SeCaptureSecurityDescriptor(__int64 a1, char a2, POOL_TYPE a3
   SIZE_T v30; // rbx
   char *PoolWithTag; // rax
   char *v32; // rdi
-  _BYTE *v33; // rbx
+  ACL *v33; // rbx
   char v34; // r12
   int v35; // ecx
   int v36; // ebx
@@ -382,7 +382,7 @@ LABEL_17:
   memset(PoolWithTag, 0, (unsigned int)v30);
   *(_OWORD *)v32 = v49;
   *((_DWORD *)v32 + 4) = v50;
-  v33 = v32 + 20;
+  v33 = (ACL *)(v32 + 20);
   *((_WORD *)v32 + 1) |= 0x8000u;
   if ( !v57 || !v13 )
   {
@@ -392,11 +392,11 @@ LABEL_17:
   }
   memmove(v32 + 20, v13, v16);
   v34 = a2;
-  if ( !a2 || v16 >= 8 && v16 == *((unsigned __int16 *)v32 + 11) && (unsigned __int8)RtlValidAcl(v32 + 20) )
+  if ( !a2 || v16 >= 8 && v16 == *((unsigned __int16 *)v32 + 11) && RtlValidAcl((PACL)(v32 + 20)) )
   {
     *((_DWORD *)v32 + 3) = 20;
     *((_WORD *)v32 + 11) = v53;
-    v33 += v53;
+    v33 = (ACL *)((char *)v33 + v53);
 LABEL_80:
     if ( !v21 || !v14 )
     {
@@ -405,11 +405,14 @@ LABEL_87:
       if ( v47 )
       {
         memmove(v33, v47, HIDWORD(Size));
-        v33[1] = v43;
-        if ( v34 && ((unsigned __int64)v33 <= 0x7FFFFFFF0000LL || (unsigned __int8)v43 > 0xFu || (*v33 & 0xF) != 1) )
+        v33->Sbz1 = v43;
+        if ( v34
+          && ((unsigned __int64)v33 <= 0x7FFFFFFF0000LL || (unsigned __int8)v43 > 0xFu || (v33->AclRevision & 0xF) != 1) )
+        {
           goto LABEL_131;
+        }
         v35 = (_DWORD)v33 - (_DWORD)v32;
-        v33 += v55;
+        v33 = (ACL *)((char *)v33 + v55);
       }
       else
       {
@@ -422,8 +425,9 @@ LABEL_87:
         goto LABEL_99;
       }
       memmove(v33, v48, (unsigned int)Size);
-      v33[1] = v44;
-      if ( !v34 || (unsigned __int64)v33 > 0x7FFFFFFF0000LL && (unsigned __int8)v44 <= 0xFu && (*v33 & 0xF) == 1 )
+      v33->Sbz1 = v44;
+      if ( !v34
+        || (unsigned __int64)v33 > 0x7FFFFFFF0000LL && (unsigned __int8)v44 <= 0xFu && (v33->AclRevision & 0xF) == 1 )
       {
         v36 = (_DWORD)v33 - (_DWORD)v32;
 LABEL_99:
@@ -436,11 +440,11 @@ LABEL_131:
       return 3221225592LL;
     }
     memmove(v33, v14, v17);
-    if ( !v34 || v17 >= 8 && v17 == *((unsigned __int16 *)v33 + 1) && (unsigned __int8)RtlValidAcl(v33) )
+    if ( !v34 || v17 >= 8 && v17 == v33->AclSize && RtlValidAcl(v33) )
     {
       *((_DWORD *)v32 + 4) = (_DWORD)v33 - (_DWORD)v32;
-      *((_WORD *)v33 + 1) = v54;
-      v33 += v54;
+      v33->AclSize = v54;
+      v33 = (ACL *)((char *)v33 + v54);
       goto LABEL_87;
     }
   }

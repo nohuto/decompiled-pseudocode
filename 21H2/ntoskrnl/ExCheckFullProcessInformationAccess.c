@@ -1,26 +1,33 @@
 /*
- * XREFs of ExCheckFullProcessInformationAccess @ 0x1406BAC8C
+ * XREFs of ExCheckFullProcessInformationAccess @ 0x140619F60
  * Callers:
- *     NtPowerInformation @ 0x1406777D0 (NtPowerInformation.c)
- *     ExpGetProcessInformation @ 0x1406F1260 (ExpGetProcessInformation.c)
- *     NtSetDefaultLocale @ 0x14078BE50 (NtSetDefaultLocale.c)
- *     EtwpQueryCoverageSamplerInformation @ 0x1409477E4 (EtwpQueryCoverageSamplerInformation.c)
- *     EtwpSetCoverageSamplerInformation @ 0x14094793C (EtwpSetCoverageSamplerInformation.c)
+ *     NtPowerInformation @ 0x14066AF10 (NtPowerInformation.c)
+ *     ExpGetProcessInformation @ 0x140708640 (ExpGetProcessInformation.c)
+ *     NtSetDefaultLocale @ 0x14078C010 (NtSetDefaultLocale.c)
+ *     EtwpQueryCoverageSamplerInformation @ 0x1409479B4 (EtwpQueryCoverageSamplerInformation.c)
+ *     EtwpSetCoverageSamplerInformation @ 0x140947B0C (EtwpSetCoverageSamplerInformation.c)
  * Callees:
- *     RtlCheckTokenMembership @ 0x14027F430 (RtlCheckTokenMembership.c)
- *     RtlRunOnceExecuteOnce @ 0x14068A9B0 (RtlRunOnceExecuteOnce.c)
+ *     RtlCheckTokenMembership @ 0x14026D6E0 (RtlCheckTokenMembership.c)
+ *     RtlRunOnceExecuteOnce @ 0x1405E9E40 (RtlRunOnceExecuteOnce.c)
  */
 
 __int64 __fastcall ExCheckFullProcessInformationAccess(char a1)
 {
+  BOOLEAN IsMember; // [rsp+30h] [rbp+8h] BYREF
   PVOID Context; // [rsp+38h] [rbp+10h] BYREF
 
   Context = 0LL;
-  if ( a1 == 1 )
+  IsMember = 0;
+  if ( a1 == 1
+    && (RtlRunOnceExecuteOnce(&ExpFullProcessInfoInit, ExpInitFullProcessSecurityInfo, 0LL, &Context) >= 0
+     && RtlCheckTokenMembership(0LL, Context, &IsMember) >= 0
+     && IsMember
+     || RtlCheckTokenMembership(0LL, SeAliasAdminsSid, &IsMember) >= 0 && IsMember) )
   {
-    if ( RtlRunOnceExecuteOnce(&ExpFullProcessInfoInit, ExpInitFullProcessSecurityInfo, 0LL, &Context) >= 0 )
-      RtlCheckTokenMembership(0LL, Context);
-    RtlCheckTokenMembership(0LL, SeAliasAdminsSid);
+    return 0LL;
   }
-  return 3221225506LL;
+  else
+  {
+    return 3221225506LL;
+  }
 }

@@ -1,50 +1,52 @@
 /*
- * XREFs of MiVaToFlushVm @ 0x1402293EC
+ * XREFs of MiVaToFlushVm @ 0x1402FC5EC
  * Callers:
- *     MiGetPteFromCopyList @ 0x1402259B0 (MiGetPteFromCopyList.c)
- *     MiReleasePteMappings @ 0x140241200 (MiReleasePteMappings.c)
- *     MiDeleteKernelStackPages @ 0x14026A1A4 (MiDeleteKernelStackPages.c)
- *     MiDecommitInitializePacket @ 0x1402899B0 (MiDecommitInitializePacket.c)
- *     MiReleasePtes @ 0x14028DDA0 (MiReleasePtes.c)
- *     MiReservePtes @ 0x14028FF10 (MiReservePtes.c)
- *     MiFillSystemPtes @ 0x140290A30 (MiFillSystemPtes.c)
- *     MiUnlockCodePage @ 0x1402C7618 (MiUnlockCodePage.c)
- *     MiFlushValidPteFromTb @ 0x1403942E4 (MiFlushValidPteFromTb.c)
- *     MiOutSwapKernelStackPage @ 0x14039E778 (MiOutSwapKernelStackPage.c)
- *     MiOutPageSingleKernelStack @ 0x14039F510 (MiOutPageSingleKernelStack.c)
- *     MiAllocateKernelStackPages @ 0x14039F96C (MiAllocateKernelStackPages.c)
- *     MiZeroPageWorkMapping @ 0x14042FE70 (MiZeroPageWorkMapping.c)
- *     MiSetPageProtection @ 0x14066F27C (MiSetPageProtection.c)
- *     MiStackTheftFreezeProcessors @ 0x140675374 (MiStackTheftFreezeProcessors.c)
- *     MiMarkBootGuardPage @ 0x14067FECC (MiMarkBootGuardPage.c)
- *     MiClearSystemAccessBits @ 0x140683974 (MiClearSystemAccessBits.c)
- *     MiDemoteValidLargePageOneLevel @ 0x140683AC8 (MiDemoteValidLargePageOneLevel.c)
- *     MiWritePteHighLevel @ 0x14068410C (MiWritePteHighLevel.c)
- *     MmDeleteShadowMapping @ 0x1407F699C (MmDeleteShadowMapping.c)
- *     MmUnmapProtectedKernelPageRange @ 0x140A8B784 (MmUnmapProtectedKernelPageRange.c)
- *     MiInitializeBootShadowStackPage @ 0x140C5712C (MiInitializeBootShadowStackPage.c)
- *     MiMarkBootKernelStack @ 0x140C575E4 (MiMarkBootKernelStack.c)
+ *     MiUnlockCodePage @ 0x140203B44 (MiUnlockCodePage.c)
+ *     MiReleasePteMappings @ 0x140209350 (MiReleasePteMappings.c)
+ *     MiOutPageSingleKernelStack @ 0x140215F40 (MiOutPageSingleKernelStack.c)
+ *     MiAllocateKernelStackPages @ 0x14021639C (MiAllocateKernelStackPages.c)
+ *     MiDeleteKernelStackPages @ 0x14021F734 (MiDeleteKernelStackPages.c)
+ *     MiGetPteFromCopyList @ 0x140252D60 (MiGetPteFromCopyList.c)
+ *     MiDecommitInitializePacket @ 0x1402995B0 (MiDecommitInitializePacket.c)
+ *     MiReleasePtes @ 0x14029D9A0 (MiReleasePtes.c)
+ *     MiReservePtes @ 0x14029FB10 (MiReservePtes.c)
+ *     MiFillSystemPtes @ 0x1402A0630 (MiFillSystemPtes.c)
+ *     MiFlushValidPteFromTb @ 0x14038D900 (MiFlushValidPteFromTb.c)
+ *     MiOutSwapKernelStackPage @ 0x1403C6E14 (MiOutSwapKernelStackPage.c)
+ *     MiZeroPageWorkMapping @ 0x140421920 (MiZeroPageWorkMapping.c)
+ *     MiSetPageProtection @ 0x14067044C (MiSetPageProtection.c)
+ *     MiStackTheftFreezeProcessors @ 0x140676544 (MiStackTheftFreezeProcessors.c)
+ *     MiMarkBootGuardPage @ 0x1406810CC (MiMarkBootGuardPage.c)
+ *     MiClearSystemAccessBits @ 0x140684AD0 (MiClearSystemAccessBits.c)
+ *     MiDemoteValidLargePageOneLevel @ 0x140684C24 (MiDemoteValidLargePageOneLevel.c)
+ *     MiWritePteHighLevel @ 0x140685238 (MiWritePteHighLevel.c)
+ *     MmDeleteShadowMapping @ 0x1407F7110 (MmDeleteShadowMapping.c)
+ *     MmUnmapProtectedKernelPageRange @ 0x140A87C74 (MmUnmapProtectedKernelPageRange.c)
+ *     MiInitializeBootShadowStackPage @ 0x140C592BC (MiInitializeBootShadowStackPage.c)
+ *     MiMarkBootKernelStack @ 0x140C59774 (MiMarkBootKernelStack.c)
  * Callees:
- *     MiSystemVaTypeToVm @ 0x14022ABF0 (MiSystemVaTypeToVm.c)
- *     MiGetSystemRegionType @ 0x14022AD20 (MiGetSystemRegionType.c)
- *     MiGetLeafVa @ 0x1402DEE20 (MiGetLeafVa.c)
+ *     MiGetLeafVa @ 0x140240700 (MiGetLeafVa.c)
+ *     MiSystemVaTypeToVm @ 0x1402FDE60 (MiSystemVaTypeToVm.c)
+ *     MiGetSystemRegionType @ 0x1402FDF90 (MiGetSystemRegionType.c)
  */
 
-void *__fastcall MiVaToFlushVm(__int64 a1)
+void *__fastcall MiVaToFlushVm(unsigned __int64 a1)
 {
   unsigned __int64 LeafVa; // rax
+  __int64 v2; // rdx
+  __int64 v3; // r8
   unsigned int SystemRegionType; // eax
-  __int64 v3; // rax
-  void *v4; // rcx
+  __int64 v5; // rax
+  void *v6; // rcx
 
   LeafVa = MiGetLeafVa(a1);
-  if ( LeafVa >= 0xFFFF800000000000uLL && (LeafVa < qword_140E2F280 || LeafVa > qword_140E2F290) )
-    SystemRegionType = MiGetSystemRegionType(LeafVa);
+  if ( LeafVa >= 0xFFFF800000000000uLL && (LeafVa < qword_140E2F3C0 || LeafVa > qword_140E2F3D0) )
+    SystemRegionType = MiGetSystemRegionType(LeafVa, v2, v3);
   else
     SystemRegionType = 1;
-  v3 = MiSystemVaTypeToVm(SystemRegionType);
-  v4 = &unk_140E38100;
-  if ( v3 )
-    return (void *)v3;
-  return v4;
+  v5 = MiSystemVaTypeToVm(SystemRegionType);
+  v6 = &unk_140E38240;
+  if ( v5 )
+    return (void *)v5;
+  return v6;
 }

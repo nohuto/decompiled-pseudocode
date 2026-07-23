@@ -1,27 +1,27 @@
 /*
- * XREFs of ObDereferenceDeviceMap @ 0x1409855D4
+ * XREFs of ObDereferenceDeviceMap @ 0x14096DDE4
  * Callers:
- *     ObCleanupSiloState @ 0x140742E98 (ObCleanupSiloState.c)
- *     ObpDeleteDeviceMap @ 0x140744654 (ObpDeleteDeviceMap.c)
- *     ObpDirectoryTeardownCallback @ 0x14082B060 (ObpDirectoryTeardownCallback.c)
- *     ObpLookupObjectName @ 0x14089D210 (ObpLookupObjectName.c)
- *     ObClearProcessDeviceMap @ 0x1408A94FC (ObClearProcessDeviceMap.c)
- *     ObQueryDeviceMapInformation @ 0x1409848B0 (ObQueryDeviceMapInformation.c)
- *     ObpReferenceCurrentDeviceMap @ 0x140984EA0 (ObpReferenceCurrentDeviceMap.c)
- *     SeGetTokenDeviceMap @ 0x14098519C (SeGetTokenDeviceMap.c)
- *     ObpSetCurrentProcessDeviceMap @ 0x140985458 (ObpSetCurrentProcessDeviceMap.c)
- *     ObpReferenceDeviceMapFastRef @ 0x1409856A0 (ObpReferenceDeviceMapFastRef.c)
- *     SepDeleteLogonSessionTrack @ 0x140A64520 (SepDeleteLogonSessionTrack.c)
- *     ObpSetDeviceMap @ 0x140A79B78 (ObpSetDeviceMap.c)
- *     SepDeReferenceLogonSession @ 0x140AD8BA4 (SepDeReferenceLogonSession.c)
+ *     ObCleanupSiloState @ 0x140740DC8 (ObCleanupSiloState.c)
+ *     ObpDeleteDeviceMap @ 0x140742944 (ObpDeleteDeviceMap.c)
+ *     ObpDirectoryTeardownCallback @ 0x14082B890 (ObpDirectoryTeardownCallback.c)
+ *     ObpLookupObjectName @ 0x1408A58B0 (ObpLookupObjectName.c)
+ *     ObClearProcessDeviceMap @ 0x1408FF75C (ObClearProcessDeviceMap.c)
+ *     ObQueryDeviceMapInformation @ 0x14096D0C0 (ObQueryDeviceMapInformation.c)
+ *     ObpReferenceCurrentDeviceMap @ 0x14096D6B0 (ObpReferenceCurrentDeviceMap.c)
+ *     SeGetTokenDeviceMap @ 0x14096D9AC (SeGetTokenDeviceMap.c)
+ *     ObpSetCurrentProcessDeviceMap @ 0x14096DC68 (ObpSetCurrentProcessDeviceMap.c)
+ *     ObpReferenceDeviceMapFastRef @ 0x14096DEB0 (ObpReferenceDeviceMapFastRef.c)
+ *     SepDeleteLogonSessionTrack @ 0x140A5CE20 (SepDeleteLogonSessionTrack.c)
+ *     ObpSetDeviceMap @ 0x140A73E78 (ObpSetDeviceMap.c)
+ *     SepDeReferenceLogonSession @ 0x140AD7224 (SepDeReferenceLogonSession.c)
  * Callees:
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     KeLeaveGuardedRegion @ 0x1402BB460 (KeLeaveGuardedRegion.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     PsGetServerSiloGlobals @ 0x140349380 (PsGetServerSiloGlobals.c)
- *     ObpDeleteDeviceMap @ 0x140744654 (ObpDeleteDeviceMap.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     KeLeaveGuardedRegion @ 0x140362BA0 (KeLeaveGuardedRegion.c)
+ *     PsGetServerSiloGlobals @ 0x1403C2DC0 (PsGetServerSiloGlobals.c)
+ *     ObpDeleteDeviceMap @ 0x140742944 (ObpDeleteDeviceMap.c)
  */
 
 void __fastcall ObDereferenceDeviceMap(volatile signed __int64 *P, unsigned int a2)
@@ -33,8 +33,8 @@ void __fastcall ObDereferenceDeviceMap(volatile signed __int64 *P, unsigned int 
   char *ServerSiloGlobals; // rax
   struct _KTHREAD *CurrentThread; // rcx
   unsigned __int64 *v9; // rsi
-  _QWORD *v10; // rax
-  _QWORD *v11; // r14
+  char *v10; // rax
+  char *v11; // r14
   __int64 v12; // rax
 
   v3 = P;
@@ -54,12 +54,12 @@ void __fastcall ObDereferenceDeviceMap(volatile signed __int64 *P, unsigned int 
   CurrentThread = KeGetCurrentThread();
   v9 = (unsigned __int64 *)(ServerSiloGlobals + 120);
   --CurrentThread->SpecialApcDisable;
-  v10 = KeAbPreAcquire((__int64)(ServerSiloGlobals + 120), 0LL);
+  v10 = (char *)KeAbPreAcquire((__int64)(ServerSiloGlobals + 120), 0LL);
   v11 = v10;
   if ( _interlockedbittestandset64((volatile signed __int32 *)v9, 0LL) )
-    ExfAcquirePushLockExclusiveEx(v9, (__int64)v10, (__int64)v9);
+    ExfAcquirePushLockExclusiveEx(v9, v10, (__int64)v9);
   if ( v11 )
-    *((_BYTE *)v11 + 10) = 1;
+    v11[10] = 1;
   v12 = _InterlockedExchangeAdd64(v3 + 30, -a2) - v5;
   if ( v12 > 0 )
   {

@@ -55,7 +55,7 @@ __int64 __fastcall CmpSecurityMethod(
   v25 = 0LL;
   if ( *(BOOLEAN **)((char *)&NlsMbCodePageTag + 7) )
   {
-    EtwGetKernelTraceTimestamp((LARGE_INTEGER *)v30, 0x20000LL, a8, a4);
+    EtwGetKernelTraceTimestamp((LARGE_INTEGER *)v30, 0x20000u);
     v13 = a6;
     v9 = a8;
   }

@@ -7,14 +7,18 @@
  *     NtTraceControl @ 0x180166CD0 (NtTraceControl.c)
  */
 
-__int64 __fastcall EtwReplyNotification(__int64 a1)
+ULONG __cdecl EtwReplyNotification(PETW_NOTIFICATION_HEADER Notification)
 {
-  unsigned int v1; // ebx
-  NTSTATUS v2; // eax
+  ULONG NotificationSize; // r8d
+  ULONG v2; // ebx
+  NTSTATUS v3; // eax
+  ULONG ReturnLength; // [rsp+40h] [rbp+8h] BYREF
 
-  v1 = 0;
-  v2 = NtTraceControl(18LL, a1, *(unsigned int *)(a1 + 4));
-  if ( v2 )
-    return RtlNtStatusToDosError(v2);
-  return v1;
+  NotificationSize = Notification->NotificationSize;
+  v2 = 0;
+  ReturnLength = 0;
+  v3 = NtTraceControl(EtwSendReplyDataBlock, Notification, NotificationSize, 0LL, 0, &ReturnLength);
+  if ( v3 )
+    return RtlNtStatusToDosError(v3);
+  return v2;
 }

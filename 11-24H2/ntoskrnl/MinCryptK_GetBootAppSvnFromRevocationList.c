@@ -1,9 +1,9 @@
 /*
- * XREFs of MinCryptK_GetBootAppSvnFromRevocationList @ 0x14069F334
+ * XREFs of MinCryptK_GetBootAppSvnFromRevocationList @ 0x1406A0438
  * Callers:
- *     PopValidateWinresume @ 0x140752EA8 (PopValidateWinresume.c)
+ *     PopValidateWinresume @ 0x1407511C8 (PopValidateWinresume.c)
  * Callees:
- *     memcmp @ 0x1406BFF10 (memcmp.c)
+ *     memcmp @ 0x1406C0E10 (memcmp.c)
  */
 
 __int64 __fastcall MinCryptK_GetBootAppSvnFromRevocationList(__int64 a1, __int64 a2, int a3, _DWORD *a4)

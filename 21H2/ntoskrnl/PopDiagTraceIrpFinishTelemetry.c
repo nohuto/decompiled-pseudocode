@@ -1,16 +1,16 @@
 /*
- * XREFs of PopDiagTraceIrpFinishTelemetry @ 0x14037AD2C
+ * XREFs of PopDiagTraceIrpFinishTelemetry @ 0x14037A87C
  * Callers:
- *     PopDiagTraceIrpFinish @ 0x14037AB74 (PopDiagTraceIrpFinish.c)
+ *     PopDiagTraceIrpFinish @ 0x14037A6C4 (PopDiagTraceIrpFinish.c)
  * Callees:
- *     KiQueryUnbiasedInterruptTime @ 0x1402546F4 (KiQueryUnbiasedInterruptTime.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
- *     _tlgCreate1Sz_wchar_t @ 0x140263EF0 (_tlgCreate1Sz_wchar_t.c)
- *     IoFindDeviceThatFailedIrp @ 0x14037ADF4 (IoFindDeviceThatFailedIrp.c)
- *     PopDiagGetDriverName @ 0x140388F7C (PopDiagGetDriverName.c)
- *     PopComputeWatchdogTimeout @ 0x1403985AC (PopComputeWatchdogTimeout.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     _tlgCreate1Sz_wchar_t @ 0x1402709CC (_tlgCreate1Sz_wchar_t.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x140275C64 (KiQueryUnbiasedInterruptTime.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14027E1A4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x1402864F4 (_tlgKeywordOn.c)
+ *     IoFindDeviceThatFailedIrp @ 0x14037A944 (IoFindDeviceThatFailedIrp.c)
+ *     PopDiagGetDriverName @ 0x1403890CC (PopDiagGetDriverName.c)
+ *     PopComputeWatchdogTimeout @ 0x1403986FC (PopComputeWatchdogTimeout.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 char __fastcall PopDiagTraceIrpFinishTelemetry(__int64 a1)
@@ -128,7 +128,7 @@ char __fastcall PopDiagTraceIrpFinishTelemetry(__int64 a1)
             v47 = 8;
             LOBYTE(v4) = tlgWriteTransfer_EtwWriteTransfer(
                            (__int64)&dword_140C02228,
-                           (unsigned __int8 *)byte_140028B83,
+                           (unsigned __int8 *)byte_140028E85,
                            0LL,
                            0LL,
                            0xBu,

@@ -19,7 +19,7 @@ NTSTATUS __stdcall NtCreateTransaction(
         PLARGE_INTEGER Timeout,
         PUNICODE_STRING Description)
 {
-  return __imp_NtCreateTransaction(
+  return NtCreateTransaction_0(
            TransactionHandle,
            DesiredAccess,
            ObjectAttributes,

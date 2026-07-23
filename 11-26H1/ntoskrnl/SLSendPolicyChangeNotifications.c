@@ -1,9 +1,9 @@
 /*
- * XREFs of SLSendPolicyChangeNotifications @ 0x140839760
+ * XREFs of SLSendPolicyChangeNotifications @ 0x14083F9A0
  * Callers:
- *     SLUpdateLicenseDataInternal @ 0x140839788 (SLUpdateLicenseDataInternal.c)
+ *     SLUpdateLicenseDataInternal @ 0x14083F9C8 (SLUpdateLicenseDataInternal.c)
  * Callees:
- *     ExNotifyCallback @ 0x14047A7E0 (ExNotifyCallback.c)
+ *     ExNotifyCallback @ 0x140474150 (ExNotifyCallback.c)
  */
 
 void __fastcall SLSendPolicyChangeNotifications(__int64 a1)

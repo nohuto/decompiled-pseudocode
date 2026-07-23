@@ -1,13 +1,13 @@
 /*
- * XREFs of PopPowerAggregatorDiagTraceEvent @ 0x1409BA124
+ * XREFs of PopPowerAggregatorDiagTraceEvent @ 0x1409A0774
  * Callers:
- *     PopPowerAggregatorDozeTimerArm @ 0x14075914C (PopPowerAggregatorDozeTimerArm.c)
- *     PopPowerAggregatorDozeTimerWorker @ 0x140759220 (PopPowerAggregatorDozeTimerWorker.c)
- *     PopNotifyCsStateExited @ 0x1409B9F00 (PopNotifyCsStateExited.c)
- *     PopPowerAggregatorWorker @ 0x1409B9F50 (PopPowerAggregatorWorker.c)
+ *     PopPowerAggregatorDozeTimerArm @ 0x1407575AC (PopPowerAggregatorDozeTimerArm.c)
+ *     PopPowerAggregatorDozeTimerWorker @ 0x140757680 (PopPowerAggregatorDozeTimerWorker.c)
+ *     PopNotifyCsStateExited @ 0x1409A0550 (PopNotifyCsStateExited.c)
+ *     PopPowerAggregatorWorker @ 0x1409A05A0 (PopPowerAggregatorWorker.c)
  * Callees:
- *     EtwEventEnabled @ 0x1402A1BD0 (EtwEventEnabled.c)
- *     EtwWrite @ 0x14041C1B0 (EtwWrite.c)
+ *     EtwEventEnabled @ 0x1402D1300 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x14040FFB0 (EtwWrite.c)
  */
 
 void __fastcall PopPowerAggregatorDiagTraceEvent(

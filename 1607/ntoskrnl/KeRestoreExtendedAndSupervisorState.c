@@ -1,16 +1,16 @@
 /*
- * XREFs of KeRestoreExtendedAndSupervisorState @ 0x140082C94
+ * XREFs of KeRestoreExtendedAndSupervisorState @ 0x140083914
  * Callers:
- *     KeRestoreExtendedProcessorState @ 0x140082C8C (KeRestoreExtendedProcessorState.c)
- *     SymCryptParallelSha256Process @ 0x140237334 (SymCryptParallelSha256Process.c)
+ *     KeRestoreExtendedProcessorState @ 0x14008390C (KeRestoreExtendedProcessorState.c)
+ *     SymCryptParallelSha256Process @ 0x140237160 (SymCryptParallelSha256Process.c)
  *     PopHandleNextState @ 0x1403CC8F0 (PopHandleNextState.c)
  *     PnprQuiesceProcessorDpc @ 0x1403DC538 (PnprQuiesceProcessorDpc.c)
  * Callees:
- *     KiLeaveGuardedRegionUnsafe @ 0x140013B70 (KiLeaveGuardedRegionUnsafe.c)
- *     RtlXRestore @ 0x140082DAC (RtlXRestore.c)
- *     KeFreeXStateContext @ 0x140082DF4 (KeFreeXStateContext.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     XRestoreSHelper @ 0x140167790 (XRestoreSHelper.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1400136F0 (KiLeaveGuardedRegionUnsafe.c)
+ *     RtlXRestore @ 0x140083A2C (RtlXRestore.c)
+ *     KeFreeXStateContext @ 0x140083A74 (KeFreeXStateContext.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     XRestoreSHelper @ 0x140167D00 (XRestoreSHelper.c)
  */
 
 __int64 __fastcall KeRestoreExtendedAndSupervisorState(__int64 a1)

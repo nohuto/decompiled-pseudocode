@@ -1,20 +1,20 @@
 /*
- * XREFs of PopDripsWatchdogDiagnosticWorker @ 0x1408EF230
+ * XREFs of PopDripsWatchdogDiagnosticWorker @ 0x1408EF390
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     PopDeepSleepEnabled @ 0x140281AC0 (PopDeepSleepEnabled.c)
- *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
- *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     PopCalculateIdleInformation @ 0x140570410 (PopCalculateIdleInformation.c)
- *     PopDiagTraceCsDripsDivergence @ 0x140570C88 (PopDiagTraceCsDripsDivergence.c)
- *     PopDripsWatchdogCheckHwDivergence @ 0x1408EF158 (PopDripsWatchdogCheckHwDivergence.c)
- *     PopDripsWatchdogScheduleNextTimer @ 0x1408EF4E4 (PopDripsWatchdogScheduleNextTimer.c)
- *     PopDripsWatchdogUpdateMetrics @ 0x1408EF720 (PopDripsWatchdogUpdateMetrics.c)
- *     PopDeepSleepWatchdogTakeAction @ 0x1408FA518 (PopDeepSleepWatchdogTakeAction.c)
- *     PopDripsWatchdogTakeAction @ 0x1408FA6A0 (PopDripsWatchdogTakeAction.c)
+ *     PopDeepSleepEnabled @ 0x14026FD00 (PopDeepSleepEnabled.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseResourceLite @ 0x140356140 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1403568F0 (ExAcquireResourceExclusiveLite.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     PopCalculateIdleInformation @ 0x140570650 (PopCalculateIdleInformation.c)
+ *     PopDiagTraceCsDripsDivergence @ 0x140570EC8 (PopDiagTraceCsDripsDivergence.c)
+ *     PopDripsWatchdogCheckHwDivergence @ 0x1408EF2B8 (PopDripsWatchdogCheckHwDivergence.c)
+ *     PopDripsWatchdogScheduleNextTimer @ 0x1408EF644 (PopDripsWatchdogScheduleNextTimer.c)
+ *     PopDripsWatchdogUpdateMetrics @ 0x1408EF880 (PopDripsWatchdogUpdateMetrics.c)
+ *     PopDeepSleepWatchdogTakeAction @ 0x1408FA678 (PopDeepSleepWatchdogTakeAction.c)
+ *     PopDripsWatchdogTakeAction @ 0x1408FA800 (PopDripsWatchdogTakeAction.c)
  */
 
 _QWORD *__fastcall PopDripsWatchdogDiagnosticWorker(PERESOURCE Resource)
@@ -31,49 +31,55 @@ _QWORD *__fastcall PopDripsWatchdogDiagnosticWorker(PERESOURCE Resource)
   __int64 v11; // xmm1_8
   unsigned int Flink_high; // r15d
   unsigned int OwnerTable; // r12d
-  struct _KTHREAD *v14; // rax
-  int v16; // [rsp+30h] [rbp-29h] BYREF
-  int v17; // [rsp+34h] [rbp-25h] BYREF
-  unsigned __int64 v18; // [rsp+38h] [rbp-21h] BYREF
-  __int128 v19; // [rsp+40h] [rbp-19h] BYREF
-  __int128 v20; // [rsp+50h] [rbp-9h]
-  OWNER_ENTRY v21; // [rsp+60h] [rbp+7h] BYREF
-  __int64 v22; // [rsp+70h] [rbp+17h]
-  ULONG v23; // [rsp+78h] [rbp+1Fh]
+  __int64 v14; // rdx
+  __int64 v15; // r8
+  __int64 v16; // r9
+  struct _KTHREAD *v17; // rax
+  __int64 v18; // rdx
+  __int64 v19; // r8
+  __int64 v20; // r9
+  int v22; // [rsp+30h] [rbp-29h] BYREF
+  int v23; // [rsp+34h] [rbp-25h] BYREF
+  unsigned __int64 v24; // [rsp+38h] [rbp-21h] BYREF
+  __int128 v25; // [rsp+40h] [rbp-19h] BYREF
+  __int128 v26; // [rsp+50h] [rbp-9h]
+  OWNER_ENTRY v27; // [rsp+60h] [rbp+7h] BYREF
+  __int64 v28; // [rsp+70h] [rbp+17h]
+  ULONG v29; // [rsp+78h] [rbp+1Fh]
 
   p_ActiveEntries = &Resource[3].ActiveEntries;
-  v22 = 0LL;
-  v23 = 0;
-  v21 = 0LL;
+  v28 = 0LL;
+  v29 = 0;
+  v27 = 0LL;
   CurrentThread = KeGetCurrentThread();
-  v19 = 0LL;
+  v25 = 0LL;
   --CurrentThread->KernelApcDisable;
-  v20 = 0LL;
+  v26 = 0LL;
   ExAcquireResourceExclusiveLite(Resource, 1u);
   if ( ((__int64)Resource[1].SystemResourcesList.Flink & 4) != 0 && (p_ActiveEntries[45] & 2) != 0 )
   {
     ++LODWORD(Resource[6].OwnerTable);
     v4 = MEMORY[0xFFFFF78000000008];
-    v17 = 0;
-    v18 = 0LL;
-    v16 = 0;
-    PopCalculateIdleInformation((__int64)&v19);
+    v23 = 0;
+    v24 = 0LL;
+    v22 = 0;
+    PopCalculateIdleInformation((__int64)&v25);
     PopDripsWatchdogUpdateMetrics(
       (_DWORD)Resource,
       v4,
-      (unsigned int)&v19,
-      (unsigned int)&v17,
-      (__int64)&v18,
-      (__int64)&v16);
+      (unsigned int)&v25,
+      (unsigned int)&v23,
+      (__int64)&v24,
+      (__int64)&v22);
     v5 = 0LL;
     v6 = 0;
-    if ( (_QWORD)v20 != -1LL )
+    if ( (_QWORD)v26 != -1LL )
     {
       Flink = Resource[6].SystemResourcesList.Flink;
       if ( Flink != (struct _LIST_ENTRY *)-1LL )
       {
         v6 = 1;
-        v5 = v20 - (_QWORD)Flink;
+        v5 = v26 - (_QWORD)Flink;
       }
     }
     v8 = p_ActiveEntries[45];
@@ -85,30 +91,30 @@ _QWORD *__fastcall PopDripsWatchdogDiagnosticWorker(PERESOURCE Resource)
       Flink_high = HIDWORD(Resource[1].SystemResourcesList.Flink);
       OwnerTable = (unsigned int)Resource[6].OwnerTable;
       p_ActiveEntries[45] = v8 | 4;
-      v21 = OwnerEntry;
-      v23 = NumberOfSharedWaiters;
-      v22 = v11;
+      v27 = OwnerEntry;
+      v29 = NumberOfSharedWaiters;
+      v28 = v11;
       PopDripsWatchdogScheduleNextTimer(p_ActiveEntries);
       ExReleaseResourceLite(Resource);
-      KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-      if ( v16 )
+      KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v14, v15, v16);
+      if ( v22 )
       {
-        if ( !v17 && PopDeepSleepEnabled() )
-          PopDeepSleepWatchdogTakeAction(&v21, Flink_high);
+        if ( !v23 && PopDeepSleepEnabled() )
+          PopDeepSleepWatchdogTakeAction(&v27, Flink_high);
       }
-      else if ( !qword_140C4FF58 )
+      else if ( !qword_140C4FF98 )
       {
-        PopDripsWatchdogTakeAction(&v21, Flink_high, OwnerTable);
+        PopDripsWatchdogTakeAction(&v27, Flink_high, OwnerTable);
       }
-      PopDiagTraceCsDripsDivergence(v6, v18, v5);
+      PopDiagTraceCsDripsDivergence(v6, v24, v5);
       if ( v6 )
-        PopDripsWatchdogCheckHwDivergence(v5, v18);
-      v14 = KeGetCurrentThread();
-      --v14->KernelApcDisable;
+        PopDripsWatchdogCheckHwDivergence(v5, v24);
+      v17 = KeGetCurrentThread();
+      --v17->KernelApcDisable;
       ExAcquireResourceExclusiveLite(Resource, 1u);
       p_ActiveEntries[45] &= ~4u;
     }
   }
   ExReleaseResourceLite(Resource);
-  return KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+  return KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v18, v19, v20);
 }

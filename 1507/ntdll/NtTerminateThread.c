@@ -14,11 +14,11 @@
  *     <none>
  */
 
-__int64 NtTerminateThread()
+NTSTATUS __cdecl NtTerminateThread(HANDLE ThreadHandle, NTSTATUS ExitStatus)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 83LL;
+  result = 83;
   __asm { syscall; Low latency system call }
   return result;
 }

@@ -6,7 +6,7 @@
  *     <none>
  */
 
-__int64 NtIsUILanguageComitted()
+NTSTATUS NtIsUILanguageComitted(void)
 {
   return PsUILanguageComitted == 0 ? 0xC0000034 : 0;
 }

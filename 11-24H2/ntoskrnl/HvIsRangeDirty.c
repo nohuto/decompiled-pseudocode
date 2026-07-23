@@ -1,11 +1,11 @@
 /*
- * XREFs of HvIsRangeDirty @ 0x1407E364C
+ * XREFs of HvIsRangeDirty @ 0x1407E3B9C
  * Callers:
- *     HvpRemapAndEnlistHiveBins @ 0x140982010 (HvpRemapAndEnlistHiveBins.c)
+ *     HvpRemapAndEnlistHiveBins @ 0x14096A820 (HvpRemapAndEnlistHiveBins.c)
  * Callees:
- *     RtlAreBitsClear @ 0x14044B100 (RtlAreBitsClear.c)
- *     HvLockHiveWriter @ 0x140882A38 (HvLockHiveWriter.c)
- *     HvUnlockHiveWriter @ 0x140882E28 (HvUnlockHiveWriter.c)
+ *     RtlAreBitsClear @ 0x140442240 (RtlAreBitsClear.c)
+ *     HvLockHiveWriter @ 0x1408868E8 (HvLockHiveWriter.c)
+ *     HvUnlockHiveWriter @ 0x140886CD8 (HvUnlockHiveWriter.c)
  */
 
 bool __fastcall HvIsRangeDirty(__int64 a1, int a2, ULONG a3)

@@ -1,5 +1,5 @@
 /*
- * XREFs of NtdllFilteredProcessRedirectingWndProc_A @ 0x180161BB0
+ * XREFs of NtdllFilteredProcessRedirectingWndProc_A @ 0x18015FF70
  * Callers:
  *     <none>
  * Callees:
@@ -9,5 +9,5 @@
 // attributes: thunk
 void __noreturn NtdllFilteredProcessRedirectingWndProc_A()
 {
-  off_1801E71E8();
+  off_1801E61E8();
 }

@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlpCopyEffectiveAce @ 0x140421A80
+ * XREFs of RtlpCopyEffectiveAce @ 0x140420940
  * Callers:
- *     RtlpGenerateInheritedAce @ 0x1404147B0 (RtlpGenerateInheritedAce.c)
- *     RtlpCopyAces @ 0x14041E7A0 (RtlpCopyAces.c)
+ *     RtlpGenerateInheritedAce @ 0x140413670 (RtlpGenerateInheritedAce.c)
+ *     RtlpCopyAces @ 0x14041D660 (RtlpCopyAces.c)
  * Callees:
- *     RtlLengthSid @ 0x14000C2AC (RtlLengthSid.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     RtlMapGenericMask @ 0x140400910 (RtlMapGenericMask.c)
- *     RtlEqualPrefixSid @ 0x1404C9374 (RtlEqualPrefixSid.c)
+ *     RtlLengthSid @ 0x14000BE2C (RtlLengthSid.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     RtlMapGenericMask @ 0x1403FF7D0 (RtlMapGenericMask.c)
+ *     RtlEqualPrefixSid @ 0x1404AF0F4 (RtlEqualPrefixSid.c)
  */
 
 char __fastcall RtlpCopyEffectiveAce(

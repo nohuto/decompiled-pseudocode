@@ -1,9 +1,9 @@
 /*
- * XREFs of ViPtInitAvlTrees @ 0x140ADEDE0
+ * XREFs of ViPtInitAvlTrees @ 0x140ADEDD0
  * Callers:
- *     VfPoolTrackingEntry @ 0x1405D2128 (VfPoolTrackingEntry.c)
+ *     VfPoolTrackingEntry @ 0x1405D2698 (VfPoolTrackingEntry.c)
  * Callees:
- *     RtlInitializeGenericTableAvl @ 0x14031E970 (RtlInitializeGenericTableAvl.c)
+ *     RtlInitializeGenericTableAvl @ 0x14031EC00 (RtlInitializeGenericTableAvl.c)
  */
 
 void ViPtInitAvlTrees()

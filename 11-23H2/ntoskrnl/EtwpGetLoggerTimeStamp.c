@@ -1,15 +1,15 @@
 /*
- * XREFs of EtwpGetLoggerTimeStamp @ 0x140227B4C
+ * XREFs of EtwpGetLoggerTimeStamp @ 0x140227C5C
  * Callers:
- *     EtwpPrepareDirtyBuffer @ 0x140227B88 (EtwpPrepareDirtyBuffer.c)
- *     EtwSendTraceBuffer @ 0x1405FF1A0 (EtwSendTraceBuffer.c)
- *     EtwpRelinquishCompressionTarget @ 0x140602A68 (EtwpRelinquishCompressionTarget.c)
- *     EtwpRotateCompressionTarget @ 0x140602AB8 (EtwpRotateCompressionTarget.c)
- *     EtwpInitializeTimeStamp @ 0x1407DBCB0 (EtwpInitializeTimeStamp.c)
+ *     EtwpPrepareDirtyBuffer @ 0x140227C98 (EtwpPrepareDirtyBuffer.c)
+ *     EtwSendTraceBuffer @ 0x1405FF710 (EtwSendTraceBuffer.c)
+ *     EtwpRelinquishCompressionTarget @ 0x140602FB8 (EtwpRelinquishCompressionTarget.c)
+ *     EtwpRotateCompressionTarget @ 0x140603008 (EtwpRotateCompressionTarget.c)
+ *     EtwpInitializeTimeStamp @ 0x1407DBF80 (EtwpInitializeTimeStamp.c)
  * Callees:
- *     RtlGetSystemTimePrecise @ 0x140226E10 (RtlGetSystemTimePrecise.c)
- *     KeQueryPerformanceCounter @ 0x1402C3270 (KeQueryPerformanceCounter.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     RtlGetSystemTimePrecise @ 0x140226F20 (RtlGetSystemTimePrecise.c)
+ *     KeQueryPerformanceCounter @ 0x1402C3500 (KeQueryPerformanceCounter.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 LARGE_INTEGER __fastcall EtwpGetLoggerTimeStamp(__int64 a1)
@@ -23,7 +23,7 @@ LARGE_INTEGER __fastcall EtwpGetLoggerTimeStamp(__int64 a1)
   if ( v1 > 3 )
     goto LABEL_10;
   if ( !(_DWORD)v1 )
-    return (LARGE_INTEGER)RtlGetSystemTimePrecise();
+    return RtlGetSystemTimePrecise();
   v2 = v1 - 1;
   if ( !v2 )
     return KeQueryPerformanceCounter(0LL);

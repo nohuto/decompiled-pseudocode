@@ -1,116 +1,116 @@
 /*
- * XREFs of PopPowerAggregatorEngageAggressiveStandbyActions @ 0x14075939C
+ * XREFs of PopPowerAggregatorEngageAggressiveStandbyActions @ 0x1407577FC
  * Callers:
- *     PopPowerAggregatorEngageModernStandby @ 0x140759514 (PopPowerAggregatorEngageModernStandby.c)
+ *     PopPowerAggregatorEngageModernStandby @ 0x140757974 (PopPowerAggregatorEngageModernStandby.c)
  * Callees:
- *     PopNetSetConnectivityConstraint @ 0x14075CAB8 (PopNetSetConnectivityConstraint.c)
- *     PopPdcEngagePhases @ 0x14075D474 (PopPdcEngagePhases.c)
- *     PopIsRemoteDesktopEnabled @ 0x140ABD614 (PopIsRemoteDesktopEnabled.c)
- *     PopAcquirePolicyLock @ 0x140B67CB0 (PopAcquirePolicyLock.c)
- *     PopReleasePolicyLock @ 0x140B67D00 (PopReleasePolicyLock.c)
+ *     PopNetSetConnectivityConstraint @ 0x14075BA58 (PopNetSetConnectivityConstraint.c)
+ *     PopPdcEngagePhases @ 0x14075C414 (PopPdcEngagePhases.c)
+ *     PopIsRemoteDesktopEnabled @ 0x140AB8684 (PopIsRemoteDesktopEnabled.c)
+ *     PopAcquirePolicyLock @ 0x140B69DF0 (PopAcquirePolicyLock.c)
+ *     PopReleasePolicyLock @ 0x140B69E40 (PopReleasePolicyLock.c)
  */
 
 /*
- * Hex-Rays decompilation failed for PopPowerAggregatorEngageAggressiveStandbyActions @ 0x14075939C
- * Reason: Hex-Rays returned no pseudocode for 0x14075939C
+ * Hex-Rays decompilation failed for PopPowerAggregatorEngageAggressiveStandbyActions @ 0x1407577FC
+ * Reason: Hex-Rays returned no pseudocode for 0x1407577FC
  * Fallback: raw IDA disassembly follows.
  *
- * 000000014075939C: mov     [rsp+arg_8], rbx
- * 00000001407593A1: mov     [rsp+arg_10], rbp
- * 00000001407593A6: push    rsi
- * 00000001407593A7: push    rdi
- * 00000001407593A8: push    r12
- * 00000001407593AA: push    r14
- * 00000001407593AC: push    r15
- * 00000001407593AE: sub     rsp, 20h
- * 00000001407593B2: mov     bpl, cl
- * 00000001407593B5: mov     esi, 3Ah ; ':'
- * 00000001407593BA: call    PopAcquirePolicyLock
- * 00000001407593BF: mov     r12b, cs:PopNetBIRequestActive
- * 00000001407593C6: call    PopIsRemoteDesktopEnabled
- * 00000001407593CB: mov     edi, cs:dword_140F0BA98
- * 00000001407593D1: xor     r14b, r14b
- * 00000001407593D4: mov     r15b, al
- * 00000001407593D7: test    edi, edi
- * 00000001407593D9: jz      short loc_140759434
- * 00000001407593DB: test    bpl, bpl
- * 00000001407593DE: jnz     short loc_140759434
- * 00000001407593E0: cmp     edi, 2
- * 00000001407593E3: jnz     loc_140759476
- * 00000001407593E9: test    r12b, r12b
- * 00000001407593EC: lea     ebx, [rsi-39h]
- * 00000001407593EF: setnz   al
- * 00000001407593F2: test    r15b, r15b
- * 00000001407593F5: jz      short loc_14075941C
- * 00000001407593F7: cmp     cs:dword_140E67720, ebx
- * 00000001407593FD: movzx   eax, al
- * 0000000140759400: cmovz   eax, ebx
- * 0000000140759403: cmp     cs:dword_140F0BA4C, 0
- * 000000014075940A: jnz     short loc_14075941C
- * 000000014075940C: cmp     cs:dword_140E67714, ebx
- * 0000000140759412: jz      short loc_140759476
- * 0000000140759414: cmp     cs:dword_140E67718, ebx
- * 000000014075941A: jz      short loc_140759476
- * 000000014075941C: test    al, al
- * 000000014075941E: jnz     short loc_140759476
- * 0000000140759420: mov     ecx, 7
- * 0000000140759425: mov     r14b, bl
- * 0000000140759428: call    PopNetSetConnectivityConstraint
- * 000000014075942D: mov     esi, 32h ; '2'
- * 0000000140759432: jmp     short loc_140759457
- * 0000000140759434: mov     ebx, 1
- * 0000000140759439: mov     ecx, ebx
- * 000000014075943B: call    PopNetSetConnectivityConstraint
- * 0000000140759440: mov     al, bpl
- * 0000000140759443: mov     r14b, bl
- * 0000000140759446: neg     al
- * 0000000140759448: sbb     ecx, ecx
- * 000000014075944A: and     ecx, 0FFFFFFE0h
- * 000000014075944D: add     esi, ecx
- * 000000014075944F: and     esi, 0FFFFFFF7h
- * 0000000140759452: test    bpl, bpl
- * 0000000140759455: jnz     short loc_14075945F
- * 0000000140759457: cmp     cs:dword_140F0BA9C, ebx
- * 000000014075945D: jnz     short loc_140759476
- * 000000014075945F: mov     ecx, cs:PopAggressiveStandbyAppliedActions
- * 0000000140759465: and     esi, 0FFFFFFEDh
- * 0000000140759468: xor     ecx, cs:PopAggressiveStandbyEnabledActions
- * 000000014075946E: and     ecx, ebx
- * 0000000140759470: xor     cs:PopAggressiveStandbyAppliedActions, ecx
- * 0000000140759476: mov     ecx, cs:PopAggressiveStandbyAppliedActions
- * 000000014075947C: xor     ecx, cs:PopAggressiveStandbyEnabledActions
- * 0000000140759482: and     ecx, 4
- * 0000000140759485: mov     cs:PopIdleWakeSkippingEnabled, 0
- * 000000014075948C: xor     cs:PopAggressiveStandbyAppliedActions, ecx
- * 0000000140759492: mov     ecx, cs:PopTimerRebaseThresholdRegValue
- * 0000000140759498: mov     cs:KeTimerRebaseThresholdOnDripsExit, ecx
- * 000000014075949E: test    r14b, r14b
- * 00000001407594A1: jz      short loc_1407594AA
- * 00000001407594A3: or      byte ptr cs:word_140E27CD8+1, 2
- * 00000001407594AA: test    r15b, r15b
- * 00000001407594AD: jz      short loc_1407594B6
- * 00000001407594AF: or      byte ptr cs:word_140E27CD8+1, 8
- * 00000001407594B6: test    r12b, r12b
- * 00000001407594B9: jz      short loc_1407594C2
- * 00000001407594BB: or      byte ptr cs:word_140E27CD8+1, 10h
- * 00000001407594C2: mov     al, byte ptr cs:word_140E27CD8+1
- * 00000001407594C8: and     dil, 3
- * 00000001407594CC: and     cs:dword_140E27D20, 0
- * 00000001407594D3: and     al, 9Fh
- * 00000001407594D5: shl     dil, 5
- * 00000001407594D9: or      dil, al
- * 00000001407594DC: mov     cs:dword_140E27C24, ecx
- * 00000001407594E2: mov     byte ptr cs:word_140E27CD8+1, dil
- * 00000001407594E9: call    PopReleasePolicyLock
- * 00000001407594EE: mov     ecx, esi
- * 00000001407594F0: call    PopPdcEngagePhases
- * 00000001407594F5: mov     rbx, [rsp+48h+arg_8]
- * 00000001407594FA: mov     rbp, [rsp+48h+arg_10]
- * 00000001407594FF: add     rsp, 20h
- * 0000000140759503: pop     r15
- * 0000000140759505: pop     r14
- * 0000000140759507: pop     r12
- * 0000000140759509: pop     rdi
- * 000000014075950A: pop     rsi
- * 000000014075950B: retn
+ * 00000001407577FC: mov     [rsp+arg_8], rbx
+ * 0000000140757801: mov     [rsp+arg_10], rbp
+ * 0000000140757806: push    rsi
+ * 0000000140757807: push    rdi
+ * 0000000140757808: push    r12
+ * 000000014075780A: push    r14
+ * 000000014075780C: push    r15
+ * 000000014075780E: sub     rsp, 20h
+ * 0000000140757812: mov     bpl, cl
+ * 0000000140757815: mov     esi, 3Ah ; ':'
+ * 000000014075781A: call    PopAcquirePolicyLock
+ * 000000014075781F: mov     r12b, cs:PopNetBIRequestActive
+ * 0000000140757826: call    PopIsRemoteDesktopEnabled
+ * 000000014075782B: mov     edi, cs:dword_140F0B3D8
+ * 0000000140757831: xor     r14b, r14b
+ * 0000000140757834: mov     r15b, al
+ * 0000000140757837: test    edi, edi
+ * 0000000140757839: jz      short loc_140757894
+ * 000000014075783B: test    bpl, bpl
+ * 000000014075783E: jnz     short loc_140757894
+ * 0000000140757840: cmp     edi, 2
+ * 0000000140757843: jnz     loc_1407578D6
+ * 0000000140757849: test    r12b, r12b
+ * 000000014075784C: lea     ebx, [rsi-39h]
+ * 000000014075784F: setnz   al
+ * 0000000140757852: test    r15b, r15b
+ * 0000000140757855: jz      short loc_14075787C
+ * 0000000140757857: cmp     cs:dword_140E678A8, ebx
+ * 000000014075785D: movzx   eax, al
+ * 0000000140757860: cmovz   eax, ebx
+ * 0000000140757863: cmp     cs:dword_140F0B38C, 0
+ * 000000014075786A: jnz     short loc_14075787C
+ * 000000014075786C: cmp     cs:dword_140E6789C, ebx
+ * 0000000140757872: jz      short loc_1407578D6
+ * 0000000140757874: cmp     cs:dword_140E678A0, ebx
+ * 000000014075787A: jz      short loc_1407578D6
+ * 000000014075787C: test    al, al
+ * 000000014075787E: jnz     short loc_1407578D6
+ * 0000000140757880: mov     ecx, 7
+ * 0000000140757885: mov     r14b, bl
+ * 0000000140757888: call    PopNetSetConnectivityConstraint
+ * 000000014075788D: mov     esi, 32h ; '2'
+ * 0000000140757892: jmp     short loc_1407578B7
+ * 0000000140757894: mov     ebx, 1
+ * 0000000140757899: mov     ecx, ebx
+ * 000000014075789B: call    PopNetSetConnectivityConstraint
+ * 00000001407578A0: mov     al, bpl
+ * 00000001407578A3: mov     r14b, bl
+ * 00000001407578A6: neg     al
+ * 00000001407578A8: sbb     ecx, ecx
+ * 00000001407578AA: and     ecx, 0FFFFFFE0h
+ * 00000001407578AD: add     esi, ecx
+ * 00000001407578AF: and     esi, 0FFFFFFF7h
+ * 00000001407578B2: test    bpl, bpl
+ * 00000001407578B5: jnz     short loc_1407578BF
+ * 00000001407578B7: cmp     cs:dword_140F0B3DC, ebx
+ * 00000001407578BD: jnz     short loc_1407578D6
+ * 00000001407578BF: mov     ecx, cs:PopAggressiveStandbyAppliedActions
+ * 00000001407578C5: and     esi, 0FFFFFFEDh
+ * 00000001407578C8: xor     ecx, cs:PopAggressiveStandbyEnabledActions
+ * 00000001407578CE: and     ecx, ebx
+ * 00000001407578D0: xor     cs:PopAggressiveStandbyAppliedActions, ecx
+ * 00000001407578D6: mov     ecx, cs:PopAggressiveStandbyAppliedActions
+ * 00000001407578DC: xor     ecx, cs:PopAggressiveStandbyEnabledActions
+ * 00000001407578E2: and     ecx, 4
+ * 00000001407578E5: mov     cs:PopIdleWakeSkippingEnabled, 0
+ * 00000001407578EC: xor     cs:PopAggressiveStandbyAppliedActions, ecx
+ * 00000001407578F2: mov     ecx, cs:PopTimerRebaseThresholdRegValue
+ * 00000001407578F8: mov     cs:KeTimerRebaseThresholdOnDripsExit, ecx
+ * 00000001407578FE: test    r14b, r14b
+ * 0000000140757901: jz      short loc_14075790A
+ * 0000000140757903: or      byte ptr cs:word_140E27E18+1, 2
+ * 000000014075790A: test    r15b, r15b
+ * 000000014075790D: jz      short loc_140757916
+ * 000000014075790F: or      byte ptr cs:word_140E27E18+1, 8
+ * 0000000140757916: test    r12b, r12b
+ * 0000000140757919: jz      short loc_140757922
+ * 000000014075791B: or      byte ptr cs:word_140E27E18+1, 10h
+ * 0000000140757922: mov     al, byte ptr cs:word_140E27E18+1
+ * 0000000140757928: and     dil, 3
+ * 000000014075792C: and     cs:dword_140E27E60, 0
+ * 0000000140757933: and     al, 9Fh
+ * 0000000140757935: shl     dil, 5
+ * 0000000140757939: or      dil, al
+ * 000000014075793C: mov     cs:dword_140E27D64, ecx
+ * 0000000140757942: mov     byte ptr cs:word_140E27E18+1, dil
+ * 0000000140757949: call    PopReleasePolicyLock
+ * 000000014075794E: mov     ecx, esi
+ * 0000000140757950: call    PopPdcEngagePhases
+ * 0000000140757955: mov     rbx, [rsp+48h+arg_8]
+ * 000000014075795A: mov     rbp, [rsp+48h+arg_10]
+ * 000000014075795F: add     rsp, 20h
+ * 0000000140757963: pop     r15
+ * 0000000140757965: pop     r14
+ * 0000000140757967: pop     r12
+ * 0000000140757969: pop     rdi
+ * 000000014075796A: pop     rsi
+ * 000000014075796B: retn
  */

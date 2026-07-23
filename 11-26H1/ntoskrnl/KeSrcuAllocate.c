@@ -1,12 +1,12 @@
 /*
- * XREFs of KeSrcuAllocate @ 0x1405F4C70
+ * XREFs of KeSrcuAllocate @ 0x1405F7630
  * Callers:
  *     <none>
  * Callees:
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiSrcuInitializeTopology @ 0x1405F5400 (KiSrcuInitializeTopology.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiSrcuInitializeTopology @ 0x1405F7DC0 (KiSrcuInitializeTopology.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall KeSrcuAllocate(int a1, int a2)
@@ -53,20 +53,20 @@ __int64 __fastcall KeSrcuAllocate(int a1, int a2)
   unsigned int v44; // [rsp+80h] [rbp+18h]
   unsigned __int64 v45; // [rsp+88h] [rbp+20h]
 
-  while ( !byte_140F14C80 )
+  while ( !byte_140F14FC0 )
   {
     if ( !(unsigned int)KiSrcuInitializeTopology() )
       return 0LL;
   }
-  v3 = byte_140F14C81;
-  v4 = &byte_140F14C84;
+  v3 = byte_140F14FC1;
+  v4 = &byte_140F14FC4;
   v5 = 0;
-  v6 = (unsigned __int8)byte_140F14C81;
-  v7 = byte_140F14C81 - 1;
-  if ( byte_140F14C81 )
+  v6 = (unsigned __int8)byte_140F14FC1;
+  v7 = byte_140F14FC1 - 1;
+  if ( byte_140F14FC1 )
   {
-    v8 = &byte_140F14C84;
-    v9 = (unsigned __int8)byte_140F14C81;
+    v8 = &byte_140F14FC4;
+    v9 = (unsigned __int8)byte_140F14FC1;
     do
     {
       v10 = (unsigned __int8)*v8++;
@@ -75,14 +75,14 @@ __int64 __fastcall KeSrcuAllocate(int a1, int a2)
     }
     while ( v9 );
   }
-  v11 = (unsigned int)dword_140F14C88;
+  v11 = (unsigned int)dword_140F14FC8;
   v12 = v7;
   v13 = *((unsigned __int8 *)&KiSrcuState[4] + v7 + 2);
   if ( v13 > 0x20 )
     v13 = 32;
   v44 = v13;
-  v45 = (unsigned __int64)(unsigned int)dword_140F14C88 << 6;
-  v14 = (v13 + dword_140F14C88 - 1) / v13;
+  v45 = (unsigned __int64)(unsigned int)dword_140F14FC8 << 6;
+  v14 = (v13 + dword_140F14FC8 - 1) / v13;
   Pool2 = ExAllocatePool2(0x40uLL);
   v16 = Pool2;
   if ( !Pool2 )
@@ -117,7 +117,7 @@ __int64 __fastcall KeSrcuAllocate(int a1, int a2)
       v27 = v23 + 56;
       v24[2] = v16;
       v24 += 8;
-      v28 = v25 + qword_140F14C90;
+      v28 = v25 + qword_140F14FD0;
       v25 += 8LL;
       *(v24 - 7) = v28;
       if ( v22 + 1 < v21 )
@@ -129,7 +129,7 @@ __int64 __fastcall KeSrcuAllocate(int a1, int a2)
     while ( v26 );
   }
   v29 = 1;
-  for ( *(_QWORD *)(*(_QWORD *)(v16 + 16) + 8LL) = qword_140F14C98; v29 < v3; ++v29 )
+  for ( *(_QWORD *)(*(_QWORD *)(v16 + 16) + 8LL) = qword_140F14FD8; v29 < v3; ++v29 )
   {
     v30 = 0;
     v31 = 0;
@@ -181,19 +181,19 @@ __int64 __fastcall KeSrcuAllocate(int a1, int a2)
     }
     while ( v38 );
   }
-  v41 = KeAcquireSpinLockRaiseToDpc(&qword_140F14C70);
+  v41 = KeAcquireSpinLockRaiseToDpc(&qword_140F14FB0);
   if ( !KiSrcuState[0] )
   {
-    qword_140F14C68 = (__int64)KiSrcuState;
+    qword_140F14FA8 = (__int64)KiSrcuState;
     KiSrcuState[0] = (__int64)KiSrcuState;
   }
-  v42 = (__int64 *)qword_140F14C68;
-  if ( *(__int64 **)qword_140F14C68 != KiSrcuState )
+  v42 = (__int64 *)qword_140F14FA8;
+  if ( *(__int64 **)qword_140F14FA8 != KiSrcuState )
     __fastfail(3u);
-  *(_QWORD *)(v16 + 8) = qword_140F14C68;
+  *(_QWORD *)(v16 + 8) = qword_140F14FA8;
   *(_QWORD *)v16 = KiSrcuState;
   *v42 = v16;
-  qword_140F14C68 = v16;
-  KeReleaseSpinLock(&qword_140F14C70, v41);
+  qword_140F14FA8 = v16;
+  KeReleaseSpinLock(&qword_140F14FB0, v41);
   return v16;
 }

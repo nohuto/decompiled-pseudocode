@@ -1,8 +1,8 @@
 /*
- * XREFs of PopPepCancelActivityRange @ 0x140313898
+ * XREFs of PopPepCancelActivityRange @ 0x140313B28
  * Callers:
- *     PopPepUpdateConstraints @ 0x14028D234 (PopPepUpdateConstraints.c)
- *     PopPepCancelActivities @ 0x1403141D8 (PopPepCancelActivities.c)
+ *     PopPepUpdateConstraints @ 0x14028D4C4 (PopPepUpdateConstraints.c)
+ *     PopPepCancelActivities @ 0x140314468 (PopPepCancelActivities.c)
  * Callees:
  *     <none>
  */

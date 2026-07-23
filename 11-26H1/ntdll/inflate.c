@@ -1,14 +1,14 @@
 /*
- * XREFs of inflate @ 0x1801531E0
+ * XREFs of inflate @ 0x1801530B0
  * Callers:
- *     RtlDecompressBufferDeflateInternal @ 0x180151238 (RtlDecompressBufferDeflateInternal.c)
+ *     RtlDecompressBufferDeflateInternal @ 0x180151108 (RtlDecompressBufferDeflateInternal.c)
  * Callees:
- *     inflateStateCheck @ 0x1801542E8 (inflateStateCheck.c)
- *     updatewindow @ 0x180154328 (updatewindow.c)
- *     adler32_z @ 0x180155CD4 (adler32_z.c)
- *     inflate_table @ 0x1801560C0 (inflate_table.c)
- *     inflate_fast @ 0x180156558 (inflate_fast.c)
- *     memmove @ 0x180164700 (memmove.c)
+ *     inflateStateCheck @ 0x1801541B8 (inflateStateCheck.c)
+ *     updatewindow @ 0x1801541F8 (updatewindow.c)
+ *     adler32_z @ 0x180155BA4 (adler32_z.c)
+ *     inflate_table @ 0x180155F90 (inflate_table.c)
+ *     inflate_fast @ 0x180156428 (inflate_fast.c)
+ *     memmove @ 0x180164600 (memmove.c)
  */
 
 __int64 __fastcall inflate(unsigned __int8 **a1)
@@ -372,12 +372,12 @@ LABEL_84:
                 }
                 v40 = v9 & 7;
                 v9 >>= 3;
-                *(_WORD *)&v3[2 * word_1801923D0[(*((_DWORD *)v3 + 33))++] + 144] = v40;
+                *(_WORD *)&v3[2 * word_1801913D0[(*((_DWORD *)v3 + 33))++] + 144] = v40;
                 v10 -= 3;
               }
               while ( (unsigned int)v39 < 0x13 )
               {
-                *(_WORD *)&v3[2 * word_1801923D0[v39] + 144] = 0;
+                *(_WORD *)&v3[2 * word_1801913D0[v39] + 144] = 0;
                 v39 = (unsigned int)++*((_DWORD *)v3 + 33);
               }
               *v11 = 7;
@@ -676,7 +676,7 @@ LABEL_25:
                   case 1u:
                     *v11 = 9;
                     *((_QWORD *)v3 + 12) = "`\a";
-                    *((_QWORD *)v3 + 13) = &unk_180192350;
+                    *((_QWORD *)v3 + 13) = &unk_180191350;
                     *v12 = 5;
                     *((_DWORD *)v3 + 2) = 16199;
                     break;

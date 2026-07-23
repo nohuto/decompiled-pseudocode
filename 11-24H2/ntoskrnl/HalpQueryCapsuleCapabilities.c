@@ -1,15 +1,15 @@
 /*
- * XREFs of HalpQueryCapsuleCapabilities @ 0x1405626B0
+ * XREFs of HalpQueryCapsuleCapabilities @ 0x1405602E0
  * Callers:
  *     <none>
  * Callees:
- *     KeSetSystemGroupAffinityThread @ 0x140339650 (KeSetSystemGroupAffinityThread.c)
- *     KeRevertToUserGroupAffinityThread @ 0x14033A250 (KeRevertToUserGroupAffinityThread.c)
- *     HalpEfiStartRuntimeCode @ 0x1404443A4 (HalpEfiStartRuntimeCode.c)
- *     HalpConvertEfiToNtStatus @ 0x1404443FC (HalpConvertEfiToNtStatus.c)
- *     HalpEfiIncrementEfiCall @ 0x14045E854 (HalpEfiIncrementEfiCall.c)
- *     HalpEfiDecrementEfiCall @ 0x140486128 (HalpEfiDecrementEfiCall.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     KeSetSystemGroupAffinityThread @ 0x140318B30 (KeSetSystemGroupAffinityThread.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x140319730 (KeRevertToUserGroupAffinityThread.c)
+ *     HalpEfiStartRuntimeCode @ 0x140439E44 (HalpEfiStartRuntimeCode.c)
+ *     HalpConvertEfiToNtStatus @ 0x140439E9C (HalpConvertEfiToNtStatus.c)
+ *     HalpEfiIncrementEfiCall @ 0x140453714 (HalpEfiIncrementEfiCall.c)
+ *     HalpEfiDecrementEfiCall @ 0x140481718 (HalpEfiDecrementEfiCall.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 __int64 __fastcall HalpQueryCapsuleCapabilities(__int64 a1, unsigned int a2, __int64 a3, __int64 a4)
@@ -19,8 +19,8 @@ __int64 __fastcall HalpQueryCapsuleCapabilities(__int64 a1, unsigned int a2, __i
   unsigned int v10; // ecx
   __int64 v11; // r8
   unsigned int v12; // ebx
-  struct _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-58h] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+30h] [rbp-48h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-58h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+30h] [rbp-48h] BYREF
 
   v4 = a2;
   Affinity = 0LL;

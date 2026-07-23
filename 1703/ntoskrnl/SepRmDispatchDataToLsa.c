@@ -30,11 +30,11 @@ __int64 __fastcall SepRmDispatchDataToLsa(__int64 a1)
   HANDLE v13; // rax
   int v14; // eax
   ULONG_PTR RegionSize; // [rsp+30h] [rbp-D8h] BYREF
-  struct _PORT_MESSAGE LpcMessage; // [rsp+38h] [rbp-D0h] BYREF
+  _PORT_MESSAGE LpcMessage; // [rsp+38h] [rbp-D0h] BYREF
   int v17; // [rsp+60h] [rbp-A8h]
   int v18; // [rsp+64h] [rbp-A4h]
   PVOID BaseAddress[58]; // [rsp+68h] [rbp-A0h] BYREF
-  struct _PORT_MESSAGE LpcRequest; // [rsp+238h] [rbp+130h] BYREF
+  _PORT_MESSAGE LpcRequest; // [rsp+238h] [rbp+130h] BYREF
   int v21; // [rsp+260h] [rbp+158h]
   char Src[468]; // [rsp+264h] [rbp+15Ch] BYREF
 

@@ -1,40 +1,40 @@
 /*
- * XREFs of MiSelectUserAddress @ 0x1405FA9A0
+ * XREFs of MiSelectUserAddress @ 0x1406EA100
  * Callers:
- *     MiMapViewOfImageSection @ 0x14061CEB0 (MiMapViewOfImageSection.c)
- *     MiAllocateNewSubAllocatedRegion @ 0x14069F198 (MiAllocateNewSubAllocatedRegion.c)
- *     MiReserveUserMemory @ 0x1406EA4D0 (MiReserveUserMemory.c)
- *     MiMapViewOfDataSection @ 0x1406EC100 (MiMapViewOfDataSection.c)
- *     MiMapLockedPagesInUserSpace @ 0x14076B6A0 (MiMapLockedPagesInUserSpace.c)
- *     MiMapViewOfPhysicalSection @ 0x1407C2C08 (MiMapViewOfPhysicalSection.c)
- *     MiAllocateEnclaveVad @ 0x1408D1E58 (MiAllocateEnclaveVad.c)
+ *     MiAllocateNewSubAllocatedRegion @ 0x1405FE4DC (MiAllocateNewSubAllocatedRegion.c)
+ *     MiMapViewOfImageSection @ 0x140686B20 (MiMapViewOfImageSection.c)
+ *     MiReserveUserMemory @ 0x1407018B0 (MiReserveUserMemory.c)
+ *     MiMapViewOfDataSection @ 0x1407034E0 (MiMapViewOfDataSection.c)
+ *     MiMapLockedPagesInUserSpace @ 0x14076B860 (MiMapLockedPagesInUserSpace.c)
+ *     MiMapViewOfPhysicalSection @ 0x1407C3128 (MiMapViewOfPhysicalSection.c)
+ *     MiAllocateEnclaveVad @ 0x1408D1FB8 (MiAllocateEnclaveVad.c)
  * Callees:
- *     MiFindEmptyAddressRange @ 0x1405FAB40 (MiFindEmptyAddressRange.c)
- *     MiFindEmptyAddressRangeDown @ 0x14068B294 (MiFindEmptyAddressRangeDown.c)
+ *     MiFindEmptyAddressRangeDown @ 0x1405EB104 (MiFindEmptyAddressRangeDown.c)
+ *     MiFindEmptyAddressRange @ 0x1406EA2A0 (MiFindEmptyAddressRange.c)
  */
 
 __int64 __fastcall MiSelectUserAddress(
         int a1,
-        __int64 a2,
+        unsigned __int64 a2,
         unsigned __int64 a3,
         unsigned __int64 a4,
         __int64 a5,
         __int64 a6,
-        int a7,
+        char a7,
         unsigned int a8,
         __int64 *a9,
         _QWORD *a10)
 {
   __int64 *v11; // r14
-  __int64 v13; // r8
-  int v14; // r10d
+  unsigned __int64 v13; // r8
+  unsigned __int64 v14; // r10
   struct _KTHREAD *CurrentThread; // rax
   unsigned int v16; // ecx
   _KPROCESS *Process; // rsi
   unsigned __int64 v18; // rdx
   __int64 v19; // rdi
   __int64 v20; // rbp
-  int v21; // r15d
+  char v21; // r15
   int v22; // ebx
   int v23; // r12d
   __int64 v24; // r14

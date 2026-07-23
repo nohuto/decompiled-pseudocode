@@ -1,16 +1,16 @@
 /*
- * XREFs of ExpTryAcquireSpinLockShared @ 0x140277630
+ * XREFs of ExpTryAcquireSpinLockShared @ 0x1402778C0
  * Callers:
  *     MiLocateCombineBlock @ 0x140215B20 (MiLocateCombineBlock.c)
- *     MiQueryAddressSpan @ 0x140273D60 (MiQueryAddressSpan.c)
- *     MiCommitExistingVad @ 0x140276A30 (MiCommitExistingVad.c)
- *     MiSetProtectionOnSection @ 0x140277C80 (MiSetProtectionOnSection.c)
- *     MiLockPageListAndLastPage @ 0x140278FA0 (MiLockPageListAndLastPage.c)
- *     MiEndingOffsetWithLock @ 0x140279E50 (MiEndingOffsetWithLock.c)
- *     MiGetControlAreaPtes @ 0x140288610 (MiGetControlAreaPtes.c)
- *     ExTryAcquireSpinLockSharedAtDpcLevel @ 0x14046B410 (ExTryAcquireSpinLockSharedAtDpcLevel.c)
- *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x14046B4F2 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
- *     ExpTryAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x14060B120 (ExpTryAcquireSpinLockSharedAtDpcLevelInstrumented.c)
+ *     MiQueryAddressSpan @ 0x140273FF0 (MiQueryAddressSpan.c)
+ *     MiCommitExistingVad @ 0x140276CC0 (MiCommitExistingVad.c)
+ *     MiSetProtectionOnSection @ 0x140277F10 (MiSetProtectionOnSection.c)
+ *     MiLockPageListAndLastPage @ 0x140279230 (MiLockPageListAndLastPage.c)
+ *     MiEndingOffsetWithLock @ 0x14027A0E0 (MiEndingOffsetWithLock.c)
+ *     MiGetControlAreaPtes @ 0x1402888A0 (MiGetControlAreaPtes.c)
+ *     ExTryAcquireSpinLockSharedAtDpcLevel @ 0x14046B810 (ExTryAcquireSpinLockSharedAtDpcLevel.c)
+ *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x14046B8F2 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
+ *     ExpTryAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x14060B670 (ExpTryAcquireSpinLockSharedAtDpcLevelInstrumented.c)
  * Callees:
  *     <none>
  */

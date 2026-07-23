@@ -1,21 +1,21 @@
 /*
- * XREFs of MiCheckSecuredVad @ 0x14095DB28
+ * XREFs of MiCheckSecuredVad @ 0x140A033E8
  * Callers:
- *     MiFindPlaceholderVadToReplace @ 0x1404CC098 (MiFindPlaceholderVadToReplace.c)
- *     MiUnmapLockedPagesInUserSpace @ 0x14095CF04 (MiUnmapLockedPagesInUserSpace.c)
- *     MmSecureVirtualMemoryAgainstWrites @ 0x14095D738 (MmSecureVirtualMemoryAgainstWrites.c)
- *     MmProtectVirtualMemory @ 0x14095E5D8 (MmProtectVirtualMemory.c)
- *     MiFreeVirtualMemory @ 0x14095F790 (MiFreeVirtualMemory.c)
- *     MiCoalescePlaceholderAllocations @ 0x14095FF68 (MiCoalescePlaceholderAllocations.c)
- *     MiUnmapViewOfSectionPrepare @ 0x1409C40F0 (MiUnmapViewOfSectionPrepare.c)
- *     MiAllocateVirtualMemory @ 0x1409F3464 (MiAllocateVirtualMemory.c)
- *     MiCommitFileBackedSection @ 0x140A58878 (MiCommitFileBackedSection.c)
- *     MiCheckResetDiscardVirtualMemory @ 0x140AB1810 (MiCheckResetDiscardVirtualMemory.c)
+ *     MiFindPlaceholderVadToReplace @ 0x1404C5AC8 (MiFindPlaceholderVadToReplace.c)
+ *     MiUnmapViewOfSectionPrepare @ 0x1409950D0 (MiUnmapViewOfSectionPrepare.c)
+ *     MiAllocateVirtualMemory @ 0x1409EFC34 (MiAllocateVirtualMemory.c)
+ *     MiUnmapLockedPagesInUserSpace @ 0x140A027C4 (MiUnmapLockedPagesInUserSpace.c)
+ *     MmSecureVirtualMemoryAgainstWrites @ 0x140A02FF8 (MmSecureVirtualMemoryAgainstWrites.c)
+ *     MmProtectVirtualMemory @ 0x140A03E98 (MmProtectVirtualMemory.c)
+ *     MiFreeVirtualMemory @ 0x140A05050 (MiFreeVirtualMemory.c)
+ *     MiCoalescePlaceholderAllocations @ 0x140A05828 (MiCoalescePlaceholderAllocations.c)
+ *     MiCommitFileBackedSection @ 0x140A65DF8 (MiCommitFileBackedSection.c)
+ *     MiCheckResetDiscardVirtualMemory @ 0x140AAF800 (MiCheckResetDiscardVirtualMemory.c)
  * Callees:
- *     MiComparePteProtections @ 0x1403069EC (MiComparePteProtections.c)
- *     MiGetVadPageSize @ 0x14044F880 (MiGetVadPageSize.c)
- *     MiReadVadFlags @ 0x1404655D0 (MiReadVadFlags.c)
- *     PfpPartitionToParent @ 0x1404D5F40 (PfpPartitionToParent.c)
+ *     MiComparePteProtections @ 0x1402E8A6C (MiComparePteProtections.c)
+ *     MiGetVadPageSize @ 0x1404479B0 (MiGetVadPageSize.c)
+ *     MiReadVadFlags @ 0x14045E590 (MiReadVadFlags.c)
+ *     PfpPartitionToParent @ 0x1404CF710 (PfpPartitionToParent.c)
  */
 
 __int64 __fastcall MiCheckSecuredVad(
@@ -77,8 +77,8 @@ __int64 __fastcall MiCheckSecuredVad(
           if ( a4 < 0x55 )
           {
             if ( (((*(unsigned int *)(a1 + 24) | ((unsigned __int64)*(unsigned __int8 *)(a1 + 32) << 32)) & 0xFFFFFFFFFFFFFLL) == 0x7FFE0
-               || (*(unsigned int *)(a1 + 24) | ((unsigned __int64)*(unsigned __int8 *)(a1 + 32) << 32)) << 12 == qword_140E2D638
-               && qword_140E2D638)
+               || (*(unsigned int *)(a1 + 24) | ((unsigned __int64)*(unsigned __int8 *)(a1 + 32) << 32)) << 12 == qword_140E2D7B8
+               && qword_140E2D7B8)
               && (KeGetCurrentThread()->ApcState.Process[3].ActiveGroupsMask.Masks[1] & 0x100000000LL) == 0 )
             {
               return 3221225541LL;

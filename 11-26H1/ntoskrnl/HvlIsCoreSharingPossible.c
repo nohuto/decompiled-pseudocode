@@ -1,8 +1,8 @@
 /*
- * XREFs of HvlIsCoreSharingPossible @ 0x1405B8778
+ * XREFs of HvlIsCoreSharingPossible @ 0x1405BAFE8
  * Callers:
- *     KiOptimizeSpecCtrlSettingsWorker @ 0x1405F2470 (KiOptimizeSpecCtrlSettingsWorker.c)
- *     VslConnectSwInterrupt @ 0x140D06C2C (VslConnectSwInterrupt.c)
+ *     KiOptimizeSpecCtrlSettingsWorker @ 0x1405F4E30 (KiOptimizeSpecCtrlSettingsWorker.c)
+ *     VslConnectSwInterrupt @ 0x140D0CEFC (VslConnectSwInterrupt.c)
  * Callees:
  *     <none>
  */

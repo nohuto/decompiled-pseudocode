@@ -1,16 +1,16 @@
 /*
- * XREFs of EtwpTraceImageUnload @ 0x1403C4AF8
+ * XREFs of EtwpTraceImageUnload @ 0x1403B36B8
  * Callers:
- *     EtwpTraceImageUnloadApc @ 0x1403C4A00 (EtwpTraceImageUnloadApc.c)
- *     EtwpCancelTraceImageUnloadApc @ 0x14064E3D0 (EtwpCancelTraceImageUnloadApc.c)
- *     PerfLogImageUnload @ 0x1408E6808 (PerfLogImageUnload.c)
- *     EtwpEnumerateAddressSpace @ 0x1409690F0 (EtwpEnumerateAddressSpace.c)
+ *     EtwpTraceImageUnloadApc @ 0x1403B35C0 (EtwpTraceImageUnloadApc.c)
+ *     EtwpCancelTraceImageUnloadApc @ 0x14064C9E0 (EtwpCancelTraceImageUnloadApc.c)
+ *     EtwpEnumerateAddressSpace @ 0x140951B80 (EtwpEnumerateAddressSpace.c)
+ *     PerfLogImageUnload @ 0x140A0E50C (PerfLogImageUnload.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x140255180 (EtwTraceKernelEvent.c)
- *     EtwpLogKernelEvent @ 0x140257180 (EtwpLogKernelEvent.c)
- *     PsGetServerSiloGlobals @ 0x140349380 (PsGetServerSiloGlobals.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     EtwpPsProvTraceImage @ 0x140A033D8 (EtwpPsProvTraceImage.c)
+ *     EtwTraceKernelEvent @ 0x140285790 (EtwTraceKernelEvent.c)
+ *     EtwpLogKernelEvent @ 0x140287790 (EtwpLogKernelEvent.c)
+ *     PsGetServerSiloGlobals @ 0x1403C2DC0 (PsGetServerSiloGlobals.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     EtwpPsProvTraceImage @ 0x1409FF944 (EtwpPsProvTraceImage.c)
  */
 
 void __fastcall EtwpTraceImageUnload(
@@ -48,7 +48,7 @@ void __fastcall EtwpTraceImageUnload(
   _QWORD v32[3]; // [rsp+80h] [rbp-41h] BYREF
   int v33; // [rsp+98h] [rbp-29h]
   int v34; // [rsp+9Ch] [rbp-25h]
-  __int64 *v35; // [rsp+A0h] [rbp-21h]
+  int *v35; // [rsp+A0h] [rbp-21h]
   __int64 v36; // [rsp+A8h] [rbp-19h]
 
   memset(v31, 0, sizeof(v31));
@@ -103,7 +103,7 @@ void __fastcall EtwpTraceImageUnload(
       }
       if ( v14 )
       {
-        v19 = *((_QWORD *)PsGetServerSiloGlobals(v14) + 104);
+        v19 = *(_QWORD *)(PsGetServerSiloGlobals(v14) + 832);
         if ( v19 )
         {
           v20 = *(_DWORD *)(v19 + 4520);

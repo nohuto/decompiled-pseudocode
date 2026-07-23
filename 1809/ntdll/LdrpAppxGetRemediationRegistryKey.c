@@ -6,107 +6,106 @@
  *     RtlGetPersistedStateLocation @ 0x1800296A0 (RtlGetPersistedStateLocation.c)
  *     RtlStringCbCatW @ 0x1800533D8 (RtlStringCbCatW.c)
  *     RtlStringLengthWorkerW @ 0x1800534A8 (RtlStringLengthWorkerW.c)
- *     __security_check_cookie @ 0x18008FEC0 (__security_check_cookie.c)
- *     NtOpenKeyEx @ 0x1800A2610 (NtOpenKeyEx.c)
+ *     __security_check_cookie @ 0x18008FED0 (__security_check_cookie.c)
+ *     NtOpenKeyEx @ 0x1800A2630 (NtOpenKeyEx.c)
  */
 
-__int64 __fastcall LdrpAppxGetRemediationRegistryKey(int a1, __int64 a2)
+NTSTATUS __fastcall LdrpAppxGetRemediationRegistryKey(int a1, __int64 a2, HANDLE *a3)
 {
-  __int64 result; // rax
-  __int64 v5; // r11
-  char *v6; // rcx
+  NTSTATUS result; // eax
   __int64 v7; // r11
-  __int64 v8; // rax
-  signed __int64 v9; // rdx
-  __int16 v10; // r8
-  char *v11; // rax
-  int v12; // r8d
-  __int64 v13; // [rsp+40h] [rbp-C0h] BYREF
-  __int64 v14; // [rsp+48h] [rbp-B8h] BYREF
-  _WORD *v15; // [rsp+50h] [rbp-B0h]
-  int v16; // [rsp+58h] [rbp-A8h]
-  __int64 v17; // [rsp+60h] [rbp-A0h]
-  __int64 *v18; // [rsp+68h] [rbp-98h]
-  int v19; // [rsp+70h] [rbp-90h]
-  __int128 v20; // [rsp+78h] [rbp-88h]
-  _WORD v21[264]; // [rsp+90h] [rbp-70h] BYREF
+  WCHAR *v8; // rcx
+  __int64 v9; // r11
+  __int64 v10; // rax
+  char *v11; // rdx
+  WCHAR v12; // r8
+  WCHAR *v13; // rax
+  int v14; // r8d
+  ACCESS_MASK v15; // edx
+  ULONG BufferLengthOut[2]; // [rsp+40h] [rbp-C0h] BYREF
+  __int64 v17; // [rsp+48h] [rbp-B8h] BYREF
+  WCHAR *v18; // [rsp+50h] [rbp-B0h]
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+58h] [rbp-A8h] BYREF
+  WCHAR TargetPath[264]; // [rsp+90h] [rbp-70h] BYREF
 
   result = RtlGetPersistedStateLocation(
              L"AppxStateChange",
              L"TargetNtPath",
              L"\\Registry\\Machine\\Software\\Microsoft\\Windows\\CurrentVersion\\AppModel\\StateChange",
-             0,
-             v21,
+             LocationTypeRegistry,
+             TargetPath,
              0x20Au,
-             (unsigned int *)&v13);
-  if ( (int)result >= 0 )
+             BufferLengthOut);
+  if ( result >= 0 )
   {
     if ( a1 != -1073740702 )
     {
-      v14 = 0LL;
-      v15 = 0LL;
-      v12 = RtlStringLengthWorkerW(v21, 0x7FFFLL, &v13);
-      if ( v12 >= 0 )
+      v17 = 0LL;
+      v18 = 0LL;
+      v14 = RtlStringLengthWorkerW(TargetPath, 0x7FFFLL, BufferLengthOut);
+      if ( v14 >= 0 )
       {
-        LOWORD(v14) = 2 * v13;
-        WORD1(v14) = 2 * v13 + 2;
-        v15 = v21;
+        LOWORD(v17) = 2 * LOWORD(BufferLengthOut[0]);
+        WORD1(v17) = 2 * LOWORD(BufferLengthOut[0]) + 2;
+        v18 = TargetPath;
+        v15 = 131097;
         goto LABEL_19;
       }
-      return (unsigned int)v12;
+      return v14;
     }
-    result = RtlStringLengthWorkerW(v21, 261LL, &v13);
-    if ( (int)result >= 0 )
+    result = RtlStringLengthWorkerW(TargetPath, 261LL, BufferLengthOut);
+    if ( result >= 0 )
     {
-      v6 = (char *)&v21[v13];
-      v7 = v5 - v13;
-      if ( v7 )
+      v8 = &TargetPath[*(_QWORD *)BufferLengthOut];
+      v9 = v7 - *(_QWORD *)BufferLengthOut;
+      if ( v9 )
       {
-        v8 = v7 + v13 + 2147483385;
-        v9 = (char *)L"\\PackageList\\" - v6;
+        v10 = v9 + *(_QWORD *)BufferLengthOut + 2147483385LL;
+        v11 = (char *)((char *)L"\\PackageList\\" - (char *)v8);
         do
         {
-          if ( !v8 )
-            break;
-          v10 = *(_WORD *)&v6[v9];
           if ( !v10 )
             break;
-          *(_WORD *)v6 = v10;
-          --v8;
-          v6 += 2;
-          --v7;
+          v12 = *(WCHAR *)((char *)v8 + (_QWORD)v11);
+          if ( !v12 )
+            break;
+          *v8 = v12;
+          --v10;
+          ++v8;
+          --v9;
         }
-        while ( v7 );
+        while ( v9 );
       }
-      v11 = v6 - 2;
-      if ( v7 )
-        v11 = v6;
-      *(_WORD *)v11 = 0;
-      result = 2147483653LL;
-      if ( v7 )
-        result = 0LL;
-      if ( (int)result >= 0 )
+      v13 = v8 - 1;
+      if ( v9 )
+        v13 = v8;
+      *v13 = 0;
+      result = -2147483643;
+      if ( v9 )
+        result = 0;
+      if ( result >= 0 )
       {
-        result = RtlStringCbCatW((__int64)v21, 0x20AuLL, a2);
-        if ( (int)result >= 0 )
+        result = RtlStringCbCatW((__int64)TargetPath, 0x20AuLL, a2);
+        if ( result >= 0 )
         {
-          v14 = 0LL;
-          v15 = 0LL;
-          v12 = RtlStringLengthWorkerW(v21, 0x7FFFLL, &v13);
-          if ( v12 >= 0 )
+          v17 = 0LL;
+          v18 = 0LL;
+          v14 = RtlStringLengthWorkerW(TargetPath, 0x7FFFLL, BufferLengthOut);
+          if ( v14 >= 0 )
           {
-            LOWORD(v14) = 2 * v13;
-            WORD1(v14) = 2 * v13 + 2;
-            v15 = v21;
+            LOWORD(v17) = 2 * LOWORD(BufferLengthOut[0]);
+            WORD1(v17) = 2 * LOWORD(BufferLengthOut[0]) + 2;
+            v18 = TargetPath;
+            v15 = 131353;
 LABEL_19:
-            v16 = 48;
-            v18 = &v14;
-            v17 = 0LL;
-            v19 = 64;
-            v20 = 0LL;
-            return NtOpenKeyEx();
+            ObjectAttributes.Length = 48;
+            ObjectAttributes.ObjectName = (PUNICODE_STRING)&v17;
+            ObjectAttributes.RootDirectory = 0LL;
+            ObjectAttributes.Attributes = 64;
+            *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+            return NtOpenKeyEx(a3, v15, &ObjectAttributes, 0);
           }
-          return (unsigned int)v12;
+          return v14;
         }
       }
     }

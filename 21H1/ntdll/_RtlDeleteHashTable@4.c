@@ -6,32 +6,32 @@
  *     _RtlFreeHeap@12 @ 0x4B2C3B70 (_RtlFreeHeap@12.c)
  */
 
-unsigned int __stdcall RtlDeleteHashTable(int a1)
+LOGICAL __cdecl RtlDeleteHashTable(PRTL_DYNAMIC_HASH_TABLE HashTable)
 {
-  unsigned int result; // eax
-  int v2; // esi
+  LOGICAL result; // eax
+  _DWORD *Directory; // esi
   unsigned int i; // ebx
 
-  result = *(_DWORD *)(a1 + 8);
-  v2 = *(_DWORD *)(a1 + 32);
+  result = HashTable->TableSize;
+  Directory = HashTable->Directory;
   if ( result > 0x80 )
   {
-    if ( v2 )
+    if ( Directory )
     {
       for ( i = 0; i < 0x10; ++i )
       {
-        if ( !*(_DWORD *)(v2 + 4 * i) )
+        if ( !Directory[i] )
           break;
-        RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, *(_DWORD *)(v2 + 4 * i));
+        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, (PVOID)Directory[i]);
       }
-      result = RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, v2);
+      result = RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Directory);
     }
   }
-  else if ( v2 )
+  else if ( Directory )
   {
-    result = RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, *(_DWORD *)(a1 + 32));
+    result = RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, HashTable->Directory);
   }
-  if ( (*(_BYTE *)a1 & 1) != 0 )
-    return RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, a1);
+  if ( (HashTable->Flags & 1) != 0 )
+    return RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, HashTable);
   return result;
 }

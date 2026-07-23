@@ -1,9 +1,9 @@
 /*
- * XREFs of PpmIdleGuestTest @ 0x1402E7520
+ * XREFs of PpmIdleGuestTest @ 0x1402E7710
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall PpmIdleGuestTest(__int64 a1, __int64 a2, int a3)

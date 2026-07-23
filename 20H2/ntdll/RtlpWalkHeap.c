@@ -552,7 +552,7 @@ LABEL_67:
   }
   v76 = -2147483622;
 LABEL_192:
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+  if ( RtlGetCurrentServiceSessionId() )
     v66 = (__int64)NtCurrentPeb()->SharedData + 550;
   else
     v66 = 2147353472LL;

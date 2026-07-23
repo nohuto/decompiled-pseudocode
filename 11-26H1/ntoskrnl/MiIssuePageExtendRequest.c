@@ -1,19 +1,19 @@
 /*
- * XREFs of MiIssuePageExtendRequest @ 0x1404A4ED0
+ * XREFs of MiIssuePageExtendRequest @ 0x14049E560
  * Callers:
- *     MmResourcesAvailable @ 0x14047FC6C (MmResourcesAvailable.c)
- *     MiExtendPageFilesIfNecessary @ 0x1404A4E40 (MiExtendPageFilesIfNecessary.c)
- *     MiCreateCommit @ 0x1404CF830 (MiCreateCommit.c)
- *     MiPageFileNoFreeSpace @ 0x140512338 (MiPageFileNoFreeSpace.c)
- *     MiUpdateExistingPageFile @ 0x14086C380 (MiUpdateExistingPageFile.c)
- *     MiExtendWorkingSetSwapPagefile @ 0x140B6C054 (MiExtendWorkingSetSwapPagefile.c)
+ *     MmResourcesAvailable @ 0x1404795B4 (MmResourcesAvailable.c)
+ *     MiExtendPageFilesIfNecessary @ 0x14049E4D0 (MiExtendPageFilesIfNecessary.c)
+ *     MiCreateCommit @ 0x1404C9260 (MiCreateCommit.c)
+ *     MiPageFileNoFreeSpace @ 0x14050BDA8 (MiPageFileNoFreeSpace.c)
+ *     MiUpdateExistingPageFile @ 0x140872760 (MiUpdateExistingPageFile.c)
+ *     MiExtendWorkingSetSwapPagefile @ 0x140B6F150 (MiExtendWorkingSetSwapPagefile.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiQueuePageFileExtension @ 0x1404E6668 (MiQueuePageFileExtension.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiQueuePageFileExtension @ 0x1404DFC08 (MiQueuePageFileExtension.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall MiIssuePageExtendRequest(__int64 a1, unsigned __int64 a2, char a3, unsigned int a4)

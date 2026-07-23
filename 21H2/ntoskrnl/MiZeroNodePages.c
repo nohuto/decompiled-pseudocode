@@ -1,25 +1,25 @@
 /*
- * XREFs of MiZeroNodePages @ 0x1403B0220
+ * XREFs of MiZeroNodePages @ 0x1403B0390
  * Callers:
  *     <none>
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
- *     MiAllocatePool @ 0x14025AD70 (MiAllocatePool.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     KeWaitForGate @ 0x140299F74 (KeWaitForGate.c)
- *     KeSignalGate @ 0x1402C2B70 (KeSignalGate.c)
- *     MiGetOptimalProcessorWriteCount @ 0x1402E2484 (MiGetOptimalProcessorWriteCount.c)
- *     MiWakeZeroingThreads @ 0x1402FF3D0 (MiWakeZeroingThreads.c)
- *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
- *     MiZeroPageCalibrate @ 0x1403AFE24 (MiZeroPageCalibrate.c)
- *     MiCreateZeroThreadContext @ 0x1403B0C88 (MiCreateZeroThreadContext.c)
- *     MiPreserveBootDecisions @ 0x1403B0D78 (MiPreserveBootDecisions.c)
- *     MiNodeCompletedBootZeroing @ 0x1403B0EE8 (MiNodeCompletedBootZeroing.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KeWaitForGate @ 0x14022A4E4 (KeWaitForGate.c)
+ *     KeSignalGate @ 0x140241090 (KeSignalGate.c)
+ *     MiAllocatePool @ 0x14027C2E0 (MiAllocatePool.c)
+ *     MiGetOptimalProcessorWriteCount @ 0x1402937D4 (MiGetOptimalProcessorWriteCount.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402D3660 (KeAcquireInStackQueuedSpinLock.c)
+ *     MiWakeZeroingThreads @ 0x14030A120 (MiWakeZeroingThreads.c)
+ *     KeSetEvent @ 0x14034E2F0 (KeSetEvent.c)
+ *     MiZeroPageCalibrate @ 0x1403AFF94 (MiZeroPageCalibrate.c)
+ *     MiCreateZeroThreadContext @ 0x1403B0DF8 (MiCreateZeroThreadContext.c)
+ *     MiPreserveBootDecisions @ 0x1403B0EE8 (MiPreserveBootDecisions.c)
+ *     MiNodeCompletedBootZeroing @ 0x1403B1058 (MiNodeCompletedBootZeroing.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     MiDeleteZeroThreadContext @ 0x14054FC14 (MiDeleteZeroThreadContext.c)
- *     ObCloseHandle @ 0x14061AB80 (ObCloseHandle.c)
- *     PsCreateSystemThreadEx @ 0x1406D0190 (PsCreateSystemThreadEx.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     MiDeleteZeroThreadContext @ 0x14054FE54 (MiDeleteZeroThreadContext.c)
+ *     ObCloseHandle @ 0x1406847E0 (ObCloseHandle.c)
+ *     PsCreateSystemThreadEx @ 0x1406A7470 (PsCreateSystemThreadEx.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiZeroNodePages(char *P)
@@ -40,30 +40,28 @@ void __fastcall MiZeroNodePages(char *P)
   __int64 v15; // r9
   unsigned __int64 v16; // rax
   __int64 ZeroThreadContext; // rax
-  __int64 v18; // r8
-  _DWORD *v19; // r9
-  __m128i v20; // xmm0
-  int v21; // esi
+  __m128i v18; // xmm0
+  int v19; // esi
   unsigned __int64 OldIrql; // rsi
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  int v26; // eax
-  bool v27; // zf
-  signed __int32 v28[8]; // [rsp+0h] [rbp-A9h] BYREF
-  __int64 v29; // [rsp+30h] [rbp-79h]
-  __int64 v30; // [rsp+38h] [rbp-71h]
-  __int64 v31; // [rsp+40h] [rbp-69h]
-  unsigned __int64 v32; // [rsp+50h] [rbp-59h]
+  int v24; // eax
+  bool v25; // zf
+  signed __int32 v26[8]; // [rsp+0h] [rbp-A9h] BYREF
+  __int64 v27; // [rsp+30h] [rbp-79h]
+  __int64 v28; // [rsp+38h] [rbp-71h]
+  __int64 v29; // [rsp+40h] [rbp-69h]
+  unsigned __int64 v30; // [rsp+50h] [rbp-59h]
   PVOID Pa; // [rsp+58h] [rbp-51h]
-  __int64 v34; // [rsp+60h] [rbp-49h]
-  __m128i v35; // [rsp+70h] [rbp-39h]
-  __m128i v36; // [rsp+80h] [rbp-29h]
-  __int128 v37; // [rsp+90h] [rbp-19h]
+  __int64 v32; // [rsp+60h] [rbp-49h]
+  __m128i v33; // [rsp+70h] [rbp-39h]
+  __m128i v34; // [rsp+80h] [rbp-29h]
+  __int128 v35; // [rsp+90h] [rbp-19h]
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+A0h] [rbp-9h] BYREF
-  unsigned int v39; // [rsp+110h] [rbp+67h]
+  unsigned int v37; // [rsp+110h] [rbp+67h]
   HANDLE Handle; // [rsp+120h] [rbp+77h] BYREF
-  PVOID v41; // [rsp+128h] [rbp+7Fh]
+  PVOID v39; // [rsp+128h] [rbp+7Fh]
 
   v1 = *((_QWORD *)P + 9);
   *(_QWORD *)&LockHandle.OldIrql = 0LL;
@@ -74,18 +72,18 @@ void __fastcall MiZeroNodePages(char *P)
   *((_DWORD *)P + 23) = 0;
   Handle = 0LL;
   LockHandle.LockQueue = 0LL;
-  v37 = 0LL;
+  v35 = 0LL;
   *((_QWORD *)P + 13) = P + 96;
   *((_QWORD *)P + 12) = P + 96;
   v4 = *((unsigned int *)P + 20);
   *((_QWORD *)P + 8) = P + 56;
   *((_QWORD *)P + 7) = P + 56;
-  v34 = *(_QWORD *)(v1 + 16) + 4544 * v4;
-  v5 = *(unsigned __int16 *)(v34 + 4488);
-  v35 = *(__m128i *)(v34 + 4472);
-  *((_WORD *)P + 60) = _mm_extract_epi16(v35, 4);
-  v39 = dword_140C4DEE4;
-  v6 = v5 / dword_140C4DEE4;
+  v32 = *(_QWORD *)(v1 + 16) + 4544 * v4;
+  v5 = *(unsigned __int16 *)(v32 + 4488);
+  v33 = *(__m128i *)(v32 + 4472);
+  *((_WORD *)P + 60) = _mm_extract_epi16(v33, 4);
+  v37 = dword_140C4DF24;
+  v6 = v5 / dword_140C4DF24;
   *(_WORD *)P = 263;
   P[2] = 6;
   *((_DWORD *)P + 1) = 0;
@@ -107,29 +105,29 @@ void __fastcall MiZeroNodePages(char *P)
   }
   *((_QWORD *)P + 18) = Pool;
   *((_DWORD *)P + 41) = v6;
-  v32 = __rdtsc();
-  _InterlockedOr(v28, 0);
+  v30 = __rdtsc();
+  _InterlockedOr(v26, 0);
   v10 = 0;
   if ( !(_DWORD)v6 )
     goto LABEL_35;
   v11 = v9 + 17;
   while ( 1 )
   {
-    v12 = v35.m128i_i64[0];
-    v13 = v35;
+    v12 = v33.m128i_i64[0];
+    v13 = v33;
     *(_WORD *)(v11 - 1) = 1;
     v11[1] = 6;
     *(_DWORD *)(v11 + 3) = 0;
     *(_QWORD *)(v11 + 15) = v11 + 7;
     *(_QWORD *)(v11 + 7) = v11 + 7;
-    *(_QWORD *)&v37 = 0LL;
-    v36 = v13;
+    *(_QWORD *)&v35 = 0LL;
+    v34 = v13;
     if ( v12 )
     {
       v14 = 0LL;
       LOBYTE(v8) = 0;
-      v36.m128i_i64[0] = 0LL;
-      if ( v39 )
+      v34.m128i_i64[0] = 0LL;
+      if ( v37 )
       {
         do
         {
@@ -138,33 +136,33 @@ void __fastcall MiZeroNodePages(char *P)
             break;
           _BitScanForward64(&v16, v12);
           v14 |= 1LL << v16;
-          v36.m128i_i64[0] = v14;
+          v34.m128i_i64[0] = v14;
           if ( !(_BYTE)v8 )
           {
             v3 |= v14;
-            *(_QWORD *)&v37 = v15 | v14;
+            *(_QWORD *)&v35 = v15 | v14;
           }
           LOBYTE(v8) = v8 + 1;
           v12 &= ~v14;
         }
-        while ( (unsigned __int8)v8 < v39 );
-        v35.m128i_i64[0] = v12;
+        while ( (unsigned __int8)v8 < v37 );
+        v33.m128i_i64[0] = v12;
       }
     }
     ZeroThreadContext = MiCreateZeroThreadContext(P, 1LL, v8);
-    v41 = (PVOID)ZeroThreadContext;
+    v39 = (PVOID)ZeroThreadContext;
     if ( !ZeroThreadContext )
       break;
-    v31 = 0LL;
-    v20 = v36;
-    v30 = ZeroThreadContext + 280;
-    v29 = ZeroThreadContext;
+    v29 = 0LL;
+    v18 = v34;
+    v28 = ZeroThreadContext + 280;
+    v27 = ZeroThreadContext;
     *(_DWORD *)(ZeroThreadContext + 264) = v10;
-    *(__m128i *)(ZeroThreadContext + 280) = v20;
-    if ( (int)PsCreateSystemThreadEx((int)&Handle, 0LL, (__int64)MiZeroLargePageThread, v29, v30, v31) < 0 )
+    *(__m128i *)(ZeroThreadContext + 280) = v18;
+    if ( (int)PsCreateSystemThreadEx((int)&Handle, 0LL, (__int64)MiZeroLargePageThread, v27, v28, v29) < 0 )
     {
-      v21 = v6 - v10;
-      MiDeleteZeroThreadContext(v41);
+      v19 = v6 - v10;
+      MiDeleteZeroThreadContext(v39);
       goto LABEL_24;
     }
     ObCloseHandle(Handle, 0);
@@ -175,11 +173,11 @@ void __fastcall MiZeroNodePages(char *P)
     if ( v10 >= (unsigned int)v6 )
       goto LABEL_17;
   }
-  v21 = v6 - v10;
-  if ( _InterlockedExchangeAdd((volatile signed __int32 *)P + 32, -v21) == v21 )
-    KeSignalGate((__int64)P, 1LL, v18, v19);
+  v19 = v6 - v10;
+  if ( _InterlockedExchangeAdd((volatile signed __int32 *)P + 32, -v19) == v19 )
+    KeSignalGate((__int64)P, 1);
 LABEL_24:
-  if ( v21 )
+  if ( v19 )
   {
     *(_BYTE *)(v1 + 6400) = 1;
     KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)P + 3, &LockHandle);
@@ -195,10 +193,10 @@ LABEL_24:
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;
-          v26 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
-          v27 = (v26 & SchedulerAssist[5]) == 0;
-          SchedulerAssist[5] &= v26;
-          if ( v27 )
+          v24 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
+          v25 = (v24 & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= v24;
+          if ( v25 )
             KiRemoveSystemWorkPriorityKick(CurrentPrcb);
         }
       }
@@ -219,8 +217,8 @@ LABEL_35:
   KeSetEvent((PRKEVENT)(P + 88), 0, 0);
   if ( v10 )
     KeWaitForGate((__int64)P, 0);
-  _InterlockedOr(v28, 0);
-  *((_QWORD *)P + 4) = __rdtsc() - v32;
+  _InterlockedOr(v26, 0);
+  *((_QWORD *)P + 4) = __rdtsc() - v30;
   MiNodeCompletedBootZeroing(v1);
   if ( *(_BYTE *)(v1 + 6400) == 1 )
   {
@@ -230,7 +228,7 @@ LABEL_35:
   }
   else
   {
-    MiPreserveBootDecisions(v34, P);
+    MiPreserveBootDecisions(v32, P);
     *(_BYTE *)(v1 + 6297) = 1;
   }
 }

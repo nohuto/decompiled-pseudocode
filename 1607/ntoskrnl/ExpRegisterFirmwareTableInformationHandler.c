@@ -1,13 +1,13 @@
 /*
- * XREFs of ExpRegisterFirmwareTableInformationHandler @ 0x14057AADC
+ * XREFs of ExpRegisterFirmwareTableInformationHandler @ 0x14057B01C
  * Callers:
- *     NtSetSystemInformation @ 0x1403E9F6C (NtSetSystemInformation.c)
+ *     NtSetSystemInformation @ 0x1403EB59C (NtSetSystemInformation.c)
  * Callees:
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExAcquireResourceExclusiveLite @ 0x140068160 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x140068940 (ExReleaseResourceLite.c)
- *     ObfReferenceObject @ 0x14006A060 (ObfReferenceObject.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140067CE0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x1400684C0 (ExReleaseResourceLite.c)
+ *     ObfReferenceObject @ 0x140069BE0 (ObfReferenceObject.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */
@@ -56,13 +56,13 @@ LABEL_7:
         v9[4] = v9 + 3;
         v9[3] = v9 + 3;
         ObfReferenceObject((PVOID)v9[2]);
-        v12 = (_QWORD *)qword_1402FCFF8;
-        if ( *(__int64 **)qword_1402FCFF8 != &ExpFirmwareTableProviderListHead )
+        v12 = (_QWORD *)qword_1402FD0D8;
+        if ( *(__int64 **)qword_1402FD0D8 != &ExpFirmwareTableProviderListHead )
           __fastfail(3u);
         *v11 = &ExpFirmwareTableProviderListHead;
         v11[1] = v12;
         *v12 = v11;
-        qword_1402FCFF8 = (__int64)v11;
+        qword_1402FD0D8 = (__int64)v11;
       }
       else
       {

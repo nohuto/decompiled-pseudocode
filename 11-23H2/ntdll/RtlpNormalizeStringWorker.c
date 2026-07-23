@@ -4,7 +4,7 @@
  *     RtlNormalizeString @ 0x180089C90 (RtlNormalizeString.c)
  * Callees:
  *     Normalization__Normalize @ 0x180089EE8 (Normalization__Normalize.c)
- *     Normalization__GuessCharCountBySize @ 0x18010E550 (Normalization__GuessCharCountBySize.c)
+ *     Normalization__GuessCharCountBySize @ 0x18010E520 (Normalization__GuessCharCountBySize.c)
  */
 
 __int64 __fastcall RtlpNormalizeStringWorker(__int64 a1, unsigned __int64 a2, int a3, unsigned __int64 a4, int *a5)

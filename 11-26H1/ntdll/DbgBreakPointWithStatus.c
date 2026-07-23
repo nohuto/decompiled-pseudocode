@@ -1,12 +1,12 @@
 /*
- * XREFs of DbgBreakPointWithStatus @ 0x180126C40
+ * XREFs of DbgBreakPointWithStatus @ 0x1801269B0
  * Callers:
- *     vDbgPrintExWithPrefixInternalHelper @ 0x1800DE744 (vDbgPrintExWithPrefixInternalHelper.c)
+ *     vDbgPrintExWithPrefixInternalHelper @ 0x1800DB6B4 (vDbgPrintExWithPrefixInternalHelper.c)
  * Callees:
  *     <none>
  */
 
-void DbgBreakPointWithStatus()
+void __cdecl DbgBreakPointWithStatus(ULONG Status)
 {
   __debugbreak();
 }

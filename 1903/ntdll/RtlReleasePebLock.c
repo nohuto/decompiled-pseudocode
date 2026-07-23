@@ -6,7 +6,7 @@
  *     <none>
  */
 
-__int64 RtlReleasePebLock()
+NTSTATUS RtlReleasePebLock(void)
 {
-  return RtlLeaveCriticalSection((__int64)NtCurrentPeb()->FastPebLock);
+  return RtlLeaveCriticalSection(NtCurrentPeb()->FastPebLock);
 }

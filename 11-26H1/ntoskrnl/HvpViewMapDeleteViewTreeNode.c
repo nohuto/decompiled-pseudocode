@@ -1,9 +1,9 @@
 /*
- * XREFs of HvpViewMapDeleteViewTreeNode @ 0x1408B7DE0
+ * XREFs of HvpViewMapDeleteViewTreeNode @ 0x1408BE3B0
  * Callers:
- *     HvpViewMapCleanup @ 0x1408B7D00 (HvpViewMapCleanup.c)
+ *     HvpViewMapCleanup @ 0x1408BE2D0 (HvpViewMapCleanup.c)
  * Callees:
- *     HvpViewMapFreeView @ 0x1408B7E00 (HvpViewMapFreeView.c)
+ *     HvpViewMapFreeView @ 0x1408BE3D0 (HvpViewMapFreeView.c)
  */
 
 __int64 __fastcall HvpViewMapDeleteViewTreeNode(__int64 a1, __int64 a2)

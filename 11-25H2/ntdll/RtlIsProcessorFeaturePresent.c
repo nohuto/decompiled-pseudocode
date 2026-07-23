@@ -9,19 +9,19 @@
  *     <none>
  */
 
-unsigned __int8 __fastcall RtlIsProcessorFeaturePresent(unsigned int a1)
+BOOLEAN __cdecl RtlIsProcessorFeaturePresent(ULONG ProcessorFeature)
 {
   if ( AdditionalProcessorFeaturesEnabled )
   {
-    if ( a1 < 0xC0 )
+    if ( ProcessorFeature < 0xC0 )
     {
-      if ( a1 >= 0x40 )
-        return _bittest64((const signed __int64 *)qword_1801D5E28, a1 - 64);
-      return *(_BYTE *)(a1 + 0x7FFE0274LL);
+      if ( ProcessorFeature >= 0x40 )
+        return _bittest64((const signed __int64 *)qword_1801D5E28, ProcessorFeature - 64);
+      return *(_BYTE *)(ProcessorFeature + 0x7FFE0274LL);
     }
     return 0;
   }
-  if ( a1 >= 0x40 )
+  if ( ProcessorFeature >= 0x40 )
     return 0;
-  return *(_BYTE *)(a1 + 0x7FFE0274LL);
+  return *(_BYTE *)(ProcessorFeature + 0x7FFE0274LL);
 }

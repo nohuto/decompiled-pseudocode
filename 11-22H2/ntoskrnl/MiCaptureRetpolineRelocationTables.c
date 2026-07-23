@@ -13,21 +13,20 @@
  */
 
 __int64 __fastcall MiCaptureRetpolineRelocationTables(
-        __int64 a1,
-        int a2,
+        char *a1,
+        unsigned int a2,
         unsigned int a3,
         int a4,
         _DWORD *a5,
         char a6,
         __int64 *a7)
 {
-  unsigned int v8; // r14d
-  __int64 v9; // rbx
-  __int64 v10; // rax
+  char *v9; // rbx
+  PVOID v10; // rax
   unsigned int v11; // eax
   unsigned int v12; // r12d
   __int64 v13; // rsi
-  const void *v14; // r15
+  char *v14; // r15
   __int64 v15; // r13
   unsigned int v16; // eax
   __int64 *v17; // rbx
@@ -35,25 +34,21 @@ __int64 __fastcall MiCaptureRetpolineRelocationTables(
   PVOID Pool; // rax
   __int64 v21; // rax
   unsigned int v22; // [rsp+20h] [rbp-58h] BYREF
-  int v23; // [rsp+24h] [rbp-54h] BYREF
-  __int64 v24; // [rsp+28h] [rbp-50h]
+  ULONG v23; // [rsp+24h] [rbp-54h] BYREF
+  char *v24; // [rsp+28h] [rbp-50h]
   __int64 v25; // [rsp+30h] [rbp-48h]
-  unsigned int v27; // [rsp+88h] [rbp+10h]
   char v29; // [rsp+A8h] [rbp+30h]
 
-  v27 = a2;
-  v8 = a2;
   v9 = a1;
   v24 = 0LL;
   v22 = 0;
   v29 = 0;
-  LOBYTE(a2) = 1;
-  v10 = RtlImageDirectoryEntryToData(a1, a2, 12, (int)&v23);
+  v10 = RtlImageDirectoryEntryToData(a1, 1u, 0xCu, &v23);
   if ( v10 )
   {
-    v11 = v10 - v9;
+    v11 = (_DWORD)v10 - (_DWORD)v9;
     *(_DWORD *)a7 = v11;
-    if ( v11 > v8 )
+    if ( v11 > a2 )
     {
 LABEL_30:
       v18 = -1073741701;
@@ -72,10 +67,10 @@ LABEL_30:
     {
       if ( v13 + 12 > (unsigned __int64)v12 )
         goto LABEL_30;
-      v14 = (const void *)(v13 + v9);
-      v24 = v13 + v9;
-      v25 = *(_QWORD *)(v13 + v9);
-      v15 = *(unsigned int *)(v13 + v9 + 8);
+      v14 = &v9[v13];
+      v24 = &v9[v13];
+      v25 = *(_QWORD *)&v9[v13];
+      v15 = *(unsigned int *)&v9[v13 + 8];
       v16 = v13 + 12;
       if ( (int)v13 + 12 < (unsigned int)v13 )
         goto LABEL_30;
@@ -112,7 +107,7 @@ LABEL_30:
         v21 = *v17;
         *(_QWORD *)v21 = v25;
         *(_DWORD *)(v21 + 8) = v15;
-        v18 = RtlValidateRetpolineRelocation(*v17, v27, a3, &v22);
+        v18 = RtlValidateRetpolineRelocation(*v17, a2, a3, &v22);
         if ( v18 < 0 )
           goto LABEL_28;
         *((_DWORD *)a7 + 1) += v22;

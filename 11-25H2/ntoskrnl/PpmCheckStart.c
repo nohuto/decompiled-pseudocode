@@ -17,11 +17,11 @@ __int64 __fastcall PpmCheckStart(int a1)
   __int64 v2; // rdx
   int v4; // r8d
   int v5; // edx
-  char v6; // [rsp+38h] [rbp+10h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+38h] [rbp+10h] BYREF
 
   v1 = a1;
   PpmCheckCurrentPipelineId = a1;
-  PpmCheckTime = RtlGetInterruptTimePrecise(&v6);
+  PpmCheckTime = RtlGetInterruptTimePrecise(&PerformanceCounter).QuadPart;
   PpmEventTracePerfCheckStart(PpmCheckLastEffectiveExecutionTime, (unsigned int)v1);
   v2 = 0LL;
   PpmCheckPipeline = *(_QWORD *)(PpmCheckPipelines + 8 * v1);

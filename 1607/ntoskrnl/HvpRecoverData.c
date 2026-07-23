@@ -1,17 +1,17 @@
 /*
- * XREFs of HvpRecoverData @ 0x1406112B8
+ * XREFs of HvpRecoverData @ 0x14061136C
  * Callers:
- *     HvLoadHive @ 0x14047ECF8 (HvLoadHive.c)
+ *     HvLoadHive @ 0x14047DA4C (HvLoadHive.c)
  * Callees:
- *     RtlSetBits @ 0x140028420 (RtlSetBits.c)
- *     RtlClearBits @ 0x14002D6E0 (RtlClearBits.c)
- *     RtlNumberOfSetBits @ 0x1400767D0 (RtlNumberOfSetBits.c)
- *     RtlMergeBitMaps @ 0x14009CD90 (RtlMergeBitMaps.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     RtlSetBits @ 0x140027FA0 (RtlSetBits.c)
+ *     RtlClearBits @ 0x14002D260 (RtlClearBits.c)
+ *     RtlNumberOfSetBits @ 0x140076850 (RtlNumberOfSetBits.c)
+ *     RtlMergeBitMaps @ 0x14009C590 (RtlMergeBitMaps.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     HvApplyLegacyLogFile @ 0x140611F4C (HvApplyLegacyLogFile.c)
- *     HvApplyLogFile @ 0x14061212C (HvApplyLogFile.c)
+ *     HvApplyLegacyLogFile @ 0x140612000 (HvApplyLegacyLogFile.c)
+ *     HvApplyLogFile @ 0x1406121E0 (HvApplyLogFile.c)
  */
 
 __int64 __fastcall HvpRecoverData(ULONG_PTR a1, int a2, int a3, char a4, int *a5, int *a6)
@@ -37,7 +37,7 @@ __int64 __fastcall HvpRecoverData(ULONG_PTR a1, int a2, int a3, char a4, int *a5
   int v25; // ecx
   int v27; // [rsp+50h] [rbp-29h] BYREF
   void *v28; // [rsp+58h] [rbp-21h]
-  struct _RTL_BITMAP BitMapHeader; // [rsp+60h] [rbp-19h] BYREF
+  _RTL_BITMAP BitMapHeader; // [rsp+60h] [rbp-19h] BYREF
   PVOID P; // [rsp+70h] [rbp-9h] BYREF
   int v31; // [rsp+78h] [rbp-1h]
   int v32; // [rsp+7Ch] [rbp+3h]

@@ -1,10 +1,10 @@
 /*
- * XREFs of VfAllocateCrashDumpRegistersEx @ 0x140AC5450
+ * XREFs of VfAllocateCrashDumpRegistersEx @ 0x140AC5440
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     VfDisableHalVerifier @ 0x1405CE858 (VfDisableHalVerifier.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     VfDisableHalVerifier @ 0x1405CEDC8 (VfDisableHalVerifier.c)
  */
 
 __int64 __fastcall VfAllocateCrashDumpRegistersEx(__int64 a1)

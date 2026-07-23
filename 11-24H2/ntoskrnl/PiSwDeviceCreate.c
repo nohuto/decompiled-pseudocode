@@ -1,9 +1,9 @@
 /*
- * XREFs of PiSwDeviceCreate @ 0x1409F8FB8
+ * XREFs of PiSwDeviceCreate @ 0x1409F1928
  * Callers:
- *     PiSwIrpStartCreateWorker @ 0x1409F8A64 (PiSwIrpStartCreateWorker.c)
+ *     PiSwIrpStartCreateWorker @ 0x1409F13D4 (PiSwIrpStartCreateWorker.c)
  * Callees:
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall PiSwDeviceCreate(_QWORD *a1)
@@ -14,7 +14,7 @@ __int64 __fastcall PiSwDeviceCreate(_QWORD *a1)
   _QWORD *v5; // rax
 
   v2 = 0;
-  Pool2 = (_DWORD *)ExAllocatePool2(0x100uLL);
+  Pool2 = (_DWORD *)ExAllocatePool2(0x100uLL, 0xD0uLL, 0x57706E50u);
   *a1 = Pool2;
   if ( Pool2 )
   {

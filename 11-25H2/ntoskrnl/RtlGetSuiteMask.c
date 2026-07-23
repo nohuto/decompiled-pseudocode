@@ -7,7 +7,7 @@
  *     PsIsCurrentThreadInServerSilo @ 0x140311890 (PsIsCurrentThreadInServerSilo.c)
  */
 
-__int64 RtlGetSuiteMask()
+ULONG RtlGetSuiteMask(void)
 {
   if ( PsIsCurrentThreadInServerSilo() )
     return HIDWORD(PsGetCurrentServerSiloGlobals()[80].Blink[1].Flink);

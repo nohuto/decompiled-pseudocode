@@ -1,21 +1,21 @@
 /*
- * XREFs of KiRaiseException @ 0x140578910
+ * XREFs of KiRaiseException @ 0x140578E00
  * Callers:
- *     NtRaiseException @ 0x14041F610 (NtRaiseException.c)
+ *     NtRaiseException @ 0x14041F9A0 (NtRaiseException.c)
  * Callees:
- *     KiDispatchException @ 0x14030CCA0 (KiDispatchException.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     memset @ 0x140435A00 (memset.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     KiSetupForInstrumentationReturn @ 0x140570F90 (KiSetupForInstrumentationReturn.c)
- *     KyRaiseException @ 0x140578AF0 (KyRaiseException.c)
+ *     KiDispatchException @ 0x14030CF30 (KiDispatchException.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     KiSetupForInstrumentationReturn @ 0x1405714D0 (KiSetupForInstrumentationReturn.c)
+ *     KyRaiseException @ 0x140578FE0 (KyRaiseException.c)
  */
 
-__int64 __fastcall KiRaiseException(_DWORD *a1, __int64 a2, __int64 a3, __int64 a4, char a5)
+__int64 __fastcall KiRaiseException(EXCEPTION_RECORD *a1, __int64 a2, __int64 a3, __int64 a4, char a5)
 {
   char PreviousMode; // si
-  __int64 v9; // rax
+  __int64 p_NumberParameters; // rax
   int v10; // ebx
   __int64 result; // rax
   unsigned __int64 v12; // rax
@@ -33,23 +33,23 @@ __int64 __fastcall KiRaiseException(_DWORD *a1, __int64 a2, __int64 a3, __int64 
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
   {
-    v9 = (__int64)(a1 + 6);
-    if ( (unsigned __int64)(a1 + 6) >= 0x7FFFFFFF0000LL )
-      v9 = 0x7FFFFFFF0000LL;
-    v10 = *(_DWORD *)v9;
-    if ( *(_DWORD *)v9 > 0xFu )
+    p_NumberParameters = (__int64)&a1->NumberParameters;
+    if ( (unsigned __int64)&a1->NumberParameters >= 0x7FFFFFFF0000LL )
+      p_NumberParameters = 0x7FFFFFFF0000LL;
+    v10 = *(_DWORD *)p_NumberParameters;
+    if ( *(_DWORD *)p_NumberParameters > 0xFu )
       return 3221225485LL;
     v12 = (unsigned __int64)a1 + (unsigned int)(8 * v10 + 32);
     if ( v12 > 0x7FFFFFFF0000LL || v12 < (unsigned __int64)a1 )
       MEMORY[0x7FFFFFFF0000] = 0;
     memmove(v22, a1, (unsigned int)(8 * v10 + 32));
-    a1 = v22;
+    a1 = (EXCEPTION_RECORD *)v22;
     v22[6] = v10;
   }
   result = KyRaiseException(a1, a2, a3, a4);
   if ( (int)result >= 0 )
   {
-    *a1 &= ~0x10000000u;
+    a1->ExceptionCode &= ~0x10000000u;
     KiDispatchException(a1, a3, a4, PreviousMode, a5);
     if ( PreviousMode )
     {
@@ -60,7 +60,7 @@ __int64 __fastcall KiRaiseException(_DWORD *a1, __int64 a2, __int64 a3, __int64 
         CurrentIrql = KeGetCurrentIrql();
         __writecr8(1uLL);
         KiSetupForInstrumentationReturn(a4);
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v16 = KeGetCurrentIrql();
           if ( ((unsigned __int8)KiIrqlFlags & v15) != 0 && v16 <= 0xFu && CurrentIrql <= 0xFu && v16 >= 2u )

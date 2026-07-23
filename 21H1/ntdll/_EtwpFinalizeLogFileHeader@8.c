@@ -22,48 +22,49 @@ ULONG __fastcall EtwpFinalizeLogFileHeader(int a1, char a2)
 {
   int v2; // esi
   int v3; // ebx
-  int v4; // edi
-  unsigned int *Heap; // eax
-  NTSTATUS VolumeInformationFile; // edi
-  unsigned int *v7; // edi
-  unsigned int v8; // ecx
+  ULONG v4; // edi
+  PVOID Heap; // eax
+  int v6; // edi
+  _DWORD *v7; // edi
+  ULONG v8; // ecx
   int v9; // eax
-  unsigned int v10; // ecx
-  int v11; // eax
+  int v10; // ecx
+  NTSTATUS v11; // eax
   int v12; // eax
   bool v13; // zf
   unsigned __int64 v15; // rax
   int v16; // ecx
   int v17; // kr00_4
-  unsigned int v18; // [esp-4h] [ebp-74h]
-  char v19[8]; // [esp+10h] [ebp-60h] BYREF
-  _BYTE v20[8]; // [esp+18h] [ebp-58h] BYREF
-  _DWORD v21[3]; // [esp+20h] [ebp-50h] BYREF
-  int v22; // [esp+2Ch] [ebp-44h]
-  unsigned __int64 v23; // [esp+30h] [ebp-40h] BYREF
-  unsigned int *v24; // [esp+3Ch] [ebp-34h]
-  int v25; // [esp+40h] [ebp-30h] BYREF
-  unsigned int v26; // [esp+44h] [ebp-2Ch]
-  unsigned int v27; // [esp+48h] [ebp-28h]
-  char v28; // [esp+4Fh] [ebp-21h]
-  char v29[20]; // [esp+50h] [ebp-20h] BYREF
-  int v30; // [esp+64h] [ebp-Ch]
+  SIZE_T v18; // [esp-4h] [ebp-74h]
+  ULONG v19; // [esp-4h] [ebp-74h]
+  _IO_STATUS_BLOCK v20; // [esp+10h] [ebp-60h] BYREF
+  _IO_STATUS_BLOCK IoStatusBlock; // [esp+18h] [ebp-58h] BYREF
+  LARGE_INTEGER ByteOffset; // [esp+20h] [ebp-50h] BYREF
+  int v23; // [esp+2Ch] [ebp-44h]
+  unsigned __int64 FileInformation; // [esp+30h] [ebp-40h] BYREF
+  PVOID Buffer; // [esp+3Ch] [ebp-34h]
+  int v26; // [esp+40h] [ebp-30h] BYREF
+  unsigned int v27; // [esp+44h] [ebp-2Ch]
+  ULONG Length; // [esp+48h] [ebp-28h]
+  char v29; // [esp+4Fh] [ebp-21h]
+  _BYTE FsInformation[20]; // [esp+50h] [ebp-20h] BYREF
+  int v31; // [esp+64h] [ebp-Ch]
 
   v2 = a1;
-  v28 = a2;
+  v29 = a2;
   v3 = 0;
-  v22 = a1;
-  v26 = 0;
+  v23 = a1;
+  v27 = 0;
   v13 = (*(_DWORD *)(a1 + 212) & 0x4000000) == 0;
-  v25 = 0;
+  v26 = 0;
   if ( !v13 )
   {
-    VolumeInformationFile = EtwpWriteRemainingCompressedData(&v25);
-    v13 = VolumeInformationFile == 0;
-    if ( VolumeInformationFile < 0 )
+    v6 = EtwpWriteRemainingCompressedData(&v26);
+    v13 = v6 == 0;
+    if ( v6 < 0 )
       goto LABEL_16;
-    *(_DWORD *)(v2 + 280) += v26;
-    *(_DWORD *)(v2 + 276) += v25;
+    *(_DWORD *)(v2 + 280) += v27;
+    *(_DWORD *)(v2 + 276) += v26;
   }
   if ( *(_DWORD *)(v2 + 332) != v2 + 332
     || *(_DWORD *)(v2 + 340) != v2 + 340
@@ -73,35 +74,35 @@ ULONG __fastcall EtwpFinalizeLogFileHeader(int a1, char a2)
     v4 = *(_DWORD *)(v2 + 140);
     goto LABEL_4;
   }
-  VolumeInformationFile = NtQueryVolumeInformationFile(*(_DWORD *)(v2 + 104), v20, v29, 24, 3);
-  v13 = VolumeInformationFile == 0;
-  if ( VolumeInformationFile >= 0 )
+  v6 = NtQueryVolumeInformationFile(*(HANDLE *)(v2 + 104), &IoStatusBlock, FsInformation, 0x18u, FileFsSizeInformation);
+  v13 = v6 == 0;
+  if ( v6 >= 0 )
   {
-    v4 = -v30 & (v30 + 3);
+    v4 = -v31 & (v31 + 3);
 LABEL_4:
-    v27 = v4;
-    Heap = (unsigned int *)RtlAllocateHeap((int)NtCurrentPeb()->ProcessHeap, 8, v4);
-    v24 = Heap;
+    LODWORD(v18) = v4;
+    Length = v4;
+    Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, v18);
+    Buffer = Heap;
     if ( !Heap )
     {
-      VolumeInformationFile = -1073741801;
-      return RtlNtStatusToDosError(VolumeInformationFile);
+      v6 = -1073741801;
+      return RtlNtStatusToDosError(v6);
     }
-    v21[0] = 0;
-    v21[1] = 0;
-    VolumeInformationFile = NtReadFile(*(_DWORD *)(v2 + 104), 0, 0, 0, v20, Heap, v4, v21, 0);
-    if ( VolumeInformationFile < 0 )
+    ByteOffset.QuadPart = 0LL;
+    v6 = NtReadFile(*(HANDLE *)(v2 + 104), 0, 0, 0, &IoStatusBlock, Heap, v4, &ByteOffset, 0);
+    if ( v6 < 0 )
       goto LABEL_15;
-    v7 = v24;
-    v8 = v27;
-    if ( v27 >= *v24 )
+    v7 = Buffer;
+    v8 = Length;
+    if ( Length >= *(_DWORD *)Buffer )
     {
-      v8 = *v24;
-      v27 = *v24;
+      v8 = *(_DWORD *)Buffer;
+      Length = *(_DWORD *)Buffer;
     }
-    if ( !v28 )
+    if ( !v29 )
     {
-      v24[29] = *(_DWORD *)(v2 + 136);
+      *((_DWORD *)Buffer + 29) = *(_DWORD *)(v2 + 136);
       v7[35] = *(_DWORD *)(v2 + 280);
       v7[38] += *(_DWORD *)(v2 + 272);
       v7[93] += *(_DWORD *)(v2 + 276);
@@ -109,7 +110,7 @@ LABEL_4:
       if ( (v9 & 0x10000) != 0 )
       {
         if ( (v9 & 0x1000) != 0 )
-          EtwpFinalizeRelogFileHeaderStats(v8, v26, v25);
+          EtwpFinalizeRelogFileHeaderStats(v8, v27, v26);
       }
       else
       {
@@ -120,20 +121,20 @@ LABEL_4:
             break;
           _mm_pause();
         }
-        v7 = v24;
+        v7 = Buffer;
         v3 = 0;
-        v2 = v22;
-        v24[30] = MEMORY[0x7FFE0014];
+        v2 = v23;
+        *((_DWORD *)Buffer + 30) = MEMORY[0x7FFE0014];
         v7[31] = v10;
       }
     }
-    v18 = v27;
+    v19 = Length;
     v7[12] = v7[1];
-    EtwpAddReloggedHeaderExtensionEvents(v18);
-    EtwpAddProviderTrackingInfo(v27);
-    v11 = NtWriteFile(*(_DWORD *)(v2 + 104), 0, 0, 0, v20, v7, v27, v21, 0);
-    VolumeInformationFile = v11;
-    if ( v28 )
+    EtwpAddReloggedHeaderExtensionEvents(v19);
+    EtwpAddProviderTrackingInfo(Length);
+    v11 = NtWriteFile(*(HANDLE *)(v2 + 104), 0, 0, 0, &IoStatusBlock, v7, Length, &ByteOffset, 0);
+    v6 = v11;
+    if ( v29 )
       goto LABEL_15;
     if ( v11 < 0 )
       goto LABEL_15;
@@ -150,20 +151,20 @@ LABEL_4:
       if ( (v12 & 0x2000) == 0 )
         v16 = 0x100000;
       v17 = v16 * *(_DWORD *)(v2 + 208);
-      v26 = ((unsigned int)v16 * (unsigned __int64)*(unsigned int *)(v2 + 208)) >> 32;
+      v27 = ((unsigned int)v16 * (unsigned __int64)*(unsigned int *)(v2 + 208)) >> 32;
       v15 = *(unsigned int *)(v2 + 140) * (unsigned __int64)*(unsigned int *)(v2 + 280);
-      if ( v15 >= __PAIR64__(v26, v17) )
+      if ( v15 >= __PAIR64__(v27, v17) )
         goto LABEL_15;
     }
-    v23 = v15;
+    FileInformation = v15;
     if ( v15 )
-      VolumeInformationFile = ZwSetInformationFile(*(_DWORD *)(v2 + 104), v19, &v23, 8, 20);
+      v6 = ZwSetInformationFile(*(HANDLE *)(v2 + 104), &v20, &FileInformation, 8u, FileEndOfFileInformation);
 LABEL_15:
-    RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, (int)v24);
-    v13 = VolumeInformationFile == 0;
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Buffer);
+    v13 = v6 == 0;
   }
 LABEL_16:
   if ( !v13 )
-    return RtlNtStatusToDosError(VolumeInformationFile);
+    return RtlNtStatusToDosError(v6);
   return v3;
 }

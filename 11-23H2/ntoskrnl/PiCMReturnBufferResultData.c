@@ -1,21 +1,21 @@
 /*
- * XREFs of PiCMReturnBufferResultData @ 0x1406D060C
+ * XREFs of PiCMReturnBufferResultData @ 0x1406D063C
  * Callers:
- *     PiCMGetObjectProperty @ 0x1406D09D4 (PiCMGetObjectProperty.c)
- *     PiCMGetRelatedDeviceInstance @ 0x140799CF0 (PiCMGetRelatedDeviceInstance.c)
- *     PiCMGetRegistryProperty @ 0x1407C0874 (PiCMGetRegistryProperty.c)
- *     PiCMGetDeviceInterfaceAlias @ 0x1407C511C (PiCMGetDeviceInterfaceAlias.c)
- *     PiCMGetDeviceIdList @ 0x1407C797C (PiCMGetDeviceIdList.c)
- *     PiCMGetDeviceInterfaceList @ 0x1407C9C0C (PiCMGetDeviceInterfaceList.c)
- *     PiCMGetObjectList @ 0x14086C5EC (PiCMGetObjectList.c)
- *     PiCMCreateDevice @ 0x140968430 (PiCMCreateDevice.c)
- *     PiCMEnumerateSubKeys @ 0x14096999C (PiCMEnumerateSubKeys.c)
- *     PiCMGetObjectPropertyKeys @ 0x14096A018 (PiCMGetObjectPropertyKeys.c)
- *     PiCMQueryRemove @ 0x14096A274 (PiCMQueryRemove.c)
- *     PiCMRegisterDeviceInterface @ 0x14096A684 (PiCMRegisterDeviceInterface.c)
+ *     PiCMGetObjectProperty @ 0x1406D0A04 (PiCMGetObjectProperty.c)
+ *     PiCMGetRelatedDeviceInstance @ 0x140799EE0 (PiCMGetRelatedDeviceInstance.c)
+ *     PiCMGetRegistryProperty @ 0x1407C0B44 (PiCMGetRegistryProperty.c)
+ *     PiCMGetDeviceInterfaceAlias @ 0x1407C53EC (PiCMGetDeviceInterfaceAlias.c)
+ *     PiCMGetDeviceIdList @ 0x1407C7C4C (PiCMGetDeviceIdList.c)
+ *     PiCMGetDeviceInterfaceList @ 0x1407C9EDC (PiCMGetDeviceInterfaceList.c)
+ *     PiCMGetObjectList @ 0x14086C82C (PiCMGetObjectList.c)
+ *     PiCMCreateDevice @ 0x140968630 (PiCMCreateDevice.c)
+ *     PiCMEnumerateSubKeys @ 0x140969B9C (PiCMEnumerateSubKeys.c)
+ *     PiCMGetObjectPropertyKeys @ 0x14096A218 (PiCMGetObjectPropertyKeys.c)
+ *     PiCMQueryRemove @ 0x14096A474 (PiCMQueryRemove.c)
+ *     PiCMRegisterDeviceInterface @ 0x14096A884 (PiCMRegisterDeviceInterface.c)
  * Callees:
- *     memmove @ 0x140435700 (memmove.c)
- *     ProbeForWrite @ 0x140729380 (ProbeForWrite.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     ProbeForWrite @ 0x140729580 (ProbeForWrite.c)
  */
 
 __int64 __fastcall PiCMReturnBufferResultData(

@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlpMuiRegAddAlternateCodePage @ 0x14018267C
+ * XREFs of RtlpMuiRegAddAlternateCodePage @ 0x1401827BC
  * Callers:
- *     RtlpMuiRegAddLanguageByName @ 0x14073E2B4 (RtlpMuiRegAddLanguageByName.c)
+ *     RtlpMuiRegAddLanguageByName @ 0x14073F4A4 (RtlpMuiRegAddLanguageByName.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     _wcsicmp @ 0x140195930 (_wcsicmp.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     RtlUnicodeStringToInteger @ 0x140695950 (RtlUnicodeStringToInteger.c)
- *     LdrpQueryValueKey @ 0x14073E370 (LdrpQueryValueKey.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     _wcsicmp @ 0x140195A70 (_wcsicmp.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     RtlUnicodeStringToInteger @ 0x140696B10 (RtlUnicodeStringToInteger.c)
+ *     LdrpQueryValueKey @ 0x14073F560 (LdrpQueryValueKey.c)
  */
 
 void __fastcall RtlpMuiRegAddAlternateCodePage(__int64 a1, void *a2)

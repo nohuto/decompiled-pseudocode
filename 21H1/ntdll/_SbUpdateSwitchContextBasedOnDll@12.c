@@ -14,7 +14,7 @@
  *     _SbpRecalculateDynamicContext@4 @ 0x4B385E62 (_SbpRecalculateDynamicContext@4.c)
  */
 
-int __thiscall SbUpdateSwitchContextBasedOnDll(_DWORD *this, int a2)
+int __thiscall SbUpdateSwitchContextBasedOnDll(int this, int a2)
 {
   _DWORD *pShimData; // eax
   int v4; // edx
@@ -27,17 +27,19 @@ int __thiscall SbUpdateSwitchContextBasedOnDll(_DWORD *this, int a2)
   void *v12; // ecx
   int v13; // eax
   signed __int32 v14; // ecx
-  _DWORD *v15; // esi
+  char *v15; // ecx
   _DWORD *v16; // esi
-  __int64 v17; // [esp+Ch] [ebp-18h] BYREF
-  _DWORD *v18; // [esp+14h] [ebp-10h]
-  char *v19; // [esp+18h] [ebp-Ch] BYREF
-  int *v20; // [esp+1Ch] [ebp-8h]
-  _DWORD *v21; // [esp+20h] [ebp-4h] BYREF
+  _DWORD *v17; // esi
+  size_t v18; // [esp-4h] [ebp-28h]
+  __int64 v19; // [esp+Ch] [ebp-18h] BYREF
+  int v20; // [esp+14h] [ebp-10h]
+  char *v21; // [esp+18h] [ebp-Ch] BYREF
+  int *v22; // [esp+1Ch] [ebp-8h]
+  _DWORD *v23; // [esp+20h] [ebp-4h]
 
   pShimData = NtCurrentPeb()->pShimData;
   v4 = 0;
-  v18 = this;
+  v20 = this;
   v5 = 0;
   if ( pShimData )
   {
@@ -45,10 +47,10 @@ int __thiscall SbUpdateSwitchContextBasedOnDll(_DWORD *this, int a2)
     if ( pShimData == (_DWORD *)-2016 || !pShimData[516] )
       v5 = 0;
   }
-  v17 = 0LL;
-  v20 = 0;
-  v19 = 0;
+  v19 = 0LL;
+  v22 = 0;
   v21 = 0;
+  v23 = 0;
   if ( v5 && this )
   {
     if ( !*((_DWORD *)v5 + 2) )
@@ -58,12 +60,12 @@ int __thiscall SbUpdateSwitchContextBasedOnDll(_DWORD *this, int a2)
     {
       if ( a2 != 1 )
         return 1;
-      v12 = (void *)this[25];
+      v12 = *(void **)(this + 100);
       if ( !v12 )
         return 1;
       SbGetContextDetailsByGuid(v12);
       v13 = 0;
-      while ( SbDynamicContextDllCount[2 * v13] != *v21 )
+      while ( SbDynamicContextDllCount[2 * v13] != *v23 )
       {
         if ( (unsigned int)++v13 >= 5 )
         {
@@ -76,29 +78,36 @@ LABEL_26:
       if ( v14 )
         return 1;
       RtlAcquireSRWLockExclusive(&SbpContextLock);
-      if ( SbpRecalculateDynamicContext(&v19) == 1 )
-        v15 = v19 + 4;
+      if ( SbpRecalculateDynamicContext(&v21) == 1 )
+        v16 = v21 + 4;
       else
-        v15 = v5 + 48;
-      *((_DWORD *)v5 + 16) = *v15;
-      v16 = v15 + 1;
-      *((_DWORD *)v5 + 17) = *v16++;
-      *((_DWORD *)v5 + 18) = *v16;
-      *((_DWORD *)v5 + 19) = v16[1];
+        v16 = v5 + 48;
+      *((_DWORD *)v5 + 16) = *v16;
+      v17 = v16 + 1;
+      *((_DWORD *)v5 + 17) = *v17++;
+      *((_DWORD *)v5 + 18) = *v17;
+      *((_DWORD *)v5 + 19) = v17[1];
       ++*(_QWORD *)v5;
-      if ( !SbObtainTraceHandle((unsigned int *)&v17) || !v17 )
+      if ( !SbObtainTraceHandle((unsigned int *)&v19) || !v19 )
         goto LABEL_19;
-      goto LABEL_37;
+      v15 = v5 + 64;
+LABEL_38:
+      SbpTraceContextUpdate(v15, 1, v19, HIDWORD(v19), *(unsigned __int16 *)(v20 + 36), *(_DWORD *)(v20 + 40));
+LABEL_19:
+      v11 = __CFADD__((*(_DWORD *)v5)++, 1);
+      *((_DWORD *)v5 + 1) += v11;
+      RtlReleaseSRWLockExclusive(&SbpContextLock);
+      return 1;
     }
-    v4 = SbpDetermineDllContext(this[6], &v21);
+    v4 = SbpDetermineDllContext(*(PACTIVATION_CONTEXT *)(this + 24));
     if ( v4 )
     {
-      v6 = v21;
+      v6 = v23;
       v7 = 0;
-      v8 = (char *)(v21 + 1);
-      this[25] = v21 + 1;
+      v8 = (char *)(v23 + 1);
+      *(_DWORD *)(this + 100) = v23 + 1;
       v9 = *v6;
-      v19 = v8;
+      v21 = v8;
       while ( SbDynamicContextDllCount[2 * v7] != v9 )
       {
         if ( (unsigned int)++v7 >= 5 )
@@ -106,8 +115,9 @@ LABEL_26:
       }
       _InterlockedIncrement(&dword_4B3A38D4[2 * v7]);
 LABEL_12:
-      if ( !memcmp(v8, dword_4B281134, 0x10u)
-        || *v6 >= *v20
+      LODWORD(v18) = 16;
+      if ( !memcmp(v8, dword_4B281134, v18)
+        || *v6 >= *v22
         || (((unsigned __int64)*((unsigned __int16 *)v6 + 10) << 16) | *((unsigned __int16 *)v6 + 11)) < *((_QWORD *)v5 + 5) )
       {
         return 1;
@@ -119,15 +129,10 @@ LABEL_12:
       *((_DWORD *)v5 + 17) = v6[2];
       *((_DWORD *)v5 + 18) = v6[3];
       *((_DWORD *)v5 + 19) = v6[4];
-      if ( !SbObtainTraceHandle((unsigned int *)&v17) || !v17 )
+      if ( !SbObtainTraceHandle((unsigned int *)&v19) || !v19 )
         goto LABEL_19;
-LABEL_37:
-      SbpTraceContextUpdate(v17, HIDWORD(v17), *((_WORD *)v18 + 18), v18[10]);
-LABEL_19:
-      v11 = __CFADD__((*(_DWORD *)v5)++, 1);
-      *((_DWORD *)v5 + 1) += v11;
-      RtlReleaseSRWLockExclusive(&SbpContextLock);
-      return 1;
+      v15 = v21;
+      goto LABEL_38;
     }
   }
   return v4;

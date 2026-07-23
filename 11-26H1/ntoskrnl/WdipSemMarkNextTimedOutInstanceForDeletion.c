@@ -1,14 +1,14 @@
 /*
- * XREFs of WdipSemMarkNextTimedOutInstanceForDeletion @ 0x140AD90AC
+ * XREFs of WdipSemMarkNextTimedOutInstanceForDeletion @ 0x140AD5B5C
  * Callers:
- *     WdipTimeoutCheckRoutine @ 0x140AD8D80 (WdipTimeoutCheckRoutine.c)
+ *     WdipTimeoutCheckRoutine @ 0x140AD5830 (WdipTimeoutCheckRoutine.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     ExfReleasePushLock @ 0x1402E3120 (ExfReleasePushLock.c)
+ *     ExfReleasePushLock @ 0x14021B220 (ExfReleasePushLock.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
  */
 
 struct _KTHREAD *__fastcall WdipSemMarkNextTimedOutInstanceForDeletion(
@@ -23,22 +23,22 @@ struct _KTHREAD *__fastcall WdipSemMarkNextTimedOutInstanceForDeletion(
   void *v8; // rdx
   signed __int8 v9; // cf
   AutoBoost *v10; // rbx
-  unsigned __int64 *v11; // rdx
-  struct _KTHREAD *Thread; // rtt
+  char *v11; // rdx
+  void *volatile StackLimit; // rtt
   struct _KTHREAD *v14; // rdx
   struct _KTHREAD *v15; // rcx
 
   CurrentThread = KeGetCurrentThread();
   v6 = 0LL;
   --CurrentThread->KernelApcDisable;
-  v7 = (AutoBoost *)KeAbPreAcquire((__int64)&stru_140F03F40.WaitBlock[0].Thread, 0LL, 0LL, a4);
-  v9 = _interlockedbittestandset64((volatile signed __int32 *)&stru_140F03F40.WaitBlockFill11[24], 0LL);
+  v7 = (AutoBoost *)KeAbPreAcquire((__int64)&stru_140F049E8.StackLimit, 0LL, 0LL, a4);
+  v9 = _interlockedbittestandset64((volatile signed __int32 *)&stru_140F049E8.StackLimit, 0LL);
   v10 = v7;
   if ( v9 )
     ExfAcquirePushLockExclusiveEx(
-      (unsigned __int64 *)&stru_140F03F40.WaitBlock[0].Thread,
+      (unsigned __int64 *)&stru_140F049E8.StackLimit,
       v7,
-      (__int64)&stru_140F03F40.WaitBlock[0].Thread);
+      (__int64)&stru_140F049E8.StackLimit);
   if ( v10 )
   {
     if ( (KiAbpGlobalState & 1) != 0 )
@@ -49,7 +49,7 @@ struct _KTHREAD *__fastcall WdipSemMarkNextTimedOutInstanceForDeletion(
   if ( a1 )
   {
     v14 = *a1;
-    while ( v14 != (struct _KTHREAD *)&stru_140F03F40.320 )
+    while ( v14 != (struct _KTHREAD *)&stru_140F049E8.SListFaultAddress )
     {
       v15 = v14;
       v14 = *(struct _KTHREAD **)&v14->Header.Lock;
@@ -61,20 +61,20 @@ struct _KTHREAD *__fastcall WdipSemMarkNextTimedOutInstanceForDeletion(
       }
     }
   }
-  _m_prefetchw(&stru_140F03F40.WaitBlockFill11[24]);
-  v11 = &stru_140F03F40.WaitBlock[0].Thread[-1].Padding[3];
-  if ( ((unsigned __int64)stru_140F03F40.WaitBlock[0].Thread & 0xFFFFFFFFFFFFFFF0uLL) <= 0x10 )
+  _m_prefetchw((const void *)&stru_140F049E8.StackLimit);
+  v11 = (char *)stru_140F049E8.StackLimit - 16;
+  if ( ((unsigned __int64)stru_140F049E8.StackLimit & 0xFFFFFFFFFFFFFFF0uLL) <= 0x10 )
     v11 = 0LL;
-  if ( (stru_140F03F40.WaitBlockFill5[24] & 2) != 0
-    || (Thread = stru_140F03F40.WaitBlock[0].Thread,
-        Thread != (struct _KTHREAD *)_InterlockedCompareExchange64(
-                                       (volatile signed __int64 *)&stru_140F03F40.WaitBlock[0].Thread,
-                                       (signed __int64)v11,
-                                       (signed __int64)stru_140F03F40.WaitBlock[0].Thread)) )
+  if ( ((__int64)stru_140F049E8.StackLimit & 2) != 0
+    || (StackLimit = stru_140F049E8.StackLimit,
+        StackLimit != (void *volatile)_InterlockedCompareExchange64(
+                                        (volatile signed __int64 *)&stru_140F049E8.StackLimit,
+                                        (signed __int64)v11,
+                                        (signed __int64)stru_140F049E8.StackLimit)) )
   {
-    ExfReleasePushLock(&stru_140F03F40.WaitBlock[0].Thread);
+    ExfReleasePushLock(&stru_140F049E8.StackLimit);
   }
-  KeAbPostRelease((unsigned __int64)&stru_140F03F40.WaitBlock[0].Thread);
+  KeAbPostRelease((unsigned __int64)&stru_140F049E8.StackLimit);
   KeLeaveCriticalRegion();
   return v6;
 }

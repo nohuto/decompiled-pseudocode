@@ -1,16 +1,16 @@
 /*
- * XREFs of PopEsInStandbyEvaluate @ 0x14094683C
+ * XREFs of PopEsInStandbyEvaluate @ 0x1409C21AC
  * Callers:
- *     PopEsInStandbyLowPowerEpochCallback @ 0x140946710 (PopEsInStandbyLowPowerEpochCallback.c)
- *     PopEsInStandbyAcDcCallback @ 0x140B722C0 (PopEsInStandbyAcDcCallback.c)
+ *     PopEsInStandbyLowPowerEpochCallback @ 0x1409C2080 (PopEsInStandbyLowPowerEpochCallback.c)
+ *     PopEsInStandbyAcDcCallback @ 0x140B772A0 (PopEsInStandbyAcDcCallback.c)
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     PopGetPowerSettingValue @ 0x1404CF78C (PopGetPowerSettingValue.c)
- *     PopTraceEsBgActivityPolicyUpdate @ 0x1407D58C8 (PopTraceEsBgActivityPolicyUpdate.c)
- *     PopEsQueueStateEvaluation @ 0x140947B44 (PopEsQueueStateEvaluation.c)
- *     ExpWnfAcquireSubscriptionNameInstance @ 0x140948918 (ExpWnfAcquireSubscriptionNameInstance.c)
- *     ExpWnfReadStateData @ 0x14094A158 (ExpWnfReadStateData.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     PopGetPowerSettingValue @ 0x1404C91BC (PopGetPowerSettingValue.c)
+ *     PopTraceEsBgActivityPolicyUpdate @ 0x1407D8A78 (PopTraceEsBgActivityPolicyUpdate.c)
+ *     PopEsQueueStateEvaluation @ 0x1409C34B4 (PopEsQueueStateEvaluation.c)
+ *     ExpWnfAcquireSubscriptionNameInstance @ 0x1409C4288 (ExpWnfAcquireSubscriptionNameInstance.c)
+ *     ExpWnfReadStateData @ 0x1409C5AC8 (ExpWnfReadStateData.c)
  */
 
 __int64 __fastcall PopEsInStandbyEvaluate(__int64 a1, __int64 a2)
@@ -18,7 +18,7 @@ __int64 __fastcall PopEsInStandbyEvaluate(__int64 a1, __int64 a2)
   __int64 v2; // rdx
   int PowerSettingValue; // esi
   __int64 v4; // rcx
-  struct _LIST_ENTRY *Blink; // rdx
+  __int64 v5; // rdx
   int v6; // edi
   struct _KTHREAD *CurrentThread; // rax
   struct _EX_RUNDOWN_REF *v8; // rsi
@@ -41,12 +41,12 @@ __int64 __fastcall PopEsInStandbyEvaluate(__int64 a1, __int64 a2)
     PowerSettingValue = PopGetPowerSettingValue((__int64)&GUID_LOW_POWER_EPOCH, v2, 3, &v15, 4u, &v14);
     if ( PowerSettingValue >= 0 )
     {
-      Blink = PopModernStandbyStateNotify.ThreadListEntry.Blink;
+      v5 = PopEsWnfSubscriptionOpportunisticCs;
       v6 = 1;
       v14 = 1;
       CurrentThread = KeGetCurrentThread();
       --CurrentThread->KernelApcDisable;
-      v8 = (struct _EX_RUNDOWN_REF *)ExpWnfAcquireSubscriptionNameInstance(v4, Blink);
+      v8 = (struct _EX_RUNDOWN_REF *)ExpWnfAcquireSubscriptionNameInstance(v4, v5);
       if ( v8 )
       {
         v9 = ((__int64 (__fastcall *)(struct _EX_RUNDOWN_REF *, _QWORD, _DWORD *, char *, unsigned int, unsigned int *))ExpWnfReadStateData)(
@@ -63,7 +63,7 @@ __int64 __fastcall PopEsInStandbyEvaluate(__int64 a1, __int64 a2)
         KeLeaveCriticalRegion();
         if ( PowerSettingValue >= 0 && v14 )
         {
-          if ( !v15 || v16 != 1 || v13 || (unk_140F10F10 & 1) != 0 )
+          if ( !v15 || v16 != 1 || v13 || (PopAggressiveStandbyAppliedActions & 1) != 0 )
             v6 = 0;
           v10 = PopEsBgActivityPolicy;
           if ( PopEsBgActivityPolicy != v6 )

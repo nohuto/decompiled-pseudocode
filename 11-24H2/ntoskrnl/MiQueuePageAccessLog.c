@@ -1,19 +1,19 @@
 /*
- * XREFs of MiQueuePageAccessLog @ 0x140244A68
+ * XREFs of MiQueuePageAccessLog @ 0x14020D250
  * Callers:
- *     MiEmptyPageAccessLog @ 0x140244260 (MiEmptyPageAccessLog.c)
- *     MiCheckAndProcessCcAccessLog @ 0x140379B9C (MiCheckAndProcessCcAccessLog.c)
- *     MiReturnCcAccessLog @ 0x140379C6C (MiReturnCcAccessLog.c)
- *     MiGetCcAccessLog @ 0x140956DF4 (MiGetCcAccessLog.c)
+ *     MiEmptyPageAccessLog @ 0x14020C9F0 (MiEmptyPageAccessLog.c)
+ *     MiCheckAndProcessCcAccessLog @ 0x14044B1B4 (MiCheckAndProcessCcAccessLog.c)
+ *     MiReturnCcAccessLog @ 0x14044B208 (MiReturnCcAccessLog.c)
+ *     MiGetCcAccessLog @ 0x14093A7A4 (MiGetCcAccessLog.c)
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x140245670 (ExReleaseRundownProtection_0.c)
- *     Feature_PrefetchQueueWorkerProactivelyForProcessExit__private_IsEnabledDeviceUsageNoInline @ 0x140245E80 (Feature_PrefetchQueueWorkerProactivelyForProcessExit__private_IsEnabledDeviceUsageNoInline.c)
- *     ObDereferenceObjectDeferDeleteWithTag @ 0x14025E950 (ObDereferenceObjectDeferDeleteWithTag.c)
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     ExAcquireRundownProtection @ 0x1402792A0 (ExAcquireRundownProtection.c)
- *     PfIsProcessExitingInNonSystemPartition @ 0x14047EBF4 (PfIsProcessExitingInNonSystemPartition.c)
- *     RtlpInterlockedPushEntrySList @ 0x1406B38D0 (RtlpInterlockedPushEntrySList.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExReleaseRundownProtection_0 @ 0x14020DE50 (ExReleaseRundownProtection_0.c)
+ *     Feature_PrefetchQueueWorkerProactivelyForProcessExit__private_IsEnabledDeviceUsageNoInline @ 0x14020EFA8 (Feature_PrefetchQueueWorkerProactivelyForProcessExit__private_IsEnabledDeviceUsageNoInline.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     ExAcquireRundownProtection_0 @ 0x14022E830 (ExAcquireRundownProtection_0.c)
+ *     ObDereferenceObjectDeferDeleteWithTag @ 0x14028EF60 (ObDereferenceObjectDeferDeleteWithTag.c)
+ *     PfIsProcessExitingInNonSystemPartition @ 0x140479AF4 (PfIsProcessExitingInNonSystemPartition.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1406B4870 (RtlpInterlockedPushEntrySList.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiQueuePageAccessLog(__int64 a1, __int64 a2)
@@ -28,10 +28,10 @@ void __fastcall MiQueuePageAccessLog(__int64 a1, __int64 a2)
   bool v10; // zf
 
   *(_QWORD *)(a2 + 24) = MEMORY[0xFFFFF78000000320];
-  *(_DWORD *)(a2 + 12) = xmmword_140F0E408;
+  *(_DWORD *)(a2 + 12) = xmmword_140F0E6E8;
   v3 = *(_QWORD *)(*(_QWORD *)(a1 + 184) + 32LL);
   v4 = (struct _EX_RUNDOWN_REF *)(v3 + 728);
-  if ( ExAcquireRundownProtection((PEX_RUNDOWN_REF)(v3 + 728)) )
+  if ( ExAcquireRundownProtection_0((PEX_RUNDOWN_REF)(v3 + 728)) )
   {
     v5 = *(unsigned __int16 *)(v3 + 768);
     if ( v5 >= *(_DWORD *)(v3 + 760) )

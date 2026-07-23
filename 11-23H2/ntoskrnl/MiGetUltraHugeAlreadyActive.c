@@ -1,30 +1,30 @@
 /*
- * XREFs of MiGetUltraHugeAlreadyActive @ 0x1403C0884
+ * XREFs of MiGetUltraHugeAlreadyActive @ 0x1403C0A64
  * Callers:
- *     MiGetHugePageToZero @ 0x140351160 (MiGetHugePageToZero.c)
+ *     MiGetHugePageToZero @ 0x140351300 (MiGetHugePageToZero.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     RtlFindClearBitsAndSet @ 0x140295EA0 (RtlFindClearBitsAndSet.c)
- *     MiDecrementHugeContext @ 0x1403D6658 (MiDecrementHugeContext.c)
- *     MiLockHugePfnInternal @ 0x140621468 (MiLockHugePfnInternal.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     RtlFindClearBitsAndSet @ 0x140296130 (RtlFindClearBitsAndSet.c)
+ *     MiDecrementHugeContext @ 0x1403D6838 (MiDecrementHugeContext.c)
+ *     MiLockHugePfnInternal @ 0x1406219B8 (MiLockHugePfnInternal.c)
  */
 
-RTL_BITMAP *__fastcall MiGetUltraHugeAlreadyActive(__int64 a1)
+_RTL_BITMAP *__fastcall MiGetUltraHugeAlreadyActive(__int64 a1)
 {
-  RTL_BITMAP *v1; // rbx
+  _RTL_BITMAP *v1; // rbx
   __int64 v3; // rdi
   __int64 v4; // rsi
   __int64 v5; // r12
   ULONG ClearBitsAndSet; // eax
   __int16 v7; // r13
-  RTL_BITMAP *result; // rax
-  RTL_BITMAP **v9; // r12
-  RTL_BITMAP *i; // r14
+  _RTL_BITMAP *result; // rax
+  _RTL_BITMAP **v9; // r12
+  _RTL_BITMAP *i; // r14
   ULONG v11; // eax
   int v12; // [rsp+60h] [rbp+8h] BYREF
   int v13; // [rsp+68h] [rbp+10h] BYREF
 
-  v1 = *(RTL_BITMAP **)(a1 + 344);
+  v1 = *(_RTL_BITMAP **)(a1 + 344);
   v3 = 0LL;
   v4 = 0LL;
   v5 = *(_QWORD *)(*(_QWORD *)(a1 + 88) + 168LL);
@@ -38,10 +38,10 @@ LABEL_10:
     MiDecrementHugeContext(v1);
     *(_QWORD *)(a1 + 344) = 0LL;
 LABEL_11:
-    v9 = (RTL_BITMAP **)(v5 + 32);
-    for ( i = *v9; ; i = *(RTL_BITMAP **)&i->SizeOfBitMap )
+    v9 = (_RTL_BITMAP **)(v5 + 32);
+    for ( i = *v9; ; i = *(_RTL_BITMAP **)&i->SizeOfBitMap )
     {
-      if ( i == (RTL_BITMAP *)v9 )
+      if ( i == (_RTL_BITMAP *)v9 )
         return 0LL;
       v1 = i - 5;
       v11 = RtlFindClearBitsAndSet(i + 1, 1u, 0);

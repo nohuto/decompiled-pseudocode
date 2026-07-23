@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlStringCbCopyNExW @ 0x140488CD0
+ * XREFs of RtlStringCbCopyNExW @ 0x140483DC0
  * Callers:
- *     _CmGetDeviceRegPropWorker @ 0x1408C5D70 (_CmGetDeviceRegPropWorker.c)
+ *     _CmGetDeviceRegPropWorker @ 0x1408C37A0 (_CmGetDeviceRegPropWorker.c)
  * Callees:
  *     <none>
  */

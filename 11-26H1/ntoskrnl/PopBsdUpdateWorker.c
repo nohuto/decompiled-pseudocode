@@ -1,27 +1,27 @@
 /*
- * XREFs of PopBsdUpdateWorker @ 0x140B00A80
+ * XREFs of PopBsdUpdateWorker @ 0x140B027B0
  * Callers:
  *     <none>
  * Callees:
- *     PopReleaseRwLock @ 0x14043630C (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x140436378 (PopAcquireRwLockExclusive.c)
- *     PopOkayToQueueNextWorkItem @ 0x1404DE3B8 (PopOkayToQueueNextWorkItem.c)
- *     PopBsdFlush @ 0x140B00AD4 (PopBsdFlush.c)
+ *     PopReleaseRwLock @ 0x14021B1A8 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x140425310 (PopAcquireRwLockExclusive.c)
+ *     PopOkayToQueueNextWorkItem @ 0x1404D7A98 (PopOkayToQueueNextWorkItem.c)
+ *     PopBsdFlush @ 0x140B02804 (PopBsdFlush.c)
  */
 
 __int64 __fastcall PopBsdUpdateWorker(__int64 a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
 {
-  unsigned int SignalState; // eax
+  unsigned int v4; // eax
 
-  PopAcquireRwLockExclusive((unsigned __int64 *)&stru_140F12D20.AbWaitObject, a2, a3, a4);
+  PopAcquireRwLockExclusive((unsigned __int64 *)&PopBsdUpdateLock, a2, a3, a4);
   while ( 1 )
   {
-    SignalState = stru_140F12D20.SuspendEvent.Header.SignalState;
-    stru_140F12D20.SuspendEvent.Header.SignalState = 0;
-    if ( !SignalState )
+    v4 = PopBsdUpdateRequests;
+    PopBsdUpdateRequests = 0;
+    if ( !v4 )
       break;
-    PopBsdFlush(SignalState);
+    PopBsdFlush(v4);
   }
-  PopOkayToQueueNextWorkItem((__int64)&stru_140F12D20.WriteTransferCount);
-  return PopReleaseRwLock((struct _KTHREAD *)&stru_140F12D20.AbWaitObject);
+  PopOkayToQueueNextWorkItem((__int64)&PopBsdUpdateWorkItem);
+  return PopReleaseRwLock((struct _KTHREAD *)&PopBsdUpdateLock);
 }

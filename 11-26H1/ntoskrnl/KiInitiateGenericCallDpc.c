@@ -1,15 +1,15 @@
 /*
- * XREFs of KiInitiateGenericCallDpc @ 0x1403C24E8
+ * XREFs of KiInitiateGenericCallDpc @ 0x1403CC3E8
  * Callers:
- *     KiGenericCallDpcInitiatorDpc @ 0x1403C21E0 (KiGenericCallDpcInitiatorDpc.c)
- *     KeGenericCallDpcEx @ 0x1403C2284 (KeGenericCallDpcEx.c)
- *     KiGenericCallDpcInitiatorWorker @ 0x1403C23F0 (KiGenericCallDpcInitiatorWorker.c)
+ *     KiGenericCallDpcInitiatorDpc @ 0x1403CC0E0 (KiGenericCallDpcInitiatorDpc.c)
+ *     KeGenericCallDpcEx @ 0x1403CC184 (KeGenericCallDpcEx.c)
+ *     KiGenericCallDpcInitiatorWorker @ 0x1403CC2F0 (KiGenericCallDpcInitiatorWorker.c)
  * Callees:
- *     KeQueryActiveProcessorCountEx @ 0x140211EA0 (KeQueryActiveProcessorCountEx.c)
- *     HvlNotifyLongSpinWait @ 0x1402BBF00 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402BC760 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     KiInsertQueueDpc @ 0x1402BD330 (KiInsertQueueDpc.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     KeQueryActiveProcessorCountEx @ 0x140211F80 (KeQueryActiveProcessorCountEx.c)
+ *     HvlNotifyLongSpinWait @ 0x140306BC0 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140307420 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     KiInsertQueueDpc @ 0x140307FF0 (KiInsertQueueDpc.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall KiInitiateGenericCallDpc(__int64 a1, _QWORD *a2)

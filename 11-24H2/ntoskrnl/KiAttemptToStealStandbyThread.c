@@ -1,22 +1,22 @@
 /*
- * XREFs of KiAttemptToStealStandbyThread @ 0x140297D94
+ * XREFs of KiAttemptToStealStandbyThread @ 0x1402A6884
  * Callers:
- *     KiSearchForNewThreadsInStandby @ 0x140293B18 (KiSearchForNewThreadsInStandby.c)
+ *     KiSearchForNewThreadsInStandby @ 0x1402A3718 (KiSearchForNewThreadsInStandby.c)
  * Callees:
- *     KiStartRescheduleContext @ 0x140254D50 (KiStartRescheduleContext.c)
- *     KiAcquirePrcbLocksForIsolationUnit @ 0x140293190 (KiAcquirePrcbLocksForIsolationUnit.c)
- *     KiIsIsolationUnitIdleByHandle @ 0x140293BF0 (KiIsIsolationUnitIdleByHandle.c)
- *     ?KiCompleteRescheduleContextEntry@@YAXPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KPRCB@@PEAU_KTHREAD@@PEAU_KTHREAD_SCHEDULE_REASON_DATA@@@Z @ 0x1402979F0 (-KiCompleteRescheduleContextEntry@@YAXPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KPRCB@@PEAU_KTHREAD.c)
- *     KiFindStandbyThreadForSteal @ 0x140298390 (KiFindStandbyThreadForSteal.c)
- *     KiAcquireMultiplePrcbLockArrays @ 0x1402985F0 (KiAcquireMultiplePrcbLockArrays.c)
- *     KiSearchForNewThreadsForRescheduleContext @ 0x1402986C0 (KiSearchForNewThreadsForRescheduleContext.c)
- *     KiScheduleThreadToRescheduleContext @ 0x140298F10 (KiScheduleThreadToRescheduleContext.c)
- *     KiReadyDeferredReadyList @ 0x140299320 (KiReadyDeferredReadyList.c)
- *     ?KiCommitRescheduleContextEntry@@YAEPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KPRCB@@KPEAU_SINGLE_LIST_ENTRY@@@Z @ 0x140299510 (-KiCommitRescheduleContextEntry@@YAEPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KPRCB@@KPEAU_SINGLE_L.c)
- *     KiFlushSoftwareInterruptBatch @ 0x14031FCD0 (KiFlushSoftwareInterruptBatch.c)
- *     ?KiFindRescheduleContextEntryForPrcb@@YAPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KI_RESCHEDULE_CONTEXT@@PEAU_KPRCB@@@Z @ 0x1403CA100 (-KiFindRescheduleContextEntryForPrcb@@YAPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KI_RESCHEDULE_CON.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     KiStartRescheduleContext @ 0x140285360 (KiStartRescheduleContext.c)
+ *     KiAcquirePrcbLocksForIsolationUnit @ 0x1402A2D90 (KiAcquirePrcbLocksForIsolationUnit.c)
+ *     KiIsIsolationUnitIdleByHandle @ 0x1402A37F0 (KiIsIsolationUnitIdleByHandle.c)
+ *     ?KiFindRescheduleContextEntryForPrcb@@YAPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KI_RESCHEDULE_CONTEXT@@PEAU_KPRCB@@@Z @ 0x1402A6730 (-KiFindRescheduleContextEntryForPrcb@@YAPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KI_RESCHEDULE_CON.c)
+ *     KiFindStandbyThreadForSteal @ 0x1402A6E80 (KiFindStandbyThreadForSteal.c)
+ *     KiAcquireMultiplePrcbLockArrays @ 0x1402A70E0 (KiAcquireMultiplePrcbLockArrays.c)
+ *     KiSearchForNewThreadsForRescheduleContext @ 0x1402A71B0 (KiSearchForNewThreadsForRescheduleContext.c)
+ *     KiScheduleThreadToRescheduleContext @ 0x1402A7A00 (KiScheduleThreadToRescheduleContext.c)
+ *     KiReadyDeferredReadyList @ 0x1402A7E10 (KiReadyDeferredReadyList.c)
+ *     ?KiCommitRescheduleContextEntry@@YAEPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KPRCB@@KPEAU_SINGLE_LIST_ENTRY@@@Z @ 0x1402A8000 (-KiCommitRescheduleContextEntry@@YAEPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KPRCB@@KPEAU_SINGLE_L.c)
+ *     KiFlushSoftwareInterruptBatch @ 0x1402C8860 (KiFlushSoftwareInterruptBatch.c)
+ *     ?KiCompleteRescheduleContextEntry@@YAXPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KPRCB@@PEAU_KTHREAD@@PEAU_KTHREAD_SCHEDULE_REASON_DATA@@@Z @ 0x1402E1220 (-KiCompleteRescheduleContextEntry@@YAXPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KPRCB@@PEAU_KTHREAD.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 char __fastcall KiAttemptToStealStandbyThread(struct _KPRCB *a1, struct _KPRCB *a2, unsigned __int64 a3)
@@ -100,7 +100,7 @@ char __fastcall KiAttemptToStealStandbyThread(struct _KPRCB *a1, struct _KPRCB *
   v8 = *(_KCORE_CONTROL_BLOCK **)(v3 + 36440);
   if ( CoreControlBlock == v8 )
   {
-    KiAcquirePrcbLocksForIsolationUnit(v3, 1, (unsigned __int64 *)&v62);
+    KiAcquirePrcbLocksForIsolationUnit(v3, 1LL, (unsigned __int64 *)&v62);
     v11 = v62;
     v63 = v62;
   }
@@ -181,7 +181,7 @@ char __fastcall KiAttemptToStealStandbyThread(struct _KPRCB *a1, struct _KPRCB *
   {
     KiSearchForNewThreadsForRescheduleContext(v24);
     v29 = 0LL;
-    v30 = (DWORD1(xmmword_140FC5B10) >> 9) & 2;
+    v30 = (DWORD1(xmmword_140FC6B50) >> 9) & 2;
     v61 = 0;
     if ( v22->ProcessorCount )
     {
@@ -251,7 +251,7 @@ LABEL_36:
     KiSearchForNewThreadsForRescheduleContext(StaticRescheduleContext);
   v39 = 0;
   v40 = 0LL;
-  v41 = (DWORD1(xmmword_140FC5B10) >> 9) & 2;
+  v41 = (DWORD1(xmmword_140FC6B50) >> 9) & 2;
   v60 = 0;
   if ( StaticRescheduleContext->ProcessorCount )
   {

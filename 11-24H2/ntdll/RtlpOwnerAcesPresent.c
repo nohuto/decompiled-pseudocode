@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpOwnerAcesPresent @ 0x1800E8EB0
+ * XREFs of RtlpOwnerAcesPresent @ 0x1800E45A0
  * Callers:
- *     RtlpNewSecurityObject @ 0x1800C9280 (RtlpNewSecurityObject.c)
- *     RtlOwnerAcesPresent @ 0x180114A50 (RtlOwnerAcesPresent.c)
+ *     RtlpNewSecurityObject @ 0x1800C0E40 (RtlpNewSecurityObject.c)
+ *     RtlOwnerAcesPresent @ 0x18010FD60 (RtlOwnerAcesPresent.c)
  * Callees:
- *     __security_check_cookie @ 0x1801659C0 (__security_check_cookie.c)
- *     memcmp @ 0x1801676D0 (memcmp.c)
+ *     __security_check_cookie @ 0x180163D80 (__security_check_cookie.c)
+ *     memcmp @ 0x180165A90 (memcmp.c)
  */
 
 char __fastcall RtlpOwnerAcesPresent(unsigned __int8 a1, __int64 a2)

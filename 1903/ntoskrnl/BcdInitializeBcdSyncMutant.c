@@ -7,9 +7,8 @@
  *     ZwCreateMutant @ 0x1401C16B0 (ZwCreateMutant.c)
  */
 
-int BcdInitializeBcdSyncMutant()
+void BcdInitializeBcdSyncMutant(void)
 {
-  signed __int64 v0; // rax
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+20h] [rbp-30h] BYREF
   HANDLE MutantHandle; // [rsp+60h] [rbp+10h] BYREF
 
@@ -21,12 +20,9 @@ int BcdInitializeBcdSyncMutant()
   ObjectAttributes.Length = 48;
   ObjectAttributes.SecurityDescriptor = BiBcdMutantDescriptor;
   ObjectAttributes.Attributes = 592;
-  LODWORD(v0) = ZwCreateMutant(&MutantHandle, 0x1F0001u, &ObjectAttributes, 0);
-  if ( (int)v0 >= 0 )
+  if ( ZwCreateMutant(&MutantHandle, 0x1F0001u, &ObjectAttributes, 0) >= 0 )
   {
-    v0 = _InterlockedCompareExchange64((volatile signed __int64 *)&BcdMutantHandle, (signed __int64)MutantHandle, 0LL);
-    if ( v0 )
-      LODWORD(v0) = ZwClose(MutantHandle);
+    if ( _InterlockedCompareExchange64((volatile signed __int64 *)&BcdMutantHandle, (signed __int64)MutantHandle, 0LL) )
+      ZwClose(MutantHandle);
   }
-  return v0;
 }

@@ -1,15 +1,15 @@
 /*
- * XREFs of VslRegisterLogPages @ 0x14054C010
+ * XREFs of VslRegisterLogPages @ 0x14054C6D0
  * Callers:
- *     PsIumResumeAfterHibernate @ 0x1405A58E4 (PsIumResumeAfterHibernate.c)
+ *     PsIumResumeAfterHibernate @ 0x1405A5E54 (PsIumResumeAfterHibernate.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x14033FCF0 (VslpEnterIumSecureMode.c)
- *     HvlQueryVsmConnection @ 0x140340388 (HvlQueryVsmConnection.c)
- *     VslpLockPagesForTransfer @ 0x1403CEA84 (VslpLockPagesForTransfer.c)
- *     VslpUnlockPagesForTransfer @ 0x1403CECFC (VslpUnlockPagesForTransfer.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     VslpEnterIumSecureMode @ 0x14033FF80 (VslpEnterIumSecureMode.c)
+ *     HvlQueryVsmConnection @ 0x140340618 (HvlQueryVsmConnection.c)
+ *     VslpLockPagesForTransfer @ 0x1403CEC64 (VslpLockPagesForTransfer.c)
+ *     VslpUnlockPagesForTransfer @ 0x1403CEEDC (VslpUnlockPagesForTransfer.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 __int64 VslRegisterLogPages()
@@ -38,7 +38,7 @@ __int64 VslRegisterLogPages()
   {
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(2uLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
       v4 = 4;
@@ -49,10 +49,10 @@ __int64 VslRegisterLogPages()
     v12[1] = v11[0];
     v12[2] = v11[7];
     v5 = VslpEnterIumSecureMode(2u, 252, 0, (__int64)v12);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v6 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v6 <= 0xFu && CurrentIrql <= 0xFu && v6 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v6 <= 0xFu && CurrentIrql <= 0xFu && v6 >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         v8 = CurrentPrcb->SchedulerAssist;
@@ -60,7 +60,7 @@ __int64 VslRegisterLogPages()
         v10 = (v9 & v8[5]) == 0;
         v8[5] &= v9;
         if ( v10 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
       }
     }
     __writecr8(CurrentIrql);

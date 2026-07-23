@@ -1,10 +1,10 @@
 /*
- * XREFs of MiUpdatePageThresholdsDpc @ 0x14017F780
+ * XREFs of MiUpdatePageThresholdsDpc @ 0x14017F8C0
  * Callers:
  *     <none>
  * Callees:
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     MiUpdateAvailableEvents @ 0x14017F824 (MiUpdateAvailableEvents.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     MiUpdateAvailableEvents @ 0x14017F964 (MiUpdateAvailableEvents.c)
  */
 
 __int64 __fastcall MiUpdatePageThresholdsDpc(__int64 a1, _QWORD *a2, volatile signed __int32 *a3, __int64 a4)

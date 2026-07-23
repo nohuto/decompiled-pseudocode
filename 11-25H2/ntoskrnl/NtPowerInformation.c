@@ -142,7 +142,7 @@ NTSTATUS __stdcall NtPowerInformation(
   __int64 v13; // rdx
   ULONG v14; // r13d
   void *v15; // r14
-  volatile void *v16; // r12
+  _WNF_STATE_NAME *v16; // r12
   signed int v17; // esi
   unsigned __int64 v18; // rax
   NTSTATUS IsAppContainerOrIdentifyLevelContext; // ebx
@@ -283,7 +283,7 @@ NTSTATUS __stdcall NtPowerInformation(
   int v155; // esi
   int v156; // esi
   int v157; // esi
-  __int64 v158; // [rsp+20h] [rbp-748h]
+  void *ExplicitScope; // [rsp+20h] [rbp-748h]
   ULONG Length; // [rsp+50h] [rbp-718h]
   unsigned int Length_4; // [rsp+54h] [rbp-714h] BYREF
   KPROCESSOR_MODE PreviousMode; // [rsp+58h] [rbp-710h]
@@ -335,7 +335,7 @@ NTSTATUS __stdcall NtPowerInformation(
   v162[0] = 0;
   LODWORD(v168) = 0;
   v163 = 0;
-  if ( (unsigned int)InformationLevel > (PlatformInformation|ProcessorPerfStates) )
+  if ( (unsigned int)InformationLevel > PowerInformationLevelMaximum )
     goto LABEL_284;
   LOBYTE(v9) = KeGetCurrentThread()->PreviousMode;
   PreviousMode = v9;
@@ -343,7 +343,7 @@ NTSTATUS __stdcall NtPowerInformation(
   v15 = (void *)((unsigned __int64)InputBuffer & -(__int64)(v14 != 0));
   P[1] = v15;
   Length = OutputBuffer != 0LL ? OutputBufferLength : 0;
-  v16 = (volatile void *)((unsigned __int64)OutputBuffer & -(__int64)(Length != 0));
+  v16 = (_WNF_STATE_NAME *)((unsigned __int64)OutputBuffer & -(__int64)(Length != 0));
   if ( (_BYTE)v9 )
   {
     v17 = v170;
@@ -804,7 +804,7 @@ LABEL_500:
           PopAcquireTransitionLock(6LL);
           PopAcquirePolicyLock(v148, v147);
           IsAppContainerOrIdentifyLevelContext = PopSetHiberFileType(*Pool2, &v171, (unsigned int *)&v168);
-          PopReleasePolicyLock(v150, v149, v151, v152, v158);
+          PopReleasePolicyLock(v150, v149, v151, v152, ExplicitScope);
           v117 = 6LL;
           goto LABEL_397;
         }
@@ -961,7 +961,7 @@ LABEL_106:
               goto LABEL_283;
             if ( v15 && v14 != 20 || Length != 8 )
               goto LABEL_105;
-            SettingValue = PopGetSettingNotificationName((__int64)Pool2, (__int64 *)v16);
+            SettingValue = PopGetSettingNotificationName((__int64)Pool2, v16);
           }
           goto LABEL_426;
         }
@@ -1010,7 +1010,7 @@ LABEL_106:
           }
           if ( v14 == 4 )
           {
-            WakeSource = PpmClearSimulatedIdle((struct _PROCESSOR_NUMBER *)Pool2);
+            WakeSource = PpmClearSimulatedIdle((_PROCESSOR_NUMBER *)Pool2);
             goto LABEL_268;
           }
           goto LABEL_275;
@@ -1022,7 +1022,7 @@ LABEL_106:
         PopAcquireTransitionLock(5LL);
         PopAcquirePolicyLock(v112, v111);
         IsAppContainerOrIdentifyLevelContext = PopSetHiberFileSize(*Pool2, &v171, (unsigned int *)&v168);
-        PopReleasePolicyLock(v114, v113, v115, v116, v158);
+        PopReleasePolicyLock(v114, v113, v115, v116, ExplicitScope);
         v117 = 5LL;
 LABEL_397:
         PopReleaseTransitionLock(v117);
@@ -1216,7 +1216,7 @@ LABEL_586:
                       }
                       if ( v87 >= Length_4 )
                       {
-                        memmove((void *)v16, Src, Length_4);
+                        memmove(v16, Src, Length_4);
                         goto LABEL_630;
                       }
                       goto LABEL_105;
@@ -1431,7 +1431,7 @@ LABEL_143:
           PopHiberEnabledReg = *(_BYTE *)Pool2 != 0;
           PopSetHiberPersistedRegValue(0, PopHiberEnabledReg, 0LL);
           IsAppContainerOrIdentifyLevelContext = PopHibernateEvaluation(0LL, 0LL, 0LL);
-          PopReleasePolicyLock(v54, v53, v55, v56, v158);
+          PopReleasePolicyLock(v54, v53, v55, v56, ExplicitScope);
           PopReleaseTransitionLock(3LL);
           goto LABEL_149;
         }
@@ -1632,7 +1632,7 @@ LABEL_624:
                 v92 = (unsigned int)PsGetSessionIdEx((__int64)KeGetCurrentThread()->ApcState.Process);
                 PopPrintEx(3, (int)"PopAdaptive: Session %u is started\n", v92);
                 PopDiagTraceSessionStates(&POP_ETW_ADPM_SESSION_CREATED, v92, 0);
-                PopReleasePolicyLock(v94, v93, v95, v96, v158);
+                PopReleasePolicyLock(v94, v93, v95, v96, ExplicitScope);
                 IsAppContainerOrIdentifyLevelContext = v163;
                 Pool2 = (unsigned int *)v167;
                 goto LABEL_626;
@@ -1652,10 +1652,7 @@ LABEL_309:
           if ( *((_BYTE *)Pool2 + 14) )
           {
             if ( *((_BYTE *)Pool2 + 12) )
-            {
-              v158 = 0LL;
-              ZwUpdateWnfStateData((__int64)&WNF_PO_PRIMARY_DISPLAY_VISIBLE_STATE, (__int64)(Pool2 + 1));
-            }
+              ZwUpdateWnfStateData(&WNF_PO_PRIMARY_DISPLAY_VISIBLE_STATE, Pool2 + 1, 4u, 0LL, 0LL, 0, 0);
             if ( *((_BYTE *)Pool2 + 14) )
               PopDiagTraceSessionDisplayStateChange(Pool2[1] == 0, *Pool2, *((unsigned __int8 *)Pool2 + 12), Pool2[2]);
           }
@@ -1849,7 +1846,7 @@ LABEL_275:
       goto LABEL_283;
     if ( (_BYTE)v13 )
     {
-      PopReleasePolicyLock(1LL, v13, v10, v11, v158);
+      PopReleasePolicyLock(1LL, v13, v10, v11, ExplicitScope);
       v165 = 0;
     }
     IsAppContainerOrIdentifyLevelContext = PopGetWakeSource(0LL, &Length_4);
@@ -1957,7 +1954,7 @@ LABEL_285:
   if ( v162[0] )
     ExFreePoolWithTag(Src, 0x206D654Du);
   if ( v165 )
-    PopReleasePolicyLock(v83, v13, v10, v11, v158);
+    PopReleasePolicyLock(v83, v13, v10, v11, ExplicitScope);
   if ( Pool2 && Pool2 != InputBuffer && Pool2 != (unsigned int *)psz )
     ExFreePoolWithTag(Pool2, 0x206D654Du);
   return IsAppContainerOrIdentifyLevelContext;

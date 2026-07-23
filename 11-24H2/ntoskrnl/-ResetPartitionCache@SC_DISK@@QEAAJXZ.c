@@ -1,13 +1,13 @@
 /*
- * XREFs of ?ResetPartitionCache@SC_DISK@@QEAAJXZ @ 0x14069DD30
+ * XREFs of ?ResetPartitionCache@SC_DISK@@QEAAJXZ @ 0x14069EDC4
  * Callers:
- *     ?InitializePartitionCache@SC_DISK@@QEAAJXZ @ 0x14069DB08 (-InitializePartitionCache@SC_DISK@@QEAAJXZ.c)
- *     ?ReadPartitionTable@SC_DISK@@QEAAJPEAPEAVSC_DISK_LAYOUT@@@Z @ 0x14069DC5C (-ReadPartitionTable@SC_DISK@@QEAAJPEAPEAVSC_DISK_LAYOUT@@@Z.c)
- *     ?SetPartition@SC_DISK@@QEAAJKPEAU_SET_PARTITION_INFORMATION_EX@@@Z @ 0x14069DE9C (-SetPartition@SC_DISK@@QEAAJKPEAU_SET_PARTITION_INFORMATION_EX@@@Z.c)
- *     ?WritePartitionTable@SC_DISK@@QEAAJPEAVSC_DISK_LAYOUT@@@Z @ 0x14069E00C (-WritePartitionTable@SC_DISK@@QEAAJPEAVSC_DISK_LAYOUT@@@Z.c)
+ *     ?InitializePartitionCache@SC_DISK@@QEAAJXZ @ 0x14069EB98 (-InitializePartitionCache@SC_DISK@@QEAAJXZ.c)
+ *     ?ReadPartitionTable@SC_DISK@@QEAAJPEAPEAVSC_DISK_LAYOUT@@@Z @ 0x14069ECF0 (-ReadPartitionTable@SC_DISK@@QEAAJPEAPEAVSC_DISK_LAYOUT@@@Z.c)
+ *     ?SetPartition@SC_DISK@@QEAAJKPEAU_SET_PARTITION_INFORMATION_EX@@@Z @ 0x14069EF2C (-SetPartition@SC_DISK@@QEAAJKPEAU_SET_PARTITION_INFORMATION_EX@@@Z.c)
+ *     ?WritePartitionTable@SC_DISK@@QEAAJPEAVSC_DISK_LAYOUT@@@Z @ 0x14069F09C (-WritePartitionTable@SC_DISK@@QEAAJPEAVSC_DISK_LAYOUT@@@Z.c)
  * Callees:
- *     ?IsVbr@SC_DISK@@QEAAEXZ @ 0x14069DBA0 (-IsVbr@SC_DISK@@QEAAEXZ.c)
- *     ?ReadSectors@SC_DISK@@QEAAJK_KPEAX@Z @ 0x14069DCEC (-ReadSectors@SC_DISK@@QEAAJK_KPEAX@Z.c)
+ *     ?IsVbr@SC_DISK@@QEAAEXZ @ 0x14069EC34 (-IsVbr@SC_DISK@@QEAAEXZ.c)
+ *     ?ReadSectors@SC_DISK@@QEAAJK_KPEAX@Z @ 0x14069ED80 (-ReadSectors@SC_DISK@@QEAAJK_KPEAX@Z.c)
  */
 
 __int64 __fastcall SC_DISK::ResetPartitionCache(SC_DISK *this)
@@ -15,7 +15,7 @@ __int64 __fastcall SC_DISK::ResetPartitionCache(SC_DISK *this)
   int Sectors; // edi
   __int64 v3; // rdx
 
-  Sectors = SC_DISK::ReadSectors(this, 1, 0LL, 0LL);
+  Sectors = SC_DISK::ReadSectors(this, 1LL, 0LL, 0LL);
   if ( Sectors >= 0 )
   {
     v3 = *((_QWORD *)this + 33);

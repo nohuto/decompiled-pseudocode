@@ -1,14 +1,14 @@
 /*
- * XREFs of MiGetVadCacheAttribute @ 0x1404A5498
+ * XREFs of MiGetVadCacheAttribute @ 0x1404A0228
  * Callers:
- *     MiProtectAweRegion @ 0x1404C2558 (MiProtectAweRegion.c)
- *     MiReferenceIncomingPhysicalPages @ 0x140682A70 (MiReferenceIncomingPhysicalPages.c)
- *     MiProcessVaContiguityInformation @ 0x14068D0DC (MiProcessVaContiguityInformation.c)
- *     MiAllocateLargeProcessPagesFromCache @ 0x14069197C (MiAllocateLargeProcessPagesFromCache.c)
- *     MmRotatePhysicalView @ 0x140A2E770 (MmRotatePhysicalView.c)
- *     MiRotateToFrameBuffer @ 0x140A2E9A4 (MiRotateToFrameBuffer.c)
- *     MiRotateToFrameBufferNoCopy @ 0x140A2ECC0 (MiRotateToFrameBufferNoCopy.c)
- *     MiReplaceRotateWithDemandZero @ 0x140A64CA8 (MiReplaceRotateWithDemandZero.c)
+ *     MiProtectAweRegion @ 0x1404BDA90 (MiProtectAweRegion.c)
+ *     MiReferenceIncomingPhysicalPages @ 0x140683C60 (MiReferenceIncomingPhysicalPages.c)
+ *     MiProcessVaContiguityInformation @ 0x14068E20C (MiProcessVaContiguityInformation.c)
+ *     MiAllocateLargeProcessPagesFromCache @ 0x140692A4C (MiAllocateLargeProcessPagesFromCache.c)
+ *     MmRotatePhysicalView @ 0x140A231B0 (MmRotatePhysicalView.c)
+ *     MiRotateToFrameBuffer @ 0x140A233E4 (MiRotateToFrameBuffer.c)
+ *     MiRotateToFrameBufferNoCopy @ 0x140A23700 (MiRotateToFrameBufferNoCopy.c)
+ *     MiReplaceRotateWithDemandZero @ 0x140A5D478 (MiReplaceRotateWithDemandZero.c)
  * Callees:
  *     <none>
  */

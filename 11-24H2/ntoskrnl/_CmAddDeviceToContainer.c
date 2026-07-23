@@ -1,15 +1,15 @@
 /*
- * XREFs of _CmAddDeviceToContainer @ 0x140A54674
+ * XREFs of _CmAddDeviceToContainer @ 0x140A4C5C4
  * Callers:
- *     _CmMoveBaseContainer @ 0x14081A53C (_CmMoveBaseContainer.c)
- *     PiDcUpdateDeviceContainerMembership @ 0x140990834 (PiDcUpdateDeviceContainerMembership.c)
- *     IopInitializePlugPlayServices @ 0x140C1F07C (IopInitializePlugPlayServices.c)
+ *     _CmMoveBaseContainer @ 0x14081AC7C (_CmMoveBaseContainer.c)
+ *     PiDcUpdateDeviceContainerMembership @ 0x14097B874 (PiDcUpdateDeviceContainerMembership.c)
+ *     IopInitializePlugPlayServices @ 0x140C210BC (IopInitializePlugPlayServices.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     _CmAddDeviceToContainerWorker @ 0x140A547D0 (_CmAddDeviceToContainerWorker.c)
- *     _PnpObjectRaiseDevicesChangeEvent @ 0x140AB17A8 (_PnpObjectRaiseDevicesChangeEvent.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     _CmAddDeviceToContainerWorker @ 0x140A4C720 (_CmAddDeviceToContainerWorker.c)
+ *     _PnpObjectRaiseDevicesChangeEvent @ 0x140AAC718 (_PnpObjectRaiseDevicesChangeEvent.c)
  */
 
 __int64 __fastcall CmAddDeviceToContainer(__int64 a1, __int64 a2, __int64 a3, __int64 a4, _BYTE *a5)
@@ -32,7 +32,7 @@ __int64 __fastcall CmAddDeviceToContainer(__int64 a1, __int64 a2, __int64 a3, __
   if ( v9 )
   {
     v15 = v16;
-    v10 = guard_dispatch_icall_no_overrides(a1, a2, 5LL, 13LL);
+    v10 = guard_dispatch_icall_no_overrides(a1, a2);
     if ( v10 == -1073741822 )
     {
       v9 = 0LL;
@@ -47,7 +47,7 @@ __int64 __fastcall CmAddDeviceToContainer(__int64 a1, __int64 a2, __int64 a3, __
   }
   v11 = CmAddDeviceToContainerWorker(a1, a2, v17, v18, v19, v15);
   v12 = v11;
-  if ( !v9 || (v16[0] = v11, v13 = guard_dispatch_icall_no_overrides(a1, a2, 5LL, 13LL), v13 == -1073741822) )
+  if ( !v9 || (v16[0] = v11, v13 = guard_dispatch_icall_no_overrides(a1, a2), v13 == -1073741822) )
   {
 LABEL_8:
     if ( !v19[0] )

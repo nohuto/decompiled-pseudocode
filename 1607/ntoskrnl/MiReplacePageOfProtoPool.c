@@ -1,17 +1,17 @@
 /*
- * XREFs of MiReplacePageOfProtoPool @ 0x1400A99CC
+ * XREFs of MiReplacePageOfProtoPool @ 0x1400A7F4C
  * Callers:
- *     MiStealPage @ 0x140107E84 (MiStealPage.c)
+ *     MiStealPage @ 0x140105C04 (MiStealPage.c)
  * Callees:
- *     MiLockLeafPage @ 0x14002EA50 (MiLockLeafPage.c)
- *     MiLockPageAtDpcInline @ 0x14002EB30 (MiLockPageAtDpcInline.c)
- *     MiLockNestedPageAtDpcInline @ 0x14009E2E0 (MiLockNestedPageAtDpcInline.c)
- *     MiIsPoolHeader @ 0x1400A9E38 (MiIsPoolHeader.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     MI_GET_PAGE_FRAME_FROM_TRANSITION_PTE @ 0x1401F2570 (MI_GET_PAGE_FRAME_FROM_TRANSITION_PTE.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiLockLeafPage @ 0x14002E5D0 (MiLockLeafPage.c)
+ *     MiLockPageAtDpcInline @ 0x14002E6B0 (MiLockPageAtDpcInline.c)
+ *     MiLockNestedPageAtDpcInline @ 0x14009DAE0 (MiLockNestedPageAtDpcInline.c)
+ *     MiIsPoolHeader @ 0x1400A83B8 (MiIsPoolHeader.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     MI_GET_PAGE_FRAME_FROM_TRANSITION_PTE @ 0x1401F239C (MI_GET_PAGE_FRAME_FROM_TRANSITION_PTE.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
  */
 
 __int64 __fastcall MiReplacePageOfProtoPool(char *Src, __int64 a2, __int64 a3, char *a4)

@@ -1,7 +1,7 @@
 /*
- * XREFs of PpmIdleLockProcessor @ 0x1405851FC
+ * XREFs of PpmIdleLockProcessor @ 0x1405856EC
  * Callers:
- *     PpmTestAndLockProcessor @ 0x140585EFC (PpmTestAndLockProcessor.c)
+ *     PpmTestAndLockProcessor @ 0x1405863EC (PpmTestAndLockProcessor.c)
  * Callees:
  *     <none>
  */

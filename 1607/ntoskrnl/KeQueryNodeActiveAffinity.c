@@ -1,22 +1,22 @@
 /*
- * XREFs of KeQueryNodeActiveAffinity @ 0x140004F28
+ * XREFs of KeQueryNodeActiveAffinity @ 0x14000509C
  * Callers:
- *     PnpSetDeviceAffinityThread @ 0x14000836C (PnpSetDeviceAffinityThread.c)
- *     ExpWorkerThread @ 0x1400E7700 (ExpWorkerThread.c)
- *     MiZeroPageThread @ 0x140139C40 (MiZeroPageThread.c)
- *     MiZeroNodePages @ 0x14013A830 (MiZeroNodePages.c)
- *     MiInitializePageZeroing @ 0x14013AE70 (MiInitializePageZeroing.c)
- *     PpmParkRegisterParking @ 0x140143818 (PpmParkRegisterParking.c)
+ *     PnpSetDeviceAffinityThread @ 0x140007EE0 (PnpSetDeviceAffinityThread.c)
+ *     ExpWorkerThread @ 0x1400E55A0 (ExpWorkerThread.c)
+ *     MiZeroPageThread @ 0x14013A1B0 (MiZeroPageThread.c)
+ *     MiZeroNodePages @ 0x14013ADA0 (MiZeroNodePages.c)
+ *     MiInitializePageZeroing @ 0x14013B3E0 (MiInitializePageZeroing.c)
+ *     PpmParkRegisterParking @ 0x140143D88 (PpmParkRegisterParking.c)
  *     KiConfigureSchedulingInformation @ 0x1403D3734 (KiConfigureSchedulingInformation.c)
  *     ExpWorkerHotAddProcessor @ 0x1403DFF80 (ExpWorkerHotAddProcessor.c)
- *     ExpCreateSystemThreadForNode @ 0x1403E4644 (ExpCreateSystemThreadForNode.c)
- *     ExpQueryNumaProcessorMap @ 0x1403E4940 (ExpQueryNumaProcessorMap.c)
- *     ExProcessorCounterSetCallback @ 0x140407468 (ExProcessorCounterSetCallback.c)
- *     ExpWorkerThreadBalanceManager @ 0x140566108 (ExpWorkerThreadBalanceManager.c)
- *     ExAllocatePrivateWorkerPool @ 0x140575508 (ExAllocatePrivateWorkerPool.c)
- *     MiCombineAllPhysicalMemory @ 0x140663718 (MiCombineAllPhysicalMemory.c)
- *     EtwpProcessorRundown @ 0x1406A7AC0 (EtwpProcessorRundown.c)
- *     ExpAllocatePoolForNode @ 0x1406B5F40 (ExpAllocatePoolForNode.c)
+ *     ExpCreateSystemThreadForNode @ 0x1403E5C70 (ExpCreateSystemThreadForNode.c)
+ *     ExpQueryNumaProcessorMap @ 0x1403E5F6C (ExpQueryNumaProcessorMap.c)
+ *     ExProcessorCounterSetCallback @ 0x140406328 (ExProcessorCounterSetCallback.c)
+ *     ExpWorkerThreadBalanceManager @ 0x140566648 (ExpWorkerThreadBalanceManager.c)
+ *     ExAllocatePrivateWorkerPool @ 0x140575A48 (ExAllocatePrivateWorkerPool.c)
+ *     MiCombineAllPhysicalMemory @ 0x1406637FC (MiCombineAllPhysicalMemory.c)
+ *     EtwpProcessorRundown @ 0x1406A7BF8 (EtwpProcessorRundown.c)
+ *     ExpAllocatePoolForNode @ 0x1406B6078 (ExpAllocatePoolForNode.c)
  *     ExpWorkerInitialization @ 0x1407B4A64 (ExpWorkerInitialization.c)
  * Callees:
  *     <none>

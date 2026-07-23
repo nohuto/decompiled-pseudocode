@@ -1,10 +1,10 @@
 /*
- * XREFs of DpxEndpointWrappedCall @ 0x140C60010
+ * XREFs of DpxEndpointWrappedCall @ 0x140C66010
  * Callers:
  *     <none>
  * Callees:
- *     DpxAcquireSimpleRundown @ 0x1405E3530 (DpxAcquireSimpleRundown.c)
- *     DpxReleaseSimpleRundown @ 0x1405E3580 (DpxReleaseSimpleRundown.c)
+ *     DpxAcquireSimpleRundown @ 0x1405E5EA0 (DpxAcquireSimpleRundown.c)
+ *     DpxReleaseSimpleRundown @ 0x1405E5EF0 (DpxReleaseSimpleRundown.c)
  */
 
 __int64 __fastcall DpxEndpointWrappedCall(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

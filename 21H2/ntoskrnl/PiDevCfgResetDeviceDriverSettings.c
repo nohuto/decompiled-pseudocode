@@ -1,33 +1,33 @@
 /*
- * XREFs of PiDevCfgResetDeviceDriverSettings @ 0x140730420
+ * XREFs of PiDevCfgResetDeviceDriverSettings @ 0x1407305EC
  * Callers:
- *     PpDevCfgProcessDeviceReset @ 0x1407301CC (PpDevCfgProcessDeviceReset.c)
- *     PiDevCfgConfigureDevice @ 0x140742E20 (PiDevCfgConfigureDevice.c)
+ *     PpDevCfgProcessDeviceReset @ 0x140730398 (PpDevCfgProcessDeviceReset.c)
+ *     PiDevCfgConfigureDevice @ 0x140742FE0 (PiDevCfgConfigureDevice.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x140265AF0 (RtlInitUnicodeStringEx.c)
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     ZwOpenKey @ 0x1403FA5E0 (ZwOpenKey.c)
- *     ZwDeleteValueKey @ 0x1403FBE80 (ZwDeleteValueKey.c)
- *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
- *     _PnpOpenObjectRegKey @ 0x140637864 (_PnpOpenObjectRegKey.c)
- *     _PnpGetObjectProperty @ 0x140637B7C (_PnpGetObjectProperty.c)
- *     _CmOpenDeviceRegKey @ 0x140641B70 (_CmOpenDeviceRegKey.c)
- *     RtlStringFromGUIDEx @ 0x14067A7D8 (RtlStringFromGUIDEx.c)
- *     PnpIsNullGuid @ 0x1406E76C0 (PnpIsNullGuid.c)
- *     PiDevCfgResetDeviceKeys @ 0x140730714 (PiDevCfgResetDeviceKeys.c)
- *     PiDevCfgSetObjectProperty @ 0x1407452EC (PiDevCfgSetObjectProperty.c)
- *     _RegRtlDeleteTreeInternal @ 0x140766974 (_RegRtlDeleteTreeInternal.c)
+ *     RtlInitUnicodeStringEx @ 0x140253A90 (RtlInitUnicodeStringEx.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403FA7C0 (ZwOpenKey.c)
+ *     ZwDeleteValueKey @ 0x1403FC060 (ZwDeleteValueKey.c)
+ *     _PnpOpenObjectRegKey @ 0x14062C674 (_PnpOpenObjectRegKey.c)
+ *     _PnpGetObjectProperty @ 0x14062C98C (_PnpGetObjectProperty.c)
+ *     _CmOpenDeviceRegKey @ 0x140636980 (_CmOpenDeviceRegKey.c)
+ *     RtlFreeAnsiString @ 0x14063DA40 (RtlFreeAnsiString.c)
+ *     RtlStringFromGUIDEx @ 0x14066DF18 (RtlStringFromGUIDEx.c)
+ *     PnpIsNullGuid @ 0x1406FEAA0 (PnpIsNullGuid.c)
+ *     PiDevCfgResetDeviceKeys @ 0x1407308E0 (PiDevCfgResetDeviceKeys.c)
+ *     PiDevCfgSetObjectProperty @ 0x1407454AC (PiDevCfgSetObjectProperty.c)
+ *     _RegRtlDeleteTreeInternal @ 0x140766B34 (_RegRtlDeleteTreeInternal.c)
  */
 
-__int64 __fastcall PiDevCfgResetDeviceDriverSettings(__int64 a1, __int64 a2, _QWORD *a3, __int64 a4, __int64 a5)
+__int64 __fastcall PiDevCfgResetDeviceDriverSettings(__int64 a1, __int64 a2, _QWORD *a3, __int64 a4, PGUID Guid)
 {
   __int64 *v5; // rbx
   __int64 v8; // rdi
   GUID **v9; // rdi
   __int64 v10; // r12
-  int v11; // r15d
+  NTSTATUS v11; // r15d
   _QWORD *v12; // rdx
   __int64 v13; // rax
   bool v14; // zf
@@ -91,7 +91,7 @@ __int64 __fastcall PiDevCfgResetDeviceDriverSettings(__int64 a1, __int64 a2, _QW
   {
     Source2 = 0LL;
   }
-  v9 = &off_140985D08;
+  v9 = &off_140985EE8;
   v10 = 2LL;
   v11 = 0;
   do
@@ -115,11 +115,11 @@ __int64 __fastcall PiDevCfgResetDeviceDriverSettings(__int64 a1, __int64 a2, _QW
     if ( v22 )
     {
 LABEL_38:
-      if ( !a5 )
+      if ( !Guid )
         goto LABEL_24;
-      v23 = *v12 - *(_QWORD *)a5;
-      if ( *v12 == *(_QWORD *)a5 )
-        v23 = v12[1] - *(_QWORD *)(a5 + 8);
+      v23 = *v12 - *(_QWORD *)&Guid->Data1;
+      if ( *v12 == *(_QWORD *)&Guid->Data1 )
+        v23 = v12[1] - *(_QWORD *)Guid->Data4;
       v14 = v23 == 0;
 LABEL_12:
       if ( !v14 )
@@ -173,17 +173,17 @@ LABEL_24:
     --v10;
   }
   while ( v10 );
-  if ( !a5 )
+  if ( !Guid )
     goto LABEL_26;
   if ( !a3 )
     goto LABEL_49;
-  v25 = *(_QWORD *)a5 - *a3;
-  if ( *(_QWORD *)a5 == *a3 )
-    v25 = *(_QWORD *)(a5 + 8) - a3[1];
+  v25 = *(_QWORD *)&Guid->Data1 - *a3;
+  if ( *(_QWORD *)&Guid->Data1 == *a3 )
+    v25 = *(_QWORD *)Guid->Data4 - a3[1];
   if ( v25 )
   {
 LABEL_49:
-    v11 = RtlStringFromGUIDEx((unsigned int *)a5, (__int64)&UnicodeString, 1);
+    v11 = RtlStringFromGUIDEx(Guid, &UnicodeString, 1u);
     if ( v11 >= 0 )
     {
       v26 = PnpOpenObjectRegKey(*(__int64 *)&PiPnpRtlCtx, (__int64)UnicodeString.Buffer, 2u, 131097, 0, (__int64)&v33);

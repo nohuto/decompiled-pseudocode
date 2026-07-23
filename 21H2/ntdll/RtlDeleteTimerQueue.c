@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlDeleteTimerQueue @ 0x180112FA0
+ * XREFs of RtlDeleteTimerQueue @ 0x180112F60
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall RtlDeleteTimerQueue(__int64 a1, __int64 a2, __int64 a3)
+NTSTATUS __cdecl RtlDeleteTimerQueue(HANDLE TimerQueueHandle)
 {
-  return RtlDeleteTimerQueueEx(a1, 0LL, a3);
+  return RtlDeleteTimerQueueEx(TimerQueueHandle, 0LL);
 }

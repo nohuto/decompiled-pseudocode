@@ -1,7 +1,7 @@
 /*
- * XREFs of MiCheckForConflictingVad @ 0x1404454EC
+ * XREFs of MiCheckForConflictingVad @ 0x14043D69C
  * Callers:
- *     MiLocateLowestConflictingVad @ 0x140445494 (MiLocateLowestConflictingVad.c)
+ *     MiLocateLowestConflictingVad @ 0x14043D644 (MiLocateLowestConflictingVad.c)
  * Callees:
  *     <none>
  */

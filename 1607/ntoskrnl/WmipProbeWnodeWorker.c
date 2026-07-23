@@ -1,11 +1,11 @@
 /*
- * XREFs of WmipProbeWnodeWorker @ 0x14052ADEC
+ * XREFs of WmipProbeWnodeWorker @ 0x14052BA3C
  * Callers:
- *     WmipProbeWnodeSingleInstance @ 0x14052AD08 (WmipProbeWnodeSingleInstance.c)
- *     WmipProbeWnodeMethodItem @ 0x14052AD80 (WmipProbeWnodeMethodItem.c)
- *     WmipProbeWnodeSingleItem @ 0x14069ED5C (WmipProbeWnodeSingleItem.c)
+ *     WmipProbeWnodeSingleInstance @ 0x14052B958 (WmipProbeWnodeSingleInstance.c)
+ *     WmipProbeWnodeMethodItem @ 0x14052B9D0 (WmipProbeWnodeMethodItem.c)
+ *     WmipProbeWnodeSingleItem @ 0x14069EE94 (WmipProbeWnodeSingleItem.c)
  * Callees:
- *     RtlUIntAdd @ 0x140089230 (RtlUIntAdd.c)
+ *     RtlUIntAdd @ 0x1400C1B78 (RtlUIntAdd.c)
  */
 
 __int64 __fastcall WmipProbeWnodeWorker(

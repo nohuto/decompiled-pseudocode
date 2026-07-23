@@ -55,10 +55,10 @@ __int64 __fastcall EtwpCovSampSampleBufferReserve(__int64 a1, __int16 a2, PSLIST
       if ( !*(_DWORD *)(v9 + 120) )
       {
         KxReleaseSpinLock((volatile signed __int64 *)v9);
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           CurrentIrql = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && CurrentIrql >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && CurrentIrql >= 2u )
           {
             CurrentPrcb = KeGetCurrentPrcb();
             SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -84,10 +84,10 @@ LABEL_7:
         if ( _InterlockedIncrement64((volatile signed __int64 *)&v10[3]) <= 1 )
           __fastfail(0xEu);
         KxReleaseSpinLock((volatile signed __int64 *)v9);
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v24 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v24 <= 0xFu && v24 >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v24 <= 0xFu && v24 >= 2u )
           {
             v25 = KeGetCurrentPrcb();
             v26 = v25->SchedulerAssist;
@@ -106,10 +106,10 @@ LABEL_7:
       }
       *(_QWORD *)(v9 + 8) = 0LL;
       KxReleaseSpinLock((volatile signed __int64 *)v9);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v13 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v13 <= 0xFu && v13 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v13 <= 0xFu && v13 >= 2u )
         {
           v14 = KeGetCurrentPrcb();
           v15 = v14->SchedulerAssist;
@@ -125,10 +125,10 @@ LABEL_7:
     else
     {
       KxReleaseSpinLock((volatile signed __int64 *)v9);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v17 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v17 <= 0xFu && v17 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v17 <= 0xFu && v17 >= 2u )
         {
           v18 = KeGetCurrentPrcb();
           v19 = v18->SchedulerAssist;

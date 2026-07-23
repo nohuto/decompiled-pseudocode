@@ -7,31 +7,36 @@
  *     _NtInitializeNlsFiles@12 @ 0x4B2F3970 (_NtInitializeNlsFiles@12.c)
  */
 
-int __stdcall RtlGetLocaleFileMappingAddress(signed __int32 *a1, int *a2, int a3)
+NTSTATUS __cdecl RtlGetLocaleFileMappingAddress(
+        PVOID *BaseAddress,
+        PLCID DefaultLocaleId,
+        PLARGE_INTEGER DefaultCasingTableSize,
+        PULONG CurrentNLSVersion)
 {
-  int result; // eax
-  signed __int32 v4; // ecx
+  ULONG *v4; // edi
+  NTSTATUS result; // eax
+  PVOID v6; // ecx
 
-  if ( !a1 )
+  if ( !BaseAddress )
     return -1073741585;
-  if ( !a2 )
+  if ( !DefaultLocaleId )
     return -1073741584;
   if ( gBaseAddress )
   {
-    *a1 = gBaseAddress;
-    *a2 = gDefaultLocaleId;
+    *BaseAddress = gBaseAddress;
+    *DefaultLocaleId = gDefaultLocaleId;
   }
   else
   {
-    result = NtInitializeNlsFiles(a1, a2, 0);
+    result = NtInitializeNlsFiles(BaseAddress, DefaultLocaleId, 0, v4);
     if ( result < 0 )
       return result;
-    v4 = *a1;
-    gDefaultLocaleId = *a2;
-    if ( _InterlockedCompareExchange(&gBaseAddress, v4, 0) )
+    v6 = *BaseAddress;
+    gDefaultLocaleId = *DefaultLocaleId;
+    if ( _InterlockedCompareExchange((volatile signed __int32 *)&gBaseAddress, (signed __int32)v6, 0) )
     {
-      NtUnmapViewOfSection(-1, *a1);
-      *a1 = gBaseAddress;
+      NtUnmapViewOfSection((HANDLE)0xFFFFFFFF, *BaseAddress);
+      *BaseAddress = gBaseAddress;
     }
   }
   return 0;

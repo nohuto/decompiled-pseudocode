@@ -10,7 +10,7 @@
 void __fastcall EtwpFreeStackWalkApcs(__int64 a1)
 {
   PSLIST_ENTRY v2; // rbx
-  struct _SLIST_ENTRY *v3; // rcx
+  _SLIST_ENTRY *v3; // rcx
 
   v2 = RtlpInterlockedFlushSList((PSLIST_HEADER)(a1 + 944));
   while ( v2 )

@@ -1,8 +1,8 @@
 /*
- * XREFs of CmpLockNameHashEntryExclusive @ 0x1405D66DC
+ * XREFs of CmpLockNameHashEntryExclusive @ 0x1405D76DC
  * Callers:
- *     CmpDereferenceNameControlBlockWithLock @ 0x1405D449C (CmpDereferenceNameControlBlockWithLock.c)
- *     CmpGetNameControlBlock @ 0x1405D6490 (CmpGetNameControlBlock.c)
+ *     CmpDereferenceNameControlBlockWithLock @ 0x1405D549C (CmpDereferenceNameControlBlockWithLock.c)
+ *     CmpGetNameControlBlock @ 0x1405D7490 (CmpGetNameControlBlock.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  */

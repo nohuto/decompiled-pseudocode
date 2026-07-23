@@ -1,12 +1,12 @@
 /*
- * XREFs of AlpcGetOutstandingCompletionListMessageCount @ 0x1800E6030
+ * XREFs of AlpcGetOutstandingCompletionListMessageCount @ 0x1800E4240
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall AlpcGetOutstandingCompletionListMessageCount(__int64 a1)
+ULONG __cdecl AlpcGetOutstandingCompletionListMessageCount(PVOID CompletionList)
 {
-  return (unsigned int)(*(_DWORD *)(a1 + 128) - *(_DWORD *)(a1 + 192));
+  return *((_DWORD *)CompletionList + 32) - *((_DWORD *)CompletionList + 48);
 }

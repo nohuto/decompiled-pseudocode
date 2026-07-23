@@ -1,8 +1,8 @@
 /*
- * XREFs of SymCryptFdef369RawMulAsm @ 0x14040F300
+ * XREFs of SymCryptFdef369RawMulAsm @ 0x14040F4E0
  * Callers:
- *     SymCryptFdef369ModMulMontgomery @ 0x1404097C0 (SymCryptFdef369ModMulMontgomery.c)
- *     SymCryptFdef369ModSetPostMontgomery @ 0x1404098C0 (SymCryptFdef369ModSetPostMontgomery.c)
+ *     SymCryptFdef369ModMulMontgomery @ 0x1404099A0 (SymCryptFdef369ModMulMontgomery.c)
+ *     SymCryptFdef369ModSetPostMontgomery @ 0x140409AA0 (SymCryptFdef369ModSetPostMontgomery.c)
  * Callees:
  *     <none>
  */

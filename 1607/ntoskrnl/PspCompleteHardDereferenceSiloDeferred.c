@@ -1,9 +1,9 @@
 /*
- * XREFs of PspCompleteHardDereferenceSiloDeferred @ 0x14067E30C
+ * XREFs of PspCompleteHardDereferenceSiloDeferred @ 0x14067E3F0
  * Callers:
  *     <none>
  * Callees:
- *     PspStorageEmptyArrayNonReadonly @ 0x1402102F4 (PspStorageEmptyArrayNonReadonly.c)
+ *     PspStorageEmptyArrayNonReadonly @ 0x140210120 (PspStorageEmptyArrayNonReadonly.c)
  */
 
 LONG_PTR __fastcall PspCompleteHardDereferenceSiloDeferred(unsigned __int64 **a1)

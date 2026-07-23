@@ -1,13 +1,13 @@
 /*
- * XREFs of MiComputeAweCharges @ 0x140A414B8
+ * XREFs of MiComputeAweCharges @ 0x140A41768
  * Callers:
- *     MiComputeVadCharges @ 0x140289A38 (MiComputeVadCharges.c)
- *     MiReleaseVadEventBlocks @ 0x1406FB5DC (MiReleaseVadEventBlocks.c)
+ *     MiComputeVadCharges @ 0x140289CC8 (MiComputeVadCharges.c)
+ *     MiReleaseVadEventBlocks @ 0x1406FB7EC (MiReleaseVadEventBlocks.c)
  * Callees:
- *     MiGetAwePageSize @ 0x14064A918 (MiGetAwePageSize.c)
- *     MiGetAweViewPageSize @ 0x14064A9B8 (MiGetAweViewPageSize.c)
- *     MiPageSizeToPteLevel @ 0x14064E280 (MiPageSizeToPteLevel.c)
- *     MiResidentPagesForSpan @ 0x1407D4928 (MiResidentPagesForSpan.c)
+ *     MiGetAwePageSize @ 0x14064AE68 (MiGetAwePageSize.c)
+ *     MiGetAweViewPageSize @ 0x14064AF08 (MiGetAweViewPageSize.c)
+ *     MiPageSizeToPteLevel @ 0x14064E7D0 (MiPageSizeToPteLevel.c)
+ *     MiResidentPagesForSpan @ 0x1407D4BF8 (MiResidentPagesForSpan.c)
  */
 
 __int64 __fastcall MiComputeAweCharges(__int64 a1, __int64 a2)

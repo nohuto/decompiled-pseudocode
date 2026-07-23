@@ -1,9 +1,9 @@
 /*
- * XREFs of MxComputePageTablesNeeded @ 0x140CF5268
+ * XREFs of MxComputePageTablesNeeded @ 0x140CFB5E8
  * Callers:
- *     MxConstructLoaderMemoryTree @ 0x140CF53CC (MxConstructLoaderMemoryTree.c)
+ *     MxConstructLoaderMemoryTree @ 0x140CFB74C (MxConstructLoaderMemoryTree.c)
  * Callees:
- *     MxComputePageTablesNeededByPde @ 0x140CF5354 (MxComputePageTablesNeededByPde.c)
+ *     MxComputePageTablesNeededByPde @ 0x140CFB6D4 (MxComputePageTablesNeededByPde.c)
  */
 
 __int64 __fastcall MxComputePageTablesNeeded(__int64 a1, __int64 a2)

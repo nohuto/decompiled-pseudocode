@@ -13,25 +13,22 @@
  *     RtlNtStatusToDosErrorNoTeb @ 0x180074E40 (RtlNtStatusToDosErrorNoTeb.c)
  */
 
-signed __int64 __fastcall sub_18002C9D0(__int64 a1, volatile signed __int64 *a2, __int64 *a3, int a4, int a5)
+void __fastcall sub_18002C9D0(__int64 a1, _RTL_SRWLOCK *a2, __int64 *a3, int a4, int a5)
 {
   bool v6; // bp
   __int64 *v9; // rbx
   __int64 v10; // rdi
   __int64 v11; // rcx
   __int64 v12; // rax
-  unsigned __int64 v13; // rdx
-  unsigned __int64 *v14; // r8
-  __int64 v15; // r9
-  __int64 v16; // rcx
-  __int64 v17; // rdx
-  unsigned int v19; // eax
+  __int64 v13; // rcx
+  __int64 v14; // rdx
+  LONG v15; // eax
 
   v6 = *a3 >= 0;
   *(_DWORD *)(a1 + 348) = a4;
   v9 = (__int64 *)(a1 + 328);
   *(_DWORD *)(a1 + 344) = a5;
-  v10 = (__int64)a2 + (-(__int64)v6 & 0xFFFFFFFFFFFFFF88uLL) + 128;
+  v10 = (__int64)&a2[16] + (-(__int64)v6 & 0xFFFFFFFFFFFFFF88uLL);
   if ( v6 )
   {
     *(_BYTE *)(a1 + 354) |= 2u;
@@ -43,8 +40,8 @@ signed __int64 __fastcall sub_18002C9D0(__int64 a1, volatile signed __int64 *a2,
   {
     if ( a1 == -328 )
     {
-      v19 = RtlNtStatusToDosErrorNoTeb(3221225485LL);
-      RtlSetLastWin32Error(v19);
+      v15 = RtlNtStatusToDosErrorNoTeb(-1073741811);
+      RtlSetLastWin32Error(v15);
       v11 = MEMORY[0];
     }
     else
@@ -57,15 +54,15 @@ signed __int64 __fastcall sub_18002C9D0(__int64 a1, volatile signed __int64 *a2,
       v12 = 0x7FFFFFFFFFFFFFFFLL;
   }
   *v9 = v12;
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-    v16 = (__int64)NtCurrentPeb()->HotpatchInformation + 556;
+  if ( RtlGetCurrentServiceSessionId() )
+    v13 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[3];
   else
-    v16 = 2147353478LL;
-  if ( *(_BYTE *)v16 )
+    v13 = 2147353478LL;
+  if ( *(_BYTE *)v13 )
     sub_180002694(v10, a1);
-  RtlAcquireSRWLockExclusive((unsigned __int64)a2, v13, v14, v15);
+  RtlAcquireSRWLockExclusive(a2);
   sub_18002CC78(v10, a1);
-  LOBYTE(v17) = v6;
-  sub_18002CB04(v10, v17);
-  return RtlReleaseSRWLockExclusive(a2);
+  LOBYTE(v14) = v6;
+  sub_18002CB04(v10, v14);
+  RtlReleaseSRWLockExclusive(a2);
 }

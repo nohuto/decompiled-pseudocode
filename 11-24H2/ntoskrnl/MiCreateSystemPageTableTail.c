@@ -1,10 +1,10 @@
 /*
- * XREFs of MiCreateSystemPageTableTail @ 0x140473190
+ * XREFs of MiCreateSystemPageTableTail @ 0x14046F510
  * Callers:
  *     <none>
  * Callees:
- *     MiReleaseProcessorFlushList @ 0x14023FFD0 (MiReleaseProcessorFlushList.c)
- *     MiFlushTbList @ 0x140291730 (MiFlushTbList.c)
+ *     MiReleaseProcessorFlushList @ 0x140208120 (MiReleaseProcessorFlushList.c)
+ *     MiFlushTbList @ 0x1402A1330 (MiFlushTbList.c)
  */
 
 __int64 __fastcall MiCreateSystemPageTableTail(__int64 a1)

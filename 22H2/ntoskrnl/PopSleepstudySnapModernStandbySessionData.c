@@ -23,6 +23,6 @@ void PopSleepstudySnapModernStandbySessionData()
   PopCalculateIdleInformation((__int64)&v1);
   *(_QWORD *)&PopSleepstudySessionContext[v0 + 256] = v2;
   *(_QWORD *)&PopSleepstudySessionContext[v0 + 264] = *((_QWORD *)&v1 + 1);
-  *(_QWORD *)&PopSleepstudySessionContext[v0 + 272] = KeQueryInterruptTimePrecise(&v3);
+  *(LARGE_INTEGER *)&PopSleepstudySessionContext[v0 + 272] = KeQueryInterruptTimePrecise(&v3);
   PopReleaseRwLock((ULONG_PTR)&PopSleepstudySessionLock);
 }

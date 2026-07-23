@@ -1,26 +1,26 @@
 /*
- * XREFs of ExpInsertTimerResolutionEntry @ 0x1404E6A94
+ * XREFs of ExpInsertTimerResolutionEntry @ 0x1404DFF34
  * Callers:
- *     NtSetTimerResolution @ 0x140A667F0 (NtSetTimerResolution.c)
+ *     NtSetTimerResolution @ 0x140A737C0 (NtSetTimerResolution.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
  */
 
-void __fastcall ExpInsertTimerResolutionEntry(__int64 a1)
+void __fastcall ExpInsertTimerResolutionEntry(struct _LIST_ENTRY *a1)
 {
   KIRQL v2; // al
-  _QWORD *SparePtr; // rcx
-  PVOID *v4; // rbx
+  struct _LIST_ENTRY *Flink; // rcx
+  struct _LIST_ENTRY *v4; // rbx
 
-  v2 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)&ExpSysDbgLock.WaitBlock[3].Thread);
-  SparePtr = ExpSysDbgLock.WaitBlock[2].SparePtr;
-  v4 = (PVOID *)(a1 + 1440);
-  if ( *((struct _KTHREAD **)ExpSysDbgLock.WaitBlock[2].SparePtr + 1) != (struct _KTHREAD *)&ExpSysDbgLock.WaitBlockFill11[136] )
+  v2 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)&ExpSysDbgLock.Timer.TimerListEntry.Blink);
+  Flink = ExpSysDbgLock.WaitBlock[0].WaitListEntry.Flink;
+  v4 = a1 + 90;
+  if ( ($08E725EC6134F01F525383E5528526A8 *)ExpSysDbgLock.WaitBlock[0].WaitListEntry.Flink->Blink != &ExpSysDbgLock.320 )
     __fastfail(3u);
-  *v4 = ExpSysDbgLock.WaitBlock[2].SparePtr;
-  v4[1] = &ExpSysDbgLock.WaitBlockFill11[136];
-  SparePtr[1] = v4;
-  ExpSysDbgLock.WaitBlock[2].SparePtr = v4;
-  KeReleaseSpinLock((PKSPIN_LOCK)&ExpSysDbgLock.WaitBlock[3].Thread, v2);
+  v4->Flink = ExpSysDbgLock.WaitBlock[0].WaitListEntry.Flink;
+  v4->Blink = (struct _LIST_ENTRY *)&ExpSysDbgLock.320;
+  Flink->Blink = v4;
+  ExpSysDbgLock.WaitBlock[0].WaitListEntry.Flink = v4;
+  KeReleaseSpinLock((PKSPIN_LOCK)&ExpSysDbgLock.Timer.TimerListEntry.Blink, v2);
 }

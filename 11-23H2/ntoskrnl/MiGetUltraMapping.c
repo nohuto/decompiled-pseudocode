@@ -1,40 +1,40 @@
 /*
- * XREFs of MiGetUltraMapping @ 0x1402D1A10
+ * XREFs of MiGetUltraMapping @ 0x1402D1CA0
  * Callers:
  *     MiSharePages @ 0x1402161B0 (MiSharePages.c)
  *     MiMapPageInHyperSpaceWorker @ 0x14021ACA0 (MiMapPageInHyperSpaceWorker.c)
- *     MiGetPageChain @ 0x14026C700 (MiGetPageChain.c)
- *     MiWsleFree @ 0x1402813A0 (MiWsleFree.c)
- *     MiPfnShareCountIsZero @ 0x1402818C0 (MiPfnShareCountIsZero.c)
- *     MiComputeCombineHash @ 0x140281C50 (MiComputeCombineHash.c)
- *     MiGetPteMappingSet @ 0x1402841F0 (MiGetPteMappingSet.c)
- *     MiMakePageAvoidRead @ 0x1402CE000 (MiMakePageAvoidRead.c)
- *     MiZeroLocalPages @ 0x1402CF540 (MiZeroLocalPages.c)
- *     MiZeroInParallelWorker @ 0x1402D1300 (MiZeroInParallelWorker.c)
- *     MiMakeProtoTransition @ 0x1402D8D90 (MiMakeProtoTransition.c)
- *     MiDeleteUltraMapContext @ 0x1402E92DC (MiDeleteUltraMapContext.c)
- *     MiZeroLargePage @ 0x1402EC08C (MiZeroLargePage.c)
- *     MiFillPhysicalPages @ 0x140339290 (MiFillPhysicalPages.c)
- *     MiAllocateHyperSpace @ 0x14035BBB8 (MiAllocateHyperSpace.c)
- *     MiReplacePageTablePage @ 0x140394E4C (MiReplacePageTablePage.c)
- *     MiInitializeNewUltraHugeContext @ 0x1403C5AE8 (MiInitializeNewUltraHugeContext.c)
- *     MiReplacePageOfProtoPool @ 0x14061D9E0 (MiReplacePageOfProtoPool.c)
- *     MiHugePageOperation @ 0x1406205A0 (MiHugePageOperation.c)
- *     MmMapMdl @ 0x14062F0A0 (MmMapMdl.c)
- *     MiScrubLargePage @ 0x14065E96C (MiScrubLargePage.c)
- *     MiScrubPage @ 0x14065F0F0 (MiScrubPage.c)
+ *     MiGetPageChain @ 0x14026C990 (MiGetPageChain.c)
+ *     MiWsleFree @ 0x140281630 (MiWsleFree.c)
+ *     MiPfnShareCountIsZero @ 0x140281B50 (MiPfnShareCountIsZero.c)
+ *     MiComputeCombineHash @ 0x140281EE0 (MiComputeCombineHash.c)
+ *     MiGetPteMappingSet @ 0x140284480 (MiGetPteMappingSet.c)
+ *     MiMakePageAvoidRead @ 0x1402CE290 (MiMakePageAvoidRead.c)
+ *     MiZeroLocalPages @ 0x1402CF7D0 (MiZeroLocalPages.c)
+ *     MiZeroInParallelWorker @ 0x1402D1590 (MiZeroInParallelWorker.c)
+ *     MiMakeProtoTransition @ 0x1402D9020 (MiMakeProtoTransition.c)
+ *     MiDeleteUltraMapContext @ 0x1402E956C (MiDeleteUltraMapContext.c)
+ *     MiZeroLargePage @ 0x1402EC31C (MiZeroLargePage.c)
+ *     MiFillPhysicalPages @ 0x140339520 (MiFillPhysicalPages.c)
+ *     MiAllocateHyperSpace @ 0x14035BD58 (MiAllocateHyperSpace.c)
+ *     MiReplacePageTablePage @ 0x14039502C (MiReplacePageTablePage.c)
+ *     MiInitializeNewUltraHugeContext @ 0x1403C5CC8 (MiInitializeNewUltraHugeContext.c)
+ *     MiReplacePageOfProtoPool @ 0x14061DF30 (MiReplacePageOfProtoPool.c)
+ *     MiHugePageOperation @ 0x140620AF0 (MiHugePageOperation.c)
+ *     MmMapMdl @ 0x14062F5F0 (MmMapMdl.c)
+ *     MiScrubLargePage @ 0x14065EEBC (MiScrubLargePage.c)
+ *     MiScrubPage @ 0x14065F640 (MiScrubPage.c)
  * Callees:
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
- *     MiPteInShadowRange @ 0x140271360 (MiPteInShadowRange.c)
- *     KeFlushTb @ 0x140279970 (KeFlushTb.c)
- *     MiMakeValidPte @ 0x1402CF2B0 (MiMakeValidPte.c)
- *     RtlFindSetBitsAndClearEx @ 0x14034A690 (RtlFindSetBitsAndClearEx.c)
- *     MiWritePteShadow @ 0x14035734C (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x1403573AC (MiPteHasShadow.c)
- *     memset @ 0x140435A00 (memset.c)
- *     MiReuseUltraPageTable @ 0x14046F08C (MiReuseUltraPageTable.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402610F0 (KeAcquireInStackQueuedSpinLock.c)
+ *     MiPteInShadowRange @ 0x1402715F0 (MiPteInShadowRange.c)
+ *     KeFlushTb @ 0x140279C00 (KeFlushTb.c)
+ *     MiMakeValidPte @ 0x1402CF540 (MiMakeValidPte.c)
+ *     RtlFindSetBitsAndClearEx @ 0x14034A830 (RtlFindSetBitsAndClearEx.c)
+ *     MiWritePteShadow @ 0x1403574EC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x14035754C (MiPteHasShadow.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     MiReuseUltraPageTable @ 0x14046F48C (MiReuseUltraPageTable.c)
  */
 
 __int64 __fastcall MiGetUltraMapping(unsigned __int64 *a1, unsigned int a2, __int64 a3, char a4)
@@ -69,8 +69,8 @@ __int64 __fastcall MiGetUltraMapping(unsigned __int64 *a1, unsigned int a2, __in
   __int64 v35; // r8
   int v36; // ebx
   int v37; // ebx
-  __int64 SetBitsAndClear; // rax
-  __int64 v39; // rsi
+  ULONG64 SetBitsAndClear; // rax
+  ULONG64 v39; // rsi
   unsigned __int64 v40; // rdi
   unsigned __int64 v41; // rsi
   unsigned __int64 v42; // rdi
@@ -84,7 +84,7 @@ __int64 __fastcall MiGetUltraMapping(unsigned __int64 *a1, unsigned int a2, __in
   unsigned __int64 OldIrql; // rbx
   unsigned __int64 v51; // r9
   unsigned __int64 i; // r8
-  _QWORD *v53; // rdx
+  unsigned __int64 *v53; // rdx
   __int64 v54; // rcx
   __int64 v55; // r11
   __int64 v56; // rdx
@@ -256,10 +256,13 @@ LABEL_28:
     *a1 = 0LL;
     KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
     OldIrql = LockHandle.OldIrql;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && LockHandle.OldIrql <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -278,26 +281,26 @@ LABEL_28:
     v37 = 0;
     while ( 1 )
     {
-      SetBitsAndClear = RtlFindSetBitsAndClearEx(&qword_140C68508, 1LL, qword_140C68500);
+      SetBitsAndClear = RtlFindSetBitsAndClearEx(&BitMapHeader, 1uLL, HintIndex);
       v39 = SetBitsAndClear;
-      if ( SetBitsAndClear != -1 )
+      if ( SetBitsAndClear != -1LL )
         break;
       KeFlushTb(0, 2u);
       v51 = 0LL;
-      for ( i = (unsigned __int64)qword_140C68508 >> 6; v51 < i; *v53 |= v54 )
+      for ( i = BitMapHeader.SizeOfBitMap >> 6; v51 < i; *v53 |= v54 )
       {
-        v53 = (_QWORD *)(qword_140C68510 + 8 * v51);
+        v53 = &BitMapHeader.Buffer[v51];
         v54 = *((_QWORD *)qword_140C68520 + v51++);
       }
       memset(qword_140C68520, 0, 4 * (((qword_140C68518 & 0x1F) != 0) + ((unsigned __int64)qword_140C68518 >> 5)));
     }
-    qword_140C68500 = SetBitsAndClear + 1;
+    HintIndex = SetBitsAndClear + 1;
     KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
     v40 = LockHandle.OldIrql;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v62 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v62 <= 0xFu && LockHandle.OldIrql <= 0xFu && v62 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v62 <= 0xFu && LockHandle.OldIrql <= 0xFu && v62 >= 2u )
       {
         v63 = KeGetCurrentPrcb();
         v64 = v63->SchedulerAssist;

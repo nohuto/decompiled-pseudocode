@@ -1,13 +1,13 @@
 /*
- * XREFs of KeSelectNodeForAffinityAndPartition @ 0x1405EEAC4
+ * XREFs of KeSelectNodeForAffinityAndPartition @ 0x1405F1434
  * Callers:
- *     KiUpdateProcessGlobalIdealNode @ 0x1405F4C14 (KiUpdateProcessGlobalIdealNode.c)
- *     PspSelectNodeForProcess @ 0x1407F2DF0 (PspSelectNodeForProcess.c)
+ *     KiUpdateProcessGlobalIdealNode @ 0x1405F75D4 (KiUpdateProcessGlobalIdealNode.c)
+ *     PspSelectNodeForProcess @ 0x1407F8950 (PspSelectNodeForProcess.c)
  * Callees:
  *     ExGenRandom @ 0x140200C10 (ExGenRandom.c)
- *     RtlCountSetBitsAffinityEx @ 0x140251920 (RtlCountSetBitsAffinityEx.c)
- *     KeEnumerateNextProcessor @ 0x14043BC70 (KeEnumerateNextProcessor.c)
- *     KiDoesNodeIntersectAffinity @ 0x1405EF7EC (KiDoesNodeIntersectAffinity.c)
+ *     RtlCountSetBitsAffinityEx @ 0x140253280 (RtlCountSetBitsAffinityEx.c)
+ *     KeEnumerateNextProcessor @ 0x14042E520 (KeEnumerateNextProcessor.c)
+ *     KiDoesNodeIntersectAffinity @ 0x1405F215C (KiDoesNodeIntersectAffinity.c)
  */
 
 __int64 __fastcall KeSelectNodeForAffinityAndPartition(__int64 a1, __int64 a2)

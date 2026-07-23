@@ -1,9 +1,9 @@
 /*
- * XREFs of HalGetBusData @ 0x140396AA0
+ * XREFs of HalGetBusData @ 0x140396C80
  * Callers:
- *     HalpPiix4Detect @ 0x140A8F324 (HalpPiix4Detect.c)
+ *     HalpPiix4Detect @ 0x140A8F1A4 (HalpPiix4Detect.c)
  * Callees:
- *     HalGetBusDataByOffset @ 0x140396AD0 (HalGetBusDataByOffset.c)
+ *     HalGetBusDataByOffset @ 0x140396CB0 (HalGetBusDataByOffset.c)
  */
 
 ULONG __fastcall HalGetBusData(BUS_DATA_TYPE a1, ULONG a2, ULONG a3, void *a4, ULONG Length)

@@ -1,20 +1,20 @@
 /*
- * XREFs of IopSetDiskIoAttributionExtension @ 0x1403743E4
+ * XREFs of IopSetDiskIoAttributionExtension @ 0x14025CCA4
  * Callers:
- *     MiIssueAsynchronousFlush @ 0x1403724FC (MiIssueAsynchronousFlush.c)
- *     IoAsynchronousPageWrite @ 0x14037286C (IoAsynchronousPageWrite.c)
- *     MiSynchronousPageWrite @ 0x140372F44 (MiSynchronousPageWrite.c)
- *     MiIssueSynchronousFlush @ 0x1403731E8 (MiIssueSynchronousFlush.c)
- *     IoSynchronousPageWriteEx @ 0x1403734C0 (IoSynchronousPageWriteEx.c)
- *     IoPageReadEx @ 0x140373740 (IoPageReadEx.c)
- *     IoSetDiskIoAttributionFromThread @ 0x140374220 (IoSetDiskIoAttributionFromThread.c)
- *     IopSetDiskIoAttributionFromProcess @ 0x140374A90 (IopSetDiskIoAttributionFromProcess.c)
- *     IoMakeAssociatedIrpPriv @ 0x140374CE8 (IoMakeAssociatedIrpPriv.c)
- *     IoUpdateIrpIoAttributionHandle @ 0x140375350 (IoUpdateIrpIoAttributionHandle.c)
- *     IoPropagateIrpExtensionEx @ 0x1403756E0 (IoPropagateIrpExtensionEx.c)
+ *     MiIssueAsynchronousFlush @ 0x14025ADBC (MiIssueAsynchronousFlush.c)
+ *     IoAsynchronousPageWrite @ 0x14025B12C (IoAsynchronousPageWrite.c)
+ *     MiSynchronousPageWrite @ 0x14025B804 (MiSynchronousPageWrite.c)
+ *     MiIssueSynchronousFlush @ 0x14025BAA8 (MiIssueSynchronousFlush.c)
+ *     IoSynchronousPageWriteEx @ 0x14025BD80 (IoSynchronousPageWriteEx.c)
+ *     IoPageReadEx @ 0x14025C000 (IoPageReadEx.c)
+ *     IoSetDiskIoAttributionFromThread @ 0x14025CAE0 (IoSetDiskIoAttributionFromThread.c)
+ *     IopSetDiskIoAttributionFromProcess @ 0x14025D350 (IopSetDiskIoAttributionFromProcess.c)
+ *     IoMakeAssociatedIrpPriv @ 0x14025D5A8 (IoMakeAssociatedIrpPriv.c)
+ *     IoUpdateIrpIoAttributionHandle @ 0x14025DC10 (IoUpdateIrpIoAttributionHandle.c)
+ *     IoPropagateIrpExtensionEx @ 0x14025DFA0 (IoPropagateIrpExtensionEx.c)
  * Callees:
- *     IopReferenceIoAttributionFromProcess @ 0x14043F740 (IopReferenceIoAttributionFromProcess.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     IopReferenceIoAttributionFromProcess @ 0x1404357B0 (IopReferenceIoAttributionFromProcess.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall IopSetDiskIoAttributionExtension(__int64 a1, __int64 a2, __int64 a3, char a4)
@@ -35,7 +35,7 @@ __int64 __fastcall IopSetDiskIoAttributionExtension(__int64 a1, __int64 a2, __in
       v4[1] |= 0x40u;
       goto LABEL_5;
     }
-    Pool2 = ExAllocatePool2(0x40uLL);
+    Pool2 = ExAllocatePool2(0x40uLL, 0x50uLL, 0x58707249u);
     v4 = (_WORD *)Pool2;
     if ( Pool2 )
     {
@@ -50,7 +50,7 @@ __int64 __fastcall IopSetDiskIoAttributionExtension(__int64 a1, __int64 a2, __in
   }
   else
   {
-    v10 = (_WORD *)ExAllocatePool2(0x40uLL);
+    v10 = (_WORD *)ExAllocatePool2(0x40uLL, 0x50uLL, 0x58707249u);
     v4 = v10;
     if ( v10 )
     {

@@ -1,25 +1,25 @@
 /*
- * XREFs of MiSetPagingOfDriver @ 0x140083DC4
+ * XREFs of MiSetPagingOfDriver @ 0x140081F24
  * Callers:
- *     MmPageEntireDriver @ 0x14047DC74 (MmPageEntireDriver.c)
- *     MiEnablePagingOfDriver @ 0x140553BF4 (MiEnablePagingOfDriver.c)
+ *     MmPageEntireDriver @ 0x14047C9C8 (MmPageEntireDriver.c)
+ *     MiEnablePagingOfDriver @ 0x140554134 (MiEnablePagingOfDriver.c)
  * Callees:
- *     MiGetAnyMultiplexedVm @ 0x14001D05C (MiGetAnyMultiplexedVm.c)
- *     MiUnlockWorkingSetExclusive @ 0x14002E930 (MiUnlockWorkingSetExclusive.c)
- *     MiGetSharedVm @ 0x14002EA30 (MiGetSharedVm.c)
- *     ExAcquireSpinLockExclusive @ 0x14002EB90 (ExAcquireSpinLockExclusive.c)
- *     MiDriverPageMustStayResident @ 0x140083FBC (MiDriverPageMustStayResident.c)
- *     MiTrimSystemImagePages @ 0x140084004 (MiTrimSystemImagePages.c)
- *     MiInsertTbFlushEntry @ 0x1400E0240 (MiInsertTbFlushEntry.c)
- *     MiFlushTbList @ 0x1400E0490 (MiFlushTbList.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
- *     MI_GET_PFN_FROM_PTE @ 0x1401F2594 (MI_GET_PFN_FROM_PTE.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiGetAnyMultiplexedVm @ 0x14001CBDC (MiGetAnyMultiplexedVm.c)
+ *     MiUnlockWorkingSetExclusive @ 0x14002E4B0 (MiUnlockWorkingSetExclusive.c)
+ *     MiGetSharedVm @ 0x14002E5B0 (MiGetSharedVm.c)
+ *     ExAcquireSpinLockExclusive @ 0x14002E710 (ExAcquireSpinLockExclusive.c)
+ *     MiDriverPageMustStayResident @ 0x14008211C (MiDriverPageMustStayResident.c)
+ *     MiTrimSystemImagePages @ 0x140082164 (MiTrimSystemImagePages.c)
+ *     MiInsertTbFlushEntry @ 0x1400DE0E0 (MiInsertTbFlushEntry.c)
+ *     MiFlushTbList @ 0x1400DE330 (MiFlushTbList.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
+ *     MI_GET_PFN_FROM_PTE @ 0x1401F23C0 (MI_GET_PFN_FROM_PTE.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
  */
 
-__int64 __fastcall MiSetPagingOfDriver(__int64 a1, unsigned __int64 *a2, unsigned __int64 a3)
+PVOID __fastcall MiSetPagingOfDriver(__int64 a1, unsigned __int64 *a2, unsigned __int64 a3)
 {
   unsigned __int64 *v4; // rsi
   __int64 v6; // r15
@@ -34,7 +34,7 @@ __int64 __fastcall MiSetPagingOfDriver(__int64 a1, unsigned __int64 *a2, unsigne
   __int16 v15; // cx
   __int64 v16; // rcx
   __int64 v17; // r9
-  __int64 result; // rax
+  PVOID result; // rax
   KIRQL v19; // [rsp+20h] [rbp-E0h]
   unsigned __int64 v20; // [rsp+28h] [rbp-D8h] BYREF
   char *AnyMultiplexedVm; // [rsp+30h] [rbp-D0h]
@@ -103,14 +103,14 @@ __int64 __fastcall MiSetPagingOfDriver(__int64 a1, unsigned __int64 *a2, unsigne
     v10 = v19;
   }
   LOBYTE(v11) = v10;
-  result = MiUnlockWorkingSetExclusive((__int64)AnyMultiplexedVm, v11);
+  result = (PVOID)MiUnlockWorkingSetExclusive((__int64)AnyMultiplexedVm, v11);
   if ( v8 )
   {
-    result = *(_QWORD *)(a1 + 48);
+    result = *(PVOID *)(a1 + 48);
     if ( result == PsNtosImageBase || result == PsHalImageBase )
-      _InterlockedExchangeAdd((_DWORD *)&xmmword_140326868 + 2, v8);
+      _InterlockedExchangeAdd((_DWORD *)&xmmword_1403268A8 + 2, v8);
     else
-      _InterlockedExchangeAdd((_DWORD *)&xmmword_140326868 + 3, v8);
+      _InterlockedExchangeAdd((_DWORD *)&xmmword_1403268A8 + 3, v8);
   }
   return result;
 }

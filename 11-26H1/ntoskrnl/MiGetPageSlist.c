@@ -1,13 +1,13 @@
 /*
- * XREFs of MiGetPageSlist @ 0x14028B310
+ * XREFs of MiGetPageSlist @ 0x14028A870
  * Callers:
- *     MiGetPage @ 0x1402866A0 (MiGetPage.c)
+ *     MiGetPage @ 0x140285C00 (MiGetPage.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     MiColorGetCache @ 0x140289A00 (MiColorGetCache.c)
- *     MiArePageContentsZero @ 0x140520384 (MiArePageContentsZero.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     RtlpInterlockedPopEntrySList @ 0x140730C90 (RtlpInterlockedPopEntrySList.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     MiColorGetCache @ 0x140288F60 (MiColorGetCache.c)
+ *     MiArePageContentsZero @ 0x140522A28 (MiArePageContentsZero.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140735860 (RtlpInterlockedPopEntrySList.c)
  */
 
 PSLIST_ENTRY __fastcall MiGetPageSlist(__int64 a1, unsigned int a2, char a3)
@@ -64,7 +64,7 @@ PSLIST_ENTRY __fastcall MiGetPageSlist(__int64 a1, unsigned int a2, char a3)
   __int64 v55; // [rsp+50h] [rbp-78h]
   __int64 *v56; // [rsp+58h] [rbp-70h]
   __int64 v57; // [rsp+60h] [rbp-68h]
-  union _SLIST_HEADER *ListHead; // [rsp+68h] [rbp-60h]
+  _SLIST_HEADER *ListHead; // [rsp+68h] [rbp-60h]
   __int64 v59; // [rsp+78h] [rbp-50h]
   unsigned __int64 v60; // [rsp+80h] [rbp-48h]
 
@@ -79,7 +79,7 @@ PSLIST_ENTRY __fastcall MiGetPageSlist(__int64 a1, unsigned int a2, char a3)
   v8 = 0LL;
   v53 = 0LL;
   v49 = *(_QWORD *)(v5 + 16);
-  v9 = dword_140E2D780[HIWORD(a2) & 3];
+  v9 = dword_140E2D900[HIWORD(a2) & 3];
   v52 = v9;
   v48 = v9;
   Cache = MiColorGetCache(a2);
@@ -145,7 +145,7 @@ LABEL_8:
   v28 = 16 * v51;
   while ( 1 )
   {
-    ListHead = (union _SLIST_HEADER *)(v28 + *(_QWORD *)(a1 + 8LL * v27 + 13856));
+    ListHead = (_SLIST_HEADER *)(v28 + *(_QWORD *)(a1 + 8LL * v27 + 13856));
     v57 = a1 + 16 * (v27 + 860LL);
     v30 = RtlpInterlockedPopEntrySList(ListHead);
     if ( v30 )
@@ -270,18 +270,18 @@ LABEL_55:
     else
     {
       v32 = *(_QWORD *)&CLFS_LSN_NULL_EXT & 0xFFFFFFFFFFFFFC1FuLL | 0x80;
-      if ( qword_140E2D740 )
+      if ( qword_140E2D8C0 )
       {
         v33 = *(_QWORD *)&CLFS_LSN_NULL_EXT & 0xFFFFFFFFFFFFFC0FuLL | 0x90;
-        if ( (qword_140E2D740 & v32) == 0 )
-          v33 = qword_140E2D740 | *(_QWORD *)&CLFS_LSN_NULL_EXT & 0xFFFFFFFFFFFFFC9FuLL | 0x80;
+        if ( (qword_140E2D8C0 & v32) == 0 )
+          v33 = qword_140E2D8C0 | *(_QWORD *)&CLFS_LSN_NULL_EXT & 0xFFFFFFFFFFFFFC9FuLL | 0x80;
         v32 = v33;
       }
     }
     v30[1].Next = (_SLIST_ENTRY *)v32;
   }
   else if ( (MiFlags & 0x80u) != 0LL
-         && (++*(_DWORD *)&stru_140E2EB88.SavedApcStateFill[40] & MmPageValidationFrequency) == 0 )
+         && (++*(_DWORD *)&stru_140E2ED08.SavedApcStateFill[40] & MmPageValidationFrequency) == 0 )
   {
     MiArePageContentsZero((__int64)&v30[0x22000000000LL] / 48);
   }

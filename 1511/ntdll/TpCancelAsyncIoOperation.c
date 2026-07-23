@@ -8,32 +8,28 @@
  *     RtlEndStrongEnumerationHashTable @ 0x180081AE0 (RtlEndStrongEnumerationHashTable.c)
  */
 
-__int64 __fastcall TpCancelAsyncIoOperation(__int64 a1)
+void __cdecl TpCancelAsyncIoOperation(PTP_IO Io)
 {
-  __int64 result; // rax
-  signed __int32 v3; // ecx
-  bool v4; // zf
-  signed __int32 v5; // eax
+  signed __int32 v2; // ecx
+  bool v3; // zf
+  signed __int32 v4; // eax
 
-  result = TppIopValidateIo((_PEB_LDR_DATA *)a1, 0LL, 0LL);
-  if ( (_DWORD)result )
+  if ( (unsigned int)TppIopValidateIo((_PEB_LDR_DATA *)Io, 0LL, 0LL) )
   {
-    _m_prefetchw((const void *)(a1 + 272));
-    v3 = *(_DWORD *)(a1 + 272);
-    while ( v3 > 0 )
+    _m_prefetchw((char *)Io + 272);
+    v2 = *((_DWORD *)Io + 68);
+    while ( v2 > 0 )
     {
-      v5 = _InterlockedCompareExchange((volatile signed __int32 *)(a1 + 272), v3 - 1, v3);
-      v4 = v3 == v5;
-      v3 = v5;
-      if ( v4 )
+      v4 = _InterlockedCompareExchange((volatile signed __int32 *)Io + 68, v2 - 1, v2);
+      v3 = v2 == v4;
+      v2 = v4;
+      if ( v3 )
       {
-        TppBarrierAdjust((unsigned __int64 *)(a1 + 56), -1, 0);
+        TppBarrierAdjust((_RTL_SRWLOCK *)Io + 7, -1, 0);
         break;
       }
     }
-    result = (unsigned int)_InterlockedDecrement((volatile signed __int32 *)a1);
-    if ( !(_DWORD)result )
-      return (**(__int64 (__fastcall ***)(__int64))(a1 + 8))(a1);
+    if ( _InterlockedExchangeAdd((volatile signed __int32 *)Io, 0xFFFFFFFF) == 1 )
+      (**((void (__fastcall ***)(PTP_IO))Io + 1))(Io);
   }
-  return result;
 }

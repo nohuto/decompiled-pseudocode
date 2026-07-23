@@ -1,10 +1,10 @@
 /*
- * XREFs of MiInitializeMdlLeafPfns @ 0x14038C010
+ * XREFs of MiInitializeMdlLeafPfns @ 0x14038C1F0
  * Callers:
- *     MiInitializeLargeMdlLeafPfns @ 0x14038BEE0 (MiInitializeLargeMdlLeafPfns.c)
+ *     MiInitializeLargeMdlLeafPfns @ 0x14038C0C0 (MiInitializeLargeMdlLeafPfns.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     MiInitializeMdlPfn @ 0x14038C220 (MiInitializeMdlPfn.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     MiInitializeMdlPfn @ 0x14038C400 (MiInitializeMdlPfn.c)
  */
 
 char __fastcall MiInitializeMdlLeafPfns(__int64 a1, __int64 a2, unsigned __int64 a3, __int64 a4, int a5)

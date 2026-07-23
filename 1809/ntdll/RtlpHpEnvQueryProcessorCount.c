@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpHpEnvQueryProcessorCount @ 0x18009F73C
+ * XREFs of RtlpHpEnvQueryProcessorCount @ 0x18009F75C
  * Callers:
  *     RtlpHpHeapCreate @ 0x180063D90 (RtlpHpHeapCreate.c)
  * Callees:
- *     __security_check_cookie @ 0x18008FEC0 (__security_check_cookie.c)
- *     NtQuerySystemInformation @ 0x1800A09A0 (NtQuerySystemInformation.c)
+ *     __security_check_cookie @ 0x18008FED0 (__security_check_cookie.c)
+ *     NtQuerySystemInformation @ 0x1800A09C0 (NtQuerySystemInformation.c)
  */
 
 __int64 RtlpHpEnvQueryProcessorCount()

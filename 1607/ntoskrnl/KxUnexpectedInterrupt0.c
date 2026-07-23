@@ -1,5 +1,5 @@
 /*
- * XREFs of KxUnexpectedInterrupt0 @ 0x140160530
+ * XREFs of KxUnexpectedInterrupt0 @ 0x140160AA0
  * Callers:
  *     <none>
  * Callees:
@@ -8,5 +8,5 @@
 
 void KxUnexpectedInterrupt0()
 {
-  JUMPOUT(0x140160D41LL);
+  JUMPOUT(0x1401612B1LL);
 }

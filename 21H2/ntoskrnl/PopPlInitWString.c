@@ -1,13 +1,13 @@
 /*
- * XREFs of PopPlInitWString @ 0x1408F99FC
+ * XREFs of PopPlInitWString @ 0x1408F9B5C
  * Callers:
- *     PopPlInitDevice @ 0x1408F965C (PopPlInitDevice.c)
- *     PopPlInitPowerPlane @ 0x1408F98F4 (PopPlInitPowerPlane.c)
+ *     PopPlInitDevice @ 0x1408F97BC (PopPlInitDevice.c)
+ *     PopPlInitPowerPlane @ 0x1408F9A54 (PopPlInitPowerPlane.c)
  * Callees:
- *     RtlStringCchLengthW @ 0x140264E74 (RtlStringCchLengthW.c)
- *     RtlUnicodeStringCchCopyStringN @ 0x14057EFB8 (RtlUnicodeStringCchCopyStringN.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     RtlStringCchLengthW @ 0x140252F04 (RtlStringCchLengthW.c)
+ *     RtlUnicodeStringCchCopyStringN @ 0x14057F1F8 (RtlUnicodeStringCchCopyStringN.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PopPlInitWString(PUNICODE_STRING DestinationString, unsigned int a2, __int64 a3, __int64 a4)

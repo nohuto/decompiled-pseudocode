@@ -1,11 +1,11 @@
 /*
- * XREFs of PnpIsValidGuidString @ 0x140772234
+ * XREFs of PnpIsValidGuidString @ 0x1407723F4
  * Callers:
- *     PiPnpRtlCmActionCallback @ 0x140635920 (PiPnpRtlCmActionCallback.c)
+ *     PiPnpRtlCmActionCallback @ 0x14062A730 (PiPnpRtlCmActionCallback.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x140265AF0 (RtlInitUnicodeStringEx.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     RtlGUIDFromString @ 0x140644870 (RtlGUIDFromString.c)
+ *     RtlInitUnicodeStringEx @ 0x140253A90 (RtlInitUnicodeStringEx.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     RtlGUIDFromString @ 0x140639680 (RtlGUIDFromString.c)
  */
 
 bool __fastcall PnpIsValidGuidString(PCWSTR SourceString)

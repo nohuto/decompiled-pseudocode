@@ -1,11 +1,11 @@
 /*
- * XREFs of PiPnpRtlIsDeviceEnumerableForUser @ 0x140596B94
+ * XREFs of PiPnpRtlIsDeviceEnumerableForUser @ 0x140597B94
  * Callers:
- *     PiPnpRtlApplyMandatoryDeviceFilters @ 0x140595E6C (PiPnpRtlApplyMandatoryDeviceFilters.c)
+ *     PiPnpRtlApplyMandatoryDeviceFilters @ 0x140596E6C (PiPnpRtlApplyMandatoryDeviceFilters.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     PiAuVerifyAccessToObject @ 0x140595360 (PiAuVerifyAccessToObject.c)
- *     PnpGetObjectProperty @ 0x140599EC8 (PnpGetObjectProperty.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     PiAuVerifyAccessToObject @ 0x140596360 (PiAuVerifyAccessToObject.c)
+ *     PnpGetObjectProperty @ 0x14059AEC8 (PnpGetObjectProperty.c)
  */
 
 __int64 __fastcall PiPnpRtlIsDeviceEnumerableForUser(

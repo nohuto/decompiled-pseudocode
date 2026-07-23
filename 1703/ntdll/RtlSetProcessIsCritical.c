@@ -7,19 +7,19 @@
  *     ZwSetInformationProcess @ 0x1800A5680 (ZwSetInformationProcess.c)
  */
 
-__int64 __fastcall RtlSetProcessIsCritical(unsigned __int8 a1, _BYTE *a2, char a3)
+NTSTATUS __cdecl RtlSetProcessIsCritical(BOOLEAN NewValue, PBOOLEAN OldValue, BOOLEAN CheckFlag)
 {
-  int v6; // [rsp+50h] [rbp+18h] BYREF
+  int ProcessInformation; // [rsp+50h] [rbp+18h] BYREF
 
-  if ( a2 )
-    *a2 = 0;
-  if ( a3 && (NtCurrentTeb()->ProcessEnvironmentBlock->NtGlobalFlag & 0x100000) == 0 )
-    return 3221225473LL;
-  if ( a2 )
+  if ( OldValue )
+    *OldValue = 0;
+  if ( CheckFlag && (NtCurrentTeb()->ProcessEnvironmentBlock->NtGlobalFlag & 0x100000) == 0 )
+    return -1073741823;
+  if ( OldValue )
   {
-    ZwQueryInformationProcess(-1LL, 29LL, &v6, 4LL, 0LL);
-    *a2 = v6;
+    ZwQueryInformationProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, ProcessBreakOnTermination, &ProcessInformation, 4u, 0LL);
+    *OldValue = ProcessInformation;
   }
-  v6 = a1;
-  return ZwSetInformationProcess(-1LL, 29LL, &v6, 4LL);
+  ProcessInformation = NewValue;
+  return ZwSetInformationProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, ProcessBreakOnTermination, &ProcessInformation, 4u);
 }

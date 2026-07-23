@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpGetAcpiBiosVersion @ 0x140C49104
+ * XREFs of CmpGetAcpiBiosVersion @ 0x140C4B228
  * Callers:
- *     CmpSetSystemBiosInformation @ 0x140C49AE0 (CmpSetSystemBiosInformation.c)
+ *     CmpSetSystemBiosInformation @ 0x140C4BC04 (CmpSetSystemBiosInformation.c)
  * Callees:
- *     HalpAcpiGetTable @ 0x140478488 (HalpAcpiGetTable.c)
- *     sprintf_s @ 0x140504170 (sprintf_s.c)
+ *     HalpAcpiGetTable @ 0x14045F918 (HalpAcpiGetTable.c)
+ *     sprintf_s @ 0x140501A30 (sprintf_s.c)
  */
 
 char __fastcall CmpGetAcpiBiosVersion(__int64 a1, char *a2)
@@ -13,8 +13,8 @@ char __fastcall CmpGetAcpiBiosVersion(__int64 a1, char *a2)
   unsigned int v5; // edx
   char *v6; // rcx
 
-  Table = HalpAcpiGetTable(a1, 1413763922, 0LL, 0LL);
-  if ( Table || (Table = HalpAcpiGetTable(a1, 1413763928, 0LL, 0LL)) != 0 )
+  Table = HalpAcpiGetTable(a1, 1413763922, 0, 0);
+  if ( Table || (Table = HalpAcpiGetTable(a1, 1413763928, 0, 0)) != 0 )
   {
     v5 = 0;
     v6 = (char *)(Table + 10);

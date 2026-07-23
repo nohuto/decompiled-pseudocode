@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpIcWriteRegisterValue @ 0x140BB8954
+ * XREFs of RtlpIcWriteRegisterValue @ 0x140BBA954
  * Callers:
- *     RtlpIcEmulateGroup0Instruction @ 0x140BB74F8 (RtlpIcEmulateGroup0Instruction.c)
- *     RtlpIcEmulateInstruction @ 0x140BB7A08 (RtlpIcEmulateInstruction.c)
+ *     RtlpIcEmulateGroup0Instruction @ 0x140BB94F8 (RtlpIcEmulateGroup0Instruction.c)
+ *     RtlpIcEmulateInstruction @ 0x140BB9A08 (RtlpIcEmulateInstruction.c)
  * Callees:
- *     RtlpIcGetRegisterAddressByIndex @ 0x140BB8498 (RtlpIcGetRegisterAddressByIndex.c)
+ *     RtlpIcGetRegisterAddressByIndex @ 0x140BBA498 (RtlpIcGetRegisterAddressByIndex.c)
  */
 
 char __fastcall RtlpIcWriteRegisterValue(__int64 a1, __int64 a2, unsigned int a3, char a4, __int64 a5)

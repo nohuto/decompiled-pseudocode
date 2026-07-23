@@ -1,9 +1,9 @@
 /*
- * XREFs of ?KiAbPropagateBoosts@LegacyAutoBoost@@YAXPEAU_SINGLE_LIST_ENTRY@@00@Z @ 0x1402706EC
+ * XREFs of ?KiAbPropagateBoosts@LegacyAutoBoost@@YAXPEAU_SINGLE_LIST_ENTRY@@00@Z @ 0x14026FC5C
  * Callers:
- *     ?KiAbpDeferredProcessingWorker@LegacyAutoBoost@@YAXPEAU_KDPC@@PEAX11@Z @ 0x140270620 (-KiAbpDeferredProcessingWorker@LegacyAutoBoost@@YAXPEAU_KDPC@@PEAX11@Z.c)
+ *     ?KiAbpDeferredProcessingWorker@LegacyAutoBoost@@YAXPEAU_KDPC@@PEAX11@Z @ 0x14026FB90 (-KiAbpDeferredProcessingWorker@LegacyAutoBoost@@YAXPEAU_KDPC@@PEAX11@Z.c)
  * Callees:
- *     ?KiAbProcessThreadLocks@LegacyAutoBoost@@YAXPEAU_KTHREAD@@T_KI_AB_BOOST_STRATEGY@1@PEAU_SINGLE_LIST_ENTRY@@22@Z @ 0x14027125C (-KiAbProcessThreadLocks@LegacyAutoBoost@@YAXPEAU_KTHREAD@@T_KI_AB_BOOST_STRATEGY@1@PEAU_SINGLE_L.c)
+ *     ?KiAbProcessThreadLocks@LegacyAutoBoost@@YAXPEAU_KTHREAD@@T_KI_AB_BOOST_STRATEGY@1@PEAU_SINGLE_LIST_ENTRY@@22@Z @ 0x1402707CC (-KiAbProcessThreadLocks@LegacyAutoBoost@@YAXPEAU_KTHREAD@@T_KI_AB_BOOST_STRATEGY@1@PEAU_SINGLE_L.c)
  */
 
 void __fastcall LegacyAutoBoost::KiAbPropagateBoosts(

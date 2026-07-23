@@ -1,10 +1,10 @@
 /*
- * XREFs of PopFxDirectedPowerTransitionWorker @ 0x14058A050
+ * XREFs of PopFxDirectedPowerTransitionWorker @ 0x14058A540
  * Callers:
  *     <none>
  * Callees:
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
- *     PopFxHandleDirectedPowerTransition @ 0x14058A4A0 (PopFxHandleDirectedPowerTransition.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
+ *     PopFxHandleDirectedPowerTransition @ 0x14058A990 (PopFxHandleDirectedPowerTransition.c)
  */
 
 LONG __fastcall PopFxDirectedPowerTransitionWorker(ULONG_PTR BugCheckParameter3)

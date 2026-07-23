@@ -19,19 +19,18 @@ __int64 __fastcall EtwpGetPrivateLoggerContext(__int64 a1, _QWORD *a2)
   unsigned int v5; // eax
   __int64 v6; // rdx
   __int64 result; // rax
-  __int64 v8; // r8
-  UNICODE_STRING DestinationString; // [rsp+20h] [rbp-18h] BYREF
-  unsigned int v10; // [rsp+40h] [rbp+8h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+20h] [rbp-18h] BYREF
+  unsigned int v9; // [rsp+40h] [rbp+8h] BYREF
 
   if ( *(_WORD *)(a1 + 144) )
   {
     RtlInitUnicodeString(&DestinationString, (PCWSTR)(a1 + 176));
-    return EtwpGetPrivateLoggerContextByName((__int64)&DestinationString, a2, v8);
+    return EtwpGetPrivateLoggerContextByName(&DestinationString, a2);
   }
   v3 = *(unsigned __int16 *)(a1 + 8);
   v4 = EtwpLoggerArray;
   v5 = v3 & 0xFFFF7FFF;
-  v10 = v3 & 0xFFFF7FFF;
+  v9 = v3 & 0xFFFF7FFF;
   if ( !EtwpLoggerArray )
     return 4201LL;
   if ( v5 < 0x40 )
@@ -47,10 +46,10 @@ LABEL_4:
     _InterlockedDecrement((volatile signed __int32 *)(EtwpLoggerArray + 16LL * v5 + 8));
     return 4201LL;
   }
-  result = EtwpDemuxUmTraceHandle(v3, &v10);
+  result = EtwpDemuxUmTraceHandle(v3, &v9);
   if ( !(_DWORD)result )
   {
-    v5 = v10;
+    v5 = v9;
     v4 = EtwpLoggerArray;
     goto LABEL_4;
   }

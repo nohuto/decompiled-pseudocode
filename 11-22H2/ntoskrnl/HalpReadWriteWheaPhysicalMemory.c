@@ -66,7 +66,7 @@ __int64 __fastcall HalpReadWriteWheaPhysicalMemory(char a1, __int64 a2, unsigned
   {
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(0xFuLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
       if ( CurrentIrql == 15 )
@@ -102,10 +102,10 @@ __int64 __fastcall HalpReadWriteWheaPhysicalMemory(char a1, __int64 a2, unsigned
   KxReleaseSpinLock((volatile signed __int64 *)v10);
   if ( v25 )
   {
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v18 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v18 <= 0xFu && CurrentIrql <= 0xFu && v18 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v18 <= 0xFu && CurrentIrql <= 0xFu && v18 >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         v20 = CurrentPrcb->SchedulerAssist;

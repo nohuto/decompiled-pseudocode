@@ -12,12 +12,12 @@
  *     sub_18004ABB4 @ 0x18004ABB4 (sub_18004ABB4.c)
  */
 
-__int64 __fastcall sub_18004AABC(_QWORD *a1, _QWORD *a2, __int64 a3, __int64 a4, unsigned int a5)
+__int64 __fastcall sub_18004AABC(_QWORD *a1, _QWORD *a2, __int64 a3, LARGE_INTEGER *a4, unsigned int a5)
 {
   int v6; // ebx
   unsigned int v9; // ebp
   struct _TEB *v10; // rcx
-  __int64 p_ProcessParameters; // r14
+  __int64 WaitOnAddressHashTable; // r14
   int v12; // ebx
   int v13; // ebx
   int v14; // ebx
@@ -34,8 +34,8 @@ __int64 __fastcall sub_18004AABC(_QWORD *a1, _QWORD *a2, __int64 a3, __int64 a4,
     memset(&v17[2], 0, 24);
     v10 = NtCurrentTeb();
     v17[1] = v10->ClientId.UniqueThread;
-    p_ProcessParameters = (__int64)&v10->ProcessEnvironmentBlock[1].ProcessParameters;
-    sub_180024BC0(p_ProcessParameters, (__int64)v17);
+    WaitOnAddressHashTable = (__int64)v10->ProcessEnvironmentBlock->WaitOnAddressHashTable;
+    sub_180024BC0(WaitOnAddressHashTable, (__int64)v17);
     v12 = v6 - 1;
     if ( v12 )
     {
@@ -64,9 +64,9 @@ __int64 __fastcall sub_18004AABC(_QWORD *a1, _QWORD *a2, __int64 a3, __int64 a4,
       v15 = *(_BYTE *)a1 == *(_BYTE *)a2;
     }
     if ( v15 )
-      return (unsigned int)sub_180024C30(p_ProcessParameters, (volatile signed __int32 *)v17, a4, a5);
+      return (unsigned int)sub_180024C30(WaitOnAddressHashTable, (__int64)v17, a4, a5);
 LABEL_8:
-    sub_18004ABB4(p_ProcessParameters, v17);
+    sub_18004ABB4(WaitOnAddressHashTable, v17);
     return v9;
   }
   return 3221225485LL;

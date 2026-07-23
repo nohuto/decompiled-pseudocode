@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpHvLpReadMcaStatusMsr @ 0x14047CFC8
+ * XREFs of HalpHvLpReadMcaStatusMsr @ 0x140478158
  * Callers:
- *     HalpHvEpReadMsr @ 0x14047CF40 (HalpHvEpReadMsr.c)
+ *     HalpHvEpReadMsr @ 0x1404780D0 (HalpHvEpReadMsr.c)
  * Callees:
- *     HalpWheaGetBankFromMciStatusIndex @ 0x14047D06C (HalpWheaGetBankFromMciStatusIndex.c)
- *     HalpHvLpReadMultipleMsr @ 0x14047DA4C (HalpHvLpReadMultipleMsr.c)
+ *     HalpWheaGetBankFromMciStatusIndex @ 0x1404781FC (HalpWheaGetBankFromMciStatusIndex.c)
+ *     HalpHvLpReadMultipleMsr @ 0x140478BDC (HalpHvLpReadMultipleMsr.c)
  */
 
 char __fastcall HalpHvLpReadMcaStatusMsr(__int64 a1, unsigned int a2, __int64 *a3, _QWORD *a4)

@@ -1,10 +1,10 @@
 /*
- * XREFs of ObpPostInterceptHandleCreate @ 0x140862594
+ * XREFs of ObpPostInterceptHandleCreate @ 0x1408637F4
  * Callers:
- *     ObpCreateHandle @ 0x1405E12B0 (ObpCreateHandle.c)
+ *     ObpCreateHandle @ 0x1405E22B0 (ObpCreateHandle.c)
  * Callees:
- *     memset @ 0x1401D1880 (memset.c)
- *     ObpCallPostOperationCallbacks @ 0x1408624F0 (ObpCallPostOperationCallbacks.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ObpCallPostOperationCallbacks @ 0x140863750 (ObpCallPostOperationCallbacks.c)
  */
 
 __int64 __fastcall ObpPostInterceptHandleCreate(__int64 a1, unsigned __int8 a2, int a3, int a4, _QWORD *a5)

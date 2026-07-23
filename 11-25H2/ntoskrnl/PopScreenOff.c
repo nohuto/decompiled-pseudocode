@@ -12,11 +12,11 @@
 
 __int64 __fastcall PopScreenOff(int a1)
 {
-  unsigned int v2; // ebx
+  ULONG v2; // ebx
   __int128 v4; // [rsp+20h] [rbp-30h] BYREF
   __int128 v5; // [rsp+30h] [rbp-20h]
   __int64 v6; // [rsp+40h] [rbp-10h]
-  unsigned int v7; // [rsp+60h] [rbp+10h] BYREF
+  ULONG v7; // [rsp+60h] [rbp+10h] BYREF
   int v8; // [rsp+68h] [rbp+18h] BYREF
   int v9; // [rsp+6Ch] [rbp+1Ch]
 

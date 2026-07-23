@@ -1,11 +1,11 @@
 /*
- * XREFs of PiDevCfgQueryPolicyEnabled @ 0x14063D170
+ * XREFs of PiDevCfgQueryPolicyEnabled @ 0x14063D224
  * Callers:
- *     PiDevCfgEnforceDevicePolicy @ 0x140637320 (PiDevCfgEnforceDevicePolicy.c)
+ *     PiDevCfgEnforceDevicePolicy @ 0x1406373D4 (PiDevCfgEnforceDevicePolicy.c)
  * Callees:
- *     PnpValidateRegistryDword @ 0x1401CF618 (PnpValidateRegistryDword.c)
+ *     PnpValidateRegistryDword @ 0x1401CF3AC (PnpValidateRegistryDword.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     IopGetRegistryValue @ 0x14049F430 (IopGetRegistryValue.c)
+ *     IopGetRegistryValue @ 0x14051783C (IopGetRegistryValue.c)
  */
 
 __int64 __fastcall PiDevCfgQueryPolicyEnabled(void *a1, const WCHAR *a2, char *a3)

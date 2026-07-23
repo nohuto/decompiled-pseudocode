@@ -1,26 +1,26 @@
 /*
- * XREFs of MiFreeExcessSegments @ 0x1402EA170
+ * XREFs of MiFreeExcessSegments @ 0x14034B7B0
  * Callers:
- *     MiChargeCommit @ 0x140211450 (MiChargeCommit.c)
- *     MiCommitPoolMemory @ 0x1402EB010 (MiCommitPoolMemory.c)
- *     MmResourcesAvailable @ 0x14042DCF0 (MmResourcesAvailable.c)
- *     MiCountSystemPool @ 0x140455630 (MiCountSystemPool.c)
+ *     MiChargeCommit @ 0x14033A7B0 (MiChargeCommit.c)
+ *     MiCommitPoolMemory @ 0x14034C650 (MiCommitPoolMemory.c)
+ *     MmResourcesAvailable @ 0x14041FA20 (MmResourcesAvailable.c)
+ *     MiCountSystemPool @ 0x14044A3E0 (MiCountSystemPool.c)
  * Callees:
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     PsGetNextPartition @ 0x1403D42FC (PsGetNextPartition.c)
- *     MiShouldTrimUnusedSegments @ 0x14049257C (MiShouldTrimUnusedSegments.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     PsGetNextPartition @ 0x14026227C (PsGetNextPartition.c)
+ *     MiShouldTrimUnusedSegments @ 0x14048D3EC (MiShouldTrimUnusedSegments.c)
  */
 
 int __fastcall MiFreeExcessSegments(ULONG *a1)
 {
-  unsigned __int64 NextPartition; // rax
+  _QWORD *NextPartition; // rax
   __int64 v2; // r10
-  unsigned __int64 i; // rbx
+  _QWORD *i; // rbx
 
   if ( !a1 )
     a1 = &MiSystemPartition;
-  NextPartition = *((_QWORD *)a1 + 2108);
-  if ( *((_QWORD *)a1 + 2408) >= NextPartition )
+  NextPartition = (_QWORD *)*((_QWORD *)a1 + 2108);
+  if ( *((_QWORD *)a1 + 2408) >= (unsigned __int64)NextPartition )
   {
     LODWORD(NextPartition) = MiShouldTrimUnusedSegments(a1);
     if ( (_DWORD)NextPartition )
@@ -35,12 +35,12 @@ int __fastcall MiFreeExcessSegments(ULONG *a1)
         NextPartition = PsGetNextPartition(0LL);
         for ( i = NextPartition; NextPartition; i = NextPartition )
         {
-          if ( *(_QWORD *)(*(_QWORD *)i + 2088LL) )
-            KeSetEvent((PRKEVENT)(*(_QWORD *)i + 1784LL), 0, 0);
+          if ( *(_QWORD *)(*i + 2088LL) )
+            KeSetEvent((PRKEVENT)(*i + 1784LL), 0, 0);
           NextPartition = PsGetNextPartition(i);
         }
       }
     }
   }
-  return NextPartition;
+  return (int)NextPartition;
 }

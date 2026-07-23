@@ -2,19 +2,19 @@
  * XREFs of PoEnergyContextUpdateComponentPower @ 0x1406A7514
  * Callers:
  *     PsUpdateComponentPower @ 0x14020E6A0 (PsUpdateComponentPower.c)
- *     NtSetThreadExecutionState @ 0x1407A8D20 (NtSetThreadExecutionState.c)
- *     PopPowerRequestCallbackDisplayRequired @ 0x1407D3800 (PopPowerRequestCallbackDisplayRequired.c)
+ *     NtSetThreadExecutionState @ 0x1407A8F10 (NtSetThreadExecutionState.c)
+ *     PopPowerRequestCallbackDisplayRequired @ 0x1407D3AD0 (PopPowerRequestCallbackDisplayRequired.c)
  * Callees:
  *     RtlTimelineBitmapUpdate @ 0x14020E900 (RtlTimelineBitmapUpdate.c)
- *     KeQueryTimelineBitmapTime @ 0x1402C0864 (KeQueryTimelineBitmapTime.c)
- *     PopReleaseRwLock @ 0x14032C480 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x14032C5E4 (PopAcquireRwLockExclusive.c)
- *     RtlStateDurationUpdate @ 0x14033AC80 (RtlStateDurationUpdate.c)
- *     RtlTimelineBitmapUpdateRange @ 0x1403567E4 (RtlTimelineBitmapUpdateRange.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     PopEtEnergyContextSetState @ 0x1407B0BD8 (PopEtEnergyContextSetState.c)
- *     PopEtEnergyContextProcessStateUpdate @ 0x1407B0E84 (PopEtEnergyContextProcessStateUpdate.c)
+ *     KeQueryTimelineBitmapTime @ 0x1402C0AF4 (KeQueryTimelineBitmapTime.c)
+ *     PopReleaseRwLock @ 0x14032C710 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14032C874 (PopAcquireRwLockExclusive.c)
+ *     RtlStateDurationUpdate @ 0x14033AF10 (RtlStateDurationUpdate.c)
+ *     RtlTimelineBitmapUpdateRange @ 0x140356984 (RtlTimelineBitmapUpdateRange.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     PopEtEnergyContextSetState @ 0x1407B0DC8 (PopEtEnergyContextSetState.c)
+ *     PopEtEnergyContextProcessStateUpdate @ 0x1407B1074 (PopEtEnergyContextProcessStateUpdate.c)
  */
 
 void __fastcall PoEnergyContextUpdateComponentPower(__int64 a1, int a2, __int64 a3)

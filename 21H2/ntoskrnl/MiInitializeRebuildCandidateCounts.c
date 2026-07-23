@@ -1,9 +1,9 @@
 /*
- * XREFs of MiInitializeRebuildCandidateCounts @ 0x140A68014
+ * XREFs of MiInitializeRebuildCandidateCounts @ 0x140A69014
  * Callers:
- *     MiCreatePfnBitMaps @ 0x1407B94E4 (MiCreatePfnBitMaps.c)
+ *     MiCreatePfnBitMaps @ 0x1407B9A04 (MiCreatePfnBitMaps.c)
  * Callees:
- *     MiUpdateLargePageCandidates @ 0x1402FF000 (MiUpdateLargePageCandidates.c)
+ *     MiUpdateLargePageCandidates @ 0x140309D50 (MiUpdateLargePageCandidates.c)
  */
 
 __int64 __fastcall MiInitializeRebuildCandidateCounts(unsigned int a1, unsigned int a2)
@@ -26,8 +26,8 @@ __int64 __fastcall MiInitializeRebuildCandidateCounts(unsigned int a1, unsigned 
   __int64 v18; // [rsp+90h] [rbp+18h]
   unsigned __int8 *v19; // [rsp+98h] [rbp+20h]
 
-  v2 = dword_140C4DF80[a2];
-  v3 = qword_140C50D90 + 4544LL * a1;
+  v2 = dword_140C4DFC0[a2];
+  v3 = qword_140C50DD0 + 4544LL * a1;
   v16 = v2;
   v4 = v3 + 1072LL * a2;
   v14 = (unsigned __int8 *)(v3 + (unsigned int)MmNumberOfChannels + 4317LL);

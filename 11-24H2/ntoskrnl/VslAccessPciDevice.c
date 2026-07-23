@@ -1,13 +1,13 @@
 /*
- * XREFs of VslAccessPciDevice @ 0x140265580
+ * XREFs of VslAccessPciDevice @ 0x1403AA5A0
  * Callers:
- *     HaliPciInterfaceReadConfig @ 0x140265340 (HaliPciInterfaceReadConfig.c)
- *     KiOpPciConfigSpaceAccessCommon @ 0x1405C5508 (KiOpPciConfigSpaceAccessCommon.c)
+ *     HaliPciInterfaceReadConfig @ 0x1403AA360 (HaliPciInterfaceReadConfig.c)
+ *     KiOpPciConfigSpaceAccessCommon @ 0x1405C2C3C (KiOpPciConfigSpaceAccessCommon.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140265D90 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     VslpEnterIumSecureMode @ 0x1403AADB0 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall VslAccessPciDevice(char a1, int a2, int a3, int a4, int a5, int a6, size_t Size, char *Src)

@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpWheaInitDiscard @ 0x140C0FBD4
+ * XREFs of HalpWheaInitDiscard @ 0x140C11BD4
  * Callers:
- *     HalpWheaInitSystem @ 0x140B4D4E0 (HalpWheaInitSystem.c)
+ *     HalpWheaInitSystem @ 0x140B4F530 (HalpWheaInitSystem.c)
  * Callees:
- *     WheaConfigureErrorSource @ 0x140B61BE0 (WheaConfigureErrorSource.c)
- *     HalpInitializeWheaPhysicalMappings @ 0x140C147D4 (HalpInitializeWheaPhysicalMappings.c)
- *     KeHwPolicyLocateResource @ 0x140C288B0 (KeHwPolicyLocateResource.c)
+ *     WheaConfigureErrorSource @ 0x140B63CB0 (WheaConfigureErrorSource.c)
+ *     HalpInitializeWheaPhysicalMappings @ 0x140C167D4 (HalpInitializeWheaPhysicalMappings.c)
+ *     KeHwPolicyLocateResource @ 0x140C2A950 (KeHwPolicyLocateResource.c)
  */
 
 __int64 __fastcall HalpWheaInitDiscard(int a1)

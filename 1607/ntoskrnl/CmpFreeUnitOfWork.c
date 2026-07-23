@@ -1,7 +1,7 @@
 /*
- * XREFs of CmpFreeUnitOfWork @ 0x14060E2D0
+ * XREFs of CmpFreeUnitOfWork @ 0x14060E384
  * Callers:
- *     CmpSetKeySecurity @ 0x14000A660 (CmpSetKeySecurity.c)
+ *     CmpSetKeySecurity @ 0x14000A1E0 (CmpSetKeySecurity.c)
  * Callees:
  *     <none>
  */

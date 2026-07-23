@@ -1,39 +1,39 @@
 /*
- * XREFs of CmpOpenHiveFile @ 0x14092FE64
+ * XREFs of CmpOpenHiveFile @ 0x140931FA4
  * Callers:
- *     CmpLoadHiveThread @ 0x1407CB060 (CmpLoadHiveThread.c)
- *     CmpMountPreloadedHives @ 0x1407CBE38 (CmpMountPreloadedHives.c)
- *     CmLoadKey @ 0x14092B788 (CmLoadKey.c)
- *     CmLoadAppKey @ 0x14092DB9C (CmLoadAppKey.c)
- *     CmpOpenHiveFiles @ 0x14092F1B0 (CmpOpenHiveFiles.c)
+ *     CmpLoadHiveThread @ 0x1407CB550 (CmpLoadHiveThread.c)
+ *     CmpMountPreloadedHives @ 0x1407CC328 (CmpMountPreloadedHives.c)
+ *     CmLoadKey @ 0x14092D8C8 (CmLoadKey.c)
+ *     CmLoadAppKey @ 0x14092FCDC (CmLoadAppKey.c)
+ *     CmpOpenHiveFiles @ 0x1409312F0 (CmpOpenHiveFiles.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     ObfReferenceObjectWithTag @ 0x1403403E0 (ObfReferenceObjectWithTag.c)
- *     PspUnlockThreadSecurityShared @ 0x14041AFC0 (PspUnlockThreadSecurityShared.c)
- *     PspLockThreadSecurityShared @ 0x14041F270 (PspLockThreadSecurityShared.c)
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     SetFailureLocation @ 0x1404649E0 (SetFailureLocation.c)
- *     CmSiFreeMemory @ 0x14046B8D0 (CmSiFreeMemory.c)
- *     CmSiCreateEvent @ 0x14046D968 (CmSiCreateEvent.c)
- *     CmSiEventTupleCleanup @ 0x14047DA8C (CmSiEventTupleCleanup.c)
- *     CmSiEventTupleInitialize @ 0x14048A580 (CmSiEventTupleInitialize.c)
- *     CmSiWaitForSingleEvent @ 0x140493968 (CmSiWaitForSingleEvent.c)
- *     CmSiBugCheck @ 0x140668C6C (CmSiBugCheck.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwQueryInformationFile @ 0x1406A6630 (ZwQueryInformationFile.c)
- *     ZwSetInformationFile @ 0x1406A68F0 (ZwSetInformationFile.c)
- *     ZwOpenFile @ 0x1406A6A70 (ZwOpenFile.c)
- *     ZwFsControlFile @ 0x1406A6B30 (ZwFsControlFile.c)
- *     ZwQueryAttributesFile @ 0x1406A6BB0 (ZwQueryAttributesFile.c)
- *     ZwCreateFile @ 0x1406A6EB0 (ZwCreateFile.c)
- *     PsImpersonateClient @ 0x1409102D0 (PsImpersonateClient.c)
- *     CmpGetCompleteFileName @ 0x140930524 (CmpGetCompleteFileName.c)
- *     CmpLogHiveFileInaccessible @ 0x1409305F4 (CmpLogHiveFileInaccessible.c)
- *     CmpQueryFileSecurityDescriptor @ 0x140930A60 (CmpQueryFileSecurityDescriptor.c)
- *     CmpGetVolumeClusterSize @ 0x140930B1C (CmpGetVolumeClusterSize.c)
- *     CmpGetVolumeLogFileSizeCap @ 0x140930E60 (CmpGetVolumeLogFileSizeCap.c)
- *     PsRevertToSelf @ 0x140930F00 (PsRevertToSelf.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x14031F8C0 (ObfReferenceObjectWithTag.c)
+ *     PspUnlockThreadSecurityShared @ 0x14040AFC0 (PspUnlockThreadSecurityShared.c)
+ *     PspLockThreadSecurityShared @ 0x140414FB0 (PspLockThreadSecurityShared.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     SetFailureLocation @ 0x14045B110 (SetFailureLocation.c)
+ *     CmSiFreeMemory @ 0x140464550 (CmSiFreeMemory.c)
+ *     CmSiCreateEvent @ 0x140468410 (CmSiCreateEvent.c)
+ *     CmSiEventTupleCleanup @ 0x140478D20 (CmSiEventTupleCleanup.c)
+ *     CmSiEventTupleInitialize @ 0x1404853A8 (CmSiEventTupleInitialize.c)
+ *     CmSiWaitForSingleEvent @ 0x14048E298 (CmSiWaitForSingleEvent.c)
+ *     CmSiBugCheck @ 0x140669E44 (CmSiBugCheck.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwQueryInformationFile @ 0x1406A75D0 (ZwQueryInformationFile.c)
+ *     ZwSetInformationFile @ 0x1406A7890 (ZwSetInformationFile.c)
+ *     ZwOpenFile @ 0x1406A7A10 (ZwOpenFile.c)
+ *     ZwFsControlFile @ 0x1406A7AD0 (ZwFsControlFile.c)
+ *     ZwQueryAttributesFile @ 0x1406A7B50 (ZwQueryAttributesFile.c)
+ *     ZwCreateFile @ 0x1406A7E50 (ZwCreateFile.c)
+ *     PsImpersonateClient @ 0x1408E7A20 (PsImpersonateClient.c)
+ *     CmpGetCompleteFileName @ 0x140932664 (CmpGetCompleteFileName.c)
+ *     CmpLogHiveFileInaccessible @ 0x140932734 (CmpLogHiveFileInaccessible.c)
+ *     CmpQueryFileSecurityDescriptor @ 0x140932BA0 (CmpQueryFileSecurityDescriptor.c)
+ *     CmpGetVolumeClusterSize @ 0x140932C5C (CmpGetVolumeClusterSize.c)
+ *     CmpGetVolumeLogFileSizeCap @ 0x140932FA0 (CmpGetVolumeLogFileSizeCap.c)
+ *     PsRevertToSelf @ 0x140933040 (PsRevertToSelf.c)
  */
 
 __int64 __fastcall CmpOpenHiveFile(
@@ -60,7 +60,7 @@ __int64 __fastcall CmpOpenHiveFile(
   ULONG CreateDisposition; // edi
   ULONG CreateOptions; // r13d
   SECURITY_IMPERSONATION_LEVEL *v22; // rbx
-  int AttributesFile; // eax
+  NTSTATUS v23; // eax
   int Information; // esi
   __int64 v25; // r15
   int VolumeClusterSize; // eax
@@ -93,13 +93,12 @@ __int64 __fastcall CmpOpenHiveFile(
   __int64 v54; // [rsp+128h] [rbp+28h]
   _QWORD *v55; // [rsp+130h] [rbp+30h]
   int *v56; // [rsp+138h] [rbp+38h]
-  _OWORD v57[2]; // [rsp+140h] [rbp+40h] BYREF
-  __int64 v58; // [rsp+160h] [rbp+60h]
-  __m128i FileInformation; // [rsp+168h] [rbp+68h] BYREF
-  __m128i v60; // [rsp+178h] [rbp+78h]
-  __int64 v61; // [rsp+188h] [rbp+88h]
-  __int128 v62; // [rsp+190h] [rbp+90h] BYREF
-  __int64 v63; // [rsp+1A0h] [rbp+A0h]
+  struct _FILE_BASIC_INFORMATION FileInformation; // [rsp+140h] [rbp+40h] BYREF
+  __m128i si128; // [rsp+168h] [rbp+68h] BYREF
+  __m128i v59; // [rsp+178h] [rbp+78h]
+  __int64 v60; // [rsp+188h] [rbp+88h]
+  __int128 v61; // [rsp+190h] [rbp+90h] BYREF
+  __int64 v62; // [rsp+1A0h] [rbp+A0h]
 
   v11 = a5;
   v12 = Source;
@@ -117,15 +116,15 @@ __int64 __fastcall CmpOpenHiveFile(
   *a3 = 0LL;
   FileHandle = 0LL;
   v36 = 0;
-  v61 = 0LL;
-  v63 = 0LL;
+  v60 = 0LL;
+  v62 = 0LL;
   v56 = a4;
   v55 = a3;
-  FileInformation = 0LL;
+  si128 = 0LL;
   ImpersonationLevel = SecurityImpersonation;
-  v60 = 0LL;
+  v59 = 0LL;
   *(_OWORD *)Event = 0LL;
-  v62 = 0LL;
+  v61 = 0LL;
   IoStatusBlock = 0LL;
   memset(&ObjectAttributes, 0, 44);
   DestinationString = 0LL;
@@ -235,18 +234,17 @@ __int64 __fastcall CmpOpenHiveFile(
     FileHandle = 0LL;
     *(_QWORD *)DesiredAccess = 0LL;
     v50 = 0LL;
-    v58 = 0LL;
-    memset(v57, 0, sizeof(v57));
-    AttributesFile = ZwQueryAttributesFile((__int64)&ObjectAttributes, (__int64)v57);
-    Status = AttributesFile;
-    if ( AttributesFile >= 0 )
+    memset(&FileInformation, 0, sizeof(FileInformation));
+    v23 = ZwQueryAttributesFile(&ObjectAttributes, &FileInformation);
+    Status = v23;
+    if ( v23 >= 0 )
     {
-      LODWORD(v58) = v58 & 0xFFFFFFFE;
+      FileInformation.FileAttributes &= ~1u;
       v31 = ZwOpenFile((PHANDLE)DesiredAccess, 0x100u, &ObjectAttributes, &v50, 7u, 0x4000u);
       Status = v31;
       if ( v31 >= 0 )
       {
-        v32 = ZwSetInformationFile(*(HANDLE *)DesiredAccess, &v50, v57, 0x28u, FileBasicInformation);
+        v32 = ZwSetInformationFile(*(HANDLE *)DesiredAccess, &v50, &FileInformation, 0x28u, FileBasicInformation);
         Status = v32;
         if ( v32 >= 0 )
         {
@@ -282,7 +280,7 @@ __int64 __fastcall CmpOpenHiveFile(
     }
     else
     {
-      SetFailureLocation(a10, 0, 36, AttributesFile, 16);
+      SetFailureLocation(a10, 0, 36, v23, 16);
     }
     if ( *(_QWORD *)DesiredAccess )
       ZwClose(*(HANDLE *)DesiredAccess);
@@ -312,10 +310,10 @@ LABEL_46:
   Information = IoStatusBlock.Information;
   if ( (v11 & 0x28) == 0 )
   {
-    LODWORD(v61) = 0;
-    FileInformation = _mm_load_si128((const __m128i *)&_xmm_ffffffffffffffffffffffffffffffff);
-    v60 = FileInformation;
-    ZwSetInformationFile(FileHandle, &IoStatusBlock, &FileInformation, 0x28u, FileBasicInformation);
+    LODWORD(v60) = 0;
+    si128 = _mm_load_si128((const __m128i *)&_xmm_ffffffffffffffffffffffffffffffff);
+    v59 = si128;
+    ZwSetInformationFile(FileHandle, &IoStatusBlock, &si128, 0x28u, FileBasicInformation);
   }
   if ( (v11 & 2) != 0 && (v11 & 0x20) == 0 )
   {
@@ -336,8 +334,8 @@ LABEL_46:
   if ( !v46 )
   {
     if ( Information != 2
-      && ZwQueryInformationFile(FileHandle, &IoStatusBlock, &v62, 0x18u, FileStandardInformation) >= 0
-      && !*((_QWORD *)&v62 + 1) )
+      && ZwQueryInformationFile(FileHandle, &IoStatusBlock, &v61, 0x18u, FileStandardInformation) >= 0
+      && !*((_QWORD *)&v61 + 1) )
     {
       Information = 2;
     }

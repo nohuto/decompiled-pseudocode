@@ -1,22 +1,23 @@
 /*
- * XREFs of SepSetTokenCachedHandles @ 0x140A286A8
+ * XREFs of SepSetTokenCachedHandles @ 0x140A3B748
  * Callers:
- *     NtCreateLowBoxToken @ 0x1408140F0 (NtCreateLowBoxToken.c)
- *     SepSetTokenBnoIsolation @ 0x140A2CC04 (SepSetTokenBnoIsolation.c)
+ *     SepCreateAppContainerToken @ 0x14063EAD8 (SepCreateAppContainerToken.c)
+ *     NtCreateLowBoxToken @ 0x140819F50 (NtCreateLowBoxToken.c)
+ *     SepSetTokenBnoIsolation @ 0x140ADE5CC (SepSetTokenBnoIsolation.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     RtlCreateHashTable @ 0x1404B89B0 (RtlCreateHashTable.c)
- *     SepReferenceCachedTokenHandles @ 0x1404CE7B0 (SepReferenceCachedTokenHandles.c)
- *     SepCloseCachedTokenHandles @ 0x1404D4834 (SepCloseCachedTokenHandles.c)
- *     SepGetCachedHandlesEntry @ 0x140A288DC (SepGetCachedHandlesEntry.c)
- *     SepValidateReferencedCachedHandles @ 0x140A293B8 (SepValidateReferencedCachedHandles.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     RtlCreateHashTable @ 0x1404B21E0 (RtlCreateHashTable.c)
+ *     SepReferenceCachedTokenHandles @ 0x1404C81E0 (SepReferenceCachedTokenHandles.c)
+ *     SepCloseCachedTokenHandles @ 0x1404CE0A4 (SepCloseCachedTokenHandles.c)
+ *     SepGetCachedHandlesEntry @ 0x140A3B97C (SepGetCachedHandlesEntry.c)
+ *     SepValidateReferencedCachedHandles @ 0x140A3C458 (SepValidateReferencedCachedHandles.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SepSetTokenCachedHandles(_QWORD *a1, _DWORD *a2, unsigned int a3, struct _KLOCK_ENTRIES *a4)

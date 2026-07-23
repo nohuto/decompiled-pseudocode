@@ -1,18 +1,18 @@
 /*
- * XREFs of RtlUShortAdd @ 0x140481650
+ * XREFs of RtlUShortAdd @ 0x14047AFC0
  * Callers:
- *     PspSiloInitializeSystemRootSymlink @ 0x1407EF710 (PspSiloInitializeSystemRootSymlink.c)
- *     RtlAddResourceAttributeAce @ 0x140803440 (RtlAddResourceAttributeAce.c)
- *     CmpDeleteCorruptedLogfile @ 0x140862DE8 (CmpDeleteCorruptedLogfile.c)
- *     AslPathWildcardFindFirst @ 0x140889920 (AslPathWildcardFindFirst.c)
- *     AslpPathWildcardAllocMatchNode @ 0x14088AA00 (AslpPathWildcardAllocMatchNode.c)
- *     RtlpCreateServerAcl @ 0x1408E0984 (RtlpCreateServerAcl.c)
- *     IopAllocateUnicodeString @ 0x14090DDE8 (IopAllocateUnicodeString.c)
- *     _SysCtxRegOpenCurrentUserKey @ 0x140A2AEE0 (_SysCtxRegOpenCurrentUserKey.c)
- *     SepAddTokenOriginClaim @ 0x140A2D094 (SepAddTokenOriginClaim.c)
- *     VfTargetDriversAllocateFullName @ 0x140C28E64 (VfTargetDriversAllocateFullName.c)
- *     VfSuspectDriversAllocateEntryEx @ 0x140C388C4 (VfSuspectDriversAllocateEntryEx.c)
- *     BgpBcInitializeCriticalMode @ 0x140D148A4 (BgpBcInitializeCriticalMode.c)
+ *     PspSiloInitializeSystemRootSymlink @ 0x1407F5270 (PspSiloInitializeSystemRootSymlink.c)
+ *     RtlAddResourceAttributeAce @ 0x140808EE0 (RtlAddResourceAttributeAce.c)
+ *     CmpDeleteCorruptedLogfile @ 0x1408691C8 (CmpDeleteCorruptedLogfile.c)
+ *     AslPathWildcardFindFirst @ 0x14088FD1C (AslPathWildcardFindFirst.c)
+ *     AslpPathWildcardAllocMatchNode @ 0x140890DFC (AslpPathWildcardAllocMatchNode.c)
+ *     RtlpCreateServerAcl @ 0x1408E6F44 (RtlpCreateServerAcl.c)
+ *     IopAllocateUnicodeString @ 0x1409AFF18 (IopAllocateUnicodeString.c)
+ *     _SysCtxRegOpenCurrentUserKey @ 0x140A3DF70 (_SysCtxRegOpenCurrentUserKey.c)
+ *     SepAddTokenOriginClaim @ 0x140B2A2F4 (SepAddTokenOriginClaim.c)
+ *     VfTargetDriversAllocateFullName @ 0x140C2EE74 (VfTargetDriversAllocateFullName.c)
+ *     VfSuspectDriversAllocateEntryEx @ 0x140C3E8D4 (VfSuspectDriversAllocateEntryEx.c)
+ *     BgpBcInitializeCriticalMode @ 0x140D1AA6C (BgpBcInitializeCriticalMode.c)
  * Callees:
  *     <none>
  */

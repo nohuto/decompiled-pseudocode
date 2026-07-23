@@ -108,7 +108,7 @@ __int64 __fastcall sub_18000D490(__int64 a1, __int64 a2)
   unsigned __int64 ImageBase; // [rsp+58h] [rbp-A8h] BYREF
   unsigned __int64 EstablisherFrame; // [rsp+60h] [rbp-A0h] BYREF
   unsigned int v88; // [rsp+68h] [rbp-98h]
-  EXCEPTION_ROUTINE *v89; // [rsp+70h] [rbp-90h]
+  EXCEPTION_DISPOSITION (__cdecl *v89)(_EXCEPTION_RECORD *, PVOID, _CONTEXT *, PVOID); // [rsp+70h] [rbp-90h]
   PVOID HandlerData; // [rsp+78h] [rbp-88h] BYREF
   __int64 v91; // [rsp+80h] [rbp-80h]
   unsigned __int64 v92; // [rsp+88h] [rbp-78h]
@@ -121,7 +121,7 @@ __int64 __fastcall sub_18000D490(__int64 a1, __int64 a2)
   PRUNTIME_FUNCTION FunctionEntry; // [rsp+C0h] [rbp-40h]
   unsigned __int64 v100; // [rsp+C8h] [rbp-38h]
   struct _CONTEXT *p_ContextRecord; // [rsp+D8h] [rbp-28h]
-  EXCEPTION_ROUTINE *v102; // [rsp+E0h] [rbp-20h]
+  EXCEPTION_DISPOSITION (__cdecl *v102)(_EXCEPTION_RECORD *, PVOID, _CONTEXT *, PVOID); // [rsp+E0h] [rbp-20h]
   PVOID v103; // [rsp+E8h] [rbp-18h]
   struct _UNWIND_HISTORY_TABLE *v104; // [rsp+F0h] [rbp-10h]
   int v105; // [rsp+F8h] [rbp-8h]
@@ -189,7 +189,7 @@ LABEL_61:
         if ( (v70 & 1) != 0 )
           v70 = (unsigned int)(v70 + 1);
         if ( (unsigned int)++v14 > 0x20 )
-          RtlRaiseStatus(3221225727LL);
+          RtlRaiseStatus(-1073741569);
         v16 = (_BYTE *)(ImageBase + *(unsigned int *)&v16[2 * v70 + 12]);
         v15 = v16 + 2;
         if ( v16[2] )
@@ -430,7 +430,7 @@ LABEL_25:
     BeginAddress = v84->BeginAddress;
     if ( v55 < BeginAddress || v55 >= v84->EndAddress )
     {
-      v75 = (_DWORD *)sub_18000B108((__int64)v84, v10, (__int64)&v23[v54]);
+      v75 = (_DWORD *)sub_18000B108((__int64)v84, v10, &v23[v54]);
       if ( !v75 || v55 == *v75 )
       {
         Rsp = ContextRecord.Rsp;
@@ -536,7 +536,7 @@ LABEL_113:
                   Rsp = *v74;
                   goto LABEL_31;
                 default:
-                  RtlRaiseStatus(3221225727LL);
+                  RtlRaiseStatus(-1073741569);
               }
             }
             v29 = (unsigned int)(v29 + 1);
@@ -567,7 +567,7 @@ LABEL_32:
     v88 = ++v27;
     v26 = (struct _IMAGE_RUNTIME_FUNCTION_ENTRY *)&v28[2 * v69 + 4];
     if ( v27 > 0x20 )
-      RtlRaiseStatus(3221225727LL);
+      RtlRaiseStatus(-1073741569);
   }
   if ( !v30 )
   {
@@ -662,14 +662,14 @@ LABEL_60:
       goto LABEL_61;
     }
     if ( v72 != 1 )
-      RtlRaiseStatus(3221225510LL);
+      RtlRaiseStatus(-1073741786);
     v73 = v98;
     Rip = ControlPc;
     v37 = FunctionEntry;
     ImageBase = v98;
     sub_18000E9E4(&ContextRecord, p_ContextRecord);
     v9 = RtlVirtualUnwind(1u, v73, Rip, v37, &ContextRecord, &HandlerData, &EstablisherFrame, 0LL);
-    if ( ((*((_QWORD *)&xmmword_18016F370 + 1) >> 12) & 3) == 1 )
+    if ( ((LdrSystemDllInitBlock.MitigationOptionsMap.Map[1] >> 12) & 3) == 1 )
     {
       if ( v9 != v102 || (v20 = EstablisherFrame, EstablisherFrame != v100) || HandlerData != v103 )
         __fastfail(0x27u);
@@ -687,7 +687,7 @@ LABEL_60:
     v93 = v104;
   }
   if ( (v4 & 1) != 0 )
-    RtlRaiseStatus(3221225509LL);
+    RtlRaiseStatus(-1073741787);
 LABEL_153:
   v77 = 1;
 LABEL_154:

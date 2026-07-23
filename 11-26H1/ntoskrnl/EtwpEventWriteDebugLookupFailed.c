@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpEventWriteDebugLookupFailed @ 0x1408252C8
+ * XREFs of EtwpEventWriteDebugLookupFailed @ 0x14082B508
  * Callers:
- *     EtwpProviderArrivalCallback @ 0x14093C304 (EtwpProviderArrivalCallback.c)
+ *     EtwpProviderArrivalCallback @ 0x140917EA4 (EtwpProviderArrivalCallback.c)
  * Callees:
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall EtwpEventWriteDebugLookupFailed(
@@ -48,5 +48,10 @@ NTSTATUS __fastcall EtwpEventWriteDebugLookupFailed(
   v15 = 2LL;
   v17 = 4LL;
   v19 = 4LL;
-  return EtwWrite(EtwpEventTracingProvRegHandle, &ETW_EVENT_DEBUG_LOOKUP_FAILED, 0LL, 5u, &UserData);
+  return EtwWrite(
+           (REGHANDLE)stru_140F03830.SavedApcState.ApcListHead[0].Blink,
+           &ETW_EVENT_DEBUG_LOOKUP_FAILED,
+           0LL,
+           5u,
+           &UserData);
 }

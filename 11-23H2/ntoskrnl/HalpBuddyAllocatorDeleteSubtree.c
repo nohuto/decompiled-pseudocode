@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpBuddyAllocatorDeleteSubtree @ 0x1405325D8
+ * XREFs of HalpBuddyAllocatorDeleteSubtree @ 0x140532B28
  * Callers:
- *     HalpBuddyAllocatorAllocateLogicalAddress @ 0x140531B80 (HalpBuddyAllocatorAllocateLogicalAddress.c)
- *     HalpBuddyAllocatorCleanUp @ 0x1405323F0 (HalpBuddyAllocatorCleanUp.c)
+ *     HalpBuddyAllocatorAllocateLogicalAddress @ 0x1405320D0 (HalpBuddyAllocatorAllocateLogicalAddress.c)
+ *     HalpBuddyAllocatorCleanUp @ 0x140532940 (HalpBuddyAllocatorCleanUp.c)
  * Callees:
- *     HalpMmAllocCtxFree @ 0x1403A56C0 (HalpMmAllocCtxFree.c)
- *     HalpBuddyAllocatorBltAdd @ 0x140531FE0 (HalpBuddyAllocatorBltAdd.c)
- *     HalpBuddyAllocatorBltRemove @ 0x140532314 (HalpBuddyAllocatorBltRemove.c)
+ *     HalpMmAllocCtxFree @ 0x1403A58A0 (HalpMmAllocCtxFree.c)
+ *     HalpBuddyAllocatorBltAdd @ 0x140532530 (HalpBuddyAllocatorBltAdd.c)
+ *     HalpBuddyAllocatorBltRemove @ 0x140532864 (HalpBuddyAllocatorBltRemove.c)
  */
 
 __int64 __fastcall HalpBuddyAllocatorDeleteSubtree(__int64 a1, __int64 a2)

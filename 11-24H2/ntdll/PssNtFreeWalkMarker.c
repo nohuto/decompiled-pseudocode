@@ -1,20 +1,20 @@
 /*
- * XREFs of PssNtFreeWalkMarker @ 0x1801133F0
+ * XREFs of PssNtFreeWalkMarker @ 0x18010E6F0
  * Callers:
  *     <none>
  * Callees:
- *     NtUnmapViewOfSection @ 0x1801621D0 (NtUnmapViewOfSection.c)
+ *     NtUnmapViewOfSection @ 0x180160590 (NtUnmapViewOfSection.c)
  */
 
-__int64 __fastcall PssNtFreeWalkMarker(_QWORD *a1)
+NTSTATUS __fastcall PssNtFreeWalkMarker(__int64 a1)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  if ( *a1 )
+  if ( *(_QWORD *)a1 )
   {
-    result = NtUnmapViewOfSection(-1LL);
-    *a1 = 0LL;
+    result = NtUnmapViewOfSection((HANDLE)0xFFFFFFFFFFFFFFFFLL, *(PVOID *)a1);
+    *(_QWORD *)a1 = 0LL;
   }
-  a1[1] = 0LL;
+  *(_QWORD *)(a1 + 8) = 0LL;
   return result;
 }

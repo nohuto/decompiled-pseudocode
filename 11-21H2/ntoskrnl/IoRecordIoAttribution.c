@@ -3,14 +3,14 @@
  * Callers:
  *     <none>
  * Callees:
- *     IopFindDiskIoAttribution @ 0x140365DD0 (IopFindDiskIoAttribution.c)
- *     IoDiskIoAttributionDereference @ 0x140366814 (IoDiskIoAttributionDereference.c)
- *     IopRecordIoAttribution @ 0x140366864 (IopRecordIoAttribution.c)
+ *     sub_140365DD0 @ 0x140365DD0 (sub_140365DD0.c)
+ *     sub_140366814 @ 0x140366814 (sub_140366814.c)
+ *     sub_140366864 @ 0x140366864 (sub_140366864.c)
  */
 
 __int64 __fastcall IoRecordIoAttribution(__int64 a1, _DWORD *a2)
 {
-  __int64 DiskIoAttribution; // rax
+  __int64 v3; // rax
   __int64 v4; // rsi
   __int64 v5; // rdi
   int v6; // eax
@@ -18,17 +18,17 @@ __int64 __fastcall IoRecordIoAttribution(__int64 a1, _DWORD *a2)
 
   if ( *a2 == 1 )
   {
-    DiskIoAttribution = IopFindDiskIoAttribution();
-    v4 = DiskIoAttribution;
-    if ( DiskIoAttribution )
+    v3 = sub_140365DD0();
+    v4 = v3;
+    if ( v3 )
     {
-      v5 = DiskIoAttribution;
+      v5 = v3;
       while ( 1 )
       {
         v6 = a2[1];
         if ( (v6 & 0x800) == 0 || (v6 & 0x200) != 0 || *(_QWORD *)(v5 + 176) )
         {
-          v7 = IopRecordIoAttribution(v5, a2, 0LL);
+          v7 = sub_140366864(v5, a2, 0LL);
           if ( v7 < 0 )
             break;
         }
@@ -39,7 +39,7 @@ __int64 __fastcall IoRecordIoAttribution(__int64 a1, _DWORD *a2)
           break;
         }
       }
-      IoDiskIoAttributionDereference(v4);
+      sub_140366814(v4);
     }
     else
     {

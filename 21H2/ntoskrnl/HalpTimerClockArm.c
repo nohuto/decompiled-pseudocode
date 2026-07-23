@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpTimerClockArm @ 0x14024DBE0
+ * XREFs of HalpTimerClockArm @ 0x1402F2430
  * Callers:
- *     HalpTimerSwitchToNormalClock @ 0x1404BF678 (HalpTimerSwitchToNormalClock.c)
+ *     HalpTimerSwitchToNormalClock @ 0x1404BF8B8 (HalpTimerSwitchToNormalClock.c)
  * Callees:
- *     HalpSetTimer @ 0x14024E37C (HalpSetTimer.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     HalpTimerSwitchToNormalClock @ 0x1404BF678 (HalpTimerSwitchToNormalClock.c)
+ *     HalpSetTimer @ 0x1402F2BCC (HalpSetTimer.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     HalpTimerSwitchToNormalClock @ 0x1404BF8B8 (HalpTimerSwitchToNormalClock.c)
  */
 
 __int64 __fastcall HalpTimerClockArm(int a1, ULONG_PTR a2, __int64 a3, __int64 a4)

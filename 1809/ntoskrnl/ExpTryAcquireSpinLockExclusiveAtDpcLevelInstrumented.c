@@ -1,10 +1,10 @@
 /*
- * XREFs of ExpTryAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14031C2D4
+ * XREFs of ExpTryAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14031C4C4
  * Callers:
  *     MiLockSectionControlArea @ 0x140020210 (MiLockSectionControlArea.c)
- *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x140100200 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x140100280 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
  * Callees:
- *     PerfLogSpinLockAcquire @ 0x140313AC4 (PerfLogSpinLockAcquire.c)
+ *     PerfLogSpinLockAcquire @ 0x140313CB4 (PerfLogSpinLockAcquire.c)
  */
 
 __int64 __fastcall ExpTryAcquireSpinLockExclusiveAtDpcLevelInstrumented(volatile signed __int32 *a1)

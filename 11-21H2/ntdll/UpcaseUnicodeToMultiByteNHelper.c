@@ -15,9 +15,9 @@ __int64 __fastcall UpcaseUnicodeToMultiByteNHelper(
         unsigned int a5)
 {
   unsigned int v5; // ebx
-  __int64 v7; // r15
+  wchar_t *MultiByteTable; // r15
   _DWORD *v8; // rdi
-  __int64 v9; // r14
+  _WORD *WideCharTable; // r14
   unsigned int v10; // r11d
   __int64 v11; // r12
   _BYTE *v12; // r10
@@ -30,9 +30,9 @@ __int64 __fastcall UpcaseUnicodeToMultiByteNHelper(
   unsigned int v20; // eax
 
   v5 = a5;
-  v7 = qword_180177670;
+  MultiByteTable = GlobalRtlNlsState.MultiByteTable;
   v8 = a3;
-  v9 = qword_180177678;
+  WideCharTable = GlobalRtlNlsState.WideCharTable;
   v10 = a2;
   v11 = qword_1801776E0;
   LODWORD(v12) = a1;
@@ -44,14 +44,14 @@ __int64 __fastcall UpcaseUnicodeToMultiByteNHelper(
       if ( !v10 )
         break;
       v15 = *a4++;
-      v16 = *(_WORD *)(v9 + 2 * v15);
+      v16 = WideCharTable[v15];
       v17 = (unsigned __int64)v16 >> 8;
       if ( *(_WORD *)(v11 + 2 * v17) )
-        v18 = *(_WORD *)(qword_180177688
-                       + 2 * ((unsigned __int8)v16 + (unsigned __int64)*(unsigned __int16 *)(v11 + 2 * v17)));
+        v18 = GlobalRtlNlsState.DBCSOffsets[(unsigned __int8)v16
+                                          + (unsigned __int64)*(unsigned __int16 *)(v11 + 2 * v17)];
       else
-        v18 = *(_WORD *)(v7 + 2LL * (unsigned __int8)v16);
-      v19 = *(_WORD *)(v9 + 2LL * NLS_UPCASE(v13, v18));
+        v18 = MultiByteTable[(unsigned __int8)v16];
+      v19 = WideCharTable[NLS_UPCASE(v13, v18)];
       if ( HIBYTE(v19) )
       {
         v20 = v10--;

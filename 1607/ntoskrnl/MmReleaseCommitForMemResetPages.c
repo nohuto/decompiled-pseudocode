@@ -1,20 +1,20 @@
 /*
- * XREFs of MmReleaseCommitForMemResetPages @ 0x1401E1044
+ * XREFs of MmReleaseCommitForMemResetPages @ 0x1401E0E70
  * Callers:
- *     NtSetInformationProcess @ 0x140425A10 (NtSetInformationProcess.c)
+ *     NtSetInformationProcess @ 0x1404248E0 (NtSetInformationProcess.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140012750 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14001BD40 (KeAcquireInStackQueuedSpinLock.c)
- *     MiUnlockWorkingSetExclusive @ 0x14002E930 (MiUnlockWorkingSetExclusive.c)
- *     MiGetSharedVm @ 0x14002EA30 (MiGetSharedVm.c)
- *     ExAcquireSpinLockExclusive @ 0x14002EB90 (ExAcquireSpinLockExclusive.c)
- *     KeWaitForSingleObject @ 0x14005C880 (KeWaitForSingleObject.c)
- *     KeRetryOutswapProcess @ 0x1400B5500 (KeRetryOutswapProcess.c)
- *     KiStackAttachProcess @ 0x1400CD1F0 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x1400CE820 (KiUnstackDetachProcess.c)
- *     MiAttachThreadDone @ 0x14010B0AC (MiAttachThreadDone.c)
- *     MiPrepareAttachThread @ 0x14010B120 (MiPrepareAttachThread.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x1400122D0 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14001B8C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     MiUnlockWorkingSetExclusive @ 0x14002E4B0 (MiUnlockWorkingSetExclusive.c)
+ *     MiGetSharedVm @ 0x14002E5B0 (MiGetSharedVm.c)
+ *     ExAcquireSpinLockExclusive @ 0x14002E710 (ExAcquireSpinLockExclusive.c)
+ *     KeWaitForSingleObject @ 0x14005C400 (KeWaitForSingleObject.c)
+ *     KeRetryOutswapProcess @ 0x1400B3328 (KeRetryOutswapProcess.c)
+ *     KiStackAttachProcess @ 0x1400CB090 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x1400CC6C0 (KiUnstackDetachProcess.c)
+ *     MiAttachThreadDone @ 0x140108E2C (MiAttachThreadDone.c)
+ *     MiPrepareAttachThread @ 0x140108EA0 (MiPrepareAttachThread.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall MmReleaseCommitForMemResetPages(_KPROCESS *BugCheckParameter1, int a2)
@@ -47,7 +47,7 @@ __int64 __fastcall MmReleaseCommitForMemResetPages(_KPROCESS *BugCheckParameter1
   SharedVm = MiGetSharedVm((__int64)&BugCheckParameter1[1].IdealNode[12]);
   if ( (*(_BYTE *)(v2 + 187) & 0xC0) == 0x80 )
   {
-    KeAcquireInStackQueuedSpinLock(&qword_140327740, &LockHandle);
+    KeAcquireInStackQueuedSpinLock(&qword_140327780, &LockHandle);
     v7 = MiPrepareAttachThread((__int64)BugCheckParameter1, v2);
     KeReleaseInStackQueuedSpinLock(&LockHandle);
     if ( v7 )

@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpIommuInitInterrupts @ 0x14099BBB8
+ * XREFs of HalpIommuInitInterrupts @ 0x14099CBB8
  * Callers:
- *     HalpIommuInitSystem @ 0x14099B9D0 (HalpIommuInitSystem.c)
+ *     HalpIommuInitSystem @ 0x14099C9D0 (HalpIommuInitSystem.c)
  * Callees:
- *     HalpInterruptSetIdtEntry @ 0x1403A26AC (HalpInterruptSetIdtEntry.c)
+ *     HalpInterruptSetIdtEntry @ 0x1403A27FC (HalpInterruptSetIdtEntry.c)
  */
 
 __int64 __fastcall HalpIommuInitInterrupts(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

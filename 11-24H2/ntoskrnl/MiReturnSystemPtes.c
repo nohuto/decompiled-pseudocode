@@ -1,11 +1,11 @@
 /*
- * XREFs of MiReturnSystemPtes @ 0x140241AE0
+ * XREFs of MiReturnSystemPtes @ 0x140209C30
  * Callers:
- *     MiReleasePteMappings @ 0x140241200 (MiReleasePteMappings.c)
- *     MiReleasePtes @ 0x14028DDA0 (MiReleasePtes.c)
- *     MiAttemptCoalesce @ 0x14046E710 (MiAttemptCoalesce.c)
+ *     MiReleasePteMappings @ 0x140209350 (MiReleasePteMappings.c)
+ *     MiReleasePtes @ 0x14029D9A0 (MiReleasePtes.c)
+ *     MiAttemptCoalesce @ 0x140468B98 (MiAttemptCoalesce.c)
  * Callees:
- *     MiReturnSystemVa @ 0x1402429F4 (MiReturnSystemVa.c)
+ *     MiReturnSystemVa @ 0x14020AB44 (MiReturnSystemVa.c)
  */
 
 __int64 __fastcall MiReturnSystemPtes(__int64 a1, int a2, __int64 a3, __int64 a4)

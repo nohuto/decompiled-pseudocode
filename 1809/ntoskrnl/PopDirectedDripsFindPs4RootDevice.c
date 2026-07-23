@@ -1,8 +1,8 @@
 /*
- * XREFs of PopDirectedDripsFindPs4RootDevice @ 0x14087C37C
+ * XREFs of PopDirectedDripsFindPs4RootDevice @ 0x14087D5DC
  * Callers:
- *     PopDripsWatchdogPs4Callback @ 0x14086E630 (PopDripsWatchdogPs4Callback.c)
- *     PopDirectedDripsBuildPs4BroadcastTree @ 0x14087C218 (PopDirectedDripsBuildPs4BroadcastTree.c)
+ *     PopDripsWatchdogPs4Callback @ 0x14086F890 (PopDripsWatchdogPs4Callback.c)
+ *     PopDirectedDripsBuildPs4BroadcastTree @ 0x14087D478 (PopDirectedDripsBuildPs4BroadcastTree.c)
  * Callees:
  *     <none>
  */

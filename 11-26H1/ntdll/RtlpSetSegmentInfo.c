@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpSetSegmentInfo @ 0x18001C5C0
+ * XREFs of RtlpSetSegmentInfo @ 0x180007690
  * Callers:
- *     RtlpLocalInfoAllocFromCache @ 0x18001B870 (RtlpLocalInfoAllocFromCache.c)
- *     RtlpLowFragHeapAllocFromContext @ 0x18001CED0 (RtlpLowFragHeapAllocFromContext.c)
+ *     RtlpLocalInfoAllocFromCache @ 0x180006940 (RtlpLocalInfoAllocFromCache.c)
+ *     RtlpLowFragHeapAllocFromContext @ 0x180007FA0 (RtlpLowFragHeapAllocFromContext.c)
  * Callees:
- *     RtlGetCurrentServiceSessionId @ 0x180028160 (RtlGetCurrentServiceSessionId.c)
- *     RtlpLogHeapAffinitySlotAssign @ 0x1801502A0 (RtlpLogHeapAffinitySlotAssign.c)
+ *     RtlGetCurrentServiceSessionId @ 0x180013230 (RtlGetCurrentServiceSessionId.c)
+ *     RtlpLogHeapAffinitySlotAssign @ 0x180150150 (RtlpLogHeapAffinitySlotAssign.c)
  */
 
 __int64 __fastcall RtlpSetSegmentInfo(__int64 *a1, __int64 a2)
@@ -17,12 +17,11 @@ __int64 __fastcall RtlpSetSegmentInfo(__int64 *a1, __int64 a2)
   __int64 v9; // rdx
   int v10; // r10d
   signed __int64 v11; // rcx
-  __int64 v12; // r9
+  int v12; // r9d
   signed __int64 v13; // rcx
-  __int64 v14; // r8
-  __int64 v15; // rdx
-  signed __int64 v16; // r8
-  __int64 v17; // rcx
+  __int64 v14; // rdx
+  __int64 v15; // r8
+  __int64 v16; // rcx
 
   if ( *a1 == a2 )
     return 1LL;
@@ -57,21 +56,23 @@ __int64 __fastcall RtlpSetSegmentInfo(__int64 *a1, __int64 a2)
             _m_prefetchw((const void *)(a2 + 160));
             do
             {
+              v14 = HIDWORD(*(_QWORD *)(a2 + 160));
+              v15 = (unsigned int)(v14 + 1);
+              if ( !v12 )
+                v15 = (unsigned int)(v14 - 1);
               v13 = *(_QWORD *)(a2 + 160);
-              v14 = (unsigned int)(HIDWORD(v13) + 1);
-              if ( !(_DWORD)v12 )
-                v14 = (unsigned int)(HIDWORD(v13) - 1);
-              v15 = (unsigned int)(v13 + v12);
-              v16 = v15 | (v14 << 32);
             }
-            while ( _InterlockedCompareExchange64((volatile signed __int64 *)(a2 + 160), v16, v13) != v13 );
+            while ( _InterlockedCompareExchange64(
+                      (volatile signed __int64 *)(a2 + 160),
+                      (unsigned int)(v13 + v12) | (unsigned __int64)(v15 << 32),
+                      v13) != v13 );
             *a1 = a2;
             v5 = 1;
-            if ( (unsigned int)RtlGetCurrentServiceSessionId(v13, v15, v16, v12) )
-              v17 = (__int64)NtCurrentPeb()->SharedData + 550;
+            if ( RtlGetCurrentServiceSessionId() )
+              v16 = (__int64)NtCurrentPeb()->SharedData + 550;
             else
-              v17 = 2147353472LL;
-            if ( *(_BYTE *)v17 )
+              v16 = 2147353472LL;
+            if ( *(_BYTE *)v16 )
             {
               if ( (NtCurrentPeb()->TracingFlags & 1) != 0 )
                 RtlpLogHeapAffinitySlotAssign(

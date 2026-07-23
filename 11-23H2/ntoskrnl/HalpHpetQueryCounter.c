@@ -1,5 +1,5 @@
 /*
- * XREFs of HalpHpetQueryCounter @ 0x1403722B0
+ * XREFs of HalpHpetQueryCounter @ 0x140372450
  * Callers:
  *     <none>
  * Callees:

@@ -1,8 +1,8 @@
 /*
- * XREFs of HvAddToLayoutStats @ 0x1404E91F0
+ * XREFs of HvAddToLayoutStats @ 0x1404CB2E0
  * Callers:
- *     HvCheckBin @ 0x14042EFC0 (HvCheckBin.c)
- *     HvCheckHive @ 0x140513594 (HvCheckHive.c)
+ *     HvCheckBin @ 0x14042DE90 (HvCheckBin.c)
+ *     HvCheckHive @ 0x1404F6984 (HvCheckHive.c)
  * Callees:
  *     <none>
  */

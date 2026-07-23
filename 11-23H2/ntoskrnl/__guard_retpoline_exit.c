@@ -1,7 +1,7 @@
 /*
  * XREFs of __guard_retpoline_exit @ 0x140AF9580
  * Callers:
- *     KeExitRetpoline @ 0x14034C0DC (KeExitRetpoline.c)
+ *     KeExitRetpoline @ 0x14034C27C (KeExitRetpoline.c)
  *     __guard_retpoline_exit_indirect_rax @ 0x140AF93A0 (__guard_retpoline_exit_indirect_rax.c)
  *     __guard_retpoline_import_r10 @ 0x140AF9420 (__guard_retpoline_import_r10.c)
  * Callees:

@@ -1,11 +1,11 @@
 /*
- * XREFs of KeSwitchFrozenProcessor @ 0x1401D7C58
+ * XREFs of KeSwitchFrozenProcessor @ 0x1401D7A84
  * Callers:
- *     KdpSendWaitContinue @ 0x1406F2AAC (KdpSendWaitContinue.c)
+ *     KdpSendWaitContinue @ 0x1406F2744 (KdpSendWaitContinue.c)
  * Callees:
- *     KiSetDebuggerOwner @ 0x1400832A0 (KiSetDebuggerOwner.c)
- *     KeQueryActiveProcessorCountEx @ 0x1400D4030 (KeQueryActiveProcessorCountEx.c)
- *     KiCheckStall @ 0x1401D7CF4 (KiCheckStall.c)
+ *     KiSetDebuggerOwner @ 0x140083F20 (KiSetDebuggerOwner.c)
+ *     KeQueryActiveProcessorCountEx @ 0x1400D1ED0 (KeQueryActiveProcessorCountEx.c)
+ *     KiCheckStall @ 0x1401D7B20 (KiCheckStall.c)
  */
 
 __int64 __fastcall KeSwitchFrozenProcessor(ULONG a1)

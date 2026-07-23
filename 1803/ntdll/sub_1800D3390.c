@@ -8,19 +8,19 @@
  *     sub_1800EB148 @ 0x1800EB148 (sub_1800EB148.c)
  */
 
-__int64 __fastcall sub_1800D3390(__int64 a1, _QWORD *a2)
+__int64 __fastcall sub_1800D3390(__int64 a1, _RTL_DEBUG_INFORMATION *a2)
 {
-  _DWORD *v2; // rsi
-  char *v4; // rax
-  char *v5; // rdi
+  _DWORD *Heaps; // rsi
+  _QWORD *v4; // rax
+  _QWORD *v5; // rdi
   __int64 result; // rax
   __int64 v7; // rdx
   __int64 *i; // rcx
   __int64 v9; // rcx
   __int64 v10; // rax
 
-  v2 = (_DWORD *)a2[14];
-  v4 = RtlCommitDebugInfo_0(a2, 0x58u);
+  Heaps = a2->Heaps;
+  v4 = RtlCommitDebugInfo_0(a2, 0x58uLL);
   v5 = v4;
   if ( !v4 )
     return 3221225495LL;
@@ -28,15 +28,15 @@ __int64 __fastcall sub_1800D3390(__int64 a1, _QWORD *a2)
   result = sub_1800EB148(a1, v5);
   if ( (int)result < 0 )
   {
-    v7 = *((_QWORD *)v5 + 3);
-    *(_QWORD *)v5 = a1;
+    v7 = v5[3];
+    *v5 = a1;
     *((_DWORD *)v5 + 2) = *(_DWORD *)(a1 + 112);
     *((_WORD *)v5 + 6) = 16;
     *((_WORD *)v5 + 7) = *(_WORD *)(a1 + 304);
     for ( i = *(__int64 **)(a1 + 288); i != (__int64 *)(a1 + 288); i = (__int64 *)*i )
     {
       v7 += (unsigned int)((*((_DWORD *)i + 8) - *((_DWORD *)i + 14)) << 12);
-      *((_QWORD *)v5 + 3) = v7;
+      v5[3] = v7;
     }
     if ( *(_DWORD *)(a1 + 16) == -571548178
       || (*(_BYTE *)(a1 + 386) != 2 ? (v9 = 0LL) : (v9 = *(_QWORD *)(a1 + 376)), !v9) )
@@ -47,14 +47,14 @@ __int64 __fastcall sub_1800D3390(__int64 a1, _QWORD *a2)
     {
       v10 = *(_QWORD *)(v9 + 40) - v9;
     }
-    *((_QWORD *)v5 + 3) = v7 + v10;
-    *((_QWORD *)v5 + 2) = v7 + v10 - 16LL * *(_QWORD *)(a1 + 192);
-    ++*v2;
+    v5[3] = v7 + v10;
+    v5[2] = v7 + v10 - 16LL * *(_QWORD *)(a1 + 192);
+    ++*Heaps;
     return 0LL;
   }
   else
   {
-    ++*v2;
+    ++*Heaps;
   }
   return result;
 }

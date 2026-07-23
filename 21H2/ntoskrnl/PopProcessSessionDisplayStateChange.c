@@ -1,11 +1,11 @@
 /*
- * XREFs of PopProcessSessionDisplayStateChange @ 0x1408F0228
+ * XREFs of PopProcessSessionDisplayStateChange @ 0x1408F0388
  * Callers:
- *     NtPowerInformation @ 0x1406777D0 (NtPowerInformation.c)
+ *     NtPowerInformation @ 0x14066AF10 (NtPowerInformation.c)
  * Callees:
- *     PopArmIdlePhaseWatchdog @ 0x1408EFC08 (PopArmIdlePhaseWatchdog.c)
- *     PopDisarmIdlePhaseWatchdog @ 0x1408EFD2C (PopDisarmIdlePhaseWatchdog.c)
- *     PopTriggerMonitorPowerEvent @ 0x1408F0C24 (PopTriggerMonitorPowerEvent.c)
+ *     PopArmIdlePhaseWatchdog @ 0x1408EFD68 (PopArmIdlePhaseWatchdog.c)
+ *     PopDisarmIdlePhaseWatchdog @ 0x1408EFE8C (PopDisarmIdlePhaseWatchdog.c)
+ *     PopTriggerMonitorPowerEvent @ 0x1408F0D84 (PopTriggerMonitorPowerEvent.c)
  */
 
 __int64 __fastcall PopProcessSessionDisplayStateChange(char a1, unsigned int a2)

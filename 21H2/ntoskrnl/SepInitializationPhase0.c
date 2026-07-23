@@ -1,14 +1,14 @@
 /*
- * XREFs of SepInitializationPhase0 @ 0x140A47920
+ * XREFs of SepInitializationPhase0 @ 0x140A48920
  * Callers:
- *     SeInitSystem @ 0x140A478EC (SeInitSystem.c)
+ *     SeInitSystem @ 0x140A488EC (SeInitSystem.c)
  * Callees:
- *     ObInitializeFastReference @ 0x1406D65FC (ObInitializeFastReference.c)
- *     SeMakeSystemToken @ 0x140A47F10 (SeMakeSystemToken.c)
- *     SepInitializeWorkList @ 0x140A489FC (SepInitializeWorkList.c)
- *     SepTokenInitialization @ 0x140A48AAC (SepTokenInitialization.c)
- *     SepVariableInitialization @ 0x140A48B6C (SepVariableInitialization.c)
- *     SepRmDbInitialization @ 0x140A6E540 (SepRmDbInitialization.c)
+ *     ObInitializeFastReference @ 0x1406AD8DC (ObInitializeFastReference.c)
+ *     SeMakeSystemToken @ 0x140A48F10 (SeMakeSystemToken.c)
+ *     SepInitializeWorkList @ 0x140A499FC (SepInitializeWorkList.c)
+ *     SepTokenInitialization @ 0x140A49AAC (SepTokenInitialization.c)
+ *     SepVariableInitialization @ 0x140A49B6C (SepVariableInitialization.c)
+ *     SepRmDbInitialization @ 0x140A6F540 (SepRmDbInitialization.c)
  */
 
 bool SepInitializationPhase0()

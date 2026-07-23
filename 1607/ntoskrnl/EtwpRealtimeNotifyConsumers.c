@@ -1,18 +1,18 @@
 /*
- * XREFs of EtwpRealtimeNotifyConsumers @ 0x140492464
+ * XREFs of EtwpRealtimeNotifyConsumers @ 0x140492EF4
  * Callers:
- *     EtwpLogger @ 0x14048FBA8 (EtwpLogger.c)
+ *     EtwpLogger @ 0x140490638 (EtwpLogger.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     EtwpRealtimeInjectEtwBuffer @ 0x140491760 (EtwpRealtimeInjectEtwBuffer.c)
- *     EtwpGetMaxDebugIdBufferSize @ 0x14049256C (EtwpGetMaxDebugIdBufferSize.c)
- *     EtwpAddDebugInfoEvents @ 0x140492EAC (EtwpAddDebugInfoEvents.c)
- *     EtwpInitializeProviderInfoBuffer @ 0x14049355C (EtwpInitializeProviderInfoBuffer.c)
+ *     EtwpRealtimeInjectEtwBuffer @ 0x1404921F0 (EtwpRealtimeInjectEtwBuffer.c)
+ *     EtwpGetMaxDebugIdBufferSize @ 0x140492FFC (EtwpGetMaxDebugIdBufferSize.c)
+ *     EtwpAddDebugInfoEvents @ 0x14049393C (EtwpAddDebugInfoEvents.c)
+ *     EtwpInitializeProviderInfoBuffer @ 0x140493FEC (EtwpInitializeProviderInfoBuffer.c)
  */
 
 __int64 __fastcall EtwpRealtimeNotifyConsumers(__int64 a1)

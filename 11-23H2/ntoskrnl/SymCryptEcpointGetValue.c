@@ -1,12 +1,12 @@
 /*
- * XREFs of SymCryptEcpointGetValue @ 0x1403FF0D0
+ * XREFs of SymCryptEcpointGetValue @ 0x1403FF2B0
  * Callers:
- *     SymCryptEcDsaVerify @ 0x1403F9B90 (SymCryptEcDsaVerify.c)
+ *     SymCryptEcDsaVerify @ 0x1403F9D70 (SymCryptEcDsaVerify.c)
  * Callees:
- *     SymCryptEcurveSizeofFieldElement @ 0x1403F885C (SymCryptEcurveSizeofFieldElement.c)
- *     SymCryptModElementGetValue @ 0x1403F9684 (SymCryptModElementGetValue.c)
- *     SymCryptEcpointCreateEx @ 0x1403FF040 (SymCryptEcpointCreateEx.c)
- *     SymCryptEcpointTransform @ 0x1403FF464 (SymCryptEcpointTransform.c)
+ *     SymCryptEcurveSizeofFieldElement @ 0x1403F8A3C (SymCryptEcurveSizeofFieldElement.c)
+ *     SymCryptModElementGetValue @ 0x1403F9864 (SymCryptModElementGetValue.c)
+ *     SymCryptEcpointCreateEx @ 0x1403FF220 (SymCryptEcpointCreateEx.c)
+ *     SymCryptEcpointTransform @ 0x1403FF644 (SymCryptEcpointTransform.c)
  */
 
 __int64 __fastcall SymCryptEcpointGetValue(

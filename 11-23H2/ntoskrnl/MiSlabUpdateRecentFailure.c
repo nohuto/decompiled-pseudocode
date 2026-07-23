@@ -4,7 +4,7 @@
  *     MiFreeUnusedSlabPages @ 0x14021ED0C (MiFreeUnusedSlabPages.c)
  *     MiFreeSlabEntries @ 0x14021F040 (MiFreeSlabEntries.c)
  * Callees:
- *     KiQueryUnbiasedInterruptTime @ 0x1402E7464 (KiQueryUnbiasedInterruptTime.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x1402E76F4 (KiQueryUnbiasedInterruptTime.c)
  */
 
 void __fastcall MiSlabUpdateRecentFailure(_QWORD *a1)

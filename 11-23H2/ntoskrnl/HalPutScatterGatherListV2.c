@@ -1,14 +1,14 @@
 /*
- * XREFs of HalPutScatterGatherListV2 @ 0x1403CE938
+ * XREFs of HalPutScatterGatherListV2 @ 0x1403CEB18
  * Callers:
- *     HalPutScatterGatherList @ 0x1403CE910 (HalPutScatterGatherList.c)
+ *     HalPutScatterGatherList @ 0x1403CEAF0 (HalPutScatterGatherList.c)
  * Callees:
- *     IoFreeMdl @ 0x1402ACFE0 (IoFreeMdl.c)
- *     MmUnmapLockedPages @ 0x1402CB700 (MmUnmapLockedPages.c)
- *     HalpDmaGetAdapterCacheAlignment @ 0x1403B980C (HalpDmaGetAdapterCacheAlignment.c)
- *     HalpDmaNextContiguousPiece @ 0x14045B428 (HalpDmaNextContiguousPiece.c)
- *     IoFlushAdapterBuffersV2 @ 0x14045D560 (IoFlushAdapterBuffersV2.c)
- *     IoFreeMapRegistersV2 @ 0x14045DAC0 (IoFreeMapRegistersV2.c)
+ *     IoFreeMdl @ 0x1402AD270 (IoFreeMdl.c)
+ *     MmUnmapLockedPages @ 0x1402CB990 (MmUnmapLockedPages.c)
+ *     HalpDmaGetAdapterCacheAlignment @ 0x1403B99EC (HalpDmaGetAdapterCacheAlignment.c)
+ *     HalpDmaNextContiguousPiece @ 0x14045B828 (HalpDmaNextContiguousPiece.c)
+ *     IoFlushAdapterBuffersV2 @ 0x14045D960 (IoFlushAdapterBuffersV2.c)
+ *     IoFreeMapRegistersV2 @ 0x14045DEC0 (IoFreeMapRegistersV2.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

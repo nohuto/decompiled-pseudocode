@@ -1,10 +1,10 @@
 /*
- * XREFs of IopLiveDumpMarkDeviceNode @ 0x1405D02F4
+ * XREFs of IopLiveDumpMarkDeviceNode @ 0x1405D2B04
  * Callers:
- *     IopLiveDumpMarkRequiredDumpData @ 0x1405D0778 (IopLiveDumpMarkRequiredDumpData.c)
- *     IopAddLiveDumpPagesToPartialKernelDump @ 0x1405D4BE0 (IopAddLiveDumpPagesToPartialKernelDump.c)
+ *     IopLiveDumpMarkRequiredDumpData @ 0x1405D2F88 (IopLiveDumpMarkRequiredDumpData.c)
+ *     IopAddLiveDumpPagesToPartialKernelDump @ 0x1405D73D0 (IopAddLiveDumpPagesToPartialKernelDump.c)
  * Callees:
- *     MiAddRangeToCrashDump @ 0x1406F61BC (MiAddRangeToCrashDump.c)
+ *     MiAddRangeToCrashDump @ 0x1406FAE2C (MiAddRangeToCrashDump.c)
  */
 
 __int64 __fastcall IopLiveDumpMarkDeviceNode(__int64 a1, __int64 a2)

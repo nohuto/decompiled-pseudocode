@@ -23,7 +23,7 @@ char __fastcall WheapApplyThresholdChecks(__int64 a1, __int64 a2)
     return 0;
   v3 = MEMORY[0xFFFFF78000000320];
   if ( v6
-    && (unsigned int)KeMaximumIncrement * (MEMORY[0xFFFFF78000000320] - *(_QWORD *)(a1 + 72)) / 10000000LL > (unsigned __int64)v6 )
+    && KeMaximumIncrement * (MEMORY[0xFFFFF78000000320] - *(_QWORD *)(a1 + 72)) / 10000000LL > (unsigned __int64)v6 )
   {
     *(_DWORD *)(a1 + 80) = 1;
     *(_QWORD *)(a1 + 72) = v3;

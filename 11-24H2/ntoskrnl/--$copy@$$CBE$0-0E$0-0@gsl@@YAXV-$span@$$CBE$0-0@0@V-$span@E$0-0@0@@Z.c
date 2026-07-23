@@ -1,10 +1,10 @@
 /*
- * XREFs of ??$copy@$$CBE$0?0E$0?0@gsl@@YAXV?$span@$$CBE$0?0@0@V?$span@E$0?0@0@@Z @ 0x140492648
+ * XREFs of ??$copy@$$CBE$0?0E$0?0@gsl@@YAXV?$span@$$CBE$0?0@0@V?$span@E$0?0@0@@Z @ 0x14048D4B8
  * Callers:
- *     RtlCreateFunctionOverrideFixupInfo @ 0x1409EB0E0 (RtlCreateFunctionOverrideFixupInfo.c)
+ *     RtlCreateFunctionOverrideFixupInfo @ 0x14093F474 (RtlCreateFunctionOverrideFixupInfo.c)
  * Callees:
- *     ?terminate@details@gsl@@YAXXZ @ 0x1404F8960 (-terminate@details@gsl@@YAXXZ.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
+ *     ?terminate@details@gsl@@YAXXZ @ 0x1404F6240 (-terminate@details@gsl@@YAXXZ.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
  */
 
 void *__fastcall gsl::copy<unsigned char const,-1,unsigned char,-1>(unsigned __int64 *a1, unsigned __int64 *a2)
@@ -26,7 +26,7 @@ void *__fastcall gsl::copy<unsigned char const,-1,unsigned char,-1>(unsigned __i
     || !Srca[1] && v2 )
   {
     gsl::details::terminate((gsl::details *)a1);
-    JUMPOUT(0x1404926C4LL);
+    JUMPOUT(0x14048D534LL);
   }
   return memmove(Srca[1], v4, v3);
 }

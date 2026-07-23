@@ -12,10 +12,10 @@
  *     RtlpInitializeLowFragHeapManager @ 0x1800F0798 (RtlpInitializeLowFragHeapManager.c)
  */
 
-__int64 RtlInitializeHeapManager()
+NTSTATUS RtlInitializeHeapManager()
 {
   struct _PEB *v0; // rdi
-  void (__fastcall *v1)(_QWORD); // rbx
+  PRTL_DYNAMIC_HASH_TABLE v1; // rbx
   int v2; // eax
   int v3; // ecx
   char v4; // al
@@ -24,12 +24,12 @@ __int64 RtlInitializeHeapManager()
   if ( (RtlpLowFragHeapGlobalFlags & 0x10) != 0 || (unsigned int)RtlpHpOptIntoSegmentHeap() )
   {
     RtlpHpHeapFeatures |= 1u;
-    v1 = (void (__fastcall *)(_QWORD))qword_180148620;
+    v1 = qword_180148620;
     if ( qword_180148620
-      || (qword_180148620 = SbSelectProcedure(2880154539LL, 0, (__int64)"kLsE", 1u),
-          (v1 = (void (__fastcall *)(_QWORD))qword_180148620) != 0LL) )
+      || (qword_180148620 = (PRTL_DYNAMIC_HASH_TABLE)SbSelectProcedure(2880154539LL, 0, (__int64)"kLsE", 1u),
+          (v1 = qword_180148620) != 0LL) )
     {
-      v1(v1);
+      ((void (__fastcall *)(PRTL_DYNAMIC_HASH_TABLE))v1)(v1);
     }
   }
   if ( (RtlpLowFragHeapGlobalFlags & 8) != 0 )
@@ -60,5 +60,5 @@ __int64 RtlInitializeHeapManager()
   }
   RtlpInitializeLowFragHeapManager();
   RtlpHpLargeSparseBmpInitialize();
-  return RtlInitializeCriticalSectionEx((__int64)&RtlpProcessHeapsListLock, 0, 0x10000000);
+  return RtlInitializeCriticalSectionEx(&RtlpProcessHeapsListLock, 0, 0x10000000u);
 }

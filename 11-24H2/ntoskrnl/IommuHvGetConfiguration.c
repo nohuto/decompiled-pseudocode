@@ -1,9 +1,9 @@
 /*
- * XREFs of IommuHvGetConfiguration @ 0x140C148F0
+ * XREFs of IommuHvGetConfiguration @ 0x140C168F0
  * Callers:
  *     <none>
  * Callees:
- *     IommupGetSystemContext @ 0x140564CE0 (IommupGetSystemContext.c)
+ *     IommupGetSystemContext @ 0x140562910 (IommupGetSystemContext.c)
  */
 
 __int64 __fastcall IommuHvGetConfiguration(unsigned int a1, _DWORD *a2, _DWORD *a3, PVOID **a4)

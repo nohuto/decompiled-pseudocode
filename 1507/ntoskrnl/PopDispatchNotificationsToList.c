@@ -13,14 +13,14 @@
  *     PopFreeRegistration @ 0x140568E5C (PopFreeRegistration.c)
  */
 
-struct _KTHREAD *__fastcall PopDispatchNotificationsToList(_QWORD **a1, __int64 a2, __int64 a3, __int64 a4)
+struct _KTHREAD *__fastcall PopDispatchNotificationsToList(WNF_STATE_NAME **a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 v5; // rax
   __int64 v6; // rbx
   unsigned __int8 CurrentIrql; // di
   signed __int8 v8; // cf
-  _QWORD *v9; // rbx
-  _QWORD *v10; // rsi
+  WNF_STATE_NAME *v9; // rbx
+  WNF_STATE_NAME *v10; // rsi
   unsigned int *v11; // rdi
   unsigned __int8 v12; // bl
   signed __int32 v13; // eax
@@ -29,17 +29,17 @@ struct _KTHREAD *__fastcall PopDispatchNotificationsToList(_QWORD **a1, __int64 
   unsigned __int8 v16; // r15
   int v17; // ebp
   signed __int32 v18; // eax
-  __int64 v19; // r8
+  ULONG v19; // r8d
   __int64 v20; // r9
-  int updated; // r12d
+  NTSTATUS updated; // r12d
   __int64 v22; // rax
   __int64 v23; // rbp
   unsigned __int8 v24; // r15
-  __int64 v25; // rcx
-  _QWORD *v26; // rax
-  unsigned int v27; // [rsp+40h] [rbp-68h] BYREF
-  __int64 v28; // [rsp+48h] [rbp-60h] BYREF
-  _DWORD v29[10]; // [rsp+50h] [rbp-58h] BYREF
+  WNF_STATE_NAME v25; // rcx
+  WNF_STATE_NAME **v26; // rax
+  ULONG v27; // [rsp+40h] [rbp-68h] BYREF
+  WNF_STATE_NAME StateName; // [rsp+48h] [rbp-60h] BYREF
+  _DWORD Buffer[10]; // [rsp+50h] [rbp-58h] BYREF
 
   v5 = KeAbPreAcquire((ULONG_PTR)&PopSettingLock, 0LL, 0LL, a4);
   v6 = v5;
@@ -53,15 +53,15 @@ struct _KTHREAD *__fastcall PopDispatchNotificationsToList(_QWORD **a1, __int64 
   qword_14032EFE8 = (__int64)KeGetCurrentThread();
   dword_14032F010 = CurrentIrql;
   v9 = *a1;
-  while ( v9 != a1 )
+  while ( v9 != (WNF_STATE_NAME *)a1 )
   {
     v10 = v9;
-    v11 = (unsigned int *)v9 + 13;
+    v11 = (unsigned int *)&v9[6] + 1;
     while ( (*v11 & 1) != 0 && (*v11 & 2) == 0 )
     {
-      v28 = v9[7];
+      StateName = v9[7];
       *v11 = *v11 & 0xFFFFFFFC | 2;
-      v15 = PopMarshalSettingValues((__int64)v9, v29, 0x24u, &v27);
+      v15 = PopMarshalSettingValues((__int64)v9, Buffer, 0x24u, &v27);
       v16 = dword_14032F010;
       v17 = v15;
       qword_14032EFE8 = 0LL;
@@ -72,9 +72,9 @@ struct _KTHREAD *__fastcall PopDispatchNotificationsToList(_QWORD **a1, __int64 
       KeAbPostRelease((ULONG_PTR)&PopSettingLock);
       v19 = v27;
       if ( v17 < 0 )
-        v19 = 0LL;
+        v19 = 0;
       v27 = v19;
-      updated = ZwUpdateWnfStateData((__int64)&v28, (__int64)v29, v19);
+      updated = ZwUpdateWnfStateData(&StateName, Buffer, v19, 0LL, 0LL, 0, 0);
       if ( KeGetCurrentThread()->WaitBlock[3].SpareLong )
         __fastfail(0x20u);
       v22 = KeAbPreAcquire((ULONG_PTR)&PopSettingLock, 0LL, 0LL, v20);
@@ -95,15 +95,15 @@ struct _KTHREAD *__fastcall PopDispatchNotificationsToList(_QWORD **a1, __int64 
         break;
       }
     }
-    v9 = (_QWORD *)*v9;
+    v9 = (WNF_STATE_NAME *)*v9;
     if ( (*v11 & 2) == 0 && (*v11 & 4) != 0 )
     {
       v25 = *v10;
-      v26 = (_QWORD *)v10[1];
-      if ( *(_QWORD **)(*v10 + 8LL) != v10 || (_QWORD *)*v26 != v10 )
+      v26 = (WNF_STATE_NAME **)v10[1];
+      if ( *(WNF_STATE_NAME **)(*(_QWORD *)v10 + 8LL) != v10 || *v26 != v10 )
         __fastfail(3u);
-      *v26 = v25;
-      *(_QWORD *)(v25 + 8) = v26;
+      *v26 = (WNF_STATE_NAME *)v25;
+      *(_QWORD *)(*(_QWORD *)&v25 + 8LL) = v26;
       PopFreeRegistration(v10);
     }
   }

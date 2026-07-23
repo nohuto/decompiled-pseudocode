@@ -276,7 +276,7 @@ LABEL_23:
   v31[1].ThreadLock = (unsigned __int64)&v31[1].ThreadLock;
   *(_QWORD *)&v31[1].WaitBlockFill11[160] = -3LL;
   if ( KeQuerySystemTimeUnsafe() )
-    KeQuerySystemTimePrecise((__int64 *)&v31[1].Header.Lock);
+    KeQuerySystemTimePrecise((LARGE_INTEGER *)&v31[1]);
   else
     *(_QWORD *)&Thread[1].Header.Lock = MEMORY[0xFFFFF78000000014];
   v33 = KeAbPreAcquire((ULONG_PTR)&v31[1].WaitBlockList, 0LL, 0LL);

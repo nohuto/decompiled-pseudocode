@@ -1,13 +1,13 @@
 /*
- * XREFs of EmpRuleUpdateWorkerThread @ 0x14018CEC0
+ * XREFs of EmpRuleUpdateWorkerThread @ 0x14018D000
  * Callers:
  *     <none>
  * Callees:
  *     EmpUpdateRuleState @ 0x140010758 (EmpUpdateRuleState.c)
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 __int64 EmpRuleUpdateWorkerThread()

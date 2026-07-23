@@ -1,13 +1,13 @@
 /*
- * XREFs of PnpLockMountableDevice @ 0x1404FEF2C
+ * XREFs of PnpLockMountableDevice @ 0x1404F871C
  * Callers:
- *     PnpQueryStopDeviceNode @ 0x1407B3F0C (PnpQueryStopDeviceNode.c)
- *     IopRemoveDevice @ 0x14090FCA8 (IopRemoveDevice.c)
- *     PiIrpQueryRemoveDevice @ 0x140AE3FF4 (PiIrpQueryRemoveDevice.c)
+ *     PnpQueryStopDeviceNode @ 0x1407B6F6C (PnpQueryStopDeviceNode.c)
+ *     IopRemoveDevice @ 0x1409B1DD8 (IopRemoveDevice.c)
+ *     PiIrpQueryRemoveDevice @ 0x140AE1AFC (PiIrpQueryRemoveDevice.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     KeAcquireQueuedSpinLock @ 0x1402B4690 (KeAcquireQueuedSpinLock.c)
- *     KeReleaseQueuedSpinLock @ 0x1402E2650 (KeReleaseQueuedSpinLock.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     KeReleaseQueuedSpinLock @ 0x1402C4710 (KeReleaseQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x1402FF360 (KeAcquireQueuedSpinLock.c)
  */
 
 void __fastcall PnpLockMountableDevice(_QWORD *a1)

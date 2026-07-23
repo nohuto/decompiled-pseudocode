@@ -1,23 +1,23 @@
 /*
- * XREFs of PsIsProcessAppContainer @ 0x14077F08C
+ * XREFs of PsIsProcessAppContainer @ 0x14077F27C
  * Callers:
- *     NtSetInformationFile @ 0x1402A6BF0 (NtSetInformationFile.c)
- *     IopFileObjectRevoked @ 0x140301740 (IopFileObjectRevoked.c)
- *     IoRevokeHandlesForProcess @ 0x1405582E0 (IoRevokeHandlesForProcess.c)
+ *     NtSetInformationFile @ 0x1402A6E80 (NtSetInformationFile.c)
+ *     IopFileObjectRevoked @ 0x1403019D0 (IopFileObjectRevoked.c)
+ *     IoRevokeHandlesForProcess @ 0x1405589A0 (IoRevokeHandlesForProcess.c)
  *     NtQueryVolumeInformationFile @ 0x140686AF0 (NtQueryVolumeInformationFile.c)
  *     NtQuerySystemEnvironmentValueEx @ 0x140687240 (NtQuerySystemEnvironmentValueEx.c)
- *     NtWriteFile @ 0x1406B6A20 (NtWriteFile.c)
- *     IopSynchronousServiceTail @ 0x1406E3E90 (IopSynchronousServiceTail.c)
- *     IopXxxControlFile @ 0x1406E54E0 (IopXxxControlFile.c)
- *     NtQueryInformationFile @ 0x140725070 (NtQueryInformationFile.c)
- *     NtReadFile @ 0x14074C0B0 (NtReadFile.c)
- *     ExpGetSystemFirmwareTableInformation @ 0x14077E8E0 (ExpGetSystemFirmwareTableInformation.c)
- *     PiUEventGetDeviceInstanceIdFromUserHandle @ 0x14077F0F4 (PiUEventGetDeviceInstanceIdFromUserHandle.c)
- *     NtSetSystemEnvironmentValueEx @ 0x140A002B0 (NtSetSystemEnvironmentValueEx.c)
+ *     NtWriteFile @ 0x1406B6BD0 (NtWriteFile.c)
+ *     IopSynchronousServiceTail @ 0x1406E3EC0 (IopSynchronousServiceTail.c)
+ *     IopXxxControlFile @ 0x1406E5510 (IopXxxControlFile.c)
+ *     NtQueryInformationFile @ 0x140725270 (NtQueryInformationFile.c)
+ *     NtReadFile @ 0x14074C2A0 (NtReadFile.c)
+ *     ExpGetSystemFirmwareTableInformation @ 0x14077EAD0 (ExpGetSystemFirmwareTableInformation.c)
+ *     PiUEventGetDeviceInstanceIdFromUserHandle @ 0x14077F2E4 (PiUEventGetDeviceInstanceIdFromUserHandle.c)
+ *     NtSetSystemEnvironmentValueEx @ 0x140A00540 (NtSetSystemEnvironmentValueEx.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     PsReferencePrimaryTokenWithTag @ 0x1402329C0 (PsReferencePrimaryTokenWithTag.c)
- *     SeQueryInformationToken @ 0x1407196A0 (SeQueryInformationToken.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     PsReferencePrimaryTokenWithTag @ 0x140232A90 (PsReferencePrimaryTokenWithTag.c)
+ *     SeQueryInformationToken @ 0x1407198A0 (SeQueryInformationToken.c)
  */
 
 bool __fastcall PsIsProcessAppContainer(__int64 a1)

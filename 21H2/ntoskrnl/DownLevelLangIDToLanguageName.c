@@ -1,17 +1,17 @@
 /*
- * XREFs of DownLevelLangIDToLanguageName @ 0x1402A99BC
+ * XREFs of DownLevelLangIDToLanguageName @ 0x140227AFC
  * Callers:
- *     LdrpResSearchResourceMappedFile @ 0x1402A7F28 (LdrpResSearchResourceMappedFile.c)
- *     LdrLoadAlternateResourceModuleEx @ 0x1402A94D4 (LdrLoadAlternateResourceModuleEx.c)
- *     LdrpGetParentLangId @ 0x1402A994C (LdrpGetParentLangId.c)
- *     LdrResSearchResource @ 0x14068C140 (LdrResSearchResource.c)
- *     ExpSetPendingUILanguage @ 0x14078C070 (ExpSetPendingUILanguage.c)
- *     RtlLCIDToCultureName @ 0x140916020 (RtlLCIDToCultureName.c)
- *     CmSelectQualifiedInstallLanguage @ 0x140A5F7C0 (CmSelectQualifiedInstallLanguage.c)
+ *     LdrpResSearchResourceMappedFile @ 0x140226068 (LdrpResSearchResourceMappedFile.c)
+ *     LdrLoadAlternateResourceModuleEx @ 0x140227614 (LdrLoadAlternateResourceModuleEx.c)
+ *     LdrpGetParentLangId @ 0x140227A8C (LdrpGetParentLangId.c)
+ *     LdrResSearchResource @ 0x1405EBFB0 (LdrResSearchResource.c)
+ *     ExpSetPendingUILanguage @ 0x14078C230 (ExpSetPendingUILanguage.c)
+ *     RtlLCIDToCultureName @ 0x140916180 (RtlLCIDToCultureName.c)
+ *     CmSelectQualifiedInstallLanguage @ 0x140A607C0 (CmSelectQualifiedInstallLanguage.c)
  * Callees:
- *     ?StringCchCopyNW@@YAJPEAG_KPEBG1@Z @ 0x1403803EC (-StringCchCopyNW@@YAJPEAG_KPEBG1@Z.c)
- *     ?IsNeutralLanguageItem@@YAHPEBUCultureDataType@@@Z @ 0x1403A7960 (-IsNeutralLanguageItem@@YAHPEBUCultureDataType@@@Z.c)
- *     bsearch @ 0x1403D2480 (bsearch.c)
+ *     ?StringCchCopyNW@@YAJPEAG_KPEBG1@Z @ 0x14037FF3C (-StringCchCopyNW@@YAJPEAG_KPEBG1@Z.c)
+ *     ?IsNeutralLanguageItem@@YAHPEBUCultureDataType@@@Z @ 0x1403A7AB0 (-IsNeutralLanguageItem@@YAHPEBUCultureDataType@@@Z.c)
+ *     bsearch @ 0x1403D25F0 (bsearch.c)
  */
 
 __int64 __fastcall DownLevelLangIDToLanguageName(__int16 a1, unsigned __int16 *a2, int a3, int a4)
@@ -30,7 +30,7 @@ __int64 __fastcall DownLevelLangIDToLanguageName(__int16 a1, unsigned __int16 *a
     return 0LL;
   if ( (a4 & 0xFFFFFFFD) != 0 )
     return 0LL;
-  v7 = (const struct CultureDataType *)bsearch(&Key, &off_140003330, 0x1B4uLL, 0x10uLL, CompareLangIDs);
+  v7 = (const struct CultureDataType *)bsearch(&Key, &off_140001EF0, 0x1B4uLL, 0x10uLL, CompareLangIDs);
   if ( !v7 || (v5 & 2) == 0 && (unsigned int)IsNeutralLanguageItem(v7) )
     return 0LL;
   v9 = *(const unsigned __int16 **)v7;

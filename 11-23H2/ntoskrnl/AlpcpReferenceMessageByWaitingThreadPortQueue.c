@@ -1,9 +1,9 @@
 /*
- * XREFs of AlpcpReferenceMessageByWaitingThreadPortQueue @ 0x140979E9C
+ * XREFs of AlpcpReferenceMessageByWaitingThreadPortQueue @ 0x14097A09C
  * Callers:
- *     AlpcpReferenceMessageByWaitingThreadPort @ 0x140979D24 (AlpcpReferenceMessageByWaitingThreadPort.c)
+ *     AlpcpReferenceMessageByWaitingThreadPort @ 0x140979F24 (AlpcpReferenceMessageByWaitingThreadPort.c)
  * Callees:
- *     AlpcpReferenceBlob @ 0x140738B20 (AlpcpReferenceBlob.c)
+ *     AlpcpReferenceBlob @ 0x140738D10 (AlpcpReferenceBlob.c)
  */
 
 _QWORD *__fastcall AlpcpReferenceMessageByWaitingThreadPortQueue(__int64 a1, _QWORD **a2)

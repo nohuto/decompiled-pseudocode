@@ -1,13 +1,13 @@
 /*
- * XREFs of MiDeletePartialVad @ 0x140309CD4
+ * XREFs of MiDeletePartialVad @ 0x140309F64
  * Callers:
- *     MiFreeVadRange @ 0x140309BA0 (MiFreeVadRange.c)
+ *     MiFreeVadRange @ 0x140309E30 (MiFreeVadRange.c)
  * Callees:
  *     UNLOCK_ADDRESS_SPACE_UNORDERED @ 0x140214D94 (UNLOCK_ADDRESS_SPACE_UNORDERED.c)
- *     MiPerformVadSplitting @ 0x14030B5F4 (MiPerformVadSplitting.c)
- *     MiDeleteVad @ 0x1406FA420 (MiDeleteVad.c)
- *     MiUnmapVad @ 0x14071F2A4 (MiUnmapVad.c)
- *     MiAllocateSplitVads @ 0x14076D5F4 (MiAllocateSplitVads.c)
+ *     MiPerformVadSplitting @ 0x14030B884 (MiPerformVadSplitting.c)
+ *     MiDeleteVad @ 0x1406FA630 (MiDeleteVad.c)
+ *     MiUnmapVad @ 0x14071F4A4 (MiUnmapVad.c)
+ *     MiAllocateSplitVads @ 0x14076D7E4 (MiAllocateSplitVads.c)
  */
 
 __int64 __fastcall MiDeletePartialVad(_DWORD *P, __int64 a2, __int64 a3, int a4)

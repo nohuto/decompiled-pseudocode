@@ -1,7 +1,7 @@
 /*
- * XREFs of PnpIsAnyDeviceInUse @ 0x1404AD31C
+ * XREFs of PnpIsAnyDeviceInUse @ 0x1404A79FC
  * Callers:
- *     IopCompleteUnloadOrDelete @ 0x1403F2590 (IopCompleteUnloadOrDelete.c)
+ *     IopCompleteUnloadOrDelete @ 0x1403E62B0 (IopCompleteUnloadOrDelete.c)
  * Callees:
  *     <none>
  */

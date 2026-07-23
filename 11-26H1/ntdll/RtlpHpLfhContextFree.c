@@ -1,17 +1,17 @@
 /*
- * XREFs of RtlpHpLfhContextFree @ 0x180019DA0
+ * XREFs of RtlpHpLfhContextFree @ 0x180004E80
  * Callers:
- *     RtlpHpTagFreeHeap @ 0x1800195A0 (RtlpHpTagFreeHeap.c)
- *     RtlpHpFreeHeap @ 0x180019C00 (RtlpHpFreeHeap.c)
- *     RtlpHpMetadataFree @ 0x180087EE8 (RtlpHpMetadataFree.c)
- *     RtlpHpFreeHeapSlow @ 0x180089330 (RtlpHpFreeHeapSlow.c)
- *     RtlpHpAllocateHeapSlow @ 0x180097E10 (RtlpHpAllocateHeapSlow.c)
- *     RtlpHpReallocMove @ 0x1800B1D30 (RtlpHpReallocMove.c)
+ *     RtlpHpTagFreeHeap @ 0x180004680 (RtlpHpTagFreeHeap.c)
+ *     RtlpHpFreeHeap @ 0x180004CE0 (RtlpHpFreeHeap.c)
+ *     RtlpHpMetadataFree @ 0x18007F268 (RtlpHpMetadataFree.c)
+ *     RtlpHpFreeHeapSlow @ 0x180080730 (RtlpHpFreeHeapSlow.c)
+ *     RtlpHpReallocMove @ 0x1800818A0 (RtlpHpReallocMove.c)
+ *     RtlpHpAllocateHeapSlow @ 0x180096F60 (RtlpHpAllocateHeapSlow.c)
  * Callees:
- *     TpSetTimerEx @ 0x180069020 (TpSetTimerEx.c)
- *     RtlpHpLfhThreadDataInitializeSet @ 0x1800933DC (RtlpHpLfhThreadDataInitializeSet.c)
- *     RtlpHpTlLogGCScheduled @ 0x180096B64 (RtlpHpTlLogGCScheduled.c)
- *     RtlpLogHeapFailure @ 0x1801217EC (RtlpLogHeapFailure.c)
+ *     RtlpHpTlLogGCScheduled @ 0x180064504 (RtlpHpTlLogGCScheduled.c)
+ *     RtlpHpLfhThreadDataInitializeSet @ 0x180072340 (RtlpHpLfhThreadDataInitializeSet.c)
+ *     TpSetTimerEx @ 0x180089470 (TpSetTimerEx.c)
+ *     RtlpLogHeapFailure @ 0x180121588 (RtlpLogHeapFailure.c)
  */
 
 __int64 __fastcall RtlpHpLfhContextFree(__int64 a1, unsigned __int64 a2, __int64 a3)
@@ -39,9 +39,9 @@ __int64 __fastcall RtlpHpLfhContextFree(__int64 a1, unsigned __int64 a2, __int64
   signed __int64 v27; // [rsp+50h] [rbp+8h]
   int v28; // [rsp+5Ch] [rbp+14h]
 
-  v6 = a3 - (((unsigned int)qword_1801C6EC8 ^ *(_DWORD *)(a2 + 40) ^ (unsigned int)(a2 >> 12)) >> 16) - a2;
+  v6 = a3 - (((unsigned int)qword_1801C5EC8 ^ *(_DWORD *)(a2 + 40) ^ (unsigned int)(a2 >> 12)) >> 16) - a2;
   v7 = (v6 * (unsigned __int64)*(unsigned int *)(((unsigned __int64)*(unsigned __int16 *)(a2 + 44) << 6) + a1 + 72)) >> 32;
-  if ( v6 != (_DWORD)v7 * (unsigned __int16)(qword_1801C6EC8 ^ *(_WORD *)(a2 + 40) ^ (a2 >> 12)) )
+  if ( v6 != (_DWORD)v7 * (unsigned __int16)(qword_1801C5EC8 ^ *(_WORD *)(a2 + 40) ^ (a2 >> 12)) )
     return 0LL;
   v9 = (unsigned __int16)*(_DWORD *)(a1 + 84);
   if ( v9 >= 0x40 )
@@ -108,13 +108,13 @@ LABEL_14:
   if ( !*(_BYTE *)(v19 + a1 + 92) )
   {
     *(_BYTE *)(v19 + a1 + 92) = 1;
-    if ( !(_DWORD)qword_1801C7278 )
+    if ( !(_DWORD)qword_1801C6278 )
     {
-      if ( qword_1801C7268 )
+      if ( Timer )
       {
-        if ( !byte_1801CB8C8 && !_InterlockedCompareExchange((volatile signed __int32 *)&qword_1801C7278, 1, 0) )
+        if ( !byte_1801CA908 && !_InterlockedCompareExchange((volatile signed __int32 *)&qword_1801C6278, 1, 0) )
         {
-          TpSetTimerEx(qword_1801C7268, &qword_1801C7270, 0LL, 1000LL);
+          TpSetTimerEx(Timer, &DueTime, 0, 0x3E8u);
           if ( (RtlpHpHeapFeatures & 0x10) != 0 )
             RtlpHpTlLogGCScheduled();
         }

@@ -1,9 +1,9 @@
 /*
- * XREFs of IovAllocateMdl @ 0x140923960
+ * XREFs of IovAllocateMdl @ 0x140924960
  * Callers:
  *     <none>
  * Callees:
- *     VeAllocatePoolWithTagPriority @ 0x140924F50 (VeAllocatePoolWithTagPriority.c)
+ *     VeAllocatePoolWithTagPriority @ 0x140925F50 (VeAllocatePoolWithTagPriority.c)
  */
 
 __int64 __fastcall IovAllocateMdl(__int64 a1, unsigned int a2, char a3, __int64 a4, __int64 a5, __int64 a6)

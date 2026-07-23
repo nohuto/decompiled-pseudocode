@@ -1,21 +1,21 @@
 /*
- * XREFs of MiReferencePageForModifiedWrite @ 0x1402F4B50
+ * XREFs of MiReferencePageForModifiedWrite @ 0x1402D6BD0
  * Callers:
- *     MiFillNoReservationCluster @ 0x1402F29A4 (MiFillNoReservationCluster.c)
- *     MiBuildReservationCluster @ 0x14033D2B4 (MiBuildReservationCluster.c)
- *     MiGetPageForWriteCluster @ 0x14033DC08 (MiGetPageForWriteCluster.c)
- *     MiBuildMappedClusterFillMdl @ 0x14040DB58 (MiBuildMappedClusterFillMdl.c)
- *     MiAddToReservationCluster @ 0x140472460 (MiAddToReservationCluster.c)
- *     MiGatherMappedPages @ 0x140496CD8 (MiGatherMappedPages.c)
+ *     MiFillNoReservationCluster @ 0x1402D4A24 (MiFillNoReservationCluster.c)
+ *     MiBuildReservationCluster @ 0x14033F334 (MiBuildReservationCluster.c)
+ *     MiGetPageForWriteCluster @ 0x14033FC88 (MiGetPageForWriteCluster.c)
+ *     MiBuildMappedClusterFillMdl @ 0x14042AA84 (MiBuildMappedClusterFillMdl.c)
+ *     MiAddToReservationCluster @ 0x14046BBE0 (MiAddToReservationCluster.c)
+ *     MiGatherMappedPages @ 0x140490828 (MiGatherMappedPages.c)
  * Callees:
- *     MiChargePartitionResidentAvailable @ 0x1402F60D0 (MiChargePartitionResidentAvailable.c)
- *     MiChargeCommit @ 0x1402F64A0 (MiChargeCommit.c)
- *     MiUnlinkPageFromListEx @ 0x1402F7250 (MiUnlinkPageFromListEx.c)
- *     MiGetPagePrivilege @ 0x1402F9878 (MiGetPagePrivilege.c)
- *     MiSetPfnIdentity @ 0x140369440 (MiSetPfnIdentity.c)
- *     MiCanPfnOriginalPteBeLost @ 0x140408680 (MiCanPfnOriginalPteBeLost.c)
- *     KeSetPagePrivilege @ 0x1404B0F70 (KeSetPagePrivilege.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     MiChargePartitionResidentAvailable @ 0x1402D8150 (MiChargePartitionResidentAvailable.c)
+ *     MiChargeCommit @ 0x1402D8520 (MiChargeCommit.c)
+ *     MiUnlinkPageFromListEx @ 0x1402D92D0 (MiUnlinkPageFromListEx.c)
+ *     MiGetPagePrivilege @ 0x1402DB8F8 (MiGetPagePrivilege.c)
+ *     MiSetPfnIdentity @ 0x14036B1E0 (MiSetPfnIdentity.c)
+ *     MiCanPfnOriginalPteBeLost @ 0x140401770 (MiCanPfnOriginalPteBeLost.c)
+ *     KeSetPagePrivilege @ 0x1404AA600 (KeSetPagePrivilege.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiReferencePageForModifiedWrite(ULONG_PTR BugCheckParameter2, char a2)
@@ -41,7 +41,7 @@ __int64 __fastcall MiReferencePageForModifiedWrite(ULONG_PTR BugCheckParameter2,
   __int128 v23; // [rsp+30h] [rbp-38h] BYREF
   unsigned int v24; // [rsp+78h] [rbp+10h]
 
-  v4 = *(_QWORD *)(stru_140E2EB88.ThreadLock + 8 * ((*(_QWORD *)(BugCheckParameter2 + 40) >> 43) & 0x3FFLL));
+  v4 = *(_QWORD *)(stru_140E2ED08.ThreadLock + 8 * ((*(_QWORD *)(BugCheckParameter2 + 40) >> 43) & 0x3FFLL));
   if ( (a2 & 1) == 0 )
   {
     v5 = (*(_DWORD *)(BugCheckParameter2 + 16) >> 10) & 1;

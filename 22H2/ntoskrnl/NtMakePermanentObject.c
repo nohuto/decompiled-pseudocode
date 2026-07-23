@@ -11,7 +11,7 @@
  *     ObReferenceObjectByHandle @ 0x14063E2E0 (ObReferenceObjectByHandle.c)
  */
 
-NTSTATUS __fastcall NtMakePermanentObject(HANDLE Handle)
+NTSTATUS __cdecl NtMakePermanentObject(HANDLE Handle)
 {
   KPROCESSOR_MODE PreviousMode; // bl
   NTSTATUS result; // eax

@@ -8,5 +8,5 @@
 
 void WheaExitCriticalState()
 {
-  _InterlockedDecrement(&WheapCriticalStateRefCount);
+  _InterlockedDecrement(&dword_140CE21C0);
 }

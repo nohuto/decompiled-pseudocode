@@ -19,31 +19,31 @@
  *     memmove @ 0x180098200 (memmove.c)
  */
 
-__int64 __fastcall RtlpSysVolCheckOwnerAndSecurity(__int64 a1, __int64 a2)
+__int64 __fastcall RtlpSysVolCheckOwnerAndSecurity(HANDLE Handle, PACL Dacl)
 {
-  unsigned int v2; // ebx
-  _DWORD *Heap; // rdi
-  int DaclSecurityDescriptor; // esi
-  unsigned int i; // r14d
-  int Ace; // eax
+  unsigned __int32 v2; // ebx
+  PVOID Heap; // rdi
+  NTSTATUS DaclSecurityDescriptor; // esi
+  ULONG i; // r14d
+  NTSTATUS v8; // eax
   _BYTE *v9; // rsi
-  unsigned __int64 v10; // r8
-  int SelfRelativeSD; // eax
-  void *v13; // rax
-  __int64 v14; // rsi
-  int v15; // r14d
-  unsigned __int64 v16; // r8
-  char *v17; // rax
-  char *v18; // rsi
-  unsigned int Size; // [rsp+30h] [rbp-29h] BYREF
-  unsigned int Size_4; // [rsp+34h] [rbp-25h] BYREF
-  bool v21; // [rsp+38h] [rbp-21h] BYREF
-  char v22; // [rsp+39h] [rbp-20h] BYREF
-  bool v23; // [rsp+3Ah] [rbp-1Fh] BYREF
-  __int64 v24; // [rsp+40h] [rbp-19h] BYREF
-  _BYTE *v25; // [rsp+48h] [rbp-11h] BYREF
-  unsigned __int8 *v26; // [rsp+50h] [rbp-9h] BYREF
-  __int16 v27; // [rsp+58h] [rbp-1h] BYREF
+  void *v10; // r8
+  NTSTATUS SelfRelativeSD; // eax
+  PVOID v13; // rax
+  void *v14; // rsi
+  NTSTATUS v15; // r14d
+  void *v16; // r8
+  PVOID v17; // rax
+  void *v18; // rsi
+  ULONG Length; // [rsp+30h] [rbp-29h] BYREF
+  ULONG BufferSize; // [rsp+34h] [rbp-25h] BYREF
+  BOOLEAN DaclPresent; // [rsp+38h] [rbp-21h] BYREF
+  BOOLEAN OwnerDefaulted; // [rsp+39h] [rbp-20h] BYREF
+  BOOLEAN DaclDefaulted[6]; // [rsp+3Ah] [rbp-1Fh] BYREF
+  PACL Dacla; // [rsp+40h] [rbp-19h] BYREF
+  PVOID Ace; // [rsp+48h] [rbp-11h] BYREF
+  PSID Owner; // [rsp+50h] [rbp-9h] BYREF
+  __int16 Sid2; // [rsp+58h] [rbp-1h] BYREF
   int v28; // [rsp+5Ah] [rbp+1h]
   __int16 v29; // [rsp+5Eh] [rbp+5h]
   int v30; // [rsp+60h] [rbp+7h]
@@ -54,19 +54,19 @@ __int64 __fastcall RtlpSysVolCheckOwnerAndSecurity(__int64 a1, __int64 a2)
   int v35; // [rsp+78h] [rbp+1Fh]
 
   v2 = 0;
-  v24 = 0LL;
-  if ( (unsigned int)NtQuerySecurityObject(a1, 5LL, 0LL, 0LL, &Size) != -1073741789 )
+  Dacla = 0LL;
+  if ( NtQuerySecurityObject(Handle, 5u, 0LL, 0, &Length) != -1073741789 )
     return 0LL;
-  Heap = (_DWORD *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, Size);
+  Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, Length);
   if ( !Heap )
     return 3221225626LL;
-  DaclSecurityDescriptor = NtQuerySecurityObject(a1, 5LL, Heap, Size, &Size);
+  DaclSecurityDescriptor = NtQuerySecurityObject(Handle, 5u, Heap, Length, &Length);
   if ( DaclSecurityDescriptor < 0
-    || (DaclSecurityDescriptor = RtlGetDaclSecurityDescriptor((__int64)Heap, &v21, &v24, &v23),
+    || (DaclSecurityDescriptor = RtlGetDaclSecurityDescriptor(Heap, &DaclPresent, &Dacla, DaclDefaulted),
         DaclSecurityDescriptor < 0)
-    || (DaclSecurityDescriptor = RtlGetOwnerSecurityDescriptor((__int64)Heap, &v26, &v22), DaclSecurityDescriptor < 0) )
+    || (DaclSecurityDescriptor = RtlGetOwnerSecurityDescriptor(Heap, &Owner, &OwnerDefaulted), DaclSecurityDescriptor < 0) )
   {
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (unsigned __int64)Heap);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Heap);
     return (unsigned int)DaclSecurityDescriptor;
   }
   v33 = 0;
@@ -74,19 +74,19 @@ __int64 __fastcall RtlpSysVolCheckOwnerAndSecurity(__int64 a1, __int64 a2)
   v32 = 257;
   v34 = 1280;
   v35 = 18;
-  v27 = 513;
+  Sid2 = 513;
   v29 = 1280;
   v30 = 32;
   v31 = 544;
-  if ( v26 && RtlEqualSid(v26, &v27) && v21 && v24 )
+  if ( Owner && RtlEqualSid(Owner, &Sid2) && DaclPresent && Dacla )
   {
     for ( i = 0; ; ++i )
     {
-      Ace = RtlGetAce(v24, i, (__int64)&v25);
-      v9 = v25;
-      if ( Ace < 0 )
+      v8 = RtlGetAce(Dacla, i, &Ace);
+      v9 = Ace;
+      if ( v8 < 0 )
         v9 = 0LL;
-      v25 = v9;
+      Ace = v9;
       if ( !v9 )
         break;
       if ( !*v9 && RtlEqualSid(v9 + 8, &v32) )
@@ -94,51 +94,51 @@ __int64 __fastcall RtlpSysVolCheckOwnerAndSecurity(__int64 a1, __int64 a2)
         if ( (v9[1] & 3) == 3 )
           goto LABEL_17;
         v9[1] |= 3u;
-        SelfRelativeSD = NtSetSecurityObject(a1, 4LL, Heap);
+        SelfRelativeSD = NtSetSecurityObject(Handle, 4u, Heap);
         goto LABEL_24;
       }
     }
   }
-  Size_4 = Size;
-  if ( (unsigned int)RtlSelfRelativeToAbsoluteSD2((__int64)Heap, &Size_4) != -1073741789 )
+  BufferSize = Length;
+  if ( RtlSelfRelativeToAbsoluteSD2(Heap, &BufferSize) != -1073741789 )
     goto LABEL_30;
-  v13 = (void *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, Size_4);
-  v14 = (__int64)v13;
+  v13 = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, BufferSize);
+  v14 = v13;
   if ( !v13 )
     goto LABEL_36;
-  memmove(v13, Heap, Size);
-  RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (unsigned __int64)Heap);
-  Size = Size_4;
-  Heap = (_DWORD *)v14;
-  v15 = RtlSelfRelativeToAbsoluteSD2(v14, &Size);
+  memmove(v13, Heap, Length);
+  RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Heap);
+  Length = BufferSize;
+  Heap = v14;
+  v15 = RtlSelfRelativeToAbsoluteSD2(v14, &Length);
   if ( v15 >= 0 )
   {
 LABEL_30:
-    SelfRelativeSD = RtlSetOwnerSecurityDescriptor((__int64)Heap, (__int64)&v27, 0);
+    SelfRelativeSD = RtlSetOwnerSecurityDescriptor(Heap, &Sid2, 0);
     if ( SelfRelativeSD < 0
-      || (SelfRelativeSD = RtlSetDaclSecurityDescriptor((__int64)Heap, 1, a2, 0), SelfRelativeSD < 0)
-      || (Size_4 = 0, SelfRelativeSD = RtlMakeSelfRelativeSD(Heap, 0LL, &Size_4), SelfRelativeSD != -1073741789) )
+      || (SelfRelativeSD = RtlSetDaclSecurityDescriptor(Heap, 1u, Dacl, 0), SelfRelativeSD < 0)
+      || (BufferSize = 0, SelfRelativeSD = RtlMakeSelfRelativeSD(Heap, 0LL, &BufferSize), SelfRelativeSD != -1073741789) )
     {
 LABEL_24:
       v2 = SelfRelativeSD;
 LABEL_17:
-      v10 = (unsigned __int64)Heap;
+      v10 = Heap;
       goto LABEL_18;
     }
-    v17 = (char *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, Size_4);
+    v17 = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, BufferSize);
     v18 = v17;
     if ( v17 )
     {
-      v15 = RtlMakeSelfRelativeSD(Heap, v17, &Size_4);
-      RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (unsigned __int64)Heap);
-      v16 = (unsigned __int64)v18;
+      v15 = RtlMakeSelfRelativeSD(Heap, v17, &BufferSize);
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Heap);
+      v16 = v18;
       if ( v15 < 0 )
         goto LABEL_29;
-      Size = Size_4;
-      v2 = NtSetSecurityObject(a1, 5LL, v18);
-      v10 = (unsigned __int64)v18;
+      Length = BufferSize;
+      v2 = NtSetSecurityObject(Handle, 5u, v18);
+      v10 = v18;
 LABEL_18:
-      RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v10);
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v10);
       return v2;
     }
 LABEL_36:
@@ -147,6 +147,6 @@ LABEL_36:
   }
   v16 = v14;
 LABEL_29:
-  RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v16);
+  RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v16);
   return (unsigned int)v15;
 }

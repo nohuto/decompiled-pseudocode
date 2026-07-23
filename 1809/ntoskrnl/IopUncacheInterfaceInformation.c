@@ -1,15 +1,15 @@
 /*
- * XREFs of IopUncacheInterfaceInformation @ 0x1406EBD64
+ * XREFs of IopUncacheInterfaceInformation @ 0x1406ED004
  * Callers:
- *     IopDestroyDeviceNode @ 0x14059F300 (IopDestroyDeviceNode.c)
- *     PipProcessStartPhase1 @ 0x1406EBCB0 (PipProcessStartPhase1.c)
- *     IopRemoveDevice @ 0x1406ECE04 (IopRemoveDevice.c)
+ *     IopDestroyDeviceNode @ 0x1405A0300 (IopDestroyDeviceNode.c)
+ *     PipProcessStartPhase1 @ 0x1406ECF50 (PipProcessStartPhase1.c)
+ *     IopRemoveDevice @ 0x1406EE0A4 (IopRemoveDevice.c)
  * Callees:
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     KeReleaseSemaphore @ 0x1400C5EC0 (KeReleaseSemaphore.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     KeReleaseSemaphore @ 0x1400C5E00 (KeReleaseSemaphore.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 void __fastcall IopUncacheInterfaceInformation(__int64 a1, int a2)

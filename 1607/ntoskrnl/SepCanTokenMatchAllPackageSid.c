@@ -1,13 +1,13 @@
 /*
- * XREFs of SepCanTokenMatchAllPackageSid @ 0x14000E1C0
+ * XREFs of SepCanTokenMatchAllPackageSid @ 0x14000DD40
  * Callers:
- *     SepMatchPackage @ 0x14000E138 (SepMatchPackage.c)
+ *     SepMatchPackage @ 0x14000DCB8 (SepMatchPackage.c)
  * Callees:
- *     AuthzBasepQuerySecurityAttributeAndValues @ 0x14000E280 (AuthzBasepQuerySecurityAttributeAndValues.c)
- *     ExAcquireResourceSharedLite @ 0x1400685B0 (ExAcquireResourceSharedLite.c)
- *     ExpReleaseResourceForThreadLite @ 0x140068950 (ExpReleaseResourceForThreadLite.c)
- *     KeLeaveCriticalRegion @ 0x140069D00 (KeLeaveCriticalRegion.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     AuthzBasepQuerySecurityAttributeAndValues @ 0x14000DE00 (AuthzBasepQuerySecurityAttributeAndValues.c)
+ *     ExAcquireResourceSharedLite @ 0x140068130 (ExAcquireResourceSharedLite.c)
+ *     ExpReleaseResourceForThreadLite @ 0x1400684D0 (ExpReleaseResourceForThreadLite.c)
+ *     KeLeaveCriticalRegion @ 0x140069880 (KeLeaveCriticalRegion.c)
+ *     memset @ 0x140171AC0 (memset.c)
  */
 
 _BOOL8 __fastcall SepCanTokenMatchAllPackageSid(__int64 a1)

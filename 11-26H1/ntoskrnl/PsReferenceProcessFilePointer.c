@@ -1,17 +1,17 @@
 /*
- * XREFs of PsReferenceProcessFilePointer @ 0x140AAE560
+ * XREFs of PsReferenceProcessFilePointer @ 0x140AA7550
  * Callers:
- *     SepVerifyDesktopAppxImage @ 0x140460C84 (SepVerifyDesktopAppxImage.c)
- *     SepMandatorySubProcessToken @ 0x1405154C8 (SepMandatorySubProcessToken.c)
- *     PsCheckProcessFileSigningLevel @ 0x1407F23D0 (PsCheckProcessFileSigningLevel.c)
- *     DbgkCreateThread @ 0x1409EAD24 (DbgkCreateThread.c)
- *     PspCallProcessNotifyRoutines @ 0x140A43714 (PspCallProcessNotifyRoutines.c)
- *     NtQueryInformationProcess @ 0x140A4A1F0 (NtQueryInformationProcess.c)
- *     CmpCheckExeOwnerForPca @ 0x140AAE3A0 (CmpCheckExeOwnerForPca.c)
+ *     SepMandatorySubProcessToken @ 0x14050EF38 (SepMandatorySubProcessToken.c)
+ *     SepVerifyDesktopAppxImage @ 0x14051E754 (SepVerifyDesktopAppxImage.c)
+ *     PsCheckProcessFileSigningLevel @ 0x1407F7F30 (PsCheckProcessFileSigningLevel.c)
+ *     DbgkCreateThread @ 0x1409E74F4 (DbgkCreateThread.c)
+ *     PspCallProcessNotifyRoutines @ 0x1409FE474 (PspCallProcessNotifyRoutines.c)
+ *     NtQueryInformationProcess @ 0x140A534E0 (NtQueryInformationProcess.c)
+ *     CmpCheckExeOwnerForPca @ 0x140AA7384 (CmpCheckExeOwnerForPca.c)
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     MmGetFileObjectForSection @ 0x140AAE5D0 (MmGetFileObjectForSection.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     MmGetFileObjectForSection @ 0x140AA75C0 (MmGetFileObjectForSection.c)
  */
 
 __int64 __fastcall PsReferenceProcessFilePointer(struct _EX_RUNDOWN_REF *a1, __int64 *a2)

@@ -1,22 +1,22 @@
 /*
- * XREFs of MiTrimAllWorkingSets @ 0x140466450
+ * XREFs of MiTrimAllWorkingSets @ 0x14045F5B0
  * Callers:
- *     MiWorkingSetManager @ 0x1404BE000 (MiWorkingSetManager.c)
+ *     MiWorkingSetManager @ 0x1404B7850 (MiWorkingSetManager.c)
  * Callees:
- *     KeQueryUnbiasedInterruptTimePrecise @ 0x140207BF0 (KeQueryUnbiasedInterruptTimePrecise.c)
- *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14021AAD4 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     MiPruneProcessLargePageCaches @ 0x1402A8FB4 (MiPruneProcessLargePageCaches.c)
- *     MiOrderTrimList @ 0x1403B9490 (MiOrderTrimList.c)
- *     MiPeriodicTrimWorkingSet @ 0x1403B9E10 (MiPeriodicTrimWorkingSet.c)
- *     KeSignalGate @ 0x1403C2AD0 (KeSignalGate.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     MiDrainZeroLookasides @ 0x14045E180 (MiDrainZeroLookasides.c)
- *     MiPartitionTrimmedEnough @ 0x1404C212C (MiPartitionTrimmedEnough.c)
- *     MiAskKeToOutswapProcess @ 0x1404D8150 (MiAskKeToOutswapProcess.c)
- *     MiLogProcessWorkingSetsStart @ 0x1404E17A4 (MiLogProcessWorkingSetsStart.c)
- *     MiLogProcessWorkingSetsStop @ 0x14052E43C (MiLogProcessWorkingSetsStop.c)
+ *     KeQueryUnbiasedInterruptTimePrecise @ 0x140207CD0 (KeQueryUnbiasedInterruptTimePrecise.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14021C464 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     MiPruneProcessLargePageCaches @ 0x1402A83C4 (MiPruneProcessLargePageCaches.c)
+ *     MiOrderTrimList @ 0x1403C3390 (MiOrderTrimList.c)
+ *     MiPeriodicTrimWorkingSet @ 0x1403C3C80 (MiPeriodicTrimWorkingSet.c)
+ *     KeSignalGate @ 0x1403CC9D0 (KeSignalGate.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     MiDrainZeroLookasides @ 0x140457D20 (MiDrainZeroLookasides.c)
+ *     MiPartitionTrimmedEnough @ 0x1404BB97C (MiPartitionTrimmedEnough.c)
+ *     MiAskKeToOutswapProcess @ 0x1404D1920 (MiAskKeToOutswapProcess.c)
+ *     MiLogProcessWorkingSetsStart @ 0x1404DAE84 (MiLogProcessWorkingSetsStart.c)
+ *     MiLogProcessWorkingSetsStop @ 0x14053095C (MiLogProcessWorkingSetsStop.c)
  */
 
 char __fastcall MiTrimAllWorkingSets(unsigned __int64 a1, __int64 a2)
@@ -62,13 +62,13 @@ char __fastcall MiTrimAllWorkingSets(unsigned __int64 a1, __int64 a2)
   v4 = a1;
   v35 = v2;
   v31 = a1 + 18672;
-  if ( stru_140E36558.FirstArgument )
+  if ( stru_140E366D8.FirstArgument )
   {
-    if ( *(_DWORD *)stru_140E36558.FirstArgument )
+    if ( *(_DWORD *)stru_140E366D8.FirstArgument )
     {
-      if ( (*((_BYTE *)stru_140E36558.FirstArgument + 16) & 1) != 0 )
+      if ( (*((_BYTE *)stru_140E366D8.FirstArgument + 16) & 1) != 0 )
       {
-        v6 = *((_QWORD *)stru_140E36558.FirstArgument + 3);
+        v6 = *((_QWORD *)stru_140E366D8.FirstArgument + 3);
         if ( (v6 & 1) == v6 )
           MiLogProcessWorkingSetsStart(v6, v4, a2);
       }
@@ -165,14 +165,14 @@ LABEL_20:
         {
           if ( v13 == 17 )
           {
-            if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+            if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
               *v12 = 0;
             else
               ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(v12, retaddr);
           }
           else
           {
-            if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+            if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
               *v12 = 0;
             else
               ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(v12, retaddr);
@@ -190,8 +190,8 @@ LABEL_20:
         v25 = *(_QWORD *)(*(v20 - 3) + 72);
         if ( v25 )
           KeSignalGate(v25, 1LL, v16);
-        v26 = *(_QWORD *)(stru_140E2EB88.ThreadLock + 8LL * *((unsigned __int16 *)v20 + 67)) + 18336LL;
-        v9 = *(_QWORD **)(*(_QWORD *)(stru_140E2EB88.ThreadLock + 8LL * *((unsigned __int16 *)v20 + 67)) + 18344LL);
+        v26 = *(_QWORD *)(stru_140E2ED08.ThreadLock + 8LL * *((unsigned __int16 *)v20 + 67)) + 18336LL;
+        v9 = *(_QWORD **)(*(_QWORD *)(stru_140E2ED08.ThreadLock + 8LL * *((unsigned __int16 *)v20 + 67)) + 18344LL);
         if ( *v9 != v26 )
           __fastfail(3u);
         *v20 = v26;
@@ -207,8 +207,8 @@ LABEL_20:
         }
         break;
       }
-      v23 = *(_QWORD *)(stru_140E2EB88.ThreadLock + 8LL * *((unsigned __int16 *)v20 + 67)) + 18336LL;
-      v9 = *(_QWORD **)(*(_QWORD *)(stru_140E2EB88.ThreadLock + 8LL * *((unsigned __int16 *)v20 + 67)) + 18344LL);
+      v23 = *(_QWORD *)(stru_140E2ED08.ThreadLock + 8LL * *((unsigned __int16 *)v20 + 67)) + 18336LL;
+      v9 = *(_QWORD **)(*(_QWORD *)(stru_140E2ED08.ThreadLock + 8LL * *((unsigned __int16 *)v20 + 67)) + 18344LL);
       if ( *v9 != v23 )
         __fastfail(3u);
       *v20 = v23;
@@ -225,19 +225,14 @@ LABEL_62:
 LABEL_63:
     if ( v13 == 17 )
     {
-      if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0
-        || (LOBYTE(v9) = stru_140F11D08.WaitStatus, LODWORD(stru_140F11D08.WaitStatus)) )
-      {
+      if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || (LOBYTE(v9) = PopHibernateInProgress, PopHibernateInProgress) )
         *v12 = 0;
-      }
       else
-      {
         LOBYTE(v9) = ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(v12, retaddr);
-      }
     }
     else
     {
-      if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+      if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
         *v12 = 0;
       else
         ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(v12, retaddr);
@@ -261,13 +256,13 @@ LABEL_63:
       LOWORD(v9) = *(unsigned __int8 *)(a2 + 24);
       *(_WORD *)(v32 + 144) = (_WORD)v9;
     }
-    if ( stru_140E36558.FirstArgument )
+    if ( stru_140E366D8.FirstArgument )
     {
-      if ( *(_DWORD *)stru_140E36558.FirstArgument )
+      if ( *(_DWORD *)stru_140E366D8.FirstArgument )
       {
-        if ( (*((_BYTE *)stru_140E36558.FirstArgument + 16) & 1) != 0 )
+        if ( (*((_BYTE *)stru_140E366D8.FirstArgument + 16) & 1) != 0 )
         {
-          v10 = *((_QWORD *)stru_140E36558.FirstArgument + 3);
+          v10 = *((_QWORD *)stru_140E366D8.FirstArgument + 3);
           LOBYTE(v9) = v10 & 1;
           if ( (v10 & 1) == v10 )
             goto LABEL_83;
@@ -282,11 +277,11 @@ LABEL_63:
     v32 = 0LL;
     goto LABEL_14;
   }
-  if ( stru_140E36558.FirstArgument )
+  if ( stru_140E366D8.FirstArgument )
   {
-    if ( *(_DWORD *)stru_140E36558.FirstArgument )
+    if ( *(_DWORD *)stru_140E366D8.FirstArgument )
     {
-      LOBYTE(v9) = tlgKeywordOn((__int64)stru_140E36558.FirstArgument, 1LL);
+      LOBYTE(v9) = tlgKeywordOn((__int64)stru_140E366D8.FirstArgument, 1LL);
       if ( (_BYTE)v9 )
 LABEL_83:
         LOBYTE(v9) = MiLogProcessWorkingSetsStop(v10, v4);

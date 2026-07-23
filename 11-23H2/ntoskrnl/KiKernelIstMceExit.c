@@ -1,7 +1,7 @@
 /*
  * XREFs of KiKernelIstMceExit @ 0x140AF7CC0
  * Callers:
- *     KiMcheckAbort @ 0x140430880 (KiMcheckAbort.c)
+ *     KiMcheckAbort @ 0x140430C80 (KiMcheckAbort.c)
  * Callees:
  *     <none>
  */

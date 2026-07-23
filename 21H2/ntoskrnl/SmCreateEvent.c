@@ -1,12 +1,12 @@
 /*
- * XREFs of SmCreateEvent @ 0x1407D1830
+ * XREFs of SmCreateEvent @ 0x1407D19A0
  * Callers:
- *     SmRegistrationCtxStart @ 0x1407D17D8 (SmRegistrationCtxStart.c)
+ *     SmRegistrationCtxStart @ 0x1407D1948 (SmRegistrationCtxStart.c)
  * Callees:
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     ZwCreateEvent @ 0x1403FACA0 (ZwCreateEvent.c)
- *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     ZwCreateEvent @ 0x1403FAE80 (ZwCreateEvent.c)
+ *     ObReferenceObjectByHandle @ 0x140707FA0 (ObReferenceObjectByHandle.c)
  */
 
 __int64 __fastcall SmCreateEvent(__int64 a1, PVOID *a2)

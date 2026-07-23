@@ -1,12 +1,12 @@
 /*
- * XREFs of KsepStringDuplicateUnicode @ 0x14067E184
+ * XREFs of KsepStringDuplicateUnicode @ 0x14067F344
  * Callers:
- *     KseDriverLoadImage @ 0x14067DF40 (KseDriverLoadImage.c)
- *     KseShimDriverIoCallbacks @ 0x1406808FC (KseShimDriverIoCallbacks.c)
+ *     KseDriverLoadImage @ 0x14067F100 (KseDriverLoadImage.c)
+ *     KseShimDriverIoCallbacks @ 0x140681ABC (KseShimDriverIoCallbacks.c)
  * Callees:
- *     KsepPoolAllocatePaged @ 0x1400F4CDC (KsepPoolAllocatePaged.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     RtlAssert @ 0x1402EF860 (RtlAssert.c)
+ *     KsepPoolAllocatePaged @ 0x1400F4D5C (KsepPoolAllocatePaged.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     RtlAssert @ 0x1402EFA50 (RtlAssert.c)
  */
 
 __int64 __fastcall KsepStringDuplicateUnicode(__int64 a1, const void **a2)

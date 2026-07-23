@@ -19,36 +19,36 @@
 __int64 SepSecureBootCorrectBcd()
 {
   unsigned int v0; // r12d
-  __int64 v1; // rsi
+  void *v1; // rsi
   NTSTATUS v2; // eax
   int v3; // edi
-  int updated; // ebx
-  PVOID PoolWithTag; // r15
-  unsigned int v6; // r14d
-  int v7; // eax
+  NTSTATUS updated; // ebx
+  char *PoolWithTag; // r15
+  ULONG v6; // r14d
+  NTSTATUS v7; // eax
   HANDLE v8; // rdi
   unsigned __int16 *v9; // rdx
   __int64 v10; // r8
   _DWORD *v11; // r10
   __int16 v12; // r9
-  unsigned int v14; // [rsp+70h] [rbp+40h] BYREF
-  SIZE_T NumberOfBytes; // [rsp+78h] [rbp+48h] BYREF
-  HANDLE Handle; // [rsp+80h] [rbp+50h] BYREF
-  __int64 v17; // [rsp+88h] [rbp+58h] BYREF
+  ULONG ObjectCount; // [rsp+70h] [rbp+40h] BYREF
+  const GUID *BufferSize; // [rsp+78h] [rbp+48h] BYREF
+  HANDLE BcdObjectHandle; // [rsp+80h] [rbp+50h] BYREF
+  _BCD_OBJECT_DESCRIPTION BcdEnumDescriptor; // [rsp+88h] [rbp+58h] BYREF
 
   v0 = 0;
-  Handle = 0LL;
+  BcdObjectHandle = 0LL;
   v1 = 0LL;
-  v14 = 0;
-  LODWORD(NumberOfBytes) = 0;
-  v17 = 0LL;
+  ObjectCount = 0;
+  LODWORD(BufferSize) = 0;
+  BcdEnumDescriptor = 0LL;
   v2 = BiAcquireBcdSyncMutant(0);
   v3 = v2;
   if ( v2 >= 0 )
   {
-    v3 = BiOpenSystemStore(&v17, 0);
+    v3 = BiOpenSystemStore((__int64 *)&BcdEnumDescriptor, 0);
     BiReleaseBcdSyncMutant(0);
-    v1 = v17;
+    v1 = (void *)BcdEnumDescriptor;
   }
   else
   {
@@ -57,24 +57,24 @@ __int64 SepSecureBootCorrectBcd()
   updated = v3;
   if ( v3 >= 0 )
   {
-    v17 = 1LL;
-    updated = BcdEnumerateObjects(v1, &v17, 0LL, &NumberOfBytes, &v14);
+    BcdEnumDescriptor = (_BCD_OBJECT_DESCRIPTION)1LL;
+    updated = BcdEnumerateObjects(v1, &BcdEnumDescriptor, 0LL, (PULONG)&BufferSize, &ObjectCount);
     if ( updated == -1073741789 )
     {
-      PoolWithTag = ExAllocatePoolWithTag(PagedPool, (unsigned int)NumberOfBytes, 0x62536553u);
+      PoolWithTag = (char *)ExAllocatePoolWithTag(PagedPool, (unsigned int)BufferSize, 0x62536553u);
       if ( PoolWithTag )
       {
-        updated = BcdEnumerateObjects(v1, &v17, PoolWithTag, &NumberOfBytes, &v14);
+        updated = BcdEnumerateObjects(v1, &BcdEnumDescriptor, PoolWithTag, (PULONG)&BufferSize, &ObjectCount);
         if ( updated >= 0 )
         {
           v6 = 0;
-          if ( v14 )
+          if ( ObjectCount )
           {
             do
             {
-              NumberOfBytes = (SIZE_T)PoolWithTag + 24 * v6;
-              v7 = BcdOpenObject(v1, (unsigned int *)NumberOfBytes, &Handle);
-              v8 = Handle;
+              BufferSize = (const GUID *)&PoolWithTag[24 * v6];
+              v7 = BcdOpenObject(v1, BufferSize, &BcdObjectHandle);
+              v8 = BcdObjectHandle;
               updated = v7;
               if ( v7 < 0 )
                 break;
@@ -85,7 +85,7 @@ __int64 SepSecureBootCorrectBcd()
                 do
                 {
                   v11 = (_DWORD *)(qword_14038C448 + 12LL * v0);
-                  if ( !*v11 || *v11 == *(_DWORD *)(*(_QWORD *)(NumberOfBytes + 16) + 4LL) )
+                  if ( !*v11 || *v11 == *(_DWORD *)(*(_QWORD *)&BufferSize[1].Data1 + 4LL) )
                   {
                     v12 = *(_WORD *)(qword_14038C450 + (unsigned int)v11[2]);
                     if ( ((v12 & 0x20) == 0 || (v10 & 4) != 0) && ((v12 & 0x40) == 0 || (v10 & 0x10) != 0) )
@@ -105,9 +105,9 @@ __int64 SepSecureBootCorrectBcd()
               v0 = 0;
               ++v6;
               v8 = 0LL;
-              Handle = 0LL;
+              BcdObjectHandle = 0LL;
             }
-            while ( v6 < v14 );
+            while ( v6 < ObjectCount );
 LABEL_23:
             if ( v8 )
               BcdCloseObject(v8);

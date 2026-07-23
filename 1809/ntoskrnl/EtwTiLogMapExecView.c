@@ -1,15 +1,15 @@
 /*
- * XREFs of EtwTiLogMapExecView @ 0x1406CF3E0
+ * XREFs of EtwTiLogMapExecView @ 0x1406D0680
  * Callers:
- *     MiMapViewOfSectionExCommon @ 0x140676C10 (MiMapViewOfSectionExCommon.c)
- *     NtMapViewOfSection @ 0x140676FB0 (NtMapViewOfSection.c)
+ *     MiMapViewOfSectionExCommon @ 0x140677DD0 (MiMapViewOfSectionExCommon.c)
+ *     NtMapViewOfSection @ 0x140678170 (NtMapViewOfSection.c)
  * Callees:
  *     EtwEventEnabled @ 0x14005B2D0 (EtwEventEnabled.c)
- *     EtwWrite @ 0x1400CAD20 (EtwWrite.c)
- *     EtwProviderEnabled @ 0x1400F1780 (EtwProviderEnabled.c)
- *     EtwpTiFillThreadIdentity @ 0x140131FB4 (EtwpTiFillThreadIdentity.c)
- *     EtwpTiFillProcessIdentity @ 0x140131FEC (EtwpTiFillProcessIdentity.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     EtwWrite @ 0x1400CAE00 (EtwWrite.c)
+ *     EtwProviderEnabled @ 0x1400F1800 (EtwProviderEnabled.c)
+ *     EtwpTiFillThreadIdentity @ 0x140132084 (EtwpTiFillThreadIdentity.c)
+ *     EtwpTiFillProcessIdentity @ 0x1401320BC (EtwpTiFillProcessIdentity.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 BOOLEAN EtwTiLogMapExecView(__int64 a1, char a2, ...)
@@ -56,7 +56,7 @@ BOOLEAN EtwTiLogMapExecView(__int64 a1, char a2, ...)
     Process = KeGetCurrentThread()->ApcState.Process;
     if ( Process == (_KPROCESS *)a1 )
       v5 = 8LL;
-    v7 = *(const EVENT_DESCRIPTOR **)((char *)&off_140356288 + (a2 != 0 ? 0 : 0x10) + v5);
+    v7 = *(const EVENT_DESCRIPTOR **)((char *)&off_140357268 + (a2 != 0 ? 0 : 0x10) + v5);
     result = EtwEventEnabled(EtwThreatIntProvRegHandle, v7);
     if ( result )
     {

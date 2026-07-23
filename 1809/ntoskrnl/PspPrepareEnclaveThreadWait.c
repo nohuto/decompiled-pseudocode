@@ -1,10 +1,10 @@
 /*
- * XREFs of PspPrepareEnclaveThreadWait @ 0x14088E60C
+ * XREFs of PspPrepareEnclaveThreadWait @ 0x14088F86C
  * Callers:
- *     PsCallEnclave @ 0x14088D580 (PsCallEnclave.c)
+ *     PsCallEnclave @ 0x14088E7E0 (PsCallEnclave.c)
  * Callees:
- *     ExAllocatePoolWithQuotaTag @ 0x1400B7670 (ExAllocatePoolWithQuotaTag.c)
- *     KeInitializeEvent @ 0x1400B8E70 (KeInitializeEvent.c)
+ *     ExAllocatePoolWithQuotaTag @ 0x1400B75B0 (ExAllocatePoolWithQuotaTag.c)
+ *     KeInitializeEvent @ 0x1400B8DB0 (KeInitializeEvent.c)
  */
 
 __int64 __fastcall PspPrepareEnclaveThreadWait(__int64 a1, _QWORD *a2)

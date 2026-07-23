@@ -1,7 +1,7 @@
 /*
- * XREFs of KiInitIptState @ 0x140572B0C
+ * XREFs of KiInitIptState @ 0x14057304C
  * Callers:
- *     KiRestoreThreadIptState @ 0x140572CE0 (KiRestoreThreadIptState.c)
+ *     KiRestoreThreadIptState @ 0x140573220 (KiRestoreThreadIptState.c)
  * Callees:
  *     <none>
  */

@@ -1,10 +1,10 @@
 /*
- * XREFs of HvUnCOWReconciledPages @ 0x140362560
+ * XREFs of HvUnCOWReconciledPages @ 0x1402F7750
  * Callers:
- *     CmpFlushHive @ 0x14062A0D8 (CmpFlushHive.c)
+ *     CmpFlushHive @ 0x1406A48D8 (CmpFlushHive.c)
  * Callees:
- *     RtlMergeBitMaps @ 0x1403629A8 (RtlMergeBitMaps.c)
- *     HvpViewMapUnCOWAndSealRange @ 0x140723AF8 (HvpViewMapUnCOWAndSealRange.c)
+ *     RtlMergeBitMaps @ 0x1402F7B98 (RtlMergeBitMaps.c)
+ *     HvpViewMapUnCOWAndSealRange @ 0x1406FBB24 (HvpViewMapUnCOWAndSealRange.c)
  */
 
 void __fastcall HvUnCOWReconciledPages(__int64 a1)
@@ -84,7 +84,7 @@ void __fastcall HvUnCOWReconciledPages(__int64 a1)
       if ( v10 != v12 )
       {
         v9 = v11 & 0x1F;
-        if ( (*v10 & ~*((_DWORD *)qword_140011C70 + v9)) == 0 )
+        if ( (*v10 & ~*((_DWORD *)qword_140012120 + v9)) == 0 )
         {
           v13 = 32 - v9;
           if ( (_DWORD)v9 == 33 )
@@ -125,7 +125,7 @@ LABEL_26:
           v18 = *((_QWORD *)v2 + 1);
           v9 = v18 + 4 * ((unsigned __int64)(v17 - 1) >> 5);
           v19 = (_DWORD *)(v18 + 4 * ((unsigned __int64)v11 >> 5));
-          if ( v19 != (_DWORD *)v9 && (*v19 | *((_DWORD *)qword_140011C70 + (v11 & 0x1F))) == -1 )
+          if ( v19 != (_DWORD *)v9 && (*v19 | *((_DWORD *)qword_140012120 + (v11 & 0x1F))) == -1 )
           {
             v11 = v11 - (v11 & 0x1F) + 32;
             for ( ++v19; (unsigned __int64)v19 < v9 && *v19 == -1; ++v19 )
@@ -140,7 +140,7 @@ LABEL_26:
           if ( v19 != (_DWORD *)v9 )
           {
             v21 = v11 & 0x1F;
-            if ( (*v19 & ~*((_DWORD *)qword_140011C70 + (v11 & 0x1F))) == 0 )
+            if ( (*v19 & ~*((_DWORD *)qword_140012120 + (v11 & 0x1F))) == 0 )
               break;
           }
 LABEL_42:

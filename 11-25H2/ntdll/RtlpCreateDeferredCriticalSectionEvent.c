@@ -12,21 +12,21 @@ HANDLE __fastcall RtlpCreateDeferredCriticalSectionEvent(__int64 a1)
 {
   signed __int64 v1; // rdi
   signed __int64 v3; // rbx
-  HANDLE Handle; // [rsp+40h] [rbp+8h] BYREF
+  HANDLE EventHandle; // [rsp+40h] [rbp+8h] BYREF
 
   v1 = -1LL;
-  Handle = (HANDLE)-1LL;
+  EventHandle = (HANDLE)-1LL;
   if ( RtlpForceCSToUseEvents )
   {
-    if ( (int)ZwCreateEvent(&Handle, 1048579LL, 0LL, 1LL, 0) >= 0 )
-      v1 = (signed __int64)Handle;
+    if ( ZwCreateEvent(&EventHandle, 0x100003u, 0LL, SynchronizationEvent, 0) >= 0 )
+      v1 = (signed __int64)EventHandle;
     else
-      Handle = (HANDLE)-1LL;
+      EventHandle = (HANDLE)-1LL;
   }
   v3 = _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 24), v1, 0LL);
   if ( !v3 )
-    return Handle;
-  if ( Handle != (HANDLE)-1LL )
-    NtClose(Handle);
+    return EventHandle;
+  if ( EventHandle != (HANDLE)-1LL )
+    NtClose(EventHandle);
   return (HANDLE)v3;
 }

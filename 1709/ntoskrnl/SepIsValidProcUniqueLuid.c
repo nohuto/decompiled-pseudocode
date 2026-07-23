@@ -16,18 +16,18 @@ __int64 __fastcall SepIsValidProcUniqueLuid(ULONG_PTR *a1)
   struct _KTHREAD *CurrentThread; // rax
   unsigned int v3; // edi
   ULONG_PTR v4; // rdx
-  struct _RTL_DYNAMIC_HASH_TABLE *v5; // rsi
+  _RTL_DYNAMIC_HASH_TABLE *v5; // rsi
   PRTL_DYNAMIC_HASH_TABLE_ENTRY i; // rax
   PRTL_DYNAMIC_HASH_TABLE_ENTRY v7; // rcx
   signed __int64 *v8; // rbx
-  struct _RTL_DYNAMIC_HASH_TABLE_CONTEXT Context; // [rsp+20h] [rbp-28h] BYREF
+  _RTL_DYNAMIC_HASH_TABLE_CONTEXT Context; // [rsp+20h] [rbp-28h] BYREF
 
   CurrentThread = KeGetCurrentThread();
   v3 = -1073741275;
   --CurrentThread->KernelApcDisable;
   ExAcquirePushLockSharedEx(SeLuidToIndexMapping, 0LL);
   v4 = *a1;
-  v5 = *(struct _RTL_DYNAMIC_HASH_TABLE **)(SeLuidToIndexMapping + 8);
+  v5 = *(_RTL_DYNAMIC_HASH_TABLE **)(SeLuidToIndexMapping + 8);
   if ( !*a1 )
     v4 = 1LL;
   for ( i = RtlLookupEntryHashTable(*(PRTL_DYNAMIC_HASH_TABLE *)(SeLuidToIndexMapping + 8), v4, &Context);

@@ -1,14 +1,14 @@
 /*
- * XREFs of TtmNotifySessionPowerRequestDeleted @ 0x1408FEBD4
+ * XREFs of TtmNotifySessionPowerRequestDeleted @ 0x1408FED34
  * Callers:
- *     PopNotifySessionUserPowerRequestDeleted @ 0x14067CD68 (PopNotifySessionUserPowerRequestDeleted.c)
+ *     PopNotifySessionUserPowerRequestDeleted @ 0x1406709B4 (PopNotifySessionUserPowerRequestDeleted.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
- *     TtmpAcquireSessionById @ 0x1408FF5F0 (TtmpAcquireSessionById.c)
- *     TtmiLogError @ 0x140902AC4 (TtmiLogError.c)
- *     TtmiLogSessionPowerRequestDeleted @ 0x140904100 (TtmiLogSessionPowerRequestDeleted.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegion @ 0x140356100 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x140356140 (ExReleaseResourceLite.c)
+ *     TtmpAcquireSessionById @ 0x1408FF750 (TtmpAcquireSessionById.c)
+ *     TtmiLogError @ 0x140902C24 (TtmiLogError.c)
+ *     TtmiLogSessionPowerRequestDeleted @ 0x140904260 (TtmiLogSessionPowerRequestDeleted.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall TtmNotifySessionPowerRequestDeleted(unsigned int a1, int a2)

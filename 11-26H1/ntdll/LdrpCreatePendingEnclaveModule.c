@@ -1,19 +1,19 @@
 /*
- * XREFs of LdrpCreatePendingEnclaveModule @ 0x1800D1994
+ * XREFs of LdrpCreatePendingEnclaveModule @ 0x1800CF104
  * Callers:
- *     LdrpFindOrPrepareEnclaveModule @ 0x1800D182C (LdrpFindOrPrepareEnclaveModule.c)
- *     LdrLoadEnclaveModule @ 0x1801394E0 (LdrLoadEnclaveModule.c)
+ *     LdrpFindOrPrepareEnclaveModule @ 0x1800CEF9C (LdrpFindOrPrepareEnclaveModule.c)
+ *     LdrLoadEnclaveModule @ 0x180139250 (LdrLoadEnclaveModule.c)
  * Callees:
- *     RtlEqualUnicodeString @ 0x1800A5A70 (RtlEqualUnicodeString.c)
- *     LdrpAllocatePlaceHolder @ 0x1800D1A80 (LdrpAllocatePlaceHolder.c)
+ *     RtlEqualUnicodeString @ 0x1800A4BA0 (RtlEqualUnicodeString.c)
+ *     LdrpAllocatePlaceHolder @ 0x1800CF1F0 (LdrpAllocatePlaceHolder.c)
  */
 
 __int64 __fastcall LdrpCreatePendingEnclaveModule(
         _QWORD *a1,
-        unsigned __int16 *a2,
+        _UNICODE_STRING *a2,
         int a3,
         int a4,
-        __int64 a5,
+        int a5,
         __int64 a6,
         _QWORD *a7,
         __int64 a8)
@@ -38,11 +38,11 @@ __int64 __fastcall LdrpCreatePendingEnclaveModule(
     a1[13] = v11;
     if ( a7 )
       *a7 = v11;
-    if ( RtlEqualUnicodeString(a2, (__int64)&unk_180171E40, 1) )
+    if ( RtlEqualUnicodeString(a2, (PUNICODE_STRING)&stru_180170E38, 1u) )
     {
       a1[15] = v11;
     }
-    else if ( RtlEqualUnicodeString(a2, (__int64)L"(*", 1) )
+    else if ( RtlEqualUnicodeString(a2, (PUNICODE_STRING)&stru_180170E28, 1u) )
     {
       a1[16] = v11;
     }

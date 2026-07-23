@@ -1,7 +1,7 @@
 /*
- * XREFs of VfErrorReleaseTriageInformation @ 0x140B934B0
+ * XREFs of VfErrorReleaseTriageInformation @ 0x140B954B0
  * Callers:
- *     VfReportIssueWithOptions @ 0x140612434 (VfReportIssueWithOptions.c)
+ *     VfReportIssueWithOptions @ 0x1406109F4 (VfReportIssueWithOptions.c)
  * Callees:
  *     <none>
  */

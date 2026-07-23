@@ -7,16 +7,16 @@
  *     RtlIsValidProcessTrustLabelSid @ 0x140042D28 (RtlIsValidProcessTrustLabelSid.c)
  */
 
-void __fastcall SepReconcileTrustSidWithProcessProtection(__int64 a1, _BYTE *a2, _BYTE *a3, _QWORD *a4)
+void __fastcall SepReconcileTrustSidWithProcessProtection(PSID Sid, _BYTE *a2, _BYTE *a3, _QWORD *a4)
 {
-  __int64 v4; // r10
+  PSID v4; // r10
   PSID v6; // r11
   _QWORD *v7; // r9
   __int64 v8; // r11
   __int64 v9; // r10
 
   *a3 = 0;
-  v4 = a1;
+  v4 = Sid;
   *a4 = 0LL;
   if ( (unsigned __int8)*a2 >= 0x51u )
   {
@@ -37,7 +37,7 @@ void __fastcall SepReconcileTrustSidWithProcessProtection(__int64 a1, _BYTE *a2,
       default:
         goto LABEL_2;
     }
-    if ( v6 && !RtlIsValidProcessTrustLabelSid((__int64)v6) )
+    if ( v6 && !RtlIsValidProcessTrustLabelSid(v6) )
       goto LABEL_11;
   }
 LABEL_2:

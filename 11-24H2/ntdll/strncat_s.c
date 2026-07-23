@@ -1,9 +1,9 @@
 /*
- * XREFs of strncat_s @ 0x18012DA60
+ * XREFs of strncat_s @ 0x18012BC90
  * Callers:
  *     <none>
  * Callees:
- *     _invalid_parameter @ 0x180120778 (_invalid_parameter.c)
+ *     _invalid_parameter @ 0x18011E9A8 (_invalid_parameter.c)
  */
 
 errno_t __cdecl strncat_s(char *Destination, rsize_t SizeInBytes, const char *Source, rsize_t MaxCount)

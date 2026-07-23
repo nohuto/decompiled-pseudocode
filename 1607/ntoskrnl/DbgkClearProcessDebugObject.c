@@ -1,14 +1,14 @@
 /*
- * XREFs of DbgkClearProcessDebugObject @ 0x1404F0FB8
+ * XREFs of DbgkClearProcessDebugObject @ 0x1404D30AC
  * Callers:
- *     PspTerminateAllThreads @ 0x1405096F0 (PspTerminateAllThreads.c)
- *     NtRemoveProcessDebug @ 0x140619B78 (NtRemoveProcessDebug.c)
+ *     PspTerminateAllThreads @ 0x1404EC680 (PspTerminateAllThreads.c)
+ *     NtRemoveProcessDebug @ 0x140619C2C (NtRemoveProcessDebug.c)
  * Callees:
- *     KeReleaseGuardedMutex @ 0x14000CA40 (KeReleaseGuardedMutex.c)
- *     ExAcquireFastMutex @ 0x14002D0A0 (ExAcquireFastMutex.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     DbgkpMarkProcessPeb @ 0x140618440 (DbgkpMarkProcessPeb.c)
- *     DbgkpWakeTarget @ 0x14061959C (DbgkpWakeTarget.c)
+ *     KeReleaseGuardedMutex @ 0x14000C5C0 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x14002CC20 (ExAcquireFastMutex.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     DbgkpMarkProcessPeb @ 0x1406184F4 (DbgkpMarkProcessPeb.c)
+ *     DbgkpWakeTarget @ 0x140619650 (DbgkpWakeTarget.c)
  */
 
 __int64 __fastcall DbgkClearProcessDebugObject(ULONG_PTR BugCheckParameter1, __int64 a2)

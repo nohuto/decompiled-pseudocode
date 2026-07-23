@@ -1,31 +1,31 @@
 /*
- * XREFs of RtlValidSid @ 0x18003D140
+ * XREFs of RtlValidSid @ 0x1800276B0
  * Callers:
- *     RtlCheckTokenCapability @ 0x18000DB10 (RtlCheckTokenCapability.c)
- *     RtlCheckTokenMembershipEx @ 0x18000E6E0 (RtlCheckTokenMembershipEx.c)
- *     RtlLengthSidAsUnicodeString @ 0x18003C5D0 (RtlLengthSidAsUnicodeString.c)
- *     RtlFormatCurrentUserKeyPath @ 0x18003C8F0 (RtlFormatCurrentUserKeyPath.c)
- *     RtlAddAccessAllowedAce @ 0x18003CAD0 (RtlAddAccessAllowedAce.c)
- *     RtlpAddKnownAce @ 0x18003CC00 (RtlpAddKnownAce.c)
- *     RtlConvertSidToUnicodeString @ 0x18003CD70 (RtlConvertSidToUnicodeString.c)
- *     RtlpSetSecurityObject @ 0x18005BF70 (RtlpSetSecurityObject.c)
- *     RtlAddProcessTrustLabelAce @ 0x1800C8600 (RtlAddProcessTrustLabelAce.c)
- *     RtlAddMandatoryAce @ 0x1800C8B20 (RtlAddMandatoryAce.c)
- *     RtlAddAccessAllowedAceEx @ 0x1800CC320 (RtlAddAccessAllowedAceEx.c)
- *     RtlAddSIDToBoundaryDescriptorEx @ 0x1800CE610 (RtlAddSIDToBoundaryDescriptorEx.c)
- *     RtlpValidateSidBuffer @ 0x1800CE854 (RtlpValidateSidBuffer.c)
- *     RtlValidSecurityDescriptor @ 0x1800D9030 (RtlValidSecurityDescriptor.c)
- *     EvtIntReportEventWorker @ 0x1800E7270 (EvtIntReportEventWorker.c)
- *     RtlAddAccessFilterAce @ 0x18013E170 (RtlAddAccessFilterAce.c)
- *     RtlAddCompoundAce @ 0x18013E420 (RtlAddCompoundAce.c)
- *     RtlAddResourceAttributeAce @ 0x18013E5A0 (RtlAddResourceAttributeAce.c)
- *     RtlAddScopedPolicyIDAce @ 0x18013E930 (RtlAddScopedPolicyIDAce.c)
- *     RtlpAddKnownObjectAce @ 0x18013EAE0 (RtlpAddKnownObjectAce.c)
+ *     RtlLengthSidAsUnicodeString @ 0x180026B40 (RtlLengthSidAsUnicodeString.c)
+ *     RtlFormatCurrentUserKeyPath @ 0x180026E60 (RtlFormatCurrentUserKeyPath.c)
+ *     RtlAddAccessAllowedAce @ 0x180027040 (RtlAddAccessAllowedAce.c)
+ *     RtlpAddKnownAce @ 0x180027170 (RtlpAddKnownAce.c)
+ *     RtlConvertSidToUnicodeString @ 0x1800272E0 (RtlConvertSidToUnicodeString.c)
+ *     RtlpSetSecurityObject @ 0x1800464F0 (RtlpSetSecurityObject.c)
+ *     RtlCheckTokenCapability @ 0x180059240 (RtlCheckTokenCapability.c)
+ *     RtlCheckTokenMembershipEx @ 0x180059E10 (RtlCheckTokenMembershipEx.c)
+ *     RtlAddProcessTrustLabelAce @ 0x1800C5DC0 (RtlAddProcessTrustLabelAce.c)
+ *     RtlAddMandatoryAce @ 0x1800C62E0 (RtlAddMandatoryAce.c)
+ *     RtlAddAccessAllowedAceEx @ 0x1800C9A90 (RtlAddAccessAllowedAceEx.c)
+ *     RtlAddSIDToBoundaryDescriptorEx @ 0x1800CBD80 (RtlAddSIDToBoundaryDescriptorEx.c)
+ *     RtlpValidateSidBuffer @ 0x1800CBFC4 (RtlpValidateSidBuffer.c)
+ *     RtlValidSecurityDescriptor @ 0x1800D5FF0 (RtlValidSecurityDescriptor.c)
+ *     EvtIntReportEventWorker @ 0x1800E5CD0 (EvtIntReportEventWorker.c)
+ *     RtlAddAccessFilterAce @ 0x18013E020 (RtlAddAccessFilterAce.c)
+ *     RtlAddCompoundAce @ 0x18013E2D0 (RtlAddCompoundAce.c)
+ *     RtlAddResourceAttributeAce @ 0x18013E450 (RtlAddResourceAttributeAce.c)
+ *     RtlAddScopedPolicyIDAce @ 0x18013E7E0 (RtlAddScopedPolicyIDAce.c)
+ *     RtlpAddKnownObjectAce @ 0x18013E990 (RtlpAddKnownObjectAce.c)
  * Callees:
  *     <none>
  */
 
-bool __fastcall RtlValidSid(_BYTE *a1)
+BOOLEAN __cdecl RtlValidSid(PSID Sid)
 {
-  return a1 && (*a1 & 0xF) == 1 && a1[1] <= 0xFu;
+  return Sid && (*(_BYTE *)Sid & 0xF) == 1 && *((_BYTE *)Sid + 1) <= 0xFu;
 }

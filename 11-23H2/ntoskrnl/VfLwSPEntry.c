@@ -1,11 +1,11 @@
 /*
- * XREFs of VfLwSPEntry @ 0x1405F8698
+ * XREFs of VfLwSPEntry @ 0x1405F8C08
  * Callers:
- *     DifRegisterKernelPlugin @ 0x1405D4F40 (DifRegisterKernelPlugin.c)
+ *     DifRegisterKernelPlugin @ 0x1405D54B0 (DifRegisterKernelPlugin.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     DifRegisterPlugin @ 0x1405D5070 (DifRegisterPlugin.c)
- *     DifGetAvailableSystemPages @ 0x1405F85F4 (DifGetAvailableSystemPages.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     DifRegisterPlugin @ 0x1405D55E0 (DifRegisterPlugin.c)
+ *     DifGetAvailableSystemPages @ 0x1405F8B64 (DifGetAvailableSystemPages.c)
  */
 
 __int64 VfLwSPEntry()

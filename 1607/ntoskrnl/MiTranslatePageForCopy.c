@@ -1,32 +1,32 @@
 /*
- * XREFs of MiTranslatePageForCopy @ 0x1401E4C54
+ * XREFs of MiTranslatePageForCopy @ 0x1401E4A80
  * Callers:
- *     MmCopyMemory @ 0x1401E51D4 (MmCopyMemory.c)
+ *     MmCopyMemory @ 0x1401E5000 (MmCopyMemory.c)
  * Callees:
- *     MiGetAnyMultiplexedVm @ 0x14001D05C (MiGetAnyMultiplexedVm.c)
- *     MiCheckVirtualAddress @ 0x14001EDF8 (MiCheckVirtualAddress.c)
- *     MiObtainProtoReference @ 0x140023658 (MiObtainProtoReference.c)
- *     MiUnlockWorkingSetExclusive @ 0x14002E930 (MiUnlockWorkingSetExclusive.c)
- *     MiGetSharedVm @ 0x14002EA30 (MiGetSharedVm.c)
- *     MiLockLeafPage @ 0x14002EA50 (MiLockLeafPage.c)
- *     MiLockPageAtDpcInline @ 0x14002EB30 (MiLockPageAtDpcInline.c)
- *     ExAcquireSpinLockExclusive @ 0x14002EB90 (ExAcquireSpinLockExclusive.c)
- *     MiIsPfnInline @ 0x140030920 (MiIsPfnInline.c)
- *     MiGetSharedWorkingSetList @ 0x140047070 (MiGetSharedWorkingSetList.c)
- *     MiUnlockProtoPoolPage @ 0x14004C4E0 (MiUnlockProtoPoolPage.c)
- *     MiLockProtoPoolPage @ 0x14004ED80 (MiLockProtoPoolPage.c)
- *     MiVaToPfn @ 0x140083A00 (MiVaToPfn.c)
- *     MiAcquireProperVm @ 0x1400A4200 (MiAcquireProperVm.c)
- *     MiLockTransitionLeafPage @ 0x1400B8FB8 (MiLockTransitionLeafPage.c)
- *     MiGetPagingFileOffset @ 0x1400B9780 (MiGetPagingFileOffset.c)
- *     MiWaitForCollidedFaultComplete @ 0x1400C61A4 (MiWaitForCollidedFaultComplete.c)
- *     ExReleaseSpinLockShared @ 0x1400EA240 (ExReleaseSpinLockShared.c)
- *     ExAcquireSpinLockShared @ 0x1400EB1D0 (ExAcquireSpinLockShared.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F2550 (MI_GET_PAGE_FRAME_FROM_PTE.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiGetPrototypePteDirect @ 0x1401F26B0 (MiGetPrototypePteDirect.c)
- *     MiIsPrototypePteVadLookup @ 0x1401F2708 (MiIsPrototypePteVadLookup.c)
+ *     MiGetAnyMultiplexedVm @ 0x14001CBDC (MiGetAnyMultiplexedVm.c)
+ *     MiCheckVirtualAddress @ 0x14001E978 (MiCheckVirtualAddress.c)
+ *     MiObtainProtoReference @ 0x1400231D8 (MiObtainProtoReference.c)
+ *     MiUnlockWorkingSetExclusive @ 0x14002E4B0 (MiUnlockWorkingSetExclusive.c)
+ *     MiGetSharedVm @ 0x14002E5B0 (MiGetSharedVm.c)
+ *     MiLockLeafPage @ 0x14002E5D0 (MiLockLeafPage.c)
+ *     MiLockPageAtDpcInline @ 0x14002E6B0 (MiLockPageAtDpcInline.c)
+ *     ExAcquireSpinLockExclusive @ 0x14002E710 (ExAcquireSpinLockExclusive.c)
+ *     MiIsPfnInline @ 0x1400304A0 (MiIsPfnInline.c)
+ *     MiGetSharedWorkingSetList @ 0x140046BF0 (MiGetSharedWorkingSetList.c)
+ *     MiUnlockProtoPoolPage @ 0x14004C060 (MiUnlockProtoPoolPage.c)
+ *     MiLockProtoPoolPage @ 0x14004E900 (MiLockProtoPoolPage.c)
+ *     MiVaToPfn @ 0x140081B60 (MiVaToPfn.c)
+ *     MiAcquireProperVm @ 0x1400A2B28 (MiAcquireProperVm.c)
+ *     MiLockTransitionLeafPage @ 0x1400B6E48 (MiLockTransitionLeafPage.c)
+ *     MiGetPagingFileOffset @ 0x1400B7610 (MiGetPagingFileOffset.c)
+ *     MiWaitForCollidedFaultComplete @ 0x1400C4044 (MiWaitForCollidedFaultComplete.c)
+ *     ExReleaseSpinLockShared @ 0x1400E80B0 (ExReleaseSpinLockShared.c)
+ *     ExAcquireSpinLockShared @ 0x1400E9040 (ExAcquireSpinLockShared.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F237C (MI_GET_PAGE_FRAME_FROM_PTE.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
+ *     MiGetPrototypePteDirect @ 0x1401F24DC (MiGetPrototypePteDirect.c)
+ *     MiIsPrototypePteVadLookup @ 0x1401F2534 (MiIsPrototypePteVadLookup.c)
  */
 
 __int64 __fastcall MiTranslatePageForCopy(
@@ -124,10 +124,10 @@ __int64 __fastcall MiTranslatePageForCopy(
   v13 = 0;
   v54 = -1LL;
   v52 = 0;
-  if ( a1 < qword_140327F90 || a1 > qword_140326CF8 )
+  if ( a1 < qword_140327FD0 || a1 > qword_140326D38 )
   {
     v16 = 17;
-    v17 = (__int64 *)&unk_140326DB8;
+    v17 = (__int64 *)&unk_140326DF8;
     OldIrql[0] = 17;
     while ( 1 )
     {
@@ -164,7 +164,7 @@ LABEL_15:
     v16 = ExAcquireSpinLockExclusive(v15);
     v15[1] = 0;
   }
-  v24 = ExAcquireSpinLockShared(&dword_140326D38);
+  v24 = ExAcquireSpinLockShared(&dword_140326D78);
   v25 = BugCheckParameter2;
   OldIrql[0] = v24;
   while ( 1 )
@@ -190,7 +190,7 @@ LABEL_15:
     v13 = -1073741819;
   v52 = v13;
 LABEL_30:
-  ExReleaseSpinLockShared(&dword_140326D38, OldIrql[0]);
+  ExReleaseSpinLockShared(&dword_140326D78, OldIrql[0]);
   if ( v54 == -1 )
   {
     if ( AnyMultiplexedVm != (char *)1 )

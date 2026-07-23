@@ -1,5 +1,5 @@
 /*
- * XREFs of VerifierKeQueryPriorityThread @ 0x14070CA24
+ * XREFs of VerifierKeQueryPriorityThread @ 0x14070CA54
  * Callers:
  *     <none>
  * Callees:

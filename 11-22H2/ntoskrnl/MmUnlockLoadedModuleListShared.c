@@ -25,10 +25,10 @@ void __fastcall MmUnlockLoadedModuleListShared(unsigned __int8 a1)
   ExReleaseSpinLockSharedFromDpcLevel(&PsLoadedModuleSpinLock);
   if ( (unsigned __int8)v1 < 0xFu )
   {
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)(CurrentIrql - 2) <= 0xDu )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && (unsigned __int8)(CurrentIrql - 2) <= 0xDu )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;

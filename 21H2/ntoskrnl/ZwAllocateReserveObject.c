@@ -1,14 +1,17 @@
 /*
- * XREFs of ZwAllocateReserveObject @ 0x1403FB1E0
+ * XREFs of ZwAllocateReserveObject @ 0x1403FB3C0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwAllocateReserveObject(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwAllocateReserveObject(
+        PHANDLE MemoryReserveHandle,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        MEMORY_RESERVE_TYPE Type)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(MemoryReserveHandle);
 }

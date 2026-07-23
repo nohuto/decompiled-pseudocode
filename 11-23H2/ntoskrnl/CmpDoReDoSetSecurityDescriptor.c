@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpDoReDoSetSecurityDescriptor @ 0x140A2AB00
+ * XREFs of CmpDoReDoSetSecurityDescriptor @ 0x140A2ADB0
  * Callers:
- *     CmpDoReDoRecord @ 0x140A2A8DC (CmpDoReDoRecord.c)
+ *     CmpDoReDoRecord @ 0x140A2AB8C (CmpDoReDoRecord.c)
  * Callees:
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ZwSetSecurityObject @ 0x14041E420 (ZwSetSecurityObject.c)
- *     CmpDoReOpenTransKey @ 0x140A2ABD4 (CmpDoReOpenTransKey.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ZwSetSecurityObject @ 0x14041E7B0 (ZwSetSecurityObject.c)
+ *     CmpDoReOpenTransKey @ 0x140A2AE84 (CmpDoReOpenTransKey.c)
  */
 
 __int64 __fastcall CmpDoReDoSetSecurityDescriptor(__int64 a1, __int64 a2)

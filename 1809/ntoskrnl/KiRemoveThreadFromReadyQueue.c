@@ -1,9 +1,9 @@
 /*
- * XREFs of KiRemoveThreadFromReadyQueue @ 0x1401603C8
+ * XREFs of KiRemoveThreadFromReadyQueue @ 0x1401604C8
  * Callers:
  *     KiSearchForNewThreadOnProcessor @ 0x1400570B0 (KiSearchForNewThreadOnProcessor.c)
- *     KiQuantumEnd @ 0x1400D0020 (KiQuantumEnd.c)
- *     KiRemoveThreadFromAnyReadyQueue @ 0x140117780 (KiRemoveThreadFromAnyReadyQueue.c)
+ *     KiQuantumEnd @ 0x1400D00A0 (KiQuantumEnd.c)
+ *     KiRemoveThreadFromAnyReadyQueue @ 0x1401177F0 (KiRemoveThreadFromAnyReadyQueue.c)
  * Callees:
  *     <none>
  */

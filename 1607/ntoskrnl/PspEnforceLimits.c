@@ -1,14 +1,14 @@
 /*
- * XREFs of PspEnforceLimits @ 0x140468418
+ * XREFs of PspEnforceLimits @ 0x1404672E8
  * Callers:
- *     PspJobTimeLimitsWork @ 0x1404683B0 (PspJobTimeLimitsWork.c)
+ *     PspJobTimeLimitsWork @ 0x140467280 (PspJobTimeLimitsWork.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14006ACD0 (ObfDereferenceObjectWithTag.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     ZwUpdateWnfStateData @ 0x14015D3C0 (ZwUpdateWnfStateData.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     PspGetNextJob @ 0x140468500 (PspGetNextJob.c)
- *     PspEnumJobsAndProcessesInJobHierarchy @ 0x140468674 (PspEnumJobsAndProcessesInJobHierarchy.c)
+ *     ObfDereferenceObjectWithTag @ 0x14006A850 (ObfDereferenceObjectWithTag.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     ZwUpdateWnfStateData @ 0x14015D930 (ZwUpdateWnfStateData.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     PspGetNextJob @ 0x1404673D0 (PspGetNextJob.c)
+ *     PspEnumJobsAndProcessesInJobHierarchy @ 0x140467544 (PspEnumJobsAndProcessesInJobHierarchy.c)
  */
 
 __int64 __fastcall PspEnforceLimits(char a1)
@@ -16,14 +16,14 @@ __int64 __fastcall PspEnforceLimits(char a1)
   void *i; // rcx
   __int64 result; // rax
   void *v4; // rbx
-  _DWORD v5[4]; // [rsp+40h] [rbp-68h] BYREF
+  _DWORD Buffer[4]; // [rsp+40h] [rbp-68h] BYREF
   _BYTE v6[64]; // [rsp+50h] [rbp-58h] BYREF
 
   _InterlockedIncrement(&PspEnforcementSequenceNumber);
   if ( !a1 && PspNoWakeChargeReferencedProcess )
   {
-    v5[0] = 0;
-    ZwUpdateWnfStateData((__int64)&WNF_PS_WAKE_CHARGE_RESOURCE_POLICY, (__int64)v5, 4LL);
+    Buffer[0] = 0;
+    ZwUpdateWnfStateData(&WNF_PS_WAKE_CHARGE_RESOURCE_POLICY, Buffer, 4u, 0LL, 0LL, 0, 0);
     ObfDereferenceObjectWithTag(PspNoWakeChargeReferencedProcess, 0x624A7350u);
     PspNoWakeChargeReferencedProcess = 0LL;
   }

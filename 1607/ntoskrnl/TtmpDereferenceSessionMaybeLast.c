@@ -1,10 +1,10 @@
 /*
- * XREFs of TtmpDereferenceSessionMaybeLast @ 0x140678F98
+ * XREFs of TtmpDereferenceSessionMaybeLast @ 0x14067907C
  * Callers:
- *     TtmiSessionTerminalListWorker @ 0x140677B2C (TtmiSessionTerminalListWorker.c)
- *     TtmCleanupCurrentSession @ 0x1406784FC (TtmCleanupCurrentSession.c)
- *     TtmpSessionWorker @ 0x14067904C (TtmpSessionWorker.c)
- *     TtmpDeleteQueue @ 0x14067A2CC (TtmpDeleteQueue.c)
+ *     TtmiSessionTerminalListWorker @ 0x140677C10 (TtmiSessionTerminalListWorker.c)
+ *     TtmCleanupCurrentSession @ 0x1406785E0 (TtmCleanupCurrentSession.c)
+ *     TtmpSessionWorker @ 0x140679130 (TtmpSessionWorker.c)
+ *     TtmpDeleteQueue @ 0x14067A3B0 (TtmpDeleteQueue.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  */

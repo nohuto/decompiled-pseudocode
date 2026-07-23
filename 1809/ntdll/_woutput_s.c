@@ -1,13 +1,13 @@
 /*
- * XREFs of _woutput_s @ 0x18009D664
+ * XREFs of _woutput_s @ 0x18009D674
  * Callers:
- *     _swoutput_s @ 0x18009D544 (_swoutput_s.c)
+ *     _swoutput_s @ 0x18009D554 (_swoutput_s.c)
  * Callees:
- *     _invalid_parameter @ 0x18008FDE8 (_invalid_parameter.c)
- *     __security_check_cookie @ 0x18008FEC0 (__security_check_cookie.c)
- *     _safecrt_mbtowc @ 0x18009C4D8 (_safecrt_mbtowc.c)
- *     write_char_2 @ 0x18009DF4C (write_char_2.c)
- *     write_string_2 @ 0x18009DF9C (write_string_2.c)
+ *     _invalid_parameter @ 0x18008FDF8 (_invalid_parameter.c)
+ *     __security_check_cookie @ 0x18008FED0 (__security_check_cookie.c)
+ *     _safecrt_mbtowc @ 0x18009C4E8 (_safecrt_mbtowc.c)
+ *     write_char_2 @ 0x18009DF5C (write_char_2.c)
+ *     write_string_2 @ 0x18009DFAC (write_string_2.c)
  */
 
 __int64 __fastcall woutput_s(__int64 a1, const char *a2, int *a3)
@@ -20,15 +20,15 @@ __int64 __fastcall woutput_s(__int64 a1, const char *a2, int *a3)
   unsigned __int16 v9; // r9
   int v10; // r14d
   __int64 v11; // r12
-  char *v12; // rbx
+  WCHAR *v12; // rbx
   const char *v13; // r8
   int v14; // edx
   unsigned __int64 v15; // r10
   __int64 v16; // rax
-  char *v17; // rax
+  unsigned __int16 *v17; // rax
   int v18; // ecx
   const char *v19; // rax
-  unsigned __int16 v20; // ax
+  WCHAR v20; // ax
   int v21; // eax
   const wchar_t *v22; // rax
   const wchar_t *j; // r12
@@ -48,7 +48,7 @@ __int64 __fastcall woutput_s(__int64 a1, const char *a2, int *a3)
   __int64 v37; // rdx
   int v38; // r11d
   int v39; // r10d
-  char *v40; // r15
+  UCHAR *v40; // r15
   int v41; // r14d
   int v42; // eax
   __int64 v43; // r11
@@ -64,15 +64,15 @@ __int64 __fastcall woutput_s(__int64 a1, const char *a2, int *a3)
   int v54; // [rsp+38h] [rbp-C8h]
   int v55; // [rsp+3Ch] [rbp-C4h]
   int v56; // [rsp+40h] [rbp-C0h]
-  char v57[4]; // [rsp+44h] [rbp-BCh] BYREF
-  unsigned __int16 v58[2]; // [rsp+48h] [rbp-B8h] BYREF
+  UCHAR v57[4]; // [rsp+44h] [rbp-BCh] BYREF
+  WCHAR v58[2]; // [rsp+48h] [rbp-B8h] BYREF
   _WORD v59[2]; // [rsp+4Ch] [rbp-B4h] BYREF
   int v60; // [rsp+50h] [rbp-B0h]
   __int64 v61; // [rsp+58h] [rbp-A8h]
   int v62; // [rsp+60h] [rbp-A0h]
   int v63; // [rsp+64h] [rbp-9Ch]
   const char *v64; // [rsp+68h] [rbp-98h]
-  _WORD v65[72]; // [rsp+70h] [rbp-90h] BYREF
+  WCHAR v65[72]; // [rsp+70h] [rbp-90h] BYREF
   __int64 v66; // [rsp+100h] [rbp+0h] BYREF
   char v67; // [rsp+26Fh] [rbp+16Fh] BYREF
 
@@ -96,7 +96,7 @@ __int64 __fastcall woutput_s(__int64 a1, const char *a2, int *a3)
   LODWORD(v11) = 0;
   if ( !v9 )
     return (unsigned int)v10;
-  v12 = (char *)v64;
+  v12 = (WCHAR *)v64;
   do
   {
     v13 = v5;
@@ -338,13 +338,13 @@ LABEL_28:
             }
             v55 = v7;
             LODWORD(v11) = (unsigned int)&v66 + 367 - (_DWORD)v25;
-            v12 = v25 + 1;
+            v12 = (WCHAR *)(v25 + 1);
             v8 = v28;
             if ( (v6 & 0x200) != 0 )
             {
-              if ( !(_DWORD)v11 || (v54 = v28, *v12 != 48) )
+              if ( !(_DWORD)v11 || (v54 = v28, *(_BYTE *)v12 != 48) )
               {
-                v12 = v30;
+                v12 = (WCHAR *)v30;
                 *v30 = 48;
                 LODWORD(v11) = v11 + 1;
                 v54 = v28;
@@ -370,18 +370,18 @@ LABEL_28:
             {
               if ( v9 == 90 )
               {
-                v17 = *(char **)a3;
+                v17 = *(unsigned __int16 **)a3;
                 a3 += 2;
-                if ( v17 && (v12 = (char *)*((_QWORD *)v17 + 1)) != 0LL )
+                if ( v17 && (v12 = (WCHAR *)*((_QWORD *)v17 + 1)) != 0LL )
                 {
-                  if ( *((_WORD *)v17 + 1) < *(_WORD *)v17 )
+                  if ( v17[1] < *v17 )
                     goto LABEL_195;
-                  LODWORD(v11) = *(unsigned __int16 *)v17;
+                  LODWORD(v11) = *v17;
                   if ( (v6 & 0x800) != 0 )
                   {
                     if ( (v11 & 1) != 0 || ((unsigned __int8)v12 & 1) != 0 )
                       goto LABEL_195;
-                    LODWORD(v11) = *(unsigned __int16 *)v17 >> 1;
+                    LODWORD(v11) = *v17 >> 1;
                     v56 = 1;
                   }
                   else
@@ -391,7 +391,7 @@ LABEL_28:
                 }
                 else
                 {
-                  v12 = "(null)";
+                  v12 = (WCHAR *)"(null)";
                   LODWORD(v11) = 6;
                 }
                 goto LABEL_105;
@@ -449,7 +449,7 @@ LABEL_113:
                   }
                   if ( v56 == v38 && (int)v11 > 0 )
                   {
-                    v40 = v12;
+                    v40 = (UCHAR *)v12;
                     v41 = v11;
                     while ( 1 )
                     {
@@ -509,7 +509,7 @@ LABEL_53:
               {
                 v65[0] = v20;
               }
-              v12 = (char *)v65;
+              v12 = v65;
               LODWORD(v11) = 1;
               goto LABEL_105;
             }
@@ -529,17 +529,17 @@ LABEL_74:
           if ( (v6 & 0x830) == 0 )
             v6 |= 0x20u;
         }
-        v12 = *(char **)a3;
+        v12 = *(WCHAR **)a3;
         v18 = v7;
         if ( v7 == -1 )
           v18 = 0x7FFFFFFF;
         a3 += 2;
         if ( (v6 & 0x20) != 0 )
         {
-          v19 = v12;
+          v19 = (const char *)v12;
           if ( !v12 )
           {
-            v12 = "(null)";
+            v12 = (WCHAR *)"(null)";
             v19 = "(null)";
           }
           LODWORD(v11) = 0;
@@ -560,8 +560,8 @@ LABEL_74:
           v56 = 1;
           v22 = L"(null)";
           if ( v12 )
-            v22 = (const wchar_t *)v12;
-          v12 = (char *)v22;
+            v22 = v12;
+          v12 = (WCHAR *)v22;
           for ( j = v22; v18; ++j )
           {
             --v18;

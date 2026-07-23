@@ -1,30 +1,30 @@
 /*
- * XREFs of MiGatherPagefilePages @ 0x140119444
+ * XREFs of MiGatherPagefilePages @ 0x1401199B4
  * Callers:
- *     MiModifiedPageWriter @ 0x140142508 (MiModifiedPageWriter.c)
+ *     MiModifiedPageWriter @ 0x140142A78 (MiModifiedPageWriter.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140012750 (KeReleaseInStackQueuedSpinLock.c)
- *     KiLeaveGuardedRegionUnsafe @ 0x140013B70 (KiLeaveGuardedRegionUnsafe.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14001BD40 (KeAcquireInStackQueuedSpinLock.c)
- *     MiLockPageInline @ 0x140022E70 (MiLockPageInline.c)
- *     MiWriteCompletePfn @ 0x14004E5A0 (MiWriteCompletePfn.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     IoAsynchronousPageWrite @ 0x14008DEA4 (IoAsynchronousPageWrite.c)
- *     MiWriteComplete @ 0x14008E9E0 (MiWriteComplete.c)
- *     MiReleaseWriteInProgressCharges @ 0x14008EF9C (MiReleaseWriteInProgressCharges.c)
- *     MiPageFileLargestBitmapsRun @ 0x1400B6548 (MiPageFileLargestBitmapsRun.c)
- *     MiInvalidatePageFileBitmapsCache @ 0x1400B6934 (MiInvalidatePageFileBitmapsCache.c)
- *     KeDelayExecutionThread @ 0x1400D0580 (KeDelayExecutionThread.c)
- *     MiSetPageFileAllocationBits @ 0x1401118C8 (MiSetPageFileAllocationBits.c)
- *     MiBuildReservationCluster @ 0x14011603C (MiBuildReservationCluster.c)
- *     MiMapPageFileHash @ 0x140116930 (MiMapPageFileHash.c)
- *     MI_PAGEFILE_WRITE @ 0x140116DD4 (MI_PAGEFILE_WRITE.c)
- *     MiStoreWriteModifiedPages @ 0x140118960 (MiStoreWriteModifiedPages.c)
- *     MiUpdatePfnBackingStore @ 0x140119AD8 (MiUpdatePfnBackingStore.c)
- *     MiUpdatePagefilePeakUsage @ 0x140119B84 (MiUpdatePagefilePeakUsage.c)
- *     MiFillNoReservationCluster @ 0x140123700 (MiFillNoReservationCluster.c)
- *     MiFindPageFileWriteCluster @ 0x140125A40 (MiFindPageFileWriteCluster.c)
- *     MiPageFileNoFreeSpace @ 0x1401EEBBC (MiPageFileNoFreeSpace.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x1400122D0 (KeReleaseInStackQueuedSpinLock.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1400136F0 (KiLeaveGuardedRegionUnsafe.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14001B8C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     MiLockPageInline @ 0x1400229F0 (MiLockPageInline.c)
+ *     MiWriteCompletePfn @ 0x14004E120 (MiWriteCompletePfn.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     IoAsynchronousPageWrite @ 0x14008D604 (IoAsynchronousPageWrite.c)
+ *     MiWriteComplete @ 0x14008E140 (MiWriteComplete.c)
+ *     MiReleaseWriteInProgressCharges @ 0x14008E6FC (MiReleaseWriteInProgressCharges.c)
+ *     MiPageFileLargestBitmapsRun @ 0x1400B4370 (MiPageFileLargestBitmapsRun.c)
+ *     MiInvalidatePageFileBitmapsCache @ 0x1400B475C (MiInvalidatePageFileBitmapsCache.c)
+ *     KeDelayExecutionThread @ 0x1400CE420 (KeDelayExecutionThread.c)
+ *     MiSetPageFileAllocationBits @ 0x140111E2C (MiSetPageFileAllocationBits.c)
+ *     MiBuildReservationCluster @ 0x1401165AC (MiBuildReservationCluster.c)
+ *     MiMapPageFileHash @ 0x140116EA0 (MiMapPageFileHash.c)
+ *     MI_PAGEFILE_WRITE @ 0x140117344 (MI_PAGEFILE_WRITE.c)
+ *     MiStoreWriteModifiedPages @ 0x140118ED0 (MiStoreWriteModifiedPages.c)
+ *     MiUpdatePfnBackingStore @ 0x14011A048 (MiUpdatePfnBackingStore.c)
+ *     MiUpdatePagefilePeakUsage @ 0x14011A0F4 (MiUpdatePagefilePeakUsage.c)
+ *     MiFillNoReservationCluster @ 0x140123C70 (MiFillNoReservationCluster.c)
+ *     MiFindPageFileWriteCluster @ 0x140125FB0 (MiFindPageFileWriteCluster.c)
+ *     MiPageFileNoFreeSpace @ 0x1401EE9E8 (MiPageFileNoFreeSpace.c)
  */
 
 __int64 __fastcall MiGatherPagefilePages(__int64 a1)
@@ -239,7 +239,7 @@ LABEL_22:
         v24 = v21;
         do
         {
-          if ( *v22 != qword_140327688
+          if ( *v22 != qword_1403276C8
             || (v22 = v54, _bittest64(*(const signed __int64 **)(*(_QWORD *)(v1 + 112) + 32LL), v23)) )
           {
             if ( v19 != -1 )
@@ -305,7 +305,7 @@ LABEL_22:
     v52 = v16;
     do
     {
-      if ( *v29 != qword_140327688 )
+      if ( *v29 != qword_1403276C8 )
       {
         MiUpdatePfnBackingStore(48 * *v29 - 0x58000000000LL, v1, v16, 0LL);
         v28 = v65;

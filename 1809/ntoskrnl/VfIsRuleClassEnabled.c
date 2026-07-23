@@ -1,5 +1,5 @@
 /*
- * XREFs of VfIsRuleClassEnabled @ 0x140925CF0
+ * XREFs of VfIsRuleClassEnabled @ 0x140926CF0
  * Callers:
  *     <none>
  * Callees:

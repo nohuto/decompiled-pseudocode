@@ -1,47 +1,47 @@
 /*
- * XREFs of MiReserveUserMemory @ 0x1406EA4D0
+ * XREFs of MiReserveUserMemory @ 0x1407018B0
  * Callers:
- *     MiAllocateVirtualMemory @ 0x1405F8650 (MiAllocateVirtualMemory.c)
+ *     MiAllocateVirtualMemory @ 0x1406E7DB0 (MiAllocateVirtualMemory.c)
  * Callees:
- *     MiGetProcessPartition @ 0x14021AD40 (MiGetProcessPartition.c)
- *     MiUnlockAndDereferenceVad @ 0x14021AF80 (MiUnlockAndDereferenceVad.c)
- *     MiDeleteVad @ 0x14021BFF0 (MiDeleteVad.c)
- *     UNLOCK_ADDRESS_SPACE_UNORDERED @ 0x14025AE28 (UNLOCK_ADDRESS_SPACE_UNORDERED.c)
- *     MiIsProcessCfgEnabled @ 0x14025B020 (MiIsProcessCfgEnabled.c)
- *     MiReferenceVad @ 0x14025B390 (MiReferenceVad.c)
- *     MmGetCurrentProcessorColor @ 0x14029C1F0 (MmGetCurrentProcessorColor.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     MiUnlockVad @ 0x140314658 (MiUnlockVad.c)
- *     UNLOCK_ADDRESS_SPACE @ 0x140314860 (UNLOCK_ADDRESS_SPACE.c)
- *     LOCK_ADDRESS_SPACE @ 0x14031528C (LOCK_ADDRESS_SPACE.c)
- *     MiLockVad @ 0x140316758 (MiLockVad.c)
- *     MiInsertPrivateVad @ 0x140316D84 (MiInsertPrivateVad.c)
- *     ExAllocatePoolMm @ 0x14033B3B0 (ExAllocatePoolMm.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     MiFindPlaceholderVadToReplace @ 0x1405551F4 (MiFindPlaceholderVadToReplace.c)
- *     MiUnlockAndDereferenceNestedVad @ 0x14055BDD0 (MiUnlockAndDereferenceNestedVad.c)
- *     MiMapUserLargePages @ 0x14055E730 (MiMapUserLargePages.c)
- *     MiSelectUserAddress @ 0x1405FA9A0 (MiSelectUserAddress.c)
- *     MiCommitVadCfgBits @ 0x14061BCBC (MiCommitVadCfgBits.c)
- *     MiIsVaRangeAvailable @ 0x14061DBD8 (MiIsVaRangeAvailable.c)
- *     MiSecureVad @ 0x14061F6B0 (MiSecureVad.c)
- *     MiAddSecureEntry @ 0x14061F7C0 (MiAddSecureEntry.c)
- *     SeSinglePrivilegeCheck @ 0x140627640 (SeSinglePrivilegeCheck.c)
- *     MiArbitraryCodeBlocked @ 0x140629364 (MiArbitraryCodeBlocked.c)
- *     MiCreateWriteWatchView @ 0x14069F46C (MiCreateWriteWatchView.c)
- *     MiCreateRotateView @ 0x1406BD8A0 (MiCreateRotateView.c)
- *     MiInsertVadCharges @ 0x1406ECC70 (MiInsertVadCharges.c)
- *     MiAdvanceVadHint @ 0x1406ECF60 (MiAdvanceVadHint.c)
- *     MiReleaseVadEventBlocks @ 0x1406ED390 (MiReleaseVadEventBlocks.c)
- *     MiLogReserveVaFailed @ 0x1408C6C54 (MiLogReserveVaFailed.c)
- *     MiStoreGraphicsProtectionInVad @ 0x1408C6E54 (MiStoreGraphicsProtectionInVad.c)
- *     MiCreateUserPhysicalView @ 0x1408D5BA8 (MiCreateUserPhysicalView.c)
- *     MiCreatePlaceholderStorage @ 0x1408D82D8 (MiCreatePlaceholderStorage.c)
- *     MiFinishPlaceholderVadReplacement @ 0x1408D8388 (MiFinishPlaceholderVadReplacement.c)
- *     MiPreparePlaceholderVadReplacement @ 0x1408D84B0 (MiPreparePlaceholderVadReplacement.c)
- *     MiCreateLargePageVad @ 0x1408D9F64 (MiCreateLargePageVad.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     MmGetCurrentProcessorColor @ 0x140214350 (MmGetCurrentProcessorColor.c)
+ *     UNLOCK_ADDRESS_SPACE_UNORDERED @ 0x14027C398 (UNLOCK_ADDRESS_SPACE_UNORDERED.c)
+ *     MiIsProcessCfgEnabled @ 0x14027C590 (MiIsProcessCfgEnabled.c)
+ *     MiReferenceVad @ 0x14027C900 (MiReferenceVad.c)
+ *     MiGetProcessPartition @ 0x1402BF640 (MiGetProcessPartition.c)
+ *     MiUnlockAndDereferenceVad @ 0x1402BF880 (MiUnlockAndDereferenceVad.c)
+ *     MiDeleteVad @ 0x1402C08F0 (MiDeleteVad.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     MiUnlockVad @ 0x14031F3A8 (MiUnlockVad.c)
+ *     UNLOCK_ADDRESS_SPACE @ 0x14031F5B0 (UNLOCK_ADDRESS_SPACE.c)
+ *     LOCK_ADDRESS_SPACE @ 0x14031FFDC (LOCK_ADDRESS_SPACE.c)
+ *     MiLockVad @ 0x1403214A8 (MiLockVad.c)
+ *     MiInsertPrivateVad @ 0x140321AD4 (MiInsertPrivateVad.c)
+ *     ExAllocatePoolMm @ 0x140346100 (ExAllocatePoolMm.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     MiFindPlaceholderVadToReplace @ 0x140555434 (MiFindPlaceholderVadToReplace.c)
+ *     MiUnlockAndDereferenceNestedVad @ 0x14055C010 (MiUnlockAndDereferenceNestedVad.c)
+ *     MiMapUserLargePages @ 0x14055E970 (MiMapUserLargePages.c)
+ *     MiCreateWriteWatchView @ 0x1405FE7B0 (MiCreateWriteWatchView.c)
+ *     MiCreateRotateView @ 0x14061CAB0 (MiCreateRotateView.c)
+ *     MiCommitVadCfgBits @ 0x14068592C (MiCommitVadCfgBits.c)
+ *     MiIsVaRangeAvailable @ 0x140687848 (MiIsVaRangeAvailable.c)
+ *     MiSecureVad @ 0x140689320 (MiSecureVad.c)
+ *     MiAddSecureEntry @ 0x140689430 (MiAddSecureEntry.c)
+ *     MiArbitraryCodeBlocked @ 0x1406907CC (MiArbitraryCodeBlocked.c)
+ *     SeSinglePrivilegeCheck @ 0x140693750 (SeSinglePrivilegeCheck.c)
+ *     MiSelectUserAddress @ 0x1406EA100 (MiSelectUserAddress.c)
+ *     MiInsertVadCharges @ 0x140704050 (MiInsertVadCharges.c)
+ *     MiAdvanceVadHint @ 0x140704340 (MiAdvanceVadHint.c)
+ *     MiReleaseVadEventBlocks @ 0x140704770 (MiReleaseVadEventBlocks.c)
+ *     MiLogReserveVaFailed @ 0x1408C6DB4 (MiLogReserveVaFailed.c)
+ *     MiStoreGraphicsProtectionInVad @ 0x1408C6FB4 (MiStoreGraphicsProtectionInVad.c)
+ *     MiCreateUserPhysicalView @ 0x1408D5D08 (MiCreateUserPhysicalView.c)
+ *     MiCreatePlaceholderStorage @ 0x1408D8438 (MiCreatePlaceholderStorage.c)
+ *     MiFinishPlaceholderVadReplacement @ 0x1408D84E8 (MiFinishPlaceholderVadReplacement.c)
+ *     MiPreparePlaceholderVadReplacement @ 0x1408D8610 (MiPreparePlaceholderVadReplacement.c)
+ *     MiCreateLargePageVad @ 0x1408DA0C4 (MiCreateLargePageVad.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiReserveUserMemory(
@@ -87,7 +87,7 @@ __int64 __fastcall MiReserveUserMemory(
   __int64 result; // rax
   int v40; // ebx
   int v41; // eax
-  __int64 v42; // r10
+  unsigned __int64 v42; // r10
   int v43; // r9d
   __int64 v44; // rcx
   unsigned int v45; // eax
@@ -105,9 +105,11 @@ __int64 __fastcall MiReserveUserMemory(
   __int64 v57; // [rsp+78h] [rbp-50h] BYREF
   unsigned __int64 v58; // [rsp+80h] [rbp-48h]
   ULONG_PTR BugCheckParameter2; // [rsp+88h] [rbp-40h]
+  char v61; // [rsp+E0h] [rbp+18h]
   char v62; // [rsp+E8h] [rbp+20h] BYREF
 
   v62 = a4;
+  v61 = a3;
   v6 = 0;
   v7 = a3;
   UserPhysicalView = 0;
@@ -245,7 +247,7 @@ LABEL_21:
             goto LABEL_76;
           *(_DWORD *)(v15 + 48) |= 0x200000u;
           v24 = *(_DWORD *)(v15 + 48);
-          v7 = a3;
+          LOBYTE(v7) = v61;
         }
         if ( (a1[15] & 1) != 0 )
         {
@@ -264,7 +266,7 @@ LABEL_24:
                 v32 = UserPhysicalView;
                 if ( UserPhysicalView < 0 )
                   goto LABEL_73;
-                v7 = a3;
+                LOBYTE(v7) = v61;
                 LODWORD(v8) = v10 | 8;
               }
               v27 = (__int64)v53;
@@ -340,7 +342,7 @@ LABEL_29:
                     MiInsertPrivateVad(v15, a1[11]);
                     if ( v28 )
                       MiAdvanceVadHint(v58, v34);
-                    if ( (a3 & 2) != 0 && MiIsProcessCfgEnabled() )
+                    if ( (v61 & 2) != 0 && MiIsProcessCfgEnabled() )
                       LOBYTE(v8) = 2;
                     v36 = (unsigned __int8)v8 & 2;
                     if ( !v36 )
@@ -408,7 +410,7 @@ LABEL_145:
                       {
                         v44 = v57;
 LABEL_67:
-                        *(_QWORD *)a1[10] = qword_140C4DE50 ^ a1[11] ^ v44;
+                        *(_QWORD *)a1[10] = qword_140C4DE90 ^ a1[11] ^ v44;
                         goto LABEL_56;
                       }
                     }
@@ -497,7 +499,7 @@ LABEL_77:
       goto LABEL_76;
     if ( a2 )
       *a6 = *(_WORD *)*a2;
-    v7 = a3;
+    LOBYTE(v7) = v61;
     if ( (a1[15] & 0x1A) != 0 )
       *(_DWORD *)(v15 + 48) |= 0x400000u;
     goto LABEL_21;

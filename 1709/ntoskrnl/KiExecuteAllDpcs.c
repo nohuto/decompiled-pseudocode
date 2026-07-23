@@ -41,7 +41,7 @@ __int64 __fastcall KiExecuteAllDpcs(__int64 a1, __int64 a2, _DWORD *a3, unsigned
   unsigned __int64 v24; // rax
   unsigned int v25; // edx
   bool v26; // zf
-  __int64 v27; // rcx
+  unsigned int v27; // ecx
   __int64 v28; // r8
   unsigned __int64 v29; // rax
   unsigned int v30; // r14d
@@ -54,13 +54,13 @@ __int64 __fastcall KiExecuteAllDpcs(__int64 a1, __int64 a2, _DWORD *a3, unsigned
   unsigned int v37; // r8d
   __int16 v38; // ax
   LARGE_INTEGER PerformanceCounter; // rax
-  __int64 SystemTimePrecise; // rax
+  LARGE_INTEGER SystemTimePrecise; // rax
   size_t v41; // r8
   __int64 v43; // [rsp+50h] [rbp-B8h]
   ULONG_PTR BugCheckParameter2; // [rsp+58h] [rbp-B0h] BYREF
   int v45; // [rsp+60h] [rbp-A8h] BYREF
   int v46; // [rsp+64h] [rbp-A4h]
-  int v47; // [rsp+68h] [rbp-A0h]
+  unsigned int v47; // [rsp+68h] [rbp-A0h]
   unsigned int v48; // [rsp+6Ch] [rbp-9Ch]
   __int64 v49; // [rsp+70h] [rbp-98h]
   int *v50; // [rsp+78h] [rbp-90h]
@@ -69,7 +69,7 @@ __int64 __fastcall KiExecuteAllDpcs(__int64 a1, __int64 a2, _DWORD *a3, unsigned
   ULONG_PTR v53; // [rsp+90h] [rbp-78h] BYREF
   __int64 v54; // [rsp+98h] [rbp-70h] BYREF
   LARGE_INTEGER v55; // [rsp+A0h] [rbp-68h]
-  __int64 v56; // [rsp+A8h] [rbp-60h]
+  LARGE_INTEGER v56; // [rsp+A8h] [rbp-60h]
   unsigned __int64 v57; // [rsp+B0h] [rbp-58h]
   _QWORD v58[2]; // [rsp+B8h] [rbp-50h] BYREF
   _QWORD v59[4]; // [rsp+C8h] [rbp-40h] BYREF
@@ -166,17 +166,17 @@ LABEL_56:
     if ( v11 )
     {
       v25 = *(_DWORD *)(EtwpHostSiloState + 4172);
-      v26 = !_BitScanForward((unsigned int *)&v27, v25);
+      v26 = !_BitScanForward(&v27, v25);
       v47 = v27;
       if ( !v26 )
       {
         do
         {
           v25 &= v25 - 1;
-          v28 = 32LL * (unsigned int)v27 + EtwpHostSiloState + 4208;
+          v28 = 32LL * v27 + EtwpHostSiloState + 4208;
           if ( v28 && (*(_DWORD *)(v28 + 4) & 0x80u) != 0 )
-            v10 |= 1 << *(_BYTE *)(EtwpHostSiloState + 2LL * (unsigned int)v27 + 4157);
-          v26 = !_BitScanForward((unsigned int *)&v27, v25);
+            v10 |= 1 << *(_BYTE *)(EtwpHostSiloState + 2LL * v27 + 4157);
+          v26 = !_BitScanForward(&v27, v25);
         }
         while ( !v26 );
         v47 = v27;
@@ -196,7 +196,7 @@ LABEL_56:
       }
       if ( (v10 & 4) != 0 )
       {
-        SystemTimePrecise = RtlGetSystemTimePrecise(v27);
+        SystemTimePrecise = RtlGetSystemTimePrecise();
         v4 = a4;
         v18 = v43;
         v56 = SystemTimePrecise;
@@ -204,7 +204,7 @@ LABEL_56:
       }
       else
       {
-        v56 = 0LL;
+        v56.QuadPart = 0LL;
       }
       if ( (v10 & 8) != 0 )
         v29 = __rdtsc();

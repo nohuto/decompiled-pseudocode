@@ -1,11 +1,11 @@
 /*
- * XREFs of PiSwInstanceInfoInit @ 0x1409F9350
+ * XREFs of PiSwInstanceInfoInit @ 0x1409F1CC0
  * Callers:
- *     PiSwIrpStartCreateWorker @ 0x1409F8A64 (PiSwIrpStartCreateWorker.c)
+ *     PiSwIrpStartCreateWorker @ 0x1409F13D4 (PiSwIrpStartCreateWorker.c)
  * Callees:
- *     PnpAllocatePWSTR @ 0x1408D3DA4 (PnpAllocatePWSTR.c)
- *     PnpConcatPWSTR @ 0x14090A620 (PnpConcatPWSTR.c)
- *     PiSwInstanceInfoFree @ 0x1409FA424 (PiSwInstanceInfoFree.c)
+ *     PnpAllocatePWSTR @ 0x1408D1794 (PnpAllocatePWSTR.c)
+ *     PnpConcatPWSTR @ 0x1408E1D40 (PnpConcatPWSTR.c)
+ *     PiSwInstanceInfoFree @ 0x1409F2D94 (PiSwInstanceInfoFree.c)
  */
 
 __int64 __fastcall PiSwInstanceInfoInit(PVOID *a1, __int64 a2)

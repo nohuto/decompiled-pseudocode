@@ -1,13 +1,13 @@
 /*
- * XREFs of MiDereferenceControlAreaProbe @ 0x140094CEC
+ * XREFs of MiDereferenceControlAreaProbe @ 0x140094C2C
  * Callers:
  *     MmUnlockPages @ 0x140033580 (MmUnlockPages.c)
- *     MiPrivateFixup @ 0x140125E40 (MiPrivateFixup.c)
- *     MiMakeImagePageOk @ 0x1402C45FC (MiMakeImagePageOk.c)
- *     MiSegmentDelete @ 0x14061E928 (MiSegmentDelete.c)
+ *     MiPrivateFixup @ 0x140125F10 (MiPrivateFixup.c)
+ *     MiMakeImagePageOk @ 0x1402C47EC (MiMakeImagePageOk.c)
+ *     MiSegmentDelete @ 0x14061F928 (MiSegmentDelete.c)
  * Callees:
- *     MiDeleteControlArea @ 0x140094D1C (MiDeleteControlArea.c)
- *     MiQueueControlAreaDelete @ 0x1402A2F68 (MiQueueControlAreaDelete.c)
+ *     MiDeleteControlArea @ 0x140094C5C (MiDeleteControlArea.c)
+ *     MiQueueControlAreaDelete @ 0x1402A3158 (MiQueueControlAreaDelete.c)
  */
 
 __int64 __fastcall MiDereferenceControlAreaProbe(volatile signed __int64 *a1, int a2)

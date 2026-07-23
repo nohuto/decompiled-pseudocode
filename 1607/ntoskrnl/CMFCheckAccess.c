@@ -1,20 +1,20 @@
 /*
- * XREFs of CMFCheckAccess @ 0x1406B8680
+ * XREFs of CMFCheckAccess @ 0x1406B87B8
  * Callers:
- *     NtMapCMFModule @ 0x1404D014C (NtMapCMFModule.c)
+ *     NtMapCMFModule @ 0x1404B3BEC (NtMapCMFModule.c)
  * Callees:
- *     SeAccessCheck @ 0x140062B10 (SeAccessCheck.c)
- *     MiDeleteSubsection @ 0x140087410 (MiDeleteSubsection.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     SeAccessCheck @ 0x140062690 (SeAccessCheck.c)
+ *     MiDeleteSubsection @ 0x1400A6E14 (MiDeleteSubsection.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     RtlMapGenericMask @ 0x140400910 (RtlMapGenericMask.c)
- *     SeDeleteAccessState @ 0x140405E08 (SeDeleteAccessState.c)
- *     SeCreateAccessState @ 0x1404063B0 (SeCreateAccessState.c)
- *     SePrivilegeCheck @ 0x140415490 (SePrivilegeCheck.c)
- *     SeLockSubjectContext @ 0x14044DBB0 (SeLockSubjectContext.c)
- *     SeUnlockSubjectContext @ 0x14044DC10 (SeUnlockSubjectContext.c)
- *     SeAppendPrivileges @ 0x1404C0F9C (SeAppendPrivileges.c)
- *     CMFCreateSecurityDescriptor @ 0x1406B889C (CMFCreateSecurityDescriptor.c)
+ *     RtlMapGenericMask @ 0x1403FF7D0 (RtlMapGenericMask.c)
+ *     SeDeleteAccessState @ 0x140404CC8 (SeDeleteAccessState.c)
+ *     SeCreateAccessState @ 0x140405270 (SeCreateAccessState.c)
+ *     SePrivilegeCheck @ 0x140414350 (SePrivilegeCheck.c)
+ *     SeLockSubjectContext @ 0x14044CA80 (SeLockSubjectContext.c)
+ *     SeUnlockSubjectContext @ 0x14044CAE0 (SeUnlockSubjectContext.c)
+ *     SeAppendPrivileges @ 0x1404ACCCC (SeAppendPrivileges.c)
+ *     CMFCreateSecurityDescriptor @ 0x1406B89D4 (CMFCreateSecurityDescriptor.c)
  */
 
 __int64 __fastcall CMFCheckAccess(__int64 a1, ACCESS_MASK a2, KPROCESSOR_MODE a3)

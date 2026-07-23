@@ -1,8 +1,8 @@
 /*
- * XREFs of IopSetFileObjectExtensionFlag @ 0x14008BD58
+ * XREFs of IopSetFileObjectExtensionFlag @ 0x14008BD48
  * Callers:
- *     IopCheckInitiatorHint @ 0x1400A39EC (IopCheckInitiatorHint.c)
- *     IopParseDevice @ 0x14063CCE0 (IopParseDevice.c)
+ *     IopCheckInitiatorHint @ 0x1400A392C (IopCheckInitiatorHint.c)
+ *     IopParseDevice @ 0x14063DD00 (IopParseDevice.c)
  * Callees:
  *     IopAllocateFileObjectExtension @ 0x140062920 (IopAllocateFileObjectExtension.c)
  */

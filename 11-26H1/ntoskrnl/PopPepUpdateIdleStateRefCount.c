@@ -1,23 +1,23 @@
 /*
- * XREFs of PopPepUpdateIdleStateRefCount @ 0x1403B2278
+ * XREFs of PopPepUpdateIdleStateRefCount @ 0x1403BBF88
  * Callers:
- *     PopPepCompleteComponentIdleStateChangeActivity @ 0x1403B20A0 (PopPepCompleteComponentIdleStateChangeActivity.c)
- *     PopPepStartComponentIdleStateChangeActivity @ 0x1403B3140 (PopPepStartComponentIdleStateChangeActivity.c)
- *     PopPepDeviceDState @ 0x1403B34B4 (PopPepDeviceDState.c)
- *     PopPepInitializeVetoMasks @ 0x1404E1A2C (PopPepInitializeVetoMasks.c)
- *     PopPepUpdateDripsDeviceVetoMask @ 0x1404E21D8 (PopPepUpdateDripsDeviceVetoMask.c)
- *     PopPepClearDripsDeviceVetoMask @ 0x140611444 (PopPepClearDripsDeviceVetoMask.c)
- *     PopPepPlatformStateRegistered @ 0x140611864 (PopPepPlatformStateRegistered.c)
- *     PopPepUnregisterDevice @ 0x140B06800 (PopPepUnregisterDevice.c)
+ *     PopPepCompleteComponentIdleStateChangeActivity @ 0x1403BBDB0 (PopPepCompleteComponentIdleStateChangeActivity.c)
+ *     PopPepStartComponentIdleStateChangeActivity @ 0x1403BCE50 (PopPepStartComponentIdleStateChangeActivity.c)
+ *     PopPepDeviceDState @ 0x1403BD1C4 (PopPepDeviceDState.c)
+ *     PopPepInitializeVetoMasks @ 0x1404DB10C (PopPepInitializeVetoMasks.c)
+ *     PopPepUpdateDripsDeviceVetoMask @ 0x1404DB8B8 (PopPepUpdateDripsDeviceVetoMask.c)
+ *     PopPepClearDripsDeviceVetoMask @ 0x140614284 (PopPepClearDripsDeviceVetoMask.c)
+ *     PopPepPlatformStateRegistered @ 0x1406146A4 (PopPepPlatformStateRegistered.c)
+ *     PopPepUnregisterDevice @ 0x140B08930 (PopPepUnregisterDevice.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     PopFxBugCheck @ 0x1403B0E54 (PopFxBugCheck.c)
- *     PopFxPlatformStateAvailable @ 0x14042C75C (PopFxPlatformStateAvailable.c)
- *     PopDiagTraceFxVetoMaskUpdate @ 0x14050AF24 (PopDiagTraceFxVetoMaskUpdate.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     PopFxBugCheck @ 0x1403BAB64 (PopFxBugCheck.c)
+ *     PopFxPlatformStateAvailable @ 0x140420E2C (PopFxPlatformStateAvailable.c)
+ *     PopDiagTraceFxVetoMaskUpdate @ 0x140504994 (PopDiagTraceFxVetoMaskUpdate.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall PopPepUpdateIdleStateRefCount(int a1, int a2, int a3, __int64 a4, unsigned int a5)

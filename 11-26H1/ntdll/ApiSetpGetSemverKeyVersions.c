@@ -1,7 +1,7 @@
 /*
- * XREFs of ApiSetpGetSemverKeyVersions @ 0x1801221F8
+ * XREFs of ApiSetpGetSemverKeyVersions @ 0x180121F98
  * Callers:
- *     ApiSetQuerySchemaInfo2_V7 @ 0x180117408 (ApiSetQuerySchemaInfo2_V7.c)
+ *     ApiSetQuerySchemaInfo2_V7 @ 0x180116BE8 (ApiSetQuerySchemaInfo2_V7.c)
  * Callees:
  *     <none>
  */

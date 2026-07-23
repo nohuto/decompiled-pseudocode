@@ -18,7 +18,7 @@ __int64 __fastcall WbGetWarbirdEncryptionSegment(__int64 a1, __int64 a2, __int64
 {
   struct _KTHREAD *CurrentThread; // rax
   signed __int64 *v7; // rbx
-  unsigned __int64 v8; // rdi
+  PRTL_BALANCED_NODE v8; // rdi
   int v9; // edi
   __int64 v10; // rbx
   int v12; // eax
@@ -34,9 +34,9 @@ __int64 __fastcall WbGetWarbirdEncryptionSegment(__int64 a1, __int64 a2, __int64
   v7 = (signed __int64 *)(a1 + 176);
   v8 = KeAbPreAcquire(a1 + 176, 0LL, 0);
   if ( _InterlockedCompareExchange64(v7, 17LL, 0LL) )
-    ExfAcquirePushLockSharedEx(v7, v8, (unsigned __int64)v7);
+    ExfAcquirePushLockSharedEx(v7, (__int64)v8, (ULONG_PTR)v7);
   if ( v8 )
-    *(_BYTE *)(v8 + 26) |= 1u;
+    BYTE2(v8[1].Left) |= 1u;
   v9 = sub_14044A7A8(a1, a2, &v16, &v15);
   if ( _InterlockedCompareExchange64(v7, 0LL, 17LL) != 17 )
     ExfReleasePushLockShared(v7);

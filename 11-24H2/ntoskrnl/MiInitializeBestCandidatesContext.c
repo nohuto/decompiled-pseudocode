@@ -1,10 +1,10 @@
 /*
- * XREFs of MiInitializeBestCandidatesContext @ 0x140414BC4
+ * XREFs of MiInitializeBestCandidatesContext @ 0x1403973B0
  * Callers:
- *     MiAllocateSkipPagesForMdl @ 0x140414774 (MiAllocateSkipPagesForMdl.c)
- *     MiFindLargePageMemory @ 0x140A92A7C (MiFindLargePageMemory.c)
+ *     MiAllocateSkipPagesForMdl @ 0x1403968B8 (MiAllocateSkipPagesForMdl.c)
+ *     MiFindLargePageMemory @ 0x140A8F22C (MiFindLargePageMemory.c)
  * Callees:
- *     MiAllocatePool @ 0x1402ACA70 (MiAllocatePool.c)
+ *     MiAllocatePool @ 0x140277450 (MiAllocatePool.c)
  */
 
 void __fastcall MiInitializeBestCandidatesContext(__int64 *a1, __int64 a2, __int64 a3, unsigned __int64 a4, __int64 a5)
@@ -36,6 +36,6 @@ void __fastcall MiInitializeBestCandidatesContext(__int64 *a1, __int64 a2, __int
     *(_OWORD *)Pool = 0LL;
     *(_QWORD *)(Pool + 16) = 0LL;
     *(_DWORD *)Pool = v5;
-    *(_QWORD *)(Pool + 16) = qword_140E2DBE0 & ~(a3 - 1);
+    *(_QWORD *)(Pool + 16) = qword_140E2DD20 & ~(a3 - 1);
   }
 }

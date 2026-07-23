@@ -1,7 +1,7 @@
 /*
- * XREFs of FsRtlIsEcpFromUserMode @ 0x1404CC2E0
+ * XREFs of FsRtlIsEcpFromUserMode @ 0x1404B1D0C
  * Callers:
- *     IopCreateFile @ 0x14045B980 (IopCreateFile.c)
+ *     IopCreateFile @ 0x14045A850 (IopCreateFile.c)
  * Callees:
  *     <none>
  */

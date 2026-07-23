@@ -1,11 +1,11 @@
 /*
- * XREFs of NtResetEvent @ 0x14065CA40
+ * XREFs of NtResetEvent @ 0x14065DC00
  * Callers:
- *     PfSnPrefetchFileMetadata @ 0x14065CAE4 (PfSnPrefetchFileMetadata.c)
+ *     PfSnPrefetchFileMetadata @ 0x14065DCA4 (PfSnPrefetchFileMetadata.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     KeResetEvent @ 0x1400B8AA0 (KeResetEvent.c)
- *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
+ *     KeResetEvent @ 0x1400B89E0 (KeResetEvent.c)
+ *     ObReferenceObjectByHandle @ 0x1405E9350 (ObReferenceObjectByHandle.c)
  */
 
 NTSTATUS __stdcall NtResetEvent(HANDLE EventHandle, PLONG NumberOfWaitingThreads)

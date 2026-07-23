@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpHpPgSubsegmentWalk @ 0x180158644
+ * XREFs of RtlpHpPgSubsegmentWalk @ 0x180158514
  * Callers:
- *     RtlpHpSegWalk @ 0x180074638 (RtlpHpSegWalk.c)
+ *     RtlpHpSegWalk @ 0x180094C1C (RtlpHpSegWalk.c)
  * Callees:
- *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180170020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x18016F020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
  */
 
 __int64 __fastcall RtlpHpPgSubsegmentWalk(

@@ -23,39 +23,39 @@
  *     <none>
  */
 
-__int64 __fastcall RtlCompareUnicodeStrings(
-        unsigned __int16 *a1,
-        unsigned __int64 a2,
-        __int64 a3,
-        unsigned __int64 a4,
-        char a5)
+LONG __cdecl RtlCompareUnicodeStrings(
+        PCWCH String1,
+        SIZE_T String1Length,
+        PCWCH String2,
+        SIZE_T String2Length,
+        BOOLEAN CaseInSensitive)
 {
-  unsigned __int64 v5; // rax
+  SIZE_T v5; // rax
   int v6; // edi
   int v7; // ebx
-  unsigned __int16 *v8; // r10
-  __int64 v9; // r11
+  const WCHAR *v8; // r10
+  signed __int64 v9; // r11
   unsigned int v10; // r9d
   unsigned int v11; // r8d
-  __int64 v13; // r11
+  signed __int64 v13; // r11
   int v14; // eax
   int v15; // edx
 
-  v5 = a4;
-  v6 = a4;
-  if ( a2 <= a4 )
-    v5 = a2;
-  v7 = a2;
-  v8 = &a1[v5];
-  if ( a5 )
+  v5 = String2Length;
+  v6 = String2Length;
+  if ( String1Length <= String2Length )
+    v5 = String1Length;
+  v7 = String1Length;
+  v8 = &String1[v5];
+  if ( CaseInSensitive )
   {
-    if ( a1 < v8 )
+    if ( String1 < v8 )
     {
-      v9 = a3 - (_QWORD)a1;
+      v9 = (char *)String2 - (char *)String1;
       while ( 1 )
       {
-        v10 = *a1;
-        v11 = *(unsigned __int16 *)((char *)a1 + v9);
+        v10 = *String1;
+        v11 = *(PCWCH)((char *)String1 + v9);
         if ( v10 != v11 )
         {
           if ( v10 >= 0x61 )
@@ -89,24 +89,24 @@ __int64 __fastcall RtlCompareUnicodeStrings(
           if ( v10 != v11 )
             break;
         }
-        if ( ++a1 >= v8 )
-          return (unsigned int)(a2 - v6);
+        if ( ++String1 >= v8 )
+          return String1Length - v6;
       }
       return v10 - v11;
     }
-    return (unsigned int)(a2 - v6);
+    return String1Length - v6;
   }
-  if ( a1 >= v8 )
-    return (unsigned int)(a2 - v6);
-  v13 = a3 - (_QWORD)a1;
+  if ( String1 >= v8 )
+    return String1Length - v6;
+  v13 = (char *)String2 - (char *)String1;
   while ( 1 )
   {
-    v14 = *a1;
-    v15 = *(unsigned __int16 *)((char *)a1 + v13);
+    v14 = *String1;
+    v15 = *(PCWCH)((char *)String1 + v13);
     if ( v14 != v15 )
       break;
-    if ( ++a1 >= v8 )
-      return (unsigned int)(v7 - a4);
+    if ( ++String1 >= v8 )
+      return v7 - String2Length;
   }
-  return (unsigned int)(v14 - v15);
+  return v14 - v15;
 }

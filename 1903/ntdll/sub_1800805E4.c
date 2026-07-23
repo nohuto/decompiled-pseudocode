@@ -20,18 +20,17 @@
 __int64 sub_1800805E4()
 {
   int v0; // ebx
-  void **p_ConsoleHandle; // rdi
+  UNICODE_STRING *p_RedirectionDllName; // rdi
   char v3; // al
   __int64 v4; // rcx
-  __int64 v5; // rcx
-  _BYTE v6[8]; // [rsp+38h] [rbp-49h] BYREF
-  __int64 v7; // [rsp+40h] [rbp-41h] BYREF
-  __int64 v8[15]; // [rsp+48h] [rbp-39h] BYREF
-  char v9; // [rsp+C4h] [rbp+43h]
+  _BYTE v5[8]; // [rsp+38h] [rbp-49h] BYREF
+  __int64 v6; // [rsp+40h] [rbp-41h] BYREF
+  PWSTR Path[15]; // [rsp+48h] [rbp-39h] BYREF
+  char v8; // [rsp+C4h] [rbp+43h]
 
   v0 = 0;
-  p_ConsoleHandle = &NtCurrentPeb()->ProcessParameters[1].ConsoleHandle;
-  if ( *(_WORD *)p_ConsoleHandle )
+  p_RedirectionDllName = &NtCurrentPeb()->ProcessParameters->RedirectionDllName;
+  if ( p_RedirectionDllName->Length )
   {
     if ( (dword_18015FAB0 & 5) != 0 )
       sub_1800CE318(
@@ -40,27 +39,27 @@ __int64 sub_1800805E4()
         (unsigned int)"LdrpInitializeImportRedirection",
         2,
         (__int64)"Loading import redirection DLL: '%wZ'\n",
-        p_ConsoleHandle);
-    sub_180021798(0LL, 0LL, v8);
-    v0 = sub_180022180((__int64)p_ConsoleHandle, (int)v8, 16777217, (__int64)&v7);
-    if ( v9 )
-      RtlReleasePath(v8[0]);
+        p_RedirectionDllName);
+    sub_180021798(0LL, 0LL, (__int64 *)Path);
+    v0 = sub_180022180((__int64)p_RedirectionDllName, (__int64)Path, 16777217, (__int64)&v6);
+    if ( v8 )
+      RtlReleasePath(Path[0]);
     if ( v0 >= 0 )
     {
-      v0 = sub_1800D538C(v7);
+      v0 = sub_1800D538C(v6);
       if ( v0 >= 0 )
       {
         sub_18002E73C(0);
-        sub_18002D7BC(v4);
-        v6[0] = 0;
-        v0 = sub_180069778(*(__int64 **)(v7 + 152), 0LL, v6);
-        sub_18002D75C(v5, 2, v0);
+        sub_18002D7BC();
+        v5[0] = 0;
+        v0 = sub_180069778(*(__int64 **)(v6 + 152), 0LL, v5);
+        sub_18002D75C(v4, 2, v0);
         sub_180073E1C();
         if ( v0 >= 0 )
         {
-          *(_DWORD *)(*(_QWORD *)(v7 + 152) + 24LL) = -1;
-          *(_WORD *)(**(_QWORD **)(v7 + 152) - 52LL) = -1;
-          sub_1800CFD74(v7);
+          *(_DWORD *)(*(_QWORD *)(v6 + 152) + 24LL) = -1;
+          *(_WORD *)(**(_QWORD **)(v6 + 152) - 52LL) = -1;
+          sub_1800CFD74(v6);
           byte_180165268 = 1;
         }
       }

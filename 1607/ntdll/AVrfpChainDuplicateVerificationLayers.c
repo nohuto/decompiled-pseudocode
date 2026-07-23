@@ -1,10 +1,10 @@
 /*
- * XREFs of AVrfpChainDuplicateVerificationLayers @ 0x1800D65D0
+ * XREFs of AVrfpChainDuplicateVerificationLayers @ 0x1800D6690
  * Callers:
- *     AVrfInitializeVerifier @ 0x1800D5F68 (AVrfInitializeVerifier.c)
+ *     AVrfInitializeVerifier @ 0x1800D6028 (AVrfInitializeVerifier.c)
  * Callees:
- *     DbgPrint @ 0x18005C3E0 (DbgPrint.c)
- *     AVrfpFindClosestThunkDuplicate @ 0x1800D6B48 (AVrfpFindClosestThunkDuplicate.c)
+ *     DbgPrint @ 0x18005C3D0 (DbgPrint.c)
+ *     AVrfpFindClosestThunkDuplicate @ 0x1800D6C08 (AVrfpFindClosestThunkDuplicate.c)
  */
 
 __int64 *AVrfpChainDuplicateVerificationLayers()

@@ -22,9 +22,9 @@ LARGE_INTEGER __fastcall MiReloadBootLoadedDrivers(__int64 a1)
   _QWORD *i; // rdi
   __int64 v5; // rcx
   _QWORD *j; // rdi
-  ULONG_PTR v7; // rbp
+  PVOID v7; // rbp
   unsigned __int64 v8; // rsi
-  __int64 v9; // rt1
+  PVOID v9; // rt1
   _QWORD *k; // rdi
   _QWORD *v11; // rdi
   unsigned __int64 v12; // rsi
@@ -44,11 +44,11 @@ LARGE_INTEGER __fastcall MiReloadBootLoadedDrivers(__int64 a1)
   MmReleaseLoadLock(Lock);
   for ( j = *v2; j != v2; j = (_QWORD *)*j )
   {
-    v7 = j[6];
+    v7 = (PVOID)j[6];
     v8 = ((unsigned __int64)*((unsigned int *)j + 16) + 4095) >> 12;
-    v9 = *(_QWORD *)&KeNumberProcessorsGroup0[9];
+    v9 = *(PVOID *)&KeNumberProcessorsGroup0[9];
     if ( v7 != v9 && v7 != PsHalImageBase && !(unsigned int)MI_IS_PHYSICAL_ADDRESS(j[6]) )
-      MiMapKernelScp(v7, v8);
+      MiMapKernelScp((ULONG_PTR)v7, v8);
   }
   if ( (KiSpeculationFeatures & 0x20000000000LL) != 0 )
   {

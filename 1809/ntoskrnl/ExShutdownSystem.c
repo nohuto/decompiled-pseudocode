@@ -1,16 +1,16 @@
 /*
- * XREFs of ExShutdownSystem @ 0x14057E4C0
+ * XREFs of ExShutdownSystem @ 0x14057F4C0
  * Callers:
- *     PopGracefulShutdown @ 0x14057C9C0 (PopGracefulShutdown.c)
+ *     PopGracefulShutdown @ 0x14057D9C0 (PopGracefulShutdown.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     ExReleasePushLockEx @ 0x14004F160 (ExReleasePushLockEx.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     PsGetServerSiloGlobals @ 0x14009238C (PsGetServerSiloGlobals.c)
- *     ExpRecordShutdownTime @ 0x140319928 (ExpRecordShutdownTime.c)
- *     ObCloseHandle @ 0x1405F5700 (ObCloseHandle.c)
- *     ExSwapinWorkerThreads @ 0x1406E031C (ExSwapinWorkerThreads.c)
+ *     PsGetServerSiloGlobals @ 0x1400922CC (PsGetServerSiloGlobals.c)
+ *     ExpRecordShutdownTime @ 0x140319B18 (ExpRecordShutdownTime.c)
+ *     ObCloseHandle @ 0x1405F6700 (ObCloseHandle.c)
+ *     ExSwapinWorkerThreads @ 0x1406E15BC (ExSwapinWorkerThreads.c)
  */
 
 __int64 ExShutdownSystem()
@@ -56,10 +56,10 @@ __int64 ExShutdownSystem()
       ObfDereferenceObject(ExpControlKey);
       ExpControlKey = 0LL;
     }
-    if ( qword_140409A48 )
+    if ( qword_14040AAB8 )
     {
-      ObfDereferenceObject(qword_140409A48);
-      qword_140409A48 = 0LL;
+      ObfDereferenceObject(qword_14040AAB8);
+      qword_14040AAB8 = 0LL;
     }
     if ( ExpProductTypeKey )
     {

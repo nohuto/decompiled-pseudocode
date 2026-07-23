@@ -1,9 +1,9 @@
 /*
- * XREFs of VfCalculateScatterGatherListSize @ 0x140706D20
+ * XREFs of VfCalculateScatterGatherListSize @ 0x140706D50
  * Callers:
  *     <none>
  * Callees:
- *     ViGetRealDmaOperation @ 0x140709924 (ViGetRealDmaOperation.c)
+ *     ViGetRealDmaOperation @ 0x140709954 (ViGetRealDmaOperation.c)
  */
 
 __int64 __fastcall VfCalculateScatterGatherListSize(__int64 a1, __int64 a2, __int64 a3, unsigned int a4)

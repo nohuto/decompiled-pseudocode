@@ -1,29 +1,29 @@
 /*
- * XREFs of MiArePageContentsZero @ 0x1404CA060
+ * XREFs of MiArePageContentsZero @ 0x1404C33B0
  * Callers:
- *     MiDeleteUltraThreadContext @ 0x14020C870 (MiDeleteUltraThreadContext.c)
- *     MiUnlinkFreeOrZeroedPage @ 0x1402213E0 (MiUnlinkFreeOrZeroedPage.c)
- *     MiInsertPageInFreeOrZeroedList @ 0x140222210 (MiInsertPageInFreeOrZeroedList.c)
- *     MiDeleteUltraMapContext @ 0x1402D1B78 (MiDeleteUltraMapContext.c)
- *     MiManageUltraSpacePageTable @ 0x1402D1CC4 (MiManageUltraSpacePageTable.c)
- *     MiCreateSharedZeroPages @ 0x1402EED80 (MiCreateSharedZeroPages.c)
- *     MiSlistGetFreePage @ 0x1402F3B70 (MiSlistGetFreePage.c)
- *     MiGetPage @ 0x1402F41B0 (MiGetPage.c)
- *     MiGetPerfectFreeOrZeroPage @ 0x1402F55E0 (MiGetPerfectFreeOrZeroPage.c)
- *     MiConvertLargeActivePageToChain @ 0x1403083C0 (MiConvertLargeActivePageToChain.c)
- *     MiCreateSystemPageTable @ 0x140395350 (MiCreateSystemPageTable.c)
- *     MiInitializeSystemPageTable @ 0x140395744 (MiInitializeSystemPageTable.c)
- *     MiIdealClusterPage @ 0x1404D205C (MiIdealClusterPage.c)
- *     MiReplenishPageSlist @ 0x1404F40C0 (MiReplenishPageSlist.c)
+ *     MiUnlinkFreeOrZeroedPage @ 0x14024E130 (MiUnlinkFreeOrZeroedPage.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x14024EF60 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiConvertLargeActivePageToChain @ 0x1403122A0 (MiConvertLargeActivePageToChain.c)
+ *     MiDeleteUltraThreadContext @ 0x140335BD0 (MiDeleteUltraThreadContext.c)
+ *     MiGetPage @ 0x14033BF40 (MiGetPage.c)
+ *     MiGetPerfectFreeOrZeroPage @ 0x14033D370 (MiGetPerfectFreeOrZeroPage.c)
+ *     MiSlistGetFreePage @ 0x14033DDB0 (MiSlistGetFreePage.c)
+ *     MiCreateSharedZeroPages @ 0x140342A48 (MiCreateSharedZeroPages.c)
+ *     MiDeleteUltraMapContext @ 0x140352DF0 (MiDeleteUltraMapContext.c)
+ *     MiManageUltraSpacePageTable @ 0x140352F3C (MiManageUltraSpacePageTable.c)
+ *     MiCreateSystemPageTable @ 0x14038EDA0 (MiCreateSystemPageTable.c)
+ *     MiInitializeSystemPageTable @ 0x14038F158 (MiInitializeSystemPageTable.c)
+ *     MiIdealClusterPage @ 0x1404CB218 (MiIdealClusterPage.c)
+ *     MiReplenishPageSlist @ 0x1404F1A70 (MiReplenishPageSlist.c)
  * Callees:
- *     MiMapPageInHyperSpaceWorker @ 0x14021F1A0 (MiMapPageInHyperSpaceWorker.c)
- *     MiUnmapPageInHyperSpaceWorker @ 0x140266854 (MiUnmapPageInHyperSpaceWorker.c)
- *     KeShouldYieldProcessor @ 0x1402DA180 (KeShouldYieldProcessor.c)
- *     MiIsPageOnBadList @ 0x14030492C (MiIsPageOnBadList.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     MiPageNotZero @ 0x140673EAC (MiPageNotZero.c)
- *     KeCheckForZeroPage @ 0x1406B32B0 (KeCheckForZeroPage.c)
+ *     KeShouldYieldProcessor @ 0x14023BA60 (KeShouldYieldProcessor.c)
+ *     MiMapPageInHyperSpaceWorker @ 0x14024BEF0 (MiMapPageInHyperSpaceWorker.c)
+ *     MiUnmapPageInHyperSpaceWorker @ 0x1402EEA94 (MiUnmapPageInHyperSpaceWorker.c)
+ *     MiIsPageOnBadList @ 0x14030E80C (MiIsPageOnBadList.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     MiPageNotZero @ 0x14067507C (MiPageNotZero.c)
+ *     KeCheckForZeroPage @ 0x1406B4250 (KeCheckForZeroPage.c)
  */
 
 __int64 __fastcall MiArePageContentsZero(ULONG_PTR BugCheckParameter2, unsigned __int64 a2)
@@ -60,7 +60,7 @@ __int64 __fastcall MiArePageContentsZero(ULONG_PTR BugCheckParameter2, unsigned 
         {
           if ( (*(_DWORD *)(v4 + 32) & 0x40000000) == 0 && !MiIsPageOnBadList(v4) )
           {
-            v8 = MiMapPageInHyperSpaceWorker(v3, 0LL, 0x20000000LL);
+            v8 = MiMapPageInHyperSpaceWorker(v3, 0LL, 0x20000000);
             if ( KeCheckForZeroPage(v8) )
               MiPageNotZero(v8, v3);
             MiUnmapPageInHyperSpaceWorker(v8, 0x11u, 0);

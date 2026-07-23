@@ -12,20 +12,13 @@
 
 __int64 HvlNotifyAllProcessorsStarted()
 {
-  _QWORD *v0; // rax
-  __int64 v1; // rdx
-  __int64 v2; // r9
-  unsigned __int16 v3; // bx
-  __int128 v5; // [rsp+20h] [rbp-48h] BYREF
-  __int128 v6; // [rsp+30h] [rbp-38h]
-  _BYTE v7[16]; // [rsp+40h] [rbp-28h] BYREF
+  unsigned __int16 v0; // bx
+  _OWORD v2[2]; // [rsp+20h] [rbp-48h] BYREF
+  _BYTE v3[16]; // [rsp+40h] [rbp-28h] BYREF
 
-  v5 = 0LL;
-  v6 = 0LL;
-  v0 = HvlpAcquireHypercallPage((PHYSICAL_ADDRESS *)&v5, 1, (__int64)v7, 8LL);
-  v1 = *((_QWORD *)&v6 + 1);
-  *(_DWORD *)v0 = 4;
-  v3 = HvcallInitiateHypercall(135, v1, 0LL, v2);
-  HvlpReleaseHypercallPage((__int64)&v5);
-  return HvlpHvToNtStatus(v3);
+  memset(v2, 0, sizeof(v2));
+  *(_DWORD *)HvlpAcquireHypercallPage((PHYSICAL_ADDRESS *)v2, 1, (__int64)v3, 8LL) = 4;
+  v0 = HvcallInitiateHypercall(135);
+  HvlpReleaseHypercallPage((__int64)v2);
+  return HvlpHvToNtStatus(v0);
 }

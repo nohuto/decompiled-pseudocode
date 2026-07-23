@@ -1,31 +1,31 @@
 /*
- * XREFs of MiAcquirePrcbAgeTrimLists @ 0x140231E18
+ * XREFs of MiAcquirePrcbAgeTrimLists @ 0x140303A64
  * Callers:
- *     MiAgePte @ 0x14022F8D0 (MiAgePte.c)
- *     MiAgePteWorker @ 0x14022FCA0 (MiAgePteWorker.c)
- *     MiTrimPteWorker @ 0x140242AA4 (MiTrimPteWorker.c)
- *     MiTrimPte @ 0x140242BA0 (MiTrimPte.c)
- *     MiSimpleAgePte @ 0x1403FA2E0 (MiSimpleAgePte.c)
- *     MiUpdateOldPte @ 0x1403FA590 (MiUpdateOldPte.c)
- *     MiUpdateOldPteWorker @ 0x1403FA800 (MiUpdateOldPteWorker.c)
- *     MiResetAccessBitPte @ 0x1403FA890 (MiResetAccessBitPte.c)
- *     MiResetAccessBitPteWorker @ 0x1403FB050 (MiResetAccessBitPteWorker.c)
+ *     MiTrimPteWorker @ 0x140212FB0 (MiTrimPteWorker.c)
+ *     MiTrimPte @ 0x1402130B0 (MiTrimPte.c)
+ *     MiResetAccessBitPteWorker @ 0x1402941D8 (MiResetAccessBitPteWorker.c)
+ *     MiResetAccessBitPte @ 0x140294320 (MiResetAccessBitPte.c)
+ *     MiAgePte @ 0x140303CD0 (MiAgePte.c)
+ *     MiAgePteWorker @ 0x1403040A0 (MiAgePteWorker.c)
+ *     MiUpdateOldPte @ 0x140438350 (MiUpdateOldPte.c)
+ *     MiUpdateOldPteWorker @ 0x1404385C0 (MiUpdateOldPteWorker.c)
+ *     MiSimpleAgePte @ 0x14049EAD0 (MiSimpleAgePte.c)
  * Callees:
- *     MiGetProcessorFlushList @ 0x1402894BC (MiGetProcessorFlushList.c)
+ *     MiGetProcessorFlushList @ 0x1402990BC (MiGetProcessorFlushList.c)
  */
 
-__int64 __fastcall MiAcquirePrcbAgeTrimLists(__int64 a1, __int64 *a2)
+unsigned __int64 __fastcall MiAcquirePrcbAgeTrimLists(__int64 a1, __int64 **a2)
 {
-  __int64 ProcessorFlushList; // r9
+  __int64 *ProcessorFlushList; // r9
   BOOL v5; // eax
-  __int64 result; // rax
+  unsigned __int64 result; // rax
   bool v7; // zf
 
-  ProcessorFlushList = MiGetProcessorFlushList(a1, a2);
-  *(_DWORD *)(ProcessorFlushList + 16) = 0;
-  *(_DWORD *)(ProcessorFlushList + 20) = 2;
-  *(_QWORD *)ProcessorFlushList = a1;
-  *(_BYTE *)(ProcessorFlushList + 24) = (*(_DWORD *)(a1 + 184) & 0x800) != 0;
+  ProcessorFlushList = MiGetProcessorFlushList();
+  *((_DWORD *)ProcessorFlushList + 4) = 0;
+  *((_DWORD *)ProcessorFlushList + 5) = 2;
+  *ProcessorFlushList = a1;
+  *((_BYTE *)ProcessorFlushList + 24) = (*(_DWORD *)(a1 + 184) & 0x800) != 0;
   if ( (*(_DWORD *)(a1 + 184) & 0xF) != 0
     || (struct _LIST_ENTRY **)a1 == &KeGetCurrentThread()->ApcState.Process[2].ReadyListHead.Blink )
   {
@@ -33,20 +33,20 @@ __int64 __fastcall MiAcquirePrcbAgeTrimLists(__int64 a1, __int64 *a2)
   }
   else
   {
-    *(_DWORD *)(ProcessorFlushList + 16) |= 9u;
+    *((_DWORD *)ProcessorFlushList + 4) |= 9u;
     v5 = 0;
   }
-  *(_DWORD *)(ProcessorFlushList + 16) &= 0xFFFFFFDB;
-  *(_DWORD *)(ProcessorFlushList + 8) = v5;
-  *(_WORD *)(ProcessorFlushList + 25) = 0;
-  *(_DWORD *)(ProcessorFlushList + 28) = 0;
-  *(_QWORD *)(ProcessorFlushList + 32) = 0LL;
-  *(_QWORD *)(ProcessorFlushList + 40) = 0LL;
+  *((_DWORD *)ProcessorFlushList + 4) &= 0xFFFFFFDB;
+  *((_DWORD *)ProcessorFlushList + 2) = v5;
+  *(_WORD *)((char *)ProcessorFlushList + 25) = 0;
+  *((_DWORD *)ProcessorFlushList + 7) = 0;
+  ProcessorFlushList[4] = 0LL;
+  ProcessorFlushList[5] = 0LL;
   *a2 = ProcessorFlushList;
-  *(_DWORD *)(ProcessorFlushList + 4152) = 2;
-  *(_DWORD *)(ProcessorFlushList + 4156) = 1;
-  *(_QWORD *)(ProcessorFlushList + 4136) = a1;
-  *(_BYTE *)(ProcessorFlushList + 4160) = (*(_DWORD *)(a1 + 184) & 0x800) != 0;
+  *((_DWORD *)ProcessorFlushList + 1038) = 2;
+  *((_DWORD *)ProcessorFlushList + 1039) = 1;
+  ProcessorFlushList[517] = a1;
+  *((_BYTE *)ProcessorFlushList + 4160) = (*(_DWORD *)(a1 + 184) & 0x800) != 0;
   if ( (*(_DWORD *)(a1 + 184) & 0xF) != 0
     || (struct _LIST_ENTRY **)a1 == &KeGetCurrentThread()->ApcState.Process[2].ReadyListHead.Blink )
   {
@@ -54,21 +54,21 @@ __int64 __fastcall MiAcquirePrcbAgeTrimLists(__int64 a1, __int64 *a2)
   }
   else
   {
-    *(_DWORD *)(ProcessorFlushList + 4152) |= 9u;
+    *((_DWORD *)ProcessorFlushList + 1038) |= 9u;
     result = 0LL;
   }
-  *(_DWORD *)(ProcessorFlushList + 4152) &= 0xFFFFFFDB;
-  *(_DWORD *)(ProcessorFlushList + 4144) = result;
-  *(_WORD *)(ProcessorFlushList + 4161) = 0;
-  *(_DWORD *)(ProcessorFlushList + 4164) = 0;
-  *(_QWORD *)(ProcessorFlushList + 4168) = 0LL;
-  *(_QWORD *)(ProcessorFlushList + 4176) = 0LL;
-  v7 = a2[2] == 1;
-  a2[1] = ProcessorFlushList + 4136;
+  *((_DWORD *)ProcessorFlushList + 1038) &= 0xFFFFFFDB;
+  *((_DWORD *)ProcessorFlushList + 1036) = result;
+  *(_WORD *)((char *)ProcessorFlushList + 4161) = 0;
+  *((_DWORD *)ProcessorFlushList + 1041) = 0;
+  ProcessorFlushList[521] = 0LL;
+  ProcessorFlushList[522] = 0LL;
+  v7 = a2[2] == (__int64 *)1;
+  a2[1] = ProcessorFlushList + 517;
   if ( v7 )
   {
-    result = ProcessorFlushList + 8272;
-    a2[2] = ProcessorFlushList + 8272;
+    result = (unsigned __int64)(ProcessorFlushList + 1034);
+    a2[2] = ProcessorFlushList + 1034;
   }
   return result;
 }

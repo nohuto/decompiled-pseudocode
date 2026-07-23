@@ -4,15 +4,15 @@
  *     MiFillPfnGaps @ 0x14078F034 (MiFillPfnGaps.c)
  *     MiInitNucleus @ 0x1407D06B4 (MiInitNucleus.c)
  * Callees:
- *     MiFinalizePageAttribute @ 0x14002375C (MiFinalizePageAttribute.c)
- *     MiChargeCommit @ 0x14002B650 (MiChargeCommit.c)
- *     MiMakeValidKernelPte @ 0x140034D10 (MiMakeValidKernelPte.c)
- *     MiGetPage @ 0x14003DA50 (MiGetPage.c)
- *     MiReleasePtes @ 0x1400516D0 (MiReleasePtes.c)
- *     MiReservePtes @ 0x1400DDB50 (MiReservePtes.c)
- *     MiChargeResident @ 0x140103450 (MiChargeResident.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
+ *     MiFinalizePageAttribute @ 0x1400232DC (MiFinalizePageAttribute.c)
+ *     MiChargeCommit @ 0x14002B1D0 (MiChargeCommit.c)
+ *     MiMakeValidKernelPte @ 0x140034890 (MiMakeValidKernelPte.c)
+ *     MiGetPage @ 0x14003D5D0 (MiGetPage.c)
+ *     MiReleasePtes @ 0x140051250 (MiReleasePtes.c)
+ *     MiReservePtes @ 0x1400DB9F0 (MiReservePtes.c)
+ *     MiChargeResident @ 0x1401011D0 (MiChargeResident.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
  */
 
 __int64 __fastcall MiInitializeGapFrames(__int64 a1, __int64 *a2)
@@ -36,17 +36,17 @@ __int64 __fastcall MiInitializeGapFrames(__int64 a1, __int64 *a2)
   {
     if ( a1 != -1 )
       return 0LL;
-    v3 = qword_140327688;
+    v3 = qword_1403276C8;
   }
   else
   {
-    v3 = qword_1403276A0;
+    v3 = qword_1403276E0;
   }
   if ( !(unsigned int)MiChargeResident(MiSystemPartition, 3uLL, 0LL) )
     return 0LL;
   if ( !(unsigned int)MiChargeCommit((__int64)MiSystemPartition, 3uLL, 1) )
     return 0LL;
-  v5 = MiReservePtes((__int64)&qword_140327870, 3uLL, v4);
+  v5 = MiReservePtes((__int64)&qword_1403278B0, 3uLL, v4);
   if ( !v5 )
     return 0LL;
   v6 = 0LL;
@@ -82,6 +82,6 @@ __int64 __fastcall MiInitializeGapFrames(__int64 a1, __int64 *a2)
     ++v7;
   }
   while ( (unsigned int)v6 < 4 );
-  MiReleasePtes((__int64)&qword_140327870, v5, 3u);
+  MiReleasePtes((__int64)&qword_1403278B0, v5, 3u);
   return 1LL;
 }

@@ -1,14 +1,14 @@
 /*
- * XREFs of PiPnpRtlGatherInstallerClassChangeInfo @ 0x1408827B0
+ * XREFs of PiPnpRtlGatherInstallerClassChangeInfo @ 0x1408829F0
  * Callers:
- *     PiPnpRtlCmActionCallback @ 0x140788B20 (PiPnpRtlCmActionCallback.c)
+ *     PiPnpRtlCmActionCallback @ 0x140788D10 (PiPnpRtlCmActionCallback.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     _PnpGetObjectProperty @ 0x1406D01F0 (_PnpGetObjectProperty.c)
- *     PiDmGetObject @ 0x1406D8120 (PiDmGetObject.c)
- *     _PnpStringFromGuid @ 0x140787E54 (_PnpStringFromGuid.c)
- *     PiDmAddCacheReferenceForObject @ 0x1407880B4 (PiDmAddCacheReferenceForObject.c)
- *     PiPnpRtlFreeInstallerClassChangeInfo @ 0x14088438C (PiPnpRtlFreeInstallerClassChangeInfo.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     _PnpGetObjectProperty @ 0x1406D0220 (_PnpGetObjectProperty.c)
+ *     PiDmGetObject @ 0x1406D8150 (PiDmGetObject.c)
+ *     _PnpStringFromGuid @ 0x140788044 (_PnpStringFromGuid.c)
+ *     PiDmAddCacheReferenceForObject @ 0x1407882A4 (PiDmAddCacheReferenceForObject.c)
+ *     PiPnpRtlFreeInstallerClassChangeInfo @ 0x1408845CC (PiPnpRtlFreeInstallerClassChangeInfo.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 

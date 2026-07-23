@@ -1,9 +1,9 @@
 /*
- * XREFs of MiUnlockDataCopyPages @ 0x1402D283C
+ * XREFs of MiUnlockDataCopyPages @ 0x1402B45FC
  * Callers:
- *     MiCopyDataPageToImagePage @ 0x14036C478 (MiCopyDataPageToImagePage.c)
+ *     MiCopyDataPageToImagePage @ 0x14036E218 (MiCopyDataPageToImagePage.c)
  * Callees:
- *     MiUnlockProtoPoolPage @ 0x1402D3E40 (MiUnlockProtoPoolPage.c)
+ *     MiUnlockProtoPoolPage @ 0x1402B5C00 (MiUnlockProtoPoolPage.c)
  */
 
 __int64 __fastcall MiUnlockDataCopyPages(__int64 *a1, __int64 a2)

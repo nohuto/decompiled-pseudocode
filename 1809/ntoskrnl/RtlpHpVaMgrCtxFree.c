@@ -14,13 +14,13 @@
  *     KiAbThreadRemoveBoosts @ 0x14004EFD0 (KiAbThreadRemoveBoosts.c)
  *     MmGetSessionIdEx @ 0x14004F060 (MmGetSessionIdEx.c)
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
- *     MmFreePoolMemory @ 0x14007BD58 (MmFreePoolMemory.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     RtlpHpAcquireLockExclusive @ 0x1400BC4A0 (RtlpHpAcquireLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     RtlSparseArrayElementFindCapped @ 0x1402FDFE0 (RtlSparseArrayElementFindCapped.c)
+ *     MmFreePoolMemory @ 0x14007BD48 (MmFreePoolMemory.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     RtlpHpAcquireLockExclusive @ 0x1400BC3E0 (RtlpHpAcquireLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC5A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     RtlSparseArrayElementFindCapped @ 0x1402FE1D0 (RtlSparseArrayElementFindCapped.c)
  */
 
 __int64 __fastcall RtlpHpVaMgrCtxFree(__int64 a1, _QWORD *a2, _QWORD *a3)
@@ -160,7 +160,7 @@ __int64 __fastcall RtlpHpVaMgrCtxFree(__int64 a1, _QWORD *a2, _QWORD *a3)
           {
             v29->CrossThreadReleasableAndBusyByte |= 2u;
             if ( (__int64)v29->LockState.LockState < 0 )
-              KiAbEntryRemoveFromTree((__int64)&CurrentThread->LockEntries[v28], SessionId);
+              KiAbEntryRemoveFromTree(&CurrentThread->LockEntries[v28].TreeNode, SessionId);
             v33 = 0;
             v33 = v29->BoostBitmap.AllFields & 0x1FFFF;
             v29->BoostBitmap.AllFields &= 0xFFFE0000;

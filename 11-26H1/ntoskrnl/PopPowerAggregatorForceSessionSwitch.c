@@ -1,14 +1,13 @@
 /*
- * XREFs of PopPowerAggregatorForceSessionSwitch @ 0x1407D69C0
+ * XREFs of PopPowerAggregatorForceSessionSwitch @ 0x1407D9B50
  * Callers:
- *     PopPowerSourceChangeCallback @ 0x1404FD400 (PopPowerSourceChangeCallback.c)
- *     PopPreCriticalBatteryNotify @ 0x1407D58A0 (PopPreCriticalBatteryNotify.c)
- *     PopNotifyLidStateChange @ 0x140B51558 (PopNotifyLidStateChange.c)
+ *     PopPowerSourceChangeCallback @ 0x1404F6940 (PopPowerSourceChangeCallback.c)
+ *     PopPreCriticalBatteryNotify @ 0x1407D8A50 (PopPreCriticalBatteryNotify.c)
+ *     PopNotifyLidStateChange @ 0x140B53DF8 (PopNotifyLidStateChange.c)
  * Callees:
- *     PopReleaseRwLock @ 0x14043630C (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x140436378 (PopAcquireRwLockExclusive.c)
- *     Feature_Servicing_LidCloseDisplayOff__private_IsEnabledDeviceUsageNoInline @ 0x14060B9E4 (Feature_Servicing_LidCloseDisplayOff__private_IsEnabledDeviceUsageNoInline.c)
- *     PopPowerAggregatorHandleIntentUnsafe @ 0x140A3F1C4 (PopPowerAggregatorHandleIntentUnsafe.c)
+ *     PopReleaseRwLock @ 0x14021B1A8 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x140425310 (PopAcquireRwLockExclusive.c)
+ *     PopPowerAggregatorHandleIntentUnsafe @ 0x1409FABE4 (PopPowerAggregatorHandleIntentUnsafe.c)
  */
 
 __int64 __fastcall PopPowerAggregatorForceSessionSwitch(
@@ -17,50 +16,23 @@ __int64 __fastcall PopPowerAggregatorForceSessionSwitch(
         __int64 a3,
         struct _KLOCK_ENTRIES *a4)
 {
-  unsigned int v5; // ebx
-  bool v6; // zf
-  int v8; // [rsp+38h] [rbp+10h] BYREF
+  __int64 v5; // rcx
+  int v7; // [rsp+38h] [rbp+10h] BYREF
 
   PopAcquireRwLockExclusive((unsigned __int64 *)&PopPowerAggregatorLock, a2, a3, a4);
-  v8 = 0;
-  if ( LODWORD(PopPowerAggregatorLock.QuantumTarget) == 1 )
+  v7 = 0;
+  if ( (_DWORD)xmmword_140F0D8D0 == 1 )
   {
-    v5 = 3;
-    if ( (unsigned int)Feature_Servicing_LidCloseDisplayOff__private_IsEnabledDeviceUsageNoInline() )
-    {
-      if ( !LOBYTE(PopPowerAggregatorLock.StackBase) )
-        goto LABEL_16;
-      if ( a1 != 4 )
-      {
-LABEL_8:
-        v5 = 2;
-        goto LABEL_16;
-      }
-      if ( *(_DWORD *)&PopPowerAggregatorLock.Timer.Processor == 8 )
-      {
-LABEL_16:
-        PopPowerAggregatorHandleIntentUnsafe(v5, &v8, 0LL, a1);
-        return PopReleaseRwLock(&PopPowerAggregatorLock);
-      }
-      v6 = *(_DWORD *)&PopPowerAggregatorLock.Timer.Processor == 2;
-    }
-    else
-    {
-      if ( a1 == 4 )
-        goto LABEL_16;
-      v6 = LOBYTE(PopPowerAggregatorLock.StackBase) == 0;
-    }
-    if ( !v6 )
-      goto LABEL_8;
-    goto LABEL_16;
+    v5 = 3LL;
+    if ( BYTE8(xmmword_140F0D8E0) && (a1 != 4 || dword_140F0D9E8 != 8 && dword_140F0D9E8 != 2) )
+      v5 = 2LL;
+    goto LABEL_12;
   }
-  if ( LODWORD(PopPowerAggregatorLock.QuantumTarget) == 4
-    && LOBYTE(PopPowerAggregatorLock.StackBase)
-    && ((a1 - 43) & 0xFFFFFFFC) == 0
-    && a1 != 44 )
+  if ( (_DWORD)xmmword_140F0D8D0 == 4 && BYTE8(xmmword_140F0D8E0) && ((a1 - 43) & 0xFFFFFFFC) == 0 && a1 != 44 )
   {
-    v5 = 10;
-    goto LABEL_16;
+    v5 = 10LL;
+LABEL_12:
+    PopPowerAggregatorHandleIntentUnsafe(v5, &v7, 0LL, a1);
   }
-  return PopReleaseRwLock(&PopPowerAggregatorLock);
+  return PopReleaseRwLock((struct _KTHREAD *)&PopPowerAggregatorLock);
 }

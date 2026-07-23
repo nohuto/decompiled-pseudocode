@@ -1,14 +1,14 @@
 /*
- * XREFs of MiMakeHyperRangeAccessible @ 0x14046DB20
+ * XREFs of MiMakeHyperRangeAccessible @ 0x14046C9F0
  * Callers:
- *     MiExpandVadBitMap @ 0x14046D9A4 (MiExpandVadBitMap.c)
- *     MiExpandVadBitMapDown @ 0x14065B428 (MiExpandVadBitMapDown.c)
+ *     MiExpandVadBitMap @ 0x14046C874 (MiExpandVadBitMap.c)
+ *     MiExpandVadBitMapDown @ 0x14065B50C (MiExpandVadBitMapDown.c)
  * Callees:
- *     MiChargeCommit @ 0x14002B650 (MiChargeCommit.c)
- *     MiGetPteAddress @ 0x14002BA64 (MiGetPteAddress.c)
- *     MiGetProcessPartition @ 0x14002BAF0 (MiGetProcessPartition.c)
- *     MiWriteDemandZeroPte @ 0x14007BCA0 (MiWriteDemandZeroPte.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiChargeCommit @ 0x14002B1D0 (MiChargeCommit.c)
+ *     MiGetPteAddress @ 0x14002B5E4 (MiGetPteAddress.c)
+ *     MiGetProcessPartition @ 0x14002B670 (MiGetProcessPartition.c)
+ *     MiWriteDemandZeroPte @ 0x14007BD20 (MiWriteDemandZeroPte.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
  */
 
 __int64 __fastcall MiMakeHyperRangeAccessible(unsigned __int64 a1, __int64 a2, unsigned __int64 *a3)

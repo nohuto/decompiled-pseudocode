@@ -1,7 +1,7 @@
 /*
- * XREFs of HvlIsHypercallOverlayLocked @ 0x1404F1B58
+ * XREFs of HvlIsHypercallOverlayLocked @ 0x1404F1AD8
  * Callers:
- *     sub_140A1CEE4 @ 0x140A1CEE4 (sub_140A1CEE4.c)
+ *     sub_140A1DEE4 @ 0x140A1DEE4 (sub_140A1DEE4.c)
  * Callees:
  *     <none>
  */

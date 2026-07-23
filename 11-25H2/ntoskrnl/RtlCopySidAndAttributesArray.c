@@ -11,39 +11,39 @@
  *     memmove @ 0x1406B4940 (memmove.c)
  */
 
-__int64 __fastcall RtlCopySidAndAttributesArray(
-        unsigned int a1,
-        __int64 a2,
-        unsigned int a3,
-        __int64 a4,
-        char *a5,
-        _QWORD *a6,
-        unsigned int *a7)
+NTSTATUS __cdecl RtlCopySidAndAttributesArray(
+        ULONG Count,
+        PSID_AND_ATTRIBUTES Src,
+        ULONG SidAreaSize,
+        PSID_AND_ATTRIBUTES Dest,
+        PSID SidArea,
+        PSID *RemainingSidArea,
+        PULONG RemainingSidAreaSize)
 {
-  unsigned int i; // ebx
-  unsigned int v13; // esi
-  unsigned __int8 *v14; // rdx
+  ULONG i; // ebx
+  ULONG v13; // esi
+  unsigned __int8 *Sid; // rdx
   unsigned int v15; // eax
 
   for ( i = 0; ; ++i )
   {
-    if ( i >= a1 )
+    if ( i >= Count )
     {
-      *a6 = a5;
-      *a7 = a3;
-      return 0LL;
+      *RemainingSidArea = SidArea;
+      *RemainingSidAreaSize = SidAreaSize;
+      return 0;
     }
-    v13 = 4 * *(unsigned __int8 *)(*(_QWORD *)(a2 + 16LL * i) + 1LL) + 8;
-    if ( v13 > a3 )
+    v13 = 4 * *((unsigned __int8 *)Src[i].Sid + 1) + 8;
+    if ( v13 > SidAreaSize )
       break;
-    *(_QWORD *)(a4 + 16LL * i) = a5;
-    a3 -= v13;
-    *(_DWORD *)(a4 + 16LL * i + 8) = *(_DWORD *)(a2 + 16LL * i + 8);
-    v14 = *(unsigned __int8 **)(a2 + 16LL * i);
-    v15 = 4 * v14[1] + 8;
+    Dest[i].Sid = SidArea;
+    SidAreaSize -= v13;
+    Dest[i].Attributes = Src[i].Attributes;
+    Sid = (unsigned __int8 *)Src[i].Sid;
+    v15 = 4 * Sid[1] + 8;
     if ( v15 <= v13 )
-      memmove(a5, v14, v15);
-    a5 += v13;
+      memmove(SidArea, Sid, v15);
+    SidArea = (char *)SidArea + v13;
   }
-  return 3221225507LL;
+  return -1073741789;
 }

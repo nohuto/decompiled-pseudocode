@@ -6,7 +6,7 @@
  *     <none>
  */
 
-__int64 __fastcall RtlSetSystemBootStatusEx(__int64 a1, unsigned int a2, __int64 a3)
+NTSTATUS __fastcall RtlSetSystemBootStatusEx(__int64 a1, unsigned int a2, void *a3)
 {
   return sub_1800847C0(32, a1, a2, a3);
 }

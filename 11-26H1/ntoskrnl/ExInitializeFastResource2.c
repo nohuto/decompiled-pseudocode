@@ -1,15 +1,15 @@
 /*
- * XREFs of ExInitializeFastResource2 @ 0x1404569D0
+ * XREFs of ExInitializeFastResource2 @ 0x14025FFE0
  * Callers:
- *     ExInitializeFastResourceAcquired @ 0x1404567B0 (ExInitializeFastResourceAcquired.c)
- *     ExInitializeFastResource @ 0x1404569B0 (ExInitializeFastResource.c)
- *     DifExInitializeFastResourceWrapper @ 0x140651D20 (DifExInitializeFastResourceWrapper.c)
+ *     ExInitializeFastResourceAcquired @ 0x14025FDC0 (ExInitializeFastResourceAcquired.c)
+ *     ExInitializeFastResource @ 0x14025FFC0 (ExInitializeFastResource.c)
+ *     DifExInitializeFastResourceWrapper @ 0x140655900 (DifExInitializeFastResourceWrapper.c)
  * Callees:
- *     RtlStdLogStackTrace @ 0x140260BE8 (RtlStdLogStackTrace.c)
- *     RtlpStdGetRecordedStackTraceIndex @ 0x140260C74 (RtlpStdGetRecordedStackTraceIndex.c)
- *     RtlStdReleaseStackTrace @ 0x140260D48 (RtlStdReleaseStackTrace.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     RtlStdLogStackTrace @ 0x140260150 (RtlStdLogStackTrace.c)
+ *     RtlpStdGetRecordedStackTraceIndex @ 0x1402601DC (RtlpStdGetRecordedStackTraceIndex.c)
+ *     RtlStdReleaseStackTrace @ 0x1402602B0 (RtlStdReleaseStackTrace.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall ExInitializeFastResource2(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter3, int a3)
@@ -20,9 +20,8 @@ __int64 __fastcall ExInitializeFastResource2(ULONG_PTR BugCheckParameter2, ULONG
   char v8; // al
   __int16 v9; // ax
   __int64 result; // rax
-  KSPIN_LOCK *p_Policy; // rsi
-  unsigned __int16 *v12; // rax
-  __int64 *v13; // r15
+  KSPIN_LOCK *v11; // rsi
+  __int64 v12; // r15
   int RecordedStackTraceIndex; // r14d
 
   v4 = BugCheckParameter3;
@@ -40,16 +39,15 @@ __int64 __fastcall ExInitializeFastResource2(ULONG_PTR BugCheckParameter2, ULONG
   *(_BYTE *)(BugCheckParameter2 + 101) = v8 | 2;
   if ( (NtGlobalFlag & 0x2000) != 0 )
   {
-    p_Policy = (KSPIN_LOCK *)&NormalizationListLock.SchedulingGroup->Policy;
-    if ( NormalizationListLock.SchedulingGroup )
+    v11 = *(KSPIN_LOCK **)&NormalizationListLock.WaitRegister.Flags;
+    if ( *(_QWORD *)&NormalizationListLock.WaitRegister.Flags )
     {
-      v12 = (unsigned __int16 *)RtlStdLogStackTrace((PKSPIN_LOCK)&NormalizationListLock.SchedulingGroup->Policy, 1);
-      v13 = (__int64 *)v12;
+      v12 = RtlStdLogStackTrace(*(PKSPIN_LOCK *)&NormalizationListLock.WaitRegister.Flags);
       if ( v12 )
       {
-        RecordedStackTraceIndex = RtlpStdGetRecordedStackTraceIndex(p_Policy, v12);
+        RecordedStackTraceIndex = RtlpStdGetRecordedStackTraceIndex(v11);
         if ( !RecordedStackTraceIndex )
-          RtlStdReleaseStackTrace((__int64)p_Policy, v13);
+          RtlStdReleaseStackTrace(v11, v12);
       }
       else
       {

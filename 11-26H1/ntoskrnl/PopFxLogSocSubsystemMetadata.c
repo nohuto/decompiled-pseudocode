@@ -1,14 +1,14 @@
 /*
- * XREFs of PopFxLogSocSubsystemMetadata @ 0x1409879C4
+ * XREFs of PopFxLogSocSubsystemMetadata @ 0x140A4271C
  * Callers:
- *     PopCaptureSleepStudyStatistics @ 0x14042AB54 (PopCaptureSleepStudyStatistics.c)
+ *     PopCaptureSleepStudyStatistics @ 0x140421FC8 (PopCaptureSleepStudyStatistics.c)
  * Callees:
- *     PopFxBugCheck @ 0x1403B0E54 (PopFxBugCheck.c)
- *     PopPluginQuerySocSubsystemMetadata @ 0x1407CDFC0 (PopPluginQuerySocSubsystemMetadata.c)
- *     PopDiagTraceSleepStudyBlockerData @ 0x1407D4CC4 (PopDiagTraceSleepStudyBlockerData.c)
- *     PopFxLookupSocSubsystemsByPlatformIdleState @ 0x140987D50 (PopFxLookupSocSubsystemsByPlatformIdleState.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     PopFxBugCheck @ 0x1403BAB64 (PopFxBugCheck.c)
+ *     PopPluginQuerySocSubsystemMetadata @ 0x1407D1060 (PopPluginQuerySocSubsystemMetadata.c)
+ *     PopDiagTraceSleepStudyBlockerData @ 0x1407D7E7C (PopDiagTraceSleepStudyBlockerData.c)
+ *     PopFxLookupSocSubsystemsByPlatformIdleState @ 0x140A427E8 (PopFxLookupSocSubsystemsByPlatformIdleState.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PopFxLogSocSubsystemMetadata(__int64 a1, unsigned int a2, int a3)
@@ -55,7 +55,7 @@ __int64 __fastcall PopFxLogSocSubsystemMetadata(__int64 a1, unsigned int a2, int
   v40 = a3;
   v39 = a2;
   v38 = HIDWORD(a1);
-  v36 = qword_140F0F5D0;
+  v36 = PopWnfCsEnterScenarioId;
   v3 = a2;
   LOBYTE(v40) = 0;
   v4 = 0;

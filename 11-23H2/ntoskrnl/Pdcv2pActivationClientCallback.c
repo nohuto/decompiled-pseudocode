@@ -1,15 +1,15 @@
 /*
- * XREFs of Pdcv2pActivationClientCallback @ 0x1409C8A40
+ * XREFs of Pdcv2pActivationClientCallback @ 0x1409C8C40
  * Callers:
  *     <none>
  * Callees:
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
- *     PdcCreateWatchdogAroundClientCall @ 0x140293450 (PdcCreateWatchdogAroundClientCall.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     PdcResetEvent @ 0x1405B752C (PdcResetEvent.c)
- *     PdcReleaseRwLockExclusive2 @ 0x14085AC20 (PdcReleaseRwLockExclusive2.c)
- *     PdcAcquireRwLockExclusive2 @ 0x14085AC88 (PdcAcquireRwLockExclusive2.c)
- *     PdcWaitForEvent @ 0x1409C8BBC (PdcWaitForEvent.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
+ *     PdcCreateWatchdogAroundClientCall @ 0x1402936E0 (PdcCreateWatchdogAroundClientCall.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     PdcResetEvent @ 0x1405B7A9C (PdcResetEvent.c)
+ *     PdcReleaseRwLockExclusive2 @ 0x14085AE60 (PdcReleaseRwLockExclusive2.c)
+ *     PdcAcquireRwLockExclusive2 @ 0x14085AEC8 (PdcAcquireRwLockExclusive2.c)
+ *     PdcWaitForEvent @ 0x1409C8DBC (PdcWaitForEvent.c)
  */
 
 __int64 __fastcall Pdcv2pActivationClientCallback(__int64 a1, __int64 a2)

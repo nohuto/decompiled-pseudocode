@@ -1,12 +1,12 @@
 /*
- * XREFs of PpmEventTraceMultiClassHeteroResponseUpdate @ 0x1404FF7CC
+ * XREFs of PpmEventTraceMultiClassHeteroResponseUpdate @ 0x1404F8FBC
  * Callers:
- *     PpmCheckComputeMultiClassHeteroResponse @ 0x14041DF08 (PpmCheckComputeMultiClassHeteroResponse.c)
- *     PpmHeteroComputeMultiClassUnparkCount @ 0x14060C314 (PpmHeteroComputeMultiClassUnparkCount.c)
+ *     PpmCheckComputeMultiClassHeteroResponse @ 0x14041574C (PpmCheckComputeMultiClassHeteroResponse.c)
+ *     PpmHeteroComputeMultiClassUnparkCount @ 0x14060F474 (PpmHeteroComputeMultiClassUnparkCount.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 char __fastcall PpmEventTraceMultiClassHeteroResponseUpdate(char a1, __int64 a2, __int64 a3)
@@ -30,9 +30,7 @@ char __fastcall PpmEventTraceMultiClassHeteroResponseUpdate(char a1, __int64 a2,
   v16 = a1;
   if ( PpmEtwRegistered )
   {
-    LOBYTE(v3) = EtwEventEnabled(
-                   (REGHANDLE)PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink,
-                   &PPM_ETW_MULTI_CLASS_HETERO_RESPONSE_UPDATE);
+    LOBYTE(v3) = EtwEventEnabled(PpmEtwHandle, &PPM_ETW_MULTI_CLASS_HETERO_RESPONSE_UPDATE);
     if ( (_BYTE)v3 )
     {
       UserData.Ptr = (ULONGLONG)&v16;
@@ -46,7 +44,7 @@ char __fastcall PpmEventTraceMultiClassHeteroResponseUpdate(char a1, __int64 a2,
       v12 = 8LL;
       v14 = 8LL;
       LOBYTE(v3) = EtwWriteEx(
-                     (REGHANDLE)PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink,
+                     PpmEtwHandle,
                      &PPM_ETW_MULTI_CLASS_HETERO_RESPONSE_UPDATE,
                      0LL,
                      0,

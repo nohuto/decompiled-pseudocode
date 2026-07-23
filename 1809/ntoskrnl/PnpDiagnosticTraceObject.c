@@ -1,23 +1,23 @@
 /*
- * XREFs of PnpDiagnosticTraceObject @ 0x1400F5288
+ * XREFs of PnpDiagnosticTraceObject @ 0x1400F5308
  * Callers:
- *     PnpDeviceCompletionRoutine @ 0x140159BC0 (PnpDeviceCompletionRoutine.c)
- *     IopLoadDriver @ 0x14067FA34 (IopLoadDriver.c)
- *     PiDrvDbUnloadNodeWorkerCallback @ 0x140680C90 (PiDrvDbUnloadNodeWorkerCallback.c)
- *     PiDrvDbLoadNodeWorkerCallback @ 0x140680D60 (PiDrvDbLoadNodeWorkerCallback.c)
- *     PipEnumerateDevice @ 0x1406E7F10 (PipEnumerateDevice.c)
- *     PnpStartDeviceNode @ 0x1406EBA5C (PnpStartDeviceNode.c)
- *     PiDevCfgProcessDevice @ 0x1406F4424 (PiDevCfgProcessDevice.c)
- *     IopUnloadDriver @ 0x1407089C8 (IopUnloadDriver.c)
- *     PnpQueueQueryAndRemoveEvent @ 0x14083C944 (PnpQueueQueryAndRemoveEvent.c)
- *     PnpRebalance @ 0x14083F8A8 (PnpRebalance.c)
- *     PnpInitializeBootStartDriver @ 0x1409CB918 (PnpInitializeBootStartDriver.c)
- *     PnpEarlyLaunchImageNotificationPreProcess @ 0x1409D5630 (PnpEarlyLaunchImageNotificationPreProcess.c)
- *     PnpEarlyLaunchImageNotificationPostProcess @ 0x1409D6AF0 (PnpEarlyLaunchImageNotificationPostProcess.c)
+ *     PnpDeviceCompletionRoutine @ 0x140159CC0 (PnpDeviceCompletionRoutine.c)
+ *     IopLoadDriver @ 0x140680BF4 (IopLoadDriver.c)
+ *     PiDrvDbUnloadNodeWorkerCallback @ 0x140681E50 (PiDrvDbUnloadNodeWorkerCallback.c)
+ *     PiDrvDbLoadNodeWorkerCallback @ 0x140681F20 (PiDrvDbLoadNodeWorkerCallback.c)
+ *     PipEnumerateDevice @ 0x1406E91B0 (PipEnumerateDevice.c)
+ *     PnpStartDeviceNode @ 0x1406ECCFC (PnpStartDeviceNode.c)
+ *     PiDevCfgProcessDevice @ 0x1406F56C4 (PiDevCfgProcessDevice.c)
+ *     IopUnloadDriver @ 0x140709C68 (IopUnloadDriver.c)
+ *     PnpQueueQueryAndRemoveEvent @ 0x14083DBA4 (PnpQueueQueryAndRemoveEvent.c)
+ *     PnpRebalance @ 0x140840B08 (PnpRebalance.c)
+ *     PnpInitializeBootStartDriver @ 0x1409CC918 (PnpInitializeBootStartDriver.c)
+ *     PnpEarlyLaunchImageNotificationPreProcess @ 0x1409D6630 (PnpEarlyLaunchImageNotificationPreProcess.c)
+ *     PnpEarlyLaunchImageNotificationPostProcess @ 0x1409D7AF0 (PnpEarlyLaunchImageNotificationPostProcess.c)
  * Callees:
  *     EtwEventEnabled @ 0x14005B2D0 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x1400CAD60 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x1400CAE40 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall PnpDiagnosticTraceObject(PCEVENT_DESCRIPTOR EventDescriptor, unsigned __int16 *a2)

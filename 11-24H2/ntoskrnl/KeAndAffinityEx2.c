@@ -1,24 +1,25 @@
 /*
- * XREFs of KeAndAffinityEx2 @ 0x1402052E0
+ * XREFs of KeAndAffinityEx2 @ 0x14032C8C0
  * Callers:
- *     KiUpdateProcessAvailableCpuState @ 0x140204268 (KiUpdateProcessAvailableCpuState.c)
- *     KiGetDeepIdleProcessors @ 0x140204E08 (KiGetDeepIdleProcessors.c)
- *     KiComputeCpuSetAffinity @ 0x14029B010 (KiComputeCpuSetAffinity.c)
- *     KiForwardTick @ 0x14029D53C (KiForwardTick.c)
- *     ?KiForceIdleUpdateSchedulerParkState@@YAXE@Z @ 0x1403CAED4 (-KiForceIdleUpdateSchedulerParkState@@YAXE@Z.c)
- *     HalSendNMI @ 0x1405441C0 (HalSendNMI.c)
- *     KeUpdateProcessorRestrictionsEx @ 0x1405B5474 (KeUpdateProcessorRestrictionsEx.c)
- *     PpmEventTraceSoftCoreParkingSelectionEx @ 0x1405DF2CC (PpmEventTraceSoftCoreParkingSelectionEx.c)
- *     PpmHeteroDistributeUtilityEx @ 0x1405E07D4 (PpmHeteroDistributeUtilityEx.c)
- *     PpmParkBuildTopologyCandidatesEx @ 0x1405E1B44 (PpmParkBuildTopologyCandidatesEx.c)
- *     PpmParkCalculateCoreParkingMaskEx @ 0x1405E1B9C (PpmParkCalculateCoreParkingMaskEx.c)
- *     PpmParkComputeUnparkMaskEx @ 0x1405E2544 (PpmParkComputeUnparkMaskEx.c)
- *     PpmParkRegisterParkingEx @ 0x1405E3C90 (PpmParkRegisterParkingEx.c)
- *     NtStartProfile @ 0x1407C4440 (NtStartProfile.c)
- *     PspSetEffectiveJobLimits @ 0x1408E6C38 (PspSetEffectiveJobLimits.c)
- *     PpmParkApplyForcedMask @ 0x140ACAD80 (PpmParkApplyForcedMask.c)
+ *     KiComputeCpuSetAffinity @ 0x1402A9B00 (KiComputeCpuSetAffinity.c)
+ *     KiForwardTick @ 0x1402AC02C (KiForwardTick.c)
+ *     KiUpdateProcessAvailableCpuState @ 0x14032B848 (KiUpdateProcessAvailableCpuState.c)
+ *     KiGetDeepIdleProcessors @ 0x14032C3E8 (KiGetDeepIdleProcessors.c)
+ *     ?KiForceIdleUpdateSchedulerParkState@@YAXE@Z @ 0x140484B24 (-KiForceIdleUpdateSchedulerParkState@@YAXE@Z.c)
+ *     PpmHeteroUpdateHgsConfiguration @ 0x1404E2E24 (PpmHeteroUpdateHgsConfiguration.c)
+ *     HalSendNMI @ 0x140541B10 (HalSendNMI.c)
+ *     KeUpdateProcessorRestrictionsEx @ 0x1405B273C (KeUpdateProcessorRestrictionsEx.c)
+ *     PpmEventTraceSoftCoreParkingSelectionEx @ 0x1405DC3F8 (PpmEventTraceSoftCoreParkingSelectionEx.c)
+ *     PpmHeteroDistributeUtilityEx @ 0x1405DDDF4 (PpmHeteroDistributeUtilityEx.c)
+ *     PpmParkBuildTopologyCandidatesEx @ 0x1405DF150 (PpmParkBuildTopologyCandidatesEx.c)
+ *     PpmParkCalculateCoreParkingMaskEx @ 0x1405DF1A8 (PpmParkCalculateCoreParkingMaskEx.c)
+ *     PpmParkComputeUnparkMaskEx @ 0x1405DFACC (PpmParkComputeUnparkMaskEx.c)
+ *     PpmParkRegisterParkingEx @ 0x1405E1218 (PpmParkRegisterParkingEx.c)
+ *     NtStartProfile @ 0x1407C2260 (NtStartProfile.c)
+ *     PspSetEffectiveJobLimits @ 0x140A2C888 (PspSetEffectiveJobLimits.c)
+ *     PpmParkApplyForcedMask @ 0x140AC893C (PpmParkApplyForcedMask.c)
  * Callees:
- *     ?KiAndAffinityExNoResult@@YAKPEAU_KAFFINITY_EX@@0@Z @ 0x140206940 (-KiAndAffinityExNoResult@@YAKPEAU_KAFFINITY_EX@@0@Z.c)
+ *     ?KiAndAffinityExNoResult@@YAKPEAU_KAFFINITY_EX@@0@Z @ 0x14032DF20 (-KiAndAffinityExNoResult@@YAKPEAU_KAFFINITY_EX@@0@Z.c)
  */
 
 unsigned int __fastcall KeAndAffinityEx2(struct _KAFFINITY_EX *a1, struct _KAFFINITY_EX *a2, __int64 a3)

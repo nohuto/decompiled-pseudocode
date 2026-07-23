@@ -34,7 +34,7 @@ __int64 __fastcall RtlpHpVaMgrAlloc(ULONG_PTR BugCheckParameter2, unsigned __int
   __int64 result; // rax
   unsigned __int64 v10; // r14
   KIRQL v11; // si
-  unsigned __int64 v12; // rax
+  _RTL_BALANCED_NODE *v12; // rax
   unsigned int v13; // r12d
   __int64 v14; // rdi
   __int64 v15; // r15
@@ -87,12 +87,16 @@ __int64 __fastcall RtlpHpVaMgrAlloc(ULONG_PTR BugCheckParameter2, unsigned __int
   {
     v10 = v6 >> 20;
     v11 = RtlpHpAcquireLockExclusive((volatile LONG *)BugCheckParameter2, v7 & 1);
-    v12 = RtlpHpVaMgrRangeFind(BugCheckParameter2, (unsigned __int16)v10, (unsigned __int16)(a3 >> 20), &v46);
+    v12 = (_RTL_BALANCED_NODE *)RtlpHpVaMgrRangeFind(
+                                  BugCheckParameter2,
+                                  (unsigned __int16)v10,
+                                  (unsigned __int16)(a3 >> 20),
+                                  &v46);
     v13 = -1;
-    v14 = v12;
+    v14 = (__int64)v12;
     if ( v12 )
     {
-      RtlRbRemoveNode((unsigned __int64 *)(BugCheckParameter2 + 8), v12);
+      RtlRbRemoveNode((PRTL_RB_TREE)(BugCheckParameter2 + 8), v12);
       v17 = v46;
       if ( v46 != v14 )
       {
@@ -166,7 +170,7 @@ LABEL_62:
         {
           v37->CrossThreadReleasableAndBusyByte |= 2u;
           if ( (__int64)v37->LockState.LockState < 0 )
-            KiAbEntryRemoveFromTree((__int64)&CurrentThread->LockEntries[v36]);
+            KiAbEntryRemoveFromTree(&CurrentThread->LockEntries[v36].TreeNode);
           v40 = v37->BoostBitmap.AllFields & 0x1FFFF;
           v37->BoostBitmap.AllFields &= 0xFFFE0000;
           v37->ThreadLocalFlags &= ~1u;
@@ -250,7 +254,7 @@ LABEL_62:
             {
               v25->CrossThreadReleasableAndBusyByte |= 2u;
               if ( (__int64)v25->LockState.LockState < 0 )
-                KiAbEntryRemoveFromTree((__int64)&v18->LockEntries[v24]);
+                KiAbEntryRemoveFromTree(&v18->LockEntries[v24].TreeNode);
               v41 = v25->BoostBitmap.AllFields & 0x1FFFF;
               v25->BoostBitmap.AllFields &= 0xFFFE0000;
               v25->ThreadLocalFlags &= ~1u;

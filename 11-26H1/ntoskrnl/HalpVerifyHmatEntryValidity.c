@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpVerifyHmatEntryValidity @ 0x140CB2974
+ * XREFs of HalpVerifyHmatEntryValidity @ 0x140CB89B4
  * Callers:
- *     HalpNumaGetHmatConfigSize @ 0x140591BC8 (HalpNumaGetHmatConfigSize.c)
+ *     HalpNumaGetHmatConfigSize @ 0x140594348 (HalpNumaGetHmatConfigSize.c)
  * Callees:
  *     <none>
  */

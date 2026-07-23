@@ -1,14 +1,14 @@
 /*
- * XREFs of ExReleaseCacheAwarePushLockSharedEx @ 0x1402BD590
+ * XREFs of ExReleaseCacheAwarePushLockSharedEx @ 0x1402BD820
  * Callers:
  *     <none>
  * Callees:
- *     MmGetSessionIdEx @ 0x1402A1720 (MmGetSessionIdEx.c)
- *     KiAbThreadClearAcquiredLockEntry @ 0x1402BD6A0 (KiAbThreadClearAcquiredLockEntry.c)
- *     KiAbEntryFreeAndEnableInterrupts @ 0x1402BD700 (KiAbEntryFreeAndEnableInterrupts.c)
- *     ExfReleasePushLockShared @ 0x1402BD860 (ExfReleasePushLockShared.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     MmGetSessionIdEx @ 0x1402A19B0 (MmGetSessionIdEx.c)
+ *     KiAbThreadClearAcquiredLockEntry @ 0x1402BD930 (KiAbThreadClearAcquiredLockEntry.c)
+ *     KiAbEntryFreeAndEnableInterrupts @ 0x1402BD990 (KiAbEntryFreeAndEnableInterrupts.c)
+ *     ExfReleasePushLockShared @ 0x1402BDAF0 (ExfReleasePushLockShared.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall ExReleaseCacheAwarePushLockSharedEx(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter1)

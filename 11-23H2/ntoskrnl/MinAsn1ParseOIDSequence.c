@@ -1,10 +1,10 @@
 /*
- * XREFs of MinAsn1ParseOIDSequence @ 0x140A704E8
+ * XREFs of MinAsn1ParseOIDSequence @ 0x140A70798
  * Callers:
- *     I_MinCryptGetCertificateEKUs @ 0x140A6F770 (I_MinCryptGetCertificateEKUs.c)
+ *     I_MinCryptGetCertificateEKUs @ 0x140A6FA20 (I_MinCryptGetCertificateEKUs.c)
  * Callees:
- *     MinAsn1ExtractContent @ 0x140A716B8 (MinAsn1ExtractContent.c)
- *     MinAsn1ExtractValues @ 0x140A71804 (MinAsn1ExtractValues.c)
+ *     MinAsn1ExtractContent @ 0x140A71968 (MinAsn1ExtractContent.c)
+ *     MinAsn1ExtractValues @ 0x140A71AB4 (MinAsn1ExtractValues.c)
  */
 
 __int64 __fastcall MinAsn1ParseOIDSequence(unsigned int *a1, unsigned int *a2, __int64 a3)
@@ -39,7 +39,7 @@ __int64 __fastcall MinAsn1ParseOIDSequence(unsigned int *a1, unsigned int *a2, _
         while ( v8 < v9 )
         {
           v14 = 1;
-          Values = MinAsn1ExtractValues(v11, v10, (unsigned int)&v14, (unsigned int)&qword_14000B680, 1, a3 + 16LL * v8);
+          Values = MinAsn1ExtractValues(v11, v10, (unsigned int)&v14, (unsigned int)&qword_14000B690, 1, a3 + 16LL * v8);
           if ( Values <= 0 )
           {
             if ( !Values )

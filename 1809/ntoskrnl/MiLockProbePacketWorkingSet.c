@@ -1,13 +1,13 @@
 /*
- * XREFs of MiLockProbePacketWorkingSet @ 0x14009380C
+ * XREFs of MiLockProbePacketWorkingSet @ 0x14009374C
  * Callers:
  *     MiProbeAndLockPages @ 0x140040CF0 (MiProbeAndLockPages.c)
  *     MiProbeLeafPteAccess @ 0x1400420D0 (MiProbeLeafPteAccess.c)
- *     MiFaultInProbeAddress @ 0x1400936FC (MiFaultInProbeAddress.c)
- *     MmProbeAndLockSelectedPages @ 0x1400949E0 (MmProbeAndLockSelectedPages.c)
- *     MiSplitReducedCommitClonePage @ 0x1402A8490 (MiSplitReducedCommitClonePage.c)
+ *     MiFaultInProbeAddress @ 0x14009363C (MiFaultInProbeAddress.c)
+ *     MmProbeAndLockSelectedPages @ 0x140094920 (MmProbeAndLockSelectedPages.c)
+ *     MiSplitReducedCommitClonePage @ 0x1402A8680 (MiSplitReducedCommitClonePage.c)
  * Callees:
- *     MiLockWorkingSetShared @ 0x140076050 (MiLockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x140076040 (MiLockWorkingSetShared.c)
  */
 
 char __fastcall MiLockProbePacketWorkingSet(__int64 a1)

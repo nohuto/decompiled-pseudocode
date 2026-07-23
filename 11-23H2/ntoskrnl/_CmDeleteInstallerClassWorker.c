@@ -1,14 +1,14 @@
 /*
- * XREFs of _CmDeleteInstallerClassWorker @ 0x140A62B20
+ * XREFs of _CmDeleteInstallerClassWorker @ 0x140A62DD0
  * Callers:
- *     _CmDeleteInstallerClass @ 0x140A629F4 (_CmDeleteInstallerClass.c)
+ *     _CmDeleteInstallerClass @ 0x140A62CA4 (_CmDeleteInstallerClass.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     _CmGetMatchingFilteredDeviceList @ 0x1407C7C88 (_CmGetMatchingFilteredDeviceList.c)
- *     _CmDeleteCommonClassRegKey @ 0x140A60FEC (_CmDeleteCommonClassRegKey.c)
- *     _CmRaiseDeleteEvent @ 0x140A655E8 (_CmRaiseDeleteEvent.c)
- *     _CmGetInstallerClassMappedPropertyKeys @ 0x140A68CAC (_CmGetInstallerClassMappedPropertyKeys.c)
- *     _CmSetInstallerClassMappedProperty @ 0x140A69924 (_CmSetInstallerClassMappedProperty.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     _CmGetMatchingFilteredDeviceList @ 0x1407C7F58 (_CmGetMatchingFilteredDeviceList.c)
+ *     _CmDeleteCommonClassRegKey @ 0x140A6129C (_CmDeleteCommonClassRegKey.c)
+ *     _CmRaiseDeleteEvent @ 0x140A65898 (_CmRaiseDeleteEvent.c)
+ *     _CmGetInstallerClassMappedPropertyKeys @ 0x140A68F5C (_CmGetInstallerClassMappedPropertyKeys.c)
+ *     _CmSetInstallerClassMappedProperty @ 0x140A69BD4 (_CmSetInstallerClassMappedProperty.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

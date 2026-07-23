@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpSfiTimerInitialize @ 0x1404D5870
+ * XREFs of HalpSfiTimerInitialize @ 0x1404D5AB0
  * Callers:
- *     HalpSfiTimerStop @ 0x1404D59C0 (HalpSfiTimerStop.c)
+ *     HalpSfiTimerStop @ 0x1404D5C00 (HalpSfiTimerStop.c)
  * Callees:
- *     KeStallExecutionProcessor @ 0x14022A880 (KeStallExecutionProcessor.c)
- *     HalMapIoSpace @ 0x1403AC2D0 (HalMapIoSpace.c)
- *     HalpUnmapVirtualAddress @ 0x1403BB890 (HalpUnmapVirtualAddress.c)
- *     HalSetTimerProblem @ 0x1404D5600 (HalSetTimerProblem.c)
+ *     KeStallExecutionProcessor @ 0x1402CF130 (KeStallExecutionProcessor.c)
+ *     HalMapIoSpace @ 0x1403AD060 (HalMapIoSpace.c)
+ *     HalpUnmapVirtualAddress @ 0x1403BBA00 (HalpUnmapVirtualAddress.c)
+ *     HalSetTimerProblem @ 0x1404D5840 (HalSetTimerProblem.c)
  */
 
 __int64 __fastcall HalpSfiTimerInitialize(LARGE_INTEGER *a1)

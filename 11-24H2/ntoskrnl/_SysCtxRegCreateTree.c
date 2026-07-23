@@ -1,9 +1,9 @@
 /*
- * XREFs of _SysCtxRegCreateTree @ 0x140926924
+ * XREFs of _SysCtxRegCreateTree @ 0x140928A64
  * Callers:
- *     _PnpCtxGetCachedNodeBaseKey @ 0x1408C7D10 (_PnpCtxGetCachedNodeBaseKey.c)
+ *     _PnpCtxGetCachedNodeBaseKey @ 0x1408C5740 (_PnpCtxGetCachedNodeBaseKey.c)
  * Callees:
- *     _RegRtlCreateTreeTransacted @ 0x1409261A4 (_RegRtlCreateTreeTransacted.c)
+ *     _RegRtlCreateTreeTransacted @ 0x1409282E4 (_RegRtlCreateTreeTransacted.c)
  */
 
 __int64 __fastcall SysCtxRegCreateTree(

@@ -1,15 +1,14 @@
 /*
- * XREFs of RtlpAtomMapAtomToHandleEntry @ 0x140935E40
+ * XREFs of RtlpAtomMapAtomToHandleEntry @ 0x1408F4D50
  * Callers:
- *     RtlQueryAtomInAtomTable @ 0x140935920 (RtlQueryAtomInAtomTable.c)
- *     RtlPinAtomInAtomTable @ 0x140935BE0 (RtlPinAtomInAtomTable.c)
- *     RtlDeleteAtomFromAtomTable @ 0x140935CB0 (RtlDeleteAtomFromAtomTable.c)
+ *     RtlPinAtomInAtomTable @ 0x1408F42F0 (RtlPinAtomInAtomTable.c)
+ *     RtlDeleteAtomFromAtomTable @ 0x1408F4840 (RtlDeleteAtomFromAtomTable.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x1402595A0 (KeLeaveCriticalRegionThread.c)
- *     ExfUnblockPushLock @ 0x1402C7820 (ExfUnblockPushLock.c)
- *     ExGetHandlePointer @ 0x1404275E0 (ExGetHandlePointer.c)
- *     ExpLookupHandleTableEntry @ 0x14084BF30 (ExpLookupHandleTableEntry.c)
- *     ExpBlockOnLockedHandleEntry @ 0x14084DA70 (ExpBlockOnLockedHandleEntry.c)
+ *     KeLeaveCriticalRegionThread @ 0x140289BB0 (KeLeaveCriticalRegionThread.c)
+ *     ExfUnblockPushLock @ 0x1402BC1A0 (ExfUnblockPushLock.c)
+ *     ExGetHandlePointer @ 0x14041B770 (ExGetHandlePointer.c)
+ *     ExpLookupHandleTableEntry @ 0x1408481F0 (ExpLookupHandleTableEntry.c)
+ *     ExpBlockOnLockedHandleEntry @ 0x140849D30 (ExpBlockOnLockedHandleEntry.c)
  */
 
 unsigned __int64 __fastcall RtlpAtomMapAtomToHandleEntry(__int64 a1, int a2)

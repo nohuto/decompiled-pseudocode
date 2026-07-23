@@ -1,20 +1,20 @@
 /*
- * XREFs of VfInitSystemNoRebootNeeded @ 0x140C205D0
+ * XREFs of VfInitSystemNoRebootNeeded @ 0x140C265DC
  * Callers:
- *     VfSetVerifierInformation @ 0x140C2083C (VfSetVerifierInformation.c)
- *     VfAddVerifierEntry @ 0x140C46698 (VfAddVerifierEntry.c)
- *     ViInitSystemPhase0 @ 0x140CDEDA4 (ViInitSystemPhase0.c)
+ *     VfSetVerifierInformation @ 0x140C2684C (VfSetVerifierInformation.c)
+ *     VfAddVerifierEntry @ 0x140C4C6A8 (VfAddVerifierEntry.c)
+ *     ViInitSystemPhase0 @ 0x140CE513C (ViInitSystemPhase0.c)
  * Callees:
- *     ExSetPoolFlags @ 0x1406CC070 (ExSetPoolFlags.c)
- *     ExDisableAllLookasideLists @ 0x1406CEB14 (ExDisableAllLookasideLists.c)
- *     PsSetCreateProcessNotifyRoutine @ 0x1407FCCC0 (PsSetCreateProcessNotifyRoutine.c)
- *     MmLockPagableDataSection @ 0x140ABB180 (MmLockPagableDataSection.c)
- *     IoVerifierInit @ 0x140C20A2C (IoVerifierInit.c)
- *     VfInitVerifierComponents @ 0x140C21EC0 (VfInitVerifierComponents.c)
- *     VfPendingInitPhase1 @ 0x140C2FF28 (VfPendingInitPhase1.c)
- *     VfFaultsInitPhase0 @ 0x140C34584 (VfFaultsInitPhase0.c)
- *     VfPoolInitPhase1 @ 0x140C385FC (VfPoolInitPhase1.c)
- *     VfSettingsMiscellaneousChecksInitPhase1 @ 0x140C3920C (VfSettingsMiscellaneousChecksInitPhase1.c)
+ *     ExSetPoolFlags @ 0x1406D00A0 (ExSetPoolFlags.c)
+ *     ExDisableAllLookasideLists @ 0x1406D2B44 (ExDisableAllLookasideLists.c)
+ *     PsSetCreateProcessNotifyRoutine @ 0x1408026F0 (PsSetCreateProcessNotifyRoutine.c)
+ *     MmLockPagableDataSection @ 0x140ABC640 (MmLockPagableDataSection.c)
+ *     IoVerifierInit @ 0x140C26A3C (IoVerifierInit.c)
+ *     VfInitVerifierComponents @ 0x140C27ED0 (VfInitVerifierComponents.c)
+ *     VfPendingInitPhase1 @ 0x140C35F38 (VfPendingInitPhase1.c)
+ *     VfFaultsInitPhase0 @ 0x140C3A594 (VfFaultsInitPhase0.c)
+ *     VfPoolInitPhase1 @ 0x140C3E60C (VfPoolInitPhase1.c)
+ *     VfSettingsMiscellaneousChecksInitPhase1 @ 0x140C3F21C (VfSettingsMiscellaneousChecksInitPhase1.c)
  */
 
 void __fastcall VfInitSystemNoRebootNeeded(__int64 a1, int a2, __int64 a3, __int64 a4)

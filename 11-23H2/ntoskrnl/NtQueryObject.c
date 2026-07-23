@@ -1,21 +1,21 @@
 /*
- * XREFs of NtQueryObject @ 0x14075B390
+ * XREFs of NtQueryObject @ 0x14075B580
  * Callers:
  *     IopQueryRegistryKeySystemPath @ 0x14068ECA0 (IopQueryRegistryKeySystemPath.c)
- *     IopLoadDriver @ 0x1407945D8 (IopLoadDriver.c)
+ *     IopLoadDriver @ 0x1407947C8 (IopLoadDriver.c)
  * Callees:
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ObfReferenceObject @ 0x140233C40 (ObfReferenceObject.c)
- *     ExfReleasePushLockShared @ 0x1402BD860 (ExfReleasePushLockShared.c)
- *     OBJECT_HEADER_TO_QUOTA_INFO @ 0x1402F8670 (OBJECT_HEADER_TO_QUOTA_INFO.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     ObReferenceObjectByHandle @ 0x1406E62C0 (ObReferenceObjectByHandle.c)
- *     ProbeForWrite @ 0x140729380 (ProbeForWrite.c)
- *     ObQueryNameStringMode @ 0x14075B7F4 (ObQueryNameStringMode.c)
- *     ObQueryTypeInfo @ 0x14075C1D0 (ObQueryTypeInfo.c)
+ *     ExAcquirePushLockSharedEx @ 0x140230E80 (ExAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x140231550 (KeLeaveCriticalRegion.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     ObfReferenceObject @ 0x140233D10 (ObfReferenceObject.c)
+ *     ExfReleasePushLockShared @ 0x1402BDAF0 (ExfReleasePushLockShared.c)
+ *     OBJECT_HEADER_TO_QUOTA_INFO @ 0x1402F8900 (OBJECT_HEADER_TO_QUOTA_INFO.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     ObReferenceObjectByHandle @ 0x1406E62F0 (ObReferenceObjectByHandle.c)
+ *     ProbeForWrite @ 0x140729580 (ProbeForWrite.c)
+ *     ObQueryNameStringMode @ 0x14075B9E4 (ObQueryNameStringMode.c)
+ *     ObQueryTypeInfo @ 0x14075C3C0 (ObQueryTypeInfo.c)
  */
 
 NTSTATUS __stdcall NtQueryObject(

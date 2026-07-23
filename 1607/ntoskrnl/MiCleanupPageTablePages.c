@@ -1,13 +1,13 @@
 /*
- * XREFs of MiCleanupPageTablePages @ 0x140102760
+ * XREFs of MiCleanupPageTablePages @ 0x1401004E0
  * Callers:
- *     MiMakeZeroedPageTables @ 0x1401022B4 (MiMakeZeroedPageTables.c)
- *     MiGetPageTablePages @ 0x140102808 (MiGetPageTablePages.c)
- *     MmCreateShadowMapping @ 0x14065BC98 (MmCreateShadowMapping.c)
+ *     MiMakeZeroedPageTables @ 0x140100034 (MiMakeZeroedPageTables.c)
+ *     MiGetPageTablePages @ 0x140100588 (MiGetPageTablePages.c)
+ *     MmCreateShadowMapping @ 0x14065BD7C (MmCreateShadowMapping.c)
  * Callees:
- *     MiReturnCommit @ 0x14004E500 (MiReturnCommit.c)
- *     MiReturnResidentAvailable @ 0x14004F1E0 (MiReturnResidentAvailable.c)
- *     MiReleaseFreshPage @ 0x1400AC5F4 (MiReleaseFreshPage.c)
+ *     MiReturnCommit @ 0x14004E080 (MiReturnCommit.c)
+ *     MiReturnResidentAvailable @ 0x14004ED60 (MiReturnResidentAvailable.c)
+ *     MiReleaseFreshPage @ 0x1400AAB5C (MiReleaseFreshPage.c)
  */
 
 void __fastcall MiCleanupPageTablePages(__int64 a1)
@@ -41,7 +41,7 @@ void __fastcall MiCleanupPageTablePages(__int64 a1)
       else
         _InterlockedExchangeAdd64((volatile signed __int64 *)(v7 + 6528), *(_QWORD *)(a1 + 16));
       if ( (*(_DWORD *)(a1 + 36) & 0x40) == 0 && *(_DWORD *)(a1 + 32) == 2 )
-        _InterlockedExchangeAdd64(&qword_1403278F0, -*(_QWORD *)(a1 + 16));
+        _InterlockedExchangeAdd64(&qword_140327930, -*(_QWORD *)(a1 + 16));
     }
   }
   *(_QWORD *)(a1 + 16) = 0LL;

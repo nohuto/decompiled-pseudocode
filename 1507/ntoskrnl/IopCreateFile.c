@@ -40,7 +40,7 @@ __int64 __fastcall IopCreateFile(
         _DWORD *a13,
         int a14,
         int a15,
-        struct _SLIST_ENTRY *a16)
+        _SLIST_ENTRY *a16)
 {
   NTSTATUS *v16; // r12
   char PreviousMode; // r15

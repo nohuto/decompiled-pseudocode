@@ -1,11 +1,11 @@
 /*
- * XREFs of ViWdIrpBeforeCompletionRoutine @ 0x14093E924
+ * XREFs of ViWdIrpBeforeCompletionRoutine @ 0x14093F924
  * Callers:
- *     IovpCompleteRequest2 @ 0x14092F620 (IovpCompleteRequest2.c)
+ *     IovpCompleteRequest2 @ 0x140930620 (IovpCompleteRequest2.c)
  * Callees:
  *     KxAcquireSpinLock @ 0x140062A90 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
- *     ExFreeToNPagedLookasideList @ 0x1400922D8 (ExFreeToNPagedLookasideList.c)
+ *     KxReleaseSpinLock @ 0x1400630D0 (KxReleaseSpinLock.c)
+ *     ExFreeToNPagedLookasideList @ 0x140092218 (ExFreeToNPagedLookasideList.c)
  */
 
 void __fastcall ViWdIrpBeforeCompletionRoutine(__int64 a1)

@@ -1,7 +1,7 @@
 /*
- * XREFs of CmRetrieveExtraParameter @ 0x140A6BB9C
+ * XREFs of CmRetrieveExtraParameter @ 0x140A7D1CC
  * Callers:
- *     VrpPostOpenOrCreate @ 0x1408A5A98 (VrpPostOpenOrCreate.c)
+ *     VrpPostOpenOrCreate @ 0x1408ABF08 (VrpPostOpenOrCreate.c)
  * Callees:
  *     <none>
  */

@@ -1,11 +1,11 @@
 /*
- * XREFs of MiWalkVaCheckCommon @ 0x1403FA9F0
+ * XREFs of MiWalkVaCheckCommon @ 0x140295E20
  * Callers:
- *     MiSimpleAgePte @ 0x1403FA2E0 (MiSimpleAgePte.c)
- *     MiResetAccessBitPte @ 0x1403FA890 (MiResetAccessBitPte.c)
+ *     MiResetAccessBitPte @ 0x140294320 (MiResetAccessBitPte.c)
+ *     MiSimpleAgePte @ 0x14049EAD0 (MiSimpleAgePte.c)
  * Callees:
- *     MiIsPageTableLocked @ 0x1403FAAB4 (MiIsPageTableLocked.c)
- *     MiDemoteCombinedPte @ 0x1403FABBC (MiDemoteCombinedPte.c)
+ *     MiIsPageTableLocked @ 0x140295EE4 (MiIsPageTableLocked.c)
+ *     MiDemoteCombinedPte @ 0x140296374 (MiDemoteCombinedPte.c)
  */
 
 __int64 __fastcall MiWalkVaCheckCommon(__int64 a1, _QWORD *a2, _QWORD *a3, int a4, _QWORD *a5)

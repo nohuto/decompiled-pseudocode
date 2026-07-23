@@ -1,7 +1,7 @@
 /*
  * XREFs of NormBuffer__ReplaceLastStartBasePair @ 0x1800FC3B4
  * Callers:
- *     Normalization__NormalizeCharacter @ 0x180083C50 (Normalization__NormalizeCharacter.c)
+ *     Normalization__NormalizeCharacter @ 0x180083C60 (Normalization__NormalizeCharacter.c)
  * Callees:
  *     NormBuffer__AppendAndSortDecomposed @ 0x1800FBE58 (NormBuffer__AppendAndSortDecomposed.c)
  */

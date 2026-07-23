@@ -1,30 +1,30 @@
 /*
- * XREFs of SepCreateClaimAttributes @ 0x1407CF434
+ * XREFs of SepCreateClaimAttributes @ 0x1407CF704
  * Callers:
- *     SepSetTokenClaims @ 0x1407CF3B8 (SepSetTokenClaims.c)
+ *     SepSetTokenClaims @ 0x1407CF688 (SepSetTokenClaims.c)
  * Callees:
- *     AuthzBasepSetSecurityAttributesToken @ 0x140224CF0 (AuthzBasepSetSecurityAttributesToken.c)
- *     RtlSidHashInitialize @ 0x140228410 (RtlSidHashInitialize.c)
- *     AuthzBasepFreeSecurityAttributesList @ 0x1402A8D40 (AuthzBasepFreeSecurityAttributesList.c)
- *     AuthzBasepAllocateSecurityAttributesList @ 0x14036AF8C (AuthzBasepAllocateSecurityAttributesList.c)
- *     SeCaptureSidAndAttributesArray @ 0x1406BCC50 (SeCaptureSidAndAttributesArray.c)
- *     SepLengthSidAndAttributesArray @ 0x1406BD564 (SepLengthSidAndAttributesArray.c)
- *     AuthzBasepAllocateClaimCollectionNoLists @ 0x140A59D64 (AuthzBasepAllocateClaimCollectionNoLists.c)
+ *     AuthzBasepSetSecurityAttributesToken @ 0x140224DF8 (AuthzBasepSetSecurityAttributesToken.c)
+ *     RtlSidHashInitialize @ 0x140228520 (RtlSidHashInitialize.c)
+ *     AuthzBasepFreeSecurityAttributesList @ 0x1402A8FD0 (AuthzBasepFreeSecurityAttributesList.c)
+ *     AuthzBasepAllocateSecurityAttributesList @ 0x14036B12C (AuthzBasepAllocateSecurityAttributesList.c)
+ *     SeCaptureSidAndAttributesArray @ 0x1406BCC80 (SeCaptureSidAndAttributesArray.c)
+ *     SepLengthSidAndAttributesArray @ 0x1406BD594 (SepLengthSidAndAttributesArray.c)
+ *     AuthzBasepAllocateClaimCollectionNoLists @ 0x140A5A014 (AuthzBasepAllocateClaimCollectionNoLists.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 
-__int64 __fastcall SepCreateClaimAttributes(_QWORD *a1, __int64 a2, __int64 a3, unsigned int a4, char *Src)
+__int64 __fastcall SepCreateClaimAttributes(unsigned int **a1, __int64 a2, __int64 a3, unsigned int a4, char *Src)
 {
   __int64 result; // rax
   int v8; // ebx
   _DWORD *v9; // r14
   _DWORD *v10; // rsi
   char v11; // r12
-  char *v12; // rbp
+  _SID_AND_ATTRIBUTES *v12; // rbp
   __int64 v13; // rdx
   __int64 v14; // rcx
-  _QWORD *ClaimCollectionNoLists; // rdi
+  unsigned int *ClaimCollectionNoLists; // rdi
   _QWORD *SecurityAttributesList; // rax
   _QWORD *v17; // rax
   __int64 v18; // rdx
@@ -54,7 +54,7 @@ __int64 __fastcall SepCreateClaimAttributes(_QWORD *a1, __int64 a2, __int64 a3, 
   *a1 = 0LL;
   if ( a2 || a3 || a4 )
   {
-    ClaimCollectionNoLists = (_QWORD *)AuthzBasepAllocateClaimCollectionNoLists();
+    ClaimCollectionNoLists = (unsigned int *)AuthzBasepAllocateClaimCollectionNoLists();
     if ( !ClaimCollectionNoLists )
       return (unsigned int)-1073741670;
     if ( a2 )
@@ -72,7 +72,7 @@ LABEL_37:
       if ( v8 < 0 )
         goto LABEL_30;
       v28 = 1;
-      ClaimCollectionNoLists[72] = v9;
+      *((_QWORD *)ClaimCollectionNoLists + 72) = v9;
     }
     if ( a3 )
     {
@@ -108,7 +108,7 @@ LABEL_30:
         goto LABEL_31;
       }
       v11 = 1;
-      ClaimCollectionNoLists[73] = v10;
+      *((_QWORD *)ClaimCollectionNoLists + 73) = v10;
     }
     if ( !Src || !a4 )
       goto LABEL_24;
@@ -117,15 +117,15 @@ LABEL_30:
       goto LABEL_27;
     v21 = v26;
     Pool2 = (char *)ExAllocatePool2(256LL, (unsigned int)v26, 1683252563LL);
-    v12 = Pool2;
+    v12 = (_SID_AND_ATTRIBUTES *)Pool2;
     if ( Pool2 )
     {
       v8 = SeCaptureSidAndAttributesArray(Src, a4, 0, Pool2, v21, v23, v24, (PVOID *)&v27, (unsigned int *)&v26);
       if ( v8 >= 0 )
       {
-        *(_DWORD *)ClaimCollectionNoLists = a4;
-        ClaimCollectionNoLists[1] = v12;
-        RtlSidHashInitialize((__int64 *)v12, a4, ClaimCollectionNoLists + 4);
+        *ClaimCollectionNoLists = a4;
+        *((_QWORD *)ClaimCollectionNoLists + 1) = v12;
+        RtlSidHashInitialize(v12, a4, (PSID_AND_ATTRIBUTES_HASH)(ClaimCollectionNoLists + 8));
 LABEL_24:
         *a1 = ClaimCollectionNoLists;
         return (unsigned int)v8;

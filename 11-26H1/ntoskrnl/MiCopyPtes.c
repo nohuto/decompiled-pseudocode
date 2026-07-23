@@ -1,8 +1,8 @@
 /*
- * XREFs of MiCopyPtes @ 0x1403422BC
+ * XREFs of MiCopyPtes @ 0x14034433C
  * Callers:
- *     MiCopyTopLevelMappings @ 0x140342188 (MiCopyTopLevelMappings.c)
- *     MxCopyPage @ 0x140CF5774 (MxCopyPage.c)
+ *     MiCopyTopLevelMappings @ 0x140344208 (MiCopyTopLevelMappings.c)
+ *     MxCopyPage @ 0x140CFBAF4 (MxCopyPage.c)
  * Callees:
  *     <none>
  */

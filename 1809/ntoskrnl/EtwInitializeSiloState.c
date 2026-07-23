@@ -1,26 +1,26 @@
 /*
- * XREFs of EtwInitializeSiloState @ 0x140741434
+ * XREFs of EtwInitializeSiloState @ 0x140742624
  * Callers:
- *     PspInitializeServerSiloDeferred @ 0x140887440 (PspInitializeServerSiloDeferred.c)
- *     EtwpInitialize @ 0x1409D0620 (EtwpInitialize.c)
+ *     PspInitializeServerSiloDeferred @ 0x1408886A0 (PspInitializeServerSiloDeferred.c)
+ *     EtwpInitialize @ 0x1409D1620 (EtwpInitialize.c)
  * Callees:
  *     PsDetachSiloFromCurrentThread @ 0x14000FBB0 (PsDetachSiloFromCurrentThread.c)
  *     PsAttachSiloToCurrentThread @ 0x14000FBD0 (PsAttachSiloToCurrentThread.c)
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     ExReleasePushLockEx @ 0x14004F160 (ExReleasePushLockEx.c)
- *     PsGetServerSiloGlobals @ 0x14009238C (PsGetServerSiloGlobals.c)
- *     KeQueryMaximumProcessorCountEx @ 0x1400A6A80 (KeQueryMaximumProcessorCountEx.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     PsIsHostSilo @ 0x1400B8A80 (PsIsHostSilo.c)
- *     ExFreeCacheAwareRundownProtection @ 0x14010C8E0 (ExFreeCacheAwareRundownProtection.c)
- *     EtwpQueryPartitionRegistryInformation @ 0x140185D34 (EtwpQueryPartitionRegistryInformation.c)
- *     EtwpReadPerSiloConfigParameters @ 0x140185FF8 (EtwpReadPerSiloConfigParameters.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     ExAllocateCacheAwareRundownProtection @ 0x1405A27E0 (ExAllocateCacheAwareRundownProtection.c)
- *     ExSubscribeWnfStateChange @ 0x1406BC470 (ExSubscribeWnfStateChange.c)
- *     EtwpInitializeAutoLoggers @ 0x14074185C (EtwpInitializeAutoLoggers.c)
+ *     PsGetServerSiloGlobals @ 0x1400922CC (PsGetServerSiloGlobals.c)
+ *     KeQueryMaximumProcessorCountEx @ 0x1400A69C0 (KeQueryMaximumProcessorCountEx.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     PsIsHostSilo @ 0x1400B89C0 (PsIsHostSilo.c)
+ *     ExFreeCacheAwareRundownProtection @ 0x14010C960 (ExFreeCacheAwareRundownProtection.c)
+ *     EtwpQueryPartitionRegistryInformation @ 0x140185E74 (EtwpQueryPartitionRegistryInformation.c)
+ *     EtwpReadPerSiloConfigParameters @ 0x140186138 (EtwpReadPerSiloConfigParameters.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     ExAllocateCacheAwareRundownProtection @ 0x1405A37E0 (ExAllocateCacheAwareRundownProtection.c)
+ *     ExSubscribeWnfStateChange @ 0x1406BD710 (ExSubscribeWnfStateChange.c)
+ *     EtwpInitializeAutoLoggers @ 0x140742A4C (EtwpInitializeAutoLoggers.c)
  */
 
 __int64 __fastcall EtwInitializeSiloState(struct _LIST_ENTRY *a1)
@@ -161,14 +161,14 @@ LABEL_28:
 LABEL_14:
   *(_QWORD *)(v4 + 416) = v4;
   *(_QWORD *)(v4 + 432) = 0LL;
-  *(_OWORD *)(v4 + 64) = SecurityProviderGuid;
+  *(GUID *)(v4 + 64) = SecurityProviderGuid;
   *((_QWORD *)PsGetServerSiloGlobals((__int64)a1) + 108) = v4;
   IsHostSilo = PsIsHostSilo(v22);
   if ( IsHostSilo )
   {
-    qword_1404039A8 = *(_QWORD *)(v4 + 456);
+    qword_1404049A8 = *(_QWORD *)(v4 + 456);
     EtwpHostSiloState = v4;
-    qword_1404039B0 = v4;
+    qword_1404049B0 = v4;
     ExSubscribeWnfStateChange(
       v4 + 4144,
       (__int64)&WNF_CONT_RESTORE_FROM_SNAPSHOT_COMPLETE,
@@ -186,10 +186,10 @@ LABEL_14:
     (_QWORD *)(v4 + 4184),
     (GUID *)(v4 + 4168));
   if ( IsHostSilo )
-    qword_140A0A6B8 = KeQueryPerformanceCounter(0LL).QuadPart;
+    qword_140A0B6B8 = KeQueryPerformanceCounter(0LL).QuadPart;
   EtwpInitializeAutoLoggers();
   if ( IsHostSilo )
-    qword_140A0A6C0 = KeQueryPerformanceCounter(0LL).QuadPart;
+    qword_140A0B6C0 = KeQueryPerformanceCounter(0LL).QuadPart;
   PsDetachSiloFromCurrentThread(v24);
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;

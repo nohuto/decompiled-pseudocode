@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpHpCustomVaCallbacksRegistrarUnregister @ 0x1406048CC
+ * XREFs of RtlpHpCustomVaCallbacksRegistrarUnregister @ 0x140601F0C
  * Callers:
- *     RtlpHpRegisterEnvironment @ 0x1406053F0 (RtlpHpRegisterEnvironment.c)
+ *     RtlpHpRegisterEnvironment @ 0x140602A30 (RtlpHpRegisterEnvironment.c)
  * Callees:
- *     RtlpHpAcquireLockExclusive @ 0x14020D790 (RtlpHpAcquireLockExclusive.c)
- *     RtlpHpReleaseLockExclusive @ 0x1402B9650 (RtlpHpReleaseLockExclusive.c)
- *     RtlpHpMetadataFree @ 0x140420E2C (RtlpHpMetadataFree.c)
+ *     RtlpHpAcquireLockExclusive @ 0x140336AF0 (RtlpHpAcquireLockExclusive.c)
+ *     RtlpHpReleaseLockExclusive @ 0x140360D90 (RtlpHpReleaseLockExclusive.c)
+ *     RtlpHpMetadataFree @ 0x140459100 (RtlpHpMetadataFree.c)
  */
 
 void __fastcall RtlpHpCustomVaCallbacksRegistrarUnregister(__int64 a1, __int64 a2, __int128 *a3)
@@ -18,7 +18,7 @@ void __fastcall RtlpHpCustomVaCallbacksRegistrarUnregister(__int64 a1, __int64 a
   __int64 v10; // [rsp+50h] [rbp+8h]
 
   v4 = a2 - 16;
-  v6 = RtlpHpAcquireLockExclusive((int *)(a1 + 16), 0, (__int64)a3);
+  v6 = RtlpHpAcquireLockExclusive((int *)(a1 + 16), 0);
   v7 = _InterlockedDecrement64((volatile signed __int64 *)(v4 + 48));
   if ( v7 <= 0 )
   {

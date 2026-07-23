@@ -1,0 +1,89 @@
+/*
+ * XREFs of sub_1406C1A74 @ 0x1406C1A74
+ * Callers:
+ *     IoWMIDeviceObjectToInstanceName @ 0x1406C1980 (IoWMIDeviceObjectToInstanceName.c)
+ *     sub_1409DE060 @ 0x1409DE060 (sub_1409DE060.c)
+ * Callees:
+ *     KeWaitForSingleObject @ 0x1402AF080 (KeWaitForSingleObject.c)
+ *     sub_1402DDEC0 @ 0x1402DDEC0 (sub_1402DDEC0.c)
+ *     KeReleaseMutex @ 0x1402F91C0 (KeReleaseMutex.c)
+ *     _wcsnicmp @ 0x1403E15D0 (_wcsnicmp.c)
+ *     RtlFreeUnicodeString @ 0x1407023F0 (RtlFreeUnicodeString.c)
+ */
+
+__int64 __fastcall sub_1406C1A74(__int64 a1, ULONG_PTR a2, UNICODE_STRING *a3, _DWORD *a4)
+{
+  _DWORD *v5; // rbx
+  UNICODE_STRING *v6; // rbp
+  int v7; // edi
+  __int64 v8; // r15
+  unsigned __int16 v9; // r12
+  int v10; // r13d
+  const wchar_t *Buffer; // rsi
+  _QWORD *v12; // r15
+  _QWORD *v13; // rbx
+  __int64 v14; // r14
+  __int64 v15; // rbp
+  UNICODE_STRING v16; // xmm0
+  UNICODE_STRING Str2; // [rsp+30h] [rbp-48h] BYREF
+
+  v5 = a4;
+  v6 = a3;
+  Str2 = 0LL;
+  v7 = sub_1402DDEC0(a2, &Str2);
+  if ( v7 >= 0 )
+  {
+    v8 = *(_QWORD *)(a1 + 56);
+    v9 = Str2.Length >> 1;
+    v10 = 0;
+    v7 = -1073741162;
+    KeWaitForSingleObject(&Object, Executive, 0, 0, 0LL);
+    Buffer = Str2.Buffer;
+    if ( *(_DWORD *)(v8 + 36) )
+    {
+      v12 = (_QWORD *)(v8 + 56);
+      v13 = (_QWORD *)*v12;
+      if ( (_QWORD *)*v12 != v12 )
+      {
+        while ( 1 )
+        {
+          if ( (v13[2] & 1) != 0 )
+          {
+            v14 = v13[11];
+            v15 = -1LL;
+            do
+              ++v15;
+            while ( *(_WORD *)(v14 + 2 * v15 + 4) );
+            if ( !wcsnicmp((const wchar_t *)(v14 + 4), Buffer, v9)
+              && (unsigned __int16)v15 == v9 + 1
+              && *(_WORD *)(v14 + 2LL * (unsigned __int16)v15 + 2) == 95 )
+            {
+              break;
+            }
+          }
+          v13 = (_QWORD *)*v13;
+          if ( v13 == v12 )
+            goto LABEL_11;
+        }
+        v7 = 0;
+        v10 = *(_DWORD *)v13[11];
+LABEL_11:
+        v6 = a3;
+      }
+      v5 = a4;
+    }
+    KeReleaseMutex(&Object, 0);
+    if ( v7 >= 0 )
+    {
+      v16 = Str2;
+      *v5 = v10;
+      Buffer = 0LL;
+      Str2.Buffer = 0LL;
+      v7 = 0;
+      *v6 = v16;
+    }
+    if ( Buffer )
+      RtlFreeUnicodeString(&Str2);
+  }
+  return (unsigned int)v7;
+}

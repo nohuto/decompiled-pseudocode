@@ -1,9 +1,9 @@
 /*
- * XREFs of CcComputeNextScanTime @ 0x1404978F0
+ * XREFs of CcComputeNextScanTime @ 0x140492400
  * Callers:
- *     CcLazyWriteScan @ 0x14043BAE8 (CcLazyWriteScan.c)
+ *     CcLazyWriteScan @ 0x1402654C8 (CcLazyWriteScan.c)
  * Callees:
- *     CcIsWriteBehindThreadpoolAtLowPriority @ 0x1402A7D0C (CcIsWriteBehindThreadpoolAtLowPriority.c)
+ *     CcIsWriteBehindThreadpoolAtLowPriority @ 0x140279B04 (CcIsWriteBehindThreadpoolAtLowPriority.c)
  */
 
 char __fastcall CcComputeNextScanTime(__int64 a1, __int64 a2, __int64 *a3, _QWORD *a4)
@@ -21,7 +21,7 @@ char __fastcall CcComputeNextScanTime(__int64 a1, __int64 a2, __int64 *a3, _QWOR
   result = CcIsWriteBehindThreadpoolAtLowPriority(a1);
   if ( result )
   {
-    v9 = 0x9896800uLL / (unsigned int)KeMaximumIncrement;
+    v9 = 0x9896800uLL / KeMaximumIncrement;
     if ( CcEnablePerVolumeLazyWriter )
       v10 = (_DWORD *)(v7 + 708);
     else

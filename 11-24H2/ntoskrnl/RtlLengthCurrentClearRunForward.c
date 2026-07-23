@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlLengthCurrentClearRunForward @ 0x140366E90
+ * XREFs of RtlLengthCurrentClearRunForward @ 0x1403C5560
  * Callers:
- *     MiCoalescePageFileBitmapsCache @ 0x140366840 (MiCoalescePageFileBitmapsCache.c)
- *     MiFindFreePageFileSpace @ 0x140367D88 (MiFindFreePageFileSpace.c)
+ *     MiFindFreePageFileSpace @ 0x1403C438C (MiFindFreePageFileSpace.c)
+ *     MiCoalescePageFileBitmapsCache @ 0x1403C4F10 (MiCoalescePageFileBitmapsCache.c)
  * Callees:
  *     <none>
  */
@@ -34,7 +34,7 @@ __int64 __fastcall RtlLengthCurrentClearRunForward(int *a1, unsigned int a2, uns
     v9 = v8;
   v10 = a2 & 0x1F;
   v11 = 0;
-  LODWORD(v12) = *v6 & ~*((_DWORD *)qword_1400112F0 + v10);
+  LODWORD(v12) = *v6 & ~*((_DWORD *)qword_140011DF0 + v10);
   if ( v6 <= v9 )
   {
     while ( !(_DWORD)v12 )
@@ -59,7 +59,7 @@ LABEL_4:
     {
       if ( v11 )
         LODWORD(v12) = v6[1];
-      v13 = *((_DWORD *)qword_1400112F0 + (v5 & 0x1F));
+      v13 = *((_DWORD *)qword_140011DF0 + (v5 & 0x1F));
       v14 = -1;
       v15 = !_BitScanForward64((unsigned __int64 *)&v12, (unsigned int)v12 | ~v13);
       if ( !v15 )

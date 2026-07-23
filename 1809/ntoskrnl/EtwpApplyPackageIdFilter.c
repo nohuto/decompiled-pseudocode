@@ -1,15 +1,15 @@
 /*
- * XREFs of EtwpApplyPackageIdFilter @ 0x1408C1CBC
+ * XREFs of EtwpApplyPackageIdFilter @ 0x1408C2F7C
  * Callers:
- *     EtwpApplyScopeFilters @ 0x1405C42D0 (EtwpApplyScopeFilters.c)
- *     EtwpApplyTransientFilters @ 0x1406DBB38 (EtwpApplyTransientFilters.c)
+ *     EtwpApplyScopeFilters @ 0x1405C52D0 (EtwpApplyScopeFilters.c)
+ *     EtwpApplyTransientFilters @ 0x1406DCDD8 (EtwpApplyTransientFilters.c)
  * Callees:
  *     ObFastDereferenceObject @ 0x14004D9D0 (ObFastDereferenceObject.c)
- *     RtlQueryPackageIdentity @ 0x1400A5030 (RtlQueryPackageIdentity.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     _wcsnicmp @ 0x140195A70 (_wcsnicmp.c)
- *     PsReferencePrimaryToken @ 0x1405DD640 (PsReferencePrimaryToken.c)
- *     PsQueryProcessAttributesByToken @ 0x140625960 (PsQueryProcessAttributesByToken.c)
+ *     RtlQueryPackageIdentity @ 0x1400A4F70 (RtlQueryPackageIdentity.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     _wcsnicmp @ 0x140195BB0 (_wcsnicmp.c)
+ *     PsReferencePrimaryToken @ 0x1405DE640 (PsReferencePrimaryToken.c)
+ *     PsQueryProcessAttributesByToken @ 0x140626980 (PsQueryProcessAttributesByToken.c)
  */
 
 char __fastcall EtwpApplyPackageIdFilter(__int64 a1, _WORD *a2, _WORD *a3)
@@ -25,10 +25,10 @@ char __fastcall EtwpApplyPackageIdFilter(__int64 a1, _WORD *a2, _WORD *a3)
   char v14; // [rsp+30h] [rbp-D0h] BYREF
   _BYTE v15[7]; // [rsp+31h] [rbp-CFh] BYREF
   __int64 v16; // [rsp+38h] [rbp-C8h]
-  unsigned __int64 v17; // [rsp+40h] [rbp-C0h] BYREF
-  unsigned __int64 v18; // [rsp+48h] [rbp-B8h] BYREF
-  wchar_t Str2[128]; // [rsp+50h] [rbp-B0h] BYREF
-  wchar_t v20[72]; // [rsp+150h] [rbp+50h] BYREF
+  ULONG_PTR PackageSize; // [rsp+40h] [rbp-C0h] BYREF
+  ULONG_PTR AppIdSize; // [rsp+48h] [rbp-B8h] BYREF
+  WCHAR PackageFullName[128]; // [rsp+50h] [rbp-B0h] BYREF
+  WCHAR AppId[72]; // [rsp+150h] [rbp+50h] BYREF
 
   v16 = a1;
   v3 = 0;
@@ -37,18 +37,19 @@ char __fastcall EtwpApplyPackageIdFilter(__int64 a1, _WORD *a2, _WORD *a3)
   PsQueryProcessAttributesByToken((__int64)v7, &v14, v15);
   if ( v14 )
   {
-    v17 = 256LL;
-    v18 = 130LL;
-    if ( (int)RtlQueryPackageIdentity((__int64)v7, (__int64)Str2, (__int64)&v17, (__int64)v20, (__int64)&v18, 0LL) >= 0 )
+    PackageSize = 256LL;
+    AppIdSize = 130LL;
+    if ( RtlQueryPackageIdentity(v7, PackageFullName, &PackageSize, AppId, &AppIdSize, 0LL) >= 0 )
     {
       v8 = a2 == 0LL;
       if ( a2 )
       {
         v9 = 0;
-        v10 = (v17 >> 1) - 1;
+        v10 = (PackageSize >> 1) - 1;
         if ( *a2 )
         {
-          while ( (unsigned __int16)a2[8 * v9 + 4] != v10 || wcsnicmp(*(const wchar_t **)&a2[8 * v9 + 8], Str2, v10) )
+          while ( (unsigned __int16)a2[8 * v9 + 4] != v10
+               || wcsnicmp(*(const wchar_t **)&a2[8 * v9 + 8], PackageFullName, v10) )
           {
             if ( ++v9 >= *a2 )
               goto LABEL_8;
@@ -64,10 +65,10 @@ LABEL_8:
       if ( a3 )
       {
         v11 = 0;
-        v12 = (v18 >> 1) - 1;
+        v12 = (AppIdSize >> 1) - 1;
         if ( *a3 )
         {
-          while ( (unsigned __int16)a3[8 * v11 + 4] != v12 || wcsnicmp(*(const wchar_t **)&a3[8 * v11 + 8], v20, v12) )
+          while ( (unsigned __int16)a3[8 * v11 + 4] != v12 || wcsnicmp(*(const wchar_t **)&a3[8 * v11 + 8], AppId, v12) )
           {
             if ( ++v11 >= *a3 )
               goto LABEL_14;

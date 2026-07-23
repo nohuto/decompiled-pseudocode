@@ -6,7 +6,7 @@
  *     RtlReportExceptionHelper @ 0x1800DE2B0 (RtlReportExceptionHelper.c)
  *     WerpWaitForCrashReporting @ 0x1800DEF60 (WerpWaitForCrashReporting.c)
  * Callees:
- *     NtQueryInformationProcess @ 0x1800A0600 (NtQueryInformationProcess.c)
+ *     NtQueryInformationProcess @ 0x1800A0620 (NtQueryInformationProcess.c)
  */
 
 __int64 __fastcall WerpProcessId(void *a1)

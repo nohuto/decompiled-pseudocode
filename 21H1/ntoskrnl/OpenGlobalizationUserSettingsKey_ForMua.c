@@ -32,7 +32,7 @@ __int64 __fastcall OpenGlobalizationUserSettingsKey_ForMua(__int64 a1, __int64 a
   UNICODE_STRING Destination; // [rsp+48h] [rbp-B8h] BYREF
   UNICODE_STRING UnicodeString; // [rsp+58h] [rbp-A8h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+68h] [rbp-98h] BYREF
-  WCHAR Source[264]; // [rsp+A0h] [rbp-60h] BYREF
+  WCHAR TargetPath[264]; // [rsp+A0h] [rbp-60h] BYREF
 
   v4 = 0LL;
   v7 = 0;
@@ -68,9 +68,12 @@ __int64 __fastcall OpenGlobalizationUserSettingsKey_ForMua(__int64 a1, __int64 a
         ReturnLength[0] = 0;
         InformationToken = RtlGetPersistedStateLocation(
                              L"GlobalizationUserSettings",
-                             Source,
-                             520,
-                             (__int64)ReturnLength);
+                             L"TargetNtPath",
+                             L"\\Registry\\Machine\\SYSTEM\\CurrentControlSet\\Control\\International",
+                             LocationTypeRegistry,
+                             TargetPath,
+                             0x208u,
+                             ReturnLength);
         if ( InformationToken >= 0 )
         {
           v12 = LOWORD(ReturnLength[0]) + UnicodeString.Length + 4;
@@ -81,7 +84,7 @@ __int64 __fastcall OpenGlobalizationUserSettingsKey_ForMua(__int64 a1, __int64 a
             *(_QWORD *)&Destination.Length = 0LL;
             Destination.MaximumLength = v12;
             Destination.Buffer = v13;
-            InformationToken = RtlAppendUnicodeToString(&Destination, Source);
+            InformationToken = RtlAppendUnicodeToString(&Destination, TargetPath);
             if ( InformationToken >= 0 )
             {
               InformationToken = RtlAppendUnicodeToString(&Destination, L"\\");

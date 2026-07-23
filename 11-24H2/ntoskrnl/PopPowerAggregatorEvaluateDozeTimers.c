@@ -1,13 +1,13 @@
 /*
- * XREFs of PopPowerAggregatorEvaluateDozeTimers @ 0x1406F53DC
+ * XREFs of PopPowerAggregatorEvaluateDozeTimers @ 0x1406F33DC
  * Callers:
- *     PopPowerAggregatorNotifyAcDcStateChange @ 0x1406F5398 (PopPowerAggregatorNotifyAcDcStateChange.c)
- *     PopPowerAggregatorDozeTimerWorker @ 0x140759220 (PopPowerAggregatorDozeTimerWorker.c)
- *     PopPowerAggregatorNotifyPdcPhaseState @ 0x140759914 (PopPowerAggregatorNotifyPdcPhaseState.c)
+ *     PopPowerAggregatorNotifyAcDcStateChange @ 0x1406F3398 (PopPowerAggregatorNotifyAcDcStateChange.c)
+ *     PopPowerAggregatorDozeTimerWorker @ 0x140757680 (PopPowerAggregatorDozeTimerWorker.c)
+ *     PopPowerAggregatorNotifyPdcPhaseState @ 0x140757DB4 (PopPowerAggregatorNotifyPdcPhaseState.c)
  * Callees:
- *     PopPowerAggregatorDozeTimerDisarm @ 0x1406F54C4 (PopPowerAggregatorDozeTimerDisarm.c)
- *     PopQueryRestrictedStandbyTimeoutSeconds @ 0x140749684 (PopQueryRestrictedStandbyTimeoutSeconds.c)
- *     PopPowerAggregatorDozeTimerArm @ 0x14075914C (PopPowerAggregatorDozeTimerArm.c)
+ *     PopPowerAggregatorDozeTimerDisarm @ 0x1406F34C4 (PopPowerAggregatorDozeTimerDisarm.c)
+ *     PopQueryRestrictedStandbyTimeoutSeconds @ 0x1407479B4 (PopQueryRestrictedStandbyTimeoutSeconds.c)
+ *     PopPowerAggregatorDozeTimerArm @ 0x1407575AC (PopPowerAggregatorDozeTimerArm.c)
  */
 
 unsigned __int64 PopPowerAggregatorEvaluateDozeTimers()
@@ -20,7 +20,7 @@ unsigned __int64 PopPowerAggregatorEvaluateDozeTimers()
 
   PopPowerAggregatorDozeTimerDisarm(&PopPowerAggregatorContext, 0LL);
   result = PopPowerAggregatorDozeTimerDisarm(&PopPowerAggregatorContext, 1LL);
-  if ( byte_140F08A2C )
+  if ( byte_140F08D8C )
   {
     LODWORD(v1) = 0;
     if ( PopPowerAggregatorRestrictedStandbyDozeTimeoutSeconds )

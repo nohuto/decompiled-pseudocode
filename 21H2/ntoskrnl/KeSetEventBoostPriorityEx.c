@@ -1,21 +1,21 @@
 /*
- * XREFs of KeSetEventBoostPriorityEx @ 0x1402F1788
+ * XREFs of KeSetEventBoostPriorityEx @ 0x1402FC4D8
  * Callers:
- *     FsRtlReleaseEofLock @ 0x1402EEC80 (FsRtlReleaseEofLock.c)
- *     ExpReleaseFastMutexContended @ 0x1402F171C (ExpReleaseFastMutexContended.c)
- *     IopReleaseFileObjectLock @ 0x14034D750 (IopReleaseFileObjectLock.c)
- *     KeSetEventBoostPriority @ 0x140518C60 (KeSetEventBoostPriority.c)
- *     IopWaitAndAcquireFileObjectLock @ 0x1406E7BB8 (IopWaitAndAcquireFileObjectLock.c)
+ *     FsRtlReleaseEofLock @ 0x1402F99D0 (FsRtlReleaseEofLock.c)
+ *     ExpReleaseFastMutexContended @ 0x1402FC46C (ExpReleaseFastMutexContended.c)
+ *     IopReleaseFileObjectLock @ 0x1403584A0 (IopReleaseFileObjectLock.c)
+ *     KeSetEventBoostPriority @ 0x140518EA0 (KeSetEventBoostPriority.c)
+ *     IopWaitAndAcquireFileObjectLock @ 0x1406FEF98 (IopWaitAndAcquireFileObjectLock.c)
  * Callees:
- *     KiWakeOtherQueueWaiters @ 0x140243310 (KiWakeOtherQueueWaiters.c)
- *     KiRemoveBoostThread @ 0x14024AED0 (KiRemoveBoostThread.c)
- *     KiAcquireKobjectLockSafe @ 0x14024C4A0 (KiAcquireKobjectLockSafe.c)
- *     KiWakeQueueWaiter @ 0x14024C4F0 (KiWakeQueueWaiter.c)
- *     KeAbPreWakeupThread @ 0x1402F1940 (KeAbPreWakeupThread.c)
- *     KiTryUnwaitThread @ 0x140342820 (KiTryUnwaitThread.c)
- *     KiExitDispatcher @ 0x140343AC0 (KiExitDispatcher.c)
- *     KeIsThreadRunning @ 0x140513054 (KeIsThreadRunning.c)
- *     EtwTraceEnqueueWork @ 0x1405A77C0 (EtwTraceEnqueueWork.c)
+ *     KiWakeOtherQueueWaiters @ 0x1402E7B60 (KiWakeOtherQueueWaiters.c)
+ *     KiRemoveBoostThread @ 0x1402EF720 (KiRemoveBoostThread.c)
+ *     KiAcquireKobjectLockSafe @ 0x1402F0CF0 (KiAcquireKobjectLockSafe.c)
+ *     KiWakeQueueWaiter @ 0x1402F0D40 (KiWakeQueueWaiter.c)
+ *     KeAbPreWakeupThread @ 0x1402FC690 (KeAbPreWakeupThread.c)
+ *     KiTryUnwaitThread @ 0x14034D570 (KiTryUnwaitThread.c)
+ *     KiExitDispatcher @ 0x14034E810 (KiExitDispatcher.c)
+ *     KeIsThreadRunning @ 0x140513294 (KeIsThreadRunning.c)
+ *     EtwTraceEnqueueWork @ 0x1405A79F0 (EtwTraceEnqueueWork.c)
  */
 
 __int64 __fastcall KeSetEventBoostPriorityEx(

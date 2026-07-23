@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpTimerPropagateQpcBiasUpdate @ 0x1403A5D6C
+ * XREFs of HalpTimerPropagateQpcBiasUpdate @ 0x1403A5EBC
  * Callers:
- *     HalpTimerCalibratePerformanceCounter @ 0x1403A5C64 (HalpTimerCalibratePerformanceCounter.c)
- *     HalpTimerInitSystem @ 0x1403A85B0 (HalpTimerInitSystem.c)
- *     HalpTimerSelectRoles @ 0x1403A9D9C (HalpTimerSelectRoles.c)
+ *     HalpTimerCalibratePerformanceCounter @ 0x1403A5DB4 (HalpTimerCalibratePerformanceCounter.c)
+ *     HalpTimerInitSystem @ 0x1403A9340 (HalpTimerInitSystem.c)
+ *     HalpTimerSelectRoles @ 0x1403AAB2C (HalpTimerSelectRoles.c)
  * Callees:
- *     HalpTimerScaleCounter @ 0x1403962F0 (HalpTimerScaleCounter.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     HalpTimerScaleCounter @ 0x140396440 (HalpTimerScaleCounter.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 void __fastcall HalpTimerPropagateQpcBiasUpdate(__int64 a1)
@@ -18,11 +18,11 @@ void __fastcall HalpTimerPropagateQpcBiasUpdate(__int64 a1)
 
   if ( a1 == HalpPerformanceCounter )
   {
-    if ( !qword_140C4A2D8 )
+    if ( !qword_140C4A318 )
     {
       v2 = *(_QWORD *)(a1 + 208);
-      if ( qword_140C4A2D0 )
-        qword_140C4A2D0(v2);
+      if ( qword_140C4A310 )
+        qword_140C4A310(v2);
     }
     v3 = *(_DWORD *)(a1 + 228);
     if ( v3 == 5 )

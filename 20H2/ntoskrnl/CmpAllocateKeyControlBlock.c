@@ -18,7 +18,7 @@ PSLIST_ENTRY CmpAllocateKeyControlBlock()
   v0 = RtlpInterlockedPopEntrySList(&CmpKcbLookaside);
   if ( v0
     || (++dword_140CDB158,
-        (v0 = (PSLIST_ENTRY)((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD, union _SLIST_HEADER *))qword_140CDB170)(
+        (v0 = (PSLIST_ENTRY)((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD, _SLIST_HEADER *))qword_140CDB170)(
                               (unsigned int)dword_140CDB164,
                               (unsigned int)dword_140CDB16C,
                               (unsigned int)dword_140CDB168,

@@ -11,11 +11,11 @@ __int64 sub_18004CCA4()
 {
   bool v0; // sf
   __int64 result; // rax
-  _BYTE v2[64]; // [rsp+20h] [rbp-58h] BYREF
+  _BYTE SystemInformation[64]; // [rsp+20h] [rbp-58h] BYREF
 
-  v0 = (int)ZwQuerySystemInformation(0LL, v2, 64LL, 0LL) < 0;
+  v0 = ZwQuerySystemInformation(SystemBasicInformation, SystemInformation, 0x40u, 0LL) < 0;
   result = 1LL;
   if ( !v0 )
-    return v2[56];
+    return SystemInformation[56];
   return result;
 }

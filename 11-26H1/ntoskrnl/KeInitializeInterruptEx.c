@@ -1,15 +1,15 @@
 /*
- * XREFs of KeInitializeInterruptEx @ 0x1404B4A00
+ * XREFs of KeInitializeInterruptEx @ 0x140516588
  * Callers:
- *     HalpCreateInterrupt @ 0x140594620 (HalpCreateInterrupt.c)
- *     KeInitializeInterrupt @ 0x1405F1580 (KeInitializeInterrupt.c)
- *     IopConnectInterrupt @ 0x140A98890 (IopConnectInterrupt.c)
+ *     HalpCreateInterrupt @ 0x140596DA0 (HalpCreateInterrupt.c)
+ *     KeInitializeInterrupt @ 0x1405F3F40 (KeInitializeInterrupt.c)
+ *     IopConnectInterrupt @ 0x140A9CA10 (IopConnectInterrupt.c)
  * Callees:
- *     KiInitializeInterrupt @ 0x1404B4B30 (KiInitializeInterrupt.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     Feature_Servicing_UnexpectedWakeInterrupt__private_IsEnabledNoReportingNoInline @ 0x1405F3F04 (Feature_Servicing_UnexpectedWakeInterrupt__private_IsEnabledNoReportingNoInline.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
-__int64 __fastcall KeInitializeInterruptEx(
+__int64 (__fastcall *__fastcall KeInitializeInterruptEx(
         _DWORD *a1,
         __int64 (__fastcall *a2)(struct _KINTERRUPT *a1, void *a2),
         __int64 a3,
@@ -25,12 +25,11 @@ __int64 __fastcall KeInitializeInterruptEx(
         int a13,
         int a14,
         char a15,
-        __int64 a16)
+        __int64 a16))(int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, __int16)
 {
-  __int64 v20; // r8
+  __int64 v20; // rax
   __int64 v21; // rax
-  __int64 result; // rax
-  char v23; // r9
+  __int64 (__fastcall *result)(int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, __int16); // rax
 
   memset_0(a1, 0, 0x120uLL);
   *a1 = 18874390;
@@ -44,14 +43,14 @@ __int64 __fastcall KeInitializeInterruptEx(
   *((_QWORD *)a1 + 3) = a2;
   if ( a6 )
   {
-    v21 = a6;
+    v20 = a6;
   }
   else
   {
-    v21 = (__int64)(a1 + 14);
+    v20 = (__int64)(a1 + 14);
     *((_QWORD *)a1 + 7) = 0LL;
   }
-  *((_QWORD *)a1 + 9) = v21;
+  *((_QWORD *)a1 + 9) = v20;
   a1[22] = a8;
   a1[27] = a11;
   *((_BYTE *)a1 + 100) = a12;
@@ -60,17 +59,43 @@ __int64 __fastcall KeInitializeInterruptEx(
   if ( !a10 )
   {
     *(_WORD *)a7 = 1;
-    *(_BYTE *)(a7 + 2) = 6;
-    *(_DWORD *)(a7 + 4) = 1;
     *(_QWORD *)(a7 + 16) = a7 + 8;
     *(_QWORD *)(a7 + 8) = a7 + 8;
+    *(_BYTE *)(a7 + 2) = 6;
+    *(_DWORD *)(a7 + 4) = 1;
     *((_QWORD *)a1 + 16) = a7;
   }
   a1[24] = a13;
   *((_BYTE *)a1 + 101) = a15;
   *((_QWORD *)a1 + 20) = a16;
   a1[26] = 0;
-  result = KiInitializeInterrupt(a1, a6, v20, 0LL);
-  *((_BYTE *)a1 + 95) = v23;
+  if ( (unsigned int)Feature_Servicing_UnexpectedWakeInterrupt__private_IsEnabledNoReportingNoInline() )
+  {
+    v21 = *((_QWORD *)a1 + 20);
+    if ( v21 )
+    {
+      if ( (*(_DWORD *)(v21 + 68) & 1) != 0 && !*((_BYTE *)a1 + 93) )
+        a1[26] |= 8u;
+    }
+  }
+  switch ( a6 )
+  {
+    case -1LL:
+      result = KiInterruptDispatchNoLock;
+      break;
+    case -3LL:
+      result = KiInterruptDispatchNoLockNoEtw;
+      break;
+    case -4LL:
+      result = KiInterruptDispatchNoEOI;
+      break;
+    default:
+      result = KiInterruptDispatch;
+      if ( a6 == -2 )
+        result = (__int64 (__fastcall *)(int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, __int16))&KiSpuriousDispatchNoEOI;
+      break;
+  }
+  *((_QWORD *)a1 + 10) = result;
+  *((_BYTE *)a1 + 95) = 0;
   return result;
 }

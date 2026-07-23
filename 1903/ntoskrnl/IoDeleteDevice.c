@@ -39,11 +39,11 @@
 void __stdcall IoDeleteDevice(PDEVICE_OBJECT DeviceObject)
 {
   ULONG Flags; // eax
-  struct _OBJECT_NAME_INFORMATION *v2; // rsi
-  struct _OBJECT_NAME_INFORMATION *v3; // rdi
+  _OBJECT_NAME_INFORMATION *v2; // rsi
+  _OBJECT_NAME_INFORMATION *v3; // rdi
   PIO_TIMER Timer; // rdi
   KIRQL v6; // al
-  struct _OBJECT_NAME_INFORMATION *Pool_0; // rax
+  _OBJECT_NAME_INFORMATION *Pool_0; // rax
   void *retaddr; // [rsp+28h] [rbp+0h]
   ULONG ReturnLength; // [rsp+30h] [rbp+8h] BYREF
 
@@ -53,7 +53,7 @@ void __stdcall IoDeleteDevice(PDEVICE_OBJECT DeviceObject)
   v3 = 0LL;
   if ( (Flags & 0x40) != 0 && ObQueryNameString(DeviceObject, 0LL, 0, &ReturnLength) == -1073741820 )
   {
-    Pool_0 = (struct _OBJECT_NAME_INFORMATION *)IopVerifierExAllocatePool_0(PagedPool, ReturnLength);
+    Pool_0 = (_OBJECT_NAME_INFORMATION *)IopVerifierExAllocatePool_0(PagedPool, ReturnLength);
     v3 = Pool_0;
     if ( Pool_0 )
     {

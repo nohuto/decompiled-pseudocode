@@ -1,9 +1,9 @@
 /*
- * XREFs of EmpParseRuleTermArgMapping @ 0x1409BF888
+ * XREFs of EmpParseRuleTermArgMapping @ 0x1409C0888
  * Callers:
- *     EmpParseRuleTerm @ 0x1409BE478 (EmpParseRuleTerm.c)
+ *     EmpParseRuleTerm @ 0x1409BF478 (EmpParseRuleTerm.c)
  * Callees:
- *     strtoul @ 0x14019809C (strtoul.c)
+ *     strtoul @ 0x1401981DC (strtoul.c)
  */
 
 bool __fastcall EmpParseRuleTermArgMapping(char *Str, __int64 a2, int a3, int a4, int a5)

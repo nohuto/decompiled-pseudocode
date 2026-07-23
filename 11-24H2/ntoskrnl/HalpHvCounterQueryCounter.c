@@ -1,42 +1,42 @@
 /*
- * XREFs of HalpHvCounterQueryCounter @ 0x1403D6CB0
+ * XREFs of HalpHvCounterQueryCounter @ 0x1403BC300
  * Callers:
- *     KeStallExecutionProcessor @ 0x14033A030 (KeStallExecutionProcessor.c)
- *     HalpTimerSavePerformanceCounter @ 0x1403D6404 (HalpTimerSavePerformanceCounter.c)
- *     HalpTimerDpcRoutine @ 0x1403D66C0 (HalpTimerDpcRoutine.c)
- *     HalpTimerCalibratePerformanceCounter @ 0x1403D69D4 (HalpTimerCalibratePerformanceCounter.c)
- *     HalpHvTimerArm @ 0x1403D6C10 (HalpHvTimerArm.c)
- *     HalpTimerDelayedQueryCounter @ 0x1405477F0 (HalpTimerDelayedQueryCounter.c)
- *     HalpTimerPerformanceCounterPowerChange @ 0x140548008 (HalpTimerPerformanceCounterPowerChange.c)
+ *     KeStallExecutionProcessor @ 0x140319510 (KeStallExecutionProcessor.c)
+ *     HalpTimerSavePerformanceCounter @ 0x1403BBA50 (HalpTimerSavePerformanceCounter.c)
+ *     HalpTimerDpcRoutine @ 0x1403BBD10 (HalpTimerDpcRoutine.c)
+ *     HalpTimerCalibratePerformanceCounter @ 0x1403BC024 (HalpTimerCalibratePerformanceCounter.c)
+ *     HalpHvTimerArm @ 0x1403BC260 (HalpHvTimerArm.c)
+ *     HalpTimerDelayedQueryCounter @ 0x1405450B0 (HalpTimerDelayedQueryCounter.c)
+ *     HalpTimerPerformanceCounterPowerChange @ 0x1405458C8 (HalpTimerPerformanceCounterPowerChange.c)
  * Callees:
- *     HvlpGetRegister64 @ 0x1403D6DD0 (HvlpGetRegister64.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     HvlpGetRegister64 @ 0x1403BC420 (HvlpGetRegister64.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
-__int64 __fastcall HalpHvCounterQueryCounter(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall HalpHvCounterQueryCounter(__int64 a1, __int64 a2)
 {
-  unsigned __int64 v4; // rax
-  unsigned __int64 (__fastcall *v5)(_DWORD *, __int64); // rcx
-  __int64 v6; // r8
-  __int64 v7; // rdx
-  __int64 v9; // [rsp+38h] [rbp+10h] BYREF
+  unsigned __int64 v2; // rax
+  unsigned __int64 (__fastcall *v3)(_DWORD *, __int64); // rcx
+  int v4; // r8d
+  __int64 v5; // rdx
+  __int64 v7; // [rsp+38h] [rbp+10h] BYREF
 
-  v4 = HalpHvTimerApi;
+  v2 = HalpHvTimerApi;
   if ( !HalpHvTimerApi )
     return __readmsr(0x40000020u);
-  v5 = HvlGetReferenceTimeUsingTscPage;
+  v3 = HvlGetReferenceTimeUsingTscPage;
   if ( (unsigned __int64 (__fastcall *)(_DWORD *, __int64))HalpHvTimerApi != HvlGetReferenceTimeUsingTscPage )
-    return guard_dispatch_icall_no_overrides(0LL, a2, a3, a4);
-  v9 = 0LL;
+    return guard_dispatch_icall_no_overrides(0LL, a2);
+  v7 = 0LL;
   while ( 1 )
   {
-    v6 = *(unsigned int *)HvlpReferenceTscPage;
-    if ( !(_DWORD)v6 )
+    v4 = *(_DWORD *)HvlpReferenceTscPage;
+    if ( !*(_DWORD *)HvlpReferenceTscPage )
       break;
     if ( MEMORY[0xFFFFF78000000294] )
     {
       __asm { rdtscp }
-      LODWORD(v9) = (_DWORD)v5;
+      LODWORD(v7) = (_DWORD)v3;
     }
     else
     {
@@ -48,19 +48,19 @@ __int64 __fastcall HalpHvCounterQueryCounter(__int64 a1, __int64 a2, __int64 a3,
       {
         _mm_mfence();
       }
-      v4 = __rdtsc();
-      LODWORD(a2) = HIDWORD(v4);
-      v4 = (unsigned int)v4;
+      v2 = __rdtsc();
+      LODWORD(a2) = HIDWORD(v2);
+      v2 = (unsigned int)v2;
       a2 = (unsigned int)a2;
     }
-    v7 = ((v4 | (a2 << 32)) * (unsigned __int128)*((unsigned __int64 *)HvlpReferenceTscPage + 1)) >> 64;
-    v4 = (unsigned __int64)HvlpReferenceTscPage;
-    a2 = *((_QWORD *)HvlpReferenceTscPage + 2) + v7;
-    v9 = a2;
-    LODWORD(v5) = *(_DWORD *)HvlpReferenceTscPage;
-    if ( *(_DWORD *)HvlpReferenceTscPage == (_DWORD)v6 )
-      return v9;
+    v5 = ((v2 | (a2 << 32)) * (unsigned __int128)*((unsigned __int64 *)HvlpReferenceTscPage + 1)) >> 64;
+    v2 = (unsigned __int64)HvlpReferenceTscPage;
+    a2 = *((_QWORD *)HvlpReferenceTscPage + 2) + v5;
+    v7 = a2;
+    LODWORD(v3) = *(_DWORD *)HvlpReferenceTscPage;
+    if ( *(_DWORD *)HvlpReferenceTscPage == v4 )
+      return v7;
   }
-  HvlpGetRegister64(589828LL, &v9, v6);
-  return v9;
+  HvlpGetRegister64(589828LL, &v7);
+  return v7;
 }

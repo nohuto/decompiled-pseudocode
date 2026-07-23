@@ -1,11 +1,11 @@
 /*
- * XREFs of AslPathCleanUstr @ 0x14096851C
+ * XREFs of AslPathCleanUstr @ 0x1409686FC
  * Callers:
- *     AslPathWildcardFindFirst @ 0x140968AF4 (AslPathWildcardFindFirst.c)
+ *     AslPathWildcardFindFirst @ 0x140968CD4 (AslPathWildcardFindFirst.c)
  * Callees:
- *     _wcsnicmp @ 0x1403D2210 (_wcsnicmp.c)
- *     wcsncmp @ 0x1403D4040 (wcsncmp.c)
- *     AslLogCallPrintf @ 0x140755F64 (AslLogCallPrintf.c)
+ *     _wcsnicmp @ 0x1403D2380 (_wcsnicmp.c)
+ *     wcsncmp @ 0x1403D41B0 (wcsncmp.c)
+ *     AslLogCallPrintf @ 0x140756124 (AslLogCallPrintf.c)
  */
 
 __int64 __fastcall AslPathCleanUstr(unsigned __int16 *a1)

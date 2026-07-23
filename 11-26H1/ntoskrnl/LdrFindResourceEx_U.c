@@ -1,12 +1,17 @@
 /*
- * XREFs of LdrFindResourceEx_U @ 0x140801C50
+ * XREFs of LdrFindResourceEx_U @ 0x1408076F0
  * Callers:
  *     <none>
  * Callees:
- *     LdrpSearchResourceSection_U @ 0x140A86DB4 (LdrpSearchResourceSection_U.c)
+ *     LdrpSearchResourceSection_U @ 0x140A8DEE4 (LdrpSearchResourceSection_U.c)
  */
 
-__int64 __fastcall LdrFindResourceEx_U(int a1, int a2, int a3, int a4, __int64 a5)
+NTSTATUS __cdecl LdrFindResourceEx_U(
+        ULONG Flags,
+        PVOID DllHandle,
+        PLDR_RESOURCE_INFO ResourceInfo,
+        ULONG Level,
+        PIMAGE_RESOURCE_DATA_ENTRY *ResourceDataEntry)
 {
-  return LdrpSearchResourceSection_U(a2, a3, a4, a1, a5);
+  return LdrpSearchResourceSection_U((_DWORD)DllHandle, (_DWORD)ResourceInfo, Level, Flags, (__int64)ResourceDataEntry);
 }

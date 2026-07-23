@@ -1,14 +1,14 @@
 /*
- * XREFs of MmIsAddressValid @ 0x140536B70
+ * XREFs of MmIsAddressValid @ 0x140536DB0
  * Callers:
- *     KiMarkBugCheckRegions @ 0x1403DC7D8 (KiMarkBugCheckRegions.c)
- *     sub_1403EBA24 @ 0x1403EBA24 (sub_1403EBA24.c)
- *     KeBugCheck2 @ 0x140516AD0 (KeBugCheck2.c)
- *     IopLiveDumpDiscardVirtualAddressRange @ 0x140897F8C (IopLiveDumpDiscardVirtualAddressRange.c)
- *     PopMarkComponentsBootPhase @ 0x1409991F0 (PopMarkComponentsBootPhase.c)
- *     IopLiveDumpCallRemovePagesCallbacks @ 0x1409AB5C0 (IopLiveDumpCallRemovePagesCallbacks.c)
+ *     KiMarkBugCheckRegions @ 0x1403DC948 (KiMarkBugCheckRegions.c)
+ *     sub_1403EBB94 @ 0x1403EBB94 (sub_1403EBB94.c)
+ *     KeBugCheck2 @ 0x140516D10 (KeBugCheck2.c)
+ *     IopLiveDumpDiscardVirtualAddressRange @ 0x1408980EC (IopLiveDumpDiscardVirtualAddressRange.c)
+ *     PopMarkComponentsBootPhase @ 0x14099A1F0 (PopMarkComponentsBootPhase.c)
+ *     IopLiveDumpCallRemovePagesCallbacks @ 0x1409AC4F0 (IopLiveDumpCallRemovePagesCallbacks.c)
  * Callees:
- *     MmIsAddressValidEx @ 0x14030C4F0 (MmIsAddressValidEx.c)
+ *     MmIsAddressValidEx @ 0x140317240 (MmIsAddressValidEx.c)
  */
 
 BOOLEAN __stdcall MmIsAddressValid(PVOID VirtualAddress)

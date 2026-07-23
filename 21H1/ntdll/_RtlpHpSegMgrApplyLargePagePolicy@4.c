@@ -6,7 +6,7 @@
  *     _RtlpHeapGenerateRandomValue32@0 @ 0x4B2B22F0 (_RtlpHeapGenerateRandomValue32@0.c)
  */
 
-unsigned int __thiscall RtlpHpSegMgrApplyLargePagePolicy(int this)
+ULONG __thiscall RtlpHpSegMgrApplyLargePagePolicy(int this)
 {
   unsigned int v1; // eax
   int v3; // ecx

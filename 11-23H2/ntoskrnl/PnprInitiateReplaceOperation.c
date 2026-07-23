@@ -1,20 +1,20 @@
 /*
- * XREFs of PnprInitiateReplaceOperation @ 0x140A9C914
+ * XREFs of PnprInitiateReplaceOperation @ 0x140A9C784
  * Callers:
- *     PnpReplacePartitionUnit @ 0x140964AF0 (PnpReplacePartitionUnit.c)
+ *     PnpReplacePartitionUnit @ 0x140964CF0 (PnpReplacePartitionUnit.c)
  * Callees:
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
- *     KeWaitForSingleObject @ 0x140243CE0 (KeWaitForSingleObject.c)
- *     KeInitializeEvent @ 0x1402AF870 (KeInitializeEvent.c)
- *     ExQueueWorkItem @ 0x1402B7C30 (ExQueueWorkItem.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     PnprCompleteWake @ 0x140562B94 (PnprCompleteWake.c)
- *     PnprQuiesce @ 0x140563188 (PnprQuiesce.c)
- *     PnprSwap @ 0x1405634DC (PnprSwap.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     PnprReplaceStart @ 0x140966E5C (PnprReplaceStart.c)
- *     PnprWakeProcessors @ 0x140A9E01C (PnprWakeProcessors.c)
- *     MmDuplicateMemory @ 0x140AAC84C (MmDuplicateMemory.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
+ *     KeWaitForSingleObject @ 0x140243DB0 (KeWaitForSingleObject.c)
+ *     KeInitializeEvent @ 0x1402AFB00 (KeInitializeEvent.c)
+ *     ExQueueWorkItem @ 0x1402B7EC0 (ExQueueWorkItem.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     PnprCompleteWake @ 0x140563254 (PnprCompleteWake.c)
+ *     PnprQuiesce @ 0x140563848 (PnprQuiesce.c)
+ *     PnprSwap @ 0x140563B9C (PnprSwap.c)
+ *     PnprReplaceStart @ 0x14096705C (PnprReplaceStart.c)
+ *     PnprWakeProcessors @ 0x140A9DE8C (PnprWakeProcessors.c)
+ *     MmDuplicateMemory @ 0x140AAC6BC (MmDuplicateMemory.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 
@@ -160,10 +160,10 @@ LABEL_25:
       }
       PnprWakeProcessors();
     }
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v19 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v19 <= 0xFu && CurrentIrql <= 0xFu && v19 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v19 <= 0xFu && CurrentIrql <= 0xFu && v19 >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;

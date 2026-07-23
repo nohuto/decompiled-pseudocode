@@ -1,25 +1,25 @@
 /*
  * XREFs of SeAuditingWithTokenForSubcategory @ 0x14079D560
  * Callers:
- *     ObCompleteObjectDuplication @ 0x14066B204 (ObCompleteObjectDuplication.c)
- *     PspInsertProcess @ 0x14066D0AC (PspInsertProcess.c)
- *     ObInitProcess @ 0x1406A6448 (ObInitProcess.c)
- *     PiPnpRtlSetDeviceRegProperty @ 0x1406E5574 (PiPnpRtlSetDeviceRegProperty.c)
- *     PipClearDevNodeProblem @ 0x140764FE4 (PipClearDevNodeProblem.c)
- *     PipSetDevNodeProblem @ 0x140765114 (PipSetDevNodeProblem.c)
- *     PipProcessStartPhase3 @ 0x14076BE08 (PipProcessStartPhase3.c)
- *     PiPnpRtlSetObjectProperty @ 0x140771524 (PiPnpRtlSetObjectProperty.c)
- *     SepAdtTokenRightAdjusted @ 0x14079D470 (SepAdtTokenRightAdjusted.c)
- *     PspExitThread @ 0x1407A0088 (PspExitThread.c)
+ *     sub_14066B204 @ 0x14066B204 (sub_14066B204.c)
+ *     sub_14066D0AC @ 0x14066D0AC (sub_14066D0AC.c)
+ *     sub_1406A6448 @ 0x1406A6448 (sub_1406A6448.c)
+ *     sub_1406E5574 @ 0x1406E5574 (sub_1406E5574.c)
+ *     sub_140764FE4 @ 0x140764FE4 (sub_140764FE4.c)
+ *     sub_140765114 @ 0x140765114 (sub_140765114.c)
+ *     sub_14076BE08 @ 0x14076BE08 (sub_14076BE08.c)
+ *     sub_140771524 @ 0x140771524 (sub_140771524.c)
+ *     sub_14079D470 @ 0x14079D470 (sub_14079D470.c)
+ *     sub_1407A0088 @ 0x1407A0088 (sub_1407A0088.c)
  *     ObDuplicateObject @ 0x1407A1F80 (ObDuplicateObject.c)
- *     SeAssignPrimaryToken @ 0x1408471EC (SeAssignPrimaryToken.c)
- *     SeExchangePrimaryToken @ 0x140847260 (SeExchangePrimaryToken.c)
- *     SeAdtRegistryValueChangedAuditAlarm @ 0x1409C6D8C (SeAdtRegistryValueChangedAuditAlarm.c)
+ *     sub_1408471EC @ 0x1408471EC (sub_1408471EC.c)
+ *     sub_140847260 @ 0x140847260 (sub_140847260.c)
+ *     sub_1409C6D8C @ 0x1409C6D8C (sub_1409C6D8C.c)
  * Callees:
- *     SepAuditingForSubCategory @ 0x1402EC884 (SepAuditingForSubCategory.c)
+ *     sub_1402EC884 @ 0x1402EC884 (sub_1402EC884.c)
  *     SeCaptureSubjectContext @ 0x14072A600 (SeCaptureSubjectContext.c)
  *     SeReleaseSubjectContext @ 0x1407CA9B0 (SeReleaseSubjectContext.c)
- *     SepAdtIncorporatePerUserPolicy @ 0x1409CA3C4 (SepAdtIncorporatePerUserPolicy.c)
+ *     sub_1409CA3C4 @ 0x1409CA3C4 (sub_1409CA3C4.c)
  */
 
 char __fastcall SeAuditingWithTokenForSubcategory(int a1, __int64 a2)
@@ -32,8 +32,8 @@ char __fastcall SeAuditingWithTokenForSubcategory(int a1, __int64 a2)
 
   memset(&SubjectContext, 0, sizeof(SubjectContext));
   v3 = (unsigned int)(a1 - 100);
-  v8 = SepAuditingForSubCategory(a1, 1);
-  if ( SepTokenPolicyCounter[v3] )
+  v8 = sub_1402EC884(a1, 1);
+  if ( dword_140C1B400[v3] )
   {
     if ( a2 )
     {
@@ -47,7 +47,7 @@ char __fastcall SeAuditingWithTokenForSubcategory(int a1, __int64 a2)
         PrimaryToken = (int)SubjectContext.ClientToken;
     }
     LOBYTE(v4) = 1;
-    SepAdtIncorporatePerUserPolicy(v3, v4, 0, PrimaryToken, (__int64)&v8);
+    sub_1409CA3C4(v3, v4, 0, PrimaryToken, (__int64)&v8);
     if ( !a2 )
       SeReleaseSubjectContext(&SubjectContext);
   }

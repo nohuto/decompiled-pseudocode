@@ -20,61 +20,57 @@
  *     sub_1800D62F0 @ 0x1800D62F0 (sub_1800D62F0.c)
  */
 
-__int64 __fastcall sub_18004C7E0(__int64 a1, __int64 a2)
+__int64 __fastcall sub_18004C7E0(__int64 a1, _UNICODE_STRING *a2)
 {
   __int64 v4; // rcx
-  __int64 v5; // r12
+  unsigned __int64 v5; // r12
   int v6; // r14d
-  int v7; // eax
+  ULONG v7; // eax
   __int64 v8; // rsi
   __int64 v9; // rcx
   __int64 v10; // rdi
-  int v11; // eax
+  NTSTATUS v11; // eax
   int v12; // ebx
-  int v13; // ecx
-  int v14; // eax
+  ULONG v13; // ecx
+  NTSTATUS v14; // eax
   int v16; // r8d
   int v17; // r9d
-  char *v18; // rcx
+  USHORT *v18; // rcx
   int v19; // r8d
   int v20; // r9d
-  _QWORD v21[2]; // [rsp+40h] [rbp-39h] BYREF
-  _BYTE v22[16]; // [rsp+50h] [rbp-29h] BYREF
-  int v23; // [rsp+60h] [rbp-19h] BYREF
-  __int64 v24; // [rsp+68h] [rbp-11h]
-  __int64 v25; // [rsp+70h] [rbp-9h]
-  int v26; // [rsp+78h] [rbp-1h]
-  __int128 v27; // [rsp+80h] [rbp+7h]
-  char v28; // [rsp+E0h] [rbp+67h] BYREF
-  __int64 v29; // [rsp+E8h] [rbp+6Fh]
-  __int64 v30; // [rsp+F0h] [rbp+77h] BYREF
-  __int64 v31; // [rsp+F8h] [rbp+7Fh] BYREF
+  unsigned __int64 Parameters[2]; // [rsp+40h] [rbp-39h] BYREF
+  _IO_STATUS_BLOCK IoStatusBlock; // [rsp+50h] [rbp-29h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+60h] [rbp-19h] BYREF
+  ULONG Response; // [rsp+E0h] [rbp+67h] BYREF
+  _UNICODE_STRING *v25; // [rsp+E8h] [rbp+6Fh]
+  HANDLE FileHandle; // [rsp+F0h] [rbp+77h] BYREF
+  HANDLE SectionHandle; // [rsp+F8h] [rbp+7Fh] BYREF
 
-  v29 = a2;
+  v25 = a2;
   v4 = *(_QWORD *)(a1 + 48);
   v5 = v4 + 72;
   sub_18003CA5C(*(_QWORD *)(v4 + 48), v4 + 72, 0x14A5u);
   v6 = 0;
-  v23 = 48;
-  v24 = 0LL;
-  v25 = a2;
+  ObjectAttributes.Length = 48;
+  ObjectAttributes.RootDirectory = 0LL;
+  ObjectAttributes.ObjectName = a2;
   v7 = 64;
   if ( !byte_18015B2E8 )
     v7 = 2112;
-  v26 = v7;
-  v27 = 0LL;
+  ObjectAttributes.Attributes = v7;
+  *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
   v8 = 2147353476LL;
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-    v9 = (__int64)NtCurrentPeb()->HotpatchInformation + 554;
+  if ( RtlGetCurrentServiceSessionId() )
+    v9 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[2];
   else
     v9 = 2147353476LL;
   v10 = 2147353477LL;
   if ( *(_BYTE *)v9 && (NtCurrentPeb()->TracingFlags & 4) != 0 )
   {
-    v18 = (unsigned int)RtlGetCurrentServiceSessionId()
-        ? (char *)NtCurrentPeb()->HotpatchInformation + 555
-        : (char *)2147353477;
-    if ( (*v18 & 0x20) != 0 )
+    v18 = RtlGetCurrentServiceSessionId()
+        ? (USHORT *)((char *)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[2] + 1)
+        : (USHORT *)2147353477;
+    if ( (*(_BYTE *)v18 & 0x20) != 0 )
     {
       LOBYTE(v17) = -1;
       LOBYTE(v16) = -1;
@@ -83,7 +79,7 @@ __int64 __fastcall sub_18004C7E0(__int64 a1, __int64 a2)
   }
   while ( 1 )
   {
-    v11 = ZwOpenFile(&v30, 1048609LL, &v23, v22, 5, 96);
+    v11 = ZwOpenFile(&FileHandle, 0x100021u, &ObjectAttributes, &IoStatusBlock, 5u, 0x60u);
     v12 = v11;
     if ( v11 >= 0 )
       break;
@@ -100,13 +96,13 @@ __int64 __fastcall sub_18004C7E0(__int64 a1, __int64 a2)
   {
     if ( byte_18015B2C8 )
     {
-      v12 = sub_180089560(a1, v30);
+      v12 = sub_180089560(a1, FileHandle);
       if ( v12 < 0 )
       {
         if ( byte_18015B280 )
         {
           v12 = -1073740760;
-          ZwClose(v30);
+          ZwClose(FileHandle);
         }
         else
         {
@@ -120,7 +116,7 @@ __int64 __fastcall sub_18004C7E0(__int64 a1, __int64 a2)
     v13 = 0x1000000;
     if ( dword_18015B264 )
       v13 = 17825792;
-    v14 = ZwCreateSection(&v31, 15LL, 0LL, 0LL, 16, v13, v30);
+    v14 = ZwCreateSection(&SectionHandle, 0xFu, 0LL, 0LL, 0x10u, v13, FileHandle);
     v12 = v14;
     if ( v14 < 0 )
     {
@@ -130,21 +126,21 @@ __int64 __fastcall sub_18004C7E0(__int64 a1, __int64 a2)
       }
       else if ( v14 != -1073741801 && v14 != -1073741670 && v14 != -1073741523 )
       {
-        v21[0] = v5;
-        v21[1] = v14;
-        if ( (int)ZwRaiseHardError(3221225595LL, 2LL, 1LL, v21, 1, &v28) >= 0 && dword_18015C018 != 3 )
+        Parameters[0] = v5;
+        Parameters[1] = v14;
+        if ( ZwRaiseHardError(-1073741701, 2u, 1u, Parameters, 1u, &Response) >= 0 && dword_18015C018 != 3 )
           ++dword_18015AEC8;
       }
       sub_180084734((unsigned int)v12, 5253LL, 0LL, v5);
     }
     else
     {
-      if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-        v8 = (__int64)NtCurrentPeb()->HotpatchInformation + 554;
+      if ( RtlGetCurrentServiceSessionId() )
+        v8 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[2];
       if ( *(_BYTE *)v8 && (NtCurrentPeb()->TracingFlags & 4) != 0 )
       {
-        if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-          v10 = (__int64)NtCurrentPeb()->HotpatchInformation + 555;
+        if ( RtlGetCurrentServiceSessionId() )
+          v10 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[2] + 1;
         if ( (*(_BYTE *)v10 & 0x20) != 0 )
         {
           LOBYTE(v20) = -1;
@@ -156,9 +152,11 @@ __int64 __fastcall sub_18004C7E0(__int64 a1, __int64 a2)
       {
         if ( qword_18015C3C8 )
         {
-          v12 = ((__int64 (__fastcall *)(__int64, __int64))(__ROR8__(qword_18015AF80, 64 - (MEMORY[0x7FFE0330] & 0x3Fu)) ^ MEMORY[0x7FFE0330]))(
-                  v30,
-                  v29);
+          v12 = ((__int64 (__fastcall *)(HANDLE, _UNICODE_STRING *))(__ROR8__(
+                                                                       qword_18015AF80,
+                                                                       64 - (MEMORY[0x7FFE0330] & 0x3Fu)) ^ MEMORY[0x7FFE0330]))(
+                  FileHandle,
+                  v25);
           if ( v12 == -1073741275 )
             v12 = 0;
         }
@@ -169,9 +167,9 @@ __int64 __fastcall sub_18004C7E0(__int64 a1, __int64 a2)
       }
       if ( v12 >= 0 )
         v12 = sub_180038B4C(a1);
-      ZwClose(v31);
+      ZwClose(SectionHandle);
     }
-    ZwClose(v30);
+    ZwClose(FileHandle);
   }
   return (unsigned int)v12;
 }

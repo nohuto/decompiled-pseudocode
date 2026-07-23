@@ -1,14 +1,14 @@
 /*
- * XREFs of KeFreezeProcess @ 0x140208E90
+ * XREFs of KeFreezeProcess @ 0x140208F70
  * Callers:
- *     MiReAcquireOutSwappedProcessCommit @ 0x1406E4858 (MiReAcquireOutSwappedProcessCommit.c)
- *     PsFreezeProcess @ 0x14077B540 (PsFreezeProcess.c)
+ *     MiReAcquireOutSwappedProcessCommit @ 0x1406E9508 (MiReAcquireOutSwappedProcessCommit.c)
+ *     PsFreezeProcess @ 0x14077E180 (PsFreezeProcess.c)
  * Callees:
- *     KiFreezeSingleThread @ 0x140208FAC (KiFreezeSingleThread.c)
- *     KiExitDispatcher @ 0x140246C20 (KiExitDispatcher.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402DED10 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiFreezeSingleThread @ 0x14020908C (KiFreezeSingleThread.c)
+ *     KiExitDispatcher @ 0x140248580 (KiExitDispatcher.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402C0B20 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall KeFreezeProcess(__int64 a1, char a2)

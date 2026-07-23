@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlCopyAffinityEx @ 0x18013F840
+ * XREFs of RtlCopyAffinityEx @ 0x18013F740
  * Callers:
  *     <none>
  * Callees:

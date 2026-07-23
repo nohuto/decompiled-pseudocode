@@ -1,15 +1,15 @@
 /*
- * XREFs of AlpcpReleaseDirectAttribute @ 0x1400A97D0
+ * XREFs of AlpcpReleaseDirectAttribute @ 0x1400A7D50
  * Callers:
- *     AlpcpSignalAndWait @ 0x14005E020 (AlpcpSignalAndWait.c)
- *     NtWaitForWorkViaWorkerFactory @ 0x14005E910 (NtWaitForWorkViaWorkerFactory.c)
- *     AlpcpReleaseMessageAttributesOnCancel @ 0x140409294 (AlpcpReleaseMessageAttributesOnCancel.c)
- *     AlpcMessageDestroyProcedure @ 0x140448980 (AlpcMessageDestroyProcedure.c)
- *     AlpcpSendMessage @ 0x14044A880 (AlpcpSendMessage.c)
- *     AlpcpCompleteDispatchMessage @ 0x14044B990 (AlpcpCompleteDispatchMessage.c)
- *     AlpcpReleaseAttributes @ 0x1404B55C8 (AlpcpReleaseAttributes.c)
+ *     AlpcpSignalAndWait @ 0x14005DBA0 (AlpcpSignalAndWait.c)
+ *     NtWaitForWorkViaWorkerFactory @ 0x14005E490 (NtWaitForWorkViaWorkerFactory.c)
+ *     AlpcpReleaseMessageAttributesOnCancel @ 0x140408154 (AlpcpReleaseMessageAttributesOnCancel.c)
+ *     AlpcMessageDestroyProcedure @ 0x140447850 (AlpcMessageDestroyProcedure.c)
+ *     AlpcpSendMessage @ 0x140449750 (AlpcpSendMessage.c)
+ *     AlpcpCompleteDispatchMessage @ 0x14044A860 (AlpcpCompleteDispatchMessage.c)
+ *     AlpcpReleaseAttributes @ 0x14049F9A8 (AlpcpReleaseAttributes.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14006ACD0 (ObfDereferenceObjectWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x14006A850 (ObfDereferenceObjectWithTag.c)
  */
 
 LONG_PTR __fastcall AlpcpReleaseDirectAttribute(__int64 a1)

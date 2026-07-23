@@ -8,46 +8,53 @@
  *     _NtQueryVirtualMemory@24 @ 0x4B2F2BB0 (_NtQueryVirtualMemory@24.c)
  */
 
-int __fastcall LdrpGetImageSize(unsigned int a1, int *a2)
+NTSTATUS __fastcall LdrpGetImageSize(unsigned int a1, int *a2)
 {
-  int VirtualMemory; // esi
-  int FileSizeFromLoadAsDataTable; // edi
-  int v5; // eax
-  __int16 v6; // cx
-  char v8[12]; // [esp+Ch] [ebp-24h] BYREF
-  int v9; // [esp+18h] [ebp-18h]
-  int *v10; // [esp+28h] [ebp-8h]
-  unsigned int v11; // [esp+2Ch] [ebp-4h]
+  NTSTATUS VirtualMemory; // esi
+  int SizeOfImage; // edi
+  PIMAGE_NT_HEADERS v5; // eax
+  WORD Magic; // cx
+  ULONG_PTR *v8; // [esp+0h] [ebp-30h]
+  char MemoryInformation[12]; // [esp+Ch] [ebp-24h] BYREF
+  int v10; // [esp+18h] [ebp-18h]
+  int *v11; // [esp+28h] [ebp-8h]
+  PVOID BaseAddress; // [esp+2Ch] [ebp-4h]
 
-  v10 = a2;
+  v11 = a2;
   VirtualMemory = 0;
-  FileSizeFromLoadAsDataTable = 0;
-  v11 = a1 & 0xFFFFFFFC;
-  v5 = RtlImageNtHeader(a1 & 0xFFFFFFFC);
+  SizeOfImage = 0;
+  BaseAddress = (PVOID)(a1 & 0xFFFFFFFC);
+  v5 = RtlImageNtHeader((PVOID)(a1 & 0xFFFFFFFC));
   if ( !v5 )
     goto LABEL_10;
   if ( (a1 & 1) == 0 )
   {
-    v6 = *(_WORD *)(v5 + 24);
-    if ( v6 == 267 || v6 == 523 )
+    Magic = v5->OptionalHeader.Magic;
+    if ( Magic == 267 || Magic == 523 )
     {
-      FileSizeFromLoadAsDataTable = *(_DWORD *)(v5 + 80);
+      SizeOfImage = v5->OptionalHeader.SizeOfImage;
       goto LABEL_11;
     }
 LABEL_10:
     VirtualMemory = -1073741701;
     goto LABEL_11;
   }
-  FileSizeFromLoadAsDataTable = LdrpGetFileSizeFromLoadAsDataTable((void *)a1);
-  if ( !FileSizeFromLoadAsDataTable )
+  SizeOfImage = LdrpGetFileSizeFromLoadAsDataTable((void *)a1);
+  if ( !SizeOfImage )
   {
-    VirtualMemory = NtQueryVirtualMemory(-1, v11, 3, (int)v8, 28, 0);
+    VirtualMemory = NtQueryVirtualMemory(
+                      (HANDLE)0xFFFFFFFF,
+                      BaseAddress,
+                      MemoryRegionInformation,
+                      MemoryInformation,
+                      0x1CuLL,
+                      v8);
     if ( VirtualMemory < 0 )
       VirtualMemory = -1073741793;
     else
-      FileSizeFromLoadAsDataTable = v9;
+      SizeOfImage = v10;
   }
 LABEL_11:
-  *v10 = FileSizeFromLoadAsDataTable;
+  *v11 = SizeOfImage;
   return VirtualMemory;
 }

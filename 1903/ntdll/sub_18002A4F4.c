@@ -7,118 +7,116 @@
  *     RtlRbInsertNodeEx @ 0x1800380E0 (RtlRbInsertNodeEx.c)
  */
 
-__int64 __fastcall sub_18002A4F4(__int64 a1, __int64 a2, __int64 a3)
+BOOLEAN __fastcall sub_18002A4F4(__int64 a1, __int64 a2)
 {
-  unsigned int v3; // r9d
-  char v4; // bl
-  unsigned int v5; // r10d
-  unsigned __int64 v7; // rdx
+  unsigned int v2; // r9d
+  BOOLEAN v3; // bl
+  unsigned int v4; // r10d
+  unsigned __int64 Root; // rdx
+  BOOLEAN v7; // r8
   unsigned __int64 v8; // rax
-  unsigned __int64 v9; // r8
-  unsigned __int64 v10; // rdx
-  unsigned __int64 v11; // rax
-  __int64 result; // rax
+  unsigned __int64 v9; // rdx
+  unsigned __int64 v10; // rax
+  BOOLEAN result; // al
 
-  v3 = *(_DWORD *)(a2 + 8);
-  *(_DWORD *)(a1 + 128) = v3;
-  v4 = 0;
-  v5 = *(_DWORD *)(a2 + 80);
-  *(_DWORD *)(a1 + 64) = v5;
-  v7 = qword_1801662D8;
-  if ( (qword_1801662E0 & 1) != 0 )
+  v2 = *(_DWORD *)(a2 + 8);
+  *(_DWORD *)(a1 + 128) = v2;
+  v3 = 0;
+  v4 = *(_DWORD *)(a2 + 80);
+  *(_DWORD *)(a1 + 64) = v4;
+  Root = (unsigned __int64)stru_1801662D8.Root;
+  if ( ((__int64)stru_1801662D8.Min & 1) != 0 )
   {
-    if ( qword_1801662D8 )
-      v7 = (unsigned __int64)&qword_1801662D8 ^ qword_1801662D8;
+    if ( stru_1801662D8.Root )
+      Root = (unsigned __int64)&stru_1801662D8 ^ (unsigned __int64)stru_1801662D8.Root;
     else
-      v7 = 0LL;
+      Root = 0LL;
   }
-  LOBYTE(a3) = 0;
-  if ( v7 )
+  v7 = 0;
+  if ( Root )
   {
     while ( 1 )
     {
-      if ( v3 < *(_DWORD *)(v7 - 96) || v3 <= *(_DWORD *)(v7 - 96) && v5 < *(_DWORD *)(v7 - 160) )
+      if ( v2 < *(_DWORD *)(Root - 96) || v2 <= *(_DWORD *)(Root - 96) && v4 < *(_DWORD *)(Root - 160) )
       {
-        v8 = *(_QWORD *)v7;
-        if ( (qword_1801662E0 & 1) != 0 )
+        v8 = *(_QWORD *)Root;
+        if ( ((__int64)stru_1801662D8.Min & 1) != 0 )
         {
           if ( !v8 )
             goto LABEL_18;
-          v8 ^= v7;
+          v8 ^= Root;
         }
         if ( !v8 )
         {
 LABEL_18:
-          LOBYTE(a3) = 0;
+          v7 = 0;
           break;
         }
       }
       else
       {
-        v8 = *(_QWORD *)(v7 + 8);
-        if ( (qword_1801662E0 & 1) != 0 )
+        v8 = *(_QWORD *)(Root + 8);
+        if ( ((__int64)stru_1801662D8.Min & 1) != 0 )
         {
           if ( !v8 )
             goto LABEL_19;
-          v8 ^= v7;
+          v8 ^= Root;
         }
         if ( !v8 )
         {
 LABEL_19:
-          LOBYTE(a3) = 1;
+          v7 = 1;
           break;
         }
       }
-      v7 = v8;
+      Root = v8;
     }
   }
-  RtlRbInsertNodeEx(&qword_1801662D8, v7, a3, a1 + 224);
-  v9 = *(_QWORD *)(a1 + 48);
-  v10 = qword_1801662C8;
-  if ( (qword_1801662D0 & 1) != 0 )
+  RtlRbInsertNodeEx(&stru_1801662D8, (PRTL_BALANCED_NODE)Root, v7, (PRTL_BALANCED_NODE)(a1 + 224));
+  v9 = (unsigned __int64)stru_1801662C8.Root;
+  if ( ((__int64)stru_1801662C8.Min & 1) != 0 )
   {
-    if ( qword_1801662C8 )
-      v10 = (unsigned __int64)&qword_1801662C8 ^ qword_1801662C8;
+    if ( stru_1801662C8.Root )
+      v9 = (unsigned __int64)&stru_1801662C8 ^ (unsigned __int64)stru_1801662C8.Root;
     else
-      v10 = 0LL;
+      v9 = 0LL;
   }
-  if ( v10 )
+  if ( v9 )
   {
     while ( 1 )
     {
-      if ( v9 < *(_QWORD *)(v10 - 152) )
+      if ( *(_QWORD *)(a1 + 48) < *(_QWORD *)(v9 - 152) )
       {
-        v11 = *(_QWORD *)v10;
-        if ( (qword_1801662D0 & 1) != 0 )
+        v10 = *(_QWORD *)v9;
+        if ( ((__int64)stru_1801662C8.Min & 1) != 0 )
         {
-          if ( !v11 )
+          if ( !v10 )
             break;
-          v11 ^= v10;
+          v10 ^= v9;
         }
-        if ( !v11 )
+        if ( !v10 )
           break;
       }
       else
       {
-        v11 = *(_QWORD *)(v10 + 8);
-        if ( (qword_1801662D0 & 1) != 0 )
+        v10 = *(_QWORD *)(v9 + 8);
+        if ( ((__int64)stru_1801662C8.Min & 1) != 0 )
         {
-          if ( !v11 )
+          if ( !v10 )
             goto LABEL_33;
-          v11 ^= v10;
+          v10 ^= v9;
         }
-        if ( !v11 )
+        if ( !v10 )
         {
 LABEL_33:
-          v4 = 1;
+          v3 = 1;
           break;
         }
       }
-      v10 = v11;
+      v9 = v10;
     }
   }
-  LOBYTE(v9) = v4;
-  result = RtlRbInsertNodeEx(&qword_1801662C8, v10, v9, a1 + 200);
+  result = RtlRbInsertNodeEx(&stru_1801662C8, (PRTL_BALANCED_NODE)v9, v3, (PRTL_BALANCED_NODE)(a1 + 200));
   *(_DWORD *)(a1 + 104) |= 0x80u;
   return result;
 }

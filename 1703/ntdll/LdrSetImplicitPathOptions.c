@@ -7,25 +7,29 @@
  *     sub_180030264 @ 0x180030264 (sub_180030264.c)
  */
 
-__int64 __fastcall LdrSetImplicitPathOptions(unsigned __int64 a1, int a2)
+// local variable allocation has failed, the output may be wrong!
+NTSTATUS __cdecl LdrSetImplicitPathOptions(ULONG ImplicitPathOptions)
 {
+  int v1; // edx
+  int v2; // ebx
   int v3; // eax
-  int v4; // edi
-  unsigned __int64 v5; // rcx
+  NTSTATUS v4; // edi
+  char *v5; // rcx
   int v7; // [rsp+38h] [rbp+10h] BYREF
-  unsigned __int64 v8; // [rsp+40h] [rbp+18h] BYREF
+  PVOID BaseAddress; // [rsp+40h] [rbp+18h] BYREF
 
+  v2 = v1;
   v3 = 32512;
   if ( (dword_180158674 & 4) == 0 )
     v3 = 31488;
-  if ( (~v3 & a2) != 0 || !a2 )
-    return 3221225485LL;
-  v4 = sub_180030264(a1, (__int64 *)&v8, &v7);
+  if ( (~v3 & v1) != 0 || !v1 )
+    return -1073741811;
+  v4 = sub_180030264(*(ULONG_PTR *)&ImplicitPathOptions, (__int64 *)&BaseAddress, &v7);
   if ( v4 >= 0 )
   {
-    v5 = v8;
-    *(_DWORD *)(v8 + 272) = a2;
+    v5 = (char *)BaseAddress;
+    *((_DWORD *)BaseAddress + 68) = v2;
     sub_18003015C(v5);
   }
-  return (unsigned int)v4;
+  return v4;
 }

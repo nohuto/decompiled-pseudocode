@@ -1,28 +1,31 @@
 /*
- * XREFs of DbgkpStartSystemErrorHandler @ 0x14061A9C8
+ * XREFs of DbgkpStartSystemErrorHandler @ 0x14061AA7C
  * Callers:
- *     DbgkpSendErrorMessage @ 0x14061A524 (DbgkpSendErrorMessage.c)
+ *     DbgkpSendErrorMessage @ 0x14061A5D8 (DbgkpSendErrorMessage.c)
  * Callees:
- *     EtwWrite @ 0x140013320 (EtwWrite.c)
- *     EtwEventEnabled @ 0x1400D54D0 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     ZwQueryWnfStateNameInformation @ 0x14015C6A0 (ZwQueryWnfStateNameInformation.c)
- *     ZwUpdateWnfStateData @ 0x14015D3C0 (ZwUpdateWnfStateData.c)
- *     EtwUnregister @ 0x1405488B0 (EtwUnregister.c)
- *     EtwRegister @ 0x140549F44 (EtwRegister.c)
+ *     EtwWrite @ 0x140012EA0 (EtwWrite.c)
+ *     EtwEventEnabled @ 0x1400D3370 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     ZwQueryWnfStateNameInformation @ 0x14015CC10 (ZwQueryWnfStateNameInformation.c)
+ *     ZwUpdateWnfStateData @ 0x14015D930 (ZwUpdateWnfStateData.c)
+ *     EtwUnregister @ 0x140548DF0 (EtwUnregister.c)
+ *     EtwRegister @ 0x14054A484 (EtwRegister.c)
  */
 
 __int64 DbgkpStartSystemErrorHandler()
 {
   int v0; // ebx
   __int64 result; // rax
-  int v2; // [rsp+40h] [rbp-38h]
+  int InfoBuffer; // [rsp+40h] [rbp-38h] BYREF
   ULONGLONG RegHandle; // [rsp+48h] [rbp-30h] BYREF
   EVENT_DESCRIPTOR EventDescriptor; // [rsp+50h] [rbp-28h] BYREF
 
   v0 = 0;
-  if ( (int)ZwQueryWnfStateNameInformation((__int64)&WNF_WER_SERVICE_START, 1LL, 0LL) >= 0 && v2 )
-    v0 = (int)ZwUpdateWnfStateData((__int64)&WNF_WER_SERVICE_START, 0LL, 0LL) >= 0;
+  if ( ZwQueryWnfStateNameInformation(&WNF_WER_SERVICE_START, WnfInfoSubscribersPresent, 0LL, &InfoBuffer, 4u) >= 0
+    && InfoBuffer )
+  {
+    v0 = ZwUpdateWnfStateData(&WNF_WER_SERVICE_START, 0LL, 0, 0LL, 0LL, 0, 0) >= 0;
+  }
   if ( EtwRegister(&ProviderId, 0LL, 0LL, &RegHandle) >= 0 )
   {
     *(_QWORD *)&EventDescriptor.Id = 0LL;

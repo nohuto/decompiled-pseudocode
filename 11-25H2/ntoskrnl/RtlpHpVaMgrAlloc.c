@@ -21,7 +21,7 @@ __int64 __fastcall RtlpHpVaMgrAlloc(ULONG_PTR BugCheckParameter2, unsigned __int
   unsigned __int64 v4; // rdi
   unsigned __int64 v8; // r14
   char v9; // r15
-  unsigned __int64 *v10; // rax
+  _RTL_BALANCED_NODE *v10; // rax
   __int64 v11; // rsi
   unsigned __int64 v12; // rdi
   __int64 v13; // rax
@@ -80,15 +80,15 @@ __int64 __fastcall RtlpHpVaMgrAlloc(ULONG_PTR BugCheckParameter2, unsigned __int
   {
     v8 = v3 >> 20;
     v9 = RtlpHpAcquireLockExclusive((int *)BugCheckParameter2, *(_BYTE *)(BugCheckParameter2 + 46) & 1);
-    v10 = (unsigned __int64 *)RtlpHpVaMgrRangeFind(
-                                BugCheckParameter2,
-                                (unsigned __int16)v8,
-                                (unsigned __int16)(a3 >> 20),
-                                &v26);
+    v10 = (_RTL_BALANCED_NODE *)RtlpHpVaMgrRangeFind(
+                                  BugCheckParameter2,
+                                  (unsigned __int16)v8,
+                                  (unsigned __int16)(a3 >> 20),
+                                  &v26);
     v11 = (__int64)v10;
     if ( v10 )
     {
-      RtlRbRemoveNode(BugCheckParameter2 + 8, v10);
+      RtlRbRemoveNode((PRTL_RB_TREE)(BugCheckParameter2 + 8), v10);
       v12 = v26;
       if ( v26 != v11 )
       {

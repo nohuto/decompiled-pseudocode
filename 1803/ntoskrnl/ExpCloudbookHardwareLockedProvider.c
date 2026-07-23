@@ -29,7 +29,7 @@ __int64 __fastcall ExpCloudbookHardwareLockedProvider(
   {
     *a4 = 4;
     v9 = 0;
-    if ( ZwQuerySystemInformation(SystemEmulationBasicInformation|0x80, SystemInformation, 0x24u, 0LL) < 0 )
+    if ( ZwQuerySystemInformation(SystemCodeIntegrityUnlockInformation, SystemInformation, 0x24u, 0LL) < 0 )
     {
       v9 = -1073741772;
     }

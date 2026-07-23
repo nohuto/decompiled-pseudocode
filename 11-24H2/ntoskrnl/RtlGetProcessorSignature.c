@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlGetProcessorSignature @ 0x140B60A90
+ * XREFs of RtlGetProcessorSignature @ 0x140B62B5C
  * Callers:
- *     KiGetProcessorSignature @ 0x1405C3308 (KiGetProcessorSignature.c)
- *     RtlpInitFunctionOverrideCapabilities @ 0x14078D6B8 (RtlpInitFunctionOverrideCapabilities.c)
- *     RtlDetectProcessorFeatures @ 0x140B60270 (RtlDetectProcessorFeatures.c)
- *     RtlGetCpuMaxPhysicalBits @ 0x140B608E0 (RtlGetCpuMaxPhysicalBits.c)
- *     SpcDetectKvaLeakage @ 0x140B638D8 (SpcDetectKvaLeakage.c)
+ *     KiGetProcessorSignature @ 0x1405C08D8 (KiGetProcessorSignature.c)
+ *     RtlpInitFunctionOverrideCapabilities @ 0x14078D5E8 (RtlpInitFunctionOverrideCapabilities.c)
+ *     RtlDetectProcessorFeatures @ 0x140B6233C (RtlDetectProcessorFeatures.c)
+ *     RtlGetCpuMaxPhysicalBits @ 0x140B629AC (RtlGetCpuMaxPhysicalBits.c)
+ *     SpcDetectKvaLeakage @ 0x140B659A8 (SpcDetectKvaLeakage.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     RtlGetCpuVendor @ 0x140B609B4 (RtlGetCpuVendor.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     RtlGetCpuVendor @ 0x140B62A80 (RtlGetCpuVendor.c)
  */
 
 __int64 __fastcall RtlGetProcessorSignature(char *a1, int *a2, int *a3, _DWORD *a4)

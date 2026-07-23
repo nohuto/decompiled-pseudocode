@@ -1,5 +1,5 @@
 /*
- * XREFs of WheaInitializeDeferredRecoveryObject @ 0x1405BD090
+ * XREFs of WheaInitializeDeferredRecoveryObject @ 0x1405BD2C0
  * Callers:
  *     <none>
  * Callees:

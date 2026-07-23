@@ -19,7 +19,7 @@
  *     RtlpHpLargeAllocationDestroy @ 0x18010E690 (RtlpHpLargeAllocationDestroy.c)
  */
 
-struct _PEB *__fastcall RtlpHpHeapDestroy(__int128 *a1)
+int __fastcall RtlpHpHeapDestroy(__int64 a1)
 {
   __int64 v1; // rbx
   bool v2; // zf
@@ -33,28 +33,23 @@ struct _PEB *__fastcall RtlpHpHeapDestroy(__int128 *a1)
   unsigned __int64 v11; // rdi
   __int64 v12; // r11
   __int128 v13; // xmm0
-  __int64 v14; // rdx
-  __int64 v15; // rcx
-  __int64 v16; // rdx
+  __int64 v14; // rcx
+  struct _PEB *v15; // rax
+  __int64 v16; // rbx
   __int64 v17; // rcx
-  struct _PEB *result; // rax
-  __int64 v19; // rdx
-  __int64 v20; // rbx
-  __int64 v21; // rcx
-  __int64 v22; // rcx
-  __int128 *v23; // [rsp+20h] [rbp-29h] BYREF
-  __int64 v24; // [rsp+28h] [rbp-21h] BYREF
-  __int128 v25; // [rsp+30h] [rbp-19h] BYREF
-  __int128 v26; // [rsp+40h] [rbp-9h] BYREF
-  __int128 v27; // [rsp+50h] [rbp+7h] BYREF
-  _BYTE v28[6]; // [rsp+60h] [rbp+17h] BYREF
-  __int16 v29; // [rsp+66h] [rbp+1Dh]
-  __int128 *v30; // [rsp+80h] [rbp+37h]
+  void *v18; // rcx
+  PVOID BaseAddress; // [rsp+20h] [rbp-29h] BYREF
+  ULONG_PTR RegionSize; // [rsp+28h] [rbp-21h] BYREF
+  __int128 v22; // [rsp+30h] [rbp-19h] BYREF
+  _OWORD v23[2]; // [rsp+40h] [rbp-9h] BYREF
+  _BYTE Fields[6]; // [rsp+60h] [rbp+17h] BYREF
+  __int16 v25; // [rsp+66h] [rbp+1Dh]
+  PVOID v26; // [rsp+80h] [rbp+37h]
 
-  v1 = (__int64)a1 + 72;
-  v23 = a1;
-  v2 = (a1[5] & 1) == 0;
-  v4 = *((_QWORD *)a1 + 9);
+  v1 = a1 + 72;
+  BaseAddress = (PVOID)a1;
+  v2 = (*(_BYTE *)(a1 + 80) & 1) == 0;
+  v4 = *(_QWORD *)(a1 + 72);
   if ( !v2 && v4 )
     v4 ^= v1;
   v5 = *(_BYTE *)(v1 + 8);
@@ -98,59 +93,59 @@ struct _PEB *__fastcall RtlpHpHeapDestroy(__int128 *a1)
   *(_QWORD *)(v1 + 8) = 0LL;
   if ( (v5 & 1) != 0 )
     *(_BYTE *)(v1 + 8) = 1;
-  v11 = (unsigned __int64)(v23 + 42);
+  v11 = (unsigned __int64)BaseAddress + 672;
   while ( *(_QWORD *)v11 )
   {
-    RtlpHpVsSubsegmentCleanup((__int64)(v23 + 40), v11 ^ *(_QWORD *)v11);
-    RtlpHpVsSubsegmentFree((__int64)(v23 + 40), v12, 1u);
+    RtlpHpVsSubsegmentCleanup((__int64)BaseAddress + 640, v11 ^ *(_QWORD *)v11);
+    RtlpHpVsSubsegmentFree((__int64)BaseAddress + 640, v12, 1u);
   }
-  RtlpHpLfhContextCleanup((__int64)(v23 + 52));
-  RtlpHpSegContextCleanup(v23 + 16);
-  RtlpHpSegContextCleanup(v23 + 28);
-  v13 = *v23;
-  v24 = *((_QWORD *)v23 + 31) - (_QWORD)v23;
-  v2 = (*((_BYTE *)v23 + 30) & 1) == 0;
-  v25 = v13;
+  RtlpHpLfhContextCleanup((__int64)BaseAddress + 832);
+  RtlpHpSegContextCleanup((char *)BaseAddress + 256);
+  RtlpHpSegContextCleanup((char *)BaseAddress + 448);
+  v13 = *(_OWORD *)BaseAddress;
+  RegionSize = *((_QWORD *)BaseAddress + 31) - (_QWORD)BaseAddress;
+  v2 = (*((_BYTE *)BaseAddress + 30) & 1) == 0;
+  v22 = v13;
   if ( v2 )
   {
-    v27 = *v23;
-    RtlpHpFreeVA(&v23, &v24, BYTE1(v25) < 2u ? 16809984 : 0x8000, &v27);
+    v23[1] = *(_OWORD *)BaseAddress;
+    RtlpHpFreeVA(&BaseAddress, &RegionSize);
   }
   else
   {
-    v26 = *v23;
-    RtlpHpMetadataFree(v23, &v26);
+    v23[0] = *(_OWORD *)BaseAddress;
+    RtlpHpMetadataFree(BaseAddress, v23);
   }
-  RtlpHpRegisterEnvironment(&v25, 0LL);
-  if ( (unsigned int)RtlGetCurrentServiceSessionId(v15, v14) )
-    v17 = (__int64)NtCurrentPeb()->SharedData + 558;
+  RtlpHpRegisterEnvironment(&v22, 0LL);
+  if ( RtlGetCurrentServiceSessionId() )
+    v14 = (__int64)NtCurrentPeb()->SharedData + 558;
   else
-    v17 = 2147353480LL;
+    v14 = 2147353480LL;
+  if ( *(_BYTE *)v14 )
+    RtlpHeapLogRangeDestroy(BaseAddress);
+  LODWORD(v15) = RtlGetCurrentServiceSessionId();
+  v16 = 2147353472LL;
+  if ( (_DWORD)v15 )
+  {
+    v15 = NtCurrentPeb();
+    v17 = (__int64)v15->SharedData + 550;
+  }
+  else
+  {
+    v17 = 2147353472LL;
+  }
   if ( *(_BYTE *)v17 )
-    RtlpHeapLogRangeDestroy(v23);
-  result = (struct _PEB *)RtlGetCurrentServiceSessionId(v17, v16);
-  v20 = 2147353472LL;
-  if ( (_DWORD)result )
   {
-    result = NtCurrentPeb();
-    v21 = (__int64)result->SharedData + 550;
-  }
-  else
-  {
-    v21 = 2147353472LL;
-  }
-  if ( *(_BYTE *)v21 )
-  {
-    result = NtCurrentPeb();
-    if ( (result->TracingFlags & 1) != 0 )
+    v15 = NtCurrentPeb();
+    if ( (v15->TracingFlags & 1) != 0 )
     {
-      if ( (unsigned int)RtlGetCurrentServiceSessionId(v21, v19) )
-        v20 = (__int64)NtCurrentPeb()->SharedData + 550;
-      v22 = *(unsigned __int8 *)v20;
-      v30 = v23;
-      v29 = 4131;
-      return (struct _PEB *)NtTraceEvent(v22, 1026LL, 8LL, v28);
+      if ( RtlGetCurrentServiceSessionId() )
+        v16 = (__int64)NtCurrentPeb()->SharedData + 550;
+      v18 = (void *)*(unsigned __int8 *)v16;
+      v26 = BaseAddress;
+      v25 = 4131;
+      LODWORD(v15) = NtTraceEvent(v18, 0x402u, 8u, Fields);
     }
   }
-  return result;
+  return (int)v15;
 }

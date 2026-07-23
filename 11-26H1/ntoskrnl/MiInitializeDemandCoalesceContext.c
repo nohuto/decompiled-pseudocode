@@ -1,16 +1,16 @@
 /*
- * XREFs of MiInitializeDemandCoalesceContext @ 0x140206AD0
+ * XREFs of MiInitializeDemandCoalesceContext @ 0x140206BB0
  * Callers:
- *     MiCreateSlabEntry @ 0x140206284 (MiCreateSlabEntry.c)
- *     MiGetLargePagesForChain @ 0x140284A5C (MiGetLargePagesForChain.c)
- *     MiCreateLargePfnList @ 0x14031037C (MiCreateLargePfnList.c)
- *     MiPrefetchVirtualMemory @ 0x1403A0710 (MiPrefetchVirtualMemory.c)
- *     MiValidateMdlAllocationRequest @ 0x140526DCC (MiValidateMdlAllocationRequest.c)
- *     MiProcessVaContiguityInformation @ 0x14070B810 (MiProcessVaContiguityInformation.c)
- *     MiCreatePagingFileCommit @ 0x1409B8504 (MiCreatePagingFileCommit.c)
- *     MiPfPrepareSequentialReadList @ 0x140A50EA0 (MiPfPrepareSequentialReadList.c)
- *     MiGetLargePagesForSystemMapping @ 0x140B4CC00 (MiGetLargePagesForSystemMapping.c)
- *     MiPartitionTransferAllocatePrepare @ 0x140B60344 (MiPartitionTransferAllocatePrepare.c)
+ *     MiCreateSlabEntry @ 0x140206364 (MiCreateSlabEntry.c)
+ *     MiGetLargePagesForChain @ 0x140283FC4 (MiGetLargePagesForChain.c)
+ *     MiCreateLargePfnList @ 0x1402F23FC (MiCreateLargePfnList.c)
+ *     MiPrefetchVirtualMemory @ 0x1403A2470 (MiPrefetchVirtualMemory.c)
+ *     MiValidateMdlAllocationRequest @ 0x14052943C (MiValidateMdlAllocationRequest.c)
+ *     MiProcessVaContiguityInformation @ 0x1407104C0 (MiProcessVaContiguityInformation.c)
+ *     MiCreatePagingFileCommit @ 0x1409894E4 (MiCreatePagingFileCommit.c)
+ *     MiPfPrepareSequentialReadList @ 0x140A5A190 (MiPfPrepareSequentialReadList.c)
+ *     MiGetLargePagesForSystemMapping @ 0x140B4E990 (MiGetLargePagesForSystemMapping.c)
+ *     MiPartitionTransferAllocatePrepare @ 0x140B633E0 (MiPartitionTransferAllocatePrepare.c)
  * Callees:
  *     <none>
  */

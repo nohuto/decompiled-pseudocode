@@ -1,20 +1,20 @@
 /*
- * XREFs of PiQueryResourceRequirements @ 0x140750B94
+ * XREFs of PiQueryResourceRequirements @ 0x140750D54
  * Callers:
- *     PiProcessNewDeviceNode @ 0x140744490 (PiProcessNewDeviceNode.c)
+ *     PiProcessNewDeviceNode @ 0x140744650 (PiProcessNewDeviceNode.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     KeReleaseGuardedMutex @ 0x140265CD0 (KeReleaseGuardedMutex.c)
- *     ExAcquireFastMutex @ 0x14034A080 (ExAcquireFastMutex.c)
- *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x14034BF60 (ExAcquireResourceSharedLite.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     ZwSetValueKey @ 0x1403FAFA0 (ZwSetValueKey.c)
- *     ZwDeleteValueKey @ 0x1403FBE80 (ZwDeleteValueKey.c)
- *     _CmOpenDeviceRegKey @ 0x140641B70 (_CmOpenDeviceRegKey.c)
- *     PipSetDevNodeFlags @ 0x14074561C (PipSetDevNodeFlags.c)
- *     PpIrpQueryResourceRequirements @ 0x140750D58 (PpIrpQueryResourceRequirements.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     KeReleaseGuardedMutex @ 0x140253C70 (KeReleaseGuardedMutex.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquireFastMutex @ 0x140354DD0 (ExAcquireFastMutex.c)
+ *     ExReleaseResourceLite @ 0x140356140 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x140356CB0 (ExAcquireResourceSharedLite.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     ZwSetValueKey @ 0x1403FB180 (ZwSetValueKey.c)
+ *     ZwDeleteValueKey @ 0x1403FC060 (ZwDeleteValueKey.c)
+ *     _CmOpenDeviceRegKey @ 0x140636980 (_CmOpenDeviceRegKey.c)
+ *     PipSetDevNodeFlags @ 0x1407457DC (PipSetDevNodeFlags.c)
+ *     PpIrpQueryResourceRequirements @ 0x140750F18 (PpIrpQueryResourceRequirements.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiQueryResourceRequirements(__int64 a1)
@@ -28,6 +28,9 @@ __int64 __fastcall PiQueryResourceRequirements(__int64 a1)
   HANDLE v8; // rcx
   struct _KTHREAD *CurrentThread; // rax
   PVOID v11; // rbx
+  __int64 v12; // rdx
+  __int64 v13; // r8
+  __int64 v14; // r9
   UNICODE_STRING ValueName; // [rsp+40h] [rbp-10h] BYREF
   HANDLE KeyHandle; // [rsp+80h] [rbp+30h] BYREF
   PVOID Data; // [rsp+88h] [rbp+38h] BYREF
@@ -86,7 +89,7 @@ __int64 __fastcall PiQueryResourceRequirements(__int64 a1)
       ZwDeleteValueKey(KeyHandle, &ValueName);
     }
     ExReleaseResourceLite(&PnpRegistryDeviceResource);
-    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v12, v13, v14);
     v4 = (ULONG *)Data;
 LABEL_19:
     v8 = KeyHandle;

@@ -1,7 +1,7 @@
 /*
- * XREFs of CmpHasKcbBeenMirrored @ 0x1402BBFC8
+ * XREFs of CmpHasKcbBeenMirrored @ 0x14023A1D8
  * Callers:
- *     CmKeyBodyRemapToVirtualForEnum @ 0x1406556B0 (CmKeyBodyRemapToVirtualForEnum.c)
+ *     CmKeyBodyRemapToVirtualForEnum @ 0x14064A4D0 (CmKeyBodyRemapToVirtualForEnum.c)
  * Callees:
  *     <none>
  */

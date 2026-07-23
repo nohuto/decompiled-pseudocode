@@ -1,19 +1,19 @@
 /*
- * XREFs of PopReadPagesFromHiberFile @ 0x1408E6EEC
+ * XREFs of PopReadPagesFromHiberFile @ 0x1408E704C
  * Callers:
- *     PopPowerInformationInternal @ 0x140678DF4 (PopPowerInformationInternal.c)
- *     PopReadResumeContext @ 0x1408E7148 (PopReadResumeContext.c)
+ *     PopPowerInformationInternal @ 0x14066C534 (PopPowerInformationInternal.c)
+ *     PopReadResumeContext @ 0x1408E72A8 (PopReadResumeContext.c)
  * Callees:
- *     MmProbeAndLockPages @ 0x140209710 (MmProbeAndLockPages.c)
- *     MmUnlockPages @ 0x140244A70 (MmUnlockPages.c)
- *     IoAllocateMdl @ 0x1402E8BB0 (IoAllocateMdl.c)
- *     IoFreeMdl @ 0x1402E9600 (IoFreeMdl.c)
- *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
- *     KeInitializeEvent @ 0x1403538F0 (KeInitializeEvent.c)
- *     IoPageRead @ 0x14037F8F0 (IoPageRead.c)
- *     RtlLongLongAdd @ 0x14056F4B8 (RtlLongLongAdd.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     IoAllocateMdl @ 0x140299F00 (IoAllocateMdl.c)
+ *     IoFreeMdl @ 0x14029A950 (IoFreeMdl.c)
+ *     MmProbeAndLockPages @ 0x1402AE010 (MmProbeAndLockPages.c)
+ *     MmUnlockPages @ 0x1402E92C0 (MmUnlockPages.c)
+ *     KeWaitForSingleObject @ 0x1403504C0 (KeWaitForSingleObject.c)
+ *     KeInitializeEvent @ 0x14035E640 (KeInitializeEvent.c)
+ *     IoPageRead @ 0x14037F440 (IoPageRead.c)
+ *     RtlLongLongAdd @ 0x14056F6F8 (RtlLongLongAdd.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PopReadPagesFromHiberFile(unsigned int a1, unsigned int a2, PVOID *a3)
@@ -42,7 +42,7 @@ __int64 __fastcall PopReadPagesFromHiberFile(unsigned int a1, unsigned int a2, P
   if ( !BYTE8(PopCapabilities)
     || (unsigned __int64)(*(_QWORD *)&PopHiberInfo - 1LL) > 0xFFFFFFFFFFFFFFFDuLL
     || (char *)FileObject - 1 > (char *)0xFFFFFFFFFFFFFFFDLL
-    || qword_140C23850 < 0x1000 )
+    || qword_140C23E70 < 0x1000 )
   {
     Status = -1073741637;
     goto LABEL_26;

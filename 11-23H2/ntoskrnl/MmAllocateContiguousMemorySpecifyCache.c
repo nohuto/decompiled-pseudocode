@@ -1,9 +1,9 @@
 /*
- * XREFs of MmAllocateContiguousMemorySpecifyCache @ 0x14061E160
+ * XREFs of MmAllocateContiguousMemorySpecifyCache @ 0x14061E6B0
  * Callers:
  *     <none>
  * Callees:
- *     MmAllocateContiguousMemorySpecifyCacheNode @ 0x14061E190 (MmAllocateContiguousMemorySpecifyCacheNode.c)
+ *     MmAllocateContiguousMemorySpecifyCacheNode @ 0x14061E6E0 (MmAllocateContiguousMemorySpecifyCacheNode.c)
  */
 
 PVOID __stdcall MmAllocateContiguousMemorySpecifyCache(

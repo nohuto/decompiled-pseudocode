@@ -9,8 +9,8 @@
  *     RtlAcquireSRWLockExclusive @ 0x180011720 (RtlAcquireSRWLockExclusive.c)
  */
 
-char __fastcall RtlpHpLargeLockAcquire(__int64 a1)
+char __fastcall RtlpHpLargeLockAcquire(_RTL_SRWLOCK *a1)
 {
-  RtlAcquireSRWLockExclusive((volatile signed __int32 *)(a1 + 64));
+  RtlAcquireSRWLockExclusive(a1 + 8);
   return -1;
 }

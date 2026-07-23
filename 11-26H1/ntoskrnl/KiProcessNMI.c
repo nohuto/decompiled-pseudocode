@@ -1,16 +1,16 @@
 /*
- * XREFs of KiProcessNMI @ 0x1405EBA60
+ * XREFs of KiProcessNMI @ 0x1405EE3D0
  * Callers:
- *     KxNmiInterrupt @ 0x140733F80 (KxNmiInterrupt.c)
+ *     KxNmiInterrupt @ 0x140738B80 (KxNmiInterrupt.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1402BDEF0 (KxReleaseSpinLock.c)
- *     KxTryToAcquireSpinLock @ 0x140330C68 (KxTryToAcquireSpinLock.c)
- *     KeInterlockedSetProcessorAffinityEx @ 0x14042C030 (KeInterlockedSetProcessorAffinityEx.c)
- *     KeInterlockedClearProcessorAffinityEx @ 0x14042C170 (KeInterlockedClearProcessorAffinityEx.c)
- *     HalHandleNMI @ 0x14057EA20 (HalHandleNMI.c)
- *     KiCheckForFreezeExecution @ 0x1405E79B0 (KiCheckForFreezeExecution.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     KiFlushCurrentRsb @ 0x14073D180 (KiFlushCurrentRsb.c)
+ *     KxReleaseSpinLock @ 0x140308BB0 (KxReleaseSpinLock.c)
+ *     KxTryToAcquireSpinLock @ 0x140332C98 (KxTryToAcquireSpinLock.c)
+ *     KeInterlockedSetProcessorAffinityEx @ 0x140420700 (KeInterlockedSetProcessorAffinityEx.c)
+ *     KeInterlockedClearProcessorAffinityEx @ 0x140420840 (KeInterlockedClearProcessorAffinityEx.c)
+ *     HalHandleNMI @ 0x140580F40 (HalHandleNMI.c)
+ *     KiCheckForFreezeExecution @ 0x1405EA320 (KiCheckForFreezeExecution.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     KiFlushCurrentRsb @ 0x140741D80 (KiFlushCurrentRsb.c)
  */
 
 char __fastcall KiProcessNMI(__int64 a1, __int64 a2)
@@ -60,9 +60,9 @@ LABEL_10:
             KiCheckForFreezeExecution(a1);
           while ( KiNMILock );
         }
-        _InterlockedCompareExchange((volatile signed __int32 *)&KiDpcWatchdogConfigurationLock.StackLimit, 1, 0);
+        _InterlockedCompareExchange((volatile signed __int32 *)&KiDpcWatchdogConfigurationLock.InitialStack, 1, 0);
         HalHandleNMI(0LL);
-        _InterlockedCompareExchange((volatile signed __int32 *)&KiDpcWatchdogConfigurationLock.StackLimit, 0, 1);
+        _InterlockedCompareExchange((volatile signed __int32 *)&KiDpcWatchdogConfigurationLock.InitialStack, 0, 1);
         KxReleaseSpinLock(&KiNMILock);
       }
       LOBYTE(v7) = KeInterlockedClearProcessorAffinityEx((__int64)KiNmiInProgress, Number);

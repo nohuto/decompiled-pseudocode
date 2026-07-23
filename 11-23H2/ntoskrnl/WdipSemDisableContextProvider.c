@@ -1,13 +1,13 @@
 /*
- * XREFs of WdipSemDisableContextProvider @ 0x1408304A4
+ * XREFs of WdipSemDisableContextProvider @ 0x1408307A4
  * Callers:
- *     WdipSemDisableContextProviders @ 0x14083033C (WdipSemDisableContextProviders.c)
+ *     WdipSemDisableContextProviders @ 0x14083063C (WdipSemDisableContextProviders.c)
  * Callees:
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x140231190 (ExReleasePushLockEx.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     WdipSemCaptureState @ 0x140394968 (WdipSemCaptureState.c)
- *     WdipSemEnableDisableTrace @ 0x140831CA0 (WdipSemEnableDisableTrace.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140231280 (ExReleasePushLockEx.c)
+ *     KeLeaveCriticalRegion @ 0x140231550 (KeLeaveCriticalRegion.c)
+ *     WdipSemCaptureState @ 0x140394B48 (WdipSemCaptureState.c)
+ *     WdipSemEnableDisableTrace @ 0x140831FA0 (WdipSemEnableDisableTrace.c)
  */
 
 __int64 __fastcall WdipSemDisableContextProvider(__int64 a1, char a2)
@@ -21,7 +21,7 @@ __int64 __fastcall WdipSemDisableContextProvider(__int64 a1, char a2)
   CurrentThread = KeGetCurrentThread();
   v5 = 0;
   --CurrentThread->KernelApcDisable;
-  ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_140C34AA8, 0LL);
+  ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_140C34E68, 0LL);
   if ( a1 )
   {
     WdipSemCaptureState(a1, a2);
@@ -58,7 +58,7 @@ __int64 __fastcall WdipSemDisableContextProvider(__int64 a1, char a2)
   {
     v5 = -1073741811;
   }
-  ExReleasePushLockEx((__int64 *)&qword_140C34AA8, 0LL);
+  ExReleasePushLockEx((__int64 *)&qword_140C34E68, 0LL);
   KeLeaveCriticalRegion();
   return (unsigned int)v5;
 }

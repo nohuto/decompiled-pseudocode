@@ -1,23 +1,21 @@
 /*
- * XREFs of tolower @ 0x140537D20
+ * XREFs of tolower @ 0x14053A1A0
  * Callers:
  *     <none>
  * Callees:
- *     __pctype_func @ 0x14053A2CC (__pctype_func.c)
+ *     __pctype_func @ 0x14053C74C (__pctype_func.c)
  */
 
 int __cdecl tolower(int C)
 {
-  int v1; // ebx
-  __int64 v2; // rax
+  const unsigned __int16 *v2; // rax
   int v3; // edx
 
-  v1 = C;
-  v2 = _pctype_func(C);
-  v3 = (unsigned __int8)v1;
-  if ( v1 == -1 )
+  v2 = _pctype_func();
+  v3 = (unsigned __int8)C;
+  if ( C == -1 )
     v3 = -1;
-  if ( (*(_BYTE *)(v2 + 2LL * v3) & 1) != 0 )
-    v1 += 32;
-  return v1;
+  if ( (v2[v3] & 1) != 0 )
+    C += 32;
+  return C;
 }

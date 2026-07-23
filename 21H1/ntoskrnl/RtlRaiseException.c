@@ -20,68 +20,42 @@
  *     _alloca_probe @ 0x1403FE8D0 (_alloca_probe.c)
  */
 
-__int64 __fastcall RtlRaiseException(
-        __int64 a1,
-        __int64 a2,
-        __int64 a3,
-        __int64 a4,
-        __int64 a5,
-        __int64 a6,
-        __int64 a7,
-        __int64 a8,
-        __int64 a9,
-        __int64 a10,
-        __int64 a11,
-        __int64 a12,
-        __int64 a13,
-        __int64 a14,
-        __int64 a15,
-        __int64 a16,
-        __int64 a17,
-        __int64 a18,
-        __int64 a19,
-        __int64 a20,
-        __int64 a21,
-        __int64 a22,
-        __int64 a23,
-        __int64 a24)
+void __cdecl RtlRaiseException(PEXCEPTION_RECORD ExceptionRecord)
 {
-  unsigned __int64 v25; // r8
-  unsigned __int64 v26; // r8
-  void *v27; // rsp
-  void *v28; // rsp
-  unsigned int v29; // edi
-  __int64 v30; // rax
-  __int64 result; // rax
-  unsigned int v32; // [rsp+40h] [rbp+0h] BYREF
-  __int64 v33; // [rsp+48h] [rbp+8h] BYREF
-  __int64 v34; // [rsp+50h] [rbp+10h] BYREF
-  __int64 v35; // [rsp+58h] [rbp+18h] BYREF
+  unsigned __int64 v2; // r8
+  unsigned __int64 v3; // r8
+  void *v4; // rsp
+  void *v5; // rsp
+  NTSTATUS v6; // edi
+  _IMAGE_RUNTIME_FUNCTION_ENTRY *v7; // rax
+  PCONTEXT_EX ContextLength; // [rsp+40h] [rbp+0h] BYREF
+  unsigned __int64 ImageBase; // [rsp+48h] [rbp+8h] BYREF
+  unsigned __int64 EstablisherFrame; // [rsp+50h] [rbp+10h] BYREF
+  PVOID HandlerData; // [rsp+58h] [rbp+18h] BYREF
+  void *v12; // [rsp+138h] [rbp+F8h]
 
-  v32 = 0;
-  v34 = 0LL;
-  v35 = 0LL;
-  v33 = 0LL;
-  RtlGetExtendedContextLength2(1048587LL, &v32, 0LL);
-  v25 = v32 + 15LL;
-  if ( v25 <= v32 )
-    v25 = 0xFFFFFFFFFFFFFF0LL;
-  v26 = v25 & 0xFFFFFFFFFFFFFFF0uLL;
-  v27 = alloca(v26);
-  v28 = alloca(v26);
-  v29 = RtlInitializeExtendedContext2(&v32, 1048587LL, &v32, 0LL);
-  RtlpCaptureContext2(&v32);
-  v30 = RtlLookupFunctionEntry(a24, &v33, 0LL);
-  if ( !v30 )
+  LODWORD(ContextLength) = 0;
+  EstablisherFrame = 0LL;
+  HandlerData = 0LL;
+  ImageBase = 0LL;
+  RtlGetExtendedContextLength2(0x10000Bu, (PULONG)&ContextLength, 0LL);
+  v2 = (unsigned int)ContextLength + 15LL;
+  if ( v2 <= (unsigned int)ContextLength )
+    v2 = 0xFFFFFFFFFFFFFF0LL;
+  v3 = v2 & 0xFFFFFFFFFFFFFFF0uLL;
+  v4 = alloca(v3);
+  v5 = alloca(v3);
+  v6 = RtlInitializeExtendedContext2((PCONTEXT)&ContextLength, 0x10000Bu, &ContextLength, 0LL);
+  RtlpCaptureContext2(&ContextLength);
+  v7 = RtlLookupFunctionEntry((DWORD64)v12, &ImageBase, 0LL);
+  if ( !v7 )
 LABEL_6:
-    RtlRaiseStatus(v29);
-  RtlVirtualUnwind(0, v33, a24, v30, (__int64)&v32, (__int64)&v35, (__int64)&v34, 0LL);
-  *(_QWORD *)(a1 + 16) = a24;
-  result = RtlDispatchException(a1, &v32);
-  if ( !(_BYTE)result )
+    RtlRaiseStatus(v6);
+  RtlVirtualUnwind(0, ImageBase, (DWORD64)v12, v7, (PCONTEXT)&ContextLength, &HandlerData, &EstablisherFrame, 0LL);
+  ExceptionRecord->ExceptionAddress = v12;
+  if ( !RtlDispatchException(ExceptionRecord, (PCONTEXT)&ContextLength) )
   {
-    v29 = ZwRaiseException(a1, &v32, 0LL);
+    v6 = ZwRaiseException(ExceptionRecord, (PCONTEXT)&ContextLength, 0);
     goto LABEL_6;
   }
-  return result;
 }

@@ -1,38 +1,38 @@
 /*
- * XREFs of MiGatherMappedPages @ 0x140369B20
+ * XREFs of MiGatherMappedPages @ 0x1402EB8C0
  * Callers:
- *     MiMappedPageWriter @ 0x140369760 (MiMappedPageWriter.c)
+ *     MiMappedPageWriter @ 0x1402EB500 (MiMappedPageWriter.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14020FA40 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140210170 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiUnlinkPageFromListEx @ 0x140211CD0 (MiUnlinkPageFromListEx.c)
- *     MiSafeLockPage @ 0x140216290 (MiSafeLockPage.c)
- *     MiInsertPageInList @ 0x14022CB10 (MiInsertPageInList.c)
- *     ObFastDereferenceObjectDeferDelete @ 0x140240FA0 (ObFastDereferenceObjectDeferDelete.c)
- *     MiStartingOffset @ 0x140244020 (MiStartingOffset.c)
- *     MiReferenceControlAreaFileWithTag @ 0x1402440D0 (MiReferenceControlAreaFileWithTag.c)
- *     IoDiskIoAttributionDereference @ 0x140245180 (IoDiskIoAttributionDereference.c)
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     MiUnlockPage @ 0x1402915F0 (MiUnlockPage.c)
- *     MiMakeDemandZeroPte @ 0x1402E3CC0 (MiMakeDemandZeroPte.c)
- *     KeDelayExecutionThread @ 0x14033BC60 (KeDelayExecutionThread.c)
- *     MiReferencePageForModifiedWrite @ 0x14036AA48 (MiReferencePageForModifiedWrite.c)
- *     MiBuildMappedCluster @ 0x14036ABB8 (MiBuildMappedCluster.c)
- *     MiWriteComplete @ 0x14036B660 (MiWriteComplete.c)
- *     CcNotifyOfMappedWrite @ 0x14036BCAC (CcNotifyOfMappedWrite.c)
- *     MiClearPfnImageVerified @ 0x14036C0C0 (MiClearPfnImageVerified.c)
- *     MiDereferenceControlAreaPfnList @ 0x14036FF5C (MiDereferenceControlAreaPfnList.c)
- *     FsRtlReleaseFileForModWrite @ 0x140372004 (FsRtlReleaseFileForModWrite.c)
- *     IoAsynchronousPageWrite @ 0x14037286C (IoAsynchronousPageWrite.c)
- *     FsRtlAcquireFileForModWriteEx @ 0x140372ABC (FsRtlAcquireFileForModWriteEx.c)
- *     MiFlushFileOnlyMdl @ 0x1404C7B90 (MiFlushFileOnlyMdl.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     ObFastDereferenceObjectDeferDelete @ 0x1402090F0 (ObFastDereferenceObjectDeferDelete.c)
+ *     MiStartingOffset @ 0x14020C7B0 (MiStartingOffset.c)
+ *     MiReferenceControlAreaFileWithTag @ 0x14020C860 (MiReferenceControlAreaFileWithTag.c)
+ *     IoDiskIoAttributionDereference @ 0x14020D960 (IoDiskIoAttributionDereference.c)
+ *     MiDereferenceControlAreaPfnList @ 0x14021DC9C (MiDereferenceControlAreaPfnList.c)
+ *     FsRtlReleaseFileForModWrite @ 0x14025A8C4 (FsRtlReleaseFileForModWrite.c)
+ *     IoAsynchronousPageWrite @ 0x14025B12C (IoAsynchronousPageWrite.c)
+ *     FsRtlAcquireFileForModWriteEx @ 0x14025B37C (FsRtlAcquireFileForModWriteEx.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     MiUnlockPage @ 0x1402A11F0 (MiUnlockPage.c)
+ *     MiClearPfnImageVerified @ 0x1402EAB40 (MiClearPfnImageVerified.c)
+ *     MiReferencePageForModifiedWrite @ 0x1402EC7E8 (MiReferencePageForModifiedWrite.c)
+ *     MiBuildMappedCluster @ 0x1402EC958 (MiBuildMappedCluster.c)
+ *     MiWriteComplete @ 0x1402ED400 (MiWriteComplete.c)
+ *     CcNotifyOfMappedWrite @ 0x1402EDA4C (CcNotifyOfMappedWrite.c)
+ *     MiInsertPageInList @ 0x140300420 (MiInsertPageInList.c)
+ *     KeDelayExecutionThread @ 0x14031B140 (KeDelayExecutionThread.c)
+ *     MiSafeLockPage @ 0x140334630 (MiSafeLockPage.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140338DA0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1403394D0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiUnlinkPageFromListEx @ 0x14033B030 (MiUnlinkPageFromListEx.c)
+ *     MiMakeDemandZeroPte @ 0x140392C40 (MiMakeDemandZeroPte.c)
+ *     MiFlushFileOnlyMdl @ 0x1404C0FF0 (MiFlushFileOnlyMdl.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
-__int64 __fastcall MiGatherMappedPages(__int64 a1, __int64 a2, __int64 a3)
+__int64 __fastcall MiGatherMappedPages(__int64 a1, unsigned int a2, __int64 a3)
 {
   unsigned int v4; // ebx
   _QWORD *v6; // rcx
@@ -40,7 +40,7 @@ __int64 __fastcall MiGatherMappedPages(__int64 a1, __int64 a2, __int64 a3)
   __int64 v8; // r12
   __int64 v9; // rbx
   __int64 v10; // rdi
-  char v11; // al
+  unsigned __int8 v11; // al
   unsigned __int8 v12; // r15
   __int64 v13; // r13
   __int64 v14; // r13
@@ -53,19 +53,19 @@ __int64 __fastcall MiGatherMappedPages(__int64 a1, __int64 a2, __int64 a3)
   struct _FILE_OBJECT *v21; // r15
   __int64 v22; // rax
   unsigned int v23; // eax
-  __int64 v24; // rax
-  __int64 v25; // rdi
+  struct _MDL *v24; // rax
+  struct _MDL *v25; // rdi
   unsigned __int64 v26; // rax
   int v27; // edx
   unsigned __int64 v28; // rbx
-  __int64 v29; // rax
-  _QWORD *v30; // rdi
+  __int64 ByteCount; // rax
+  struct _ERESOURCE **v30; // rdi
   unsigned int v31; // eax
   int v32; // edx
   int v33; // eax
   int v34; // eax
   __int64 v35; // rcx
-  int v36; // ebx
+  NTSTATUS v36; // ebx
   unsigned __int8 CurrentIrql; // bl
   __int64 v38; // rdx
   __int64 v40; // rcx
@@ -74,19 +74,22 @@ __int64 __fastcall MiGatherMappedPages(__int64 a1, __int64 a2, __int64 a3)
   __int64 v43; // rdx
   __int64 v44; // rcx
   __int64 v45; // rdx
-  unsigned int v46; // edx
+  __int64 v46; // rdx
   KIRQL v47; // al
-  __int64 v48; // rbx
-  unsigned __int64 v49; // [rsp+60h] [rbp-68h] BYREF
-  __int64 v50; // [rsp+68h] [rbp-60h]
-  __int64 v51; // [rsp+70h] [rbp-58h]
-  __int64 v52; // [rsp+78h] [rbp-50h]
-  unsigned int v53; // [rsp+E8h] [rbp+20h]
+  __int64 v48; // rdx
+  __int64 v49; // r8
+  __int64 v50; // r9
+  __int64 v51; // rbx
+  LARGE_INTEGER v52; // [rsp+60h] [rbp-68h] BYREF
+  struct _MDL *v53; // [rsp+68h] [rbp-60h]
+  __int64 v54; // [rsp+70h] [rbp-58h] BYREF
+  __int64 v55; // [rsp+78h] [rbp-50h]
+  unsigned int v56; // [rsp+E8h] [rbp+20h]
 
-  v51 = 0LL;
+  v54 = 0LL;
   v4 = a2;
-  v49 = 0LL;
-  if ( (unsigned int)a2 < 0x10 )
+  v52.QuadPart = 0LL;
+  if ( a2 < 0x10 )
     goto LABEL_6;
   v4 = 0;
   v6 = (_QWORD *)(a1 + 5648);
@@ -126,7 +129,7 @@ LABEL_6:
           if ( v9 == 0x3FFFFFFFFFLL )
             return 0LL;
           v10 = 48 * v9 - 0x220000000000LL;
-          v11 = MiSafeLockPage(*(_QWORD *)(v8 + a1 + 16), a2, a3);
+          v11 = MiSafeLockPage(*(_QWORD *)(v8 + a1 + 16));
           v12 = v11;
         }
         while ( v11 == 17 );
@@ -135,15 +138,15 @@ LABEL_6:
         MiUnlockPage(48 * v9 - 0x220000000000LL, v11);
       }
       v13 = *(_QWORD *)(v10 + 16);
-      if ( qword_140E2DB80 && (v13 & 0x10) == 0 )
-        v13 &= ~qword_140E2DB80;
+      if ( qword_140E2DCC0 && (v13 & 0x10) == 0 )
+        v13 &= ~qword_140E2DCC0;
       v14 = v13 >> 16;
       v15 = *(_QWORD *)v14;
       v16 = *(_DWORD *)(*(_QWORD *)v14 + 56LL);
       if ( (v16 & 0x20) != 0 )
       {
-        MiUnlinkPageFromListEx(48 * v9 - 0x220000000000LL, 0);
-        v48 = (*(_QWORD *)(v10 + 16) >> 5) & 0x1FLL;
+        MiUnlinkPageFromListEx(48 * v9 - 0x220000000000LL);
+        v51 = (*(_QWORD *)(v10 + 16) >> 5) & 0x1FLL;
         if ( (*(_DWORD *)(v15 + 56) & 0x800) == 0
           && ((*(_QWORD *)(v10 + 16) >> 5) & 5) != 5
           && ((*(_QWORD *)(v10 + 16) >> 5) & 4) == 0 )
@@ -151,10 +154,10 @@ LABEL_6:
           KeBugCheckEx(0x1Au, 0x8840uLL, v10, 0LL, 0LL);
         }
         if ( ((*(_QWORD *)(v10 + 40) >> 60) & 7) == 3 )
-          MiClearPfnImageVerified(v10, 0LL);
-        *(_QWORD *)(v10 + 16) = MiMakeDemandZeroPte(v48);
-        MiDereferenceControlAreaPfnList(v15, 0LL, 1LL);
-        v46 = 8;
+          MiClearPfnImageVerified(v10, 0LL, v49, v50);
+        *(_QWORD *)(v10 + 16) = MiMakeDemandZeroPte((unsigned int)v51, v48, v49, v50);
+        MiDereferenceControlAreaPfnList(v15, 0LL, 1LL, 3);
+        v46 = 8LL;
       }
       else
       {
@@ -175,31 +178,34 @@ LABEL_6:
             v20 = *(_BYTE *)(a1 + 1051) == 0;
             v21 = (struct _FILE_OBJECT *)v19;
             v22 = *(_QWORD *)(v19 + 40);
-            v52 = v22;
+            v55 = v22;
             if ( v20 )
-              v23 = CcNotifyOfMappedWrite(v22, v49, 0LL);
+              v23 = ((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD))CcNotifyOfMappedWrite)(
+                      v22,
+                      (LARGE_INTEGER)v52.QuadPart,
+                      0LL);
             else
               v23 = 0;
-            v24 = MiBuildMappedCluster(v10, a3 + 104, v23);
+            v24 = (struct _MDL *)MiBuildMappedCluster(v10, a3 + 104, v23);
             *(_QWORD *)(a3 + 96) = v24;
             v25 = v24;
             *(_QWORD *)(a3 + 72) = v15;
-            v50 = v24;
+            v53 = v24;
             v26 = MiStartingOffset(
                     (__int64 *)v14,
-                    *(_QWORD *)(48LL * *(_QWORD *)(v24 + 48) - 0x21FFFFFFFFF8LL) | 0x8000000000000000uLL,
+                    *(_QWORD *)(48 * (__int64)v24[1].Next - 0x21FFFFFFFFF8LL) | 0x8000000000000000uLL,
                     0xFFFFFFFF);
             v27 = *(_DWORD *)(a3 + 40);
             v28 = v26;
-            v49 = v26;
-            LODWORD(v26) = *(_DWORD *)(v25 + 40);
+            v52.QuadPart = v26;
+            LODWORD(v26) = v25->ByteCount;
             *(_DWORD *)(a3 + 44) = v26;
-            v53 = (unsigned int)v26 >> 12;
+            v56 = (unsigned int)v26 >> 12;
             *(_DWORD *)(a3 + 48) = ((unsigned int)v26 >> 12) - 1;
-            v29 = *(unsigned int *)(v25 + 40);
-            v30 = (_QWORD *)(a3 + 80);
+            ByteCount = v25->ByteCount;
+            v30 = (struct _ERESOURCE **)(a3 + 80);
             *(_QWORD *)(a3 + 80) = 0LL;
-            v51 = v28 + v29;
+            v54 = v28 + ByteCount;
             v31 = v27 & 0xFFFFFFFD;
             v32 = v27 | 2;
             if ( (v21->DeviceObject->Characteristics & 0x10) == 0 )
@@ -219,7 +225,7 @@ LABEL_6:
             else
             {
               *(_QWORD *)(a3 + 64) = v21;
-              if ( (int)FsRtlAcquireFileForModWriteEx(v21) < 0 )
+              if ( (int)FsRtlAcquireFileForModWriteEx(v21, (__int64)&v54, a3 + 80) < 0 )
               {
                 v36 = -1073741740;
                 ObFastDereferenceObjectDeferDelete((__int64 *)(v15 + 64), (ULONG_PTR)v21);
@@ -228,10 +234,10 @@ LABEL_6:
               }
               else
               {
-                v34 = CcNotifyOfMappedWrite(v52, v28, *(unsigned int *)(v50 + 40));
+                v34 = CcNotifyOfMappedWrite(v55, v28, v53->ByteCount);
                 if ( !v34 )
                 {
-                  FsRtlReleaseFileForModWrite(v21);
+                  FsRtlReleaseFileForModWrite(v21, *v30);
                   ObFastDereferenceObjectDeferDelete((__int64 *)(v15 + 64), (ULONG_PTR)v21);
                   *(_QWORD *)(a3 + 64) = 0LL;
                   *v30 = 0LL;
@@ -239,7 +245,7 @@ LABEL_6:
                   goto LABEL_31;
                 }
                 if ( v34 == 1 )
-                  *v30 |= 1uLL;
+                  *v30 = (struct _ERESOURCE *)((unsigned __int64)*v30 | 1);
                 *(_QWORD *)(a3 + 88) = v28;
                 v40 = *(unsigned int *)(a1 + 736);
                 v41 = *(_QWORD *)(a1 + 18688);
@@ -261,10 +267,13 @@ LABEL_6:
                   v42 = 2;
                 }
                 __incgsdword(0x2EB4u);
-                __addgsdword(0x2EB0u, v53);
+                __addgsdword(0x2EB0u, v56);
                 if ( (*(_BYTE *)(v15 + 62) & 0xC) != 0 )
                 {
-                  MiFlushFileOnlyMdl(v40, v50, v49);
+                  ((void (__fastcall *)(_QWORD, _QWORD, _QWORD))MiFlushFileOnlyMdl)(
+                    v40,
+                    v53,
+                    (LARGE_INTEGER)v52.QuadPart);
                   CurrentIrql = KeGetCurrentIrql();
                   __writecr8(1uLL);
                   if ( KiIrqlFlags )
@@ -287,17 +296,17 @@ LABEL_36:
                   return 1LL;
                 }
                 v36 = IoAsynchronousPageWrite(
-                        (_DWORD)v21,
-                        v50,
-                        (unsigned int)&v49,
-                        (unsigned int)MiWriteComplete,
-                        a3,
+                        v21,
+                        v53,
+                        &v52,
+                        (LARGE_INTEGER)MiWriteComplete,
+                        (void *)a3,
                         v42,
                         0,
                         0,
                         v18,
-                        a3 + 24,
-                        a3 + 16);
+                        (struct _IO_STATUS_BLOCK *)(a3 + 24),
+                        (IRP **)(a3 + 16));
                 v35 = v36 & 0xC0000000;
                 if ( (_DWORD)v35 != -1073741824 )
                   goto LABEL_36;
@@ -323,8 +332,8 @@ LABEL_31:
           }
           ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(v15 + 72));
         }
-        MiUnlinkPageFromListEx(v10, 0);
-        v46 = 16;
+        MiUnlinkPageFromListEx(v10);
+        v46 = 16LL;
       }
       MiInsertPageInList(v10, v46);
       MiUnlockPage(v10, v12);

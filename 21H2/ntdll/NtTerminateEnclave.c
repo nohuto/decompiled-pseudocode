@@ -1,17 +1,17 @@
 /*
- * XREFs of NtTerminateEnclave @ 0x1800A0E30
+ * XREFs of NtTerminateEnclave @ 0x1800A0DF0
  * Callers:
- *     LdrInitializeEnclave @ 0x1800CCE20 (LdrInitializeEnclave.c)
- *     LdrpDeleteEnclave @ 0x1800CD3EC (LdrpDeleteEnclave.c)
+ *     LdrInitializeEnclave @ 0x1800CCDE0 (LdrInitializeEnclave.c)
+ *     LdrpDeleteEnclave @ 0x1800CD3AC (LdrpDeleteEnclave.c)
  * Callees:
  *     <none>
  */
 
-__int64 NtTerminateEnclave()
+NTSTATUS __cdecl NtTerminateEnclave(PVOID BaseAddress, ULONG Flags)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 448LL;
+  result = 448;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

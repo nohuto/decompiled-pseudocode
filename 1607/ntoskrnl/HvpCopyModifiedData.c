@@ -1,13 +1,13 @@
 /*
- * XREFs of HvpCopyModifiedData @ 0x1406128AC
+ * XREFs of HvpCopyModifiedData @ 0x140612960
  * Callers:
- *     HvpApplyLogEntry @ 0x140612610 (HvpApplyLogEntry.c)
+ *     HvpApplyLogEntry @ 0x1406126C4 (HvpApplyLogEntry.c)
  * Callees:
- *     HvpMapEntryGetBlockAddress @ 0x14002D380 (HvpMapEntryGetBlockAddress.c)
- *     HvpGetBinContextInitialize @ 0x14002D780 (HvpGetBinContextInitialize.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     HvpMapEntryReleaseBlockAddress @ 0x1401B6CE4 (HvpMapEntryReleaseBlockAddress.c)
- *     HvpGetCellMap @ 0x140513BC0 (HvpGetCellMap.c)
+ *     HvpMapEntryGetBlockAddress @ 0x14002CF00 (HvpMapEntryGetBlockAddress.c)
+ *     HvpGetBinContextInitialize @ 0x14002D300 (HvpGetBinContextInitialize.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     HvpMapEntryReleaseBlockAddress @ 0x1401B6BC8 (HvpMapEntryReleaseBlockAddress.c)
+ *     HvpGetCellMap @ 0x1404F6FB0 (HvpGetCellMap.c)
  */
 
 __int64 __fastcall HvpCopyModifiedData(ULONG_PTR BugCheckParameter2, int a2, __int64 a3, unsigned int a4)

@@ -1,19 +1,19 @@
 /*
- * XREFs of PspTerminateProcess @ 0x1406D9D20
+ * XREFs of PspTerminateProcess @ 0x1406B1000
  * Callers:
- *     PsTerminateProcess @ 0x1406BC4B8 (PsTerminateProcess.c)
- *     NtTerminateProcess @ 0x1406D9B60 (NtTerminateProcess.c)
- *     PspTerminatePicoProcess @ 0x14090C360 (PspTerminatePicoProcess.c)
+ *     PsTerminateProcess @ 0x14061B628 (PsTerminateProcess.c)
+ *     NtTerminateProcess @ 0x1406B0E40 (NtTerminateProcess.c)
+ *     PspTerminatePicoProcess @ 0x14090C4C0 (PspTerminatePicoProcess.c)
  * Callees:
- *     KeForceResumeProcess @ 0x1402EAA58 (KeForceResumeProcess.c)
- *     KeSetProcessSchedulingGroup @ 0x1402EAB4C (KeSetProcessSchedulingGroup.c)
- *     EtwTraceProcessTerminate @ 0x1402EAC20 (EtwTraceProcessTerminate.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     PspRundownSingleProcess @ 0x140604738 (PspRundownSingleProcess.c)
- *     PspTerminateAllThreads @ 0x1406D9E50 (PspTerminateAllThreads.c)
+ *     KeForceResumeProcess @ 0x14029BDA8 (KeForceResumeProcess.c)
+ *     KeSetProcessSchedulingGroup @ 0x14029BE9C (KeSetProcessSchedulingGroup.c)
+ *     EtwTraceProcessTerminate @ 0x14029BF70 (EtwTraceProcessTerminate.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     PspTerminateAllThreads @ 0x1406B1130 (PspTerminateAllThreads.c)
+ *     PspRundownSingleProcess @ 0x1406F3E68 (PspRundownSingleProcess.c)
  */
 
 __int64 __fastcall PspTerminateProcess(ULONG_PTR BugCheckParameter1, __int64 a2, unsigned int a3, char a4)
@@ -59,7 +59,7 @@ LABEL_14:
     goto LABEL_14;
   }
   v11 = 290;
-  PspRundownSingleProcess(BugCheckParameter1, 0);
+  PspRundownSingleProcess(BugCheckParameter1);
 LABEL_15:
   if ( (v7 & 8) == 0 )
     KeForceResumeProcess(BugCheckParameter1);

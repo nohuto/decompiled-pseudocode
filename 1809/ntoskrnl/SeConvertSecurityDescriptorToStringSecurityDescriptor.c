@@ -1,11 +1,11 @@
 /*
- * XREFs of SeConvertSecurityDescriptorToStringSecurityDescriptor @ 0x140300D20
+ * XREFs of SeConvertSecurityDescriptorToStringSecurityDescriptor @ 0x140300F10
  * Callers:
- *     AdtpBuildAccessReasonAuditStringInternal @ 0x140326154 (AdtpBuildAccessReasonAuditStringInternal.c)
- *     AdtpBuildSecurityDescriptorUnicodeString @ 0x1408EF520 (AdtpBuildSecurityDescriptorUnicodeString.c)
+ *     AdtpBuildAccessReasonAuditStringInternal @ 0x140326344 (AdtpBuildAccessReasonAuditStringInternal.c)
+ *     AdtpBuildSecurityDescriptorUnicodeString @ 0x1408F07E0 (AdtpBuildSecurityDescriptorUnicodeString.c)
  * Callees:
- *     SddlpAlloc @ 0x1406B0574 (SddlpAlloc.c)
- *     LocalConvertSDToStringSD_Rev1 @ 0x1408A59C0 (LocalConvertSDToStringSD_Rev1.c)
+ *     SddlpAlloc @ 0x1406B1814 (SddlpAlloc.c)
+ *     LocalConvertSDToStringSD_Rev1 @ 0x1408A6C20 (LocalConvertSDToStringSD_Rev1.c)
  */
 
 __int64 __fastcall SeConvertSecurityDescriptorToStringSecurityDescriptor(

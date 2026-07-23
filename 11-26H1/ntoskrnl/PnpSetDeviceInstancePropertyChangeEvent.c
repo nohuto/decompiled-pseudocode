@@ -1,9 +1,9 @@
 /*
- * XREFs of PnpSetDeviceInstancePropertyChangeEvent @ 0x1404C2E8C
+ * XREFs of PnpSetDeviceInstancePropertyChangeEvent @ 0x1404BC6DC
  * Callers:
- *     PnpSetDevicePropertyData @ 0x1409DB894 (PnpSetDevicePropertyData.c)
+ *     PnpSetDevicePropertyData @ 0x140A18AE4 (PnpSetDevicePropertyData.c)
  * Callees:
- *     PnpSetDeviceInstancePropertyChangeEventFromDeviceInstance @ 0x1404C2EA8 (PnpSetDeviceInstancePropertyChangeEventFromDeviceInstance.c)
+ *     PnpSetDeviceInstancePropertyChangeEventFromDeviceInstance @ 0x1404BC6F8 (PnpSetDeviceInstancePropertyChangeEventFromDeviceInstance.c)
  */
 
 __int64 __fastcall PnpSetDeviceInstancePropertyChangeEvent(__int64 a1)

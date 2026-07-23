@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpWriteProcessorTrace @ 0x140602CD0
+ * XREFs of EtwpWriteProcessorTrace @ 0x140603220
  * Callers:
  *     <none>
  * Callees:
- *     EtwpLogKernelEvent @ 0x140233CA0 (EtwpLogKernelEvent.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     EtwpLogKernelEvent @ 0x140233D70 (EtwpLogKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 void __fastcall EtwpWriteProcessorTrace(__int64 *a1, __int64 a2, int a3, int a4)

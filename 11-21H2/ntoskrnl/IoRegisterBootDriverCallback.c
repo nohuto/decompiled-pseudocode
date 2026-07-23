@@ -16,21 +16,21 @@ PVOID __fastcall IoRegisterBootDriverCallback(PCALLBACK_FUNCTION CallbackFunctio
   *(&ObjectAttributes.Attributes + 1) = 0;
   *(&ObjectAttributes.Length + 1) = 0;
   DestinationString = 0LL;
-  if ( PnpBootDriverCallbackRegistrationClosed )
+  if ( byte_140C46A78 )
     return 0LL;
-  if ( !PnpBootDriverCallbackObject
+  if ( !qword_140D686A8
     && (RtlInitUnicodeString(&DestinationString, L"\\Callback\\BootDriver"),
         ObjectAttributes.RootDirectory = 0LL,
         ObjectAttributes.Length = 48,
         ObjectAttributes.Attributes = 576,
         ObjectAttributes.ObjectName = &DestinationString,
         *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL,
-        ExCreateCallback(&PnpBootDriverCallbackObject, &ObjectAttributes, 1u, 1u) < 0) )
+        ExCreateCallback(&qword_140D686A8, &ObjectAttributes, 1u, 1u) < 0) )
   {
     return 0LL;
   }
   else
   {
-    return ExRegisterCallback(PnpBootDriverCallbackObject, CallbackFunction, CallbackContext);
+    return ExRegisterCallback(qword_140D686A8, CallbackFunction, CallbackContext);
   }
 }

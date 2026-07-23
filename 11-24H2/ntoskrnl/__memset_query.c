@@ -1,9 +1,9 @@
 /*
- * XREFs of __memset_query @ 0x1406C0200
+ * XREFs of __memset_query @ 0x1406C1100
  * Callers:
- *     __memset_repmovs @ 0x1406C0180 (__memset_repmovs.c)
+ *     __memset_repmovs @ 0x1406C1080 (__memset_repmovs.c)
  * Callees:
- *     __cpu_features_init @ 0x140502040 (__cpu_features_init.c)
+ *     __cpu_features_init @ 0x1404FF900 (__cpu_features_init.c)
  */
 
 void _memset_query()

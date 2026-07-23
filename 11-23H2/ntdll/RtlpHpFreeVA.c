@@ -9,38 +9,38 @@
  *     RtlpHpSegMgrRelease @ 0x180065644 (RtlpHpSegMgrRelease.c)
  *     RtlpHpHeapAllocate @ 0x1800663EC (RtlpHpHeapAllocate.c)
  *     RtlpHpLargeReAlloc @ 0x18008E80C (RtlpHpLargeReAlloc.c)
- *     RtlpHpLargeAllocationDestroy @ 0x180123550 (RtlpHpLargeAllocationDestroy.c)
+ *     RtlpHpLargeAllocationDestroy @ 0x180123520 (RtlpHpLargeAllocationDestroy.c)
  * Callees:
  *     RtlpHpEnvFreeVA @ 0x180047828 (RtlpHpEnvFreeVA.c)
  *     RtlpHpVaMgrCtxFree @ 0x180064760 (RtlpHpVaMgrCtxFree.c)
- *     RtlpHpTlLogVAChange @ 0x180119D88 (RtlpHpTlLogVAChange.c)
+ *     RtlpHpTlLogVAChange @ 0x180119D58 (RtlpHpTlLogVAChange.c)
  */
 
-__int64 __fastcall RtlpHpFreeVA(unsigned __int64 *a1, unsigned __int64 *a2, int a3, __int128 *a4)
+__int64 __fastcall RtlpHpFreeVA(PVOID *a1, ULONG_PTR *a2, int a3, _OWORD *a4)
 {
   unsigned int v4; // ebp
   unsigned int v5; // ebx
-  unsigned __int64 v9; // rcx
-  unsigned __int64 v10; // rdx
+  char *v9; // rcx
+  char *v10; // rdx
   unsigned __int64 v11; // rcx
-  unsigned __int64 v12; // rdx
-  __int128 v13; // [rsp+30h] [rbp-18h]
+  ULONG_PTR v12; // rdx
+  __int64 v13[2]; // [rsp+30h] [rbp-18h]
 
   v4 = a3 & 0xFEFFFFFF;
   v5 = 0;
-  v13 = *a4;
+  *(_OWORD *)v13 = *a4;
   if ( (a3 & 0xFEFFFFFF) != 0x8000 || (a3 & 0x1000000) != 0 )
   {
-    if ( BYTE1(v13) != 4 )
-      v5 = RtlpHpEnvFreeVA((_DWORD)a1, (_DWORD)a2, v4, BYTE1(v13), *((__int64 *)&v13 + 1));
+    if ( BYTE1(v13[0]) != 4 )
+      v5 = RtlpHpEnvFreeVA(a1, a2, v13[1]);
   }
   else
   {
-    v9 = *a1;
-    v10 = v9 + *a2;
-    v11 = (v9 + 0xFFFFF) & 0xFFFFFFFFFFF00000uLL;
-    v12 = v10 - v11;
-    *a1 = v11;
+    v9 = (char *)*a1;
+    v10 = &v9[*a2];
+    v11 = (unsigned __int64)(v9 + 0xFFFFF) & 0xFFFFFFFFFFF00000uLL;
+    v12 = (ULONG_PTR)&v10[-v11];
+    *a1 = (PVOID)v11;
     *a2 = v12;
     if ( !v12 )
       return v5;

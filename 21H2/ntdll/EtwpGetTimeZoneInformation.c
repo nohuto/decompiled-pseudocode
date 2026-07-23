@@ -5,7 +5,7 @@
  * Callees:
  *     RtlpQueryTimeZoneInformationWorker @ 0x180047EA4 (RtlpQueryTimeZoneInformationWorker.c)
  *     __security_check_cookie @ 0x18008C940 (__security_check_cookie.c)
- *     memset @ 0x1800A4780 (memset.c)
+ *     memset @ 0x1800A4740 (memset.c)
  */
 
 __int64 __fastcall EtwpGetTimeZoneInformation(char *a1)

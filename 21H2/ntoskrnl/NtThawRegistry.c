@@ -1,37 +1,29 @@
 /*
- * XREFs of NtThawRegistry @ 0x1408699E0
+ * XREFs of NtThawRegistry @ 0x140869B40
  * Callers:
  *     <none>
  * Callees:
- *     KiUnstackDetachProcess @ 0x140207000 (KiUnstackDetachProcess.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     CmpAttachToRegistryProcess @ 0x1405F6390 (CmpAttachToRegistryProcess.c)
- *     SeSinglePrivilegeCheck @ 0x140627640 (SeSinglePrivilegeCheck.c)
- *     CmThawRegistry @ 0x140872330 (CmThawRegistry.c)
+ *     KiUnstackDetachProcess @ 0x1402AB900 (KiUnstackDetachProcess.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     SeSinglePrivilegeCheck @ 0x140693750 (SeSinglePrivilegeCheck.c)
+ *     CmpAttachToRegistryProcess @ 0x1406E5AF0 (CmpAttachToRegistryProcess.c)
+ *     CmThawRegistry @ 0x140872490 (CmThawRegistry.c)
  */
 
-__int64 NtThawRegistry()
+NTSTATUS NtThawRegistry(void)
 {
-  __int64 v0; // rdx
-  __int64 v1; // r8
-  _DWORD *v2; // r9
-  unsigned int v3; // ebx
-  __int64 v4; // rdx
-  __int64 v5; // rcx
-  __int64 v6; // r8
-  __int64 v7; // r9
-  _OWORD v9[3]; // [rsp+20h] [rbp-48h] BYREF
+  NTSTATUS v0; // ebx
+  __int64 v1; // rdx
+  __int64 v2; // rcx
+  __int64 v3; // r8
+  __int64 v4; // r9
+  _OWORD v6[3]; // [rsp+20h] [rbp-48h] BYREF
 
-  memset(v9, 0, sizeof(v9));
-  if ( SeSinglePrivilegeCheck(SeBackupPrivilege, KeGetCurrentThread()->PreviousMode) )
-  {
-    CmpAttachToRegistryProcess((__int64)v9, v0, v1, v2);
-    v3 = CmThawRegistry(v5, v4, v6, v7, *(_QWORD *)&v9[0], *((_QWORD *)&v9[0] + 1));
-    KiUnstackDetachProcess((__int64)v9, 0);
-  }
-  else
-  {
-    return (unsigned int)-1073741727;
-  }
-  return v3;
+  memset(v6, 0, sizeof(v6));
+  if ( !SeSinglePrivilegeCheck(SeBackupPrivilege, KeGetCurrentThread()->PreviousMode) )
+    return -1073741727;
+  CmpAttachToRegistryProcess((__int64)v6);
+  v0 = CmThawRegistry(v2, v1, v3, v4, *(_QWORD *)&v6[0], *((_QWORD *)&v6[0] + 1));
+  KiUnstackDetachProcess((__int64)v6, 0LL);
+  return v0;
 }

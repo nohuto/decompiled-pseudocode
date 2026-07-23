@@ -8,17 +8,17 @@
  *     RtlGetInterruptTimePrecise @ 0x1400E48D0 (RtlGetInterruptTimePrecise.c)
  */
 
-__int64 __fastcall KeIntSteerSnapPerf(_DWORD *a1, __int64 *a2)
+__int64 __fastcall KeIntSteerSnapPerf(_DWORD *a1, LARGE_INTEGER *a2)
 {
-  __int64 InterruptTimePrecise; // rax
-  __int64 v5; // rbx
-  __int64 v6; // rsi
+  LARGE_INTEGER InterruptTimePrecise; // rax
+  LONGLONG v5; // rbx
+  LARGE_INTEGER v6; // rsi
   __int64 MHz; // rdi
   __int64 result; // rax
   __int64 v9; // r13
   KIRQL v10; // al
   ULONG_PTR *v11; // r11
-  KIRQL v12; // r14
+  KIRQL LowPart; // r14
   ULONG_PTR *v13; // r10
   ULONG_PTR v14; // rdi
   ULONG_PTR *v15; // r12
@@ -32,22 +32,22 @@ __int64 __fastcall KeIntSteerSnapPerf(_DWORD *a1, __int64 *a2)
   bool v23; // zf
   ULONG_PTR v24; // rcx
   __int64 v25; // rax
-  KIRQL v26; // [rsp+70h] [rbp+18h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+70h] [rbp+18h] BYREF
   __int64 v27; // [rsp+78h] [rbp+20h]
 
-  InterruptTimePrecise = RtlGetInterruptTimePrecise(&v26);
-  v5 = InterruptTimePrecise - KiIntSteerPreviousPerfSnap;
+  InterruptTimePrecise = RtlGetInterruptTimePrecise(&PerformanceCounter);
+  v5 = InterruptTimePrecise.QuadPart - KiIntSteerPreviousPerfSnap;
   v6 = InterruptTimePrecise;
   MHz = KeGetCurrentPrcb()->MHz;
   v27 = MHz;
-  if ( (unsigned __int64)(InterruptTimePrecise - KiIntSteerPreviousPerfSnap) >= 0x16E360 )
+  if ( (unsigned __int64)(InterruptTimePrecise.QuadPart - KiIntSteerPreviousPerfSnap) >= 0x16E360 )
   {
-    KiIntSteerPreviousPerfSnap = InterruptTimePrecise;
+    KiIntSteerPreviousPerfSnap = InterruptTimePrecise.QuadPart;
     v9 = 0LL;
     v10 = KeAcquireSpinLockRaiseToDpc(&KiIntTrackSpinlock);
     v11 = (ULONG_PTR *)KiIntTrackRootList;
-    v26 = v10;
-    v12 = v10;
+    LOBYTE(PerformanceCounter.LowPart) = v10;
+    LowPart = v10;
     if ( (ULONG_PTR *)KiIntTrackRootList != &KiIntTrackRootList )
     {
       do
@@ -98,10 +98,10 @@ __int64 __fastcall KeIntSteerSnapPerf(_DWORD *a1, __int64 *a2)
       }
       while ( v11 != &KiIntTrackRootList );
       MHz = v27;
-      v12 = v26;
+      LowPart = PerformanceCounter.LowPart;
     }
     KxReleaseSpinLock(&KiIntTrackSpinlock);
-    __writecr8(v12);
+    __writecr8(LowPart);
     KiIntSteerLoadPercent = 10000 * v9 / (unsigned __int64)(v5 * MHz);
   }
   *a1 = KiIntSteerLoadPercent;

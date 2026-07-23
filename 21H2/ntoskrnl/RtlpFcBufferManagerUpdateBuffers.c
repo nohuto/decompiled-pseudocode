@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlpFcBufferManagerUpdateBuffers @ 0x1407CAA94
+ * XREFs of RtlpFcBufferManagerUpdateBuffers @ 0x1407CADB4
  * Callers:
- *     CmFcManagerUpdateFeatureConfigurations @ 0x14087DD04 (CmFcManagerUpdateFeatureConfigurations.c)
- *     CmFcManagerUpdateFeatureUsageSubscriptions @ 0x14087E060 (CmFcManagerUpdateFeatureUsageSubscriptions.c)
- *     CmFcManagerStartBootPhase @ 0x140A386D8 (CmFcManagerStartBootPhase.c)
- *     CmFcManagerStartRuntimePhase @ 0x140A38784 (CmFcManagerStartRuntimePhase.c)
+ *     CmFcManagerUpdateFeatureConfigurations @ 0x14087DE64 (CmFcManagerUpdateFeatureConfigurations.c)
+ *     CmFcManagerUpdateFeatureUsageSubscriptions @ 0x14087E1C0 (CmFcManagerUpdateFeatureUsageSubscriptions.c)
+ *     CmFcManagerStartBootPhase @ 0x140A396D8 (CmFcManagerStartBootPhase.c)
+ *     CmFcManagerStartRuntimePhase @ 0x140A39784 (CmFcManagerStartRuntimePhase.c)
  * Callees:
- *     RtlpFcInitializeBuffers @ 0x1402D3FB8 (RtlpFcInitializeBuffers.c)
- *     RtlUpdateSwapReference @ 0x1407CACBC (RtlUpdateSwapReference.c)
+ *     RtlpFcInitializeBuffers @ 0x140252228 (RtlpFcInitializeBuffers.c)
+ *     RtlUpdateSwapReference @ 0x1407CAFDC (RtlUpdateSwapReference.c)
  */
 
 void *__fastcall RtlpFcBufferManagerUpdateBuffers(_QWORD *a1, __int64 a2, __int64 a3)

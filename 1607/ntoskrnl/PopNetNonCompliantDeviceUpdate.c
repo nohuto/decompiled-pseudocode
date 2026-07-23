@@ -1,9 +1,9 @@
 /*
- * XREFs of PopNetNonCompliantDeviceUpdate @ 0x140673764
+ * XREFs of PopNetNonCompliantDeviceUpdate @ 0x140673848
  * Callers:
- *     PopPdcCsDeviceNotification @ 0x14066FEEC (PopPdcCsDeviceNotification.c)
+ *     PopPdcCsDeviceNotification @ 0x14066FFD0 (PopPdcCsDeviceNotification.c)
  * Callees:
- *     PopNetSetConnectivityConstraint @ 0x14057E94C (PopNetSetConnectivityConstraint.c)
+ *     PopNetSetConnectivityConstraint @ 0x14057EDF8 (PopNetSetConnectivityConstraint.c)
  */
 
 char __fastcall PopNetNonCompliantDeviceUpdate(char a1, unsigned int a2)

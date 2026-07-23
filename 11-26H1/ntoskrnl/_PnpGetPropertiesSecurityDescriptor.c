@@ -1,19 +1,19 @@
 /*
- * XREFs of _PnpGetPropertiesSecurityDescriptor @ 0x140B2371C
+ * XREFs of _PnpGetPropertiesSecurityDescriptor @ 0x140B25B1C
  * Callers:
- *     _PnpOpenPropertiesKey @ 0x140995B20 (_PnpOpenPropertiesKey.c)
+ *     _PnpOpenPropertiesKey @ 0x140956580 (_PnpOpenPropertiesKey.c)
  * Callees:
- *     RtlSubAuthoritySid @ 0x14047F970 (RtlSubAuthoritySid.c)
- *     RtlLengthSid @ 0x1404872D0 (RtlLengthSid.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     RtlLengthSecurityDescriptor @ 0x1409228D0 (RtlLengthSecurityDescriptor.c)
- *     RtlValidSid @ 0x140924370 (RtlValidSid.c)
- *     RtlValidSecurityDescriptor @ 0x140926EB0 (RtlValidSecurityDescriptor.c)
- *     RtlpAddKnownAce @ 0x1409D7990 (RtlpAddKnownAce.c)
- *     RtlCreateAcl @ 0x1409D8030 (RtlCreateAcl.c)
- *     RtlAbsoluteToSelfRelativeSD @ 0x140A61650 (RtlAbsoluteToSelfRelativeSD.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlSubAuthoritySid @ 0x1404792E0 (RtlSubAuthoritySid.c)
+ *     RtlLengthSid @ 0x140480CA0 (RtlLengthSid.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     RtlLengthSecurityDescriptor @ 0x1408FE3E0 (RtlLengthSecurityDescriptor.c)
+ *     RtlValidSid @ 0x1408FFE80 (RtlValidSid.c)
+ *     RtlValidSecurityDescriptor @ 0x1409029C0 (RtlValidSecurityDescriptor.c)
+ *     RtlpAddKnownAce @ 0x1409A8880 (RtlpAddKnownAce.c)
+ *     RtlCreateAcl @ 0x1409A8F20 (RtlCreateAcl.c)
+ *     RtlAbsoluteToSelfRelativeSD @ 0x140A6E620 (RtlAbsoluteToSelfRelativeSD.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void *PnpGetPropertiesSecurityDescriptor()

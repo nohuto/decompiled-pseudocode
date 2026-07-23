@@ -22,7 +22,7 @@ __int64 __fastcall PspSetJobIoAttribution(_DWORD *Object, __int64 a2, char a3, u
   unsigned int v13; // eax
   unsigned int v14; // eax
   unsigned int v15; // eax
-  struct _EX_RUNDOWN_REF *v16; // rax
+  _RTL_BALANCED_NODE *v16; // rax
   unsigned int v17; // eax
   __int64 v18[2]; // [rsp+30h] [rbp-38h] BYREF
   __int64 v19; // [rsp+40h] [rbp-28h]
@@ -55,7 +55,7 @@ LABEL_22:
       v10 = *((_QWORD *)Object + 198);
       if ( v17 <= a4 )
       {
-        PspRemoveIoAttribution((struct _EX_RUNDOWN_REF **)Object);
+        PspRemoveIoAttribution((PRTL_BALANCED_NODE *)Object);
         Object[395] = 0;
       }
       else
@@ -104,11 +104,11 @@ LABEL_8:
       Object[395] = v15 + a4;
       goto LABEL_7;
     }
-    v16 = IoDiskIoAttributionAllocate((unsigned __int64)Object, 0LL);
+    v16 = (_RTL_BALANCED_NODE *)IoDiskIoAttributionAllocate((unsigned __int64)Object, 0LL);
     v10 = (__int64)v16;
     if ( v16 )
     {
-      IoStartDiskIoAttributionForContext((unsigned __int64)v16);
+      IoStartDiskIoAttributionForContext(v16);
       v18[0] = v10;
       LOBYTE(v19) = 1;
       v18[1] = (__int64)Object;

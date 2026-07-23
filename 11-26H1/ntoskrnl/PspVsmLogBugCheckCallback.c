@@ -1,10 +1,10 @@
 /*
- * XREFs of PspVsmLogBugCheckCallback @ 0x140616830
+ * XREFs of PspVsmLogBugCheckCallback @ 0x140619820
  * Callers:
  *     <none>
  * Callees:
- *     WheaLogInternalEvent @ 0x1403DFEC0 (WheaLogInternalEvent.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     WheaLogInternalEvent @ 0x1403E30B0 (WheaLogInternalEvent.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 void __fastcall PspVsmLogBugCheckCallback(
@@ -33,7 +33,7 @@ void __fastcall PspVsmLogBugCheckCallback(
   {
     ReasonSpecificData[4] = PspIumLogBuffer;
     *((_DWORD *)ReasonSpecificData + 10) = 0x2000;
-    *((_OWORD *)ReasonSpecificData + 1) = xmmword_140031F30;
+    *((_OWORD *)ReasonSpecificData + 1) = xmmword_1400324A0;
     memset_0(&NormalizationListLock.WaitBlockFill11[136], 0, 0x100uLL);
     v6 = 0;
     NormalizationListLock.WaitBlock[2].WaitListEntry.Blink = (struct _LIST_ENTRY *)0x1674C6857LL;

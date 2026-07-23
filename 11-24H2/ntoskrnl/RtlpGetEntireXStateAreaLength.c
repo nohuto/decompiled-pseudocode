@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlpGetEntireXStateAreaLength @ 0x1403E63B0
+ * XREFs of RtlpGetEntireXStateAreaLength @ 0x1403D3F50
  * Callers:
- *     RtlInitializeExtendedContext2 @ 0x14027FCB0 (RtlInitializeExtendedContext2.c)
- *     RtlpGetNonLegacyXStateAreaLength @ 0x1403E5E9C (RtlpGetNonLegacyXStateAreaLength.c)
+ *     RtlInitializeExtendedContext2 @ 0x140235240 (RtlInitializeExtendedContext2.c)
+ *     RtlpGetNonLegacyXStateAreaLength @ 0x1403D3A3C (RtlpGetNonLegacyXStateAreaLength.c)
  * Callees:
  *     <none>
  */

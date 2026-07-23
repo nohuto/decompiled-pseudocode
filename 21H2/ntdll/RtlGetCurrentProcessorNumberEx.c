@@ -1,41 +1,41 @@
 /*
- * XREFs of RtlGetCurrentProcessorNumberEx @ 0x1800A2320
+ * XREFs of RtlGetCurrentProcessorNumberEx @ 0x1800A22E0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-void __fastcall RtlGetCurrentProcessorNumberEx(_WORD *_RCX)
+void __cdecl RtlGetCurrentProcessorNumberEx(PPROCESSOR_NUMBER ProcessorNumber)
 {
-  _WORD *v1; // r8
+  PPROCESSOR_NUMBER v1; // r8
   char v2; // zf
   unsigned __int32 v3; // eax
 
   if ( MEMORY[0x7FFE0295] )
   {
-    v1 = _RCX;
+    v1 = ProcessorNumber;
     __asm { rdpid   rcx }
 LABEL_5:
-    *v1 = (unsigned int)_RCX >> 8;
-    v1[1] = (unsigned __int8)_RCX;
+    v1->Group = (unsigned int)ProcessorNumber >> 8;
+    *(_WORD *)&v1->Number = (unsigned __int8)ProcessorNumber;
     return;
   }
   if ( MEMORY[0x7FFE0294] )
   {
-    v1 = _RCX;
+    v1 = ProcessorNumber;
     __asm { rdtscp }
     goto LABEL_5;
   }
   v3 = __segmentlimit(0x53u);
   if ( v2 )
   {
-    *_RCX = v3 & 0x3FF;
-    _RCX[1] = v3 >> 14;
+    ProcessorNumber->Group = v3 & 0x3FF;
+    *(_WORD *)&ProcessorNumber->Number = v3 >> 14;
   }
   else
   {
-    *(_DWORD *)_RCX = 0;
-    NtGetCurrentProcessorNumberEx();
+    *ProcessorNumber = 0;
+    NtGetCurrentProcessorNumberEx(ProcessorNumber);
   }
 }

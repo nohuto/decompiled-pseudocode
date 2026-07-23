@@ -1,12 +1,12 @@
 /*
- * XREFs of MiInitializeEnclavePfn @ 0x14054AA28
+ * XREFs of MiInitializeEnclavePfn @ 0x14054AC68
  * Callers:
- *     MiAddPagesToEnclave @ 0x140549104 (MiAddPagesToEnclave.c)
- *     MiCopyPagesIntoEnclave @ 0x1408D2188 (MiCopyPagesIntoEnclave.c)
- *     MiCreateHardwareEnclave @ 0x1408D28D0 (MiCreateHardwareEnclave.c)
+ *     MiAddPagesToEnclave @ 0x140549344 (MiAddPagesToEnclave.c)
+ *     MiCopyPagesIntoEnclave @ 0x1408D22E8 (MiCopyPagesIntoEnclave.c)
+ *     MiCreateHardwareEnclave @ 0x1408D2A30 (MiCreateHardwareEnclave.c)
  * Callees:
- *     MiLockPageInline @ 0x1402FFE30 (MiLockPageInline.c)
- *     MiSwizzleInvalidPte @ 0x140329F90 (MiSwizzleInvalidPte.c)
+ *     MiLockPageInline @ 0x14030AB80 (MiLockPageInline.c)
+ *     MiSwizzleInvalidPte @ 0x140334CE0 (MiSwizzleInvalidPte.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 

@@ -1,12 +1,12 @@
 /*
- * XREFs of IoDiskIoAttributionAllocate @ 0x140AFB68C
+ * XREFs of IoDiskIoAttributionAllocate @ 0x140ABF1E4
  * Callers:
- *     PspSetJobIoAttribution @ 0x140958108 (PspSetJobIoAttribution.c)
- *     PspIoRateEntryActivate @ 0x140AFB4A4 (PspIoRateEntryActivate.c)
+ *     PspIoRateEntryActivate @ 0x140ABECE0 (PspIoRateEntryActivate.c)
+ *     PspSetJobIoAttribution @ 0x140ABEEC8 (PspSetJobIoAttribution.c)
  * Callees:
- *     ExWaitForRundownProtectionRelease @ 0x140463DA0 (ExWaitForRundownProtectionRelease.c)
- *     IoDiskIoAttributionReference @ 0x1404A12C0 (IoDiskIoAttributionReference.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     ExWaitForRundownProtectionRelease @ 0x14045CD60 (ExWaitForRundownProtectionRelease.c)
+ *     IoDiskIoAttributionReference @ 0x14049ADF0 (IoDiskIoAttributionReference.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 struct _EX_RUNDOWN_REF *__fastcall IoDiskIoAttributionAllocate(unsigned __int64 a1, __int64 a2)
@@ -24,7 +24,7 @@ struct _EX_RUNDOWN_REF *__fastcall IoDiskIoAttributionAllocate(unsigned __int64 
     result[2].Count = -1LL;
     do
     {
-      v6 = _InterlockedExchangeAdd64((volatile signed __int64 *)&IopSessionNotificationLock.152, 1uLL);
+      v6 = _InterlockedExchangeAdd64(&IopDiskIoAttributionKey, 1uLL);
       v5[3].Count = v6 + 1;
     }
     while ( v6 == -1 );

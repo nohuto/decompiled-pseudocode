@@ -42,26 +42,25 @@ __int64 __fastcall SepRmCallLsa(__int64 **a1, __int64 a2, __int64 a3, _DWORD *Sc
   struct _LIST_ENTRY *v18; // rcx
   struct _LIST_ENTRY *Blink; // rbx
   int v20; // eax
-  __int64 v21; // rdx
-  int v22; // ebx
-  struct _KEVENT *v23; // rcx
-  _QWORD *v24; // rdx
-  __int64 *v25; // rcx
-  struct _KEVENT *v26; // rcx
-  __int64 v27; // rax
+  NTSTATUS v21; // ebx
+  struct _KEVENT *v22; // rcx
+  _QWORD *v23; // rdx
+  __int64 *v24; // rcx
+  struct _KEVENT *v25; // rcx
+  __int64 v26; // rax
   unsigned __int64 OldIrql; // rbx
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
-  int v31; // eax
-  bool v32; // zf
-  _BYTE v33[8]; // [rsp+20h] [rbp-60h] BYREF
+  int v30; // eax
+  bool v31; // zf
+  _BYTE v32[8]; // [rsp+20h] [rbp-60h] BYREF
   HANDLE Handle; // [rsp+28h] [rbp-58h] BYREF
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+30h] [rbp-50h] BYREF
-  _OWORD v36[3]; // [rsp+48h] [rbp-38h] BYREF
+  _OWORD v35[3]; // [rsp+48h] [rbp-38h] BYREF
 
   Handle = 0LL;
   v4 = SepRmAuditingEnabled;
-  memset(v36, 0, sizeof(v36));
+  memset(v35, 0, sizeof(v35));
   v6 = 1;
   memset(&LockHandle, 0, sizeof(LockHandle));
   if ( !AdtpRegisteredWithEtw )
@@ -69,14 +68,13 @@ __int64 __fastcall SepRmCallLsa(__int64 **a1, __int64 a2, __int64 a3, _DWORD *Sc
     result = SepAdtOpenEtwReadyEvent(&Handle);
     if ( (int)result < 0 )
       return result;
-    LOBYTE(v21) = 1;
-    v22 = NtWaitForSingleObject(Handle, v21, 0LL);
+    v21 = NtWaitForSingleObject(Handle, 1u, 0LL);
     NtClose(Handle);
-    if ( v22 < 0 )
-      return (unsigned int)v22;
+    if ( v21 < 0 )
+      return (unsigned int)v21;
   }
   if ( v4 )
-    KiStackAttachProcess((_KPROCESS *)SepRmLsaCallProcess, 0LL, (__int64)v36, SchedulerAssist);
+    KiStackAttachProcess((_KPROCESS *)SepRmLsaCallProcess, 0LL, (__int64)v35, SchedulerAssist);
   do
   {
     v7 = 0LL;
@@ -88,9 +86,9 @@ __int64 __fastcall SepRmCallLsa(__int64 **a1, __int64 a2, __int64 a3, _DWORD *Sc
     v9 = *a1;
     if ( *a1 == (__int64 *)a1 )
     {
-      v23 = (struct _KEVENT *)a1[24];
-      if ( v23 )
-        KeSetEvent(v23, 0, 0);
+      v22 = (struct _KEVENT *)a1[24];
+      if ( v22 )
+        KeSetEvent(v22, 0, 0);
     }
     else if ( *((_DWORD *)v9 + 13) == *((_DWORD *)a1 + 46) + 1 )
     {
@@ -110,22 +108,22 @@ LABEL_53:
       if ( ((_BYTE)a1[28] & 2) == 0 )
         continue;
       KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)a1 + 17, &LockHandle);
-      v24 = a1 + 2;
-      v25 = a1[2];
-      if ( v25 == (__int64 *)(a1 + 2) )
+      v23 = a1 + 2;
+      v24 = a1[2];
+      if ( v24 == (__int64 *)(a1 + 2) )
       {
-        v26 = (struct _KEVENT *)a1[25];
-        if ( v26 )
-          KeSetEvent(v26, 0, 0);
+        v25 = (struct _KEVENT *)a1[25];
+        if ( v25 )
+          KeSetEvent(v25, 0, 0);
       }
-      else if ( *((_DWORD *)v25 + 13) == *((_DWORD *)a1 + 46) + 1 )
+      else if ( *((_DWORD *)v24 + 13) == *((_DWORD *)a1 + 46) + 1 )
       {
         v7 = a1[2];
-        v27 = *v25;
-        if ( (_QWORD *)v25[1] != v24 || *(__int64 **)(v27 + 8) != v25 )
+        v26 = *v24;
+        if ( (_QWORD *)v24[1] != v23 || *(__int64 **)(v26 + 8) != v24 )
           goto LABEL_50;
-        *v24 = v27;
-        *(_QWORD *)(v27 + 8) = v24;
+        *v23 = v26;
+        *(_QWORD *)(v26 + 8) = v23;
       }
       KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
       OldIrql = LockHandle.OldIrql;
@@ -138,11 +136,11 @@ LABEL_53:
           {
             CurrentPrcb = KeGetCurrentPrcb();
             SchedulerAssist = CurrentPrcb->SchedulerAssist;
-            v31 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
-            v32 = (v31 & SchedulerAssist[5]) == 0;
-            a3 = (unsigned int)v31 & SchedulerAssist[5];
+            v30 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
+            v31 = (v30 & SchedulerAssist[5]) == 0;
+            a3 = (unsigned int)v30 & SchedulerAssist[5];
             SchedulerAssist[5] = a3;
-            if ( v32 )
+            if ( v31 )
               KiRemoveSystemWorkPriorityKick(CurrentPrcb);
           }
         }
@@ -160,16 +158,16 @@ LABEL_53:
     {
       v17 = KeGetCurrentThread();
       v18 = (struct _LIST_ENTRY *)v7[7];
-      v33[0] = 0;
+      v32[0] = 0;
       Blink = v17[1].WaitBlock[3].WaitListEntry.Blink;
       v17[1].WaitBlock[3].WaitListEntry.Blink = v18;
-      v20 = AdtpWriteToEtw(v7[3], v33);
+      v20 = AdtpWriteToEtw(v7[3], v32);
       KeGetCurrentThread()[1].WaitBlock[3].WaitListEntry.Blink = Blink;
       if ( v20 < 0 )
       {
         SepAdtLastAuditFailStatus = v20;
         _InterlockedIncrement(&SepAdtAuditFailureCount);
-        if ( !v33[0] )
+        if ( !v32[0] )
           SepAuditFailed((unsigned int)v20);
       }
       if ( (unsigned int)(*((_DWORD *)v7 + 4) - 4) <= 1 )
@@ -188,6 +186,6 @@ LABEL_53:
   }
   while ( v6 );
   if ( v4 )
-    KiUnstackDetachProcess((__int64)v36, 0LL, a3, SchedulerAssist);
+    KiUnstackDetachProcess((__int64)v35, 0LL, a3, SchedulerAssist);
   return 0LL;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of KeInitializeEnclave @ 0x1406E5EFC
+ * XREFs of KeInitializeEnclave @ 0x1406E6034
  * Callers:
- *     MiInitializeEnclave @ 0x14065F568 (MiInitializeEnclave.c)
+ *     MiInitializeEnclave @ 0x14065F64C (MiInitializeEnclave.c)
  * Callees:
- *     KiEncls @ 0x14015E500 (KiEncls.c)
+ *     KiEncls @ 0x14015EA70 (KiEncls.c)
  */
 
 __int64 __fastcall KeInitializeEnclave(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5, _DWORD *a6)

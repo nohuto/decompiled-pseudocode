@@ -1,19 +1,19 @@
 /*
- * XREFs of LdrpIsSubstringFound @ 0x1800D2738
+ * XREFs of LdrpIsSubstringFound @ 0x1800D27F8
  * Callers:
- *     LdrpIsVerifierActivationFilterMatched @ 0x1800D2808 (LdrpIsVerifierActivationFilterMatched.c)
+ *     LdrpIsVerifierActivationFilterMatched @ 0x1800D28C8 (LdrpIsVerifierActivationFilterMatched.c)
  * Callees:
- *     RtlCompareUnicodeStrings @ 0x1800195B0 (RtlCompareUnicodeStrings.c)
- *     LdrpLogDbgPrint @ 0x1800D057C (LdrpLogDbgPrint.c)
+ *     RtlCompareUnicodeStrings @ 0x1800195A0 (RtlCompareUnicodeStrings.c)
+ *     LdrpLogDbgPrint @ 0x1800D063C (LdrpLogDbgPrint.c)
  */
 
 __int64 __fastcall LdrpIsSubstringFound(unsigned __int16 *a1, unsigned __int16 *a2)
 {
   unsigned int v2; // ebx
-  __int64 v5; // r15
+  const WCHAR *v5; // r15
   unsigned __int64 v6; // rdi
-  unsigned __int64 v7; // rbp
-  unsigned __int16 *i; // rsi
+  SIZE_T v7; // rbp
+  const WCHAR *i; // rsi
 
   v2 = 0;
   if ( (LdrpDebugFlags & 5) != 0 )
@@ -27,12 +27,10 @@ __int64 __fastcall LdrpIsSubstringFound(unsigned __int16 *a1, unsigned __int16 *
       a1);
   if ( *a1 >= *a2 )
   {
-    v5 = *((_QWORD *)a2 + 1);
+    v5 = (const WCHAR *)*((_QWORD *)a2 + 1);
     v6 = (unsigned __int64)(*a1 - *a2) >> 1;
     v7 = (unsigned __int64)*a2 >> 1;
-    for ( i = (unsigned __int16 *)(*((_QWORD *)a1 + 1) + 2 * v6);
-          (unsigned int)RtlCompareUnicodeStrings(i, v7, v5, v7, 1);
-          --i )
+    for ( i = (const WCHAR *)(*((_QWORD *)a1 + 1) + 2 * v6); RtlCompareUnicodeStrings(i, v7, v5, v7, 1u); --i )
     {
       if ( !v6 )
         return v2;

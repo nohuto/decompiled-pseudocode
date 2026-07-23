@@ -1,15 +1,15 @@
 /*
- * XREFs of MiQueryDetach @ 0x140920308
+ * XREFs of MiQueryDetach @ 0x140923A4C
  * Callers:
- *     MiGetWorkingSetInfo @ 0x14040F210 (MiGetWorkingSetInfo.c)
- *     MiQueryImageExtensionInformation @ 0x1404E6410 (MiQueryImageExtensionInformation.c)
- *     MmQueryVirtualMemory @ 0x14091F870 (MmQueryVirtualMemory.c)
- *     MiQueryReturnResults @ 0x140920250 (MiQueryReturnResults.c)
- *     MiQueryMappedFileName @ 0x1409FE7DC (MiQueryMappedFileName.c)
+ *     MiGetWorkingSetInfo @ 0x14040E930 (MiGetWorkingSetInfo.c)
+ *     MiQueryImageExtensionInformation @ 0x1404DF9B0 (MiQueryImageExtensionInformation.c)
+ *     MiQueryMappedFileName @ 0x1409233DC (MiQueryMappedFileName.c)
+ *     MiQueryReturnResults @ 0x140923994 (MiQueryReturnResults.c)
+ *     MmQueryVirtualMemory @ 0x1409243E0 (MmQueryVirtualMemory.c)
  * Callees:
- *     KiUnstackDetachProcess @ 0x1402307C0 (KiUnstackDetachProcess.c)
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     MiUnlockAndDereferenceVadShared @ 0x14027DA30 (MiUnlockAndDereferenceVadShared.c)
+ *     KiUnstackDetachProcess @ 0x140232120 (KiUnstackDetachProcess.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     MiUnlockAndDereferenceVadShared @ 0x14027CFA0 (MiUnlockAndDereferenceVadShared.c)
  */
 
 LONG_PTR __fastcall MiQueryDetach(__int64 a1)

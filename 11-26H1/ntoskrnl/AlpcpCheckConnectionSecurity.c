@@ -1,20 +1,20 @@
 /*
- * XREFs of AlpcpCheckConnectionSecurity @ 0x1408E8E84
+ * XREFs of AlpcpCheckConnectionSecurity @ 0x1408EF444
  * Callers:
- *     AlpcpCreateClientPort @ 0x1408E9A60 (AlpcpCreateClientPort.c)
+ *     AlpcpCreateClientPort @ 0x1408F0020 (AlpcpCreateClientPort.c)
  * Callees:
- *     RtlEqualSid @ 0x1402604A0 (RtlEqualSid.c)
- *     ObFastDereferenceObject @ 0x140265740 (ObFastDereferenceObject.c)
- *     PsReferencePrimaryTokenWithTag @ 0x140279DC0 (PsReferencePrimaryTokenWithTag.c)
- *     ExAcquireResourceSharedLite @ 0x1402B3C80 (ExAcquireResourceSharedLite.c)
- *     ExReleaseResourceLite @ 0x1402B4CF0 (ExReleaseResourceLite.c)
- *     SeAccessCheck @ 0x1402B6340 (SeAccessCheck.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     SeReleaseSubjectContext @ 0x1408CB2E0 (SeReleaseSubjectContext.c)
- *     SeQueryInformationToken @ 0x1408F4300 (SeQueryInformationToken.c)
+ *     ObFastDereferenceObject @ 0x140264CB0 (ObFastDereferenceObject.c)
+ *     PsReferencePrimaryTokenWithTag @ 0x140279330 (PsReferencePrimaryTokenWithTag.c)
+ *     ExAcquireResourceSharedLite @ 0x1402FE950 (ExAcquireResourceSharedLite.c)
+ *     ExReleaseResourceLite @ 0x1402FF9C0 (ExReleaseResourceLite.c)
+ *     SeAccessCheck @ 0x140301000 (SeAccessCheck.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     RtlEqualSid @ 0x140406680 (RtlEqualSid.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     SeReleaseSubjectContext @ 0x1408D1890 (SeReleaseSubjectContext.c)
+ *     SeQueryInformationToken @ 0x1408FA8C0 (SeQueryInformationToken.c)
  */
 
 __int64 __fastcall AlpcpCheckConnectionSecurity(__int64 a1, KPROCESSOR_MODE a2, void *a3, struct _KLOCK_ENTRIES *a4)
@@ -84,13 +84,13 @@ __int64 __fastcall AlpcpCheckConnectionSecurity(__int64 a1, KPROCESSOR_MODE a2, 
     if ( v8 )
     {
       _InterlockedIncrement((volatile signed __int32 *)(v8[143] + 284LL));
-      if ( SubjectSecurityContext.PrimaryToken == RtlpBootStatHandleLock.TrapFrame )
+      if ( SubjectSecurityContext.PrimaryToken == RtlpBootStatHandleLock.ApcState.ApcListHead[1].Flink )
         __debugbreak();
     }
     if ( SubjectSecurityContext.ClientToken )
     {
       _InterlockedIncrement((volatile signed __int32 *)(*((_QWORD *)SubjectSecurityContext.ClientToken + 143) + 284LL));
-      if ( SubjectSecurityContext.ClientToken == RtlpBootStatHandleLock.TrapFrame )
+      if ( SubjectSecurityContext.ClientToken == RtlpBootStatHandleLock.ApcState.ApcListHead[1].Flink )
         __debugbreak();
     }
   }

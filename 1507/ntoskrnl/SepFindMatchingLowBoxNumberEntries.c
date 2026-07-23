@@ -21,7 +21,7 @@ __int64 __fastcall SepFindMatchingLowBoxNumberEntries(
   PRTL_DYNAMIC_HASH_TABLE_ENTRY v11; // rax
   int Signature; // ecx
   bool v13; // zf
-  struct _RTL_DYNAMIC_HASH_TABLE_ENUMERATOR Enumerator; // [rsp+20h] [rbp-48h] BYREF
+  _RTL_DYNAMIC_HASH_TABLE_ENUMERATOR Enumerator; // [rsp+20h] [rbp-48h] BYREF
 
   memset(&Enumerator, 0, sizeof(Enumerator));
   v9 = 0;

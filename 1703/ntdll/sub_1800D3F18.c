@@ -9,13 +9,13 @@
  *     sub_180095EB0 @ 0x180095EB0 (sub_180095EB0.c)
  */
 
-__int64 __fastcall sub_1800D3F18(int a1, __int64 a2, __int64 a3)
+NTSTATUS __fastcall sub_1800D3F18(int a1, __int64 a2, __int64 a3)
 {
-  void *v3; // rbx
+  const EVENT_DESCRIPTOR *v3; // rbx
   __int64 v4; // rcx
   __int64 v5; // rax
-  __int64 result; // rax
-  unsigned __int64 v7; // [rsp+20h] [rbp-50h] BYREF
+  NTSTATUS result; // eax
+  ULONGLONG RegHandle; // [rsp+20h] [rbp-50h] BYREF
   __int64 v8; // [rsp+28h] [rbp-48h] BYREF
   int v9; // [rsp+30h] [rbp-40h]
   int v10; // [rsp+34h] [rbp-3Ch]
@@ -29,13 +29,13 @@ __int64 __fastcall sub_1800D3F18(int a1, __int64 a2, __int64 a3)
   v16 = a1;
   if ( a1 == -1073740673 )
   {
-    v3 = &unk_180124670;
+    v3 = &stru_180124670;
   }
   else
   {
-    v3 = &unk_180124690;
+    v3 = (const EVENT_DESCRIPTOR *)&unk_180124690;
     if ( a1 != -1073740674 )
-      v3 = &unk_1801246F0;
+      v3 = (const EVENT_DESCRIPTOR *)&unk_1801246F0;
   }
   v4 = -1LL;
   v8 = a2;
@@ -53,11 +53,11 @@ __int64 __fastcall sub_1800D3F18(int a1, __int64 a2, __int64 a3)
   while ( *(_WORD *)(a3 + 2 * v4) );
   v15 = 0;
   v14 = 2 * v4 + 2;
-  result = EtwEventRegister((int)&unk_180124720, 0LL, 0LL, (__int64)&v7);
-  if ( !(_DWORD)result )
+  result = EtwEventRegister(&stru_180124720, 0LL, 0LL, &RegHandle);
+  if ( !result )
   {
-    EtwEventWrite(v7, (int)v3, 3, (__int64)&v8);
-    return EtwNotificationUnregister(v7, 0LL);
+    EtwEventWrite(RegHandle, v3, 3u, (PEVENT_DATA_DESCRIPTOR)&v8);
+    return EtwNotificationUnregister(RegHandle, 0LL);
   }
   return result;
 }

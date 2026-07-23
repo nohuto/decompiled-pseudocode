@@ -1,11 +1,11 @@
 /*
- * XREFs of TpDereferenceGlobalPool @ 0x18006F5F8
+ * XREFs of TpDereferenceGlobalPool @ 0x18008BED8
  * Callers:
- *     RtlpTpWorkCallback @ 0x18006F790 (RtlpTpWorkCallback.c)
- *     RtlpTpIoAlloc @ 0x1800BEC44 (RtlpTpIoAlloc.c)
- *     RtlpTpIoDllLoaded @ 0x1800BF9D8 (RtlpTpIoDllLoaded.c)
+ *     RtlpTpWorkCallback @ 0x18008C070 (RtlpTpWorkCallback.c)
+ *     RtlpTpIoAlloc @ 0x1800B6A04 (RtlpTpIoAlloc.c)
+ *     RtlpTpIoDllLoaded @ 0x1800B7798 (RtlpTpIoDllLoaded.c)
  * Callees:
- *     TppPoolpDereferenceGlobalPool @ 0x18006D7D0 (TppPoolpDereferenceGlobalPool.c)
+ *     TppPoolpDereferenceGlobalPool @ 0x18008A0B0 (TppPoolpDereferenceGlobalPool.c)
  */
 
 void __fastcall TpDereferenceGlobalPool(__int64 a1)
@@ -17,8 +17,6 @@ void __fastcall TpDereferenceGlobalPool(__int64 a1)
   }
   else
   {
-    TppPoolpDereferenceGlobalPool(
-      (const void **)&TppPoolpGlobalPool,
-      (volatile signed __int32 *)&TppPoolpGlobalPoolLock);
+    TppPoolpDereferenceGlobalPool((const void **)&TppPoolpGlobalPool, &TppPoolpGlobalPoolLock);
   }
 }

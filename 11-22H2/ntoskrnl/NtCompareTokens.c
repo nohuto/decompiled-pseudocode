@@ -16,13 +16,13 @@
  *     AuthzBasepCompareLegacySecurityAttributesInformation @ 0x1407C79F4 (AuthzBasepCompareLegacySecurityAttributesInformation.c)
  */
 
-__int64 __fastcall NtCompareTokens(HANDLE Handle, HANDLE a2, char *a3)
+NTSTATUS __cdecl NtCompareTokens(HANDLE FirstTokenHandle, HANDLE SecondTokenHandle, PBOOLEAN Equal)
 {
   unsigned int *v5; // rdi
-  char v6; // r12
+  BOOLEAN v6; // r12
   KPROCESSOR_MODE PreviousMode; // bl
   __int64 v8; // rcx
-  NTSTATUS InformationToken; // r15d
+  int InformationToken; // r15d
   unsigned int *v10; // rsi
   __int64 v11; // rbx
   __int64 v12; // r13
@@ -42,22 +42,34 @@ __int64 __fastcall NtCompareTokens(HANDLE Handle, HANDLE a2, char *a3)
   if ( PreviousMode )
   {
     v8 = 0x7FFFFFFF0000LL;
-    if ( (unsigned __int64)a3 < 0x7FFFFFFF0000LL )
-      v8 = (__int64)a3;
+    if ( (unsigned __int64)Equal < 0x7FFFFFFF0000LL )
+      v8 = (__int64)Equal;
     *(_BYTE *)v8 = *(_BYTE *)v8;
   }
   Token[0] = 0LL;
-  InformationToken = ObReferenceObjectByHandle(Handle, 8u, (POBJECT_TYPE)SeTokenObjectType, PreviousMode, Token, 0LL);
+  InformationToken = ObReferenceObjectByHandle(
+                       FirstTokenHandle,
+                       8u,
+                       (POBJECT_TYPE)SeTokenObjectType,
+                       PreviousMode,
+                       Token,
+                       0LL);
   v10 = (unsigned int *)Token[0];
   if ( InformationToken < 0 )
   {
     v10 = 0LL;
     goto LABEL_26;
   }
-  if ( Handle == a2 )
+  if ( FirstTokenHandle == SecondTokenHandle )
     goto LABEL_34;
   Token[0] = 0LL;
-  InformationToken = ObReferenceObjectByHandle(a2, 8u, (POBJECT_TYPE)SeTokenObjectType, PreviousMode, Token, 0LL);
+  InformationToken = ObReferenceObjectByHandle(
+                       SecondTokenHandle,
+                       8u,
+                       (POBJECT_TYPE)SeTokenObjectType,
+                       PreviousMode,
+                       Token,
+                       0LL);
   v5 = (unsigned int *)Token[0];
   if ( InformationToken < 0 )
   {
@@ -136,6 +148,6 @@ LABEL_26:
     ObfDereferenceObject(v10);
   if ( v5 )
     ObfDereferenceObject(v5);
-  *a3 = v6;
-  return (unsigned int)InformationToken;
+  *Equal = v6;
+  return InformationToken;
 }

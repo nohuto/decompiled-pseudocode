@@ -18,35 +18,35 @@ __int64 __fastcall EtwpAllocateFreeBuffers(__int64 a1, unsigned int a2)
   _QWORD *v7; // rdx
   _QWORD *v8; // rax
   _DWORD *v10; // rdx
-  void *v11; // [rsp+50h] [rbp+8h] BYREF
-  __int64 v12; // [rsp+60h] [rbp+18h] BYREF
+  PVOID BaseAddress; // [rsp+50h] [rbp+8h] BYREF
+  ULONG_PTR RegionSize; // [rsp+60h] [rbp+18h] BYREF
 
-  v12 = *(unsigned int *)(a1 + 192);
+  RegionSize = *(unsigned int *)(a1 + 192);
   for ( i = 0; i < a2; ++i )
   {
-    v11 = 0LL;
+    BaseAddress = 0LL;
     v5 = _InterlockedIncrement((volatile signed __int32 *)(a1 + 208));
     if ( v5 > *(_DWORD *)(a1 + 200)
-      || (v11 = (void *)(*(_QWORD *)(a1 + 408) + v12 * (v5 - 1)),
-          (int)ZwAllocateVirtualMemory(-1LL, &v11, 0LL, &v12, 4096, 4) < 0) )
+      || (BaseAddress = (PVOID)(*(_QWORD *)(a1 + 408) + RegionSize * (v5 - 1)),
+          ZwAllocateVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, 0LL, &RegionSize, 0x1000u, 4u) < 0) )
     {
       _InterlockedDecrement((volatile signed __int32 *)(a1 + 208));
       return i;
     }
-    v6 = v11;
-    memset_thunk_772440563353939046(v11, 0, 0x48uLL);
+    v6 = BaseAddress;
+    memset_thunk_772440563353939046(BaseAddress, 0, 0x48uLL);
     v6[2] = 72;
     *v6 = *(_DWORD *)(a1 + 192);
     *((_WORD *)v6 + 21) = *(_WORD *)(a1 + 20) | 0x8000;
-    RtlEnterCriticalSection(a1 + 72);
+    RtlEnterCriticalSection((PRTL_CRITICAL_SECTION)(a1 + 72));
     v7 = *(_QWORD **)(a1 + 224);
-    v8 = (char *)v11 + 56;
+    v8 = (char *)BaseAddress + 56;
     if ( *v7 != a1 + 216 )
       __fastfail(3u);
     *v8 = a1 + 216;
     v8[1] = v7;
     *v7 = v8;
-    v10 = v11;
+    v10 = BaseAddress;
     *(_QWORD *)(a1 + 224) = v8;
     v10[11] = 0;
     *((_QWORD *)v10 + 4) = 0LL;
@@ -54,7 +54,7 @@ __int64 __fastcall EtwpAllocateFreeBuffers(__int64 a1, unsigned int a2)
     **(_QWORD **)(a1 + 240) = v10 + 8;
     *(_QWORD *)(a1 + 240) = v10 + 8;
     _InterlockedIncrement((volatile signed __int32 *)(a1 + 212));
-    RtlLeaveCriticalSection(a1 + 72);
+    RtlLeaveCriticalSection((PRTL_CRITICAL_SECTION)(a1 + 72));
   }
   return i;
 }

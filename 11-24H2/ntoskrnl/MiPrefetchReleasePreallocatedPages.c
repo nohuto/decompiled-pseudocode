@@ -1,21 +1,18 @@
 /*
- * XREFs of MiPrefetchReleasePreallocatedPages @ 0x14045AD24
+ * XREFs of MiPrefetchReleasePreallocatedPages @ 0x1404AE77C
  * Callers:
- *     MiPrefetchPreallocatePages @ 0x1404D5620 (MiPrefetchPreallocatePages.c)
+ *     MiPrefetchPreallocatePages @ 0x1404CEA68 (MiPrefetchPreallocatePages.c)
  * Callees:
- *     MiReleaseNonPagedResources @ 0x14020C57C (MiReleaseNonPagedResources.c)
- *     MiFreePageChain @ 0x14045AD80 (MiFreePageChain.c)
+ *     MiFreePageChain @ 0x14021DC64 (MiFreePageChain.c)
+ *     MiReleaseNonPagedResources @ 0x1403358DC (MiReleaseNonPagedResources.c)
  */
 
-void __fastcall MiPrefetchReleasePreallocatedPages(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+void __fastcall MiPrefetchReleasePreallocatedPages(__int64 a1, __int64 a2, __int64 a3, int a4)
 {
-  int v5; // ebx
-
   *(_QWORD *)a1 = 0LL;
   *(_QWORD *)(a1 + 8) = 0LL;
-  v5 = a4;
-  MiFreePageChain(a2 + 88, a2, a3, a4);
-  if ( v5 )
+  MiFreePageChain(a2 + 88);
+  if ( a4 )
   {
     if ( *(_DWORD *)(a1 + 16) )
     {

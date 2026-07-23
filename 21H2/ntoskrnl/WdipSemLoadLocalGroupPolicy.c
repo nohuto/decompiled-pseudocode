@@ -1,17 +1,17 @@
 /*
- * XREFs of WdipSemLoadLocalGroupPolicy @ 0x1409302B0
+ * XREFs of WdipSemLoadLocalGroupPolicy @ 0x140930410
  * Callers:
- *     WdipSemLoadGroupPolicy @ 0x1407991F0 (WdipSemLoadGroupPolicy.c)
+ *     WdipSemLoadGroupPolicy @ 0x1407993F0 (WdipSemLoadGroupPolicy.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     ZwEnumerateKey @ 0x1403FA9E0 (ZwEnumerateKey.c)
- *     memset @ 0x140414200 (memset.c)
- *     RtlGUIDFromString @ 0x140644870 (RtlGUIDFromString.c)
- *     WdipSemQueryValueFromRegistry @ 0x14079A264 (WdipSemQueryValueFromRegistry.c)
- *     WdipSemOpenRegistryKey @ 0x14079A374 (WdipSemOpenRegistryKey.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     ZwEnumerateKey @ 0x1403FABC0 (ZwEnumerateKey.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     RtlGUIDFromString @ 0x140639680 (RtlGUIDFromString.c)
+ *     WdipSemQueryValueFromRegistry @ 0x14079A464 (WdipSemQueryValueFromRegistry.c)
+ *     WdipSemOpenRegistryKey @ 0x14079A574 (WdipSemOpenRegistryKey.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall WdipSemLoadLocalGroupPolicy(HANDLE KeyHandle)

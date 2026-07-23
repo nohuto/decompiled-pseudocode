@@ -13,7 +13,7 @@ PSLIST_ENTRY __fastcall WdipSemRollBackProviderTable(int a1)
 
   for ( i = a1; i < dword_140435200; ++i )
   {
-    result = WdipSemFastFree(2, (struct _SLIST_ENTRY *)WdipSemProviderTable[i]);
+    result = WdipSemFastFree(2, (_SLIST_ENTRY *)WdipSemProviderTable[i]);
     WdipSemProviderTable[i] = 0LL;
   }
   dword_140435200 = a1;

@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlStringCchPrintfExW @ 0x180014270
+ * XREFs of RtlStringCchPrintfExW @ 0x180040C70
  * Callers:
- *     LdrpGenerateSnapsUnicodeStrings @ 0x180013A00 (LdrpGenerateSnapsUnicodeStrings.c)
- *     LdrpLogInternal @ 0x180013D80 (LdrpLogInternal.c)
- *     RtlFormatMessageEx @ 0x1800D3250 (RtlFormatMessageEx.c)
+ *     LdrpGenerateSnapsUnicodeStrings @ 0x180040400 (LdrpGenerateSnapsUnicodeStrings.c)
+ *     LdrpLogInternal @ 0x180040780 (LdrpLogInternal.c)
+ *     RtlFormatMessageEx @ 0x1800CE5C0 (RtlFormatMessageEx.c)
  * Callees:
- *     RtlStringExHandleOtherFlagsW @ 0x180114B1C (RtlStringExHandleOtherFlagsW.c)
- *     _vsnwprintf @ 0x180122B60 (_vsnwprintf.c)
- *     RtlStringExHandleFillBehindNullW @ 0x180145258 (RtlStringExHandleFillBehindNullW.c)
+ *     RtlStringExHandleOtherFlagsW @ 0x18010FE2C (RtlStringExHandleOtherFlagsW.c)
+ *     _vsnwprintf @ 0x180120D90 (_vsnwprintf.c)
+ *     RtlStringExHandleFillBehindNullW @ 0x180143608 (RtlStringExHandleFillBehindNullW.c)
  */
 
 __int64 RtlStringCchPrintfExW(
@@ -50,7 +50,7 @@ __int64 RtlStringCchPrintfExW(
     v18 = Buffer;
     v19 = a2;
     if ( (a5 & 0x100) != 0 && !Format )
-      v11 = (const wchar_t *)&unk_18017EEFC;
+      v11 = &SourceString;
     v14 = 0;
     if ( (a5 & 0xFFFFE000) != 0 )
     {

@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlpHpTagContextGetTag @ 0x1800A04E4
+ * XREFs of RtlpHpTagContextGetTag @ 0x1800A04A4
  * Callers:
  *     RtlpHpTagAllocateHeap @ 0x180065D30 (RtlpHpTagAllocateHeap.c)
  * Callees:

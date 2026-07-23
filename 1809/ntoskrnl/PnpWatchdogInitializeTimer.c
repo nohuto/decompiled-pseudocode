@@ -2,7 +2,7 @@
  * XREFs of PnpWatchdogInitializeTimer @ 0x140005C9C
  * Callers:
  *     PnpEnableWatchdog @ 0x140005C04 (PnpEnableWatchdog.c)
- *     PnpProcessWatchdogWorkItem @ 0x140289B8C (PnpProcessWatchdogWorkItem.c)
+ *     PnpProcessWatchdogWorkItem @ 0x140289D7C (PnpProcessWatchdogWorkItem.c)
  * Callees:
  *     <none>
  */

@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpReserveHalPtes @ 0x140A64880
+ * XREFs of HalpReserveHalPtes @ 0x140A65880
  * Callers:
- *     HalpWheaInitDiscard @ 0x140A63B9C (HalpWheaInitDiscard.c)
+ *     HalpWheaInitDiscard @ 0x140A64B9C (HalpWheaInitDiscard.c)
  * Callees:
- *     HalpMmGetPteAddressSafe @ 0x1403BBB00 (HalpMmGetPteAddressSafe.c)
+ *     HalpMmGetPteAddressSafe @ 0x1403BBC70 (HalpMmGetPteAddressSafe.c)
  */
 
 unsigned __int64 HalpReserveHalPtes()

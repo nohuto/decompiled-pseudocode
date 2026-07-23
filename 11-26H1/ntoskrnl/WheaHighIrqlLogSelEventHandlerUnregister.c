@@ -1,24 +1,24 @@
 /*
- * XREFs of WheaHighIrqlLogSelEventHandlerUnregister @ 0x1406D7150
+ * XREFs of WheaHighIrqlLogSelEventHandlerUnregister @ 0x1406DB2E0
  * Callers:
  *     <none>
  * Callees:
- *     WheapHighIrqlLogSelEventHandlerAcquireLock @ 0x1406D72F8 (WheapHighIrqlLogSelEventHandlerAcquireLock.c)
+ *     WheapHighIrqlLogSelEventHandlerAcquireLock @ 0x1406DB488 (WheapHighIrqlLogSelEventHandlerAcquireLock.c)
  */
 
 __int64 __fastcall WheaHighIrqlLogSelEventHandlerUnregister(__int64 a1)
 {
   __int64 result; // rax
-  struct _SINGLE_LIST_ENTRY *v2; // r9
+  void *v2; // r9
 
-  if ( LODWORD(CmpCallbackListLock.PropagateBoostsEntry.Next) )
+  if ( *(_DWORD *)&CmpContextListLock.SchedulerApcFill5[56] )
   {
     LOBYTE(a1) = 1;
     result = WheapHighIrqlLogSelEventHandlerAcquireLock(a1);
-    CmpCallbackListLock.IoSelfBoostsEntry.Next = v2;
-    *(_QWORD *)CmpCallbackListLock.PriorityFloorCounts = v2;
-    LODWORD(CmpCallbackListLock.PropagateBoostsEntry.Next) = (_DWORD)v2;
-    _InterlockedExchange((_DWORD *)&CmpCallbackListLock.PropagateBoostsEntry.Next + 1, (__int32)v2);
+    CmpContextListLock.SchedulerApc.SystemArgument1 = v2;
+    CmpContextListLock.SchedulerApc.SystemArgument2 = v2;
+    *(_DWORD *)&CmpContextListLock.SchedulerApcFill5[56] = (_DWORD)v2;
+    _InterlockedExchange((volatile __int32 *)&CmpContextListLock.SchedulerApcFill5[60], (__int32)v2);
   }
   return result;
 }

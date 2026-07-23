@@ -74,7 +74,7 @@ __int64 __fastcall KeReleaseMutantEx(ULONG_PTR BugCheckParameter2, unsigned int 
   CurrentIrql = KeGetCurrentIrql();
   v37 = CurrentIrql;
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && (unsigned __int8)CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && (unsigned __int8)CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( (_BYTE)CurrentIrql == 2 )
@@ -102,10 +102,10 @@ __int64 __fastcall KeReleaseMutantEx(ULONG_PTR BugCheckParameter2, unsigned int 
     {
       v28 = *(_BYTE *)(BugCheckParameter2 + 48) & 1;
       _InterlockedAnd((volatile signed __int32 *)BugCheckParameter2, 0xFFFFFF7F);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v29 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v29 <= 0xFu && (unsigned __int8)CurrentIrql <= 0xFu && v29 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v29 <= 0xFu && (unsigned __int8)CurrentIrql <= 0xFu && v29 >= 2u )
         {
           v30 = KeGetCurrentPrcb();
           v31 = v30->SchedulerAssist;
@@ -216,7 +216,7 @@ LABEL_38:
     }
   }
 LABEL_44:
-  KiExitDispatcher(v35, (v42 & 2) != 0 ? 3 : 0, (struct _PROCESSOR_NUMBER)1, v41, v37);
+  KiExitDispatcher(v35, (v42 & 2) != 0 ? 3 : 0, (_PROCESSOR_NUMBER)1, v41, v37);
   if ( v7 )
   {
     if ( (struct _KTHREAD *)v6 != CurrentThread )

@@ -9,24 +9,24 @@
  *     RtlpInterlockedPushEntrySList @ 0x180166FD0 (RtlpInterlockedPushEntrySList.c)
  */
 
-void *__fastcall RtlDeleteResource(void *a1)
+void __cdecl RtlDeleteResource(PRTL_RESOURCE Resource)
 {
   __int64 v2; // r8
   __int64 v3; // r9
-  unsigned __int64 v4; // rdx
+  PRTL_RESOURCE_DEBUG DebugInfo; // rdx
 
-  RtlDeleteCriticalSection(a1);
-  NtClose(*((HANDLE *)a1 + 5));
-  NtClose(*((HANDLE *)a1 + 7));
-  v4 = *((_QWORD *)a1 + 11);
+  RtlDeleteCriticalSection(&Resource->CriticalSection);
+  NtClose(Resource->SharedSemaphore);
+  NtClose(Resource->ExclusiveSemaphore);
+  DebugInfo = Resource->DebugInfo;
   if ( LOWORD(RtlCriticalSectionDebugSList.Alignment) < 0xAu
-    || (unsigned __int64)&RtlpStaticDebugInfo <= v4 && v4 < (unsigned __int64)&RtlpForceCSToUseEvents )
+    || &RtlpStaticDebugInfo <= (_UNKNOWN *)DebugInfo && DebugInfo < (PRTL_RESOURCE_DEBUG)&RtlpForceCSToUseEvents )
   {
-    RtlpInterlockedPushEntrySList(&RtlCriticalSectionDebugSList, v4, v2, v3);
+    RtlpInterlockedPushEntrySList(&RtlCriticalSectionDebugSList, DebugInfo, v2, v3);
   }
   else
   {
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, *((_QWORD *)a1 + 11), v3);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Resource->DebugInfo);
   }
-  return memset_thunk_772440563353939046(a1, 0, 0x60uLL);
+  memset_thunk_772440563353939046(Resource, 0, 0x60uLL);
 }

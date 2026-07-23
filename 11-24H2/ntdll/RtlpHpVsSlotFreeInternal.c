@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpHpVsSlotFreeInternal @ 0x18011B510
+ * XREFs of RtlpHpVsSlotFreeInternal @ 0x180119740
  * Callers:
- *     RtlpHpVsSlotFreeList @ 0x18011B418 (RtlpHpVsSlotFreeList.c)
+ *     RtlpHpVsSlotFreeList @ 0x180119648 (RtlpHpVsSlotFreeList.c)
  * Callees:
- *     RtlpLogHeapFailure @ 0x18002A380 (RtlpLogHeapFailure.c)
- *     RtlpHpVsChunkFree @ 0x180053BC0 (RtlpHpVsChunkFree.c)
+ *     RtlpLogHeapFailure @ 0x180056D80 (RtlpLogHeapFailure.c)
+ *     RtlpHpVsChunkFree @ 0x1800697A0 (RtlpHpVsChunkFree.c)
  */
 
 __int64 __fastcall RtlpHpVsSlotFreeInternal(__int64 a1, unsigned __int64 a2, unsigned __int64 a3, __int64 a4)
@@ -15,7 +15,7 @@ __int64 __fastcall RtlpHpVsSlotFreeInternal(__int64 a1, unsigned __int64 a2, uns
   __int64 v9; // rbx
   unsigned __int64 v10; // rax
   unsigned __int64 v11; // rcx
-  unsigned __int64 v12; // r11
+  __int64 v12; // r11
   char v14; // al
   unsigned __int64 v15; // rcx
   __int64 v16; // rdx

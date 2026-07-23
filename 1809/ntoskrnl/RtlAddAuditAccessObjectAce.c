@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlAddAuditAccessObjectAce @ 0x1408929A0
+ * XREFs of RtlAddAuditAccessObjectAce @ 0x140893C00
  * Callers:
- *     LocalGetAclForString @ 0x1406AFC8C (LocalGetAclForString.c)
+ *     LocalGetAclForString @ 0x1406B0F2C (LocalGetAclForString.c)
  * Callees:
- *     RtlpAddKnownAce @ 0x1406315A0 (RtlpAddKnownAce.c)
- *     RtlpAddKnownObjectAce @ 0x140892D64 (RtlpAddKnownObjectAce.c)
+ *     RtlpAddKnownAce @ 0x1406325C0 (RtlpAddKnownAce.c)
+ *     RtlpAddKnownObjectAce @ 0x140893FC4 (RtlpAddKnownObjectAce.c)
  */
 
 NTSTATUS __stdcall RtlAddAuditAccessObjectAce(

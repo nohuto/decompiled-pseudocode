@@ -1,12 +1,12 @@
 /*
- * XREFs of PpmIdleWaitForDependentTransitions @ 0x1406029C4
+ * XREFs of PpmIdleWaitForDependentTransitions @ 0x140605474
  * Callers:
- *     PpmIdleCheckCoordinatedStateEligibility @ 0x140601CC4 (PpmIdleCheckCoordinatedStateEligibility.c)
+ *     PpmIdleCheckCoordinatedStateEligibility @ 0x140604774 (PpmIdleCheckCoordinatedStateEligibility.c)
  * Callees:
- *     KeGetPrcb @ 0x1402916D0 (KeGetPrcb.c)
- *     KeEnumerateNextProcessor @ 0x14043BC70 (KeEnumerateNextProcessor.c)
- *     PpmIdleTransitionStall @ 0x14060274C (PpmIdleTransitionStall.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     KeGetPrcb @ 0x140290C30 (KeGetPrcb.c)
+ *     KeEnumerateNextProcessor @ 0x14042E520 (KeEnumerateNextProcessor.c)
+ *     PpmIdleTransitionStall @ 0x1406051FC (PpmIdleTransitionStall.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall PpmIdleWaitForDependentTransitions(__int64 a1)

@@ -6,7 +6,7 @@
  *     RtlpHpLfhContextAllocate @ 0x140008C54 (RtlpHpLfhContextAllocate.c)
  *     RtlpHpLargeAlloc @ 0x140009ED8 (RtlpHpLargeAlloc.c)
  *     RtlpHpSegAlloc @ 0x14000B118 (RtlpHpSegAlloc.c)
- *     RtlpHpVsContextAllocate @ 0x1400BC2F0 (RtlpHpVsContextAllocate.c)
+ *     RtlpHpVsContextAllocate @ 0x1400BC230 (RtlpHpVsContextAllocate.c)
  */
 
 __int64 __fastcall RtlpHpAllocateHeapInternal(__int64 a1, size_t a2, unsigned __int64 a3, unsigned int a4, int *a5)

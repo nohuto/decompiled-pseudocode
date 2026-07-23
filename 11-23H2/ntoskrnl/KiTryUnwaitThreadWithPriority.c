@@ -1,13 +1,13 @@
 /*
- * XREFs of KiTryUnwaitThreadWithPriority @ 0x140357548
+ * XREFs of KiTryUnwaitThreadWithPriority @ 0x1403576E8
  * Callers:
- *     KiWakePriQueueWaiter @ 0x1403574BC (KiWakePriQueueWaiter.c)
+ *     KiWakePriQueueWaiter @ 0x14035765C (KiWakePriQueueWaiter.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     KiSetPriorityThread @ 0x1402B05D0 (KiSetPriorityThread.c)
- *     KiSetBasePriorityAndClearDecrement @ 0x1402B8430 (KiSetBasePriorityAndClearDecrement.c)
- *     KiAdjustRealtimePriorityFloor @ 0x1402B852C (KiAdjustRealtimePriorityFloor.c)
- *     KiSignalThread @ 0x1402B85D0 (KiSignalThread.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     KiSetPriorityThread @ 0x1402B0860 (KiSetPriorityThread.c)
+ *     KiSetBasePriorityAndClearDecrement @ 0x1402B86C0 (KiSetBasePriorityAndClearDecrement.c)
+ *     KiAdjustRealtimePriorityFloor @ 0x1402B87BC (KiAdjustRealtimePriorityFloor.c)
+ *     KiSignalThread @ 0x1402B8860 (KiSignalThread.c)
  */
 
 char __fastcall KiTryUnwaitThreadWithPriority(__int64 a1, __int64 a2, __int64 a3, int a4)

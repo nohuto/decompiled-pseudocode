@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpComputeDllPathWithOptions @ 0x18009BFB0
+ * XREFs of RtlpComputeDllPathWithOptions @ 0x18009B0E0
  * Callers:
  *     <none>
  * Callees:
- *     RtlReleaseSRWLockShared @ 0x18002D9F0 (RtlReleaseSRWLockShared.c)
- *     RtlAcquireSRWLockShared @ 0x18004C610 (RtlAcquireSRWLockShared.c)
- *     RtlpComputePath @ 0x18009C0E0 (RtlpComputePath.c)
+ *     RtlReleaseSRWLockShared @ 0x180018AF0 (RtlReleaseSRWLockShared.c)
+ *     RtlAcquireSRWLockShared @ 0x180036B90 (RtlAcquireSRWLockShared.c)
+ *     RtlpComputePath @ 0x18009B210 (RtlpComputePath.c)
  */
 
 __int64 __fastcall RtlpComputeDllPathWithOptions(__int16 a1, __int64 a2)
@@ -35,7 +35,7 @@ __int64 __fastcall RtlpComputeDllPathWithOptions(__int16 a1, __int64 a2)
   {
     v11 = (unsigned int)v6;
     v6 = (unsigned int)(v6 + 1);
-    v12 = (_WORD)LdrpDllDirectory == 0;
+    v12 = LdrpDllDirectory.Length == 0;
     v13[v11] = 6;
     if ( !v12 )
     {

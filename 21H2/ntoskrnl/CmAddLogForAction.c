@@ -1,25 +1,25 @@
 /*
- * XREFs of CmAddLogForAction @ 0x1406AFE4C
+ * XREFs of CmAddLogForAction @ 0x14060E74C
  * Callers:
- *     CmSetValueKey @ 0x1406646C0 (CmSetValueKey.c)
- *     CmDeleteValueKey @ 0x140666544 (CmDeleteValueKey.c)
- *     CmpCreateChild @ 0x140667AD4 (CmpCreateChild.c)
- *     CmDeleteKey @ 0x14066B9F4 (CmDeleteKey.c)
- *     CmpSetSecurityDescriptorInfo @ 0x14066CCFC (CmpSetSecurityDescriptorInfo.c)
- *     CmSetKeyFlags @ 0x14086DC78 (CmSetKeyFlags.c)
- *     CmSetLastWriteTimeKey @ 0x14086E13C (CmSetLastWriteTimeKey.c)
+ *     CmSetValueKey @ 0x1406594E0 (CmSetValueKey.c)
+ *     CmDeleteValueKey @ 0x14065B364 (CmDeleteValueKey.c)
+ *     CmpCreateChild @ 0x14065C8F4 (CmpCreateChild.c)
+ *     CmDeleteKey @ 0x140660814 (CmDeleteKey.c)
+ *     CmpSetSecurityDescriptorInfo @ 0x140661B1C (CmpSetSecurityDescriptorInfo.c)
+ *     CmSetKeyFlags @ 0x14086DDD8 (CmSetKeyFlags.c)
+ *     CmSetLastWriteTimeKey @ 0x14086E29C (CmSetLastWriteTimeKey.c)
  * Callees:
- *     CmpFreeTransientPoolWithTag @ 0x140206FA8 (CmpFreeTransientPoolWithTag.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     memset @ 0x140414200 (memset.c)
- *     CmpConstructNameWithStatus @ 0x1405F2FF0 (CmpConstructNameWithStatus.c)
- *     CmpGetValueData @ 0x1405F8410 (CmpGetValueData.c)
- *     CmpCopyCompressedName @ 0x140669F74 (CmpCopyCompressedName.c)
- *     CmpTransWriteLog @ 0x140763B98 (CmpTransWriteLog.c)
- *     HvBufferCheckSum @ 0x140763E88 (HvBufferCheckSum.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     CmpFreeTransientPoolWithTag @ 0x1402483A4 (CmpFreeTransientPoolWithTag.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     CmpCopyCompressedName @ 0x14065ED94 (CmpCopyCompressedName.c)
+ *     CmpConstructNameWithStatus @ 0x1406E2750 (CmpConstructNameWithStatus.c)
+ *     CmpGetValueData @ 0x1406E7B70 (CmpGetValueData.c)
+ *     CmpTransWriteLog @ 0x140763D58 (CmpTransWriteLog.c)
+ *     HvBufferCheckSum @ 0x140764048 (HvBufferCheckSum.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall CmAddLogForAction(__int64 a1, int a2)
@@ -51,7 +51,7 @@ __int64 __fastcall CmAddLogForAction(__int64 a1, int a2)
   _DWORD *PoolWithTag; // rax
   int v29; // ecx
   __int64 v30; // r8
-  _WORD *v31; // rcx
+  char *v31; // rcx
   __int16 v32; // ax
   unsigned int v33; // edx
   size_t v34; // r8
@@ -59,8 +59,8 @@ __int64 __fastcall CmAddLogForAction(__int64 a1, int a2)
   __int64 v36; // rdx
   int v37; // eax
   int v38; // eax
-  _WORD *v39; // rbx
-  __int64 v40; // rdx
+  char *v39; // rbx
+  unsigned int v40; // edx
   size_t v41; // r8
   void *v42; // rdx
   char *v43; // rcx
@@ -262,10 +262,10 @@ LABEL_74:
             *((_QWORD *)v4 + 5) = v4 + 20;
             v4[16] = v38;
             memmove(v4 + 20, v11[1], *(unsigned __int16 *)v11);
-            v39 = (_WORD *)((char *)v4 + *(unsigned __int16 *)v11 + 80);
+            v39 = (char *)v4 + *(unsigned __int16 *)v11 + 80;
             *((_QWORD *)v4 + 7) = v39;
             if ( (*(_BYTE *)(v5 + 16) & 1) != 0 )
-              CmpCopyCompressedName(v39, v8, (unsigned __int8 *)(v5 + 20), *(unsigned __int16 *)(v5 + 2));
+              CmpCopyCompressedName(v39, v8, v5 + 20, *(unsigned __int16 *)(v5 + 2));
             else
               memmove(v39, (const void *)(v5 + 20), v8);
             *((_QWORD *)v4 + 7) = 0LL;
@@ -280,18 +280,18 @@ LABEL_74:
             {
               v40 = v57;
               v4[17] = v7;
-              if ( !CmpGetValueData(
-                      *(_QWORD *)(*(_QWORD *)(a1 + 48) + 32LL),
-                      v40,
-                      v5,
-                      (unsigned int *)&v58,
-                      (__int64)&Src,
-                      (__int64)&Size,
-                      (__int64)&v50) )
+              if ( !(unsigned __int8)CmpGetValueData(
+                                       *(_QWORD *)(*(_QWORD *)(a1 + 48) + 32LL),
+                                       v40,
+                                       v5,
+                                       (unsigned int)&v58,
+                                       (__int64)&Src,
+                                       (__int64)&Size,
+                                       (__int64)&v50) )
                 goto LABEL_39;
               v41 = (unsigned int)v58;
               v42 = Src;
-              v43 = (char *)v39 + v8;
+              v43 = &v39[v8];
               *((_QWORD *)v4 + 9) = v43;
               memmove(v43, v42, v41);
               *((_QWORD *)v4 + 9) = 0LL;
@@ -345,10 +345,10 @@ LABEL_69:
             *((_QWORD *)v4 + 5) = v4 + 16;
             memmove(v4 + 16, v11[1], *(unsigned __int16 *)v11);
             v30 = v51;
-            v31 = (_WORD *)((char *)v4 + *(unsigned __int16 *)v11 + 64);
+            v31 = (char *)v4 + *(unsigned __int16 *)v11 + 64;
             *((_QWORD *)v4 + 7) = v31;
             if ( (*(_BYTE *)(v30 + 2) & 0x20) != 0 )
-              CmpCopyCompressedName(v31, Size, (unsigned __int8 *)(v30 + 76), *(unsigned __int16 *)(v30 + 72));
+              CmpCopyCompressedName(v31, (unsigned int)Size, v30 + 76, *(unsigned __int16 *)(v30 + 72));
             else
               memmove(v31, (const void *)(v30 + 76), (unsigned int)Size);
             v32 = Size;

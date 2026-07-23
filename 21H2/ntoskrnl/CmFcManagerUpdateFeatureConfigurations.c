@@ -1,28 +1,28 @@
 /*
- * XREFs of CmFcManagerUpdateFeatureConfigurations @ 0x14087DD04
+ * XREFs of CmFcManagerUpdateFeatureConfigurations @ 0x14087DE64
  * Callers:
- *     CmUpdateFeatureConfiguration @ 0x14086B330 (CmUpdateFeatureConfiguration.c)
+ *     CmUpdateFeatureConfiguration @ 0x14086B490 (CmUpdateFeatureConfiguration.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
- *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
- *     KeEnterCriticalRegion @ 0x140351210 (KeEnterCriticalRegion.c)
- *     RtlpFcBufferManagerReferenceBuffers @ 0x1403A6968 (RtlpFcBufferManagerReferenceBuffers.c)
- *     RtlpFcBufferManagerDereferenceBuffers @ 0x1403A6D4C (RtlpFcBufferManagerDereferenceBuffers.c)
- *     RtlpFcWriteHighLowHigh @ 0x1403CE464 (RtlpFcWriteHighLowHigh.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14027E1A4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x1402864F4 (_tlgKeywordOn.c)
+ *     KeLeaveCriticalRegion @ 0x140356100 (KeLeaveCriticalRegion.c)
+ *     KeEnterCriticalRegion @ 0x14035BF60 (KeEnterCriticalRegion.c)
+ *     RtlpFcBufferManagerReferenceBuffers @ 0x1403A6AB8 (RtlpFcBufferManagerReferenceBuffers.c)
+ *     RtlpFcBufferManagerDereferenceBuffers @ 0x1403A6E9C (RtlpFcBufferManagerDereferenceBuffers.c)
+ *     RtlpFcWriteHighLowHigh @ 0x1403CE5D4 (RtlpFcWriteHighLowHigh.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
  *     RtlpFcValidateFeatureConfigurationBuffer @ 0x1405CFC30 (RtlpFcValidateFeatureConfigurationBuffer.c)
- *     RtlpFcBufferManagerUpdateBuffers @ 0x1407CAA94 (RtlpFcBufferManagerUpdateBuffers.c)
- *     CmFcpMapSection @ 0x1407D24AC (CmFcpMapSection.c)
- *     CmSiRWLockReleaseExclusive @ 0x1407D3524 (CmSiRWLockReleaseExclusive.c)
- *     CmFcpCleanupSectionState @ 0x1407D4AC8 (CmFcpCleanupSectionState.c)
- *     CmFcpUnmapSection @ 0x1407D4AE8 (CmFcpUnmapSection.c)
- *     CmpVolumeManagerLockContextListExclusive @ 0x1407D5458 (CmpVolumeManagerLockContextListExclusive.c)
- *     CmFcpIncrementChangeStamp @ 0x1407D55FC (CmFcpIncrementChangeStamp.c)
- *     CmFcpManagerCreateSection @ 0x14087E570 (CmFcpManagerCreateSection.c)
- *     CmFcpManagerPublishChangeNotifications @ 0x14087E7C4 (CmFcpManagerPublishChangeNotifications.c)
- *     RtlpFcUpdateFeatureConfiguration @ 0x14091A4E4 (RtlpFcUpdateFeatureConfiguration.c)
+ *     RtlpFcBufferManagerUpdateBuffers @ 0x1407CADB4 (RtlpFcBufferManagerUpdateBuffers.c)
+ *     CmFcpMapSection @ 0x1407D261C (CmFcpMapSection.c)
+ *     CmSiRWLockReleaseExclusive @ 0x1407D3694 (CmSiRWLockReleaseExclusive.c)
+ *     CmFcpCleanupSectionState @ 0x1407D4C38 (CmFcpCleanupSectionState.c)
+ *     CmFcpUnmapSection @ 0x1407D4C58 (CmFcpUnmapSection.c)
+ *     CmpVolumeManagerLockContextListExclusive @ 0x1407D55C8 (CmpVolumeManagerLockContextListExclusive.c)
+ *     CmFcpIncrementChangeStamp @ 0x1407D576C (CmFcpIncrementChangeStamp.c)
+ *     CmFcpManagerCreateSection @ 0x14087E6D0 (CmFcpManagerCreateSection.c)
+ *     CmFcpManagerPublishChangeNotifications @ 0x14087E924 (CmFcpManagerPublishChangeNotifications.c)
+ *     RtlpFcUpdateFeatureConfiguration @ 0x14091A644 (RtlpFcUpdateFeatureConfiguration.c)
  */
 
 __int64 __fastcall CmFcManagerUpdateFeatureConfigurations(__int64 a1, __int64 a2, int a3, __int64 a4, unsigned int a5)
@@ -80,8 +80,8 @@ __int64 __fastcall CmFcManagerUpdateFeatureConfigurations(__int64 a1, __int64 a2
   v31 = 3 * v7;
   v9 = &v37[3 * v7];
   KeEnterCriticalRegion();
-  CmpVolumeManagerLockContextListExclusive((ULONG_PTR)&stru_140C480F0);
-  RtlpFcBufferManagerReferenceBuffers((__int64)qword_140C48150, (__int64)&v29, &v35);
+  CmpVolumeManagerLockContextListExclusive((ULONG_PTR)&stru_140C48150);
+  RtlpFcBufferManagerReferenceBuffers((__int64)qword_140C481B0, (__int64)&v29, &v35);
   v10 = v35;
   v11 = 3LL;
   if ( a2 && v29 != a2 )
@@ -124,7 +124,7 @@ __int64 __fastcall CmFcManagerUpdateFeatureConfigurations(__int64 a1, __int64 a2
               v40 = 8;
               tlgWriteTransfer_EtwWriteTransfer(
                 (__int64)&dword_140C01988,
-                (unsigned __int8 *)&dword_140023C74,
+                (unsigned __int8 *)&dword_140023D34,
                 0LL,
                 0LL,
                 3u,
@@ -136,23 +136,23 @@ __int64 __fastcall CmFcManagerUpdateFeatureConfigurations(__int64 a1, __int64 a2
           v20 = v34;
           v15 = v33;
 LABEL_18:
-          RtlpFcBufferManagerDereferenceBuffers((__int64)qword_140C48150, v10);
+          RtlpFcBufferManagerDereferenceBuffers((__int64)qword_140C481B0, v10);
           CmpVolumeManagerLockContextListExclusive((ULONG_PTR)&RunOnce);
           v21 = 3LL * v30[0];
-          v22 = qword_140C48108[3 * v30[0]];
-          qword_140C48108[v21] = v15;
-          v23 = qword_140C48108[v21 + 1];
+          v22 = qword_140C48168[3 * v30[0]];
+          qword_140C48168[v21] = v15;
+          v23 = qword_140C48168[v21 + 1];
           *(_QWORD *)&v33 = v22;
-          qword_140C48108[v21 + 1] = *((_QWORD *)&v33 + 1);
-          v24 = qword_140C48108[v21 + 2];
-          qword_140C48108[v21 + 2] = v20;
+          qword_140C48168[v21 + 1] = *((_QWORD *)&v33 + 1);
+          v24 = qword_140C48168[v21 + 2];
+          qword_140C48168[v21 + 2] = v20;
           *((_QWORD *)&v33 + 1) = v23;
           v34 = v24;
-          RtlpFcBufferManagerUpdateBuffers(qword_140C48150, v13, (__int64)v37);
-          RtlpFcWriteHighLowHigh((__int64)&qword_140C480F8, v13);
+          RtlpFcBufferManagerUpdateBuffers(qword_140C481B0, v13, (__int64)v37);
+          RtlpFcWriteHighLowHigh((__int64)&qword_140C48158, v13);
           RtlpFcWriteHighLowHigh(0xFFFFF78000000710uLL, v25);
           CmSiRWLockReleaseExclusive((volatile signed __int64 *)&RunOnce);
-          CmSiRWLockReleaseExclusive((volatile signed __int64 *)&stru_140C480F0);
+          CmSiRWLockReleaseExclusive((volatile signed __int64 *)&stru_140C48150);
           CmFcpManagerPublishChangeNotifications(v26, v13);
           v12 = 0;
           goto LABEL_19;
@@ -161,9 +161,9 @@ LABEL_18:
     }
   }
 LABEL_4:
-  CmSiRWLockReleaseExclusive((volatile signed __int64 *)&stru_140C480F0);
+  CmSiRWLockReleaseExclusive((volatile signed __int64 *)&stru_140C48150);
   if ( v10 )
-    RtlpFcBufferManagerDereferenceBuffers((__int64)qword_140C48150, v10);
+    RtlpFcBufferManagerDereferenceBuffers((__int64)qword_140C481B0, v10);
 LABEL_19:
   v27 = v37;
   do

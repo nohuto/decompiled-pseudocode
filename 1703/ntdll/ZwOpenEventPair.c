@@ -6,11 +6,14 @@
  *     <none>
  */
 
-__int64 ZwOpenEventPair()
+NTSTATUS __cdecl ZwOpenEventPair(
+        PHANDLE EventPairHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 274LL;
+  result = 274;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

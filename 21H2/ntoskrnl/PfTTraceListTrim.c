@@ -1,8 +1,8 @@
 /*
- * XREFs of PfTTraceListTrim @ 0x1408E05FC
+ * XREFs of PfTTraceListTrim @ 0x1408E075C
  * Callers:
- *     PfTTraceListAdd @ 0x1406CD70C (PfTTraceListAdd.c)
- *     PfTCleanup @ 0x1408E03BC (PfTCleanup.c)
+ *     PfTTraceListAdd @ 0x14067C39C (PfTTraceListAdd.c)
+ *     PfTCleanup @ 0x1408E051C (PfTCleanup.c)
  * Callees:
  *     <none>
  */
@@ -17,16 +17,16 @@ void ***__fastcall PfTTraceListTrim(int a1, unsigned int a2, void ***a3)
   int v9; // ecx
   void **v10; // rcx
 
-  v4 = &dword_140C4FEE4;
+  v4 = &dword_140C4FF24;
   if ( a1 != 1 )
-    v4 = (int *)&unk_140C4FEE0;
-  v5 = &dword_140C4FDE0;
+    v4 = (int *)&unk_140C4FF20;
+  v5 = &dword_140C4FE20;
   if ( a1 != 1 )
-    v5 = &dword_140C4FDD8;
-  v6 = (void **)&unk_140C4FDC8;
-  result = (void ***)&unk_140C4FDB8;
+    v5 = &dword_140C4FE18;
+  v6 = (void **)&unk_140C4FE08;
+  result = (void ***)&unk_140C4FDF8;
   if ( a1 != 1 )
-    v6 = (void **)&unk_140C4FDB8;
+    v6 = (void **)&unk_140C4FDF8;
   while ( *v5 > a2 )
   {
     result = (void ***)*v6;

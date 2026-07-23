@@ -1,10 +1,10 @@
 /*
- * XREFs of FsRtlDeleteTunnelCache @ 0x140700F50
+ * XREFs of FsRtlDeleteTunnelCache @ 0x1407021F0
  * Callers:
  *     <none>
  * Callees:
- *     ExFreeToNPagedLookasideList @ 0x1400922D8 (ExFreeToNPagedLookasideList.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     ExFreeToNPagedLookasideList @ 0x140092218 (ExFreeToNPagedLookasideList.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 void __stdcall FsRtlDeleteTunnelCache(TUNNEL *Cache)

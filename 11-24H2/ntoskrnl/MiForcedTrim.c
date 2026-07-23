@@ -1,11 +1,11 @@
 /*
- * XREFs of MiForcedTrim @ 0x1402D0EB8
+ * XREFs of MiForcedTrim @ 0x1402F4A18
  * Callers:
- *     MiSelfTrim @ 0x1402E1728 (MiSelfTrim.c)
+ *     MiSelfTrim @ 0x140243008 (MiSelfTrim.c)
  * Callees:
- *     MiAgeWorkingSet @ 0x140235110 (MiAgeWorkingSet.c)
- *     MiGetAvailablePagesForTrimPass @ 0x1402D15A8 (MiGetAvailablePagesForTrimPass.c)
- *     MiTrimWorkingSet @ 0x1403CF15C (MiTrimWorkingSet.c)
+ *     MiAgeWorkingSet @ 0x14020F2A0 (MiAgeWorkingSet.c)
+ *     MiGetAvailablePagesForTrimPass @ 0x1402F51C4 (MiGetAvailablePagesForTrimPass.c)
+ *     MiTrimWorkingSet @ 0x140390208 (MiTrimWorkingSet.c)
  */
 
 __int64 __fastcall MiForcedTrim(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -38,7 +38,7 @@ __int64 __fastcall MiForcedTrim(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
   v4 = *(unsigned __int16 *)(a1 + 174);
   v6 = a2;
   v7 = 0LL;
-  v8 = *((_QWORD *)qword_140E2FF88 + v4);
+  v8 = *((_QWORD *)qword_140E300C8 + v4);
   v9 = *(_QWORD *)(v8 + 17600);
   AvailablePagesForTrimPass = MiGetAvailablePagesForTrimPass(v8, a2, v4, a4);
   v12 = *(_QWORD *)(a1 + 144);
@@ -103,6 +103,6 @@ __int64 __fastcall MiForcedTrim(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
       a1,
       v6,
       1u,
-      *(unsigned __int16 *)(*(_QWORD *)(*((_QWORD *)qword_140E2FF88 + *(unsigned __int16 *)(a1 + 174)) + 17600LL) + 274LL));
+      *(unsigned __int16 *)(*(_QWORD *)(*((_QWORD *)qword_140E300C8 + *(unsigned __int16 *)(a1 + 174)) + 17600LL) + 274LL));
   return v7;
 }

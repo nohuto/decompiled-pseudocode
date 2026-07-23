@@ -1,11 +1,11 @@
 /*
- * XREFs of WheaPrmTranslatePhysicalAddress @ 0x1406D7570
+ * XREFs of WheaPrmTranslatePhysicalAddress @ 0x1406DB700
  * Callers:
- *     HalpAddPrmAddressTranslationToMemoryExtAmdSection @ 0x14057E140 (HalpAddPrmAddressTranslationToMemoryExtAmdSection.c)
- *     HalpAddPrmAddressTranslationToMemoryExtIntelSection @ 0x14057E2B8 (HalpAddPrmAddressTranslationToMemoryExtIntelSection.c)
+ *     HalpAddPrmAddressTranslationToMemoryExtAmdSection @ 0x140580660 (HalpAddPrmAddressTranslationToMemoryExtAmdSection.c)
+ *     HalpAddPrmAddressTranslationToMemoryExtIntelSection @ 0x1405807D8 (HalpAddPrmAddressTranslationToMemoryExtIntelSection.c)
  * Callees:
- *     WheapPrmTranslatePhysicalAddressAmd @ 0x1406D7998 (WheapPrmTranslatePhysicalAddressAmd.c)
- *     WheapPrmTranslatePhysicalAddressIntel @ 0x1406D7A38 (WheapPrmTranslatePhysicalAddressIntel.c)
+ *     WheapPrmTranslatePhysicalAddressAmd @ 0x1406DBB28 (WheapPrmTranslatePhysicalAddressAmd.c)
+ *     WheapPrmTranslatePhysicalAddressIntel @ 0x1406DBBC8 (WheapPrmTranslatePhysicalAddressIntel.c)
  */
 
 __int64 __fastcall WheaPrmTranslatePhysicalAddress(__int64 a1)

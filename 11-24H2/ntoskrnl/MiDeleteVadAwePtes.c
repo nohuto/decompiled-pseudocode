@@ -1,14 +1,14 @@
 /*
- * XREFs of MiDeleteVadAwePtes @ 0x1404B9E8C
+ * XREFs of MiDeleteVadAwePtes @ 0x1404B4D2C
  * Callers:
- *     MiDeleteVa @ 0x1402DB780 (MiDeleteVa.c)
- *     MiDeleteLargeUserPde @ 0x1404B9CA4 (MiDeleteLargeUserPde.c)
+ *     MiDeleteVa @ 0x14023D060 (MiDeleteVa.c)
+ *     MiDeleteLargeUserPde @ 0x1404B4B44 (MiDeleteLargeUserPde.c)
  * Callees:
- *     MI_READ_PTE_LOCK_FREE @ 0x14021A250 (MI_READ_PTE_LOCK_FREE.c)
- *     MiCompareTbFlushTimeStamp @ 0x14023E0A8 (MiCompareTbFlushTimeStamp.c)
- *     MiLockHugePfnInternal @ 0x1403F9BD8 (MiLockHugePfnInternal.c)
- *     MiGetAweViewPageSize @ 0x1404BA0FC (MiGetAweViewPageSize.c)
- *     MiWriteAwePtes @ 0x1404BA130 (MiWriteAwePtes.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140246FA0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiLockHugePfnInternal @ 0x1403EFAE4 (MiLockHugePfnInternal.c)
+ *     MiCompareTbFlushTimeStamp @ 0x14044D95C (MiCompareTbFlushTimeStamp.c)
+ *     MiGetAweViewPageSize @ 0x1404B4F9C (MiGetAweViewPageSize.c)
+ *     MiWriteAwePtes @ 0x1404B4FD0 (MiWriteAwePtes.c)
  */
 
 __int64 __fastcall MiDeleteVadAwePtes(__int64 a1, unsigned __int64 a2, int a3)
@@ -21,7 +21,7 @@ __int64 __fastcall MiDeleteVadAwePtes(__int64 a1, unsigned __int64 a2, int a3)
   __int64 v10; // rbp
   __int64 v11; // rax
   __int64 v12; // rbx
-  unsigned __int64 v13; // rcx
+  __int64 v13; // rcx
   int v14; // r8d
   unsigned __int64 v15; // rdx
   __int64 v16; // r9
@@ -57,15 +57,15 @@ __int64 __fastcall MiDeleteVadAwePtes(__int64 a1, unsigned __int64 a2, int a3)
   }
   else if ( (v11 & 0x800) == 0 && (v11 & 0x3E0) == 0x300 )
   {
-    v13 = v11;
-    if ( qword_140E2DB80 )
+    HIDWORD(v13) = HIDWORD(v11);
+    if ( qword_140E2DCC0 )
     {
       if ( (v11 & 0x10) != 0 )
-        v13 = v11 & 0xFFFFFFFFFFFFFFEFuLL;
+        HIDWORD(v13) = HIDWORD(v11);
       else
-        v13 = v11 & ~qword_140E2DB80;
+        v13 = v11 & ~qword_140E2DCC0;
     }
-    if ( MiCompareTbFlushTimeStamp(HIDWORD(v13)) )
+    if ( MiCompareTbFlushTimeStamp(SHIDWORD(v13)) )
       v10 = 1LL;
   }
   v14 = 0;
@@ -100,7 +100,7 @@ __int64 __fastcall MiDeleteVadAwePtes(__int64 a1, unsigned __int64 a2, int a3)
       v23 = *v21;
       if ( v22 )
       {
-        v24 = ((v22 - qword_140E2FFC0) >> 3 << 17) ^ (((v22 - qword_140E2FFC0) >> 3 << 17) ^ v23) & 0xFFFFFF800001FFFFuLL;
+        v24 = ((v22 - qword_140E30100) >> 3 << 17) ^ (((v22 - qword_140E30100) >> 3 << 17) ^ v23) & 0xFFFFFF800001FFFFuLL;
       }
       else
       {
@@ -109,8 +109,8 @@ __int64 __fastcall MiDeleteVadAwePtes(__int64 a1, unsigned __int64 a2, int a3)
       }
       *v21 = v24;
       _InterlockedAnd(
-        (volatile signed __int32 *)(qword_140E2FFC8 + 4 * (((((__int64)v21 - qword_140E2FFC0) >> 3) & 0x3FFFFFuLL) >> 5)),
-        ~(1 << ((((__int64)v21 - qword_140E2FFC0) >> 3) & 0x1F)));
+        (volatile signed __int32 *)(qword_140E30108 + 4 * (((((__int64)v21 - qword_140E30100) >> 3) & 0x3FFFFFuLL) >> 5)),
+        ~(1 << ((((__int64)v21 - qword_140E30100) >> 3) & 0x1F)));
     }
     else
     {

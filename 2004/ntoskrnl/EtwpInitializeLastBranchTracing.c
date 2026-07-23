@@ -16,7 +16,7 @@ __int64 EtwpInitializeLastBranchTracing()
   v1 = 0;
   v2 = 0;
   if ( ((unsigned __int8)&EtwpLastBranchLookAsideList & 0xF) != 0 )
-    RtlRaiseStatus(0x80000002);
+    RtlRaiseStatus(-2147483646);
   dword_140C53B80 = 0;
   dword_140C53B84 = 0;
   EtwpLastBranchLookAsideList = 0LL;

@@ -1,12 +1,12 @@
 /*
- * XREFs of PoQueryWatchdogTime @ 0x1402AF6C0
+ * XREFs of PoQueryWatchdogTime @ 0x14022DA20
  * Callers:
  *     <none>
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
- *     KiQueryUnbiasedInterruptTime @ 0x1402546F4 (KiQueryUnbiasedInterruptTime.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     PopComputeWatchdogTimeout @ 0x1403985AC (PopComputeWatchdogTimeout.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x140275C64 (KiQueryUnbiasedInterruptTime.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402D3660 (KeAcquireInStackQueuedSpinLock.c)
+ *     PopComputeWatchdogTimeout @ 0x1403986FC (PopComputeWatchdogTimeout.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
@@ -17,21 +17,22 @@ BOOLEAN __stdcall PoQueryWatchdogTime(PDEVICE_OBJECT Pdo, PULONG SecondsRemainin
   _QWORD *DeviceNode; // rdi
   __int64 v6; // rdx
   __int64 v7; // rdx
+  __int64 v8; // rcx
   unsigned __int64 OldIrql; // rdi
   unsigned __int64 UnbiasedInterruptTime; // rax
-  __int64 v11; // rax
-  unsigned int v12; // eax
-  __int64 v13; // r8
-  unsigned __int64 v14; // rax
-  __int64 v15; // rax
-  unsigned int v16; // eax
-  __int64 v17; // r8
-  __int64 v18; // rax
+  __int64 v12; // rax
+  unsigned int v13; // eax
+  __int64 v14; // r8
+  unsigned __int64 v15; // rax
+  __int64 v16; // rax
+  unsigned int v17; // eax
+  __int64 v18; // r8
+  __int64 v19; // rax
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  int v22; // eax
-  bool v23; // zf
+  int v23; // eax
+  bool v24; // zf
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
 
   v2 = -1LL;
@@ -45,25 +46,25 @@ BOOLEAN __stdcall PoQueryWatchdogTime(PDEVICE_OBJECT Pdo, PULONG SecondsRemainin
   v6 = DeviceNode[33];
   if ( v6 )
   {
-    v15 = *(char *)(v6 + 66);
-    if ( *(_BYTE *)(*(_QWORD *)(v6 + 72 * v15 + 200) + 196LL) )
+    v16 = *(char *)(v6 + 66);
+    if ( *(_BYTE *)(*(_QWORD *)(v6 + 72 * v16 + 200) + 196LL) )
     {
-      v16 = PopComputeWatchdogTimeout(*(_QWORD *)(v6 + 72 * v15 + 200));
-      v18 = *(_QWORD *)(v17 + 48) + 10000000LL * v16;
-      if ( v18 != -1 )
-        v2 = v18;
+      v17 = PopComputeWatchdogTimeout(*(_QWORD *)(v6 + 72 * v16 + 200));
+      v19 = *(_QWORD *)(v18 + 48) + 10000000LL * v17;
+      if ( v19 != -1 )
+        v2 = v19;
     }
   }
   v7 = DeviceNode[35];
   if ( v7 )
   {
-    v11 = *(char *)(v7 + 66);
-    if ( *(_BYTE *)(*(_QWORD *)(v7 + 72 * v11 + 200) + 196LL) )
+    v12 = *(char *)(v7 + 66);
+    if ( *(_BYTE *)(*(_QWORD *)(v7 + 72 * v12 + 200) + 196LL) )
     {
-      v12 = PopComputeWatchdogTimeout(*(_QWORD *)(v7 + 72 * v11 + 200));
-      v14 = *(_QWORD *)(v13 + 48) + 10000000LL * v12;
-      if ( v14 < v2 )
-        v2 = v14;
+      v13 = PopComputeWatchdogTimeout(*(_QWORD *)(v7 + 72 * v12 + 200));
+      v15 = *(_QWORD *)(v14 + 48) + 10000000LL * v13;
+      if ( v15 < v2 )
+        v2 = v15;
     }
   }
   KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
@@ -77,10 +78,11 @@ BOOLEAN __stdcall PoQueryWatchdogTime(PDEVICE_OBJECT Pdo, PULONG SecondsRemainin
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
-        v22 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
-        v23 = (v22 & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= v22;
-        if ( v23 )
+        v8 = (unsigned int)LockHandle.OldIrql + 1;
+        v23 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
+        v24 = (v23 & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= v23;
+        if ( v24 )
           KiRemoveSystemWorkPriorityKick(CurrentPrcb);
       }
     }
@@ -89,7 +91,8 @@ BOOLEAN __stdcall PoQueryWatchdogTime(PDEVICE_OBJECT Pdo, PULONG SecondsRemainin
   if ( v2 != -1LL )
   {
     v3 = 1;
-    UnbiasedInterruptTime = KiQueryUnbiasedInterruptTime();
+    LOBYTE(v8) = 1;
+    UnbiasedInterruptTime = KiQueryUnbiasedInterruptTime(v8);
     if ( UnbiasedInterruptTime > v2 )
       *SecondsRemaining = 0;
     else

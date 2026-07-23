@@ -1,33 +1,33 @@
 /*
- * XREFs of MiAllocatePagedPoolPages @ 0x1400DE970
+ * XREFs of MiAllocatePagedPoolPages @ 0x1400DC810
  * Callers:
- *     ExpAllocateBigPool @ 0x140011AD0 (ExpAllocateBigPool.c)
- *     MiAllocatePoolPages @ 0x14009DBEC (MiAllocatePoolPages.c)
+ *     ExpAllocateBigPool @ 0x140011650 (ExpAllocateBigPool.c)
+ *     MiAllocatePoolPages @ 0x14009D3EC (MiAllocatePoolPages.c)
  * Callees:
- *     KiLeaveGuardedRegionUnsafe @ 0x140013B70 (KiLeaveGuardedRegionUnsafe.c)
- *     MmGetSessionIdEx @ 0x140024FEC (MmGetSessionIdEx.c)
- *     MiChargeCommit @ 0x14002B650 (MiChargeCommit.c)
- *     KeResetEvent @ 0x14002E630 (KeResetEvent.c)
- *     MiReturnCommit @ 0x14004E500 (MiReturnCommit.c)
- *     MiReturnResidentAvailable @ 0x14004F1E0 (MiReturnResidentAvailable.c)
- *     KeSetEvent @ 0x1400562D0 (KeSetEvent.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     MiExpandPagedPool @ 0x1400A296C (MiExpandPagedPool.c)
- *     MiFreeExcessSegments @ 0x1400A3910 (MiFreeExcessSegments.c)
- *     KiCheckForKernelApcDelivery @ 0x1400C7DE0 (KiCheckForKernelApcDelivery.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
- *     MiFlushTbAsNeeded @ 0x1400E0040 (MiFlushTbAsNeeded.c)
- *     MiChargeWsles @ 0x1400E1B20 (MiChargeWsles.c)
- *     MiChargeResident @ 0x140103450 (MiChargeResident.c)
- *     EtwTraceAutoBoostEntryExhaustion @ 0x14015964C (EtwTraceAutoBoostEntryExhaustion.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     RtlpInterlockedPopEntrySList @ 0x140166E00 (RtlpInterlockedPopEntrySList.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
- *     MiMakeDemandZeroPte @ 0x1401F2734 (MiMakeDemandZeroPte.c)
- *     MiFillPagedPoolLockedDown @ 0x14065A01C (MiFillPagedPoolLockedDown.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1400136F0 (KiLeaveGuardedRegionUnsafe.c)
+ *     MmGetSessionIdEx @ 0x140024B6C (MmGetSessionIdEx.c)
+ *     MiChargeCommit @ 0x14002B1D0 (MiChargeCommit.c)
+ *     KeResetEvent @ 0x14002E1B0 (KeResetEvent.c)
+ *     MiReturnCommit @ 0x14004E080 (MiReturnCommit.c)
+ *     MiReturnResidentAvailable @ 0x14004ED60 (MiReturnResidentAvailable.c)
+ *     KeSetEvent @ 0x140055E50 (KeSetEvent.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     MiExpandPagedPool @ 0x1400A1294 (MiExpandPagedPool.c)
+ *     MiFreeExcessSegments @ 0x1400A2238 (MiFreeExcessSegments.c)
+ *     KiCheckForKernelApcDelivery @ 0x1400C5C80 (KiCheckForKernelApcDelivery.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
+ *     MiFlushTbAsNeeded @ 0x1400DDEE0 (MiFlushTbAsNeeded.c)
+ *     MiChargeWsles @ 0x1400DF9C0 (MiChargeWsles.c)
+ *     MiChargeResident @ 0x1401011D0 (MiChargeResident.c)
+ *     EtwTraceAutoBoostEntryExhaustion @ 0x140159BBC (EtwTraceAutoBoostEntryExhaustion.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140167370 (RtlpInterlockedPopEntrySList.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
+ *     MiMakeDemandZeroPte @ 0x1401F2560 (MiMakeDemandZeroPte.c)
+ *     MiFillPagedPoolLockedDown @ 0x14065A100 (MiFillPagedPoolLockedDown.c)
  */
 
 ULONG_PTR __fastcall MiAllocatePagedPoolPages(int a1, unsigned __int64 a2)
@@ -35,7 +35,7 @@ ULONG_PTR __fastcall MiAllocatePagedPoolPages(int a1, unsigned __int64 a2)
   int v3; // r14d
   unsigned __int64 v4; // rsi
   unsigned int v5; // ecx
-  union _SLIST_HEADER *v6; // rcx
+  _SLIST_HEADER *v6; // rcx
   PSLIST_ENTRY v7; // rax
   ULONG_PTR result; // rax
   unsigned __int64 v9; // rdi
@@ -153,30 +153,30 @@ ULONG_PTR __fastcall MiAllocatePagedPoolPages(int a1, unsigned __int64 a2)
   }
   else
   {
-    if ( (unsigned __int64)(qword_140327868 - qword_140327858) < 0x500 )
+    if ( (unsigned __int64)(qword_1403278A8 - qword_140327898) < 0x500 )
     {
-      ++dword_1403264D8;
+      ++dword_140326518;
       MiFreeExcessSegments();
       v5 = v109;
     }
     if ( v4 == 1 && a1 >= 0 )
     {
-      v6 = &qword_1403269B0[26 * v5];
+      v6 = &qword_1403269F0[26 * v5];
       if ( LOWORD(v6->Alignment) )
       {
         v7 = RtlpInterlockedPopEntrySList(v6);
         if ( v7 )
         {
           result = (ULONG_PTR)&v7[-1];
-          if ( *(_QWORD *)result != (result ^ qword_140327780) )
-            KeBugCheckEx(0x1Au, 0x5300uLL, result, *(_QWORD *)result, result ^ qword_140327780);
+          if ( *(_QWORD *)result != (result ^ qword_1403277C0) )
+            KeBugCheckEx(0x1Au, 0x5300uLL, result, *(_QWORD *)result, result ^ qword_1403277C0);
           return result;
         }
       }
     }
     v9 = 0LL;
-    v10 = (unsigned __int64)&qword_140327828;
-    v11 = &unk_140327B60;
+    v10 = (unsigned __int64)&qword_140327868;
+    v11 = &unk_140327BA0;
   }
   v107 = v11;
   v105 = v9;
@@ -455,7 +455,7 @@ LABEL_99:
     v46 = (char *)v41->LockEntries + v18;
     if ( !v46 )
       goto LABEL_100;
-    if ( v10 < qword_140326910 || v10 >= qword_140326910 + 0x8000000000LL )
+    if ( v10 < qword_140326950 || v10 >= qword_140326950 + 0x8000000000LL )
       SessionId = -1;
     else
       SessionId = MmGetSessionIdEx(v41->ApcState.Process);
@@ -760,14 +760,14 @@ LABEL_214:
 LABEL_215:
     if ( v9 )
     {
-      ++dword_140326488;
-      ++dword_1403264B4;
+      ++dword_1403264C8;
+      ++dword_1403264F4;
       ++*(_DWORD *)(v9 + 100);
     }
     else
     {
-      ++dword_14032647C;
-      ++dword_1403264B0;
+      ++dword_1403264BC;
+      ++dword_1403264F0;
     }
     return 0LL;
   }
@@ -778,12 +778,12 @@ LABEL_215:
     v84 = (_BYTE *)(*(_QWORD *)(v10 + 16) + (v56 >> 3));
     if ( v83 + v52 <= 8 )
     {
-      v85 = byte_14026F698[v52] << v83;
+      v85 = byte_14026F6B8[v52] << v83;
       goto LABEL_205;
     }
     if ( (v56 & 7) != 0 )
     {
-      *v84++ |= byte_14026F6A8[v83];
+      *v84++ |= byte_14026F6C8[v83];
       v82 = v52 - (unsigned int)(8 - v83);
     }
     if ( v82 > 8 )
@@ -795,7 +795,7 @@ LABEL_215:
     }
     if ( v82 )
     {
-      v85 = byte_14026F698[v82];
+      v85 = byte_14026F6B8[v82];
 LABEL_205:
       *v84 |= v85;
     }
@@ -818,13 +818,13 @@ LABEL_223:
   }
   else
   {
-    v89 = qword_140327868 - qword_140327858;
-    if ( qword_140327868 - qword_140327858 < (unsigned __int64)qword_1403264C8 )
+    v89 = qword_1403278A8 - qword_140327898;
+    if ( qword_1403278A8 - qword_140327898 < (unsigned __int64)qword_140326508 )
     {
-      if ( qword_140323660->Header.SignalState )
-        KeResetEvent(qword_140323660);
-      if ( v89 <= qword_1403264C0 && !qword_140323658->Header.SignalState )
-        KeSetEvent(qword_140323658, 0, 0);
+      if ( qword_1403236A0->Header.SignalState )
+        KeResetEvent(qword_1403236A0);
+      if ( v89 <= qword_140326500 && !qword_140323698->Header.SignalState )
+        KeSetEvent(qword_140323698, 0, 0);
     }
     if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)v10, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
       ExfTryToWakePushLock((volatile signed __int64 *)v10);

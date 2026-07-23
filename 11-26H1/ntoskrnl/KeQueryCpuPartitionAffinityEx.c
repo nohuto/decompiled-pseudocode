@@ -1,14 +1,14 @@
 /*
- * XREFs of KeQueryCpuPartitionAffinityEx @ 0x14052B518
+ * XREFs of KeQueryCpuPartitionAffinityEx @ 0x14052DA38
  * Callers:
- *     KiQueryCpuPartitionAffinityProcess @ 0x1404D5808 (KiQueryCpuPartitionAffinityProcess.c)
- *     KiUpdateSystemAvailableCpuState @ 0x1405E5CF4 (KiUpdateSystemAvailableCpuState.c)
- *     PspSelectNodeForProcess @ 0x1407F2DF0 (PspSelectNodeForProcess.c)
+ *     KiQueryCpuPartitionAffinityProcess @ 0x14025DAC4 (KiQueryCpuPartitionAffinityProcess.c)
+ *     KiUpdateSystemAvailableCpuState @ 0x1405E8664 (KiUpdateSystemAvailableCpuState.c)
+ *     PspSelectNodeForProcess @ 0x1407F8950 (PspSelectNodeForProcess.c)
  * Callees:
- *     ?RtlpCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z @ 0x1402518B0 (-RtlpCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z.c)
- *     KiAcquireCpuPartitionLock @ 0x1404D74BC (KiAcquireCpuPartitionLock.c)
- *     KiReleaseCpuPartitionLock @ 0x1404E0640 (KiReleaseCpuPartitionLock.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     ?RtlpCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z @ 0x140253210 (-RtlpCopyAffinityEx@@YAXPEAU_KAFFINITY_EX@@G0@Z.c)
+ *     KiAcquireCpuPartitionLock @ 0x1404D0C8C (KiAcquireCpuPartitionLock.c)
+ *     KiReleaseCpuPartitionLock @ 0x1404D9D20 (KiReleaseCpuPartitionLock.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 void __fastcall KeQueryCpuPartitionAffinityEx(struct _KAFFINITY_EX **a1, struct _KAFFINITY_EX *a2)

@@ -26,7 +26,7 @@ _QWORD *__fastcall PopFxInsertDevice(__int64 a1, __int64 a2, _QWORD *a3)
   unsigned int v10; // r8d
   bool v11; // zf
   __int64 v12; // rcx
-  unsigned __int64 v13; // rdi
+  __int64 v13; // rdi
   int v14; // eax
   unsigned int v15; // ecx
   __int64 v16; // rdx
@@ -67,7 +67,7 @@ _QWORD *__fastcall PopFxInsertDevice(__int64 a1, __int64 a2, _QWORD *a3)
     LODWORD(v23) = v12;
     if ( v11 )
       break;
-    v13 = (unsigned __int64)&v7->LockEntries[v12];
+    v13 = (__int64)&v7->LockEntries[v12];
     v10 &= ~(1 << v12);
     if ( (*(_BYTE *)(v13 + 26) & 1) != 0
       && (*(_DWORD *)(v13 + 32) & 1) == 0
@@ -81,14 +81,14 @@ _QWORD *__fastcall PopFxInsertDevice(__int64 a1, __int64 a2, _QWORD *a3)
         {
           *(_BYTE *)(v13 + 32) |= 2u;
           if ( *(__int64 *)(v13 + 32) < 0 )
-            KiAbEntryRemoveFromTree(v13);
+            KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v13);
           v14 = *(_DWORD *)(v13 + 88) & 0x1FFFF;
           v15 = *(_DWORD *)(v13 + 88) & 0xFFFE0000;
           *(_BYTE *)(v13 + 25) &= ~1u;
           LODWORD(v22) = v14;
           *(_DWORD *)(v13 + 88) = v15;
           *(_QWORD *)(v13 + 32) = 0LL;
-          v16 = (__int64)(v13 - (unsigned __int64)v7->LockEntries) / 96;
+          v16 = (signed __int64)(v13 - (unsigned __int64)v7->LockEntries) / 96;
           if ( v9 == 1 )
             v7->AbEntrySummary |= 1 << v16;
           else

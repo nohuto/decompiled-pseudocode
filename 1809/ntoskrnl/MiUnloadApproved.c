@@ -1,21 +1,21 @@
 /*
- * XREFs of MiUnloadApproved @ 0x14070DF74
+ * XREFs of MiUnloadApproved @ 0x14070F214
  * Callers:
- *     MiDereferenceImports @ 0x14070DEEC (MiDereferenceImports.c)
+ *     MiDereferenceImports @ 0x14070F18C (MiDereferenceImports.c)
  * Callees:
  *     MiGetSystemRegionType @ 0x14004EC30 (MiGetSystemRegionType.c)
- *     MiSessionLookupImage @ 0x14009DBC8 (MiSessionLookupImage.c)
- *     RtlFindExportedRoutineByName @ 0x140678EC0 (RtlFindExportedRoutineByName.c)
+ *     MiSessionLookupImage @ 0x14009DB08 (MiSessionLookupImage.c)
+ *     RtlFindExportedRoutineByName @ 0x14067A080 (RtlFindExportedRoutineByName.c)
  */
 
 __int64 __fastcall MiUnloadApproved(__int64 a1)
 {
   __int64 v1; // r8
-  char *v2; // r9
+  void *v2; // r9
   __int16 v3; // ax
   _QWORD *v5; // rax
   int v6; // ecx
-  char *ExportedRoutineByName; // rax
+  int (*ExportedRoutineByName)(void); // rax
 
   if ( *(_QWORD *)(a1 + 136) == 1LL )
     return 0LL;
@@ -40,8 +40,8 @@ __int64 __fastcall MiUnloadApproved(__int64 a1)
   }
   if ( (*(_DWORD *)(v1 + 196) & 0x20) == 0 )
   {
-    ExportedRoutineByName = RtlFindExportedRoutineByName(v2, "DllUnload");
-    if ( !ExportedRoutineByName || ((int (*)(void))ExportedRoutineByName)() < 0 )
+    ExportedRoutineByName = (int (*)(void))RtlFindExportedRoutineByName(v2, "DllUnload");
+    if ( !ExportedRoutineByName || ExportedRoutineByName() < 0 )
       return 0LL;
   }
   return 1LL;

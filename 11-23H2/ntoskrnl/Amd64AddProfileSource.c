@@ -1,20 +1,20 @@
 /*
- * XREFs of Amd64AddProfileSource @ 0x140528820
+ * XREFs of Amd64AddProfileSource @ 0x140528D70
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KiCopyAffinityEx @ 0x1402545C0 (KiCopyAffinityEx.c)
- *     KiOrAffinityEx @ 0x1402C2AB0 (KiOrAffinityEx.c)
- *     HalpAcquireHighLevelLock @ 0x14037CB78 (HalpAcquireHighLevelLock.c)
- *     HalpMmAllocCtxAlloc @ 0x14039AE20 (HalpMmAllocCtxAlloc.c)
- *     HalpMmAllocCtxFree @ 0x1403A56C0 (HalpMmAllocCtxFree.c)
- *     wcsnlen @ 0x1403DBAE0 (wcsnlen.c)
- *     wcsncpy_s @ 0x1403DFF30 (wcsncpy_s.c)
- *     memset @ 0x140435A00 (memset.c)
- *     HalpInsertProfileSource @ 0x14050782C (HalpInsertProfileSource.c)
- *     Amd64GetEventSelectDef @ 0x140529410 (Amd64GetEventSelectDef.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KiCopyAffinityEx @ 0x140254680 (KiCopyAffinityEx.c)
+ *     KiOrAffinityEx @ 0x1402C2D40 (KiOrAffinityEx.c)
+ *     HalpAcquireHighLevelLock @ 0x14037CD18 (HalpAcquireHighLevelLock.c)
+ *     HalpMmAllocCtxAlloc @ 0x14039B000 (HalpMmAllocCtxAlloc.c)
+ *     HalpMmAllocCtxFree @ 0x1403A58A0 (HalpMmAllocCtxFree.c)
+ *     wcsnlen @ 0x1403DBCC0 (wcsnlen.c)
+ *     wcsncpy_s @ 0x1403E0110 (wcsncpy_s.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     HalpInsertProfileSource @ 0x140507D7C (HalpInsertProfileSource.c)
+ *     Amd64GetEventSelectDef @ 0x140529960 (Amd64GetEventSelectDef.c)
  */
 
 __int64 __fastcall Amd64AddProfileSource(__int64 a1, _DWORD *a2)
@@ -95,10 +95,13 @@ __int64 __fastcall Amd64AddProfileSource(__int64 a1, _DWORD *a2)
     if ( a2 )
       *a2 = *(_DWORD *)v15;
     KxReleaseSpinLock((volatile signed __int64 *)&HalpProfileSourceDescriptorListLock);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v18 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v18 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -106,7 +109,7 @@ __int64 __fastcall Amd64AddProfileSource(__int64 a1, _DWORD *a2)
         v24 = (v23 & SchedulerAssist[5]) == 0;
         SchedulerAssist[5] &= v23;
         if ( v24 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
       }
     }
     __writecr8(v18);
@@ -127,10 +130,10 @@ __int64 __fastcall Amd64AddProfileSource(__int64 a1, _DWORD *a2)
     }
     KxReleaseSpinLock((volatile signed __int64 *)&HalpProfileSourceDescriptorListLock);
     v27 = (unsigned int)KiIrqlFlags;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v28 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v28 <= 0xFu && (unsigned __int8)v18 <= 0xFu && v28 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v28 <= 0xFu && (unsigned __int8)v18 <= 0xFu && v28 >= 2u )
       {
         v29 = KeGetCurrentPrcb();
         v27 = (unsigned int)(v18 + 1);
@@ -139,7 +142,7 @@ __int64 __fastcall Amd64AddProfileSource(__int64 a1, _DWORD *a2)
         v24 = (v31 & v30[5]) == 0;
         v30[5] &= v31;
         if ( v24 )
-          KiRemoveSystemWorkPriorityKick(v29);
+          KiRemoveSystemWorkPriorityKick((__int64)v29);
       }
     }
     __writecr8(v18);

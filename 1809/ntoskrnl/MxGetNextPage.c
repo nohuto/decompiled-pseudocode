@@ -1,10 +1,10 @@
 /*
- * XREFs of MxGetNextPage @ 0x1409BBB2C
+ * XREFs of MxGetNextPage @ 0x1409BCB2C
  * Callers:
- *     MxMapVa @ 0x1409BB8F8 (MxMapVa.c)
+ *     MxMapVa @ 0x1409BC8F8 (MxMapVa.c)
  * Callees:
- *     MxBootDescriptorDepleted @ 0x1409BBDCC (MxBootDescriptorDepleted.c)
- *     MxSwitchDescriptors @ 0x1409F7CFC (MxSwitchDescriptors.c)
+ *     MxBootDescriptorDepleted @ 0x1409BCDCC (MxBootDescriptorDepleted.c)
+ *     MxSwitchDescriptors @ 0x1409F8CFC (MxSwitchDescriptors.c)
  */
 
 __int64 __fastcall MxGetNextPage(unsigned int a1, int a2)
@@ -80,7 +80,7 @@ LABEL_16:
     v6 = (__int64 *)MxSwitchDescriptors(a1);
     if ( v6 )
       goto LABEL_8;
-    byte_14043A899 = 16;
+    byte_14043B959 = 16;
   }
   return -1LL;
 }

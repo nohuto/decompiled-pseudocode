@@ -4,7 +4,7 @@
  *     WheaReportFatalHwErrorDeviceDriverEx @ 0x140644510 (WheaReportFatalHwErrorDeviceDriverEx.c)
  *     WheaReportHwErrorDeviceDriverEx @ 0x140644630 (WheaReportHwErrorDeviceDriverEx.c)
  * Callees:
- *     WheapInitErrorReportDeviceDriver @ 0x140644930 (WheapInitErrorReportDeviceDriver.c)
+ *     sub_140644930 @ 0x140644930 (sub_140644930.c)
  */
 
 __int64 __fastcall WheaCreateHwErrorReportDeviceDriver(__int64 a1)
@@ -14,7 +14,7 @@ __int64 __fastcall WheaCreateHwErrorReportDeviceDriver(__int64 a1)
 
   v1 = 0LL;
   v3 = 0LL;
-  if ( (int)WheapInitErrorReportDeviceDriver(a1, &v3) >= 0 )
+  if ( (int)sub_140644930(a1, &v3) >= 0 )
     return v3;
   return v1;
 }

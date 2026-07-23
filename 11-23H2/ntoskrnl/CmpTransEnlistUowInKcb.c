@@ -1,16 +1,16 @@
 /*
- * XREFs of CmpTransEnlistUowInKcb @ 0x140302E30
+ * XREFs of CmpTransEnlistUowInKcb @ 0x1403030C0
  * Callers:
  *     CmpUndoDeleteKeyForTransEx @ 0x140680518 (CmpUndoDeleteKeyForTransEx.c)
- *     CmpCreateChild @ 0x1406D0F70 (CmpCreateChild.c)
- *     CmSetValueKey @ 0x1406D3240 (CmSetValueKey.c)
- *     CmpSetKeySecurity @ 0x14070C3BC (CmpSetKeySecurity.c)
- *     CmDeleteValueKey @ 0x14070EF24 (CmDeleteValueKey.c)
- *     CmDeleteKey @ 0x14070FFEC (CmDeleteKey.c)
- *     CmSetKeyFlags @ 0x140A159B4 (CmSetKeyFlags.c)
- *     CmSetLastWriteTimeKey @ 0x140A15EE8 (CmSetLastWriteTimeKey.c)
+ *     CmpCreateChild @ 0x1406D0FA0 (CmpCreateChild.c)
+ *     CmSetValueKey @ 0x1406D3270 (CmSetValueKey.c)
+ *     CmpSetKeySecurity @ 0x14070C5CC (CmpSetKeySecurity.c)
+ *     CmDeleteValueKey @ 0x14070F134 (CmDeleteValueKey.c)
+ *     CmDeleteKey @ 0x1407101FC (CmDeleteKey.c)
+ *     CmSetKeyFlags @ 0x140A15C64 (CmSetKeyFlags.c)
+ *     CmSetLastWriteTimeKey @ 0x140A16198 (CmSetLastWriteTimeKey.c)
  * Callees:
- *     CmpReferenceKeyControlBlock @ 0x14076A6F0 (CmpReferenceKeyControlBlock.c)
+ *     CmpReferenceKeyControlBlock @ 0x14076A8E0 (CmpReferenceKeyControlBlock.c)
  */
 
 __int64 __fastcall CmpTransEnlistUowInKcb(_QWORD *a1, ULONG_PTR a2)

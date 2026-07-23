@@ -1,8 +1,8 @@
 /*
- * XREFs of PopCapturePlatformRole @ 0x140679450
+ * XREFs of PopCapturePlatformRole @ 0x14066CB90
  * Callers:
- *     NtPowerInformation @ 0x1406777D0 (NtPowerInformation.c)
- *     PopDripsWatchdogInitializeActions @ 0x140A9346C (PopDripsWatchdogInitializeActions.c)
+ *     NtPowerInformation @ 0x14066AF10 (NtPowerInformation.c)
+ *     PopDripsWatchdogInitializeActions @ 0x140A9446C (PopDripsWatchdogInitializeActions.c)
  * Callees:
  *     <none>
  */
@@ -17,7 +17,7 @@ __int64 PopCapturePlatformRole()
   v1 = 0;
   if ( !PopPlatformRole )
   {
-    LOBYTE(v1) = dword_140C23630 != 0;
+    LOBYTE(v1) = dword_140C23C50 != 0;
     v2 = v1 + 1;
     result = (unsigned int)_InterlockedCompareExchange(&PopPlatformRole, v2, 0);
     if ( !(_DWORD)result )

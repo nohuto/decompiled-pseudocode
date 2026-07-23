@@ -1,22 +1,22 @@
 /*
- * XREFs of _CmDevicePanelEnumSubkeyCallback @ 0x14074A850
+ * XREFs of _CmDevicePanelEnumSubkeyCallback @ 0x14074BA40
  * Callers:
  *     <none>
  * Callees:
  *     RtlInitUnicodeStringEx @ 0x140015EB0 (RtlInitUnicodeStringEx.c)
- *     RtlStringCchCopyW @ 0x140092420 (RtlStringCchCopyW.c)
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     RtlStringCchCopyExW @ 0x14013DD50 (RtlStringCchCopyExW.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     wcstoul @ 0x140197CC0 (wcstoul.c)
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     RtlGUIDFromString @ 0x14059A5A0 (RtlGUIDFromString.c)
- *     _SysCtxRegOpenKey @ 0x1405C7AFC (_SysCtxRegOpenKey.c)
- *     _PnpCtxRegEnumKeyWithCallback @ 0x14074B2E4 (_PnpCtxRegEnumKeyWithCallback.c)
+ *     RtlStringCchCopyW @ 0x140092360 (RtlStringCchCopyW.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     RtlStringCchCopyExW @ 0x14013DE50 (RtlStringCchCopyExW.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     wcstoul @ 0x140197E00 (wcstoul.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     RtlGUIDFromString @ 0x14059B5A0 (RtlGUIDFromString.c)
+ *     _SysCtxRegOpenKey @ 0x1405C8AFC (_SysCtxRegOpenKey.c)
+ *     _PnpCtxRegEnumKeyWithCallback @ 0x14074C4D4 (_PnpCtxRegEnumKeyWithCallback.c)
  */
 
 __int64 __fastcall CmDevicePanelEnumSubkeyCallback(__int64 a1, __int64 a2, const wchar_t *a3, int *a4)

@@ -13,10 +13,10 @@
 int __fastcall RtlpHpVsSubsegmentCommitPages(int a1, int a2, unsigned int a3, unsigned int a4, unsigned int a5, int a6)
 {
   bool v8; // zf
-  int v9; // esi
-  int v10; // esi
-  int v11; // ecx
-  int v12; // ecx
+  _RTL_SRWLOCK *v9; // esi
+  PRTL_SRWLOCK v10; // esi
+  _RTL_SRWLOCK *v11; // ecx
+  PRTL_SRWLOCK v12; // ecx
   int v13; // ecx
   int v14; // esi
   unsigned int v15; // ecx
@@ -24,7 +24,7 @@ int __fastcall RtlpHpVsSubsegmentCommitPages(int a1, int a2, unsigned int a3, un
   int v18; // [esp-8h] [ebp-30h]
   int v19; // [esp+10h] [ebp-18h]
   __int64 v20; // [esp+18h] [ebp-10h]
-  int v21; // [esp+20h] [ebp-8h]
+  PRTL_SRWLOCK SRWLock; // [esp+20h] [ebp-8h]
 
   if ( a3 )
   {
@@ -34,27 +34,27 @@ int __fastcall RtlpHpVsSubsegmentCommitPages(int a1, int a2, unsigned int a3, un
   {
     v8 = !_BitScanForward((unsigned int *)&v9, a4);
     if ( v8 )
-      v10 = v21;
+      v10 = SRWLock;
     else
-      v10 = v9 + 32;
+      v10 = v9 + 8;
   }
   if ( a4 )
   {
     v8 = !_BitScanReverse((unsigned int *)&v11, a4);
     if ( v8 )
-      v12 = v21;
+      v12 = SRWLock;
     else
-      v12 = v11 + 32;
+      v12 = v11 + 8;
   }
   else
   {
     _BitScanReverse((unsigned int *)&v12, a3);
   }
-  v13 = v12 - v10 + 1;
+  v13 = (char *)v12 - (char *)v10 + 1;
   v19 = v13 << 12;
-  v20 = ((1LL << v13) - 1) << v10;
-  RtlAcquireSRWLockExclusive((volatile signed __int32 *)(a2 + 16));
-  v18 = a2 + (v10 << 12);
+  v20 = ((1LL << v13) - 1) << (char)v10;
+  RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a2 + 16));
+  v18 = a2 + ((_DWORD)v10 << 12);
   v17 = a1 ^ *(_DWORD *)(a1 + 128);
   if ( !a6 )
   {
@@ -80,6 +80,6 @@ LABEL_15:
     _InterlockedExchangeAdd((volatile signed __int32 *)(a1 + 24), v15);
     v14 = 0;
   }
-  RtlReleaseSRWLockExclusive((volatile signed __int32 *)(a2 + 16));
+  RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a2 + 16));
   return v14;
 }

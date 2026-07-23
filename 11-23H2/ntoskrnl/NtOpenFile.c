@@ -1,11 +1,11 @@
 /*
- * XREFs of NtOpenFile @ 0x14074D390
+ * XREFs of NtOpenFile @ 0x14074D580
  * Callers:
- *     DifNtOpenFileWrapper @ 0x1405E80C0 (DifNtOpenFileWrapper.c)
- *     PfSnGetPrefetchInstructions @ 0x14074D07C (PfSnGetPrefetchInstructions.c)
- *     RtlpSysVolTakeOwnership @ 0x1409BEB58 (RtlpSysVolTakeOwnership.c)
+ *     DifNtOpenFileWrapper @ 0x1405E8630 (DifNtOpenFileWrapper.c)
+ *     PfSnGetPrefetchInstructions @ 0x14074D26C (PfSnGetPrefetchInstructions.c)
+ *     RtlpSysVolTakeOwnership @ 0x1409BED58 (RtlpSysVolTakeOwnership.c)
  * Callees:
- *     IopCreateFile @ 0x14073C690 (IopCreateFile.c)
+ *     IopCreateFile @ 0x14073C880 (IopCreateFile.c)
  */
 
 NTSTATUS __stdcall NtOpenFile(

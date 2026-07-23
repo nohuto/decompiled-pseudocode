@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpGetNodeName @ 0x1409CEA0C
+ * XREFs of CmpGetNodeName @ 0x1409CFA0C
  * Callers:
- *     CmpAddDriverToList @ 0x1409CD9F8 (CmpAddDriverToList.c)
- *     CmpIsLoadType @ 0x1409CE6B4 (CmpIsLoadType.c)
+ *     CmpAddDriverToList @ 0x1409CE9F8 (CmpAddDriverToList.c)
+ *     CmpIsLoadType @ 0x1409CF6B4 (CmpIsLoadType.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     CmpCopyCompressedName @ 0x1405AF298 (CmpCopyCompressedName.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     CmpCopyCompressedName @ 0x1405B0298 (CmpCopyCompressedName.c)
  */
 
 _WORD *__fastcall CmpGetNodeName(__int64 a1, __int64 a2, unsigned __int16 *a3)

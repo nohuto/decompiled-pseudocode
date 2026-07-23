@@ -1,15 +1,15 @@
 /*
- * XREFs of EtwSendTraceBuffer @ 0x14064F090
+ * XREFs of EtwSendTraceBuffer @ 0x14064D790
  * Callers:
  *     <none>
  * Callees:
- *     KeInsertQueueDpc @ 0x1402542F0 (KeInsertQueueDpc.c)
- *     KeGetEffectiveIrql @ 0x140257DC0 (KeGetEffectiveIrql.c)
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     PsGetCurrentServerSiloGlobals @ 0x140347D10 (PsGetCurrentServerSiloGlobals.c)
- *     EtwpCloseLogger @ 0x140347D90 (EtwpCloseLogger.c)
- *     EtwpOpenLogger @ 0x140347F50 (EtwpOpenLogger.c)
- *     EtwpGetLoggerTimeStamp @ 0x14034F8C0 (EtwpGetLoggerTimeStamp.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     KeInsertQueueDpc @ 0x140284900 (KeInsertQueueDpc.c)
+ *     KeGetEffectiveIrql @ 0x1402883D0 (KeGetEffectiveIrql.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140326710 (PsGetCurrentServerSiloGlobals.c)
+ *     EtwpCloseLogger @ 0x140326790 (EtwpCloseLogger.c)
+ *     EtwpOpenLogger @ 0x140326950 (EtwpOpenLogger.c)
+ *     EtwpGetLoggerTimeStamp @ 0x14036DDA0 (EtwpGetLoggerTimeStamp.c)
  */
 
 __int64 __fastcall EtwSendTraceBuffer(unsigned __int16 a1, signed __int64 a2, unsigned int a3, __int64 a4, __int64 a5)
@@ -20,15 +20,16 @@ __int64 __fastcall EtwSendTraceBuffer(unsigned __int16 a1, signed __int64 a2, un
   __int64 v12; // rbx
   int v13; // ecx
   bool v14; // zf
-  signed __int64 v15; // rcx
-  char v16; // [rsp+50h] [rbp+8h] BYREF
+  LARGE_INTEGER v15; // rdx
+  signed __int64 v16; // rcx
+  char v17; // [rsp+50h] [rbp+8h] BYREF
 
   v5 = 0;
   v6 = a1;
-  v16 = 0;
+  v17 = 0;
   if ( (unsigned int)a1 >= LODWORD(PsGetCurrentServerSiloGlobals()[52].Flink[1].Flink) )
     return 3221225480LL;
-  v11 = EtwpOpenLogger(v6, EtwpHostSiloState, 0, &v16);
+  v11 = EtwpOpenLogger(v6, EtwpHostSiloState, 0, &v17);
   v12 = v11;
   if ( !v11 )
     return 3221226134LL;
@@ -51,13 +52,13 @@ __int64 __fastcall EtwSendTraceBuffer(unsigned __int16 a1, signed __int64 a2, un
       *(LARGE_INTEGER *)(a2 + 16) = EtwpGetLoggerTimeStamp(v11);
       do
       {
-        v15 = *(_QWORD *)(v12 + 128);
-        *(_QWORD *)(a2 + 32) = v15;
+        v16 = *(_QWORD *)(v12 + 128);
+        *(_QWORD *)(a2 + 32) = v16;
       }
-      while ( v15 != _InterlockedCompareExchange64((volatile signed __int64 *)(v12 + 128), a2, v15) );
-      if ( !v15 )
+      while ( v16 != _InterlockedCompareExchange64((volatile signed __int64 *)(v12 + 128), a2, v16) );
+      if ( !v16 )
       {
-        if ( KeGetEffectiveIrql() > 2u )
+        if ( KeGetEffectiveIrql(0LL, v15.QuadPart) > 2u )
         {
           if ( !_interlockedbittestandset((volatile signed __int32 *)(v12 + 824), 8u) )
             KeInsertQueueDpc((PRKDPC)(v12 + 568), 0LL, 0LL);
@@ -77,6 +78,6 @@ __int64 __fastcall EtwSendTraceBuffer(unsigned __int16 a1, signed __int64 a2, un
   {
     v5 = -1073741054;
   }
-  EtwpCloseLogger(v6, EtwpHostSiloState, v16);
+  EtwpCloseLogger(v6, EtwpHostSiloState, v17);
   return v5;
 }

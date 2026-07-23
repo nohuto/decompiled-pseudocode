@@ -1,15 +1,15 @@
 /*
- * XREFs of MiFreeSlabEntry @ 0x1402C2328
+ * XREFs of MiFreeSlabEntry @ 0x1402C2518
  * Callers:
- *     MiFreeSlabEntries @ 0x1402C21D8 (MiFreeSlabEntries.c)
+ *     MiFreeSlabEntries @ 0x1402C23C8 (MiFreeSlabEntries.c)
  * Callees:
  *     MiReturnResidentAvailable @ 0x140022D18 (MiReturnResidentAvailable.c)
  *     MiFreeLargePageMemory @ 0x140026200 (MiFreeLargePageMemory.c)
- *     MiReturnCommit @ 0x140065D40 (MiReturnCommit.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     MiUpdateSlabPagePlaceholderState @ 0x1402C2D3C (MiUpdateSlabPagePlaceholderState.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     MiReturnCommit @ 0x140065D30 (MiReturnCommit.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiUpdateSlabPagePlaceholderState @ 0x1402C2F2C (MiUpdateSlabPagePlaceholderState.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiFreeSlabEntry(__int64 a1, ULONG_PTR *a2)
@@ -56,7 +56,7 @@ void __fastcall MiFreeSlabEntry(__int64 a1, ULONG_PTR *a2)
       }
       v11 = *(_QWORD *)(v8 + 16);
       if ( !v4 )
-        v4 = *(_QWORD *)(qword_14043A748 + 8 * ((v11 >> 40) & 0x3FF));
+        v4 = *(_QWORD *)(qword_14043B808 + 8 * ((v11 >> 40) & 0x3FF));
       *(_WORD *)(v8 + 8) = 1;
       *((_QWORD *)&v9 + 1) = v11 & 0xFE3FFFFFFFFFFFFFuLL;
       *(_QWORD *)&v9 = *(_QWORD *)v8 & 0xC000000000000001uLL;
@@ -79,7 +79,7 @@ void __fastcall MiFreeSlabEntry(__int64 a1, ULONG_PTR *a2)
   LOBYTE(v13) = 1;
   v14 = a2[3] >> 9;
   v15 = v14 & 0x1F;
-  v16 = (volatile signed __int32 *)(qword_14043E218 + 4 * (a2[3] >> 14));
+  v16 = (volatile signed __int32 *)(qword_14043F2D8 + 4 * (a2[3] >> 14));
   if ( (v14 & 0x1F) + 1 <= 0x20 )
   {
     v17 = 1 << v15;

@@ -1,9 +1,9 @@
 /*
- * XREFs of PpmUpdateArchitecturalEfficiencyClass @ 0x140C319A0
+ * XREFs of PpmUpdateArchitecturalEfficiencyClass @ 0x140C33AC0
  * Callers:
- *     PoInitHeteroDetection @ 0x140C2D09C (PoInitHeteroDetection.c)
+ *     PoInitHeteroDetection @ 0x140C2F1BC (PoInitHeteroDetection.c)
  * Callees:
- *     KeGetPrcb @ 0x140352980 (KeGetPrcb.c)
+ *     KeGetPrcb @ 0x1402B0A10 (KeGetPrcb.c)
  */
 
 __int64 PpmUpdateArchitecturalEfficiencyClass()

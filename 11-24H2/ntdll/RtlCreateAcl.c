@@ -1,29 +1,29 @@
 /*
- * XREFs of RtlCreateAcl @ 0x1800CDD80
+ * XREFs of RtlCreateAcl @ 0x1800C5940
  * Callers:
- *     RtlpCreateServerAcl @ 0x1800C69DC (RtlpCreateServerAcl.c)
- *     RtlpCombineAcls @ 0x1800CB040 (RtlpCombineAcls.c)
- *     RtlpComputeMergedAcl2 @ 0x1800CD654 (RtlpComputeMergedAcl2.c)
- *     RtlDefaultNpAcl @ 0x1800CD980 (RtlDefaultNpAcl.c)
- *     RtlCreateAndSetSD @ 0x1800CE250 (RtlCreateAndSetSD.c)
- *     RtlpSysVolCreateSecurityDescriptor @ 0x1800CE704 (RtlpSysVolCreateSecurityDescriptor.c)
- *     RtlpConvertAclToAutoInherit @ 0x180139B00 (RtlpConvertAclToAutoInherit.c)
+ *     RtlpCreateServerAcl @ 0x1800BE59C (RtlpCreateServerAcl.c)
+ *     RtlpCombineAcls @ 0x1800C2C00 (RtlpCombineAcls.c)
+ *     RtlpComputeMergedAcl2 @ 0x1800C5214 (RtlpComputeMergedAcl2.c)
+ *     RtlDefaultNpAcl @ 0x1800C5540 (RtlDefaultNpAcl.c)
+ *     RtlCreateAndSetSD @ 0x1800C5E10 (RtlCreateAndSetSD.c)
+ *     RtlpSysVolCreateSecurityDescriptor @ 0x1800C62C4 (RtlpSysVolCreateSecurityDescriptor.c)
+ *     RtlpConvertAclToAutoInherit @ 0x180137D30 (RtlpConvertAclToAutoInherit.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall RtlCreateAcl(__int64 a1, unsigned int a2, int a3)
+NTSTATUS __cdecl RtlCreateAcl(PACL Acl, ULONG AclLength, ULONG AclRevision)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  if ( a2 < 8 )
-    return 3221225507LL;
-  if ( (unsigned int)(a3 - 2) > 2 || a2 > 0xFFFC )
-    return 3221225485LL;
-  *(_BYTE *)a1 = a3;
-  result = 0LL;
-  *(_BYTE *)(a1 + 1) = 0;
-  *(_DWORD *)(a1 + 4) = 0;
-  *(_WORD *)(a1 + 2) = a2 & 0xFFFC;
+  if ( AclLength < 8 )
+    return -1073741789;
+  if ( AclRevision - 2 > 2 || AclLength > 0xFFFC )
+    return -1073741811;
+  Acl->AclRevision = AclRevision;
+  result = 0;
+  Acl->Sbz1 = 0;
+  *(_DWORD *)&Acl->AceCount = 0;
+  Acl->AclSize = AclLength & 0xFFFC;
   return result;
 }

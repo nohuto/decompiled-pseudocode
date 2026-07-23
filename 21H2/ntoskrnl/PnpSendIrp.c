@@ -1,15 +1,15 @@
 /*
- * XREFs of PnpSendIrp @ 0x140361DC8
+ * XREFs of PnpSendIrp @ 0x1402F7490
  * Callers:
- *     PnpGetRelatedTargetDevice @ 0x14036185C (PnpGetRelatedTargetDevice.c)
- *     PnpStartDevice @ 0x14036F254 (PnpStartDevice.c)
- *     PnpQueryDeviceRelations @ 0x140746F38 (PnpQueryDeviceRelations.c)
+ *     PnpGetRelatedTargetDevice @ 0x1402F7DC0 (PnpGetRelatedTargetDevice.c)
+ *     PnpStartDevice @ 0x14036F404 (PnpStartDevice.c)
+ *     PnpQueryDeviceRelations @ 0x1407470F8 (PnpQueryDeviceRelations.c)
  * Callees:
- *     KeRevertToUserGroupAffinityThread @ 0x1402EB390 (KeRevertToUserGroupAffinityThread.c)
- *     PnpSetDeviceAffinityThread @ 0x140361E70 (PnpSetDeviceAffinityThread.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     IopSynchronousCall @ 0x14071DFF0 (IopSynchronousCall.c)
- *     PnpAsynchronousCall @ 0x14076910C (PnpAsynchronousCall.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x14029C6E0 (KeRevertToUserGroupAffinityThread.c)
+ *     PnpSetDeviceAffinityThread @ 0x1402F7538 (PnpSetDeviceAffinityThread.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     IopSynchronousCall @ 0x1406FA580 (IopSynchronousCall.c)
+ *     PnpAsynchronousCall @ 0x1407692CC (PnpAsynchronousCall.c)
  */
 
 __int64 __fastcall PnpSendIrp(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5)
@@ -17,7 +17,7 @@ __int64 __fastcall PnpSendIrp(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __
   int v8; // ebp
   unsigned int v9; // eax
   unsigned int v10; // ebx
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+30h] [rbp-38h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+30h] [rbp-38h] BYREF
 
   PreviousAffinity = 0LL;
   v8 = PnpSetDeviceAffinityThread(a1, &PreviousAffinity);

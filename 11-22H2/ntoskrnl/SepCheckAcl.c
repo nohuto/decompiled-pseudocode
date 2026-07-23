@@ -7,10 +7,10 @@
  *     RtlValidAcl @ 0x140736D80 (RtlValidAcl.c)
  */
 
-char __fastcall SepCheckAcl(__int64 a1, unsigned int a2)
+BOOLEAN __fastcall SepCheckAcl(ACL *a1, unsigned int a2)
 {
-  if ( a2 >= 8 && a2 == *(unsigned __int16 *)(a1 + 2) )
-    return RtlValidAcl();
+  if ( a2 >= 8 && a2 == a1->AclSize )
+    return RtlValidAcl(a1);
   else
     return 0;
 }

@@ -1,16 +1,25 @@
 /*
- * XREFs of ZwWriteFileGather @ 0x180161FF0
+ * XREFs of ZwWriteFileGather @ 0x1801603B0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 ZwWriteFileGather()
+NTSTATUS __cdecl ZwWriteFileGather(
+        HANDLE FileHandle,
+        HANDLE Event,
+        PIO_APC_ROUTINE ApcRoutine,
+        PVOID ApcContext,
+        PIO_STATUS_BLOCK IoStatusBlock,
+        PFILE_SEGMENT_ELEMENT SegmentArray,
+        ULONG Length,
+        PLARGE_INTEGER ByteOffset,
+        PULONG Key)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 27LL;
+  result = 27;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

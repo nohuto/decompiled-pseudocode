@@ -25,7 +25,7 @@ bool PspInitPhase2()
 
   TraceLoggingRegisterEx_EtwRegister_EtwSetInformation((__int64)&dword_140E084E0, 0LL, 0LL);
   v0 = PsInitialSystemProcess;
-  v0[1].ThreadListHead.Flink = (struct _LIST_ENTRY *)RtlGetSystemTimePrecise();
+  v0[1].ThreadListHead.Flink = (struct _LIST_ENTRY *)RtlGetSystemTimePrecise().QuadPart;
   PsInitialSystemProcess[3].ContextSwitches = MEMORY[0xFFFFF78000000008];
   UnbiasedInterruptTime = (_KSCHEDULING_GROUP *)KiQueryUnbiasedInterruptTime();
   v2 = PsIdleProcess;

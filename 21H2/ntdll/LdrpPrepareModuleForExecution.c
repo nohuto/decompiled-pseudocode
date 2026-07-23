@@ -2,7 +2,7 @@
  * XREFs of LdrpPrepareModuleForExecution @ 0x18003D888
  * Callers:
  *     LdrpLoadDllInternal @ 0x18001FA14 (LdrpLoadDllInternal.c)
- *     LdrpInitializeProcess @ 0x1800D1EC0 (LdrpInitializeProcess.c)
+ *     LdrpInitializeProcess @ 0x1800D1E80 (LdrpInitializeProcess.c)
  * Callees:
  *     RtlIsCriticalSectionLockedByThread @ 0x180014890 (RtlIsCriticalSectionLockedByThread.c)
  *     LdrpDynamicShimModule @ 0x18003D9A4 (LdrpDynamicShimModule.c)
@@ -12,7 +12,7 @@
  *     LdrpInitializeGraphRecurse @ 0x18006D078 (LdrpInitializeGraphRecurse.c)
  *     LdrpCondenseGraph @ 0x18006F464 (LdrpCondenseGraph.c)
  *     LdrpAddNodeServiceTag @ 0x1800798E0 (LdrpAddNodeServiceTag.c)
- *     LdrpLogDbgPrint @ 0x1800CDC88 (LdrpLogDbgPrint.c)
+ *     LdrpLogDbgPrint @ 0x1800CDC48 (LdrpLogDbgPrint.c)
  */
 
 __int64 __fastcall LdrpPrepareModuleForExecution(__int64 a1, __int64 a2)
@@ -26,7 +26,7 @@ __int64 __fastcall LdrpPrepareModuleForExecution(__int64 a1, __int64 a2)
   char v11; // [rsp+50h] [rbp+18h] BYREF
 
   v4 = 0;
-  if ( RtlIsCriticalSectionLockedByThread((__int64)&LdrpDllNotificationLock) )
+  if ( RtlIsCriticalSectionLockedByThread(&LdrpDllNotificationLock) )
     return (unsigned int)v4;
   v5 = *(_QWORD *)(a1 + 152);
   switch ( *(_DWORD *)(v5 + 56) )

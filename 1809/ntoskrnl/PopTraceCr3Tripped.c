@@ -1,11 +1,11 @@
 /*
- * XREFs of PopTraceCr3Tripped @ 0x1402E24CC
+ * XREFs of PopTraceCr3Tripped @ 0x1402E26BC
  * Callers:
- *     PopCheckAndHandleThermalConditions @ 0x14018BEF4 (PopCheckAndHandleThermalConditions.c)
+ *     PopCheckAndHandleThermalConditions @ 0x14018C034 (PopCheckAndHandleThermalConditions.c)
  * Callees:
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 void PopTraceCr3Tripped()
@@ -25,7 +25,7 @@ void PopTraceCr3Tripped()
       v3 = &v1;
       v1 = v0;
       v4 = 4;
-      TlgWrite(&pCallbackContext, &unk_1403705A7, 0LL, 0LL, 3u, &pData);
+      TlgWrite(&pCallbackContext, &unk_140371549, 0LL, 0LL, 3u, &pData);
     }
   }
 }

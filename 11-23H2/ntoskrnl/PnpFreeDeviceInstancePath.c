@@ -1,11 +1,11 @@
 /*
- * XREFs of PnpFreeDeviceInstancePath @ 0x14078E708
+ * XREFs of PnpFreeDeviceInstancePath @ 0x14078E8F8
  * Callers:
- *     IopDestroyDeviceNode @ 0x14078E4D0 (IopDestroyDeviceNode.c)
- *     PiBuildDeviceNodeInstancePath @ 0x14078E5E8 (PiBuildDeviceNodeInstancePath.c)
+ *     IopDestroyDeviceNode @ 0x14078E6C0 (IopDestroyDeviceNode.c)
+ *     PiBuildDeviceNodeInstancePath @ 0x14078E7D8 (PiBuildDeviceNodeInstancePath.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x140230720 (ExAcquireFastMutex.c)
- *     ExReleaseFastMutex @ 0x140230860 (ExReleaseFastMutex.c)
+ *     ExAcquireFastMutex @ 0x140230810 (ExAcquireFastMutex.c)
+ *     ExReleaseFastMutex @ 0x140230950 (ExReleaseFastMutex.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

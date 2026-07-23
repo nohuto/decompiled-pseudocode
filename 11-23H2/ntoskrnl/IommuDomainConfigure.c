@@ -1,9 +1,9 @@
 /*
- * XREFs of IommuDomainConfigure @ 0x140935640
+ * XREFs of IommuDomainConfigure @ 0x140935840
  * Callers:
  *     <none>
  * Callees:
- *     IommupHvConfigureDeviceDomain @ 0x140524734 (IommupHvConfigureDeviceDomain.c)
+ *     IommupHvConfigureDeviceDomain @ 0x140524C84 (IommupHvConfigureDeviceDomain.c)
  */
 
 __int64 __fastcall IommuDomainConfigure(__int64 a1, __int64 a2, __int64 a3)

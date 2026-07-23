@@ -6,7 +6,7 @@
  *     ZwPowerInformation @ 0x1403F41A0 (ZwPowerInformation.c)
  */
 
-NTSTATUS RtlRestoreSystemBootStatusDefaults()
+NTSTATUS RtlRestoreSystemBootStatusDefaults(void)
 {
   _QWORD v1[5]; // [rsp+30h] [rbp-28h] BYREF
 

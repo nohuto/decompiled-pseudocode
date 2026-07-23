@@ -1,108 +1,102 @@
 /*
- * XREFs of BiLoadHive @ 0x1409D0564
+ * XREFs of BiLoadHive @ 0x1409A1544
  * Callers:
- *     BiAddStoreFromFile @ 0x1409D35AC (BiAddStoreFromFile.c)
+ *     BiAddStoreFromFile @ 0x1409A458C (BiAddStoreFromFile.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwOpenKey @ 0x140723630 (ZwOpenKey.c)
- *     ZwLoadKey @ 0x1407255F0 (ZwLoadKey.c)
- *     ZwLoadKey2 @ 0x140725610 (ZwLoadKey2.c)
- *     ZwUnloadKey @ 0x140726F50 (ZwUnloadKey.c)
- *     BiDoesHiveExist @ 0x1409D0850 (BiDoesHiveExist.c)
- *     BiAcquirePrivilege @ 0x1409D1D68 (BiAcquirePrivilege.c)
- *     BiReleasePrivilege @ 0x1409D1E1C (BiReleasePrivilege.c)
- *     BiOpenKeyNonBcd @ 0x1409D349C (BiOpenKeyNonBcd.c)
- *     BiLogMessage @ 0x1409D490C (BiLogMessage.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140728200 (ZwOpenKey.c)
+ *     ZwLoadKey @ 0x14072A1C0 (ZwLoadKey.c)
+ *     ZwLoadKey2 @ 0x14072A1E0 (ZwLoadKey2.c)
+ *     ZwUnloadKey @ 0x14072BB20 (ZwUnloadKey.c)
+ *     BiDoesHiveExist @ 0x1409A1830 (BiDoesHiveExist.c)
+ *     BiAcquirePrivilege @ 0x1409A2D48 (BiAcquirePrivilege.c)
+ *     BiReleasePrivilege @ 0x1409A2DFC (BiReleasePrivilege.c)
+ *     BiOpenKeyNonBcd @ 0x1409A447C (BiOpenKeyNonBcd.c)
+ *     BiLogMessage @ 0x1409A58EC (BiLogMessage.c)
  */
 
 __int64 __fastcall BiLoadHive(PCWSTR SourceString, __int64 a2, HANDLE *a3)
 {
   unsigned int i; // esi
   void *v6; // rdi
-  int Key2; // ebx
+  NTSTATUS v7; // ebx
   int v8; // eax
   int v9; // eax
   __int64 v10; // rcx
-  __int64 v11; // rdx
-  __int64 v13; // [rsp+20h] [rbp-D8h]
-  __int64 v14; // [rsp+28h] [rbp-D0h]
-  __int64 v15; // [rsp+30h] [rbp-C8h] BYREF
-  void *v16; // [rsp+38h] [rbp-C0h] BYREF
-  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+40h] [rbp-B8h] BYREF
-  __int128 v18; // [rsp+70h] [rbp-88h] BYREF
-  __int128 v19; // [rsp+80h] [rbp-78h]
-  __int128 v20; // [rsp+90h] [rbp-68h]
+  __int64 v12; // [rsp+20h] [rbp-D8h]
+  __int64 v13; // [rsp+28h] [rbp-D0h]
+  __int64 v14; // [rsp+30h] [rbp-C8h] BYREF
+  void *v15; // [rsp+38h] [rbp-C0h] BYREF
+  OBJECT_ATTRIBUTES TargetKey; // [rsp+40h] [rbp-B8h] BYREF
+  OBJECT_ATTRIBUTES SourceFile; // [rsp+70h] [rbp-88h] BYREF
   UNICODE_STRING DestinationString; // [rsp+A0h] [rbp-58h] BYREF
-  UNICODE_STRING v22; // [rsp+B0h] [rbp-48h] BYREF
+  UNICODE_STRING v19; // [rsp+B0h] [rbp-48h] BYREF
 
-  v18 = 0LL;
+  memset(&SourceFile, 0, 44);
+  memset(&TargetKey, 0, 44);
+  v14 = 0LL;
   v19 = 0LL;
-  *(_QWORD *)&v20 = 0LL;
-  DWORD2(v20) = 0;
-  memset(&ObjectAttributes, 0, 44);
-  v15 = 0LL;
-  v22 = 0LL;
   DestinationString = 0LL;
   for ( i = 0; ; ++i )
   {
     v6 = 0LL;
-    v16 = 0LL;
+    v15 = 0LL;
     if ( (unsigned __int8)BiDoesHiveExist(a2) )
     {
-      v8 = BiOpenKeyNonBcd(0LL, L"\\Registry\\Machine", 983103LL, &v16);
-      Key2 = v8;
+      v8 = BiOpenKeyNonBcd(0LL, L"\\Registry\\Machine", 983103LL, &v15);
+      v7 = v8;
       if ( v8 >= 0 )
       {
         RtlInitUnicodeString(&DestinationString, SourceString);
-        ObjectAttributes.Length = 48;
-        v6 = v16;
-        ObjectAttributes.RootDirectory = v16;
-        ObjectAttributes.Attributes = 576;
-        ObjectAttributes.ObjectName = &DestinationString;
-        *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
-        RtlInitUnicodeString(&v22, (PCWSTR)(a2 + 12));
-        LODWORD(v18) = 48;
-        *((_QWORD *)&v18 + 1) = 0LL;
-        DWORD2(v19) = 576;
-        *(_QWORD *)&v19 = &v22;
-        v20 = 0LL;
-        v9 = BiAcquirePrivilege(18LL, &v15);
-        Key2 = v9;
+        TargetKey.Length = 48;
+        v6 = v15;
+        TargetKey.RootDirectory = v15;
+        TargetKey.Attributes = 576;
+        TargetKey.ObjectName = &DestinationString;
+        *(_OWORD *)&TargetKey.SecurityDescriptor = 0LL;
+        RtlInitUnicodeString(&v19, (PCWSTR)(a2 + 12));
+        SourceFile.Length = 48;
+        SourceFile.RootDirectory = 0LL;
+        SourceFile.Attributes = 576;
+        SourceFile.ObjectName = &v19;
+        *(_OWORD *)&SourceFile.SecurityDescriptor = 0LL;
+        v9 = BiAcquirePrivilege(18LL, &v14);
+        v7 = v9;
         if ( v9 >= 0 )
         {
-          Key2 = ZwLoadKey2((__int64)&ObjectAttributes, (__int64)&v18);
-          if ( Key2 < 0 )
-            Key2 = ZwLoadKey2((__int64)&ObjectAttributes, (__int64)&v18);
-          if ( Key2 < 0 )
-            Key2 = ZwLoadKey((__int64)&ObjectAttributes, (__int64)&v18);
-          BiReleasePrivilege(&v15);
-          if ( Key2 >= 0 )
+          v7 = ZwLoadKey2(&TargetKey, &SourceFile, 0x1780u);
+          if ( v7 < 0 )
+            v7 = ZwLoadKey2(&TargetKey, &SourceFile, 0x1380u);
+          if ( v7 < 0 )
+            v7 = ZwLoadKey(&TargetKey, &SourceFile);
+          BiReleasePrivilege(&v14);
+          if ( v7 >= 0 )
           {
-            Key2 = ZwOpenKey(a3, 0x20019u, &ObjectAttributes);
-            if ( Key2 < 0 )
+            v7 = ZwOpenKey(a3, 0x20019u, &TargetKey);
+            if ( v7 < 0 )
             {
-              BiAcquirePrivilege(17LL, &v15);
-              ZwUnloadKey((__int64)&ObjectAttributes, v11);
-              BiReleasePrivilege(&v15);
-              LODWORD(v13) = Key2;
-              BiLogMessage(4LL, L"Failed open newly loaded key %ws. Flags: 0x%x Status: %x", SourceString, 576LL, v13);
+              BiAcquirePrivilege(17LL, &v14);
+              ZwUnloadKey(&TargetKey);
+              BiReleasePrivilege(&v14);
+              LODWORD(v12) = v7;
+              BiLogMessage(4LL, L"Failed open newly loaded key %ws. Flags: 0x%x Status: %x", SourceString, 576LL, v12);
             }
           }
           else
           {
             v10 = 2LL;
-            if ( Key2 != -1073741790 )
+            if ( v7 != -1073741790 )
               v10 = 4LL;
-            LODWORD(v14) = Key2;
+            LODWORD(v13) = v7;
             BiLogMessage(
               v10,
               L"Failed load key %ws. Flags: 0x%x File: %s Status: %x",
               SourceString,
               576LL,
               a2 + 12,
-              v14,
-              v15);
+              v13,
+              v14);
           }
         }
         else
@@ -117,20 +111,20 @@ __int64 __fastcall BiLoadHive(PCWSTR SourceString, __int64 a2, HANDLE *a3)
       else
       {
         BiLogMessage(4LL, L"Failed open key %ws. Status: %x", L"\\Registry\\Machine", (unsigned int)v8);
-        v6 = v16;
+        v6 = v15;
       }
     }
     else
     {
-      Key2 = -1073741809;
+      v7 = -1073741809;
     }
     if ( v6 )
       ZwClose(v6);
-    if ( Key2 != -1073741443 )
+    if ( v7 != -1073741443 )
       break;
     __debugbreak();
     if ( i >= 5 )
       break;
   }
-  return (unsigned int)Key2;
+  return (unsigned int)v7;
 }

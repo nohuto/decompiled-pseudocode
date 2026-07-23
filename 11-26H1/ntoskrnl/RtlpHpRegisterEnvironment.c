@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlpHpRegisterEnvironment @ 0x1406389D0
+ * XREFs of RtlpHpRegisterEnvironment @ 0x14063B9E0
  * Callers:
- *     RtlpHpHeapCreate @ 0x140638298 (RtlpHpHeapCreate.c)
- *     RtlpHpHeapDestroy @ 0x1406386F4 (RtlpHpHeapDestroy.c)
+ *     RtlpHpHeapCreate @ 0x14063B29C (RtlpHpHeapCreate.c)
+ *     RtlpHpHeapDestroy @ 0x14063B6F8 (RtlpHpHeapDestroy.c)
  * Callees:
- *     RtlpHpCustomVaCallbacksRegistrarRegister @ 0x140637AF0 (RtlpHpCustomVaCallbacksRegistrarRegister.c)
- *     RtlpHpCustomVaCallbacksRegistrarUnregister @ 0x140637E68 (RtlpHpCustomVaCallbacksRegistrarUnregister.c)
- *     RtlpHpVaMgrCtxAllocatorDereference @ 0x140638C30 (RtlpHpVaMgrCtxAllocatorDereference.c)
- *     RtlpHpVaMgrCtxAllocatorReference @ 0x140638CBC (RtlpHpVaMgrCtxAllocatorReference.c)
+ *     RtlpHpCustomVaCallbacksRegistrarRegister @ 0x14063AAF4 (RtlpHpCustomVaCallbacksRegistrarRegister.c)
+ *     RtlpHpCustomVaCallbacksRegistrarUnregister @ 0x14063AE6C (RtlpHpCustomVaCallbacksRegistrarUnregister.c)
+ *     RtlpHpVaMgrCtxAllocatorDereference @ 0x14063BC40 (RtlpHpVaMgrCtxAllocatorDereference.c)
+ *     RtlpHpVaMgrCtxAllocatorReference @ 0x14063BCCC (RtlpHpVaMgrCtxAllocatorReference.c)
  */
 
 __int64 __fastcall RtlpHpRegisterEnvironment(__int64 a1, int a2)
@@ -36,7 +36,7 @@ __int64 __fastcall RtlpHpRegisterEnvironment(__int64 a1, int a2)
     if ( (v8 & 8) != 0 )
       HIDWORD(v9) = 1;
     v10 = *((_QWORD *)&v8 + 1);
-    RtlpHpVaMgrCtxAllocatorDereference(&ExpUuidLock.FirstArgument, &v9);
+    RtlpHpVaMgrCtxAllocatorDereference(&ExpUuidLock.TrapFrame, &v9);
     if ( BYTE1(*(_QWORD *)a1) == 5 )
     {
       v9 = *(_OWORD *)a1;
@@ -75,7 +75,7 @@ __int64 __fastcall RtlpHpRegisterEnvironment(__int64 a1, int a2)
   if ( (v8 & 8) != 0 )
     HIDWORD(v9) = 1;
   v10 = v4;
-  v5 = RtlpHpVaMgrCtxAllocatorReference(&ExpUuidLock.FirstArgument, &v9);
+  v5 = RtlpHpVaMgrCtxAllocatorReference(&ExpUuidLock.TrapFrame, &v9);
   if ( v5 != -1 )
   {
     BYTE3(v8) = v5 + 1;

@@ -1,7 +1,7 @@
 /*
- * XREFs of IoSetCompletionRoutineEx @ 0x14035CFF0
+ * XREFs of IoSetCompletionRoutineEx @ 0x14035D190
  * Callers:
- *     DifIoSetCompletionRoutineExWrapper @ 0x1405E10D0 (DifIoSetCompletionRoutineExWrapper.c)
+ *     DifIoSetCompletionRoutineExWrapper @ 0x1405E1640 (DifIoSetCompletionRoutineExWrapper.c)
  * Callees:
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

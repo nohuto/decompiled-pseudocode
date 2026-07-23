@@ -1,12 +1,12 @@
 /*
- * XREFs of ExpAllocateTablePagedPool @ 0x1407B0A68
+ * XREFs of ExpAllocateTablePagedPool @ 0x1407B0C58
  * Callers:
- *     ExpAllocateMidLevelTable @ 0x1407B0068 (ExpAllocateMidLevelTable.c)
- *     ExpAllocateHandleTableEntrySlow @ 0x1407B07A0 (ExpAllocateHandleTableEntrySlow.c)
- *     ExpSetHandleExtraInfo @ 0x1409F91A0 (ExpSetHandleExtraInfo.c)
+ *     ExpAllocateMidLevelTable @ 0x1407B0258 (ExpAllocateMidLevelTable.c)
+ *     ExpAllocateHandleTableEntrySlow @ 0x1407B0990 (ExpAllocateHandleTableEntrySlow.c)
+ *     ExpSetHandleExtraInfo @ 0x1409F9430 (ExpSetHandleExtraInfo.c)
  * Callees:
- *     memset @ 0x140435A00 (memset.c)
- *     ExpAllocateTablePagedPoolNoZero @ 0x1407B09C4 (ExpAllocateTablePagedPoolNoZero.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     ExpAllocateTablePagedPoolNoZero @ 0x1407B0BB4 (ExpAllocateTablePagedPoolNoZero.c)
  */
 
 void *__fastcall ExpAllocateTablePagedPool(__int64 a1, size_t a2)

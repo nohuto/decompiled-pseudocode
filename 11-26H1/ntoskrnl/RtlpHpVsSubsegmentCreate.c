@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlpHpVsSubsegmentCreate @ 0x14024ACAC
+ * XREFs of RtlpHpVsSubsegmentCreate @ 0x14024C60C
  * Callers:
- *     RtlpHpVsContextAllocate @ 0x140249DB0 (RtlpHpVsContextAllocate.c)
- *     RtlpHpVsSlotAllocate @ 0x14024A580 (RtlpHpVsSlotAllocate.c)
+ *     RtlpHpVsContextAllocate @ 0x14024B710 (RtlpHpVsContextAllocate.c)
+ *     RtlpHpVsSlotAllocate @ 0x14024BEE0 (RtlpHpVsSlotAllocate.c)
  * Callees:
- *     RtlpHpVsSubsegmentInitialize @ 0x1404965BC (RtlpHpVsSubsegmentInitialize.c)
- *     KasanMarkAddressValidNoInline @ 0x140523160 (KasanMarkAddressValidNoInline.c)
- *     KasanTrackAddressNoInline @ 0x140532270 (KasanTrackAddressNoInline.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     RtlpHpVsSubsegmentInitialize @ 0x14049010C (RtlpHpVsSubsegmentInitialize.c)
+ *     KasanMarkAddressValidNoInline @ 0x1405257D0 (KasanMarkAddressValidNoInline.c)
+ *     KasanTrackAddressNoInline @ 0x140534710 (KasanTrackAddressNoInline.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall RtlpHpVsSubsegmentCreate(__int64 a1, int a2)
@@ -62,7 +62,7 @@ __int64 __fastcall RtlpHpVsSubsegmentCreate(__int64 a1, int a2)
     v12 = v8;
   if ( (RtlpHpLfhPerfFlags & 0x20000) == 0 )
     goto LABEL_10;
-  if ( !byte_140FC7BE8 || (int)KasanTrackAddressNoInline(v9, v8, 0LL) >= 0 )
+  if ( !byte_140FC8BD8 || (int)KasanTrackAddressNoInline(v9, v8, 0LL) >= 0 )
   {
     v3 = 1;
 LABEL_10:
@@ -73,7 +73,7 @@ LABEL_10:
       return v10;
     }
     v13 = 0LL;
-    if ( v3 && byte_140FC7BE8 )
+    if ( v3 && byte_140FC8BD8 )
       KasanMarkAddressValidNoInline(v11, v8);
     goto LABEL_22;
   }

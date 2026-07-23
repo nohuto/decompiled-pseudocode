@@ -4,12 +4,12 @@
  *     MmUpdateHiberMappings @ 0x1403C9630 (MmUpdateHiberMappings.c)
  *     PopInvokeSystemStateHandler @ 0x1403CC110 (PopInvokeSystemStateHandler.c)
  * Callees:
- *     MiGetPteAddress @ 0x14002BA64 (MiGetPteAddress.c)
- *     MiMakeQuasiPte @ 0x1401718C0 (MiMakeQuasiPte.c)
- *     MiRevertQuasiPte @ 0x1401718D0 (MiRevertQuasiPte.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiGetPteAddress @ 0x14002B5E4 (MiGetPteAddress.c)
+ *     MiMakeQuasiPte @ 0x140171DBC (MiMakeQuasiPte.c)
+ *     MiRevertQuasiPte @ 0x140171DCC (MiRevertQuasiPte.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
  */
 
 unsigned __int64 MiUpdateUserMappings()

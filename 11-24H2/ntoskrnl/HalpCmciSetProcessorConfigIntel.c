@@ -1,49 +1,41 @@
 /*
- * XREFs of HalpCmciSetProcessorConfigIntel @ 0x14047D6E0
+ * XREFs of HalpCmciSetProcessorConfigIntel @ 0x140478870
  * Callers:
- *     HalpCmciSetProcessorConfig @ 0x14047D604 (HalpCmciSetProcessorConfig.c)
+ *     HalpCmciSetProcessorConfig @ 0x140478794 (HalpCmciSetProcessorConfig.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
-char __fastcall HalpCmciSetProcessorConfigIntel(__int64 a1, char a2, __int64 a3, __int64 a4)
+char __fastcall HalpCmciSetProcessorConfigIntel(__int64 a1, char a2, __int64 a3)
 {
-  __int64 v7; // rsi
-  __int64 v8; // rax
-  unsigned int v9; // edi
-  __int64 v10; // rbp
-  unsigned __int64 v11; // rax
-  __int64 v12; // rcx
+  int v5; // eax
+  unsigned int v6; // edi
+  __int64 v7; // rbp
+  unsigned __int64 v8; // rax
 
-  v7 = a2 != 0 ? 0x40000000 : 0;
   if ( !HalpMcaNumberOfBanks )
   {
-    v11 = __readmsr(0x179u);
-    HalpMcaNumberOfBanks = v11;
+    v8 = __readmsr(0x179u);
+    HalpMcaNumberOfBanks = v8;
   }
-  LOBYTE(v8) = HalpMcaNumberOfBanks;
+  LOBYTE(v5) = HalpMcaNumberOfBanks;
   if ( HalpMcaNumberOfBanks )
   {
-    v9 = 640;
-    v10 = (unsigned __int8)HalpMcaNumberOfBanks;
+    v6 = 640;
+    v7 = (unsigned __int8)HalpMcaNumberOfBanks;
     do
     {
-      LOBYTE(v8) = guard_dispatch_icall_no_overrides(a3, v9, v7, a4);
+      LOBYTE(v5) = guard_dispatch_icall_no_overrides(a3, v6);
       if ( a2 )
       {
-        v8 = guard_dispatch_icall_no_overrides(a3, v9, 0LL, a4);
-        if ( (v8 & 0x40000000) != 0 )
-        {
-          v12 = *(_DWORD *)(a1 + 68) & 0x3FFF;
-          if ( (*(_DWORD *)(a1 + 68) & 0x3FFF) == 0 )
-            v12 = 1LL;
-          LOBYTE(v8) = guard_dispatch_icall_no_overrides(a3, v9, v12 | v8 & 0xFFFFFFFFFFFFC000uLL, a4);
-        }
+        v5 = guard_dispatch_icall_no_overrides(a3, v6);
+        if ( (v5 & 0x40000000) != 0 )
+          LOBYTE(v5) = guard_dispatch_icall_no_overrides(a3, v6);
       }
-      ++v9;
-      --v10;
+      ++v6;
+      --v7;
     }
-    while ( v10 );
+    while ( v7 );
   }
-  return v8;
+  return v5;
 }

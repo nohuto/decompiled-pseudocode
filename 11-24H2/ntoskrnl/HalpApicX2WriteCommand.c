@@ -1,5 +1,5 @@
 /*
- * XREFs of HalpApicX2WriteCommand @ 0x14041C520
+ * XREFs of HalpApicX2WriteCommand @ 0x140410360
  * Callers:
  *     <none>
  * Callees:

@@ -1,13 +1,13 @@
 /*
- * XREFs of KeSetLegacyAffinityThread @ 0x1400CA8C8
+ * XREFs of KeSetLegacyAffinityThread @ 0x1400C8768
  * Callers:
- *     NtSetInformationThread @ 0x14050E5D0 (NtSetInformationThread.c)
+ *     NtSetInformationThread @ 0x1404F1560 (NtSetInformationThread.c)
  * Callees:
- *     ExAcquireSpinLockSharedAtDpcLevel @ 0x14001DD60 (ExAcquireSpinLockSharedAtDpcLevel.c)
- *     KiSetAffinityThread @ 0x1400CA9BC (KiSetAffinityThread.c)
- *     KiProcessDeferredReadyList @ 0x1400D3450 (KiProcessDeferredReadyList.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1400EA3E0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x14001D8E0 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     KiSetAffinityThread @ 0x1400C885C (KiSetAffinityThread.c)
+ *     KiProcessDeferredReadyList @ 0x1400D12F0 (KiProcessDeferredReadyList.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1400E8250 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall KeSetLegacyAffinityThread(__int64 a1, __int64 a2)

@@ -52,9 +52,9 @@ char __fastcall KdInitSystem(int a1, __int64 a2)
   unsigned int v23; // ebp
   __int64 *k; // rbx
   __int64 v25; // rdx
-  char *v26; // r9
+  CHAR *v26; // r9
   unsigned int v27; // r8d
-  char v28; // al
+  CHAR v28; // al
   __int64 v29; // rcx
   __int64 v30; // rdi
   unsigned int i; // edi
@@ -62,7 +62,7 @@ char __fastcall KdInitSystem(int a1, __int64 a2)
   PVOID v33; // rbx
   signed __int32 v35[8]; // [rsp+0h] [rbp-178h] BYREF
   STRING DestinationString; // [rsp+20h] [rbp-158h] BYREF
-  char SourceString[256]; // [rsp+30h] [rbp-148h] BYREF
+  CHAR SourceString[256]; // [rsp+30h] [rbp-148h] BYREF
 
   v3 = 0;
   v4 = 0;
@@ -343,7 +343,7 @@ LABEL_91:
         LODWORD(v25) = 0;
         *(_QWORD *)&DestinationString.Length = 0LL;
         DestinationString.Buffer = 0LL;
-        v26 = (char *)k[10];
+        v26 = (CHAR *)k[10];
         v27 = *((unsigned __int16 *)k + 36) >> 1;
         if ( v27 >= 0x100 )
           v27 = 255;

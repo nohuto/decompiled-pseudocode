@@ -1,13 +1,13 @@
 /*
- * XREFs of MiReturnPagedPoolLockCharge @ 0x140286EA0
+ * XREFs of MiReturnPagedPoolLockCharge @ 0x140296AA0
  * Callers:
- *     MiDecommitHandleTransitionPte @ 0x140286C5C (MiDecommitHandleTransitionPte.c)
- *     MiDecommitHandleValidPte @ 0x140288180 (MiDecommitHandleValidPte.c)
- *     MiDecommitPages @ 0x140288300 (MiDecommitPages.c)
- *     MiDeleteVa @ 0x1402DB780 (MiDeleteVa.c)
+ *     MiDeleteVa @ 0x14023D060 (MiDeleteVa.c)
+ *     MiDecommitHandleTransitionPte @ 0x14029685C (MiDecommitHandleTransitionPte.c)
+ *     MiDecommitHandleValidPte @ 0x140297D80 (MiDecommitHandleValidPte.c)
+ *     MiDecommitPages @ 0x140297F00 (MiDecommitPages.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x1403F9C60 (KeYieldProcessorEx.c)
- *     MiIsPfnSystemCharged @ 0x140437E10 (MiIsPfnSystemCharged.c)
+ *     KeYieldProcessorEx @ 0x1403EFB70 (KeYieldProcessorEx.c)
+ *     MiIsPfnSystemCharged @ 0x14042A890 (MiIsPfnSystemCharged.c)
  */
 
 __int64 __fastcall MiReturnPagedPoolLockCharge(__int64 a1, unsigned __int64 a2)
@@ -20,15 +20,15 @@ __int64 __fastcall MiReturnPagedPoolLockCharge(__int64 a1, unsigned __int64 a2)
   int v8; // [rsp+48h] [rbp+10h] BYREF
 
   v3 = a2 & 1;
-  if ( (a2 & 1) == 0 && qword_140E2DB80 && (a2 & 0x10) == 0 )
-    a2 &= ~qword_140E2DB80;
+  if ( (a2 & 1) == 0 && qword_140E2DCC0 && (a2 & 0x10) == 0 )
+    a2 &= ~qword_140E2DCC0;
   v4 = 48 * ((a2 >> 12) & 0xFFFFFFFFFFLL) - 0x220000000000LL;
   result = MiIsPfnSystemCharged(v4);
   if ( (_DWORD)result )
   {
     v6 = (volatile signed __int32 *)(v4 + 24);
     result = (*(_QWORD *)(v4 + 40) >> 43) & 0x3FFLL;
-    v7 = *((_QWORD *)qword_140E2FF88 + result);
+    v7 = *((_QWORD *)qword_140E300C8 + result);
     if ( v3 )
     {
       v8 = 0;

@@ -1,13 +1,13 @@
 /*
- * XREFs of PsGetNextProcessEx @ 0x1406B4B20
+ * XREFs of PsGetNextProcessEx @ 0x140613FA0
  * Callers:
  *     <none>
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x1402056A0 (ObfReferenceObjectWithTag.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
- *     ObfReferenceObject @ 0x14034B230 (ObfReferenceObject.c)
- *     PsGetNextProcess @ 0x1406CE7A0 (PsGetNextProcess.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     ObfReferenceObjectWithTag @ 0x1402A9FE0 (ObfReferenceObjectWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
+ *     ObfReferenceObject @ 0x140355F80 (ObfReferenceObject.c)
+ *     PsGetNextProcess @ 0x1406A5A80 (PsGetNextProcess.c)
  */
 
 void *__fastcall PsGetNextProcessEx(PADAPTER_OBJECT DmaAdapter)

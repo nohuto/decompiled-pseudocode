@@ -1,15 +1,15 @@
 /*
- * XREFs of SeSinglePrivilegeCheckEx @ 0x140932740
+ * XREFs of SeSinglePrivilegeCheckEx @ 0x14090E300
  * Callers:
- *     RtlpSetSecurityObject @ 0x1409229F0 (RtlpSetSecurityObject.c)
- *     CmpCheckOpenAccessOnKeyBody @ 0x140930F10 (CmpCheckOpenAccessOnKeyBody.c)
- *     CmpSetAccessStateForBackupRestore @ 0x1409846E4 (CmpSetAccessStateForBackupRestore.c)
- *     SepValidOwnerSubjectContext @ 0x140AB05C8 (SepValidOwnerSubjectContext.c)
+ *     RtlpSetSecurityObject @ 0x1408FE500 (RtlpSetSecurityObject.c)
+ *     CmpCheckOpenAccessOnKeyBody @ 0x14090CA40 (CmpCheckOpenAccessOnKeyBody.c)
+ *     CmpSetAccessStateForBackupRestore @ 0x1409466F4 (CmpSetAccessStateForBackupRestore.c)
+ *     SepValidOwnerSubjectContext @ 0x140AAE5AC (SepValidOwnerSubjectContext.c)
  * Callees:
- *     RtlEqualSid @ 0x1402604A0 (RtlEqualSid.c)
- *     SepPrivilegeCheck @ 0x14042F0A0 (SepPrivilegeCheck.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     SepAdtPrivilegedServiceAuditAlarm @ 0x140932AB0 (SepAdtPrivilegedServiceAuditAlarm.c)
+ *     RtlEqualSid @ 0x140406680 (RtlEqualSid.c)
+ *     SepPrivilegeCheck @ 0x14041BFB0 (SepPrivilegeCheck.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     SepAdtPrivilegedServiceAuditAlarm @ 0x14090E660 (SepAdtPrivilegedServiceAuditAlarm.c)
  */
 
 __int64 __fastcall SeSinglePrivilegeCheckEx(__int64 a1, __int64 a2, char a3)
@@ -21,14 +21,14 @@ __int64 __fastcall SeSinglePrivilegeCheckEx(__int64 a1, __int64 a2, char a3)
   __int64 v8; // rax
   void *v9; // rsi
   PSE_EXPORTS v11; // r14
-  __int64 *v12; // r9
-  __int64 v13; // r10
-  struct _LIST_ENTRY *Blink; // rdx
+  __int64 *v12; // r8
+  __int64 v13; // r9
+  struct _LIST_ENTRY *Blink; // rcx
   struct _LIST_ENTRY *Flink; // rax
-  __int64 *v16; // r8
-  __int64 v17; // r10
-  _DWORD *v18; // rax
-  _UNKNOWN **v19; // rdx
+  __int64 *v16; // rdx
+  __int64 v17; // r9
+  _UNKNOWN **v18; // rcx
+  _DWORD *v19; // rax
   _DWORD v20[2]; // [rsp+40h] [rbp-48h] BYREF
   __int64 v21; // [rsp+48h] [rbp-40h] BYREF
   int v22; // [rsp+50h] [rbp-38h]
@@ -58,7 +58,7 @@ LABEL_5:
   if ( !*(_QWORD *)a2 )
     v8 = *(_QWORD *)(a2 + 16);
   v9 = **(void ***)(v8 + 152);
-  if ( RtlEqualSid(*(PSID *)&RtlpBootStatHandleLock.WaitRegister.Flags, v9) )
+  if ( RtlEqualSid(*(PSID *)((char *)&RtlpBootStatHandleLock.116 + 4), v9) )
     return v7;
   v11 = SeExports;
   if ( !RtlEqualSid(SeExports->SeNetworkServiceSid, v9) && !RtlEqualSid(v11->SeLocalServiceSid, v9) )
@@ -69,7 +69,7 @@ LABEL_5:
   {
     Blink = ExpPlatformBinaryLock.WaitBlock[1].WaitListEntry.Blink;
     Flink = ExpPlatformBinaryLock.WaitBlock[1].WaitListEntry.Blink->Flink;
-    while ( *(_DWORD *)v12 != LODWORD(Flink->Flink) || *((_DWORD *)v12 + 1) != HIDWORD(Blink->Flink->Flink) )
+    while ( *(_DWORD *)v12 != LODWORD(Flink->Flink) || *((_DWORD *)v12 + 1) != HIDWORD(Flink->Flink) )
     {
       Flink = Blink->Blink;
       Blink = (struct _LIST_ENTRY *)((char *)Blink + 8);
@@ -86,13 +86,13 @@ LABEL_22:
   v17 = v3;
   do
   {
-    v18 = SepServicesFilterPrivileges;
-    v19 = &SepServicesFilterPrivileges;
-    while ( *(_DWORD *)v16 != *v18 || *((_DWORD *)v16 + 1) != *((_DWORD *)*v19 + 1) )
+    v18 = &SepServicesFilterPrivileges;
+    v19 = SepServicesFilterPrivileges;
+    while ( *(_DWORD *)v16 != *v19 || *((_DWORD *)v16 + 1) != v19[1] )
     {
-      v18 = v19[1];
-      ++v19;
-      if ( !v18 )
+      v19 = v18[1];
+      ++v18;
+      if ( !v19 )
         goto LABEL_27;
     }
     ++v4;

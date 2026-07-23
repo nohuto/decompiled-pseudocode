@@ -1,10 +1,10 @@
 /*
- * XREFs of PopIsLockConsoleTimeoutActive @ 0x140878980
+ * XREFs of PopIsLockConsoleTimeoutActive @ 0x140878BC0
  * Callers:
- *     PopCaptureSleepStudyStatistics @ 0x1403C7F00 (PopCaptureSleepStudyStatistics.c)
+ *     PopCaptureSleepStudyStatistics @ 0x1403C80E0 (PopCaptureSleepStudyStatistics.c)
  * Callees:
- *     PopAcquireAdaptiveLock @ 0x1407EBE9C (PopAcquireAdaptiveLock.c)
- *     PopReleaseAdaptiveLock @ 0x1407EBF48 (PopReleaseAdaptiveLock.c)
+ *     PopAcquireAdaptiveLock @ 0x1407EC16C (PopAcquireAdaptiveLock.c)
+ *     PopReleaseAdaptiveLock @ 0x1407EC218 (PopReleaseAdaptiveLock.c)
  */
 
 char PopIsLockConsoleTimeoutActive()
@@ -13,7 +13,7 @@ char PopIsLockConsoleTimeoutActive()
 
   v0 = 1;
   PopAcquireAdaptiveLock(1);
-  if ( !byte_140C39CE1 || byte_140C39CE2 || dword_140C39CF8 == -1 )
+  if ( !byte_140C39C41 || byte_140C39C42 || dword_140C39C58 == -1 )
     v0 = 0;
   PopReleaseAdaptiveLock();
   return v0;

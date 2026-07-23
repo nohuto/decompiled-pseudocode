@@ -1,9 +1,9 @@
 /*
- * XREFs of FindDirectoryEntry @ 0x18000C2E0
+ * XREFs of FindDirectoryEntry @ 0x18000C2D0
  * Callers:
- *     WerEscalationReadImageVersionInfoForModuleBase @ 0x18000C014 (WerEscalationReadImageVersionInfoForModuleBase.c)
+ *     WerEscalationReadImageVersionInfoForModuleBase @ 0x18000C004 (WerEscalationReadImageVersionInfoForModuleBase.c)
  * Callees:
- *     ValidatePointer @ 0x18000C2A4 (ValidatePointer.c)
+ *     ValidatePointer @ 0x18000C294 (ValidatePointer.c)
  */
 
 __int64 __fastcall FindDirectoryEntry(unsigned __int64 *a1, unsigned __int64 a2, int a3, __int64 a4)

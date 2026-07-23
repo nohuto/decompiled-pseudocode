@@ -1,36 +1,36 @@
 /*
  * XREFs of ExpSystemErrorHandler2 @ 0x1403E0080
  * Callers:
- *     ExpSystemErrorHandler @ 0x140168330 (ExpSystemErrorHandler.c)
+ *     ExpSystemErrorHandler @ 0x1401688A0 (ExpSystemErrorHandler.c)
  * Callees:
- *     PsGetCurrentServerSilo @ 0x140013620 (PsGetCurrentServerSilo.c)
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     RtlInitAnsiString @ 0x140074CF4 (RtlInitAnsiString.c)
- *     RtlStringCbPrintfA @ 0x140139A14 (RtlStringCbPrintfA.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     strcat_s @ 0x140152BA0 (strcat_s.c)
- *     strcpy_s @ 0x140152C34 (strcpy_s.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     PsGetCurrentServerSilo @ 0x1400131A0 (PsGetCurrentServerSilo.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     RtlInitAnsiString @ 0x140074D74 (RtlInitAnsiString.c)
+ *     RtlStringCbPrintfA @ 0x140139F84 (RtlStringCbPrintfA.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     strcat_s @ 0x140153160 (strcat_s.c)
+ *     strcpy_s @ 0x1401531F4 (strcpy_s.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     RtlAnsiStringToUnicodeString @ 0x1403F6600 (RtlAnsiStringToUnicodeString.c)
- *     RtlUnicodeStringToAnsiString @ 0x1403F7370 (RtlUnicodeStringToAnsiString.c)
- *     PsQuerySystemDllInfo @ 0x14045A7D4 (PsQuerySystemDllInfo.c)
- *     RtlUnicodeStringToOemString @ 0x1404BBE2C (RtlUnicodeStringToOemString.c)
- *     MmLockPagableSectionByHandle @ 0x1404DC9CC (MmLockPagableSectionByHandle.c)
- *     RtlFindMessage @ 0x14051C574 (RtlFindMessage.c)
- *     PoShutdownBugCheck @ 0x14066E8B4 (PoShutdownBugCheck.c)
- *     PsTerminateServerSilo @ 0x14067E178 (PsTerminateServerSilo.c)
- *     RtlxUnicodeStringToOemSize @ 0x140685814 (RtlxUnicodeStringToOemSize.c)
+ *     RtlAnsiStringToUnicodeString @ 0x1403F54C4 (RtlAnsiStringToUnicodeString.c)
+ *     RtlUnicodeStringToAnsiString @ 0x1403F6230 (RtlUnicodeStringToAnsiString.c)
+ *     PsQuerySystemDllInfo @ 0x1404596A4 (PsQuerySystemDllInfo.c)
+ *     RtlUnicodeStringToOemString @ 0x1404A7B5C (RtlUnicodeStringToOemString.c)
+ *     MmLockPagableSectionByHandle @ 0x1404BFFD0 (MmLockPagableSectionByHandle.c)
+ *     RtlFindMessage @ 0x1404FF964 (RtlFindMessage.c)
+ *     PoShutdownBugCheck @ 0x14066E998 (PoShutdownBugCheck.c)
+ *     PsTerminateServerSilo @ 0x14067E25C (PsTerminateServerSilo.c)
+ *     RtlxUnicodeStringToOemSize @ 0x1406858F8 (RtlxUnicodeStringToOemSize.c)
  */
 
 __int64 __fastcall ExpSystemErrorHandler2(
         ULONG_PTR BugCheckParameter1,
         unsigned int a2,
         int a3,
-        struct _MESSAGE_RESOURCE_ENTRY *a4,
+        _MESSAGE_RESOURCE_ENTRY *a4,
         char a5)
 {
   unsigned int v7; // edi
@@ -61,9 +61,9 @@ __int64 __fastcall ExpSystemErrorHandler2(
   PMESSAGE_RESOURCE_ENTRY MessageResourceEntry; // [rsp+68h] [rbp-1E0h] BYREF
   UNICODE_STRING UnicodeString; // [rsp+70h] [rbp-1D8h] BYREF
   const char *v35; // [rsp+80h] [rbp-1C8h]
-  STRING v36; // [rsp+88h] [rbp-1C0h] BYREF
-  STRING SourceString; // [rsp+98h] [rbp-1B0h] BYREF
-  STRING DestinationString; // [rsp+A8h] [rbp-1A0h] BYREF
+  _STRING v36; // [rsp+88h] [rbp-1C0h] BYREF
+  _STRING SourceString; // [rsp+98h] [rbp-1B0h] BYREF
+  _STRING DestinationString; // [rsp+A8h] [rbp-1A0h] BYREF
   ULONG_PTR BugCheckParameter2[5]; // [rsp+B8h] [rbp-190h] BYREF
   char pszFormat[32]; // [rsp+E0h] [rbp-168h] BYREF
   char pszDest[256]; // [rsp+100h] [rbp-148h] BYREF

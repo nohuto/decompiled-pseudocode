@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpCreateRangeListEntry @ 0x140738844
+ * XREFs of RtlpCreateRangeListEntry @ 0x140739A34
  * Callers:
- *     RtlAddRange @ 0x1407386F0 (RtlAddRange.c)
+ *     RtlAddRange @ 0x1407398E0 (RtlAddRange.c)
  * Callees:
  *     ExAllocateFromNPagedLookasideList @ 0x140018B38 (ExAllocateFromNPagedLookasideList.c)
  */

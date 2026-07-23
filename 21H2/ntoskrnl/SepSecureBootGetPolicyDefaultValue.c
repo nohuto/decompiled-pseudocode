@@ -1,7 +1,7 @@
 /*
- * XREFs of SepSecureBootGetPolicyDefaultValue @ 0x1409244C4
+ * XREFs of SepSecureBootGetPolicyDefaultValue @ 0x140924624
  * Callers:
- *     SepSecureBootUpdateBcdDataForRule @ 0x140924654 (SepSecureBootUpdateBcdDataForRule.c)
+ *     SepSecureBootUpdateBcdDataForRule @ 0x1409247B4 (SepSecureBootUpdateBcdDataForRule.c)
  * Callees:
  *     <none>
  */

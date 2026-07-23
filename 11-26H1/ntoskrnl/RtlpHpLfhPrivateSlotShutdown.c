@@ -1,18 +1,18 @@
 /*
- * XREFs of RtlpHpLfhPrivateSlotShutdown @ 0x140347ECC
+ * XREFs of RtlpHpLfhPrivateSlotShutdown @ 0x140349F4C
  * Callers:
- *     RtlpHpLfhSlotAllocateSlow @ 0x140402C90 (RtlpHpLfhSlotAllocateSlow.c)
- *     RtlpHpLfhContextTlsCleanup @ 0x140639990 (RtlpHpLfhContextTlsCleanup.c)
- *     RtlpHpLfhPrivateSlotListCompact @ 0x140639B24 (RtlpHpLfhPrivateSlotListCompact.c)
+ *     RtlpHpLfhSlotAllocateSlow @ 0x1403FBD90 (RtlpHpLfhSlotAllocateSlow.c)
+ *     RtlpHpLfhContextTlsCleanup @ 0x14063C9A0 (RtlpHpLfhContextTlsCleanup.c)
+ *     RtlpHpLfhPrivateSlotListCompact @ 0x14063CB34 (RtlpHpLfhPrivateSlotListCompact.c)
  * Callees:
- *     RtlpHpAcquireLockExclusive @ 0x14027E170 (RtlpHpAcquireLockExclusive.c)
- *     RtlpHpLfhContextMetadataFree @ 0x140346750 (RtlpHpLfhContextMetadataFree.c)
- *     RtlpHpLfhSlotActiveSubsegmentReset @ 0x1403467D0 (RtlpHpLfhSlotActiveSubsegmentReset.c)
- *     RtlpHpLfhOwnerRunMaintenance @ 0x140346820 (RtlpHpLfhOwnerRunMaintenance.c)
- *     RtlpHpLfhHeatMapQuery @ 0x140347720 (RtlpHpLfhHeatMapQuery.c)
- *     RtlpHpLfhBucketAddSubsegment @ 0x140349230 (RtlpHpLfhBucketAddSubsegment.c)
- *     RtlpHpLfhOwnerMoveSubsegment @ 0x14034952C (RtlpHpLfhOwnerMoveSubsegment.c)
- *     RtlpHpReleaseLockExclusive @ 0x14034D300 (RtlpHpReleaseLockExclusive.c)
+ *     RtlpHpAcquireLockExclusive @ 0x14027D6E0 (RtlpHpAcquireLockExclusive.c)
+ *     RtlpHpLfhContextMetadataFree @ 0x1403487D0 (RtlpHpLfhContextMetadataFree.c)
+ *     RtlpHpLfhSlotActiveSubsegmentReset @ 0x140348850 (RtlpHpLfhSlotActiveSubsegmentReset.c)
+ *     RtlpHpLfhOwnerRunMaintenance @ 0x1403488A0 (RtlpHpLfhOwnerRunMaintenance.c)
+ *     RtlpHpLfhHeatMapQuery @ 0x1403497A0 (RtlpHpLfhHeatMapQuery.c)
+ *     RtlpHpLfhBucketAddSubsegment @ 0x14034B2B0 (RtlpHpLfhBucketAddSubsegment.c)
+ *     RtlpHpLfhOwnerMoveSubsegment @ 0x14034B5AC (RtlpHpLfhOwnerMoveSubsegment.c)
+ *     RtlpHpReleaseLockExclusive @ 0x14034F380 (RtlpHpReleaseLockExclusive.c)
  */
 
 unsigned __int64 __fastcall RtlpHpLfhPrivateSlotShutdown(__int64 a1, __int64 a2, __int64 a3, char a4)

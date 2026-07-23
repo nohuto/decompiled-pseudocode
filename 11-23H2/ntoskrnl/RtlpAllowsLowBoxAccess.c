@@ -1,16 +1,16 @@
 /*
- * XREFs of RtlpAllowsLowBoxAccess @ 0x1403ACD20
+ * XREFs of RtlpAllowsLowBoxAccess @ 0x1403ACF00
  * Callers:
- *     RtlpLookupLowBox @ 0x1402976B4 (RtlpLookupLowBox.c)
+ *     RtlpLookupLowBox @ 0x140297944 (RtlpLookupLowBox.c)
  * Callees:
- *     RtlStringCbCopyW @ 0x14022B004 (RtlStringCbCopyW.c)
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     SeAccessCheckWithHint @ 0x1402316C0 (SeAccessCheckWithHint.c)
- *     SeClearLearningModeObjectInformation @ 0x140232210 (SeClearLearningModeObjectInformation.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     SeSetLearningModeObjectInformation @ 0x1405B83CC (SeSetLearningModeObjectInformation.c)
- *     PsReferenceEffectiveToken @ 0x14071D6EC (PsReferenceEffectiveToken.c)
+ *     RtlStringCbCopyW @ 0x14022B114 (RtlStringCbCopyW.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     SeAccessCheckWithHint @ 0x140231790 (SeAccessCheckWithHint.c)
+ *     SeClearLearningModeObjectInformation @ 0x1402322E0 (SeClearLearningModeObjectInformation.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     SeSetLearningModeObjectInformation @ 0x1405B893C (SeSetLearningModeObjectInformation.c)
+ *     PsReferenceEffectiveToken @ 0x14071D8EC (PsReferenceEffectiveToken.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
@@ -101,7 +101,7 @@ char __fastcall RtlpAllowsLowBoxAccess(__int64 a1)
          (__int64)v22,
          KeGetCurrentThread()->PreviousMode,
          &v11,
-         (int *)v12);
+         (NTSTATUS *)v12);
   ObfDereferenceObjectWithTag(v17.PrimaryToken, 0x6D6F7441u);
   if ( v7 )
     ExFreePoolWithTag(v7, 0x6D4E7441u);

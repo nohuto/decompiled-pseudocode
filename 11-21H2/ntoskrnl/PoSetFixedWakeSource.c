@@ -8,5 +8,5 @@
 
 void __fastcall PoSetFixedWakeSource(int a1)
 {
-  PopFixedWakeSourceMask |= a1;
+  dword_140C23798 |= a1;
 }

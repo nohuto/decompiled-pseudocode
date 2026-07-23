@@ -1,9 +1,9 @@
 /*
- * XREFs of HalAllocateDomainCommonBuffer @ 0x14054FD50
+ * XREFs of HalAllocateDomainCommonBuffer @ 0x14054D690
  * Callers:
  *     <none>
  * Callees:
- *     HalpAllocateDomainCommonBufferInternal @ 0x140550340 (HalpAllocateDomainCommonBufferInternal.c)
+ *     HalpAllocateDomainCommonBufferInternal @ 0x14054DC80 (HalpAllocateDomainCommonBufferInternal.c)
  */
 
 __int64 __fastcall HalAllocateDomainCommonBuffer(

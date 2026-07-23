@@ -1,18 +1,18 @@
 /*
- * XREFs of PnpSurpriseFailUnsafeDmaDevices @ 0x140A7F278
+ * XREFs of PnpSurpriseFailUnsafeDmaDevices @ 0x140A78A28
  * Callers:
- *     PopTransitionSystemPowerStateEx @ 0x140B667DC (PopTransitionSystemPowerStateEx.c)
+ *     PopTransitionSystemPowerStateEx @ 0x140B6891C (PopTransitionSystemPowerStateEx.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x14025A450 (ExReleaseResourceLite.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402769C0 (ExAcquireResourceExclusiveLite.c)
- *     ExAcquireResourceSharedLite @ 0x140341E80 (ExAcquireResourceSharedLite.c)
- *     PipDmgEnforceEnumerationPolicy @ 0x140731B84 (PipDmgEnforceEnumerationPolicy.c)
- *     PiIommuIsDeviceSafeWhileConsoleLocked @ 0x140735FE8 (PiIommuIsDeviceSafeWhileConsoleLocked.c)
- *     PnpSynchronizeDeviceEventQueue @ 0x1408B220C (PnpSynchronizeDeviceEventQueue.c)
- *     PnpPowerStateTransitionWatchdogPushRecord @ 0x140A7F3B4 (PnpPowerStateTransitionWatchdogPushRecord.c)
- *     PiCslIsConsoleLocked @ 0x140A7F420 (PiCslIsConsoleLocked.c)
- *     PnpPowerStateTransitionWatchdogPopRecord @ 0x140AB8880 (PnpPowerStateTransitionWatchdogPopRecord.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14022BF50 (ExAcquireResourceExclusiveLite.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x14028AA60 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x140321360 (ExAcquireResourceSharedLite.c)
+ *     PipDmgEnforceEnumerationPolicy @ 0x14072FB94 (PipDmgEnforceEnumerationPolicy.c)
+ *     PiIommuIsDeviceSafeWhileConsoleLocked @ 0x140733F18 (PiIommuIsDeviceSafeWhileConsoleLocked.c)
+ *     PnpSynchronizeDeviceEventQueue @ 0x1408AFB00 (PnpSynchronizeDeviceEventQueue.c)
+ *     PnpPowerStateTransitionWatchdogPushRecord @ 0x140A78B64 (PnpPowerStateTransitionWatchdogPushRecord.c)
+ *     PiCslIsConsoleLocked @ 0x140A78BD0 (PiCslIsConsoleLocked.c)
+ *     PnpPowerStateTransitionWatchdogPopRecord @ 0x140AB2D44 (PnpPowerStateTransitionWatchdogPopRecord.c)
  */
 
 void PnpSurpriseFailUnsafeDmaDevices()

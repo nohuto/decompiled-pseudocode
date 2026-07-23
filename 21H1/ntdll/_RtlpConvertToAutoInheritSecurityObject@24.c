@@ -11,297 +11,313 @@
  *     _RtlpConvertAclToAutoInherit@36 @ 0x4B347B85 (_RtlpConvertAclToAutoInherit@36.c)
  */
 
-int __fastcall RtlpConvertToAutoInheritSecurityObject(unsigned int a1, int a2, char **a3, int a4, int a5, _DWORD *a6)
+int __userpurge RtlpConvertToAutoInheritSecurityObject@<eax>(
+        int a1@<edx>,
+        unsigned int a2@<ecx>,
+        int a3@<ebx>,
+        char **a4,
+        int a5,
+        char a6,
+        GENERIC_MAPPING *a7)
 {
-  int v7; // edi
-  unsigned __int8 *v8; // ecx
-  int v9; // edx
-  __int16 v10; // bx
-  __int16 v11; // di
-  char *v12; // edx
-  unsigned __int16 *v13; // ebx
-  int v14; // eax
-  unsigned __int16 v15; // ax
-  char *v16; // edi
-  unsigned int v17; // edi
-  __int16 v18; // ax
-  int v19; // edx
-  __int16 v20; // ax
-  unsigned __int16 *v21; // edx
-  unsigned __int16 *v22; // ecx
-  char *v23; // ebx
-  char *v24; // edi
-  __int16 v25; // ax
-  char *v26; // ecx
-  __int16 v27; // bx
-  unsigned int v28; // esi
-  unsigned int v29; // edx
-  unsigned int v30; // edi
+  int v8; // edi
+  unsigned __int8 *v9; // ecx
+  int v10; // edx
+  __int16 v11; // bx
+  __int16 v12; // di
+  char *v13; // edx
+  ACL *v14; // ebx
+  int v15; // eax
+  unsigned __int16 v16; // ax
+  ACL *v17; // edi
+  unsigned int v18; // edi
+  __int16 v19; // ax
+  int v20; // edx
+  __int16 v21; // ax
+  ACL *v22; // edx
+  unsigned __int16 *p_AclRevision; // ecx
+  char *v24; // ebx
+  char *v25; // edi
+  __int16 v26; // ax
+  ACL *v27; // ecx
+  __int16 v28; // bx
+  unsigned int v29; // esi
+  unsigned int v30; // edx
+  unsigned int v31; // edi
   char *Heap; // ecx
-  char *v32; // ecx
-  char *v33; // esi
-  int v34; // eax
-  char *v35; // eax
-  char *v36; // ebx
-  char *v37; // eax
-  char *v38; // esi
-  unsigned __int8 *v39; // ecx
-  int v40; // ebx
-  unsigned __int8 *v42; // [esp+8h] [ebp-2Ch]
-  int v43; // [esp+Ch] [ebp-28h] BYREF
-  int v44; // [esp+10h] [ebp-24h]
-  void *ProcessHeap; // [esp+14h] [ebp-20h]
-  int v46; // [esp+18h] [ebp-1Ch]
-  char *v47; // [esp+1Ch] [ebp-18h]
+  char *v33; // ecx
+  char *v34; // esi
+  int v35; // eax
+  char *v36; // eax
+  char *v37; // ebx
+  char *v38; // eax
+  char *v39; // esi
+  unsigned __int8 *v40; // ecx
+  PVOID v41; // ebx
+  SIZE_T v43; // [esp-8h] [ebp-3Ch]
+  size_t v44; // [esp-8h] [ebp-3Ch]
+  size_t v45; // [esp-8h] [ebp-3Ch]
+  unsigned __int8 *v46; // [esp+8h] [ebp-2Ch]
+  int v47; // [esp+Ch] [ebp-28h] BYREF
+  int v48; // [esp+10h] [ebp-24h]
+  PVOID HeapHandle; // [esp+14h] [ebp-20h]
+  int v50; // [esp+18h] [ebp-1Ch]
+  char *v51; // [esp+1Ch] [ebp-18h]
   void *Src; // [esp+20h] [ebp-14h] BYREF
-  void *v49; // [esp+24h] [ebp-10h]
-  void *v50; // [esp+28h] [ebp-Ch] BYREF
-  unsigned int v51; // [esp+2Ch] [ebp-8h]
-  char v52; // [esp+32h] [ebp-2h]
-  char v53; // [esp+33h] [ebp-1h]
+  void *v53; // [esp+24h] [ebp-10h]
+  PVOID BaseAddress; // [esp+28h] [ebp-Ch] BYREF
+  unsigned int v55; // [esp+2Ch] [ebp-8h]
+  char v56; // [esp+32h] [ebp-2h]
+  char v57; // [esp+33h] [ebp-1h]
 
-  v51 = a1;
+  v55 = a2;
   Src = 0;
-  v52 = 0;
-  v50 = 0;
-  v53 = 0;
-  v47 = 0;
-  ProcessHeap = NtCurrentPeb()->ProcessHeap;
-  if ( !RtlValidSecurityDescriptor(a2) )
+  v56 = 0;
+  BaseAddress = 0;
+  v57 = 0;
+  v51 = 0;
+  HeapHandle = NtCurrentPeb()->ProcessHeap;
+  if ( !RtlValidSecurityDescriptor((PSECURITY_DESCRIPTOR)a1) )
   {
-    v7 = -1073741703;
+    v8 = -1073741703;
     goto LABEL_81;
   }
-  v8 = *(unsigned __int8 **)(a2 + 4);
-  v9 = (int)v8;
-  v10 = *(_WORD *)(a2 + 2);
-  v11 = v10;
-  v46 = (unsigned __int16)v10;
-  if ( v10 >= 0 )
-  {
-    v42 = v8;
-  }
-  else
-  {
-    v9 = v8 != 0 ? (unsigned int)&v8[a2] : 0;
-    v42 = (unsigned __int8 *)v9;
-  }
-  if ( !v9 )
-  {
-    v7 = -1073741703;
-    goto LABEL_81;
-  }
-  v12 = *(char **)(a2 + 8);
-  if ( v10 >= 0 )
-  {
-    v49 = *(void **)(a2 + 8);
-  }
-  else
-  {
-    v49 = v12 != 0 ? &v12[a2] : 0;
-    v11 = v46;
-  }
-  if ( (v10 & 0x10) == 0 )
-    goto LABEL_29;
-  v13 = *(unsigned __int16 **)(a2 + 12);
+  v9 = *(unsigned __int8 **)(a1 + 4);
+  v10 = (int)v9;
+  HIDWORD(v43) = a3;
+  v11 = *(_WORD *)(a1 + 2);
+  v12 = v11;
+  v50 = (unsigned __int16)v11;
   if ( v11 >= 0 )
   {
-    v14 = *(_DWORD *)(a2 + 12);
-    v44 = v14;
+    v46 = v9;
   }
   else
   {
-    v44 = v13 != 0 ? (unsigned int)v13 + a2 : 0;
-    v11 = v46;
-    v14 = v44;
+    v10 = v9 != 0 ? (unsigned int)&v9[a1] : 0;
+    v46 = (unsigned __int8 *)v10;
   }
-  if ( !v14 )
+  if ( !v10 )
   {
-    v10 = *(_WORD *)(a2 + 2);
+    v8 = -1073741703;
+    goto LABEL_81;
+  }
+  v13 = *(char **)(a1 + 8);
+  if ( v11 >= 0 )
+  {
+    v53 = *(void **)(a1 + 8);
+  }
+  else
+  {
+    v53 = v13 != 0 ? &v13[a1] : 0;
+    v12 = v50;
+  }
+  if ( (v11 & 0x10) == 0 )
+    goto LABEL_29;
+  v14 = *(ACL **)(a1 + 12);
+  if ( v12 >= 0 )
+  {
+    v15 = *(_DWORD *)(a1 + 12);
+    v48 = v15;
+  }
+  else
+  {
+    v48 = v14 != 0 ? (unsigned int)v14 + a1 : 0;
+    v12 = v50;
+    v15 = v48;
+  }
+  if ( !v15 )
+  {
+    v11 = *(_WORD *)(a1 + 2);
 LABEL_29:
-    v17 = v51;
-    v46 = v10 & 0x2010 | 0x800;
-    if ( v51 )
+    v18 = v55;
+    v50 = v11 & 0x2010 | 0x800;
+    if ( v55 )
     {
-      v18 = *(_WORD *)(v51 + 2);
-      if ( (v18 & 0x10) == 0 )
+      v19 = *(_WORD *)(v55 + 2);
+      if ( (v19 & 0x10) == 0 )
         goto LABEL_36;
-      v19 = *(_DWORD *)(v51 + 12);
-      if ( v18 < 0 )
-        v19 = v19 != 0 ? v19 + v51 : 0;
+      v20 = *(_DWORD *)(v55 + 12);
+      if ( v19 < 0 )
+        v20 = v20 != 0 ? v20 + v55 : 0;
     }
     else
     {
-      v19 = 0;
+      v20 = 0;
     }
-    if ( v19 )
-      v46 = v10 & 0x2010 | 0x2800;
+    if ( v20 )
+      v50 = v11 & 0x2010 | 0x2800;
 LABEL_36:
-    v20 = v10;
-    v44 = (unsigned __int16)v10;
-    if ( (v10 & 4) == 0 )
+    v21 = v11;
+    v48 = (unsigned __int16)v11;
+    if ( (v11 & 4) == 0 )
       goto LABEL_54;
-    v21 = *(unsigned __int16 **)(a2 + 16);
-    v22 = v21;
-    if ( v10 < 0 )
+    v22 = *(ACL **)(a1 + 16);
+    p_AclRevision = (unsigned __int16 *)&v22->AclRevision;
+    if ( v11 < 0 )
     {
-      v22 = v21 != 0 ? (unsigned __int16 *)((char *)v21 + a2) : 0;
-      v20 = v44;
+      p_AclRevision = v22 != 0 ? (unsigned __int16 *)((unsigned int)v22 + a1) : 0;
+      v21 = v48;
     }
-    if ( v22 )
+    if ( p_AclRevision )
     {
-      if ( (v10 & 0x1400) != 0 || !v17 )
+      if ( (v11 & 0x1400) != 0 || !v18 )
       {
-        v50 = v22;
-        v27 = v10 & 0x1004 | 0x400;
+        BaseAddress = p_AclRevision;
+        v28 = v11 & 0x1004 | 0x400;
 LABEL_56:
-        v51 = (4 * v42[1] + 11) & 0xFFFFFFFC;
-        if ( v49 )
-          v28 = (4 * *((unsigned __int8 *)v49 + 1) + 11) & 0xFFFFFFFC;
-        else
-          v28 = 0;
-        if ( Src )
-          v29 = (*((unsigned __int16 *)Src + 1) + 3) & 0xFFFFFFFC;
+        v55 = (4 * v46[1] + 11) & 0xFFFFFFFC;
+        if ( v53 )
+          v29 = (4 * *((unsigned __int8 *)v53 + 1) + 11) & 0xFFFFFFFC;
         else
           v29 = 0;
-        v44 = v29;
-        if ( v22 )
-          v30 = (v22[1] + 3) & 0xFFFFFFFC;
+        if ( Src )
+          v30 = (*((unsigned __int16 *)Src + 1) + 3) & 0xFFFFFFFC;
         else
           v30 = 0;
-        Heap = (char *)RtlAllocateHeap((int)ProcessHeap, NtdllBaseTag + 1310720, v51 + 20 + v28 + v30 + v29);
-        v47 = Heap;
+        v48 = v30;
+        if ( p_AclRevision )
+          v31 = (p_AclRevision[1] + 3) & 0xFFFFFFFC;
+        else
+          v31 = 0;
+        LODWORD(v43) = v55 + 20 + v29 + v31 + v30;
+        Heap = (char *)RtlAllocateHeap(HeapHandle, NtdllBaseTag + 1310720, v43);
+        v51 = Heap;
         if ( Heap )
         {
           RtlCreateSecurityDescriptorRelative(Heap);
-          v33 = v32 + 20;
-          *((_WORD *)v32 + 1) |= (unsigned __int16)v46 | 0x8000;
+          v34 = v33 + 20;
+          *((_WORD *)v33 + 1) |= (unsigned __int16)v50 | 0x8000;
           if ( Src )
           {
-            memcpy(v32 + 20, Src, *((unsigned __int16 *)Src + 1));
-            v32 = v47;
-            v33 += v44;
-            v34 = 20;
-          }
-          else
-          {
-            v34 = 0;
-          }
-          *((_DWORD *)v32 + 3) = v34;
-          *((_WORD *)v32 + 1) |= v27;
-          if ( v50 )
-          {
-            memcpy(v33, v50, *((unsigned __int16 *)v50 + 1));
-            v32 = v47;
-            v35 = (char *)(v33 - v47);
-            v33 += v30;
+            LODWORD(v44) = *((unsigned __int16 *)Src + 1);
+            memcpy(v33 + 20, Src, v44);
+            v33 = v51;
+            v34 += v48;
+            v35 = 20;
           }
           else
           {
             v35 = 0;
           }
-          *((_DWORD *)v32 + 4) = v35;
-          memcpy(v33, v42, 4 * v42[1] + 8);
-          v36 = v47;
-          v37 = v33;
-          v38 = &v33[v51];
-          v39 = (unsigned __int8 *)v49;
-          *((_DWORD *)v47 + 1) = v37 - v47;
-          if ( v39 )
+          *((_DWORD *)v33 + 3) = v35;
+          *((_WORD *)v33 + 1) |= v28;
+          if ( BaseAddress )
           {
-            memcpy(v38, v39, 4 * v39[1] + 8);
-            *((_DWORD *)v36 + 2) = v38 - v36;
+            LODWORD(v44) = *((unsigned __int16 *)BaseAddress + 1);
+            memcpy(v34, BaseAddress, v44);
+            v33 = v51;
+            v36 = (char *)(v34 - v51);
+            v34 += v31;
           }
-          v7 = 0;
+          else
+          {
+            v36 = 0;
+          }
+          *((_DWORD *)v33 + 4) = v36;
+          LODWORD(v44) = 4 * v46[1] + 8;
+          memcpy(v34, v46, v44);
+          v37 = v51;
+          v38 = v34;
+          v39 = &v34[v55];
+          v40 = (unsigned __int8 *)v53;
+          *((_DWORD *)v51 + 1) = v38 - v51;
+          if ( v40 )
+          {
+            LODWORD(v45) = 4 * v40[1] + 8;
+            memcpy(v39, v40, v45);
+            *((_DWORD *)v37 + 2) = v39 - v37;
+          }
+          v8 = 0;
         }
         else
         {
-          v7 = -1073741801;
+          v8 = -1073741801;
         }
-        v40 = (int)ProcessHeap;
-        if ( v53 )
-          RtlFreeHeap((int)ProcessHeap, 0, (int)v50);
+        v41 = HeapHandle;
+        if ( v57 )
+          RtlFreeHeap(HeapHandle, 0, BaseAddress);
         goto LABEL_79;
       }
-      v23 = *(char **)(a2 + 8);
-      if ( v20 < 0 )
+      v24 = *(char **)(a1 + 8);
+      if ( v21 < 0 )
       {
-        v23 = v23 != 0 ? &v23[a2] : 0;
-        v20 = v44;
+        v24 = v24 != 0 ? &v24[a1] : 0;
+        v21 = v48;
       }
-      v24 = *(char **)(a2 + 4);
-      if ( v20 < 0 )
+      v25 = *(char **)(a1 + 4);
+      if ( v21 < 0 )
       {
-        v24 = v24 != 0 ? &v24[a2] : 0;
-        if ( (v44 & 0x8000u) != 0 )
-          v21 = v21 != 0 ? (unsigned __int16 *)((char *)v21 + a2) : 0;
+        v25 = v25 != 0 ? &v25[a1] : 0;
+        if ( (v48 & 0x8000u) != 0 )
+          v22 = v22 != 0 ? (ACL *)((char *)v22 + a1) : 0;
       }
-      v25 = *(_WORD *)(v51 + 2);
-      if ( (v25 & 4) != 0 )
+      v26 = *(_WORD *)(v55 + 2);
+      if ( (v26 & 4) != 0 )
       {
-        v26 = *(char **)(v51 + 16);
-        if ( v25 < 0 )
-          v26 = v26 != 0 ? &v26[v51] : 0;
+        v27 = *(ACL **)(v55 + 16);
+        if ( v26 < 0 )
+          v27 = v27 != 0 ? (ACL *)((char *)v27 + v55) : 0;
       }
       else
       {
-        v26 = 0;
+        v27 = 0;
       }
-      v7 = RtlpConvertAclToAutoInherit(v26, v21, a4, a5, v24, v23, a6, (int *)&v50, &v43);
-      if ( v7 < 0 )
+      v8 = RtlpConvertAclToAutoInherit(v27, v22, a5, a6, v25, v24, a7, &BaseAddress, &v47);
+      if ( v8 < 0 )
       {
-        v40 = (int)ProcessHeap;
+        v41 = HeapHandle;
 LABEL_79:
-        if ( v52 )
-          RtlFreeHeap(v40, 0, (int)Src);
+        if ( v56 )
+          RtlFreeHeap(v41, 0, Src);
         goto LABEL_81;
       }
-      v53 = 1;
-      v27 = v43 & 0x1408 | 4;
+      v57 = 1;
+      v28 = v47 & 0x1408 | 4;
     }
     else
     {
 LABEL_54:
-      v27 = v10 & 4 | 0x1400;
+      v28 = v11 & 4 | 0x1400;
     }
-    v22 = (unsigned __int16 *)v50;
+    p_AclRevision = (unsigned __int16 *)BaseAddress;
     goto LABEL_56;
   }
-  if ( (*(_WORD *)(a2 + 2) & 0x2800) != 0 || !v51 )
+  if ( (*(_WORD *)(a1 + 2) & 0x2800) != 0 || !v55 )
   {
-    v46 = *(_WORD *)(a2 + 2) & 0x2010 | 0x800;
-    Src = (void *)v44;
+    v50 = *(_WORD *)(a1 + 2) & 0x2010 | 0x800;
+    Src = (void *)v48;
     goto LABEL_26;
   }
-  if ( v11 < 0 )
+  if ( v12 < 0 )
   {
-    v12 = v12 != 0 ? &v12[a2] : 0;
-    v8 = v8 != 0 ? &v8[a2] : 0;
-    v13 = v13 != 0 ? (unsigned __int16 *)((char *)v13 + a2) : 0;
+    v13 = v13 != 0 ? &v13[a1] : 0;
+    v9 = v9 != 0 ? &v9[a1] : 0;
+    v14 = v14 != 0 ? (ACL *)((char *)v14 + a1) : 0;
   }
-  v15 = *(_WORD *)(v51 + 2);
-  v44 = v15;
-  if ( (v15 & 0x10) != 0 )
+  v16 = *(_WORD *)(v55 + 2);
+  v48 = v16;
+  if ( (v16 & 0x10) != 0 )
   {
-    v16 = *(char **)(v51 + 12);
-    if ( (v44 & 0x8000u) != 0 )
-      v16 = v16 != 0 ? &v16[v51] : 0;
+    v17 = *(ACL **)(v55 + 12);
+    if ( (v48 & 0x8000u) != 0 )
+      v17 = v17 != 0 ? (ACL *)((char *)v17 + v55) : 0;
   }
   else
   {
-    v16 = 0;
+    v17 = 0;
   }
-  v7 = RtlpConvertAclToAutoInherit(v16, v13, a4, a5, v8, v12, a6, (int *)&Src, &v43);
-  if ( v7 >= 0 )
+  v8 = RtlpConvertAclToAutoInherit(v17, v14, a5, a6, v9, v13, a7, &Src, &v47);
+  if ( v8 >= 0 )
   {
-    v52 = 1;
-    v46 = 2 * (v43 & 0x1400 | (2 * (v43 & 8 | 4)));
+    v56 = 1;
+    v50 = 2 * (v47 & 0x1400 | (2 * (v47 & 8 | 4)));
 LABEL_26:
-    v10 = *(_WORD *)(a2 + 2);
-    v17 = v51;
+    v11 = *(_WORD *)(a1 + 2);
+    v18 = v55;
     goto LABEL_36;
   }
 LABEL_81:
-  *a3 = v47;
-  return v7;
+  *a4 = v51;
+  return v8;
 }

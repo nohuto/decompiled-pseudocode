@@ -46,46 +46,44 @@ __int64 __fastcall RtlpHpSegPageRangeCommit(__int64 a1, __int64 a2, unsigned int
   int v34; // eax
   __int64 v35; // r14
   int v36; // ecx
-  __int64 v37; // rdx
-  signed __int64 v38; // rcx
-  __int64 v39; // rcx
-  unsigned int v40; // r8d
-  int v41; // edx
+  __int64 v37; // rcx
+  unsigned int v38; // r8d
+  int v39; // edx
+  unsigned int v40; // ecx
+  unsigned int v41; // ecx
   unsigned int v42; // ecx
-  unsigned int v43; // ecx
+  int v43; // ecx
   unsigned int v44; // ecx
-  int v45; // ecx
-  unsigned int v46; // ecx
-  unsigned int v47; // r8d
-  unsigned int v48; // edx
-  int v49; // ebx
-  int v50; // r8d
-  __int64 v51; // rcx
-  __int64 v52; // rdx
-  __int64 v53; // r8
-  unsigned int v54; // [rsp+40h] [rbp-58h]
-  unsigned int v55; // [rsp+40h] [rbp-58h]
-  unsigned int v56; // [rsp+44h] [rbp-54h]
-  int v57; // [rsp+48h] [rbp-50h]
-  int v58; // [rsp+A0h] [rbp+8h]
-  int v59; // [rsp+A8h] [rbp+10h]
-  unsigned int v60; // [rsp+B0h] [rbp+18h] BYREF
-  int v61; // [rsp+B8h] [rbp+20h] BYREF
+  unsigned int v45; // r8d
+  unsigned int v46; // edx
+  int v47; // ebx
+  int v48; // r8d
+  __int64 v49; // rcx
+  __int64 v50; // rdx
+  __int64 v51; // r8
+  unsigned int v52; // [rsp+40h] [rbp-58h]
+  unsigned int v53; // [rsp+40h] [rbp-58h]
+  unsigned int v54; // [rsp+44h] [rbp-54h]
+  int v55; // [rsp+48h] [rbp-50h]
+  int v56; // [rsp+A0h] [rbp+8h]
+  int v57; // [rsp+A8h] [rbp+10h]
+  unsigned int v58; // [rsp+B0h] [rbp+18h] BYREF
+  int v59; // [rsp+B8h] [rbp+20h] BYREF
 
   v7 = a3;
-  v58 = 0;
+  v56 = 0;
   if ( (a5 & 0x800000) != 0 )
-    v58 = 2;
+    v56 = 2;
   v10 = a4 + a3;
   v11 = 0x7FFF;
   if ( (*(_BYTE *)(a1 + 13) & 7) != 0 )
     v11 = 511;
-  v57 = v11;
+  v55 = v11;
   v12 = (unsigned int)((a2 - (a2 & *(_QWORD *)a1)) >> 5) << *(_BYTE *)(a1 + 9);
   if ( a4 <= 0 )
     v10 = a3 - a4;
   v13 = 0;
-  v59 = 0;
+  v57 = 0;
   if ( a3 >= v10 )
     goto LABEL_18;
   while ( 1 )
@@ -95,53 +93,53 @@ __int64 __fastcall RtlpHpSegPageRangeCommit(__int64 a1, __int64 a2, unsigned int
     if ( v15 >= v10 - v7 )
       v15 = v10 - v7;
     v16 = 1 << *(_BYTE *)(a1 + 9);
-    v56 = v15;
+    v54 = v15;
     v17 = *(_BYTE *)(a1 + 9);
     v18 = (unsigned __int64)v7 >> v14;
     v19 = 0;
     v20 = a2 + 32 * v18;
     v21 = v18 << v14;
     v22 = -1;
-    v61 = -1;
-    v60 = v7 & (v16 - 1);
-    v23 = v15 - 1 + v60;
+    v59 = -1;
+    v58 = v7 & (v16 - 1);
+    v23 = v15 - 1 + v58;
     v24 = (v16 - 1) & v23;
     v25 = v23 >> v17;
     v26 = v24 + 1;
-    v27 = v60;
+    v27 = v58;
     v28 = v20 + 32 * v25;
-    v54 = v26;
-    if ( v60 )
+    v52 = v26;
+    if ( v58 )
     {
-      v47 = v16;
+      v45 = v16;
       if ( v20 == v28 )
-        v47 = v26;
-      v48 = *(unsigned __int8 *)(v20 + 25);
+        v45 = v26;
+      v46 = *(unsigned __int8 *)(v20 + 25);
       if ( a4 <= 0 )
       {
-        if ( v48 > v60 )
+        if ( v46 > v58 )
         {
-          v49 = v7 & (v16 - 1);
-          v47 = *(unsigned __int8 *)(v20 + 25);
+          v47 = v7 & (v16 - 1);
+          v45 = *(unsigned __int8 *)(v20 + 25);
           goto LABEL_63;
         }
       }
-      else if ( v48 < v47 )
+      else if ( v46 < v45 )
       {
-        v49 = v47;
+        v47 = v45;
         v27 = *(unsigned __int8 *)(v20 + 25);
 LABEL_63:
-        v50 = v21 + v47;
-        v19 = v49 - v48;
-        v61 = v50;
+        v48 = v21 + v45;
+        v19 = v47 - v46;
+        v59 = v48;
         v22 = v21 + v27;
         if ( v19 )
         {
-          v61 = v50;
+          v59 = v48;
           if ( a4 <= 0 )
           {
-            v61 = v50;
-            *(_BYTE *)(v20 + 25) = v19 + v48;
+            v59 = v48;
+            *(_BYTE *)(v20 + 25) = v19 + v46;
           }
         }
       }
@@ -150,43 +148,43 @@ LABEL_63:
     }
     for ( ; v20 < v28; LODWORD(v21) = v16 + v21 )
     {
-      v40 = *(unsigned __int8 *)(v20 + 25);
-      v41 = 0;
-      v42 = v22;
+      v38 = *(unsigned __int8 *)(v20 + 25);
+      v39 = 0;
+      v40 = v22;
       if ( a4 > 0 )
       {
-        if ( v40 < v16 )
+        if ( v38 < v16 )
         {
-          v22 = v40 + v21;
-          v41 = v16 - v40;
-          if ( v42 != -1 )
-            v22 = v42;
-          v43 = v16;
+          v22 = v38 + v21;
+          v39 = v16 - v38;
+          if ( v40 != -1 )
+            v22 = v40;
+          v41 = v16;
           goto LABEL_45;
         }
       }
       else if ( *(_BYTE *)(v20 + 25) )
       {
-        v44 = v21;
-        v41 = -v40;
+        v42 = v21;
+        v39 = -v38;
         if ( v22 != -1 )
-          v44 = v22;
-        v22 = v44;
-        v43 = *(unsigned __int8 *)(v20 + 25);
+          v42 = v22;
+        v22 = v42;
+        v41 = *(unsigned __int8 *)(v20 + 25);
 LABEL_45:
-        v45 = v21 + v43;
-        v61 = v45;
-        if ( v41 )
+        v43 = v21 + v41;
+        v59 = v43;
+        if ( v39 )
         {
-          v61 = v45;
+          v59 = v43;
           if ( a4 <= 0 )
           {
-            v61 = v45;
-            *(_BYTE *)(v20 + 25) = v41 + v40;
+            v59 = v43;
+            *(_BYTE *)(v20 + 25) = v39 + v38;
           }
         }
       }
-      v19 += v41;
+      v19 += v39;
       v20 += 32LL;
     }
     v29 = v22;
@@ -198,30 +196,30 @@ LABEL_45:
     {
       if ( !*(_BYTE *)(v20 + 25) )
         goto LABEL_15;
-      v46 = v21;
+      v44 = v21;
       v31 = -v30;
       v32 = *(unsigned __int8 *)(v20 + 25);
       if ( v22 != -1 )
-        v46 = v22;
-      v22 = v46;
+        v44 = v22;
+      v22 = v44;
 LABEL_50:
-      v61 = v32 + v21;
+      v59 = v32 + v21;
       if ( v31 )
       {
-        v61 = v32 + v21;
+        v59 = v32 + v21;
         if ( a4 <= 0 )
         {
-          v61 = v32 + v21;
+          v59 = v32 + v21;
           *(_BYTE *)(v20 + 25) = v31 + v30;
         }
       }
       goto LABEL_15;
     }
-    v32 = v54;
-    if ( v30 < v54 )
+    v32 = v52;
+    if ( v30 < v52 )
     {
       v22 = v30 + v21;
-      v31 = v54 - v30;
+      v31 = v52 - v30;
       if ( v29 != -1 )
         v22 = v29;
       goto LABEL_50;
@@ -231,11 +229,11 @@ LABEL_15:
 LABEL_16:
     if ( !v19 )
       goto LABEL_17;
-    v34 = v61 - v22;
+    v34 = v59 - v22;
     v35 = a2 & *(_QWORD *)a1;
-    v60 = v22;
-    v61 -= v22;
-    v55 = v22 + v12;
+    v58 = v22;
+    v59 -= v22;
+    v53 = v22 + v12;
     if ( v19 <= 0 )
     {
       v36 = 0x4000;
@@ -246,33 +244,33 @@ LABEL_16:
       if ( (a5 & 2) != 0 )
         v36 = 1073745920;
     }
-    result = RtlpHpSegMgrCommit(a1, v35, v22 + v12, v34, v19, v36, v58);
+    result = RtlpHpSegMgrCommit(a1, v35, v22 + v12, v34, v19, v36, v56);
     if ( (int)result < 0 )
       return result;
     if ( v19 > 0 )
-      RtlpHpSegPageRangeHandleCommit(a1, a2, (int *)&v60, &v61, 1);
-    v38 = _InterlockedExchangeAdd64((volatile signed __int64 *)(*(__int16 *)(a1 + 22) + a1 + 8), v19);
+      RtlpHpSegPageRangeHandleCommit(a1, a2, (int *)&v58, &v59, 1);
+    _InterlockedExchangeAdd64((volatile signed __int64 *)(*(__int16 *)(a1 + 22) + a1 + 8), v19);
     if ( (RtlpHpHeapFeatures & 8) != 0 )
       RtlpHpTlLogMemStats(*(_QWORD *)(a1 + 56), a1 + *(__int16 *)(a1 + 22));
     *(_WORD *)(a2 + 28) = ~(v19 + ~*(_WORD *)(a2 + 28));
-    if ( (unsigned int)RtlGetCurrentServiceSessionId(v38, v37) )
-      v39 = (__int64)NtCurrentPeb()->SharedData + 550;
+    if ( RtlGetCurrentServiceSessionId() )
+      v37 = (__int64)NtCurrentPeb()->SharedData + 550;
     else
-      v39 = 2147353472LL;
-    if ( *(_BYTE *)v39 && (NtCurrentPeb()->TracingFlags & 1) != 0 )
+      v37 = 2147353472LL;
+    if ( *(_BYTE *)v37 && (NtCurrentPeb()->TracingFlags & 1) != 0 )
     {
-      v51 = *(_QWORD *)(a1 + 56);
-      v52 = v35 + (v55 << 12);
-      v53 = (unsigned int)(v61 << 12);
+      v49 = *(_QWORD *)(a1 + 56);
+      v50 = v35 + (v53 << 12);
+      v51 = (unsigned int)(v59 << 12);
       if ( v19 <= 0 )
-        RtlpLogHeapDecommit(v51, v52, v53, 13LL);
+        RtlpLogHeapDecommit(v49, v50, v51, 13LL);
       else
-        RtlpLogHeapCommit(v51, v52, v53, 10LL);
+        RtlpLogHeapCommit(v49, v50, v51, 10LL);
     }
 LABEL_17:
-    v7 += v56;
-    v13 = v19 + v59;
-    v59 += v19;
+    v7 += v54;
+    v13 = v19 + v57;
+    v57 += v19;
     if ( v7 >= v10 )
     {
 LABEL_18:
@@ -280,6 +278,6 @@ LABEL_18:
         *a6 = v13;
       return 0LL;
     }
-    v11 = v57;
+    v11 = v55;
   }
 }

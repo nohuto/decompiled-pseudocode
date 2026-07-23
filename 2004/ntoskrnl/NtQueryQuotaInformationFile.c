@@ -228,7 +228,7 @@ LABEL_47:
     v32 = KeGetCurrentThread();
     --v32->KernelApcDisable;
     v33 = (volatile __int32 *)Object;
-    v34 = KeAbPreAcquire((ULONG_PTR)Object + 128, 0LL, 0LL);
+    v34 = KeAbPreAcquire((ULONG_PTR)Object + 128, 0LL, 0);
     v54[2] = 0;
     if ( _InterlockedExchange(v33 + 29, 1) )
     {
@@ -331,7 +331,7 @@ LABEL_70:
     {
       Mdl = IoAllocateMdl(Buffer, Length, 0, 1u, Irp);
       if ( !Mdl )
-        RtlRaiseStatus(0xC000009A);
+        RtlRaiseStatus(-1073741670);
       IopProbeAndLockPages_1(Mdl, v54[0], v51, (__int64)v46, CurrentStackLocation[-1].MajorFunction);
     }
     goto LABEL_93;

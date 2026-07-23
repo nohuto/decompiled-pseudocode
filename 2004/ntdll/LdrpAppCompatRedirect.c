@@ -9,7 +9,7 @@
  *     _guard_dispatch_icall_nop @ 0x1800A08F0 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 __fastcall LdrpAppCompatRedirect(__int64 a1, _OWORD *a2, __int64 a3, __m128i *a4, int a5)
+__int64 __fastcall LdrpAppCompatRedirect(__int64 a1, _OWORD *a2, _UNICODE_STRING *a3, __m128i *a4, int a5)
 {
   unsigned int v9; // ebx
   _OWORD *v11; // r8

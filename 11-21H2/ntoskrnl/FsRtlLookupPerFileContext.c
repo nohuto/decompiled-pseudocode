@@ -5,7 +5,7 @@
  * Callees:
  *     ExAcquireAutoExpandPushLockShared @ 0x14029EDB0 (ExAcquireAutoExpandPushLockShared.c)
  *     ExReleaseAutoExpandPushLockShared @ 0x1402AFA70 (ExReleaseAutoExpandPushLockShared.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
+ *     sub_1402F9540 @ 0x1402F9540 (sub_1402F9540.c)
  */
 
 PFSRTL_PER_FILE_CONTEXT __stdcall FsRtlLookupPerFileContext(
@@ -29,7 +29,7 @@ PFSRTL_PER_FILE_CONTEXT __stdcall FsRtlLookupPerFileContext(
   if ( *v8 == (struct _FSRTL_PER_FILE_CONTEXT *)v8 )
     return 0LL;
   CurrentThread = KeGetCurrentThread();
-  --CurrentThread->KernelApcDisable;
+  --*((_WORD *)CurrentThread + 242);
   v10 = ExAcquireAutoExpandPushLockShared((ULONG_PTR)v3, 0LL);
   if ( InstanceId )
   {
@@ -58,6 +58,6 @@ PFSRTL_PER_FILE_CONTEXT __stdcall FsRtlLookupPerFileContext(
     v4 = *v8;
   }
   ExReleaseAutoExpandPushLockShared(v10, 0LL);
-  KiLeaveCriticalRegionUnsafe(KeGetCurrentThread());
+  sub_1402F9540(KeGetCurrentThread());
   return v4;
 }

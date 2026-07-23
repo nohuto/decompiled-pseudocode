@@ -1,9 +1,9 @@
 /*
  * XREFs of KeCountSetBitsGroupMask @ 0x1402007F0
  * Callers:
- *     KeQueryNodeActiveAffinity2 @ 0x14050E130 (KeQueryNodeActiveAffinity2.c)
- *     KiSelectGroupFromNodeForAffinity @ 0x1405EFE88 (KiSelectGroupFromNodeForAffinity.c)
- *     KeQueryCpuPartitionAffinity @ 0x1405F3D38 (KeQueryCpuPartitionAffinity.c)
+ *     KeQueryNodeActiveAffinity2 @ 0x140507BA0 (KeQueryNodeActiveAffinity2.c)
+ *     KiSelectGroupFromNodeForAffinity @ 0x1405F27F8 (KiSelectGroupFromNodeForAffinity.c)
+ *     KeQueryCpuPartitionAffinity @ 0x1405F66F8 (KeQueryCpuPartitionAffinity.c)
  * Callees:
  *     RtlNumberOfSetBitsEx @ 0x140200820 (RtlNumberOfSetBitsEx.c)
  */

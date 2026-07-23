@@ -1,107 +1,101 @@
 /*
- * XREFs of GetOverlayFilePathUsingChecksum @ 0x1800B25C0
+ * XREFs of GetOverlayFilePathUsingChecksum @ 0x18007EE60
  * Callers:
- *     LdrLoadAlternateResourceModuleEx @ 0x18005FF20 (LdrLoadAlternateResourceModuleEx.c)
- *     RtlpGetMUIRedirectedFilePath @ 0x180077E08 (RtlpGetMUIRedirectedFilePath.c)
+ *     LdrLoadAlternateResourceModuleEx @ 0x180075B00 (LdrLoadAlternateResourceModuleEx.c)
+ *     RtlpGetMUIRedirectedFilePath @ 0x1800946E8 (RtlpGetMUIRedirectedFilePath.c)
  * Callees:
- *     _IsProgramFilesPath @ 0x180086E7C (_IsProgramFilesPath.c)
- *     _GetOverlayPackageKeyForLanguage @ 0x1800B283C (_GetOverlayPackageKeyForLanguage.c)
- *     RtlAppendUnicodeToString @ 0x1800B2BB0 (RtlAppendUnicodeToString.c)
- *     RtlGetNtSystemRoot @ 0x1800B2C70 (RtlGetNtSystemRoot.c)
- *     _BuildStandardOverlayFilePath @ 0x1800B2CB0 (_BuildStandardOverlayFilePath.c)
- *     _GetOverlayPackageTypeFromKey @ 0x1800B2D20 (_GetOverlayPackageTypeFromKey.c)
- *     _GetOverlayPackagePathFromKey @ 0x1800B2E64 (_GetOverlayPackagePathFromKey.c)
- *     _BuildCumulativeOverlayFilePath @ 0x1800B2F38 (_BuildCumulativeOverlayFilePath.c)
- *     _wcsnicmp @ 0x180122DB0 (_wcsnicmp.c)
- *     NtClose @ 0x180161E70 (NtClose.c)
- *     __security_check_cookie @ 0x1801659C0 (__security_check_cookie.c)
+ *     _IsProgramFilesPath @ 0x180008D2C (_IsProgramFilesPath.c)
+ *     _GetOverlayPackageKeyForLanguage @ 0x18007F0DC (_GetOverlayPackageKeyForLanguage.c)
+ *     RtlAppendUnicodeToString @ 0x18007F450 (RtlAppendUnicodeToString.c)
+ *     RtlGetNtSystemRoot @ 0x18007F510 (RtlGetNtSystemRoot.c)
+ *     _BuildStandardOverlayFilePath @ 0x18007F550 (_BuildStandardOverlayFilePath.c)
+ *     _GetOverlayPackageTypeFromKey @ 0x18007F5C0 (_GetOverlayPackageTypeFromKey.c)
+ *     _GetOverlayPackagePathFromKey @ 0x18007F704 (_GetOverlayPackagePathFromKey.c)
+ *     _BuildCumulativeOverlayFilePath @ 0x18007F7D8 (_BuildCumulativeOverlayFilePath.c)
+ *     _wcsnicmp @ 0x180120FE0 (_wcsnicmp.c)
+ *     NtClose @ 0x180160230 (NtClose.c)
+ *     __security_check_cookie @ 0x180163D80 (__security_check_cookie.c)
  */
 
-__int64 __fastcall GetOverlayFilePathUsingChecksum(
-        __int64 a1,
-        __int64 a2,
+NTSTATUS __fastcall GetOverlayFilePathUsingChecksum(
+        PCWSTR Source,
+        const WCHAR *a2,
         __int64 a3,
         __int64 a4,
         unsigned int *a5,
-        _WORD *Destination)
+        _WORD *a6)
 {
-  __int64 result; // rax
-  __int64 v9; // rdx
-  __int64 v10; // rcx
-  __int64 v11; // r8
+  NTSTATUS result; // eax
   const wchar_t *NtSystemRoot; // rax
-  __int64 v13; // rdi
-  size_t v14; // rbx
-  wchar_t *v15; // r14
-  wchar_t v16; // cx
-  const wchar_t *v17; // rsi
-  wchar_t *v18; // rbx
-  unsigned int v19; // r14d
+  __int64 v10; // rdi
+  size_t v11; // rbx
+  wchar_t *Buffer; // r14
+  wchar_t v13; // cx
+  const wchar_t *v14; // rsi
+  wchar_t *v15; // rbx
+  unsigned int v16; // r14d
   int OverlayPackageKeyForLanguage; // ebp
   int OverlayPackagePathFromKey; // eax
-  __int64 v22; // rdx
-  __int64 v23; // rdx
-  unsigned int v24; // edi
+  __int64 v19; // rdx
+  __int64 v20; // rdx
+  unsigned int v21; // edi
   HANDLE Handle; // [rsp+50h] [rbp-348h] BYREF
-  unsigned int v26; // [rsp+58h] [rbp-340h] BYREF
-  int v27; // [rsp+5Ch] [rbp-33Ch] BYREF
-  __int64 v28; // [rsp+60h] [rbp-338h] BYREF
-  wchar_t *String1; // [rsp+68h] [rbp-330h]
-  __int64 v30; // [rsp+70h] [rbp-328h]
-  char v31; // [rsp+80h] [rbp-318h] BYREF
+  __int64 v23; // [rsp+58h] [rbp-340h] BYREF
+  _UNICODE_STRING Destination; // [rsp+60h] [rbp-338h] BYREF
+  __int64 v25; // [rsp+70h] [rbp-328h]
+  char v26; // [rsp+80h] [rbp-318h] BYREF
 
-  v30 = a4;
-  v28 = 46006272LL;
-  String1 = (wchar_t *)&v31;
-  if ( !a1 || !a2 || !a5 )
-    return 3221225485LL;
-  result = RtlAppendUnicodeToString(&v28, a2);
-  if ( (int)result < 0 )
+  v25 = a4;
+  *(_QWORD *)&Destination.Length = 46006272LL;
+  Destination.Buffer = (wchar_t *)&v26;
+  if ( !Source || !a2 || !a5 )
+    return -1073741811;
+  result = RtlAppendUnicodeToString(&Destination, a2);
+  if ( result < 0 )
   {
-    if ( (_DWORD)result != -1073741789 )
+    if ( result != -1073741789 )
       return result;
-    return 3221225659LL;
+    return -1073741637;
   }
   Handle = 0LL;
-  NtSystemRoot = (const wchar_t *)RtlGetNtSystemRoot(v10, v9, v11);
-  v13 = -1LL;
-  v14 = -1LL;
+  NtSystemRoot = RtlGetNtSystemRoot();
+  v10 = -1LL;
+  v11 = -1LL;
   do
-    ++v14;
-  while ( NtSystemRoot[v14] );
-  v15 = String1;
-  if ( !wcsnicmp(String1, NtSystemRoot, v14) )
+    ++v11;
+  while ( NtSystemRoot[v11] );
+  Buffer = Destination.Buffer;
+  if ( !wcsnicmp(Destination.Buffer, NtSystemRoot, v11) )
   {
-    v16 = *(_WORD *)L"\\Windows";
-    v17 = (const wchar_t *)L"\\Windows";
+    v13 = *(_WORD *)L"\\Windows";
+    v14 = (const wchar_t *)L"\\Windows";
     goto LABEL_9;
   }
-  if ( (int)IsProgramFilesPath(v15, (size_t *)&Handle) < 0 )
-    return 3221225659LL;
-  v16 = aProgramFiles[0];
-  v17 = L"\\Program Files";
-  v14 = (size_t)Handle;
+  if ( (int)IsProgramFilesPath(Buffer, (size_t *)&Handle) < 0 )
+    return -1073741637;
+  v13 = aProgramFiles[0];
+  v14 = L"\\Program Files";
+  v11 = (size_t)Handle;
 LABEL_9:
-  v18 = &v15[v14];
-  result = 0LL;
-  if ( v16 != 92 || *v18 != 92 )
-    result = 3221225659LL;
-  if ( (int)result >= 0 )
+  v15 = &Buffer[v11];
+  result = 0;
+  if ( v13 != 92 || *v15 != 92 )
+    result = -1073741637;
+  if ( result >= 0 )
   {
-    v19 = *a5;
-    v26 = *a5;
-    v27 = 0;
-    if ( Destination && v19 >= 2 )
-      *Destination = 0;
+    v16 = *a5;
+    v23 = *a5;
+    if ( a6 && v16 >= 2 )
+      *a6 = 0;
     Handle = 0LL;
-    OverlayPackageKeyForLanguage = GetOverlayPackageKeyForLanguage(a1, &Handle);
+    OverlayPackageKeyForLanguage = GetOverlayPackageKeyForLanguage(Source, &Handle);
     if ( OverlayPackageKeyForLanguage >= 0 )
     {
-      OverlayPackageKeyForLanguage = GetOverlayPackageTypeFromKey(Handle, &v27);
+      OverlayPackageKeyForLanguage = GetOverlayPackageTypeFromKey(Handle, (char *)&v23 + 4);
       if ( OverlayPackageKeyForLanguage >= 0 )
       {
-        OverlayPackagePathFromKey = GetOverlayPackagePathFromKey(Handle, &v26, Destination);
-        v19 = v26;
+        OverlayPackagePathFromKey = GetOverlayPackagePathFromKey(Handle, (__int64)&v23);
+        v16 = v23;
         OverlayPackageKeyForLanguage = OverlayPackagePathFromKey;
       }
       if ( Handle )
@@ -109,28 +103,28 @@ LABEL_9:
       if ( OverlayPackageKeyForLanguage >= 0 )
         goto LABEL_21;
     }
-    if ( Destination && *a5 >= 2 )
-      *Destination = 0;
+    if ( a6 && *a5 >= 2 )
+      *a6 = 0;
     if ( OverlayPackageKeyForLanguage == -1073741789 )
     {
 LABEL_21:
-      v22 = -1LL;
+      v19 = -1LL;
       do
-        ++v22;
-      while ( v18[v22] );
-      v23 = (unsigned int)(2 * v22);
+        ++v19;
+      while ( v15[v19] );
+      v20 = (unsigned int)(2 * v19);
       do
-        ++v13;
-      while ( v17[v13] );
-      v24 = 2 * v13;
-      if ( (v27 & 1) != 0 && v30 && a3 )
-        return BuildCumulativeOverlayFilePath(v19, (__int64)v17, a3, v30, (__int64)a5, Destination);
+        ++v10;
+      while ( v14[v10] );
+      v21 = 2 * v10;
+      if ( (v23 & 0x100000000LL) != 0 && v25 && a3 )
+        return BuildCumulativeOverlayFilePath(v16, (__int64)v14, a3, v25, (__int64)a5, a6);
       else
-        return BuildStandardOverlayFilePath(v19, v23, v18, v24, v17, a5, Destination);
+        return BuildStandardOverlayFilePath(v16, v20, v15, v21, v14, a5, a6);
     }
     else
     {
-      return (unsigned int)OverlayPackageKeyForLanguage;
+      return OverlayPackageKeyForLanguage;
     }
   }
   return result;

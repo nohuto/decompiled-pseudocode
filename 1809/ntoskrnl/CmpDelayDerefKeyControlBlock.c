@@ -1,17 +1,17 @@
 /*
- * XREFs of CmpDelayDerefKeyControlBlock @ 0x1405D4264
+ * XREFs of CmpDelayDerefKeyControlBlock @ 0x1405D5264
  * Callers:
- *     CmpRemoveLayerLinkForDiscardedKcb @ 0x1405810C4 (CmpRemoveLayerLinkForDiscardedKcb.c)
- *     CmpFindSubKeyByNumberEx @ 0x1405D30B0 (CmpFindSubKeyByNumberEx.c)
- *     CmpCleanUpKcbValueCache @ 0x1405D432C (CmpCleanUpKcbValueCache.c)
- *     CmpCleanUpKcbCacheWithLock @ 0x1405D43B8 (CmpCleanUpKcbCacheWithLock.c)
- *     CmpFindSubKeyByNumberFromMergedView @ 0x1407F2ECC (CmpFindSubKeyByNumberFromMergedView.c)
- *     CmpKeyEnumStackFreeResumeContext @ 0x1407FF7D8 (CmpKeyEnumStackFreeResumeContext.c)
+ *     CmpRemoveLayerLinkForDiscardedKcb @ 0x1405820C4 (CmpRemoveLayerLinkForDiscardedKcb.c)
+ *     CmpFindSubKeyByNumberEx @ 0x1405D40B0 (CmpFindSubKeyByNumberEx.c)
+ *     CmpCleanUpKcbValueCache @ 0x1405D532C (CmpCleanUpKcbValueCache.c)
+ *     CmpCleanUpKcbCacheWithLock @ 0x1405D53B8 (CmpCleanUpKcbCacheWithLock.c)
+ *     CmpFindSubKeyByNumberFromMergedView @ 0x1407F40CC (CmpFindSubKeyByNumberFromMergedView.c)
+ *     CmpKeyEnumStackFreeResumeContext @ 0x1408009D8 (CmpKeyEnumStackFreeResumeContext.c)
  * Callees:
  *     KeReleaseGuardedMutex @ 0x140014E30 (KeReleaseGuardedMutex.c)
  *     ExAcquireFastMutex @ 0x14004E530 (ExAcquireFastMutex.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     CmpArmDelayDerefKCBWorker @ 0x14068A128 (CmpArmDelayDerefKCBWorker.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     CmpArmDelayDerefKCBWorker @ 0x14068B2E8 (CmpArmDelayDerefKCBWorker.c)
  */
 
 void __fastcall CmpDelayDerefKeyControlBlock(ULONG_PTR BugCheckParameter2)
@@ -37,14 +37,14 @@ void __fastcall CmpDelayDerefKeyControlBlock(ULONG_PTR BugCheckParameter2)
   if ( (_QWORD *)*v5 != v5 )
     KeBugCheckEx(0x51u, 0x34uLL, BugCheckParameter2, 1uLL, 0LL);
   *(_BYTE *)(BugCheckParameter2 + 56) |= 1u;
-  v6 = (_QWORD *)qword_140437ED8;
-  if ( *(__int64 **)qword_140437ED8 != &CmpDelayDerefKCBListHead )
+  v6 = (_QWORD *)qword_140438F98;
+  if ( *(__int64 **)qword_140438F98 != &CmpDelayDerefKCBListHead )
     __fastfail(3u);
   v7 = CmpDelayDerefKCBWorkItemActive == 0;
   *v5 = &CmpDelayDerefKCBListHead;
   *(_QWORD *)(BugCheckParameter2 + 224) = v6;
   *v6 = v5;
-  qword_140437ED8 = BugCheckParameter2 + 216;
+  qword_140438F98 = BugCheckParameter2 + 216;
   if ( v7 )
   {
     CmpDelayDerefKCBWorkItemActive = 1;

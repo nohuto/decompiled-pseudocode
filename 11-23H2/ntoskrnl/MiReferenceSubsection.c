@@ -1,14 +1,14 @@
 /*
- * XREFs of MiReferenceSubsection @ 0x140289170
+ * XREFs of MiReferenceSubsection @ 0x140289400
  * Callers:
- *     MiComputeDataFlushRange @ 0x140288E80 (MiComputeDataFlushRange.c)
- *     MiTrimSection @ 0x1402EF974 (MiTrimSection.c)
- *     MiFlushAcquire @ 0x14033D304 (MiFlushAcquire.c)
- *     MiPreventControlAreaDeletion @ 0x1403A65A8 (MiPreventControlAreaDeletion.c)
- *     MiUpdateActiveSubsection @ 0x140635BE0 (MiUpdateActiveSubsection.c)
+ *     MiComputeDataFlushRange @ 0x140289110 (MiComputeDataFlushRange.c)
+ *     MiTrimSection @ 0x1402EFC04 (MiTrimSection.c)
+ *     MiFlushAcquire @ 0x14033D594 (MiFlushAcquire.c)
+ *     MiPreventControlAreaDeletion @ 0x1403A6788 (MiPreventControlAreaDeletion.c)
+ *     MiUpdateActiveSubsection @ 0x140636130 (MiUpdateActiveSubsection.c)
  * Callees:
  *     MiRemoveUnusedSubsection @ 0x14021B974 (MiRemoveUnusedSubsection.c)
- *     MiIncrementSubsectionViewCount @ 0x1402891F0 (MiIncrementSubsectionViewCount.c)
+ *     MiIncrementSubsectionViewCount @ 0x140289480 (MiIncrementSubsectionViewCount.c)
  */
 
 __int64 __fastcall MiReferenceSubsection(ULONG_PTR a1)

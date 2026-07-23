@@ -1,14 +1,14 @@
 /*
- * XREFs of KeRegisterObjectDpc @ 0x1405B14F4
+ * XREFs of KeRegisterObjectDpc @ 0x1405AE464
  * Callers:
- *     ExQueueDpcEventWait @ 0x140657720 (ExQueueDpcEventWait.c)
+ *     ExQueueDpcEventWait @ 0x140655E20 (ExQueueDpcEventWait.c)
  * Callees:
- *     KiWaitSatisfyOther @ 0x140205BC0 (KiWaitSatisfyOther.c)
- *     KeInsertQueueDpc @ 0x1402542F0 (KeInsertQueueDpc.c)
- *     KiAcquireKobjectLockSafe @ 0x14031E740 (KiAcquireKobjectLockSafe.c)
- *     KiExitDispatcher @ 0x14031E7A0 (KiExitDispatcher.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KeInsertQueueDpc @ 0x140284900 (KeInsertQueueDpc.c)
+ *     KiAcquireKobjectLockSafe @ 0x1402C72D0 (KiAcquireKobjectLockSafe.c)
+ *     KiExitDispatcher @ 0x1402C7330 (KiExitDispatcher.c)
+ *     KiWaitSatisfyOther @ 0x14032D1A0 (KiWaitSatisfyOther.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 char __fastcall KeRegisterObjectDpc(

@@ -1,20 +1,20 @@
 /*
- * XREFs of KiEndThreadCycleAccumulation @ 0x1402B2C90
+ * XREFs of KiEndThreadCycleAccumulation @ 0x1402B2F20
  * Callers:
- *     KiChooseTargetProcessor @ 0x1402392E0 (KiChooseTargetProcessor.c)
- *     KiQuantumEnd @ 0x1402486F0 (KiQuantumEnd.c)
- *     KeRemoveQueueEx @ 0x1402AA040 (KeRemoveQueueEx.c)
- *     KiUpdateTotalCyclesCurrentThread @ 0x1402BACF8 (KiUpdateTotalCyclesCurrentThread.c)
- *     KiIdleSchedule @ 0x140307420 (KiIdleSchedule.c)
- *     KiGroupSchedulingGenerationEnd @ 0x1403082A8 (KiGroupSchedulingGenerationEnd.c)
- *     KiHandleDeferredPreemption @ 0x1403091C8 (KiHandleDeferredPreemption.c)
- *     KeUpdateTotalCyclesCurrentThread @ 0x140329E48 (KeUpdateTotalCyclesCurrentThread.c)
- *     PpmCheckCustomRun @ 0x14032B63C (PpmCheckCustomRun.c)
- *     KeUpdateThreadTag @ 0x140366BD0 (KeUpdateThreadTag.c)
- *     KeSetThreadSchedulerAssist @ 0x14056D21C (KeSetThreadSchedulerAssist.c)
- *     KiSelectIdleProcessor @ 0x1405776B4 (KiSelectIdleProcessor.c)
+ *     KiChooseTargetProcessor @ 0x1402393B0 (KiChooseTargetProcessor.c)
+ *     KiQuantumEnd @ 0x1402487C0 (KiQuantumEnd.c)
+ *     KeRemoveQueueEx @ 0x1402AA2D0 (KeRemoveQueueEx.c)
+ *     KiUpdateTotalCyclesCurrentThread @ 0x1402BAF88 (KiUpdateTotalCyclesCurrentThread.c)
+ *     KiIdleSchedule @ 0x1403076B0 (KiIdleSchedule.c)
+ *     KiGroupSchedulingGenerationEnd @ 0x140308538 (KiGroupSchedulingGenerationEnd.c)
+ *     KiHandleDeferredPreemption @ 0x140309458 (KiHandleDeferredPreemption.c)
+ *     KeUpdateTotalCyclesCurrentThread @ 0x14032A0D8 (KeUpdateTotalCyclesCurrentThread.c)
+ *     PpmCheckCustomRun @ 0x14032B8CC (PpmCheckCustomRun.c)
+ *     KeUpdateThreadTag @ 0x140366D70 (KeUpdateThreadTag.c)
+ *     KeSetThreadSchedulerAssist @ 0x14056D8DC (KeSetThreadSchedulerAssist.c)
+ *     KiSelectIdleProcessor @ 0x140577BA4 (KiSelectIdleProcessor.c)
  * Callees:
- *     KiEndThreadAccountingPeriodEx @ 0x140248450 (KiEndThreadAccountingPeriodEx.c)
+ *     KiEndThreadAccountingPeriodEx @ 0x140248520 (KiEndThreadAccountingPeriodEx.c)
  */
 
 unsigned __int64 __fastcall KiEndThreadCycleAccumulation(

@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 ZwModifyDriverEntry()
+NTSTATUS __cdecl ZwModifyDriverEntry(PEFI_DRIVER_ENTRY DriverEntry)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 279LL;
+  result = 279;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

@@ -1,20 +1,20 @@
 /*
- * XREFs of MiClearNonPagedPtes @ 0x140024520
+ * XREFs of MiClearNonPagedPtes @ 0x1400240A0
  * Callers:
- *     ExFreeLargePool @ 0x140010BE0 (ExFreeLargePool.c)
- *     MiFreePoolPages @ 0x140018558 (MiFreePoolPages.c)
+ *     ExFreeLargePool @ 0x140010760 (ExFreeLargePool.c)
+ *     MiFreePoolPages @ 0x1400180D8 (MiFreePoolPages.c)
  * Callees:
- *     MiLockNonPagedPoolPte @ 0x140024750 (MiLockNonPagedPoolPte.c)
- *     MI_IS_PHYSICAL_ADDRESS @ 0x140025FB0 (MI_IS_PHYSICAL_ADDRESS.c)
- *     MiInitializeTbFlushStamps @ 0x14004BACC (MiInitializeTbFlushStamps.c)
- *     MiInsertTbFlushEntry @ 0x1400E0240 (MiInsertTbFlushEntry.c)
- *     MiFlushTbList @ 0x1400E0490 (MiFlushTbList.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     MiLogNonPagedPoolReleaseEvent @ 0x1401EC700 (MiLogNonPagedPoolReleaseEvent.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiGetPteTimeStamp @ 0x1401F269C (MiGetPteTimeStamp.c)
+ *     MiLockNonPagedPoolPte @ 0x1400242D0 (MiLockNonPagedPoolPte.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x140025B30 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     MiInitializeTbFlushStamps @ 0x14004B64C (MiInitializeTbFlushStamps.c)
+ *     MiInsertTbFlushEntry @ 0x1400DE0E0 (MiInsertTbFlushEntry.c)
+ *     MiFlushTbList @ 0x1400DE330 (MiFlushTbList.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     MiLogNonPagedPoolReleaseEvent @ 0x1401EC52C (MiLogNonPagedPoolReleaseEvent.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
+ *     MiGetPteTimeStamp @ 0x1401F24C8 (MiGetPteTimeStamp.c)
  */
 
 __int64 __fastcall MiClearNonPagedPtes(unsigned __int64 a1, unsigned __int64 a2)

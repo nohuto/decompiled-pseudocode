@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlSubAuthorityCountSid @ 0x180076B50
+ * XREFs of RtlSubAuthorityCountSid @ 0x180076B60
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall RtlSubAuthorityCountSid(__int64 a1)
+PUCHAR __cdecl RtlSubAuthorityCountSid(PSID Sid)
 {
-  return a1 + 1;
+  return (PUCHAR)Sid + 1;
 }

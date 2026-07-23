@@ -22,10 +22,10 @@ int __stdcall RtlpInitDeferredCriticalSection()
   }
   while ( v0 <= byte_4B3A4AA0 );
   *(_DWORD *)v0 = 0;
-  RtlAcquireSRWLockExclusive(&RtlpSlistLockedAltLocks[((unsigned int)&RtlCriticalSectionDebugSList >> 2) & 0x1F]);
+  RtlAcquireSRWLockExclusive(&RtlpSlistLockedAltLocks + (((unsigned int)&RtlCriticalSectionDebugSList >> 2) & 0x1F));
   LOWORD(dword_4B3A49C4) = dword_4B3A49C4 + 8;
   dword_4B3A4AC0 = RtlCriticalSectionDebugSList;
   RtlCriticalSectionDebugSList = (int)RtlpStaticDebugInfo;
-  RtlReleaseSRWLockExclusive(&RtlpSlistLockedAltLocks[((unsigned int)&RtlCriticalSectionDebugSList >> 2) & 0x1F]);
+  RtlReleaseSRWLockExclusive(&RtlpSlistLockedAltLocks + (((unsigned int)&RtlCriticalSectionDebugSList >> 2) & 0x1F));
   return 0;
 }

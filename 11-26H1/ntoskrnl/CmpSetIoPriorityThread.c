@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpSetIoPriorityThread @ 0x1404EBD08
+ * XREFs of CmpSetIoPriorityThread @ 0x1404E52E8
  * Callers:
- *     CmpDoFileWrite @ 0x140AE6B08 (CmpDoFileWrite.c)
+ *     CmpDoFileWrite @ 0x140AE48C8 (CmpDoFileWrite.c)
  * Callees:
- *     PsSetIoPriorityThread @ 0x140238294 (PsSetIoPriorityThread.c)
+ *     PsSetIoPriorityThread @ 0x140239BF4 (PsSetIoPriorityThread.c)
  */
 
 __int64 __fastcall CmpSetIoPriorityThread(LegacyAutoBoost *a1, int a2, __int64 a3, struct _SINGLE_LIST_ENTRY *a4)

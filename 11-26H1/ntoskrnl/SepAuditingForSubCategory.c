@@ -1,11 +1,11 @@
 /*
- * XREFs of SepAuditingForSubCategory @ 0x1404C210C
+ * XREFs of SepAuditingForSubCategory @ 0x1404BB95C
  * Callers:
- *     PipProcessStartPhase3 @ 0x140908998 (PipProcessStartPhase3.c)
- *     ObInitProcess @ 0x140971938 (ObInitProcess.c)
- *     PspInsertProcess @ 0x140983A9C (PspInsertProcess.c)
- *     SeAssignPrimaryToken @ 0x140A2C3D0 (SeAssignPrimaryToken.c)
- *     SeAuditingWithTokenForSubcategory @ 0x140A435C0 (SeAuditingWithTokenForSubcategory.c)
+ *     PspInsertProcess @ 0x140945AAC (PspInsertProcess.c)
+ *     PipProcessStartPhase3 @ 0x1409AB9E8 (PipProcessStartPhase3.c)
+ *     ObInitProcess @ 0x1409BCC28 (ObInitProcess.c)
+ *     SeAuditingWithTokenForSubcategory @ 0x1409FE320 (SeAuditingWithTokenForSubcategory.c)
+ *     SeAssignPrimaryToken @ 0x140A7BF34 (SeAssignPrimaryToken.c)
  * Callees:
  *     <none>
  */
@@ -16,7 +16,7 @@ char __fastcall SepAuditingForSubCategory(int a1, char a2)
 
   v2 = (unsigned int)(a1 - 100);
   if ( a2 )
-    return *((_BYTE *)&SepRmCapTableLock.MiscFlags + 2 * v2 + 4);
+    return *((_BYTE *)&SepRmCapTableLock.SListFaultAddress + 2 * v2);
   else
-    return *((_BYTE *)&SepRmCapTableLock.MiscFlags + 2 * v2 + 5);
+    return *((_BYTE *)&SepRmCapTableLock.SListFaultAddress + 2 * v2 + 1);
 }

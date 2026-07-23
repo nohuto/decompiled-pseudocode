@@ -1,8 +1,8 @@
 /*
- * XREFs of VfUtilAddressRangeFitNoLock @ 0x140C4600C
+ * XREFs of VfUtilAddressRangeFitNoLock @ 0x140C4C01C
  * Callers:
- *     VfIrpDatabaseCheckExFreePool @ 0x140C39BE8 (VfIrpDatabaseCheckExFreePool.c)
- *     VfIrpDatabaseEntryFindAndLock @ 0x140C45F84 (VfIrpDatabaseEntryFindAndLock.c)
+ *     VfIrpDatabaseCheckExFreePool @ 0x140C3FBF8 (VfIrpDatabaseCheckExFreePool.c)
+ *     VfIrpDatabaseEntryFindAndLock @ 0x140C4BF94 (VfIrpDatabaseEntryFindAndLock.c)
  * Callees:
  *     <none>
  */

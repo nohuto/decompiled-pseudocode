@@ -1,13 +1,13 @@
 /*
- * XREFs of MiSimpleAging @ 0x140131200
+ * XREFs of MiSimpleAging @ 0x1401312D0
  * Callers:
- *     MiReduceWs @ 0x140130D9C (MiReduceWs.c)
+ *     MiReduceWs @ 0x140130E6C (MiReduceWs.c)
  * Callees:
- *     MiWalkPageTables @ 0x14006E940 (MiWalkPageTables.c)
- *     MiTbFlushType @ 0x1400EDBA4 (MiTbFlushType.c)
- *     MiGenerateRandomPte @ 0x14013111C (MiGenerateRandomPte.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memset @ 0x1401D1880 (memset.c)
+ *     MiWalkPageTables @ 0x14006E930 (MiWalkPageTables.c)
+ *     MiTbFlushType @ 0x1400EDC24 (MiTbFlushType.c)
+ *     MiGenerateRandomPte @ 0x1401311EC (MiGenerateRandomPte.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memset @ 0x1401D1980 (memset.c)
  */
 
 __int64 __fastcall MiSimpleAging(__int64 a1, char a2)

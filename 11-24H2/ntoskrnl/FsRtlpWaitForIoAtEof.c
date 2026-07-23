@@ -1,17 +1,17 @@
 /*
- * XREFs of FsRtlpWaitForIoAtEof @ 0x14040D308
+ * XREFs of FsRtlpWaitForIoAtEof @ 0x1402E1598
  * Callers:
- *     FsRtlGetIoAtEof @ 0x14040D0B0 (FsRtlGetIoAtEof.c)
- *     FsRtlAcquireEofLock @ 0x14040D140 (FsRtlAcquireEofLock.c)
+ *     FsRtlAcquireEofLock @ 0x1402E13D0 (FsRtlAcquireEofLock.c)
+ *     FsRtlGetIoAtEof @ 0x14042CC40 (FsRtlGetIoAtEof.c)
  * Callees:
- *     KeQueryPriorityThread @ 0x140248260 (KeQueryPriorityThread.c)
- *     PsBoostThreadIoEx @ 0x14024DD90 (PsBoostThreadIoEx.c)
- *     PsGetIoPriorityThread @ 0x140276920 (PsGetIoPriorityThread.c)
- *     IoBoostThreadIoPriority @ 0x140278D90 (IoBoostThreadIoPriority.c)
- *     FsRtlReleaseHeaderMutex @ 0x14031E170 (FsRtlReleaseHeaderMutex.c)
- *     KeSetPriorityBoost @ 0x140338750 (KeSetPriorityBoost.c)
- *     FsRtlAcquireHeaderMutex @ 0x14033E2F0 (FsRtlAcquireHeaderMutex.c)
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
+ *     PsGetIoPriorityThread @ 0x14022BEB0 (PsGetIoPriorityThread.c)
+ *     IoBoostThreadIoPriority @ 0x14022E320 (IoBoostThreadIoPriority.c)
+ *     PsBoostThreadIoEx @ 0x14027E3A0 (PsBoostThreadIoEx.c)
+ *     FsRtlReleaseHeaderMutex @ 0x1402C6D00 (FsRtlReleaseHeaderMutex.c)
+ *     KeSetPriorityBoost @ 0x1402DFC90 (KeSetPriorityBoost.c)
+ *     KeQueryPriorityThread @ 0x1402E24A0 (KeQueryPriorityThread.c)
+ *     FsRtlAcquireHeaderMutex @ 0x14031D7D0 (FsRtlAcquireHeaderMutex.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
  */
 
 char __fastcall FsRtlpWaitForIoAtEof(__int64 a1, volatile signed __int32 *a2, __int64 a3)
@@ -50,7 +50,7 @@ char __fastcall FsRtlpWaitForIoAtEof(__int64 a1, volatile signed __int32 *a2, __
     v8 = PsGetIoPriorityThread((__int64)v6);
     if ( v8 < v9 )
     {
-      PsBoostThreadIoEx((__int64)v6, 0, 0LL, 0LL);
+      PsBoostThreadIoEx((__int64)v6, 0, 0, 0LL);
       IoBoostThreadIoPriority(v6, IoPriorityThread, 0);
       *(_BYTE *)(a1 + 36) = 1;
     }
@@ -107,7 +107,7 @@ char __fastcall FsRtlpWaitForIoAtEof(__int64 a1, volatile signed __int32 *a2, __
     return 0;
   if ( IoPriorityThread < 2 && !*(_BYTE *)(a1 + 36) && v25 >= 2 )
   {
-    PsBoostThreadIoEx((__int64)CurrentThread, 0, 0LL, 0LL);
+    PsBoostThreadIoEx((__int64)CurrentThread, 0, 0, 0LL);
     *(_BYTE *)(a1 + 36) = 1;
   }
   return 1;

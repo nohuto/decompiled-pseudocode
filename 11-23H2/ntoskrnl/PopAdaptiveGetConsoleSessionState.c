@@ -1,13 +1,13 @@
 /*
- * XREFs of PopAdaptiveGetConsoleSessionState @ 0x1407A60B8
+ * XREFs of PopAdaptiveGetConsoleSessionState @ 0x1407A62A8
  * Callers:
- *     PopAdaptiveGetSessionStateUnsafe @ 0x1407EBDA0 (PopAdaptiveGetSessionStateUnsafe.c)
+ *     PopAdaptiveGetSessionStateUnsafe @ 0x1407EC070 (PopAdaptiveGetSessionStateUnsafe.c)
  * Callees:
- *     PopSetSessionUserStatus @ 0x1407A5DBC (PopSetSessionUserStatus.c)
- *     TtmIsEnabled @ 0x1407A6090 (TtmIsEnabled.c)
- *     PopSetPowerSettingValueAcDc @ 0x1407A7570 (PopSetPowerSettingValueAcDc.c)
- *     PopAdaptiveCalculateInputRelativeTimeout @ 0x14099B71C (PopAdaptiveCalculateInputRelativeTimeout.c)
- *     PopAdaptiveConsoleSessionOverrideClear @ 0x14099B780 (PopAdaptiveConsoleSessionOverrideClear.c)
+ *     PopSetSessionUserStatus @ 0x1407A5FAC (PopSetSessionUserStatus.c)
+ *     TtmIsEnabled @ 0x1407A6280 (TtmIsEnabled.c)
+ *     PopSetPowerSettingValueAcDc @ 0x1407A7760 (PopSetPowerSettingValueAcDc.c)
+ *     PopAdaptiveCalculateInputRelativeTimeout @ 0x14099B91C (PopAdaptiveCalculateInputRelativeTimeout.c)
+ *     PopAdaptiveConsoleSessionOverrideClear @ 0x14099B980 (PopAdaptiveConsoleSessionOverrideClear.c)
  */
 
 __int64 __fastcall PopAdaptiveGetConsoleSessionState(
@@ -61,8 +61,8 @@ __int64 __fastcall PopAdaptiveGetConsoleSessionState(
   }
   if ( v10 )
   {
-    if ( !byte_140C39CE1
-      || byte_140C39CE2
+    if ( !byte_140C39C41
+      || byte_140C39C42
       || (v12 = PopAdaptiveLockConsoleTimeout,
           v22 = PopAdaptiveLockConsoleTimeout <= (unsigned int)PopDisplayTimeout,
           v28 = PopAdaptiveLockConsoleTimeout,
@@ -74,7 +74,7 @@ __int64 __fastcall PopAdaptiveGetConsoleSessionState(
       v28 = PopDisplayTimeout;
       *a4 = 256;
     }
-    v13 = &dword_140C39D14;
+    v13 = &dword_140C39C74;
     v14 = 0;
     for ( i = 0; i < 2; ++i )
     {
@@ -118,7 +118,7 @@ __int64 __fastcall PopAdaptiveGetConsoleSessionState(
     v16 = 256;
     if ( v8 != 3 )
       goto LABEL_12;
-    if ( *a2 > (unsigned __int64)qword_140C39CF0 )
+    if ( *a2 > (unsigned __int64)qword_140C39C50 )
     {
       if ( (unsigned __int64)(((((unsigned __int64)MEMORY[0xFFFFF78000000004] << 32)
                               * (unsigned __int128)(unsigned __int64)(MEMORY[0xFFFFF78000000320] << 8)) >> 64)
@@ -152,15 +152,15 @@ LABEL_12:
     goto LABEL_18;
   }
   v14 = 0;
-  v12 = dword_140C39CE4;
+  v12 = dword_140C39C44;
   v8 = 2;
   *a4 = 256;
   v28 = v12;
   *a5 = 258;
-  if ( qword_140C39CF0 != a2[2] )
+  if ( qword_140C39C50 != a2[2] )
   {
-    qword_140C39CF0 = a2[2];
-    v20 = &byte_140C39D00;
+    qword_140C39C50 = a2[2];
+    v20 = &byte_140C39C60;
     for ( j = 0; j < 2; ++j )
     {
       if ( *v20 && *((_QWORD *)v20 + 1) <= a2[2] )
@@ -172,8 +172,8 @@ LABEL_12:
     }
   }
 LABEL_18:
-  dword_140C39CE4 = v12;
-  qword_140C39CE8 = *a2;
+  dword_140C39C44 = v12;
+  qword_140C39C48 = *a2;
   v18 = v29;
   *(_DWORD *)a3 = v12;
   if ( v8 )

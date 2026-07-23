@@ -122,7 +122,7 @@ LABEL_5:
   p_SystemCallNumber = (struct _LIST_ENTRY *)&Thread[1].SystemCallNumber;
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 2 )
@@ -140,10 +140,10 @@ LABEL_5:
   Flink->Blink = p_ThreadListEntry;
   p_SystemCallNumber->Flink = p_ThreadListEntry;
   KxReleaseSpinLock((volatile signed __int64 *)&Thread[1].WaitBlock[0].Thread);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v30 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v30 <= 0xFu && CurrentIrql <= 0xFu && v30 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v30 <= 0xFu && CurrentIrql <= 0xFu && v30 >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v32 = CurrentPrcb->SchedulerAssist;

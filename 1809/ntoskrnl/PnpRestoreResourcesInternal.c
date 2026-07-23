@@ -1,18 +1,18 @@
 /*
- * XREFs of PnpRestoreResourcesInternal @ 0x14083B524
+ * XREFs of PnpRestoreResourcesInternal @ 0x14083C784
  * Callers:
- *     PnpReallocateResources @ 0x14083B354 (PnpReallocateResources.c)
+ *     PnpReallocateResources @ 0x14083C5B4 (PnpReallocateResources.c)
  * Callees:
- *     memset @ 0x1401D1880 (memset.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     PnpDetermineResourceListSize @ 0x1406FBA8C (PnpDetermineResourceListSize.c)
- *     IopWriteAllocatedResourcesToRegistry @ 0x14072E09C (IopWriteAllocatedResourcesToRegistry.c)
- *     PnpFindBestConfiguration @ 0x14072E18C (PnpFindBestConfiguration.c)
- *     PnpFreeResourceRequirementsForAssignTable @ 0x14072E4D8 (PnpFreeResourceRequirementsForAssignTable.c)
- *     IopResourceRequirementsListToReqList @ 0x14072EE74 (IopResourceRequirementsListToReqList.c)
- *     PnpCmResourcesToIoResources @ 0x14072FED4 (PnpCmResourcesToIoResources.c)
- *     IopCommitConfiguration @ 0x1407553C4 (IopCommitConfiguration.c)
- *     IopRearrangeReqList @ 0x140757D04 (IopRearrangeReqList.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     PnpDetermineResourceListSize @ 0x1406FCD2C (PnpDetermineResourceListSize.c)
+ *     IopWriteAllocatedResourcesToRegistry @ 0x14072F28C (IopWriteAllocatedResourcesToRegistry.c)
+ *     PnpFindBestConfiguration @ 0x14072F37C (PnpFindBestConfiguration.c)
+ *     PnpFreeResourceRequirementsForAssignTable @ 0x14072F6C8 (PnpFreeResourceRequirementsForAssignTable.c)
+ *     IopResourceRequirementsListToReqList @ 0x140730064 (IopResourceRequirementsListToReqList.c)
+ *     PnpCmResourcesToIoResources @ 0x1407310C4 (PnpCmResourcesToIoResources.c)
+ *     IopCommitConfiguration @ 0x1407565B4 (IopCommitConfiguration.c)
+ *     IopRearrangeReqList @ 0x140758EF4 (IopRearrangeReqList.c)
  */
 
 __int64 __fastcall PnpRestoreResourcesInternal(__int64 a1)

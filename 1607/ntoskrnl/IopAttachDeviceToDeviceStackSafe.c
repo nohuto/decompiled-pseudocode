@@ -1,25 +1,25 @@
 /*
- * XREFs of IopAttachDeviceToDeviceStackSafe @ 0x1400FAFC0
+ * XREFs of IopAttachDeviceToDeviceStackSafe @ 0x1400F8D4C
  * Callers:
- *     IoAttachDeviceToDeviceStackSafe @ 0x1400FAFA4 (IoAttachDeviceToDeviceStackSafe.c)
- *     IoAttachDeviceToDeviceStack @ 0x140131334 (IoAttachDeviceToDeviceStack.c)
- *     IoAttachDeviceByPointer @ 0x1401C8A1C (IoAttachDeviceByPointer.c)
+ *     IoAttachDeviceToDeviceStackSafe @ 0x1400F8D30 (IoAttachDeviceToDeviceStackSafe.c)
+ *     IoAttachDeviceToDeviceStack @ 0x1401318A4 (IoAttachDeviceToDeviceStack.c)
+ *     IoAttachDeviceByPointer @ 0x1401C88BC (IoAttachDeviceByPointer.c)
  * Callees:
- *     PnpRequestDeviceAction @ 0x14000794C (PnpRequestDeviceAction.c)
- *     EtwWrite @ 0x140013320 (EtwWrite.c)
- *     IoGetAttachedDevice @ 0x14002DEC0 (IoGetAttachedDevice.c)
- *     ObfDereferenceObjectWithTag @ 0x14006ACD0 (ObfDereferenceObjectWithTag.c)
- *     EtwEventEnabled @ 0x1400D54D0 (EtwEventEnabled.c)
- *     KeAcquireQueuedSpinLock @ 0x1400E8D30 (KeAcquireQueuedSpinLock.c)
- *     KeReleaseQueuedSpinLock @ 0x1400E8DA0 (KeReleaseQueuedSpinLock.c)
- *     ObfReferenceObjectWithTag @ 0x1400EE4F0 (ObfReferenceObjectWithTag.c)
- *     IopGetDeviceAttachmentBase @ 0x1400FB710 (IopGetDeviceAttachmentBase.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     IoGetDiskDeviceObject @ 0x1401C8BAC (IoGetDiskDeviceObject.c)
- *     IopIsKnownGoodLegacyFsFilter @ 0x1401C95EC (IopIsKnownGoodLegacyFsFilter.c)
+ *     EtwWrite @ 0x140012EA0 (EtwWrite.c)
+ *     IoGetAttachedDevice @ 0x14002DA40 (IoGetAttachedDevice.c)
+ *     ObfDereferenceObjectWithTag @ 0x14006A850 (ObfDereferenceObjectWithTag.c)
+ *     PnpRequestDeviceAction @ 0x1400861B8 (PnpRequestDeviceAction.c)
+ *     EtwEventEnabled @ 0x1400D3370 (EtwEventEnabled.c)
+ *     KeAcquireQueuedSpinLock @ 0x1400E6BD0 (KeAcquireQueuedSpinLock.c)
+ *     KeReleaseQueuedSpinLock @ 0x1400E6C40 (KeReleaseQueuedSpinLock.c)
+ *     ObfReferenceObjectWithTag @ 0x1400EC370 (ObfReferenceObjectWithTag.c)
+ *     IopGetDeviceAttachmentBase @ 0x1400F949C (IopGetDeviceAttachmentBase.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     IoGetDiskDeviceObject @ 0x1401C8A4C (IoGetDiskDeviceObject.c)
+ *     IopIsKnownGoodLegacyFsFilter @ 0x1401C948C (IopIsKnownGoodLegacyFsFilter.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     ObQueryNameString @ 0x1404DC4E0 (ObQueryNameString.c)
+ *     ObQueryNameString @ 0x1404BFAE4 (ObQueryNameString.c)
  *     IovAttachDeviceToDeviceStack @ 0x1407008E8 (IovAttachDeviceToDeviceStack.c)
  */
 
@@ -40,11 +40,11 @@ PDEVICE_OBJECT __fastcall IopAttachDeviceToDeviceStackSafe(__int64 a1, struct _D
   int v18; // ecx
   __int64 v19; // rax
   __int64 v20; // rax
-  struct _OBJECT_NAME_INFORMATION *p_ObjectNameInfo; // rsi
+  _OBJECT_NAME_INFORMATION *p_ObjectNameInfo; // rsi
   int *v22; // r15
   PDEVICE_OBJECT v23; // r13
   NTSTATUS v24; // r14d
-  struct _OBJECT_NAME_INFORMATION *PoolWithTag; // rax
+  _OBJECT_NAME_INFORMATION *PoolWithTag; // rax
   bool v26; // sf
   unsigned __int16 v27; // ax
   __int64 v28; // rax
@@ -77,7 +77,7 @@ PDEVICE_OBJECT __fastcall IopAttachDeviceToDeviceStackSafe(__int64 a1, struct _D
   __int64 v55; // [rsp+C0h] [rbp-40h]
   int v56; // [rsp+C8h] [rbp-38h]
   int v57; // [rsp+CCh] [rbp-34h]
-  struct _OBJECT_NAME_INFORMATION ObjectNameInfo; // [rsp+D0h] [rbp-30h] BYREF
+  _OBJECT_NAME_INFORMATION ObjectNameInfo; // [rsp+D0h] [rbp-30h] BYREF
 
   v3 = *(_QWORD *)(a1 + 312);
   v41 = a2;
@@ -179,7 +179,7 @@ PDEVICE_OBJECT __fastcall IopAttachDeviceToDeviceStackSafe(__int64 a1, struct _D
         v24 = ObQueryNameString(DiskDeviceObject, &ObjectNameInfo, Length, &Length);
         if ( v24 == -1073741820 )
         {
-          PoolWithTag = (struct _OBJECT_NAME_INFORMATION *)ExAllocatePoolWithTag(PagedPool, Length, 0x6E4F6F49u);
+          PoolWithTag = (_OBJECT_NAME_INFORMATION *)ExAllocatePoolWithTag(PagedPool, Length, 0x6E4F6F49u);
           p_ObjectNameInfo = PoolWithTag;
           if ( PoolWithTag )
             v24 = ObQueryNameString(v23, PoolWithTag, Length, &Length);

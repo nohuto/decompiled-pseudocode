@@ -1,10 +1,10 @@
 /*
- * XREFs of SeDeassignPrimaryToken @ 0x14045F4DC
+ * XREFs of SeDeassignPrimaryToken @ 0x14045E3AC
  * Callers:
- *     PspProcessDelete @ 0x140460828 (PspProcessDelete.c)
- *     SeAssignPrimaryToken @ 0x14057FFCC (SeAssignPrimaryToken.c)
+ *     PspProcessDelete @ 0x14045F6F8 (PspProcessDelete.c)
+ *     SeAssignPrimaryToken @ 0x140580478 (SeAssignPrimaryToken.c)
  * Callees:
- *     ObFastReplaceObject @ 0x1400CCF54 (ObFastReplaceObject.c)
+ *     ObFastReplaceObject @ 0x1400CADF4 (ObFastReplaceObject.c)
  */
 
 LONG_PTR __fastcall SeDeassignPrimaryToken(__int64 a1)

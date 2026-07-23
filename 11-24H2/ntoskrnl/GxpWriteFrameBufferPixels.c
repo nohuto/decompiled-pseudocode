@@ -1,16 +1,16 @@
 /*
- * XREFs of GxpWriteFrameBufferPixels @ 0x140481F1C
+ * XREFs of GxpWriteFrameBufferPixels @ 0x14047D15C
  * Callers:
- *     BgpGxDrawRectangle @ 0x140481E44 (BgpGxDrawRectangle.c)
+ *     BgpGxDrawRectangle @ 0x14047D084 (BgpGxDrawRectangle.c)
  * Callees:
- *     BgpGxConvertRectangleEx @ 0x1404604FC (BgpGxConvertRectangleEx.c)
- *     BgpGetBitsPerPixel @ 0x1404822C8 (BgpGetBitsPerPixel.c)
- *     GxpAdjustRectangleToFrameBuffer @ 0x1404822F0 (GxpAdjustRectangleToFrameBuffer.c)
- *     BgfxGrowDirtyRect @ 0x140698458 (BgfxGrowDirtyRect.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     BgpGxRectangleDestroy @ 0x140BB3F04 (BgpGxRectangleDestroy.c)
+ *     BgpGxConvertRectangleEx @ 0x1404553DC (BgpGxConvertRectangleEx.c)
+ *     BgpGetBitsPerPixel @ 0x14047D508 (BgpGetBitsPerPixel.c)
+ *     GxpAdjustRectangleToFrameBuffer @ 0x14047D530 (GxpAdjustRectangleToFrameBuffer.c)
+ *     BgfxGrowDirtyRect @ 0x1406994D8 (BgfxGrowDirtyRect.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     BgpGxRectangleDestroy @ 0x140BB5F04 (BgpGxRectangleDestroy.c)
  */
 
 __int64 __fastcall GxpWriteFrameBufferPixels(__int64 a1, _DWORD *a2)
@@ -77,7 +77,7 @@ __int64 __fastcall GxpWriteFrameBufferPixels(__int64 a1, _DWORD *a2)
   v33 = HIDWORD(BgInternal);
   if ( !v3 || !*(_DWORD *)(v3 + 4) || !*(_DWORD *)v3 || *(_DWORD *)(v3 + 8) != BitsPerPixel || !v2 )
     return 3221225485LL;
-  if ( (dword_140EF0050 & 2) == 0 )
+  if ( (dword_140EF0270 & 2) == 0 )
     return 3221225473LL;
   result = GxpAdjustRectangleToFrameBuffer(
              v3,
@@ -95,9 +95,9 @@ __int64 __fastcall GxpWriteFrameBufferPixels(__int64 a1, _DWORD *a2)
       v38[0] = *(_DWORD *)v3;
       v38[1] = *(_DWORD *)(v3 + 4);
       v27 = 0LL;
-      if ( (dword_140EF0050 & 8) != 0 )
+      if ( (dword_140EF0270 & 8) != 0 )
       {
-        if ( (dword_140EF0050 & 0xC00) != 0 )
+        if ( (dword_140EF0270 & 0xC00) != 0 )
         {
           v25 = 1;
           v27 = (unsigned __int64)v44;
@@ -118,14 +118,14 @@ __int64 __fastcall GxpWriteFrameBufferPixels(__int64 a1, _DWORD *a2)
       {
         v40 = *(_DWORD *)(v3 + 12);
         v41 = *(_QWORD *)(v3 + 24);
-        v39 = xmmword_140EEFFF0;
+        v39 = xmmword_140EF0210;
       }
-      if ( !qword_140EF0000 )
+      if ( !qword_140EF0220 )
       {
         v16 = -1073741823;
         goto LABEL_20;
       }
-      v16 = ((__int64 (__fastcall *)(_DWORD *, _DWORD *, _QWORD))qword_140EF0000)(v38, v2, 0LL);
+      v16 = ((__int64 (__fastcall *)(_DWORD *, _DWORD *, _QWORD))qword_140EF0220)(v38, v2, 0LL);
       if ( v24 && v24 != v44 )
         BgpGxRectangleDestroy(v24);
       if ( v16 < 0 )
@@ -135,7 +135,7 @@ __int64 __fastcall GxpWriteFrameBufferPixels(__int64 a1, _DWORD *a2)
     v6 = *(char **)(v3 + 24);
     v7 = BitsPerPixel >> 3;
     v8 = v7 * v37;
-    v9 = (char *)qword_140EF0000 + v7 * (*v2 + v2[1] * v33);
+    v9 = (char *)qword_140EF0220 + v7 * (*v2 + v2[1] * v33);
     v34 = v7 * v37;
     if ( !BYTE2(BgInternal) )
       goto LABEL_12;
@@ -195,7 +195,7 @@ LABEL_57:
               LODWORD(v19) = j;
               LODWORD(v20) = HIDWORD(v36) - HIDWORD(v27) - 1;
 LABEL_29:
-              memmove((char *)qword_140EF0000 + v7 * (*v2 + v33 * ((_DWORD)v19 + v2[1]) + (_DWORD)v20), v17, v7);
+              memmove((char *)qword_140EF0220 + v7 * (*v2 + v33 * ((_DWORD)v19 + v2[1]) + (_DWORD)v20), v17, v7);
               v17 = (char *)(v7 + v31);
             }
             v8 = v34;
@@ -219,7 +219,7 @@ LABEL_29:
           v2 = v43;
         }
 LABEL_16:
-        if ( qword_140EF01B0 )
+        if ( qword_140EF03D0 )
           BgfxGrowDirtyRect(&v29, v2, v7);
 LABEL_18:
         v16 = 0;

@@ -1,22 +1,22 @@
 /*
- * XREFs of MiRemoveViewsFromSectionWithPfn @ 0x140371504
+ * XREFs of MiRemoveViewsFromSectionWithPfn @ 0x1402598C4
  * Callers:
- *     MiDereferenceDataSubsections @ 0x14068BC60 (MiDereferenceDataSubsections.c)
- *     MiMapViewOfDataSection @ 0x1408E0820 (MiMapViewOfDataSection.c)
- *     MiPfPrepareReadList @ 0x1409557EC (MiPfPrepareReadList.c)
- *     MiReleaseReadListResources @ 0x140956000 (MiReleaseReadListResources.c)
- *     MiPfPrepareSequentialReadList @ 0x140956378 (MiPfPrepareSequentialReadList.c)
+ *     MiDereferenceDataSubsections @ 0x14068CD90 (MiDereferenceDataSubsections.c)
+ *     MiMapViewOfDataSection @ 0x1409173D0 (MiMapViewOfDataSection.c)
+ *     MiPfPrepareReadList @ 0x14093919C (MiPfPrepareReadList.c)
+ *     MiReleaseReadListResources @ 0x1409399B0 (MiReleaseReadListResources.c)
+ *     MiPfPrepareSequentialReadList @ 0x140939D28 (MiPfPrepareSequentialReadList.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14020FA40 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     MiGetSubsectionHoldingCrossPartitionReferences @ 0x14036F2F8 (MiGetSubsectionHoldingCrossPartitionReferences.c)
- *     MiComputeCrossPartitionSectionCharges @ 0x14036F3BC (MiComputeCrossPartitionSectionCharges.c)
- *     MiControlAreaExemptFromCrossPartitionCharges @ 0x140371780 (MiControlAreaExemptFromCrossPartitionCharges.c)
- *     MiInsertUnusedSubsection @ 0x140371BB0 (MiInsertUnusedSubsection.c)
- *     MiReturnCrossPartitionSectionCharges @ 0x1404B8B54 (MiReturnCrossPartitionSectionCharges.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     MiUpdateSubsectionCrossPartitionRefs @ 0x1404F9F3C (MiUpdateSubsectionCrossPartitionRefs.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     MiControlAreaExemptFromCrossPartitionCharges @ 0x140259B40 (MiControlAreaExemptFromCrossPartitionCharges.c)
+ *     MiInsertUnusedSubsection @ 0x140259F70 (MiInsertUnusedSubsection.c)
+ *     MiGetSubsectionHoldingCrossPartitionReferences @ 0x14026B278 (MiGetSubsectionHoldingCrossPartitionReferences.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140338DA0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiReturnCrossPartitionSectionCharges @ 0x1404B34A4 (MiReturnCrossPartitionSectionCharges.c)
+ *     MiComputeCrossPartitionSectionCharges @ 0x1404C8FF8 (MiComputeCrossPartitionSectionCharges.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     MiUpdateSubsectionCrossPartitionRefs @ 0x1404F781C (MiUpdateSubsectionCrossPartitionRefs.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 void __fastcall MiRemoveViewsFromSectionWithPfn(__int64 *BugCheckParameter2, unsigned __int64 a2, char a3)
@@ -37,14 +37,13 @@ void __fastcall MiRemoveViewsFromSectionWithPfn(__int64 *BugCheckParameter2, uns
   __int64 v18; // rax
   __int64 SubsectionHoldingCrossPartitionReferences; // rax
   int v20; // r10d
-  __int64 *v21; // rcx
-  int v22; // r10d
-  BOOL v23; // [rsp+70h] [rbp+18h]
+  int v21; // r10d
+  BOOL v22; // [rsp+70h] [rbp+18h]
 
   v3 = *BugCheckParameter2;
   v4 = (ULONG_PTR)BugCheckParameter2;
   v7 = (volatile LONG *)(*BugCheckParameter2 + 72);
-  v23 = *(_QWORD *)(*BugCheckParameter2 + 64) != 0LL;
+  v22 = *(_QWORD *)(*BugCheckParameter2 + 64) != 0LL;
   v8 = ExAcquireSpinLockExclusive(v7);
   v9 = *(_QWORD *)v4;
   v10 = 0LL;
@@ -68,17 +67,17 @@ void __fastcall MiRemoveViewsFromSectionWithPfn(__int64 *BugCheckParameter2, uns
       else
         v15 = a3 < 0
             ? &MiSystemPartition
-            : (ULONG *)*((_QWORD *)qword_140E2FF88
+            : (ULONG *)*((_QWORD *)qword_140E300C8
                        + HIWORD(KeGetCurrentThread()->ApcState.Process[2].ProcessListEntry.Blink));
-      if ( v15 != *((ULONG **)qword_140E2FF88 + (*(_WORD *)(v9 + 60) & 0x3FF)) )
+      if ( v15 != *((ULONG **)qword_140E300C8 + (*(_WORD *)(v9 + 60) & 0x3FF)) )
       {
         SubsectionHoldingCrossPartitionReferences = MiGetSubsectionHoldingCrossPartitionReferences(v4);
         v20 = *(_DWORD *)(MiGetSubsectionHoldingCrossPartitionReferences(SubsectionHoldingCrossPartitionReferences) + 48) & 0x3FFFFFFF;
         if ( v20 != 0x3FFFFFFF )
         {
           MiUpdateSubsectionCrossPartitionRefs(v13, (unsigned int)(v20 - 1));
-          if ( v22 == 1 )
-            v14 = MiComputeCrossPartitionSectionCharges(v21);
+          if ( v21 == 1 )
+            v14 = MiComputeCrossPartitionSectionCharges();
         }
       }
     }
@@ -117,5 +116,5 @@ void __fastcall MiRemoveViewsFromSectionWithPfn(__int64 *BugCheckParameter2, uns
     __writecr8(v11);
   }
   if ( v10 )
-    MiReturnCrossPartitionSectionCharges(*((_QWORD *)qword_140E2FF88 + (*(_WORD *)(v3 + 60) & 0x3FF)), v23, v10);
+    MiReturnCrossPartitionSectionCharges(*((_QWORD *)qword_140E300C8 + (*(_WORD *)(v3 + 60) & 0x3FF)), v22, v10);
 }

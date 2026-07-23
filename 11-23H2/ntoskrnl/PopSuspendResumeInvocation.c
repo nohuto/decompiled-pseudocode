@@ -1,12 +1,12 @@
 /*
- * XREFs of PopSuspendResumeInvocation @ 0x1409982D0
+ * XREFs of PopSuspendResumeInvocation @ 0x1409984D0
  * Callers:
- *     PopPowerInformationInternal @ 0x1407ED06C (PopPowerInformationInternal.c)
- *     PopDirectedDripsSendSuspendResumeNotification @ 0x140983CF0 (PopDirectedDripsSendSuspendResumeNotification.c)
- *     PopSendSuspendResumeApplicationNotification @ 0x14098A528 (PopSendSuspendResumeApplicationNotification.c)
- *     PopSendSuspendResumeServiceNotification @ 0x14098A724 (PopSendSuspendResumeServiceNotification.c)
+ *     PopPowerInformationInternal @ 0x1407ED33C (PopPowerInformationInternal.c)
+ *     PopDirectedDripsSendSuspendResumeNotification @ 0x140983EF0 (PopDirectedDripsSendSuspendResumeNotification.c)
+ *     PopSendSuspendResumeApplicationNotification @ 0x14098A728 (PopSendSuspendResumeApplicationNotification.c)
+ *     PopSendSuspendResumeServiceNotification @ 0x14098A924 (PopSendSuspendResumeServiceNotification.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 __int64 PopSuspendResumeInvocation()

@@ -1,14 +1,14 @@
 /*
- * XREFs of ViAllocateMapRegistersFromFile @ 0x140AC7EBC
+ * XREFs of ViAllocateMapRegistersFromFile @ 0x140AC7EAC
  * Callers:
- *     ViMapDoubleBuffer @ 0x140AC97BC (ViMapDoubleBuffer.c)
+ *     ViMapDoubleBuffer @ 0x140AC97AC (ViMapDoubleBuffer.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     VfReportIssueWithOptions @ 0x1405CFD00 (VfReportIssueWithOptions.c)
- *     ViHalPreprocessOptions @ 0x140AC9324 (ViHalPreprocessOptions.c)
- *     ViTagBuffer @ 0x140ACA1E4 (ViTagBuffer.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     VfReportIssueWithOptions @ 0x1405D0270 (VfReportIssueWithOptions.c)
+ *     ViHalPreprocessOptions @ 0x140AC9314 (ViHalPreprocessOptions.c)
+ *     ViTagBuffer @ 0x140ACA1D4 (ViTagBuffer.c)
  */
 
 __int64 __fastcall ViAllocateMapRegistersFromFile(__int64 a1, ULONG_PTR a2, unsigned int a3, char a4, _DWORD *a5)
@@ -72,12 +72,12 @@ LABEL_10:
       if ( *v16 && v18 >= a2 && v18 < (unsigned __int64)v17 )
       {
         ViHalPreprocessOptions(
-          byte_140C0DE08,
+          byte_140C0DDF8,
           "Driver is trying to map an address range(%p-%p) that is already mapped    at %p",
           (const void *)0x1D,
           (const void *)a2,
           v17);
-        VfReportIssueWithOptions(0xE6u, 0x1DuLL, a2, (ULONG_PTR)v17, *v16, byte_140C0DE08);
+        VfReportIssueWithOptions(0xE6u, 0x1DuLL, a2, (ULONG_PTR)v17, *v16, byte_140C0DDF8);
       }
       v16 += 4;
     }
@@ -104,13 +104,13 @@ LABEL_11:
       if ( v11 >= (unsigned int)v8 )
         goto LABEL_16;
     }
-    ViHalPreprocessOptions(byte_140C0DE0C, "Map registers needed: %x available: %x", 0x10000000, 2);
-    VfReportIssueWithOptions(0xE6u, 0LL, 2uLL, (unsigned int)v8, v11, byte_140C0DE0C);
+    ViHalPreprocessOptions(byte_140C0DDF0, "Map registers needed: %x available: %x", 0x10000000, 2);
+    VfReportIssueWithOptions(0xE6u, 0LL, 2uLL, (unsigned int)v8, v11, byte_140C0DDF0);
     KxReleaseSpinLock(v35);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v12 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v12 <= 0xFu && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -150,10 +150,10 @@ LABEL_16:
       while ( (_DWORD)v8 );
     }
     KxReleaseSpinLock(v35);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v25 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v25 <= 0xFu && v12 <= 0xFu && v25 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v25 <= 0xFu && v12 <= 0xFu && v25 >= 2u )
       {
         v26 = KeGetCurrentPrcb();
         v27 = v26->SchedulerAssist;

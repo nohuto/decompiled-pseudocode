@@ -19,9 +19,8 @@ __int64 __fastcall RtlTraceDatabaseCreate(
   __int64 v10; // rax
   __int64 v11; // rdi
   __int64 v12; // rbx
-  __int64 v13; // r9
-  __int64 (__fastcall *v14)(unsigned int, __int64); // rax
-  size_t v15; // r8
+  __int64 (__fastcall *v13)(unsigned int, __int64); // rax
+  size_t v14; // r8
 
   if ( a1 > 0x100000 )
     return 0LL;
@@ -40,20 +39,20 @@ __int64 __fastcall RtlTraceDatabaseCreate(
   *(_QWORD *)(v10 + 24) = a2;
   *(_QWORD *)(v10 + 32) = 0x10000LL;
   memset((void *)(v10 + 128), 0, 0x40uLL);
-  RtlInitializeCriticalSectionEx(v11 + 48, 0LL, 0LL, v13);
-  v14 = a5;
+  RtlInitializeCriticalSectionEx((PRTL_CRITICAL_SECTION)(v11 + 48), 0, 0);
+  v13 = a5;
   *(_DWORD *)(v11 + 88) = a1;
   if ( !a5 )
-    v14 = sub_1800F9860;
-  *(_QWORD *)(v11 + 104) = v14;
+    v13 = sub_1800F9860;
+  *(_QWORD *)(v11 + 104) = v13;
   *(_QWORD *)(v12 + 16) = 0LL;
   *(_DWORD *)v12 = -1412580421;
   *(_QWORD *)(v12 + 8) = v11;
   *(_QWORD *)(v12 + 24) = 0x10000LL;
-  v15 = 8LL * *(unsigned int *)(v11 + 88);
+  v14 = 8LL * *(unsigned int *)(v11 + 88);
   *(_QWORD *)(v11 + 16) = v12;
   *(_QWORD *)(v11 + 96) = v12 + 56;
-  memset((void *)(v12 + 56), 0, v15);
+  memset((void *)(v12 + 56), 0, v14);
   *(_QWORD *)(v12 + 32) = v11;
   *(_QWORD *)(v12 + 40) = v11 + 0x10000;
   result = v11;

@@ -1,18 +1,18 @@
 /*
- * XREFs of RtlGetActiveConsoleId @ 0x14035ECC0
+ * XREFs of RtlGetActiveConsoleId @ 0x14035EE60
  * Callers:
- *     PopPowerButtonWorkCallback @ 0x1405990F0 (PopPowerButtonWorkCallback.c)
+ *     PopPowerButtonWorkCallback @ 0x1405995E0 (PopPowerButtonWorkCallback.c)
  *     PoBlockConsoleSwitch @ 0x140682A78 (PoBlockConsoleSwitch.c)
- *     IopParseDevice @ 0x14072CD50 (IopParseDevice.c)
- *     PfpProcessScenarioPhase @ 0x1407D3650 (PfpProcessScenarioPhase.c)
- *     PopNotifyConsoleUserPresent @ 0x1407D3744 (PopNotifyConsoleUserPresent.c)
- *     PiCMQueryRemove @ 0x14096A274 (PiCMQueryRemove.c)
+ *     IopParseDevice @ 0x14072CF50 (IopParseDevice.c)
+ *     PfpProcessScenarioPhase @ 0x1407D3920 (PfpProcessScenarioPhase.c)
+ *     PopNotifyConsoleUserPresent @ 0x1407D3A14 (PopNotifyConsoleUserPresent.c)
+ *     PiCMQueryRemove @ 0x14096A474 (PiCMQueryRemove.c)
  * Callees:
- *     PsIsCurrentThreadInServerSilo @ 0x140287470 (PsIsCurrentThreadInServerSilo.c)
- *     PsGetCurrentServerSilo @ 0x140289F90 (PsGetCurrentServerSilo.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x140287700 (PsIsCurrentThreadInServerSilo.c)
+ *     PsGetCurrentServerSilo @ 0x14028A220 (PsGetCurrentServerSilo.c)
  */
 
-__int64 RtlGetActiveConsoleId()
+ULONG RtlGetActiveConsoleId(void)
 {
   __int64 CurrentServerSilo; // rax
   _QWORD *v2; // rax
@@ -24,5 +24,5 @@ __int64 RtlGetActiveConsoleId()
     v2 = *(_QWORD **)(CurrentServerSilo + 1488);
   else
     v2 = &PspHostSiloGlobals;
-  return *(unsigned int *)(v2[165] + 4LL);
+  return *(_DWORD *)(v2[165] + 4LL);
 }

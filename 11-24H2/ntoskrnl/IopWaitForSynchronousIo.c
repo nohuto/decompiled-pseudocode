@@ -1,13 +1,13 @@
 /*
- * XREFs of IopWaitForSynchronousIo @ 0x1403C48D0
+ * XREFs of IopWaitForSynchronousIo @ 0x1403B3490
  * Callers:
- *     NtSetInformationFile @ 0x1403C34C0 (NtSetInformationFile.c)
- *     IopQueryXxxInformation @ 0x14096A530 (IopQueryXxxInformation.c)
+ *     NtSetInformationFile @ 0x1403B2080 (NtSetInformationFile.c)
+ *     IopQueryXxxInformation @ 0x140952FC0 (IopQueryXxxInformation.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     IopCancelAlertedRequest @ 0x140A7BD74 (IopCancelAlertedRequest.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     IopCancelAlertedRequest @ 0x140A76074 (IopCancelAlertedRequest.c)
  */
 
 __int64 __fastcall IopWaitForSynchronousIo(PIRP Irp, unsigned int *a2, KPROCESSOR_MODE a3)

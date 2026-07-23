@@ -1,19 +1,19 @@
 /*
- * XREFs of MmFreeMappingAddress @ 0x14086D770
+ * XREFs of MmFreeMappingAddress @ 0x14086D9B0
  * Callers:
- *     SmFpCleanup @ 0x140344318 (SmFpCleanup.c)
- *     PnprFreeMappingReserve @ 0x140965DEC (PnprFreeMappingReserve.c)
- *     PnprInitializeMappingReserve @ 0x140966274 (PnprInitializeMappingReserve.c)
- *     EtwpSavePersistedLogger @ 0x1409EDA44 (EtwpSavePersistedLogger.c)
+ *     SmFpCleanup @ 0x1403445A8 (SmFpCleanup.c)
+ *     PnprFreeMappingReserve @ 0x140965FEC (PnprFreeMappingReserve.c)
+ *     PnprInitializeMappingReserve @ 0x140966474 (PnprInitializeMappingReserve.c)
+ *     EtwpSavePersistedLogger @ 0x1409EDCD4 (EtwpSavePersistedLogger.c)
  *     HalpDmaAllocateEmergencyResources @ 0x140B608F8 (HalpDmaAllocateEmergencyResources.c)
  *     HalpDmaAllocateMappingResources @ 0x140B609CC (HalpDmaAllocateMappingResources.c)
  * Callees:
- *     MI_READ_PTE_LOCK_FREE @ 0x1402712F0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiReleasePtes @ 0x1402CB8E0 (MiReleasePtes.c)
- *     MiGetPteAddress @ 0x1402DE00C (MiGetPteAddress.c)
- *     MiRemoveMappingNode @ 0x1403C34B8 (MiRemoveMappingNode.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     MiRemovePteTracker @ 0x140661600 (MiRemovePteTracker.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140271580 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiReleasePtes @ 0x1402CBB70 (MiReleasePtes.c)
+ *     MiGetPteAddress @ 0x1402DE29C (MiGetPteAddress.c)
+ *     MiRemoveMappingNode @ 0x1403C3698 (MiRemoveMappingNode.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     MiRemovePteTracker @ 0x140661B50 (MiRemovePteTracker.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

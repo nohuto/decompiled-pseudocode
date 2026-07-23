@@ -1,9 +1,9 @@
 /*
- * XREFs of KiFlushRangeWorker @ 0x1400E09C0
+ * XREFs of KiFlushRangeWorker @ 0x1400DE860
  * Callers:
- *     MiFlushTbList @ 0x1400E0490 (MiFlushTbList.c)
+ *     MiFlushTbList @ 0x1400DE330 (MiFlushTbList.c)
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 unsigned __int64 __fastcall KiFlushRangeWorker(__int64 a1)

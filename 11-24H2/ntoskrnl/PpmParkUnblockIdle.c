@@ -1,12 +1,12 @@
 /*
- * XREFs of PpmParkUnblockIdle @ 0x140457DA0
+ * XREFs of PpmParkUnblockIdle @ 0x14044D0B0
  * Callers:
  *     <none>
  * Callees:
- *     PpmPerfQueueAction @ 0x14029F0D0 (PpmPerfQueueAction.c)
- *     KeGetPrcb @ 0x140352980 (KeGetPrcb.c)
- *     KeRemoveProcessorAffinityEx @ 0x1403CA140 (KeRemoveProcessorAffinityEx.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     PpmPerfQueueAction @ 0x1402AF01C (PpmPerfQueueAction.c)
+ *     KeGetPrcb @ 0x1402B0A10 (KeGetPrcb.c)
+ *     KeRemoveProcessorAffinityEx @ 0x1403A4D10 (KeRemoveProcessorAffinityEx.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 char PpmParkUnblockIdle()
@@ -35,7 +35,7 @@ char PpmParkUnblockIdle()
       {
         _BitScanForward64(&v4, v2);
         v2 &= ~(1LL << v4);
-        v5 = *((_DWORD *)qword_140F21E78 + 64 * i + (unsigned __int8)v4);
+        v5 = *((_DWORD *)qword_140F22998 + 64 * i + (unsigned __int8)v4);
         Prcb = KeGetPrcb(v5);
         if ( *(_BYTE *)(Prcb + 34953) )
           *(_BYTE *)(Prcb + 34953) = 0;
@@ -67,7 +67,7 @@ char PpmParkUnblockIdle()
           {
             _BitScanForward64(&v12, v10);
             v10 &= ~(1LL << v12);
-            v13 = KeGetPrcb(*((_DWORD *)qword_140F21E78 + 64 * j + (unsigned __int8)v12));
+            v13 = KeGetPrcb(*((_DWORD *)qword_140F22998 + 64 * j + (unsigned __int8)v12));
             PpmPerfQueueAction(v13, 6);
           }
           if ( ++j >= (unsigned int)PpmPerfNewUnparkedMask.Count )

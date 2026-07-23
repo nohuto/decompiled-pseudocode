@@ -11,7 +11,7 @@
  *     _guard_dispatch_icall_no_overrides @ 0x1406A8B20 (_guard_dispatch_icall_no_overrides.c)
  */
 
-__int64 __fastcall DifZwSetInformationJobObjectWrapper(__int64 a1, unsigned int a2, __int64 a3, unsigned int a4)
+__int64 __fastcall DifZwSetInformationJobObjectWrapper(void *a1, JOBOBJECTINFOCLASS a2, void *a3, ULONG a4)
 {
   __int64 *APIThunkContextById; // rax
   __int64 *v8; // rsi
@@ -59,17 +59,7 @@ __int64 __fastcall DifZwSetInformationJobObjectWrapper(__int64 a1, unsigned int 
         ExReleaseRundownProtection_0(&DifRebootlessRundown);
     }
   }
-  DWORD2(v18) = ZwSetInformationJobObject(
-                  a1,
-                  a2,
-                  a3,
-                  a4,
-                  v16,
-                  *((_QWORD *)&v16 + 1),
-                  v17,
-                  *((_QWORD *)&v17 + 1),
-                  v18,
-                  *((_QWORD *)&v18 + 1));
+  DWORD2(v18) = ZwSetInformationJobObject(a1, a2, a3, a4);
   if ( v8 )
   {
     if ( (v12 = 0, !VfDifRunningWithoutReboot) && (VfOptionFlags & 0x800) == 0

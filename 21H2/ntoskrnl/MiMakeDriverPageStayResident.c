@@ -1,13 +1,13 @@
 /*
- * XREFs of MiMakeDriverPageStayResident @ 0x14052DE54
+ * XREFs of MiMakeDriverPageStayResident @ 0x14052E094
  * Callers:
- *     MiMakeDriverPagesPrivate @ 0x1402E6EF4 (MiMakeDriverPagesPrivate.c)
+ *     MiMakeDriverPagesPrivate @ 0x140298244 (MiMakeDriverPagesPrivate.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
- *     MiGetWsleContents @ 0x140270D40 (MiGetWsleContents.c)
- *     MiRemoveSystemImagePage @ 0x1402C1688 (MiRemoveSystemImagePage.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x14032DEC0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiPteInShadowRange @ 0x140348AF0 (MiPteInShadowRange.c)
+ *     MiRemoveSystemImagePage @ 0x14023FB28 (MiRemoveSystemImagePage.c)
+ *     MiGetWsleContents @ 0x14025ECE0 (MiGetWsleContents.c)
+ *     KeYieldProcessorEx @ 0x1402EFAD0 (KeYieldProcessorEx.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140338C10 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x140353840 (MiPteInShadowRange.c)
  */
 
 char __fastcall MiMakeDriverPageStayResident(__int64 a1, __int64 a2, unsigned __int64 a3)

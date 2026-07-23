@@ -1,16 +1,16 @@
 /*
- * XREFs of CmpDereferenceNameControlBlockWithLock @ 0x1406D8D90
+ * XREFs of CmpDereferenceNameControlBlockWithLock @ 0x1406D8DC0
  * Callers:
- *     CmpCleanUpKcbCacheWithLock @ 0x1406D8510 (CmpCleanUpKcbCacheWithLock.c)
- *     CmpCreateKeyControlBlock @ 0x1406D8790 (CmpCreateKeyControlBlock.c)
- *     CmRenameKey @ 0x140A143AC (CmRenameKey.c)
- *     CmpCloneToUnbackedKcb @ 0x140A16E04 (CmpCloneToUnbackedKcb.c)
+ *     CmpCleanUpKcbCacheWithLock @ 0x1406D8540 (CmpCleanUpKcbCacheWithLock.c)
+ *     CmpCreateKeyControlBlock @ 0x1406D87C0 (CmpCreateKeyControlBlock.c)
+ *     CmRenameKey @ 0x140A1465C (CmRenameKey.c)
+ *     CmpCloneToUnbackedKcb @ 0x140A170B4 (CmpCloneToUnbackedKcb.c)
  * Callees:
- *     CmpFreeTransientPoolWithTag @ 0x14022CED4 (CmpFreeTransientPoolWithTag.c)
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfReleasePushLock @ 0x1402BD830 (ExfReleasePushLock.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
+ *     CmpFreeTransientPoolWithTag @ 0x14022CFE4 (CmpFreeTransientPoolWithTag.c)
+ *     KeAbPreAcquire @ 0x140230FD0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfReleasePushLock @ 0x1402BDAC0 (ExfReleasePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402FD0A0 (ExfAcquirePushLockExclusiveEx.c)
  */
 
 signed __int32 __fastcall CmpDereferenceNameControlBlockWithLock(_WORD *a1)

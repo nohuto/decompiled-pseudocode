@@ -8,21 +8,22 @@
  *     PopAcquirePolicyLock @ 0x140A87BE4 (PopAcquirePolicyLock.c)
  */
 
-__int64 __fastcall PopBatteryAlarmPowerSettingCallback(
-        LPCGUID SettingGuid,
-        PVOID Value,
-        ULONG ValueLength,
-        PVOID Context)
-{
-  unsigned int v4; // ebx
-  unsigned int updated; // ebx
-  __int64 v6; // rdx
-  __int64 v7; // rcx
-  __int64 v8; // r8
-
-  v4 = (unsigned int)Context;
-  PopAcquirePolicyLock((_DWORD)SettingGuid);
-  updated = PopBatteryUpdateAlarms(0LL, v4);
-  PopReleasePolicyLock(v7, v6, v8);
-  return updated;
-}
+/*
+ * Hex-Rays decompilation failed for PopBatteryAlarmPowerSettingCallback @ 0x140824E00
+ * Reason: Hex-Rays returned no pseudocode for 0x140824E00
+ * Fallback: raw IDA disassembly follows.
+ *
+ * 0000000140824E00: push    rbx
+ * 0000000140824E02: sub     rsp, 20h
+ * 0000000140824E06: mov     rbx, r9
+ * 0000000140824E09: call    PopAcquirePolicyLock
+ * 0000000140824E0E: mov     edx, ebx
+ * 0000000140824E10: xor     ecx, ecx
+ * 0000000140824E12: call    PopBatteryUpdateAlarms
+ * 0000000140824E17: mov     ebx, eax
+ * 0000000140824E19: call    PopReleasePolicyLock
+ * 0000000140824E1E: mov     eax, ebx
+ * 0000000140824E20: add     rsp, 20h
+ * 0000000140824E24: pop     rbx
+ * 0000000140824E25: retn
+ */

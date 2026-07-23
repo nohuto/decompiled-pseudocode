@@ -1,17 +1,17 @@
 /*
- * XREFs of RtlFindMessage @ 0x14051C574
+ * XREFs of RtlFindMessage @ 0x1404FF964
  * Callers:
  *     ExpSystemErrorHandler2 @ 0x1403E0080 (ExpSystemErrorHandler2.c)
- *     PiGetDefaultMessageString @ 0x1405745C0 (PiGetDefaultMessageString.c)
- *     IopInitializeBootLogging @ 0x14062188C (IopInitializeBootLogging.c)
+ *     PiGetDefaultMessageString @ 0x140574B00 (PiGetDefaultMessageString.c)
+ *     IopInitializeBootLogging @ 0x140621940 (IopInitializeBootLogging.c)
  *     ResFwFindMessage @ 0x140728410 (ResFwFindMessage.c)
  *     InitBootProcessor @ 0x1407937C4 (InitBootProcessor.c)
  *     Phase1InitializationDiscard @ 0x140794438 (Phase1InitializationDiscard.c)
  * Callees:
- *     RtlFindMessageInTable @ 0x1400FA24C (RtlFindMessageInTable.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     LdrpAccessResourceData @ 0x14051C620 (LdrpAccessResourceData.c)
- *     LdrpSearchResourceSection_U @ 0x14051C944 (LdrpSearchResourceSection_U.c)
+ *     RtlFindMessageInTable @ 0x1400F7FD8 (RtlFindMessageInTable.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     LdrpAccessResourceData @ 0x1404FFA10 (LdrpAccessResourceData.c)
+ *     LdrpSearchResourceSection_U @ 0x1404FFD34 (LdrpSearchResourceSection_U.c)
  */
 
 NTSTATUS __stdcall RtlFindMessage(

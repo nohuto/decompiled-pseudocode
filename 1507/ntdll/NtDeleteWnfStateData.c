@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 NtDeleteWnfStateData()
+NTSTATUS __cdecl NtDeleteWnfStateData(PCWNF_STATE_NAME StateName, const void *ExplicitScope)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 201LL;
+  result = 201;
   __asm { syscall; Low latency system call }
   return result;
 }

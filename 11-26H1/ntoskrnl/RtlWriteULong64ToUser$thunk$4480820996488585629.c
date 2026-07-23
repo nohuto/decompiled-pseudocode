@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlWriteULong64ToUser$thunk$4480820996488585629 @ 0x140C610F0
+ * XREFs of RtlWriteULong64ToUser$thunk$4480820996488585629 @ 0x140C670F0
  * Callers:
  *     <none>
  * Callees:

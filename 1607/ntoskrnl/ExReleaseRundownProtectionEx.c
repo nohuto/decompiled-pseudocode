@@ -1,9 +1,9 @@
 /*
- * XREFs of ExReleaseRundownProtectionEx @ 0x14022DCA8
+ * XREFs of ExReleaseRundownProtectionEx @ 0x14022DAD4
  * Callers:
  *     <none>
  * Callees:
- *     KeSetEvent @ 0x1400562D0 (KeSetEvent.c)
+ *     KeSetEvent @ 0x140055E50 (KeSetEvent.c)
  */
 
 void __stdcall ExReleaseRundownProtectionEx(PEX_RUNDOWN_REF RunRef, ULONG Count)

@@ -1,13 +1,13 @@
 /*
- * XREFs of PopDiagTraceCsResiliencyExit @ 0x140592254
+ * XREFs of PopDiagTraceCsResiliencyExit @ 0x140592744
  * Callers:
- *     PopSleepstudyCaptureResiliencyStatistics @ 0x140993254 (PopSleepstudyCaptureResiliencyStatistics.c)
+ *     PopSleepstudyCaptureResiliencyStatistics @ 0x140993454 (PopSleepstudyCaptureResiliencyStatistics.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     PpmConvertTime @ 0x140255510 (PpmConvertTime.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     PopBatteryGetEnergyDrainFromDischage @ 0x140598C00 (PopBatteryGetEnergyDrainFromDischage.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PpmConvertTime @ 0x1402555D0 (PpmConvertTime.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     PopBatteryGetEnergyDrainFromDischage @ 0x1405990F0 (PopBatteryGetEnergyDrainFromDischage.c)
  */
 
 __int64 __fastcall PopDiagTraceCsResiliencyExit(
@@ -44,44 +44,44 @@ __int64 __fastcall PopDiagTraceCsResiliencyExit(
 
   DWORD1(v32) = 0;
   v12 = KeAcquireSpinLockRaiseToDpc(&PopCsResiliencyStatsLock);
-  v13 = byte_140C3CAA8;
+  v13 = byte_140C3CA28;
   v14 = v12;
-  xmmword_140C3CAE8 = *(_OWORD *)a8;
-  xmmword_140C3CAF8 = *(_OWORD *)(a8 + 16);
+  xmmword_140C3CA68 = *(_OWORD *)a8;
+  xmmword_140C3CA78 = *(_OWORD *)(a8 + 16);
   v15 = a5;
-  qword_140C3CB08 = *(_QWORD *)(a8 + 32);
+  qword_140C3CA88 = *(_QWORD *)(a8 + 32);
   if ( a5 )
   {
     EnergyDrainFromDischage = PopBatteryGetEnergyDrainFromDischage(
-                                (unsigned int)dword_140C3CAA4,
+                                (unsigned int)dword_140C3CA24,
                                 *(unsigned int *)(a2 + 12));
-    LODWORD(v32) = xmmword_140C3CAB0 | *(_DWORD *)a4;
-    *((_QWORD *)&v32 + 1) = *((_QWORD *)&xmmword_140C3CAB0 + 1) - *(_QWORD *)(a4 + 8);
+    LODWORD(v32) = xmmword_140C3CA30 | *(_DWORD *)a4;
+    *((_QWORD *)&v32 + 1) = *((_QWORD *)&xmmword_140C3CA30 + 1) - *(_QWORD *)(a4 + 8);
   }
   else
   {
     EnergyDrainFromDischage = 0;
     *((_QWORD *)&v32 + 1) = 0LL;
-    LODWORD(v32) = xmmword_140C3CAB0;
+    LODWORD(v32) = xmmword_140C3CA30;
   }
   v17 = 0;
-  if ( byte_140C3CAA2 )
+  if ( byte_140C3CA22 )
     v17 = 2;
-  if ( byte_140C3CAA1 )
+  if ( byte_140C3CA21 )
     v17 |= 1u;
   if ( !v13 || !a3 )
     v17 |= 4u;
-  if ( byte_140C3CAA3 )
+  if ( byte_140C3CA23 )
     v17 |= 8u;
-  if ( byte_140C3CAD1 )
+  if ( byte_140C3CA51 )
     v17 |= 0x10u;
-  if ( byte_140C3CAD0 )
+  if ( byte_140C3CA50 )
     v17 |= 0x20u;
-  *(_DWORD *)(a1 + 68) = dword_140C3CACC;
-  *(_DWORD *)(a1 + 64) = dword_140C3CAC8;
-  *(_DWORD *)(a1 + 56) = dword_140C3CAC0;
-  *(_DWORD *)(a1 + 60) = dword_140C3CAC4;
-  *(_QWORD *)(a1 + 72) = qword_140C3CAE0;
+  *(_DWORD *)(a1 + 68) = dword_140C3CA4C;
+  *(_DWORD *)(a1 + 64) = dword_140C3CA48;
+  *(_DWORD *)(a1 + 56) = dword_140C3CA40;
+  *(_DWORD *)(a1 + 60) = dword_140C3CA44;
+  *(_QWORD *)(a1 + 72) = qword_140C3CA60;
   *(_QWORD *)(a1 + 16) = a6;
   *(_DWORD *)(a1 + 32) = EnergyDrainFromDischage;
   v18 = PopQpcFrequency;
@@ -89,20 +89,20 @@ __int64 __fastcall PopDiagTraceCsResiliencyExit(
   *(_DWORD *)a1 = v17;
   *(_QWORD *)(a1 + 8) = v15;
   *(_OWORD *)(a1 + 40) = v32;
-  v19 = PpmConvertTime(qword_140C3CB20, v18, 0xF4240uLL);
+  v19 = PpmConvertTime(qword_140C3CAA0, v18, 0xF4240uLL);
   v20 = PopQpcFrequency;
   *(_QWORD *)(a1 + 120) = v19;
-  v21 = PpmConvertTime(qword_140C3CB28, v20, 0xF4240uLL);
+  v21 = PpmConvertTime(qword_140C3CAA8, v20, 0xF4240uLL);
   v22 = PopQpcFrequency;
   *(_QWORD *)(a1 + 128) = v21;
-  *(_QWORD *)(a1 + 136) = PpmConvertTime(qword_140C3CB30, v22, 0xF4240uLL);
-  v23 = (unsigned __int64 *)&unk_140C3CB98;
+  *(_QWORD *)(a1 + 136) = PpmConvertTime(qword_140C3CAB0, v22, 0xF4240uLL);
+  v23 = (unsigned __int64 *)&unk_140C3CB18;
   v24 = 11LL;
-  *(_DWORD *)(a1 + 144) = dword_140C3CB38;
-  *(_OWORD *)(a1 + 80) = xmmword_140C3CAE8;
-  *(_OWORD *)(a1 + 96) = xmmword_140C3CAF8;
-  *(_QWORD *)(a1 + 112) = qword_140C3CB08;
-  v25 = a1 - (_QWORD)&unk_140C3CB98;
+  *(_DWORD *)(a1 + 144) = dword_140C3CAB8;
+  *(_OWORD *)(a1 + 80) = xmmword_140C3CA68;
+  *(_OWORD *)(a1 + 96) = xmmword_140C3CA78;
+  *(_QWORD *)(a1 + 112) = qword_140C3CA88;
+  v25 = a1 - (_QWORD)&unk_140C3CB18;
   do
   {
     v26 = PpmConvertTime(*v23, PopQpcFrequency, 0xF4240uLL);
@@ -113,10 +113,10 @@ __int64 __fastcall PopDiagTraceCsResiliencyExit(
   while ( v24 );
   PopCsResiliencyStats[0] = 0;
   result = KxReleaseSpinLock((volatile signed __int64 *)&PopCsResiliencyStatsLock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
       && (unsigned __int8)result <= 0xFu
       && (unsigned __int8)v14 <= 0xFu
       && (unsigned __int8)result >= 2u )

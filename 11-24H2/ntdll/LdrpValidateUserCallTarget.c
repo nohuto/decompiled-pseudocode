@@ -1,8 +1,8 @@
 /*
- * XREFs of LdrpValidateUserCallTarget @ 0x180121510
+ * XREFs of LdrpValidateUserCallTarget @ 0x18011F740
  * Callers:
- *     RtlGuardRestoreContext @ 0x180008EA0 (RtlGuardRestoreContext.c)
- *     RtlUnwindEx @ 0x180015480 (RtlUnwindEx.c)
+ *     RtlGuardRestoreContext @ 0x1800358A0 (RtlGuardRestoreContext.c)
+ *     RtlUnwindEx @ 0x180041E80 (RtlUnwindEx.c)
  * Callees:
  *     <none>
  */
@@ -12,7 +12,7 @@ void __fastcall LdrpValidateUserCallTarget(unsigned __int64 a1)
   __int64 v1; // rdx
   unsigned __int64 v2; // rax
 
-  v1 = *(_QWORD *)(qword_1801EA508 + 8 * (a1 >> 9));
+  v1 = *(_QWORD *)(LdrSystemDllInitBlock.CfgBitMap + 8 * (a1 >> 9));
   v2 = a1 >> 3;
   if ( (a1 & 0xF) != 0 )
   {

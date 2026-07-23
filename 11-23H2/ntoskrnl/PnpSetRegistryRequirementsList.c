@@ -1,11 +1,11 @@
 /*
- * XREFs of PnpSetRegistryRequirementsList @ 0x140958494
+ * XREFs of PnpSetRegistryRequirementsList @ 0x140958694
  * Callers:
- *     IoReportDetectedDevice @ 0x140834DD0 (IoReportDetectedDevice.c)
+ *     IoReportDetectedDevice @ 0x1408350D0 (IoReportDetectedDevice.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     ZwSetValueKey @ 0x14041B960 (ZwSetValueKey.c)
- *     ZwDeleteValueKey @ 0x14041C900 (ZwDeleteValueKey.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     ZwSetValueKey @ 0x14041BCF0 (ZwSetValueKey.c)
+ *     ZwDeleteValueKey @ 0x14041CC90 (ZwDeleteValueKey.c)
  */
 
 NTSTATUS __fastcall PnpSetRegistryRequirementsList(HANDLE KeyHandle, __int64 a2, _DWORD *a3)

@@ -1,10 +1,10 @@
 /*
- * XREFs of MiDelayFaultingThread @ 0x140645E18
+ * XREFs of MiDelayFaultingThread @ 0x140646368
  * Callers:
- *     MiUserFault @ 0x140235890 (MiUserFault.c)
+ *     MiUserFault @ 0x140235960 (MiUserFault.c)
  * Callees:
- *     KeDelayExecutionThread @ 0x140246810 (KeDelayExecutionThread.c)
- *     MiWaitForAvailablePages @ 0x1406538EC (MiWaitForAvailablePages.c)
+ *     KeDelayExecutionThread @ 0x1402468E0 (KeDelayExecutionThread.c)
+ *     MiWaitForAvailablePages @ 0x140653E3C (MiWaitForAvailablePages.c)
  */
 
 NTSTATUS __fastcall MiDelayFaultingThread(int a1)

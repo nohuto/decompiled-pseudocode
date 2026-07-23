@@ -26,6 +26,6 @@ void __fastcall RtlpPossibleDeadlock(unsigned __int64 a1)
   ExceptionRecord.NumberParameters = 1;
   ExceptionRecord.ExceptionInformation[0] = a1;
   RtlCaptureContext(&ContextRecord);
-  RtlReportException((__int64)&ExceptionRecord, (__int64)&ContextRecord, 0xFu);
+  RtlReportException(&ExceptionRecord, &ContextRecord, 0xFu);
   RtlRaiseException(&ExceptionRecord);
 }

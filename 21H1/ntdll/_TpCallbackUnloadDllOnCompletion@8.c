@@ -6,14 +6,10 @@
  *     _TppRaiseInvalidParameter@0 @ 0x4B3848BD (_TppRaiseInvalidParameter@0.c)
  */
 
-int __stdcall TpCallbackUnloadDllOnCompletion(int a1, int a2)
+void __cdecl TpCallbackUnloadDllOnCompletion(PTP_CALLBACK_INSTANCE Instance, PVOID DllHandle)
 {
-  int result; // eax
-
-  result = a1;
-  if ( !a1 || !a2 || a2 == -1 || *(_DWORD *)(a1 + 116) )
+  if ( !Instance || !DllHandle || DllHandle == (PVOID)-1 || *((_DWORD *)Instance + 29) )
     TppRaiseInvalidParameter();
-  *(_DWORD *)(a1 + 80) |= 0x80u;
-  *(_DWORD *)(a1 + 116) = a2;
-  return result;
+  *((_DWORD *)Instance + 20) |= 0x80u;
+  *((_DWORD *)Instance + 29) = DllHandle;
 }

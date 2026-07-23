@@ -1,14 +1,14 @@
 /*
- * XREFs of ProviderHandleLookup @ 0x18001D260
+ * XREFs of ProviderHandleLookup @ 0x180049C60
  * Callers:
- *     EtwNotificationUnregister @ 0x18001D140 (EtwNotificationUnregister.c)
- *     EtwEventProviderEnabled @ 0x1800AE310 (EtwEventProviderEnabled.c)
- *     EtwEventWriteEndScenario @ 0x1800CF420 (EtwEventWriteEndScenario.c)
- *     EtwEventWriteStartScenario @ 0x1800CF560 (EtwEventWriteStartScenario.c)
- *     EtwpSetProviderTraits @ 0x1800E8690 (EtwpSetProviderTraits.c)
- *     EtwEventWriteString @ 0x1800E9540 (EtwEventWriteString.c)
- *     EtwpTrackProviderBinary @ 0x18011A13C (EtwpTrackProviderBinary.c)
- *     EtwpUseDescriptorType @ 0x18015BE88 (EtwpUseDescriptorType.c)
+ *     EtwNotificationUnregister @ 0x180049B40 (EtwNotificationUnregister.c)
+ *     EtwEventWriteEndScenario @ 0x1800CC990 (EtwEventWriteEndScenario.c)
+ *     EtwEventWriteStartScenario @ 0x1800CCAD0 (EtwEventWriteStartScenario.c)
+ *     EtwEventProviderEnabled @ 0x1800E3AD0 (EtwEventProviderEnabled.c)
+ *     EtwpSetProviderTraits @ 0x1800E3D80 (EtwpSetProviderTraits.c)
+ *     EtwEventWriteString @ 0x1800E4C30 (EtwEventWriteString.c)
+ *     EtwpTrackProviderBinary @ 0x18011836C (EtwpTrackProviderBinary.c)
+ *     EtwpUseDescriptorType @ 0x18015A248 (EtwpUseDescriptorType.c)
  * Callees:
  *     <none>
  */
@@ -22,8 +22,8 @@ __int64 __fastcall ProviderHandleLookup(__int64 a1, unsigned int a2)
 
   result = 0LL;
   v3 = (a2 >> 1) & 7;
-  v4 = qword_1801CE2A0[v3];
-  if ( ((v4 != 0 && a2 >> 4 < dword_18019A6E0[v3]) & (unsigned __int8)a2) != 0 )
+  v4 = qword_1801CD2A0[v3];
+  if ( ((v4 != 0 && a2 >> 4 < dword_1801997F0[v3]) & (unsigned __int8)a2) != 0 )
   {
     v5 = (unsigned __int64)a2 >> 4;
     if ( (*(_QWORD *)(v4 + 8 * v5) & 1) == 0 )

@@ -1,7 +1,7 @@
 /*
- * XREFs of BiRemoveEntryFromBootOrder @ 0x140894194
+ * XREFs of BiRemoveEntryFromBootOrder @ 0x14089A594
  * Callers:
- *     BiRemoveBootEntryFromNvramDisplayOrder @ 0x1408940FC (BiRemoveBootEntryFromNvramDisplayOrder.c)
+ *     BiRemoveBootEntryFromNvramDisplayOrder @ 0x14089A4FC (BiRemoveBootEntryFromNvramDisplayOrder.c)
  * Callees:
  *     <none>
  */

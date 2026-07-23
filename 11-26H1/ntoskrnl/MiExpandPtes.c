@@ -1,16 +1,16 @@
 /*
- * XREFs of MiExpandPtes @ 0x14035ED90
+ * XREFs of MiExpandPtes @ 0x140360B30
  * Callers:
- *     MiReservePtes @ 0x14035DE50 (MiReservePtes.c)
+ *     MiReservePtes @ 0x14035FBF0 (MiReservePtes.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     MiReturnSystemVa @ 0x1402A4238 (MiReturnSystemVa.c)
- *     MiObtainSystemVa @ 0x1402A4D3C (MiObtainSystemVa.c)
- *     MiSplitBitmapPages @ 0x1402A5028 (MiSplitBitmapPages.c)
- *     MiMakeZeroedPageTables @ 0x1402A50D4 (MiMakeZeroedPageTables.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402DED10 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     MiReturnSystemVa @ 0x1402A3788 (MiReturnSystemVa.c)
+ *     MiObtainSystemVa @ 0x1402A428C (MiObtainSystemVa.c)
+ *     MiSplitBitmapPages @ 0x1402A4578 (MiSplitBitmapPages.c)
+ *     MiMakeZeroedPageTables @ 0x1402A4624 (MiMakeZeroedPageTables.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402C0B20 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
  */
 
 __int64 __fastcall MiExpandPtes(__int64 a1, unsigned __int64 a2)
@@ -54,7 +54,7 @@ __int64 __fastcall MiExpandPtes(__int64 a1, unsigned __int64 a2)
   v7 = (*(_DWORD *)(a1 + 40) & 1) != 0 ? 16LL : 1LL;
   if ( a2 < 0x200 )
     goto LABEL_8;
-  if ( (_KWAIT_BLOCK **)a1 == &stru_140E36558.WaitBlockList )
+  if ( (_KWAIT_BLOCK **)a1 == &stru_140E366D8.WaitBlockList )
   {
     v5 = 12;
   }

@@ -1,15 +1,15 @@
 /*
- * XREFs of EnableFlushTimer @ 0x1403D1370
+ * XREFs of EnableFlushTimer @ 0x14044A108
  * Callers:
- *     InsertEventEntryInLookUpTable @ 0x1403D0F14 (InsertEventEntryInLookUpTable.c)
- *     ?TlgAggregateInternalFlushTimerCallbackKernelMode@@YAXPEAU_EX_TIMER@@PEAX@Z @ 0x1404B9130 (-TlgAggregateInternalFlushTimerCallbackKernelMode@@YAXPEAU_EX_TIMER@@PEAX@Z.c)
- *     ?TlgAggregateInternalFlushWorkItemRoutineKernelMode@@YAXPEAX@Z @ 0x140A51EA0 (-TlgAggregateInternalFlushWorkItemRoutineKernelMode@@YAXPEAX@Z.c)
+ *     InsertEventEntryInLookUpTable @ 0x140274A04 (InsertEventEntryInLookUpTable.c)
+ *     ?TlgAggregateInternalFlushTimerCallbackKernelMode@@YAXPEAU_EX_TIMER@@PEAX@Z @ 0x1404B3FD0 (-TlgAggregateInternalFlushTimerCallbackKernelMode@@YAXPEAU_EX_TIMER@@PEAX@Z.c)
+ *     ?TlgAggregateInternalFlushWorkItemRoutineKernelMode@@YAXPEAX@Z @ 0x140A49730 (-TlgAggregateInternalFlushWorkItemRoutineKernelMode@@YAXPEAX@Z.c)
  * Callees:
- *     ExpCheckForFreedEnhancedTimer @ 0x1403C0598 (ExpCheckForFreedEnhancedTimer.c)
- *     KeSetTimer2 @ 0x1403C20A0 (KeSetTimer2.c)
- *     ExpTimerSetParametersAreValid @ 0x1403D1F40 (ExpTimerSetParametersAreValid.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     ExpCheckForFreedEnhancedTimer @ 0x1403AF158 (ExpCheckForFreedEnhancedTimer.c)
+ *     KeSetTimer2 @ 0x1403B0C60 (KeSetTimer2.c)
+ *     ExpTimerSetParametersAreValid @ 0x14044A1DC (ExpTimerSetParametersAreValid.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 void __fastcall EnableFlushTimer(ULONG_PTR BugCheckParameter1, unsigned int a2)
@@ -32,6 +32,6 @@ void __fastcall EnableFlushTimer(ULONG_PTR BugCheckParameter1, unsigned int a2)
     if ( !(unsigned __int8)ExpTimerSetParametersAreValid(BugCheckParameter3) )
       KeBugCheckEx(0xC7u, 9uLL, 1uLL, (ULONG_PTR)BugCheckParameter3, BugCheckParameter4);
     ExpCheckForFreedEnhancedTimer(BugCheckParameter1);
-    KeSetTimer2(BugCheckParameter1, v3, 0LL, (__int64)BugCheckParameter3);
+    KeSetTimer2(BugCheckParameter1, (LARGE_INTEGER)v3, 0LL, (__int64)BugCheckParameter3);
   }
 }

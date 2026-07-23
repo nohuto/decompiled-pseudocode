@@ -18,7 +18,8 @@ unsigned int __fastcall RtlpSetBlockInfo(_DWORD *a1, unsigned int a2, int a3, un
   unsigned int v7; // esi
   int v8; // ebx
   _DWORD *Heap; // eax
-  unsigned int v10; // [esp+10h] [ebp-8h]
+  SIZE_T v10; // [esp-4h] [ebp-1Ch]
+  unsigned int v11; // [esp+10h] [ebp-8h]
 
   result = a2 + a3 - 1;
   if ( result >= a1[1] && a2 <= a1[2] )
@@ -29,11 +30,11 @@ unsigned int __fastcall RtlpSetBlockInfo(_DWORD *a1, unsigned int a2, int a3, un
     else
       v7 = v6 / *a1;
     result = (v6 + a3 - 1) / *a1;
-    v10 = result;
+    v11 = result;
     if ( result > 0xFF )
     {
       result = 255;
-      v10 = 255;
+      v11 = 255;
     }
     if ( v7 <= result )
     {
@@ -65,7 +66,8 @@ unsigned int __fastcall RtlpSetBlockInfo(_DWORD *a1, unsigned int a2, int a3, un
         {
           if ( !*(_DWORD *)v8 )
           {
-            Heap = (_DWORD *)RtlAllocateHeap(RtlpLeakHeap, 0, 1072);
+            LODWORD(v10) = 1072;
+            Heap = RtlAllocateHeap(RtlpLeakHeap, 0, v10);
             *(_DWORD *)v8 = Heap;
             if ( !Heap )
               return DbgPrint("Not enough memory to complete\n");
@@ -78,7 +80,7 @@ unsigned int __fastcall RtlpSetBlockInfo(_DWORD *a1, unsigned int a2, int a3, un
         ++v7;
         v8 += 4;
       }
-      while ( v7 <= v10 );
+      while ( v7 <= v11 );
     }
   }
   return result;

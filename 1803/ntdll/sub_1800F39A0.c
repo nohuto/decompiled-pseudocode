@@ -10,21 +10,21 @@
  *     sub_1800F4094 @ 0x1800F4094 (sub_1800F4094.c)
  */
 
-__int64 __fastcall sub_1800F39A0(__int64 a1, unsigned __int64 a2, int a3)
+__int64 __fastcall sub_1800F39A0(PVOID a1, unsigned __int64 a2, int a3)
 {
   int v4; // r8d
   int v5; // r8d
   int v6; // r8d
   int v7; // r8d
   unsigned __int64 v8; // rbx
-  unsigned int CurrentProcessorNumber; // eax
+  ULONG CurrentProcessorNumber; // eax
   __int64 v10; // rcx
   __int64 v11; // rsi
   signed __int32 v12; // eax
   unsigned __int64 v13; // r8
   __int64 v14; // rcx
-  __int64 v16; // [rsp+20h] [rbp-18h]
-  __int64 v17; // [rsp+40h] [rbp+8h]
+  LARGE_INTEGER PerformanceCounter; // [rsp+20h] [rbp-18h] BYREF
+  LARGE_INTEGER v17; // [rsp+40h] [rbp+8h] BYREF
 
   if ( a1 == qword_18015D7E8 || dword_18015D814 == 1 )
     return 0LL;
@@ -41,7 +41,7 @@ LABEL_11:
       }
       else if ( dword_18015D738 == 2 )
       {
-        CurrentProcessorNumber = RtlGetCurrentProcessorNumber(a1);
+        CurrentProcessorNumber = RtlGetCurrentProcessorNumber();
         v10 = CurrentProcessorNumber < dword_18015D7D8 ? CurrentProcessorNumber : 0;
         v11 = (unsigned int)v10;
         v12 = **(_DWORD **)(qword_18015D440 + 8 * v10);
@@ -54,7 +54,7 @@ LABEL_11:
         {
           _InterlockedExchange64(
             (volatile __int64 *)(*(_QWORD *)(qword_18015D440 + 8LL * (unsigned int)v10) + 8LL),
-            qword_18015D438 / 100);
+            PerformanceFrequency.QuadPart / 100);
         }
         v14 = *(_QWORD *)(qword_18015D440 + 8LL * (unsigned int)v10);
         if ( *(__int64 *)(v14 + 8) <= 0 )
@@ -63,12 +63,13 @@ LABEL_11:
         }
         else
         {
-          ZwQueryPerformanceCounter();
+          ZwQueryPerformanceCounter(&PerformanceCounter, 0LL);
           sub_1800F3EDC(a1, v8);
-          ZwQueryPerformanceCounter();
+          ZwQueryPerformanceCounter(&v17, 0LL);
+          v17.QuadPart -= PerformanceCounter.QuadPart;
           _InterlockedExchangeAdd64(
             (volatile signed __int64 *)(*(_QWORD *)(qword_18015D440 + 8 * v11) + 8LL),
-            ~(v17 - v16));
+            ~v17.QuadPart);
           _InterlockedIncrement64((volatile signed __int64 *)(*(_QWORD *)(qword_18015D440 + 8 * v11) + 16LL));
         }
       }

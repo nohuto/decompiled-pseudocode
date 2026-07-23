@@ -1,21 +1,21 @@
 /*
- * XREFs of IopDropIrp @ 0x1402E9444
+ * XREFs of IopDropIrp @ 0x14029A794
  * Callers:
- *     IoRemoveIoCompletion @ 0x1402043D0 (IoRemoveIoCompletion.c)
- *     IopfCompleteRequest @ 0x1402434C0 (IopfCompleteRequest.c)
- *     IopCopyCompleteReadIrp @ 0x1403F16B0 (IopCopyCompleteReadIrp.c)
- *     IopCopyCompleteReadRequest @ 0x1403F1A30 (IopCopyCompleteReadRequest.c)
- *     IopFreeCompletionListPackets @ 0x1406D4FA0 (IopFreeCompletionListPackets.c)
+ *     IoRemoveIoCompletion @ 0x1402A8D10 (IoRemoveIoCompletion.c)
+ *     IopfCompleteRequest @ 0x1402E7D10 (IopfCompleteRequest.c)
+ *     IopCopyCompleteReadIrp @ 0x1403F1580 (IopCopyCompleteReadIrp.c)
+ *     IopCopyCompleteReadRequest @ 0x1403F1900 (IopCopyCompleteReadRequest.c)
+ *     IopFreeCompletionListPackets @ 0x1406AC280 (IopFreeCompletionListPackets.c)
  * Callees:
- *     ObpTraceObjectDereferenceIfActive @ 0x14024A170 (ObpTraceObjectDereferenceIfActive.c)
- *     ObpDeferObjectDeletion @ 0x1402BC2D0 (ObpDeferObjectDeletion.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     IopInterlockedAdd @ 0x1402C493C (IopInterlockedAdd.c)
- *     IopDequeueIrpFromFileObject @ 0x1402E9538 (IopDequeueIrpFromFileObject.c)
- *     IoFreeMdl @ 0x1402E9600 (IoFreeMdl.c)
- *     IoFreeIrp @ 0x140353540 (IoFreeIrp.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ObpDeferObjectDeletion @ 0x14023A834 (ObpDeferObjectDeletion.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     IopInterlockedAdd @ 0x140242EBC (IopInterlockedAdd.c)
+ *     IopDequeueIrpFromFileObject @ 0x14029A888 (IopDequeueIrpFromFileObject.c)
+ *     IoFreeMdl @ 0x14029A950 (IoFreeMdl.c)
+ *     ObpTraceObjectDereferenceIfActive @ 0x1402EE9C0 (ObpTraceObjectDereferenceIfActive.c)
+ *     IoFreeIrp @ 0x14035E290 (IoFreeIrp.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall IopDropIrp(PIRP Irp, ULONG_PTR BugCheckParameter2)
@@ -51,7 +51,7 @@ void __fastcall IopDropIrp(PIRP Irp, ULONG_PTR BugCheckParameter2)
     if ( (Irp->Flags & 0x80u) == 0 )
     {
       v7 = BugCheckParameter2 - 48;
-      ObpTraceObjectDereferenceIfActive(BugCheckParameter2 - 48);
+      ObpTraceObjectDereferenceIfActive(BugCheckParameter2 - 48, 1LL, 1953261124LL);
       v8 = _InterlockedExchangeAdd64((volatile signed __int64 *)(BugCheckParameter2 - 48), 0xFFFFFFFFFFFFFFFFuLL);
       v9 = v8 <= 1;
       BugCheckParameter4 = v8 - 1;

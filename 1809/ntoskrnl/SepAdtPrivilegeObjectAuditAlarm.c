@@ -1,24 +1,24 @@
 /*
- * XREFs of SepAdtPrivilegeObjectAuditAlarm @ 0x1405BB8D8
+ * XREFs of SepAdtPrivilegeObjectAuditAlarm @ 0x1405BC8D8
  * Callers:
- *     SepAccessCheckAndAuditAlarmWithAdminlessChecks @ 0x1405BA530 (SepAccessCheckAndAuditAlarmWithAdminlessChecks.c)
- *     ObpCreateHandle @ 0x1405E12B0 (ObpCreateHandle.c)
- *     SeAuditHandleCreation @ 0x1406BCD70 (SeAuditHandleCreation.c)
- *     NtOpenObjectAuditAlarm @ 0x1406D9390 (NtOpenObjectAuditAlarm.c)
- *     SePrivilegeObjectAuditAlarm @ 0x140703880 (SePrivilegeObjectAuditAlarm.c)
- *     NtPrivilegeObjectAuditAlarm @ 0x14071B410 (NtPrivilegeObjectAuditAlarm.c)
- *     SeOpenObjectAuditAlarmForNonObObject @ 0x140761DE0 (SeOpenObjectAuditAlarmForNonObObject.c)
+ *     SepAccessCheckAndAuditAlarmWithAdminlessChecks @ 0x1405BB530 (SepAccessCheckAndAuditAlarmWithAdminlessChecks.c)
+ *     ObpCreateHandle @ 0x1405E22B0 (ObpCreateHandle.c)
+ *     SeAuditHandleCreation @ 0x1406BE010 (SeAuditHandleCreation.c)
+ *     NtOpenObjectAuditAlarm @ 0x1406DA630 (NtOpenObjectAuditAlarm.c)
+ *     SePrivilegeObjectAuditAlarm @ 0x140704B20 (SePrivilegeObjectAuditAlarm.c)
+ *     NtPrivilegeObjectAuditAlarm @ 0x14071C6B0 (NtPrivilegeObjectAuditAlarm.c)
+ *     SeOpenObjectAuditAlarmForNonObObject @ 0x140762FD0 (SeOpenObjectAuditAlarmForNonObObject.c)
  * Callees:
  *     PsGetCurrentThreadProcess @ 0x140006800 (PsGetCurrentThreadProcess.c)
- *     ObpIsKernelHandle @ 0x140088ED8 (ObpIsKernelHandle.c)
- *     RtlEqualSid @ 0x1400A7DF0 (RtlEqualSid.c)
- *     SepAdtLogAuditRecord @ 0x140186DC0 (SepAdtLogAuditRecord.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     SepAdtAuditPrivilegeUseWithContext @ 0x1405BB990 (SepAdtAuditPrivilegeUseWithContext.c)
- *     PsGetAllocatedFullProcessImageNameEx @ 0x1406671C4 (PsGetAllocatedFullProcessImageNameEx.c)
- *     SepAuditFailed @ 0x1408A4780 (SepAuditFailed.c)
+ *     ObpIsKernelHandle @ 0x140088EC8 (ObpIsKernelHandle.c)
+ *     RtlEqualSid @ 0x1400A7D30 (RtlEqualSid.c)
+ *     SepAdtLogAuditRecord @ 0x140186F00 (SepAdtLogAuditRecord.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     SepAdtAuditPrivilegeUseWithContext @ 0x1405BC990 (SepAdtAuditPrivilegeUseWithContext.c)
+ *     PsGetAllocatedFullProcessImageNameEx @ 0x140668384 (PsGetAllocatedFullProcessImageNameEx.c)
+ *     SepAuditFailed @ 0x1408A59E0 (SepAuditFailed.c)
  */
 
 char __fastcall SepAdtPrivilegeObjectAuditAlarm(

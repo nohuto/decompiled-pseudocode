@@ -1,10 +1,10 @@
 /*
- * XREFs of MiIsProcessXfgEnabled @ 0x140A43C5C
+ * XREFs of MiIsProcessXfgEnabled @ 0x140A43F0C
  * Callers:
- *     MiDisableXfgOnPatchedFunctions @ 0x140642560 (MiDisableXfgOnPatchedFunctions.c)
- *     MiValidateXfgUserCallTarget @ 0x1406566C0 (MiValidateXfgUserCallTarget.c)
- *     MiCfgMarkValidEntries @ 0x1407A474C (MiCfgMarkValidEntries.c)
- *     MiValidateUserCallTarget @ 0x140A43C88 (MiValidateUserCallTarget.c)
+ *     MiDisableXfgOnPatchedFunctions @ 0x140642AB0 (MiDisableXfgOnPatchedFunctions.c)
+ *     MiValidateXfgUserCallTarget @ 0x140656C10 (MiValidateXfgUserCallTarget.c)
+ *     MiCfgMarkValidEntries @ 0x1407A493C (MiCfgMarkValidEntries.c)
+ *     MiValidateUserCallTarget @ 0x140A43F38 (MiValidateUserCallTarget.c)
  * Callees:
  *     <none>
  */

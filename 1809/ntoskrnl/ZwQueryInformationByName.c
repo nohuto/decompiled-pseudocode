@@ -1,14 +1,19 @@
 /*
- * XREFs of ZwQueryInformationByName @ 0x1401BA9B0
+ * XREFs of ZwQueryInformationByName @ 0x1401BAB10
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwQueryInformationByName(__int64 a1, __int64 a2, __int64 a3)
+NTSTATUS __cdecl ZwQueryInformationByName(
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        PIO_STATUS_BLOCK IoStatusBlock,
+        PVOID FileInformation,
+        ULONG Length,
+        FILE_INFORMATION_CLASS FileInformationClass)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2, a3);
+  return KiServiceInternal(ObjectAttributes);
 }

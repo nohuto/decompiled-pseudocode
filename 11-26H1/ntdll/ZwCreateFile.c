@@ -1,23 +1,34 @@
 /*
- * XREFs of ZwCreateFile @ 0x18015F9E0
+ * XREFs of ZwCreateFile @ 0x18015F8E0
  * Callers:
- *     RtlpFileIsWin32WithRCManifest @ 0x180036E3C (RtlpFileIsWin32WithRCManifest.c)
- *     EtwpAddLogHeaderToLogFile @ 0x180055750 (EtwpAddLogHeaderToLogFile.c)
- *     RtlCreateSystemVolumeInformationFolder @ 0x1800C7AD0 (RtlCreateSystemVolumeInformationFolder.c)
- *     LdrpResMapFile @ 0x180109594 (LdrpResMapFile.c)
- *     RtlCreateBootStatusDataFile @ 0x18010BE60 (RtlCreateBootStatusDataFile.c)
- *     RtlpGetVolumeHandle @ 0x18010DEAC (RtlpGetVolumeHandle.c)
- *     OpenIptDevice @ 0x18015AA90 (OpenIptDevice.c)
- *     RtlpQueryDiskSpacePolicy @ 0x18015AB18 (RtlpQueryDiskSpacePolicy.c)
+ *     RtlpFileIsWin32WithRCManifest @ 0x180021F9C (RtlpFileIsWin32WithRCManifest.c)
+ *     EtwpAddLogHeaderToLogFile @ 0x18003FCD0 (EtwpAddLogHeaderToLogFile.c)
+ *     RtlCreateSystemVolumeInformationFolder @ 0x1800C5290 (RtlCreateSystemVolumeInformationFolder.c)
+ *     LdrpResMapFile @ 0x180108F34 (LdrpResMapFile.c)
+ *     RtlCreateBootStatusDataFile @ 0x18010B9B0 (RtlCreateBootStatusDataFile.c)
+ *     RtlpGetVolumeHandle @ 0x18010D9FC (RtlpGetVolumeHandle.c)
+ *     OpenIptDevice @ 0x18015A960 (OpenIptDevice.c)
+ *     RtlpQueryDiskSpacePolicy @ 0x18015A9E8 (RtlpQueryDiskSpacePolicy.c)
  * Callees:
  *     <none>
  */
 
-__int64 ZwCreateFile()
+NTSTATUS __cdecl ZwCreateFile(
+        PHANDLE FileHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        PIO_STATUS_BLOCK IoStatusBlock,
+        PLARGE_INTEGER AllocationSize,
+        ULONG FileAttributes,
+        ULONG ShareAccess,
+        ULONG CreateDisposition,
+        ULONG CreateOptions,
+        PVOID EaBuffer,
+        ULONG EaLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 85LL;
+  result = 85;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

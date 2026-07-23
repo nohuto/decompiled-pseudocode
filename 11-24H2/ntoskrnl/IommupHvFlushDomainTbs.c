@@ -1,66 +1,46 @@
 /*
- * XREFs of IommupHvFlushDomainTbs @ 0x1403AC1BC
+ * XREFs of IommupHvFlushDomainTbs @ 0x14039A8CC
  * Callers:
- *     HalpIommuFlushDomainTbs @ 0x1403AC8F8 (HalpIommuFlushDomainTbs.c)
+ *     HalpIommuFlushDomainTbs @ 0x14039B104 (HalpIommuFlushDomainTbs.c)
  * Callees:
- *     ExReleaseSpinLockShared @ 0x140246D40 (ExReleaseSpinLockShared.c)
- *     ExAcquireSpinLockShared @ 0x14031A1A0 (ExAcquireSpinLockShared.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     ExReleaseSpinLockShared @ 0x1402195E0 (ExReleaseSpinLockShared.c)
+ *     ExAcquireSpinLockShared @ 0x1402C2D30 (ExAcquireSpinLockShared.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 void __fastcall IommupHvFlushDomainTbs(__int64 a1, unsigned __int64 a2, __int64 a3)
 {
-  unsigned __int64 v4; // rax
-  unsigned int v5; // r14d
-  unsigned __int64 v6; // rcx
-  unsigned int v7; // ecx
-  __int64 v8; // r9
-  KIRQL v9; // r12
-  __int64 *v10; // rbx
-  char v11; // r15
-  __int64 v12; // rdx
-  _QWORD v13[7]; // [rsp+30h] [rbp-38h] BYREF
-  __int64 v14; // [rsp+88h] [rbp+20h] BYREF
+  BOOL v4; // r14d
+  KIRQL v5; // r12
+  __int64 *v6; // rbx
+  char v7; // r15
+  __int64 v8; // rdx
+  __int64 v9; // [rsp+88h] [rbp+20h] BYREF
 
-  v14 = 0LL;
-  v13[0] = 0LL;
-  if ( qword_140FC10E0 && qword_140FC0FB8 && a3 )
+  v9 = 0LL;
+  if ( qword_140FC1340 && qword_140FC1218 && a3 )
   {
-    v4 = a2 + a3 - 1;
-    if ( v4 >= a2 )
+    v4 = a2 + a3 - 1 >= a2;
+    v5 = ExAcquireSpinLockShared((PEX_SPIN_LOCK)(a1 + 88));
+    v6 = *(__int64 **)(a1 + 72);
+    v7 = 0;
+    while ( v6 != (__int64 *)(a1 + 72) )
     {
-      v5 = 1;
-      _BitScanReverse64(&v6, a2 ^ v4);
-      v7 = v6 + 1;
-      if ( v7 <= 0xC )
-        v7 = 12;
-      v13[0] = (v7 - 12) ^ ((v7 - 12) ^ a2 & -(1LL << v7)) & 0xFFFFFFFFFFFFFFC0uLL;
-    }
-    else
-    {
-      v5 = 0;
-    }
-    v9 = ExAcquireSpinLockShared((PEX_SPIN_LOCK)(a1 + 88));
-    v10 = *(__int64 **)(a1 + 72);
-    v11 = 0;
-    while ( v10 != (__int64 *)(a1 + 72) )
-    {
-      v12 = *((unsigned int *)v10 + 4);
-      if ( (_DWORD)v12 )
+      v8 = *((unsigned int *)v6 + 4);
+      if ( (_DWORD)v8 )
       {
-        guard_dispatch_icall_no_overrides(0LL, v12, v5, v13);
+        guard_dispatch_icall_no_overrides(0LL, v8);
       }
-      else if ( !v11 )
+      else if ( !v7 )
       {
-        v14 = 0LL;
-        LODWORD(v14) = *(_DWORD *)(a1 + 48);
-        LOBYTE(v8) = 1;
-        BYTE4(v14) = 1;
-        guard_dispatch_icall_no_overrides(&v14, v5, v13, v8);
-        v11 = 1;
+        v9 = 0LL;
+        LODWORD(v9) = *(_DWORD *)(a1 + 48);
+        BYTE4(v9) = 1;
+        guard_dispatch_icall_no_overrides(&v9, v4);
+        v7 = 1;
       }
-      v10 = (__int64 *)*v10;
+      v6 = (__int64 *)*v6;
     }
-    ExReleaseSpinLockShared((PEX_SPIN_LOCK)(a1 + 88), v9);
+    ExReleaseSpinLockShared((PEX_SPIN_LOCK)(a1 + 88), v5);
   }
 }

@@ -1,15 +1,15 @@
 /*
- * XREFs of PiProcessSetDeviceProblem @ 0x14083A51C
+ * XREFs of PiProcessSetDeviceProblem @ 0x14083B77C
  * Callers:
- *     PnpDeviceActionWorker @ 0x14015F300 (PnpDeviceActionWorker.c)
+ *     PnpDeviceActionWorker @ 0x14015F400 (PnpDeviceActionWorker.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     PiPnpRtlEndOperation @ 0x140595CA4 (PiPnpRtlEndOperation.c)
- *     PiPnpRtlBeginOperation @ 0x140596E08 (PiPnpRtlBeginOperation.c)
- *     PipSetDevNodeFlags @ 0x1406E50DC (PipSetDevNodeFlags.c)
- *     PipSetDevNodeProblem @ 0x1406EF560 (PipSetDevNodeProblem.c)
- *     PipSetDevNodeUserFlags @ 0x14070E240 (PipSetDevNodeUserFlags.c)
- *     PipIsProblemReadonly @ 0x14075FF50 (PipIsProblemReadonly.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     PiPnpRtlEndOperation @ 0x140596CA4 (PiPnpRtlEndOperation.c)
+ *     PiPnpRtlBeginOperation @ 0x140597E08 (PiPnpRtlBeginOperation.c)
+ *     PipSetDevNodeFlags @ 0x1406E637C (PipSetDevNodeFlags.c)
+ *     PipSetDevNodeProblem @ 0x1406F0800 (PipSetDevNodeProblem.c)
+ *     PipSetDevNodeUserFlags @ 0x14070F4E0 (PipSetDevNodeUserFlags.c)
+ *     PipIsProblemReadonly @ 0x140761140 (PipIsProblemReadonly.c)
  */
 
 __int64 __fastcall PiProcessSetDeviceProblem(__int64 a1)

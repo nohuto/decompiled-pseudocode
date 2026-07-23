@@ -13,34 +13,28 @@
  *     RtlEndStrongEnumerationHashTable @ 0x180075B10 (RtlEndStrongEnumerationHashTable.c)
  */
 
-char __fastcall TpReleaseWait(__int64 a1)
+void __cdecl TpReleaseWait(PTP_WAIT Wait)
 {
-  signed __int32 v2; // eax
-  char *v3; // rdx
-  __int64 v4; // r8
-  __int64 v5; // r9
-  __int64 v6; // rbx
-  int v7; // ebp
+  int v2; // eax
+  __int64 v3; // rbx
+  int v4; // ebp
   _UNKNOWN *retaddr; // [rsp+28h] [rbp+0h]
-  int v10; // [rsp+30h] [rbp+8h] BYREF
+  int v6; // [rsp+30h] [rbp+8h] BYREF
 
-  v2 = TppWaitpValidateWait(a1, 1LL, 0LL);
-  if ( v2 )
+  if ( (unsigned int)TppWaitpValidateWait((__int64)Wait, 1LL, 0LL) )
   {
-    LOBYTE(v2) = TppCleanupGroupMemberRelease(a1, 1LL);
+    LOBYTE(v2) = TppCleanupGroupMemberRelease((__int64)Wait, 1LL);
     if ( v2 )
     {
-      v6 = *(_QWORD *)(a1 + 136);
-      *(_QWORD *)(a1 + 176) = retaddr;
-      RtlAcquireSRWLockExclusive((volatile signed __int64 *)(a1 + 232), v3, v4, v5);
-      TppCancelWait(a1, v6 + 112, 2, &v10);
-      ++*(_BYTE *)(a1 + 347);
-      RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a1 + 232));
-      v7 = 1 - v10;
-      v2 = _InterlockedExchangeAdd((volatile signed __int32 *)a1, v10 - 1);
-      if ( v2 == v7 )
-        LOBYTE(v2) = (**(__int64 (__fastcall ***)(__int64))(a1 + 8))(a1);
+      v3 = *((_QWORD *)Wait + 17);
+      *((_QWORD *)Wait + 22) = retaddr;
+      RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)Wait + 29);
+      TppCancelWait((__int64)Wait, v3 + 112, 2, &v6);
+      ++*((_BYTE *)Wait + 347);
+      RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)Wait + 29);
+      v4 = 1 - v6;
+      if ( _InterlockedExchangeAdd((volatile signed __int32 *)Wait, v6 - 1) == v4 )
+        (**((void (__fastcall ***)(PTP_WAIT))Wait + 1))(Wait);
     }
   }
-  return v2;
 }

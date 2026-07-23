@@ -1,16 +1,16 @@
 /*
- * XREFs of EtwpTiVadQueryEventWriteCallback @ 0x140A82CA0
+ * XREFs of EtwpTiVadQueryEventWriteCallback @ 0x140A88B10
  * Callers:
  *     <none>
  * Callees:
- *     EtwProviderEnabled @ 0x1402563E0 (EtwProviderEnabled.c)
- *     EtwpTiClearBloomFilter @ 0x140258A40 (EtwpTiClearBloomFilter.c)
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     EtwpTiFillVadEventWrite @ 0x140492078 (EtwpTiFillVadEventWrite.c)
- *     EtwpTiFreeVad @ 0x140A82DA0 (EtwpTiFreeVad.c)
- *     EtwpTiQueryVad @ 0x140A82DC0 (EtwpTiQueryVad.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     EtwProviderEnabled @ 0x140257D70 (EtwProviderEnabled.c)
+ *     EtwpTiClearBloomFilter @ 0x14025A220 (EtwpTiClearBloomFilter.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     EtwpTiFillVadEventWrite @ 0x14048BBC8 (EtwpTiFillVadEventWrite.c)
+ *     EtwpTiFreeVad @ 0x140A88C10 (EtwpTiFreeVad.c)
+ *     EtwpTiQueryVad @ 0x140A88C30 (EtwpTiQueryVad.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall EtwpTiVadQueryEventWriteCallback(unsigned int *P)
@@ -26,7 +26,7 @@ void __fastcall EtwpTiVadQueryEventWriteCallback(unsigned int *P)
   Pool2 = (char *)ExAllocatePool2(0x100uLL);
   if ( Pool2 )
   {
-    v7 = EtwProviderEnabled(*(REGHANDLE *)&EtwpSecurityLock.AbWaitEntryCount, 0, 0x10000000uLL);
+    v7 = EtwProviderEnabled(EtwThreatIntProvRegHandle, 0, 0x10000000uLL);
     Vad = EtwpTiQueryVad(Pool2, *((_QWORD *)P + 8), *((_QWORD *)P + 9), P[13], v7);
   }
   EtwpTiFillVadEventWrite(

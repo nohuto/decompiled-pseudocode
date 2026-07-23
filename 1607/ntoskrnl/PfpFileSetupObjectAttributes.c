@@ -1,8 +1,8 @@
 /*
- * XREFs of PfpFileSetupObjectAttributes @ 0x140509270
+ * XREFs of PfpFileSetupObjectAttributes @ 0x1404EC200
  * Callers:
- *     PfpVolumePrefetchMetadata @ 0x1403ED2F4 (PfpVolumePrefetchMetadata.c)
- *     PfpFileBuildReadSupport @ 0x140509310 (PfpFileBuildReadSupport.c)
+ *     PfpVolumePrefetchMetadata @ 0x1403EE924 (PfpVolumePrefetchMetadata.c)
+ *     PfpFileBuildReadSupport @ 0x1404EC2A0 (PfpFileBuildReadSupport.c)
  * Callees:
  *     <none>
  */

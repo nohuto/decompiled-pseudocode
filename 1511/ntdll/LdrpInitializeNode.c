@@ -30,7 +30,7 @@ __int64 __fastcall LdrpInitializeNode(__int64 a1)
   __int64 v13; // [rsp+90h] [rbp-88h] BYREF
   int v14; // [rsp+98h] [rbp-80h]
   _BYTE v15[56]; // [rsp+A0h] [rbp-78h] BYREF
-  __int64 (__fastcall *v16)(__int64, _QWORD, __int64); // [rsp+138h] [rbp+20h]
+  _RTL_DYNAMIC_HASH_TABLE *HashTable; // [rsp+138h] [rbp+20h]
 
   v1 = a1;
   *(_DWORD *)(a1 + 56) = 8;
@@ -61,7 +61,7 @@ __int64 __fastcall LdrpInitializeNode(__int64 a1)
     {
       v8 = LdrpCurrentDllInitializer;
       LdrpCurrentDllInitializer = i - 160;
-      v16 = *(__int64 (__fastcall **)(__int64, _QWORD, __int64))(v7 + 56);
+      HashTable = *(_RTL_DYNAMIC_HASH_TABLE **)(v7 + 56);
       if ( (LdrpDebugFlags & 5) != 0 )
         LdrpLogDbgPrint(
           (unsigned int)"minkernel\\ntdll\\ldrsnap.c",
@@ -75,13 +75,13 @@ __int64 __fastcall LdrpInitializeNode(__int64 a1)
       memset(v15, 0, sizeof(v15));
       RtlActivateActivationContextUnsafeFast((__int64)&v13, *(_QWORD *)(v7 + 136));
       if ( *(_WORD *)(v7 + 110) )
-        LdrpCallTlsInitializers(1u, i - 160);
-      if ( v16 )
+        LdrpCallTlsInitializers(1LL, i - 160);
+      if ( HashTable )
       {
         v10 = 0LL;
         if ( (*(_BYTE *)(v7 + 104) & 0x20) != 0 )
           v10 = LdrpProcessInitContextRecord;
-        v9 = LdrpCallInitRoutine(v16, *(_QWORD *)(v7 + 48), 1u, v10);
+        v9 = LdrpCallInitRoutine(HashTable, *(_RTL_DYNAMIC_HASH_TABLE_ENUMERATOR **)(v7 + 48), 1u, v10);
       }
       RtlDeactivateActivationContextUnsafeFast((__int64)&v13);
       v11 = LdrpDebugFlags;

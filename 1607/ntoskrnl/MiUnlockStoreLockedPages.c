@@ -1,13 +1,13 @@
 /*
- * XREFs of MiUnlockStoreLockedPages @ 0x140122A1C
+ * XREFs of MiUnlockStoreLockedPages @ 0x140122F8C
  * Callers:
- *     SmKmUnlockMdl @ 0x14011E998 (SmKmUnlockMdl.c)
- *     MmStoreProbeAndLockPages @ 0x140122370 (MmStoreProbeAndLockPages.c)
+ *     SmKmUnlockMdl @ 0x14011EF08 (SmKmUnlockMdl.c)
+ *     MmStoreProbeAndLockPages @ 0x1401228E0 (MmStoreProbeAndLockPages.c)
  * Callees:
- *     MiReleasePageFileInfo @ 0x14001A280 (MiReleasePageFileInfo.c)
- *     MiLockPageInline @ 0x140022E70 (MiLockPageInline.c)
- *     MiWriteCompletePfn @ 0x14004E5A0 (MiWriteCompletePfn.c)
- *     MiPartitionIdToPointer @ 0x1400680A0 (MiPartitionIdToPointer.c)
+ *     MiReleasePageFileInfo @ 0x140019E00 (MiReleasePageFileInfo.c)
+ *     MiLockPageInline @ 0x1400229F0 (MiLockPageInline.c)
+ *     MiWriteCompletePfn @ 0x14004E120 (MiWriteCompletePfn.c)
+ *     MiPartitionIdToPointer @ 0x140067C20 (MiPartitionIdToPointer.c)
  */
 
 void __fastcall MiUnlockStoreLockedPages(__int64 a1)

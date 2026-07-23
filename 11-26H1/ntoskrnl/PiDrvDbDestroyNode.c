@@ -1,14 +1,14 @@
 /*
- * XREFs of PiDrvDbDestroyNode @ 0x1407B5328
+ * XREFs of PiDrvDbDestroyNode @ 0x1407B8388
  * Callers:
- *     PiDrvDbCreateNode @ 0x1407B502C (PiDrvDbCreateNode.c)
- *     PiDrvDbRegisterNode @ 0x1407B6B90 (PiDrvDbRegisterNode.c)
- *     PiDrvDbUnregisterNode @ 0x1407B8420 (PiDrvDbUnregisterNode.c)
+ *     PiDrvDbCreateNode @ 0x1407B808C (PiDrvDbCreateNode.c)
+ *     PiDrvDbRegisterNode @ 0x1407B9BF0 (PiDrvDbRegisterNode.c)
+ *     PiDrvDbUnregisterNode @ 0x1407BB480 (PiDrvDbUnregisterNode.c)
  * Callees:
- *     ExDeleteResourceLite @ 0x140474A20 (ExDeleteResourceLite.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     RtlFreeAnsiString @ 0x140A007C0 (RtlFreeAnsiString.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExDeleteResourceLite @ 0x14046E1A0 (ExDeleteResourceLite.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     RtlFreeAnsiString @ 0x140A169F0 (RtlFreeAnsiString.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PiDrvDbDestroyNode(char *P)

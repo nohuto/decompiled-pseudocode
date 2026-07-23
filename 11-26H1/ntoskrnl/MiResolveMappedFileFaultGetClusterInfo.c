@@ -1,13 +1,13 @@
 /*
- * XREFs of MiResolveMappedFileFaultGetClusterInfo @ 0x14036F7FC
+ * XREFs of MiResolveMappedFileFaultGetClusterInfo @ 0x1403715AC
  * Callers:
- *     MiResolveMappedFileFault @ 0x14036F5D0 (MiResolveMappedFileFault.c)
+ *     MiResolveMappedFileFault @ 0x140371380 (MiResolveMappedFileFault.c)
  * Callees:
- *     MiUnlockVadTree @ 0x140326440 (MiUnlockVadTree.c)
- *     MiLockVadTree @ 0x1403265D0 (MiLockVadTree.c)
- *     MiLocateAddress @ 0x140326730 (MiLocateAddress.c)
- *     MiComputeFaultNode @ 0x140370A58 (MiComputeFaultNode.c)
- *     MiComputeHardFaultCluster @ 0x140458290 (MiComputeHardFaultCluster.c)
+ *     MiUnlockVadTree @ 0x140328470 (MiUnlockVadTree.c)
+ *     MiLockVadTree @ 0x140328600 (MiLockVadTree.c)
+ *     MiLocateAddress @ 0x140328760 (MiLocateAddress.c)
+ *     MiComputeFaultNode @ 0x140372808 (MiComputeFaultNode.c)
+ *     MiComputeHardFaultCluster @ 0x14044FB00 (MiComputeHardFaultCluster.c)
  */
 
 void __fastcall MiResolveMappedFileFaultGetClusterInfo(__int64 a1)

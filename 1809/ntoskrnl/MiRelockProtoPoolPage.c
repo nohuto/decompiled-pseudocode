@@ -4,14 +4,14 @@
  *     MiWaitForCollidedFaultComplete @ 0x140003F00 (MiWaitForCollidedFaultComplete.c)
  *     MiCopyDataPageToImagePage @ 0x14002D340 (MiCopyDataPageToImagePage.c)
  *     MiFinishHardFault @ 0x14002E010 (MiFinishHardFault.c)
- *     MiMakeImagePageOk @ 0x1402C45FC (MiMakeImagePageOk.c)
- *     MiIdealClusterPage @ 0x1402C6C14 (MiIdealClusterPage.c)
+ *     MiMakeImagePageOk @ 0x1402C47EC (MiMakeImagePageOk.c)
+ *     MiIdealClusterPage @ 0x1402C6E04 (MiIdealClusterPage.c)
  * Callees:
  *     MiLockPageInline @ 0x14002CE40 (MiLockPageInline.c)
  *     MiChargeForLockedPage @ 0x14002DE70 (MiChargeForLockedPage.c)
  *     MiAreChargesNeededToLockPage @ 0x140030D40 (MiAreChargesNeededToLockPage.c)
  *     MiLockOwnedProtoPage @ 0x140030EC0 (MiLockOwnedProtoPage.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
  */
 
 __int64 __fastcall MiRelockProtoPoolPage(__int64 a1, char *a2)

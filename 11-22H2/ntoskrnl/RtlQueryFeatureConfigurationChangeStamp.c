@@ -6,7 +6,7 @@
  *     <none>
  */
 
-__int64 RtlQueryFeatureConfigurationChangeStamp()
+RTL_FEATURE_CHANGE_STAMP RtlQueryFeatureConfigurationChangeStamp(void)
 {
   return qword_140C14038;
 }

@@ -14,50 +14,65 @@
  *     _RtlReleasePrivilege@4 @ 0x4B346D00 (_RtlReleasePrivilege@4.c)
  */
 
-int __fastcall LdrpMinimalMapModule(_DWORD *a1, int a2)
+NTSTATUS __fastcall LdrpMinimalMapModule(_DWORD *a1, void *a2)
 {
   int v3; // esi
   int v4; // ebx
   struct _TEB *v5; // ecx
   int v6; // edx
-  int v7; // esi
-  _DWORD *v9; // [esp+10h] [ebp-18h]
+  NTSTATUS v7; // esi
+  SIZE_T v9; // [esp-14h] [ebp-3Ch]
+  ULONG v10; // [esp+0h] [ebp-28h]
+  ULONG v11; // [esp+4h] [ebp-24h]
+  PVOID *v12; // [esp+10h] [ebp-18h]
   void *ArbitraryUserPointer; // [esp+14h] [ebp-14h]
-  int v12; // [esp+1Ch] [ebp-Ch] BYREF
-  struct _TEB *v13; // [esp+20h] [ebp-8h] BYREF
-  char v14; // [esp+27h] [ebp-1h]
+  PVOID ReturnedState; // [esp+1Ch] [ebp-Ch] BYREF
+  ULONG Value; // [esp+20h] [ebp-8h] BYREF
+  BOOLEAN v17; // [esp+27h] [ebp-1h]
 
   v3 = a1[8];
   if ( (ShowSnaps & 9) != 0 )
     LdrpLogDbgPrint("minkernel\\ntdll\\ldrmap.c", 640, "LdrpMinimalMapModule", 3, "DLL name: %wZ\n", v3 + 36);
-  v14 = RtlEqualUnicodeString(v3 + 44, &LdrpKernel32DllName, 1);
-  v12 = 0;
+  v17 = RtlEqualUnicodeString((PUNICODE_STRING)(v3 + 44), (PUNICODE_STRING)&LdrpKernel32DllName, 1u);
+  ReturnedState = 0;
   v4 = 0x800000;
-  if ( !v14 )
+  if ( !v17 )
   {
     if ( LdrpLargePageDllKeyHandle )
     {
-      v13 = 0;
-      RtlQueryImageFileKeyOption(LdrpLargePageDllKeyHandle, *(_DWORD *)(v3 + 48), 4, &v13, 4u, 0);
-      if ( v13 )
+      Value = 0;
+      RtlQueryImageFileKeyOption(LdrpLargePageDllKeyHandle, *(PCWSTR *)(v3 + 48), 4, &Value, 4u, 0);
+      if ( Value )
       {
-        if ( (int)RtlAcquirePrivilege(&LdrpLockMemoryPrivilege, 1, 0, &v12) >= 0 )
+        if ( RtlAcquirePrivilege((PULONG)&LdrpLockMemoryPrivilege, 1u, 0, &ReturnedState) >= 0 )
           v4 = 0x20000000;
       }
     }
   }
   v5 = NtCurrentTeb();
   a1[23] = 0;
-  v13 = v5;
+  Value = (ULONG)v5;
   ArbitraryUserPointer = v5->NtTib.ArbitraryUserPointer;
   v5->NtTib.ArbitraryUserPointer = *(void **)(v3 + 40);
   if ( (a1[4] & 0x800000) != 0 )
     v4 |= 0x40000u;
-  v9 = (_DWORD *)(v3 + 24);
-  v7 = ZwMapViewOfSection(a2, -1, v3 + 24, 0, 0, 0, a1 + 23, 1, v4, (a1[4] & 0x800000) != 0 ? 2 : 128);
-  v13->NtTib.ArbitraryUserPointer = ArbitraryUserPointer;
+  v12 = (PVOID *)(v3 + 24);
+  HIDWORD(v9) = a1 + 23;
+  LODWORD(v9) = 0;
+  v7 = ZwMapViewOfSection(
+         a2,
+         (HANDLE)0xFFFFFFFF,
+         (PVOID *)(v3 + 24),
+         0LL,
+         v9,
+         (PLARGE_INTEGER)1,
+         (PSIZE_T)v4,
+         (SECTION_INHERIT)((a1[4] & 0x800000) != 0 ? ViewUnmap : 128),
+         v10,
+         v11);
+  *(_DWORD *)(Value + 20) = ArbitraryUserPointer;
   if ( v4 == 0x20000000 )
-    RtlReleasePrivilege(v12);
+    RtlReleasePrivilege(ReturnedState);
   switch ( v7 )
   {
     case 1073741827:
@@ -74,17 +89,17 @@ LABEL_31:
         {
           v7 = -1073741267;
         }
-        else if ( v14 )
+        else if ( v17 )
         {
           v7 = -1073741800;
         }
       }
       break;
   }
-  if ( *v9 && (v7 < 0 || v7 == 1073741838) )
+  if ( *v12 && (v7 < 0 || v7 == 1073741838) )
   {
-    NtUnmapViewOfSection(-1, *v9);
-    *v9 = 0;
+    NtUnmapViewOfSection((HANDLE)0xFFFFFFFF, *v12);
+    *v12 = 0;
   }
   if ( (ShowSnaps & 9) != 0 )
     LdrpLogDbgPrint("minkernel\\ntdll\\ldrmap.c", 833, "LdrpMinimalMapModule", 4, "Status: 0x%08lx\n", v7);

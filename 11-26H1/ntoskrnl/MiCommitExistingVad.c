@@ -1,20 +1,20 @@
 /*
- * XREFs of MiCommitExistingVad @ 0x1409C7300
+ * XREFs of MiCommitExistingVad @ 0x1409982E0
  * Callers:
- *     MiLoadDataIntoVsmEnclave @ 0x140876584 (MiLoadDataIntoVsmEnclave.c)
- *     MiLoadSectionIntoVsmEnclave @ 0x140876988 (MiLoadSectionIntoVsmEnclave.c)
- *     MiAllocateFromSubAllocatedRegion @ 0x1409C8F44 (MiAllocateFromSubAllocatedRegion.c)
- *     MiAllocateVirtualMemory @ 0x1409F3464 (MiAllocateVirtualMemory.c)
+ *     MiLoadDataIntoVsmEnclave @ 0x14087C968 (MiLoadDataIntoVsmEnclave.c)
+ *     MiLoadSectionIntoVsmEnclave @ 0x14087CD6C (MiLoadSectionIntoVsmEnclave.c)
+ *     MiAllocateFromSubAllocatedRegion @ 0x140999F24 (MiAllocateFromSubAllocatedRegion.c)
+ *     MiAllocateVirtualMemory @ 0x1409EFC34 (MiAllocateVirtualMemory.c)
  * Callees:
- *     MiCommitVadFillPageTables @ 0x140310ED0 (MiCommitVadFillPageTables.c)
- *     UNLOCK_PAGE_TABLE_COMMITMENT @ 0x140316ED0 (UNLOCK_PAGE_TABLE_COMMITMENT.c)
- *     MiReturnCommit @ 0x14036D2B0 (MiReturnCommit.c)
- *     MiGetProcessPartition @ 0x14044C0C0 (MiGetProcessPartition.c)
- *     MiReturnFullProcessCharges @ 0x1404C9B60 (MiReturnFullProcessCharges.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     MiCommitVadPreparePacket @ 0x1409C7490 (MiCommitVadPreparePacket.c)
- *     MiCommitVadGetCharges @ 0x1409C7650 (MiCommitVadGetCharges.c)
+ *     MiCommitVadFillPageTables @ 0x140312F04 (MiCommitVadFillPageTables.c)
+ *     UNLOCK_PAGE_TABLE_COMMITMENT @ 0x140318F00 (UNLOCK_PAGE_TABLE_COMMITMENT.c)
+ *     MiReturnCommit @ 0x14036F050 (MiReturnCommit.c)
+ *     MiGetProcessPartition @ 0x1404441E0 (MiGetProcessPartition.c)
+ *     MiReturnFullProcessCharges @ 0x1404C3598 (MiReturnFullProcessCharges.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     MiCommitVadPreparePacket @ 0x140998470 (MiCommitVadPreparePacket.c)
+ *     MiCommitVadGetCharges @ 0x140998630 (MiCommitVadGetCharges.c)
  */
 
 __int64 __fastcall MiCommitExistingVad(

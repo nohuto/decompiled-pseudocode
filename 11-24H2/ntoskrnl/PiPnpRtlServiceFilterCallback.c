@@ -1,74 +1,74 @@
 /*
- * XREFs of PiPnpRtlServiceFilterCallback @ 0x1409FD9D0
+ * XREFs of PiPnpRtlServiceFilterCallback @ 0x1409F6C40
  * Callers:
  *     <none>
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x14045AA10 (RtlInitUnicodeStringEx.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     _CmGetDeviceRegProp @ 0x1408C5BB0 (_CmGetDeviceRegProp.c)
- *     _PnpGetObjectProperty @ 0x1408CDFD0 (_PnpGetObjectProperty.c)
- *     RtlEqualUnicodeString @ 0x140927050 (RtlEqualUnicodeString.c)
- *     _CmIsDevicePresent @ 0x1409FDDCC (_CmIsDevicePresent.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeStringEx @ 0x14044FE60 (RtlInitUnicodeStringEx.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     _CmGetDeviceRegProp @ 0x1408C35E0 (_CmGetDeviceRegProp.c)
+ *     _PnpGetObjectProperty @ 0x1408CB9C0 (_PnpGetObjectProperty.c)
+ *     RtlEqualUnicodeString @ 0x140929190 (RtlEqualUnicodeString.c)
+ *     _CmIsDevicePresent @ 0x1409F703C (_CmIsDevicePresent.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
-char __fastcall PiPnpRtlServiceFilterCallback(_QWORD *a1, __int64 a2, unsigned int a3, __int64 a4)
+char __fastcall PiPnpRtlServiceFilterCallback(_QWORD *a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  char v8; // di
-  PCUNICODE_STRING v9; // rax
+  char v7; // di
+  PCUNICODE_STRING v8; // rax
   int DeviceRegProp; // eax
-  unsigned int v11; // r14d
+  unsigned int v10; // r14d
   __int64 *i; // rsi
-  unsigned int v13; // r8d
-  WCHAR *v14; // rdx
+  unsigned int v12; // r8d
+  WCHAR *v13; // rdx
   int ObjectProperty; // eax
+  unsigned int v16; // eax
   unsigned int v17; // eax
-  unsigned int v18; // eax
   const WCHAR *j; // rdi
-  __int64 v20; // rax
+  __int64 v19; // rax
   __int64 Pool2; // rdi
-  void *v22; // rcx
-  __int64 v23; // rdi
-  void *v24; // rcx
-  unsigned int v25; // ecx
-  ULONG v26; // [rsp+40h] [rbp-99h]
-  _BYTE v27[4]; // [rsp+60h] [rbp-79h] BYREF
-  unsigned int v28; // [rsp+64h] [rbp-75h] BYREF
-  int v29; // [rsp+68h] [rbp-71h] BYREF
-  unsigned int v30; // [rsp+6Ch] [rbp-6Dh] BYREF
-  int v31; // [rsp+70h] [rbp-69h] BYREF
+  void *v21; // rcx
+  __int64 v22; // rdi
+  void *v23; // rcx
+  unsigned int v24; // ecx
+  ULONG v25; // [rsp+40h] [rbp-99h]
+  _BYTE v26[4]; // [rsp+60h] [rbp-79h] BYREF
+  unsigned int v27; // [rsp+64h] [rbp-75h] BYREF
+  int v28; // [rsp+68h] [rbp-71h] BYREF
+  unsigned int v29; // [rsp+6Ch] [rbp-6Dh] BYREF
+  int v30; // [rsp+70h] [rbp-69h] BYREF
   UNICODE_STRING DestinationString; // [rsp+78h] [rbp-61h] BYREF
-  _WORD v33[40]; // [rsp+90h] [rbp-49h] BYREF
+  _WORD v32[40]; // [rsp+90h] [rbp-49h] BYREF
 
-  memset_0(v33, 0, 0x4EuLL);
-  v8 = 0;
-  v29 = 0;
-  v31 = 0;
-  DestinationString = 0LL;
-  v27[0] = 0;
+  memset_0(v32, 0, 0x4EuLL);
+  v7 = 0;
   v28 = 0;
   v30 = 0;
-  if ( !*(_BYTE *)(a4 + 8) || (int)CmIsDevicePresent(a1, a2, v27) >= 0 && v27[0] )
+  DestinationString = 0LL;
+  v26[0] = 0;
+  v27 = 0;
+  v29 = 0;
+  if ( !*(_BYTE *)(a4 + 8) || (int)CmIsDevicePresent(a1, a2, v26) >= 0 && v26[0] )
   {
-    v9 = *(PCUNICODE_STRING *)a4;
-    if ( *(_QWORD *)a4 && v9->Length >= 2u && *v9->Buffer )
+    v8 = *(PCUNICODE_STRING *)a4;
+    if ( *(_QWORD *)a4 && v8->Length >= 2u && *v8->Buffer )
     {
       while ( 1 )
       {
-        v28 = *(_DWORD *)(a4 + 24);
+        v27 = *(_DWORD *)(a4 + 24);
         DeviceRegProp = CmGetDeviceRegProp(
                           (__int64)a1,
                           a2,
                           0LL,
                           5u,
-                          (__int64)&v29,
-                          *(_QWORD *)(a4 + 16),
                           (__int64)&v28,
+                          *(_QWORD *)(a4 + 16),
+                          (__int64)&v27,
                           0);
-        if ( !DeviceRegProp && v28 < 2 )
+        if ( !DeviceRegProp && v27 < 2 )
           break;
         if ( DeviceRegProp != -1073741789 )
         {
@@ -83,31 +83,31 @@ char __fastcall PiPnpRtlServiceFilterCallback(_QWORD *a1, __int64 a2, unsigned i
           }
           break;
         }
-        if ( v28 < 2 )
+        if ( v27 < 2 )
           break;
-        Pool2 = ExAllocatePool2(0x100uLL);
+        Pool2 = ExAllocatePool2(0x100uLL, v27, 0x47706E50u);
         if ( !Pool2 )
           break;
-        v22 = *(void **)(a4 + 16);
-        if ( v22 )
-          ExFreePoolWithTag(v22, 0);
-        *(_DWORD *)(a4 + 24) = v28;
+        v21 = *(void **)(a4 + 16);
+        if ( v21 )
+          ExFreePoolWithTag(v21, 0);
+        *(_DWORD *)(a4 + 24) = v27;
         *(_QWORD *)(a4 + 16) = Pool2;
       }
-      v11 = 0;
-      for ( i = &qword_140002DF8; ; i += 2 )
+      v10 = 0;
+      for ( i = &qword_140002E98; ; i += 2 )
       {
-        v8 = 0;
-        if ( v11 >= 4 )
+        v7 = 0;
+        if ( v10 >= 4 )
           break;
-        if ( *(_DWORD *)i == 2 && !v33[0] )
+        if ( *(_DWORD *)i == 2 && !v32[0] )
         {
-          v28 = 78;
-          if ( (int)CmGetDeviceRegProp((__int64)a1, a2, 0LL, 9u, (__int64)&v29, (__int64)v33, (__int64)&v28, 0) >= 0
-            && v29 == 1
-            && v28 >= 2 )
+          v27 = 78;
+          if ( (int)CmGetDeviceRegProp((__int64)a1, a2, 0LL, 9u, (__int64)&v28, (__int64)v32, (__int64)&v27, 0) >= 0
+            && v28 == 1
+            && v27 >= 2 )
           {
-            v33[38] = 0;
+            v32[38] = 0;
             goto LABEL_13;
           }
           return 0;
@@ -115,74 +115,74 @@ char __fastcall PiPnpRtlServiceFilterCallback(_QWORD *a1, __int64 a2, unsigned i
         while ( 1 )
         {
 LABEL_13:
-          v13 = *(_DWORD *)i;
-          v14 = v33;
-          v26 = *(_DWORD *)(a4 + 24);
+          v12 = *(_DWORD *)i;
+          v13 = v32;
+          v25 = *(_DWORD *)(a4 + 24);
           if ( *(_DWORD *)i == 1 )
-            v14 = (WCHAR *)a2;
-          v28 = *(_DWORD *)(a4 + 24);
+            v13 = (WCHAR *)a2;
+          v27 = *(_DWORD *)(a4 + 24);
           ObjectProperty = PnpGetObjectProperty(
                              a1,
-                             v14,
                              v13,
+                             v12,
                              0LL,
                              0LL,
                              *(i - 1),
-                             &v31,
+                             &v30,
                              *(const wchar_t **)(a4 + 16),
-                             v26,
-                             (__int64)&v30,
+                             v25,
+                             (__int64)&v29,
                              0);
-          v28 = v30;
-          if ( !ObjectProperty && v30 < 2 )
+          v27 = v29;
+          if ( !ObjectProperty && v29 < 2 )
             break;
           if ( ObjectProperty != -1073741789 )
           {
-            if ( ObjectProperty >= 0 && v31 == 8210 )
+            if ( ObjectProperty >= 0 && v30 == 8210 )
             {
+              v16 = *(_DWORD *)(a4 + 24);
+              if ( v16 > 2 )
+                *(_WORD *)(*(_QWORD *)(a4 + 16) + 2 * ((unsigned __int64)v16 >> 1) - 2) = 0;
               v17 = *(_DWORD *)(a4 + 24);
-              if ( v17 > 2 )
-                *(_WORD *)(*(_QWORD *)(a4 + 16) + 2 * ((unsigned __int64)v17 >> 1) - 2) = 0;
-              v18 = *(_DWORD *)(a4 + 24);
-              if ( v18 > 4 )
-                *(_WORD *)(*(_QWORD *)(a4 + 16) + 2 * ((unsigned __int64)v18 >> 1) - 4) = 0;
-              for ( j = *(const WCHAR **)(a4 + 16); *j; j += v20 + 1 )
+              if ( v17 > 4 )
+                *(_WORD *)(*(_QWORD *)(a4 + 16) + 2 * ((unsigned __int64)v17 >> 1) - 4) = 0;
+              for ( j = *(const WCHAR **)(a4 + 16); *j; j += v19 + 1 )
               {
                 if ( RtlInitUnicodeStringEx(&DestinationString, j) >= 0
                   && RtlEqualUnicodeString(*(PCUNICODE_STRING *)a4, &DestinationString, 1u) )
                 {
                   goto LABEL_43;
                 }
-                v20 = -1LL;
+                v19 = -1LL;
                 do
-                  ++v20;
-                while ( j[v20] );
+                  ++v19;
+                while ( j[v19] );
               }
             }
             break;
           }
-          if ( v30 < 2 )
+          if ( v29 < 2 )
             break;
-          v23 = ExAllocatePool2(0x100uLL);
-          if ( !v23 )
+          v22 = ExAllocatePool2(0x100uLL, v29, 0x47706E50u);
+          if ( !v22 )
             break;
-          v24 = *(void **)(a4 + 16);
-          if ( v24 )
-            ExFreePoolWithTag(v24, 0);
-          v25 = v28;
-          *(_QWORD *)(a4 + 16) = v23;
-          *(_DWORD *)(a4 + 24) = v25;
+          v23 = *(void **)(a4 + 16);
+          if ( v23 )
+            ExFreePoolWithTag(v23, 0);
+          v24 = v27;
+          *(_QWORD *)(a4 + 16) = v22;
+          *(_DWORD *)(a4 + 24) = v24;
         }
-        ++v11;
+        ++v10;
       }
     }
     else
     {
 LABEL_43:
-      v8 = 1;
+      v7 = 1;
       if ( *(_QWORD *)(a4 + 32) )
-        return guard_dispatch_icall_no_overrides(a1, a2, a3, *(_QWORD *)(a4 + 40));
+        return guard_dispatch_icall_no_overrides(a1, a2);
     }
   }
-  return v8;
+  return v7;
 }

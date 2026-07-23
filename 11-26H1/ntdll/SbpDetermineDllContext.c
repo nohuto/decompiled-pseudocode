@@ -1,55 +1,55 @@
 /*
- * XREFs of SbpDetermineDllContext @ 0x180064490
+ * XREFs of SbpDetermineDllContext @ 0x1800848E0
  * Callers:
- *     SbUpdateSwitchContextBasedOnDll @ 0x180064160 (SbUpdateSwitchContextBasedOnDll.c)
+ *     SbUpdateSwitchContextBasedOnDll @ 0x1800845B0 (SbUpdateSwitchContextBasedOnDll.c)
  * Callees:
- *     RtlFreeHeap_0 @ 0x18003FD10 (RtlFreeHeap_0.c)
- *     RtlImageNtHeaderEx @ 0x180047040 (RtlImageNtHeaderEx.c)
- *     SbpRetrieveCompatibilityManifest @ 0x18006468C (SbpRetrieveCompatibilityManifest.c)
- *     __security_check_cookie @ 0x180162C90 (__security_check_cookie.c)
+ *     RtlFreeHeap_0 @ 0x18002A280 (RtlFreeHeap_0.c)
+ *     RtlImageNtHeaderEx @ 0x1800315B0 (RtlImageNtHeaderEx.c)
+ *     SbpRetrieveCompatibilityManifest @ 0x180084ADC (SbpRetrieveCompatibilityManifest.c)
+ *     __security_check_cookie @ 0x180162B90 (__security_check_cookie.c)
  */
 
-__int64 __fastcall SbpDetermineDllContext(unsigned __int64 a1, _QWORD *a2)
+__int64 __fastcall SbpDetermineDllContext(PACTIVATION_CONTEXT ActivationContext, _QWORD *a2)
 {
   unsigned __int64 v2; // rbx
-  unsigned int v5; // ebp
-  unsigned int v6; // r14d
+  unsigned int MajorSubsystemVersion; // ebp
+  unsigned int MinorSubsystemVersion; // r14d
   char *v7; // rcx
   __int64 result; // rax
   __int64 v9; // rcx
   _WORD *v10; // rax
-  _BYTE *v11; // r9
+  char *v11; // r9
   __int64 v12; // r10
   unsigned int i; // ecx
   __int64 v14; // rdx
   __int64 v15; // rax
   unsigned int v16; // edx
-  __int64 v17; // [rsp+20h] [rbp-248h] BYREF
-  _BYTE *v18; // [rsp+28h] [rbp-240h] BYREF
-  __int64 v19; // [rsp+30h] [rbp-238h] BYREF
+  PIMAGE_NT_HEADERS OutHeaders; // [rsp+20h] [rbp-248h] BYREF
+  PVOID BaseAddress; // [rsp+28h] [rbp-240h]
+  __int64 v19; // [rsp+30h] [rbp-238h]
   _BYTE v20[512]; // [rsp+40h] [rbp-228h] BYREF
 
   v2 = 0LL;
   v19 = 512LL;
-  v18 = v20;
-  if ( !a2 || !a1 )
+  BaseAddress = v20;
+  if ( !a2 || !ActivationContext )
     return 0LL;
-  v17 = 0LL;
-  RtlImageNtHeaderEx(1, a1, 0LL, &v17);
-  v5 = *(unsigned __int16 *)(v17 + 72);
-  v6 = *(unsigned __int16 *)(v17 + 74);
-  if ( v5 >= 0xA )
+  OutHeaders = 0LL;
+  RtlImageNtHeaderEx(1u, ActivationContext, 0LL, &OutHeaders);
+  MajorSubsystemVersion = OutHeaders->OptionalHeader.MajorSubsystemVersion;
+  MinorSubsystemVersion = OutHeaders->OptionalHeader.MinorSubsystemVersion;
+  if ( MajorSubsystemVersion >= 0xA )
   {
-    v7 = (char *)&unk_180171900;
+    v7 = (char *)&unk_1801709B0;
     goto LABEL_5;
   }
-  if ( (unsigned int)SbpRetrieveCompatibilityManifest(a1, &v18, &v19) && v18 )
+  if ( (unsigned int)SbpRetrieveCompatibilityManifest(ActivationContext) && BaseAddress )
   {
-    v6 += v5 << 16;
-    if ( *(_DWORD *)v18 )
+    MinorSubsystemVersion += MajorSubsystemVersion << 16;
+    if ( *(_DWORD *)BaseAddress )
     {
-      v11 = v18 + 8;
-      v12 = *(unsigned int *)v18;
+      v11 = (char *)BaseAddress + 8;
+      v12 = *(unsigned int *)BaseAddress;
       do
       {
         if ( *((_DWORD *)v11 + 4) == 1 )
@@ -64,8 +64,8 @@ __int64 __fastcall SbpDetermineDllContext(unsigned __int64 a1, _QWORD *a2)
             {
               v16 = (*(unsigned __int16 *)((char *)&SbSupportedOsList + v14 + 20) << 16)
                   + *(unsigned __int16 *)((char *)&SbSupportedOsList + v14 + 22);
-              if ( v16 >= v6 )
-                v6 = v16;
+              if ( v16 >= MinorSubsystemVersion )
+                MinorSubsystemVersion = v16;
               break;
             }
           }
@@ -75,13 +75,13 @@ __int64 __fastcall SbpDetermineDllContext(unsigned __int64 a1, _QWORD *a2)
       }
       while ( v12 );
     }
-    if ( v18 != v20 )
-      RtlFreeHeap_0();
-    v5 = HIWORD(v6);
+    if ( BaseAddress != v20 )
+      RtlFreeHeap_0(NtCurrentPeb()->ProcessHeap, 0, BaseAddress);
+    MajorSubsystemVersion = HIWORD(MinorSubsystemVersion);
   }
   v9 = -1LL;
-  v10 = &unk_180171896;
-  while ( (unsigned __int16)v5 > *(v10 - 1) )
+  v10 = &unk_180170946;
+  while ( (unsigned __int16)MajorSubsystemVersion > *(v10 - 1) )
   {
 LABEL_11:
     v9 = v2;
@@ -91,13 +91,13 @@ LABEL_12:
     if ( v2 >= 5 )
       goto LABEL_13;
   }
-  if ( (_WORD)v5 == *(v10 - 1) )
+  if ( (_WORD)MajorSubsystemVersion == *(v10 - 1) )
   {
-    if ( (unsigned __int16)v6 < *v10 )
+    if ( (unsigned __int16)MinorSubsystemVersion < *v10 )
       goto LABEL_13;
     goto LABEL_11;
   }
-  if ( (unsigned __int16)v5 >= *(v10 - 1) )
+  if ( (unsigned __int16)MajorSubsystemVersion >= *(v10 - 1) )
     goto LABEL_12;
 LABEL_13:
   if ( v9 == -1 )

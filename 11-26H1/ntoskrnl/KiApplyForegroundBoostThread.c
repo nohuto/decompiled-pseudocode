@@ -1,23 +1,23 @@
 /*
- * XREFs of KiApplyForegroundBoostThread @ 0x140521D48
+ * XREFs of KiApplyForegroundBoostThread @ 0x1405243B4
  * Callers:
- *     KiProcessPendingForegroundBoosts @ 0x1404FE820 (KiProcessPendingForegroundBoosts.c)
+ *     KiProcessPendingForegroundBoosts @ 0x1404F7DD0 (KiProcessPendingForegroundBoosts.c)
  * Callees:
- *     KiUpdateSharedReadyQueueAffinityThread @ 0x1402043F0 (KiUpdateSharedReadyQueueAffinityThread.c)
- *     KiSearchForNewThreadsForRescheduleContext @ 0x14022CBE0 (KiSearchForNewThreadsForRescheduleContext.c)
- *     ?KiCompleteRescheduleContextEntry@@YAXPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KPRCB@@PEAU_KTHREAD@@PEAU_KTHREAD_SCHEDULE_REASON_DATA@@@Z @ 0x14022DEE0 (-KiCompleteRescheduleContextEntry@@YAXPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KPRCB@@PEAU_KTHREAD.c)
- *     KiPrepareReadyThreadForRescheduling @ 0x14022E180 (KiPrepareReadyThreadForRescheduling.c)
- *     KiComputeThreadPriority @ 0x140239AB4 (KiComputeThreadPriority.c)
- *     KiCommitRescheduleContext @ 0x14023F070 (KiCommitRescheduleContext.c)
- *     KiFlushSoftwareInterruptBatch @ 0x1402436D0 (KiFlushSoftwareInterruptBatch.c)
- *     KiReleaseThreadStateLock @ 0x1402BA4C0 (KiReleaseThreadStateLock.c)
- *     KiStartRescheduleContext @ 0x14032F5E0 (KiStartRescheduleContext.c)
- *     KiAcquireThreadStateLockForWrite @ 0x1403322B0 (KiAcquireThreadStateLockForWrite.c)
- *     KiRemoveThreadFromAnyReadyQueue @ 0x140336024 (KiRemoveThreadFromAnyReadyQueue.c)
- *     ?KiFindRescheduleContextEntryForPrcb@@YAPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KI_RESCHEDULE_CONTEXT@@PEAU_KPRCB@@@Z @ 0x140336900 (-KiFindRescheduleContextEntryForPrcb@@YAPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KI_RESCHEDULE_CON.c)
- *     KiUpdateThreadPriority @ 0x14037EAA0 (KiUpdateThreadPriority.c)
- *     KiHvEnlightenedGuestPriorityKick @ 0x1404675F0 (KiHvEnlightenedGuestPriorityKick.c)
- *     KiSetForegroundBoost @ 0x140521FB0 (KiSetForegroundBoost.c)
+ *     KiUpdateSharedReadyQueueAffinityThread @ 0x1402044D0 (KiUpdateSharedReadyQueueAffinityThread.c)
+ *     KiSearchForNewThreadsForRescheduleContext @ 0x14022E570 (KiSearchForNewThreadsForRescheduleContext.c)
+ *     ?KiCompleteRescheduleContextEntry@@YAXPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KPRCB@@PEAU_KTHREAD@@PEAU_KTHREAD_SCHEDULE_REASON_DATA@@@Z @ 0x14022F870 (-KiCompleteRescheduleContextEntry@@YAXPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KPRCB@@PEAU_KTHREAD.c)
+ *     KiPrepareReadyThreadForRescheduling @ 0x14022FB10 (KiPrepareReadyThreadForRescheduling.c)
+ *     KiComputeThreadPriority @ 0x14023B414 (KiComputeThreadPriority.c)
+ *     KiCommitRescheduleContext @ 0x1402409D0 (KiCommitRescheduleContext.c)
+ *     KiFlushSoftwareInterruptBatch @ 0x140245030 (KiFlushSoftwareInterruptBatch.c)
+ *     KiReleaseThreadStateLock @ 0x140305180 (KiReleaseThreadStateLock.c)
+ *     KiStartRescheduleContext @ 0x140331610 (KiStartRescheduleContext.c)
+ *     KiAcquireThreadStateLockForWrite @ 0x1403342E0 (KiAcquireThreadStateLockForWrite.c)
+ *     KiRemoveThreadFromAnyReadyQueue @ 0x140338054 (KiRemoveThreadFromAnyReadyQueue.c)
+ *     ?KiFindRescheduleContextEntryForPrcb@@YAPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KI_RESCHEDULE_CONTEXT@@PEAU_KPRCB@@@Z @ 0x140338930 (-KiFindRescheduleContextEntryForPrcb@@YAPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KI_RESCHEDULE_CON.c)
+ *     KiUpdateThreadPriority @ 0x140380850 (KiUpdateThreadPriority.c)
+ *     KiHvEnlightenedGuestPriorityKick @ 0x140460D40 (KiHvEnlightenedGuestPriorityKick.c)
+ *     KiSetForegroundBoost @ 0x14052461C (KiSetForegroundBoost.c)
  */
 
 char __fastcall KiApplyForegroundBoostThread(struct _KTHREAD *a1, __int64 *a2, volatile signed __int32 **a3)

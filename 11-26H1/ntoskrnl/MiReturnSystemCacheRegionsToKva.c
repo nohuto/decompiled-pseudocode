@@ -1,17 +1,17 @@
 /*
- * XREFs of MiReturnSystemCacheRegionsToKva @ 0x1402A38D8
+ * XREFs of MiReturnSystemCacheRegionsToKva @ 0x1402A2E28
  * Callers:
- *     MiReleaseSystemCacheView @ 0x1402A71F0 (MiReleaseSystemCacheView.c)
- *     MiObtainSystemCacheView @ 0x1402E4B60 (MiObtainSystemCacheView.c)
- *     MiDeleteUnmappedSystemCacheViews @ 0x1406F5A18 (MiDeleteUnmappedSystemCacheViews.c)
+ *     MiReleaseSystemCacheView @ 0x1402A6600 (MiReleaseSystemCacheView.c)
+ *     MiObtainSystemCacheView @ 0x1402C6BA0 (MiObtainSystemCacheView.c)
+ *     MiDeleteUnmappedSystemCacheViews @ 0x1406FA688 (MiDeleteUnmappedSystemCacheViews.c)
  * Callees:
- *     MiSetSystemCacheReverseMap @ 0x1402A39F0 (MiSetSystemCacheReverseMap.c)
- *     MiReturnSystemVa @ 0x1402A4238 (MiReturnSystemVa.c)
- *     MiLockPageTableInternal @ 0x1402B34E0 (MiLockPageTableInternal.c)
- *     MiUnlockPageTableInternal @ 0x1402D13E0 (MiUnlockPageTableInternal.c)
- *     MiUnlockWorkingSetShared @ 0x1402EB6C0 (MiUnlockWorkingSetShared.c)
- *     MiLockWorkingSetShared @ 0x1402EDD60 (MiLockWorkingSetShared.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     MiSetSystemCacheReverseMap @ 0x1402A2F40 (MiSetSystemCacheReverseMap.c)
+ *     MiReturnSystemVa @ 0x1402A3788 (MiReturnSystemVa.c)
+ *     MiUnlockPageTableInternal @ 0x1402B31A0 (MiUnlockPageTableInternal.c)
+ *     MiUnlockWorkingSetShared @ 0x1402CD700 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x1402CFDE0 (MiLockWorkingSetShared.c)
+ *     MiLockPageTableInternal @ 0x1402FE1B0 (MiLockPageTableInternal.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiReturnSystemCacheRegionsToKva(__int64 a1, _QWORD **a2)

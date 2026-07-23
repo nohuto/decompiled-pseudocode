@@ -1,11 +1,11 @@
 /*
- * XREFs of IopCreateLegacyDeviceIds @ 0x14096C728
+ * XREFs of IopCreateLegacyDeviceIds @ 0x14096C928
  * Callers:
- *     IoReportDetectedDevice @ 0x140834DD0 (IoReportDetectedDevice.c)
+ *     IoReportDetectedDevice @ 0x1408350D0 (IoReportDetectedDevice.c)
  * Callees:
- *     RtlStringCchPrintfW @ 0x14022A90C (RtlStringCchPrintfW.c)
- *     RtlStringCchPrintfExW @ 0x14022B720 (RtlStringCchPrintfExW.c)
- *     _CmSetDeviceRegProp @ 0x14079862C (_CmSetDeviceRegProp.c)
+ *     RtlStringCchPrintfW @ 0x14022AA1C (RtlStringCchPrintfW.c)
+ *     RtlStringCchPrintfExW @ 0x14022B830 (RtlStringCchPrintfExW.c)
+ *     _CmSetDeviceRegProp @ 0x14079881C (_CmSetDeviceRegProp.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

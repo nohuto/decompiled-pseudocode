@@ -6,7 +6,11 @@
  *     <none>
  */
 
-bool __stdcall RtlIsValidHandle(_DWORD *a1, unsigned int a2)
+BOOLEAN __cdecl RtlIsValidHandle(PRTL_HANDLE_TABLE HandleTable, PRTL_HANDLE_TABLE_ENTRY Handle)
 {
-  return a2 && a2 >= a1[5] && a2 < a1[6] && ((a1[1] - 1) & a2) == 0 && (*(_BYTE *)a2 & 1) != 0;
+  return Handle
+      && Handle >= HandleTable->CommittedHandles
+      && Handle < HandleTable->UnCommittedHandles
+      && ((HandleTable->SizeOfHandleTableEntry - 1) & (unsigned int)Handle) == 0
+      && (Handle->Flags & 1) != 0;
 }

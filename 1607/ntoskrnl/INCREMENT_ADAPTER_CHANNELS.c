@@ -1,11 +1,11 @@
 /*
- * XREFs of INCREMENT_ADAPTER_CHANNELS @ 0x140705DD4
+ * XREFs of INCREMENT_ADAPTER_CHANNELS @ 0x140705E04
  * Callers:
- *     VfAllocateAdapterChannel @ 0x1407061E0 (VfAllocateAdapterChannel.c)
- *     VfAllocateAdapterChannelEx @ 0x1407063A4 (VfAllocateAdapterChannelEx.c)
+ *     VfAllocateAdapterChannel @ 0x140706210 (VfAllocateAdapterChannel.c)
+ *     VfAllocateAdapterChannelEx @ 0x1407063D4 (VfAllocateAdapterChannelEx.c)
  * Callees:
- *     VfReportIssueWithOptions @ 0x140223544 (VfReportIssueWithOptions.c)
- *     ViHalPreprocessOptions @ 0x140709ABC (ViHalPreprocessOptions.c)
+ *     VfReportIssueWithOptions @ 0x140223370 (VfReportIssueWithOptions.c)
+ *     ViHalPreprocessOptions @ 0x140709AEC (ViHalPreprocessOptions.c)
  */
 
 void __fastcall INCREMENT_ADAPTER_CHANNELS(__int64 a1)

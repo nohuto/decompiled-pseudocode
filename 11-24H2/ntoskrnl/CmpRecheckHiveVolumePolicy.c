@@ -1,22 +1,22 @@
 /*
- * XREFs of CmpRecheckHiveVolumePolicy @ 0x1404648A0
+ * XREFs of CmpRecheckHiveVolumePolicy @ 0x14045AFD0
  * Callers:
- *     CmpLoadKeyCommon @ 0x140464478 (CmpLoadKeyCommon.c)
- *     CmpFinishSystemHivesLoad @ 0x1407CA230 (CmpFinishSystemHivesLoad.c)
- *     CmpHandlePageFileOpenNotification @ 0x1407CF660 (CmpHandlePageFileOpenNotification.c)
- *     CmpCreateHive @ 0x14092F538 (CmpCreateHive.c)
+ *     CmpLoadKeyCommon @ 0x14045ABA8 (CmpLoadKeyCommon.c)
+ *     CmpFinishSystemHivesLoad @ 0x1407CA720 (CmpFinishSystemHivesLoad.c)
+ *     CmpHandlePageFileOpenNotification @ 0x1407CFB50 (CmpHandlePageFileOpenNotification.c)
+ *     CmpCreateHive @ 0x140931678 (CmpCreateHive.c)
  * Callees:
- *     CmpArmLazyWriter @ 0x14027B0B0 (CmpArmLazyWriter.c)
- *     CmpAdjustFileCFSafety @ 0x1404B2D88 (CmpAdjustFileCFSafety.c)
- *     HvMarkHiveWithNoSectionExtend @ 0x1406FC1D0 (HvMarkHiveWithNoSectionExtend.c)
- *     CmpVolumeContextCanHiveSectionBeExtended @ 0x140A46274 (CmpVolumeContextCanHiveSectionBeExtended.c)
- *     CmpVolumeContextMustHiveFilePagesBeKeptLocal @ 0x140A462C0 (CmpVolumeContextMustHiveFilePagesBeKeptLocal.c)
- *     HvViewMapContainsLockedPages @ 0x140A66248 (HvViewMapContainsLockedPages.c)
- *     HvUnlockHiveFilePages @ 0x140A8E8F0 (HvUnlockHiveFilePages.c)
- *     HvUnlockHiveFlusherExclusive @ 0x140BB9A98 (HvUnlockHiveFlusherExclusive.c)
- *     HvLockHiveFlusherExclusive @ 0x140BB9AB4 (HvLockHiveFlusherExclusive.c)
- *     CmpLockRegistry @ 0x140BB9E60 (CmpLockRegistry.c)
- *     CmpUnlockRegistry @ 0x140BB9F50 (CmpUnlockRegistry.c)
+ *     CmpArmLazyWriter @ 0x140230640 (CmpArmLazyWriter.c)
+ *     CmpAdjustFileCFSafety @ 0x1404AD590 (CmpAdjustFileCFSafety.c)
+ *     HvMarkHiveWithNoSectionExtend @ 0x1406F9E10 (HvMarkHiveWithNoSectionExtend.c)
+ *     CmpVolumeContextCanHiveSectionBeExtended @ 0x140A3BF34 (CmpVolumeContextCanHiveSectionBeExtended.c)
+ *     CmpVolumeContextMustHiveFilePagesBeKeptLocal @ 0x140A3BF80 (CmpVolumeContextMustHiveFilePagesBeKeptLocal.c)
+ *     HvViewMapContainsLockedPages @ 0x140A5E928 (HvViewMapContainsLockedPages.c)
+ *     HvUnlockHiveFilePages @ 0x140A8AF60 (HvUnlockHiveFilePages.c)
+ *     HvUnlockHiveFlusherExclusive @ 0x140BBBA98 (HvUnlockHiveFlusherExclusive.c)
+ *     HvLockHiveFlusherExclusive @ 0x140BBBAB4 (HvLockHiveFlusherExclusive.c)
+ *     CmpLockRegistry @ 0x140BBBE60 (CmpLockRegistry.c)
+ *     CmpUnlockRegistry @ 0x140BBBF50 (CmpUnlockRegistry.c)
  */
 
 __int64 __fastcall CmpRecheckHiveVolumePolicy(__int64 a1)

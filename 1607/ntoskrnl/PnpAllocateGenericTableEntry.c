@@ -1,12 +1,12 @@
 /*
- * XREFs of PnpAllocateGenericTableEntry @ 0x1404EFF30
+ * XREFs of PnpAllocateGenericTableEntry @ 0x1404D2024
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-PVOID __fastcall PnpAllocateGenericTableEntry(struct _RTL_AVL_TABLE *Table, CLONG ByteSize)
+PVOID __fastcall PnpAllocateGenericTableEntry(_RTL_AVL_TABLE *a1, unsigned int a2)
 {
-  return ExAllocatePoolWithTag(PagedPool, ByteSize, 0x75737050u);
+  return ExAllocatePoolWithTag(PagedPool, a2, 0x75737050u);
 }

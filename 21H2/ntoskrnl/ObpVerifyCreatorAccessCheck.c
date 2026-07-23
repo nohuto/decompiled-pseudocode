@@ -1,20 +1,20 @@
 /*
- * XREFs of ObpVerifyCreatorAccessCheck @ 0x1406E50F0
+ * XREFs of ObpVerifyCreatorAccessCheck @ 0x1406BC3D0
  * Callers:
- *     NtCreatePrivateNamespace @ 0x1406E4E80 (NtCreatePrivateNamespace.c)
- *     NtDeletePrivateNamespace @ 0x1408DF5F0 (NtDeletePrivateNamespace.c)
+ *     NtCreatePrivateNamespace @ 0x1406BC160 (NtCreatePrivateNamespace.c)
+ *     NtDeletePrivateNamespace @ 0x1408DF750 (NtDeletePrivateNamespace.c)
  * Callees:
- *     RtlSubAuthoritySid @ 0x14027F290 (RtlSubAuthoritySid.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
- *     SeReleaseSubjectContext @ 0x1406568F0 (SeReleaseSubjectContext.c)
- *     SeQueryInformationToken @ 0x140656BD0 (SeQueryInformationToken.c)
- *     SeCaptureSubjectContextEx @ 0x140657C60 (SeCaptureSubjectContextEx.c)
- *     RtlEnumerateBoundaryDescriptorEntries @ 0x14067362C (RtlEnumerateBoundaryDescriptorEntries.c)
- *     RtlInitializeSid @ 0x1406E52A0 (RtlInitializeSid.c)
- *     SeLockSubjectContext @ 0x1406F5E30 (SeLockSubjectContext.c)
- *     SeUnlockSubjectContext @ 0x1406F5E90 (SeUnlockSubjectContext.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     RtlSubAuthoritySid @ 0x14026D6C0 (RtlSubAuthoritySid.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     SeReleaseSubjectContext @ 0x14064B710 (SeReleaseSubjectContext.c)
+ *     SeQueryInformationToken @ 0x14064B9F0 (SeQueryInformationToken.c)
+ *     SeCaptureSubjectContextEx @ 0x14064CA80 (SeCaptureSubjectContextEx.c)
+ *     RtlEnumerateBoundaryDescriptorEntries @ 0x14066885C (RtlEnumerateBoundaryDescriptorEntries.c)
+ *     RtlInitializeSid @ 0x1406BC580 (RtlInitializeSid.c)
+ *     SeLockSubjectContext @ 0x14070D210 (SeLockSubjectContext.c)
+ *     SeUnlockSubjectContext @ 0x14070D270 (SeUnlockSubjectContext.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall ObpVerifyCreatorAccessCheck(_DWORD *a1)
@@ -24,7 +24,7 @@ __int64 __fastcall ObpVerifyCreatorAccessCheck(_DWORD *a1)
   PULONG v4; // rax
   int v5; // ebx
   int v6; // ecx
-  struct _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+20h] [rbp-59h] BYREF
+  _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+20h] [rbp-59h] BYREF
   PVOID TokenInformation; // [rsp+28h] [rbp-51h] BYREF
   struct _SECURITY_SUBJECT_CONTEXT SubjectContext; // [rsp+30h] [rbp-49h] BYREF
   PVOID P[2]; // [rsp+50h] [rbp-29h] BYREF

@@ -1,27 +1,27 @@
 /*
- * XREFs of MiRelockProtoPoolPage @ 0x14023BCDC
+ * XREFs of MiRelockProtoPoolPage @ 0x140345A40
  * Callers:
- *     MiWaitForCollidedFaultComplete @ 0x14023B89C (MiWaitForCollidedFaultComplete.c)
- *     MiFinishHardFault @ 0x1402F0070 (MiFinishHardFault.c)
- *     MiIdealClusterPage @ 0x1404D205C (MiIdealClusterPage.c)
+ *     MiFinishHardFault @ 0x140255E80 (MiFinishHardFault.c)
+ *     MiWaitForCollidedFaultComplete @ 0x1404270E4 (MiWaitForCollidedFaultComplete.c)
+ *     MiIdealClusterPage @ 0x1404CB218 (MiIdealClusterPage.c)
  * Callees:
- *     MiChargeForLockedPage @ 0x140211B30 (MiChargeForLockedPage.c)
- *     MiLockOwnedProtoPage @ 0x1402158F0 (MiLockOwnedProtoPage.c)
- *     MiAreChargesNeededToLockPage @ 0x14023C190 (MiAreChargesNeededToLockPage.c)
- *     MiLockPageInline @ 0x140291550 (MiLockPageInline.c)
- *     HvlNotifyLongSpinWait @ 0x140293260 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140293290 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     MiLockPageInline @ 0x1402A1150 (MiLockPageInline.c)
+ *     HvlNotifyLongSpinWait @ 0x1402A2E60 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402A2E90 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     MiLockOwnedProtoPage @ 0x1403354A0 (MiLockOwnedProtoPage.c)
+ *     MiChargeForLockedPage @ 0x14033AE90 (MiChargeForLockedPage.c)
+ *     MiAreChargesNeededToLockPage @ 0x140345EF0 (MiAreChargesNeededToLockPage.c)
  */
 
-__int64 __fastcall MiRelockProtoPoolPage(__int64 a1, _BYTE *a2)
+__int64 __fastcall MiRelockProtoPoolPage(__int64 a1, _BYTE *a2, __int64 a3, __int64 a4)
 {
-  unsigned int v2; // edi
-  int v5; // [rsp+30h] [rbp+8h]
+  unsigned int v4; // edi
+  int v7; // [rsp+30h] [rbp+8h]
 
-  v2 = (unsigned int)a2;
+  v4 = (unsigned int)a2;
   if ( a2 )
   {
-    *a2 = MiLockPageInline(a1);
+    *a2 = MiLockPageInline(a1, (__int64)a2, a3, a4);
   }
   else
   {
@@ -29,11 +29,11 @@ __int64 __fastcall MiRelockProtoPoolPage(__int64 a1, _BYTE *a2)
     {
       do
       {
-        if ( (++v2 & HvlLongSpinCountMask) == 0
+        if ( (++v4 & HvlLongSpinCountMask) == 0
           && (HvlEnlightenments & 0x40) != 0
-          && (unsigned __int8)KiCheckVpBackingLongSpinWaitHypercall(a1) )
+          && KiCheckVpBackingLongSpinWaitHypercall() )
         {
-          HvlNotifyLongSpinWait(v2);
+          HvlNotifyLongSpinWait(v4);
         }
         else
         {
@@ -45,9 +45,9 @@ __int64 __fastcall MiRelockProtoPoolPage(__int64 a1, _BYTE *a2)
   }
   if ( !(unsigned int)MiAreChargesNeededToLockPage(a1) || (unsigned int)MiChargeForLockedPage(a1, 1) )
   {
-    v5 = *(_DWORD *)(a1 + 32);
-    LOWORD(v5) = v5 + 1;
-    *(_DWORD *)(a1 + 32) = v5;
+    v7 = *(_DWORD *)(a1 + 32);
+    LOWORD(v7) = v7 + 1;
+    *(_DWORD *)(a1 + 32) = v7;
   }
   MiLockOwnedProtoPage(a1);
   return a1;

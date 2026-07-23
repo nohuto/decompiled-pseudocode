@@ -1,22 +1,22 @@
 /*
- * XREFs of PopPepWork @ 0x1400FF004
+ * XREFs of PopPepWork @ 0x1400FF084
  * Callers:
- *     PopFxPluginWork @ 0x140100670 (PopFxPluginWork.c)
+ *     PopFxPluginWork @ 0x1401006F0 (PopFxPluginWork.c)
  * Callees:
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     EtwEventEnabled @ 0x14005B2D0 (EtwEventEnabled.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14007B720 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     EtwWriteEx @ 0x1400CAD60 (EtwWriteEx.c)
- *     PopPepStartActivity @ 0x1400FF45C (PopPepStartActivity.c)
- *     PopPepGetReadyActivityType @ 0x1400FFE00 (PopPepGetReadyActivityType.c)
- *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x140100200 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
- *     PopDiagTraceFxDefaultPepWorkerEnd @ 0x140100524 (PopDiagTraceFxDefaultPepWorkerEnd.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14007B710 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExfReleasePushLockShared @ 0x1400913F0 (ExfReleasePushLockShared.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC5A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     EtwWriteEx @ 0x1400CAE40 (EtwWriteEx.c)
+ *     PopPepStartActivity @ 0x1400FF4DC (PopPepStartActivity.c)
+ *     PopPepGetReadyActivityType @ 0x1400FFE80 (PopPepGetReadyActivityType.c)
+ *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x140100280 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     PopDiagTraceFxDefaultPepWorkerEnd @ 0x1401005A4 (PopDiagTraceFxDefaultPepWorkerEnd.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 char __fastcall PopPepWork(__int64 a1)

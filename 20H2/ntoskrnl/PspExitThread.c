@@ -82,45 +82,42 @@ __int64 __fastcall PspExitThread(unsigned int a1)
   __int64 v17; // rax
   void *v18; // rcx
   __int16 v19; // ax
-  __int64 v20; // rdx
-  __int64 v21; // r8
-  __int64 v22; // r9
   LIST_ENTRY *p_WaitListHead; // rbx
   struct _KTHREAD *Thread; // rcx
-  _QWORD *v26; // r12
-  _QWORD *v27; // rax
-  _QWORD *v28; // r15
-  struct _DMA_ADAPTER *v29; // rbx
-  void *v30; // rcx
-  int v31; // eax
-  _QWORD *v32; // rbx
+  _QWORD *v23; // r12
+  _QWORD *v24; // rax
+  _QWORD *v25; // r15
+  struct _DMA_ADAPTER *v26; // rbx
+  void *v27; // rcx
+  int v28; // eax
+  _QWORD *v29; // rbx
   struct _KPRCB *CurrentPrcb; // rcx
   _DWORD *SchedulerAssist; // rdx
-  bool v35; // zf
-  struct _LIST_ENTRY *v36; // rbx
-  signed __int32 v37[8]; // [rsp+0h] [rbp-F8h] BYREF
+  bool v32; // zf
+  struct _LIST_ENTRY *v33; // rbx
+  signed __int32 v34[8]; // [rsp+0h] [rbp-F8h] BYREF
   PLARGE_INTEGER Timeout; // [rsp+20h] [rbp-D8h]
   ULONG_PTR RegionSize; // [rsp+30h] [rbp-C8h] BYREF
-  ULONG_PTR v40; // [rsp+38h] [rbp-C0h] BYREF
-  _OWORD v41[2]; // [rsp+40h] [rbp-B8h] BYREF
-  __int128 v42; // [rsp+60h] [rbp-98h]
-  void *v43; // [rsp+70h] [rbp-88h]
+  ULONG_PTR v37; // [rsp+38h] [rbp-C0h] BYREF
+  _OWORD v38[2]; // [rsp+40h] [rbp-B8h] BYREF
+  __int128 v39; // [rsp+60h] [rbp-98h]
+  void *v40; // [rsp+70h] [rbp-88h]
   PVOID BaseAddress; // [rsp+78h] [rbp-80h] BYREF
-  PVOID v45; // [rsp+80h] [rbp-78h] BYREF
+  PVOID v42; // [rsp+80h] [rbp-78h] BYREF
   _KPROCESS *Process; // [rsp+88h] [rbp-70h]
-  struct _KTHREAD *v47; // [rsp+90h] [rbp-68h]
-  __int128 v48; // [rsp+98h] [rbp-60h] BYREF
-  __int128 v49; // [rsp+A8h] [rbp-50h] BYREF
-  char v51; // [rsp+108h] [rbp+10h]
+  struct _KTHREAD *v44; // [rsp+90h] [rbp-68h]
+  __int128 v45; // [rsp+98h] [rbp-60h] BYREF
+  __int128 v46; // [rsp+A8h] [rbp-50h] BYREF
+  char v48; // [rsp+108h] [rbp+10h]
   PMDL MemoryDescriptorList; // [rsp+110h] [rbp+18h] BYREF
   PVOID Object; // [rsp+118h] [rbp+20h]
 
-  memset(v41, 0, sizeof(v41));
-  v42 = 0LL;
-  v49 = 0LL;
-  v48 = 0LL;
+  memset(v38, 0, sizeof(v38));
+  v39 = 0LL;
+  v46 = 0LL;
+  v45 = 0LL;
   CurrentThread = KeGetCurrentThread();
-  v47 = CurrentThread;
+  v44 = CurrentThread;
   Process = CurrentThread->Process;
   v3 = (ULONG_PTR)Process;
   PspClearProcessThreadCidRefs(
@@ -136,9 +133,9 @@ __int64 __fastcall PspExitThread(unsigned int a1)
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      v35 = (SchedulerAssist[5] & 0xFFFF0001) == 0;
+      v32 = (SchedulerAssist[5] & 0xFFFF0001) == 0;
       SchedulerAssist[5] &= 0xFFFF0001;
-      if ( v35 )
+      if ( v32 )
         KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
     }
   }
@@ -163,7 +160,7 @@ __int64 __fastcall PspExitThread(unsigned int a1)
     HalPutDmaAdapter(Blink);
     CurrentThread[1].ApcState.ApcListHead[1].Blink = 0LL;
   }
-  v51 = 0;
+  v48 = 0;
   Object = 0LL;
   CurrentThread[1].Timer.DueTime.LowPart = a1;
   if ( (PerfGlobalGroupMask & 2) != 0 )
@@ -182,7 +179,7 @@ __int64 __fastcall PspExitThread(unsigned int a1)
   {
     _InterlockedOr((volatile signed __int32 *)(v3 + 1124), 0x2000008u);
     KeForceResumeProcess(v3);
-    v51 = 1;
+    v48 = 1;
     if ( *(_DWORD *)(v3 + 2004) == 259 )
     {
       if ( a1 == -1073741749 )
@@ -190,34 +187,34 @@ __int64 __fastcall PspExitThread(unsigned int a1)
       else
         *(_DWORD *)(v3 + 2004) = a1;
     }
-    v26 = *(_QWORD **)(v3 + 1504);
-    if ( v26 != (_QWORD *)(v3 + 1504) )
+    v23 = *(_QWORD **)(v3 + 1504);
+    if ( v23 != (_QWORD *)(v3 + 1504) )
     {
-      v27 = (_QWORD *)(v3 + 1504);
-      v28 = 0LL;
+      v24 = (_QWORD *)(v3 + 1504);
+      v25 = 0LL;
       do
       {
-        if ( v26 - 157 != (_QWORD *)CurrentThread )
+        if ( v23 - 157 != (_QWORD *)CurrentThread )
         {
-          if ( !*((_BYTE *)v26 - 1252) && ObReferenceObjectSafeWithTag((__int64)(v26 - 157)) )
+          if ( !*((_BYTE *)v23 - 1252) && ObReferenceObjectSafeWithTag((__int64)(v23 - 157)) )
           {
             if ( (_InterlockedExchangeAdd64(v9, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
               ExfTryToWakePushLock((volatile signed __int64 *)(v3 + 1080));
             KeAbPostRelease(v3 + 1080);
             KeLeaveCriticalRegionThread((__int64)CurrentThread);
-            KeWaitForSingleObject(v26 - 157, Executive, 0, 0, 0LL);
-            if ( v28 )
-              ObfDereferenceObjectWithTag(v28, 0x65547350u);
-            v28 = v26 - 157;
+            KeWaitForSingleObject(v23 - 157, Executive, 0, 0, 0LL);
+            if ( v25 )
+              ObfDereferenceObjectWithTag(v25, 0x65547350u);
+            v25 = v23 - 157;
             --CurrentThread->KernelApcDisable;
             ExAcquirePushLockExclusiveEx(v3 + 1080, 0LL);
           }
-          v27 = (_QWORD *)(v3 + 1504);
+          v24 = (_QWORD *)(v3 + 1504);
         }
-        v26 = (_QWORD *)*v26;
+        v23 = (_QWORD *)*v23;
       }
-      while ( v26 != v27 );
-      Object = v28;
+      while ( v23 != v24 );
+      Object = v25;
     }
   }
   if ( (_InterlockedExchangeAdd64(v9, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
@@ -229,18 +226,18 @@ __int64 __fastcall PspExitThread(unsigned int a1)
   v10.QuadPart = -3LL;
   if ( CurrentThread[1].WaitBlock[3].WaitListEntry.Blink != (struct _LIST_ENTRY *)-3LL )
   {
-    v36 = PsAttachSiloToCurrentThread((struct _LIST_ENTRY *)0xFFFFFFFFFFFFFFFDLL);
-    if ( v36 == (struct _LIST_ENTRY *)HalSystemVectorDispatchEntry()
-      || (POBJECT_TYPE *)ObTypeIndexTable[(unsigned __int8)ObHeaderCookie ^ LOBYTE(v36[-2].Blink) ^ (unsigned __int64)(unsigned __int8)((unsigned __int16)((_WORD)v36 - 48) >> 8)] != PsJobType
-      || (HIDWORD(v36[82].Blink) & 2) == 0 )
+    v33 = PsAttachSiloToCurrentThread((struct _LIST_ENTRY *)0xFFFFFFFFFFFFFFFDLL);
+    if ( v33 == (struct _LIST_ENTRY *)HalSystemVectorDispatchEntry()
+      || (POBJECT_TYPE *)ObTypeIndexTable[(unsigned __int8)ObHeaderCookie ^ LOBYTE(v33[-2].Blink) ^ (unsigned __int64)(unsigned __int8)((unsigned __int16)((_WORD)v33 - 48) >> 8)] != PsJobType
+      || (HIDWORD(v33[82].Blink) & 2) == 0 )
     {
-      KeBugCheckEx(0x1CBu, (ULONG_PTR)CurrentThread, (ULONG_PTR)v36, v3, 1uLL);
+      KeBugCheckEx(0x1CBu, (ULONG_PTR)CurrentThread, (ULONG_PTR)v33, v3, 1uLL);
     }
-    ObfDereferenceObjectWithTag(v36, 0x6D497350u);
+    ObfDereferenceObjectWithTag(v33, 0x6D497350u);
   }
   if ( *(_QWORD *)(v3 + 1400) && (CurrentThread->MiscFlags & 0x400) == 0 )
   {
-    if ( !v51 )
+    if ( !v48 )
     {
       v11 = a1;
       DbgkExitThread(a1);
@@ -272,7 +269,7 @@ LABEL_23:
       }
     }
   }
-  if ( v51 && (*(_DWORD *)(v3 + 1124) & 0x2000) != 0 )
+  if ( v48 && (*(_DWORD *)(v3 + 1124) & 0x2000) != 0 )
   {
     PsGetProcessServerSilo(v3);
     LODWORD(Timeout) = v11;
@@ -281,34 +278,34 @@ LABEL_23:
   InitialStack = CurrentThread[1].InitialStack;
   if ( InitialStack )
   {
-    *(_QWORD *)&v41[0] = 0x600300008LL;
-    *((_QWORD *)&v42 + 1) = *(_QWORD *)&CurrentThread[1].Header.Lock;
+    *(_QWORD *)&v38[0] = 0x600300008LL;
+    *((_QWORD *)&v39 + 1) = *(_QWORD *)&CurrentThread[1].Header.Lock;
     do
     {
       while ( 1 )
       {
-        v31 = LpcRequestPort(InitialStack[1], (__int64)v41);
-        if ( v31 != -1073741801 && v31 != -1073741670 )
+        v28 = LpcRequestPort(InitialStack[1], (__int64)v38);
+        if ( v28 != -1073741801 && v28 != -1073741670 )
           break;
         KeDelayExecutionThread(0, 0, (PLARGE_INTEGER)&PspShortTime);
       }
       HalPutDmaAdapter((PADAPTER_OBJECT)InitialStack[1]);
-      v32 = (_QWORD *)*InitialStack;
+      v29 = (_QWORD *)*InitialStack;
       ExFreePoolWithTag(InitialStack, 0x70547350u);
-      InitialStack = v32;
+      InitialStack = v29;
     }
-    while ( v32 );
+    while ( v29 );
   }
   if ( (*(_DWORD *)(&CurrentThread[1].SwapListEntry + 1) & 2) != 0 )
   {
     v13 = (struct _DMA_ADAPTER *)PsCaptureExceptionPort(v3);
     if ( v13 )
     {
-      *(_QWORD *)&v41[0] = 0x600300008LL;
-      *((_QWORD *)&v42 + 1) = *(_QWORD *)&CurrentThread[1].Header.Lock;
+      *(_QWORD *)&v38[0] = 0x600300008LL;
+      *((_QWORD *)&v39 + 1) = *(_QWORD *)&CurrentThread[1].Header.Lock;
       while ( 1 )
       {
-        v14 = LpcRequestPort((__int64)v13, (__int64)v41);
+        v14 = LpcRequestPort((__int64)v13, (__int64)v38);
         if ( v14 != -1073741801 && v14 != -1073741670 )
           break;
         KeDelayExecutionThread(0, 0, (PLARGE_INTEGER)&PspShortTime);
@@ -318,15 +315,15 @@ LABEL_23:
   }
   if ( CurrentThread->WaitBlock[2].SparePtr )
   {
-    *(_QWORD *)&v48 = CurrentThread;
-    DWORD2(v48) = 1;
-    PsInvokeWin32Callout(1, (__int64)&v48, 0, 0LL);
+    *(_QWORD *)&v45 = CurrentThread;
+    DWORD2(v45) = 1;
+    PsInvokeWin32Callout(1, (__int64)&v45, 0, 0LL);
   }
-  if ( v51 && *(_QWORD *)(v3 + 1288) )
+  if ( v48 && *(_QWORD *)(v3 + 1288) )
   {
-    *(_QWORD *)&v49 = v3;
-    DWORD2(v49) = 0;
-    PsInvokeWin32Callout(0, (__int64)&v49, 0, 0LL);
+    *(_QWORD *)&v46 = v3;
+    DWORD2(v46) = 0;
+    PsInvokeWin32Callout(0, (__int64)&v46, 0, 0LL);
   }
   if ( (*((_DWORD *)&CurrentThread->0 + 1) & 0x40) == 0 )
     KeBugCheckEx(0x94u, 0LL, (ULONG_PTR)CurrentThread, 0LL, 0LL);
@@ -343,7 +340,7 @@ LABEL_23:
   {
     CurrentThread->Teb = 0LL;
     --CurrentThread->KernelApcDisable;
-    _InterlockedOr(v37, 0);
+    _InterlockedOr(v34, 0);
     if ( ((__int64)CurrentThread[1].WaitBlockList & 1) != 0 )
       ExfAcquireReleasePushLockExclusive((unsigned __int64 *)&CurrentThread[1].WaitBlockList);
     KeLeaveCriticalRegionThread((__int64)CurrentThread);
@@ -351,8 +348,8 @@ LABEL_23:
     {
       if ( (*(_DWORD *)(&CurrentThread[1].SwapListEntry + 1) & 2) != 0 )
       {
-        v43 = *(void **)(Teb + 5240);
-        BaseAddress = v43;
+        v40 = *(void **)(Teb + 5240);
+        BaseAddress = v40;
         RegionSize = 0LL;
         ZwFreeVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, &RegionSize, 0x8000u);
         v17 = *(_QWORD *)(v3 + 1408);
@@ -361,9 +358,9 @@ LABEL_23:
           v19 = *(_WORD *)(v17 + 8);
           if ( v19 == 332 || v19 == 452 )
           {
-            v45 = (PVOID)*(unsigned int *)(Teb + 11788);
-            v40 = 0LL;
-            ZwFreeVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &v45, &v40, 0x8000u);
+            v42 = (PVOID)*(unsigned int *)(Teb + 11788);
+            v37 = 0LL;
+            ZwFreeVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &v42, &v37, 0x8000u);
           }
         }
       }
@@ -377,24 +374,24 @@ LABEL_23:
   }
   p_WaitListHead = &CurrentThread[1].Header.WaitListHead;
   if ( KeQuerySystemTimeUnsafe() )
-    KeQuerySystemTimePrecise((__int64 *)&CurrentThread[1].Header.WaitListHead, v20, v21, v22);
+    KeQuerySystemTimePrecise((LARGE_INTEGER *)&CurrentThread[1].Header.WaitListHead);
   else
     p_WaitListHead->Flink = (struct _LIST_ENTRY *)MEMORY[0xFFFFF78000000014];
-  if ( v51 )
+  if ( v48 )
   {
     *(_QWORD *)(v3 + 2112) = p_WaitListHead->Flink;
     PspExitProcess(1, v3);
-    v29 = (struct _DMA_ADAPTER *)PsReferencePrimaryToken((PEPROCESS)v3);
-    if ( SeAuditingWithTokenForSubcategory(134, (__int64)v29) )
+    v26 = (struct _DMA_ADAPTER *)PsReferencePrimaryToken((PEPROCESS)v3);
+    if ( SeAuditingWithTokenForSubcategory(134, (__int64)v26) )
       SeAuditProcessExit((PEPROCESS)v3);
-    ObFastDereferenceObject((signed __int64 *)(v3 + 1208), v29);
+    ObFastDereferenceObject((signed __int64 *)(v3 + 1208), v26);
     ExWnfExitProcess(v3, 0);
     PspRundownSingleProcess(v3, 1);
     LpcExitProcess(v3);
-    v30 = *(void **)(v3 + 2120);
-    if ( v30 )
+    v27 = *(void **)(v3 + 2120);
+    if ( v27 )
     {
-      ExFreePoolWithTag(v30, 0);
+      ExFreePoolWithTag(v27, 0);
       *(_QWORD *)(v3 + 2120) = 0LL;
     }
   }

@@ -1,15 +1,15 @@
 /*
- * XREFs of MiAllocateAweInfo @ 0x140877584
+ * XREFs of MiAllocateAweInfo @ 0x14087D964
  * Callers:
- *     MiCreateProcessDefaultAweInfo @ 0x1408789FC (MiCreateProcessDefaultAweInfo.c)
- *     MiCreatePagingFileControlArea @ 0x1409B8144 (MiCreatePagingFileControlArea.c)
+ *     MiCreateProcessDefaultAweInfo @ 0x14087EDDC (MiCreateProcessDefaultAweInfo.c)
+ *     MiCreatePagingFileControlArea @ 0x140989124 (MiCreatePagingFileControlArea.c)
  * Callees:
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     MmGetCurrentProcessorColor @ 0x14044ADC0 (MmGetCurrentProcessorColor.c)
- *     ExInitializeAutoExpandPushLock @ 0x1404749C0 (ExInitializeAutoExpandPushLock.c)
- *     MiWriteControlAreaFlags2 @ 0x1404B65F0 (MiWriteControlAreaFlags2.c)
- *     MiCreateAweInfoBitMap @ 0x140878888 (MiCreateAweInfoBitMap.c)
- *     MiDeleteAweInfo @ 0x140878E84 (MiDeleteAweInfo.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     MmGetCurrentProcessorColor @ 0x140442EF0 (MmGetCurrentProcessorColor.c)
+ *     ExInitializeAutoExpandPushLock @ 0x14046E140 (ExInitializeAutoExpandPushLock.c)
+ *     MiWriteControlAreaFlags2 @ 0x1404AFA40 (MiWriteControlAreaFlags2.c)
+ *     MiCreateAweInfoBitMap @ 0x14087EC68 (MiCreateAweInfoBitMap.c)
+ *     MiDeleteAweInfo @ 0x14087F264 (MiDeleteAweInfo.c)
  */
 
 __int64 __fastcall MiAllocateAweInfo(__int64 a1, int a2, char a3, __int64 *a4)

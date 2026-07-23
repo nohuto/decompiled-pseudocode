@@ -1,16 +1,16 @@
 /*
- * XREFs of PopSystemIdleWorker @ 0x1408F1100
+ * XREFs of PopSystemIdleWorker @ 0x1408F1260
  * Callers:
- *     PopPolicyWorkerThread @ 0x1402C4F30 (PopPolicyWorkerThread.c)
+ *     PopPolicyWorkerThread @ 0x1402434B0 (PopPolicyWorkerThread.c)
  * Callees:
- *     PopReleaseRwLock @ 0x14027C284 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x140281AD4 (PopAcquireRwLockExclusive.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     PopUpdateLastUserInputTime @ 0x1407815C0 (PopUpdateLastUserInputTime.c)
- *     PopPulseSystemIdleEvent @ 0x14078E950 (PopPulseSystemIdleEvent.c)
- *     PopIdleDetection @ 0x1408E4250 (PopIdleDetection.c)
- *     PopExecuteSystemIdleAction @ 0x1408F0DF4 (PopExecuteSystemIdleAction.c)
- *     PopIsSystemIdle @ 0x1408F0F04 (PopIsSystemIdle.c)
+ *     PopReleaseRwLock @ 0x14026A224 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14026FD14 (PopAcquireRwLockExclusive.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     PopUpdateLastUserInputTime @ 0x140781780 (PopUpdateLastUserInputTime.c)
+ *     PopPulseSystemIdleEvent @ 0x14078EB10 (PopPulseSystemIdleEvent.c)
+ *     PopIdleDetection @ 0x1408E43B0 (PopIdleDetection.c)
+ *     PopExecuteSystemIdleAction @ 0x1408F0F54 (PopExecuteSystemIdleAction.c)
+ *     PopIsSystemIdle @ 0x1408F1064 (PopIsSystemIdle.c)
  */
 
 __int64 PopSystemIdleWorker()

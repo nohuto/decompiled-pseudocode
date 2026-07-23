@@ -1,50 +1,48 @@
 /*
- * XREFs of IommuFinalizeDeviceReset @ 0x140563DC0
+ * XREFs of IommuFinalizeDeviceReset @ 0x1405619F0
  * Callers:
  *     <none>
  * Callees:
- *     KxAcquireSpinLock @ 0x140254AE0 (KxAcquireSpinLock.c)
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KxReleaseSpinLock @ 0x140279CC0 (KxReleaseSpinLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     KxReleaseSpinLock @ 0x14022F250 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x1402850F0 (KxAcquireSpinLock.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall IommuFinalizeDeviceReset(__int64 a1)
 {
   KSPIN_LOCK *v1; // rbp
-  char v3; // r14
-  _QWORD *v4; // rsi
-  volatile signed __int32 *v5; // rbx
-  _QWORD *v6; // rax
-  __int64 v7; // r9
-  _QWORD *v8; // rdi
+  char v2; // r14
+  _QWORD *v3; // rsi
+  volatile signed __int32 *v4; // rbx
+  char *v5; // rax
+  char *v6; // rdi
   unsigned __int8 CurrentIrql; // r12
   KSPIN_LOCK i; // rdi
-  KSPIN_LOCK *v11; // r8
-  __int64 v12; // r9
-  unsigned int v13; // edx
-  __int64 v14; // r9
+  KSPIN_LOCK *v9; // r8
+  __int64 v10; // r9
+  unsigned int v11; // edx
 
   v1 = *(KSPIN_LOCK **)(a1 + 96);
-  v3 = 0;
-  v4 = (_QWORD *)v1[3];
+  v2 = 0;
+  v3 = (_QWORD *)v1[3];
   if ( HalpHvIommu )
     return 3221225659LL;
-  v5 = (volatile signed __int32 *)(v4 + 50);
-  if ( !v4[41] || !v4[42] )
+  v4 = (volatile signed __int32 *)(v3 + 50);
+  if ( !v3[41] || !v3[42] )
     return 3221225659LL;
-  v6 = KeAbPreAcquire((__int64)(v4 + 50), 0LL);
-  v8 = v6;
-  if ( _interlockedbittestandset64(v5, 0LL) )
-    ExfAcquirePushLockExclusiveEx(v4 + 50, (__int64)v6, (__int64)(v4 + 50));
-  if ( v8 )
-    *((_BYTE *)v8 + 10) = 1;
-  guard_dispatch_icall_no_overrides(v4[2], v1[5], *(unsigned int *)(a1 + 60), v7);
+  v5 = (char *)KeAbPreAcquire((__int64)(v3 + 50), 0LL);
+  v6 = v5;
+  if ( _interlockedbittestandset64(v4, 0LL) )
+    ExfAcquirePushLockExclusiveEx(v3 + 50, v5, (__int64)(v3 + 50));
+  if ( v6 )
+    v6[10] = 1;
+  guard_dispatch_icall_no_overrides(v3[2], v1[5]);
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(0xFuLL);
   if ( KiIrqlFlags )
@@ -55,29 +53,29 @@ __int64 __fastcall IommuFinalizeDeviceReset(__int64 a1)
     if ( *(_BYTE *)(i + 40) )
     {
       *(_BYTE *)(i + 40) = 0;
-      v3 = 1;
-      KxAcquireSpinLock(v4 + 51);
-      v11 = v1 + 11;
-      v12 = 512LL;
+      v2 = 1;
+      KxAcquireSpinLock(v3 + 51);
+      v9 = v1 + 11;
+      v10 = 512LL;
       do
       {
-        v13 = *((_DWORD *)v11 + 1);
-        if ( (v13 & 1) != 0 && ((v13 >> 1) & 0xFFFFF) == *(_DWORD *)(*(_QWORD *)(i + 32) + 16LL) )
-          *v11 = 0LL;
-        ++v11;
-        --v12;
+        v11 = *((_DWORD *)v9 + 1);
+        if ( (v11 & 1) != 0 && ((v11 >> 1) & 0xFFFFF) == *(_DWORD *)(*(_QWORD *)(i + 32) + 16LL) )
+          *v9 = 0LL;
+        ++v9;
+        --v10;
       }
-      while ( v12 );
-      KxReleaseSpinLock(v4 + 51);
-      guard_dispatch_icall_no_overrides(v4[2], v1[5], *(unsigned int *)(*(_QWORD *)(i + 32) + 16LL), v14);
+      while ( v10 );
+      KxReleaseSpinLock(v3 + 51);
+      guard_dispatch_icall_no_overrides(v3[2], v1[5]);
     }
   }
   KxReleaseSpinLock((volatile signed __int64 *)v1 + 2);
   if ( KiIrqlFlags )
     KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), CurrentIrql);
   __writecr8(CurrentIrql);
-  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)v5, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock(v4 + 50);
-  KeAbPostRelease((ULONG_PTR)(v4 + 50));
-  return v3 == 0 ? 0xC0000225 : 0;
+  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)v4, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    ExfTryToWakePushLock(v3 + 50);
+  KeAbPostRelease((ULONG_PTR)(v3 + 50));
+  return v2 == 0 ? 0xC0000225 : 0;
 }

@@ -1,20 +1,20 @@
 /*
- * XREFs of EtwpAcquireLoggerContext @ 0x14091EE28
+ * XREFs of EtwpAcquireLoggerContext @ 0x140979888
  * Callers:
- *     EtwpTransitionToRealtime @ 0x14052ECDC (EtwpTransitionToRealtime.c)
- *     EtwpIncrementTraceFile @ 0x14077B460 (EtwpIncrementTraceFile.c)
- *     EtwpQueryTrace @ 0x14091F240 (EtwpQueryTrace.c)
- *     EtwpUpdateTrace @ 0x140A6C6F0 (EtwpUpdateTrace.c)
- *     EtwpStopTrace @ 0x140A6F2F8 (EtwpStopTrace.c)
- *     EtwpFlushTrace @ 0x140A6F6CC (EtwpFlushTrace.c)
+ *     EtwpTransitionToRealtime @ 0x1405311FC (EtwpTransitionToRealtime.c)
+ *     EtwpIncrementTraceFile @ 0x14077E0A0 (EtwpIncrementTraceFile.c)
+ *     EtwpQueryTrace @ 0x140979CA0 (EtwpQueryTrace.c)
+ *     EtwpUpdateTrace @ 0x140AB081C (EtwpUpdateTrace.c)
+ *     EtwpStopTrace @ 0x140AB2D10 (EtwpStopTrace.c)
+ *     EtwpFlushTrace @ 0x140AB2FD0 (EtwpFlushTrace.c)
  * Callees:
- *     ExReleaseRundownProtectionCacheAwareEx @ 0x140257080 (ExReleaseRundownProtectionCacheAwareEx.c)
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     KeReleaseMutex @ 0x1403DD0F0 (KeReleaseMutex.c)
- *     EtwpAcquireLoggerContextByLoggerId @ 0x14091EFC0 (EtwpAcquireLoggerContextByLoggerId.c)
- *     RtlEqualUnicodeString @ 0x14091F0E0 (RtlEqualUnicodeString.c)
- *     EtwpCaptureString @ 0x140A70314 (EtwpCaptureString.c)
- *     ExFreePool @ 0x140C10E30 (ExFreePool.c)
+ *     ExReleaseRundownProtectionCacheAwareEx @ 0x140258A10 (ExReleaseRundownProtectionCacheAwareEx.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     KeReleaseMutex @ 0x1403E02E0 (KeReleaseMutex.c)
+ *     EtwpAcquireLoggerContextByLoggerId @ 0x140979A20 (EtwpAcquireLoggerContextByLoggerId.c)
+ *     RtlEqualUnicodeString @ 0x140979B40 (RtlEqualUnicodeString.c)
+ *     EtwpCaptureString @ 0x14097A9F8 (EtwpCaptureString.c)
+ *     ExFreePool @ 0x140C16E30 (ExFreePool.c)
  */
 
 __int64 __fastcall EtwpAcquireLoggerContext(__int64 a1, __int64 a2, __int64 *a3)
@@ -32,10 +32,10 @@ __int64 __fastcall EtwpAcquireLoggerContext(__int64 a1, __int64 a2, __int64 *a3)
 
   v5 = 0xFFFFFFFFLL;
   v7 = 0xFFFFFFFFLL;
-  v8 = *(_QWORD *)(a2 + 24) - SystemTraceControlGuid;
+  v8 = *(_QWORD *)(a2 + 24) - *(_QWORD *)&SystemTraceControlGuid.Data1;
   *a3 = 0LL;
   if ( !v8 )
-    v8 = *(_QWORD *)(a2 + 32) - 0x3969A8086000829ALL;
+    v8 = *(_QWORD *)(a2 + 32) - *(_QWORD *)SystemTraceControlGuid.Data4;
   if ( !v8 )
     v7 = *(unsigned __int8 *)(a1 + 4504);
   if ( (_DWORD)v7 == *(unsigned __int8 *)(a1 + 4504) || !*(_WORD *)(a2 + 144) )

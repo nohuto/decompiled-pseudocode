@@ -1,7 +1,7 @@
 /*
- * XREFs of KiSizeOfCpuPartitionLogPerProcessorBuffer @ 0x1405F47F8
+ * XREFs of KiSizeOfCpuPartitionLogPerProcessorBuffer @ 0x1405F71B8
  * Callers:
- *     KiTraceCpuPartitionRundown @ 0x1407BB200 (KiTraceCpuPartitionRundown.c)
+ *     KiTraceCpuPartitionRundown @ 0x1407BE260 (KiTraceCpuPartitionRundown.c)
  * Callees:
  *     <none>
  */

@@ -1,14 +1,14 @@
 /*
- * XREFs of VfUtilIsLocalSystem @ 0x140B83404
+ * XREFs of VfUtilIsLocalSystem @ 0x140B85404
  * Callers:
- *     VfRlrsKeInjectStatusAlerted @ 0x140B9F704 (VfRlrsKeInjectStatusAlerted.c)
- *     VfCheckUserHandle @ 0x140BA9228 (VfCheckUserHandle.c)
+ *     VfRlrsKeInjectStatusAlerted @ 0x140BA1704 (VfRlrsKeInjectStatusAlerted.c)
+ *     VfCheckUserHandle @ 0x140BAB228 (VfCheckUserHandle.c)
  * Callees:
- *     SeAccessCheck @ 0x14035A5B0 (SeAccessCheck.c)
- *     SeCaptureSubjectContextEx @ 0x14083FC40 (SeCaptureSubjectContextEx.c)
- *     SeReleaseSubjectContext @ 0x14084D7E0 (SeReleaseSubjectContext.c)
- *     IoGetFileObjectGenericMapping @ 0x1409FFFA0 (IoGetFileObjectGenericMapping.c)
- *     ViInitializeLocalSystemDescriptor @ 0x140B83708 (ViInitializeLocalSystemDescriptor.c)
+ *     SeAccessCheck @ 0x1403B6900 (SeAccessCheck.c)
+ *     SeCaptureSubjectContextEx @ 0x14083BF00 (SeCaptureSubjectContextEx.c)
+ *     SeReleaseSubjectContext @ 0x140849AA0 (SeReleaseSubjectContext.c)
+ *     IoGetFileObjectGenericMapping @ 0x1409F9190 (IoGetFileObjectGenericMapping.c)
+ *     ViInitializeLocalSystemDescriptor @ 0x140B85708 (ViInitializeLocalSystemDescriptor.c)
  */
 
 __int64 __fastcall VfUtilIsLocalSystem(PEPROCESS Process)

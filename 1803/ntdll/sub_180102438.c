@@ -8,9 +8,9 @@
  *     __security_check_cookie @ 0x18008B0F0 (__security_check_cookie.c)
  */
 
-__int64 __fastcall sub_180102438(int a1, __int64 a2, __int64 a3, __int64 a4)
+ULONG __fastcall sub_180102438(int a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  __int64 result; // rax
+  ULONG result; // eax
   int v5; // [rsp+30h] [rbp-29h] BYREF
   __int64 v6; // [rsp+38h] [rbp-21h] BYREF
   _QWORD v7[2]; // [rsp+40h] [rbp-19h] BYREF
@@ -36,7 +36,13 @@ __int64 __fastcall sub_180102438(int a1, __int64 a2, __int64 a3, __int64 a4)
         v12 = 8LL;
         v13 = &v5;
         v14 = 4LL;
-        return sub_1800886A4((__int64)&dword_180156650, byte_180123C30, a3, a4, 5, (__int64)v8);
+        return sub_1800886A4(
+                 (__int64)&dword_180156650,
+                 (unsigned __int8 *)dword_180123C30,
+                 a3,
+                 a4,
+                 5u,
+                 (PEVENT_DATA_DESCRIPTOR)v8);
       }
       break;
     case 0x2000:
@@ -51,7 +57,13 @@ __int64 __fastcall sub_180102438(int a1, __int64 a2, __int64 a3, __int64 a4)
         v12 = 8LL;
         v13 = &v5;
         v14 = 4LL;
-        return sub_1800886A4((__int64)&dword_180156650, byte_180123BD5, a3, a4, 5, (__int64)v8);
+        return sub_1800886A4(
+                 (__int64)&dword_180156650,
+                 (unsigned __int8 *)dword_180123BD5,
+                 a3,
+                 a4,
+                 5u,
+                 (PEVENT_DATA_DESCRIPTOR)v8);
       }
       break;
     case 0x4000:
@@ -66,7 +78,13 @@ __int64 __fastcall sub_180102438(int a1, __int64 a2, __int64 a3, __int64 a4)
         v12 = 8LL;
         v13 = &v5;
         v14 = 4LL;
-        return sub_1800886A4((__int64)&dword_180156650, byte_180123CF4, a3, a4, 5, (__int64)v8);
+        return sub_1800886A4(
+                 (__int64)&dword_180156650,
+                 (unsigned __int8 *)dword_180123CF4,
+                 a3,
+                 a4,
+                 5u,
+                 (PEVENT_DATA_DESCRIPTOR)v8);
       }
       break;
     default:
@@ -81,7 +99,13 @@ __int64 __fastcall sub_180102438(int a1, __int64 a2, __int64 a3, __int64 a4)
         v12 = 8LL;
         v13 = &v5;
         v14 = 4LL;
-        return sub_1800886A4((__int64)&dword_180156650, byte_180123B9F, a3, a4, 5, (__int64)v8);
+        return sub_1800886A4(
+                 (__int64)&dword_180156650,
+                 (unsigned __int8 *)dword_180123B9F,
+                 a3,
+                 a4,
+                 5u,
+                 (PEVENT_DATA_DESCRIPTOR)v8);
       }
       break;
   }

@@ -1,20 +1,20 @@
 /*
- * XREFs of CmpSubtreeEnumeratorAdvance @ 0x14091678C
+ * XREFs of CmpSubtreeEnumeratorAdvance @ 0x14090A1FC
  * Callers:
- *     CmRenameKey @ 0x1407D9068 (CmRenameKey.c)
- *     CmpPromoteSubtree @ 0x140914928 (CmpPromoteSubtree.c)
- *     CmpDoAccessCheckOnLayeredSubtree @ 0x140915678 (CmpDoAccessCheckOnLayeredSubtree.c)
+ *     CmRenameKey @ 0x1407D95B8 (CmRenameKey.c)
+ *     CmpPromoteSubtree @ 0x140908398 (CmpPromoteSubtree.c)
+ *     CmpDoAccessCheckOnLayeredSubtree @ 0x1409090E8 (CmpDoAccessCheckOnLayeredSubtree.c)
  * Callees:
- *     CmpHashCompressedComponent @ 0x140843510 (CmpHashCompressedComponent.c)
- *     CmpHashUnicodeComponent @ 0x1408733F0 (CmpHashUnicodeComponent.c)
- *     CmpKeyEnumStackReset @ 0x140916688 (CmpKeyEnumStackReset.c)
- *     CmpKeyEnumStackAdvance @ 0x140916888 (CmpKeyEnumStackAdvance.c)
- *     CmpKeyEnumStackBeginEnumerationForKeyNodeStack @ 0x140916914 (CmpKeyEnumStackBeginEnumerationForKeyNodeStack.c)
- *     CmpKeyNodeStackGetEntryAtLayerHeight @ 0x140916CB8 (CmpKeyNodeStackGetEntryAtLayerHeight.c)
- *     CmpGetKcbAtLayerHeight @ 0x140918910 (CmpGetKcbAtLayerHeight.c)
- *     CmpFindKcbInHashEntryByName @ 0x140950A10 (CmpFindKcbInHashEntryByName.c)
- *     CmpPopulateKcbStack @ 0x1409884F0 (CmpPopulateKcbStack.c)
- *     CmpFindKcbInHashEntryByCompressedName @ 0x140AA463C (CmpFindKcbInHashEntryByCompressedName.c)
+ *     CmpHashCompressedComponent @ 0x14083F7D0 (CmpHashCompressedComponent.c)
+ *     CmpHashUnicodeComponent @ 0x140877720 (CmpHashUnicodeComponent.c)
+ *     CmpKeyEnumStackReset @ 0x14090A0F8 (CmpKeyEnumStackReset.c)
+ *     CmpKeyEnumStackAdvance @ 0x14090A2F8 (CmpKeyEnumStackAdvance.c)
+ *     CmpKeyEnumStackBeginEnumerationForKeyNodeStack @ 0x14090A384 (CmpKeyEnumStackBeginEnumerationForKeyNodeStack.c)
+ *     CmpKeyNodeStackGetEntryAtLayerHeight @ 0x14090A728 (CmpKeyNodeStackGetEntryAtLayerHeight.c)
+ *     CmpGetKcbAtLayerHeight @ 0x14090C380 (CmpGetKcbAtLayerHeight.c)
+ *     CmpFindKcbInHashEntryByName @ 0x140940C90 (CmpFindKcbInHashEntryByName.c)
+ *     CmpPopulateKcbStack @ 0x140970CD0 (CmpPopulateKcbStack.c)
+ *     CmpFindKcbInHashEntryByCompressedName @ 0x140A9F9CC (CmpFindKcbInHashEntryByCompressedName.c)
  */
 
 __int64 __fastcall CmpSubtreeEnumeratorAdvance(__int16 *a1)

@@ -1,10 +1,10 @@
 /*
- * XREFs of UpcaseUnicodeToSingleByteNHelper @ 0x140206A40
+ * XREFs of UpcaseUnicodeToSingleByteNHelper @ 0x1402AB370
  * Callers:
- *     RtlUpcaseUnicodeToMultiByteN @ 0x1405EDF40 (RtlUpcaseUnicodeToMultiByteN.c)
- *     RtlUpcaseUnicodeToOemN @ 0x140694BE0 (RtlUpcaseUnicodeToOemN.c)
+ *     RtlUpcaseUnicodeToOemN @ 0x1405F4130 (RtlUpcaseUnicodeToOemN.c)
+ *     RtlUpcaseUnicodeToMultiByteN @ 0x1406DD6A0 (RtlUpcaseUnicodeToMultiByteN.c)
  * Callees:
- *     NLS_UPCASE @ 0x140206AF0 (NLS_UPCASE.c)
+ *     NLS_UPCASE @ 0x1402AB420 (NLS_UPCASE.c)
  */
 
 __int64 __fastcall UpcaseUnicodeToSingleByteNHelper(

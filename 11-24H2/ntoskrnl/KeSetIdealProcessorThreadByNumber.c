@@ -1,18 +1,15 @@
 /*
- * XREFs of KeSetIdealProcessorThreadByNumber @ 0x1403B4160
+ * XREFs of KeSetIdealProcessorThreadByNumber @ 0x140370880
  * Callers:
- *     NtSetInformationThread @ 0x140911410 (NtSetInformationThread.c)
- *     NtQueryInformationThread @ 0x1409A7C80 (NtQueryInformationThread.c)
+ *     NtSetInformationThread @ 0x1408E8B60 (NtSetInformationThread.c)
+ *     NtQueryInformationThread @ 0x1409910D0 (NtQueryInformationThread.c)
  * Callees:
- *     KeGetProcessorIndexFromNumber @ 0x140352BB0 (KeGetProcessorIndexFromNumber.c)
- *     KeGetProcessorNumberFromIndex @ 0x1403B41E0 (KeGetProcessorNumberFromIndex.c)
- *     KeSetIdealProcessorThreadEx @ 0x1403B422C (KeSetIdealProcessorThreadEx.c)
+ *     KeGetProcessorIndexFromNumber @ 0x140370440 (KeGetProcessorIndexFromNumber.c)
+ *     KeGetProcessorNumberFromIndex @ 0x140370900 (KeGetProcessorNumberFromIndex.c)
+ *     KeSetIdealProcessorThreadEx @ 0x140370A64 (KeSetIdealProcessorThreadEx.c)
  */
 
-__int64 __fastcall KeSetIdealProcessorThreadByNumber(
-        struct _KTHREAD *a1,
-        struct _PROCESSOR_NUMBER *a2,
-        struct _PROCESSOR_NUMBER *a3)
+__int64 __fastcall KeSetIdealProcessorThreadByNumber(struct _KTHREAD *a1, _PROCESSOR_NUMBER *a2, _PROCESSOR_NUMBER *a3)
 {
   ULONG ProcessorIndexFromNumber; // eax
   unsigned int v6; // edi

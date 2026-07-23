@@ -1,11 +1,11 @@
 /*
- * XREFs of MiUnlockSystemCacheInit @ 0x14050DB28
+ * XREFs of MiUnlockSystemCacheInit @ 0x140507598
  * Callers:
- *     MiObtainSystemCacheView @ 0x1402E4B60 (MiObtainSystemCacheView.c)
+ *     MiObtainSystemCacheView @ 0x1402C6BA0 (MiObtainSystemCacheView.c)
  * Callees:
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     KiCheckForKernelApcDelivery @ 0x14027DB80 (KiCheckForKernelApcDelivery.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x14027D0F0 (KiCheckForKernelApcDelivery.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
  */
 
 void __fastcall MiUnlockSystemCacheInit(__int64 a1, __int64 a2)

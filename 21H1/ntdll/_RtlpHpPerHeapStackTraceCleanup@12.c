@@ -9,7 +9,7 @@
  *     _RtlStackDbStackRemove@8 @ 0x4B38A807 (_RtlStackDbStackRemove@8.c)
  */
 
-int __fastcall RtlpHpPerHeapStackTraceCleanup(volatile signed __int32 *a1, int a2, int a3)
+int __fastcall RtlpHpPerHeapStackTraceCleanup(PRTL_RUN_ONCE RunOnce, int a2, int a3)
 {
   int result; // eax
   _DWORD *v4; // edi
@@ -19,17 +19,17 @@ int __fastcall RtlpHpPerHeapStackTraceCleanup(volatile signed __int32 *a1, int a
   _DWORD *v8; // ebx
   _DWORD *j; // ecx
   _DWORD *i; // [esp+10h] [ebp-10h]
-  _DWORD *v11; // [esp+14h] [ebp-Ch] BYREF
+  PVOID Context; // [esp+14h] [ebp-Ch] BYREF
   int v12; // [esp+18h] [ebp-8h]
-  volatile signed __int32 *v13; // [esp+1Ch] [ebp-4h]
+  PRTL_RUN_ONCE v13; // [esp+1Ch] [ebp-4h]
 
   v12 = a2;
-  v13 = a1;
-  result = RtlRunOnceBeginInitialize(a1, 1, (unsigned __int32 *)&v11);
+  v13 = RunOnce;
+  result = RtlRunOnceBeginInitialize(RunOnce, 1u, &Context);
   if ( result >= 0 )
   {
-    v4 = v11;
-    v5 = (_DWORD *)v11[4];
+    v4 = Context;
+    v5 = (_DWORD *)*((_DWORD *)Context + 4);
     v6 = v5;
     for ( i = v5; ; v5 = i )
     {
@@ -87,7 +87,7 @@ LABEL_21:
       RtlStackDbStackRemove(&dword_4B3A6838, v8[2]);
       RtlpHpMetadataFree(RtlpHpEnvHandle, dword_4B3A446C);
     }
-    if ( v11[4] )
+    if ( *((_DWORD *)Context + 4) )
       result = RtlpHpMetadataFree(RtlpHpEnvHandle, dword_4B3A446C);
     if ( v12 )
     {
@@ -101,7 +101,7 @@ LABEL_21:
       if ( a3 )
       {
         result = (int)v13;
-        *v13 = 0;
+        v13->Value = 0;
       }
     }
   }

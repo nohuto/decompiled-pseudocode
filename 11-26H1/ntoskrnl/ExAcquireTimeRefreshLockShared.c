@@ -1,14 +1,14 @@
 /*
- * XREFs of ExAcquireTimeRefreshLockShared @ 0x140A8BDD0
+ * XREFs of ExAcquireTimeRefreshLockShared @ 0x140A910A0
  * Callers:
- *     ExTraceTimerResolution @ 0x1404EA784 (ExTraceTimerResolution.c)
- *     ExpSetTimeZoneInformation @ 0x14083337C (ExpSetTimeZoneInformation.c)
- *     PopPolicyTimeChange @ 0x140A8BD80 (PopPolicyTimeChange.c)
- *     ExpQuerySystemInformation @ 0x140B145DC (ExpQuerySystemInformation.c)
+ *     ExTraceTimerResolution @ 0x1404E3B34 (ExTraceTimerResolution.c)
+ *     ExpSetTimeZoneInformation @ 0x1408395BC (ExpSetTimeZoneInformation.c)
+ *     PopPolicyTimeChange @ 0x140A91050 (PopPolicyTimeChange.c)
+ *     ExpQuerySystemInformation @ 0x140B169CC (ExpQuerySystemInformation.c)
  * Callees:
- *     ExfAcquirePushLockSharedEx @ 0x140277CC0 (ExfAcquirePushLockSharedEx.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     ExfAcquirePushLockSharedEx @ 0x140277230 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
  */
 
 void __fastcall ExAcquireTimeRefreshLockShared(__int64 a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
@@ -19,14 +19,14 @@ void __fastcall ExAcquireTimeRefreshLockShared(__int64 a1, __int64 a2, __int64 a
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  v5 = (LegacyAutoBoost *)KeAbPreAcquire((__int64)&ExpSysDbgLock.ApcStateFill[40], 0LL, 0LL, a4);
+  v5 = (LegacyAutoBoost *)KeAbPreAcquire((__int64)&ExpSysDbgLock.WaitBlockFill11[112], 0LL, 0LL, a4);
   v6 = 17LL;
-  if ( _InterlockedCompareExchange64((volatile signed __int64 *)&ExpSysDbgLock.ApcStateFill[40], 17LL, 0LL) )
+  if ( _InterlockedCompareExchange64((volatile signed __int64 *)&ExpSysDbgLock.WaitBlockFill11[112], 17LL, 0LL) )
     ExfAcquirePushLockSharedEx(
-      (signed __int64 *)&ExpSysDbgLock.ApcStateFill[40],
+      (signed __int64 *)&ExpSysDbgLock.WaitBlockFill11[112],
       0,
       v5,
-      (struct _KTHREAD *)&ExpSysDbgLock.ApcStateFill[40]);
+      (struct _KTHREAD *)&ExpSysDbgLock.WaitBlockFill11[112]);
   if ( v5 )
   {
     if ( (KiAbpGlobalState & 1) != 0 )

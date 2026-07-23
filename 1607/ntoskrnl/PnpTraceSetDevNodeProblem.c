@@ -1,11 +1,11 @@
 /*
- * XREFs of PnpTraceSetDevNodeProblem @ 0x1404C5CB4
+ * XREFs of PnpTraceSetDevNodeProblem @ 0x140484348
  * Callers:
- *     PipSetDevNodeProblem @ 0x1404C5BDC (PipSetDevNodeProblem.c)
+ *     PipSetDevNodeProblem @ 0x140484270 (PipSetDevNodeProblem.c)
  * Callees:
- *     _TlgKeywordOn @ 0x140088D98 (_TlgKeywordOn.c)
- *     _TlgWriteAgg @ 0x14009EE88 (_TlgWriteAgg.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     _TlgWriteAgg @ 0x14008517C (_TlgWriteAgg.c)
+ *     _TlgKeywordOn @ 0x14010CF88 (_TlgKeywordOn.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 void __fastcall PnpTraceSetDevNodeProblem(__int64 a1, __int64 a2, int a3, __int64 a4, int a5, int a6)
@@ -67,7 +67,7 @@ void __fastcall PnpTraceSetDevNodeProblem(__int64 a1, __int64 a2, int a3, __int6
       v29 = 4LL;
       v31 = 4LL;
       v33 = 4LL;
-      TlgWriteAgg((__int64)&stru_1402F3230, (unsigned __int8 *)dword_14027BEF1, 0LL, v7, 0xBu, &v15);
+      TlgWriteAgg((__int64)&stru_1402F3230, (unsigned __int8 *)dword_14027BFF1, 0LL, v7, 0xBu, &v15);
     }
   }
 }

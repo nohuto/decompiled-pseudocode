@@ -19,11 +19,15 @@
  *     <none>
  */
 
-__int64 NtSetInformationWorkerFactory()
+NTSTATUS __cdecl NtSetInformationWorkerFactory(
+        HANDLE WorkerFactoryHandle,
+        WORKERFACTORYINFOCLASS WorkerFactoryInformationClass,
+        PVOID WorkerFactoryInformation,
+        ULONG WorkerFactoryInformationLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 387LL;
+  result = 387;
   __asm { syscall; Low latency system call }
   return result;
 }

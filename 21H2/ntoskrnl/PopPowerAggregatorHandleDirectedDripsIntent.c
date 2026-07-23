@@ -1,7 +1,7 @@
 /*
- * XREFs of PopPowerAggregatorHandleDirectedDripsIntent @ 0x1408EE2D0
+ * XREFs of PopPowerAggregatorHandleDirectedDripsIntent @ 0x1408EE430
  * Callers:
- *     PopPowerAggregatorHandleIntentUnsafe @ 0x140775E14 (PopPowerAggregatorHandleIntentUnsafe.c)
+ *     PopPowerAggregatorHandleIntentUnsafe @ 0x140775FD4 (PopPowerAggregatorHandleIntentUnsafe.c)
  * Callees:
  *     <none>
  */

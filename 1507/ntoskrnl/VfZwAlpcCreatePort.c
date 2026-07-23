@@ -8,15 +8,15 @@
  *     ViZwShouldCheck @ 0x14075882C (ViZwShouldCheck.c)
  */
 
-__int64 __fastcall VfZwAlpcCreatePort(__int64 a1, __int64 a2, __int64 a3)
+NTSTATUS __fastcall VfZwAlpcCreatePort(HANDLE *a1, POBJECT_ATTRIBUTES ObjectAttributes, _ALPC_PORT_ATTRIBUTES *a3)
 {
   void *retaddr; // [rsp+28h] [rbp+0h]
 
   if ( (unsigned int)ViZwShouldCheck() )
   {
-    ViZwCheckVirtualAddress(a1, (int)retaddr);
-    ViZwCheckVirtualAddress(a3, (int)retaddr);
-    ViZwCheckObjectAttributes(a2, retaddr);
+    ViZwCheckVirtualAddress((int)a1, (int)retaddr);
+    ViZwCheckVirtualAddress((int)a3, (int)retaddr);
+    ViZwCheckObjectAttributes(ObjectAttributes, retaddr);
   }
-  return pXdvZwAlpcCreatePort(a1, a2, a3);
+  return pXdvZwAlpcCreatePort(a1, ObjectAttributes, a3);
 }

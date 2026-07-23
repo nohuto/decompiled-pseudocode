@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpMuiRegGetOrAddStringToPool @ 0x180043E7C
+ * XREFs of RtlpMuiRegGetOrAddStringToPool @ 0x180043E6C
  * Callers:
- *     RtlpMuiRegGetOrAddString @ 0x180040D0C (RtlpMuiRegGetOrAddString.c)
- *     LdrpLangFallbackListFindNode @ 0x180043CE0 (LdrpLangFallbackListFindNode.c)
+ *     RtlpMuiRegGetOrAddString @ 0x180040CFC (RtlpMuiRegGetOrAddString.c)
+ *     LdrpLangFallbackListFindNode @ 0x180043CD0 (LdrpLangFallbackListFindNode.c)
  * Callees:
- *     _wcsicmp @ 0x180098360 (_wcsicmp.c)
+ *     _wcsicmp @ 0x180098350 (_wcsicmp.c)
  *     memmove @ 0x1800AC980 (memmove.c)
  */
 

@@ -1,20 +1,20 @@
 /*
- * XREFs of EtwpQueueNotification @ 0x1406E424C
+ * XREFs of EtwpQueueNotification @ 0x1406BB52C
  * Callers:
- *     EtwpSendDataBlock @ 0x1406E4054 (EtwpSendDataBlock.c)
+ *     EtwpSendDataBlock @ 0x1406BB334 (EtwpSendDataBlock.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
- *     ObfReferenceObject @ 0x14034B230 (ObfReferenceObject.c)
- *     PsChargeProcessWakeCounter @ 0x1406BF030 (PsChargeProcessWakeCounter.c)
- *     EtwpAddDataSource @ 0x1406E44BC (EtwpAddDataSource.c)
- *     EtwpReleaseQueueEntry @ 0x1406E491C (EtwpReleaseQueueEntry.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     KeSetEvent @ 0x14034E2F0 (KeSetEvent.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140355BE0 (ExReleasePushLockEx.c)
+ *     ObfReferenceObject @ 0x140355F80 (ObfReferenceObject.c)
+ *     EtwpAddDataSource @ 0x1406BB79C (EtwpAddDataSource.c)
+ *     EtwpReleaseQueueEntry @ 0x1406BBBFC (EtwpReleaseQueueEntry.c)
+ *     PsChargeProcessWakeCounter @ 0x1406BCA00 (PsChargeProcessWakeCounter.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall EtwpQueueNotification(__int64 Object, __int64 a2, __int64 a3)
+__int64 __fastcall EtwpQueueNotification(__int64 a1, __int64 a2, __int64 a3)
 {
   int v3; // ebx
   __int16 v5; // r12
@@ -27,8 +27,11 @@ __int64 __fastcall EtwpQueueNotification(__int64 Object, __int64 a2, __int64 a3)
   _QWORD *v14; // r8
   _QWORD *v15; // rax
   struct _KEVENT *v16; // rcx
-  void *v18; // rbx
-  unsigned int v19; // edx
+  __int64 v17; // rdx
+  __int64 v18; // r8
+  __int64 v19; // r9
+  void *v21; // rbx
+  unsigned int v22; // edx
 
   v3 = 0;
   v5 = *(_WORD *)(a3 + 98) & 0x100;
@@ -46,19 +49,19 @@ __int64 __fastcall EtwpQueueNotification(__int64 Object, __int64 a2, __int64 a3)
     *((_DWORD *)PoolWithTag + 13) = 1;
     if ( !*(_BYTE *)(a2 + 12) )
       goto LABEL_4;
-    v18 = *(void **)(a2 + 24);
+    v21 = *(void **)(a2 + 24);
     *((_DWORD *)PoolWithTag + 13) |= 2u;
-    ObfReferenceObject(v18);
-    v11[4] = v18;
-    v11[5] = PsChargeProcessWakeCounter(Object, 1, 3u, a3);
-    v19 = 0;
+    ObfReferenceObject(v21);
+    v11[4] = v21;
+    v11[5] = PsChargeProcessWakeCounter(a1);
+    v22 = 0;
     v3 = -1073741823;
-    while ( _InterlockedCompareExchange64((volatile signed __int64 *)(a3 + 8LL * v19 + 48), (signed __int64)v11, 0LL) )
+    while ( _InterlockedCompareExchange64((volatile signed __int64 *)(a3 + 8LL * v22 + 48), (signed __int64)v11, 0LL) )
     {
-      if ( ++v19 >= 4 )
+      if ( ++v22 >= 4 )
         goto LABEL_18;
     }
-    *((_WORD *)v11 + 25) = v19;
+    *((_WORD *)v11 + 25) = v22;
     v3 = 0;
 LABEL_18:
     if ( v3 < 0 )
@@ -102,7 +105,7 @@ LABEL_5:
           KeSetEvent(v16, 1, 0);
       }
       ExReleasePushLockEx(v9 + 16, 0LL);
-      KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+      KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v17, v18, v19);
     }
   }
   else

@@ -1,32 +1,32 @@
 /*
- * XREFs of CcDeleteSharedCacheMap @ 0x14039BBF0
+ * XREFs of CcDeleteSharedCacheMap @ 0x14039D950
  * Callers:
- *     CcWriteBehindPostProcess @ 0x140384CD4 (CcWriteBehindPostProcess.c)
- *     CcUninitializeCacheMap @ 0x14039C460 (CcUninitializeCacheMap.c)
- *     CcInitializeCacheMapInternal @ 0x1403E1230 (CcInitializeCacheMapInternal.c)
- *     CcDeleteSectionsForPartition @ 0x1405B2470 (CcDeleteSectionsForPartition.c)
+ *     CcWriteBehindPostProcess @ 0x140386A84 (CcWriteBehindPostProcess.c)
+ *     CcUninitializeCacheMap @ 0x14039E1C0 (CcUninitializeCacheMap.c)
+ *     CcInitializeCacheMapInternal @ 0x1403E4420 (CcInitializeCacheMapInternal.c)
+ *     CcDeleteSectionsForPartition @ 0x1405B4C80 (CcDeleteSectionsForPartition.c)
  * Callees:
- *     ObFastDereferenceObjectDeferDelete @ 0x140264A20 (ObFastDereferenceObjectDeferDelete.c)
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     KxWaitForLockOwnerShip @ 0x1402B29C0 (KxWaitForLockOwnerShip.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x1402B4830 (KiAcquireQueuedSpinLockInstrumented.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x1402B98C0 (KeReleaseInStackQueuedSpinLock.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     CcReferencePrivateVolumeCacheMap @ 0x140383620 (CcReferencePrivateVolumeCacheMap.c)
- *     CcDecrementVolumeUseCountWithDelete @ 0x140384440 (CcDecrementVolumeUseCountWithDelete.c)
- *     DbgPrintEx @ 0x140397530 (DbgPrintEx.c)
- *     CcUnmapAndPurge @ 0x14039A0C8 (CcUnmapAndPurge.c)
- *     CcFreeSharedCacheMapIgnoreNull @ 0x14039C0D4 (CcFreeSharedCacheMapIgnoreNull.c)
- *     CcGetPrivateVolumeCacheMap @ 0x14039C140 (CcGetPrivateVolumeCacheMap.c)
- *     CcDereferencePartitionAndPrivateVolumeCacheMap @ 0x14039C160 (CcDereferencePartitionAndPrivateVolumeCacheMap.c)
- *     CcDeleteMbcb @ 0x14039C204 (CcDeleteMbcb.c)
- *     CcDeleteBcbs @ 0x14039C3DC (CcDeleteBcbs.c)
- *     CcPostPVCMForDeleteToPartition @ 0x14039CF34 (CcPostPVCMForDeleteToPartition.c)
- *     CcDecrementPrivateVolumeUseCount @ 0x14039D1B0 (CcDecrementPrivateVolumeUseCount.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     FsRtlReleaseFile @ 0x140A56BA0 (FsRtlReleaseFile.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ObFastDereferenceObjectDeferDelete @ 0x140263F90 (ObFastDereferenceObjectDeferDelete.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     KxWaitForLockOwnerShip @ 0x1402FD690 (KxWaitForLockOwnerShip.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x1402FF500 (KiAcquireQueuedSpinLockInstrumented.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x140304580 (KeReleaseInStackQueuedSpinLock.c)
+ *     CcReferencePrivateVolumeCacheMap @ 0x1403853D0 (CcReferencePrivateVolumeCacheMap.c)
+ *     CcDecrementVolumeUseCountWithDelete @ 0x1403861F0 (CcDecrementVolumeUseCountWithDelete.c)
+ *     DbgPrintEx @ 0x1403992B0 (DbgPrintEx.c)
+ *     CcUnmapAndPurge @ 0x14039BE28 (CcUnmapAndPurge.c)
+ *     CcFreeSharedCacheMapIgnoreNull @ 0x14039DE34 (CcFreeSharedCacheMapIgnoreNull.c)
+ *     CcGetPrivateVolumeCacheMap @ 0x14039DEA0 (CcGetPrivateVolumeCacheMap.c)
+ *     CcDereferencePartitionAndPrivateVolumeCacheMap @ 0x14039DEC0 (CcDereferencePartitionAndPrivateVolumeCacheMap.c)
+ *     CcDeleteMbcb @ 0x14039DF64 (CcDeleteMbcb.c)
+ *     CcDeleteBcbs @ 0x14039E13C (CcDeleteBcbs.c)
+ *     CcPostPVCMForDeleteToPartition @ 0x14039EC94 (CcPostPVCMForDeleteToPartition.c)
+ *     CcDecrementPrivateVolumeUseCount @ 0x14039EF10 (CcDecrementPrivateVolumeUseCount.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     FsRtlReleaseFile @ 0x140A64120 (FsRtlReleaseFile.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall CcDeleteSharedCacheMap(
@@ -61,9 +61,9 @@ __int64 __fastcall CcDeleteSharedCacheMap(
   KSPIN_LOCK *v31; // rcx
   unsigned __int8 CurrentIrql; // si
   __int64 v33; // rdx
-  struct _SLIST_ENTRY *v34; // rcx
-  struct _SLIST_ENTRY *v35; // rcx
-  struct _SLIST_ENTRY *v36; // rcx
+  _SLIST_ENTRY *v34; // rcx
+  _SLIST_ENTRY *v35; // rcx
+  _SLIST_ENTRY *v36; // rcx
   __int64 v37; // r8
   __int64 v39; // r8
   _QWORD *v40; // rdx
@@ -219,7 +219,7 @@ LABEL_18:
       KiRaiseIrqlProcessIrqlFlags(v31, v28);
     }
     LockHandle->OldIrql = CurrentIrql;
-    if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+    if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
     {
       v33 = _InterlockedExchange64((volatile __int64 *)&CcMasterLock, (__int64)LockHandle);
       if ( v33 )
@@ -232,10 +232,10 @@ LABEL_18:
     ++CcSectionDeletionSequencePhase2;
     KeReleaseInStackQueuedSpinLock(LockHandle);
   }
-  v34 = (struct _SLIST_ENTRY *)*((_QWORD *)&ListEntry[5].Next + 1);
-  if ( v34 != (struct _SLIST_ENTRY *)(&ListEntry[3].Next + 1) && v34 )
+  v34 = (_SLIST_ENTRY *)*((_QWORD *)&ListEntry[5].Next + 1);
+  if ( v34 != (_SLIST_ENTRY *)(&ListEntry[3].Next + 1) && v34 )
     ExFreePoolWithTag(v34, 0);
-  v35 = (struct _SLIST_ENTRY *)*((_QWORD *)&ListEntry[11].Next + 1);
+  v35 = (_SLIST_ENTRY *)*((_QWORD *)&ListEntry[11].Next + 1);
   if ( v35 && v35 != &ListEntry[22] )
     ExFreePoolWithTag(v35, 0);
   v36 = ListEntry[12].Next;

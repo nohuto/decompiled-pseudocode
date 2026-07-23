@@ -36,7 +36,7 @@
  *     <none>
  */
 
-__int64 __fastcall NtdllpAllocateStringRoutine(__int64 a1)
+PVOID __fastcall NtdllpAllocateStringRoutine(SIZE_T Size)
 {
-  return RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0LL, a1);
+  return RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, Size);
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of _wcsset_s @ 0x180129180
+ * XREFs of _wcsset_s @ 0x180128EF0
  * Callers:
  *     <none>
  * Callees:
- *     _invalid_parameter @ 0x180126898 (_invalid_parameter.c)
+ *     _invalid_parameter @ 0x180126608 (_invalid_parameter.c)
  */
 
 errno_t __cdecl wcsset_s(wchar_t *Destination, size_t SizeInWords, wchar_t Value)

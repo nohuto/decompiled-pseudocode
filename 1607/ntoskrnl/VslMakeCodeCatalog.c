@@ -1,10 +1,10 @@
 /*
- * XREFs of VslMakeCodeCatalog @ 0x14023D4F0
+ * XREFs of VslMakeCodeCatalog @ 0x14023D3D4
  * Callers:
  *     <none>
  * Callees:
- *     VslpEnterIumSecureMode @ 0x1400AA174 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     VslpEnterIumSecureMode @ 0x1400A86F4 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall VslMakeCodeCatalog(__int64 *a1, __int64 a2)

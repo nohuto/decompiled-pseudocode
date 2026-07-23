@@ -1,23 +1,23 @@
 /*
- * XREFs of PpmIdleEvaluateConstraints @ 0x14013BC4C
+ * XREFs of PpmIdleEvaluateConstraints @ 0x14013C1BC
  * Callers:
- *     PpmIdleSelectStates @ 0x14013B680 (PpmIdleSelectStates.c)
+ *     PpmIdleSelectStates @ 0x14013BBF0 (PpmIdleSelectStates.c)
  * Callees:
- *     PoAllProcessorsDeepIdle @ 0x1400C0ECC (PoAllProcessorsDeepIdle.c)
- *     RtlGetInterruptTimePrecise @ 0x1400D71A0 (RtlGetInterruptTimePrecise.c)
+ *     PoAllProcessorsDeepIdle @ 0x1400BED5C (PoAllProcessorsDeepIdle.c)
+ *     RtlGetInterruptTimePrecise @ 0x1400D5040 (RtlGetInterruptTimePrecise.c)
  */
 
-LARGE_INTEGER __fastcall PpmIdleEvaluateConstraints(__int64 a1, __int64 *a2)
+LARGE_INTEGER __fastcall PpmIdleEvaluateConstraints(__int64 a1, LARGE_INTEGER *a2)
 {
   __int64 v2; // rsi
-  __int64 InterruptTimePrecise; // rax
+  LARGE_INTEGER InterruptTimePrecise; // rax
   LARGE_INTEGER v6; // r11
-  LARGE_INTEGER v8; // [rsp+30h] [rbp+8h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+30h] [rbp+8h] BYREF
 
   v2 = *(_QWORD *)(a1 + 23808);
-  InterruptTimePrecise = RtlGetInterruptTimePrecise(&v8);
-  v6 = v8;
-  *(LARGE_INTEGER *)(v2 + 480) = v8;
+  InterruptTimePrecise = RtlGetInterruptTimePrecise(&PerformanceCounter);
+  v6 = PerformanceCounter;
+  *(LARGE_INTEGER *)(v2 + 480) = PerformanceCounter;
   *a2 = InterruptTimePrecise;
   *(_QWORD *)(v2 + 488) = *(_QWORD *)(a1 + 23832) + *(_QWORD *)(a1 + 24008);
   *(_BYTE *)(v2 + 522) = *(_BYTE *)(a1 + 24218);

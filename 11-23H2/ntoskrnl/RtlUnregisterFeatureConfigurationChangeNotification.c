@@ -1,12 +1,13 @@
 /*
- * XREFs of RtlUnregisterFeatureConfigurationChangeNotification @ 0x1409BD4F0
+ * XREFs of RtlUnregisterFeatureConfigurationChangeNotification @ 0x1409BD6F0
  * Callers:
  *     <none>
  * Callees:
- *     CmFcManagerUnregisterFeatureConfigurationChangeNotification @ 0x140A271DC (CmFcManagerUnregisterFeatureConfigurationChangeNotification.c)
+ *     CmFcManagerUnregisterFeatureConfigurationChangeNotification @ 0x140A2748C (CmFcManagerUnregisterFeatureConfigurationChangeNotification.c)
  */
 
-__int64 __fastcall RtlUnregisterFeatureConfigurationChangeNotification(__int64 a1)
+NTSTATUS __cdecl RtlUnregisterFeatureConfigurationChangeNotification(
+        RTL_FEATURE_CONFIGURATION_CHANGE_REGISTRATION RegistrationHandle)
 {
-  return CmFcManagerUnregisterFeatureConfigurationChangeNotification(a1, a1);
+  return CmFcManagerUnregisterFeatureConfigurationChangeNotification(RegistrationHandle, RegistrationHandle);
 }

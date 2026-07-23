@@ -1,10 +1,10 @@
 /*
- * XREFs of Amd64DisableMonitoring @ 0x14056AE90
+ * XREFs of Amd64DisableMonitoring @ 0x140568320
  * Callers:
  *     <none>
  * Callees:
- *     Amd64ConfigureCounter @ 0x14056AAD8 (Amd64ConfigureCounter.c)
- *     Amd64FreeCounter @ 0x14056B1A4 (Amd64FreeCounter.c)
+ *     Amd64ConfigureCounter @ 0x140567F68 (Amd64ConfigureCounter.c)
+ *     Amd64FreeCounter @ 0x140568634 (Amd64FreeCounter.c)
  */
 
 struct _KPRCB *__fastcall Amd64DisableMonitoring(int a1, unsigned int *a2)

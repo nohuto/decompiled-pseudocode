@@ -1,14 +1,14 @@
 /*
- * XREFs of MmQueryWorkingSetInformation @ 0x1400A04E8
+ * XREFs of MmQueryWorkingSetInformation @ 0x14009EE10
  * Callers:
- *     SmKmVirtualLockContextIncreaseWsMin @ 0x1402210D8 (SmKmVirtualLockContextIncreaseWsMin.c)
- *     SmKmVirtualLockCtxMemoryUnlocked @ 0x140221370 (SmKmVirtualLockCtxMemoryUnlocked.c)
- *     NtQueryInformationProcess @ 0x140422590 (NtQueryInformationProcess.c)
- *     PspQueryQuotaLimits @ 0x1404C9AA4 (PspQueryQuotaLimits.c)
+ *     SmKmVirtualLockContextIncreaseWsMin @ 0x140220F04 (SmKmVirtualLockContextIncreaseWsMin.c)
+ *     SmKmVirtualLockCtxMemoryUnlocked @ 0x14022119C (SmKmVirtualLockCtxMemoryUnlocked.c)
+ *     NtQueryInformationProcess @ 0x140421450 (NtQueryInformationProcess.c)
+ *     PspQueryQuotaLimits @ 0x1404AF824 (PspQueryQuotaLimits.c)
  * Callees:
- *     MiGetSharedVm @ 0x14002EA30 (MiGetSharedVm.c)
- *     ExReleaseSpinLockShared @ 0x1400EA240 (ExReleaseSpinLockShared.c)
- *     ExAcquireSpinLockShared @ 0x1400EB1D0 (ExAcquireSpinLockShared.c)
+ *     MiGetSharedVm @ 0x14002E5B0 (MiGetSharedVm.c)
+ *     ExReleaseSpinLockShared @ 0x1400E80B0 (ExReleaseSpinLockShared.c)
+ *     ExAcquireSpinLockShared @ 0x1400E9040 (ExAcquireSpinLockShared.c)
  */
 
 __int64 __fastcall MmQueryWorkingSetInformation(_QWORD *a1, _QWORD *a2, _QWORD *a3, _QWORD *a4, _QWORD *a5, _DWORD *a6)

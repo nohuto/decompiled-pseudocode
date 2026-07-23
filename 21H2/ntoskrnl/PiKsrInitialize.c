@@ -1,9 +1,9 @@
 /*
- * XREFs of PiKsrInitialize @ 0x140A531E8
+ * XREFs of PiKsrInitialize @ 0x140A541E8
  * Callers:
- *     IopInitializePlugPlayServices @ 0x140A52280 (IopInitializePlugPlayServices.c)
+ *     IopInitializePlugPlayServices @ 0x140A53280 (IopInitializePlugPlayServices.c)
  * Callees:
- *     PiKsrNotifyInitialize @ 0x140A91350 (PiKsrNotifyInitialize.c)
+ *     PiKsrNotifyInitialize @ 0x140A92350 (PiKsrNotifyInitialize.c)
  */
 
 __int64 PiKsrInitialize()

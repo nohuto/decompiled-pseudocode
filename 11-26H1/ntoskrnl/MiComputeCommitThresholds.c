@@ -1,15 +1,15 @@
 /*
- * XREFs of MiComputeCommitThresholds @ 0x1404FA2DC
+ * XREFs of MiComputeCommitThresholds @ 0x1404F38EC
  * Callers:
- *     MiIncreaseCommitLimits @ 0x140705868 (MiIncreaseCommitLimits.c)
- *     MiReduceCommitLimits @ 0x140705B5C (MiReduceCommitLimits.c)
- *     MiFinishChildPartitionHotAdd @ 0x14087BDA0 (MiFinishChildPartitionHotAdd.c)
- *     MiInsertPartitionPages @ 0x14087C1C4 (MiInsertPartitionPages.c)
+ *     MiIncreaseCommitLimits @ 0x14070A538 (MiIncreaseCommitLimits.c)
+ *     MiReduceCommitLimits @ 0x14070A82C (MiReduceCommitLimits.c)
+ *     MiFinishChildPartitionHotAdd @ 0x1408821A0 (MiFinishChildPartitionHotAdd.c)
+ *     MiInsertPartitionPages @ 0x1408825C4 (MiInsertPartitionPages.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiSyncCommitSignals @ 0x14047FAB8 (MiSyncCommitSignals.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiSyncCommitSignals @ 0x140479400 (MiSyncCommitSignals.c)
  */
 
 void __fastcall MiComputeCommitThresholds(__int64 a1, int a2)

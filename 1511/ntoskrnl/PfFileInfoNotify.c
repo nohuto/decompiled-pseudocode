@@ -97,7 +97,7 @@ __int64 __fastcall PfFileInfoNotify(_DWORD *a1)
   int v64; // ecx
   int v65; // ecx
   __int64 i; // rdi
-  struct _SLIST_ENTRY *v67; // rcx
+  _SLIST_ENTRY *v67; // rcx
   signed __int64 Count; // rdx
   signed __int64 v69; // rax
   unsigned __int64 v70; // rdx

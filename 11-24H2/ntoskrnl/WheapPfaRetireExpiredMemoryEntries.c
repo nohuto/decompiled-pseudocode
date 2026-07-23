@@ -1,10 +1,10 @@
 /*
- * XREFs of WheapPfaRetireExpiredMemoryEntries @ 0x1407C94EC
+ * XREFs of WheapPfaRetireExpiredMemoryEntries @ 0x1407C99DC
  * Callers:
- *     WheapPfaMemoryCheck @ 0x1407C9224 (WheapPfaMemoryCheck.c)
+ *     WheapPfaMemoryCheck @ 0x1407C9714 (WheapPfaMemoryCheck.c)
  * Callees:
- *     WheapPfaLogPageMonitorRemoval @ 0x1407C918C (WheapPfaLogPageMonitorRemoval.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     WheapPfaLogPageMonitorRemoval @ 0x1407C967C (WheapPfaLogPageMonitorRemoval.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall WheapPfaRetireExpiredMemoryEntries(unsigned __int64 a1)
@@ -16,7 +16,7 @@ void __fastcall WheapPfaRetireExpiredMemoryEntries(unsigned __int64 a1)
   PVOID *v6; // rdi
   PVOID **v7; // rax
 
-  v2 = *(unsigned int *)off_140E095D8;
+  v2 = *(unsigned int *)off_140E09648;
   if ( (_DWORD)v2 )
   {
     v3 = 10000000 * v2;

@@ -1,9 +1,9 @@
 /*
- * XREFs of PsSetCreateThreadNotifyRoutine @ 0x1407FCD30
+ * XREFs of PsSetCreateThreadNotifyRoutine @ 0x140802760
  * Callers:
- *     DifPsSetCreateThreadNotifyRoutineWrapper @ 0x140694CC0 (DifPsSetCreateThreadNotifyRoutineWrapper.c)
+ *     DifPsSetCreateThreadNotifyRoutineWrapper @ 0x1406988A0 (DifPsSetCreateThreadNotifyRoutineWrapper.c)
  * Callees:
- *     PspSetCreateThreadNotifyRoutine @ 0x1407FCDC8 (PspSetCreateThreadNotifyRoutine.c)
+ *     PspSetCreateThreadNotifyRoutine @ 0x1408027F8 (PspSetCreateThreadNotifyRoutine.c)
  */
 
 NTSTATUS __stdcall PsSetCreateThreadNotifyRoutine(PCREATE_THREAD_NOTIFY_ROUTINE NotifyRoutine)

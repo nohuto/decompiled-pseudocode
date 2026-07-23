@@ -3,9 +3,9 @@
  * Callers:
  *     IopInitializePlugPlayServices @ 0x14079CCD4 (IopInitializePlugPlayServices.c)
  * Callees:
- *     _PnpCtxRegOpenKey @ 0x1404FCD1C (_PnpCtxRegOpenKey.c)
- *     _PnpCtxGetCachedContextBaseKey @ 0x1404FDCC4 (_PnpCtxGetCachedContextBaseKey.c)
- *     _PnpCtxRegCloseKey @ 0x1406D7018 (_PnpCtxRegCloseKey.c)
+ *     _PnpCtxRegOpenKey @ 0x1404DFCAC (_PnpCtxRegOpenKey.c)
+ *     _PnpCtxGetCachedContextBaseKey @ 0x1404E0C54 (_PnpCtxGetCachedContextBaseKey.c)
+ *     _PnpCtxRegCloseKey @ 0x1406D7150 (_PnpCtxRegCloseKey.c)
  *     PipProcessPendingObjects @ 0x1407CF6C0 (PipProcessPendingObjects.c)
  */
 

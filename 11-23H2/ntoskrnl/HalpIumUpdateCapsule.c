@@ -1,5 +1,5 @@
 /*
- * XREFs of HalpIumUpdateCapsule @ 0x140372330
+ * XREFs of HalpIumUpdateCapsule @ 0x1403724D0
  * Callers:
  *     <none>
  * Callees:

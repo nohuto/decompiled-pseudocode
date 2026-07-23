@@ -9,27 +9,33 @@
  *     @__security_check_cookie@4 @ 0x4B2F4B20 (@__security_check_cookie@4.c)
  */
 
-NTSTATUS __stdcall RtlpHpApplySegmentHeapConfigurations()
+int __stdcall RtlpHpApplySegmentHeapConfigurations()
 {
-  NTSTATUS result; // eax
-  _BYTE v1[4]; // [esp+0h] [ebp-38h] BYREF
-  _DWORD v2[6]; // [esp+4h] [ebp-34h] BYREF
-  HANDLE Handle; // [esp+1Ch] [ebp-1Ch] BYREF
-  _BYTE v4[8]; // [esp+20h] [ebp-18h] BYREF
+  int result; // eax
+  ULONG ResultLength; // [esp+0h] [ebp-38h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [esp+4h] [ebp-34h] BYREF
+  HANDLE KeyHandle; // [esp+1Ch] [ebp-1Ch] BYREF
+  _BYTE KeyValueInformation[8]; // [esp+20h] [ebp-18h] BYREF
   int v5; // [esp+28h] [ebp-10h]
   int v6; // [esp+2Ch] [ebp-Ch]
 
-  v2[0] = 24;
-  Handle = 0;
-  v2[1] = 0;
-  v2[4] = 0;
-  v2[5] = 0;
-  v2[3] = 64;
-  v2[2] = &dword_4B281C30;
-  result = ZwOpenKey((int)&Handle, 1, (int)v2);
+  ObjectAttributes.Length = 24;
+  KeyHandle = 0;
+  ObjectAttributes.RootDirectory = 0;
+  ObjectAttributes.SecurityDescriptor = 0;
+  ObjectAttributes.SecurityQualityOfService = 0;
+  ObjectAttributes.Attributes = 64;
+  ObjectAttributes.ObjectName = (PUNICODE_STRING)&dword_4B281C30;
+  result = ZwOpenKey(&KeyHandle, 1u, &ObjectAttributes);
   if ( result >= 0 )
   {
-    result = ZwQueryValueKey((int)Handle, (int)&dword_4B281C20, 2, (int)v4, 20, (int)v1);
+    result = ZwQueryValueKey(
+               KeyHandle,
+               (PUNICODE_STRING)&stru_4B281C20,
+               KeyValuePartialInformation,
+               KeyValueInformation,
+               0x14u,
+               &ResultLength);
     if ( result >= 0 && v5 == 4 )
     {
       if ( v6 )
@@ -38,7 +44,7 @@ NTSTATUS __stdcall RtlpHpApplySegmentHeapConfigurations()
         RtlpLowFragHeapGlobalFlags |= 8u;
     }
   }
-  if ( Handle )
-    return NtClose(Handle);
+  if ( KeyHandle )
+    return NtClose(KeyHandle);
   return result;
 }

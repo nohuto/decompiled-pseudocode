@@ -21,13 +21,13 @@
 
 __int64 __fastcall ExfAcquireReleasePushLockExclusive(unsigned __int64 *BugCheckParameter2)
 {
-  _BYTE *v2; // rbx
+  PRTL_BALANCED_NODE v2; // rbx
   __int64 result; // rax
 
-  v2 = (_BYTE *)KeAbPreAcquire((ULONG_PTR)BugCheckParameter2, 0LL, 0LL);
+  v2 = KeAbPreAcquire((ULONG_PTR)BugCheckParameter2, 0LL, 0);
   ExfAcquirePushLockExclusiveEx(BugCheckParameter2, v2, (ULONG_PTR)BugCheckParameter2);
   if ( v2 )
-    v2[26] |= 1u;
+    BYTE2(v2[1].Left) |= 1u;
   result = ExfReleasePushLockExclusive((volatile signed __int64 *)BugCheckParameter2);
   if ( v2 )
     return KeAbPostRelease((ULONG_PTR)BugCheckParameter2);

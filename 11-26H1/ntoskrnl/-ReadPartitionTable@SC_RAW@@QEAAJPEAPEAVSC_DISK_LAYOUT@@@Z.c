@@ -1,11 +1,11 @@
 /*
- * XREFs of ?ReadPartitionTable@SC_RAW@@QEAAJPEAPEAVSC_DISK_LAYOUT@@@Z @ 0x14071C6F4
+ * XREFs of ?ReadPartitionTable@SC_RAW@@QEAAJPEAPEAVSC_DISK_LAYOUT@@@Z @ 0x140721384
  * Callers:
- *     ?ReadPartitionTable@SC_DISK@@QEAAJPEAPEAVSC_DISK_LAYOUT@@@Z @ 0x14071B498 (-ReadPartitionTable@SC_DISK@@QEAAJPEAPEAVSC_DISK_LAYOUT@@@Z.c)
+ *     ?ReadPartitionTable@SC_DISK@@QEAAJPEAPEAVSC_DISK_LAYOUT@@@Z @ 0x140720128 (-ReadPartitionTable@SC_DISK@@QEAAJPEAPEAVSC_DISK_LAYOUT@@@Z.c)
  * Callees:
- *     ?CheckSum@MBR_HEADER@@QEAAKXZ @ 0x14071B974 (-CheckSum@MBR_HEADER@@QEAAKXZ.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ?Allocate@SC_ENV@@SAPEAX_KKEK@Z @ 0x140790B20 (-Allocate@SC_ENV@@SAPEAX_KKEK@Z.c)
+ *     ?CheckSum@MBR_HEADER@@QEAAKXZ @ 0x140720604 (-CheckSum@MBR_HEADER@@QEAAKXZ.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ?Allocate@SC_ENV@@SAPEAX_KKEK@Z @ 0x140793650 (-Allocate@SC_ENV@@SAPEAX_KKEK@Z.c)
  */
 
 __int64 __fastcall SC_RAW::ReadPartitionTable(SC_RAW *this, struct SC_DISK_LAYOUT **a2, unsigned __int8 a3)

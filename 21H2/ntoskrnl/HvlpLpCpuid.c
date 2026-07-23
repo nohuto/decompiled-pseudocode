@@ -1,12 +1,12 @@
 /*
- * XREFs of HvlpLpCpuid @ 0x140A8F2D8
+ * XREFs of HvlpLpCpuid @ 0x140A902D8
  * Callers:
- *     HvlpDiscoverTopologyAmd @ 0x140A8EF24 (HvlpDiscoverTopologyAmd.c)
- *     HvlpDiscoverTopologyIntel @ 0x140A8F160 (HvlpDiscoverTopologyIntel.c)
+ *     HvlpDiscoverTopologyAmd @ 0x140A8FF24 (HvlpDiscoverTopologyAmd.c)
+ *     HvlpDiscoverTopologyIntel @ 0x140A90160 (HvlpDiscoverTopologyIntel.c)
  * Callees:
- *     HvcallInitiateHypercall @ 0x1403904C0 (HvcallInitiateHypercall.c)
- *     HvlpAcquireHypercallPage @ 0x1404F2840 (HvlpAcquireHypercallPage.c)
- *     HvlpReleaseHypercallPage @ 0x1404F3430 (HvlpReleaseHypercallPage.c)
+ *     HvcallInitiateHypercall @ 0x140390610 (HvcallInitiateHypercall.c)
+ *     HvlpAcquireHypercallPage @ 0x1404F27C0 (HvlpAcquireHypercallPage.c)
+ *     HvlpReleaseHypercallPage @ 0x1404F33B0 (HvlpReleaseHypercallPage.c)
  */
 
 char __fastcall HvlpLpCpuid(int a1, unsigned int a2, int a3, _DWORD *a4)

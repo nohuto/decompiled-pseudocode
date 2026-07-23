@@ -1,11 +1,11 @@
 /*
- * XREFs of IommupHvDismissPageFault @ 0x14059E230
+ * XREFs of IommupHvDismissPageFault @ 0x1405A0A08
  * Callers:
- *     IommuProcessPageRequestQueue @ 0x14059C710 (IommuProcessPageRequestQueue.c)
+ *     IommuProcessPageRequestQueue @ 0x14059EE90 (IommuProcessPageRequestQueue.c)
  * Callees:
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall IommupHvDismissPageFault(unsigned int a1, __int64 a2, __int16 a3, int a4, __int64 a5, __int64 a6)
@@ -26,7 +26,7 @@ __int64 __fastcall IommupHvDismissPageFault(unsigned int a1, __int64 a2, __int16
   BugCheckParameter3 = v6 | 0x8000000000000000uLL;
   if ( a4 >= 0 )
   {
-    if ( a6 && !BYTE3(IommuInterfaceStateChangeCallbackPushLock.StackLimit) )
+    if ( a6 && !BYTE1(IommuInterfaceStateChangeCallbackPushLock.StackLimit) )
     {
       BugCheckParameter3 = v6 | 0xC000000000000000uLL;
       BugCheckParameter4 = a6 & 0xF | a5 & 0xFFFFFFFFFFFFF000uLL;

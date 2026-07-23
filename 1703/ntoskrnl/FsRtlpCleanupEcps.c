@@ -10,7 +10,7 @@
  *     FsRtlFreeExtraCreateParameter @ 0x140542BD0 (FsRtlFreeExtraCreateParameter.c)
  */
 
-char __fastcall FsRtlpCleanupEcps(struct _SLIST_ENTRY *P)
+char __fastcall FsRtlpCleanupEcps(_SLIST_ENTRY *P)
 {
   __int64 **v2; // rbx
   __int64 *v3; // rcx
@@ -79,7 +79,7 @@ char __fastcall FsRtlpCleanupEcps(struct _SLIST_ENTRY *P)
       return 1;
     }
     ++dword_14036F260;
-    ((void (__fastcall *)(struct _SLIST_ENTRY *))qword_14036F278)(P);
+    ((void (__fastcall *)(_SLIST_ENTRY *))qword_14036F278)(P);
     return 1;
   }
 }

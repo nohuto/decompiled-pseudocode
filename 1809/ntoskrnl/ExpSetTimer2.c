@@ -1,13 +1,13 @@
 /*
- * XREFs of ExpSetTimer2 @ 0x1400FBFE0
+ * XREFs of ExpSetTimer2 @ 0x1400FC060
  * Callers:
- *     NtSetTimer2 @ 0x1400FBF90 (NtSetTimer2.c)
- *     NtCancelTimer2 @ 0x140139760 (NtCancelTimer2.c)
- *     NtSetIRTimer @ 0x14013B530 (NtSetIRTimer.c)
+ *     NtSetTimer2 @ 0x1400FC010 (NtSetTimer2.c)
+ *     NtCancelTimer2 @ 0x140139860 (NtCancelTimer2.c)
+ *     NtSetIRTimer @ 0x14013B630 (NtSetIRTimer.c)
  * Callees:
- *     ExpSetTimerObject2 @ 0x1400FC0D8 (ExpSetTimerObject2.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
+ *     ExpSetTimerObject2 @ 0x1400FC158 (ExpSetTimerObject2.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ObReferenceObjectByHandle @ 0x1405E9350 (ObReferenceObjectByHandle.c)
  */
 
 NTSTATUS __fastcall ExpSetTimer2(HANDLE Handle, __int64 a2, unsigned __int64 a3)

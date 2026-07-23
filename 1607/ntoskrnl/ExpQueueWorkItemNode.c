@@ -1,11 +1,11 @@
 /*
- * XREFs of ExpQueueWorkItemNode @ 0x14022EA8C
+ * XREFs of ExpQueueWorkItemNode @ 0x14022E8B8
  * Callers:
- *     ExpQueueWorkItem @ 0x14005FCC0 (ExpQueueWorkItem.c)
+ *     ExpQueueWorkItem @ 0x14005F840 (ExpQueueWorkItem.c)
  * Callees:
- *     KeSetEvent @ 0x1400562D0 (KeSetEvent.c)
- *     KeInsertPriQueue @ 0x14005F700 (KeInsertPriQueue.c)
- *     ExpNewThreadNecessary @ 0x1400C0E90 (ExpNewThreadNecessary.c)
+ *     KeSetEvent @ 0x140055E50 (KeSetEvent.c)
+ *     KeInsertPriQueue @ 0x14005F280 (KeInsertPriQueue.c)
+ *     ExpNewThreadNecessary @ 0x1400BED20 (ExpNewThreadNecessary.c)
  */
 
 char __fastcall ExpQueueWorkItemNode(__int64 a1, unsigned int a2, struct _KEVENT *a3, __int64 a4)

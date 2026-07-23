@@ -1,10 +1,10 @@
 /*
- * XREFs of ExpPrmWaitForForZeroActiveCount @ 0x140657910
+ * XREFs of ExpPrmWaitForForZeroActiveCount @ 0x140656010
  * Callers:
- *     ExpPrmNotifyInterfaceChange @ 0x1407BF3E0 (ExpPrmNotifyInterfaceChange.c)
- *     ExpPrmTargetDeviceChangeCallback @ 0x1407BF4D0 (ExpPrmTargetDeviceChangeCallback.c)
+ *     ExpPrmNotifyInterfaceChange @ 0x1407BF830 (ExpPrmNotifyInterfaceChange.c)
+ *     ExpPrmTargetDeviceChangeCallback @ 0x1407BF920 (ExpPrmTargetDeviceChangeCallback.c)
  * Callees:
- *     KeDelayExecutionThread @ 0x14033BC60 (KeDelayExecutionThread.c)
+ *     KeDelayExecutionThread @ 0x14031B140 (KeDelayExecutionThread.c)
  */
 
 __int64 ExpPrmWaitForForZeroActiveCount()
@@ -15,8 +15,8 @@ __int64 ExpPrmWaitForForZeroActiveCount()
   Interval.QuadPart = -10000LL;
   while ( 1 )
   {
-    result = (unsigned int)dword_140EFA584;
-    if ( !dword_140EFA584 )
+    result = (unsigned int)dword_140EFA8A4;
+    if ( !dword_140EFA8A4 )
       break;
     KeDelayExecutionThread(0, 0, &Interval);
   }

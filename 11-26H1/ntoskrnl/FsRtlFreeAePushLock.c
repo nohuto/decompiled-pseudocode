@@ -1,10 +1,10 @@
 /*
- * XREFs of FsRtlFreeAePushLock @ 0x1405B5860
+ * XREFs of FsRtlFreeAePushLock @ 0x1405B8070
  * Callers:
  *     <none>
  * Callees:
- *     ExpCleanupAutoExpandPushLock @ 0x14027E2C0 (ExpCleanupAutoExpandPushLock.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExpCleanupAutoExpandPushLock @ 0x14027D830 (ExpCleanupAutoExpandPushLock.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall FsRtlFreeAePushLock(PVOID P)

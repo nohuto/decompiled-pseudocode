@@ -1,15 +1,15 @@
 /*
- * XREFs of EtwDeleteSiloState @ 0x140937D24
+ * XREFs of EtwDeleteSiloState @ 0x140937EF4
  * Callers:
- *     PspDeleteServerSiloGlobals @ 0x1409062AC (PspDeleteServerSiloGlobals.c)
+ *     PspDeleteServerSiloGlobals @ 0x14090640C (PspDeleteServerSiloGlobals.c)
  * Callees:
- *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
- *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
- *     ExFreeCacheAwareRundownProtection @ 0x140360670 (ExFreeCacheAwareRundownProtection.c)
- *     KeBugCheck @ 0x1403FDED0 (KeBugCheck.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExFreeCacheAwareRundownProtection @ 0x1402A6400 (ExFreeCacheAwareRundownProtection.c)
+ *     ExfReleasePushLockShared @ 0x1402FC1C0 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x1403558A0 (ExAcquirePushLockSharedEx.c)
+ *     KeLeaveCriticalRegion @ 0x140356100 (KeLeaveCriticalRegion.c)
+ *     KeBugCheck @ 0x1403FE0B0 (KeBugCheck.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall EtwDeleteSiloState(char *P)

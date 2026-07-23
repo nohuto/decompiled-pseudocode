@@ -1,18 +1,18 @@
 /*
- * XREFs of EtwpBuildProcessEvent @ 0x140602610
+ * XREFs of EtwpBuildProcessEvent @ 0x1406F1D70
  * Callers:
- *     EtwpWriteProcessEvent @ 0x140602B04 (EtwpWriteProcessEvent.c)
- *     EtwpTraceProcessRundown @ 0x140797A1C (EtwpTraceProcessRundown.c)
+ *     EtwpWriteProcessEvent @ 0x1406F2264 (EtwpWriteProcessEvent.c)
+ *     EtwpTraceProcessRundown @ 0x140797C1C (EtwpTraceProcessRundown.c)
  * Callees:
- *     RtlInitAnsiString @ 0x1402502B0 (RtlInitAnsiString.c)
- *     ObFastDereferenceObject @ 0x14027C610 (ObFastDereferenceObject.c)
- *     MmGetSessionIdEx @ 0x14034AE60 (MmGetSessionIdEx.c)
- *     RtlUnicodeStringToAnsiString @ 0x1405EDB00 (RtlUnicodeStringToAnsiString.c)
- *     EtwpQueryTokenPackageInfo @ 0x1406023FC (EtwpQueryTokenPackageInfo.c)
- *     EtwpQueryProcessOtherInfo @ 0x140602928 (EtwpQueryProcessOtherInfo.c)
- *     EtwpQueryProcessCommandLine @ 0x140602968 (EtwpQueryProcessCommandLine.c)
- *     SeQueryInformationToken @ 0x140656BD0 (SeQueryInformationToken.c)
- *     PsReferencePrimaryToken @ 0x140706D00 (PsReferencePrimaryToken.c)
+ *     ObFastDereferenceObject @ 0x14026A5B0 (ObFastDereferenceObject.c)
+ *     RtlInitAnsiString @ 0x1402713E0 (RtlInitAnsiString.c)
+ *     MmGetSessionIdEx @ 0x140355BB0 (MmGetSessionIdEx.c)
+ *     SeQueryInformationToken @ 0x14064B9F0 (SeQueryInformationToken.c)
+ *     RtlUnicodeStringToAnsiString @ 0x1406DD260 (RtlUnicodeStringToAnsiString.c)
+ *     EtwpQueryTokenPackageInfo @ 0x1406F1B5C (EtwpQueryTokenPackageInfo.c)
+ *     EtwpQueryProcessOtherInfo @ 0x1406F2088 (EtwpQueryProcessOtherInfo.c)
+ *     EtwpQueryProcessCommandLine @ 0x1406F20C8 (EtwpQueryProcessCommandLine.c)
+ *     PsReferencePrimaryToken @ 0x14071E0E0 (PsReferencePrimaryToken.c)
  */
 
 unsigned int *__fastcall EtwpBuildProcessEvent(
@@ -23,7 +23,7 @@ unsigned int *__fastcall EtwpBuildProcessEvent(
         _QWORD *a5,
         __int64 a6,
         unsigned int *a7,
-        int *a8,
+        WCHAR *PackageSize,
         PSTRING DestinationString,
         unsigned __int16 *a10,
         PVOID *a11)
@@ -39,7 +39,7 @@ unsigned int *__fastcall EtwpBuildProcessEvent(
   int v21; // eax
   __int64 v22; // rsi
   struct _DMA_ADAPTER *v23; // rax
-  int *v24; // r12
+  WCHAR *v24; // r12
   struct _DMA_ADAPTER *v25; // rdi
   NTSTATUS v26; // ebx
   __int64 *v27; // rdx
@@ -101,9 +101,9 @@ unsigned int *__fastcall EtwpBuildProcessEvent(
   *(_QWORD *)v22 = a4;
   *(_QWORD *)(v22 + 8) = 36LL;
   v23 = (struct _DMA_ADAPTER *)PsReferencePrimaryToken(Process);
-  v24 = a8;
+  v24 = PackageSize;
   v25 = v23;
-  EtwpQueryTokenPackageInfo((__int64)v23, (__int64)a8, (_DWORD *)(a4 + 32));
+  EtwpQueryTokenPackageInfo(v23, PackageSize, (_DWORD *)(a4 + 32));
   v26 = SeQueryInformationToken(v25, TokenUser, &TokenInformation);
   ObFastDereferenceObject((signed __int64 *)&Process[1].Affinity.Bitmap[5], v25);
   if ( v26 < 0 )
@@ -182,15 +182,15 @@ unsigned int *__fastcall EtwpBuildProcessEvent(
   v35 *= 2LL;
   *(_QWORD *)(v22 + 8 * v34) = &EtwpNull;
   *(_QWORD *)(v22 + 8 * v34 + 8) = 2LL;
-  v37 = *v24;
-  *(_QWORD *)(v22 + 8 * v35) = v24 + 4;
+  v37 = *(_DWORD *)v24;
+  *(_QWORD *)(v22 + 8 * v35) = v24 + 8;
   *(_DWORD *)(v22 + 8 * v35 + 8) = v37;
   *(_DWORD *)(v22 + 8 * v35 + 12) = 0;
-  v38 = v24[2];
+  v38 = *((_DWORD *)v24 + 2);
   v39 = v36;
   v40 = v36 + 1;
   v39 *= 2LL;
-  *(_QWORD *)(v22 + 8 * v39) = v24 + 68;
+  *(_QWORD *)(v22 + 8 * v39) = v24 + 136;
   *(_QWORD *)(v22 + 8 * v39 + 8) = v38;
   if ( v47 == 807 )
   {

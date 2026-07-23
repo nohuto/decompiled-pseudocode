@@ -1,26 +1,26 @@
 /*
- * XREFs of SbObtainTraceHandle @ 0x1800B8D90
+ * XREFs of SbObtainTraceHandle @ 0x1800A2E50
  * Callers:
- *     LdrpInitializeProcess @ 0x180066D74 (LdrpInitializeProcess.c)
- *     SbUpdateSwitchContextBasedOnDll @ 0x180070DD0 (SbUpdateSwitchContextBasedOnDll.c)
+ *     SbUpdateSwitchContextBasedOnDll @ 0x18008D6B0 (SbUpdateSwitchContextBasedOnDll.c)
+ *     LdrpInitializeProcess @ 0x1800AEF54 (LdrpInitializeProcess.c)
  * Callees:
- *     RtlSetLastWin32Error @ 0x18001C5D0 (RtlSetLastWin32Error.c)
- *     EtwNotificationUnregister @ 0x18001D140 (EtwNotificationUnregister.c)
- *     EtwNotificationRegister @ 0x18001D450 (EtwNotificationRegister.c)
- *     SbpTraceContextUpdate @ 0x1800B8ED4 (SbpTraceContextUpdate.c)
+ *     RtlSetLastWin32Error @ 0x180048FD0 (RtlSetLastWin32Error.c)
+ *     EtwNotificationUnregister @ 0x180049B40 (EtwNotificationUnregister.c)
+ *     EtwNotificationRegister @ 0x180049E50 (EtwNotificationRegister.c)
+ *     SbpTraceContextUpdate @ 0x1800A2F94 (SbpTraceContextUpdate.c)
  */
 
-__int64 __fastcall SbObtainTraceHandle(signed __int64 *a1)
+__int64 __fastcall SbObtainTraceHandle(_QWORD *a1)
 {
   char *pShimData; // rbx
   char *v3; // rbx
-  signed __int64 v5; // rax
-  unsigned int v6; // eax
+  __int64 v5; // rax
+  LONG v6; // eax
   signed __int64 v7; // rsi
   _RTL_USER_PROCESS_PARAMETERS *ProcessParameters; // r9
-  signed __int64 v9; // [rsp+48h] [rbp+10h] BYREF
+  ULONGLONG RegHandle; // [rsp+48h] [rbp+10h] BYREF
 
-  v9 = 0LL;
+  RegHandle = 0LL;
   pShimData = (char *)NtCurrentPeb()->pShimData;
   if ( !pShimData )
     return 0LL;
@@ -38,25 +38,25 @@ __int64 __fastcall SbObtainTraceHandle(signed __int64 *a1)
       *a1 = v5;
     return 1LL;
   }
-  v6 = EtwNotificationRegister(MS_Windows_AeSwitchBack_Provider, 3u, 0LL, 0LL, (unsigned __int64 *)&v9);
+  v6 = EtwNotificationRegister(&MS_Windows_AeSwitchBack_Provider, 3u, 0LL, 0LL, &RegHandle);
   if ( v6 )
   {
     RtlSetLastWin32Error(v6);
     return 0LL;
   }
-  v7 = _InterlockedCompareExchange64((volatile signed __int64 *)v3 + 2, v9, 0LL);
+  v7 = _InterlockedCompareExchange64((volatile signed __int64 *)v3 + 2, RegHandle, 0LL);
   if ( v7 )
   {
-    EtwNotificationUnregister(v9, 0LL);
+    EtwNotificationUnregister(RegHandle, 0LL);
     if ( a1 )
       *a1 = v7;
     return 1LL;
   }
   if ( a1 )
-    *a1 = v9;
+    *a1 = RegHandle;
   ProcessParameters = NtCurrentPeb()->ProcessParameters;
   SbpTraceContextUpdate(
-    v9,
+    RegHandle,
     (_DWORD)v3 + 48,
     0,
     ProcessParameters->ImagePathName.Length,

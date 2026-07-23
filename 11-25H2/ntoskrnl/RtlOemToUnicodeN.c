@@ -18,7 +18,7 @@ NTSTATUS __stdcall RtlOemToUnicodeN(
         ULONG BytesInOemString)
 {
   struct _LIST_ENTRY *CurrentServerSiloGlobals; // rax
-  struct _CPTABLEINFO *p_Blink; // rcx
+  _CPTABLEINFO *p_Blink; // rcx
   signed __int32 v12[8]; // [rsp+0h] [rbp-38h] BYREF
 
   if ( RtlpIsUtf8Process() )
@@ -29,9 +29,9 @@ NTSTATUS __stdcall RtlOemToUnicodeN(
   {
     _InterlockedOr(v12, 0);
     CurrentServerSiloGlobals = PsGetCurrentServerSiloGlobals();
-    p_Blink = (struct _CPTABLEINFO *)&CurrentServerSiloGlobals[64].Blink;
+    p_Blink = (_CPTABLEINFO *)&CurrentServerSiloGlobals[64].Blink;
     if ( LOWORD(CurrentServerSiloGlobals[64].Blink) != 1 )
-      p_Blink = (struct _CPTABLEINFO *)&CurrentServerSiloGlobals[68].Blink;
+      p_Blink = (_CPTABLEINFO *)&CurrentServerSiloGlobals[68].Blink;
   }
   return RtlCustomCPToUnicodeN(
            p_Blink,

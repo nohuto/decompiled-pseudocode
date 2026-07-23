@@ -7,15 +7,26 @@
  *     NtClose @ 0x1800A1090 (NtClose.c)
  */
 
-__int64 __fastcall DbgUiIssueRemoteBreakin(__int64 a1)
+NTSTATUS __cdecl DbgUiIssueRemoteBreakin(HANDLE Process)
 {
   int v1; // ebx
-  __int64 v3; // [rsp+30h] [rbp-48h]
+  int v3; // [rsp+30h] [rbp-48h]
   __int128 v4; // [rsp+60h] [rbp-18h] BYREF
   HANDLE Handle; // [rsp+88h] [rbp+10h] BYREF
 
-  v1 = RtlpCreateUserThreadEx(a1, 0LL, 2, 0, 0LL, 0x4000LL, v3, (__int64)DbgUiRemoteBreakin, 0LL, &Handle, &v4);
+  v1 = RtlpCreateUserThreadEx(
+         Process,
+         0LL,
+         2,
+         0,
+         0LL,
+         0x4000uLL,
+         v3,
+         (PUSER_THREAD_START_ROUTINE)DbgUiRemoteBreakin,
+         0LL,
+         &Handle,
+         &v4);
   if ( v1 >= 0 )
     NtClose(Handle);
-  return (unsigned int)v1;
+  return v1;
 }

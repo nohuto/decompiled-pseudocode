@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpUsbLegacyScanBusForHandoff @ 0x14059A438
+ * XREFs of HalpUsbLegacyScanBusForHandoff @ 0x14059CBB8
  * Callers:
- *     HalpErrataInitSystem @ 0x140BEB1F0 (HalpErrataInitSystem.c)
+ *     HalpErrataInitSystem @ 0x140BF11F0 (HalpErrataInitSystem.c)
  * Callees:
- *     HalpUsbLegacyDeviceHandoff @ 0x14059A2C0 (HalpUsbLegacyDeviceHandoff.c)
- *     HalpUsbLegacyReadPCIConfig @ 0x14059A364 (HalpUsbLegacyReadPCIConfig.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     HalpUsbLegacyDeviceHandoff @ 0x14059CA40 (HalpUsbLegacyDeviceHandoff.c)
+ *     HalpUsbLegacyReadPCIConfig @ 0x14059CAE4 (HalpUsbLegacyReadPCIConfig.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int16 HalpUsbLegacyScanBusForHandoff()

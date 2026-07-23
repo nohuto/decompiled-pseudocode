@@ -1,16 +1,16 @@
 /*
- * XREFs of PsSwapImpersonationToken @ 0x140A48460
+ * XREFs of PsSwapImpersonationToken @ 0x140A51750
  * Callers:
- *     NtOpenThreadTokenEx @ 0x140A47C40 (NtOpenThreadTokenEx.c)
+ *     NtOpenThreadTokenEx @ 0x140A50F30 (NtOpenThreadTokenEx.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     PsReferenceSiloContext @ 0x140277800 (PsReferenceSiloContext.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KeLeaveCriticalRegionThread @ 0x1402B8A60 (KeLeaveCriticalRegionThread.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     PsReferenceSiloContext @ 0x140276D70 (PsReferenceSiloContext.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeLeaveCriticalRegionThread @ 0x140303720 (KeLeaveCriticalRegionThread.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
  */
 
 __int64 __fastcall PsSwapImpersonationToken(__int64 a1, void *a2, unsigned __int64 a3)
@@ -23,9 +23,7 @@ __int64 __fastcall PsSwapImpersonationToken(__int64 a1, void *a2, unsigned __int
   void *v11; // rdx
   AutoBoost *v12; // r13
   __int64 v13; // rcx
-  __int64 v14; // rdx
-  __int64 v15; // r8
-  void *v16; // rcx
+  void *v14; // rcx
 
   v3 = 0;
   v7 = 0LL;
@@ -67,19 +65,19 @@ __int64 __fastcall PsSwapImpersonationToken(__int64 a1, void *a2, unsigned __int
     if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 1424), 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
       ExfTryToWakePushLock((volatile signed __int64 *)(a1 + 1424));
     KeAbPostRelease(a1 + 1424);
-    KeLeaveCriticalRegionThread((__int64)CurrentThread, v14, v15);
+    KeLeaveCriticalRegionThread((__int64)CurrentThread);
     if ( v3 < 0 )
     {
-      v16 = (void *)a3;
+      v14 = (void *)a3;
     }
     else
     {
       ObfDereferenceObject(a2);
       if ( !v7 )
         return (unsigned int)v3;
-      v16 = v7;
+      v14 = v7;
     }
-    ObfDereferenceObject(v16);
+    ObfDereferenceObject(v14);
     return (unsigned int)v3;
   }
   return 3221225596LL;

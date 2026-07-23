@@ -1,8 +1,8 @@
 /*
- * XREFs of PsIsProtectedProcess @ 0x140250290
+ * XREFs of PsIsProtectedProcess @ 0x1402F4AE0
  * Callers:
- *     NtQueryInformationProcess @ 0x1406212A0 (NtQueryInformationProcess.c)
- *     PspAllocateProcess @ 0x1406D6638 (PspAllocateProcess.c)
+ *     NtQueryInformationProcess @ 0x14068AF10 (NtQueryInformationProcess.c)
+ *     PspAllocateProcess @ 0x1406AD918 (PspAllocateProcess.c)
  * Callees:
  *     <none>
  */

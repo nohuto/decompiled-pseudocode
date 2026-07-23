@@ -49,8 +49,8 @@ __int64 __fastcall RtlpSetUserPreferredUILanguages(int a1, WCHAR *a2, _DWORD *a3
   int v13; // eax
   __int64 Buffer; // rdx
   __int64 v15; // rdx
-  wchar_t *Heap; // rax
-  const WCHAR *v17; // r13
+  WCHAR *Heap; // rax
+  WCHAR *v17; // r13
   unsigned __int64 v18; // r15
   const WCHAR *v19; // r14
   int v20; // esi
@@ -60,10 +60,10 @@ __int64 __fastcall RtlpSetUserPreferredUILanguages(int a1, WCHAR *a2, _DWORD *a3
   int v24; // eax
   _QWORD *v25; // rax
   _WORD *v26; // rcx
-  __int64 v27; // rsi
+  _QWORD *v27; // rsi
   __int64 v28; // rax
   unsigned int v30; // esi
-  __int64 v31; // rax
+  PVOID v31; // rax
   int v32; // r13d
   __int16 v33; // r15
   WCHAR *v34; // r14
@@ -71,93 +71,75 @@ __int64 __fastcall RtlpSetUserPreferredUILanguages(int a1, WCHAR *a2, _DWORD *a3
   __int64 v36; // rcx
   __int64 v37; // rax
   __int64 v38; // rax
-  __int16 v39; // si
+  unsigned __int16 v39; // si
   __int64 v40; // rcx
   __int64 v41; // rax
   WCHAR *v42; // rcx
-  __int64 v43; // rax
-  bool v44; // sf
-  __int64 v45; // rax
-  unsigned int v46; // [rsp+40h] [rbp-C0h] BYREF
-  _WORD v47[2]; // [rsp+44h] [rbp-BCh] BYREF
-  int v48; // [rsp+48h] [rbp-B8h] BYREF
-  unsigned int v49; // [rsp+4Ch] [rbp-B4h]
-  UNICODE_STRING v50; // [rsp+50h] [rbp-B0h] BYREF
-  __int128 v51; // [rsp+60h] [rbp-A0h] BYREF
-  unsigned __int16 v52; // [rsp+70h] [rbp-90h]
-  unsigned int v53; // [rsp+74h] [rbp-8Ch] BYREF
-  unsigned int v54; // [rsp+78h] [rbp-88h]
-  __int64 v55; // [rsp+80h] [rbp-80h]
-  unsigned int v56; // [rsp+88h] [rbp-78h]
-  __int64 v57; // [rsp+90h] [rbp-70h] BYREF
-  _BYTE v58[4]; // [rsp+98h] [rbp-68h] BYREF
-  unsigned int v59; // [rsp+9Ch] [rbp-64h]
-  _BYTE *v60; // [rsp+A0h] [rbp-60h]
-  UNICODE_STRING DestinationString; // [rsp+A8h] [rbp-58h] BYREF
-  __int64 v62; // [rsp+B8h] [rbp-48h]
-  __int64 v63; // [rsp+C0h] [rbp-40h]
-  WCHAR *v64; // [rsp+C8h] [rbp-38h] BYREF
-  wchar_t *v65; // [rsp+D0h] [rbp-30h]
-  __int64 v66; // [rsp+D8h] [rbp-28h] BYREF
-  __int64 v67; // [rsp+E0h] [rbp-20h]
-  wchar_t *v68; // [rsp+E8h] [rbp-18h]
-  __int128 v69; // [rsp+F0h] [rbp-10h]
-  __int64 v70; // [rsp+100h] [rbp+0h]
-  _DWORD *v71; // [rsp+108h] [rbp+8h]
-  int v72; // [rsp+110h] [rbp+10h]
-  __int64 v73; // [rsp+118h] [rbp+18h]
-  UNICODE_STRING *v74; // [rsp+120h] [rbp+20h]
-  int v75; // [rsp+128h] [rbp+28h]
-  __int128 v76; // [rsp+130h] [rbp+30h]
-  int v77; // [rsp+140h] [rbp+40h]
-  __int64 v78; // [rsp+148h] [rbp+48h]
-  UNICODE_STRING *v79; // [rsp+150h] [rbp+50h]
-  int v80; // [rsp+158h] [rbp+58h]
-  __int128 v81; // [rsp+160h] [rbp+60h]
-  int v82; // [rsp+170h] [rbp+70h]
-  __int64 v83; // [rsp+178h] [rbp+78h]
-  UNICODE_STRING *v84; // [rsp+180h] [rbp+80h]
-  int v85; // [rsp+188h] [rbp+88h]
-  __int128 v86; // [rsp+190h] [rbp+90h]
-  int v87; // [rsp+1A0h] [rbp+A0h]
-  __int64 v88; // [rsp+1A8h] [rbp+A8h]
-  UNICODE_STRING *v89; // [rsp+1B0h] [rbp+B0h]
-  int v90; // [rsp+1B8h] [rbp+B8h]
-  __int128 v91; // [rsp+1C0h] [rbp+C0h]
-  int v92; // [rsp+1D0h] [rbp+D0h]
-  __int64 v93; // [rsp+1D8h] [rbp+D8h]
-  UNICODE_STRING *v94; // [rsp+1E0h] [rbp+E0h]
-  int v95; // [rsp+1E8h] [rbp+E8h]
-  __int128 v96; // [rsp+1F0h] [rbp+F0h]
-  _QWORD v97[3]; // [rsp+200h] [rbp+100h] BYREF
-  int v98; // [rsp+218h] [rbp+118h]
+  HANDLE v43; // rcx
+  __int64 v44; // rax
+  bool v45; // sf
+  WCHAR *v46; // rcx
+  __int64 v47; // rax
+  unsigned int v48; // [rsp+40h] [rbp-C0h] BYREF
+  _WORD v49[2]; // [rsp+44h] [rbp-BCh] BYREF
+  int v50; // [rsp+48h] [rbp-B8h] BYREF
+  unsigned int v51; // [rsp+4Ch] [rbp-B4h]
+  _UNICODE_STRING String; // [rsp+50h] [rbp-B0h] BYREF
+  PVOID Data[2]; // [rsp+60h] [rbp-A0h] BYREF
+  LANGID InstallUILanguageId[2]; // [rsp+70h] [rbp-90h] BYREF
+  ULONG Value; // [rsp+74h] [rbp-8Ch] BYREF
+  unsigned int v56; // [rsp+78h] [rbp-88h]
+  HANDLE Handle; // [rsp+80h] [rbp-80h] BYREF
+  unsigned int v58; // [rsp+88h] [rbp-78h]
+  PVOID v59; // [rsp+90h] [rbp-70h] BYREF
+  _BYTE v60[4]; // [rsp+98h] [rbp-68h] BYREF
+  unsigned int v61; // [rsp+9Ch] [rbp-64h]
+  _BYTE *v62; // [rsp+A0h] [rbp-60h]
+  _UNICODE_STRING DestinationString; // [rsp+A8h] [rbp-58h] BYREF
+  HANDLE v64; // [rsp+B8h] [rbp-48h] BYREF
+  HANDLE v65; // [rsp+C0h] [rbp-40h] BYREF
+  PVOID BaseAddress; // [rsp+C8h] [rbp-38h] BYREF
+  PVOID v67; // [rsp+D0h] [rbp-30h]
+  HANDLE v68; // [rsp+D8h] [rbp-28h] BYREF
+  HANDLE KeyHandle; // [rsp+E0h] [rbp-20h] BYREF
+  WCHAR *v70; // [rsp+E8h] [rbp-18h]
+  __int128 v71; // [rsp+F0h] [rbp-10h] BYREF
+  PVOID v72; // [rsp+100h] [rbp+0h]
+  _DWORD *v73; // [rsp+108h] [rbp+8h]
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+110h] [rbp+10h] BYREF
+  _OBJECT_ATTRIBUTES v75; // [rsp+140h] [rbp+40h] BYREF
+  _OBJECT_ATTRIBUTES v76; // [rsp+170h] [rbp+70h] BYREF
+  _OBJECT_ATTRIBUTES v77; // [rsp+1A0h] [rbp+A0h] BYREF
+  _OBJECT_ATTRIBUTES v78; // [rsp+1D0h] [rbp+D0h] BYREF
+  _QWORD v79[3]; // [rsp+200h] [rbp+100h] BYREF
+  int v80; // [rsp+218h] [rbp+118h]
 
-  v71 = a3;
+  v73 = a3;
   LOBYTE(v3) = a1;
-  v66 = 0LL;
-  v63 = 0LL;
-  v62 = 0LL;
-  v4 = a2;
-  v55 = 0LL;
-  v5 = 0;
-  v56 = 0;
-  v6 = 0;
-  v54 = 0;
-  v7 = 0;
-  v59 = 0;
-  v46 = 0;
-  v47[0] = 0;
-  v60 = 0LL;
-  memset(v97, 0, sizeof(v97));
-  v98 = 0;
-  v70 = 0LL;
-  v49 = 0;
-  v57 = 0LL;
+  v68 = 0LL;
   v65 = 0LL;
   v64 = 0LL;
-  v52 = 0;
-  v68 = 0LL;
+  v4 = a2;
+  Handle = 0LL;
+  v5 = 0;
+  v58 = 0;
+  v6 = 0;
+  v56 = 0;
+  v7 = 0;
+  v61 = 0;
+  v48 = 0;
+  v49[0] = 0;
+  v62 = 0LL;
+  memset(v79, 0, sizeof(v79));
+  v80 = 0;
+  v72 = 0LL;
+  v51 = 0;
+  v59 = 0LL;
   v67 = 0LL;
+  BaseAddress = 0LL;
+  InstallUILanguageId[0] = 0;
+  v70 = 0LL;
+  KeyHandle = 0LL;
   if ( !a3 )
     goto LABEL_2;
   v9 = 18440;
@@ -173,9 +155,9 @@ __int64 __fastcall RtlpSetUserPreferredUILanguages(int a1, WCHAR *a2, _DWORD *a3
 LABEL_2:
     InstallUILanguage = -1073741811;
 LABEL_103:
-    if ( (v3 & 0x80u) != 0 && v57 )
-      RtlpMuiFreeLangRegistryInfo(v57);
-    *v71 = v5 + v6 + v59;
+    if ( (v3 & 0x80u) != 0 && v59 )
+      RtlpMuiFreeLangRegistryInfo(v59);
+    *v73 = v5 + v6 + v61;
     return (unsigned int)InstallUILanguage;
   }
   v10 = v9 | 8;
@@ -188,19 +170,19 @@ LABEL_103:
   if ( (v11 & 0x1C00) != 0 )
     v12 = v11;
   if ( (v12 & 0x80u) == 0 )
-    v13 = RtlpCreateProcessRegistryInfo(&v57);
+    v13 = RtlpCreateProcessRegistryInfo(&v59);
   else
-    v13 = RtlpInitializeLangRegistryInfo(&v57);
+    v13 = RtlpInitializeLangRegistryInfo(&v59);
   InstallUILanguage = v13;
   if ( v13 >= 0 )
   {
     if ( !v4 )
     {
       v33 = 2;
-      LODWORD(v51) = 262146;
+      LODWORD(Data[0]) = 262146;
       v34 = (WCHAR *)&unk_180132D9C;
       v3 = v12;
-      *((_QWORD *)&v51 + 1) = &unk_180132D9C;
+      Data[1] = &unk_180132D9C;
       v39 = 4;
       goto LABEL_133;
     }
@@ -213,166 +195,166 @@ LABEL_103:
     v3 = v12;
     if ( (v12 & 0x400) != 0 )
     {
-      InstallUILanguage = ZwQueryInstallUILanguage();
+      InstallUILanguage = ZwQueryInstallUILanguage(InstallUILanguageId);
       if ( InstallUILanguage < 0 )
       {
 LABEL_92:
-        if ( v55 )
+        if ( Handle )
         {
-          ZwClose();
-          v55 = 0LL;
+          ZwClose(Handle);
+          Handle = 0LL;
         }
-        if ( v62 )
+        if ( v64 )
         {
-          ZwClose();
-          v62 = 0LL;
+          ZwClose(v64);
+          v64 = 0LL;
         }
-        if ( v63 )
+        if ( v65 )
         {
-          ZwClose();
-          v63 = 0LL;
+          ZwClose(v65);
+          v65 = 0LL;
         }
-        if ( v66 )
+        if ( v68 )
         {
-          ZwClose();
-          v66 = 0LL;
+          ZwClose(v68);
+          v68 = 0LL;
         }
-        if ( v70 )
-          RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v70);
-        v5 = v56;
-        v6 = v54;
+        if ( v72 )
+          RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v72);
+        v5 = v58;
+        v6 = v56;
         goto LABEL_103;
       }
-      Heap = (wchar_t *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, 522LL);
-      v68 = Heap;
+      Heap = (WCHAR *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, 0x20AuLL);
+      v70 = Heap;
       v17 = Heap;
       if ( !Heap )
       {
         InstallUILanguage = -1073741801;
         goto LABEL_92;
       }
-      v50.Buffer = Heap;
-      *(_DWORD *)&v50.Length = 11141120;
-      if ( !RtlLCIDToCultureName(v52, (__int64)&v50) )
+      String.Buffer = Heap;
+      *(_DWORD *)&String.Length = 11141120;
+      if ( !RtlLCIDToCultureName(InstallUILanguageId[0], &String) )
       {
         InstallUILanguage = -1073741811;
 LABEL_88:
         if ( v17 )
-          RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (__int64)v17);
-        if ( v65 )
-          RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (__int64)v65);
+          RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v17);
+        if ( v67 )
+          RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v67);
         goto LABEL_92;
       }
-      v18 = (unsigned __int64)v50.Length >> 1;
+      v18 = (unsigned __int64)String.Length >> 1;
       if ( (v12 & 4) != 0 )
       {
-        InstallUILanguage = RtlpConvertLCIDsToCultureNames(v4, (__int64 *)&v64);
+        InstallUILanguage = RtlpConvertLCIDsToCultureNames(v4, &BaseAddress);
         if ( InstallUILanguage < 0 )
           goto LABEL_85;
-        v4 = v64;
+        v4 = (WCHAR *)BaseAddress;
         v3 = v12 & 0xFFF3 | 8;
       }
-      InstallUILanguage = sub_1800ECFEC(v4, &v48, 0LL);
+      InstallUILanguage = sub_1800ECFEC(v4, &v50, 0LL);
       if ( InstallUILanguage < 0 )
         goto LABEL_85;
-      memmove((void *)&v17[v18 + 1], v4, 2LL * ((unsigned int)(unsigned __int16)v48 + 1));
-      InstallUILanguage = sub_1800EC198(v57, v17);
+      memmove(&v17[v18 + 1], v4, 2LL * ((unsigned int)(unsigned __int16)v50 + 1));
+      InstallUILanguage = sub_1800EC198((__int64)v59, v17);
       if ( InstallUILanguage < 0 )
         goto LABEL_85;
-      v4 = (WCHAR *)v17;
+      v4 = v17;
     }
-    InstallUILanguage = sub_1800ECFEC(v4, &v51, &v46);
+    InstallUILanguage = sub_1800ECFEC(v4, Data, &v48);
     if ( InstallUILanguage >= 0 )
     {
-      *((_QWORD *)&v51 + 1) = v4;
-      LOWORD(v51) = 2 * v51;
-      WORD1(v51) = v51 + 2;
-      if ( v46 - 1 > 2 )
+      Data[1] = v4;
+      LOWORD(Data[0]) *= 2;
+      WORD1(Data[0]) = LOWORD(Data[0]) + 2;
+      if ( v48 - 1 > 2 )
       {
         InstallUILanguage = -1073741811;
         goto LABEL_85;
       }
       v19 = v4;
-      v65 = (wchar_t *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, 170LL);
-      if ( !v65 )
+      v67 = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, 0xAAuLL);
+      if ( !v67 )
       {
         InstallUILanguage = -1073741801;
         goto LABEL_85;
       }
-      v7 = v46;
-      v48 = 0;
-      if ( v46 )
+      v7 = v48;
+      v50 = 0;
+      if ( v48 )
       {
         v20 = v3 & 4;
-        LODWORD(v69) = v20;
+        LODWORD(v71) = v20;
         while ( 1 )
         {
           RtlInitUnicodeString(&DestinationString, v19);
           if ( v20 )
           {
-            if ( (int)RtlUnicodeStringToInteger(&DestinationString.Length, 0x10u, (int *)&v53) < 0 )
+            if ( RtlUnicodeStringToInteger(&DestinationString, 0x10u, &Value) < 0 )
               goto LABEL_84;
-            v21 = v53;
-            if ( ((v53 - 4096) & 0xFFFFFBFF) == 0 )
+            v21 = Value;
+            if ( ((Value - 4096) & 0xFFFFFBFF) == 0 )
               goto LABEL_84;
-            DestinationString.Buffer = v65;
+            DestinationString.Buffer = (PWCH)v67;
             *(_DWORD *)&DestinationString.Length = 11141120;
-            if ( !RtlLCIDToCultureName(v53, (__int64)&DestinationString) )
+            if ( !RtlLCIDToCultureName(Value, &DestinationString) )
               goto LABEL_84;
             Buffer = (__int64)DestinationString.Buffer;
             v22 = -1LL;
             do
               ++v22;
             while ( DestinationString.Buffer[v22] );
-            v49 += v22 + 1;
+            v51 += v22 + 1;
           }
           else
           {
-            if ( !RtlCultureNameToLCID(&DestinationString.Length, &v53) )
+            if ( !RtlCultureNameToLCID(&DestinationString, &Value) )
               goto LABEL_84;
-            v21 = v53;
-            if ( ((v53 - 4096) & 0xFFFFFBFF) == 0 )
+            v21 = Value;
+            if ( ((Value - 4096) & 0xFFFFFBFF) == 0 )
               goto LABEL_84;
             Buffer = (__int64)DestinationString.Buffer;
           }
-          v23 = v48;
-          if ( v48 )
+          v23 = v50;
+          if ( v50 )
           {
-            if ( v48 == 1 )
+            if ( v50 == 1 )
             {
-              if ( (v3 & 0x800) != 0 || (v3 & 0x10) != 0 || (*v60 & 1) != 0 )
+              if ( (v3 & 0x800) != 0 || (v3 & 0x10) != 0 || (*v62 & 1) != 0 )
                 goto LABEL_84;
-              if ( (*v60 & 2) != 0 )
+              if ( (*v62 & 2) != 0 )
               {
-                v26 = v58;
+                v26 = v60;
               }
               else
               {
-                if ( (*v60 & 4) == 0 || v7 > 2 )
+                if ( (*v62 & 4) == 0 || v7 > 2 )
                   goto LABEL_84;
-                v26 = v47;
+                v26 = v49;
               }
-              v24 = sub_1800FDB24(v57, (_DWORD)v60, v21, (unsigned int)v97, (__int64)v26);
+              v24 = sub_1800FDB24((_DWORD)v59, (_DWORD)v62, v21, (unsigned int)v79, (__int64)v26);
             }
             else
             {
-              if ( v48 != 2 )
+              if ( v50 != 2 )
                 goto LABEL_77;
-              v24 = sub_1800FDB24(v57, (_DWORD)v60, v21, (unsigned int)v97, (__int64)v58);
+              v24 = sub_1800FDB24((_DWORD)v59, (_DWORD)v62, v21, (unsigned int)v79, (__int64)v60);
             }
             if ( v24 < 0 )
               goto LABEL_84;
-            v25 = v97;
+            v25 = v79;
           }
           else
           {
-            v27 = v57;
-            if ( (int)sub_18001583C(v57, (const WCHAR *)Buffer, 1, v47) < 0 )
+            v27 = v59;
+            if ( (int)sub_18001583C((__int64)v59, (const WCHAR *)Buffer, 1, v49) < 0 )
               goto LABEL_84;
-            v25 = (_QWORD *)(*(_QWORD *)(*(_QWORD *)(v27 + 24) + 16LL) + 28LL * v47[0]);
+            v25 = (_QWORD *)(*(_QWORD *)(v27[3] + 16LL) + 28LL * v49[0]);
           }
-          v23 = v48;
-          v60 = v25;
+          v23 = v50;
+          v62 = v25;
 LABEL_77:
           if ( v19 )
           {
@@ -387,45 +369,45 @@ LABEL_77:
           {
             v19 = 0LL;
           }
-          v48 = v23 + 1;
+          v50 = v23 + 1;
           if ( v23 + 1 >= v7 )
             break;
-          v20 = v69;
+          v20 = v71;
         }
       }
       if ( (v3 & 0x14) == 4 )
       {
-        v30 = v49 + 1;
-        v49 = v30;
+        v30 = v51 + 1;
+        v51 = v30;
         if ( v30 > 0xFFFF )
           goto LABEL_84;
-        v31 = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, 2LL * v30);
+        v31 = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, 2LL * v30);
         v32 = 0;
-        v70 = v31;
+        v72 = v31;
         if ( !v31 )
         {
           InstallUILanguage = -1073741670;
           goto LABEL_85;
         }
-        *((_QWORD *)&v51 + 1) = v31;
+        Data[1] = v31;
         v33 = 2 * v30;
         v34 = (WCHAR *)v31;
-        LOWORD(v51) = 2 * v30;
-        *(_QWORD *)&v69 = (unsigned __int16)(2 * v30);
-        v35 = (_WORD *)v31;
-        WORD1(v51) = v69;
-        if ( v46 )
+        LOWORD(Data[0]) = 2 * v30;
+        *(_QWORD *)&v71 = (unsigned __int16)(2 * v30);
+        v35 = v31;
+        WORD1(Data[0]) = v71;
+        if ( v48 )
         {
           do
           {
             RtlInitUnicodeString(&DestinationString, v4);
-            if ( (int)RtlUnicodeStringToInteger(&DestinationString.Length, 0x10u, (int *)&v53) < 0 )
+            if ( RtlUnicodeStringToInteger(&DestinationString, 0x10u, &Value) < 0 )
               goto LABEL_84;
-            DestinationString.Buffer = v65;
+            DestinationString.Buffer = (PWCH)v67;
             *(_DWORD *)&DestinationString.Length = 11141120;
-            if ( !RtlLCIDToCultureName(v53, (__int64)&DestinationString) )
+            if ( !RtlLCIDToCultureName(Value, &DestinationString) )
               goto LABEL_84;
-            if ( (int)sub_1800EBCB8(v35, v49, (__int64)DestinationString.Buffer) < 0 )
+            if ( (int)sub_1800EBCB8(v35, v51, (__int64)DestinationString.Buffer) < 0 )
             {
               InstallUILanguage = -1073741670;
               goto LABEL_85;
@@ -435,7 +417,7 @@ LABEL_77:
             do
               ++v36;
             while ( v35[v36] );
-            v49 += -1 - v36;
+            v51 += -1 - v36;
             if ( v35 )
             {
               v37 = -1LL;
@@ -457,38 +439,38 @@ LABEL_77:
               v4 = 0LL;
             }
           }
-          while ( ++v32 < v46 );
+          while ( ++v32 < v48 );
         }
-        v7 = v46;
+        v7 = v48;
         *v35 = 0;
         v4 = v34;
-        v39 = v69;
+        v39 = v71;
       }
       else
       {
-        v34 = (WCHAR *)*((_QWORD *)&v51 + 1);
-        v39 = WORD1(v51);
-        v33 = v51;
+        v34 = (WCHAR *)Data[1];
+        v39 = WORD1(Data[0]);
+        v33 = (__int16)Data[0];
       }
 LABEL_133:
       if ( (v3 & 0x400) != 0 )
       {
-        RtlInitUnicodeString(&v50, L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\NLS\\Language");
-        v72 = 48;
-        v73 = 0LL;
-        v67 = 0LL;
-        v75 = 64;
-        v74 = &v50;
-        v76 = 0LL;
-        InstallUILanguage = ZwCreateKey();
+        RtlInitUnicodeString(&String, L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\NLS\\Language");
+        ObjectAttributes.Length = 48;
+        ObjectAttributes.RootDirectory = 0LL;
+        KeyHandle = 0LL;
+        ObjectAttributes.Attributes = 64;
+        ObjectAttributes.ObjectName = &String;
+        *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+        InstallUILanguage = ZwCreateKey(&KeyHandle, 0x20006u, &ObjectAttributes, 0, 0LL, 0, 0LL);
         if ( InstallUILanguage < 0 )
           goto LABEL_85;
-        RtlInitUnicodeString(&v50, L"InstallLanguageFallback");
+        RtlInitUnicodeString(&String, L"InstallLanguageFallback");
         v40 = -1LL;
         do
           ++v40;
         while ( v34[v40] );
-        WORD1(v51) = -2 - 2 * v40 + v39;
+        WORD1(Data[0]) = -2 - 2 * v40 + v39;
         if ( v34 )
         {
           v41 = -1LL;
@@ -501,115 +483,121 @@ LABEL_133:
         {
           v42 = 0LL;
         }
-        *((_QWORD *)&v51 + 1) = v42;
-        InstallUILanguage = sub_1800ECFEC(v42, &v51, &v46);
+        Data[1] = v42;
+        InstallUILanguage = sub_1800ECFEC(v42, Data, &v48);
         if ( InstallUILanguage < 0 )
           goto LABEL_85;
-        v33 = v51;
-        InstallUILanguage = ZwSetValueKey();
+        v33 = (__int16)Data[0];
+        v34 = (WCHAR *)Data[1];
+        InstallUILanguage = ZwSetValueKey(KeyHandle, &String, 0, 7u, Data[1], 2 * LOWORD(Data[0]));
         if ( InstallUILanguage < 0 )
           goto LABEL_85;
-        v7 = v46;
-        v39 = WORD1(v51);
-        v59 = v46;
+        v7 = v48;
+        v39 = WORD1(Data[0]);
+        v61 = v48;
       }
       if ( (v3 & 0x10) != 0 )
       {
         InstallUILanguage = RtlpSetInstallLanguage(v3, v4);
         if ( InstallUILanguage < 0 )
           goto LABEL_85;
-        v59 = v7;
+        v61 = v7;
       }
       if ( (v3 & 0x4000) != 0 )
       {
-        InstallUILanguage = sub_180009204(0x2000000u, Buffer, (__int64)&v66);
+        InstallUILanguage = sub_180009204(0x2000000u, Buffer, &v68);
         if ( InstallUILanguage < 0 )
           goto LABEL_85;
-        RtlInitUnicodeString(&v50, L"Control Panel\\Desktop");
-        v77 = 48;
-        v62 = 0LL;
-        v78 = v66;
-        v80 = 64;
-        v79 = &v50;
-        v81 = 0LL;
-        InstallUILanguage = ZwOpenKey();
+        RtlInitUnicodeString(&String, L"Control Panel\\Desktop");
+        v75.Length = 48;
+        v64 = 0LL;
+        v75.RootDirectory = v68;
+        v75.Attributes = 64;
+        v75.ObjectName = &String;
+        *(_OWORD *)&v75.SecurityDescriptor = 0LL;
+        InstallUILanguage = ZwOpenKey(&v64, 0xF003Fu, &v75);
         if ( InstallUILanguage < 0 )
           goto LABEL_85;
         if ( (v3 & 0x800) != 0 )
         {
-          RtlInitUnicodeString(&v50, L"PreferredUILanguagesPending");
+          RtlInitUnicodeString(&String, L"PreferredUILanguagesPending");
+          v43 = v64;
         }
         else
         {
           if ( v7 < 2 )
             goto LABEL_84;
-          RtlInitUnicodeString(&v50, L"LanguageConfigurationPending");
-          v83 = v62;
-          v82 = 48;
-          v84 = &v50;
-          v85 = 64;
-          v86 = 0LL;
-          v55 = 0LL;
-          InstallUILanguage = ZwCreateKey();
+          RtlInitUnicodeString(&String, L"LanguageConfigurationPending");
+          v76.RootDirectory = v64;
+          v76.Length = 48;
+          v76.ObjectName = &String;
+          v76.Attributes = 64;
+          *(_OWORD *)&v76.SecurityDescriptor = 0LL;
+          Handle = 0LL;
+          InstallUILanguage = ZwCreateKey(&Handle, 0xF003Fu, &v76, 0, 0LL, 0, 0LL);
           if ( InstallUILanguage < 0 )
             goto LABEL_85;
-          RtlInitUnicodeString(&v50, v4);
+          RtlInitUnicodeString(&String, v4);
           if ( v4 )
           {
-            v43 = -1LL;
+            v44 = -1LL;
             do
-              ++v43;
-            while ( v4[v43] );
-            *((_QWORD *)&v51 + 1) = &v4[v43 + 1];
+              ++v44;
+            while ( v4[v44] );
+            v34 = &v4[v44 + 1];
+            Data[1] = v34;
           }
           else
           {
-            *((_QWORD *)&v51 + 1) = 0LL;
+            v34 = 0LL;
+            Data[1] = 0LL;
           }
-          WORD1(v51) = v39 - v50.MaximumLength;
-          LOWORD(v51) = v33 - v50.MaximumLength;
+          v39 -= String.MaximumLength;
+          v43 = Handle;
+          WORD1(Data[0]) = v39;
+          LOWORD(Data[0]) = v33 - String.MaximumLength;
         }
-        InstallUILanguage = ZwSetValueKey();
+        InstallUILanguage = ZwSetValueKey(v43, &String, 0, 7u, v34, v39);
         if ( InstallUILanguage < 0 )
           goto LABEL_85;
-        v56 = v7;
+        v58 = v7;
       }
-      if ( v55 )
+      if ( Handle )
       {
-        ZwClose();
-        v55 = 0LL;
+        ZwClose(Handle);
+        Handle = 0LL;
       }
       if ( (v3 & 0x8800) == 0x8800 )
       {
-        v69 = v51;
-        InstallUILanguage = sub_1800EDA08();
-        v54 = v7;
+        v71 = *(_OWORD *)Data;
+        InstallUILanguage = sub_1800EDA08((__int64)&v71);
+        v56 = v7;
       }
       if ( (v3 & 0x2000) == 0 && (v3 & 0x9000) != 0x9000 )
-        goto LABEL_180;
-      RtlInitUnicodeString(&v50, L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\MUI\\Settings");
-      v87 = 48;
-      v88 = 0LL;
-      v63 = 0LL;
-      v90 = 64;
-      v89 = &v50;
-      v91 = 0LL;
-      InstallUILanguage = ZwCreateKey();
+        goto LABEL_181;
+      RtlInitUnicodeString(&String, L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\MUI\\Settings");
+      v77.Length = 48;
+      v77.RootDirectory = 0LL;
+      v65 = 0LL;
+      v77.Attributes = 64;
+      v77.ObjectName = &String;
+      *(_OWORD *)&v77.SecurityDescriptor = 0LL;
+      InstallUILanguage = ZwCreateKey(&v65, 0xF003Fu, &v77, 0, 0LL, 0, 0LL);
       if ( InstallUILanguage < 0 )
         goto LABEL_85;
       if ( (v3 & 0x800) != 0 )
       {
-        RtlInitUnicodeString(&v50, L"PreferredUILanguages");
-        InstallUILanguage = ZwSetValueKey();
-        v44 = InstallUILanguage < 0;
-LABEL_178:
-        if ( v44 )
+        RtlInitUnicodeString(&String, L"PreferredUILanguages");
+        InstallUILanguage = ZwSetValueKey(v65, &String, 0, 7u, v34, v39);
+        v45 = InstallUILanguage < 0;
+LABEL_179:
+        if ( v45 )
           goto LABEL_85;
-        v54 = v7;
-LABEL_180:
+        v56 = v7;
+LABEL_181:
         if ( InstallUILanguage >= 0 && (v3 & 0xE410) != 0 )
         {
-          ZwGetMUIRegistryInfo();
+          ZwGetMUIRegistryInfo(8u, 0LL, 0LL);
           if ( (v3 & 0x8410) != 0 )
             sub_18008AC6C();
         }
@@ -617,35 +605,37 @@ LABEL_180:
       }
       if ( v7 >= 2 )
       {
-        RtlInitUnicodeString(&v50, L"LanguageConfiguration");
-        v93 = v63;
-        v92 = 48;
-        v94 = &v50;
-        v95 = 64;
-        v96 = 0LL;
-        v55 = 0LL;
-        InstallUILanguage = ZwCreateKey();
+        RtlInitUnicodeString(&String, L"LanguageConfiguration");
+        v78.RootDirectory = v65;
+        v78.Length = 48;
+        v78.ObjectName = &String;
+        v78.Attributes = 64;
+        *(_OWORD *)&v78.SecurityDescriptor = 0LL;
+        Handle = 0LL;
+        InstallUILanguage = ZwCreateKey(&Handle, 0xF003Fu, &v78, 0, 0LL, 0, 0LL);
         if ( InstallUILanguage < 0 )
           goto LABEL_85;
-        RtlInitUnicodeString(&v50, v4);
+        RtlInitUnicodeString(&String, v4);
+        v46 = 0LL;
         if ( v4 )
         {
-          v45 = -1LL;
+          v47 = -1LL;
           do
-            ++v45;
-          while ( v4[v45] );
+            ++v47;
+          while ( v4[v47] );
+          v46 = &v4[v47 + 1];
         }
-        InstallUILanguage = ZwSetValueKey();
-        v44 = InstallUILanguage < 0;
-        goto LABEL_178;
+        InstallUILanguage = ZwSetValueKey(Handle, &String, 0, 7u, v46, (unsigned __int16)(v39 - String.MaximumLength));
+        v45 = InstallUILanguage < 0;
+        goto LABEL_179;
       }
 LABEL_84:
       InstallUILanguage = -1073741811;
     }
 LABEL_85:
-    if ( v64 )
-      RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (__int64)v64);
-    v17 = v68;
+    if ( BaseAddress )
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, BaseAddress);
+    v17 = v70;
     goto LABEL_88;
   }
   return (unsigned int)InstallUILanguage;

@@ -11,8 +11,8 @@ int __stdcall LdrpCreateLoaderEvents()
 {
   int result; // eax
 
-  result = NtCreateEvent(&LdrpLoadCompleteEvent, 2031619, 0, 1, 0);
+  result = NtCreateEvent(&LdrpLoadCompleteEvent, 0x1F0003u, 0, SynchronizationEvent, 0);
   if ( result >= 0 )
-    return NtCreateEvent(&LdrpWorkCompleteEvent, 2031619, 0, 1, 0);
+    return NtCreateEvent(&LdrpWorkCompleteEvent, 0x1F0003u, 0, SynchronizationEvent, 0);
   return result;
 }

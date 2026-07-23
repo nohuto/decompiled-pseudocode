@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpNumaQueryProximityNode @ 0x140592130
+ * XREFs of HalpNumaQueryProximityNode @ 0x1405948B0
  * Callers:
- *     HalpNumaAddRangeProximity @ 0x140591850 (HalpNumaAddRangeProximity.c)
- *     HalpNumaGetHmatConfigSize @ 0x140591BC8 (HalpNumaGetHmatConfigSize.c)
- *     HalpNumaQueryMemoryNumaAttributes @ 0x140591EF0 (HalpNumaQueryMemoryNumaAttributes.c)
- *     HalpNumaQuerySystemLocalityLatencyAndBandwidthInfo @ 0x140592180 (HalpNumaQuerySystemLocalityLatencyAndBandwidthInfo.c)
- *     HalpNumaParseHmat @ 0x140CB22A0 (HalpNumaParseHmat.c)
+ *     HalpNumaAddRangeProximity @ 0x140593FD0 (HalpNumaAddRangeProximity.c)
+ *     HalpNumaGetHmatConfigSize @ 0x140594348 (HalpNumaGetHmatConfigSize.c)
+ *     HalpNumaQueryMemoryNumaAttributes @ 0x140594670 (HalpNumaQueryMemoryNumaAttributes.c)
+ *     HalpNumaQuerySystemLocalityLatencyAndBandwidthInfo @ 0x140594900 (HalpNumaQuerySystemLocalityLatencyAndBandwidthInfo.c)
+ *     HalpNumaParseHmat @ 0x140CB82E0 (HalpNumaParseHmat.c)
  * Callees:
  *     <none>
  */

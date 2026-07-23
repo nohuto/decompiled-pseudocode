@@ -1,10 +1,10 @@
 /*
- * XREFs of KeSetDisableQuantumProcess @ 0x1403B4014
+ * XREFs of KeSetDisableQuantumProcess @ 0x1403A2824
  * Callers:
- *     PspApplyJobLimitsToProcess @ 0x1408E7EF8 (PspApplyJobLimitsToProcess.c)
+ *     PspApplyJobLimitsToProcess @ 0x1408D873C (PspApplyJobLimitsToProcess.c)
  * Callees:
- *     KiReleaseProcessLockExclusive @ 0x1403B3B08 (KiReleaseProcessLockExclusive.c)
- *     KiAcquireProcessLockExclusive @ 0x1403B3B60 (KiAcquireProcessLockExclusive.c)
+ *     KiReleaseProcessLockExclusive @ 0x1403A2318 (KiReleaseProcessLockExclusive.c)
+ *     KiAcquireProcessLockExclusive @ 0x1403A2370 (KiAcquireProcessLockExclusive.c)
  */
 
 __int64 __fastcall KeSetDisableQuantumProcess(__int64 a1, int a2)

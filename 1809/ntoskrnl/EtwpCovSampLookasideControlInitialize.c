@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpCovSampLookasideControlInitialize @ 0x1408C6BB0
+ * XREFs of EtwpCovSampLookasideControlInitialize @ 0x1408C7E70
  * Callers:
- *     EtwpCovSampCaptureContextStart @ 0x1408C3D80 (EtwpCovSampCaptureContextStart.c)
+ *     EtwpCovSampCaptureContextStart @ 0x1408C5040 (EtwpCovSampCaptureContextStart.c)
  * Callees:
- *     InitializeSListHead @ 0x1400F3180 (InitializeSListHead.c)
- *     memset @ 0x1401D1880 (memset.c)
+ *     InitializeSListHead @ 0x1400F3200 (InitializeSListHead.c)
+ *     memset @ 0x1401D1980 (memset.c)
  */
 
 __int64 __fastcall EtwpCovSampLookasideControlInitialize(__int64 a1, __int64 a2, __int64 a3, int a4, unsigned int a5)

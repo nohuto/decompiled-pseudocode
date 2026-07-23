@@ -1,19 +1,19 @@
 /*
- * XREFs of PopSetSessionUserStatus @ 0x1406DC9B8
+ * XREFs of PopSetSessionUserStatus @ 0x1406DDC58
  * Callers:
- *     PopConsoleSessionPassiveInput @ 0x1406DC3A0 (PopConsoleSessionPassiveInput.c)
- *     PopRemoteSessionActiveInput @ 0x1406DC494 (PopRemoteSessionActiveInput.c)
- *     PopSessionInputChange @ 0x1406DC500 (PopSessionInputChange.c)
- *     PopSessionDisconnected @ 0x1406E1F4C (PopSessionDisconnected.c)
- *     PopCheckConsoleTimeouts @ 0x140878C94 (PopCheckConsoleTimeouts.c)
- *     PopInputDisabled @ 0x140878E78 (PopInputDisabled.c)
+ *     PopConsoleSessionPassiveInput @ 0x1406DD640 (PopConsoleSessionPassiveInput.c)
+ *     PopRemoteSessionActiveInput @ 0x1406DD734 (PopRemoteSessionActiveInput.c)
+ *     PopSessionInputChange @ 0x1406DD7A0 (PopSessionInputChange.c)
+ *     PopSessionDisconnected @ 0x1406E31EC (PopSessionDisconnected.c)
+ *     PopCheckConsoleTimeouts @ 0x140879EF4 (PopCheckConsoleTimeouts.c)
+ *     PopInputDisabled @ 0x14087A0D8 (PopInputDisabled.c)
  * Callees:
- *     PopPrintEx @ 0x14014242C (PopPrintEx.c)
- *     PopSetPowerSettingValue @ 0x14058B338 (PopSetPowerSettingValue.c)
- *     PopDiagTraceSessionStates @ 0x1406DC750 (PopDiagTraceSessionStates.c)
- *     PopEvaluateGlobalUserStatus @ 0x1406DCA98 (PopEvaluateGlobalUserStatus.c)
- *     PopPrintUserActivityPresence @ 0x1406DCBC8 (PopPrintUserActivityPresence.c)
- *     PopExtendConnectionState @ 0x140761D3C (PopExtendConnectionState.c)
+ *     PopPrintEx @ 0x14014252C (PopPrintEx.c)
+ *     PopSetPowerSettingValue @ 0x14058C338 (PopSetPowerSettingValue.c)
+ *     PopDiagTraceSessionStates @ 0x1406DD9F0 (PopDiagTraceSessionStates.c)
+ *     PopEvaluateGlobalUserStatus @ 0x1406DDD38 (PopEvaluateGlobalUserStatus.c)
+ *     PopPrintUserActivityPresence @ 0x1406DDE68 (PopPrintUserActivityPresence.c)
+ *     PopExtendConnectionState @ 0x140762F2C (PopExtendConnectionState.c)
  */
 
 __int64 __fastcall PopSetSessionUserStatus(unsigned int a1, unsigned int a2)
@@ -22,7 +22,7 @@ __int64 __fastcall PopSetSessionUserStatus(unsigned int a1, unsigned int a2)
   unsigned int Src; // [rsp+40h] [rbp+8h] BYREF
 
   if ( PopConsoleContext == a1 && a1 != -1 )
-    dword_14040FDC0 = a2;
+    dword_140410E40 = a2;
   Src = a2;
   v4 = (const wchar_t *)PopPrintUserActivityPresence(a2);
   PopPrintEx(3u, "PopAdaptive: Session %u user presence/activity state: %S\n", a1, v4);

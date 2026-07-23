@@ -1,11 +1,11 @@
 /*
- * XREFs of PopLidSwitchChangeCallback @ 0x140ABC720
+ * XREFs of PopLidSwitchChangeCallback @ 0x140ABE540
  * Callers:
  *     <none>
  * Callees:
- *     PopQueueWorkItem @ 0x1404CEE60 (PopQueueWorkItem.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     PopInvokeWin32Callout @ 0x140ABCA7C (PopInvokeWin32Callout.c)
+ *     PopQueueWorkItem @ 0x1404C8890 (PopQueueWorkItem.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     PopInvokeWin32Callout @ 0x140ABE89C (PopInvokeWin32Callout.c)
  */
 
 __int64 __fastcall PopLidSwitchChangeCallback(_QWORD *a1, int *a2, int a3)
@@ -32,7 +32,7 @@ __int64 __fastcall PopLidSwitchChangeCallback(_QWORD *a1, int *a2, int a3)
   v6 = 0LL;
   v7 = 0LL;
   v8 = 0LL;
-  if ( LOBYTE(PsAltSystemCallRegistrationLock.TrapFrame) )
+  if ( BYTE1(PsAltSystemCallRegistrationLock.Timer.DueTime.LowPart) )
   {
     DWORD2(v7) = 20;
     *(_QWORD *)&v8 = &v10;
@@ -40,6 +40,6 @@ __int64 __fastcall PopLidSwitchChangeCallback(_QWORD *a1, int *a2, int a3)
     v9 = 0LL;
     PopInvokeWin32Callout(5LL, &v6, 2LL);
   }
-  PopQueueWorkItem((__int64)&stru_140F12420.ReadOperationCount, DelayedWorkQueue);
+  PopQueueWorkItem((__int64)&PopRecordLidStateWorkItem, DelayedWorkQueue);
   return 0LL;
 }

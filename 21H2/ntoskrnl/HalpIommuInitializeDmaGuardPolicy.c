@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpIommuInitializeDmaGuardPolicy @ 0x1403A9420
+ * XREFs of HalpIommuInitializeDmaGuardPolicy @ 0x1403AA1B0
  * Callers:
- *     HalpIommuInitSystem @ 0x14099B9D0 (HalpIommuInitSystem.c)
+ *     HalpIommuInitSystem @ 0x14099C9D0 (HalpIommuInitSystem.c)
  * Callees:
- *     strstr @ 0x1403D1880 (strstr.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     strstr @ 0x1403D19F0 (strstr.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall HalpIommuInitializeDmaGuardPolicy(__int64 a1)
@@ -18,7 +18,7 @@ __int64 __fastcall HalpIommuInitializeDmaGuardPolicy(__int64 a1)
   if ( HalpHvIommu )
   {
     v6 = 0;
-    result = ((__int64 (__fastcall *)(char *))qword_140C4A330)(&v6);
+    result = ((__int64 (__fastcall *)(char *))qword_140C4A370)(&v6);
     if ( (int)result >= 0 && v6 )
     {
       HalpIommuPolicy = 3;

@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpCheckCreateAccessOnKcbStack @ 0x14069D680
+ * XREFs of CmpCheckCreateAccessOnKcbStack @ 0x1405FC750
  * Callers:
- *     CmpDoParseKey @ 0x1406F9170 (CmpDoParseKey.c)
+ *     CmpDoParseKey @ 0x140710550 (CmpDoParseKey.c)
  * Callees:
- *     CmpGetSecurityCacheEntryForKcbStack @ 0x1405EF460 (CmpGetSecurityCacheEntryForKcbStack.c)
- *     CmpCheckCreateAccess @ 0x14069D74C (CmpCheckCreateAccess.c)
- *     CmpSetAccessStateForBackupRestore @ 0x14076EEF4 (CmpSetAccessStateForBackupRestore.c)
+ *     CmpCheckCreateAccess @ 0x1405FC81C (CmpCheckCreateAccess.c)
+ *     CmpGetSecurityCacheEntryForKcbStack @ 0x1406DEBC0 (CmpGetSecurityCacheEntryForKcbStack.c)
+ *     CmpSetAccessStateForBackupRestore @ 0x14076F0B4 (CmpSetAccessStateForBackupRestore.c)
  */
 
 char __fastcall CmpCheckCreateAccessOnKcbStack(

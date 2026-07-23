@@ -1,11 +1,11 @@
 /*
- * XREFs of PoUserShutdownCancelled @ 0x140779E50
+ * XREFs of PoUserShutdownCancelled @ 0x14077A010
  * Callers:
- *     PopPowerInformationInternal @ 0x140678DF4 (PopPowerInformationInternal.c)
+ *     PopPowerInformationInternal @ 0x14066C534 (PopPowerInformationInternal.c)
  * Callees:
- *     PopQueueWorkItem @ 0x1402D3A34 (PopQueueWorkItem.c)
- *     PsIsCurrentThreadInServerSilo @ 0x140351230 (PsIsCurrentThreadInServerSilo.c)
- *     PopUserShutdownCancelled @ 0x140779E84 (PopUserShutdownCancelled.c)
+ *     PopQueueWorkItem @ 0x140251CA4 (PopQueueWorkItem.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x14035BF80 (PsIsCurrentThreadInServerSilo.c)
+ *     PopUserShutdownCancelled @ 0x14077A044 (PopUserShutdownCancelled.c)
  */
 
 char __fastcall PoUserShutdownCancelled(__int64 a1, __int64 a2)

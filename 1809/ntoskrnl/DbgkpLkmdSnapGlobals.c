@@ -1,12 +1,12 @@
 /*
- * XREFs of DbgkpLkmdSnapGlobals @ 0x14026DABC
+ * XREFs of DbgkpLkmdSnapGlobals @ 0x14026DCAC
  * Callers:
- *     DbgkCaptureLiveDump @ 0x140811720 (DbgkCaptureLiveDump.c)
+ *     DbgkCaptureLiveDump @ 0x140812920 (DbgkCaptureLiveDump.c)
  * Callees:
- *     KeGetPrcb @ 0x1400A62C4 (KeGetPrcb.c)
- *     KeQueryActiveProcessorCountEx @ 0x1400A7920 (KeQueryActiveProcessorCountEx.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     KeEnumerateProcessorDpcs @ 0x140293FDC (KeEnumerateProcessorDpcs.c)
+ *     KeGetPrcb @ 0x1400A6204 (KeGetPrcb.c)
+ *     KeQueryActiveProcessorCountEx @ 0x1400A7860 (KeQueryActiveProcessorCountEx.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     KeEnumerateProcessorDpcs @ 0x1402941CC (KeEnumerateProcessorDpcs.c)
  */
 
 __int64 __fastcall DbgkpLkmdSnapGlobals(__int64 a1)

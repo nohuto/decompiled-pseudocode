@@ -1,13 +1,13 @@
 /*
- * XREFs of EmonOverflowHandlerInternalV1Original @ 0x14055C658
+ * XREFs of EmonOverflowHandlerInternalV1Original @ 0x14055A288
  * Callers:
- *     EmonOverflowHandlerOriginal @ 0x14055D3E0 (EmonOverflowHandlerOriginal.c)
+ *     EmonOverflowHandlerOriginal @ 0x14055B010 (EmonOverflowHandlerOriginal.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x14034FA10 (KeQueryPerformanceCounter.c)
- *     EmonIsModifiedByBadActorInternalOriginal @ 0x14048785C (EmonIsModifiedByBadActorInternalOriginal.c)
- *     KeProfileInterruptWithSource @ 0x140498080 (KeProfileInterruptWithSource.c)
- *     PoGetProcessorIdleAccounting @ 0x1404FA590 (PoGetProcessorIdleAccounting.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     KeQueryPerformanceCounter @ 0x14036DEF0 (KeQueryPerformanceCounter.c)
+ *     EmonIsModifiedByBadActorInternalOriginal @ 0x1404828CC (EmonIsModifiedByBadActorInternalOriginal.c)
+ *     KeProfileInterruptWithSource @ 0x140492A60 (KeProfileInterruptWithSource.c)
+ *     PoGetProcessorIdleAccounting @ 0x1404F7E70 (PoGetProcessorIdleAccounting.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 void __fastcall EmonOverflowHandlerInternalV1Original(__int64 a1, __int64 a2)
@@ -123,7 +123,7 @@ LABEL_13:
     v36 = 0LL;
     PerformanceFrequency.QuadPart = 0LL;
     if ( HalpTimerProfilingCallback )
-      guard_dispatch_icall_no_overrides(v2, v17, v8, v2);
+      guard_dispatch_icall_no_overrides(v2, v17);
     else
       KeProfileInterruptWithSource(v2, 0LL);
     v18 = HalpProfileData;

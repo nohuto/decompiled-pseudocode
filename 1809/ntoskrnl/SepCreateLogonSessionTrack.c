@@ -1,19 +1,19 @@
 /*
- * XREFs of SepCreateLogonSessionTrack @ 0x1406AE1DC
+ * XREFs of SepCreateLogonSessionTrack @ 0x1406AF47C
  * Callers:
- *     SepRmCreateLogonSessionWrkr @ 0x1406AE1B0 (SepRmCreateLogonSessionWrkr.c)
- *     SeInitServerSilo @ 0x14089B7C4 (SeInitServerSilo.c)
- *     SepRmDbInitialization @ 0x1409D8F90 (SepRmDbInitialization.c)
+ *     SepRmCreateLogonSessionWrkr @ 0x1406AF450 (SepRmCreateLogonSessionWrkr.c)
+ *     SeInitServerSilo @ 0x14089CA24 (SeInitServerSilo.c)
+ *     SepRmDbInitialization @ 0x1409D9F90 (SepRmDbInitialization.c)
  * Callees:
  *     PsGetCurrentServerSilo @ 0x14004D270 (PsGetCurrentServerSilo.c)
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceExclusiveLite @ 0x1400505F0 (ExAcquireResourceExclusiveLite.c)
- *     ExInitializePushLock @ 0x14008A400 (ExInitializePushLock.c)
- *     ObfReferenceObjectWithTag @ 0x1400ACDF0 (ObfReferenceObjectWithTag.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     ExInitializePushLock @ 0x14008A3F0 (ExInitializePushLock.c)
+ *     ObfReferenceObjectWithTag @ 0x1400ACD30 (ObfReferenceObjectWithTag.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SepCreateLogonSessionTrack(__int64 a1)

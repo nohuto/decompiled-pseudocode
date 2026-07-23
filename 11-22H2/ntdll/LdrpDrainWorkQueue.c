@@ -35,7 +35,7 @@ struct _TEB *__fastcall LdrpDrainWorkQueue(int a1)
   __int64 v8; // rax
   __int64 v9; // rax
 
-  v1 = (HANDLE)LdrpWorkCompleteEvent;
+  v1 = LdrpWorkCompleteEvent;
   v2 = 0;
   if ( !a1 )
     v1 = LdrpLoadCompleteEvent;
@@ -43,7 +43,7 @@ struct _TEB *__fastcall LdrpDrainWorkQueue(int a1)
   {
     while ( 1 )
     {
-      RtlEnterCriticalSection((__int64)&LdrpWorkQueueLock);
+      RtlEnterCriticalSection(&LdrpWorkQueueLock);
       v4 = LdrpDetourExist;
       if ( !LdrpDetourExist || a1 == 1 )
       {
@@ -79,7 +79,7 @@ struct _TEB *__fastcall LdrpDrainWorkQueue(int a1)
         }
         v5 = &LdrpWorkQueue;
       }
-      RtlLeaveCriticalSection((__int64)&LdrpWorkQueueLock);
+      RtlLeaveCriticalSection(&LdrpWorkQueueLock);
       if ( v2 )
         break;
       if ( &LdrpWorkQueue == v5 )
@@ -89,7 +89,7 @@ struct _TEB *__fastcall LdrpDrainWorkQueue(int a1)
     }
     if ( !a1 || (__int64 *)LdrpRetryQueue == &LdrpRetryQueue )
       break;
-    RtlEnterCriticalSection((__int64)&LdrpWorkQueueLock);
+    RtlEnterCriticalSection(&LdrpWorkQueueLock);
     v8 = LdrpRetryQueue;
     *(_QWORD *)(LdrpRetryQueue + 8) = &LdrpWorkQueue;
     LdrpWorkQueue = v8;
@@ -99,7 +99,7 @@ struct _TEB *__fastcall LdrpDrainWorkQueue(int a1)
     qword_180184258 = (__int64)&LdrpRetryQueue;
     LdrpRetryQueue = (__int64)&LdrpRetryQueue;
     LdrpRetryingModuleIndex = 0LL;
-    RtlLeaveCriticalSection((__int64)&LdrpWorkQueueLock);
+    RtlLeaveCriticalSection(&LdrpWorkQueueLock);
     v2 = 0;
   }
   result = NtCurrentTeb();

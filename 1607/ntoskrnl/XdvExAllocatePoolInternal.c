@@ -1,11 +1,11 @@
 /*
- * XREFs of XdvExAllocatePoolInternal @ 0x14070CE7C
+ * XREFs of XdvExAllocatePoolInternal @ 0x14070CEAC
  * Callers:
- *     VerifierExAllocatePool @ 0x1407020A4 (VerifierExAllocatePool.c)
- *     VerifierExAllocatePoolWithTag @ 0x140702120 (VerifierExAllocatePoolWithTag.c)
- *     VerifierExAllocatePoolWithQuota @ 0x140702180 (VerifierExAllocatePoolWithQuota.c)
- *     VerifierExAllocatePoolWithQuotaTag @ 0x140702270 (VerifierExAllocatePoolWithQuotaTag.c)
- *     VerifierExAllocatePoolWithTagPriority @ 0x140702364 (VerifierExAllocatePoolWithTagPriority.c)
+ *     VerifierExAllocatePool @ 0x1407020D4 (VerifierExAllocatePool.c)
+ *     VerifierExAllocatePoolWithTag @ 0x140702150 (VerifierExAllocatePoolWithTag.c)
+ *     VerifierExAllocatePoolWithQuota @ 0x1407021B0 (VerifierExAllocatePoolWithQuota.c)
+ *     VerifierExAllocatePoolWithQuotaTag @ 0x1407022A0 (VerifierExAllocatePoolWithQuotaTag.c)
+ *     VerifierExAllocatePoolWithTagPriority @ 0x140702394 (VerifierExAllocatePoolWithTagPriority.c)
  *     VerifierPortExAllocatePoolWithQuotaTag @ 0x14071A4B0 (VerifierPortExAllocatePoolWithQuotaTag.c)
  *     VerifierPortExAllocatePoolWithTagPriority @ 0x14071A5A0 (VerifierPortExAllocatePoolWithTagPriority.c)
  * Callees:

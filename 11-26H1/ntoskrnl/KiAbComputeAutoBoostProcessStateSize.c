@@ -1,7 +1,7 @@
 /*
- * XREFs of KiAbComputeAutoBoostProcessStateSize @ 0x1404D8114
+ * XREFs of KiAbComputeAutoBoostProcessStateSize @ 0x1404D18E4
  * Callers:
- *     KeSizeOfKProcessExtension @ 0x1404D80E0 (KeSizeOfKProcessExtension.c)
+ *     KeSizeOfKProcessExtension @ 0x1404D18B0 (KeSizeOfKProcessExtension.c)
  * Callees:
  *     <none>
  */

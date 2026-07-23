@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlAddAccessDeniedObjectAce @ 0x1408926A0
+ * XREFs of RtlAddAccessDeniedObjectAce @ 0x140893900
  * Callers:
- *     LocalGetAclForString @ 0x1406AFC8C (LocalGetAclForString.c)
+ *     LocalGetAclForString @ 0x1406B0F2C (LocalGetAclForString.c)
  * Callees:
- *     RtlpAddKnownAce @ 0x1406315A0 (RtlpAddKnownAce.c)
- *     RtlpAddKnownObjectAce @ 0x140892D64 (RtlpAddKnownObjectAce.c)
+ *     RtlpAddKnownAce @ 0x1406325C0 (RtlpAddKnownAce.c)
+ *     RtlpAddKnownObjectAce @ 0x140893FC4 (RtlpAddKnownObjectAce.c)
  */
 
 NTSTATUS __stdcall RtlAddAccessDeniedObjectAce(

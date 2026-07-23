@@ -1,12 +1,12 @@
 /*
- * XREFs of PiDeferSetInterfaceState @ 0x14074B780
+ * XREFs of PiDeferSetInterfaceState @ 0x14074B940
  * Callers:
- *     IopProcessSetInterfaceState @ 0x1407490DC (IopProcessSetInterfaceState.c)
+ *     IopProcessSetInterfaceState @ 0x14074929C (IopProcessSetInterfaceState.c)
  * Callees:
- *     RtlCopyUnicodeString @ 0x1403534C0 (RtlCopyUnicodeString.c)
- *     IopAllocateUnicodeString @ 0x1407496AC (IopAllocateUnicodeString.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     RtlCopyUnicodeString @ 0x14035E210 (RtlCopyUnicodeString.c)
+ *     IopAllocateUnicodeString @ 0x14074986C (IopAllocateUnicodeString.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PiDeferSetInterfaceState(__int64 a1, const UNICODE_STRING *a2)

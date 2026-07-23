@@ -1,9 +1,9 @@
 /*
- * XREFs of EmonResumeProfilingEnhanced @ 0x14055E2D0
+ * XREFs of EmonResumeProfilingEnhanced @ 0x14055BF00
  * Callers:
  *     <none>
  * Callees:
- *     EmonResumeProfilingInternalEnhanced @ 0x14055E30C (EmonResumeProfilingInternalEnhanced.c)
+ *     EmonResumeProfilingInternalEnhanced @ 0x14055BF3C (EmonResumeProfilingInternalEnhanced.c)
  */
 
 __int64 EmonResumeProfilingEnhanced()

@@ -1,15 +1,15 @@
 /*
- * XREFs of PnpQueryRemoveLockedDeviceNode @ 0x140AE3ECC
+ * XREFs of PnpQueryRemoveLockedDeviceNode @ 0x140AE19D4
  * Callers:
- *     PnpDeleteLockedDeviceNode @ 0x140A8A1F0 (PnpDeleteLockedDeviceNode.c)
+ *     PnpDeleteLockedDeviceNode @ 0x1409B7010 (PnpDeleteLockedDeviceNode.c)
  * Callees:
- *     RtlCopyUnicodeString @ 0x140419A90 (RtlCopyUnicodeString.c)
- *     RtlAppendUnicodeStringToString @ 0x140432F70 (RtlAppendUnicodeStringToString.c)
- *     PipSetDevNodeState @ 0x1404D2858 (PipSetDevNodeState.c)
- *     PipSetDevNodeUserFlags @ 0x14090E790 (PipSetDevNodeUserFlags.c)
- *     PipClearDevNodeUserFlags @ 0x14090F028 (PipClearDevNodeUserFlags.c)
- *     IopRemoveDevice @ 0x14090FCA8 (IopRemoveDevice.c)
- *     PiIrpQueryRemoveDevice @ 0x140AE3FF4 (PiIrpQueryRemoveDevice.c)
+ *     RtlCopyUnicodeString @ 0x14040DFC0 (RtlCopyUnicodeString.c)
+ *     RtlAppendUnicodeStringToString @ 0x14041FFA0 (RtlAppendUnicodeStringToString.c)
+ *     PipSetDevNodeState @ 0x1404CC0D0 (PipSetDevNodeState.c)
+ *     PipSetDevNodeUserFlags @ 0x1409B08C0 (PipSetDevNodeUserFlags.c)
+ *     PipClearDevNodeUserFlags @ 0x1409B1158 (PipClearDevNodeUserFlags.c)
+ *     IopRemoveDevice @ 0x1409B1DD8 (IopRemoveDevice.c)
+ *     PiIrpQueryRemoveDevice @ 0x140AE1AFC (PiIrpQueryRemoveDevice.c)
  */
 
 __int64 __fastcall PnpQueryRemoveLockedDeviceNode(__int64 a1, _DWORD *a2, UNICODE_STRING *a3)
@@ -30,7 +30,7 @@ __int64 __fastcall PnpQueryRemoveLockedDeviceNode(__int64 a1, _DWORD *a2, UNICOD
       v7 = PiIrpQueryRemoveDevice(v6);
       if ( v7 < 0 )
       {
-        IopRemoveDevice(v6, 3LL);
+        IopRemoveDevice(v6, 3);
         *a2 = 6;
         RtlCopyUnicodeString(a3, (PCUNICODE_STRING)(a1 + 40));
       }

@@ -1,16 +1,16 @@
 /*
- * XREFs of KeContextToKframes @ 0x1403FE020
+ * XREFs of KeContextToKframes @ 0x1403FE200
  * Callers:
- *     KiDispatchException @ 0x140273320 (KiDispatchException.c)
- *     KiContinueEx @ 0x1402766C0 (KiContinueEx.c)
- *     KiContinuePreviousModeUser @ 0x140276A00 (KiContinuePreviousModeUser.c)
- *     KiRestoreSetContextState @ 0x1403FF120 (KiRestoreSetContextState.c)
- *     KiRaiseException @ 0x140521E90 (KiRaiseException.c)
- *     KiRestoreProcessorState @ 0x1405252F8 (KiRestoreProcessorState.c)
- *     KeCopyContextToUch @ 0x1408BE5F0 (KeCopyContextToUch.c)
- *     KiRestoreUchFromUmsContext @ 0x1408BF028 (KiRestoreUchFromUmsContext.c)
+ *     KiDispatchException @ 0x1402612C0 (KiDispatchException.c)
+ *     KiContinueEx @ 0x140264660 (KiContinueEx.c)
+ *     KiContinuePreviousModeUser @ 0x1402649A0 (KiContinuePreviousModeUser.c)
+ *     KiRestoreSetContextState @ 0x1403FF300 (KiRestoreSetContextState.c)
+ *     KiRaiseException @ 0x1405220D0 (KiRaiseException.c)
+ *     KiRestoreProcessorState @ 0x140525538 (KiRestoreProcessorState.c)
+ *     KeCopyContextToUch @ 0x1408BE750 (KeCopyContextToUch.c)
+ *     KiRestoreUchFromUmsContext @ 0x1408BF188 (KiRestoreUchFromUmsContext.c)
  * Callees:
- *     KxContextToKframes @ 0x140279000 (KxContextToKframes.c)
+ *     KxContextToKframes @ 0x140266FA0 (KxContextToKframes.c)
  */
 
 __int64 __fastcall KeContextToKframes(__int64 a1, __int64 a2, __int64 a3, int a4, __int64 a5)

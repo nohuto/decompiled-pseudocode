@@ -6,11 +6,25 @@
  *     <none>
  */
 
-__int64 NtCreateNamedPipeFile()
+NTSTATUS __cdecl NtCreateNamedPipeFile(
+        PHANDLE FileHandle,
+        ULONG DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        PIO_STATUS_BLOCK IoStatusBlock,
+        ULONG ShareAccess,
+        ULONG CreateDisposition,
+        ULONG CreateOptions,
+        ULONG NamedPipeType,
+        ULONG ReadMode,
+        ULONG CompletionMode,
+        ULONG MaximumInstances,
+        ULONG InboundQuota,
+        ULONG OutboundQuota,
+        PLARGE_INTEGER DefaultTimeout)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 168LL;
+  result = 168;
   __asm { syscall; Low latency system call }
   return result;
 }

@@ -1,14 +1,14 @@
 /*
- * XREFs of PerfLogExecutiveResourceAcquire @ 0x140313480
+ * XREFs of PerfLogExecutiveResourceAcquire @ 0x140313670
  * Callers:
  *     ExAcquireResourceExclusiveLite @ 0x1400505F0 (ExAcquireResourceExclusiveLite.c)
  *     ExpAcquireResourceSharedLite @ 0x140050960 (ExpAcquireResourceSharedLite.c)
  *     ExpAcquireResourceExclusiveLite @ 0x140050D60 (ExpAcquireResourceExclusiveLite.c)
- *     ExpAcquireSharedStarveExclusive @ 0x1400B1A10 (ExpAcquireSharedStarveExclusive.c)
- *     ExAcquireSharedWaitForExclusive @ 0x140165E80 (ExAcquireSharedWaitForExclusive.c)
- *     ExpTryToAcquireResourceExclusiveLite @ 0x14031BE84 (ExpTryToAcquireResourceExclusiveLite.c)
+ *     ExpAcquireSharedStarveExclusive @ 0x1400B1950 (ExpAcquireSharedStarveExclusive.c)
+ *     ExAcquireSharedWaitForExclusive @ 0x140165F80 (ExAcquireSharedWaitForExclusive.c)
+ *     ExpTryToAcquireResourceExclusiveLite @ 0x14031C074 (ExpTryToAcquireResourceExclusiveLite.c)
  * Callees:
- *     EtwpGetTrackingLockSlotForThread @ 0x140313344 (EtwpGetTrackingLockSlotForThread.c)
+ *     EtwpGetTrackingLockSlotForThread @ 0x140313534 (EtwpGetTrackingLockSlotForThread.c)
  */
 
 signed __int64 __fastcall PerfLogExecutiveResourceAcquire(int a1, __int64 a2, unsigned int a3, int a4)

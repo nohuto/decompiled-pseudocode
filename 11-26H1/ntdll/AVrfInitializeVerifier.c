@@ -1,38 +1,38 @@
 /*
- * XREFs of AVrfInitializeVerifier @ 0x1801163F0
+ * XREFs of AVrfInitializeVerifier @ 0x180115BD0
  * Callers:
- *     LdrpInitializeProcess @ 0x1800CF8B8 (LdrpInitializeProcess.c)
- *     LdrpInitializeApplicationVerifierPackage @ 0x180112290 (LdrpInitializeApplicationVerifierPackage.c)
+ *     LdrpInitializeProcess @ 0x1800CD028 (LdrpInitializeProcess.c)
+ *     LdrpInitializeApplicationVerifierPackage @ 0x180111D40 (LdrpInitializeApplicationVerifierPackage.c)
  * Callees:
- *     DbgPrint @ 0x180025720 (DbgPrint.c)
- *     DbgPrintEx @ 0x1800413D0 (DbgPrintEx.c)
- *     RtlImageNtHeaderEx @ 0x180047040 (RtlImageNtHeaderEx.c)
- *     LdrpFindLoadedDllByName @ 0x180052F40 (LdrpFindLoadedDllByName.c)
- *     LdrpDereferenceModule @ 0x180054E10 (LdrpDereferenceModule.c)
- *     RtlInitializeCriticalSectionEx @ 0x18007BB90 (RtlInitializeCriticalSectionEx.c)
- *     LdrProtectMrdata @ 0x180081980 (LdrProtectMrdata.c)
- *     LdrGetProcedureAddressEx @ 0x180085BD0 (LdrGetProcedureAddressEx.c)
- *     LdrpInitializeTls @ 0x18009299C (LdrpInitializeTls.c)
- *     RtlQueryImageFileKeyOption @ 0x1800D3070 (RtlQueryImageFileKeyOption.c)
- *     LdrpInitializeGraphRecurse @ 0x1800E81A0 (LdrpInitializeGraphRecurse.c)
- *     LdrpPayloadRestrictionMitigationsEnabled @ 0x1800EB914 (LdrpPayloadRestrictionMitigationsEnabled.c)
- *     AVrfpLoadAndInitializeProvider @ 0x180106D68 (AVrfpLoadAndInitializeProvider.c)
- *     AVrfpSnapAlreadyLoadedDlls @ 0x180113DC4 (AVrfpSnapAlreadyLoadedDlls.c)
- *     AVrfpParseVerifierDllsString @ 0x18011535C (AVrfpParseVerifierDllsString.c)
- *     AvrfMiniLoadDll @ 0x180116838 (AvrfMiniLoadDll.c)
- *     AVrfpVerifierStopInitialize @ 0x1801201E8 (AVrfpVerifierStopInitialize.c)
- *     AVrfpEnableVerifierOptions @ 0x180120F94 (AVrfpEnableVerifierOptions.c)
- *     AVrfpChainDuplicateVerificationLayers @ 0x180124720 (AVrfpChainDuplicateVerificationLayers.c)
+ *     DbgPrint @ 0x1800107F0 (DbgPrint.c)
+ *     DbgPrintEx @ 0x18002B940 (DbgPrintEx.c)
+ *     RtlImageNtHeaderEx @ 0x1800315B0 (RtlImageNtHeaderEx.c)
+ *     LdrpFindLoadedDllByName @ 0x18003D4C0 (LdrpFindLoadedDllByName.c)
+ *     LdrpDereferenceModule @ 0x18003F390 (LdrpDereferenceModule.c)
+ *     RtlInitializeCriticalSectionEx @ 0x18006A3B0 (RtlInitializeCriticalSectionEx.c)
+ *     LdrpInitializeTls @ 0x180073B08 (LdrpInitializeTls.c)
+ *     LdrProtectMrdata @ 0x180078D20 (LdrProtectMrdata.c)
+ *     LdrGetProcedureAddressEx @ 0x18007CF70 (LdrGetProcedureAddressEx.c)
+ *     RtlQueryImageFileKeyOption @ 0x1800D1480 (RtlQueryImageFileKeyOption.c)
+ *     LdrpInitializeGraphRecurse @ 0x1800E73B0 (LdrpInitializeGraphRecurse.c)
+ *     LdrpPayloadRestrictionMitigationsEnabled @ 0x1800EAB24 (LdrpPayloadRestrictionMitigationsEnabled.c)
+ *     AVrfpLoadAndInitializeProvider @ 0x180106768 (AVrfpLoadAndInitializeProvider.c)
+ *     AVrfpSnapAlreadyLoadedDlls @ 0x18011365C (AVrfpSnapAlreadyLoadedDlls.c)
+ *     AVrfpParseVerifierDllsString @ 0x180114B3C (AVrfpParseVerifierDllsString.c)
+ *     AvrfMiniLoadDll @ 0x180116018 (AvrfMiniLoadDll.c)
+ *     AVrfpVerifierStopInitialize @ 0x18011FF98 (AVrfpVerifierStopInitialize.c)
+ *     AVrfpEnableVerifierOptions @ 0x180120D44 (AVrfpEnableVerifierOptions.c)
+ *     AVrfpChainDuplicateVerificationLayers @ 0x180124490 (AVrfpChainDuplicateVerificationLayers.c)
  */
 
-__int64 __fastcall AVrfInitializeVerifier(char a1, int a2, __int64 a3, int a4, __int64 a5, _QWORD *a6)
+__int64 __fastcall AVrfInitializeVerifier(char a1, int a2, void *a3, int a4, __int64 a5, _QWORD *a6)
 {
   struct _PEB *v6; // r14
   int Dll; // ebx
   __int64 *i; // rbx
   int LoadedDllByName; // eax
-  __int64 v13; // rbx
-  int ProcedureAddress; // ebx
+  void *v13; // rbx
+  NTSTATUS v14; // ebx
   __int64 *j; // rdi
   __int64 v16; // rcx
   __int64 *v17; // rbx
@@ -41,14 +41,14 @@ __int64 __fastcall AVrfInitializeVerifier(char a1, int a2, __int64 a3, int a4, _
   unsigned int NtGlobalFlag; // r11d
   int v21; // r14d
   int v22; // eax
-  __int64 v24; // [rsp+20h] [rbp-20h]
-  __int64 v25; // [rsp+30h] [rbp-10h] BYREF
-  __int64 v26; // [rsp+38h] [rbp-8h] BYREF
+  ULONG Flags[2]; // [rsp+20h] [rbp-20h]
+  PVOID BaseAddress; // [rsp+30h] [rbp-10h] BYREF
+  PVOID ProcedureAddress; // [rsp+38h] [rbp-8h] BYREF
   int v27; // [rsp+88h] [rbp+48h] BYREF
 
   v6 = NtCurrentPeb();
-  v25 = 0LL;
-  v26 = 0LL;
+  BaseAddress = 0LL;
+  ProcedureAddress = 0LL;
   v27 = 0;
   if ( !a4 )
   {
@@ -73,18 +73,18 @@ __int64 __fastcall AVrfInitializeVerifier(char a1, int a2, __int64 a3, int a4, _
     LOWORD(AVrfpVerifierDllsString[0]) = 0;
     if ( a3 )
     {
-      RtlQueryImageFileKeyOption(a3, L"VerifierFlags", 4, &v27, 4u, 0LL);
+      RtlQueryImageFileKeyOption(a3, (wchar_t *)L"VerifierFlags", 4, (ULONG *)&v27, 4u, 0LL);
       LOBYTE(v22) = v27;
       if ( v27 )
       {
         AVrfpVerifierFlags = v27;
 LABEL_45:
         if ( (v22 & 4) != 0 )
-          RtlQueryImageFileKeyOption(a3, L"HandleTraces", 4, &AVrfpHandleTraces, 4u, 0LL);
-        RtlQueryImageFileKeyOption(a3, L"VerifierDebug", 4, &AVrfpDebug, 4u, 0LL);
-        RtlQueryImageFileKeyOption(a3, L"VerifierDlls", 1, AVrfpVerifierDllsString, 0x200u, 0LL);
+          RtlQueryImageFileKeyOption(a3, (wchar_t *)L"HandleTraces", 4, (ULONG *)&AVrfpHandleTraces, 4u, 0LL);
+        RtlQueryImageFileKeyOption(a3, (wchar_t *)L"VerifierDebug", 4, (ULONG *)&AVrfpDebug, 4u, 0LL);
+        RtlQueryImageFileKeyOption(a3, (wchar_t *)L"VerifierDlls", 1, AVrfpVerifierDllsString, 0x200u, 0LL);
 LABEL_48:
-        Dll = AvrfMiniLoadDll((unsigned int)&VerifierDllString, a2, a3, a5, (__int64)&AvrfpLoaderEntry);
+        Dll = AvrfMiniLoadDll((unsigned int)&VerifierDllString, a2, (_DWORD)a3, a5, (__int64)&AvrfpLoaderEntry);
         if ( Dll >= 0 )
         {
           *v19 = &AvrfpLoaderEntry;
@@ -108,36 +108,36 @@ LABEL_48:
   }
   if ( a4 != 1 )
     return 0;
-  qword_1801CD4F8 = (__int64)&AVrfpVerifierProvidersList;
+  qword_1801CC538 = (__int64)&AVrfpVerifierProvidersList;
   AVrfpVerifierProvidersList = (__int64)&AVrfpVerifierProvidersList;
-  Dll = RtlInitializeCriticalSectionEx((__int64)&AVrfpVerifierLock, 0, 0);
+  Dll = RtlInitializeCriticalSectionEx(&AVrfpVerifierLock, 0, 0);
   if ( Dll >= 0 )
   {
     if ( AvrfAppVerifierMode == 2 )
     {
       LOBYTE(v27) = 0;
-      Dll = LdrpInitializeGraphRecurse(qword_1801CD658, 0LL, &v27);
+      Dll = LdrpInitializeGraphRecurse(qword_1801CC698, 0LL, &v27);
       if ( Dll < 0 )
         return (unsigned int)Dll;
     }
     else
     {
       DbgPrintEx(
-        93,
+        0x5Du,
         0,
         "AVRF: %ws: pid 0x%X: flags 0x%X: application verifier enabled\n",
-        *(_QWORD *)(qword_1801CB890 + 96),
+        *(_QWORD *)(qword_1801CA8D0 + 96),
         NtCurrentTeb()->ClientId.UniqueProcess,
         AVrfpVerifierFlags);
       if ( (int)AVrfpParseVerifierDllsString() < 0 )
       {
-        LODWORD(v24) = NtCurrentTeb()->ClientId.UniqueProcess;
+        Flags[0] = (ULONG)NtCurrentTeb()->ClientId.UniqueProcess;
         DbgPrintEx(
-          93,
+          0x5Du,
           0,
           "AVRF: %ws: pid 0x%X: application verifier will be disabled due to an initialization error.\n",
-          *(_QWORD *)(qword_1801CB890 + 96),
-          v24);
+          *(_QWORD *)(qword_1801CA8D0 + 96),
+          *(_QWORD *)Flags);
         Dll = -1073741823;
         NtCurrentPeb()->NtGlobalFlag = NtCurrentPeb()->NtGlobalFlag & 0xFFFFFEFF;
         return (unsigned int)Dll;
@@ -148,25 +148,32 @@ LABEL_48:
           return (unsigned int)-1073741502;
       }
       AVrfpChainDuplicateVerificationLayers();
-      LoadedDllByName = LdrpFindLoadedDllByName((__int128 *)&VrfcoreDllString, 0LL, 0, (__int64)&v25, 0LL);
+      LoadedDllByName = LdrpFindLoadedDllByName(
+                          (PUNICODE_STRING)&VrfcoreDllString,
+                          0LL,
+                          0LL,
+                          (__int64)&BaseAddress,
+                          0LL);
       Dll = LoadedDllByName;
       if ( LoadedDllByName < 0 )
       {
         if ( LoadedDllByName != -1073741515 )
           return (unsigned int)Dll;
-        LODWORD(v13) = qword_1801CD550;
+        v13 = (void *)qword_1801CC590;
       }
       else
       {
-        v13 = *(_QWORD *)(v25 + 48);
-        LdrpDereferenceModule(v25);
+        v13 = (void *)*((_QWORD *)BaseAddress + 6);
+        LdrpDereferenceModule((char *)BaseAddress);
       }
-      ProcedureAddress = LdrGetProcedureAddressEx(v13, (int)&AvrfpAPILookupCallbackName, 0, (int)&v26, 1);
+      v14 = LdrGetProcedureAddressEx(v13, (PANSI_STRING)&AvrfpAPILookupCallbackName, 0, &ProcedureAddress, 1u);
       LdrProtectMrdata(0);
-      if ( ProcedureAddress >= 0 )
+      if ( v14 >= 0 )
       {
         AvrfpAPILookupCallbacksEnabled = 1;
-        AvrfpAPILookupCallbackRoutine = __ROR8__(v26 ^ MEMORY[0x7FFE0330], MEMORY[0x7FFE0330] & 0x3F);
+        AvrfpAPILookupCallbackRoutine = __ROR8__(
+                                          (unsigned __int64)ProcedureAddress ^ MEMORY[0x7FFE0330],
+                                          MEMORY[0x7FFE0330] & 0x3F);
       }
       AVrfpEnabled = 1;
       RtlGuardAllowSuppressedCalls = 1;
@@ -193,7 +200,7 @@ LABEL_48:
         }
       }
       AVrfpVerifierStopInitialize();
-      RtlImageNtHeaderEx(3, (unsigned __int64)v6->ImageBaseAddress, 0LL, &v26);
+      RtlImageNtHeaderEx(3u, v6->ImageBaseAddress, 0LL, (PIMAGE_NT_HEADERS *)&ProcedureAddress);
     }
     return 0;
   }

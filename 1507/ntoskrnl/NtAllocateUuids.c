@@ -97,7 +97,7 @@ NTSTATUS __stdcall NtAllocateUuids(PULARGE_INTEGER Time, PULONG Range, PULONG Se
     {
       KiCheckForKernelApcDelivery();
     }
-    *v7 = (union _ULARGE_INTEGER)v22[0];
+    *v7 = (ULARGE_INTEGER)v22[0];
     *Range = v20;
     *Sequence = v21;
     *(_DWORD *)Seed = *(int *)((char *)&dword_14077E284 + 2);

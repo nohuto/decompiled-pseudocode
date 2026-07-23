@@ -1,131 +1,137 @@
 /*
- * XREFs of ExpLoadAndSortLicensingCacheDescriptors @ 0x1407AB5D4
+ * XREFs of ExpLoadAndSortLicensingCacheDescriptors @ 0x1407AB7D4
  * Callers:
- *     SLQueryLicenseValueInternal @ 0x1407AB014 (SLQueryLicenseValueInternal.c)
+ *     SLQueryLicenseValueInternal @ 0x1407AB214 (SLQueryLicenseValueInternal.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
- *     qsort @ 0x1403D2AC0 (qsort.c)
- *     ExpSetLicenseTamperState @ 0x1405B3064 (ExpSetLicenseTamperState.c)
- *     sub_1407AB818 @ 0x1407AB818 (sub_1407AB818.c)
- *     sub_1407AB87C @ 0x1407AB87C (sub_1407AB87C.c)
- *     ntoskrnl_24 @ 0x14094D5E0 (ntoskrnl_24.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExfReleasePushLockShared @ 0x1402FC1C0 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     ExAcquirePushLockSharedEx @ 0x1403558A0 (ExAcquirePushLockSharedEx.c)
+ *     qsort @ 0x1403D2C30 (qsort.c)
+ *     ExpSetLicenseTamperState @ 0x1405B3294 (ExpSetLicenseTamperState.c)
+ *     sub_1407ABA18 @ 0x1407ABA18 (sub_1407ABA18.c)
+ *     sub_1407ABA7C @ 0x1407ABA7C (sub_1407ABA7C.c)
+ *     ntoskrnl_24 @ 0x14094D7B0 (ntoskrnl_24.c)
  */
 
 __int64 __fastcall ExpLoadAndSortLicensingCacheDescriptors(__int64 a1)
 {
   signed __int64 *v2; // rdi
   int v3; // eax
-  unsigned int v4; // esi
-  __int64 v6; // rdx
-  __int64 v7; // rsi
-  int v8; // r14d
-  _DWORD *v9; // r12
-  void *v10; // rcx
-  char v11; // r15
-  int v12; // [rsp+30h] [rbp-58h]
+  __int64 v4; // rdx
+  __int64 v5; // r8
+  __int64 v6; // r9
+  unsigned int v7; // esi
+  __int64 v9; // rdx
+  __int64 v10; // rsi
+  int v11; // r14d
+  _DWORD *v12; // r12
+  void *v13; // rcx
+  char v14; // r15
+  __int64 v15; // rdx
+  __int64 v16; // r8
+  __int64 v17; // r9
+  int v18; // [rsp+30h] [rbp-58h]
   struct _KTHREAD *CurrentThread; // [rsp+38h] [rbp-50h]
-  struct _KTHREAD *v14; // [rsp+48h] [rbp-40h]
-  char v15; // [rsp+98h] [rbp+10h]
-  char v16; // [rsp+A0h] [rbp+18h]
+  struct _KTHREAD *v20; // [rsp+48h] [rbp-40h]
+  char v21; // [rsp+98h] [rbp+10h]
+  char v22; // [rsp+A0h] [rbp+18h]
 
-  v12 = 0;
-  v16 = 0;
-  v15 = 0;
+  v18 = 0;
+  v22 = 0;
+  v21 = 0;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   v2 = (signed __int64 *)(a1 + 46840);
   ExAcquirePushLockSharedEx(a1 + 46840, 0LL);
   if ( *(_BYTE *)(a1 + 46992) )
   {
-    v12 = -1073741762;
+    v18 = -1073741762;
   }
   else if ( *(_BYTE *)(a1 + 46828) )
   {
     v3 = 0;
     if ( !*(_DWORD *)(a1 + 46824) )
       v3 = -1073741772;
-    v12 = v3;
+    v18 = v3;
   }
   else
   {
-    v16 = 1;
+    v22 = 1;
   }
   if ( _InterlockedCompareExchange64(v2, 0LL, 17LL) != 17 )
     ExfReleasePushLockShared(v2);
   KeAbPostRelease((ULONG_PTR)v2);
-  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-  v4 = v12;
-  if ( v12 >= 0 && v16 == 1 )
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v4, v5, v6);
+  v7 = v18;
+  if ( v18 >= 0 && v22 == 1 )
   {
-    v14 = KeGetCurrentThread();
-    --v14->KernelApcDisable;
+    v20 = KeGetCurrentThread();
+    --v20->KernelApcDisable;
     ExAcquirePushLockExclusiveEx((ULONG_PTR)v2, 0LL);
     if ( *(_BYTE *)(a1 + 46828) == 1 )
       goto LABEL_30;
-    v7 = *(_QWORD *)a1;
+    v10 = *(_QWORD *)a1;
     if ( *(_QWORD *)a1 )
     {
-      v8 = sub_1407AB818(a1);
-      v12 = v8;
-      if ( v8 < 0 )
+      v11 = sub_1407ABA18(a1);
+      v18 = v11;
+      if ( v11 < 0 )
         goto LABEL_30;
     }
     else
     {
-      v7 = *(_QWORD *)(a1 + 46832);
-      if ( !v7 )
+      v10 = *(_QWORD *)(a1 + 46832);
+      if ( !v10 )
         goto LABEL_28;
-      v8 = v12;
+      v11 = v18;
     }
-    if ( (*(_DWORD *)(v7 + 12) & 1) != 0 )
+    if ( (*(_DWORD *)(v10 + 12) & 1) != 0 )
       ExpSetLicenseTamperState(a1, 2);
-    v9 = (_DWORD *)(a1 + 46824);
-    v10 = (void *)(a1 + 24);
+    v12 = (_DWORD *)(a1 + 46824);
+    v13 = (void *)(a1 + 24);
     if ( !*(_DWORD *)(a1 + 46824) )
     {
-      LOBYTE(v6) = 1;
-      v8 = sub_1407AB87C(v7, v6, a1 + 24, 2925LL, a1 + 46824);
-      v12 = v8;
-      v10 = (void *)(a1 + 24);
+      LOBYTE(v9) = 1;
+      v11 = sub_1407ABA7C(v10, v9, a1 + 24, 2925LL, a1 + 46824);
+      v18 = v11;
+      v13 = (void *)(a1 + 24);
     }
-    if ( v8 >= 0 )
+    if ( v11 >= 0 )
     {
-      if ( *v9 )
+      if ( *v12 )
       {
-        qsort(v10, (unsigned int)*v9, 0x10uLL, sub_1407B1AE0);
+        qsort(v13, (unsigned int)*v12, 0x10uLL, sub_1407B1C80);
         *(_BYTE *)(a1 + 46828) = 1;
       }
       else
       {
         *(_BYTE *)(a1 + 46828) = 1;
-        v12 = -1073741772;
+        v18 = -1073741772;
       }
       goto LABEL_30;
     }
-    if ( v8 != -1073741789 )
+    if ( v11 != -1073741789 )
     {
 LABEL_30:
-      v11 = _InterlockedExchangeAdd64(v2, 0xFFFFFFFFFFFFFFFFuLL);
-      if ( (v11 & 2) != 0 && (v11 & 4) == 0 )
+      v14 = _InterlockedExchangeAdd64(v2, 0xFFFFFFFFFFFFFFFFuLL);
+      if ( (v14 & 2) != 0 && (v14 & 4) == 0 )
         ExfTryToWakePushLock(v2);
       KeAbPostRelease((ULONG_PTR)v2);
-      KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-      v4 = v12;
+      KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v15, v16, v17);
+      v7 = v18;
       goto LABEL_12;
     }
 LABEL_28:
-    v12 = -1073741762;
+    v18 = -1073741762;
     *(_BYTE *)(a1 + 46992) = 1;
-    v15 = 1;
+    v21 = 1;
     goto LABEL_30;
   }
 LABEL_12:
-  if ( v15 )
+  if ( v21 )
     ntoskrnl_24(&KernelLicensingCacheCorrupt);
-  return v4;
+  return v7;
 }

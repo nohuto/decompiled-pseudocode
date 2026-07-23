@@ -57,29 +57,29 @@ __int64 RtlpHpFreeHeap(_DWORD *a1, unsigned __int64 a2, int a3, ...)
   int v24; // edx
   PSLIST_ENTRY v25; // rax
   unsigned int v26; // r15d
-  union _SLIST_HEADER *v27; // rcx
+  _SLIST_HEADER *v27; // rcx
   __int64 v28; // rcx
   _QWORD *v29; // r12
   _QWORD *v30; // r15
-  __int64 v31; // rdx
-  unsigned __int64 v32; // r12
-  unsigned __int64 v33; // rdi
+  unsigned __int64 v31; // rdx
+  __int64 v32; // r12
+  __int64 v33; // rdi
   unsigned __int64 v34; // rcx
   int v35; // ecx
   unsigned __int64 v36; // rdi
-  unsigned __int64 v37; // rax
+  __int64 v37; // rax
   __int64 v38; // r8
   __int64 v39; // r9
   unsigned __int64 v40; // rcx
   unsigned int v41; // r10d
   unsigned int v42; // r9d
   unsigned int v43; // r8d
-  _DWORD *v44; // rax
+  unsigned __int64 v44; // rax
   __int16 v45; // ax
   unsigned __int64 v46; // rcx
   __int64 v47; // rax
-  unsigned __int64 v48; // rdx
-  bool v49; // r8
+  __int64 v48; // rdx
+  BOOLEAN v49; // r8
   int v50; // ecx
   unsigned __int64 v51; // rax
   __int64 v52; // rcx
@@ -209,7 +209,7 @@ LABEL_30:
                       v71 = v26;
                       if ( (v24 & 4) != 0 && v26 < 0x1000 )
                       {
-                        v27 = (union _SLIST_HEADER *)(v22 + 64);
+                        v27 = (_SLIST_HEADER *)(v22 + 64);
                         if ( *(_WORD *)(v22 + 64) < 0x20u )
                         {
                           RtlpInterlockedPushEntrySList(v27, (PSLIST_ENTRY)(v23 + 16));
@@ -240,7 +240,7 @@ LABEL_71:
                       while ( 1 )
                       {
                         v31 = *(v30 - 2);
-                        v32 = (unsigned __int64)(v30 - 2);
+                        v32 = (__int64)(v30 - 2);
                         v30 = (_QWORD *)*v30;
                         v33 = v32;
                         v34 = (RtlpHpHeapGlobals ^ v32 ^ v31) >> 32;
@@ -252,7 +252,7 @@ LABEL_71:
                         if ( !(_WORD)v34 )
                           goto LABEL_116;
                         v33 = v32 - 16LL * (unsigned __int16)v34;
-                        v67 = (*(_QWORD *)v33 ^ RtlpHpHeapGlobals ^ v33) >> 32;
+                        v67 = (*(_QWORD *)v33 ^ RtlpHpHeapGlobals ^ (unsigned __int64)v33) >> 32;
                         if ( (v67 & 0xFF0000) != 0 )
                         {
                           v35 = (unsigned __int8)(RtlpHpHeapGlobals ^ *(_BYTE *)(v33 + 8) ^ v33);
@@ -282,7 +282,7 @@ LABEL_44:
                             v74 = 0;
                             for ( LODWORD(v75) = 0; ; LODWORD(v75) = v58 )
                             {
-                              v37 = RtlpHpVsChunkCoalesce(v22, v36, v32, &v74);
+                              v37 = RtlpHpVsChunkCoalesce((_RTL_RB_TREE *)v22, v36, v32, &v74);
                               v40 = v74;
                               v32 = v37;
                               if ( v74 == *(unsigned __int16 *)(v36 + 32) )
@@ -362,9 +362,9 @@ LABEL_44:
                             }
                             if ( (*(_DWORD *)(v22 + 176) & 1) != 0 && ((v32 + 32) & 0xFFF) != 0 )
                             {
-                              v44 = (_DWORD *)RtlpHpVsChunkAlignSplit(v40, v36, v32);
+                              v44 = RtlpHpVsChunkAlignSplit(v40, v36, v32);
                               if ( v44 )
-                                RtlpHpVsFreeChunkInsert((_QWORD *)v22, v36, v44);
+                                RtlpHpVsFreeChunkInsert((_RTL_RB_TREE *)v22, v36, v44);
                             }
                             v74 = 0;
                             v75 = 0LL;
@@ -428,7 +428,11 @@ LABEL_67:
                             v48 = 0LL;
                             v49 = 0;
 LABEL_69:
-                            RtlRbInsertNodeEx((unsigned __int64 *)(v22 + 16), v48, v49, v32 + 8);
+                            RtlRbInsertNodeEx(
+                              (PRTL_RB_TREE)(v22 + 16),
+                              (PRTL_BALANCED_NODE)v48,
+                              v49,
+                              (PRTL_BALANCED_NODE)(v32 + 8));
                             goto LABEL_70;
                           }
                           v68 = v32;

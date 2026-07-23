@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpDoesProcessBelongToServiceSession @ 0x1407406E0
+ * XREFs of CmpDoesProcessBelongToServiceSession @ 0x1407408D0
  * Callers:
- *     CmpDoParseKey @ 0x1406E9100 (CmpDoParseKey.c)
+ *     CmpDoParseKey @ 0x1406E9130 (CmpDoParseKey.c)
  * Callees:
- *     PsGetProcessServerSilo @ 0x14028C180 (PsGetProcessServerSilo.c)
- *     MmGetSessionIdEx @ 0x1402A1720 (MmGetSessionIdEx.c)
- *     PsGetServerSiloServiceSessionId @ 0x1402C0880 (PsGetServerSiloServiceSessionId.c)
+ *     PsGetProcessServerSilo @ 0x14028C410 (PsGetProcessServerSilo.c)
+ *     MmGetSessionIdEx @ 0x1402A19B0 (MmGetSessionIdEx.c)
+ *     PsGetServerSiloServiceSessionId @ 0x1402C0B10 (PsGetServerSiloServiceSessionId.c)
  */
 
 bool __fastcall CmpDoesProcessBelongToServiceSession(__int64 a1)

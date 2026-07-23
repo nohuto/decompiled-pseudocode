@@ -13,41 +13,59 @@
  *     ExFreePoolWithTag @ 0x140B62CD0 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall PiGetStateRootPath(PCWSTR SourceString, __int64 a2, __int64 a3, UNICODE_STRING *a4)
+__int64 __fastcall PiGetStateRootPath(
+        PCWSTR SourceID,
+        PCWSTR DefaultPath,
+        STATE_LOCATION_TYPE StateLocationType,
+        PUNICODE_STRING DestinationString)
 {
-  int PersistedStateLocation; // eax
+  NTSTATUS PersistedStateLocation; // eax
   NTSTATUS inited; // ebx
-  int v9; // ebx
-  void *Pool2; // rdi
-  int v11; // eax
-  __int64 v12; // [rsp+78h] [rbp+20h] BYREF
+  ULONG BufferLengthIn; // ebx
+  WCHAR *TargetPath; // rdi
+  NTSTATUS v13; // eax
+  ULONG BufferLengthOut; // [rsp+78h] [rbp+20h] BYREF
 
-  if ( !a4 )
+  if ( !DestinationString )
     return (unsigned int)-1073741811;
-  LODWORD(v12) = 0;
-  PersistedStateLocation = RtlGetPersistedStateLocation(SourceString, 0LL, 0, (__int64)&v12);
+  BufferLengthOut = 0;
+  PersistedStateLocation = RtlGetPersistedStateLocation(
+                             SourceID,
+                             0LL,
+                             DefaultPath,
+                             StateLocationType,
+                             0LL,
+                             0,
+                             &BufferLengthOut);
   inited = PersistedStateLocation;
   if ( PersistedStateLocation >= 0 )
     return (unsigned int)-1073741823;
   if ( PersistedStateLocation == -2147483643 )
   {
-    v9 = v12;
-    Pool2 = (void *)ExAllocatePool2(0x100uLL);
-    if ( !Pool2 )
+    BufferLengthIn = BufferLengthOut;
+    TargetPath = (WCHAR *)ExAllocatePool2(0x100uLL);
+    if ( !TargetPath )
       return (unsigned int)-1073741670;
-    v11 = RtlGetPersistedStateLocation(SourceString, Pool2, v9, (__int64)&v12);
-    inited = v11;
-    if ( v11 == -1073741772 )
+    v13 = RtlGetPersistedStateLocation(
+            SourceID,
+            0LL,
+            DefaultPath,
+            StateLocationType,
+            TargetPath,
+            BufferLengthIn,
+            &BufferLengthOut);
+    inited = v13;
+    if ( v13 == -1073741772 )
     {
       inited = -1073741595;
     }
-    else if ( v11 >= 0 )
+    else if ( v13 >= 0 )
     {
-      inited = RtlInitUnicodeStringEx(a4, (PCWSTR)Pool2);
+      inited = RtlInitUnicodeStringEx(DestinationString, TargetPath);
       if ( inited >= 0 )
         return (unsigned int)inited;
     }
-    ExFreePoolWithTag(Pool2, 0);
+    ExFreePoolWithTag(TargetPath, 0);
   }
   return (unsigned int)inited;
 }

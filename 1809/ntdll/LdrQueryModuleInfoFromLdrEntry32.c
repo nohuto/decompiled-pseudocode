@@ -5,7 +5,7 @@
  * Callees:
  *     LdrpGetModuleName @ 0x18006A6E8 (LdrpGetModuleName.c)
  *     LdrpReadMemory @ 0x18006AB54 (LdrpReadMemory.c)
- *     __security_check_cookie @ 0x18008FEC0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x18008FED0 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall LdrQueryModuleInfoFromLdrEntry32(__int64 *a1, __int64 a2, __int64 a3, __int64 a4, char a5)

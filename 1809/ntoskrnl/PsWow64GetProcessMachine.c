@@ -1,9 +1,9 @@
 /*
- * XREFs of PsWow64GetProcessMachine @ 0x140620BA0
+ * XREFs of PsWow64GetProcessMachine @ 0x140621BA0
  * Callers:
- *     RtlpWalkFrameChain @ 0x14009EB90 (RtlpWalkFrameChain.c)
- *     KeVerifyContextRecord @ 0x1400A1C88 (KeVerifyContextRecord.c)
- *     PsWow64GetSupportedArchitectures @ 0x1400F53D8 (PsWow64GetSupportedArchitectures.c)
+ *     RtlpWalkFrameChain @ 0x14009EAD0 (RtlpWalkFrameChain.c)
+ *     KeVerifyContextRecord @ 0x1400A1BC8 (KeVerifyContextRecord.c)
+ *     PsWow64GetSupportedArchitectures @ 0x1400F5458 (PsWow64GetSupportedArchitectures.c)
  * Callees:
  *     <none>
  */

@@ -1,9 +1,9 @@
 /*
- * XREFs of InbvSetTextColor @ 0x14054E6C0
+ * XREFs of InbvSetTextColor @ 0x14054ED80
  * Callers:
- *     DisplayBootBitmap @ 0x1403AA048 (DisplayBootBitmap.c)
+ *     DisplayBootBitmap @ 0x1403AA228 (DisplayBootBitmap.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 __int64 InbvSetTextColor()

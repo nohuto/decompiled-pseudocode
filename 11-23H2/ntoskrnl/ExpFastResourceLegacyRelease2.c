@@ -1,12 +1,12 @@
 /*
- * XREFs of ExpFastResourceLegacyRelease2 @ 0x140415898
+ * XREFs of ExpFastResourceLegacyRelease2 @ 0x140415C2C
  * Callers:
- *     ExpFastResourceLegacyRelease @ 0x1403CA7A0 (ExpFastResourceLegacyRelease.c)
+ *     ExpFastResourceLegacyRelease @ 0x1403CA980 (ExpFastResourceLegacyRelease.c)
  * Callees:
- *     ExReleaseFastResource2 @ 0x1404140CC (ExReleaseFastResource2.c)
- *     ExpFindFastOwnerEntryForThread2 @ 0x1404159F8 (ExpFindFastOwnerEntryForThread2.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     ExReleaseFastResource2 @ 0x140414460 (ExReleaseFastResource2.c)
+ *     ExpFindFastOwnerEntryForThread2 @ 0x140415D8C (ExpFindFastOwnerEntryForThread2.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
@@ -30,7 +30,7 @@ void __fastcall ExpFastResourceLegacyRelease2(ULONG_PTR BugCheckParameter2, __in
   CurrentThread = KeGetCurrentThread();
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     v7 = 4;
@@ -53,10 +53,10 @@ void __fastcall ExpFastResourceLegacyRelease2(ULONG_PTR BugCheckParameter2, __in
     v12 = 1;
     v10[37] = v11 & 0xFE;
   }
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v13 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v13 <= 0xFu && CurrentIrql <= 0xFu && v13 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v13 <= 0xFu && CurrentIrql <= 0xFu && v13 >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v15 = CurrentPrcb->SchedulerAssist;
@@ -64,7 +64,7 @@ void __fastcall ExpFastResourceLegacyRelease2(ULONG_PTR BugCheckParameter2, __in
       v17 = (v16 & v15[5]) == 0;
       v15[5] &= v16;
       if ( v17 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
     }
   }
   __writecr8(CurrentIrql);

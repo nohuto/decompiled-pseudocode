@@ -21,15 +21,15 @@
 __int64 WerEscalationLazyInit()
 {
   __int64 v0; // rax
-  int appended; // ebx
+  NTSTATUS appended; // ebx
   signed __int64 v2; // rdi
-  wchar_t *v3; // r15
-  STRSAFE_LPWSTR v4; // rsi
+  char *v3; // r15
+  char *v4; // rsi
   unsigned int v5; // r12d
   wchar_t *Buffer; // r14
   HRESULT v7; // eax
   wchar_t *i; // rcx
-  wchar_t *v9; // r14
+  char *v9; // r14
   unsigned int v10; // eax
   unsigned __int16 v11; // bx
   _WORD *v12; // rsi
@@ -37,19 +37,21 @@ __int64 WerEscalationLazyInit()
   __int64 v14; // rax
   void *v15; // rdx
   unsigned __int64 v16; // rcx
-  HANDLE Handle; // [rsp+30h] [rbp-38h] BYREF
-  __int64 v19; // [rsp+38h] [rbp-30h] BYREF
-  UNICODE_STRING UnicodeString; // [rsp+40h] [rbp-28h] BYREF
-  _DWORD v21[6]; // [rsp+50h] [rbp-18h] BYREF
-  unsigned int v22; // [rsp+B0h] [rbp+48h] BYREF
-  int v23; // [rsp+B8h] [rbp+50h] BYREF
-  int v24; // [rsp+C0h] [rbp+58h] BYREF
-  STRSAFE_LPWSTR pszDest; // [rsp+C8h] [rbp+60h] BYREF
+  HANDLE TokenHandle; // [rsp+30h] [rbp-38h] BYREF
+  ULONG_PTR RegionSize; // [rsp+38h] [rbp-30h] BYREF
+  _UNICODE_STRING UnicodeString; // [rsp+40h] [rbp-28h] BYREF
+  int v21; // [rsp+50h] [rbp-18h]
+  int v22; // [rsp+58h] [rbp-10h]
+  int v23; // [rsp+5Ch] [rbp-Ch]
+  ULONG ReturnLength; // [rsp+B0h] [rbp+48h] BYREF
+  int TokenInformation; // [rsp+B8h] [rbp+50h] BYREF
+  ULONG StringLength; // [rsp+C0h] [rbp+58h] BYREF
+  PVOID BaseAddress; // [rsp+C8h] [rbp+60h] BYREF
 
   v0 = g_werEscalationData;
-  Handle = 0LL;
+  TokenHandle = 0LL;
   appended = -1073741823;
-  pszDest = 0LL;
+  BaseAddress = 0LL;
   v2 = 0LL;
   if ( g_werEscalationData && g_sqmSessionHandle != -1 )
     return 0LL;
@@ -60,19 +62,19 @@ __int64 WerEscalationLazyInit()
   }
   if ( v0 )
     goto LABEL_29;
-  v19 = 568LL;
-  pszDest = 0LL;
-  appended = ZwAllocateVirtualMemory(-1LL, &pszDest, 0LL, &v19, 4096, 4);
+  RegionSize = 568LL;
+  BaseAddress = 0LL;
+  appended = ZwAllocateVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, 0LL, &RegionSize, 0x1000u, 4u);
   if ( appended >= 0 )
   {
-    v2 = (signed __int64)pszDest;
-    v3 = (STRSAFE_LPWSTR)((char *)pszDest + v19);
-    v4 = pszDest + 284;
-    if ( pszDest + 284 > (STRSAFE_LPWSTR)((char *)pszDest + v19) )
+    v2 = (signed __int64)BaseAddress;
+    v3 = (char *)BaseAddress + RegionSize;
+    v4 = (char *)BaseAddress + 568;
+    if ( (char *)BaseAddress + 568 > (char *)BaseAddress + RegionSize )
       goto LABEL_38;
     v5 = NtCurrentPeb()->ProcessParameters->ImagePathName.Length >> 1;
     Buffer = NtCurrentPeb()->ProcessParameters->ImagePathName.Buffer;
-    v7 = StringCchCopyW(pszDest, 0x104uLL, Buffer);
+    v7 = StringCchCopyW((STRSAFE_LPWSTR)BaseAddress, 0x104uLL, Buffer);
     if ( (int)(v7 + 0x80000000) >= 0 && v7 != -2147024774 )
       goto LABEL_31;
     for ( i = &Buffer[v5 - 1]; i > Buffer; --i )
@@ -84,29 +86,29 @@ __int64 WerEscalationLazyInit()
       }
     }
     *(_DWORD *)(v2 + 520) = HashStringToDwordCaseInsensitiveLen(i, v5 - (unsigned int)(i - Buffer));
-    WerEscalationReadImageVersionInfoForModuleBaseSafe((__int64)NtCurrentPeb()->ImageBaseAddress, 0, (__int64)v21);
-    *(_DWORD *)(v2 + 532) = v21[0];
-    *(_DWORD *)(v2 + 524) = v21[2];
-    *(_DWORD *)(v2 + 528) = v21[3];
-    appended = NtOpenProcessToken(-1LL, 8LL, &Handle);
+    WerEscalationReadImageVersionInfoForModuleBaseSafe(NtCurrentPeb()->ImageBaseAddress, 0);
+    *(_DWORD *)(v2 + 532) = v21;
+    *(_DWORD *)(v2 + 524) = v22;
+    *(_DWORD *)(v2 + 528) = v23;
+    appended = NtOpenProcessToken((HANDLE)0xFFFFFFFFFFFFFFFFLL, 8u, &TokenHandle);
     if ( appended < 0 )
       goto LABEL_31;
-    v22 = (_DWORD)v3 - (_DWORD)v4;
-    appended = NtQueryInformationToken(Handle, 1LL, v4, (unsigned int)((_DWORD)v3 - (_DWORD)v4), &v22);
+    ReturnLength = (_DWORD)v3 - (_DWORD)v4;
+    appended = NtQueryInformationToken(TokenHandle, 1u, v4, (_DWORD)v3 - (_DWORD)v4, &ReturnLength);
     if ( appended < 0 )
       goto LABEL_31;
-    v9 = &v4[4 * (((unsigned __int64)v22 + 7) >> 3)];
+    v9 = &v4[8 * (((unsigned __int64)ReturnLength + 7) >> 3)];
     if ( v9 > v3 )
       goto LABEL_38;
     *(_QWORD *)(v2 + 536) = *(_QWORD *)v4;
     *(_DWORD *)(v2 + 560) = 0x40000000;
-    if ( (int)NtQueryInformationToken(Handle, 18LL, &v23, 4LL, &v22) >= 0 )
+    if ( NtQueryInformationToken(TokenHandle, 0x12u, &TokenInformation, 4u, &ReturnLength) >= 0 )
     {
-      if ( v23 == 2 )
+      if ( TokenInformation == 2 )
       {
         *(_DWORD *)(v2 + 560) = -1073741824;
       }
-      else if ( v23 == 1 )
+      else if ( TokenInformation == 1 )
       {
         v10 = 0;
         if ( *(_DWORD *)(*(_QWORD *)v4 + 4LL * ((unsigned int)*(unsigned __int8 *)(*(_QWORD *)v4 + 1LL) - 1) + 8) == 500 )
@@ -114,23 +116,23 @@ __int64 WerEscalationLazyInit()
         *(_DWORD *)(v2 + 560) = v10;
       }
     }
-    appended = RtlLengthSidAsUnicodeString(*(unsigned __int8 **)(v2 + 536), &v24);
+    appended = RtlLengthSidAsUnicodeString(*(PSID *)(v2 + 536), &StringLength);
     if ( appended < 0 )
       goto LABEL_31;
-    v11 = v24;
+    v11 = StringLength;
     v12 = (_WORD *)(v2 + 544);
     *(_WORD *)(v2 + 544) = 0;
     *(_QWORD *)(v2 + 552) = v9;
     v13 = (unsigned __int16)(v11 + 90);
     *(_WORD *)(v2 + 546) = v13;
-    if ( (wchar_t *)((char *)v9 + v13) > v3 )
+    if ( &v9[v13] > v3 )
     {
 LABEL_38:
       appended = -1073741789;
     }
     else
     {
-      RtlAppendUnicodeToString((unsigned __int16 *)(v2 + 544), L"\\REGISTRY\\USER\\");
+      RtlAppendUnicodeToString((PUNICODE_STRING)(v2 + 544), L"\\REGISTRY\\USER\\");
       v14 = *(_QWORD *)(v2 + 552);
       v15 = *(void **)(v2 + 536);
       v16 = (unsigned __int64)(unsigned __int16)*v12 >> 1;
@@ -141,7 +143,7 @@ LABEL_38:
       if ( appended >= 0 )
       {
         *v12 += UnicodeString.Length;
-        appended = RtlAppendUnicodeToString((unsigned __int16 *)(v2 + 544), L"\\Software\\Microsoft\\Windows");
+        appended = RtlAppendUnicodeToString((PUNICODE_STRING)(v2 + 544), L"\\Software\\Microsoft\\Windows");
         if ( appended >= 0 )
         {
           *(_DWORD *)(v2 + 564) = WerpEscalationIsWMRSendStringSet();
@@ -154,9 +156,9 @@ LABEL_29:
     }
 LABEL_31:
     if ( v2 )
-      ZwFreeVirtualMemory(-1LL, &pszDest, &v19, 0x8000LL);
+      ZwFreeVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, &RegionSize, 0x8000u);
   }
-  if ( Handle )
-    NtClose(Handle);
+  if ( TokenHandle )
+    NtClose(TokenHandle);
   return (unsigned int)appended;
 }

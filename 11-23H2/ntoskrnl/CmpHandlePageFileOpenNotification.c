@@ -1,13 +1,13 @@
 /*
- * XREFs of CmpHandlePageFileOpenNotification @ 0x140853FD0
+ * XREFs of CmpHandlePageFileOpenNotification @ 0x1408542D0
  * Callers:
- *     NtInitializeRegistry @ 0x1407E8C30 (NtInitializeRegistry.c)
+ *     NtInitializeRegistry @ 0x1407E8F00 (NtInitializeRegistry.c)
  * Callees:
- *     CmpRecheckHiveVolumePolicy @ 0x1402F634C (CmpRecheckHiveVolumePolicy.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     CmpGetNextActiveHive @ 0x140752060 (CmpGetNextActiveHive.c)
- *     CmpVolumeManagerGetContextForFilePath @ 0x1408540E0 (CmpVolumeManagerGetContextForFilePath.c)
- *     CmpVolumeContextSendDeviceUsageNotification @ 0x1408541AC (CmpVolumeContextSendDeviceUsageNotification.c)
+ *     CmpRecheckHiveVolumePolicy @ 0x1402F65DC (CmpRecheckHiveVolumePolicy.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     CmpGetNextActiveHive @ 0x140752250 (CmpGetNextActiveHive.c)
+ *     CmpVolumeManagerGetContextForFilePath @ 0x1408543E0 (CmpVolumeManagerGetContextForFilePath.c)
+ *     CmpVolumeContextSendDeviceUsageNotification @ 0x1408544AC (CmpVolumeContextSendDeviceUsageNotification.c)
  *     CmpDetachFromRegistryProcess @ 0x140AF5230 (CmpDetachFromRegistryProcess.c)
  *     CmpAttachToRegistryProcess @ 0x140AF5250 (CmpAttachToRegistryProcess.c)
  *     CmpAcquireShutdownRundown @ 0x140AF5380 (CmpAcquireShutdownRundown.c)

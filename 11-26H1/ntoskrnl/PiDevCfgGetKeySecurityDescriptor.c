@@ -1,27 +1,27 @@
 /*
- * XREFs of PiDevCfgGetKeySecurityDescriptor @ 0x140A74998
+ * XREFs of PiDevCfgGetKeySecurityDescriptor @ 0x140A49800
  * Callers:
- *     PiDevCfgCopyDeviceKeys @ 0x14098C464 (PiDevCfgCopyDeviceKeys.c)
- *     PiDevCfgCopyDeviceKey @ 0x140A731C8 (PiDevCfgCopyDeviceKey.c)
+ *     PiDevCfgCopyDeviceKeys @ 0x140A47944 (PiDevCfgCopyDeviceKeys.c)
+ *     PiDevCfgCopyDeviceKey @ 0x140A49C64 (PiDevCfgCopyDeviceKey.c)
  * Callees:
- *     RtlEqualSid @ 0x1402604A0 (RtlEqualSid.c)
- *     RtlGetAce @ 0x140433010 (RtlGetAce.c)
- *     RtlGetDaclSecurityDescriptor @ 0x140486620 (RtlGetDaclSecurityDescriptor.c)
- *     RtlLengthSid @ 0x1404872D0 (RtlLengthSid.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwQuerySecurityObject @ 0x140726110 (ZwQuerySecurityObject.c)
- *     RtlGetAcesBufferSize @ 0x1408037C0 (RtlGetAcesBufferSize.c)
- *     RtlLengthSecurityDescriptor @ 0x1409228D0 (RtlLengthSecurityDescriptor.c)
- *     RtlValidSecurityDescriptor @ 0x140926EB0 (RtlValidSecurityDescriptor.c)
- *     RtlpAddKnownAce @ 0x1409D7990 (RtlpAddKnownAce.c)
- *     RtlCreateAcl @ 0x1409D8030 (RtlCreateAcl.c)
- *     RtlAddAce @ 0x1409F4690 (RtlAddAce.c)
- *     RtlAbsoluteToSelfRelativeSD @ 0x140A61650 (RtlAbsoluteToSelfRelativeSD.c)
- *     RtlSetDaclSecurityDescriptor @ 0x140A6B0F0 (RtlSetDaclSecurityDescriptor.c)
- *     RtlCreateSecurityDescriptor @ 0x140A6C2F0 (RtlCreateSecurityDescriptor.c)
- *     RtlGetOwnerSecurityDescriptor @ 0x140A95B60 (RtlGetOwnerSecurityDescriptor.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlEqualSid @ 0x140406680 (RtlEqualSid.c)
+ *     RtlGetAce @ 0x140420040 (RtlGetAce.c)
+ *     RtlGetDaclSecurityDescriptor @ 0x14047FDF0 (RtlGetDaclSecurityDescriptor.c)
+ *     RtlLengthSid @ 0x140480CA0 (RtlLengthSid.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwQuerySecurityObject @ 0x14072ACE0 (ZwQuerySecurityObject.c)
+ *     RtlGetAcesBufferSize @ 0x140809260 (RtlGetAcesBufferSize.c)
+ *     RtlLengthSecurityDescriptor @ 0x1408FE3E0 (RtlLengthSecurityDescriptor.c)
+ *     RtlValidSecurityDescriptor @ 0x1409029C0 (RtlValidSecurityDescriptor.c)
+ *     RtlpAddKnownAce @ 0x1409A8880 (RtlpAddKnownAce.c)
+ *     RtlCreateAcl @ 0x1409A8F20 (RtlCreateAcl.c)
+ *     RtlAddAce @ 0x1409E03E0 (RtlAddAce.c)
+ *     RtlAbsoluteToSelfRelativeSD @ 0x140A6E620 (RtlAbsoluteToSelfRelativeSD.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x140A7C820 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateSecurityDescriptor @ 0x140A7D920 (RtlCreateSecurityDescriptor.c)
+ *     RtlGetOwnerSecurityDescriptor @ 0x140A98F90 (RtlGetOwnerSecurityDescriptor.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiDevCfgGetKeySecurityDescriptor(void *a1, char a2, _QWORD *a3, SECURITY_INFORMATION *a4)
@@ -109,7 +109,7 @@ __int64 __fastcall PiDevCfgGetKeySecurityDescriptor(void *a1, char a2, _QWORD *a
       && RtlGetOwnerSecurityDescriptor(SecurityDescriptor, &Owner, OwnerDefaulted) >= 0
       && !OwnerDefaulted[0]
       && Owner
-      && RtlEqualSid(Owner, *(PSID *)&RtlpBootStatHandleLock.WaitRegister.Flags) )
+      && RtlEqualSid(Owner, *(PSID *)((char *)&RtlpBootStatHandleLock.116 + 4)) )
     {
       v5 = 1;
     }
@@ -145,7 +145,7 @@ __int64 __fastcall PiDevCfgGetKeySecurityDescriptor(void *a1, char a2, _QWORD *a
               goto LABEL_56;
             if ( !*(_BYTE *)Ace
               && (*((_DWORD *)Ace + 1) & 0xF003F) == 0xF003F
-              && RtlEqualSid((char *)Ace + 8, *(PSID *)&RtlpBootStatHandleLock.WaitRegister.Flags) )
+              && RtlEqualSid((char *)Ace + 8, *(PSID *)((char *)&RtlpBootStatHandleLock.116 + 4)) )
             {
               v18 = 1;
               goto LABEL_38;
@@ -159,7 +159,7 @@ LABEL_38:
             *v32 = Pool2;
             return (unsigned int)DaclSecurityDescriptor;
           }
-          v19 = RtlLengthSid(*(PSID *)&RtlpBootStatHandleLock.WaitRegister.Flags) + v16->AclSize + 8;
+          v19 = RtlLengthSid(*(PSID *)((char *)&RtlpBootStatHandleLock.116 + 4)) + v16->AclSize + 8;
           v20 = (ACL *)ExAllocatePool2(0x100uLL);
           v6 = v20;
           if ( !v20 )
@@ -181,7 +181,7 @@ LABEL_38:
                                              2u,
                                              2,
                                              983103,
-                                             *(unsigned __int8 **)&RtlpBootStatHandleLock.WaitRegister.Flags,
+                                             *(unsigned __int8 **)((char *)&RtlpBootStatHandleLock.116 + 4),
                                              0);
                   if ( DaclSecurityDescriptor >= 0 )
                   {

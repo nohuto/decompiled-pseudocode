@@ -78,7 +78,7 @@ __int64 __fastcall MiCopyToCfgBitMap(
   char *v55; // [rsp+140h] [rbp+40h]
   __int64 v56; // [rsp+148h] [rbp+48h]
   ULONG_PTR BugCheckParameter2; // [rsp+150h] [rbp+50h]
-  __int128 v58; // [rsp+158h] [rbp+58h] BYREF
+  _RTL_BITMAP_EX BitMapHeader; // [rsp+158h] [rbp+58h] BYREF
   __int64 v59; // [rsp+168h] [rbp+68h]
   __int64 v60; // [rsp+170h] [rbp+70h]
   unsigned __int64 v61; // [rsp+178h] [rbp+78h]
@@ -90,7 +90,7 @@ __int64 __fastcall MiCopyToCfgBitMap(
   v60 = a1;
   v11 = (unsigned __int64)Src;
   v61 = (unsigned __int64)Src;
-  v58 = 0LL;
+  BitMapHeader = 0LL;
   if ( a2 > 1 && !a4 )
   {
     if ( *a8 == -1 )
@@ -175,8 +175,8 @@ LABEL_7:
         if ( v14 - v35 >= v17 )
           v22 = (unsigned int)v17;
         memmove(Pool, v16, (unsigned int)v22);
-        *((_QWORD *)&v58 + 1) = Pool;
-        *(_QWORD *)&v58 = (unsigned int)(8 * v22);
+        BitMapHeader.Buffer = (unsigned __int64 *)Pool;
+        BitMapHeader.SizeOfBitMap = (unsigned int)(8 * v22);
         v36 = v45;
         for ( i = v47; v36 < *(_DWORD *)v47; i = v47 )
         {
@@ -193,7 +193,7 @@ LABEL_7:
           }
           else
           {
-            RtlClearBitsEx((__int64)&v58, v41, 2uLL);
+            RtlClearBitsEx((__int64)&BitMapHeader, v41, 2uLL);
           }
           v36 = v45 + 1;
           v45 = v36;
@@ -205,9 +205,9 @@ LABEL_7:
         v22 = v21;
         if ( !v50 )
         {
-          *((_QWORD *)&v58 + 1) = Pool;
-          *(_QWORD *)&v58 = 8 * v21;
-          RtlClearAllBitsEx((__int64)&v58);
+          BitMapHeader.Buffer = (unsigned __int64 *)Pool;
+          BitMapHeader.SizeOfBitMap = 8 * v21;
+          RtlClearAllBitsEx(&BitMapHeader);
           v24 = a7 + (v21 >> 1 << 7);
           v25 = *a8;
           v26 = BugCheckParameter2;
@@ -244,7 +244,7 @@ LABEL_7:
                 }
                 else
                 {
-                  RtlSetBitsEx((__int64)&v58, v29, 2uLL);
+                  RtlSetBitsEx((__int64)&BitMapHeader, v29, 2uLL);
                 }
               }
             }

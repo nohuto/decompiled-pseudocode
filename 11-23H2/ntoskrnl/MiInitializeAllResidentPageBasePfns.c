@@ -2,13 +2,13 @@
  * XREFs of MiInitializeAllResidentPageBasePfns @ 0x140219FF4
  * Callers:
  *     MiDeleteClusterSection @ 0x1402189B0 (MiDeleteClusterSection.c)
- *     MiCoalesceFreePages @ 0x1402D4970 (MiCoalesceFreePages.c)
- *     MiInitializeDynamicPfns @ 0x14061AEF8 (MiInitializeDynamicPfns.c)
+ *     MiCoalesceFreePages @ 0x1402D4C00 (MiCoalesceFreePages.c)
+ *     MiInitializeDynamicPfns @ 0x14061B448 (MiInitializeDynamicPfns.c)
  *     MxCreateFreePfns @ 0x140B426A0 (MxCreateFreePfns.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     MiUpdatePageFileHighInPte @ 0x14028563C (MiUpdatePageFileHighInPte.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     MiUpdatePageFileHighInPte @ 0x1402858CC (MiUpdatePageFileHighInPte.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 char __fastcall MiInitializeAllResidentPageBasePfns(
@@ -64,7 +64,7 @@ char __fastcall MiInitializeAllResidentPageBasePfns(
       *((_QWORD *)&v30 + 1) |= 0x8000000000000000uLL;
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(2uLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
       LODWORD(v22) = 4;
@@ -126,10 +126,10 @@ char __fastcall MiInitializeAllResidentPageBasePfns(
   }
   if ( CurrentIrql != 17 )
   {
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v23 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v23 <= 0xFu && CurrentIrql <= 0xFu && v23 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v23 <= 0xFu && CurrentIrql <= 0xFu && v23 >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         v25 = CurrentPrcb->SchedulerAssist;

@@ -1,18 +1,18 @@
 /*
- * XREFs of MiWriteValidPteVolatile @ 0x1400FF0F4
+ * XREFs of MiWriteValidPteVolatile @ 0x1400FCE74
  * Callers:
- *     MiLockCode @ 0x1400155F0 (MiLockCode.c)
- *     MiLockOwnedProtoPage @ 0x140022970 (MiLockOwnedProtoPage.c)
- *     MiTryLockProtoPoolPageAtDpc @ 0x140022FF8 (MiTryLockProtoPoolPageAtDpc.c)
- *     MmCopyToCachedPage @ 0x140037900 (MmCopyToCachedPage.c)
- *     MiDispatchFault @ 0x1400403C0 (MiDispatchFault.c)
- *     MiCheckProtoPtePageState @ 0x14004E9B0 (MiCheckProtoPtePageState.c)
- *     MiLockProtoPoolPage @ 0x14004ED80 (MiLockProtoPoolPage.c)
- *     MiExchangeWsle @ 0x1400B1E68 (MiExchangeWsle.c)
- *     MiRemoveImagePageFromSystemWorkingSet @ 0x1400FDEF0 (MiRemoveImagePageFromSystemWorkingSet.c)
- *     MiSetSystemCodeProtection @ 0x1400FE0F4 (MiSetSystemCodeProtection.c)
- *     MiMoveValidWsle @ 0x1400FEECC (MiMoveValidWsle.c)
- *     MiLockPagedAddress @ 0x14010B9BC (MiLockPagedAddress.c)
+ *     MiLockCode @ 0x140015170 (MiLockCode.c)
+ *     MiLockOwnedProtoPage @ 0x1400224F0 (MiLockOwnedProtoPage.c)
+ *     MiTryLockProtoPoolPageAtDpc @ 0x140022B78 (MiTryLockProtoPoolPageAtDpc.c)
+ *     MmCopyToCachedPage @ 0x140037480 (MmCopyToCachedPage.c)
+ *     MiDispatchFault @ 0x14003FF40 (MiDispatchFault.c)
+ *     MiCheckProtoPtePageState @ 0x14004E530 (MiCheckProtoPtePageState.c)
+ *     MiLockProtoPoolPage @ 0x14004E900 (MiLockProtoPoolPage.c)
+ *     MiExchangeWsle @ 0x1400AFDA8 (MiExchangeWsle.c)
+ *     MiRemoveImagePageFromSystemWorkingSet @ 0x1400FBC70 (MiRemoveImagePageFromSystemWorkingSet.c)
+ *     MiSetSystemCodeProtection @ 0x1400FBE74 (MiSetSystemCodeProtection.c)
+ *     MiMoveValidWsle @ 0x1400FCC4C (MiMoveValidWsle.c)
+ *     MiLockPagedAddress @ 0x14010973C (MiLockPagedAddress.c)
  * Callees:
  *     <none>
  */

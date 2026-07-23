@@ -1,18 +1,18 @@
 /*
- * XREFs of ObGetObjectInformation @ 0x1409D5F50
+ * XREFs of ObGetObjectInformation @ 0x1409C5D80
  * Callers:
- *     ExpQuerySystemInformation @ 0x140ADC240 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x140ADDAE0 (ExpQuerySystemInformation.c)
  * Callees:
- *     OBJECT_HEADER_TO_QUOTA_INFO @ 0x14040A520 (OBJECT_HEADER_TO_QUOTA_INFO.c)
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     OBJECT_HEADER_TO_PROCESS_INFO @ 0x1404A7504 (OBJECT_HEADER_TO_PROCESS_INFO.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ObQueryTypeName @ 0x1408F2EF0 (ObQueryTypeName.c)
- *     ObQueryNameStringMode @ 0x140969A30 (ObQueryNameStringMode.c)
- *     ObpDestroyTypeArray @ 0x1409D65D4 (ObpDestroyTypeArray.c)
- *     ObpCreateTypeArray @ 0x1409D6624 (ObpCreateTypeArray.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     OBJECT_HEADER_TO_QUOTA_INFO @ 0x140402A00 (OBJECT_HEADER_TO_QUOTA_INFO.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     OBJECT_HEADER_TO_PROCESS_INFO @ 0x1404A1F34 (OBJECT_HEADER_TO_PROCESS_INFO.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ObQueryTypeName @ 0x140914530 (ObQueryTypeName.c)
+ *     ObQueryNameStringMode @ 0x1409524C0 (ObQueryNameStringMode.c)
+ *     ObpDestroyTypeArray @ 0x1409C6404 (ObpDestroyTypeArray.c)
+ *     ObpCreateTypeArray @ 0x1409C6454 (ObpCreateTypeArray.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall ObGetObjectInformation(int a1, __int64 a2, __int64 a3, unsigned int a4, unsigned int *a5)
@@ -83,7 +83,7 @@ __int64 __fastcall ObGetObjectInformation(int a1, __int64 a2, __int64 a3, unsign
   v6 = 0LL;
   v57 = 0LL;
   v55 = 536LL;
-  Pool2 = ExAllocatePool2(0x100uLL);
+  Pool2 = ExAllocatePool2(0x100uLL, 0x218uLL, 0x7241624Fu);
   v8 = (unsigned __int16 *)Pool2;
   v59 = (unsigned __int16 *)Pool2;
   if ( !Pool2 )
@@ -343,7 +343,7 @@ LABEL_72:
       if ( v46 <= v55 || v12 + v46 >= a4 )
         goto LABEL_56;
       v43 = v8;
-      v8 = (unsigned __int16 *)ExAllocatePool2(0x100uLL);
+      v8 = (unsigned __int16 *)ExAllocatePool2(0x100uLL, v46, 0x7241624Fu);
       v59 = v8;
       if ( !v8 )
       {

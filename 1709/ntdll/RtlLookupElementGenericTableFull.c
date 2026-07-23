@@ -7,14 +7,18 @@
  *     FindNodeOrParent @ 0x180069328 (FindNodeOrParent.c)
  */
 
-__int64 __fastcall RtlLookupElementGenericTableFull(__int64 *a1, __int64 a2, _QWORD *a3, _DWORD *a4)
+PVOID __cdecl RtlLookupElementGenericTableFull(
+        PRTL_GENERIC_TABLE Table,
+        PVOID Buffer,
+        PVOID *NodeOrParent,
+        TABLE_SEARCH_RESULT *SearchResult)
 {
-  int NodeOrParent; // eax
+  TABLE_SEARCH_RESULT v7; // eax
 
-  NodeOrParent = FindNodeOrParent(a1, a2, a3);
-  *a4 = NodeOrParent;
-  if ( NodeOrParent != 1 )
+  v7 = (unsigned int)FindNodeOrParent((__int64 *)Table, (__int64)Buffer, NodeOrParent);
+  *SearchResult = v7;
+  if ( v7 != TableFoundNode )
     return 0LL;
-  *a1 = (__int64)RtlSplay((_QWORD *)*a3);
-  return *a3 + 40LL;
+  Table->TableRoot = RtlSplay((PRTL_SPLAY_LINKS)*NodeOrParent);
+  return (char *)*NodeOrParent + 40;
 }

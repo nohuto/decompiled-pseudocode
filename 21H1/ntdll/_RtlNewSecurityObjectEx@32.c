@@ -6,7 +6,25 @@
  *     _RtlpNewSecurityObject@40 @ 0x4B2D6852 (_RtlpNewSecurityObject@40.c)
  */
 
-int __stdcall RtlNewSecurityObjectEx(int a1, _BYTE *a2, _DWORD *a3, int a4, int a5, unsigned int a6, void *a7, int a8)
+NTSTATUS __cdecl RtlNewSecurityObjectEx(
+        PSECURITY_DESCRIPTOR ParentDescriptor,
+        PSECURITY_DESCRIPTOR CreatorDescriptor,
+        PSECURITY_DESCRIPTOR *NewDescriptor,
+        GUID *ObjectType,
+        BOOLEAN IsDirectoryObject,
+        ULONG AutoInheritFlags,
+        HANDLE Token,
+        PGENERIC_MAPPING GenericMapping)
 {
-  return RtlpNewSecurityObject(a1, a2, a3, a4 != 0 ? (unsigned int)&a4 : 0, a4 != 0, a5, a6, a7, a8, 0);
+  return RtlpNewSecurityObject(
+           (int)ParentDescriptor,
+           CreatorDescriptor,
+           NewDescriptor,
+           ObjectType != 0 ? (unsigned int)&ObjectType : 0,
+           ObjectType != 0,
+           IsDirectoryObject,
+           AutoInheritFlags,
+           Token,
+           GenericMapping,
+           0);
 }

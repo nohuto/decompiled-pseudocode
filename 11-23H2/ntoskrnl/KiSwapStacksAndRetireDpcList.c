@@ -1,7 +1,7 @@
 /*
- * XREFs of KiSwapStacksAndRetireDpcList @ 0x1404282A0
+ * XREFs of KiSwapStacksAndRetireDpcList @ 0x140428630
  * Callers:
- *     KiDispatchInterrupt @ 0x140249530 (KiDispatchInterrupt.c)
+ *     KiDispatchInterrupt @ 0x140249600 (KiDispatchInterrupt.c)
  * Callees:
  *     <none>
  */

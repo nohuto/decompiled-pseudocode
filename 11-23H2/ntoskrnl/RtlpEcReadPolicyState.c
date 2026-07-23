@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpEcReadPolicyState @ 0x140411800
+ * XREFs of RtlpEcReadPolicyState @ 0x140411A40
  * Callers:
- *     RtlIsFeatureEnabledForEnterprise @ 0x140411780 (RtlIsFeatureEnabledForEnterprise.c)
+ *     RtlIsFeatureEnabledForEnterprise @ 0x1404119C0 (RtlIsFeatureEnabledForEnterprise.c)
  * Callees:
- *     RtlpEtcGetDwordFromPersistedState @ 0x140411928 (RtlpEtcGetDwordFromPersistedState.c)
+ *     RtlpEtcGetDwordFromPersistedState @ 0x140411B68 (RtlpEtcGetDwordFromPersistedState.c)
  */
 
 __int64 __fastcall RtlpEcReadPolicyState(bool *a1)

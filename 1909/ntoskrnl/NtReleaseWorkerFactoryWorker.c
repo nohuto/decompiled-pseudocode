@@ -22,7 +22,7 @@
  *     IopAllocateMiniCompletionPacket @ 0x14068178C (IopAllocateMiniCompletionPacket.c)
  */
 
-NTSTATUS __fastcall NtReleaseWorkerFactoryWorker(void *a1)
+NTSTATUS __cdecl NtReleaseWorkerFactoryWorker(HANDLE WorkerFactoryHandle)
 {
   NTSTATUS result; // eax
   _QWORD *v2; // rdi
@@ -35,7 +35,7 @@ NTSTATUS __fastcall NtReleaseWorkerFactoryWorker(void *a1)
   char v9; // bl
   int v10; // eax
   __int64 v11; // rax
-  int v12; // r12d
+  NTSTATUS v12; // r12d
   __int64 v13; // rax
   struct _KPRCB *v14; // rcx
   _DWORD *v15; // rdx
@@ -65,7 +65,7 @@ NTSTATUS __fastcall NtReleaseWorkerFactoryWorker(void *a1)
   v33 = 0LL;
   v34 = 0LL;
   result = ObReferenceObjectByHandle(
-             a1,
+             WorkerFactoryHandle,
              1u,
              ExpWorkerFactoryObjectType,
              KeGetCurrentThread()->PreviousMode,

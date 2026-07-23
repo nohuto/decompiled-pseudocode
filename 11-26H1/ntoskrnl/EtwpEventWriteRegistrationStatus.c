@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpEventWriteRegistrationStatus @ 0x140825610
+ * XREFs of EtwpEventWriteRegistrationStatus @ 0x14082B850
  * Callers:
- *     EtwpSetProviderTraitsKm @ 0x14093D31C (EtwpSetProviderTraitsKm.c)
- *     EtwpSetProviderTraitsUm @ 0x14093D410 (EtwpSetProviderTraitsUm.c)
+ *     EtwpSetProviderTraitsKm @ 0x140918EBC (EtwpSetProviderTraitsKm.c)
+ *     EtwpSetProviderTraitsUm @ 0x140918FB0 (EtwpSetProviderTraitsUm.c)
  * Callees:
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall EtwpEventWriteRegistrationStatus(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5)
@@ -18,5 +18,10 @@ NTSTATUS __fastcall EtwpEventWriteRegistrationStatus(__int64 a1, __int64 a2, __i
   *(_QWORD *)&v6.Size = 16LL;
   v7 = &a5;
   v8 = 4LL;
-  return EtwWrite(EtwpEventTracingProvRegHandle, &ETW_EVENT_SET_TRAITS_FAILED, 0LL, 2u, &v6);
+  return EtwWrite(
+           (REGHANDLE)stru_140F03830.SavedApcState.ApcListHead[0].Blink,
+           &ETW_EVENT_SET_TRAITS_FAILED,
+           0LL,
+           2u,
+           &v6);
 }

@@ -1,15 +1,15 @@
 /*
- * XREFs of ViIrpDatabaseReleaseLockExclusive @ 0x1405D259C
+ * XREFs of ViIrpDatabaseReleaseLockExclusive @ 0x1405D2B0C
  * Callers:
- *     IovpCompleteRequest2 @ 0x140ACCB2C (IovpCompleteRequest2.c)
- *     VfIoFreeIrp @ 0x140ACD814 (VfIoFreeIrp.c)
- *     VfPendingMoreProcessingRequired @ 0x140AD19A0 (VfPendingMoreProcessingRequired.c)
- *     ViPendingCompleteAfterWait @ 0x140AD1C1C (ViPendingCompleteAfterWait.c)
- *     VfIrpDatabaseEntryInsertAndLock @ 0x140AE1848 (VfIrpDatabaseEntryInsertAndLock.c)
- *     VfIrpDatabaseEntryReleaseLock @ 0x140AE191C (VfIrpDatabaseEntryReleaseLock.c)
+ *     IovpCompleteRequest2 @ 0x140ACCB1C (IovpCompleteRequest2.c)
+ *     VfIoFreeIrp @ 0x140ACD804 (VfIoFreeIrp.c)
+ *     VfPendingMoreProcessingRequired @ 0x140AD1990 (VfPendingMoreProcessingRequired.c)
+ *     ViPendingCompleteAfterWait @ 0x140AD1C0C (ViPendingCompleteAfterWait.c)
+ *     VfIrpDatabaseEntryInsertAndLock @ 0x140AE1838 (VfIrpDatabaseEntryInsertAndLock.c)
+ *     VfIrpDatabaseEntryReleaseLock @ 0x140AE190C (VfIrpDatabaseEntryReleaseLock.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void __fastcall ViIrpDatabaseReleaseLockExclusive(unsigned __int8 a1)
@@ -23,10 +23,13 @@ void __fastcall ViIrpDatabaseReleaseLockExclusive(unsigned __int8 a1)
 
   v1 = a1;
   ExReleaseSpinLockExclusiveFromDpcLevel(&ViIrpDatabaseLock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v1 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v1 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

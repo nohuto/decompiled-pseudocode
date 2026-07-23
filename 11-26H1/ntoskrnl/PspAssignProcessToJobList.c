@@ -1,10 +1,10 @@
 /*
- * XREFs of PspAssignProcessToJobList @ 0x140AC5AE0
+ * XREFs of PspAssignProcessToJobList @ 0x140AC7750
  * Callers:
- *     PspInsertThread @ 0x140A026D0 (PspInsertThread.c)
+ *     PspInsertThread @ 0x140A7B188 (PspInsertThread.c)
  * Callees:
- *     PsAssignProcessToJobObject @ 0x140AC5CC0 (PsAssignProcessToJobObject.c)
- *     EtwTraceJobAssignProcess @ 0x140AC6388 (EtwTraceJobAssignProcess.c)
+ *     PsAssignProcessToJobObject @ 0x140AC7930 (PsAssignProcessToJobObject.c)
+ *     EtwTraceJobAssignProcess @ 0x140AC7F7C (EtwTraceJobAssignProcess.c)
  */
 
 __int64 __fastcall PspAssignProcessToJobList(ULONG_PTR a1, __int64 a2, unsigned __int64 a3)

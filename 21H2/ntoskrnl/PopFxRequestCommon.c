@@ -1,9 +1,9 @@
 /*
- * XREFs of PopFxRequestCommon @ 0x14056C5F0
+ * XREFs of PopFxRequestCommon @ 0x14056C830
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall PopFxRequestCommon(int a1, __int64 a2)

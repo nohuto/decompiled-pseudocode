@@ -1,5 +1,5 @@
 /*
- * XREFs of KiPristineTriageDumpAllocationWorker @ 0x14057B1C0
+ * XREFs of KiPristineTriageDumpAllocationWorker @ 0x14057B6B0
  * Callers:
  *     <none>
  * Callees:

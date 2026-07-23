@@ -1,13 +1,13 @@
 /*
- * XREFs of NtFlushProcessWriteBuffers @ 0x140251660
+ * XREFs of NtFlushProcessWriteBuffers @ 0x140252FC0
  * Callers:
  *     <none>
  * Callees:
- *     KeFlushProcessWriteBuffers @ 0x14025167C (KeFlushProcessWriteBuffers.c)
+ *     KeFlushProcessWriteBuffers @ 0x140252FDC (KeFlushProcessWriteBuffers.c)
  */
 
-__int64 NtFlushProcessWriteBuffers()
+NTSTATUS NtFlushProcessWriteBuffers(void)
 {
   KeFlushProcessWriteBuffers(0LL);
-  return 0LL;
+  return 0;
 }

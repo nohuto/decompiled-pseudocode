@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     HalpInterruptModel @ 0x14031FADC (HalpInterruptModel.c)
+ *     HalpInterruptModel @ 0x14031FD6C (HalpInterruptModel.c)
  */
 
 char HalpAcpiIBMExaMatch()

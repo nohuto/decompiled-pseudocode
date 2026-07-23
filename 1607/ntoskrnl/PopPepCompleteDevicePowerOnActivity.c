@@ -1,5 +1,5 @@
 /*
- * XREFs of PopPepCompleteDevicePowerOnActivity @ 0x1400C2F00
+ * XREFs of PopPepCompleteDevicePowerOnActivity @ 0x1400C0D90
  * Callers:
  *     <none>
  * Callees:

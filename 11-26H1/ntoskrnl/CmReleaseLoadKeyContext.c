@@ -1,14 +1,14 @@
 /*
- * XREFs of CmReleaseLoadKeyContext @ 0x14097B260
+ * XREFs of CmReleaseLoadKeyContext @ 0x14093D270
  * Callers:
- *     CmLoadDifferencingKey @ 0x14097B3F0 (CmLoadDifferencingKey.c)
+ *     CmLoadDifferencingKey @ 0x14093D400 (CmLoadDifferencingKey.c)
  * Callees:
- *     UNLOCK_HIVE_LOAD @ 0x1408B11FC (UNLOCK_HIVE_LOAD.c)
- *     LOCK_HIVE_LOAD @ 0x1408B45EC (LOCK_HIVE_LOAD.c)
- *     CmpDoQueueLateUnloadWorker @ 0x1408C52DC (CmpDoQueueLateUnloadWorker.c)
- *     CmpDereferenceKeyControlBlock @ 0x1408C8770 (CmpDereferenceKeyControlBlock.c)
- *     CmpLockRegistry @ 0x140C58850 (CmpLockRegistry.c)
- *     CmpUnlockRegistry @ 0x140C58970 (CmpUnlockRegistry.c)
+ *     UNLOCK_HIVE_LOAD @ 0x1408B7808 (UNLOCK_HIVE_LOAD.c)
+ *     LOCK_HIVE_LOAD @ 0x1408BABC0 (LOCK_HIVE_LOAD.c)
+ *     CmpDoQueueLateUnloadWorker @ 0x1408CB8AC (CmpDoQueueLateUnloadWorker.c)
+ *     CmpDereferenceKeyControlBlock @ 0x1408CED20 (CmpDereferenceKeyControlBlock.c)
+ *     CmpLockRegistry @ 0x140C5E850 (CmpLockRegistry.c)
+ *     CmpUnlockRegistry @ 0x140C5E970 (CmpUnlockRegistry.c)
  */
 
 _QWORD *__fastcall CmReleaseLoadKeyContext(
@@ -18,13 +18,16 @@ _QWORD *__fastcall CmReleaseLoadKeyContext(
         struct _KLOCK_ENTRIES *a4)
 {
   __int64 v5; // rcx
-  __int64 v7; // rcx
+  __int64 v7; // rdx
   __int64 v8; // rcx
+  __int64 v9; // r8
+  __int64 v10; // r9
+  __int64 v11; // rcx
 
   if ( (int)a2 < 0 )
   {
     LOCK_HIVE_LOAD(BugCheckParameter4, a2, a3, a4);
-    CmpLockRegistry(v7);
+    CmpLockRegistry(v8, v7, v9, v10);
     if ( *(_BYTE *)(*(_QWORD *)(BugCheckParameter4 + 32) + 2952LL) == 1 )
     {
       CmpDereferenceKeyControlBlock(BugCheckParameter4);
@@ -34,12 +37,12 @@ _QWORD *__fastcall CmReleaseLoadKeyContext(
     {
       CmpDereferenceKeyControlBlock(BugCheckParameter4);
     }
-    CmpUnlockRegistry(v8);
+    CmpUnlockRegistry(v11);
     return UNLOCK_HIVE_LOAD();
   }
   else
   {
-    CmpLockRegistry(BugCheckParameter4);
+    CmpLockRegistry(BugCheckParameter4, a2, a3, a4);
     CmpDereferenceKeyControlBlock(BugCheckParameter4);
     return (_QWORD *)CmpUnlockRegistry(v5);
   }

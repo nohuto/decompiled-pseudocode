@@ -8,7 +8,7 @@
  *     NtTraceEvent @ 0x1800A5C70 (NtTraceEvent.c)
  */
 
-__int64 __fastcall TppETWTimerSetNtTimer(__int64 a1, __int64 a2, int a3)
+NTSTATUS __fastcall TppETWTimerSetNtTimer(__int64 a1, __int64 a2, int a3)
 {
   _WORD v4[16]; // [rsp+20h] [rbp-48h] BYREF
   __int64 v5; // [rsp+40h] [rbp-28h]
@@ -19,5 +19,5 @@ __int64 __fastcall TppETWTimerSetNtTimer(__int64 a1, __int64 a2, int a3)
   v5 = a2;
   v7 = a3;
   v6 = a1;
-  return NtTraceEvent(MEMORY[0x7FFE0386], 1026LL, 20LL, v4);
+  return NtTraceEvent((HANDLE)MEMORY[0x7FFE0386], 0x402u, 0x14u, v4);
 }

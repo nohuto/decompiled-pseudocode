@@ -9,10 +9,10 @@
  *     PopNotifyCsStateExited @ 0x140764EE0 (PopNotifyCsStateExited.c)
  */
 
-__int64 __fastcall PdcPoNotifyState(char a1)
+ULONG __fastcall PdcPoNotifyState(char a1)
 {
-  __int64 result; // rax
-  unsigned int v3; // [rsp+30h] [rbp+8h] BYREF
+  ULONG result; // eax
+  ULONG v3; // [rsp+30h] [rbp+8h] BYREF
 
   PopAcquirePolicyLock();
   PopIsPdcEngaged = a1;
@@ -20,9 +20,9 @@ __int64 __fastcall PdcPoNotifyState(char a1)
   if ( !PopIsPdcEngaged )
   {
     v3 = -1;
-    PopBlockSessionSwitch(1, (int *)&v3);
+    PopBlockSessionSwitch(1, &v3);
     PopNotifyCsStateExited(v3);
-    return PopBlockSessionSwitch(0, (int *)&v3);
+    return PopBlockSessionSwitch(0, &v3);
   }
   return result;
 }

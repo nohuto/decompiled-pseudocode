@@ -65,10 +65,13 @@ __int64 ExpPlGrowTableIfNeeded()
   }
   KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
   OldIrql = LockHandle.OldIrql;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && LockHandle.OldIrql <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -146,10 +149,10 @@ __int64 ExpPlGrowTableIfNeeded()
         dword_140CF81C4 = (32 * v0) | v18 & 0x1F;
         KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
         v25 = LockHandle.OldIrql;
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v26 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v26 <= 0xFu && LockHandle.OldIrql <= 0xFu && v26 >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v26 <= 0xFu && LockHandle.OldIrql <= 0xFu && v26 >= 2u )
           {
             v27 = KeGetCurrentPrcb();
             v28 = v27->SchedulerAssist;
@@ -165,10 +168,10 @@ __int64 ExpPlGrowTableIfNeeded()
       }
       KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
       v11 = LockHandle.OldIrql;
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v12 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v12 <= 0xFu && LockHandle.OldIrql <= 0xFu && v12 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v12 <= 0xFu && LockHandle.OldIrql <= 0xFu && v12 >= 2u )
         {
           v13 = KeGetCurrentPrcb();
           v14 = v13->SchedulerAssist;
@@ -186,10 +189,10 @@ __int64 ExpPlGrowTableIfNeeded()
     v8 = 0;
     KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
     v25 = LockHandle.OldIrql;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v30 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v30 <= 0xFu && LockHandle.OldIrql <= 0xFu && v30 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v30 <= 0xFu && LockHandle.OldIrql <= 0xFu && v30 >= 2u )
       {
         v31 = KeGetCurrentPrcb();
         v32 = v31->SchedulerAssist;

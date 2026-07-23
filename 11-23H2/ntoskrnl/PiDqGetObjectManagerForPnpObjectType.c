@@ -1,8 +1,8 @@
 /*
- * XREFs of PiDqGetObjectManagerForPnpObjectType @ 0x14078800C
+ * XREFs of PiDqGetObjectManagerForPnpObjectType @ 0x1407881FC
  * Callers:
- *     PiPnpRtlObjectEventWorker @ 0x1407884D0 (PiPnpRtlObjectEventWorker.c)
- *     PiPnpRtlObjectEventDispatch @ 0x140788900 (PiPnpRtlObjectEventDispatch.c)
+ *     PiPnpRtlObjectEventWorker @ 0x1407886C0 (PiPnpRtlObjectEventWorker.c)
+ *     PiPnpRtlObjectEventDispatch @ 0x140788AF0 (PiPnpRtlObjectEventDispatch.c)
  * Callees:
  *     <none>
  */

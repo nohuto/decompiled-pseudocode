@@ -1,20 +1,20 @@
 /*
- * XREFs of PfpCreateEventInternal @ 0x1407C802C
+ * XREFs of PfpCreateEventInternal @ 0x1407CB08C
  * Callers:
- *     PfpScenCtxStart @ 0x1407C6060 (PfpScenCtxStart.c)
- *     PfTStart @ 0x1407C67E4 (PfTStart.c)
- *     PfpCreateEvent @ 0x1407C800C (PfpCreateEvent.c)
+ *     PfpScenCtxStart @ 0x1407C90C0 (PfpScenCtxStart.c)
+ *     PfTStart @ 0x1407C9844 (PfTStart.c)
+ *     PfpCreateEvent @ 0x1407CB06C (PfpCreateEvent.c)
  * Callees:
- *     RtlLengthSid @ 0x1404872D0 (RtlLengthSid.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwCreateEvent @ 0x140723CF0 (ZwCreateEvent.c)
- *     ObReferenceObjectByHandle @ 0x1408F9550 (ObReferenceObjectByHandle.c)
- *     RtlpAddKnownAce @ 0x1409D7990 (RtlpAddKnownAce.c)
- *     RtlCreateAcl @ 0x1409D8030 (RtlCreateAcl.c)
- *     RtlSetDaclSecurityDescriptor @ 0x140A6B0F0 (RtlSetDaclSecurityDescriptor.c)
- *     RtlCreateSecurityDescriptor @ 0x140A6C2F0 (RtlCreateSecurityDescriptor.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlLengthSid @ 0x140480CA0 (RtlLengthSid.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwCreateEvent @ 0x1407288C0 (ZwCreateEvent.c)
+ *     ObReferenceObjectByHandle @ 0x1409294E0 (ObReferenceObjectByHandle.c)
+ *     RtlpAddKnownAce @ 0x1409A8880 (RtlpAddKnownAce.c)
+ *     RtlCreateAcl @ 0x1409A8F20 (RtlCreateAcl.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x140A7C820 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateSecurityDescriptor @ 0x140A7D920 (RtlCreateSecurityDescriptor.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PfpCreateEventInternal(UNICODE_STRING *a1, EVENT_TYPE a2, ULONG a3, PVOID *a4)
@@ -38,7 +38,7 @@ __int64 __fastcall PfpCreateEventInternal(UNICODE_STRING *a1, EVENT_TYPE a2, ULO
   if ( Acl >= 0 )
   {
     v9 = RtlLengthSid(SeAliasAdminsSid);
-    v10 = RtlLengthSid(*(PSID *)&RtlpBootStatHandleLock.WaitRegister.Flags) + 32 + v9;
+    v10 = RtlLengthSid(*(PSID *)((char *)&RtlpBootStatHandleLock.116 + 4)) + 32 + v9;
     Pool2 = (ACL *)ExAllocatePool2(0x100uLL);
     v12 = Pool2;
     if ( Pool2 )
@@ -49,7 +49,7 @@ __int64 __fastcall PfpCreateEventInternal(UNICODE_STRING *a1, EVENT_TYPE a2, ULO
         Acl = RtlpAddKnownAce((int)v12, 2, 0, 2031619, SeAliasAdminsSid, 0);
         if ( Acl >= 0 )
         {
-          Acl = RtlpAddKnownAce((int)v12, 2, 0, 2031619, *(void **)&RtlpBootStatHandleLock.WaitRegister.Flags, 0);
+          Acl = RtlpAddKnownAce((int)v12, 2, 0, 2031619, *(void **)((char *)&RtlpBootStatHandleLock.116 + 4), 0);
           if ( Acl >= 0 )
           {
             Acl = RtlSetDaclSecurityDescriptor(SecurityDescriptor, 1u, v12, 0);

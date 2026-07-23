@@ -2,8 +2,8 @@
  * XREFs of MiRemoveFromSystemSpace @ 0x140026F90
  * Callers:
  *     MiInsertInSystemSpace @ 0x1400273C0 (MiInsertInSystemSpace.c)
- *     MmUnmapViewInSystemSpace @ 0x1405DF390 (MmUnmapViewInSystemSpace.c)
- *     MiUnmapImageInSystemSpace @ 0x14065088C (MiUnmapImageInSystemSpace.c)
+ *     MmUnmapViewInSystemSpace @ 0x1405E0390 (MmUnmapViewInSystemSpace.c)
+ *     MiUnmapImageInSystemSpace @ 0x140651A4C (MiUnmapImageInSystemSpace.c)
  * Callees:
  *     KiAbEntryRemoveFromTree @ 0x140004530 (KiAbEntryRemoveFromTree.c)
  *     KiCheckForKernelApcDelivery @ 0x140005A50 (KiCheckForKernelApcDelivery.c)
@@ -16,19 +16,19 @@
  *     KiAbThreadRemoveBoosts @ 0x14004EFD0 (KiAbThreadRemoveBoosts.c)
  *     MmGetSessionIdEx @ 0x14004F060 (MmGetSessionIdEx.c)
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
- *     MiUnlockWorkingSetExclusive @ 0x140063CE0 (MiUnlockWorkingSetExclusive.c)
- *     MiGetSharedVm @ 0x140064D30 (MiGetSharedVm.c)
- *     MiRemoveMappedPtes @ 0x1400855D0 (MiRemoveMappedPtes.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     MiManageSubsectionView @ 0x1400ADC80 (MiManageSubsectionView.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiGetSessionVm @ 0x1400E945C (MiGetSessionVm.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     MiUnmapLargePages @ 0x1402C5BA4 (MiUnmapLargePages.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     MiDereferencePerSessionProtos @ 0x1406C8FB0 (MiDereferencePerSessionProtos.c)
+ *     MiUnlockWorkingSetExclusive @ 0x140063CD0 (MiUnlockWorkingSetExclusive.c)
+ *     MiGetSharedVm @ 0x140064D20 (MiGetSharedVm.c)
+ *     MiRemoveMappedPtes @ 0x1400855C0 (MiRemoveMappedPtes.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     MiManageSubsectionView @ 0x1400ADBC0 (MiManageSubsectionView.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC420 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC5A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiGetSessionVm @ 0x1400E94DC (MiGetSessionVm.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     MiUnmapLargePages @ 0x1402C5D94 (MiUnmapLargePages.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     MiDereferencePerSessionProtos @ 0x1406CA250 (MiDereferencePerSessionProtos.c)
  */
 
 void __fastcall MiRemoveFromSystemSpace(_QWORD *a1, ULONG_PTR a2, int a3)
@@ -73,7 +73,7 @@ void __fastcall MiRemoveFromSystemSpace(_QWORD *a1, ULONG_PTR a2, int a3)
   v35 = CurrentThread;
   v5 = a1;
   v6 = ((a2 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
-  if ( a1 == (_QWORD *)&unk_140438F40 )
+  if ( a1 == (_QWORD *)&unk_14043A000 )
   {
     v34 = 0LL;
     AnyMultiplexedVm = MiGetAnyMultiplexedVm(1LL);
@@ -86,7 +86,7 @@ void __fastcall MiRemoveFromSystemSpace(_QWORD *a1, ULONG_PTR a2, int a3)
   SessionId = -1;
   if ( (a2 & 0x3FFFFFFF) == 0 && v5 == v7 )
   {
-    v28 = (volatile LONG *)((char *)&unk_140438F90 + 16 * (unsigned __int8)(a2 >> 30));
+    v28 = (volatile LONG *)((char *)&unk_14043A050 + 16 * (unsigned __int8)(a2 >> 30));
     v29 = ExAcquireSpinLockExclusive(v28 + 3);
     i = *(_QWORD **)v28;
     v30 = v29;
@@ -181,7 +181,7 @@ void __fastcall MiRemoveFromSystemSpace(_QWORD *a1, ULONG_PTR a2, int a3)
         {
           *(_BYTE *)(v23 + 32) |= 2u;
           if ( *(__int64 *)(v23 + 32) < 0 )
-            KiAbEntryRemoveFromTree(v23, v20);
+            KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v23, v20);
           v40 = 0;
           v40 = *(_DWORD *)(v23 + 88) & 0x1FFFF;
           *(_DWORD *)(v23 + 88) &= 0xFFFE0000;
@@ -219,8 +219,8 @@ LABEL_30:
   v26 = ((i[4] >> 12) + 15LL) & 0xFFFFFFFFFFFFFFF0uLL;
   if ( (i[7] & 0x18) == 0x18 )
   {
-    if ( a1 == (_QWORD *)&unk_140438F40 )
-      v27 = &unk_14043ABB8;
+    if ( a1 == (_QWORD *)&unk_14043A000 )
+      v27 = &unk_14043BC78;
     else
       v27 = (void *)(v34 + 8136);
     MiReleasePtes(v27, v6, (unsigned int)v26);

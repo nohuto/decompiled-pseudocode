@@ -1,10 +1,10 @@
 /*
- * XREFs of ExInitializePagedHeaps @ 0x140192860
+ * XREFs of ExInitializePagedHeaps @ 0x1401929A0
  * Callers:
- *     MiInitSystem @ 0x1409BC5A8 (MiInitSystem.c)
+ *     MiInitSystem @ 0x1409BD5A8 (MiInitSystem.c)
  * Callees:
- *     ExCreateHeap @ 0x140170228 (ExCreateHeap.c)
- *     RtlpDynamicLookasideInitialize @ 0x1401B7B78 (RtlpDynamicLookasideInitialize.c)
+ *     ExCreateHeap @ 0x140170328 (ExCreateHeap.c)
+ *     RtlpDynamicLookasideInitialize @ 0x1401B7CD8 (RtlpDynamicLookasideInitialize.c)
  */
 
 __int64 ExInitializePagedHeaps()
@@ -12,18 +12,18 @@ __int64 ExInitializePagedHeaps()
   unsigned int v0; // r14d
   __int64 v1; // r15
   __int64 result; // rax
-  union _RTL_RUN_ONCE v3; // rdi
-  union _RTL_RUN_ONCE v4; // rax
+  _RTL_RUN_ONCE v3; // rdi
+  _RTL_RUN_ONCE v4; // rax
   __int64 Value; // rax
   __int128 v6; // [rsp+20h] [rbp-30h]
   __int128 v7; // [rsp+30h] [rbp-20h]
   __int128 v8; // [rsp+40h] [rbp-10h] BYREF
-  union _RTL_RUN_ONCE v9; // [rsp+70h] [rbp+20h] BYREF
+  _RTL_RUN_ONCE v9; // [rsp+70h] [rbp+20h] BYREF
 
   if ( (unsigned int)ExpHeapBackedPoolEnabledState < 2 )
     return 0LL;
   v0 = 0;
-  if ( !dword_140443408 )
+  if ( !dword_1404444C8 )
   {
 LABEL_6:
     v8 = 2uLL;
@@ -34,7 +34,7 @@ LABEL_6:
     *(_DWORD *)(v9.Value + 816) |= 2u;
     *(_BYTE *)(Value + 269) |= 8u;
     *(_BYTE *)(Value + 461) |= 8u;
-    qword_1404C6450 = Value;
+    qword_1404C7510 = Value;
     return 0LL;
   }
   while ( 1 )
@@ -62,7 +62,7 @@ LABEL_6:
     *(_DWORD *)(v4.Value + 816) |= 2u;
     *(_BYTE *)(v4.Value + 269) |= 8u;
     *(_BYTE *)(v4.Value + 461) |= 8u;
-    if ( v0 >= dword_140443408 )
+    if ( v0 >= dword_1404444C8 )
       goto LABEL_6;
   }
 }

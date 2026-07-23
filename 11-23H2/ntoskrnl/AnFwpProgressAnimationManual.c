@@ -1,10 +1,10 @@
 /*
- * XREFs of AnFwpProgressAnimationManual @ 0x140AF22AC
+ * XREFs of AnFwpProgressAnimationManual @ 0x140AF22BC
  * Callers:
  *     AnFwDisplayProgressIndicator @ 0x140AED598 (AnFwDisplayProgressIndicator.c)
  * Callees:
- *     BgpFwQueryPerformanceCounter @ 0x140384F70 (BgpFwQueryPerformanceCounter.c)
- *     BgpTxtDisplayCharacter @ 0x140384F88 (BgpTxtDisplayCharacter.c)
+ *     BgpFwQueryPerformanceCounter @ 0x140385150 (BgpFwQueryPerformanceCounter.c)
+ *     BgpTxtDisplayCharacter @ 0x140385168 (BgpTxtDisplayCharacter.c)
  *     LogFwStat @ 0x140AED85C (LogFwStat.c)
  */
 
@@ -25,12 +25,12 @@ LONGLONG AnFwpProgressAnimationManual()
   v0 = BgpFwQueryPerformanceCounter(&v9);
   v1 = v9.QuadPart / 33;
   v2 = 10 * (v9.QuadPart / 33) / 100;
-  result = qword_140CF7AF8;
-  if ( v0.QuadPart + v2 >= qword_140CF7AF8 + v9.QuadPart / 33 )
+  result = qword_140CF7AF0;
+  if ( v0.QuadPart + v2 >= qword_140CF7AF0 + v9.QuadPart / 33 )
   {
     v4 = word_140C0B4EC;
     v5 = word_140C0B4E8;
-    if ( word_140C0B4EC != word_140C0B4E8 && (qword_140CF7AF8 - v0.QuadPart - v2) / v1 >= 2 )
+    if ( word_140C0B4EC != word_140C0B4E8 && (qword_140CF7AF0 - v0.QuadPart - v2) / v1 >= 2 )
       v4 = ++word_140C0B4EC;
     v6 = word_140C0B4E4;
     if ( v4 >= (unsigned __int16)word_140C0B4E4 )
@@ -53,13 +53,13 @@ LABEL_10:
     v7 = v4 + 1;
 LABEL_11:
     word_140C0B4EC = v7;
-    qword_140CF7AF8 = v0.QuadPart;
+    qword_140CF7AF0 = v0.QuadPart;
     v8 = v1 / 2;
     result = *(_QWORD *)&BgpFwQueryPerformanceCounter(0LL) - v0.QuadPart;
     if ( result > v8 )
     {
       result = *(_QWORD *)&BgpFwQueryPerformanceCounter(0LL) - v8;
-      qword_140CF7AF8 = result;
+      qword_140CF7AF0 = result;
     }
   }
   return result;

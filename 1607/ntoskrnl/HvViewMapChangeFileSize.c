@@ -1,11 +1,11 @@
 /*
- * XREFs of HvViewMapChangeFileSize @ 0x14060FAD0
+ * XREFs of HvViewMapChangeFileSize @ 0x14060FB84
  * Callers:
- *     CmpDoFileSetSizeEx @ 0x14047E8FC (CmpDoFileSetSizeEx.c)
+ *     CmpDoFileSetSizeEx @ 0x14047D650 (CmpDoFileSetSizeEx.c)
  * Callees:
- *     HvpViewMapAcquireLockExclusive @ 0x1401B6764 (HvpViewMapAcquireLockExclusive.c)
- *     HvpViewMapReleaseLockExclusive @ 0x1401B6ABC (HvpViewMapReleaseLockExclusive.c)
- *     HvpViewMapGrowFile @ 0x14060FF64 (HvpViewMapGrowFile.c)
+ *     HvpViewMapAcquireLockExclusive @ 0x1401B6648 (HvpViewMapAcquireLockExclusive.c)
+ *     HvpViewMapReleaseLockExclusive @ 0x1401B69A0 (HvpViewMapReleaseLockExclusive.c)
+ *     HvpViewMapGrowFile @ 0x140610018 (HvpViewMapGrowFile.c)
  */
 
 __int64 __fastcall HvViewMapChangeFileSize(unsigned int *a1, __int64 a2, unsigned __int64 a3)

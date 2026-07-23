@@ -1,13 +1,13 @@
 /*
- * XREFs of PopFxActivateComponentDependencies @ 0x140312574
+ * XREFs of PopFxActivateComponentDependencies @ 0x140312804
  * Callers:
- *     PopFxActivateComponentWorker @ 0x140312420 (PopFxActivateComponentWorker.c)
+ *     PopFxActivateComponentWorker @ 0x1403126B0 (PopFxActivateComponentWorker.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     PopFxActivateComponent @ 0x140287300 (PopFxActivateComponent.c)
- *     PopFxNextParentRelationSafe @ 0x140351AD8 (PopFxNextParentRelationSafe.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PopFxActivateComponent @ 0x140287590 (PopFxActivateComponent.c)
+ *     PopFxNextParentRelationSafe @ 0x140351C78 (PopFxNextParentRelationSafe.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 bool __fastcall PopFxActivateComponentDependencies(__int64 a1, unsigned __int8 a2)
@@ -71,10 +71,13 @@ bool __fastcall PopFxActivateComponentDependencies(__int64 a1, unsigned __int8 a
   }
   v11 = *(_DWORD *)(a1 + 184) == 0;
   KxReleaseSpinLock(v3);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v9 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v9 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlGetLastNtStatus @ 0x1800F88D0
+ * XREFs of RtlGetLastNtStatus @ 0x1800F3440
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-unsigned int RtlGetLastNtStatus()
+NTSTATUS RtlGetLastNtStatus(void)
 {
   return NtCurrentTeb()->LastStatusValue;
 }

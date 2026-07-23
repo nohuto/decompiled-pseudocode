@@ -1,13 +1,13 @@
 /*
- * XREFs of MiUnlockFlushMdl @ 0x14008EFFC
+ * XREFs of MiUnlockFlushMdl @ 0x14008E75C
  * Callers:
- *     MiFlushSectionInternal @ 0x140029DB0 (MiFlushSectionInternal.c)
+ *     MiFlushSectionInternal @ 0x140029930 (MiFlushSectionInternal.c)
  * Callees:
- *     MmUnmapLockedPages @ 0x140025D10 (MmUnmapLockedPages.c)
- *     MiReleaseControlAreaWaiters @ 0x140026CE8 (MiReleaseControlAreaWaiters.c)
- *     MiUnlockMdlWritePages @ 0x14004D4B0 (MiUnlockMdlWritePages.c)
- *     MiDecrementModifiedWriteCount @ 0x14008F084 (MiDecrementModifiedWriteCount.c)
- *     MiRetardMdl @ 0x1401E2EB0 (MiRetardMdl.c)
+ *     MmUnmapLockedPages @ 0x140025890 (MmUnmapLockedPages.c)
+ *     MiReleaseControlAreaWaiters @ 0x140026868 (MiReleaseControlAreaWaiters.c)
+ *     MiUnlockMdlWritePages @ 0x14004D030 (MiUnlockMdlWritePages.c)
+ *     MiDecrementModifiedWriteCount @ 0x14008E7E4 (MiDecrementModifiedWriteCount.c)
+ *     MiRetardMdl @ 0x1401E2CDC (MiRetardMdl.c)
  */
 
 _QWORD *__fastcall MiUnlockFlushMdl(PMDL MemoryDescriptorList, __int64 a2, int *a3)

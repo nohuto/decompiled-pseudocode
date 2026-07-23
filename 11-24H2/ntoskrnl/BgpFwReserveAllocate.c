@@ -1,9 +1,9 @@
 /*
- * XREFs of BgpFwReserveAllocate @ 0x140467378
+ * XREFs of BgpFwReserveAllocate @ 0x14045ED90
  * Callers:
- *     BgpFwAllocateMemory @ 0x140467320 (BgpFwAllocateMemory.c)
+ *     BgpFwAllocateMemory @ 0x14045ED38 (BgpFwAllocateMemory.c)
  * Callees:
- *     RtlFindClearBitsAndSet @ 0x14024B8D0 (RtlFindClearBitsAndSet.c)
+ *     RtlFindClearBitsAndSet @ 0x14027BEE0 (RtlFindClearBitsAndSet.c)
  */
 
 __int64 __fastcall BgpFwReserveAllocate(__int64 a1)
@@ -15,17 +15,17 @@ __int64 __fastcall BgpFwReserveAllocate(__int64 a1)
 
   v1 = ((a1 + 15) & 0xFFFFFFFFFFFFFFF0uLL) + 32;
   ClearBitsAndSet = RtlFindClearBitsAndSet(&BitMapHeader, v1, HintIndex);
-  v3 = dword_140E3ED34;
-  if ( ClearBitsAndSet > dword_140E3ED34 - 16 )
+  v3 = dword_140E3EE78;
+  if ( ClearBitsAndSet > dword_140E3EE78 - 16 )
   {
     HintIndex = 0;
     ClearBitsAndSet = RtlFindClearBitsAndSet(&BitMapHeader, v1, 0);
-    v3 = dword_140E3ED34;
+    v3 = dword_140E3EE78;
   }
   if ( ClearBitsAndSet > v3 - 16 )
     return 0LL;
   HintIndex = v1 + ClearBitsAndSet;
-  result = ClearBitsAndSet + qword_140E64E00 + 32;
+  result = ClearBitsAndSet + qword_140E623C8 + 32;
   *(_QWORD *)(result - 8) = 0LL;
   *(_DWORD *)(result - 24) = 1262700354;
   *(_QWORD *)(result - 16) = v1;

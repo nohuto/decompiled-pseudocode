@@ -1,12 +1,12 @@
 /*
- * XREFs of MmGetSystemPageTableCommit @ 0x14049E29C
+ * XREFs of MmGetSystemPageTableCommit @ 0x14049909C
  * Callers:
- *     ExpQuerySystemPerformanceInformation @ 0x140AE0850 (ExpQuerySystemPerformanceInformation.c)
+ *     ExpQuerySystemPerformanceInformation @ 0x140AE2138 (ExpQuerySystemPerformanceInformation.c)
  * Callees:
  *     <none>
  */
 
 __int64 MmGetSystemPageTableCommit()
 {
-  return qword_140E375E0;
+  return qword_140E37720;
 }

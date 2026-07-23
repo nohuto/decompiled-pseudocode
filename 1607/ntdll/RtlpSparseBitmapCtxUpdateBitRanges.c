@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlpSparseBitmapCtxUpdateBitRanges @ 0x18004FAC4
+ * XREFs of RtlpSparseBitmapCtxUpdateBitRanges @ 0x18004FAB4
  * Callers:
- *     RtlSparseBitmapCtxClearBits @ 0x18004F750 (RtlSparseBitmapCtxClearBits.c)
- *     RtlSparseBitmapCtxSetBits @ 0x18004F9E0 (RtlSparseBitmapCtxSetBits.c)
- *     RtlSparseBitmapCtxClearBitsEx @ 0x1801004B0 (RtlSparseBitmapCtxClearBitsEx.c)
- *     RtlSparseBitmapCtxSetBitsEx @ 0x180100930 (RtlSparseBitmapCtxSetBitsEx.c)
+ *     RtlSparseBitmapCtxClearBits @ 0x18004F740 (RtlSparseBitmapCtxClearBits.c)
+ *     RtlSparseBitmapCtxSetBits @ 0x18004F9D0 (RtlSparseBitmapCtxSetBits.c)
+ *     RtlSparseBitmapCtxClearBitsEx @ 0x1801003F0 (RtlSparseBitmapCtxClearBitsEx.c)
+ *     RtlSparseBitmapCtxSetBitsEx @ 0x180100870 (RtlSparseBitmapCtxSetBitsEx.c)
  * Callees:
- *     RtlpSparseBitmapCtxPrepareRanges @ 0x18004FA10 (RtlpSparseBitmapCtxPrepareRanges.c)
- *     RtlpSparseBitmapCtxUnlockShared @ 0x18004FE14 (RtlpSparseBitmapCtxUnlockShared.c)
- *     RtlpSparseBitmapCheckRangeArrayPage @ 0x18004FE58 (RtlpSparseBitmapCheckRangeArrayPage.c)
- *     RtlpSparseBitmapCtxUpdateBits @ 0x18004FE80 (RtlpSparseBitmapCtxUpdateBits.c)
+ *     RtlpSparseBitmapCtxPrepareRanges @ 0x18004FA00 (RtlpSparseBitmapCtxPrepareRanges.c)
+ *     RtlpSparseBitmapCtxUnlockShared @ 0x18004FE04 (RtlpSparseBitmapCtxUnlockShared.c)
+ *     RtlpSparseBitmapCheckRangeArrayPage @ 0x18004FE48 (RtlpSparseBitmapCheckRangeArrayPage.c)
+ *     RtlpSparseBitmapCtxUpdateBits @ 0x18004FE70 (RtlpSparseBitmapCtxUpdateBits.c)
  */
 
 __int64 __fastcall RtlpSparseBitmapCtxUpdateBitRanges(
@@ -29,7 +29,7 @@ __int64 __fastcall RtlpSparseBitmapCtxUpdateBitRanges(
   unsigned __int64 v15; // r10
   __int64 v16; // r15
   unsigned __int64 v17; // rsi
-  int v18; // r10d
+  unsigned int v18; // r10d
   __int64 v19; // rdx
   __int64 v21; // [rsp+70h] [rbp+8h] BYREF
 
@@ -69,7 +69,7 @@ __int64 __fastcall RtlpSparseBitmapCtxUpdateBitRanges(
                 a1,
                 v19,
                 v18,
-                v17,
+                (unsigned int)v17,
                 a4,
                 v16,
                 v8,

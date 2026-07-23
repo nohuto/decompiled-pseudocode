@@ -1,14 +1,14 @@
 /*
- * XREFs of ExpSvmDpcRoutine @ 0x1406D2290
+ * XREFs of ExpSvmDpcRoutine @ 0x1406D62C0
  * Callers:
  *     <none>
  * Callees:
- *     ExQueueWorkItem @ 0x140381C70 (ExQueueWorkItem.c)
+ *     ExQueueWorkItem @ 0x140383A20 (ExQueueWorkItem.c)
  */
 
 void __fastcall ExpSvmDpcRoutine(__int64 a1, unsigned int a2)
 {
   ExQueueWorkItem(
-    (PWORK_QUEUE_ITEM)((char *)ExSaPageGroupDescriptorArrayLock.ApcState.ApcListHead[1].Blink + 104 * a2),
+    (PWORK_QUEUE_ITEM)(*(_QWORD *)&ExSaPageGroupDescriptorArrayLock.WaitBlockFill11[16] + 104LL * a2),
     HyperCriticalWorkQueue);
 }

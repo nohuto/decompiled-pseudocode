@@ -1,10 +1,10 @@
 /*
- * XREFs of MiConsumeSystemCacheTbFlushNeededView @ 0x140361250
+ * XREFs of MiConsumeSystemCacheTbFlushNeededView @ 0x1403613F0
  * Callers:
- *     MiObtainSystemCacheView @ 0x14029FE90 (MiObtainSystemCacheView.c)
+ *     MiObtainSystemCacheView @ 0x1402A0120 (MiObtainSystemCacheView.c)
  * Callees:
- *     KeFlushTb @ 0x140279970 (KeFlushTb.c)
- *     MiRebalanceSystemCacheFreedViews @ 0x1402A0310 (MiRebalanceSystemCacheFreedViews.c)
+ *     KeFlushTb @ 0x140279C00 (KeFlushTb.c)
+ *     MiRebalanceSystemCacheFreedViews @ 0x1402A05A0 (MiRebalanceSystemCacheFreedViews.c)
  */
 
 _QWORD *__fastcall MiConsumeSystemCacheTbFlushNeededView(__int64 a1, unsigned __int64 a2)

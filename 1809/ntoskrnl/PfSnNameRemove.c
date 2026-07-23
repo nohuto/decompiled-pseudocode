@@ -1,13 +1,13 @@
 /*
- * XREFs of PfSnNameRemove @ 0x140126858
+ * XREFs of PfSnNameRemove @ 0x140126928
  * Callers:
- *     PfSnNameRemoveAll @ 0x1405F9650 (PfSnNameRemoveAll.c)
+ *     PfSnNameRemoveAll @ 0x1405FA650 (PfSnNameRemoveAll.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     RtlRbRemoveNode @ 0x1400BDDF0 (RtlRbRemoveNode.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC420 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC5A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     RtlRbRemoveNode @ 0x1400BDD30 (RtlRbRemoveNode.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PfSnNameRemove(__int64 a1, unsigned __int64 a2)
@@ -18,7 +18,7 @@ __int64 __fastcall PfSnNameRemove(__int64 a1, unsigned __int64 a2)
   __int64 v7; // rax
   unsigned __int64 v8; // rbx
   int v9; // ecx
-  unsigned __int64 v10; // rax
+  _RTL_BALANCED_NODE *v10; // rax
   unsigned __int64 v11; // rax
   struct _KPRCB *CurrentPrcb; // rcx
   _QWORD *v13; // rcx
@@ -40,16 +40,16 @@ __int64 __fastcall PfSnNameRemove(__int64 a1, unsigned __int64 a2)
   v9 = v7 & 1;
   while ( v8 )
   {
-    v10 = *(_QWORD *)(v8 + 24);
-    if ( v10 > a2 )
+    v10 = *(_RTL_BALANCED_NODE **)(v8 + 24);
+    if ( (unsigned __int64)v10 > a2 )
     {
       v11 = *(_QWORD *)v8;
     }
     else
     {
-      if ( v10 >= a2 )
+      if ( (unsigned __int64)v10 >= a2 )
       {
-        RtlRbRemoveNode(a1 + 520, v8);
+        RtlRbRemoveNode((PRTL_RB_TREE)(a1 + 520), (PRTL_BALANCED_NODE)v8);
         ExReleaseSpinLockExclusiveFromDpcLevel(v2);
         if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && KeGetCurrentIrql() >= 2u && v6 < 2u )
         {

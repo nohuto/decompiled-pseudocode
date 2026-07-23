@@ -1,11 +1,11 @@
 /*
- * XREFs of PspNotifyProcessBackgroundTransition @ 0x140095BBC
+ * XREFs of PspNotifyProcessBackgroundTransition @ 0x1400953BC
  * Callers:
- *     PspAddProcessToJobChain @ 0x14046A2B8 (PspAddProcessToJobChain.c)
- *     PspSetProcessBackgroundCountCallback @ 0x1404B9EE8 (PspSetProcessBackgroundCountCallback.c)
+ *     PspAddProcessToJobChain @ 0x140469188 (PspAddProcessToJobChain.c)
+ *     PspSetProcessBackgroundCountCallback @ 0x1404A5C18 (PspSetProcessBackgroundCountCallback.c)
  * Callees:
- *     KeAbProcessBaseIoPriorityChange @ 0x140072184 (KeAbProcessBaseIoPriorityChange.c)
- *     PspLockProcessThreadListShared @ 0x140095CDC (PspLockProcessThreadListShared.c)
+ *     KeAbProcessBaseIoPriorityChange @ 0x140071D04 (KeAbProcessBaseIoPriorityChange.c)
+ *     PspLockProcessThreadListShared @ 0x1400954DC (PspLockProcessThreadListShared.c)
  */
 
 __int64 __fastcall PspNotifyProcessBackgroundTransition(__int64 a1, int a2)

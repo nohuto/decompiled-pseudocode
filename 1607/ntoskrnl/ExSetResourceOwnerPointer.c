@@ -1,7 +1,7 @@
 /*
- * XREFs of ExSetResourceOwnerPointer @ 0x14013293C
+ * XREFs of ExSetResourceOwnerPointer @ 0x140132EAC
  * Callers:
- *     CcSetBcbOwnerPointer @ 0x1405F8FA4 (CcSetBcbOwnerPointer.c)
+ *     CcSetBcbOwnerPointer @ 0x1405F9058 (CcSetBcbOwnerPointer.c)
  * Callees:
  *     <none>
  */

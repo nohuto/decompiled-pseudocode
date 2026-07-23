@@ -1,10 +1,10 @@
 /*
- * XREFs of PopPlInitPowerPlane @ 0x1409A07BC
+ * XREFs of PopPlInitPowerPlane @ 0x1409A09BC
  * Callers:
- *     PopPlRegisterPowerPlane @ 0x1405A1894 (PopPlRegisterPowerPlane.c)
+ *     PopPlRegisterPowerPlane @ 0x1405A1D84 (PopPlRegisterPowerPlane.c)
  * Callees:
- *     PopPlInitDevices @ 0x1409A0640 (PopPlInitDevices.c)
- *     PopPlInitWString @ 0x1409A08B0 (PopPlInitWString.c)
+ *     PopPlInitDevices @ 0x1409A0840 (PopPlInitDevices.c)
+ *     PopPlInitWString @ 0x1409A0AB0 (PopPlInitWString.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

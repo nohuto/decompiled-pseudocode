@@ -1,11 +1,11 @@
 /*
- * XREFs of ?Initialize@SC_DISK@@UEAAJXZ @ 0x1405C6DB0
+ * XREFs of ?Initialize@SC_DISK@@UEAAJXZ @ 0x1405C6FE0
  * Callers:
- *     ?Initialize@NT_DISK@@QEAAJPEAU_DEVICE_OBJECT@@@Z @ 0x14088D908 (-Initialize@NT_DISK@@QEAAJPEAU_DEVICE_OBJECT@@@Z.c)
+ *     ?Initialize@NT_DISK@@QEAAJPEAU_DEVICE_OBJECT@@@Z @ 0x14088DA68 (-Initialize@NT_DISK@@QEAAJPEAU_DEVICE_OBJECT@@@Z.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     ?Initialize@SC_DEVICE@@UEAAJXZ @ 0x1405C8F70 (-Initialize@SC_DEVICE@@UEAAJXZ.c)
- *     ?UpdateStorageProperty@SC_DEVICE@@QEAAJW4_STORAGE_PROPERTY_ID@@@Z @ 0x1405C90B4 (-UpdateStorageProperty@SC_DEVICE@@QEAAJW4_STORAGE_PROPERTY_ID@@@Z.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     ?Initialize@SC_DEVICE@@UEAAJXZ @ 0x1405C91A0 (-Initialize@SC_DEVICE@@UEAAJXZ.c)
+ *     ?UpdateStorageProperty@SC_DEVICE@@QEAAJW4_STORAGE_PROPERTY_ID@@@Z @ 0x1405C92E4 (-UpdateStorageProperty@SC_DEVICE@@QEAAJW4_STORAGE_PROPERTY_ID@@@Z.c)
  */
 
 __int64 __fastcall SC_DISK::Initialize(SC_DISK *this)

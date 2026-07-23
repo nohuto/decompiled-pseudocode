@@ -1,20 +1,20 @@
 /*
- * XREFs of PiDqPnPGetObjectProperty @ 0x14099CD50
+ * XREFs of PiDqPnPGetObjectProperty @ 0x14095D7B0
  * Callers:
- *     PiDqPnPGetObjectPropertyInBestLocale @ 0x14099C628 (PiDqPnPGetObjectPropertyInBestLocale.c)
- *     PiDqPropertyCallback @ 0x14099CAE0 (PiDqPropertyCallback.c)
- *     PiDqActionDataGetRequestedProperties @ 0x14099D6C4 (PiDqActionDataGetRequestedProperties.c)
- *     PiDqActionDataGetAllPropertiesInAllLanguages @ 0x140AB34B0 (PiDqActionDataGetAllPropertiesInAllLanguages.c)
- *     PiDqActionDataGetChangedProperties @ 0x140AB458C (PiDqActionDataGetChangedProperties.c)
+ *     PiDqPnPGetObjectPropertyInBestLocale @ 0x14095D088 (PiDqPnPGetObjectPropertyInBestLocale.c)
+ *     PiDqPropertyCallback @ 0x14095D540 (PiDqPropertyCallback.c)
+ *     PiDqActionDataGetRequestedProperties @ 0x14095E124 (PiDqActionDataGetRequestedProperties.c)
+ *     PiDqActionDataGetAllPropertiesInAllLanguages @ 0x140AB4850 (PiDqActionDataGetAllPropertiesInAllLanguages.c)
+ *     PiDqActionDataGetChangedProperties @ 0x140AB592C (PiDqActionDataGetChangedProperties.c)
  * Callees:
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     _PnpGetGenericStoreProperty @ 0x14099DD20 (_PnpGetGenericStoreProperty.c)
- *     _PnpOpenObjectRegKey @ 0x14099E110 (_PnpOpenObjectRegKey.c)
- *     _PnpValidatePropertyData @ 0x1409DC3B4 (_PnpValidatePropertyData.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     _PnpGetGenericStoreProperty @ 0x14095E780 (_PnpGetGenericStoreProperty.c)
+ *     _PnpOpenObjectRegKey @ 0x14095EB70 (_PnpOpenObjectRegKey.c)
+ *     _PnpValidatePropertyData @ 0x140A19604 (_PnpValidatePropertyData.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiDqPnPGetObjectProperty(__int64 a1, int a2, __int64 a3, __int64 a4, int a5, _WORD *a6, __int64 a7)

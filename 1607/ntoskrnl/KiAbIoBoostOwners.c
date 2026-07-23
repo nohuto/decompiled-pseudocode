@@ -1,10 +1,10 @@
 /*
- * XREFs of KiAbIoBoostOwners @ 0x14006BE9C
+ * XREFs of KiAbIoBoostOwners @ 0x14006BA1C
  * Callers:
- *     KiAbProcessContextSwitch @ 0x14005C490 (KiAbProcessContextSwitch.c)
- *     KiAbProcessThreadLocks @ 0x14006BBA8 (KiAbProcessThreadLocks.c)
+ *     KiAbProcessContextSwitch @ 0x14005C010 (KiAbProcessContextSwitch.c)
+ *     KiAbProcessThreadLocks @ 0x14006B728 (KiAbProcessThreadLocks.c)
  * Callees:
- *     KiAbSetMinimumThreadPriority @ 0x14006C0E4 (KiAbSetMinimumThreadPriority.c)
+ *     KiAbSetMinimumThreadPriority @ 0x14006BC64 (KiAbSetMinimumThreadPriority.c)
  */
 
 __int64 __fastcall KiAbIoBoostOwners(__int64 a1, char a2, int a3, int a4, __int64 a5)

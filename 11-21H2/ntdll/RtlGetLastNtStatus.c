@@ -6,7 +6,7 @@
  *     <none>
  */
 
-__int64 RtlGetLastNtStatus()
+NTSTATUS RtlGetLastNtStatus(void)
 {
   return NtCurrentTeb()->LastStatusValue;
 }

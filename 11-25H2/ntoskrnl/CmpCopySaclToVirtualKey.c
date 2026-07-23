@@ -44,41 +44,39 @@ __int64 __fastcall CmpCopySaclToVirtualKey(
   BOOLEAN v17; // r13
   __int64 CellFlat; // rax
   _WORD *v19; // rsi
-  __int64 v20; // rdx
-  __int64 v21; // r9
-  int v22; // r9d
-  __int64 v23; // r13
+  int v20; // r9d
+  __int64 v21; // r13
   unsigned int BugCheckParameter4; // [rsp+40h] [rbp-41h]
   int BugCheckParameter4_4; // [rsp+44h] [rbp-3Dh] BYREF
-  _DWORD v27[2]; // [rsp+48h] [rbp-39h] BYREF
-  _DWORD v28[2]; // [rsp+50h] [rbp-31h] BYREF
+  _DWORD v25[2]; // [rsp+48h] [rbp-39h] BYREF
+  _DWORD v26[2]; // [rsp+50h] [rbp-31h] BYREF
   PSID Owner; // [rsp+58h] [rbp-29h] BYREF
   PACL Sacl; // [rsp+60h] [rbp-21h] BYREF
   void *Src; // [rsp+68h] [rbp-19h] BYREF
-  __int64 v32; // [rsp+70h] [rbp-11h]
+  __int64 v30; // [rsp+70h] [rbp-11h]
   _OWORD SecurityDescriptor[2]; // [rsp+78h] [rbp-9h] BYREF
-  __int64 v34; // [rsp+98h] [rbp+17h]
+  __int64 v32; // [rsp+98h] [rbp+17h]
   BOOLEAN SaclDefaulted; // [rsp+E0h] [rbp+5Fh] BYREF
   BOOLEAN SaclPresent; // [rsp+E8h] [rbp+67h] BYREF
-  __int64 v37; // [rsp+F8h] [rbp+77h]
+  __int64 v35; // [rsp+F8h] [rbp+77h]
 
-  v37 = a4;
+  v35 = a4;
   v5 = *(_DWORD *)(a4 + 44);
   v6 = *(unsigned int *)(a2 + 44);
   SaclPresent = 0;
-  v34 = 0LL;
+  v32 = 0LL;
   SaclDefaulted = 0;
   v9 = (*(_BYTE *)(BugCheckParameter3 + 140) & 1) == 0;
-  v28[0] = -1;
+  v26[0] = -1;
   v10 = -1;
-  v27[0] = -1;
+  v25[0] = -1;
   v11 = 0LL;
   BugCheckParameter4_4 = -1;
   v12 = 0LL;
-  v28[1] = 0;
+  v26[1] = 0;
   Owner = 0LL;
   memset(SecurityDescriptor, 0, sizeof(SecurityDescriptor));
-  v27[1] = 0;
+  v25[1] = 0;
   Sacl = 0LL;
   Src = 0LL;
   BugCheckParameter4 = v5;
@@ -86,7 +84,7 @@ __int64 __fastcall CmpCopySaclToVirtualKey(
     CellPaged = HvpGetCellPaged(BugCheckParameter3);
   else
     CellPaged = HvpGetCellFlat(BugCheckParameter3, v6);
-  v32 = CellPaged;
+  v30 = CellPaged;
   SaclSecurityDescriptor = RtlGetSaclSecurityDescriptor(
                              (PSECURITY_DESCRIPTOR)(CellPaged + 20),
                              &SaclPresent,
@@ -106,10 +104,8 @@ __int64 __fastcall CmpCopySaclToVirtualKey(
   SaclSecurityDescriptor = RtlCreateSecurityDescriptor(SecurityDescriptor, *(unsigned __int8 *)(CellFlat + 20));
   if ( SaclSecurityDescriptor >= 0 )
   {
-    LOBYTE(v21) = SaclDefaulted;
-    LOBYTE(v20) = v17;
     WORD1(SecurityDescriptor[0]) = v19[1] & 0x7FFF;
-    SaclSecurityDescriptor = RtlSetSaclSecurityDescriptor(SecurityDescriptor, v20, Sacl, v21);
+    SaclSecurityDescriptor = RtlSetSaclSecurityDescriptor(SecurityDescriptor, v17, Sacl, SaclDefaulted);
     if ( SaclSecurityDescriptor >= 0 )
     {
       SaclSecurityDescriptor = RtlGetOwnerSecurityDescriptor(v19, &Owner, &SaclDefaulted);
@@ -134,12 +130,12 @@ __int64 __fastcall CmpCopySaclToVirtualKey(
                                            SaclDefaulted);
                 if ( SaclSecurityDescriptor >= 0 )
                 {
-                  LOBYTE(v22) = 1;
+                  LOBYTE(v20) = 1;
                   SaclSecurityDescriptor = SeCaptureSecurityDescriptor(
                                              (unsigned int)SecurityDescriptor,
                                              0,
                                              1,
-                                             v22,
+                                             v20,
                                              (__int64)&Src);
                   if ( SaclSecurityDescriptor < 0
                     || (SaclSecurityDescriptor = HvpMarkCellDirty(a3, BugCheckParameter4), SaclSecurityDescriptor < 0)
@@ -153,7 +149,7 @@ __int64 __fastcall CmpCopySaclToVirtualKey(
                   else
                   {
                     v11 = Src;
-                    v23 = v37;
+                    v21 = v35;
                     SaclSecurityDescriptor = CmpGetSecurityDescriptorNodeEx(
                                                a3,
                                                (unsigned int)a5,
@@ -164,7 +160,7 @@ __int64 __fastcall CmpCopySaclToVirtualKey(
                     {
                       CmpFreeSecurityDescriptor(a3);
                       v10 = -1;
-                      *(_DWORD *)(v23 + 44) = BugCheckParameter4_4;
+                      *(_DWORD *)(v21 + 44) = BugCheckParameter4_4;
 LABEL_23:
                       SaclSecurityDescriptor = 0;
                       goto LABEL_24;
@@ -188,17 +184,17 @@ LABEL_24:
   if ( v12 )
   {
     if ( (*(_BYTE *)(a3 + 140) & 1) != 0 )
-      HvpReleaseCellFlat(a3, v27);
+      HvpReleaseCellFlat(a3, v25);
     else
-      HvpReleaseCellPaged(a3, v27);
+      HvpReleaseCellPaged(a3, v25);
   }
 LABEL_32:
-  if ( v32 )
+  if ( v30 )
   {
     if ( (*(_BYTE *)(BugCheckParameter3 + 140) & 1) != 0 )
-      HvpReleaseCellFlat(BugCheckParameter3, v28);
+      HvpReleaseCellFlat(BugCheckParameter3, v26);
     else
-      HvpReleaseCellPaged(BugCheckParameter3, v28);
+      HvpReleaseCellPaged(BugCheckParameter3, v26);
   }
   if ( v10 != -1 )
     CmpDereferenceSecurityNode(a3, v10);

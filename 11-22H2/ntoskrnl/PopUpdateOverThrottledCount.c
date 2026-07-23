@@ -17,24 +17,27 @@ __int64 __fastcall PopUpdateOverThrottledCount(__int64 a1, unsigned __int8 a2)
   __int64 v5; // rdx
   __int64 v6; // rcx
   __int64 v7; // r8
-  int v9; // [rsp+58h] [rbp+10h] BYREF
+  __int64 v8; // r9
+  __int64 v10; // [rsp+20h] [rbp-28h]
+  __int64 v11; // [rsp+28h] [rbp-20h]
+  int Buffer; // [rsp+58h] [rbp+10h] BYREF
 
   v2 = *(_QWORD *)(a1 + 48);
-  v9 = 0;
+  Buffer = 0;
   PopDiagTraceThermalOverthrottleState(v2, a2);
   PopAcquirePolicyLock(v4);
   if ( a2 )
   {
     if ( ++dword_140C3C848 == 1 )
     {
-      v9 = 1;
+      Buffer = 1;
 LABEL_5:
-      ZwUpdateWnfStateData((__int64)&WNF_PO_THERMAL_OVERTHROTTLE, (__int64)&v9);
+      ZwUpdateWnfStateData(&WNF_PO_THERMAL_OVERTHROTTLE, &Buffer, 4u, 0LL, 0LL, 0, 0);
     }
   }
   else if ( !--dword_140C3C848 )
   {
     goto LABEL_5;
   }
-  return PopReleasePolicyLock(v6, v5, v7);
+  return PopReleasePolicyLock(v6, v5, v7, v8, v10, v11);
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of AdtpBuildHexInt64String @ 0x14096CFA8
+ * XREFs of AdtpBuildHexInt64String @ 0x14096D188
  * Callers:
- *     AdtpBuildRegistryValueString @ 0x14096D5D0 (AdtpBuildRegistryValueString.c)
+ *     AdtpBuildRegistryValueString @ 0x14096D7B0 (AdtpBuildRegistryValueString.c)
  * Callees:
- *     StringCchPrintfW @ 0x1402CA7B8 (StringCchPrintfW.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     StringCchPrintfW @ 0x1402490A8 (StringCchPrintfW.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall AdtpBuildHexInt64String(_QWORD *a1, __int64 a2, __int64 a3, __int64 a4, int a5, _BYTE *a6)

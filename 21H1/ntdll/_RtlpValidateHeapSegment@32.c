@@ -17,8 +17,8 @@
  */
 
 char __fastcall RtlpValidateHeapSegment(
-        _DWORD *Entry,
-        _DWORD *a2,
+        PVOID *BaseAddress,
+        PVOID *a2,
         int a3,
         _DWORD *a4,
         _DWORD *a5,
@@ -26,8 +26,8 @@ char __fastcall RtlpValidateHeapSegment(
         int a7,
         int a8)
 {
-  int v8; // eax
-  unsigned int v10; // edi
+  char *v8; // eax
+  PVOID *v10; // edi
   unsigned int v11; // esi
   bool v12; // zf
   unsigned __int8 v13; // dl
@@ -41,44 +41,45 @@ char __fastcall RtlpValidateHeapSegment(
   _DWORD *v21; // edx
   unsigned int v22; // eax
   unsigned int v23; // ecx
-  _DWORD *v24; // eax
-  int v25; // edx
+  PVOID *v24; // eax
+  unsigned int v25; // edx
   int v26; // eax
   _DWORD *v27; // eax
   _DWORD *v28; // edx
   int v29; // eax
   unsigned __int8 v30; // al
   unsigned int v31; // eax
-  int v33; // [esp+10h] [ebp-18h]
-  _DWORD *v34; // [esp+10h] [ebp-18h]
-  unsigned int v35; // [esp+10h] [ebp-18h]
-  char *v36; // [esp+14h] [ebp-14h]
+  ULONG v33; // [esp+0h] [ebp-28h]
+  int v34; // [esp+10h] [ebp-18h]
+  _DWORD *v35; // [esp+10h] [ebp-18h]
+  unsigned int v36; // [esp+10h] [ebp-18h]
   int v37; // [esp+14h] [ebp-14h]
-  int v38; // [esp+18h] [ebp-10h]
-  char *v39; // [esp+18h] [ebp-10h]
-  int v40; // [esp+1Ch] [ebp-Ch]
-  int v41; // [esp+20h] [ebp-8h]
-  unsigned __int16 v42; // [esp+24h] [ebp-4h]
+  int v38; // [esp+14h] [ebp-14h]
+  int v39; // [esp+18h] [ebp-10h]
+  int v40; // [esp+18h] [ebp-10h]
+  char *v41; // [esp+1Ch] [ebp-Ch]
+  char *v42; // [esp+20h] [ebp-8h]
+  unsigned __int16 v43; // [esp+24h] [ebp-4h]
 
-  v40 = 0;
-  v8 = 0;
-  v42 = 0;
   v41 = 0;
-  v10 = (unsigned int)Entry;
+  v8 = 0;
+  v43 = 0;
+  v42 = 0;
+  v10 = BaseAddress;
   v11 = (unsigned int)a2;
   if ( v11 < *(_DWORD *)(v11 + 40) )
   {
     while ( 1 )
     {
-      v12 = *(_DWORD *)(v10 + 76) == 0;
+      v12 = v10[19] == 0;
       *a6 = v11;
       if ( !v12 )
       {
-        *(_DWORD *)v11 ^= *(_DWORD *)(v10 + 80);
+        *(_DWORD *)v11 ^= (unsigned int)v10[20];
         if ( *(_BYTE *)(v11 + 3) != (*(_BYTE *)v11 ^ (unsigned __int8)(*(_BYTE *)(v11 + 1) ^ *(_BYTE *)(v11 + 2))) )
-          RtlpAnalyzeHeapFailure(Entry);
+          RtlpAnalyzeHeapFailure(BaseAddress);
       }
-      if ( v42 != (*(_WORD *)(v10 + 84) ^ *(_WORD *)(v11 + 4)) )
+      if ( v43 != (*((_WORD *)v10 + 42) ^ *(_WORD *)(v11 + 4)) )
       {
         if ( NtCurrentPeb()->Ldr )
           DbgPrint("HEAP[%wZ]: ");
@@ -87,42 +88,42 @@ char __fastcall RtlpValidateHeapSegment(
         DbgPrint(
           "Heap entry %p has incorrect PreviousSize field (%04x instead of %04x)\n",
           (const void *)v11,
-          *(unsigned __int16 *)(v10 + 84) ^ *(unsigned __int16 *)(v11 + 4),
-          v42);
+          *((unsigned __int16 *)v10 + 42) ^ *(unsigned __int16 *)(v11 + 4),
+          v43);
 LABEL_116:
-        if ( *(_DWORD *)(v10 + 76) )
+        if ( v10[19] )
         {
           *(_BYTE *)(v11 + 3) = *(_BYTE *)v11 ^ *(_BYTE *)(v11 + 1) ^ *(_BYTE *)(v11 + 2);
-          *(_DWORD *)v11 ^= *(_DWORD *)(v10 + 80);
+          *(_DWORD *)v11 ^= (unsigned int)v10[20];
         }
         return 0;
       }
       v13 = *(_BYTE *)(v11 + 2);
       v14 = *(unsigned __int16 *)v11;
-      v42 = *(_WORD *)v11;
-      v38 = v14;
-      v33 = 8 * v14;
+      v43 = *(_WORD *)v11;
+      v39 = v14;
+      v34 = 8 * v14;
       if ( (v13 & 1) != 0 )
         break;
-      if ( ((v13 >> 2) & ((*(_BYTE *)(v10 + 64) & 0x40) != 0)) != 0 )
+      if ( ((v13 >> 2) & (((_BYTE)v10[16] & 0x40) != 0)) != 0 )
       {
-        v17 = v33 - 16;
-        v36 = (char *)(v33 - 16);
+        v17 = v34 - 16;
+        v37 = v34 - 16;
         if ( (v13 & 2) != 0 && v17 > 4 )
         {
-          v17 = v33 - 20;
-          v36 = (char *)(v33 - 20);
+          v17 = v34 - 20;
+          v37 = v34 - 20;
         }
         if ( (v13 & 8) != 0 )
         {
           v18 = *(_DWORD **)(v11 + 12);
-          v37 = *(_DWORD *)(v11 + 8);
-          v34 = v18;
-          v19 = *(_DWORD *)(v37 + 4);
+          v38 = *(_DWORD *)(v11 + 8);
+          v35 = v18;
+          v19 = *(_DWORD *)(v38 + 4);
           if ( *v18 == v19 && (v20 = *(_DWORD *)(v11 + 8), *v18 == v11 + 8) )
           {
-            *(_DWORD *)(v10 + 116) -= v38;
-            v21 = *(_DWORD **)(v10 + 180);
+            v10[29] = (char *)v10[29] - v39;
+            v21 = v10[45];
             if ( v21 )
             {
               while ( 1 )
@@ -138,63 +139,63 @@ LABEL_116:
               }
               v22 = v21[1] - 1;
 LABEL_35:
-              RtlpHeapRemoveListEntry(v10, v21, 1, (int *)(v11 + 8), v22, *(unsigned __int16 *)v11);
-              v20 = v37;
+              RtlpHeapRemoveListEntry((int)v10, v21, 1, (int *)(v11 + 8), v22, *(unsigned __int16 *)v11);
+              v20 = v38;
             }
-            *v34 = v20;
-            *(_DWORD *)(v20 + 4) = v34;
-            if ( (*(_BYTE *)(v11 + 2) & 8) == 0 || RtlpCommitBlock((_DWORD *)v10, v11) )
+            *v35 = v20;
+            *(_DWORD *)(v20 + 4) = v35;
+            if ( (*(_BYTE *)(v11 + 2) & 8) == 0 || RtlpCommitBlock(v10, v11) )
             {
               v23 = *(unsigned __int16 *)v11;
-              v24 = (_DWORD *)(v10 + 192);
-              v35 = v23;
+              v24 = v10 + 48;
+              v36 = v23;
               *(_BYTE *)(v11 + 2) = 0;
               *(_BYTE *)(v11 + 7) = 0;
-              if ( *(_DWORD *)(v10 + 180) )
+              if ( v10[45] )
               {
-                Entry = (_DWORD *)RtlpFindEntry(v10, v23);
-                v24 = (_DWORD *)(v10 + 192);
+                BaseAddress = (PVOID *)RtlpFindEntry((int)v10, v23);
+                v24 = v10 + 48;
               }
               else
               {
-                Entry = (_DWORD *)*v24;
+                BaseAddress = (PVOID *)*v24;
               }
-              if ( v24 != Entry )
+              if ( v24 != BaseAddress )
               {
-                v25 = *(_DWORD *)(v10 + 76);
+                v25 = (unsigned int)v10[19];
                 do
                 {
                   if ( v25 )
                   {
-                    v26 = *(Entry - 2);
-                    v25 = *(_DWORD *)(v10 + 76);
+                    v26 = (int)*(BaseAddress - 2);
+                    v25 = (unsigned int)v10[19];
                     if ( (v26 & v25) != 0 )
-                      v26 ^= *(_DWORD *)(v10 + 80);
+                      v26 ^= (unsigned int)v10[20];
                   }
                   else
                   {
-                    LOWORD(v26) = *((_WORD *)Entry - 4);
+                    LOWORD(v26) = *((_WORD *)BaseAddress - 4);
                   }
-                  if ( v35 <= (unsigned __int16)v26 )
+                  if ( v36 <= (unsigned __int16)v26 )
                     break;
-                  Entry = (_DWORD *)*Entry;
+                  BaseAddress = (PVOID *)*BaseAddress;
                 }
-                while ( (_DWORD *)(v10 + 192) != Entry );
+                while ( v10 + 48 != BaseAddress );
               }
-              v27 = (_DWORD *)Entry[1];
-              if ( (_DWORD *)*v27 == Entry )
+              v27 = BaseAddress[1];
+              if ( (PVOID *)*v27 == BaseAddress )
               {
-                *(_DWORD *)(v11 + 8) = Entry;
+                *(_DWORD *)(v11 + 8) = BaseAddress;
                 *(_DWORD *)(v11 + 12) = v27;
                 *v27 = v11 + 8;
-                Entry[1] = v11 + 8;
+                BaseAddress[1] = (PVOID)(v11 + 8);
               }
               else
               {
-                RtlpLogHeapFailure(Entry, 0, *v27, 0);
+                RtlpLogHeapFailure(BaseAddress, 0, *v27, 0);
               }
-              *(_DWORD *)(v10 + 116) += *(unsigned __int16 *)v11;
-              v28 = *(_DWORD **)(v10 + 180);
+              v10[29] = (char *)v10[29] + *(unsigned __int16 *)v11;
+              v28 = v10[45];
               if ( v28 )
               {
                 while ( 1 )
@@ -210,12 +211,12 @@ LABEL_35:
                 }
                 v29 = v28[1] - 1;
 LABEL_61:
-                RtlpHeapAddListEntry(v10, v28, 1, v11 + 8, v29, *(unsigned __int16 *)v11);
+                RtlpHeapAddListEntry((int)v10, v28, 1, v11 + 8, v29, *(unsigned __int16 *)v11);
               }
-              if ( *(_DWORD *)(v10 + 76) )
+              if ( v10[19] )
               {
                 *(_BYTE *)(v11 + 3) = *(_BYTE *)(v11 + 2) ^ *(_BYTE *)v11 ^ *(_BYTE *)(v11 + 1);
-                *(_DWORD *)v11 ^= *(_DWORD *)(v10 + 80);
+                *(_DWORD *)v11 ^= (unsigned int)v10[20];
               }
             }
             else
@@ -229,14 +230,14 @@ LABEL_61:
           }
           goto LABEL_87;
         }
-        v39 = RtlCompareMemoryUlong((char *)(v11 + 16), v17, -17891602);
-        if ( v39 != v36 )
+        v40 = RtlCompareMemoryUlong((PVOID)(v11 + 16), v17 | 0xFEEEFEEE00000000uLL, v33);
+        if ( v40 != v37 )
         {
           if ( NtCurrentPeb()->Ldr )
             DbgPrint("HEAP[%wZ]: ");
           else
             DbgPrint("HEAP: ");
-          DbgPrint("Free Heap block %p modified at %p after it was freed\n", v11, &v39[v11 + 8]);
+          DbgPrint("Free Heap block %p modified at %p after it was freed\n", v11, v11 + v40 + 8);
           goto LABEL_116;
         }
       }
@@ -245,10 +246,10 @@ LABEL_61:
 LABEL_68:
       v30 = *(_BYTE *)(v11 + 6);
       if ( v30 )
-        Entry = (_DWORD *)((v11 & 0xFFFF0000) - (v30 << 16) + 0x10000);
+        BaseAddress = (PVOID *)((v11 & 0xFFFF0000) - (v30 << 16) + 0x10000);
       else
-        Entry = (_DWORD *)v10;
-      if ( Entry != a2 )
+        BaseAddress = v10;
+      if ( BaseAddress != a2 )
       {
         if ( NtCurrentPeb()->Ldr )
           DbgPrint("HEAP[%wZ]: ");
@@ -262,7 +263,7 @@ LABEL_68:
         v31 = *(_DWORD *)(v11 + 28);
         if ( !v31 )
         {
-          if ( v11 + 8 * *(unsigned __int16 *)v11 != a2[10] )
+          if ( (PVOID)(v11 + 8 * *(unsigned __int16 *)v11) != a2[10] )
           {
             if ( NtCurrentPeb()->Ldr )
               DbgPrint("HEAP[%wZ]: ", &NtCurrentPeb()->Ldr->InLoadOrderModuleList.Flink[5].Blink);
@@ -271,30 +272,30 @@ LABEL_68:
             DbgPrint("Heap block at %p is not last block in segment (%p)\n", v11, a2[10]);
             goto LABEL_116;
           }
-          if ( *(_DWORD *)(v10 + 76) )
+          if ( v10[19] )
           {
             *(_BYTE *)(v11 + 3) = *(_BYTE *)v11 ^ *(_BYTE *)(v11 + 1) ^ *(_BYTE *)(v11 + 2);
-            *(_DWORD *)v11 ^= *(_DWORD *)(v10 + 80);
+            *(_DWORD *)v11 ^= (unsigned int)v10[20];
           }
           return 1;
         }
-        ++v41;
-        v40 += v31 >> 12;
-        if ( *(_DWORD *)(v10 + 76) )
+        ++v42;
+        v41 += v31 >> 12;
+        if ( v10[19] )
         {
           *(_BYTE *)(v11 + 3) = *(_BYTE *)(v11 + 2) ^ *(_BYTE *)v11 ^ *(_BYTE *)(v11 + 1);
-          *(_DWORD *)v11 ^= *(_DWORD *)(v10 + 80);
+          *(_DWORD *)v11 ^= (unsigned int)v10[20];
         }
         v11 += *(_DWORD *)(v11 + 28) + 32;
-        if ( v11 != a2[10] )
+        if ( (PVOID)v11 != a2[10] )
         {
-          if ( *(_DWORD *)(v10 + 76) )
+          if ( v10[19] )
           {
-            *(_DWORD *)v11 ^= *(_DWORD *)(v10 + 80);
+            *(_DWORD *)v11 ^= (unsigned int)v10[20];
             if ( *(_BYTE *)(v11 + 3) != (*(_BYTE *)v11 ^ (unsigned __int8)(*(_BYTE *)(v11 + 1) ^ *(_BYTE *)(v11 + 2))) )
-              RtlpAnalyzeHeapFailure(Entry);
+              RtlpAnalyzeHeapFailure(BaseAddress);
           }
-          if ( *(_WORD *)(v10 + 84) != *(_WORD *)(v11 + 4) )
+          if ( *((_WORD *)v10 + 42) != *(_WORD *)(v11 + 4) )
           {
             if ( NtCurrentPeb()->Ldr )
               DbgPrint("HEAP[%wZ]: ");
@@ -303,30 +304,30 @@ LABEL_68:
             DbgPrint(
               "Heap block at %p has corrupted PreviousSize (%lx)\n",
               v11,
-              *(unsigned __int16 *)(v10 + 84) ^ *(unsigned __int16 *)(v11 + 4));
+              *((unsigned __int16 *)v10 + 42) ^ *(unsigned __int16 *)(v11 + 4));
             goto LABEL_116;
           }
-          if ( *(_DWORD *)(v10 + 76) )
+          if ( v10[19] )
           {
             *(_BYTE *)(v11 + 3) = *(_BYTE *)v11 ^ *(_BYTE *)(v11 + 1) ^ *(_BYTE *)(v11 + 2);
-            *(_DWORD *)v11 ^= *(_DWORD *)(v10 + 80);
+            *(_DWORD *)v11 ^= (unsigned int)v10[20];
           }
         }
-        v42 = 0;
+        v43 = 0;
       }
       else
       {
-        if ( *(_DWORD *)(v10 + 76) )
+        if ( v10[19] )
         {
           *(_BYTE *)(v11 + 3) = *(_BYTE *)(v11 + 2) ^ *(_BYTE *)v11 ^ *(_BYTE *)(v11 + 1);
-          *(_DWORD *)v11 ^= *(_DWORD *)(v10 + 80);
+          *(_DWORD *)v11 ^= (unsigned int)v10[20];
         }
-        v11 += v33;
+        v11 += v34;
       }
 LABEL_87:
-      if ( v11 >= a2[10] )
+      if ( v11 >= (unsigned int)a2[10] )
       {
-        v8 = v41;
+        v8 = v42;
         goto LABEL_89;
       }
     }
@@ -335,7 +336,7 @@ LABEL_87:
       if ( (v13 & 2) != 0 )
       {
         ExtraStuffPointer = RtlpGetExtraStuffPointer((_BYTE *)v11);
-        v14 = v38;
+        v14 = v39;
         LOWORD(ExtraStuffPointer) = *((_WORD *)ExtraStuffPointer + 1);
       }
       else
@@ -347,7 +348,7 @@ LABEL_87:
         if ( (__int16)ExtraStuffPointer >= 0 )
         {
           if ( ((unsigned __int16)ExtraStuffPointer & 0x800) == 0
-            && (unsigned __int16)ExtraStuffPointer < *(_WORD *)(v10 + 132) )
+            && (unsigned __int16)ExtraStuffPointer < *((_WORD *)v10 + 66) )
           {
             v16 = a7;
             ExtraStuffPointer = (_BYTE *)(unsigned __int16)ExtraStuffPointer;
@@ -366,12 +367,12 @@ LABEL_18:
         }
       }
     }
-    if ( (*(_BYTE *)(v11 + 2) & 4) != 0 && !RtlpCheckBusyBlockTail(v10, v11) )
+    if ( (*(_BYTE *)(v11 + 2) & 4) != 0 && !RtlpCheckBusyBlockTail((int)v10, v11) )
       goto LABEL_116;
     goto LABEL_68;
   }
 LABEL_89:
-  if ( a2[11] == v40 )
+  if ( a2[11] == v41 )
   {
     if ( a2[12] == v8 )
       return 1;
@@ -379,7 +380,7 @@ LABEL_89:
       DbgPrint("HEAP[%wZ]: ", &NtCurrentPeb()->Ldr->InLoadOrderModuleList.Flink[5].Blink);
     else
       DbgPrint("HEAP: ");
-    DbgPrint("Heap Segment at %p contains invalid NumberOfUnCommittedRanges (%x != %x)\n", a2, a2[12], v41);
+    DbgPrint("Heap Segment at %p contains invalid NumberOfUnCommittedRanges (%x != %x)\n", a2, a2[12], v42);
   }
   else
   {
@@ -387,7 +388,7 @@ LABEL_89:
       DbgPrint("HEAP[%wZ]: ", &NtCurrentPeb()->Ldr->InLoadOrderModuleList.Flink[5].Blink);
     else
       DbgPrint("HEAP: ");
-    DbgPrint("Heap Segment at %p contains invalid NumberOfUnCommittedPages (%x != %x)\n", a2, a2[11], v40);
+    DbgPrint("Heap Segment at %p contains invalid NumberOfUnCommittedPages (%x != %x)\n", a2, a2[11], v41);
   }
   return 0;
 }

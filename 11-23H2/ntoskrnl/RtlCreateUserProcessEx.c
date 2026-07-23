@@ -6,64 +6,68 @@
  *     RtlpCreateUserProcess @ 0x140B68EBC (RtlpCreateUserProcess.c)
  */
 
-__int64 __fastcall RtlCreateUserProcessEx(__int64 a1, __int64 a2)
+NTSTATUS __cdecl RtlCreateUserProcessEx(
+        PUNICODE_STRING NtImagePathName,
+        PRTL_USER_PROCESS_PARAMETERS ProcessParameters,
+        BOOLEAN InheritHandles,
+        PRTL_USER_PROCESS_EXTENDED_PARAMETERS ProcessExtendedParameters,
+        PRTL_USER_PROCESS_INFORMATION ProcessInformation)
 {
-  int v2; // r9d
-  unsigned int v3; // r10d
-  int v4; // edx
-  int v5; // r8d
-  __int64 v7; // rax
-  __int64 v8; // rax
-  __int64 v9; // rax
-  __int64 v10; // rax
-  __int64 v11; // rax
-  __int64 v12; // rax
-  __int64 v13; // rax
-  __int64 v14; // rax
-  __int64 v15; // rax
+  unsigned int Flags; // r10d
+  unsigned int v7; // edx
+  __int64 v8; // r8
+  wchar_t *Buffer; // rax
+  wchar_t *v11; // rax
+  wchar_t *v12; // rax
+  wchar_t *v13; // rax
+  wchar_t *v14; // rax
+  wchar_t *v15; // rax
+  wchar_t *v16; // rax
+  wchar_t *v17; // rax
+  wchar_t *v18; // rax
 
-  v2 = a2;
-  if ( !a1 || !a2 )
-    return 3221225485LL;
-  v3 = *(_DWORD *)(a2 + 8);
-  if ( (v3 & 1) == 0 )
+  if ( !NtImagePathName || !ProcessParameters )
+    return -1073741811;
+  Flags = ProcessParameters->Flags;
+  if ( (Flags & 1) == 0 )
   {
-    v7 = *(_QWORD *)(a2 + 64);
-    if ( v7 )
-      *(_QWORD *)(a2 + 64) = a2 + v7;
-    v8 = *(_QWORD *)(a2 + 88);
-    if ( v8 )
-      *(_QWORD *)(a2 + 88) = a2 + v8;
-    v9 = *(_QWORD *)(a2 + 104);
-    if ( v9 )
-      *(_QWORD *)(a2 + 104) = a2 + v9;
-    v10 = *(_QWORD *)(a2 + 120);
-    if ( v10 )
-      *(_QWORD *)(a2 + 120) = a2 + v10;
-    v11 = *(_QWORD *)(a2 + 184);
+    Buffer = ProcessParameters->CurrentDirectory.DosPath.Buffer;
+    if ( Buffer )
+      ProcessParameters->CurrentDirectory.DosPath.Buffer = (wchar_t *)((char *)Buffer + (_QWORD)ProcessParameters);
+    v11 = ProcessParameters->DllPath.Buffer;
     if ( v11 )
-      *(_QWORD *)(a2 + 184) = a2 + v11;
-    v12 = *(_QWORD *)(a2 + 200);
+      ProcessParameters->DllPath.Buffer = (wchar_t *)((char *)v11 + (_QWORD)ProcessParameters);
+    v12 = ProcessParameters->ImagePathName.Buffer;
     if ( v12 )
-      *(_QWORD *)(a2 + 200) = a2 + v12;
-    v13 = *(_QWORD *)(a2 + 216);
+      ProcessParameters->ImagePathName.Buffer = (wchar_t *)((char *)v12 + (_QWORD)ProcessParameters);
+    v13 = ProcessParameters->CommandLine.Buffer;
     if ( v13 )
-      *(_QWORD *)(a2 + 216) = a2 + v13;
-    v14 = *(_QWORD *)(a2 + 232);
+      ProcessParameters->CommandLine.Buffer = (wchar_t *)((char *)v13 + (_QWORD)ProcessParameters);
+    v14 = ProcessParameters->WindowTitle.Buffer;
     if ( v14 )
-      *(_QWORD *)(a2 + 232) = a2 + v14;
-    v15 = *(_QWORD *)(a2 + 1048);
+      ProcessParameters->WindowTitle.Buffer = (wchar_t *)((char *)v14 + (_QWORD)ProcessParameters);
+    v15 = ProcessParameters->DesktopInfo.Buffer;
     if ( v15 )
-      *(_QWORD *)(a2 + 1048) = a2 + v15;
-    v3 |= 1u;
-    *(_DWORD *)(a2 + 8) = v3;
+      ProcessParameters->DesktopInfo.Buffer = (wchar_t *)((char *)v15 + (_QWORD)ProcessParameters);
+    v16 = ProcessParameters->ShellInfo.Buffer;
+    if ( v16 )
+      ProcessParameters->ShellInfo.Buffer = (wchar_t *)((char *)v16 + (_QWORD)ProcessParameters);
+    v17 = ProcessParameters->RuntimeData.Buffer;
+    if ( v17 )
+      ProcessParameters->RuntimeData.Buffer = (wchar_t *)((char *)v17 + (_QWORD)ProcessParameters);
+    v18 = ProcessParameters->RedirectionDllName.Buffer;
+    if ( v18 )
+      ProcessParameters->RedirectionDllName.Buffer = (wchar_t *)((char *)v18 + (_QWORD)ProcessParameters);
+    Flags |= 1u;
+    ProcessParameters->Flags = Flags;
   }
-  *(_QWORD *)(a2 + 72) = 0LL;
-  v4 = (v3 >> 11) & 0x80 | 0x40;
-  if ( (v3 & 0x400000) == 0 )
-    v4 = (v3 >> 11) & 0x80;
-  v5 = v4 | 0x40000;
-  if ( (v3 & 0x800000) == 0 )
-    v5 = v4;
-  return RtlpCreateUserProcess(a1, v2, v5, v2);
+  ProcessParameters->CurrentDirectory.Handle = 0LL;
+  v7 = (Flags >> 11) & 0x80 | 0x40;
+  if ( (Flags & 0x400000) == 0 )
+    v7 = (Flags >> 11) & 0x80;
+  v8 = v7;
+  LODWORD(v8) = v7 | 0x40000;
+  if ( (Flags & 0x800000) == 0 )
+    v8 = v7;
+  return RtlpCreateUserProcess(NtImagePathName, ProcessParameters, v8);
 }

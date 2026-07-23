@@ -12,28 +12,28 @@
  *     RtlpHpVirtLargeTreeInsertNode @ 0x1800EB644 (RtlpHpVirtLargeTreeInsertNode.c)
  */
 
-__int64 __fastcall RtlpHpVirtFreeHeap(__int64 a1, unsigned __int64 a2, int a3)
+__int64 __fastcall RtlpHpVirtFreeHeap(__int64 a1, unsigned __int64 a2, ULONG a3)
 {
-  unsigned __int64 HeapByAlloc; // rbp
+  _BYTE *HeapByAlloc; // rbp
   BOOL v7; // eax
   unsigned int v8; // edi
-  unsigned __int64 v9; // rbx
-  unsigned __int64 v11; // [rsp+30h] [rbp+8h] BYREF
+  _RTL_BALANCED_NODE *v9; // rbx
+  PRTL_BALANCED_NODE Node; // [rsp+30h] [rbp+8h] BYREF
 
-  v11 = 0LL;
-  HeapByAlloc = RtlpHpVirtFindHeapByAlloc(a1, a2, (__int64 *)&v11);
+  Node = 0LL;
+  HeapByAlloc = (_BYTE *)RtlpHpVirtFindHeapByAlloc(a1, a2, (__int64 *)&Node);
   v7 = RtlpFreeHeapInternal(HeapByAlloc, a2, a3);
   v8 = v7;
-  if ( HeapByAlloc == a1 || !v7 )
+  if ( HeapByAlloc == (_BYTE *)a1 || !v7 )
   {
-    v9 = v11;
+    v9 = Node;
   }
   else
   {
-    v9 = v11;
-    if ( v11 )
+    v9 = Node;
+    if ( Node )
     {
-      RtlpHpMetadataFree(v11);
+      RtlpHpMetadataFree((unsigned __int64)Node);
       v9 = 0LL;
     }
     RtlpHpVirtHeapTableDereferenceHeap(HeapByAlloc);

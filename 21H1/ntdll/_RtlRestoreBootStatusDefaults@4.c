@@ -10,30 +10,36 @@
  *     _RtlpRecordBootStatusData@16 @ 0x4B350F8B (_RtlpRecordBootStatusData@16.c)
  */
 
-int __stdcall RtlRestoreBootStatusDefaults(int a1)
+NTSTATUS __cdecl RtlRestoreBootStatusDefaults(HANDLE FileHandle)
 {
   char v1; // cl
   unsigned int v2; // eax
-  _DWORD v4[2]; // [esp+10h] [ebp-C8h] BYREF
-  _BYTE v5[8]; // [esp+18h] [ebp-C0h] BYREF
-  int v6; // [esp+20h] [ebp-B8h] BYREF
-  _DWORD v7[44]; // [esp+24h] [ebp-B4h] BYREF
+  size_t v4; // [esp-4h] [ebp-DCh]
+  LARGE_INTEGER ByteOffset; // [esp+10h] [ebp-C8h] BYREF
+  _IO_STATUS_BLOCK IoStatusBlock; // [esp+18h] [ebp-C0h] BYREF
+  int Buffer; // [esp+20h] [ebp-B8h] BYREF
+  _NT_PRODUCT_TYPE NtProductType; // [esp+24h] [ebp-B4h] BYREF
+  __int16 v9; // [esp+29h] [ebp-AFh]
+  char v10; // [esp+2Bh] [ebp-ADh]
+  char v11; // [esp+51h] [ebp-87h]
+  char v12; // [esp+52h] [ebp-86h]
+  int v13; // [esp+C8h] [ebp-10h]
 
-  memset(v7, 0, 0xACu);
-  v6 = 176;
-  RtlGetNtProductType(v7);
-  *(_WORD *)((char *)&v7[1] + 1) = 286;
+  LODWORD(v4) = 172;
+  memset(&NtProductType, 0, v4);
+  Buffer = 176;
+  RtlGetNtProductType(&NtProductType);
+  v9 = 286;
   v1 = 0;
-  BYTE1(v7[11]) = 1;
+  v11 = 1;
   v2 = 0;
-  HIBYTE(v7[1]) = 0;
-  v7[41] = 0;
+  v10 = 0;
+  v13 = 0;
   do
-    v1 -= *((_BYTE *)&v7[-1] + v2++);
+    v1 -= *((_BYTE *)&Buffer + v2++);
   while ( v2 < 0xB0 );
-  BYTE2(v7[11]) = v1;
-  v4[0] = 0;
-  v4[1] = 0;
+  v12 = v1;
+  ByteOffset.QuadPart = 0LL;
   RtlpRecordBootStatusData(0, 176);
-  return NtWriteFile(a1, 0, 0, 0, (int)v5, (int)&v6, 176, (int)v4, 0);
+  return NtWriteFile(FileHandle, 0, 0, 0, &IoStatusBlock, &Buffer, 0xB0u, &ByteOffset, 0);
 }

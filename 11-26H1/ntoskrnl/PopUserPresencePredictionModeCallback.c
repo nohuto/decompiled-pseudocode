@@ -1,11 +1,11 @@
 /*
- * XREFs of PopUserPresencePredictionModeCallback @ 0x140B3F230
+ * XREFs of PopUserPresencePredictionModeCallback @ 0x140B41260
  * Callers:
  *     <none>
  * Callees:
- *     PopUmpoSendUserPresencePredictionAction @ 0x140B3AC78 (PopUmpoSendUserPresencePredictionAction.c)
- *     PopAcquirePolicyLock @ 0x140C04BF0 (PopAcquirePolicyLock.c)
- *     PopReleasePolicyLock @ 0x140C04C40 (PopReleasePolicyLock.c)
+ *     PopUmpoSendUserPresencePredictionAction @ 0x140B3CEF8 (PopUmpoSendUserPresencePredictionAction.c)
+ *     PopAcquirePolicyLock @ 0x140C0AE00 (PopAcquirePolicyLock.c)
+ *     PopReleasePolicyLock @ 0x140C0AE50 (PopReleasePolicyLock.c)
  */
 
 __int64 __fastcall PopUserPresencePredictionModeCallback(_QWORD *a1, _DWORD *a2, int a3)
@@ -28,7 +28,7 @@ __int64 __fastcall PopUserPresencePredictionModeCallback(_QWORD *a1, _DWORD *a2,
   PopAcquirePolicyLock(a1, a2);
   if ( !*a2 )
   {
-    dword_140F10720 = 0;
+    LODWORD(PpmIdlePolicyLock.ReadOperationCount) = 0;
     v11 = 2;
 LABEL_13:
     PopUmpoSendUserPresencePredictionAction(v11);
@@ -36,7 +36,7 @@ LABEL_13:
   }
   if ( *a2 == 1 )
   {
-    dword_140F10720 = 1;
+    LODWORD(PpmIdlePolicyLock.ReadOperationCount) = 1;
     v11 = 3;
     goto LABEL_13;
   }

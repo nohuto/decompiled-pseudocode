@@ -20,7 +20,7 @@
 // local variable allocation has failed, the output may be wrong!
 void __fastcall MiExtendPagingFileMaximum(_QWORD *a1, __int64 a2, unsigned __int64 a3)
 {
-  struct _RTL_BITMAP *v3; // r12
+  _RTL_BITMAP *v3; // r12
   __int64 v7; // rsi
   unsigned int v8; // r15d
   void *v9; // rdx
@@ -59,7 +59,7 @@ void __fastcall MiExtendPagingFileMaximum(_QWORD *a1, __int64 a2, unsigned __int
   unsigned __int64 v42; // [rsp+D8h] [rbp+60h]
 
   v41 = a3;
-  v3 = (struct _RTL_BITMAP *)(a2 + 8);
+  v3 = (_RTL_BITMAP *)(a2 + 8);
   RtlSetAllBits((PRTL_BITMAP)(a2 + 8));
   RtlSetAllBits((PRTL_BITMAP)(a2 + 24));
   KeAcquireInStackQueuedSpinLock(a1 + 24, &LockHandle);

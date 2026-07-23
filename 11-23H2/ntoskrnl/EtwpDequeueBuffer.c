@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpDequeueBuffer @ 0x140227F6C
+ * XREFs of EtwpDequeueBuffer @ 0x14022807C
  * Callers:
- *     EtwpDequeueFreeBuffer @ 0x140227DF0 (EtwpDequeueFreeBuffer.c)
- *     EtwpAdjustSiloTraceBuffers @ 0x140228520 (EtwpAdjustSiloTraceBuffers.c)
- *     EtwpFreeTraceBufferPool @ 0x14078DF9C (EtwpFreeTraceBufferPool.c)
+ *     EtwpDequeueFreeBuffer @ 0x140227F00 (EtwpDequeueFreeBuffer.c)
+ *     EtwpAdjustSiloTraceBuffers @ 0x140228630 (EtwpAdjustSiloTraceBuffers.c)
+ *     EtwpFreeTraceBufferPool @ 0x14078E18C (EtwpFreeTraceBufferPool.c)
  * Callees:
  *     <none>
  */

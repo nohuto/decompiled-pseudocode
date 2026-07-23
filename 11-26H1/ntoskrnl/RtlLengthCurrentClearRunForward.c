@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlLengthCurrentClearRunForward @ 0x1404714C8
+ * XREFs of RtlLengthCurrentClearRunForward @ 0x14046AC48
  * Callers:
- *     MiCheckHintedPageFileSpace @ 0x14047143C (MiCheckHintedPageFileSpace.c)
+ *     MiCheckHintedPageFileSpace @ 0x14046ABBC (MiCheckHintedPageFileSpace.c)
  * Callees:
  *     <none>
  */
@@ -35,7 +35,7 @@ __int64 __fastcall RtlLengthCurrentClearRunForward(int *a1, unsigned int a2, uns
     v8 = v3 + 4 * ((unsigned __int64)(unsigned int)(v4 - 1) >> 5);
   v9 = a2 & 0x1F;
   v10 = v9;
-  v11 = *((_DWORD *)qword_140019C60 + v9);
+  v11 = *((_DWORD *)qword_1400195D0 + v9);
   v12 = 0;
   v13 = *v6 & ~v11;
   if ( (unsigned __int64)v6 <= v8 )
@@ -67,7 +67,7 @@ LABEL_4:
       v14 = -1;
       v15 = !_BitScanForward64(
                (unsigned __int64 *)&v16,
-               v16 | (unsigned int)~*((_DWORD *)qword_140019C60 + (v4 & 0x1F)));
+               v16 | (unsigned int)~*((_DWORD *)qword_1400195D0 + (v4 & 0x1F)));
       if ( !v15 )
         v14 = v16;
       v12 += v14;

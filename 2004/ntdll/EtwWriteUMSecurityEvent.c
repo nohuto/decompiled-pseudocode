@@ -8,38 +8,42 @@
  *     NtTraceEvent @ 0x18009D9C0 (NtTraceEvent.c)
  */
 
-__int64 __fastcall EtwWriteUMSecurityEvent(__int128 *a1, __int16 a2, int a3, __int64 a4)
+ULONG __cdecl EtwWriteUMSecurityEvent(
+        PCEVENT_DESCRIPTOR EventDescriptor,
+        USHORT EventProperty,
+        ULONG UserDataCount,
+        PEVENT_DATA_DESCRIPTOR UserData)
 {
-  unsigned int v4; // ebx
-  __int128 v5; // xmm0
+  ULONG v4; // ebx
+  EVENT_DESCRIPTOR v5; // xmm0
   _GUID ActivityId; // xmm0
   NTSTATUS v7; // eax
-  _BYTE v9[4]; // [rsp+20h] [rbp-88h] BYREF
+  _BYTE Fields[4]; // [rsp+20h] [rbp-88h] BYREF
   __int16 v10; // [rsp+24h] [rbp-84h]
-  __int16 v11; // [rsp+26h] [rbp-82h]
-  __int128 v12; // [rsp+48h] [rbp-60h]
+  USHORT v11; // [rsp+26h] [rbp-82h]
+  EVENT_DESCRIPTOR v12; // [rsp+48h] [rbp-60h]
   _GUID v13; // [rsp+60h] [rbp-48h]
   char v14; // [rsp+70h] [rbp-38h]
   __int16 v15; // [rsp+72h] [rbp-36h]
-  int v16; // [rsp+74h] [rbp-34h]
-  __int64 v17; // [rsp+78h] [rbp-30h]
+  ULONG v16; // [rsp+74h] [rbp-34h]
+  PEVENT_DATA_DESCRIPTOR v17; // [rsp+78h] [rbp-30h]
   int v18; // [rsp+90h] [rbp-18h]
 
   v4 = 0;
-  if ( !a1 )
-    return 87LL;
-  v5 = *a1;
-  v11 = a2;
+  if ( !EventDescriptor )
+    return 87;
+  v5 = *EventDescriptor;
+  v11 = EventProperty;
   v10 = 0;
   v12 = v5;
-  v16 = a3;
-  v17 = a4;
+  v16 = UserDataCount;
+  v17 = UserData;
   ActivityId = NtCurrentTeb()->ActivityId;
   v14 = 0;
   v15 = 0;
   v13 = ActivityId;
   v18 = 0;
-  v7 = NtTraceEvent(0LL, 1280LL, 120LL, v9);
+  v7 = NtTraceEvent(0LL, 0x500u, 0x78u, Fields);
   if ( v7 )
     return RtlNtStatusToDosError(v7);
   return v4;

@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlpFcBufferManagerDereferenceBuffers @ 0x1800D6520
+ * XREFs of RtlpFcBufferManagerDereferenceBuffers @ 0x1800D1890
  * Callers:
- *     RtlQueryFeatureUsageNotificationSubscriptions @ 0x1800D5FD0 (RtlQueryFeatureUsageNotificationSubscriptions.c)
- *     RtlQueryAllFeatureConfigurations @ 0x1800D6050 (RtlQueryAllFeatureConfigurations.c)
- *     RtlNotifyFeatureUsage @ 0x1800D6140 (RtlNotifyFeatureUsage.c)
- *     RtlQueryFeatureConfiguration @ 0x1800D6290 (RtlQueryFeatureConfiguration.c)
- *     RtlpFcReferenceFeatureConfigurationBuffers @ 0x1800D63CC (RtlpFcReferenceFeatureConfigurationBuffers.c)
- *     RtlpFcUpdateLocalConfiguration @ 0x1800D6550 (RtlpFcUpdateLocalConfiguration.c)
- *     RtlQueryInternalFeatureConfiguration @ 0x18011C7F0 (RtlQueryInternalFeatureConfiguration.c)
- *     RtlQueryAllInternalFeatureConfigurations @ 0x1801472A0 (RtlQueryAllInternalFeatureConfigurations.c)
- *     RtlQueryAllInternalRuntimeFeatureConfigurations @ 0x180147350 (RtlQueryAllInternalRuntimeFeatureConfigurations.c)
+ *     RtlQueryFeatureUsageNotificationSubscriptions @ 0x1800D1340 (RtlQueryFeatureUsageNotificationSubscriptions.c)
+ *     RtlQueryAllFeatureConfigurations @ 0x1800D13C0 (RtlQueryAllFeatureConfigurations.c)
+ *     RtlNotifyFeatureUsage @ 0x1800D14B0 (RtlNotifyFeatureUsage.c)
+ *     RtlQueryFeatureConfiguration @ 0x1800D1600 (RtlQueryFeatureConfiguration.c)
+ *     RtlpFcReferenceFeatureConfigurationBuffers @ 0x1800D173C (RtlpFcReferenceFeatureConfigurationBuffers.c)
+ *     RtlpFcUpdateLocalConfiguration @ 0x1800D18C0 (RtlpFcUpdateLocalConfiguration.c)
+ *     RtlQueryInternalFeatureConfiguration @ 0x18011AA20 (RtlQueryInternalFeatureConfiguration.c)
+ *     RtlQueryAllInternalFeatureConfigurations @ 0x180145650 (RtlQueryAllInternalFeatureConfigurations.c)
+ *     RtlQueryAllInternalRuntimeFeatureConfigurations @ 0x180145700 (RtlQueryAllInternalRuntimeFeatureConfigurations.c)
  * Callees:
  *     <none>
  */

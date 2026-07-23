@@ -1,14 +1,14 @@
 /*
- * XREFs of SepDeReferenceLogonSessionDirect @ 0x140080760
+ * XREFs of SepDeReferenceLogonSessionDirect @ 0x1400807E0
  * Callers:
- *     SepLinkLogonSessions @ 0x140080A90 (SepLinkLogonSessions.c)
- *     NtQueryInformationToken @ 0x14040F810 (NtQueryInformationToken.c)
- *     SepStopReferencingLogonSession @ 0x14047C9A8 (SepStopReferencingLogonSession.c)
- *     PspCompleteServerSiloShutdownDeferred @ 0x14067E3A8 (PspCompleteServerSiloShutdownDeferred.c)
- *     SepSetServerSiloToken @ 0x14068D340 (SepSetServerSiloToken.c)
- *     SeGetLinkedToken @ 0x1406929BC (SeGetLinkedToken.c)
+ *     SepLinkLogonSessions @ 0x140080B10 (SepLinkLogonSessions.c)
+ *     NtQueryInformationToken @ 0x14040E6D0 (NtQueryInformationToken.c)
+ *     SepStopReferencingLogonSession @ 0x14047B878 (SepStopReferencingLogonSession.c)
+ *     PspCompleteServerSiloShutdownDeferred @ 0x14067E48C (PspCompleteServerSiloShutdownDeferred.c)
+ *     SepSetServerSiloToken @ 0x14068D424 (SepSetServerSiloToken.c)
+ *     SeGetLinkedToken @ 0x140692AA0 (SeGetLinkedToken.c)
  * Callees:
- *     SepDeReferenceLogonSession @ 0x1404E50DC (SepDeReferenceLogonSession.c)
+ *     SepDeReferenceLogonSession @ 0x1404C7CF8 (SepDeReferenceLogonSession.c)
  */
 
 signed __int64 __fastcall SepDeReferenceLogonSessionDirect(_QWORD *a1)

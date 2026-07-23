@@ -1,15 +1,15 @@
 /*
  * XREFs of KeLoadMTRR @ 0x140A53A50
  * Callers:
- *     HalpPostSleepMP @ 0x140A500C0 (HalpPostSleepMP.c)
- *     KiLoadMTRRTarget @ 0x140A5B8F0 (KiLoadMTRRTarget.c)
+ *     sub_140A500C0 @ 0x140A500C0 (sub_140A500C0.c)
+ *     sub_140A5B8F0 @ 0x140A5B8F0 (sub_140A5B8F0.c)
  * Callees:
  *     KeFlushCurrentTbImmediately @ 0x1403B1CF0 (KeFlushCurrentTbImmediately.c)
  *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     KiLockStepExecution @ 0x140A53C34 (KiLockStepExecution.c)
- *     KiWriteFixedMtrr @ 0x140A53C7C (KiWriteFixedMtrr.c)
- *     KiReadFixedMtrr @ 0x140A53D88 (KiReadFixedMtrr.c)
- *     KiCompareVarMtrr @ 0x140A53E94 (KiCompareVarMtrr.c)
+ *     sub_140A53C34 @ 0x140A53C34 (sub_140A53C34.c)
+ *     sub_140A53C7C @ 0x140A53C7C (sub_140A53C7C.c)
+ *     sub_140A53D88 @ 0x140A53D88 (sub_140A53D88.c)
+ *     sub_140A53E94 @ 0x140A53E94 (sub_140A53E94.c)
  */
 
 __int64 __fastcall KeLoadMTRR(__int64 a1)
@@ -34,13 +34,13 @@ __int64 __fastcall KeLoadMTRR(__int64 a1)
 
   if ( byte_140C2AF30 )
   {
-    if ( !(unsigned __int8)KiCompareVarMtrr() )
-      KeMtrrComparisonFailed = 1;
+    if ( !(unsigned __int8)sub_140A53E94() )
+      byte_140C2AF08 = 1;
     if ( qword_140C2AF40 )
     {
-      KiReadFixedMtrr(v18);
+      sub_140A53D88(v18);
       v3 = qword_140C2AF40;
-      if ( !KeGetCurrentPrcb()->Number )
+      if ( !*((_DWORD *)KeGetCurrentPrcb() + 9) )
       {
         v2 = 0LL;
         v3 = (PVOID)((_BYTE *)qword_140C2AF40 - v18);
@@ -52,13 +52,13 @@ __int64 __fastcall KeLoadMTRR(__int64 a1)
           if ( (unsigned int)v2 >= 0xB )
             goto LABEL_6;
         }
-        KeMtrrComparisonFailed = 1;
+        byte_140C2AF08 = 1;
       }
     }
 LABEL_6:
     _disable();
     v4 = (v19 & 0x200) != 0;
-    KiLockStepExecution(a1, v2, v3);
+    sub_140A53C34(a1, v2, v3);
     v5 = __readcr0();
     __writecr0(v5 & 0xFFFFFFFF9FFFFFFFuLL | 0x40000000);
     __wbinvd();
@@ -67,9 +67,9 @@ LABEL_6:
       __writecr4(v6 & 0xFFFFFFFFFFFFFF7FuLL);
     else
       KeFlushCurrentTbImmediately();
-    v7 = KiMtrrInfo & 0xFFFFFFFFFFFFF7FFuLL;
-    v8 = (KiMtrrInfo & 0xFFFFFFFFFFFFF7FFuLL) >> 32;
-    __writemsr(0x2FFu, KiMtrrInfo & 0xFFFFFFFFFFFFF7FFuLL);
+    v7 = qword_140C2AF20 & 0xFFFFFFFFFFFFF7FFuLL;
+    v8 = (qword_140C2AF20 & 0xFFFFFFFFFFFFF7FFuLL) >> 32;
+    __writemsr(0x2FFu, qword_140C2AF20 & 0xFFFFFFFFFFFFF7FFuLL);
     v9 = 0;
     if ( (_BYTE)qword_140C2AF28 )
     {
@@ -88,14 +88,14 @@ LABEL_6:
       while ( v9 < (unsigned __int64)(unsigned __int8)qword_140C2AF28 );
     }
     if ( qword_140C2AF40 )
-      KiWriteFixedMtrr(qword_140C2AF40, v8);
+      sub_140A53C7C(qword_140C2AF40, v8);
     __writemsr(0x2FFu, v7 | 0x800);
     __wbinvd();
     KeFlushCurrentTbImmediately();
     __writecr0(v5);
     if ( (v6 & 0x80) != 0 )
       __writecr4(v6);
-    KiLockStepExecution(a1, v14, v15);
+    sub_140A53C34(a1, v14, v15);
     if ( v4 )
       _enable();
   }

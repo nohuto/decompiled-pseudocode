@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpDmaReturnToContiguousPool @ 0x1403595BC
+ * XREFs of HalpDmaReturnToContiguousPool @ 0x14035B35C
  * Callers:
- *     HalpDmaReturnPageToOwner @ 0x140359460 (HalpDmaReturnPageToOwner.c)
- *     HalpDmaFreeMapRegisters @ 0x140359820 (HalpDmaFreeMapRegisters.c)
- *     HalpDmaReturnPageToSource @ 0x140532A6C (HalpDmaReturnPageToSource.c)
+ *     HalpDmaReturnPageToOwner @ 0x14035B200 (HalpDmaReturnPageToOwner.c)
+ *     HalpDmaFreeMapRegisters @ 0x14035B5C0 (HalpDmaFreeMapRegisters.c)
+ *     HalpDmaReturnPageToSource @ 0x140534F0C (HalpDmaReturnPageToSource.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x1402B4730 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x1402B98C0 (KeReleaseInStackQueuedSpinLock.c)
- *     RtlClearBits @ 0x1403591A0 (RtlClearBits.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402FF400 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x140304580 (KeReleaseInStackQueuedSpinLock.c)
+ *     RtlClearBits @ 0x14035AF40 (RtlClearBits.c)
  */
 
 void __fastcall HalpDmaReturnToContiguousPool(__int64 a1, unsigned __int64 a2, char a3)

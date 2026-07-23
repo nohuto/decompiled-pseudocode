@@ -1,33 +1,33 @@
 /*
- * XREFs of MmCopyToCachedPage @ 0x1402CD7D0
+ * XREFs of MmCopyToCachedPage @ 0x1402CDA60
  * Callers:
- *     CcMapAndCopyInToCache @ 0x1402CC8F0 (CcMapAndCopyInToCache.c)
+ *     CcMapAndCopyInToCache @ 0x1402CCB80 (CcMapAndCopyInToCache.c)
  * Callees:
  *     MiLockLeafPage @ 0x140218410 (MiLockLeafPage.c)
- *     MmAccessFault @ 0x140235370 (MmAccessFault.c)
- *     MiReservePtes @ 0x14027D190 (MiReservePtes.c)
- *     MiReleasePtes @ 0x1402CB8E0 (MiReleasePtes.c)
- *     MiMakePageAvoidRead @ 0x1402CE000 (MiMakePageAvoidRead.c)
- *     MiUnlockProtoPoolPage @ 0x1402DAEF0 (MiUnlockProtoPoolPage.c)
- *     MiRemoveLockedPageChargeAndDecRef @ 0x1402DAF84 (MiRemoveLockedPageChargeAndDecRef.c)
- *     MiLockProtoPoolPageForce @ 0x1402DDFD4 (MiLockProtoPoolPageForce.c)
- *     MiAddLockedPageCharge @ 0x1402EF368 (MiAddLockedPageCharge.c)
- *     MiLockPageInline @ 0x1402EF680 (MiLockPageInline.c)
- *     MiUnlinkStandbyPfn @ 0x14033E81C (MiUnlinkStandbyPfn.c)
- *     MiMakeSystemCachePteValid @ 0x140345DCC (MiMakeSystemCachePteValid.c)
- *     MiDirtySystemCachePte @ 0x140351578 (MiDirtySystemCachePte.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     RtlCopyMemoryNonTemporal @ 0x1404298D0 (RtlCopyMemoryNonTemporal.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiMapFrame @ 0x14062EBA4 (MiMapFrame.c)
- *     MiMapSystemCachePage @ 0x14062EC44 (MiMapSystemCachePage.c)
- *     MiFreeTransitionPageHeatList @ 0x140653EA8 (MiFreeTransitionPageHeatList.c)
- *     MiMakeTransitionHeatBatch @ 0x1406542B8 (MiMakeTransitionHeatBatch.c)
- *     MiProcessTransitionHeatBatch @ 0x140654634 (MiProcessTransitionHeatBatch.c)
- *     MiReplenishTransitionPageHeatList @ 0x14065485C (MiReplenishTransitionPageHeatList.c)
- *     MiHandleSpecialPurposeMemoryCachedFault @ 0x140660408 (MiHandleSpecialPurposeMemoryCachedFault.c)
- *     MiMapCacheExceptionFilter @ 0x140A3088C (MiMapCacheExceptionFilter.c)
+ *     MmAccessFault @ 0x140235440 (MmAccessFault.c)
+ *     MiReservePtes @ 0x14027D420 (MiReservePtes.c)
+ *     MiReleasePtes @ 0x1402CBB70 (MiReleasePtes.c)
+ *     MiMakePageAvoidRead @ 0x1402CE290 (MiMakePageAvoidRead.c)
+ *     MiUnlockProtoPoolPage @ 0x1402DB180 (MiUnlockProtoPoolPage.c)
+ *     MiRemoveLockedPageChargeAndDecRef @ 0x1402DB214 (MiRemoveLockedPageChargeAndDecRef.c)
+ *     MiLockProtoPoolPageForce @ 0x1402DE264 (MiLockProtoPoolPageForce.c)
+ *     MiAddLockedPageCharge @ 0x1402EF5F8 (MiAddLockedPageCharge.c)
+ *     MiLockPageInline @ 0x1402EF910 (MiLockPageInline.c)
+ *     MiUnlinkStandbyPfn @ 0x14033EAAC (MiUnlinkStandbyPfn.c)
+ *     MiMakeSystemCachePteValid @ 0x14034605C (MiMakeSystemCachePteValid.c)
+ *     MiDirtySystemCachePte @ 0x140351718 (MiDirtySystemCachePte.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     RtlCopyMemoryNonTemporal @ 0x140429C60 (RtlCopyMemoryNonTemporal.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     MiMapFrame @ 0x14062F0F4 (MiMapFrame.c)
+ *     MiMapSystemCachePage @ 0x14062F194 (MiMapSystemCachePage.c)
+ *     MiFreeTransitionPageHeatList @ 0x1406543F8 (MiFreeTransitionPageHeatList.c)
+ *     MiMakeTransitionHeatBatch @ 0x140654808 (MiMakeTransitionHeatBatch.c)
+ *     MiProcessTransitionHeatBatch @ 0x140654B84 (MiProcessTransitionHeatBatch.c)
+ *     MiReplenishTransitionPageHeatList @ 0x140654DAC (MiReplenishTransitionPageHeatList.c)
+ *     MiHandleSpecialPurposeMemoryCachedFault @ 0x140660958 (MiHandleSpecialPurposeMemoryCachedFault.c)
+ *     MiMapCacheExceptionFilter @ 0x140A30B3C (MiMapCacheExceptionFilter.c)
  */
 
 __int64 __fastcall MmCopyToCachedPage(
@@ -368,7 +368,9 @@ LABEL_48:
       v54 = MiLockPageInline(v38);
       MiRemoveLockedPageChargeAndDecRef(v38);
       _InterlockedAnd64((volatile signed __int64 *)(v38 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-      if ( KiIrqlFlags && (CurrentIrql = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && CurrentIrql <= 0xFu )
+      if ( (_DWORD)KiIrqlFlags
+        && (CurrentIrql = KeGetCurrentIrql(), ((unsigned __int8)KiIrqlFlags & 1) != 0)
+        && CurrentIrql <= 0xFu )
       {
         v40 = v54;
         if ( v54 <= 0xFu && CurrentIrql >= 2u )

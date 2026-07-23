@@ -1,21 +1,21 @@
 /*
- * XREFs of PiCMOpenClassKey @ 0x140963498
+ * XREFs of PiCMOpenClassKey @ 0x14094AF58
  * Callers:
- *     PiCMHandleIoctl @ 0x1408C3A00 (PiCMHandleIoctl.c)
+ *     PiCMHandleIoctl @ 0x1408C13C0 (PiCMHandleIoctl.c)
  * Callees:
- *     PiControlFreeUserModeCallersBuffer @ 0x140441F70 (PiControlFreeUserModeCallersBuffer.c)
- *     RtlInitUnicodeStringEx @ 0x14045AA10 (RtlInitUnicodeStringEx.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     _CmCreateInstallerClass @ 0x140817C74 (_CmCreateInstallerClass.c)
- *     ObCloseHandle @ 0x1408A2B10 (ObCloseHandle.c)
- *     PiAuDoesClientHaveAccess @ 0x1408BC6A8 (PiAuDoesClientHaveAccess.c)
- *     _CmOpenCommonClassRegKey @ 0x1408C82AC (_CmOpenCommonClassRegKey.c)
- *     RtlUpcaseUnicodeString @ 0x140962470 (RtlUpcaseUnicodeString.c)
- *     PiCMCaptureRegistryInputData @ 0x140963DF8 (PiCMCaptureRegistryInputData.c)
- *     PiCMReturnHandleResultData @ 0x1409640DC (PiCMReturnHandleResultData.c)
- *     PiCMDuplicateRegistryHandle @ 0x14096424C (PiCMDuplicateRegistryHandle.c)
- *     _PnpCtxOpenContextBaseKey @ 0x1409642EC (_PnpCtxOpenContextBaseKey.c)
- *     _CmCreateInterfaceClass @ 0x1409D3DF8 (_CmCreateInterfaceClass.c)
+ *     PiControlFreeUserModeCallersBuffer @ 0x140438B40 (PiControlFreeUserModeCallersBuffer.c)
+ *     RtlInitUnicodeStringEx @ 0x14044FE60 (RtlInitUnicodeStringEx.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     _CmCreateInstallerClass @ 0x1408183B4 (_CmCreateInstallerClass.c)
+ *     ObCloseHandle @ 0x1408AB1B0 (ObCloseHandle.c)
+ *     PiAuDoesClientHaveAccess @ 0x1408B9FF8 (PiAuDoesClientHaveAccess.c)
+ *     _CmOpenCommonClassRegKey @ 0x1408C5CDC (_CmOpenCommonClassRegKey.c)
+ *     RtlUpcaseUnicodeString @ 0x140949F30 (RtlUpcaseUnicodeString.c)
+ *     PiCMCaptureRegistryInputData @ 0x14094B8B8 (PiCMCaptureRegistryInputData.c)
+ *     PiCMReturnHandleResultData @ 0x14094BBB4 (PiCMReturnHandleResultData.c)
+ *     PiCMDuplicateRegistryHandle @ 0x14094BD24 (PiCMDuplicateRegistryHandle.c)
+ *     _PnpCtxOpenContextBaseKey @ 0x14094C0C4 (_PnpCtxOpenContextBaseKey.c)
+ *     _CmCreateInterfaceClass @ 0x1409C3C28 (_CmCreateInterfaceClass.c)
  */
 
 __int64 __fastcall PiCMOpenClassKey(

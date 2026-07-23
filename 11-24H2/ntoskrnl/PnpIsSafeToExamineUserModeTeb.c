@@ -1,28 +1,28 @@
 /*
- * XREFs of PnpIsSafeToExamineUserModeTeb @ 0x14046D660
+ * XREFs of PnpIsSafeToExamineUserModeTeb @ 0x140468200
  * Callers:
- *     IopInitActivityIdIrp @ 0x140454AF0 (IopInitActivityIdIrp.c)
- *     PnpRequestDeviceAction @ 0x14046C968 (PnpRequestDeviceAction.c)
- *     PnpInsertEventInQueue @ 0x1408B3950 (PnpInsertEventInQueue.c)
+ *     IopInitActivityIdIrp @ 0x140449990 (IopInitActivityIdIrp.c)
+ *     PnpRequestDeviceAction @ 0x140467508 (PnpRequestDeviceAction.c)
+ *     PnpInsertEventInQueue @ 0x1408B1240 (PnpInsertEventInQueue.c)
  * Callees:
- *     KeGetEffectiveIrql @ 0x140257DC0 (KeGetEffectiveIrql.c)
+ *     KeGetEffectiveIrql @ 0x1402883D0 (KeGetEffectiveIrql.c)
  */
 
-char PnpIsSafeToExamineUserModeTeb()
+char __fastcall PnpIsSafeToExamineUserModeTeb(__int64 a1, __int64 a2)
 {
-  char v0; // bl
+  char v2; // bl
   struct _KTHREAD *CurrentThread; // rdi
 
-  v0 = 1;
+  v2 = 1;
   if ( KeGetCurrentThread()->ApcStateIndex == 1 )
     return 0;
   CurrentThread = KeGetCurrentThread();
   if ( CurrentThread->PreviousMode != 1
     || KeGetCurrentThread()->SpecialApcDisable
-    || KeGetEffectiveIrql()
+    || KeGetEffectiveIrql(a1, a2)
     || BYTE6(CurrentThread[1].Queue) > 1u )
   {
     return 0;
   }
-  return v0;
+  return v2;
 }

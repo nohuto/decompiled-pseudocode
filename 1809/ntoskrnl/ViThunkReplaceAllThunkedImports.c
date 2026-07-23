@@ -1,13 +1,13 @@
 /*
- * XREFs of ViThunkReplaceAllThunkedImports @ 0x140937180
+ * XREFs of ViThunkReplaceAllThunkedImports @ 0x140938180
  * Callers:
- *     ViThunkApplyThunksCurrentSession @ 0x140936D74 (ViThunkApplyThunksCurrentSession.c)
+ *     ViThunkApplyThunksCurrentSession @ 0x140937D74 (ViThunkApplyThunksCurrentSession.c)
  * Callees:
- *     MmReplaceImportEntry @ 0x1402AB1CC (MmReplaceImportEntry.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     ViThunkFindAllSpecialTables @ 0x140936EBC (ViThunkFindAllSpecialTables.c)
- *     ViThunkReplaceImportEntry @ 0x1409372DC (ViThunkReplaceImportEntry.c)
- *     ViThunkReplaceImportIfThunkedRegular @ 0x140937354 (ViThunkReplaceImportIfThunkedRegular.c)
+ *     MmReplaceImportEntry @ 0x1402AB3BC (MmReplaceImportEntry.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     ViThunkFindAllSpecialTables @ 0x140937EBC (ViThunkFindAllSpecialTables.c)
+ *     ViThunkReplaceImportEntry @ 0x1409382DC (ViThunkReplaceImportEntry.c)
+ *     ViThunkReplaceImportIfThunkedRegular @ 0x140938354 (ViThunkReplaceImportIfThunkedRegular.c)
  */
 
 __int64 __fastcall ViThunkReplaceAllThunkedImports(__int64 BugCheckParameter2, unsigned int a2, int a3, int a4)

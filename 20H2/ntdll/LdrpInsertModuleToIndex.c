@@ -7,15 +7,9 @@
  *     RtlAcquireSRWLockExclusive @ 0x1800290A0 (RtlAcquireSRWLockExclusive.c)
  */
 
-signed __int64 __fastcall LdrpInsertModuleToIndex(
-        __int64 a1,
-        unsigned __int64 a2,
-        unsigned __int64 a3,
-        unsigned __int64 a4)
+void __fastcall LdrpInsertModuleToIndex(__int64 a1, __int64 a2)
 {
-  __int64 v6; // r8
-
-  RtlAcquireSRWLockExclusive((unsigned __int64)&LdrpModuleDatatableLock, a2, a3, a4);
-  LdrpInsertModuleToIndexLockHeld(a1, a2, v6);
-  return RtlReleaseSRWLockExclusive(&LdrpModuleDatatableLock);
+  RtlAcquireSRWLockExclusive(&LdrpModuleDatatableLock);
+  LdrpInsertModuleToIndexLockHeld(a1, a2);
+  RtlReleaseSRWLockExclusive(&LdrpModuleDatatableLock);
 }

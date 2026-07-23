@@ -1,19 +1,19 @@
 /*
- * XREFs of KiReadyOutSwappedThreads @ 0x140336F68
+ * XREFs of KiReadyOutSwappedThreads @ 0x1402DF08C
  * Callers:
- *     KiInSwapProcesses @ 0x1403389A4 (KiInSwapProcesses.c)
- *     KiOutSwapProcesses @ 0x14042D320 (KiOutSwapProcesses.c)
+ *     KiOutSwapProcesses @ 0x1402DDD00 (KiOutSwapProcesses.c)
+ *     KiInSwapProcesses @ 0x1402DE3B8 (KiInSwapProcesses.c)
  * Callees:
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     HvlNotifyLongSpinWait @ 0x140293260 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140293290 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     KiCheckForThreadDispatch @ 0x14031D21C (KiCheckForThreadDispatch.c)
- *     KiAcquireKobjectLockSafe @ 0x14031E740 (KiAcquireKobjectLockSafe.c)
- *     KiDeferredReadySingleThread @ 0x14031ED40 (KiDeferredReadySingleThread.c)
- *     KiFlushSoftwareInterruptBatch @ 0x14031FCD0 (KiFlushSoftwareInterruptBatch.c)
- *     EtwTraceReadyThread @ 0x1403207B0 (EtwTraceReadyThread.c)
- *     KiEnterDeferredReadyState @ 0x140337910 (KiEnterDeferredReadyState.c)
- *     KiRequestProcessInSwap @ 0x140338230 (KiRequestProcessInSwap.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     HvlNotifyLongSpinWait @ 0x1402A2E60 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402A2E90 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     KiCheckForThreadDispatch @ 0x1402C5DAC (KiCheckForThreadDispatch.c)
+ *     KiAcquireKobjectLockSafe @ 0x1402C72D0 (KiAcquireKobjectLockSafe.c)
+ *     KiDeferredReadySingleThread @ 0x1402C78D0 (KiDeferredReadySingleThread.c)
+ *     KiFlushSoftwareInterruptBatch @ 0x1402C8860 (KiFlushSoftwareInterruptBatch.c)
+ *     EtwTraceReadyThread @ 0x1402C9340 (EtwTraceReadyThread.c)
+ *     KiEnterDeferredReadyState @ 0x1402DFA30 (KiEnterDeferredReadyState.c)
+ *     KiRequestProcessInSwap @ 0x1402DFA90 (KiRequestProcessInSwap.c)
  */
 
 char __fastcall KiReadyOutSwappedThreads(_QWORD *a1, char a2)

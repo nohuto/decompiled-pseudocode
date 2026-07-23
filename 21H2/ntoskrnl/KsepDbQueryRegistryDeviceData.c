@@ -1,13 +1,13 @@
 /*
- * XREFs of KsepDbQueryRegistryDeviceData @ 0x14075F89C
+ * XREFs of KsepDbQueryRegistryDeviceData @ 0x14075FA5C
  * Callers:
- *     KseQueryDeviceData @ 0x14075F420 (KseQueryDeviceData.c)
+ *     KseQueryDeviceData @ 0x14075F5E0 (KseQueryDeviceData.c)
  * Callees:
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     KsepRegistryOpenKey @ 0x14075B464 (KsepRegistryOpenKey.c)
- *     KsepStringFree @ 0x14075B800 (KsepStringFree.c)
- *     KsepStringTransform @ 0x14075F938 (KsepStringTransform.c)
- *     KsepRegistryQueryValue @ 0x1408C15CC (KsepRegistryQueryValue.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     KsepRegistryOpenKey @ 0x14075B624 (KsepRegistryOpenKey.c)
+ *     KsepStringFree @ 0x14075B9C0 (KsepStringFree.c)
+ *     KsepStringTransform @ 0x14075FAF8 (KsepStringTransform.c)
+ *     KsepRegistryQueryValue @ 0x1408C172C (KsepRegistryQueryValue.c)
  */
 
 __int64 __fastcall KsepDbQueryRegistryDeviceData(__int64 a1, const WCHAR *a2, _DWORD *a3, _DWORD *a4)
@@ -43,7 +43,7 @@ __int64 __fastcall KsepDbQueryRegistryDeviceData(__int64 a1, const WCHAR *a2, _D
     if ( Handle )
     {
       ZwClose(Handle);
-      _InterlockedIncrement(&dword_140C2AA3C);
+      _InterlockedIncrement(dword_140C2AA7C);
     }
   }
   KsepStringFree((__int64)&v11);

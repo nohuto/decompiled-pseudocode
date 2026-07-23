@@ -1,11 +1,11 @@
 /*
- * XREFs of MiDereferenceSession @ 0x14045F498
+ * XREFs of MiDereferenceSession @ 0x14045E368
  * Callers:
- *     MmCleanProcessAddressSpace @ 0x14045EDFC (MmCleanProcessAddressSpace.c)
- *     MiCleanEmbryonicProcess @ 0x14045F008 (MiCleanEmbryonicProcess.c)
- *     MiSessionCreate @ 0x140535604 (MiSessionCreate.c)
+ *     MmCleanProcessAddressSpace @ 0x14045DCCC (MmCleanProcessAddressSpace.c)
+ *     MiCleanEmbryonicProcess @ 0x14045DED8 (MiCleanEmbryonicProcess.c)
+ *     MiSessionCreate @ 0x140535B44 (MiSessionCreate.c)
  * Callees:
- *     MiDereferenceSessionFinal @ 0x140531AD0 (MiDereferenceSessionFinal.c)
+ *     MiDereferenceSessionFinal @ 0x140532010 (MiDereferenceSessionFinal.c)
  */
 
 __int64 MiDereferenceSession()

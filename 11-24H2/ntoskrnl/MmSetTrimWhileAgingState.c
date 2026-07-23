@@ -1,10 +1,10 @@
 /*
- * XREFs of MmSetTrimWhileAgingState @ 0x140678EB4
+ * XREFs of MmSetTrimWhileAgingState @ 0x14067A094
  * Callers:
- *     PfSetSuperfetchInformation @ 0x140932C24 (PfSetSuperfetchInformation.c)
+ *     PfSetSuperfetchInformation @ 0x1408F573C (PfSetSuperfetchInformation.c)
  * Callees:
- *     PsGetNextPartition @ 0x1403D42FC (PsGetNextPartition.c)
- *     MiSetTrimWhileAgingState @ 0x140678C78 (MiSetTrimWhileAgingState.c)
+ *     PsGetNextPartition @ 0x14026227C (PsGetNextPartition.c)
+ *     MiSetTrimWhileAgingState @ 0x140679E58 (MiSetTrimWhileAgingState.c)
  */
 
 __int64 *__fastcall MmSetTrimWhileAgingState(int a1)

@@ -6,10 +6,10 @@
  *     _NtAlpcSetInformation@16 @ 0x4B2F3250 (_NtAlpcSetInformation@16.c)
  */
 
-int __stdcall AlpcAdjustCompletionListConcurrencyCount(int a1, int a2)
+NTSTATUS __cdecl AlpcAdjustCompletionListConcurrencyCount(HANDLE PortHandle, ULONG ConcurrencyCount)
 {
-  int v3; // [esp+0h] [ebp-4h] BYREF
+  ULONG PortInformation; // [esp+0h] [ebp-4h] BYREF
 
-  v3 = a2;
-  return NtAlpcSetInformation(a1, 8, (int)&v3, 4);
+  PortInformation = ConcurrencyCount;
+  return NtAlpcSetInformation(PortHandle, AlpcAdjustCompletionListConcurrencyCountInformation, &PortInformation, 4u);
 }

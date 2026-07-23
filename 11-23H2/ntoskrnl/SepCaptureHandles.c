@@ -1,7 +1,7 @@
 /*
- * XREFs of SepCaptureHandles @ 0x140370FE4
+ * XREFs of SepCaptureHandles @ 0x140371184
  * Callers:
- *     NtCreateLowBoxToken @ 0x1407F2540 (NtCreateLowBoxToken.c)
+ *     NtCreateLowBoxToken @ 0x1407F2810 (NtCreateLowBoxToken.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)

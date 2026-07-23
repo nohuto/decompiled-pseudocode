@@ -1,8 +1,8 @@
 /*
- * XREFs of ExpCleanupAutoExpandPushLock @ 0x14009CE04
+ * XREFs of ExpCleanupAutoExpandPushLock @ 0x14009C604
  * Callers:
- *     ExCleanupAutoExpandPushLock @ 0x14009CDFC (ExCleanupAutoExpandPushLock.c)
- *     ExFreeAutoExpandPushLock @ 0x140135640 (ExFreeAutoExpandPushLock.c)
+ *     ExCleanupAutoExpandPushLock @ 0x14009C5FC (ExCleanupAutoExpandPushLock.c)
+ *     ExFreeAutoExpandPushLock @ 0x140135BB0 (ExFreeAutoExpandPushLock.c)
  * Callees:
  *     <none>
  */

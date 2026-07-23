@@ -16,35 +16,36 @@
  *     KeBugCheckEx @ 0x1401AAED0 (KeBugCheckEx.c)
  */
 
-_QWORD *__fastcall MiProcessLoaderEntry(int *a1, int a2)
+_QWORD *__fastcall MiProcessLoaderEntry(_QWORD *a1, int a2)
 {
   struct _KTHREAD *CurrentThread; // rsi
-  int **v5; // rax
+  _QWORD *v5; // rax
   bool v6; // dl
   _QWORD *v7; // r10
   ULONG_PTR v8; // r11
   unsigned __int64 v9; // r8
   _QWORD *v10; // rax
-  __int64 v12; // rdx
-  int **v13; // rax
-  unsigned __int8 v14; // [rsp+48h] [rbp+10h] BYREF
+  __int64 v11; // r8
+  __int64 v13; // rdx
+  _QWORD *v14; // rax
+  unsigned __int8 v15; // [rsp+48h] [rbp+10h] BYREF
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   ExAcquireResourceExclusiveLite(&PsLoadedModuleResource, 1u);
   if ( a2 == 1 )
   {
-    MmLockLoadedModuleListExclusive(&v14);
-    v5 = (int **)*(&PsLoadedModuleList + 1);
+    MmLockLoadedModuleListExclusive(&v15);
+    v5 = *(&PsLoadedModuleList + 1);
     if ( *(PVOID **)*(&PsLoadedModuleList + 1) != &PsLoadedModuleList )
       __fastfail(3u);
-    *(_QWORD *)a1 = &PsLoadedModuleList;
+    *a1 = &PsLoadedModuleList;
     v6 = 0;
-    *((_QWORD *)a1 + 1) = v5;
+    a1[1] = v5;
     *v5 = a1;
     v7 = (_QWORD *)qword_1403CB5B8;
     *(&PsLoadedModuleList + 1) = a1;
-    v8 = *((_QWORD *)a1 + 6);
+    v8 = a1[6];
     if ( qword_1403CB5B8 )
     {
       while ( 1 )
@@ -70,25 +71,25 @@ _QWORD *__fastcall MiProcessLoaderEntry(int *a1, int a2)
         v7 = v10;
       }
     }
-    RtlAvlInsertNodeEx(&qword_1403CB5B8, (unsigned __int64)v7, v6, (_QWORD *)a1 + 29);
+    RtlAvlInsertNodeEx(&qword_1403CB5B8, (unsigned __int64)v7, v6, a1 + 29);
     ExReleaseSpinLockExclusiveFromDpcLevel(&PsLoadedModuleSpinLock);
-    __writecr8(v14);
+    __writecr8(v15);
     if ( (MiFlags & 0x80000) == 0 )
-      RtlInsertInvertedFunctionTable(*((_QWORD *)a1 + 6), a1[16]);
+      RtlInsertInvertedFunctionTable(a1[6], *((unsigned int *)a1 + 16), v11);
   }
   else
   {
     if ( (MiFlags & 0x80000) == 0 )
-      RtlRemoveInvertedFunctionTable(*((_QWORD *)a1 + 6));
-    MmLockLoadedModuleListExclusive(&v14);
-    v12 = *(_QWORD *)a1;
-    if ( *(int **)(*(_QWORD *)a1 + 8LL) != a1 || (v13 = (int **)*((_QWORD *)a1 + 1), *v13 != a1) )
+      RtlRemoveInvertedFunctionTable(a1[6]);
+    MmLockLoadedModuleListExclusive(&v15);
+    v13 = *a1;
+    if ( *(_QWORD **)(*a1 + 8LL) != a1 || (v14 = (_QWORD *)a1[1], (_QWORD *)*v14 != a1) )
       __fastfail(3u);
-    *v13 = (int *)v12;
-    *(_QWORD *)(v12 + 8) = v13;
-    RtlAvlRemoveNode(&qword_1403CB5B8, (__int64)(a1 + 58));
+    *v14 = v13;
+    *(_QWORD *)(v13 + 8) = v14;
+    RtlAvlRemoveNode(&qword_1403CB5B8, (__int64)(a1 + 29));
     ExReleaseSpinLockExclusiveFromDpcLevel(&PsLoadedModuleSpinLock);
-    __writecr8(v14);
+    __writecr8(v15);
   }
   ExReleaseResourceLite(&PsLoadedModuleResource);
   return KeLeaveCriticalRegionThread((__int64)CurrentThread);

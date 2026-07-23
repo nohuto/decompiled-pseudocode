@@ -1,22 +1,22 @@
 /*
- * XREFs of MiCreatePerSessionProtos @ 0x1406C90C8
+ * XREFs of MiCreatePerSessionProtos @ 0x1406CA368
  * Callers:
  *     MiInsertInSystemSpace @ 0x1400273C0 (MiInsertInSystemSpace.c)
- *     MiCloneImageVad @ 0x1402C8ACC (MiCloneImageVad.c)
- *     MiFinishCreateSection @ 0x1405DE0B0 (MiFinishCreateSection.c)
- *     MiMapViewOfImageSection @ 0x1405F3660 (MiMapViewOfImageSection.c)
- *     MiValidateSectionCreate @ 0x140652E10 (MiValidateSectionCreate.c)
- *     MiMapSystemImage @ 0x1406820E4 (MiMapSystemImage.c)
+ *     MiCloneImageVad @ 0x1402C8CBC (MiCloneImageVad.c)
+ *     MiFinishCreateSection @ 0x1405DF0B0 (MiFinishCreateSection.c)
+ *     MiMapViewOfImageSection @ 0x1405F4660 (MiMapViewOfImageSection.c)
+ *     MiValidateSectionCreate @ 0x140653FD0 (MiValidateSectionCreate.c)
+ *     MiMapSystemImage @ 0x1406832A4 (MiMapSystemImage.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     MiLocateSessionProtosInSubsection @ 0x140136EBC (MiLocateSessionProtosInSubsection.c)
- *     MiUpdatePerSessionProto @ 0x140136EE8 (MiUpdatePerSessionProto.c)
- *     MiDereferenceSubsectionProtos @ 0x1406C9060 (MiDereferenceSubsectionProtos.c)
- *     MiAllocatePerSessionProtos @ 0x1406C91F0 (MiAllocatePerSessionProtos.c)
- *     MiFreeSubsectionProtos @ 0x1406C93F0 (MiFreeSubsectionProtos.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     MiLocateSessionProtosInSubsection @ 0x140136FBC (MiLocateSessionProtosInSubsection.c)
+ *     MiUpdatePerSessionProto @ 0x140136FE8 (MiUpdatePerSessionProto.c)
+ *     MiDereferenceSubsectionProtos @ 0x1406CA300 (MiDereferenceSubsectionProtos.c)
+ *     MiAllocatePerSessionProtos @ 0x1406CA490 (MiAllocatePerSessionProtos.c)
+ *     MiFreeSubsectionProtos @ 0x1406CA690 (MiFreeSubsectionProtos.c)
  */
 
 __int64 __fastcall MiCreatePerSessionProtos(__int64 *a1, unsigned int a2)

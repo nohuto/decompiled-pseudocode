@@ -1,15 +1,15 @@
 /*
- * XREFs of EtwTraceReadyThread @ 0x1402260C8
+ * XREFs of EtwTraceReadyThread @ 0x140225EF4
  * Callers:
- *     KiDirectSwitchThread @ 0x140052C70 (KiDirectSwitchThread.c)
- *     KiExitDispatcher @ 0x140056700 (KiExitDispatcher.c)
- *     KeInsertPriQueue @ 0x14005F700 (KeInsertPriQueue.c)
- *     KiProcessThreadWaitList @ 0x14008DCC0 (KiProcessThreadWaitList.c)
- *     KiReadyOutSwappedThreads @ 0x140091140 (KiReadyOutSwappedThreads.c)
- *     KiFastReadyThread @ 0x1400F27A8 (KiFastReadyThread.c)
+ *     KiDirectSwitchThread @ 0x1400527F0 (KiDirectSwitchThread.c)
+ *     KiExitDispatcher @ 0x140056280 (KiExitDispatcher.c)
+ *     KeInsertPriQueue @ 0x14005F280 (KeInsertPriQueue.c)
+ *     KiProcessThreadWaitList @ 0x14008D420 (KiProcessThreadWaitList.c)
+ *     KiReadyOutSwappedThreads @ 0x1400908A0 (KiReadyOutSwappedThreads.c)
+ *     KiFastReadyThread @ 0x1400F05F8 (KiFastReadyThread.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x140014190 (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     EtwTraceKernelEvent @ 0x140013D10 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall EtwTraceReadyThread(__int64 a1, char a2, char a3, char a4)

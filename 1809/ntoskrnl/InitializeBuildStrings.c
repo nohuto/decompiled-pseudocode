@@ -1,7 +1,7 @@
 /*
- * XREFs of InitializeBuildStrings @ 0x1409AB074
+ * XREFs of InitializeBuildStrings @ 0x1409AC074
  * Callers:
- *     KiInitializeBootStructures @ 0x14056FE10 (KiInitializeBootStructures.c)
+ *     KiInitializeBootStructures @ 0x140570E10 (KiInitializeBootStructures.c)
  * Callees:
  *     <none>
  */

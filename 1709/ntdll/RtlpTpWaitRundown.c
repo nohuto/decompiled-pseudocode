@@ -8,14 +8,14 @@
  *     NtClose @ 0x1800A02A0 (NtClose.c)
  */
 
-__int64 __fastcall RtlpTpWaitRundown(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+LOGICAL __fastcall RtlpTpWaitRundown(__int64 a1)
 {
-  __int64 v5; // rcx
+  void *v2; // rcx
 
-  v5 = *(_QWORD *)(a1 + 80);
-  if ( v5 )
-    ZwSetEvent(v5, 0LL, a3, a4);
+  v2 = *(void **)(a1 + 80);
+  if ( v2 )
+    ZwSetEvent(v2, 0LL);
   if ( *(_QWORD *)a1 )
     NtClose(*(HANDLE *)a1);
-  return RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, a1);
+  return RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, (PVOID)a1);
 }

@@ -1,29 +1,29 @@
 /*
- * XREFs of AnFwDisplayFade @ 0x140C52BA0
+ * XREFs of AnFwDisplayFade @ 0x140C58BA0
  * Callers:
- *     BgDisplayFade @ 0x140C52B58 (BgDisplayFade.c)
+ *     BgDisplayFade @ 0x140C58B58 (BgDisplayFade.c)
  * Callees:
- *     KeSetCoalescableTimer @ 0x140219B40 (KeSetCoalescableTimer.c)
- *     BgpFwFreeMemory @ 0x140355E00 (BgpFwFreeMemory.c)
- *     BgpFwAllocateMemory @ 0x140355EBC (BgpFwAllocateMemory.c)
- *     KeResetEvent @ 0x140395BB0 (KeResetEvent.c)
- *     KeInitializeDpc @ 0x140481A50 (KeInitializeDpc.c)
- *     KeInitializeTimer @ 0x140483D00 (KeInitializeTimer.c)
- *     BgpGxConvertRectangleEx @ 0x140491870 (BgpGxConvertRectangleEx.c)
- *     BgpGetBitsPerPixel @ 0x1404C009C (BgpGetBitsPerPixel.c)
- *     BgpFwQueryPerformanceCounter @ 0x1404F84EC (BgpFwQueryPerformanceCounter.c)
- *     BgpGxRectangleSize @ 0x1404FA16C (BgpGxRectangleSize.c)
- *     GxpBitsToBytes @ 0x1404FDC2C (GxpBitsToBytes.c)
- *     BgpClearScreen @ 0x140715B44 (BgpClearScreen.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     AnFwDisableBackgroundUpdateTimer @ 0x140C4F3CC (AnFwDisableBackgroundUpdateTimer.c)
- *     BgpGxParseBitmap @ 0x140C4F4E8 (BgpGxParseBitmap.c)
- *     BgpTxtGetRegionContext @ 0x140C53234 (BgpTxtGetRegionContext.c)
- *     AnFwpDisableProgressTimer @ 0x140C5332C (AnFwpDisableProgressTimer.c)
- *     BgpGxReadRectangle @ 0x140C53390 (BgpGxReadRectangle.c)
- *     BgpGxRectangleDestroy @ 0x140C53414 (BgpGxRectangleDestroy.c)
- *     BgpGxFindSubRectangle @ 0x140C5343C (BgpGxFindSubRectangle.c)
- *     BgpGxRectangleCreate @ 0x140C53640 (BgpGxRectangleCreate.c)
+ *     KeSetCoalescableTimer @ 0x140219CA0 (KeSetCoalescableTimer.c)
+ *     BgpFwFreeMemory @ 0x140357BA8 (BgpFwFreeMemory.c)
+ *     BgpFwAllocateMemory @ 0x140357C64 (BgpFwAllocateMemory.c)
+ *     KeResetEvent @ 0x140397930 (KeResetEvent.c)
+ *     KeInitializeDpc @ 0x14047B3C0 (KeInitializeDpc.c)
+ *     KeInitializeTimer @ 0x14047D670 (KeInitializeTimer.c)
+ *     BgpGxConvertRectangleEx @ 0x14048B3C0 (BgpGxConvertRectangleEx.c)
+ *     BgpGetBitsPerPixel @ 0x1404B98EC (BgpGetBitsPerPixel.c)
+ *     BgpFwQueryPerformanceCounter @ 0x1404F1AFC (BgpFwQueryPerformanceCounter.c)
+ *     BgpGxRectangleSize @ 0x1404F377C (BgpGxRectangleSize.c)
+ *     GxpBitsToBytes @ 0x1404F716C (GxpBitsToBytes.c)
+ *     BgpClearScreen @ 0x14071A834 (BgpClearScreen.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     AnFwDisableBackgroundUpdateTimer @ 0x140C553CC (AnFwDisableBackgroundUpdateTimer.c)
+ *     BgpGxParseBitmap @ 0x140C554E8 (BgpGxParseBitmap.c)
+ *     BgpTxtGetRegionContext @ 0x140C59234 (BgpTxtGetRegionContext.c)
+ *     AnFwpDisableProgressTimer @ 0x140C5932C (AnFwpDisableProgressTimer.c)
+ *     BgpGxReadRectangle @ 0x140C59390 (BgpGxReadRectangle.c)
+ *     BgpGxRectangleDestroy @ 0x140C59414 (BgpGxRectangleDestroy.c)
+ *     BgpGxFindSubRectangle @ 0x140C5943C (BgpGxFindSubRectangle.c)
+ *     BgpGxRectangleCreate @ 0x140C59640 (BgpGxRectangleCreate.c)
  */
 
 __int64 AnFwDisplayFade()
@@ -118,12 +118,12 @@ LABEL_31:
       v3 = v45;
       goto LABEL_32;
     }
-    xmmword_140E0EF90 = *(_OWORD *)RegionContext;
-    xmmword_140E0EFA0 = *(_OWORD *)(RegionContext + 16);
-    dword_140E0EFB0 = *(_DWORD *)(RegionContext + 32);
-    xmmword_140E0EFD0 = *(_OWORD *)v7;
-    xmmword_140E0EFE0 = *(_OWORD *)(v7 + 16);
-    dword_140E0EFF0 = *(_DWORD *)(v7 + 32);
+    xmmword_140E0F020 = *(_OWORD *)RegionContext;
+    xmmword_140E0F030 = *(_OWORD *)(RegionContext + 16);
+    dword_140E0F040 = *(_DWORD *)(RegionContext + 32);
+    xmmword_140E0F060 = *(_OWORD *)v7;
+    xmmword_140E0F070 = *(_OWORD *)(v7 + 16);
+    dword_140E0F080 = *(_DWORD *)(v7 + 32);
     BgpFwFreeMemory(RegionContext);
     BgpFwFreeMemory(v8);
     AnFwpDisableProgressTimer();
@@ -132,8 +132,8 @@ LABEL_31:
     v55 = 0;
     BitsPerPixel = BgpGetBitsPerPixel();
     v9 = BitsPerPixel;
-    WheapPfaLock.ThreadListEntry.Blink = (struct _LIST_ENTRY *)BgpFwQueryPerformanceCounter(0LL).QuadPart;
-    qword_140E64FB8 = (__int64)WheapPfaLock.ThreadListEntry.Blink;
+    *(LARGE_INTEGER *)&WheapPfaLock.PriorityFloorSummary = BgpFwQueryPerformanceCounter(0LL);
+    qword_140E651B8 = *(_QWORD *)&WheapPfaLock.PriorityFloorSummary;
     if ( !gLoadedDiffHivesLock.WaitBlock[3].WaitListEntry.Blink )
     {
       v56 = 1;
@@ -141,8 +141,8 @@ LABEL_62:
       LODWORD(v39) = v5;
       v34 = ((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD, _QWORD))BgpGxReadRectangle)(
               &v49,
-              &xmmword_140E0EF90,
-              (char *)&xmmword_140E0EF90 + 8,
+              &xmmword_140E0F020,
+              (char *)&xmmword_140E0F020 + 8,
               (LARGE_INTEGER)v10.QuadPart);
       v0 = (__int64)v49;
       SubRectangle = v34;
@@ -159,8 +159,8 @@ LABEL_13:
       {
         v20 = ((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD, _QWORD))BgpGxReadRectangle)(
                 &v50,
-                &xmmword_140E0EFD0,
-                (char *)&xmmword_140E0EFD0 + 8,
+                &xmmword_140E0F060,
+                (char *)&xmmword_140E0F060 + 8,
                 (LARGE_INTEGER)v10.QuadPart);
         v2 = v50;
         SubRectangle = v20;
@@ -220,8 +220,8 @@ LABEL_13:
           else
           {
             v43 = v44;
-            LODWORD(xmmword_140E0EF90) = v42 + xmmword_140E0EF90;
-            DWORD1(xmmword_140E0EF90) += HIDWORD(v42);
+            LODWORD(xmmword_140E0F020) = v42 + xmmword_140E0F020;
+            DWORD1(xmmword_140E0F020) += HIDWORD(v42);
           }
         }
       }
@@ -245,8 +245,8 @@ LABEL_13:
           }
           else
           {
-            LODWORD(xmmword_140E0EFD0) = v42 + xmmword_140E0EFD0;
-            DWORD1(xmmword_140E0EFD0) += HIDWORD(v42);
+            LODWORD(xmmword_140E0F060) = v42 + xmmword_140E0F060;
+            DWORD1(xmmword_140E0F060) += HIDWORD(v42);
             v2 = v44;
           }
         }
@@ -288,31 +288,30 @@ LABEL_13:
       if ( v55 )
       {
 LABEL_25:
-        WheapPfaLock.ThreadListEntry.Blink = (struct _LIST_ENTRY *)BgpFwQueryPerformanceCounter(0LL).QuadPart;
-        v28 = *(_QWORD *)&BgpFwQueryPerformanceCounter(0LL) - qword_140E64FB8;
-        WheapPfaLock.SuspendEvent.Header.WaitListHead.Blink = (struct _LIST_ENTRY *)((char *)WheapPfaLock.SuspendEvent.Header.WaitListHead.Blink
-                                                                                   + v28);
-        WheapPfaLock.MutantListHead.Flink = (struct _LIST_ENTRY *)((char *)WheapPfaLock.MutantListHead.Flink + v28);
-        *(_QWORD *)&WheapPfaLock.PriorityFloorCounts[24] = v28;
-        *(_QWORD *)&WheapPfaLock.PriorityFloorCounts[8] = v28;
-        byte_140E0EF80 = v54;
-        byte_140E0EF81 = v55;
-        byte_140E0EF82 = v56;
-        qword_140E0EFB8 = v48;
-        qword_140E0EFC8 = v51;
-        qword_140E0F000 = v45;
-        qword_140E0EF70 = 100LL;
-        qword_140E0EF78 = v22;
-        qword_140E0EF88 = v0;
-        qword_140E0EFC0 = (__int64)v1;
-        qword_140E0EFF8 = (__int64)v2;
-        KeResetEvent(&stru_140E64F70);
-        KeInitializeTimer(&stru_140E64EF0);
-        KeInitializeDpc(&stru_140E64E30, (PKDEFERRED_ROUTINE)AnFwpFadeAnimationTimer, 0LL);
-        WheapPfaLock.SchedulerApc.Size = 1;
-        WheapPfaLock.ThreadListEntry.Blink = (struct _LIST_ENTRY *)BgpFwQueryPerformanceCounter(0LL).QuadPart;
-        qword_140E64FC8 = (__int64)WheapPfaLock.ThreadListEntry.Blink;
-        KeSetCoalescableTimer(&stru_140E64EF0, 0LL, 0x1Eu, 0, &stru_140E64E30);
+        *(LARGE_INTEGER *)&WheapPfaLock.PriorityFloorSummary = BgpFwQueryPerformanceCounter(0LL);
+        v28 = *(_QWORD *)&BgpFwQueryPerformanceCounter(0LL) - qword_140E651B8;
+        *(_QWORD *)&WheapPfaLock.PriorityFloorCounts[16] += v28;
+        *(_QWORD *)&WheapPfaLock.AbCompletedIoQoSBoostCount += v28;
+        WheapPfaLock.OtherTransferCount = v28;
+        WheapPfaLock.InGlobalForegroundList = v28;
+        byte_140E0F010 = v54;
+        byte_140E0F011 = v55;
+        byte_140E0F012 = v56;
+        qword_140E0F048 = v48;
+        qword_140E0F058 = v51;
+        qword_140E0F090 = v45;
+        qword_140E0F000 = 100LL;
+        qword_140E0F008 = v22;
+        qword_140E0F018 = v0;
+        qword_140E0F050 = (__int64)v1;
+        qword_140E0F088 = (__int64)v2;
+        KeResetEvent(&stru_140E65170);
+        KeInitializeTimer(&stru_140E650F0);
+        KeInitializeDpc(&stru_140E65030, (PKDEFERRED_ROUTINE)AnFwpFadeAnimationTimer, 0LL);
+        LOBYTE(WheapPfaLock.SuspendEvent.Header.WaitListHead.Flink) = 1;
+        *(LARGE_INTEGER *)&WheapPfaLock.PriorityFloorSummary = BgpFwQueryPerformanceCounter(0LL);
+        qword_140E651C8 = *(_QWORD *)&WheapPfaLock.PriorityFloorSummary;
+        KeSetCoalescableTimer(&stru_140E650F0, 0LL, 0x1Eu, 0, &stru_140E65030);
         *(_DWORD *)&gLoadedDiffHivesLock.WaitBlockFill11[80] |= 0x2000u;
         *(_DWORD *)&gLoadedDiffHivesLock.WaitBlockFill11[108] = v5;
         goto LABEL_26;
@@ -363,16 +362,16 @@ LABEL_29:
     }
     v14 = BgpGxRectangleSize(*v1, v1[1], v9);
     v15 = *(_DWORD *)&gLoadedDiffHivesLock.WaitBlockFill11[172] + HIDWORD(gLoadedDiffHivesLock.Spare18);
-    v16 = xmmword_140E0EF90 + DWORD2(xmmword_140E0EF90);
+    v16 = xmmword_140E0F020 + DWORD2(xmmword_140E0F020);
     LODWORD(v39) = *(_DWORD *)&gLoadedDiffHivesLock.WaitBlockFill11[172];
     v5 += ((v14 + 15) & 0xFFFFFFF0) + 32 + 2 * (((v14 + 15) & 0xFFFFFFF0) + 32);
     v10.QuadPart = (unsigned int)(LODWORD(gLoadedDiffHivesLock.Spare18)
                                 + LODWORD(gLoadedDiffHivesLock.LastXStateSaveDebugInfo));
-    v17 = DWORD1(xmmword_140E0EF90) + HIDWORD(xmmword_140E0EF90);
-    if ( (unsigned int)xmmword_140E0EF90 >= *(_DWORD *)&gLoadedDiffHivesLock.WaitBlockFill11[172]
-      && (unsigned int)xmmword_140E0EF90 <= v15
-      && DWORD1(xmmword_140E0EF90) >= LODWORD(gLoadedDiffHivesLock.Spare18)
-      && DWORD1(xmmword_140E0EF90) <= v10.LowPart )
+    v17 = DWORD1(xmmword_140E0F020) + HIDWORD(xmmword_140E0F020);
+    if ( (unsigned int)xmmword_140E0F020 >= *(_DWORD *)&gLoadedDiffHivesLock.WaitBlockFill11[172]
+      && (unsigned int)xmmword_140E0F020 <= v15
+      && DWORD1(xmmword_140E0F020) >= LODWORD(gLoadedDiffHivesLock.Spare18)
+      && DWORD1(xmmword_140E0F020) <= v10.LowPart )
     {
       if ( v16 < *(_DWORD *)&gLoadedDiffHivesLock.WaitBlockFill11[172]
         || v16 > v15
@@ -383,12 +382,12 @@ LABEL_29:
       }
       v54 = 1;
     }
-    v18 = xmmword_140E0EFD0 + DWORD2(xmmword_140E0EFD0);
-    v19 = DWORD1(xmmword_140E0EFD0) + HIDWORD(xmmword_140E0EFD0);
-    if ( (unsigned int)xmmword_140E0EFD0 < (unsigned int)v39
-      || (unsigned int)xmmword_140E0EFD0 > v15
-      || DWORD1(xmmword_140E0EFD0) < LODWORD(gLoadedDiffHivesLock.Spare18)
-      || DWORD1(xmmword_140E0EFD0) > v10.LowPart )
+    v18 = xmmword_140E0F060 + DWORD2(xmmword_140E0F060);
+    v19 = DWORD1(xmmword_140E0F060) + HIDWORD(xmmword_140E0F060);
+    if ( (unsigned int)xmmword_140E0F060 < (unsigned int)v39
+      || (unsigned int)xmmword_140E0F060 > v15
+      || DWORD1(xmmword_140E0F060) < LODWORD(gLoadedDiffHivesLock.Spare18)
+      || DWORD1(xmmword_140E0F060) > v10.LowPart )
     {
 LABEL_12:
       v9 = BitsPerPixel;

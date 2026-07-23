@@ -1,20 +1,20 @@
 /*
- * XREFs of HvlpDetermineEnlightenments @ 0x140548F64
+ * XREFs of HvlpDetermineEnlightenments @ 0x140549624
  * Callers:
- *     HvlPhase0Initialize @ 0x14081FE98 (HvlPhase0Initialize.c)
+ *     HvlPhase0Initialize @ 0x140820198 (HvlPhase0Initialize.c)
  * Callees:
- *     VslGetNestedPageProtectionFlags @ 0x140340320 (VslGetNestedPageProtectionFlags.c)
- *     HviGetEnlightenmentInformation @ 0x140381804 (HviGetEnlightenmentInformation.c)
- *     HviGetHypervisorFeatures @ 0x140382D40 (HviGetHypervisorFeatures.c)
- *     HvcallInitiateHypercall @ 0x1403CD360 (HvcallInitiateHypercall.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     HvlpAcquireHypercallPage @ 0x1405407B0 (HvlpAcquireHypercallPage.c)
- *     HvlpReleaseHypercallPage @ 0x140541400 (HvlpReleaseHypercallPage.c)
- *     HvlpQueryHypervisorSchedulerType @ 0x140542774 (HvlpQueryHypervisorSchedulerType.c)
- *     HvlpGetRegister128 @ 0x140548C50 (HvlpGetRegister128.c)
- *     HvlpQueryExtendedCapabilities @ 0x140549538 (HvlpQueryExtendedCapabilities.c)
- *     HvlpTryToLockCpuManagementVersion @ 0x1405495D8 (HvlpTryToLockCpuManagementVersion.c)
- *     HviGetHardwareFeatures @ 0x1406153A0 (HviGetHardwareFeatures.c)
+ *     VslGetNestedPageProtectionFlags @ 0x1403405B0 (VslGetNestedPageProtectionFlags.c)
+ *     HviGetEnlightenmentInformation @ 0x1403819A4 (HviGetEnlightenmentInformation.c)
+ *     HviGetHypervisorFeatures @ 0x140382EE0 (HviGetHypervisorFeatures.c)
+ *     HvcallInitiateHypercall @ 0x1403CD540 (HvcallInitiateHypercall.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     HvlpAcquireHypercallPage @ 0x140540E70 (HvlpAcquireHypercallPage.c)
+ *     HvlpReleaseHypercallPage @ 0x140541AC0 (HvlpReleaseHypercallPage.c)
+ *     HvlpQueryHypervisorSchedulerType @ 0x140542E34 (HvlpQueryHypervisorSchedulerType.c)
+ *     HvlpGetRegister128 @ 0x140549310 (HvlpGetRegister128.c)
+ *     HvlpQueryExtendedCapabilities @ 0x140549BF8 (HvlpQueryExtendedCapabilities.c)
+ *     HvlpTryToLockCpuManagementVersion @ 0x140549C98 (HvlpTryToLockCpuManagementVersion.c)
+ *     HviGetHardwareFeatures @ 0x1406158F0 (HviGetHardwareFeatures.c)
  */
 
 __int64 (__fastcall *HvlpDetermineEnlightenments())(_DWORD *a1)
@@ -145,7 +145,7 @@ __int64 (__fastcall *HvlpDetermineEnlightenments())(_DWORD *a1)
   }
   if ( (HvlpFlags & 2) != 0 )
   {
-    HvlpGetRegister128(516LL, &v32);
+    HvlpGetRegister128(516, &v32);
     v12 = v32;
     v13 = v10 | 0x400;
     if ( (BYTE4(v32) & 1) == 0 )

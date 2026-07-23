@@ -1,9 +1,9 @@
 /*
- * XREFs of KiDpcTimerCallbackEpilogue @ 0x140337480
+ * XREFs of KiDpcTimerCallbackEpilogue @ 0x140339500
  * Callers:
- *     KiExpireTimer2 @ 0x140336F08 (KiExpireTimer2.c)
+ *     KiExpireTimer2 @ 0x140338F88 (KiExpireTimer2.c)
  * Callees:
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 ULONG_PTR __fastcall KiDpcTimerCallbackEpilogue(unsigned int *a1, __int64 a2, ULONG_PTR a3, unsigned int a4)

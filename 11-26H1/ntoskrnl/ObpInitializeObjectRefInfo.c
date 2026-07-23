@@ -1,25 +1,25 @@
 /*
- * XREFs of ObpInitializeObjectRefInfo @ 0x1407C4CA8
+ * XREFs of ObpInitializeObjectRefInfo @ 0x1407C7D08
  * Callers:
- *     ObpRegisterObject @ 0x140778F98 (ObpRegisterObject.c)
+ *     ObpRegisterObject @ 0x14077BE38 (ObpRegisterObject.c)
  * Callees:
- *     RtlStringCbCopyA @ 0x14047C2C8 (RtlStringCbCopyA.c)
- *     ObpTraceAllocateMemory @ 0x14052F738 (ObpTraceAllocateMemory.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ObpGetObjectRefInfo @ 0x1407C4B04 (ObpGetObjectRefInfo.c)
+ *     RtlStringCbCopyA @ 0x140475C38 (RtlStringCbCopyA.c)
+ *     ObpTraceAllocateMemory @ 0x140531C58 (ObpTraceAllocateMemory.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ObpGetObjectRefInfo @ 0x1407C7B64 (ObpGetObjectRefInfo.c)
  */
 
-__int64 __fastcall ObpInitializeObjectRefInfo(__int64 a1)
+unsigned __int64 __fastcall ObpInitializeObjectRefInfo(__int64 a1)
 {
-  __int64 result; // rax
+  unsigned __int64 result; // rax
   unsigned int *ObjectRefInfo; // r10
   __int64 v4; // rdx
-  _QWORD *v5; // rcx
+  struct _LIST_ENTRY *Flink; // rcx
   _DWORD *v6; // r10
   __int64 v7; // rax
   char v8; // cl
 
-  result = (unsigned int)(LODWORD(stru_140F12D20.Padding[4]) + 1);
+  result = (unsigned int)(*(_DWORD *)&ObpStackTraceLock.SavedApcStateFill[8] + 1);
   if ( (unsigned int)result <= ObpTracedObjectLimit )
   {
     ObjectRefInfo = ObpGetObjectRefInfo(a1);
@@ -30,12 +30,12 @@ __int64 __fastcall ObpInitializeObjectRefInfo(__int64 a1)
       if ( !result )
         return result;
       v4 = (((unsigned int)(a1 + 48) >> 4) & 0xFFFFF) % 0x191;
-      v5 = qword_140F13228;
-      *(_QWORD *)(result + 8) = *((_QWORD *)qword_140F13228 + v4);
-      v5[v4] = result;
+      Flink = ObpStackTraceLock.SavedApcState.ApcListHead[1].Flink;
+      *(_QWORD *)(result + 8) = *((_QWORD *)&ObpStackTraceLock.SavedApcState.ApcListHead[1].Flink->Flink + v4);
+      *((_QWORD *)&Flink->Flink + v4) = result;
       *(_DWORD *)(result + 36) = 508;
     }
-    ++LODWORD(stru_140F12D20.Padding[4]);
+    ++*(_DWORD *)&ObpStackTraceLock.SavedApcStateFill[8];
     *(_QWORD *)ObjectRefInfo = a1;
     RtlStringCbCopyA(
       (NTSTRSAFE_PSTR)ObjectRefInfo + 16,

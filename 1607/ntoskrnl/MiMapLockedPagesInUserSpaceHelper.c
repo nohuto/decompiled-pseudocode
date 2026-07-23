@@ -1,27 +1,27 @@
 /*
- * XREFs of MiMapLockedPagesInUserSpaceHelper @ 0x14010E214
+ * XREFs of MiMapLockedPagesInUserSpaceHelper @ 0x14010E778
  * Callers:
- *     MmRotatePhysicalView @ 0x1405281DC (MmRotatePhysicalView.c)
- *     MiMapLockedPagesInUserSpace @ 0x140528600 (MiMapLockedPagesInUserSpace.c)
+ *     MmRotatePhysicalView @ 0x14052871C (MmRotatePhysicalView.c)
+ *     MiMapLockedPagesInUserSpace @ 0x140528B40 (MiMapLockedPagesInUserSpace.c)
  * Callees:
- *     MiMakeSystemAddressValid @ 0x140015DAC (MiMakeSystemAddressValid.c)
- *     MiLockWorkingSetExclusive @ 0x14002EA00 (MiLockWorkingSetExclusive.c)
- *     MiLockPageAtDpcInline @ 0x14002EB30 (MiLockPageAtDpcInline.c)
- *     MiIsPfnInline @ 0x140030920 (MiIsPfnInline.c)
- *     MiIncreaseUsedPtesCount @ 0x1400374B0 (MiIncreaseUsedPtesCount.c)
- *     MiInsertVad @ 0x140042950 (MiInsertVad.c)
- *     KeShouldYieldProcessor @ 0x1400956C0 (KeShouldYieldProcessor.c)
- *     MiWorkingSetIsContended @ 0x1400BA9E0 (MiWorkingSetIsContended.c)
- *     MiMakeProtectionPfnCompatible @ 0x14010A608 (MiMakeProtectionPfnCompatible.c)
- *     MiLookupIoPageNode @ 0x1401105C0 (MiLookupIoPageNode.c)
- *     MiAssignInitialPageAttribute @ 0x140146D38 (MiAssignInitialPageAttribute.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     MiShowBadMapper @ 0x1401E14D4 (MiShowBadMapper.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
- *     MiGetUsedPtesHandle @ 0x1401EF7E0 (MiGetUsedPtesHandle.c)
- *     MI_GET_PFN_FROM_PTE @ 0x1401F2594 (MI_GET_PFN_FROM_PTE.c)
- *     MiRelockWorkingSetExclusive @ 0x1401F2AEC (MiRelockWorkingSetExclusive.c)
+ *     MiMakeSystemAddressValid @ 0x14001592C (MiMakeSystemAddressValid.c)
+ *     MiLockWorkingSetExclusive @ 0x14002E580 (MiLockWorkingSetExclusive.c)
+ *     MiLockPageAtDpcInline @ 0x14002E6B0 (MiLockPageAtDpcInline.c)
+ *     MiIsPfnInline @ 0x1400304A0 (MiIsPfnInline.c)
+ *     MiIncreaseUsedPtesCount @ 0x140037030 (MiIncreaseUsedPtesCount.c)
+ *     MiInsertVad @ 0x1400424D0 (MiInsertVad.c)
+ *     KeShouldYieldProcessor @ 0x140094EC0 (KeShouldYieldProcessor.c)
+ *     MiWorkingSetIsContended @ 0x1400B8870 (MiWorkingSetIsContended.c)
+ *     MiMakeProtectionPfnCompatible @ 0x140108388 (MiMakeProtectionPfnCompatible.c)
+ *     MiLookupIoPageNode @ 0x140110B24 (MiLookupIoPageNode.c)
+ *     MiAssignInitialPageAttribute @ 0x1401472A8 (MiAssignInitialPageAttribute.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     MiShowBadMapper @ 0x1401E1300 (MiShowBadMapper.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
+ *     MiGetUsedPtesHandle @ 0x1401EF60C (MiGetUsedPtesHandle.c)
+ *     MI_GET_PFN_FROM_PTE @ 0x1401F23C0 (MI_GET_PFN_FROM_PTE.c)
+ *     MiRelockWorkingSetExclusive @ 0x1401F2918 (MiRelockWorkingSetExclusive.c)
  */
 
 __int64 __fastcall MiMapLockedPagesInUserSpaceHelper(
@@ -132,9 +132,9 @@ LABEL_8:
       }
     }
     v22 = MmProtectToPteMask[ProtectionPfnCompatible] & 0xFFFFFFFFFFFFFF7FuLL;
-    v23 = v22 | ((HIBYTE(word_140326AA8) & 1 | (16 * (*v7 & 0xFFFFFFFFFLL))) << 8) | 0x25;
-    if ( MmProtectToPteMask[ProtectionPfnCompatible] & 0x800 | ((HIBYTE(word_140326AA8) & 1 | (16 * (*v7 & 0xFFFFFFFFFLL))) << 8) & 0x800 )
-      v23 = v22 | ((HIBYTE(word_140326AA8) & 1 | (16 * (*v7 & 0xFFFFFFFFFLL))) << 8) | 0x67;
+    v23 = v22 | ((HIBYTE(word_140326AE8) & 1 | (16 * (*v7 & 0xFFFFFFFFFLL))) << 8) | 0x25;
+    if ( MmProtectToPteMask[ProtectionPfnCompatible] & 0x800 | ((HIBYTE(word_140326AE8) & 1 | (16 * (*v7 & 0xFFFFFFFFFLL))) << 8) & 0x800 )
+      v23 = v22 | ((HIBYTE(word_140326AE8) & 1 | (16 * (*v7 & 0xFFFFFFFFFLL))) << 8) | 0x67;
     *(_QWORD *)v9 = v23;
     if ( (unsigned int)MiPteInShadowRange(v9, v23) )
       MiWritePteShadow(v25, v24);
@@ -161,7 +161,7 @@ LABEL_8:
   }
   while ( a5 );
   if ( a6 )
-    ++*(_QWORD *)(qword_140327F90 + 276840560);
+    ++*(_QWORD *)(qword_140327FD0 + 276840560);
   LOBYTE(v27) = v28;
   return MiUnlockWorkingSetExclusive(v13, v27);
 }

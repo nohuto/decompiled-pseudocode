@@ -6,11 +6,16 @@
  *     <none>
  */
 
-__int64 NtQueryInformationResourceManager()
+NTSTATUS __cdecl NtQueryInformationResourceManager(
+        HANDLE ResourceManagerHandle,
+        RESOURCEMANAGER_INFORMATION_CLASS ResourceManagerInformationClass,
+        PVOID ResourceManagerInformation,
+        ULONG ResourceManagerInformationLength,
+        PULONG ReturnLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 307LL;
+  result = 307;
   __asm { syscall; Low latency system call }
   return result;
 }

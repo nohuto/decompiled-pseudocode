@@ -1,13 +1,13 @@
 /*
- * XREFs of PopPowerLimitSxTransition @ 0x1405CF7E4
+ * XREFs of PopPowerLimitSxTransition @ 0x1405CCF04
  * Callers:
- *     PopThermalSxEntry @ 0x1404D972C (PopThermalSxEntry.c)
- *     PopThermalSxExit @ 0x1405D3D88 (PopThermalSxExit.c)
+ *     PopThermalSxEntry @ 0x1404D31A8 (PopThermalSxEntry.c)
+ *     PopThermalSxExit @ 0x1405D1508 (PopThermalSxExit.c)
  * Callees:
- *     PopReleaseRwLock @ 0x1403B5EC8 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x1404283D4 (PopAcquireRwLockExclusive.c)
- *     PopUpdatePowerLimitTimeTracking @ 0x1405CF8EC (PopUpdatePowerLimitTimeTracking.c)
- *     PopTracePowerLimitHistogram @ 0x1405D620C (PopTracePowerLimitHistogram.c)
+ *     PopReleaseRwLock @ 0x1402AE8FC (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14041C564 (PopAcquireRwLockExclusive.c)
+ *     PopUpdatePowerLimitTimeTracking @ 0x1405CD00C (PopUpdatePowerLimitTimeTracking.c)
+ *     PopTracePowerLimitHistogram @ 0x1405D3820 (PopTracePowerLimitHistogram.c)
  */
 
 __int64 __fastcall PopPowerLimitSxTransition(char a1)
@@ -19,7 +19,7 @@ __int64 __fastcall PopPowerLimitSxTransition(char a1)
   __int64 m; // r8
   __int64 v7; // rax
 
-  PopAcquireRwLockExclusive(&PopPowerLimitExtensionLock);
+  PopAcquireRwLockExclusive((unsigned __int64 *)&PopPowerLimitExtensionLock);
   for ( i = PopPowerLimitExtensionList; (__int64 *)i != &PopPowerLimitExtensionList; i = *(_QWORD *)i )
   {
     if ( *(_BYTE *)(i + 48) )
@@ -48,5 +48,5 @@ __int64 __fastcall PopPowerLimitSxTransition(char a1)
       PopReleaseRwLock((signed __int64 *)(i + 32));
     }
   }
-  return PopReleaseRwLock((signed __int64 *)&PopPowerLimitExtensionLock);
+  return PopReleaseRwLock(&PopPowerLimitExtensionLock);
 }

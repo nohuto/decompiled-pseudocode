@@ -11,19 +11,25 @@
  *     LdrpLogDbgPrint @ 0x1800BC478 (LdrpLogDbgPrint.c)
  */
 
-__int64 __fastcall LdrpMapViewOfSection(__int64 a1, __int64 a2, void *a3, char a4, _QWORD *a5, _QWORD *a6)
+__int64 __fastcall LdrpMapViewOfSection(
+        HANDLE SectionHandle,
+        __int64 a2,
+        void *a3,
+        char a4,
+        PVOID *BaseAddress,
+        PSIZE_T a6)
 {
-  int v10; // ebp
-  struct _TEB *v11; // rdi
-  _QWORD *v12; // rax
-  _QWORD *v13; // r14
-  _QWORD *v14; // r8
+  ULONG AllocationType; // ebp
+  struct _TEB *v10; // rdi
+  PSIZE_T ViewSize; // rax
+  PVOID *v12; // r14
+  PVOID *v13; // r8
   void *ArbitraryUserPointer; // rbx
-  int v16; // eax
-  int v17; // esi
-  _QWORD *v19; // [rsp+50h] [rbp-48h] BYREF
-  __int64 v20; // [rsp+B0h] [rbp+18h] BYREF
-  int v21; // [rsp+B8h] [rbp+20h] BYREF
+  NTSTATUS v15; // eax
+  int v16; // esi
+  PVOID *MemoryInformation; // [rsp+50h] [rbp-48h] BYREF
+  PVOID ReturnedState; // [rsp+B0h] [rbp+18h] BYREF
+  int v20; // [rsp+B8h] [rbp+20h]
 
   if ( (LdrpDebugFlags & 9) != 0 )
     LdrpLogDbgPrint(
@@ -31,42 +37,58 @@ __int64 __fastcall LdrpMapViewOfSection(__int64 a1, __int64 a2, void *a3, char a
       355,
       (unsigned int)"LdrpMapViewOfSection",
       3,
-      "DLL name: %ws\n",
+      (__int64)"DLL name: %ws\n",
       a3);
-  v20 = 0LL;
-  v10 = 0x800000;
+  ReturnedState = 0LL;
+  AllocationType = 0x800000;
   if ( !a4 )
   {
     if ( LdrpLargePageDllKeyHandle )
     {
-      v21 = 0;
-      RtlQueryImageFileKeyOption(LdrpLargePageDllKeyHandle, a2, 4LL, &v21, 4, 0LL);
-      if ( v21 )
+      v20 = 0;
+      RtlQueryImageFileKeyOption(LdrpLargePageDllKeyHandle, 4, 0LL);
+      if ( v20 )
       {
-        if ( (int)RtlAcquirePrivilege(&LdrpLockMemoryPrivilege, 1LL, 0LL, &v20) >= 0 )
-          v10 = 0x20000000;
+        if ( RtlAcquirePrivilege((PULONG)&LdrpLockMemoryPrivilege, 1u, 0, &ReturnedState) >= 0 )
+          AllocationType = 0x20000000;
       }
     }
   }
-  v11 = NtCurrentTeb();
-  v12 = a6;
-  v13 = a5;
-  v14 = a5;
-  ArbitraryUserPointer = v11->NtTib.ArbitraryUserPointer;
-  v11->NtTib.ArbitraryUserPointer = a3;
-  *v14 = 0LL;
-  *v12 = 0LL;
-  v16 = ZwMapViewOfSection(a1, -1LL, v14, 0LL, 0LL, 0LL, v12, 1, v10, 4);
-  v11->NtTib.ArbitraryUserPointer = ArbitraryUserPointer;
-  v17 = v16;
-  if ( v10 == 0x20000000 )
+  v10 = NtCurrentTeb();
+  ViewSize = a6;
+  v12 = BaseAddress;
+  v13 = BaseAddress;
+  ArbitraryUserPointer = v10->NtTib.ArbitraryUserPointer;
+  v10->NtTib.ArbitraryUserPointer = a3;
+  *v13 = 0LL;
+  *ViewSize = 0LL;
+  v15 = ZwMapViewOfSection(
+          SectionHandle,
+          (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+          v13,
+          0LL,
+          0LL,
+          0LL,
+          ViewSize,
+          ViewShare,
+          AllocationType,
+          4u);
+  v10->NtTib.ArbitraryUserPointer = ArbitraryUserPointer;
+  v16 = v15;
+  if ( AllocationType == 0x20000000 )
   {
-    RtlReleasePrivilege(v20);
-    if ( v17 >= 0 )
+    RtlReleasePrivilege(ReturnedState);
+    if ( v16 >= 0 )
     {
-      ZwQueryVirtualMemory(-1LL, *v13, 3LL, &v19, 32LL, 0LL);
-      if ( v19 != (_QWORD *)*v13 )
-        *v19 = *v13;
+      ZwQueryVirtualMemory(
+        (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+        *v12,
+        MemoryRegionInformation,
+        &MemoryInformation,
+        0x20uLL,
+        0LL);
+      if ( MemoryInformation != *v12 )
+        *MemoryInformation = *v12;
     }
   }
   if ( (LdrpDebugFlags & 9) != 0 )
@@ -75,7 +97,7 @@ __int64 __fastcall LdrpMapViewOfSection(__int64 a1, __int64 a2, void *a3, char a
       430,
       (unsigned int)"LdrpMapViewOfSection",
       4,
-      "Status: 0x%08lx\n",
-      v17);
-  return (unsigned int)v17;
+      (__int64)"Status: 0x%08lx\n",
+      v16);
+  return (unsigned int)v16;
 }

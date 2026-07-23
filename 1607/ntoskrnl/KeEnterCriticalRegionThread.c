@@ -1,8 +1,8 @@
 /*
- * XREFs of KeEnterCriticalRegionThread @ 0x140133CDC
+ * XREFs of KeEnterCriticalRegionThread @ 0x14013424C
  * Callers:
- *     MiCreateSection @ 0x14042CD40 (MiCreateSection.c)
- *     MiSessionCreate @ 0x140535604 (MiSessionCreate.c)
+ *     MiCreateSection @ 0x14042BC10 (MiCreateSection.c)
+ *     MiSessionCreate @ 0x140535B44 (MiSessionCreate.c)
  * Callees:
  *     <none>
  */

@@ -1,16 +1,16 @@
 /*
- * XREFs of ?RtlpParseFunctionOverrideRelocations@@YAJKV?$span@$$CBE$0?0@gsl@@KPEAU_RTLP_PARSE_RELOCATIONS_PACKET@@@Z @ 0x1409EBB14
+ * XREFs of ?RtlpParseFunctionOverrideRelocations@@YAJKV?$span@$$CBE$0?0@gsl@@KPEAU_RTLP_PARSE_RELOCATIONS_PACKET@@@Z @ 0x14093FEA8
  * Callers:
- *     ?RtlpCreateFunctionOverrideFixupInfo@@YAJV?$span@$$CBE$0?0@gsl@@KKPEBU_RTL_FUNCTION_OVERRIDE_CAPABILITIES@@PEAPEAU_RTL_FUNCTION_OVERRIDE_INFORMATION@@PEBU_RTL_SYSTEM_OVERRIDE_INFORMATION@@@Z @ 0x1409EB484 (-RtlpCreateFunctionOverrideFixupInfo@@YAJV-$span@$$CBE$0-0@gsl@@KKPEBU_RTL_FUNCTION_OVERRIDE_CAP.c)
+ *     ?RtlpCreateFunctionOverrideFixupInfo@@YAJV?$span@$$CBE$0?0@gsl@@KKPEBU_RTL_FUNCTION_OVERRIDE_CAPABILITIES@@PEAPEAU_RTL_FUNCTION_OVERRIDE_INFORMATION@@PEBU_RTL_SYSTEM_OVERRIDE_INFORMATION@@@Z @ 0x14093F818 (-RtlpCreateFunctionOverrideFixupInfo@@YAJV-$span@$$CBE$0-0@gsl@@KKPEBU_RTL_FUNCTION_OVERRIDE_CAP.c)
  * Callees:
- *     ?terminate@details@gsl@@YAXXZ @ 0x1404F8960 (-terminate@details@gsl@@YAXXZ.c)
- *     ?RtlpRecordFunctionOverrideRelocation@@YAXPEAU_RTLP_PARSE_RELOCATIONS_PACKET@@EKGGE@Z @ 0x1409EBE30 (-RtlpRecordFunctionOverrideRelocation@@YAXPEAU_RTLP_PARSE_RELOCATIONS_PACKET@@EKGGE@Z.c)
+ *     ?terminate@details@gsl@@YAXXZ @ 0x1404F6240 (-terminate@details@gsl@@YAXXZ.c)
+ *     ?RtlpRecordFunctionOverrideRelocation@@YAXPEAU_RTLP_PARSE_RELOCATIONS_PACKET@@EKGGE@Z @ 0x1409401C4 (-RtlpRecordFunctionOverrideRelocation@@YAXPEAU_RTLP_PARSE_RELOCATIONS_PACKET@@EKGGE@Z.c)
  */
 
 __int64 __fastcall RtlpParseFunctionOverrideRelocations(
         int a1,
         __int64 a2,
-        __int64 a3,
+        unsigned int a3,
         struct _RTLP_PARSE_RELOCATIONS_PACKET *a4)
 {
   unsigned __int64 v4; // rcx
@@ -34,139 +34,129 @@ __int64 __fastcall RtlpParseFunctionOverrideRelocations(
   __int128 v23; // [rsp+48h] [rbp-70h]
   __int128 v24; // [rsp+58h] [rbp-60h]
   char v26; // [rsp+C8h] [rbp+10h]
-  unsigned int v27; // [rsp+D0h] [rbp+18h]
 
-  v27 = a3;
   v4 = *(_QWORD *)a2;
   v5 = (unsigned __int64 *)a2;
   if ( *(_QWORD *)a2 < 0xAuLL )
     return 3221225595LL;
-  if ( v4 >= 8 )
-  {
-    v6 = *(_DWORD **)(a2 + 8);
-    v8 = v4 - 8;
-    *(_QWORD *)&v22 = v8;
-    if ( v8 == -1LL )
-    {
-LABEL_45:
-      gsl::details::terminate((gsl::details *)v8, a2, a3, 0LL);
-      __debugbreak();
-    }
-    *((_QWORD *)&v22 + 1) = v6 + 2;
-    *(_OWORD *)a2 = v22;
-  }
-  else
+  if ( v4 < 8 )
   {
     v6 = 0LL;
+    goto LABEL_4;
   }
-  a3 = 1LL;
-LABEL_5:
+  v6 = *(_DWORD **)(a2 + 8);
+  v8 = v4 - 8;
+  *(_QWORD *)&v22 = v8;
+  if ( v8 == -1LL )
+    goto LABEL_44;
+  *((_QWORD *)&v22 + 1) = v6 + 2;
+  *(_OWORD *)a2 = v22;
+LABEL_4:
   if ( v6 )
   {
     v7 = v6[1];
     v8 = v7 - 8;
-    if ( v7 > 8 && (v7 & 3) == 0 && v8 <= *v5 && (*v6 & 0xFFF) == 0 )
+    if ( v7 <= 8 || (v7 & 3) != 0 || v8 > *v5 || (*v6 & 0xFFF) != 0 )
+      return 3221225595LL;
+    v9 = (_WORD *)v5[1];
+    if ( !v9 )
+      goto LABEL_44;
+    if ( (((_BYTE)v7 - 8) & 1) != 0 )
+      goto LABEL_44;
+    a2 = v8 >> 1;
+    v10 = *v5 - v8;
+    *(_QWORD *)&v23 = v10;
+    if ( v10 == -1LL )
+      goto LABEL_44;
+    *((_QWORD *)&v23 + 1) = (char *)v9 + v8;
+    v11 = 1;
+    v12 = &v9[a2];
+    v20 = -1;
+    v13 = -1;
+    v26 = 0;
+    *(_OWORD *)v5 = v23;
+    v21 = v12;
+    while ( 1 )
     {
-      v9 = (_WORD *)v5[1];
-      if ( !v9 )
-        goto LABEL_45;
-      if ( (((_BYTE)v7 - 8) & 1) != 0 )
-        goto LABEL_45;
-      a2 = v8 >> 1;
-      v10 = *v5 - v8;
-      *(_QWORD *)&v23 = v10;
-      if ( v10 == -1LL )
-        goto LABEL_45;
-      *((_QWORD *)&v23 + 1) = (char *)v9 + v8;
-      v11 = 1;
-      v12 = &v9[a2];
-      v20 = -1;
-      v13 = -1;
-      v26 = 0;
-      *(_OWORD *)v5 = v23;
-      v21 = v12;
-      while ( 1 )
+      if ( v9 == v12 )
       {
-        if ( v9 == v12 )
+        if ( v10 >= 8 )
         {
-          if ( v10 < 8 )
+          v8 = *v5;
+          v6 = (_DWORD *)v5[1];
+          if ( *v5 >= 8 )
           {
-            v6 = 0LL;
-          }
-          else
-          {
-            v8 = *v5;
-            v6 = (_DWORD *)v5[1];
-            if ( *v5 < 8 )
-              goto LABEL_45;
             v8 -= 8LL;
             *(_QWORD *)&v24 = v8;
-            if ( v8 == -1LL )
-              goto LABEL_45;
-            *((_QWORD *)&v24 + 1) = v6 + 2;
-            *(_OWORD *)v5 = v24;
+            if ( v8 != -1LL )
+            {
+              *((_QWORD *)&v24 + 1) = v6 + 2;
+              *(_OWORD *)v5 = v24;
+              goto LABEL_4;
+            }
           }
-          goto LABEL_5;
+LABEL_44:
+          gsl::details::terminate((gsl::details *)v8, a2);
+          __debugbreak();
         }
-        v14 = 4;
-        v15 = *v9 >> 12;
-        v16 = *v9 & 0xFFF;
-        if ( !v15 )
-          break;
-        if ( v15 == 1 )
-          goto LABEL_17;
-        if ( v15 != 2 )
-        {
-          if ( v15 != 3 )
-            return 3221225595LL;
-          v14 = 8;
-        }
-        v17 = 4;
-LABEL_18:
-        if ( v16 % v17 )
-          return 3221225595LL;
-        v18 = v16 + *v6;
-        if ( v18 >= a1 - (unsigned int)v14 || v18 < v27 )
-          return 3221225595LL;
-        a2 = 0LL;
-        if ( v11 )
-        {
-          if ( v16 > 4096 - v14 )
-            LOBYTE(a2) = 1;
-        }
-        else
-        {
-          if ( v26 && v16 )
-            return 3221225595LL;
-          if ( !v16 )
-          {
-            a3 = 1LL;
-            v26 = 1;
-            goto LABEL_26;
-          }
-          if ( v16 <= v13 || v16 < v13 + (unsigned int)v20 )
-            return 3221225595LL;
-          if ( v16 > 4096 - v14 )
-            LOBYTE(a2) = 1;
-        }
-        if ( !v15 )
-          return 3221225595LL;
-        RtlpRecordFunctionOverrideRelocation(a4, a2, v18 >> 12, v16, v15, v14);
-        a3 = 1LL;
-LABEL_26:
-        v12 = v21;
-        v11 = 0;
-        v20 = v14;
-        ++v9;
-        v13 = v16;
+        v6 = 0LL;
+        goto LABEL_4;
       }
-      if ( v11 || v16 )
-        return 3221225595LL;
+      v14 = 4;
+      v15 = *v9 >> 12;
+      v16 = *v9 & 0xFFF;
+      if ( !v15 )
+        break;
+      if ( v15 == 1 )
+        goto LABEL_16;
+      if ( v15 != 2 )
+      {
+        if ( v15 != 3 )
+          return 3221225595LL;
+        v14 = 8;
+      }
+      v17 = 4;
 LABEL_17:
-      v17 = 1;
-      goto LABEL_18;
+      if ( v16 % v17 )
+        return 3221225595LL;
+      v18 = v16 + *v6;
+      if ( v18 >= a1 - (unsigned int)v14 || v18 < a3 )
+        return 3221225595LL;
+      a2 = 0LL;
+      if ( v11 )
+      {
+        if ( v16 > 4096 - v14 )
+          LOBYTE(a2) = 1;
+      }
+      else
+      {
+        if ( v26 && v16 )
+          return 3221225595LL;
+        if ( !v16 )
+        {
+          v26 = 1;
+          goto LABEL_25;
+        }
+        if ( v16 <= v13 || v16 < v13 + (unsigned int)v20 )
+          return 3221225595LL;
+        if ( v16 > 4096 - v14 )
+          LOBYTE(a2) = 1;
+      }
+      if ( !v15 )
+        return 3221225595LL;
+      RtlpRecordFunctionOverrideRelocation(a4, a2, v18 >> 12, v16, v15, v14);
+LABEL_25:
+      v12 = v21;
+      v11 = 0;
+      v20 = v14;
+      ++v9;
+      v13 = v16;
     }
-    return 3221225595LL;
+    if ( v11 || v16 )
+      return 3221225595LL;
+LABEL_16:
+    v17 = 1;
+    goto LABEL_17;
   }
   return *v5 != 0 ? 0xC000007B : 0;
 }

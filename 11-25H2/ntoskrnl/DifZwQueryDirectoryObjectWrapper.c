@@ -12,85 +12,83 @@
  */
 
 __int64 __fastcall DifZwQueryDirectoryObjectWrapper(
-        __int64 a1,
-        __int64 a2,
-        unsigned int a3,
-        char a4,
-        char a5,
-        __int64 a6,
-        __int64 a7)
+        void *a1,
+        void *a2,
+        ULONG a3,
+        BOOLEAN a4,
+        BOOLEAN RestartScan,
+        ULONG *Context,
+        ULONG *ReturnLength)
 {
   __int64 *APIThunkContextById; // rax
-  __int64 v11; // r9
-  __int64 *v12; // r14
-  int v13; // ecx
+  __int64 *v11; // r14
+  int v12; // ecx
   PVOID ReturnAddressForWrappers; // rax
-  BOOLEAN v15; // si
+  BOOLEAN v14; // si
   __int64 *i; // rbx
-  BOOLEAN v17; // di
+  BOOLEAN v16; // di
   __int64 *j; // rbx
-  __int128 v20; // [rsp+40h] [rbp-40h] BYREF
-  __int128 v21; // [rsp+50h] [rbp-30h]
-  __int128 v22; // [rsp+60h] [rbp-20h]
-  __int64 v23; // [rsp+70h] [rbp-10h]
+  __int128 v19; // [rsp+40h] [rbp-40h] BYREF
+  __int128 v20; // [rsp+50h] [rbp-30h]
+  __int128 v21; // [rsp+60h] [rbp-20h]
+  __int64 v22; // [rsp+70h] [rbp-10h]
   void *retaddr; // [rsp+A8h] [rbp+28h]
 
-  v23 = 0LL;
+  v22 = 0LL;
+  v19 = 0LL;
   v20 = 0LL;
   v21 = 0LL;
-  v22 = 0LL;
   APIThunkContextById = DifGetAPIThunkContextById(55);
-  v12 = APIThunkContextById;
+  v11 = APIThunkContextById;
   if ( !APIThunkContextById )
     goto LABEL_17;
-  v13 = *((_DWORD *)APIThunkContextById + 3);
-  if ( (v13 & 0x18) != 0 )
+  v12 = *((_DWORD *)APIThunkContextById + 3);
+  if ( (v12 & 0x18) != 0 )
   {
     ReturnAddressForWrappers = retaddr;
   }
   else
   {
-    if ( (v13 & 4) == 0 )
+    if ( (v12 & 4) == 0 )
       goto LABEL_7;
     ReturnAddressForWrappers = DifGetReturnAddressForWrappers();
   }
-  *(_QWORD *)&v20 = ReturnAddressForWrappers;
+  *(_QWORD *)&v19 = ReturnAddressForWrappers;
 LABEL_7:
-  v15 = 0;
-  *((_QWORD *)&v22 + 1) = a1;
-  BYTE8(v21) = a5;
-  *(_QWORD *)&v21 = a6;
-  *((_QWORD *)&v20 + 1) = a7;
-  *(_QWORD *)&v22 = a2;
-  HIDWORD(v21) = a3;
-  BYTE9(v21) = a4;
+  v14 = 0;
+  *((_QWORD *)&v21 + 1) = a1;
+  BYTE8(v20) = RestartScan;
+  *(_QWORD *)&v20 = Context;
+  *((_QWORD *)&v19 + 1) = ReturnLength;
+  *(_QWORD *)&v21 = a2;
+  HIDWORD(v20) = a3;
+  BYTE9(v20) = a4;
   if ( !VfDifRunningWithoutReboot && (VfOptionFlags & 0x800) == 0
-    || (v15 = ExAcquireRundownProtection_0(&DifRebootlessRundown)) != 0 )
+    || (v14 = ExAcquireRundownProtection_0(&DifRebootlessRundown)) != 0 )
   {
-    for ( i = (__int64 *)v12[4]; i != v12 + 4; i = (__int64 *)*i )
+    for ( i = (__int64 *)v11[4]; i != v11 + 4; i = (__int64 *)*i )
     {
       if ( i != (__int64 *)16 )
-        guard_dispatch_icall_no_overrides(&v20);
+        guard_dispatch_icall_no_overrides(&v19);
     }
-    if ( v15 )
+    if ( v14 )
       ExReleaseRundownProtection_0(&DifRebootlessRundown);
   }
 LABEL_17:
-  LOBYTE(v11) = a4;
-  LODWORD(v23) = ZwQueryDirectoryObject(a1, a2, a3, v11, a5, a6, a7);
-  if ( v12 )
+  LODWORD(v22) = ZwQueryDirectoryObject(a1, a2, a3, a4, RestartScan, Context, ReturnLength);
+  if ( v11 )
   {
-    if ( (v17 = 0, !VfDifRunningWithoutReboot) && (VfOptionFlags & 0x800) == 0
-      || (v17 = ExAcquireRundownProtection_0(&DifRebootlessRundown)) != 0 )
+    if ( (v16 = 0, !VfDifRunningWithoutReboot) && (VfOptionFlags & 0x800) == 0
+      || (v16 = ExAcquireRundownProtection_0(&DifRebootlessRundown)) != 0 )
     {
-      for ( j = (__int64 *)v12[6]; j != v12 + 6; j = (__int64 *)*j )
+      for ( j = (__int64 *)v11[6]; j != v11 + 6; j = (__int64 *)*j )
       {
         if ( j != (__int64 *)16 )
-          guard_dispatch_icall_no_overrides(&v20);
+          guard_dispatch_icall_no_overrides(&v19);
       }
-      if ( v17 )
+      if ( v16 )
         ExReleaseRundownProtection_0(&DifRebootlessRundown);
     }
   }
-  return (unsigned int)v23;
+  return (unsigned int)v22;
 }

@@ -6,16 +6,16 @@
  *     MiCopyDataPageToImagePage @ 0x14002D340 (MiCopyDataPageToImagePage.c)
  *     MiWalkEntireImage @ 0x14002F290 (MiWalkEntireImage.c)
  *     MiFlushSectionInternal @ 0x14004C270 (MiFlushSectionInternal.c)
- *     MiPfPutPagesInTransition @ 0x140064E70 (MiPfPutPagesInTransition.c)
- *     MiTranslatePageForCopy @ 0x1400E9C30 (MiTranslatePageForCopy.c)
- *     MiResolvePageFileFault @ 0x140154B44 (MiResolvePageFileFault.c)
- *     MiMakeImagePageOk @ 0x1402C45FC (MiMakeImagePageOk.c)
- *     MiIdealClusterPage @ 0x1402C6C14 (MiIdealClusterPage.c)
+ *     MiPfPutPagesInTransition @ 0x140064E60 (MiPfPutPagesInTransition.c)
+ *     MiTranslatePageForCopy @ 0x1400E9CB0 (MiTranslatePageForCopy.c)
+ *     MiResolvePageFileFault @ 0x140154C44 (MiResolvePageFileFault.c)
+ *     MiMakeImagePageOk @ 0x1402C47EC (MiMakeImagePageOk.c)
+ *     MiIdealClusterPage @ 0x1402C6E04 (MiIdealClusterPage.c)
  * Callees:
  *     MiChargeForLockedPage @ 0x14002DE70 (MiChargeForLockedPage.c)
  *     MiAreChargesNeededToLockPage @ 0x140030D40 (MiAreChargesNeededToLockPage.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     MiLockNestedPageAtDpcInline @ 0x140120F04 (MiLockNestedPageAtDpcInline.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     MiLockNestedPageAtDpcInline @ 0x140120FD4 (MiLockNestedPageAtDpcInline.c)
  */
 
 __int64 __fastcall MiObtainProtoReference(__int64 a1, char a2)

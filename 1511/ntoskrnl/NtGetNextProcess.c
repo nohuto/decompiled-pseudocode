@@ -14,7 +14,12 @@
  *     ObOpenObjectByPointer @ 0x140476C40 (ObOpenObjectByPointer.c)
  */
 
-NTSTATUS __fastcall NtGetNextProcess(HANDLE Handle, ACCESS_MASK a2, int a3, int a4, HANDLE *a5)
+NTSTATUS __cdecl NtGetNextProcess(
+        HANDLE ProcessHandle,
+        ACCESS_MASK DesiredAccess,
+        ULONG HandleAttributes,
+        ULONG Flags,
+        PHANDLE NewProcessHandle)
 {
   ACCESS_MASK v5; // edi
   KPROCESSOR_MODE PreviousMode; // r15
@@ -24,32 +29,32 @@ NTSTATUS __fastcall NtGetNextProcess(HANDLE Handle, ACCESS_MASK a2, int a3, int 
   _DWORD *NextProcess; // rbx
   bool v12; // r12
   struct _KTHREAD *CurrentThread; // r13
-  int v14; // edi
+  NTSTATUS v14; // edi
   PVOID Object; // [rsp+50h] [rbp-1E8h] BYREF
-  HANDLE v17; // [rsp+68h] [rbp-1D0h] BYREF
+  HANDLE Handle; // [rsp+68h] [rbp-1D0h] BYREF
   struct _ACCESS_STATE PassedAccessState; // [rsp+70h] [rbp-1C8h] BYREF
   _QWORD v19[28]; // [rsp+110h] [rbp-128h] BYREF
 
-  v5 = a2;
+  v5 = DesiredAccess;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
-    v8 = a3 & 0x1DF2;
+    v8 = HandleAttributes & 0x1DF2;
   else
-    v8 = a3 & 0x11FF2;
+    v8 = HandleAttributes & 0x11FF2;
   if ( PreviousMode )
   {
-    v9 = a5;
-    if ( (unsigned __int64)a5 >= MmUserProbeAddress )
+    v9 = NewProcessHandle;
+    if ( (unsigned __int64)NewProcessHandle >= MmUserProbeAddress )
       v9 = (_QWORD *)MmUserProbeAddress;
     *v9 = *v9;
   }
-  *a5 = 0LL;
-  if ( a4 )
+  *NewProcessHandle = 0LL;
+  if ( Flags )
     return -1073741811;
-  if ( Handle )
+  if ( ProcessHandle )
   {
     result = ObReferenceObjectByHandleWithTag(
-               Handle,
+               ProcessHandle,
                0,
                (POBJECT_TYPE)PsProcessType,
                PreviousMode,
@@ -92,16 +97,16 @@ NTSTATUS __fastcall NtGetNextProcess(HANDLE Handle, ACCESS_MASK a2, int a3, int 
               0,
               (POBJECT_TYPE)PsProcessType,
               PreviousMode,
-              &v17);
+              &Handle);
       SeDeleteAccessState((struct _SECURITY_SUBJECT_CONTEXT *)&PassedAccessState);
       if ( v14 >= 0 )
       {
-        *a5 = v17;
+        *NewProcessHandle = Handle;
         goto LABEL_20;
       }
       if ( v14 != -1073741790 )
         goto LABEL_20;
-      v5 = a2;
+      v5 = DesiredAccess;
     }
     NextProcess = (_DWORD *)PsGetNextProcess(NextProcess);
   }

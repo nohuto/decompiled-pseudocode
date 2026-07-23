@@ -1,20 +1,20 @@
 /*
- * XREFs of EtwTraceRaw @ 0x140516B78
+ * XREFs of EtwTraceRaw @ 0x1405105E8
  * Callers:
- *     NtTraceEvent @ 0x140411E40 (NtTraceEvent.c)
+ *     NtTraceEvent @ 0x1404067D0 (NtTraceEvent.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x1402150C0 (PsGetCurrentServerSiloGlobals.c)
- *     EtwpCloseLogger @ 0x140218150 (EtwpCloseLogger.c)
- *     EtwpOpenLogger @ 0x1402181E4 (EtwpOpenLogger.c)
- *     EtwpReserveTraceBuffer @ 0x140218410 (EtwpReserveTraceBuffer.c)
- *     EtwpGetReserveTraceBufferStatus @ 0x1402189D0 (EtwpGetReserveTraceBufferStatus.c)
- *     EtwpReleaseTraceBuffer @ 0x140257100 (EtwpReleaseTraceBuffer.c)
- *     EtwpSendTraceEvent @ 0x1404A92C8 (EtwpSendTraceEvent.c)
- *     EtwpInvokeEventCallback @ 0x1404A93C4 (EtwpInvokeEventCallback.c)
- *     RtlCopyFromUser @ 0x140533E38 (RtlCopyFromUser.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     ProbeForRead @ 0x1408EF880 (ProbeForRead.c)
- *     EtwpCheckLoggerControlAccess @ 0x140A6FAA4 (EtwpCheckLoggerControlAccess.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x1402153F0 (PsGetCurrentServerSiloGlobals.c)
+ *     EtwpCloseLogger @ 0x140218480 (EtwpCloseLogger.c)
+ *     EtwpOpenLogger @ 0x140218514 (EtwpOpenLogger.c)
+ *     EtwpReserveTraceBuffer @ 0x140218740 (EtwpReserveTraceBuffer.c)
+ *     EtwpGetReserveTraceBufferStatus @ 0x140218D00 (EtwpGetReserveTraceBufferStatus.c)
+ *     EtwpReleaseTraceBuffer @ 0x140258A90 (EtwpReleaseTraceBuffer.c)
+ *     EtwpSendTraceEvent @ 0x1404A2958 (EtwpSendTraceEvent.c)
+ *     EtwpInvokeEventCallback @ 0x1404A2A54 (EtwpInvokeEventCallback.c)
+ *     RtlCopyFromUser @ 0x1405362B8 (RtlCopyFromUser.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     ProbeForRead @ 0x1408F5E40 (ProbeForRead.c)
+ *     EtwpCheckLoggerControlAccess @ 0x14097A438 (EtwpCheckLoggerControlAccess.c)
  */
 
 __int64 __fastcall EtwTraceRaw(unsigned __int16 a1, volatile void *a2, __int64 a3, char a4)

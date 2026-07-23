@@ -1,76 +1,78 @@
 /*
- * XREFs of RtlpHpHeapWalk @ 0x180047C00
+ * XREFs of RtlpHpHeapWalk @ 0x18002B340
  * Callers:
- *     RtlWalkHeap @ 0x180047770 (RtlWalkHeap.c)
- *     RtlpWalkHeapInternal @ 0x180047BA0 (RtlpWalkHeapInternal.c)
- *     RtlpHpTagDestroyHeap @ 0x180047D9C (RtlpHpTagDestroyHeap.c)
- *     RtlpQueryExtendedInformationHeap @ 0x1800480F0 (RtlpQueryExtendedInformationHeap.c)
+ *     RtlWalkHeap @ 0x18005E150 (RtlWalkHeap.c)
+ *     RtlpWalkHeapInternal @ 0x18005E1A0 (RtlpWalkHeapInternal.c)
+ *     RtlpHpTagDestroyHeap @ 0x18005E6D0 (RtlpHpTagDestroyHeap.c)
  * Callees:
- *     RtlEnterCriticalSection @ 0x1800148F0 (RtlEnterCriticalSection.c)
- *     RtlLeaveCriticalSection @ 0x1800149F0 (RtlLeaveCriticalSection.c)
- *     RtlCSparseBitmapBitmaskRead @ 0x18002CA00 (RtlCSparseBitmapBitmaskRead.c)
- *     RtlpHpSegWalk @ 0x1800478F0 (RtlpHpSegWalk.c)
- *     RtlpHpLargeWalkHeap @ 0x18010D2FC (RtlpHpLargeWalkHeap.c)
+ *     RtlpReleaseHeapListLock @ 0x18002AA6C (RtlpReleaseHeapListLock.c)
+ *     RtlpAcquireHeapListLock @ 0x18002AAB4 (RtlpAcquireHeapListLock.c)
+ *     RtlpHpSegWalk @ 0x18002B478 (RtlpHpSegWalk.c)
+ *     RtlCSparseBitmapBitmaskRead @ 0x180059400 (RtlCSparseBitmapBitmaskRead.c)
+ *     RtlpHpLargeWalkHeap @ 0x18009F9A0 (RtlpHpLargeWalkHeap.c)
  */
 
-__int64 __fastcall RtlpHpHeapWalk(__int64 a1, __int64 a2, char a3, int a4)
+__int64 __fastcall RtlpHpHeapWalk(__int64 a1, __int64 *a2, __int64 a3)
 {
-  int v4; // r14d
-  __int64 v8; // rdx
-  int v9; // edi
-  unsigned int v10; // ebp
-  __int64 v12; // rax
+  int v3; // r14d
+  char v4; // r15
+  __int64 v7; // rdx
+  int v8; // edi
+  unsigned int v9; // ebp
+  __int64 v11; // rax
 
-  v4 = 0;
-  if ( *(_QWORD *)a2 )
+  v3 = 0;
+  v4 = a3;
+  if ( *a2 )
   {
     if ( *(_DWORD *)(a1 + 224) != (unsigned int)NtCurrentTeb()->ClientId.UniqueThread )
     {
-      v4 = 1;
-      RtlEnterCriticalSection((__int64)&RtlpProcessHeapsLock);
+      v3 = 1;
+      RtlpAcquireHeapListLock();
     }
-    v8 = *(_QWORD *)a2;
-    if ( *(_QWORD *)a2 == a1 )
+    v7 = *a2;
+    if ( *a2 == a1 )
     {
-      *(_QWORD *)a2 = 0LL;
+      *a2 = 0LL;
       goto LABEL_6;
     }
-    if ( (_WORD)v8 )
+    if ( (_WORD)v7 )
     {
 LABEL_6:
-      v9 = 0;
+      v8 = 0;
       goto LABEL_7;
     }
-    v12 = RtlCSparseBitmapBitmaskRead((__int64)&unk_1801CE930, 2 * ((unsigned __int64)(v8 - qword_1801CE928) >> 20));
-    if ( v12 )
-      v9 = v12 - 1;
+    v11 = RtlCSparseBitmapBitmaskRead(&BaseAddress, 2 * ((unsigned __int64)(v7 - qword_1801CD918) >> 20));
+    if ( v11 )
+      v8 = v11 - 1;
     else
-      v9 = 2;
+      v8 = 2;
 LABEL_7:
-    while ( v9 < 2 )
+    while ( v8 < 2 )
     {
-      v10 = RtlpHpSegWalk((__int64 *)(a1 + 192LL * v9 + 320), (__int64 *)a2, a3, a4);
-      if ( v10 != -2147483622 )
+      LOBYTE(a3) = v4;
+      v9 = RtlpHpSegWalk(a1 + 192LL * v8 + 320, a2, a3);
+      if ( v9 != -2147483622 )
         goto LABEL_9;
-      *(_QWORD *)a2 = 0LL;
-      ++v9;
+      *a2 = 0LL;
+      ++v8;
     }
-    v10 = RtlpHpLargeWalkHeap(a1, a2);
+    v9 = RtlpHpLargeWalkHeap(a1, a2);
 LABEL_9:
-    if ( v4 )
-      RtlLeaveCriticalSection((__int64)&RtlpProcessHeapsLock);
+    if ( v3 )
+      RtlpReleaseHeapListLock(0);
   }
   else
   {
-    *(_DWORD *)(a2 + 28) = 0;
-    *(_QWORD *)(a2 + 8) = 4096LL;
-    v10 = 0;
-    *(_DWORD *)(a2 + 24) = 4096;
-    *(_QWORD *)a2 = a1;
-    *(_WORD *)(a2 + 18) = -32766;
-    *(_BYTE *)(a2 + 17) = 0;
-    *(_QWORD *)(a2 + 32) = a1;
-    *(_QWORD *)(a2 + 40) = a1;
+    *((_DWORD *)a2 + 7) = 0;
+    a2[1] = 4096LL;
+    v9 = 0;
+    *((_DWORD *)a2 + 6) = 4096;
+    *a2 = a1;
+    *((_WORD *)a2 + 9) = -32766;
+    *((_BYTE *)a2 + 17) = 0;
+    a2[4] = a1;
+    a2[5] = a1;
   }
-  return v10;
+  return v9;
 }

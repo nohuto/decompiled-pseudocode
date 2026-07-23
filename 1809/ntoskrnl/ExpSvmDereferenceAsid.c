@@ -1,12 +1,12 @@
 /*
- * XREFs of ExpSvmDereferenceAsid @ 0x14031E140
+ * XREFs of ExpSvmDereferenceAsid @ 0x14031E330
  * Callers:
  *     <none>
  * Callees:
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14007DE80 (KeAcquireInStackQueuedSpinLock.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall ExpSvmDereferenceAsid(unsigned int a1)
@@ -18,14 +18,14 @@ __int64 __fastcall ExpSvmDereferenceAsid(unsigned int a1)
   __int64 result; // rax
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
 
-  KeAcquireInStackQueuedSpinLock(&qword_140406E58, &LockHandle);
-  v2 = (char *)qword_140406E50 + 16 * a1;
+  KeAcquireInStackQueuedSpinLock(&qword_140407F38, &LockHandle);
+  v2 = (char *)qword_140407F30 + 16 * a1;
   v3 = --v2[1] < 0;
   if ( v3 && (v2[1] & 0x7FFFFFFFFFFFFFFFLL) == 0 )
   {
     *v2 = 0LL;
     ObfDereferenceObjectWithTag(0LL, 0x746C6644u);
-    --dword_140406E48;
+    --dword_140407F28;
   }
   KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
   OldIrql = LockHandle.OldIrql;

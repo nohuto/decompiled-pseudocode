@@ -1,7 +1,7 @@
 /*
- * XREFs of EtwpIsSingleStreamLogger @ 0x1402663CC
+ * XREFs of EtwpIsSingleStreamLogger @ 0x14025436C
  * Callers:
- *     EtwpFlushActiveBuffers @ 0x140643C10 (EtwpFlushActiveBuffers.c)
+ *     EtwpFlushActiveBuffers @ 0x140638A20 (EtwpFlushActiveBuffers.c)
  * Callees:
  *     <none>
  */

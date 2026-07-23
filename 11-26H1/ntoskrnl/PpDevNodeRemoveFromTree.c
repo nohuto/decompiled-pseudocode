@@ -1,15 +1,15 @@
 /*
- * XREFs of PpDevNodeRemoveFromTree @ 0x1404DACE8
+ * XREFs of PpDevNodeRemoveFromTree @ 0x1404D43C8
  * Callers:
- *     IoReportDetectedDevice @ 0x14079E000 (IoReportDetectedDevice.c)
- *     PnpUnlinkDeviceRemovalRelations @ 0x14091129C (PnpUnlinkDeviceRemovalRelations.c)
+ *     IoReportDetectedDevice @ 0x1407A0B40 (IoReportDetectedDevice.c)
+ *     PnpUnlinkDeviceRemovalRelations @ 0x1409B337C (PnpUnlinkDeviceRemovalRelations.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x140278070 (ExAcquireFastMutex.c)
- *     KeReleaseGuardedMutex @ 0x140278D40 (KeReleaseGuardedMutex.c)
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     PnpOrphanNotification @ 0x140B2E3C0 (PnpOrphanNotification.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExAcquireFastMutex @ 0x1402775E0 (ExAcquireFastMutex.c)
+ *     KeReleaseGuardedMutex @ 0x1402782B0 (KeReleaseGuardedMutex.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PnpOrphanNotification @ 0x140B3030C (PnpOrphanNotification.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 char __fastcall PpDevNodeRemoveFromTree(_QWORD *a1)

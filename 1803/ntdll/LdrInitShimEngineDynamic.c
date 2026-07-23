@@ -14,36 +14,33 @@
  *     sub_1800CA554 @ 0x1800CA554 (sub_1800CA554.c)
  */
 
-__int64 __fastcall LdrInitShimEngineDynamic(__int64 a1, __int64 a2)
+__int64 __fastcall LdrInitShimEngineDynamic(PVOID DllHandle, __int64 a2)
 {
   __int16 v4; // di
-  int EntryForAddress; // eax
-  unsigned __int64 v6; // rdx
-  unsigned __int64 *v7; // r8
-  __int64 v8; // r9
-  __int64 v9; // rcx
-  unsigned __int8 v10; // bl
-  __int64 v12; // [rsp+50h] [rbp+18h] BYREF
+  NTSTATUS EntryForAddress; // eax
+  __int64 v6; // rcx
+  unsigned __int8 v7; // bl
+  PLDR_DATA_TABLE_ENTRY Entry; // [rsp+50h] [rbp+18h] BYREF
 
-  v12 = 0LL;
+  Entry = 0LL;
   v4 = NtCurrentTeb()->SameTebFlags & 0x1000;
   if ( !v4 )
     sub_1800435B4(0);
   sub_180046FBC();
-  if ( !qword_18015C340 )
+  if ( !::DllHandle )
   {
-    qword_18015C340 = a1;
+    ::DllHandle = DllHandle;
     sub_180055D80();
   }
-  EntryForAddress = LdrFindEntryForAddress(a1, (unsigned __int64 *)&v12);
+  EntryForAddress = LdrFindEntryForAddress(DllHandle, &Entry);
   if ( EntryForAddress >= 0 )
   {
-    sub_180059158(v12, v6, v7, v8);
-    v10 = sub_1800559B0(*(PCWSTR *)(a2 + 8));
+    sub_180059158((__int64)Entry);
+    v7 = sub_1800559B0(*(PCWSTR *)(a2 + 8));
   }
   else
   {
-    v9 = (unsigned int)dword_180156A70;
+    v6 = (unsigned int)dword_180156A70;
     if ( (dword_180156A70 & 3) != 0 )
     {
       sub_1800CA554(
@@ -53,15 +50,15 @@ __int64 __fastcall LdrInitShimEngineDynamic(__int64 a1, __int64 a2)
         0,
         "Finding the shim engine entry failed with status 0x%08lx\n",
         EntryForAddress);
-      v9 = (unsigned int)dword_180156A70;
+      v6 = (unsigned int)dword_180156A70;
     }
-    if ( (v9 & 0x10) != 0 )
+    if ( (v6 & 0x10) != 0 )
       __debugbreak();
-    v10 = 0;
+    v7 = 0;
   }
-  LOBYTE(v9) = -v10;
-  sub_180046F60(v9, 2, v10 == 0 ? 0xC0000001 : 0);
+  LOBYTE(v6) = -v7;
+  sub_180046F60(v6, 2, v7 == 0 ? 0xC0000001 : 0);
   if ( !v4 )
     sub_180047B2C();
-  return v10;
+  return v7;
 }

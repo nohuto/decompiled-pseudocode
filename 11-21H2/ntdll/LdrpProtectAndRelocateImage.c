@@ -12,20 +12,24 @@
  *     ZwQueryVirtualMemory @ 0x1800A44D0 (ZwQueryVirtualMemory.c)
  */
 
-__int64 __fastcall LdrpProtectAndRelocateImage(const void *a1)
+__int64 __fastcall LdrpProtectAndRelocateImage(PVOID BaseOfImage)
 {
   bool v2; // di
-  int v3; // eax
-  int v4; // eax
-  int v5; // ebx
-  __int64 v6; // rdx
-  int v8; // edx
-  const void *v9; // [rsp+48h] [rbp-20h] BYREF
-  __int64 v10; // [rsp+50h] [rbp-18h]
+  NTSTATUS v3; // eax
+  LONGLONG v4; // rdx
+  CHAR *v5; // r8
+  NTSTATUS v6; // r9d
+  int v7; // eax
+  NTSTATUS v8; // ebx
+  int v10; // edx
+  NTSTATUS v11; // [rsp+20h] [rbp-48h]
+  NTSTATUS v12; // [rsp+28h] [rbp-40h]
+  PVOID v13; // [rsp+48h] [rbp-20h] BYREF
+  __int64 v14; // [rsp+50h] [rbp-18h]
 
   v2 = 0;
-  v9 = a1;
-  v3 = ZwQueryVirtualMemory(-1LL, 0LL, 4LL, &v9, 16LL, 0LL);
+  v13 = BaseOfImage;
+  v3 = ZwQueryVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, 0LL, MemoryWorkingSetExInformation, &v13, 0x10uLL, 0LL);
   if ( v3 < 0 )
   {
     LdrpLogInternal(
@@ -36,38 +40,37 @@ __int64 __fastcall LdrpProtectAndRelocateImage(const void *a1)
       "Querying large page info failed with status 0x%08lx\n",
       v3);
   }
-  else if ( (v10 & 1) != 0 )
+  else if ( (v14 & 1) != 0 )
   {
-    v2 = (v10 & 0x800000) != 0;
+    v2 = (v14 & 0x800000) != 0;
   }
   if ( !v2 )
   {
-    v4 = LdrpSetProtection(a1, 0LL);
-    v5 = v4;
-    if ( v4 < 0 )
+    v7 = LdrpSetProtection(BaseOfImage);
+    v8 = v7;
+    if ( v7 < 0 )
     {
-      v8 = 1945;
+      v10 = 1945;
 LABEL_13:
       LdrpLogInternal(
         (unsigned int)"minkernel\\ntdll\\ldrfind.c",
-        v8,
+        v10,
         (__int64)"LdrpProtectAndRelocateImage",
         0,
         "Changing the protection of the executable at %p failed with status 0x%08lx\n",
-        a1,
-        v4);
+        BaseOfImage,
+        v7);
       goto LABEL_9;
     }
   }
-  v5 = LdrRelocateImageWithBias(a1);
-  if ( v5 >= 0 && !v2 )
+  v8 = LdrRelocateImageWithBias(BaseOfImage, v4, v5, v6, v11, v12);
+  if ( v8 >= 0 && !v2 )
   {
-    LOBYTE(v6) = 1;
-    v4 = LdrpSetProtection(a1, v6);
-    v5 = v4;
-    if ( v4 < 0 )
+    v7 = LdrpSetProtection(BaseOfImage);
+    v8 = v7;
+    if ( v7 < 0 )
     {
-      v8 = 1969;
+      v10 = 1969;
       goto LABEL_13;
     }
   }
@@ -78,6 +81,6 @@ LABEL_9:
     (__int64)"LdrpProtectAndRelocateImage",
     4u,
     "Status: 0x%08lx\n",
-    v5);
-  return (unsigned int)v5;
+    v8);
+  return (unsigned int)v8;
 }

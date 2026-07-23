@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwTraceSingleDpcSoftTimeout @ 0x14064E018
+ * XREFs of EtwTraceSingleDpcSoftTimeout @ 0x14064C628
  * Callers:
- *     KiLogSingleDpcSoftTimeoutEvent @ 0x1405B4CB0 (KiLogSingleDpcSoftTimeoutEvent.c)
+ *     KiLogSingleDpcSoftTimeoutEvent @ 0x1405B1C40 (KiLogSingleDpcSoftTimeoutEvent.c)
  * Callees:
- *     EtwWriteEx @ 0x140259680 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x140289C90 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall EtwTraceSingleDpcSoftTimeout(

@@ -10,14 +10,14 @@
 __int64 __fastcall MiInitializeNuma(__int64 a1)
 {
   __int64 result; // rax
-  union _SLIST_HEADER *v3; // rbp
+  _SLIST_HEADER *v3; // rbp
   unsigned int v4; // esi
   unsigned int v5; // r11d
   _QWORD *v6; // r14
   int v7; // ebx
   int *v8; // rdi
   int v9; // eax
-  union _SLIST_HEADER *v10; // rbx
+  _SLIST_HEADER *v10; // rbx
   __int64 v11; // rdi
   _QWORD *v12; // rcx
   __int64 v13; // rdx

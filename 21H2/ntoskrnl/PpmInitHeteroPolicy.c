@@ -1,7 +1,7 @@
 /*
- * XREFs of PpmInitHeteroPolicy @ 0x140A6B94C
+ * XREFs of PpmInitHeteroPolicy @ 0x140A6C94C
  * Callers:
- *     PoInitSystem @ 0x140A3F948 (PoInitSystem.c)
+ *     PoInitSystem @ 0x140A40948 (PoInitSystem.c)
  * Callees:
  *     <none>
  */
@@ -16,7 +16,7 @@ __int64 PpmInitHeteroPolicy()
   __int64 result; // rax
 
   PpmHeteroMinRelativePerformance = 0x10000;
-  v0 = (char *)&unk_140C1FEF9;
+  v0 = (char *)&unk_140C1FEB9;
   v1 = 0;
   do
   {
@@ -31,13 +31,13 @@ __int64 PpmInitHeteroPolicy()
   }
   while ( v1 < 0x40 );
   result = 5LL;
-  byte_140C1EF47 = 3;
-  dword_140C1F950 = 5;
-  dword_140C20400 = 5;
-  dword_140C1F94C = 5;
-  dword_140C203FC = 5;
-  byte_140C1F9F7 = 3;
-  word_140C1F949 = 12850;
-  word_140C203F9 = 12850;
+  byte_140C1EF07 = 3;
+  dword_140C1F910 = 5;
+  dword_140C203C0 = 5;
+  dword_140C1F90C = 5;
+  dword_140C203BC = 5;
+  byte_140C1F9B7 = 3;
+  word_140C1F909 = 12850;
+  word_140C203B9 = 12850;
   return result;
 }

@@ -1,14 +1,14 @@
 /*
- * XREFs of _CmDeleteDevice @ 0x1406D7CC0
+ * XREFs of _CmDeleteDevice @ 0x1406D7DF8
  * Callers:
- *     _PnpDispatchDevice @ 0x140500604 (_PnpDispatchDevice.c)
- *     IoReportRootDevice @ 0x140577E18 (IoReportRootDevice.c)
- *     PiCMDeleteDevice @ 0x140646B3C (PiCMDeleteDevice.c)
- *     PiCMGenerateDeviceInstance @ 0x1406477EC (PiCMGenerateDeviceInstance.c)
+ *     _PnpDispatchDevice @ 0x1404E3594 (_PnpDispatchDevice.c)
+ *     IoReportRootDevice @ 0x140578358 (IoReportRootDevice.c)
+ *     PiCMDeleteDevice @ 0x140646C20 (PiCMDeleteDevice.c)
+ *     PiCMGenerateDeviceInstance @ 0x1406478D0 (PiCMGenerateDeviceInstance.c)
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     _CmDeleteDeviceWorker @ 0x1406D8934 (_CmDeleteDeviceWorker.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     _CmDeleteDeviceWorker @ 0x1406D8A6C (_CmDeleteDeviceWorker.c)
  */
 
 __int64 __fastcall CmDeleteDevice(__int64 a1, __int64 a2, int a3)

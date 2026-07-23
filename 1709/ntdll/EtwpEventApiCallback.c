@@ -12,123 +12,92 @@
  *     memmove @ 0x1800A6940 (memmove.c)
  */
 
-__int64 __fastcall EtwpEventApiCallback(__int64 a1, __int64 a2, unsigned __int64 *a3)
+__int64 __fastcall EtwpEventApiCallback(__int64 a1, __int64 a2)
 {
-  unsigned int v3; // r12d
-  __int64 v4; // r9
-  __int64 v5; // rsi
-  unsigned __int64 v8; // rdx
-  char v9; // r11
-  unsigned int v10; // ecx
-  void (__fastcall *v11)(__int64, _QWORD); // rax
-  char v13; // al
-  int v14; // r11d
-  __int64 v15; // r15
-  unsigned __int8 *v16; // r11
-  unsigned int v17; // r14d
-  unsigned __int64 v18; // r8
-  __int64 Heap; // rax
+  unsigned int v2; // r12d
+  __int64 v3; // rsi
+  bool v6; // r11
+  unsigned int v7; // ecx
+  void (__fastcall *v8)(__int64, _QWORD); // rax
+  int v10; // r11d
+  __int64 v11; // r15
+  unsigned __int8 *v12; // r11
+  unsigned int v13; // r14d
+  void *v14; // r8
+  _DWORD *Heap; // rax
   unsigned int Size; // [rsp+60h] [rbp-10h]
   int Size_4; // [rsp+64h] [rbp-Ch]
 
-  v3 = *(_DWORD *)(a1 + 72);
-  v4 = 0LL;
-  v5 = *(_QWORD *)(a2 + 248);
-  if ( v3 == 2 )
+  v2 = *(_DWORD *)(a1 + 72);
+  v3 = *(_QWORD *)(a2 + 248);
+  if ( v2 != 2 )
   {
-    LOBYTE(a3) = *(_BYTE *)(a1 + 76);
-    v4 = *(_QWORD *)(a1 + 88);
-    v8 = *(_QWORD *)(a1 + 96);
-  }
-  else
-  {
-    v8 = -1LL;
-    if ( *(_BYTE *)(a2 + 124) )
-    {
-      v9 = 1;
-      v8 = *(_QWORD *)(a2 + 104);
-      a3 = (unsigned __int64 *)*(unsigned __int8 *)(a2 + 125);
-      v4 = *(_QWORD *)(a2 + 112);
-    }
-    else
-    {
-      LOBYTE(a3) = 0;
-      v9 = 0;
-    }
+    v6 = *(_BYTE *)(a2 + 124) != 0;
     if ( *(_BYTE *)(a2 + 244) )
+      v6 = 1;
+    if ( v6 )
     {
-      v9 = 1;
-      v13 = (char)a3;
-      if ( (unsigned __int8)a3 <= *(_BYTE *)(a2 + 245) )
-        v13 = *(_BYTE *)(a2 + 245);
-      v4 |= *(_QWORD *)(a2 + 232);
-      v8 &= *(_QWORD *)(a2 + 224);
-      LOBYTE(a3) = v13;
-    }
-    if ( v9 )
-    {
-      v3 = 1;
+      v2 = 1;
     }
     else
     {
-      v3 = 0;
-      v8 = 0LL;
+      v2 = 0;
       *(_DWORD *)(a1 + 116) = 0;
     }
   }
-  v10 = 0;
+  v7 = 0;
   if ( *(_DWORD *)(a1 + 116) )
   {
     while ( 1 )
     {
-      v14 = *(_DWORD *)(a1 + 16LL * v10 + 132);
-      if ( v14 >= 0 || v14 == 0x80000000 )
+      v10 = *(_DWORD *)(a1 + 16LL * v7 + 132);
+      if ( v10 >= 0 || v10 == 0x80000000 )
         break;
-      if ( ++v10 >= *(_DWORD *)(a1 + 116) )
-        goto LABEL_8;
+      if ( ++v7 >= *(_DWORD *)(a1 + 116) )
+        goto LABEL_7;
     }
-    Size_4 = *(_DWORD *)(a1 + 16LL * v10 + 132);
-    Size = *(_DWORD *)(a1 + 16LL * v10 + 128);
-    v15 = a1 + *(_QWORD *)(a1 + 16LL * v10 + 120);
-    if ( *(__int16 *)(a1 + 78) < 0 && v14 == 0x80000000 )
+    Size_4 = *(_DWORD *)(a1 + 16LL * v7 + 132);
+    Size = *(_DWORD *)(a1 + 16LL * v7 + 128);
+    v11 = a1 + *(_QWORD *)(a1 + 16LL * v7 + 120);
+    if ( *(__int16 *)(a1 + 78) < 0 && v10 == 0x80000000 )
     {
-      *(_QWORD *)(v15 + 8) = 0LL;
-      v16 = (unsigned __int8 *)(a2 + 150);
-      *(_DWORD *)(v15 + 20) = 0;
-      v17 = 0;
-      *(_DWORD *)(v15 + 16) = Size;
-      while ( !*(v16 - 2) || *v16 != (*(_WORD *)(a1 + 78) & 0x7FFF) )
+      *(_QWORD *)(v11 + 8) = 0LL;
+      v12 = (unsigned __int8 *)(a2 + 150);
+      *(_DWORD *)(v11 + 20) = 0;
+      v13 = 0;
+      *(_DWORD *)(v11 + 16) = Size;
+      while ( !*(v12 - 2) || *v12 != (*(_WORD *)(a1 + 78) & 0x7FFF) )
       {
-        ++v17;
-        v16 += 24;
-        if ( v17 >= 4 )
-          goto LABEL_28;
+        ++v13;
+        v12 += 24;
+        if ( v13 >= 4 )
+          goto LABEL_23;
       }
-      *(_QWORD *)(v15 + 8) = 1LL << ((unsigned __int8)v17 + 32);
-LABEL_28:
-      if ( v5 )
+      *(_QWORD *)(v11 + 8) = 1LL << ((unsigned __int8)v13 + 32);
+LABEL_23:
+      if ( v3 )
       {
-        EtwpAcquireGuidEntryExclusive(v5, v8, a3, v4);
-        v18 = *(_QWORD *)(v5 + 168);
-        if ( v18 )
-          RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v18);
-        Heap = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, Size + 16LL);
-        *(_QWORD *)(v5 + 168) = Heap;
+        EtwpAcquireGuidEntryExclusive(v3);
+        v14 = *(void **)(v3 + 168);
+        if ( v14 )
+          RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v14);
+        Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, Size + 16LL);
+        *(_QWORD *)(v3 + 168) = Heap;
         if ( Heap )
         {
-          *(_DWORD *)(Heap + 8) = Size;
-          *(_DWORD *)(*(_QWORD *)(v5 + 168) + 12LL) = Size_4;
-          **(_QWORD **)(v5 + 168) = *(_QWORD *)(v5 + 168) + 16LL;
-          memmove(**(void ***)(v5 + 168), (const void *)v15, Size);
+          Heap[2] = Size;
+          *(_DWORD *)(*(_QWORD *)(v3 + 168) + 12LL) = Size_4;
+          **(_QWORD **)(v3 + 168) = *(_QWORD *)(v3 + 168) + 16LL;
+          memmove(**(void ***)(v3 + 168), (const void *)v11, Size);
         }
-        *(_DWORD *)(v5 + 48) = 0;
-        RtlReleaseSRWLockExclusive((volatile signed __int64 *)(v5 + 40));
+        *(_DWORD *)(v3 + 48) = 0;
+        RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(v3 + 40));
       }
     }
   }
-LABEL_8:
-  v11 = *(void (__fastcall **)(__int64, _QWORD))(a2 + 48);
-  if ( v11 )
-    v11(a1 + 56, v3);
+LABEL_7:
+  v8 = *(void (__fastcall **)(__int64, _QWORD))(a2 + 48);
+  if ( v8 )
+    v8(a1 + 56, v2);
   return 0LL;
 }

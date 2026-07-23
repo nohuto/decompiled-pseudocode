@@ -15,7 +15,7 @@
 PLIST_ENTRY __stdcall ExInterlockedInsertHeadList(PLIST_ENTRY ListHead, PLIST_ENTRY ListEntry, PKSPIN_LOCK Lock)
 {
   char v6; // al
-  struct _LIST_ENTRY *Blink; // rcx
+  _LIST_ENTRY *Blink; // rcx
   char v8; // dl
   PLIST_ENTRY result; // rax
 

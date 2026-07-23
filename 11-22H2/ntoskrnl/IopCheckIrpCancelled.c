@@ -21,10 +21,10 @@ bool __fastcall IopCheckIrpCancelled(__int64 a1, __int64 a2)
   __writecr8(1uLL);
   if ( !*(_DWORD *)(a1 + 4) )
     v2 = *(_BYTE *)(a2 + 68) == 1;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v4 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v4 <= 0xFu && CurrentIrql <= 0xFu && v4 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v4 <= 0xFu && CurrentIrql <= 0xFu && v4 >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

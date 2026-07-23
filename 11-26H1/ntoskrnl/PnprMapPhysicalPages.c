@@ -1,10 +1,10 @@
 /*
- * XREFs of PnprMapPhysicalPages @ 0x140BF1AD0
+ * XREFs of PnprMapPhysicalPages @ 0x140BF7AD0
  * Callers:
- *     PnprMapTargetSparePhysicalPages @ 0x140BF1CA0 (PnprMapTargetSparePhysicalPages.c)
+ *     PnprMapTargetSparePhysicalPages @ 0x140BF7CA0 (PnprMapTargetSparePhysicalPages.c)
  * Callees:
- *     MmUnmapReservedMapping @ 0x1403C1C70 (MmUnmapReservedMapping.c)
- *     MmMapLockedPagesWithReservedMapping @ 0x1404B5970 (MmMapLockedPagesWithReservedMapping.c)
+ *     MmUnmapReservedMapping @ 0x1403CBB70 (MmUnmapReservedMapping.c)
+ *     MmMapLockedPagesWithReservedMapping @ 0x1404AECD0 (MmMapLockedPagesWithReservedMapping.c)
  */
 
 __int64 __fastcall PnprMapPhysicalPages(PMDL *a1, unsigned __int64 a2, unsigned __int64 *a3, _QWORD *a4)
@@ -33,7 +33,7 @@ __int64 __fastcall PnprMapPhysicalPages(PMDL *a1, unsigned __int64 a2, unsigned 
     {
       v22 = *(_DWORD *)(PnprContext + 33288);
       if ( !v22 )
-        v22 = 4085;
+        v22 = 3717;
       *(_DWORD *)(PnprContext + 33288) = v22;
       v23 = *(_DWORD *)(v6 + 33292);
       if ( !v23 )
@@ -76,7 +76,7 @@ __int64 __fastcall PnprMapPhysicalPages(PMDL *a1, unsigned __int64 a2, unsigned 
         v19 = PnprContext;
         v20 = *(_DWORD *)(PnprContext + 33288);
         if ( !v20 )
-          v20 = 4140;
+          v20 = 3772;
         *(_DWORD *)(PnprContext + 33288) = v20;
         v21 = *(_DWORD *)(v19 + 33292);
         if ( !v21 )
@@ -90,7 +90,7 @@ __int64 __fastcall PnprMapPhysicalPages(PMDL *a1, unsigned __int64 a2, unsigned 
   {
     v9 = *(_DWORD *)(PnprContext + 33288);
     if ( !v9 )
-      v9 = 4077;
+      v9 = 3709;
     *(_DWORD *)(PnprContext + 33288) = v9;
     v10 = *(_DWORD *)(v6 + 33292);
     if ( !v10 )

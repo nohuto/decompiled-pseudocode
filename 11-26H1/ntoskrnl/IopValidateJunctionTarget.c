@@ -1,23 +1,23 @@
 /*
- * XREFs of IopValidateJunctionTarget @ 0x140B5F2B0
+ * XREFs of IopValidateJunctionTarget @ 0x140B62430
  * Callers:
- *     IopXxxControlFile @ 0x1408F5EA0 (IopXxxControlFile.c)
+ *     IopXxxControlFile @ 0x140925E30 (IopXxxControlFile.c)
  * Callees:
- *     IopReferenceFileObject @ 0x140264F80 (IopReferenceFileObject.c)
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     RtlAppendUnicodeStringToString @ 0x140432F70 (RtlAppendUnicodeStringToString.c)
- *     FsRtlValidateReparsePointBuffer @ 0x140473B40 (FsRtlValidateReparsePointBuffer.c)
- *     RtlCopyFromUser @ 0x140533E38 (RtlCopyFromUser.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwOpenFile @ 0x140723A50 (ZwOpenFile.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     IoVolumeDeviceToGuidPath @ 0x140907BC0 (IoVolumeDeviceToGuidPath.c)
- *     IopQueryXxxInformation @ 0x1409B8C10 (IopQueryXxxInformation.c)
- *     IoVolumeDeviceToDosName @ 0x1409FB9E0 (IoVolumeDeviceToDosName.c)
- *     RtlPrefixUnicodeString @ 0x140A29BF0 (RtlPrefixUnicodeString.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     IopReferenceFileObject @ 0x1402644F0 (IopReferenceFileObject.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     RtlAppendUnicodeStringToString @ 0x14041FFA0 (RtlAppendUnicodeStringToString.c)
+ *     FsRtlValidateReparsePointBuffer @ 0x14046D2C0 (FsRtlValidateReparsePointBuffer.c)
+ *     RtlCopyFromUser @ 0x1405362B8 (RtlCopyFromUser.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwOpenFile @ 0x140728620 (ZwOpenFile.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     IoVolumeDeviceToDosName @ 0x1409205E0 (IoVolumeDeviceToDosName.c)
+ *     IopQueryXxxInformation @ 0x140989BF0 (IopQueryXxxInformation.c)
+ *     IoVolumeDeviceToGuidPath @ 0x140A2FD20 (IoVolumeDeviceToGuidPath.c)
+ *     RtlPrefixUnicodeString @ 0x140A3CC90 (RtlPrefixUnicodeString.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IopValidateJunctionTarget(int a1, _OWORD *a2, unsigned int a3, __int64 a4, _QWORD *a5, _DWORD *a6)
@@ -26,10 +26,10 @@ __int64 __fastcall IopValidateJunctionTarget(int a1, _OWORD *a2, unsigned int a3
   void *v9; // r15
   unsigned __int16 *v10; // r14
   ULONG v11; // r12d
-  struct _REPARSE_DATA_BUFFER *Pool2; // rax
-  struct _REPARSE_DATA_BUFFER *v13; // rsi
+  _REPARSE_DATA_BUFFER *Pool2; // rax
+  _REPARSE_DATA_BUFFER *v13; // rsi
   int appended; // ebx
-  struct _REPARSE_DATA_BUFFER *v15; // rax
+  _REPARSE_DATA_BUFFER *v15; // rax
   PVOID *v16; // r12
   char v17; // r13
   int v18; // r12d
@@ -75,7 +75,7 @@ __int64 __fastcall IopValidateJunctionTarget(int a1, _OWORD *a2, unsigned int a3
   if ( a1 == 590860 )
   {
     v11 = v6 - 32;
-    Pool2 = (struct _REPARSE_DATA_BUFFER *)ExAllocatePool2(0x43uLL);
+    Pool2 = (_REPARSE_DATA_BUFFER *)ExAllocatePool2(0x43uLL);
     v13 = Pool2;
     v28 = (__int64)Pool2;
     if ( !Pool2 )
@@ -89,7 +89,7 @@ LABEL_3:
   else
   {
     v11 = v6;
-    v15 = (struct _REPARSE_DATA_BUFFER *)ExAllocatePool2(0x43uLL);
+    v15 = (_REPARSE_DATA_BUFFER *)ExAllocatePool2(0x43uLL);
     v13 = v15;
     v28 = (__int64)v15;
     if ( !v15 )

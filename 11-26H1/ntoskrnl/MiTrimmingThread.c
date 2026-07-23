@@ -1,13 +1,13 @@
 /*
- * XREFs of MiTrimmingThread @ 0x1404BDEE0
+ * XREFs of MiTrimmingThread @ 0x1404B7730
  * Callers:
  *     <none>
  * Callees:
- *     KeSetPriorityThread @ 0x140204540 (KeSetPriorityThread.c)
- *     KeSetActualBasePriorityThread @ 0x140239560 (KeSetActualBasePriorityThread.c)
- *     KeWaitForMultipleObjects @ 0x140396440 (KeWaitForMultipleObjects.c)
- *     MiWorkingSetManager @ 0x1404BE000 (MiWorkingSetManager.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     KeSetPriorityThread @ 0x140204620 (KeSetPriorityThread.c)
+ *     KeSetActualBasePriorityThread @ 0x14023AEC0 (KeSetActualBasePriorityThread.c)
+ *     KeWaitForMultipleObjects @ 0x1403981C0 (KeWaitForMultipleObjects.c)
+ *     MiWorkingSetManager @ 0x1404B7850 (MiWorkingSetManager.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall MiTrimmingThread(_QWORD *a1)

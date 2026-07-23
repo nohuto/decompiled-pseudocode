@@ -1,18 +1,18 @@
 /*
- * XREFs of MiCreateSharedZeroPages @ 0x1401091C0
+ * XREFs of MiCreateSharedZeroPages @ 0x140109240
  * Callers:
  *     MiResolveDemandZeroFault @ 0x140046D50 (MiResolveDemandZeroFault.c)
  * Callees:
  *     MiAdvanceFaultList @ 0x14002B6E0 (MiAdvanceFaultList.c)
  *     MiMakeValidPte @ 0x14003D7F0 (MiMakeValidPte.c)
  *     MiGetPageChain @ 0x140049670 (MiGetPageChain.c)
- *     MiInitializePfn @ 0x140109430 (MiInitializePfn.c)
- *     MiSharedVaToPartition @ 0x1401097AC (MiSharedVaToPartition.c)
- *     MiLockAndDecrementShareCount @ 0x1401180A8 (MiLockAndDecrementShareCount.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     MiArePageContentsZero @ 0x1402BF768 (MiArePageContentsZero.c)
- *     MiGetClusterPage @ 0x1402C67BC (MiGetClusterPage.c)
+ *     MiInitializePfn @ 0x1401094B0 (MiInitializePfn.c)
+ *     MiSharedVaToPartition @ 0x14010982C (MiSharedVaToPartition.c)
+ *     MiLockAndDecrementShareCount @ 0x140118118 (MiLockAndDecrementShareCount.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     MiArePageContentsZero @ 0x1402BF958 (MiArePageContentsZero.c)
+ *     MiGetClusterPage @ 0x1402C69AC (MiGetClusterPage.c)
  */
 
 __int64 __fastcall MiCreateSharedZeroPages(__int64 a1, unsigned __int64 *a2)
@@ -105,7 +105,7 @@ LABEL_3:
     else
       PageChain = 48 * v15 - 0x58000000000LL;
     v16 = (v14 + 0x58000000000LL) / 48;
-    if ( (MiFlags & 0x80u) != 0 && (++dword_14043A86C & MmPageValidationFrequency) == 0 )
+    if ( (MiFlags & 0x80u) != 0 && (++dword_14043B92C & MmPageValidationFrequency) == 0 )
     {
       MiArePageContentsZero((v14 + 0x58000000000LL) / 48);
       v14 = v28;
@@ -122,7 +122,7 @@ LABEL_3:
     {
       if ( (unsigned int)MiPteHasShadow(v19, ValidPte) )
       {
-        if ( !HIBYTE(word_14043A1AC) && (ValidPte & 1) != 0 )
+        if ( !HIBYTE(word_14043B26C) && (ValidPte & 1) != 0 )
           ValidPte |= 0x8000000000000000uLL;
         *(_QWORD *)v2 = ValidPte;
         MiWritePteShadow(v2);

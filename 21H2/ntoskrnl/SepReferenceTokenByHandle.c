@@ -1,13 +1,13 @@
 /*
- * XREFs of SepReferenceTokenByHandle @ 0x14027CA20
+ * XREFs of SepReferenceTokenByHandle @ 0x14026A9C0
  * Callers:
- *     SeAccessCheckByTypeWithAdminlessChecks @ 0x14027CAB0 (SeAccessCheckByTypeWithAdminlessChecks.c)
- *     NtQuerySecurityAttributesToken @ 0x1406011C0 (NtQuerySecurityAttributesToken.c)
- *     NtQueryInformationToken @ 0x140657DF0 (NtQueryInformationToken.c)
- *     SeSetSessionIdTokenWithLinked @ 0x14091C940 (SeSetSessionIdTokenWithLinked.c)
+ *     SeAccessCheckByTypeWithAdminlessChecks @ 0x14026AA50 (SeAccessCheckByTypeWithAdminlessChecks.c)
+ *     NtQueryInformationToken @ 0x14064CC10 (NtQueryInformationToken.c)
+ *     NtQuerySecurityAttributesToken @ 0x1406F0920 (NtQuerySecurityAttributesToken.c)
+ *     SeSetSessionIdTokenWithLinked @ 0x14091CAA0 (SeSetSessionIdTokenWithLinked.c)
  * Callees:
- *     SepReferenceTokenUsingPseudoHandle @ 0x14027DC90 (SepReferenceTokenUsingPseudoHandle.c)
- *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
+ *     SepReferenceTokenUsingPseudoHandle @ 0x14026BC30 (SepReferenceTokenUsingPseudoHandle.c)
+ *     ObReferenceObjectByHandle @ 0x140707FA0 (ObReferenceObjectByHandle.c)
  */
 
 __int64 __fastcall SepReferenceTokenByHandle(

@@ -1,13 +1,13 @@
 /*
- * XREFs of SdbpGetTagHeadSize @ 0x1409603A0
+ * XREFs of SdbpGetTagHeadSize @ 0x140947E60
  * Callers:
- *     SdbpGetNextTagId @ 0x14095F430 (SdbpGetNextTagId.c)
- *     SdbpGetMappedTagData @ 0x14095FA14 (SdbpGetMappedTagData.c)
- *     SdbpReadTagData @ 0x14095FE60 (SdbpReadTagData.c)
+ *     SdbpGetNextTagId @ 0x140946EF0 (SdbpGetNextTagId.c)
+ *     SdbpGetMappedTagData @ 0x1409474D4 (SdbpGetMappedTagData.c)
+ *     SdbpReadTagData @ 0x140947920 (SdbpReadTagData.c)
  * Callees:
- *     Feature_SdbValidateRootTagsOnOpen__private_IsEnabledDeviceUsageNoInline @ 0x140488BC4 (Feature_SdbValidateRootTagsOnOpen__private_IsEnabledDeviceUsageNoInline.c)
- *     SdbpReadMappedData @ 0x140960150 (SdbpReadMappedData.c)
- *     AslLogCallPrintf @ 0x1409601DC (AslLogCallPrintf.c)
+ *     Feature_SdbValidateRootTagsOnOpen__private_IsEnabledDeviceUsageNoInline @ 0x140483CB4 (Feature_SdbValidateRootTagsOnOpen__private_IsEnabledDeviceUsageNoInline.c)
+ *     SdbpReadMappedData @ 0x140947C10 (SdbpReadMappedData.c)
+ *     AslLogCallPrintf @ 0x140947C9C (AslLogCallPrintf.c)
  */
 
 __int64 __fastcall SdbpGetTagHeadSize(__int64 a1, unsigned int a2)
@@ -25,11 +25,7 @@ __int64 __fastcall SdbpGetTagHeadSize(__int64 a1, unsigned int a2)
       return 2LL;
     if ( v2 == 36864 || v2 == 28672 || v2 == 0x8000 )
       return 6LL;
-    AslLogCallPrintf(1LL, (__int64)"SdbpGetTagHeadSize", 121LL, (__int64)"Invalid TAG_TYPE encountered. TAG: [%x]");
   }
-  else
-  {
-    AslLogCallPrintf(1LL, (__int64)"SdbpGetTagHeadSize", 100LL, (__int64)"Error reading tag");
-  }
+  AslLogCallPrintf(1LL, (__int64)"SdbpGetTagHeadSize");
   return 0LL;
 }

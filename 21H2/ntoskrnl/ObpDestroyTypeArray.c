@@ -1,11 +1,11 @@
 /*
- * XREFs of ObpDestroyTypeArray @ 0x1408DDBE0
+ * XREFs of ObpDestroyTypeArray @ 0x1408DDD40
  * Callers:
- *     ObEnumerateObjectsByType @ 0x1408DD3AC (ObEnumerateObjectsByType.c)
- *     ObGetObjectInformation @ 0x1408DD478 (ObGetObjectInformation.c)
+ *     ObEnumerateObjectsByType @ 0x1408DD50C (ObEnumerateObjectsByType.c)
+ *     ObGetObjectInformation @ 0x1408DD5D8 (ObGetObjectInformation.c)
  * Callees:
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall ObpDestroyTypeArray(_QWORD *P)

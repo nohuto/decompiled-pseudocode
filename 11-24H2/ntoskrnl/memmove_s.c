@@ -1,10 +1,10 @@
 /*
- * XREFs of memmove_s @ 0x140504110
+ * XREFs of memmove_s @ 0x1405019D0
  * Callers:
  *     <none>
  * Callees:
- *     xHalTimerWatchdogStop @ 0x140493990 (xHalTimerWatchdogStop.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
+ *     xHalTimerWatchdogStop @ 0x14048E2E0 (xHalTimerWatchdogStop.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
  */
 
 errno_t __cdecl memmove_s(void *a1, rsize_t DstSize, const void *Src, rsize_t MaxCount)

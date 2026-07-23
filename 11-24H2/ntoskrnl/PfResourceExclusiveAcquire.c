@@ -1,10 +1,10 @@
 /*
- * XREFs of PfResourceExclusiveAcquire @ 0x14049EF58
+ * XREFs of PfResourceExclusiveAcquire @ 0x140499D88
  * Callers:
- *     PfSnCheckActionsNeeded @ 0x140961228 (PfSnCheckActionsNeeded.c)
- *     PfSnPrefetchCacheEntryUpdate @ 0x140962F24 (PfSnPrefetchCacheEntryUpdate.c)
+ *     PfSnCheckActionsNeeded @ 0x140948CE8 (PfSnCheckActionsNeeded.c)
+ *     PfSnPrefetchCacheEntryUpdate @ 0x14094A9E4 (PfSnPrefetchCacheEntryUpdate.c)
  * Callees:
- *     ExAcquireResourceExclusiveLite @ 0x1402769C0 (ExAcquireResourceExclusiveLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14022BF50 (ExAcquireResourceExclusiveLite.c)
  */
 
 BOOLEAN __fastcall PfResourceExclusiveAcquire(struct _ERESOURCE *a1)

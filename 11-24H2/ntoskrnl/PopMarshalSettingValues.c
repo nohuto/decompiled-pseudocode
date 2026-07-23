@@ -1,12 +1,12 @@
 /*
- * XREFs of PopMarshalSettingValues @ 0x1409BDF78
+ * XREFs of PopMarshalSettingValues @ 0x1409A45C8
  * Callers:
- *     PopGetSettingValue @ 0x1409BAD20 (PopGetSettingValue.c)
- *     PopDispatchNotificationsToList @ 0x1409BE678 (PopDispatchNotificationsToList.c)
+ *     PopGetSettingValue @ 0x1409A1370 (PopGetSettingValue.c)
+ *     PopDispatchNotificationsToList @ 0x1409A4CC8 (PopDispatchNotificationsToList.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     PopUnreferencePowerSetting @ 0x1409BDE74 (PopUnreferencePowerSetting.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     PopUnreferencePowerSetting @ 0x1409A44C4 (PopUnreferencePowerSetting.c)
  */
 
 __int64 __fastcall PopMarshalSettingValues(__int64 a1, _DWORD *a2, unsigned int a3, unsigned int *a4)
@@ -28,7 +28,7 @@ __int64 __fastcall PopMarshalSettingValues(__int64 a1, _DWORD *a2, unsigned int 
   v19 = 0LL;
   v20 = 0LL;
   v7 = 0;
-  v8 = dword_140F0BA4C;
+  v8 = dword_140F0B38C;
   v9 = 0LL;
   v10 = 3LL;
   while ( (unsigned int)v9 < 3 )

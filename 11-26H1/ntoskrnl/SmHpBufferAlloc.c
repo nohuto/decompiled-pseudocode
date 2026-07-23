@@ -1,12 +1,12 @@
 /*
- * XREFs of SmHpBufferAlloc @ 0x14024D95C
+ * XREFs of SmHpBufferAlloc @ 0x14024F2BC
  * Callers:
- *     SmHpChunkAlloc @ 0x14024E5B0 (SmHpChunkAlloc.c)
+ *     SmHpChunkAlloc @ 0x14024FF10 (SmHpChunkAlloc.c)
  * Callees:
- *     SmHpBufferUpdateFullness @ 0x14024DAA0 (SmHpBufferUpdateFullness.c)
- *     SmBinaryArrayGrow @ 0x1404D8C8C (SmBinaryArrayGrow.c)
- *     ExAllocatePool3 @ 0x140C10010 (ExAllocatePool3.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     SmHpBufferUpdateFullness @ 0x14024F400 (SmHpBufferUpdateFullness.c)
+ *     SmBinaryArrayGrow @ 0x1404D236C (SmBinaryArrayGrow.c)
+ *     ExAllocatePool3 @ 0x140C16010 (ExAllocatePool3.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SmHpBufferAlloc(_DWORD *a1)
@@ -21,7 +21,7 @@ __int64 __fastcall SmHpBufferAlloc(_DWORD *a1)
   unsigned __int64 i; // rcx
 
   v2 = 0;
-  Pool3 = (_QWORD *)ExAllocatePool3(64LL, 4096LL, 1111715187LL, &stru_140E27B08.Header.WaitListHead.Blink, 1);
+  Pool3 = (_QWORD *)ExAllocatePool3(64LL, 4096LL, 1111715187LL, &stru_140E27C48.Header.WaitListHead.Blink, 1);
   if ( !Pool3 )
     return 0LL;
   v4 = (unsigned int)a1[136];

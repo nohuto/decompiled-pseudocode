@@ -1,18 +1,18 @@
 /*
- * XREFs of EtwpRealtimeNotifyConsumers @ 0x1406BC504
+ * XREFs of EtwpRealtimeNotifyConsumers @ 0x14061B674
  * Callers:
- *     EtwpLogger @ 0x1406456F0 (EtwpLogger.c)
+ *     EtwpLogger @ 0x14063A500 (EtwpLogger.c)
  * Callees:
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     EtwpRealtimeInjectEtwBuffer @ 0x140645E50 (EtwpRealtimeInjectEtwBuffer.c)
- *     EtwpGetMaxTrackingEventBufferSize @ 0x1406BC610 (EtwpGetMaxTrackingEventBufferSize.c)
- *     EtwpInitializeProviderInfoBuffer @ 0x1406BC68C (EtwpInitializeProviderInfoBuffer.c)
- *     EtwpAddDebugInfoEvents @ 0x1406DF564 (EtwpAddDebugInfoEvents.c)
- *     EtwpAddBinaryInfoEvents @ 0x14093D008 (EtwpAddBinaryInfoEvents.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     EtwpGetMaxTrackingEventBufferSize @ 0x14061B780 (EtwpGetMaxTrackingEventBufferSize.c)
+ *     EtwpInitializeProviderInfoBuffer @ 0x14061B7FC (EtwpInitializeProviderInfoBuffer.c)
+ *     EtwpRealtimeInjectEtwBuffer @ 0x14063AC3C (EtwpRealtimeInjectEtwBuffer.c)
+ *     EtwpAddDebugInfoEvents @ 0x1406B6844 (EtwpAddDebugInfoEvents.c)
+ *     EtwpAddBinaryInfoEvents @ 0x14093D1D8 (EtwpAddBinaryInfoEvents.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpRealtimeNotifyConsumers(__int64 a1)
@@ -24,7 +24,7 @@ __int64 __fastcall EtwpRealtimeNotifyConsumers(__int64 a1)
   unsigned int v6; // ebx
   char v7; // al
   _DWORD *PoolWithTag; // rax
-  __int64 i; // rsi
+  __int64 *i; // rsi
   __int64 *j; // rax
   __int64 **v12; // rbx
   __int64 *k; // rax
@@ -41,16 +41,16 @@ __int64 __fastcall EtwpRealtimeNotifyConsumers(__int64 a1)
     if ( PoolWithTag )
     {
       EtwpInitializeProviderInfoBuffer(a1, PoolWithTag, v4);
-      for ( i = *(_QWORD *)(a1 + 344); i != a1 + 344; i = *(_QWORD *)i )
+      for ( i = *(__int64 **)(a1 + 344); i != (__int64 *)(a1 + 344); i = (__int64 *)*i )
       {
-        v14 = (*(_BYTE *)(i + 90) & 8) != 0 ? 4 : 1;
+        v14 = (*((_BYTE *)i + 90) & 8) != 0 ? 4 : 1;
         EtwpAddDebugInfoEvents(a1, (_DWORD)v5, v4, 0, v14);
         if ( *(_QWORD *)(a1 + 1024) != a1 + 1024 && (*(_DWORD *)(a1 + 832) & 0x2000000) != 0 )
           EtwpAddBinaryInfoEvents(a1, v5, v4, v14);
-        *(_BYTE *)(i + 90) |= 8u;
+        *((_BYTE *)i + 90) |= 8u;
         if ( v5[12] > 0x48u )
         {
-          EtwpRealtimeInjectEtwBuffer((_DWORD *)a1, i, (__int64)v5);
+          EtwpRealtimeInjectEtwBuffer(a1, i, v5);
           v5[12] = 72;
         }
       }

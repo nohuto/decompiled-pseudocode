@@ -1,9 +1,9 @@
 /*
- * XREFs of MiUnlockAllMemoryLists @ 0x1401127C8
+ * XREFs of MiUnlockAllMemoryLists @ 0x140112D38
  * Callers:
  *     MmDuplicateMemory @ 0x1403C9918 (MmDuplicateMemory.c)
  * Callees:
- *     KxReleaseQueuedSpinLock @ 0x140069570 (KxReleaseQueuedSpinLock.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400690F0 (KxReleaseQueuedSpinLock.c)
  */
 
 __int64 MiUnlockAllMemoryLists()
@@ -29,9 +29,9 @@ __int64 MiUnlockAllMemoryLists()
   v0 = 0;
   while ( 2 )
   {
-    Buffer = qword_140326FD8->Buffer;
-    v2 = v0 < qword_140326FD8->SizeOfBitMap ? v0 : 0;
-    v3 = qword_140326FD8->SizeOfBitMap - 1;
+    Buffer = qword_140327018->Buffer;
+    v2 = v0 < qword_140327018->SizeOfBitMap ? v0 : 0;
+    v3 = qword_140327018->SizeOfBitMap - 1;
     if ( ((unsigned __int8)Buffer & 4) != 0 )
     {
       v4 = 1LL;
@@ -67,8 +67,8 @@ LABEL_22:
       if ( !v2 )
         goto LABEL_13;
       SizeOfBitMap = v0 + 1;
-      if ( v0 + 1 > qword_140326FD8->SizeOfBitMap )
-        SizeOfBitMap = qword_140326FD8->SizeOfBitMap;
+      if ( v0 + 1 > qword_140327018->SizeOfBitMap )
+        SizeOfBitMap = qword_140327018->SizeOfBitMap;
       v3 = SizeOfBitMap - 1;
       v2 = 0;
     }
@@ -79,18 +79,18 @@ LABEL_13:
     if ( (unsigned int)v10 >= v0 && (_DWORD)v10 != -1 )
     {
       v0 = v10 + 1;
-      v11 = *(_QWORD *)(qword_140326FF8 + 8 * v10);
+      v11 = *(_QWORD *)(qword_140327038 + 8 * v10);
       if ( (*(_DWORD *)(v11 + 4) & 4) != 0 )
       {
         v12 = *(_QWORD *)(v11 + 4496);
         v13 = 0;
-        v14 = dword_1403269FC;
+        v14 = dword_140326A3C;
         for ( i = (unsigned __int16)KeNumberNodes;
-              v13 < (unsigned int)(unsigned __int16)KeNumberNodes + 2 * dword_1403269FC + 27;
+              v13 < (unsigned int)(unsigned __int16)KeNumberNodes + 2 * dword_140326A3C + 27;
               i = (unsigned __int16)KeNumberNodes )
         {
           KxReleaseQueuedSpinLock((volatile signed __int64 **)(v12 + 24LL * (i + 2 * v14 + 26 - v13)));
-          v14 = dword_1403269FC;
+          v14 = dword_140326A3C;
           ++v13;
         }
       }

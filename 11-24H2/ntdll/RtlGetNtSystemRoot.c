@@ -1,24 +1,24 @@
 /*
- * XREFs of RtlGetNtSystemRoot @ 0x1800B2C70
+ * XREFs of RtlGetNtSystemRoot @ 0x18007F510
  * Callers:
- *     AVrfpLoadAndInitializeProvider @ 0x180064DAC (AVrfpLoadAndInitializeProvider.c)
- *     LdrpInitializeProcess @ 0x180066D74 (LdrpInitializeProcess.c)
- *     RtlpAssemblyStorageMapResolutionDefaultCallback @ 0x180081C00 (RtlpAssemblyStorageMapResolutionDefaultCallback.c)
- *     RtlQueryResourcePolicy @ 0x1800A9730 (RtlQueryResourcePolicy.c)
- *     LdrpGetModuleName @ 0x1800B0FD0 (LdrpGetModuleName.c)
- *     GetOverlayFilePathUsingChecksum @ 0x1800B25C0 (GetOverlayFilePathUsingChecksum.c)
- *     RtlpDiskSpeedInitialize @ 0x180111540 (RtlpDiskSpeedInitialize.c)
+ *     RtlpAssemblyStorageMapResolutionDefaultCallback @ 0x180003A80 (RtlpAssemblyStorageMapResolutionDefaultCallback.c)
+ *     LdrpGetModuleName @ 0x18007D870 (LdrpGetModuleName.c)
+ *     GetOverlayFilePathUsingChecksum @ 0x18007EE60 (GetOverlayFilePathUsingChecksum.c)
+ *     AVrfpLoadAndInitializeProvider @ 0x1800ACC7C (AVrfpLoadAndInitializeProvider.c)
+ *     LdrpInitializeProcess @ 0x1800AEF54 (LdrpInitializeProcess.c)
+ *     RtlQueryResourcePolicy @ 0x18010B000 (RtlQueryResourcePolicy.c)
+ *     RtlpDiskSpeedInitialize @ 0x18010C950 (RtlpDiskSpeedInitialize.c)
  * Callees:
  *     <none>
  */
 
-__int64 RtlGetNtSystemRoot()
+PWSTR RtlGetNtSystemRoot(void)
 {
   _DWORD *SharedData; // rax
 
   SharedData = NtCurrentPeb()->SharedData;
   if ( SharedData && *SharedData )
-    return (__int64)NtCurrentPeb()->SharedData + 30;
+    return (PWSTR)((char *)NtCurrentPeb()->SharedData + 30);
   else
-    return 2147352624LL;
+    return (PWSTR)2147352624;
 }

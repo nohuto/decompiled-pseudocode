@@ -2,13 +2,13 @@
  * XREFs of CmpBlockHiveWrites @ 0x1403E141C
  * Callers:
  *     CmpVEExecuteRealStoreParseLogic @ 0x1403E1228 (CmpVEExecuteRealStoreParseLogic.c)
- *     CmpVEExecuteOpenLogic @ 0x1404402B0 (CmpVEExecuteOpenLogic.c)
- *     CmpVEExecuteVirtualStoreParseLogic @ 0x140601A60 (CmpVEExecuteVirtualStoreParseLogic.c)
+ *     CmpVEExecuteOpenLogic @ 0x14043F180 (CmpVEExecuteOpenLogic.c)
+ *     CmpVEExecuteVirtualStoreParseLogic @ 0x140601B14 (CmpVEExecuteVirtualStoreParseLogic.c)
  * Callees:
- *     CmpReferenceHive @ 0x14002D220 (CmpReferenceHive.c)
- *     ExAcquireResourceExclusiveLite @ 0x140068160 (ExAcquireResourceExclusiveLite.c)
- *     CmpGetNextHive @ 0x1403FC878 (CmpGetNextHive.c)
- *     CmpDereferenceHive @ 0x1403FCA50 (CmpDereferenceHive.c)
+ *     CmpReferenceHive @ 0x14002CDA0 (CmpReferenceHive.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140067CE0 (ExAcquireResourceExclusiveLite.c)
+ *     CmpGetNextHive @ 0x1403FB738 (CmpGetNextHive.c)
+ *     CmpDereferenceHive @ 0x1403FB910 (CmpDereferenceHive.c)
  */
 
 __int64 __fastcall CmpBlockHiveWrites(__int64 a1, int a2, __int64 *a3)

@@ -1,11 +1,11 @@
 /*
  * XREFs of RtlVerifyVersionInfo @ 0x1403B2B70
  * Callers:
- *     WdipSemLoadScenarioTable @ 0x14083FE80 (WdipSemLoadScenarioTable.c)
- *     AslpFileGetVersionBlock @ 0x1408422F0 (AslpFileGetVersionBlock.c)
+ *     sub_14083FE80 @ 0x14083FE80 (sub_14083FE80.c)
+ *     sub_1408422F0 @ 0x1408422F0 (sub_1408422F0.c)
  * Callees:
- *     RtlpVerGetConditionMask @ 0x1403B2E0C (RtlpVerGetConditionMask.c)
- *     RtlpVerCompare @ 0x1403B2E2C (RtlpVerCompare.c)
+ *     sub_1403B2E0C @ 0x1403B2E0C (sub_1403B2E0C.c)
+ *     sub_1403B2E2C @ 0x1403B2E2C (sub_1403B2E2C.c)
  *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
  *     memset @ 0x140435E00 (memset.c)
  *     RtlGetVersion @ 0x1406C2630 (RtlGetVersion.c)
@@ -48,7 +48,7 @@ NTSTATUS __stdcall RtlVerifyVersionInfo(PRTL_OSVERSIONINFOEXW VersionInfo, ULONG
         {
           if ( (ConditionMask & 0x8000000000000000uLL) == 0LL )
             return -1073741811;
-          v13 = RtlpVerGetConditionMask(ConditionMask, 64LL) - 6;
+          v13 = sub_1403B2E0C(ConditionMask, 64LL) - 6;
           if ( v13 )
           {
             if ( v13 != 1 )
@@ -64,7 +64,7 @@ NTSTATUS __stdcall RtlVerifyVersionInfo(PRTL_OSVERSIONINFOEXW VersionInfo, ULONG
         ++v11;
       }
       while ( v11 < 0x10 );
-      if ( (unsigned int)RtlpVerGetConditionMask(ConditionMask, 64LL) == 7 && !v6 )
+      if ( (unsigned int)sub_1403B2E0C(ConditionMask, 64LL) == 7 && !v6 )
         return -1073741735;
     }
     v8 = 1;
@@ -75,13 +75,8 @@ NTSTATUS __stdcall RtlVerifyVersionInfo(PRTL_OSVERSIONINFOEXW VersionInfo, ULONG
       if ( (ConditionMask & 0x8000000000000000uLL) == 0LL )
         v9 = (unsigned __int8)(ConditionMask >> 4);
       else
-        v9 = RtlpVerGetConditionMask(ConditionMask, 2LL);
-      v10 = (unsigned __int8)RtlpVerCompare(
-                               v9,
-                               VersionInfo->dwMajorVersion,
-                               VersionInformation[1],
-                               (unsigned int)v18,
-                               0) == 0;
+        v9 = sub_1403B2E0C(ConditionMask, 2LL);
+      v10 = (unsigned __int8)sub_1403B2E2C(v9, VersionInfo->dwMajorVersion, VersionInformation[1], (unsigned int)v18, 0) == 0;
       v8 = v18[0];
       if ( v10 )
       {
@@ -98,11 +93,11 @@ NTSTATUS __stdcall RtlVerifyVersionInfo(PRTL_OSVERSIONINFOEXW VersionInfo, ULONG
     if ( v9 == 1 )
     {
       if ( (ConditionMask & 0x8000000000000000uLL) != 0LL )
-        v9 = RtlpVerGetConditionMask(ConditionMask, 1LL);
+        v9 = sub_1403B2E0C(ConditionMask, 1LL);
       else
         v9 = (unsigned __int8)(ConditionMask >> 2);
     }
-    v10 = (unsigned __int8)RtlpVerCompare(v9, VersionInfo->dwMinorVersion, VersionInformation[2], (unsigned int)v18, 1) == 0;
+    v10 = (unsigned __int8)sub_1403B2E2C(v9, VersionInfo->dwMinorVersion, VersionInformation[2], (unsigned int)v18, 1) == 0;
     v8 = v18[0];
     if ( v10 )
     {
@@ -120,11 +115,11 @@ LABEL_6:
       if ( v9 == 1 )
       {
         if ( (ConditionMask & 0x8000000000000000uLL) != 0LL )
-          v9 = RtlpVerGetConditionMask(ConditionMask, 32LL);
+          v9 = sub_1403B2E0C(ConditionMask, 32LL);
         else
           v9 = 0;
       }
-      if ( !(unsigned __int8)RtlpVerCompare(
+      if ( !(unsigned __int8)sub_1403B2E2C(
                                v9,
                                VersionInfo->wServicePackMajor,
                                LOWORD(VersionInformation[69]),
@@ -145,11 +140,11 @@ LABEL_9:
         if ( v9 == 1 )
         {
           if ( (ConditionMask & 0x8000000000000000uLL) != 0LL )
-            v9 = RtlpVerGetConditionMask(ConditionMask, 16LL);
+            v9 = sub_1403B2E0C(ConditionMask, 16LL);
           else
             v9 = 0;
         }
-        if ( !(unsigned __int8)RtlpVerCompare(
+        if ( !(unsigned __int8)sub_1403B2E2C(
                                  v9,
                                  VersionInfo->wServicePackMinor,
                                  HIWORD(VersionInformation[69]),
@@ -161,27 +156,20 @@ LABEL_9:
 LABEL_10:
     if ( (v4 & 4) != 0 )
     {
-      v16 = (ConditionMask & 0x8000000000000000uLL) == 0LL
-          ? BYTE2(ConditionMask)
-          : RtlpVerGetConditionMask(ConditionMask, 4LL);
-      if ( !(unsigned __int8)RtlpVerCompare(
-                               v16,
-                               VersionInfo->dwBuildNumber,
-                               VersionInformation[3],
-                               (unsigned int)v18,
-                               0) )
+      v16 = (ConditionMask & 0x8000000000000000uLL) == 0LL ? BYTE2(ConditionMask) : sub_1403B2E0C(ConditionMask, 4LL);
+      if ( !(unsigned __int8)sub_1403B2E2C(v16, VersionInfo->dwBuildNumber, VersionInformation[3], (unsigned int)v18, 0) )
         return -1073741735;
     }
     if ( (v4 & 8) != 0 )
     {
-      v17 = (ConditionMask & 0x8000000000000000uLL) != 0LL ? RtlpVerGetConditionMask(ConditionMask, 8LL) : 0;
-      if ( !(unsigned __int8)RtlpVerCompare(v17, VersionInfo->dwPlatformId, VersionInformation[4], (unsigned int)v18, 0) )
+      v17 = (ConditionMask & 0x8000000000000000uLL) != 0LL ? sub_1403B2E0C(ConditionMask, 8LL) : 0;
+      if ( !(unsigned __int8)sub_1403B2E2C(v17, VersionInfo->dwPlatformId, VersionInformation[4], (unsigned int)v18, 0) )
         return -1073741735;
     }
     if ( v4 < 0 )
     {
-      v15 = (ConditionMask & 0x8000000000000000uLL) == 0LL ? 0 : RtlpVerGetConditionMask(ConditionMask, 128LL);
-      if ( !(unsigned __int8)RtlpVerCompare(
+      v15 = (ConditionMask & 0x8000000000000000uLL) == 0LL ? 0 : sub_1403B2E0C(ConditionMask, 128LL);
+      if ( !(unsigned __int8)sub_1403B2E2C(
                                v15,
                                VersionInfo->wProductType,
                                BYTE2(VersionInformation[70]),

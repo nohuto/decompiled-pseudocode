@@ -1,18 +1,18 @@
 /*
- * XREFs of VfNotifyVerifierOfEvent @ 0x1407028B0
+ * XREFs of VfNotifyVerifierOfEvent @ 0x1407028E0
  * Callers:
- *     KeBugCheck2 @ 0x1401D40EC (KeBugCheck2.c)
+ *     KeBugCheck2 @ 0x1401D3F18 (KeBugCheck2.c)
  *     IoShutdownSystem @ 0x1403D9EDC (IoShutdownSystem.c)
- *     KdEnterDebugger @ 0x1406F2738 (KdEnterDebugger.c)
- *     KdExitDebugger @ 0x1406F2838 (KdExitDebugger.c)
+ *     KdEnterDebugger @ 0x1406F23D0 (KdEnterDebugger.c)
+ *     KdExitDebugger @ 0x1406F24D0 (KdExitDebugger.c)
  *     Phase1InitializationIoReady @ 0x1407934EC (Phase1InitializationIoReady.c)
  *     IoInitSystem @ 0x1407936BC (IoInitSystem.c)
  * Callees:
- *     VfUtilDbgPrint @ 0x14022264C (VfUtilDbgPrint.c)
- *     VfUtilClearOneBootSettings @ 0x140702C80 (VfUtilClearOneBootSettings.c)
- *     VfInitializeBranchTracing @ 0x14070ECEC (VfInitializeBranchTracing.c)
- *     VfStartBranchTracing @ 0x14070EE84 (VfStartBranchTracing.c)
- *     VfStopBranchTracing @ 0x14070EF08 (VfStopBranchTracing.c)
+ *     VfUtilDbgPrint @ 0x140222478 (VfUtilDbgPrint.c)
+ *     VfUtilClearOneBootSettings @ 0x140702CB0 (VfUtilClearOneBootSettings.c)
+ *     VfInitializeBranchTracing @ 0x14070ED1C (VfInitializeBranchTracing.c)
+ *     VfStartBranchTracing @ 0x14070EEB4 (VfStartBranchTracing.c)
+ *     VfStopBranchTracing @ 0x14070EF38 (VfStopBranchTracing.c)
  */
 
 void __fastcall VfNotifyVerifierOfEvent(int a1)
@@ -33,7 +33,7 @@ void __fastcall VfNotifyVerifierOfEvent(int a1)
       v2 = v1 - 1;
       if ( !v2 )
       {
-        _InterlockedAdd(&dword_140300B28, 1u);
+        _InterlockedAdd(&dword_140300B08, 1u);
         _InterlockedExchange(&ViKeTrackIrqlDisabled, 1);
         VfStopBranchTracing();
         _InterlockedExchange(&ViFaultsDisabled, v6);
@@ -47,7 +47,7 @@ void __fastcall VfNotifyVerifierOfEvent(int a1)
         {
           if ( v4 == 1 )
           {
-            _InterlockedAdd(&dword_140300B34, 1u);
+            _InterlockedAdd(&dword_140300B14, 1u);
             started = VfStartBranchTracing();
             if ( started < 0 && (MmVerifierData & 0x8000000) != 0 )
               VfUtilDbgPrint("Failed to start branch tracing. <Status == 0x%08X>\n", started);
@@ -61,16 +61,16 @@ void __fastcall VfNotifyVerifierOfEvent(int a1)
         }
         else
         {
-          _InterlockedAdd(&dword_140300B30, 1u);
+          _InterlockedAdd(&dword_140300B10, 1u);
           VfStartBranchTracing();
         }
         return;
       }
-      _InterlockedAdd(&dword_140300B2C, 1u);
+      _InterlockedAdd(&dword_140300B0C, 1u);
     }
     else
     {
-      _InterlockedAdd(&dword_140300B24, 1u);
+      _InterlockedAdd(&dword_140300B04, 1u);
     }
     VfStopBranchTracing();
     return;

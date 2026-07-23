@@ -81,7 +81,7 @@ __int64 __fastcall SepMaximumAccessCheck(
   __int64 v59; // rdx
   _DWORD *v60; // rcx
   int v61; // edi
-  __int64 v62; // rax
+  PSID_AND_ATTRIBUTES v62; // rax
   int v63; // [rsp+20h] [rbp-A8h]
   int v64; // [rsp+28h] [rbp-A0h]
   __int16 v65; // [rsp+60h] [rbp-68h]
@@ -197,8 +197,8 @@ LABEL_34:
         if ( (unsigned __int8)SepIsCapabilitySid(v18 + 8) )
         {
           v61 = *((_DWORD *)v18 + 1);
-          v62 = RtlSidHashLookup(v13 + 808, v18 + 8);
-          if ( v62 && (*(_DWORD *)(v62 + 8) & 4) != 0 )
+          v62 = RtlSidHashLookup((PSID_AND_ATTRIBUTES_HASH)(v13 + 808), v18 + 8);
+          if ( v62 && (v62->Attributes & 4) != 0 )
           {
             *(_DWORD *)(a13 + 8) |= v61;
             *(_BYTE *)(a13 + 22) = 1;
@@ -469,9 +469,9 @@ LABEL_125:
             SepMatchCapability(
               v13,
               -1,
-              (__int64)(v18 + 8),
+              v18 + 8,
               *((_DWORD *)v18 + 1),
-              (_BYTE *)(a13 + 22),
+              (_SID_AND_ATTRIBUTES *)(a13 + 22),
               (_DWORD *)(a13 + 8));
             *(_DWORD *)a13 &= ~*(_DWORD *)(a13 + 8);
             goto LABEL_33;

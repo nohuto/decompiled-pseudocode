@@ -3,13 +3,13 @@
  * Callers:
  *     BgDisplayBackgroundUpdate @ 0x140728B50 (BgDisplayBackgroundUpdate.c)
  * Callees:
- *     KeInitializeDpc @ 0x14000D6DC (KeInitializeDpc.c)
- *     DbgPrintEx @ 0x140081B0C (DbgPrintEx.c)
- *     KeCancelTimer @ 0x1400C3480 (KeCancelTimer.c)
- *     KeSetCoalescableTimer @ 0x1400EFC00 (KeSetCoalescableTimer.c)
- *     KeInitializeTimerEx @ 0x1400F0C50 (KeInitializeTimerEx.c)
- *     BgpClearScreen @ 0x1402393E0 (BgpClearScreen.c)
- *     xHalGetInterruptTranslator @ 0x1404E926C (xHalGetInterruptTranslator.c)
+ *     KeInitializeDpc @ 0x14000D25C (KeInitializeDpc.c)
+ *     DbgPrintEx @ 0x140084C90 (DbgPrintEx.c)
+ *     KeCancelTimer @ 0x1400C1310 (KeCancelTimer.c)
+ *     KeSetCoalescableTimer @ 0x1400EDA80 (KeSetCoalescableTimer.c)
+ *     KeInitializeTimerEx @ 0x1400EEAA0 (KeInitializeTimerEx.c)
+ *     BgpClearScreen @ 0x1402392C4 (BgpClearScreen.c)
+ *     xHalGetInterruptTranslator @ 0x1404CB35C (xHalGetInterruptTranslator.c)
  *     AnFwDisableBackgroundUpdateTimer @ 0x140725854 (AnFwDisableBackgroundUpdateTimer.c)
  *     BgpGxDrawBitmapImage @ 0x14072B044 (BgpGxDrawBitmapImage.c)
  */
@@ -30,7 +30,7 @@ __int64 __fastcall AnFwDisplayBackgroundUpdate(char a1)
     AnFwDisableBackgroundUpdateTimer();
     return 0LL;
   }
-  if ( byte_140341C50 )
+  if ( byte_140341C98 )
     return 3221225473LL;
   v2 = off_1402F2500();
   if ( !is_mul_ok(v2, 0x3E8uLL) )
@@ -50,10 +50,10 @@ __int64 __fastcall AnFwDisplayBackgroundUpdate(char a1)
     if ( KeSetCoalescableTimer(&stru_1403580B0, 0LL, 0x64u, 0, &stru_1403580F0) )
     {
       KeCancelTimer(&stru_1403580B0);
-      byte_140341C50 = 0;
+      byte_140341C98 = 0;
       return BgpClearScreen(qword_1402FA0F0);
     }
-    byte_140341C50 = 1;
+    byte_140341C98 = 1;
     result = 0LL;
   }
   else

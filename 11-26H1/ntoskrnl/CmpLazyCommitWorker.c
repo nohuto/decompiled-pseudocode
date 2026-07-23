@@ -1,20 +1,20 @@
 /*
- * XREFs of CmpLazyCommitWorker @ 0x14085BCC0
+ * XREFs of CmpLazyCommitWorker @ 0x140861FB0
  * Callers:
  *     <none>
  * Callees:
- *     ExReleaseFastMutexUnsafe @ 0x140276140 (ExReleaseFastMutexUnsafe.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     KiSetTimerEx @ 0x1403ABF20 (KiSetTimerEx.c)
- *     CmpInitializeThreadInfo @ 0x14043CF00 (CmpInitializeThreadInfo.c)
- *     CmCleanupThreadInfo @ 0x14044C0A0 (CmCleanupThreadInfo.c)
- *     CmpCleanupTransactionState @ 0x1408ACEE8 (CmpCleanupTransactionState.c)
- *     LOCK_TRANSACTION_LIST @ 0x1408AEE3C (LOCK_TRANSACTION_LIST.c)
- *     CmpTransMgrCommit @ 0x1408AF444 (CmpTransMgrCommit.c)
- *     UNLOCK_HIVE_LOAD @ 0x1408B11FC (UNLOCK_HIVE_LOAD.c)
- *     LOCK_HIVE_LOAD @ 0x1408B45EC (LOCK_HIVE_LOAD.c)
- *     CmpAcquireHiveLoadUnloadRundown @ 0x140C58CD4 (CmpAcquireHiveLoadUnloadRundown.c)
- *     CmpReleaseHiveLoadUnloadRundown @ 0x140C58F14 (CmpReleaseHiveLoadUnloadRundown.c)
+ *     ExReleaseFastMutexUnsafe @ 0x1402756B0 (ExReleaseFastMutexUnsafe.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     KiSetTimerEx @ 0x1403B5C30 (KiSetTimerEx.c)
+ *     CmpInitializeThreadInfo @ 0x14042F7B0 (CmpInitializeThreadInfo.c)
+ *     CmCleanupThreadInfo @ 0x1404441C0 (CmCleanupThreadInfo.c)
+ *     CmpCleanupTransactionState @ 0x1408B3328 (CmpCleanupTransactionState.c)
+ *     LOCK_TRANSACTION_LIST @ 0x1408B527C (LOCK_TRANSACTION_LIST.c)
+ *     CmpTransMgrCommit @ 0x1408B5850 (CmpTransMgrCommit.c)
+ *     UNLOCK_HIVE_LOAD @ 0x1408B7808 (UNLOCK_HIVE_LOAD.c)
+ *     LOCK_HIVE_LOAD @ 0x1408BABC0 (LOCK_HIVE_LOAD.c)
+ *     CmpAcquireHiveLoadUnloadRundown @ 0x140C5ECD4 (CmpAcquireHiveLoadUnloadRundown.c)
+ *     CmpReleaseHiveLoadUnloadRundown @ 0x140C5EF14 (CmpReleaseHiveLoadUnloadRundown.c)
  */
 
 _KAFFINITY_EX *CmpLazyCommitWorker()
@@ -76,7 +76,7 @@ LABEL_20:
         CmpCleanupTransactionState(v1[4], v1 - 4, 4LL);
       }
     }
-    BYTE5(WheapPfaLock.SwapListEntry.Next) = v0 == 0;
+    LOBYTE(WheapPfaLock.Timer.Header.WaitListHead.Blink) = v0 == 0;
     ExReleaseFastMutexUnsafe(&CmpTransactionListLock);
     KeLeaveCriticalRegion();
     if ( !v0 )
@@ -94,13 +94,13 @@ LABEL_20:
         *(_QWORD *)(v6 + 8) = &v9;
         if ( v5 == &v9 )
           break;
-        v7 = (_QWORD *)qword_140EF9B28;
-        if ( *(__int64 **)qword_140EF9B28 != &CmpLazyCommitListHead )
+        v7 = (_QWORD *)qword_140EF9E88;
+        if ( *(__int64 **)qword_140EF9E88 != &CmpLazyCommitListHead )
           goto LABEL_20;
         *v5 = &CmpLazyCommitListHead;
         v5[1] = v7;
         *v7 = v5;
-        qword_140EF9B28 = (__int64)v5;
+        qword_140EF9E88 = (__int64)v5;
       }
       ExReleaseFastMutexUnsafe(&CmpTransactionListLock);
       KeLeaveCriticalRegion();

@@ -2,12 +2,12 @@
  * XREFs of SdbpOpenDatabaseInMemory @ 0x140695260
  * Callers:
  *     SdbInitDatabaseInMemory @ 0x1406951D8 (SdbInitDatabaseInMemory.c)
- *     SdbpOpenCompressedDatabase @ 0x140A53208 (SdbpOpenCompressedDatabase.c)
+ *     SdbpOpenCompressedDatabase @ 0x140A534B8 (SdbpOpenCompressedDatabase.c)
  * Callees:
  *     SdbpValidateAndApplyCompatFlags @ 0x140695304 (SdbpValidateAndApplyCompatFlags.c)
  *     AslLogCallPrintf @ 0x1406956FC (AslLogCallPrintf.c)
- *     SdbpReadMappedData @ 0x14074288C (SdbpReadMappedData.c)
- *     AslAlloc @ 0x140758498 (AslAlloc.c)
+ *     SdbpReadMappedData @ 0x140742A7C (SdbpReadMappedData.c)
+ *     AslAlloc @ 0x140758688 (AslAlloc.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

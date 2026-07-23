@@ -1,13 +1,13 @@
 /*
- * XREFs of TtmpFindPowerRequestEntryById @ 0x14076A664
+ * XREFs of TtmpFindPowerRequestEntryById @ 0x14076A884
  * Callers:
- *     TtmiSetDisplayPowerRequest @ 0x14076A01C (TtmiSetDisplayPowerRequest.c)
- *     TtmpSetDisplayRequestEnded @ 0x14076AEC4 (TtmpSetDisplayRequestEnded.c)
- *     TtmpUpdateDisplayRequiredPowerRequest @ 0x14076B0A4 (TtmpUpdateDisplayRequiredPowerRequest.c)
- *     TtmpUpdatePowerRequestAttribute @ 0x14076B174 (TtmpUpdatePowerRequestAttribute.c)
+ *     TtmiSetDisplayPowerRequest @ 0x14076A23C (TtmiSetDisplayPowerRequest.c)
+ *     TtmpSetDisplayRequestEnded @ 0x14076B0E4 (TtmpSetDisplayRequestEnded.c)
+ *     TtmpUpdateDisplayRequiredPowerRequest @ 0x14076B2C4 (TtmpUpdateDisplayRequiredPowerRequest.c)
+ *     TtmpUpdatePowerRequestAttribute @ 0x14076B394 (TtmpUpdatePowerRequestAttribute.c)
  * Callees:
- *     TtmpPowerRequestEntryComparator @ 0x14076AB64 (TtmpPowerRequestEntryComparator.c)
- *     TtmiLogError @ 0x140903A9C (TtmiLogError.c)
+ *     TtmpPowerRequestEntryComparator @ 0x14076AD84 (TtmpPowerRequestEntryComparator.c)
+ *     TtmiLogError @ 0x14099E04C (TtmiLogError.c)
  */
 
 bool __fastcall TtmpFindPowerRequestEntryById(__int64 a1, int a2, __int64 *a3)

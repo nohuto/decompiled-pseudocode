@@ -1,23 +1,23 @@
 /*
- * XREFs of ObpAllocateAndQuerySecurityDescriptorInfo @ 0x1408ED22C
+ * XREFs of ObpAllocateAndQuerySecurityDescriptorInfo @ 0x1408F37EC
  * Callers:
- *     NtSetSecurityObject @ 0x1408ECC30 (NtSetSecurityObject.c)
- *     ObpCreateHandle @ 0x14092CA60 (ObpCreateHandle.c)
+ *     NtSetSecurityObject @ 0x1408F31F0 (NtSetSecurityObject.c)
+ *     ObpCreateHandle @ 0x140908590 (ObpCreateHandle.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     SeQuerySecurityDescriptorInfo @ 0x1408EDBD0 (SeQuerySecurityDescriptorInfo.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     SeQuerySecurityDescriptorInfo @ 0x1408F4190 (SeQuerySecurityDescriptorInfo.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall ObpAllocateAndQuerySecurityDescriptorInfo(__int64 a1, ULONG a2, void *a3, _QWORD *a4)
+__int64 __fastcall ObpAllocateAndQuerySecurityDescriptorInfo(__int64 a1, DWORD a2, void *a3, _QWORD *a4)
 {
   void *v6; // rbx
   int v7; // esi
   void *Pool2; // rax
   int v10; // eax
   ULONG Length; // [rsp+A0h] [rbp+40h] BYREF
-  ULONG SecurityInformation; // [rsp+A8h] [rbp+48h] BYREF
+  DWORD SecurityInformation; // [rsp+A8h] [rbp+48h] BYREF
   PSECURITY_DESCRIPTOR ObjectsSecurityDescriptor; // [rsp+B0h] [rbp+50h] BYREF
 
   ObjectsSecurityDescriptor = a3;

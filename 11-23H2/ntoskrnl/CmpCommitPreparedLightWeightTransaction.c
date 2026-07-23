@@ -1,15 +1,15 @@
 /*
- * XREFs of CmpCommitPreparedLightWeightTransaction @ 0x140A1C5E4
+ * XREFs of CmpCommitPreparedLightWeightTransaction @ 0x140A1C894
  * Callers:
- *     CmpCommitLightWeightTransaction @ 0x140A1C46C (CmpCommitLightWeightTransaction.c)
+ *     CmpCommitLightWeightTransaction @ 0x140A1C71C (CmpCommitLightWeightTransaction.c)
  * Callees:
  *     _tlgKeywordOn @ 0x140212E64 (_tlgKeywordOn.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     ExReleaseFastMutexUnsafe @ 0x1403025F0 (ExReleaseFastMutexUnsafe.c)
- *     ExAcquireFastMutexUnsafe @ 0x140302660 (ExAcquireFastMutexUnsafe.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     CmpProcessLightWeightUOW @ 0x140A1C8AC (CmpProcessLightWeightUOW.c)
+ *     KeLeaveCriticalRegion @ 0x140231550 (KeLeaveCriticalRegion.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6DB4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     ExReleaseFastMutexUnsafe @ 0x140302880 (ExReleaseFastMutexUnsafe.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1403028F0 (ExAcquireFastMutexUnsafe.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     CmpProcessLightWeightUOW @ 0x140A1CB5C (CmpProcessLightWeightUOW.c)
  *     CmListGetNextElement @ 0x140AF56A8 (CmListGetNextElement.c)
  */
 
@@ -28,8 +28,8 @@ void __fastcall CmpCommitPreparedLightWeightTransaction(__int64 a1, __int64 a2)
   if ( a1 )
   {
     v2 = 0;
-    if ( (unsigned int)dword_140C043C8 > 5 && tlgKeywordOn((__int64)&dword_140C043C8, 1LL) )
-      tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C043C8, (unsigned __int8 *)byte_14003745B, 0LL, 0LL, 2u, v9);
+    if ( (unsigned int)dword_140C04390 > 5 && tlgKeywordOn((__int64)&dword_140C04390, 1LL) )
+      tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C04390, (unsigned __int8 *)&unk_140037500, 0LL, 0LL, 2u, v9);
     v8 = MEMORY[0xFFFFF78000000014];
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->KernelApcDisable;
@@ -46,17 +46,17 @@ void __fastcall CmpCommitPreparedLightWeightTransaction(__int64 a1, __int64 a2)
       CmpProcessLightWeightUOW(NextElement, &v8, 1LL, a2);
       ++v2;
     }
-    if ( (unsigned int)dword_140C043C8 > 5 )
+    if ( (unsigned int)dword_140C04390 > 5 )
     {
-      if ( tlgKeywordOn((__int64)&dword_140C043C8, 1LL) )
+      if ( tlgKeywordOn((__int64)&dword_140C04390, 1LL) )
       {
         v12 = 0;
         v10 = &v7;
         LODWORD(v7) = v2;
         v11 = 4;
         tlgWriteTransfer_EtwWriteTransfer(
-          (__int64)&dword_140C043C8,
-          (unsigned __int8 *)&unk_140037418,
+          (__int64)&dword_140C04390,
+          (unsigned __int8 *)byte_140037569,
           0LL,
           0LL,
           3u,

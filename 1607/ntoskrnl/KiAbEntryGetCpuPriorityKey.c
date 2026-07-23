@@ -1,9 +1,9 @@
 /*
- * XREFs of KiAbEntryGetCpuPriorityKey @ 0x14006C3D8
+ * XREFs of KiAbEntryGetCpuPriorityKey @ 0x14006BF58
  * Callers:
- *     KiAbProcessContextSwitch @ 0x14005C490 (KiAbProcessContextSwitch.c)
- *     KiAbProcessThreadLocks @ 0x14006BBA8 (KiAbProcessThreadLocks.c)
- *     KiAbSetMinimumThreadPriority @ 0x14006C0E4 (KiAbSetMinimumThreadPriority.c)
+ *     KiAbProcessContextSwitch @ 0x14005C010 (KiAbProcessContextSwitch.c)
+ *     KiAbProcessThreadLocks @ 0x14006B728 (KiAbProcessThreadLocks.c)
+ *     KiAbSetMinimumThreadPriority @ 0x14006BC64 (KiAbSetMinimumThreadPriority.c)
  * Callees:
  *     <none>
  */

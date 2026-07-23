@@ -17,7 +17,7 @@ __int64 __fastcall sub_1800321F8(__int64 *a1, __int64 (__fastcall *a2)(__int64, 
   __int64 v9; // rbx
   __int64 result; // rax
   __int64 v11; // rsi
-  __int64 v12; // rdi
+  void *v12; // rdi
 
   if ( a3 || a4 )
   {
@@ -27,15 +27,15 @@ __int64 __fastcall sub_1800321F8(__int64 *a1, __int64 (__fastcall *a2)(__int64, 
   else
   {
     v8 = 1;
-    RtlAcquireSRWLockExclusive(&unk_1801664A0);
+    RtlAcquireSRWLockExclusive(&stru_1801664A0);
     v9 = *a1;
     if ( *a1 && (*(_BYTE *)(v9 + 100) || *(_QWORD *)(v9 + 88) == NtCurrentPeb()->ProcessParameters->EnvironmentVersion) )
     {
       ++*(_QWORD *)(v9 + 80);
-      RtlReleaseSRWLockExclusive(&unk_1801664A0);
+      RtlReleaseSRWLockExclusive(&stru_1801664A0);
       return v9;
     }
-    RtlReleaseSRWLockExclusive(&unk_1801664A0);
+    RtlReleaseSRWLockExclusive(&stru_1801664A0);
   }
   result = a2(a3, a4);
   v11 = result;
@@ -45,7 +45,7 @@ __int64 __fastcall sub_1800321F8(__int64 *a1, __int64 (__fastcall *a2)(__int64, 
     if ( v8 )
     {
       v12 = 0LL;
-      RtlAcquireSRWLockExclusive(&unk_1801664A0);
+      RtlAcquireSRWLockExclusive(&stru_1801664A0);
       if ( *a1 == v9 )
       {
         *a1 = v11;
@@ -53,12 +53,12 @@ __int64 __fastcall sub_1800321F8(__int64 *a1, __int64 (__fastcall *a2)(__int64, 
         if ( v9 )
         {
           if ( (*(_QWORD *)(v9 + 80))-- == 1LL )
-            v12 = v9;
+            v12 = (void *)v9;
         }
       }
-      RtlReleaseSRWLockExclusive(&unk_1801664A0);
+      RtlReleaseSRWLockExclusive(&stru_1801664A0);
       if ( v12 )
-        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, v12);
+        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v12);
     }
     return v11;
   }

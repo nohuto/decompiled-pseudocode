@@ -1,11 +1,11 @@
 /*
- * XREFs of VfZwAccessCheckAndAuditAlarm_Entry @ 0x140AD3F30
+ * XREFs of VfZwAccessCheckAndAuditAlarm_Entry @ 0x140AD3F20
  * Callers:
  *     <none>
  * Callees:
- *     ViZwCheckUnicodeString @ 0x140AD4FB4 (ViZwCheckUnicodeString.c)
- *     ViZwCheckVirtualAddress @ 0x140AD503C (ViZwCheckVirtualAddress.c)
- *     ViZwShouldCheck @ 0x140AD5078 (ViZwShouldCheck.c)
+ *     ViZwCheckUnicodeString @ 0x140AD4FA4 (ViZwCheckUnicodeString.c)
+ *     ViZwCheckVirtualAddress @ 0x140AD502C (ViZwCheckVirtualAddress.c)
+ *     ViZwShouldCheck @ 0x140AD5068 (ViZwShouldCheck.c)
  */
 
 __int64 __fastcall VfZwAccessCheckAndAuditAlarm_Entry(ULONG_PTR *a1)

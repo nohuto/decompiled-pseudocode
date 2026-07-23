@@ -1,11 +1,11 @@
 /*
- * XREFs of MiMarkHugeRangeTransition @ 0x14062E8DC
+ * XREFs of MiMarkHugeRangeTransition @ 0x14062EE2C
  * Callers:
- *     MiInsertHugeRangeInList @ 0x140620FCC (MiInsertHugeRangeInList.c)
+ *     MiInsertHugeRangeInList @ 0x14062151C (MiInsertHugeRangeInList.c)
  * Callees:
- *     MiUnlockIoPfnTree @ 0x140336454 (MiUnlockIoPfnTree.c)
- *     MiLockIoPfnTree @ 0x140336C50 (MiLockIoPfnTree.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     MiUnlockIoPfnTree @ 0x1403366E4 (MiUnlockIoPfnTree.c)
+ *     MiLockIoPfnTree @ 0x140336EE0 (MiLockIoPfnTree.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall MiMarkHugeRangeTransition(unsigned __int64 a1)

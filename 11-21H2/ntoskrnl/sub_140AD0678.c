@@ -2,10 +2,10 @@
  * XREFs of sub_140AD0678 @ 0x140AD0678
  * Callers:
  *     sub_1403ED150 @ 0x1403ED150 (sub_1403ED150.c)
- *     FsRtlMdlReadCompleteDevEx @ 0x140AB9010 (FsRtlMdlReadCompleteDevEx.c)
+ *     sub_140AB9010 @ 0x140AB9010 (sub_140AB9010.c)
  * Callees:
- *     KiAccessPage @ 0x140AD2090 (KiAccessPage.c)
- *     KeGuardCheckICall @ 0x140AD23C0 (KeGuardCheckICall.c)
+ *     sub_140AD2090 @ 0x140AD2090 (sub_140AD2090.c)
+ *     sub_140AD23C0 @ 0x140AD23C0 (sub_140AD23C0.c)
  */
 
 int __fastcall sub_140AD0678(__int64 a1, __int64 *a2, unsigned int a3)
@@ -114,16 +114,17 @@ int __fastcall sub_140AD0678(__int64 a1, __int64 *a2, unsigned int a3)
             v18 = *(_QWORD *)(a1 + 1560);
             v13 = v16
                 ? *(volatile signed __int32 **)(*(_QWORD *)(a1 + 1656)
-                                              + *(_QWORD *)((char *)&CurrentPrcb->MxCsr + v18)
+                                              + *(_QWORD *)((char *)CurrentPrcb + v18)
                                               + *(_QWORD *)(a1 + 1624))
-                : *(volatile signed __int32 **)((char *)&CurrentPrcb->MxCsr + v18);
+                : *(volatile signed __int32 **)((char *)CurrentPrcb + v18);
             if ( _interlockedbittestandset(v13, (*(_DWORD *)(a1 + 2392) >> 10) & 0x1F) )
             {
               v13 = 0LL;
               __writecr8(CurrentIrql);
             }
           }
-          v19 = KiAccessPage(v10, v5, *v5);
+          sub_140AD23C0(v10);
+          v19 = sub_140AD2090(v10, v5, *v5);
           if ( v13 )
           {
             _InterlockedAnd(v13, ~(1 << ((*(_DWORD *)(a1 + 2392) >> 10) & 0x1F)));
@@ -152,16 +153,17 @@ int __fastcall sub_140AD0678(__int64 a1, __int64 *a2, unsigned int a3)
             v28 = *(_QWORD *)(a1 + 1560);
             v23 = v26
                 ? *(volatile signed __int32 **)(*(_QWORD *)(a1 + 1656)
-                                              + *(_QWORD *)((char *)&v27->MxCsr + v28)
+                                              + *(_QWORD *)((char *)v27 + v28)
                                               + *(_QWORD *)(a1 + 1624))
-                : *(volatile signed __int32 **)((char *)&v27->MxCsr + v28);
+                : *(volatile signed __int32 **)((char *)v27 + v28);
             if ( _interlockedbittestandset(v23, (*(_DWORD *)(a1 + 2392) >> 10) & 0x1F) )
             {
               v23 = 0LL;
               __writecr8(v22);
             }
           }
-          v29 = KiAccessPage(v10, v5 + 1, v5[1]);
+          sub_140AD23C0(v10);
+          v29 = sub_140AD2090(v10, v5 + 1, v5[1]);
           if ( v23 )
           {
             _InterlockedAnd(v23, ~(1 << ((*(_DWORD *)(a1 + 2392) >> 10) & 0x1F)));
@@ -212,16 +214,17 @@ int __fastcall sub_140AD0678(__int64 a1, __int64 *a2, unsigned int a3)
           v42 = *(_QWORD *)(a1 + 1560);
           v37 = v40
               ? *(volatile signed __int32 **)(*(_QWORD *)(a1 + 1656)
-                                            + *(_QWORD *)((char *)&v41->MxCsr + v42)
+                                            + *(_QWORD *)((char *)v41 + v42)
                                             + *(_QWORD *)(a1 + 1624))
-              : *(volatile signed __int32 **)((char *)&v41->MxCsr + v42);
+              : *(volatile signed __int32 **)((char *)v41 + v42);
           if ( _interlockedbittestandset(v37, (*(_DWORD *)(a1 + 2392) >> 10) & 0x1F) )
           {
             v37 = 0LL;
             __writecr8(v36);
           }
         }
-        v43 = KiAccessPage(v33, v5, *v5);
+        sub_140AD23C0(v33);
+        v43 = sub_140AD2090(v33, v5, *v5);
         if ( v37 )
         {
           _InterlockedAnd(v37, ~(1 << ((*(_DWORD *)(a1 + 2392) >> 10) & 0x1F)));
@@ -266,17 +269,18 @@ int __fastcall sub_140AD0678(__int64 a1, __int64 *a2, unsigned int a3)
         v52 = *(_QWORD *)(a1 + 1560);
         if ( v49 )
           v46 = *(volatile signed __int32 **)(*(_QWORD *)(a1 + 1656)
-                                            + *(_QWORD *)((char *)&v51->MxCsr + v52)
+                                            + *(_QWORD *)((char *)v51 + v52)
                                             + *(_QWORD *)(a1 + 1624));
         else
-          v46 = *(volatile signed __int32 **)((char *)&v51->MxCsr + v52);
+          v46 = *(volatile signed __int32 **)((char *)v51 + v52);
         if ( _interlockedbittestandset(v46, (*(_DWORD *)(a1 + 2392) >> 10) & 0x1F) )
         {
           v46 = 0LL;
           __writecr8(v50);
         }
       }
-      v53 = KiAccessPage(v44 - 6, v5, *v5);
+      sub_140AD23C0(v44 - 6);
+      v53 = sub_140AD2090(v44 - 6, v5, *v5);
       if ( v46 )
       {
         _InterlockedAnd(v46, ~(1 << ((*(_DWORD *)(a1 + 2392) >> 10) & 0x1F)));

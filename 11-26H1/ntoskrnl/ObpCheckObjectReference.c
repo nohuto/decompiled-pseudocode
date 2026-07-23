@@ -1,20 +1,20 @@
 /*
- * XREFs of ObpCheckObjectReference @ 0x1408EE834
+ * XREFs of ObpCheckObjectReference @ 0x1408F4DF4
  * Callers:
- *     AlpcpCreateClientPort @ 0x1408E9A60 (AlpcpCreateClientPort.c)
- *     ObReferenceObjectByNameEx @ 0x1408EBDCC (ObReferenceObjectByNameEx.c)
- *     ObReferenceObjectByName @ 0x1408F2260 (ObReferenceObjectByName.c)
+ *     AlpcpCreateClientPort @ 0x1408F0020 (AlpcpCreateClientPort.c)
+ *     ObReferenceObjectByNameEx @ 0x1408F238C (ObReferenceObjectByNameEx.c)
+ *     ObReferenceObjectByName @ 0x1408F8820 (ObReferenceObjectByName.c)
  * Callees:
- *     SeAccessCheck @ 0x1402B6340 (SeAccessCheck.c)
- *     SeLockSubjectContext @ 0x1408EE720 (SeLockSubjectContext.c)
- *     SeUnlockSubjectContext @ 0x1408EE780 (SeUnlockSubjectContext.c)
- *     ObpGetObjectSecurity @ 0x1408EF250 (ObpGetObjectSecurity.c)
- *     ObDereferenceSecurityDescriptor @ 0x140931DF0 (ObDereferenceSecurityDescriptor.c)
- *     SepAdtAuditThisEventWithContext @ 0x140932EA0 (SepAdtAuditThisEventWithContext.c)
- *     SeExamineSacl @ 0x1409F8430 (SeExamineSacl.c)
- *     SeExamineGlobalSacl @ 0x1409F8758 (SeExamineGlobalSacl.c)
- *     SepAdtObjectReferenceAuditAlarm @ 0x140B4FC88 (SepAdtObjectReferenceAuditAlarm.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     SeAccessCheck @ 0x140301000 (SeAccessCheck.c)
+ *     SeLockSubjectContext @ 0x1408F4CE0 (SeLockSubjectContext.c)
+ *     SeUnlockSubjectContext @ 0x1408F4D40 (SeUnlockSubjectContext.c)
+ *     ObpGetObjectSecurity @ 0x1408F5810 (ObpGetObjectSecurity.c)
+ *     ObDereferenceSecurityDescriptor @ 0x14090D9C0 (ObDereferenceSecurityDescriptor.c)
+ *     SepAdtAuditThisEventWithContext @ 0x14090EA50 (SepAdtAuditThisEventWithContext.c)
+ *     SeExamineSacl @ 0x140A60F70 (SeExamineSacl.c)
+ *     SeExamineGlobalSacl @ 0x140A61298 (SeExamineGlobalSacl.c)
+ *     SepAdtObjectReferenceAuditAlarm @ 0x140B52518 (SepAdtObjectReferenceAuditAlarm.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 BOOLEAN __fastcall ObpCheckObjectReference(__int64 a1, __int64 a2, BOOLEAN a3, __int64 a4, PNTSTATUS AccessStatus)

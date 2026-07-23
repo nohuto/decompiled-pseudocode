@@ -1,18 +1,18 @@
 /*
- * XREFs of HalpMcaReadError @ 0x140453B40
+ * XREFs of HalpMcaReadError @ 0x14044BC70
  * Callers:
- *     HalpCmcPollProcessor @ 0x140453548 (HalpCmcPollProcessor.c)
- *     HalpMceHandlerCore @ 0x14057B360 (HalpMceHandlerCore.c)
- *     HalpHandlePreviousMcaErrorsOnProcessor @ 0x140BE9CC8 (HalpHandlePreviousMcaErrorsOnProcessor.c)
+ *     HalpCmcPollProcessor @ 0x14044B678 (HalpCmcPollProcessor.c)
+ *     HalpMceHandlerCore @ 0x14057D890 (HalpMceHandlerCore.c)
+ *     HalpHandlePreviousMcaErrorsOnProcessor @ 0x140BEFCC8 (HalpHandlePreviousMcaErrorsOnProcessor.c)
  * Callees:
- *     HalpMcaPopulateErrorData @ 0x1404529E4 (HalpMcaPopulateErrorData.c)
- *     HalpWheaWriteMsrStatus @ 0x14045318C (HalpWheaWriteMsrStatus.c)
- *     HalpMcaStuckErrorCheck @ 0x1404531D8 (HalpMcaStuckErrorCheck.c)
- *     HalpGetCpuVendor @ 0x140453A00 (HalpGetCpuVendor.c)
- *     HalpMcaReadErrorUncorrectedAMD @ 0x14057E848 (HalpMcaReadErrorUncorrectedAMD.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     HalpMcaPopulateErrorData @ 0x14044AB14 (HalpMcaPopulateErrorData.c)
+ *     HalpWheaWriteMsrStatus @ 0x14044B2BC (HalpWheaWriteMsrStatus.c)
+ *     HalpMcaStuckErrorCheck @ 0x14044B308 (HalpMcaStuckErrorCheck.c)
+ *     HalpGetCpuVendor @ 0x14044BB30 (HalpGetCpuVendor.c)
+ *     HalpMcaReadErrorUncorrectedAMD @ 0x140580D68 (HalpMcaReadErrorUncorrectedAMD.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall HalpMcaReadError(int a1, void *a2, int *a3, __int64 a4, __int64 a5)

@@ -10,7 +10,13 @@
  *     DifGetReturnAddressForWrappers @ 0x1405F8954 (DifGetReturnAddressForWrappers.c)
  */
 
-__int64 __fastcall DifZwAdjustPrivilegesTokenWrapper(__int64 a1, char a2, __int64 a3, int a4, __int64 a5, __int64 a6)
+NTSTATUS __fastcall DifZwAdjustPrivilegesTokenWrapper(
+        HANDLE TokenHandle,
+        BOOLEAN a2,
+        struct _TOKEN_PRIVILEGES *a3,
+        ULONG a4,
+        PTOKEN_PRIVILEGES PreviousState,
+        PULONG ReturnLength)
 {
   __int64 v10; // rdx
   __int64 v11; // rcx
@@ -20,7 +26,7 @@ __int64 __fastcall DifZwAdjustPrivilegesTokenWrapper(__int64 a1, char a2, __int6
   int v15; // eax
   __int64 ReturnAddressForWrappers; // rax
   __int64 *i; // rbx
-  __int64 result; // rax
+  NTSTATUS result; // eax
   _QWORD **v19; // rdi
   _QWORD *v20; // rbx
   _QWORD v21[8]; // [rsp+30h] [rbp-40h] BYREF
@@ -54,9 +60,9 @@ LABEL_8:
   }
   v21[0] = 0LL;
 LABEL_10:
-  v21[2] = a5;
-  v21[1] = a6;
-  v21[6] = a1;
+  v21[2] = PreviousState;
+  v21[1] = ReturnLength;
+  v21[6] = TokenHandle;
   LOBYTE(v21[5]) = a2;
   v21[4] = a3;
   LODWORD(v21[3]) = a4;
@@ -66,8 +72,7 @@ LABEL_10:
       ((void (__fastcall *)(_QWORD *))*(i - 1))(v21);
   }
 LABEL_17:
-  LOBYTE(v10) = a2;
-  result = ZwAdjustPrivilegesToken(a1, v10);
+  result = ZwAdjustPrivilegesToken(TokenHandle, a2, a3, a4, PreviousState, ReturnLength);
   LODWORD(v21[7]) = result;
   if ( APIThunkContextById )
   {
@@ -82,7 +87,7 @@ LABEL_17:
         v20 = (_QWORD *)*v20;
       }
       while ( v20 != v19 );
-      return LODWORD(v21[7]);
+      return v21[7];
     }
   }
   return result;

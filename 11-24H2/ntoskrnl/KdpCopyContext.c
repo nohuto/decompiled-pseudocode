@@ -1,14 +1,14 @@
 /*
- * XREFs of KdpCopyContext @ 0x140B751E8
+ * XREFs of KdpCopyContext @ 0x140B771E8
  * Callers:
- *     KdpReport @ 0x1404D5270 (KdpReport.c)
- *     KdpSetContextEx @ 0x1405AFD64 (KdpSetContextEx.c)
- *     KdpGetContext @ 0x140B772F8 (KdpGetContext.c)
- *     KdpSetContext @ 0x140B78424 (KdpSetContext.c)
- *     KdpCommandString @ 0x140B78E2C (KdpCommandString.c)
- *     KdpSymbol @ 0x140B79220 (KdpSymbol.c)
+ *     KdpReport @ 0x1404CE548 (KdpReport.c)
+ *     KdpSetContextEx @ 0x1405ACCD4 (KdpSetContextEx.c)
+ *     KdpGetContext @ 0x140B792F8 (KdpGetContext.c)
+ *     KdpSetContext @ 0x140B7A424 (KdpSetContext.c)
+ *     KdpCommandString @ 0x140B7AE2C (KdpCommandString.c)
+ *     KdpSymbol @ 0x140B7B220 (KdpSymbol.c)
  * Callees:
- *     KdpQuickMoveMemory @ 0x140B75490 (KdpQuickMoveMemory.c)
+ *     KdpQuickMoveMemory @ 0x140B77490 (KdpQuickMoveMemory.c)
  */
 
 __int64 __fastcall KdpCopyContext(char *a1, int a2, _BYTE *a3)

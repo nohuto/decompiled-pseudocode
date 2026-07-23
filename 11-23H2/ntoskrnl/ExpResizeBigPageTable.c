@@ -1,17 +1,17 @@
 /*
- * XREFs of ExpResizeBigPageTable @ 0x1403B985C
+ * XREFs of ExpResizeBigPageTable @ 0x1403B9A3C
  * Callers:
- *     ExpAddTagForBigPages @ 0x140331B30 (ExpAddTagForBigPages.c)
+ *     ExpAddTagForBigPages @ 0x140331DC0 (ExpAddTagForBigPages.c)
  * Callees:
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
- *     ExpPlFindLimitEntry @ 0x14035CF38 (ExpPlFindLimitEntry.c)
- *     ExAllocateHeapPages @ 0x1403B9BBC (ExAllocateHeapPages.c)
- *     ExpPoolTrackerChargeEntry @ 0x1403BA6FC (ExpPoolTrackerChargeEntry.c)
- *     memset @ 0x140435A00 (memset.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     EtwTracePool @ 0x1405FD190 (EtwTracePool.c)
- *     ExpInsertPoolTrackerExpansion @ 0x140607B38 (ExpInsertPoolTrackerExpansion.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402610F0 (KeAcquireInStackQueuedSpinLock.c)
+ *     ExpPlFindLimitEntry @ 0x14035D0D8 (ExpPlFindLimitEntry.c)
+ *     ExAllocateHeapPages @ 0x1403B9D9C (ExAllocateHeapPages.c)
+ *     ExpPoolTrackerChargeEntry @ 0x1403BA8DC (ExpPoolTrackerChargeEntry.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     EtwTracePool @ 0x1405FD700 (EtwTracePool.c)
+ *     ExpInsertPoolTrackerExpansion @ 0x140608088 (ExpInsertPoolTrackerExpansion.c)
  */
 
 __int64 __fastcall ExpResizeBigPageTable(__int64 a1, __int64 a2, _QWORD *a3)
@@ -183,10 +183,13 @@ __int64 __fastcall ExpResizeBigPageTable(__int64 a1, __int64 a2, _QWORD *a3)
         }
         KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
         OldIrql = LockHandle.OldIrql;
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           CurrentIrql = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+            && CurrentIrql <= 0xFu
+            && LockHandle.OldIrql <= 0xFu
+            && CurrentIrql >= 2u )
           {
             CurrentPrcb = KeGetCurrentPrcb();
             SchedulerAssist = CurrentPrcb->SchedulerAssist;

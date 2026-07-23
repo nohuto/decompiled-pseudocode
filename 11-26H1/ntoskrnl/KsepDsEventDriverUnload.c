@@ -1,12 +1,12 @@
 /*
- * XREFs of KsepDsEventDriverUnload @ 0x1405FF100
+ * XREFs of KsepDsEventDriverUnload @ 0x140601B50
  * Callers:
- *     KseDsCallbackHookDriverUnload @ 0x1405FE4A0 (KseDsCallbackHookDriverUnload.c)
- *     KseDsHookDriverUntargeted @ 0x1405FE850 (KseDsHookDriverUntargeted.c)
+ *     KseDsCallbackHookDriverUnload @ 0x140600EF0 (KseDsCallbackHookDriverUnload.c)
+ *     KseDsHookDriverUntargeted @ 0x1406012A0 (KseDsHookDriverUntargeted.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void __fastcall KsepDsEventDriverUnload(__int64 a1, __int64 a2)
@@ -19,15 +19,15 @@ void __fastcall KsepDsEventDriverUnload(__int64 a1, __int64 a2)
 
   v6 = a2;
   v5 = a1;
-  if ( stru_140E66B30.StackLimit )
+  if ( stru_140E66D40.StackLimit )
   {
-    if ( EtwEventEnabled((REGHANDLE)stru_140E66B30.StackLimit, &KseDsEventDriverUnload) )
+    if ( EtwEventEnabled((REGHANDLE)stru_140E66D40.StackLimit, &KseDsEventDriverUnload) )
     {
       UserData.Ptr = (ULONGLONG)&v5;
       *(_QWORD *)&UserData.Size = 8LL;
       v3 = &v6;
       v4 = 8LL;
-      EtwWriteEx((REGHANDLE)stru_140E66B30.StackLimit, &KseDsEventDriverUnload, 0LL, 0, 0LL, 0LL, 2u, &UserData);
+      EtwWriteEx((REGHANDLE)stru_140E66D40.StackLimit, &KseDsEventDriverUnload, 0LL, 0, 0LL, 0LL, 2u, &UserData);
     }
   }
 }

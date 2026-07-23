@@ -1,11 +1,11 @@
 /*
- * XREFs of MiInsertNumaStandbyPage @ 0x1402C03F4
+ * XREFs of MiInsertNumaStandbyPage @ 0x1402C05E4
  * Callers:
- *     MiReplaceNumaStandbyPage @ 0x1401189EC (MiReplaceNumaStandbyPage.c)
- *     MiSwapNumaStandbyPage @ 0x1402C1010 (MiSwapNumaStandbyPage.c)
+ *     MiReplaceNumaStandbyPage @ 0x140118A5C (MiReplaceNumaStandbyPage.c)
+ *     MiSwapNumaStandbyPage @ 0x1402C1200 (MiSwapNumaStandbyPage.c)
  * Callees:
- *     MiGetPfnPriority @ 0x140082B70 (MiGetPfnPriority.c)
- *     MiSetPfnNodeBlinkHigh @ 0x140118BBC (MiSetPfnNodeBlinkHigh.c)
+ *     MiGetPfnPriority @ 0x140082B60 (MiGetPfnPriority.c)
+ *     MiSetPfnNodeBlinkHigh @ 0x140118C2C (MiSetPfnNodeBlinkHigh.c)
  */
 
 unsigned __int64 __fastcall MiInsertNumaStandbyPage(__int64 a1)
@@ -25,7 +25,7 @@ unsigned __int64 __fastcall MiInsertNumaStandbyPage(__int64 a1)
   v1 = (a1 + 0x58000000000LL) / 48;
   PfnPriority = MiGetPfnPriority(a1);
   v6 = 1984 * (v5 >> 58);
-  v7 = *(_QWORD *)(*(_QWORD *)(qword_14043A748 + 8 * ((v5 >> 40) & 0x3FF)) + 16LL)
+  v7 = *(_QWORD *)(*(_QWORD *)(qword_14043B808 + 8 * ((v5 >> 40) & 0x3FF)) + 16LL)
      + 24 * (PfnPriority + 8 * ((v5 >> 36) & 3));
   ++*(_QWORD *)(v7 + v6 + 856);
   v8 = *(_QWORD *)(v7 + v6 + 872);

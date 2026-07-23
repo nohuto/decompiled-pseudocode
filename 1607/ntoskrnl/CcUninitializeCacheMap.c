@@ -1,22 +1,22 @@
 /*
- * XREFs of CcUninitializeCacheMap @ 0x1400705C0
+ * XREFs of CcUninitializeCacheMap @ 0x140070140
  * Callers:
- *     CcPurgeCacheSection @ 0x140072920 (CcPurgeCacheSection.c)
+ *     CcPurgeCacheSection @ 0x1400724A0 (CcPurgeCacheSection.c)
  * Callees:
- *     IoDiskIoAttributionDereference @ 0x14001F3AC (IoDiskIoAttributionDereference.c)
- *     KeSetEvent @ 0x1400562D0 (KeSetEvent.c)
- *     KxReleaseQueuedSpinLock @ 0x140069570 (KxReleaseQueuedSpinLock.c)
- *     ObfDereferenceObjectWithTag @ 0x14006ACD0 (ObfDereferenceObjectWithTag.c)
- *     KeAcquireQueuedSpinLockAtDpcLevel @ 0x14006E6C0 (KeAcquireQueuedSpinLockAtDpcLevel.c)
- *     CcAdjustWriteBehindThreadPoolIfNeeded @ 0x14006FC80 (CcAdjustWriteBehindThreadPoolIfNeeded.c)
- *     KxAcquireQueuedSpinLock @ 0x1400708F8 (KxAcquireQueuedSpinLock.c)
- *     CcScheduleLazyWriteScan @ 0x14007091C (CcScheduleLazyWriteScan.c)
- *     CcInsertIntoDirtySharedCacheMapList @ 0x1400709A0 (CcInsertIntoDirtySharedCacheMapList.c)
- *     CcPurgeCacheSection @ 0x140072920 (CcPurgeCacheSection.c)
- *     CcDeleteSharedCacheMap @ 0x1400CCD34 (CcDeleteSharedCacheMap.c)
- *     KeReleaseQueuedSpinLock @ 0x1400E8DA0 (KeReleaseQueuedSpinLock.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     RtlpInterlockedPushEntrySList @ 0x140166E40 (RtlpInterlockedPushEntrySList.c)
+ *     IoDiskIoAttributionDereference @ 0x14001EF2C (IoDiskIoAttributionDereference.c)
+ *     KeSetEvent @ 0x140055E50 (KeSetEvent.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400690F0 (KxReleaseQueuedSpinLock.c)
+ *     ObfDereferenceObjectWithTag @ 0x14006A850 (ObfDereferenceObjectWithTag.c)
+ *     KeAcquireQueuedSpinLockAtDpcLevel @ 0x14006E240 (KeAcquireQueuedSpinLockAtDpcLevel.c)
+ *     CcAdjustWriteBehindThreadPoolIfNeeded @ 0x14006F800 (CcAdjustWriteBehindThreadPoolIfNeeded.c)
+ *     KxAcquireQueuedSpinLock @ 0x140070478 (KxAcquireQueuedSpinLock.c)
+ *     CcScheduleLazyWriteScan @ 0x14007049C (CcScheduleLazyWriteScan.c)
+ *     CcInsertIntoDirtySharedCacheMapList @ 0x140070520 (CcInsertIntoDirtySharedCacheMapList.c)
+ *     CcPurgeCacheSection @ 0x1400724A0 (CcPurgeCacheSection.c)
+ *     CcDeleteSharedCacheMap @ 0x1400CABD4 (CcDeleteSharedCacheMap.c)
+ *     KeReleaseQueuedSpinLock @ 0x1400E6C40 (KeReleaseQueuedSpinLock.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1401673B0 (RtlpInterlockedPushEntrySList.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  */
 
@@ -123,7 +123,7 @@ BOOLEAN __stdcall CcUninitializeCacheMap(
         if ( (v14 & 0x20) != 0 )
         {
 LABEL_19:
-          byte_1403231C1 = 1;
+          byte_1403231E1 = 1;
           if ( !UninitializeEvent || (*((_DWORD *)SharedCacheMap + 38) & 0x20) != 0 )
             QuadPart = 0LL;
           else

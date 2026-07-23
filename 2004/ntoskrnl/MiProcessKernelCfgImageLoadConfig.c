@@ -12,23 +12,20 @@
 
 __int64 __fastcall MiProcessKernelCfgImageLoadConfig(__int64 a1, __int64 a2)
 {
-  __int64 v2; // rsi
-  __int64 v5; // rax
+  _QWORD *v5; // rax
   __int64 v6; // rbx
   void (__fastcall **v7)(uintptr_t); // r14
   _QWORD *v8; // r14
-  int v9; // [rsp+40h] [rbp+18h] BYREF
+  ULONG Size; // [rsp+40h] [rbp+18h] BYREF
 
-  v9 = 0;
-  v2 = a2;
+  Size = 0;
   if ( (MiFlags & 0x80000) == 0 )
     return 0LL;
-  LOBYTE(a2) = 1;
-  v5 = RtlImageDirectoryEntryToData(*(_QWORD *)(a1 + 48), a2, 10, (int)&v9);
-  v6 = v5;
+  v5 = RtlImageDirectoryEntryToData(*(PVOID *)(a1 + 48), 1u, 0xAu, &Size);
+  v6 = (__int64)v5;
   if ( !v5 )
     return 0LL;
-  if ( *(_DWORD *)v5 < 0x78u || (v7 = *(void (__fastcall ***)(uintptr_t))(v5 + 112)) == 0LL )
+  if ( *(_DWORD *)v5 < 0x78u || (v7 = (void (__fastcall **)(uintptr_t))v5[14]) == 0LL )
   {
 LABEL_14:
     if ( *(_DWORD *)v6 >= 0x80u )
@@ -36,14 +33,14 @@ LABEL_14:
       v8 = *(_QWORD **)(v6 + 120);
       if ( v8 )
       {
-        if ( v2 && !(unsigned int)MiSetImageProtection(a1, *(_QWORD *)(v6 + 120), 8u, 4u) )
+        if ( a2 && !(unsigned int)MiSetImageProtection(a1, *(_QWORD *)(v6 + 120), 8u, 4u) )
         {
           MiLogStrongCodeDriverLoadFailure("CfgUnwritableLoadConfig");
           dword_140C4CA18 = 104;
           return 3221225595LL;
         }
         *v8 = &guard_dispatch_icall;
-        if ( v2 && *(_QWORD *)(v2 + 16) )
+        if ( a2 && *(_QWORD *)(a2 + 16) )
           MiSetImageProtection(a1, (unsigned __int64)v8, 8u, 0x100u);
       }
     }
@@ -54,10 +51,10 @@ LABEL_14:
     }
     return 0LL;
   }
-  if ( !v2 || (unsigned int)MiSetImageProtection(a1, *(_QWORD *)(v5 + 112), 8u, 4u) )
+  if ( !a2 || (unsigned int)MiSetImageProtection(a1, v5[14], 8u, 4u) )
   {
     *v7 = guard_check_icall;
-    if ( v2 && *(_QWORD *)(v2 + 16) )
+    if ( a2 && *(_QWORD *)(a2 + 16) )
       MiSetImageProtection(a1, (unsigned __int64)v7, 8u, 0x100u);
     goto LABEL_14;
   }

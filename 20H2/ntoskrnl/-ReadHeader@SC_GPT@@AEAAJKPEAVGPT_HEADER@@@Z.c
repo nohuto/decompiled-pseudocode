@@ -16,7 +16,7 @@ __int64 __fastcall SC_GPT::ReadHeader(SC_DISK **this, int a2, struct GPT_HEADER 
   int Sectors; // esi
   int v8; // ebp
   int v9; // ebx
-  int v10; // eax
+  ULONG32 v10; // eax
 
   v4 = *this;
   if ( a2 )
@@ -37,7 +37,7 @@ __int64 __fastcall SC_GPT::ReadHeader(SC_DISK **this, int a2, struct GPT_HEADER 
       {
         v9 = *((_DWORD *)a3 + 4);
         *((_DWORD *)a3 + 4) = 0;
-        v10 = RtlComputeCrc32(0, (char *)a3, 0x5Cu);
+        v10 = RtlComputeCrc32(0, a3, 0x5Cu);
         *((_DWORD *)a3 + 4) = v9;
         if ( v10 == v9 )
           return *((_QWORD *)a3 + 5) < (unsigned __int64)(((((v8 << 7) + *((_DWORD *)*this + 57) - 1) & (unsigned int)-*((_DWORD *)*this + 57)) >> *((_DWORD *)*this + 58))

@@ -1,6 +1,0 @@
-[EXCEPTION] RtlInitializeHeapLogging @ 0x1800098D0: Hex-Rays returned no pseudocode for 0x1800098D0
-[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x1800098D0'), <traceback object at 0x0000026006CC36C0>)
-
-[EXCEPTION] TppCritResetThread @ 0x18007EEC0: Hex-Rays returned no pseudocode for 0x18007EEC0
-[Exception info] (<class 'RuntimeError'>, RuntimeError('Hex-Rays returned no pseudocode for 0x18007EEC0'), <traceback object at 0x0000026006D5AC80>)
-

@@ -1,9 +1,9 @@
 /*
- * XREFs of _wcsset_s @ 0x14014D9E0
+ * XREFs of _wcsset_s @ 0x14014DF50
  * Callers:
  *     <none>
  * Callees:
- *     xHalFreeMessageTarget @ 0x140130D64 (xHalFreeMessageTarget.c)
+ *     xHalFreeMessageTarget @ 0x1401312D4 (xHalFreeMessageTarget.c)
  */
 
 errno_t __cdecl wcsset_s(wchar_t *Dst, size_t SizeInWords, wchar_t Value)

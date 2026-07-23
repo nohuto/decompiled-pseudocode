@@ -1,25 +1,21 @@
 /*
- * XREFs of WbProcessStartup @ 0x1406C3058
+ * XREFs of WbProcessStartup @ 0x140621D08
  * Callers:
- *     WbDispatchOperation @ 0x14064EE24 (WbDispatchOperation.c)
+ *     WbDispatchOperation @ 0x140643C44 (WbDispatchOperation.c)
  * Callees:
- *     WbAlloc @ 0x14064DC04 (WbAlloc.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     WbAlloc @ 0x140642A24 (WbAlloc.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall WbProcessStartup(__int64 a1, _QWORD *a2, unsigned int a3)
 {
   int v5; // ebx
   unsigned __int64 v6; // rax
-  PVOID v7; // rcx
-  unsigned int v8; // ecx
-  int v9; // eax
-  PVOID P; // [rsp+58h] [rbp+20h] BYREF
+  int v7; // eax
 
-  P = 0LL;
   if ( a3 >= 0x10 && *a2 == 8LL )
   {
-    v5 = WbAlloc(0x18uLL, &P);
+    v5 = WbAlloc(0x18uLL);
     if ( v5 >= 0 )
     {
       v6 = a2[1];
@@ -28,28 +24,24 @@ __int64 __fastcall WbProcessStartup(__int64 a1, _QWORD *a2, unsigned int a3)
         MEMORY[0x7FFFFFFF0000] = 0;
         v6 = a2[1];
       }
-      v7 = P;
-      *(_OWORD *)P = *(_OWORD *)v6;
-      *((_QWORD *)v7 + 2) = *(_QWORD *)(v6 + 16);
-      if ( *(_DWORD *)v7 )
+      MEMORY[0] = *(_OWORD *)v6;
+      MEMORY[0x10] = *(_QWORD *)(v6 + 16);
+      if ( MEMORY[0] )
       {
-        v5 = -1073741811;
+        return (unsigned int)-1073741811;
       }
       else if ( *(_DWORD *)(a1 + 56) )
       {
-        v8 = *((_DWORD *)v7 + 1);
-        v9 = 60;
-        if ( v8 < 0x3C )
-          v9 = v8;
-        *(_DWORD *)(a1 + 56) = v9;
+        v7 = 60;
+        if ( MEMORY[4] < 0x3Cu )
+          v7 = MEMORY[4];
+        *(_DWORD *)(a1 + 56) = v7;
       }
     }
   }
   else
   {
-    v5 = -1073741811;
+    return (unsigned int)-1073741811;
   }
-  if ( P )
-    ExFreePoolWithTag(P, 0x42524157u);
   return (unsigned int)v5;
 }

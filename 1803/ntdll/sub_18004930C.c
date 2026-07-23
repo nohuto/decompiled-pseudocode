@@ -8,14 +8,10 @@
  *     RtlUnlockModuleSection @ 0x180048D60 (RtlUnlockModuleSection.c)
  */
 
-signed __int64 __fastcall sub_18004930C(__int64 a1, unsigned __int64 a2, unsigned __int64 *a3, __int64 a4)
+void sub_18004930C()
 {
-  unsigned __int64 v4; // rdx
-  unsigned __int64 *v5; // r8
-  __int64 v6; // r9
-
-  RtlAcquireSRWLockExclusive((unsigned __int64)&qword_18015D2A8, a2, a3, a4);
+  RtlAcquireSRWLockExclusive(&stru_18015D2A8);
   if ( !--dword_18015CFFC )
-    RtlUnlockModuleSection((__int64)RtlAllocateMemoryZone, v4, v5, v6);
-  return RtlReleaseSRWLockExclusive(&qword_18015D2A8);
+    RtlUnlockModuleSection(RtlAllocateMemoryZone);
+  RtlReleaseSRWLockExclusive(&stru_18015D2A8);
 }

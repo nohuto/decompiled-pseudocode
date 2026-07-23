@@ -1,9 +1,9 @@
 /*
- * XREFs of Feature_HaltOnAddress_IpiLevel__private_IsEnabledFallback @ 0x140526C38
+ * XREFs of Feature_HaltOnAddress_IpiLevel__private_IsEnabledFallback @ 0x1405292A8
  * Callers:
- *     Feature_HaltOnAddress_IpiLevel__private_IsEnabledDeviceUsageNoInline @ 0x140526BFC (Feature_HaltOnAddress_IpiLevel__private_IsEnabledDeviceUsageNoInline.c)
+ *     Feature_HaltOnAddress_IpiLevel__private_IsEnabledDeviceUsageNoInline @ 0x14052926C (Feature_HaltOnAddress_IpiLevel__private_IsEnabledDeviceUsageNoInline.c)
  * Callees:
- *     wil_details_IsEnabledFallback @ 0x1405016DC (wil_details_IsEnabledFallback.c)
+ *     wil_details_IsEnabledFallback @ 0x1404FAECC (wil_details_IsEnabledFallback.c)
  */
 
 __int64 __fastcall Feature_HaltOnAddress_IpiLevel__private_IsEnabledFallback(__int64 a1, unsigned int a2)

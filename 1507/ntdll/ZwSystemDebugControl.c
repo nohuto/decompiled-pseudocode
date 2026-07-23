@@ -6,11 +6,17 @@
  *     <none>
  */
 
-__int64 ZwSystemDebugControl()
+NTSTATUS __cdecl ZwSystemDebugControl(
+        SYSDBG_COMMAND Command,
+        PVOID InputBuffer,
+        ULONG InputBufferLength,
+        PVOID OutputBuffer,
+        ULONG OutputBufferLength,
+        PULONG ReturnLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 417LL;
+  result = 417;
   __asm { syscall; Low latency system call }
   return result;
 }

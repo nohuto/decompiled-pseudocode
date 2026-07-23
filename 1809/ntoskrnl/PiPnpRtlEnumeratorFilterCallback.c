@@ -1,12 +1,12 @@
 /*
- * XREFs of PiPnpRtlEnumeratorFilterCallback @ 0x1406F9600
+ * XREFs of PiPnpRtlEnumeratorFilterCallback @ 0x1406FA8A0
  * Callers:
  *     <none>
  * Callees:
  *     RtlInitUnicodeStringEx @ 0x140015EB0 (RtlInitUnicodeStringEx.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     RtlPrefixUnicodeString @ 0x1405C7460 (RtlPrefixUnicodeString.c)
- *     _CmIsDevicePresent @ 0x14070A2E4 (_CmIsDevicePresent.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     RtlPrefixUnicodeString @ 0x1405C8460 (RtlPrefixUnicodeString.c)
+ *     _CmIsDevicePresent @ 0x14070B584 (_CmIsDevicePresent.c)
  */
 
 char __fastcall PiPnpRtlEnumeratorFilterCallback(__int64 a1, const WCHAR *a2, unsigned int a3, __int64 a4)

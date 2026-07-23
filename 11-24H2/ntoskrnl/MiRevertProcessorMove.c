@@ -1,16 +1,16 @@
 /*
- * XREFs of MiRevertProcessorMove @ 0x14030AAFC
+ * XREFs of MiRevertProcessorMove @ 0x1403149DC
  * Callers:
- *     MiZeroInParallelWorker @ 0x14030A090 (MiZeroInParallelWorker.c)
- *     MiZeroHugeRangeWorker @ 0x140686090 (MiZeroHugeRangeWorker.c)
+ *     MiZeroInParallelWorker @ 0x140313F70 (MiZeroInParallelWorker.c)
+ *     MiZeroHugeRangeWorker @ 0x1406871C0 (MiZeroHugeRangeWorker.c)
  * Callees:
- *     PsDereferencePartition @ 0x140275E60 (PsDereferencePartition.c)
- *     KeSetIdealProcessorThreadEx @ 0x1403B422C (KeSetIdealProcessorThreadEx.c)
- *     MiDeleteAcceleratorDescriptor @ 0x140415BB8 (MiDeleteAcceleratorDescriptor.c)
- *     MiDereferencePageChains @ 0x140491294 (MiDereferencePageChains.c)
+ *     PsDereferencePartition @ 0x14022B3F0 (PsDereferencePartition.c)
+ *     MiDereferencePageChains @ 0x140270AC0 (MiDereferencePageChains.c)
+ *     MiDeleteAcceleratorDescriptor @ 0x140271A18 (MiDeleteAcceleratorDescriptor.c)
+ *     KeSetIdealProcessorThreadEx @ 0x140370A64 (KeSetIdealProcessorThreadEx.c)
  */
 
-__int64 __fastcall MiRevertProcessorMove(__int64 a1)
+void __fastcall MiRevertProcessorMove(__int64 a1)
 {
   __int64 v2; // rcx
   unsigned int v3; // edx
@@ -25,5 +25,5 @@ __int64 __fastcall MiRevertProcessorMove(__int64 a1)
   v4 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(a1 + 24) + 32LL) + 8LL);
   if ( v4 )
     PsDereferencePartition(v4);
-  return MiDereferencePageChains(*(_QWORD *)(*(_QWORD *)(a1 + 24) + 32LL));
+  MiDereferencePageChains(*(volatile signed __int32 **)(*(_QWORD *)(a1 + 24) + 32LL));
 }

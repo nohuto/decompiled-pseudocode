@@ -1,19 +1,19 @@
 /*
- * XREFs of MiInitializePhysicalMemoryBlocks @ 0x140CF36E4
+ * XREFs of MiInitializePhysicalMemoryBlocks @ 0x140CF9A64
  * Callers:
- *     MiInitNucleus @ 0x140CF2CBC (MiInitNucleus.c)
+ *     MiInitNucleus @ 0x140CF903C (MiInitNucleus.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x14021C3F0 (KeQueryPerformanceCounter.c)
- *     RtlRaiseStatus @ 0x1402E84A0 (RtlRaiseStatus.c)
- *     MxInstallMoreMemory @ 0x1406E73E8 (MxInstallMoreMemory.c)
- *     MiComputeNodeMemory @ 0x1406E7EF4 (MiComputeNodeMemory.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     MiConvertInitialMemoryBlock @ 0x140865D74 (MiConvertInitialMemoryBlock.c)
- *     MiCreateNodeLists @ 0x140866094 (MiCreateNodeLists.c)
- *     MiCreatePfnBitMaps @ 0x140879CE0 (MiCreatePfnBitMaps.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
- *     MiMarkLargePageRanges @ 0x140CF3BAC (MiMarkLargePageRanges.c)
- *     MmInitializeMemoryLimits @ 0x140CFB3A8 (MmInitializeMemoryLimits.c)
+ *     KeQueryPerformanceCounter @ 0x14021DD80 (KeQueryPerformanceCounter.c)
+ *     RtlRaiseStatus @ 0x1402CA4E0 (RtlRaiseStatus.c)
+ *     MxInstallMoreMemory @ 0x1406EC098 (MxInstallMoreMemory.c)
+ *     MiComputeNodeMemory @ 0x1406ECB90 (MiComputeNodeMemory.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     MiConvertInitialMemoryBlock @ 0x14086C154 (MiConvertInitialMemoryBlock.c)
+ *     MiCreateNodeLists @ 0x14086C474 (MiCreateNodeLists.c)
+ *     MiCreatePfnBitMaps @ 0x1408800DC (MiCreatePfnBitMaps.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
+ *     MiMarkLargePageRanges @ 0x140CF9F2C (MiMarkLargePageRanges.c)
+ *     MmInitializeMemoryLimits @ 0x140D01728 (MmInitializeMemoryLimits.c)
  */
 
 LARGE_INTEGER __fastcall MiInitializePhysicalMemoryBlocks(__int64 a1)
@@ -50,20 +50,20 @@ LARGE_INTEGER __fastcall MiInitializePhysicalMemoryBlocks(__int64 a1)
     MxInstallMoreMemory(17);
   v8 = (void *)MiConvertInitialMemoryBlock((__int64)&MiSystemPartition, v6);
   ExFreePoolWithTag(v7, 0);
-  qword_140E37CE0 = MiCreateNodeLists((__int64)&MiSystemPartition, (__int64)v8);
-  if ( !qword_140E37CE0 )
+  qword_140E37E60 = MiCreateNodeLists((__int64)&MiSystemPartition, (__int64)v8);
+  if ( !qword_140E37E60 )
     MxInstallMoreMemory(19);
-  if ( ((unsigned __int8)&stru_140E2D930.QuantumTarget & 0xF) != 0 )
+  if ( ((unsigned __int8)&stru_140E2DAB0.QuantumTarget & 0xF) != 0 )
     RtlRaiseStatus(-2147483646);
-  *(_OWORD *)&stru_140E2D930.QuantumTarget = 0LL;
+  *(_OWORD *)&stru_140E2DAB0.QuantumTarget = 0LL;
   MiComputeNodeMemory(&MiSystemPartition, 1);
-  qword_140FFB998 = KeQueryPerformanceCounter(0LL).QuadPart;
+  qword_140FFC998 = KeQueryPerformanceCounter(0LL).QuadPart;
   MmPhysicalMemoryBlock = v8;
   if ( !(unsigned int)MiCreatePfnBitMaps((__int64)&MiSystemPartition, (unsigned int *)v8, v9, v10) )
     MxInstallMoreMemory(22);
-  qword_140FFB9A0 = KeQueryPerformanceCounter(0LL).QuadPart;
+  qword_140FFC9A0 = KeQueryPerformanceCounter(0LL).QuadPart;
   MiMarkLargePageRanges(a1);
   result = KeQueryPerformanceCounter(0LL);
-  qword_140FFB9A8 = result.QuadPart;
+  qword_140FFC9A8 = result.QuadPart;
   return result;
 }

@@ -13,7 +13,7 @@ NTSTATUS __stdcall NtSetInformationTransaction(
         PVOID TransactionInformation,
         ULONG TransactionInformationLength)
 {
-  return __imp_NtSetInformationTransaction(
+  return NtSetInformationTransaction_0(
            TransactionHandle,
            TransactionInformationClass,
            TransactionInformation,

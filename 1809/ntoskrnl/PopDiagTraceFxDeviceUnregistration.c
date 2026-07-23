@@ -1,12 +1,12 @@
 /*
- * XREFs of PopDiagTraceFxDeviceUnregistration @ 0x140872AD8
+ * XREFs of PopDiagTraceFxDeviceUnregistration @ 0x140873D38
  * Callers:
- *     PopFxUnregisterDevice @ 0x14086A7AC (PopFxUnregisterDevice.c)
+ *     PopFxUnregisterDevice @ 0x14086BA0C (PopFxUnregisterDevice.c)
  * Callees:
  *     EtwEventEnabled @ 0x14005B2D0 (EtwEventEnabled.c)
- *     EtwWrite @ 0x1400CAD20 (EtwWrite.c)
- *     PopFxAddLogEntry @ 0x1400FE804 (PopFxAddLogEntry.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     EtwWrite @ 0x1400CAE00 (EtwWrite.c)
+ *     PopFxAddLogEntry @ 0x1400FE884 (PopFxAddLogEntry.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 void __fastcall PopDiagTraceFxDeviceUnregistration(__int64 a1)

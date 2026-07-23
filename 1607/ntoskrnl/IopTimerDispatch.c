@@ -3,13 +3,13 @@
  * Callers:
  *     <none>
  * Callees:
- *     EtwGetKernelTraceTimestamp @ 0x140059D50 (EtwGetKernelTraceTimestamp.c)
- *     EtwTraceTimedEvent @ 0x14009E50C (EtwTraceTimedEvent.c)
- *     KeReleaseSpinLock @ 0x1400E9A70 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1400EFE30 (KeAcquireSpinLockRaiseToDpc.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     _local_unwind @ 0x14014D1B0 (_local_unwind.c)
- *     KiCustomAccessRoutine1 @ 0x140168930 (KiCustomAccessRoutine1.c)
+ *     EtwGetKernelTraceTimestamp @ 0x1400598D0 (EtwGetKernelTraceTimestamp.c)
+ *     EtwTraceTimedEvent @ 0x14009DEB8 (EtwTraceTimedEvent.c)
+ *     KeReleaseSpinLock @ 0x1400EB600 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1400EDCB0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     _local_unwind @ 0x14014D720 (_local_unwind.c)
+ *     KiCustomAccessRoutine1 @ 0x140168EA0 (KiCustomAccessRoutine1.c)
  */
 
 void __fastcall IopTimerDispatch(__int64 a1, __int64 a2, __int64 a3, unsigned __int64 a4)

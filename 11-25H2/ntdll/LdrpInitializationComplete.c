@@ -10,17 +10,17 @@
  *     ZwSetEvent @ 0x1801633E0 (ZwSetEvent.c)
  */
 
-struct _PEB *__fastcall LdrpInitializationComplete(volatile signed __int32 *a1, _QWORD *a2, __int16 a3)
+int __fastcall LdrpInitializationComplete(volatile signed __int32 *a1, HANDLE *a2, __int16 a3)
 {
-  struct _PEB *result; // rax
+  struct _PEB *v6; // rax
   __int64 v7; // r9
   __int64 v8; // rcx
 
-  result = (struct _PEB *)RtlGetCurrentServiceSessionId();
-  if ( (_DWORD)result )
+  LODWORD(v6) = RtlGetCurrentServiceSessionId();
+  if ( (_DWORD)v6 )
   {
-    result = NtCurrentPeb();
-    v7 = (__int64)result->SharedData + 554;
+    v6 = NtCurrentPeb();
+    v7 = (__int64)v6->SharedData + 554;
   }
   else
   {
@@ -28,25 +28,25 @@ struct _PEB *__fastcall LdrpInitializationComplete(volatile signed __int32 *a1, 
   }
   if ( *(_BYTE *)v7 )
   {
-    result = NtCurrentPeb();
-    if ( (result->TracingFlags & 4) != 0 )
+    v6 = NtCurrentPeb();
+    if ( (v6->TracingFlags & 4) != 0 )
     {
-      result = (struct _PEB *)RtlGetCurrentServiceSessionId();
-      if ( (_DWORD)result )
+      LODWORD(v6) = RtlGetCurrentServiceSessionId();
+      if ( (_DWORD)v6 )
       {
-        result = NtCurrentPeb();
-        v8 = (__int64)result->SharedData + 555;
+        v6 = NtCurrentPeb();
+        v8 = (__int64)v6->SharedData + 555;
       }
       else
       {
         v8 = 2147353477LL;
       }
       if ( (*(_BYTE *)v8 & 0x20) != 0 )
-        result = (struct _PEB *)LdrpLogEtwEvent(a3, -1LL, 255, 255, 0LL, 0LL);
+        LODWORD(v6) = LdrpLogEtwEvent(a3, -1LL, 255, 255, 0LL, 0LL);
     }
   }
   _InterlockedIncrement(a1);
   if ( *a2 )
-    return (struct _PEB *)ZwSetEvent(*a2, 0LL);
-  return result;
+    LODWORD(v6) = ZwSetEvent(*a2, 0LL);
+  return (int)v6;
 }

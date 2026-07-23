@@ -1,7 +1,7 @@
 /*
- * XREFs of MmGetSessionSchedulingGroup @ 0x1408C8C0C
+ * XREFs of MmGetSessionSchedulingGroup @ 0x1408C8D6C
  * Callers:
- *     PsSetCpuQuotaInformation @ 0x140581008 (PsSetCpuQuotaInformation.c)
+ *     PsSetCpuQuotaInformation @ 0x140581248 (PsSetCpuQuotaInformation.c)
  * Callees:
  *     <none>
  */

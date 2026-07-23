@@ -1,13 +1,13 @@
 /*
- * XREFs of PopPublishAndResetPowerRequestsCollectionStats @ 0x14087B05C
+ * XREFs of PopPublishAndResetPowerRequestsCollectionStats @ 0x14087C2BC
  * Callers:
- *     PopStatsNotifyPowerRequestCsState @ 0x14087B170 (PopStatsNotifyPowerRequestCsState.c)
+ *     PopStatsNotifyPowerRequestCsState @ 0x14087C3D0 (PopStatsNotifyPowerRequestCsState.c)
  * Callees:
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     PopDiagTraceSleepStudyBlocker @ 0x1402E1EC8 (PopDiagTraceSleepStudyBlocker.c)
- *     PoQueryStopWatchCollection @ 0x1402E9230 (PoQueryStopWatchCollection.c)
- *     PoResetStopWatchCollection @ 0x1402E9288 (PoResetStopWatchCollection.c)
- *     PopGetBlockedPhaseGuid @ 0x14087ADF4 (PopGetBlockedPhaseGuid.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     PopDiagTraceSleepStudyBlocker @ 0x1402E20B8 (PopDiagTraceSleepStudyBlocker.c)
+ *     PoQueryStopWatchCollection @ 0x1402E9420 (PoQueryStopWatchCollection.c)
+ *     PoResetStopWatchCollection @ 0x1402E9478 (PoResetStopWatchCollection.c)
+ *     PopGetBlockedPhaseGuid @ 0x14087C054 (PopGetBlockedPhaseGuid.c)
  */
 
 __int64 __fastcall PopPublishAndResetPowerRequestsCollectionStats(char a1)

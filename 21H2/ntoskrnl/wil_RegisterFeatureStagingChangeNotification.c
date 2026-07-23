@@ -1,33 +1,33 @@
 /*
  * XREFs of wil_RegisterFeatureStagingChangeNotification @ 0x1405CC564
  * Callers:
- *     CmFcInitSystem1 @ 0x140A59F60 (CmFcInitSystem1.c)
+ *     CmFcInitSystem1 @ 0x140A5AF60 (CmFcInitSystem1.c)
  * Callees:
- *     wil_details_FeatureDescriptors_SkipPadding @ 0x1403F0554 (wil_details_FeatureDescriptors_SkipPadding.c)
- *     RtlRegisterFeatureConfigurationChangeNotification @ 0x14058E160 (RtlRegisterFeatureConfigurationChangeNotification.c)
+ *     wil_details_FeatureDescriptors_SkipPadding @ 0x1403F06C4 (wil_details_FeatureDescriptors_SkipPadding.c)
+ *     RtlRegisterFeatureConfigurationChangeNotification @ 0x14058E390 (RtlRegisterFeatureConfigurationChangeNotification.c)
  */
 
-_BYTE *wil_RegisterFeatureStagingChangeNotification()
+int wil_RegisterFeatureStagingChangeNotification()
 {
-  __int64 *i; // rcx
-  _BYTE *result; // rax
+  __int64 (__fastcall **i)(); // rcx
+  __int64 (__fastcall **v1)(); // rax
 
-  for ( i = (__int64 *)&wil_details_featureDescriptors_a; ; i = (__int64 *)(result + 40) )
+  for ( i = (__int64 (__fastcall **)())&wil_details_featureDescriptors_a; ; i = v1 + 5 )
   {
-    result = wil_details_FeatureDescriptors_SkipPadding(i);
-    if ( !result )
+    v1 = wil_details_FeatureDescriptors_SkipPadding(i);
+    if ( !v1 )
       break;
-    if ( !result[29] && !result[30] && !result[28] )
+    if ( !*((_BYTE *)v1 + 29) && !*((_BYTE *)v1 + 30) && !*((_BYTE *)v1 + 28) )
     {
-      result = (_BYTE *)RtlRegisterFeatureConfigurationChangeNotification(
-                          (__int64)wil_details_ReevaluateOnFeatureConfigurationChange,
-                          0LL,
-                          0LL,
-                          (__int64)&wil_details_featureChangeNotification);
-      if ( (_DWORD)result )
+      LODWORD(v1) = RtlRegisterFeatureConfigurationChangeNotification(
+                      wil_details_ReevaluateOnFeatureConfigurationChange,
+                      0LL,
+                      0LL,
+                      &wil_details_featureChangeNotification);
+      if ( (_DWORD)v1 )
         wil_details_featureChangeNotification = 0LL;
-      return result;
+      return (int)v1;
     }
   }
-  return result;
+  return (int)v1;
 }

@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpDmaAllocateScatterPagesFromContiguousPoolV3 @ 0x1404FF2A4
+ * XREFs of HalpDmaAllocateScatterPagesFromContiguousPoolV3 @ 0x1404FF7F4
  * Callers:
- *     HalpDmaAllocateScatterPagesFromContiguousPool @ 0x14050100C (HalpDmaAllocateScatterPagesFromContiguousPool.c)
+ *     HalpDmaAllocateScatterPagesFromContiguousPool @ 0x14050155C (HalpDmaAllocateScatterPagesFromContiguousPool.c)
  * Callees:
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
- *     RtlNumberOfSetBits @ 0x140293570 (RtlNumberOfSetBits.c)
- *     RtlFindClearBitsAndSet @ 0x140295EA0 (RtlFindClearBitsAndSet.c)
- *     HalpDmaIndexToTranslationEntry @ 0x14045C6DE (HalpDmaIndexToTranslationEntry.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402610F0 (KeAcquireInStackQueuedSpinLock.c)
+ *     RtlNumberOfSetBits @ 0x140293800 (RtlNumberOfSetBits.c)
+ *     RtlFindClearBitsAndSet @ 0x140296130 (RtlFindClearBitsAndSet.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     HalpDmaIndexToTranslationEntry @ 0x14045CADE (HalpDmaIndexToTranslationEntry.c)
  */
 
 __int64 __fastcall HalpDmaAllocateScatterPagesFromContiguousPoolV3(
@@ -30,7 +30,7 @@ __int64 __fastcall HalpDmaAllocateScatterPagesFromContiguousPoolV3(
   bool v17; // zf
   __int64 result; // rax
   ULONG v19; // eax
-  RTL_BITMAP *v20; // rbx
+  _RTL_BITMAP *v20; // rbx
   __int64 v21; // r12
   __int64 v22; // rsi
   ULONG v23; // ebx
@@ -57,10 +57,13 @@ __int64 __fastcall HalpDmaAllocateScatterPagesFromContiguousPoolV3(
 LABEL_3:
       KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
       OldIrql = LockHandle.OldIrql;
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+          && CurrentIrql <= 0xFu
+          && LockHandle.OldIrql <= 0xFu
+          && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -68,7 +71,7 @@ LABEL_3:
           v17 = (v16 & SchedulerAssist[5]) == 0;
           SchedulerAssist[5] &= v16;
           if ( v17 )
-            KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+            KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
         }
       }
       __writecr8(OldIrql);
@@ -82,7 +85,7 @@ LABEL_11:
   }
   if ( a4 )
   {
-    v20 = *(RTL_BITMAP **)(a2 + 24);
+    v20 = *(_RTL_BITMAP **)(a2 + 24);
     if ( v20->SizeOfBitMap - RtlNumberOfSetBits(v20) < a3 )
       goto LABEL_3;
   }
@@ -113,10 +116,10 @@ LABEL_11:
     *(_DWORD *)(v9 + 208) -= v23;
   KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
   v27 = LockHandle.OldIrql;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v28 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v28 <= 0xFu && LockHandle.OldIrql <= 0xFu && v28 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v28 <= 0xFu && LockHandle.OldIrql <= 0xFu && v28 >= 2u )
     {
       v29 = KeGetCurrentPrcb();
       v30 = v29->SchedulerAssist;
@@ -124,7 +127,7 @@ LABEL_11:
       v17 = (v31 & v30[5]) == 0;
       v30[5] &= v31;
       if ( v17 )
-        KiRemoveSystemWorkPriorityKick(v29);
+        KiRemoveSystemWorkPriorityKick((__int64)v29);
     }
   }
   __writecr8(v27);

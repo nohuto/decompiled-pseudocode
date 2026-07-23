@@ -1,20 +1,20 @@
 /*
- * XREFs of IoReserveKsrPersistentMemory @ 0x14089C000
+ * XREFs of IoReserveKsrPersistentMemory @ 0x14089C160
  * Callers:
  *     <none>
  * Callees:
- *     MmMapLockedPagesSpecifyCache @ 0x140226CC0 (MmMapLockedPagesSpecifyCache.c)
- *     MmAllocatePagesForMdlEx @ 0x1402E3290 (MmAllocatePagesForMdlEx.c)
- *     IoAddTriageDumpDataBlock @ 0x1403CC828 (IoAddTriageDumpDataBlock.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     memset @ 0x140414200 (memset.c)
- *     PipGetDeviceObjectLocation @ 0x14089C544 (PipGetDeviceObjectLocation.c)
- *     PipGetDriverKsrGuid @ 0x14089C794 (PipGetDriverKsrGuid.c)
- *     PipGetPersistentMemory @ 0x14089C958 (PipGetPersistentMemory.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     MmAllocatePagesForMdlEx @ 0x1402945E0 (MmAllocatePagesForMdlEx.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x1402CB5C0 (MmMapLockedPagesSpecifyCache.c)
+ *     IoAddTriageDumpDataBlock @ 0x1403CC998 (IoAddTriageDumpDataBlock.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     PipGetDeviceObjectLocation @ 0x14089C6A4 (PipGetDeviceObjectLocation.c)
+ *     PipGetDriverKsrGuid @ 0x14089C8F4 (PipGetDriverKsrGuid.c)
+ *     PipGetPersistentMemory @ 0x14089CAB8 (PipGetPersistentMemory.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall IoReserveKsrPersistentMemory(struct _MDL *a1, ULONG_PTR a2, __int64 a3, int a4, _QWORD *a5)

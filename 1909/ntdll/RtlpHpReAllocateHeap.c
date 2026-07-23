@@ -101,7 +101,7 @@ LABEL_20:
   }
   else
   {
-    v22 = RtlCSparseBitmapBitmaskRead(&unk_180166A70, 2 * ((a3 - qword_180166A68) >> 20));
+    v22 = RtlCSparseBitmapBitmaskRead(&BaseAddress, 2 * ((a3 - qword_180166A68) >> 20));
     if ( !v22 )
       goto LABEL_40;
     v14 = v22 - 1;

@@ -1,12 +1,12 @@
 /*
- * XREFs of PnprRecopyMirrorPages @ 0x1405227D4
+ * XREFs of PnprRecopyMirrorPages @ 0x140524E40
  * Callers:
- *     PnprSwapFinalize @ 0x1405DC07C (PnprSwapFinalize.c)
+ *     PnprSwapFinalize @ 0x1405DE92C (PnprSwapFinalize.c)
  * Callees:
- *     PnprCopyReservedMapping @ 0x14050D5C8 (PnprCopyReservedMapping.c)
- *     PnprRecopyMappingReserve @ 0x140522944 (PnprRecopyMappingReserve.c)
- *     PnprRecopyAddress @ 0x1405229F8 (PnprRecopyAddress.c)
- *     PnprGetStackLimits @ 0x140522A84 (PnprGetStackLimits.c)
+ *     PnprCopyReservedMapping @ 0x140507038 (PnprCopyReservedMapping.c)
+ *     PnprRecopyMappingReserve @ 0x140524FB0 (PnprRecopyMappingReserve.c)
+ *     PnprRecopyAddress @ 0x140525064 (PnprRecopyAddress.c)
+ *     PnprGetStackLimits @ 0x1405250F0 (PnprGetStackLimits.c)
  */
 
 __int64 PnprRecopyMirrorPages()
@@ -36,7 +36,7 @@ __int64 PnprRecopyMirrorPages()
     v3 = v2;
     if ( v2 < 0 )
     {
-      v5 = 5603;
+      v5 = 5085;
       goto LABEL_11;
     }
     if ( (_DWORD)i != *(_DWORD *)(PnprContext + 180) )
@@ -45,13 +45,13 @@ __int64 PnprRecopyMirrorPages()
       v3 = v4;
       if ( v4 < 0 )
       {
-        v5 = 5619;
+        v5 = 5101;
         goto LABEL_11;
       }
       v3 = PnprRecopyMappingReserve(*(_QWORD *)(PnprContext + 136) + 24 * i, (unsigned int)v4);
       if ( v3 < 0 )
       {
-        v5 = 5627;
+        v5 = 5109;
 LABEL_11:
         v6 = PnprContext;
         v7 = *(_DWORD *)(PnprContext + 33288);
@@ -72,11 +72,11 @@ LABEL_11:
     v10 = PnprCopyReservedMapping();
     if ( v10 >= 0 )
       return 0LL;
-    v11 = 5651;
+    v11 = 5133;
   }
   else
   {
-    v11 = 5639;
+    v11 = 5121;
   }
   v12 = PnprContext;
   v13 = *(_DWORD *)(PnprContext + 33288);

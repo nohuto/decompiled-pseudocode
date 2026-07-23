@@ -7,9 +7,9 @@
  *     <none>
  */
 
-__int64 __fastcall ZwAlpcCreateSectionView(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwAlpcCreateSectionView(HANDLE PortHandle, ULONG Flags, PALPC_DATA_VIEW_ATTR ViewAttributes)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(PortHandle);
 }

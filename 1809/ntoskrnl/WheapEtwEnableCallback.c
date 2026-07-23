@@ -1,23 +1,23 @@
 /*
- * XREFs of WheapEtwEnableCallback @ 0x140761480
+ * XREFs of WheapEtwEnableCallback @ 0x140762670
  * Callers:
  *     <none>
  * Callees:
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     KeInitializeTimerEx @ 0x140089FF0 (KeInitializeTimerEx.c)
- *     KeInitializeDpc @ 0x1400A56F0 (KeInitializeDpc.c)
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     ZwOpenKey @ 0x1401B83D0 (ZwOpenKey.c)
- *     WheapFreeErrorRecord @ 0x140320420 (WheapFreeErrorRecord.c)
- *     WheapGenerateETWEvents @ 0x140320F88 (WheapGenerateETWEvents.c)
- *     WheapSqmWaitWorkerRoutine @ 0x1408DD4A0 (WheapSqmWaitWorkerRoutine.c)
+ *     KeInitializeTimerEx @ 0x140089FE0 (KeInitializeTimerEx.c)
+ *     KeInitializeDpc @ 0x1400A5630 (KeInitializeDpc.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     KeSetEvent @ 0x1400C2A40 (KeSetEvent.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     ZwOpenKey @ 0x1401B8530 (ZwOpenKey.c)
+ *     WheapFreeErrorRecord @ 0x140320610 (WheapFreeErrorRecord.c)
+ *     WheapGenerateETWEvents @ 0x140321178 (WheapGenerateETWEvents.c)
+ *     WheapSqmWaitWorkerRoutine @ 0x1408DE760 (WheapSqmWaitWorkerRoutine.c)
  */
 
 void __fastcall WheapEtwEnableCallback(LPCGUID SourceId, ULONG ControlCode, UCHAR Level, ULONGLONG MatchAnyKeyword)
 {
-  struct _DEVICE_OBJECT *DeviceContext; // rbx
+  struct _DEVICE_OBJECT *v4; // rbx
   __int64 v5; // rax
   HANDLE KeyHandle; // [rsp+30h] [rbp-58h] BYREF
   UNICODE_STRING DestinationString; // [rsp+38h] [rbp-50h] BYREF
@@ -29,20 +29,20 @@ void __fastcall WheapEtwEnableCallback(LPCGUID SourceId, ULONG ControlCode, UCHA
     while ( 1 )
     {
       KeWaitForSingleObject(&WheapDispatchPtr.Queue.Wcb.DeviceObject, Executive, 0, 0, 0LL);
-      DeviceContext = (struct _DEVICE_OBJECT *)WheapDispatchPtr.Queue.Wcb.DeviceContext;
-      if ( *((struct _DEVICE_OBJECT **)WheapDispatchPtr.Queue.Wcb.DeviceContext + 1) != (struct _DEVICE_OBJECT *)&WheapDispatchPtr.Queue.Wcb.DeviceContext
-        || (v5 = *(_QWORD *)WheapDispatchPtr.Queue.Wcb.DeviceContext,
-            *(PVOID *)(*(_QWORD *)WheapDispatchPtr.Queue.Wcb.DeviceContext + 8LL) != WheapDispatchPtr.Queue.Wcb.DeviceContext) )
+      v4 = *(struct _DEVICE_OBJECT **)&WheapDispatchPtr.DeviceQueue.Type;
+      if ( *(struct _DEVICE_OBJECT **)(*(_QWORD *)&WheapDispatchPtr.DeviceQueue.Type + 8LL) != (struct _DEVICE_OBJECT *)&WheapDispatchPtr.DeviceQueue
+        || (v5 = **(_QWORD **)&WheapDispatchPtr.DeviceQueue.Type,
+            *(_QWORD *)(**(_QWORD **)&WheapDispatchPtr.DeviceQueue.Type + 8LL) != *(_QWORD *)&WheapDispatchPtr.DeviceQueue.Type) )
       {
         __fastfail(3u);
       }
-      WheapDispatchPtr.Queue.Wcb.DeviceContext = *(PVOID *)WheapDispatchPtr.Queue.Wcb.DeviceContext;
-      *(_QWORD *)(v5 + 8) = &WheapDispatchPtr.Queue.Wcb.DeviceContext;
+      *(_QWORD *)&WheapDispatchPtr.DeviceQueue.Type = **(_QWORD **)&WheapDispatchPtr.DeviceQueue.Type;
+      *(_QWORD *)(v5 + 8) = &WheapDispatchPtr.DeviceQueue;
       KeSetEvent((PRKEVENT)&WheapDispatchPtr.Queue.Wcb.DeviceObject, 0, 0);
-      if ( DeviceContext == (struct _DEVICE_OBJECT *)&WheapDispatchPtr.Queue.Wcb.DeviceContext )
+      if ( v4 == (struct _DEVICE_OBJECT *)&WheapDispatchPtr.DeviceQueue )
         break;
-      WheapGenerateETWEvents((__int64)&DeviceContext->Timer);
-      WheapFreeErrorRecord((__int64)DeviceContext);
+      WheapGenerateETWEvents((__int64)&v4->Timer);
+      WheapFreeErrorRecord((__int64)v4);
     }
     if ( !_InterlockedCompareExchange(&WheapSqmWaitQueued, 1, 0) )
     {

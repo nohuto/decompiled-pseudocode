@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpHpLfhContextMaximumExtension @ 0x18008DB2C
+ * XREFs of RtlpHpLfhContextMaximumExtension @ 0x1800E71E4
  * Callers:
- *     RtlpHpHeapAllocate @ 0x18008D814 (RtlpHpHeapAllocate.c)
+ *     RtlpHpHeapAllocate @ 0x1800E6ECC (RtlpHpHeapAllocate.c)
  * Callees:
  *     <none>
  */

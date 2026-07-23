@@ -1,7 +1,7 @@
 /*
  * XREFs of HalpRegisterKdSupportFunctions @ 0x140B34F54
  * Callers:
- *     HalpDbgInitSystem @ 0x140A8F2C0 (HalpDbgInitSystem.c)
+ *     HalpDbgInitSystem @ 0x140A8F140 (HalpDbgInitSystem.c)
  * Callees:
  *     <none>
  */

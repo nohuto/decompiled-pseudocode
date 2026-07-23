@@ -1,15 +1,15 @@
 /*
- * XREFs of MiMakeIoRangePermanent @ 0x140536BB8
+ * XREFs of MiMakeIoRangePermanent @ 0x140536DF8
  * Callers:
- *     MiMakeIoRangePermanentDpc @ 0x140536E90 (MiMakeIoRangePermanentDpc.c)
+ *     MiMakeIoRangePermanentDpc @ 0x1405370D0 (MiMakeIoRangePermanentDpc.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
- *     RtlAvlRemoveNode @ 0x140234B20 (RtlAvlRemoveNode.c)
- *     MiRemoveUnmappedIoNode @ 0x140297F50 (MiRemoveUnmappedIoNode.c)
- *     RtlAvlInsertNodeEx @ 0x140316550 (RtlAvlInsertNodeEx.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiRemoveUnmappedIoNode @ 0x1402189D0 (MiRemoveUnmappedIoNode.c)
+ *     ExAcquireSpinLockExclusive @ 0x1402C1960 (ExAcquireSpinLockExclusive.c)
+ *     RtlAvlRemoveNode @ 0x1402D9370 (RtlAvlRemoveNode.c)
+ *     RtlAvlInsertNodeEx @ 0x1403212A0 (RtlAvlInsertNodeEx.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140346AD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiMakeIoRangePermanent(__int64 a1)
@@ -28,8 +28,8 @@ __int64 __fastcall MiMakeIoRangePermanent(__int64 a1)
   __int64 v13; // rdx
   _WORD *v14; // rcx
   __int64 v15; // rax
-  unsigned __int64 v16; // rax
-  _QWORD *v17; // rsi
+  __int64 *v16; // rax
+  __int64 *v17; // rsi
   __int64 v18; // rcx
   _QWORD *v19; // rdx
   bool v20; // r8
@@ -53,15 +53,15 @@ __int64 __fastcall MiMakeIoRangePermanent(__int64 a1)
   v4 = *(_DWORD *)(a1 + 40);
   v5 = *(_QWORD *)(a1 + 32) - v1;
   P = 0LL;
-  v34 = ExAcquireSpinLockExclusive(&dword_140C4EC40);
+  v34 = ExAcquireSpinLockExclusive(&dword_140C4EC80);
   v6 = v34;
   v7 = v5 + 1;
   if ( !v7 )
   {
 LABEL_32:
-    v25 = (_QWORD *)qword_140C4ECA0;
+    v25 = (_QWORD *)qword_140C4ECE0;
     v26 = 0;
-    if ( qword_140C4ECA0 )
+    if ( qword_140C4ECE0 )
     {
       while ( 1 )
       {
@@ -75,7 +75,7 @@ LABEL_32:
         {
           if ( *(_QWORD *)(a1 + 24) <= v25[4] )
           {
-            ++dword_140C4EC98;
+            ++dword_140C4ECD8;
             v3 = -1073741800;
             goto LABEL_38;
           }
@@ -89,13 +89,13 @@ LABEL_32:
         v25 = v27;
       }
     }
-    RtlAvlInsertNodeEx((unsigned __int64 *)&qword_140C4ECA0, (unsigned __int64)v25, v26, (_QWORD *)a1);
+    RtlAvlInsertNodeEx((unsigned __int64 *)&qword_140C4ECE0, (unsigned __int64)v25, v26, (_QWORD *)a1);
     goto LABEL_38;
   }
   do
   {
-    v8 = (_QWORD *)*((_QWORD *)&xmmword_140C4EC48 + 1);
-    for ( i = *((_QWORD *)&xmmword_140C4EC48 + 1) == 0LL; !i; i = v11 == 0LL )
+    v8 = (_QWORD *)*((_QWORD *)&xmmword_140C4EC88 + 1);
+    for ( i = *((_QWORD *)&xmmword_140C4EC88 + 1) == 0LL; !i; i = v11 == 0LL )
     {
       v10 = v8[5];
       if ( v1 < v10 )
@@ -119,7 +119,7 @@ LABEL_32:
             {
               if ( (unsigned __int16)*v14 >> 14 != v4 )
               {
-                ++dword_140C4EC94;
+                ++dword_140C4ECD4;
                 v3 = -1073741800;
                 v7 = 0LL;
                 goto LABEL_30;
@@ -139,8 +139,8 @@ LABEL_32:
       }
       v8 = v11;
     }
-    v16 = MiRemoveUnmappedIoNode((unsigned __int64 *)&qword_140C4EC58, v1);
-    v17 = (_QWORD *)v16;
+    v16 = MiRemoveUnmappedIoNode((__int64 **)&qword_140C4EC98, v1);
+    v17 = v16;
     if ( !v16 )
     {
       v18 = v1 & 0x1FF;
@@ -148,7 +148,7 @@ LABEL_32:
     }
     v19 = P;
     v20 = 0;
-    v21 = *(_QWORD *)(v16 + 40);
+    v21 = v16[5];
     if ( !P )
       goto LABEL_26;
     while ( v21 < v19[5] )
@@ -181,7 +181,7 @@ LABEL_30:
   if ( v3 >= 0 )
     goto LABEL_32;
 LABEL_38:
-  ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C4EC40);
+  ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C4EC80);
   if ( KiIrqlFlags )
   {
     if ( (KiIrqlFlags & 1) != 0 )

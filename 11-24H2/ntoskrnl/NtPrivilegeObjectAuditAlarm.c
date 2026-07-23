@@ -1,20 +1,20 @@
 /*
- * XREFs of NtPrivilegeObjectAuditAlarm @ 0x140920CD0
+ * XREFs of NtPrivilegeObjectAuditAlarm @ 0x140913820
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ObReferenceObjectByHandle @ 0x14084AF40 (ObReferenceObjectByHandle.c)
- *     SeReleaseSubjectContext @ 0x14084D7E0 (SeReleaseSubjectContext.c)
- *     SeCaptureSubjectContext @ 0x14084D8F0 (SeCaptureSubjectContext.c)
- *     SepAdtPrivilegeObjectAuditAlarm @ 0x140850540 (SepAdtPrivilegeObjectAuditAlarm.c)
- *     SepAuditFailed @ 0x140850F60 (SepAuditFailed.c)
- *     ExRaiseDatatypeMisalignment @ 0x14089B1F0 (ExRaiseDatatypeMisalignment.c)
- *     SepProbeAndCaptureString_U @ 0x14091F8F0 (SepProbeAndCaptureString_U.c)
- *     SeCheckAuditPrivilege @ 0x14091FC2C (SeCheckAuditPrivilege.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ObReferenceObjectByHandle @ 0x140847200 (ObReferenceObjectByHandle.c)
+ *     SeReleaseSubjectContext @ 0x140849AA0 (SeReleaseSubjectContext.c)
+ *     SeCaptureSubjectContext @ 0x140849BB0 (SeCaptureSubjectContext.c)
+ *     SepAdtPrivilegeObjectAuditAlarm @ 0x14084C800 (SepAdtPrivilegeObjectAuditAlarm.c)
+ *     SepAuditFailed @ 0x14084D220 (SepAuditFailed.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408A3890 (ExRaiseDatatypeMisalignment.c)
+ *     SeCheckAuditPrivilege @ 0x140912648 (SeCheckAuditPrivilege.c)
+ *     SepProbeAndCaptureString_U @ 0x140912BA0 (SepProbeAndCaptureString_U.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __stdcall NtPrivilegeObjectAuditAlarm(
@@ -99,7 +99,7 @@ LABEL_17:
     }
   }
   v17 = v15;
-  Pool2 = (ULONG *)ExAllocatePool2(0x100uLL);
+  Pool2 = (ULONG *)ExAllocatePool2(0x100uLL, v15, 0x72506553u);
   v19 = Pool2;
   v24 = Pool2;
   if ( Pool2 )

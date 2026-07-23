@@ -1,14 +1,14 @@
 /*
- * XREFs of PopReadHiberbootPolicy @ 0x140A7DA90
+ * XREFs of PopReadHiberbootPolicy @ 0x140A77D90
  * Callers:
- *     NtPowerInformation @ 0x1409F0230 (NtPowerInformation.c)
+ *     NtPowerInformation @ 0x1409EDB00 (NtPowerInformation.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     PopOpenPowerKey @ 0x1404AA6FC (PopOpenPowerKey.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwQueryValueKey @ 0x1406A66F0 (ZwQueryValueKey.c)
- *     PopReadHiberbootGroupPolicy @ 0x140A7DB18 (PopReadHiberbootGroupPolicy.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     PopOpenPowerKey @ 0x1404A48FC (PopOpenPowerKey.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwQueryValueKey @ 0x1406A7690 (ZwQueryValueKey.c)
+ *     PopReadHiberbootGroupPolicy @ 0x140A77E18 (PopReadHiberbootGroupPolicy.c)
  */
 
 int __fastcall PopReadHiberbootPolicy(_BYTE *a1)

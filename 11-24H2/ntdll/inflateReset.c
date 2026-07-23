@@ -1,9 +1,9 @@
 /*
- * XREFs of inflateReset @ 0x18015270C
+ * XREFs of inflateReset @ 0x180150ACC
  * Callers:
- *     inflateReset2 @ 0x180152740 (inflateReset2.c)
+ *     inflateReset2 @ 0x180150B00 (inflateReset2.c)
  * Callees:
- *     inflateStateCheck @ 0x18015286C (inflateStateCheck.c)
+ *     inflateStateCheck @ 0x180150C2C (inflateStateCheck.c)
  */
 
 __int64 inflateReset()

@@ -1,11 +1,11 @@
 /*
- * XREFs of IoComputeRedirectionTrustLevel @ 0x1403F1500
+ * XREFs of IoComputeRedirectionTrustLevel @ 0x1403F13D0
  * Callers:
  *     <none>
  * Callees:
- *     SeCaptureSubjectContext @ 0x140655B30 (SeCaptureSubjectContext.c)
- *     SeReleaseSubjectContext @ 0x1406568F0 (SeReleaseSubjectContext.c)
- *     SeTokenIsAdmin @ 0x140717530 (SeTokenIsAdmin.c)
+ *     SeCaptureSubjectContext @ 0x14064A950 (SeCaptureSubjectContext.c)
+ *     SeReleaseSubjectContext @ 0x14064B710 (SeReleaseSubjectContext.c)
+ *     SeTokenIsAdmin @ 0x1406C5B80 (SeTokenIsAdmin.c)
  */
 
 __int64 __fastcall IoComputeRedirectionTrustLevel(

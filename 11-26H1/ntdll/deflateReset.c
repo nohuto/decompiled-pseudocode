@@ -1,10 +1,10 @@
 /*
- * XREFs of deflateReset @ 0x180154780
+ * XREFs of deflateReset @ 0x180154650
  * Callers:
- *     RtlCompressDeflateInitCompressionStream @ 0x180153078 (RtlCompressDeflateInitCompressionStream.c)
+ *     RtlCompressDeflateInitCompressionStream @ 0x180152F48 (RtlCompressDeflateInitCompressionStream.c)
  * Callees:
- *     deflateResetKeep @ 0x1801547B8 (deflateResetKeep.c)
- *     lm_init @ 0x180155860 (lm_init.c)
+ *     deflateResetKeep @ 0x180154688 (deflateResetKeep.c)
+ *     lm_init @ 0x180155730 (lm_init.c)
  */
 
 __int64 __fastcall deflateReset(__int64 a1)

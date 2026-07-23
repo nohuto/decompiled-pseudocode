@@ -1,21 +1,21 @@
 /*
- * XREFs of AlpcpProcessConnectionRequest @ 0x14086392C
+ * XREFs of AlpcpProcessConnectionRequest @ 0x140867F3C
  * Callers:
- *     AlpcpConnectPort @ 0x1408645A0 (AlpcpConnectPort.c)
+ *     AlpcpConnectPort @ 0x140868BB0 (AlpcpConnectPort.c)
  * Callees:
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     AlpcpLogConnectFail @ 0x1407427F8 (AlpcpLogConnectFail.c)
- *     AlpcpLogConnectRequest @ 0x14074286C (AlpcpLogConnectRequest.c)
- *     AlpcpLogConnectSuccess @ 0x1407428DC (AlpcpLogConnectSuccess.c)
- *     AlpcpReceiveSynchronousReply @ 0x14088AA00 (AlpcpReceiveSynchronousReply.c)
- *     AlpcpGetDataFromMessage @ 0x14088AE68 (AlpcpGetDataFromMessage.c)
- *     AlpcpFormatConnectionRequest @ 0x14088B56C (AlpcpFormatConnectionRequest.c)
- *     AlpcpDispatchConnectionRequest @ 0x14088D0AC (AlpcpDispatchConnectionRequest.c)
- *     AlpcpExposeAttributes @ 0x1408980D0 (AlpcpExposeAttributes.c)
- *     AlpcpUnlockMessage @ 0x140898D70 (AlpcpUnlockMessage.c)
- *     AlpcpProbeForWriteMessageHeader @ 0x1408997B0 (AlpcpProbeForWriteMessageHeader.c)
- *     AlpcpProbeMessageAttributes @ 0x14089A830 (AlpcpProbeMessageAttributes.c)
- *     AlpcpProbeAndCaptureMessageHeader @ 0x14093C880 (AlpcpProbeAndCaptureMessageHeader.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     AlpcpLogConnectFail @ 0x140740728 (AlpcpLogConnectFail.c)
+ *     AlpcpLogConnectRequest @ 0x14074079C (AlpcpLogConnectRequest.c)
+ *     AlpcpLogConnectSuccess @ 0x14074080C (AlpcpLogConnectSuccess.c)
+ *     AlpcpDispatchConnectionRequest @ 0x14089032C (AlpcpDispatchConnectionRequest.c)
+ *     AlpcpFormatConnectionRequest @ 0x14089137C (AlpcpFormatConnectionRequest.c)
+ *     AlpcpExposeAttributes @ 0x1408A0770 (AlpcpExposeAttributes.c)
+ *     AlpcpUnlockMessage @ 0x1408A1410 (AlpcpUnlockMessage.c)
+ *     AlpcpProbeForWriteMessageHeader @ 0x1408A1E50 (AlpcpProbeForWriteMessageHeader.c)
+ *     AlpcpProbeMessageAttributes @ 0x1408A2ED0 (AlpcpProbeMessageAttributes.c)
+ *     AlpcpGetDataFromMessage @ 0x140990904 (AlpcpGetDataFromMessage.c)
+ *     AlpcpReceiveSynchronousReply @ 0x140993FB0 (AlpcpReceiveSynchronousReply.c)
+ *     AlpcpProbeAndCaptureMessageHeader @ 0x1409A96B0 (AlpcpProbeAndCaptureMessageHeader.c)
  */
 
 __int64 __fastcall AlpcpProcessConnectionRequest(

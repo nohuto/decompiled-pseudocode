@@ -6,7 +6,11 @@
  *     _Wow64SystemServiceCall@0 @ 0x4B308730 (_Wow64SystemServiceCall@0.c)
  */
 
-int __stdcall ZwFlushVirtualMemory(int a1, int a2, int a3, int a4)
+NTSTATUS __cdecl ZwFlushVirtualMemory(
+        HANDLE ProcessHandle,
+        PVOID *BaseAddress,
+        PSIZE_T RegionSize,
+        PIO_STATUS_BLOCK IoStatus)
 {
   return Wow64SystemServiceCall();
 }

@@ -7,8 +7,8 @@
  *     wil_details_UpdateFeatureConfiguredStates @ 0x140A12424 (wil_details_UpdateFeatureConfiguredStates.c)
  */
 
-__int64 wil_details_ReevaluateOnFeatureConfigurationChange()
+void __fastcall wil_details_ReevaluateOnFeatureConfigurationChange(PVOID a1)
 {
-  wil_details_UpdateFeatureConfiguredStates();
-  return wil_details_EvaluateFeatureDependencies();
+  wil_details_UpdateFeatureConfiguredStates(a1);
+  wil_details_EvaluateFeatureDependencies();
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlIpv6StringToAddressW @ 0x140470480
+ * XREFs of RtlIpv6StringToAddressW @ 0x14046A8A0
  * Callers:
- *     RtlIpv6StringToAddressExW @ 0x140470250 (RtlIpv6StringToAddressExW.c)
+ *     RtlIpv6StringToAddressExW @ 0x14046A670 (RtlIpv6StringToAddressExW.c)
  * Callees:
- *     wcstol @ 0x140500764 (wcstol.c)
- *     iswctype @ 0x140500C30 (iswctype.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     wcstol @ 0x1404FE024 (wcstol.c)
+ *     iswctype @ 0x1404FE4F0 (iswctype.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 NTSTATUS __stdcall RtlIpv6StringToAddressW(PCWSTR S, PCWSTR *Terminator, struct in6_addr *Addr)
@@ -70,7 +70,7 @@ LABEL_9:
       v6 = 2;
       v20 = v4;
       ++v13;
-      Addr->u.Word[v19] = 0;
+      *((_WORD *)Addr + v19) = 0;
       v24 = v13;
       ++S;
       goto LABEL_40;
@@ -144,7 +144,7 @@ LABEL_40:
         v13 = v24;
         v8 = v22;
         v7 = Str;
-        Addr->u.Byte[2 * v24 - 1 + v10] = v17;
+        *((_BYTE *)Addr + 2 * v24 + v10 - 1) = v17;
       }
       else
       {
@@ -153,7 +153,7 @@ LABEL_40:
         v16 = wcstol(v7, 0LL, 16);
         v8 = v22;
         v7 = Str;
-        Addr->u.Word[v24] = __ROR2__(v16, 8);
+        *((_WORD *)Addr + v24) = __ROR2__(v16, 8);
         v13 = ++v24;
       }
     }
@@ -200,24 +200,24 @@ LABEL_10:
       v18 = wcstol(Str, 0LL, 10);
       if ( v18 > 0xFF )
         return -1073741811;
-      Addr->u.Byte[2 * v24 + v10] = v18;
+      *((_BYTE *)Addr + 2 * v24 + v10) = v18;
     }
     else
     {
       if ( v11 > 4 )
         return -1073741811;
-      Addr->u.Word[v24] = __ROR2__(wcstol(Str, 0LL, 16), 8);
+      *((_WORD *)Addr + v24) = __ROR2__(wcstol(Str, 0LL, 16), 8);
     }
   }
   else
   {
     if ( v6 != 2 )
       return -1073741811;
-    Addr->u.Word[v24] = 0;
+    *((_WORD *)Addr + v24) = 0;
   }
   if ( v12 )
   {
-    memmove((char *)&Addr[1] + 2 * (v12 - v9), (char *)Addr + 2 * v12, 2LL * (v9 - v12));
+    memmove((char *)Addr + 2 * (v12 - v9) + 16, (char *)Addr + 2 * v12, 2LL * (v9 - v12));
     memset_0((char *)Addr + 2 * v12, 0, 2LL * (8 - v9));
   }
   return 0;

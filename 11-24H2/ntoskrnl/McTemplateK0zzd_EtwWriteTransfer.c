@@ -1,20 +1,20 @@
 /*
- * XREFs of McTemplateK0zzd_EtwWriteTransfer @ 0x14032FA04
+ * XREFs of McTemplateK0zzd_EtwWriteTransfer @ 0x1402B827C
  * Callers:
- *     PiSwIrpCleanup @ 0x1407308E0 (PiSwIrpCleanup.c)
- *     PiSwIrpSetAttributes @ 0x140730C14 (PiSwIrpSetAttributes.c)
- *     PiSwIrpSetLifetime @ 0x140730D50 (PiSwIrpSetLifetime.c)
- *     PiSwIrpInterfaceSetState @ 0x1408B1C78 (PiSwIrpInterfaceSetState.c)
- *     PiSwIrpPropertySet @ 0x1408B1E40 (PiSwIrpPropertySet.c)
- *     PiSwIrpInterfaceRegister @ 0x1408B2584 (PiSwIrpInterfaceRegister.c)
- *     PiSwIrpInterfacePropertySet @ 0x1408B9044 (PiSwIrpInterfacePropertySet.c)
- *     PiSwCompleteCreate @ 0x1409F8538 (PiSwCompleteCreate.c)
- *     PiSwIrpStartCreateWorker @ 0x1409F8A64 (PiSwIrpStartCreateWorker.c)
- *     PiCMGetDeviceIdList @ 0x140A19E98 (PiCMGetDeviceIdList.c)
- *     PiCreateDriverSwDeviceCallback @ 0x140AA3320 (PiCreateDriverSwDeviceCallback.c)
+ *     PiSwIrpCleanup @ 0x14072E8F0 (PiSwIrpCleanup.c)
+ *     PiSwIrpSetAttributes @ 0x14072EC24 (PiSwIrpSetAttributes.c)
+ *     PiSwIrpSetLifetime @ 0x14072ED60 (PiSwIrpSetLifetime.c)
+ *     PiSwIrpInterfaceSetState @ 0x1408AF56C (PiSwIrpInterfaceSetState.c)
+ *     PiSwIrpPropertySet @ 0x1408AF734 (PiSwIrpPropertySet.c)
+ *     PiSwIrpInterfaceRegister @ 0x1408AFE78 (PiSwIrpInterfaceRegister.c)
+ *     PiSwIrpInterfacePropertySet @ 0x1408B69EC (PiSwIrpInterfacePropertySet.c)
+ *     PiSwCompleteCreate @ 0x1409F0EA8 (PiSwCompleteCreate.c)
+ *     PiSwIrpStartCreateWorker @ 0x1409F13D4 (PiSwIrpStartCreateWorker.c)
+ *     PiCMGetDeviceIdList @ 0x140A15D5C (PiCMGetDeviceIdList.c)
+ *     PiCreateDriverSwDeviceCallback @ 0x140A9E6B0 (PiCreateDriverSwDeviceCallback.c)
  * Callees:
- *     McGenEventWrite_EtwWriteTransfer @ 0x1403305B0 (McGenEventWrite_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1402B8E28 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 __int64 __fastcall McTemplateK0zzd_EtwWriteTransfer(

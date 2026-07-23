@@ -1,20 +1,20 @@
 /*
- * XREFs of MiFinalizeImageHeaderPage @ 0x140330434
+ * XREFs of MiFinalizeImageHeaderPage @ 0x1403306C4
  * Callers:
- *     MiCreateNewSection @ 0x1407464F0 (MiCreateNewSection.c)
+ *     MiCreateNewSection @ 0x1407466E0 (MiCreateNewSection.c)
  * Callees:
- *     MiGetSlabPage @ 0x14023BD70 (MiGetSlabPage.c)
- *     MiSearchNumaNodeTable @ 0x14026EAD0 (MiSearchNumaNodeTable.c)
- *     MiSetOriginalPtePfnFromFreeList @ 0x1402859D4 (MiSetOriginalPtePfnFromFreeList.c)
- *     MiGetPfnChannel @ 0x1402871D0 (MiGetPfnChannel.c)
- *     MiCheckSlabPage @ 0x1402923E8 (MiCheckSlabPage.c)
- *     MiRemoveLockedPageChargeAndDecRef @ 0x1402DAF84 (MiRemoveLockedPageChargeAndDecRef.c)
- *     MiUseSlabAllocator @ 0x1402DEAC0 (MiUseSlabAllocator.c)
- *     MiReleaseFreshPage @ 0x1402E7F20 (MiReleaseFreshPage.c)
- *     MiLockPageInline @ 0x1402EF680 (MiLockPageInline.c)
- *     MiCheckSlabPfnBitmap @ 0x140324730 (MiCheckSlabPfnBitmap.c)
- *     MiReplaceTransitionPage @ 0x140330670 (MiReplaceTransitionPage.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiGetSlabPage @ 0x14023BE40 (MiGetSlabPage.c)
+ *     MiSearchNumaNodeTable @ 0x14026ED60 (MiSearchNumaNodeTable.c)
+ *     MiSetOriginalPtePfnFromFreeList @ 0x140285C64 (MiSetOriginalPtePfnFromFreeList.c)
+ *     MiGetPfnChannel @ 0x140287460 (MiGetPfnChannel.c)
+ *     MiCheckSlabPage @ 0x140292678 (MiCheckSlabPage.c)
+ *     MiRemoveLockedPageChargeAndDecRef @ 0x1402DB214 (MiRemoveLockedPageChargeAndDecRef.c)
+ *     MiUseSlabAllocator @ 0x1402DED50 (MiUseSlabAllocator.c)
+ *     MiReleaseFreshPage @ 0x1402E81B0 (MiReleaseFreshPage.c)
+ *     MiLockPageInline @ 0x1402EF910 (MiLockPageInline.c)
+ *     MiCheckSlabPfnBitmap @ 0x1403249C0 (MiCheckSlabPfnBitmap.c)
+ *     MiReplaceTransitionPage @ 0x140330900 (MiReplaceTransitionPage.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiFinalizeImageHeaderPage(ULONG_PTR BugCheckParameter2)
@@ -84,10 +84,10 @@ __int64 __fastcall MiFinalizeImageHeaderPage(ULONG_PTR BugCheckParameter2)
   }
   result = 0x7FFFFFFFFFFFFFFFLL;
   _InterlockedAnd64((volatile signed __int64 *)(BugCheckParameter2 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
       && (unsigned __int8)result <= 0xFu
       && (unsigned __int8)v7 <= 0xFu
       && (unsigned __int8)result >= 2u )

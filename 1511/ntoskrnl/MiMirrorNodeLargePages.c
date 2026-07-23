@@ -53,7 +53,7 @@ void __fastcall MiMirrorNodeLargePages(__int64 a1, int a2, __int64 a3)
           {
             v12 = 512LL;
             v13 = (__int64)(v11 + 0xB000000000LL) / 48;
-            v14 = (volatile signed __int32 *)(qword_1402FECB0 + 4 * (v13 >> 5));
+            v14 = (volatile signed __int32 *)stru_1402FECA8.Buffer + (v13 >> 5);
             if ( (v13 & 0x1F) + 512 <= 0x20 )
             {
               v16 = 0;
@@ -85,11 +85,11 @@ LABEL_14:
             if ( a2 )
             {
               if ( *(_QWORD *)(a3 + 24) )
-                RtlClearBitsEx((__int64)&qword_1402FEC98, (__int64)(v11 + 0xB000000000LL) / 48, 0x200uLL);
+                RtlClearBitsEx((__int64)&stru_1402FEC98, (__int64)(v11 + 0xB000000000LL) / 48, 0x200uLL);
             }
             else
             {
-              RtlSetBitsEx((__int64)&qword_1402FEC98, (__int64)(v11 + 0xB000000000LL) / 48, 0x200uLL);
+              RtlSetBitsEx((__int64)&stru_1402FEC98, (__int64)(v11 + 0xB000000000LL) / 48, 0x200uLL);
             }
             v11 = (_QWORD *)*v11;
           }

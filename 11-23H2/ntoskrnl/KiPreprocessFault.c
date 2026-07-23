@@ -1,16 +1,16 @@
 /*
- * XREFs of KiPreprocessFault @ 0x14030DF74
+ * XREFs of KiPreprocessFault @ 0x14030E204
  * Callers:
- *     KiDispatchException @ 0x14030CCA0 (KiDispatchException.c)
+ *     KiDispatchException @ 0x14030CF30 (KiDispatchException.c)
  * Callees:
- *     KiOpDecode @ 0x14030E584 (KiOpDecode.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     memset @ 0x140435A00 (memset.c)
- *     KiOpPreprocessSecureFault @ 0x14056CD54 (KiOpPreprocessSecureFault.c)
- *     KiEnableOptionalXStateFeatures @ 0x14057291C (KiEnableOptionalXStateFeatures.c)
- *     KiCheckForAtlThunk @ 0x14057F154 (KiCheckForAtlThunk.c)
- *     KiOpCheckUnhandledSecurePciAccessViolation @ 0x14057F1BC (KiOpCheckUnhandledSecurePciAccessViolation.c)
+ *     KiOpDecode @ 0x14030E814 (KiOpDecode.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     KiOpPreprocessSecureFault @ 0x14056D414 (KiOpPreprocessSecureFault.c)
+ *     KiEnableOptionalXStateFeatures @ 0x140572E5C (KiEnableOptionalXStateFeatures.c)
+ *     KiCheckForAtlThunk @ 0x14057F644 (KiCheckForAtlThunk.c)
+ *     KiOpCheckUnhandledSecurePciAccessViolation @ 0x14057F6AC (KiOpCheckUnhandledSecurePciAccessViolation.c)
  */
 
 char __fastcall KiPreprocessFault(ULONG_PTR a1, ULONG_PTR a2, char a3)

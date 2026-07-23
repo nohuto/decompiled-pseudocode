@@ -1,20 +1,20 @@
 /*
- * XREFs of CmpReportNotify @ 0x140514840
+ * XREFs of CmpReportNotify @ 0x1404F7C30
  * Callers:
- *     CmpSetKeySecurity @ 0x14000A660 (CmpSetKeySecurity.c)
- *     CmDeleteLayeredKey @ 0x1401B5DB0 (CmDeleteLayeredKey.c)
- *     CmDeleteValueKey @ 0x1403FAE34 (CmDeleteValueKey.c)
- *     CmpCreateChild @ 0x1403FE088 (CmpCreateChild.c)
- *     CmDeleteKey @ 0x1403FF378 (CmDeleteKey.c)
- *     CmSetValueKey @ 0x1404037B0 (CmSetValueKey.c)
- *     NtUnloadKeyEx @ 0x14049A1D4 (NtUnloadKeyEx.c)
- *     CmpLinkHiveToMaster @ 0x1404A10B4 (CmpLinkHiveToMaster.c)
- *     CmpProcessLightWeightUOW @ 0x14053AD0C (CmpProcessLightWeightUOW.c)
- *     NtUnloadKey2 @ 0x140549F84 (NtUnloadKey2.c)
- *     CmRenameKey @ 0x1405FD4E8 (CmRenameKey.c)
- *     CmRestoreKey @ 0x14060C24C (CmRestoreKey.c)
+ *     CmpSetKeySecurity @ 0x14000A1E0 (CmpSetKeySecurity.c)
+ *     CmDeleteLayeredKey @ 0x1401B5C94 (CmDeleteLayeredKey.c)
+ *     NtUnloadKeyEx @ 0x1403E3100 (NtUnloadKeyEx.c)
+ *     CmDeleteValueKey @ 0x1403F9CF4 (CmDeleteValueKey.c)
+ *     CmpCreateChild @ 0x1403FCF48 (CmpCreateChild.c)
+ *     CmDeleteKey @ 0x1403FE238 (CmDeleteKey.c)
+ *     CmSetValueKey @ 0x140402670 (CmSetValueKey.c)
+ *     CmpLinkHiveToMaster @ 0x1405194C0 (CmpLinkHiveToMaster.c)
+ *     CmpProcessLightWeightUOW @ 0x14053B24C (CmpProcessLightWeightUOW.c)
+ *     NtUnloadKey2 @ 0x14054A4C4 (NtUnloadKey2.c)
+ *     CmRenameKey @ 0x1405FD59C (CmRenameKey.c)
+ *     CmRestoreKey @ 0x14060C300 (CmRestoreKey.c)
  * Callees:
- *     CmpReportNotifyHelper @ 0x140514960 (CmpReportNotifyHelper.c)
+ *     CmpReportNotifyHelper @ 0x1404F7D50 (CmpReportNotifyHelper.c)
  */
 
 __int64 __fastcall CmpReportNotify(__int64 a1, __int64 a2, unsigned int a3, __int64 a4, int a5, __int64 a6)

@@ -1,15 +1,15 @@
 /*
- * XREFs of PnpProcessDeferredRegistrations @ 0x1409EE8CC
+ * XREFs of PnpProcessDeferredRegistrations @ 0x1409EC30C
  * Callers:
- *     PnpDeviceEventWorker @ 0x1409EFB60 (PnpDeviceEventWorker.c)
+ *     PnpDeviceEventWorker @ 0x1409ED430 (PnpDeviceEventWorker.c)
  * Callees:
- *     KeReleaseGuardedMutex @ 0x14031E470 (KeReleaseGuardedMutex.c)
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     ExAcquireFastMutex @ 0x14033E850 (ExAcquireFastMutex.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     PnpNotifyTargetDeviceChangeNotifyEntry @ 0x1407208D4 (PnpNotifyTargetDeviceChangeNotifyEntry.c)
- *     PnpDereferenceNotify @ 0x1409EED14 (PnpDereferenceNotify.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeReleaseGuardedMutex @ 0x1402C7000 (KeReleaseGuardedMutex.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     ExAcquireFastMutex @ 0x14031DD30 (ExAcquireFastMutex.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     PnpNotifyTargetDeviceChangeNotifyEntry @ 0x14071E464 (PnpNotifyTargetDeviceChangeNotifyEntry.c)
+ *     PnpDereferenceNotify @ 0x1409EC754 (PnpDereferenceNotify.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 **PnpProcessDeferredRegistrations()

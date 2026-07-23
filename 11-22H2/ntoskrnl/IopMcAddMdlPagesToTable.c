@@ -69,10 +69,10 @@ __int64 __fastcall IopMcAddMdlPagesToTable(__int64 a1, __int64 a2)
     if ( (unsigned __int8)IopMcShouldYield(v8, v9) )
     {
       ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C5D764);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v10 <= 0xFu && CurrentIrql >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v10 <= 0xFu && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -130,10 +130,10 @@ LABEL_27:
   while ( v8 < (unsigned int)v5 );
 LABEL_28:
   ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C5D764);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v25 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v25 <= 0xFu && v10 <= 0xFu && v25 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v25 <= 0xFu && v10 <= 0xFu && v25 >= 2u )
     {
       v26 = KeGetCurrentPrcb();
       v27 = v26->SchedulerAssist;

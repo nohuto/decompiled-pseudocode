@@ -1,11 +1,11 @@
 /*
- * XREFs of Amd64InitializeDataFabricStatus @ 0x140529788
+ * XREFs of Amd64InitializeDataFabricStatus @ 0x140529CD8
  * Callers:
- *     Amd64InitializeUncoreProfiling @ 0x1405298D0 (Amd64InitializeUncoreProfiling.c)
+ *     Amd64InitializeUncoreProfiling @ 0x140529E20 (Amd64InitializeUncoreProfiling.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     Amd64FreeCounter @ 0x140529350 (Amd64FreeCounter.c)
- *     Amd64InitializeUncoreStatus @ 0x1405299D8 (Amd64InitializeUncoreStatus.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     Amd64FreeCounter @ 0x1405298A0 (Amd64FreeCounter.c)
+ *     Amd64InitializeUncoreStatus @ 0x140529F28 (Amd64InitializeUncoreStatus.c)
  */
 
 __int64 Amd64InitializeDataFabricStatus()

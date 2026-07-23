@@ -1,16 +1,16 @@
 /*
- * XREFs of PopReadSimulatedHGSClasses @ 0x140C31050
+ * XREFs of PopReadSimulatedHGSClasses @ 0x140C33170
  * Callers:
- *     PopDetectSimulatedHeteroProcessors @ 0x140C309B8 (PopDetectSimulatedHeteroProcessors.c)
+ *     PopDetectSimulatedHeteroProcessors @ 0x140C32AD8 (PopDetectSimulatedHeteroProcessors.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwOpenKey @ 0x1406A6650 (ZwOpenKey.c)
- *     ZwEnumerateKey @ 0x1406A6A50 (ZwEnumerateKey.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     RtlIntegerToUnicodeString @ 0x1408EF170 (RtlIntegerToUnicodeString.c)
- *     RtlUnicodeStringToInteger @ 0x1409933D0 (RtlUnicodeStringToInteger.c)
- *     PopReadSimulatedProcessorClass @ 0x140C31558 (PopReadSimulatedProcessorClass.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwOpenKey @ 0x1406A75F0 (ZwOpenKey.c)
+ *     ZwEnumerateKey @ 0x1406A79F0 (ZwEnumerateKey.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     RtlIntegerToUnicodeString @ 0x140860970 (RtlIntegerToUnicodeString.c)
+ *     RtlUnicodeStringToInteger @ 0x14097E410 (RtlUnicodeStringToInteger.c)
+ *     PopReadSimulatedProcessorClass @ 0x140C33678 (PopReadSimulatedProcessorClass.c)
  */
 
 char __fastcall PopReadSimulatedHGSClasses(__int64 a1, void *a2, unsigned int a3, ULONG a4)

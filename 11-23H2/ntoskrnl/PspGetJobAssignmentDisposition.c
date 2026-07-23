@@ -4,11 +4,11 @@
  *     PsAssignProcessToJobObject @ 0x14069FF70 (PsAssignProcessToJobObject.c)
  *     PspAssignProcessToJob @ 0x14069FFF0 (PspAssignProcessToJob.c)
  * Callees:
- *     ExAcquireRundownProtection_0 @ 0x14028B360 (ExAcquireRundownProtection_0.c)
- *     ExReleaseRundownProtection_0 @ 0x14028B390 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x14028B5F0 (ExAcquireRundownProtection_0.c)
+ *     ExReleaseRundownProtection_0 @ 0x14028B620 (ExReleaseRundownProtection_0.c)
  *     PsIsJobParentImmutable @ 0x14069EDA4 (PsIsJobParentImmutable.c)
  *     PspIsProcessInJob @ 0x14069EECC (PspIsProcessInJob.c)
- *     PspIsJobMovable @ 0x1409B2564 (PspIsJobMovable.c)
+ *     PspIsJobMovable @ 0x1409B2764 (PspIsJobMovable.c)
  */
 
 __int64 __fastcall PspGetJobAssignmentDisposition(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4)

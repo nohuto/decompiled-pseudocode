@@ -1,7 +1,7 @@
 /*
- * XREFs of TelemetryCoverageCheckTableForCoverageInternal @ 0x18011065C
+ * XREFs of TelemetryCoverageCheckTableForCoverageInternal @ 0x18010B91C
  * Callers:
- *     EtwCheckCoverage @ 0x180110610 (EtwCheckCoverage.c)
+ *     EtwCheckCoverage @ 0x18010B8D0 (EtwCheckCoverage.c)
  * Callees:
  *     <none>
  */

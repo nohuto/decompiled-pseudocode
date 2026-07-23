@@ -1,20 +1,20 @@
 /*
- * XREFs of EtwpUpdateDisallowedGuids @ 0x1409F5D48
+ * XREFs of EtwpUpdateDisallowedGuids @ 0x140831C00
  * Callers:
- *     EtwpUpdateDisallowList @ 0x1409F5CCC (EtwpUpdateDisallowList.c)
+ *     EtwpUpdateDisallowList @ 0x140831B84 (EtwpUpdateDisallowList.c)
  * Callees:
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     KeReleaseMutex @ 0x1403379B0 (KeReleaseMutex.c)
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     qsort @ 0x1404FED20 (qsort.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     memcmp @ 0x1406BFF10 (memcmp.c)
- *     EtwpNotifyDisallowedGuidChange @ 0x1409F6160 (EtwpNotifyDisallowedGuidChange.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     KeReleaseMutex @ 0x1402DEA60 (KeReleaseMutex.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     qsort @ 0x1404FC5E0 (qsort.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     memcmp @ 0x1406C0E10 (memcmp.c)
+ *     EtwpNotifyDisallowedGuidChange @ 0x1408332EC (EtwpNotifyDisallowedGuidChange.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpUpdateDisallowedGuids(
@@ -42,8 +42,8 @@ __int64 __fastcall EtwpUpdateDisallowedGuids(
   PVOID *v22; // rax
   _QWORD *v23; // rsi
   unsigned __int64 *v24; // rdi
-  _QWORD *v25; // rax
-  _QWORD *v26; // rsi
+  char *v25; // rax
+  char *v26; // rsi
   void *v27; // r14
   PVOID *v28; // rax
   _QWORD *v29; // rsi
@@ -116,7 +116,7 @@ LABEL_11:
       {
         while ( v16 < (PVOID *)v17 )
         {
-          Pool2 = (PVOID **)ExAllocatePool2(0x100uLL);
+          Pool2 = (PVOID **)ExAllocatePool2(0x100uLL, 0x18uLL, 0x74777445u);
           if ( !Pool2 )
             goto LABEL_23;
           Pool2[2] = v16;
@@ -132,10 +132,10 @@ LABEL_11:
 LABEL_25:
         while ( v19 < v18 )
         {
-          v46 = (PVOID **)ExAllocatePool2(0x100uLL);
+          v46 = (PVOID **)ExAllocatePool2(0x100uLL, 0x18uLL, 0x74777445u);
           if ( !v46 )
             goto LABEL_23;
-          v47 = (PVOID *)ExAllocatePool2(0x100uLL);
+          v47 = (PVOID *)ExAllocatePool2(0x100uLL, 0x10uLL, 0x74777445u);
           if ( !v47 )
           {
             v45 = v46;
@@ -153,12 +153,12 @@ LABEL_25:
           p_P = (PVOID *)v46;
         }
         v24 = (unsigned __int64 *)(a1 + 688);
-        v25 = KeAbPreAcquire(a1 + 688, 0LL);
+        v25 = (char *)KeAbPreAcquire(a1 + 688, 0LL);
         v26 = v25;
         if ( _interlockedbittestandset64((volatile signed __int32 *)(a1 + 688), 0LL) )
-          ExfAcquirePushLockExclusiveEx(v24, (__int64)v25, (__int64)v24);
+          ExfAcquirePushLockExclusiveEx(v24, v25, (__int64)v24);
         if ( v26 )
-          *((_BYTE *)v26 + 10) = 1;
+          v26[10] = 1;
         v27 = *(void **)(a1 + 1336);
         *(_WORD *)(a1 + 1328) = a2;
         *(_QWORD *)(a1 + 1336) = v12;
@@ -212,10 +212,10 @@ LABEL_25:
         break;
       if ( v20 >= 0 )
       {
-        v42 = (PVOID **)ExAllocatePool2(0x100uLL);
+        v42 = (PVOID **)ExAllocatePool2(0x100uLL, 0x18uLL, 0x74777445u);
         if ( !v42 )
           goto LABEL_23;
-        v43 = (PVOID *)ExAllocatePool2(0x100uLL);
+        v43 = (PVOID *)ExAllocatePool2(0x100uLL, 0x10uLL, 0x74777445u);
         if ( !v43 )
         {
           v45 = v42;
@@ -240,7 +240,7 @@ LABEL_20:
       }
       else
       {
-        v21 = (PVOID **)ExAllocatePool2(0x100uLL);
+        v21 = (PVOID **)ExAllocatePool2(0x100uLL, 0x18uLL, 0x74777445u);
         if ( !v21 )
           goto LABEL_23;
         v21[2] = v16;
@@ -258,12 +258,12 @@ LABEL_36:
     v16 += 2;
     goto LABEL_20;
   }
-  v11 = (void *)ExAllocatePool2(0x100uLL);
+  v11 = (void *)ExAllocatePool2(0x100uLL, 16LL * a2, 0x64777445u);
   v12 = (unsigned __int64)v11;
   if ( v11 )
   {
     memmove(v11, a3, 16LL * v7);
-    qsort((void *)v12, v7, 0x10uLL, (int (__cdecl *)(const void *, const void *))EtwpCompareGuid);
+    qsort((void *)v12, v7, 0x10uLL, EtwpCompareGuid);
     for ( i = 0; ; ++i )
     {
       if ( i >= v7 - 1 )

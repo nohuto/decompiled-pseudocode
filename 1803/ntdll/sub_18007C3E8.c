@@ -14,34 +14,35 @@
 
 char sub_18007C3E8()
 {
-  __int64 Heap; // rbx
-  unsigned int *v1; // rdx
-  char *v2; // rcx
-  __int64 v4; // [rsp+30h] [rbp+8h] BYREF
-  char v5; // [rsp+38h] [rbp+10h] BYREF
+  _WORD *Heap; // rbx
+  ULONG *v1; // r9
+  unsigned int *v2; // rdx
+  char *v3; // rcx
+  PVOID BaseAddress; // [rsp+30h] [rbp+8h] BYREF
+  LARGE_INTEGER DefaultCasingTableSize; // [rsp+38h] [rbp+10h] BYREF
 
   if ( qword_18015D2B8 )
     return 1;
-  Heap = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, 64LL);
+  Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, 0x40uLL);
   if ( Heap )
   {
-    if ( (int)RtlGetLocaleFileMappingAddress(&v4, &dword_18015AA60, &v5) >= 0 )
+    if ( RtlGetLocaleFileMappingAddress(&BaseAddress, &DefaultLocaleId, &DefaultCasingTableSize, v1) >= 0 )
     {
-      v1 = (unsigned int *)(v4 + *(unsigned int *)(v4 + 16));
-      v2 = (char *)v1 + *v1;
-      *(_WORD *)(Heap + 8) = *((_WORD *)v2 + 12);
-      *(_WORD *)(Heap + 12) = *((_WORD *)v2 + 11);
-      *(_WORD *)(Heap + 10) = *((_WORD *)v2 + 16);
-      *(_WORD *)(Heap + 56) = *((_WORD *)v2 + 13);
-      *(_QWORD *)(Heap + 16) = (char *)v1 + *((unsigned int *)v2 + 7);
-      *(_QWORD *)(Heap + 24) = (char *)v1 + *((unsigned int *)v2 + 9);
-      *(_QWORD *)(Heap + 32) = (char *)v1 + *((unsigned int *)v2 + 10);
-      *(_QWORD *)(Heap + 40) = (char *)v1 + *((unsigned int *)v2 + 14);
-      if ( _InterlockedCompareExchange64(&qword_18015D2B8, Heap, 0LL) )
-        RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, Heap);
+      v2 = (unsigned int *)((char *)BaseAddress + *((unsigned int *)BaseAddress + 4));
+      v3 = (char *)v2 + *v2;
+      Heap[4] = *((_WORD *)v3 + 12);
+      Heap[6] = *((_WORD *)v3 + 11);
+      Heap[5] = *((_WORD *)v3 + 16);
+      Heap[28] = *((_WORD *)v3 + 13);
+      *((_QWORD *)Heap + 2) = (char *)v2 + *((unsigned int *)v3 + 7);
+      *((_QWORD *)Heap + 3) = (char *)v2 + *((unsigned int *)v3 + 9);
+      *((_QWORD *)Heap + 4) = (char *)v2 + *((unsigned int *)v3 + 10);
+      *((_QWORD *)Heap + 5) = (char *)v2 + *((unsigned int *)v3 + 14);
+      if ( _InterlockedCompareExchange64(&qword_18015D2B8, (signed __int64)Heap, 0LL) )
+        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Heap);
       return 1;
     }
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, Heap);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Heap);
   }
   return 0;
 }

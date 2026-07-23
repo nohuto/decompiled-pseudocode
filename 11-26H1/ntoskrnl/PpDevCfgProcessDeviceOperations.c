@@ -1,18 +1,18 @@
 /*
- * XREFs of PpDevCfgProcessDeviceOperations @ 0x140AD10DC
+ * XREFs of PpDevCfgProcessDeviceOperations @ 0x140AE8284
  * Callers:
- *     IopInitializeDeviceInstanceKey @ 0x140AA0078 (IopInitializeDeviceInstanceKey.c)
- *     PiProcessNewDeviceNode @ 0x140AA5E3C (PiProcessNewDeviceNode.c)
+ *     PiProcessNewDeviceNode @ 0x1409D9370 (PiProcessNewDeviceNode.c)
+ *     IopInitializeDeviceInstanceKey @ 0x140AA1A08 (IopInitializeDeviceInstanceKey.c)
  * Callees:
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwOpenKey @ 0x140723630 (ZwOpenKey.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     PiDevCfgConfigureDeviceKeys @ 0x140988AF0 (PiDevCfgConfigureDeviceKeys.c)
- *     PiDevCfgSetDeviceRegProp @ 0x14098D0A8 (PiDevCfgSetDeviceRegProp.c)
- *     _CmGetDeviceRegProp @ 0x140996210 (_CmGetDeviceRegProp.c)
- *     _PnpCtxRegDeleteTree @ 0x140A2D8F8 (_PnpCtxRegDeleteTree.c)
- *     PiDevCfgFreeDeviceContext @ 0x140AD11C4 (PiDevCfgFreeDeviceContext.c)
- *     PiDevCfgInitDeviceContext @ 0x140AD1214 (PiDevCfgInitDeviceContext.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140728200 (ZwOpenKey.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     PiDevCfgSetDeviceRegProp @ 0x14094DB08 (PiDevCfgSetDeviceRegProp.c)
+ *     _CmGetDeviceRegProp @ 0x140956C70 (_CmGetDeviceRegProp.c)
+ *     _PnpCtxRegDeleteTree @ 0x140A3F304 (_PnpCtxRegDeleteTree.c)
+ *     PiDevCfgConfigureDeviceKeys @ 0x140A4321C (PiDevCfgConfigureDeviceKeys.c)
+ *     PiDevCfgFreeDeviceContext @ 0x140AE836C (PiDevCfgFreeDeviceContext.c)
+ *     PiDevCfgInitDeviceContext @ 0x140AE83CC (PiDevCfgInitDeviceContext.c)
  */
 
 __int64 __fastcall PpDevCfgProcessDeviceOperations(__int64 a1, void *a2)
@@ -24,18 +24,18 @@ __int64 __fastcall PpDevCfgProcessDeviceOperations(__int64 a1, void *a2)
   __int64 v9; // rdx
   __int64 v10; // rcx
   int v11; // eax
-  int v12; // [rsp+40h] [rbp-69h] BYREF
-  HANDLE KeyHandle; // [rsp+48h] [rbp-61h] BYREF
-  __int128 v14; // [rsp+50h] [rbp-59h] BYREF
-  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+60h] [rbp-49h] BYREF
-  _BYTE v16[112]; // [rsp+90h] [rbp-19h] BYREF
-  int v17; // [rsp+110h] [rbp+67h] BYREF
-  int v18; // [rsp+120h] [rbp+77h] BYREF
-  int v19; // [rsp+128h] [rbp+7Fh] BYREF
+  int v12; // [rsp+40h] [rbp-79h] BYREF
+  HANDLE KeyHandle; // [rsp+48h] [rbp-71h] BYREF
+  __int128 v14; // [rsp+50h] [rbp-69h] BYREF
+  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+60h] [rbp-59h] BYREF
+  _BYTE v16[128]; // [rsp+90h] [rbp-29h] BYREF
+  int v17; // [rsp+120h] [rbp+67h] BYREF
+  int v18; // [rsp+130h] [rbp+77h] BYREF
+  int v19; // [rsp+138h] [rbp+7Fh] BYREF
 
   KeyHandle = 0LL;
   v14 = 0LL;
-  memset_0(v16, 0, 0x48uLL);
+  memset_0(v16, 0, 0x58uLL);
   v4 = *(_QWORD *)(a1 + 48) == 0LL;
   v17 = 0;
   v19 = 0;

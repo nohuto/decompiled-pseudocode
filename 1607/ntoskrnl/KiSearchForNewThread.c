@@ -1,17 +1,17 @@
 /*
- * XREFs of KiSearchForNewThread @ 0x14005B980
+ * XREFs of KiSearchForNewThread @ 0x14005B500
  * Callers:
- *     KiSwapThread @ 0x14005B200 (KiSwapThread.c)
- *     KiIdleSchedule @ 0x1400D2630 (KiIdleSchedule.c)
+ *     KiSwapThread @ 0x14005AD80 (KiSwapThread.c)
+ *     KiIdleSchedule @ 0x1400D04D0 (KiIdleSchedule.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14002ECB0 (KeYieldProcessorEx.c)
- *     KiDeferredReadyThread @ 0x140056AC0 (KiDeferredReadyThread.c)
- *     KiSearchForNewThreadOnProcessor @ 0x14005BD20 (KiSearchForNewThreadOnProcessor.c)
- *     KiSelectReadyThread @ 0x14005C1C0 (KiSelectReadyThread.c)
- *     KiSelectThreadFromSchedulingGroup @ 0x14009939C (KiSelectThreadFromSchedulingGroup.c)
- *     KiSetProcessorIdle @ 0x1400AEA40 (KiSetProcessorIdle.c)
- *     KiQueryEffectivePriorityThread @ 0x1400D016C (KiQueryEffectivePriorityThread.c)
- *     KiIsThreadRankNonZero @ 0x1400D0190 (KiIsThreadRankNonZero.c)
+ *     KeYieldProcessorEx @ 0x14002E830 (KeYieldProcessorEx.c)
+ *     KiDeferredReadyThread @ 0x140056640 (KiDeferredReadyThread.c)
+ *     KiSearchForNewThreadOnProcessor @ 0x14005B8A0 (KiSearchForNewThreadOnProcessor.c)
+ *     KiSelectReadyThread @ 0x14005BD40 (KiSelectReadyThread.c)
+ *     KiSelectThreadFromSchedulingGroup @ 0x140098B9C (KiSelectThreadFromSchedulingGroup.c)
+ *     KiSetProcessorIdle @ 0x1400ACFA8 (KiSetProcessorIdle.c)
+ *     KiQueryEffectivePriorityThread @ 0x1400CE00C (KiQueryEffectivePriorityThread.c)
+ *     KiIsThreadRankNonZero @ 0x1400CE030 (KiIsThreadRankNonZero.c)
  */
 
 __int64 __fastcall KiSearchForNewThread(__int64 a1, char a2)
@@ -218,7 +218,7 @@ LABEL_31:
           {
             while ( ++v3 != (unsigned __int16)KeNumberNodes )
             {
-              v33 = *((unsigned __int16 *)qword_1403269A8 + v3 + v20 * (unsigned int)(unsigned __int16)KeNumberNodes);
+              v33 = *((unsigned __int16 *)qword_1403269E8 + v3 + v20 * (unsigned int)(unsigned __int16)KeNumberNodes);
               v34 = (unsigned int)v21;
               if ( _bittest64(&v34, v33) )
               {

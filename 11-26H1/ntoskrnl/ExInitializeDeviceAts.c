@@ -1,18 +1,18 @@
 /*
- * XREFs of ExInitializeDeviceAts @ 0x1406D0230
+ * XREFs of ExInitializeDeviceAts @ 0x1406D4260
  * Callers:
  *     <none>
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     ?KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z @ 0x140444460 (-KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     ExpPrepareNewAtsDevice @ 0x1406D06AC (ExpPrepareNewAtsDevice.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     IoQueryInterface @ 0x140AA8B20 (IoQueryInterface.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     ?KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z @ 0x14043CF70 (-KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     ExpPrepareNewAtsDevice @ 0x1406D46DC (ExpPrepareNewAtsDevice.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     IoQueryInterface @ 0x1409DC050 (IoQueryInterface.c)
  */
 
 __int64 __fastcall ExInitializeDeviceAts(ULONG_PTR BugCheckParameter1, int a2)
@@ -24,7 +24,7 @@ __int64 __fastcall ExInitializeDeviceAts(ULONG_PTR BugCheckParameter1, int a2)
   AutoBoost *v9; // rax
   volatile unsigned __int8 *v10; // rdx
   AutoBoost *v11; // rdi
-  struct _KTHREAD *Flink; // rax
+  struct _KTHREAD *Blink; // rax
   void *SListFaultAddress; // rdx
   struct _KTHREAD *v14; // rcx
   __int64 v15; // rdx
@@ -55,17 +55,13 @@ __int64 __fastcall ExInitializeDeviceAts(ULONG_PTR BugCheckParameter1, int a2)
     if ( Interface >= 0 )
     {
       v4 = 1;
-      v9 = (AutoBoost *)KeAbPreAcquire((__int64)&ExSaPageGroupDescriptorArrayLock.ApcState.ApcListHead[1], 0LL, 0LL, v8);
+      v9 = (AutoBoost *)KeAbPreAcquire((__int64)&ExSaPageGroupDescriptorArrayLock.152, 0LL, 0LL, v8);
       v11 = v9;
-      if ( _interlockedbittestandset64(
-             (volatile signed __int32 *)&ExSaPageGroupDescriptorArrayLock.ApcStateFill[16],
-             0LL) )
-      {
+      if ( _interlockedbittestandset64((volatile signed __int32 *)&ExSaPageGroupDescriptorArrayLock.152, 0LL) )
         ExfAcquirePushLockExclusiveEx(
-          (unsigned __int64 *)&ExSaPageGroupDescriptorArrayLock.ApcState.ApcListHead[1],
+          (unsigned __int64 *)&ExSaPageGroupDescriptorArrayLock.152,
           v9,
-          (__int64)&ExSaPageGroupDescriptorArrayLock.ApcState.ApcListHead[1]);
-      }
+          (__int64)&ExSaPageGroupDescriptorArrayLock.152);
       if ( v11 )
       {
         if ( (KiAbpGlobalState & 1) != 0 )
@@ -78,18 +74,18 @@ __int64 __fastcall ExInitializeDeviceAts(ULONG_PTR BugCheckParameter1, int a2)
           *((_BYTE *)v11 + 10) = 1;
         }
       }
-      Flink = (struct _KTHREAD *)ExSaPageGroupDescriptorArrayLock.ApcState.ApcListHead[0].Flink;
-      if ( ($7A85BAF4F1FA08634C1C4A3E45B775B3 *)ExSaPageGroupDescriptorArrayLock.ApcState.ApcListHead[0].Flink == &ExSaPageGroupDescriptorArrayLock.152 )
+      Blink = (struct _KTHREAD *)ExSaPageGroupDescriptorArrayLock.ApcState.ApcListHead[0].Blink;
+      if ( (unsigned __int8 *)ExSaPageGroupDescriptorArrayLock.ApcState.ApcListHead[0].Blink == &ExSaPageGroupDescriptorArrayLock.ApcStateFill[8] )
         goto LABEL_16;
       while ( 1 )
       {
-        SListFaultAddress = Flink->SListFaultAddress;
-        v14 = Flink;
-        v20 = Flink;
+        SListFaultAddress = Blink->SListFaultAddress;
+        v14 = Blink;
+        v20 = Blink;
         if ( SListFaultAddress == (void *)BugCheckParameter1 )
           break;
-        Flink = *(struct _KTHREAD **)&Flink->Header.Lock;
-        if ( Flink == (struct _KTHREAD *)&ExSaPageGroupDescriptorArrayLock.152 )
+        Blink = *(struct _KTHREAD **)&Blink->Header.Lock;
+        if ( Blink == (struct _KTHREAD *)&ExSaPageGroupDescriptorArrayLock.ApcStateFill[8] )
         {
           if ( SListFaultAddress != (void *)BugCheckParameter1 )
           {
@@ -111,10 +107,10 @@ LABEL_16:
         ++LODWORD(v14->QuantumTarget);
       }
       if ( (_InterlockedExchangeAdd64(
-              (volatile signed __int64 *)&ExSaPageGroupDescriptorArrayLock.ApcState.ApcListHead[1].Flink,
+              (volatile signed __int64 *)&ExSaPageGroupDescriptorArrayLock.152,
               0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-        ExfTryToWakePushLock((volatile signed __int64 *)&ExSaPageGroupDescriptorArrayLock.ApcState.ApcListHead[1]);
-      KeAbPostRelease((unsigned __int64)&ExSaPageGroupDescriptorArrayLock.ApcState.ApcListHead[1]);
+        ExfTryToWakePushLock((volatile signed __int64 *)&ExSaPageGroupDescriptorArrayLock.152);
+      KeAbPostRelease((unsigned __int64)&ExSaPageGroupDescriptorArrayLock.152);
     }
     guard_dispatch_icall_no_overrides(v19, v7);
     if ( v4 )

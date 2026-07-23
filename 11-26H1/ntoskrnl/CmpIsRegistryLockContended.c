@@ -1,7 +1,7 @@
 /*
- * XREFs of CmpIsRegistryLockContended @ 0x1404D5134
+ * XREFs of CmpIsRegistryLockContended @ 0x1404CE9A4
  * Callers:
- *     CmpEnumerateLayeredKey @ 0x140982A88 (CmpEnumerateLayeredKey.c)
+ *     CmpEnumerateLayeredKey @ 0x140944A98 (CmpEnumerateLayeredKey.c)
  * Callees:
  *     <none>
  */

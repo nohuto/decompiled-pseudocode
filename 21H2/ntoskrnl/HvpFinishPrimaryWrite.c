@@ -1,14 +1,14 @@
 /*
- * XREFs of HvpFinishPrimaryWrite @ 0x1407253E4
+ * XREFs of HvpFinishPrimaryWrite @ 0x140613CA0
  * Callers:
- *     HvWriteHivePrimaryFile @ 0x140725240 (HvWriteHivePrimaryFile.c)
+ *     HvWriteHivePrimaryFile @ 0x140613AFC (HvWriteHivePrimaryFile.c)
  * Callees:
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     CmpUnlockRegistry @ 0x1406F5ED0 (CmpUnlockRegistry.c)
- *     CmpLockRegistry @ 0x1406F5F10 (CmpLockRegistry.c)
- *     CmpLogEvent @ 0x14086B714 (CmpLogEvent.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     CmpUnlockRegistry @ 0x14070D2B0 (CmpUnlockRegistry.c)
+ *     CmpLockRegistry @ 0x14070D2F0 (CmpLockRegistry.c)
+ *     CmpLogEvent @ 0x14086B874 (CmpLogEvent.c)
  */
 
 __int64 __fastcall HvpFinishPrimaryWrite(__int64 a1, char a2, unsigned __int8 a3, char a4)
@@ -17,6 +17,8 @@ __int64 __fastcall HvpFinishPrimaryWrite(__int64 a1, char a2, unsigned __int8 a3
   int v5; // esi
   int v6; // edi
   __int64 result; // rax
+  __int64 v10; // rdx
+  __int64 v11; // rcx
 
   v4 = 0;
   v5 = *(_DWORD *)(a1 + 160) & 0x100;
@@ -48,7 +50,7 @@ __int64 __fastcall HvpFinishPrimaryWrite(__int64 a1, char a2, unsigned __int8 a3
     if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 72), 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
       ExfTryToWakePushLock(a1 + 72);
     KeAbPostRelease(a1 + 72);
-    return CmpUnlockRegistry();
+    return CmpUnlockRegistry(v11, v10);
   }
   return result;
 }

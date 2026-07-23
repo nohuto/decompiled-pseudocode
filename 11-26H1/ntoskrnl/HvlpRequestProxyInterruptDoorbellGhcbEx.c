@@ -1,13 +1,13 @@
 /*
- * XREFs of HvlpRequestProxyInterruptDoorbellGhcbEx @ 0x1403E5F68
+ * XREFs of HvlpRequestProxyInterruptDoorbellGhcbEx @ 0x1402F2E4C
  * Callers:
- *     HvlpProxySyntheticClusterIpi @ 0x14024F8C8 (HvlpProxySyntheticClusterIpi.c)
+ *     HvlpProxySyntheticClusterIpi @ 0x140251228 (HvlpProxySyntheticClusterIpi.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     HvlpAffinityToHvProcessorSet @ 0x1403E77FC (HvlpAffinityToHvProcessorSet.c)
- *     HvlpHvToNtStatus @ 0x1403E7DC0 (HvlpHvToNtStatus.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     HvlSevVmgExit @ 0x1407231F0 (HvlSevVmgExit.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     HvlpAffinityToHvProcessorSet @ 0x1402F46DC (HvlpAffinityToHvProcessorSet.c)
+ *     HvlpHvToNtStatus @ 0x1402F4CA0 (HvlpHvToNtStatus.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     HvlSevVmgExit @ 0x140727DC0 (HvlSevVmgExit.c)
  */
 
 __int64 __fastcall HvlpRequestProxyInterruptDoorbellGhcbEx(__int64 a1)

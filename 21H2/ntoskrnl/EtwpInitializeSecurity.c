@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwpInitializeSecurity @ 0x140A724AC
+ * XREFs of EtwpInitializeSecurity @ 0x140A73508
  * Callers:
- *     EtwpInitialize @ 0x140A42414 (EtwpInitialize.c)
+ *     EtwpInitialize @ 0x140A43414 (EtwpInitialize.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     ZwOpenKey @ 0x1403FA5E0 (ZwOpenKey.c)
- *     RtlGetPersistedStateLocation @ 0x14063F9C0 (RtlGetPersistedStateLocation.c)
- *     EtwpGetGuidSecurityDescriptor @ 0x14064445C (EtwpGetGuidSecurityDescriptor.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     ZwOpenKey @ 0x1403FA7C0 (ZwOpenKey.c)
+ *     RtlGetPersistedStateLocation @ 0x1406347D0 (RtlGetPersistedStateLocation.c)
+ *     EtwpGetGuidSecurityDescriptor @ 0x14063926C (EtwpGetGuidSecurityDescriptor.c)
  */
 
 __int64 EtwpInitializeSecurity()
@@ -15,7 +15,7 @@ __int64 EtwpInitializeSecurity()
   unsigned int PersistedStateLocation; // ebx
   UNICODE_STRING DestinationString; // [rsp+40h] [rbp-C0h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+50h] [rbp-B0h] BYREF
-  __int64 v4; // [rsp+80h] [rbp-80h] BYREF
+  ULONG BufferLengthOut; // [rsp+80h] [rbp-80h] BYREF
   UNICODE_STRING ValueName; // [rsp+88h] [rbp-78h] BYREF
   WCHAR SourceString[256]; // [rsp+A0h] [rbp-60h] BYREF
 
@@ -35,10 +35,10 @@ __int64 EtwpInitializeSecurity()
                              L"ETWSecurityPath",
                              0LL,
                              0LL,
-                             0,
+                             LocationTypeRegistry,
                              SourceString,
                              0x1FEu,
-                             (unsigned int *)&v4);
+                             &BufferLengthOut);
   if ( PersistedStateLocation
     || (RtlInitUnicodeString(&DestinationString, SourceString),
         ObjectAttributes.RootDirectory = 0LL,

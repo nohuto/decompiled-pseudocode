@@ -43,7 +43,7 @@ __int64 __fastcall KeUpdateDpcWatchdogConfiguration(void *Src, size_t Size)
   {
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(2uLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
       v8 = 4;
@@ -61,10 +61,10 @@ __int64 __fastcall KeUpdateDpcWatchdogConfiguration(void *Src, size_t Size)
     KeDpcWatchdogProfileBufferSizeBytes = v10;
     dword_140D1D34C = v10 >> 3;
     KiApplyDpcVerificationScaleSettings();
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v12 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v12 <= v11 && CurrentIrql <= v11 && v12 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v12 <= v11 && CurrentIrql <= v11 && v12 >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         v14 = CurrentPrcb->SchedulerAssist;

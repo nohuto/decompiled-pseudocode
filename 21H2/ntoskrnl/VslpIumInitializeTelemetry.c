@@ -1,13 +1,13 @@
 /*
- * XREFs of VslpIumInitializeTelemetry @ 0x140A72D90
+ * XREFs of VslpIumInitializeTelemetry @ 0x140A73D90
  * Callers:
- *     VslpIumPhase4Initialize @ 0x1403CEDD8 (VslpIumPhase4Initialize.c)
+ *     VslpIumPhase4Initialize @ 0x1403CEF48 (VslpIumPhase4Initialize.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     EtwUnregister @ 0x1407601D0 (EtwUnregister.c)
- *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x14078D094 (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14027E1A4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x1402864F4 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     EtwUnregister @ 0x140760390 (EtwUnregister.c)
+ *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x14078D254 (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
  */
 
 char VslpIumInitializeTelemetry()
@@ -62,7 +62,7 @@ char VslpIumInitializeTelemetry()
       v21 = 4;
       result = tlgWriteTransfer_EtwWriteTransfer(
                  (__int64)&dword_140C044A0,
-                 (unsigned __int8 *)byte_14002462D,
+                 (unsigned __int8 *)&word_14002469E,
                  0LL,
                  0LL,
                  5u,
@@ -94,7 +94,7 @@ char VslpIumInitializeTelemetry()
       v24 = 4;
       result = tlgWriteTransfer_EtwWriteTransfer(
                  (__int64)&dword_140C044A0,
-                 (unsigned __int8 *)&word_1400245DE,
+                 (unsigned __int8 *)word_1400246DA,
                  0LL,
                  0LL,
                  6u,

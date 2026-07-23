@@ -3,7 +3,7 @@
  * Callers:
  *     VfInitBootDriversLoaded @ 0x1407A52D8 (VfInitBootDriversLoaded.c)
  * Callees:
- *     RtlSetAllBits @ 0x1400055D0 (RtlSetAllBits.c)
+ *     RtlSetAllBits @ 0x140005744 (RtlSetAllBits.c)
  */
 
 void VfThunkInit()

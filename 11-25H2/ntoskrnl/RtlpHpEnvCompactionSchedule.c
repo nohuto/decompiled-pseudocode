@@ -49,7 +49,7 @@ __int64 __fastcall RtlpHpEnvCompactionSchedule(_QWORD *a1)
       if ( !(unsigned __int8)ExpTimerSetParametersAreValid(BugCheckParameter3) )
         KeBugCheckEx(0xC7u, 9uLL, v5, (ULONG_PTR)BugCheckParameter3, 0LL);
       ExpCheckForFreedEnhancedTimer(v3);
-      KeSetTimer2(v3, -10000000LL, 0LL, (__int64)BugCheckParameter3);
+      KeSetTimer2(v3, (LARGE_INTEGER)-10000000LL, 0LL, (__int64)BugCheckParameter3);
     }
   }
   else

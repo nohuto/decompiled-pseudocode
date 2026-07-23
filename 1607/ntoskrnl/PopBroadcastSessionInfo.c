@@ -1,13 +1,13 @@
 /*
- * XREFs of PopBroadcastSessionInfo @ 0x14057BCC8
+ * XREFs of PopBroadcastSessionInfo @ 0x14057C174
  * Callers:
- *     PopNotifyBrightnessChangesWorker @ 0x14014A420 (PopNotifyBrightnessChangesWorker.c)
- *     PopWin32kPowerSettingCallback @ 0x14014A564 (PopWin32kPowerSettingCallback.c)
- *     PopUmpoProcessPowerMessage @ 0x1403F7C58 (PopUmpoProcessPowerMessage.c)
- *     PopSetAwayModeStatus @ 0x14066EA34 (PopSetAwayModeStatus.c)
- *     PopSetWin32kInputTimeout @ 0x140674C94 (PopSetWin32kInputTimeout.c)
+ *     PopNotifyBrightnessChangesWorker @ 0x14014A990 (PopNotifyBrightnessChangesWorker.c)
+ *     PopWin32kPowerSettingCallback @ 0x14014AAD4 (PopWin32kPowerSettingCallback.c)
+ *     PopUmpoProcessPowerMessage @ 0x1403F6B18 (PopUmpoProcessPowerMessage.c)
+ *     PopSetAwayModeStatus @ 0x14066EB18 (PopSetAwayModeStatus.c)
+ *     PopSetWin32kInputTimeout @ 0x140674D78 (PopSetWin32kInputTimeout.c)
  * Callees:
- *     PsInvokeWin32Callout @ 0x140429010 (PsInvokeWin32Callout.c)
+ *     PsInvokeWin32Callout @ 0x140427EE0 (PsInvokeWin32Callout.c)
  */
 
 __int64 __fastcall PopBroadcastSessionInfo(int a1, int a2, __int64 a3)

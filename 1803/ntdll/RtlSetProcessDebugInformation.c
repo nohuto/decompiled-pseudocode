@@ -15,78 +15,91 @@
  *     sub_1800F6720 @ 0x1800F6720 (sub_1800F6720.c)
  */
 
-__int64 __fastcall RtlSetProcessDebugInformation(HANDLE a1, int a2, __int64 a3)
+NTSTATUS __cdecl RtlSetProcessDebugInformation(HANDLE UniqueProcessId, ULONG Flags, PRTL_DEBUG_INFORMATION Buffer)
 {
   int InformationThread; // ebx
   char v5; // si
-  __int64 result; // rax
-  unsigned __int64 v7; // r8
-  __int64 v8; // rax
-  __int64 v9; // [rsp+30h] [rbp-78h]
-  int v10; // [rsp+60h] [rbp-48h]
-  __int64 v11; // [rsp+B0h] [rbp+8h] BYREF
-  __int64 v12; // [rsp+C0h] [rbp+18h] BYREF
-  __int64 v13; // [rsp+C8h] [rbp+20h]
+  NTSTATUS result; // eax
+  SIZE_T OffsetFree; // r8
+  HANDLE v8; // rdi
+  int v9; // eax
+  void *v10; // rcx
+  PRTL_PROCESS_BACKTRACES BackTraces; // rax
+  int v12; // [rsp+30h] [rbp-78h]
+  int ThreadInformation[18]; // [rsp+60h] [rbp-48h] BYREF
+  HANDLE Handle; // [rsp+B0h] [rbp+8h] BYREF
+  HANDLE ThreadHandle; // [rsp+C0h] [rbp+18h] BYREF
+  LARGE_INTEGER Timeout; // [rsp+C8h] [rbp+20h] BYREF
 
-  v13 = -600000000LL;
+  Timeout.QuadPart = -600000000LL;
   InformationThread = 0;
-  *(_DWORD *)(a3 + 64) = a2;
-  v5 = a2;
-  if ( NtCurrentTeb()->ClientId.UniqueProcess == a1 )
+  Buffer->Flags = Flags;
+  v5 = Flags;
+  if ( NtCurrentTeb()->ClientId.UniqueProcess == UniqueProcessId )
   {
-    if ( ((a2 & 1) == 0 || (InformationThread = sub_1800D5780(a3)) == 0) && (v5 & 2) != 0 )
+    if ( ((Flags & 1) == 0 || (InformationThread = sub_1800D5780(Buffer)) == 0) && (v5 & 2) != 0 )
     {
-      v8 = *(_QWORD *)(a3 + 104);
-      if ( v8 )
+      BackTraces = Buffer->BackTraces;
+      if ( BackTraces )
       {
-        if ( !*(_DWORD *)v8 && (*(_DWORD *)(v8 + 4) < 0x18u || *(_QWORD *)(v8 + 8) || *(_QWORD *)(v8 + 16)) )
-          return (unsigned int)-1073741811;
+        if ( !BackTraces->CommittedMemory
+          && (BackTraces->ReservedMemory < 0x18
+           || *(_QWORD *)&BackTraces->NumberOfBackTraceLookups
+           || BackTraces->BackTraces[0].SymbolicBackTrace) )
+        {
+          return -1073741811;
+        }
         else
-          return (unsigned int)sub_1800F6720();
+        {
+          return sub_1800F6720();
+        }
       }
       else
       {
-        return (unsigned int)-1073741801;
+        return -1073741801;
       }
     }
   }
   else
   {
-    v11 = 0LL;
-    result = sub_180077F84((_QWORD *)a3, (__int64)a1, 0, &v11);
-    if ( (int)result < 0 )
+    Handle = 0LL;
+    result = sub_180077F84((__int64)Buffer, UniqueProcessId, 0, &Handle);
+    if ( result < 0 )
       return result;
-    v7 = *(_QWORD *)(a3 + 72);
-    if ( v7 > 0xD0 )
-      memmove((void *)(*(_QWORD *)(a3 + 88) + a3 + 208), (const void *)(a3 + 208), v7 - 208);
+    OffsetFree = Buffer->OffsetFree;
+    if ( OffsetFree > 0xD0 )
+      memmove((char *)&Buffer[1] + Buffer->ViewSize, &Buffer[1], OffsetFree - 208);
     InformationThread = sub_1800060E8(
-                          v11,
+                          Handle,
                           0LL,
                           7,
                           0,
                           0LL,
                           0LL,
-                          v9,
-                          (__int64)sub_1800D3490,
-                          *(_QWORD *)(a3 + 16),
-                          &v12,
+                          v12,
+                          (PUSER_THREAD_START_ROUTINE)sub_1800D3490,
+                          Buffer->ViewBaseTarget,
+                          &ThreadHandle,
                           0LL);
     if ( InformationThread >= 0 )
     {
-      InformationThread = ZwResumeThread();
-      if ( InformationThread < 0 || (InformationThread = ZwWaitForSingleObject(), InformationThread < 0) )
+      v8 = ThreadHandle;
+      v9 = ZwResumeThread(ThreadHandle, 0LL);
+      InformationThread = v9;
+      v10 = v8;
+      if ( v9 < 0 || (v9 = ZwWaitForSingleObject(v8, 1u, &Timeout), InformationThread = v9, v10 = v8, v9 < 0) )
       {
-        ZwTerminateThread();
+        ZwTerminateThread(v10, v9);
       }
       else
       {
-        InformationThread = ZwQueryInformationThread();
+        InformationThread = ZwQueryInformationThread(v8, ThreadBasicInformation, ThreadInformation, 0x30u, 0LL);
         if ( InformationThread >= 0 )
-          InformationThread = v10;
+          InformationThread = ThreadInformation[0];
       }
-      ZwClose();
+      ZwClose(v8);
     }
-    ZwClose();
+    ZwClose(Handle);
   }
-  return (unsigned int)InformationThread;
+  return InformationThread;
 }

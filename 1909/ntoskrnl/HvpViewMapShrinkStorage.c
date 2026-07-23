@@ -61,7 +61,7 @@ struct _PRIVILEGE_SET *__fastcall HvpViewMapShrinkStorage(ULONG_PTR a1, int a2)
       HvpViewMapMakeViewRangeInvalid(a1, (_QWORD *)v8, v5, v10);
       if ( *(_QWORD *)(v8 + 40) == *(_QWORD *)(v8 + 48) )
       {
-        RtlRbRemoveNode((unsigned __int64 *)v7, v8);
+        RtlRbRemoveNode((PRTL_RB_TREE)v7, (PRTL_BALANCED_NODE)v8);
         Luid = (unsigned __int64 *)Privileges.Privilege[0].Luid;
         if ( **(struct _PRIVILEGE_SET ***)&Privileges.Privilege[0].Luid != &Privileges )
           goto LABEL_22;

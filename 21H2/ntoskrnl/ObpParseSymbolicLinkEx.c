@@ -1,24 +1,24 @@
 /*
- * XREFs of ObpParseSymbolicLinkEx @ 0x1407179B0
+ * XREFs of ObpParseSymbolicLinkEx @ 0x1406C6000
  * Callers:
  *     <none>
  * Callees:
- *     HalSystemVectorDispatchEntry @ 0x140252E40 (HalSystemVectorDispatchEntry.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     PsIsCurrentThreadInServerSilo @ 0x140351230 (PsIsCurrentThreadInServerSilo.c)
- *     ObReferenceObjectByPointer @ 0x1403600E0 (ObReferenceObjectByPointer.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     RtlIsSandboxedToken @ 0x1407054C0 (RtlIsSandboxedToken.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     HalSystemVectorDispatchEntry @ 0x140251020 (HalSystemVectorDispatchEntry.c)
+ *     ObReferenceObjectByPointer @ 0x1402A5010 (ObReferenceObjectByPointer.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x14035BF80 (PsIsCurrentThreadInServerSilo.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     RtlIsSandboxedToken @ 0x14071C8A0 (RtlIsSandboxedToken.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall ObpParseSymbolicLinkEx(
         unsigned __int16 *Object,
         POBJECT_TYPE ObjectType,
         struct _SECURITY_SUBJECT_CONTEXT *a3,
-        char a4,
+        KPROCESSOR_MODE a4,
         int a5,
         __int64 a6,
         unsigned __int16 *a7,
@@ -49,7 +49,7 @@ __int64 __fastcall ObpParseSymbolicLinkEx(
   DmaAdapter = 0LL;
   v12 = *((_DWORD *)Object + 7);
   v31 = 0LL;
-  if ( (v12 & 2) != 0 && !RtlIsSandboxedToken(a3 + 1, a4) )
+  if ( (v12 & 2) != 0 && !(unsigned __int8)RtlIsSandboxedToken(a3 + 1) )
   {
     v30 = -1073741772;
     goto LABEL_24;

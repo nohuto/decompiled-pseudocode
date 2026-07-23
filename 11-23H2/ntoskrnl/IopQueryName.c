@@ -1,9 +1,9 @@
 /*
- * XREFs of IopQueryName @ 0x14075A880
+ * XREFs of IopQueryName @ 0x14075AA70
  * Callers:
  *     <none>
  * Callees:
- *     IopQueryNameInternal @ 0x14075A964 (IopQueryNameInternal.c)
+ *     IopQueryNameInternal @ 0x14075AB54 (IopQueryNameInternal.c)
  */
 
 __int64 __fastcall IopQueryName(__int64 a1, __int64 a2, __int64 a3, int a4, __int64 a5, char a6)

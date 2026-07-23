@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpAllocateLevelKwFilter @ 0x1406F97C8
+ * XREFs of EtwpAllocateLevelKwFilter @ 0x1406F7408
  * Callers:
- *     EtwpAllocateFilter @ 0x1409F33DC (EtwpAllocateFilter.c)
+ *     EtwpAllocateFilter @ 0x1409E773C (EtwpAllocateFilter.c)
  * Callees:
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall EtwpAllocateLevelKwFilter(__int64 a1, __int64 *a2)
@@ -13,7 +13,7 @@ __int64 __fastcall EtwpAllocateLevelKwFilter(__int64 a1, __int64 *a2)
 
   if ( *a2 || *(_DWORD *)(a1 + 8) != 24 )
     return 3221225485LL;
-  Pool2 = ExAllocatePool2(0x40uLL);
+  Pool2 = ExAllocatePool2(0x40uLL, 0x18uLL, 0x46777445u);
   if ( !Pool2 )
     return 3221225495LL;
   v6 = *(_OWORD **)a1;

@@ -1,13 +1,13 @@
 /*
- * XREFs of HvDuplicateCell @ 0x1406CA728
+ * XREFs of HvDuplicateCell @ 0x1406CB9C8
  * Callers:
- *     CmpCloneKCBValueListForTrans @ 0x1406CA658 (CmpCloneKCBValueListForTrans.c)
- *     CmpDuplicateIndex @ 0x1407FEA98 (CmpDuplicateIndex.c)
+ *     CmpCloneKCBValueListForTrans @ 0x1406CB8F8 (CmpCloneKCBValueListForTrans.c)
+ *     CmpDuplicateIndex @ 0x1407FFC98 (CmpDuplicateIndex.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     HvAllocateCell @ 0x1405FBE54 (HvAllocateCell.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     HvAllocateCell @ 0x1405FCE54 (HvAllocateCell.c)
  */
 
 __int64 __fastcall HvDuplicateCell(ULONG_PTR a1, __int64 a2, int a3, char a4)

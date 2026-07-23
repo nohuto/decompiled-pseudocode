@@ -633,10 +633,10 @@ LABEL_48:
           CurrentIrql = KeGetCurrentIrql();
           __writecr8(1uLL);
           IopCompleteRequest((ULONG_PTR *)(v21 + 120), (__int64)&v111, &v102, &v110, &v102);
-          if ( KiIrqlFlags )
+          if ( (_DWORD)KiIrqlFlags )
           {
             v75 = KeGetCurrentIrql();
-            if ( (KiIrqlFlags & 1) != 0 && v75 <= 0xFu && CurrentIrql <= 0xFu && v75 >= 2u )
+            if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v75 <= 0xFu && CurrentIrql <= 0xFu && v75 >= 2u )
             {
               CurrentPrcb = KeGetCurrentPrcb();
               SchedulerAssist = CurrentPrcb->SchedulerAssist;

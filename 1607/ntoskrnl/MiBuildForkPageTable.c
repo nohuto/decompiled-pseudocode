@@ -1,17 +1,17 @@
 /*
- * XREFs of MiBuildForkPageTable @ 0x14010AAB0
+ * XREFs of MiBuildForkPageTable @ 0x140108830
  * Callers:
- *     MiUpdateForkMaps @ 0x140109E0C (MiUpdateForkMaps.c)
+ *     MiUpdateForkMaps @ 0x140107B8C (MiUpdateForkMaps.c)
  * Callees:
- *     MiChangePageAttribute @ 0x14001D088 (MiChangePageAttribute.c)
- *     MiLockPageInline @ 0x140022E70 (MiLockPageInline.c)
- *     MiLockPageAtDpcInline @ 0x14002EB30 (MiLockPageAtDpcInline.c)
- *     MI_SHOULD_PTE_BE_GLOBAL @ 0x140036D30 (MI_SHOULD_PTE_BE_GLOBAL.c)
- *     MiAddLockedPageCharge @ 0x14004F188 (MiAddLockedPageCharge.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
- *     MiMakeDemandZeroPte @ 0x1401F2734 (MiMakeDemandZeroPte.c)
- *     MiMakeTransitionPte @ 0x1401F279C (MiMakeTransitionPte.c)
+ *     MiChangePageAttribute @ 0x14001CC08 (MiChangePageAttribute.c)
+ *     MiLockPageInline @ 0x1400229F0 (MiLockPageInline.c)
+ *     MiLockPageAtDpcInline @ 0x14002E6B0 (MiLockPageAtDpcInline.c)
+ *     MI_SHOULD_PTE_BE_GLOBAL @ 0x1400368B0 (MI_SHOULD_PTE_BE_GLOBAL.c)
+ *     MiAddLockedPageCharge @ 0x14004ED08 (MiAddLockedPageCharge.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
+ *     MiMakeDemandZeroPte @ 0x1401F2560 (MiMakeDemandZeroPte.c)
+ *     MiMakeTransitionPte @ 0x1401F25C8 (MiMakeTransitionPte.c)
  */
 
 __int64 __fastcall MiBuildForkPageTable(__int64 a1, __int64 a2, unsigned __int64 a3, __int64 *a4, __int64 a5, int a6)

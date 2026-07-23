@@ -1,18 +1,18 @@
 /*
  * XREFs of HalpAcpiTableCacheInit @ 0x140B48D28
  * Callers:
- *     HalpAcpiGetTable @ 0x140336FF0 (HalpAcpiGetTable.c)
+ *     HalpAcpiGetTable @ 0x140337280 (HalpAcpiGetTable.c)
  *     HalpSetupAcpiPhase0 @ 0x140B65578 (HalpSetupAcpiPhase0.c)
  * Callees:
- *     DbgPrint @ 0x14032A6F0 (DbgPrint.c)
- *     HalpAcpiGetCachedTable @ 0x140337190 (HalpAcpiGetCachedTable.c)
- *     HalpAcpiCopyBiosTable @ 0x14037DE48 (HalpAcpiCopyBiosTable.c)
- *     HalpAcpiAllocateMemory @ 0x14037DED0 (HalpAcpiAllocateMemory.c)
- *     HalpAcpiCacheTable @ 0x14037DFA0 (HalpAcpiCacheTable.c)
- *     HalpUnmapVirtualAddress @ 0x14037E180 (HalpUnmapVirtualAddress.c)
- *     HalpMap @ 0x14037E228 (HalpMap.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     DbgPrint @ 0x14032A980 (DbgPrint.c)
+ *     HalpAcpiGetCachedTable @ 0x140337420 (HalpAcpiGetCachedTable.c)
+ *     HalpAcpiCopyBiosTable @ 0x14037DFE8 (HalpAcpiCopyBiosTable.c)
+ *     HalpAcpiAllocateMemory @ 0x14037E070 (HalpAcpiAllocateMemory.c)
+ *     HalpAcpiCacheTable @ 0x14037E140 (HalpAcpiCacheTable.c)
+ *     HalpUnmapVirtualAddress @ 0x14037E320 (HalpUnmapVirtualAddress.c)
+ *     HalpMap @ 0x14037E3C8 (HalpMap.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     memset @ 0x140435E00 (memset.c)
  *     HalpAcpiFindRsdp @ 0x140B6F7D0 (HalpAcpiFindRsdp.c)
  *     HalpAcpiCacheOverrideTables @ 0x140B90F18 (HalpAcpiCacheOverrideTables.c)
  *     HalpAcpiCalculateCacheSizeForOverrideTables @ 0x140B90FB8 (HalpAcpiCalculateCacheSizeForOverrideTables.c)

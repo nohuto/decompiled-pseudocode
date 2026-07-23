@@ -1,12 +1,12 @@
 /*
- * XREFs of PspApiSetCopyToSystemSpace @ 0x140905D28
+ * XREFs of PspApiSetCopyToSystemSpace @ 0x140905E88
  * Callers:
- *     PspSiloLoadApiSets @ 0x140906D14 (PspSiloLoadApiSets.c)
+ *     PspSiloLoadApiSets @ 0x140906E74 (PspSiloLoadApiSets.c)
  * Callees:
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     MmMapViewInSystemSpace @ 0x1406BF880 (MmMapViewInSystemSpace.c)
- *     MmCreateSection @ 0x1406D4680 (MmCreateSection.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     MmMapViewInSystemSpace @ 0x14061E6F0 (MmMapViewInSystemSpace.c)
+ *     MmCreateSection @ 0x1406AB960 (MmCreateSection.c)
  */
 
 __int64 __fastcall PspApiSetCopyToSystemSpace(void *Src, size_t Size, struct _DMA_ADAPTER **a3, _QWORD *a4)

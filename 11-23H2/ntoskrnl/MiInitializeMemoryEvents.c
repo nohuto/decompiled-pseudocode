@@ -1,15 +1,15 @@
 /*
- * XREFs of MiInitializeMemoryEvents @ 0x14081BD98
+ * XREFs of MiInitializeMemoryEvents @ 0x14081C068
  * Callers:
- *     MmCreatePartition @ 0x1403AC6AC (MmCreatePartition.c)
+ *     MmCreatePartition @ 0x1403AC88C (MmCreatePartition.c)
  *     MiInitSystem @ 0x140B44518 (MiInitSystem.c)
  * Callees:
- *     RtlGetDaclSecurityDescriptor @ 0x140297640 (RtlGetDaclSecurityDescriptor.c)
- *     MiSignalNonPagedPoolWatchers @ 0x140398808 (MiSignalNonPagedPoolWatchers.c)
- *     MiUpdateAvailableEvents @ 0x1403AE720 (MiUpdateAvailableEvents.c)
- *     MiCreateMemoryEvent @ 0x14081BEC4 (MiCreateMemoryEvent.c)
- *     MiCreatePartitionNamespace @ 0x14081C054 (MiCreatePartitionNamespace.c)
- *     MiCreateMemoryEventSD @ 0x14085F2A0 (MiCreateMemoryEventSD.c)
+ *     RtlGetDaclSecurityDescriptor @ 0x1402978D0 (RtlGetDaclSecurityDescriptor.c)
+ *     MiSignalNonPagedPoolWatchers @ 0x1403989E8 (MiSignalNonPagedPoolWatchers.c)
+ *     MiUpdateAvailableEvents @ 0x1403AE900 (MiUpdateAvailableEvents.c)
+ *     MiCreateMemoryEvent @ 0x14081C194 (MiCreateMemoryEvent.c)
+ *     MiCreatePartitionNamespace @ 0x14081C324 (MiCreatePartitionNamespace.c)
+ *     MiCreateMemoryEventSD @ 0x14085F4E0 (MiCreateMemoryEventSD.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     MiInitializePagedPoolEvents @ 0x140B72FB0 (MiInitializePagedPoolEvents.c)
  */

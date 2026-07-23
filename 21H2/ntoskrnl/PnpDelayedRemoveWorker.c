@@ -1,16 +1,16 @@
 /*
- * XREFs of PnpDelayedRemoveWorker @ 0x140735EC0
+ * XREFs of PnpDelayedRemoveWorker @ 0x140736080
  * Callers:
- *     PnpChainDereferenceComplete @ 0x140736488 (PnpChainDereferenceComplete.c)
+ *     PnpChainDereferenceComplete @ 0x140736648 (PnpChainDereferenceComplete.c)
  * Callees:
- *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
- *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
- *     PpDevNodeUnlockTree @ 0x140639BC0 (PpDevNodeUnlockTree.c)
- *     PpDevNodeLockTree @ 0x140639C54 (PpDevNodeLockTree.c)
- *     PnpDisableWatchdog @ 0x1406774E0 (PnpDisableWatchdog.c)
- *     PnpEnableWatchdog @ 0x140677554 (PnpEnableWatchdog.c)
- *     PipRemoveDevicesInRelationList @ 0x140735D08 (PipRemoveDevicesInRelationList.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExReleaseResourceLite @ 0x140356140 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1403568F0 (ExAcquireResourceExclusiveLite.c)
+ *     PpDevNodeUnlockTree @ 0x14062E9D0 (PpDevNodeUnlockTree.c)
+ *     PpDevNodeLockTree @ 0x14062EA64 (PpDevNodeLockTree.c)
+ *     PnpDisableWatchdog @ 0x14066AC20 (PnpDisableWatchdog.c)
+ *     PnpEnableWatchdog @ 0x14066AC94 (PnpEnableWatchdog.c)
+ *     PipRemoveDevicesInRelationList @ 0x140735EC8 (PipRemoveDevicesInRelationList.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PnpDelayedRemoveWorker(_QWORD *P)

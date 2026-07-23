@@ -567,7 +567,7 @@ LABEL_16:
 LABEL_18:
   MiUnlockDynamicMemoryShared((__int64)&MiSystemPartition, v83);
   if ( v87 == 1 )
-    ZwUpdateWnfStateData((__int64)&WNF_MM_BAD_MEMORY_PENDING_REMOVAL, 0LL);
+    ZwUpdateWnfStateData(&WNF_MM_BAD_MEMORY_PENDING_REMOVAL, 0LL, 0, 0LL, 0LL, 0, 0);
   v15 = v86 == 1;
   *(_QWORD *)a2 = (v86 + v5 - v6) << 12;
   if ( v15 )

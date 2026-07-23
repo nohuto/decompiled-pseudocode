@@ -1,14 +1,19 @@
 /*
- * XREFs of ZwRemoveIoCompletion @ 0x140723510
+ * XREFs of ZwRemoveIoCompletion @ 0x1407280E0
  * Callers:
- *     DifZwRemoveIoCompletionWrapper @ 0x1406B6D60 (DifZwRemoveIoCompletionWrapper.c)
+ *     DifZwRemoveIoCompletionWrapper @ 0x1406BA940 (DifZwRemoveIoCompletionWrapper.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwRemoveIoCompletion(__int64 a1, __int64 a2, __int64 a3)
+NTSTATUS __cdecl ZwRemoveIoCompletion(
+        HANDLE IoCompletionHandle,
+        PVOID *KeyContext,
+        PVOID *ApcContext,
+        PIO_STATUS_BLOCK IoStatusBlock,
+        PLARGE_INTEGER Timeout)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2, a3);
+  return KiServiceInternal(IoCompletionHandle);
 }

@@ -1,37 +1,37 @@
 /*
- * XREFs of MiResolveTransitionFault @ 0x1402624D0
+ * XREFs of MiResolveTransitionFault @ 0x140262760
  * Callers:
- *     MiDispatchFault @ 0x140237F30 (MiDispatchFault.c)
- *     MiResolveProtoPteFault @ 0x140267ED0 (MiResolveProtoPteFault.c)
+ *     MiDispatchFault @ 0x140238000 (MiDispatchFault.c)
+ *     MiResolveProtoPteFault @ 0x140268160 (MiResolveProtoPteFault.c)
  * Callees:
  *     MiCheckWriteInProgressFault @ 0x140201DD8 (MiCheckWriteInProgressFault.c)
  *     MiLockAndDecrementShareCount @ 0x140211BAC (MiLockAndDecrementShareCount.c)
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     MiHandleTransitionFault @ 0x140262E50 (MiHandleTransitionFault.c)
- *     MiCompleteProtoPteFault @ 0x140268BE0 (MiCompleteProtoPteFault.c)
- *     MiAllocateWsle @ 0x14026B7D0 (MiAllocateWsle.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1402712F0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiPteInShadowRange @ 0x140271360 (MiPteInShadowRange.c)
- *     MiCaptureDirtyBitToPfn @ 0x140283100 (MiCaptureDirtyBitToPfn.c)
- *     MiReleasePageFileInfo @ 0x1402952DC (MiReleasePageFileInfo.c)
- *     MiFreeInPageSupportBlock @ 0x1402BD2FC (MiFreeInPageSupportBlock.c)
- *     MiPfnReferenceCountIsZero @ 0x1402D8FE0 (MiPfnReferenceCountIsZero.c)
- *     MiUnlockProtoPoolPage @ 0x1402DAEF0 (MiUnlockProtoPoolPage.c)
- *     MiReturnCommit @ 0x1402DC250 (MiReturnCommit.c)
- *     MiUpdatePfnPriority @ 0x1402E23B0 (MiUpdatePfnPriority.c)
- *     MiQueueCoreWorkingSetEntries @ 0x1402E3190 (MiQueueCoreWorkingSetEntries.c)
- *     MiHandleCollidedFault @ 0x1402EED90 (MiHandleCollidedFault.c)
- *     MiUserPdeOrAbove @ 0x14033C630 (MiUserPdeOrAbove.c)
- *     MiOkToSetPteDirtyForNotValidFault @ 0x14033F248 (MiOkToSetPteDirtyForNotValidFault.c)
- *     MiIsAddressGlobal @ 0x140347B28 (MiIsAddressGlobal.c)
- *     MiWritePteShadow @ 0x14035734C (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x1403573AC (MiPteHasShadow.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     MiMakeProtoReadOnly @ 0x140633F2C (MiMakeProtoReadOnly.c)
- *     MiBadRefCount @ 0x14064D640 (MiBadRefCount.c)
- *     MiHandleSpecialPurposeMemoryCachedFault @ 0x140660408 (MiHandleSpecialPurposeMemoryCachedFault.c)
- *     MiLockSpecialPurposeMemoryCachedPage @ 0x140660858 (MiLockSpecialPurposeMemoryCachedPage.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     MiHandleTransitionFault @ 0x1402630E0 (MiHandleTransitionFault.c)
+ *     MiCompleteProtoPteFault @ 0x140268E70 (MiCompleteProtoPteFault.c)
+ *     MiAllocateWsle @ 0x14026BA60 (MiAllocateWsle.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140271580 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x1402715F0 (MiPteInShadowRange.c)
+ *     MiCaptureDirtyBitToPfn @ 0x140283390 (MiCaptureDirtyBitToPfn.c)
+ *     MiReleasePageFileInfo @ 0x14029556C (MiReleasePageFileInfo.c)
+ *     MiFreeInPageSupportBlock @ 0x1402BD58C (MiFreeInPageSupportBlock.c)
+ *     MiPfnReferenceCountIsZero @ 0x1402D9270 (MiPfnReferenceCountIsZero.c)
+ *     MiUnlockProtoPoolPage @ 0x1402DB180 (MiUnlockProtoPoolPage.c)
+ *     MiReturnCommit @ 0x1402DC4E0 (MiReturnCommit.c)
+ *     MiUpdatePfnPriority @ 0x1402E2640 (MiUpdatePfnPriority.c)
+ *     MiQueueCoreWorkingSetEntries @ 0x1402E3420 (MiQueueCoreWorkingSetEntries.c)
+ *     MiHandleCollidedFault @ 0x1402EF020 (MiHandleCollidedFault.c)
+ *     MiUserPdeOrAbove @ 0x14033C8C0 (MiUserPdeOrAbove.c)
+ *     MiOkToSetPteDirtyForNotValidFault @ 0x14033F4D8 (MiOkToSetPteDirtyForNotValidFault.c)
+ *     MiIsAddressGlobal @ 0x140347DB8 (MiIsAddressGlobal.c)
+ *     MiWritePteShadow @ 0x1403574EC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x14035754C (MiPteHasShadow.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     MiMakeProtoReadOnly @ 0x14063447C (MiMakeProtoReadOnly.c)
+ *     MiBadRefCount @ 0x14064DB90 (MiBadRefCount.c)
+ *     MiHandleSpecialPurposeMemoryCachedFault @ 0x140660958 (MiHandleSpecialPurposeMemoryCachedFault.c)
+ *     MiLockSpecialPurposeMemoryCachedPage @ 0x140660DA8 (MiLockSpecialPurposeMemoryCachedPage.c)
  */
 
 __int64 MiResolveTransitionFault(_QWORD *a1, ULONG_PTR a2, __int64 a3, __int64 a4, ...)
@@ -76,7 +76,7 @@ __int64 MiResolveTransitionFault(_QWORD *a1, ULONG_PTR a2, __int64 a3, __int64 a
   struct _KPRCB *CurrentPrcb; // r8
   __int64 CachedResidentAvailable; // rdx
   signed __int32 v45; // eax
-  struct _SLIST_ENTRY *v46; // rdi
+  _SLIST_ENTRY *v46; // rdi
   unsigned __int64 v47; // rax
   ULONG_PTR v48; // rbx
   unsigned __int64 v49; // rax

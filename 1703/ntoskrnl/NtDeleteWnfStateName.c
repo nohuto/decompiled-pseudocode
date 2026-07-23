@@ -20,67 +20,66 @@
  *     ExpWnfDeletePermanentStateData @ 0x140722FCC (ExpWnfDeletePermanentStateData.c)
  */
 
-__int64 __fastcall NtDeleteWnfStateName(__int64 a1, __int64 a2, __int64 a3)
+NTSTATUS __cdecl NtDeleteWnfStateName(PCWNF_STATE_NAME StateName)
 {
   struct _KTHREAD *CurrentThread; // rax
-  struct _EX_RUNDOWN_REF *v4; // r14
-  NTSTATUS v5; // edi
-  char v6; // r8
-  unsigned __int64 v7; // rbx
-  __int64 v8; // r13
-  __int64 v9; // r15
-  BOOL v10; // r12d
+  struct _EX_RUNDOWN_REF *v2; // r14
+  NTSTATUS v3; // edi
+  char v4; // r8
+  unsigned __int64 v5; // rbx
+  __int64 v6; // r13
+  __int64 v7; // r15
+  _BOOL8 v8; // r12
   _KPROCESS *Process; // rax
   void *Ptr; // rdi
-  __int64 v13; // r8
-  void *v15; // rdi
-  struct _EX_RUNDOWN_REF *v16; // [rsp+58h] [rbp-C0h] BYREF
-  unsigned int v17; // [rsp+60h] [rbp-B8h]
-  unsigned __int64 v18; // [rsp+68h] [rbp-B0h] BYREF
-  int v19[2]; // [rsp+70h] [rbp-A8h] BYREF
+  __int64 v11; // r8
+  void *v13; // rdi
+  struct _EX_RUNDOWN_REF *v14; // [rsp+58h] [rbp-C0h] BYREF
+  NTSTATUS v15; // [rsp+60h] [rbp-B8h]
+  unsigned __int64 v16; // [rsp+68h] [rbp-B0h] BYREF
+  int v17[2]; // [rsp+70h] [rbp-A8h] BYREF
   NTSTATUS AccessStatus; // [rsp+78h] [rbp-A0h] BYREF
   PVOID P; // [rsp+80h] [rbp-98h] BYREF
-  ACCESS_MASK v22; // [rsp+88h] [rbp-90h] BYREF
+  ACCESS_MASK v20; // [rsp+88h] [rbp-90h] BYREF
   ACCESS_MASK GrantedAccess[3]; // [rsp+8Ch] [rbp-8Ch] BYREF
   struct _SECURITY_SUBJECT_CONTEXT SubjectSecurityContext; // [rsp+98h] [rbp-80h] BYREF
   struct _SECURITY_SUBJECT_CONTEXT SubjectContext; // [rsp+B8h] [rbp-60h] BYREF
-  char v26; // [rsp+128h] [rbp+10h]
-  int v27; // [rsp+130h] [rbp+18h]
-  _KPROCESS *v28; // [rsp+138h] [rbp+20h] BYREF
+  char PreviousMode; // [rsp+128h] [rbp+10h]
+  int v25; // [rsp+130h] [rbp+18h]
+  _KPROCESS *v26; // [rsp+138h] [rbp+20h] BYREF
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  LOBYTE(a3) = KeGetCurrentThread()->PreviousMode;
-  v26 = a3;
-  v27 = 0;
+  PreviousMode = KeGetCurrentThread()->PreviousMode;
+  v25 = 0;
   P = 0LL;
-  v4 = 0LL;
-  *(_QWORD *)v19 = 0LL;
-  v16 = 0LL;
-  v5 = ExpCaptureWnfStateName(a1, &v18, a3);
-  v17 = v5;
-  if ( v5 >= 0 )
+  v2 = 0LL;
+  *(_QWORD *)v17 = 0LL;
+  v14 = 0LL;
+  v3 = ExpCaptureWnfStateName(StateName, &v16, PreviousMode);
+  v15 = v3;
+  if ( v3 >= 0 )
   {
-    v7 = v18;
-    v8 = (v18 >> 6) & 0xF;
-    v9 = (v18 >> 4) & 3;
-    if ( ((v18 >> 4) & 3) == 0 )
+    v5 = v16;
+    v6 = (v16 >> 6) & 0xF;
+    v7 = (v16 >> 4) & 3;
+    if ( ((v16 >> 4) & 3) == 0 )
     {
-      v5 = -1073741811;
+      v3 = -1073741811;
       goto LABEL_21;
     }
-    v10 = v6 == 0;
-    if ( (_DWORD)v9 != 3 )
+    v8 = v4 == 0;
+    if ( (_DWORD)v7 != 3 )
     {
-      if ( v6 )
+      if ( v4 )
       {
-        v5 = ExpWnfLookupPermanentName(v18, &P);
-        if ( v5 < 0 )
+        v3 = ExpWnfLookupPermanentName(v16, &P);
+        if ( v3 < 0 )
           goto LABEL_21;
-        v15 = (void *)*((_QWORD *)P + 2);
+        v13 = (void *)*((_QWORD *)P + 2);
         SeCaptureSubjectContext(&SubjectSecurityContext);
         SeAccessCheck(
-          v15,
+          v13,
           &SubjectSecurityContext,
           0,
           0x10000u,
@@ -88,53 +87,53 @@ __int64 __fastcall NtDeleteWnfStateName(__int64 a1, __int64 a2, __int64 a3)
           0LL,
           (PGENERIC_MAPPING)&ExpWnfNotificationMapping,
           1,
-          &v22,
-          (PNTSTATUS)&v28);
+          &v20,
+          (PNTSTATUS)&v26);
         SeReleaseSubjectContext(&SubjectSecurityContext);
-        v5 = (int)v28;
-        if ( (int)v28 < 0 )
+        v3 = (int)v26;
+        if ( (int)v26 < 0 )
           goto LABEL_21;
-        v10 = 1;
+        LODWORD(v8) = 1;
       }
-      v5 = ExpWnfDeletePermanentName(v7);
-      if ( v5 < 0 )
+      v3 = ExpWnfDeletePermanentName(v5);
+      if ( v3 < 0 )
         goto LABEL_21;
-      v27 = 1;
-      v6 = v26;
+      v25 = 1;
+      v4 = PreviousMode;
     }
-    if ( v6 )
+    if ( v4 )
     {
       Process = KeGetCurrentThread()->ApcState.Process;
-      v7 = v18;
+      v5 = v16;
     }
     else
     {
       Process = PsInitialSystemProcess;
     }
-    v28 = Process;
-    if ( (_DWORD)v9 == 3 )
+    v26 = Process;
+    if ( (_DWORD)v7 == 3 )
     {
-      v5 = ExpWnfResolveScopeInstance((int)v19, (int)Process, 0, v8, 0LL);
-      v4 = *(struct _EX_RUNDOWN_REF **)v19;
-      if ( v5 < 0 )
+      v3 = ExpWnfResolveScopeInstance((int)v17, (int)Process, 0, v6, 0LL);
+      v2 = *(struct _EX_RUNDOWN_REF **)v17;
+      if ( v3 < 0 )
         goto LABEL_21;
     }
     else
     {
-      v5 = 0;
-      v4 = (struct _EX_RUNDOWN_REF *)ExpWnfEnumerateScopeInstances((unsigned int)v8, 0LL);
+      v3 = 0;
+      v2 = (struct _EX_RUNDOWN_REF *)ExpWnfEnumerateScopeInstances((unsigned int)v6, 0LL);
     }
-    if ( v4 )
+    if ( v2 )
     {
-      v18 = (int)v9;
+      v16 = (int)v7;
       while ( 1 )
       {
-        v5 = ExpWnfLookupNameInstance(v4, v7, &v16);
-        if ( v5 >= 0 )
+        v3 = ExpWnfLookupNameInstance(v2, v5, &v14);
+        if ( v3 >= 0 )
         {
-          if ( !v10 )
+          if ( !v8 )
           {
-            Ptr = v16[9].Ptr;
+            Ptr = v14[9].Ptr;
             SeCaptureSubjectContext(&SubjectContext);
             SeAccessCheck(
               Ptr,
@@ -148,50 +147,50 @@ __int64 __fastcall NtDeleteWnfStateName(__int64 a1, __int64 a2, __int64 a3)
               GrantedAccess,
               &AccessStatus);
             SeReleaseSubjectContext(&SubjectContext);
-            v5 = AccessStatus;
+            v3 = AccessStatus;
             if ( AccessStatus < 0 )
               goto LABEL_21;
-            v10 = 1;
+            LODWORD(v8) = 1;
           }
-          if ( v18 == 3 && (_KPROCESS *)v16[19].Count != v28 )
+          if ( v16 == 3 && (_KPROCESS *)v14[19].Count != v26 )
           {
-            v5 = -1073741790;
+            v3 = -1073741790;
             goto LABEL_21;
           }
-          ExpWnfNotifyNameSubscribers(v16, 16LL, 1LL);
-          LOBYTE(v13) = 1;
-          if ( (unsigned int)ExpWnfDeleteNameInstance(v4, v16, v13) )
-            v16 = 0LL;
+          ExpWnfNotifyNameSubscribers(v14, 16LL, 1LL);
+          LOBYTE(v11) = 1;
+          if ( (unsigned int)ExpWnfDeleteNameInstance(v2, v14, v11) )
+            v14 = 0LL;
           else
-            v5 = -1073741772;
+            v3 = -1073741772;
         }
-        if ( v18 != 3 )
+        if ( v16 != 3 )
         {
-          if ( v16 )
+          if ( v14 )
           {
-            ExReleaseRundownProtection(v16 + 1);
-            v16 = 0LL;
+            ExReleaseRundownProtection(v14 + 1);
+            v14 = 0LL;
           }
-          v4 = (struct _EX_RUNDOWN_REF *)ExpWnfEnumerateScopeInstances((unsigned int)v8, v4);
-          if ( v4 )
+          v2 = (struct _EX_RUNDOWN_REF *)ExpWnfEnumerateScopeInstances((unsigned int)v6, v2);
+          if ( v2 )
             continue;
         }
         break;
       }
     }
-    if ( (v7 & 0x400) != 0 )
-      ExpWnfDeletePermanentStateData(0LL, v7);
+    if ( (v5 & 0x400) != 0 )
+      ExpWnfDeletePermanentStateData(0LL, v5);
   }
 LABEL_21:
-  if ( v27 )
-    v5 = 0;
-  v17 = v5;
-  if ( v16 )
-    ExReleaseRundownProtection(v16 + 1);
-  if ( v4 )
-    ExReleaseRundownProtection(v4 + 1);
+  if ( v25 )
+    v3 = 0;
+  v15 = v3;
+  if ( v14 )
+    ExReleaseRundownProtection(v14 + 1);
+  if ( v2 )
+    ExReleaseRundownProtection(v2 + 1);
   if ( P )
     ExFreePoolWithTag(P, 0x20666E57u);
   KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
-  return v17;
+  return v15;
 }

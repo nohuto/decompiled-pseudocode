@@ -14,7 +14,7 @@
 __int64 __fastcall EtwpFlushActiveBuffers(__int64 a1, int a2)
 {
   unsigned int v2; // r15d
-  __int64 v3; // rbp
+  _RTL_CRITICAL_SECTION *v3; // rbp
   __int64 v4; // rsi
   unsigned int v7; // edi
   unsigned __int16 v8; // r13
@@ -29,11 +29,11 @@ __int64 __fastcall EtwpFlushActiveBuffers(__int64 a1, int a2)
   __int64 v18; // rcx
 
   v2 = *(_DWORD *)(a1 + 208);
-  v3 = a1 + 88;
+  v3 = (_RTL_CRITICAL_SECTION *)(a1 + 88);
   v4 = *(unsigned int *)(a1 + 204);
   v7 = 0;
   v8 = 0;
-  RtlEnterCriticalSection(a1 + 88);
+  RtlEnterCriticalSection((PRTL_CRITICAL_SECTION)(a1 + 88));
   if ( a2 == 1 && (_DWORD)v4 )
   {
     v14 = (__int64 *)(a1 + 536);
@@ -90,7 +90,7 @@ __int64 __fastcall EtwpFlushActiveBuffers(__int64 a1, int a2)
       *(_QWORD *)(a1 + 264) = v12;
       _InterlockedAdd((volatile signed __int32 *)(a1 + 232), 1u);
       RtlLeaveCriticalSection(v3);
-      RtlWakeAllConditionVariable(a1 + 80);
+      RtlWakeAllConditionVariable((PRTL_CONDITION_VARIABLE)(a1 + 80));
       *(_DWORD *)(a1 + 40) = v7;
     }
     while ( v10 );

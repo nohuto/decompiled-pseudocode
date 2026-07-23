@@ -20,7 +20,7 @@ __int64 __fastcall WbGetHeapExecutedBlock(__int64 a1, __int64 a2, __int64 **a3)
 {
   __int64 v5; // rdx
   struct _KTHREAD *CurrentThread; // rax
-  __int64 v8; // rdi
+  PRTL_BALANCED_NODE v8; // rdi
   int v9; // edi
   __int64 *v10; // rbx
   int v12; // eax
@@ -38,7 +38,7 @@ __int64 __fastcall WbGetHeapExecutedBlock(__int64 a1, __int64 a2, __int64 **a3)
   if ( _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 48), 17LL, 0LL) )
     ExfAcquirePushLockSharedEx((unsigned __int64 *)(a1 + 48), v8, a1 + 48);
   if ( v8 )
-    *(_BYTE *)(v8 + 26) |= 1u;
+    BYTE2(v8[1].Left) |= 1u;
   v9 = sub_1405CAAE8(a1, *(_QWORD *)(a2 + 272), &v14, 0LL);
   if ( _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 48), 0LL, 17LL) != 17 )
     ExfReleasePushLockShared((signed __int64 *)(a1 + 48));

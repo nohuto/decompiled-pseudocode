@@ -1,14 +1,14 @@
 /*
- * XREFs of PopDiagTraceRtcWakeInfo @ 0x140142F28
+ * XREFs of PopDiagTraceRtcWakeInfo @ 0x140143028
  * Callers:
- *     PopValidateRTCWake @ 0x140566700 (PopValidateRTCWake.c)
+ *     PopValidateRTCWake @ 0x140567700 (PopValidateRTCWake.c)
  * Callees:
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
  *     EtwEventEnabled @ 0x14005B2D0 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x1400CAD60 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     PopDiagInterruptTimeToSystemTime @ 0x140566808 (PopDiagInterruptTimeToSystemTime.c)
+ *     EtwWriteEx @ 0x1400CAE40 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     PopDiagInterruptTimeToSystemTime @ 0x140567808 (PopDiagInterruptTimeToSystemTime.c)
  */
 
 char __fastcall PopDiagTraceRtcWakeInfo(__int64 a1, int a2, int a3, int a4, int a5, int a6, __int64 a7)
@@ -103,9 +103,9 @@ char __fastcall PopDiagTraceRtcWakeInfo(__int64 a1, int a2, int a3, int a4, int 
   v13 = ((unsigned int)PopFixedWakeSourceMask >> 3) & 1;
   v15 = ((unsigned int)PopFixedWakeSourceMask >> 2) & 1;
   v14 = ((unsigned int)PopFixedWakeSourceMask >> 4) & 1;
-  PopDiagInterruptTimeToSystemTime(qword_140417770, v26);
-  PopDiagInterruptTimeToSystemTime(qword_140417788, v27);
-  PopDiagInterruptTimeToSystemTime(qword_140417748, v28);
+  PopDiagInterruptTimeToSystemTime(qword_140418810, v26);
+  PopDiagInterruptTimeToSystemTime(qword_140418828, v27);
+  PopDiagInterruptTimeToSystemTime(qword_1404187E8, v28);
   result = PopDiagInterruptTimeToSystemTime(a7, v29);
   v25 = PopPendingUserPresenceDuringSystemSleep != 0;
   if ( pCallbackContext.LevelPlus1 > 5 )
@@ -151,7 +151,7 @@ char __fastcall PopDiagTraceRtcWakeInfo(__int64 a1, int a2, int a3, int a4, int 
       v81 = 8LL;
       v83 = 8LL;
       v85 = 4LL;
-      result = TlgWrite(&pCallbackContext, &unk_14036FC4D, 0LL, 0LL, 0x10u, &pData);
+      result = TlgWrite(&pCallbackContext, &unk_140370BC5, 0LL, 0LL, 0x10u, &pData);
     }
   }
   if ( PopDiagHandleRegistered )

@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpMcExportAndChargeNeededData @ 0x1408608B0
+ * XREFs of HalpMcExportAndChargeNeededData @ 0x140860AF0
  * Callers:
- *     HalMcFinishMicrocode @ 0x1403B0E04 (HalMcFinishMicrocode.c)
+ *     HalMcFinishMicrocode @ 0x1403B0FE4 (HalMcFinishMicrocode.c)
  * Callees:
- *     HalpMcExportAllData @ 0x140860920 (HalpMcExportAllData.c)
- *     MmObtainChargesToLockPagedPool @ 0x1408609D0 (MmObtainChargesToLockPagedPool.c)
- *     HalpUnloadMicrocode @ 0x140934DB0 (HalpUnloadMicrocode.c)
+ *     HalpMcExportAllData @ 0x140860B60 (HalpMcExportAllData.c)
+ *     MmObtainChargesToLockPagedPool @ 0x140860C10 (MmObtainChargesToLockPagedPool.c)
+ *     HalpUnloadMicrocode @ 0x140934FB0 (HalpUnloadMicrocode.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

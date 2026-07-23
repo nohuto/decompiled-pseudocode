@@ -1,11 +1,11 @@
 /*
- * XREFs of PipMigrateServiceCallback @ 0x1409F5520
+ * XREFs of PipMigrateServiceCallback @ 0x1409F6520
  * Callers:
  *     <none>
  * Callees:
- *     _PnpCtxRegCloseKey @ 0x14073C33C (_PnpCtxRegCloseKey.c)
- *     _PnpCtxRegOpenKey @ 0x14073C354 (_PnpCtxRegOpenKey.c)
- *     PiDevCfgMigrateService @ 0x14082D978 (PiDevCfgMigrateService.c)
+ *     _PnpCtxRegCloseKey @ 0x14073D52C (_PnpCtxRegCloseKey.c)
+ *     _PnpCtxRegOpenKey @ 0x14073D544 (_PnpCtxRegOpenKey.c)
+ *     PiDevCfgMigrateService @ 0x14082EBA8 (PiDevCfgMigrateService.c)
  */
 
 __int64 __fastcall PipMigrateServiceCallback(__int64 a1, __int64 a2, const WCHAR *a3)

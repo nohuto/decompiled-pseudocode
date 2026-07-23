@@ -1,21 +1,21 @@
 /*
- * XREFs of KeRemovePriQueue @ 0x1400E79D0
+ * XREFs of KeRemovePriQueue @ 0x1400E5870
  * Callers:
- *     ExpWorkerThread @ 0x1400E7700 (ExpWorkerThread.c)
+ *     ExpWorkerThread @ 0x1400E55A0 (ExpWorkerThread.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14002ECB0 (KeYieldProcessorEx.c)
- *     KiCommitThreadWait @ 0x14005ACD0 (KiCommitThreadWait.c)
- *     KiDeliverApc @ 0x14005DBD0 (KiDeliverApc.c)
- *     KiAttemptFastRemovePriQueue @ 0x14007E800 (KiAttemptFastRemovePriQueue.c)
- *     KiSetBasePriorityAndClearDecrement @ 0x14007EFD8 (KiSetBasePriorityAndClearDecrement.c)
- *     KiProcessThreadWaitList @ 0x14008DCC0 (KiProcessThreadWaitList.c)
- *     KiSwitchPriQueue @ 0x1400B2AD4 (KiSwitchPriQueue.c)
- *     KiUpdateTotalCyclesCurrentThread @ 0x1400D14F4 (KiUpdateTotalCyclesCurrentThread.c)
- *     KiSetPriorityThread @ 0x1400D2BA0 (KiSetPriorityThread.c)
- *     KiQueryUnbiasedInterruptTime @ 0x1400F02D4 (KiQueryUnbiasedInterruptTime.c)
- *     KiFastExitThreadWait @ 0x1400F2828 (KiFastExitThreadWait.c)
- *     KiCheckForThreadDispatch @ 0x1400F2960 (KiCheckForThreadDispatch.c)
- *     HvlNotifyLongSpinWait @ 0x1401BAE68 (HvlNotifyLongSpinWait.c)
+ *     KeYieldProcessorEx @ 0x14002E830 (KeYieldProcessorEx.c)
+ *     KiCommitThreadWait @ 0x14005A850 (KiCommitThreadWait.c)
+ *     KiDeliverApc @ 0x14005D750 (KiDeliverApc.c)
+ *     KiAttemptFastRemovePriQueue @ 0x14007E880 (KiAttemptFastRemovePriQueue.c)
+ *     KiSetBasePriorityAndClearDecrement @ 0x14007F058 (KiSetBasePriorityAndClearDecrement.c)
+ *     KiProcessThreadWaitList @ 0x14008D420 (KiProcessThreadWaitList.c)
+ *     KiSwitchPriQueue @ 0x1400B0A14 (KiSwitchPriQueue.c)
+ *     KiUpdateTotalCyclesCurrentThread @ 0x1400CF394 (KiUpdateTotalCyclesCurrentThread.c)
+ *     KiSetPriorityThread @ 0x1400D0A40 (KiSetPriorityThread.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x1400EE154 (KiQueryUnbiasedInterruptTime.c)
+ *     KiFastExitThreadWait @ 0x1400F0678 (KiFastExitThreadWait.c)
+ *     KiCheckForThreadDispatch @ 0x1400F07B0 (KiCheckForThreadDispatch.c)
+ *     HvlNotifyLongSpinWait @ 0x1401BAD4C (HvlNotifyLongSpinWait.c)
  */
 
 __int64 __fastcall KeRemovePriQueue(_DWORD *BugCheckParameter2, char a2, __int64 a3, __int64 a4)

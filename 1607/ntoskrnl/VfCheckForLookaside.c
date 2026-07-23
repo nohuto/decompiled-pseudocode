@@ -1,13 +1,13 @@
 /*
  * XREFs of VfCheckForLookaside @ 0x140717598
  * Callers:
- *     ExpCheckForLookaside @ 0x14022E52C (ExpCheckForLookaside.c)
+ *     ExpCheckForLookaside @ 0x14022E358 (ExpCheckForLookaside.c)
  * Callees:
- *     VfAvlCleanupLockContext @ 0x14008446C (VfAvlCleanupLockContext.c)
- *     VfAvlInitializeLockContext @ 0x1400845E8 (VfAvlInitializeLockContext.c)
- *     VfAvlLookupTreeNode @ 0x14012F004 (VfAvlLookupTreeNode.c)
- *     VfPoolIsInternalFree @ 0x1402238E4 (VfPoolIsInternalFree.c)
- *     VerifierBugCheckIfAppropriate @ 0x14070C2E8 (VerifierBugCheckIfAppropriate.c)
+ *     VfAvlCleanupLockContext @ 0x1400825CC (VfAvlCleanupLockContext.c)
+ *     VfAvlInitializeLockContext @ 0x140082748 (VfAvlInitializeLockContext.c)
+ *     VfAvlLookupTreeNode @ 0x14012F574 (VfAvlLookupTreeNode.c)
+ *     VfPoolIsInternalFree @ 0x140223710 (VfPoolIsInternalFree.c)
+ *     VerifierBugCheckIfAppropriate @ 0x14070C318 (VerifierBugCheckIfAppropriate.c)
  */
 
 __int64 __fastcall VfCheckForLookaside(unsigned __int64 a1, __int64 a2)

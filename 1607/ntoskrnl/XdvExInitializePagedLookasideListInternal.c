@@ -2,9 +2,9 @@
  * XREFs of XdvExInitializePagedLookasideListInternal @ 0x1406FE394
  * Callers:
  *     VfLookasideInitializeInternalNPagedList @ 0x1406FE344 (VfLookasideInitializeInternalNPagedList.c)
- *     VfInitVerifierComponents @ 0x140703300 (VfInitVerifierComponents.c)
- *     VfObjectContextInit @ 0x140704904 (VfObjectContextInit.c)
- *     VfHalVerifierInitialize @ 0x140707B7C (VfHalVerifierInitialize.c)
+ *     VfInitVerifierComponents @ 0x140703330 (VfInitVerifierComponents.c)
+ *     VfObjectContextInit @ 0x140704934 (VfObjectContextInit.c)
+ *     VfHalVerifierInitialize @ 0x140707BAC (VfHalVerifierInitialize.c)
  *     VfDeadlockInitialize @ 0x140713DF4 (VfDeadlockInitialize.c)
  *     VfWdInit @ 0x140716D78 (VfWdInit.c)
  *     VerifierExInitializeNPagedLookasideList @ 0x140717390 (VerifierExInitializeNPagedLookasideList.c)

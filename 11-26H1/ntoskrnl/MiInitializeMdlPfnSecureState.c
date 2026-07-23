@@ -1,12 +1,12 @@
 /*
- * XREFs of MiInitializeMdlPfnSecureState @ 0x14033BD48
+ * XREFs of MiInitializeMdlPfnSecureState @ 0x14033DDC8
  * Callers:
- *     MiInitializeMdlPfn @ 0x14033BC60 (MiInitializeMdlPfn.c)
- *     MiFreePagesFromMdl @ 0x1403454C0 (MiFreePagesFromMdl.c)
+ *     MiInitializeMdlPfn @ 0x14033DCE0 (MiInitializeMdlPfn.c)
+ *     MiFreePagesFromMdl @ 0x140347540 (MiFreePagesFromMdl.c)
  * Callees:
- *     MiUpdatePageFileHighInPte @ 0x14028C010 (MiUpdatePageFileHighInPte.c)
- *     MiAbortCombineScan @ 0x1403691D0 (MiAbortCombineScan.c)
- *     MiSetPfnIdentity @ 0x140369440 (MiSetPfnIdentity.c)
+ *     MiUpdatePageFileHighInPte @ 0x14028B570 (MiUpdatePageFileHighInPte.c)
+ *     MiAbortCombineScan @ 0x14036AF70 (MiAbortCombineScan.c)
+ *     MiSetPfnIdentity @ 0x14036B1E0 (MiSetPfnIdentity.c)
  */
 
 unsigned __int64 __fastcall MiInitializeMdlPfnSecureState(__int64 a1, int a2)
@@ -24,12 +24,12 @@ unsigned __int64 __fastcall MiInitializeMdlPfnSecureState(__int64 a1, int a2)
     if ( (a2 & 0x40000) != 0 )
     {
       if ( (a2 & 0x20000) == 0 )
-        _InterlockedIncrement64(&qword_140E2D7A8);
+        _InterlockedIncrement64(&qword_140E2D928);
     }
     else
     {
       v4 = 17;
-      _InterlockedIncrement64(&qword_140E2D7B0);
+      _InterlockedIncrement64(&qword_140E2D930);
     }
     v5 = *(_QWORD *)(a1 + 16);
   }

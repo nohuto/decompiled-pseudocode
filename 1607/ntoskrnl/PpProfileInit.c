@@ -13,7 +13,7 @@ LIST_ENTRY *PpProfileInit()
   PiProfileDeviceListLock.Event.Header.Size = 6;
   PiProfileDeviceListLock.Count = 1;
   PiProfileDeviceListLock.Owner = 0LL;
-  qword_14031E448 = (__int64)&PiProfileDeviceListHead;
+  qword_14031E488 = (__int64)&PiProfileDeviceListHead;
   PiProfileDeviceListHead = (__int64)&PiProfileDeviceListHead;
   PiProfileDeviceListLock.Event.Header.WaitListHead.Blink = &PiProfileDeviceListLock.Event.Header.WaitListHead;
   PiProfileDeviceListLock.Event.Header.WaitListHead.Flink = &PiProfileDeviceListLock.Event.Header.WaitListHead;

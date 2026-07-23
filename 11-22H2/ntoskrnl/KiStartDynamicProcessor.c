@@ -200,7 +200,7 @@ LABEL_53:
   ProcessorStateInitializationParameters = WheaInitializeProcessor(v9, 0LL);
   if ( ProcessorStateInitializationParameters < 0 )
     goto LABEL_42;
-  ProcessorStateInitializationParameters = HvlInitializeProcessor((union _SLIST_HEADER *)v9);
+  ProcessorStateInitializationParameters = HvlInitializeProcessor((_SLIST_HEADER *)v9);
   if ( ProcessorStateInitializationParameters < 0 )
     goto LABEL_42;
   ProcessorStateInitializationParameters = KiAllocatePrcbThreads(v9);

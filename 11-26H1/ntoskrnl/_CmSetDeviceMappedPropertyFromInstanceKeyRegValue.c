@@ -1,11 +1,11 @@
 /*
- * XREFs of _CmSetDeviceMappedPropertyFromInstanceKeyRegValue @ 0x14077DEE4
+ * XREFs of _CmSetDeviceMappedPropertyFromInstanceKeyRegValue @ 0x140780B30
  * Callers:
- *     _CmSetDeviceMappedProperty @ 0x140AAFB8C (_CmSetDeviceMappedProperty.c)
+ *     _CmSetDeviceMappedProperty @ 0x140AAD7DC (_CmSetDeviceMappedProperty.c)
  * Callees:
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     _PnpCtxRegSetValue @ 0x14090AB14 (_PnpCtxRegSetValue.c)
- *     _CmOpenDeviceRegKey @ 0x140996B50 (_CmOpenDeviceRegKey.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     _CmOpenDeviceRegKey @ 0x1409575B0 (_CmOpenDeviceRegKey.c)
+ *     _PnpCtxRegSetValue @ 0x1409AD0CC (_PnpCtxRegSetValue.c)
  */
 
 __int64 __fastcall CmSetDeviceMappedPropertyFromInstanceKeyRegValue(
@@ -40,11 +40,11 @@ __int64 __fastcall CmSetDeviceMappedPropertyFromInstanceKeyRegValue(
   v13 = *(_DWORD *)(a4 + 16);
   v14 = 0;
   v24 = 0;
-  v15 = &off_140BD9560;
+  v15 = &off_140BE03F0;
   do
   {
     v16 = *v15;
-    v17 = &off_140BD9560 + 4 * v14;
+    v17 = &off_140BE03F0 + 4 * v14;
     if ( v13 == (*v15)->pid )
     {
       a1 = *(_QWORD *)a4 - *(_QWORD *)&v16->fmtid.Data1;
@@ -53,9 +53,9 @@ __int64 __fastcall CmSetDeviceMappedPropertyFromInstanceKeyRegValue(
       if ( !a1 )
         break;
     }
+    v17 = 0LL;
     ++v14;
     v15 += 4;
-    v17 = 0LL;
   }
   while ( v14 < 2 );
   if ( !v17 )

@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpDmaGetNextWcb @ 0x1404FFED4
+ * XREFs of HalpDmaGetNextWcb @ 0x140500424
  * Callers:
- *     HalpContinueProcessingWaitQueue @ 0x14050FBE4 (HalpContinueProcessingWaitQueue.c)
+ *     HalpContinueProcessingWaitQueue @ 0x140510134 (HalpContinueProcessingWaitQueue.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 *__fastcall HalpDmaGetNextWcb(__int64 a1)
@@ -42,10 +42,13 @@ __int64 *__fastcall HalpDmaGetNextWcb(__int64 a1)
     *(_QWORD *)(v7 + 8) = v4;
   }
   KxReleaseSpinLock(v1);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v6 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v6 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -53,7 +56,7 @@ __int64 *__fastcall HalpDmaGetNextWcb(__int64 a1)
       v12 = (v11 & SchedulerAssist[5]) == 0;
       SchedulerAssist[5] &= v11;
       if ( v12 )
-        KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
     }
   }
   __writecr8(v6);

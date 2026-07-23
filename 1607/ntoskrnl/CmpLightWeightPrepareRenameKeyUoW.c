@@ -1,20 +1,20 @@
 /*
- * XREFs of CmpLightWeightPrepareRenameKeyUoW @ 0x14060F280
+ * XREFs of CmpLightWeightPrepareRenameKeyUoW @ 0x14060F334
  * Callers:
- *     CmpProcessLightWeightUOW @ 0x14053AD0C (CmpProcessLightWeightUOW.c)
+ *     CmpProcessLightWeightUOW @ 0x14053B24C (CmpProcessLightWeightUOW.c)
  * Callees:
- *     CmpFreeKeyByCell @ 0x1404005C8 (CmpFreeKeyByCell.c)
- *     HvAllocateCell @ 0x140401D3C (HvAllocateCell.c)
- *     CmpDereferenceKeyControlBlockWithLock @ 0x140437B40 (CmpDereferenceKeyControlBlockWithLock.c)
- *     CmpReferenceKeyControlBlock @ 0x1404A0538 (CmpReferenceKeyControlBlock.c)
- *     CmpAddSubKeyToList @ 0x1404B0C8C (CmpAddSubKeyToList.c)
- *     CmpRemoveSubKeyFromList @ 0x1404D4CD4 (CmpRemoveSubKeyFromList.c)
- *     CmpCopyCell @ 0x1404EC0FC (CmpCopyCell.c)
- *     CmpEnumerateAllHigherLayerKcbs @ 0x1404F14AC (CmpEnumerateAllHigherLayerKcbs.c)
- *     HvpMarkCellDirty @ 0x1405136F0 (HvpMarkCellDirty.c)
- *     CmpMarkAllChildrenDirty @ 0x14060A860 (CmpMarkAllChildrenDirty.c)
- *     CmpLightWeightCleanupModifyKeyDataUoW @ 0x14060E2DC (CmpLightWeightCleanupModifyKeyDataUoW.c)
- *     CmpLightWeightCreateModificationData @ 0x14060EB20 (CmpLightWeightCreateModificationData.c)
+ *     CmpFreeKeyByCell @ 0x1403FF488 (CmpFreeKeyByCell.c)
+ *     HvAllocateCell @ 0x140400BFC (HvAllocateCell.c)
+ *     CmpDereferenceKeyControlBlockWithLock @ 0x140436A10 (CmpDereferenceKeyControlBlockWithLock.c)
+ *     CmpAddSubKeyToList @ 0x14049B06C (CmpAddSubKeyToList.c)
+ *     CmpRemoveSubKeyFromList @ 0x1404B82D8 (CmpRemoveSubKeyFromList.c)
+ *     CmpCopyCell @ 0x1404CE184 (CmpCopyCell.c)
+ *     CmpEnumerateAllHigherLayerKcbs @ 0x1404D35A0 (CmpEnumerateAllHigherLayerKcbs.c)
+ *     HvpMarkCellDirty @ 0x1404F6AE0 (HvpMarkCellDirty.c)
+ *     CmpReferenceKeyControlBlock @ 0x140518944 (CmpReferenceKeyControlBlock.c)
+ *     CmpMarkAllChildrenDirty @ 0x14060A914 (CmpMarkAllChildrenDirty.c)
+ *     CmpLightWeightCleanupModifyKeyDataUoW @ 0x14060E390 (CmpLightWeightCleanupModifyKeyDataUoW.c)
+ *     CmpLightWeightCreateModificationData @ 0x14060EBD4 (CmpLightWeightCreateModificationData.c)
  */
 
 __int64 __fastcall CmpLightWeightPrepareRenameKeyUoW(__int64 a1)

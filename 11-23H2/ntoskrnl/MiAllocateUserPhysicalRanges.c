@@ -1,10 +1,10 @@
 /*
- * XREFs of MiAllocateUserPhysicalRanges @ 0x140A41130
+ * XREFs of MiAllocateUserPhysicalRanges @ 0x140A413E0
  * Callers:
- *     MiAllocateUserPhysicalPages @ 0x140A40358 (MiAllocateUserPhysicalPages.c)
+ *     MiAllocateUserPhysicalPages @ 0x140A40608 (MiAllocateUserPhysicalPages.c)
  * Callees:
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     MmAllocateMemoryRanges @ 0x140A2E2C0 (MmAllocateMemoryRanges.c)
+ *     MiAllocatePool @ 0x1402DF430 (MiAllocatePool.c)
+ *     MmAllocateMemoryRanges @ 0x140A2E570 (MmAllocateMemoryRanges.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

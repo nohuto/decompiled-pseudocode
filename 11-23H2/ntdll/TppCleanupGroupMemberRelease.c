@@ -9,7 +9,7 @@
  *     TpReleaseAlpcCompletion @ 0x180050780 (TpReleaseAlpcCompletion.c)
  *     TpReleaseJobNotification @ 0x180050D80 (TpReleaseJobNotification.c)
  * Callees:
- *     TppRaiseInvalidParameter @ 0x180127278 (TppRaiseInvalidParameter.c)
+ *     TppRaiseInvalidParameter @ 0x180127248 (TppRaiseInvalidParameter.c)
  */
 
 bool __fastcall TppCleanupGroupMemberRelease(__int64 a1, __int64 a2)
@@ -29,6 +29,6 @@ bool __fastcall TppCleanupGroupMemberRelease(__int64 a1, __int64 a2)
   while ( v4 != v2 );
   if ( !(_DWORD)a2 || (v2 & 0x10000) == 0 )
     return (v2 & 0x30000) == 0;
-  TppRaiseInvalidParameter(v2, a2, v3, 0x10000LL);
+  TppRaiseInvalidParameter(v2, a2, v3);
   return 0;
 }

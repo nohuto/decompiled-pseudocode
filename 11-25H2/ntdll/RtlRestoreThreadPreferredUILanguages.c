@@ -7,10 +7,9 @@
  *     RtlpMuiRegFreeLanguageList @ 0x18008D870 (RtlpMuiRegFreeLanguageList.c)
  */
 
-__int64 __fastcall RtlRestoreThreadPreferredUILanguages(__int64 a1)
+LOGICAL __fastcall RtlRestoreThreadPreferredUILanguages(__int64 a1)
 {
   int v2; // ecx
-  __int64 v3; // r9
 
   v2 = *(_DWORD *)(a1 + 24);
   if ( v2 != (unsigned int)NtCurrentTeb()->ClientId.UniqueThread )
@@ -22,5 +21,5 @@ __int64 __fastcall RtlRestoreThreadPreferredUILanguages(__int64 a1)
   NtCurrentTeb()->MergedPrefLanguages = *(void **)(a1 + 8);
   NtCurrentTeb()->UserPrefLanguages = *(void **)(a1 + 16);
   *(_DWORD *)(a1 + 24) = 0;
-  return RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, a1, v3);
+  return RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, (PVOID)a1);
 }

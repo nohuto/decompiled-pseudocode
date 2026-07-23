@@ -1,7 +1,7 @@
 /*
- * XREFs of Normalization__LoadClassMapExceptions @ 0x1800FFDAC
+ * XREFs of Normalization__LoadClassMapExceptions @ 0x1800FF4FC
  * Callers:
- *     Normalization__LoadTables @ 0x1800FFC24 (Normalization__LoadTables.c)
+ *     Normalization__LoadTables @ 0x1800FF374 (Normalization__LoadTables.c)
  * Callees:
  *     <none>
  */

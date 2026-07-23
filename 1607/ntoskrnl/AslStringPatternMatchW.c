@@ -1,16 +1,16 @@
 /*
- * XREFs of AslStringPatternMatchW @ 0x140578D34
+ * XREFs of AslStringPatternMatchW @ 0x140579274
  * Callers:
- *     SdbpFindFirstIndexedWildCardTag @ 0x140484948 (SdbpFindFirstIndexedWildCardTag.c)
- *     AslStringPatternMatchW @ 0x140578D34 (AslStringPatternMatchW.c)
- *     KseLookupHardwareId @ 0x1406539E0 (KseLookupHardwareId.c)
- *     SdbpCheckMatchingRegistryEntry @ 0x1406C256C (SdbpCheckMatchingRegistryEntry.c)
- *     SdbpCheckPackageAttributes @ 0x1406C2EC4 (SdbpCheckPackageAttributes.c)
- *     SdbpCheckAttribute @ 0x1406C4CF8 (SdbpCheckAttribute.c)
- *     SdbpFindNextIndexedWildCardTag @ 0x1406C4FB0 (SdbpFindNextIndexedWildCardTag.c)
+ *     SdbpFindFirstIndexedWildCardTag @ 0x140513CD0 (SdbpFindFirstIndexedWildCardTag.c)
+ *     AslStringPatternMatchW @ 0x140579274 (AslStringPatternMatchW.c)
+ *     KseLookupHardwareId @ 0x140653AC4 (KseLookupHardwareId.c)
+ *     SdbpCheckMatchingRegistryEntry @ 0x1406C26A4 (SdbpCheckMatchingRegistryEntry.c)
+ *     SdbpCheckPackageAttributes @ 0x1406C2FFC (SdbpCheckPackageAttributes.c)
+ *     SdbpCheckAttribute @ 0x1406C4E30 (SdbpCheckAttribute.c)
+ *     SdbpFindNextIndexedWildCardTag @ 0x1406C50E8 (SdbpFindNextIndexedWildCardTag.c)
  * Callees:
- *     RtlUpcaseUnicodeChar @ 0x1405132D0 (RtlUpcaseUnicodeChar.c)
- *     AslStringPatternMatchW @ 0x140578D34 (AslStringPatternMatchW.c)
+ *     RtlUpcaseUnicodeChar @ 0x1404F66C0 (RtlUpcaseUnicodeChar.c)
+ *     AslStringPatternMatchW @ 0x140579274 (AslStringPatternMatchW.c)
  */
 
 __int64 __fastcall AslStringPatternMatchW(WCHAR *a1, WCHAR *a2)

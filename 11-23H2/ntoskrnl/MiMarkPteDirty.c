@@ -1,13 +1,13 @@
 /*
- * XREFs of MiMarkPteDirty @ 0x14034B510
+ * XREFs of MiMarkPteDirty @ 0x14034B6B0
  * Callers:
- *     MmCheckCachedPageStates @ 0x140265320 (MmCheckCachedPageStates.c)
+ *     MmCheckCachedPageStates @ 0x1402655B0 (MmCheckCachedPageStates.c)
  * Callees:
  *     MiGetAnyMultiplexedVm @ 0x1402146B4 (MiGetAnyMultiplexedVm.c)
- *     MiUnlockWorkingSetShared @ 0x14023C500 (MiUnlockWorkingSetShared.c)
- *     MiWriteValidPteNewProtection @ 0x140284800 (MiWriteValidPteNewProtection.c)
- *     MiLockWorkingSetOptimal @ 0x14028596C (MiLockWorkingSetOptimal.c)
- *     MiUnlockPageTableInternal @ 0x1403195C0 (MiUnlockPageTableInternal.c)
+ *     MiUnlockWorkingSetShared @ 0x14023C5D0 (MiUnlockWorkingSetShared.c)
+ *     MiWriteValidPteNewProtection @ 0x140284A90 (MiWriteValidPteNewProtection.c)
+ *     MiLockWorkingSetOptimal @ 0x140285BFC (MiLockWorkingSetOptimal.c)
+ *     MiUnlockPageTableInternal @ 0x140319850 (MiUnlockPageTableInternal.c)
  */
 
 __int64 __fastcall MiMarkPteDirty(__int64 *a1)

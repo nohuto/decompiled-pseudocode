@@ -1,16 +1,16 @@
 /*
- * XREFs of ExQueryHandleExceptionsPermanency @ 0x140485264
+ * XREFs of ExQueryHandleExceptionsPermanency @ 0x14047EBD4
  * Callers:
- *     ObpCloseHandle @ 0x1408F9C70 (ObpCloseHandle.c)
- *     NtClose @ 0x1408F9F30 (NtClose.c)
- *     NtQueryInformationProcess @ 0x140A4A1F0 (NtQueryInformationProcess.c)
+ *     ObpCloseHandle @ 0x140929C00 (ObpCloseHandle.c)
+ *     NtClose @ 0x140929EC0 (NtClose.c)
+ *     NtQueryInformationProcess @ 0x140A534E0 (NtQueryInformationProcess.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KeLeaveCriticalRegionThread @ 0x1402B8A60 (KeLeaveCriticalRegionThread.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeLeaveCriticalRegionThread @ 0x140303720 (KeLeaveCriticalRegionThread.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
  */
 
 __int64 __fastcall ExQueryHandleExceptionsPermanency(__int64 a1, _BYTE *a2, _BYTE *a3, struct _KLOCK_ENTRIES *a4)
@@ -21,8 +21,6 @@ __int64 __fastcall ExQueryHandleExceptionsPermanency(__int64 a1, _BYTE *a2, _BYT
   void *v10; // rdx
   AutoBoost *v11; // rsi
   __int64 v12; // rax
-  __int64 v13; // rdx
-  __int64 v14; // r8
 
   CurrentThread = KeGetCurrentThread();
   v5 = (unsigned __int64 *)(a1 + 56);
@@ -57,5 +55,5 @@ __int64 __fastcall ExQueryHandleExceptionsPermanency(__int64 a1, _BYTE *a2, _BYT
   if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)v5, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
     ExfTryToWakePushLock((volatile signed __int64 *)v5);
   KeAbPostRelease((unsigned __int64)v5);
-  return KeLeaveCriticalRegionThread((__int64)CurrentThread, v13, v14);
+  return KeLeaveCriticalRegionThread((__int64)CurrentThread);
 }

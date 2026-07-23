@@ -1,9 +1,9 @@
 /*
- * XREFs of MxGetPhase0Mapping @ 0x1409C07B0
+ * XREFs of MxGetPhase0Mapping @ 0x1409C17B0
  * Callers:
- *     MiFillPhysicalPages @ 0x14012AF80 (MiFillPhysicalPages.c)
- *     MxCopyPage @ 0x1409BFDC8 (MxCopyPage.c)
- *     MxSwapPages @ 0x1409C04C8 (MxSwapPages.c)
+ *     MiFillPhysicalPages @ 0x14012B050 (MiFillPhysicalPages.c)
+ *     MxCopyPage @ 0x1409C0DC8 (MxCopyPage.c)
+ *     MxSwapPages @ 0x1409C14C8 (MxSwapPages.c)
  * Callees:
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  */

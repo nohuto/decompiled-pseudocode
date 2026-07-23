@@ -1,13 +1,13 @@
 /*
- * XREFs of ApiSetpLoadSchemaExtensions @ 0x1407C9AE8
+ * XREFs of ApiSetpLoadSchemaExtensions @ 0x1407C9FD8
  * Callers:
- *     ApiSetLoadSchemaWithExtensions @ 0x1407C9820 (ApiSetLoadSchemaWithExtensions.c)
+ *     ApiSetLoadSchemaWithExtensions @ 0x1407C9D10 (ApiSetLoadSchemaWithExtensions.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwOpenKey @ 0x1406A6650 (ZwOpenKey.c)
- *     ZwEnumerateKey @ 0x1406A6A50 (ZwEnumerateKey.c)
- *     ApiSetpLoadSchemaExtension @ 0x1407C99CC (ApiSetpLoadSchemaExtension.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwOpenKey @ 0x1406A75F0 (ZwOpenKey.c)
+ *     ZwEnumerateKey @ 0x1406A79F0 (ZwEnumerateKey.c)
+ *     ApiSetpLoadSchemaExtension @ 0x1407C9EBC (ApiSetpLoadSchemaExtension.c)
  */
 
 __int64 __fastcall ApiSetpLoadSchemaExtensions(HANDLE KeyHandle, __int64 *a2, unsigned int *a3)

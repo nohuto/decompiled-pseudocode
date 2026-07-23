@@ -1,18 +1,18 @@
 /*
- * XREFs of ExpWnfPopulateStateData @ 0x140950088
+ * XREFs of ExpWnfPopulateStateData @ 0x1409CB9C8
  * Callers:
- *     ExpWnfCreateNameInstance @ 0x14094FCA8 (ExpWnfCreateNameInstance.c)
+ *     ExpWnfCreateNameInstance @ 0x1409CB5E8 (ExpWnfCreateNameInstance.c)
  * Callees:
- *     ExfReleasePushLockShared @ 0x140278BD0 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwQueryValueKey @ 0x1407236D0 (ZwQueryValueKey.c)
- *     ExpWnfComposeValueName @ 0x14094BF5C (ExpWnfComposeValueName.c)
- *     ExpExposeWnfStateName @ 0x14094FB04 (ExpExposeWnfStateName.c)
- *     ExpWnfAcquirePermanentDataStoreHandle @ 0x140AFA544 (ExpWnfAcquirePermanentDataStoreHandle.c)
- *     ExpCrossVmWnfPull @ 0x140B66A2C (ExpCrossVmWnfPull.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExfReleasePushLockShared @ 0x140278140 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwQueryValueKey @ 0x1407282A0 (ZwQueryValueKey.c)
+ *     ExpWnfComposeValueName @ 0x1409C78CC (ExpWnfComposeValueName.c)
+ *     ExpExposeWnfStateName @ 0x1409CB444 (ExpExposeWnfStateName.c)
+ *     ExpWnfAcquirePermanentDataStoreHandle @ 0x140AFC7AC (ExpWnfAcquirePermanentDataStoreHandle.c)
+ *     ExpCrossVmWnfPull @ 0x140B699B8 (ExpCrossVmWnfPull.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall ExpWnfPopulateStateData(__int64 a1)

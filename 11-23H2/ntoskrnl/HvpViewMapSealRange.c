@@ -1,9 +1,9 @@
 /*
- * XREFs of HvpViewMapSealRange @ 0x14070AAB0
+ * XREFs of HvpViewMapSealRange @ 0x14070ACC0
  * Callers:
- *     HvpSetRangeProtection @ 0x140709954 (HvpSetRangeProtection.c)
+ *     HvpSetRangeProtection @ 0x140709B64 (HvpSetRangeProtection.c)
  * Callees:
- *     HvpViewMapMakeViewRangeReadOnly @ 0x14070AB64 (HvpViewMapMakeViewRangeReadOnly.c)
+ *     HvpViewMapMakeViewRangeReadOnly @ 0x14070AD74 (HvpViewMapMakeViewRangeReadOnly.c)
  */
 
 void __fastcall HvpViewMapSealRange(__int64 a1, int a2, unsigned int a3)

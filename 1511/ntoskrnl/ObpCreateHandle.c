@@ -1384,7 +1384,13 @@ LABEL_77:
         if ( (*(_DWORD *)(v72 + 200) & 0x4000) != 0
           && *(int *)(v72 + 196) >= 2
           && !RtlEqualSid(**(PSID **)(v133 + 152), **(PSID **)(v72 + 152))
-          && SepSidInTokenSidHash(v133 + 808, 0LL, (void *)SeConstrainedImpersonationCapabilitySid, 0, 1, 0) )
+          && SepSidInTokenSidHash(
+               (PSID_AND_ATTRIBUTES_HASH)(v133 + 808),
+               0LL,
+               (void *)SeConstrainedImpersonationCapabilitySid,
+               0,
+               1,
+               0) )
         {
           v71 = ObHandleRevocationBlockAddObject(*(_QWORD *)(v72 + 216) + 128LL, Object);
         }

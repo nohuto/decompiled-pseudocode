@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpEventWriteEnableInfo @ 0x1408BAA7C
+ * XREFs of EtwpEventWriteEnableInfo @ 0x1408BBD3C
  * Callers:
- *     EtwpTracingProvEnableCallback @ 0x1407642F0 (EtwpTracingProvEnableCallback.c)
+ *     EtwpTracingProvEnableCallback @ 0x1407654E0 (EtwpTracingProvEnableCallback.c)
  * Callees:
- *     EtwWrite @ 0x1400CAD20 (EtwWrite.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     EtwWrite @ 0x1400CAE00 (EtwWrite.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall EtwpEventWriteEnableInfo(__int64 a1, __int64 a2, unsigned __int8 a3)

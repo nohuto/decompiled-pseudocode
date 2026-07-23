@@ -66,13 +66,13 @@ __int64 __fastcall CmpCreateHive(
   NTSTATUS VolumeClusterSize; // eax
   int ContextForFile; // ebx
   __int64 v19; // rax
-  __int64 v20; // rcx
+  void *v20; // rcx
   void *v21; // rdx
   void *v22; // rdx
-  __int64 v23; // rcx
+  void *v23; // rcx
   void *v24; // rdx
-  __int64 *v25; // r12
-  __int64 v26; // rcx
+  void **v25; // r12
+  void *v26; // rcx
   __int64 v27; // rcx
   __int64 v28; // r8
   unsigned int v29; // eax
@@ -86,7 +86,7 @@ __int64 __fastcall CmpCreateHive(
   ULONG_PTR *v37; // rax
   __int64 v39; // rax
   _QWORD *v40; // rax
-  __int64 v41; // rcx
+  void *v41; // rcx
   int v42; // r9d
   unsigned int v43; // r9d
   int v44; // edx
@@ -97,7 +97,7 @@ __int64 __fastcall CmpCreateHive(
   int v49; // [rsp+20h] [rbp-E0h]
   int v50; // [rsp+30h] [rbp-D0h]
   char v51; // [rsp+70h] [rbp-90h]
-  __int16 v52; // [rsp+74h] [rbp-8Ch] BYREF
+  _WORD ObjectInformation[2]; // [rsp+74h] [rbp-8Ch] BYREF
   char v53; // [rsp+78h] [rbp-88h]
   int v54; // [rsp+7Ch] [rbp-84h] BYREF
   unsigned int v55; // [rsp+80h] [rbp-80h] BYREF
@@ -116,7 +116,7 @@ __int64 __fastcall CmpCreateHive(
   struct _EVENT_DATA_DESCRIPTOR v68; // [rsp+120h] [rbp+20h] BYREF
   unsigned int *v69; // [rsp+140h] [rbp+40h]
   __int64 v70; // [rsp+148h] [rbp+48h]
-  __int16 *v71; // [rsp+150h] [rbp+50h]
+  _WORD *v71; // [rsp+150h] [rbp+50h]
   __int64 v72; // [rsp+158h] [rbp+58h]
   int *v73; // [rsp+160h] [rbp+60h]
   __int64 v74; // [rsp+168h] [rbp+68h]
@@ -238,9 +238,9 @@ LABEL_81:
           ContextForFile = ObDuplicateObject(PsInitialSystemProcess, *a6, 0LL, v13 + 1536, 0, 512);
           if ( ContextForFile < 0 )
             goto LABEL_104;
-          v20 = *(_QWORD *)(v13 + 1536);
-          v52 = 256;
-          ZwSetInformationObject(v20, 4LL);
+          v20 = *(void **)(v13 + 1536);
+          ObjectInformation[0] = 256;
+          ZwSetInformationObject(v20, ObjectHandleFlagInformation, ObjectInformation, 2u);
         }
         v21 = a6[3];
         if ( v21 )
@@ -249,9 +249,9 @@ LABEL_81:
           ContextForFile = ObDuplicateObject(PsInitialSystemProcess, v21, 0LL, v13 + 1552, 0, 512);
           if ( ContextForFile < 0 )
             goto LABEL_104;
-          v41 = *(_QWORD *)(v13 + 1552);
-          v52 = 256;
-          ZwSetInformationObject(v41, 4LL);
+          v41 = *(void **)(v13 + 1552);
+          ObjectInformation[0] = 256;
+          ZwSetInformationObject(v41, ObjectHandleFlagInformation, ObjectInformation, 2u);
         }
         if ( v56 != 1 )
         {
@@ -264,28 +264,28 @@ LABEL_81:
             ContextForFile = ObDuplicateObject(PsInitialSystemProcess, v22, 0LL, v13 + 1568, 0, 512);
             if ( ContextForFile < 0 )
               goto LABEL_104;
-            v23 = *(_QWORD *)(v13 + 1568);
-            v52 = 256;
-            ZwSetInformationObject(v23, 4LL);
+            v23 = *(void **)(v13 + 1568);
+            ObjectInformation[0] = 256;
+            ZwSetInformationObject(v23, ObjectHandleFlagInformation, ObjectInformation, 2u);
           }
           v24 = a6[2];
           if ( !v24 )
             goto LABEL_33;
-          v25 = (__int64 *)(v13 + 1576);
+          v25 = (void **)(v13 + 1576);
           goto LABEL_31;
         }
         v24 = a6[1];
         if ( v24 )
         {
-          v25 = (__int64 *)(v13 + 1544);
+          v25 = (void **)(v13 + 1544);
 LABEL_31:
           v50 = 2;
           ContextForFile = ObDuplicateObject(PsInitialSystemProcess, v24, 0LL, v25, 0, 512);
           if ( ContextForFile < 0 )
             goto LABEL_104;
           v26 = *v25;
-          v52 = 256;
-          ZwSetInformationObject(v26, 4LL);
+          ObjectInformation[0] = 256;
+          ZwSetInformationObject(v26, ObjectHandleFlagInformation, ObjectInformation, 2u);
         }
       }
 LABEL_33:
@@ -369,7 +369,7 @@ LABEL_43:
             {
               v56 = v43;
               v69 = &v56;
-              v71 = &v52;
+              v71 = ObjectInformation;
               v44 = *(unsigned __int16 *)(a12 + 8);
               v45 = *(unsigned __int16 *)(a12 + 10);
               v77 = a12 + 8;
@@ -382,7 +382,7 @@ LABEL_43:
               v89 = a12 + 396;
               v92 = &v59;
               LOWORD(v55) = v46;
-              v52 = v44;
+              ObjectInformation[0] = v44;
               LOWORD(v54) = v45;
               v82 = a12 + 10;
               v87 = a12 + 394;

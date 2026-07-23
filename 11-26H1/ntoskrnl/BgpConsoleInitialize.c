@@ -1,41 +1,41 @@
 /*
- * XREFs of BgpConsoleInitialize @ 0x140C50420
+ * XREFs of BgpConsoleInitialize @ 0x140C56420
  * Callers:
  *     <none>
  * Callees:
- *     BgpFwFreeMemory @ 0x140355E00 (BgpFwFreeMemory.c)
- *     BgpFwAllocateMemory @ 0x140355EBC (BgpFwAllocateMemory.c)
- *     BgpFwAcquireLock @ 0x1404E7E04 (BgpFwAcquireLock.c)
- *     BgpFwReleaseLock @ 0x1404E81BC (BgpFwReleaseLock.c)
- *     BgpGetResolution @ 0x140514D98 (BgpGetResolution.c)
- *     BgpConsoleSetPointSize @ 0x140715D50 (BgpConsoleSetPointSize.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     BgpDisplayCharacterGetContext @ 0x140C4FBB4 (BgpDisplayCharacterGetContext.c)
- *     BgpConsoleClearScreenEx @ 0x140C4FD78 (BgpConsoleClearScreenEx.c)
- *     BgpFoGetFontHandle @ 0x140C54508 (BgpFoGetFontHandle.c)
- *     BgpConsoleGetFontName @ 0x140D13950 (BgpConsoleGetFontName.c)
+ *     BgpFwFreeMemory @ 0x140357BA8 (BgpFwFreeMemory.c)
+ *     BgpFwAllocateMemory @ 0x140357C64 (BgpFwAllocateMemory.c)
+ *     BgpFwAcquireLock @ 0x1404E11C4 (BgpFwAcquireLock.c)
+ *     BgpFwReleaseLock @ 0x1404E157C (BgpFwReleaseLock.c)
+ *     BgpGetResolution @ 0x14050E808 (BgpGetResolution.c)
+ *     BgpConsoleSetPointSize @ 0x14071AA40 (BgpConsoleSetPointSize.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     BgpDisplayCharacterGetContext @ 0x140C55BB4 (BgpDisplayCharacterGetContext.c)
+ *     BgpConsoleClearScreenEx @ 0x140C55D78 (BgpConsoleClearScreenEx.c)
+ *     BgpFoGetFontHandle @ 0x140C5A508 (BgpFoGetFontHandle.c)
+ *     BgpConsoleGetFontName @ 0x140D19B18 (BgpConsoleGetFontName.c)
  */
 
-__int64 __fastcall BgpConsoleInitialize(unsigned int a1, int a2, int a3)
+__int64 __fastcall BgpConsoleInitialize(unsigned int a1, unsigned int a2, unsigned int a3)
 {
-  __int64 Memory; // rax
-  struct _LIST_ENTRY *Flink; // r9
+  _DWORD *Memory; // rax
+  unsigned int *NormalContext; // r9
   int FontHandle; // ebx
   _DWORD *Resolution; // rax
   __int64 v10; // r9
-  struct _LIST_ENTRY *v11; // rcx
-  struct _LIST_ENTRY *v12; // rbx
-  struct _LIST_ENTRY *Context; // rax
-  int v14; // edx
+  char *v11; // rcx
+  _DWORD *v12; // rbx
+  __int64 Context; // rax
+  unsigned int v14; // edx
   unsigned int v15; // r10d
-  unsigned int Flink_high; // r8d
+  unsigned int v16; // r8d
   int v17; // eax
-  int Blink; // ecx
+  unsigned int v18; // ecx
   unsigned int i; // r11d
   __int64 v20; // rcx
   __int64 v21; // rcx
   __int64 v22; // rdx
-  struct _LIST_ENTRY *v24; // [rsp+30h] [rbp-40h] BYREF
+  __int64 v24; // [rsp+30h] [rbp-40h] BYREF
   wchar_t *Str2; // [rsp+38h] [rbp-38h] BYREF
   _DWORD v26[4]; // [rsp+40h] [rbp-30h] BYREF
   _DWORD v27[2]; // [rsp+50h] [rbp-20h] BYREF
@@ -48,19 +48,19 @@ __int64 __fastcall BgpConsoleInitialize(unsigned int a1, int a2, int a3)
   v24 = 0LL;
   Str2 = 0LL;
   BgpFwAcquireLock();
-  Memory = BgpFwAllocateMemory(0x5E10uLL);
-  WheapPfaLock.SavedApcState.ApcListHead[1].Flink = (struct _LIST_ENTRY *)Memory;
-  Flink = (struct _LIST_ENTRY *)Memory;
+  Memory = (_DWORD *)BgpFwAllocateMemory(0x5E10uLL);
+  WheapPfaLock.SchedulerApc.NormalContext = Memory;
+  NormalContext = Memory;
   if ( !Memory )
   {
     FontHandle = -1073741801;
     goto LABEL_15;
   }
-  *(_DWORD *)Memory = 80;
-  *(_DWORD *)(Memory + 4) = 25;
-  *(_DWORD *)(Memory + 8) |= (unsigned __int16)a1;
-  *(_DWORD *)(Memory + 12) = a2;
-  *(_DWORD *)(Memory + 16) = a3;
+  *Memory = 80;
+  Memory[1] = 25;
+  Memory[2] |= (unsigned __int16)a1;
+  Memory[3] = a2;
+  Memory[4] = a3;
   Resolution = BgpGetResolution(v26);
   *(_QWORD *)(v10 + 20) = *(_QWORD *)Resolution;
   *(_DWORD *)(v10 + 28) = Resolution[2];
@@ -76,63 +76,60 @@ __int64 __fastcall BgpConsoleInitialize(unsigned int a1, int a2, int a3)
   FontHandle = BgpFoGetFontHandle(Str2);
   if ( FontHandle < 0
     || (FontHandle = BgpConsoleSetPointSize(
-                       HIDWORD(WheapPfaLock.SavedApcState.ApcListHead[1].Flink->Flink),
-                       (unsigned int)WheapPfaLock.SavedApcState.ApcListHead[1].Flink->Flink,
-                       (unsigned int)WheapPfaLock.SavedApcState.ApcListHead[1].Flink[1].Blink,
-                       HIDWORD(WheapPfaLock.SavedApcState.ApcListHead[1].Flink[1].Flink),
+                       *((_DWORD *)WheapPfaLock.SchedulerApc.NormalContext + 1),
+                       *(_DWORD *)WheapPfaLock.SchedulerApc.NormalContext,
+                       *((_DWORD *)WheapPfaLock.SchedulerApc.NormalContext + 6),
+                       *((_DWORD *)WheapPfaLock.SchedulerApc.NormalContext + 5),
                        (__int64)v27,
                        (__int64)&v24),
         FontHandle < 0) )
   {
-    Flink = WheapPfaLock.SavedApcState.ApcListHead[1].Flink;
+    NormalContext = (unsigned int *)WheapPfaLock.SchedulerApc.NormalContext;
 LABEL_15:
-    if ( Flink )
+    if ( NormalContext )
     {
-      BgpFwFreeMemory((__int64)Flink);
-      WheapPfaLock.SavedApcState.ApcListHead[1].Flink = 0LL;
+      BgpFwFreeMemory((__int64)NormalContext);
+      WheapPfaLock.SchedulerApc.NormalContext = 0LL;
     }
     goto LABEL_17;
   }
-  v11 = WheapPfaLock.SavedApcState.ApcListHead[1].Flink;
-  LODWORD(WheapPfaLock.SavedApcState.ApcListHead[1].Flink[2].Flink) = v29;
-  v12 = v11 + 3;
-  v11[3].Flink = v24;
-  Context = (struct _LIST_ENTRY *)BgpDisplayCharacterGetContext(
-                                    (__int64)v27,
-                                    (int *)&v11[3],
-                                    ~(unsigned __int8)(a1 >> 1) & 2 | 1u);
-  Flink = WheapPfaLock.SavedApcState.ApcListHead[1].Flink;
-  WheapPfaLock.SavedApcState.ApcListHead[1].Flink[2].Blink = Context;
+  v11 = (char *)WheapPfaLock.SchedulerApc.NormalContext;
+  *((_DWORD *)WheapPfaLock.SchedulerApc.NormalContext + 8) = v29;
+  v12 = v11 + 48;
+  *((_QWORD *)v11 + 6) = v24;
+  Context = BgpDisplayCharacterGetContext((__int64)v27, (int *)v11 + 12, ~(unsigned __int8)(a1 >> 1) & 2 | 1u);
+  NormalContext = (unsigned int *)WheapPfaLock.SchedulerApc.NormalContext;
+  *((_QWORD *)WheapPfaLock.SchedulerApc.NormalContext + 5) = Context;
   if ( !Context )
   {
     FontHandle = -1073741823;
     goto LABEL_15;
   }
-  v14 = (int)Flink->Flink;
+  v14 = *NormalContext;
   v15 = 0;
-  Flink_high = HIDWORD(Flink->Flink);
-  HIDWORD(Flink[3].Blink) = (unsigned int)(HIDWORD(Flink[1].Flink) - LODWORD(v12->Flink) * LODWORD(Flink->Flink)) >> 1;
-  v17 = HIDWORD(v12->Flink) * Flink_high;
-  Blink = (int)Flink[1].Blink;
-  Flink[4].Blink = 0LL;
-  HIDWORD(Flink[4].Flink) = 0;
-  LODWORD(Flink[4].Flink) = (unsigned int)(Blink - v17) >> 1;
+  v16 = NormalContext[1];
+  NormalContext[15] = (NormalContext[5] - *v12 * *NormalContext) >> 1;
+  v17 = v12[1] * v16;
+  v18 = NormalContext[6];
+  *((_QWORD *)NormalContext + 9) = 0LL;
+  NormalContext[17] = 0;
+  NormalContext[16] = (v18 - v17) >> 1;
   if ( v14 )
   {
     do
     {
-      for ( i = 0; i < Flink_high; Flink_high = HIDWORD(Flink->Flink) )
+      for ( i = 0; i < v16; v16 = NormalContext[1] )
       {
         v20 = i++;
         v21 = 25LL * v15 + v20;
         v22 = 3 * v21;
-        *((_WORD *)&Flink[5].Blink + 2 * v22) = 32;
-        *((_DWORD *)&Flink[5].Flink + 3 * v21 + 1) = a3;
-        *((_DWORD *)&Flink[5].Flink + v22) = a2;
+        LOWORD(NormalContext[v22 + 22]) = 32;
+        NormalContext[3 * v21 + 21] = a3;
+        NormalContext[v22 + 20] = a2;
       }
       ++v15;
     }
-    while ( v15 < LODWORD(Flink->Flink) );
+    while ( v15 < *NormalContext );
   }
   if ( (a1 & 1) != 0 )
     BgpConsoleClearScreenEx();

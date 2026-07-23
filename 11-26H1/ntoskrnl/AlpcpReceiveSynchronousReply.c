@@ -1,22 +1,22 @@
 /*
- * XREFs of AlpcpReceiveSynchronousReply @ 0x1409C0480
+ * XREFs of AlpcpReceiveSynchronousReply @ 0x140991460
  * Callers:
- *     AlpcpReceiveLegacyConnectionReply @ 0x1408E5AC4 (AlpcpReceiveLegacyConnectionReply.c)
- *     AlpcpProcessConnectionRequest @ 0x1408E7654 (AlpcpProcessConnectionRequest.c)
- *     AlpcpProcessSynchronousRequest @ 0x1408F7730 (AlpcpProcessSynchronousRequest.c)
+ *     AlpcpReceiveLegacyConnectionReply @ 0x1408EC084 (AlpcpReceiveLegacyConnectionReply.c)
+ *     AlpcpProcessConnectionRequest @ 0x1408EDC14 (AlpcpProcessConnectionRequest.c)
+ *     AlpcpProcessSynchronousRequest @ 0x1409276C0 (AlpcpProcessSynchronousRequest.c)
  * Callees:
- *     AlpcpSignalAndWait @ 0x140264830 (AlpcpSignalAndWait.c)
- *     ExfAcquirePushLockSharedEx @ 0x140277CC0 (ExfAcquirePushLockSharedEx.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ExfReleasePushLockShared @ 0x140278BD0 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     AlpcpWaitForSingleObject @ 0x140466280 (AlpcpWaitForSingleObject.c)
- *     AlpcpLockForCachedReferenceBlob @ 0x1409BEF10 (AlpcpLockForCachedReferenceBlob.c)
- *     AlpcpUnlockMessage @ 0x1409C07A0 (AlpcpUnlockMessage.c)
- *     AlpcpInsertMessagePendingQueue @ 0x140A4A040 (AlpcpInsertMessagePendingQueue.c)
- *     AlpcpCancelMessage @ 0x140ACCE1C (AlpcpCancelMessage.c)
- *     AlpcpLogReceiveMessage @ 0x140B4854C (AlpcpLogReceiveMessage.c)
+ *     AlpcpSignalAndWait @ 0x140263DA0 (AlpcpSignalAndWait.c)
+ *     ExfAcquirePushLockSharedEx @ 0x140277230 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ExfReleasePushLockShared @ 0x140278140 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     AlpcpWaitForSingleObject @ 0x14045F3E0 (AlpcpWaitForSingleObject.c)
+ *     AlpcpLockForCachedReferenceBlob @ 0x14098FEF0 (AlpcpLockForCachedReferenceBlob.c)
+ *     AlpcpUnlockMessage @ 0x140991780 (AlpcpUnlockMessage.c)
+ *     AlpcpInsertMessagePendingQueue @ 0x140A53330 (AlpcpInsertMessagePendingQueue.c)
+ *     AlpcpCancelMessage @ 0x140ACF05C (AlpcpCancelMessage.c)
+ *     AlpcpLogReceiveMessage @ 0x140B4A2DC (AlpcpLogReceiveMessage.c)
  */
 
 __int64 __fastcall AlpcpReceiveSynchronousReply(
@@ -51,7 +51,7 @@ __int64 __fastcall AlpcpReceiveSynchronousReply(
   if ( !v14 )
   {
     if ( v11 )
-      AlpcpWaitForSingleObject(&CurrentThread[1].KernelStack, 17LL, 0LL, 0, 0LL);
+      AlpcpWaitForSingleObject(&CurrentThread[1].KernelStack, WrLpcReply, 0, 0, 0LL);
     return 3221227265LL;
   }
   AlpcpLockForCachedReferenceBlob(v14, v10, v12, v13);
@@ -86,7 +86,7 @@ LABEL_40:
     return v11;
   }
   v11 = 0;
-  AlpcpWaitForSingleObject(&CurrentThread[1].KernelStack, 17LL, 0LL, 0, 0LL);
+  AlpcpWaitForSingleObject(&CurrentThread[1].KernelStack, WrLpcReply, 0, 0, 0LL);
 LABEL_6:
   v17 = *(_DWORD *)(v14 + 40);
   if ( (v17 & 0x80u) != 0 )
@@ -147,7 +147,7 @@ LABEL_20:
         ExfReleasePushLockShared((signed __int64 *)(v8 + 352));
       KeAbPostRelease(v8 + 352);
 LABEL_15:
-      if ( BYTE4(stru_140E66B30.StackBase) )
+      if ( LOBYTE(stru_140E66D40.CycleTime) )
         AlpcpLogReceiveMessage(v14);
       *a3 = v14;
       return v11;

@@ -1,15 +1,15 @@
 /*
- * XREFs of DECREMENT_ADAPTER_CHANNELS @ 0x140705B90
+ * XREFs of DECREMENT_ADAPTER_CHANNELS @ 0x140705BC0
  * Callers:
- *     VfAllocateAdapterChannel @ 0x1407061E0 (VfAllocateAdapterChannel.c)
- *     VfAllocateAdapterChannelEx @ 0x1407063A4 (VfAllocateAdapterChannelEx.c)
- *     VfCancelAdapterChannel @ 0x140706D70 (VfCancelAdapterChannel.c)
- *     VfFreeAdapterChannel @ 0x1407070CC (VfFreeAdapterChannel.c)
- *     VfFreeAdapterObject @ 0x14070716C (VfFreeAdapterObject.c)
- *     ViAdapterCallback @ 0x140708488 (ViAdapterCallback.c)
+ *     VfAllocateAdapterChannel @ 0x140706210 (VfAllocateAdapterChannel.c)
+ *     VfAllocateAdapterChannelEx @ 0x1407063D4 (VfAllocateAdapterChannelEx.c)
+ *     VfCancelAdapterChannel @ 0x140706DA0 (VfCancelAdapterChannel.c)
+ *     VfFreeAdapterChannel @ 0x1407070FC (VfFreeAdapterChannel.c)
+ *     VfFreeAdapterObject @ 0x14070719C (VfFreeAdapterObject.c)
+ *     ViAdapterCallback @ 0x1407084B8 (ViAdapterCallback.c)
  * Callees:
- *     VfReportIssueWithOptions @ 0x140223544 (VfReportIssueWithOptions.c)
- *     ViHalPreprocessOptions @ 0x140709ABC (ViHalPreprocessOptions.c)
+ *     VfReportIssueWithOptions @ 0x140223370 (VfReportIssueWithOptions.c)
+ *     ViHalPreprocessOptions @ 0x140709AEC (ViHalPreprocessOptions.c)
  */
 
 void __fastcall DECREMENT_ADAPTER_CHANNELS(__int64 a1)

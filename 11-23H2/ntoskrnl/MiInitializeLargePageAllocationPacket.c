@@ -1,8 +1,8 @@
 /*
- * XREFs of MiInitializeLargePageAllocationPacket @ 0x1402D7E30
+ * XREFs of MiInitializeLargePageAllocationPacket @ 0x1402D80C0
  * Callers:
- *     MiUnlinkNodeLargePages @ 0x1402D76D0 (MiUnlinkNodeLargePages.c)
- *     MiGetLargePage @ 0x1402D7A80 (MiGetLargePage.c)
+ *     MiUnlinkNodeLargePages @ 0x1402D7960 (MiUnlinkNodeLargePages.c)
+ *     MiGetLargePage @ 0x1402D7D10 (MiGetLargePage.c)
  * Callees:
  *     <none>
  */

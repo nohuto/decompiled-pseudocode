@@ -1,27 +1,33 @@
 /*
- * XREFs of RtlRemoveEntryHashTable @ 0x1800EB890
+ * XREFs of RtlRemoveEntryHashTable @ 0x1800E6BA0
  * Callers:
  *     <none>
  * Callees:
- *     RtlpPopulateContext @ 0x1800E0B80 (RtlpPopulateContext.c)
+ *     RtlpPopulateContext @ 0x1800DC070 (RtlpPopulateContext.c)
  */
 
-char __fastcall RtlRemoveEntryHashTable(__int64 a1, _QWORD *a2, unsigned __int64 **a3)
+BOOLEAN __cdecl RtlRemoveEntryHashTable(
+        PRTL_DYNAMIC_HASH_TABLE HashTable,
+        PRTL_DYNAMIC_HASH_TABLE_ENTRY Entry,
+        PRTL_DYNAMIC_HASH_TABLE_CONTEXT Context)
 {
-  unsigned __int64 v4; // r8
-  __int64 v5; // r9
-  _QWORD *v6; // rax
+  unsigned __int64 Signature; // r8
+  _LIST_ENTRY *Flink; // r9
+  _LIST_ENTRY *Blink; // rax
 
-  v4 = a2[2];
-  --*(_DWORD *)(a1 + 20);
-  if ( *a2 == a2[1] )
-    --*(_DWORD *)(a1 + 24);
-  v5 = *a2;
-  if ( *(_QWORD **)(*a2 + 8LL) != a2 || (v6 = (_QWORD *)a2[1], (_QWORD *)*v6 != a2) )
+  Signature = Entry->Signature;
+  --HashTable->NumEntries;
+  if ( Entry->Linkage.Flink == Entry->Linkage.Blink )
+    --HashTable->NonEmptyBuckets;
+  Flink = Entry->Linkage.Flink;
+  if ( (PRTL_DYNAMIC_HASH_TABLE_ENTRY)Entry->Linkage.Flink->Blink != Entry
+    || (Blink = Entry->Linkage.Blink, (PRTL_DYNAMIC_HASH_TABLE_ENTRY)Blink->Flink != Entry) )
+  {
     __fastfail(3u);
-  *v6 = v5;
-  *(_QWORD *)(v5 + 8) = v6;
-  if ( a3 && !*a3 )
-    RtlpPopulateContext(a1, a3, v4);
+  }
+  Blink->Flink = Flink;
+  Flink->Blink = Blink;
+  if ( Context && !Context->ChainHead )
+    RtlpPopulateContext((__int64)HashTable, (unsigned __int64 **)Context, Signature);
   return 1;
 }

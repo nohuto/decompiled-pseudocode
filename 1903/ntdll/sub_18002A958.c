@@ -26,7 +26,7 @@ __int64 __fastcall sub_18002A958(__int64 a1, __int64 a2)
   char v11; // [rsp+50h] [rbp+18h] BYREF
 
   v4 = 0;
-  if ( RtlIsCriticalSectionLockedByThread((__int64)&off_18015F3F0) )
+  if ( RtlIsCriticalSectionLockedByThread(&stru_18015F3F0) )
     return (unsigned int)v4;
   v5 = *(_QWORD *)(a1 + 152);
   switch ( *(_DWORD *)(v5 + 56) )

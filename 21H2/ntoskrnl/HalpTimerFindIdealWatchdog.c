@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpTimerFindIdealWatchdog @ 0x1403AA50C
+ * XREFs of HalpTimerFindIdealWatchdog @ 0x1403AB29C
  * Callers:
- *     HalpTimerSelectRoles @ 0x1403A9D9C (HalpTimerSelectRoles.c)
+ *     HalpTimerSelectRoles @ 0x1403AAB2C (HalpTimerSelectRoles.c)
  * Callees:
- *     HalpFindTimer @ 0x14039D458 (HalpFindTimer.c)
- *     HalpTimerGetClockRates @ 0x1403CE544 (HalpTimerGetClockRates.c)
+ *     HalpFindTimer @ 0x14039D5A8 (HalpFindTimer.c)
+ *     HalpTimerGetClockRates @ 0x1403CE6B4 (HalpTimerGetClockRates.c)
  */
 
 ULONG_PTR *HalpTimerFindIdealWatchdog()

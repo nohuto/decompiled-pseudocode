@@ -1,8 +1,8 @@
 /*
- * XREFs of MiRecheckVaVm @ 0x140085570
+ * XREFs of MiRecheckVaVm @ 0x140085560
  * Callers:
- *     MiCrcStillIntact @ 0x140082C54 (MiCrcStillIntact.c)
- *     MiSharePages @ 0x1400846E0 (MiSharePages.c)
+ *     MiCrcStillIntact @ 0x140082C44 (MiCrcStillIntact.c)
+ *     MiSharePages @ 0x1400846D0 (MiSharePages.c)
  * Callees:
  *     MI_READ_PTE_LOCK_FREE @ 0x14003EA80 (MI_READ_PTE_LOCK_FREE.c)
  */

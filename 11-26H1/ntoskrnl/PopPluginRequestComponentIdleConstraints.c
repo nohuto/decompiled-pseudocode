@@ -1,10 +1,10 @@
 /*
- * XREFs of PopPluginRequestComponentIdleConstraints @ 0x14052C864
+ * XREFs of PopPluginRequestComponentIdleConstraints @ 0x14052ED84
  * Callers:
- *     PopPepInitializeVetoMasks @ 0x1404E1A2C (PopPepInitializeVetoMasks.c)
+ *     PopPepInitializeVetoMasks @ 0x1404DB10C (PopPepInitializeVetoMasks.c)
  * Callees:
- *     PopDiagTraceFxComponentIdleConstraints @ 0x140608920 (PopDiagTraceFxComponentIdleConstraints.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     PopDiagTraceFxComponentIdleConstraints @ 0x14060B4E0 (PopDiagTraceFxComponentIdleConstraints.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 char __fastcall PopPluginRequestComponentIdleConstraints(__int64 a1, unsigned int a2, __int64 a3, unsigned int a4)
@@ -23,7 +23,7 @@ char __fastcall PopPluginRequestComponentIdleConstraints(__int64 a1, unsigned in
   v5 = 0;
   v14 = 0;
   v17 = 0;
-  if ( v4 == stru_140E66FF0.Padding[0] )
+  if ( v4 == qword_140E676E8 )
   {
     if ( v4 )
     {

@@ -1,21 +1,21 @@
 /*
- * XREFs of ExpWnfWriteStateData @ 0x1406104B0
+ * XREFs of ExpWnfWriteStateData @ 0x14069FF60
  * Callers:
- *     ExpNtUpdateWnfStateData @ 0x14060E5DC (ExpNtUpdateWnfStateData.c)
+ *     ExpNtUpdateWnfStateData @ 0x14069E08C (ExpNtUpdateWnfStateData.c)
  * Callees:
- *     KiUnstackDetachProcess @ 0x140207000 (KiUnstackDetachProcess.c)
- *     KiStackAttachProcess @ 0x14025C2E0 (KiStackAttachProcess.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402F2C90 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     KeAbPreAcquire @ 0x14034A230 (KeAbPreAcquire.c)
- *     ExAllocatePoolWithQuotaTag @ 0x140353020 (ExAllocatePoolWithQuotaTag.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     ZwSetValueKey @ 0x1403FAFA0 (ZwSetValueKey.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     ExpWnfComposeValueName @ 0x14062C4F0 (ExpWnfComposeValueName.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     KiStackAttachProcess @ 0x14027D850 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x1402AB900 (KiUnstackDetachProcess.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402FD9E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     KeAbPreAcquire @ 0x140354F80 (KeAbPreAcquire.c)
+ *     ExAllocatePoolWithQuotaTag @ 0x14035DD70 (ExAllocatePoolWithQuotaTag.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     ZwSetValueKey @ 0x1403FB180 (ZwSetValueKey.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     ExpWnfComposeValueName @ 0x140663680 (ExpWnfComposeValueName.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall ExpWnfWriteStateData(__int64 a1, const void *a2, unsigned int a3, int a4, int a5)
@@ -23,37 +23,36 @@ __int64 __fastcall ExpWnfWriteStateData(__int64 a1, const void *a2, unsigned int
   size_t v6; // r13
   const void *v7; // r12
   volatile signed __int64 *v9; // rsi
-  __int64 v10; // rax
-  __int64 v11; // rbx
+  _RTL_BALANCED_NODE *v10; // rax
+  _RTL_BALANCED_NODE *v11; // rbx
   _DWORD *v12; // rcx
   _DWORD *v13; // r14
   __int32 i; // esi
   void *v15; // rcx
-  _DWORD *v17; // r9
-  _KPROCESS *v18; // rcx
-  int v19; // r12d
+  _KPROCESS *v17; // rcx
+  int v18; // r12d
   _DWORD *PoolWithTag; // r14
-  __int64 v21; // rax
-  __int64 v22; // r14
-  int v23; // eax
-  _DWORD *v24; // [rsp+38h] [rbp-C0h]
-  NTSTATUS v25; // [rsp+40h] [rbp-B8h]
+  _RTL_BALANCED_NODE *v20; // rax
+  _RTL_BALANCED_NODE *v21; // r14
+  int v22; // eax
+  _DWORD *v23; // [rsp+38h] [rbp-C0h]
+  NTSTATUS v24; // [rsp+40h] [rbp-B8h]
   PVOID P; // [rsp+48h] [rbp-B0h]
   UNICODE_STRING ValueName; // [rsp+58h] [rbp-A0h] BYREF
-  __int64 v29; // [rsp+68h] [rbp-90h]
-  _OWORD v30[3]; // [rsp+70h] [rbp-88h] BYREF
-  __int64 v31; // [rsp+A0h] [rbp-58h] BYREF
+  __int64 v28; // [rsp+68h] [rbp-90h]
+  _OWORD v29[3]; // [rsp+70h] [rbp-88h] BYREF
+  __int64 v30; // [rsp+A0h] [rbp-58h] BYREF
 
   v6 = a3;
   v7 = a2;
-  v29 = a1;
-  memset(v30, 0, sizeof(v30));
-  v25 = 0;
+  v28 = a1;
+  memset(v29, 0, sizeof(v29));
+  v24 = 0;
   *(_QWORD *)&ValueName.Length = 2228224LL;
-  ValueName.Buffer = (wchar_t *)&v31;
+  ValueName.Buffer = (wchar_t *)&v30;
   if ( *(_QWORD *)(a1 + 104) )
     ExpWnfComposeValueName(*(_QWORD *)(a1 + 40), &ValueName);
-  v24 = 0LL;
+  v23 = 0LL;
   P = 0LL;
   v9 = (volatile signed __int64 *)(a1 + 80);
   v10 = KeAbPreAcquire(a1 + 80, 0LL, 0);
@@ -61,11 +60,11 @@ __int64 __fastcall ExpWnfWriteStateData(__int64 a1, const void *a2, unsigned int
   if ( _interlockedbittestandset64((volatile signed __int32 *)(a1 + 80), 0LL) )
     ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(a1 + 80), v10, a1 + 80);
   if ( v11 )
-    *(_BYTE *)(v11 + 26) |= 1u;
+    BYTE2(v11[1].Left) |= 1u;
   if ( a5 )
   {
-    v23 = *(_QWORD *)(a1 + 88) ? *(_DWORD *)(a1 + 96) : 0;
-    if ( v23 != a4 )
+    v22 = *(_QWORD *)(a1 + 88) ? *(_DWORD *)(a1 + 96) : 0;
+    if ( v22 != a4 )
     {
       if ( (_InterlockedExchangeAdd64(v9, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
         ExfTryToWakePushLock(a1 + 80);
@@ -84,26 +83,26 @@ __int64 __fastcall ExpWnfWriteStateData(__int64 a1, const void *a2, unsigned int
     if ( ((*(_DWORD *)(a1 + 40) >> 4) & 3) != 3 || PsInitialSystemProcess == *(PEPROCESS *)(a1 + 152) )
     {
       PoolWithTag = ExAllocatePoolWithTag(PagedPool, (unsigned int)(v6 + 16), 0x20666E57u);
-      v24 = PoolWithTag;
+      v23 = PoolWithTag;
     }
     else
     {
-      v18 = *(_KPROCESS **)(a1 + 152);
-      if ( !v18 )
+      v17 = *(_KPROCESS **)(a1 + 152);
+      if ( !v17 )
         return 3221225524LL;
-      if ( v18 == KeGetCurrentThread()->ApcState.Process )
+      if ( v17 == KeGetCurrentThread()->ApcState.Process )
       {
-        v19 = 0;
+        v18 = 0;
       }
       else
       {
-        v19 = 1;
-        KiStackAttachProcess(v18, 0LL, (__int64)v30, v17);
+        v18 = 1;
+        KiStackAttachProcess(v17, 0, (__int64)v29);
       }
       PoolWithTag = ExAllocatePoolWithQuotaTag((POOL_TYPE)9, (unsigned int)(v6 + 16), 0x20666E57u);
-      v24 = PoolWithTag;
-      if ( v19 )
-        KiUnstackDetachProcess((__int64)v30, 0);
+      v23 = PoolWithTag;
+      if ( v18 )
+        KiUnstackDetachProcess((__int64)v29, 0LL);
       v7 = a2;
     }
     if ( !PoolWithTag )
@@ -111,17 +110,17 @@ __int64 __fastcall ExpWnfWriteStateData(__int64 a1, const void *a2, unsigned int
     *((_QWORD *)PoolWithTag + 1) = 0LL;
     *PoolWithTag = 1050884;
     PoolWithTag[1] = v6;
-    v21 = KeAbPreAcquire(a1 + 80, 0LL, 0);
-    v22 = v21;
+    v20 = KeAbPreAcquire(a1 + 80, 0LL, 0);
+    v21 = v20;
     if ( _interlockedbittestandset64((volatile signed __int32 *)v9, 0LL) )
-      ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(a1 + 80), v21, a1 + 80);
-    if ( v22 )
-      *(_BYTE *)(v22 + 26) |= 1u;
+      ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(a1 + 80), v20, a1 + 80);
+    if ( v21 )
+      BYTE2(v21[1].Left) |= 1u;
     v13 = 0LL;
     if ( *(_QWORD *)(a1 + 88) != 1LL )
       v13 = *(_DWORD **)(a1 + 88);
     if ( !v13 || v13[1] < (unsigned int)v6 )
-      v13 = v24;
+      v13 = v23;
   }
   for ( i = *(_DWORD *)(a1 + 96) + 1; !i; i = 1 )
     ;
@@ -133,19 +132,19 @@ __int64 __fastcall ExpWnfWriteStateData(__int64 a1, const void *a2, unsigned int
     v15 = *(void **)(a1 + 104);
     if ( v15 )
     {
-      v25 = ZwSetValueKey(v15, &ValueName, 0, 3u, v13 + 3, v6 + 4);
-      if ( v25 < 0 )
+      v24 = ZwSetValueKey(v15, &ValueName, 0, 3u, v13 + 3, v6 + 4);
+      if ( v24 < 0 )
       {
         P = *(PVOID *)(a1 + 88);
         *(_QWORD *)(a1 + 88) = 0LL;
         goto LABEL_24;
       }
     }
-    if ( v13 == v24 )
+    if ( v13 == v23 )
     {
       P = *(PVOID *)(a1 + 88);
       *(_QWORD *)(a1 + 88) = v13;
-      v24 = 0LL;
+      v23 = 0LL;
     }
   }
   else
@@ -159,7 +158,7 @@ LABEL_24:
   KeAbPostRelease(a1 + 80);
   if ( (unsigned __int64)P >= 2 )
     ExFreePoolWithTag(P, 0x20666E57u);
-  if ( v24 )
-    ExFreePoolWithTag(v24, 0x20666E57u);
-  return (unsigned int)v25;
+  if ( v23 )
+    ExFreePoolWithTag(v23, 0x20666E57u);
+  return (unsigned int)v24;
 }

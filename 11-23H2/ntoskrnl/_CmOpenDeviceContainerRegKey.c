@@ -1,13 +1,13 @@
 /*
- * XREFs of _CmOpenDeviceContainerRegKey @ 0x14079AC6C
+ * XREFs of _CmOpenDeviceContainerRegKey @ 0x14079AE5C
  * Callers:
- *     _PnpDispatchDeviceContainer @ 0x14079AA80 (_PnpDispatchDeviceContainer.c)
- *     _CmCreateDeviceContainerWorker @ 0x14079B52C (_CmCreateDeviceContainerWorker.c)
+ *     _PnpDispatchDeviceContainer @ 0x14079AC70 (_PnpDispatchDeviceContainer.c)
+ *     _CmCreateDeviceContainerWorker @ 0x14079B71C (_CmCreateDeviceContainerWorker.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     memset @ 0x140435A00 (memset.c)
- *     _CmOpenDeviceContainerRegKeyWorker @ 0x14079AD80 (_CmOpenDeviceContainerRegKeyWorker.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     _CmOpenDeviceContainerRegKeyWorker @ 0x14079AF70 (_CmOpenDeviceContainerRegKeyWorker.c)
  */
 
 __int64 __fastcall CmOpenDeviceContainerRegKey(

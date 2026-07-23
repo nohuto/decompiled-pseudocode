@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpEfiBugCheckAddPagesCallback @ 0x1404C4000
+ * XREFs of HalpEfiBugCheckAddPagesCallback @ 0x1404C4240
  * Callers:
  *     <none>
  * Callees:
- *     HalQueryMaximumProcessorCount @ 0x14037B300 (HalQueryMaximumProcessorCount.c)
+ *     HalQueryMaximumProcessorCount @ 0x14037AE50 (HalQueryMaximumProcessorCount.c)
  */
 
 void __fastcall HalpEfiBugCheckAddPagesCallback(

@@ -3,7 +3,7 @@
  * Callers:
  *     RtlpHpHeapCreate @ 0x18000821C (RtlpHpHeapCreate.c)
  * Callees:
- *     memset @ 0x1800A4780 (memset.c)
+ *     memset @ 0x1800A4740 (memset.c)
  */
 
 void __fastcall RtlpHpVsContextInitialize(unsigned __int64 a1, __int64 a2, __int128 *a3, int a4, int a5, _DWORD *a6)

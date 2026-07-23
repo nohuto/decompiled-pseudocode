@@ -1,10 +1,10 @@
 /*
- * XREFs of MmGetSessionLocaleId @ 0x14045964C
+ * XREFs of MmGetSessionLocaleId @ 0x14045851C
  * Callers:
- *     PspUserThreadStartup @ 0x140459060 (PspUserThreadStartup.c)
- *     NtQueryDefaultLocale @ 0x14045A7F8 (NtQueryDefaultLocale.c)
+ *     PspUserThreadStartup @ 0x140457F30 (PspUserThreadStartup.c)
+ *     NtQueryDefaultLocale @ 0x1404596C8 (NtQueryDefaultLocale.c)
  * Callees:
- *     PsIsSystemProcess @ 0x140072328 (PsIsSystemProcess.c)
+ *     PsIsSystemProcess @ 0x140071EA8 (PsIsSystemProcess.c)
  */
 
 __int64 MmGetSessionLocaleId()

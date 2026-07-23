@@ -1,16 +1,16 @@
 /*
- * XREFs of HvUnlockHiveWriter @ 0x140720A6C
+ * XREFs of HvUnlockHiveWriter @ 0x1406F7EE0
  * Callers:
- *     CmpFlushHive @ 0x14062A0D8 (CmpFlushHive.c)
- *     CmpInitCmRM @ 0x140716078 (CmpInitCmRM.c)
- *     CmpCreateHive @ 0x14071E618 (CmpCreateHive.c)
- *     CmpReorganizeHive @ 0x140720AB8 (CmpReorganizeHive.c)
- *     CmpTransMgrPrepare @ 0x140768D04 (CmpTransMgrPrepare.c)
- *     CmpCreateHiveRootCell @ 0x14078DBF0 (CmpCreateHiveRootCell.c)
- *     CmpRefreshHive @ 0x14087D3F8 (CmpRefreshHive.c)
+ *     CmpFlushHive @ 0x1406A48D8 (CmpFlushHive.c)
+ *     CmpInitCmRM @ 0x1406C46C8 (CmpInitCmRM.c)
+ *     CmpCreateHive @ 0x1406F756C (CmpCreateHive.c)
+ *     CmpReorganizeHive @ 0x1406F7F2C (CmpReorganizeHive.c)
+ *     CmpTransMgrPrepare @ 0x140768EC4 (CmpTransMgrPrepare.c)
+ *     CmpCreateHiveRootCell @ 0x14078DDB0 (CmpCreateHiveRootCell.c)
+ *     CmpRefreshHive @ 0x14087D558 (CmpRefreshHive.c)
  * Callees:
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
  */
 
 char __fastcall HvUnlockHiveWriter(__int64 a1)

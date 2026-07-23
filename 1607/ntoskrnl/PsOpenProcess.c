@@ -1,24 +1,24 @@
 /*
- * XREFs of PsOpenProcess @ 0x14041F410
+ * XREFs of PsOpenProcess @ 0x14041E2D0
  * Callers:
- *     NtOpenProcess @ 0x1404206D0 (NtOpenProcess.c)
- *     NtAlpcOpenSenderProcess @ 0x1404B40CC (NtAlpcOpenSenderProcess.c)
+ *     NtOpenProcess @ 0x14041F590 (NtOpenProcess.c)
+ *     NtAlpcOpenSenderProcess @ 0x14049E4AC (NtAlpcOpenSenderProcess.c)
  * Callees:
- *     SepDeleteAccessState @ 0x14000F6E0 (SepDeleteAccessState.c)
- *     SepCreateAccessStateFromSubjectContext @ 0x14000F860 (SepCreateAccessStateFromSubjectContext.c)
- *     EtwWrite @ 0x140013320 (EtwWrite.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     ObfDereferenceObjectWithTag @ 0x14006ACD0 (ObfDereferenceObjectWithTag.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     SeDeleteAccessState @ 0x140405E08 (SeDeleteAccessState.c)
- *     SePrivilegedServiceAuditAlarm @ 0x14041537C (SePrivilegedServiceAuditAlarm.c)
- *     SePrivilegeCheck @ 0x140415490 (SePrivilegeCheck.c)
- *     SeCaptureSubjectContextEx @ 0x14041F830 (SeCaptureSubjectContextEx.c)
- *     SeReleaseSubjectContext @ 0x14041F9B0 (SeReleaseSubjectContext.c)
- *     ObOpenObjectByPointer @ 0x1404203C0 (ObOpenObjectByPointer.c)
- *     PsLookupProcessByProcessId @ 0x140420700 (PsLookupProcessByProcessId.c)
- *     PsLookupProcessThreadByCid @ 0x1404D30D8 (PsLookupProcessThreadByCid.c)
- *     ExRaiseDatatypeMisalignment @ 0x1406B6058 (ExRaiseDatatypeMisalignment.c)
+ *     SepDeleteAccessState @ 0x14000F260 (SepDeleteAccessState.c)
+ *     SepCreateAccessStateFromSubjectContext @ 0x14000F3E0 (SepCreateAccessStateFromSubjectContext.c)
+ *     EtwWrite @ 0x140012EA0 (EtwWrite.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     ObfDereferenceObjectWithTag @ 0x14006A850 (ObfDereferenceObjectWithTag.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     SeDeleteAccessState @ 0x140404CC8 (SeDeleteAccessState.c)
+ *     SePrivilegedServiceAuditAlarm @ 0x14041423C (SePrivilegedServiceAuditAlarm.c)
+ *     SePrivilegeCheck @ 0x140414350 (SePrivilegeCheck.c)
+ *     SeCaptureSubjectContextEx @ 0x14041E6F0 (SeCaptureSubjectContextEx.c)
+ *     SeReleaseSubjectContext @ 0x14041E870 (SeReleaseSubjectContext.c)
+ *     ObOpenObjectByPointer @ 0x14041F280 (ObOpenObjectByPointer.c)
+ *     PsLookupProcessByProcessId @ 0x14041F5C0 (PsLookupProcessByProcessId.c)
+ *     PsLookupProcessThreadByCid @ 0x1404B6B78 (PsLookupProcessThreadByCid.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1406B6190 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall PsOpenProcess(

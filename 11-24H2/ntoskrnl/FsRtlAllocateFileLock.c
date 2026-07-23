@@ -1,9 +1,9 @@
 /*
- * XREFs of FsRtlAllocateFileLock @ 0x1403F9FA0
+ * XREFs of FsRtlAllocateFileLock @ 0x1403EFEB0
  * Callers:
  *     <none>
  * Callees:
- *     ExAllocateFromPagedLookasideList @ 0x1403FA0E0 (ExAllocateFromPagedLookasideList.c)
+ *     ExAllocateFromPagedLookasideList @ 0x1403EFFF0 (ExAllocateFromPagedLookasideList.c)
  */
 
 PFILE_LOCK __stdcall FsRtlAllocateFileLock(

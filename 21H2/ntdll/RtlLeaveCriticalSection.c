@@ -73,60 +73,62 @@
  *     RtlSetCurrentEnvironment @ 0x18008C1D0 (RtlSetCurrentEnvironment.c)
  *     RtlCompleteProcessCloning @ 0x18009BA70 (RtlCompleteProcessCloning.c)
  *     RtlPrepareForProcessCloning @ 0x18009BBB0 (RtlPrepareForProcessCloning.c)
- *     LdrDeleteEnclave @ 0x1800CCD90 (LdrDeleteEnclave.c)
- *     LdrInitializeEnclave @ 0x1800CCE20 (LdrInitializeEnclave.c)
- *     LdrIsEnclaveAddress @ 0x1800CCF20 (LdrIsEnclaveAddress.c)
- *     LdrLoadEnclaveModule @ 0x1800CCFC0 (LdrLoadEnclaveModule.c)
- *     LdrpCreateSoftwareEnclave @ 0x1800CD2FC (LdrpCreateSoftwareEnclave.c)
- *     LdrpDeleteEnclave @ 0x1800CD3EC (LdrpDeleteEnclave.c)
- *     LdrpIssueEnclaveCall @ 0x1800CD8B0 (LdrpIssueEnclaveCall.c)
- *     LdrUnregisterDllNotification @ 0x1800CE6E0 (LdrUnregisterDllNotification.c)
- *     LdrpCompleteProcessCloning @ 0x1800D4B68 (LdrpCompleteProcessCloning.c)
- *     RtlCloneUserProcess @ 0x1800D64B0 (RtlCloneUserProcess.c)
- *     RtlQueryProcessHeapInformation @ 0x1800D7D90 (RtlQueryProcessHeapInformation.c)
- *     AVrfDllUnloadNotification @ 0x1800D9884 (AVrfDllUnloadNotification.c)
- *     AVrfInternalHeapFreeNotification @ 0x1800DA3B0 (AVrfInternalHeapFreeNotification.c)
- *     sxsisol_ExpandEnvironmentStrings_UEx @ 0x1800DF58C (sxsisol_ExpandEnvironmentStrings_UEx.c)
- *     RtlpEnsureLiveDeadListsInitialized @ 0x1800DF920 (RtlpEnsureLiveDeadListsInitialized.c)
- *     RtlpMoveActCtxToFreeList @ 0x1800DF9B8 (RtlpMoveActCtxToFreeList.c)
- *     RtlpPlaceActivationContextOnLiveList @ 0x1800DFAE4 (RtlpPlaceActivationContextOnLiveList.c)
- *     RtlpCleanupRegistryKeys @ 0x1800EFC70 (RtlpCleanupRegistryKeys.c)
- *     RtlCompactHeap @ 0x1800F23F0 (RtlCompactHeap.c)
- *     RtlQueryTagHeap @ 0x1800F2AD0 (RtlQueryTagHeap.c)
- *     RtlSetHeapDebuggingInformation @ 0x1800F2CA8 (RtlSetHeapDebuggingInformation.c)
- *     RtlSetUserFlagsHeap @ 0x1800F2E70 (RtlSetUserFlagsHeap.c)
- *     RtlpUnlockHeapManagerForCloning @ 0x1800F4BC4 (RtlpUnlockHeapManagerForCloning.c)
- *     RtlZeroHeap @ 0x1800F6500 (RtlZeroHeap.c)
- *     RtlpSetupExtendedBlock @ 0x1800F6D48 (RtlpSetupExtendedBlock.c)
- *     RtlDebugAllocateHeap @ 0x1800F89E0 (RtlDebugAllocateHeap.c)
- *     RtlDebugCompactHeap @ 0x1800F8D9C (RtlDebugCompactHeap.c)
- *     RtlDebugCreateTagHeap @ 0x1800F91E4 (RtlDebugCreateTagHeap.c)
- *     RtlDebugFreeHeap @ 0x1800F93EC (RtlDebugFreeHeap.c)
- *     RtlDebugGetUserInfoHeap @ 0x1800F96E0 (RtlDebugGetUserInfoHeap.c)
- *     RtlDebugQueryTagHeap @ 0x1800F9884 (RtlDebugQueryTagHeap.c)
- *     RtlDebugReAllocateHeap @ 0x1800F99D0 (RtlDebugReAllocateHeap.c)
- *     RtlDebugSetUserFlagsHeap @ 0x1800F9F54 (RtlDebugSetUserFlagsHeap.c)
- *     RtlDebugSetUserValueHeap @ 0x1800FA120 (RtlDebugSetUserValueHeap.c)
- *     RtlDebugSizeHeap @ 0x1800FA2B4 (RtlDebugSizeHeap.c)
- *     RtlDebugZeroHeap @ 0x1800FA4C8 (RtlDebugZeroHeap.c)
- *     RtlTraceDatabaseAdd @ 0x180102850 (RtlTraceDatabaseAdd.c)
- *     RtlTraceDatabaseEnumerate @ 0x180102A90 (RtlTraceDatabaseEnumerate.c)
- *     RtlTraceDatabaseFind @ 0x180102B60 (RtlTraceDatabaseFind.c)
- *     RtlTraceDatabaseUnlock @ 0x180102C10 (RtlTraceDatabaseUnlock.c)
- *     RtlTraceDatabaseValidate @ 0x180102C30 (RtlTraceDatabaseValidate.c)
- *     EtwpBufferingModeFlush @ 0x180110C60 (EtwpBufferingModeFlush.c)
+ *     LdrDeleteEnclave @ 0x1800CCD50 (LdrDeleteEnclave.c)
+ *     LdrInitializeEnclave @ 0x1800CCDE0 (LdrInitializeEnclave.c)
+ *     LdrIsEnclaveAddress @ 0x1800CCEE0 (LdrIsEnclaveAddress.c)
+ *     LdrLoadEnclaveModule @ 0x1800CCF80 (LdrLoadEnclaveModule.c)
+ *     LdrpCreateSoftwareEnclave @ 0x1800CD2BC (LdrpCreateSoftwareEnclave.c)
+ *     LdrpDeleteEnclave @ 0x1800CD3AC (LdrpDeleteEnclave.c)
+ *     LdrpIssueEnclaveCall @ 0x1800CD870 (LdrpIssueEnclaveCall.c)
+ *     LdrUnregisterDllNotification @ 0x1800CE6A0 (LdrUnregisterDllNotification.c)
+ *     LdrpCompleteProcessCloning @ 0x1800D4B28 (LdrpCompleteProcessCloning.c)
+ *     RtlCloneUserProcess @ 0x1800D6470 (RtlCloneUserProcess.c)
+ *     RtlQueryProcessHeapInformation @ 0x1800D7D50 (RtlQueryProcessHeapInformation.c)
+ *     AVrfDllUnloadNotification @ 0x1800D9844 (AVrfDllUnloadNotification.c)
+ *     AVrfInternalHeapFreeNotification @ 0x1800DA370 (AVrfInternalHeapFreeNotification.c)
+ *     sxsisol_ExpandEnvironmentStrings_UEx @ 0x1800DF54C (sxsisol_ExpandEnvironmentStrings_UEx.c)
+ *     RtlpEnsureLiveDeadListsInitialized @ 0x1800DF8E0 (RtlpEnsureLiveDeadListsInitialized.c)
+ *     RtlpMoveActCtxToFreeList @ 0x1800DF978 (RtlpMoveActCtxToFreeList.c)
+ *     RtlpPlaceActivationContextOnLiveList @ 0x1800DFAA4 (RtlpPlaceActivationContextOnLiveList.c)
+ *     RtlpCleanupRegistryKeys @ 0x1800EFC30 (RtlpCleanupRegistryKeys.c)
+ *     RtlCompactHeap @ 0x1800F23B0 (RtlCompactHeap.c)
+ *     RtlQueryTagHeap @ 0x1800F2A90 (RtlQueryTagHeap.c)
+ *     RtlSetHeapDebuggingInformation @ 0x1800F2C68 (RtlSetHeapDebuggingInformation.c)
+ *     RtlSetUserFlagsHeap @ 0x1800F2E30 (RtlSetUserFlagsHeap.c)
+ *     RtlpUnlockHeapManagerForCloning @ 0x1800F4B84 (RtlpUnlockHeapManagerForCloning.c)
+ *     RtlZeroHeap @ 0x1800F64C0 (RtlZeroHeap.c)
+ *     RtlpSetupExtendedBlock @ 0x1800F6D08 (RtlpSetupExtendedBlock.c)
+ *     RtlDebugAllocateHeap @ 0x1800F89A0 (RtlDebugAllocateHeap.c)
+ *     RtlDebugCompactHeap @ 0x1800F8D5C (RtlDebugCompactHeap.c)
+ *     RtlDebugCreateTagHeap @ 0x1800F91A4 (RtlDebugCreateTagHeap.c)
+ *     RtlDebugFreeHeap @ 0x1800F93AC (RtlDebugFreeHeap.c)
+ *     RtlDebugGetUserInfoHeap @ 0x1800F96A0 (RtlDebugGetUserInfoHeap.c)
+ *     RtlDebugQueryTagHeap @ 0x1800F9844 (RtlDebugQueryTagHeap.c)
+ *     RtlDebugReAllocateHeap @ 0x1800F9990 (RtlDebugReAllocateHeap.c)
+ *     RtlDebugSetUserFlagsHeap @ 0x1800F9F14 (RtlDebugSetUserFlagsHeap.c)
+ *     RtlDebugSetUserValueHeap @ 0x1800FA0E0 (RtlDebugSetUserValueHeap.c)
+ *     RtlDebugSizeHeap @ 0x1800FA274 (RtlDebugSizeHeap.c)
+ *     RtlDebugZeroHeap @ 0x1800FA488 (RtlDebugZeroHeap.c)
+ *     RtlTraceDatabaseAdd @ 0x180102810 (RtlTraceDatabaseAdd.c)
+ *     RtlTraceDatabaseEnumerate @ 0x180102A50 (RtlTraceDatabaseEnumerate.c)
+ *     RtlTraceDatabaseFind @ 0x180102B20 (RtlTraceDatabaseFind.c)
+ *     RtlTraceDatabaseUnlock @ 0x180102BD0 (RtlTraceDatabaseUnlock.c)
+ *     RtlTraceDatabaseValidate @ 0x180102BF0 (RtlTraceDatabaseValidate.c)
+ *     EtwpBufferingModeFlush @ 0x180110C20 (EtwpBufferingModeFlush.c)
  * Callees:
  *     RtlpWakeByAddress @ 0x18006471C (RtlpWakeByAddress.c)
  *     RtlpCreateDeferredCriticalSectionEvent @ 0x180065030 (RtlpCreateDeferredCriticalSectionEvent.c)
- *     ZwSetEvent @ 0x18009D800 (ZwSetEvent.c)
- *     RtlpNotOwnerCriticalSection @ 0x1800E9110 (RtlpNotOwnerCriticalSection.c)
- *     RtlRaiseStatus @ 0x1801026C0 (RtlRaiseStatus.c)
+ *     ZwSetEvent @ 0x18009D7C0 (ZwSetEvent.c)
+ *     RtlpNotOwnerCriticalSection @ 0x1800E90D0 (RtlpNotOwnerCriticalSection.c)
+ *     RtlRaiseStatus @ 0x180102680 (RtlRaiseStatus.c)
  */
 
-__int64 __fastcall RtlLeaveCriticalSection(__int64 a1, __int64 a2, __int64 a3)
+NTSTATUS __cdecl RtlLeaveCriticalSection(PRTL_CRITICAL_SECTION CriticalSection)
 {
-  signed __int32 v5; // esi
-  __int64 DeferredCriticalSectionEvent; // r9
+  __int64 v1; // rdx
+  __int64 v2; // r8
+  signed __int32 LockCount; // esi
+  void *LockSemaphore; // r9
   unsigned int v8; // ecx
   int v9; // r8d
   unsigned __int64 v10; // rax
@@ -135,19 +137,22 @@ __int64 __fastcall RtlLeaveCriticalSection(__int64 a1, __int64 a2, __int64 a3)
   signed __int32 v13[10]; // [rsp+0h] [rbp-28h] BYREF
   unsigned int v14; // [rsp+30h] [rbp+8h]
 
-  if ( (*(_DWORD *)(a1 + 12))-- != 1 )
-    return 0LL;
-  *(_QWORD *)(a1 + 16) = 0LL;
-  v5 = _InterlockedCompareExchange((volatile signed __int32 *)(a1 + 8), -1, -2);
-  if ( v5 == -2 )
-    return 0LL;
-  if ( (*(_BYTE *)(a1 + 8) & 1) != 0 )
-    RtlpNotOwnerCriticalSection(a1, a2, a3);
-  DeferredCriticalSectionEvent = *(_QWORD *)(a1 + 24);
-  if ( !DeferredCriticalSectionEvent )
-    DeferredCriticalSectionEvent = RtlpCreateDeferredCriticalSectionEvent(a1, a2, a3);
+  if ( CriticalSection->RecursionCount-- != 1 )
+    return 0;
+  CriticalSection->OwningThread = 0LL;
+  LockCount = _InterlockedCompareExchange(&CriticalSection->LockCount, -1, -2);
+  if ( LockCount == -2 )
+    return 0;
+  if ( (CriticalSection->LockCount & 1) != 0 )
+    RtlpNotOwnerCriticalSection(CriticalSection);
+  LockSemaphore = CriticalSection->LockSemaphore;
+  if ( !LockSemaphore )
+    LockSemaphore = (void *)RtlpCreateDeferredCriticalSectionEvent(CriticalSection, v1, v2);
   v8 = 0;
-  while ( v5 != _InterlockedCompareExchange((volatile signed __int32 *)(a1 + 8), (v5 & 2 | 1) + v5, v5) )
+  while ( LockCount != _InterlockedCompareExchange(
+                         &CriticalSection->LockCount,
+                         (LockCount & 2 | 1) + LockCount,
+                         LockCount) )
   {
     v9 = v8;
     if ( v8 )
@@ -175,22 +180,22 @@ __int64 __fastcall RtlLeaveCriticalSection(__int64 a1, __int64 a2, __int64 a3)
       while ( v14 < v11 );
     }
 LABEL_18:
-    _m_prefetchw((const void *)(a1 + 8));
-    v5 = *(_DWORD *)(a1 + 8);
+    _m_prefetchw(&CriticalSection->LockCount);
+    LockCount = CriticalSection->LockCount;
   }
-  if ( (v5 & 2) != 0 )
+  if ( (LockCount & 2) != 0 )
   {
-    if ( DeferredCriticalSectionEvent == -1 )
+    if ( LockSemaphore == (void *)-1LL )
     {
       _InterlockedOr(v13, 0);
-      RtlpWakeByAddress(a1 + 8, 0LL);
+      RtlpWakeByAddress(&CriticalSection->LockCount, 0LL);
     }
     else
     {
-      v12 = ZwSetEvent(DeferredCriticalSectionEvent, 0LL);
+      v12 = ZwSetEvent(LockSemaphore, 0LL);
       if ( v12 < 0 )
-        RtlRaiseStatus((unsigned int)v12);
+        RtlRaiseStatus(v12);
     }
   }
-  return 0LL;
+  return 0;
 }

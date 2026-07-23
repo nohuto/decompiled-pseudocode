@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpGetAcpiStaticNumaTopology @ 0x140784C78
+ * XREFs of HalpGetAcpiStaticNumaTopology @ 0x1407877AC
  * Callers:
- *     HaliQuerySystemInformation @ 0x140BED8E0 (HaliQuerySystemInformation.c)
+ *     HaliQuerySystemInformation @ 0x140BF38E0 (HaliQuerySystemInformation.c)
  * Callees:
- *     HalpInterruptModel @ 0x140427BB0 (HalpInterruptModel.c)
+ *     HalpInterruptModel @ 0x140434CC0 (HalpInterruptModel.c)
  */
 
 __int64 HalpGetAcpiStaticNumaTopology()

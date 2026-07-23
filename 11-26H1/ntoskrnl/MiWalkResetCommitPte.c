@@ -1,11 +1,11 @@
 /*
- * XREFs of MiWalkResetCommitPte @ 0x1406E5400
+ * XREFs of MiWalkResetCommitPte @ 0x1406EA0B0
  * Callers:
  *     <none>
  * Callees:
- *     MiUnlinkPageFromListEx @ 0x1402F7250 (MiUnlinkPageFromListEx.c)
- *     MiLockTransitionLeafPageEx @ 0x14033E050 (MiLockTransitionLeafPageEx.c)
- *     MiDiscardTransitionPfnEx @ 0x140369FE0 (MiDiscardTransitionPfnEx.c)
+ *     MiUnlinkPageFromListEx @ 0x1402D92D0 (MiUnlinkPageFromListEx.c)
+ *     MiLockTransitionLeafPageEx @ 0x1403400D0 (MiLockTransitionLeafPageEx.c)
+ *     MiDiscardTransitionPfnEx @ 0x14036BD80 (MiDiscardTransitionPfnEx.c)
  */
 
 __int64 __fastcall MiWalkResetCommitPte(__int64 a1, _QWORD *a2, int a3)

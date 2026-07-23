@@ -1,12 +1,12 @@
 /*
- * XREFs of DifExRaiseAccessViolationWrapper @ 0x1405D9490
+ * XREFs of DifExRaiseAccessViolationWrapper @ 0x1405D9A00
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     DifGetAPIThunkContextById @ 0x1404664BE (DifGetAPIThunkContextById.c)
- *     DifGetReturnAddressForWrappers @ 0x1405F88C4 (DifGetReturnAddressForWrappers.c)
- *     ExRaiseAccessViolation @ 0x140873DE0 (ExRaiseAccessViolation.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x1404668BE (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F8E34 (DifGetReturnAddressForWrappers.c)
+ *     ExRaiseAccessViolation @ 0x140874020 (ExRaiseAccessViolation.c)
  */
 
 void __noreturn DifExRaiseAccessViolationWrapper()

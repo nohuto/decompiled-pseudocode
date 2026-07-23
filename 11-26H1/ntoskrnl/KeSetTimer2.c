@@ -1,65 +1,65 @@
 /*
- * XREFs of KeSetTimer2 @ 0x14037A500
+ * XREFs of KeSetTimer2 @ 0x14037C2B0
  * Callers:
- *     ?SmHighMemPriorityTimerStart@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x140280F9C (-SmHighMemPriorityTimerStart@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@@Z.c)
- *     RtlpHpEnvCompactionSchedule @ 0x14034D650 (RtlpHpEnvCompactionSchedule.c)
- *     ExSetTimer @ 0x14037A420 (ExSetTimer.c)
- *     ExpSetTimerObject2 @ 0x1403A9988 (ExpSetTimerObject2.c)
- *     WdtpArmTimer @ 0x1403AA03C (WdtpArmTimer.c)
- *     NtSetInformationWorkerFactory @ 0x1403DE960 (NtSetInformationWorkerFactory.c)
- *     MiStoreEvictThread @ 0x1404B0390 (MiStoreEvictThread.c)
- *     PpmCheckArmPeriod @ 0x1404E6260 (PpmCheckArmPeriod.c)
- *     KiProcessPendingForegroundBoosts @ 0x1404FE820 (KiProcessPendingForegroundBoosts.c)
- *     PopIdleArmAoAcDozeS4Timer @ 0x14050EC70 (PopIdleArmAoAcDozeS4Timer.c)
- *     PopThermalEventTransitionDisableDeepSleep @ 0x140512170 (PopThermalEventTransitionDisableDeepSleep.c)
- *     KiInitializeIdealProcessorRebalancer @ 0x1405F4B78 (KiInitializeIdealProcessorRebalancer.c)
- *     KiTriggerForegroundBoostDpc @ 0x1405F6C10 (KiTriggerForegroundBoostDpc.c)
- *     KiForceParkDutyCycleDpcCallback @ 0x1405F8980 (KiForceParkDutyCycleDpcCallback.c)
- *     PopDirectedDripsStartDisengageTimer @ 0x140603B60 (PopDirectedDripsStartDisengageTimer.c)
- *     PopThermalUpdateTelemetryClientCount @ 0x140607C84 (PopThermalUpdateTelemetryClientCount.c)
- *     PopCheckPowerSourceAfterRtcWakeSet @ 0x140607E5C (PopCheckPowerSourceAfterRtcWakeSet.c)
- *     PopPowerButtonWorkCallback @ 0x14060CD70 (PopPowerButtonWorkCallback.c)
- *     DifKeSetTimer2Wrapper @ 0x1406644C0 (DifKeSetTimer2Wrapper.c)
- *     EtwpCoverageEnsureContext @ 0x140775C70 (EtwpCoverageEnsureContext.c)
- *     PopPowerRequestDebounceTimerWorker @ 0x1407C9450 (PopPowerRequestDebounceTimerWorker.c)
- *     PpmRegisterPerfStates @ 0x1407CE358 (PpmRegisterPerfStates.c)
- *     PopUserShutdownScenarioNotifyWinlogonCallout @ 0x1407D17E8 (PopUserShutdownScenarioNotifyWinlogonCallout.c)
- *     PopPowerAggregatorDozeTimerArm @ 0x1407D65DC (PopPowerAggregatorDozeTimerArm.c)
- *     PopPowerAggregatorSessionSwitchWorker @ 0x1407D6EB0 (PopPowerAggregatorSessionSwitchWorker.c)
- *     PopNetArmRefreshTimer @ 0x1407DA3D0 (PopNetArmRefreshTimer.c)
- *     PopNetResiliencyPhaseStateChanged @ 0x1407DA8C0 (PopNetResiliencyPhaseStateChanged.c)
- *     PopAdaptiveStandbySetPolicyTimer @ 0x1407E07A4 (PopAdaptiveStandbySetPolicyTimer.c)
- *     ExStartStopWorkQueueProvider @ 0x14083F6BC (ExStartStopWorkQueueProvider.c)
- *     EtwpEnableKernelTrace @ 0x14095ACA0 (EtwpEnableKernelTrace.c)
- *     ExpWorkQueueManagerThread @ 0x140A039A0 (ExpWorkQueueManagerThread.c)
- *     PopSleepstudyStartNextSession @ 0x140A39120 (PopSleepstudyStartNextSession.c)
- *     PopPowerRequestSetExecutionRequiredTimeoutTimer @ 0x140A3ADC0 (PopPowerRequestSetExecutionRequiredTimeoutTimer.c)
- *     PopDripsWatchdogScheduleNextTimer @ 0x140A3C818 (PopDripsWatchdogScheduleNextTimer.c)
- *     NtCreateWorkerFactory @ 0x140A912F0 (NtCreateWorkerFactory.c)
- *     PopThermalWorker @ 0x140AC3C50 (PopThermalWorker.c)
- *     PopPowerRequestHandleRequestUpdate @ 0x140AE70C8 (PopPowerRequestHandleRequestUpdate.c)
- *     EtwpCoverageRecord @ 0x140B0E2F8 (EtwpCoverageRecord.c)
- *     ExpTimeRefreshWork @ 0x140BFF300 (ExpTimeRefreshWork.c)
- *     HalpBlkInitSystem @ 0x140CB4528 (HalpBlkInitSystem.c)
- *     ExInitializeTimeRefresh @ 0x140CE3D60 (ExInitializeTimeRefresh.c)
+ *     ?SmHighMemPriorityTimerStart@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x14028050C (-SmHighMemPriorityTimerStart@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@@Z.c)
+ *     RtlpHpEnvCompactionSchedule @ 0x14034F6D0 (RtlpHpEnvCompactionSchedule.c)
+ *     ExSetTimer @ 0x14037C1D0 (ExSetTimer.c)
+ *     ExpSetTimerObject2 @ 0x1403B3598 (ExpSetTimerObject2.c)
+ *     WdtpArmTimer @ 0x1403B3C4C (WdtpArmTimer.c)
+ *     NtSetInformationWorkerFactory @ 0x1403E1B50 (NtSetInformationWorkerFactory.c)
+ *     MiStoreEvictThread @ 0x1404A9A20 (MiStoreEvictThread.c)
+ *     PpmCheckArmPeriod @ 0x1404DF800 (PpmCheckArmPeriod.c)
+ *     KiProcessPendingForegroundBoosts @ 0x1404F7DD0 (KiProcessPendingForegroundBoosts.c)
+ *     PopIdleArmAoAcDozeS4Timer @ 0x1405086E0 (PopIdleArmAoAcDozeS4Timer.c)
+ *     PopThermalEventTransitionDisableDeepSleep @ 0x14050BBE0 (PopThermalEventTransitionDisableDeepSleep.c)
+ *     KiInitializeIdealProcessorRebalancer @ 0x1405F7538 (KiInitializeIdealProcessorRebalancer.c)
+ *     KiTriggerForegroundBoostDpc @ 0x1405F95D0 (KiTriggerForegroundBoostDpc.c)
+ *     KiForceParkDutyCycleDpcCallback @ 0x1405FB3A0 (KiForceParkDutyCycleDpcCallback.c)
+ *     PopDirectedDripsStartDisengageTimer @ 0x140606610 (PopDirectedDripsStartDisengageTimer.c)
+ *     PopThermalUpdateTelemetryClientCount @ 0x14060A834 (PopThermalUpdateTelemetryClientCount.c)
+ *     PopCheckPowerSourceAfterRtcWakeSet @ 0x14060AA0C (PopCheckPowerSourceAfterRtcWakeSet.c)
+ *     PopPowerButtonWorkCallback @ 0x14060FE80 (PopPowerButtonWorkCallback.c)
+ *     DifKeSetTimer2Wrapper @ 0x1406680A0 (DifKeSetTimer2Wrapper.c)
+ *     EtwpCoverageEnsureContext @ 0x140778B18 (EtwpCoverageEnsureContext.c)
+ *     PopPowerRequestDebounceTimerWorker @ 0x1407CC4F0 (PopPowerRequestDebounceTimerWorker.c)
+ *     PpmRegisterPerfStates @ 0x1407D13F8 (PpmRegisterPerfStates.c)
+ *     PopUserShutdownScenarioNotifyWinlogonCallout @ 0x1407D4888 (PopUserShutdownScenarioNotifyWinlogonCallout.c)
+ *     PopPowerAggregatorDozeTimerArm @ 0x1407D9768 (PopPowerAggregatorDozeTimerArm.c)
+ *     PopPowerAggregatorSessionSwitchWorker @ 0x1407D9FE0 (PopPowerAggregatorSessionSwitchWorker.c)
+ *     PopNetArmRefreshTimer @ 0x1407DE2B8 (PopNetArmRefreshTimer.c)
+ *     PopNetResiliencyPhaseStateChanged @ 0x1407DE7B0 (PopNetResiliencyPhaseStateChanged.c)
+ *     PopAdaptiveStandbySetPolicyTimer @ 0x1407E5600 (PopAdaptiveStandbySetPolicyTimer.c)
+ *     ExStartStopWorkQueueProvider @ 0x1408458FC (ExStartStopWorkQueueProvider.c)
+ *     PopSleepstudyStartNextSession @ 0x1409F4CE0 (PopSleepstudyStartNextSession.c)
+ *     PopPowerRequestSetExecutionRequiredTimeoutTimer @ 0x1409F69C0 (PopPowerRequestSetExecutionRequiredTimeoutTimer.c)
+ *     PopDripsWatchdogScheduleNextTimer @ 0x1409F8238 (PopDripsWatchdogScheduleNextTimer.c)
+ *     EtwpEnableKernelTrace @ 0x140A00560 (EtwpEnableKernelTrace.c)
+ *     ExpWorkQueueManagerThread @ 0x140A77D60 (ExpWorkQueueManagerThread.c)
+ *     NtCreateWorkerFactory @ 0x140A95E40 (NtCreateWorkerFactory.c)
+ *     PopThermalWorker @ 0x140AC58C0 (PopThermalWorker.c)
+ *     PopPowerRequestHandleRequestUpdate @ 0x140AE4F44 (PopPowerRequestHandleRequestUpdate.c)
+ *     EtwpCoverageRecord @ 0x140B0FA48 (EtwpCoverageRecord.c)
+ *     ExpTimeRefreshWork @ 0x140C05510 (ExpTimeRefreshWork.c)
+ *     HalpBlkInitSystem @ 0x140CBA568 (HalpBlkInitSystem.c)
+ *     ExInitializeTimeRefresh @ 0x140CEA100 (ExInitializeTimeRefresh.c)
  * Callees:
- *     RtlGetInterruptTimePrecise @ 0x140208110 (RtlGetInterruptTimePrecise.c)
- *     RtlGetSystemTimePrecise @ 0x14021C830 (RtlGetSystemTimePrecise.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiReleaseSpinLockInstrumented @ 0x1402BDFEC (KiReleaseSpinLockInstrumented.c)
- *     KiAcquireSpinLockInstrumented @ 0x14032F380 (KiAcquireSpinLockInstrumented.c)
- *     KxWaitForSpinLockAndAcquire @ 0x14032F490 (KxWaitForSpinLockAndAcquire.c)
- *     KiInsertTimer2WithCollectionLockHeld @ 0x1403789C0 (KiInsertTimer2WithCollectionLockHeld.c)
- *     KiRemoveTimer2 @ 0x140378EB0 (KiRemoveTimer2.c)
- *     KiSendClockInterruptToTargetProcessor @ 0x1403793EC (KiSendClockInterruptToTargetProcessor.c)
- *     KiAcquireTimer2LockUnlessDisabled @ 0x14037A9B0 (KiAcquireTimer2LockUnlessDisabled.c)
- *     KiAcquireTimer2CollectionLockIfInserted @ 0x14037AA30 (KiAcquireTimer2CollectionLockIfInserted.c)
- *     KiTraceSetTimer2 @ 0x1403A9A14 (KiTraceSetTimer2.c)
- *     KiRequestTimer2Expiration @ 0x14044F494 (KiRequestTimer2Expiration.c)
- *     PsTimerResolutionActive @ 0x140457020 (PsTimerResolutionActive.c)
- *     KiHvEnlightenedGuestPriorityKick @ 0x1404675F0 (KiHvEnlightenedGuestPriorityKick.c)
- *     KiUpdateTimer2Collections @ 0x1404BF7E0 (KiUpdateTimer2Collections.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     RtlGetInterruptTimePrecise @ 0x1402081F0 (RtlGetInterruptTimePrecise.c)
+ *     RtlGetSystemTimePrecise @ 0x14021E1C0 (RtlGetSystemTimePrecise.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiReleaseSpinLockInstrumented @ 0x140308CAC (KiReleaseSpinLockInstrumented.c)
+ *     KiAcquireSpinLockInstrumented @ 0x1403313B0 (KiAcquireSpinLockInstrumented.c)
+ *     KxWaitForSpinLockAndAcquire @ 0x1403314C0 (KxWaitForSpinLockAndAcquire.c)
+ *     KiInsertTimer2WithCollectionLockHeld @ 0x14037A770 (KiInsertTimer2WithCollectionLockHeld.c)
+ *     KiRemoveTimer2 @ 0x14037AC60 (KiRemoveTimer2.c)
+ *     KiSendClockInterruptToTargetProcessor @ 0x14037B19C (KiSendClockInterruptToTargetProcessor.c)
+ *     KiAcquireTimer2LockUnlessDisabled @ 0x14037C760 (KiAcquireTimer2LockUnlessDisabled.c)
+ *     KiAcquireTimer2CollectionLockIfInserted @ 0x14037C7E0 (KiAcquireTimer2CollectionLockIfInserted.c)
+ *     KiTraceSetTimer2 @ 0x1403B3624 (KiTraceSetTimer2.c)
+ *     KiRequestTimer2Expiration @ 0x1404475C4 (KiRequestTimer2Expiration.c)
+ *     PsTimerResolutionActive @ 0x14044E890 (PsTimerResolutionActive.c)
+ *     KiHvEnlightenedGuestPriorityKick @ 0x140460D40 (KiHvEnlightenedGuestPriorityKick.c)
+ *     KiUpdateTimer2Collections @ 0x1404B9030 (KiUpdateTimer2Collections.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall KeSetTimer2(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -68,13 +68,13 @@ __int64 __fastcall KeSetTimer2(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
   __int64 v8; // rdx
   unsigned __int8 CurrentIrql; // bp
   char v10; // r13
-  unsigned __int64 InterruptTimePrecise; // rax
+  LARGE_INTEGER InterruptTimePrecise; // rax
   unsigned __int64 v12; // rdi
   __int64 v13; // rsi
   char v14; // r15
   unsigned int v15; // r14d
   char v16; // dl
-  char v17; // si
+  char LowPart; // si
   __int64 v18; // r8
   unsigned __int8 v19; // r14
   __int64 v20; // rax
@@ -83,15 +83,15 @@ __int64 __fastcall KeSetTimer2(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
   char v24; // r8
   char v25; // dl
   bool v26; // zf
-  __int64 v27; // r8
+  LARGE_INTEGER v27; // r8
   __int64 v28; // rax
-  __int64 SystemTimePrecise; // rax
+  LARGE_INTEGER SystemTimePrecise; // rax
   volatile signed __int32 v30; // edx
   signed __int32 v31; // eax
   signed __int32 v32; // edx
   __int64 retaddr; // [rsp+68h] [rbp+0h]
   char v34; // [rsp+70h] [rbp+8h]
-  unsigned __int64 v35; // [rsp+78h] [rbp+10h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+78h] [rbp+10h] BYREF
   char v36; // [rsp+80h] [rbp+18h] BYREF
   int v37; // [rsp+88h] [rbp+20h]
 
@@ -121,19 +121,19 @@ __int64 __fastcall KeSetTimer2(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
     }
     else
     {
-      v27 = MEMORY[0xFFFFF78000000014];
+      v27.QuadPart = MEMORY[0xFFFFF78000000014];
     }
     v28 = 0LL;
-    if ( a2 > v27 )
-      v28 = v27 - a2;
+    if ( a2 > v27.QuadPart )
+      v28 = v27.QuadPart - a2;
     a2 = v28;
   }
   if ( (v8 & 4) != 0 )
-    InterruptTimePrecise = RtlGetInterruptTimePrecise(&v35);
+    InterruptTimePrecise = RtlGetInterruptTimePrecise(&PerformanceCounter);
   else
-    InterruptTimePrecise = MEMORY[0xFFFFF78000000008];
-  v12 = InterruptTimePrecise - a2;
-  if ( InterruptTimePrecise >= a2 || v12 == -1LL )
+    InterruptTimePrecise.QuadPart = MEMORY[0xFFFFF78000000008];
+  v12 = InterruptTimePrecise.QuadPart - a2;
+  if ( InterruptTimePrecise.QuadPart >= (unsigned __int64)a2 || v12 == -1LL )
     v12 = -2LL;
   v13 = v12;
   if ( a4 && *(_BYTE *)(a1 + 130) != 23 )
@@ -162,7 +162,7 @@ __int64 __fastcall KeSetTimer2(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
   if ( (unsigned __int8)KiAcquireTimer2CollectionLockIfInserted(a1) )
   {
     KiRemoveTimer2(a1);
-    if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+    if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
       _InterlockedAnd64((volatile signed __int64 *)&KiTimer2CollectionLock, 0LL);
     else
       KiReleaseSpinLockInstrumented((volatile signed __int64 *)&KiTimer2CollectionLock, retaddr);
@@ -212,11 +212,11 @@ LABEL_64:
     goto LABEL_66;
   }
 LABEL_19:
-  v17 = 0;
-  LOBYTE(v35) = 0;
+  LowPart = 0;
+  LOBYTE(PerformanceCounter.LowPart) = 0;
   if ( v15 == 1 )
   {
-    if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+    if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
     {
       if ( _interlockedbittestandset64((volatile signed __int32 *)&KiTimer2CollectionLock, 0LL) )
         KxWaitForSpinLockAndAcquire((volatile signed __int32 *)&KiTimer2CollectionLock);
@@ -225,8 +225,8 @@ LABEL_19:
     {
       KiAcquireSpinLockInstrumented((volatile signed __int32 *)&KiTimer2CollectionLock);
     }
-    KiInsertTimer2WithCollectionLockHeld(a1, 1, &v36, (bool *)&v35);
-    v17 = v35;
+    KiInsertTimer2WithCollectionLockHeld(a1, 1, &v36, (bool *)&PerformanceCounter);
+    LowPart = PerformanceCounter.LowPart;
     v14 = v36;
   }
   v18 = v15;
@@ -253,14 +253,14 @@ LABEL_19:
     }
     if ( v15 == 1 )
     {
-      if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+      if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
         _InterlockedAnd64((volatile signed __int64 *)&KiTimer2CollectionLock, 0LL);
       else
         KiReleaseSpinLockInstrumented((volatile signed __int64 *)&KiTimer2CollectionLock, retaddr);
     }
     v19 = v37;
   }
-  if ( v17 )
+  if ( LowPart )
     KiHvEnlightenedGuestPriorityKick(
       KeGetCurrentPrcb(),
       KiProcessorBlock[(unsigned int)KiClockTimerOwner],
@@ -272,7 +272,7 @@ LABEL_19:
       KiRequestTimer2Expiration();
     }
     else if ( (v34 & 4) != 0
-           && v12 < MEMORY[0xFFFFF78000000008] + (unsigned __int64)(unsigned int)KeMaximumIncrement
+           && v12 < MEMORY[0xFFFFF78000000008] + (unsigned __int64)KeMaximumIncrement
            && (!KiClockOwnerOneShotRequest
             || v12 < KiClockOwnerOneShotRequest && KiClockOwnerOneShotRequest - v12 > (unsigned int)KeMinimumIncrement) )
     {

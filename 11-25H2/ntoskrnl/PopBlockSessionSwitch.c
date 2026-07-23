@@ -10,13 +10,13 @@
  *     PopDispatchStateCallout @ 0x140A2C7C0 (PopDispatchStateCallout.c)
  */
 
-__int64 __fastcall PopBlockSessionSwitch(char a1, unsigned int *a2)
+__int64 __fastcall PopBlockSessionSwitch(char a1, ULONG *a2)
 {
   __int64 result; // rax
   __int128 v4; // [rsp+20h] [rbp-30h] BYREF
   __int128 v5; // [rsp+30h] [rbp-20h]
   __int64 v6; // [rsp+40h] [rbp-10h]
-  unsigned int v7; // [rsp+60h] [rbp+10h] BYREF
+  ULONG v7; // [rsp+60h] [rbp+10h] BYREF
 
   v5 = 0LL;
   DWORD2(v5) = 1;

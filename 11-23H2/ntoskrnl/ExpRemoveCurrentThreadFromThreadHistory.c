@@ -1,10 +1,10 @@
 /*
- * XREFs of ExpRemoveCurrentThreadFromThreadHistory @ 0x1403581F0
+ * XREFs of ExpRemoveCurrentThreadFromThreadHistory @ 0x140358390
  * Callers:
- *     NtWaitForWorkViaWorkerFactory @ 0x1402A91B0 (NtWaitForWorkViaWorkerFactory.c)
- *     NtSetInformationWorkerFactory @ 0x140302E90 (NtSetInformationWorkerFactory.c)
+ *     NtWaitForWorkViaWorkerFactory @ 0x1402A9440 (NtWaitForWorkViaWorkerFactory.c)
+ *     NtSetInformationWorkerFactory @ 0x140303120 (NtSetInformationWorkerFactory.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
  */
 
 unsigned __int8 __fastcall ExpRemoveCurrentThreadFromThreadHistory(__int64 a1)

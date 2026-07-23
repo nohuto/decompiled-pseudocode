@@ -1,9 +1,9 @@
 /*
- * XREFs of KseDsCallbackHookIrpPnpFunction @ 0x1401DD160
+ * XREFs of KseDsCallbackHookIrpPnpFunction @ 0x1401DCF8C
  * Callers:
  *     <none>
  * Callees:
- *     KsepDsEventPnpIrp @ 0x1401DDC20 (KsepDsEventPnpIrp.c)
+ *     KsepDsEventPnpIrp @ 0x1401DDA4C (KsepDsEventPnpIrp.c)
  */
 
 __int64 __fastcall KseDsCallbackHookIrpPnpFunction(__int64 a1, __int64 a2)

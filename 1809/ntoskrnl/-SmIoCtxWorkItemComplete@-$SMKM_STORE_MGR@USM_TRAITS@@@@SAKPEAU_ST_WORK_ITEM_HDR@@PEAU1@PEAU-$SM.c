@@ -1,14 +1,14 @@
 /*
- * XREFs of ?SmIoCtxWorkItemComplete@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAKPEAU_ST_WORK_ITEM_HDR@@PEAU1@PEAU?$SMKM_STORE@USM_TRAITS@@@@J@Z @ 0x14014C820
+ * XREFs of ?SmIoCtxWorkItemComplete@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAKPEAU_ST_WORK_ITEM_HDR@@PEAU1@PEAU?$SMKM_STORE@USM_TRAITS@@@@J@Z @ 0x14014C920
  * Callers:
- *     ?SmWorkItemFree@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAU?$SMKM_STORE@USM_TRAITS@@@@PEAU_ST_WORK_ITEM_HDR@@PEAJ@Z @ 0x14014C6BC (-SmWorkItemFree@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAU-$SMKM_STORE@USM_TRAITS@@@@PEAU_ST_W.c)
+ *     ?SmWorkItemFree@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAU?$SMKM_STORE@USM_TRAITS@@@@PEAU_ST_WORK_ITEM_HDR@@PEAJ@Z @ 0x14014C7BC (-SmWorkItemFree@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAU-$SMKM_STORE@USM_TRAITS@@@@PEAU_ST_W.c)
  * Callees:
  *     MmMapLockedPagesSpecifyCache @ 0x14005C0C0 (MmMapLockedPagesSpecifyCache.c)
- *     SmAcquireReleaseResAvailForRead @ 0x14014B20C (SmAcquireReleaseResAvailForRead.c)
- *     ?SmFeEvictComplete@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAT_SM_PAGE_KEY@@KK@Z @ 0x14014BF8C (-SmFeEvictComplete@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAT_SM_PAGE_KEY@@KK@Z.c)
- *     SmIoRequestComplete @ 0x14014C99C (SmIoRequestComplete.c)
- *     SmFpFree @ 0x14014CA3C (SmFpFree.c)
- *     ?SmProcessAddCompletion@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAU_SM_WORK_ITEM@1@KPEAU?$SMKM_STORE@USM_TRAITS@@@@J@Z @ 0x14014DAF8 (-SmProcessAddCompletion@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAU_SM_WORK_ITEM@1@KPEAU-$SMKM_.c)
+ *     SmAcquireReleaseResAvailForRead @ 0x14014B30C (SmAcquireReleaseResAvailForRead.c)
+ *     ?SmFeEvictComplete@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAT_SM_PAGE_KEY@@KK@Z @ 0x14014C08C (-SmFeEvictComplete@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAT_SM_PAGE_KEY@@KK@Z.c)
+ *     SmIoRequestComplete @ 0x14014CA9C (SmIoRequestComplete.c)
+ *     SmFpFree @ 0x14014CB3C (SmFpFree.c)
+ *     ?SmProcessAddCompletion@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAU_SM_WORK_ITEM@1@KPEAU?$SMKM_STORE@USM_TRAITS@@@@J@Z @ 0x14014DBF8 (-SmProcessAddCompletion@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAU_SM_WORK_ITEM@1@KPEAU-$SMKM_.c)
  */
 
 __int64 __fastcall SMKM_STORE_MGR<SM_TRAITS>::SmIoCtxWorkItemComplete(int *a1, __int64 a2, __int64 a3, int a4)
@@ -76,11 +76,11 @@ __int64 __fastcall SMKM_STORE_MGR<SM_TRAITS>::SmIoCtxWorkItemComplete(int *a1, _
       if ( (_BYTE)v18 )
       {
         *(_WORD *)(v10 + 8) = (unsigned __int8)v18;
-        if ( (dword_14055B0F0 & 8) != 0 )
+        if ( (dword_14055C0F0 & 8) != 0 )
           a4 = 0;
       }
       *(_DWORD *)v10 = a4;
-      if ( (dword_14055B0F0 & 0x10) != 0 )
+      if ( (dword_14055C0F0 & 0x10) != 0 )
         SmAcquireReleaseResAvailForRead((signed __int64)v4, v13, 1);
       goto LABEL_8;
     }
@@ -111,8 +111,8 @@ LABEL_8:
   {
     if ( (*(_BYTE *)(v12 + 10) & 5) == 0 )
       MmMapLockedPagesSpecifyCache((PMDL)v12, 0, MmCached, 0LL, 0, 0x40000010u);
-    if ( (dword_14055B0F0 & 2) != 0 )
-      SmFpFree(&dword_14055AFC0, 5LL, v4, v12);
+    if ( (dword_14055C0F0 & 2) != 0 )
+      SmFpFree(&dword_14055BFC0, 5LL, v4, v12);
   }
   if ( v8 )
     SmIoRequestComplete(v10, a1, v8, v4);

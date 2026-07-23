@@ -1,22 +1,22 @@
 /*
- * XREFs of DbgkpInitializePhase0 @ 0x140C160F8
+ * XREFs of DbgkpInitializePhase0 @ 0x140C180F8
  * Callers:
- *     DbgkInitialize @ 0x140C16074 (DbgkInitialize.c)
+ *     DbgkInitialize @ 0x140C18074 (DbgkInitialize.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ObCreateObjectType @ 0x1406FBAA0 (ObCreateObjectType.c)
- *     DbgkpInitializePhase0SiloState @ 0x140707064 (DbgkpInitializePhase0SiloState.c)
- *     DbgkpGetServerSiloState @ 0x140A7EBE8 (DbgkpGetServerSiloState.c)
- *     CmSiRWLockInitialize @ 0x140ABD190 (CmSiRWLockInitialize.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ObCreateObjectType @ 0x1406F96E0 (ObCreateObjectType.c)
+ *     DbgkpInitializePhase0SiloState @ 0x140704C24 (DbgkpInitializePhase0SiloState.c)
+ *     DbgkpGetServerSiloState @ 0x140A78398 (DbgkpGetServerSiloState.c)
+ *     CmSiRWLockInitialize @ 0x140AB8200 (CmSiRWLockInitialize.c)
  */
 
 void DbgkpInitializePhase0()
 {
   char *ServerSiloState; // rax
   __int64 v1; // rbx
-  union _RTL_RUN_ONCE *v2; // rcx
-  union _RTL_RUN_ONCE *v3; // rcx
+  _RTL_RUN_ONCE *v2; // rcx
+  _RTL_RUN_ONCE *v3; // rcx
   UNICODE_STRING v4; // [rsp+20h] [rbp-49h] BYREF
   __int16 v5; // [rsp+30h] [rbp-39h] BYREF
   char v6; // [rsp+32h] [rbp-37h]
@@ -62,7 +62,7 @@ void DbgkpInitializePhase0()
     v10 = 1179648;
     if ( (int)ObCreateObjectType(&v4, &v5, 0LL, (__int64)&DbgkDebugObjectType) >= 0 )
     {
-      v2 = &stru_140E3EBE0;
+      v2 = &RunOnce;
       do
       {
         CmSiRWLockInitialize(v2);

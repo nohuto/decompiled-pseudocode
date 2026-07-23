@@ -10,50 +10,54 @@
  *     @__security_check_cookie@4 @ 0x4B2F4B20 (@__security_check_cookie@4.c)
  */
 
-char __fastcall RtlpValidLabelSubjectContext(int a1, unsigned __int8 *a2, char a3, int *a4)
+char __fastcall RtlpValidLabelSubjectContext(HANDLE ClientToken, _BYTE *Sid2, char a3, NTSTATUS *a4)
 {
-  int InformationToken; // eax
-  int v7; // eax
-  int v8; // eax
-  int v10; // [esp+Ch] [ebp-B4h] BYREF
-  __int16 v11; // [esp+10h] [ebp-B0h]
-  unsigned __int8 v12; // [esp+17h] [ebp-A9h] BYREF
-  _DWORD v13[5]; // [esp+18h] [ebp-A8h] BYREF
-  void *Buf1; // [esp+2Ch] [ebp-94h] BYREF
-  char v15[8]; // [esp+78h] [ebp-48h] BYREF
-  int v16; // [esp+80h] [ebp-40h]
+  NTSTATUS InformationToken; // eax
+  NTSTATUS v7; // eax
+  NTSTATUS v8; // eax
+  _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [esp+Ch] [ebp-B4h] BYREF
+  BOOLEAN Dominates; // [esp+17h] [ebp-A9h] BYREF
+  _PRIVILEGE_SET RequiredPrivileges; // [esp+18h] [ebp-A8h] BYREF
+  PSID TokenInformation[19]; // [esp+2Ch] [ebp-94h] BYREF
+  _BYTE Sid[8]; // [esp+78h] [ebp-48h] BYREF
+  int v15; // [esp+80h] [ebp-40h]
 
-  v11 = 4096;
-  v12 = 0;
-  v10 = 0;
-  RtlInitializeSid((int)v15, (int)&v10, 1u);
-  v16 = 0x2000;
-  if ( !a2 )
-    a2 = (unsigned __int8 *)v15;
-  InformationToken = ZwQueryInformationToken(a1, 25, (int)&Buf1, 76, (int)&v10);
+  *(_WORD *)&IdentifierAuthority.Value[4] = 4096;
+  Dominates = 0;
+  *(_DWORD *)IdentifierAuthority.Value = 0;
+  RtlInitializeSid(Sid, &IdentifierAuthority, 1u);
+  v15 = 0x2000;
+  if ( !Sid2 )
+    Sid2 = Sid;
+  InformationToken = ZwQueryInformationToken(
+                       ClientToken,
+                       0x19u,
+                       TokenInformation,
+                       0x4Cu,
+                       (PULONG)IdentifierAuthority.Value);
   *a4 = InformationToken;
   if ( InformationToken < 0 )
     return 0;
   if ( (a3 & 8) != 0 )
   {
-    if ( RtlSidDominates(a2, v15, (char *)&v12) < 0 )
+    if ( RtlSidDominates(Sid2, Sid, &Dominates) < 0 )
       return 0;
-    if ( !v12 )
-      a2 = (unsigned __int8 *)v15;
+    if ( !Dominates )
+      Sid2 = Sid;
   }
-  v7 = RtlSidDominates((unsigned __int8 *)Buf1, (char *)a2, (char *)&v12);
+  v7 = RtlSidDominates(TokenInformation[0], Sid2, &Dominates);
   *a4 = v7;
   if ( v7 < 0 )
     return 0;
-  if ( !v12 )
+  if ( !Dominates )
   {
-    v13[3] = 0;
-    v13[4] = 0;
-    v13[0] = 1;
-    v13[1] = 1;
-    v13[2] = 32;
-    v8 = ZwPrivilegeCheck(a1, (int)v13, (int)&v12);
-    if ( (v12 & (unsigned __int8)((v8 < 0) - 1)) == 0 )
+    RequiredPrivileges.Privilege[0].Luid.HighPart = 0;
+    RequiredPrivileges.Privilege[0].Attributes = 0;
+    RequiredPrivileges.PrivilegeCount = 1;
+    RequiredPrivileges.Control = 1;
+    RequiredPrivileges.Privilege[0].Luid.LowPart = 32;
+    v8 = ZwPrivilegeCheck(ClientToken, &RequiredPrivileges, &Dominates);
+    if ( (Dominates & (unsigned __int8)((v8 < 0) - 1)) == 0 )
     {
       *a4 = -1073740730;
       return 0;

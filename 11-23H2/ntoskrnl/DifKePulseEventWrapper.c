@@ -1,12 +1,12 @@
 /*
- * XREFs of DifKePulseEventWrapper @ 0x1405E40F0
+ * XREFs of DifKePulseEventWrapper @ 0x1405E4660
  * Callers:
  *     <none>
  * Callees:
  *     KePulseEvent @ 0x1402206A0 (KePulseEvent.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     DifGetAPIThunkContextById @ 0x1404664BE (DifGetAPIThunkContextById.c)
- *     DifGetReturnAddressForWrappers @ 0x1405F88C4 (DifGetReturnAddressForWrappers.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x1404668BE (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F8E34 (DifGetReturnAddressForWrappers.c)
  */
 
 LONG __fastcall DifKePulseEventWrapper(PRKEVENT Event, KPRIORITY Increment, BOOLEAN Wait)

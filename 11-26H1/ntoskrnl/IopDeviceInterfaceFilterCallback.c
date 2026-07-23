@@ -1,20 +1,20 @@
 /*
- * XREFs of IopDeviceInterfaceFilterCallback @ 0x14099AD00
+ * XREFs of IopDeviceInterfaceFilterCallback @ 0x14095B760
  * Callers:
  *     <none>
  * Callees:
- *     PsGetSessionById @ 0x140215D80 (PsGetSessionById.c)
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     ExAcquireResourceSharedLite @ 0x1402B3C80 (ExAcquireResourceSharedLite.c)
- *     ExReleaseResourceLite @ 0x1402B4CF0 (ExReleaseResourceLite.c)
- *     SeAccessCheck @ 0x1402B6340 (SeAccessCheck.c)
- *     KeLeaveCriticalRegionThread @ 0x1402B8A60 (KeLeaveCriticalRegionThread.c)
- *     RtlInitUnicodeStringEx @ 0x14045D040 (RtlInitUnicodeStringEx.c)
- *     PsGetServerSiloServiceSessionId @ 0x140487140 (PsGetServerSiloServiceSessionId.c)
- *     SeReleaseSubjectContext @ 0x1408CB2E0 (SeReleaseSubjectContext.c)
- *     RtlEqualUnicodeString @ 0x14091F0E0 (RtlEqualUnicodeString.c)
- *     SeCaptureSubjectContext @ 0x140933620 (SeCaptureSubjectContext.c)
- *     PiPnpRtlApplyMandatoryDeviceInterfaceFilters @ 0x14099AF14 (PiPnpRtlApplyMandatoryDeviceInterfaceFilters.c)
+ *     PsGetSessionById @ 0x1402160B0 (PsGetSessionById.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     ExAcquireResourceSharedLite @ 0x1402FE950 (ExAcquireResourceSharedLite.c)
+ *     ExReleaseResourceLite @ 0x1402FF9C0 (ExReleaseResourceLite.c)
+ *     SeAccessCheck @ 0x140301000 (SeAccessCheck.c)
+ *     KeLeaveCriticalRegionThread @ 0x140303720 (KeLeaveCriticalRegionThread.c)
+ *     RtlInitUnicodeStringEx @ 0x140456BE0 (RtlInitUnicodeStringEx.c)
+ *     PsGetServerSiloServiceSessionId @ 0x140480B10 (PsGetServerSiloServiceSessionId.c)
+ *     SeReleaseSubjectContext @ 0x1408D1890 (SeReleaseSubjectContext.c)
+ *     SeCaptureSubjectContext @ 0x14090F1D0 (SeCaptureSubjectContext.c)
+ *     PiPnpRtlApplyMandatoryDeviceInterfaceFilters @ 0x14095B974 (PiPnpRtlApplyMandatoryDeviceInterfaceFilters.c)
+ *     RtlEqualUnicodeString @ 0x140979B40 (RtlEqualUnicodeString.c)
  */
 
 char __fastcall IopDeviceInterfaceFilterCallback(int a1, const WCHAR *a2, int a3, PCWSTR *a4)
@@ -24,23 +24,21 @@ char __fastcall IopDeviceInterfaceFilterCallback(int a1, const WCHAR *a2, int a3
   PERESOURCE *ClientToken; // rbx
   struct _KTHREAD *CurrentThread; // rax
   unsigned int v11; // r14d
-  __int64 v12; // rdx
-  __int64 v13; // r8
   _QWORD *SessionById; // rax
-  __int64 v15; // rbx
-  PSECURITY_DESCRIPTOR v16; // rbx
+  __int64 v13; // rbx
+  PSECURITY_DESCRIPTOR v14; // rbx
   KPROCESSOR_MODE AccessMode; // al
   struct _SECURITY_SUBJECT_CONTEXT *p_SubjectContext; // rdx
-  BOOLEAN v19; // bl
-  BOOLEAN v20; // al
+  BOOLEAN v17; // bl
+  BOOLEAN v18; // al
   NTSTATUS AccessStatus; // [rsp+50h] [rbp-9h] BYREF
   ACCESS_MASK GrantedAccess; // [rsp+54h] [rbp-5h] BYREF
   UNICODE_STRING DestinationString; // [rsp+58h] [rbp-1h] BYREF
   struct _SECURITY_SUBJECT_CONTEXT SubjectContext; // [rsp+68h] [rbp+Fh] BYREF
-  char v26; // [rsp+D0h] [rbp+77h] BYREF
+  char v24; // [rsp+D0h] [rbp+77h] BYREF
 
   v4 = 0;
-  v26 = 0;
+  v24 = 0;
   DestinationString = 0LL;
   *(_OWORD *)&SubjectContext.ClientToken = 0LL;
   if ( a3 == 3
@@ -59,14 +57,14 @@ char __fastcall IopDeviceInterfaceFilterCallback(int a1, const WCHAR *a2, int a3
     ExAcquireResourceSharedLite(ClientToken[6], 1u);
     v11 = *((_DWORD *)ClientToken + 30);
     ExReleaseResourceLite(ClientToken[6]);
-    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v12, v13);
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
     if ( !v11
       || (SessionById = (_QWORD *)PsGetSessionById(v11)) != 0LL
-      && (v15 = *(_QWORD *)(SessionById[93] + 160LL),
+      && (v13 = *(_QWORD *)(SessionById[93] + 160LL),
           ObfDereferenceObjectWithTag(SessionById, 0x79517350u),
-          v11 == (unsigned int)PsGetServerSiloServiceSessionId(v15)) )
+          v11 == (unsigned int)PsGetServerSiloServiceSessionId(v13)) )
     {
-      v16 = PiAuLocalSystemSecurityObject;
+      v14 = PiAuLocalSystemSecurityObject;
       GrantedAccess = 0;
       AccessMode = 1;
       AccessStatus = 0;
@@ -83,8 +81,8 @@ char __fastcall IopDeviceInterfaceFilterCallback(int a1, const WCHAR *a2, int a3
         p_SubjectContext = &SubjectContext;
         AccessMode = KeGetCurrentThread()->PreviousMode;
       }
-      v19 = SeAccessCheck(
-              v16,
+      v17 = SeAccessCheck(
+              v14,
               p_SubjectContext,
               0,
               0xF0000u,
@@ -96,14 +94,14 @@ char __fastcall IopDeviceInterfaceFilterCallback(int a1, const WCHAR *a2, int a3
               &AccessStatus);
       if ( !v8 )
         SeReleaseSubjectContext(&SubjectContext);
-      v20 = v19;
+      v18 = v17;
       if ( AccessStatus < 0 )
-        v20 = 0;
-      if ( v20 )
+        v18 = 0;
+      if ( v18 )
         return 1;
     }
-    if ( (int)PiPnpRtlApplyMandatoryDeviceInterfaceFilters(a1, (_DWORD)a2, 0, (_DWORD)v8, (__int64)&v26) >= 0 )
-      return v26;
+    if ( (int)PiPnpRtlApplyMandatoryDeviceInterfaceFilters(a1, (_DWORD)a2, 0, (_DWORD)v8, (__int64)&v24) >= 0 )
+      return v24;
   }
   return v4;
 }

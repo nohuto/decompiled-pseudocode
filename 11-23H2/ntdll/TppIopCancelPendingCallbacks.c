@@ -1,27 +1,27 @@
 /*
- * XREFs of TppIopCancelPendingCallbacks @ 0x1801269F0
+ * XREFs of TppIopCancelPendingCallbacks @ 0x1801269C0
  * Callers:
  *     <none>
  * Callees:
  *     RtlGetCurrentServiceSessionId @ 0x18003B120 (RtlGetCurrentServiceSessionId.c)
  *     TppBarrierAdjust @ 0x180068010 (TppBarrierAdjust.c)
- *     TppETWCallbackCancel @ 0x180127330 (TppETWCallbackCancel.c)
+ *     TppETWCallbackCancel @ 0x180127300 (TppETWCallbackCancel.c)
  */
 
-void __fastcall TppIopCancelPendingCallbacks(__int64 a1, __int64 a2, __int64 a3, unsigned __int64 a4)
+void __fastcall TppIopCancelPendingCallbacks(__int64 a1)
 {
-  __int32 v5; // edi
-  __int64 v6; // rcx
+  __int32 v2; // edi
+  __int64 v3; // rcx
 
-  v5 = _InterlockedExchange((volatile __int32 *)(a1 + 280), 0);
-  if ( v5 )
+  v2 = _InterlockedExchange((volatile __int32 *)(a1 + 280), 0);
+  if ( v2 )
   {
-    TppBarrierAdjust((volatile signed __int64 *)(a1 + 56), -v5, 0LL, a4);
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-      v6 = (__int64)NtCurrentPeb()->SharedData + 556;
+    TppBarrierAdjust((_RTL_SRWLOCK *)(a1 + 56), -v2, 0);
+    if ( RtlGetCurrentServiceSessionId() )
+      v3 = (__int64)NtCurrentPeb()->SharedData + 556;
     else
-      v6 = 2147353478LL;
-    if ( *(_BYTE *)v6 )
-      TppETWCallbackCancel(*(_QWORD *)(a1 + 144), a1 + 200, a1 + 80, *(_QWORD *)(a1 + 88), *(_QWORD *)(a1 + 104), v5);
+      v3 = 2147353478LL;
+    if ( *(_BYTE *)v3 )
+      TppETWCallbackCancel(*(_QWORD *)(a1 + 144), a1 + 200, a1 + 80, *(_QWORD *)(a1 + 88), *(_QWORD *)(a1 + 104), v2);
   }
 }

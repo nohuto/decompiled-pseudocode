@@ -1,16 +1,17 @@
 /*
- * XREFs of RtlpHpEnvAcquireGlobalLockExclusive @ 0x1800D5764
+ * XREFs of RtlpHpEnvAcquireGlobalLockExclusive @ 0x1800D0AD4
  * Callers:
- *     RtlpEnsureSegHeapLockedForWalk @ 0x180047D44 (RtlpEnsureSegHeapLockedForWalk.c)
+ *     RtlpEnsureSegHeapLockedForWalk @ 0x18005E200 (RtlpEnsureSegHeapLockedForWalk.c)
+ *     RtlpQueryExtendedInformationHeap @ 0x180114970 (RtlpQueryExtendedInformationHeap.c)
  * Callees:
- *     RtlpWaitOnAddress @ 0x18009B780 (RtlpWaitOnAddress.c)
- *     RtlBackoff @ 0x1800D6AD0 (RtlBackoff.c)
- *     NtQueryInformationProcess @ 0x180161FB0 (NtQueryInformationProcess.c)
- *     ZwFlushProcessWriteBuffers @ 0x180163AE0 (ZwFlushProcessWriteBuffers.c)
- *     __security_check_cookie @ 0x1801659C0 (__security_check_cookie.c)
+ *     RtlpWaitOnAddress @ 0x1800305D0 (RtlpWaitOnAddress.c)
+ *     RtlBackoff @ 0x1800D1E40 (RtlBackoff.c)
+ *     NtQueryInformationProcess @ 0x180160370 (NtQueryInformationProcess.c)
+ *     ZwFlushProcessWriteBuffers @ 0x180161EA0 (ZwFlushProcessWriteBuffers.c)
+ *     __security_check_cookie @ 0x180163D80 (__security_check_cookie.c)
  */
 
-__int64 __fastcall RtlpHpEnvAcquireGlobalLockExclusive(void *a1)
+NTSTATUS __fastcall RtlpHpEnvAcquireGlobalLockExclusive(void *a1)
 {
   signed __int32 i; // eax
   __int64 v4; // [rsp+30h] [rbp-28h] BYREF
@@ -35,7 +36,12 @@ __int64 __fastcall RtlpHpEnvAcquireGlobalLockExclusive(void *a1)
     ProcessInformation[0] = 0;
     ProcessInformation[1] = 6232;
     v6 = a1;
-    NtQueryInformationProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, (PROCESSINFOCLASS)115, ProcessInformation, 0x10u, 0LL);
+    NtQueryInformationProcess(
+      (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+      ProcessFindFirstThreadByTebValue,
+      ProcessInformation,
+      0x10u,
+      0LL);
     if ( !ProcessInformation[0] )
       break;
     RtlBackoff((char *)&v4 + 4);

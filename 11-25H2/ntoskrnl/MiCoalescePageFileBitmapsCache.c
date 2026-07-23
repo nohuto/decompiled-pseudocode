@@ -22,7 +22,7 @@ char __fastcall MiCoalescePageFileBitmapsCache(__int64 a1, int a2, unsigned int 
   int *v10; // r9
   __int64 v11; // r15
   __int64 v12; // rax
-  unsigned __int64 v13; // rbp
+  __int64 v13; // rbp
   unsigned __int64 v14; // rdx
   int v15; // ecx
   unsigned __int64 v16; // rax
@@ -35,15 +35,15 @@ char __fastcall MiCoalescePageFileBitmapsCache(__int64 a1, int a2, unsigned int 
   unsigned __int64 j; // rcx
   unsigned __int64 v24; // rdx
   _QWORD *v25; // rdx
-  unsigned __int64 *v26; // r13
-  unsigned __int64 v27; // rdx
-  bool v28; // al
+  _RTL_RB_TREE *v26; // r13
+  unsigned __int64 Root; // rdx
+  BOOLEAN v28; // al
   unsigned __int64 v29; // rax
   unsigned int v30; // esi
   int v31; // ebx
   unsigned int v32; // ecx
   int v33; // edx
-  unsigned __int64 v34; // r8
+  __int64 v34; // r8
   int v35; // ecx
   unsigned __int64 v36; // rax
   int v37; // eax
@@ -171,8 +171,8 @@ LABEL_15:
       {
         *(_DWORD *)(v34 + 52) = *(_DWORD *)(v18 + 52) + v33;
         *(_DWORD *)(v18 + 52) = 0;
-        RtlRbRemoveNode(a1 + 112, (unsigned __int64 *)(v9 - 24));
-        RtlRbRemoveNode(a1 + 128, (unsigned __int64 *)v9);
+        RtlRbRemoveNode((PRTL_RB_TREE)(a1 + 112), (PRTL_BALANCED_NODE)(v9 - 24));
+        RtlRbRemoveNode((PRTL_RB_TREE)(a1 + 128), (PRTL_BALANCED_NODE)v9);
         v68 = *(unsigned __int64 **)(a1 + 152);
         if ( *v68 != a1 + 144 )
           __fastfail(3u);
@@ -336,14 +336,14 @@ LABEL_27:
     LODWORD(v3) = *(_DWORD *)(v13 + 52);
     if ( *(_DWORD *)(j + 52) <= (unsigned int)v3 )
     {
-      v26 = (unsigned __int64 *)(a1 + 112);
-      RtlRbRemoveNode((unsigned __int64)v26, (unsigned __int64 *)v13);
-      v27 = *v26;
-      if ( (v26[1] & 1) != 0 )
+      v26 = (_RTL_RB_TREE *)(a1 + 112);
+      RtlRbRemoveNode(v26, (PRTL_BALANCED_NODE)v13);
+      Root = (unsigned __int64)v26->Root;
+      if ( ((__int64)v26->Min & 1) != 0 )
       {
-        if ( v27 )
+        if ( Root )
         {
-          v27 ^= (unsigned __int64)v26;
+          Root ^= (unsigned __int64)v26;
           goto LABEL_36;
         }
 LABEL_108:
@@ -353,38 +353,38 @@ LABEL_108:
       {
 LABEL_36:
         v28 = 0;
-        if ( v27 )
+        if ( Root )
         {
           while ( 1 )
           {
-            while ( *(_QWORD *)(v13 + 48) < *(_QWORD *)(v27 + 48) )
+            while ( *(_QWORD *)(v13 + 48) < *(_QWORD *)(Root + 48) )
             {
-              v29 = *(_QWORD *)v27;
-              if ( (v26[1] & 1) != 0 )
+              v29 = *(_QWORD *)Root;
+              if ( ((__int64)v26->Min & 1) != 0 )
               {
                 if ( !v29 )
                   goto LABEL_108;
-                v29 ^= v27;
+                v29 ^= Root;
               }
               if ( !v29 )
                 goto LABEL_108;
-              v27 = v29;
+              Root = v29;
             }
-            v36 = *(_QWORD *)(v27 + 8);
-            if ( (v26[1] & 1) != 0 )
+            v36 = *(_QWORD *)(Root + 8);
+            if ( ((__int64)v26->Min & 1) != 0 )
             {
               if ( !v36 )
                 break;
-              v36 ^= v27;
+              v36 ^= Root;
             }
             if ( !v36 )
               break;
-            v27 = v36;
+            Root = v36;
           }
           v28 = 1;
         }
       }
-      LOBYTE(v3) = RtlRbInsertNodeEx((__int64 *)v26, v27, v28, v13);
+      LOBYTE(v3) = RtlRbInsertNodeEx(v26, (PRTL_BALANCED_NODE)Root, v28, (PRTL_BALANCED_NODE)v13);
     }
   }
   else

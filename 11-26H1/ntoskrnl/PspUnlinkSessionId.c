@@ -1,11 +1,11 @@
 /*
- * XREFs of PspUnlinkSessionId @ 0x1407FF484
+ * XREFs of PspUnlinkSessionId @ 0x140804EB4
  * Callers:
- *     PspReleaseReferenceToSession @ 0x140B000D8 (PspReleaseReferenceToSession.c)
+ *     PspReleaseReferenceToSession @ 0x140B01E0C (PspReleaseReferenceToSession.c)
  * Callees:
- *     PspLockProcessListExclusive @ 0x140215EEC (PspLockProcessListExclusive.c)
- *     PspUnlockProcessListExclusive @ 0x140215F5C (PspUnlockProcessListExclusive.c)
- *     RtlAvlRemoveNode @ 0x14030C5E0 (RtlAvlRemoveNode.c)
+ *     PspLockProcessListExclusive @ 0x14021621C (PspLockProcessListExclusive.c)
+ *     PspUnlockProcessListExclusive @ 0x14021628C (PspUnlockProcessListExclusive.c)
+ *     RtlAvlRemoveNode @ 0x1402EE660 (RtlAvlRemoveNode.c)
  */
 
 __int64 __fastcall PspUnlinkSessionId(__int64 a1)
@@ -25,7 +25,7 @@ __int64 __fastcall PspUnlinkSessionId(__int64 a1)
       __fastfail(3u);
     *v5 = v4;
     *(_QWORD *)(v4 + 8) = v5;
-    RtlAvlRemoveNode((unsigned __int64 *)&NormalizationListLock.WaitBlock[1].WaitListEntry.Blink, a1 + 96);
+    RtlAvlRemoveNode((unsigned __int64 *)&NormalizationListLock.WaitBlock[0].SparePtr, a1 + 96);
   }
   return PspUnlockProcessListExclusive(CurrentThread);
 }

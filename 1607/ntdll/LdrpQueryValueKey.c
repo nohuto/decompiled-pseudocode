@@ -1,9 +1,9 @@
 /*
- * XREFs of LdrpQueryValueKey @ 0x1800716D4
+ * XREFs of LdrpQueryValueKey @ 0x1800716C4
  * Callers:
- *     RtlpMuiRegLoadMachinePreferredUILanguages @ 0x180070764 (RtlpMuiRegLoadMachinePreferredUILanguages.c)
- *     RtlpMuiRegLoadPreferredUILanguages @ 0x1800712D8 (RtlpMuiRegLoadPreferredUILanguages.c)
- *     RtlpLoadInstallLanguageFallback @ 0x18008DB34 (RtlpLoadInstallLanguageFallback.c)
+ *     RtlpMuiRegLoadMachinePreferredUILanguages @ 0x180070754 (RtlpMuiRegLoadMachinePreferredUILanguages.c)
+ *     RtlpMuiRegLoadPreferredUILanguages @ 0x1800712C8 (RtlpMuiRegLoadPreferredUILanguages.c)
+ *     RtlpLoadInstallLanguageFallback @ 0x18008DB24 (RtlpLoadInstallLanguageFallback.c)
  *     RtlpGetUserOrMachineUILanguage4NLS @ 0x1800F3970 (RtlpGetUserOrMachineUILanguage4NLS.c)
  *     RtlpHasMachineUILock @ 0x1800F3CCC (RtlpHasMachineUILock.c)
  *     RtlpLoadPolicyLanguageSpec @ 0x1800F3D64 (RtlpLoadPolicyLanguageSpec.c)
@@ -12,22 +12,22 @@
  *     _RtlpMuiRegLoadInstalled @ 0x1800F6178 (_RtlpMuiRegLoadInstalled.c)
  *     _RtlpMuiRegPopulateBaseLanguages @ 0x1800F64AC (_RtlpMuiRegPopulateBaseLanguages.c)
  * Callees:
- *     RtlAllocateHeap @ 0x180022DB0 (RtlAllocateHeap.c)
- *     RtlFreeHeap @ 0x1800466F0 (RtlFreeHeap.c)
+ *     RtlAllocateHeap @ 0x180022DA0 (RtlAllocateHeap.c)
+ *     RtlFreeHeap @ 0x1800466E0 (RtlFreeHeap.c)
  *     NtQueryValueKey @ 0x1800A6700 (NtQueryValueKey.c)
  *     memmove @ 0x1800AC980 (memmove.c)
  */
 
-__int64 __fastcall LdrpQueryValueKey(__int64 a1, __int64 a2, _DWORD *a3, void *a4, unsigned int *a5)
+__int64 __fastcall LdrpQueryValueKey(HANDLE KeyHandle, PUNICODE_STRING ValueName, _DWORD *a3, void *a4, ULONG *a5)
 {
-  unsigned int *v5; // rbx
-  unsigned int v10; // ebp
-  unsigned int v11; // ebp
+  ULONG *v5; // rbx
+  ULONG v10; // ebp
+  ULONG Length; // ebp
   _DWORD *Heap; // rsi
-  int v13; // eax
+  NTSTATUS v13; // eax
   int v14; // edi
-  unsigned int v15; // eax
-  int v17; // [rsp+78h] [rbp+20h] BYREF
+  ULONG v15; // eax
+  ULONG ResultLength; // [rsp+78h] [rbp+20h] BYREF
 
   v5 = a5;
   if ( !a4 )
@@ -36,15 +36,15 @@ __int64 __fastcall LdrpQueryValueKey(__int64 a1, __int64 a2, _DWORD *a3, void *a
     {
       v10 = 0;
 LABEL_4:
-      v17 = 0;
-      v11 = v10 + 12;
-      if ( v11 )
-        Heap = (_DWORD *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, v11);
+      ResultLength = 0;
+      Length = v10 + 12;
+      if ( Length )
+        Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, Length);
       else
         Heap = 0LL;
       if ( !Heap )
         return (unsigned int)-1073741670;
-      v13 = NtQueryValueKey(a1, a2, 2LL, Heap, v11, &v17);
+      v13 = NtQueryValueKey(KeyHandle, ValueName, KeyValuePartialInformation, Heap, Length, &ResultLength);
       v14 = v13;
       if ( v13 != -1073741772 )
       {
@@ -54,7 +54,7 @@ LABEL_15:
           if ( v14 != -2147483643 )
           {
 LABEL_20:
-            RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (unsigned __int64)Heap);
+            RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Heap);
             return (unsigned int)v14;
           }
 LABEL_16:
@@ -72,7 +72,7 @@ LABEL_16:
             v14 = -2147483643;
             goto LABEL_16;
           }
-          if ( v15 <= v11 )
+          if ( v15 <= Length )
             memmove(a4, Heap + 3, v15);
         }
       }

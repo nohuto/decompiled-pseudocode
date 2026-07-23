@@ -1,15 +1,15 @@
 /*
- * XREFs of SmpKeyedStoreCreate @ 0x140710B44
+ * XREFs of SmpKeyedStoreCreate @ 0x1406BF194
  * Callers:
- *     SmProcessCreateNotification @ 0x1406D967C (SmProcessCreateNotification.c)
+ *     SmProcessCreateNotification @ 0x1406B095C (SmProcessCreateNotification.c)
  * Callees:
- *     CmSiFreeMemory @ 0x140201A30 (CmSiFreeMemory.c)
- *     ExReleaseRundownProtection_0 @ 0x14027C4F0 (ExReleaseRundownProtection_0.c)
- *     SSHSupportAllocateNonPaged @ 0x1402C9AC4 (SSHSupportAllocateNonPaged.c)
- *     SmKmStoreDeleteWhenEmpty @ 0x1402CC1B8 (SmKmStoreDeleteWhenEmpty.c)
- *     SmpKeyedStoreEntryGet @ 0x1402D6348 (SmpKeyedStoreEntryGet.c)
- *     SmKmStoreRefFromStoreIndex @ 0x1402D95D8 (SmKmStoreRefFromStoreIndex.c)
- *     SmpDirtyStoreCreate @ 0x140710C28 (SmpDirtyStoreCreate.c)
+ *     CmSiFreeMemory @ 0x1402253C0 (CmSiFreeMemory.c)
+ *     SmKmStoreDeleteWhenEmpty @ 0x140246174 (SmKmStoreDeleteWhenEmpty.c)
+ *     SSHSupportAllocateNonPaged @ 0x1402483BC (SSHSupportAllocateNonPaged.c)
+ *     ExReleaseRundownProtection @ 0x14026A490 (ExReleaseRundownProtection.c)
+ *     SmpKeyedStoreEntryGet @ 0x140287698 (SmpKeyedStoreEntryGet.c)
+ *     SmKmStoreRefFromStoreIndex @ 0x14028A928 (SmKmStoreRefFromStoreIndex.c)
+ *     SmpDirtyStoreCreate @ 0x1406BF278 (SmpDirtyStoreCreate.c)
  */
 
 __int64 __fastcall SmpKeyedStoreCreate(ULONG_PTR BugCheckParameter2, __int64 a2, LUID a3)
@@ -63,7 +63,7 @@ LABEL_5:
     v13 = (__int64 *)SmKmStoreRefFromStoreIndex(a2, v12);
     SmKmStoreDeleteWhenEmpty(v14, *v13, 1LL);
     v15 = (struct _EX_RUNDOWN_REF *)SmKmStoreRefFromStoreIndex(a2, v12);
-    ExReleaseRundownProtection_0(v15 + 1);
+    ExReleaseRundownProtection(v15 + 1);
   }
   if ( v5 )
     CmSiFreeMemory(v5);

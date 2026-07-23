@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpSetPCIData @ 0x140439C40
+ * XREFs of HalpSetPCIData @ 0x14042C4F0
  * Callers:
- *     HalSetBusDataByOffset @ 0x140439AB0 (HalSetBusDataByOffset.c)
+ *     HalSetBusDataByOffset @ 0x14042C360 (HalSetBusDataByOffset.c)
  * Callees:
- *     HalpWritePCIConfig @ 0x140439BC0 (HalpWritePCIConfig.c)
- *     HalpReadPCIConfig @ 0x14043A340 (HalpReadPCIConfig.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memmove @ 0x14073D480 (memmove.c)
+ *     HalpWritePCIConfig @ 0x14042C470 (HalpWritePCIConfig.c)
+ *     HalpReadPCIConfig @ 0x14042CBF0 (HalpReadPCIConfig.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memmove @ 0x140742080 (memmove.c)
  */
 
 __int64 __fastcall HalpSetPCIData(__int64 a1, __int64 a2, __int64 a3, const void *a4, unsigned int a5, size_t Size)

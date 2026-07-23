@@ -1,24 +1,24 @@
 /*
- * XREFs of ObpDeleteNameCheck @ 0x140740140
+ * XREFs of ObpDeleteNameCheck @ 0x140740330
  * Callers:
- *     ObpDereferenceNamedObject @ 0x14035BFC8 (ObpDereferenceNamedObject.c)
- *     ObpIncrementHandleCountEx @ 0x1406E7060 (ObpIncrementHandleCountEx.c)
- *     ObOpenObjectByNameEx @ 0x1406ECFE0 (ObOpenObjectByNameEx.c)
- *     ObpDecrementHandleCount @ 0x14073FF54 (ObpDecrementHandleCount.c)
- *     ObMakeTemporaryObject @ 0x1407E0C90 (ObMakeTemporaryObject.c)
+ *     ObpDereferenceNamedObject @ 0x14035C168 (ObpDereferenceNamedObject.c)
+ *     ObpIncrementHandleCountEx @ 0x1406E7090 (ObpIncrementHandleCountEx.c)
+ *     ObOpenObjectByNameEx @ 0x1406ED010 (ObOpenObjectByNameEx.c)
+ *     ObpDecrementHandleCount @ 0x140740144 (ObpDecrementHandleCount.c)
+ *     ObMakeTemporaryObject @ 0x1407E0F60 (ObMakeTemporaryObject.c)
  * Callees:
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x140231190 (ExReleasePushLockEx.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ObfReferenceObject @ 0x140233C40 (ObfReferenceObject.c)
- *     KeAbPostReleaseEx @ 0x1402BD4F0 (KeAbPostReleaseEx.c)
- *     PsDereferenceSiloContext @ 0x14036A270 (PsDereferenceSiloContext.c)
+ *     KeAbPreAcquire @ 0x140230FD0 (KeAbPreAcquire.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231120 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140231280 (ExReleasePushLockEx.c)
+ *     KeLeaveCriticalRegion @ 0x140231550 (KeLeaveCriticalRegion.c)
+ *     ObfReferenceObject @ 0x140233D10 (ObfReferenceObject.c)
+ *     KeAbPostReleaseEx @ 0x1402BD780 (KeAbPostReleaseEx.c)
+ *     PsDereferenceSiloContext @ 0x14036A410 (PsDereferenceSiloContext.c)
  *     ObpDeleteDirectoryEntry @ 0x140697854 (ObpDeleteDirectoryEntry.c)
  *     ObpLockDirectoryExclusive @ 0x140697B24 (ObpLockDirectoryExclusive.c)
  *     ObpDeleteSymbolicLinkName @ 0x140697B5C (ObpDeleteSymbolicLinkName.c)
- *     ObpUnlockDirectory @ 0x1406C3248 (ObpUnlockDirectory.c)
- *     ObpLookupDirectoryEntry @ 0x1407B6D38 (ObpLookupDirectoryEntry.c)
+ *     ObpUnlockDirectory @ 0x1406C3278 (ObpUnlockDirectory.c)
+ *     ObpLookupDirectoryEntry @ 0x1407B7018 (ObpLookupDirectoryEntry.c)
  */
 
 void __fastcall ObpDeleteNameCheck(__int64 a1)

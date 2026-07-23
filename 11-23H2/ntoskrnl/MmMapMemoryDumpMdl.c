@@ -1,9 +1,9 @@
 /*
- * XREFs of MmMapMemoryDumpMdl @ 0x140630640
+ * XREFs of MmMapMemoryDumpMdl @ 0x140630B90
  * Callers:
  *     <none>
  * Callees:
- *     MiMapMemoryDumpMdl @ 0x14062FD48 (MiMapMemoryDumpMdl.c)
+ *     MiMapMemoryDumpMdl @ 0x140630298 (MiMapMemoryDumpMdl.c)
  */
 
 char __fastcall MmMapMemoryDumpMdl(__int64 a1, __int64 a2)

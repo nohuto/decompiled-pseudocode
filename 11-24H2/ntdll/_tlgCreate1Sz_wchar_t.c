@@ -1,12 +1,12 @@
 /*
- * XREFs of _tlgCreate1Sz_wchar_t @ 0x1801124A0
+ * XREFs of _tlgCreate1Sz_wchar_t @ 0x18010D910
  * Callers:
- *     LdrpLogRelativePathWithAlteredSearchError @ 0x180084424 (LdrpLogRelativePathWithAlteredSearchError.c)
+ *     LdrpLogRelativePathWithAlteredSearchError @ 0x1800062D4 (LdrpLogRelativePathWithAlteredSearchError.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall tlgCreate1Sz_wchar_t(__int64 a1, _WORD *a2)
+__int64 __fastcall tlgCreate1Sz_wchar_t(__int64 a1, const WCHAR *a2)
 {
   __int64 v2; // rax
   __int64 result; // rax
@@ -21,7 +21,7 @@ __int64 __fastcall tlgCreate1Sz_wchar_t(__int64 a1, _WORD *a2)
   }
   else
   {
-    a2 = &unk_18017EEFC;
+    a2 = &SourceString;
     result = 2LL;
   }
   *(_QWORD *)a1 = a2;

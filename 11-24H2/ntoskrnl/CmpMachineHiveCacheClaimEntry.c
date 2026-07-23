@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpMachineHiveCacheClaimEntry @ 0x1407D8F1C
+ * XREFs of CmpMachineHiveCacheClaimEntry @ 0x1407D946C
  * Callers:
- *     CmpLoadHiveThread @ 0x1407CB060 (CmpLoadHiveThread.c)
+ *     CmpLoadHiveThread @ 0x1407CB550 (CmpLoadHiveThread.c)
  * Callees:
- *     SetFailureLocation @ 0x1404649E0 (SetFailureLocation.c)
- *     CmpHiveCacheClaimHiveEntry @ 0x1407E5310 (CmpHiveCacheClaimHiveEntry.c)
- *     CmpHiveCacheEntryCleanup @ 0x1407E54D8 (CmpHiveCacheEntryCleanup.c)
+ *     SetFailureLocation @ 0x14045B110 (SetFailureLocation.c)
+ *     CmpHiveCacheClaimHiveEntry @ 0x1407E58E0 (CmpHiveCacheClaimHiveEntry.c)
+ *     CmpHiveCacheEntryCleanup @ 0x1407E5AA8 (CmpHiveCacheEntryCleanup.c)
  */
 
 __int64 __fastcall CmpMachineHiveCacheClaimEntry(__int64 a1, int a2, int a3, __int64 a4)

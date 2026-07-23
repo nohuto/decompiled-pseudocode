@@ -1,15 +1,15 @@
 /*
- * XREFs of VmCreateMemoryProcess @ 0x14079E7D0
+ * XREFs of VmCreateMemoryProcess @ 0x14079E8E0
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwAllocateVirtualMemory @ 0x1406A6710 (ZwAllocateVirtualMemory.c)
- *     PsCreateMinimalProcess @ 0x1407797C4 (PsCreateMinimalProcess.c)
- *     VmpLogCreateMemoryProcess @ 0x14079FE98 (VmpLogCreateMemoryProcess.c)
- *     ObReferenceObjectByHandle @ 0x14084AF40 (ObReferenceObjectByHandle.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwAllocateVirtualMemory @ 0x1406A76B0 (ZwAllocateVirtualMemory.c)
+ *     PsCreateMinimalProcess @ 0x1407798C4 (PsCreateMinimalProcess.c)
+ *     VmpLogCreateMemoryProcess @ 0x14079FFA8 (VmpLogCreateMemoryProcess.c)
+ *     ObReferenceObjectByHandle @ 0x140847200 (ObReferenceObjectByHandle.c)
  */
 
 __int64 __fastcall VmCreateMemoryProcess(__int64 a1, __int64 a2, void *a3, int a4, void *a5, __int64 a6, _QWORD *a7)

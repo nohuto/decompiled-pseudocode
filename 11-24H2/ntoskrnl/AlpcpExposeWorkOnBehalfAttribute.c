@@ -1,9 +1,9 @@
 /*
- * XREFs of AlpcpExposeWorkOnBehalfAttribute @ 0x1408986E0
+ * XREFs of AlpcpExposeWorkOnBehalfAttribute @ 0x1408A0D80
  * Callers:
- *     AlpcpExposeAttributes @ 0x1408980D0 (AlpcpExposeAttributes.c)
+ *     AlpcpExposeAttributes @ 0x1408A0770 (AlpcpExposeAttributes.c)
  * Callees:
- *     RtlCompareMemory @ 0x1406B3990 (RtlCompareMemory.c)
+ *     RtlCompareMemory @ 0x1406B4930 (RtlCompareMemory.c)
  */
 
 char __fastcall AlpcpExposeWorkOnBehalfAttribute(__int64 a1, __int64 a2, _QWORD *a3, _DWORD *a4)

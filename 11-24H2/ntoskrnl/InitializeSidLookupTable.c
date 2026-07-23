@@ -1,10 +1,10 @@
 /*
- * XREFs of InitializeSidLookupTable @ 0x140796510
+ * XREFs of InitializeSidLookupTable @ 0x140796620
  * Callers:
- *     SddlBaseInitialize @ 0x1406098E8 (SddlBaseInitialize.c)
+ *     SddlBaseInitialize @ 0x140607EA0 (SddlBaseInitialize.c)
  * Callees:
- *     RtlSubAuthoritySid @ 0x14044FDD0 (RtlSubAuthoritySid.c)
- *     RtlInitializeSid @ 0x1409E3B60 (RtlInitializeSid.c)
+ *     RtlSubAuthoritySid @ 0x140445040 (RtlSubAuthoritySid.c)
+ *     RtlInitializeSid @ 0x1409DE5C0 (RtlInitializeSid.c)
  */
 
 char InitializeSidLookupTable()
@@ -21,7 +21,7 @@ char InitializeSidLookupTable()
   int v9; // edx
   int v10; // edx
   int v11; // edx
-  struct _SID_IDENTIFIER_AUTHORITY *p_IdentifierAuthority; // rdx
+  _SID_IDENTIFIER_AUTHORITY *p_IdentifierAuthority; // rdx
   ULONG v13; // edx
   PULONG v14; // rax
   int v16; // [rsp+20h] [rbp-20h] BYREF
@@ -30,14 +30,14 @@ char InitializeSidLookupTable()
   __int16 v19; // [rsp+2Ch] [rbp-14h]
   int v20; // [rsp+30h] [rbp-10h] BYREF
   __int16 v21; // [rsp+34h] [rbp-Ch]
-  struct _SID_IDENTIFIER_AUTHORITY v22; // [rsp+38h] [rbp-8h] BYREF
-  struct _SID_IDENTIFIER_AUTHORITY v23; // [rsp+68h] [rbp+28h] BYREF
-  struct _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+70h] [rbp+30h] BYREF
-  struct _SID_IDENTIFIER_AUTHORITY v25; // [rsp+78h] [rbp+38h] BYREF
+  _SID_IDENTIFIER_AUTHORITY v22; // [rsp+38h] [rbp-8h] BYREF
+  _SID_IDENTIFIER_AUTHORITY v23; // [rsp+68h] [rbp+28h] BYREF
+  _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+70h] [rbp+30h] BYREF
+  _SID_IDENTIFIER_AUTHORITY v25; // [rsp+78h] [rbp+38h] BYREF
 
   *(_WORD *)&v22.Value[4] = 256;
   *(_DWORD *)v22.Value = 0;
-  v0 = &unk_140E0CD80;
+  v0 = &unk_140E0CE50;
   v20 = 0;
   v1 = 0;
   v18 = 0;
@@ -56,7 +56,7 @@ char InitializeSidLookupTable()
     if ( *((_BYTE *)v0 - 16) != 1 || !*(_QWORD *)v0 )
     {
       v2 = v0[3];
-      v3 = (char *)&unk_140E0CD90 + 104 * v1;
+      v3 = (char *)&unk_140E0CE60 + 104 * v1;
       *(_QWORD *)v0 = v3;
       v4 = v2 - 1;
       if ( !v4 )
@@ -108,7 +108,7 @@ LABEL_18:
               v13 = 1;
               goto LABEL_15;
             }
-            p_IdentifierAuthority = (struct _SID_IDENTIFIER_AUTHORITY *)&v16;
+            p_IdentifierAuthority = (_SID_IDENTIFIER_AUTHORITY *)&v16;
           }
           else
           {
@@ -117,12 +117,12 @@ LABEL_18:
         }
         else
         {
-          p_IdentifierAuthority = (struct _SID_IDENTIFIER_AUTHORITY *)&v18;
+          p_IdentifierAuthority = (_SID_IDENTIFIER_AUTHORITY *)&v18;
         }
       }
       else
       {
-        p_IdentifierAuthority = (struct _SID_IDENTIFIER_AUTHORITY *)&v20;
+        p_IdentifierAuthority = (_SID_IDENTIFIER_AUTHORITY *)&v20;
       }
 LABEL_14:
       RtlInitializeSid(v3, p_IdentifierAuthority, 1u);

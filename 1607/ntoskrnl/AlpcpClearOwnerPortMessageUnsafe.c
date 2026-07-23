@@ -1,9 +1,9 @@
 /*
- * XREFs of AlpcpClearOwnerPortMessageUnsafe @ 0x1404EDE64
+ * XREFs of AlpcpClearOwnerPortMessageUnsafe @ 0x1404CFF30
  * Callers:
- *     AlpcMessageDestroyProcedure @ 0x140448980 (AlpcMessageDestroyProcedure.c)
+ *     AlpcMessageDestroyProcedure @ 0x140447850 (AlpcMessageDestroyProcedure.c)
  * Callees:
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
  */
 
 LONG_PTR __fastcall AlpcpClearOwnerPortMessageUnsafe(__int64 a1)

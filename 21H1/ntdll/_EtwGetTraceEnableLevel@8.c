@@ -11,6 +11,6 @@ char __stdcall EtwGetTraceEnableLevel(__int64 a1)
 {
   if ( ((unsigned int)(unsigned __int16)a1 < EtwpGetMaxLogger() || (_WORD)a1 == 0xFFFF) && a1 )
     return BYTE2(a1);
-  RtlSetLastWin32Error((struct _TEB *)6);
+  RtlSetLastWin32Error(6);
   return 0;
 }

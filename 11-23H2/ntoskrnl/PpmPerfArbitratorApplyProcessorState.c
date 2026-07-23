@@ -1,14 +1,14 @@
 /*
- * XREFs of PpmPerfArbitratorApplyProcessorState @ 0x14034F190
+ * XREFs of PpmPerfArbitratorApplyProcessorState @ 0x14034F330
  * Callers:
- *     PoIdle @ 0x1402C4B60 (PoIdle.c)
- *     PpmPerfApplyProcessorState @ 0x14034F00C (PpmPerfApplyProcessorState.c)
- *     PoSetProcessorQoS @ 0x140462E60 (PoSetProcessorQoS.c)
+ *     PoIdle @ 0x1402C4DF0 (PoIdle.c)
+ *     PpmPerfApplyProcessorState @ 0x14034F1AC (PpmPerfApplyProcessorState.c)
+ *     PoSetProcessorQoS @ 0x140463260 (PoSetProcessorQoS.c)
  * Callees:
- *     KiIsQosGroupingActive @ 0x14034F2E8 (KiIsQosGroupingActive.c)
- *     PpmEventProcessorPerfStateChange @ 0x14034F3D0 (PpmEventProcessorPerfStateChange.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     KiIsQosGroupingActive @ 0x14034F488 (KiIsQosGroupingActive.c)
+ *     PpmEventProcessorPerfStateChange @ 0x14034F570 (PpmEventProcessorPerfStateChange.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 char __fastcall PpmPerfArbitratorApplyProcessorState(__int64 a1, unsigned __int8 a2, __int64 a3, __int64 a4)

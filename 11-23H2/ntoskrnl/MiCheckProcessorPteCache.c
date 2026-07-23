@@ -1,13 +1,13 @@
 /*
- * XREFs of MiCheckProcessorPteCache @ 0x14027D850
+ * XREFs of MiCheckProcessorPteCache @ 0x14027DAE0
  * Callers:
- *     MiReservePtes @ 0x14027D190 (MiReservePtes.c)
+ *     MiReservePtes @ 0x14027D420 (MiReservePtes.c)
  * Callees:
  *     MiEmptyPteBins @ 0x14021E150 (MiEmptyPteBins.c)
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
- *     memset @ 0x140435A00 (memset.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402610F0 (KeAcquireInStackQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 __int64 __fastcall MiCheckProcessorPteCache(unsigned __int64 a1)
@@ -81,7 +81,7 @@ __int64 __fastcall MiCheckProcessorPteCache(unsigned __int64 a1)
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
   LODWORD(v3) = 4;
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 2 )
@@ -94,10 +94,10 @@ __int64 __fastcall MiCheckProcessorPteCache(unsigned __int64 a1)
   v5 = 0LL;
   if ( CurrentPrcb->PteBitCache != -1LL )
     goto LABEL_3;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v50 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v50 <= 0xFu && CurrentIrql <= 0xFu && v50 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v50 <= 0xFu && CurrentIrql <= 0xFu && v50 >= 2u )
     {
       v51 = KeGetCurrentPrcb();
       v52 = v51->SchedulerAssist;
@@ -122,10 +122,10 @@ __int64 __fastcall MiCheckProcessorPteCache(unsigned __int64 a1)
         KeAcquireInStackQueuedSpinLock(&qword_140C69968, &LockHandle);
         KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
         OldIrql = LockHandle.OldIrql;
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v55 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v55 <= 0xFu && LockHandle.OldIrql <= 0xFu && v55 >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v55 <= 0xFu && LockHandle.OldIrql <= 0xFu && v55 >= 2u )
           {
             v56 = KeGetCurrentPrcb();
             v57 = v56->SchedulerAssist;
@@ -228,7 +228,7 @@ LABEL_108:
       }
       v34 = KeGetCurrentIrql();
       __writecr8(2uLL);
-      if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v34 <= 0xFu )
+      if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v34 <= 0xFu )
       {
         v42 = KeGetCurrentPrcb()->SchedulerAssist;
         if ( v34 != 2 )
@@ -400,12 +400,12 @@ LABEL_9:
         if ( v13 + a1 <= 8 )
         {
           v5 = v12;
-          v15 = byte_140018F88[a1] << v13;
+          v15 = byte_140018F80[a1] << v13;
           goto LABEL_12;
         }
         if ( (v12 & 7) != 0 )
         {
-          *v14++ |= byte_140016E88[v13];
+          *v14++ |= byte_140016E78[v13];
           a1 -= (unsigned int)(8 - v13);
         }
         if ( a1 > 8 )
@@ -417,17 +417,17 @@ LABEL_9:
         v5 = v12;
         if ( a1 )
         {
-          v15 = byte_140018F88[a1];
+          v15 = byte_140018F80[a1];
 LABEL_12:
           *v14 |= v15;
         }
 LABEL_13:
         v5 = qword_140C69950 + 8 * (v5 + CurrentPrcb->PteBitOffset);
       }
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v59 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v59 <= 0xFu && CurrentIrql <= 0xFu && v59 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v59 <= 0xFu && CurrentIrql <= 0xFu && v59 >= 2u )
         {
           v60 = KeGetCurrentPrcb();
           v61 = v60->SchedulerAssist;

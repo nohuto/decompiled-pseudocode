@@ -1,12 +1,12 @@
 /*
- * XREFs of ExpDuplicateSingleHandle @ 0x14093D6A4
+ * XREFs of ExpDuplicateSingleHandle @ 0x140891D94
  * Callers:
- *     ExDupHandleTable @ 0x14093D080 (ExDupHandleTable.c)
+ *     ExDupHandleTable @ 0x140891770 (ExDupHandleTable.c)
  * Callees:
- *     ExpGetHandleExtraInfo @ 0x14084D528 (ExpGetHandleExtraInfo.c)
- *     ExpSetHandleExtraInfo @ 0x14093B924 (ExpSetHandleExtraInfo.c)
- *     ObInheritObjectHandle @ 0x14093D784 (ObInheritObjectHandle.c)
- *     ExUnlockHandleTableEntry @ 0x14093D890 (ExUnlockHandleTableEntry.c)
+ *     ExpGetHandleExtraInfo @ 0x1408497E8 (ExpGetHandleExtraInfo.c)
+ *     ObInheritObjectHandle @ 0x140891E74 (ObInheritObjectHandle.c)
+ *     ExUnlockHandleTableEntry @ 0x140891F80 (ExUnlockHandleTableEntry.c)
+ *     ExpSetHandleExtraInfo @ 0x14094CF14 (ExpSetHandleExtraInfo.c)
  */
 
 __int64 __fastcall ExpDuplicateSingleHandle(
@@ -18,7 +18,7 @@ __int64 __fastcall ExpDuplicateSingleHandle(
         _OWORD *a6,
         char a7)
 {
-  __int64 HandleExtraInfo; // rax
+  _DWORD *HandleExtraInfo; // rax
   __int64 result; // rax
   int v13; // ebx
   __int128 v14; // [rsp+20h] [rbp-28h]
@@ -29,9 +29,9 @@ __int64 __fastcall ExpDuplicateSingleHandle(
   *(_QWORD *)a6 = v14;
   *(_QWORD *)a6 |= 1uLL;
   if ( a3[1]
-    && (HandleExtraInfo = ExpGetHandleExtraInfo(a3, a2)) != 0
-    && (*(_DWORD *)HandleExtraInfo || *(_DWORD *)(HandleExtraInfo + 4))
-    && (v13 = ExpSetHandleExtraInfo(a5, a2, (_QWORD *)HandleExtraInfo), v13 < 0) )
+    && (HandleExtraInfo = (_DWORD *)ExpGetHandleExtraInfo(a3, a2)) != 0LL
+    && (*HandleExtraInfo || HandleExtraInfo[1])
+    && (v13 = ExpSetHandleExtraInfo(a5, a2, HandleExtraInfo), v13 < 0) )
   {
     ExUnlockHandleTableEntry(a3, a4);
   }

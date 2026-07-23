@@ -1,10 +1,10 @@
 /*
- * XREFs of IommupHvIsDmarStageCompatible @ 0x140524FD0
+ * XREFs of IommupHvIsDmarStageCompatible @ 0x140525520
  * Callers:
- *     HalpIommuDeviceGetDomainTypes @ 0x14050DE78 (HalpIommuDeviceGetDomainTypes.c)
+ *     HalpIommuDeviceGetDomainTypes @ 0x14050E3C8 (HalpIommuDeviceGetDomainTypes.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 bool __fastcall IommupHvIsDmarStageCompatible(_DWORD *a1, char a2)

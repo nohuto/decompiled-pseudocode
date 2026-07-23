@@ -1,27 +1,27 @@
 /*
- * XREFs of CmOpenKey @ 0x1409E3DB0
+ * XREFs of CmOpenKey @ 0x1409DE810
  * Callers:
- *     CmOpenKeyCallout @ 0x1406F5060 (CmOpenKeyCallout.c)
- *     CmOpenKeyForBugCheckRecovery @ 0x1407CF3E0 (CmOpenKeyForBugCheckRecovery.c)
- *     NtOpenKeyTransactedEx @ 0x1409E3C50 (NtOpenKeyTransactedEx.c)
+ *     CmOpenKeyCallout @ 0x1406F3060 (CmOpenKeyCallout.c)
+ *     CmOpenKeyForBugCheckRecovery @ 0x1407CF8D0 (CmOpenKeyForBugCheckRecovery.c)
+ *     NtOpenKeyTransactedEx @ 0x1409DE6B0 (NtOpenKeyTransactedEx.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     EtwGetKernelTraceTimestamp @ 0x1403C00A0 (EtwGetKernelTraceTimestamp.c)
- *     PsGetCurrentSilo @ 0x140402420 (PsGetCurrentSilo.c)
- *     CmSiFreeMemory @ 0x14046B8D0 (CmSiFreeMemory.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     CmpAllocateParseContext @ 0x1406F509C (CmpAllocateParseContext.c)
- *     CmpDereferenceKeyControlBlock @ 0x140845CD0 (CmpDereferenceKeyControlBlock.c)
- *     NtClose @ 0x14084AA00 (NtClose.c)
- *     ObReferenceObjectByHandle @ 0x14084AF40 (ObReferenceObjectByHandle.c)
- *     ExRaiseDatatypeMisalignment @ 0x14089B1F0 (ExRaiseDatatypeMisalignment.c)
- *     ObOpenObjectByNameEx @ 0x14089BB40 (ObOpenObjectByNameEx.c)
- *     CmpFreeExtraParameter @ 0x1409E41A0 (CmpFreeExtraParameter.c)
- *     CmpAcquireShutdownRundown @ 0x140BB9400 (CmpAcquireShutdownRundown.c)
- *     CmpReleaseShutdownRundown @ 0x140BB9880 (CmpReleaseShutdownRundown.c)
- *     CmpLockRegistry @ 0x140BB9E60 (CmpLockRegistry.c)
- *     CmpUnlockRegistry @ 0x140BB9F50 (CmpUnlockRegistry.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     EtwGetKernelTraceTimestamp @ 0x1403AEC60 (EtwGetKernelTraceTimestamp.c)
+ *     PsGetCurrentSilo @ 0x1403FCA20 (PsGetCurrentSilo.c)
+ *     CmSiFreeMemory @ 0x140464550 (CmSiFreeMemory.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     CmpAllocateParseContext @ 0x1406F309C (CmpAllocateParseContext.c)
+ *     CmpDereferenceKeyControlBlock @ 0x140841F90 (CmpDereferenceKeyControlBlock.c)
+ *     NtClose @ 0x140846CC0 (NtClose.c)
+ *     ObReferenceObjectByHandle @ 0x140847200 (ObReferenceObjectByHandle.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408A3890 (ExRaiseDatatypeMisalignment.c)
+ *     ObOpenObjectByNameEx @ 0x1408A41E0 (ObOpenObjectByNameEx.c)
+ *     CmpFreeExtraParameter @ 0x1409DEC00 (CmpFreeExtraParameter.c)
+ *     CmpAcquireShutdownRundown @ 0x140BBB400 (CmpAcquireShutdownRundown.c)
+ *     CmpReleaseShutdownRundown @ 0x140BBB880 (CmpReleaseShutdownRundown.c)
+ *     CmpLockRegistry @ 0x140BBBE60 (CmpLockRegistry.c)
+ *     CmpUnlockRegistry @ 0x140BBBF50 (CmpUnlockRegistry.c)
  */
 
 __int64 __fastcall CmOpenKey(unsigned __int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5, unsigned __int8 a6)
@@ -142,7 +142,7 @@ __int64 __fastcall CmOpenKey(unsigned __int64 a1, __int64 a2, __int64 a3, __int6
       {
         v27 = v36;
         LOBYTE(v27) = 11;
-        guard_dispatch_icall_no_overrides(v27, v39, (unsigned int)v20, 0LL);
+        guard_dispatch_icall_no_overrides(v27, v39);
       }
       if ( !ParseContext )
         goto LABEL_30;
@@ -190,7 +190,7 @@ LABEL_30:
     if ( CmpTraceRoutine )
     {
       LOBYTE(v12) = 11;
-      guard_dispatch_icall_no_overrides(v12, v39, 3221225865LL, 0LL);
+      guard_dispatch_icall_no_overrides(v12, v39);
     }
     return 3221225865LL;
   }

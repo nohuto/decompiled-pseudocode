@@ -1,12 +1,12 @@
 /*
- * XREFs of PspSetProcessPriorityByClass @ 0x140451FC4
+ * XREFs of PspSetProcessPriorityByClass @ 0x140447074
  * Callers:
- *     PspApplyJobLimitsToProcess @ 0x1408E7EF8 (PspApplyJobLimitsToProcess.c)
- *     PsSetProcessPriorityByClass @ 0x140A37A20 (PsSetProcessPriorityByClass.c)
- *     PspSetProcessForegroundBackgroundRequest @ 0x140A37A4C (PspSetProcessForegroundBackgroundRequest.c)
+ *     PspApplyJobLimitsToProcess @ 0x1408D873C (PspApplyJobLimitsToProcess.c)
+ *     PsSetProcessPriorityByClass @ 0x140A2C560 (PsSetProcessPriorityByClass.c)
+ *     PspSetProcessForegroundBackgroundRequest @ 0x140A2C58C (PspSetProcessForegroundBackgroundRequest.c)
  * Callees:
- *     KeSetPriorityAndQuantumProcess @ 0x14045201C (KeSetPriorityAndQuantumProcess.c)
- *     PspComputeQuantumAndPriority @ 0x140A32370 (PspComputeQuantumAndPriority.c)
+ *     KeSetPriorityAndQuantumProcess @ 0x1404470CC (KeSetPriorityAndQuantumProcess.c)
+ *     PspComputeQuantumAndPriority @ 0x140A262E0 (PspComputeQuantumAndPriority.c)
  */
 
 __int64 __fastcall PspSetProcessPriorityByClass(int a1, int a2)

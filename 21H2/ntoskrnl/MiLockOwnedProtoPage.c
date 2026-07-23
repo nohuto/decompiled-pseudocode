@@ -1,15 +1,15 @@
 /*
- * XREFs of MiLockOwnedProtoPage @ 0x14031A320
+ * XREFs of MiLockOwnedProtoPage @ 0x140325070
  * Callers:
- *     MiRelockProtoPoolPage @ 0x14031A078 (MiRelockProtoPoolPage.c)
- *     MiLockProtoPoolPage @ 0x14031A100 (MiLockProtoPoolPage.c)
- *     MmCheckCachedPageStates @ 0x140321590 (MmCheckCachedPageStates.c)
- *     MiMakePageAvoidRead @ 0x140324070 (MiMakePageAvoidRead.c)
+ *     MiRelockProtoPoolPage @ 0x140324DC8 (MiRelockProtoPoolPage.c)
+ *     MiLockProtoPoolPage @ 0x140324E50 (MiLockProtoPoolPage.c)
+ *     MmCheckCachedPageStates @ 0x14032C2E0 (MmCheckCachedPageStates.c)
+ *     MiMakePageAvoidRead @ 0x14032EDC0 (MiMakePageAvoidRead.c)
  * Callees:
- *     MiWriteValidPteVolatile @ 0x140241370 (MiWriteValidPteVolatile.c)
- *     MiLockPageInline @ 0x1402FFE30 (MiLockPageInline.c)
- *     HvlNotifyLongSpinWait @ 0x140390140 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140390F20 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     MiWriteValidPteVolatile @ 0x1402E5BC0 (MiWriteValidPteVolatile.c)
+ *     MiLockPageInline @ 0x14030AB80 (MiLockPageInline.c)
+ *     HvlNotifyLongSpinWait @ 0x140390290 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140391070 (KiCheckVpBackingLongSpinWaitHypercall.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 

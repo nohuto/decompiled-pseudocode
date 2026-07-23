@@ -1,20 +1,20 @@
 /*
- * XREFs of _CmAddDeviceToContainerWorker @ 0x140AE82D0
+ * XREFs of _CmAddDeviceToContainerWorker @ 0x140AE6180
  * Callers:
- *     _CmAddDeviceToContainer @ 0x140AE815C (_CmAddDeviceToContainer.c)
+ *     _CmAddDeviceToContainer @ 0x140AE600C (_CmAddDeviceToContainer.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x14045D040 (RtlInitUnicodeStringEx.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwCreateKey @ 0x140723790 (ZwCreateKey.c)
- *     _RegRtlSetValue @ 0x14090AB48 (_RegRtlSetValue.c)
- *     _PnpDeviceRaisePropertyChangeEventWorker @ 0x14090D72C (_PnpDeviceRaisePropertyChangeEventWorker.c)
- *     _PnpCtxRegQueryValue @ 0x140917E70 (_PnpCtxRegQueryValue.c)
- *     _RegRtlCreateKeyTransacted @ 0x14091E5D4 (_RegRtlCreateKeyTransacted.c)
- *     _RegRtlIsPredefinedKey @ 0x14091E728 (_RegRtlIsPredefinedKey.c)
- *     _PnpCtxRegDeleteKey @ 0x140A2D8BC (_PnpCtxRegDeleteKey.c)
- *     _CmCreateDeviceContainer @ 0x140AE86F8 (_CmCreateDeviceContainer.c)
- *     _RegRtlOpenPredefinedKey @ 0x140AE8C08 (_RegRtlOpenPredefinedKey.c)
- *     _CmDeleteDeviceContainer @ 0x140B1DC58 (_CmDeleteDeviceContainer.c)
+ *     RtlInitUnicodeStringEx @ 0x140456BE0 (RtlInitUnicodeStringEx.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwCreateKey @ 0x140728360 (ZwCreateKey.c)
+ *     _PnpCtxRegQueryValue @ 0x1409728D0 (_PnpCtxRegQueryValue.c)
+ *     _RegRtlCreateKeyTransacted @ 0x140979034 (_RegRtlCreateKeyTransacted.c)
+ *     _RegRtlIsPredefinedKey @ 0x140979188 (_RegRtlIsPredefinedKey.c)
+ *     _RegRtlSetValue @ 0x1409AD100 (_RegRtlSetValue.c)
+ *     _PnpDeviceRaisePropertyChangeEventWorker @ 0x1409AF85C (_PnpDeviceRaisePropertyChangeEventWorker.c)
+ *     _PnpCtxRegDeleteKey @ 0x140A3F2C8 (_PnpCtxRegDeleteKey.c)
+ *     _CmCreateDeviceContainer @ 0x140AE65A8 (_CmCreateDeviceContainer.c)
+ *     _RegRtlOpenPredefinedKey @ 0x140AE6AB8 (_RegRtlOpenPredefinedKey.c)
+ *     _CmDeleteDeviceContainer @ 0x140B1FCDC (_CmDeleteDeviceContainer.c)
  */
 
 __int64 __fastcall CmAddDeviceToContainerWorker(__int64 a1, __int64 a2, const WCHAR *a3, const WCHAR *a4, HANDLE a5)

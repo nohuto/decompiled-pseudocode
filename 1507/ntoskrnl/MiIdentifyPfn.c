@@ -375,7 +375,8 @@ LABEL_118:
         if ( v37 >= qword_14034EC70 && v37 < qword_14034EC70 + (qword_14034EC60 << 21)
           || v37 + 0x80000000000LL <= 0x7FFFFFFFFFLL
           || PsNtosImageBase
-          && (v37 >= PsNtosImageBase && v37 < PsNtosImageEnd || v37 >= PsHalImageBase && v37 < PsHalImageEnd) )
+          && (v37 >= (unsigned __int64)PsNtosImageBase && v37 < PsNtosImageEnd
+           || v37 >= (unsigned __int64)PsHalImageBase && v37 < PsHalImageEnd) )
         {
           goto LABEL_118;
         }

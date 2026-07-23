@@ -1,25 +1,25 @@
 /*
- * XREFs of PopCreateHiberFile @ 0x1408004E0
+ * XREFs of PopCreateHiberFile @ 0x1408007B0
  * Callers:
- *     PopEnableHiberFile @ 0x1408016DC (PopEnableHiberFile.c)
+ *     PopEnableHiberFile @ 0x1408019AC (PopEnableHiberFile.c)
  * Callees:
  *     RtlAppendUnicodeStringToString @ 0x140208A00 (RtlAppendUnicodeStringToString.c)
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     KeWaitForSingleObject @ 0x140243CE0 (KeWaitForSingleObject.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ZwQueryInformationFile @ 0x14041AF80 (ZwQueryInformationFile.c)
- *     ZwSetInformationFile @ 0x14041B240 (ZwSetInformationFile.c)
- *     ZwFsControlFile @ 0x14041B480 (ZwFsControlFile.c)
- *     ZwFlushBuffersFile @ 0x14041B6C0 (ZwFlushBuffersFile.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1406E6300 (ObpReferenceObjectByHandleWithTag.c)
- *     IoCreateFile @ 0x1407D0680 (IoCreateFile.c)
- *     PopCreateHiberFileSecurityDescriptor @ 0x14080090C (PopCreateHiberFileSecurityDescriptor.c)
- *     PopSetHiberFileMcb @ 0x140800A98 (PopSetHiberFileMcb.c)
- *     PopSanityCheckHiberFile @ 0x140800B0C (PopSanityCheckHiberFile.c)
- *     PopResetCurrentPolicies @ 0x1408240F8 (PopResetCurrentPolicies.c)
- *     FsRtlIssueFileNotificationFsctl @ 0x140833F78 (FsRtlIssueFileNotificationFsctl.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     KeWaitForSingleObject @ 0x140243DB0 (KeWaitForSingleObject.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ZwQueryInformationFile @ 0x14041B310 (ZwQueryInformationFile.c)
+ *     ZwSetInformationFile @ 0x14041B5D0 (ZwSetInformationFile.c)
+ *     ZwFsControlFile @ 0x14041B810 (ZwFsControlFile.c)
+ *     ZwFlushBuffersFile @ 0x14041BA50 (ZwFlushBuffersFile.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x1406E6330 (ObpReferenceObjectByHandleWithTag.c)
+ *     IoCreateFile @ 0x1407D0950 (IoCreateFile.c)
+ *     PopCreateHiberFileSecurityDescriptor @ 0x140800BDC (PopCreateHiberFileSecurityDescriptor.c)
+ *     PopSetHiberFileMcb @ 0x140800D68 (PopSetHiberFileMcb.c)
+ *     PopSanityCheckHiberFile @ 0x140800DDC (PopSanityCheckHiberFile.c)
+ *     PopResetCurrentPolicies @ 0x1408243F8 (PopResetCurrentPolicies.c)
+ *     FsRtlIssueFileNotificationFsctl @ 0x140834278 (FsRtlIssueFileNotificationFsctl.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
@@ -216,7 +216,7 @@ LABEL_8:
               if ( v5 >= 0 )
               {
                 PopHiberInfo = FileHandle;
-                qword_140C3CDD0 = AllocationSize.QuadPart;
+                qword_140C3CF70 = AllocationSize.QuadPart;
                 ::FileObject = v1;
                 FsRtlIssueFileNotificationFsctl(v1);
                 FileHandle = 0LL;

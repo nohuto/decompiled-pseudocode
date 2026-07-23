@@ -1,40 +1,37 @@
 /*
- * XREFs of PopUpdateExternalDisplayState @ 0x140AB9C84
+ * XREFs of PopUpdateExternalDisplayState @ 0x140AC8ECC
  * Callers:
- *     PopPowerInformationInternal @ 0x140AC4A30 (PopPowerInformationInternal.c)
+ *     PopPowerInformationInternal @ 0x140AC2410 (PopPowerInformationInternal.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     PopQueueWorkItem @ 0x140497478 (PopQueueWorkItem.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     PopAcquirePolicyLock @ 0x140B67CB0 (PopAcquirePolicyLock.c)
- *     PopReleasePolicyLock @ 0x140B67D00 (PopReleasePolicyLock.c)
+ *     PopQueueWorkItem @ 0x140491E08 (PopQueueWorkItem.c)
+ *     Feature_NU4MP__private_IsEnabledDeviceUsageNoInline @ 0x1405CA3E4 (Feature_NU4MP__private_IsEnabledDeviceUsageNoInline.c)
+ *     PopDiagTraceExternalDisplayState @ 0x1407546A0 (PopDiagTraceExternalDisplayState.c)
+ *     PopUpdateExternalDisplayStateV1 @ 0x14075EA00 (PopUpdateExternalDisplayStateV1.c)
+ *     PopAcquirePolicyLock @ 0x140B69DF0 (PopAcquirePolicyLock.c)
+ *     PopReleasePolicyLock @ 0x140B69E40 (PopReleasePolicyLock.c)
  */
 
-__int64 __fastcall PopUpdateExternalDisplayState(__int64 a1, __int64 a2)
+__int64 __fastcall PopUpdateExternalDisplayState(char a1)
 {
-  char v2; // bl
-  __int64 v3; // rdx
-  __int64 v4; // rcx
-  __int64 v5; // r8
-  __int64 v6; // r9
-  __int64 v8; // [rsp+20h] [rbp-58h]
-  char v9; // [rsp+30h] [rbp-48h] BYREF
-  struct _EVENT_DATA_DESCRIPTOR v10; // [rsp+38h] [rbp-40h] BYREF
-  char *v11; // [rsp+58h] [rbp-20h]
-  int v12; // [rsp+60h] [rbp-18h]
-  int v13; // [rsp+64h] [rbp-14h]
+  __int64 v2; // rdx
+  __int64 v3; // rcx
+  __int64 v5; // rdx
+  __int64 v6; // rcx
+  __int64 v7; // r8
+  __int64 v8; // r9
+  __int64 v9; // [rsp+20h] [rbp-8h]
 
-  v2 = a1;
-  PopAcquirePolicyLock(a1, a2);
-  PopConsoleExternalDisplayConnected = v2;
-  if ( (unsigned int)dword_140E076F0 > 5 )
+  if ( (unsigned int)Feature_NU4MP__private_IsEnabledDeviceUsageNoInline() )
   {
-    v13 = 0;
-    v11 = &v9;
-    v9 = v2;
-    v12 = 1;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E076F0, (unsigned __int8 *)byte_1400499A3, 0LL, 0LL, 3u, &v10);
+    LOBYTE(v3) = a1;
+    return PopUpdateExternalDisplayStateV1(v3, v2);
   }
-  PopQueueWorkItem((__int64)&PopExternalMonitorUpdatedWorkItem, DelayedWorkQueue);
-  return PopReleasePolicyLock(v4, v3, v5, v6, v8);
+  else
+  {
+    PopAcquirePolicyLock(v3, v2);
+    PopConsoleExternalDisplayConnected = a1;
+    PopDiagTraceExternalDisplayState(a1, 0);
+    PopQueueWorkItem((__int64)&PopExternalMonitorUpdatedWorkItem, DelayedWorkQueue);
+    return PopReleasePolicyLock(v6, v5, v7, v8, v9);
+  }
 }

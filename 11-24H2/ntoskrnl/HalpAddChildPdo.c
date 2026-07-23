@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpAddChildPdo @ 0x1406FE8B8
+ * XREFs of HalpAddChildPdo @ 0x1406FC4F8
  * Callers:
- *     HalpAddDevice @ 0x1406FE8E0 (HalpAddDevice.c)
+ *     HalpAddDevice @ 0x1406FC520 (HalpAddDevice.c)
  * Callees:
  *     <none>
  */

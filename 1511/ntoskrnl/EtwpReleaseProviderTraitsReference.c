@@ -14,7 +14,7 @@ __int64 __fastcall EtwpReleaseProviderTraitsReference(__int64 a1)
 {
   __int64 v1; // rbx
   struct _FAST_MUTEX *v3; // rdi
-  __int128 *v4; // rsi
+  _RTL_RB_TREE *v4; // rsi
 
   v1 = _InterlockedExchange64((volatile __int64 *)(a1 + 104), 0LL);
   if ( v1 )
@@ -22,7 +22,7 @@ __int64 __fastcall EtwpReleaseProviderTraitsReference(__int64 a1)
     if ( (*(_BYTE *)(a1 + 98) & 1) != 0 )
     {
       v3 = &EtwpProviderTraitsKmMutex;
-      v4 = &EtwpProviderTraitsKmTree;
+      v4 = (_RTL_RB_TREE *)&EtwpProviderTraitsKmTree;
     }
     else
     {
@@ -31,7 +31,7 @@ __int64 __fastcall EtwpReleaseProviderTraitsReference(__int64 a1)
     }
     ExAcquireFastMutex(v3);
     if ( (*(_DWORD *)(v1 + 24))-- == 1 )
-      RtlRbRemoveNode((unsigned __int64 *)v4, (unsigned __int64 *)v1);
+      RtlRbRemoveNode(v4, (PRTL_BALANCED_NODE)v1);
     else
       v1 = 0LL;
     KeReleaseGuardedMutex(v3);

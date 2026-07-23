@@ -1,12 +1,12 @@
 /*
- * XREFs of PpmIdleStartCsVetoAccounting @ 0x140566E9C
+ * XREFs of PpmIdleStartCsVetoAccounting @ 0x1405670DC
  * Callers:
- *     PopCaptureSleepStudyStatistics @ 0x140570558 (PopCaptureSleepStudyStatistics.c)
+ *     PopCaptureSleepStudyStatistics @ 0x140570798 (PopCaptureSleepStudyStatistics.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     PpmIdleCsVetoAccountingUpdateBlock @ 0x14056695C (PpmIdleCsVetoAccountingUpdateBlock.c)
+ *     PpmIdleCsVetoAccountingUpdateBlock @ 0x140566B9C (PpmIdleCsVetoAccountingUpdateBlock.c)
  */
 
 __int64 PpmIdleStartCsVetoAccounting()

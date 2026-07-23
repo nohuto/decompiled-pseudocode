@@ -77,10 +77,13 @@ __int64 __fastcall MiFillNoReservationCluster(__int64 a1, __int64 a2, _QWORD *a3
       goto LABEL_34;
     v18 = *(_QWORD *)(v10 + 8) | 0x8000000000000000uLL;
     _InterlockedAnd64((volatile signed __int64 *)(v10 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v11 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v11 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -98,10 +101,10 @@ __int64 __fastcall MiFillNoReservationCluster(__int64 a1, __int64 a2, _QWORD *a3
     {
 LABEL_13:
       _InterlockedAnd64((volatile signed __int64 *)(v10 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v12 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v12 <= 0xFu && (unsigned __int8)v11 <= 0xFu && v12 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v12 <= 0xFu && (unsigned __int8)v11 <= 0xFu && v12 >= 2u )
         {
           v13 = KeGetCurrentPrcb();
           v14 = v13->SchedulerAssist;
@@ -119,10 +122,10 @@ LABEL_13:
 LABEL_34:
       v23 = MiReferencePageForModifiedWrite(48 * v9 - 0x220000000000LL, v29);
       _InterlockedAnd64((volatile signed __int64 *)(v10 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v24 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v24 <= 0xFu && (unsigned __int8)v11 <= 0xFu && v24 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v24 <= 0xFu && (unsigned __int8)v11 <= 0xFu && v24 >= 2u )
         {
           v25 = KeGetCurrentPrcb();
           v26 = v25->SchedulerAssist;

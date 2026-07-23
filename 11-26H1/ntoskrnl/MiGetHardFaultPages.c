@@ -1,15 +1,15 @@
 /*
- * XREFs of MiGetHardFaultPages @ 0x140372958
+ * XREFs of MiGetHardFaultPages @ 0x140374708
  * Callers:
- *     MiBuildMdlForMappedFileFault @ 0x14036EBF0 (MiBuildMdlForMappedFileFault.c)
+ *     MiBuildMdlForMappedFileFault @ 0x140370990 (MiBuildMdlForMappedFileFault.c)
  * Callees:
- *     MiGetPageChain @ 0x140285DD0 (MiGetPageChain.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     MiInitializePageColorBase @ 0x14036FE20 (MiInitializePageColorBase.c)
- *     MiProtectionToCacheAttribute @ 0x140372270 (MiProtectionToCacheAttribute.c)
- *     MiUseSlabAllocator @ 0x140373DF4 (MiUseSlabAllocator.c)
- *     MiGetAvailablePagesBelowPriority @ 0x140406B20 (MiGetAvailablePagesBelowPriority.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     MiGetPageChain @ 0x140285330 (MiGetPageChain.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     MiInitializePageColorBase @ 0x140371BD0 (MiInitializePageColorBase.c)
+ *     MiProtectionToCacheAttribute @ 0x140374020 (MiProtectionToCacheAttribute.c)
+ *     MiUseSlabAllocator @ 0x140375BA4 (MiUseSlabAllocator.c)
+ *     MiGetAvailablePagesBelowPriority @ 0x1403FFC10 (MiGetAvailablePagesBelowPriority.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 char __fastcall MiGetHardFaultPages(

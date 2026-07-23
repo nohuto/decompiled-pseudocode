@@ -1,15 +1,15 @@
 /*
- * XREFs of PsCreatePartition @ 0x14077AA80
+ * XREFs of PsCreatePartition @ 0x14077A930
  * Callers:
- *     NtCreatePartition @ 0x14077A990 (NtCreatePartition.c)
- *     MiInitializePartitionSpecialPurposeMemory @ 0x1407FE3D4 (MiInitializePartitionSpecialPurposeMemory.c)
- *     PspInitializeSystemPartitionPhase0 @ 0x140C35F38 (PspInitializeSystemPartitionPhase0.c)
+ *     NtCreatePartition @ 0x14077A840 (NtCreatePartition.c)
+ *     MiInitializePartitionSpecialPurposeMemory @ 0x1407FEB44 (MiInitializePartitionSpecialPurposeMemory.c)
+ *     PspInitializeSystemPartitionPhase0 @ 0x140C38078 (PspInitializeSystemPartitionPhase0.c)
  * Callees:
- *     PsDereferencePartition @ 0x140275E60 (PsDereferencePartition.c)
- *     PspAllocatePartition @ 0x14077ABFC (PspAllocatePartition.c)
- *     SeSinglePrivilegeCheck @ 0x140853E90 (SeSinglePrivilegeCheck.c)
- *     ObCloseHandle @ 0x1408A2B10 (ObCloseHandle.c)
- *     PsReferencePartitionByHandle @ 0x140934434 (PsReferencePartitionByHandle.c)
+ *     PsDereferencePartition @ 0x14022B3F0 (PsDereferencePartition.c)
+ *     PspAllocatePartition @ 0x14077AAAC (PspAllocatePartition.c)
+ *     SeSinglePrivilegeCheck @ 0x140850150 (SeSinglePrivilegeCheck.c)
+ *     ObCloseHandle @ 0x1408AB1B0 (ObCloseHandle.c)
+ *     PsReferencePartitionByHandle @ 0x1408F6F54 (PsReferencePartitionByHandle.c)
  */
 
 __int64 __fastcall PsCreatePartition(__int64 a1, HANDLE *a2, int a3, int a4, KPROCESSOR_MODE PreviousMode, int a6)

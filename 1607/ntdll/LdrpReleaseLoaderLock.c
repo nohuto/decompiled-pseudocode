@@ -1,30 +1,30 @@
 /*
- * XREFs of LdrpReleaseLoaderLock @ 0x18002D55C
+ * XREFs of LdrpReleaseLoaderLock @ 0x18002D54C
  * Callers:
- *     RtlExitUserProcess @ 0x180006E60 (RtlExitUserProcess.c)
- *     LdrShutdownThread @ 0x180015E50 (LdrShutdownThread.c)
- *     LdrpInitializeThread @ 0x180016110 (LdrpInitializeThread.c)
- *     LdrUnlockLoaderLock @ 0x180029EC0 (LdrUnlockLoaderLock.c)
- *     LdrpPrepareModuleForExecution @ 0x18002DA88 (LdrpPrepareModuleForExecution.c)
- *     LdrpDecrementModuleLoadCountEx @ 0x18002F018 (LdrpDecrementModuleLoadCountEx.c)
- *     LdrQueryModuleInfoLocalLoaderUnlock @ 0x18006E300 (LdrQueryModuleInfoLocalLoaderUnlock.c)
- *     LdrEnumerateLoadedModules @ 0x18007A560 (LdrEnumerateLoadedModules.c)
- *     LdrpInitializeProcess @ 0x180091E34 (LdrpInitializeProcess.c)
- *     LdrInitShimEngineDynamic @ 0x1800D1D70 (LdrInitShimEngineDynamic.c)
- *     LdrpCompleteProcessCloning @ 0x1800D2B24 (LdrpCompleteProcessCloning.c)
+ *     RtlExitUserProcess @ 0x180006E50 (RtlExitUserProcess.c)
+ *     LdrShutdownThread @ 0x180015E40 (LdrShutdownThread.c)
+ *     LdrpInitializeThread @ 0x180016100 (LdrpInitializeThread.c)
+ *     LdrUnlockLoaderLock @ 0x180029EB0 (LdrUnlockLoaderLock.c)
+ *     LdrpPrepareModuleForExecution @ 0x18002DA78 (LdrpPrepareModuleForExecution.c)
+ *     LdrpDecrementModuleLoadCountEx @ 0x18002F008 (LdrpDecrementModuleLoadCountEx.c)
+ *     LdrQueryModuleInfoLocalLoaderUnlock @ 0x18006E2F0 (LdrQueryModuleInfoLocalLoaderUnlock.c)
+ *     LdrEnumerateLoadedModules @ 0x18007A550 (LdrEnumerateLoadedModules.c)
+ *     LdrpInitializeProcess @ 0x180091E24 (LdrpInitializeProcess.c)
+ *     LdrInitShimEngineDynamic @ 0x1800D1E30 (LdrInitShimEngineDynamic.c)
+ *     LdrpCompleteProcessCloning @ 0x1800D2BE4 (LdrpCompleteProcessCloning.c)
  * Callees:
- *     RtlLeaveCriticalSection @ 0x180019DC0 (RtlLeaveCriticalSection.c)
- *     LdrpLogError @ 0x180086114 (LdrpLogError.c)
- *     LdrpLogEtwEvent @ 0x1800D1538 (LdrpLogEtwEvent.c)
+ *     RtlLeaveCriticalSection @ 0x180019DB0 (RtlLeaveCriticalSection.c)
+ *     LdrpLogError @ 0x180086104 (LdrpLogError.c)
+ *     LdrpLogEtwEvent @ 0x1800D15F8 (LdrpLogEtwEvent.c)
  */
 
 __int64 __fastcall LdrpReleaseLoaderLock(__int64 a1, char a2, int a3)
 {
-  unsigned int v5; // esi
+  unsigned __int32 v5; // esi
   __int64 v6; // r8
   int v7; // r9d
 
-  v5 = RtlLeaveCriticalSection((__int64)&LdrpLoaderLock);
+  v5 = RtlLeaveCriticalSection(&LdrpLoaderLock);
   if ( a3 < 0 )
   {
     LOBYTE(v6) = a2;

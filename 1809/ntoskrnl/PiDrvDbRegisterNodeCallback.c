@@ -1,13 +1,13 @@
 /*
- * XREFs of PiDrvDbRegisterNodeCallback @ 0x140763870
+ * XREFs of PiDrvDbRegisterNodeCallback @ 0x140764A60
  * Callers:
  *     <none>
  * Callees:
- *     RtlStringCchPrintfW @ 0x1400923A8 (RtlStringCchPrintfW.c)
- *     _wcsicmp @ 0x140195930 (_wcsicmp.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     PiDrvDbRegisterNode @ 0x14073AA50 (PiDrvDbRegisterNode.c)
+ *     RtlStringCchPrintfW @ 0x1400922E8 (RtlStringCchPrintfW.c)
+ *     _wcsicmp @ 0x140195A70 (_wcsicmp.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     PiDrvDbRegisterNode @ 0x14073BC40 (PiDrvDbRegisterNode.c)
  */
 
 bool __fastcall PiDrvDbRegisterNodeCallback(const WCHAR *a1, int *a2)

@@ -1,12 +1,11 @@
 /*
- * XREFs of IoAllocateAdapterChannel @ 0x140596830
+ * XREFs of IoAllocateAdapterChannel @ 0x140593810
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
-// local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall IoAllocateAdapterChannel(
         PDMA_ADAPTER DmaAdapter,
         PDEVICE_OBJECT DeviceObject,
@@ -14,5 +13,5 @@ NTSTATUS __stdcall IoAllocateAdapterChannel(
         PDRIVER_CONTROL ExecutionRoutine,
         PVOID Context)
 {
-  return guard_dispatch_icall_no_overrides(DmaAdapter, DeviceObject, *(_QWORD *)&NumberOfMapRegisters, ExecutionRoutine);
+  return guard_dispatch_icall_no_overrides(DmaAdapter, DeviceObject);
 }

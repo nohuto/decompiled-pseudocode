@@ -3,10 +3,10 @@
  * Callers:
  *     CcMdlRead @ 0x1407085F0 (CcMdlRead.c)
  * Callees:
- *     CcScheduleReadAheadNuma @ 0x14029CC2C (CcScheduleReadAheadNuma.c)
+ *     sub_14029CC2C @ 0x14029CC2C (sub_14029CC2C.c)
  */
 
 __int64 __fastcall CcScheduleReadAheadEx(void *a1)
 {
-  return CcScheduleReadAheadNuma(a1, 0LL);
+  return sub_14029CC2C(a1, 0LL);
 }

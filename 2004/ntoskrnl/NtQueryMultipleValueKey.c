@@ -28,13 +28,13 @@
  *     CmPostCallbackNotificationEx @ 0x140696470 (CmPostCallbackNotificationEx.c)
  */
 
-__int64 __fastcall NtQueryMultipleValueKey(
-        void *a1,
-        volatile void *a2,
-        unsigned int a3,
-        volatile void *a4,
-        _DWORD *a5,
-        _DWORD *a6)
+NTSTATUS __cdecl NtQueryMultipleValueKey(
+        HANDLE KeyHandle,
+        PKEY_VALUE_ENTRY ValueEntries,
+        ULONG EntryCount,
+        PVOID ValueBuffer,
+        PULONG BufferLength,
+        PULONG RequiredBufferLength)
 {
   __int64 v6; // rsi
   struct _KTHREAD *CurrentThread; // rax
@@ -42,7 +42,7 @@ __int64 __fastcall NtQueryMultipleValueKey(
   __int64 v10; // r8
   int PreviousMode; // r14d
   __int64 v12; // rdx
-  int MultipleValueKey; // edi
+  NTSTATUS MultipleValueKey; // edi
   __int64 v14; // rax
   SIZE_T v15; // rdi
   __int64 v16; // rcx
@@ -61,7 +61,7 @@ __int64 __fastcall NtQueryMultipleValueKey(
   BOOLEAN v30; // [rsp+42h] [rbp-1B6h]
   _DWORD v31[3]; // [rsp+44h] [rbp-1B4h] BYREF
   PADAPTER_OBJECT DmaAdapter; // [rsp+50h] [rbp-1A8h] BYREF
-  int v33; // [rsp+58h] [rbp-1A0h] BYREF
+  ULONG v33; // [rsp+58h] [rbp-1A0h] BYREF
   volatile void *Address; // [rsp+60h] [rbp-198h]
   PPRIVILEGE_SET Privileges; // [rsp+68h] [rbp-190h] BYREF
   int v36; // [rsp+70h] [rbp-188h]
@@ -69,18 +69,18 @@ __int64 __fastcall NtQueryMultipleValueKey(
   _DMA_OPERATIONS *DmaOperations; // [rsp+80h] [rbp-178h]
   PPRIVILEGE_SET v39; // [rsp+88h] [rbp-170h] BYREF
   _QWORD v40[2]; // [rsp+90h] [rbp-168h] BYREF
-  void *v41; // [rsp+A0h] [rbp-158h]
-  volatile void *v42; // [rsp+A8h] [rbp-150h]
+  HANDLE v41; // [rsp+A0h] [rbp-158h]
+  PKEY_VALUE_ENTRY v42; // [rsp+A8h] [rbp-150h]
   _QWORD v43[10]; // [rsp+B0h] [rbp-148h] BYREF
   _OWORD v44[2]; // [rsp+100h] [rbp-F8h] BYREF
   _OWORD v45[3]; // [rsp+120h] [rbp-D8h] BYREF
   __int64 v46[12]; // [rsp+150h] [rbp-A8h] BYREF
 
-  Address = a4;
-  v6 = a3;
-  v41 = a1;
-  v42 = a2;
-  v31[1] = a3;
+  Address = ValueBuffer;
+  v6 = EntryCount;
+  v41 = KeyHandle;
+  v42 = ValueEntries;
+  v31[1] = EntryCount;
   v33 = 0;
   memset(v45, 0, sizeof(v45));
   memset(v46, 0, 0x58uLL);
@@ -116,18 +116,18 @@ __int64 __fastcall NtQueryMultipleValueKey(
     DmaOperations = DmaAdapter->DmaOperations;
   if ( (_BYTE)PreviousMode == 1 )
   {
-    v14 = (__int64)a5;
-    if ( (unsigned __int64)a5 >= 0x7FFFFFFF0000LL )
+    v14 = (__int64)BufferLength;
+    if ( (unsigned __int64)BufferLength >= 0x7FFFFFFF0000LL )
       v14 = 0x7FFFFFFF0000LL;
     v15 = *(unsigned int *)v14;
     v31[0] = *(_DWORD *)v14;
     if ( (unsigned int)v6 > 0x10000 )
-      RtlRaiseStatus(0xC000009A);
-    ProbeForWrite(a2, 24 * v6, 4u);
-    if ( a6 )
+      RtlRaiseStatus(-1073741670);
+    ProbeForWrite(ValueEntries, 24 * v6, 4u);
+    if ( RequiredBufferLength )
     {
-      v16 = (__int64)a6;
-      if ( (unsigned __int64)a6 >= 0x7FFFFFFF0000LL )
+      v16 = (__int64)RequiredBufferLength;
+      if ( (unsigned __int64)RequiredBufferLength >= 0x7FFFFFFF0000LL )
         v16 = 0x7FFFFFFF0000LL;
       *(_DWORD *)v16 = *(_DWORD *)v16;
     }
@@ -137,7 +137,7 @@ __int64 __fastcall NtQueryMultipleValueKey(
   }
   else
   {
-    v31[0] = *a5;
+    v31[0] = *BufferLength;
     v18 = Address;
   }
   v19 = KeGetCurrentThread();
@@ -146,11 +146,11 @@ __int64 __fastcall NtQueryMultipleValueKey(
   if ( !CmpCallBackCount || ExIsResourceAcquiredSharedLite((PERESOURCE)&CmpRegistryLock) )
     goto LABEL_23;
   v43[0] = DmaAdapter;
-  v43[1] = a2;
+  v43[1] = ValueEntries;
   LODWORD(v43[2]) = v6;
   v43[3] = v18;
-  v43[4] = a5;
-  v43[5] = a6;
+  v43[4] = BufferLength;
+  v43[5] = RequiredBufferLength;
   v20 = CmpCallCallBacksEx(9u, (__int64)v43, 0LL, 1, 0x18u, (__int64)DmaAdapter, (__int64)v40);
   MultipleValueKey = v20;
   if ( v20 >= 0 )
@@ -161,7 +161,7 @@ LABEL_23:
     MultipleValueKey = CmKeyBodyRemapToVirtualForEnum(&DmaAdapter, v12, 1LL, &v37);
     if ( MultipleValueKey >= 0 )
     {
-      MultipleValueKey = CmpCaptureKeyValueArray((__int64)a2, v6, PreviousMode, &Privileges, &v39);
+      MultipleValueKey = CmpCaptureKeyValueArray((__int64)ValueEntries, v6, PreviousMode, &Privileges, &v39);
       if ( MultipleValueKey >= 0 )
       {
         MultipleValueKey = CmpBounceContextStart((__int64)v46, (void *)Address, v31[0], PreviousMode, 4);
@@ -179,9 +179,9 @@ LABEL_23:
           LODWORD(Address) = MultipleValueKey;
           KiUnstackDetachProcess((__int64)v45, 0LL);
           v21 = v31[0];
-          *a5 = v31[0];
-          if ( a6 )
-            *a6 = v33;
+          *BufferLength = v31[0];
+          if ( RequiredBufferLength )
+            *RequiredBufferLength = v33;
           if ( (int)(MultipleValueKey + 0x80000000) < 0 || MultipleValueKey == -2147483643 )
           {
             for ( i = 0LL; ; i = (unsigned int)(i + 1) )
@@ -191,10 +191,10 @@ LABEL_23:
                 break;
               v23 = 32LL * (unsigned int)i;
               v24 = Privileges;
-              v25 = 3 * i;
-              *((_DWORD *)a2 + 2 * v25 + 2) = *(ULONG *)((char *)&Privileges->Privilege[0].Attributes + v23);
-              *((_DWORD *)a2 + 2 * v25 + 3) = *(ULONG *)((char *)&v24[1].PrivilegeCount + v23);
-              *((_DWORD *)a2 + 2 * v25 + 4) = *(ULONG *)((char *)&v24[1].Control + v23);
+              v25 = i;
+              ValueEntries[v25].DataLength = *(ULONG *)((char *)&Privileges->Privilege[0].Attributes + v23);
+              ValueEntries[v25].DataOffset = *(ULONG *)((char *)&v24[1].PrivilegeCount + v23);
+              ValueEntries[v25].Type = *(ULONG *)((char *)&v24[1].Control + v23);
             }
             CmpBounceContextCopyDataToCallerBuffer(v46, v21);
           }
@@ -241,5 +241,5 @@ LABEL_33:
     CmSiFreeMemory(Privileges);
   if ( v39 )
     CmSiFreeMemory(v39);
-  return (unsigned int)MultipleValueKey;
+  return MultipleValueKey;
 }

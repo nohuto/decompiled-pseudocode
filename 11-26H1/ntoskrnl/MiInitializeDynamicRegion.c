@@ -1,17 +1,17 @@
 /*
- * XREFs of MiInitializeDynamicRegion @ 0x140CF97C4
+ * XREFs of MiInitializeDynamicRegion @ 0x140CFFB44
  * Callers:
- *     MiInitializeSystemCache @ 0x14086A918 (MiInitializeSystemCache.c)
- *     MiBuildPagedPool @ 0x140CF9A9C (MiBuildPagedPool.c)
- *     MiInitializeNonPagedPool @ 0x140CF9BA8 (MiInitializeNonPagedPool.c)
- *     MiBuildSystemDataViews @ 0x140CF9F28 (MiBuildSystemDataViews.c)
- *     MiInitializeKernelStacks @ 0x140CFC600 (MiInitializeKernelStacks.c)
- *     MiInitializeNonCachedMappingRegion @ 0x140CFEDA4 (MiInitializeNonCachedMappingRegion.c)
- *     MiInitializeSystemPtes @ 0x140CFF020 (MiInitializeSystemPtes.c)
- *     MiInitializeSystemImageRegion @ 0x140D00924 (MiInitializeSystemImageRegion.c)
+ *     MiInitializeSystemCache @ 0x140870CF8 (MiInitializeSystemCache.c)
+ *     MiBuildPagedPool @ 0x140CFFE1C (MiBuildPagedPool.c)
+ *     MiInitializeNonPagedPool @ 0x140CFFF28 (MiInitializeNonPagedPool.c)
+ *     MiBuildSystemDataViews @ 0x140D002A8 (MiBuildSystemDataViews.c)
+ *     MiInitializeKernelStacks @ 0x140D02980 (MiInitializeKernelStacks.c)
+ *     MiInitializeNonCachedMappingRegion @ 0x140D05144 (MiInitializeNonCachedMappingRegion.c)
+ *     MiInitializeSystemPtes @ 0x140D053C0 (MiInitializeSystemPtes.c)
+ *     MiInitializeSystemImageRegion @ 0x140D06CC4 (MiInitializeSystemImageRegion.c)
  * Callees:
- *     MiSystemVaToDynamicBitmap @ 0x1402A4D64 (MiSystemVaToDynamicBitmap.c)
- *     MiBuildDynamicRegion @ 0x1406F4FA0 (MiBuildDynamicRegion.c)
+ *     MiSystemVaToDynamicBitmap @ 0x1402A42B4 (MiSystemVaToDynamicBitmap.c)
+ *     MiBuildDynamicRegion @ 0x1406F9C10 (MiBuildDynamicRegion.c)
  */
 
 unsigned __int64 __fastcall MiInitializeDynamicRegion(int a1)

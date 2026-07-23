@@ -1,10 +1,10 @@
 /*
- * XREFs of MiBadPageInserted @ 0x1404E248C
+ * XREFs of MiBadPageInserted @ 0x1404DBB6C
  * Callers:
- *     MiInsertPageLockBadList @ 0x1404E5A90 (MiInsertPageLockBadList.c)
+ *     MiInsertPageLockBadList @ 0x1404DF030 (MiInsertPageLockBadList.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402DED10 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402C0B20 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
  */
 
 void __fastcall MiBadPageInserted(int a1)
@@ -18,11 +18,11 @@ void __fastcall MiBadPageInserted(int a1)
   else
   {
     v1 = &MiSystemPartition;
-    ExAcquireSpinLockExclusiveAtDpcLevel(&dword_140E399E0);
+    ExAcquireSpinLockExclusiveAtDpcLevel(&dword_140E39B60);
   }
-  ++stru_140E2EB88.SchedulerApc.SpareLong0;
-  if ( !HIBYTE(stru_140E2EB88.AffinityPrimaryGroup) )
-    HIBYTE(stru_140E2EB88.AffinityPrimaryGroup) = 1;
+  ++stru_140E2ED08.SchedulerApc.SpareLong0;
+  if ( !HIBYTE(stru_140E2ED08.AffinityPrimaryGroup) )
+    HIBYTE(stru_140E2ED08.AffinityPrimaryGroup) = 1;
   if ( v1 )
     ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)v1 + 1864);
 }

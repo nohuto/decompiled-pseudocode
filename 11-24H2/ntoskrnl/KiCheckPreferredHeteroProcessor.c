@@ -1,26 +1,26 @@
 /*
- * XREFs of KiCheckPreferredHeteroProcessor @ 0x14029D8F0
+ * XREFs of KiCheckPreferredHeteroProcessor @ 0x1402AC3E0
  * Callers:
- *     KiQuantumEnd @ 0x140293C70 (KiQuantumEnd.c)
- *     KiSendHeteroRescheduleIntRequestHelper @ 0x14029726C (KiSendHeteroRescheduleIntRequestHelper.c)
- *     KiUpdateRunTime @ 0x14029BDF0 (KiUpdateRunTime.c)
- *     KeUpdateThreadTag @ 0x140472120 (KeUpdateThreadTag.c)
+ *     KiQuantumEnd @ 0x1402A3870 (KiQuantumEnd.c)
+ *     KiSendHeteroRescheduleIntRequestHelper @ 0x1402A5F4C (KiSendHeteroRescheduleIntRequestHelper.c)
+ *     KiUpdateRunTime @ 0x1402AA8E0 (KiUpdateRunTime.c)
+ *     KeUpdateThreadTag @ 0x14046E3F0 (KeUpdateThreadTag.c)
  * Callees:
- *     KiHeteroScanQueueForPreemptionSwapTarget @ 0x140200CC0 (KiHeteroScanQueueForPreemptionSwapTarget.c)
- *     KiGenerateHeteroSets @ 0x140202060 (KiGenerateHeteroSets.c)
- *     KiFindBiasedProcessorIndex @ 0x1402026A4 (KiFindBiasedProcessorIndex.c)
- *     KiHeteroComputeThreadWorkloadProperties @ 0x140438600 (KiHeteroComputeThreadWorkloadProperties.c)
- *     Feature_HeteroRescheduleFixes__private_IsEnabledNoReportingNoInline @ 0x1404457F0 (Feature_HeteroRescheduleFixes__private_IsEnabledNoReportingNoInline.c)
- *     KiGetProcessorClassForPolicy @ 0x14047A714 (KiGetProcessorClassForPolicy.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     RtlCopyVolatileMemory @ 0x1406B5CF0 (RtlCopyVolatileMemory.c)
+ *     KiHeteroScanQueueForPreemptionSwapTarget @ 0x1403293B4 (KiHeteroScanQueueForPreemptionSwapTarget.c)
+ *     KiGenerateHeteroSets @ 0x14032A750 (KiGenerateHeteroSets.c)
+ *     KiFindBiasedProcessorIndex @ 0x14032AD94 (KiFindBiasedProcessorIndex.c)
+ *     KiHeteroComputeThreadWorkloadProperties @ 0x14042B1C0 (KiHeteroComputeThreadWorkloadProperties.c)
+ *     Feature_HeteroRescheduleFixes__private_IsEnabledNoReportingNoInline @ 0x14043D9A0 (Feature_HeteroRescheduleFixes__private_IsEnabledNoReportingNoInline.c)
+ *     KiGetProcessorClassForPolicy @ 0x140475D94 (KiGetProcessorClassForPolicy.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     RtlCopyVolatileMemory @ 0x1406B6C90 (RtlCopyVolatileMemory.c)
  */
 
 __int64 __fastcall KiCheckPreferredHeteroProcessor(__int64 a1, __int64 a2, int a3)
 {
   struct _KPRCB *CurrentPrcb; // rsi
   __int64 v6; // r15
-  unsigned __int64 v7; // rbx
+  __int64 v7; // rbx
   __int64 v8; // r11
   _WORD *v9; // rdx
   __int64 v10; // rax
@@ -43,7 +43,7 @@ __int64 __fastcall KiCheckPreferredHeteroProcessor(__int64 a1, __int64 a2, int a
   __int64 v28; // rdx
   __int64 v29; // rdx
   unsigned __int8 v30; // al
-  unsigned __int64 v31; // rdi
+  __int64 v31; // rdi
   unsigned __int8 v32; // cl
   __int64 v33; // rdx
   __int64 v34; // rax
@@ -75,7 +75,7 @@ __int64 __fastcall KiCheckPreferredHeteroProcessor(__int64 a1, __int64 a2, int a
     v11 = (unsigned __int16)v10 >= *v9 ? 0LL : *(_QWORD *)&v9[4 * v10 + 4];
     if ( (v11 & *(_QWORD *)(v6 + 128)) != 0 )
     {
-      KiGenerateHeteroSets(*(_QWORD *)(a2 + 192), v11, v38, SDWORD1(v37), SDWORD2(v37), (__int64)&v40);
+      KiGenerateHeteroSets(*(_QWORD *)(a2 + 192), v11, (unsigned __int8)v38, DWORD1(v37), DWORD2(v37), (__int64)&v40);
       if ( (*(_QWORD *)(a2 + 200) & v41) == 0 )
         return 1LL;
       v12 = ((__int64 (*)(void))Feature_HeteroRescheduleFixes__private_IsEnabledNoReportingNoInline)();
@@ -133,7 +133,7 @@ __int64 __fastcall KiCheckPreferredHeteroProcessor(__int64 a1, __int64 a2, int a
           for ( i = *((_QWORD *)&v40 + 1) & v21 & ~v22; i; i &= ~*(_QWORD *)(v27 + 200) )
           {
             _BitScanReverse64(&v26, i);
-            v27 = KiProcessorBlock[*((unsigned int *)qword_140F21E78
+            v27 = KiProcessorBlock[*((unsigned int *)qword_140F22998
                                    + 64 * *(unsigned __int16 *)(v6 + 136)
                                    + (unsigned int)v26)];
             v28 = *(_QWORD *)(v27 + 35408);
@@ -164,7 +164,7 @@ __int64 __fastcall KiCheckPreferredHeteroProcessor(__int64 a1, __int64 a2, int a
               v33 = 0LL;
               do
               {
-                if ( _bittest64((const __int64 *)&v31, v32) && *((_BYTE *)v43 + v33) == 1 )
+                if ( _bittest64(&v31, v32) && *((_BYTE *)v43 + v33) == 1 )
                   v7 |= 1LL << v33;
                 ++v32;
                 ++v33;

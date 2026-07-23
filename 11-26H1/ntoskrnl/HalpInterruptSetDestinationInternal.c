@@ -1,15 +1,15 @@
 /*
- * XREFs of HalpInterruptSetDestinationInternal @ 0x140428F00
+ * XREFs of HalpInterruptSetDestinationInternal @ 0x140435518
  * Callers:
- *     HalpInterruptSetDestination @ 0x140425E10 (HalpInterruptSetDestination.c)
+ *     HalpInterruptSetDestination @ 0x140432F20 (HalpInterruptSetDestination.c)
  * Callees:
- *     HalpInterruptSetLineStateInternal @ 0x14032DC5C (HalpInterruptSetLineStateInternal.c)
- *     HalpInterruptApplyOverrides @ 0x140426138 (HalpInterruptApplyOverrides.c)
- *     HalpInterruptLookupController @ 0x140426C98 (HalpInterruptLookupController.c)
- *     HalpInterruptDestinationToTarget @ 0x140427E00 (HalpInterruptDestinationToTarget.c)
- *     HalpInterruptFindBestRouting @ 0x140429194 (HalpInterruptFindBestRouting.c)
- *     HalpInterruptSetProblemEx @ 0x14042A15C (HalpInterruptSetProblemEx.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     HalpInterruptSetLineStateInternal @ 0x14032FC8C (HalpInterruptSetLineStateInternal.c)
+ *     HalpInterruptApplyOverrides @ 0x140433248 (HalpInterruptApplyOverrides.c)
+ *     HalpInterruptLookupController @ 0x140433DA8 (HalpInterruptLookupController.c)
+ *     HalpInterruptDestinationToTarget @ 0x140434F10 (HalpInterruptDestinationToTarget.c)
+ *     HalpInterruptFindBestRouting @ 0x1404357AC (HalpInterruptFindBestRouting.c)
+ *     HalpInterruptSetProblemEx @ 0x140436244 (HalpInterruptSetProblemEx.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall HalpInterruptSetDestinationInternal(__int64 *a1, __int64 a2, __int64 a3)

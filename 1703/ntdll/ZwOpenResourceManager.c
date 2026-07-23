@@ -6,11 +6,16 @@
  *     <none>
  */
 
-__int64 ZwOpenResourceManager()
+NTSTATUS __cdecl ZwOpenResourceManager(
+        PHANDLE ResourceManagerHandle,
+        ACCESS_MASK DesiredAccess,
+        HANDLE TmHandle,
+        LPGUID ResourceManagerGuid,
+        POBJECT_ATTRIBUTES ObjectAttributes)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 287LL;
+  result = 287;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

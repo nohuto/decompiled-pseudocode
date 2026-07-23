@@ -1,13 +1,13 @@
 /*
- * XREFs of MiLogStrongCodeDriverLoadFailure @ 0x1406595C0
+ * XREFs of MiLogStrongCodeDriverLoadFailure @ 0x1406596A4
  * Callers:
- *     MmLoadSystemImage @ 0x140482B2C (MmLoadSystemImage.c)
+ *     MmLoadSystemImage @ 0x140481880 (MmLoadSystemImage.c)
  * Callees:
- *     _TlgKeywordOn @ 0x140088D98 (_TlgKeywordOn.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     _TlgCreateSz @ 0x1401CDF00 (_TlgCreateSz.c)
- *     _TlgWriteEx @ 0x1401E12FC (_TlgWriteEx.c)
+ *     _TlgKeywordOn @ 0x14010CF88 (_TlgKeywordOn.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     _TlgCreateSz @ 0x1401CDD4C (_TlgCreateSz.c)
+ *     _TlgWriteEx @ 0x1401E1128 (_TlgWriteEx.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */
 
@@ -24,11 +24,11 @@ void __fastcall MiLogStrongCodeDriverLoadFailure(const CHAR *Src, __int64 a2)
   int v12; // [rsp+60h] [rbp+0h] BYREF
 
   v2 = (unsigned __int64)&v12 & 0xFFFFFFFFFFFFFFE0uLL;
-  if ( hProvider )
+  if ( qword_1403277E0 )
   {
-    if ( hProvider->LevelPlus1 > 5 )
+    if ( qword_1403277E0->LevelPlus1 > 5 )
     {
-      if ( TlgKeywordOn(hProvider, 0x400000000000uLL) )
+      if ( TlgKeywordOn(qword_1403277E0, 0x400000000000uLL) )
       {
         *(_DWORD *)v2 = *(_DWORD *)(a2 + 120);
         *(_DWORD *)(((unsigned __int64)&v12 & 0xFFFFFFFFFFFFFFE0uLL) + 4) = *(_DWORD *)(a2 + 156);
@@ -48,7 +48,7 @@ void __fastcall MiLogStrongCodeDriverLoadFailure(const CHAR *Src, __int64 a2)
         *(_DWORD *)(((unsigned __int64)&v12 & 0xFFFFFFFFFFFFFFE0uLL) + 0x48) = 2;
         *(_DWORD *)(((unsigned __int64)&v12 & 0xFFFFFFFFFFFFFFE0uLL) + 0x68) = 4;
         *(_DWORD *)(((unsigned __int64)&v12 & 0xFFFFFFFFFFFFFFE0uLL) + 0x78) = 4;
-        TlgWriteEx(v6, &unk_14027C39A, 0LL, 1u, 0LL, 0LL, 7u, (EVENT_DATA_DESCRIPTOR *)(v2 + 16));
+        TlgWriteEx(v6, &unk_14027C49A, 0LL, 1u, 0LL, 0LL, 7u, (EVENT_DATA_DESCRIPTOR *)(v2 + 16));
       }
     }
   }
@@ -71,13 +71,13 @@ void __fastcall MiLogStrongCodeDriverLoadFailure(const CHAR *Src, __int64 a2)
       *(_WORD *)(v9 + 26) = *(_WORD *)(a2 + 88);
       *(_DWORD *)(v9 + 40) = *(_DWORD *)(a2 + 120);
       *(_DWORD *)(v9 + 44) = *(_DWORD *)(a2 + 156);
-      v11 = (__int64 *)qword_140326838;
-      if ( *(PVOID **)qword_140326838 != &qword_140326830 )
+      v11 = (__int64 *)qword_140326878;
+      if ( *(PVOID **)qword_140326878 != &qword_140326870 )
         __fastfail(3u);
-      *(_QWORD *)v9 = &qword_140326830;
+      *(_QWORD *)v9 = &qword_140326870;
       *(_QWORD *)(v9 + 8) = v11;
       *v11 = v9;
-      qword_140326838 = v9;
+      qword_140326878 = v9;
     }
   }
 }

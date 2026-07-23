@@ -1,17 +1,17 @@
 /*
- * XREFs of MmAssignProcessToJob @ 0x1400B934C
+ * XREFs of MmAssignProcessToJob @ 0x1400B71DC
  * Callers:
- *     PspAssignProcessToJob @ 0x1404F2C60 (PspAssignProcessToJob.c)
- *     PspImplicitAssignProcessToJob @ 0x1404F3670 (PspImplicitAssignProcessToJob.c)
+ *     PspAssignProcessToJob @ 0x1404D5BEC (PspAssignProcessToJob.c)
+ *     PspImplicitAssignProcessToJob @ 0x1404D65FC (PspImplicitAssignProcessToJob.c)
  * Callees:
- *     UNLOCK_PAGE_TABLE_COMMITMENT @ 0x140029D40 (UNLOCK_PAGE_TABLE_COMMITMENT.c)
- *     LOCK_PAGE_TABLE_COMMITMENT @ 0x14002BF50 (LOCK_PAGE_TABLE_COMMITMENT.c)
- *     KiStackAttachProcess @ 0x1400CD1F0 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x1400CE820 (KiUnstackDetachProcess.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     MiUnlockVadRange @ 0x1404F37E8 (MiUnlockVadRange.c)
- *     MiLockVadRange @ 0x1404F38DC (MiLockVadRange.c)
- *     PspChangeJobMemoryUsageByProcess @ 0x140507750 (PspChangeJobMemoryUsageByProcess.c)
+ *     UNLOCK_PAGE_TABLE_COMMITMENT @ 0x1400298C0 (UNLOCK_PAGE_TABLE_COMMITMENT.c)
+ *     LOCK_PAGE_TABLE_COMMITMENT @ 0x14002BAD0 (LOCK_PAGE_TABLE_COMMITMENT.c)
+ *     KiStackAttachProcess @ 0x1400CB090 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x1400CC6C0 (KiUnstackDetachProcess.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     MiUnlockVadRange @ 0x1404D6774 (MiUnlockVadRange.c)
+ *     MiLockVadRange @ 0x1404D6868 (MiLockVadRange.c)
+ *     PspChangeJobMemoryUsageByProcess @ 0x1404EA6E0 (PspChangeJobMemoryUsageByProcess.c)
  */
 
 __int64 __fastcall MmAssignProcessToJob(ULONG_PTR a1, __int64 a2)

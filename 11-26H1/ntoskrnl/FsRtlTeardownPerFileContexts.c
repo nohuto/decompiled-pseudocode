@@ -1,60 +1,55 @@
 /*
- * XREFs of FsRtlTeardownPerFileContexts @ 0x140A81F10
+ * XREFs of FsRtlTeardownPerFileContexts @ 0x140A87D80
  * Callers:
  *     <none>
  * Callees:
- *     FsRtlAcquireAutoExpandPushLockExclusive @ 0x140449634 (FsRtlAcquireAutoExpandPushLockExclusive.c)
- *     FsRtlReleaseAutoExpandPushLockExclusive @ 0x1404497DC (FsRtlReleaseAutoExpandPushLockExclusive.c)
- *     ExCleanupAutoExpandPushLock @ 0x1404638C0 (ExCleanupAutoExpandPushLock.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     FsRtlAcquireAutoExpandPushLockExclusive @ 0x14021AF74 (FsRtlAcquireAutoExpandPushLockExclusive.c)
+ *     FsRtlReleaseAutoExpandPushLockExclusive @ 0x14021B11C (FsRtlReleaseAutoExpandPushLockExclusive.c)
+ *     ExCleanupAutoExpandPushLock @ 0x14045C880 (ExCleanupAutoExpandPushLock.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __stdcall FsRtlTeardownPerFileContexts(PVOID *PerFileContextPointer)
 {
   __int64 v1; // rdx
-  __int64 v2; // r8
-  struct _KLOCK_ENTRIES *v3; // r9
-  struct _KTHREAD *v4; // rbx
+  struct _KTHREAD *v2; // rbx
   __int64 QuantumTarget; // rcx
   struct _LIST_ENTRY **p_Blink; // rdi
-  struct _LIST_ENTRY *v7; // rsi
+  struct _LIST_ENTRY *v5; // rsi
   struct _LIST_ENTRY *Flink; // rax
-  __int64 v9; // rdx
-  __int64 v10; // rdx
-  __int64 v11; // r8
-  struct _KLOCK_ENTRIES *v12; // r9
+  __int64 v7; // rdx
 
-  v4 = (struct _KTHREAD *)_InterlockedExchange64((volatile __int64 *)PerFileContextPointer, 0LL);
-  if ( v4 )
+  v2 = (struct _KTHREAD *)_InterlockedExchange64((volatile __int64 *)PerFileContextPointer, 0LL);
+  if ( v2 )
   {
-    QuantumTarget = v4->QuantumTarget;
+    QuantumTarget = v2->QuantumTarget;
     if ( QuantumTarget )
     {
       guard_dispatch_icall_no_overrides(QuantumTarget, v1);
-      v4->QuantumTarget = 0LL;
+      v2->QuantumTarget = 0LL;
     }
-    p_Blink = &v4->Header.WaitListHead.Blink;
+    p_Blink = &v2->Header.WaitListHead.Blink;
     if ( *p_Blink != (struct _LIST_ENTRY *)p_Blink )
     {
-      FsRtlAcquireAutoExpandPushLockExclusive((__int64)v4, v1, v2, v3);
+      FsRtlAcquireAutoExpandPushLockExclusive((__int64)v2);
       while ( 1 )
       {
-        v7 = *p_Blink;
+        v5 = *p_Blink;
         if ( *p_Blink == (struct _LIST_ENTRY *)p_Blink )
           break;
-        Flink = v7->Flink;
-        if ( (struct _LIST_ENTRY **)v7->Blink != p_Blink || Flink->Blink != v7 )
+        Flink = v5->Flink;
+        if ( (struct _LIST_ENTRY **)v5->Blink != p_Blink || Flink->Blink != v5 )
           __fastfail(3u);
         *p_Blink = Flink;
         Flink->Blink = (struct _LIST_ENTRY *)p_Blink;
-        FsRtlReleaseAutoExpandPushLockExclusive(v4);
-        guard_dispatch_icall_no_overrides((__int64)v7, v9);
-        FsRtlAcquireAutoExpandPushLockExclusive((__int64)v4, v10, v11, v12);
+        FsRtlReleaseAutoExpandPushLockExclusive(v2);
+        guard_dispatch_icall_no_overrides((__int64)v5, v7);
+        FsRtlAcquireAutoExpandPushLockExclusive((__int64)v2);
       }
-      FsRtlReleaseAutoExpandPushLockExclusive(v4);
+      FsRtlReleaseAutoExpandPushLockExclusive(v2);
     }
-    ExCleanupAutoExpandPushLock((__int64)v4);
-    ExFreePoolWithTag(v4, 0x63665346u);
+    ExCleanupAutoExpandPushLock((__int64)v2);
+    ExFreePoolWithTag(v2, 0x63665346u);
   }
 }

@@ -1,21 +1,21 @@
 /*
- * XREFs of MmPrefetchPagesEx @ 0x14042C0DC
+ * XREFs of MmPrefetchPagesEx @ 0x14042AFAC
  * Callers:
- *     PfpPrefetchFilesTrickle @ 0x14042B7B4 (PfpPrefetchFilesTrickle.c)
- *     MmPrefetchPages @ 0x14042C0D4 (MmPrefetchPages.c)
- *     PfSnPrefetchSections @ 0x140506F14 (PfSnPrefetchSections.c)
- *     HvpViewMapPrefetchFile @ 0x140610074 (HvpViewMapPrefetchFile.c)
- *     PfpPrefetchFiles @ 0x140668CA0 (PfpPrefetchFiles.c)
+ *     PfpPrefetchFilesTrickle @ 0x14042A684 (PfpPrefetchFilesTrickle.c)
+ *     MmPrefetchPages @ 0x14042AFA4 (MmPrefetchPages.c)
+ *     PfSnPrefetchSections @ 0x1404E9EA4 (PfSnPrefetchSections.c)
+ *     HvpViewMapPrefetchFile @ 0x140610128 (HvpViewMapPrefetchFile.c)
+ *     PfpPrefetchFiles @ 0x140668D84 (PfpPrefetchFiles.c)
  * Callees:
- *     MiPfCompletePrefetchIos @ 0x140023914 (MiPfCompletePrefetchIos.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     MiFreeInPageSupportBlock @ 0x1400C63A0 (MiFreeInPageSupportBlock.c)
- *     MiPfPutPagesInTransition @ 0x1400E5100 (MiPfPutPagesInTransition.c)
+ *     MiPfCompletePrefetchIos @ 0x140023494 (MiPfCompletePrefetchIos.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     MiFreeInPageSupportBlock @ 0x1400C4240 (MiFreeInPageSupportBlock.c)
+ *     MiPfPutPagesInTransition @ 0x1400E2FA0 (MiPfPutPagesInTransition.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     MiReleaseReadListResources @ 0x14042C750 (MiReleaseReadListResources.c)
- *     MiPfExecuteReadList @ 0x14042C854 (MiPfExecuteReadList.c)
- *     MiPfPrepareReadList @ 0x140445CF0 (MiPfPrepareReadList.c)
+ *     MiReleaseReadListResources @ 0x14042B620 (MiReleaseReadListResources.c)
+ *     MiPfExecuteReadList @ 0x14042B724 (MiPfExecuteReadList.c)
+ *     MiPfPrepareReadList @ 0x140444BC0 (MiPfPrepareReadList.c)
  */
 
 __int64 __fastcall MmPrefetchPagesEx(unsigned int a1, __int64 a2, _QWORD *a3)

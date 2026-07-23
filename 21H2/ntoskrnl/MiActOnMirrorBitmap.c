@@ -1,13 +1,13 @@
 /*
- * XREFs of MiActOnMirrorBitmap @ 0x140777634
+ * XREFs of MiActOnMirrorBitmap @ 0x1407777F4
  * Callers:
- *     MiUpdateMirrorBitmaps @ 0x1407775F4 (MiUpdateMirrorBitmaps.c)
- *     MmDuplicateMemory @ 0x14099525C (MmDuplicateMemory.c)
- *     MiMirrorBrownPhase @ 0x14099568C (MiMirrorBrownPhase.c)
+ *     MiUpdateMirrorBitmaps @ 0x1407777B4 (MiUpdateMirrorBitmaps.c)
+ *     MmDuplicateMemory @ 0x14099625C (MmDuplicateMemory.c)
+ *     MiMirrorBrownPhase @ 0x14099668C (MiMirrorBrownPhase.c)
  * Callees:
- *     RtlClearBitsEx @ 0x1402FE300 (RtlClearBitsEx.c)
- *     RtlSetBitsEx @ 0x140316A00 (RtlSetBitsEx.c)
- *     MiSplitMirrorBitMap @ 0x1407776D0 (MiSplitMirrorBitMap.c)
+ *     RtlClearBitsEx @ 0x140309050 (RtlClearBitsEx.c)
+ *     RtlSetBitsEx @ 0x140321750 (RtlSetBitsEx.c)
+ *     MiSplitMirrorBitMap @ 0x140777890 (MiSplitMirrorBitMap.c)
  */
 
 __int64 __fastcall MiActOnMirrorBitmap(__int64 a1, int a2)

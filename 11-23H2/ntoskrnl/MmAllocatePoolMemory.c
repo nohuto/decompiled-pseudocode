@@ -1,13 +1,13 @@
 /*
- * XREFs of MmAllocatePoolMemory @ 0x1402867C8
+ * XREFs of MmAllocatePoolMemory @ 0x140286A58
  * Callers:
- *     RtlpHpEnvAllocVA @ 0x140286620 (RtlpHpEnvAllocVA.c)
+ *     RtlpHpEnvAllocVA @ 0x1402868B0 (RtlpHpEnvAllocVA.c)
  * Callees:
  *     MmFreePoolMemory @ 0x140212224 (MmFreePoolMemory.c)
- *     MiCommitPoolMemory @ 0x140285E30 (MiCommitPoolMemory.c)
- *     MiInitializePoolCommitPacket @ 0x140286900 (MiInitializePoolCommitPacket.c)
- *     MiReservePoolMemory @ 0x14035AD90 (MiReservePoolMemory.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     MiCommitPoolMemory @ 0x1402860C0 (MiCommitPoolMemory.c)
+ *     MiInitializePoolCommitPacket @ 0x140286B90 (MiInitializePoolCommitPacket.c)
+ *     MiReservePoolMemory @ 0x14035AF30 (MiReservePoolMemory.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 __int64 __fastcall MmAllocatePoolMemory(ULONG_PTR *a1, ULONG_PTR *a2, int a3, int a4, char a5, unsigned int a6)

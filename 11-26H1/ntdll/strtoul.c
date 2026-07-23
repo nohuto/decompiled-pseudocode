@@ -1,9 +1,9 @@
 /*
- * XREFs of strtoul @ 0x18012D2C0
+ * XREFs of strtoul @ 0x18012D030
  * Callers:
  *     <none>
  * Callees:
- *     strtoxlX @ 0x18012D014 (strtoxlX.c)
+ *     strtoxlX @ 0x18012CD80 (strtoxlX.c)
  */
 
 unsigned int __cdecl strtoul(const char *String, char **EndPtr, int Radix)

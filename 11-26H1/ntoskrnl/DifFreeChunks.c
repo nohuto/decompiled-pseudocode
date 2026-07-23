@@ -1,15 +1,15 @@
 /*
- * XREFs of DifFreeChunks @ 0x14064CF4C
+ * XREFs of DifFreeChunks @ 0x140650B2C
  * Callers:
- *     DifTerminateObjectTracking @ 0x14064B400 (DifTerminateObjectTracking.c)
- *     DifClean @ 0x14064B580 (DifClean.c)
+ *     DifTerminateObjectTracking @ 0x14064EFE0 (DifTerminateObjectTracking.c)
+ *     DifClean @ 0x14064F160 (DifClean.c)
  * Callees:
- *     RtlpInterlockedPopEntrySList @ 0x140730C90 (RtlpInterlockedPopEntrySList.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140735860 (RtlpInterlockedPopEntrySList.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
-void *__fastcall DifFreeChunks(union _SLIST_HEADER *a1)
+void *__fastcall DifFreeChunks(_SLIST_HEADER *a1)
 {
   PSLIST_ENTRY v1; // rax
 

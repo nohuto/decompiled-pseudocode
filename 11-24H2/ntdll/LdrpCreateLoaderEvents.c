@@ -1,24 +1,18 @@
 /*
- * XREFs of LdrpCreateLoaderEvents @ 0x1801072EC
+ * XREFs of LdrpCreateLoaderEvents @ 0x18010221C
  * Callers:
- *     LdrpInitParallelLoadingSupport @ 0x180109D48 (LdrpInitParallelLoadingSupport.c)
- *     LdrpCompleteProcessCloning @ 0x180160B48 (LdrpCompleteProcessCloning.c)
+ *     LdrpInitParallelLoadingSupport @ 0x180104C78 (LdrpInitParallelLoadingSupport.c)
+ *     LdrpCompleteProcessCloning @ 0x18015EF08 (LdrpCompleteProcessCloning.c)
  * Callees:
- *     ZwCreateEvent @ 0x180162590 (ZwCreateEvent.c)
+ *     ZwCreateEvent @ 0x180160950 (ZwCreateEvent.c)
  */
 
-__int64 LdrpCreateLoaderEvents()
+int LdrpCreateLoaderEvents()
 {
-  __int64 result; // rax
-  char v1; // [rsp+20h] [rbp-18h]
-  int v2; // [rsp+20h] [rbp-18h]
+  int result; // eax
 
-  v1 = 0;
-  result = ZwCreateEvent(&LdrpLoadCompleteEvent, 2031619LL, 0LL, 1LL, v1);
-  if ( (int)result >= 0 )
-  {
-    LOBYTE(v2) = 0;
-    return ZwCreateEvent(&LdrpWorkCompleteEvent, 2031619LL, 0LL, 1LL, v2);
-  }
+  result = ZwCreateEvent(&LdrpLoadCompleteEvent, 0x1F0003u, 0LL, SynchronizationEvent, 0);
+  if ( result >= 0 )
+    return ZwCreateEvent(&LdrpWorkCompleteEvent, 0x1F0003u, 0LL, SynchronizationEvent, 0);
   return result;
 }

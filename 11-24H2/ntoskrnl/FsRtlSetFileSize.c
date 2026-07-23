@@ -1,15 +1,15 @@
 /*
- * XREFs of FsRtlSetFileSize @ 0x14094588C
+ * XREFs of FsRtlSetFileSize @ 0x14098A000
  * Callers:
- *     MiCreateDataFileMap @ 0x140943D3C (MiCreateDataFileMap.c)
- *     MmExtendSection @ 0x140946018 (MmExtendSection.c)
+ *     MmExtendSection @ 0x14098A134 (MmExtendSection.c)
+ *     MiCreateDataFileMap @ 0x14098A990 (MiCreateDataFileMap.c)
  * Callees:
- *     IoAllocateIrpEx @ 0x140253BB0 (IoAllocateIrpEx.c)
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     IoGetRelatedDeviceObject @ 0x140373C70 (IoGetRelatedDeviceObject.c)
- *     IofCallDriver @ 0x140374160 (IofCallDriver.c)
- *     KeInitializeEvent @ 0x140409D80 (KeInitializeEvent.c)
- *     IoSetThreadHardErrorMode @ 0x14045D2F0 (IoSetThreadHardErrorMode.c)
+ *     IoGetRelatedDeviceObject @ 0x14025C530 (IoGetRelatedDeviceObject.c)
+ *     IofCallDriver @ 0x14025CA20 (IofCallDriver.c)
+ *     IoAllocateIrpEx @ 0x1402841C0 (IoAllocateIrpEx.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     KeInitializeEvent @ 0x140402260 (KeInitializeEvent.c)
+ *     IoSetThreadHardErrorMode @ 0x1404523B0 (IoSetThreadHardErrorMode.c)
  */
 
 __int64 __fastcall FsRtlSetFileSize(PFILE_OBJECT FileObject, __int64 *a2)

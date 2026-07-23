@@ -25,12 +25,11 @@ void __fastcall PerfDiagpProxyWorker(_DWORD *a1)
   int updated; // eax
   char v6; // di
   const wchar_t *v7; // rcx
-  SIZE_T Length; // [rsp+20h] [rbp-18h]
-  __int64 v9; // [rsp+40h] [rbp+8h] BYREF
+  ULONG ReturnLength; // [rsp+40h] [rbp+8h] BYREF
 
   if ( !a1 )
     return;
-  LODWORD(v9) = 0;
+  ReturnLength = 0;
   v1 = a1[8];
   ExFreePoolWithTag(a1, 0);
   CurrentThread = KeGetCurrentThread();
@@ -83,14 +82,7 @@ LABEL_9:
     {
 LABEL_16:
       PerfDiagpInitializeLoggerInfo(0LL, 0LL);
-      LODWORD(Length) = dword_140C32730[0];
-      NtTraceControl(
-        2u,
-        (unsigned int *)dword_140C32730,
-        dword_140C32730[0],
-        (volatile signed __int64 *)dword_140C32730,
-        Length,
-        (unsigned __int64)&v9);
+      NtTraceControl(EtwStopLoggerCode, &OutputBuffer, OutputBuffer, &OutputBuffer, OutputBuffer, &ReturnLength);
       goto LABEL_11;
     }
     if ( v1 != 5 )

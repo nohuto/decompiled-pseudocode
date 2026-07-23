@@ -1,14 +1,14 @@
 /*
- * XREFs of PoTraceSystemTimerResolution @ 0x140A66B30
+ * XREFs of PoTraceSystemTimerResolution @ 0x140A73B00
  * Callers:
- *     ExTraceTimerResolution @ 0x1404EA784 (ExTraceTimerResolution.c)
- *     NtSetTimerResolution @ 0x140A667F0 (NtSetTimerResolution.c)
+ *     ExTraceTimerResolution @ 0x1404E3B34 (ExTraceTimerResolution.c)
+ *     NtSetTimerResolution @ 0x140A737C0 (NtSetTimerResolution.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     RtlReadULong64FromUser @ 0x14077F554 (RtlReadULong64FromUser.c)
- *     RtlReadULongFromUser @ 0x14077F590 (RtlReadULongFromUser.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     RtlReadULong64FromUser @ 0x140782054 (RtlReadULong64FromUser.c)
+ *     RtlReadULongFromUser @ 0x140782090 (RtlReadULongFromUser.c)
  */
 
 char __fastcall PoTraceSystemTimerResolution(char a1, __int64 a2)
@@ -47,25 +47,19 @@ char __fastcall PoTraceSystemTimerResolution(char a1, __int64 a2)
 
   if ( a1 )
   {
-    LOBYTE(v4) = EtwEventEnabled(
-                   *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-                   &POP_ETW_EVENT_TIME_RESOLUTION_REQUEST_RUNDOWN);
+    LOBYTE(v4) = EtwEventEnabled(PopDiagHandle, &POP_ETW_EVENT_TIME_RESOLUTION_REQUEST_RUNDOWN);
     if ( (_BYTE)v4
-      || (LOBYTE(v4) = EtwEventEnabled(
-                         *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-                         &POP_ETW_EVENT_TIME_RESOLUTION_STACK_RUNDOWN),
-          v5 = 0,
-          (_BYTE)v4) )
+      || (LOBYTE(v4) = EtwEventEnabled(PopDiagHandle, &POP_ETW_EVENT_TIME_RESOLUTION_STACK_RUNDOWN), v5 = 0, (_BYTE)v4) )
     {
       v5 = 1;
     }
   }
   else
   {
-    LOBYTE(v4) = EtwEventEnabled(*(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16], &POP_ETW_EVENT_STRS);
+    LOBYTE(v4) = EtwEventEnabled(PopDiagHandle, &POP_ETW_EVENT_STRS);
     v5 = v4;
   }
-  if ( byte_140E67628 && v5 )
+  if ( PopDiagHandleRegistered && v5 )
   {
     v6 = *(unsigned __int16 **)(a2 + 848);
     v18 = *v6 >> 1;
@@ -116,7 +110,7 @@ LABEL_21:
       v15 = &POP_ETW_EVENT_STRS;
 LABEL_30:
       v33 = 4LL;
-      LOBYTE(v4) = EtwWrite(*(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16], v15, 0LL, 6u, &UserData);
+      LOBYTE(v4) = EtwWrite(PopDiagHandle, v15, 0LL, 6u, &UserData);
       return v4;
     }
     v4 = *(_DWORD *)(a2 + 500);
@@ -124,12 +118,7 @@ LABEL_30:
     {
       v32 = &v20;
       v33 = 4LL;
-      LOBYTE(v4) = EtwWrite(
-                     *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-                     &POP_ETW_EVENT_TIME_RESOLUTION_REQUEST_RUNDOWN,
-                     0LL,
-                     5u,
-                     &UserData);
+      LOBYTE(v4) = EtwWrite(PopDiagHandle, &POP_ETW_EVENT_TIME_RESOLUTION_REQUEST_RUNDOWN, 0LL, 5u, &UserData);
     }
     v16 = *(int **)(a2 + 1456);
     if ( v16 && *v16 )

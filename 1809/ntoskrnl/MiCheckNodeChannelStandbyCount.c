@@ -1,5 +1,5 @@
 /*
- * XREFs of MiCheckNodeChannelStandbyCount @ 0x1402BF8F0
+ * XREFs of MiCheckNodeChannelStandbyCount @ 0x1402BFAE0
  * Callers:
  *     MiGetPage @ 0x140049D50 (MiGetPage.c)
  * Callees:

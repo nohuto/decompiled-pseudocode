@@ -1,7 +1,7 @@
 /*
- * XREFs of PsGetProcessCreateTimeQuadPart @ 0x1404807B0
+ * XREFs of PsGetProcessCreateTimeQuadPart @ 0x14047A0F0
  * Callers:
- *     NtTerminateProcess @ 0x1409566C0 (NtTerminateProcess.c)
+ *     NtTerminateProcess @ 0x140B812E0 (NtTerminateProcess.c)
  * Callees:
  *     <none>
  */

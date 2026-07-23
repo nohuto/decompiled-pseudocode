@@ -1,12 +1,12 @@
 /*
- * XREFs of DifIoReleaseRemoveLockExWrapper @ 0x1405E0E90
+ * XREFs of DifIoReleaseRemoveLockExWrapper @ 0x1405E1400
  * Callers:
  *     <none>
  * Callees:
- *     IoReleaseRemoveLockEx @ 0x140341430 (IoReleaseRemoveLockEx.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     DifGetAPIThunkContextById @ 0x1404664BE (DifGetAPIThunkContextById.c)
- *     DifGetReturnAddressForWrappers @ 0x1405F88C4 (DifGetReturnAddressForWrappers.c)
+ *     IoReleaseRemoveLockEx @ 0x1403416C0 (IoReleaseRemoveLockEx.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x1404668BE (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F8E34 (DifGetReturnAddressForWrappers.c)
  */
 
 void __fastcall DifIoReleaseRemoveLockExWrapper(PIO_REMOVE_LOCK RemoveLock, PVOID Tag, ULONG RemlockSize)

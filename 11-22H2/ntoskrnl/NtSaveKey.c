@@ -6,7 +6,7 @@
  *     NtSaveKeyEx @ 0x140A0EC80 (NtSaveKeyEx.c)
  */
 
-__int64 __fastcall NtSaveKey(__int64 a1, __int64 a2)
+NTSTATUS __cdecl NtSaveKey(HANDLE KeyHandle, HANDLE FileHandle)
 {
-  return NtSaveKeyEx(a1, a2, 1LL);
+  return NtSaveKeyEx(KeyHandle, FileHandle, 1u);
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of McTemplateK0zq_EtwWriteTransfer @ 0x14032FF44
+ * XREFs of McTemplateK0zq_EtwWriteTransfer @ 0x1402B87BC
  * Callers:
- *     PiProcessDeviceResetAction @ 0x1405A4CD8 (PiProcessDeviceResetAction.c)
- *     PiLogSurpriseRemoveEvent @ 0x140AB6DF4 (PiLogSurpriseRemoveEvent.c)
+ *     PiProcessDeviceResetAction @ 0x1405A1C18 (PiProcessDeviceResetAction.c)
+ *     PiLogSurpriseRemoveEvent @ 0x140AB10CC (PiLogSurpriseRemoveEvent.c)
  * Callees:
- *     McGenEventWrite_EtwWriteTransfer @ 0x1403305B0 (McGenEventWrite_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1402B8E28 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 __int64 __fastcall McTemplateK0zq_EtwWriteTransfer(__int64 a1, __int64 a2, __int64 a3, const wchar_t *a4, char a5)

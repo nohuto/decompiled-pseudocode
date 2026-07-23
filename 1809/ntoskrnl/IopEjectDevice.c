@@ -1,17 +1,17 @@
 /*
- * XREFs of IopEjectDevice @ 0x14083AE00
+ * XREFs of IopEjectDevice @ 0x14083C060
  * Callers:
- *     PnpProcessQueryRemoveAndEject @ 0x1406EF790 (PnpProcessQueryRemoveAndEject.c)
+ *     PnpProcessQueryRemoveAndEject @ 0x1406F0A30 (PnpProcessQueryRemoveAndEject.c)
  * Callees:
  *     IovUtilWatermarkIrp @ 0x14000EAC8 (IovUtilWatermarkIrp.c)
  *     IoGetAttachedDeviceReferenceWithTag @ 0x14000EAE8 (IoGetAttachedDeviceReferenceWithTag.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     IoAllocateIrp @ 0x14008E4E0 (IoAllocateIrp.c)
- *     IofCallDriver @ 0x1400B8DF0 (IofCallDriver.c)
- *     ExQueueWorkItem @ 0x1400D1A00 (ExQueueWorkItem.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     PnpQueuePendingEject @ 0x140828540 (PnpQueuePendingEject.c)
+ *     IoAllocateIrp @ 0x14008E400 (IoAllocateIrp.c)
+ *     IofCallDriver @ 0x1400B8D30 (IofCallDriver.c)
+ *     ExQueueWorkItem @ 0x1400D1A80 (ExQueueWorkItem.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     PnpQueuePendingEject @ 0x140829740 (PnpQueuePendingEject.c)
  */
 
 __int64 __fastcall IopEjectDevice(PDEVICE_OBJECT DeviceObject, __int64 a2)

@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlFreeOemString @ 0x140773900
+ * XREFs of RtlFreeOemString @ 0x140773AC0
  * Callers:
  *     <none>
  * Callees:
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 void __stdcall RtlFreeOemString(POEM_STRING OemString)

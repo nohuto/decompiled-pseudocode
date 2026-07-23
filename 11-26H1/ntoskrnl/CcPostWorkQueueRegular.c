@@ -1,14 +1,14 @@
 /*
- * XREFs of CcPostWorkQueueRegular @ 0x14038641C
+ * XREFs of CcPostWorkQueueRegular @ 0x1403881CC
  * Callers:
- *     CcPostWorkQueue @ 0x1403863F0 (CcPostWorkQueue.c)
+ *     CcPostWorkQueue @ 0x1403881A0 (CcPostWorkQueue.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x1402B4730 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x1402B98C0 (KeReleaseInStackQueuedSpinLock.c)
- *     ExQueueWorkItemToPartition @ 0x1403830D0 (ExQueueWorkItemToPartition.c)
- *     CcIsWriteBehindThreadpoolAtLowPriority @ 0x1403835E8 (CcIsWriteBehindThreadpoolAtLowPriority.c)
- *     CcReferencePartitionAndPrivateVolumeCacheMap @ 0x140386DD4 (CcReferencePartitionAndPrivateVolumeCacheMap.c)
- *     CcPerfLogWorkItemEnqueue @ 0x140389AC8 (CcPerfLogWorkItemEnqueue.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402FF400 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x140304580 (KeReleaseInStackQueuedSpinLock.c)
+ *     ExQueueWorkItemToPartition @ 0x140384E80 (ExQueueWorkItemToPartition.c)
+ *     CcIsWriteBehindThreadpoolAtLowPriority @ 0x140385398 (CcIsWriteBehindThreadpoolAtLowPriority.c)
+ *     CcReferencePartitionAndPrivateVolumeCacheMap @ 0x140388B84 (CcReferencePartitionAndPrivateVolumeCacheMap.c)
+ *     CcPerfLogWorkItemEnqueue @ 0x14038B878 (CcPerfLogWorkItemEnqueue.c)
  */
 
 void __fastcall CcPostWorkQueueRegular(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -28,7 +28,7 @@ void __fastcall CcPostWorkQueueRegular(__int64 a1, __int64 a2, __int64 a3, __int
   v6 = 0LL;
   v7 = *(_QWORD *)(a1 + 144);
   memset(&LockHandle, 0, sizeof(LockHandle));
-  if ( (xmmword_140FBFC10 & 0x20000) != 0 )
+  if ( (xmmword_140FC0C10 & 0x20000) != 0 )
   {
     v10 = *(_DWORD *)(a1 + 128);
     if ( v10 == 2 || v10 == 4 )

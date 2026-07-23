@@ -1,15 +1,15 @@
 /*
- * XREFs of HalRequestIpi @ 0x14027AEA0
+ * XREFs of HalRequestIpi @ 0x140268E40
  * Callers:
- *     PoIdle @ 0x140221ED0 (PoIdle.c)
- *     PpmIdleExecuteTransition @ 0x1402224B0 (PpmIdleExecuteTransition.c)
- *     PoExecuteIdleCheck @ 0x140227E50 (PoExecuteIdleCheck.c)
- *     KiIpiSendRequest @ 0x14027AED0 (KiIpiSendRequest.c)
- *     PoInitiateProcessorWake @ 0x140565510 (PoInitiateProcessorWake.c)
- *     PpmUnlockProcessors @ 0x140567CF8 (PpmUnlockProcessors.c)
+ *     KiIpiSendRequest @ 0x140268E70 (KiIpiSendRequest.c)
+ *     PoIdle @ 0x1402C67D0 (PoIdle.c)
+ *     PpmIdleExecuteTransition @ 0x1402C6DB0 (PpmIdleExecuteTransition.c)
+ *     PoExecuteIdleCheck @ 0x1402CC750 (PoExecuteIdleCheck.c)
+ *     PoInitiateProcessorWake @ 0x140565750 (PoInitiateProcessorWake.c)
+ *     PpmUnlockProcessors @ 0x140567F38 (PpmUnlockProcessors.c)
  * Callees:
- *     HalRequestIpiSpecifyVector @ 0x14027B3E0 (HalRequestIpiSpecifyVector.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     HalRequestIpiSpecifyVector @ 0x140269380 (HalRequestIpiSpecifyVector.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall HalRequestIpi(unsigned int a1, __int64 a2)

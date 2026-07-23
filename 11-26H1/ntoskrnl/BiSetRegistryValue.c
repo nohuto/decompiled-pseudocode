@@ -1,19 +1,19 @@
 /*
- * XREFs of BiSetRegistryValue @ 0x1409D47E0
+ * XREFs of BiSetRegistryValue @ 0x1409A57C0
  * Callers:
- *     BiSaveFirmwareVariable @ 0x14077ABB0 (BiSaveFirmwareVariable.c)
- *     BcdMarkAsSystemStore @ 0x140891044 (BcdMarkAsSystemStore.c)
- *     BiMarkTreatAsSystemStore @ 0x1409CFFAC (BiMarkTreatAsSystemStore.c)
- *     BcdSetElementDataWithFlags @ 0x1409D30C4 (BcdSetElementDataWithFlags.c)
- *     BiAddStoreFromFile @ 0x1409D35AC (BiAddStoreFromFile.c)
- *     BiSetFirmwareModified @ 0x1409D4920 (BiSetFirmwareModified.c)
- *     BiSetObjectDescription @ 0x140B54350 (BiSetObjectDescription.c)
- *     BcdSetBootBcdAsSystemStore @ 0x140D01EC4 (BcdSetBootBcdAsSystemStore.c)
+ *     BiSaveFirmwareVariable @ 0x14077DAE0 (BiSaveFirmwareVariable.c)
+ *     BcdMarkAsSystemStore @ 0x140897440 (BcdMarkAsSystemStore.c)
+ *     BiMarkTreatAsSystemStore @ 0x1409A0F8C (BiMarkTreatAsSystemStore.c)
+ *     BcdSetElementDataWithFlags @ 0x1409A40A4 (BcdSetElementDataWithFlags.c)
+ *     BiAddStoreFromFile @ 0x1409A458C (BiAddStoreFromFile.c)
+ *     BiSetFirmwareModified @ 0x1409A5900 (BiSetFirmwareModified.c)
+ *     BiSetObjectDescription @ 0x140B56BF0 (BiSetObjectDescription.c)
+ *     BcdSetBootBcdAsSystemStore @ 0x140D08264 (BcdSetBootBcdAsSystemStore.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     ZwSetValueKey @ 0x140723FF0 (ZwSetValueKey.c)
- *     BiOpenKey @ 0x1409D5F14 (BiOpenKey.c)
- *     BiCloseKey @ 0x1409D6368 (BiCloseKey.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     ZwSetValueKey @ 0x140728BC0 (ZwSetValueKey.c)
+ *     BiOpenKey @ 0x1409A6EF4 (BiOpenKey.c)
+ *     BiCloseKey @ 0x1409A7258 (BiCloseKey.c)
  */
 
 __int64 __fastcall BiSetRegistryValue(

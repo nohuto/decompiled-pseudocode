@@ -1,10 +1,10 @@
 /*
- * XREFs of CmFcpWnfScmStateChangeNotificationCallback @ 0x1406688F0
+ * XREFs of CmFcpWnfScmStateChangeNotificationCallback @ 0x1406671E0
  * Callers:
  *     <none>
  * Callees:
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     ExQueryWnfStateData @ 0x140A3BB60 (ExQueryWnfStateData.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     ExQueryWnfStateData @ 0x140A31340 (ExQueryWnfStateData.c)
  */
 
 __int64 __fastcall CmFcpWnfScmStateChangeNotificationCallback(

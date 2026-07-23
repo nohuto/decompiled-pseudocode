@@ -1,12 +1,12 @@
 /*
- * XREFs of DifRegisterObjectTracking @ 0x140618350
+ * XREFs of DifRegisterObjectTracking @ 0x140616910
  * Callers:
  *     <none>
  * Callees:
- *     DifGetAvailableSystemPages @ 0x1406196F4 (DifGetAvailableSystemPages.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     DifGetAvailableSystemPages @ 0x140617CB4 (DifGetAvailableSystemPages.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall DifRegisterObjectTracking(unsigned int a1, int a2, __int64 a3)
@@ -21,7 +21,7 @@ __int64 __fastcall DifRegisterObjectTracking(unsigned int a1, int a2, __int64 a3
   unsigned __int64 AvailableSystemPages; // rbp
   _QWORD *v11; // r15
   volatile LONG *v12; // rax
-  __int64 (**v13)(); // r12
+  __int64 (__fastcall **v13)(__int64, unsigned int); // r12
   __int64 v14; // r13
   PEX_SPIN_LOCK v15; // rax
   unsigned __int64 v16; // rbp
@@ -42,12 +42,12 @@ __int64 __fastcall DifRegisterObjectTracking(unsigned int a1, int a2, __int64 a3
     return (unsigned int)-1073741670;
   if ( !DifPluginSettings[v8] )
   {
-    Pool2 = (_QWORD *)ExAllocatePool2(0x40uLL);
+    Pool2 = (_QWORD *)ExAllocatePool2(0x40uLL, 0x20uLL, 0x744F6644u);
     if ( !Pool2 )
       return (unsigned int)-1073741801;
     v7 = 1;
   }
-  v11 = (_QWORD *)ExAllocatePool2(0x40uLL);
+  v11 = (_QWORD *)ExAllocatePool2(0x40uLL, 0x10uLL, 0x744F6644u);
   if ( !v11 )
   {
     v5 = -1073741801;
@@ -58,7 +58,7 @@ LABEL_14:
   }
   if ( !_InterlockedCompareExchange(&DifObjTrkInitialized, 1, 0) )
   {
-    v12 = (volatile LONG *)ExAllocatePool2(0x40uLL);
+    v12 = (volatile LONG *)ExAllocatePool2(0x40uLL, 0x380uLL, 0x744F6644u);
     DifObjTrkContext = v12;
     if ( !v12 )
     {
@@ -67,15 +67,15 @@ LABEL_14:
       ExFreePoolWithTag(v11, 0x4E666944u);
       goto LABEL_14;
     }
-    v13 = (__int64 (**)())(v12 + 36);
+    v13 = (__int64 (__fastcall **)(__int64, unsigned int))(v12 + 36);
     v14 = 5LL;
     do
     {
       memset_0(v13 - 10, 0, 0x68uLL);
-      *(v13 - 10) = (__int64 (*)())(v13 - 10);
-      *(v13 - 1) = (__int64 (*)())DifObjTrkCompareNode;
+      *(v13 - 10) = (__int64 (__fastcall *)(__int64, unsigned int))(v13 - 10);
+      *(v13 - 1) = (__int64 (__fastcall *)(__int64, unsigned int))DifObjTrkCompareNode;
       *v13 = DifObjTrkAllocNode;
-      v13[1] = (__int64 (*)())DifObjTrkFreeNode;
+      v13[1] = (__int64 (__fastcall *)(__int64, unsigned int))DifObjTrkFreeNode;
       v13 += 15;
       --v14;
     }

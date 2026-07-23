@@ -1,12 +1,12 @@
 /*
- * XREFs of ViIsActiveChannelWcb @ 0x140222CB0
+ * XREFs of ViIsActiveChannelWcb @ 0x140222ADC
  * Callers:
- *     VfAllocateAdapterChannel @ 0x1407061E0 (VfAllocateAdapterChannel.c)
- *     VfAllocateAdapterChannelEx @ 0x1407063A4 (VfAllocateAdapterChannelEx.c)
- *     ViAdapterCallback @ 0x140708488 (ViAdapterCallback.c)
+ *     VfAllocateAdapterChannel @ 0x140706210 (VfAllocateAdapterChannel.c)
+ *     VfAllocateAdapterChannelEx @ 0x1407063D4 (VfAllocateAdapterChannelEx.c)
+ *     ViAdapterCallback @ 0x1407084B8 (ViAdapterCallback.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x1400E9A70 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1400EFE30 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeReleaseSpinLock @ 0x1400EB600 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1400EDCB0 (KeAcquireSpinLockRaiseToDpc.c)
  */
 
 char __fastcall ViIsActiveChannelWcb(__int64 a1, __int64 a2)

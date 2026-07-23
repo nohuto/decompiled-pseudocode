@@ -1,7 +1,7 @@
 /*
- * XREFs of MiComputeTrimAmount @ 0x14048BFDC
+ * XREFs of MiComputeTrimAmount @ 0x140486CF0
  * Callers:
- *     MiTrimOrAgeWorkingSet @ 0x140378F30 (MiTrimOrAgeWorkingSet.c)
+ *     MiTrimOrAgeWorkingSet @ 0x1402F35B0 (MiTrimOrAgeWorkingSet.c)
  * Callees:
  *     <none>
  */
@@ -29,7 +29,7 @@ unsigned __int64 __fastcall MiComputeTrimAmount(__int64 a1, __int64 a2)
   unsigned __int64 v21; // r8
   char v22; // [rsp+1Ah] [rbp+1Ah]
 
-  v3 = *((_QWORD *)qword_140E2FF88 + *(unsigned __int16 *)(a2 + 174));
+  v3 = *((_QWORD *)qword_140E300C8 + *(unsigned __int16 *)(a2 + 174));
   if ( *(_QWORD *)(a1 + 80) == *(_QWORD *)(a1 + 96)
     || *(_QWORD *)(v3 + 18688) >= *(_QWORD *)(a1 + 72) && (*(_BYTE *)(a1 + 3) < 3u || (*(_BYTE *)a1 & 0x7F) != 0) )
   {

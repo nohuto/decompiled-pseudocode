@@ -1,16 +1,16 @@
 /*
- * XREFs of KeDeleteThread @ 0x1402E4B78
+ * XREFs of KeDeleteThread @ 0x140295EC8
  * Callers:
- *     PspReaper @ 0x1402E49E0 (PspReaper.c)
+ *     PspReaper @ 0x140295D30 (PspReaper.c)
  * Callees:
- *     KiDecrementProcessStackCount @ 0x140207A80 (KiDecrementProcessStackCount.c)
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     KiWaitForContextSwap @ 0x14024B24C (KiWaitForContextSwap.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     KiDecrementProcessStackCount @ 0x1402AC380 (KiDecrementProcessStackCount.c)
+ *     KiWaitForContextSwap @ 0x1402EFA9C (KiWaitForContextSwap.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-__int64 __fastcall KeDeleteThread(__int64 *a1)
+__int64 __fastcall KeDeleteThread(_QWORD *a1)
 {
   __int64 result; // rax
   __int64 *v3; // rdi
@@ -29,12 +29,12 @@ __int64 __fastcall KeDeleteThread(__int64 *a1)
   struct _KPRCB *v16; // r9
   _DWORD *v17; // r8
 
-  KiWaitForContextSwap((__int64)a1);
+  KiWaitForContextSwap(a1);
   result = KiDecrementProcessStackCount(a1[23]);
   v3 = a1 + 110;
-  if ( a1[110] != 1 )
+  if ( a1[110] != 1LL )
   {
-    v5 = KeAcquireSpinLockRaiseToDpc(&qword_140C31FB8);
+    v5 = KeAcquireSpinLockRaiseToDpc(&qword_140C31F38);
     v6 = *v3;
     v7 = v5;
     if ( *v3 != 1 && a1[111] )
@@ -45,7 +45,7 @@ __int64 __fastcall KeDeleteThread(__int64 *a1)
       *v8 = (__int64 *)v6;
       *(_QWORD *)(v6 + 8) = v8;
     }
-    KxReleaseSpinLock(&qword_140C31FB8);
+    KxReleaseSpinLock(&qword_140C31F38);
     result = (unsigned int)KiIrqlFlags;
     if ( KiIrqlFlags )
     {
@@ -67,7 +67,7 @@ __int64 __fastcall KeDeleteThread(__int64 *a1)
     __writecr8(v7);
   }
   v4 = a1 + 126;
-  if ( a1[126] == 1 )
+  if ( a1[126] == 1LL )
     return result;
   v12 = KeAcquireSpinLockRaiseToDpc(&KiUpdateVpThreadPriorityLock);
   v13 = (__int64 *)*v4;

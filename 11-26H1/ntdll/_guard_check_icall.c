@@ -1,12 +1,12 @@
 /*
- * XREFs of _guard_check_icall @ 0x18012E9FC
+ * XREFs of _guard_check_icall @ 0x18012E76C
  * Callers:
- *     _guard_check_icall$thunk$15021643654165956172 @ 0x180170010 (_guard_check_icall$thunk$15021643654165956172.c)
+ *     _guard_check_icall$thunk$15021643654165956172 @ 0x18016F010 (_guard_check_icall$thunk$15021643654165956172.c)
  * Callees:
- *     RtlEndStrongEnumerationHashTable @ 0x1800FBBF0 (RtlEndStrongEnumerationHashTable.c)
+ *     RtlEndStrongEnumerationHashTable @ 0x1800FB340 (RtlEndStrongEnumerationHashTable.c)
  */
 
 void __fastcall guard_check_icall(uintptr_t Target)
 {
-  _guard_check_icall_fptr();
+  ((void (__cdecl *)(PRTL_DYNAMIC_HASH_TABLE))_guard_check_icall_fptr)((PRTL_DYNAMIC_HASH_TABLE)Target);
 }

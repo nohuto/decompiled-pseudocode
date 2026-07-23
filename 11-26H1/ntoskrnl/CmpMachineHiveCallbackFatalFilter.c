@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpMachineHiveCallbackFatalFilter @ 0x140850F58
+ * XREFs of CmpMachineHiveCallbackFatalFilter @ 0x140857268
  * Callers:
- *     CmpMachineHiveLoadedWorkItem @ 0x140850F90 (CmpMachineHiveLoadedWorkItem.c)
+ *     CmpMachineHiveLoadedWorkItem @ 0x1408572A0 (CmpMachineHiveLoadedWorkItem.c)
  * Callees:
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 void __fastcall __noreturn CmpMachineHiveCallbackFatalFilter(int **a1, ULONG_PTR BugCheckParameter4)

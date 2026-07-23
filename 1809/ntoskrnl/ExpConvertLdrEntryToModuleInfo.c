@@ -1,10 +1,10 @@
 /*
- * XREFs of ExpConvertLdrEntryToModuleInfo @ 0x140748898
+ * XREFs of ExpConvertLdrEntryToModuleInfo @ 0x140749A88
  * Callers:
- *     ExpQueryModuleInformationEx @ 0x140748798 (ExpQueryModuleInformationEx.c)
- *     ExpQuerySingleModuleInformation @ 0x1408CC818 (ExpQuerySingleModuleInformation.c)
+ *     ExpQueryModuleInformationEx @ 0x140749988 (ExpQueryModuleInformationEx.c)
+ *     ExpQuerySingleModuleInformation @ 0x1408CDAD8 (ExpQuerySingleModuleInformation.c)
  * Callees:
- *     RtlUnicodeStringToAnsiString @ 0x14067BAD0 (RtlUnicodeStringToAnsiString.c)
+ *     RtlUnicodeStringToAnsiString @ 0x14067CC90 (RtlUnicodeStringToAnsiString.c)
  */
 
 __int64 __fastcall ExpConvertLdrEntryToModuleInfo(__int64 a1, __int16 a2, __int64 a3)
@@ -12,7 +12,7 @@ __int64 __fastcall ExpConvertLdrEntryToModuleInfo(__int64 a1, __int16 a2, __int6
   char *v5; // rcx
   __int16 v6; // ax
   __int64 result; // rax
-  STRING v8; // [rsp+20h] [rbp-18h] BYREF
+  _STRING v8; // [rsp+20h] [rbp-18h] BYREF
 
   *(_QWORD *)(a3 + 16) = 0LL;
   *(_QWORD *)(a3 + 24) = *(_QWORD *)(a1 + 48);

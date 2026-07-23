@@ -1,16 +1,16 @@
 /*
- * XREFs of SepRmFetchGlobalSacl @ 0x1408165F4
+ * XREFs of SepRmFetchGlobalSacl @ 0x14081C804
  * Callers:
- *     SepRmGlobalSaclSetWrkr @ 0x1408167D0 (SepRmGlobalSaclSetWrkr.c)
+ *     SepRmGlobalSaclSetWrkr @ 0x14081C9E0 (SepRmGlobalSaclSetWrkr.c)
  * Callees:
- *     RtlStringCbCopyW @ 0x140430A90 (RtlStringCbCopyW.c)
- *     RtlStringCchCatNW @ 0x14063BBD8 (RtlStringCchCatNW.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwQueryValueKey @ 0x1407236D0 (ZwQueryValueKey.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     SepRegOpenKey @ 0x140AB2DF4 (SepRegOpenKey.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlStringCbCopyW @ 0x14041DAC0 (RtlStringCbCopyW.c)
+ *     RtlStringCchCatNW @ 0x14063F6D8 (RtlStringCchCatNW.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwQueryValueKey @ 0x1407282A0 (ZwQueryValueKey.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     SepRegOpenKey @ 0x140AB4194 (SepRegOpenKey.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SepRmFetchGlobalSacl(STRSAFE_PCNZWCH *a1, ULONG *a2, _QWORD *a3)

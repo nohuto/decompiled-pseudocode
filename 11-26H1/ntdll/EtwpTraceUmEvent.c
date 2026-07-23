@@ -1,15 +1,15 @@
 /*
- * XREFs of EtwpTraceUmEvent @ 0x180010AD0
+ * XREFs of EtwpTraceUmEvent @ 0x18005C200
  * Callers:
- *     EtwLogTraceEvent @ 0x180010A60 (EtwLogTraceEvent.c)
- *     EtwTraceEventInstance @ 0x180126110 (EtwTraceEventInstance.c)
+ *     EtwLogTraceEvent @ 0x18005C190 (EtwLogTraceEvent.c)
+ *     EtwTraceEventInstance @ 0x180125E80 (EtwTraceEventInstance.c)
  * Callees:
- *     EtwpRelogEvent @ 0x180010E20 (EtwpRelogEvent.c)
- *     EtwpDemuxUmTraceHandle @ 0x180011110 (EtwpDemuxUmTraceHandle.c)
- *     EtwpReserveTraceBuffer @ 0x180011230 (EtwpReserveTraceBuffer.c)
- *     __security_check_cookie @ 0x180162C90 (__security_check_cookie.c)
- *     memmove @ 0x180164700 (memmove.c)
- *     memset$thunk$772440563353939046 @ 0x180170030 (memset$thunk$772440563353939046.c)
+ *     EtwpRelogEvent @ 0x18005C550 (EtwpRelogEvent.c)
+ *     EtwpDemuxUmTraceHandle @ 0x18005C840 (EtwpDemuxUmTraceHandle.c)
+ *     EtwpReserveTraceBuffer @ 0x18005C960 (EtwpReserveTraceBuffer.c)
+ *     __security_check_cookie @ 0x180162B90 (__security_check_cookie.c)
+ *     memmove @ 0x180164600 (memmove.c)
+ *     memset$thunk$772440563353939046 @ 0x18016F030 (memset$thunk$772440563353939046.c)
  */
 
 __int64 __fastcall EtwpTraceUmEvent(unsigned __int16 a1, unsigned __int16 *a2, unsigned int a3, int a4)
@@ -143,13 +143,8 @@ LABEL_46:
     v18 = NtCurrentTeb();
     v19 = &v39;
     if ( (v12 & 0x200) != 0 )
-      LODWORD(v19) = 0;
-    v20 = (char *)EtwpReserveTraceBuffer(
-                    (_DWORD)v7,
-                    v11,
-                    v18->CurrentIdealProcessor.Reserved,
-                    (_DWORD)v19,
-                    (__int64)&v37);
+      v19 = 0LL;
+    v20 = (char *)EtwpReserveTraceBuffer(v7, v11, v18->CurrentIdealProcessor.Reserved, v19, &v37);
     v38 = v20;
     if ( v20 )
     {

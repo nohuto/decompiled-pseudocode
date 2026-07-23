@@ -1,12 +1,12 @@
 /*
- * XREFs of PopSqmBatteryUpdate @ 0x1409465DC
+ * XREFs of PopSqmBatteryUpdate @ 0x1409C1F4C
  * Callers:
- *     PopBatteryApplyCompositeState @ 0x140946EB0 (PopBatteryApplyCompositeState.c)
+ *     PopBatteryApplyCompositeState @ 0x1409C2820 (PopBatteryApplyCompositeState.c)
  * Callees:
- *     SSHSupportIsPlatformAoAc @ 0x1404C9760 (SSHSupportIsPlatformAoAc.c)
- *     PopSqmAddToStream @ 0x1404E2894 (PopSqmAddToStream.c)
- *     PopSqmCreateDwordStreamEntry @ 0x1404FFA48 (PopSqmCreateDwordStreamEntry.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     SSHSupportIsPlatformAoAc @ 0x1404C3180 (SSHSupportIsPlatformAoAc.c)
+ *     PopSqmAddToStream @ 0x1404DBF74 (PopSqmAddToStream.c)
+ *     PopSqmCreateDwordStreamEntry @ 0x1404F9238 (PopSqmCreateDwordStreamEntry.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 unsigned __int8 PopSqmBatteryUpdate()

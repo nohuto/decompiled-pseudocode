@@ -9,7 +9,7 @@
  *     RtlpProbeUserBufferSafe @ 0x18005AF08 (RtlpProbeUserBufferSafe.c)
  *     RtlCreateHeap @ 0x18005F7E0 (RtlCreateHeap.c)
  *     RtlValidateHeap @ 0x18006D290 (RtlValidateHeap.c)
- *     RtlCompactHeap @ 0x18008C090 (RtlCompactHeap.c)
+ *     RtlCompactHeap @ 0x18008C0A0 (RtlCompactHeap.c)
  *     RtlSetUserFlagsHeap @ 0x1800F2680 (RtlSetUserFlagsHeap.c)
  *     RtlZeroHeap @ 0x1800F5670 (RtlZeroHeap.c)
  *     RtlpAnalyzeHeapFailure @ 0x180103934 (RtlpAnalyzeHeapFailure.c)

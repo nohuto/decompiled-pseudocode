@@ -1,16 +1,16 @@
 /*
- * XREFs of MiRemoveActivePageTableLinks @ 0x1402E2CB8
+ * XREFs of MiRemoveActivePageTableLinks @ 0x1403929A8
  * Callers:
- *     MiSetVaAgeList @ 0x140230FB0 (MiSetVaAgeList.c)
- *     MiRemoveWsleList @ 0x140231F70 (MiRemoveWsleList.c)
- *     MiAddWorkingSetEntries @ 0x1402E0980 (MiAddWorkingSetEntries.c)
- *     MiUpdateWorkingSetAgeDistribution @ 0x1402E2910 (MiUpdateWorkingSetAgeDistribution.c)
- *     MiSetPfnOldestWsleLeafAge @ 0x1402E3C1C (MiSetPfnOldestWsleLeafAge.c)
- *     MiRebuildPageTableAges @ 0x1402E3D14 (MiRebuildPageTableAges.c)
+ *     MiAddWorkingSetEntries @ 0x140242260 (MiAddWorkingSetEntries.c)
+ *     MiRemoveWsleList @ 0x140303100 (MiRemoveWsleList.c)
+ *     MiSetVaAgeList @ 0x140304F30 (MiSetVaAgeList.c)
+ *     MiSetPfnOldestWsleLeafAge @ 0x14039234C (MiSetPfnOldestWsleLeafAge.c)
+ *     MiUpdateWorkingSetAgeDistribution @ 0x1403923F0 (MiUpdateWorkingSetAgeDistribution.c)
+ *     MiRebuildPageTableAges @ 0x140392C6C (MiRebuildPageTableAges.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14020FA40 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140210170 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiRevertPfnActivePageTable @ 0x1402E3AE0 (MiRevertPfnActivePageTable.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140338DA0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1403394D0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiRevertPfnActivePageTable @ 0x140392B5C (MiRevertPfnActivePageTable.c)
  */
 
 __int64 __fastcall MiRemoveActivePageTableLinks(__int64 a1, __int64 a2, int a3)

@@ -1,24 +1,24 @@
 /*
- * XREFs of PfLogEvent @ 0x140245398
+ * XREFs of PfLogEvent @ 0x14020DB78
  * Callers:
- *     PfLogFileDataAccess @ 0x140275080 (PfLogFileDataAccess.c)
- *     PfFileInfoNotify @ 0x140275220 (PfFileInfoNotify.c)
- *     PfHardFaultLog @ 0x140398B98 (PfHardFaultLog.c)
- *     PfpLogApplicationEvent @ 0x1403D4840 (PfpLogApplicationEvent.c)
- *     PfLogForegroundProcess @ 0x1403D4A6C (PfLogForegroundProcess.c)
- *     PfpRpLogDeprioEvent @ 0x14048275C (PfpRpLogDeprioEvent.c)
- *     PfpPartitionLogEventCallback @ 0x14049DF70 (PfpPartitionLogEventCallback.c)
- *     PfpLogScenarioEventCallback @ 0x140745B10 (PfpLogScenarioEventCallback.c)
- *     PfpLogEventRequest @ 0x140AA86F4 (PfpLogEventRequest.c)
- *     PfpPowerActionStartScenarioTracingCallback @ 0x140B5AEA0 (PfpPowerActionStartScenarioTracingCallback.c)
+ *     PfLogFileDataAccess @ 0x14022A610 (PfLogFileDataAccess.c)
+ *     PfFileInfoNotify @ 0x14022A7B0 (PfFileInfoNotify.c)
+ *     PfpLogApplicationEvent @ 0x1402627C0 (PfpLogApplicationEvent.c)
+ *     PfLogForegroundProcess @ 0x1402629EC (PfLogForegroundProcess.c)
+ *     PfHardFaultLog @ 0x1403512E8 (PfHardFaultLog.c)
+ *     PfpRpLogDeprioEvent @ 0x14047D954 (PfpRpLogDeprioEvent.c)
+ *     PfpPartitionLogEventCallback @ 0x140498D70 (PfpPartitionLogEventCallback.c)
+ *     PfpLogScenarioEventCallback @ 0x140743E00 (PfpLogScenarioEventCallback.c)
+ *     PfpLogEventRequest @ 0x140AA3778 (PfpLogEventRequest.c)
+ *     PfpPowerActionStartScenarioTracingCallback @ 0x140B5CF10 (PfpPowerActionStartScenarioTracingCallback.c)
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x140245670 (ExReleaseRundownProtection_0.c)
- *     PfpEventHandleFullBuffer @ 0x140245E30 (PfpEventHandleFullBuffer.c)
- *     ExAcquireRundownProtection @ 0x1402792A0 (ExAcquireRundownProtection.c)
- *     RtlpInterlockedPopEntrySList @ 0x1406B3890 (RtlpInterlockedPopEntrySList.c)
- *     RtlpInterlockedPushEntrySList @ 0x1406B38D0 (RtlpInterlockedPushEntrySList.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
+ *     ExReleaseRundownProtection_0 @ 0x14020DE50 (ExReleaseRundownProtection_0.c)
+ *     PfpEventHandleFullBuffer @ 0x14020E610 (PfpEventHandleFullBuffer.c)
+ *     ExAcquireRundownProtection_0 @ 0x14022E830 (ExAcquireRundownProtection_0.c)
+ *     RtlpInterlockedPopEntrySList @ 0x1406B4830 (RtlpInterlockedPopEntrySList.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1406B4870 (RtlpInterlockedPushEntrySList.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
  */
 
 __int64 __fastcall PfLogEvent(__int64 a1, int a2, int a3, const void *a4, size_t Size)
@@ -33,14 +33,10 @@ __int64 __fastcall PfLogEvent(__int64 a1, int a2, int a3, const void *a4, size_t
   _SLIST_ENTRY *Next; // rdi
   int v14; // ebx
   __int64 v16; // r9
-  __int64 v17; // [rsp+20h] [rbp-38h]
-  __int64 v18; // [rsp+28h] [rbp-30h]
-  __int64 v19; // [rsp+30h] [rbp-28h]
-  __int64 v20; // [rsp+38h] [rbp-20h]
 
   v5 = a1 + 416;
   v7 = (Size + 31) & 0xFFFFFFF0;
-  while ( ExAcquireRundownProtection((PEX_RUNDOWN_REF)v5) )
+  while ( ExAcquireRundownProtection_0((PEX_RUNDOWN_REF)v5) )
   {
     while ( 1 )
     {
@@ -50,7 +46,7 @@ __int64 __fastcall PfLogEvent(__int64 a1, int a2, int a3, const void *a4, size_t
       v8 = RtlpInterlockedPopEntrySList((PSLIST_HEADER)(v5 + 16));
       if ( v8 )
         break;
-      v14 = guard_dispatch_icall_no_overrides(a1, v5, v9, v16, v17, v18, v19, v20);
+      v14 = guard_dispatch_icall_no_overrides(a1, v5, v9, v16);
       if ( v14 < 0 )
         goto LABEL_14;
     }
@@ -69,7 +65,7 @@ __int64 __fastcall PfLogEvent(__int64 a1, int a2, int a3, const void *a4, size_t
         if ( *((__int64 (__fastcall **)(_QWORD, _QWORD))&Next[6].Next + 1) == PfpEventHandleFullBuffer )
           PfpEventHandleFullBuffer(a1, v8);
         else
-          guard_dispatch_icall_no_overrides(a1, v8, v11, v12, v17, v18, v19, v20);
+          guard_dispatch_icall_no_overrides(a1, v8, v11, v12);
       }
       else
       {
@@ -88,7 +84,7 @@ LABEL_14:
       ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)v5);
       goto LABEL_16;
     }
-    guard_dispatch_icall_no_overrides(a1, v8, v9, v10, v17, v18, v19, v20);
+    guard_dispatch_icall_no_overrides(a1, v8, v9, v10);
   }
   v14 = -1073741431;
 LABEL_16:

@@ -1,14 +1,14 @@
 /*
- * XREFs of PpmHeteroDistributeUtility @ 0x1404EC800
+ * XREFs of PpmHeteroDistributeUtility @ 0x1404E3F40
  * Callers:
  *     <none>
  * Callees:
- *     KeGetPrcb @ 0x140352980 (KeGetPrcb.c)
- *     KeEnumerateNextProcessor @ 0x14040D4F0 (KeEnumerateNextProcessor.c)
- *     PpmParkDistributeUtility @ 0x140423260 (PpmParkDistributeUtility.c)
- *     Feature_PpmParkEx__private_IsEnabledDeviceUsageNoInline @ 0x1405B4FB0 (Feature_PpmParkEx__private_IsEnabledDeviceUsageNoInline.c)
- *     PpmEventTraceHeteroDistributeUtility @ 0x1405D9CF8 (PpmEventTraceHeteroDistributeUtility.c)
- *     PpmHeteroDistributeUtilityEx @ 0x1405E07D4 (PpmHeteroDistributeUtilityEx.c)
+ *     KeGetPrcb @ 0x1402B0A10 (KeGetPrcb.c)
+ *     KeEnumerateNextProcessor @ 0x140405740 (KeEnumerateNextProcessor.c)
+ *     PpmParkDistributeUtility @ 0x140417110 (PpmParkDistributeUtility.c)
+ *     Feature_PpmParkEx__private_IsEnabledDeviceUsageNoInline @ 0x1405B2224 (Feature_PpmParkEx__private_IsEnabledDeviceUsageNoInline.c)
+ *     PpmEventTraceHeteroDistributeUtility @ 0x1405D7014 (PpmEventTraceHeteroDistributeUtility.c)
+ *     PpmHeteroDistributeUtilityEx @ 0x1405DDDF4 (PpmHeteroDistributeUtilityEx.c)
  */
 
 char __fastcall PpmHeteroDistributeUtility(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -62,7 +62,7 @@ char __fastcall PpmHeteroDistributeUtility(__int64 a1, __int64 a2, __int64 a3, _
   if ( (unsigned int)Feature_PpmParkEx__private_IsEnabledDeviceUsageNoInline(a1, a2, a3, a4) )
     return PpmHeteroDistributeUtilityEx();
   v39 = PpmCurrentProfile[0];
-  v40 = 61LL * dword_140F0BA4C;
+  v40 = 61LL * dword_140F0B38C;
   v4 = 0LL;
   v5 = BYTE3(PpmCurrentProfile[0][v40 + 22]) != 0;
   v38 = 0;
@@ -71,7 +71,7 @@ char __fastcall PpmHeteroDistributeUtility(__int64 a1, __int64 a2, __int64 a3, _
   {
     while ( 1 )
     {
-      v6 = PpmParkNodes + 1288 * v4;
+      v6 = PpmParkNodes + 1296 * v4;
       v41 = v6;
       if ( PpmHeteroPolicy == 4 )
         break;
@@ -94,7 +94,7 @@ LABEL_49:
     if ( !(_BYTE)v7 )
       goto LABEL_24;
     v9 = *(unsigned __int8 *)(v6 + 12);
-    v10 = (_WORD *)(*(_QWORD *)(v6 + 1280) + 10LL);
+    v10 = (_WORD *)(*(_QWORD *)(v6 + 1288) + 10LL);
     do
     {
       v11 = *v10 == 0;
@@ -121,7 +121,7 @@ LABEL_49:
           v14 = 0;
           while ( 1 )
           {
-            v15 = *(_QWORD *)(v6 + 1280) + 640LL * v14;
+            v15 = *(_QWORD *)(v6 + 1288) + 640LL * v14;
             PpmParkDistributeUtility(
               *(_QWORD *)(v15 + 24),
               *(_QWORD *)(v15 + 24) & *(_QWORD *)(v6 + 24),
@@ -154,10 +154,10 @@ LABEL_24:
       {
         v7 = (unsigned int)(v7 - 1);
         PpmParkDistributeUtility(
-          *(_QWORD *)(*(_QWORD *)(v6 + 1280) + 640 * v7 + 24),
-          *(_QWORD *)(*(_QWORD *)(v6 + 1280) + 640 * v7 + 24) & *(_QWORD *)(v6 + 24),
+          *(_QWORD *)(*(_QWORD *)(v6 + 1288) + 640 * v7 + 24),
+          *(_QWORD *)(*(_QWORD *)(v6 + 1288) + 640 * v7 + 24) & *(_QWORD *)(v6 + 24),
           *(_WORD *)(v6 + 4),
-          *(_BYTE *)(*(_QWORD *)(v6 + 1280) + 640 * v7 + 632),
+          *(_BYTE *)(*(_QWORD *)(v6 + 1288) + 640 * v7 + 632),
           v5,
           v17,
           &v45);
@@ -172,7 +172,7 @@ LABEL_24:
       v18 = 0;
       do
       {
-        v19 = *(_QWORD *)(v6 + 1280) + 640LL * v18;
+        v19 = *(_QWORD *)(v6 + 1288) + 640LL * v18;
         PpmParkDistributeUtility(
           *(_QWORD *)(v19 + 24),
           *(_QWORD *)(v19 + 24) & *(_QWORD *)(v6 + 24),
@@ -198,7 +198,7 @@ LABEL_25:
       do
       {
         v24 = v20;
-        v25 = *(_QWORD *)(640LL * v20 + *(_QWORD *)(v6 + 1280) + 24);
+        v25 = *(_QWORD *)(640LL * v20 + *(_QWORD *)(v6 + 1288) + 24);
         if ( (v25 & v23) != 0 )
         {
           v26 = *(_QWORD *)(v6 + 32);
@@ -224,7 +224,7 @@ LABEL_25:
             v6 = v41;
             v24 = v20;
           }
-          v29 = *(_QWORD *)(v6 + 1280);
+          v29 = *(_QWORD *)(v6 + 1288);
           LOWORD(v43) = v22;
           *((_QWORD *)&v42 + 1) = *(_QWORD *)(640 * v24 + v29 + 24) ^ v27;
           *(_QWORD *)&v42 = 0LL;
@@ -243,7 +243,7 @@ LABEL_25:
         v31 = 0;
         if ( !PpmPerfQosEnabled )
         {
-          v32 = *(_QWORD *)(v6 + 1280);
+          v32 = *(_QWORD *)(v6 + 1288);
           v47 = 0;
           LOWORD(v43) = v22;
           *(_QWORD *)&v42 = 0LL;
@@ -264,7 +264,7 @@ LABEL_25:
             v6 = v41;
             v22 = v46;
           }
-          v35 = *(_QWORD *)(v6 + 1280);
+          v35 = *(_QWORD *)(v6 + 1288);
           LOWORD(v43) = v22;
           *(_QWORD *)&v42 = 0LL;
           *((_QWORD *)&v42 + 1) = *(_QWORD *)(v35 + 24) ^ v33;

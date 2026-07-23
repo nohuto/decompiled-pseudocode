@@ -14,18 +14,18 @@
  *     RtlDebugCreateTagHeap @ 0x180103874 (RtlDebugCreateTagHeap.c)
  */
 
-__int64 __fastcall RtlCreateTagHeap(_DWORD *Src, int a2, __int64 a3, _WORD *a4)
+ULONG __cdecl RtlCreateTagHeap(PVOID HeapHandle, ULONG Flags, PWSTR TagPrefix, PWSTR TagNames)
 {
-  int v6; // edx
-  unsigned int TagHeap; // edi
+  ULONG v6; // edx
+  ULONG TagHeap; // edi
   int v8; // edi
   int v9; // edx
-  _WORD *v10; // rsi
-  _WORD *v11; // r15
-  _WORD *v13; // rcx
+  PWSTR v10; // rsi
+  PWSTR v11; // r15
+  PWSTR v13; // rcx
   __int64 Tags; // rax
   __int64 v15; // rbx
-  __int64 v17; // r13
+  PWSTR v17; // r13
   unsigned __int64 v18; // r15
   __int64 v19; // r12
   char v21; // [rsp+20h] [rbp-78h]
@@ -33,24 +33,24 @@ __int64 __fastcall RtlCreateTagHeap(_DWORD *Src, int a2, __int64 a3, _WORD *a4)
 
   v21 = 0;
   if ( (NtCurrentPeb()->NtGlobalFlag & 0x800) == 0 )
-    return 0LL;
+    return 0;
   if ( !RtlpGlobalTagHeap )
   {
-    RtlpGlobalTagHeap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8LL, 672LL);
+    RtlpGlobalTagHeap = (__int64)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, 0x2A0uLL);
     if ( !RtlpGlobalTagHeap )
-      return 0LL;
+      return 0;
   }
-  if ( Src && (Src[4] == -571548178 || (Src[29] & 0x1000000) != 0) )
-    return 0LL;
-  if ( !Src )
+  if ( HeapHandle && (*((_DWORD *)HeapHandle + 4) == -571548178 || (*((_DWORD *)HeapHandle + 29) & 0x1000000) != 0) )
+    return 0;
+  if ( !HeapHandle )
   {
 LABEL_13:
     v8 = 0;
     v9 = 0;
-    v10 = a4;
-    if ( *a4 == 33 )
+    v10 = TagNames;
+    if ( *TagNames == 33 )
     {
-      v11 = a4 + 1;
+      v11 = TagNames + 1;
       while ( *v10++ )
         ;
     }
@@ -65,7 +65,7 @@ LABEL_13:
         ;
       ++v9;
     }
-    if ( !v9 || (Tags = RtlpAllocateTags(Src), (v15 = Tags) == 0) )
+    if ( !v9 || (Tags = RtlpAllocateTags(HeapHandle), (v15 = Tags) == 0) )
     {
 LABEL_44:
       TagHeap = v8 << 18;
@@ -88,13 +88,13 @@ LABEL_44:
     }
     v8 = *(unsigned __int16 *)(v15 + 16);
 LABEL_31:
-    v17 = a3;
-    if ( !a3 )
+    v17 = TagPrefix;
+    if ( !TagPrefix )
       goto LABEL_37;
     v18 = -1LL;
     do
       ++v18;
-    while ( *(_WORD *)(a3 + 2 * v18) );
+    while ( TagPrefix[v18] );
     if ( v18 && v18 < 0x13 )
     {
       v22 = 23 - v18;
@@ -120,19 +120,19 @@ LABEL_37:
     }
     goto LABEL_44;
   }
-  v6 = Src[29] | a2;
+  v6 = *((_DWORD *)HeapHandle + 29) | Flags;
   if ( (v6 & 0x61000000) == 0 || (v6 & 0x10000000) != 0 )
   {
     if ( (v6 & 1) == 0 )
     {
-      RtlEnterCriticalSection(*((_QWORD *)Src + 44));
+      RtlEnterCriticalSection(*((PRTL_CRITICAL_SECTION *)HeapHandle + 44));
       v21 = 1;
     }
     goto LABEL_13;
   }
-  TagHeap = RtlDebugCreateTagHeap(Src);
+  TagHeap = RtlDebugCreateTagHeap((int)HeapHandle);
 LABEL_45:
   if ( v21 )
-    RtlLeaveCriticalSection(*((_QWORD *)Src + 44));
+    RtlLeaveCriticalSection(*((PRTL_CRITICAL_SECTION *)HeapHandle + 44));
   return TagHeap;
 }

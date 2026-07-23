@@ -1,13 +1,13 @@
 /*
- * XREFs of CmpGetKeyName @ 0x140CB7F1C
+ * XREFs of CmpGetKeyName @ 0x140CBDF60
  * Callers:
- *     EmpInfParseGetValueFromSectionAndKeyName @ 0x140CB5F44 (EmpInfParseGetValueFromSectionAndKeyName.c)
- *     EmpParseCallbacks @ 0x140CB600C (EmpParseCallbacks.c)
- *     EmpParseRules @ 0x140CB6F84 (EmpParseRules.c)
- *     EmpParseTargetRules @ 0x140CB77A4 (EmpParseTargetRules.c)
+ *     EmpInfParseGetValueFromSectionAndKeyName @ 0x140CBBF84 (EmpInfParseGetValueFromSectionAndKeyName.c)
+ *     EmpParseCallbacks @ 0x140CBC04C (EmpParseCallbacks.c)
+ *     EmpParseRules @ 0x140CBCFC8 (EmpParseRules.c)
+ *     EmpParseTargetRules @ 0x140CBD7E8 (EmpParseTargetRules.c)
  * Callees:
- *     CmpSearchLineInSectionByIndex @ 0x140CB8834 (CmpSearchLineInSectionByIndex.c)
- *     CmpSearchSectionByName @ 0x140CB8860 (CmpSearchSectionByName.c)
+ *     CmpSearchLineInSectionByIndex @ 0x140CBE878 (CmpSearchLineInSectionByIndex.c)
+ *     CmpSearchSectionByName @ 0x140CBE8A4 (CmpSearchSectionByName.c)
  */
 
 __int64 __fastcall CmpGetKeyName(__int64 a1, __int64 a2, unsigned int a3)

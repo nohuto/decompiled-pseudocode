@@ -7,7 +7,7 @@
  *     RtlpInterlockedPopEntrySList @ 0x140188F70 (RtlpInterlockedPopEntrySList.c)
  */
 
-void __fastcall ObpDeferPushRefDerefInfo(__int64 a1, char a2, __int16 a3, int a4, struct _SLIST_ENTRY *a5, int a6)
+void __fastcall ObpDeferPushRefDerefInfo(__int64 a1, char a2, __int16 a3, int a4, _SLIST_ENTRY *a5, int a6)
 {
   PSLIST_ENTRY v10; // rax
   _QWORD *p_Next; // r10

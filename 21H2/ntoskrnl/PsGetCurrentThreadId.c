@@ -1,9 +1,9 @@
 /*
- * XREFs of PsGetCurrentThreadId @ 0x1402AA4D0
+ * XREFs of PsGetCurrentThreadId @ 0x140228610
  * Callers:
- *     PnpWatchdogEtwWrite @ 0x1408AB894 (PnpWatchdogEtwWrite.c)
- *     PoShutdownBugCheck @ 0x1408E75C0 (PoShutdownBugCheck.c)
- *     EtwpCovSampContextPruneModules @ 0x1409442D4 (EtwpCovSampContextPruneModules.c)
+ *     PnpWatchdogEtwWrite @ 0x1408AB9F4 (PnpWatchdogEtwWrite.c)
+ *     PoShutdownBugCheck @ 0x1408E7720 (PoShutdownBugCheck.c)
+ *     EtwpCovSampContextPruneModules @ 0x1409444A4 (EtwpCovSampContextPruneModules.c)
  * Callees:
  *     <none>
  */

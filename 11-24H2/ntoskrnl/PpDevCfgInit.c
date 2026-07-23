@@ -1,29 +1,31 @@
 /*
- * XREFs of PpDevCfgInit @ 0x140C24F94
+ * XREFs of PpDevCfgInit @ 0x140C26FC4
  * Callers:
- *     IopInitializePlugPlayServices @ 0x140C1F07C (IopInitializePlugPlayServices.c)
+ *     IopInitializePlugPlayServices @ 0x140C210BC (IopInitializePlugPlayServices.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     PpDevCfgRequestDeviceInstall @ 0x1406FAF90 (PpDevCfgRequestDeviceInstall.c)
- *     PiDrvDbEnumNodes @ 0x140736DEC (PiDrvDbEnumNodes.c)
- *     PiDrvDbQuerySyncNodesUpdated @ 0x140737D20 (PiDrvDbQuerySyncNodesUpdated.c)
- *     RtlIsStateSeparationEnabled @ 0x14085F810 (RtlIsStateSeparationEnabled.c)
- *     _PnpCtxRegQueryValue @ 0x1408BC774 (_PnpCtxRegQueryValue.c)
- *     _PnpCtxRegOpenKey @ 0x1408C7AFC (_PnpCtxRegOpenKey.c)
- *     PiDmEnumObjectsWithCallback @ 0x1408D0E10 (PiDmEnumObjectsWithCallback.c)
- *     PiDevCfgQueryObjectProperties @ 0x1409978B4 (PiDevCfgQueryObjectProperties.c)
- *     PipOpenServiceEnumKeys @ 0x1409CAB04 (PipOpenServiceEnumKeys.c)
- *     PiDevCfgSetObjectProperty @ 0x140A7620C (PiDevCfgSetObjectProperty.c)
+ *     Feature_KernelPnP_CheckDriverIntegrity__private_IsEnabledDeviceUsageNoInline @ 0x1405A3B10 (Feature_KernelPnP_CheckDriverIntegrity__private_IsEnabledDeviceUsageNoInline.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     PpDevCfgRequestDeviceInstall @ 0x1406F8BD0 (PpDevCfgRequestDeviceInstall.c)
+ *     PiDevCfgReadDriverPolicy @ 0x1407292E8 (PiDevCfgReadDriverPolicy.c)
+ *     PiDrvDbEnumNodes @ 0x140734D1C (PiDrvDbEnumNodes.c)
+ *     PiDrvDbQuerySyncNodesUpdated @ 0x140735C50 (PiDrvDbQuerySyncNodesUpdated.c)
+ *     _PnpCtxRegQueryValue @ 0x1408BA0C4 (_PnpCtxRegQueryValue.c)
+ *     _PnpCtxRegOpenKey @ 0x1408C552C (_PnpCtxRegOpenKey.c)
+ *     PiDmEnumObjectsWithCallback @ 0x1408CE800 (PiDmEnumObjectsWithCallback.c)
+ *     PipOpenServiceEnumKeys @ 0x1409B5D44 (PipOpenServiceEnumKeys.c)
+ *     PiDevCfgQueryObjectProperties @ 0x1409CA030 (PiDevCfgQueryObjectProperties.c)
+ *     RtlIsStateSeparationEnabled @ 0x140A579B0 (RtlIsStateSeparationEnabled.c)
+ *     PiDevCfgSetObjectProperty @ 0x140A70328 (PiDevCfgSetObjectProperty.c)
  */
 
 __int64 PpDevCfgInit()
 {
   char v0; // r14
   __int64 v1; // rcx
-  int ObjectProperties; // edi
-  int v3; // esi
+  int ObjectProperties; // esi
+  int v3; // edi
   int v4; // ebx
   __int64 v5; // rcx
   int SyncNodesUpdated; // eax
@@ -136,9 +138,11 @@ __int64 PpDevCfgInit()
     }
     PiDevCfgMode = v11;
     PiDevCfgOptions = v13;
-    if ( v11 )
+    if ( (unsigned int)Feature_KernelPnP_CheckDriverIntegrity__private_IsEnabledDeviceUsageNoInline() )
+      PiDevCfgReadDriverPolicy(1, &PiDevCfgSystemDriverPolicy);
+    if ( PiDevCfgMode )
     {
-      if ( (PiDevCfgFlags & 2) == 0 || (v13 & 0x20) != 0 )
+      if ( (PiDevCfgOptions & 0x20) != 0 || (PiDevCfgFlags & 2) == 0 )
       {
         SyncNodesUpdated = PiDrvDbQuerySyncNodesUpdated(0, (char *)&v9 + 1);
         v0 = BYTE1(v9);

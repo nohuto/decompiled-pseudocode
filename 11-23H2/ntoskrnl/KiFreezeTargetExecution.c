@@ -2,7 +2,7 @@
  * XREFs of KiFreezeTargetExecution @ 0x14020E1D0
  * Callers:
  *     KiCheckForFreezeExecution @ 0x14020EA10 (KiCheckForFreezeExecution.c)
- *     KeBugCheck2 @ 0x140568290 (KeBugCheck2.c)
+ *     KeBugCheck2 @ 0x140568950 (KeBugCheck2.c)
  * Callees:
  *     KiSetDebuggerOwner @ 0x14020D3C0 (KiSetDebuggerOwner.c)
  *     KiStartDebugAccumulation @ 0x14020E460 (KiStartDebugAccumulation.c)
@@ -11,17 +11,17 @@
  *     KiSaveProcessorState @ 0x14020E550 (KiSaveProcessorState.c)
  *     KiEndDebugAccumulation @ 0x14020E5F0 (KiEndDebugAccumulation.c)
  *     KiRestoreProcessorState @ 0x14020E950 (KiRestoreProcessorState.c)
- *     KeQueryPerformanceCounter @ 0x1402C3270 (KeQueryPerformanceCounter.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     KiRestoreProcessorControlState @ 0x14041ECD0 (KiRestoreProcessorControlState.c)
- *     KiSaveProcessorControlState @ 0x14041EDA0 (KiSaveProcessorControlState.c)
- *     RtlCaptureContext @ 0x140428FD0 (RtlCaptureContext.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     memset @ 0x140435A00 (memset.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeQueryPerformanceCounter @ 0x1402C3500 (KeQueryPerformanceCounter.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRestoreProcessorControlState @ 0x14041F060 (KiRestoreProcessorControlState.c)
+ *     KiSaveProcessorControlState @ 0x14041F130 (KiSaveProcessorControlState.c)
+ *     RtlCaptureContext @ 0x140429360 (RtlCaptureContext.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140435E00 (memset.c)
  *     KdpReportExceptionStateChange @ 0x140AB163C (KdpReportExceptionStateChange.c)
- *     VfStartBranchTracing @ 0x140AD3A10 (VfStartBranchTracing.c)
- *     VfStopBranchTracing @ 0x140AD3A9C (VfStopBranchTracing.c)
+ *     VfStartBranchTracing @ 0x140AD3A00 (VfStartBranchTracing.c)
+ *     VfStopBranchTracing @ 0x140AD3A8C (VfStopBranchTracing.c)
  */
 
 __int64 __fastcall KiFreezeTargetExecution(__int64 a1, __int64 a2)
@@ -68,7 +68,7 @@ __int64 __fastcall KiFreezeTargetExecution(__int64 a1, __int64 a2)
     v6 = (v4 & 0x200) != 0;
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(0xFuLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       v15 = KeGetCurrentPrcb()->SchedulerAssist;
       if ( CurrentIrql == 15 )
@@ -145,10 +145,10 @@ __int64 __fastcall KiFreezeTargetExecution(__int64 a1, __int64 a2)
     CurrentPrcb->IpiFrozen = 0;
     KiEndDebugAccumulation(CurrentPrcb);
     KeRestoreSupervisorState(CurrentPrcb->ExtendedSupervisorState, KeEnabledSupervisorXStateFeatures | 0x100);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v19 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v19 <= 0xFu && CurrentIrql <= 0xFu && v19 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v19 <= 0xFu && CurrentIrql <= 0xFu && v19 >= 2u )
       {
         v20 = KeGetCurrentPrcb();
         v21 = v20->SchedulerAssist;

@@ -1,11 +1,11 @@
 /*
- * XREFs of VslExecuteWorkItems @ 0x1404BDF28
+ * XREFs of VslExecuteWorkItems @ 0x1404B9098
  * Callers:
- *     PspIumWorker @ 0x1404BDF10 (PspIumWorker.c)
+ *     PspIumWorker @ 0x1404B9080 (PspIumWorker.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140265D90 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     VslpEnterIumSecureMode @ 0x1403AADB0 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 VslExecuteWorkItems()
@@ -13,5 +13,5 @@ __int64 VslExecuteWorkItems()
   _BYTE v1[112]; // [rsp+20h] [rbp-88h] BYREF
 
   memset_0(v1, 0, 0x68uLL);
-  return VslpEnterIumSecureMode(2u, 210LL, 0, (__int64)v1);
+  return VslpEnterIumSecureMode(2u, 0xD2u, 0, (__int64)v1);
 }

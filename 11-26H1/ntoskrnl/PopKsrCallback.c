@@ -1,9 +1,9 @@
 /*
- * XREFs of PopKsrCallback @ 0x140607EE0
+ * XREFs of PopKsrCallback @ 0x14060AA90
  * Callers:
  *     <none>
  * Callees:
- *     PopQueueWorkItem @ 0x1404CEE60 (PopQueueWorkItem.c)
+ *     PopQueueWorkItem @ 0x1404C8890 (PopQueueWorkItem.c)
  */
 
 void __fastcall PopKsrCallback(PVOID CallbackContext, PVOID Argument1, PVOID Argument2)
@@ -18,14 +18,14 @@ void __fastcall PopKsrCallback(PVOID CallbackContext, PVOID Argument1, PVOID Arg
     if ( !v3 )
     {
 LABEL_6:
-      byte_140F0F5F0 = 0;
+      PopKsrPrepared = 0;
       return;
     }
     v4 = v3 - 1;
     if ( !v4 )
     {
-      LOBYTE(NormalizationListLock.StateSaveArea) = 0;
-      PopQueueWorkItem((__int64)&stru_140F12D20.AbCompletedIoQoSBoostCount, DelayedWorkQueue);
+      LOBYTE(NormalizationListLock.KernelStack) = 0;
+      PopQueueWorkItem((__int64)&PopBsdFlushWorkItem, DelayedWorkQueue);
       return;
     }
     v5 = v4 - 1;
@@ -36,5 +36,5 @@ LABEL_6:
       goto LABEL_6;
     }
   }
-  byte_140F0F5F0 = 1;
+  PopKsrPrepared = 1;
 }

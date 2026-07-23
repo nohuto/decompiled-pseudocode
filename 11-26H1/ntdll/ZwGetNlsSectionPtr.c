@@ -1,18 +1,23 @@
 /*
- * XREFs of ZwGetNlsSectionPtr @ 0x180160F70
+ * XREFs of ZwGetNlsSectionPtr @ 0x180160E70
  * Callers:
- *     RtlpGetNormalization @ 0x1800AE430 (RtlpGetNormalization.c)
- *     RtlpInitCodePageTables @ 0x1800D52E0 (RtlpInitCodePageTables.c)
- *     RtlpInitUppercaseTables @ 0x1800D5550 (RtlpInitUppercaseTables.c)
+ *     RtlpGetNormalization @ 0x1800AD560 (RtlpGetNormalization.c)
+ *     RtlpInitCodePageTables @ 0x1800DD038 (RtlpInitCodePageTables.c)
+ *     RtlpInitUppercaseTables @ 0x1800DD2A0 (RtlpInitUppercaseTables.c)
  * Callees:
  *     <none>
  */
 
-__int64 ZwGetNlsSectionPtr()
+NTSTATUS __cdecl ZwGetNlsSectionPtr(
+        ULONG SectionType,
+        ULONG SectionData,
+        PVOID ContextData,
+        PVOID *SectionPointer,
+        PULONG SectionSize)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 258LL;
+  result = 258;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

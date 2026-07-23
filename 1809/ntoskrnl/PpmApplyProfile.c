@@ -1,16 +1,16 @@
 /*
- * XREFs of PpmApplyProfile @ 0x14087A4D0
+ * XREFs of PpmApplyProfile @ 0x14087B730
  * Callers:
- *     PdcPoPpmApplyProfile @ 0x14086ECD0 (PdcPoPpmApplyProfile.c)
+ *     PdcPoPpmApplyProfile @ 0x14086FF30 (PdcPoPpmApplyProfile.c)
  * Callees:
  *     PopAcquireRwLockExclusive @ 0x140003970 (PopAcquireRwLockExclusive.c)
  *     PopReleaseRwLock @ 0x140005EC4 (PopReleaseRwLock.c)
  *     PpmAcquireLock @ 0x140006020 (PpmAcquireLock.c)
- *     PpmReleaseLock @ 0x14008BC30 (PpmReleaseLock.c)
- *     PpmCompareAndApplyPolicySettings @ 0x140875734 (PpmCompareAndApplyPolicySettings.c)
- *     PpmEventTraceProfileChange @ 0x140878A74 (PpmEventTraceProfileChange.c)
- *     PpmEndProfileAccumulation @ 0x14087A744 (PpmEndProfileAccumulation.c)
- *     PpmPostProcessMediaBuffering @ 0x14087A7A8 (PpmPostProcessMediaBuffering.c)
+ *     PpmReleaseLock @ 0x14008BC20 (PpmReleaseLock.c)
+ *     PpmCompareAndApplyPolicySettings @ 0x140876994 (PpmCompareAndApplyPolicySettings.c)
+ *     PpmEventTraceProfileChange @ 0x140879CD4 (PpmEventTraceProfileChange.c)
+ *     PpmEndProfileAccumulation @ 0x14087B9A4 (PpmEndProfileAccumulation.c)
+ *     PpmPostProcessMediaBuffering @ 0x14087BA08 (PpmPostProcessMediaBuffering.c)
  */
 
 void __fastcall PpmApplyProfile(__int64 *a1)
@@ -27,7 +27,7 @@ void __fastcall PpmApplyProfile(__int64 *a1)
   __int64 v11; // [rsp+40h] [rbp+8h] BYREF
 
   v11 = 0LL;
-  v2 = dword_1404180CC;
+  v2 = dword_14041918C;
   v3 = 0LL;
   PpmAcquireLock((struct _KTHREAD **)&PpmPerfPolicyLock);
   PopAcquireRwLockExclusive((ULONG_PTR)&PpmIdlePolicyLock);

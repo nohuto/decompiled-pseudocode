@@ -1,14 +1,14 @@
 /*
- * XREFs of PfSnAppLaunchScenarioControl @ 0x1407C72C0
+ * XREFs of PfSnAppLaunchScenarioControl @ 0x1407CA320
  * Callers:
- *     PfSnSetPrefetcherInformation @ 0x140ACA1BC (PfSnSetPrefetcherInformation.c)
+ *     PfSnSetPrefetcherInformation @ 0x140ACC2CC (PfSnSetPrefetcherInformation.c)
  * Callees:
- *     KiUnstackDetachProcess @ 0x1402307C0 (KiUnstackDetachProcess.c)
- *     KiStackAttachProcess @ 0x140247880 (KiStackAttachProcess.c)
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1408FA680 (ObpReferenceObjectByHandleWithTag.c)
- *     PfSnBeginAppLaunch @ 0x1409E9DD0 (PfSnBeginAppLaunch.c)
+ *     KiUnstackDetachProcess @ 0x140232120 (KiUnstackDetachProcess.c)
+ *     KiStackAttachProcess @ 0x1402491E0 (KiStackAttachProcess.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x14092A610 (ObpReferenceObjectByHandleWithTag.c)
+ *     PfSnBeginAppLaunch @ 0x1409D1320 (PfSnBeginAppLaunch.c)
  */
 
 __int64 __fastcall PfSnAppLaunchScenarioControl(__int64 a1)

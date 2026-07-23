@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpGetFreeBuffer @ 0x18003DA88
+ * XREFs of EtwpGetFreeBuffer @ 0x18001DD08
  * Callers:
- *     EtwpSwitchBuffer @ 0x18003D730 (EtwpSwitchBuffer.c)
+ *     EtwpSwitchBuffer @ 0x18001D9B0 (EtwpSwitchBuffer.c)
  * Callees:
- *     EtwpAllocateFreeBuffers @ 0x18003E4B8 (EtwpAllocateFreeBuffers.c)
- *     EtwpDequeueFreeBuffer @ 0x18003E610 (EtwpDequeueFreeBuffer.c)
+ *     EtwpAllocateFreeBuffers @ 0x18001E738 (EtwpAllocateFreeBuffers.c)
+ *     EtwpDequeueFreeBuffer @ 0x18001E890 (EtwpDequeueFreeBuffer.c)
  */
 
 __int64 __fastcall EtwpGetFreeBuffer(__int64 a1)

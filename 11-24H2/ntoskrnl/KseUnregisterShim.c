@@ -1,28 +1,28 @@
 /*
- * XREFs of KseUnregisterShim @ 0x14073EF20
+ * XREFs of KseUnregisterShim @ 0x14073CE50
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     KsepDebugPrint @ 0x1402CA2D8 (KsepDebugPrint.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     KsepLogInfo @ 0x14048E6C8 (KsepLogInfo.c)
- *     KsepLogError @ 0x14048E6F8 (KsepLogError.c)
- *     KsepPoolFreePaged @ 0x1404A6F94 (KsepPoolFreePaged.c)
- *     KsepIsShimRegistered @ 0x140AB6AE8 (KsepIsShimRegistered.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     KsepLogInfo @ 0x140488AF8 (KsepLogInfo.c)
+ *     KsepLogError @ 0x140488B28 (KsepLogError.c)
+ *     KsepPoolFreePaged @ 0x1404A18F4 (KsepPoolFreePaged.c)
+ *     KsepDebugPrint @ 0x1404CC7D8 (KsepDebugPrint.c)
+ *     KsepIsShimRegistered @ 0x140AB0DC0 (KsepIsShimRegistered.c)
  */
 
 __int64 __fastcall KseUnregisterShim(__int64 a1)
 {
   struct _KTHREAD *CurrentThread; // rax
   int v4; // r14d
-  _QWORD *v5; // rax
+  char *v5; // rax
   __int64 v6; // r8
   signed __int8 v7; // cf
-  _QWORD *v8; // rsi
+  char *v8; // rsi
   unsigned int v9; // ebp
   _QWORD *v10; // rsi
   __int64 v11; // rax
@@ -35,18 +35,18 @@ __int64 __fastcall KseUnregisterShim(__int64 a1)
   v16 = 0LL;
   if ( !a1 )
     return 3221225485LL;
-  if ( dword_140E66AE4 != 2 )
+  if ( dword_140E66C14 != 2 )
     return 3221225473LL;
   CurrentThread = KeGetCurrentThread();
   v4 = 0;
   --CurrentThread->KernelApcDisable;
-  v5 = KeAbPreAcquire((__int64)&qword_140E66B10, 0LL);
-  v7 = _interlockedbittestandset64((volatile signed __int32 *)&qword_140E66B10, 0LL);
+  v5 = (char *)KeAbPreAcquire((__int64)&qword_140E66C40, 0LL);
+  v7 = _interlockedbittestandset64((volatile signed __int32 *)&qword_140E66C40, 0LL);
   v8 = v5;
   if ( v7 )
-    ExfAcquirePushLockExclusiveEx(&qword_140E66B10, (__int64)v5, (__int64)&qword_140E66B10);
+    ExfAcquirePushLockExclusiveEx(&qword_140E66C40, v5, (__int64)&qword_140E66C40);
   if ( v8 )
-    *((_BYTE *)v8 + 10) = 1;
+    v8[10] = 1;
   if ( (unsigned int)KsepIsShimRegistered(&KseEngine, *(_QWORD *)(a1 + 8), v6, &v16) )
   {
     if ( *((_DWORD *)v16 + 6) )
@@ -54,7 +54,7 @@ __int64 __fastcall KseUnregisterShim(__int64 a1)
       v9 = -1073741790;
       v10 = v16;
       v11 = ((unsigned __int8)_InterlockedExchangeAdd(&KsepHistoryErrorsIndex, 1u) + 1) & 0x3F;
-      dword_140F0F384[2 * v11] = -1073741790;
+      dword_140F0F684[2 * v11] = -1073741790;
       KsepHistoryErrors[2 * v11] = 131453;
       if ( (KsepDebugFlag & 2) != 0 )
         KsepDebugPrint(
@@ -90,7 +90,7 @@ __int64 __fastcall KseUnregisterShim(__int64 a1)
   {
     v9 = -1073741772;
     v15 = ((unsigned __int8)_InterlockedExchangeAdd(&KsepHistoryErrorsIndex, 1u) + 1) & 0x3F;
-    dword_140F0F384[2 * v15] = -1073741772;
+    dword_140F0F684[2 * v15] = -1073741772;
     KsepHistoryErrors[2 * v15] = 131482;
     if ( (KsepDebugFlag & 2) != 0 )
       KsepDebugPrint(
@@ -99,9 +99,9 @@ __int64 __fastcall KseUnregisterShim(__int64 a1)
         **(unsigned int **)(a1 + 8));
     KsepLogError(3LL, (__int64)"KSE: Failed shim [0x%08X] unregistration. Shim not found.\n", **(_DWORD **)(a1 + 8));
   }
-  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140E66B10, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock((volatile signed __int64 *)&qword_140E66B10);
-  KeAbPostRelease((ULONG_PTR)&qword_140E66B10);
+  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140E66C40, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    ExfTryToWakePushLock((volatile signed __int64 *)&qword_140E66C40);
+  KeAbPostRelease((ULONG_PTR)&qword_140E66C40);
   KeLeaveCriticalRegion();
   if ( v4 )
     KsepPoolFreePaged(v16);

@@ -1,10 +1,10 @@
 /*
- * XREFs of KeKernelShadowStackRestoreContext @ 0x14057BA60
+ * XREFs of KeKernelShadowStackRestoreContext @ 0x14057BF50
  * Callers:
- *     RtlRestoreContext @ 0x1404292D0 (RtlRestoreContext.c)
- *     RcFrameConsolidation @ 0x140429620 (RcFrameConsolidation.c)
+ *     RtlRestoreContext @ 0x140429660 (RtlRestoreContext.c)
+ *     RcFrameConsolidation @ 0x1404299B0 (RcFrameConsolidation.c)
  * Callees:
- *     VslKernelShadowStackAssist @ 0x14054BA40 (VslKernelShadowStackAssist.c)
+ *     VslKernelShadowStackAssist @ 0x14054C100 (VslKernelShadowStackAssist.c)
  */
 
 __int64 __fastcall KeKernelShadowStackRestoreContext(__int64 a1, ULONG_PTR a2, _DWORD *a3)

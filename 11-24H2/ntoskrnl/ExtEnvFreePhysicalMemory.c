@@ -1,16 +1,16 @@
 /*
- * XREFs of ExtEnvFreePhysicalMemory @ 0x14055FCE0
+ * XREFs of ExtEnvFreePhysicalMemory @ 0x14055D910
  * Callers:
- *     IvtAllocateContextTable @ 0x1404D4448 (IvtAllocateContextTable.c)
- *     IvtFreeScalableModePasidTables @ 0x14056E600 (IvtFreeScalableModePasidTables.c)
- *     HsaAllocateRemappingTableEntry @ 0x1405724A0 (HsaAllocateRemappingTableEntry.c)
- *     HsaFreeRemappingTableEntry @ 0x140572DC0 (HsaFreeRemappingTableEntry.c)
+ *     IvtAllocateContextTable @ 0x1404CD658 (IvtAllocateContextTable.c)
+ *     IvtFreeScalableModePasidTables @ 0x14056BA90 (IvtFreeScalableModePasidTables.c)
+ *     HsaAllocateRemappingTableEntry @ 0x14056F930 (HsaAllocateRemappingTableEntry.c)
+ *     HsaFreeRemappingTableEntry @ 0x140570250 (HsaFreeRemappingTableEntry.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     HalpMmAllocCtxFree @ 0x14037CBAC (HalpMmAllocCtxFree.c)
- *     MmFreeContiguousMemory @ 0x1403A93D0 (MmFreeContiguousMemory.c)
- *     HalpMmIsInsideHalVa @ 0x140542F20 (HalpMmIsInsideHalVa.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     HalpMmAllocCtxFree @ 0x1402EA1C8 (HalpMmAllocCtxFree.c)
+ *     MmFreeContiguousMemory @ 0x140398060 (MmFreeContiguousMemory.c)
+ *     HalpMmIsInsideHalVa @ 0x140540870 (HalpMmIsInsideHalVa.c)
  */
 
 void __fastcall ExtEnvFreePhysicalMemory(__int64 a1, void *a2, unsigned int a3, unsigned int a4)

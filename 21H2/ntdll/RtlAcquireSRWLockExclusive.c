@@ -185,73 +185,72 @@
  *     LdrAddDllDirectory @ 0x18008BD10 (LdrAddDllDirectory.c)
  *     LdrRemoveDllDirectory @ 0x18008C420 (LdrRemoveDllDirectory.c)
  *     RtlPrepareForProcessCloning @ 0x18009BBB0 (RtlPrepareForProcessCloning.c)
- *     LdrQueryModuleServiceTags @ 0x1800CE1D0 (LdrQueryModuleServiceTags.c)
- *     LdrpCheckComponentOnDemandEtwEvent @ 0x1800CECD0 (LdrpCheckComponentOnDemandEtwEvent.c)
- *     LdrpInitializeProcess @ 0x1800D1EC0 (LdrpInitializeProcess.c)
- *     LdrpLockTlsDelayedReclaimTable @ 0x1800D538C (LdrpLockTlsDelayedReclaimTable.c)
- *     LdrForkMrdata @ 0x1800D5A90 (LdrForkMrdata.c)
- *     RtlCloneUserProcess @ 0x1800D64B0 (RtlCloneUserProcess.c)
- *     LdrUpdatePackageSearchPath @ 0x1800DEC90 (LdrUpdatePackageSearchPath.c)
- *     RtlpSignalSystemDirsModification @ 0x1800DF374 (RtlpSignalSystemDirsModification.c)
- *     ?RtlpFlsClonePrepare@@YAXPEAU_RTLP_FLS_CONTEXT@@@Z @ 0x1800DF4DC (-RtlpFlsClonePrepare@@YAXPEAU_RTLP_FLS_CONTEXT@@@Z.c)
- *     RtlGrowFunctionTable @ 0x1800E0BD0 (RtlGrowFunctionTable.c)
- *     RtlResetMemoryBlockLookaside @ 0x1800EB2D0 (RtlResetMemoryBlockLookaside.c)
- *     RtlResetMemoryZone @ 0x1800EB330 (RtlResetMemoryZone.c)
- *     RtlDeleteBarrier @ 0x1800ED980 (RtlDeleteBarrier.c)
- *     RtlLockHeapManagerForCloning @ 0x1800F2894 (RtlLockHeapManagerForCloning.c)
- *     RtlDeregisterSecureMemoryCacheCallback @ 0x1800F7BB0 (RtlDeregisterSecureMemoryCacheCallback.c)
- *     RtlRegisterSecureMemoryCacheCallback @ 0x1800F7CE0 (RtlRegisterSecureMemoryCacheCallback.c)
- *     RtlpCallSecureMemoryCallbacks @ 0x1800F7D94 (RtlpCallSecureMemoryCallbacks.c)
- *     RtlpHeapTrkDereferenceStack @ 0x1800FE00C (RtlpHeapTrkDereferenceStack.c)
- *     RtlpHeapTrkTrackAdd @ 0x1800FEA4C (RtlpHeapTrkTrackAdd.c)
- *     RtlpHeapTrkTrackRemove @ 0x1800FEB28 (RtlpHeapTrkTrackRemove.c)
- *     RtlpHeapTrkTrackRemoveHeap @ 0x1800FEC14 (RtlpHeapTrkTrackRemoveHeap.c)
- *     RtlpHeapTrkTrackStack @ 0x1800FED54 (RtlpHeapTrkTrackStack.c)
- *     RtlpStdLockAcquire @ 0x1801019A8 (RtlpStdLockAcquire.c)
- *     RtlpFcChangeRegistrationCallback @ 0x180101E30 (RtlpFcChangeRegistrationCallback.c)
- *     RtlpHpStackTraceAllocAdd @ 0x180108AE8 (RtlpHpStackTraceAllocAdd.c)
- *     RtlpHpStackTraceAllocRemove @ 0x180108E9C (RtlpHpStackTraceAllocRemove.c)
- *     RtlpHpStackTraceDisable @ 0x180109074 (RtlpHpStackTraceDisable.c)
- *     RtlpHpStackTraceEnable @ 0x1801090C8 (RtlpHpStackTraceEnable.c)
- *     RtlpIsLFHZoneAllocation @ 0x18010BAF0 (RtlpIsLFHZoneAllocation.c)
- *     RtlpHpLfhOwnerListLockUnlock @ 0x18010E290 (RtlpHpLfhOwnerListLockUnlock.c)
- *     RtlpHpLfhOwnerLockUnlock @ 0x18010E304 (RtlpHpLfhOwnerLockUnlock.c)
- *     RtlpHpLargeReAlloc @ 0x18010E97C (RtlpHpLargeReAlloc.c)
- *     RtlpHpSegMgrCommitInitiate @ 0x18010F0F4 (RtlpHpSegMgrCommitInitiate.c)
- *     RtlpHpSegMgrVaCtxFree @ 0x18010F264 (RtlpHpSegMgrVaCtxFree.c)
- *     RtlpHpSegMgrVaCtxInsert @ 0x18010F3E4 (RtlpHpSegMgrVaCtxInsert.c)
- *     RtlpHpVsChunkDecommit @ 0x18010F994 (RtlpHpVsChunkDecommit.c)
- *     RtlpHpVsContextFreeInternal @ 0x18010FC48 (RtlpHpVsContextFreeInternal.c)
- *     RtlpHpVsContextFreeList @ 0x18010FDF0 (RtlpHpVsContextFreeList.c)
- *     TpSetDefaultPoolCpuSets @ 0x180111D58 (TpSetDefaultPoolCpuSets.c)
- *     TpSetDefaultPoolMaxThreads @ 0x180111DB0 (TpSetDefaultPoolMaxThreads.c)
- *     TpSetPoolThreadCpuSets @ 0x180111F00 (TpSetPoolThreadCpuSets.c)
- *     TppDirectUnposted @ 0x180112060 (TppDirectUnposted.c)
- *     RtlSetIoCompletionCallback @ 0x180112FC0 (RtlSetIoCompletionCallback.c)
- *     RtlpTpIoDllLoaded @ 0x18011345C (RtlpTpIoDllLoaded.c)
- *     RtlpTpIoDllUnloaded @ 0x18011366C (RtlpTpIoDllUnloaded.c)
- *     RtlpTpIoLookup @ 0x180113704 (RtlpTpIoLookup.c)
- *     RtlStackDbContextSerialize @ 0x180118764 (RtlStackDbContextSerialize.c)
- *     RtlStackDbStackAdd @ 0x180118AB0 (RtlStackDbStackAdd.c)
- *     RtlStackDbStackRemove @ 0x180119088 (RtlStackDbStackRemove.c)
- *     RtlpStackDbSegmentFindOrCreate @ 0x1801194DC (RtlpStackDbSegmentFindOrCreate.c)
- *     RtlpStackDbSegmentRemoveRef @ 0x180119AE8 (RtlpStackDbSegmentRemoveRef.c)
+ *     LdrQueryModuleServiceTags @ 0x1800CE190 (LdrQueryModuleServiceTags.c)
+ *     LdrpCheckComponentOnDemandEtwEvent @ 0x1800CEC90 (LdrpCheckComponentOnDemandEtwEvent.c)
+ *     LdrpInitializeProcess @ 0x1800D1E80 (LdrpInitializeProcess.c)
+ *     LdrpLockTlsDelayedReclaimTable @ 0x1800D534C (LdrpLockTlsDelayedReclaimTable.c)
+ *     LdrForkMrdata @ 0x1800D5A50 (LdrForkMrdata.c)
+ *     RtlCloneUserProcess @ 0x1800D6470 (RtlCloneUserProcess.c)
+ *     LdrUpdatePackageSearchPath @ 0x1800DEC50 (LdrUpdatePackageSearchPath.c)
+ *     RtlpSignalSystemDirsModification @ 0x1800DF334 (RtlpSignalSystemDirsModification.c)
+ *     ?RtlpFlsClonePrepare@@YAXPEAU_RTLP_FLS_CONTEXT@@@Z @ 0x1800DF49C (-RtlpFlsClonePrepare@@YAXPEAU_RTLP_FLS_CONTEXT@@@Z.c)
+ *     RtlGrowFunctionTable @ 0x1800E0B90 (RtlGrowFunctionTable.c)
+ *     RtlResetMemoryBlockLookaside @ 0x1800EB290 (RtlResetMemoryBlockLookaside.c)
+ *     RtlResetMemoryZone @ 0x1800EB2F0 (RtlResetMemoryZone.c)
+ *     RtlDeleteBarrier @ 0x1800ED940 (RtlDeleteBarrier.c)
+ *     RtlLockHeapManagerForCloning @ 0x1800F2854 (RtlLockHeapManagerForCloning.c)
+ *     RtlDeregisterSecureMemoryCacheCallback @ 0x1800F7B70 (RtlDeregisterSecureMemoryCacheCallback.c)
+ *     RtlRegisterSecureMemoryCacheCallback @ 0x1800F7CA0 (RtlRegisterSecureMemoryCacheCallback.c)
+ *     RtlpCallSecureMemoryCallbacks @ 0x1800F7D54 (RtlpCallSecureMemoryCallbacks.c)
+ *     RtlpHeapTrkDereferenceStack @ 0x1800FDFCC (RtlpHeapTrkDereferenceStack.c)
+ *     RtlpHeapTrkTrackAdd @ 0x1800FEA0C (RtlpHeapTrkTrackAdd.c)
+ *     RtlpHeapTrkTrackRemove @ 0x1800FEAE8 (RtlpHeapTrkTrackRemove.c)
+ *     RtlpHeapTrkTrackRemoveHeap @ 0x1800FEBD4 (RtlpHeapTrkTrackRemoveHeap.c)
+ *     RtlpHeapTrkTrackStack @ 0x1800FED14 (RtlpHeapTrkTrackStack.c)
+ *     RtlpStdLockAcquire @ 0x180101968 (RtlpStdLockAcquire.c)
+ *     RtlpFcChangeRegistrationCallback @ 0x180101DF0 (RtlpFcChangeRegistrationCallback.c)
+ *     RtlpHpStackTraceAllocAdd @ 0x180108AA8 (RtlpHpStackTraceAllocAdd.c)
+ *     RtlpHpStackTraceAllocRemove @ 0x180108E5C (RtlpHpStackTraceAllocRemove.c)
+ *     RtlpHpStackTraceDisable @ 0x180109034 (RtlpHpStackTraceDisable.c)
+ *     RtlpHpStackTraceEnable @ 0x180109088 (RtlpHpStackTraceEnable.c)
+ *     RtlpIsLFHZoneAllocation @ 0x18010BAB0 (RtlpIsLFHZoneAllocation.c)
+ *     RtlpHpLfhOwnerListLockUnlock @ 0x18010E250 (RtlpHpLfhOwnerListLockUnlock.c)
+ *     RtlpHpLfhOwnerLockUnlock @ 0x18010E2C4 (RtlpHpLfhOwnerLockUnlock.c)
+ *     RtlpHpLargeReAlloc @ 0x18010E93C (RtlpHpLargeReAlloc.c)
+ *     RtlpHpSegMgrCommitInitiate @ 0x18010F0B4 (RtlpHpSegMgrCommitInitiate.c)
+ *     RtlpHpSegMgrVaCtxFree @ 0x18010F224 (RtlpHpSegMgrVaCtxFree.c)
+ *     RtlpHpSegMgrVaCtxInsert @ 0x18010F3A4 (RtlpHpSegMgrVaCtxInsert.c)
+ *     RtlpHpVsChunkDecommit @ 0x18010F954 (RtlpHpVsChunkDecommit.c)
+ *     RtlpHpVsContextFreeInternal @ 0x18010FC08 (RtlpHpVsContextFreeInternal.c)
+ *     RtlpHpVsContextFreeList @ 0x18010FDB0 (RtlpHpVsContextFreeList.c)
+ *     TpSetDefaultPoolCpuSets @ 0x180111D18 (TpSetDefaultPoolCpuSets.c)
+ *     TpSetDefaultPoolMaxThreads @ 0x180111D70 (TpSetDefaultPoolMaxThreads.c)
+ *     TpSetPoolThreadCpuSets @ 0x180111EC0 (TpSetPoolThreadCpuSets.c)
+ *     TppDirectUnposted @ 0x180112020 (TppDirectUnposted.c)
+ *     RtlSetIoCompletionCallback @ 0x180112F80 (RtlSetIoCompletionCallback.c)
+ *     RtlpTpIoDllLoaded @ 0x18011341C (RtlpTpIoDllLoaded.c)
+ *     RtlpTpIoDllUnloaded @ 0x18011362C (RtlpTpIoDllUnloaded.c)
+ *     RtlpTpIoLookup @ 0x1801136C4 (RtlpTpIoLookup.c)
+ *     RtlStackDbContextSerialize @ 0x180118704 (RtlStackDbContextSerialize.c)
+ *     RtlStackDbStackAdd @ 0x180118A50 (RtlStackDbStackAdd.c)
+ *     RtlStackDbStackRemove @ 0x180119028 (RtlStackDbStackRemove.c)
+ *     RtlpStackDbSegmentFindOrCreate @ 0x18011947C (RtlpStackDbSegmentFindOrCreate.c)
+ *     RtlpStackDbSegmentRemoveRef @ 0x180119A88 (RtlpStackDbSegmentRemoveRef.c)
  * Callees:
  *     RtlBackoff @ 0x18005E2E8 (RtlBackoff.c)
  *     RtlpWaitCouldDeadlock @ 0x180064DE0 (RtlpWaitCouldDeadlock.c)
  *     RtlpOptimizeSRWLockList @ 0x18007ABEC (RtlpOptimizeSRWLockList.c)
- *     ZwTerminateProcess @ 0x18009DBC0 (ZwTerminateProcess.c)
- *     NtWaitForAlertByThreadId @ 0x1800A1070 (NtWaitForAlertByThreadId.c)
+ *     ZwTerminateProcess @ 0x18009DB80 (ZwTerminateProcess.c)
+ *     NtWaitForAlertByThreadId @ 0x1800A1030 (NtWaitForAlertByThreadId.c)
  */
 
-void __fastcall RtlAcquireSRWLockExclusive(
-        unsigned __int64 UniqueThread,
-        unsigned __int64 i,
-        unsigned __int64 a3,
-        unsigned __int64 a4)
+void __cdecl RtlAcquireSRWLockExclusive(PRTL_SRWLOCK SRWLock)
 {
-  volatile signed __int64 *v4; // rsi
-  unsigned __int64 v5; // rdi
+  unsigned __int64 i; // rdx
+  _RTL_SRWLOCK *v2; // r8
+  char *v3; // r9
+  PRTL_SRWLOCK v4; // rsi
+  unsigned __int64 Value; // rdi
   __int64 v6; // rdx
   bool v7; // zf
   signed __int64 v8; // rax
@@ -259,72 +258,72 @@ void __fastcall RtlAcquireSRWLockExclusive(
   unsigned __int64 v11; // [rsp+20h] [rbp-48h] BYREF
   unsigned __int64 *v12; // [rsp+28h] [rbp-40h]
   __int64 v13; // [rsp+30h] [rbp-38h]
-  unsigned __int64 v14; // [rsp+38h] [rbp-30h]
+  PRTL_SRWLOCK v14; // [rsp+38h] [rbp-30h]
   int v15; // [rsp+40h] [rbp-28h]
   unsigned int v16[3]; // [rsp+44h] [rbp-24h] BYREF
   int v17; // [rsp+70h] [rbp+8h] BYREF
 
-  v4 = (volatile signed __int64 *)UniqueThread;
+  v4 = SRWLock;
   v17 = 0;
-  if ( _interlockedbittestandset64((volatile signed __int32 *)UniqueThread, 0LL) )
+  if ( _interlockedbittestandset64((volatile signed __int32 *)SRWLock, 0LL) )
   {
-    v5 = *(_QWORD *)UniqueThread;
+    Value = SRWLock->Value;
     while ( 1 )
     {
-      if ( (v5 & 1) != 0 )
+      if ( (Value & 1) != 0 )
       {
-        if ( (unsigned __int8)RtlpWaitCouldDeadlock(UniqueThread, i, a3, a4, v11) )
-          ZwTerminateProcess(-1LL, 3221225547LL);
-        UniqueThread = (unsigned __int64)NtCurrentTeb()->ClientId.UniqueThread;
-        v14 = UniqueThread;
-        LOBYTE(UniqueThread) = 0;
+        if ( (unsigned __int8)RtlpWaitCouldDeadlock(SRWLock, i, v2, v3, v11) )
+          ZwTerminateProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, -1073741749);
+        SRWLock = (PRTL_SRWLOCK)NtCurrentTeb()->ClientId.UniqueThread;
+        v14 = SRWLock;
+        LOBYTE(SRWLock) = 0;
         v16[0] = 3;
         v13 = 0LL;
-        if ( (v5 & 2) != 0 )
+        if ( (Value & 2) != 0 )
         {
           v12 = 0LL;
           v15 = -1;
-          UniqueThread = (unsigned __int8)v5;
-          v11 = v5 & 0xFFFFFFFFFFFFFFF0uLL;
-          i = (unsigned __int64)&v11 | v5 & 8 | 7;
-          LOBYTE(UniqueThread) = (v5 & 4) == 0;
+          SRWLock = (PRTL_SRWLOCK)(unsigned __int8)Value;
+          v11 = Value & 0xFFFFFFFFFFFFFFF0uLL;
+          i = (unsigned __int64)&v11 | Value & 8 | 7;
+          LOBYTE(SRWLock) = (Value & 4) == 0;
         }
         else
         {
           v6 = 11LL;
           v12 = &v11;
-          v15 = v5 >> 4;
+          v15 = Value >> 4;
           if ( v15 <= 1 )
             v6 = 3LL;
           i = (unsigned __int64)&v11 | v6;
-          if ( !(unsigned int)(v5 >> 4) )
+          if ( !(unsigned int)(Value >> 4) )
             v15 = -2;
         }
-        v8 = _InterlockedCompareExchange64(v4, i, v5);
-        v7 = v5 == v8;
-        v5 = v8;
+        v8 = _InterlockedCompareExchange64((volatile signed __int64 *)v4, i, Value);
+        v7 = Value == v8;
+        Value = v8;
         if ( !v7 )
           goto LABEL_13;
-        if ( (_BYTE)UniqueThread )
+        if ( (_BYTE)SRWLock )
           RtlpOptimizeSRWLockList(v4);
         if ( MEMORY[0x7FFE036A] > 1u )
         {
           if ( MEMORY[0x7FFE0297] )
           {
-            a3 = __rdtsc();
-            a4 = a3 + (unsigned int)SRWLockSpinCycleCount;
+            v2 = (_RTL_SRWLOCK *)__rdtsc();
+            v3 = (char *)v2 + (unsigned int)SRWLockSpinCycleCount;
             while ( 1 )
             {
               i = 0LL;
               __asm { monitorx rax, rcx, rdx }
-              UniqueThread = v16[0];
+              SRWLock = (PRTL_SRWLOCK)v16[0];
               if ( (v16[0] & 2) == 0 )
                 break;
-              UniqueThread = a3;
+              SRWLock = v2;
               v10 = __rdtsc();
               i = (unsigned __int64)HIDWORD(v10) << 32;
-              a3 = v10;
-              if ( v10 <= UniqueThread || v10 >= a4 )
+              v2 = (_RTL_SRWLOCK *)v10;
+              if ( v10 <= (unsigned __int64)SRWLock || v10 >= (unsigned __int64)v3 )
                 break;
               __asm { mwaitx  rax, rcx, rbx }
             }
@@ -333,7 +332,7 @@ void __fastcall RtlAcquireSRWLockExclusive(
           {
             for ( i = 0LL; ; i = (unsigned int)(i + 1) )
             {
-              UniqueThread = v16[0];
+              SRWLock = (PRTL_SRWLOCK)v16[0];
               if ( (v16[0] & 2) == 0 || (_DWORD)i == SRWLockSpinCycleCount / (unsigned int)MEMORY[0x7FFE02D6] )
                 break;
               _mm_pause();
@@ -349,12 +348,12 @@ void __fastcall RtlAcquireSRWLockExclusive(
       }
       else
       {
-        if ( v5 == _InterlockedCompareExchange64(v4, v5 + 1, v5) )
+        if ( Value == _InterlockedCompareExchange64((volatile signed __int64 *)v4, Value + 1, Value) )
           return;
 LABEL_13:
         RtlBackoff(&v17);
-        _m_prefetchw((const void *)v4);
-        v5 = *v4;
+        _m_prefetchw(v4);
+        Value = v4->Value;
       }
     }
   }

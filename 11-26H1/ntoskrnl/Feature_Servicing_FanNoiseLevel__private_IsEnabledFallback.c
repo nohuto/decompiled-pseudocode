@@ -1,9 +1,9 @@
 /*
- * XREFs of Feature_Servicing_FanNoiseLevel__private_IsEnabledFallback @ 0x14060D4B8
+ * XREFs of Feature_Servicing_FanNoiseLevel__private_IsEnabledFallback @ 0x1406105C8
  * Callers:
- *     Feature_Servicing_FanNoiseLevel__private_IsEnabledDeviceUsageNoInline @ 0x14060D47C (Feature_Servicing_FanNoiseLevel__private_IsEnabledDeviceUsageNoInline.c)
+ *     Feature_Servicing_FanNoiseLevel__private_IsEnabledDeviceUsageNoInline @ 0x14061058C (Feature_Servicing_FanNoiseLevel__private_IsEnabledDeviceUsageNoInline.c)
  * Callees:
- *     wil_details_IsEnabledFallback @ 0x1405016DC (wil_details_IsEnabledFallback.c)
+ *     wil_details_IsEnabledFallback @ 0x1404FAECC (wil_details_IsEnabledFallback.c)
  */
 
 __int64 __fastcall Feature_Servicing_FanNoiseLevel__private_IsEnabledFallback(__int64 a1, unsigned int a2)

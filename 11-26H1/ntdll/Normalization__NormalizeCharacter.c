@@ -1,25 +1,25 @@
 /*
- * XREFs of Normalization__NormalizeCharacter @ 0x1800AF2CC
+ * XREFs of Normalization__NormalizeCharacter @ 0x1800AE3FC
  * Callers:
- *     Normalization__Normalize @ 0x1800AF020 (Normalization__Normalize.c)
- *     Normalization__AppendDecomposedChar @ 0x1800AFC04 (Normalization__AppendDecomposedChar.c)
+ *     Normalization__Normalize @ 0x1800AE150 (Normalization__Normalize.c)
+ *     Normalization__AppendDecomposedChar @ 0x1800AED34 (Normalization__AppendDecomposedChar.c)
  * Callees:
- *     NormBuffer__AppendEx @ 0x1800AFB34 (NormBuffer__AppendEx.c)
- *     NormBuffer__Append @ 0x1800AFB90 (NormBuffer__Append.c)
- *     Normalization__AppendDecomposedChar @ 0x1800AFC04 (Normalization__AppendDecomposedChar.c)
- *     NormBuffer__GetLastChar @ 0x1800B02DC (NormBuffer__GetLastChar.c)
- *     NormBuffer__IsBlocked @ 0x1800B0474 (NormBuffer__IsBlocked.c)
- *     NormBuffer__InsertAtBlockedLocation @ 0x1800B0500 (NormBuffer__InsertAtBlockedLocation.c)
- *     Normalization__CanCombinableCharactersCombine @ 0x1800B0530 (Normalization__CanCombinableCharactersCombine.c)
- *     NormBuffer__RecheckStartCombinations @ 0x1800B06A0 (NormBuffer__RecheckStartCombinations.c)
- *     IsHangulLV @ 0x1800B087C (IsHangulLV.c)
- *     NormBuffer__LastStartBasePair @ 0x1800B08B8 (NormBuffer__LastStartBasePair.c)
- *     ComposeHangulLVT @ 0x1800B0914 (ComposeHangulLVT.c)
- *     NormBuffer__RewindOutputCharacter @ 0x1800B094C (NormBuffer__RewindOutputCharacter.c)
- *     NormBuffer__ReplaceLastStartBase @ 0x1800B09DC (NormBuffer__ReplaceLastStartBase.c)
- *     NormBuffer__ReplaceLastStartBasePair @ 0x1800B0A64 (NormBuffer__ReplaceLastStartBasePair.c)
- *     NormBuffer__LastStartBase @ 0x180120D80 (NormBuffer__LastStartBase.c)
- *     ComposeHangulLV @ 0x180121D84 (ComposeHangulLV.c)
+ *     NormBuffer__AppendEx @ 0x1800AEC60 (NormBuffer__AppendEx.c)
+ *     NormBuffer__Append @ 0x1800AECC0 (NormBuffer__Append.c)
+ *     Normalization__AppendDecomposedChar @ 0x1800AED34 (Normalization__AppendDecomposedChar.c)
+ *     NormBuffer__GetLastChar @ 0x1800AF40C (NormBuffer__GetLastChar.c)
+ *     NormBuffer__IsBlocked @ 0x1800AF5A4 (NormBuffer__IsBlocked.c)
+ *     NormBuffer__InsertAtBlockedLocation @ 0x1800AF630 (NormBuffer__InsertAtBlockedLocation.c)
+ *     Normalization__CanCombinableCharactersCombine @ 0x1800AF660 (Normalization__CanCombinableCharactersCombine.c)
+ *     NormBuffer__RecheckStartCombinations @ 0x1800AF7D0 (NormBuffer__RecheckStartCombinations.c)
+ *     IsHangulLV @ 0x1800AF9AC (IsHangulLV.c)
+ *     NormBuffer__LastStartBasePair @ 0x1800AF9E8 (NormBuffer__LastStartBasePair.c)
+ *     ComposeHangulLVT @ 0x1800AFA44 (ComposeHangulLVT.c)
+ *     NormBuffer__RewindOutputCharacter @ 0x1800AFA7C (NormBuffer__RewindOutputCharacter.c)
+ *     NormBuffer__ReplaceLastStartBase @ 0x1800AFB0C (NormBuffer__ReplaceLastStartBase.c)
+ *     NormBuffer__ReplaceLastStartBasePair @ 0x1800AFB94 (NormBuffer__ReplaceLastStartBasePair.c)
+ *     NormBuffer__LastStartBase @ 0x180120B30 (NormBuffer__LastStartBase.c)
+ *     ComposeHangulLV @ 0x180121B24 (ComposeHangulLV.c)
  */
 
 __int64 __fastcall Normalization__NormalizeCharacter(__int64 a1, unsigned int a2, __int64 a3, __int64 a4)
@@ -46,7 +46,7 @@ __int64 __fastcall Normalization__NormalizeCharacter(__int64 a1, unsigned int a2
   int v26; // eax
   __int64 v27; // rdx
   signed int v28; // edi
-  __int64 v29; // rsi
+  unsigned __int16 v29; // si
   unsigned __int16 v30; // di
   unsigned __int8 v31; // r15
   int v32; // eax
@@ -207,18 +207,18 @@ LABEL_128:
           v28 = a2 - 44032;
           if ( !(unsigned __int8)NormBuffer__AppendEx(v4, (unsigned __int16)(v28 / 588 + 4352), 0LL, 0LL) )
             return 3221225507LL;
-          v29 = (unsigned __int16)(v28 % 588 / 28 + 4449);
+          v29 = v28 % 588 / 28 + 4449;
           if ( !(unsigned __int8)NormBuffer__AppendEx(v4, v29, 0LL, 0LL) )
             return 3221225507LL;
-          v30 = (__int16)v28 % 28 != 0 ? (__int16)v28 % 28 + 4519 : 0;
+          v30 = (unsigned __int16)(v28 % 28) != 0 ? v28 % 28 + 4519 : 0;
           if ( v30 )
           {
             if ( !(unsigned __int8)NormBuffer__AppendEx(v4, v30, 0LL, 0LL) )
               return 3221225507LL;
-            LOWORD(v29) = v30;
+            v29 = v30;
           }
           *(_QWORD *)(v4 + 80) = *(_QWORD *)(v4 + 40);
-          *(_DWORD *)(v4 + 88) = (unsigned __int16)v29;
+          *(_DWORD *)(v4 + 88) = v29;
 LABEL_17:
           *(_WORD *)(v4 + 92) = 0;
           return 0LL;
@@ -262,7 +262,7 @@ LABEL_40:
         *(_BYTE *)(v4 + 93) = v21;
         *(_QWORD *)(v4 + 96) = 0LL;
       }
-      if ( v9 == (char)0x80 || !*(_WORD *)(v4 + 92) || (*(_BYTE *)(v4 + 93) | *(_BYTE *)(v4 + 92)) == -64 )
+      if ( v9 == (char)0x80 || !*(_WORD *)(v4 + 92) || (*(_BYTE *)(v4 + 92) | *(_BYTE *)(v4 + 93)) == -64 )
       {
         LOBYTE(v18) = v10;
         NormBuffer__IsBlocked(v4, v18);

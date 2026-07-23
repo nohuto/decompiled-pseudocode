@@ -1,13 +1,13 @@
 /*
- * XREFs of PopPepIterateDeviceList @ 0x1405753B0
+ * XREFs of PopPepIterateDeviceList @ 0x1405755F0
  * Callers:
- *     PopPlRegisterPowerPlane @ 0x14057EA24 (PopPlRegisterPowerPlane.c)
+ *     PopPlRegisterPowerPlane @ 0x14057EC64 (PopPlRegisterPowerPlane.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     ExfReleasePushLockShared @ 0x1402F1470 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExfReleasePushLockShared @ 0x1402FC1C0 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockSharedEx @ 0x1403558A0 (ExAcquirePushLockSharedEx.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 bool __fastcall PopPepIterateDeviceList(
@@ -23,6 +23,9 @@ bool __fastcall PopPepIterateDeviceList(
   struct _KTHREAD *CurrentThread; // rax
   __int64 *v11; // rbx
   bool v12; // di
+  __int64 v13; // rdx
+  __int64 v14; // r8
+  __int64 v15; // r9
 
   v9 = a1;
   if ( a5 )
@@ -56,7 +59,7 @@ bool __fastcall PopPepIterateDeviceList(
     if ( _InterlockedCompareExchange64((volatile signed __int64 *)&PopPepDeviceListLock, 0LL, 17LL) != 17 )
       ExfReleasePushLockShared((signed __int64 *)&PopPepDeviceListLock);
     KeAbPostRelease((ULONG_PTR)&PopPepDeviceListLock);
-    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v13, v14, v15);
   }
   return v12;
 }

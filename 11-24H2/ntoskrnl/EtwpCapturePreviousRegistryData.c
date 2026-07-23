@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwpCapturePreviousRegistryData @ 0x14098C820
+ * XREFs of EtwpCapturePreviousRegistryData @ 0x140976E30
  * Callers:
- *     EtwpRegTraceCallback @ 0x14098BEA0 (EtwpRegTraceCallback.c)
+ *     EtwpRegTraceCallback @ 0x1409764B0 (EtwpRegTraceCallback.c)
  * Callees:
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwQueryValueKey @ 0x1406A66F0 (ZwQueryValueKey.c)
- *     ObOpenObjectByPointer @ 0x140854F10 (ObOpenObjectByPointer.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwQueryValueKey @ 0x1406A7690 (ZwQueryValueKey.c)
+ *     ObOpenObjectByPointer @ 0x1408511D0 (ObOpenObjectByPointer.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall EtwpCapturePreviousRegistryData(__int64 a1)
@@ -34,8 +34,11 @@ void __fastcall EtwpCapturePreviousRegistryData(__int64 a1)
       if ( ResultLength )
       {
         if ( Pool2 )
+        {
           ExFreePoolWithTag(Pool2, 0);
-        Pool2 = (void *)ExAllocatePool2(0x100uLL);
+          Length = ResultLength;
+        }
+        Pool2 = (void *)ExAllocatePool2(0x100uLL, Length, 0x31777445u);
         if ( !Pool2 )
           goto LABEL_13;
         Length = ResultLength;

@@ -6,16 +6,16 @@
  *     ZwSetInformationThread @ 0x18009C880 (ZwSetInformationThread.c)
  */
 
-__int64 RtlClearThreadWorkOnBehalfTicket()
+NTSTATUS RtlClearThreadWorkOnBehalfTicket()
 {
-  __int64 result; // rax
-  void *v1; // [rsp+30h] [rbp+8h] BYREF
+  NTSTATUS result; // eax
+  __int64 ThreadInformation; // [rsp+30h] [rbp+8h] BYREF
 
-  v1 = 0LL;
-  if ( !NtCurrentTeb()->SystemReserved1[53] )
-    return 0LL;
-  result = ZwSetInformationThread(-2LL, 44LL, &v1);
-  if ( (int)result >= 0 )
-    NtCurrentTeb()->SystemReserved1[53] = v1;
+  ThreadInformation = 0LL;
+  if ( !*(_QWORD *)NtCurrentTeb()->WorkingOnBehalfTicket )
+    return 0;
+  result = ZwSetInformationThread((HANDLE)0xFFFFFFFFFFFFFFFELL, ThreadWorkOnBehalfTicket, &ThreadInformation, 8u);
+  if ( result >= 0 )
+    *(_QWORD *)NtCurrentTeb()->WorkingOnBehalfTicket = ThreadInformation;
   return result;
 }

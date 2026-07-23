@@ -1,9 +1,9 @@
 /*
- * XREFs of ExGetExclusiveWaiterCount @ 0x14048CB10
+ * XREFs of ExGetExclusiveWaiterCount @ 0x140486650
  * Callers:
  *     <none>
  * Callees:
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 ULONG __stdcall ExGetExclusiveWaiterCount(PERESOURCE Resource)

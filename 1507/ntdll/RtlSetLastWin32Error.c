@@ -81,14 +81,13 @@
  *     <none>
  */
 
-struct _TEB *__fastcall RtlSetLastWin32Error(unsigned int a1)
+void __cdecl RtlSetLastWin32Error(LONG Win32Error)
 {
-  struct _TEB *result; // rax
+  struct _TEB *v1; // rax
 
-  result = NtCurrentTeb();
-  if ( g_dwLastErrorToBreakOn && a1 == g_dwLastErrorToBreakOn )
+  v1 = NtCurrentTeb();
+  if ( g_dwLastErrorToBreakOn && Win32Error == g_dwLastErrorToBreakOn )
     __debugbreak();
-  if ( result->LastErrorValue != a1 )
-    result->LastErrorValue = a1;
-  return result;
+  if ( v1->LastErrorValue != Win32Error )
+    v1->LastErrorValue = Win32Error;
 }

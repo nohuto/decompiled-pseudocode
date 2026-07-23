@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlAddAce @ 0x14065F130
+ * XREFs of RtlAddAce @ 0x140653F50
  * Callers:
- *     SepAppendAceToTokenDefaultDacl @ 0x1402C91B4 (SepAppendAceToTokenDefaultDacl.c)
- *     SepSetProcessTrustLabelAceForToken @ 0x1403F8C44 (SepSetProcessTrustLabelAceForToken.c)
- *     AdtpBuildAccessReasonAuditStringInternal @ 0x1405C28F4 (AdtpBuildAccessReasonAuditStringInternal.c)
- *     SepAppendAceToTokenObjectAcl @ 0x14065F440 (SepAppendAceToTokenObjectAcl.c)
- *     PiDevCfgGetKeySecurityDescriptor @ 0x14073C380 (PiDevCfgGetKeySecurityDescriptor.c)
- *     LocalGetAclForString @ 0x1407878AC (LocalGetAclForString.c)
+ *     SepAppendAceToTokenDefaultDacl @ 0x140247A94 (SepAppendAceToTokenDefaultDacl.c)
+ *     SepSetProcessTrustLabelAceForToken @ 0x1403F8C74 (SepSetProcessTrustLabelAceForToken.c)
+ *     AdtpBuildAccessReasonAuditStringInternal @ 0x1405C2B24 (AdtpBuildAccessReasonAuditStringInternal.c)
+ *     SepAppendAceToTokenObjectAcl @ 0x140654260 (SepAppendAceToTokenObjectAcl.c)
+ *     PiDevCfgGetKeySecurityDescriptor @ 0x14073C540 (PiDevCfgGetKeySecurityDescriptor.c)
+ *     LocalGetAclForString @ 0x140787A6C (LocalGetAclForString.c)
  * Callees:
- *     RtlFirstFreeAce @ 0x14065B880 (RtlFirstFreeAce.c)
- *     RtlValidAcl @ 0x14065C5C0 (RtlValidAcl.c)
+ *     RtlFirstFreeAce @ 0x1406506A0 (RtlFirstFreeAce.c)
+ *     RtlValidAcl @ 0x1406513E0 (RtlValidAcl.c)
  */
 
 NTSTATUS __stdcall RtlAddAce(PACL Acl, ULONG AceRevision, ULONG StartingAceIndex, PVOID AceList, ULONG AceListLength)
@@ -28,10 +28,10 @@ NTSTATUS __stdcall RtlAddAce(PACL Acl, ULONG AceRevision, ULONG StartingAceIndex
   NTSTATUS result; // eax
   __int64 v21; // r10
   bool v22; // cf
-  __int64 v23[5]; // [rsp+20h] [rbp-28h] BYREF
+  PVOID FirstFree; // [rsp+20h] [rbp-28h] BYREF
 
-  v23[0] = 0LL;
-  if ( !RtlValidAcl((__int64)Acl) || !RtlFirstFreeAce((__int64)Acl, v23) )
+  FirstFree = 0LL;
+  if ( !RtlValidAcl(Acl) || !RtlFirstFreeAce(Acl, &FirstFree) )
     return -1073741811;
   v9 = (char *)AceList;
   AclRevision = AceRevision;
@@ -68,7 +68,7 @@ LABEL_7:
   }
   if ( v9 > v12 )
     return -1073741811;
-  if ( !v23[0] || (unsigned __int64)AceListLength + v23[0] > (unsigned __int64)Acl + Acl->AclSize )
+  if ( !FirstFree || (char *)FirstFree + AceListLength > (char *)Acl + Acl->AclSize )
     return -1073741789;
   v15 = 0;
   for ( i = Acl + 1; v15 < StartingAceIndex; i = (PACL)((char *)i + i->AclSize) )
@@ -77,7 +77,7 @@ LABEL_7:
       break;
     ++v15;
   }
-  v17 = LODWORD(v23[0]) - (_DWORD)i - 1;
+  v17 = (_DWORD)FirstFree - (_DWORD)i - 1;
   v18 = v17;
   if ( v17 >= 0 )
   {

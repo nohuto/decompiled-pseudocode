@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpHpSegLfhVsCommit @ 0x14030A1C0
+ * XREFs of RtlpHpSegLfhVsCommit @ 0x140314F10
  * Callers:
  *     <none>
  * Callees:
- *     RtlpHpSegPageRangeCommit @ 0x14030A2B0 (RtlpHpSegPageRangeCommit.c)
+ *     RtlpHpSegPageRangeCommit @ 0x140315000 (RtlpHpSegPageRangeCommit.c)
  */
 
 __int64 __fastcall RtlpHpSegLfhVsCommit(int a1)

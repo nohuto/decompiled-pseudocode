@@ -1,22 +1,22 @@
 /*
- * XREFs of ExNotifyWithProcessing @ 0x14033BF60
+ * XREFs of ExNotifyWithProcessing @ 0x14033C1F0
  * Callers:
- *     IopSessionChangeWorker @ 0x14033BEE0 (IopSessionChangeWorker.c)
- *     ExNotifyCallback @ 0x14033BF40 (ExNotifyCallback.c)
- *     HvlPhase2Initialize @ 0x1403B4CA0 (HvlPhase2Initialize.c)
- *     PoNotifySystemTimeSet @ 0x1403B64C8 (PoNotifySystemTimeSet.c)
- *     KiDynamicProcessorAddNotification @ 0x140571924 (KiDynamicProcessorAddNotification.c)
- *     ExRebootSystemForRecovery @ 0x140606674 (ExRebootSystemForRecovery.c)
- *     SepImageVerificationCallbackWorker @ 0x1407B3D70 (SepImageVerificationCallbackWorker.c)
+ *     IopSessionChangeWorker @ 0x14033C170 (IopSessionChangeWorker.c)
+ *     ExNotifyCallback @ 0x14033C1D0 (ExNotifyCallback.c)
+ *     HvlPhase2Initialize @ 0x1403B4E80 (HvlPhase2Initialize.c)
+ *     PoNotifySystemTimeSet @ 0x1403B66A8 (PoNotifySystemTimeSet.c)
+ *     KiDynamicProcessorAddNotification @ 0x140571E64 (KiDynamicProcessorAddNotification.c)
+ *     ExRebootSystemForRecovery @ 0x140606BC4 (ExRebootSystemForRecovery.c)
+ *     SepImageVerificationCallbackWorker @ 0x1407B3F60 (SepImageVerificationCallbackWorker.c)
  *     PnpNotifyEarlyLaunchImageLoad @ 0x140B3E0A4 (PnpNotifyEarlyLaunchImageLoad.c)
  *     PnpNotifyEarlyLaunchStatusUpdate @ 0x140B3E420 (PnpNotifyEarlyLaunchStatusUpdate.c)
  * Callees:
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     ExpCallProcessing @ 0x14033C0A8 (ExpCallProcessing.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ExpCallProcessing @ 0x14033C338 (ExpCallProcessing.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 void __fastcall ExNotifyWithProcessing(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -63,10 +63,10 @@ void __fastcall ExNotifyWithProcessing(__int64 a1, __int64 a2, __int64 a3, __int
           {
             ++*((_DWORD *)v10 + 10);
             KxReleaseSpinLock(v8);
-            if ( KiIrqlFlags )
+            if ( (_DWORD)KiIrqlFlags )
             {
               CurrentIrql = KeGetCurrentIrql();
-              if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v11 <= 0xFu && CurrentIrql >= 2u )
+              if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v11 <= 0xFu && CurrentIrql >= 2u )
               {
                 CurrentPrcb = KeGetCurrentPrcb();
                 SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -90,10 +90,10 @@ void __fastcall ExNotifyWithProcessing(__int64 a1, __int64 a2, __int64 a3, __int
         }
       }
       KxReleaseSpinLock(v8);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v18 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v18 <= 0xFu && v11 <= 0xFu && v18 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v18 <= 0xFu && v11 <= 0xFu && v18 >= 2u )
         {
           v19 = KeGetCurrentPrcb();
           v20 = v19->SchedulerAssist;

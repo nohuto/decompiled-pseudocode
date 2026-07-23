@@ -1,7 +1,7 @@
 /*
- * XREFs of CcFindNextWBWorkQueueEntry @ 0x1405B39B0
+ * XREFs of CcFindNextWBWorkQueueEntry @ 0x1405B61C0
  * Callers:
- *     CcAsyncLazywriteWorkerMulti @ 0x1404BB630 (CcAsyncLazywriteWorkerMulti.c)
+ *     CcAsyncLazywriteWorkerMulti @ 0x1404B4E10 (CcAsyncLazywriteWorkerMulti.c)
  * Callees:
  *     <none>
  */

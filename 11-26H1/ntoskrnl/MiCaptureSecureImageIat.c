@@ -1,20 +1,20 @@
 /*
- * XREFs of MiCaptureSecureImageIat @ 0x140B32544
+ * XREFs of MiCaptureSecureImageIat @ 0x140B34998
  * Callers:
- *     MiApplyImportOptimizationToRuntimeDriver @ 0x140B3C35C (MiApplyImportOptimizationToRuntimeDriver.c)
+ *     MiApplyImportOptimizationToRuntimeDriver @ 0x140B3E5DC (MiApplyImportOptimizationToRuntimeDriver.c)
  * Callees:
- *     RtlImageDirectoryEntryToData @ 0x14040E290 (RtlImageDirectoryEntryToData.c)
- *     VslCaptureSecureImageIat @ 0x140B3258C (VslCaptureSecureImageIat.c)
+ *     RtlImageDirectoryEntryToData @ 0x14042B1C0 (RtlImageDirectoryEntryToData.c)
+ *     VslCaptureSecureImageIat @ 0x140B349E0 (VslCaptureSecureImageIat.c)
  */
 
-__int64 __fastcall MiCaptureSecureImageIat(unsigned __int64 a1)
+PVOID __fastcall MiCaptureSecureImageIat(void *a1)
 {
-  __int64 result; // rax
-  unsigned int v3; // [rsp+38h] [rbp+10h] BYREF
+  PVOID result; // rax
+  ULONG Size; // [rsp+38h] [rbp+10h] BYREF
 
-  v3 = 0;
-  result = RtlImageDirectoryEntryToData(a1, 1, 0xCu, &v3);
+  Size = 0;
+  result = RtlImageDirectoryEntryToData(a1, 1u, 0xCu, &Size);
   if ( result )
-    return VslCaptureSecureImageIat(a1, result, v3);
+    return (PVOID)VslCaptureSecureImageIat(a1, result, Size);
   return result;
 }

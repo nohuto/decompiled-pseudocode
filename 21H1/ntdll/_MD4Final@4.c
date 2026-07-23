@@ -15,9 +15,10 @@ int __stdcall MD4Final(_DWORD *a1)
   _DWORD *v3; // ebx
   int v4; // eax
   unsigned int v5; // ecx
-  size_t v6; // edi
+  int v6; // edi
   _BYTE *v7; // esi
   int result; // eax
+  size_t v9; // [esp-4h] [ebp-5Ch]
   _BYTE Src[72]; // [esp+Ch] [ebp-4Ch] BYREF
 
   v1 = 56;
@@ -30,7 +31,8 @@ int __stdcall MD4Final(_DWORD *a1)
   if ( v5 >= 0x38 )
     v1 = 120;
   v6 = v1 - v5;
-  memset(Src, 0, v6);
+  LODWORD(v9) = v6;
+  memset(Src, 0, v9);
   Src[0] = 0x80;
   MD4Update((int)a1, Src, v6);
   MD4Update((int)a1, v3, 8);

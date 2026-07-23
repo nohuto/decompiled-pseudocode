@@ -1,9 +1,9 @@
 /*
- * XREFs of IoQueueWorkItemEx @ 0x1400D1154
+ * XREFs of IoQueueWorkItemEx @ 0x1400CEFF4
  * Callers:
- *     IoQueueWorkItem @ 0x1400AE7A4 (IoQueueWorkItem.c)
+ *     IoQueueWorkItem @ 0x1400ACD0C (IoQueueWorkItem.c)
  * Callees:
- *     IopQueueWorkItemProlog @ 0x1400D1408 (IopQueueWorkItemProlog.c)
+ *     IopQueueWorkItemProlog @ 0x1400CF2A8 (IopQueueWorkItemProlog.c)
  */
 
 void __stdcall IoQueueWorkItemEx(

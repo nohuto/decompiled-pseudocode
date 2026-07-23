@@ -1,8 +1,8 @@
 /*
- * XREFs of AdtpPermissionBitPosition @ 0x140697544
+ * XREFs of AdtpPermissionBitPosition @ 0x1406985C4
  * Callers:
- *     AdtpBuildAccessReasonAuditString @ 0x14040AF54 (AdtpBuildAccessReasonAuditString.c)
- *     AdtpBuildStagingReasonAuditStringInternal @ 0x14069708C (AdtpBuildStagingReasonAuditStringInternal.c)
+ *     AdtpBuildAccessReasonAuditString @ 0x140403434 (AdtpBuildAccessReasonAuditString.c)
+ *     AdtpBuildStagingReasonAuditStringInternal @ 0x14069810C (AdtpBuildStagingReasonAuditStringInternal.c)
  * Callees:
  *     <none>
  */

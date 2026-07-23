@@ -1,12 +1,12 @@
 /*
- * XREFs of KiSetProcessorSignature @ 0x1405C3320
+ * XREFs of KiSetProcessorSignature @ 0x1405C08F0
  * Callers:
- *     KiInitializeBootStructures @ 0x140B580C0 (KiInitializeBootStructures.c)
- *     KiSetFeatureBits @ 0x140B59BF4 (KiSetFeatureBits.c)
+ *     KiInitializeBootStructures @ 0x140B5A140 (KiInitializeBootStructures.c)
+ *     KiSetFeatureBits @ 0x140B5BC74 (KiSetFeatureBits.c)
  * Callees:
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     RtlDetectProcessorFeatures @ 0x140B60270 (RtlDetectProcessorFeatures.c)
- *     KiPublishProcessorFeatures @ 0x140C29D68 (KiPublishProcessorFeatures.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     RtlDetectProcessorFeatures @ 0x140B6233C (RtlDetectProcessorFeatures.c)
+ *     KiPublishProcessorFeatures @ 0x140C2BE88 (KiPublishProcessorFeatures.c)
  */
 
 __int64 __fastcall KiSetProcessorSignature(__int64 a1, int a2)

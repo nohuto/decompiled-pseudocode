@@ -1,5 +1,5 @@
 /*
- * XREFs of ExpTimeRefreshWork @ 0x14056E0E0
+ * XREFs of ExpTimeRefreshWork @ 0x14056F0E0
  * Callers:
  *     <none>
  * Callees:
@@ -8,20 +8,20 @@
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     KeSetTimer2 @ 0x1400FC170 (KeSetTimer2.c)
- *     ExUpdateSystemTimeFromCmos @ 0x140566B6C (ExUpdateSystemTimeFromCmos.c)
- *     ExpSetKernelDataProtection @ 0x1405A15F4 (ExpSetKernelDataProtection.c)
- *     ExpGetKernelDataProtection @ 0x1405A1B24 (ExpGetKernelDataProtection.c)
- *     sub_1405A23DC @ 0x1405A23DC (sub_1405A23DC.c)
- *     ExpPutLicenseDataIntoRegistry @ 0x1405A2404 (ExpPutLicenseDataIntoRegistry.c)
- *     ExAcquireTimeRefreshLock @ 0x14066583C (ExAcquireTimeRefreshLock.c)
- *     ExReleaseTimeRefreshLock @ 0x1406BEBF8 (ExReleaseTimeRefreshLock.c)
- *     sub_1408CF004 @ 0x1408CF004 (sub_1408CF004.c)
- *     sub_1408CF054 @ 0x1408CF054 (sub_1408CF054.c)
- *     sub_1408CF3C4 @ 0x1408CF3C4 (sub_1408CF3C4.c)
+ *     ExfReleasePushLockShared @ 0x1400913F0 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     KeSetTimer2 @ 0x1400FC1F0 (KeSetTimer2.c)
+ *     ExUpdateSystemTimeFromCmos @ 0x140567B6C (ExUpdateSystemTimeFromCmos.c)
+ *     ExpSetKernelDataProtection @ 0x1405A25F4 (ExpSetKernelDataProtection.c)
+ *     ExpGetKernelDataProtection @ 0x1405A2B24 (ExpGetKernelDataProtection.c)
+ *     sub_1405A33DC @ 0x1405A33DC (sub_1405A33DC.c)
+ *     ExpPutLicenseDataIntoRegistry @ 0x1405A3404 (ExpPutLicenseDataIntoRegistry.c)
+ *     ExAcquireTimeRefreshLock @ 0x1406669FC (ExAcquireTimeRefreshLock.c)
+ *     ExReleaseTimeRefreshLock @ 0x1406BFE98 (ExReleaseTimeRefreshLock.c)
+ *     sub_1408D02C4 @ 0x1408D02C4 (sub_1408D02C4.c)
+ *     sub_1408D0314 @ 0x1408D0314 (sub_1408D0314.c)
+ *     sub_1408D0684 @ 0x1408D0684 (sub_1408D0684.c)
  */
 
 _BOOL8 __fastcall ExpTimeRefreshWork(__int64 a1)
@@ -85,8 +85,8 @@ _BOOL8 __fastcall ExpTimeRefreshWork(__int64 a1)
     ExReleaseTimeRefreshLock();
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->KernelApcDisable;
-    ExAcquirePushLockSharedEx((ULONG_PTR)&qword_14096E4E0, 0LL);
-    if ( off_14096D030 )
+    ExAcquirePushLockSharedEx((ULONG_PTR)&qword_14096F4E0, 0LL);
+    if ( off_14096E030 )
     {
 LABEL_33:
       v13 = 0;
@@ -94,16 +94,16 @@ LABEL_33:
     }
     if ( Data )
     {
-      ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_14096E5A0, 0LL);
-      v2 = qword_14096E620 == 0;
-      v3 = _InterlockedExchangeAdd64((volatile signed __int64 *)&qword_14096E5A0, 0xFFFFFFFFFFFFFFFFuLL);
+      ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_14096F5A0, 0LL);
+      v2 = qword_14096F620 == 0;
+      v3 = _InterlockedExchangeAdd64((volatile signed __int64 *)&qword_14096F5A0, 0xFFFFFFFFFFFFFFFFuLL);
       if ( (v3 & 2) != 0 && (v3 & 4) == 0 )
-        ExfTryToWakePushLock((volatile signed __int64 *)&qword_14096E5A0);
-      KeAbPostRelease((ULONG_PTR)&qword_14096E5A0);
+        ExfTryToWakePushLock((volatile signed __int64 *)&qword_14096F5A0);
+      KeAbPostRelease((ULONG_PTR)&qword_14096F5A0);
       if ( v2 )
       {
         v11 = (__int128 *)&v38;
-        dword_14096D0A4 = 5;
+        dword_14096E0B8 = 5;
         v39 = 5;
         v12 = 2LL;
 LABEL_19:
@@ -123,7 +123,7 @@ LABEL_19:
           v5 = 16LL * (unsigned int)v4;
           updated = v5 > 0xFFFFFFFF ? 0xC0000095 : 0;
           if ( v5 <= 0xFFFFFFFF )
-            updated = ExpLicUpdateChecksum((__int64)&unk_14096FD00, v4, &v29);
+            updated = ExpLicUpdateChecksum((__int64)&unk_140970D00, v4, &v29);
           if ( updated )
           {
 LABEL_31:
@@ -156,28 +156,28 @@ LABEL_31:
       }
     }
 LABEL_20:
-    if ( off_14096D030 )
+    if ( off_14096E030 )
       goto LABEL_33;
     v13 = 1;
     if ( (int)ExpGetKernelDataProtection(v41) >= 0 )
       v13 = v41[40];
 LABEL_23:
-    if ( _InterlockedCompareExchange64((volatile signed __int64 *)&qword_14096E4E0, 0LL, 17LL) != 17 )
-      ExfReleasePushLockShared((signed __int64 *)&qword_14096E4E0);
-    KeAbPostRelease((ULONG_PTR)&qword_14096E4E0);
+    if ( _InterlockedCompareExchange64((volatile signed __int64 *)&qword_14096F4E0, 0LL, 17LL) != 17 )
+      ExfReleasePushLockShared((signed __int64 *)&qword_14096F4E0);
+    KeAbPostRelease((ULONG_PTR)&qword_14096F4E0);
     KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
     if ( v13 == 1 )
     {
       v15 = KeGetCurrentThread();
       --v15->KernelApcDisable;
-      ExAcquirePushLockSharedEx((ULONG_PTR)&qword_14096E4E0, 0LL);
+      ExAcquirePushLockSharedEx((ULONG_PTR)&qword_14096F4E0, 0LL);
       v16 = 0LL;
       if ( (int)ExpGetKernelDataProtection(v42) >= 0 )
         v16 = v43;
       v17 = v16 + 3600;
       v45 = v17;
       ExpSetKernelDataProtection(v44, 8LL, 0LL);
-      if ( off_14096D030 )
+      if ( off_14096E030 )
       {
         v18 = 10800LL;
       }
@@ -187,19 +187,19 @@ LABEL_23:
         if ( (int)ExpGetKernelDataProtection(v46) >= 0 )
           v18 = v47;
       }
-      if ( _InterlockedCompareExchange64((volatile signed __int64 *)&qword_14096E4E0, 0LL, 17LL) != 17 )
-        ExfReleasePushLockShared((signed __int64 *)&qword_14096E4E0);
-      KeAbPostRelease((ULONG_PTR)&qword_14096E4E0);
+      if ( _InterlockedCompareExchange64((volatile signed __int64 *)&qword_14096F4E0, 0LL, 17LL) != 17 )
+        ExfReleasePushLockShared((signed __int64 *)&qword_14096F4E0);
+      KeAbPostRelease((ULONG_PTR)&qword_14096F4E0);
       KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
-      sub_1408CF004();
+      sub_1408D02C4();
       if ( v18 <= v17 )
       {
         v19 = KeGetCurrentThread();
         --v19->KernelApcDisable;
-        ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_14096E4E0, 0LL);
+        ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_14096F4E0, 0LL);
         if ( !Data )
         {
-          v20 = dword_14096D0A4;
+          v20 = dword_14096E0B8;
           goto LABEL_63;
         }
         KernelDataProtection = ExpGetKernelDataProtection(&v36);
@@ -236,7 +236,7 @@ LABEL_23:
           v23 *= 16LL;
           v25 = v23 > 0xFFFFFFFF ? 0xC0000095 : 0;
           if ( v23 <= 0xFFFFFFFF )
-            v25 = ExpLicUpdateChecksum((__int64)&unk_14096FD00, 0xFFFFFFFFLL, &v31);
+            v25 = ExpLicUpdateChecksum((__int64)&unk_140970D00, 0xFFFFFFFFLL, &v31);
           if ( !v25 )
           {
 LABEL_58:
@@ -252,27 +252,27 @@ LABEL_60:
 LABEL_62:
             v20 = 4;
 LABEL_63:
-            dword_14096D0A4 = 2;
+            dword_14096E0B8 = 2;
             v49 = 2;
             v27 = v20 == 0;
             ExpSetKernelDataProtection(v48, 2LL, 0LL);
             v28 = Data;
-            if ( off_14096D030 )
-              v28 = off_14096D030;
+            if ( off_14096E030 )
+              v28 = off_14096E030;
             if ( v28 )
               v28[3] |= 1u;
             v50[40] = 0;
             ExpSetKernelDataProtection(v50, 32LL, 0LL);
-            if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_14096E4E0, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-              ExfTryToWakePushLock((volatile signed __int64 *)&qword_14096E4E0);
-            KeAbPostRelease((ULONG_PTR)&qword_14096E4E0);
+            if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_14096F4E0, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+              ExfTryToWakePushLock((volatile signed __int64 *)&qword_14096F4E0);
+            KeAbPostRelease((ULONG_PTR)&qword_14096F4E0);
             KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
             ExpPutLicenseDataIntoRegistry();
-            sub_1408CF054(&KernelLicensingCacheExpired);
-            sub_1408CF3C4();
+            sub_1408D0314(&KernelLicensingCacheExpired);
+            sub_1408D0684();
 LABEL_71:
             if ( v27 )
-              sub_1405A23DC();
+              sub_1405A33DC();
             continue;
           }
         }

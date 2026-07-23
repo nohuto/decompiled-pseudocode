@@ -1,16 +1,16 @@
 /*
- * XREFs of MiAddKernelStackToPrcbCache @ 0x14026BC20
+ * XREFs of MiAddKernelStackToPrcbCache @ 0x1402211B0
  * Callers:
- *     MmDeleteKernelStack @ 0x14026A4B0 (MmDeleteKernelStack.c)
+ *     MmDeleteKernelStack @ 0x14021FA40 (MmDeleteKernelStack.c)
  * Callees:
- *     MiIsDecayPfn @ 0x14022EFD0 (MiIsDecayPfn.c)
- *     MiPageToNode @ 0x14026C1E0 (MiPageToNode.c)
- *     MiValidateKernelShadowStackPage @ 0x14026C2A8 (MiValidateKernelShadowStackPage.c)
- *     MiUnlockPage @ 0x1402915F0 (MiUnlockPage.c)
- *     HvlNotifyLongSpinWait @ 0x140293260 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140293290 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     MiPageToNode @ 0x140221770 (MiPageToNode.c)
+ *     MiValidateKernelShadowStackPage @ 0x140221838 (MiValidateKernelShadowStackPage.c)
+ *     MiUnlockPage @ 0x1402A11F0 (MiUnlockPage.c)
+ *     HvlNotifyLongSpinWait @ 0x1402A2E60 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402A2E90 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     MiIsDecayPfn @ 0x1403028E0 (MiIsDecayPfn.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 _BOOL8 __fastcall MiAddKernelStackToPrcbCache(int *a1, __int64 a2)
@@ -22,7 +22,7 @@ _BOOL8 __fastcall MiAddKernelStackToPrcbCache(int *a1, __int64 a2)
   unsigned __int64 v6; // r9
   __int64 v7; // r10
   __int64 v8; // rbx
-  ULONG_PTR v9; // rsi
+  unsigned __int64 v9; // rsi
   __int64 v10; // rcx
   __int64 v11; // r12
   unsigned __int8 v12; // r13
@@ -65,7 +65,7 @@ _BOOL8 __fastcall MiAddKernelStackToPrcbCache(int *a1, __int64 a2)
         break;
       while ( 1 )
       {
-        if ( v9 > qword_140E2DBE0 && (v9 < qword_140E35B00 || v9 >= qword_140E35B00 + 2048) )
+        if ( v9 > qword_140E2DD20 && (v9 < qword_140E35C40 || v9 >= qword_140E35C40 + 2048) )
           goto LABEL_69;
         v12 = KeGetCurrentIrql();
         __writecr8(v5);
@@ -74,10 +74,12 @@ _BOOL8 __fastcall MiAddKernelStackToPrcbCache(int *a1, __int64 a2)
           LOBYTE(CurrentIrql) = 2;
           KiRaiseIrqlProcessIrqlFlags(v12, CurrentIrql);
           v10 = v31;
+          v5 = 2LL;
+          v6 = 0xFFFFDE0000000000uLL;
         }
         if ( (*(_QWORD *)(v10 + 40) & 0x40000000000000LL) != 0 )
           goto LABEL_10;
-        if ( MiIsDecayPfn(v9) )
+        if ( (unsigned int)MiIsDecayPfn(v9, CurrentIrql, v5, v6) )
           break;
         if ( KiIrqlFlags )
         {
@@ -104,7 +106,7 @@ LABEL_11:
         {
           if ( (++v13 & HvlLongSpinCountMask) == 0 && (HvlEnlightenments & 0x40) != 0 )
           {
-            if ( (unsigned __int8)KiCheckVpBackingLongSpinWaitHypercall(v10) )
+            if ( (unsigned __int8)KiCheckVpBackingLongSpinWaitHypercall(v10, CurrentIrql, v5, v6) )
             {
               HvlNotifyLongSpinWait(v13);
               v10 = v31;
@@ -133,7 +135,7 @@ LABEL_44:
       {
         if ( (++v26 & HvlLongSpinCountMask) == 0
           && (HvlEnlightenments & 0x40) != 0
-          && (unsigned __int8)KiCheckVpBackingLongSpinWaitHypercall(v10) )
+          && (unsigned __int8)KiCheckVpBackingLongSpinWaitHypercall(v10, CurrentIrql, v5, v6) )
         {
           HvlNotifyLongSpinWait(v26);
         }
@@ -184,7 +186,7 @@ LABEL_13:
     {
       v25 = (*v24 >> 12) & 0xFFFFFFFFFFLL;
       if ( !v20 )
-        v20 = (ULONG *)*((_QWORD *)qword_140E2FF88 + ((*(_QWORD *)(48 * v25 - 0x220000000000LL + 40) >> 43) & 0x3FFLL));
+        v20 = (ULONG *)*((_QWORD *)qword_140E300C8 + ((*(_QWORD *)(48 * v25 - 0x220000000000LL + 40) >> 43) & 0x3FFLL));
       MiValidateKernelShadowStackPage((ULONG_PTR)v24);
       if ( v17 == -1 )
         v17 = MiPageToNode(v25);
@@ -206,7 +208,7 @@ LABEL_26:
   v19 = 0LL;
   if ( v18 )
   {
-    v20 = (ULONG *)*((_QWORD *)qword_140E2FF88 + *(unsigned __int16 *)(*(_QWORD *)(v18 + 544) + 1198LL));
+    v20 = (ULONG *)*((_QWORD *)qword_140E300C8 + *(unsigned __int16 *)(*(_QWORD *)(v18 + 544) + 1198LL));
     goto LABEL_26;
   }
 LABEL_27:
@@ -219,7 +221,7 @@ LABEL_27:
                *((_QWORD *)v14 + 5),
                0LL) == 0;
     v22 = v3 << 25 >> 16;
-    *(_QWORD *)(v22 + 4064) = qword_140E37500 ^ v22;
+    *(_QWORD *)(v22 + 4064) = qword_140E37640 ^ v22;
     *(_DWORD *)(v22 + 4088) = 1;
     if ( !_InterlockedCompareExchange64((volatile signed __int64 *)&CurrentPrcb->CachedStacks[v19], v22 + 4080, 0LL) )
       return 1LL;

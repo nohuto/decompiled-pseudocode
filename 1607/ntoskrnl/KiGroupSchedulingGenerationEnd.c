@@ -1,17 +1,17 @@
 /*
- * XREFs of KiGroupSchedulingGenerationEnd @ 0x1400D24A0
+ * XREFs of KiGroupSchedulingGenerationEnd @ 0x1400D0340
  * Callers:
- *     KiGroupSchedulingQuantumEnd @ 0x1400D20C0 (KiGroupSchedulingQuantumEnd.c)
- *     KeTransitionProcessorParkState @ 0x1401DBC78 (KeTransitionProcessorParkState.c)
+ *     KiGroupSchedulingQuantumEnd @ 0x1400CFF60 (KiGroupSchedulingQuantumEnd.c)
+ *     KeTransitionProcessorParkState @ 0x1401DBAA4 (KeTransitionProcessorParkState.c)
  * Callees:
- *     KiSelectReadyThread @ 0x14005C1C0 (KiSelectReadyThread.c)
- *     KiUpdateThreadState @ 0x140091CEC (KiUpdateThreadState.c)
- *     KiAddThreadToPrcbQueue @ 0x1400A50A4 (KiAddThreadToPrcbQueue.c)
- *     KiSetProcessorIdle @ 0x1400AEA40 (KiSetProcessorIdle.c)
- *     KiQueryEffectivePriorityThread @ 0x1400D016C (KiQueryEffectivePriorityThread.c)
- *     KiEndThreadCycleAccumulation @ 0x1400D26C0 (KiEndThreadCycleAccumulation.c)
- *     KiStartThreadCycleAccumulation @ 0x1400D37A0 (KiStartThreadCycleAccumulation.c)
- *     KiTransitionSchedulingGroupGeneration @ 0x1400D3870 (KiTransitionSchedulingGroupGeneration.c)
+ *     KiSelectReadyThread @ 0x14005BD40 (KiSelectReadyThread.c)
+ *     KiUpdateThreadState @ 0x14009144C (KiUpdateThreadState.c)
+ *     KiAddThreadToPrcbQueue @ 0x1400A361C (KiAddThreadToPrcbQueue.c)
+ *     KiSetProcessorIdle @ 0x1400ACFA8 (KiSetProcessorIdle.c)
+ *     KiQueryEffectivePriorityThread @ 0x1400CE00C (KiQueryEffectivePriorityThread.c)
+ *     KiEndThreadCycleAccumulation @ 0x1400D0560 (KiEndThreadCycleAccumulation.c)
+ *     KiStartThreadCycleAccumulation @ 0x1400D1640 (KiStartThreadCycleAccumulation.c)
+ *     KiTransitionSchedulingGroupGeneration @ 0x1400D1710 (KiTransitionSchedulingGroupGeneration.c)
  */
 
 __int64 __fastcall KiGroupSchedulingGenerationEnd(__int64 a1, __int64 a2, unsigned __int8 a3)

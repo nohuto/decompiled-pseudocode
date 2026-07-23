@@ -1,12 +1,12 @@
 /*
- * XREFs of BCryptGenRandom @ 0x1402FE584
+ * XREFs of BCryptGenRandom @ 0x1402FE774
  * Callers:
- *     SecureDump_SymmetricEncryptionSetup @ 0x1402869E4 (SecureDump_SymmetricEncryptionSetup.c)
- *     SmCrGenRandom @ 0x140309618 (SmCrGenRandom.c)
+ *     SecureDump_SymmetricEncryptionSetup @ 0x140286BD4 (SecureDump_SymmetricEncryptionSetup.c)
+ *     SmCrGenRandom @ 0x140309808 (SmCrGenRandom.c)
  * Callees:
  *     ExReleaseRundownProtection_0 @ 0x14004D2F0 (ExReleaseRundownProtection_0.c)
- *     ExGetExtensionTable @ 0x14010DC04 (ExGetExtensionTable.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     ExGetExtensionTable @ 0x14010DC84 (ExGetExtensionTable.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
  */
 
 NTSTATUS __stdcall BCryptGenRandom(BCRYPT_ALG_HANDLE hAlgorithm, PUCHAR pbBuffer, ULONG cbBuffer, ULONG dwFlags)

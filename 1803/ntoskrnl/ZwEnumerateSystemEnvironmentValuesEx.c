@@ -11,5 +11,5 @@ NTSTATUS __stdcall ZwEnumerateSystemEnvironmentValuesEx(ULONG InformationClass, 
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(*(_QWORD *)&InformationClass, Buffer, *(_QWORD *)&BufferLength);
+  return KiServiceInternal(*(_QWORD *)&InformationClass);
 }

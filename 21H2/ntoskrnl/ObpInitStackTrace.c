@@ -1,13 +1,13 @@
 /*
- * XREFs of ObpInitStackTrace @ 0x140A709B0
+ * XREFs of ObpInitStackTrace @ 0x140A719B0
  * Callers:
- *     ObInitSystem @ 0x140A3E538 (ObInitSystem.c)
+ *     ObInitSystem @ 0x140A3F538 (ObInitSystem.c)
  * Callees:
- *     memmove @ 0x140413F40 (memmove.c)
- *     memset @ 0x140414200 (memset.c)
- *     ObpInitStackAndObjectTables @ 0x1408DE970 (ObpInitStackAndObjectTables.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     ObpInitStackAndObjectTables @ 0x1408DEAD0 (ObpInitStackAndObjectTables.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 void ObpInitStackTrace()
@@ -45,7 +45,7 @@ void ObpInitStackTrace()
     while ( ObpTraceProcessNameBuffer[v2] );
     v3 = 2 * v2;
     PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, v3 + 2LL, 0x7452624Fu);
-    qword_140C25E58 = PoolWithTag;
+    qword_140C25BE8 = PoolWithTag;
     if ( !PoolWithTag )
       return;
     LOWORD(ObpRegTraceProcessName) = v3;
@@ -92,9 +92,9 @@ void ObpInitStackTrace()
         memset(&ObpRegTracePoolTags, 0, 0x40uLL);
       if ( (v0 & 0x20) != 0 )
       {
-        ExFreePoolWithTag(qword_140C25E58, 0x7452624Fu);
+        ExFreePoolWithTag(qword_140C25BE8, 0x7452624Fu);
         ObpRegTraceProcessName = 0LL;
-        qword_140C25E58 = 0LL;
+        qword_140C25BE8 = 0LL;
       }
     }
     else

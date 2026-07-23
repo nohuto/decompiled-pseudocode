@@ -1,9 +1,9 @@
 /*
- * XREFs of PspReadIFEOPerfOptions @ 0x140776DEC
+ * XREFs of PspReadIFEOPerfOptions @ 0x14077700C
  * Callers:
- *     PspAllocateProcess @ 0x140A1C4C0 (PspAllocateProcess.c)
+ *     PspAllocateProcess @ 0x1409FACD0 (PspAllocateProcess.c)
  * Callees:
- *     RtlQueryImageFileKeyOption @ 0x140A22FB0 (RtlQueryImageFileKeyOption.c)
+ *     RtlQueryImageFileKeyOption @ 0x140A173C0 (RtlQueryImageFileKeyOption.c)
  */
 
 __int64 __fastcall PspReadIFEOPerfOptions(HANDLE KeyHandle, __int64 a2)

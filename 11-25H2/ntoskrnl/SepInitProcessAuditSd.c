@@ -22,11 +22,13 @@ void SepInitProcessAuditSd()
   ACL *v3; // rdi
   NTSTATUS Acl; // eax
   ACL *v5; // rsi
-  __int64 v6; // rdx
-  __int64 v7; // rdx
+  ULONG v6; // edx
+  void *v7; // r9
   ULONG v8; // ebp
   ACL *v9; // rax
   ACL *v10; // rsi
+  BOOLEAN v11; // [rsp+20h] [rbp-28h]
+  BOOLEAN v12; // [rsp+28h] [rbp-20h]
 
   v0 = 0LL;
   if ( SepProcessAuditSd )
@@ -45,14 +47,13 @@ void SepInitProcessAuditSd()
       Acl = RtlCreateAcl(Pool2 + 5, v1, 2u);
       if ( Acl < 0 )
         goto LABEL_6;
-      Acl = RtlAddAuditAccessAce(v5, v6, (unsigned int)SepProcessAccessesToAudit);
+      Acl = RtlAddAuditAccessAce(v5, v6, SepProcessAccessesToAudit, v7, v11, v12);
       if ( Acl < 0 )
         goto LABEL_6;
       Acl = RtlCreateSecurityDescriptor(v3, 1u);
       if ( Acl < 0 )
         goto LABEL_6;
-      LOBYTE(v7) = 1;
-      Acl = RtlSetSaclSecurityDescriptor(v3, v7, v5, 0LL);
+      Acl = RtlSetSaclSecurityDescriptor(v3, 1u, v5, 0);
       if ( Acl < 0 )
         goto LABEL_6;
       SepProcessAuditSd = v3;

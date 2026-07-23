@@ -1,20 +1,20 @@
 /*
- * XREFs of RtlIsMultiSessionSku @ 0x1407ECD20
+ * XREFs of RtlIsMultiSessionSku @ 0x1407ECFF0
  * Callers:
- *     OpenGlobalizationUserSettingsKey @ 0x1403719FC (OpenGlobalizationUserSettingsKey.c)
- *     SepIsImpersonationAllowedDueToCapability @ 0x1407ECCBC (SepIsImpersonationAllowedDueToCapability.c)
- *     RtlCapabilityCheck @ 0x1407ECD50 (RtlCapabilityCheck.c)
- *     PopPowerInformationInternal @ 0x1407ED06C (PopPowerInformationInternal.c)
- *     NtSetDefaultLocale @ 0x1407FC870 (NtSetDefaultLocale.c)
- *     AuthzBasepInitializeSystemSecurityAttributes @ 0x140841E14 (AuthzBasepInitializeSystemSecurityAttributes.c)
- *     RtlCapabilityCheckForSingleSessionSku @ 0x1409BBFB0 (RtlCapabilityCheckForSingleSessionSku.c)
- *     NtSetSystemTime @ 0x1409F8290 (NtSetSystemTime.c)
+ *     OpenGlobalizationUserSettingsKey @ 0x140371B9C (OpenGlobalizationUserSettingsKey.c)
+ *     SepIsImpersonationAllowedDueToCapability @ 0x1407ECF8C (SepIsImpersonationAllowedDueToCapability.c)
+ *     RtlCapabilityCheck @ 0x1407ED020 (RtlCapabilityCheck.c)
+ *     PopPowerInformationInternal @ 0x1407ED33C (PopPowerInformationInternal.c)
+ *     NtSetDefaultLocale @ 0x1407FCB40 (NtSetDefaultLocale.c)
+ *     AuthzBasepInitializeSystemSecurityAttributes @ 0x140842114 (AuthzBasepInitializeSystemSecurityAttributes.c)
+ *     RtlCapabilityCheckForSingleSessionSku @ 0x1409BC1B0 (RtlCapabilityCheckForSingleSessionSku.c)
+ *     NtSetSystemTime @ 0x1409F8520 (NtSetSystemTime.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x14022D370 (PsGetCurrentServerSiloGlobals.c)
- *     PsIsCurrentThreadInServerSilo @ 0x140287470 (PsIsCurrentThreadInServerSilo.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x14022D480 (PsGetCurrentServerSiloGlobals.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x140287700 (PsIsCurrentThreadInServerSilo.c)
  */
 
-char RtlIsMultiSessionSku()
+BOOLEAN RtlIsMultiSessionSku(void)
 {
   if ( PsIsCurrentThreadInServerSilo() )
     return *(_BYTE *)(*((_QWORD *)PsGetCurrentServerSiloGlobals() + 165) + 28LL);

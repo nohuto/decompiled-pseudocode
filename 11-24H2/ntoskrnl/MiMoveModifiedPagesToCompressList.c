@@ -1,43 +1,43 @@
 /*
- * XREFs of MiMoveModifiedPagesToCompressList @ 0x14068BD08
+ * XREFs of MiMoveModifiedPagesToCompressList @ 0x14068CE38
  * Callers:
- *     MmStoreRegister @ 0x1407FD3A8 (MmStoreRegister.c)
+ *     MmStoreRegister @ 0x1407FDB18 (MmStoreRegister.c)
  * Callees:
- *     MiUnlinkPageFromListEx @ 0x140211CD0 (MiUnlinkPageFromListEx.c)
- *     MiSafeLockPage @ 0x140216290 (MiSafeLockPage.c)
- *     MiInsertPageInList @ 0x14022CB10 (MiInsertPageInList.c)
- *     MiUnlockPage @ 0x1402915F0 (MiUnlockPage.c)
- *     MiSetStoreVirtualPagefileValue @ 0x14039D920 (MiSetStoreVirtualPagefileValue.c)
+ *     MiUnlockPage @ 0x1402A11F0 (MiUnlockPage.c)
+ *     MiSetStoreVirtualPagefileValue @ 0x1402FAC20 (MiSetStoreVirtualPagefileValue.c)
+ *     MiInsertPageInList @ 0x140300420 (MiInsertPageInList.c)
+ *     MiSafeLockPage @ 0x140334630 (MiSafeLockPage.c)
+ *     MiUnlinkPageFromListEx @ 0x14033B030 (MiUnlinkPageFromListEx.c)
  */
 
-char __fastcall MiMoveModifiedPagesToCompressList(__int64 a1, __int64 a2, __int64 a3)
+char __fastcall MiMoveModifiedPagesToCompressList(__int64 a1)
 {
-  _UNKNOWN **v3; // rax
+  _UNKNOWN **v1; // rax
   ULONG_PTR i; // rbx
-  unsigned __int8 v6; // bp
-  __int64 v7; // rcx
+  unsigned __int8 v4; // bp
+  __int64 v5; // rcx
   _UNKNOWN *retaddr; // [rsp+28h] [rbp+0h] BYREF
 
-  v3 = &retaddr;
+  v1 = &retaddr;
   for ( i = *(_QWORD *)(a1 + 3984); i != 0x3FFFFFFFFFLL; i = *(_QWORD *)(a1 + 3984) )
   {
-    LOBYTE(v3) = MiSafeLockPage(i, a2, a3);
-    v6 = (unsigned __int8)v3;
-    if ( (_BYTE)v3 != 17 )
+    LOBYTE(v1) = MiSafeLockPage(i);
+    v4 = (unsigned __int8)v1;
+    if ( (_BYTE)v1 != 17 )
     {
-      v7 = 48 * i - 0x220000000000LL;
+      v5 = 48 * i - 0x220000000000LL;
       if ( i == *(_QWORD *)(a1 + 3984) )
       {
-        MiUnlinkPageFromListEx(v7, 0);
+        MiUnlinkPageFromListEx(v5, 0);
         *(_QWORD *)(48 * i - 0x220000000000LL + 16) = MiSetStoreVirtualPagefileValue(
                                                         a1,
                                                         *(_QWORD *)(48 * i - 0x220000000000LL + 16),
                                                         3u);
         MiInsertPageInList(48 * i - 0x220000000000LL, 8u);
-        v7 = 48 * i - 0x220000000000LL;
+        v5 = 48 * i - 0x220000000000LL;
       }
-      LOBYTE(v3) = MiUnlockPage(v7, v6);
+      LOBYTE(v1) = MiUnlockPage(v5, v4);
     }
   }
-  return (char)v3;
+  return (char)v1;
 }

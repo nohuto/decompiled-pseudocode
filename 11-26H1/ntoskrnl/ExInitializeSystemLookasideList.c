@@ -1,27 +1,27 @@
 /*
- * XREFs of ExInitializeSystemLookasideList @ 0x140C0D4C0
+ * XREFs of ExInitializeSystemLookasideList @ 0x140C136D0
  * Callers:
- *     KiInitializeProcessorXSaveStructures @ 0x1405ECE44 (KiInitializeProcessorXSaveStructures.c)
- *     ExInitializeProcessor @ 0x1406CB480 (ExInitializeProcessor.c)
- *     CcInitializeProcessor @ 0x14078A07C (CcInitializeProcessor.c)
- *     IoInitializeProcessor @ 0x140793D48 (IoInitializeProcessor.c)
- *     ObInitializeProcessor @ 0x1407C2494 (ObInitializeProcessor.c)
- *     CmInitializeProcessorCallbacks @ 0x14085050C (CmInitializeProcessorCallbacks.c)
- *     CmpInitCallbacks @ 0x14085099C (CmpInitCallbacks.c)
- *     KeInitializeXSaveStructures @ 0x140BF4294 (KeInitializeXSaveStructures.c)
- *     KiInitializeBootStructures @ 0x140BF5890 (KiInitializeBootStructures.c)
- *     CcInitializeCacheManager @ 0x140C7F4E8 (CcInitializeCacheManager.c)
- *     IoInitSystemPreDrivers @ 0x140CBACA0 (IoInitSystemPreDrivers.c)
- *     ObInitSystem @ 0x140D0936C (ObInitSystem.c)
+ *     KiInitializeProcessorXSaveStructures @ 0x1405EF7B4 (KiInitializeProcessorXSaveStructures.c)
+ *     ExInitializeProcessor @ 0x1406CF4B0 (ExInitializeProcessor.c)
+ *     CcInitializeProcessor @ 0x14078CBAC (CcInitializeProcessor.c)
+ *     IoInitializeProcessor @ 0x140796878 (IoInitializeProcessor.c)
+ *     ObInitializeProcessor @ 0x1407C54F4 (ObInitializeProcessor.c)
+ *     CmInitializeProcessorCallbacks @ 0x14085681C (CmInitializeProcessorCallbacks.c)
+ *     CmpInitCallbacks @ 0x140856CAC (CmpInitCallbacks.c)
+ *     KeInitializeXSaveStructures @ 0x140BFA294 (KeInitializeXSaveStructures.c)
+ *     KiInitializeBootStructures @ 0x140BFB890 (KiInitializeBootStructures.c)
+ *     CcInitializeCacheManager @ 0x140C854E8 (CcInitializeCacheManager.c)
+ *     IoInitSystemPreDrivers @ 0x140CC0D18 (IoInitSystemPreDrivers.c)
+ *     ObInitSystem @ 0x140D0F63C (ObInitSystem.c)
  * Callees:
- *     InitializeSListHead @ 0x140499200 (InitializeSListHead.c)
- *     KasanIsEnabled @ 0x140516570 (KasanIsEnabled.c)
+ *     InitializeSListHead @ 0x140492D50 (InitializeSListHead.c)
+ *     KasanIsEnabled @ 0x14050FFE0 (KasanIsEnabled.c)
  */
 
 __int64 __fastcall ExInitializeSystemLookasideList(__int64 a1, int a2, int a3, int a4, __int16 a5)
 {
-  unsigned __int64 **v9; // rax
-  _KTHREAD_WPS_FEEDBACK *WpsFeedback; // rcx
+  _SINGLE_LIST_ENTRY **v9; // rax
+  _QWORD *IptSaveArea; // rcx
   __int64 result; // rax
 
   InitializeSListHead((PSLIST_HEADER)a1);
@@ -31,18 +31,18 @@ __int64 __fastcall ExInitializeSystemLookasideList(__int64 a1, int a2, int a3, i
   *(_QWORD *)(a1 + 28) = 0LL;
   *(_QWORD *)(a1 + 56) = ExFreePool;
   *(_WORD *)(a1 + 18) = a5;
-  v9 = (unsigned __int64 **)(a1 + 64);
+  v9 = (_SINGLE_LIST_ENTRY **)(a1 + 64);
   *(_DWORD *)(a1 + 36) = a2;
   *(_DWORD *)(a1 + 40) = a4;
   *(_DWORD *)(a1 + 44) = a3;
   *(_QWORD *)(a1 + 80) = 0LL;
-  WpsFeedback = ExSaPageGroupDescriptorArrayLock.WpsFeedback;
-  if ( (unsigned __int64 *)ExSaPageGroupDescriptorArrayLock.WpsFeedback->FeedbackStartTime != &ExSaPageGroupDescriptorArrayLock.ExtendedFeatureDisableMask )
+  IptSaveArea = ExSaPageGroupDescriptorArrayLock.IptSaveArea;
+  if ( *(struct _KTHREAD **)ExSaPageGroupDescriptorArrayLock.IptSaveArea != (struct _KTHREAD *)&ExSaPageGroupDescriptorArrayLock.SystemAffinityTokenListHead )
     __fastfail(3u);
-  *v9 = &ExSaPageGroupDescriptorArrayLock.ExtendedFeatureDisableMask;
-  *(_QWORD *)(a1 + 72) = WpsFeedback;
-  WpsFeedback->FeedbackStartTime = (unsigned __int64)v9;
-  ExSaPageGroupDescriptorArrayLock.WpsFeedback = (_KTHREAD_WPS_FEEDBACK *)(a1 + 64);
+  *v9 = &ExSaPageGroupDescriptorArrayLock.SystemAffinityTokenListHead;
+  *(_QWORD *)(a1 + 72) = IptSaveArea;
+  *IptSaveArea = v9;
+  ExSaPageGroupDescriptorArrayLock.IptSaveArea = (void *)(a1 + 64);
   result = KasanIsEnabled();
   if ( (_DWORD)result )
     *(_DWORD *)(a1 + 16) = -65536;

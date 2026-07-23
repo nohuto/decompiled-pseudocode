@@ -1,10 +1,10 @@
 /*
- * XREFs of MiIoSpaceIsConstant @ 0x1400E63B0
+ * XREFs of MiIoSpaceIsConstant @ 0x1400E6430
  * Callers:
- *     MiIoSpaceRunIsConstant @ 0x1400E5C90 (MiIoSpaceRunIsConstant.c)
- *     MiReferenceIoPages @ 0x1400E5FAC (MiReferenceIoPages.c)
- *     MiMapContiguousMemoryLarge @ 0x1401831E4 (MiMapContiguousMemoryLarge.c)
- *     MmProtectMdlSystemAddress @ 0x1402A9C70 (MmProtectMdlSystemAddress.c)
+ *     MiIoSpaceRunIsConstant @ 0x1400E5D10 (MiIoSpaceRunIsConstant.c)
+ *     MiReferenceIoPages @ 0x1400E602C (MiReferenceIoPages.c)
+ *     MiMapContiguousMemoryLarge @ 0x140183324 (MiMapContiguousMemoryLarge.c)
+ *     MmProtectMdlSystemAddress @ 0x1402A9E60 (MmProtectMdlSystemAddress.c)
  * Callees:
  *     <none>
  */
@@ -16,7 +16,7 @@ _QWORD *__fastcall MiIoSpaceIsConstant(unsigned __int64 a1, __int64 a2)
   unsigned __int64 v5; // rdx
   unsigned __int64 v6; // rcx
 
-  result = (_QWORD *)qword_14043AD60;
+  result = (_QWORD *)qword_14043BE20;
   v3 = a1 + a2 - 1;
   while ( 1 )
   {

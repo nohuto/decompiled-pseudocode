@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpGetFlagExtension @ 0x1406DDF20
+ * XREFs of EtwpGetFlagExtension @ 0x1406B5200
  * Callers:
- *     EtwpCheckForStackTracingExtension @ 0x1406DDEE0 (EtwpCheckForStackTracingExtension.c)
- *     EtwpStartLogger @ 0x1406DE1A0 (EtwpStartLogger.c)
- *     EtwpUpdateLoggerGroupMasks @ 0x14079705C (EtwpUpdateLoggerGroupMasks.c)
- *     EtwpCheckForPoolTagFilterExtension @ 0x1407988E8 (EtwpCheckForPoolTagFilterExtension.c)
- *     EtwpUpdatePerProcessTracing @ 0x140934444 (EtwpUpdatePerProcessTracing.c)
+ *     EtwpCheckForStackTracingExtension @ 0x1406B51C0 (EtwpCheckForStackTracingExtension.c)
+ *     EtwpStartLogger @ 0x1406B5480 (EtwpStartLogger.c)
+ *     EtwpUpdateLoggerGroupMasks @ 0x14079725C (EtwpUpdateLoggerGroupMasks.c)
+ *     EtwpCheckForPoolTagFilterExtension @ 0x140798AE8 (EtwpCheckForPoolTagFilterExtension.c)
+ *     EtwpUpdatePerProcessTracing @ 0x140934614 (EtwpUpdatePerProcessTracing.c)
  * Callees:
  *     <none>
  */

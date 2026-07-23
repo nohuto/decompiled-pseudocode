@@ -1,11 +1,11 @@
 /*
- * XREFs of PfFbLogEntryComplete @ 0x1400EFFD4
+ * XREFs of PfFbLogEntryComplete @ 0x1400EDE54
  * Callers:
- *     PfFileInfoNotify @ 0x1400EEAD0 (PfFileInfoNotify.c)
- *     PfLogDeleteHelper @ 0x1400F0324 (PfLogDeleteHelper.c)
- *     PfLogEvent @ 0x1400F0738 (PfLogEvent.c)
+ *     PfFileInfoNotify @ 0x1400EC950 (PfFileInfoNotify.c)
+ *     PfLogDeleteHelper @ 0x1400EE1A4 (PfLogDeleteHelper.c)
+ *     PfLogEvent @ 0x1400EE5B8 (PfLogEvent.c)
  * Callees:
- *     RtlpInterlockedPushEntrySList @ 0x140166E40 (RtlpInterlockedPushEntrySList.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1401673B0 (RtlpInterlockedPushEntrySList.c)
  */
 
 void __fastcall PfFbLogEntryComplete(PSLIST_ENTRY ListEntry, __int64 a2, __int64 a3)

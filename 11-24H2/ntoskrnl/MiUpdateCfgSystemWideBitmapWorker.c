@@ -1,29 +1,29 @@
 /*
- * XREFs of MiUpdateCfgSystemWideBitmapWorker @ 0x1408F6F24
+ * XREFs of MiUpdateCfgSystemWideBitmapWorker @ 0x140974760
  * Callers:
- *     MiUpdateCfgSystemWideBitmap @ 0x1408F6E3C (MiUpdateCfgSystemWideBitmap.c)
+ *     MiUpdateCfgSystemWideBitmap @ 0x140974678 (MiUpdateCfgSystemWideBitmap.c)
  * Callees:
- *     MiRemoveFromSystemSpace @ 0x14026086C (MiRemoveFromSystemSpace.c)
- *     MiSectionControlArea @ 0x1402D4800 (MiSectionControlArea.c)
- *     MiDereferenceControlArea @ 0x14036F494 (MiDereferenceControlArea.c)
- *     RtlSetBitsEx @ 0x1403A4600 (RtlSetBitsEx.c)
- *     MiLocatePagefileSubsection @ 0x1403E4EE0 (MiLocatePagefileSubsection.c)
- *     MiCheckPurgeAndUpMapCount @ 0x14040EFF0 (MiCheckPurgeAndUpMapCount.c)
- *     MiInsertInSystemSpace @ 0x140415F30 (MiInsertInSystemSpace.c)
- *     MiGetAnyMultiplexedVm @ 0x140442630 (MiGetAnyMultiplexedVm.c)
- *     RtlClearAllBitsEx @ 0x14046C570 (RtlClearAllBitsEx.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     MiChargeSegmentCommit @ 0x1408F7C78 (MiChargeSegmentCommit.c)
- *     MiEliminateZeroPages @ 0x1408F8080 (MiEliminateZeroPages.c)
- *     MiImageCfgEnumRvaListFirst @ 0x1408F8478 (MiImageCfgEnumRvaListFirst.c)
- *     MiImageCfgEnumNextImageExtensionRva @ 0x1408FA810 (MiImageCfgEnumNextImageExtensionRva.c)
+ *     RtlSetBitsEx @ 0x14026E120 (RtlSetBitsEx.c)
+ *     MiRemoveFromSystemSpace @ 0x140290E7C (MiRemoveFromSystemSpace.c)
+ *     MiSectionControlArea @ 0x140355A80 (MiSectionControlArea.c)
+ *     MiInsertInSystemSpace @ 0x140393BFC (MiInsertInSystemSpace.c)
+ *     MiLocatePagefileSubsection @ 0x1403D2A80 (MiLocatePagefileSubsection.c)
+ *     MiCheckPurgeAndUpMapCount @ 0x1404071F0 (MiCheckPurgeAndUpMapCount.c)
+ *     MiDereferenceControlArea @ 0x14042777C (MiDereferenceControlArea.c)
+ *     MiGetAnyMultiplexedVm @ 0x140439200 (MiGetAnyMultiplexedVm.c)
+ *     RtlClearAllBitsEx @ 0x140467110 (RtlClearAllBitsEx.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     MiImageCfgEnumNextImageExtensionRva @ 0x14091D0F0 (MiImageCfgEnumNextImageExtensionRva.c)
+ *     MiChargeSegmentCommit @ 0x140974EF8 (MiChargeSegmentCommit.c)
+ *     MiEliminateZeroPages @ 0x1409752C0 (MiEliminateZeroPages.c)
+ *     MiImageCfgEnumRvaListFirst @ 0x140975450 (MiImageCfgEnumRvaListFirst.c)
  */
 
 __int64 __fastcall MiUpdateCfgSystemWideBitmapWorker(
         __int64 a1,
-        __int64 a2,
+        unsigned __int64 a2,
         unsigned __int64 a3,
         unsigned __int64 a4,
         int a5,
@@ -34,192 +34,191 @@ __int64 __fastcall MiUpdateCfgSystemWideBitmapWorker(
   unsigned __int64 v9; // r12
   unsigned __int64 v10; // rdi
   unsigned __int64 v11; // r13
-  __int64 v12; // rdx
-  __int64 v13; // r8
-  unsigned __int64 v14; // rcx
-  unsigned __int64 v15; // rdi
-  int v16; // esi
-  ULONG_PTR v17; // r13
-  size_t v18; // rdi
-  ULONG_PTR v19; // rsi
-  unsigned __int64 v20; // rax
-  unsigned int *v21; // rax
-  unsigned __int64 v22; // r12
-  __int64 v23; // r15
-  __int64 v24; // rdx
-  __int64 v25; // r8
-  unsigned __int8 *v26; // r9
-  unsigned __int64 v27; // rcx
-  __int64 v28; // r10
-  __int64 v29; // rcx
-  int v30; // edx
-  unsigned int v31; // r10d
-  __int64 v32; // r11
-  __int64 v33; // rax
-  int v34; // eax
-  unsigned int *v35; // rdx
+  unsigned __int64 v12; // rcx
+  unsigned __int64 v13; // rdi
+  int v14; // esi
+  ULONG_PTR v15; // r13
+  size_t v16; // rdi
+  ULONG_PTR v17; // rsi
+  unsigned __int64 v18; // rax
+  unsigned int *v19; // rax
+  unsigned __int64 v20; // r12
+  unsigned __int64 SizeOfBitMap; // r15
+  unsigned int ImageExtensionRva; // r8d
+  unsigned __int64 v23; // rcx
+  unsigned __int8 *v24; // r9
+  __int64 v25; // r10
+  __int64 v26; // rcx
+  int v27; // edx
+  int v28; // edx
+  unsigned int v29; // r9d
+  unsigned int v30; // r10d
+  __int64 v31; // r11
+  __int64 v32; // rax
+  int v33; // eax
+  int *v34; // rdx
   char *AnyMultiplexedVm; // rax
-  unsigned __int64 v38; // [rsp+30h] [rbp-59h] BYREF
+  unsigned __int64 v37; // [rsp+30h] [rbp-59h] BYREF
   ULONG_PTR BugCheckParameter1; // [rsp+38h] [rbp-51h] BYREF
-  unsigned __int64 v40; // [rsp+40h] [rbp-49h] BYREF
-  unsigned __int64 v41; // [rsp+48h] [rbp-41h]
-  _QWORD v42[2]; // [rsp+50h] [rbp-39h] BYREF
-  unsigned __int64 v43; // [rsp+60h] [rbp-29h]
+  unsigned __int64 v39; // [rsp+40h] [rbp-49h] BYREF
+  unsigned __int64 v40; // [rsp+48h] [rbp-41h]
+  _RTL_BITMAP_EX BitMapHeader; // [rsp+50h] [rbp-39h] BYREF
+  unsigned __int64 v42; // [rsp+60h] [rbp-29h]
   ULONG_PTR BugCheckParameter3[2]; // [rsp+68h] [rbp-21h] BYREF
-  __int64 v45; // [rsp+78h] [rbp-11h]
-  int v46; // [rsp+80h] [rbp-9h]
+  __int64 v44; // [rsp+78h] [rbp-11h]
+  int v45; // [rsp+80h] [rbp-9h]
 
   v6 = 0;
-  v43 = a4;
-  v42[0] = a2;
-  v45 = 0LL;
-  v46 = 0;
+  v42 = a4;
+  BitMapHeader.SizeOfBitMap = a2;
+  v44 = 0LL;
+  v45 = 0;
   v8 = 0LL;
   *(_OWORD *)BugCheckParameter3 = 0LL;
   if ( a2 )
     v8 = *(_QWORD *)(a2 + 8);
   v9 = a3 >> 3;
-  v38 = a3 >> 3;
+  v37 = a3 >> 3;
   v10 = a4 >> 3;
   BugCheckParameter1 = 0LL;
-  v41 = (a4 >> 15) + ((((a3 >> 3) & 0xFFF) + 4095 + ((a4 >> 3) & 0xFFF)) >> 12);
+  v40 = (a4 >> 15) + ((((a3 >> 3) & 0xFFF) + 4095 + ((a4 >> 3) & 0xFFF)) >> 12);
   v11 = MiSectionControlArea(a1);
-  MiCheckPurgeAndUpMapCount(v11, v12, v13);
+  MiCheckPurgeAndUpMapCount(v11);
   if ( v10 )
   {
-    v14 = (unsigned __int16)v38 + v10;
-    if ( v14 < (unsigned __int16)v38 || (LODWORD(v38) = v38 & 0xFFFF0000, v15 = v14, v14 > *(_QWORD *)(a1 + 48) - v38) )
+    v12 = (unsigned __int16)v37 + v10;
+    if ( v12 < (unsigned __int16)v37 || (LODWORD(v37) = v37 & 0xFFFF0000, v13 = v12, v12 > *(_QWORD *)(a1 + 48) - v37) )
     {
-      v16 = -1073741793;
+      v14 = -1073741793;
 LABEL_9:
       MiDereferenceControlArea(v11);
-      return (unsigned int)v16;
+      return (unsigned int)v14;
     }
   }
   else
   {
-    LODWORD(v38) = v38 & 0xFFFF0000;
-    v15 = *(_QWORD *)(a1 + 48) - v38;
+    LODWORD(v37) = v37 & 0xFFFF0000;
+    v13 = *(_QWORD *)(a1 + 48) - v37;
   }
-  v16 = MiInsertInSystemSpace(v15, a1, &v38, 0, 0LL, &BugCheckParameter1);
-  if ( v16 < 0 )
+  v14 = MiInsertInSystemSpace(v13, a1, &v37, 0, 0LL, &BugCheckParameter1);
+  if ( v14 < 0 )
     goto LABEL_9;
-  v17 = BugCheckParameter1;
-  v18 = v15 - (unsigned __int16)v9;
-  v19 = BugCheckParameter1 | (unsigned __int16)v9;
-  v20 = MiSectionControlArea(a1);
-  v40 = v9 >> 12;
-  v21 = MiLocatePagefileSubsection((unsigned int *)(v20 + 128), &v40);
-  v22 = v41;
-  if ( (unsigned int)MiChargeSegmentCommit(v21, *((_QWORD *)v21 + 1) + 8 * v40) )
+  v15 = BugCheckParameter1;
+  v16 = v13 - (unsigned __int16)v9;
+  v17 = BugCheckParameter1 | (unsigned __int16)v9;
+  v18 = MiSectionControlArea(a1);
+  v39 = v9 >> 12;
+  v19 = MiLocatePagefileSubsection((unsigned int *)(v18 + 128), &v39);
+  v20 = v40;
+  if ( (unsigned int)MiChargeSegmentCommit(v19, *((_QWORD *)v19 + 1) + 8 * v39) )
   {
-    v23 = v42[0];
-    if ( v42[0] && (*(_DWORD *)v42[0] & 1) != 0 && v8 )
+    SizeOfBitMap = BitMapHeader.SizeOfBitMap;
+    if ( BitMapHeader.SizeOfBitMap && (*(_DWORD *)BitMapHeader.SizeOfBitMap & 1) != 0 && v8 )
     {
-      v42[0] = v43;
-      v42[1] = v19;
-      RtlClearAllBitsEx((__int64)v42);
-      LODWORD(v25) = MiImageCfgEnumRvaListFirst(v8, BugCheckParameter3, a6);
-      if ( (_DWORD)v25 )
+      BitMapHeader.SizeOfBitMap = v42;
+      BitMapHeader.Buffer = (unsigned __int64 *)v17;
+      RtlClearAllBitsEx(&BitMapHeader);
+      ImageExtensionRva = MiImageCfgEnumRvaListFirst(v8, BugCheckParameter3, a6);
+      if ( ImageExtensionRva )
       {
         while ( 1 )
         {
           if ( (BugCheckParameter3[0] & 0x100000000LL) != 0 )
           {
-            v27 = 2 * ((unsigned __int64)(unsigned int)v25 >> 4);
-            if ( (v25 & 0xF) == *(_WORD *)(v23 + 4) )
+            v23 = 2 * ((unsigned __int64)ImageExtensionRva >> 4);
+            if ( (ImageExtensionRva & 0xF) == *(_WORD *)(SizeOfBitMap + 4) )
             {
               if ( (BugCheckParameter3[0] & 0x400000000LL) != 0 )
-                _bittestandset64((signed __int64 *)v19, v27 + 1);
+                _bittestandset64((signed __int64 *)v17, v23 + 1);
               else
-                _bittestandset64((signed __int64 *)v19, v27);
+                _bittestandset64((signed __int64 *)v17, v23);
             }
             else
             {
-              RtlSetBitsEx((__int64)v42, v27, 2uLL);
+              RtlSetBitsEx((__int64)&BitMapHeader, v23, 2uLL);
             }
           }
-          v25 = LODWORD(BugCheckParameter3[0]);
-          if ( LODWORD(BugCheckParameter3[0]) >= HIDWORD(v45) && HIDWORD(v45) )
+          ImageExtensionRva = BugCheckParameter3[0];
+          if ( LODWORD(BugCheckParameter3[0]) >= HIDWORD(v44) && HIDWORD(v44) )
             goto LABEL_36;
           ++HIDWORD(BugCheckParameter3[1]);
-          v26 = (unsigned __int8 *)((unsigned int)v45 + *(_QWORD *)(v8 + 16));
-          v25 = LODWORD(BugCheckParameter3[1]);
-          v28 = *(_QWORD *)(v8 + 24) - (unsigned int)v45;
-          if ( v28 )
+          v24 = (unsigned __int8 *)((unsigned int)v44 + *(_QWORD *)(v8 + 16));
+          ImageExtensionRva = BugCheckParameter3[1];
+          v25 = *(_QWORD *)(v8 + 24) - (unsigned int)v44;
+          if ( v25 )
             break;
 LABEL_44:
-          LODWORD(v25) = MiImageCfgEnumNextImageExtensionRva(BugCheckParameter3, v24, v25, v26);
+          ImageExtensionRva = MiImageCfgEnumNextImageExtensionRva(BugCheckParameter3);
 LABEL_39:
-          LODWORD(BugCheckParameter3[0]) = v25;
-          if ( !(_DWORD)v25 )
+          LODWORD(BugCheckParameter3[0]) = ImageExtensionRva;
+          if ( !ImageExtensionRva )
             goto LABEL_40;
         }
         do
         {
-          if ( !v28 )
-            KeBugCheckEx(0x1Au, 0x43666720uLL, v8, (ULONG_PTR)&BugCheckParameter3[1], (unsigned int)v25);
-          v29 = *v26 >> 6;
-          v30 = *v26++ & 0x3F;
-          --v28;
-          v25 = (unsigned int)(*((_DWORD *)RtlpRvaCompressionTableScales + v29) * v30 + v25);
+          if ( !v25 )
+            KeBugCheckEx(0x1Au, 0x43666720uLL, v8, (ULONG_PTR)&BugCheckParameter3[1], ImageExtensionRva);
+          v26 = *v24 >> 6;
+          v27 = *v24++ & 0x3F;
+          --v25;
+          ImageExtensionRva += *((_DWORD *)RtlpRvaCompressionTableScales + v26) * v27;
         }
-        while ( (_DWORD)v29 != 3 );
-        LODWORD(BugCheckParameter3[1]) = v25;
-        v24 = 0LL;
-        LODWORD(v45) = (_DWORD)v26 - *(_DWORD *)(v8 + 16);
-        v26 = (unsigned __int8 *)*(unsigned int *)(v8 + 8);
-        if ( (unsigned int)v26 <= 1 )
+        while ( (_DWORD)v26 != 3 );
+        LODWORD(BugCheckParameter3[1]) = ImageExtensionRva;
+        v28 = 0;
+        LODWORD(v44) = (_DWORD)v24 - *(_DWORD *)(v8 + 16);
+        v29 = *(_DWORD *)(v8 + 8);
+        if ( v29 <= 1 )
         {
-          if ( (_DWORD)v26 == 1 )
+          if ( v29 == 1 )
           {
-            v35 = *(unsigned int **)(v8 + 48);
-            if ( v35 )
-              v24 = *v35;
+            v34 = *(int **)(v8 + 48);
+            if ( v34 )
+              v28 = *v34;
             else
-              v24 = 1LL;
+              v28 = 1;
           }
         }
         else
         {
-          v31 = 0;
-          v32 = 0LL;
+          v30 = 0;
+          v31 = 0LL;
           do
           {
-            if ( _bittest64(*(const signed __int64 **)(v8 + 40), HIDWORD(BugCheckParameter3[1]) * (_DWORD)v26 + v31) )
+            if ( _bittest64(*(const signed __int64 **)(v8 + 40), HIDWORD(BugCheckParameter3[1]) * v29 + v30) )
             {
-              v33 = *(_QWORD *)(v8 + 48);
-              if ( v33 )
-                v34 = *(_DWORD *)(v32 + v33);
+              v32 = *(_QWORD *)(v8 + 48);
+              if ( v32 )
+                v33 = *(_DWORD *)(v31 + v32);
               else
-                v34 = 1 << v31;
-              v24 = v34 | (unsigned int)v24;
+                v33 = 1 << v30;
+              v28 |= v33;
             }
-            ++v31;
-            v32 += 4LL;
+            ++v30;
+            v31 += 4LL;
           }
-          while ( v31 < (unsigned int)v26 );
-          v22 = v41;
+          while ( v30 < v29 );
+          v20 = v40;
         }
-        HIDWORD(BugCheckParameter3[0]) = v24;
+        HIDWORD(BugCheckParameter3[0]) = v28;
 LABEL_36:
-        if ( (_DWORD)v25 && ((unsigned int)v25 < HIDWORD(v45) || !HIDWORD(v45)) )
+        if ( ImageExtensionRva && (ImageExtensionRva < HIDWORD(v44) || !HIDWORD(v44)) )
           goto LABEL_39;
         goto LABEL_44;
       }
 LABEL_40:
       AnyMultiplexedVm = MiGetAnyMultiplexedVm(2);
-      MiEliminateZeroPages(AnyMultiplexedVm, v19 & 0xFFFFFFFFFFFFF000uLL, v22 << 12);
+      MiEliminateZeroPages(AnyMultiplexedVm, v17 & 0xFFFFFFFFFFFFF000uLL, v20 << 12);
     }
     else
     {
-      memset_0((void *)v19, 255, v18);
+      memset_0((void *)v17, 255, v16);
     }
   }
   else
   {
     v6 = -1073741523;
   }
-  MiRemoveFromSystemSpace(v17, 1);
+  MiRemoveFromSystemSpace(v15, 1);
   return v6;
 }

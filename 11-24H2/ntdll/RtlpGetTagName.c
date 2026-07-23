@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpGetTagName @ 0x180118800
+ * XREFs of RtlpGetTagName @ 0x180113834
  * Callers:
- *     RtlDebugFreeHeap @ 0x18004178C (RtlDebugFreeHeap.c)
- *     RtlDebugAllocateHeap @ 0x18009CC30 (RtlDebugAllocateHeap.c)
- *     RtlDebugReAllocateHeap @ 0x1800A2A3C (RtlDebugReAllocateHeap.c)
+ *     RtlDebugAllocateHeap @ 0x18001F7A4 (RtlDebugAllocateHeap.c)
+ *     RtlDebugFreeHeap @ 0x180022020 (RtlDebugFreeHeap.c)
+ *     RtlDebugReAllocateHeap @ 0x18005C7E8 (RtlDebugReAllocateHeap.c)
  * Callees:
- *     RtlStringCbPrintfW @ 0x18011D65C (RtlStringCbPrintfW.c)
+ *     RtlStringCbPrintfW @ 0x18011B88C (RtlStringCbPrintfW.c)
  */
 
 void *__fastcall RtlpGetTagName(__int64 a1, unsigned __int16 a2)
@@ -26,8 +26,8 @@ void *__fastcall RtlpGetTagName(__int64 a1, unsigned __int16 a2)
       {
         if ( v2 >= 0x80u )
         {
-          RtlStringCbPrintfW(&unk_1801CE238, 48LL, L"VirtualAlloc", 0LL);
-          return &unk_1801CE238;
+          RtlStringCbPrintfW(&unk_1801CD238, 48LL, L"VirtualAlloc", 0LL);
+          return &unk_1801CD238;
         }
         v4 = L"Objects=%4u";
         v3 = 16 * (unsigned int)v2;
@@ -37,8 +37,8 @@ void *__fastcall RtlpGetTagName(__int64 a1, unsigned __int16 a2)
         v3 = 2048LL;
         v4 = L"Objects>%4u";
       }
-      RtlStringCbPrintfW(&unk_1801CE238, 48LL, v4, v3);
-      return &unk_1801CE238;
+      RtlStringCbPrintfW(&unk_1801CD238, 48LL, v4, v3);
+      return &unk_1801CD238;
     }
     return 0LL;
   }

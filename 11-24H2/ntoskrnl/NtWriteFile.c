@@ -1,25 +1,25 @@
 /*
- * XREFs of NtWriteFile @ 0x1408C1170
+ * XREFs of NtWriteFile @ 0x1408BEB30
  * Callers:
- *     ?SmKmIssueFileIo@@YAJPEAU_SMKM_FILE_INFO@@PEAU_SMKM_ISSUE_IO_PARAMS@@PEAT_LARGE_INTEGER@@P6AXPEAXPEAU_IO_STATUS_BLOCK@@K@Z3@Z @ 0x14060D2E4 (-SmKmIssueFileIo@@YAJPEAU_SMKM_FILE_INFO@@PEAU_SMKM_ISSUE_IO_PARAMS@@PEAT_LARGE_INTEGER@@P6AXPEA.c)
- *     DifNtWriteFileWrapper @ 0x140635CC0 (DifNtWriteFileWrapper.c)
+ *     ?SmKmIssueFileIo@@YAJPEAU_SMKM_FILE_INFO@@PEAU_SMKM_ISSUE_IO_PARAMS@@PEAT_LARGE_INTEGER@@P6AXPEAXPEAU_IO_STATUS_BLOCK@@K@Z3@Z @ 0x14060B8A4 (-SmKmIssueFileIo@@YAJPEAU_SMKM_FILE_INFO@@PEAU_SMKM_ISSUE_IO_PARAMS@@PEAT_LARGE_INTEGER@@P6AXPEA.c)
+ *     DifNtWriteFileWrapper @ 0x140634280 (DifNtWriteFileWrapper.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x1402595A0 (KeLeaveCriticalRegionThread.c)
- *     ExfUnblockPushLock @ 0x1402C7820 (ExfUnblockPushLock.c)
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     ObpTraceObjectReferenceIfActive @ 0x140340450 (ObpTraceObjectReferenceIfActive.c)
- *     ObpIncrPointerCountEx @ 0x140419440 (ObpIncrPointerCountEx.c)
- *     ExGetHandlePointer @ 0x1404275E0 (ExGetHandlePointer.c)
- *     ExHandleLogBadReference @ 0x14043AC30 (ExHandleLogBadReference.c)
- *     ExSlowReplenishHandleTableEntry @ 0x140445670 (ExSlowReplenishHandleTableEntry.c)
- *     ExFastReplenishHandleTableEntry @ 0x140472650 (ExFastReplenishHandleTableEntry.c)
- *     HalPutDmaAdapter @ 0x1404833B0 (HalPutDmaAdapter.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     ExpLookupHandleTableEntry @ 0x14084BF30 (ExpLookupHandleTableEntry.c)
- *     ExpBlockOnLockedHandleEntry @ 0x14084DA70 (ExpBlockOnLockedHandleEntry.c)
- *     PsIsProcessAppContainer @ 0x14085D560 (PsIsProcessAppContainer.c)
- *     IopWriteFile @ 0x1408C1630 (IopWriteFile.c)
- *     ObpAuditObjectAccess @ 0x140989024 (ObpAuditObjectAccess.c)
+ *     KeLeaveCriticalRegionThread @ 0x140289BB0 (KeLeaveCriticalRegionThread.c)
+ *     ExfUnblockPushLock @ 0x1402BC1A0 (ExfUnblockPushLock.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     ObpTraceObjectReferenceIfActive @ 0x14031F930 (ObpTraceObjectReferenceIfActive.c)
+ *     ObpIncrPointerCountEx @ 0x1404091E0 (ObpIncrPointerCountEx.c)
+ *     ExGetHandlePointer @ 0x14041B770 (ExGetHandlePointer.c)
+ *     ExHandleLogBadReference @ 0x14042D470 (ExHandleLogBadReference.c)
+ *     ExSlowReplenishHandleTableEntry @ 0x14043D820 (ExSlowReplenishHandleTableEntry.c)
+ *     ExFastReplenishHandleTableEntry @ 0x14046E920 (ExFastReplenishHandleTableEntry.c)
+ *     HalPutDmaAdapter @ 0x14047E920 (HalPutDmaAdapter.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     ExpLookupHandleTableEntry @ 0x1408481F0 (ExpLookupHandleTableEntry.c)
+ *     ExpBlockOnLockedHandleEntry @ 0x140849D30 (ExpBlockOnLockedHandleEntry.c)
+ *     PsIsProcessAppContainer @ 0x1408592D0 (PsIsProcessAppContainer.c)
+ *     ObpAuditObjectAccess @ 0x140863834 (ObpAuditObjectAccess.c)
+ *     IopWriteFile @ 0x1408BEFF0 (IopWriteFile.c)
  */
 
 NTSTATUS __stdcall NtWriteFile(
@@ -196,7 +196,9 @@ LABEL_38:
       }
     }
   }
-  if ( (v26 & 4) != 0 && PreviousMode && !(unsigned __int8)ObpAuditObjectAccess(KernelTime, v9, v16, HandlePointer, v25) )
+  if ( (v26 & 4) != 0
+    && PreviousMode
+    && !ObpAuditObjectAccess((unsigned int *)KernelTime, v9, v16, (__int64)HandlePointer, v25) )
   {
     v34 = (struct _DMA_ADAPTER *)(HandlePointer + 6);
     v13 = -1073741816;

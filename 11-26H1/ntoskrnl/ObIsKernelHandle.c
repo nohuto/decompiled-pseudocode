@@ -1,7 +1,7 @@
 /*
- * XREFs of ObIsKernelHandle @ 0x1404D8C40
+ * XREFs of ObIsKernelHandle @ 0x1404D2320
  * Callers:
- *     MmPrefetchVirtualMemory @ 0x140A4EAA4 (MmPrefetchVirtualMemory.c)
+ *     MmPrefetchVirtualMemory @ 0x140A57D94 (MmPrefetchVirtualMemory.c)
  * Callees:
  *     <none>
  */

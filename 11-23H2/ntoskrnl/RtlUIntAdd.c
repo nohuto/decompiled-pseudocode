@@ -1,14 +1,15 @@
 /*
- * XREFs of RtlUIntAdd @ 0x1402504DC
+ * XREFs of RtlUIntAdd @ 0x1402505AC
  * Callers:
  *     FsRtlNotifyFilterReportChangeLiteEx @ 0x14068A3A0 (FsRtlNotifyFilterReportChangeLiteEx.c)
- *     EtwpSetProviderTraitsCommon @ 0x1406BE544 (EtwpSetProviderTraitsCommon.c)
- *     CmpCheckKey @ 0x1406E0710 (CmpCheckKey.c)
- *     sub_1406EF570 @ 0x1406EF570 (sub_1406EF570.c)
- *     sub_140762F48 @ 0x140762F48 (sub_140762F48.c)
- *     sub_140763D64 @ 0x140763D64 (sub_140763D64.c)
- *     VrpUpdateKeyInformation @ 0x1407E0120 (VrpUpdateKeyInformation.c)
- *     FsRtlNotifyFilterReportChange @ 0x14084B490 (FsRtlNotifyFilterReportChange.c)
+ *     EtwpSetProviderTraitsCommon @ 0x1406BE574 (EtwpSetProviderTraitsCommon.c)
+ *     CmpCheckKey @ 0x1406E0740 (CmpCheckKey.c)
+ *     sub_1406EF5A0 @ 0x1406EF5A0 (sub_1406EF5A0.c)
+ *     sub_140763138 @ 0x140763138 (sub_140763138.c)
+ *     sub_140763F54 @ 0x140763F54 (sub_140763F54.c)
+ *     SeValidSecurityDescriptor @ 0x1407B4150 (SeValidSecurityDescriptor.c)
+ *     VrpUpdateKeyInformation @ 0x1407E03F0 (VrpUpdateKeyInformation.c)
+ *     FsRtlNotifyFilterReportChange @ 0x14084B790 (FsRtlNotifyFilterReportChange.c)
  * Callees:
  *     <none>
  */

@@ -1,19 +1,19 @@
 /*
- * XREFs of PopAdaptiveStandbyActionWorker @ 0x1407602D0
+ * XREFs of PopAdaptiveStandbyActionWorker @ 0x14075F2D0
  * Callers:
  *     <none>
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     PopReleaseRwLock @ 0x1403B5EC8 (PopReleaseRwLock.c)
- *     EtwActivityIdControl @ 0x14041E010 (EtwActivityIdControl.c)
- *     PopAcquireRwLockExclusive @ 0x1404283D4 (PopAcquireRwLockExclusive.c)
- *     IoGetActivityIdThread @ 0x14043F3F0 (IoGetActivityIdThread.c)
- *     IoSetActivityIdThread @ 0x14045C3B0 (IoSetActivityIdThread.c)
- *     IoClearActivityIdThread @ 0x140463690 (IoClearActivityIdThread.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     PopPowerAggregatorTriggerAdaptiveAction @ 0x140759F40 (PopPowerAggregatorTriggerAdaptiveAction.c)
- *     PopAcquirePolicyLock @ 0x140B67CB0 (PopAcquirePolicyLock.c)
- *     PopReleasePolicyLock @ 0x140B67D00 (PopReleasePolicyLock.c)
+ *     PopReleaseRwLock @ 0x1402AE8FC (PopReleaseRwLock.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     EtwActivityIdControl @ 0x1404123E0 (EtwActivityIdControl.c)
+ *     PopAcquireRwLockExclusive @ 0x14041C564 (PopAcquireRwLockExclusive.c)
+ *     IoGetActivityIdThread @ 0x140435520 (IoGetActivityIdThread.c)
+ *     IoSetActivityIdThread @ 0x140451750 (IoSetActivityIdThread.c)
+ *     IoClearActivityIdThread @ 0x140459F90 (IoClearActivityIdThread.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     PopPowerAggregatorTriggerAdaptiveAction @ 0x140758390 (PopPowerAggregatorTriggerAdaptiveAction.c)
+ *     PopAcquirePolicyLock @ 0x140B69DF0 (PopAcquirePolicyLock.c)
+ *     PopReleasePolicyLock @ 0x140B69E40 (PopReleasePolicyLock.c)
  */
 
 struct _KTHREAD *PopAdaptiveStandbyActionWorker()
@@ -41,28 +41,28 @@ struct _KTHREAD *PopAdaptiveStandbyActionWorker()
   EtwActivityIdControl(3u, &ActivityId);
   v0 = IoSetActivityIdThread((struct _LIST_ENTRY *)&ActivityId);
   v13 = (GUID *)v0;
-  if ( (unsigned int)dword_140E08258 > 5 )
+  if ( (unsigned int)dword_140E08218 > 5 )
     tlgWriteTransfer_EtwWriteTransfer(
-      (__int64)&dword_140E08258,
-      (unsigned __int8 *)byte_14004E235,
+      (__int64)&dword_140E08218,
+      (unsigned __int8 *)byte_14004F028,
       &ActivityId,
       (const GUID *)v0,
       2u,
       v14);
   while ( 1 )
   {
-    PopAcquireRwLockExclusive(&PopAdaptiveStandbyLock);
-    v1 = dword_140F07054;
-    if ( (unsigned int)dword_140E08258 > 5 )
+    PopAcquireRwLockExclusive((unsigned __int64 *)&PopAdaptiveStandbyLock);
+    v1 = dword_140F07364;
+    if ( (unsigned int)dword_140E08218 > 5 )
     {
       v17 = 0;
       v15 = &v11;
-      v11 = dword_140F07054;
+      v11 = dword_140F07364;
       v16 = 4;
       ActivityIdThread = IoGetActivityIdThread();
       tlgWriteTransfer_EtwWriteTransfer(
-        (__int64)&dword_140E08258,
-        (unsigned __int8 *)byte_14004E1F9,
+        (__int64)&dword_140E08218,
+        (unsigned __int8 *)byte_14004E4CD,
         (const GUID *)ActivityIdThread,
         0LL,
         3u,
@@ -70,18 +70,18 @@ struct _KTHREAD *PopAdaptiveStandbyActionWorker()
     }
     if ( !v1 )
       break;
-    dword_140F07054 = 0;
-    PopReleaseRwLock((signed __int64 *)&PopAdaptiveStandbyLock);
+    dword_140F07364 = 0;
+    PopReleaseRwLock(&PopAdaptiveStandbyLock);
     PopAcquirePolicyLock(v4, v3);
     PopPowerAggregatorTriggerAdaptiveAction(v1);
     PopReleasePolicyLock(v6, v5, v7, v8, v10);
   }
-  byte_140F07050 = 0;
-  PopReleaseRwLock((signed __int64 *)&PopAdaptiveStandbyLock);
-  if ( (unsigned int)dword_140E08258 > 5 )
+  byte_140F07360 = 0;
+  PopReleaseRwLock(&PopAdaptiveStandbyLock);
+  if ( (unsigned int)dword_140E08218 > 5 )
     tlgWriteTransfer_EtwWriteTransfer(
-      (__int64)&dword_140E08258,
-      (unsigned __int8 *)&byte_14004DF3F,
+      (__int64)&dword_140E08218,
+      (unsigned __int8 *)byte_14004E4A1,
       &ActivityId,
       v13,
       2u,

@@ -1,10 +1,10 @@
 /*
- * XREFs of PspLogAuditSetLoadImageNotifyRoutineEvent @ 0x140A89894
+ * XREFs of PspLogAuditSetLoadImageNotifyRoutineEvent @ 0x140A85C94
  * Callers:
- *     PsSetLoadImageNotifyRoutineEx @ 0x140A897E0 (PsSetLoadImageNotifyRoutineEx.c)
+ *     PsSetLoadImageNotifyRoutineEx @ 0x140A85BE0 (PsSetLoadImageNotifyRoutineEx.c)
  * Callees:
- *     EtwWrite @ 0x14041C1B0 (EtwWrite.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     EtwWrite @ 0x14040FFB0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall PspLogAuditSetLoadImageNotifyRoutineEvent(__int64 a1, int a2)

@@ -49,9 +49,9 @@ bool __fastcall SeAccessCheckWithHint(
   unsigned __int8 *v11; // r11
   unsigned int v12; // r15d
   char v13; // al
-  __int64 v14; // rdx
+  unsigned __int64 v14; // rdx
   int v15; // edi
-  __int64 v18; // r8
+  unsigned __int64 v18; // r8
   __int16 v19; // r10
   __int64 v20; // r9
   __int64 v21; // rax
@@ -79,7 +79,7 @@ bool __fastcall SeAccessCheckWithHint(
   bool v43; // zf
   bool result; // al
   __int64 v45; // rax
-  __int64 v46; // r9
+  void *v46; // r9
   const void **v47; // rax
   unsigned int v48; // eax
   unsigned int j; // r8d
@@ -102,13 +102,13 @@ bool __fastcall SeAccessCheckWithHint(
   __int64 v66; // r8
   char v67; // al
   __int64 v68; // r9
-  __int64 v69; // rdx
+  _DWORD *v69; // rdx
   _DWORD *v70; // rdi
   __int64 v71; // r8
   char v72; // r10
   __int64 v73; // rcx
   int v74; // eax
-  __int64 v75; // r9
+  _DWORD *v75; // r9
   __int64 v76; // r10
   int v77; // ecx
   char v78; // di
@@ -192,13 +192,13 @@ bool __fastcall SeAccessCheckWithHint(
   v12 = a5;
   v13 = a2;
   v129 = a2;
-  v14 = (__int64)a10;
+  v14 = (unsigned __int64)a10;
   v124 = a4;
   v15 = a4;
   v136 = (int *)a10;
   v123 = 0;
   *a10 = 0;
-  v18 = (__int64)a8;
+  v18 = (unsigned __int64)a8;
   *a11 = -1073741790;
   v150 = a7;
   v148 = a8;
@@ -300,8 +300,8 @@ LABEL_170:
   if ( !*(_QWORD *)a3 )
     goto LABEL_188;
   v45 = *((_QWORD *)a3 + 2);
-  v46 = *(_QWORD *)(*(_QWORD *)a3 + 1104LL);
-  if ( *(_QWORD *)(v45 + 1104) && !RtlIsValidProcessTrustLabelSid(*(_QWORD *)(v45 + 1104)) )
+  v46 = *(void **)(*(_QWORD *)a3 + 1104LL);
+  if ( *(_QWORD *)(v45 + 1104) && !RtlIsValidProcessTrustLabelSid(*(PSID *)(v45 + 1104)) )
     goto LABEL_179;
   if ( !v46 )
     goto LABEL_68;
@@ -309,19 +309,19 @@ LABEL_170:
     goto LABEL_179;
   if ( !v76 )
   {
-    if ( !*(_DWORD *)(v75 + 8) )
+    if ( !v75[2] )
       goto LABEL_177;
 LABEL_188:
-    v75 = *(_QWORD *)(*((_QWORD *)a3 + 2) + 1104LL);
+    v75 = *(_DWORD **)(*((_QWORD *)a3 + 2) + 1104LL);
     goto LABEL_177;
   }
-  if ( *(_DWORD *)(v76 + 8) < *(_DWORD *)(v75 + 8) || *(_DWORD *)(v76 + 12) < *(_DWORD *)(v75 + 12) )
+  if ( *(_DWORD *)(v76 + 8) < v75[2] || *(_DWORD *)(v76 + 12) < v75[3] )
     goto LABEL_188;
 LABEL_177:
   if ( v75 && !RtlIsValidProcessTrustLabelSid(v75) )
     goto LABEL_179;
 LABEL_68:
-  if ( !RtlIsValidProcessTrustLabelSid(v18) )
+  if ( !RtlIsValidProcessTrustLabelSid((PSID)v18) )
   {
 LABEL_179:
     *a11 = -1073741811;
@@ -350,7 +350,7 @@ LABEL_23:
     if ( !*(_QWORD *)a3 )
       v91 = (void *)*((_QWORD *)a3 + 2);
     v41 = a6 | a5;
-    SepLocateTokenTrustLevel(a3, v14);
+    SepLocateTokenTrustLevel(a3);
     v42 = v91;
     goto LABEL_55;
   }
@@ -785,7 +785,7 @@ LABEL_125:
             (__int64)&P,
             (__int64)&v123,
             0LL);
-    v69 = v140;
+    v69 = (_DWORD *)v140;
     Buf1 = (void *)v140;
     v125 = v67;
     if ( !SepRmEnforceCap || (v96 = *a11, v128 = v96, v96 < 0) || (v97 = 0LL, !v127) )
@@ -801,9 +801,9 @@ LABEL_125:
     while ( 1 )
     {
       LODWORD(Size) = v98;
-      if ( v98 >= *(_DWORD *)(v69 + 60) )
+      if ( v98 >= v69[15] )
         goto LABEL_286;
-      v100 = *(_QWORD *)(v69 + 8LL * v98 + 64);
+      v100 = *(_QWORD *)&v69[2 * v98 + 16];
       v140 = v100;
       if ( !*(_QWORD *)(v100 + 24) )
         goto LABEL_259;
@@ -1017,10 +1017,10 @@ LABEL_157:
             LOBYTE(v68) = 0;
             if ( v149 != -1 )
             {
-              v69 = (unsigned int)v149 & *v70;
+              v69 = (_DWORD *)((unsigned int)v149 & *v70);
               if ( (_DWORD)v69 != *v70 )
               {
-                *v70 = v69;
+                *v70 = (_DWORD)v69;
                 LOBYTE(v68) = 1;
                 if ( (v12 & 0x2000000) != 0 )
                 {
@@ -1071,7 +1071,7 @@ LABEL_132:
               && !v142 )
             {
               v78 = *a11 >= 0;
-              SepLocateTokenTrustLevel(a3, v69);
+              SepLocateTokenTrustLevel(a3);
               SeLogAccessFailure((PVOID)v26, a1, a6 | v12, v78);
             }
             if ( *a11 < 0 && !HIDWORD(v153[0]) && (*(_DWORD *)(v26 + 200) & 0x4000) != 0 )
@@ -1106,7 +1106,7 @@ LABEL_132:
         v96 = v128;
         v99 = v131;
       }
-      v69 = (__int64)Buf1;
+      v69 = Buf1;
       v98 = Size + 1;
       v97 = 0LL;
     }

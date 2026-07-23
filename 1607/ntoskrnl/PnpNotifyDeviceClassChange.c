@@ -1,19 +1,19 @@
 /*
- * XREFs of PnpNotifyDeviceClassChange @ 0x1403F0E40
+ * XREFs of PnpNotifyDeviceClassChange @ 0x1404891B8
  * Callers:
- *     PnpDeviceEventWorker @ 0x1403EF9F0 (PnpDeviceEventWorker.c)
+ *     PnpDeviceEventWorker @ 0x14048B32C (PnpDeviceEventWorker.c)
  * Callees:
- *     PsGetServerSiloServiceSessionId @ 0x140007F34 (PsGetServerSiloServiceSessionId.c)
- *     KeReleaseGuardedMutex @ 0x14000CA40 (KeReleaseGuardedMutex.c)
- *     ExAcquireFastMutex @ 0x14002D0A0 (ExAcquireFastMutex.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExAcquireResourceExclusiveLite @ 0x140068160 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x140068940 (ExReleaseResourceLite.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     RtlCompareMemory @ 0x140167460 (RtlCompareMemory.c)
- *     PnpDereferenceNotify @ 0x1403F0FC8 (PnpDereferenceNotify.c)
- *     PnpNotifyDriverCallback @ 0x14052C110 (PnpNotifyDriverCallback.c)
- *     IopGetSessionIdFromSymbolicName @ 0x140543198 (IopGetSessionIdFromSymbolicName.c)
+ *     KeReleaseGuardedMutex @ 0x14000C5C0 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x14002CC20 (ExAcquireFastMutex.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140067CE0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x1400684C0 (ExReleaseResourceLite.c)
+ *     PsGetServerSiloServiceSessionId @ 0x1400860B0 (PsGetServerSiloServiceSessionId.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     RtlCompareMemory @ 0x1401679D0 (RtlCompareMemory.c)
+ *     PnpDereferenceNotify @ 0x140489340 (PnpDereferenceNotify.c)
+ *     PnpNotifyDriverCallback @ 0x14052AFF8 (PnpNotifyDriverCallback.c)
+ *     IopGetSessionIdFromSymbolicName @ 0x1405436D8 (IopGetSessionIdFromSymbolicName.c)
  */
 
 __int64 __fastcall PnpNotifyDeviceClassChange(__int128 *a1, __int64 *a2, __int64 a3)
@@ -46,7 +46,7 @@ __int64 __fastcall PnpNotifyDeviceClassChange(__int128 *a1, __int64 *a2, __int64
   while ( v8 != (__int64 *)v7 )
   {
     v9 = v8;
-    if ( *((_DWORD *)v8 + 5) != (unsigned int)PsGetServerSiloServiceSessionId() )
+    if ( *((_DWORD *)v8 + 5) != (unsigned int)PsGetServerSiloServiceSessionId(-1LL) )
       SessionIdFromSymbolicName = IopGetSessionIdFromSymbolicName(a3);
     ++*((_WORD *)v8 + 28);
     KeReleaseGuardedMutex(&PnpDeviceClassNotifyLock);

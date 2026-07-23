@@ -5,7 +5,7 @@
  * Callees:
  *     EtwpStopUmLogger @ 0x18005F5F0 (EtwpStopUmLogger.c)
  *     __security_check_cookie @ 0x18008EF90 (__security_check_cookie.c)
- *     EtwpDemuxUmTraceHandle @ 0x180125590 (EtwpDemuxUmTraceHandle.c)
+ *     EtwpDemuxUmTraceHandle @ 0x180125560 (EtwpDemuxUmTraceHandle.c)
  *     memset$thunk$772440563353939046 @ 0x180132010 (memset$thunk$772440563353939046.c)
  */
 

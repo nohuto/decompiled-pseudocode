@@ -1,42 +1,42 @@
 /*
- * XREFs of RtlFindNextForwardRunClear @ 0x1800CA080
+ * XREFs of RtlFindNextForwardRunClear @ 0x1800C78B0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall RtlFindNextForwardRunClear(unsigned int *a1, unsigned int a2, unsigned int *a3)
+ULONG __cdecl RtlFindNextForwardRunClear(PRTL_BITMAP BitMapHeader, ULONG FromIndex, PULONG StartingRunIndex)
 {
-  unsigned int v3; // edi
-  unsigned int v4; // r9d
-  __int64 v6; // rsi
-  _DWORD *v7; // rax
+  unsigned int SizeOfBitMap; // edi
+  ULONG v4; // r11d
+  unsigned int *Buffer; // rsi
+  unsigned int *v7; // rax
   unsigned __int64 v8; // r8
   _DWORD *v9; // rcx
-  int v10; // r10d
-  unsigned int v11; // r10d
-  __int64 v12; // r11
-  unsigned int v13; // ebx
+  int v10; // r9d
+  unsigned int v11; // r9d
+  __int64 v12; // r10
+  ULONG v13; // ebx
   unsigned int v14; // edx
   __int64 v15; // rcx
-  unsigned int v16; // r9d
+  unsigned int v16; // r11d
   unsigned int v17; // eax
 
-  v3 = *a1;
+  SizeOfBitMap = BitMapHeader->SizeOfBitMap;
   v4 = 0;
-  if ( *a1 <= a2 )
+  if ( BitMapHeader->SizeOfBitMap <= FromIndex )
   {
-    *a3 = a2;
-    return 0LL;
+    *StartingRunIndex = FromIndex;
+    return 0;
   }
   else
   {
-    v6 = *((_QWORD *)a1 + 1);
-    v7 = (_DWORD *)(v6 + 4 * ((unsigned __int64)a2 >> 5));
-    v8 = v6 + 4 * ((unsigned __int64)(v3 - 1) >> 5);
+    Buffer = BitMapHeader->Buffer;
+    v7 = &Buffer[(unsigned __int64)FromIndex >> 5];
+    v8 = (unsigned __int64)&Buffer[(unsigned __int64)(SizeOfBitMap - 1) >> 5];
     v9 = v7 + 1;
-    v10 = *v7 | ((1 << (a2 & 0x1F)) - 1);
+    v10 = *v7 | ((1 << (FromIndex & 0x1F)) - 1);
     while ( 1 )
     {
       v11 = ~v10;
@@ -49,11 +49,11 @@ __int64 __fastcall RtlFindNextForwardRunClear(unsigned int *a1, unsigned int a2,
       ++v9;
     }
     _BitScanForward64((unsigned __int64 *)&v12, v11);
-    v13 = v12 + 32 * (((__int64)v7 - v6) >> 2);
-    if ( v13 > v3 )
+    v13 = v12 + 32 * (v7 - Buffer);
+    if ( v13 > SizeOfBitMap )
     {
 LABEL_16:
-      v13 = v3;
+      v13 = SizeOfBitMap;
       goto LABEL_15;
     }
     v14 = ~(v11 | ((1 << v12) - 1));
@@ -64,7 +64,6 @@ LABEL_16:
         _BitScanForward64((unsigned __int64 *)&v15, v14);
         goto LABEL_12;
       }
-      v4 += 32;
       if ( (unsigned __int64)(v7 + 1) > v8 )
         break;
       v14 = v7[1];
@@ -72,13 +71,13 @@ LABEL_16:
     }
     LODWORD(v15) = 32;
 LABEL_12:
-    v16 = v3;
-    v17 = v15 + 32 * (((__int64)v7 - v6) >> 2);
-    if ( v17 <= v3 )
+    v16 = SizeOfBitMap;
+    v17 = v15 + 32 * (v7 - Buffer);
+    if ( v17 <= SizeOfBitMap )
       v16 = v17;
     v4 = v16 - v13;
 LABEL_15:
-    *a3 = v13;
+    *StartingRunIndex = v13;
     return v4;
   }
 }

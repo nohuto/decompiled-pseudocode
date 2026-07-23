@@ -41,7 +41,7 @@ __int64 __fastcall KeInsertQueueEx(__int64 a1, _QWORD *a2, unsigned int a3, char
   CurrentIrql = KeGetCurrentIrql();
   v22 = CurrentIrql;
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 2 )
@@ -100,6 +100,6 @@ LABEL_15:
   _InterlockedAnd((volatile signed __int32 *)a1, 0xFFFFFF7F);
   if ( v7 )
     v4 = 3;
-  KiExitDispatcher((__int64)CurrentPrcb, v4, (struct _PROCESSOR_NUMBER)1, v23, v22);
+  KiExitDispatcher((__int64)CurrentPrcb, v4, (_PROCESSOR_NUMBER)1, v23, v22);
   return v24;
 }

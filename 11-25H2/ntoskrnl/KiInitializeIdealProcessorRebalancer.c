@@ -28,7 +28,7 @@ __int64 KiInitializeIdealProcessorRebalancer()
   {
     v1[1] = -1LL;
     v1[0] = 0LL;
-    return KeSetTimer2((__int64)&KiIdealProcessorRebalancerContext, -10000000LL, 10000000LL, (__int64)v1);
+    return KeSetTimer2((__int64)&KiIdealProcessorRebalancerContext, (LARGE_INTEGER)-10000000LL, 10000000LL, (__int64)v1);
   }
   return result;
 }

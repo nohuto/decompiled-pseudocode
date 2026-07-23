@@ -1,23 +1,23 @@
 /*
- * XREFs of HvpDropPagedBins @ 0x140A87E90
+ * XREFs of HvpDropPagedBins @ 0x140A8EFC0
  * Callers:
- *     CmpLoadHiveThread @ 0x14084B550 (CmpLoadHiveThread.c)
- *     CmpMountPreloadedHives @ 0x14084C298 (CmpMountPreloadedHives.c)
+ *     CmpLoadHiveThread @ 0x140851860 (CmpLoadHiveThread.c)
+ *     CmpMountPreloadedHives @ 0x1408525A8 (CmpMountPreloadedHives.c)
  * Callees:
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     MmFreeBootRegistry @ 0x140863DA8 (MmFreeBootRegistry.c)
- *     HvpFreeBin @ 0x1408B78AC (HvpFreeBin.c)
- *     HvpMapEntryGetFreeBin @ 0x1408B8FF0 (HvpMapEntryGetFreeBin.c)
- *     HvpMapEntryIsPoolBacked @ 0x1408B9254 (HvpMapEntryIsPoolBacked.c)
- *     CmpReleaseGlobalQuota @ 0x1408C8530 (CmpReleaseGlobalQuota.c)
- *     HvpPointMapEntriesToBuffer @ 0x1408DD510 (HvpPointMapEntriesToBuffer.c)
- *     HvpAllocateNonPagedBin @ 0x140A8808C (HvpAllocateNonPagedBin.c)
- *     HvpGetCellMap @ 0x140C58690 (HvpGetCellMap.c)
- *     HvpMapEntryGetBinAddress @ 0x140C586F0 (HvpMapEntryGetBinAddress.c)
- *     HvpMapEntryReleaseBinAddress @ 0x140C58710 (HvpMapEntryReleaseBinAddress.c)
- *     HvpGetBinContextInitialize @ 0x140C58AA0 (HvpGetBinContextInitialize.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     MmFreeBootRegistry @ 0x14086A188 (MmFreeBootRegistry.c)
+ *     HvpFreeBin @ 0x1408BDE7C (HvpFreeBin.c)
+ *     HvpMapEntryGetFreeBin @ 0x1408BF5C0 (HvpMapEntryGetFreeBin.c)
+ *     HvpMapEntryIsPoolBacked @ 0x1408BF824 (HvpMapEntryIsPoolBacked.c)
+ *     CmpReleaseGlobalQuota @ 0x1408CEAE4 (CmpReleaseGlobalQuota.c)
+ *     HvpPointMapEntriesToBuffer @ 0x1408E3AD0 (HvpPointMapEntriesToBuffer.c)
+ *     HvpAllocateNonPagedBin @ 0x140A8F1BC (HvpAllocateNonPagedBin.c)
+ *     HvpGetCellMap @ 0x140C5E690 (HvpGetCellMap.c)
+ *     HvpMapEntryGetBinAddress @ 0x140C5E6F0 (HvpMapEntryGetBinAddress.c)
+ *     HvpMapEntryReleaseBinAddress @ 0x140C5E710 (HvpMapEntryReleaseBinAddress.c)
+ *     HvpGetBinContextInitialize @ 0x140C5EAA0 (HvpGetBinContextInitialize.c)
  */
 
 __int64 __fastcall HvpDropPagedBins(ULONG_PTR BugCheckParameter2)
@@ -90,7 +90,7 @@ __int64 __fastcall HvpDropPagedBins(ULONG_PTR BugCheckParameter2)
       }
     }
     v5 = 0;
-    if ( _InterlockedExchangeAdd((volatile signed __int32 *)&WheapPfaLock.StackLimit, 0xFFFFFFFF) == 1 )
+    if ( _InterlockedExchangeAdd((volatile signed __int32 *)&WheapPfaLock.CycleTime, 0xFFFFFFFF) == 1 )
       MmFreeBootRegistry();
     *(_DWORD *)(BugCheckParameter2 + 160) &= ~0x10u;
 LABEL_20:

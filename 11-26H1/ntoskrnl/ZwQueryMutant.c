@@ -1,14 +1,19 @@
 /*
- * XREFs of ZwQueryMutant @ 0x140726050
+ * XREFs of ZwQueryMutant @ 0x14072AC20
  * Callers:
- *     DifZwQueryMutantWrapper @ 0x1406B2DF0 (DifZwQueryMutantWrapper.c)
+ *     DifZwQueryMutantWrapper @ 0x1406B69D0 (DifZwQueryMutantWrapper.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwQueryMutant(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwQueryMutant(
+        HANDLE MutantHandle,
+        MUTANT_INFORMATION_CLASS MutantInformationClass,
+        PVOID MutantInformation,
+        ULONG MutantInformationLength,
+        PULONG ReturnLength)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(MutantHandle);
 }

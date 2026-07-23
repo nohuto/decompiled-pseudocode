@@ -1,10 +1,10 @@
 /*
- * XREFs of KiMaskInterruptInternal @ 0x14016D3B0
+ * XREFs of KiMaskInterruptInternal @ 0x14016D4B0
  * Callers:
- *     KeMaskInterrupt @ 0x14016D548 (KeMaskInterrupt.c)
- *     KiMaskInterruptDpc @ 0x140295110 (KiMaskInterruptDpc.c)
+ *     KeMaskInterrupt @ 0x14016D648 (KeMaskInterrupt.c)
+ *     KiMaskInterruptDpc @ 0x140295300 (KiMaskInterruptDpc.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall KiMaskInterruptInternal(__int64 a1, unsigned int a2)
@@ -13,7 +13,7 @@ __int64 __fastcall KiMaskInterruptInternal(__int64 a1, unsigned int a2)
   char *v5; // r8
   char *v6; // rcx
 
-  v3 = KeGetCurrentPrcb()->InterruptObject[(unsigned __int8)off_1403FE358[0]()];
+  v3 = KeGetCurrentPrcb()->InterruptObject[(unsigned __int8)off_1403FF358[0]()];
   if ( !v3 )
     return 2147483685LL;
   if ( *((__int64 (__fastcall **)(int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, __int16))v3
@@ -25,12 +25,12 @@ __int64 __fastcall KiMaskInterruptInternal(__int64 a1, unsigned int a2)
     {
       v6 = *(char **)v6;
       if ( v6 == v5 )
-        return ((__int64 (__fastcall *)(_QWORD, _QWORD))off_1403FE4B0[0])(a2, 0LL);
+        return ((__int64 (__fastcall *)(_QWORD, _QWORD))off_1403FF4B0[0])(a2, 0LL);
     }
   }
   else if ( (v3[26] & 1) != 0 )
   {
-    return ((__int64 (__fastcall *)(_QWORD, _QWORD))off_1403FE4B0[0])(a2, 0LL);
+    return ((__int64 (__fastcall *)(_QWORD, _QWORD))off_1403FF4B0[0])(a2, 0LL);
   }
   return 296LL;
 }

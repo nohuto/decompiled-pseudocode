@@ -1,26 +1,26 @@
 /*
- * XREFs of PiDevCfgConfigureDeviceInterfaces @ 0x1406353CC
+ * XREFs of PiDevCfgConfigureDeviceInterfaces @ 0x140635480
  * Callers:
- *     PiDevCfgConfigureDeviceKeys @ 0x1406358F4 (PiDevCfgConfigureDeviceKeys.c)
+ *     PiDevCfgConfigureDeviceKeys @ 0x1406359A8 (PiDevCfgConfigureDeviceKeys.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     RtlInitUnicodeStringEx @ 0x1400C39C0 (RtlInitUnicodeStringEx.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     _wcsicmp @ 0x14014D79C (_wcsicmp.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     ZwOpenKey @ 0x140159EC0 (ZwOpenKey.c)
- *     ZwEnumerateKey @ 0x14015A2C0 (ZwEnumerateKey.c)
- *     PiDevCfgParseInterfaceKeyName @ 0x1401CEE40 (PiDevCfgParseInterfaceKeyName.c)
- *     PiDevCfgParseVariableName @ 0x1401CEFFC (PiDevCfgParseVariableName.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     RtlInitUnicodeStringEx @ 0x1400C1850 (RtlInitUnicodeStringEx.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     _wcsicmp @ 0x14014DD0C (_wcsicmp.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     ZwOpenKey @ 0x14015A430 (ZwOpenKey.c)
+ *     ZwEnumerateKey @ 0x14015A830 (ZwEnumerateKey.c)
+ *     PiDevCfgParseInterfaceKeyName @ 0x1401CEBD4 (PiDevCfgParseInterfaceKeyName.c)
+ *     PiDevCfgParseVariableName @ 0x1401CED90 (PiDevCfgParseVariableName.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     IopRegisterDeviceInterface @ 0x14048756C (IopRegisterDeviceInterface.c)
- *     _CmGetMatchingFilteredDeviceInterfaceList @ 0x1404F64E0 (_CmGetMatchingFilteredDeviceInterfaceList.c)
- *     PiDevCfgConfigureDeviceInterface @ 0x1406351BC (PiDevCfgConfigureDeviceInterface.c)
- *     PiDevCfgResolveVariable @ 0x14063E354 (PiDevCfgResolveVariable.c)
+ *     _CmGetMatchingFilteredDeviceInterfaceList @ 0x1404D946C (_CmGetMatchingFilteredDeviceInterfaceList.c)
+ *     IopRegisterDeviceInterface @ 0x14050FDE8 (IopRegisterDeviceInterface.c)
+ *     PiDevCfgConfigureDeviceInterface @ 0x140635270 (PiDevCfgConfigureDeviceInterface.c)
+ *     PiDevCfgResolveVariable @ 0x14063E438 (PiDevCfgResolveVariable.c)
  */
 
-__int64 __fastcall PiDevCfgConfigureDeviceInterfaces(const wchar_t *a1, void *a2, __int64 a3)
+__int64 __fastcall PiDevCfgConfigureDeviceInterfaces(wchar_t *a1, void *a2, __int64 a3)
 {
   const WCHAR *v3; // rdi
   NTSTATUS v6; // eax
@@ -38,7 +38,7 @@ __int64 __fastcall PiDevCfgConfigureDeviceInterfaces(const wchar_t *a1, void *a2
   HANDLE KeyHandle; // [rsp+60h] [rbp-A0h] BYREF
   ULONG ResultLength; // [rsp+68h] [rbp-98h] BYREF
   __int64 v21; // [rsp+70h] [rbp-90h] BYREF
-  const wchar_t *v22; // [rsp+78h] [rbp-88h] BYREF
+  __int64 v22; // [rsp+78h] [rbp-88h] BYREF
   UNICODE_STRING v23; // [rsp+80h] [rbp-80h] BYREF
   UNICODE_STRING v24; // [rsp+90h] [rbp-70h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+A0h] [rbp-60h] BYREF
@@ -179,9 +179,9 @@ LABEL_23:
               while ( 1 )
               {
                 RtlInitUnicodeString(&v23, v3);
-                if ( PiDevCfgParseInterfaceKeyName((__int64)&v23, &v30, (__int64 *)&v22) )
+                if ( PiDevCfgParseInterfaceKeyName((__int64)&v23, &v30, &v22) )
                 {
-                  MatchingFilteredDeviceInterfaceList = IopRegisterDeviceInterface(a1, (__int64)&v30, v22, 1, &P, 0LL);
+                  MatchingFilteredDeviceInterfaceList = IopRegisterDeviceInterface(a1, (int *)&v30, v22, 1, &P, 0LL);
                   if ( MatchingFilteredDeviceInterfaceList < 0 )
                     break;
                   MatchingFilteredDeviceInterfaceList = PiDevCfgConfigureDeviceInterface((__int64)P, Handle, a3);
@@ -210,13 +210,13 @@ LABEL_31:
           }
 LABEL_34:
           v3 = 0LL;
-          if ( !PiDevCfgParseInterfaceKeyName((__int64)&v24, &v30, (__int64 *)&v22) )
+          if ( !PiDevCfgParseInterfaceKeyName((__int64)&v24, &v30, &v22) )
           {
 LABEL_38:
             ZwClose(Handle);
             goto LABEL_39;
           }
-          MatchingFilteredDeviceInterfaceList = IopRegisterDeviceInterface(a1, (__int64)&v30, v22, 1, &P, 0LL);
+          MatchingFilteredDeviceInterfaceList = IopRegisterDeviceInterface(a1, (int *)&v30, v22, 1, &P, 0LL);
           if ( MatchingFilteredDeviceInterfaceList < 0 )
             goto LABEL_46;
           MatchingFilteredDeviceInterfaceList = PiDevCfgConfigureDeviceInterface((__int64)P, Handle, a3);

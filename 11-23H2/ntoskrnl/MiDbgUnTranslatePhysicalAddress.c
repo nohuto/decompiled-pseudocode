@@ -1,13 +1,13 @@
 /*
- * XREFs of MiDbgUnTranslatePhysicalAddress @ 0x140644260
+ * XREFs of MiDbgUnTranslatePhysicalAddress @ 0x1406447B0
  * Callers:
- *     MiDbgCopyMemory @ 0x1402E5E58 (MiDbgCopyMemory.c)
- *     MiDbgTranslatePhysicalAddress @ 0x140643EF8 (MiDbgTranslatePhysicalAddress.c)
+ *     MiDbgCopyMemory @ 0x1402E60E8 (MiDbgCopyMemory.c)
+ *     MiDbgTranslatePhysicalAddress @ 0x140644448 (MiDbgTranslatePhysicalAddress.c)
  * Callees:
- *     KeFlushSingleTb @ 0x1402EB0C4 (KeFlushSingleTb.c)
- *     KeFlushSingleCurrentTb @ 0x14038CC20 (KeFlushSingleCurrentTb.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiUnfreezeIoPfnNode @ 0x14062EA68 (MiUnfreezeIoPfnNode.c)
+ *     KeFlushSingleTb @ 0x1402EB354 (KeFlushSingleTb.c)
+ *     KeFlushSingleCurrentTb @ 0x14038CE00 (KeFlushSingleCurrentTb.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     MiUnfreezeIoPfnNode @ 0x14062EFB8 (MiUnfreezeIoPfnNode.c)
  */
 
 void __fastcall MiDbgUnTranslatePhysicalAddress(int *a1)
@@ -47,10 +47,13 @@ void __fastcall MiDbgUnTranslatePhysicalAddress(int *a1)
   v5 = *((unsigned __int8 *)a1 + 4);
   if ( (_BYTE)v5 != 17 )
   {
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v5 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v5 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;

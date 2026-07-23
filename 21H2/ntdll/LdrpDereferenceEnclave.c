@@ -1,27 +1,27 @@
 /*
- * XREFs of LdrpDereferenceEnclave @ 0x1800CD470
+ * XREFs of LdrpDereferenceEnclave @ 0x1800CD430
  * Callers:
  *     LdrpObtainLockedEnclave @ 0x18002FA14 (LdrpObtainLockedEnclave.c)
  *     LdrGetProcedureAddressForCaller @ 0x18002FDC0 (LdrGetProcedureAddressForCaller.c)
- *     LdrDeleteEnclave @ 0x1800CCD90 (LdrDeleteEnclave.c)
- *     LdrInitializeEnclave @ 0x1800CCE20 (LdrInitializeEnclave.c)
- *     LdrIsEnclaveAddress @ 0x1800CCF20 (LdrIsEnclaveAddress.c)
- *     LdrLoadEnclaveModule @ 0x1800CCFC0 (LdrLoadEnclaveModule.c)
- *     LdrpDeleteEnclave @ 0x1800CD3EC (LdrpDeleteEnclave.c)
- *     LdrpIssueEnclaveCall @ 0x1800CD8B0 (LdrpIssueEnclaveCall.c)
+ *     LdrDeleteEnclave @ 0x1800CCD50 (LdrDeleteEnclave.c)
+ *     LdrInitializeEnclave @ 0x1800CCDE0 (LdrInitializeEnclave.c)
+ *     LdrIsEnclaveAddress @ 0x1800CCEE0 (LdrIsEnclaveAddress.c)
+ *     LdrLoadEnclaveModule @ 0x1800CCF80 (LdrLoadEnclaveModule.c)
+ *     LdrpDeleteEnclave @ 0x1800CD3AC (LdrpDeleteEnclave.c)
+ *     LdrpIssueEnclaveCall @ 0x1800CD870 (LdrpIssueEnclaveCall.c)
  * Callees:
  *     RtlFreeHeap @ 0x180024760 (RtlFreeHeap.c)
  */
 
-__int64 __fastcall LdrpDereferenceEnclave(__int64 a1)
+LOGICAL __fastcall LdrpDereferenceEnclave(PVOID BaseAddress)
 {
-  __int64 result; // rax
+  LOGICAL result; // eax
 
-  result = (unsigned int)_InterlockedExchangeAdd((volatile signed __int32 *)(a1 + 60), 0xFFFFFFFF);
-  if ( (_DWORD)result == 1 )
+  result = _InterlockedExchangeAdd((volatile signed __int32 *)BaseAddress + 15, 0xFFFFFFFF);
+  if ( result == 1 )
   {
-    RtlFreeHeap(LdrpHeap, 0, *(_QWORD *)(a1 + 112));
-    return RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, a1);
+    RtlFreeHeap(LdrpHeap, 0, *((PVOID *)BaseAddress + 14));
+    return RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, BaseAddress);
   }
   return result;
 }

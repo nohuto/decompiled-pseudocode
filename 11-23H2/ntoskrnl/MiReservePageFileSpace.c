@@ -1,20 +1,20 @@
 /*
- * XREFs of MiReservePageFileSpace @ 0x1402849A0
+ * XREFs of MiReservePageFileSpace @ 0x140284C30
  * Callers:
- *     MiCheckReservePageFileSpace @ 0x140282FE0 (MiCheckReservePageFileSpace.c)
- *     MiFillNoReservationCluster @ 0x140639468 (MiFillNoReservationCluster.c)
+ *     MiCheckReservePageFileSpace @ 0x140283270 (MiCheckReservePageFileSpace.c)
+ *     MiFillNoReservationCluster @ 0x1406399B8 (MiFillNoReservationCluster.c)
  * Callees:
  *     MiLocateAddress @ 0x140217240 (MiLocateAddress.c)
- *     MiReservePageFileSpaceForPage @ 0x140284E70 (MiReservePageFileSpaceForPage.c)
- *     MiUpdatePageFileHighInPte @ 0x14028563C (MiUpdatePageFileHighInPte.c)
- *     MiSwizzleInvalidPte @ 0x1402857A0 (MiSwizzleInvalidPte.c)
- *     MiLockVadTree @ 0x14028A8C0 (MiLockVadTree.c)
- *     MiFindFreePageFileSpace @ 0x1402946D4 (MiFindFreePageFileSpace.c)
- *     MiReleasePageFileInfo @ 0x1402952DC (MiReleasePageFileInfo.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7C00 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     MI_IS_PTE_IN_WS_SWAP_SET @ 0x14034F514 (MI_IS_PTE_IN_WS_SWAP_SET.c)
- *     MiGetPageFileSectionForReservation @ 0x14063AC44 (MiGetPageFileSectionForReservation.c)
- *     MiReleasePageFileSectionInfo @ 0x14063B578 (MiReleasePageFileSectionInfo.c)
+ *     MiReservePageFileSpaceForPage @ 0x140285100 (MiReservePageFileSpaceForPage.c)
+ *     MiUpdatePageFileHighInPte @ 0x1402858CC (MiUpdatePageFileHighInPte.c)
+ *     MiSwizzleInvalidPte @ 0x140285A30 (MiSwizzleInvalidPte.c)
+ *     MiLockVadTree @ 0x14028AB50 (MiLockVadTree.c)
+ *     MiFindFreePageFileSpace @ 0x140294964 (MiFindFreePageFileSpace.c)
+ *     MiReleasePageFileInfo @ 0x14029556C (MiReleasePageFileInfo.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7E90 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     MI_IS_PTE_IN_WS_SWAP_SET @ 0x14034F6B4 (MI_IS_PTE_IN_WS_SWAP_SET.c)
+ *     MiGetPageFileSectionForReservation @ 0x14063B194 (MiGetPageFileSectionForReservation.c)
+ *     MiReleasePageFileSectionInfo @ 0x14063BAC8 (MiReleasePageFileSectionInfo.c)
  */
 
 void __fastcall MiReservePageFileSpace(__int64 a1, __int64 a2, __int64 a3)

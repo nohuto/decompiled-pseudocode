@@ -20,7 +20,7 @@ struct _PEB *__thiscall AVrfDllUnloadNotification(_DWORD *this)
   result = NtCurrentPeb();
   if ( (result->NtGlobalFlag & 0x100) != 0 && AVrfpEnabled )
   {
-    RtlEnterCriticalSection((int)&AVrfpVerifierLock);
+    RtlEnterCriticalSection(&AVrfpVerifierLock);
     if ( (unsigned __int8)AVrfpIsVerifierProviderDll(this[6]) )
     {
       DbgPrint("AVRF: AVrfDllUnloadNotification called for a provider (%p) \n", this);
@@ -37,7 +37,7 @@ struct _PEB *__thiscall AVrfDllUnloadNotification(_DWORD *this)
           v4(v4, this[12], this[6], this[8], this);
       }
     }
-    return (struct _PEB *)RtlLeaveCriticalSection((int)&AVrfpVerifierLock);
+    return (struct _PEB *)RtlLeaveCriticalSection(&AVrfpVerifierLock);
   }
   return result;
 }

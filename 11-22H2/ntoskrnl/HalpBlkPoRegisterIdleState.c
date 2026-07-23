@@ -60,10 +60,13 @@ __int64 __fastcall HalpBlkPoRegisterIdleState(unsigned int a1, __int64 a2)
   if ( v10 < 0 )
     KeBugCheckEx(0x1DAu, 4uLL, 5uLL, v4, (ULONG_PTR)BugCheckParameter4);
   KxReleaseSpinLock(BugCheckParameter4);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v7 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v7 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

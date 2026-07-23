@@ -1,25 +1,25 @@
 /*
- * XREFs of CmpSetVersionData @ 0x1407A7E2C
+ * XREFs of CmpSetVersionData @ 0x1407A802C
  * Callers:
- *     CmpFinishSystemHivesLoad @ 0x1407A72B0 (CmpFinishSystemHivesLoad.c)
+ *     CmpFinishSystemHivesLoad @ 0x1407A74B0 (CmpFinishSystemHivesLoad.c)
  * Callees:
- *     RtlInitAnsiString @ 0x1402502B0 (RtlInitAnsiString.c)
- *     PsGetServerSiloGlobals @ 0x140252E18 (PsGetServerSiloGlobals.c)
- *     HalSystemVectorDispatchEntry @ 0x140252E40 (HalSystemVectorDispatchEntry.c)
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     sprintf_s @ 0x1403D7BF0 (sprintf_s.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     ZwCreateKey @ 0x1403FA740 (ZwCreateKey.c)
- *     ZwSetValueKey @ 0x1403FAFA0 (ZwSetValueKey.c)
- *     ZwDeleteValueKey @ 0x1403FBE80 (ZwDeleteValueKey.c)
- *     memset @ 0x140414200 (memset.c)
- *     RtlAnsiStringToUnicodeString @ 0x14062C640 (RtlAnsiStringToUnicodeString.c)
- *     PsWow64IsMachineSupported @ 0x14064E890 (PsWow64IsMachineSupported.c)
- *     CmpQueryEditionVersion @ 0x1407A8330 (CmpQueryEditionVersion.c)
- *     CmpHiveRootSecurityDescriptor @ 0x1407A841C (CmpHiveRootSecurityDescriptor.c)
- *     CmpRestampVersion @ 0x1408678F0 (CmpRestampVersion.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     HalSystemVectorDispatchEntry @ 0x140251020 (HalSystemVectorDispatchEntry.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     RtlInitAnsiString @ 0x1402713E0 (RtlInitAnsiString.c)
+ *     PsGetServerSiloGlobals @ 0x140285C94 (PsGetServerSiloGlobals.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     sprintf_s @ 0x1403D7D60 (sprintf_s.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     ZwCreateKey @ 0x1403FA920 (ZwCreateKey.c)
+ *     ZwSetValueKey @ 0x1403FB180 (ZwSetValueKey.c)
+ *     ZwDeleteValueKey @ 0x1403FC060 (ZwDeleteValueKey.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     PsWow64IsMachineSupported @ 0x1406436B0 (PsWow64IsMachineSupported.c)
+ *     RtlAnsiStringToUnicodeString @ 0x1406637D0 (RtlAnsiStringToUnicodeString.c)
+ *     CmpQueryEditionVersion @ 0x1407A8530 (CmpQueryEditionVersion.c)
+ *     CmpHiveRootSecurityDescriptor @ 0x1407A861C (CmpHiveRootSecurityDescriptor.c)
+ *     CmpRestampVersion @ 0x140867A50 (CmpRestampVersion.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 void CmpSetVersionData()
@@ -140,7 +140,7 @@ void CmpSetVersionData()
         {
           NtBuildNumber = CmpEditionVersion | 0xF0000000;
           MEMORY[0xFFFFF78000000260] = CmpEditionVersion;
-          NtBuildQfe = dword_140C484C4;
+          NtBuildQfe = dword_140C48524;
         }
         ZwSetValueKey(
           KeyHandle,

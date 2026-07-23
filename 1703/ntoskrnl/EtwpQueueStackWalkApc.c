@@ -19,7 +19,7 @@ char __fastcall EtwpQueueStackWalkApc(__int64 a1, unsigned __int8 a2, unsigned i
   void *EtwSupport; // rdi
   PSLIST_ENTRY CurrentThread; // rax
   unsigned int v10; // esi
-  struct _SLIST_ENTRY *v11; // rbp
+  _SLIST_ENTRY *v11; // rbp
   __int64 v12; // r8
   __int64 v13; // rdx
   char inserted; // al

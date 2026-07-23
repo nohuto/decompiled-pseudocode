@@ -1,13 +1,13 @@
 /*
- * XREFs of KseDsCallbackHookAddDevice @ 0x140580DB0
+ * XREFs of KseDsCallbackHookAddDevice @ 0x1405812A0
  * Callers:
  *     <none>
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     KsepDsEventAddDevice @ 0x140581558 (KsepDsEventAddDevice.c)
- *     IoGetDeviceProperty @ 0x1407929A0 (IoGetDeviceProperty.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     KsepDsEventAddDevice @ 0x140581A48 (KsepDsEventAddDevice.c)
+ *     IoGetDeviceProperty @ 0x140792B90 (IoGetDeviceProperty.c)
  */
 
 __int64 __fastcall KseDsCallbackHookAddDevice(__int64 a1, struct _DEVICE_OBJECT *a2)
@@ -22,7 +22,7 @@ __int64 __fastcall KseDsCallbackHookAddDevice(__int64 a1, struct _DEVICE_OBJECT 
 
   ResultLength = 0;
   DestinationString = 0LL;
-  v4 = (*(__int64 (**)(void))qword_140C04868)();
+  v4 = (*(__int64 (**)(void))qword_140C04828)();
   v5 = (*(__int64 (__fastcall **)(__int64, struct _DEVICE_OBJECT *))(v4 + 24))(a1, a2);
   DeviceProperty = IoGetDeviceProperty(a2, DevicePropertyHardwareID, 0x400u, PropertyBuffer, &ResultLength);
   v7 = (const WCHAR *)PropertyBuffer;

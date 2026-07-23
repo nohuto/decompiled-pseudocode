@@ -1,10 +1,10 @@
 /*
- * XREFs of CcDeleteVolumeCacheMap @ 0x140579D80
+ * XREFs of CcDeleteVolumeCacheMap @ 0x140577210
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall CcDeleteVolumeCacheMap(volatile signed __int64 *P)
@@ -21,7 +21,7 @@ void __fastcall CcDeleteVolumeCacheMap(volatile signed __int64 *P)
   {
     if ( v4 )
       __fastfail(0xEu);
-    _InterlockedDecrement64(&qword_140F8E508);
+    _InterlockedDecrement64(&qword_140F8E6E8);
     v5 = (void *)*((_QWORD *)P + 21);
     if ( v5 )
     {

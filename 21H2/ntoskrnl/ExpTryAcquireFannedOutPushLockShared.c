@@ -1,9 +1,9 @@
 /*
- * XREFs of ExpTryAcquireFannedOutPushLockShared @ 0x140390AC0
+ * XREFs of ExpTryAcquireFannedOutPushLockShared @ 0x140390C10
  * Callers:
- *     ExTryAcquireAutoExpandPushLockShared @ 0x140390A00 (ExTryAcquireAutoExpandPushLockShared.c)
+ *     ExTryAcquireAutoExpandPushLockShared @ 0x140390B50 (ExTryAcquireAutoExpandPushLockShared.c)
  * Callees:
- *     ExfTryAcquirePushLockShared @ 0x14028AEE0 (ExfTryAcquirePushLockShared.c)
+ *     ExfTryAcquirePushLockShared @ 0x140208080 (ExfTryAcquirePushLockShared.c)
  */
 
 unsigned __int64 __fastcall ExpTryAcquireFannedOutPushLockShared(unsigned int a1)

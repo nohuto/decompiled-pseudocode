@@ -1,21 +1,21 @@
 /*
- * XREFs of ExpQueryElamCertInfo @ 0x1408CBF10
+ * XREFs of ExpQueryElamCertInfo @ 0x1408CD1D0
  * Callers:
- *     NtSetSystemInformation @ 0x140663DF0 (NtSetSystemInformation.c)
+ *     NtSetSystemInformation @ 0x140664FB0 (NtSetSystemInformation.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     ExAllocatePoolWithQuotaTag @ 0x1400B7670 (ExAllocatePoolWithQuotaTag.c)
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     ZwMapViewOfSection @ 0x1401B8690 (ZwMapViewOfSection.c)
- *     ZwUnmapViewOfSection @ 0x1401B86D0 (ZwUnmapViewOfSection.c)
- *     ZwCreateSection @ 0x1401B8AD0 (ZwCreateSection.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
- *     FsRtlGetFileSize @ 0x14061B4A0 (FsRtlGetFileSize.c)
- *     SeRegisterElamCertResources @ 0x14073C594 (SeRegisterElamCertResources.c)
- *     IoConvertFileHandleToKernelHandle @ 0x14081C000 (IoConvertFileHandleToKernelHandle.c)
+ *     ExAllocatePoolWithQuotaTag @ 0x1400B75B0 (ExAllocatePoolWithQuotaTag.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     ZwMapViewOfSection @ 0x1401B87F0 (ZwMapViewOfSection.c)
+ *     ZwUnmapViewOfSection @ 0x1401B8830 (ZwUnmapViewOfSection.c)
+ *     ZwCreateSection @ 0x1401B8C30 (ZwCreateSection.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     ObReferenceObjectByHandle @ 0x1405E9350 (ObReferenceObjectByHandle.c)
+ *     FsRtlGetFileSize @ 0x14061C4A0 (FsRtlGetFileSize.c)
+ *     SeRegisterElamCertResources @ 0x14073D784 (SeRegisterElamCertResources.c)
+ *     IoConvertFileHandleToKernelHandle @ 0x14081D200 (IoConvertFileHandleToKernelHandle.c)
  */
 
 __int64 __fastcall ExpQueryElamCertInfo(void *a1)
@@ -81,8 +81,8 @@ __int64 __fastcall ExpQueryElamCertInfo(void *a1)
                    2u);
             if ( v2 >= 0 )
             {
-              if ( qword_14040DDA8 )
-                v2 = ((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD))qword_14040DDA8)(
+              if ( qword_14040EE08 )
+                v2 = ((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD))qword_14040EE08)(
                        0LL,
                        BaseAddress,
                        (LARGE_INTEGER)v5.QuadPart);
@@ -96,8 +96,8 @@ __int64 __fastcall ExpQueryElamCertInfo(void *a1)
                 if ( PoolWithQuotaTag )
                 {
                   memmove(PoolWithQuotaTag, BaseAddress, v5.QuadPart);
-                  if ( qword_14040DDA8 )
-                    v2 = ((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD))qword_14040DDA8)(
+                  if ( qword_14040EE08 )
+                    v2 = ((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD))qword_14040EE08)(
                            0LL,
                            v1,
                            (LARGE_INTEGER)v5.QuadPart);

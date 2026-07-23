@@ -1,14 +1,20 @@
 /*
- * XREFs of ZwSetInformationVirtualMemory @ 0x14015CDE0
+ * XREFs of ZwSetInformationVirtualMemory @ 0x14015D350
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwSetInformationVirtualMemory(__int64 a1, __int64 a2, __int64 a3)
+NTSTATUS __cdecl ZwSetInformationVirtualMemory(
+        HANDLE ProcessHandle,
+        VIRTUAL_MEMORY_INFORMATION_CLASS VmInformationClass,
+        ULONG_PTR NumberOfEntries,
+        PMEMORY_RANGE_ENTRY VirtualAddresses,
+        PVOID VmInformation,
+        ULONG VmInformationLength)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2, a3);
+  return KiServiceInternal(ProcessHandle);
 }

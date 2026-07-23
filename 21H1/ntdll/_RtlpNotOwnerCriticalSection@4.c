@@ -12,35 +12,33 @@
  *     _DbgPrintEx @ 0x4B33EE00 (_DbgPrintEx.c)
  */
 
-_PEB_LDR_DATA *__cdecl RtlpNotOwnerCriticalSection(const void **a1)
+_PEB_LDR_DATA *__stdcall RtlpNotOwnerCriticalSection(_RTL_CRITICAL_SECTION *a1)
 {
   _PEB_LDR_DATA *result; // eax
-  int InformationProcess; // eax
-  int v3; // [esp+18h] [ebp-1Ch] BYREF
+  int v2; // eax
+  ULONG *ProcessInformation; // [esp+18h] [ebp-1Ch] BYREF
   CPPEH_RECORD ms_exc; // [esp+1Ch] [ebp-18h]
 
   result = NtCurrentPeb()->Ldr;
   if ( !result->ShutdownInProgress
-    || a1 == (const void **)&LdrpLoaderLock
+    || a1 == &LdrpLoaderLock
     && (result = (_PEB_LDR_DATA *)result->ShutdownThreadId, result != NtCurrentTeb()->ClientId.UniqueThread) )
   {
     if ( NtCurrentPeb()->BeingDebugged )
     {
       DbgPrintEx(
-        101,
+        0x65u,
         0,
-        "NTDLL: Calling thread (%p) not owner of CritSect: %p  Owner ThreadId: %p\n",
-        NtCurrentTeb()->ClientId.UniqueThread,
-        a1,
-        a1[3]);
+        (int)"NTDLL: Calling thread (%p) not owner of CritSect: %p  Owner ThreadId: %p\n",
+        (int)NtCurrentTeb()->ClientId.UniqueThread);
       __debugbreak();
     }
     if ( !`RtlpGetCookieValue'::`2'::CookieValue )
     {
-      InformationProcess = ZwQueryInformationProcess(-1, 36, (int)&v3, 4, 0);
-      if ( InformationProcess < 0 )
-        RtlRaiseStatus(InformationProcess);
-      `RtlpGetCookieValue'::`2'::CookieValue = v3;
+      v2 = ZwQueryInformationProcess((HANDLE)0xFFFFFFFF, ProcessCookie, &ProcessInformation, 4u, 0);
+      if ( v2 < 0 )
+        RtlRaiseStatus(v2);
+      `RtlpGetCookieValue'::`2'::CookieValue = ProcessInformation;
     }
     ms_exc.registration.TryLevel = 0;
     RtlRaiseStatus(-1073741212);

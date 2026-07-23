@@ -1,18 +1,18 @@
 /*
- * XREFs of KiDisconnectInterruptCommon @ 0x14031F720
+ * XREFs of KiDisconnectInterruptCommon @ 0x14031F9B0
  * Callers:
- *     KeDisconnectInterrupt @ 0x14031F398 (KeDisconnectInterrupt.c)
- *     KiDisconnectSecondaryInterrupt @ 0x140571A38 (KiDisconnectSecondaryInterrupt.c)
+ *     KeDisconnectInterrupt @ 0x14031F628 (KeDisconnectInterrupt.c)
+ *     KiDisconnectSecondaryInterrupt @ 0x140571F78 (KiDisconnectSecondaryInterrupt.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeRevertToUserGroupAffinityThread @ 0x140305E00 (KeRevertToUserGroupAffinityThread.c)
- *     KiDisconnectInterruptInternal @ 0x14031F868 (KiDisconnectInterruptInternal.c)
- *     KiAcquireInterruptConnectLock @ 0x140320EA0 (KiAcquireInterruptConnectLock.c)
- *     KiAcquireSecondaryInterruptConnectLock @ 0x1403A3228 (KiAcquireSecondaryInterruptConnectLock.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     KiDisconnectSecondaryInterruptInternal @ 0x140571B80 (KiDisconnectSecondaryInterruptInternal.c)
- *     KiSignalWaitDisconnectLock @ 0x14057A16C (KiSignalWaitDisconnectLock.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x140306090 (KeRevertToUserGroupAffinityThread.c)
+ *     KiDisconnectInterruptInternal @ 0x14031FAF8 (KiDisconnectInterruptInternal.c)
+ *     KiAcquireInterruptConnectLock @ 0x140321130 (KiAcquireInterruptConnectLock.c)
+ *     KiAcquireSecondaryInterruptConnectLock @ 0x1403A3408 (KiAcquireSecondaryInterruptConnectLock.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KiDisconnectSecondaryInterruptInternal @ 0x1405720C0 (KiDisconnectSecondaryInterruptInternal.c)
+ *     KiSignalWaitDisconnectLock @ 0x14057A65C (KiSignalWaitDisconnectLock.c)
  */
 
 __int64 __fastcall KiDisconnectInterruptCommon(int a1, __int64 a2, __int64 a3)
@@ -38,7 +38,7 @@ __int64 __fastcall KiDisconnectInterruptCommon(int a1, __int64 a2, __int64 a3)
   char *v25; // [rsp+38h] [rbp-38h]
   _QWORD v26[2]; // [rsp+40h] [rbp-30h] BYREF
   __int64 v27; // [rsp+50h] [rbp-20h]
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+58h] [rbp-18h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+58h] [rbp-18h] BYREF
 
   v26[1] = a3;
   v26[0] = 0LL;
@@ -88,7 +88,9 @@ __int64 __fastcall KiDisconnectInterruptCommon(int a1, __int64 a2, __int64 a3)
   if ( !a1 )
   {
 LABEL_10:
-    if ( KiIrqlFlags && (CurrentIrql = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags
+      && (CurrentIrql = KeGetCurrentIrql(), ((unsigned __int8)KiIrqlFlags & 1) != 0)
+      && CurrentIrql <= 0xFu )
     {
       v10 = v23[0];
       if ( v23[0] <= 0xFu && CurrentIrql >= 2u )
@@ -113,7 +115,7 @@ LABEL_10:
   }
 LABEL_20:
   KxReleaseSpinLock((volatile signed __int64 *)v9);
-  if ( KiIrqlFlags && (v13 = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && v13 <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && (v13 = KeGetCurrentIrql(), ((unsigned __int8)KiIrqlFlags & 1) != 0) && v13 <= 0xFu )
   {
     v14 = v23[0];
     if ( v23[0] <= 0xFu && v13 >= 2u )

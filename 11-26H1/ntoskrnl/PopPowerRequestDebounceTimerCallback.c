@@ -1,12 +1,12 @@
 /*
- * XREFs of PopPowerRequestDebounceTimerCallback @ 0x140601330
+ * XREFs of PopPowerRequestDebounceTimerCallback @ 0x140603DE0
  * Callers:
  *     <none>
  * Callees:
- *     PopQueueWorkItem @ 0x1404CEE60 (PopQueueWorkItem.c)
+ *     PopQueueWorkItem @ 0x1404C8890 (PopQueueWorkItem.c)
  */
 
 char PopPowerRequestDebounceTimerCallback()
 {
-  return PopQueueWorkItem((__int64)&stru_140F12D20.WaitBlock[2].SparePtr, DelayedWorkQueue);
+  return PopQueueWorkItem((__int64)&stru_140F12EA0.MutantListHead, DelayedWorkQueue);
 }

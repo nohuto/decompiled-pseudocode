@@ -1,12 +1,12 @@
 /*
- * XREFs of DbgkpLkmdSnapThreadApc @ 0x1408885D0
+ * XREFs of DbgkpLkmdSnapThreadApc @ 0x140888730
  * Callers:
  *     <none>
  * Callees:
- *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
- *     DbgkpLkmdSnapPendingIrps @ 0x140888498 (DbgkpLkmdSnapPendingIrps.c)
- *     DbgkpLkmdSnapThreadInContext @ 0x14088864C (DbgkpLkmdSnapThreadInContext.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     KeSetEvent @ 0x14034E2F0 (KeSetEvent.c)
+ *     DbgkpLkmdSnapPendingIrps @ 0x1408885F8 (DbgkpLkmdSnapPendingIrps.c)
+ *     DbgkpLkmdSnapThreadInContext @ 0x1408887AC (DbgkpLkmdSnapThreadInContext.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall DbgkpLkmdSnapThreadApc(__int64 a1, __int64 a2, __int64 a3, void **a4, volatile signed __int32 **a5)

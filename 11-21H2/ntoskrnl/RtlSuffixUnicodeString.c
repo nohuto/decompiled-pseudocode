@@ -1,15 +1,15 @@
 /*
  * XREFs of RtlSuffixUnicodeString @ 0x1409B57F0
  * Callers:
- *     PiDrvDbSetupNodeHive @ 0x140826270 (PiDrvDbSetupNodeHive.c)
+ *     sub_140826270 @ 0x140826270 (sub_140826270.c)
  * Callees:
- *     NLS_UPCASE @ 0x1403477B0 (NLS_UPCASE.c)
- *     PsGetCurrentServerSiloGlobals @ 0x140347DB0 (PsGetCurrentServerSiloGlobals.c)
+ *     sub_1403477B0 @ 0x1403477B0 (sub_1403477B0.c)
+ *     sub_140347DB0 @ 0x140347DB0 (sub_140347DB0.c)
  */
 
 BOOLEAN __stdcall RtlSuffixUnicodeString(PCUNICODE_STRING String1, PCUNICODE_STRING String2, BOOLEAN CaseInSensitive)
 {
-  _QWORD *CurrentServerSiloGlobals; // rax
+  _QWORD *v3; // rax
   char v4; // r8
   __int64 v5; // r9
   unsigned __int16 *v6; // r11
@@ -29,9 +29,9 @@ BOOLEAN __stdcall RtlSuffixUnicodeString(PCUNICODE_STRING String1, PCUNICODE_STR
   __int16 v20; // r10
   unsigned __int64 v21; // rdx
 
-  CurrentServerSiloGlobals = PsGetCurrentServerSiloGlobals();
+  v3 = sub_140347DB0();
   v8 = *v7;
-  v9 = CurrentServerSiloGlobals[154];
+  v9 = v3[154];
   v10 = *v6;
   if ( (unsigned __int16)v8 >= (unsigned __int16)v10 )
   {
@@ -47,8 +47,8 @@ BOOLEAN __stdcall RtlSuffixUnicodeString(PCUNICODE_STRING String1, PCUNICODE_STR
       v16 = v14 + 2 * v15 - (_QWORD)v11;
       while ( 1 )
       {
-        NLS_UPCASE(v9, *(_WORD *)((char *)v11 + v16));
-        v18 = NLS_UPCASE(v9, *v17);
+        sub_1403477B0(v9, *(_WORD *)((char *)v11 + v16));
+        v18 = sub_1403477B0(v9, *v17);
         if ( v18 != v20 )
           break;
         v11 = (_WORD *)(v19 + 2);

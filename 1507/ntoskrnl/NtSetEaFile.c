@@ -53,7 +53,7 @@ NTSTATUS __stdcall NtSetEaFile(HANDLE FileHandle, PIO_STATUS_BLOCK IoStatusBlock
   __int64 v25; // r14
   PDEVICE_OBJECT v26; // rdi
   ULONG Flags; // eax
-  struct _FILE_FULL_EA_INFORMATION *PoolWithQuotaTag; // rdi
+  _FILE_FULL_EA_INFORMATION *PoolWithQuotaTag; // rdi
   int v29; // eax
   PIO_STATUS_BLOCK v30; // rdx
   struct _MDL *Mdl; // rcx
@@ -210,20 +210,17 @@ LABEL_33:
       v37 = 0;
       if ( ViVerifierDriverAddedThunkListHead )
       {
-        PoolWithQuotaTag = (struct _FILE_FULL_EA_INFORMATION *)ExAllocatePoolWithTagPriority(
-                                                                 NonPagedPoolNx,
-                                                                 v4,
-                                                                 0x20206F49u,
-                                                                 (EX_POOL_PRIORITY)((MmVerifierData & 0x10 | 0x40u) >> 1));
+        PoolWithQuotaTag = (_FILE_FULL_EA_INFORMATION *)ExAllocatePoolWithTagPriority(
+                                                          NonPagedPoolNx,
+                                                          v4,
+                                                          0x20206F49u,
+                                                          (EX_POOL_PRIORITY)((MmVerifierData & 0x10 | 0x40u) >> 1));
         if ( !PoolWithQuotaTag )
           RtlRaiseStatus(-1073741670);
       }
       else
       {
-        PoolWithQuotaTag = (struct _FILE_FULL_EA_INFORMATION *)ExAllocatePoolWithQuotaTag(
-                                                                 NonPagedPoolNx,
-                                                                 v4,
-                                                                 0x20206F49u);
+        PoolWithQuotaTag = (_FILE_FULL_EA_INFORMATION *)ExAllocatePoolWithQuotaTag(NonPagedPoolNx, v4, 0x20206F49u);
       }
       v24->AssociatedIrp.MasterIrp = (struct _IRP *)PoolWithQuotaTag;
       memmove(PoolWithQuotaTag, EaBuffer, v4);

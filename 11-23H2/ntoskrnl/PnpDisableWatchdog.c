@@ -1,12 +1,12 @@
 /*
- * XREFs of PnpDisableWatchdog @ 0x14078266C
+ * XREFs of PnpDisableWatchdog @ 0x14078285C
  * Callers:
- *     PnpDeviceCompletionRequestDestroyWorkItem @ 0x14031D560 (PnpDeviceCompletionRequestDestroyWorkItem.c)
+ *     PnpDeviceCompletionRequestDestroyWorkItem @ 0x14031D7F0 (PnpDeviceCompletionRequestDestroyWorkItem.c)
  * Callees:
- *     PnpWatchdogEtwWrite @ 0x140560A70 (PnpWatchdogEtwWrite.c)
- *     PnpRecordBlackbox @ 0x1407855CC (PnpRecordBlackbox.c)
- *     PnpWatchdogTimerPause @ 0x140785640 (PnpWatchdogTimerPause.c)
- *     WdtpCancelTimer @ 0x1407856CC (WdtpCancelTimer.c)
+ *     PnpWatchdogEtwWrite @ 0x140561130 (PnpWatchdogEtwWrite.c)
+ *     PnpRecordBlackbox @ 0x1407857BC (PnpRecordBlackbox.c)
+ *     PnpWatchdogTimerPause @ 0x140785830 (PnpWatchdogTimerPause.c)
+ *     WdtpCancelTimer @ 0x1407858BC (WdtpCancelTimer.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

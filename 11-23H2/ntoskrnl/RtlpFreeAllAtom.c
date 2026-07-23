@@ -5,7 +5,7 @@
  * Callees:
  *     RtlpFreeAtom @ 0x14069EC78 (RtlpFreeAtom.c)
  *     RtlpFreeHandleForAtom @ 0x14069ED40 (RtlpFreeHandleForAtom.c)
- *     RtlpHashStringToAtom @ 0x140717F70 (RtlpHashStringToAtom.c)
+ *     RtlpHashStringToAtom @ 0x140718170 (RtlpHashStringToAtom.c)
  */
 
 __int64 __fastcall RtlpFreeAllAtom(_QWORD *a1, __int64 a2)

@@ -1,19 +1,19 @@
 /*
- * XREFs of CcPerfLogWorkItemEnqueue @ 0x140395554
+ * XREFs of CcPerfLogWorkItemEnqueue @ 0x140395734
  * Callers:
- *     CcPostWorkQueueRegular @ 0x1402986B4 (CcPostWorkQueueRegular.c)
- *     CcWorkerThread @ 0x140298940 (CcWorkerThread.c)
- *     CcPostWorkQueueCachemapUninit @ 0x140299310 (CcPostWorkQueueCachemapUninit.c)
- *     CcPostWorkQueueAsyncRead @ 0x1402C0C04 (CcPostWorkQueueAsyncRead.c)
- *     CcWaitForCurrentLazyWriterActivityOnNode @ 0x1403D4610 (CcWaitForCurrentLazyWriterActivityOnNode.c)
- *     CcPostWorkQueueSpecial @ 0x140536CB4 (CcPostWorkQueueSpecial.c)
- *     CcAsyncLazywriteWorker @ 0x14053983C (CcAsyncLazywriteWorker.c)
- *     CcPostWorkQueueAsyncLazywrite @ 0x14053A134 (CcPostWorkQueueAsyncLazywrite.c)
+ *     CcPostWorkQueueRegular @ 0x140298944 (CcPostWorkQueueRegular.c)
+ *     CcWorkerThread @ 0x140298BD0 (CcWorkerThread.c)
+ *     CcPostWorkQueueCachemapUninit @ 0x1402995A0 (CcPostWorkQueueCachemapUninit.c)
+ *     CcPostWorkQueueAsyncRead @ 0x1402C0E94 (CcPostWorkQueueAsyncRead.c)
+ *     CcWaitForCurrentLazyWriterActivityOnNode @ 0x1403D47F0 (CcWaitForCurrentLazyWriterActivityOnNode.c)
+ *     CcPostWorkQueueSpecial @ 0x140537204 (CcPostWorkQueueSpecial.c)
+ *     CcAsyncLazywriteWorker @ 0x140539D8C (CcAsyncLazywriteWorker.c)
+ *     CcPostWorkQueueAsyncLazywrite @ 0x14053A684 (CcPostWorkQueueAsyncLazywrite.c)
  * Callees:
  *     EtwTraceKernelEvent @ 0x140211EDC (EtwTraceKernelEvent.c)
- *     CcReferenceSharedCacheMapFileObject @ 0x1402A14D0 (CcReferenceSharedCacheMapFileObject.c)
- *     ObFastDereferenceObjectDeferDelete @ 0x1402A2500 (ObFastDereferenceObjectDeferDelete.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     CcReferenceSharedCacheMapFileObject @ 0x1402A1760 (CcReferenceSharedCacheMapFileObject.c)
+ *     ObFastDereferenceObjectDeferDelete @ 0x1402A2790 (ObFastDereferenceObjectDeferDelete.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall CcPerfLogWorkItemEnqueue(__int64 a1, __int64 a2, char a3, char a4)

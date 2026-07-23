@@ -50,7 +50,7 @@ __int64 __fastcall SLGetSubscriptionPfn(__int64 a1, PVOID *a2)
       if ( !PoolWithTag )
       {
         v12 = -1073741595;
-        local_unwind((unsigned __int64)v15, (__int64)&loc_14094AA74);
+        local_unwind(v15, &loc_14094AA74);
       }
       *PoolWithTag = *(_OWORD *)(a1 + 37482);
       PoolWithTag[1] = *(_OWORD *)(a1 + 37498);

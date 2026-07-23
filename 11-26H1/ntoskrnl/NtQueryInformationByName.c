@@ -1,12 +1,24 @@
 /*
- * XREFs of NtQueryInformationByName @ 0x1409B46B0
+ * XREFs of NtQueryInformationByName @ 0x140985770
  * Callers:
- *     DifNtQueryInformationByNameWrapper @ 0x140682710 (DifNtQueryInformationByNameWrapper.c)
+ *     DifNtQueryInformationByNameWrapper @ 0x1406862F0 (DifNtQueryInformationByNameWrapper.c)
  * Callees:
- *     IoQueryInformationByName @ 0x1409B46E0 (IoQueryInformationByName.c)
+ *     IoQueryInformationByName @ 0x1409857A0 (IoQueryInformationByName.c)
  */
 
-__int64 __fastcall NtQueryInformationByName(__int64 a1, __int64 a2, __int64 a3)
+NTSTATUS __cdecl NtQueryInformationByName(
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        PIO_STATUS_BLOCK IoStatusBlock,
+        PVOID FileInformation,
+        ULONG Length,
+        FILE_INFORMATION_CLASS FileInformationClass)
 {
-  return IoQueryInformationByName(a1, a2, a3);
+  return IoQueryInformationByName(
+           ObjectAttributes,
+           IoStatusBlock,
+           FileInformation,
+           Length,
+           FileInformationClass,
+           0,
+           0LL);
 }

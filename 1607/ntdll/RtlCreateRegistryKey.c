@@ -1,23 +1,23 @@
 /*
- * XREFs of RtlCreateRegistryKey @ 0x1800E53C0
+ * XREFs of RtlCreateRegistryKey @ 0x1800E5480
  * Callers:
  *     <none>
  * Callees:
- *     RtlpGetRegistryHandle @ 0x1800582AC (RtlpGetRegistryHandle.c)
+ *     RtlpGetRegistryHandle @ 0x18005829C (RtlpGetRegistryHandle.c)
  *     NtClose @ 0x1800A6600 (NtClose.c)
  */
 
-__int64 __fastcall RtlCreateRegistryKey(int a1, _WORD *a2)
+NTSTATUS __cdecl RtlCreateRegistryKey(ULONG RelativeTo, PWSTR Path)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
   HANDLE Handle; // [rsp+40h] [rbp+18h] BYREF
 
-  result = RtlpGetRegistryHandle(a1, a2, 1, &Handle);
-  if ( (int)result >= 0 )
+  result = RtlpGetRegistryHandle(RelativeTo, Path, 1, &Handle);
+  if ( result >= 0 )
   {
-    if ( (a1 & 0x40000000) == 0 )
+    if ( (RelativeTo & 0x40000000) == 0 )
       NtClose(Handle);
-    return 0LL;
+    return 0;
   }
   return result;
 }

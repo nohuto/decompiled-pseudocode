@@ -1,9 +1,9 @@
 /*
- * XREFs of UNLOCK_POST_LIST @ 0x140666378
+ * XREFs of UNLOCK_POST_LIST @ 0x14065B198
  * Callers:
- *     NtNotifyChangeMultipleKeys @ 0x140663230 (NtNotifyChangeMultipleKeys.c)
+ *     NtNotifyChangeMultipleKeys @ 0x140658050 (NtNotifyChangeMultipleKeys.c)
  * Callees:
- *     ExReleaseFastMutexUnsafe @ 0x140206970 (ExReleaseFastMutexUnsafe.c)
+ *     ExReleaseFastMutexUnsafe @ 0x1402AB2A0 (ExReleaseFastMutexUnsafe.c)
  */
 
 void UNLOCK_POST_LIST()

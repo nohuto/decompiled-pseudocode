@@ -1,13 +1,13 @@
 /*
- * XREFs of KiAssignSchedulingGroupWeights @ 0x140115EAC
+ * XREFs of KiAssignSchedulingGroupWeights @ 0x140115F1C
  * Callers:
- *     KeRemoveSchedulingGroup @ 0x140115820 (KeRemoveSchedulingGroup.c)
- *     KeInsertSchedulingGroup @ 0x1401159F0 (KeInsertSchedulingGroup.c)
- *     KeSetSchedulingGroupWeights @ 0x140115D0C (KeSetSchedulingGroupWeights.c)
- *     KeSetSchedulingGroupCpuRates @ 0x140115DEC (KeSetSchedulingGroupCpuRates.c)
- *     KeUpdateGroupSchedulingConstants @ 0x1401913B8 (KeUpdateGroupSchedulingConstants.c)
+ *     KeRemoveSchedulingGroup @ 0x140115890 (KeRemoveSchedulingGroup.c)
+ *     KeInsertSchedulingGroup @ 0x140115A60 (KeInsertSchedulingGroup.c)
+ *     KeSetSchedulingGroupWeights @ 0x140115D7C (KeSetSchedulingGroupWeights.c)
+ *     KeSetSchedulingGroupCpuRates @ 0x140115E5C (KeSetSchedulingGroupCpuRates.c)
+ *     KeUpdateGroupSchedulingConstants @ 0x1401914F8 (KeUpdateGroupSchedulingConstants.c)
  * Callees:
- *     KiUpdateCpuTargetByWeight @ 0x140115F64 (KiUpdateCpuTargetByWeight.c)
+ *     KiUpdateCpuTargetByWeight @ 0x140115FD4 (KiUpdateCpuTargetByWeight.c)
  */
 
 __int64 __fastcall KiAssignSchedulingGroupWeights(int a1, char a2, __int64 a3)

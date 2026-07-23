@@ -5,7 +5,7 @@
  *     FopValidateFontNameTable @ 0x140B9CC7C (FopValidateFontNameTable.c)
  *     FopInitializeFonts @ 0x140B9CF5C (FopInitializeFonts.c)
  * Callees:
- *     FioFwReadBytesAtOffset @ 0x1403871C8 (FioFwReadBytesAtOffset.c)
+ *     FioFwReadBytesAtOffset @ 0x1403873A8 (FioFwReadBytesAtOffset.c)
  */
 
 __int64 __fastcall FopGetTableOffsetAndSize(

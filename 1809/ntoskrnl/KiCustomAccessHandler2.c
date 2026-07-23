@@ -1,5 +1,5 @@
 /*
- * XREFs of KiCustomAccessHandler2 @ 0x1401C7660
+ * XREFs of KiCustomAccessHandler2 @ 0x1401C77C0
  * Callers:
  *     <none>
  * Callees:

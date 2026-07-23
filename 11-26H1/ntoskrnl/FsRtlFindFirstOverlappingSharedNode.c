@@ -1,7 +1,7 @@
 /*
- * XREFs of FsRtlFindFirstOverlappingSharedNode @ 0x140467E20
+ * XREFs of FsRtlFindFirstOverlappingSharedNode @ 0x140461570
  * Callers:
- *     FsRtlGetNextFileLock @ 0x1405B5A40 (FsRtlGetNextFileLock.c)
+ *     FsRtlGetNextFileLock @ 0x1405B8250 (FsRtlGetNextFileLock.c)
  * Callees:
  *     <none>
  */

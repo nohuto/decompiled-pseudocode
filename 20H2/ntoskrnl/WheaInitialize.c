@@ -64,7 +64,7 @@ __int64 __fastcall WheaInitialize(__int64 a1, unsigned int a2)
   unsigned __int8 v34; // r12
   unsigned int v35; // edx
   __int64 v36; // rcx
-  unsigned __int64 v37; // r14
+  __int64 v37; // r14
   int v38; // eax
   unsigned int v39; // ecx
   __int64 v40; // rdx
@@ -253,7 +253,7 @@ LABEL_29:
     v50 = v36;
     if ( v22 )
       break;
-    v37 = (unsigned __int64)&v32->LockEntries[v36];
+    v37 = (__int64)&v32->LockEntries[v36];
     v35 &= ~(1 << v36);
     if ( (*(_BYTE *)(v37 + 26) & 1) != 0
       && (*(_DWORD *)(v37 + 32) & 1) == 0
@@ -267,14 +267,14 @@ LABEL_29:
         {
           *(_BYTE *)(v37 + 32) |= 2u;
           if ( *(__int64 *)(v37 + 32) < 0 )
-            KiAbEntryRemoveFromTree(v37);
+            KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v37);
           v38 = *(_DWORD *)(v37 + 88) & 0x1FFFF;
           v39 = *(_DWORD *)(v37 + 88) & 0xFFFE0000;
           *(_BYTE *)(v37 + 25) &= ~1u;
           v51 = v38;
           *(_DWORD *)(v37 + 88) = v39;
           *(_QWORD *)(v37 + 32) = 0LL;
-          v40 = (__int64)(v37 - (unsigned __int64)v32->LockEntries) / 96;
+          v40 = (signed __int64)(v37 - (unsigned __int64)v32->LockEntries) / 96;
           if ( v34 == 1 )
             v32->AbEntrySummary |= 1 << v40;
           else

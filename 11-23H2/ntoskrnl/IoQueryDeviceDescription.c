@@ -1,12 +1,12 @@
 /*
- * XREFs of IoQueryDeviceDescription @ 0x1407CE470
+ * XREFs of IoQueryDeviceDescription @ 0x1407CE740
  * Callers:
  *     <none>
  * Callees:
  *     RtlAppendUnicodeStringToString @ 0x140208A00 (RtlAppendUnicodeStringToString.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     pIoQueryBusDescription @ 0x1407CEA28 (pIoQueryBusDescription.c)
- *     IopOpenRegistryKey @ 0x1407CEF1C (IopOpenRegistryKey.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     pIoQueryBusDescription @ 0x1407CECF8 (pIoQueryBusDescription.c)
+ *     IopOpenRegistryKey @ 0x1407CF1EC (IopOpenRegistryKey.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

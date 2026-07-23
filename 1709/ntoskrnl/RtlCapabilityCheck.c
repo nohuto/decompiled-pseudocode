@@ -19,38 +19,38 @@
  *     RtlInitializeSid @ 0x1405491E0 (RtlInitializeSid.c)
  */
 
-__int64 __fastcall RtlCapabilityCheck(HANDLE ExistingTokenHandle, UNICODE_STRING *SourceString, _BYTE *a3)
+NTSTATUS __cdecl RtlCapabilityCheck(HANDLE TokenHandle, PUNICODE_STRING CapabilityName, PBOOLEAN HasCapability)
 {
   HANDLE v4; // rcx
   int v7; // ebx
   PULONG v8; // rsi
-  int v9; // eax
-  char v11; // [rsp+30h] [rbp-D0h] BYREF
-  _BYTE v12[3]; // [rsp+31h] [rbp-CFh] BYREF
-  struct _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+34h] [rbp-CCh] BYREF
+  NTSTATUS v9; // eax
+  BOOLEAN IsMember; // [rsp+30h] [rbp-D0h] BYREF
+  BOOLEAN HasCapabilitya[3]; // [rsp+31h] [rbp-CFh] BYREF
+  _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+34h] [rbp-CCh] BYREF
   HANDLE KeyHandle; // [rsp+40h] [rbp-C0h] BYREF
   ULONG ResultLength; // [rsp+48h] [rbp-B8h] BYREF
   UNICODE_STRING DestinationString; // [rsp+50h] [rbp-B0h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+60h] [rbp-A0h] BYREF
   _QWORD KeyValueInformation[2]; // [rsp+90h] [rbp-70h] BYREF
   _BYTE Sid[16]; // [rsp+A0h] [rbp-60h] BYREF
-  char Owner[48]; // [rsp+B0h] [rbp-50h] BYREF
-  _BYTE v21[48]; // [rsp+E0h] [rbp-20h] BYREF
+  _BYTE CapabilityGroupSid[48]; // [rsp+B0h] [rbp-50h] BYREF
+  _BYTE CapabilitySid[48]; // [rsp+E0h] [rbp-20h] BYREF
 
   *(_WORD *)&IdentifierAuthority.Value[4] = 1280;
-  v12[0] = 0;
+  HasCapabilitya[0] = 0;
   *(_QWORD *)&DestinationString.Length = 0LL;
   DestinationString.Buffer = 0LL;
   v4 = 0LL;
   KeyHandle = 0LL;
   KeyValueInformation[0] = 0LL;
   KeyValueInformation[1] = 0LL;
-  v11 = 0;
+  IsMember = 0;
   *(_DWORD *)IdentifierAuthority.Value = 0;
-  if ( SourceString && a3 )
+  if ( CapabilityName && HasCapability )
   {
-    *a3 = 0;
-    v7 = RtlDeriveCapabilitySidsFromName(SourceString, Owner, v21);
+    *HasCapability = 0;
+    v7 = RtlDeriveCapabilitySidsFromName(CapabilityName, CapabilityGroupSid, CapabilitySid);
     if ( v7 < 0 )
       goto LABEL_19;
     if ( RtlIsMultiSessionSku()
@@ -63,46 +63,52 @@ __int64 __fastcall RtlCapabilityCheck(HANDLE ExistingTokenHandle, UNICODE_STRING
           ObjectAttributes.Attributes = 576,
           *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL,
           ZwOpenKey(&KeyHandle, 0x80000000, &ObjectAttributes) >= 0)
-      && ZwQueryValueKey(KeyHandle, SourceString, KeyValuePartialInformation, KeyValueInformation, 0x10u, &ResultLength) >= 0 )
+      && ZwQueryValueKey(
+           KeyHandle,
+           CapabilityName,
+           KeyValuePartialInformation,
+           KeyValueInformation,
+           0x10u,
+           &ResultLength) >= 0 )
     {
       RtlInitializeSid(Sid, &IdentifierAuthority, 1u);
       v8 = RtlSubAuthoritySid(Sid, 0);
       *v8 = 18;
-      v9 = RtlCheckTokenMembership(ExistingTokenHandle, Sid);
+      v9 = RtlCheckTokenMembership(TokenHandle, Sid, &IsMember);
     }
     else
     {
-      v7 = RtlCheckTokenMembershipEx(ExistingTokenHandle, Owner, 2, &v11);
+      v7 = RtlCheckTokenMembershipEx(TokenHandle, CapabilityGroupSid, 2u, &IsMember);
       if ( v7 < 0 )
         goto LABEL_19;
-      if ( v11 )
+      if ( IsMember )
         goto LABEL_17;
       RtlInitializeSid(Sid, &IdentifierAuthority, 1u);
       v8 = RtlSubAuthoritySid(Sid, 0);
       *v8 = 18;
-      v7 = RtlCheckTokenMembership(ExistingTokenHandle, Sid);
+      v7 = RtlCheckTokenMembership(TokenHandle, Sid, &IsMember);
       if ( v7 < 0 )
         goto LABEL_19;
-      if ( v11 )
+      if ( IsMember )
         goto LABEL_17;
       *v8 = 4;
-      v9 = RtlCheckTokenMembershipEx(ExistingTokenHandle, Sid, 2, &v11);
+      v9 = RtlCheckTokenMembershipEx(TokenHandle, Sid, 2u, &IsMember);
     }
     v7 = v9;
     if ( v9 >= 0 )
     {
-      if ( v11
+      if ( IsMember
         || (RtlInitializeSid(Sid, &IdentifierAuthority, 2u),
             *v8 = 32,
             *RtlSubAuthoritySid(Sid, 1u) = 544,
-            v7 = RtlCheckTokenMembership(ExistingTokenHandle, Sid),
+            v7 = RtlCheckTokenMembership(TokenHandle, Sid, &IsMember),
             v7 >= 0)
-        && v11 )
+        && IsMember )
       {
 LABEL_17:
-        v7 = RtlCheckTokenCapability(ExistingTokenHandle, v21, v12);
+        v7 = RtlCheckTokenCapability(TokenHandle, CapabilitySid, HasCapabilitya);
         if ( v7 >= 0 )
-          *a3 = v12[0];
+          *HasCapability = HasCapabilitya[0];
       }
     }
 LABEL_19:
@@ -113,5 +119,5 @@ LABEL_19:
 LABEL_21:
   if ( v4 )
     ZwClose(v4);
-  return (unsigned int)v7;
+  return v7;
 }

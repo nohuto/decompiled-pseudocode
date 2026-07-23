@@ -1,5 +1,5 @@
 /*
- * XREFs of SbGetContextDetailsByVersion @ 0x18007E348
+ * XREFs of SbGetContextDetailsByVersion @ 0x18007E358
  * Callers:
  *     SbpDetermineDllContext @ 0x180028934 (SbpDetermineDllContext.c)
  * Callees:

@@ -137,7 +137,7 @@ __int64 __fastcall SMKM_STORE_MGR<SM_TRAITS>::SmFeEvictComplete(__int64 a1, unsi
         {
           v25->CrossThreadReleasableAndBusyByte |= 2u;
           if ( (__int64)v25->LockState.LockState < 0 )
-            KiAbEntryRemoveFromTree(&v17->LockEntries[v24]);
+            KiAbEntryRemoveFromTree(&v17->LockEntries[v24].TreeNode);
           v31[0] = 0;
           v31[0] = v25->BoostBitmap.AllFields & 0x1FFFF;
           v25->BoostBitmap.AllFields &= 0xFFFE0000;

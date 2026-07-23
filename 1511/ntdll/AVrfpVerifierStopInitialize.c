@@ -12,10 +12,10 @@
 __int64 AVrfpVerifierStopInitialize()
 {
   __int64 i; // rbx
-  unsigned __int64 v2; // rbx
-  int ProcedureAddress; // ebx
-  STRING DestinationString; // [rsp+30h] [rbp-18h] BYREF
-  __int64 v5; // [rsp+50h] [rbp+8h] BYREF
+  void *v2; // rbx
+  NTSTATUS v3; // ebx
+  _STRING DestinationString; // [rsp+30h] [rbp-18h] BYREF
+  PVOID ProcedureAddress; // [rsp+50h] [rbp+8h] BYREF
 
   for ( i = AVrfpVerifierProvidersList; ; i = *(_QWORD *)i )
   {
@@ -24,7 +24,7 @@ __int64 AVrfpVerifierStopInitialize()
     if ( !wcsicmp(*(const wchar_t **)(i + 24), L"verifier.dll") )
       break;
   }
-  v2 = *(_QWORD *)(*(_QWORD *)(i + 32) + 48LL);
+  v2 = *(void **)(*(_QWORD *)(i + 32) + 48LL);
   if ( !v2 )
   {
 LABEL_5:
@@ -32,10 +32,10 @@ LABEL_5:
     return 3221225473LL;
   }
   RtlInitAnsiString(&DestinationString, "VerifierStopMessage");
-  ProcedureAddress = LdrGetProcedureAddressEx(v2, (const void **)&DestinationString, 0LL, (__int64)&v5, 0);
-  if ( ProcedureAddress >= 0 )
-    AVrfpVerifierStopMessageFunction = v5;
+  v3 = LdrGetProcedureAddressEx(v2, &DestinationString, 0, &ProcedureAddress, 0);
+  if ( v3 >= 0 )
+    AVrfpVerifierStopMessageFunction = (PRTL_DYNAMIC_HASH_TABLE)ProcedureAddress;
   else
     DbgPrint("AVRF: Failed to find `VerifierStopMessage()' export in verifier.dll! \n");
-  return (unsigned int)ProcedureAddress;
+  return (unsigned int)v3;
 }

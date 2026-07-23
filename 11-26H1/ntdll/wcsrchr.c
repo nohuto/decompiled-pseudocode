@@ -1,12 +1,12 @@
 /*
- * XREFs of wcsrchr @ 0x18012DF70
+ * XREFs of wcsrchr @ 0x18012DCE0
  * Callers:
- *     LdrLoadAlternateResourceModuleEx @ 0x180030230 (LdrLoadAlternateResourceModuleEx.c)
- *     EtwpAddLogHeaderToLogFile @ 0x180055750 (EtwpAddLogHeaderToLogFile.c)
- *     RtlpGetDirPath @ 0x18009BF0C (RtlpGetDirPath.c)
- *     RtlpResolveAssemblyStorageMapEntry @ 0x1800A28EC (RtlpResolveAssemblyStorageMapEntry.c)
- *     CompatCachepLookupCdb @ 0x1800DBFE0 (CompatCachepLookupCdb.c)
- *     LdrpGetModuleInfoFromVirtualMemory @ 0x1800E6C70 (LdrpGetModuleInfoFromVirtualMemory.c)
+ *     LdrLoadAlternateResourceModuleEx @ 0x18001B390 (LdrLoadAlternateResourceModuleEx.c)
+ *     EtwpAddLogHeaderToLogFile @ 0x18003FCD0 (EtwpAddLogHeaderToLogFile.c)
+ *     RtlpGetDirPath @ 0x18009B03C (RtlpGetDirPath.c)
+ *     RtlpResolveAssemblyStorageMapEntry @ 0x1800A1A1C (RtlpResolveAssemblyStorageMapEntry.c)
+ *     CompatCachepLookupCdb @ 0x1800D8F50 (CompatCachepLookupCdb.c)
+ *     LdrpGetModuleInfoFromVirtualMemory @ 0x1800E56D0 (LdrpGetModuleInfoFromVirtualMemory.c)
  * Callees:
  *     <none>
  */

@@ -1,19 +1,19 @@
 /*
- * XREFs of CmpAddSubKeyToList @ 0x1408C1970
+ * XREFs of CmpAddSubKeyToList @ 0x1408C7F40
  * Callers:
- *     CmRenameKey @ 0x140857A3C (CmRenameKey.c)
- *     CmpAddSubKeyEx @ 0x1408C04BC (CmpAddSubKeyEx.c)
- *     CmpLightWeightPrepareAddKeyUoW @ 0x140A2E5B0 (CmpLightWeightPrepareAddKeyUoW.c)
+ *     CmRenameKey @ 0x14085DDCC (CmRenameKey.c)
+ *     CmpAddSubKeyEx @ 0x1408C6A8C (CmpAddSubKeyEx.c)
+ *     CmpLightWeightPrepareAddKeyUoW @ 0x140A4043C (CmpLightWeightPrepareAddKeyUoW.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     HvpGetCellFlat @ 0x14085EB00 (HvpGetCellFlat.c)
- *     CmpSelectLeaf @ 0x1408BFCCC (CmpSelectLeaf.c)
- *     CmpCopyCompressedName @ 0x1408C1D10 (CmpCopyCompressedName.c)
- *     CmpAddToLeaf @ 0x1408D171C (CmpAddToLeaf.c)
- *     HvpReleaseCellFlat @ 0x1408D51E0 (HvpReleaseCellFlat.c)
- *     HvpReleaseCellPaged @ 0x1408D73B0 (HvpReleaseCellPaged.c)
- *     HvpGetCellPaged @ 0x1408D7410 (HvpGetCellPaged.c)
- *     HvpGetCellContextInitialize @ 0x1408D9320 (HvpGetCellContextInitialize.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     HvpGetCellFlat @ 0x140864DF0 (HvpGetCellFlat.c)
+ *     CmpSelectLeaf @ 0x1408C629C (CmpSelectLeaf.c)
+ *     CmpCopyCompressedName @ 0x1408C82E0 (CmpCopyCompressedName.c)
+ *     CmpAddToLeaf @ 0x1408D7CDC (CmpAddToLeaf.c)
+ *     HvpReleaseCellFlat @ 0x1408DB7A0 (HvpReleaseCellFlat.c)
+ *     HvpReleaseCellPaged @ 0x1408DD970 (HvpReleaseCellPaged.c)
+ *     HvpGetCellPaged @ 0x1408DD9D0 (HvpGetCellPaged.c)
+ *     HvpGetCellContextInitialize @ 0x1408DF8E0 (HvpGetCellContextInitialize.c)
  */
 
 __int64 __fastcall CmpAddSubKeyToList(ULONG_PTR BugCheckParameter3, unsigned int *a2, unsigned int a3)

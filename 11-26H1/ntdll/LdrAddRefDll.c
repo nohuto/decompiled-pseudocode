@@ -1,42 +1,43 @@
 /*
- * XREFs of LdrAddRefDll @ 0x1800C6430
+ * XREFs of LdrAddRefDll @ 0x1800C3BF0
  * Callers:
  *     <none>
  * Callees:
- *     LdrpFindLoadedDllByHandle @ 0x180054BC0 (LdrpFindLoadedDllByHandle.c)
- *     LdrpIncrementModuleLoadCount @ 0x180054D50 (LdrpIncrementModuleLoadCount.c)
- *     LdrpDereferenceModule @ 0x180054E10 (LdrpDereferenceModule.c)
- *     LdrpPinModule @ 0x1800C64AC (LdrpPinModule.c)
+ *     LdrpFindLoadedDllByHandle @ 0x18003F140 (LdrpFindLoadedDllByHandle.c)
+ *     LdrpIncrementModuleLoadCount @ 0x18003F2D0 (LdrpIncrementModuleLoadCount.c)
+ *     LdrpDereferenceModule @ 0x18003F390 (LdrpDereferenceModule.c)
+ *     LdrpPinModule @ 0x1800C3C6C (LdrpPinModule.c)
  */
 
-__int64 __fastcall LdrAddRefDll(int a1, unsigned __int64 a2, __int64 a3, unsigned __int64 a4)
+NTSTATUS __cdecl LdrAddRefDll(ULONG Flags, PVOID DllHandle)
 {
-  char v4; // bl
-  __int64 result; // rax
-  _QWORD *v6; // rdx
-  bool v7; // zf
-  __int64 v8; // rbx
-  unsigned int Count; // eax
-  unsigned int v10; // edi
-  int v11; // [rsp+30h] [rbp+8h] BYREF
-  __int64 v12; // [rsp+40h] [rbp+18h] BYREF
+  char *v2; // r9
+  char v3; // bl
+  NTSTATUS result; // eax
+  _QWORD *v5; // rdx
+  bool v6; // zf
+  char *v7; // rbx
+  NTSTATUS Count; // eax
+  NTSTATUS v9; // edi
+  int v10; // [rsp+30h] [rbp+8h] BYREF
+  PVOID BaseAddress; // [rsp+40h] [rbp+18h] BYREF
 
-  v12 = 0LL;
-  v4 = a1;
-  if ( (a1 & 0xFFFFFFFE) != 0 )
-    return 3221225485LL;
-  result = LdrpFindLoadedDllByHandle(a2, &v12, &v11, a4);
-  if ( (int)result >= 0 )
+  BaseAddress = 0LL;
+  v3 = Flags;
+  if ( (Flags & 0xFFFFFFFE) != 0 )
+    return -1073741811;
+  result = LdrpFindLoadedDllByHandle(DllHandle, (__int64 *)&BaseAddress, &v10, v2);
+  if ( result >= 0 )
   {
-    v7 = (v4 & 1) == 0;
-    v8 = v12;
-    if ( v7 )
-      Count = LdrpIncrementModuleLoadCount(v12, v6);
+    v6 = (v3 & 1) == 0;
+    v7 = (char *)BaseAddress;
+    if ( v6 )
+      Count = LdrpIncrementModuleLoadCount((__int64)BaseAddress, v5);
     else
-      Count = LdrpPinModule(v12);
-    v10 = Count;
-    LdrpDereferenceModule(v8);
-    return v10;
+      Count = LdrpPinModule(BaseAddress);
+    v9 = Count;
+    LdrpDereferenceModule(v7);
+    return v9;
   }
   return result;
 }

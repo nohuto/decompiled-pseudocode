@@ -13,36 +13,35 @@
 
 __int64 RtlpInitializeWnf()
 {
-  __int64 Heap; // rax
-  __int64 v1; // rbx
-  __int64 v2; // r9
+  char *Heap; // rax
+  char *v1; // rbx
 
-  Heap = RtlAllocateHeap((char *)NtCurrentPeb()->ProcessHeap, 0, 0x58uLL);
+  Heap = (char *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, 0x58uLL);
   v1 = Heap;
   if ( Heap )
   {
-    memset_thunk_772440563353939046((void *)(Heap + 4), 0, 0x54uLL);
+    memset_thunk_772440563353939046(Heap + 4, 0, 0x54uLL);
     *(_DWORD *)v1 = 5769489;
-    if ( (int)TpAllocTimer((__int64 *)(v1 + 72), (__int64)RtlpWnfRetryTimerCallback, 0, 0LL) >= 0 )
+    if ( TpAllocTimer((PTP_TIMER *)v1 + 9, RtlpWnfRetryTimerCallback, 0LL, 0LL) >= 0 )
     {
-      *(_QWORD *)(v1 + 16) = 0LL;
-      *(_QWORD *)(v1 + 24) = 0LL;
-      *(_QWORD *)(v1 + 8) = 0LL;
-      *(_QWORD *)(v1 + 40) = v1 + 32;
-      *(_QWORD *)(v1 + 32) = v1 + 32;
-      *(_QWORD *)(v1 + 48) = 0LL;
-      *(_DWORD *)(v1 + 56) = 500;
-      *(_DWORD *)(v1 + 60) = 1000;
-      *(_DWORD *)(v1 + 64) = 3600000;
-      *(_DWORD *)(v1 + 68) = 10;
+      *((_QWORD *)v1 + 2) = 0LL;
+      *((_QWORD *)v1 + 3) = 0LL;
+      *((_QWORD *)v1 + 1) = 0LL;
+      *((_QWORD *)v1 + 5) = v1 + 32;
+      *((_QWORD *)v1 + 4) = v1 + 32;
+      *((_QWORD *)v1 + 6) = 0LL;
+      *((_DWORD *)v1 + 14) = 500;
+      *((_DWORD *)v1 + 15) = 1000;
+      *((_DWORD *)v1 + 16) = 3600000;
+      *((_DWORD *)v1 + 17) = 10;
       if ( (int)RtlpWnfRegisterTpNotification() >= 0 )
       {
-        qword_1801D0200 = v1;
+        qword_1801D0200 = (__int64)v1;
         return 1LL;
       }
-      TpReleaseTimer(*(_QWORD *)(v1 + 72));
+      TpReleaseTimer(*((PTP_TIMER *)v1 + 9));
     }
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v1, v2);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v1);
   }
   return 0LL;
 }

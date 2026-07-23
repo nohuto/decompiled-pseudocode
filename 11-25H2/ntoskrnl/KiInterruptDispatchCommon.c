@@ -46,9 +46,9 @@ char __fastcall KiInterruptDispatchCommon(unsigned int a1, unsigned int a2, char
   int v33; // [rsp+3Ch] [rbp-8Ch]
   __int128 *v34; // [rsp+40h] [rbp-88h]
   unsigned __int8 CurrentIrql; // [rsp+48h] [rbp-80h]
-  struct _GROUP_AFFINITY Affinity; // [rsp+58h] [rbp-70h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+58h] [rbp-70h] BYREF
   __int128 v37; // [rsp+68h] [rbp-60h] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+78h] [rbp-50h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+78h] [rbp-50h] BYREF
 
   v5 = a1;
   v6 = 0LL;

@@ -1,15 +1,15 @@
 /*
- * XREFs of KsepEngineReadFlags @ 0x140A6A47C
+ * XREFs of KsepEngineReadFlags @ 0x140A6B47C
  * Callers:
- *     KsepEngineInitialize @ 0x140A6A168 (KsepEngineInitialize.c)
+ *     KsepEngineInitialize @ 0x140A6B168 (KsepEngineInitialize.c)
  * Callees:
- *     KsepLogInfo @ 0x1403717A8 (KsepLogInfo.c)
- *     KsepLogError @ 0x140371F74 (KsepLogError.c)
- *     KsepDebugPrint @ 0x140526EE8 (KsepDebugPrint.c)
- *     RtlAssert @ 0x140588810 (RtlAssert.c)
- *     KsepRegistryOpenKey @ 0x14075B464 (KsepRegistryOpenKey.c)
- *     KsepRegistryCloseKey @ 0x1407BE834 (KsepRegistryCloseKey.c)
- *     KsepRegistryQueryDWORD @ 0x1407BE858 (KsepRegistryQueryDWORD.c)
+ *     KsepLogInfo @ 0x1403712F8 (KsepLogInfo.c)
+ *     KsepLogError @ 0x140371AC4 (KsepLogError.c)
+ *     KsepDebugPrint @ 0x140527128 (KsepDebugPrint.c)
+ *     RtlAssert @ 0x140588A40 (RtlAssert.c)
+ *     KsepRegistryOpenKey @ 0x14075B624 (KsepRegistryOpenKey.c)
+ *     KsepRegistryCloseKey @ 0x1407BEFC4 (KsepRegistryCloseKey.c)
+ *     KsepRegistryQueryDWORD @ 0x1407BEFE8 (KsepRegistryQueryDWORD.c)
  */
 
 __int64 __fastcall KsepEngineReadFlags(int *a1)
@@ -36,7 +36,7 @@ __int64 __fastcall KsepEngineReadFlags(int *a1)
   if ( !a1 )
   {
     v8 = ((unsigned __int8)_InterlockedExchangeAdd(&KsepHistoryErrorsIndex, 1u) + 1) & 0x3F;
-    dword_140C2AAA4[2 * v8] = -1073740768;
+    dword_140C2AAC4[2 * v8] = -1073740768;
     KsepHistoryErrors[2 * v8] = 262244;
     if ( (KsepDebugFlag & 4) != 0 )
       RtlAssert("Engine != NULL", "minkernel\\ntos\\kshim\\kseregistry.c", 0x64u, 0LL);
@@ -84,7 +84,7 @@ __int64 __fastcall KsepEngineReadFlags(int *a1)
   if ( v4 < 0 )
   {
     v10 = ((unsigned __int8)_InterlockedExchangeAdd(&KsepHistoryErrorsIndex, 1u) + 1) & 0x3F;
-    dword_140C2AAA4[2 * v10] = v5;
+    dword_140C2AAC4[2 * v10] = v5;
     KsepHistoryErrors[2 * v10] = 262304;
     if ( (KsepDebugFlag & 2) != 0 )
       KsepDebugPrint(0LL, "KSE: Error reading compatibility key: status: %08x\n", v5);
@@ -117,7 +117,7 @@ LABEL_8:
     else
     {
       v11 = ((unsigned __int8)_InterlockedExchangeAdd(&KsepHistoryErrorsIndex, 1u) + 1) & 0x3F;
-      dword_140C2AAA4[2 * v11] = v5;
+      dword_140C2AAC4[2 * v11] = v5;
       KsepHistoryErrors[2 * v11] = 262326;
       if ( (KsepDebugFlag & 2) != 0 )
         KsepDebugPrint(0LL, "KSE: Error reading compatibility value [%ws]: status: %08x\n", L"DisableFlags", v5);

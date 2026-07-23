@@ -1,34 +1,34 @@
 /*
- * XREFs of MiReturnPfnReferenceCountAtDpc @ 0x1402E6850
+ * XREFs of MiReturnPfnReferenceCountAtDpc @ 0x140347E90
  * Callers:
- *     MiPfPutPagesInTransition @ 0x1402E692C (MiPfPutPagesInTransition.c)
- *     MiFinishHardFault @ 0x1402F0070 (MiFinishHardFault.c)
- *     MiResolveDemandZeroFault @ 0x1402FC600 (MiResolveDemandZeroFault.c)
- *     MiReturnPfnReferenceCount @ 0x140311244 (MiReturnPfnReferenceCount.c)
- *     MiInitializeNewImageSectionProtos @ 0x140312D98 (MiInitializeNewImageSectionProtos.c)
- *     MiReleasePrefetchGapPages @ 0x1404915EC (MiReleasePrefetchGapPages.c)
- *     MiIdealClusterPage @ 0x1404D205C (MiIdealClusterPage.c)
+ *     MiFinishHardFault @ 0x140255E80 (MiFinishHardFault.c)
+ *     MiResolveDemandZeroFault @ 0x140342E30 (MiResolveDemandZeroFault.c)
+ *     MiPfPutPagesInTransition @ 0x140347F6C (MiPfPutPagesInTransition.c)
+ *     MiReturnPfnReferenceCount @ 0x1403F02E4 (MiReturnPfnReferenceCount.c)
+ *     MiInitializeNewImageSectionProtos @ 0x1403F0B48 (MiInitializeNewImageSectionProtos.c)
+ *     MiReleasePrefetchGapPages @ 0x14048C0E4 (MiReleasePrefetchGapPages.c)
+ *     MiIdealClusterPage @ 0x1404CB218 (MiIdealClusterPage.c)
  * Callees:
- *     MiRemoveLockedPageChargeAndDecRef @ 0x14028C530 (MiRemoveLockedPageChargeAndDecRef.c)
- *     HvlNotifyLongSpinWait @ 0x140293260 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140293290 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     MiRemoveLockedPageChargeAndDecRef @ 0x14029C130 (MiRemoveLockedPageChargeAndDecRef.c)
+ *     HvlNotifyLongSpinWait @ 0x1402A2E60 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402A2E90 (KiCheckVpBackingLongSpinWaitHypercall.c)
  */
 
-__int64 __fastcall MiReturnPfnReferenceCountAtDpc(ULONG_PTR a1, __int64 a2, __int64 a3)
+__int64 __fastcall MiReturnPfnReferenceCountAtDpc(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  unsigned int v4; // edi
+  unsigned int v5; // edi
   __int64 result; // rax
 
-  v4 = 0;
+  v5 = 0;
   while ( _interlockedbittestandset64((volatile signed __int32 *)(a1 + 24), 0x3FuLL) )
   {
     do
     {
-      if ( (++v4 & HvlLongSpinCountMask) == 0
+      if ( (++v5 & HvlLongSpinCountMask) == 0
         && (HvlEnlightenments & 0x40) != 0
         && KiCheckVpBackingLongSpinWaitHypercall() )
       {
-        HvlNotifyLongSpinWait(v4);
+        HvlNotifyLongSpinWait(v5);
       }
       else
       {
@@ -37,7 +37,7 @@ __int64 __fastcall MiReturnPfnReferenceCountAtDpc(ULONG_PTR a1, __int64 a2, __in
     }
     while ( *(__int64 *)(a1 + 24) < 0 );
   }
-  result = MiRemoveLockedPageChargeAndDecRef(a1, a2, a3);
+  result = MiRemoveLockedPageChargeAndDecRef(a1, a2, a3, a4);
   _InterlockedAnd64((volatile signed __int64 *)(a1 + 24), 0x7FFFFFFFFFFFFFFFuLL);
   return result;
 }

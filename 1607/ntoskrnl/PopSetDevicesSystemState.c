@@ -19,15 +19,15 @@ __int64 __fastcall PopSetDevicesSystemState(__int64 a1, __int64 a2, __int64 a3, 
 
   v7 = 0LL;
   v8 = 0LL;
-  v10 = byte_14030347D;
-  v9 = byte_140303462;
-  v11 = (unsigned __int8)byte_14030347C;
-  v6[0] = dword_14030348C;
-  v6[1] = dword_140303488;
-  v4 = dword_140303480;
-  if ( (dword_14030346C & 8) != 0 )
+  v10 = byte_1403033BD;
+  v9 = byte_1403033A2;
+  v11 = (unsigned __int8)byte_1403033BC;
+  v6[0] = dword_1403033CC;
+  v6[1] = dword_1403033C8;
+  v4 = dword_1403033C0;
+  if ( (dword_1403033AC & 8) != 0 )
     v4 = 6;
-  v7 = __PAIR64__(dword_140303484, v4);
-  v8 = __PAIR64__(dword_14030346C, qword_140303464);
+  v7 = __PAIR64__(dword_1403033C4, v4);
+  v8 = __PAIR64__(dword_1403033AC, qword_1403033A4);
   return PoBroadcastSystemState((__int64)v6, 6LL, a3, a4);
 }

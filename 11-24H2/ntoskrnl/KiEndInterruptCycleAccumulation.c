@@ -1,21 +1,21 @@
 /*
- * XREFs of KiEndInterruptCycleAccumulation @ 0x14034A8A0
+ * XREFs of KiEndInterruptCycleAccumulation @ 0x140368D80
  * Callers:
- *     KiChainedDispatch @ 0x1406AC7A0 (KiChainedDispatch.c)
- *     KiInterruptDispatch @ 0x1406ACE50 (KiInterruptDispatch.c)
- *     KiInterruptDispatchNoLock @ 0x1406AD230 (KiInterruptDispatchNoLock.c)
- *     KiInterruptDispatchNoLockNoEtw @ 0x1406AD610 (KiInterruptDispatchNoLockNoEtw.c)
- *     KiInterruptDispatchNoEOI @ 0x1406AD9F0 (KiInterruptDispatchNoEOI.c)
- *     KiSpuriousDispatchNoEOI @ 0x1406ADDC0 (KiSpuriousDispatchNoEOI.c)
- *     KxIsrLinkage @ 0x1406AE9A0 (KxIsrLinkage.c)
- *     KiHvInterruptDispatch @ 0x1406B0A70 (KiHvInterruptDispatch.c)
- *     KiVmbusInterruptDispatch @ 0x1406B0E60 (KiVmbusInterruptDispatch.c)
- *     KiSwInterrupt @ 0x1406B1390 (KiSwInterrupt.c)
- *     KiIpiInterrupt @ 0x1406B2240 (KiIpiInterrupt.c)
+ *     KiChainedDispatch @ 0x1406AD740 (KiChainedDispatch.c)
+ *     KiInterruptDispatch @ 0x1406ADDF0 (KiInterruptDispatch.c)
+ *     KiInterruptDispatchNoLock @ 0x1406AE1D0 (KiInterruptDispatchNoLock.c)
+ *     KiInterruptDispatchNoLockNoEtw @ 0x1406AE5B0 (KiInterruptDispatchNoLockNoEtw.c)
+ *     KiInterruptDispatchNoEOI @ 0x1406AE990 (KiInterruptDispatchNoEOI.c)
+ *     KiSpuriousDispatchNoEOI @ 0x1406AED60 (KiSpuriousDispatchNoEOI.c)
+ *     KxIsrLinkage @ 0x1406AF940 (KxIsrLinkage.c)
+ *     KiHvInterruptDispatch @ 0x1406B1A10 (KiHvInterruptDispatch.c)
+ *     KiVmbusInterruptDispatch @ 0x1406B1E00 (KiVmbusInterruptDispatch.c)
+ *     KiSwInterrupt @ 0x1406B2330 (KiSwInterrupt.c)
+ *     KiIpiInterrupt @ 0x1406B31E0 (KiIpiInterrupt.c)
  * Callees:
- *     HalRequestSoftwareInterrupt @ 0x14034AB60 (HalRequestSoftwareInterrupt.c)
- *     KeQueryPerformanceCounter @ 0x14034FA10 (KeQueryPerformanceCounter.c)
- *     KiBeginCounterAccumulation @ 0x140492190 (KiBeginCounterAccumulation.c)
+ *     HalRequestSoftwareInterrupt @ 0x140369040 (HalRequestSoftwareInterrupt.c)
+ *     KeQueryPerformanceCounter @ 0x14036DEF0 (KeQueryPerformanceCounter.c)
+ *     KiBeginCounterAccumulation @ 0x14048D030 (KiBeginCounterAccumulation.c)
  */
 
 char __fastcall KiEndInterruptCycleAccumulation(__int64 a1, unsigned __int8 a2)

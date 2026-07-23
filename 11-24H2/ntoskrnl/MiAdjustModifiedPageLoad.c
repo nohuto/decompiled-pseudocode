@@ -1,15 +1,15 @@
 /*
- * XREFs of MiAdjustModifiedPageLoad @ 0x1402D2864
+ * XREFs of MiAdjustModifiedPageLoad @ 0x140353ADC
  * Callers:
- *     MiWorkingSetManager @ 0x1402D3D20 (MiWorkingSetManager.c)
+ *     MiWorkingSetManager @ 0x140354FA0 (MiWorkingSetManager.c)
  * Callees:
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     MiWakeModifiedPageWriter @ 0x1402D0460 (MiWakeModifiedPageWriter.c)
- *     MiStoreUpdateMemoryConditions @ 0x1402D10D4 (MiStoreUpdateMemoryConditions.c)
- *     MiUseLowIoPriorityForModifiedPages @ 0x1402D1508 (MiUseLowIoPriorityForModifiedPages.c)
- *     KiQueryUnbiasedInterruptTime @ 0x1404251D0 (KiQueryUnbiasedInterruptTime.c)
- *     MiUpdateReserveClusterInfo @ 0x14045C0E4 (MiUpdateReserveClusterInfo.c)
+ *     MiWakeModifiedPageWriter @ 0x140261468 (MiWakeModifiedPageWriter.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     MiStoreUpdateMemoryConditions @ 0x1402F4DDC (MiStoreUpdateMemoryConditions.c)
+ *     MiUseLowIoPriorityForModifiedPages @ 0x1402F5124 (MiUseLowIoPriorityForModifiedPages.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x140419080 (KiQueryUnbiasedInterruptTime.c)
+ *     MiUpdateReserveClusterInfo @ 0x14045147C (MiUpdateReserveClusterInfo.c)
  */
 
 __int64 __fastcall MiAdjustModifiedPageLoad(__int64 a1, unsigned __int64 a2, char a3)
@@ -54,12 +54,8 @@ __int64 __fastcall MiAdjustModifiedPageLoad(__int64 a1, unsigned __int64 a2, cha
   v14 = 20000LL;
   if ( v12 > 0x4E20 )
     v14 = *(_QWORD *)(*(_QWORD *)(a1 + 17600) + 312LL);
-  if ( v11 > v14 )
-  {
-    v16 = v11 / 0xA;
-    if ( v5 < v16 )
-      goto LABEL_17;
-  }
+  if ( v11 > v14 && v5 < v11 / 0xA )
+    goto LABEL_17;
   v15 = (unsigned __int64 *)(a1 + 872);
   if ( v5 >= v10 )
   {
@@ -103,8 +99,7 @@ LABEL_17:
     {
       _InterlockedOr(v29, 0);
       if ( a2 > 0x4000
-        || (LOBYTE(v12) = 1,
-            (unsigned __int64)(KiQueryUnbiasedInterruptTime(v12, v16) - *(_QWORD *)(a1 + 912)) >= 0x47868C00) )
+        || (LOBYTE(v12) = 1, (unsigned __int64)(KiQueryUnbiasedInterruptTime(v12) - *(_QWORD *)(a1 + 912)) >= 0x47868C00) )
       {
         v22 = 1;
         *(_WORD *)(a1 + 924) &= ~1u;
@@ -122,8 +117,8 @@ LABEL_17:
         {
           v27 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(v26 + 200));
           if ( *(_DWORD *)(v26 + 100) != *(_DWORD *)(v26 + 96) )
-            *(_DWORD *)(v26 + 92) = dword_140FC420C;
-          *(_DWORD *)(v26 + 104) = 4 * dword_140FC420C;
+            *(_DWORD *)(v26 + 92) = dword_140FC520C;
+          *(_DWORD *)(v26 + 104) = 4 * dword_140FC520C;
           if ( v22 )
           {
             v28 = *(_BYTE *)(v26 + 175);

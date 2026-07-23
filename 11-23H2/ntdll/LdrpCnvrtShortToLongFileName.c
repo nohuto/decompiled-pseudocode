@@ -17,17 +17,16 @@
 __int64 __fastcall LdrpCnvrtShortToLongFileName(PCWSTR SourceString, PCWSTR a2, _QWORD *a3)
 {
   wchar_t *Buffer; // rdi
-  int DirectoryFile; // ebx
-  __int64 Heap; // rdi
+  NTSTATUS v6; // ebx
+  _DWORD *Heap; // rdi
   unsigned int v8; // eax
   _WORD *v9; // rax
   _WORD *v10; // rsi
-  UNICODE_STRING DestinationString; // [rsp+68h] [rbp-39h] BYREF
-  UNICODE_STRING v13; // [rsp+78h] [rbp-29h] BYREF
-  struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+88h] [rbp-19h] BYREF
-  UNICODE_STRING v15; // [rsp+98h] [rbp-9h] BYREF
-  __int64 v16; // [rsp+A8h] [rbp+7h]
-  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+B8h] [rbp+17h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+68h] [rbp-39h] BYREF
+  _UNICODE_STRING FileName; // [rsp+78h] [rbp-29h] BYREF
+  _IO_STATUS_BLOCK IoStatusBlock; // [rsp+88h] [rbp-19h] BYREF
+  _RTL_RELATIVE_NAME_U RelativeName; // [rsp+98h] [rbp-9h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+B8h] [rbp+17h] BYREF
   HANDLE FileHandle; // [rsp+108h] [rbp+67h] BYREF
 
   FileHandle = 0LL;
@@ -43,68 +42,74 @@ LABEL_10:
     ObjectAttributes.RootDirectory = 0LL;
     ObjectAttributes.Attributes = 64;
     *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
-    DirectoryFile = NtOpenFile(&FileHandle, 0x100001u, &ObjectAttributes, &IoStatusBlock, 7u, 0x4021u);
+    v6 = NtOpenFile(&FileHandle, 0x100001u, &ObjectAttributes, &IoStatusBlock, 7u, 0x4021u);
     if ( Buffer )
     {
-      RtlReleaseRelativeName((__int64)&v15);
-      RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (__int64)Buffer);
+      RtlReleaseRelativeName(&RelativeName);
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Buffer);
     }
-    if ( DirectoryFile >= 0 )
+    if ( v6 >= 0 )
     {
-      Heap = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, 1040LL);
+      Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, 0x410uLL);
       if ( Heap )
       {
-        RtlInitUnicodeString(&v13, a2);
-        DirectoryFile = NtQueryDirectoryFile();
-        if ( DirectoryFile >= 0 )
+        RtlInitUnicodeString(&FileName, a2);
+        v6 = NtQueryDirectoryFile(
+               FileHandle,
+               0LL,
+               0LL,
+               0LL,
+               &IoStatusBlock,
+               Heap,
+               0x410u,
+               FileBothDirectoryInformation,
+               1u,
+               &FileName,
+               0);
+        if ( v6 >= 0 )
         {
-          v8 = *(_DWORD *)(Heap + 60);
+          v8 = Heap[15];
           if ( v8 <= 0x104 )
           {
-            v9 = (_WORD *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, v8 + 4);
+            v9 = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, v8 + 4);
             v10 = v9;
             if ( v9 )
             {
-              memmove(v9, (const void *)(Heap + 94), *(unsigned int *)(Heap + 60));
-              v10[(unsigned __int64)*(unsigned int *)(Heap + 60) >> 1] = 0;
+              memmove(v9, (char *)Heap + 94, (unsigned int)Heap[15]);
+              v10[(unsigned __int64)(unsigned int)Heap[15] >> 1] = 0;
               *a3 = v10;
             }
             else
             {
-              DirectoryFile = -1073741801;
+              v6 = -1073741801;
             }
           }
           else
           {
-            DirectoryFile = -1073741562;
+            v6 = -1073741562;
           }
         }
-        RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, Heap);
+        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Heap);
       }
       else
       {
-        DirectoryFile = -1073741801;
+        v6 = -1073741801;
       }
     }
     goto LABEL_22;
   }
-  DirectoryFile = RtlpDosPathNameToRelativeNtPathName_U(
-                    2,
-                    (__int64)SourceString,
-                    (int)&DestinationString,
-                    0LL,
-                    (__int64)&v15);
-  if ( DirectoryFile >= 0 )
+  v6 = RtlpDosPathNameToRelativeNtPathName_U(2, SourceString, (int)&DestinationString, 0LL, (__int64)&RelativeName);
+  if ( v6 >= 0 )
   {
     Buffer = DestinationString.Buffer;
-    if ( v15.Length )
-      DestinationString = v15;
+    if ( RelativeName.RelativeName.Length )
+      DestinationString = RelativeName.RelativeName;
     else
-      v16 = 0LL;
+      RelativeName.ContainingDirectory = 0LL;
     goto LABEL_10;
   }
 LABEL_22:
   if ( FileHandle )
     NtClose(FileHandle);
-  return (unsigned int)DirectoryFile;
+  return (unsigned int)v6;
 }

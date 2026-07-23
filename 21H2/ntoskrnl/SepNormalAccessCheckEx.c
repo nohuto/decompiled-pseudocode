@@ -1,18 +1,18 @@
 /*
- * XREFs of SepNormalAccessCheckEx @ 0x140373CEC
+ * XREFs of SepNormalAccessCheckEx @ 0x14037383C
  * Callers:
- *     SepAccessCheckEx @ 0x1403737C0 (SepAccessCheckEx.c)
+ *     SepAccessCheckEx @ 0x140373310 (SepAccessCheckEx.c)
  * Callees:
- *     AuthzBasepEvaluateAceCondition @ 0x14024DC80 (AuthzBasepEvaluateAceCondition.c)
- *     SepMatchPackage @ 0x14024E548 (SepMatchPackage.c)
- *     SepSidInToken @ 0x14027EA84 (SepSidInToken.c)
- *     AuthzBasepAddAccessTypeList @ 0x1402A253C (AuthzBasepAddAccessTypeList.c)
- *     AuthzBasepSetAccessReasons @ 0x1402A2630 (AuthzBasepSetAccessReasons.c)
- *     SepIsPackageSid @ 0x1402B0B70 (SepIsPackageSid.c)
- *     AuthzBasepInitializeResourceClaimsFromSacl @ 0x1402B2C28 (AuthzBasepInitializeResourceClaimsFromSacl.c)
- *     SepIsCapabilitySid @ 0x1402B635C (SepIsCapabilitySid.c)
- *     SepMatchCapability @ 0x1402B8FEC (SepMatchCapability.c)
- *     AuthzBasepObjectInTypeList @ 0x1405C16B0 (AuthzBasepObjectInTypeList.c)
+ *     AuthzBasepAddAccessTypeList @ 0x14021F97C (AuthzBasepAddAccessTypeList.c)
+ *     AuthzBasepSetAccessReasons @ 0x14021FA70 (AuthzBasepSetAccessReasons.c)
+ *     SepIsPackageSid @ 0x14022EED0 (SepIsPackageSid.c)
+ *     AuthzBasepInitializeResourceClaimsFromSacl @ 0x140230DD8 (AuthzBasepInitializeResourceClaimsFromSacl.c)
+ *     SepIsCapabilitySid @ 0x14023453C (SepIsCapabilitySid.c)
+ *     SepMatchCapability @ 0x1402371FC (SepMatchCapability.c)
+ *     SepSidInToken @ 0x14026CA24 (SepSidInToken.c)
+ *     AuthzBasepEvaluateAceCondition @ 0x1402F24D0 (AuthzBasepEvaluateAceCondition.c)
+ *     SepMatchPackage @ 0x1402F2D98 (SepMatchPackage.c)
+ *     AuthzBasepObjectInTypeList @ 0x1405C18E0 (AuthzBasepObjectInTypeList.c)
  */
 
 __int64 __fastcall SepNormalAccessCheckEx(
@@ -158,7 +158,7 @@ LABEL_42:
               if ( SepIsCapabilitySid((__int64)(v27 + 8)) )
               {
                 v36 = v24 + 2;
-                SepMatchCapability(a2, v64, v27 + 8, *((_DWORD *)v27 + 1), (_BYTE *)v24 + 22, v24 + 2);
+                SepMatchCapability(a2, v64, (__int64)(v27 + 8), *((_DWORD *)v27 + 1), (_BYTE *)v24 + 22, v24 + 2);
                 goto LABEL_41;
               }
               v20 = a8;

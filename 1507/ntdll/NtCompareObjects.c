@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 NtCompareObjects()
+NTSTATUS __cdecl NtCompareObjects(HANDLE FirstObjectHandle, HANDLE SecondObjectHandle)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 149LL;
+  result = 149;
   __asm { syscall; Low latency system call }
   return result;
 }

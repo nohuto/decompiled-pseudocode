@@ -1,12 +1,12 @@
 /*
- * XREFs of ExpCloseWorkerFactory @ 0x1406775F0
+ * XREFs of ExpCloseWorkerFactory @ 0x14066AD30
  * Callers:
  *     <none>
  * Callees:
- *     ExpShutdownWorkerFactory @ 0x14027F9D8 (ExpShutdownWorkerFactory.c)
+ *     ExpShutdownWorkerFactory @ 0x14026DC18 (ExpShutdownWorkerFactory.c)
  */
 
-__int64 __fastcall ExpCloseWorkerFactory(__int64 a1, char *a2, __int64 a3, __int64 a4)
+__int64 __fastcall ExpCloseWorkerFactory(__int64 a1, _QWORD *a2, __int64 a3, __int64 a4)
 {
   __int64 result; // rax
 

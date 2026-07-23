@@ -47,18 +47,18 @@ __int64 __fastcall LdrpDynamicShimModule(_QWORD *a1)
       }
       v8 = MEMORY[0x7FFE0330];
       v9 = __ROR8__(g_pfnSE_DllLoaded, 64 - (MEMORY[0x7FFE0330] & 0x3Fu));
-      RtlEnterCriticalSection((__int64)&LdrpDllNotificationLock);
+      RtlEnterCriticalSection(&LdrpDllNotificationLock);
       if ( LdrInitState < 3 && (*(_DWORD *)(*a1 - 56LL) & 0x800) == 0 )
         LdrpSendShimEngineInitialNotifications(a1, v9 ^ v8);
-      RtlLeaveCriticalSection((__int64)&LdrpDllNotificationLock);
+      RtlLeaveCriticalSection(&LdrpDllNotificationLock);
     }
     else
     {
       LdrpLogInternal(
         (unsigned int)"minkernel\\ntdll\\ldrinit.c",
-        3729LL,
+        3729,
         (__int64)"LdrpDynamicShimModule",
-        0LL,
+        0,
         "Getting ApphelpCheckModule failed with status 0x%08lx\n",
         v5);
       v3 = 0;
@@ -67,7 +67,7 @@ __int64 __fastcall LdrpDynamicShimModule(_QWORD *a1)
 LABEL_3:
   if ( g_pShimmedModuleList && v1 == 1 )
   {
-    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, g_pShimmedModuleList);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, g_pShimmedModuleList);
     g_pShimmedModuleList = 0LL;
     g_pShimmedModuleListLength = 0LL;
   }

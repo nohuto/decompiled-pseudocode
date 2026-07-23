@@ -1,14 +1,14 @@
 /*
- * XREFs of MiUpdateAgeDistribution @ 0x1404860CC
+ * XREFs of MiUpdateAgeDistribution @ 0x14047FA3C
  * Callers:
- *     MiUpdatePartitionMemoryUsage @ 0x1402A6CA0 (MiUpdatePartitionMemoryUsage.c)
+ *     MiUpdatePartitionMemoryUsage @ 0x1402A60BC (MiUpdatePartitionMemoryUsage.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiComputeHardTrimSize @ 0x1402ED1E8 (MiComputeHardTrimSize.c)
- *     MiComputeHardAgingPercent @ 0x1404B1DCC (MiComputeHardAgingPercent.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiComputeHardTrimSize @ 0x1402CF228 (MiComputeHardTrimSize.c)
+ *     MiComputeHardAgingPercent @ 0x1404AB228 (MiComputeHardAgingPercent.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 void __fastcall MiUpdateAgeDistribution(__int64 a1, __int64 a2)
@@ -22,11 +22,10 @@ void __fastcall MiUpdateAgeDistribution(__int64 a1, __int64 a2)
   unsigned __int64 *v10; // r9
   __int64 v11; // r11
   unsigned __int64 v12; // rcx
-  unsigned __int64 v13; // rbx
-  unsigned int v14; // edx
+  unsigned int v13; // edx
   _QWORD *i; // r8
-  unsigned __int64 v16; // rcx
-  unsigned __int64 v17; // r9
+  unsigned __int64 v15; // rcx
+  unsigned __int64 v16; // r9
 
   memset_0((void *)a2, 0, 0x50uLL);
   v4 = (volatile LONG *)(a1 + 21384);
@@ -56,8 +55,7 @@ void __fastcall MiUpdateAgeDistribution(__int64 a1, __int64 a2)
       {
         if ( (unsigned int)MiComputeHardAgingPercent(v7 - 3, 0x20000LL) )
           *(_BYTE *)(a2 + 72) = 1;
-        v13 = v7[14];
-        if ( v13 > MiComputeHardTrimSize(v7[13], 0x5Au, 0x64u) )
+        if ( v7[14] > MiComputeHardTrimSize(v7[13], 0x5Au, 0x64u) )
           *(_BYTE *)(a2 + 73) = 1;
       }
       v7 = (__int64 *)*v7;
@@ -68,16 +66,16 @@ void __fastcall MiUpdateAgeDistribution(__int64 a1, __int64 a2)
     ExReleaseSpinLockExclusiveFromDpcLevel(v4);
   else
     ExReleaseSpinLockExclusive(v4, v8);
-  v14 = 6;
+  v13 = 6;
   for ( i = (_QWORD *)(a2 + 48); ; ++i )
   {
-    v16 = *(_QWORD *)(a2 + 64);
-    v17 = v16 + *i;
-    if ( v17 < v16 )
+    v15 = *(_QWORD *)(a2 + 64);
+    v16 = v15 + *i;
+    if ( v16 < v15 )
       break;
-    ++v14;
-    *(_QWORD *)(a2 + 64) = v17;
-    if ( v14 >= 8 )
+    ++v13;
+    *(_QWORD *)(a2 + 64) = v16;
+    if ( v13 >= 8 )
       return;
   }
   *(_QWORD *)(a2 + 64) = -1LL;

@@ -1,5 +1,5 @@
 /*
- * XREFs of NtdllDispatchDefWindowProc_A @ 0x18015EE00
+ * XREFs of NtdllDispatchDefWindowProc_A @ 0x18015ED00
  * Callers:
  *     <none>
  * Callees:
@@ -9,5 +9,5 @@
 // attributes: thunk
 void __noreturn NtdllDispatchDefWindowProc_A()
 {
-  off_1801E01E0();
+  off_1801DF1E0();
 }

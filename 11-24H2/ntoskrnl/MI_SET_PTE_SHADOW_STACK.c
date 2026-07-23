@@ -1,17 +1,18 @@
 /*
- * XREFs of MI_SET_PTE_SHADOW_STACK @ 0x140488B2C
+ * XREFs of MI_SET_PTE_SHADOW_STACK @ 0x140483C1C
  * Callers:
- *     MiRevertValidPte @ 0x140237FA0 (MiRevertValidPte.c)
- *     MiInitializeShadowPageTable @ 0x1407F6428 (MiInitializeShadowPageTable.c)
+ *     MiRevertValidPte @ 0x140212130 (MiRevertValidPte.c)
+ *     MiInitializeShadowPageTable @ 0x1407F6B9C (MiInitializeShadowPageTable.c)
  * Callees:
- *     MiWriteValidPteNewProtection @ 0x140219260 (MiWriteValidPteNewProtection.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x14021A250 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiWriteValidPteNewProtection @ 0x140245FB0 (MiWriteValidPteNewProtection.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140246FA0 (MI_READ_PTE_LOCK_FREE.c)
  */
 
-__int64 __fastcall MI_SET_PTE_SHADOW_STACK(unsigned __int64 a1)
+char __fastcall MI_SET_PTE_SHADOW_STACK(ULONG_PTR BugCheckParameter2)
 {
   __int64 v2; // rax
+  __int64 v3; // r8
 
-  v2 = MI_READ_PTE_LOCK_FREE(a1);
-  return MiWriteValidPteNewProtection(a1, v2 | 0x40);
+  v2 = MI_READ_PTE_LOCK_FREE(BugCheckParameter2);
+  return MiWriteValidPteNewProtection(BugCheckParameter2, v2 | 0x40, v3);
 }

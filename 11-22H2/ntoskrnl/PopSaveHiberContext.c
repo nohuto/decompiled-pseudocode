@@ -56,8 +56,8 @@ __int64 __fastcall PopSaveHiberContext(char *Address)
   unsigned int v12; // r8d
   _DWORD *v13; // rcx
   _DWORD *v14; // rdx
-  RTL_BITMAP *v15; // r13
-  RTL_BITMAP *v16; // rcx
+  _RTL_BITMAP *v15; // r13
+  _RTL_BITMAP *v16; // rcx
   __int64 v17; // rdx
   __int64 v18; // rcx
   unsigned __int64 v19; // rbx
@@ -236,15 +236,15 @@ LABEL_29:
       }
       while ( v12 < *v11 >> 5 );
     }
-    v15 = (RTL_BITMAP *)(Address + 32);
+    v15 = (_RTL_BITMAP *)(Address + 32);
     if ( byte_140C3D041 )
     {
-      v16 = (RTL_BITMAP *)(Address + 32);
+      v16 = (_RTL_BITMAP *)(Address + 32);
     }
     else
     {
-      RtlCopyBitMap((unsigned int *)Address + 12, (__int64)(Address + 32), 0);
-      v16 = (RTL_BITMAP *)(Address + 48);
+      RtlCopyBitMap((PRTL_BITMAP)Address + 3, (PRTL_BITMAP)Address + 2, 0);
+      v16 = (_RTL_BITMAP *)(Address + 48);
     }
     RtlSetAllBits(v16);
     v17 = *((_QWORD *)Address + 21);
@@ -284,7 +284,7 @@ LABEL_29:
         }
       }
       while ( v22 != Address + 64 );
-      v15 = (RTL_BITMAP *)(Address + 32);
+      v15 = (_RTL_BITMAP *)(Address + 32);
     }
     PopResetRangeEnum(Address);
     v27 = (_QWORD *)*((_QWORD *)Address + 20);

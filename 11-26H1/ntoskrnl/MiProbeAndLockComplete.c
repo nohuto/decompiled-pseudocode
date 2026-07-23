@@ -1,16 +1,16 @@
 /*
- * XREFs of MiProbeAndLockComplete @ 0x1403A0050
+ * XREFs of MiProbeAndLockComplete @ 0x1403A1DB0
  * Callers:
- *     MmProbeAndLockSelectedPages @ 0x14039F2E0 (MmProbeAndLockSelectedPages.c)
- *     MmLockPhysicalPagesByVa @ 0x1406EA82C (MmLockPhysicalPagesByVa.c)
+ *     MmProbeAndLockSelectedPages @ 0x1403A1040 (MmProbeAndLockSelectedPages.c)
+ *     MmLockPhysicalPagesByVa @ 0x1406EF4CC (MmLockPhysicalPagesByVa.c)
  * Callees:
- *     MiGetSystemRegionType @ 0x140264F40 (MiGetSystemRegionType.c)
- *     MiUnlockProbePacketWorkingSet @ 0x1403A0340 (MiUnlockProbePacketWorkingSet.c)
- *     DifObjTrkIsKvEnabledForPlugin @ 0x1403ACC60 (DifObjTrkIsKvEnabledForPlugin.c)
- *     MmUnlockPages @ 0x140410C10 (MmUnlockPages.c)
- *     MiAddMdlTracker @ 0x1404F3E20 (MiAddMdlTracker.c)
- *     DifObjTrkInsertItem @ 0x14064AED0 (DifObjTrkInsertItem.c)
- *     MmUnlockPhysicalPagesByVa @ 0x1406EA99C (MmUnlockPhysicalPagesByVa.c)
+ *     MiGetSystemRegionType @ 0x1402644B0 (MiGetSystemRegionType.c)
+ *     MiUnlockProbePacketWorkingSet @ 0x1403A20A0 (MiUnlockProbePacketWorkingSet.c)
+ *     DifObjTrkIsKvEnabledForPlugin @ 0x1403B6970 (DifObjTrkIsKvEnabledForPlugin.c)
+ *     MmUnlockPages @ 0x140410330 (MmUnlockPages.c)
+ *     MiAddMdlTracker @ 0x1404ED400 (MiAddMdlTracker.c)
+ *     DifObjTrkInsertItem @ 0x14064EAB0 (DifObjTrkInsertItem.c)
+ *     MmUnlockPhysicalPagesByVa @ 0x1406EF63C (MmUnlockPhysicalPagesByVa.c)
  */
 
 void __fastcall MiProbeAndLockComplete(unsigned __int64 *a1, int a2)
@@ -55,6 +55,6 @@ void __fastcall MiProbeAndLockComplete(unsigned __int64 *a1, int a2)
     {
       MmUnlockPages(v5);
     }
-    ++stru_140E2EB88.QueuePriority;
+    ++stru_140E2ED08.QueuePriority;
   }
 }

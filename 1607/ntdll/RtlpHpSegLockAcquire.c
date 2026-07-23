@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlpHpSegLockAcquire @ 0x18003BB8C
+ * XREFs of RtlpHpSegLockAcquire @ 0x18003BB7C
  * Callers:
- *     RtlpHpSegPageRangeAllocate @ 0x18003EA8C (RtlpHpSegPageRangeAllocate.c)
- *     RtlpHpSegPageRangeCoalesce @ 0x18003ED5C (RtlpHpSegPageRangeCoalesce.c)
+ *     RtlpHpSegPageRangeAllocate @ 0x18003EA7C (RtlpHpSegPageRangeAllocate.c)
+ *     RtlpHpSegPageRangeCoalesce @ 0x18003ED4C (RtlpHpSegPageRangeCoalesce.c)
  * Callees:
- *     RtlAcquireSRWLockExclusive @ 0x180020BF0 (RtlAcquireSRWLockExclusive.c)
+ *     RtlAcquireSRWLockExclusive @ 0x180020BE0 (RtlAcquireSRWLockExclusive.c)
  */
 
-void __fastcall RtlpHpSegLockAcquire(__int64 a1, char *a2, __int64 a3, __int64 a4)
+void __fastcall RtlpHpSegLockAcquire(_RTL_SRWLOCK *a1, char a2)
 {
-  if ( ((unsigned __int8)a2 & 1) == 0 )
-    RtlAcquireSRWLockExclusive(a1 + 88, a2, a3, a4);
+  if ( (a2 & 1) == 0 )
+    RtlAcquireSRWLockExclusive(a1 + 11);
 }

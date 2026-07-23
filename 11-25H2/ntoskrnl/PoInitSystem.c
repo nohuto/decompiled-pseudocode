@@ -150,7 +150,7 @@ bool __fastcall PoInitSystem(int a1, __int64 a2)
   __int64 v28; // [rsp+50h] [rbp-10h]
   int v29; // [rsp+58h] [rbp-8h]
   int v30; // [rsp+A0h] [rbp+40h] BYREF
-  int v31; // [rsp+B0h] [rbp+50h] BYREF
+  int Buffer; // [rsp+B0h] [rbp+50h] BYREF
   LARGE_INTEGER PerformanceFrequency; // [rsp+B8h] [rbp+58h] BYREF
 
   PopOsInitPhase = a1;
@@ -578,9 +578,9 @@ LABEL_60:
             PopInitializeAdpm();
             PopEsInit(3);
             PopInitilizeAcDcSettings();
-            v31 = 1;
+            Buffer = 1;
             PopUpdateConsoleDisplayState(1LL);
-            ZwUpdateWnfStateData((__int64)&WNF_PO_PRIMARY_DISPLAY_VISIBLE_STATE, (__int64)&v31);
+            ZwUpdateWnfStateData(&WNF_PO_PRIMARY_DISPLAY_VISIBLE_STATE, &Buffer, 4u, 0LL, 0LL, 0, 0);
             PopNetInitialize(3);
             PopReleasePolicyLock();
             PopIdleInitAoAcDozeS4Timer();
@@ -658,7 +658,7 @@ LABEL_60:
       PpmReleaseLock((__int64 *)&PopFxSystemLatencyLock);
       PopPdcCsCheckSystemVolumeDevice();
       PopUpdateBackgroundCoolingStatus(0);
-      ZwUpdateWnfStateData((__int64)&WNF_PO_MULTIMEDIA_POWER_MODEL, (__int64)&PpmPerfMultimediaPowerModel);
+      ZwUpdateWnfStateData(&WNF_PO_MULTIMEDIA_POWER_MODEL, &PpmPerfMultimediaPowerModel, 4u, 0LL, 0LL, 0, 0);
       PopInitVideoWnfState();
       goto LABEL_67;
     }

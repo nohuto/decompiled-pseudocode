@@ -1,9 +1,9 @@
 /*
- * XREFs of MiAssembleLargePagePfnList @ 0x14055DE20
+ * XREFs of MiAssembleLargePagePfnList @ 0x14055E060
  * Callers:
- *     MiAllocateLargeZeroPages @ 0x14055DA5C (MiAllocateLargeZeroPages.c)
+ *     MiAllocateLargeZeroPages @ 0x14055DC9C (MiAllocateLargeZeroPages.c)
  * Callees:
- *     MiUpdateLargePageBitMap @ 0x140300090 (MiUpdateLargePageBitMap.c)
+ *     MiUpdateLargePageBitMap @ 0x14030ADE0 (MiUpdateLargePageBitMap.c)
  *     MiGetPfnPageSizeIndex @ 0x1403F6AD8 (MiGetPfnPageSizeIndex.c)
  */
 
@@ -19,7 +19,7 @@ unsigned __int64 __fastcall MiAssembleLargePagePfnList(__int64 a1, _QWORD *a2)
   v6 = MiLargePageSizes[PfnPageSizeIndex];
   if ( v6 >= 0x200 && PfnPageSizeIndex > 1 )
     MiUpdateLargePageBitMap(
-      *(_QWORD *)(qword_140C4E648 + 8 * ((a2[5] >> 39) & 0x3FFLL)),
+      *(_QWORD *)(qword_140C4E688 + 8 * ((a2[5] >> 39) & 0x3FFLL)),
       ((__int64)(a2 + 0xB000000000LL) / 48) & 0xFFFFFFFFFFFFFE00uLL,
       (((__int64)(a2 + 0xB000000000LL) / 48 + v6 + 511) & 0xFFFFFFFFFFFFFE00uLL)
     - (((__int64)(a2 + 0xB000000000LL) / 48) & 0xFFFFFFFFFFFFFE00uLL),

@@ -1,14 +1,14 @@
 /*
- * XREFs of ViFaultsInjectionNotification @ 0x140B96BEC
+ * XREFs of ViFaultsInjectionNotification @ 0x140B98BEC
  * Callers:
- *     VfFaultsInjectResourceFailure @ 0x140B96568 (VfFaultsInjectResourceFailure.c)
+ *     VfFaultsInjectResourceFailure @ 0x140B98568 (VfFaultsInjectResourceFailure.c)
  * Callees:
- *     RtlCaptureStackBackTrace @ 0x14027C690 (RtlCaptureStackBackTrace.c)
- *     VfAvlLookupTreeNode @ 0x1403F1074 (VfAvlLookupTreeNode.c)
- *     VfAvlCleanupLockContext @ 0x1403F142C (VfAvlCleanupLockContext.c)
- *     VfAvlInitializeLockContext @ 0x14049C0D8 (VfAvlInitializeLockContext.c)
- *     ViTargetUpdateTreeAllowed @ 0x140B8BC14 (ViTargetUpdateTreeAllowed.c)
- *     VfDriverIsKernelImageAddress @ 0x140BA7ECC (VfDriverIsKernelImageAddress.c)
+ *     RtlCaptureStackBackTrace @ 0x140231C20 (RtlCaptureStackBackTrace.c)
+ *     VfAvlLookupTreeNode @ 0x1403E4D94 (VfAvlLookupTreeNode.c)
+ *     VfAvlCleanupLockContext @ 0x1403E514C (VfAvlCleanupLockContext.c)
+ *     VfAvlInitializeLockContext @ 0x140496D08 (VfAvlInitializeLockContext.c)
+ *     ViTargetUpdateTreeAllowed @ 0x140B8DC14 (ViTargetUpdateTreeAllowed.c)
+ *     VfDriverIsKernelImageAddress @ 0x140BA9ECC (VfDriverIsKernelImageAddress.c)
  */
 
 __int16 __fastcall ViFaultsInjectionNotification(int a1)
@@ -25,7 +25,7 @@ __int16 __fastcall ViFaultsInjectionNotification(int a1)
   __int128 v12; // [rsp+20h] [rbp-28h] BYREF
   __int64 v13; // [rsp+30h] [rbp-18h]
 
-  LOWORD(updated) = ++dword_140F03EAC;
+  LOWORD(updated) = ++dword_140F0480C;
   if ( (MmVerifierData & 0x1000) != 0 )
   {
     v12 = 0LL;

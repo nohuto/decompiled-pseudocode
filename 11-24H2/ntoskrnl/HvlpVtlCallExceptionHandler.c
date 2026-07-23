@@ -1,9 +1,9 @@
 /*
- * XREFs of HvlpVtlCallExceptionHandler @ 0x14058C288
+ * XREFs of HvlpVtlCallExceptionHandler @ 0x140589578
  * Callers:
  *     <none>
  * Callees:
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 void __fastcall __noreturn HvlpVtlCallExceptionHandler(ULONG_PTR *a1)

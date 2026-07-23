@@ -1,20 +1,20 @@
 /*
- * XREFs of MiDrainZeroLookasides @ 0x14045E180
+ * XREFs of MiDrainZeroLookasides @ 0x140457D20
  * Callers:
- *     MiTradePageMarkedBad @ 0x14028E820 (MiTradePageMarkedBad.c)
- *     MiTrimAllWorkingSets @ 0x140466450 (MiTrimAllWorkingSets.c)
- *     MiReturnPartitionPagesToParent @ 0x1407098B8 (MiReturnPartitionPagesToParent.c)
- *     MiTransferPartitionPageRun @ 0x140709A80 (MiTransferPartitionPageRun.c)
+ *     MiTradePageMarkedBad @ 0x14028DD80 (MiTradePageMarkedBad.c)
+ *     MiTrimAllWorkingSets @ 0x14045F5B0 (MiTrimAllWorkingSets.c)
+ *     MiReturnPartitionPagesToParent @ 0x14070E56C (MiReturnPartitionPagesToParent.c)
+ *     MiTransferPartitionPageRun @ 0x14070E734 (MiTransferPartitionPageRun.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     MiPageToNode @ 0x140289710 (MiPageToNode.c)
- *     MiColorGetCache @ 0x140289A00 (MiColorGetCache.c)
- *     HvlNotifyLongSpinWait @ 0x1402BBF00 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402BC760 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     MiInsertPageInFreeOrZeroedList @ 0x1402DCDD0 (MiInsertPageInFreeOrZeroedList.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     FirstEntrySList @ 0x140730C80 (FirstEntrySList.c)
- *     RtlpInterlockedFlushSList @ 0x140730D10 (RtlpInterlockedFlushSList.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     MiPageToNode @ 0x140288C70 (MiPageToNode.c)
+ *     MiColorGetCache @ 0x140288F60 (MiColorGetCache.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x1402BEB90 (MiInsertPageInFreeOrZeroedList.c)
+ *     HvlNotifyLongSpinWait @ 0x140306BC0 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140307420 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     FirstEntrySList @ 0x140735850 (FirstEntrySList.c)
+ *     RtlpInterlockedFlushSList @ 0x1407358E0 (RtlpInterlockedFlushSList.c)
  */
 
 __int64 __fastcall MiDrainZeroLookasides(__int64 a1, unsigned __int64 a2, __int64 a3, unsigned int a4)
@@ -36,7 +36,7 @@ __int64 __fastcall MiDrainZeroLookasides(__int64 a1, unsigned __int64 a2, __int6
   unsigned int v18; // ebp
   unsigned int v19; // ebx
   __int64 v20; // r13
-  union _SLIST_HEADER *v21; // rdi
+  _SLIST_HEADER *v21; // rdi
   __int64 v22; // rdx
   unsigned __int64 v23; // rdi
   unsigned __int8 CurrentIrql; // al
@@ -79,11 +79,11 @@ __int64 __fastcall MiDrainZeroLookasides(__int64 a1, unsigned __int64 a2, __int6
   }
   else
   {
-    v8 = dword_140E2D78C;
+    v8 = dword_140E2D90C;
     v6 = 458752;
     v10 = (unsigned __int16)KeNumberNodes;
     v45 = 458752;
-    v42 = dword_140E2D78C;
+    v42 = dword_140E2D90C;
   }
   v11 = 512;
   v12 = v4 + 56320 * v10 - 56320;
@@ -117,7 +117,7 @@ __int64 __fastcall MiDrainZeroLookasides(__int64 a1, unsigned __int64 a2, __int6
             v18 %= v19;
             v34 = v18;
           }
-          v21 = (union _SLIST_HEADER *)(v17 + 16LL * v18);
+          v21 = (_SLIST_HEADER *)(v17 + 16LL * v18);
           result = (__int64)FirstEntrySList(v21);
           if ( result )
           {
@@ -162,21 +162,21 @@ __int64 __fastcall MiDrainZeroLookasides(__int64 a1, unsigned __int64 a2, __int6
                 v30 = *(_QWORD *)(v23 + 16);
                 if ( v30 )
                 {
-                  if ( qword_140E2D740 )
+                  if ( qword_140E2D8C0 )
                   {
-                    v31 = qword_140E2D748 & v30;
+                    v31 = qword_140E2D8C8 & v30;
                     LODWORD(v30) = v30 & 0xFFFFFFEF;
                     if ( (*(_QWORD *)(v23 + 16) & 0x10) == 0 )
                       LODWORD(v30) = v31;
                   }
                 }
                 v32 = (unsigned int)v30;
-                if ( qword_140E2D740 )
+                if ( qword_140E2D8C0 )
                 {
-                  if ( ((unsigned int)v30 & (unsigned int)qword_140E2D740) != 0 )
+                  if ( ((unsigned int)v30 & (unsigned int)qword_140E2D8C0) != 0 )
                     v32 = (unsigned int)v30 | 0x10LL;
                   else
-                    v32 = qword_140E2D740 | (unsigned int)v30;
+                    v32 = qword_140E2D8C0 | (unsigned int)v30;
                 }
                 *(_QWORD *)(v23 + 16) = v32;
                 v33 = 0;

@@ -1,13 +1,13 @@
 /*
- * XREFs of MmGetSectionRange @ 0x140A30678
+ * XREFs of MmGetSectionRange @ 0x140A30928
  * Callers:
- *     PoSetHiberRange @ 0x14058E8A0 (PoSetHiberRange.c)
+ *     PoSetHiberRange @ 0x14058ED90 (PoSetHiberRange.c)
  * Callees:
  *     MiLookupDataTableEntry @ 0x1402136A0 (MiLookupDataTableEntry.c)
  *     RtlImageNtHeader @ 0x140214B30 (RtlImageNtHeader.c)
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExReleaseResourceLite @ 0x14023D410 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x14023D680 (ExAcquireResourceSharedLite.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseResourceLite @ 0x14023D4E0 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x14023D750 (ExAcquireResourceSharedLite.c)
  */
 
 __int64 __fastcall MmGetSectionRange(unsigned __int64 a1, unsigned __int64 *a2, unsigned int *a3)
@@ -16,9 +16,9 @@ __int64 __fastcall MmGetSectionRange(unsigned __int64 a1, unsigned __int64 *a2, 
   unsigned int v7; // ebx
   _QWORD *v8; // rax
   _QWORD *v9; // rbp
-  __int64 v10; // rcx
+  void *v10; // rcx
   unsigned __int64 v11; // rdi
-  __int64 v12; // rax
+  PIMAGE_NT_HEADERS v12; // rax
   int v13; // r9d
   unsigned int *v14; // rdx
   unsigned int v15; // r8d
@@ -33,13 +33,13 @@ __int64 __fastcall MmGetSectionRange(unsigned __int64 a1, unsigned __int64 *a2, 
   v9 = v8;
   if ( v8 )
   {
-    v10 = v8[6];
-    v11 = a1 - v10;
+    v10 = (void *)v8[6];
+    v11 = a1 - (_QWORD)v10;
     v12 = RtlImageNtHeader(v10);
     v13 = 0;
-    if ( *(_WORD *)(v12 + 6) )
+    if ( v12->FileHeader.NumberOfSections )
     {
-      v14 = (unsigned int *)(v12 + *(unsigned __int16 *)(v12 + 20) + 32LL);
+      v14 = (unsigned int *)((char *)&v12->OptionalHeader.SizeOfInitializedData + v12->FileHeader.SizeOfOptionalHeader);
       while ( 1 )
       {
         v15 = v14[2];
@@ -49,7 +49,7 @@ __int64 __fastcall MmGetSectionRange(unsigned __int64 a1, unsigned __int64 *a2, 
         if ( v11 >= v16 && v11 < v15 + (unsigned int)v16 )
           break;
         v14 += 10;
-        if ( ++v13 >= (unsigned int)*(unsigned __int16 *)(v12 + 6) )
+        if ( ++v13 >= (unsigned int)v12->FileHeader.NumberOfSections )
           goto LABEL_11;
       }
       v17 = v16 + v9[6];

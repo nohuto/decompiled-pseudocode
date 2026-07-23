@@ -1,13 +1,13 @@
 /*
- * XREFs of UpcaseUnicodeToUTF8NHelper @ 0x140347308
+ * XREFs of UpcaseUnicodeToUTF8NHelper @ 0x140325D78
  * Callers:
- *     RtlUpcaseUnicodeToOemN @ 0x1408AEA00 (RtlUpcaseUnicodeToOemN.c)
- *     RtlUpcaseUnicodeToMultiByteN @ 0x1408AF4F0 (RtlUpcaseUnicodeToMultiByteN.c)
- *     RtlUpcaseUnicodeStringToCountedOemString @ 0x1408B0260 (RtlUpcaseUnicodeStringToCountedOemString.c)
+ *     RtlUpcaseUnicodeToOemN @ 0x140904C60 (RtlUpcaseUnicodeToOemN.c)
+ *     RtlUpcaseUnicodeToMultiByteN @ 0x140905750 (RtlUpcaseUnicodeToMultiByteN.c)
+ *     RtlUpcaseUnicodeStringToCountedOemString @ 0x1409064C0 (RtlUpcaseUnicodeStringToCountedOemString.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x140347D10 (PsGetCurrentServerSiloGlobals.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     RtlUnicodeToUTF8N @ 0x1408AF980 (RtlUnicodeToUTF8N.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140326710 (PsGetCurrentServerSiloGlobals.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     RtlUnicodeToUTF8N @ 0x140905BE0 (RtlUnicodeToUTF8N.c)
  */
 
 __int64 __fastcall UpcaseUnicodeToUTF8NHelper(

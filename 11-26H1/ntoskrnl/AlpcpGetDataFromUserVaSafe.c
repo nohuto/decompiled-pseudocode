@@ -1,14 +1,14 @@
 /*
- * XREFs of AlpcpGetDataFromUserVaSafe @ 0x1408E6480
+ * XREFs of AlpcpGetDataFromUserVaSafe @ 0x1408ECA40
  * Callers:
- *     AlpcpGetDataFromMessage @ 0x1408E63B4 (AlpcpGetDataFromMessage.c)
- *     AlpcpProcessSynchronousRequest @ 0x1408F7730 (AlpcpProcessSynchronousRequest.c)
+ *     AlpcpGetDataFromMessage @ 0x1408EC974 (AlpcpGetDataFromMessage.c)
+ *     AlpcpProcessSynchronousRequest @ 0x1409276C0 (AlpcpProcessSynchronousRequest.c)
  * Callees:
- *     RtlCopyFromUser @ 0x140533E38 (RtlCopyFromUser.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     RtlCopyToUser @ 0x14077F284 (RtlCopyToUser.c)
- *     RtlCopyToUserFromUser @ 0x14077F2E8 (RtlCopyToUserFromUser.c)
+ *     RtlCopyFromUser @ 0x1405362B8 (RtlCopyFromUser.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     RtlCopyToUser @ 0x140781D84 (RtlCopyToUser.c)
+ *     RtlCopyToUserFromUser @ 0x140781DE8 (RtlCopyToUserFromUser.c)
  */
 
 __int64 (*__fastcall AlpcpGetDataFromUserVaSafe(__int64 a1, void *a2, char a3))(void)

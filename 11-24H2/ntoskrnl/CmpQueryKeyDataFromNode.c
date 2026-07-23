@@ -1,26 +1,26 @@
 /*
- * XREFs of CmpQueryKeyDataFromNode @ 0x14087CFA0
+ * XREFs of CmpQueryKeyDataFromNode @ 0x140880E50
  * Callers:
- *     CmQueryKey @ 0x140877890 (CmQueryKey.c)
- *     CmpQueryKeyData @ 0x1408784C0 (CmpQueryKeyData.c)
- *     CmEnumerateKey @ 0x14087C950 (CmEnumerateKey.c)
- *     CmpEnumerateLayeredKey @ 0x140916054 (CmpEnumerateLayeredKey.c)
+ *     CmQueryKey @ 0x14087BBC0 (CmQueryKey.c)
+ *     CmpQueryKeyData @ 0x14087C7F0 (CmpQueryKeyData.c)
+ *     CmEnumerateKey @ 0x140880800 (CmEnumerateKey.c)
+ *     CmpEnumerateLayeredKey @ 0x140909AC4 (CmpEnumerateLayeredKey.c)
  * Callees:
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     CmpIsKeyDeleted @ 0x14086E210 (CmpIsKeyDeleted.c)
- *     HvpGetCellFlat @ 0x140874470 (HvpGetCellFlat.c)
- *     HvpGetCellPaged @ 0x1408744C0 (HvpGetCellPaged.c)
- *     HvpGetCellContextInitialize @ 0x140875730 (HvpGetCellContextInitialize.c)
- *     HvpReleaseCellPaged @ 0x140875760 (HvpReleaseCellPaged.c)
- *     CmEqualTrans @ 0x140879280 (CmEqualTrans.c)
- *     CmGetVisibleValueCount @ 0x14087B978 (CmGetVisibleValueCount.c)
- *     CmGetVisibleSubkeyCount @ 0x14087B9C0 (CmGetVisibleSubkeyCount.c)
- *     CmpPopulateKeyFullInformation @ 0x14087BA54 (CmpPopulateKeyFullInformation.c)
- *     CmGetVisibleMaxValueNameLenAndDataLen @ 0x14087C240 (CmGetVisibleMaxValueNameLenAndDataLen.c)
- *     CmGetKeyLastWriteTime @ 0x14087E6E0 (CmGetKeyLastWriteTime.c)
- *     CmpCopyCompressedName @ 0x14087E8A0 (CmpCopyCompressedName.c)
- *     HvpReleaseCellFlat @ 0x140884BB0 (HvpReleaseCellFlat.c)
- *     CmListGetNextElement @ 0x140BB9940 (CmListGetNextElement.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     CmpIsKeyDeleted @ 0x140872540 (CmpIsKeyDeleted.c)
+ *     HvpGetCellFlat @ 0x1408787A0 (HvpGetCellFlat.c)
+ *     HvpGetCellPaged @ 0x1408787F0 (HvpGetCellPaged.c)
+ *     HvpGetCellContextInitialize @ 0x140879A60 (HvpGetCellContextInitialize.c)
+ *     HvpReleaseCellPaged @ 0x140879A90 (HvpReleaseCellPaged.c)
+ *     CmEqualTrans @ 0x14087D5B0 (CmEqualTrans.c)
+ *     CmGetVisibleValueCount @ 0x14087F828 (CmGetVisibleValueCount.c)
+ *     CmGetVisibleSubkeyCount @ 0x14087F870 (CmGetVisibleSubkeyCount.c)
+ *     CmpPopulateKeyFullInformation @ 0x14087F904 (CmpPopulateKeyFullInformation.c)
+ *     CmGetVisibleMaxValueNameLenAndDataLen @ 0x1408800F0 (CmGetVisibleMaxValueNameLenAndDataLen.c)
+ *     CmGetKeyLastWriteTime @ 0x140882590 (CmGetKeyLastWriteTime.c)
+ *     CmpCopyCompressedName @ 0x140882750 (CmpCopyCompressedName.c)
+ *     HvpReleaseCellFlat @ 0x140888A60 (HvpReleaseCellFlat.c)
+ *     CmListGetNextElement @ 0x140BBB940 (CmListGetNextElement.c)
  */
 
 __int64 __fastcall CmpQueryKeyDataFromNode(

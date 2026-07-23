@@ -1,9 +1,9 @@
 /*
- * XREFs of IoSetShareAccessEx @ 0x1409A1A00
+ * XREFs of IoSetShareAccessEx @ 0x1408AEDB0
  * Callers:
  *     <none>
  * Callees:
- *     IoSetLinkShareAccess @ 0x1409A2900 (IoSetLinkShareAccess.c)
+ *     IoSetLinkShareAccess @ 0x1408ADB90 (IoSetLinkShareAccess.c)
  */
 
 void __stdcall IoSetShareAccessEx(
@@ -13,11 +13,11 @@ void __stdcall IoSetShareAccessEx(
         PSHARE_ACCESS ShareAccess,
         PBOOLEAN WritePermission)
 {
-  unsigned int v5; // eax
+  int v5; // eax
 
   if ( !WritePermission || *WritePermission )
     v5 = 0;
   else
     v5 = 0x80000000;
-  IoSetLinkShareAccess(DesiredAccess, DesiredShareAccess, (_DWORD)FileObject, (_DWORD)ShareAccess, 0LL, v5);
+  IoSetLinkShareAccess(DesiredAccess, DesiredShareAccess, (__int64)FileObject, (__int64)ShareAccess, 0LL, v5);
 }

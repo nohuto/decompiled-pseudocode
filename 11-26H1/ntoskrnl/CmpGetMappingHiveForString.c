@@ -1,14 +1,14 @@
 /*
- * XREFs of CmpGetMappingHiveForString @ 0x1408D11E4
+ * XREFs of CmpGetMappingHiveForString @ 0x1408D77A4
  * Callers:
- *     CmpVirtualPathPresent @ 0x1407734E0 (CmpVirtualPathPresent.c)
- *     CmpGetVirtualStoreRoot @ 0x140859E6C (CmpGetVirtualStoreRoot.c)
- *     CmpVirtualBranchIsReplicated @ 0x1408B1674 (CmpVirtualBranchIsReplicated.c)
+ *     CmpVirtualPathPresent @ 0x1407764E0 (CmpVirtualPathPresent.c)
+ *     CmpGetVirtualStoreRoot @ 0x140860160 (CmpGetVirtualStoreRoot.c)
+ *     CmpVirtualBranchIsReplicated @ 0x1408B7C80 (CmpVirtualBranchIsReplicated.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x140278070 (ExAcquireFastMutex.c)
- *     KeReleaseGuardedMutex @ 0x140278D40 (KeReleaseGuardedMutex.c)
- *     CmpHashUnicodeComponent @ 0x1408D1470 (CmpHashUnicodeComponent.c)
- *     RtlUpcaseUnicodeChar @ 0x1408D5170 (RtlUpcaseUnicodeChar.c)
+ *     ExAcquireFastMutex @ 0x1402775E0 (ExAcquireFastMutex.c)
+ *     KeReleaseGuardedMutex @ 0x1402782B0 (KeReleaseGuardedMutex.c)
+ *     CmpHashUnicodeComponent @ 0x1408D7A30 (CmpHashUnicodeComponent.c)
+ *     RtlUpcaseUnicodeChar @ 0x1408DB730 (RtlUpcaseUnicodeChar.c)
  */
 
 __int64 __fastcall CmpGetMappingHiveForString(__int64 a1, _QWORD *a2)
@@ -40,11 +40,11 @@ __int64 __fastcall CmpGetMappingHiveForString(__int64 a1, _QWORD *a2)
   v4 = CmpHashUnicodeComponent(a1);
   ExAcquireFastMutex((PKGUARDED_MUTEX)&CmpKeyLockTracker.ApcStateFill[8]);
   if ( CmSIDMappingCacheHit >= 0
-    && CmSIDMappingCacheHit < *(int *)&WheapPfaLock.ApcStateFill[24]
-    && (v5 = 4LL * CmSIDMappingCacheHit, LODWORD((&WheapPfaLock.ApcState.Process->Header.WaitListHead.Blink)[v5]) == v4)
-    && (v6 = *(_WORD *)((char *)&WheapPfaLock.ApcState.Process->Header.Lock + v5 * 8), v6 == *(_WORD *)v2) )
+    && CmSIDMappingCacheHit < SHIDWORD(WheapPfaLock.Teb)
+    && (v5 = 4LL * CmSIDMappingCacheHit, LODWORD((&WheapPfaLock.Queue->WaitListHead.Blink)[v5]) == v4)
+    && (v6 = *(_WORD *)((char *)&WheapPfaLock.Queue->Lock + v5 * 8), v6 == *(_WORD *)v2) )
   {
-    v7 = (WCHAR *)(&WheapPfaLock.ApcState.Process->Header.WaitListHead.Flink)[v5];
+    v7 = (WCHAR *)(&WheapPfaLock.Queue->WaitListHead.Flink)[v5];
     v8 = *(WCHAR **)(v2 + 8);
     v9 = v6 >> 1;
     for ( i = *(_WORD *)v2 >> 1; v9 && i; --i )
@@ -78,25 +78,25 @@ LABEL_17:
       v2 = a1;
       goto LABEL_18;
     }
-    *a2 = *((_QWORD *)&WheapPfaLock.ApcState.Process->ProfileListHead.Flink + 4 * CmSIDMappingCacheHit);
+    *a2 = *((_QWORD *)&WheapPfaLock.Queue[1].Lock + 4 * CmSIDMappingCacheHit);
   }
   else
   {
 LABEL_18:
     for ( j = 0; ; ++j )
     {
-      if ( j >= *(_DWORD *)&WheapPfaLock.ApcStateFill[24] )
+      if ( j >= HIDWORD(WheapPfaLock.Teb) )
       {
         v3 = -1073741275;
         goto LABEL_31;
       }
       v14 = 4LL * j;
-      if ( LODWORD((&WheapPfaLock.ApcState.Process->Header.WaitListHead.Blink)[v14]) == v4 )
+      if ( LODWORD((&WheapPfaLock.Queue->WaitListHead.Blink)[v14]) == v4 )
       {
-        v15 = *(_WORD *)((char *)&WheapPfaLock.ApcState.Process->Header.Lock + v14 * 8);
+        v15 = *(_WORD *)((char *)&WheapPfaLock.Queue->Lock + v14 * 8);
         if ( v15 == *(_WORD *)v2 )
         {
-          v16 = (WCHAR *)(&WheapPfaLock.ApcState.Process->Header.WaitListHead.Flink)[v14];
+          v16 = (WCHAR *)(&WheapPfaLock.Queue->WaitListHead.Flink)[v14];
           v17 = *(WCHAR **)(v2 + 8);
           v18 = v15 >> 1;
           for ( k = *(_WORD *)v2 >> 1; v18 && k; --k )
@@ -134,7 +134,7 @@ LABEL_33:
       v2 = a1;
     }
     CmSIDMappingCacheHit = j;
-    *a2 = *((_QWORD *)&WheapPfaLock.ApcState.Process->ProfileListHead.Flink + 4 * j);
+    *a2 = *((_QWORD *)&WheapPfaLock.Queue[1].Lock + 4 * j);
   }
 LABEL_31:
   KeReleaseGuardedMutex((PKGUARDED_MUTEX)&CmpKeyLockTracker.ApcStateFill[8]);

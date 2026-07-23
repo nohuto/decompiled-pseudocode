@@ -1,13 +1,13 @@
 /*
- * XREFs of CmpFreeKeyControlBlock @ 0x140A591A0
+ * XREFs of CmpFreeKeyControlBlock @ 0x140A66720
  * Callers:
- *     CmpCloneToUnbackedKcb @ 0x140859194 (CmpCloneToUnbackedKcb.c)
- *     CmpCreateKeyControlBlock @ 0x1408C4070 (CmpCreateKeyControlBlock.c)
+ *     CmpCloneToUnbackedKcb @ 0x14085F524 (CmpCloneToUnbackedKcb.c)
+ *     CmpCreateKeyControlBlock @ 0x1408CA640 (CmpCreateKeyControlBlock.c)
  * Callees:
- *     ExFreeToLookasideListEx @ 0x14039E0D0 (ExFreeToLookasideListEx.c)
- *     CmpFreeTransientPoolWithTag @ 0x140477290 (CmpFreeTransientPoolWithTag.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExFreeToLookasideListEx @ 0x14039FE30 (ExFreeToLookasideListEx.c)
+ *     CmpFreeTransientPoolWithTag @ 0x140470A10 (CmpFreeTransientPoolWithTag.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall CmpFreeKeyControlBlock(PVOID *Entry)
@@ -30,6 +30,6 @@ void __fastcall CmpFreeKeyControlBlock(PVOID *Entry)
     CmpFreeTransientPoolWithTag((void *)v3, 0x624E4D43u);
   *((_DWORD *)Entry + 2) |= 0x10000u;
   Entry[4] = 0LL;
-  ExFreeToLookasideListEx(&CmpKcbLookaside, Entry);
+  ExFreeToLookasideListEx((PLOOKASIDE_LIST_EX)&CmpKcbLookaside, Entry);
   _InterlockedDecrement64((volatile signed __int64 *)&KiSystemServiceTraceCallbackLock.WpsFeedback);
 }

@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwTraceProcessSetInPrivateMode @ 0x140524DF0
+ * XREFs of EtwTraceProcessSetInPrivateMode @ 0x140527460
  * Callers:
- *     NtSetInformationProcess @ 0x140B72B10 (NtSetInformationProcess.c)
+ *     NtSetInformationProcess @ 0x140B781E0 (NtSetInformationProcess.c)
  * Callees:
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall EtwTraceProcessSetInPrivateMode(__int64 a1)
@@ -28,5 +28,5 @@ NTSTATUS __fastcall EtwTraceProcessSetInPrivateMode(__int64 a1)
   UserData.Size = v2;
   UserData.Reserved = 0;
   v7 = 4LL;
-  return EtwWriteEx(EtwpPsProvRegHandle, &ProcessInPrivateSet, 0LL, 0, 0LL, 0LL, 2u, &UserData);
+  return EtwWriteEx((REGHANDLE)stru_140F03830.Affinity, &ProcessInPrivateSet, 0LL, 0, 0LL, 0LL, 2u, &UserData);
 }

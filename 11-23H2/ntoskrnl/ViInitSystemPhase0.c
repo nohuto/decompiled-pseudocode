@@ -3,14 +3,14 @@
  * Callers:
  *     VerifierInitSystem @ 0x140B53244 (VerifierInitSystem.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x1402C3270 (KeQueryPerformanceCounter.c)
- *     KiInitializeMutant @ 0x14033ADEC (KiInitializeMutant.c)
- *     strstr @ 0x1403D91D0 (strstr.c)
- *     RtlEqualUnicodeString @ 0x1406DA2F0 (RtlEqualUnicodeString.c)
- *     ViSetDifPluginMode @ 0x140ABD5A8 (ViSetDifPluginMode.c)
- *     VfInitSystemNoRebootNeeded @ 0x140AC2D18 (VfInitSystemNoRebootNeeded.c)
- *     VfDisableCodeIntegrityBreaks @ 0x140AC39EC (VfDisableCodeIntegrityBreaks.c)
- *     VfSetVerifierRunningMode @ 0x140ADAD6C (VfSetVerifierRunningMode.c)
+ *     KeQueryPerformanceCounter @ 0x1402C3500 (KeQueryPerformanceCounter.c)
+ *     KiInitializeMutant @ 0x14033B07C (KiInitializeMutant.c)
+ *     strstr @ 0x1403D93B0 (strstr.c)
+ *     RtlEqualUnicodeString @ 0x1406DA320 (RtlEqualUnicodeString.c)
+ *     ViSetDifPluginMode @ 0x140ABD598 (ViSetDifPluginMode.c)
+ *     VfInitSystemNoRebootNeeded @ 0x140AC2D08 (VfInitSystemNoRebootNeeded.c)
+ *     VfDisableCodeIntegrityBreaks @ 0x140AC39DC (VfDisableCodeIntegrityBreaks.c)
+ *     VfSetVerifierRunningMode @ 0x140ADAD5C (VfSetVerifierRunningMode.c)
  *     ViInitPickRandomTargets @ 0x140B69C84 (ViInitPickRandomTargets.c)
  *     VfTriageSystem @ 0x140B69CCC (VfTriageSystem.c)
  *     VfInitSetVerifyDriverTargets @ 0x140B96CA0 (VfInitSetVerifyDriverTargets.c)
@@ -43,7 +43,7 @@ void __fastcall ViInitSystemPhase0(__int64 a1)
   v3 = *(_QWORD *)(v1 + 280);
   v4 = *(_DWORD *)(v1 + 132) & 2;
   LOBYTE(VfExtendedParameters) = 1;
-  dword_140C710A8 = 32;
+  dword_140C71098 = 32;
   v5 = VfOptionFlags & 0x1FFF;
   VfOptionFlags = v5;
   if ( (v5 & 4) != 0 || ViVerifyAllDrivers == 1 )
@@ -51,11 +51,11 @@ void __fastcall ViInitSystemPhase0(__int64 a1)
   if ( (v5 & 0x80u) != 0 )
     VfDisableCodeIntegrityBreaks();
   KiInitializeMutant((__int64)&ViDriversLoadLock, 0, 1, 0);
-  qword_140C37398 = (__int64)&VfSuspectDriversList;
+  qword_140C37378 = (__int64)&VfSuspectDriversList;
   VfSuspectDriversList = (__int64)&VfSuspectDriversList;
   qword_140C36E58 = (__int64)&VfExcludedDriversList;
   VfExcludedDriversList = (__int64)&VfExcludedDriversList;
-  qword_140C36ED8 = (__int64)&VfXdvExcludedDriversList;
+  qword_140C36E48 = (__int64)&VfXdvExcludedDriversList;
   VfXdvExcludedDriversList = (__int64)&VfXdvExcludedDriversList;
   if ( VfVerifyMode == -1 )
   {

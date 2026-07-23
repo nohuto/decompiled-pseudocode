@@ -1,17 +1,17 @@
 /*
- * XREFs of ObDereferenceDeviceMap @ 0x140460DF0
+ * XREFs of ObDereferenceDeviceMap @ 0x14045FCC0
  * Callers:
- *     PspProcessDelete @ 0x140460828 (PspProcessDelete.c)
- *     PspAssignPrimaryToken @ 0x14067EFDC (PspAssignPrimaryToken.c)
+ *     PspProcessDelete @ 0x14045F6F8 (PspProcessDelete.c)
+ *     PspAssignPrimaryToken @ 0x14067F0C0 (PspAssignPrimaryToken.c)
  * Callees:
- *     PsGetProcessServerSilo @ 0x1400136A0 (PsGetProcessServerSilo.c)
- *     KiLeaveGuardedRegionUnsafe @ 0x140013B70 (KiLeaveGuardedRegionUnsafe.c)
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     PsGetServerSiloGlobals @ 0x1400766B0 (PsGetServerSiloGlobals.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfReleasePushLock @ 0x1400C8620 (ExfReleasePushLock.c)
- *     ObfDereferenceDeviceMap @ 0x140422458 (ObfDereferenceDeviceMap.c)
+ *     PsGetProcessServerSilo @ 0x140013220 (PsGetProcessServerSilo.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1400136F0 (KiLeaveGuardedRegionUnsafe.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     PsGetServerSiloGlobals @ 0x140076730 (PsGetServerSiloGlobals.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfReleasePushLock @ 0x1400C64C0 (ExfReleasePushLock.c)
+ *     ObfDereferenceDeviceMap @ 0x140421318 (ObfDereferenceDeviceMap.c)
  */
 
 void __fastcall ObDereferenceDeviceMap(__int64 a1)

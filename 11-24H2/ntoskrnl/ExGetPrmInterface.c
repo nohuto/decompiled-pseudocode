@@ -1,9 +1,9 @@
 /*
- * XREFs of ExGetPrmInterface @ 0x1407BF230
+ * XREFs of ExGetPrmInterface @ 0x1407BF680
  * Callers:
- *     WheaInitialize @ 0x140C440FC (WheaInitialize.c)
+ *     WheaInitialize @ 0x140C4624C (WheaInitialize.c)
  * Callees:
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall ExGetPrmInterface(int a1, __int64 a2)

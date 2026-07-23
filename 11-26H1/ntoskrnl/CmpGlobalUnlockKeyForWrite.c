@@ -1,14 +1,14 @@
 /*
- * XREFs of CmpGlobalUnlockKeyForWrite @ 0x14085BA00
+ * XREFs of CmpGlobalUnlockKeyForWrite @ 0x140861CF4
  * Callers:
- *     CmpFreeSiloKeyLockEntry @ 0x14085B9B8 (CmpFreeSiloKeyLockEntry.c)
+ *     CmpFreeSiloKeyLockEntry @ 0x140861CAC (CmpFreeSiloKeyLockEntry.c)
  * Callees:
- *     CmpFreeTransientPoolWithTag @ 0x140477290 (CmpFreeTransientPoolWithTag.c)
- *     CmpLockGlobalKeyLockTrackerExclusive @ 0x14085BAF8 (CmpLockGlobalKeyLockTrackerExclusive.c)
- *     CmpUnlockGlobalKeyLockTracker @ 0x14085BB70 (CmpUnlockGlobalKeyLockTracker.c)
- *     CmpDereferenceKeyControlBlock @ 0x1408C8770 (CmpDereferenceKeyControlBlock.c)
- *     CmpLockKcbExclusive @ 0x1408CEB50 (CmpLockKcbExclusive.c)
- *     CmpUnlockKcb @ 0x140C582B0 (CmpUnlockKcb.c)
+ *     CmpFreeTransientPoolWithTag @ 0x140470A10 (CmpFreeTransientPoolWithTag.c)
+ *     CmpLockGlobalKeyLockTrackerExclusive @ 0x140861DEC (CmpLockGlobalKeyLockTrackerExclusive.c)
+ *     CmpUnlockGlobalKeyLockTracker @ 0x140861E64 (CmpUnlockGlobalKeyLockTracker.c)
+ *     CmpDereferenceKeyControlBlock @ 0x1408CED20 (CmpDereferenceKeyControlBlock.c)
+ *     CmpLockKcbExclusive @ 0x1408D5100 (CmpLockKcbExclusive.c)
+ *     CmpUnlockKcb @ 0x140C5E2B0 (CmpUnlockKcb.c)
  */
 
 void __fastcall CmpGlobalUnlockKeyForWrite(ULONG_PTR BugCheckParameter2, _QWORD *a2)

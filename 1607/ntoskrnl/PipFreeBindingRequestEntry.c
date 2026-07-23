@@ -1,11 +1,11 @@
 /*
- * XREFs of PipFreeBindingRequestEntry @ 0x14062B300
+ * XREFs of PipFreeBindingRequestEntry @ 0x14062B3B4
  * Callers:
- *     PipFreeDependencyEdge @ 0x1401CD294 (PipFreeDependencyEdge.c)
- *     PipAddRequestToEdge @ 0x14062AD74 (PipAddRequestToEdge.c)
+ *     PipFreeDependencyEdge @ 0x1401CD0E0 (PipFreeDependencyEdge.c)
+ *     PipAddRequestToEdge @ 0x14062AE28 (PipAddRequestToEdge.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     RtlFreeAnsiString @ 0x140458CF0 (RtlFreeAnsiString.c)
+ *     RtlFreeAnsiString @ 0x140457BC0 (RtlFreeAnsiString.c)
  */
 
 void __fastcall PipFreeBindingRequestEntry(__int64 a1)

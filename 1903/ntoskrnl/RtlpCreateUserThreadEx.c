@@ -9,67 +9,94 @@
  *     ZwCreateThreadEx @ 0x1401C1870 (ZwCreateThreadEx.c)
  */
 
-__int64 __fastcall RtlpCreateUserThreadEx(
-        __int64 a1,
-        __int64 a2,
+NTSTATUS __fastcall RtlpCreateUserThreadEx(
+        HANDLE ProcessHandle,
+        void *a2,
         int a3,
-        __int64 a4,
-        __int64 a5,
-        __int64 a6,
-        __int64 a7,
-        __int64 a8,
-        __int64 a9,
+        unsigned int a4,
+        SIZE_T MaximumStackSize,
+        SIZE_T StackSize,
+        int a7,
+        PUSER_THREAD_START_ROUTINE StartRoutine,
+        PVOID Argument,
         HANDLE *a10,
         _OWORD *a11)
 {
-  __int64 result; // rax
-  HANDLE Handle; // [rsp+60h] [rbp-A0h] BYREF
-  __int128 v13; // [rsp+68h] [rbp-98h] BYREF
-  _DWORD v14[2]; // [rsp+78h] [rbp-88h] BYREF
-  __int64 v15; // [rsp+80h] [rbp-80h]
-  __int64 v16; // [rsp+88h] [rbp-78h]
-  int v17; // [rsp+90h] [rbp-70h]
-  int v18; // [rsp+94h] [rbp-6Ch]
-  __int64 v19; // [rsp+98h] [rbp-68h]
-  __int64 v20; // [rsp+A0h] [rbp-60h]
-  __int64 v21; // [rsp+B0h] [rbp-50h]
-  __int64 v22; // [rsp+B8h] [rbp-48h]
-  __int64 v23; // [rsp+C0h] [rbp-40h]
-  __int128 *v24; // [rsp+C8h] [rbp-38h]
-  __int64 v25; // [rsp+D0h] [rbp-30h]
-  __int64 v26; // [rsp+D8h] [rbp-28h]
-  __int128 v27; // [rsp+E0h] [rbp-20h]
-  __int64 v28; // [rsp+F0h] [rbp-10h]
+  SIZE_T ZeroBits; // rsi
+  char v13; // r9
+  int v14; // edx
+  int v15; // ecx
+  int v16; // edx
+  char v17; // al
+  int v18; // r8d
+  ULONG CreateFlags; // ecx
+  NTSTATUS result; // eax
+  HANDLE ThreadHandle; // [rsp+60h] [rbp-A0h] BYREF
+  __int128 v22; // [rsp+68h] [rbp-98h] BYREF
+  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+78h] [rbp-88h] BYREF
+  _PS_ATTRIBUTE_LIST AttributeList; // [rsp+B0h] [rbp-50h] BYREF
+  __int64 v25; // [rsp+D8h] [rbp-28h]
+  __int128 v26; // [rsp+E0h] [rbp-20h]
+  __int64 v27; // [rsp+F0h] [rbp-10h]
 
-  v26 = 0LL;
-  v28 = 0LL;
-  v14[1] = 0;
-  v18 = 0;
-  v27 = 0LL;
-  v13 = 0uLL;
-  if ( (a3 & 0xFFFFFF88) != 0 )
-    return 3221225485LL;
-  v14[0] = 48;
-  v17 = 512;
-  v19 = a2;
-  v22 = 65539LL;
-  v23 = 16LL;
-  v21 = 40LL;
-  v24 = &v13;
-  v15 = 0LL;
-  v16 = 0LL;
-  v20 = 0LL;
   v25 = 0LL;
-  result = ZwCreateThreadEx((__int64)&Handle, 0x1FFFFFLL, (__int64)v14);
-  if ( (int)result >= 0 )
+  v27 = 0LL;
+  *(&ObjectAttributes.Length + 1) = 0;
+  *(&ObjectAttributes.Attributes + 1) = 0;
+  ZeroBits = a4;
+  v13 = a3;
+  v26 = 0LL;
+  v22 = 0uLL;
+  if ( (a3 & 0xFFFFFF88) != 0 )
+    return -1073741811;
+  ObjectAttributes.Length = 48;
+  ObjectAttributes.Attributes = 512;
+  ObjectAttributes.SecurityDescriptor = a2;
+  AttributeList.Attributes[0].Attribute = 65539LL;
+  v14 = a3 & 1 | 2;
+  AttributeList.Attributes[0].Size = 16LL;
+  AttributeList.TotalLength = 40LL;
+  if ( (a3 & 2) == 0 )
+    v14 = a3 & 1;
+  v15 = v14 | 4;
+  if ( (a3 & 4) == 0 )
+    v15 = v14;
+  v16 = v15 | 0x10;
+  v17 = a3;
+  if ( (a3 & 0x10) == 0 )
+    v16 = v15;
+  v18 = v16 | 0x20;
+  if ( (v17 & 0x20) == 0 )
+    v18 = v16;
+  AttributeList.Attributes[0].Value = (ULONG_PTR)&v22;
+  ObjectAttributes.RootDirectory = 0LL;
+  ObjectAttributes.ObjectName = 0LL;
+  ObjectAttributes.SecurityQualityOfService = 0LL;
+  CreateFlags = v18 | 0x40;
+  AttributeList.Attributes[0].ReturnLength = 0LL;
+  if ( (v13 & 0x40) == 0 )
+    CreateFlags = v18;
+  result = ZwCreateThreadEx(
+             &ThreadHandle,
+             0x1FFFFFu,
+             &ObjectAttributes,
+             ProcessHandle,
+             StartRoutine,
+             Argument,
+             CreateFlags,
+             ZeroBits,
+             StackSize,
+             MaximumStackSize,
+             &AttributeList);
+  if ( result >= 0 )
   {
     if ( a10 )
-      *a10 = Handle;
+      *a10 = ThreadHandle;
     else
-      ZwClose(Handle);
+      ZwClose(ThreadHandle);
     if ( a11 )
-      *a11 = v13;
-    return 0LL;
+      *a11 = v22;
+    return 0;
   }
   return result;
 }

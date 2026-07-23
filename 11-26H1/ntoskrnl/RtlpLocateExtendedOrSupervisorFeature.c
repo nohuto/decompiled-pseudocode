@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpLocateExtendedOrSupervisorFeature @ 0x1403D4CB0
+ * XREFs of RtlpLocateExtendedOrSupervisorFeature @ 0x1403D7C80
  * Callers:
- *     RtlXSaveS @ 0x1403D45AC (RtlXSaveS.c)
- *     KeCanonicalizeXStateUserCetPl3Ssp @ 0x1403D4640 (KeCanonicalizeXStateUserCetPl3Ssp.c)
- *     RtlLocateSupervisorFeature @ 0x1403D4690 (RtlLocateSupervisorFeature.c)
- *     KeContextFromKframes @ 0x1403D46B0 (KeContextFromKframes.c)
- *     KiInitializeContextThread @ 0x1403D4E4C (KiInitializeContextThread.c)
- *     KiGetSavedIptState @ 0x1405ECC80 (KiGetSavedIptState.c)
+ *     RtlXSaveS @ 0x1403D757C (RtlXSaveS.c)
+ *     KeCanonicalizeXStateUserCetPl3Ssp @ 0x1403D7610 (KeCanonicalizeXStateUserCetPl3Ssp.c)
+ *     RtlLocateSupervisorFeature @ 0x1403D7660 (RtlLocateSupervisorFeature.c)
+ *     KeContextFromKframes @ 0x1403D7680 (KeContextFromKframes.c)
+ *     KiInitializeContextThread @ 0x1403D7E1C (KiInitializeContextThread.c)
+ *     KiGetSavedIptState @ 0x1405EF5F0 (KiGetSavedIptState.c)
  * Callees:
  *     <none>
  */

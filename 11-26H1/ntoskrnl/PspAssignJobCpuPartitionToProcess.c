@@ -1,11 +1,11 @@
 /*
- * XREFs of PspAssignJobCpuPartitionToProcess @ 0x140B3D5A4
+ * XREFs of PspAssignJobCpuPartitionToProcess @ 0x140B3F674
  * Callers:
- *     PspImplicitAssignProcessToJob @ 0x140984FA8 (PspImplicitAssignProcessToJob.c)
- *     PspAssignProcessToJob @ 0x140AC5D48 (PspAssignProcessToJob.c)
+ *     PspImplicitAssignProcessToJob @ 0x140946FB8 (PspImplicitAssignProcessToJob.c)
+ *     PspAssignProcessToJob @ 0x140AC79B8 (PspAssignProcessToJob.c)
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x140278B30 (ObfReferenceObjectWithTag.c)
- *     PspAssignCpuPartitionsToProcess @ 0x1407F28E8 (PspAssignCpuPartitionsToProcess.c)
+ *     ObfReferenceObjectWithTag @ 0x1402780A0 (ObfReferenceObjectWithTag.c)
+ *     PspAssignCpuPartitionsToProcess @ 0x1407F8448 (PspAssignCpuPartitionsToProcess.c)
  */
 
 __int64 __fastcall PspAssignJobCpuPartitionToProcess(__int64 a1, __int64 *a2)

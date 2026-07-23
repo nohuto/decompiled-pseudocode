@@ -1,7 +1,7 @@
 /*
- * XREFs of MiInitializePfnListHead @ 0x1403AFC2C
+ * XREFs of MiInitializePfnListHead @ 0x1403AFD9C
  * Callers:
- *     MiInitializePartition @ 0x14079C65C (MiInitializePartition.c)
+ *     MiInitializePartition @ 0x14079C85C (MiInitializePartition.c)
  * Callees:
  *     <none>
  */

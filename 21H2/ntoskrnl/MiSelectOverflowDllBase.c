@@ -1,14 +1,14 @@
 /*
- * XREFs of MiSelectOverflowDllBase @ 0x1408D7CFC
+ * XREFs of MiSelectOverflowDllBase @ 0x1408D7E5C
  * Callers:
- *     MiSelectImageBase @ 0x140714524 (MiSelectImageBase.c)
+ *     MiSelectImageBase @ 0x1406C2B74 (MiSelectImageBase.c)
  * Callees:
- *     ExGenRandom @ 0x14022C890 (ExGenRandom.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
- *     MiImageCanUseHighOverflowArea @ 0x1408D7CD0 (MiImageCanUseHighOverflowArea.c)
+ *     ExGenRandom @ 0x1402D1110 (ExGenRandom.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x140355AE0 (KiLeaveGuardedRegionUnsafe.c)
+ *     MiImageCanUseHighOverflowArea @ 0x1408D7E30 (MiImageCanUseHighOverflowArea.c)
  */
 
 __int64 __fastcall MiSelectOverflowDllBase(__int64 a1, unsigned __int64 a2)
@@ -30,9 +30,9 @@ __int64 __fastcall MiSelectOverflowDllBase(__int64 a1, unsigned __int64 a2)
   v6 = CanUseHighOverflowArea ? 0x10000000LL : 0x4000000LL;
   if ( v3 <= v6 )
   {
-    v9 = &qword_140C4CB68;
+    v9 = &qword_140C4CBA8;
     if ( v4 == 3 )
-      v9 = (__int64 *)&unk_140C4CB98;
+      v9 = (__int64 *)&unk_140C4CBD8;
     v10 = *v9;
     v11 = v9 + 1;
     if ( CanUseHighOverflowArea )
@@ -43,16 +43,16 @@ __int64 __fastcall MiSelectOverflowDllBase(__int64 a1, unsigned __int64 a2)
     CurrentThread = KeGetCurrentThread();
     v13 = v6 + v10;
     --CurrentThread->SpecialApcDisable;
-    ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_140C4CB48, 0LL);
+    ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_140C4CB88, 0LL);
     v14 = v10;
     if ( v3 <= v13 - *v11 )
       v14 = *v11;
     *v11 = v14 + v3;
     if ( v14 + v3 == v13 )
       *v11 = v10;
-    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140C4CB48, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-      ExfTryToWakePushLock(&qword_140C4CB48);
-    KeAbPostRelease((ULONG_PTR)&qword_140C4CB48);
+    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140C4CB88, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+      ExfTryToWakePushLock(&qword_140C4CB88);
+    KeAbPostRelease((ULONG_PTR)&qword_140C4CB88);
     KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);
     return v14;
   }

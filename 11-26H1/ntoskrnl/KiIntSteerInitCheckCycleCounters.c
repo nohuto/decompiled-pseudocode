@@ -1,10 +1,10 @@
 /*
- * XREFs of KiIntSteerInitCheckCycleCounters @ 0x140CCBCF4
+ * XREFs of KiIntSteerInitCheckCycleCounters @ 0x140CD1E54
  * Callers:
- *     KiIntSteerDetermineSteeringEnabled @ 0x140CCBAF4 (KiIntSteerDetermineSteeringEnabled.c)
+ *     KiIntSteerDetermineSteeringEnabled @ 0x140CD1C54 (KiIntSteerDetermineSteeringEnabled.c)
  * Callees:
- *     KeGetPrcb @ 0x1402916D0 (KeGetPrcb.c)
- *     KeEnumerateNextProcessor @ 0x14043BC70 (KeEnumerateNextProcessor.c)
+ *     KeGetPrcb @ 0x140290C30 (KeGetPrcb.c)
+ *     KeEnumerateNextProcessor @ 0x14042E520 (KeEnumerateNextProcessor.c)
  */
 
 __int64 KiIntSteerInitCheckCycleCounters()
@@ -23,8 +23,8 @@ __int64 KiIntSteerInitCheckCycleCounters()
   v6 = 0;
   v4 = 0;
   v7 = 0;
-  v3[1] = *(unsigned __int16 **)((char *)&stru_140FC01F0.116 + 4);
-  v3[0] = (unsigned __int16 *)&stru_140FC01F0.WaitRegister.Flags;
+  v3[1] = *(unsigned __int16 **)((char *)&stru_140FC11F0.116 + 4);
+  v3[0] = (unsigned __int16 *)&stru_140FC11F0.WaitRegister.Flags;
   while ( 1 )
   {
     result = KeEnumerateNextProcessor(&v7, v3);

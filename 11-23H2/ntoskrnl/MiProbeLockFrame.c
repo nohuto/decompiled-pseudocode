@@ -1,20 +1,20 @@
 /*
- * XREFs of MiProbeLockFrame @ 0x140236500
+ * XREFs of MiProbeLockFrame @ 0x1402365D0
  * Callers:
- *     MiProbeAndLockPacket @ 0x140236260 (MiProbeAndLockPacket.c)
- *     MmProbeAndLockSelectedPages @ 0x1403D53C0 (MmProbeAndLockSelectedPages.c)
+ *     MiProbeAndLockPacket @ 0x140236330 (MiProbeAndLockPacket.c)
+ *     MmProbeAndLockSelectedPages @ 0x1403D55A0 (MmProbeAndLockSelectedPages.c)
  * Callees:
- *     MiLockPageTablePage @ 0x140237B00 (MiLockPageTablePage.c)
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     MiChargeCommit @ 0x1402764C0 (MiChargeCommit.c)
- *     MI_IS_PHYSICAL_ADDRESS @ 0x1402848B0 (MI_IS_PHYSICAL_ADDRESS.c)
- *     MiRemoveLockedPageChargeAndDecRef @ 0x1402DAF84 (MiRemoveLockedPageChargeAndDecRef.c)
- *     MiReturnCommit @ 0x1402DC250 (MiReturnCommit.c)
- *     MiChargePartitionResidentAvailable @ 0x1402E6278 (MiChargePartitionResidentAvailable.c)
- *     ExAcquireRundownProtectionCacheAware @ 0x140328F00 (ExAcquireRundownProtectionCacheAware.c)
- *     MiReferenceIoPages @ 0x140336500 (MiReferenceIoPages.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiLockNonPagedPoolPte @ 0x140641604 (MiLockNonPagedPoolPte.c)
+ *     MiLockPageTablePage @ 0x140237BD0 (MiLockPageTablePage.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     MiChargeCommit @ 0x140276750 (MiChargeCommit.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x140284B40 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     MiRemoveLockedPageChargeAndDecRef @ 0x1402DB214 (MiRemoveLockedPageChargeAndDecRef.c)
+ *     MiReturnCommit @ 0x1402DC4E0 (MiReturnCommit.c)
+ *     MiChargePartitionResidentAvailable @ 0x1402E6508 (MiChargePartitionResidentAvailable.c)
+ *     ExAcquireRundownProtectionCacheAware @ 0x140329190 (ExAcquireRundownProtectionCacheAware.c)
+ *     MiReferenceIoPages @ 0x140336790 (MiReferenceIoPages.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     MiLockNonPagedPoolPte @ 0x140641B54 (MiLockNonPagedPoolPte.c)
  */
 
 __int64 __fastcall MiProbeLockFrame(__int64 a1, int a2)

@@ -4,91 +4,91 @@
  *     RtlInsertElementGenericTableAvl @ 0x18005CF50 (RtlInsertElementGenericTableAvl.c)
  * Callees:
  *     RebalanceNode @ 0x18005D1F8 (RebalanceNode.c)
- *     _guard_dispatch_icall_nop @ 0x1800A1160 (_guard_dispatch_icall_nop.c)
- *     memmove @ 0x1800A44C0 (memmove.c)
+ *     _guard_dispatch_icall_nop @ 0x1800A1120 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1800A4480 (memmove.c)
  */
 
-_OWORD *__fastcall RtlInsertElementGenericTableFullAvl(
-        __int64 a1,
-        const void *a2,
-        unsigned int a3,
-        bool *a4,
-        __int64 *a5,
-        int a6)
+PVOID __cdecl RtlInsertElementGenericTableFullAvl(
+        PRTL_AVL_TABLE Table,
+        PVOID Buffer,
+        CLONG BufferSize,
+        PBOOLEAN NewElement,
+        PVOID NodeOrParent,
+        TABLE_SEARCH_RESULT SearchResult)
 {
   size_t v6; // r14
-  _OWORD *v10; // rax
-  _OWORD *v11; // rdi
-  _OWORD *v12; // r8
-  __int64 *v13; // rcx
-  __int64 *i; // rdx
+  __int64 v10; // rax
+  char *v11; // rdi
+  _BYTE *v12; // r8
+  _BYTE *v13; // rcx
+  _QWORD *i; // rdx
   char v15; // al
-  _OWORD *result; // rax
+  PVOID result; // rax
 
-  v6 = a3;
-  if ( a6 == 1 )
+  v6 = BufferSize;
+  if ( SearchResult == TableFoundNode )
   {
-    v11 = a5;
+    v11 = (char *)NodeOrParent;
 LABEL_15:
-    if ( a4 )
-      *a4 = a6 != 1;
-    *(_DWORD *)(a1 + 40) = 0;
-    result = v11 + 2;
-    *(_QWORD *)(a1 + 32) = 0LL;
+    if ( NewElement )
+      *NewElement = SearchResult != TableFoundNode;
+    Table->WhichOrderedElement = 0;
+    result = v11 + 32;
+    Table->OrderedPointer = 0LL;
     return result;
   }
-  if ( a3 + 32 >= a3 )
+  if ( BufferSize + 32 >= BufferSize )
   {
-    v10 = (_OWORD *)(*(__int64 (**)(void))(a1 + 80))();
-    v11 = v10;
+    v10 = ((__int64 (*)(void))Table->AllocateRoutine)();
+    v11 = (char *)v10;
     if ( v10 )
     {
-      *v10 = 0LL;
-      v10[1] = 0LL;
-      ++*(_DWORD *)(a1 + 44);
-      if ( a6 )
+      *(_OWORD *)v10 = 0LL;
+      *(_OWORD *)(v10 + 16) = 0LL;
+      ++Table->NumberGenericTableElements;
+      if ( SearchResult )
       {
-        v12 = v10;
-        v13 = a5;
-        if ( a6 == 2 )
-          a5[1] = (__int64)v10;
+        v12 = (_BYTE *)v10;
+        v13 = NodeOrParent;
+        if ( SearchResult == TableInsertAsLeft )
+          *((_QWORD *)NodeOrParent + 1) = v10;
         else
-          a5[2] = (__int64)v10;
-        *(_QWORD *)v10 = a5;
-        *(_BYTE *)(a1 + 24) = -1;
-        for ( i = *(__int64 **)v10; ; v13 = i )
+          *((_QWORD *)NodeOrParent + 2) = v10;
+        *(_QWORD *)v10 = NodeOrParent;
+        Table->BalancedRoot.Balance = -1;
+        for ( i = *(_QWORD **)v10; ; v13 = i )
         {
           v15 = -1;
-          if ( (_OWORD *)i[1] != v12 )
+          if ( (_BYTE *)i[1] != v12 )
             v15 = 1;
-          if ( *((_BYTE *)v13 + 24) )
+          if ( v13[24] )
             break;
-          i = (__int64 *)*v13;
+          i = *(_QWORD **)v13;
           v12 = v13;
-          *((_BYTE *)v13 + 24) = v15;
+          v13[24] = v15;
         }
-        if ( *((_BYTE *)v13 + 24) == v15 )
+        if ( v13[24] == v15 )
         {
           RebalanceNode(v13);
         }
         else
         {
-          *((_BYTE *)v13 + 24) = 0;
-          if ( !*(_BYTE *)(a1 + 24) )
-            ++*(_DWORD *)(a1 + 48);
+          v13[24] = 0;
+          if ( !Table->BalancedRoot.Balance )
+            ++Table->DepthOfTree;
         }
       }
       else
       {
-        *(_QWORD *)(a1 + 16) = v10;
-        *(_QWORD *)v10 = a1;
-        *(_DWORD *)(a1 + 48) = 1;
+        Table->BalancedRoot.RightChild = (_RTL_BALANCED_LINKS *)v10;
+        *(_QWORD *)v10 = Table;
+        Table->DepthOfTree = 1;
       }
-      memmove(v11 + 2, a2, v6);
+      memmove(v11 + 32, Buffer, v6);
       goto LABEL_15;
     }
   }
-  if ( a4 )
-    *a4 = 0;
+  if ( NewElement )
+    *NewElement = 0;
   return 0LL;
 }

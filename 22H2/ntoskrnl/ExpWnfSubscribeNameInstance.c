@@ -67,7 +67,7 @@ __int64 __fastcall ExpWnfSubscribeNameInstance(
   v36 = 0;
   if ( a7 == 1 )
   {
-    v15 = KeAbPreAcquire(v11 + 80, 0LL, 0LL);
+    v15 = KeAbPreAcquire(v11 + 80, 0LL, 0);
     if ( _InterlockedCompareExchange64((volatile signed __int64 *)(v11 + 80), 17LL, 0LL) )
       ExfAcquirePushLockSharedEx((unsigned __int64 *)(v11 + 80), v15, v11 + 80);
     if ( v15 )
@@ -109,14 +109,14 @@ __int64 __fastcall ExpWnfSubscribeNameInstance(
       *a9 = v18;
   }
   v20 = (unsigned __int64 *)(v38 + 80);
-  v21 = KeAbPreAcquire(v38 + 80, 0LL, 0LL);
+  v21 = KeAbPreAcquire(v38 + 80, 0LL, 0);
   v22 = v21;
   if ( _interlockedbittestandset64((volatile signed __int32 *)v20, 0LL) )
     ExfAcquirePushLockExclusiveEx(v20, v21, (ULONG_PTR)v20);
   if ( v22 )
     *(_BYTE *)(v22 + 26) |= 1u;
   v23 = (volatile signed __int64 *)(a1 + 112);
-  v24 = KeAbPreAcquire(a1 + 112, 0LL, 0LL);
+  v24 = KeAbPreAcquire(a1 + 112, 0LL, 0);
   v25 = _interlockedbittestandset64((volatile signed __int32 *)(a1 + 112), 0LL);
   v39 = v24;
   if ( v25 )

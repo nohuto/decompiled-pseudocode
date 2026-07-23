@@ -1,26 +1,26 @@
 /*
- * XREFs of PsQueryStatisticsProcess @ 0x1408EC910
+ * XREFs of PsQueryStatisticsProcess @ 0x14085E140
  * Callers:
- *     PspRemoveProcessFromJobChain @ 0x1408A9078 (PspRemoveProcessFromJobChain.c)
- *     PspEnforceLimitsProcessCallback @ 0x1408EC5F0 (PspEnforceLimitsProcessCallback.c)
- *     ExpCopyProcessInfo @ 0x1408EC6F4 (ExpCopyProcessInfo.c)
- *     PspQueryProcessAccountingInformationCallback @ 0x1408ED3B0 (PspQueryProcessAccountingInformationCallback.c)
- *     EtwTraceAppStateChange @ 0x14094C00C (EtwTraceAppStateChange.c)
- *     EtwpPsProvTraceProcess @ 0x14094D000 (EtwpPsProvTraceProcess.c)
- *     NtQueryInformationProcess @ 0x1409AB830 (NtQueryInformationProcess.c)
+ *     PspEnforceLimitsProcessCallback @ 0x14085DE20 (PspEnforceLimitsProcessCallback.c)
+ *     ExpCopyProcessInfo @ 0x14085DF24 (ExpCopyProcessInfo.c)
+ *     PspQueryProcessAccountingInformationCallback @ 0x14085EBE0 (PspQueryProcessAccountingInformationCallback.c)
+ *     EtwTraceAppStateChange @ 0x1408F057C (EtwTraceAppStateChange.c)
+ *     EtwpPsProvTraceProcess @ 0x1408F1570 (EtwpPsProvTraceProcess.c)
+ *     PspRemoveProcessFromJobChain @ 0x1408FF2D8 (PspRemoveProcessFromJobChain.c)
+ *     NtQueryInformationProcess @ 0x140995530 (NtQueryInformationProcess.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x1402595A0 (KeLeaveCriticalRegionThread.c)
- *     ExfReleasePushLockShared @ 0x14025DE00 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockSharedEx @ 0x14034050C (ExfAcquirePushLockSharedEx.c)
- *     KeQueryValuesThread @ 0x1403E27B0 (KeQueryValuesThread.c)
+ *     KeLeaveCriticalRegionThread @ 0x140289BB0 (KeLeaveCriticalRegionThread.c)
+ *     ExfReleasePushLockShared @ 0x14028E410 (ExfReleasePushLockShared.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockSharedEx @ 0x14031F9EC (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     KeQueryValuesThread @ 0x1403CAE20 (KeQueryValuesThread.c)
  */
 
 __int64 __fastcall PsQueryStatisticsProcess(_QWORD *a1, _QWORD *a2)
 {
   signed __int64 *v2; // rsi
-  _QWORD *v5; // rdi
+  char *v5; // rdi
   __int64 v6; // r15
   __int64 v7; // r12
   __int64 v8; // r13
@@ -41,11 +41,11 @@ __int64 __fastcall PsQueryStatisticsProcess(_QWORD *a1, _QWORD *a2)
   --CurrentThread->KernelApcDisable;
   v17 = 0LL;
   v18 = 0LL;
-  v5 = KeAbPreAcquire((__int64)(a1 + 188), 0LL);
+  v5 = (char *)KeAbPreAcquire((__int64)(a1 + 188), 0LL);
   if ( _InterlockedCompareExchange64(v2, 17LL, 0LL) )
     ExfAcquirePushLockSharedEx(v2, 0, v5, (__int64)v2);
   if ( v5 )
-    *((_BYTE *)v5 + 10) = 1;
+    v5[10] = 1;
   v6 = a1[39];
   v7 = a1[40];
   v8 = a1[41];
@@ -92,8 +92,8 @@ __int64 __fastcall PsQueryStatisticsProcess(_QWORD *a1, _QWORD *a2)
     ExfReleasePushLockShared(v2);
   KeAbPostRelease((ULONG_PTR)v2);
   KeLeaveCriticalRegionThread();
-  v13 = (unsigned int)KeMaximumIncrement;
-  *a2 = v6 * (unsigned int)KeMaximumIncrement;
+  v13 = KeMaximumIncrement;
+  *a2 = v6 * KeMaximumIncrement;
   a2[1] = v7 * (unsigned int)v13;
   a2[2] = v8 * (unsigned int)v13;
   result = v9 * (unsigned int)v13;

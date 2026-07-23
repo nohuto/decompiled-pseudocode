@@ -1,9 +1,9 @@
 /*
- * XREFs of pow @ 0x18012B2F0
+ * XREFs of pow @ 0x18012B060
  * Callers:
  *     <none>
  * Callees:
- *     _pow_special @ 0x180131890 (_pow_special.c)
+ *     _pow_special @ 0x180131600 (_pow_special.c)
  */
 
 // local variable allocation has failed, the output may be wrong!
@@ -95,26 +95,26 @@ double __cdecl pow(double X, double Y)
           return Y + 1.0;
 LABEL_9:
         v6 = X;
-        v7 = _mm_cvtepi32_pd(_mm_sub_epi64(_mm_srli_epi64(*(__m128i *)&X, 0x34u), (__m128i)xmmword_180185FC0)).m128d_f64[0];
-        v8 = _mm_and_si128(*(__m128i *)&X, (__m128i)xmmword_180185FB0);
+        v7 = _mm_cvtepi32_pd(_mm_sub_epi64(_mm_srli_epi64(*(__m128i *)&X, 0x34u), (__m128i)xmmword_180184EC0)).m128d_f64[0];
+        v8 = _mm_and_si128(*(__m128i *)&X, (__m128i)xmmword_180184EB0);
         if ( v7 == -1023.0 )
         {
-          v39 = _mm_or_si128(v8, (__m128i)xmmword_180186010);
+          v39 = _mm_or_si128(v8, (__m128i)xmmword_180184F10);
           *(double *)v39.m128i_i64 = *(double *)v39.m128i_i64 - 1.0;
           v3.m128i_i64[0] = v39.m128i_i64[0];
-          v8 = _mm_and_si128(v39, (__m128i)xmmword_180185FB0);
+          v8 = _mm_and_si128(v39, (__m128i)xmmword_180184EB0);
           v6 = *(double *)v8.m128i_i64;
-          *(_QWORD *)&v7 = *(_OWORD *)&_mm_cvtepi32_pd(_mm_sub_epi32(_mm_srli_epi64(v3, 0x34u), (__m128i)xmmword_1801860B0));
+          *(_QWORD *)&v7 = *(_OWORD *)&_mm_cvtepi32_pd(_mm_sub_epi32(_mm_srli_epi64(v3, 0x34u), (__m128i)xmmword_180184FB0));
         }
         v65 = 2 * (*(_QWORD *)&v6 & 0x80000000000LL) + (*(_QWORD *)&v6 & 0xFF00000000000LL);
         *(_QWORD *)&v5 = v65 >> 44;
-        *(_QWORD *)&v9 = _mm_or_si128(v8, (__m128i)xmmword_180186020).m128i_u64[0];
-        *(_QWORD *)&v10 = _mm_or_si128((__m128i)v65, (__m128i)xmmword_180186020).m128i_u64[0];
+        *(_QWORD *)&v9 = _mm_or_si128(v8, (__m128i)xmmword_180184F20).m128i_u64[0];
+        *(_QWORD *)&v10 = _mm_or_si128((__m128i)v65, (__m128i)xmmword_180184F20).m128i_u64[0];
         if ( fabs(X - 1.0) < 0.125 )
         {
           v42 = v10;
           v43 = v10 - v9;
-          v44 = dbl_180187100[*(_QWORD *)&v5] + dbl_180187910[*(_QWORD *)&v5];
+          v44 = dbl_180186000[*(_QWORD *)&v5] + dbl_180186810[*(_QWORD *)&v5];
           *(_QWORD *)&v45 = COERCE_UNSIGNED_INT64(v43 * v44) & 0xFFFFFFFFF8000000uLL;
           v46 = (v43 - v45 * v42) * v44;
           v47 = v46 + v45;
@@ -125,18 +125,18 @@ LABEL_9:
           v52 = v50;
           v53 = v50 * v50 * 0.5;
           v14 = v50 + v53;
-          v16 = 0.00000005769999047543285 * v7 + dbl_1801868F0[*(_QWORD *)&v5] - (v48 + v49 + v52 - v14 + v53 + v51);
+          v16 = 0.00000005769999047543285 * v7 + dbl_1801857F0[*(_QWORD *)&v5] - (v48 + v49 + v52 - v14 + v53 + v51);
           v17 = v16 - v14;
-          v15 = dbl_1801860E0[*(_QWORD *)&v5];
+          v15 = dbl_180184FE0[*(_QWORD *)&v5];
         }
         else
         {
           v11 = v10 - v9;
-          v12 = v11 * dbl_180187100[*(_QWORD *)&v5];
-          v13 = v11 * dbl_180187910[*(_QWORD *)&v5];
+          v12 = v11 * dbl_180186000[*(_QWORD *)&v5];
+          v13 = v11 * dbl_180186810[*(_QWORD *)&v5];
           v14 = v12 + v13;
-          v15 = dbl_1801860E0[*(_QWORD *)&v5];
-          v16 = dbl_1801868F0[*(_QWORD *)&v5]
+          v15 = dbl_180184FE0[*(_QWORD *)&v5];
+          v16 = dbl_1801857F0[*(_QWORD *)&v5]
               + 0.00000005769999047543285 * v7
               - ((0.3333333333333333 * v14 + 0.5) * (v14 * v14)
                + ((0.1666666666666667 * v14 + 0.2) * v14 + 0.25) * (v14 * v14 * (v14 * v14))
@@ -183,7 +183,7 @@ LABEL_86:
           v33 = (0.5 * v31 + 1.0) * v31
               + (0.04166666666666666 * v31 + 0.1666666666666667) * (v31 * v31 * v31)
               + (0.001388888888888889 * v31 + 0.008333333333333333) * (v31 * v31 * (v31 * v31 * v31));
-          v34 = dbl_180188210[v29] * v33 + dbl_180188410[v29] * v33 + dbl_180188410[v29] + dbl_180188210[v29];
+          v34 = dbl_180187110[v29] * v33 + dbl_180187310[v29] * v33 + dbl_180187310[v29] + dbl_180187110[v29];
           if ( *(double *)&v2 != INFINITY )
           {
             v63 = *(double *)&v2;

@@ -1,9 +1,9 @@
 /*
- * XREFs of DbgkpLkmdSqmStatus @ 0x1408122B4
+ * XREFs of DbgkpLkmdSqmStatus @ 0x1408134B4
  * Callers:
- *     DbgkCaptureLiveDump @ 0x140811720 (DbgkCaptureLiveDump.c)
+ *     DbgkCaptureLiveDump @ 0x140812920 (DbgkCaptureLiveDump.c)
  * Callees:
- *     DbgkpLkmdSqmIncrementDword @ 0x14026DE98 (DbgkpLkmdSqmIncrementDword.c)
+ *     DbgkpLkmdSqmIncrementDword @ 0x14026E088 (DbgkpLkmdSqmIncrementDword.c)
  */
 
 NTSTATUS __fastcall DbgkpLkmdSqmStatus(REGHANDLE RegHandle, int *a2)

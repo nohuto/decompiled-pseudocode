@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpFreeEventNameFilter @ 0x1406A9238
+ * XREFs of EtwpFreeEventNameFilter @ 0x1406A9370
  * Callers:
- *     EtwpFreeFilterInfo @ 0x14048ECF4 (EtwpFreeFilterInfo.c)
- *     EtwpUpdateFilterData @ 0x140491C98 (EtwpUpdateFilterData.c)
- *     EtwpAllocateEventNameFilter @ 0x1406A8494 (EtwpAllocateEventNameFilter.c)
+ *     EtwpFreeFilterInfo @ 0x14048F784 (EtwpFreeFilterInfo.c)
+ *     EtwpUpdateFilterData @ 0x140492728 (EtwpUpdateFilterData.c)
+ *     EtwpAllocateEventNameFilter @ 0x1406A85CC (EtwpAllocateEventNameFilter.c)
  * Callees:
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  */

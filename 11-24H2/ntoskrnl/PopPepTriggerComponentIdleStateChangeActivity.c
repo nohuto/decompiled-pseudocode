@@ -1,10 +1,10 @@
 /*
- * XREFs of PopPepTriggerComponentIdleStateChangeActivity @ 0x14045AA60
+ * XREFs of PopPepTriggerComponentIdleStateChangeActivity @ 0x14044FEB0
  * Callers:
- *     PopPepProcessEvent @ 0x140317DF0 (PopPepProcessEvent.c)
- *     PopPepTriggerActivity @ 0x140319270 (PopPepTriggerActivity.c)
+ *     PopPepProcessEvent @ 0x1402C0980 (PopPepProcessEvent.c)
+ *     PopPepTriggerActivity @ 0x1402C1E00 (PopPepTriggerActivity.c)
  * Callees:
- *     PopPepTriggerActivity @ 0x140319270 (PopPepTriggerActivity.c)
+ *     PopPepTriggerActivity @ 0x1402C1E00 (PopPepTriggerActivity.c)
  */
 
 void __fastcall PopPepTriggerComponentIdleStateChangeActivity(__int64 a1, __int64 a2, int a3)
@@ -24,7 +24,7 @@ void __fastcall PopPepTriggerComponentIdleStateChangeActivity(__int64 a1, __int6
           && !*(_BYTE *)(a1 + 136)
           && !**(_DWORD **)(a1 + 72) )
         {
-          PopPepTriggerActivity(a1, 0LL, 0, 0LL);
+          PopPepTriggerActivity(a1, 0LL, 0, 0);
         }
       }
     }

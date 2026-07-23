@@ -1,10 +1,10 @@
 /*
- * XREFs of MiReferenceDriverPage @ 0x140397B28
+ * XREFs of MiReferenceDriverPage @ 0x140397C78
  * Callers:
- *     MiUpdateImportRelocationsOnDriverPrivatePages @ 0x14039758C (MiUpdateImportRelocationsOnDriverPrivatePages.c)
- *     MiLockDriverPageRange @ 0x14052DA04 (MiLockDriverPageRange.c)
+ *     MiUpdateImportRelocationsOnDriverPrivatePages @ 0x1403976DC (MiUpdateImportRelocationsOnDriverPrivatePages.c)
+ *     MiLockDriverPageRange @ 0x14052DC44 (MiLockDriverPageRange.c)
  * Callees:
- *     MiAreChargesNeededToLockPage @ 0x140323430 (MiAreChargesNeededToLockPage.c)
+ *     MiAreChargesNeededToLockPage @ 0x14032E180 (MiAreChargesNeededToLockPage.c)
  */
 
 __int64 __fastcall MiReferenceDriverPage(__int64 a1)

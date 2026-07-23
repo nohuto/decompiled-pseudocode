@@ -199,7 +199,7 @@ LABEL_113:
           v21 = 1LL;
           CurrentIrql = KeGetCurrentIrql();
           __writecr8(2uLL);
-          if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+          if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
           {
             SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
             if ( CurrentIrql == 2 )
@@ -274,10 +274,10 @@ LABEL_113:
             v31 = MiRestockOverCommit(v28, v25);
             KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
             OldIrql = LockHandle.OldIrql;
-            if ( KiIrqlFlags )
+            if ( (_DWORD)KiIrqlFlags )
             {
               v54 = KeGetCurrentIrql();
-              if ( (KiIrqlFlags & 1) != 0 && v54 <= 0xFu && LockHandle.OldIrql <= 0xFu && v54 >= 2u )
+              if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v54 <= 0xFu && LockHandle.OldIrql <= 0xFu && v54 >= 2u )
               {
                 CurrentPrcb = KeGetCurrentPrcb();
                 v56 = CurrentPrcb->SchedulerAssist;
@@ -362,10 +362,10 @@ LABEL_33:
           }
 LABEL_36:
           _InterlockedAnd64((volatile signed __int64 *)v23, 0x7FFFFFFFFFFFFFFFuLL);
-          if ( KiIrqlFlags )
+          if ( (_DWORD)KiIrqlFlags )
           {
             v58 = KeGetCurrentIrql();
-            if ( (KiIrqlFlags & 1) != 0 && v58 <= 0xFu && CurrentIrql <= 0xFu && v58 >= 2u )
+            if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v58 <= 0xFu && CurrentIrql <= 0xFu && v58 >= 2u )
             {
               v59 = KeGetCurrentPrcb();
               v60 = v59->SchedulerAssist;

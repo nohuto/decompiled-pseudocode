@@ -1,17 +1,17 @@
 /*
- * XREFs of PopPublishAndPurgePowerRequestStats @ 0x1408F641C
+ * XREFs of PopPublishAndPurgePowerRequestStats @ 0x1408F657C
  * Callers:
- *     PopStatsNotifyPowerRequestCsState @ 0x1408F6690 (PopStatsNotifyPowerRequestCsState.c)
+ *     PopStatsNotifyPowerRequestCsState @ 0x1408F67F0 (PopStatsNotifyPowerRequestCsState.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgCreate1Sz_wchar_t @ 0x140263EF0 (_tlgCreate1Sz_wchar_t.c)
- *     PoQueryStopWatch @ 0x1402642FC (PoQueryStopWatch.c)
- *     RtlRandomEx @ 0x1402E5D70 (RtlRandomEx.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     PopDiagTraceSleepStudyBlocker @ 0x140573074 (PopDiagTraceSleepStudyBlocker.c)
- *     PoResetStopWatch @ 0x14057FB44 (PoResetStopWatch.c)
- *     PopGetStopWatchByRequestType @ 0x14062BEE8 (PopGetStopWatchByRequestType.c)
- *     PopAvlDeleteStatsForPowerRequest @ 0x14062DB80 (PopAvlDeleteStatsForPowerRequest.c)
+ *     _tlgCreate1Sz_wchar_t @ 0x1402709CC (_tlgCreate1Sz_wchar_t.c)
+ *     PoQueryStopWatch @ 0x1402724D0 (PoQueryStopWatch.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14027E1A4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     RtlRandomEx @ 0x1402970C0 (RtlRandomEx.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     PopDiagTraceSleepStudyBlocker @ 0x1405732B4 (PopDiagTraceSleepStudyBlocker.c)
+ *     PoResetStopWatch @ 0x14057FD84 (PoResetStopWatch.c)
+ *     PopGetStopWatchByRequestType @ 0x140670B10 (PopGetStopWatchByRequestType.c)
+ *     PopAvlDeleteStatsForPowerRequest @ 0x140670FF8 (PopAvlDeleteStatsForPowerRequest.c)
  */
 
 __int64 __fastcall PopPublishAndPurgePowerRequestStats(volatile signed __int32 *Buffer, __int64 a2)
@@ -118,7 +118,7 @@ __int64 __fastcall PopPublishAndPurgePowerRequestStats(volatile signed __int32 *
         v18 = v14 / 0xA / 0xF4240;
         tlgWriteTransfer_EtwWriteTransfer(
           (__int64)&dword_140C02228,
-          (unsigned __int8 *)&dword_140029D0C,
+          (unsigned __int8 *)&dword_140029DCC,
           0LL,
           0LL,
           7u,

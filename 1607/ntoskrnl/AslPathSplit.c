@@ -1,13 +1,13 @@
 /*
- * XREFs of AslPathSplit @ 0x140486A70
+ * XREFs of AslPathSplit @ 0x140513880
  * Callers:
- *     SdbpCreateSearchDBContext @ 0x1404853AC (SdbpCreateSearchDBContext.c)
+ *     SdbpCreateSearchDBContext @ 0x140514734 (SdbpCreateSearchDBContext.c)
  * Callees:
- *     RtlStringCchCopyW @ 0x140084F38 (RtlStringCchCopyW.c)
- *     RtlStringCchCopyNW @ 0x140084FB0 (RtlStringCchCopyNW.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     wcsrchr @ 0x14014F0D4 (wcsrchr.c)
- *     AslLogCallPrintf @ 0x1406C5804 (AslLogCallPrintf.c)
+ *     RtlStringCchCopyW @ 0x14010B1EC (RtlStringCchCopyW.c)
+ *     RtlStringCchCopyNW @ 0x14010B264 (RtlStringCchCopyNW.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     wcsrchr @ 0x14014F694 (wcsrchr.c)
+ *     AslLogCallPrintf @ 0x1406C593C (AslLogCallPrintf.c)
  */
 
 __int64 __fastcall AslPathSplit(
@@ -21,13 +21,12 @@ __int64 __fastcall AslPathSplit(
   unsigned int v8; // ebp
   wchar_t *v10; // rax
   STRSAFE_PCNZWCH v11; // rdi
-  NTSTATUS v12; // eax
-  unsigned int v13; // ebx
-  wchar_t *v14; // rax
-  const wchar_t *v15; // rbp
-  size_t v16; // rdi
-  int v18; // r8d
-  const char *v19; // r9
+  NTSTATUS v12; // ebx
+  wchar_t *v13; // rax
+  const wchar_t *v14; // rbp
+  size_t v15; // rdi
+  int v17; // r8d
+  const char *v18; // r9
   wchar_t pszDesta[264]; // [rsp+30h] [rbp-258h] BYREF
 
   *pszDest = 0;
@@ -40,12 +39,11 @@ __int64 __fastcall AslPathSplit(
   if ( v10 )
   {
     v12 = RtlStringCchCopyNW(pszDest, v8, pszSrc, v10 - pszSrc + 1);
-    v13 = v12;
     if ( v12 < 0 )
     {
-      v18 = 693;
+      v17 = 693;
 LABEL_14:
-      v19 = "RtlStringCchCopyNW failed [%x]";
+      v18 = "RtlStringCchCopyNW failed [%x]";
       goto LABEL_15;
     }
   }
@@ -56,42 +54,38 @@ LABEL_14:
   if ( *v11 == 92 )
     ++v11;
   v12 = RtlStringCchCopyW(pszDesta, 0x105uLL, v11);
-  v13 = v12;
   if ( v12 < 0 )
   {
-    v19 = "RtlStringCchCopyW failed [%x]";
-    v18 = 713;
+    v18 = "RtlStringCchCopyW failed [%x]";
+    v17 = 713;
     goto LABEL_15;
   }
-  v14 = wcsrchr(pszDesta, 0x2Eu);
-  v15 = v14;
-  if ( !v14 )
+  v13 = wcsrchr(pszDesta, 0x2Eu);
+  v14 = v13;
+  if ( !v13 )
   {
     v12 = RtlStringCchCopyW(a4, 0x104uLL, pszDesta);
-    v13 = v12;
     if ( v12 >= 0 )
       return 0;
-    v19 = "RtlStringCchCopyW failed [%x]";
-    v18 = 740;
+    v18 = "RtlStringCchCopyW failed [%x]";
+    v17 = 740;
 LABEL_15:
-    AslLogCallPrintf(1, (unsigned int)"AslPathSplit", v18, (_DWORD)v19, v12);
-    return v13;
+    AslLogCallPrintf(1, (unsigned int)"AslPathSplit", v17, (_DWORD)v18);
+    return (unsigned int)v12;
   }
-  v16 = v14 - pszDesta;
-  v12 = RtlStringCchCopyNW(a4, 0x104uLL, pszDesta, v16);
-  v13 = v12;
+  v15 = v13 - pszDesta;
+  v12 = RtlStringCchCopyNW(a4, 0x104uLL, pszDesta, v15);
   if ( v12 < 0 )
   {
-    v18 = 726;
+    v17 = 726;
     goto LABEL_14;
   }
-  a4[v16] = 0;
-  v12 = RtlStringCchCopyW(a6, 0x104uLL, v15);
-  v13 = v12;
+  a4[v15] = 0;
+  v12 = RtlStringCchCopyW(a6, 0x104uLL, v14);
   if ( v12 < 0 )
   {
-    v19 = "RtlStringCchCopyW failed [%x]";
-    v18 = 733;
+    v18 = "RtlStringCchCopyW failed [%x]";
+    v17 = 733;
     goto LABEL_15;
   }
   return 0;

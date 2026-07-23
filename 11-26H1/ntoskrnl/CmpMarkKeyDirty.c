@@ -1,19 +1,19 @@
 /*
- * XREFs of CmpMarkKeyDirty @ 0x1408BCEC4
+ * XREFs of CmpMarkKeyDirty @ 0x1408C3494
  * Callers:
- *     CmDeleteLayeredKey @ 0x140446A10 (CmDeleteLayeredKey.c)
- *     CmRenameKey @ 0x140857A3C (CmRenameKey.c)
- *     CmpFreeKeyByCell @ 0x1408BCC94 (CmpFreeKeyByCell.c)
- *     CmpCreateChild @ 0x1408DF4A0 (CmpCreateChild.c)
- *     CmpLightWeightPrepareDeleteKeyUoW @ 0x140A2DFD4 (CmpLightWeightPrepareDeleteKeyUoW.c)
+ *     CmDeleteLayeredKey @ 0x14043F510 (CmDeleteLayeredKey.c)
+ *     CmRenameKey @ 0x14085DDCC (CmRenameKey.c)
+ *     CmpFreeKeyByCell @ 0x1408C3264 (CmpFreeKeyByCell.c)
+ *     CmpCreateChild @ 0x1408E5A60 (CmpCreateChild.c)
+ *     CmpLightWeightPrepareDeleteKeyUoW @ 0x140A3FE60 (CmpLightWeightPrepareDeleteKeyUoW.c)
  * Callees:
- *     HvpGetCellFlat @ 0x14085EB00 (HvpGetCellFlat.c)
- *     CmpMarkValueDataDirty @ 0x1408BD5D4 (CmpMarkValueDataDirty.c)
- *     CmpMarkIndexDirty @ 0x1408BD760 (CmpMarkIndexDirty.c)
- *     HvpMarkCellDirty @ 0x1408D4AB0 (HvpMarkCellDirty.c)
- *     HvpReleaseCellFlat @ 0x1408D51E0 (HvpReleaseCellFlat.c)
- *     HvpReleaseCellPaged @ 0x1408D73B0 (HvpReleaseCellPaged.c)
- *     HvpGetCellPaged @ 0x1408D7410 (HvpGetCellPaged.c)
+ *     HvpGetCellFlat @ 0x140864DF0 (HvpGetCellFlat.c)
+ *     CmpMarkValueDataDirty @ 0x1408C3BA4 (CmpMarkValueDataDirty.c)
+ *     CmpMarkIndexDirty @ 0x1408C3D30 (CmpMarkIndexDirty.c)
+ *     HvpMarkCellDirty @ 0x1408DB070 (HvpMarkCellDirty.c)
+ *     HvpReleaseCellFlat @ 0x1408DB7A0 (HvpReleaseCellFlat.c)
+ *     HvpReleaseCellPaged @ 0x1408DD970 (HvpReleaseCellPaged.c)
+ *     HvpGetCellPaged @ 0x1408DD9D0 (HvpGetCellPaged.c)
  */
 
 __int64 __fastcall CmpMarkKeyDirty(ULONG_PTR BugCheckParameter3, unsigned int a2, char a3)

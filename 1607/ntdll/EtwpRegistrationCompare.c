@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpRegistrationCompare @ 0x18002A90C
+ * XREFs of EtwpRegistrationCompare @ 0x18002A8FC
  * Callers:
- *     EtwpFindRegistration @ 0x18002A0E0 (EtwpFindRegistration.c)
- *     EtwpInsertRegistration @ 0x18002A86C (EtwpInsertRegistration.c)
+ *     EtwpFindRegistration @ 0x18002A0D0 (EtwpFindRegistration.c)
+ *     EtwpInsertRegistration @ 0x18002A85C (EtwpInsertRegistration.c)
  * Callees:
- *     memcmp @ 0x18009A6A0 (memcmp.c)
+ *     memcmp @ 0x18009A690 (memcmp.c)
  */
 
 int __fastcall EtwpRegistrationCompare(__int64 a1, __int64 a2)

@@ -4,8 +4,8 @@
  *     <none>
  * Callees:
  *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     ExpTryQueueWorkItem @ 0x1402EEE7C (ExpTryQueueWorkItem.c)
- *     IopQueueWorkItemProlog @ 0x1403467F0 (IopQueueWorkItemProlog.c)
+ *     sub_1402EEE7C @ 0x1402EEE7C (sub_1402EEE7C.c)
+ *     sub_1403467F0 @ 0x1403467F0 (sub_1403467F0.c)
  */
 
 char __fastcall IoTryQueueWorkItem(__int64 a1, __int64 a2, unsigned int a3, __int64 a4)
@@ -14,8 +14,8 @@ char __fastcall IoTryQueueWorkItem(__int64 a1, __int64 a2, unsigned int a3, __in
   char v7; // bl
   void *v9; // rcx
 
-  v6 = IopQueueWorkItemProlog(a1, a2, a4);
-  v7 = ExpTryQueueWorkItem(*((_QWORD *)PspSystemPartition + 2), v6, a3, 1LL);
+  v6 = sub_1403467F0(a1, a2, a4);
+  v7 = sub_1402EEE7C(*((_QWORD *)qword_140D06C40 + 2), v6, a3, 1LL);
   if ( !v7 )
   {
     ObfDereferenceObjectWithTag(*(PVOID *)(a1 + 40), 0x746C6644u);

@@ -1,10 +1,10 @@
 /*
- * XREFs of VslpConnectedStandbyPoCallback @ 0x140819140
+ * XREFs of VslpConnectedStandbyPoCallback @ 0x14081A340
  * Callers:
  *     <none>
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140129CB0 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     VslpEnterIumSecureMode @ 0x140129D80 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall VslpConnectedStandbyPoCallback(

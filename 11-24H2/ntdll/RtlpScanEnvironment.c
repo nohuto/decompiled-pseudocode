@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpScanEnvironment @ 0x180086250
+ * XREFs of RtlpScanEnvironment @ 0x180008100
  * Callers:
- *     RtlQueryEnvironmentVariable @ 0x1800851D0 (RtlQueryEnvironmentVariable.c)
+ *     RtlQueryEnvironmentVariable @ 0x180007080 (RtlQueryEnvironmentVariable.c)
  * Callees:
- *     RtlAllocateHeap @ 0x180011260 (RtlAllocateHeap.c)
- *     RtlFreeHeap @ 0x1800269F0 (RtlFreeHeap.c)
- *     RtlpInsertEnvironmentHashTableEntry @ 0x180086630 (RtlpInsertEnvironmentHashTableEntry.c)
- *     memmove @ 0x180167400 (memmove.c)
+ *     RtlpInsertEnvironmentHashTableEntry @ 0x1800084E0 (RtlpInsertEnvironmentHashTableEntry.c)
+ *     RtlAllocateHeap @ 0x18003DC60 (RtlAllocateHeap.c)
+ *     RtlFreeHeap @ 0x1800533F0 (RtlFreeHeap.c)
+ *     memmove @ 0x1801657C0 (memmove.c)
  */
 
 __int64 __fastcall RtlpScanEnvironment(
@@ -35,7 +35,7 @@ __int64 __fastcall RtlpScanEnvironment(
   _BYTE *v22; // r14
   __int64 v23; // rdi
   _QWORD *Heap; // rax
-  unsigned __int64 v25; // r15
+  void *v25; // r15
   __int64 v26; // r9
   unsigned __int16 *v27; // r10
   unsigned __int64 v28; // r8
@@ -46,13 +46,13 @@ __int64 __fastcall RtlpScanEnvironment(
   unsigned __int16 *v34; // [rsp+70h] [rbp+8h]
   __int64 v36; // [rsp+80h] [rbp+18h]
 
-  v7 = qword_1801CD038;
+  v7 = qword_1801CC038;
   v8 = &a2[a3];
   v9 = a7;
   v10 = a2;
   v34 = v8;
   v12 = 0;
-  v36 = qword_1801CD038;
+  v36 = qword_1801CC038;
   while ( *a1 )
   {
     v13 = a1;
@@ -139,12 +139,12 @@ LABEL_19:
       v21 = i;
       v22 = i + 1;
       v23 = v21 - v13;
-      if ( !a7 || *((_QWORD *)&xmmword_1801D2890 + 1) >= (unsigned __int64)a1 )
+      if ( !a7 || *((_QWORD *)&xmmword_1801D1890 + 1) >= (unsigned __int64)a1 )
         goto LABEL_22;
       if ( NtCurrentPeb()->ProcessHeap )
       {
-        Heap = (_QWORD *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, 0x30uLL);
-        v25 = (unsigned __int64)Heap;
+        Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, 0x30uLL);
+        v25 = Heap;
         if ( Heap )
         {
           v26 = 314159LL;
@@ -170,15 +170,15 @@ LABEL_38:
               if ( v14 >= v27 )
                 goto LABEL_39;
             }
-            if ( qword_1801CD038 && (unsigned __int16)v28 >= 0xC0u )
+            if ( qword_1801CC038 && (unsigned __int16)v28 >= 0xC0u )
             {
-              v29 = *(_WORD *)(qword_1801CD038
+              v29 = *(_WORD *)(qword_1801CC038
                              + 2
                              * ((v28 & 0xF)
-                              + *(unsigned __int16 *)(qword_1801CD038
+                              + *(unsigned __int16 *)(qword_1801CC038
                                                     + 2LL
                                                     * (((unsigned __int8)v28 >> 4)
-                                                     + (unsigned int)*(unsigned __int16 *)(qword_1801CD038
+                                                     + (unsigned int)*(unsigned __int16 *)(qword_1801CC038
                                                                                          + 2 * (v28 >> 8))))))
                   + v28;
               LOWORD(v28) = v29;
@@ -193,14 +193,14 @@ LABEL_39:
           inserted = RtlpInsertEnvironmentHashTableEntry(&RtlpEnvironmentHashTable, Heap);
           if ( inserted >= 0 )
           {
-            *((_QWORD *)&xmmword_1801D2890 + 1) = a1;
+            *((_QWORD *)&xmmword_1801D1890 + 1) = a1;
 LABEL_53:
             v12 = 0;
 LABEL_22:
             v9 = a7;
             goto LABEL_23;
           }
-          RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v25);
+          RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v25);
           if ( inserted == -1073741771 )
             goto LABEL_53;
         }
@@ -243,8 +243,8 @@ LABEL_17:
   }
   if ( v9 )
   {
-    *((_QWORD *)&xmmword_1801D2890 + 1) = a1;
-    LOBYTE(xmmword_1801D2890) = 1;
+    *((_QWORD *)&xmmword_1801D1890 + 1) = a1;
+    LOBYTE(xmmword_1801D1890) = 1;
   }
   return 3221225728LL;
 }

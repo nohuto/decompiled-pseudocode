@@ -1,15 +1,15 @@
 /*
- * XREFs of CmpTryAcquireKcbIXLocks @ 0x1408B10E4
+ * XREFs of CmpTryAcquireKcbIXLocks @ 0x1408B75D4
  * Callers:
- *     CmpSaveBootControlSet @ 0x14084CBB8 (CmpSaveBootControlSet.c)
- *     CmRenameKey @ 0x140857A3C (CmRenameKey.c)
- *     CmpPrepareForSubtreeInvalidationWorker @ 0x1408AFACC (CmpPrepareForSubtreeInvalidationWorker.c)
- *     CmpPerformUnloadKey @ 0x1408AFC14 (CmpPerformUnloadKey.c)
- *     CmSetKeyFlags @ 0x1408B09D8 (CmSetKeyFlags.c)
- *     CmRestoreKey @ 0x140986024 (CmRestoreKey.c)
- *     CmSetLastWriteTimeKey @ 0x140B53BB0 (CmSetLastWriteTimeKey.c)
+ *     CmpSaveBootControlSet @ 0x140852EC8 (CmpSaveBootControlSet.c)
+ *     CmRenameKey @ 0x14085DDCC (CmRenameKey.c)
+ *     CmpPrepareForSubtreeInvalidationWorker @ 0x1408B5FCC (CmpPrepareForSubtreeInvalidationWorker.c)
+ *     CmpPerformUnloadKey @ 0x1408B6104 (CmpPerformUnloadKey.c)
+ *     CmSetKeyFlags @ 0x1408B6EC8 (CmSetKeyFlags.c)
+ *     CmRestoreKey @ 0x140947D24 (CmRestoreKey.c)
+ *     CmSetLastWriteTimeKey @ 0x140B56450 (CmSetLastWriteTimeKey.c)
  * Callees:
- *     CmpTryAcquireIXLockWithRollbackPacket @ 0x1408B1158 (CmpTryAcquireIXLockWithRollbackPacket.c)
+ *     CmpTryAcquireIXLockWithRollbackPacket @ 0x1408B7648 (CmpTryAcquireIXLockWithRollbackPacket.c)
  */
 
 __int64 __fastcall CmpTryAcquireKcbIXLocks(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

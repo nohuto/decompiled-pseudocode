@@ -1,14 +1,14 @@
 /*
- * XREFs of MmQueryProcessWorkingSetSwapPages @ 0x1404B3F10
+ * XREFs of MmQueryProcessWorkingSetSwapPages @ 0x1404AD4E0
  * Callers:
- *     PfpPrivSourceEnum @ 0x14096984C (PfpPrivSourceEnum.c)
- *     SmStoreCompressionStart @ 0x140AE9D90 (SmStoreCompressionStart.c)
- *     SmStoreCompressionStop @ 0x140AE9E34 (SmStoreCompressionStop.c)
+ *     PfpPrivSourceEnum @ 0x14091DEAC (PfpPrivSourceEnum.c)
+ *     SmStoreCompressionStart @ 0x140AEC880 (SmStoreCompressionStart.c)
+ *     SmStoreCompressionStop @ 0x140AEC924 (SmStoreCompressionStop.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiGetWorkingSetSwapSupport @ 0x1403683CC (MiGetWorkingSetSwapSupport.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiGetWorkingSetSwapSupport @ 0x14036A16C (MiGetWorkingSetSwapSupport.c)
  */
 
 __int64 __fastcall MmQueryProcessWorkingSetSwapPages(__int64 a1, _QWORD *a2)
@@ -24,7 +24,7 @@ __int64 __fastcall MmQueryProcessWorkingSetSwapPages(__int64 a1, _QWORD *a2)
   if ( (unsigned __int64)MiGetWorkingSetSwapSupport(a1 + 1024) <= 2 )
     return 3221226021LL;
   v6 = -1073741275;
-  v7 = (volatile LONG *)(*(_QWORD *)(stru_140E2EB88.ThreadLock + 8LL * *(unsigned __int16 *)(v4 + 1198)) + 1288LL);
+  v7 = (volatile LONG *)(*(_QWORD *)(stru_140E2ED08.ThreadLock + 8LL * *(unsigned __int16 *)(v4 + 1198)) + 1288LL);
   ExAcquireSpinLockExclusive(v7);
   WorkingSetSwapSupport = MiGetWorkingSetSwapSupport(v2);
   if ( WorkingSetSwapSupport > 2 )

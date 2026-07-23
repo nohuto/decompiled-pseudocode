@@ -1,11 +1,11 @@
 /*
- * XREFs of KiInSwapProcesses @ 0x140090F20
+ * XREFs of KiInSwapProcesses @ 0x140090680
  * Callers:
- *     KeSwapProcessOrStack @ 0x14013D2D4 (KeSwapProcessOrStack.c)
+ *     KeSwapProcessOrStack @ 0x14013D844 (KeSwapProcessOrStack.c)
  * Callees:
- *     KiReadyOutSwappedThreads @ 0x140091140 (KiReadyOutSwappedThreads.c)
- *     MmInSwapProcess @ 0x140091564 (MmInSwapProcess.c)
- *     KiAcquireKobjectLockSafe @ 0x1400EE7C0 (KiAcquireKobjectLockSafe.c)
+ *     KiReadyOutSwappedThreads @ 0x1400908A0 (KiReadyOutSwappedThreads.c)
+ *     MmInSwapProcess @ 0x140090CC4 (MmInSwapProcess.c)
+ *     KiAcquireKobjectLockSafe @ 0x1400EC640 (KiAcquireKobjectLockSafe.c)
  */
 
 __int64 __fastcall KiInSwapProcesses(_QWORD *a1)

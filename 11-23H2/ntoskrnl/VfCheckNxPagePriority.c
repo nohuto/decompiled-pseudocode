@@ -1,9 +1,9 @@
 /*
- * XREFs of VfCheckNxPagePriority @ 0x1405CE370
+ * XREFs of VfCheckNxPagePriority @ 0x1405CE8E0
  * Callers:
  *     <none>
  * Callees:
- *     VfCheckPagePriority @ 0x140AC37D0 (VfCheckPagePriority.c)
+ *     VfCheckPagePriority @ 0x140AC37C0 (VfCheckPagePriority.c)
  */
 
 __int64 VfCheckNxPagePriority()

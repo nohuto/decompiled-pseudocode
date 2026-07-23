@@ -1,24 +1,30 @@
 /*
- * XREFs of NtAlpcCreatePortSection @ 0x14076C230
+ * XREFs of NtAlpcCreatePortSection @ 0x14076C420
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ObReferenceObjectByHandle @ 0x1406E62C0 (ObReferenceObjectByHandle.c)
- *     AlpcpDeleteBlob @ 0x14071C11C (AlpcpDeleteBlob.c)
- *     AlpcpDereferenceBlobEx @ 0x14071E93C (AlpcpDereferenceBlobEx.c)
- *     AlpcpCreateSection @ 0x14076C3C8 (AlpcpCreateSection.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     ObReferenceObjectByHandle @ 0x1406E62F0 (ObReferenceObjectByHandle.c)
+ *     AlpcpDeleteBlob @ 0x14071C31C (AlpcpDeleteBlob.c)
+ *     AlpcpDereferenceBlobEx @ 0x14071EB3C (AlpcpDereferenceBlobEx.c)
+ *     AlpcpCreateSection @ 0x14076C5B8 (AlpcpCreateSection.c)
  */
 
-__int64 __fastcall NtAlpcCreatePortSection(HANDLE Handle, int a2, __int64 a3, void *a4, _QWORD *a5, _QWORD *a6)
+NTSTATUS __cdecl NtAlpcCreatePortSection(
+        HANDLE PortHandle,
+        ULONG Flags,
+        HANDLE SectionHandle,
+        SIZE_T SectionSize,
+        PALPC_HANDLE AlpcSectionHandle,
+        PSIZE_T ActualSectionSize)
 {
   struct _KTHREAD *CurrentThread; // rax
   char PreviousMode; // r14
   __int64 v10; // rdx
   __int64 v11; // rcx
   KPROCESSOR_MODE v12; // r9
-  NTSTATUS Section; // ebx
+  int Section; // ebx
   PVOID v14; // rsi
   ULONG_PTR v15; // rdi
   ULONG_PTR BugCheckParameter2; // [rsp+30h] [rbp-18h] BYREF
@@ -28,7 +34,7 @@ __int64 __fastcall NtAlpcCreatePortSection(HANDLE Handle, int a2, __int64 a3, vo
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
-  if ( (a2 & 0xFFFBFFFF) != 0 || (a2 & 0x40000) != 0 && a3 )
+  if ( (Flags & 0xFFFBFFFF) != 0 || (Flags & 0x40000) != 0 && SectionHandle )
   {
     Section = -1073741811;
   }
@@ -38,30 +44,30 @@ __int64 __fastcall NtAlpcCreatePortSection(HANDLE Handle, int a2, __int64 a3, vo
     {
       v10 = 0x7FFFFFFF0000LL;
       v11 = 0x7FFFFFFF0000LL;
-      if ( (unsigned __int64)a5 < 0x7FFFFFFF0000LL )
-        v11 = (__int64)a5;
+      if ( (unsigned __int64)AlpcSectionHandle < 0x7FFFFFFF0000LL )
+        v11 = (__int64)AlpcSectionHandle;
       *(_QWORD *)v11 = *(_QWORD *)v11;
-      if ( (unsigned __int64)a6 < 0x7FFFFFFF0000LL )
-        v10 = (__int64)a6;
+      if ( (unsigned __int64)ActualSectionSize < 0x7FFFFFFF0000LL )
+        v10 = (__int64)ActualSectionSize;
       *(_QWORD *)v10 = *(_QWORD *)v10;
     }
     v12 = KeGetCurrentThread()->PreviousMode;
     Object = 0LL;
-    Section = ObReferenceObjectByHandle(Handle, 1u, AlpcPortObjectType, v12, &Object, 0LL);
+    Section = ObReferenceObjectByHandle(PortHandle, 1u, AlpcPortObjectType, v12, &Object, 0LL);
     if ( Section >= 0 )
     {
       v14 = Object;
-      Section = AlpcpCreateSection(Object, a4, (__int64)&BugCheckParameter2);
+      Section = AlpcpCreateSection(Object, (PVOID)SectionSize, (__int64)&BugCheckParameter2);
       if ( Section >= 0 )
       {
         v15 = BugCheckParameter2;
-        *a5 = *(_QWORD *)(BugCheckParameter2 + 24);
-        *a6 = *(_QWORD *)(v15 + 8);
+        *AlpcSectionHandle = *(HANDLE *)(BugCheckParameter2 + 24);
+        *ActualSectionSize = *(_QWORD *)(v15 + 8);
         AlpcpDereferenceBlobEx(v15, 1);
       }
       ObfDereferenceObject(v14);
     }
   }
   KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-  return (unsigned int)Section;
+  return Section;
 }

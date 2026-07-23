@@ -9,33 +9,39 @@
  *     RtlEqualUnicodeString @ 0x1404F7D80 (RtlEqualUnicodeString.c)
  */
 
-__int64 __fastcall PspIdentityBasedJobBreakaway(__int64 a1, __int64 a2, _DWORD *a3)
+__int64 __fastcall PspIdentityBasedJobBreakaway(void *a1, void *a2, _DWORD *a3)
 {
-  bool v5; // si
-  int v6; // eax
+  BOOLEAN v5; // si
+  NTSTATUS v6; // eax
   int v7; // ebx
-  bool v8; // al
-  int v9; // eax
-  bool v11; // [rsp+30h] [rbp-D0h] BYREF
-  bool v12; // [rsp+31h] [rbp-CFh] BYREF
-  UNICODE_STRING String1; // [rsp+38h] [rbp-C8h] BYREF
-  UNICODE_STRING v14; // [rsp+48h] [rbp-B8h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+58h] [rbp-A8h] BYREF
-  UNICODE_STRING String2; // [rsp+68h] [rbp-98h] BYREF
-  WCHAR v17[72]; // [rsp+80h] [rbp-80h] BYREF
+  BOOLEAN v8; // al
+  NTSTATUS PackageIdentity; // eax
+  BOOLEAN Packaged; // [rsp+30h] [rbp-D0h] BYREF
+  BOOLEAN v12[7]; // [rsp+31h] [rbp-CFh] BYREF
+  UNICODE_STRING v13; // [rsp+38h] [rbp-C8h] BYREF
+  UNICODE_STRING PackageSize; // [rsp+48h] [rbp-B8h] BYREF
+  UNICODE_STRING v15; // [rsp+58h] [rbp-A8h] BYREF
+  UNICODE_STRING AppIdSize; // [rsp+68h] [rbp-98h] BYREF
+  WCHAR AppId[72]; // [rsp+80h] [rbp-80h] BYREF
   WCHAR v18[72]; // [rsp+110h] [rbp+10h] BYREF
-  WCHAR SourceString[128]; // [rsp+1A0h] [rbp+A0h] BYREF
-  WCHAR v20[128]; // [rsp+2A0h] [rbp+1A0h] BYREF
+  WCHAR PackageFullName[128]; // [rsp+1A0h] [rbp+A0h] BYREF
+  WCHAR SourceString[128]; // [rsp+2A0h] [rbp+1A0h] BYREF
 
   *a3 = 0;
-  v11 = 0;
-  *(_QWORD *)&v14.Length = 256LL;
-  *(_QWORD *)&String1.Length = 256LL;
+  Packaged = 0;
+  *(_QWORD *)&PackageSize.Length = 256LL;
+  *(_QWORD *)&v13.Length = 256LL;
   v5 = 0;
-  v12 = 0;
-  *(_QWORD *)&String2.Length = 132LL;
-  *(_QWORD *)&DestinationString.Length = 132LL;
-  v6 = RtlQueryPackageIdentity(a1, (__int64)SourceString, (__int64)&v14, (__int64)v17, (__int64)&String2, &v11);
+  v12[0] = 0;
+  *(_QWORD *)&AppIdSize.Length = 132LL;
+  *(_QWORD *)&v15.Length = 132LL;
+  v6 = RtlQueryPackageIdentity(
+         a1,
+         PackageFullName,
+         (PSIZE_T)&PackageSize.Length,
+         AppId,
+         (PSIZE_T)&AppIdSize.Length,
+         &Packaged);
   v7 = v6;
   if ( v6 == -1073741275 || v6 == -2147483643 )
   {
@@ -44,7 +50,7 @@ __int64 __fastcall PspIdentityBasedJobBreakaway(__int64 a1, __int64 a2, _DWORD *
   }
   else
   {
-    v8 = v11;
+    v8 = Packaged;
   }
   if ( v7 >= 0 )
   {
@@ -52,30 +58,33 @@ __int64 __fastcall PspIdentityBasedJobBreakaway(__int64 a1, __int64 a2, _DWORD *
       *a3 = 1;
     if ( !*a3 )
     {
-      v9 = RtlQueryPackageIdentity(a2, (__int64)v20, (__int64)&String1, (__int64)v18, (__int64)&DestinationString, &v12);
-      v7 = v9;
-      if ( v9 == -1073741275 || v9 == -2147483643 )
+      PackageIdentity = RtlQueryPackageIdentity(a2, SourceString, (PSIZE_T)&v13.Length, v18, (PSIZE_T)&v15.Length, v12);
+      v7 = PackageIdentity;
+      if ( PackageIdentity == -1073741275 || PackageIdentity == -2147483643 )
       {
         v5 = 0;
         v7 = 0;
       }
       else
       {
-        v5 = v12;
+        v5 = v12[0];
       }
     }
-    if ( v7 >= 0 && v5 )
+    if ( v7 >= 0 )
     {
-      if ( *(_QWORD *)&v14.Length != *(_QWORD *)&String1.Length
-        || *(_QWORD *)&String2.Length != *(_QWORD *)&DestinationString.Length
-        || (RtlInitUnicodeString(&DestinationString, SourceString),
-            RtlInitUnicodeString(&String1, v17),
-            RtlInitUnicodeString(&String2, v20),
-            RtlInitUnicodeString(&v14, v18),
-            !RtlEqualUnicodeString(&DestinationString, &String2, 1u))
-        || !RtlEqualUnicodeString(&String1, &v14, 1u) )
+      if ( v5 )
       {
-        *a3 = 1;
+        if ( *(_QWORD *)&PackageSize.Length != *(_QWORD *)&v13.Length
+          || *(_QWORD *)&AppIdSize.Length != *(_QWORD *)&v15.Length
+          || (RtlInitUnicodeString(&v15, PackageFullName),
+              RtlInitUnicodeString(&v13, AppId),
+              RtlInitUnicodeString(&AppIdSize, SourceString),
+              RtlInitUnicodeString(&PackageSize, v18),
+              !RtlEqualUnicodeString(&v15, &AppIdSize, 1u))
+          || !RtlEqualUnicodeString(&v13, &PackageSize, 1u) )
+        {
+          *a3 = 1;
+        }
       }
     }
   }

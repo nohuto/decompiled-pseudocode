@@ -9,14 +9,14 @@
  *     _NtClose@4 @ 0x4B2F2A50 (_NtClose@4.c)
  */
 
-int __stdcall TppFreeWait(int a1)
+LOGICAL __stdcall TppFreeWait(PVOID BaseAddress)
 {
-  int v1; // eax
+  ULONG v1; // eax
 
-  TpAdjustBindingCount(*(_DWORD *)(a1 + 92), -1);
-  TppCleanupGroupMemberDestroy(a1);
-  NtClose(*(HANDLE *)(a1 + 228));
+  TpAdjustBindingCount(*((_DWORD *)BaseAddress + 23), -1);
+  TppCleanupGroupMemberDestroy(BaseAddress);
+  NtClose(*((HANDLE *)BaseAddress + 57));
   v1 = TppHeapTag;
-  *(_DWORD *)(a1 + 280) = 0;
-  return RtlFreeHeap(NtCurrentPeb()->ProcessHeap, v1 + 1835008, a1);
+  *((_DWORD *)BaseAddress + 70) = 0;
+  return RtlFreeHeap(NtCurrentPeb()->ProcessHeap, v1 + 1835008, BaseAddress);
 }

@@ -1,24 +1,24 @@
 /*
- * XREFs of PiPagePathSetState @ 0x14075C1DC
+ * XREFs of PiPagePathSetState @ 0x14075D3CC
  * Callers:
- *     MiCreatePagingFile @ 0x14074BFB8 (MiCreatePagingFile.c)
- *     CmpVolumeContextSendDeviceUsageNotification @ 0x140759740 (CmpVolumeContextSendDeviceUsageNotification.c)
- *     CmpVolumeContextCleanup @ 0x1407F6514 (CmpVolumeContextCleanup.c)
- *     PpPagePathAssign @ 0x140826EF8 (PpPagePathAssign.c)
- *     MiDeletePagefile @ 0x1408530F0 (MiDeletePagefile.c)
+ *     MiCreatePagingFile @ 0x14074D1A8 (MiCreatePagingFile.c)
+ *     CmpVolumeContextSendDeviceUsageNotification @ 0x14075A930 (CmpVolumeContextSendDeviceUsageNotification.c)
+ *     CmpVolumeContextCleanup @ 0x1407F7714 (CmpVolumeContextCleanup.c)
+ *     PpPagePathAssign @ 0x1408280F8 (PpPagePathAssign.c)
+ *     MiDeletePagefile @ 0x140854350 (MiDeletePagefile.c)
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     ObfReferenceObject @ 0x14004E220 (ObfReferenceObject.c)
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     IoAllocateIrp @ 0x14008E4E0 (IoAllocateIrp.c)
- *     IoGetRelatedDeviceObject @ 0x1400B8B90 (IoGetRelatedDeviceObject.c)
- *     IofCallDriver @ 0x1400B8DF0 (IofCallDriver.c)
- *     KeInitializeEvent @ 0x1400B8E70 (KeInitializeEvent.c)
- *     IoQueueThreadIrp @ 0x140160E10 (IoQueueThreadIrp.c)
- *     PpDevNodeUnlockTree @ 0x14059BEB4 (PpDevNodeUnlockTree.c)
- *     PpDevNodeLockTree @ 0x14059BF10 (PpDevNodeLockTree.c)
- *     IoGetRelatedTargetDevice @ 0x1405A2CA4 (IoGetRelatedTargetDevice.c)
- *     PoDirectedDripsNotifyPagingDeviceUsage @ 0x14075C320 (PoDirectedDripsNotifyPagingDeviceUsage.c)
+ *     IoAllocateIrp @ 0x14008E400 (IoAllocateIrp.c)
+ *     IoGetRelatedDeviceObject @ 0x1400B8AD0 (IoGetRelatedDeviceObject.c)
+ *     IofCallDriver @ 0x1400B8D30 (IofCallDriver.c)
+ *     KeInitializeEvent @ 0x1400B8DB0 (KeInitializeEvent.c)
+ *     IoQueueThreadIrp @ 0x140160F10 (IoQueueThreadIrp.c)
+ *     PpDevNodeUnlockTree @ 0x14059CEB4 (PpDevNodeUnlockTree.c)
+ *     PpDevNodeLockTree @ 0x14059CF10 (PpDevNodeLockTree.c)
+ *     IoGetRelatedTargetDevice @ 0x1405A3CA4 (IoGetRelatedTargetDevice.c)
+ *     PoDirectedDripsNotifyPagingDeviceUsage @ 0x14075D510 (PoDirectedDripsNotifyPagingDeviceUsage.c)
  */
 
 __int64 __fastcall PiPagePathSetState(struct _FILE_OBJECT *Object, BOOLEAN a2)

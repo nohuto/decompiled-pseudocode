@@ -1,11 +1,11 @@
 /*
- * XREFs of KiMaskSecondaryInterruptInternal @ 0x1401D5DD0
+ * XREFs of KiMaskSecondaryInterruptInternal @ 0x1401D5BFC
  * Callers:
- *     KeMaskInterrupt @ 0x1401240A0 (KeMaskInterrupt.c)
+ *     KeMaskInterrupt @ 0x140124610 (KeMaskInterrupt.c)
  * Callees:
- *     KxAcquireSpinLock @ 0x140092A60 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x140095BA0 (KxReleaseSpinLock.c)
- *     xHalUnmaskInterrupt @ 0x14014CC60 (xHalUnmaskInterrupt.c)
+ *     KxAcquireSpinLock @ 0x140092260 (KxAcquireSpinLock.c)
+ *     KxReleaseSpinLock @ 0x1400953A0 (KxReleaseSpinLock.c)
+ *     xHalUnmaskInterrupt @ 0x14014D1D0 (xHalUnmaskInterrupt.c)
  */
 
 __int64 __fastcall KiMaskSecondaryInterruptInternal(int a1)

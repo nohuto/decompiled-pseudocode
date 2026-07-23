@@ -1,16 +1,16 @@
 /*
- * XREFs of MiSectionInitialization @ 0x140CF86BC
+ * XREFs of MiSectionInitialization @ 0x140CFEA3C
  * Callers:
- *     MiInitSystem @ 0x140CF15C4 (MiInitSystem.c)
+ *     MiInitSystem @ 0x140CF7944 (MiInitSystem.c)
  * Callees:
- *     MiReservePtes @ 0x14035DE50 (MiReservePtes.c)
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ObCreateObjectType @ 0x14077B990 (ObCreateObjectType.c)
- *     ObInsertObject @ 0x14092AFB0 (ObInsertObject.c)
- *     ObCreateObject @ 0x140932FB0 (ObCreateObject.c)
- *     ObCloseHandle @ 0x140A00740 (ObCloseHandle.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     MiReservePtes @ 0x14035FBF0 (MiReservePtes.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ObCreateObjectType @ 0x14077E5D0 (ObCreateObjectType.c)
+ *     ObInsertObject @ 0x140906AE0 (ObInsertObject.c)
+ *     ObCreateObject @ 0x14090EB60 (ObCreateObject.c)
+ *     ObCloseHandle @ 0x14091D2C0 (ObCloseHandle.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 MiSectionInitialization()
@@ -49,7 +49,7 @@ __int64 MiSectionInitialization()
   Handle = 0LL;
   v6[0] = 3014700LL;
   v6[1] = L"\\Device\\PhysicalMemory";
-  qword_140E2C7C8 = 0LL;
+  qword_140E2C948 = 0LL;
   memset_0(&v13, 0, 0x78uLL);
   v14 |= 4u;
   v21 = MiSectionOpen;
@@ -71,35 +71,35 @@ __int64 MiSectionInitialization()
                        KeGetCurrentPrcb()->SchedulerSubNode->Affinity.Reserved[0] | 0x80000000);
   if ( !PoolMm )
     return 0LL;
-  memset_0(&qword_140E2D098, 0, 0x80uLL);
-  memset_0(&qword_140E2CFF8, 0, 0xA0uLL);
+  memset_0(&qword_140E2D218, 0, 0x80uLL);
+  memset_0(&qword_140E2D178, 0, 0xA0uLL);
   PoolMm[5] = 0LL;
-  dword_140E2D0D0 |= 0x400u;
-  qword_140E2CFF8 = (__int64)&qword_140E2D098;
-  qword_140E2D098 = (__int64)PoolMm;
-  qword_140E2D0B0 = 1LL;
-  *PoolMm = &qword_140E2D098;
+  dword_140E2D250 |= 0x400u;
+  qword_140E2D178 = (__int64)&qword_140E2D218;
+  qword_140E2D218 = (__int64)PoolMm;
+  qword_140E2D230 = 1LL;
+  *PoolMm = &qword_140E2D218;
   v9 = v6;
   v7[0] = 48;
   v8 = 0LL;
   v10 = 65552;
   v12 = 0LL;
-  if ( (int)ObCreateObject(0, MmSectionObjectType, v7, 0, 0, 64, 64, 0, &Object) < 0 )
+  if ( (int)ObCreateObject(0, MmSectionObjectType, (__int64)v7, 0, 0, 64, 64, 0, &Object) < 0 )
   {
     ExFreePoolWithTag(PoolMm, 0);
     return 0LL;
   }
   v2 = Object;
-  *((_QWORD *)Object + 5) = &qword_140E2D098;
-  v2[6] = (1LL << dword_140E2D6F8) - 1;
+  *((_QWORD *)Object + 5) = &qword_140E2D218;
+  v2[6] = (1LL << dword_140E2D878) - 1;
   *((_DWORD *)v2 + 14) = 0;
   *((_DWORD *)v2 + 15) = *((_DWORD *)v2 + 15) & 0xFFFFF000 | 0x40;
   if ( ObInsertObject(v2, 0LL, 4u, 0, 0LL, &Handle) < 0 )
     return 0LL;
   ObCloseHandle(Handle, 0);
-  *(_QWORD *)&stru_140E2D150.WaitRegister.Flags = MiReservePtes((__int64)&stru_140E36558.WaitBlockList, 1u, v3, v4);
-  if ( !*(_QWORD *)&stru_140E2D150.WaitRegister.Flags )
+  *(_QWORD *)&stru_140E2D2D0.WaitRegister.Flags = MiReservePtes((__int64)&stru_140E366D8.WaitBlockList, 1u, v3, v4);
+  if ( !*(_QWORD *)&stru_140E2D2D0.WaitRegister.Flags )
     return 0LL;
-  stru_140E2D150.SchedulingGroup = 0LL;
+  stru_140E2D2D0.SchedulingGroup = 0LL;
   return 1LL;
 }

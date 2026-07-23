@@ -1,9 +1,9 @@
 /*
- * XREFs of SdbpCheckUptoVersion @ 0x14071F430
+ * XREFs of SdbpCheckUptoVersion @ 0x1407206D0
  * Callers:
- *     SdbpCheckAttribute @ 0x140720580 (SdbpCheckAttribute.c)
- *     SdbpMatchOsVersion @ 0x14072312C (SdbpMatchOsVersion.c)
- *     SdbpCheckPackageAttributes @ 0x1408E6F40 (SdbpCheckPackageAttributes.c)
+ *     SdbpCheckAttribute @ 0x140721820 (SdbpCheckAttribute.c)
+ *     SdbpMatchOsVersion @ 0x1407243CC (SdbpMatchOsVersion.c)
+ *     SdbpCheckPackageAttributes @ 0x1408E8200 (SdbpCheckPackageAttributes.c)
  * Callees:
  *     <none>
  */

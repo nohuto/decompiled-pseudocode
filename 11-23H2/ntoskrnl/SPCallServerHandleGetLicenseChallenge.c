@@ -1,10 +1,10 @@
 /*
- * XREFs of SPCallServerHandleGetLicenseChallenge @ 0x140884534
+ * XREFs of SPCallServerHandleGetLicenseChallenge @ 0x140884774
  * Callers:
- *     sub_1406EF570 @ 0x1406EF570 (sub_1406EF570.c)
+ *     sub_1406EF5A0 @ 0x1406EF5A0 (sub_1406EF5A0.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     memmove @ 0x140435700 (memmove.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     memmove @ 0x140435B00 (memmove.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

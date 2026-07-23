@@ -1,11 +1,11 @@
 /*
- * XREFs of NtCreateMutant @ 0x140493450
+ * XREFs of NtCreateMutant @ 0x140493EE0
  * Callers:
  *     <none>
  * Callees:
- *     KeInitializeMutant @ 0x140085B7C (KeInitializeMutant.c)
- *     ObCreateObjectEx @ 0x14041D970 (ObCreateObjectEx.c)
- *     ObInsertObjectEx @ 0x14041EF00 (ObInsertObjectEx.c)
+ *     KeInitializeMutant @ 0x14008746C (KeInitializeMutant.c)
+ *     ObCreateObjectEx @ 0x14041C830 (ObCreateObjectEx.c)
+ *     ObInsertObjectEx @ 0x14041DDC0 (ObInsertObjectEx.c)
  */
 
 NTSTATUS __stdcall NtCreateMutant(

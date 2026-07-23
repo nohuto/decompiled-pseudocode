@@ -6,19 +6,17 @@
  *     <none>
  */
 
-char __fastcall RtlIsActivationContextActive(__int64 a1)
+BOOLEAN __cdecl RtlIsActivationContextActive(PACTIVATION_CONTEXT ActivationContext)
 {
-  struct _RTL_ACTIVATION_CONTEXT_STACK_FRAME *i; // rax
+  PRTL_ACTIVATION_CONTEXT_STACK_FRAME i; // rax
 
-  for ( i = NtCurrentTeb()->ActivationContextStackPointer->ActiveFrame;
-        i;
-        i = *(struct _RTL_ACTIVATION_CONTEXT_STACK_FRAME **)i )
+  for ( i = NtCurrentTeb()->ActivationContextStackPointer->ActiveFrame; i; i = i->Previous )
   {
-    if ( *((_QWORD *)i + 1) == a1 )
+    if ( i->ActivationContext == ActivationContext )
     {
       LOBYTE(i) = 1;
-      return (char)i;
+      return (unsigned __int8)i;
     }
   }
-  return (char)i;
+  return (unsigned __int8)i;
 }

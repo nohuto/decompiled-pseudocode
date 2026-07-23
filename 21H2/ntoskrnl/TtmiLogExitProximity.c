@@ -1,12 +1,12 @@
 /*
- * XREFs of TtmiLogExitProximity @ 0x140902C1C
+ * XREFs of TtmiLogExitProximity @ 0x140902D7C
  * Callers:
- *     TtmpExitProximity @ 0x1408FDF14 (TtmpExitProximity.c)
+ *     TtmpExitProximity @ 0x1408FE074 (TtmpExitProximity.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
- *     PsGetProcessSessionIdEx @ 0x1402830D0 (PsGetProcessSessionIdEx.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     PsGetProcessSessionIdEx @ 0x14023A7B0 (PsGetProcessSessionIdEx.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14027E1A4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x1402864F4 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 char __fastcall TtmiLogExitProximity(int a1, int a2, char a3)
@@ -57,7 +57,7 @@ char __fastcall TtmiLogExitProximity(int a1, int a2, char a3)
       v24 = 1;
       LOBYTE(v3) = tlgWriteTransfer_EtwWriteTransfer(
                      (__int64)&dword_140D2D8C8,
-                     (unsigned __int8 *)byte_14002AFF9,
+                     (unsigned __int8 *)&dword_14002B3D4,
                      0LL,
                      0LL,
                      6u,

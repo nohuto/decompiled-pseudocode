@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlLogStackTrace @ 0x18010F330
+ * XREFs of RtlLogStackTrace @ 0x18010F300
  * Callers:
  *     <none>
  * Callees:

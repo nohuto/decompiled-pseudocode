@@ -19,12 +19,12 @@ void __stdcall FsRtlNotifyCleanupAll(PNOTIFY_SYNC NotifySync, PLIST_ENTRY Notify
   struct _KTHREAD *v6; // r12
   __int64 v7; // rax
   __int64 v8; // rdi
-  struct _LIST_ENTRY *Flink; // rdi
+  _LIST_ENTRY *Flink; // rdi
   char *v10; // rcx
   PSECURITY_SUBJECT_CONTEXT v11; // r14
   signed __int32 v13; // eax
   PSECURITY_SUBJECT_CONTEXT SubjectContext; // [rsp+70h] [rbp+18h] BYREF
-  struct _LIST_ENTRY *v15; // [rsp+78h] [rbp+20h]
+  _LIST_ENTRY *v15; // [rsp+78h] [rbp+20h]
 
   SubjectContext = 0LL;
   CurrentThread = KeGetCurrentThread();

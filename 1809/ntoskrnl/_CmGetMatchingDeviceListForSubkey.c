@@ -1,18 +1,18 @@
 /*
- * XREFs of _CmGetMatchingDeviceListForSubkey @ 0x140749DF0
+ * XREFs of _CmGetMatchingDeviceListForSubkey @ 0x14074AFE0
  * Callers:
- *     _CmGetMatchingDeviceList @ 0x140749938 (_CmGetMatchingDeviceList.c)
- *     _CmGetMatchingFilteredDeviceListWorker @ 0x1408FA8C0 (_CmGetMatchingFilteredDeviceListWorker.c)
+ *     _CmGetMatchingDeviceList @ 0x14074AB28 (_CmGetMatchingDeviceList.c)
+ *     _CmGetMatchingFilteredDeviceListWorker @ 0x1408FBB80 (_CmGetMatchingFilteredDeviceListWorker.c)
  * Callees:
- *     RtlStringCchCopyExW @ 0x14013DD50 (RtlStringCchCopyExW.c)
- *     wcschr @ 0x1401976D0 (wcschr.c)
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     _SysCtxRegOpenKey @ 0x1405C7AFC (_SysCtxRegOpenKey.c)
- *     _PnpCtxGetCachedContextBaseKey @ 0x1405C7C40 (_PnpCtxGetCachedContextBaseKey.c)
- *     _PnpCtxRegEnumKeyWithCallback @ 0x14074B2E4 (_PnpCtxRegEnumKeyWithCallback.c)
+ *     RtlStringCchCopyExW @ 0x14013DE50 (RtlStringCchCopyExW.c)
+ *     wcschr @ 0x140197810 (wcschr.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     _SysCtxRegOpenKey @ 0x1405C8AFC (_SysCtxRegOpenKey.c)
+ *     _PnpCtxGetCachedContextBaseKey @ 0x1405C8C40 (_PnpCtxGetCachedContextBaseKey.c)
+ *     _PnpCtxRegEnumKeyWithCallback @ 0x14074C4D4 (_PnpCtxRegEnumKeyWithCallback.c)
  */
 
 __int64 __fastcall CmGetMatchingDeviceListForSubkey(

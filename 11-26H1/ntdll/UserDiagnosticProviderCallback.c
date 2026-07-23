@@ -1,12 +1,12 @@
 /*
- * XREFs of UserDiagnosticProviderCallback @ 0x1801481B0
+ * XREFs of UserDiagnosticProviderCallback @ 0x180148060
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-void __fastcall UserDiagnosticProviderCallback(__int64 a1, int a2)
+void __fastcall UserDiagnosticProviderCallback(LPCGUID a1, int a2)
 {
   if ( a2 == 1 )
   {

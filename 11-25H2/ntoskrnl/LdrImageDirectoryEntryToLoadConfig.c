@@ -13,7 +13,7 @@
  *     LdrImageDirectoryEntryToLoadConfigEx @ 0x1405E7760 (LdrImageDirectoryEntryToLoadConfigEx.c)
  */
 
-_DWORD *__fastcall LdrImageDirectoryEntryToLoadConfig(unsigned __int64 a1)
+_DWORD *__fastcall LdrImageDirectoryEntryToLoadConfig(void *a1)
 {
   return LdrImageDirectoryEntryToLoadConfigEx(a1);
 }

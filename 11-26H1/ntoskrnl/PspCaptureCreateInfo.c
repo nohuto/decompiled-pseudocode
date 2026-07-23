@@ -1,12 +1,12 @@
 /*
- * XREFs of PspCaptureCreateInfo @ 0x140B025D8
+ * XREFs of PspCaptureCreateInfo @ 0x140B04308
  * Callers:
- *     NtCreateUserProcess @ 0x140B77FE0 (NtCreateUserProcess.c)
+ *     NtCreateUserProcess @ 0x140B7D6F0 (NtCreateUserProcess.c)
  * Callees:
- *     RtlCopyFromUser @ 0x140533E38 (RtlCopyFromUser.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ProbeForWrite @ 0x1408F5D00 (ProbeForWrite.c)
+ *     RtlCopyFromUser @ 0x1405362B8 (RtlCopyFromUser.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ProbeForWrite @ 0x140925C90 (ProbeForWrite.c)
  */
 
 __int64 __fastcall PspCaptureCreateInfo(char a1, volatile void *a2, __int64 a3)

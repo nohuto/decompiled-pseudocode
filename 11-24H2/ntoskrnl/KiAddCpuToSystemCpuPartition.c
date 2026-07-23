@@ -1,15 +1,15 @@
 /*
- * XREFs of KiAddCpuToSystemCpuPartition @ 0x140B57C80
+ * XREFs of KiAddCpuToSystemCpuPartition @ 0x140B59D00
  * Callers:
- *     KiCompleteKernelInit @ 0x140B55C50 (KiCompleteKernelInit.c)
+ *     KiCompleteKernelInit @ 0x140B57CA0 (KiCompleteKernelInit.c)
  * Callees:
- *     KeAddProcessorAffinityEx @ 0x140257130 (KeAddProcessorAffinityEx.c)
- *     KxReleaseSpinLock @ 0x140279CC0 (KxReleaseSpinLock.c)
- *     RtlWriteAcquireTickLock @ 0x14029D4E4 (RtlWriteAcquireTickLock.c)
- *     KeYieldProcessorEx @ 0x1403F9C60 (KeYieldProcessorEx.c)
- *     RtlWriteReleaseTickLock @ 0x140455770 (RtlWriteReleaseTickLock.c)
- *     KiNotifyAvailableCpusChangeCpuPartition @ 0x1405B8688 (KiNotifyAvailableCpusChangeCpuPartition.c)
- *     KiAcquireCpuPartitionLockAtDpcLevel @ 0x1405BFEF0 (KiAcquireCpuPartitionLockAtDpcLevel.c)
+ *     KxReleaseSpinLock @ 0x14022F250 (KxReleaseSpinLock.c)
+ *     KeAddProcessorAffinityEx @ 0x140287740 (KeAddProcessorAffinityEx.c)
+ *     RtlWriteAcquireTickLock @ 0x1402ABFD4 (RtlWriteAcquireTickLock.c)
+ *     KeYieldProcessorEx @ 0x1403EFB70 (KeYieldProcessorEx.c)
+ *     RtlWriteReleaseTickLock @ 0x14044A520 (RtlWriteReleaseTickLock.c)
+ *     KiNotifyAvailableCpusChangeCpuPartition @ 0x1405B5C68 (KiNotifyAvailableCpusChangeCpuPartition.c)
+ *     KiAcquireCpuPartitionLockAtDpcLevel @ 0x1405BD520 (KiAcquireCpuPartitionLockAtDpcLevel.c)
  */
 
 void __fastcall KiAddCpuToSystemCpuPartition(__int64 a1)

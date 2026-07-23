@@ -1,12 +1,12 @@
 /*
- * XREFs of PnprAddProcessorResources @ 0x14072EF7C
+ * XREFs of PnprAddProcessorResources @ 0x14072CF8C
  * Callers:
- *     PnprAddDeviceResources @ 0x14072ED10 (PnprAddDeviceResources.c)
+ *     PnprAddDeviceResources @ 0x14072CD20 (PnprAddDeviceResources.c)
  * Callees:
- *     KeGetProcessorNumberFromIndex @ 0x1403B41E0 (KeGetProcessorNumberFromIndex.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeGetProcessorNumberFromIndex @ 0x140370900 (KeGetProcessorNumberFromIndex.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PnprAddProcessorResources(__int64 a1, ULONG a2, int a3, _DWORD **a4)
@@ -31,7 +31,7 @@ __int64 __fastcall PnprAddProcessorResources(__int64 a1, ULONG a2, int a3, _DWOR
   {
     v9 = v8 + 4;
     v10 = 4 * v8 + 20;
-    Pool2 = (_DWORD *)ExAllocatePool2(0x40uLL);
+    Pool2 = (_DWORD *)ExAllocatePool2(0x40uLL, (unsigned int)(4 * (v8 + 4) + 20), 0x51706E50u);
     v12 = Pool2;
     if ( !Pool2 )
     {

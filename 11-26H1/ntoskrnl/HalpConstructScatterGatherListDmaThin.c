@@ -1,11 +1,11 @@
 /*
- * XREFs of HalpConstructScatterGatherListDmaThin @ 0x1403EFE10
+ * XREFs of HalpConstructScatterGatherListDmaThin @ 0x1403E97E0
  * Callers:
- *     HalpBuildScatterGatherListDmaThin @ 0x1403EF750 (HalpBuildScatterGatherListDmaThin.c)
- *     HalGetScatterGatherListDmaThin @ 0x1403EFA10 (HalGetScatterGatherListDmaThin.c)
- *     HalBuildScatterGatherListDmaThin @ 0x1403EFBE0 (HalBuildScatterGatherListDmaThin.c)
+ *     HalpBuildScatterGatherListDmaThin @ 0x1403E9120 (HalpBuildScatterGatherListDmaThin.c)
+ *     HalGetScatterGatherListDmaThin @ 0x1403E93E0 (HalGetScatterGatherListDmaThin.c)
+ *     HalBuildScatterGatherListDmaThin @ 0x1403E95B0 (HalBuildScatterGatherListDmaThin.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall HalpConstructScatterGatherListDmaThin(__int64 a1)

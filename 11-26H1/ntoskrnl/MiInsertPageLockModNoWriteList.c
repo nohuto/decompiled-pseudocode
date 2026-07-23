@@ -1,11 +1,11 @@
 /*
- * XREFs of MiInsertPageLockModNoWriteList @ 0x1404D9364
+ * XREFs of MiInsertPageLockModNoWriteList @ 0x1404D2A44
  * Callers:
- *     MiInsertPageInList @ 0x1402DDC40 (MiInsertPageInList.c)
+ *     MiInsertPageInList @ 0x1402BFA00 (MiInsertPageInList.c)
  * Callees:
- *     MiGetSubsectionFromPte @ 0x1402836C0 (MiGetSubsectionFromPte.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402DED10 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiGetSubsectionFromPte @ 0x140282C30 (MiGetSubsectionFromPte.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402C0B20 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
  */
 
 __int64 __fastcall MiInsertPageLockModNoWriteList(__int64 a1, __int64 a2)

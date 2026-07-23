@@ -1,15 +1,15 @@
 /*
- * XREFs of MmGetPageBadStatus @ 0x14062B490
+ * XREFs of MmGetPageBadStatus @ 0x14062B9E0
  * Callers:
- *     HalpPmemErrorDeferredHandler @ 0x140519A1C (HalpPmemErrorDeferredHandler.c)
- *     WheapProcessOfflineList @ 0x140614470 (WheapProcessOfflineList.c)
- *     WheapExecuteRowFailureCheck @ 0x140A089C0 (WheapExecuteRowFailureCheck.c)
- *     WheapPfaMemoryCheck @ 0x140A08CB8 (WheapPfaMemoryCheck.c)
+ *     HalpPmemErrorDeferredHandler @ 0x140519F6C (HalpPmemErrorDeferredHandler.c)
+ *     WheapProcessOfflineList @ 0x1406149C0 (WheapProcessOfflineList.c)
+ *     WheapExecuteRowFailureCheck @ 0x140A08C70 (WheapExecuteRowFailureCheck.c)
+ *     WheapPfaMemoryCheck @ 0x140A08F68 (WheapPfaMemoryCheck.c)
  * Callees:
  *     MiIsPageOnBadList @ 0x1402186C0 (MiIsPageOnBadList.c)
- *     MiLockPageInline @ 0x1402EF680 (MiLockPageInline.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiGetPageInHugePageBadStatus @ 0x14061FF0C (MiGetPageInHugePageBadStatus.c)
+ *     MiLockPageInline @ 0x1402EF910 (MiLockPageInline.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     MiGetPageInHugePageBadStatus @ 0x14062045C (MiGetPageInHugePageBadStatus.c)
  */
 
 __int64 __fastcall MmGetPageBadStatus(_QWORD *a1)
@@ -41,10 +41,13 @@ __int64 __fastcall MmGetPageBadStatus(_QWORD *a1)
         v4 = 259;
     }
     _InterlockedAnd64((volatile signed __int64 *)(v2 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v3 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v3 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;

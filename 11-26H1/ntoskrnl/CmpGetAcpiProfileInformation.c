@@ -1,19 +1,19 @@
 /*
- * XREFs of CmpGetAcpiProfileInformation @ 0x140852E80
+ * XREFs of CmpGetAcpiProfileInformation @ 0x140859190
  * Callers:
- *     CmSetAcpiHwProfile @ 0x140851648 (CmSetAcpiHwProfile.c)
+ *     CmSetAcpiHwProfile @ 0x140857958 (CmSetAcpiHwProfile.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwOpenKey @ 0x140723630 (ZwOpenKey.c)
- *     ZwQueryKey @ 0x1407236B0 (ZwQueryKey.c)
- *     ZwQueryValueKey @ 0x1407236D0 (ZwQueryValueKey.c)
- *     ZwEnumerateKey @ 0x140723A30 (ZwEnumerateKey.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     RtlUnicodeStringToInteger @ 0x14091AAE0 (RtlUnicodeStringToInteger.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140728200 (ZwOpenKey.c)
+ *     ZwQueryKey @ 0x140728280 (ZwQueryKey.c)
+ *     ZwQueryValueKey @ 0x1407282A0 (ZwQueryValueKey.c)
+ *     ZwEnumerateKey @ 0x140728600 (ZwEnumerateKey.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     RtlUnicodeStringToInteger @ 0x140975540 (RtlUnicodeStringToInteger.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall CmpGetAcpiProfileInformation(

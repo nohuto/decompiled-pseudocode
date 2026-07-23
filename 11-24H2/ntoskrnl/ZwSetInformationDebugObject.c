@@ -1,14 +1,19 @@
 /*
- * XREFs of ZwSetInformationDebugObject @ 0x1406A98D0
+ * XREFs of ZwSetInformationDebugObject @ 0x1406AA870
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwSetInformationDebugObject(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwSetInformationDebugObject(
+        HANDLE DebugObjectHandle,
+        DEBUGOBJECTINFOCLASS DebugObjectInformationClass,
+        PVOID DebugInformation,
+        ULONG DebugInformationLength,
+        PULONG ReturnLength)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(DebugObjectHandle);
 }

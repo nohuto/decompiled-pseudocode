@@ -6,7 +6,13 @@
  *     <none>
  */
 
-int __stdcall RtlpFcNoopCallback(int a1, int a2, int a3, int a4, int a5, int a6, int a7)
+NTSTATUS __stdcall RtlpFcNoopCallback(
+        WNF_STATE_NAME a1,
+        WNF_CHANGE_STAMP a2,
+        PWNF_TYPE_ID a3,
+        PVOID a4,
+        const void *a5,
+        ULONG a6)
 {
   return 0;
 }

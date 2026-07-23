@@ -1,10 +1,10 @@
 /*
- * XREFs of MiMirrorPerformBlackWrites @ 0x140152A54
+ * XREFs of MiMirrorPerformBlackWrites @ 0x140152B54
  * Callers:
- *     MmDuplicateMemory @ 0x14056C274 (MmDuplicateMemory.c)
+ *     MmDuplicateMemory @ 0x14056D274 (MmDuplicateMemory.c)
  * Callees:
- *     RtlFindNextForwardRunClearCappedEx @ 0x14015B120 (RtlFindNextForwardRunClearCappedEx.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     RtlFindNextForwardRunClearCappedEx @ 0x14015B220 (RtlFindNextForwardRunClearCappedEx.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall MiMirrorPerformBlackWrites(__int64 a1)
@@ -28,20 +28,20 @@ __int64 __fastcall MiMirrorPerformBlackWrites(__int64 a1)
   v2 = 0LL;
   do
   {
-    v4 = v2 & -(__int64)(v2 < qword_14043A7C0);
-    v5 = qword_14043A7C0 - 1;
+    v4 = v2 & -(__int64)(v2 < qword_14043B880);
+    v5 = qword_14043B880 - 1;
     while ( 1 )
     {
       if ( v5 - v4 == -1LL )
         goto LABEL_17;
-      v6 = (_QWORD *)(qword_14043A7C8 + 8 * (v4 >> 6));
+      v6 = (_QWORD *)(qword_14043B888 + 8 * (v4 >> 6));
       for ( i = ~*v6 | ((1LL << (v4 & 0x3F)) - 1); i == -1; i = ~*v6 )
       {
-        if ( (unsigned __int64)++v6 > qword_14043A7C8 + 8 * (v5 >> 6) )
+        if ( (unsigned __int64)++v6 > qword_14043B888 + 8 * (v5 >> 6) )
           goto LABEL_17;
       }
       _BitScanForward64(&v8, ~i);
-      v9 = v8 + (((__int64)v6 - qword_14043A7C8) >> 3 << 6);
+      v9 = v8 + (((__int64)v6 - qword_14043B888) >> 3 << 6);
       if ( v9 > v5 )
       {
 LABEL_17:
@@ -54,24 +54,24 @@ LABEL_17:
       if ( !v4 )
         break;
       v15 = v2 + 1;
-      if ( v2 + 1 > qword_14043A7C0 )
-        v15 = qword_14043A7C0;
+      if ( v2 + 1 > qword_14043B880 )
+        v15 = qword_14043B880;
       v5 = v15 - 1;
       v4 = 0LL;
     }
     if ( v9 < v2 || v9 == -1LL )
       break;
-    NextForwardRunClearCapped = RtlFindNextForwardRunClearCappedEx(&qword_14043A7C0, v9, v5, &v16);
+    NextForwardRunClearCapped = RtlFindNextForwardRunClearCappedEx(&qword_14043B880, v9, v5, &v16);
     v11 = v16;
     v12 = NextForwardRunClearCapped;
     if ( !NextForwardRunClearCapped )
-      v11 = qword_14043A7C0;
+      v11 = qword_14043B880;
     v13 = v11 - v9;
     v1 = (*(__int64 (__fastcall **)(unsigned __int64, unsigned __int64))(a1 + 16))(v9 << 12, v13 << 12);
     if ( v1 < 0 )
       break;
     v2 = v12 + v9 + v13;
   }
-  while ( v2 < qword_14043A7C0 );
+  while ( v2 < qword_14043B880 );
   return (unsigned int)v1;
 }

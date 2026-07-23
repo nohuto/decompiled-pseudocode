@@ -1,13 +1,13 @@
 /*
- * XREFs of KiSetVirtualHeteroClockIntervalRequest @ 0x1405C3158
+ * XREFs of KiSetVirtualHeteroClockIntervalRequest @ 0x1405C0728
  * Callers:
- *     KeUpdatePendingQosRequest @ 0x14029E99C (KeUpdatePendingQosRequest.c)
- *     KiSetVirtualHeteroClockIntervalRequestDpcRoutine @ 0x1405C31F0 (KiSetVirtualHeteroClockIntervalRequestDpcRoutine.c)
+ *     KeUpdatePendingQosRequest @ 0x1402AD48C (KeUpdatePendingQosRequest.c)
+ *     KiSetVirtualHeteroClockIntervalRequestDpcRoutine @ 0x1405C07C0 (KiSetVirtualHeteroClockIntervalRequestDpcRoutine.c)
  * Callees:
- *     KeSetClockInterval @ 0x14029F4B4 (KeSetClockInterval.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     KiResetClockInterval @ 0x1405BA4D4 (KiResetClockInterval.c)
+ *     KeSetClockInterval @ 0x140463D8C (KeSetClockInterval.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiResetClockInterval @ 0x1405B7B04 (KiResetClockInterval.c)
  */
 
 __int64 __fastcall KiSetVirtualHeteroClockIntervalRequest(char a1)
@@ -21,12 +21,12 @@ __int64 __fastcall KiSetVirtualHeteroClockIntervalRequest(char a1)
     KiRaiseIrqlProcessIrqlFlags(CurrentIrql, 15);
   if ( a1 )
   {
-    if ( byte_140E0AF50 )
-      KiResetClockInterval((__int64)&KiVirtualHeteroClockRequest);
+    if ( byte_140E0AFD0 )
+      KiResetClockInterval(&KiVirtualHeteroClockRequest);
   }
-  else if ( !byte_140E0AF50 && KiQosHysteresisTimerPeriod )
+  else if ( !byte_140E0AFD0 && KiQosHysteresisTimerPeriod )
   {
-    KeSetClockInterval(KiQosHysteresisTimerPeriod, 0, (__int64)&KiVirtualHeteroClockRequest);
+    KeSetClockInterval();
   }
   if ( KiIrqlFlags )
     KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), CurrentIrql);

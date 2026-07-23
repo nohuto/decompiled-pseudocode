@@ -1,10 +1,10 @@
 /*
- * XREFs of NormBuffer__ReplaceLastStartBase @ 0x14021561C
+ * XREFs of NormBuffer__ReplaceLastStartBase @ 0x140215448
  * Callers:
- *     Normalization__NormalizeCharacter @ 0x14068B660 (Normalization__NormalizeCharacter.c)
+ *     Normalization__NormalizeCharacter @ 0x14068B744 (Normalization__NormalizeCharacter.c)
  * Callees:
- *     NormBuffer__AppendAndSortDecomposed @ 0x1402151A4 (NormBuffer__AppendAndSortDecomposed.c)
- *     Normalization__GetSecondAndThirdDecomposedCharPlane0 @ 0x14068AC28 (Normalization__GetSecondAndThirdDecomposedCharPlane0.c)
+ *     NormBuffer__AppendAndSortDecomposed @ 0x140214FD0 (NormBuffer__AppendAndSortDecomposed.c)
+ *     Normalization__GetSecondAndThirdDecomposedCharPlane0 @ 0x14068AD0C (Normalization__GetSecondAndThirdDecomposedCharPlane0.c)
  */
 
 char __fastcall NormBuffer__ReplaceLastStartBase(__int64 a1, int a2, char a3, char a4)

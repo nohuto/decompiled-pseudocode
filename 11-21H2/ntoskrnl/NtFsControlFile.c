@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     IopXxxControlFile @ 0x1407308F0 (IopXxxControlFile.c)
+ *     sub_1407308F0 @ 0x1407308F0 (sub_1407308F0.c)
  */
 
 NTSTATUS __stdcall NtFsControlFile(
@@ -23,7 +23,7 @@ NTSTATUS __stdcall NtFsControlFile(
 
   LODWORD(Length) = OutputBufferLength;
   LODWORD(Size) = InputBufferLength;
-  return IopXxxControlFile(
+  return sub_1407308F0(
            (int)FileHandle,
            (__int64)IoStatusBlock,
            FsControlCode,

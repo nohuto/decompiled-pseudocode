@@ -1,18 +1,18 @@
 /*
- * XREFs of VfMapTransferEx @ 0x140C254B0
+ * XREFs of VfMapTransferEx @ 0x140C2B4C0
  * Callers:
  *     <none>
  * Callees:
- *     VfReportIssueWithOptions @ 0x140645558 (VfReportIssueWithOptions.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     INCREASE_MAPPED_TRANSFER_BYTE_COUNT @ 0x140C22C34 (INCREASE_MAPPED_TRANSFER_BYTE_COUNT.c)
- *     VERIFY_BUFFER_LOCKED @ 0x140C22E10 (VERIFY_BUFFER_LOCKED.c)
- *     VF_ASSERT_MAX_IRQL @ 0x140C22F1C (VF_ASSERT_MAX_IRQL.c)
- *     ViCheckAdapterBuffers @ 0x140C26454 (ViCheckAdapterBuffers.c)
- *     ViCheckMdlLength @ 0x140C26518 (ViCheckMdlLength.c)
- *     ViGetAdapterInformationInternal @ 0x140C26F80 (ViGetAdapterInformationInternal.c)
- *     ViGetRealDmaAdapter @ 0x140C271E4 (ViGetRealDmaAdapter.c)
- *     ViHalPreprocessOptions @ 0x140C2731C (ViHalPreprocessOptions.c)
+ *     VfReportIssueWithOptions @ 0x140649138 (VfReportIssueWithOptions.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     INCREASE_MAPPED_TRANSFER_BYTE_COUNT @ 0x140C28C44 (INCREASE_MAPPED_TRANSFER_BYTE_COUNT.c)
+ *     VERIFY_BUFFER_LOCKED @ 0x140C28E20 (VERIFY_BUFFER_LOCKED.c)
+ *     VF_ASSERT_MAX_IRQL @ 0x140C28F2C (VF_ASSERT_MAX_IRQL.c)
+ *     ViCheckAdapterBuffers @ 0x140C2C464 (ViCheckAdapterBuffers.c)
+ *     ViCheckMdlLength @ 0x140C2C528 (ViCheckMdlLength.c)
+ *     ViGetAdapterInformationInternal @ 0x140C2CF90 (ViGetAdapterInformationInternal.c)
+ *     ViGetRealDmaAdapter @ 0x140C2D1F4 (ViGetRealDmaAdapter.c)
+ *     ViHalPreprocessOptions @ 0x140C2D32C (ViHalPreprocessOptions.c)
  */
 
 __int64 __fastcall VfMapTransferEx(int a1, ULONG_PTR a2, __int64 a3, __int64 a4, int a5, unsigned int *a6)
@@ -36,13 +36,13 @@ __int64 __fastcall VfMapTransferEx(int a1, ULONG_PTR a2, __int64 a3, __int64 a4,
     {
       v12 = v11;
       ViHalPreprocessOptions(
-        byte_140E0EA70,
+        byte_140E0EAC8,
         "The provided MDL is not sufficient to satisfy the requested length",
         36LL,
         v11,
         0LL,
         0LL);
-      VfReportIssueWithOptions(0xE6u, 0x24uLL, v12, 0LL, 0LL, byte_140E0EA70);
+      VfReportIssueWithOptions(0xE6u, 0x24uLL, v12, 0LL, 0LL, byte_140E0EAC8);
     }
   }
   v13 = guard_dispatch_icall_no_overrides(RealDmaAdapter, a2);

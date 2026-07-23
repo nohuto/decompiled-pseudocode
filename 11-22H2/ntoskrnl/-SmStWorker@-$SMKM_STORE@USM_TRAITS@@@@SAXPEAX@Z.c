@@ -109,7 +109,7 @@ LABEL_9:
       if ( v9 == 258 )
       {
         SMKM_STORE<SM_TRAITS>::SmStAcquireStoreLockExclusive(v1);
-        ST_STORE<SM_TRAITS>::StDrainReadContextList((union _SLIST_HEADER *)v1);
+        ST_STORE<SM_TRAITS>::StDrainReadContextList((_SLIST_HEADER *)v1);
         *(_QWORD *)(v1 + 5928) += *(_QWORD *)(v1 + 5920);
         UnbiasedInterruptTime = KiQueryUnbiasedInterruptTime();
         ST_STORE<SM_TRAITS>::StLazyWorkMgrRunExpiredWork(v1 + 5744, UnbiasedInterruptTime);

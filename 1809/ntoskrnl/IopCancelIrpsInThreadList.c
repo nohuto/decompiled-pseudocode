@@ -1,15 +1,15 @@
 /*
- * XREFs of IopCancelIrpsInThreadList @ 0x1406A6A08
+ * XREFs of IopCancelIrpsInThreadList @ 0x1406A7CA8
  * Callers:
- *     IopCancelIrpsInThreadListForCurrentProcess @ 0x140676114 (IopCancelIrpsInThreadListForCurrentProcess.c)
- *     IopCancelSynchronousIrpsForThread @ 0x1408196FC (IopCancelSynchronousIrpsForThread.c)
+ *     IopCancelIrpsInThreadListForCurrentProcess @ 0x1406772D4 (IopCancelIrpsInThreadListForCurrentProcess.c)
+ *     IopCancelSynchronousIrpsForThread @ 0x14081A8FC (IopCancelSynchronousIrpsForThread.c)
  * Callees:
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     KeInitializeApc @ 0x14008A360 (KeInitializeApc.c)
- *     KeResetEvent @ 0x1400B8AA0 (KeResetEvent.c)
- *     KeInitializeEvent @ 0x1400B8E70 (KeInitializeEvent.c)
- *     KeInsertQueueApc @ 0x1400F1480 (KeInsertQueueApc.c)
- *     IopCancelIrpsInCurrentThreadList @ 0x140121CF4 (IopCancelIrpsInCurrentThreadList.c)
+ *     KeInitializeApc @ 0x14008A350 (KeInitializeApc.c)
+ *     KeResetEvent @ 0x1400B89E0 (KeResetEvent.c)
+ *     KeInitializeEvent @ 0x1400B8DB0 (KeInitializeEvent.c)
+ *     KeInsertQueueApc @ 0x1400F1500 (KeInsertQueueApc.c)
+ *     IopCancelIrpsInCurrentThreadList @ 0x140121DC4 (IopCancelIrpsInCurrentThreadList.c)
  */
 
 __int64 __fastcall IopCancelIrpsInThreadList(__int64 a1, __int64 a2)

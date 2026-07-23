@@ -1,21 +1,21 @@
 /*
- * XREFs of EtwTraceTimedEvent @ 0x14032B770
+ * XREFs of EtwTraceTimedEvent @ 0x14032D7A0
  * Callers:
- *     KiLoadDirectoryTableBase @ 0x140247600 (KiLoadDirectoryTableBase.c)
- *     HvlpFastFlushAddressSpaceTb @ 0x140250E04 (HvlpFastFlushAddressSpaceTb.c)
- *     HvlFlushRangeListTb @ 0x14032B100 (HvlFlushRangeListTb.c)
- *     HvlUpdatePerformanceStateCountersForLp @ 0x14032BD30 (HvlUpdatePerformanceStateCountersForLp.c)
- *     PerfInfoLogIpiReceive @ 0x14032C6F0 (PerfInfoLogIpiReceive.c)
- *     KiExpireTimer2 @ 0x140336F08 (KiExpireTimer2.c)
- *     KeDisableTimer2 @ 0x1403AA104 (KeDisableTimer2.c)
- *     KiFinalizeTimer2Disablement @ 0x1403AA6A8 (KiFinalizeTimer2Disablement.c)
- *     KiProcessExpiredTimerList @ 0x1403ABBEC (KiProcessExpiredTimerList.c)
- *     IopTimerDispatch @ 0x1404D3F80 (IopTimerDispatch.c)
- *     EtwTraceCpuCacheFlush @ 0x1406C45C4 (EtwTraceCpuCacheFlush.c)
- *     EtwpTraceFltTimedIo @ 0x1406C5AC0 (EtwpTraceFltTimedIo.c)
+ *     KiLoadDirectoryTableBase @ 0x140248F60 (KiLoadDirectoryTableBase.c)
+ *     HvlpFastFlushAddressSpaceTb @ 0x140252764 (HvlpFastFlushAddressSpaceTb.c)
+ *     HvlFlushRangeListTb @ 0x14032D130 (HvlFlushRangeListTb.c)
+ *     HvlUpdatePerformanceStateCountersForLp @ 0x14032DD60 (HvlUpdatePerformanceStateCountersForLp.c)
+ *     PerfInfoLogIpiReceive @ 0x14032E720 (PerfInfoLogIpiReceive.c)
+ *     KiExpireTimer2 @ 0x140338F88 (KiExpireTimer2.c)
+ *     KeDisableTimer2 @ 0x1403B3D14 (KeDisableTimer2.c)
+ *     KiFinalizeTimer2Disablement @ 0x1403B42B8 (KiFinalizeTimer2Disablement.c)
+ *     KiProcessExpiredTimerList @ 0x1403B58FC (KiProcessExpiredTimerList.c)
+ *     IopTimerDispatch @ 0x1404CD7F0 (IopTimerDispatch.c)
+ *     EtwTraceCpuCacheFlush @ 0x1406C8204 (EtwTraceCpuCacheFlush.c)
+ *     EtwpTraceFltTimedIo @ 0x1406C9700 (EtwpTraceFltTimedIo.c)
  * Callees:
- *     EtwpLogKernelEvent @ 0x14032CDC0 (EtwpLogKernelEvent.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwpLogKernelEvent @ 0x14032EDF0 (EtwpLogKernelEvent.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall EtwTraceTimedEvent(__int16 a1, unsigned int a2, __int64 a3, int a4, int a5, __int64 a6)

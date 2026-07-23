@@ -1,24 +1,24 @@
 /*
- * XREFs of PfPowerActionNotify @ 0x140567F10
+ * XREFs of PfPowerActionNotify @ 0x140568F10
  * Callers:
- *     PopTransitionSystemPowerStateEx @ 0x140566D74 (PopTransitionSystemPowerStateEx.c)
- *     PopUmpoProcessPowerMessage @ 0x14058B0C0 (PopUmpoProcessPowerMessage.c)
- *     PopUmpoSendLegacyEvent @ 0x1406DDDBC (PopUmpoSendLegacyEvent.c)
- *     PopIssueActionRequest @ 0x1406DE850 (PopIssueActionRequest.c)
- *     PopDispatchSuperfetchNotification @ 0x1406DEDD8 (PopDispatchSuperfetchNotification.c)
- *     PfpProcessScenarioPhase @ 0x14071BBBC (PfpProcessScenarioPhase.c)
+ *     PopTransitionSystemPowerStateEx @ 0x140567D74 (PopTransitionSystemPowerStateEx.c)
+ *     PopUmpoProcessPowerMessage @ 0x14058C0C0 (PopUmpoProcessPowerMessage.c)
+ *     PopUmpoSendLegacyEvent @ 0x1406DF05C (PopUmpoSendLegacyEvent.c)
+ *     PopIssueActionRequest @ 0x1406DFAF0 (PopIssueActionRequest.c)
+ *     PopDispatchSuperfetchNotification @ 0x1406E0078 (PopDispatchSuperfetchNotification.c)
+ *     PfpProcessScenarioPhase @ 0x14071CE5C (PfpProcessScenarioPhase.c)
  * Callees:
- *     PfLogEvent @ 0x1400D53F8 (PfLogEvent.c)
- *     PfpServiceMainThreadUnboost @ 0x140143350 (PfpServiceMainThreadUnboost.c)
- *     PfTSetTraceWorkerPriority @ 0x140175A9C (PfTSetTraceWorkerPriority.c)
- *     PfpPowerActionStartScenarioTracing @ 0x140566844 (PfpPowerActionStartScenarioTracing.c)
- *     PfpStartLoggingHardFaultEvents @ 0x14056690C (PfpStartLoggingHardFaultEvents.c)
- *     PfpScenCtxPrefetchWait @ 0x1405669E0 (PfpScenCtxPrefetchWait.c)
- *     MmPerformMemoryListCommand @ 0x14056EA20 (MmPerformMemoryListCommand.c)
- *     PfpScenCtxScenarioSet @ 0x14056EA68 (PfpScenCtxScenarioSet.c)
- *     PfSnBeginBootPhase @ 0x14056F13C (PfSnBeginBootPhase.c)
- *     PfpLogScenarioEvent @ 0x14071BCB4 (PfpLogScenarioEvent.c)
- *     PfGenerateTrace @ 0x14071BDC4 (PfGenerateTrace.c)
+ *     PfLogEvent @ 0x1400D5478 (PfLogEvent.c)
+ *     PfpServiceMainThreadUnboost @ 0x140143450 (PfpServiceMainThreadUnboost.c)
+ *     PfTSetTraceWorkerPriority @ 0x140175B9C (PfTSetTraceWorkerPriority.c)
+ *     PfpPowerActionStartScenarioTracing @ 0x140567844 (PfpPowerActionStartScenarioTracing.c)
+ *     PfpStartLoggingHardFaultEvents @ 0x14056790C (PfpStartLoggingHardFaultEvents.c)
+ *     PfpScenCtxPrefetchWait @ 0x1405679E0 (PfpScenCtxPrefetchWait.c)
+ *     MmPerformMemoryListCommand @ 0x14056FA20 (MmPerformMemoryListCommand.c)
+ *     PfpScenCtxScenarioSet @ 0x14056FA68 (PfpScenCtxScenarioSet.c)
+ *     PfSnBeginBootPhase @ 0x14057013C (PfSnBeginBootPhase.c)
+ *     PfpLogScenarioEvent @ 0x14071CF54 (PfpLogScenarioEvent.c)
+ *     PfGenerateTrace @ 0x14071D064 (PfGenerateTrace.c)
  */
 
 __int64 __fastcall PfPowerActionNotify(int a1, __int64 a2, int a3)
@@ -45,24 +45,24 @@ __int64 __fastcall PfPowerActionNotify(int a1, __int64 a2, int a3)
       if ( v5 )
       {
         if ( v5 == 5 && (unsigned int)(a3 - 2) <= 2 )
-          PfpLogScenarioEvent(1, 2, 1, dword_14043C0D4, 0);
+          PfpLogScenarioEvent(1, 2, 1, dword_14043D194, 0);
 LABEL_7:
         v11 = ((MEMORY[0xFFFFF78000000004] * MEMORY[0xFFFFF78000000324]) << 8)
             + ((MEMORY[0xFFFFF78000000320] * (unsigned __int64)MEMORY[0xFFFFF78000000004]) >> 24);
         return PfLogEvent(
                  28,
-                 dword_14043C09C
+                 dword_14043D15C
                + (unsigned int)((((MEMORY[0xFFFFF78000000004] * (unsigned __int64)MEMORY[0xFFFFF78000000320]) >> 24)
                                + ((MEMORY[0xFFFFF78000000004] * HIDWORD(MEMORY[0xFFFFF78000000320])) << 8)) >> 10),
                  &v10,
                  8u);
       }
-      PfpPowerActionStartScenarioTracing((__int64)&qword_14043C0A0, a2);
-      if ( dword_14043C0D0 == 5 )
+      PfpPowerActionStartScenarioTracing((__int64)&qword_14043D160, a2);
+      if ( dword_14043D190 == 5 )
         PfSnBeginBootPhase(4LL);
-      PfpScenCtxScenarioSet((ULONG_PTR)&qword_14043C0A0);
-      PfpScenCtxScenarioSet((ULONG_PTR)&qword_14043C0A0);
-      PfpScenCtxScenarioSet((ULONG_PTR)&qword_14043C0A0);
+      PfpScenCtxScenarioSet((ULONG_PTR)&qword_14043D160);
+      PfpScenCtxScenarioSet((ULONG_PTR)&qword_14043D160);
+      PfpScenCtxScenarioSet((ULONG_PTR)&qword_14043D160);
       result = PfpStartLoggingHardFaultEvents();
       if ( (int)result >= 0 )
         goto LABEL_7;
@@ -80,22 +80,22 @@ LABEL_7:
         v8 = 5;
         if ( a3 == 5 )
         {
-          v9 = HIDWORD(qword_14043BED4);
-          if ( dword_14043C0D0 == 5 )
-            v9 = dword_14043BEDC;
+          v9 = HIDWORD(qword_14043CF94);
+          if ( dword_14043D190 == 5 )
+            v9 = dword_14043CF9C;
           else
             v8 = 2;
         }
         else
         {
-          v9 = qword_14043BED4;
+          v9 = qword_14043CF94;
           v8 = 1;
         }
-        v11 = PfpScenCtxPrefetchWait((ULONG_PTR)&qword_14043C0A0, v8, v9);
+        v11 = PfpScenCtxPrefetchWait((ULONG_PTR)&qword_14043D160, v8, v9);
         PfpServiceMainThreadUnboost(0LL);
         return PfLogEvent(
                  28,
-                 dword_14043C09C
+                 dword_14043D15C
                + (unsigned int)((((MEMORY[0xFFFFF78000000004] * (unsigned __int64)MEMORY[0xFFFFF78000000320]) >> 24)
                                + ((MEMORY[0xFFFFF78000000004] * HIDWORD(MEMORY[0xFFFFF78000000320])) << 8)) >> 10),
                  &v10,
@@ -107,7 +107,7 @@ LABEL_7:
   {
     result = (unsigned int)(a3 - 2);
     if ( (unsigned int)result <= 2 || a3 == 5 )
-      return PfpScenCtxScenarioSet((ULONG_PTR)&qword_14043C0A0);
+      return PfpScenCtxScenarioSet((ULONG_PTR)&qword_14043D160);
   }
   return result;
 }

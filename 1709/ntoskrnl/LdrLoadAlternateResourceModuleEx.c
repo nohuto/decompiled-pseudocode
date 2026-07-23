@@ -18,21 +18,21 @@
  *     MmUnmapViewInSystemSpace @ 0x1404F75B0 (MmUnmapViewInSystemSpace.c)
  */
 
-__int64 __fastcall LdrLoadAlternateResourceModuleEx(
-        unsigned __int64 a1,
-        unsigned __int16 a2,
-        _QWORD *a3,
-        __int64 *a4,
-        unsigned int a5)
+NTSTATUS __cdecl LdrLoadAlternateResourceModuleEx(
+        PVOID DllHandle,
+        LANGID LanguageId,
+        PVOID *ResourceDllBase,
+        ULONG_PTR *ResourceOffset,
+        ULONG Flags)
 {
   unsigned __int64 v9; // rsi
   PVOID *DataTableEntry; // rdi
   __int64 v12; // rdx
-  int ResourceFileName; // edi
-  __int64 v14; // rsi
+  NTSTATUS ResourceFileName; // edi
+  ULONG_PTR v14; // rsi
   int v15; // [rsp+20h] [rbp-378h]
   PVOID MappedBase; // [rsp+50h] [rbp-348h] BYREF
-  __int64 v17; // [rsp+58h] [rbp-340h] BYREF
+  ULONG_PTR v17; // [rsp+58h] [rbp-340h] BYREF
   HANDLE Handle; // [rsp+60h] [rbp-338h] BYREF
   int v19; // [rsp+68h] [rbp-330h]
   UNICODE_STRING v20[2]; // [rsp+70h] [rbp-328h] BYREF
@@ -43,37 +43,41 @@ __int64 __fastcall LdrLoadAlternateResourceModuleEx(
   Handle = 0LL;
   memset(v21, 0, 0xAAuLL);
   v17 = 0LL;
-  if ( !a1 || !a2 || !a3 )
-    return 3221225485LL;
-  v9 = (unsigned __int64)LdrpGetFromMUIMemCache(a1, a2, &v17, 4);
+  if ( !DllHandle || !LanguageId || !ResourceDllBase )
+    return -1073741811;
+  v9 = (unsigned __int64)LdrpGetFromMUIMemCache((unsigned __int64)DllHandle, LanguageId, &v17, 4);
   if ( v9 == -1LL )
   {
-    *a3 = 0LL;
-    return 3221946374LL;
+    *ResourceDllBase = 0LL;
+    return -1073020922;
   }
   if ( v9 )
   {
-    *a3 = v9;
-    if ( a4 )
-      *a4 = v17;
+    *ResourceDllBase = (PVOID)v9;
+    if ( ResourceOffset )
+      *ResourceOffset = v17;
     v19 = 0;
-    return 0LL;
+    return 0;
   }
-  DataTableEntry = LdrpKrnGetDataTableEntry(a1);
+  DataTableEntry = LdrpKrnGetDataTableEntry((unsigned __int64)DllHandle);
   if ( DataTableEntry )
   {
     v20[0].Buffer = (wchar_t *)&v22;
     *(_DWORD *)&v20[0].Length = 34078720;
-    if ( (int)DownLevelLangIDToLanguageName(a2, v21, 85LL) >= 0 )
+    if ( (int)DownLevelLangIDToLanguageName(LanguageId, v21, 85LL) >= 0 )
     {
       ResourceFileName = LdrpGetResourceFileName(DataTableEntry, v12, v21, v20);
       if ( ResourceFileName >= 0 )
       {
-        ResourceFileName = LdrpMapResourceFile(a1, v20, &Handle, &MappedBase, (ULONG_PTR *)&v17);
+        ResourceFileName = LdrpMapResourceFile((__int64)DllHandle, v20, &Handle, &MappedBase, &v17);
         if ( ResourceFileName >= 0 )
         {
           v9 = (unsigned __int64)MappedBase | 1;
-          if ( !(unsigned __int8)LdrpVerifyAlternateResourceModule(a1, (unsigned __int64)MappedBase | 1, v21, a5) )
+          if ( !(unsigned __int8)LdrpVerifyAlternateResourceModule(
+                                   DllHandle,
+                                   (unsigned __int64)MappedBase | 1,
+                                   v21,
+                                   Flags) )
           {
             MmUnmapViewInSystemSpace(MappedBase);
             ZwClose(Handle);
@@ -85,7 +89,7 @@ __int64 __fastcall LdrLoadAlternateResourceModuleEx(
       }
       goto LABEL_16;
     }
-    DbgPrintEx(0x55u, 1u, "LDR: No Locale name for LangId %d \n", a2);
+    DbgPrintEx(0x55u, 1u, "LDR: No Locale name for LangId %d \n", LanguageId);
   }
   ResourceFileName = -1073020927;
 LABEL_16:
@@ -94,25 +98,25 @@ LABEL_16:
   MappedBase = (PVOID)v9;
   v14 = v17;
   LdrpSetAlternateResourceModuleHandle(
-    a1,
+    (_DWORD)DllHandle,
     (unsigned int)&MappedBase,
     (unsigned int)&Handle,
     0,
     v15,
-    a2,
+    LanguageId,
     1,
     ResourceFileName,
     v17);
   if ( MappedBase == (PVOID)-1LL )
   {
-    *a3 = 0LL;
+    *ResourceDllBase = 0LL;
   }
   else
   {
-    *a3 = MappedBase;
-    if ( a4 )
-      *a4 = v14;
+    *ResourceDllBase = MappedBase;
+    if ( ResourceOffset )
+      *ResourceOffset = v14;
     return 0;
   }
-  return (unsigned int)ResourceFileName;
+  return ResourceFileName;
 }

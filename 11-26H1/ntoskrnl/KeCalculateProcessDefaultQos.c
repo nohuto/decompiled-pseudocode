@@ -1,11 +1,11 @@
 /*
- * XREFs of KeCalculateProcessDefaultQos @ 0x1405F93F0
+ * XREFs of KeCalculateProcessDefaultQos @ 0x1405FBE10
  * Callers:
- *     PspQueryProcessDefaultQos @ 0x140615330 (PspQueryProcessDefaultQos.c)
- *     PspProcessQosChangeNotificationWorker @ 0x140B47740 (PspProcessQosChangeNotificationWorker.c)
+ *     PspQueryProcessDefaultQos @ 0x140618240 (PspQueryProcessDefaultQos.c)
+ *     PspProcessQosChangeNotificationWorker @ 0x140B77F30 (PspProcessQosChangeNotificationWorker.c)
  * Callees:
- *     Feature_DisableSystemThreadsQosPolicy__private_IsEnabledDeviceUsageNoInline @ 0x140467DE0 (Feature_DisableSystemThreadsQosPolicy__private_IsEnabledDeviceUsageNoInline.c)
- *     Feature_ProcessDefaultQosDynamic__private_IsEnabledDeviceUsageNoInline @ 0x1405F9394 (Feature_ProcessDefaultQosDynamic__private_IsEnabledDeviceUsageNoInline.c)
+ *     Feature_DisableSystemThreadsQosPolicy__private_IsEnabledDeviceUsageNoInline @ 0x140461530 (Feature_DisableSystemThreadsQosPolicy__private_IsEnabledDeviceUsageNoInline.c)
+ *     Feature_ProcessDefaultQosDynamic__private_IsEnabledDeviceUsageNoInline @ 0x1405FBDB4 (Feature_ProcessDefaultQosDynamic__private_IsEnabledDeviceUsageNoInline.c)
  */
 
 __int64 __fastcall KeCalculateProcessDefaultQos(__int64 a1)

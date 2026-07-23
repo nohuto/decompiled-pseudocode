@@ -1,20 +1,20 @@
 /*
- * XREFs of CcFreeWorkQueueEntry @ 0x1402F6CBC
+ * XREFs of CcFreeWorkQueueEntry @ 0x140301A0C
  * Callers:
- *     CcWaitForUninitializeCacheMap @ 0x1402B87C0 (CcWaitForUninitializeCacheMap.c)
- *     CcCompleteAsyncReadWorker @ 0x1402CC2D0 (CcCompleteAsyncReadWorker.c)
- *     CcWorkerThread @ 0x1402F31F0 (CcWorkerThread.c)
- *     CcCachemapUninitWorkerThread @ 0x1402F38A0 (CcCachemapUninitWorkerThread.c)
- *     CcWriteBehind @ 0x1402F6160 (CcWriteBehind.c)
- *     CcUninitializeCacheMap @ 0x1402F68B0 (CcUninitializeCacheMap.c)
- *     CcPostWorkQueueAsyncRead @ 0x1402F8664 (CcPostWorkQueueAsyncRead.c)
- *     CcMapAndCopyInToCache @ 0x140331C70 (CcMapAndCopyInToCache.c)
- *     CcAsyncReadWorker @ 0x1403B7950 (CcAsyncReadWorker.c)
- *     CcSerializeWithLazyWriter @ 0x1403F03C4 (CcSerializeWithLazyWriter.c)
+ *     CcWaitForUninitializeCacheMap @ 0x1402369D0 (CcWaitForUninitializeCacheMap.c)
+ *     CcCompleteAsyncReadWorker @ 0x14024A930 (CcCompleteAsyncReadWorker.c)
+ *     CcWorkerThread @ 0x1402FDF40 (CcWorkerThread.c)
+ *     CcCachemapUninitWorkerThread @ 0x1402FE5F0 (CcCachemapUninitWorkerThread.c)
+ *     CcWriteBehind @ 0x140300EB0 (CcWriteBehind.c)
+ *     CcUninitializeCacheMap @ 0x140301600 (CcUninitializeCacheMap.c)
+ *     CcPostWorkQueueAsyncRead @ 0x1403033B4 (CcPostWorkQueueAsyncRead.c)
+ *     CcMapAndCopyInToCache @ 0x14033C9C0 (CcMapAndCopyInToCache.c)
+ *     CcAsyncReadWorker @ 0x1403B7AC0 (CcAsyncReadWorker.c)
+ *     CcSerializeWithLazyWriter @ 0x1403F0534 (CcSerializeWithLazyWriter.c)
  * Callees:
- *     CcDereferencePartition @ 0x1402F6D2C (CcDereferencePartition.c)
- *     RtlpInterlockedPushEntrySList @ 0x140407970 (RtlpInterlockedPushEntrySList.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     CcDereferencePartition @ 0x140301A7C (CcDereferencePartition.c)
+ *     RtlpInterlockedPushEntrySList @ 0x140407B50 (RtlpInterlockedPushEntrySList.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall CcFreeWorkQueueEntry(PSLIST_ENTRY ListEntry)

@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlDeleteRange @ 0x140738C90
+ * XREFs of RtlDeleteRange @ 0x140739E80
  * Callers:
- *     ArbBacktrackAllocation @ 0x140737DE0 (ArbBacktrackAllocation.c)
- *     IopPortBacktrackAllocation @ 0x140828CB0 (IopPortBacktrackAllocation.c)
+ *     ArbBacktrackAllocation @ 0x140738FD0 (ArbBacktrackAllocation.c)
+ *     IopPortBacktrackAllocation @ 0x140829EB0 (IopPortBacktrackAllocation.c)
  * Callees:
- *     RtlpDeleteFromMergedRange @ 0x140738470 (RtlpDeleteFromMergedRange.c)
- *     RtlpFreeRangeListEntry @ 0x140738EF8 (RtlpFreeRangeListEntry.c)
+ *     RtlpDeleteFromMergedRange @ 0x140739660 (RtlpDeleteFromMergedRange.c)
+ *     RtlpFreeRangeListEntry @ 0x14073A0E8 (RtlpFreeRangeListEntry.c)
  */
 
 NTSTATUS __stdcall RtlDeleteRange(PRTL_RANGE_LIST RangeList, ULONGLONG Start, ULONGLONG End, PVOID Owner)

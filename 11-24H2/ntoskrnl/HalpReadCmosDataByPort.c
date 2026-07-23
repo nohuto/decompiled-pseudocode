@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpReadCmosDataByPort @ 0x140425C10
+ * XREFs of HalpReadCmosDataByPort @ 0x140419AC0
  * Callers:
- *     HalpReadStdCmosData @ 0x140425BF0 (HalpReadStdCmosData.c)
+ *     HalpReadStdCmosData @ 0x140419AA0 (HalpReadStdCmosData.c)
  * Callees:
- *     HalpReleaseCmosSpinLock @ 0x140425E04 (HalpReleaseCmosSpinLock.c)
- *     HalpAcquireCmosSpinLock @ 0x140425EE8 (HalpAcquireCmosSpinLock.c)
+ *     HalpReleaseCmosSpinLock @ 0x140419CB4 (HalpReleaseCmosSpinLock.c)
+ *     HalpAcquireCmosSpinLock @ 0x140419D98 (HalpAcquireCmosSpinLock.c)
  */
 
 __int64 __fastcall HalpReadCmosDataByPort(__int64 a1, __int64 a2, unsigned int a3, __int64 a4, int a5)

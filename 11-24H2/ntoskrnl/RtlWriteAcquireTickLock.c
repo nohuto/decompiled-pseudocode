@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlWriteAcquireTickLock @ 0x14029D4E4
+ * XREFs of RtlWriteAcquireTickLock @ 0x1402ABFD4
  * Callers:
- *     KiUpdateProcessAvailableCpuState @ 0x140204268 (KiUpdateProcessAvailableCpuState.c)
- *     KiUpdateTime @ 0x14029B7C0 (KiUpdateTime.c)
- *     KiUpdateTimeAssist @ 0x14029EBAC (KiUpdateTimeAssist.c)
- *     KiUpdateSystemTime @ 0x1404A7710 (KiUpdateSystemTime.c)
- *     KiUpdateSystemAvailableCpuState @ 0x1405B86B4 (KiUpdateSystemAvailableCpuState.c)
- *     KeSetTagCpuSets @ 0x1405BFDEC (KeSetTagCpuSets.c)
- *     KiAddCpuToSystemCpuPartition @ 0x140B57C80 (KiAddCpuToSystemCpuPartition.c)
- *     KiCreateCpuSetForProcessor @ 0x140B57D30 (KiCreateCpuSetForProcessor.c)
- *     KiCalibrateTimeAdjustment @ 0x140B6B5B0 (KiCalibrateTimeAdjustment.c)
+ *     KiUpdateTime @ 0x1402AA2B0 (KiUpdateTime.c)
+ *     KiUpdateTimeAssist @ 0x1402AD69C (KiUpdateTimeAssist.c)
+ *     KiUpdateProcessAvailableCpuState @ 0x14032B848 (KiUpdateProcessAvailableCpuState.c)
+ *     KiUpdateSystemTime @ 0x1404A2140 (KiUpdateSystemTime.c)
+ *     KiUpdateSystemAvailableCpuState @ 0x1405B5C94 (KiUpdateSystemAvailableCpuState.c)
+ *     KeSetTagCpuSets @ 0x1405BD41C (KeSetTagCpuSets.c)
+ *     KiAddCpuToSystemCpuPartition @ 0x140B59D00 (KiAddCpuToSystemCpuPartition.c)
+ *     KiCreateCpuSetForProcessor @ 0x140B59DB0 (KiCreateCpuSetForProcessor.c)
+ *     KiCalibrateTimeAdjustment @ 0x140B6BCD0 (KiCalibrateTimeAdjustment.c)
  * Callees:
  *     <none>
  */

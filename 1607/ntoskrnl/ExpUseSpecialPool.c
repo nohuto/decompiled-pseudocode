@@ -1,9 +1,9 @@
 /*
- * XREFs of ExpUseSpecialPool @ 0x14022D10C
+ * XREFs of ExpUseSpecialPool @ 0x14022CF38
  * Callers:
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  * Callees:
- *     ExCheckSingleFilter @ 0x14015988C (ExCheckSingleFilter.c)
+ *     ExCheckSingleFilter @ 0x140159DFC (ExCheckSingleFilter.c)
  */
 
 _BOOL8 __fastcall ExpUseSpecialPool(unsigned __int64 a1, int a2)

@@ -1,17 +1,17 @@
 /*
- * XREFs of CmpRegisterCallbackInternal @ 0x140A0506C
+ * XREFs of CmpRegisterCallbackInternal @ 0x1409F085C
  * Callers:
- *     CmRegisterCallback @ 0x1408505A0 (CmRegisterCallback.c)
- *     CmRegisterInternalCallback @ 0x140A04F70 (CmRegisterInternalCallback.c)
- *     EtwpRegTraceEnableCallback @ 0x140A04FC0 (EtwpRegTraceEnableCallback.c)
- *     CmRegisterCallbackEx @ 0x140B3D770 (CmRegisterCallbackEx.c)
+ *     CmRegisterCallback @ 0x1408568B0 (CmRegisterCallback.c)
+ *     CmRegisterInternalCallback @ 0x1409F0768 (CmRegisterInternalCallback.c)
+ *     EtwpRegTraceEnableCallback @ 0x1409F07B0 (EtwpRegTraceEnableCallback.c)
+ *     CmRegisterCallbackEx @ 0x140B3F840 (CmRegisterCallbackEx.c)
  * Callees:
- *     CmpInitializeThreadInfo @ 0x14043CF00 (CmpInitializeThreadInfo.c)
- *     CmCleanupThreadInfo @ 0x14044C0A0 (CmCleanupThreadInfo.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     CmpInsertCallbackInListByAltitude @ 0x140A051A4 (CmpInsertCallbackInListByAltitude.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     CmpInitializeThreadInfo @ 0x14042F7B0 (CmpInitializeThreadInfo.c)
+ *     CmCleanupThreadInfo @ 0x1404441C0 (CmCleanupThreadInfo.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     CmpInsertCallbackInListByAltitude @ 0x1409F0994 (CmpInsertCallbackInListByAltitude.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall CmpRegisterCallbackInternal(

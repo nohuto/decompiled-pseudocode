@@ -1,21 +1,20 @@
 /*
- * XREFs of PsGetEffectiveServerSilo @ 0x140349B30
+ * XREFs of PsGetEffectiveServerSilo @ 0x1403C3570
  * Callers:
- *     EtwpEventWriteFull @ 0x140328590 (EtwpEventWriteFull.c)
- *     UpcaseUnicodeToMultiByteNHelper @ 0x1404187C0 (UpcaseUnicodeToMultiByteNHelper.c)
- *     EtwTraceContextSwap @ 0x140421D90 (EtwTraceContextSwap.c)
- *     PsIsCurrentThreadInServerSilo @ 0x14042F240 (PsIsCurrentThreadInServerSilo.c)
- *     PsGetJobServerSilo @ 0x1404B7940 (PsGetJobServerSilo.c)
- *     PspIsSiloInServerSilo @ 0x1405E4DD4 (PspIsSiloInServerSilo.c)
- *     ObpCreateDosDevicesDirectory @ 0x14074375C (ObpCreateDosDevicesDirectory.c)
- *     PspImplicitAssignProcessToJob @ 0x1408E7184 (PspImplicitAssignProcessToJob.c)
- *     PspGetMemoryPartitionImplicit @ 0x1408E7494 (PspGetMemoryPartitionImplicit.c)
- *     NtSetInformationThread @ 0x140911410 (NtSetInformationThread.c)
- *     NtQueryInformationProcess @ 0x1409AB830 (NtQueryInformationProcess.c)
- *     PspEstimateNewProcessServerSilo @ 0x140A4A930 (PspEstimateNewProcessServerSilo.c)
- *     PspValidateJobAssignmentSiloPolicy @ 0x140A5B354 (PspValidateJobAssignmentSiloPolicy.c)
+ *     UpcaseUnicodeToMultiByteNHelper @ 0x140408570 (UpcaseUnicodeToMultiByteNHelper.c)
+ *     EtwTraceContextSwap @ 0x140415C40 (EtwTraceContextSwap.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x140421410 (PsIsCurrentThreadInServerSilo.c)
+ *     PsGetJobServerSilo @ 0x1404B2120 (PsGetJobServerSilo.c)
+ *     PspIsSiloInServerSilo @ 0x1405E22FC (PspIsSiloInServerSilo.c)
+ *     ObpCreateDosDevicesDirectory @ 0x14074168C (ObpCreateDosDevicesDirectory.c)
+ *     PspImplicitAssignProcessToJob @ 0x1408D79EC (PspImplicitAssignProcessToJob.c)
+ *     PspGetMemoryPartitionImplicit @ 0x1408D7CF0 (PspGetMemoryPartitionImplicit.c)
+ *     NtSetInformationThread @ 0x1408E8B60 (NtSetInformationThread.c)
+ *     NtQueryInformationProcess @ 0x140995530 (NtQueryInformationProcess.c)
+ *     PspEstimateNewProcessServerSilo @ 0x140A41590 (PspEstimateNewProcessServerSilo.c)
+ *     PspValidateJobAssignmentSiloPolicy @ 0x140A52C64 (PspValidateJobAssignmentSiloPolicy.c)
  * Callees:
- *     PsIsServerSilo @ 0x140349B68 (PsIsServerSilo.c)
+ *     PsIsServerSilo @ 0x1403C35A8 (PsIsServerSilo.c)
  */
 
 __int64 __fastcall PsGetEffectiveServerSilo(__int64 a1)

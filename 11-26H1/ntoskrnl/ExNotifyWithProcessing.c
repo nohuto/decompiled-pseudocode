@@ -1,23 +1,23 @@
 /*
- * XREFs of ExNotifyWithProcessing @ 0x140439330
+ * XREFs of ExNotifyWithProcessing @ 0x140427F90
  * Callers:
- *     PoNotifySystemTimeSet @ 0x14043919C (PoNotifySystemTimeSet.c)
- *     IopSessionChangeWorker @ 0x1404392D0 (IopSessionChangeWorker.c)
- *     HvlPhase2Initialize @ 0x1405B8B08 (HvlPhase2Initialize.c)
- *     KiDynamicProcessorAddNotification @ 0x1405F0900 (KiDynamicProcessorAddNotification.c)
- *     ExRebootSystemForRecovery @ 0x1406CB54C (ExRebootSystemForRecovery.c)
- *     SepImageVerificationCallbackWorker @ 0x140B2D0B0 (SepImageVerificationCallbackWorker.c)
- *     PnpNotifyEarlyLaunchStatusUpdate @ 0x140C8017C (PnpNotifyEarlyLaunchStatusUpdate.c)
- *     Phase1InitializationIoReady @ 0x140CAD020 (Phase1InitializationIoReady.c)
- *     PnpNotifyEarlyLaunchImageLoad @ 0x140CC3F64 (PnpNotifyEarlyLaunchImageLoad.c)
+ *     PoNotifySystemTimeSet @ 0x140427DFC (PoNotifySystemTimeSet.c)
+ *     IopSessionChangeWorker @ 0x140427F30 (IopSessionChangeWorker.c)
+ *     HvlPhase2Initialize @ 0x1405BB378 (HvlPhase2Initialize.c)
+ *     KiDynamicProcessorAddNotification @ 0x1405F3270 (KiDynamicProcessorAddNotification.c)
+ *     ExRebootSystemForRecovery @ 0x1406CF57C (ExRebootSystemForRecovery.c)
+ *     SepImageVerificationCallbackWorker @ 0x140B2F130 (SepImageVerificationCallbackWorker.c)
+ *     PnpNotifyEarlyLaunchStatusUpdate @ 0x140C8617C (PnpNotifyEarlyLaunchStatusUpdate.c)
+ *     Phase1InitializationIoReady @ 0x140CB3060 (Phase1InitializationIoReady.c)
+ *     PnpNotifyEarlyLaunchImageLoad @ 0x140CCA044 (PnpNotifyEarlyLaunchImageLoad.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KxReleaseSpinLock @ 0x1402BDEF0 (KxReleaseSpinLock.c)
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     ExpCallProcessing @ 0x1404394E4 (ExpCallProcessing.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     KxReleaseSpinLock @ 0x140308BB0 (KxReleaseSpinLock.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ExpCallProcessing @ 0x140428144 (ExpCallProcessing.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 void __fastcall ExNotifyWithProcessing(__int64 a1, __int64 a2, int a3, _QWORD *a4)
@@ -67,7 +67,7 @@ void __fastcall ExNotifyWithProcessing(__int64 a1, __int64 a2, int a3, _QWORD *a
             v13 = *((_BYTE *)v10 + 44) == 0;
             *((_DWORD *)v10 + 10) = v12;
             if ( !v13 && !v12 )
-              KeSetEvent(&word_140EFEF60, 0, 0);
+              KeSetEvent(&word_140EFF2A0, 0, 0);
           }
           v10 = (_QWORD *)*v10;
         }

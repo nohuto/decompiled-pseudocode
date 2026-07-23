@@ -1,11 +1,11 @@
 /*
- * XREFs of ?KiAbEntryUpdateWaiterTreePosition@LegacyAutoBoost@@YAXPEAU_KLOCK_ENTRY@@0@Z @ 0x1402702CC
+ * XREFs of ?KiAbEntryUpdateWaiterTreePosition@LegacyAutoBoost@@YAXPEAU_KLOCK_ENTRY@@0@Z @ 0x14026F83C
  * Callers:
- *     ?KiAbProcessThreadLocks@LegacyAutoBoost@@YAXPEAU_KTHREAD@@T_KI_AB_BOOST_STRATEGY@1@PEAU_SINGLE_LIST_ENTRY@@22@Z @ 0x14027125C (-KiAbProcessThreadLocks@LegacyAutoBoost@@YAXPEAU_KTHREAD@@T_KI_AB_BOOST_STRATEGY@1@PEAU_SINGLE_L.c)
- *     ?KiAbForceProcessLockEntry@LegacyAutoBoost@@YAXPEAU_KLOCK_ENTRY@@@Z @ 0x1405FD774 (-KiAbForceProcessLockEntry@LegacyAutoBoost@@YAXPEAU_KLOCK_ENTRY@@@Z.c)
+ *     ?KiAbProcessThreadLocks@LegacyAutoBoost@@YAXPEAU_KTHREAD@@T_KI_AB_BOOST_STRATEGY@1@PEAU_SINGLE_LIST_ENTRY@@22@Z @ 0x1402707CC (-KiAbProcessThreadLocks@LegacyAutoBoost@@YAXPEAU_KTHREAD@@T_KI_AB_BOOST_STRATEGY@1@PEAU_SINGLE_L.c)
+ *     ?KiAbForceProcessLockEntry@LegacyAutoBoost@@YAXPEAU_KLOCK_ENTRY@@@Z @ 0x1406001C4 (-KiAbForceProcessLockEntry@LegacyAutoBoost@@YAXPEAU_KLOCK_ENTRY@@@Z.c)
  * Callees:
- *     RtlRbInsertNodeEx @ 0x1403774B0 (RtlRbInsertNodeEx.c)
- *     RtlRbRemoveNode @ 0x140377C60 (RtlRbRemoveNode.c)
+ *     RtlRbInsertNodeEx @ 0x140379260 (RtlRbInsertNodeEx.c)
+ *     RtlRbRemoveNode @ 0x140379A10 (RtlRbRemoveNode.c)
  */
 
 void __fastcall LegacyAutoBoost::KiAbEntryUpdateWaiterTreePosition(
@@ -16,7 +16,7 @@ void __fastcall LegacyAutoBoost::KiAbEntryUpdateWaiterTreePosition(
   char v4; // di
   _RTL_RB_TREE *p_WaiterTree; // rbx
   unsigned __int64 Root; // rdx
-  __int64 v7; // r8
+  BOOLEAN v7; // r8
   _RTL_BALANCED_NODE *v8; // rax
 
   v4 = *(_BYTE *)(*((_QWORD *)this - 11 * (*((_BYTE *)this + 8) & 0x3F) - 2) + 195LL);
@@ -26,9 +26,9 @@ void __fastcall LegacyAutoBoost::KiAbEntryUpdateWaiterTreePosition(
   {
     p_WaiterTree = &a2->WaiterTree;
     *((_BYTE *)this + 40) = v4;
-    RtlRbRemoveNode(&a2->WaiterTree, (char *)this + 16);
+    RtlRbRemoveNode(&a2->WaiterTree, (PRTL_BALANCED_NODE)((char *)this + 16));
     Root = (unsigned __int64)p_WaiterTree->Root;
-    v7 = 0LL;
+    v7 = 0;
     if ( (*(_BYTE *)&p_WaiterTree->0 & 1) != 0 )
     {
       if ( Root )
@@ -52,7 +52,7 @@ void __fastcall LegacyAutoBoost::KiAbEntryUpdateWaiterTreePosition(
           if ( !v8 )
           {
 LABEL_14:
-            LOBYTE(v7) = 1;
+            v7 = 1;
             break;
           }
         }
@@ -71,6 +71,6 @@ LABEL_14:
         Root = (unsigned __int64)v8;
       }
     }
-    RtlRbInsertNodeEx(p_WaiterTree, Root, v7, (char *)this + 16);
+    RtlRbInsertNodeEx(p_WaiterTree, (PRTL_BALANCED_NODE)Root, v7, (PRTL_BALANCED_NODE)((char *)this + 16));
   }
 }

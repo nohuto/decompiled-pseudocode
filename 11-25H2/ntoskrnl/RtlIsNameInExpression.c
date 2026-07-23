@@ -17,7 +17,7 @@ BOOLEAN __stdcall RtlIsNameInExpression(
         PWCH UpcaseTable)
 {
   int v5; // edi
-  int v6; // eax
+  NTSTATUS v6; // eax
   BOOLEAN IsNameInExpressionPrivate; // bl
   UNICODE_STRING UnicodeString; // [rsp+30h] [rbp-18h] BYREF
 

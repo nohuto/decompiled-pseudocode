@@ -9,68 +9,69 @@
  *     KeBugCheckEx @ 0x1401C3B20 (KeBugCheckEx.c)
  */
 
-__int64 KiFatalExceptionFilter()
+__int64 __fastcall KiFatalExceptionFilter(__int64 a1, __int64 a2)
 {
   struct _KPRCB *CurrentPrcb; // rsi
-  NTSTATUS v1; // eax
-  __int64 v2; // r9
-  __int64 v3; // rdi
-  unsigned int v4; // edx
-  char *v5; // rbx
-  unsigned int *v6; // rcx
-  unsigned __int64 v7; // r8
-  int v8; // eax
+  NTSTATUS v3; // eax
+  __int64 v4; // r9
+  __int64 v5; // rdi
+  unsigned int v6; // edx
+  char *v7; // rbx
+  unsigned int *v8; // rcx
+  unsigned __int64 v9; // r8
+  int v10; // eax
   __int64 result; // rax
   int i; // r10d
-  int v11; // edx
-  unsigned int v12; // [rsp+60h] [rbp+8h] BYREF
-  __int64 v13; // [rsp+68h] [rbp+10h] BYREF
-  unsigned __int64 v14; // [rsp+70h] [rbp+18h] BYREF
+  int v13; // edx
+  unsigned int v14; // [rsp+60h] [rbp+8h] BYREF
+  __int64 v15; // [rsp+68h] [rbp+10h] BYREF
+  unsigned __int64 v16; // [rsp+70h] [rbp+18h] BYREF
 
   _mm_lfence();
   CurrentPrcb = KeGetCurrentPrcb();
+  LOBYTE(a2) = 1;
   CurrentPrcb->HalReserved[6] = (unsigned __int64)KiServiceTablesLocked;
-  v1 = RtlpImageDirectoryEntryToDataEx(0x140000000uLL, 1, 3u, (int)&v12, &v13);
-  v3 = v13;
-  if ( v1 < 0 )
-    v3 = 0LL;
-  if ( !v3 )
+  v3 = RtlpImageDirectoryEntryToDataEx(0x140000000uLL, a2, 3LL, (__int64)&v14, &v15);
+  v5 = v15;
+  if ( v3 < 0 )
+    v5 = 0LL;
+  if ( !v5 )
     goto LABEL_20;
-  v4 = v12 / 0xC;
-  if ( !(v12 / 0xC) )
+  v6 = v14 / 0xC;
+  if ( !(v14 / 0xC) )
     goto LABEL_20;
-  v5 = (char *)KiServiceTablesLocked - 0x140000000LL;
-  v6 = (unsigned int *)(v3 + 12LL * (v4 - 1));
-  v7 = *v6;
-  if ( (unsigned __int64)KiServiceTablesLocked - 0x140000000LL < v7 )
+  v7 = (char *)KiServiceTablesLocked - 0x140000000LL;
+  v8 = (unsigned int *)(v5 + 12LL * (v6 - 1));
+  v9 = *v8;
+  if ( (unsigned __int64)KiServiceTablesLocked - 0x140000000LL < v9 )
   {
-    v2 = v4 - 2;
-    for ( i = 0; (int)v2 >= i; LODWORD(v7) = *v6 )
+    v4 = v6 - 2;
+    for ( i = 0; (int)v4 >= i; LODWORD(v9) = *v8 )
     {
-      v11 = ((int)v2 + i) >> 1;
-      v6 = (unsigned int *)(v3 + 12LL * v11);
-      if ( (unsigned __int64)v5 >= *v6 )
+      v13 = ((int)v4 + i) >> 1;
+      v8 = (unsigned int *)(v5 + 12LL * v13);
+      if ( (unsigned __int64)v7 >= *v8 )
       {
-        LODWORD(v7) = *v6;
-        if ( (unsigned __int64)v5 < v6[3] )
+        LODWORD(v9) = *v8;
+        if ( (unsigned __int64)v7 < v8[3] )
           break;
-        i = v11 + 1;
+        i = v13 + 1;
       }
       else
       {
-        v2 = (unsigned int)(v11 - 1);
+        v4 = (unsigned int)(v13 - 1);
       }
     }
   }
-  if ( (unsigned __int64)v5 < (unsigned int)v7 || (unsigned __int64)v5 >= v6[1] )
-    v6 = 0LL;
-  if ( !v6 )
+  if ( (unsigned __int64)v7 < (unsigned int)v9 || (unsigned __int64)v7 >= v8[1] )
+    v8 = 0LL;
+  if ( !v8 )
 LABEL_20:
     KeBugCheck(0x31u);
-  v8 = RtlLookupExceptionHandler((__int64)v6, 0x140000000uLL, 1u, v2, &v14, 0LL);
-  if ( v8 < 0 )
-    KeBugCheckEx(0x31u, v8, 0LL, 0LL, 0LL);
-  CurrentPrcb->HalReserved[5] = v14;
+  v10 = RtlLookupExceptionHandler((__int64)v8, 0x140000000uLL, 1u, v4, &v16, 0LL);
+  if ( v10 < 0 )
+    KeBugCheckEx(0x31u, v10, 0LL, 0LL, 0LL);
+  CurrentPrcb->HalReserved[5] = v16;
   result = 0LL;
   KiHardwareTriggerLock = 0LL;
   return result;

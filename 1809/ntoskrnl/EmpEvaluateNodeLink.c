@@ -1,14 +1,14 @@
 /*
- * XREFs of EmpEvaluateNodeLink @ 0x1400A508C
+ * XREFs of EmpEvaluateNodeLink @ 0x1400A4FCC
  * Callers:
- *     EmpEvaluateTargetRule @ 0x1400A4B8C (EmpEvaluateTargetRule.c)
- *     EmpEvaluateNodeLink @ 0x1400A508C (EmpEvaluateNodeLink.c)
+ *     EmpEvaluateTargetRule @ 0x1400A4ACC (EmpEvaluateTargetRule.c)
+ *     EmpEvaluateNodeLink @ 0x1400A4FCC (EmpEvaluateNodeLink.c)
  * Callees:
- *     EmpEvaluateParseNodeMapping @ 0x1400A4D58 (EmpEvaluateParseNodeMapping.c)
- *     EmpEvaluateNodeLink @ 0x1400A508C (EmpEvaluateNodeLink.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     EmpEvaluateParseNodeMapping @ 0x1400A4C98 (EmpEvaluateParseNodeMapping.c)
+ *     EmpEvaluateNodeLink @ 0x1400A4FCC (EmpEvaluateNodeLink.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall EmpEvaluateNodeLink(

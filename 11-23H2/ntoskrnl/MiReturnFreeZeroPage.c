@@ -1,21 +1,21 @@
 /*
- * XREFs of MiReturnFreeZeroPage @ 0x1402E7F74
+ * XREFs of MiReturnFreeZeroPage @ 0x1402E8204
  * Callers:
- *     MiMigratePfn @ 0x1402630E0 (MiMigratePfn.c)
- *     MiGetPerfectColorHeadPage @ 0x14026DC10 (MiGetPerfectColorHeadPage.c)
- *     MiCoalesceFreePages @ 0x1402D4970 (MiCoalesceFreePages.c)
- *     MiWalkEntireImage @ 0x1402DAFE0 (MiWalkEntireImage.c)
- *     MiReleaseFreshPage @ 0x1402E7F20 (MiReleaseFreshPage.c)
- *     MiFreeLargeInitializationCodePages @ 0x1403953EC (MiFreeLargeInitializationCodePages.c)
- *     MiTradePage @ 0x1403BA960 (MiTradePage.c)
- *     MiDemoteSlabEntry @ 0x1403CD3EC (MiDemoteSlabEntry.c)
- *     MiRemoveLowestPriorityStandbyPage @ 0x140651854 (MiRemoveLowestPriorityStandbyPage.c)
- *     MiMakeVaRangePhysicallyContiguous @ 0x14065D6C0 (MiMakeVaRangePhysicallyContiguous.c)
- *     MiHandleSpecialPurposeMemoryCachedFault @ 0x140660408 (MiHandleSpecialPurposeMemoryCachedFault.c)
- *     MiLockSpecialPurposeMemoryCachedPage @ 0x140660858 (MiLockSpecialPurposeMemoryCachedPage.c)
+ *     MiMigratePfn @ 0x140263370 (MiMigratePfn.c)
+ *     MiGetPerfectColorHeadPage @ 0x14026DEA0 (MiGetPerfectColorHeadPage.c)
+ *     MiCoalesceFreePages @ 0x1402D4C00 (MiCoalesceFreePages.c)
+ *     MiWalkEntireImage @ 0x1402DB270 (MiWalkEntireImage.c)
+ *     MiReleaseFreshPage @ 0x1402E81B0 (MiReleaseFreshPage.c)
+ *     MiFreeLargeInitializationCodePages @ 0x1403955CC (MiFreeLargeInitializationCodePages.c)
+ *     MiTradePage @ 0x1403BAB40 (MiTradePage.c)
+ *     MiDemoteSlabEntry @ 0x1403CD5CC (MiDemoteSlabEntry.c)
+ *     MiRemoveLowestPriorityStandbyPage @ 0x140651DA4 (MiRemoveLowestPriorityStandbyPage.c)
+ *     MiMakeVaRangePhysicallyContiguous @ 0x14065DC10 (MiMakeVaRangePhysicallyContiguous.c)
+ *     MiHandleSpecialPurposeMemoryCachedFault @ 0x140660958 (MiHandleSpecialPurposeMemoryCachedFault.c)
+ *     MiLockSpecialPurposeMemoryCachedPage @ 0x140660DA8 (MiLockSpecialPurposeMemoryCachedPage.c)
  * Callees:
- *     MiInsertPageInFreeOrZeroedList @ 0x1402D3670 (MiInsertPageInFreeOrZeroedList.c)
- *     MiIsFreeZeroPfnCold @ 0x1402E85D0 (MiIsFreeZeroPfnCold.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x1402D3900 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiIsFreeZeroPfnCold @ 0x1402E8860 (MiIsFreeZeroPfnCold.c)
  */
 
 void __fastcall MiReturnFreeZeroPage(__int64 a1)

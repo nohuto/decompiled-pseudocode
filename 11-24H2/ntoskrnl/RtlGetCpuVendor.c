@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlGetCpuVendor @ 0x140B609B4
+ * XREFs of RtlGetCpuVendor @ 0x140B62A80
  * Callers:
- *     SpcIsHyperVCr3RspErrataPresent @ 0x1406A0A64 (SpcIsHyperVCr3RspErrataPresent.c)
- *     RtlGetProcessorSignature @ 0x140B60A90 (RtlGetProcessorSignature.c)
+ *     SpcIsHyperVCr3RspErrataPresent @ 0x1406A1B6C (SpcIsHyperVCr3RspErrataPresent.c)
+ *     RtlGetProcessorSignature @ 0x140B62B5C (RtlGetProcessorSignature.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     strncmp @ 0x1406BFB20 (strncmp.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     strncmp @ 0x1406C0A20 (strncmp.c)
  */
 
 char RtlGetCpuVendor()

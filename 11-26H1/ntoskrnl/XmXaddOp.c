@@ -1,10 +1,10 @@
 /*
- * XREFs of XmXaddOp @ 0x1405ACB80
+ * XREFs of XmXaddOp @ 0x1405AF390
  * Callers:
  *     <none>
  * Callees:
- *     XmAddOperands @ 0x1404A80F0 (XmAddOperands.c)
- *     XmStoreResult @ 0x1404A8E3C (XmStoreResult.c)
+ *     XmAddOperands @ 0x1404A1780 (XmAddOperands.c)
+ *     XmStoreResult @ 0x1404A24CC (XmStoreResult.c)
  */
 
 _WORD *__fastcall XmXaddOp(__int64 a1)

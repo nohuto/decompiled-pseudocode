@@ -1,21 +1,21 @@
 /*
  * XREFs of strncmp @ 0x1403E0910
  * Callers:
- *     HalpAcpiGetCachedTable @ 0x140213BD4 (HalpAcpiGetCachedTable.c)
- *     HalpAcpiCheckAndMapTable @ 0x140215144 (HalpAcpiCheckAndMapTable.c)
- *     HvlDebuggerSupportInitialize @ 0x1403DF0F4 (HvlDebuggerSupportInitialize.c)
- *     RtlLookupImageSectionByName @ 0x1405EC554 (RtlLookupImageSectionByName.c)
- *     EtwpApplyPredicate @ 0x140637E70 (EtwpApplyPredicate.c)
- *     PopPowerRequestStatsIsDetailedRequestReason @ 0x1407F0E34 (PopPowerRequestStatsIsDetailedRequestReason.c)
+ *     sub_140213BD4 @ 0x140213BD4 (sub_140213BD4.c)
+ *     sub_140215144 @ 0x140215144 (sub_140215144.c)
+ *     sub_1403DF0F4 @ 0x1403DF0F4 (sub_1403DF0F4.c)
+ *     sub_1405EC554 @ 0x1405EC554 (sub_1405EC554.c)
+ *     sub_140637E70 @ 0x140637E70 (sub_140637E70.c)
+ *     sub_1407F0E34 @ 0x1407F0E34 (sub_1407F0E34.c)
  *     RtlValidateCorrelationVector @ 0x1409BB8C0 (RtlValidateCorrelationVector.c)
- *     ApiSetpFindImageSection @ 0x140A0A7C4 (ApiSetpFindImageSection.c)
- *     AslpFileHasSecuromWrapper @ 0x140A19878 (AslpFileHasSecuromWrapper.c)
- *     AslpHasStarForceWrapper @ 0x140A19CEC (AslpHasStarForceWrapper.c)
- *     BiGetObjectReferenceFromEfiEntry @ 0x140A202A4 (BiGetObjectReferenceFromEfiEntry.c)
- *     HalpInitializeProfiling @ 0x140A54FB4 (HalpInitializeProfiling.c)
- *     KiGetCpuVendor @ 0x140A56B08 (KiGetCpuVendor.c)
- *     KdInitSystem @ 0x140A70470 (KdInitSystem.c)
- *     Phase1InitializationDiscard @ 0x140AFBDF4 (Phase1InitializationDiscard.c)
+ *     sub_140A0A7C4 @ 0x140A0A7C4 (sub_140A0A7C4.c)
+ *     sub_140A19878 @ 0x140A19878 (sub_140A19878.c)
+ *     sub_140A19CEC @ 0x140A19CEC (sub_140A19CEC.c)
+ *     sub_140A202A4 @ 0x140A202A4 (sub_140A202A4.c)
+ *     sub_140A54FB4 @ 0x140A54FB4 (sub_140A54FB4.c)
+ *     sub_140A56B08 @ 0x140A56B08 (sub_140A56B08.c)
+ *     sub_140A70470 @ 0x140A70470 (sub_140A70470.c)
+ *     sub_140AFBDF4 @ 0x140AFBDF4 (sub_140AFBDF4.c)
  * Callees:
  *     <none>
  */

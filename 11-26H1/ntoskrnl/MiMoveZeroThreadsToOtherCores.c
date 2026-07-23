@@ -1,11 +1,11 @@
 /*
- * XREFs of MiMoveZeroThreadsToOtherCores @ 0x1403E9690
+ * XREFs of MiMoveZeroThreadsToOtherCores @ 0x1402F6570
  * Callers:
- *     MiReduceZeroingThreads @ 0x14051EB08 (MiReduceZeroingThreads.c)
+ *     MiReduceZeroingThreads @ 0x1405211AC (MiReduceZeroingThreads.c)
  * Callees:
- *     MiZeroThreadContending @ 0x1403E9760 (MiZeroThreadContending.c)
- *     MiEngineAffinity @ 0x1403E9844 (MiEngineAffinity.c)
- *     MiGetIdleProcessorCount @ 0x1403E987C (MiGetIdleProcessorCount.c)
+ *     MiZeroThreadContending @ 0x1402F6640 (MiZeroThreadContending.c)
+ *     MiEngineAffinity @ 0x1402F6724 (MiEngineAffinity.c)
+ *     MiGetIdleProcessorCount @ 0x1402F675C (MiGetIdleProcessorCount.c)
  */
 
 __int64 __fastcall MiMoveZeroThreadsToOtherCores(__int64 a1, __int64 a2, __int64 a3)

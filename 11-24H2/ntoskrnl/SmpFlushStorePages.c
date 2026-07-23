@@ -1,14 +1,14 @@
 /*
- * XREFs of SmpFlushStorePages @ 0x140A868B0
+ * XREFs of SmpFlushStorePages @ 0x140A813F0
  * Callers:
  *     <none>
  * Callees:
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     MiFlushAllStoreSwapPages @ 0x1402D01D8 (MiFlushAllStoreSwapPages.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     MiFlushAllStoreSwapPages @ 0x1402611E0 (MiFlushAllStoreSwapPages.c)
  */
 
-LONG __fastcall SmpFlushStorePages(__int64 a1, __int64 a2, __int64 a3)
+LONG __fastcall SmpFlushStorePages(__int64 a1)
 {
-  MiFlushAllStoreSwapPages(**(_QWORD **)(*(_QWORD *)a1 + 2096LL), a2, a3);
+  MiFlushAllStoreSwapPages(**(_QWORD **)(*(_QWORD *)a1 + 2096LL));
   return KeSetEvent((PRKEVENT)(a1 + 8), 0, 0);
 }

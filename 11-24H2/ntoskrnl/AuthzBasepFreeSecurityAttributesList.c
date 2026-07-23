@@ -1,24 +1,22 @@
 /*
- * XREFs of AuthzBasepFreeSecurityAttributesList @ 0x14035C750
+ * XREFs of AuthzBasepFreeSecurityAttributesList @ 0x1403B95E0
  * Callers:
- *     AuthzBasepEvaluateAceCondition @ 0x1403450F0 (AuthzBasepEvaluateAceCondition.c)
- *     SepVerifyDesktopAppxPackageName @ 0x140355758 (SepVerifyDesktopAppxPackageName.c)
- *     SepCleanupMarkedForDeletionEntries @ 0x140356E98 (SepCleanupMarkedForDeletionEntries.c)
- *     AuthzBasepSetSecurityAttributesToken @ 0x140357454 (AuthzBasepSetSecurityAttributesToken.c)
- *     SepInternalQuerySecurityAttributesTokenEx @ 0x140358240 (SepInternalQuerySecurityAttributesTokenEx.c)
- *     SeAccessCheckWithHint @ 0x14035A620 (SeAccessCheckWithHint.c)
- *     SeAccessCheckByType @ 0x14035C8A0 (SeAccessCheckByType.c)
- *     AuthzBasepInitializeResourceClaimsFromSacl @ 0x1403642B0 (AuthzBasepInitializeResourceClaimsFromSacl.c)
- *     AuthzBasepInitializeSystemSecurityAttributes @ 0x140810790 (AuthzBasepInitializeSystemSecurityAttributes.c)
- *     SeExamineSacl @ 0x140889B70 (SeExamineSacl.c)
- *     SepExamineSaclEx @ 0x14091FD68 (SepExamineSaclEx.c)
- *     SepCreateClaimAttributes @ 0x140A56BE0 (SepCreateClaimAttributes.c)
- *     SepDuplicateClaimAttributes @ 0x140A5E1D0 (SepDuplicateClaimAttributes.c)
- *     SepDeleteClaimAttributes @ 0x140A77774 (SepDeleteClaimAttributes.c)
- *     SepTokenDeleteMethod @ 0x140AD88D0 (SepTokenDeleteMethod.c)
+ *     AuthzBasepEvaluateAceCondition @ 0x140323B60 (AuthzBasepEvaluateAceCondition.c)
+ *     SepInternalQuerySecurityAttributesTokenEx @ 0x1403B7650 (SepInternalQuerySecurityAttributesTokenEx.c)
+ *     AuthzBasepSetSecurityAttributesToken @ 0x1403B8BCC (AuthzBasepSetSecurityAttributesToken.c)
+ *     AuthzBasepInitializeResourceClaimsFromSacl @ 0x1403BADD4 (AuthzBasepInitializeResourceClaimsFromSacl.c)
+ *     SepVerifyDesktopAppxPackageName @ 0x1403BAF3C (SepVerifyDesktopAppxPackageName.c)
+ *     SepCleanupMarkedForDeletionEntries @ 0x1403E2EE0 (SepCleanupMarkedForDeletionEntries.c)
+ *     AuthzBasepInitializeSystemSecurityAttributes @ 0x140810ED0 (AuthzBasepInitializeSystemSecurityAttributes.c)
+ *     SeExamineSacl @ 0x14088DA20 (SeExamineSacl.c)
+ *     SepExamineSaclEx @ 0x140A19D34 (SepExamineSaclEx.c)
+ *     SepCreateClaimAttributes @ 0x140A4EA70 (SepCreateClaimAttributes.c)
+ *     SepDuplicateClaimAttributes @ 0x140A565F0 (SepDuplicateClaimAttributes.c)
+ *     SepDeleteClaimAttributes @ 0x140A71894 (SepDeleteClaimAttributes.c)
+ *     SepTokenDeleteMethod @ 0x140AD6F50 (SepTokenDeleteMethod.c)
  * Callees:
- *     AuthzBasepRemoveSecurityAttributeValueFromLists @ 0x140360380 (AuthzBasepRemoveSecurityAttributeValueFromLists.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     AuthzBasepRemoveSecurityAttributeValueFromLists @ 0x1403BAD50 (AuthzBasepRemoveSecurityAttributeValueFromLists.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall AuthzBasepFreeSecurityAttributesList(_DWORD *a1)

@@ -2,17 +2,17 @@
  * XREFs of MiReturnPhysicalPoolPages @ 0x140025380
  * Callers:
  *     MiClearNonPagedPtes @ 0x1400282C4 (MiClearNonPagedPtes.c)
- *     MiCommitPoolMemory @ 0x140099590 (MiCommitPoolMemory.c)
- *     MiGetPoolPages @ 0x1400CB1C0 (MiGetPoolPages.c)
- *     MiAddExpansionNonPagedPool @ 0x14017F9CC (MiAddExpansionNonPagedPool.c)
+ *     MiCommitPoolMemory @ 0x1400994D0 (MiCommitPoolMemory.c)
+ *     MiGetPoolPages @ 0x1400CB2A0 (MiGetPoolPages.c)
+ *     MiAddExpansionNonPagedPool @ 0x14017FB0C (MiAddExpansionNonPagedPool.c)
  * Callees:
  *     MiReturnPoolCharges @ 0x140023984 (MiReturnPoolCharges.c)
  *     MiInsertPageInFreeOrZeroedList @ 0x1400387F0 (MiInsertPageInFreeOrZeroedList.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     memset @ 0x1401D1880 (memset.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14007DE80 (KeAcquireInStackQueuedSpinLock.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x1401D1980 (memset.c)
  */
 
 void __fastcall MiReturnPhysicalPoolPages(unsigned __int64 a1, char a2)
@@ -27,7 +27,7 @@ void __fastcall MiReturnPhysicalPoolPages(unsigned __int64 a1, char a2)
   unsigned __int64 *v11; // r15
   unsigned __int8 CurrentIrql; // bp
   char v13; // al
-  union _SLIST_HEADER *v14; // rbx
+  _SLIST_HEADER *v14; // rbx
   unsigned __int8 OldIrql; // bl
   struct _KPRCB *CurrentPrcb; // rcx
   struct _KPRCB *v17; // rcx
@@ -118,7 +118,7 @@ void __fastcall MiReturnPhysicalPoolPages(unsigned __int64 a1, char a2)
   }
   if ( v7 )
   {
-    v14 = &qword_14043A058[25 * v18];
+    v14 = &qword_14043B118[25 * v18];
     KeAcquireInStackQueuedSpinLock(&v14[19].Alignment, &LockHandle);
     *v6 = v14[19].Region;
     v14[19].Region = v23;

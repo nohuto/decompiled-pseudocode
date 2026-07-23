@@ -1,15 +1,15 @@
 /*
- * XREFs of BgpFwDisplayBugCheckProgressUpdate @ 0x1405C5540
+ * XREFs of BgpFwDisplayBugCheckProgressUpdate @ 0x1405C5770
  * Callers:
- *     KiBugCheckProgress @ 0x140517EF0 (KiBugCheckProgress.c)
- *     BgpFwDisplayBugCheckProgressUpdate @ 0x1405C5540 (BgpFwDisplayBugCheckProgressUpdate.c)
+ *     KiBugCheckProgress @ 0x140518130 (KiBugCheckProgress.c)
+ *     BgpFwDisplayBugCheckProgressUpdate @ 0x1405C5770 (BgpFwDisplayBugCheckProgressUpdate.c)
  * Callees:
- *     KeStallExecutionProcessor @ 0x14022A880 (KeStallExecutionProcessor.c)
- *     KeQueryPerformanceCounter @ 0x14022C340 (KeQueryPerformanceCounter.c)
- *     BcpConvertProgressToString @ 0x1405C477C (BcpConvertProgressToString.c)
- *     BcpDisplayProgress @ 0x1405C4F40 (BcpDisplayProgress.c)
- *     BcpGetDisplayType @ 0x1405C52D8 (BcpGetDisplayType.c)
- *     BgpFwDisplayBugCheckProgressUpdate @ 0x1405C5540 (BgpFwDisplayBugCheckProgressUpdate.c)
+ *     KeStallExecutionProcessor @ 0x1402CF130 (KeStallExecutionProcessor.c)
+ *     KeQueryPerformanceCounter @ 0x1402D0BC0 (KeQueryPerformanceCounter.c)
+ *     BcpConvertProgressToString @ 0x1405C49AC (BcpConvertProgressToString.c)
+ *     BcpDisplayProgress @ 0x1405C5170 (BcpDisplayProgress.c)
+ *     BcpGetDisplayType @ 0x1405C5508 (BcpGetDisplayType.c)
+ *     BgpFwDisplayBugCheckProgressUpdate @ 0x1405C5770 (BgpFwDisplayBugCheckProgressUpdate.c)
  */
 
 __int64 __fastcall BgpFwDisplayBugCheckProgressUpdate(unsigned int a1, UNICODE_STRING **a2, char a3)
@@ -60,7 +60,7 @@ __int64 __fastcall BgpFwDisplayBugCheckProgressUpdate(unsigned int a1, UNICODE_S
     v23[1] = DWORD1(BgInternal);
     v23[2] = HIDWORD(BgInternal);
     DisplayType = BcpGetDisplayType(v23);
-    dword_140C4C5E0 = dword_140C133E8;
+    dword_140C4C628 = dword_140C13448;
     BcpCursor = BcpProgressOffset;
     BcpDisplayProgress(v14, DisplayType, v16);
     BcpLastProgressUpdateTicks = KeQueryPerformanceCounter(0LL).QuadPart;
@@ -68,17 +68,17 @@ __int64 __fastcall BgpFwDisplayBugCheckProgressUpdate(unsigned int a1, UNICODE_S
   }
   if ( a1 != 100 || (_DWORD)v14 == 100 )
   {
-    v19 = &stru_140C53DF0;
+    v19 = &stru_140C53E30;
     if ( !a3 )
-      v19 = &stru_140C53E00;
+      v19 = &stru_140C53E40;
     *a2 = v19;
     BcpConvertProgressToString(v14, (__int64)(a2 + 3));
-    v20 = &stru_140C53E40;
+    v20 = &stru_140C53E80;
     if ( a1 != 1 )
-      v20 = &stru_140C53E60;
-    v21 = &stru_140C53E30;
+      v20 = &stru_140C53EA0;
+    v21 = &stru_140C53E70;
     if ( a1 != 1 )
-      v21 = &stru_140C53E50;
+      v21 = &stru_140C53E90;
     a2[1] = v21;
     a2[2] = v20;
   }

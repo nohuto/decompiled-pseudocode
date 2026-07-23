@@ -1,16 +1,16 @@
 /*
- * XREFs of CmpCommitPreparedLightWeightTransaction @ 0x140693670
+ * XREFs of CmpCommitPreparedLightWeightTransaction @ 0x140694830
  * Callers:
- *     CmpCommitLightWeightTransaction @ 0x140693544 (CmpCommitLightWeightTransaction.c)
+ *     CmpCommitLightWeightTransaction @ 0x140694704 (CmpCommitLightWeightTransaction.c)
  * Callees:
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
  *     ExReleaseFastMutexUnsafe @ 0x140018980 (ExReleaseFastMutexUnsafe.c)
  *     ExAcquireFastMutexUnsafe @ 0x1400189C0 (ExAcquireFastMutexUnsafe.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     CmListGetNextElement @ 0x1406948C0 (CmListGetNextElement.c)
- *     CmpProcessLightWeightUOW @ 0x140694A1C (CmpProcessLightWeightUOW.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     CmListGetNextElement @ 0x140695A80 (CmListGetNextElement.c)
+ *     CmpProcessLightWeightUOW @ 0x140695BDC (CmpProcessLightWeightUOW.c)
  */
 
 void __fastcall CmpCommitPreparedLightWeightTransaction(__int64 a1)
@@ -30,8 +30,8 @@ void __fastcall CmpCommitPreparedLightWeightTransaction(__int64 a1)
   if ( a1 )
   {
     v1 = 0;
-    if ( stru_1403FFAA0.LevelPlus1 > 5 && TlgKeywordOn(&stru_1403FFAA0, 1uLL) )
-      TlgWrite(&stru_1403FFAA0, &unk_14036C148, 0LL, 0LL, 2u, &pData);
+    if ( stru_140400AA0.LevelPlus1 > 5 && TlgKeywordOn(&stru_140400AA0, 1uLL) )
+      TlgWrite(&stru_140400AA0, &unk_14036D0D8, 0LL, 0LL, 2u, &pData);
     v7 = MEMORY[0xFFFFF78000000014];
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->KernelApcDisable;
@@ -48,15 +48,15 @@ void __fastcall CmpCommitPreparedLightWeightTransaction(__int64 a1)
       CmpProcessLightWeightUOW(NextElement, &v7, 1LL);
       ++v1;
     }
-    if ( stru_1403FFAA0.LevelPlus1 > 5 )
+    if ( stru_140400AA0.LevelPlus1 > 5 )
     {
-      if ( TlgKeywordOn(&stru_1403FFAA0, 1uLL) )
+      if ( TlgKeywordOn(&stru_140400AA0, 1uLL) )
       {
         v11 = 0;
         v9 = &v5;
         v5 = v1;
         v10 = 4;
-        TlgWrite(&stru_1403FFAA0, &unk_14036C105, 0LL, 0LL, 3u, &v8);
+        TlgWrite(&stru_140400AA0, &unk_14036D095, 0LL, 0LL, 3u, &v8);
       }
     }
   }

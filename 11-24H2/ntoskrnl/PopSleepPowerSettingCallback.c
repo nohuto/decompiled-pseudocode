@@ -1,12 +1,12 @@
 /*
- * XREFs of PopSleepPowerSettingCallback @ 0x1409B8200
+ * XREFs of PopSleepPowerSettingCallback @ 0x14099E850
  * Callers:
  *     <none>
  * Callees:
- *     PopApplyPolicy @ 0x1409B85D0 (PopApplyPolicy.c)
- *     PopUpdateSystemIdleContext @ 0x1409B99D4 (PopUpdateSystemIdleContext.c)
- *     PopAcquirePolicyLock @ 0x140B67CB0 (PopAcquirePolicyLock.c)
- *     PopReleasePolicyLock @ 0x140B67D00 (PopReleasePolicyLock.c)
+ *     PopApplyPolicy @ 0x14099EC20 (PopApplyPolicy.c)
+ *     PopUpdateSystemIdleContext @ 0x1409A0024 (PopUpdateSystemIdleContext.c)
+ *     PopAcquirePolicyLock @ 0x140B69DF0 (PopAcquirePolicyLock.c)
+ *     PopReleasePolicyLock @ 0x140B69E40 (PopReleasePolicyLock.c)
  */
 
 __int64 __fastcall PopSleepPowerSettingCallback(__int64 *a1, _DWORD *a2, int a3)
@@ -81,7 +81,7 @@ __int64 __fastcall PopSleepPowerSettingCallback(__int64 *a1, _DWORD *a2, int a3)
   {
     v23 = (unsigned int)*a2;
     HIDWORD(v31) = *a2;
-    if ( byte_140F0BB43 || __PAIR16__(word_140F0BB44, 0) != HIBYTE(word_140F0BB44) )
+    if ( byte_140F0B663 || __PAIR16__(word_140F0B664, 0) != HIBYTE(word_140F0B664) )
       LODWORD(v31) = 2;
     v6 = 0;
   }
@@ -96,7 +96,7 @@ __int64 __fastcall PopSleepPowerSettingCallback(__int64 *a1, _DWORD *a2, int a3)
   {
     v25 = *a2;
     DWORD2(v33) = *a2;
-    if ( !(_DWORD)v23 && v25 && byte_140F0BB46 && byte_140F0BB47 )
+    if ( !(_DWORD)v23 && v25 && byte_140F0B666 && byte_140F0B667 )
       LODWORD(v31) = 3;
   }
   else if ( v6 < 0 )
@@ -111,7 +111,7 @@ LABEL_23:
     v26 = *(_QWORD *)GUID_HIBERNATE_FASTS4_POLICY.Data4 - a1[1];
   if ( !v26 && a3 == 4 && a2 )
   {
-    byte_140F0BA5C = *a2 == 0;
+    byte_140F0B39C = *a2 == 0;
     v6 = 0;
   }
   v27 = *(_QWORD *)&GUID_ALLOW_STANDBY_STATES.Data1 - *a1;
@@ -119,7 +119,7 @@ LABEL_23:
     v27 = *(_QWORD *)GUID_ALLOW_STANDBY_STATES.Data4 - a1[1];
   if ( !v27 && a3 == 4 && a2 )
   {
-    byte_140F0BA5D = *a2 == 0;
+    byte_140F0B39D = *a2 == 0;
     PopUpdateSystemIdleContext(3LL);
     v6 = 0;
   }
@@ -128,7 +128,7 @@ LABEL_23:
     v28 = *(_QWORD *)GUID_UNATTEND_SLEEP_TIMEOUT.Data4 - a1[1];
   if ( !v28 && a3 == 4 && a2 )
   {
-    dword_140F0BA60 = *a2;
+    dword_140F0B3A0 = *a2;
     PopUpdateSystemIdleContext(3LL);
     v6 = 0;
   }

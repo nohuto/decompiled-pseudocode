@@ -1,14 +1,14 @@
 /*
- * XREFs of HvlpAddPhysicalMemory @ 0x1405C954C
+ * XREFs of HvlpAddPhysicalMemory @ 0x1405C977C
  * Callers:
- *     KeConfigureDynamicMemory @ 0x140512D48 (KeConfigureDynamicMemory.c)
+ *     KeConfigureDynamicMemory @ 0x140512F88 (KeConfigureDynamicMemory.c)
  * Callees:
- *     HvcallInitiateHypercall @ 0x1403904C0 (HvcallInitiateHypercall.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     HvlpAcquireHypercallPage @ 0x1404F2840 (HvlpAcquireHypercallPage.c)
- *     HvlpDepositPages @ 0x1404F2C04 (HvlpDepositPages.c)
- *     HvlpReleaseHypercallPage @ 0x1404F3430 (HvlpReleaseHypercallPage.c)
- *     HvlpHvToNtStatus @ 0x1404FACF4 (HvlpHvToNtStatus.c)
+ *     HvcallInitiateHypercall @ 0x140390610 (HvcallInitiateHypercall.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     HvlpAcquireHypercallPage @ 0x1404F27C0 (HvlpAcquireHypercallPage.c)
+ *     HvlpDepositPages @ 0x1404F2B84 (HvlpDepositPages.c)
+ *     HvlpReleaseHypercallPage @ 0x1404F33B0 (HvlpReleaseHypercallPage.c)
+ *     HvlpHvToNtStatus @ 0x1404FAC74 (HvlpHvToNtStatus.c)
  */
 
 __int64 __fastcall HvlpAddPhysicalMemory(__int64 a1, __int64 a2)

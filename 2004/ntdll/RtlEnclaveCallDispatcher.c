@@ -8,32 +8,32 @@
  */
 
 // positive sp value has been detected, the output may be wrong!
-__int64 __fastcall RtlEnclaveCallDispatcher(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+NTSTATUS __fastcall RtlEnclaveCallDispatcher(void *a1, LPVOID (__cdecl *a2)(LPVOID), ULONG a3, PVOID a4)
 {
-  __int64 result; // rax
-  _QWORD *v5; // [rsp-20h] [rbp-20h]
-  __int64 v6; // [rsp-18h] [rbp-18h]
-  void *v7; // [rsp-10h] [rbp-10h]
+  ULONG i; // eax
+  NTSTATUS result; // eax
+  _QWORD *v7; // [rsp-20h] [rbp-20h]
+  PVOID v8; // [rsp-18h] [rbp-18h] BYREF
+  void *v9; // [rsp-10h] [rbp-10h]
   _UNKNOWN *retaddr; // [rsp+0h] [rbp+0h]
 
   if ( a2 )
   {
-    v6 = a4;
-    ((void (__fastcall *)(__int64, __int64))LdrpIssueEnclaveCall)(a2, a3);
-    while ( 1 )
+    v8 = a4;
+    for ( i = LdrpIssueEnclaveCall(a2, a3, &v8); ; i = -1073741811 )
     {
-      result = ZwCallEnclave();
-      a4 = v6;
-      if ( v7 )
+      result = ZwCallEnclave(0LL, a1, i, &v8);
+      a4 = v8;
+      if ( v9 )
         break;
-      v6 = 0LL;
+      v8 = 0LL;
     }
   }
   else
   {
-    result = (unsigned int)a3;
+    result = a3;
   }
-  *v5 = a4;
-  retaddr = v7;
+  *v7 = a4;
+  retaddr = v9;
   return result;
 }

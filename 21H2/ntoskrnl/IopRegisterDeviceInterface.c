@@ -1,36 +1,36 @@
 /*
- * XREFs of IopRegisterDeviceInterface @ 0x140748470
+ * XREFs of IopRegisterDeviceInterface @ 0x140748630
  * Callers:
- *     IoRegisterDeviceInterface @ 0x140748ED0 (IoRegisterDeviceInterface.c)
- *     PiSwIrpInterfaceRegister @ 0x14074D118 (PiSwIrpInterfaceRegister.c)
- *     PiDevCfgConfigureDeviceInterfaces @ 0x1407679A4 (PiDevCfgConfigureDeviceInterfaces.c)
- *     PiCMRegisterDeviceInterface @ 0x1408B0D1C (PiCMRegisterDeviceInterface.c)
+ *     IoRegisterDeviceInterface @ 0x140749090 (IoRegisterDeviceInterface.c)
+ *     PiSwIrpInterfaceRegister @ 0x14074D2D8 (PiSwIrpInterfaceRegister.c)
+ *     PiDevCfgConfigureDeviceInterfaces @ 0x140767B64 (PiDevCfgConfigureDeviceInterfaces.c)
+ *     PiCMRegisterDeviceInterface @ 0x1408B0E7C (PiCMRegisterDeviceInterface.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
- *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
- *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
- *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     PiPnpRtlEndOperation @ 0x140633ED8 (PiPnpRtlEndOperation.c)
- *     PiPnpRtlBeginOperation @ 0x140634680 (PiPnpRtlBeginOperation.c)
- *     PiDmGetObject @ 0x140636A6C (PiDmGetObject.c)
- *     PiDmObjectRelease @ 0x140636DF0 (PiDmObjectRelease.c)
- *     _PnpGetObjectProperty @ 0x140637B7C (_PnpGetObjectProperty.c)
- *     _PnpStringFromGuid @ 0x140638420 (_PnpStringFromGuid.c)
- *     _CmSetDeviceInterfacePathFormat @ 0x14063A94C (_CmSetDeviceInterfacePathFormat.c)
- *     PnpIsNullGuid @ 0x1406E76C0 (PnpIsNullGuid.c)
- *     _CmDeleteDeviceInterface @ 0x14072B9C4 (_CmDeleteDeviceInterface.c)
- *     PiDmListAddObject @ 0x1407354D4 (PiDmListAddObject.c)
- *     _PnpSetObjectProperty @ 0x140745C24 (_PnpSetObjectProperty.c)
- *     PiDmRemoveCacheReferenceForObject @ 0x1407488F8 (PiDmRemoveCacheReferenceForObject.c)
- *     PiDmAddCacheReferenceForObject @ 0x1407489A8 (PiDmAddCacheReferenceForObject.c)
- *     PipCheckForDenyExecute @ 0x140748B10 (PipCheckForDenyExecute.c)
- *     _CmGetDeviceInterfaceName @ 0x140748C70 (_CmGetDeviceInterfaceName.c)
- *     _CmCreateDeviceInterface @ 0x14074B82C (_CmCreateDeviceInterface.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockSharedEx @ 0x1403558A0 (ExAcquirePushLockSharedEx.c)
+ *     ExReleasePushLockEx @ 0x140355BE0 (ExReleasePushLockEx.c)
+ *     ExReleaseResourceLite @ 0x140356140 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1403568F0 (ExAcquireResourceExclusiveLite.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     PiPnpRtlEndOperation @ 0x140628F64 (PiPnpRtlEndOperation.c)
+ *     PiPnpRtlBeginOperation @ 0x140629498 (PiPnpRtlBeginOperation.c)
+ *     PiDmGetObject @ 0x14062B87C (PiDmGetObject.c)
+ *     PiDmObjectRelease @ 0x14062BC00 (PiDmObjectRelease.c)
+ *     _PnpGetObjectProperty @ 0x14062C98C (_PnpGetObjectProperty.c)
+ *     _PnpStringFromGuid @ 0x14062D230 (_PnpStringFromGuid.c)
+ *     _CmSetDeviceInterfacePathFormat @ 0x14062F75C (_CmSetDeviceInterfacePathFormat.c)
+ *     PnpIsNullGuid @ 0x1406FEAA0 (PnpIsNullGuid.c)
+ *     _CmDeleteDeviceInterface @ 0x14072BE74 (_CmDeleteDeviceInterface.c)
+ *     PiDmListAddObject @ 0x140735694 (PiDmListAddObject.c)
+ *     _PnpSetObjectProperty @ 0x140745DE4 (_PnpSetObjectProperty.c)
+ *     PiDmRemoveCacheReferenceForObject @ 0x140748AB8 (PiDmRemoveCacheReferenceForObject.c)
+ *     PiDmAddCacheReferenceForObject @ 0x140748B68 (PiDmAddCacheReferenceForObject.c)
+ *     PipCheckForDenyExecute @ 0x140748CD0 (PipCheckForDenyExecute.c)
+ *     _CmGetDeviceInterfaceName @ 0x140748E30 (_CmGetDeviceInterfaceName.c)
+ *     _CmCreateDeviceInterface @ 0x14074B9EC (_CmCreateDeviceInterface.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall IopRegisterDeviceInterface(__int64 a1, int *a2, __int64 a3, char a4, PVOID *a5, _DWORD *a6)
@@ -46,70 +46,76 @@ __int64 __fastcall IopRegisterDeviceInterface(__int64 a1, int *a2, __int64 a3, c
   int ObjectProperty; // eax
   ULONG_PTR v16; // rdi
   char v17; // r14
-  __int64 v18; // rcx
-  struct _KTHREAD *v20; // rax
-  ULONG_PTR v21; // rbx
-  int v22; // edi
-  unsigned int v23; // ebx
-  PVOID v24; // rax
-  int v25; // [rsp+20h] [rbp-E0h]
-  char v26; // [rsp+60h] [rbp-A0h] BYREF
-  char v27; // [rsp+61h] [rbp-9Fh]
-  unsigned int v28; // [rsp+64h] [rbp-9Ch] BYREF
+  __int64 v18; // rdx
+  __int64 v19; // r8
+  __int64 v20; // r9
+  __int64 v21; // rcx
+  struct _KTHREAD *v23; // rax
+  ULONG_PTR v24; // rbx
+  int v25; // edi
+  __int64 v26; // rdx
+  __int64 v27; // r8
+  __int64 v28; // r9
+  unsigned int v29; // ebx
+  PVOID v30; // rax
+  int v31; // [rsp+20h] [rbp-E0h]
+  char v32; // [rsp+60h] [rbp-A0h] BYREF
+  char v33; // [rsp+61h] [rbp-9Fh]
+  unsigned int v34; // [rsp+64h] [rbp-9Ch] BYREF
   ULONG_PTR BugCheckParameter2; // [rsp+68h] [rbp-98h] BYREF
-  PVOID v30; // [rsp+70h] [rbp-90h] BYREF
-  PVOID v31; // [rsp+78h] [rbp-88h] BYREF
-  PVOID v32; // [rsp+80h] [rbp-80h] BYREF
-  int v33; // [rsp+88h] [rbp-78h]
-  int v34; // [rsp+8Ch] [rbp-74h] BYREF
-  int v35; // [rsp+90h] [rbp-70h] BYREF
+  PVOID v36; // [rsp+70h] [rbp-90h] BYREF
+  PVOID v37; // [rsp+78h] [rbp-88h] BYREF
+  PVOID v38; // [rsp+80h] [rbp-80h] BYREF
+  int v39; // [rsp+88h] [rbp-78h]
+  int v40; // [rsp+8Ch] [rbp-74h] BYREF
+  int v41; // [rsp+90h] [rbp-70h] BYREF
   HANDLE Handle; // [rsp+98h] [rbp-68h] BYREF
-  __int64 v37; // [rsp+A0h] [rbp-60h]
+  __int64 v43; // [rsp+A0h] [rbp-60h]
   PVOID P; // [rsp+A8h] [rbp-58h] BYREF
   __int128 Source2; // [rsp+B0h] [rbp-50h] BYREF
   wchar_t Str2[40]; // [rsp+C0h] [rbp-40h] BYREF
-  wchar_t v41[40]; // [rsp+110h] [rbp+10h] BYREF
+  wchar_t v47[40]; // [rsp+110h] [rbp+10h] BYREF
 
-  v30 = 0LL;
+  v36 = 0LL;
   Handle = 0LL;
   *a5 = 0LL;
   v7 = 0LL;
-  v31 = 0LL;
+  v37 = 0LL;
   v8 = 0LL;
-  LOBYTE(v33) = 0;
+  LOBYTE(v39) = 0;
   P = 0LL;
   v9 = 0LL;
-  v26 = 0;
+  v32 = 0;
   BugCheckParameter2 = 0LL;
-  v32 = 0LL;
-  v35 = 0;
-  v34 = 0;
-  v27 = a4;
-  v37 = a3;
+  v38 = 0LL;
+  v41 = 0;
+  v40 = 0;
+  v33 = a4;
+  v43 = a3;
   Source2 = 0LL;
   DeviceInterfaceName = PnpStringFromGuid(a2, Str2);
   if ( DeviceInterfaceName < 0 )
     goto LABEL_46;
-  v28 = 512;
+  v34 = 512;
   PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x400uLL, 0x20207050u);
   *a5 = PoolWithTag;
   if ( !PoolWithTag )
     goto LABEL_45;
-  DeviceInterfaceName = CmGetDeviceInterfaceName(&v28, Str2, a1, v37, 0, PoolWithTag, 512, &v28);
+  DeviceInterfaceName = CmGetDeviceInterfaceName(&v34, Str2, a1, v43, 0, PoolWithTag, 512, &v34);
   if ( DeviceInterfaceName != -1073741789 )
     goto LABEL_4;
   ExFreePoolWithTag(*a5, 0);
-  v23 = v28;
-  v24 = ExAllocatePoolWithTag(PagedPool, 2LL * v28, 0x20207050u);
-  *a5 = v24;
-  if ( !v24 )
+  v29 = v34;
+  v30 = ExAllocatePoolWithTag(PagedPool, 2LL * v34, 0x20207050u);
+  *a5 = v30;
+  if ( !v30 )
   {
 LABEL_45:
     DeviceInterfaceName = -1073741670;
     goto LABEL_46;
   }
-  LOBYTE(v25) = 0;
-  DeviceInterfaceName = CmGetDeviceInterfaceName(&v28, Str2, a1, v37, v25, v24, v23, &v28);
+  LOBYTE(v31) = 0;
+  DeviceInterfaceName = CmGetDeviceInterfaceName(&v34, Str2, a1, v43, v31, v30, v29, &v34);
 LABEL_4:
   if ( DeviceInterfaceName < 0 )
     goto LABEL_46;
@@ -121,23 +127,23 @@ LABEL_4:
   ExAcquireResourceExclusiveLite(&PnpRegistryDeviceResource, 1u);
   if ( (int)PiDmGetObject(3LL, (__int64)*a5, (__int64 *)&BugCheckParameter2) >= 0 )
   {
-    v20 = KeGetCurrentThread();
-    --v20->KernelApcDisable;
-    v21 = BugCheckParameter2;
+    v23 = KeGetCurrentThread();
+    --v23->KernelApcDisable;
+    v24 = BugCheckParameter2;
     ExAcquirePushLockSharedEx(BugCheckParameter2, 0LL);
-    v22 = *(_DWORD *)(v21 + 32);
-    ExReleasePushLockEx(v21, 0LL);
-    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-    v14 = v22 & 1;
+    v25 = *(_DWORD *)(v24 + 32);
+    ExReleasePushLockEx(v24, 0LL);
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v26, v27, v28);
+    v14 = v25 & 1;
   }
   else
   {
-    v14 = v33;
+    v14 = v39;
   }
-  DeviceInterfaceName = PiDmAddCacheReferenceForObject(4LL, Str2, &v32);
+  DeviceInterfaceName = PiDmAddCacheReferenceForObject(4LL, Str2, &v38);
   if ( DeviceInterfaceName < 0 )
     goto LABEL_27;
-  DeviceInterfaceName = PiDmAddCacheReferenceForObject(1LL, a1, &v31);
+  DeviceInterfaceName = PiDmAddCacheReferenceForObject(1LL, a1, &v37);
   if ( DeviceInterfaceName < 0 )
     goto LABEL_27;
   ObjectProperty = PnpGetObjectProperty(
@@ -147,10 +153,10 @@ LABEL_4:
                      0LL,
                      0LL,
                      (__int64)&DEVPKEY_Device_ContainerId,
-                     (__int64)&v35,
+                     (__int64)&v41,
                      (__int64)&Source2,
                      16,
-                     (__int64)&v34,
+                     (__int64)&v40,
                      0);
   DeviceInterfaceName = ObjectProperty;
   if ( ObjectProperty == -1073741275 )
@@ -162,8 +168,8 @@ LABEL_4:
     goto LABEL_27;
   }
   if ( PnpIsNullGuid(&Source2)
-    || (DeviceInterfaceName = PnpStringFromGuid((int *)&Source2, v41), DeviceInterfaceName >= 0)
-    && (DeviceInterfaceName = PiDmAddCacheReferenceForObject(5LL, v41, &v30), DeviceInterfaceName >= 0) )
+    || (DeviceInterfaceName = PnpStringFromGuid((int *)&Source2, v47), DeviceInterfaceName >= 0)
+    && (DeviceInterfaceName = PiDmAddCacheReferenceForObject(5LL, v47, &v36), DeviceInterfaceName >= 0) )
   {
     if ( v14
       || (DeviceInterfaceName = PiPnpRtlBeginOperation(&P), DeviceInterfaceName >= 0)
@@ -172,7 +178,7 @@ LABEL_4:
                                   (unsigned int)*a5,
                                   2,
                                   (unsigned int)&Handle,
-                                  (__int64)&v26,
+                                  (__int64)&v32,
                                   0),
           DeviceInterfaceName >= 0) )
     {
@@ -180,8 +186,8 @@ LABEL_4:
       if ( BugCheckParameter2 )
       {
 LABEL_22:
-        PiDmListAddObject(0, (ULONG_PTR)v32, v16, 0LL);
-        v17 = v26;
+        PiDmListAddObject(0, (ULONG_PTR)v38, v16, 0LL);
+        v17 = v32;
         do
           ++v13;
         while ( *(_WORD *)(a1 + 2 * v13) );
@@ -195,7 +201,7 @@ LABEL_22:
                                 18,
                                 a1,
                                 2 * (int)v13 + 2,
-                                v26 != 0 ? 0x20000 : 0);
+                                v32 != 0 ? 0x20000 : 0);
         if ( DeviceInterfaceName < 0 )
         {
           if ( v17 )
@@ -203,9 +209,9 @@ LABEL_22:
         }
         else
         {
-          PiDmListAddObject(1, (ULONG_PTR)v31, v16, 0LL);
-          if ( v30 )
-            PiDmListAddObject(2, (ULONG_PTR)v30, v16, 0LL);
+          PiDmListAddObject(1, (ULONG_PTR)v37, v16, 0LL);
+          if ( v36 )
+            PiDmListAddObject(2, (ULONG_PTR)v36, v16, 0LL);
         }
         goto LABEL_27;
       }
@@ -219,19 +225,19 @@ LABEL_22:
   }
 LABEL_27:
   ExReleaseResourceLite(&PnpRegistryDeviceResource);
-  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v18, v19, v20);
   if ( DeviceInterfaceName >= 0 )
   {
-    if ( !v27 )
-      DeviceInterfaceName = CmSetDeviceInterfacePathFormat(v18, (__int64 *)*a5, 1);
-    v7 = (unsigned int *)v30;
-    v8 = (unsigned int *)v31;
-    v9 = (unsigned int *)v32;
+    if ( !v33 )
+      DeviceInterfaceName = CmSetDeviceInterfacePathFormat(v21, (__int64 *)*a5, 1);
+    v7 = (unsigned int *)v36;
+    v8 = (unsigned int *)v37;
+    v9 = (unsigned int *)v38;
     goto LABEL_31;
   }
-  v7 = (unsigned int *)v30;
-  v8 = (unsigned int *)v31;
-  v9 = (unsigned int *)v32;
+  v7 = (unsigned int *)v36;
+  v8 = (unsigned int *)v37;
+  v9 = (unsigned int *)v38;
 LABEL_46:
   if ( *a5 )
   {

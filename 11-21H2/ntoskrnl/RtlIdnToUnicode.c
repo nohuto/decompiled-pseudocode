@@ -3,8 +3,8 @@
  * Callers:
  *     <none>
  * Callees:
- *     IdnaMemAlloc @ 0x1405EC7E0 (IdnaMemAlloc.c)
- *     RtlpIdnToUnicodeWorker @ 0x1405EC854 (RtlpIdnToUnicodeWorker.c)
+ *     sub_1405EC7E0 @ 0x1405EC7E0 (sub_1405EC7E0.c)
+ *     sub_1405EC854 @ 0x1405EC854 (sub_1405EC854.c)
  *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
  */
 
@@ -19,12 +19,12 @@ NTSTATUS __stdcall RtlIdnToUnicode(
   NTSTATUS v11; // ebx
   BOOLEAN v12; // [rsp+30h] [rbp-18h]
 
-  v9 = (WCHAR *)IdnaMemAlloc(0x3FEuLL);
+  v9 = (WCHAR *)sub_1405EC7E0(0x3FEuLL);
   if ( !v9 )
     return -1073741801;
-  v11 = RtlpIdnToUnicodeWorker(
+  v11 = sub_1405EC854(
           Flags,
-          SourceString,
+          (wchar_t *)SourceString,
           SourceStringLength,
           DestinationString,
           DestinationStringLength,

@@ -108,7 +108,7 @@ unsigned __int64 __fastcall MiLogSlabEntriesDemote(unsigned __int16 **a1)
     CurrentIrql = KeGetCurrentIrql();
     v44 = CurrentIrql;
     __writecr8(2uLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && (unsigned __int8)CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && (unsigned __int8)CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
       if ( (_BYTE)CurrentIrql == 2 )
@@ -286,10 +286,10 @@ LABEL_49:
         }
       }
     }
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v33 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v33 <= 0xFu && (unsigned __int8)CurrentIrql <= 0xFu && v33 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v33 <= 0xFu && (unsigned __int8)CurrentIrql <= 0xFu && v33 >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         v35 = CurrentPrcb->SchedulerAssist;

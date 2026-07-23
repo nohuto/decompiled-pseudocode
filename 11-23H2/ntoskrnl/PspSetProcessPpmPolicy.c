@@ -1,9 +1,9 @@
 /*
- * XREFs of PspSetProcessPpmPolicy @ 0x1407C86B0
+ * XREFs of PspSetProcessPpmPolicy @ 0x1407C8980
  * Callers:
  *     <none>
  * Callees:
- *     KeSetProcessPpmPolicy @ 0x1403570B0 (KeSetProcessPpmPolicy.c)
+ *     KeSetProcessPpmPolicy @ 0x140357250 (KeSetProcessPpmPolicy.c)
  */
 
 __int64 __fastcall PspSetProcessPpmPolicy(__int64 a1, int a2)

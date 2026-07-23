@@ -1,24 +1,24 @@
 /*
- * XREFs of KeWaitForAlertByThreadId @ 0x140222460
+ * XREFs of KeWaitForAlertByThreadId @ 0x140223DF0
  * Callers:
- *     PsDispatchIumService @ 0x14040C830 (PsDispatchIumService.c)
- *     RtlpRunOnceWaitForInit @ 0x1408092D8 (RtlpRunOnceWaitForInit.c)
- *     NtWaitForAlertByThreadId @ 0x140A66280 (NtWaitForAlertByThreadId.c)
+ *     PsDispatchIumService @ 0x140518438 (PsDispatchIumService.c)
+ *     RtlpRunOnceWaitForInit @ 0x14080ED68 (RtlpRunOnceWaitForInit.c)
+ *     NtWaitForAlertByThreadId @ 0x140A73250 (NtWaitForAlertByThreadId.c)
  * Callees:
- *     KiRcuCheckQuiescent @ 0x140221E10 (KiRcuCheckQuiescent.c)
- *     KiCommitThreadWait @ 0x1402229B0 (KiCommitThreadWait.c)
- *     ?KiAbpPostWaitUserMode@AutoBoost@@YAXPEAU_KTHREAD@@PEAX@Z @ 0x140222E80 (-KiAbpPostWaitUserMode@AutoBoost@@YAXPEAU_KTHREAD@@PEAX@Z.c)
- *     KiDeliverApc @ 0x1402439F0 (KiDeliverApc.c)
- *     KiFastExitThreadWait @ 0x140244040 (KiFastExitThreadWait.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     HvlNotifyLongSpinWait @ 0x1402BBF00 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402BC760 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     KiProcessDeferredReadyList @ 0x14037C920 (KiProcessDeferredReadyList.c)
- *     KiPerformWaitDeferredWork @ 0x1403F6F20 (KiPerformWaitDeferredWork.c)
- *     ?KiAbpUmPreWait@LegacyAutoBoost@@YAXPEAU_KTHREAD@@PEAX@Z @ 0x14047FF80 (-KiAbpUmPreWait@LegacyAutoBoost@@YAXPEAU_KTHREAD@@PEAX@Z.c)
- *     ?KiAbpUmPostWait@LegacyAutoBoost@@YAXPEAU_KTHREAD@@PEAX@Z @ 0x14048D404 (-KiAbpUmPostWait@LegacyAutoBoost@@YAXPEAU_KTHREAD@@PEAX@Z.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14052FA20 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRcuCheckQuiescent @ 0x1402237A0 (KiRcuCheckQuiescent.c)
+ *     KiCommitThreadWait @ 0x140224340 (KiCommitThreadWait.c)
+ *     ?KiAbpPostWaitUserMode@AutoBoost@@YAXPEAU_KTHREAD@@PEAX@Z @ 0x140224810 (-KiAbpPostWaitUserMode@AutoBoost@@YAXPEAU_KTHREAD@@PEAX@Z.c)
+ *     KiDeliverApc @ 0x140245350 (KiDeliverApc.c)
+ *     KiFastExitThreadWait @ 0x1402459A0 (KiFastExitThreadWait.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     HvlNotifyLongSpinWait @ 0x140306BC0 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140307420 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     KiProcessDeferredReadyList @ 0x14037E6D0 (KiProcessDeferredReadyList.c)
+ *     KiPerformWaitDeferredWork @ 0x1403F08D0 (KiPerformWaitDeferredWork.c)
+ *     ?KiAbpUmPreWait@LegacyAutoBoost@@YAXPEAU_KTHREAD@@PEAX@Z @ 0x1404798C0 (-KiAbpUmPreWait@LegacyAutoBoost@@YAXPEAU_KTHREAD@@PEAX@Z.c)
+ *     ?KiAbpUmPostWait@LegacyAutoBoost@@YAXPEAU_KTHREAD@@PEAX@Z @ 0x140486F44 (-KiAbpUmPostWait@LegacyAutoBoost@@YAXPEAU_KTHREAD@@PEAX@Z.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x140531F20 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall KeWaitForAlertByThreadId(char a1, __int64 a2, struct _KTHREAD *a3)

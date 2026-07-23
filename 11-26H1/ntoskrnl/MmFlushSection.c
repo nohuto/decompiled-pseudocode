@@ -1,30 +1,30 @@
 /*
- * XREFs of MmFlushSection @ 0x14039AA40
+ * XREFs of MmFlushSection @ 0x14039C7A0
  * Callers:
- *     CcFlushCachePreProcess @ 0x1403991C8 (CcFlushCachePreProcess.c)
- *     CcFlushCachePostProcessOneRange @ 0x140399E5C (CcFlushCachePostProcessOneRange.c)
- *     CcFlushCacheOneRange @ 0x14039A180 (CcFlushCacheOneRange.c)
- *     CcSetFileSizesEx @ 0x14039E300 (CcSetFileSizesEx.c)
- *     CcMdlWriteComplete2 @ 0x14040F680 (CcMdlWriteComplete2.c)
- *     CcUnpinRepinnedBcb @ 0x1404AA000 (CcUnpinRepinnedBcb.c)
- *     CcPurgeAndClearCacheSection @ 0x1404B3978 (CcPurgeAndClearCacheSection.c)
- *     MiFlushDataSection @ 0x1404BD87C (MiFlushDataSection.c)
+ *     CcFlushCachePreProcess @ 0x14039AF28 (CcFlushCachePreProcess.c)
+ *     CcFlushCachePostProcessOneRange @ 0x14039BBBC (CcFlushCachePostProcessOneRange.c)
+ *     CcFlushCacheOneRange @ 0x14039BEE0 (CcFlushCacheOneRange.c)
+ *     CcSetFileSizesEx @ 0x1403A0060 (CcSetFileSizesEx.c)
+ *     CcMdlWriteComplete2 @ 0x14040EDA0 (CcMdlWriteComplete2.c)
+ *     CcUnpinRepinnedBcb @ 0x1404A3690 (CcUnpinRepinnedBcb.c)
+ *     CcPurgeAndClearCacheSection @ 0x1404ACF44 (CcPurgeAndClearCacheSection.c)
+ *     MiFlushDataSection @ 0x1404B705C (MiFlushDataSection.c)
  * Callees:
- *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14021AAD4 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
- *     KeDelayExecutionThread @ 0x140244840 (KeDelayExecutionThread.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     ObFastDereferenceObjectDeferDelete @ 0x140264A20 (ObFastDereferenceObjectDeferDelete.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     MiFlushRelease @ 0x14036D520 (MiFlushRelease.c)
- *     MiReferenceControlAreaFileWithTag @ 0x14038ED10 (MiReferenceControlAreaFileWithTag.c)
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     MiFreeOverlappedFlushEntry @ 0x1403C1BA8 (MiFreeOverlappedFlushEntry.c)
- *     MiLockSectionControlArea @ 0x14044FAD0 (MiLockSectionControlArea.c)
- *     MiComputeDataFlushRange @ 0x1404866EC (MiComputeDataFlushRange.c)
- *     MiFlushSection @ 0x1404ADA20 (MiFlushSection.c)
- *     FsRtlAcquireFileForCcFlushEx @ 0x140A5D320 (FsRtlAcquireFileForCcFlushEx.c)
- *     FsRtlReleaseFileForCcFlush @ 0x140A5D5D0 (FsRtlReleaseFileForCcFlush.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14021C464 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     KeDelayExecutionThread @ 0x1402461A0 (KeDelayExecutionThread.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     ObFastDereferenceObjectDeferDelete @ 0x140263F90 (ObFastDereferenceObjectDeferDelete.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     MiFlushRelease @ 0x14036F2C0 (MiFlushRelease.c)
+ *     MiReferenceControlAreaFileWithTag @ 0x140390AC0 (MiReferenceControlAreaFileWithTag.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     MiFreeOverlappedFlushEntry @ 0x1403CBAA8 (MiFreeOverlappedFlushEntry.c)
+ *     MiLockSectionControlArea @ 0x140447C00 (MiLockSectionControlArea.c)
+ *     MiComputeDataFlushRange @ 0x140480064 (MiComputeDataFlushRange.c)
+ *     MiFlushSection @ 0x1404A70A8 (MiFlushSection.c)
+ *     FsRtlAcquireFileForCcFlushEx @ 0x140A6A2E0 (FsRtlAcquireFileForCcFlushEx.c)
+ *     FsRtlReleaseFileForCcFlush @ 0x140A6A590 (FsRtlReleaseFileForCcFlush.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MmFlushSection(__int64 a1, struct _KTHREAD **a2, __int64 a3, struct _KEVENT *a4, _DWORD *a5, int a6)
@@ -107,14 +107,14 @@ __int64 __fastcall MmFlushSection(__int64 a1, struct _KTHREAD **a2, __int64 a3, 
       v26 = (_DWORD *)(v15 + 72);
       if ( (_BYTE)a5 == 17 )
       {
-        if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+        if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
           *v26 = 0;
         else
           ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(v26, retaddr);
       }
       else
       {
-        if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+        if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
           *v26 = 0;
         else
           ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(v26, retaddr);

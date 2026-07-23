@@ -1,13 +1,13 @@
 /*
- * XREFs of MmDbgCopyMemory @ 0x14067FC78
+ * XREFs of MmDbgCopyMemory @ 0x140680E78
  * Callers:
- *     KiTpWriteMemory @ 0x1405C9698 (KiTpWriteMemory.c)
- *     KdpReadPhysicalMemory @ 0x140B777D8 (KdpReadPhysicalMemory.c)
- *     KdpSearchMemory @ 0x140B77EF4 (KdpSearchMemory.c)
- *     KdpSearchPhysicalPage @ 0x140B780E8 (KdpSearchPhysicalPage.c)
- *     KdpCopyMemoryChunks @ 0x140B7AACC (KdpCopyMemoryChunks.c)
+ *     KiTpWriteMemory @ 0x1405C6DC8 (KiTpWriteMemory.c)
+ *     KdpReadPhysicalMemory @ 0x140B797D8 (KdpReadPhysicalMemory.c)
+ *     KdpSearchMemory @ 0x140B79EF4 (KdpSearchMemory.c)
+ *     KdpSearchPhysicalPage @ 0x140B7A0E8 (KdpSearchPhysicalPage.c)
+ *     KdpCopyMemoryChunks @ 0x140B7CACC (KdpCopyMemoryChunks.c)
  * Callees:
- *     MiDbgCopyMemory @ 0x14067E4A8 (MiDbgCopyMemory.c)
+ *     MiDbgCopyMemory @ 0x14067F6A8 (MiDbgCopyMemory.c)
  */
 
 __int64 __fastcall MmDbgCopyMemory(char *a1, _BYTE *a2, unsigned int a3, unsigned int a4, int a5)

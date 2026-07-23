@@ -1,7 +1,7 @@
 /*
- * XREFs of PoEndPowerStateTasks @ 0x140534464
+ * XREFs of PoEndPowerStateTasks @ 0x1405349A4
  * Callers:
- *     PoPowerOffMonitor @ 0x140126794 (PoPowerOffMonitor.c)
+ *     PoPowerOffMonitor @ 0x140126D04 (PoPowerOffMonitor.c)
  *     PnprWakeDevices @ 0x1403DCE3C (PnprWakeDevices.c)
  * Callees:
  *     <none>

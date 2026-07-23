@@ -3,9 +3,9 @@
  * Callers:
  *     WbGetWarbirdEncryptionSegment @ 0x1405D71A8 (WbGetWarbirdEncryptionSegment.c)
  * Callees:
- *     memset @ 0x140414200 (memset.c)
+ *     memset @ 0x140414300 (memset.c)
  *     sub_1405D72F4 @ 0x1405D72F4 (sub_1405D72F4.c)
- *     WbAlloc @ 0x14064DC04 (WbAlloc.c)
+ *     WbAlloc @ 0x140642A24 (WbAlloc.c)
  */
 
 __int64 __fastcall sub_1405D6E10(__int64 a1, _QWORD *a2)

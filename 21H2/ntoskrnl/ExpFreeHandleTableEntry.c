@@ -1,14 +1,14 @@
 /*
- * XREFs of ExpFreeHandleTableEntry @ 0x140619DDC
+ * XREFs of ExpFreeHandleTableEntry @ 0x140683A3C
  * Callers:
- *     ExDestroyHandle @ 0x140619D78 (ExDestroyHandle.c)
- *     ExCreateHandleEx @ 0x14062D820 (ExCreateHandleEx.c)
- *     ObpCreateHandle @ 0x1406F6550 (ObpCreateHandle.c)
+ *     ExCreateHandleEx @ 0x1405E38B0 (ExCreateHandleEx.c)
+ *     ExDestroyHandle @ 0x1406839D8 (ExDestroyHandle.c)
+ *     ObpCreateHandle @ 0x14070D930 (ObpCreateHandle.c)
  * Callees:
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     ExpGetHandleExtraInfo @ 0x14094CB30 (ExpGetHandleExtraInfo.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     ExpGetHandleExtraInfo @ 0x14094CD00 (ExpGetHandleExtraInfo.c)
  */
 
 char __fastcall ExpFreeHandleTableEntry(__int64 a1, __int64 a2, __int64 a3)
@@ -20,11 +20,14 @@ char __fastcall ExpFreeHandleTableEntry(__int64 a1, __int64 a2, __int64 a3)
   __int64 v8; // rax
   __int64 v10; // rax
   _DWORD *HandleExtraInfo; // rax
+  __int64 v12; // [rsp+38h] [rbp+10h]
 
+  HIDWORD(v12) = HIDWORD(a2);
   v4 = a1;
   if ( *(_DWORD *)(a1 + 4) )
   {
-    HandleExtraInfo = (_DWORD *)ExpGetHandleExtraInfo(a1);
+    LODWORD(v12) = a2 & 0xFFFFFFFC;
+    HandleExtraInfo = (_DWORD *)ExpGetHandleExtraInfo(a1, v12);
     if ( HandleExtraInfo )
     {
       *HandleExtraInfo = 0;

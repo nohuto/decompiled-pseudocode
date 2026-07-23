@@ -1,22 +1,22 @@
 /*
- * XREFs of IoGetAttachedDeviceReferenceWithTag @ 0x14026FCE0
+ * XREFs of IoGetAttachedDeviceReferenceWithTag @ 0x14026F250
  * Callers:
- *     PopAllocateIrp @ 0x14026F82C (PopAllocateIrp.c)
- *     IopEjectDevice @ 0x1407B27A8 (IopEjectDevice.c)
- *     IopSynchronousCall @ 0x14090E5F0 (IopSynchronousCall.c)
- *     PipCallDriverAddDevice @ 0x1409156CC (PipCallDriverAddDevice.c)
- *     PiControlGetDeviceStack @ 0x140A8ED78 (PiControlGetDeviceStack.c)
- *     PnpQueryInterface @ 0x140AA8480 (PnpQueryInterface.c)
- *     PnpAsynchronousCall @ 0x140AE4154 (PnpAsynchronousCall.c)
- *     PopDirectedDripsIsPnpSoftwareDeviceNode @ 0x140B0BFC4 (PopDirectedDripsIsPnpSoftwareDeviceNode.c)
- *     PopFxRegisterDevice @ 0x140B4F9A0 (PopFxRegisterDevice.c)
+ *     PopAllocateIrp @ 0x14026ED9C (PopAllocateIrp.c)
+ *     IopEjectDevice @ 0x1407B5808 (IopEjectDevice.c)
+ *     PipCallDriverAddDevice @ 0x140970138 (PipCallDriverAddDevice.c)
+ *     IopSynchronousCall @ 0x1409B0720 (IopSynchronousCall.c)
+ *     PnpQueryInterface @ 0x1409DB9B4 (PnpQueryInterface.c)
+ *     PiControlGetDeviceStack @ 0x140A93A48 (PiControlGetDeviceStack.c)
+ *     PnpAsynchronousCall @ 0x140AE1C5C (PnpAsynchronousCall.c)
+ *     PopDirectedDripsIsPnpSoftwareDeviceNode @ 0x140B0D9B8 (PopDirectedDripsIsPnpSoftwareDeviceNode.c)
+ *     PopFxRegisterDevice @ 0x140B52230 (PopFxRegisterDevice.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     ObfReferenceObjectWithTag @ 0x140278B30 (ObfReferenceObjectWithTag.c)
- *     KxWaitForLockOwnerShip @ 0x1402B29C0 (KxWaitForLockOwnerShip.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x1402B4830 (KiAcquireQueuedSpinLockInstrumented.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402B9F90 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     ObfReferenceObjectWithTag @ 0x1402780A0 (ObfReferenceObjectWithTag.c)
+ *     KxWaitForLockOwnerShip @ 0x1402FD690 (KxWaitForLockOwnerShip.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x1402FF500 (KiAcquireQueuedSpinLockInstrumented.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140304C50 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 _QWORD *__fastcall IoGetAttachedDeviceReferenceWithTag(_QWORD *Object, ULONG Tag)
@@ -40,7 +40,7 @@ _QWORD *__fastcall IoGetAttachedDeviceReferenceWithTag(_QWORD *Object, ULONG Tag
   ArbitraryUserPointer = KeGetPcr()->NtTib.ArbitraryUserPointer;
   v6 = (__int64)ArbitraryUserPointer + 160;
   v7 = (volatile __int64 *)*((_QWORD *)ArbitraryUserPointer + 21);
-  if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+  if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
   {
     if ( _InterlockedExchange64(v7, v6) )
       KxWaitForLockOwnerShip(v6);

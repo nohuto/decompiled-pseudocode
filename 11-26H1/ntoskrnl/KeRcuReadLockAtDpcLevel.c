@@ -1,9 +1,9 @@
 /*
- * XREFs of KeRcuReadLockAtDpcLevel @ 0x1405F0050
+ * XREFs of KeRcuReadLockAtDpcLevel @ 0x1405F29C0
  * Callers:
  *     <none>
  * Callees:
- *     KiRcuReadLock @ 0x1402223BC (KiRcuReadLock.c)
+ *     KiRcuReadLock @ 0x140223D4C (KiRcuReadLock.c)
  */
 
 __int64 __fastcall KeRcuReadLockAtDpcLevel(__int64 a1, __int64 a2)

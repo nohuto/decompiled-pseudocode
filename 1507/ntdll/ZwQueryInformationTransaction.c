@@ -6,11 +6,16 @@
  *     <none>
  */
 
-__int64 ZwQueryInformationTransaction()
+NTSTATUS __cdecl ZwQueryInformationTransaction(
+        HANDLE TransactionHandle,
+        TRANSACTION_INFORMATION_CLASS TransactionInformationClass,
+        PVOID TransactionInformation,
+        ULONG TransactionInformationLength,
+        PULONG ReturnLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 308LL;
+  result = 308;
   __asm { syscall; Low latency system call }
   return result;
 }

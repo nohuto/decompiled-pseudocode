@@ -4,10 +4,10 @@
  *     <none>
  * Callees:
  *     CmpRemoveLayerLinkForDiscardedKcb @ 0x14067F518 (CmpRemoveLayerLinkForDiscardedKcb.c)
- *     CmpMarkKeyUnbacked @ 0x1407107FC (CmpMarkKeyUnbacked.c)
- *     CmpFlushNotifiesOnKeyBodyList @ 0x14071087C (CmpFlushNotifiesOnKeyBodyList.c)
- *     CmpCleanUpSubKeyInfo @ 0x14076A9C4 (CmpCleanUpSubKeyInfo.c)
- *     CmpDiscardKcb @ 0x14076AD08 (CmpDiscardKcb.c)
+ *     CmpMarkKeyUnbacked @ 0x140710A0C (CmpMarkKeyUnbacked.c)
+ *     CmpFlushNotifiesOnKeyBodyList @ 0x140710A8C (CmpFlushNotifiesOnKeyBodyList.c)
+ *     CmpCleanUpSubKeyInfo @ 0x14076ABB4 (CmpCleanUpSubKeyInfo.c)
+ *     CmpDiscardKcb @ 0x14076AEF8 (CmpDiscardKcb.c)
  */
 
 __int64 __fastcall CmpInvalidateSubtreeWorker(ULONG_PTR BugCheckParameter4, unsigned int *a2)

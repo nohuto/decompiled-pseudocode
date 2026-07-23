@@ -1,22 +1,22 @@
 /*
- * XREFs of RtlpHpLfhOwnerCompact @ 0x180016790
+ * XREFs of RtlpHpLfhOwnerCompact @ 0x180061EC0
  * Callers:
- *     RtlpHpLfhContextCompact @ 0x1800163FC (RtlpHpLfhContextCompact.c)
- *     RtlpHpLfhOwnerCompact @ 0x180016790 (RtlpHpLfhOwnerCompact.c)
- *     RtlpHpLfhPrivateSlotListCompact @ 0x180016B50 (RtlpHpLfhPrivateSlotListCompact.c)
+ *     RtlpHpLfhContextCompact @ 0x180061B2C (RtlpHpLfhContextCompact.c)
+ *     RtlpHpLfhOwnerCompact @ 0x180061EC0 (RtlpHpLfhOwnerCompact.c)
+ *     RtlpHpLfhPrivateSlotListCompact @ 0x180062280 (RtlpHpLfhPrivateSlotListCompact.c)
  * Callees:
- *     RtlpHpLfhOwnerCompact @ 0x180016790 (RtlpHpLfhOwnerCompact.c)
- *     RtlpAcquireSRWLockExclusiveContended @ 0x18002B280 (RtlpAcquireSRWLockExclusiveContended.c)
- *     RtlReleaseSRWLockShared @ 0x18002D9F0 (RtlReleaseSRWLockShared.c)
- *     RtlReleaseSRWLockExclusive @ 0x18003FAA0 (RtlReleaseSRWLockExclusive.c)
- *     RtlAcquireSRWLockShared @ 0x18004C610 (RtlAcquireSRWLockShared.c)
- *     RtlpHpLfhBucketAddSubsegment @ 0x180094ED0 (RtlpHpLfhBucketAddSubsegment.c)
- *     RtlpHpLfhOwnerRunMaintenance @ 0x180095A30 (RtlpHpLfhOwnerRunMaintenance.c)
- *     RtlpHpLfhSubsegmentDecommitPages @ 0x1800966D8 (RtlpHpLfhSubsegmentDecommitPages.c)
- *     __security_check_cookie @ 0x180162C90 (__security_check_cookie.c)
+ *     RtlpAcquireSRWLockExclusiveContended @ 0x180016380 (RtlpAcquireSRWLockExclusiveContended.c)
+ *     RtlReleaseSRWLockShared @ 0x180018AF0 (RtlReleaseSRWLockShared.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18002A010 (RtlReleaseSRWLockExclusive.c)
+ *     RtlAcquireSRWLockShared @ 0x180036B90 (RtlAcquireSRWLockShared.c)
+ *     RtlpHpLfhOwnerCompact @ 0x180061EC0 (RtlpHpLfhOwnerCompact.c)
+ *     RtlpHpLfhBucketAddSubsegment @ 0x180062870 (RtlpHpLfhBucketAddSubsegment.c)
+ *     RtlpHpLfhOwnerRunMaintenance @ 0x1800633D0 (RtlpHpLfhOwnerRunMaintenance.c)
+ *     RtlpHpLfhSubsegmentDecommitPages @ 0x180064078 (RtlpHpLfhSubsegmentDecommitPages.c)
+ *     __security_check_cookie @ 0x180162B90 (__security_check_cookie.c)
  */
 
-_QWORD *__fastcall RtlpHpLfhOwnerCompact(__int64 a1, unsigned __int8 *a2, unsigned int a3)
+void __fastcall RtlpHpLfhOwnerCompact(__int64 a1, unsigned __int8 *a2, unsigned int a3)
 {
   unsigned int v3; // r15d
   unsigned __int8 *v7; // r13
@@ -29,23 +29,21 @@ _QWORD *__fastcall RtlpHpLfhOwnerCompact(__int64 a1, unsigned __int8 *a2, unsign
   volatile __int64 *v14; // r14
   unsigned __int16 *v15; // rbx
   __int64 v16; // rsi
-  _QWORD *result; // rax
-  unsigned int v18; // ebx
-  bool v19; // zf
-  volatile signed __int32 *v20; // rdx
+  unsigned int v17; // ebx
+  bool v18; // zf
+  volatile signed __int32 *v19; // rdx
   _QWORD *SchedulerSharedDataSlot; // r8
-  __int64 v22; // rax
-  _QWORD *v23; // rcx
-  volatile signed __int32 **v24; // rcx
-  unsigned __int64 v25; // r8
-  __int64 v26; // rcx
-  int v27; // ecx
-  __int64 v28; // rdx
+  __int64 v21; // rax
+  _QWORD *v22; // rcx
+  volatile signed __int32 **v23; // rcx
+  unsigned __int64 v24; // r8
+  __int64 v25; // rcx
+  int v26; // ecx
   unsigned __int8 *j; // rbx
-  __int64 v30; // [rsp+20h] [rbp-168h] BYREF
-  __int64 *v31; // [rsp+28h] [rbp-160h]
-  __int64 v32; // [rsp+30h] [rbp-158h]
-  _DWORD v33[64]; // [rsp+40h] [rbp-148h] BYREF
+  __int64 v28; // [rsp+20h] [rbp-168h] BYREF
+  __int64 *v29; // [rsp+28h] [rbp-160h]
+  __int64 v30; // [rsp+30h] [rbp-158h]
+  _DWORD v31[64]; // [rsp+40h] [rbp-148h] BYREF
 
   v3 = 0;
   if ( (*a2 & 1) != 0 )
@@ -58,7 +56,7 @@ _QWORD *__fastcall RtlpHpLfhOwnerCompact(__int64 a1, unsigned __int8 *a2, unsign
       v11 = 0;
       if ( i )
       {
-        v12 = v33;
+        v12 = v31;
         while ( *v12 != v10 )
         {
           ++v11;
@@ -66,21 +64,21 @@ _QWORD *__fastcall RtlpHpLfhOwnerCompact(__int64 a1, unsigned __int8 *a2, unsign
           if ( v11 >= i )
             goto LABEL_7;
         }
-        ++HIWORD(v33[v11]);
+        ++HIWORD(v31[v11]);
       }
       else
       {
 LABEL_7:
         v13 = i++;
-        v33[v13] = 0;
-        LOWORD(v33[v13]) = v10;
-        HIWORD(v33[v13]) = 1;
+        v31[v13] = 0;
+        LOWORD(v31[v13]) = v10;
+        HIWORD(v31[v13]) = 1;
       }
     }
     v14 = 0LL;
     if ( i )
     {
-      v15 = (unsigned __int16 *)v33;
+      v15 = (unsigned __int16 *)v31;
       v16 = i;
       do
       {
@@ -97,72 +95,67 @@ LABEL_7:
     v14 = (volatile __int64 *)a2;
     v7 = (unsigned __int8 *)(a1 + ((unsigned __int64)*((unsigned __int16 *)a2 + 1) << 6));
   }
-  if ( *((unsigned __int8 **)a2 + 3) != a2 + 24 || (result = a2 + 40, (_QWORD *)*result != result) )
+  if ( *((unsigned __int8 **)a2 + 3) != a2 + 24 || *((unsigned __int8 **)a2 + 5) != a2 + 40 )
   {
-    v18 = 7;
+    v17 = 7;
     if ( a3 )
-      v18 = 3;
-    v19 = (*a2 & 1) == 0;
-    v30 = (__int64)&v30;
-    v31 = &v30;
-    if ( !v19 || !*((_WORD *)a2 + 2) )
+      v17 = 3;
+    v18 = (*a2 & 1) == 0;
+    v28 = (__int64)&v28;
+    v29 = &v28;
+    if ( !v18 || !*((_WORD *)a2 + 2) )
     {
-      v20 = (volatile signed __int32 *)(a2 + 16);
+      v19 = (volatile signed __int32 *)(a2 + 16);
       SchedulerSharedDataSlot = NtCurrentTeb()->SchedulerSharedDataSlot;
       if ( SchedulerSharedDataSlot )
       {
-        v22 = 0LL;
-        v23 = SchedulerSharedDataSlot;
-        while ( *v23 )
+        v21 = 0LL;
+        v22 = SchedulerSharedDataSlot;
+        while ( *v22 )
         {
-          v22 = (unsigned int)(v22 + 1);
-          ++v23;
-          if ( (unsigned int)v22 >= 8 )
+          v21 = (unsigned int)(v21 + 1);
+          ++v22;
+          if ( (unsigned int)v21 >= 8 )
             goto LABEL_28;
         }
-        v24 = (volatile signed __int32 **)&SchedulerSharedDataSlot[v22];
-        if ( v24 )
-          *v24 = v20;
+        v23 = (volatile signed __int32 **)&SchedulerSharedDataSlot[v21];
+        if ( v23 )
+          *v23 = v19;
       }
 LABEL_28:
-      if ( _interlockedbittestandset64(v20, 0LL) )
-        RtlpAcquireSRWLockExclusiveContended(a2 + 16);
+      if ( _interlockedbittestandset64(v19, 0LL) )
+        RtlpAcquireSRWLockExclusiveContended((volatile signed __int64 *)a2 + 2, (unsigned __int64)v19);
     }
-    if ( (*a2 & 1) == 0 && (v18 & 4) != 0 )
+    if ( (*a2 & 1) == 0 && (v17 & 4) != 0 )
     {
-      v25 = 0LL;
-      v26 = _InterlockedExchange64(v14 + 7, 0LL);
-      v32 = v26;
-      if ( (v26 & 0xFFF) != 0 )
-        v25 = v26 & 0xFFFFFFFFFFFFF000uLL;
-      v27 = v26 & 0xFFF;
-      if ( v27 )
-        *(_WORD *)(v25 + 32) += v27;
+      v24 = 0LL;
+      v25 = _InterlockedExchange64(v14 + 7, 0LL);
+      v30 = v25;
+      if ( (v25 & 0xFFF) != 0 )
+        v24 = v25 & 0xFFFFFFFFFFFFF000uLL;
+      v26 = v25 & 0xFFF;
+      if ( v26 )
+        *(_WORD *)(v24 + 32) += v26;
     }
     ((void (__fastcall *)(__int64, unsigned __int8 *, __int64 *, _QWORD))RtlpHpLfhOwnerRunMaintenance)(
       a1,
       a2,
-      &v30,
-      v18);
+      &v28,
+      v17);
     if ( (*a2 & 1) != 0 || !*((_WORD *)a2 + 2) )
-      RtlReleaseSRWLockExclusive(a2 + 16, v28);
+      RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)a2 + 2);
     if ( (*a2 & 1) == 0 && *((_WORD *)a2 + 2) )
       v3 = 2;
-    result = (_QWORD *)((__int64 (__fastcall *)(__int64, unsigned __int8 *, __int64 *, _QWORD))RtlpHpLfhBucketAddSubsegment)(
-                         a1,
-                         v7,
-                         &v30,
-                         v3);
+    ((void (__fastcall *)(__int64, unsigned __int8 *, __int64 *, _QWORD))RtlpHpLfhBucketAddSubsegment)(a1, v7, &v28, v3);
     if ( (*a2 & 1) != 0 || !*((_WORD *)a2 + 2) )
     {
-      RtlAcquireSRWLockShared(a2 + 16);
+      RtlAcquireSRWLockShared((PRTL_SRWLOCK)a2 + 2);
       for ( j = (unsigned __int8 *)*((_QWORD *)a2 + 3); j != a2 + 24; j = *(unsigned __int8 **)j )
       {
         if ( j[39] != 1 )
-          RtlpHpLfhSubsegmentDecommitPages(a1, j, 0xFFFFFFFFLL, 1LL, v30, v31, v32);
+          RtlpHpLfhSubsegmentDecommitPages(a1, j, 0xFFFFFFFFLL, 1LL, v28, v29, v30);
       }
-      return (_QWORD *)RtlReleaseSRWLockShared(a2 + 16);
+      RtlReleaseSRWLockShared((PRTL_SRWLOCK)a2 + 2);
     }
   }
-  return result;
 }

@@ -1,13 +1,13 @@
 /*
- * XREFs of LdrpQueryCurrentPatch @ 0x1800CDC50
+ * XREFs of LdrpQueryCurrentPatch @ 0x1800CB3C0
  * Callers:
- *     LdrpLoadDllInternal @ 0x1800520B0 (LdrpLoadDllInternal.c)
- *     LdrpLoadPatchedNtdll @ 0x1800CDADC (LdrpLoadPatchedNtdll.c)
- *     LdrpMapAndSnapDependency @ 0x18011A660 (LdrpMapAndSnapDependency.c)
+ *     LdrpLoadDllInternal @ 0x18003C630 (LdrpLoadDllInternal.c)
+ *     LdrpLoadPatchedNtdll @ 0x1800CB24C (LdrpLoadPatchedNtdll.c)
+ *     LdrpMapAndSnapDependency @ 0x18011A410 (LdrpMapAndSnapDependency.c)
  * Callees:
- *     LdrpIsImageAddress @ 0x18015CD38 (LdrpIsImageAddress.c)
- *     ZwManageHotPatch @ 0x180161270 (ZwManageHotPatch.c)
- *     __security_check_cookie @ 0x180162C90 (__security_check_cookie.c)
+ *     LdrpIsImageAddress @ 0x18015CBF8 (LdrpIsImageAddress.c)
+ *     ZwManageHotPatch @ 0x180161170 (ZwManageHotPatch.c)
+ *     __security_check_cookie @ 0x180162B90 (__security_check_cookie.c)
  */
 
 __int64 __fastcall LdrpQueryCurrentPatch(__int64 a1, char *a2)

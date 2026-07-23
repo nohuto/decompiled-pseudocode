@@ -1,8 +1,8 @@
 /*
- * XREFs of IopSetRelationsTag @ 0x140A879BC
+ * XREFs of IopSetRelationsTag @ 0x140A83EAC
  * Callers:
- *     PnpInvalidateRelationsInList @ 0x140A0E800 (PnpInvalidateRelationsInList.c)
- *     PnpChainDereferenceComplete @ 0x140A878A4 (PnpChainDereferenceComplete.c)
+ *     PnpInvalidateRelationsInList @ 0x1409BCC04 (PnpInvalidateRelationsInList.c)
+ *     PnpChainDereferenceComplete @ 0x140A83D94 (PnpChainDereferenceComplete.c)
  * Callees:
  *     <none>
  */

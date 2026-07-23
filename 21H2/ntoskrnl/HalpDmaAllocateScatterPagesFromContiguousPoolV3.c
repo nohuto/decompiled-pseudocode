@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpDmaAllocateScatterPagesFromContiguousPoolV3 @ 0x1404B717C
+ * XREFs of HalpDmaAllocateScatterPagesFromContiguousPoolV3 @ 0x1404B73BC
  * Callers:
- *     HalpDmaAllocateScatterPagesFromContiguousPool @ 0x1404B8B74 (HalpDmaAllocateScatterPagesFromContiguousPool.c)
+ *     HalpDmaAllocateScatterPagesFromContiguousPool @ 0x1404B8DB4 (HalpDmaAllocateScatterPagesFromContiguousPool.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
- *     RtlFindClearBitsAndSet @ 0x140251160 (RtlFindClearBitsAndSet.c)
- *     RtlNumberOfSetBits @ 0x140253830 (RtlNumberOfSetBits.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     RtlNumberOfSetBits @ 0x140274DA0 (RtlNumberOfSetBits.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402D3660 (KeAcquireInStackQueuedSpinLock.c)
+ *     RtlFindClearBitsAndSet @ 0x1402F5970 (RtlFindClearBitsAndSet.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     HalpDmaIndexToTranslationEntry @ 0x1404C7C98 (HalpDmaIndexToTranslationEntry.c)
+ *     HalpDmaIndexToTranslationEntry @ 0x1404C7ED8 (HalpDmaIndexToTranslationEntry.c)
  */
 
 __int64 __fastcall HalpDmaAllocateScatterPagesFromContiguousPoolV3(
@@ -30,7 +30,7 @@ __int64 __fastcall HalpDmaAllocateScatterPagesFromContiguousPoolV3(
   bool v17; // zf
   __int64 result; // rax
   ULONG v19; // eax
-  RTL_BITMAP *v20; // rbx
+  _RTL_BITMAP *v20; // rbx
   __int64 v21; // r12
   __int64 v22; // r14
   ULONG v23; // ebx
@@ -85,7 +85,7 @@ LABEL_11:
   }
   if ( a4 )
   {
-    v20 = *(RTL_BITMAP **)(a2 + 16);
+    v20 = *(_RTL_BITMAP **)(a2 + 16);
     if ( v20->SizeOfBitMap - RtlNumberOfSetBits(v20) < a3 )
       goto LABEL_3;
   }

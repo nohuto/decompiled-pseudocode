@@ -1,9 +1,9 @@
 /*
- * XREFs of XmStringOperands @ 0x1405758A0
+ * XREFs of XmStringOperands @ 0x140572D30
  * Callers:
  *     <none>
  * Callees:
- *     XmSetDataType @ 0x140469060 (XmSetDataType.c)
+ *     XmSetDataType @ 0x140461A10 (XmSetDataType.c)
  */
 
 __int64 __fastcall XmStringOperands(__int64 a1)

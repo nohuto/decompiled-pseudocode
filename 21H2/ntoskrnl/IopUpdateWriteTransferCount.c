@@ -1,7 +1,7 @@
 /*
- * XREFs of IopUpdateWriteTransferCount @ 0x14027BD10
+ * XREFs of IopUpdateWriteTransferCount @ 0x140269CB0
  * Callers:
- *     IopUpdateIrpTransferCount @ 0x1403F123C (IopUpdateIrpTransferCount.c)
+ *     IopUpdateIrpTransferCount @ 0x1403F116C (IopUpdateIrpTransferCount.c)
  * Callees:
  *     <none>
  */

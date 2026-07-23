@@ -1,13 +1,13 @@
 /*
- * XREFs of IopGetBasicInformationFile @ 0x14068BC70
+ * XREFs of IopGetBasicInformationFile @ 0x14068CE30
  * Callers:
- *     IopOpenLinkOrRenameTarget @ 0x14068BA28 (IopOpenLinkOrRenameTarget.c)
+ *     IopOpenLinkOrRenameTarget @ 0x14068CBE8 (IopOpenLinkOrRenameTarget.c)
  * Callees:
- *     IoGetRelatedDeviceObject @ 0x1400B8B90 (IoGetRelatedDeviceObject.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     IopGetFileInformation @ 0x140661910 (IopGetFileInformation.c)
- *     VfFastIoCheckState @ 0x140928F74 (VfFastIoCheckState.c)
- *     VfFastIoSnapState @ 0x14092904C (VfFastIoSnapState.c)
+ *     IoGetRelatedDeviceObject @ 0x1400B8AD0 (IoGetRelatedDeviceObject.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     IopGetFileInformation @ 0x140662AD0 (IopGetFileInformation.c)
+ *     VfFastIoCheckState @ 0x140929F74 (VfFastIoCheckState.c)
+ *     VfFastIoSnapState @ 0x14092A04C (VfFastIoSnapState.c)
  */
 
 __int64 __fastcall IopGetBasicInformationFile(struct _FILE_OBJECT *Object, struct _IRP *a2)

@@ -7,21 +7,21 @@
  *     _LdrpAccessResourceDataNoMultipleLanguage@16 @ 0x4B2BD9F0 (_LdrpAccessResourceDataNoMultipleLanguage@16.c)
  */
 
-int __fastcall LdrpFindMessageInAlternateModule(int a1, int *a2, unsigned int a3, unsigned int a4, char a5)
+int __fastcall LdrpFindMessageInAlternateModule(void *a1, int *a2, unsigned int a3, unsigned int a4, char a5)
 {
   int result; // eax
   int v6; // ecx
   unsigned int *v7; // edx
-  int *v8; // [esp+8h] [ebp-4h] BYREF
+  int v8; // [esp+8h] [ebp-4h] BYREF
 
   if ( !a1 || !a2 )
     return -1073741811;
   if ( !a5 )
   {
-    result = LdrpAccessResourceDataNoMultipleLanguage(&v8, 0);
+    result = LdrpAccessResourceDataNoMultipleLanguage(a1, (int)&v8, 0);
     if ( result < 0 )
       return result;
-    a2 = v8;
+    a2 = (int *)v8;
   }
   v6 = *a2;
   v7 = (unsigned int *)(a2 + 1);

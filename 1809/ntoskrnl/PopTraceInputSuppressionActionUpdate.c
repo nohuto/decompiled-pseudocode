@@ -1,11 +1,11 @@
 /*
- * XREFs of PopTraceInputSuppressionActionUpdate @ 0x1408751EC
+ * XREFs of PopTraceInputSuppressionActionUpdate @ 0x14087644C
  * Callers:
- *     PopEvaluateInputSuppressionAction @ 0x14086DCBC (PopEvaluateInputSuppressionAction.c)
+ *     PopEvaluateInputSuppressionAction @ 0x14086EF1C (PopEvaluateInputSuppressionAction.c)
  * Callees:
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 void __fastcall PopTraceInputSuppressionActionUpdate(
@@ -74,7 +74,7 @@ void __fastcall PopTraceInputSuppressionActionUpdate(
       v30 = 1LL;
       v32 = 4LL;
       v34 = 1LL;
-      TlgWrite(&pCallbackContext, &unk_14036F99B, 0LL, 0LL, 0xAu, &pData);
+      TlgWrite(&pCallbackContext, &unk_14037070A, 0LL, 0LL, 0xAu, &pData);
     }
   }
 }

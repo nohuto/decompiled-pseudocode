@@ -1,9 +1,9 @@
 /*
- * XREFs of MiMapWorkingSetTypeToVm @ 0x14047013C
+ * XREFs of MiMapWorkingSetTypeToVm @ 0x14046A564
  * Callers:
- *     MiPfCompleteInPageSupport @ 0x140397338 (MiPfCompleteInPageSupport.c)
- *     MmAdjustWorkingSetSizeEx @ 0x1403CD164 (MmAdjustWorkingSetSizeEx.c)
- *     MmQuerySystemWorkingSetInformation @ 0x14046FF88 (MmQuerySystemWorkingSetInformation.c)
+ *     MiPfCompleteInPageSupport @ 0x140352CB4 (MiPfCompleteInPageSupport.c)
+ *     MmQuerySystemWorkingSetInformation @ 0x14046A3B0 (MmQuerySystemWorkingSetInformation.c)
+ *     MmAdjustWorkingSetSizeEx @ 0x14046C954 (MmAdjustWorkingSetSizeEx.c)
  * Callees:
  *     <none>
  */
@@ -18,20 +18,20 @@ void *__fastcall MiMapWorkingSetTypeToVm(int a1)
 
   v1 = a1 - 1;
   if ( !v1 )
-    return &unk_140E3D580;
+    return &unk_140E3D6C0;
   v2 = v1 - 1;
   if ( !v2 )
-    return &unk_140E37FC0;
+    return &unk_140E38100;
   v3 = v2 - 1;
   if ( !v3 )
-    return &unk_140E37D40;
+    return &unk_140E37E80;
   v4 = v3 - 1;
   if ( !v4 )
-    return &unk_140E37E80;
+    return &unk_140E37FC0;
   v6 = v4 - 2;
   if ( !v6 )
-    return &unk_140E38240;
+    return &unk_140E38380;
   if ( v6 == 3 )
-    return &unk_140E38600;
+    return &unk_140E38740;
   return 0LL;
 }

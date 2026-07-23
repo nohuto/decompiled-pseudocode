@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpMcStagePayload @ 0x1405938EC
+ * XREFs of HalpMcStagePayload @ 0x14059606C
  * Callers:
- *     HalpMcStaging @ 0x140593950 (HalpMcStaging.c)
- *     HalpMcStagingHypervisor @ 0x140593A60 (HalpMcStagingHypervisor.c)
+ *     HalpMcStaging @ 0x1405960D0 (HalpMcStaging.c)
+ *     HalpMcStagingHypervisor @ 0x1405961E0 (HalpMcStagingHypervisor.c)
  * Callees:
- *     HalpUnmapVirtualAddress @ 0x140509DE0 (HalpUnmapVirtualAddress.c)
- *     HalpMcStagingIssueLoadVerify @ 0x140593B74 (HalpMcStagingIssueLoadVerify.c)
- *     HalMapIoSpace @ 0x14059A1C0 (HalMapIoSpace.c)
+ *     HalpUnmapVirtualAddress @ 0x140503890 (HalpUnmapVirtualAddress.c)
+ *     HalpMcStagingIssueLoadVerify @ 0x1405962F4 (HalpMcStagingIssueLoadVerify.c)
+ *     HalMapIoSpace @ 0x14059C940 (HalMapIoSpace.c)
  */
 
 char *__fastcall HalpMcStagePayload(LARGE_INTEGER a1)

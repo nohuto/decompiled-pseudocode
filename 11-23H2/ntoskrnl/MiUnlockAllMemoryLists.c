@@ -1,10 +1,10 @@
 /*
- * XREFs of MiUnlockAllMemoryLists @ 0x140652804
+ * XREFs of MiUnlockAllMemoryLists @ 0x140652D54
  * Callers:
- *     MmDuplicateMemory @ 0x140AAC84C (MmDuplicateMemory.c)
+ *     MmDuplicateMemory @ 0x140AAC6BC (MmDuplicateMemory.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiIterateOverPartitions @ 0x14062940C (MiIterateOverPartitions.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiIterateOverPartitions @ 0x14062995C (MiIterateOverPartitions.c)
  */
 
 __int64 MiUnlockAllMemoryLists()

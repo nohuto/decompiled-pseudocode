@@ -1,134 +1,130 @@
 /*
- * XREFs of MiReleaseControlAreaWaiters @ 0x14020F410
+ * XREFs of MiReleaseControlAreaWaiters @ 0x140338770
  * Callers:
- *     MiCheckControlArea @ 0x14020EFD0 (MiCheckControlArea.c)
- *     MiComputeDataFlushRange @ 0x14022F300 (MiComputeDataFlushRange.c)
- *     MiDeleteCachedSubsection @ 0x14023C35C (MiDeleteCachedSubsection.c)
- *     MiEntireSubsectionIsPurged @ 0x14023C6CC (MiEntireSubsectionIsPurged.c)
- *     MiUnlockFlushMdl @ 0x1402F1680 (MiUnlockFlushMdl.c)
- *     MiReferenceExistingControlArea @ 0x140315C60 (MiReferenceExistingControlArea.c)
- *     MiReservePageFileSpace @ 0x140368314 (MiReservePageFileSpace.c)
- *     MiBuildReservationCluster @ 0x140368F90 (MiBuildReservationCluster.c)
- *     MiWriteComplete @ 0x14036B660 (MiWriteComplete.c)
- *     MiPrepareToFlushSubsection @ 0x14036F8DC (MiPrepareToFlushSubsection.c)
- *     MiReleasePageFileSectionInfo @ 0x14037012C (MiReleasePageFileSectionInfo.c)
- *     MiTrimSharedPage @ 0x140370B4C (MiTrimSharedPage.c)
- *     MiFlushComplete @ 0x140370EF0 (MiFlushComplete.c)
- *     MiReferenceControlArea @ 0x140415208 (MiReferenceControlArea.c)
- *     MiDecrementLargeSubsections @ 0x1404C8E10 (MiDecrementLargeSubsections.c)
- *     MiIncrementLargeSubsections @ 0x1404C96E0 (MiIncrementLargeSubsections.c)
- *     MiLocateSharedPageViews @ 0x1406790E0 (MiLocateSharedPageViews.c)
- *     MiPurgeBadFileOnlyPages @ 0x14067B98C (MiPurgeBadFileOnlyPages.c)
- *     MiCreateImageOrDataSection @ 0x140941B00 (MiCreateImageOrDataSection.c)
- *     MiCreateNewSection @ 0x1409433C0 (MiCreateNewSection.c)
- *     MiSegmentDelete @ 0x140A131E4 (MiSegmentDelete.c)
+ *     MiReservePageFileSpace @ 0x140202948 (MiReservePageFileSpace.c)
+ *     MiDeleteCachedSubsection @ 0x140204084 (MiDeleteCachedSubsection.c)
+ *     MiEntireSubsectionIsPurged @ 0x1402043F4 (MiEntireSubsectionIsPurged.c)
+ *     MiUnlockFlushMdl @ 0x1402571C0 (MiUnlockFlushMdl.c)
+ *     MiFlushComplete @ 0x140259230 (MiFlushComplete.c)
+ *     MiTrimSharedPage @ 0x14025A33C (MiTrimSharedPage.c)
+ *     MiReferenceControlArea @ 0x140271068 (MiReferenceControlArea.c)
+ *     MiReferenceExistingControlArea @ 0x1402BE814 (MiReferenceExistingControlArea.c)
+ *     MiBuildReservationCluster @ 0x1402EAD30 (MiBuildReservationCluster.c)
+ *     MiWriteComplete @ 0x1402ED400 (MiWriteComplete.c)
+ *     MiComputeDataFlushRange @ 0x140302C10 (MiComputeDataFlushRange.c)
+ *     MiCheckControlArea @ 0x140338330 (MiCheckControlArea.c)
+ *     MiPrepareToFlushSubsection @ 0x14043F1F4 (MiPrepareToFlushSubsection.c)
+ *     MiReleasePageFileSectionInfo @ 0x14049A6D8 (MiReleasePageFileSectionInfo.c)
+ *     MiDecrementLargeSubsections @ 0x1404C22C0 (MiDecrementLargeSubsections.c)
+ *     MiIncrementLargeSubsections @ 0x1404C2B90 (MiIncrementLargeSubsections.c)
+ *     MiLocateSharedPageViews @ 0x14067A2C0 (MiLocateSharedPageViews.c)
+ *     MiPurgeBadFileOnlyPages @ 0x14067CB6C (MiPurgeBadFileOnlyPages.c)
+ *     MiCreateImageOrDataSection @ 0x14098BD70 (MiCreateImageOrDataSection.c)
+ *     MiCreateNewSection @ 0x14098D630 (MiCreateNewSection.c)
+ *     MiSegmentDelete @ 0x140A0B944 (MiSegmentDelete.c)
  * Callees:
- *     KeInsertQueueDpc @ 0x1402542F0 (KeInsertQueueDpc.c)
- *     HvlNotifyLongSpinWait @ 0x140293260 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140293290 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     KiExitDispatcher @ 0x14031E7A0 (KiExitDispatcher.c)
- *     KiInsertQueueInternal @ 0x140323B94 (KiInsertQueueInternal.c)
- *     KiTryUnwaitThread @ 0x1403D95F0 (KiTryUnwaitThread.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KeInsertQueueDpc @ 0x140284900 (KeInsertQueueDpc.c)
+ *     HvlNotifyLongSpinWait @ 0x1402A2E60 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402A2E90 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     KiExitDispatcher @ 0x1402C7330 (KiExitDispatcher.c)
+ *     KiInsertQueueInternal @ 0x1402CC724 (KiInsertQueueInternal.c)
+ *     KiTryUnwaitThread @ 0x1402F28C0 (KiTryUnwaitThread.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
-_UNKNOWN **__fastcall MiReleaseControlAreaWaiters(_QWORD *a1, __int64 a2, __int64 a3)
+void __fastcall MiReleaseControlAreaWaiters(_QWORD *a1)
 {
-  _UNKNOWN **result; // rax
-  _QWORD *v4; // rbp
-  volatile signed __int32 *v5; // rbx
+  _QWORD *v1; // rbp
+  volatile signed __int32 *v2; // rbx
   unsigned __int8 CurrentIrql; // r15
   struct _KPRCB *CurrentPrcb; // r14
-  unsigned int v8; // edi
-  volatile signed __int32 *v9; // rdi
-  volatile signed __int32 *v10; // rdx
-  volatile signed __int32 *v11; // rax
-  volatile signed __int32 **v12; // rcx
-  char v13; // cl
-  _UNKNOWN *retaddr; // [rsp+58h] [rbp+0h] BYREF
+  unsigned int v5; // edi
+  volatile signed __int32 *v6; // rdi
+  volatile signed __int32 *v7; // rdx
+  __int64 v8; // rax
+  volatile signed __int32 **v9; // rcx
+  char v10; // cl
 
-  result = &retaddr;
   if ( a1 )
   {
     while ( 1 )
     {
-      v4 = (_QWORD *)*a1;
-      v5 = (volatile signed __int32 *)(a1 + 2);
+      v1 = (_QWORD *)*a1;
+      v2 = (volatile signed __int32 *)(a1 + 2);
       CurrentIrql = KeGetCurrentIrql();
       __writecr8(2uLL);
       if ( KiIrqlFlags )
-        KiRaiseIrqlProcessIrqlFlags(CurrentIrql, 2LL, a3);
+        KiRaiseIrqlProcessIrqlFlags(CurrentIrql, 2LL);
       CurrentPrcb = KeGetCurrentPrcb();
-      v8 = 0;
-      if ( _interlockedbittestandset(v5, 7u) )
+      v5 = 0;
+      if ( _interlockedbittestandset(v2, 7u) )
       {
         do
         {
-          if ( (++v8 & HvlLongSpinCountMask) == 0
+          if ( (++v5 & HvlLongSpinCountMask) == 0
             && (HvlEnlightenments & 0x40) != 0
-            && (unsigned __int8)KiCheckVpBackingLongSpinWaitHypercall(a1) )
+            && KiCheckVpBackingLongSpinWaitHypercall() )
           {
-            HvlNotifyLongSpinWait(v8);
+            HvlNotifyLongSpinWait(v5);
           }
           else
           {
             _mm_pause();
           }
         }
-        while ( (*v5 & 0x80u) != 0 || _interlockedbittestandset(v5, 7u) );
+        while ( (*v2 & 0x80u) != 0 || _interlockedbittestandset(v2, 7u) );
       }
-      if ( !*((_DWORD *)v5 + 1) )
+      if ( !*((_DWORD *)v2 + 1) )
         break;
 LABEL_14:
-      _InterlockedAnd(v5, 0xFFFFFF7F);
-      result = (_UNKNOWN **)KiExitDispatcher(CurrentPrcb, CurrentIrql);
-      a1 = v4;
-      if ( !v4 )
-        return result;
+      _InterlockedAnd(v2, 0xFFFFFF7F);
+      KiExitDispatcher((unsigned __int64)CurrentPrcb, 0LL, 1u, 1u, CurrentIrql);
+      a1 = v1;
+      if ( !v1 )
+        return;
     }
-    v9 = (volatile signed __int32 *)*((_QWORD *)v5 + 1);
-    *((_DWORD *)v5 + 1) = 1;
+    v6 = (volatile signed __int32 *)*((_QWORD *)v2 + 1);
+    *((_DWORD *)v2 + 1) = 1;
     while ( 1 )
     {
       while ( 1 )
       {
-        if ( v9 == v5 + 2 )
+        if ( v6 == v2 + 2 )
           goto LABEL_14;
-        v10 = *(volatile signed __int32 **)v9;
-        v11 = v9;
-        v9 = v10;
-        v12 = (volatile signed __int32 **)*((_QWORD *)v11 + 1);
-        if ( *((volatile signed __int32 **)v10 + 1) != v11 || *v12 != v11 )
+        v7 = *(volatile signed __int32 **)v6;
+        v8 = (__int64)v6;
+        v6 = v7;
+        v9 = *(volatile signed __int32 ***)(v8 + 8);
+        if ( *((_QWORD *)v7 + 1) != v8 || *v9 != (volatile signed __int32 *)v8 )
           __fastfail(3u);
-        *v12 = v10;
-        *((_QWORD *)v10 + 1) = v12;
-        v13 = *((_BYTE *)v11 + 16);
-        if ( v13 != 1 )
+        *v9 = v7;
+        *((_QWORD *)v7 + 1) = v9;
+        v10 = *(_BYTE *)(v8 + 16);
+        if ( v10 != 1 )
           break;
-        if ( (unsigned __int8)KiTryUnwaitThread(CurrentPrcb, v11, *((unsigned __int16 *)v11 + 9), 0LL) )
+        if ( (unsigned __int8)KiTryUnwaitThread((__int64)CurrentPrcb, v8, *(unsigned __int16 *)(v8 + 18), 0LL) )
         {
 LABEL_13:
-          if ( (*((_DWORD *)v5 + 1))-- == 1 )
+          if ( (*((_DWORD *)v2 + 1))-- == 1 )
             goto LABEL_14;
         }
       }
-      if ( v13 == 2 )
+      if ( v10 == 2 )
       {
-        *((_BYTE *)v11 + 17) = 5;
-        KiInsertQueueInternal(*((_QWORD *)v11 + 3), v11);
+        *(_BYTE *)(v8 + 17) = 5;
+        KiInsertQueueInternal(*(_QWORD *)(v8 + 24), (__int64 *)v8);
         goto LABEL_13;
       }
-      if ( v13 == 4 )
+      if ( v10 == 4 )
       {
-        *((_BYTE *)v11 + 17) = 5;
-        *((_DWORD *)v5 + 1) = 0;
-        KeInsertQueueDpc(*((PRKDPC *)v11 + 3), (PVOID)v5, (PVOID)v11);
+        *(_BYTE *)(v8 + 17) = 5;
+        *((_DWORD *)v2 + 1) = 0;
+        KeInsertQueueDpc(*(PRKDPC *)(v8 + 24), (PVOID)v2, (PVOID)v8);
       }
       else
       {
-        KiTryUnwaitThread(CurrentPrcb, v11, 256LL, 0LL);
+        KiTryUnwaitThread((__int64)CurrentPrcb, v8, 256LL, 0LL);
       }
     }
   }
-  return result;
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlAreNamesEqual @ 0x14010B2C0
+ * XREFs of RtlAreNamesEqual @ 0x14010B340
  * Callers:
  *     <none>
  * Callees:
- *     RtlpUpcaseUnicodeStringPrivate @ 0x1400A44F8 (RtlpUpcaseUnicodeStringPrivate.c)
- *     RtlRaiseStatus @ 0x140128E90 (RtlRaiseStatus.c)
- *     memcmp @ 0x140196200 (memcmp.c)
- *     RtlFreeAnsiString @ 0x140623790 (RtlFreeAnsiString.c)
+ *     RtlpUpcaseUnicodeStringPrivate @ 0x1400A4438 (RtlpUpcaseUnicodeStringPrivate.c)
+ *     RtlRaiseStatus @ 0x140128F60 (RtlRaiseStatus.c)
+ *     memcmp @ 0x140196340 (memcmp.c)
+ *     RtlFreeAnsiString @ 0x140624790 (RtlFreeAnsiString.c)
  */
 
 BOOLEAN __stdcall RtlAreNamesEqual(

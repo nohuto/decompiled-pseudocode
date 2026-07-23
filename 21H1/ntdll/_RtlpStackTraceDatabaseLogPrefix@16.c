@@ -8,22 +8,22 @@
  *     _RtlpRegisterStackTrace@12 @ 0x4B36F97B (_RtlpRegisterStackTrace@12.c)
  */
 
-int __stdcall RtlpStackTraceDatabaseLogPrefix(int a1, int a2, unsigned int a3, _DWORD *a4)
+int __userpurge RtlpStackTraceDatabaseLogPrefix@<eax>(int a1@<edi>, int a2, int a3, unsigned int a4, _DWORD *a5)
 {
-  USHORT v4; // ax
+  USHORT v5; // ax
   ULONG BackTraceHash; // [esp+4h] [ebp-88h] BYREF
   PVOID BackTrace[32]; // [esp+8h] [ebp-84h] BYREF
 
-  if ( a3 == 1 )
+  if ( a4 == 1 )
   {
-    *a4 = 8;
+    *a5 = 8;
   }
-  else if ( a3 > 1 && (a3 <= 3 || a3 - 5 <= 1) )
+  else if ( a4 > 1 && (a4 <= 3 || a4 - 5 <= 1) )
   {
-    if ( a4 )
+    if ( a5 )
     {
-      v4 = RtlCaptureStackBackTrace(1u, 0x20u, BackTrace, &BackTraceHash);
-      *a4 = RtlpRegisterStackTrace(v4, BackTrace, BackTraceHash);
+      v5 = RtlCaptureStackBackTrace(1u, 0x20u, BackTrace, &BackTraceHash);
+      *a5 = RtlpRegisterStackTrace(BackTrace, v5, a1, BackTraceHash);
     }
   }
   return 0;

@@ -1,19 +1,19 @@
 /*
- * XREFs of MiCreateSystemPageTable @ 0x140395350
+ * XREFs of MiCreateSystemPageTable @ 0x14038EDA0
  * Callers:
  *     <none>
  * Callees:
- *     MiReleaseProcessorFlushList @ 0x14023FFD0 (MiReleaseProcessorFlushList.c)
- *     MiLockNestedPageTable @ 0x140285190 (MiLockNestedPageTable.c)
- *     MiFlushTbList @ 0x140291730 (MiFlushTbList.c)
- *     MiUnlockPageTableInternal @ 0x140321070 (MiUnlockPageTableInternal.c)
- *     MiIsPageAGapPage @ 0x1403956AC (MiIsPageAGapPage.c)
- *     MiInitializeSystemPageTable @ 0x140395744 (MiInitializeSystemPageTable.c)
- *     MiGetPageTablePages @ 0x14039E9BC (MiGetPageTablePages.c)
- *     MiFillPteHierarchy @ 0x1403A9BF0 (MiFillPteHierarchy.c)
- *     MiArePageContentsZero @ 0x1404CA060 (MiArePageContentsZero.c)
- *     MiMakeSystemLeavesNonZero @ 0x1404D80F4 (MiMakeSystemLeavesNonZero.c)
- *     MiMakeLargePageTable @ 0x1404F8168 (MiMakeLargePageTable.c)
+ *     MiLockNestedPageTable @ 0x140201F50 (MiLockNestedPageTable.c)
+ *     MiReleaseProcessorFlushList @ 0x140208120 (MiReleaseProcessorFlushList.c)
+ *     MiGetPageTablePages @ 0x14021CA98 (MiGetPageTablePages.c)
+ *     MiFlushTbList @ 0x1402A1330 (MiFlushTbList.c)
+ *     MiUnlockPageTableInternal @ 0x1402C9C00 (MiUnlockPageTableInternal.c)
+ *     MiIsPageAGapPage @ 0x14038F0FC (MiIsPageAGapPage.c)
+ *     MiInitializeSystemPageTable @ 0x14038F158 (MiInitializeSystemPageTable.c)
+ *     MiFillPteHierarchy @ 0x140398880 (MiFillPteHierarchy.c)
+ *     MiArePageContentsZero @ 0x1404C33B0 (MiArePageContentsZero.c)
+ *     MiMakeSystemLeavesNonZero @ 0x1404D1540 (MiMakeSystemLeavesNonZero.c)
+ *     MiMakeLargePageTable @ 0x1404F5A48 (MiMakeLargePageTable.c)
  */
 
 __int64 __fastcall MiCreateSystemPageTable(__int64 a1, unsigned __int64 *a2, unsigned int a3)
@@ -22,9 +22,9 @@ __int64 __fastcall MiCreateSystemPageTable(__int64 a1, unsigned __int64 *a2, uns
   __int64 v4; // rdi
   ULONG_PTR v5; // r15
   unsigned __int64 v7; // rbx
-  __int64 v9; // rdx
-  unsigned int v10; // ecx
-  __int64 v11; // r8
+  unsigned __int64 v9; // rdx
+  int v10; // ecx
+  unsigned int v11; // r8d
   int PageTablePages; // eax
   __int64 v13; // r12
   _QWORD *v14; // rbx
@@ -87,7 +87,7 @@ LABEL_13:
   v11 = v10 | 0x2000;
   if ( (*(_DWORD *)(v3 + 128) & 0x2000) == 0 )
     v11 = v10;
-  PageTablePages = MiGetPageTablePages(v3, v9, v11, &v19);
+  PageTablePages = MiGetPageTablePages(v3, v9, v11, (__int64)&v19);
   if ( PageTablePages < 0 )
   {
     if ( PageTablePages == -1073741801
@@ -116,7 +116,7 @@ LABEL_13:
         v14 = (_QWORD *)*v14;
         v13 = --v20;
       }
-      if ( (MiFlags & 0x80u) != 0LL && (++dword_140E30170 & MmPageValidationFrequency) == 0 )
+      if ( (MiFlags & 0x80u) != 0LL && (++dword_140E302B0 & MmPageValidationFrequency) == 0 )
         MiArePageContentsZero(0xAAAAAAAAAAAAAAABuLL * ((__int64)(v15 + 0x44000000000LL) >> 4));
       MiInitializeSystemPageTable(a1, (unsigned int)v4, v5, v15);
       v16 = *(__int64 **)(v3 + 176);

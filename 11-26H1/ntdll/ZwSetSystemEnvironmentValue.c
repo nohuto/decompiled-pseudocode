@@ -1,16 +1,16 @@
 /*
- * XREFs of ZwSetSystemEnvironmentValue @ 0x180162690
+ * XREFs of ZwSetSystemEnvironmentValue @ 0x180162590
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 ZwSetSystemEnvironmentValue()
+NTSTATUS __cdecl ZwSetSystemEnvironmentValue(PUNICODE_STRING VariableName, PUNICODE_STRING VariableValue)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 443LL;
+  result = 443;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

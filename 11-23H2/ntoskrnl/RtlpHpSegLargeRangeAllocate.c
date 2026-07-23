@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpHpSegLargeRangeAllocate @ 0x1403C4A48
+ * XREFs of RtlpHpSegLargeRangeAllocate @ 0x1403C4C28
  * Callers:
- *     RtlpHpSegPageRangeAllocate @ 0x14024DCF0 (RtlpHpSegPageRangeAllocate.c)
+ *     RtlpHpSegPageRangeAllocate @ 0x14024DDC0 (RtlpHpSegPageRangeAllocate.c)
  * Callees:
- *     RtlpHpSegFreeRangeInsert @ 0x14024F8F0 (RtlpHpSegFreeRangeInsert.c)
- *     RtlpHpSegFreeRangeRemove @ 0x14024FA24 (RtlpHpSegFreeRangeRemove.c)
- *     RtlpHpSegPageRangeSplit @ 0x1405B6A98 (RtlpHpSegPageRangeSplit.c)
+ *     RtlpHpSegFreeRangeInsert @ 0x14024F9C0 (RtlpHpSegFreeRangeInsert.c)
+ *     RtlpHpSegFreeRangeRemove @ 0x14024FAF4 (RtlpHpSegFreeRangeRemove.c)
+ *     RtlpHpSegPageRangeSplit @ 0x1405B7008 (RtlpHpSegPageRangeSplit.c)
  */
 
 unsigned __int64 __fastcall RtlpHpSegLargeRangeAllocate(__int64 a1, unsigned __int64 i, int a3, int a4)

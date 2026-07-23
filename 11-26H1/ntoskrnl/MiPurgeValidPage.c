@@ -1,7 +1,7 @@
 /*
- * XREFs of MiPurgeValidPage @ 0x1404B1D5C
+ * XREFs of MiPurgeValidPage @ 0x1404AB41C
  * Callers:
- *     MiPurgeSubsection @ 0x140422170 (MiPurgeSubsection.c)
+ *     MiPurgeSubsection @ 0x1404199B0 (MiPurgeSubsection.c)
  * Callees:
  *     <none>
  */

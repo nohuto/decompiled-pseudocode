@@ -1,9 +1,9 @@
 /*
- * XREFs of PiEventAllocateVetoBuffer @ 0x1408685D4
+ * XREFs of PiEventAllocateVetoBuffer @ 0x140868814
  * Callers:
- *     PnpProcessQueryRemoveAndEject @ 0x140867478 (PnpProcessQueryRemoveAndEject.c)
+ *     PnpProcessQueryRemoveAndEject @ 0x1408676B8 (PnpProcessQueryRemoveAndEject.c)
  * Callees:
- *     PnpAllocateCriticalMemory @ 0x140868654 (PnpAllocateCriticalMemory.c)
+ *     PnpAllocateCriticalMemory @ 0x140868894 (PnpAllocateCriticalMemory.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

@@ -1,17 +1,17 @@
 /*
- * XREFs of SfsInitialize @ 0x1406DD17C
+ * XREFs of SfsInitialize @ 0x1406E141C
  * Callers:
- *     PrExtControlOperations @ 0x1406DCA28 (PrExtControlOperations.c)
+ *     PrExtControlOperations @ 0x1406E0CC8 (PrExtControlOperations.c)
  * Callees:
- *     MmGetPhysicalAddress @ 0x14024D8F0 (MmGetPhysicalAddress.c)
- *     MiUnmapContiguousMemory @ 0x140343628 (MiUnmapContiguousMemory.c)
- *     MmMapIoSpaceEx @ 0x140363DC0 (MmMapIoSpaceEx.c)
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     MmMapIoSpace @ 0x1404B8360 (MmMapIoSpace.c)
- *     SfsGetFwVersions @ 0x1406DD060 (SfsGetFwVersions.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwCreateKey @ 0x140723790 (ZwCreateKey.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     MmGetPhysicalAddress @ 0x14024F250 (MmGetPhysicalAddress.c)
+ *     MiUnmapContiguousMemory @ 0x1403456A8 (MiUnmapContiguousMemory.c)
+ *     MmMapIoSpaceEx @ 0x140365B60 (MmMapIoSpaceEx.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     MmMapIoSpace @ 0x1404B1B90 (MmMapIoSpace.c)
+ *     SfsGetFwVersions @ 0x1406E1300 (SfsGetFwVersions.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwCreateKey @ 0x140728360 (ZwCreateKey.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall SfsInitialize(__int64 *a1)
@@ -29,20 +29,20 @@ __int64 __fastcall SfsInitialize(__int64 *a1)
   KeyHandle = 0LL;
   memset(&ObjectAttributes, 0, 44);
   DestinationString = 0LL;
-  *(_QWORD *)&CmpCallbackListLock.Timer.Processor = MmMapIoSpaceEx(v1 + 2372, 4LL, 0x204u);
-  if ( *(_QWORD *)&CmpCallbackListLock.Timer.Processor
-    && (CmpCallbackListLock.Timer.TimerListEntry.Flink = (struct _LIST_ENTRY *)MmMapIoSpace(
-                                                                                 (PHYSICAL_ADDRESS)(v1 + 2376),
-                                                                                 4uLL,
-                                                                                 (MEMORY_CACHING_TYPE)516)) != 0LL
-    && (CmpCallbackListLock.Timer.DueTime.QuadPart = (unsigned __int64)MmMapIoSpace(
-                                                                         (PHYSICAL_ADDRESS)(v1 + 2380),
-                                                                         4uLL,
-                                                                         (MEMORY_CACHING_TYPE)516)) != 0 )
+  CmpContextListLock.Timer.TimerListEntry.Flink = (struct _LIST_ENTRY *)MmMapIoSpaceEx(v1 + 2372, 4LL, 0x204u);
+  if ( CmpContextListLock.Timer.TimerListEntry.Flink
+    && (CmpContextListLock.Timer.TimerListEntry.Blink = (struct _LIST_ENTRY *)MmMapIoSpace(
+                                                                                (PHYSICAL_ADDRESS)(v1 + 2376),
+                                                                                4uLL,
+                                                                                (MEMORY_CACHING_TYPE)516)) != 0LL
+    && (CmpContextListLock.Timer.Header.WaitListHead.Blink = (struct _LIST_ENTRY *)MmMapIoSpace(
+                                                                                     (PHYSICAL_ADDRESS)(v1 + 2380),
+                                                                                     4uLL,
+                                                                                     (MEMORY_CACHING_TYPE)516)) != 0LL )
   {
-    CmpCallbackListLock.Timer.TimerListEntry.Blink = (struct _LIST_ENTRY *)a1[1];
-    CmpCallbackListLock.WaitBlock[0].WaitListEntry.Flink = (struct _LIST_ENTRY *)MmGetPhysicalAddress(CmpCallbackListLock.Timer.TimerListEntry.Blink).QuadPart;
-    memset_0(CmpCallbackListLock.Timer.TimerListEntry.Blink, 0, 0x200000uLL);
+    CmpContextListLock.Timer.Dpc = (_KDPC *)a1[1];
+    *(PHYSICAL_ADDRESS *)&CmpContextListLock.Timer.Processor = MmGetPhysicalAddress(CmpContextListLock.Timer.Dpc);
+    memset_0(CmpContextListLock.Timer.Dpc, 0, 0x200000uLL);
     RtlInitUnicodeString(&DestinationString, L"\\REGISTRY\\MACHINE\\HARDWARE\\DESCRIPTION\\SYSTEM\\SFS");
     ObjectAttributes.ObjectName = &DestinationString;
     ObjectAttributes.Length = 48;
@@ -54,7 +54,7 @@ __int64 __fastcall SfsInitialize(__int64 *a1)
     {
       FwVersions = SfsGetFwVersions(v5, v4, v6);
       if ( FwVersions >= 0 )
-        CmpCallbackListLock.WaitBlockFill4[8] = 1;
+        CmpContextListLock.WaitBlockFill4[0] = 1;
     }
   }
   else
@@ -65,12 +65,12 @@ __int64 __fastcall SfsInitialize(__int64 *a1)
     ZwClose(KeyHandle);
   if ( FwVersions < 0 )
   {
-    if ( *(_QWORD *)&CmpCallbackListLock.Timer.Processor )
-      MiUnmapContiguousMemory(*(unsigned __int64 *)&CmpCallbackListLock.Timer.Processor, 4uLL, 1);
-    if ( CmpCallbackListLock.Timer.TimerListEntry.Flink )
-      MiUnmapContiguousMemory((unsigned __int64)CmpCallbackListLock.Timer.TimerListEntry.Flink, 4uLL, 1);
-    if ( CmpCallbackListLock.Timer.DueTime.QuadPart )
-      MiUnmapContiguousMemory(CmpCallbackListLock.Timer.DueTime.QuadPart, 4uLL, 1);
+    if ( CmpContextListLock.Timer.TimerListEntry.Flink )
+      MiUnmapContiguousMemory((unsigned __int64)CmpContextListLock.Timer.TimerListEntry.Flink, 4uLL, 1);
+    if ( CmpContextListLock.Timer.TimerListEntry.Blink )
+      MiUnmapContiguousMemory((unsigned __int64)CmpContextListLock.Timer.TimerListEntry.Blink, 4uLL, 1);
+    if ( CmpContextListLock.Timer.Header.WaitListHead.Blink )
+      MiUnmapContiguousMemory((unsigned __int64)CmpContextListLock.Timer.Header.WaitListHead.Blink, 4uLL, 1);
   }
   return (unsigned int)FwVersions;
 }

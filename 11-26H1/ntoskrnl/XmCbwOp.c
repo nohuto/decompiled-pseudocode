@@ -1,9 +1,9 @@
 /*
- * XREFs of XmCbwOp @ 0x1405AE000
+ * XREFs of XmCbwOp @ 0x1405B0810
  * Callers:
  *     <none>
  * Callees:
- *     XmStoreResult @ 0x1404A8E3C (XmStoreResult.c)
+ *     XmStoreResult @ 0x1404A24CC (XmStoreResult.c)
  */
 
 _WORD *__fastcall XmCbwOp(__int64 a1)

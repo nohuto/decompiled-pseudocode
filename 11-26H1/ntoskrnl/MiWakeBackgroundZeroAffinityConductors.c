@@ -1,12 +1,12 @@
 /*
- * XREFs of MiWakeBackgroundZeroAffinityConductors @ 0x14070EC60
+ * XREFs of MiWakeBackgroundZeroAffinityConductors @ 0x140713960
  * Callers:
- *     MiAvailableCpusChangeCallback @ 0x14070E260 (MiAvailableCpusChangeCallback.c)
+ *     MiAvailableCpusChangeCallback @ 0x140712F60 (MiAvailableCpusChangeCallback.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
  */
 
 unsigned __int64 __fastcall MiWakeBackgroundZeroAffinityConductors(__int64 a1)

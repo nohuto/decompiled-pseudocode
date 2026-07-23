@@ -1,17 +1,17 @@
 /*
- * XREFs of SeCopyClientToken @ 0x140926AB0
+ * XREFs of SeCopyClientToken @ 0x1409025C0
  * Callers:
- *     SepCopyClientTokenAndSetSilo @ 0x140810B24 (SepCopyClientTokenAndSetSilo.c)
- *     SepCreateClientSecurityEx @ 0x14092A140 (SepCreateClientSecurityEx.c)
+ *     SepCopyClientTokenAndSetSilo @ 0x1408165B4 (SepCopyClientTokenAndSetSilo.c)
+ *     SepCreateClientSecurityEx @ 0x140905C50 (SepCreateClientSecurityEx.c)
  * Callees:
- *     SepSetProcessTrustLabelAceForToken @ 0x140260160 (SepSetProcessTrustLabelAceForToken.c)
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     SepAppendAceToTokenObjectAcl @ 0x140927020 (SepAppendAceToTokenObjectAcl.c)
- *     SepDuplicateToken @ 0x14092A5A0 (SepDuplicateToken.c)
- *     ObInsertObjectEx @ 0x14092B470 (ObInsertObjectEx.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     SepSetProcessTrustLabelAceForToken @ 0x140406340 (SepSetProcessTrustLabelAceForToken.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     SepAppendAceToTokenObjectAcl @ 0x140902B30 (SepAppendAceToTokenObjectAcl.c)
+ *     SepDuplicateToken @ 0x1409060B0 (SepDuplicateToken.c)
+ *     ObInsertObjectEx @ 0x140906FA0 (ObInsertObjectEx.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SeCopyClientToken(int a1, int a2, __int64 a3, char a4, unsigned __int8 *Src, PVOID *a6)

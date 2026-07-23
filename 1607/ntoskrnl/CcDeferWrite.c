@@ -1,14 +1,14 @@
 /*
- * XREFs of CcDeferWrite @ 0x1401B1A08
+ * XREFs of CcDeferWrite @ 0x1401B18EC
  * Callers:
  *     <none>
  * Callees:
- *     CcScheduleLazyWriteScan @ 0x14007091C (CcScheduleLazyWriteScan.c)
- *     ExInterlockedInsertTailList @ 0x14008C0E0 (ExInterlockedInsertTailList.c)
- *     ExInterlockedInsertHeadList @ 0x1400A7B70 (ExInterlockedInsertHeadList.c)
- *     KeAcquireQueuedSpinLock @ 0x1400E8D30 (KeAcquireQueuedSpinLock.c)
- *     KeReleaseQueuedSpinLock @ 0x1400E8DA0 (KeReleaseQueuedSpinLock.c)
- *     CcPostDeferredWrites @ 0x1401B1B04 (CcPostDeferredWrites.c)
+ *     CcScheduleLazyWriteScan @ 0x14007049C (CcScheduleLazyWriteScan.c)
+ *     ExInterlockedInsertTailList @ 0x14008B840 (ExInterlockedInsertTailList.c)
+ *     ExInterlockedInsertHeadList @ 0x1400A60E8 (ExInterlockedInsertHeadList.c)
+ *     KeAcquireQueuedSpinLock @ 0x1400E6BD0 (KeAcquireQueuedSpinLock.c)
+ *     KeReleaseQueuedSpinLock @ 0x1400E6C40 (KeReleaseQueuedSpinLock.c)
+ *     CcPostDeferredWrites @ 0x1401B19E8 (CcPostDeferredWrites.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */
 
@@ -21,7 +21,7 @@ void __stdcall CcDeferWrite(
         BOOLEAN Retrying)
 {
   char *PoolWithTag; // rax
-  struct _LIST_ENTRY *v11; // rdx
+  _LIST_ENTRY *v11; // rdx
   __int64 v12; // rcx
   KIRQL v13; // bl
 
@@ -35,7 +35,7 @@ void __stdcall CcDeferWrite(
     *((_QWORD *)PoolWithTag + 6) = PostRoutine;
     *((_QWORD *)PoolWithTag + 7) = Context1;
     *((_QWORD *)PoolWithTag + 8) = Context2;
-    v11 = (struct _LIST_ENTRY *)(PoolWithTag + 24);
+    v11 = (_LIST_ENTRY *)(PoolWithTag + 24);
     if ( Retrying )
       ExInterlockedInsertHeadList(&CcDeferredWrites, v11, &CcDeferredWriteSpinLock);
     else

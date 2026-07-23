@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlClearBitsEx @ 0x1800EBA20
+ * XREFs of RtlClearBitsEx @ 0x1800EB9E0
  * Callers:
- *     RtlFindSetBitsAndClearEx @ 0x1800EC850 (RtlFindSetBitsAndClearEx.c)
+ *     RtlFindSetBitsAndClearEx @ 0x1800EC810 (RtlFindSetBitsAndClearEx.c)
  * Callees:
- *     memset @ 0x1800A4780 (memset.c)
+ *     memset @ 0x1800A4740 (memset.c)
  */
 
 void __fastcall RtlClearBitsEx(__int64 a1, unsigned __int64 a2, unsigned __int64 a3)

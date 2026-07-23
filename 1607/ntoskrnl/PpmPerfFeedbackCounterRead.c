@@ -1,7 +1,7 @@
 /*
- * XREFs of PpmPerfFeedbackCounterRead @ 0x1401437BC
+ * XREFs of PpmPerfFeedbackCounterRead @ 0x140143D2C
  * Callers:
- *     PpmInstallFeedbackCounters @ 0x14014367C (PpmInstallFeedbackCounters.c)
+ *     PpmInstallFeedbackCounters @ 0x140143BEC (PpmInstallFeedbackCounters.c)
  * Callees:
  *     <none>
  */

@@ -9,7 +9,7 @@
  *     __security_check_cookie @ 0x18008C240 (__security_check_cookie.c)
  */
 
-char __fastcall RtlpCompareKnownObjectAces(unsigned __int8 *a1, unsigned __int8 *a2, _WORD *a3, _WORD *a4)
+char __fastcall RtlpCompareKnownObjectAces(unsigned __int8 *a1, unsigned __int8 *a2, void *a3, void *a4)
 {
   __int64 v6; // rcx
   unsigned int v9; // r10d
@@ -23,11 +23,10 @@ char __fastcall RtlpCompareKnownObjectAces(unsigned __int8 *a1, unsigned __int8 
   __int64 v18; // rdi
   unsigned __int8 *v19; // rbp
   int v20; // r8d
-  _WORD *v21; // rdx
-  int v22; // [rsp+20h] [rbp-78h] BYREF
-  __int16 v23; // [rsp+24h] [rbp-74h]
-  _BYTE v24[8]; // [rsp+28h] [rbp-70h] BYREF
-  int v25; // [rsp+30h] [rbp-68h]
+  void *v21; // rdx
+  _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+20h] [rbp-78h] BYREF
+  _BYTE Sid[8]; // [rsp+28h] [rbp-70h] BYREF
+  int v24; // [rsp+30h] [rbp-68h]
 
   v6 = *a2;
   if ( RtlBaseAceType[v6] != RtlBaseAceType[*a1] || RtlIsSystemAceType[v6] && ((a1[1] ^ a2[1]) & 0xC0) != 0 )
@@ -82,12 +81,12 @@ char __fastcall RtlpCompareKnownObjectAces(unsigned __int8 *a1, unsigned __int8 
   {
     if ( (a2[1] & 3 | ~a2[1] & 8) != 8 || !a3 && !a4 )
       return 0;
-    v22 = 0;
-    v23 = 768;
-    if ( (int)RtlInitializeSid((__int64)v24, (__int64)&v22, 1u) < 0 )
+    *(_DWORD *)IdentifierAuthority.Value = 0;
+    *(_WORD *)&IdentifierAuthority.Value[4] = 768;
+    if ( RtlInitializeSid(Sid, &IdentifierAuthority, 1u) < 0 )
       return 0;
-    v25 = 0;
-    if ( !RtlEqualPrefixSid(&a1[(v15 != 0 ? 0x10 : 0) + 12 + v18], v24) )
+    v24 = 0;
+    if ( !RtlEqualPrefixSid(&a1[(v15 != 0 ? 0x10 : 0) + 12 + v18], Sid) )
       return 0;
     v20 = *(_DWORD *)&a1[(v15 != 0 ? 36LL : 20LL) + v18];
     if ( v20 )

@@ -1,11 +1,11 @@
 /*
- * XREFs of PpmPerfSelectProcessorState @ 0x1402555E0
+ * XREFs of PpmPerfSelectProcessorState @ 0x1402556A0
  * Callers:
- *     PpmPerfSelectProcessorStates @ 0x140255550 (PpmPerfSelectProcessorStates.c)
+ *     PpmPerfSelectProcessorStates @ 0x140255610 (PpmPerfSelectProcessorStates.c)
  * Callees:
- *     PpmGetPerfPolicyClass @ 0x14025594C (PpmGetPerfPolicyClass.c)
- *     PpmEventPerfSelectProcessorState @ 0x140255988 (PpmEventPerfSelectProcessorState.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     PpmGetPerfPolicyClass @ 0x140255A0C (PpmGetPerfPolicyClass.c)
+ *     PpmEventPerfSelectProcessorState @ 0x140255A48 (PpmEventPerfSelectProcessorState.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall PpmPerfSelectProcessorState(__int64 *a1)
@@ -73,13 +73,13 @@ __int64 __fastcall PpmPerfSelectProcessorState(__int64 *a1)
   v47 = 1;
   if ( (unsigned int)PpmMfBufferingThreshold > 0x64 )
     LOBYTE(v2) = 100;
-  v7 = &PpmCurrentProfile[55 * dword_140C3D86C + 5];
+  v7 = &PpmCurrentProfile[55 * dword_140C3D96C + 5];
   if ( v6
     && PpmCurrentProfile == (__int64 *)PpmLowPowerProfile
-    && byte_140C3D8AC
+    && byte_140C3D9AC
     && *(_BYTE *)(v6 + 233) < (unsigned __int8)v2 )
   {
-    v7 = (__int64 *)((char *)&unk_140C394C8 + 440 * dword_140C3D86C);
+    v7 = (__int64 *)((char *)&unk_140C39448 + 440 * dword_140C3D96C);
     v53 = 0;
   }
   PerfPolicyClass = (unsigned __int8)PpmGetPerfPolicyClass(a1, v2, v6, *((unsigned int *)v7 + 14));

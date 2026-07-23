@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlpHpVaMgrCtxQuery @ 0x180089DFC
+ * XREFs of RtlpHpVaMgrCtxQuery @ 0x180070DFC
  * Callers:
- *     RtlpHpQueryVA @ 0x180089D98 (RtlpHpQueryVA.c)
- *     RtlpHpSegSegmentInitialize @ 0x180089EBC (RtlpHpSegSegmentInitialize.c)
- *     RtlpHpLargeAlloc @ 0x18008A18C (RtlpHpLargeAlloc.c)
- *     RtlpHpSegMgrVaCtxInitialize @ 0x18008C634 (RtlpHpSegMgrVaCtxInitialize.c)
+ *     RtlpHpSegMgrVaCtxInitialize @ 0x18006FA70 (RtlpHpSegMgrVaCtxInitialize.c)
+ *     RtlpHpLargeAlloc @ 0x18006FE4C (RtlpHpLargeAlloc.c)
+ *     RtlpHpQueryVA @ 0x180070D98 (RtlpHpQueryVA.c)
+ *     RtlpHpSegSegmentInitialize @ 0x1800E2038 (RtlpHpSegSegmentInitialize.c)
  * Callees:
- *     RtlSparseArrayElementAllocated @ 0x18008CD44 (RtlSparseArrayElementAllocated.c)
- *     RtlpLogHeapFailure @ 0x1801217EC (RtlpLogHeapFailure.c)
+ *     RtlSparseArrayElementAllocated @ 0x1800706A0 (RtlSparseArrayElementAllocated.c)
+ *     RtlpLogHeapFailure @ 0x180121588 (RtlpLogHeapFailure.c)
  */
 
 __int64 __fastcall RtlpHpVaMgrCtxQuery(__int64 a1, __int64 a2, __int64 a3)

@@ -1,17 +1,17 @@
 /*
- * XREFs of KiSetSystemTimeDpc @ 0x14047BEC0
+ * XREFs of KiSetSystemTimeDpc @ 0x140477490
  * Callers:
  *     <none>
  * Callees:
- *     HvlNotifyLongSpinWait @ 0x140293260 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140293290 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     KiExitDispatcher @ 0x14031E7A0 (KiExitDispatcher.c)
- *     KeWakeAddressAll @ 0x140321AA0 (KeWakeAddressAll.c)
- *     KiAdjustTimerDueTimes @ 0x1404017B8 (KiAdjustTimerDueTimes.c)
- *     KiUpdateSystemTime @ 0x1404A7710 (KiUpdateSystemTime.c)
- *     KeAdjustInterruptTime @ 0x1404BE5A4 (KeAdjustInterruptTime.c)
- *     KiHaltOnAddress @ 0x1404FA2B8 (KiHaltOnAddress.c)
- *     KeCanUseHaltOnAddress @ 0x1404FA680 (KeCanUseHaltOnAddress.c)
+ *     HvlNotifyLongSpinWait @ 0x1402A2E60 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402A2E90 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     KiExitDispatcher @ 0x1402C7330 (KiExitDispatcher.c)
+ *     KeWakeAddressAll @ 0x1402CA630 (KeWakeAddressAll.c)
+ *     KiUpdateSystemTime @ 0x1404A2140 (KiUpdateSystemTime.c)
+ *     KeAdjustInterruptTime @ 0x1404B9764 (KeAdjustInterruptTime.c)
+ *     KiAdjustTimerDueTimes @ 0x1404E0430 (KiAdjustTimerDueTimes.c)
+ *     KiHaltOnAddress @ 0x1404F7B98 (KiHaltOnAddress.c)
+ *     KeCanUseHaltOnAddress @ 0x1404F7F60 (KeCanUseHaltOnAddress.c)
  */
 
 void __fastcall KiSetSystemTimeDpc(__int64 a1, __int64 a2, volatile signed __int32 *a3, unsigned __int64 a4)
@@ -225,7 +225,7 @@ LABEL_20:
   if ( *(_QWORD *)(v5 + 24) )
   {
     if ( p_TimerTable )
-      KiAdjustTimerDueTimes((__int64)CurrentPrcb, p_TimerTable, v5);
+      KiAdjustTimerDueTimes(CurrentPrcb, p_TimerTable, v5);
     v21 = _InterlockedDecrement((volatile signed __int32 *)a4);
     v22 = ~v21 & 0x80000000;
     if ( (v21 & 0x3FFFFFFF) != 0 )

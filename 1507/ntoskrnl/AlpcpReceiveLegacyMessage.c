@@ -43,7 +43,7 @@ __int64 __fastcall AlpcpReceiveLegacyMessage(void **a1, ULONG64 a2, ULONG64 a3, 
   signed __int64 BugCheckParameter4; // rcx
   __int64 v24; // rdi
   int (__fastcall *v25)(ULONG_PTR); // rax
-  union _SLIST_HEADER *v26; // r8
+  _SLIST_HEADER *v26; // r8
   int v27; // [rsp+30h] [rbp-78h]
   ULONG_PTR BugCheckParameter2; // [rsp+38h] [rbp-70h] BYREF
   __int64 v29; // [rsp+40h] [rbp-68h] BYREF

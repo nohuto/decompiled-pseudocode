@@ -19,7 +19,7 @@
  *     sub_180105C90 @ 0x180105C90 (sub_180105C90.c)
  */
 
-__int64 __fastcall sub_1800205E0(__int64 a1, unsigned __int64 a2, __int64 a3, unsigned int a4, _DWORD *a5)
+__int64 __fastcall sub_1800205E0(PRTL_SRWLOCK SRWLock, unsigned __int64 a2, __int64 a3, unsigned int a4, _DWORD *a5)
 {
   __int64 v5; // rdi
   int v6; // ebx
@@ -57,10 +57,10 @@ __int64 __fastcall sub_1800205E0(__int64 a1, unsigned __int64 a2, __int64 a3, un
   unsigned int v41; // r8d
   unsigned __int64 v42; // rdx
   unsigned __int64 v43; // rax
-  __int64 v44; // rcx
-  __int64 v45; // rdx
-  unsigned __int8 v46; // al
-  __int64 v47; // rax
+  unsigned __int64 Ptr; // rcx
+  unsigned __int64 v45; // rdx
+  BOOLEAN v46; // al
+  unsigned __int64 v47; // rax
   signed __int64 v48; // rax
   __int64 v49; // rcx
   __int64 v50; // rdx
@@ -74,7 +74,7 @@ __int64 __fastcall sub_1800205E0(__int64 a1, unsigned __int64 a2, __int64 a3, un
 
   v5 = a3 - 16;
   v6 = a3;
-  if ( (*(_BYTE *)(a1 + 112) & 1) != 0 && (a3 & 0xFFF) == 0 )
+  if ( ((__int64)SRWLock[14].Ptr & 1) != 0 && (a3 & 0xFFF) == 0 )
     v5 = a3 - 32;
   v9 = qword_18015A440;
   v10 = 0;
@@ -116,7 +116,7 @@ LABEL_15:
     *a5 = 16 * (WORD1(qword_18015A440) ^ WORD1(v5) ^ *(unsigned __int16 *)(v5 + 2)) - 16;
     if ( (a4 & 1) == 0 )
     {
-      RtlAcquireSRWLockExclusive(a1);
+      RtlAcquireSRWLockExclusive(SRWLock);
       v9 = qword_18015A440;
     }
     if ( ((*(_QWORD *)v5 ^ v5 ^ v9) & 0xFF000000000000LL) != 0 )
@@ -135,7 +135,7 @@ LABEL_15:
           v20 = qword_18015A440 ^ (v5 - 16LL * WORD2(v19)) ^ *(_QWORD *)(v5 - 16LL * WORD2(v19));
           if ( (v20 & 0xFF000000000000LL) == 0 )
           {
-            sub_180023F18(a1, a2, v5 - 16LL * WORD2(v19), v18);
+            sub_180023F18(SRWLock, a2, v5 - 16LL * WORD2(v19), v18);
             v18 = a2 + 48;
             v10 += WORD1(v20);
             v5 -= 16LL * WORD2(v19);
@@ -148,7 +148,7 @@ LABEL_15:
           v23 = qword_18015A440 ^ v22 ^ *(_QWORD *)v22;
           if ( (v23 & 0xFF000000000000LL) == 0 )
           {
-            RtlRbRemoveNode(a1 + 16, v22 + 8);
+            RtlRbRemoveNode((PRTL_RB_TREE)&SRWLock[2], (PRTL_BALANCED_NODE)(v22 + 8));
             v25 = (v22 - a2 + 4127) & 0xFFFFF000;
             v26 = ((v22 + 16 * (WORD1(qword_18015A440) ^ ((*(_DWORD *)v22 ^ (unsigned int)v22) >> 16)) - a2) & 0xFFFFF000)
                 - v25;
@@ -158,18 +158,17 @@ LABEL_15:
                         - (_DWORD)a2) & 0xFFFFF000) )
               v26 = 0;
             v24 = 16 * (WORD1(qword_18015A440) ^ ((*(_DWORD *)v22 ^ (unsigned int)v22) >> 16));
-            *(_QWORD *)(a1 + 56) -= (unsigned int)(((unsigned __int64)(((_WORD)v5 + 16 * (_WORD)v10) & 0xFFF)
-                                                  + v24
-                                                  + 4095) >> 12)
-                                  + (v26 >> 12)
-                                  - (unsigned __int16)(*(_WORD *)v22 ^ qword_18015A440 ^ v22)
-                                  - (unsigned int)((unsigned __int64)(v24 + 4095) >> 12);
+            SRWLock[7].Ptr = (char *)SRWLock[7].Ptr
+                           - ((unsigned int)(((unsigned __int64)(((_WORD)v5 + 16 * (_WORD)v10) & 0xFFF) + v24 + 4095) >> 12)
+                            + (v26 >> 12)
+                            - (unsigned __int16)(*(_WORD *)v22 ^ qword_18015A440 ^ v22)
+                            - (unsigned int)((unsigned __int64)(v24 + 4095) >> 12));
             v21 = *(_WORD *)(a2 + 32);
             v10 += WORD1(v23);
           }
         }
         v27 = v21;
-        if ( (*(_BYTE *)(a1 + 112) & 1) != 0 )
+        if ( ((__int64)SRWLock[14].Ptr & 1) != 0 )
         {
           v28 = v5 + 16LL * v10;
           if ( v28 < v18 + 16LL * v21 )
@@ -177,7 +176,7 @@ LABEL_15:
             v29 = qword_18015A440 ^ *(_QWORD *)v28 ^ v28;
             if ( (v29 & 0xFF000000000000LL) == 0 )
             {
-              sub_180023F18(a1, a2, v28, v18);
+              sub_180023F18(SRWLock, a2, v28, v18);
               v27 = *(unsigned __int16 *)(a2 + 32);
               v10 += WORD1(v29);
             }
@@ -199,7 +198,7 @@ LABEL_15:
         }
         if ( v10 == (unsigned __int16)v27 )
         {
-          sub_1800610A4(a1, a2);
+          sub_1800610A4(SRWLock, a2);
           goto LABEL_80;
         }
         if ( v10 <= v55 )
@@ -220,12 +219,12 @@ LABEL_15:
                + (((v35 - ((v35 >> 1) & 0x5555555555555555LL)) >> 2) & 0x3333333333333333LL)
                + ((((v35 - ((v35 >> 1) & 0x5555555555555555LL)) & 0x3333333333333333LL)
                  + (((v35 - ((v35 >> 1) & 0x5555555555555555LL)) >> 2) & 0x3333333333333333LL)) >> 4)) & 0xF0F0F0F0F0F0F0FLL)) >> 56;
-        if ( (*(_BYTE *)(a1 + 112) & 2) == 0 )
+        if ( ((__int64)SRWLock[14].Ptr & 2) == 0 )
         {
-          v27 = *(_QWORD *)(a1 + 48) >> 7;
+          v27 = (unsigned __int64)SRWLock[6].Ptr >> 7;
           if ( v27 <= 8 )
             v27 = 8LL;
-          if ( *(_QWORD *)(a1 + 56) + (unsigned __int64)(unsigned int)v36 <= v27 )
+          if ( (char *)SRWLock[7].Ptr + (unsigned int)v36 <= (PVOID)v27 )
             break;
         }
         HIDWORD(v54) = HIDWORD(v54) & 0xFF00FFFF | 0x10000;
@@ -233,18 +232,18 @@ LABEL_15:
         *(_BYTE *)(v5 + 6) = BYTE6(v54);
         *(_DWORD *)(v5 + 8) = (unsigned __int8)(qword_18015A440 ^ v5 ^ ((unsigned int)(v5 - a2) >> 12)) | 0x200;
         if ( !v56 )
-          RtlReleaseSRWLockExclusive(a1);
-        sub_18007203C(a1, a2, v35, v36, 0);
+          RtlReleaseSRWLockExclusive(SRWLock);
+        sub_18007203C((_DWORD)SRWLock, a2, v35, v36, 0);
         if ( !v56 )
-          RtlAcquireSRWLockExclusive(a1);
+          RtlAcquireSRWLockExclusive(SRWLock);
         *(_DWORD *)(v5 + 8) &= ~0x200u;
         v9 = qword_18015A440;
       }
-      if ( (*(_BYTE *)(a1 + 112) & 1) != 0 && ((v5 + 32) & 0xFFF) != 0 )
+      if ( ((__int64)SRWLock[14].Ptr & 1) != 0 && ((v5 + 32) & 0xFFF) != 0 )
       {
         v37 = sub_180105C90(v27, a2, v5);
         if ( v37 )
-          sub_1800235C8(a1, a2, v37);
+          sub_1800235C8(SRWLock, a2, v37);
       }
       v38 = 16 * (WORD1(qword_18015A440) ^ WORD1(v5) ^ *(unsigned __int16 *)(v5 + 2));
       v39 = (v5 - a2 + 4127) & 0xFFFFF000;
@@ -261,10 +260,11 @@ LABEL_15:
                                                                                       - (unsigned __int8)((unsigned __int64)(v40 - 1) >> 12)));
       }
       v43 = v42 - ((v42 >> 1) & 0x5555555555555555LL);
-      *(_QWORD *)(a1 + 56) += (unsigned int)((0x101010101010101LL
-                                            * (((v43 & 0x3333333333333333LL)
-                                              + ((v43 >> 2) & 0x3333333333333333LL)
-                                              + (((v43 & 0x3333333333333333LL) + ((v43 >> 2) & 0x3333333333333333LL)) >> 4)) & 0xF0F0F0F0F0F0F0FLL)) >> 32) >> 24;
+      SRWLock[7].Ptr = (char *)SRWLock[7].Ptr
+                     + ((unsigned int)((0x101010101010101LL
+                                      * (((v43 & 0x3333333333333333LL)
+                                        + ((v43 >> 2) & 0x3333333333333333LL)
+                                        + (((v43 & 0x3333333333333333LL) + ((v43 >> 2) & 0x3333333333333333LL)) >> 4)) & 0xF0F0F0F0F0F0F0FLL)) >> 32) >> 24);
       *(_WORD *)v5 = qword_18015A440 ^ v5 ^ (((v38 + (unsigned __int64)(v5 & 0xFFF) + 4095) >> 12)
                                            - ((unsigned __int64)(v38 + 4095) >> 12)
                                            + (v41 >> 12)
@@ -272,17 +272,17 @@ LABEL_15:
                                              * (((v43 & 0x3333333333333333LL)
                                                + ((v43 >> 2) & 0x3333333333333333LL)
                                                + (((v43 & 0x3333333333333333LL) + ((v43 >> 2) & 0x3333333333333333LL)) >> 4)) & 0xF0F0F0F0F0F0F0FLL)) >> 56));
-      if ( (*(_QWORD *)(a1 + 24) & 1) != 0 )
+      if ( ((__int64)SRWLock[3].Ptr & 1) != 0 )
       {
-        v44 = *(_QWORD *)(a1 + 16);
-        if ( v44 )
-          v45 = v44 ^ (a1 + 16);
+        Ptr = (unsigned __int64)SRWLock[2].Ptr;
+        if ( Ptr )
+          v45 = Ptr ^ (unsigned __int64)&SRWLock[2];
         else
           v45 = 0LL;
       }
       else
       {
-        v45 = *(_QWORD *)(a1 + 16);
+        v45 = (unsigned __int64)SRWLock[2].Ptr;
       }
       v46 = 0;
       if ( v45 )
@@ -292,7 +292,7 @@ LABEL_15:
           if ( ((unsigned int)qword_18015A440 ^ *(_DWORD *)v5 ^ (unsigned int)v5) < (*(_DWORD *)(v45 - 8) ^ (unsigned int)qword_18015A440 ^ ((_DWORD)v45 - 8)) )
           {
             v47 = *(_QWORD *)v45;
-            if ( (*(_QWORD *)(a1 + 24) & 1) != 0 )
+            if ( ((__int64)SRWLock[3].Ptr & 1) != 0 )
             {
               if ( !v47 )
                 goto LABEL_77;
@@ -308,7 +308,7 @@ LABEL_77:
           else
           {
             v47 = *(_QWORD *)(v45 + 8);
-            if ( (*(_QWORD *)(a1 + 24) & 1) != 0 )
+            if ( ((__int64)SRWLock[3].Ptr & 1) != 0 )
             {
               if ( !v47 )
                 goto LABEL_71;
@@ -324,12 +324,12 @@ LABEL_71:
           v45 = v47;
         }
       }
-      RtlRbInsertNodeEx(a1 + 16, v45, v46, v5 + 8);
+      RtlRbInsertNodeEx((PRTL_RB_TREE)&SRWLock[2], (PRTL_BALANCED_NODE)v45, v46, (PRTL_BALANCED_NODE)(v5 + 8));
       a2 = 0LL;
 LABEL_80:
       if ( !v56 )
       {
-        v48 = _InterlockedCompareExchange64((volatile signed __int64 *)a1, 0LL, 1LL);
+        v48 = _InterlockedCompareExchange64((volatile signed __int64 *)SRWLock, 0LL, 1LL);
         if ( v48 != 1 )
         {
           do
@@ -340,28 +340,28 @@ LABEL_80:
               v49 = 3LL;
             v50 = v49 + v48;
             v51 = v48;
-            v48 = _InterlockedCompareExchange64((volatile signed __int64 *)a1, v49 + v48, v48);
+            v48 = _InterlockedCompareExchange64((volatile signed __int64 *)SRWLock, v49 + v48, v48);
           }
           while ( v51 != v48 );
           if ( v49 == 3 )
-            sub_180070AAC(a1, v50, 0LL);
+            sub_180070AAC(SRWLock, v50, 0LL);
         }
       }
       if ( a2 )
-        sub_180060688(a1, a2, a4);
+        sub_180060688(SRWLock, a2, a4);
       return 1LL;
     }
     else
     {
-      sub_18009A5F0(8, a1 ^ *(_DWORD *)(a1 + 64), v6, v5, 0LL, 0LL);
+      sub_18009A5F0(8, (unsigned int)SRWLock ^ LODWORD(SRWLock[8].Ptr), v6, v5, 0LL, 0LL);
       if ( !v17 )
-        RtlReleaseSRWLockExclusive(a1);
+        RtlReleaseSRWLockExclusive(SRWLock);
       return 0LL;
     }
   }
   else
   {
-    sub_18009A5F0(18, a1 ^ *(_DWORD *)(a1 + 64), a2, 0, 0LL, 0LL);
+    sub_18009A5F0(18, (unsigned int)SRWLock ^ LODWORD(SRWLock[8].Ptr), a2, 0, 0LL, 0LL);
     return 0LL;
   }
 }

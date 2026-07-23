@@ -1,21 +1,21 @@
 /*
- * XREFs of MiUnlockIoPfnTree @ 0x1403D0468
+ * XREFs of MiUnlockIoPfnTree @ 0x14038F980
  * Callers:
- *     MiReferenceIoPages @ 0x140283108 (MiReferenceIoPages.c)
- *     MiLookupIoPageNode @ 0x1403D0238 (MiLookupIoPageNode.c)
- *     MiUnlockOpportunisticPagesInPageTable @ 0x1403D1CC8 (MiUnlockOpportunisticPagesInPageTable.c)
- *     MiMarkHugeRangeTransition @ 0x1404F1208 (MiMarkHugeRangeTransition.c)
- *     MiCreateIoPageExclusion @ 0x140675738 (MiCreateIoPageExclusion.c)
- *     MiDeleteStaleCacheMaps @ 0x140675880 (MiDeleteStaleCacheMaps.c)
- *     MiIsProbeActive @ 0x140676268 (MiIsProbeActive.c)
- *     MiMakeIoRangePermanent @ 0x140676394 (MiMakeIoRangePermanent.c)
- *     MiMarkHugeRangeIoPfnDeleted @ 0x140676870 (MiMarkHugeRangeIoPfnDeleted.c)
- *     MiRemoveIoPageExclusion @ 0x140676A0C (MiRemoveIoPageExclusion.c)
+ *     MiReferenceIoPages @ 0x140238698 (MiReferenceIoPages.c)
+ *     MiUnlockOpportunisticPagesInPageTable @ 0x14038DEE4 (MiUnlockOpportunisticPagesInPageTable.c)
+ *     MiLookupIoPageNode @ 0x14038F750 (MiLookupIoPageNode.c)
+ *     MiMarkHugeRangeTransition @ 0x1404EECA8 (MiMarkHugeRangeTransition.c)
+ *     MiCreateIoPageExclusion @ 0x140676908 (MiCreateIoPageExclusion.c)
+ *     MiDeleteStaleCacheMaps @ 0x140676A50 (MiDeleteStaleCacheMaps.c)
+ *     MiIsProbeActive @ 0x140677438 (MiIsProbeActive.c)
+ *     MiMakeIoRangePermanent @ 0x140677564 (MiMakeIoRangePermanent.c)
+ *     MiMarkHugeRangeIoPfnDeleted @ 0x140677A40 (MiMarkHugeRangeIoPfnDeleted.c)
+ *     MiRemoveIoPageExclusion @ 0x140677BDC (MiRemoveIoPageExclusion.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14020FA40 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x140210C80 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140338DA0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x140339FE0 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
  */
 
 void __fastcall MiUnlockIoPfnTree(unsigned __int8 a1, char a2)
@@ -48,7 +48,7 @@ void __fastcall MiUnlockIoPfnTree(unsigned __int8 a1, char a2)
   }
   else
   {
-    v6 = qword_140E2DAF8;
+    v6 = qword_140E2DC38;
     v7 = 0;
     if ( KeNumberNodes != 1 )
     {

@@ -17,15 +17,15 @@
  *     ProbeForWrite @ 0x140527A00 (ProbeForWrite.c)
  */
 
-__int64 __fastcall NtQueryWnfStateNameInformation(
-        __int64 a1,
-        unsigned int a2,
-        __int64 a3,
-        int *a4,
-        unsigned int Length)
+NTSTATUS __cdecl NtQueryWnfStateNameInformation(
+        PCWNF_STATE_NAME StateName,
+        WNF_STATE_NAME_INFORMATION NameInfoClass,
+        const void *ExplicitScope,
+        PVOID InfoBuffer,
+        ULONG InfoBufferSize)
 {
-  int *v5; // rsi
-  __int64 v6; // r12
+  _DWORD *v5; // rsi
+  const void *v6; // r12
   struct _KTHREAD *CurrentThread; // rax
   char PreviousMode; // r15
   int v10; // eax
@@ -36,7 +36,7 @@ __int64 __fastcall NtQueryWnfStateNameInformation(
   ACCESS_MASK v15; // r12d
   struct _KTHREAD *v16; // r8
   _KPROCESS *Process; // rdx
-  unsigned int v19; // [rsp+30h] [rbp-98h]
+  NTSTATUS v19; // [rsp+30h] [rbp-98h]
   unsigned int v20; // [rsp+38h] [rbp-90h]
   int v21; // [rsp+3Ch] [rbp-8Ch]
   __int64 v22; // [rsp+40h] [rbp-88h] BYREF
@@ -49,8 +49,8 @@ __int64 __fastcall NtQueryWnfStateNameInformation(
   PSID Sid[4]; // [rsp+70h] [rbp-58h] BYREF
   _QWORD v30[7]; // [rsp+90h] [rbp-38h] BYREF
 
-  v5 = a4;
-  v6 = a3;
+  v5 = InfoBuffer;
+  v6 = ExplicitScope;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
@@ -60,8 +60,8 @@ __int64 __fastcall NtQueryWnfStateNameInformation(
   v20 = 0;
   v30[0] = 0LL;
   v30[1] = 0LL;
-  LOBYTE(a3) = PreviousMode;
-  v10 = ExpCaptureWnfStateName(a1, &v24, a3);
+  LOBYTE(ExplicitScope) = PreviousMode;
+  v10 = ExpCaptureWnfStateName(StateName, &v24, ExplicitScope);
   v19 = v10;
   if ( v10 >= 0 )
   {
@@ -72,7 +72,7 @@ __int64 __fastcall NtQueryWnfStateNameInformation(
     v19 = v10;
     if ( v10 >= 0 )
     {
-      if ( a2 > 2 )
+      if ( (unsigned int)NameInfoClass > WnfInfoIsQuiescent )
       {
         v10 = -1073741821;
         v19 = -1073741821;
@@ -82,12 +82,12 @@ __int64 __fastcall NtQueryWnfStateNameInformation(
         v11 = 4LL;
         v27 = 4;
         v28 = 4;
-        if ( Length >= 4 )
+        if ( InfoBufferSize >= 4 )
         {
           if ( PreviousMode )
-            ProbeForWrite(v5, Length, 4u);
+            ProbeForWrite(v5, InfoBufferSize, 4u);
           v13 = 1;
-          if ( a2 )
+          if ( NameInfoClass )
           {
             v21 = 0;
           }
@@ -101,7 +101,7 @@ __int64 __fastcall NtQueryWnfStateNameInformation(
               goto LABEL_51;
             }
           }
-          if ( PreviousMode && a2 )
+          if ( PreviousMode && NameInfoClass )
           {
             v14 = 0;
             if ( v6 )
@@ -117,7 +117,7 @@ __int64 __fastcall NtQueryWnfStateNameInformation(
             v14 = 1;
           }
           v15 = 0;
-          if ( !v14 && a2 - 1 <= 1 )
+          if ( !v14 && (unsigned int)(NameInfoClass - 1) <= 1 )
             v15 = 2;
           LODWORD(v16) = 0;
           if ( PreviousMode )
@@ -164,9 +164,9 @@ __int64 __fastcall NtQueryWnfStateNameInformation(
               if ( v14 || (v10 = ExpWnfCheckCallerAccess(*((PSECURITY_DESCRIPTOR *)P + 2), v15), v19 = v10, v10 >= 0) )
               {
 LABEL_29:
-                if ( a2 )
+                if ( NameInfoClass )
                 {
-                  if ( a2 == 1 )
+                  if ( NameInfoClass == WnfInfoSubscribersPresent )
                   {
                     if ( v22 && *(_DWORD *)(v22 + 160) )
                       goto LABEL_36;
@@ -178,16 +178,16 @@ LABEL_29:
                   v13 = 0;
                 }
 LABEL_36:
-                *a4 = v13;
+                *(_DWORD *)InfoBuffer = v13;
                 v10 = 0;
                 v19 = 0;
-                v5 = a4;
+                v5 = InfoBuffer;
                 goto LABEL_37;
               }
             }
           }
 LABEL_51:
-          v5 = a4;
+          v5 = InfoBuffer;
           goto LABEL_37;
         }
         v10 = -1073741811;
@@ -196,7 +196,7 @@ LABEL_51:
     }
   }
 LABEL_37:
-  if ( v10 == -1073741772 && !a2 )
+  if ( v10 == -1073741772 && NameInfoClass == WnfInfoStateNameExist )
   {
     *v5 = 0;
     v19 = 0;

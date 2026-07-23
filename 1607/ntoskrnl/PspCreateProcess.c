@@ -1,24 +1,24 @@
 /*
- * XREFs of PspCreateProcess @ 0x1404EB990
+ * XREFs of PspCreateProcess @ 0x1404CDA18
  * Callers:
- *     NtCreateProcessEx @ 0x1404EB914 (NtCreateProcessEx.c)
+ *     NtCreateProcessEx @ 0x1404CD99C (NtCreateProcessEx.c)
  *     PspInitPhase0 @ 0x14079E090 (PspInitPhase0.c)
  * Callees:
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     ObfDereferenceObjectWithTag @ 0x14006ACD0 (ObfDereferenceObjectWithTag.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     SeDeleteAccessState @ 0x140405E08 (SeDeleteAccessState.c)
- *     ObReferenceObjectByHandleWithTag @ 0x140425420 (ObReferenceObjectByHandleWithTag.c)
- *     ObReferenceObjectByHandle @ 0x140450D40 (ObReferenceObjectByHandle.c)
- *     SeQuerySigningPolicy @ 0x14045CA2C (SeQuerySigningPolicy.c)
- *     PspReferenceTokenForNewProcess @ 0x14045CF84 (PspReferenceTokenForNewProcess.c)
- *     PspRundownSingleProcess @ 0x14045E0C0 (PspRundownSingleProcess.c)
- *     PspInsertProcess @ 0x14045F5C0 (PspInsertProcess.c)
- *     PspAllocateProcess @ 0x14046F030 (PspAllocateProcess.c)
- *     PspCreateObjectHandle @ 0x140516ED4 (PspCreateObjectHandle.c)
- *     PsCreateMinimalProcess @ 0x14057E30C (PsCreateMinimalProcess.c)
- *     ExRaiseDatatypeMisalignment @ 0x1406B6058 (ExRaiseDatatypeMisalignment.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     ObfDereferenceObjectWithTag @ 0x14006A850 (ObfDereferenceObjectWithTag.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     SeDeleteAccessState @ 0x140404CC8 (SeDeleteAccessState.c)
+ *     ObReferenceObjectByHandleWithTag @ 0x1404242E0 (ObReferenceObjectByHandleWithTag.c)
+ *     ObReferenceObjectByHandle @ 0x14044FC10 (ObReferenceObjectByHandle.c)
+ *     SeQuerySigningPolicy @ 0x14045B8FC (SeQuerySigningPolicy.c)
+ *     PspReferenceTokenForNewProcess @ 0x14045BE54 (PspReferenceTokenForNewProcess.c)
+ *     PspRundownSingleProcess @ 0x14045CF90 (PspRundownSingleProcess.c)
+ *     PspInsertProcess @ 0x14045E490 (PspInsertProcess.c)
+ *     PspAllocateProcess @ 0x14046DF00 (PspAllocateProcess.c)
+ *     PspCreateObjectHandle @ 0x1404FA2C4 (PspCreateObjectHandle.c)
+ *     PsCreateMinimalProcess @ 0x14057E7B8 (PsCreateMinimalProcess.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1406B6190 (ExRaiseDatatypeMisalignment.c)
  */
 
 NTSTATUS __fastcall PspCreateProcess(

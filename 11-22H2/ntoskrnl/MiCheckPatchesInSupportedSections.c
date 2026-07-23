@@ -15,10 +15,10 @@ __int64 __fastcall MiCheckPatchesInSupportedSections(__int64 a1)
 {
   unsigned __int64 v2; // rbx
   unsigned __int64 v3; // r15
-  RTL_BITMAP *Pool; // rax
-  RTL_BITMAP *v5; // r14
-  RTL_BITMAP *v6; // rax
-  RTL_BITMAP *v7; // rdi
+  _RTL_BITMAP *Pool; // rax
+  _RTL_BITMAP *v5; // r14
+  _RTL_BITMAP *v6; // rax
+  _RTL_BITMAP *v7; // rdi
   unsigned int v8; // edx
   ULONG v9; // ebp
   unsigned __int64 i; // rbx
@@ -34,25 +34,25 @@ __int64 __fastcall MiCheckPatchesInSupportedSections(__int64 a1)
   v18 = 0LL;
   v2 = MiSectionControlArea(*(_QWORD *)(**(_QWORD **)a1 + 112LL));
   v3 = MiSectionControlArea(*(_QWORD *)(**(_QWORD **)(a1 + 8) + 112LL));
-  Pool = (RTL_BITMAP *)MiAllocatePool(
-                         256,
-                         8
-                       * ((*(_DWORD *)(*(_QWORD *)v2 + 8LL) >> 6)
-                        + (unsigned int)((*(_DWORD *)(*(_QWORD *)v2 + 8LL) & 0x3F) != 0)
-                        + 2),
-                         0x20206D4Du);
+  Pool = (_RTL_BITMAP *)MiAllocatePool(
+                          256,
+                          8
+                        * ((*(_DWORD *)(*(_QWORD *)v2 + 8LL) >> 6)
+                         + (unsigned int)((*(_DWORD *)(*(_QWORD *)v2 + 8LL) & 0x3F) != 0)
+                         + 2),
+                          0x20206D4Du);
   v5 = Pool;
   if ( Pool )
   {
     Pool->SizeOfBitMap = *(_DWORD *)(*(_QWORD *)v2 + 8LL);
     Pool->Buffer = &Pool[1].SizeOfBitMap;
-    v6 = (RTL_BITMAP *)MiAllocatePool(
-                         256,
-                         8
-                       * ((*(_DWORD *)(*(_QWORD *)v3 + 8LL) >> 6)
-                        + (unsigned int)((*(_DWORD *)(*(_QWORD *)v3 + 8LL) & 0x3F) != 0)
-                        + 2),
-                         0x20206D4Du);
+    v6 = (_RTL_BITMAP *)MiAllocatePool(
+                          256,
+                          8
+                        * ((*(_DWORD *)(*(_QWORD *)v3 + 8LL) >> 6)
+                         + (unsigned int)((*(_DWORD *)(*(_QWORD *)v3 + 8LL) & 0x3F) != 0)
+                         + 2),
+                          0x20206D4Du);
     v7 = v6;
     if ( v6 )
     {

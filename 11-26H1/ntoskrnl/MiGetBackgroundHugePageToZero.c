@@ -1,19 +1,19 @@
 /*
- * XREFs of MiGetBackgroundHugePageToZero @ 0x1404C2588
+ * XREFs of MiGetBackgroundHugePageToZero @ 0x1404BBDD8
  * Callers:
- *     MiBackgroundZeroNodePages @ 0x1404976C0 (MiBackgroundZeroNodePages.c)
+ *     MiBackgroundZeroNodePages @ 0x140491210 (MiBackgroundZeroNodePages.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiGetUltraHugeAlreadyActive @ 0x140358430 (MiGetUltraHugeAlreadyActive.c)
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     MiGetSinglePageToZero @ 0x1403C47E4 (MiGetSinglePageToZero.c)
- *     MiInitializeNewUltraHugeContext @ 0x14048DA98 (MiInitializeNewUltraHugeContext.c)
- *     MiHugeFreePagesMayExist @ 0x1404A923C (MiHugeFreePagesMayExist.c)
- *     MiGetSingleHugeRangeToZero @ 0x1404F2E34 (MiGetSingleHugeRangeToZero.c)
- *     MiDereferenceHugeContext @ 0x1404F6860 (MiDereferenceHugeContext.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiGetUltraHugeAlreadyActive @ 0x14035A1D0 (MiGetUltraHugeAlreadyActive.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     MiGetSinglePageToZero @ 0x1403CE6F0 (MiGetSinglePageToZero.c)
+ *     MiInitializeNewUltraHugeContext @ 0x1404875D8 (MiInitializeNewUltraHugeContext.c)
+ *     MiHugeFreePagesMayExist @ 0x1404A28CC (MiHugeFreePagesMayExist.c)
+ *     MiGetSingleHugeRangeToZero @ 0x1404EC414 (MiGetSingleHugeRangeToZero.c)
+ *     MiDereferenceHugeContext @ 0x1404EFE70 (MiDereferenceHugeContext.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 _BOOL8 __fastcall MiGetBackgroundHugePageToZero(__int64 a1, _QWORD *a2)

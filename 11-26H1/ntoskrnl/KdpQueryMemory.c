@@ -1,9 +1,9 @@
 /*
- * XREFs of KdpQueryMemory @ 0x140C142FC
+ * XREFs of KdpQueryMemory @ 0x140C1A2FC
  * Callers:
- *     KdpSendWaitContinue @ 0x140C17038 (KdpSendWaitContinue.c)
+ *     KdpSendWaitContinue @ 0x140C1D038 (KdpSendWaitContinue.c)
  * Callees:
- *     MmIsUserAddress @ 0x14044E7C0 (MmIsUserAddress.c)
+ *     MmIsUserAddress @ 0x1404468F0 (MmIsUserAddress.c)
  */
 
 __int64 __fastcall KdpQueryMemory(__int64 a1)

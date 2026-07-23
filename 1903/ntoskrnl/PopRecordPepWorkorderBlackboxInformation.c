@@ -144,7 +144,7 @@ LABEL_26:
   }
   v18->CrossThreadReleasableAndBusyByte |= 2u;
   if ( (__int64)v18->LockState.LockState < 0 )
-    KiAbEntryRemoveFromTree((__int64)&CurrentThread->LockEntries[v17]);
+    KiAbEntryRemoveFromTree(&CurrentThread->LockEntries[v17].TreeNode);
   v21 = v18->BoostBitmap.AllFields & 0x1FFFF;
   v22 = v18->BoostBitmap.AllFields & 0xFFFE0000;
   v18->ThreadLocalFlags &= ~1u;
@@ -168,7 +168,7 @@ LABEL_33:
     InputBuffer[3] = 7LL;
     InputBuffer[0] = v1;
     InputBuffer[1] = (unsigned int)v4;
-    NtPowerInformation(TraceApplicationPowerMessage|0x40, InputBuffer, 0x20u, 0LL, 0);
+    NtPowerInformation(UpdateBlackBoxRecorder, InputBuffer, 0x20u, 0LL, 0);
   }
   if ( v1 )
     ExFreePoolWithTag(v1, 0x42424F50u);

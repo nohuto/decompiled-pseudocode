@@ -1,51 +1,53 @@
 /*
- * XREFs of SepDuplicateToken @ 0x140856520
+ * XREFs of SepDuplicateToken @ 0x1408527E0
  * Callers:
- *     SepGetAnonymousToken @ 0x14035F4BC (SepGetAnonymousToken.c)
- *     SepLinkLogonSessions @ 0x1404A1250 (SepLinkLogonSessions.c)
- *     SepOneWayLinkLogonSessions @ 0x1406083E4 (SepOneWayLinkLogonSessions.c)
- *     SeDuplicateTokenWithPredictedClaims @ 0x140792B0C (SeDuplicateTokenWithPredictedClaims.c)
- *     NtOpenThreadTokenEx @ 0x1408553C0 (NtOpenThreadTokenEx.c)
- *     SepCreateClientSecurityEx @ 0x140897AC0 (SepCreateClientSecurityEx.c)
- *     NtDuplicateToken @ 0x14090F090 (NtDuplicateToken.c)
- *     SeCopyClientToken @ 0x14090FF48 (SeCopyClientToken.c)
- *     PsImpersonateClient @ 0x1409102D0 (PsImpersonateClient.c)
- *     NtImpersonateAnonymousToken @ 0x140A2F610 (NtImpersonateAnonymousToken.c)
- *     SeSubProcessToken @ 0x140A30C24 (SeSubProcessToken.c)
- *     SeGetLinkedToken @ 0x140A31A00 (SeGetLinkedToken.c)
- *     SeGetLogonSessionToken @ 0x140A56F40 (SeGetLogonSessionToken.c)
- *     SeDuplicateTokenAndAddOriginClaim @ 0x140AAF038 (SeDuplicateTokenAndAddOriginClaim.c)
- *     SepFilterToken @ 0x140AD2664 (SepFilterToken.c)
- *     NtQueryInformationToken @ 0x140AD3370 (NtQueryInformationToken.c)
- *     NtCreateLowBoxToken @ 0x140AD8020 (NtCreateLowBoxToken.c)
+ *     SepGetAnonymousToken @ 0x1403B977C (SepGetAnonymousToken.c)
+ *     SepLinkLogonSessions @ 0x14049BAB0 (SepLinkLogonSessions.c)
+ *     SepOneWayLinkLogonSessions @ 0x140605AE8 (SepOneWayLinkLogonSessions.c)
+ *     SepCreateAppContainerToken @ 0x140606A30 (SepCreateAppContainerToken.c)
+ *     SeDuplicateTokenWithPredictedClaims @ 0x140792ADC (SeDuplicateTokenWithPredictedClaims.c)
+ *     NtOpenThreadTokenEx @ 0x140851680 (NtOpenThreadTokenEx.c)
+ *     SepCreateClientSecurityEx @ 0x1408A0160 (SepCreateClientSecurityEx.c)
+ *     NtDuplicateToken @ 0x1408E67E0 (NtDuplicateToken.c)
+ *     SeCopyClientToken @ 0x1408E7698 (SeCopyClientToken.c)
+ *     PsImpersonateClient @ 0x1408E7A20 (PsImpersonateClient.c)
+ *     SepFilterToken @ 0x140985C1C (SepFilterToken.c)
+ *     NtImpersonateAnonymousToken @ 0x140A24050 (NtImpersonateAnonymousToken.c)
+ *     SeGetLinkedToken @ 0x140A25970 (SeGetLinkedToken.c)
+ *     SeGetLogonSessionToken @ 0x140A4EDD0 (SeGetLogonSessionToken.c)
+ *     SeDuplicateTokenAndAddOriginClaim @ 0x140AA9F14 (SeDuplicateTokenAndAddOriginClaim.c)
+ *     NtQueryInformationToken @ 0x140AD09E0 (NtQueryInformationToken.c)
+ *     NtCreateLowBoxToken @ 0x140AD5A60 (NtCreateLowBoxToken.c)
+ *     SeSubProcessToken @ 0x140AD660C (SeSubProcessToken.c)
  * Callees:
- *     KiLeaveCriticalRegionUnsafe @ 0x1402595C0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExReleaseResourceLite @ 0x14025A450 (ExReleaseResourceLite.c)
- *     RtlWalkFrameChain @ 0x14027DB70 (RtlWalkFrameChain.c)
- *     DbgPrint @ 0x1402CB260 (DbgPrint.c)
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     ExAcquireResourceSharedLite @ 0x140341E80 (ExAcquireResourceSharedLite.c)
- *     PsGetSessionObjectById @ 0x1403493A0 (PsGetSessionObjectById.c)
- *     PsGetCurrentServerSilo @ 0x140349A50 (PsGetCurrentServerSilo.c)
- *     AuthzBasepDuplicateSecurityAttributes @ 0x14035F940 (AuthzBasepDuplicateSecurityAttributes.c)
- *     ExInitializeResourceLite @ 0x1403655E0 (ExInitializeResourceLite.c)
- *     RtlSidHashInitialize @ 0x140365780 (RtlSidHashInitialize.c)
- *     SepDuplicateLogonSessionReference @ 0x14043FF10 (SepDuplicateLogonSessionReference.c)
- *     SepReferenceLuidToIndexEntry @ 0x140454054 (SepReferenceLuidToIndexEntry.c)
- *     Feature_2045735225__private_IsEnabledDeviceUsageNoInline @ 0x1406082E8 (Feature_2045735225__private_IsEnabledDeviceUsageNoInline.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     SepModifyTokenPolicyCounter @ 0x14078FB40 (SepModifyTokenPolicyCounter.c)
- *     SepAddTokenLogonSession @ 0x140793570 (SepAddTokenLogonSession.c)
- *     ObCreateObjectEx @ 0x14089C4F0 (ObCreateObjectEx.c)
- *     SepSetTokenCapabilities @ 0x140936380 (SepSetTokenCapabilities.c)
- *     SepSetTokenTrust @ 0x1409DF8F0 (SepSetTokenTrust.c)
- *     SepDuplicateTokenUserAndGroups @ 0x1409F4CB4 (SepDuplicateTokenUserAndGroups.c)
- *     SepSetTokenPackage @ 0x140A141B0 (SepSetTokenPackage.c)
- *     SepReferenceLogonSessionSilo @ 0x140A31B44 (SepReferenceLogonSessionSilo.c)
- *     SepDuplicateTokenClaims @ 0x140A5E164 (SepDuplicateTokenClaims.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlWalkFrameChain @ 0x140233100 (RtlWalkFrameChain.c)
+ *     DbgPrint @ 0x140274290 (DbgPrint.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140289BD0 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExReleaseResourceLite @ 0x14028AA60 (ExReleaseResourceLite.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     ExAcquireResourceSharedLite @ 0x140321360 (ExAcquireResourceSharedLite.c)
+ *     AuthzBasepDuplicateSecurityAttributes @ 0x1403BA310 (AuthzBasepDuplicateSecurityAttributes.c)
+ *     PsGetSessionObjectById @ 0x1403C2DE0 (PsGetSessionObjectById.c)
+ *     PsGetCurrentServerSilo @ 0x1403C3490 (PsGetCurrentServerSilo.c)
+ *     ExInitializeResourceLite @ 0x1403EAC90 (ExInitializeResourceLite.c)
+ *     RtlSidHashInitialize @ 0x1403EAE30 (RtlSidHashInitialize.c)
+ *     SepDuplicateLogonSessionReference @ 0x1404361D0 (SepDuplicateLogonSessionReference.c)
+ *     SepReferenceLuidToIndexEntry @ 0x140449104 (SepReferenceLuidToIndexEntry.c)
+ *     Feature_2045735225__private_IsEnabledDeviceUsageNoInline @ 0x1406059EC (Feature_2045735225__private_IsEnabledDeviceUsageNoInline.c)
+ *     Feature_ShadowAdminAppCompat__private_IsEnabledDeviceUsageNoInline @ 0x140605A40 (Feature_ShadowAdminAppCompat__private_IsEnabledDeviceUsageNoInline.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     SepModifyTokenPolicyCounter @ 0x14078FB10 (SepModifyTokenPolicyCounter.c)
+ *     SepAddTokenLogonSession @ 0x140793610 (SepAddTokenLogonSession.c)
+ *     ObCreateObjectEx @ 0x1408A4B90 (ObCreateObjectEx.c)
+ *     SepSetTokenCapabilities @ 0x1409854B8 (SepSetTokenCapabilities.c)
+ *     SepSetTokenTrust @ 0x1409D96A0 (SepSetTokenTrust.c)
+ *     SepDuplicateTokenUserAndGroups @ 0x1409E9014 (SepDuplicateTokenUserAndGroups.c)
+ *     SepSetTokenPackage @ 0x140A0C9C0 (SepSetTokenPackage.c)
+ *     SepReferenceLogonSessionSilo @ 0x140A25AB4 (SepReferenceLogonSessionSilo.c)
+ *     SepDuplicateTokenClaims @ 0x140A56584 (SepDuplicateTokenClaims.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SepDuplicateToken(
@@ -70,64 +72,48 @@ __int64 __fastcall SepDuplicateToken(
   bool v21; // zf
   int v22; // eax
   unsigned int v23; // eax
-  __int128 v24; // xmm0
-  int v25; // r14d
-  __int64 v26; // rbx
+  int v24; // r14d
+  __int64 v25; // rbx
   unsigned __int64 CurrentServerSilo; // rax
-  __int64 v28; // rcx
-  _DWORD *v29; // rcx
-  __int64 v30; // rdx
-  __int64 v31; // r8
-  __int64 v32; // r9
-  _QWORD *v33; // rcx
+  __int64 v27; // rcx
+  _DWORD *v28; // rcx
+  _QWORD *v29; // rcx
   int i; // eax
-  __int64 v35; // rax
-  _QWORD *v36; // rax
+  __int64 v31; // rax
+  _QWORD *v32; // rax
   int j; // ecx
-  __int64 v38; // rax
-  unsigned int v39; // edx
-  size_t v40; // r12
-  char *v41; // rax
-  char *v42; // rbx
-  __int64 v43; // rdx
-  __int64 v44; // r8
-  __int64 v45; // r9
-  __int64 v46; // rax
-  char *v47; // rbx
-  __int64 v48; // r9
-  __int64 v49; // rdx
-  int v50; // ebx
-  __int64 v51; // rcx
-  __int64 v52; // rcx
-  __int64 v53; // rdx
-  __int64 v54; // rdx
-  __int64 v55; // r8
-  __int64 v56; // r9
-  int v57; // eax
-  struct _ERESOURCE *v58; // rcx
-  unsigned int v59; // esi
-  __int64 v60; // rdx
-  __int64 v61; // r8
-  __int64 v62; // r9
-  __int64 v63; // rdx
-  __int64 v64; // r8
-  __int64 v65; // r9
+  __int64 v34; // rax
+  ULONG_PTR v35; // rdx
+  size_t v36; // r15
+  char *v37; // rax
+  char *v38; // rbx
+  __int64 v39; // rax
+  char *v40; // rbx
+  __int64 v41; // r9
+  __int64 v42; // rdx
+  int v43; // ebx
+  __int64 v44; // rcx
+  __int64 v45; // rcx
+  __int64 v46; // rdx
+  int v47; // eax
+  struct _ERESOURCE *v48; // rcx
+  unsigned int v49; // esi
   _KPROCESS *Process; // rdx
-  __int64 v67; // rcx
-  unsigned int v68; // ecx
-  __int64 v69; // rdx
-  int v70; // r10d
-  int v71; // r9d
-  int v72; // eax
-  int v73; // edx
-  __int64 v74; // [rsp+58h] [rbp-18h] BYREF
-  __int64 v75; // [rsp+60h] [rbp-10h]
-  __int64 v76; // [rsp+68h] [rbp-8h]
+  __int64 v51; // rcx
+  unsigned int v52; // ecx
+  __int64 v53; // rdx
+  int v54; // r10d
+  int v55; // r9d
+  int v56; // eax
+  int v57; // edx
+  __int64 v58; // [rsp+58h] [rbp-18h] BYREF
+  __int64 v59; // [rsp+60h] [rbp-10h]
+  __int64 v60; // [rsp+68h] [rbp-8h]
 
   v11 = 0LL;
   if ( a4 == 2 && a5 > 3 )
     return 3221225637LL;
-  Pool2 = (_DWORD *)ExAllocatePool2(0x100uLL);
+  Pool2 = (_DWORD *)ExAllocatePool2(0x100uLL, 0x30uLL, 0x74416553u);
   v14 = Pool2;
   if ( !Pool2 )
     return 3221225626LL;
@@ -140,14 +126,14 @@ __int64 __fastcall SepDuplicateToken(
   *((_QWORD *)v14 + 4) = v14 + 8;
   if ( SeTokenLeakTracking )
   {
-    v11 = (PVOID *)ExAllocatePool2(0x100uLL);
+    v11 = (PVOID *)ExAllocatePool2(0x100uLL, 0x120uLL, 0x74416553u);
     if ( !v11 )
     {
       v16 = (PVOID *)v14;
       goto LABEL_8;
     }
   }
-  v17 = (struct _ERESOURCE *)ExAllocatePool2(0x40uLL);
+  v17 = (struct _ERESOURCE *)ExAllocatePool2(0x40uLL, 0x68uLL, 0x6C546553u);
   if ( !v17 )
   {
     ExFreePoolWithTag(v14, 0);
@@ -158,7 +144,7 @@ LABEL_8:
     ExFreePoolWithTag(v16, 0);
     return 3221225626LL;
   }
-  if ( *(_DWORD *)(a1 + 132) >= 0xFFFFFB70 )
+  if ( *(_DWORD *)(a1 + 132) >= 0xFFFFFB68 )
   {
     ExFreePoolWithTag(v14, 0);
     ExFreePoolWithTag(v17, 0);
@@ -207,7 +193,7 @@ LABEL_8:
   MEMORY[0x90] = *(_DWORD *)(a1 + 144);
   MEMORY[0x80] = *(_DWORD *)(a1 + 128);
   MEMORY[0x84] = *(_DWORD *)(a1 + 132);
-  v75 = 128LL;
+  v60 = 128LL;
   v21 = (unsigned int)Feature_2045735225__private_IsEnabledDeviceUsageNoInline() == 0;
   v22 = *(_DWORD *)(a1 + 200);
   if ( v21 )
@@ -215,6 +201,7 @@ LABEL_8:
   else
     v23 = v22 & 0xEFFFFBDF;
   MEMORY[0xC8] = v23;
+  v59 = 200LL;
   if ( (v23 & 0x1000000) != 0 )
     _InterlockedIncrement(&SepLearningModeTokenCount);
   if ( MEMORY[0x78] != *(_DWORD *)(a1 + 120) )
@@ -232,10 +219,10 @@ LABEL_8:
   MEMORY[0x68] = *(_OWORD *)(a1 + 104);
   MEMORY[0xD0] = *(_DWORD *)(a1 + 208);
   MEMORY[0xD4] = *(_DWORD *)(a1 + 212);
-  v24 = *(_OWORD *)(a1 + 64);
-  v76 = 808LL;
-  MEMORY[0x40] = v24;
+  MEMORY[0x40] = *(_OWORD *)(a1 + 64);
   MEMORY[0x50] = *(_QWORD *)(a1 + 80);
+  if ( (unsigned int)Feature_ShadowAdminAppCompat__private_IsEnabledDeviceUsageNoInline() )
+    MEMORY[0x490] = *(_QWORD *)(a1 + 1168);
   MEMORY[0x308] = v14;
   MEMORY[0x438] = 0LL;
   MEMORY[0x440] = 0LL;
@@ -250,145 +237,145 @@ LABEL_8:
   MEMORY[0x470] = 0LL;
   if ( MEMORY[0x77] == 2 )
     SepModifyTokenPolicyCounter(88LL, 1);
-  v25 = SepDuplicateLogonSessionReference(0LL, a1);
-  if ( v25 < 0 )
-    goto LABEL_45;
+  v24 = SepDuplicateLogonSessionReference(0LL, a1);
+  if ( v24 < 0 )
+    goto LABEL_47;
   if ( !(unsigned int)Feature_2045735225__private_IsEnabledDeviceUsageNoInline()
     || (*(_DWORD *)(a1 + 200) & 0x10000000) == 0 )
   {
-    goto LABEL_38;
+    goto LABEL_40;
   }
-  v26 = MEMORY[0xD8];
-  v74 = 0LL;
+  v58 = 0LL;
+  v25 = MEMORY[0xD8];
   CurrentServerSilo = PsGetCurrentServerSilo();
-  v25 = SepReferenceLogonSessionSilo(v26 + 16, CurrentServerSilo, &v74);
-  if ( v25 < 0 )
+  v24 = SepReferenceLogonSessionSilo(v25 + 16, CurrentServerSilo, &v58);
+  if ( v24 < 0 )
   {
-LABEL_45:
+LABEL_47:
     ExReleaseResourceLite(*(PERESOURCE *)(a1 + 48));
-    KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread(), v30, v31, v32);
+    KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
     ObfDereferenceObject(0LL);
-    return (unsigned int)v25;
+    return (unsigned int)v24;
   }
-  MEMORY[0xC8] |= 0x10000000u;
-LABEL_38:
-  v28 = *(_QWORD *)(a1 + 1136);
-  if ( v28 )
-    SepReferenceLuidToIndexEntry(v28);
+  *(_DWORD *)v59 |= 0x10000000u;
+LABEL_40:
+  v27 = *(_QWORD *)(a1 + 1136);
+  if ( v27 )
+    SepReferenceLuidToIndexEntry(v27);
   MEMORY[0x470] = *(_QWORD *)(a1 + 1136);
-  v29 = *(_DWORD **)(a1 + 776);
-  if ( *v29 )
+  v28 = *(_DWORD **)(a1 + 776);
+  if ( *v28 )
   {
-    v25 = AuthzBasepDuplicateSecurityAttributes((__int64)v29, MEMORY[0x308], a7);
-    if ( v25 < 0 )
-      goto LABEL_45;
+    v24 = AuthzBasepDuplicateSecurityAttributes((__int64)v28, MEMORY[0x308], a7);
+    if ( v24 < 0 )
+      goto LABEL_47;
   }
-  memmove((void *)0x490, (const void *)(a1 + 1168), *(unsigned int *)(a1 + 132));
+  memmove((void *)0x498, (const void *)(a1 + 1176), *(unsigned int *)(a1 + 132));
   if ( SepTokenSidSharingEnabled )
   {
     MEMORY[0x98] = *(_QWORD *)(a1 + 152) - a1;
-    v25 = SepDuplicateTokenUserAndGroups(a1, 0LL);
-    if ( v25 < 0 )
+    v24 = SepDuplicateTokenUserAndGroups(a1, 0LL);
+    if ( v24 < 0 )
     {
       MEMORY[0x98] = 0LL;
-      goto LABEL_45;
+      goto LABEL_47;
     }
   }
   else
   {
     MEMORY[0x7C] = *(_DWORD *)(a1 + 124);
-    v33 = (_QWORD *)(*(_QWORD *)(a1 + 152) - a1);
-    MEMORY[0x98] = v33;
+    v29 = (_QWORD *)(*(_QWORD *)(a1 + 152) - a1);
+    MEMORY[0x98] = v29;
     for ( i = MEMORY[0x7C]; i; --i )
     {
-      *v33 -= a1;
-      v33 += 2;
+      *v29 -= a1;
+      v29 += 2;
     }
   }
-  v35 = *(_QWORD *)(a1 + 160);
-  MEMORY[0xA0] = v35;
-  if ( v35 )
+  v31 = *(_QWORD *)(a1 + 160);
+  MEMORY[0xA0] = v31;
+  if ( v31 )
   {
-    v36 = (_QWORD *)(v35 - a1);
-    MEMORY[0xA0] = v36;
-    for ( j = *(_DWORD *)v75; j; --j )
+    v32 = (_QWORD *)(v31 - a1);
+    MEMORY[0xA0] = v32;
+    for ( j = *(_DWORD *)v60; j; --j )
     {
-      *v36 -= a1;
-      v36 += 2;
+      *v32 -= a1;
+      v32 += 2;
     }
   }
-  v38 = *(_QWORD *)(a1 + 184);
-  v39 = 4 * *(unsigned __int8 *)(*(_QWORD *)(a1 + 168) + 1LL) + 8;
-  if ( v38 )
-    v39 += *(unsigned __int16 *)(v38 + 2);
-  v40 = v39;
-  v41 = (char *)ExAllocatePool2(0x100uLL);
-  MEMORY[0xB0] = v41;
-  v42 = v41;
-  if ( !v41 )
+  v34 = *(_QWORD *)(a1 + 184);
+  v35 = 4 * (unsigned int)*(unsigned __int8 *)(*(_QWORD *)(a1 + 168) + 1LL) + 8;
+  if ( v34 )
+    v35 = *(unsigned __int16 *)(v34 + 2) + (unsigned int)v35;
+  v36 = (unsigned int)v35;
+  v37 = (char *)ExAllocatePool2(0x100uLL, v35, 0x64546553u);
+  MEMORY[0xB0] = v37;
+  v38 = v37;
+  if ( !v37 )
   {
     ExReleaseResourceLite(*(PERESOURCE *)(a1 + 48));
-    KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread(), v43, v44, v45);
+    KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
     ObfDereferenceObject(0LL);
     return 3221225626LL;
   }
-  memmove(v41, *(const void **)(a1 + 176), v40);
-  v46 = *(_QWORD *)(a1 + 184);
-  v47 = &v42[-*(_QWORD *)(a1 + 176)];
-  MEMORY[0xB8] = v46;
-  if ( v46 )
-    MEMORY[0xB8] = &v47[v46];
-  MEMORY[0xA8] = &v47[*(_QWORD *)(a1 + 168)];
-  v48 = *(unsigned int *)(a1 + 800);
-  if ( (_DWORD)v48 )
-    v25 = SepSetTokenCapabilities(0LL, *(_QWORD *)(a1 + 784), *(_QWORD *)(a1 + 792), v48);
-  if ( v25 < 0 )
-    goto LABEL_45;
-  v49 = *(_QWORD *)(a1 + 784);
-  if ( v49 )
+  memmove(v37, *(const void **)(a1 + 176), v36);
+  v39 = *(_QWORD *)(a1 + 184);
+  v40 = &v38[-*(_QWORD *)(a1 + 176)];
+  MEMORY[0xB8] = v39;
+  if ( v39 )
+    MEMORY[0xB8] = &v40[v39];
+  MEMORY[0xA8] = &v40[*(_QWORD *)(a1 + 168)];
+  v41 = *(unsigned int *)(a1 + 800);
+  if ( (_DWORD)v41 )
+    v24 = SepSetTokenCapabilities(0LL, *(_QWORD *)(a1 + 784), *(_QWORD *)(a1 + 792), v41);
+  if ( v24 < 0 )
+    goto LABEL_47;
+  v42 = *(_QWORD *)(a1 + 784);
+  if ( v42 )
   {
-    v50 = SepSetTokenPackage(0LL, v49);
-    if ( v50 < 0 )
-      goto LABEL_76;
+    v43 = SepSetTokenPackage(0LL, v42);
+    if ( v43 < 0 )
+      goto LABEL_78;
   }
-  v51 = *(_QWORD *)(a1 + 1080);
-  if ( v51 )
+  v44 = *(_QWORD *)(a1 + 1080);
+  if ( v44 )
   {
-    if ( _InterlockedIncrement64((volatile signed __int64 *)(v51 + 24)) <= 1 )
+    if ( _InterlockedIncrement64((volatile signed __int64 *)(v44 + 24)) <= 1 )
       __fastfail(0xEu);
     MEMORY[0x438] = *(_QWORD *)(a1 + 1080);
   }
-  v52 = *(_QWORD *)(a1 + 1088);
-  if ( v52 )
+  v45 = *(_QWORD *)(a1 + 1088);
+  if ( v45 )
   {
-    if ( _InterlockedIncrement64((volatile signed __int64 *)(v52 + 24)) <= 1 )
+    if ( _InterlockedIncrement64((volatile signed __int64 *)(v45 + 24)) <= 1 )
       __fastfail(0xEu);
     MEMORY[0x440] = *(_QWORD *)(a1 + 1088);
   }
-  v53 = *(_QWORD *)(a1 + 1152);
-  if ( v53 )
+  v46 = *(_QWORD *)(a1 + 1152);
+  if ( v46 )
   {
-    if ( _InterlockedIncrement64((volatile signed __int64 *)(v53 + 24)) <= 1 )
+    if ( _InterlockedIncrement64((volatile signed __int64 *)(v46 + 24)) <= 1 )
       __fastfail(0xEu);
     MEMORY[0x480] = *(_QWORD *)(a1 + 1152);
   }
-  if ( *(_QWORD *)(a1 + 1096) && (v50 = SepDuplicateTokenClaims(a1, 0LL), v50 < 0) )
+  if ( *(_QWORD *)(a1 + 1096) && (v43 = SepDuplicateTokenClaims(a1, 0LL), v43 < 0) )
   {
-LABEL_76:
+LABEL_78:
     ExReleaseResourceLite(*(PERESOURCE *)(a1 + 48));
-    KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread(), v54, v55, v56);
+    KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
     ObfDereferenceObject(0LL);
-    return (unsigned int)v50;
+    return (unsigned int)v43;
   }
   else
   {
-    v57 = SepSetTokenTrust(0LL, *(_QWORD *)(a1 + 1104));
-    v58 = *(struct _ERESOURCE **)(a1 + 48);
-    v59 = v57;
-    if ( v57 >= 0 )
+    v47 = SepSetTokenTrust(0LL, *(_QWORD *)(a1 + 1104));
+    v48 = *(struct _ERESOURCE **)(a1 + 48);
+    v49 = v47;
+    if ( v47 >= 0 )
     {
-      ExReleaseResourceLite(v58);
-      KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread(), v63, v64, v65);
+      ExReleaseResourceLite(v48);
+      KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
       if ( SeTokenLeakTracking )
       {
         *MEMORY[0x478] = KeGetCurrentThread()[1].CycleTime;
@@ -397,81 +384,81 @@ LABEL_76:
         *(_DWORD *)(MEMORY[0x478] + 280LL) = 0;
         *(_DWORD *)(MEMORY[0x478] + 284LL) = 0;
         Process = KeGetCurrentThread()->ApcState.Process;
-        v67 = MEMORY[0x478];
+        v51 = MEMORY[0x478];
         *(_QWORD *)(MEMORY[0x478] + 16LL) = Process[1].SecureState.SecureHandle;
-        *(_DWORD *)(v67 + 24) = Process[1].KernelWaitTime;
-        *(_WORD *)(v67 + 28) = WORD2(Process[1].KernelWaitTime);
-        *(_BYTE *)(v67 + 30) = BYTE6(Process[1].KernelWaitTime);
+        *(_DWORD *)(v51 + 24) = Process[1].KernelWaitTime;
+        *(_WORD *)(v51 + 28) = WORD2(Process[1].KernelWaitTime);
+        *(_BYTE *)(v51 + 30) = BYTE6(Process[1].KernelWaitTime);
         SepAddTokenLogonSession(0LL);
       }
       if ( a3 )
       {
         MEMORY[0x40] &= MEMORY[0x48];
         MEMORY[0x50] &= MEMORY[0x48];
-        v68 = 1;
-        LODWORD(v69) = MEMORY[0x7C];
+        v52 = 1;
+        LODWORD(v53) = MEMORY[0x7C];
         if ( MEMORY[0x7C] > 1u )
         {
           do
           {
-            if ( (*(_DWORD *)(MEMORY[0x98] + 16LL * v68 + 8) & 0x34) != 0 )
+            if ( (*(_DWORD *)(MEMORY[0x98] + 16LL * v52 + 8) & 0x34) != 0 )
             {
-              ++v68;
+              ++v52;
             }
             else
             {
-              v70 = MEMORY[0x90];
-              if ( v68 == MEMORY[0x90] )
+              v54 = MEMORY[0x90];
+              if ( v52 == MEMORY[0x90] )
               {
                 MEMORY[0x90] = 0;
-                v70 = 0;
+                v54 = 0;
               }
-              v71 = MEMORY[0xD0];
-              if ( v68 == MEMORY[0xD0] )
+              v55 = MEMORY[0xD0];
+              if ( v52 == MEMORY[0xD0] )
               {
                 MEMORY[0xD0] = -1;
-                v71 = -1;
+                v55 = -1;
               }
-              v72 = v69 - 1;
-              v69 = (unsigned int)(v69 - 1);
-              if ( v72 == v71 )
-                MEMORY[0xD0] = v68;
-              if ( (_DWORD)v69 == v70 )
-                MEMORY[0x90] = v68;
-              *(_OWORD *)(MEMORY[0x98] + 16LL * v68) = *(_OWORD *)(MEMORY[0x98] + 16 * v69);
+              v56 = v53 - 1;
+              v53 = (unsigned int)(v53 - 1);
+              if ( v56 == v55 )
+                MEMORY[0xD0] = v52;
+              if ( (_DWORD)v53 == v54 )
+                MEMORY[0x90] = v52;
+              *(_OWORD *)(MEMORY[0x98] + 16LL * v52) = *(_OWORD *)(MEMORY[0x98] + 16 * v53);
             }
           }
-          while ( v68 < (unsigned int)v69 );
+          while ( v52 < (unsigned int)v53 );
         }
-        MEMORY[0x7C] = v69;
+        MEMORY[0x7C] = v53;
       }
-      RtlSidHashInitialize(MEMORY[0x98], MEMORY[0x7C], (_QWORD *)0xE8);
-      RtlSidHashInitialize(MEMORY[0xA0], MEMORY[0x80], (_QWORD *)0x1F8);
+      RtlSidHashInitialize(MEMORY[0x98], MEMORY[0x7C], (PSID_AND_ATTRIBUTES_HASH)0xE8);
+      RtlSidHashInitialize(MEMORY[0xA0], MEMORY[0x80], (PSID_AND_ATTRIBUTES_HASH)0x1F8);
       if ( MEMORY[0x318] )
-        RtlSidHashInitialize(MEMORY[0x318], MEMORY[0x320], (_QWORD *)v76);
+        RtlSidHashInitialize(MEMORY[0x318], MEMORY[0x320], (PSID_AND_ATTRIBUTES_HASH)0x328);
       if ( SeTokenLeakTracking )
       {
         if ( SepTokenLeakMethodWatch == 13
           && KeGetCurrentThread()->ApcState.Process[1].Header.WaitListHead.Flink == (struct _LIST_ENTRY *)SepTokenLeakProcessCid )
         {
           *(_DWORD *)(MEMORY[0x478] + 280LL) = _InterlockedIncrement(&SepTokenLeakMethodCount);
-          v73 = *(_DWORD *)(MEMORY[0x478] + 280LL);
-          if ( v73 >= SepTokenLeakBreakCount )
+          v57 = *(_DWORD *)(MEMORY[0x478] + 280LL);
+          if ( v57 >= SepTokenLeakBreakCount )
           {
-            DbgPrint("\nToken number 0x%x = 0x%p\n", v73, 0LL);
+            DbgPrint("\nToken number 0x%x = 0x%p\n", v57, 0LL);
             __debugbreak();
           }
         }
       }
       *a8 = 0LL;
-      return v59;
+      return v49;
     }
     else
     {
-      ExReleaseResourceLite(v58);
-      KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread(), v60, v61, v62);
+      ExReleaseResourceLite(v48);
+      KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
       ObfDereferenceObject(0LL);
-      return v59;
+      return v49;
     }
   }
 }

@@ -1,13 +1,13 @@
 /*
- * XREFs of SiGetDeviceNumberInformation @ 0x1408F4F1C
+ * XREFs of SiGetDeviceNumberInformation @ 0x1408F61DC
  * Callers:
- *     SiDisambiguateSystemDevice @ 0x1408F51F0 (SiDisambiguateSystemDevice.c)
+ *     SiDisambiguateSystemDevice @ 0x1408F64B0 (SiDisambiguateSystemDevice.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ZwDeviceIoControlFile @ 0x1401B8270 (ZwDeviceIoControlFile.c)
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     ZwOpenFile @ 0x1401B87F0 (ZwOpenFile.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ZwDeviceIoControlFile @ 0x1401B83D0 (ZwDeviceIoControlFile.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     ZwOpenFile @ 0x1401B8950 (ZwOpenFile.c)
  */
 
 __int64 __fastcall SiGetDeviceNumberInformation(PCWSTR SourceString, _DWORD *a2, _DWORD *a3)

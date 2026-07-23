@@ -1,5 +1,5 @@
 /*
- * XREFs of VerifierKeSetSystemGroupAffinityThread @ 0x14070CAF8
+ * XREFs of VerifierKeSetSystemGroupAffinityThread @ 0x14070CB28
  * Callers:
  *     <none>
  * Callees:

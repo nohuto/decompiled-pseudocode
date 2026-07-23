@@ -1,12 +1,12 @@
 /*
- * XREFs of PipProcessRestartPhase1 @ 0x1407B4D28
+ * XREFs of PipProcessRestartPhase1 @ 0x1407B7D88
  * Callers:
- *     PipProcessDevNodeTree @ 0x14090C86C (PipProcessDevNodeTree.c)
+ *     PipProcessDevNodeTree @ 0x1409AE99C (PipProcessDevNodeTree.c)
  * Callees:
- *     McTemplateK0dz_EtwWriteTransfer @ 0x14049F904 (McTemplateK0dz_EtwWriteTransfer.c)
- *     PnpUnlockMountableDevice @ 0x1404FEFC4 (PnpUnlockMountableDevice.c)
- *     PipClearDevNodeFlags @ 0x14090E080 (PipClearDevNodeFlags.c)
- *     PnpStartDeviceNode @ 0x140910A7C (PnpStartDeviceNode.c)
+ *     McTemplateK0dz_EtwWriteTransfer @ 0x140499454 (McTemplateK0dz_EtwWriteTransfer.c)
+ *     PnpUnlockMountableDevice @ 0x1404F87B4 (PnpUnlockMountableDevice.c)
+ *     PipClearDevNodeFlags @ 0x1409B01B0 (PipClearDevNodeFlags.c)
+ *     PnpStartDeviceNode @ 0x1409B2B5C (PnpStartDeviceNode.c)
  */
 
 __int64 __fastcall PipProcessRestartPhase1(__int64 a1, unsigned int a2, __int64 a3)
@@ -15,7 +15,7 @@ __int64 __fastcall PipProcessRestartPhase1(__int64 a1, unsigned int a2, __int64 
   unsigned int started; // esi
 
   v3 = a3;
-  if ( (byte_140EF3DCB & 0x20) != 0 )
+  if ( (byte_140EF412B & 0x20) != 0 )
     McTemplateK0dz_EtwWriteTransfer(
       a1,
       (const EVENT_DESCRIPTOR *)KMPnPEvt_ProcessDeviceRestart_Start,
@@ -35,7 +35,7 @@ __int64 __fastcall PipProcessRestartPhase1(__int64 a1, unsigned int a2, __int64 
       PipClearDevNodeFlags(a1, 0x1000000LL);
     }
   }
-  if ( (byte_140EF3DCB & 0x20) != 0 )
+  if ( (byte_140EF412B & 0x20) != 0 )
     McTemplateK0dz_EtwWriteTransfer(
       a1,
       (const EVENT_DESCRIPTOR *)KMPnPEvt_ProcessDeviceRestart_Stop,

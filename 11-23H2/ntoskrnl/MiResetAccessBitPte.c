@@ -1,18 +1,18 @@
 /*
- * XREFs of MiResetAccessBitPte @ 0x14027BA20
+ * XREFs of MiResetAccessBitPte @ 0x14027BCB0
  * Callers:
  *     <none>
  * Callees:
- *     MiSetVaAgeList @ 0x1402709E0 (MiSetVaAgeList.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1402712F0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiFlushTbList @ 0x140279880 (MiFlushTbList.c)
- *     MiClearPteAccessed @ 0x14027C5D0 (MiClearPteAccessed.c)
- *     MiLogPageAccess @ 0x14027CBB0 (MiLogPageAccess.c)
- *     MiGetPfnPriority @ 0x1402DF258 (MiGetPfnPriority.c)
- *     MiDemoteCombinedPte @ 0x1402F37B4 (MiDemoteCombinedPte.c)
- *     MiResetAccessBitsTail @ 0x140348650 (MiResetAccessBitsTail.c)
- *     MiIsPageTableLocked @ 0x14035E09C (MiIsPageTableLocked.c)
- *     MiInsertVmAccessedEntry @ 0x14046BCC8 (MiInsertVmAccessedEntry.c)
+ *     MiSetVaAgeList @ 0x140270C70 (MiSetVaAgeList.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140271580 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiFlushTbList @ 0x140279B10 (MiFlushTbList.c)
+ *     MiClearPteAccessed @ 0x14027C860 (MiClearPteAccessed.c)
+ *     MiLogPageAccess @ 0x14027CE40 (MiLogPageAccess.c)
+ *     MiGetPfnPriority @ 0x1402DF4E8 (MiGetPfnPriority.c)
+ *     MiDemoteCombinedPte @ 0x1402F3A44 (MiDemoteCombinedPte.c)
+ *     MiResetAccessBitsTail @ 0x1403488E0 (MiResetAccessBitsTail.c)
+ *     MiIsPageTableLocked @ 0x14035E23C (MiIsPageTableLocked.c)
+ *     MiInsertVmAccessedEntry @ 0x14046C0C8 (MiInsertVmAccessedEntry.c)
  */
 
 __int64 __fastcall MiResetAccessBitPte(__int64 a1, unsigned __int64 a2, int a3)

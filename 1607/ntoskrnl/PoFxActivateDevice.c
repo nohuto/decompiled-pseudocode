@@ -1,12 +1,12 @@
 /*
- * XREFs of PoFxActivateDevice @ 0x140008080
+ * XREFs of PoFxActivateDevice @ 0x140007BF4
  * Callers:
- *     PiProcessQueryDeviceState @ 0x1403F13A8 (PiProcessQueryDeviceState.c)
- *     PipEnumerateDevice @ 0x1403F1CBC (PipEnumerateDevice.c)
- *     PipProcessDevNodeTree @ 0x1403F41E0 (PipProcessDevNodeTree.c)
- *     PnpDeleteLockedDeviceNode @ 0x1404C58C8 (PnpDeleteLockedDeviceNode.c)
- *     PnpQueryStopDeviceNode @ 0x140630334 (PnpQueryStopDeviceNode.c)
- *     PiProcessResourceRequirementsChanged @ 0x1406498B8 (PiProcessResourceRequirementsChanged.c)
+ *     PiProcessQueryDeviceState @ 0x1403F026C (PiProcessQueryDeviceState.c)
+ *     PipEnumerateDevice @ 0x1403F0B80 (PipEnumerateDevice.c)
+ *     PipProcessDevNodeTree @ 0x1403F30A4 (PipProcessDevNodeTree.c)
+ *     PnpDeleteLockedDeviceNode @ 0x140485CFC (PnpDeleteLockedDeviceNode.c)
+ *     PnpQueryStopDeviceNode @ 0x1406303E8 (PnpQueryStopDeviceNode.c)
+ *     PiProcessResourceRequirementsChanged @ 0x14064999C (PiProcessResourceRequirementsChanged.c)
  * Callees:
  *     <none>
  */

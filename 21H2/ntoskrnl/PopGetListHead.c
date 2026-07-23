@@ -1,10 +1,10 @@
 /*
- * XREFs of PopGetListHead @ 0x14067AE00
+ * XREFs of PopGetListHead @ 0x14066E540
  * Callers:
- *     PopSetPowerSettingValue @ 0x14067A8D8 (PopSetPowerSettingValue.c)
- *     PopFindPowerSettingConfiguration @ 0x14067AD78 (PopFindPowerSettingConfiguration.c)
+ *     PopSetPowerSettingValue @ 0x14066E018 (PopSetPowerSettingValue.c)
+ *     PopFindPowerSettingConfiguration @ 0x14066E4B8 (PopFindPowerSettingConfiguration.c)
  * Callees:
- *     PopStateIsSessionSpecific @ 0x14067AE74 (PopStateIsSessionSpecific.c)
+ *     PopStateIsSessionSpecific @ 0x14066E5B4 (PopStateIsSessionSpecific.c)
  */
 
 PVOID *__fastcall PopGetListHead(_QWORD *a1)

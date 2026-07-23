@@ -1,11 +1,11 @@
 /*
- * XREFs of MiHashIsCommon @ 0x140369D2C
+ * XREFs of MiHashIsCommon @ 0x140369EDC
  * Callers:
- *     MiCapturePfnVm @ 0x140368100 (MiCapturePfnVm.c)
- *     MiSharePages @ 0x140368360 (MiSharePages.c)
- *     MiPerformCombineScan @ 0x140369C80 (MiPerformCombineScan.c)
+ *     MiCapturePfnVm @ 0x1403682B0 (MiCapturePfnVm.c)
+ *     MiSharePages @ 0x140368510 (MiSharePages.c)
+ *     MiPerformCombineScan @ 0x140369E30 (MiPerformCombineScan.c)
  * Callees:
- *     RtlCompareMemoryUlong @ 0x140408230 (RtlCompareMemoryUlong.c)
+ *     RtlCompareMemoryUlong @ 0x140408410 (RtlCompareMemoryUlong.c)
  */
 
 _BOOL8 __fastcall MiHashIsCommon(__int64 a1, __int64 a2, void *a3)

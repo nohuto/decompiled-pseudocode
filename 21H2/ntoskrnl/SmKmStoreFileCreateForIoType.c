@@ -1,19 +1,19 @@
 /*
- * XREFs of SmKmStoreFileCreateForIoType @ 0x14092C48C
+ * XREFs of SmKmStoreFileCreateForIoType @ 0x14092C5EC
  * Callers:
- *     SmKmStoreFileCreate @ 0x14092BFDC (SmKmStoreFileCreate.c)
+ *     SmKmStoreFileCreate @ 0x14092C13C (SmKmStoreFileCreate.c)
  * Callees:
- *     IoSetThreadHardErrorMode @ 0x140250300 (IoSetThreadHardErrorMode.c)
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     ZwSetSecurityObject @ 0x1403FD8C0 (ZwSetSecurityObject.c)
- *     memset @ 0x140414200 (memset.c)
- *     IoCreateFile @ 0x14060B1D0 (IoCreateFile.c)
- *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
- *     SmKmFileInfoCleanup @ 0x14092B278 (SmKmFileInfoCleanup.c)
- *     SmKmIsVolumeIoPossible @ 0x14092B5F4 (SmKmIsVolumeIoPossible.c)
- *     SmKmStoreFileDelete @ 0x14092C73C (SmKmStoreFileDelete.c)
- *     SmKmStoreFileMakeSecurityDescriptor @ 0x14092CA60 (SmKmStoreFileMakeSecurityDescriptor.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     IoSetThreadHardErrorMode @ 0x1402F4B10 (IoSetThreadHardErrorMode.c)
+ *     ZwSetSecurityObject @ 0x1403FDAA0 (ZwSetSecurityObject.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     IoCreateFile @ 0x14069AC80 (IoCreateFile.c)
+ *     ObReferenceObjectByHandle @ 0x140707FA0 (ObReferenceObjectByHandle.c)
+ *     SmKmFileInfoCleanup @ 0x14092B3D8 (SmKmFileInfoCleanup.c)
+ *     SmKmIsVolumeIoPossible @ 0x14092B754 (SmKmIsVolumeIoPossible.c)
+ *     SmKmStoreFileDelete @ 0x14092C89C (SmKmStoreFileDelete.c)
+ *     SmKmStoreFileMakeSecurityDescriptor @ 0x14092CBC0 (SmKmStoreFileMakeSecurityDescriptor.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SmKmStoreFileCreateForIoType(_OWORD *a1, const WCHAR *a2, int *a3, __int64 a4, int a5)

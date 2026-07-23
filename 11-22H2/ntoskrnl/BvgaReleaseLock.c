@@ -24,10 +24,10 @@ char BvgaReleaseLock()
   LOBYTE(v1) = KxReleaseSpinLock((volatile signed __int64 *)&BootDriverLock);
   if ( (unsigned __int8)v0 <= 2u )
   {
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       LOBYTE(v1) = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 )
       {
         LOBYTE(v1) = v1 - 2;
         if ( (unsigned __int8)v1 <= 0xDu )

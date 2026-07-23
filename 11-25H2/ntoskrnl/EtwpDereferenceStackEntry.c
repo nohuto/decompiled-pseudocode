@@ -12,7 +12,7 @@
  *     RtlpInterlockedPushEntrySList @ 0x1406A8600 (RtlpInterlockedPushEntrySList.c)
  */
 
-PSLIST_ENTRY __fastcall EtwpDereferenceStackEntry(PSLIST_ENTRY ListEntry, union _SLIST_HEADER *a2)
+PSLIST_ENTRY __fastcall EtwpDereferenceStackEntry(PSLIST_ENTRY ListEntry, _SLIST_HEADER *a2)
 {
   PSLIST_ENTRY v3; // rbx
   PSLIST_ENTRY result; // rax
@@ -24,7 +24,7 @@ PSLIST_ENTRY __fastcall EtwpDereferenceStackEntry(PSLIST_ENTRY ListEntry, union 
   int Next; // r9d
   __int64 v11; // rax
   _QWORD *v12; // rcx
-  struct _SLIST_ENTRY *v13; // rdi
+  _SLIST_ENTRY *v13; // rdi
   PSLIST_ENTRY v14; // [rsp+30h] [rbp-B8h] BYREF
   _QWORD v15[18]; // [rsp+40h] [rbp-A8h] BYREF
 

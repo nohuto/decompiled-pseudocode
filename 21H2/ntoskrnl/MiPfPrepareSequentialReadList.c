@@ -1,39 +1,39 @@
 /*
- * XREFs of MiPfPrepareSequentialReadList @ 0x1406EDDD0
+ * XREFs of MiPfPrepareSequentialReadList @ 0x1407051B0
  * Callers:
- *     MmPrefetchForCacheManager @ 0x1406E898C (MmPrefetchForCacheManager.c)
- *     MiPrefetchControlArea @ 0x140715998 (MiPrefetchControlArea.c)
+ *     MiPrefetchControlArea @ 0x1406C3FE8 (MiPrefetchControlArea.c)
+ *     MmPrefetchForCacheManager @ 0x1406FFD6C (MmPrefetchForCacheManager.c)
  * Callees:
- *     MiGetPageChain @ 0x140212D10 (MiGetPageChain.c)
- *     MiObtainFaultCharges @ 0x14021BA90 (MiObtainFaultCharges.c)
- *     IS_PTE_NOT_DEMAND_ZERO @ 0x14023C0AC (IS_PTE_NOT_DEMAND_ZERO.c)
- *     MiInitializePageColorBase @ 0x14023F280 (MiInitializePageColorBase.c)
- *     MiProtectionToCacheAttribute @ 0x140241E40 (MiProtectionToCacheAttribute.c)
- *     MiAllocatePool @ 0x14025AD70 (MiAllocatePool.c)
- *     MiGetControlAreaPartition @ 0x14025B3A4 (MiGetControlAreaPartition.c)
- *     MiReturnFaultCharges @ 0x14028E1E4 (MiReturnFaultCharges.c)
- *     MiGetAvailablePagesExcludeSlists @ 0x1402C7B9C (MiGetAvailablePagesExcludeSlists.c)
- *     MiGetSlabPage @ 0x1402E803C (MiGetSlabPage.c)
- *     MiGetSlabAllocator @ 0x1402E824C (MiGetSlabAllocator.c)
- *     MiRemoveViewsFromSectionWithPfn @ 0x1402FC9DC (MiRemoveViewsFromSectionWithPfn.c)
- *     MiReadPteShadow @ 0x140305A30 (MiReadPteShadow.c)
- *     MiAddViewsForSection @ 0x1403155F0 (MiAddViewsForSection.c)
- *     MiGetControlAreaPtes @ 0x140315EFC (MiGetControlAreaPtes.c)
- *     MiGetPteAddress @ 0x140318100 (MiGetPteAddress.c)
- *     MiSetPfnBlink @ 0x140318130 (MiSetPfnBlink.c)
- *     MiSetPfnLink @ 0x14031818C (MiSetPfnLink.c)
- *     MiUseSlabAllocator @ 0x140318198 (MiUseSlabAllocator.c)
- *     MiControlAreaUsingCopyExtents @ 0x1403181FC (MiControlAreaUsingCopyExtents.c)
- *     MiEndingOffsetWithLock @ 0x14031C790 (MiEndingOffsetWithLock.c)
- *     MiStartingOffset @ 0x14031E410 (MiStartingOffset.c)
- *     MiOffsetToProtos @ 0x140320B50 (MiOffsetToProtos.c)
- *     MiUpdatePfnPriorityByPte @ 0x14032BF10 (MiUpdatePfnPriorityByPte.c)
- *     MiControlAreaUsingExtents @ 0x140332C50 (MiControlAreaUsingExtents.c)
- *     MiGetSharedProtos @ 0x1403A6208 (MiGetSharedProtos.c)
- *     MiRefillPurgedExtents @ 0x140542050 (MiRefillPurgedExtents.c)
- *     MiReleaseReadListResources @ 0x1406E8B14 (MiReleaseReadListResources.c)
- *     MiPfAllocateMdls @ 0x1406E8CA0 (MiPfAllocateMdls.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     MiReturnFaultCharges @ 0x14020B384 (MiReturnFaultCharges.c)
+ *     MiGetAvailablePagesExcludeSlists @ 0x1402463F0 (MiGetAvailablePagesExcludeSlists.c)
+ *     MiAllocatePool @ 0x14027C2E0 (MiAllocatePool.c)
+ *     MiGetControlAreaPartition @ 0x14027C914 (MiGetControlAreaPartition.c)
+ *     MiGetSlabPage @ 0x14029938C (MiGetSlabPage.c)
+ *     MiGetSlabAllocator @ 0x14029959C (MiGetSlabAllocator.c)
+ *     MiGetPageChain @ 0x1402B7610 (MiGetPageChain.c)
+ *     MiObtainFaultCharges @ 0x1402C0390 (MiObtainFaultCharges.c)
+ *     IS_PTE_NOT_DEMAND_ZERO @ 0x1402E08FC (IS_PTE_NOT_DEMAND_ZERO.c)
+ *     MiInitializePageColorBase @ 0x1402E3AD0 (MiInitializePageColorBase.c)
+ *     MiProtectionToCacheAttribute @ 0x1402E6690 (MiProtectionToCacheAttribute.c)
+ *     MiRemoveViewsFromSectionWithPfn @ 0x14030772C (MiRemoveViewsFromSectionWithPfn.c)
+ *     MiReadPteShadow @ 0x140310780 (MiReadPteShadow.c)
+ *     MiAddViewsForSection @ 0x140320340 (MiAddViewsForSection.c)
+ *     MiGetControlAreaPtes @ 0x140320C4C (MiGetControlAreaPtes.c)
+ *     MiGetPteAddress @ 0x140322E50 (MiGetPteAddress.c)
+ *     MiSetPfnBlink @ 0x140322E80 (MiSetPfnBlink.c)
+ *     MiSetPfnLink @ 0x140322EDC (MiSetPfnLink.c)
+ *     MiUseSlabAllocator @ 0x140322EE8 (MiUseSlabAllocator.c)
+ *     MiControlAreaUsingCopyExtents @ 0x140322F4C (MiControlAreaUsingCopyExtents.c)
+ *     MiEndingOffsetWithLock @ 0x1403274E0 (MiEndingOffsetWithLock.c)
+ *     MiStartingOffset @ 0x140329160 (MiStartingOffset.c)
+ *     MiOffsetToProtos @ 0x14032B8A0 (MiOffsetToProtos.c)
+ *     MiUpdatePfnPriorityByPte @ 0x140336C60 (MiUpdatePfnPriorityByPte.c)
+ *     MiControlAreaUsingExtents @ 0x14033D9A0 (MiControlAreaUsingExtents.c)
+ *     MiGetSharedProtos @ 0x1403A6358 (MiGetSharedProtos.c)
+ *     MiRefillPurgedExtents @ 0x140542290 (MiRefillPurgedExtents.c)
+ *     MiReleaseReadListResources @ 0x1406FFEF4 (MiReleaseReadListResources.c)
+ *     MiPfAllocateMdls @ 0x140700080 (MiPfAllocateMdls.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiPfPrepareSequentialReadList(
@@ -249,7 +249,7 @@ LABEL_53:
         if ( v89 < 0 )
         {
           if ( v71 )
-            MiReturnFaultCharges(ControlAreaPartition, v71, 1);
+            MiReturnFaultCharges(ControlAreaPartition, v71, 1LL);
           MiReleaseReadListResources(v15);
           ExFreePoolWithTag((PVOID)v15, 0);
           return (unsigned int)v89;
@@ -385,7 +385,7 @@ LABEL_20:
         v38 = v71;
         v37 = ControlAreaPartition;
 LABEL_103:
-        MiReturnFaultCharges(v37, 1uLL, 1);
+        MiReturnFaultCharges(v37, 1uLL, 1LL);
         v46 = v34;
         v47 = v72;
         if ( !v72 )
@@ -434,7 +434,7 @@ LABEL_55:
     v54 = (_QWORD *)PageChain;
     if ( v74 != v71 )
     {
-      MiReturnFaultCharges(ControlAreaPartition, v71 - v74, 1);
+      MiReturnFaultCharges(ControlAreaPartition, v71 - v74, 1LL);
       v69 = v89;
       v47 += v53 - v71;
       if ( !v47 )

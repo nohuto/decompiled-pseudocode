@@ -23,7 +23,7 @@
 char __fastcall ExpSaAllocatorFree(ULONG_PTR BugCheckParameter2, __int64 *a2, __int64 a3, unsigned int a4)
 {
   char v8; // r15
-  unsigned __int64 v9; // rbp
+  PRTL_BALANCED_NODE v9; // rbp
   int v10; // eax
   $B476B70DB57F76B110DA5B9238C3E934 *v11; // rax
   struct _KTHREAD *CurrentThread; // rbx
@@ -37,8 +37,8 @@ char __fastcall ExpSaAllocatorFree(ULONG_PTR BugCheckParameter2, __int64 *a2, __
   _KLOCK_ENTRY *v20; // rbp
   __int64 v21; // rdx
   __int64 v22; // rcx
-  unsigned __int64 v23; // rax
-  unsigned __int64 v24; // rbp
+  PRTL_BALANCED_NODE v23; // rax
+  PRTL_BALANCED_NODE v24; // rbp
   __int64 *v25; // rax
   __int64 **v26; // rcx
   __int64 **v27; // rcx
@@ -50,9 +50,9 @@ char __fastcall ExpSaAllocatorFree(ULONG_PTR BugCheckParameter2, __int64 *a2, __
     v23 = KeAbPreAcquire(BugCheckParameter2, 0LL, 0);
     v24 = v23;
     if ( _interlockedbittestandset64((volatile signed __int32 *)BugCheckParameter2, 0LL) )
-      ExfAcquirePushLockExclusiveEx((unsigned __int64 *)BugCheckParameter2, v23, (__int16 *)BugCheckParameter2);
+      ExfAcquirePushLockExclusiveEx((unsigned __int64 *)BugCheckParameter2, (__int64)v23, (__int16 *)BugCheckParameter2);
     if ( v24 )
-      *(_BYTE *)(v24 + 26) |= 1u;
+      BYTE2(v24[1].Left) |= 1u;
     *((_DWORD *)a2 + 10) = 0;
     v25 = (__int64 *)*a2;
     if ( *(__int64 **)(*a2 + 8) != a2 || (v26 = (__int64 **)a2[1], *v26 != a2) )
@@ -72,9 +72,9 @@ char __fastcall ExpSaAllocatorFree(ULONG_PTR BugCheckParameter2, __int64 *a2, __
     v8 = 0;
     v9 = KeAbPreAcquire(BugCheckParameter2, 0LL, 0);
     if ( _InterlockedCompareExchange64((volatile signed __int64 *)BugCheckParameter2, 17LL, 0LL) )
-      ExfAcquirePushLockSharedEx((signed __int64 *)BugCheckParameter2, v9, BugCheckParameter2);
+      ExfAcquirePushLockSharedEx((signed __int64 *)BugCheckParameter2, (__int64)v9, BugCheckParameter2);
     if ( v9 )
-      *(_BYTE *)(v9 + 26) |= 1u;
+      BYTE2(v9[1].Left) |= 1u;
   }
   if ( (unsigned __int8)ExpSaPageGroupFreeMemory(a2, a3, a4) )
   {
@@ -132,7 +132,7 @@ LABEL_16:
         {
           v20->CrossThreadReleasableAndBusyByte |= 2u;
           if ( (__int64)v20->LockState.LockState < 0 )
-            KiAbEntryRemoveFromTree((__int64)&CurrentThread->LockEntries[v19]);
+            KiAbEntryRemoveFromTree(&CurrentThread->LockEntries[v19].TreeNode);
           v29 = 0;
           v29 = v20->BoostBitmap.AllFields & 0x1FFFF;
           v20->BoostBitmap.AllFields &= 0xFFFE0000;

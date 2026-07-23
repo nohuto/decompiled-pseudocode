@@ -1,14 +1,14 @@
 /*
- * XREFs of MiFreePageChain @ 0x140292AA4
+ * XREFs of MiFreePageChain @ 0x140292004
  * Callers:
- *     MiDetermineThreadFaultCluster @ 0x1402D60A8 (MiDetermineThreadFaultCluster.c)
- *     MiGetPageTablePages @ 0x140339E00 (MiGetPageTablePages.c)
- *     MiReleaseUnusedPageFileReadResources @ 0x1403722AC (MiReleaseUnusedPageFileReadResources.c)
- *     MiPrefetchVirtualMemory @ 0x1403A0710 (MiPrefetchVirtualMemory.c)
- *     MiPrefetchReleasePreallocatedPages @ 0x140505F80 (MiPrefetchReleasePreallocatedPages.c)
- *     MiMakeVaRangePhysicallyContiguous @ 0x14070B50C (MiMakeVaRangePhysicallyContiguous.c)
+ *     MiDetermineThreadFaultCluster @ 0x1402B7E68 (MiDetermineThreadFaultCluster.c)
+ *     MiGetPageTablePages @ 0x14033BE80 (MiGetPageTablePages.c)
+ *     MiReleaseUnusedPageFileReadResources @ 0x14037405C (MiReleaseUnusedPageFileReadResources.c)
+ *     MiPrefetchVirtualMemory @ 0x1403A2470 (MiPrefetchVirtualMemory.c)
+ *     MiPrefetchReleasePreallocatedPages @ 0x1404FF830 (MiPrefetchReleasePreallocatedPages.c)
+ *     MiMakeVaRangePhysicallyContiguous @ 0x1407101BC (MiMakeVaRangePhysicallyContiguous.c)
  * Callees:
- *     MiReleaseFreshPage @ 0x140292190 (MiReleaseFreshPage.c)
+ *     MiReleaseFreshPage @ 0x1402916F0 (MiReleaseFreshPage.c)
  */
 
 __int64 __fastcall MiFreePageChain(__int64 a1, __int64 a2, __int64 a3)

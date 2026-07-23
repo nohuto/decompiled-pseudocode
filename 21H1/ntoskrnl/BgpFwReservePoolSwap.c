@@ -18,16 +18,16 @@ __int64 __fastcall BgpFwReservePoolSwap(int a1, __int64 a2, unsigned int a3, __i
       qword_140C506A8 = qword_140C50620;
       dword_140C506C8 = dword_140C5061C;
       result = (unsigned int)dword_140C50618;
-      HintIndex = dword_140C50618;
-      BitMapHeader = (RTL_BITMAP)xmmword_140C50628;
+      dword_140C506B0 = dword_140C50618;
+      stru_140C506B8 = (_RTL_BITMAP)xmmword_140C50628;
     }
   }
   else
   {
-    dword_140C50618 = HintIndex;
+    dword_140C50618 = dword_140C506B0;
     qword_140C50620 = qword_140C506A8;
     dword_140C5061C = dword_140C506C8;
-    xmmword_140C50628 = (__int128)BitMapHeader;
+    xmmword_140C50628 = (__int128)stru_140C506B8;
     return BgpFwInitializeReservePool(a2, a3, a4);
   }
   return result;

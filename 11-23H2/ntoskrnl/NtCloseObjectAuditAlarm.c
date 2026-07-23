@@ -1,14 +1,14 @@
 /*
- * XREFs of NtCloseObjectAuditAlarm @ 0x1407C38B0
+ * XREFs of NtCloseObjectAuditAlarm @ 0x1407C3B80
  * Callers:
  *     <none>
  * Callees:
- *     SepProbeAndCaptureString_U @ 0x1406C22C4 (SepProbeAndCaptureString_U.c)
- *     SeCheckAuditPrivilege @ 0x1406C35C8 (SeCheckAuditPrivilege.c)
- *     SeReleaseSubjectContext @ 0x140737BC0 (SeReleaseSubjectContext.c)
- *     SeCaptureSubjectContext @ 0x140737C70 (SeCaptureSubjectContext.c)
- *     SepAdtCloseObjectAuditAlarm @ 0x1409CB7D8 (SepAdtCloseObjectAuditAlarm.c)
- *     SepAuditFailed @ 0x1409D1C40 (SepAuditFailed.c)
+ *     SepProbeAndCaptureString_U @ 0x1406C22F4 (SepProbeAndCaptureString_U.c)
+ *     SeCheckAuditPrivilege @ 0x1406C35F8 (SeCheckAuditPrivilege.c)
+ *     SeReleaseSubjectContext @ 0x140737DB0 (SeReleaseSubjectContext.c)
+ *     SeCaptureSubjectContext @ 0x140737E60 (SeCaptureSubjectContext.c)
+ *     SepAdtCloseObjectAuditAlarm @ 0x1409CB9D8 (SepAdtCloseObjectAuditAlarm.c)
+ *     SepAuditFailed @ 0x1409D1E40 (SepAuditFailed.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

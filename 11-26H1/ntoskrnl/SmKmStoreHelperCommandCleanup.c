@@ -1,13 +1,13 @@
 /*
- * XREFs of SmKmStoreHelperCommandCleanup @ 0x140501F24
+ * XREFs of SmKmStoreHelperCommandCleanup @ 0x1404FB7F4
  * Callers:
- *     SmKmStoreHelperWorker @ 0x140395A70 (SmKmStoreHelperWorker.c)
+ *     SmKmStoreHelperWorker @ 0x1403977F0 (SmKmStoreHelperWorker.c)
  * Callees:
- *     SmFpFree @ 0x140281020 (SmFpFree.c)
- *     SmKmStoreHelperCommandProcess @ 0x140382C98 (SmKmStoreHelperCommandProcess.c)
- *     MmStoreDecommitVirtualMemory @ 0x140394C5C (MmStoreDecommitVirtualMemory.c)
- *     SmKmUnlockMdl @ 0x14040751C (SmKmUnlockMdl.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     SmFpFree @ 0x140280590 (SmFpFree.c)
+ *     SmKmStoreHelperCommandProcess @ 0x140384A48 (SmKmStoreHelperCommandProcess.c)
+ *     MmStoreDecommitVirtualMemory @ 0x1403969DC (MmStoreDecommitVirtualMemory.c)
+ *     SmKmUnlockMdl @ 0x14040060C (SmKmUnlockMdl.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 void __fastcall SmKmStoreHelperCommandCleanup(__int64 a1, int a2, __int64 a3)

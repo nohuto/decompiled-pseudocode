@@ -1,21 +1,21 @@
 /*
- * XREFs of PfpOpenHandleClose @ 0x14075D224
+ * XREFs of PfpOpenHandleClose @ 0x14075D414
  * Callers:
  *     PfpPrefetchRequestPerform @ 0x1406846E8 (PfpPrefetchRequestPerform.c)
  *     PfpPrefetchVolumesCleanup @ 0x140684A68 (PfpPrefetchVolumesCleanup.c)
  *     PfpVolumeOpenAndVerify @ 0x1406853AC (PfpVolumeOpenAndVerify.c)
  *     PfSnOpenVolumesForPrefetch @ 0x140686328 (PfSnOpenVolumesForPrefetch.c)
  *     PfSnQueryVolumeInfo @ 0x1406869B4 (PfSnQueryVolumeInfo.c)
- *     PfSnGetSectionObject @ 0x14075C9A0 (PfSnGetSectionObject.c)
- *     PfSnCleanupPrefetchHeader @ 0x14075CEB0 (PfSnCleanupPrefetchHeader.c)
- *     PfSnCleanupPrefetchSectionInfo @ 0x14075CFB8 (PfSnCleanupPrefetchSectionInfo.c)
- *     PfpReadSupportCleanup @ 0x14075E150 (PfpReadSupportCleanup.c)
- *     PfpFileBuildReadSupport @ 0x14075E1A4 (PfpFileBuildReadSupport.c)
- *     PfpPrefetchEntireDirectory @ 0x14075E8CC (PfpPrefetchEntireDirectory.c)
- *     PfpPrefetchDirectoryStream @ 0x1407D7B0C (PfpPrefetchDirectoryStream.c)
- *     PfpQueryFileExtentsRequest @ 0x14097E4F0 (PfpQueryFileExtentsRequest.c)
+ *     PfSnGetSectionObject @ 0x14075CB90 (PfSnGetSectionObject.c)
+ *     PfSnCleanupPrefetchHeader @ 0x14075D0A0 (PfSnCleanupPrefetchHeader.c)
+ *     PfSnCleanupPrefetchSectionInfo @ 0x14075D1A8 (PfSnCleanupPrefetchSectionInfo.c)
+ *     PfpReadSupportCleanup @ 0x14075E340 (PfpReadSupportCleanup.c)
+ *     PfpFileBuildReadSupport @ 0x14075E394 (PfpFileBuildReadSupport.c)
+ *     PfpPrefetchEntireDirectory @ 0x14075EABC (PfpPrefetchEntireDirectory.c)
+ *     PfpPrefetchDirectoryStream @ 0x1407D7DDC (PfpPrefetchDirectoryStream.c)
+ *     PfpQueryFileExtentsRequest @ 0x14097E6F0 (PfpQueryFileExtentsRequest.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall PfpOpenHandleClose(__int64 a1, __int64 a2)

@@ -1,19 +1,19 @@
 /*
- * XREFs of SeGetTokenDeviceMap @ 0x1407AF750
+ * XREFs of SeGetTokenDeviceMap @ 0x1407AF940
  * Callers:
- *     ObpLookupObjectName @ 0x1406ED720 (ObpLookupObjectName.c)
- *     ObpReferenceCurrentDeviceMap @ 0x1406FC8F0 (ObpReferenceCurrentDeviceMap.c)
- *     ObpSetCurrentProcessDeviceMap @ 0x1407AF5B4 (ObpSetCurrentProcessDeviceMap.c)
+ *     ObpLookupObjectName @ 0x1406ED750 (ObpLookupObjectName.c)
+ *     ObpReferenceCurrentDeviceMap @ 0x1406FCB00 (ObpReferenceCurrentDeviceMap.c)
+ *     ObpSetCurrentProcessDeviceMap @ 0x1407AF7A4 (ObpSetCurrentProcessDeviceMap.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     PsGetServerSiloServiceSessionId @ 0x1402C0880 (PsGetServerSiloServiceSessionId.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     swprintf_s @ 0x1403DE3C0 (swprintf_s.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ZwCreateDirectoryObject @ 0x14041C2A0 (ZwCreateDirectoryObject.c)
- *     ZwCreateSymbolicLinkObject @ 0x14041C620 (ZwCreateSymbolicLinkObject.c)
- *     ObpSetDeviceMap @ 0x1407AFABC (ObpSetDeviceMap.c)
- *     ObDereferenceDeviceMap @ 0x1407AFE5C (ObDereferenceDeviceMap.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     PsGetServerSiloServiceSessionId @ 0x1402C0B10 (PsGetServerSiloServiceSessionId.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     swprintf_s @ 0x1403DE5A0 (swprintf_s.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ZwCreateDirectoryObject @ 0x14041C630 (ZwCreateDirectoryObject.c)
+ *     ZwCreateSymbolicLinkObject @ 0x14041C9B0 (ZwCreateSymbolicLinkObject.c)
+ *     ObpSetDeviceMap @ 0x1407AFCAC (ObpSetDeviceMap.c)
+ *     ObDereferenceDeviceMap @ 0x1407B004C (ObDereferenceDeviceMap.c)
  */
 
 NTSTATUS __fastcall SeGetTokenDeviceMap(__int64 a1, _QWORD *a2)
@@ -22,11 +22,11 @@ NTSTATUS __fastcall SeGetTokenDeviceMap(__int64 a1, _QWORD *a2)
   __int64 v5; // rax
   NTSTATUS result; // eax
   unsigned int ServerSiloServiceSessionId; // eax
-  int SymbolicLinkObject; // r14d
+  NTSTATUS v8; // r14d
   __int64 v9; // rax
   __int64 v10; // [rsp+30h] [rbp-D0h] BYREF
   HANDLE DirectoryHandle; // [rsp+38h] [rbp-C8h] BYREF
-  HANDLE Handle; // [rsp+40h] [rbp-C0h] BYREF
+  HANDLE LinkHandle; // [rsp+40h] [rbp-C0h] BYREF
   UNICODE_STRING DestinationString; // [rsp+48h] [rbp-B8h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+58h] [rbp-A8h] BYREF
   UNICODE_STRING v15; // [rsp+88h] [rbp-78h] BYREF
@@ -35,7 +35,7 @@ NTSTATUS __fastcall SeGetTokenDeviceMap(__int64 a1, _QWORD *a2)
   *(&ObjectAttributes.Length + 1) = 0;
   *(&ObjectAttributes.Attributes + 1) = 0;
   DirectoryHandle = 0LL;
-  Handle = 0LL;
+  LinkHandle = 0LL;
   v10 = 0LL;
   *a2 = 0LL;
   DestinationString = 0LL;
@@ -74,8 +74,8 @@ NTSTATUS __fastcall SeGetTokenDeviceMap(__int64 a1, _QWORD *a2)
     result = ZwCreateDirectoryObject(&DirectoryHandle, 0xF000Fu, &ObjectAttributes);
     if ( result >= 0 )
     {
-      SymbolicLinkObject = ObpSetDeviceMap(*(PVOID *)(v4 + 160), 2, (__int64)&v10);
-      if ( SymbolicLinkObject >= 0 )
+      v8 = ObpSetDeviceMap(*(PVOID *)(v4 + 160), 2, (__int64)&v10);
+      if ( v8 >= 0 )
       {
         RtlInitUnicodeString(&v15, L"Global");
         RtlInitUnicodeString(&DestinationString, L"\\Global??");
@@ -84,14 +84,14 @@ NTSTATUS __fastcall SeGetTokenDeviceMap(__int64 a1, _QWORD *a2)
         ObjectAttributes.ObjectName = &v15;
         ObjectAttributes.Attributes = 720;
         *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
-        SymbolicLinkObject = ZwCreateSymbolicLinkObject((__int64)&Handle, 983041LL);
-        if ( SymbolicLinkObject < 0 )
+        v8 = ZwCreateSymbolicLinkObject(&LinkHandle, 0xF0001u, &ObjectAttributes, &DestinationString);
+        if ( v8 < 0 )
         {
           ObDereferenceDeviceMap((PVOID)v10);
         }
         else
         {
-          ZwClose(Handle);
+          ZwClose(LinkHandle);
           if ( _InterlockedCompareExchange64((volatile signed __int64 *)(v4 + 40), v10, 0LL) )
             ObDereferenceDeviceMap((PVOID)v10);
           v9 = *(_QWORD *)(v4 + 40);
@@ -101,7 +101,7 @@ NTSTATUS __fastcall SeGetTokenDeviceMap(__int64 a1, _QWORD *a2)
         }
       }
       ZwClose(DirectoryHandle);
-      return SymbolicLinkObject;
+      return v8;
     }
   }
   return result;

@@ -1,19 +1,19 @@
 /*
- * XREFs of WheapProcessWaitingETWEvents @ 0x140849550
+ * XREFs of WheapProcessWaitingETWEvents @ 0x14084F860
  * Callers:
- *     WheaProcessWaitingETWEvents @ 0x1406D71B0 (WheaProcessWaitingETWEvents.c)
- *     WheapEtwEnableCallback @ 0x140849200 (WheapEtwEnableCallback.c)
+ *     WheaProcessWaitingETWEvents @ 0x1406DB340 (WheaProcessWaitingETWEvents.c)
+ *     WheapEtwEnableCallback @ 0x14084F4D0 (WheapEtwEnableCallback.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     WheapFreeErrorRecord @ 0x1403DFC30 (WheapFreeErrorRecord.c)
- *     WheapGenerateETWEvents @ 0x1403DFC68 (WheapGenerateETWEvents.c)
- *     WheaLogInternalEvent @ 0x1403DFEC0 (WheaLogInternalEvent.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     WheapFreeErrorRecord @ 0x1403E2E20 (WheapFreeErrorRecord.c)
+ *     WheapGenerateETWEvents @ 0x1403E2E58 (WheapGenerateETWEvents.c)
+ *     WheaLogInternalEvent @ 0x1403E30B0 (WheaLogInternalEvent.c)
  */
 
 LONG WheapProcessWaitingETWEvents()
 {
-  __int64 *v0; // rbx
+  struct _KTHREAD *Thread; // rbx
   __int64 v1; // rax
   __int64 v2; // rbx
   __int64 v3; // rax
@@ -21,36 +21,36 @@ LONG WheapProcessWaitingETWEvents()
 
   while ( 1 )
   {
-    KeWaitForSingleObject(&WheapWaitingETWEventLock, Executive, 0, 0, 0LL);
-    v0 = (__int64 *)WheapWaitingETWEvents;
-    if ( *(__int64 **)(WheapWaitingETWEvents + 8) != &WheapWaitingETWEvents
-      || (v1 = *(_QWORD *)WheapWaitingETWEvents,
-          *(_QWORD *)(*(_QWORD *)WheapWaitingETWEvents + 8LL) != WheapWaitingETWEvents) )
+    KeWaitForSingleObject(&CmpContextListLock.SchedulerApcFill5[24], Executive, 0, 0, 0LL);
+    Thread = CmpContextListLock.SchedulerApc.Thread;
+    if ( (unsigned __int8 *)CmpContextListLock.SchedulerApc.Thread->Header.WaitListHead.Flink != &CmpContextListLock.SchedulerApcFill5[8]
+      || (v1 = *(_QWORD *)CmpContextListLock.SchedulerApc.Thread,
+          *(struct _KTHREAD **)(*(_QWORD *)CmpContextListLock.SchedulerApc.Thread + 8LL) != CmpContextListLock.SchedulerApc.Thread) )
     {
 LABEL_9:
       __fastfail(3u);
     }
-    WheapWaitingETWEvents = *(_QWORD *)WheapWaitingETWEvents;
-    *(_QWORD *)(v1 + 8) = &WheapWaitingETWEvents;
-    KeSetEvent(&WheapWaitingETWEventLock, 0, 0);
-    if ( v0 == &WheapWaitingETWEvents )
+    CmpContextListLock.SchedulerApc.Thread = *(struct _KTHREAD **)CmpContextListLock.SchedulerApc.Thread;
+    *(_QWORD *)(v1 + 8) = &CmpContextListLock.SchedulerApc.Thread;
+    KeSetEvent((PRKEVENT)&CmpContextListLock.SchedulerApcFill5[24], 0, 0);
+    if ( Thread == (struct _KTHREAD *)&CmpContextListLock.SchedulerApcFill5[8] )
       break;
-    WheapGenerateETWEvents((__int64)(v0 + 5));
-    WheapFreeErrorRecord((__int64)v0);
+    WheapGenerateETWEvents((__int64)&Thread->InitialStack);
+    WheapFreeErrorRecord((__int64)Thread);
   }
   while ( 1 )
   {
     KeWaitForSingleObject(&WheapDeferredInternalLogsEventLock, Executive, 0, 0, 0LL);
-    v2 = WheapDeferredInternalLogs;
-    if ( *(__int64 **)(WheapDeferredInternalLogs + 8) != &WheapDeferredInternalLogs )
+    v2 = *(_QWORD *)&CmpContextListLock.SuspendEvent.Header.Lock;
+    if ( *(struct _KTHREAD **)(*(_QWORD *)&CmpContextListLock.SuspendEvent.Header.Lock + 8LL) != (struct _KTHREAD *)&CmpContextListLock.SuspendEvent )
       goto LABEL_9;
-    v3 = *(_QWORD *)WheapDeferredInternalLogs;
-    if ( *(_QWORD *)(*(_QWORD *)WheapDeferredInternalLogs + 8LL) != WheapDeferredInternalLogs )
+    v3 = **(_QWORD **)&CmpContextListLock.SuspendEvent.Header.Lock;
+    if ( *(_QWORD *)(**(_QWORD **)&CmpContextListLock.SuspendEvent.Header.Lock + 8LL) != *(_QWORD *)&CmpContextListLock.SuspendEvent.Header.Lock )
       goto LABEL_9;
-    WheapDeferredInternalLogs = *(_QWORD *)WheapDeferredInternalLogs;
-    *(_QWORD *)(v3 + 8) = &WheapDeferredInternalLogs;
+    *(_QWORD *)&CmpContextListLock.SuspendEvent.Header.Lock = **(_QWORD **)&CmpContextListLock.SuspendEvent.Header.Lock;
+    *(_QWORD *)(v3 + 8) = &CmpContextListLock.SuspendEvent;
     result = KeSetEvent(&WheapDeferredInternalLogsEventLock, 0, 0);
-    if ( (__int64 *)v2 == &WheapDeferredInternalLogs )
+    if ( (_KEVENT *)v2 == &CmpContextListLock.SuspendEvent )
       return result;
     WheaLogInternalEvent((_DWORD *)(v2 + 16));
   }

@@ -1,26 +1,26 @@
 /*
  * XREFs of ExAllocatePool3 @ 0x140A6E1B0
  * Callers:
- *     KiInitializePrcbThread @ 0x1403C1454 (KiInitializePrcbThread.c)
- *     KeEtwInitializeCpuStarvationProvider @ 0x1403DA43C (KeEtwInitializeCpuStarvationProvider.c)
- *     KiAllocateSchedulerSubNode @ 0x14056D8FC (KiAllocateSchedulerSubNode.c)
- *     AstLogDeviceSDDLUpdated @ 0x140675814 (AstLogDeviceSDDLUpdated.c)
- *     AstLogDeviceCreated @ 0x1407112A4 (AstLogDeviceCreated.c)
- *     IopAllocateMiniCompletionPacket @ 0x1407D57AC (IopAllocateMiniCompletionPacket.c)
- *     KiInitializeThreadCycleTable @ 0x140A59068 (KiInitializeThreadCycleTable.c)
- *     IoVerifierCheckForSettingsChange @ 0x140A7FD04 (IoVerifierCheckForSettingsChange.c)
- *     VerifierExAllocatePool3 @ 0x140A901D0 (VerifierExAllocatePool3.c)
- *     VfHandlePoolAlloc @ 0x140A90660 (VfHandlePoolAlloc.c)
- *     VfPendingCheckForChanges @ 0x140A90E38 (VfPendingCheckForChanges.c)
- *     VfKeCheckForChanges @ 0x140A967D0 (VfKeCheckForChanges.c)
- *     VfFaultsInitPhase0 @ 0x140A9697C (VfFaultsInitPhase0.c)
- *     ViPtInitCircularPoolTrace @ 0x140A9DD9C (ViPtInitCircularPoolTrace.c)
+ *     sub_1403C1454 @ 0x1403C1454 (sub_1403C1454.c)
+ *     sub_1403DA43C @ 0x1403DA43C (sub_1403DA43C.c)
+ *     sub_14056D8FC @ 0x14056D8FC (sub_14056D8FC.c)
+ *     sub_140675814 @ 0x140675814 (sub_140675814.c)
+ *     sub_1407112A4 @ 0x1407112A4 (sub_1407112A4.c)
+ *     sub_1407D57AC @ 0x1407D57AC (sub_1407D57AC.c)
+ *     sub_140A59068 @ 0x140A59068 (sub_140A59068.c)
+ *     sub_140A7FD04 @ 0x140A7FD04 (sub_140A7FD04.c)
+ *     sub_140A901D0 @ 0x140A901D0 (sub_140A901D0.c)
+ *     sub_140A90660 @ 0x140A90660 (sub_140A90660.c)
+ *     sub_140A90E38 @ 0x140A90E38 (sub_140A90E38.c)
+ *     sub_140A967D0 @ 0x140A967D0 (sub_140A967D0.c)
+ *     sub_140A9697C @ 0x140A9697C (sub_140A9697C.c)
+ *     sub_140A9DD9C @ 0x140A9DD9C (sub_140A9DD9C.c)
  * Callees:
  *     RtlRaiseStatus @ 0x1402D37A0 (RtlRaiseStatus.c)
- *     ExpAllocatePoolWithTagFromNode @ 0x140349710 (ExpAllocatePoolWithTagFromNode.c)
- *     MmResourcesAvailable @ 0x14034BAE0 (MmResourcesAvailable.c)
- *     VslSecurePoolAllocate @ 0x14054F578 (VslSecurePoolAllocate.c)
- *     ExpAllocatePoolWithQuotaTag @ 0x140A6E9A4 (ExpAllocatePoolWithQuotaTag.c)
+ *     sub_140349710 @ 0x140349710 (sub_140349710.c)
+ *     sub_14034BAE0 @ 0x14034BAE0 (sub_14034BAE0.c)
+ *     sub_14054F578 @ 0x14054F578 (sub_14054F578.c)
+ *     sub_140A6E9A4 @ 0x140A6E9A4 (sub_140A6E9A4.c)
  */
 
 __int64 __fastcall ExAllocatePool3(__int64 a1, unsigned __int64 a2, unsigned int a3, __int64 a4, unsigned int a5)
@@ -40,9 +40,9 @@ __int64 __fastcall ExAllocatePool3(__int64 a1, unsigned __int64 a2, unsigned int
   __int64 v20; // rcx
   __int64 v21; // rcx
   int v22; // eax
-  __int64 PoolWithQuotaTag; // rax
+  __int64 v23; // rax
   POOL_TYPE v25; // ecx
-  int v26; // ecx
+  NTSTATUS v26; // ecx
   unsigned int v27; // eax
   __int64 v28; // rdx
   struct _MDL *v29; // r9
@@ -55,7 +55,7 @@ __int64 __fastcall ExAllocatePool3(__int64 a1, unsigned __int64 a2, unsigned int
   v6 = 0;
   v33 = 0LL;
   v10 = 16;
-  LODWORD(v11) = KeGetCurrentPrcb()->SchedulerSubNode->Affinity.Reserved[0] | 0x80000000;
+  LODWORD(v11) = *(unsigned __int16 *)(*((_QWORD *)KeGetCurrentPrcb() + 24) + 138LL) | 0x80000000;
   if ( a3 )
   {
     v12 = 0;
@@ -112,22 +112,22 @@ LABEL_20:
             }
             if ( v12 )
             {
-              PoolWithQuotaTag = ExpAllocatePoolWithQuotaTag((unsigned int)v17, a2, a3, (unsigned int)v11);
+              v23 = sub_140A6E9A4((unsigned int)v17, a2, a3, (unsigned int)v11);
             }
             else if ( v6 )
             {
-              if ( v10 != 32 && !(unsigned int)MmResourcesAvailable(v17, a2, v10) && a2 > 0xFE0 )
+              if ( v10 != 32 && !(unsigned int)sub_14034BAE0(v17, a2, v10) && a2 > 0xFE0 )
                 goto LABEL_73;
               if ( (v10 & 8) != 0 )
                 LODWORD(v5) = 1;
-              PoolWithQuotaTag = ExpAllocatePoolWithTagFromNode(v17, a2, a3, v11, v5);
+              v23 = sub_140349710(v17, a2, a3, v11, v5);
             }
             else
             {
-              PoolWithQuotaTag = ExpAllocatePoolWithTagFromNode(v17, a2, a3, v11, v22);
+              v23 = sub_140349710(v17, a2, a3, v11, v22);
             }
-            v5 = PoolWithQuotaTag;
-            if ( !PoolWithQuotaTag )
+            v5 = v23;
+            if ( !v23 )
               goto LABEL_73;
             return v5;
           }
@@ -161,8 +161,12 @@ LABEL_20:
                 goto LABEL_18;
               case 3u:
                 v11 = (unsigned int)*v19;
-                if ( (*v19 & 0x7FFFFFFFu) > (unsigned __int16)KeNumberNodes || v11 != *(_QWORD *)v19 || (a1 & 0x40) == 0 )
+                if ( (*v19 & 0x7FFFFFFFu) > (unsigned __int16)word_140D05000
+                  || v11 != *(_QWORD *)v19
+                  || (a1 & 0x40) == 0 )
+                {
                   goto LABEL_51;
+                }
                 break;
               default:
                 if ( (v20 & 0x100) == 0 )
@@ -184,7 +188,7 @@ LABEL_18:
               v33 = 0LL;
               if ( !a2 || !v29 || !v30 )
                 goto LABEL_73;
-              v31 = VslSecurePoolAllocate(v30, a3, a2, v29, v28, v27, &v33);
+              v31 = sub_14054F578(v30, a3, a2, v29, v28, v27, &v33);
               v32 = v33;
               if ( v31 < 0 )
                 v32 = 0LL;

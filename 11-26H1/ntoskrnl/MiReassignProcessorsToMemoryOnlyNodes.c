@@ -1,9 +1,9 @@
 /*
- * XREFs of MiReassignProcessorsToMemoryOnlyNodes @ 0x140CFDB40
+ * XREFs of MiReassignProcessorsToMemoryOnlyNodes @ 0x140D03EE8
  * Callers:
- *     MiComputeMemoryNodeProcessorAssignments @ 0x140CFD468 (MiComputeMemoryNodeProcessorAssignments.c)
+ *     MiComputeMemoryNodeProcessorAssignments @ 0x140D037E8 (MiComputeMemoryNodeProcessorAssignments.c)
  * Callees:
- *     MiFindProcessorsForMemoryOnlyNode @ 0x140CFD7F4 (MiFindProcessorsForMemoryOnlyNode.c)
+ *     MiFindProcessorsForMemoryOnlyNode @ 0x140D03B74 (MiFindProcessorsForMemoryOnlyNode.c)
  */
 
 void MiReassignProcessorsToMemoryOnlyNodes()
@@ -13,11 +13,11 @@ void MiReassignProcessorsToMemoryOnlyNodes()
   _WORD *v2; // rdx
   __int64 j; // rcx
 
-  byte_140E2D688 = 1;
+  byte_140E2D808 = 1;
   for ( i = 0; i < (unsigned __int16)KeNumberNodes; ++i )
   {
     v1 = 0;
-    v2 = (_WORD *)(*(_QWORD *)(384LL * i + qword_140E2D6B8 + 376) + 18LL);
+    v2 = (_WORD *)(*(_QWORD *)(384LL * i + qword_140E2D838 + 376) + 18LL);
     for ( j = 0LL; j < 3; ++j )
     {
       if ( *v2 )
@@ -29,13 +29,13 @@ void MiReassignProcessorsToMemoryOnlyNodes()
     {
       if ( (unsigned int)MiFindProcessorsForMemoryOnlyNode(i, 1u) )
       {
-        if ( (unsigned __int8)byte_140E2D688 < 2u )
-          byte_140E2D688 = 2;
+        if ( (unsigned __int8)byte_140E2D808 < 2u )
+          byte_140E2D808 = 2;
       }
       else
       {
         MiFindProcessorsForMemoryOnlyNode(i, 2u);
-        byte_140E2D688 = 3;
+        byte_140E2D808 = 3;
       }
     }
   }

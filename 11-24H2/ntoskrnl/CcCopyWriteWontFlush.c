@@ -1,46 +1,42 @@
 /*
- * XREFs of CcCopyWriteWontFlush @ 0x1404DC340
+ * XREFs of CcCopyWriteWontFlush @ 0x1404D5D60
  * Callers:
- *     FsRtlCopyWrite @ 0x140A3A470 (FsRtlCopyWrite.c)
+ *     FsRtlCopyWrite @ 0x140A2FA90 (FsRtlCopyWrite.c)
  * Callees:
- *     CcForceWriteThrough @ 0x1402CE010 (CcForceWriteThrough.c)
- *     KeRcuReadUnlock @ 0x1402CE230 (KeRcuReadUnlock.c)
- *     KeRcuReadLock @ 0x1402CE360 (KeRcuReadLock.c)
+ *     CcForceWriteThrough @ 0x14040C010 (CcForceWriteThrough.c)
+ *     KeRcuReadUnlock @ 0x14040C230 (KeRcuReadUnlock.c)
+ *     KeRcuReadLock @ 0x14040C360 (KeRcuReadLock.c)
  */
 
 BOOLEAN __stdcall CcCopyWriteWontFlush(PFILE_OBJECT FileObject, PLARGE_INTEGER FileOffset, ULONG Length)
 {
-  PFILE_OBJECT v3; // rbx
-  int v4; // edx
-  __int64 v5; // rax
-  int v6; // eax
-  __int64 v7; // rdx
-  __int64 v8; // rcx
-  __int64 v9; // r8
+  struct _KTHREAD *CurrentThread; // rcx
+  int v5; // edx
+  unsigned __int64 v6; // rax
+  int v7; // eax
   PSECTION_OBJECT_POINTERS SectionObjectPointer; // rax
   _DWORD *SharedCacheMap; // rax
 
-  v3 = FileObject;
   if ( Length < 0x1000000 && (FileObject->Flags & 0x10) == 0 )
   {
-    FileObject = (PFILE_OBJECT)KeGetCurrentThread();
-    v4 = (LODWORD(FileObject[6].Lock.Header.WaitListHead.Blink) >> 9) & 7;
-    v5 = *(_QWORD *)(*(_QWORD *)&FileObject[2].Waiters + 672LL);
-    if ( v5 )
+    CurrentThread = KeGetCurrentThread();
+    v5 = (*((_DWORD *)&CurrentThread[1].SwapListEntry + 2) >> 9) & 7;
+    v6 = CurrentThread->Process[1].Padding[3];
+    if ( v6 )
     {
-      v6 = *(_DWORD *)(v5 + 1084);
-      if ( v4 >= v6 )
-        v4 = v6;
+      v7 = *(_DWORD *)(v6 + 1084);
+      if ( v5 >= v7 )
+        v5 = v7;
     }
-    if ( (v4 < 2 && FileObject == (PFILE_OBJECT)KeGetCurrentThread() && LODWORD(FileObject[6].FileObjectExtension)
-       || v4 > 0)
-      && !CcForceWriteThrough(v3, Length, 0LL, 0) )
+    if ( (v5 < 2 && CurrentThread == KeGetCurrentThread() && LODWORD(CurrentThread[1].Timer.TimerListEntry.Flink)
+       || v5 > 0)
+      && !CcForceWriteThrough(FileObject, Length, 0LL, 0) )
     {
       return 1;
     }
   }
-  KeRcuReadLock((__int64)FileObject);
-  SectionObjectPointer = v3->SectionObjectPointer;
+  KeRcuReadLock();
+  SectionObjectPointer = FileObject->SectionObjectPointer;
   if ( SectionObjectPointer )
   {
     SharedCacheMap = SectionObjectPointer->SharedCacheMap;
@@ -48,11 +44,11 @@ BOOLEAN __stdcall CcCopyWriteWontFlush(PFILE_OBJECT FileObject, PLARGE_INTEGER F
     {
       if ( (SharedCacheMap[38] & 0x40000000) != 0 )
       {
-        KeRcuReadUnlock(v8, v7, v9);
+        KeRcuReadUnlock();
         return 1;
       }
     }
   }
-  KeRcuReadUnlock(v8, v7, v9);
+  KeRcuReadUnlock();
   return 0;
 }

@@ -9,39 +9,34 @@
  *     RtlStringCchCopyW @ 0x1800DCD90 (RtlStringCchCopyW.c)
  */
 
-NTSTATUS __fastcall RtlConvertLCIDToString(
-        unsigned int a1,
-        unsigned int a2,
-        unsigned int a3,
-        _WORD *a4,
-        unsigned int a5)
+NTSTATUS __cdecl RtlConvertLCIDToString(LCID LcidValue, ULONG Base, ULONG Padding, PWSTR pResultBuf, ULONG Size)
 {
-  int v6; // esi
-  unsigned int v8; // ebx
+  NTSTATUS v6; // esi
+  ULONG v8; // ebx
   NTSTATUS result; // eax
-  unsigned int i; // eax
-  UNICODE_STRING v11; // [rsp+20h] [rbp-438h] BYREF
+  ULONG i; // eax
+  _UNICODE_STRING String; // [rsp+20h] [rbp-438h] BYREF
   _WORD v12[512]; // [rsp+30h] [rbp-428h] BYREF
 
   v6 = 0;
   memset(v12, 0, sizeof(v12));
-  v8 = a5;
-  if ( a5 >= 0x200 )
+  v8 = Size;
+  if ( Size >= 0x200 )
     return -2147483643;
-  v11.Length = 2 * a5;
-  v11.MaximumLength = 2 * a5;
-  v11.Buffer = v12;
-  result = RtlIntegerToUnicodeString(a1, a2, &v11);
+  String.Length = 2 * Size;
+  String.MaximumLength = 2 * Size;
+  String.Buffer = v12;
+  result = RtlIntegerToUnicodeString(LcidValue, Base, &String);
   if ( result >= 0 )
   {
-    for ( i = v11.Length >> 1; i < a3; ++i )
+    for ( i = String.Length >> 1; i < Padding; ++i )
     {
       if ( !v8 )
         return -1073741823;
-      *a4++ = 48;
+      *pResultBuf++ = 48;
       --v8;
     }
-    if ( (int)RtlStringCchCopyW(a4, v8, v11.Buffer) < 0 )
+    if ( (int)RtlStringCchCopyW(pResultBuf, v8, String.Buffer) < 0 )
       return -1073741823;
     return v6;
   }

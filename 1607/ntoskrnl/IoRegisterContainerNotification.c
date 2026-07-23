@@ -1,23 +1,23 @@
 /*
- * XREFs of IoRegisterContainerNotification @ 0x14057C124
+ * XREFs of IoRegisterContainerNotification @ 0x14057C5D0
  * Callers:
  *     <none>
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     ObfReferenceObject @ 0x14006A060 (ObfReferenceObject.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     IopSetFileObjectExtensionFlag @ 0x140079F70 (IopSetFileObjectExtensionFlag.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfReleasePushLock @ 0x1400C8620 (ExfReleasePushLock.c)
- *     IopGetDevicePDO @ 0x1400FB6B4 (IopGetDevicePDO.c)
- *     ExRegisterCallback @ 0x14012FD34 (ExRegisterCallback.c)
- *     ExUnregisterCallback @ 0x140131758 (ExUnregisterCallback.c)
- *     MmGetSessionObjectById @ 0x1401EC9D8 (MmGetSessionObjectById.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     ObfReferenceObject @ 0x140069BE0 (ObfReferenceObject.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     IopSetFileObjectExtensionFlag @ 0x140079FF0 (IopSetFileObjectExtensionFlag.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfReleasePushLock @ 0x1400C64C0 (ExfReleasePushLock.c)
+ *     IopGetDevicePDO @ 0x1400F9440 (IopGetDevicePDO.c)
+ *     ExRegisterCallback @ 0x1401302A4 (ExRegisterCallback.c)
+ *     ExUnregisterCallback @ 0x140131CC8 (ExUnregisterCallback.c)
+ *     MmGetSessionObjectById @ 0x1401EC804 (MmGetSessionObjectById.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     IopGetSessionIdFromPDO @ 0x1404ED078 (IopGetSessionIdFromPDO.c)
+ *     IopGetSessionIdFromPDO @ 0x1404CF1E4 (IopGetSessionIdFromPDO.c)
  */
 
 NTSTATUS __stdcall IoRegisterContainerNotification(
@@ -125,13 +125,13 @@ LABEL_15:
           v14[3] = CallbackFunction;
           v14[6] = v18;
           *(_QWORD *)CallbackRegistration = v17;
-          v20 = (_QWORD *)qword_140320678;
-          if ( *(PVOID **)qword_140320678 != &IopSessionNotificationQueueHead )
+          v20 = (_QWORD *)qword_140320698;
+          if ( *(PVOID **)qword_140320698 != &IopSessionNotificationQueueHead )
             __fastfail(3u);
           *v14 = &IopSessionNotificationQueueHead;
           v14[1] = v20;
           *v20 = v14;
-          qword_140320678 = (__int64)v14;
+          qword_140320698 = (__int64)v14;
           goto LABEL_17;
         case 5:
           LOBYTE(v15) = 1;

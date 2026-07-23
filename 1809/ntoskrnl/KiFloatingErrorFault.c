@@ -1,13 +1,13 @@
 /*
- * XREFs of KiFloatingErrorFault @ 0x1401CBCC0
+ * XREFs of KiFloatingErrorFault @ 0x1401CBDC0
  * Callers:
- *     KiFloatingErrorFaultShadow @ 0x14032E880 (KiFloatingErrorFaultShadow.c)
+ *     KiFloatingErrorFaultShadow @ 0x14032F880 (KiFloatingErrorFaultShadow.c)
  * Callees:
- *     KiSaveDebugRegisterState @ 0x1401BC110 (KiSaveDebugRegisterState.c)
- *     KiFloatingErrorFault @ 0x1401CBCC0 (KiFloatingErrorFault.c)
- *     KiBugCheckDispatch @ 0x1401CFE00 (KiBugCheckDispatch.c)
- *     KiExceptionDispatch @ 0x1401CFE80 (KiExceptionDispatch.c)
- *     KiFlushBhbDuringTrapEntryOrExit @ 0x1401D1180 (KiFlushBhbDuringTrapEntryOrExit.c)
+ *     KiSaveDebugRegisterState @ 0x1401BC270 (KiSaveDebugRegisterState.c)
+ *     KiFloatingErrorFault @ 0x1401CBDC0 (KiFloatingErrorFault.c)
+ *     KiBugCheckDispatch @ 0x1401CFF00 (KiBugCheckDispatch.c)
+ *     KiExceptionDispatch @ 0x1401CFF80 (KiExceptionDispatch.c)
+ *     KiFlushBhbDuringTrapEntryOrExit @ 0x1401D1280 (KiFlushBhbDuringTrapEntryOrExit.c)
  */
 
 void __fastcall __noreturn KiFloatingErrorFault()
@@ -54,7 +54,7 @@ void __fastcall __noreturn KiFloatingErrorFault()
       BpbState = KeGetPcr()->Prcb.BpbState;
     }
     if ( (BpbState & 2) != 0 )
-      JUMPOUT(0x1401CBEF5LL);
+      JUMPOUT(0x1401CBFF5LL);
     if ( (BpbState & 0x200) != 0 )
       KiFlushBhbDuringTrapEntryOrExit(v2);
     _mm_lfence();

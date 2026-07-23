@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpInterruptIsDeferredErrorSupported @ 0x1405050B4
+ * XREFs of HalpInterruptIsDeferredErrorSupported @ 0x140505604
  * Callers:
- *     HalpIsCmciImplemented @ 0x140A91EE8 (HalpIsCmciImplemented.c)
+ *     HalpIsCmciImplemented @ 0x140A91D68 (HalpIsCmciImplemented.c)
  * Callees:
- *     HalpInterruptFindLines @ 0x14031FE80 (HalpInterruptFindLines.c)
- *     HalpGetCpuInfo @ 0x140380630 (HalpGetCpuInfo.c)
+ *     HalpInterruptFindLines @ 0x140320110 (HalpInterruptFindLines.c)
+ *     HalpGetCpuInfo @ 0x1403807D0 (HalpGetCpuInfo.c)
  */
 
 bool HalpInterruptIsDeferredErrorSupported()

@@ -1,22 +1,22 @@
 /*
- * XREFs of NtQueryObject @ 0x140660AB0
+ * XREFs of NtQueryObject @ 0x140661C70
  * Callers:
- *     IopLoadDriver @ 0x14067FA34 (IopLoadDriver.c)
- *     IopQueryRegistryKeySystemPath @ 0x140680144 (IopQueryRegistryKeySystemPath.c)
+ *     IopLoadDriver @ 0x140680BF4 (IopLoadDriver.c)
+ *     IopQueryRegistryKeySystemPath @ 0x140681304 (IopQueryRegistryKeySystemPath.c)
  * Callees:
  *     OBJECT_HEADER_TO_QUOTA_INFO @ 0x14001622C (OBJECT_HEADER_TO_QUOTA_INFO.c)
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     ObfReferenceObject @ 0x14004E220 (ObfReferenceObject.c)
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
- *     ProbeForWrite @ 0x140629A60 (ProbeForWrite.c)
- *     ObQueryTypeInfo @ 0x14065E9AC (ObQueryTypeInfo.c)
- *     ObQueryNameStringMode @ 0x140660F50 (ObQueryNameStringMode.c)
+ *     ExfReleasePushLockShared @ 0x1400913F0 (ExfReleasePushLockShared.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ObReferenceObjectByHandle @ 0x1405E9350 (ObReferenceObjectByHandle.c)
+ *     ProbeForWrite @ 0x14062AA80 (ProbeForWrite.c)
+ *     ObQueryTypeInfo @ 0x14065FB6C (ObQueryTypeInfo.c)
+ *     ObQueryNameStringMode @ 0x140662110 (ObQueryNameStringMode.c)
  */
 
 NTSTATUS __stdcall NtQueryObject(

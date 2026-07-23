@@ -1,11 +1,11 @@
 /*
- * XREFs of MiSetSystemCacheReverseMap @ 0x140242480
+ * XREFs of MiSetSystemCacheReverseMap @ 0x14020A5D0
  * Callers:
- *     MiObtainSystemCacheView @ 0x140241D90 (MiObtainSystemCacheView.c)
- *     MiReturnSystemCacheRegionsToKva @ 0x1402D24DC (MiReturnSystemCacheRegionsToKva.c)
- *     MiExpandSystemCache @ 0x1403A7378 (MiExpandSystemCache.c)
+ *     MiObtainSystemCacheView @ 0x140209EE0 (MiObtainSystemCacheView.c)
+ *     MiExpandSystemCache @ 0x14026B918 (MiExpandSystemCache.c)
+ *     MiReturnSystemCacheRegionsToKva @ 0x140353754 (MiReturnSystemCacheRegionsToKva.c)
  * Callees:
- *     MiSetPageTablePfnBuddy @ 0x140498190 (MiSetPageTablePfnBuddy.c)
+ *     MiSetPageTablePfnBuddy @ 0x140492B70 (MiSetPageTablePfnBuddy.c)
  */
 
 __int64 __fastcall MiSetSystemCacheReverseMap(__int64 a1, unsigned __int64 a2, __int64 a3)

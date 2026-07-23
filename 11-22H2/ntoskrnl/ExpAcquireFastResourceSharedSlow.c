@@ -126,7 +126,7 @@ char __fastcall ExpAcquireFastResourceSharedSlow(
     CurrentIrql = KeGetCurrentIrql();
     v79 = CurrentIrql;
     __writecr8(2uLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
       if ( CurrentIrql == 2 )
@@ -194,10 +194,13 @@ char __fastcall ExpAcquireFastResourceSharedSlow(
     }
     if ( v85 )
     {
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v12 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)v12 <= 0xFu && CurrentIrql <= 0xFu && (unsigned __int8)v12 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+          && (unsigned __int8)v12 <= 0xFu
+          && CurrentIrql <= 0xFu
+          && (unsigned __int8)v12 >= 2u )
         {
           v24 = KeGetCurrentPrcb();
           v12 = (unsigned int)CurrentIrql + 1;
@@ -231,7 +234,7 @@ LABEL_42:
   {
     v37 = KeGetCurrentIrql();
     __writecr8(2uLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v37 <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v37 <= 0xFu )
     {
       v38 = KeGetCurrentPrcb()->SchedulerAssist;
       if ( v37 == 2 )
@@ -410,10 +413,10 @@ LABEL_42:
   }
   *(_BYTE *)(a2 + 37) |= 4u;
   v28 = v79;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v73 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v73 <= 0xFu && v79 <= 0xFu && v73 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v73 <= 0xFu && v79 <= 0xFu && v73 >= 2u )
     {
       v74 = KeGetCurrentPrcb();
       v75 = v74->SchedulerAssist;
@@ -453,10 +456,13 @@ LABEL_43:
   }
   if ( v29 )
   {
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v12 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)v12 <= 0xFu && v28 <= 0xFu && (unsigned __int8)v12 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && (unsigned __int8)v12 <= 0xFu
+        && v28 <= 0xFu
+        && (unsigned __int8)v12 >= 2u )
       {
         v33 = KeGetCurrentPrcb();
         v12 = (unsigned int)v28 + 1;

@@ -1,10 +1,10 @@
 /*
- * XREFs of _CmGetInterfaceClassMappedPropertyFromComposite @ 0x1406DE334
+ * XREFs of _CmGetInterfaceClassMappedPropertyFromComposite @ 0x1406DE46C
  * Callers:
- *     _CmGetInterfaceClassMappedProperty @ 0x1404F6754 (_CmGetInterfaceClassMappedProperty.c)
- *     _CmGetInterfaceClassMappedPropertyKeys @ 0x1406DE438 (_CmGetInterfaceClassMappedPropertyKeys.c)
+ *     _CmGetInterfaceClassMappedProperty @ 0x1404D96E0 (_CmGetInterfaceClassMappedProperty.c)
+ *     _CmGetInterfaceClassMappedPropertyKeys @ 0x1406DE570 (_CmGetInterfaceClassMappedPropertyKeys.c)
  * Callees:
- *     _PnpGetObjectProperty @ 0x1404FE7B0 (_PnpGetObjectProperty.c)
+ *     _PnpGetObjectProperty @ 0x1404E1740 (_PnpGetObjectProperty.c)
  */
 
 __int64 __fastcall CmGetInterfaceClassMappedPropertyFromComposite(

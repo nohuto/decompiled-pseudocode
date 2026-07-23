@@ -17,9 +17,9 @@
  *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall MiDemoteSlabEntry(__int64 a1, __int64 a2, unsigned __int64 a3)
+__int64 __fastcall MiDemoteSlabEntry(__int64 a1, __int64 a2, __int64 a3)
 {
-  unsigned __int64 v4; // r13
+  __int64 v4; // r13
   __int64 v6; // r12
   unsigned int v7; // r15d
   unsigned int v8; // r11d
@@ -73,7 +73,7 @@ __int64 __fastcall MiDemoteSlabEntry(__int64 a1, __int64 a2, unsigned __int64 a3
 
   v4 = a3;
   ExAcquireSpinLockExclusiveAtDpcLevel((PEX_SPIN_LOCK)(a2 + 16));
-  MiRemoveSlabEntry(a1, (unsigned __int64 *)a2, v4);
+  MiRemoveSlabEntry(a1, (_RTL_RB_TREE *)a2, v4);
   ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(a2 + 16));
   v6 = 0x3FFFFFFFFFLL;
   v55 = 0LL;

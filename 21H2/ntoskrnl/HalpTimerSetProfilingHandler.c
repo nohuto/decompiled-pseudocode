@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpTimerSetProfilingHandler @ 0x1404C19A4
+ * XREFs of HalpTimerSetProfilingHandler @ 0x1404C1BE4
  * Callers:
- *     HalpSetSystemInformation @ 0x1407333E0 (HalpSetSystemInformation.c)
+ *     HalpSetSystemInformation @ 0x1407335A0 (HalpSetSystemInformation.c)
  * Callees:
  *     <none>
  */

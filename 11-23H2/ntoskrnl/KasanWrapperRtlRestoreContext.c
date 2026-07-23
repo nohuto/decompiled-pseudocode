@@ -1,12 +1,12 @@
 /*
- * XREFs of KasanWrapperRtlRestoreContext @ 0x140356BD0
+ * XREFs of KasanWrapperRtlRestoreContext @ 0x140356D70
  * Callers:
- *     RtlRestoreContext @ 0x1404292D0 (RtlRestoreContext.c)
+ *     RtlRestoreContext @ 0x140429660 (RtlRestoreContext.c)
  * Callees:
- *     KeQueryCurrentStackInformationEx @ 0x14022E9B0 (KeQueryCurrentStackInformationEx.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     KeGetCurrentStackPointer @ 0x14041F130 (KeGetCurrentStackPointer.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     KeQueryCurrentStackInformationEx @ 0x14022EAC0 (KeQueryCurrentStackInformationEx.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     KeGetCurrentStackPointer @ 0x14041F4C0 (KeGetCurrentStackPointer.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 char __fastcall KasanWrapperRtlRestoreContext(__int64 a1)

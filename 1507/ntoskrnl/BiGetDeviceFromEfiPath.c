@@ -17,8 +17,8 @@ __int64 __fastcall BiGetDeviceFromEfiPath(unsigned __int64 Src, _QWORD *a2, unsi
   int v5; // ebx
   _BYTE *i; // rbx
   unsigned int v7; // ebx
-  struct _FILE_PATH *PoolWithTag; // rax
-  struct _FILE_PATH *v9; // rsi
+  _FILE_PATH *PoolWithTag; // rax
+  _FILE_PATH *v9; // rsi
   unsigned int v10; // ebp
   unsigned int v11; // r15d
   _DWORD *v12; // rax
@@ -40,7 +40,7 @@ __int64 __fastcall BiGetDeviceFromEfiPath(unsigned __int64 Src, _QWORD *a2, unsi
         break;
     }
     v7 = (_DWORD)i - (_DWORD)v4;
-    PoolWithTag = (struct _FILE_PATH *)ExAllocatePoolWithTag(PagedPool, v7 + 16, 0x4B444342u);
+    PoolWithTag = (_FILE_PATH *)ExAllocatePoolWithTag(PagedPool, v7 + 16, 0x4B444342u);
     v9 = PoolWithTag;
     if ( PoolWithTag )
     {

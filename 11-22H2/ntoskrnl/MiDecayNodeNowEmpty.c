@@ -25,7 +25,7 @@ void __fastcall MiDecayNodeNowEmpty(__int64 a1)
     v4 = a1 - qword_140C68260;
     *(_QWORD *)(v2 + 16) = v3;
     ExAcquireSpinLockExclusiveAtDpcLevel(&dword_140C68280);
-    RtlSetBits(&BitMapHeader, v4, 1u);
+    RtlSetBits(&stru_140C68288, v4, 1u);
     ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140C68280);
   }
 }

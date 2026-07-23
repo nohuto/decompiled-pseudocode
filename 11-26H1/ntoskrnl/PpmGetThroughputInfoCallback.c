@@ -1,9 +1,9 @@
 /*
- * XREFs of PpmGetThroughputInfoCallback @ 0x140253110
+ * XREFs of PpmGetThroughputInfoCallback @ 0x140254A70
  * Callers:
- *     PoGetPerfStateAndParkingInfo @ 0x14047C978 (PoGetPerfStateAndParkingInfo.c)
+ *     PoGetPerfStateAndParkingInfo @ 0x1404762E8 (PoGetPerfStateAndParkingInfo.c)
  * Callees:
- *     PpmSnapPerformanceAccumulation @ 0x140253D2C (PpmSnapPerformanceAccumulation.c)
+ *     PpmSnapPerformanceAccumulation @ 0x14025568C (PpmSnapPerformanceAccumulation.c)
  */
 
 __int64 __fastcall PpmGetThroughputInfoCallback(struct _KPRCB *a1, __int64 a2, int a3)

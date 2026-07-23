@@ -1,15 +1,15 @@
 /*
- * XREFs of PiSwDeviceDereference @ 0x14074CF94
+ * XREFs of PiSwDeviceDereference @ 0x14074D154
  * Callers:
- *     PiSwProcessRemove @ 0x140732BD8 (PiSwProcessRemove.c)
- *     PiSwBusRelationRemove @ 0x140732C94 (PiSwBusRelationRemove.c)
- *     PiSwUnassociateDeviceObject @ 0x140732D2C (PiSwUnassociateDeviceObject.c)
- *     PiSwCloseDevice @ 0x1407349F0 (PiSwCloseDevice.c)
- *     PiSwDispatch @ 0x14074D990 (PiSwDispatch.c)
- *     PiSwIrpStartCreateWorker @ 0x14074DBB8 (PiSwIrpStartCreateWorker.c)
+ *     PiSwProcessRemove @ 0x140732D98 (PiSwProcessRemove.c)
+ *     PiSwBusRelationRemove @ 0x140732E54 (PiSwBusRelationRemove.c)
+ *     PiSwUnassociateDeviceObject @ 0x140732EEC (PiSwUnassociateDeviceObject.c)
+ *     PiSwCloseDevice @ 0x140734BB0 (PiSwCloseDevice.c)
+ *     PiSwDispatch @ 0x14074DB50 (PiSwDispatch.c)
+ *     PiSwIrpStartCreateWorker @ 0x14074DD78 (PiSwIrpStartCreateWorker.c)
  * Callees:
- *     PiSwDeviceFree @ 0x140733F90 (PiSwDeviceFree.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     PiSwDeviceFree @ 0x140734150 (PiSwDeviceFree.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PiSwDeviceDereference(PVOID P)

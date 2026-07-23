@@ -1,16 +1,16 @@
 /*
- * XREFs of VmpInvalidateSlatBatched @ 0x1406C1430
+ * XREFs of VmpInvalidateSlatBatched @ 0x1406C5010
  * Callers:
- *     VmpRemoveMemoryRange @ 0x14051122C (VmpRemoveMemoryRange.c)
- *     VmpUnpinMemoryRangeHelper @ 0x1406C286C (VmpUnpinMemoryRangeHelper.c)
+ *     VmpRemoveMemoryRange @ 0x14050AC9C (VmpRemoveMemoryRange.c)
+ *     VmpUnpinMemoryRangeHelper @ 0x1406C644C (VmpUnpinMemoryRangeHelper.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     VmpInsertInvalidateListRange @ 0x140251FD8 (VmpInsertInvalidateListRange.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     VmpProcessInvalidateList @ 0x140518B00 (VmpProcessInvalidateList.c)
- *     VmpInvalidateOutstandingFaults @ 0x14052233C (VmpInvalidateOutstandingFaults.c)
- *     VmpFindNextPinnedPageStateHelper @ 0x1406C11C8 (VmpFindNextPinnedPageStateHelper.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     VmpInsertInvalidateListRange @ 0x140253938 (VmpInsertInvalidateListRange.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     VmpProcessInvalidateList @ 0x140512570 (VmpProcessInvalidateList.c)
+ *     VmpInvalidateOutstandingFaults @ 0x1405249A8 (VmpInvalidateOutstandingFaults.c)
+ *     VmpFindNextPinnedPageStateHelper @ 0x1406C4DA8 (VmpFindNextPinnedPageStateHelper.c)
  */
 
 char __fastcall VmpInvalidateSlatBatched(

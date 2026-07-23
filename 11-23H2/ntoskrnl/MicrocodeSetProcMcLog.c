@@ -1,9 +1,9 @@
 /*
- * XREFs of MicrocodeSetProcMcLog @ 0x1406156BC
+ * XREFs of MicrocodeSetProcMcLog @ 0x140615C0C
  * Callers:
- *     PrExtControlOperations @ 0x140615588 (PrExtControlOperations.c)
+ *     PrExtControlOperations @ 0x140615AD8 (PrExtControlOperations.c)
  * Callees:
- *     GetCpuManufacturer @ 0x1406157B8 (GetCpuManufacturer.c)
+ *     GetCpuManufacturer @ 0x140615D08 (GetCpuManufacturer.c)
  */
 
 __int64 __fastcall MicrocodeSetProcMcLog(__int64 a1, unsigned int a2, int a3)

@@ -1,15 +1,15 @@
 /*
- * XREFs of PiSwProcessParentRemoveIrp @ 0x1406ED238
+ * XREFs of PiSwProcessParentRemoveIrp @ 0x1406EE4D8
  * Callers:
- *     IopRemoveDevice @ 0x1406ECE04 (IopRemoveDevice.c)
+ *     IopRemoveDevice @ 0x1406EE0A4 (IopRemoveDevice.c)
  * Callees:
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
  *     ExAcquireResourceExclusiveLite @ 0x1400505F0 (ExAcquireResourceExclusiveLite.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     PiSwProcessRemove @ 0x1406D8B4C (PiSwProcessRemove.c)
- *     PiSwDestroyDeviceObject @ 0x1406D90DC (PiSwDestroyDeviceObject.c)
- *     PiSwCloseDescendants @ 0x1406ED318 (PiSwCloseDescendants.c)
- *     PiSwFindSwDevice @ 0x1406ED34C (PiSwFindSwDevice.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     PiSwProcessRemove @ 0x1406D9DEC (PiSwProcessRemove.c)
+ *     PiSwDestroyDeviceObject @ 0x1406DA37C (PiSwDestroyDeviceObject.c)
+ *     PiSwCloseDescendants @ 0x1406EE5B8 (PiSwCloseDescendants.c)
+ *     PiSwFindSwDevice @ 0x1406EE5EC (PiSwFindSwDevice.c)
  */
 
 _QWORD *__fastcall PiSwProcessParentRemoveIrp(__int64 a1)

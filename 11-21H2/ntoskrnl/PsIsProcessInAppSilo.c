@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     PsIsServerSilo @ 0x14020A400 (PsIsServerSilo.c)
+ *     sub_14020A400 @ 0x14020A400 (sub_14020A400.c)
  *     PsGetProcessSilo @ 0x1405E0470 (PsGetProcessSilo.c)
  */
 
@@ -15,6 +15,6 @@ bool __fastcall PsIsProcessInAppSilo(__int64 a1)
   ProcessSilo = PsGetProcessSilo(a1);
   v2 = 0;
   if ( ProcessSilo )
-    return !PsIsServerSilo(ProcessSilo);
+    return !sub_14020A400(ProcessSilo);
   return v2;
 }

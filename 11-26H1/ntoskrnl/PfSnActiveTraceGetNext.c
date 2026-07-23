@@ -1,15 +1,15 @@
 /*
- * XREFs of PfSnActiveTraceGetNext @ 0x1402F1D80
+ * XREFs of PfSnActiveTraceGetNext @ 0x1402D3E00
  * Callers:
- *     PfSnNameRemoveAll @ 0x1409E9800 (PfSnNameRemoveAll.c)
+ *     PfSnNameRemoveAll @ 0x1409D2C20 (PfSnNameRemoveAll.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     KiReleaseSpinLockInstrumented @ 0x1402BDFEC (KiReleaseSpinLockInstrumented.c)
- *     ExfAcquireRundownProtection @ 0x1402F05D0 (ExfAcquireRundownProtection.c)
- *     KiAcquireSpinLockInstrumented @ 0x14032F380 (KiAcquireSpinLockInstrumented.c)
- *     KxWaitForSpinLockAndAcquire @ 0x14032F490 (KxWaitForSpinLockAndAcquire.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     ExfAcquireRundownProtection @ 0x1402D2650 (ExfAcquireRundownProtection.c)
+ *     KiReleaseSpinLockInstrumented @ 0x140308CAC (KiReleaseSpinLockInstrumented.c)
+ *     KiAcquireSpinLockInstrumented @ 0x1403313B0 (KiAcquireSpinLockInstrumented.c)
+ *     KxWaitForSpinLockAndAcquire @ 0x1403314C0 (KxWaitForSpinLockAndAcquire.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 unsigned __int64 *__fastcall PfSnActiveTraceGetNext(struct _EX_RUNDOWN_REF *a1, __int64 a2)
@@ -19,7 +19,7 @@ unsigned __int64 *__fastcall PfSnActiveTraceGetNext(struct _EX_RUNDOWN_REF *a1, 
   unsigned __int64 *v5; // rbp
   struct _EX_RUNDOWN_REF *v6; // rcx
   unsigned __int64 v7; // rtt
-  __int64 retaddr; // [rsp+38h] [rbp+0h]
+  void *retaddr; // [rsp+38h] [rbp+0h]
 
   CurrentIrql = KeGetCurrentIrql();
   if ( CurrentIrql != 2 )
@@ -29,23 +29,23 @@ unsigned __int64 *__fastcall PfSnActiveTraceGetNext(struct _EX_RUNDOWN_REF *a1, 
     LOBYTE(a2) = 2;
     KiRaiseIrqlProcessIrqlFlags(CurrentIrql, a2);
   }
-  if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+  if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
   {
-    if ( _interlockedbittestandset64((volatile signed __int32 *)&stru_140E66FF0.StateSaveArea, 0LL) )
-      KxWaitForSpinLockAndAcquire(&stru_140E66FF0.StateSaveArea);
+    if ( _interlockedbittestandset64((volatile signed __int32 *)&stru_140E67200.StateSaveArea, 0LL) )
+      KxWaitForSpinLockAndAcquire(&stru_140E67200.StateSaveArea);
   }
   else
   {
-    KiAcquireSpinLockInstrumented(&stru_140E66FF0.StateSaveArea);
+    KiAcquireSpinLockInstrumented(&stru_140E67200.StateSaveArea);
   }
   if ( a1 )
     p_CurrentRunTime = (struct _KTHREAD *)&a1[1];
   else
-    p_CurrentRunTime = (struct _KTHREAD *)&stru_140E66FF0.CurrentRunTime;
+    p_CurrentRunTime = (struct _KTHREAD *)&stru_140E67200.CurrentRunTime;
   while ( 1 )
   {
     p_CurrentRunTime = (struct _KTHREAD *)p_CurrentRunTime->Header.WaitListHead.Flink;
-    if ( p_CurrentRunTime == (struct _KTHREAD *)&stru_140E66FF0.CurrentRunTime )
+    if ( p_CurrentRunTime == (struct _KTHREAD *)&stru_140E67200.CurrentRunTime )
       break;
     v5 = &p_CurrentRunTime[-1].Padding[4];
     v6 = (struct _EX_RUNDOWN_REF *)&p_CurrentRunTime->WaitBlockFill11[32];
@@ -59,10 +59,10 @@ unsigned __int64 *__fastcall PfSnActiveTraceGetNext(struct _EX_RUNDOWN_REF *a1, 
   }
   v5 = 0LL;
 LABEL_15:
-  if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
-    _InterlockedAnd64((volatile signed __int64 *)&stru_140E66FF0.StateSaveArea, 0LL);
+  if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
+    _InterlockedAnd64((volatile signed __int64 *)&stru_140E67200.StateSaveArea, 0LL);
   else
-    KiReleaseSpinLockInstrumented((volatile signed __int64 *)&stru_140E66FF0.StateSaveArea, retaddr);
+    KiReleaseSpinLockInstrumented(&stru_140E67200.StateSaveArea, retaddr);
   if ( KiIrqlFlags )
     KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), CurrentIrql);
   __writecr8(CurrentIrql);

@@ -1,20 +1,20 @@
 /*
- * XREFs of ExPoolCleanupExpansionTable @ 0x140389790
+ * XREFs of ExPoolCleanupExpansionTable @ 0x1403898E0
  * Callers:
- *     ExpInsertPoolTrackerExpansion @ 0x140294238 (ExpInsertPoolTrackerExpansion.c)
- *     MiCheckSessionPoolAllocations @ 0x1407784F0 (MiCheckSessionPoolAllocations.c)
+ *     ExpInsertPoolTrackerExpansion @ 0x140214DDC (ExpInsertPoolTrackerExpansion.c)
+ *     MiCheckSessionPoolAllocations @ 0x1407786B0 (MiCheckSessionPoolAllocations.c)
  * Callees:
- *     ExpRemovePoolTrackerExpansion @ 0x1402B7FB0 (ExpRemovePoolTrackerExpansion.c)
- *     ExGetHeapFromVA @ 0x1402FAC7C (ExGetHeapFromVA.c)
- *     RtlpHpFreeHeap @ 0x140342100 (RtlpHpFreeHeap.c)
- *     EtwTracePool @ 0x1405A7CC4 (EtwTracePool.c)
+ *     ExpRemovePoolTrackerExpansion @ 0x1402361C0 (ExpRemovePoolTrackerExpansion.c)
+ *     ExGetHeapFromVA @ 0x1403059CC (ExGetHeapFromVA.c)
+ *     RtlpHpFreeHeap @ 0x14034CE50 (RtlpHpFreeHeap.c)
+ *     EtwTracePool @ 0x1405A7EF4 (EtwTracePool.c)
  */
 
 __int64 __fastcall ExPoolCleanupExpansionTable(ULONG_PTR BugCheckParameter3, __int64 a2)
 {
   __int64 v4; // rcx
   int v5; // eax
-  __m128i *HeapFromVA; // rax
+  __int64 HeapFromVA; // rax
   __int64 v8; // rax
   int v9; // r10d
   unsigned int v10; // r8d
@@ -56,6 +56,6 @@ __int64 __fastcall ExPoolCleanupExpansionTable(ULONG_PTR BugCheckParameter3, __i
   while ( v10 != v12 );
   ExpRemovePoolTrackerExpansion(1819242320, a2, 0);
 LABEL_5:
-  HeapFromVA = (__m128i *)ExGetHeapFromVA(BugCheckParameter3);
+  HeapFromVA = ExGetHeapFromVA(BugCheckParameter3);
   return RtlpHpFreeHeap(HeapFromVA, BugCheckParameter3, 0);
 }

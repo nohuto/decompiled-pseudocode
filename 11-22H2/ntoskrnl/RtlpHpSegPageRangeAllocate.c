@@ -32,10 +32,10 @@ __int64 __fastcall RtlpHpSegPageRangeAllocate(__int64 a1, __int64 a2, unsigned i
   int v10; // ebp
   __int64 CurrentIrql; // rdx
   __int64 v12; // rax
-  unsigned __int64 v13; // r14
-  unsigned __int64 v14; // rdx
+  __int64 v13; // r14
+  __int64 v14; // rdx
   int v15; // ecx
-  unsigned __int64 v16; // rax
+  __int64 v16; // rax
   int v17; // ebx
   unsigned __int16 v18; // ax
   int v19; // ecx
@@ -93,7 +93,7 @@ __int64 __fastcall RtlpHpSegPageRangeAllocate(__int64 a1, __int64 a2, unsigned i
       CurrentIrql = KeGetCurrentIrql();
       v56 = CurrentIrql;
       __writecr8(2uLL);
-      if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && (unsigned __int8)CurrentIrql <= 0xFu )
+      if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && (unsigned __int8)CurrentIrql <= 0xFu )
       {
         SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
         if ( (_BYTE)CurrentIrql == 2 )
@@ -185,7 +185,7 @@ LABEL_19:
     }
     else
     {
-      RtlRbRemoveNode((unsigned __int64 *)(a1 + 96), v13);
+      RtlRbRemoveNode((PRTL_RB_TREE)(a1 + 96), (PRTL_BALANCED_NODE)v13);
       *(_OWORD *)v13 = 0LL;
       *(_QWORD *)(v13 + 16) = 0LL;
       v18 = ~(unsigned __int16)*(_DWORD *)(v13 + 28);
@@ -252,10 +252,10 @@ LABEL_42:
           else
             *(_DWORD *)v23 = 0;
           v24 = v56;
-          if ( KiIrqlFlags )
+          if ( (_DWORD)KiIrqlFlags )
           {
             v49 = KeGetCurrentIrql();
-            if ( (KiIrqlFlags & 1) != 0 && v49 <= 0xFu && (unsigned __int8)v56 <= 0xFu && v49 >= 2u )
+            if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v49 <= 0xFu && (unsigned __int8)v56 <= 0xFu && v49 >= 2u )
             {
               CurrentPrcb = KeGetCurrentPrcb();
               v51 = CurrentPrcb->SchedulerAssist;
@@ -304,10 +304,10 @@ LABEL_42:
     {
       ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(a1 + 64));
       v38 = v56;
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v45 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v45 <= 0xFu && (unsigned __int8)v56 <= 0xFu && v45 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v45 <= 0xFu && (unsigned __int8)v56 <= 0xFu && v45 >= 2u )
         {
           v46 = KeGetCurrentPrcb();
           v47 = v46->SchedulerAssist;

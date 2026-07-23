@@ -3,7 +3,7 @@
  * Callers:
  *     HvpViewMapCreateView @ 0x140689F1C (HvpViewMapCreateView.c)
  * Callees:
- *     ZwMapViewOfSection @ 0x14041B260 (ZwMapViewOfSection.c)
+ *     ZwMapViewOfSection @ 0x14041B5F0 (ZwMapViewOfSection.c)
  */
 
 NTSTATUS __fastcall CmSiMapViewOfSection(

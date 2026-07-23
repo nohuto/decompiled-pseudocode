@@ -1,13 +1,13 @@
 /*
- * XREFs of IoGetDeviceObjectPointer @ 0x1405083E8
+ * XREFs of IoGetDeviceObjectPointer @ 0x1404EB378
  * Callers:
- *     NtApphelpCacheControl @ 0x1404B93AC (NtApphelpCacheControl.c)
- *     IoVolumeDeviceToDosName @ 0x14050814C (IoVolumeDeviceToDosName.c)
- *     sub_14051D780 @ 0x14051D780 (sub_14051D780.c)
- *     ExpHwidSendSynchronousIrpToDevice @ 0x14051DCA4 (ExpHwidSendSynchronousIrpToDevice.c)
- *     IoVolumeDeviceNameToGuidPath @ 0x14052D194 (IoVolumeDeviceNameToGuidPath.c)
- *     IopOpenSystemVariableDevice @ 0x140628DBC (IopOpenSystemVariableDevice.c)
- *     PopRegisterCoolingExtensionProtection @ 0x14066BD0C (PopRegisterCoolingExtensionProtection.c)
+ *     sub_140486A78 @ 0x140486A78 (sub_140486A78.c)
+ *     NtApphelpCacheControl @ 0x1404A50E4 (NtApphelpCacheControl.c)
+ *     IoVolumeDeviceToDosName @ 0x1404EB0DC (IoVolumeDeviceToDosName.c)
+ *     ExpHwidSendSynchronousIrpToDevice @ 0x140500D54 (ExpHwidSendSynchronousIrpToDevice.c)
+ *     IoVolumeDeviceNameToGuidPath @ 0x14052D6D4 (IoVolumeDeviceNameToGuidPath.c)
+ *     IopOpenSystemVariableDevice @ 0x140628E70 (IopOpenSystemVariableDevice.c)
+ *     PopRegisterCoolingExtensionProtection @ 0x14066BDF0 (PopRegisterCoolingExtensionProtection.c)
  *     IopCreateArcNamesCd @ 0x140798420 (IopCreateArcNamesCd.c)
  *     IopCreateArcNamesDisk @ 0x1407985F0 (IopCreateArcNamesDisk.c)
  *     IopAssignBootDriveLetter @ 0x140798A1C (IopAssignBootDriveLetter.c)
@@ -16,11 +16,11 @@
  *     SbpAddTransportToInstance @ 0x1407D36AC (SbpAddTransportToInstance.c)
  *     SbpStartLanman @ 0x1407D3884 (SbpStartLanman.c)
  * Callees:
- *     IoGetRelatedDeviceObject @ 0x14002E0E0 (IoGetRelatedDeviceObject.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     ZwOpenFile @ 0x14015A2E0 (ZwOpenFile.c)
- *     ObReferenceObjectByHandle @ 0x140450D40 (ObReferenceObjectByHandle.c)
+ *     IoGetRelatedDeviceObject @ 0x14002DC60 (IoGetRelatedDeviceObject.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     ZwOpenFile @ 0x14015A850 (ZwOpenFile.c)
+ *     ObReferenceObjectByHandle @ 0x14044FC10 (ObReferenceObjectByHandle.c)
  */
 
 NTSTATUS __stdcall IoGetDeviceObjectPointer(

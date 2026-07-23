@@ -12,21 +12,22 @@
  *     RtlpGuardIsSuppressedAddress @ 0x18010A678 (RtlpGuardIsSuppressedAddress.c)
  */
 
-__int64 __fastcall RtlGuardGrantSuppressedCallAccess(__int64 a1, unsigned int a2, _DWORD *a3)
+char __fastcall RtlGuardGrantSuppressedCallAccess(__int64 a1, unsigned int a2, _DWORD *a3)
 {
-  __int64 result; // rax
+  int v6; // eax
 
-  result = LdrControlFlowGuardEnforced();
-  if ( !(_DWORD)result )
-    goto LABEL_7;
-  if ( (a2 & 4) != 0 && (unsigned __int8)RtlGuardIsExportSuppressedAddress(a1) != 1
-    || (a2 & 1) != 0 && (unsigned __int8)RtlpGuardIsSuppressedAddress(a1) != 1 )
+  LOBYTE(v6) = LdrControlFlowGuardEnforced();
+  if ( v6 )
   {
-    result = 3221225485LL;
-LABEL_7:
-    *a3 = 0;
-    return result;
+    if ( ((a2 & 4) == 0 || (unsigned __int8)RtlGuardIsExportSuppressedAddress(a1) == 1)
+      && ((a2 & 1) == 0 || (unsigned __int8)RtlpGuardIsSuppressedAddress(a1) == 1) )
+    {
+      *a3 = 1;
+      LOBYTE(v6) = RtlpGuardGrantSuppressedCallAccess(a1, a2);
+      return v6;
+    }
+    LOBYTE(v6) = 13;
   }
-  *a3 = 1;
-  return RtlpGuardGrantSuppressedCallAccess(a1, a2);
+  *a3 = 0;
+  return v6;
 }

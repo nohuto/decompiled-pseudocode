@@ -1,16 +1,16 @@
 /*
- * XREFs of MiEliminateZeroPages @ 0x14066BEB0
+ * XREFs of MiEliminateZeroPages @ 0x14066D070
  * Callers:
- *     MiCopyToCfgBitMap @ 0x1405F2A10 (MiCopyToCfgBitMap.c)
- *     MiUpdateCfgSystemWideBitmapWorker @ 0x1405F3130 (MiUpdateCfgSystemWideBitmapWorker.c)
+ *     MiCopyToCfgBitMap @ 0x1405F3A10 (MiCopyToCfgBitMap.c)
+ *     MiUpdateCfgSystemWideBitmapWorker @ 0x1405F4130 (MiUpdateCfgSystemWideBitmapWorker.c)
  * Callees:
- *     MiGetPteAddress @ 0x140065DE8 (MiGetPteAddress.c)
- *     MiInsertTbFlushEntry @ 0x1400B3AF0 (MiInsertTbFlushEntry.c)
- *     MiGetPdeAddress @ 0x1400EDB64 (MiGetPdeAddress.c)
- *     MiInitializeTbFlushList @ 0x1400EDB84 (MiInitializeTbFlushList.c)
- *     MiTbFlushType @ 0x1400EDBA4 (MiTbFlushType.c)
- *     MiConvertAndFlushWsleVas @ 0x1400EEBE0 (MiConvertAndFlushWsleVas.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     MiGetPteAddress @ 0x140065DD8 (MiGetPteAddress.c)
+ *     MiInsertTbFlushEntry @ 0x1400B3A30 (MiInsertTbFlushEntry.c)
+ *     MiGetPdeAddress @ 0x1400EDBE4 (MiGetPdeAddress.c)
+ *     MiInitializeTbFlushList @ 0x1400EDC04 (MiInitializeTbFlushList.c)
+ *     MiTbFlushType @ 0x1400EDC24 (MiTbFlushType.c)
+ *     MiConvertAndFlushWsleVas @ 0x1400EEC60 (MiConvertAndFlushWsleVas.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 void __fastcall MiEliminateZeroPages(__int64 a1, unsigned __int64 a2, unsigned __int64 a3)

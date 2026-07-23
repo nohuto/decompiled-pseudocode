@@ -10,14 +10,15 @@
  *     PopFxUpdateGlobalDeviceAccountingInfo @ 0x14058C41C (PopFxUpdateGlobalDeviceAccountingInfo.c)
  */
 
-__int64 __fastcall PopFxSetDripsBlockedByDeviceActivity(char a1)
+void __fastcall PopFxSetDripsBlockedByDeviceActivity(char a1)
 {
   __int64 v2; // rcx
   unsigned __int64 v3; // rdi
-  __int64 result; // rax
+  unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  bool v7; // zf
+  int v7; // eax
+  bool v8; // zf
 
   v3 = KeAcquireSpinLockRaiseToDpc(&PopFxGlobalDeviceAccountingLock);
   if ( byte_140C3EE41 )
@@ -37,24 +38,23 @@ __int64 __fastcall PopFxSetDripsBlockedByDeviceActivity(char a1)
     PopFxUpdateDeviceIRPhaseAccounting(v2);
   }
 LABEL_8:
-  result = KxReleaseSpinLock((volatile signed __int64 *)&PopFxGlobalDeviceAccountingLock);
-  if ( KiIrqlFlags )
+  KxReleaseSpinLock((volatile signed __int64 *)&PopFxGlobalDeviceAccountingLock);
+  if ( (_DWORD)KiIrqlFlags )
   {
-    result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
-      && (unsigned __int8)result <= 0xFu
+    CurrentIrql = KeGetCurrentIrql();
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
       && (unsigned __int8)v3 <= 0xFu
-      && (unsigned __int8)result >= 2u )
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;
-      result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v3 + 1));
-      v7 = ((unsigned int)result & SchedulerAssist[5]) == 0;
-      SchedulerAssist[5] &= result;
-      if ( v7 )
-        result = KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      v7 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v3 + 1));
+      v8 = (v7 & SchedulerAssist[5]) == 0;
+      SchedulerAssist[5] &= v7;
+      if ( v8 )
+        KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
     }
   }
   __writecr8(v3);
-  return result;
 }

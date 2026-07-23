@@ -50,7 +50,7 @@ __int64 __fastcall WbGetInitializedEncryptionSegment(__int64 a1, __int64 a2, uns
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->SpecialApcDisable;
     v11 = (unsigned __int64 *)(v18 + 8);
-    v12 = KeAbPreAcquire(v18 + 8, 0LL, 0LL);
+    v12 = KeAbPreAcquire(v18 + 8, 0LL, 0);
     v13 = v12;
     if ( _interlockedbittestandset64((volatile signed __int32 *)v11, 0LL) )
       ExfAcquirePushLockExclusiveEx(v11, v12, (ULONG_PTR)v11);

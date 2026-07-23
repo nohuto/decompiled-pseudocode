@@ -1,16 +1,16 @@
 /*
- * XREFs of CmpTrimHive @ 0x140A422BC
+ * XREFs of CmpTrimHive @ 0x140A37AF4
  * Callers:
- *     CmpLoadKeyCommon @ 0x140464478 (CmpLoadKeyCommon.c)
- *     CmpAcceptBoot @ 0x1407CF594 (CmpAcceptBoot.c)
+ *     CmpLoadKeyCommon @ 0x14045ABA8 (CmpLoadKeyCommon.c)
+ *     CmpAcceptBoot @ 0x1407CFA84 (CmpAcceptBoot.c)
  * Callees:
- *     HvUnlockHiveFlusherShared @ 0x14086A604 (HvUnlockHiveFlusherShared.c)
- *     HvLockHiveFlusherShared @ 0x14087DD28 (HvLockHiveFlusherShared.c)
- *     HvLockHiveWriter @ 0x140882A38 (HvLockHiveWriter.c)
- *     HvUnlockHiveWriter @ 0x140882E28 (HvUnlockHiveWriter.c)
- *     HvTrimHive @ 0x140A4234C (HvTrimHive.c)
- *     CmpLockRegistry @ 0x140BB9E60 (CmpLockRegistry.c)
- *     CmpUnlockRegistry @ 0x140BB9F50 (CmpUnlockRegistry.c)
+ *     HvUnlockHiveFlusherShared @ 0x14086E934 (HvUnlockHiveFlusherShared.c)
+ *     HvLockHiveFlusherShared @ 0x140881BD8 (HvLockHiveFlusherShared.c)
+ *     HvLockHiveWriter @ 0x1408868E8 (HvLockHiveWriter.c)
+ *     HvUnlockHiveWriter @ 0x140886CD8 (HvUnlockHiveWriter.c)
+ *     HvTrimHive @ 0x140A37B84 (HvTrimHive.c)
+ *     CmpLockRegistry @ 0x140BBBE60 (CmpLockRegistry.c)
+ *     CmpUnlockRegistry @ 0x140BBBF50 (CmpUnlockRegistry.c)
  */
 
 __int64 __fastcall CmpTrimHive(_DWORD *a1)

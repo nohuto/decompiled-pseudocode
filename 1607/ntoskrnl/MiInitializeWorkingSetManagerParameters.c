@@ -1,14 +1,14 @@
 /*
- * XREFs of MiInitializeWorkingSetManagerParameters @ 0x14014AC3C
+ * XREFs of MiInitializeWorkingSetManagerParameters @ 0x14014B1AC
  * Callers:
- *     MiCreatePartition @ 0x1406601A8 (MiCreatePartition.c)
- *     MiManagePartition @ 0x1406609A4 (MiManagePartition.c)
+ *     MiCreatePartition @ 0x14066028C (MiCreatePartition.c)
+ *     MiManagePartition @ 0x140660A88 (MiManagePartition.c)
  *     MiInitSystem @ 0x1407A3AAC (MiInitSystem.c)
  * Callees:
- *     MiSetTrimWhileAgingState @ 0x1400B5314 (MiSetTrimWhileAgingState.c)
- *     MiLockDynamicMemoryExclusive @ 0x140132E08 (MiLockDynamicMemoryExclusive.c)
- *     MiUnlockDynamicMemoryExclusive @ 0x140132E74 (MiUnlockDynamicMemoryExclusive.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     MiSetTrimWhileAgingState @ 0x1400B314C (MiSetTrimWhileAgingState.c)
+ *     MiLockDynamicMemoryExclusive @ 0x140133378 (MiLockDynamicMemoryExclusive.c)
+ *     MiUnlockDynamicMemoryExclusive @ 0x1401333E4 (MiUnlockDynamicMemoryExclusive.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */
 
@@ -80,11 +80,11 @@ __int64 __fastcall MiInitializeWorkingSetManagerParameters(__int64 a1)
   *(_QWORD *)(v1 + 112) = v1 + 112;
   if ( (int *)a1 == MiSystemPartition )
   {
-    LOWORD(stru_140327750.Header.Lock) = 0;
-    stru_140327750.Header.WaitListHead.Blink = &stru_140327750.Header.WaitListHead;
-    stru_140327750.Header.WaitListHead.Flink = &stru_140327750.Header.WaitListHead;
-    stru_140327750.Header.Size = 6;
-    stru_140327750.Header.SignalState = 1;
+    LOWORD(stru_140327790.Header.Lock) = 0;
+    stru_140327790.Header.WaitListHead.Blink = &stru_140327790.Header.WaitListHead;
+    stru_140327790.Header.WaitListHead.Flink = &stru_140327790.Header.WaitListHead;
+    stru_140327790.Header.Size = 6;
+    stru_140327790.Header.SignalState = 1;
 LABEL_17:
     if ( (int *)a1 == MiSystemPartition )
     {

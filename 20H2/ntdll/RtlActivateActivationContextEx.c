@@ -9,57 +9,57 @@
  *     memset @ 0x1800A4180 (memset.c)
  */
 
-__int64 __fastcall RtlActivateActivationContextEx(
-        __int64 a1,
-        __int64 a2,
-        volatile signed __int32 *a3,
-        unsigned __int64 *a4)
+NTSTATUS __cdecl RtlActivateActivationContextEx(
+        ULONG Flags,
+        PTEB Teb,
+        PACTIVATION_CONTEXT ActivationContext,
+        PULONG_PTR Cookie)
 {
   char v5; // di
-  volatile signed __int32 *v6; // rsi
-  __int64 v7; // r15
-  __int64 result; // rax
-  __int64 v9; // rbx
+  _ACTIVATION_CONTEXT *v6; // rsi
+  _ACTIVATION_CONTEXT_STACK *ActivationContextStackPointer; // r15
+  NTSTATUS result; // eax
+  _RTL_ACTIVATION_CONTEXT_STACK_FRAME *v9; // rbx
   unsigned int v10; // edx
-  __int64 v11; // rax
+  __int64 NextCookieSequenceNumber; // rax
   unsigned __int64 v12; // rcx
   ULONG BackTraceHash; // [rsp+40h] [rbp+8h] BYREF
-  __int64 v14; // [rsp+50h] [rbp+18h] BYREF
+  _RTL_ACTIVATION_CONTEXT_STACK_FRAME *v14; // [rsp+50h] [rbp+18h] BYREF
 
-  v5 = a1;
-  if ( a4 )
-    *a4 = 0LL;
-  v6 = (volatile signed __int32 *)&unk_18011D498;
-  if ( a3 != (volatile signed __int32 *)-3LL )
-    v6 = a3;
-  if ( (a1 & 0xFFFFFFFE) != 0 || !a2 || v6 == (volatile signed __int32 *)-1LL || !a4 )
-    return 3221225485LL;
-  v7 = *(_QWORD *)(a2 + 712);
-  result = RtlpAllocateActivationContextStackFrame(a1, v7, &v14);
-  if ( (int)result >= 0 )
+  v5 = Flags;
+  if ( Cookie )
+    *Cookie = 0LL;
+  v6 = (_ACTIVATION_CONTEXT *)&unk_18011D498;
+  if ( ActivationContext != (PACTIVATION_CONTEXT)-3LL )
+    v6 = ActivationContext;
+  if ( (Flags & 0xFFFFFFFE) != 0 || !Teb || v6 == (_ACTIVATION_CONTEXT *)-1LL || !Cookie )
+    return -1073741811;
+  ActivationContextStackPointer = Teb->ActivationContextStackPointer;
+  result = RtlpAllocateActivationContextStackFrame(Flags, ActivationContextStackPointer, &v14);
+  if ( result >= 0 )
   {
     v9 = v14;
-    *(_DWORD *)(v14 + 16) = 40;
+    v14->Flags = 40;
     if ( (v5 & 1) != 0 )
     {
-      *(_DWORD *)(v9 + 16) = 43;
+      v9->Flags = 43;
       RtlAddRefActivationContext(v6);
     }
     if ( RtlpCaptureActivationContextActivationStacks )
-      v10 = RtlCaptureStackBackTrace(2u, 8u, (PVOID *)(v9 + 32), &BackTraceHash);
+      v10 = RtlCaptureStackBackTrace(2u, 8u, (PVOID *)&v9[1].ActivationContext, &BackTraceHash);
     else
       v10 = 0;
     if ( v10 < 8 )
-      memset((void *)(v9 + 8 * (v10 + 4LL)), 0, 8LL * (8 - v10));
-    *(_QWORD *)v9 = *(_QWORD *)v7;
-    *(_QWORD *)(v9 + 8) = v6;
-    v11 = *(unsigned int *)(v7 + 28);
-    v12 = v11 | ((unsigned __int64)(*(_DWORD *)(v7 + 32) & 0xFFFFFFF) << 32) | 0x1000000000000000LL;
-    *(_DWORD *)(v7 + 28) = v11 + 1;
-    result = 0LL;
-    *(_QWORD *)(v9 + 24) = v12;
-    *a4 = v12;
-    *(_QWORD *)v7 = v9;
+      memset(&v9[1].ActivationContext + v10, 0, 8LL * (8 - v10));
+    v9->Previous = ActivationContextStackPointer->ActiveFrame;
+    v9->ActivationContext = v6;
+    NextCookieSequenceNumber = ActivationContextStackPointer->NextCookieSequenceNumber;
+    v12 = NextCookieSequenceNumber | ((unsigned __int64)(ActivationContextStackPointer->StackId & 0xFFFFFFF) << 32) | 0x1000000000000000LL;
+    ActivationContextStackPointer->NextCookieSequenceNumber = NextCookieSequenceNumber + 1;
+    result = 0;
+    v9[1].Previous = (_RTL_ACTIVATION_CONTEXT_STACK_FRAME *)v12;
+    *Cookie = v12;
+    ActivationContextStackPointer->ActiveFrame = v9;
   }
   return result;
 }

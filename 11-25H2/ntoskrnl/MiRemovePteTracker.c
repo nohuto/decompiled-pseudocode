@@ -13,18 +13,18 @@
 
 PSLIST_ENTRY __fastcall MiRemovePteTracker(ULONG_PTR BugCheckParameter2, unsigned __int64 a2, ULONG_PTR a3)
 {
-  struct _SLIST_ENTRY *v3; // rbx
+  _SLIST_ENTRY *v3; // rbx
   unsigned __int64 v6; // rsi
   ULONG_PTR v7; // r14
   KIRQL v8; // r15
-  struct _SLIST_ENTRY *v9; // rdx
-  struct _SLIST_ENTRY *i; // r8
+  _SLIST_ENTRY *v9; // rdx
+  _SLIST_ENTRY *i; // r8
   _SLIST_ENTRY *Next; // rcx
   ULONG_PTR v12; // r9
   ULONG_PTR v13; // r9
   ULONG_PTR v14; // r9
-  struct _SLIST_ENTRY *v15; // rcx
-  struct _SLIST_ENTRY **v16; // rax
+  _SLIST_ENTRY *v15; // rcx
+  _SLIST_ENTRY **v16; // rax
   PSLIST_ENTRY result; // rax
 
   v3 = 0LL;
@@ -39,7 +39,7 @@ PSLIST_ENTRY __fastcall MiRemovePteTracker(ULONG_PTR BugCheckParameter2, unsigne
   {
     v8 = ExAcquireSpinLockExclusive(&dword_140E35AD0);
   }
-  v9 = (struct _SLIST_ENTRY *)((char *)&unk_140E385B0 + 16 * (v6 & 0xF));
+  v9 = (_SLIST_ENTRY *)((char *)&unk_140E385B0 + 16 * (v6 & 0xF));
   for ( i = v9->Next; i != v9; i = i->Next )
   {
     Next = i[2].Next;
@@ -65,7 +65,7 @@ PSLIST_ENTRY __fastcall MiRemovePteTracker(ULONG_PTR BugCheckParameter2, unsigne
         }
       }
       v15 = i->Next;
-      if ( *(&i->Next->Next + 1) != i || (v16 = (struct _SLIST_ENTRY **)*((_QWORD *)&i->Next + 1), *v16 != i) )
+      if ( *(&i->Next->Next + 1) != i || (v16 = (_SLIST_ENTRY **)*((_QWORD *)&i->Next + 1), *v16 != i) )
         __fastfail(3u);
       *v16 = v15;
       v3 = i;

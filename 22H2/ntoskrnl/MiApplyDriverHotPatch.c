@@ -47,7 +47,7 @@ NTSTATUS __fastcall MiApplyDriverHotPatch(__int64 a1, __int64 a2)
   int v24; // [rsp+90h] [rbp-A0h]
   int v25; // [rsp+98h] [rbp-98h]
   __int64 v26; // [rsp+A0h] [rbp-90h]
-  unsigned __int64 v27[2]; // [rsp+B0h] [rbp-80h] BYREF
+  __int64 v27[2]; // [rsp+B0h] [rbp-80h] BYREF
   int v28; // [rsp+C0h] [rbp-70h]
   __int64 v29; // [rsp+C4h] [rbp-6Ch]
   int v30; // [rsp+CCh] [rbp-64h]
@@ -55,7 +55,7 @@ NTSTATUS __fastcall MiApplyDriverHotPatch(__int64 a1, __int64 a2)
   __int64 v32; // [rsp+D8h] [rbp-58h]
   __int64 v33; // [rsp+E0h] [rbp-50h]
   __int64 v34; // [rsp+E8h] [rbp-48h]
-  unsigned __int64 v35[2]; // [rsp+F0h] [rbp-40h] BYREF
+  __int64 v35[2]; // [rsp+F0h] [rbp-40h] BYREF
   int v36; // [rsp+100h] [rbp-30h]
   __int64 v37; // [rsp+104h] [rbp-2Ch]
   int v38; // [rsp+10Ch] [rbp-24h]
@@ -80,7 +80,7 @@ NTSTATUS __fastcall MiApplyDriverHotPatch(__int64 a1, __int64 a2)
   v44 = 0;
   if ( (v2 & 0x20) != 0 )
     return -1073741800;
-  HotPatchInformation = RtlFindHotPatchInformation(*(_QWORD *)(a1 + 48));
+  HotPatchInformation = RtlFindHotPatchInformation(*(PVOID *)(a1 + 48));
   HotPatchBase = RtlFindHotPatchBase(HotPatchInformation);
   if ( !HotPatchBase )
     return -1073741701;

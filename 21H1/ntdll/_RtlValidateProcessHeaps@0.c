@@ -10,32 +10,34 @@
  *     _RtlGetProcessHeaps@8 @ 0x4B356960 (_RtlGetProcessHeaps@8.c)
  */
 
-char __stdcall RtlValidateProcessHeaps()
+BOOLEAN RtlValidateProcessHeaps(void)
 {
-  char v0; // bl
-  unsigned int ProcessHeaps; // eax
+  BOOLEAN v0; // bl
+  ULONG v1; // eax
   int v2; // ecx
-  unsigned int v3; // esi
-  unsigned int i; // edi
-  int v6; // [esp+Ch] [ebp-80Ch] BYREF
-  _BYTE *v7; // [esp+10h] [ebp-808h] BYREF
-  _BYTE v8[2048]; // [esp+14h] [ebp-804h] BYREF
+  ULONG v3; // esi
+  ULONG i; // edi
+  ULONG_PTR v6; // [esp-10h] [ebp-828h]
+  ULONG v7; // [esp+0h] [ebp-818h]
+  ULONG_PTR v8; // [esp+Ch] [ebp-80Ch] BYREF
+  PVOID ProcessHeaps[512]; // [esp+14h] [ebp-804h] BYREF
 
   v0 = 1;
-  v7 = v8;
-  ProcessHeaps = RtlGetProcessHeaps(512, (int)v8);
-  v3 = ProcessHeaps;
-  if ( ProcessHeaps > 0x200 )
+  HIDWORD(v8) = ProcessHeaps;
+  v1 = RtlGetProcessHeaps(0x200u, ProcessHeaps);
+  v3 = v1;
+  if ( v1 > 0x200 )
   {
-    v7 = 0;
-    v6 = 4 * ProcessHeaps;
-    if ( NtAllocateVirtualMemory(-1, (int)&v7, 0, (int)&v6, 4096, 4) < 0 )
+    v8 = 4 * v1;
+    HIDWORD(v6) = &v8;
+    LODWORD(v6) = 0;
+    if ( NtAllocateVirtualMemory((HANDLE)0xFFFFFFFF, (PVOID *)&v8 + 1, v6, (PSIZE_T)0x1000, 4u, v7) < 0 )
       return 0;
-    v3 = RtlGetProcessHeaps(v3, (int)v7);
+    v3 = RtlGetProcessHeaps(v3, (PVOID *)HIDWORD(v8));
   }
   for ( i = 0; i < v3; ++i )
-    v0 = RtlValidateHeap(*(_DWORD *)&v7[4 * i], 0, 0) ? v0 : 0;
-  if ( v7 != v8 )
-    RtlpSecMemFreeVirtualMemory(v2, &v7, &v6, 0x8000);
+    v0 &= -(RtlValidateHeap(*(PVOID *)(HIDWORD(v8) + 4 * i), 0, 0) != 0);
+  if ( (PVOID *)HIDWORD(v8) != ProcessHeaps )
+    RtlpSecMemFreeVirtualMemory(v2, (PVOID *)&v8 + 1, &v8, 0x8000u);
   return v0;
 }

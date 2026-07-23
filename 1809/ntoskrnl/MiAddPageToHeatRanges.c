@@ -1,10 +1,10 @@
 /*
- * XREFs of MiAddPageToHeatRanges @ 0x1402CEAD0
+ * XREFs of MiAddPageToHeatRanges @ 0x1402CECC0
  * Callers:
- *     MmSetPfnListInfo @ 0x14013FC90 (MmSetPfnListInfo.c)
- *     MiMakeUnusedImageExtentsCold @ 0x1402C3D9C (MiMakeUnusedImageExtentsCold.c)
- *     MiAddColdPagesToHotRanges @ 0x1402CEA4C (MiAddColdPagesToHotRanges.c)
- *     MiMakeTransitionHeatBatch @ 0x1402CEC14 (MiMakeTransitionHeatBatch.c)
+ *     MmSetPfnListInfo @ 0x14013FD90 (MmSetPfnListInfo.c)
+ *     MiMakeUnusedImageExtentsCold @ 0x1402C3F8C (MiMakeUnusedImageExtentsCold.c)
+ *     MiAddColdPagesToHotRanges @ 0x1402CEC3C (MiAddColdPagesToHotRanges.c)
+ *     MiMakeTransitionHeatBatch @ 0x1402CEE04 (MiMakeTransitionHeatBatch.c)
  * Callees:
  *     <none>
  */

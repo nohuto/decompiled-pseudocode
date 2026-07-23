@@ -1,13 +1,13 @@
 /*
- * XREFs of PiUEventHandleGetEvent @ 0x14059FA1C
+ * XREFs of PiUEventHandleGetEvent @ 0x1405A0A1C
  * Callers:
- *     PiUEventHandleIoctl @ 0x14059FE4C (PiUEventHandleIoctl.c)
+ *     PiUEventHandleIoctl @ 0x1405A0E4C (PiUEventHandleIoctl.c)
  * Callees:
  *     KeReleaseGuardedMutex @ 0x140014E30 (KeReleaseGuardedMutex.c)
  *     ExAcquireFastMutex @ 0x14004E530 (ExAcquireFastMutex.c)
- *     PiUEventDequeuePendingEventWorker @ 0x14058EA80 (PiUEventDequeuePendingEventWorker.c)
- *     PiUEventNotifyClientPendingEvent @ 0x14058FA24 (PiUEventNotifyClientPendingEvent.c)
- *     PiUEventCopyEventData @ 0x14059FB98 (PiUEventCopyEventData.c)
+ *     PiUEventDequeuePendingEventWorker @ 0x14058FA80 (PiUEventDequeuePendingEventWorker.c)
+ *     PiUEventNotifyClientPendingEvent @ 0x140590A24 (PiUEventNotifyClientPendingEvent.c)
+ *     PiUEventCopyEventData @ 0x1405A0B98 (PiUEventCopyEventData.c)
  */
 
 __int64 __fastcall PiUEventHandleGetEvent(__int64 a1, _DWORD *a2, __int64 a3, unsigned int a4, __int64 a5)
@@ -86,7 +86,7 @@ __int64 __fastcall PiUEventHandleGetEvent(__int64 a1, _DWORD *a2, __int64 a3, un
     }
     KeReleaseGuardedMutex(*(PKGUARDED_MUTEX *)(v5 + 16));
     if ( v9 == -1073741789 )
-      PiUEventNotifyClientPendingEvent(v5);
+      PiUEventNotifyClientPendingEvent((const WNF_STATE_NAME *)v5);
     v16 = a4 - v10;
     if ( v9 != -1073741789 )
       v6 = v9;

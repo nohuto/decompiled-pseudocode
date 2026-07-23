@@ -1,10 +1,10 @@
 /*
- * XREFs of KiBuildShareCountListForSubNodeByAffinity @ 0x1404468F0
+ * XREFs of KiBuildShareCountListForSubNodeByAffinity @ 0x14043F3F0
  * Callers:
- *     KiConfigureSubNodeShareCounts @ 0x1405EADD8 (KiConfigureSubNodeShareCounts.c)
- *     KiCompleteKernelInit @ 0x140BF36A8 (KiCompleteKernelInit.c)
+ *     KiConfigureSubNodeShareCounts @ 0x1405ED748 (KiConfigureSubNodeShareCounts.c)
+ *     KiCompleteKernelInit @ 0x140BF96A8 (KiCompleteKernelInit.c)
  * Callees:
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 unsigned __int8 __fastcall KiBuildShareCountListForSubNodeByAffinity(
@@ -30,8 +30,7 @@ unsigned __int8 __fastcall KiBuildShareCountListForSubNodeByAffinity(
   {
     if ( _bittest64(&a4, i) )
     {
-      v11 = KiProcessorBlock[*((unsigned int *)&KiSupervisorXStateFeaturesLock.WaitBlock[2].Thread->Header.Lock
-                             + 64 * v6
+      v11 = KiProcessorBlock[*((unsigned int *)&KiSupervisorXStateFeaturesLock.SchedulerApc.ApcListEntry.Flink[16 * v6].Flink
                              + (unsigned int)i)];
       v12 = *(unsigned __int8 *)(v11 + 208);
       if ( a5 )

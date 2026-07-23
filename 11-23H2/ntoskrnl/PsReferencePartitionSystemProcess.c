@@ -1,13 +1,13 @@
 /*
- * XREFs of PsReferencePartitionSystemProcess @ 0x1409B64D0
+ * XREFs of PsReferencePartitionSystemProcess @ 0x1409B66D0
  * Callers:
- *     ExSwapinWorkerThreads @ 0x140A005C8 (ExSwapinWorkerThreads.c)
+ *     ExSwapinWorkerThreads @ 0x140A00858 (ExSwapinWorkerThreads.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ObfReferenceObject @ 0x140233C40 (ObfReferenceObject.c)
- *     ExfReleasePushLockShared @ 0x1402BD860 (ExfReleasePushLockShared.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockSharedEx @ 0x140230E80 (ExAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ObfReferenceObject @ 0x140233D10 (ObfReferenceObject.c)
+ *     ExfReleasePushLockShared @ 0x1402BDAF0 (ExfReleasePushLockShared.c)
  */
 
 __int64 __fastcall PsReferencePartitionSystemProcess(__int64 a1, _QWORD *a2)

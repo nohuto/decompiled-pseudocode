@@ -16,8 +16,8 @@
  *     LdrpLogDeprecatedDllEtwEvent @ 0x180061648 (LdrpLogDeprecatedDllEtwEvent.c)
  *     LdrpLogError @ 0x1800616D8 (LdrpLogError.c)
  *     LdrpMapDllRetry @ 0x180061A78 (LdrpMapDllRetry.c)
- *     ZwSetEvent @ 0x18009D800 (ZwSetEvent.c)
- *     LdrpLogDbgPrint @ 0x1800CDC88 (LdrpLogDbgPrint.c)
+ *     ZwSetEvent @ 0x18009D7C0 (ZwSetEvent.c)
+ *     LdrpLogDbgPrint @ 0x1800CDC48 (LdrpLogDbgPrint.c)
  */
 
 void __fastcall LdrpProcessWork(__int64 a1, char a2)
@@ -25,10 +25,9 @@ void __fastcall LdrpProcessWork(__int64 a1, char a2)
   int v4; // edi
   int v5; // eax
   char v6; // al
-  __int64 v7; // rdx
-  __int64 v8; // r8
-  int v9; // eax
-  char v10; // bl
+  int v7; // eax
+  char v8; // bl
+  int v9; // [rsp+20h] [rbp-38h]
 
   if ( **(int **)(a1 + 40) < 0 )
     goto LABEL_21;
@@ -72,14 +71,15 @@ void __fastcall LdrpProcessWork(__int64 a1, char a2)
     {
       LdrpLogError(3221225781LL, 25LL, 0LL, a1);
       LdrpLogDeprecatedDllEtwEvent(a1);
+      LOBYTE(v9) = 0;
       LdrpLogLoadFailureEtwEvent(
         a1,
-        (*(_DWORD *)(a1 + 48) + 72) & ((unsigned __int128)-(__int128)*(unsigned __int64 *)(a1 + 48) >> 64),
-        -1073741515,
-        (unsigned int)&LoadFailure,
-        0);
+        (*(_QWORD *)(a1 + 48) + 72LL) & ((unsigned __int128)-(__int128)*(unsigned __int64 *)(a1 + 48) >> 64),
+        3221225781LL,
+        &LoadFailure,
+        v9);
       if ( (*(_BYTE *)(*(_QWORD *)(a1 + 56) + 104LL) & 0x20) != 0 )
-        LdrpReportError((UNICODE_STRING *)a1, 0LL, 0xC0000135);
+        LdrpReportError((_UNICODE_STRING *)a1, 0LL, -1073741515);
     }
   }
   if ( v4 < 0 )
@@ -87,12 +87,12 @@ void __fastcall LdrpProcessWork(__int64 a1, char a2)
 LABEL_21:
   if ( !a2 )
   {
-    RtlEnterCriticalSection((__int64)&LdrpWorkQueueLock);
-    v9 = --LdrpWorkInProgress;
-    if ( (__int64 *)LdrpWorkQueue != &LdrpWorkQueue || (v10 = 1, v9 != 1) )
-      v10 = 0;
-    RtlLeaveCriticalSection((__int64)&LdrpWorkQueueLock, v7, v8);
-    if ( v10 )
+    RtlEnterCriticalSection(&LdrpWorkQueueLock);
+    v7 = --LdrpWorkInProgress;
+    if ( (__int64 *)LdrpWorkQueue != &LdrpWorkQueue || (v8 = 1, v7 != 1) )
+      v8 = 0;
+    RtlLeaveCriticalSection(&LdrpWorkQueueLock);
+    if ( v8 )
       ZwSetEvent(LdrpWorkCompleteEvent, 0LL);
   }
 }

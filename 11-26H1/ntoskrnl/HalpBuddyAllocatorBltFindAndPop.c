@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpBuddyAllocatorBltFindAndPop @ 0x140357B04
+ * XREFs of HalpBuddyAllocatorBltFindAndPop @ 0x1403598A4
  * Callers:
- *     HalpBuddyAllocatorAllocateLogicalAddress @ 0x140357750 (HalpBuddyAllocatorAllocateLogicalAddress.c)
+ *     HalpBuddyAllocatorAllocateLogicalAddress @ 0x1403594F0 (HalpBuddyAllocatorAllocateLogicalAddress.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
  */
 
 _QWORD *__fastcall HalpBuddyAllocatorBltFindAndPop(unsigned __int64 a1, _QWORD *a2, __int64 a3, __int64 a4)

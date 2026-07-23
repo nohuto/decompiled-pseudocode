@@ -1,13 +1,13 @@
 /*
- * XREFs of PspGetMemoryPartitionFromJobList @ 0x1408E7594
+ * XREFs of PspGetMemoryPartitionFromJobList @ 0x1408D7DF0
  * Callers:
- *     PspGetMemoryPartitionContext @ 0x1408E7414 (PspGetMemoryPartitionContext.c)
+ *     PspGetMemoryPartitionContext @ 0x1408D7C70 (PspGetMemoryPartitionContext.c)
  * Callees:
- *     ExReleaseResourceLite @ 0x14025A450 (ExReleaseResourceLite.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402769C0 (ExAcquireResourceExclusiveLite.c)
- *     KiCheckForKernelApcDelivery @ 0x1402BB4D0 (KiCheckForKernelApcDelivery.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     ObfReferenceObjectWithTag @ 0x1403403E0 (ObfReferenceObjectWithTag.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14022BF50 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14028AA60 (ExReleaseResourceLite.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x14031F8C0 (ObfReferenceObjectWithTag.c)
+ *     KiCheckForKernelApcDelivery @ 0x140362C10 (KiCheckForKernelApcDelivery.c)
  */
 
 __int64 __fastcall PspGetMemoryPartitionFromJobList(__int64 a1, unsigned __int64 a2, PVOID *a3)
@@ -18,7 +18,7 @@ __int64 __fastcall PspGetMemoryPartitionFromJobList(__int64 a1, unsigned __int64
   __int64 v9; // r14
   PVOID v10; // rax
   PVOID v11; // rcx
-  $81B80DCEA5A02D890AB7B2872B48AC01 *v13; // rcx
+  bool v12; // zf
 
   *a3 = 0LL;
   CurrentThread = KeGetCurrentThread();
@@ -74,11 +74,8 @@ __int64 __fastcall PspGetMemoryPartitionFromJobList(__int64 a1, unsigned __int64
     *a3 = 0LL;
   }
 LABEL_8:
-  if ( CurrentThread->SpecialApcDisable++ == -1 )
-  {
-    v13 = &CurrentThread->152;
-    if ( ($81B80DCEA5A02D890AB7B2872B48AC01 *)v13->ApcState.ApcListHead[0].Flink != v13 )
-      KiCheckForKernelApcDelivery((__int64)v13, a2);
-  }
+  v12 = CurrentThread->SpecialApcDisable++ == -1;
+  if ( v12 && ($727077A9B6E167EAE1398C74674DC5A5 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+    KiCheckForKernelApcDelivery();
   return (unsigned int)v4;
 }

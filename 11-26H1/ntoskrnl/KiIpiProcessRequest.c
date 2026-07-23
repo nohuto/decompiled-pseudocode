@@ -1,15 +1,15 @@
 /*
- * XREFs of KiIpiProcessRequest @ 0x14032C2E0
+ * XREFs of KiIpiProcessRequest @ 0x14032E310
  * Callers:
- *     KiIpiProcessRequests @ 0x140481AA0 (KiIpiProcessRequests.c)
+ *     KiIpiProcessRequests @ 0x14047B410 (KiIpiProcessRequests.c)
  * Callees:
- *     RtlGetSystemTimePrecise @ 0x14021C830 (RtlGetSystemTimePrecise.c)
- *     PerfInfoLogIpiReceive @ 0x14032C6F0 (PerfInfoLogIpiReceive.c)
- *     EtwpGetPerfCounter @ 0x14032D3B0 (EtwpGetPerfCounter.c)
- *     EtwpGetHostPerfCounter @ 0x14046F124 (EtwpGetHostPerfCounter.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     KiSetUserTbFlushPending @ 0x1407284C0 (KiSetUserTbFlushPending.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     RtlGetSystemTimePrecise @ 0x14021E1C0 (RtlGetSystemTimePrecise.c)
+ *     PerfInfoLogIpiReceive @ 0x14032E720 (PerfInfoLogIpiReceive.c)
+ *     EtwpGetPerfCounter @ 0x14032F3E0 (EtwpGetPerfCounter.c)
+ *     EtwpGetHostPerfCounter @ 0x1404688A4 (EtwpGetHostPerfCounter.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     KiSetUserTbFlushPending @ 0x14072D090 (KiSetUserTbFlushPending.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall KiIpiProcessRequest(__int64 a1, unsigned __int64 a2, __int64 a3)
@@ -64,20 +64,20 @@ __int64 __fastcall KiIpiProcessRequest(__int64 a1, unsigned __int64 a2, __int64 
     v6 = 0;
     goto LABEL_13;
   }
-  a3 = qword_140FC8C80;
+  a3 = qword_140FC9C80;
   v6 = 1;
   v7 = 0;
-  if ( qword_140FC8C80 )
+  if ( qword_140FC9C80 )
   {
-    v8 = *(_DWORD *)(qword_140FC8C80 + 4520);
+    v8 = *(_DWORD *)(qword_140FC9C80 + 4520);
     for ( i = !_BitScanForward((unsigned int *)&a2, v8); !i; i = !_BitScanForward((unsigned int *)&a2, v8) )
     {
       v8 &= v8 - 1;
       a1 = (unsigned int)a2;
-      v10 = qword_140FC8C80 + 32 * a2 + 4556;
+      v10 = qword_140FC9C80 + 32 * a2 + 4556;
       if ( v10 && (*(_DWORD *)(v10 + 8) & 0x400000) != 0 )
       {
-        a1 = *(unsigned __int8 *)(qword_140FC8C80 + 2 * a1 + 4505);
+        a1 = *(unsigned __int8 *)(qword_140FC9C80 + 2 * a1 + 4505);
         v7 |= 1 << a1;
       }
     }
@@ -88,10 +88,10 @@ __int64 __fastcall KiIpiProcessRequest(__int64 a1, unsigned __int64 a2, __int64 
   {
     LOBYTE(v7) = 30;
   }
-  *(_QWORD *)&v40 = EtwpGetPerfCounter(a1, a2, qword_140FC8C80);
+  *(_QWORD *)&v40 = EtwpGetPerfCounter(a1, a2, qword_140FC9C80);
 LABEL_7:
   if ( (v7 & 4) != 0 )
-    *((_QWORD *)&v40 + 1) = RtlGetSystemTimePrecise();
+    *((LARGE_INTEGER *)&v40 + 1) = RtlGetSystemTimePrecise();
   else
     *((_QWORD *)&v40 + 1) = 0LL;
   if ( (v7 & 8) != 0 )

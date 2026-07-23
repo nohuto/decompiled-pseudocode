@@ -1,18 +1,18 @@
 /*
- * XREFs of HvpGenerateLogEntryDirtyData @ 0x140356378
+ * XREFs of HvpGenerateLogEntryDirtyData @ 0x140358118
  * Callers:
- *     HvpGenerateLogEntry @ 0x1408B6E18 (HvpGenerateLogEntry.c)
+ *     HvpGenerateLogEntry @ 0x1408BD3E8 (HvpGenerateLogEntry.c)
  * Callees:
- *     HvpCopyDataToOffsetArray @ 0x140356470 (HvpCopyDataToOffsetArray.c)
- *     RtlNumberOfSetBits @ 0x140356570 (RtlNumberOfSetBits.c)
- *     HvpCountSetRangesInVector @ 0x1408B7184 (HvpCountSetRangesInVector.c)
- *     CmpLogDirtyVectorUse @ 0x1408B71E8 (CmpLogDirtyVectorUse.c)
- *     HvpFindNextDirtyBlock @ 0x1408B8B70 (HvpFindNextDirtyBlock.c)
+ *     HvpCopyDataToOffsetArray @ 0x140358210 (HvpCopyDataToOffsetArray.c)
+ *     RtlNumberOfSetBits @ 0x140358310 (RtlNumberOfSetBits.c)
+ *     HvpCountSetRangesInVector @ 0x1408BD754 (HvpCountSetRangesInVector.c)
+ *     CmpLogDirtyVectorUse @ 0x1408BD7B8 (CmpLogDirtyVectorUse.c)
+ *     HvpFindNextDirtyBlock @ 0x1408BF140 (HvpFindNextDirtyBlock.c)
  */
 
 __int64 __fastcall HvpGenerateLogEntryDirtyData(__int64 a1, int a2, __int64 a3, __int64 a4, __int64 a5, int a6)
 {
-  RTL_BITMAP *v6; // rdi
+  _RTL_BITMAP *v6; // rdi
   int v10; // r9d
   __int64 v11; // rbx
   ULONG v12; // ebx
@@ -21,7 +21,7 @@ __int64 __fastcall HvpGenerateLogEntryDirtyData(__int64 a1, int a2, __int64 a3, 
   int v16; // [rsp+80h] [rbp+30h] BYREF
   int v17; // [rsp+90h] [rbp+40h] BYREF
 
-  v6 = (RTL_BITMAP *)(a1 + 88);
+  v6 = (_RTL_BITMAP *)(a1 + 88);
   v15[0] = 0LL;
   v17 = 0;
   a6 = 0;

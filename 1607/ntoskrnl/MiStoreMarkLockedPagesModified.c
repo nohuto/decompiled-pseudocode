@@ -1,12 +1,12 @@
 /*
- * XREFs of MiStoreMarkLockedPagesModified @ 0x1401224BC
+ * XREFs of MiStoreMarkLockedPagesModified @ 0x140122A2C
  * Callers:
- *     MmStoreProbeAndLockPages @ 0x140122370 (MmStoreProbeAndLockPages.c)
+ *     MmStoreProbeAndLockPages @ 0x1401228E0 (MmStoreProbeAndLockPages.c)
  * Callees:
- *     MiReleasePageFileInfo @ 0x14001A280 (MiReleasePageFileInfo.c)
- *     MiLockPageInline @ 0x140022E70 (MiLockPageInline.c)
- *     MiPartitionIdToPointer @ 0x1400680A0 (MiPartitionIdToPointer.c)
- *     MiCapturePageFileInfoInline @ 0x140098320 (MiCapturePageFileInfoInline.c)
+ *     MiReleasePageFileInfo @ 0x140019E00 (MiReleasePageFileInfo.c)
+ *     MiLockPageInline @ 0x1400229F0 (MiLockPageInline.c)
+ *     MiPartitionIdToPointer @ 0x140067C20 (MiPartitionIdToPointer.c)
+ *     MiCapturePageFileInfoInline @ 0x140097B20 (MiCapturePageFileInfoInline.c)
  */
 
 void __fastcall MiStoreMarkLockedPagesModified(_DWORD *a1)

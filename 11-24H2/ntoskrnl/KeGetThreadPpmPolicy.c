@@ -1,7 +1,7 @@
 /*
- * XREFs of KeGetThreadPpmPolicy @ 0x1404FB684
+ * XREFs of KeGetThreadPpmPolicy @ 0x1404F8F48
  * Callers:
- *     PspGetThreadPpmPolicy @ 0x140AC16C0 (PspGetThreadPpmPolicy.c)
+ *     PspGetThreadPpmPolicy @ 0x140ABC9A8 (PspGetThreadPpmPolicy.c)
  * Callees:
  *     <none>
  */

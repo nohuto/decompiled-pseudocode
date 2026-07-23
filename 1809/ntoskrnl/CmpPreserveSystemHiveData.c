@@ -1,21 +1,21 @@
 /*
- * XREFs of CmpPreserveSystemHiveData @ 0x1407FDCC4
+ * XREFs of CmpPreserveSystemHiveData @ 0x1407FEEC4
  * Callers:
- *     CmReplaceKey @ 0x1407EF13C (CmReplaceKey.c)
+ *     CmReplaceKey @ 0x1407F033C (CmReplaceKey.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     _strnicmp @ 0x140195490 (_strnicmp.c)
- *     _wcsnicmp @ 0x140195A70 (_wcsnicmp.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     CmpSetValueKeyExisting @ 0x1405AE27C (CmpSetValueKeyExisting.c)
- *     CmpFindNameInList @ 0x1405D062C (CmpFindNameInList.c)
- *     CmpGetValueData @ 0x1405D20A0 (CmpGetValueData.c)
- *     CmpFindSubKeyByNumber @ 0x1406B2C88 (CmpFindSubKeyByNumber.c)
- *     CmpWalkPath @ 0x14073D690 (CmpWalkPath.c)
- *     CmpCopySyncTree @ 0x1407FCB60 (CmpCopySyncTree.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     _strnicmp @ 0x1401955D0 (_strnicmp.c)
+ *     _wcsnicmp @ 0x140195BB0 (_wcsnicmp.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     CmpSetValueKeyExisting @ 0x1405AF27C (CmpSetValueKeyExisting.c)
+ *     CmpFindNameInList @ 0x1405D162C (CmpFindNameInList.c)
+ *     CmpGetValueData @ 0x1405D30A0 (CmpGetValueData.c)
+ *     CmpFindSubKeyByNumber @ 0x1406B3F28 (CmpFindSubKeyByNumber.c)
+ *     CmpWalkPath @ 0x14073E880 (CmpWalkPath.c)
+ *     CmpCopySyncTree @ 0x1407FDD60 (CmpCopySyncTree.c)
  */
 
 __int64 __fastcall CmpPreserveSystemHiveData(__int64 a1, ULONG_PTR a2)

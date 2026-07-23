@@ -1,11 +1,11 @@
 /*
- * XREFs of MiStoreLogReadFailure @ 0x14068C600
+ * XREFs of MiStoreLogReadFailure @ 0x14068D730
  * Callers:
- *     MiStoreFaultComplete @ 0x140398D18 (MiStoreFaultComplete.c)
+ *     MiStoreFaultComplete @ 0x140351468 (MiStoreFaultComplete.c)
  * Callees:
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     _tlgWriteEx_EtwWriteEx @ 0x1404A083C (_tlgWriteEx_EtwWriteEx.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x14049AEBC (_tlgWriteEx_EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 void MiStoreLogReadFailure()
@@ -42,9 +42,9 @@ void MiStoreLogReadFailure()
   __int64 *v29; // [rsp+100h] [rbp+0h]
   __int64 v30; // [rsp+108h] [rbp+8h]
 
-  if ( *(_QWORD *)&qword_140E37518
-    && **(_DWORD **)&qword_140E37518 > 5u
-    && tlgKeywordOn(*(__int64 *)&qword_140E37518, 0x400000000002LL) )
+  if ( *(_QWORD *)&qword_140E37658
+    && **(_DWORD **)&qword_140E37658 > 5u
+    && tlgKeywordOn(*(__int64 *)&qword_140E37658, 0x400000000002LL) )
   {
     Flink = (int)KeGetCurrentThread()->ApcState.Process[1].Header.WaitListHead.Flink;
     p_Flink = &Flink;
@@ -60,7 +60,7 @@ void MiStoreLogReadFailure()
     v23 = &v9;
     v12 = *(_QWORD *)(v1 + 96);
     v25 = &v12;
-    v10 = dword_140E37320;
+    v10 = dword_140E37460;
     v27 = &v10;
     v29 = &v13;
     v7 = v3;
@@ -72,6 +72,6 @@ void MiStoreLogReadFailure()
     v28 = 4LL;
     v13 = 0x1000000LL;
     v30 = 8LL;
-    tlgWriteEx_EtwWriteEx(v0, (unsigned __int8 *)&byte_1400581A5, v0, 1u, v4, v5, 0xAu, &v14);
+    tlgWriteEx_EtwWriteEx(v0, (unsigned __int8 *)&byte_1400589F1, v0, 1u, v4, v5, 0xAu, &v14);
   }
 }

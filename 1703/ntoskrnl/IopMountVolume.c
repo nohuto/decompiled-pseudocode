@@ -60,7 +60,7 @@ __int64 __fastcall IopMountVolume(ULONG_PTR BugCheckParameter1, char a2, char a3
   char v28; // r12
   struct _DEVICE_OBJECT *v29; // rax
   __int64 v30; // rcx
-  struct _SLIST_ENTRY *IrpWithExtension; // rax
+  _SLIST_ENTRY *IrpWithExtension; // rax
   IRP *v32; // r13
   __int64 v33; // rcx
   int v34; // eax

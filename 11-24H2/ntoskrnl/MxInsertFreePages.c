@@ -1,18 +1,18 @@
 /*
- * XREFs of MxInsertFreePages @ 0x140C52D50
+ * XREFs of MxInsertFreePages @ 0x140C54EE0
  * Callers:
- *     MxCreateFreePfns @ 0x140C5254C (MxCreateFreePfns.c)
+ *     MxCreateFreePfns @ 0x140C546DC (MxCreateFreePfns.c)
  * Callees:
- *     MiInsertPageInFreeOrZeroedList @ 0x140222210 (MiInsertPageInFreeOrZeroedList.c)
- *     MiPageToNode @ 0x14026C1E0 (MiPageToNode.c)
- *     MiLockPageInline @ 0x140291550 (MiLockPageInline.c)
- *     MiUnlockPage @ 0x1402915F0 (MiUnlockPage.c)
- *     MiRestrictRangeToNode @ 0x140401E10 (MiRestrictRangeToNode.c)
- *     MiCreateInitialLargeLeafPfns @ 0x14043CFC8 (MiCreateInitialLargeLeafPfns.c)
- *     MiDetermineNewPfnHeatState @ 0x140451C6C (MiDetermineNewPfnHeatState.c)
- *     MiInitializeAllResidentPageBasePfns @ 0x140459D90 (MiInitializeAllResidentPageBasePfns.c)
- *     MiCreateInitialPfns @ 0x14066C460 (MiCreateInitialPfns.c)
- *     MiCreatePfnTemplate @ 0x14066C510 (MiCreatePfnTemplate.c)
+ *     MiPageToNode @ 0x140221770 (MiPageToNode.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x14024EF60 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiLockPageInline @ 0x1402A1150 (MiLockPageInline.c)
+ *     MiUnlockPage @ 0x1402A11F0 (MiUnlockPage.c)
+ *     MiRestrictRangeToNode @ 0x1403FC38C (MiRestrictRangeToNode.c)
+ *     MiCreateInitialLargeLeafPfns @ 0x140431268 (MiCreateInitialLargeLeafPfns.c)
+ *     MiDetermineNewPfnHeatState @ 0x140446D1C (MiDetermineNewPfnHeatState.c)
+ *     MiInitializeAllResidentPageBasePfns @ 0x14044F1DC (MiInitializeAllResidentPageBasePfns.c)
+ *     MiCreateInitialPfns @ 0x14066D630 (MiCreateInitialPfns.c)
+ *     MiCreatePfnTemplate @ 0x14066D6E0 (MiCreatePfnTemplate.c)
  */
 
 __int64 __fastcall MxInsertFreePages(ULONG_PTR BugCheckParameter2, ULONG_PTR a2, unsigned int a3, unsigned int a4)
@@ -27,11 +27,14 @@ __int64 __fastcall MxInsertFreePages(ULONG_PTR BugCheckParameter2, ULONG_PTR a2,
   unsigned int v12; // eax
   int v13; // eax
   unsigned int v14; // ecx
-  unsigned __int8 v15; // bl
-  _OWORD v16[6]; // [rsp+40h] [rbp-68h] BYREF
-  int v17; // [rsp+B0h] [rbp+8h]
+  __int64 v15; // rdx
+  __int64 v16; // r8
+  __int64 v17; // r9
+  unsigned __int8 v18; // bl
+  _OWORD v19[6]; // [rsp+40h] [rbp-68h] BYREF
+  int v20; // [rsp+B0h] [rbp+8h]
 
-  memset(v16, 0, 48);
+  memset(v19, 0, 48);
   v4 = 0LL;
   result = a4;
   v7 = a2;
@@ -50,7 +53,7 @@ __int64 __fastcall MxInsertFreePages(ULONG_PTR BugCheckParameter2, ULONG_PTR a2,
       {
         v11 = MiPageSizes[v10];
         v12 = MiPageToNode(v8);
-        v13 = MiDetermineNewPfnHeatState(0, v10, qword_140E38C10 + 57216LL * v12);
+        v13 = MiDetermineNewPfnHeatState(0, v10, qword_140E38D50 + 57216LL * v12);
         v14 = a3 & 0xFFFFFBFF;
         a3 |= 0x400u;
         if ( !v13 )
@@ -59,14 +62,14 @@ __int64 __fastcall MxInsertFreePages(ULONG_PTR BugCheckParameter2, ULONG_PTR a2,
         {
           if ( !v4 )
           {
-            v4 = v16;
-            MiCreatePfnTemplate((__int64)v16, 0, 0);
+            v4 = v19;
+            MiCreatePfnTemplate((__int64)v19, 0, 0);
           }
           if ( a3 == 1 )
           {
-            v17 = *((_DWORD *)v4 + 8);
-            BYTE2(v17) &= 0xF8u;
-            *((_DWORD *)v4 + 8) = v17;
+            v20 = *((_DWORD *)v4 + 8);
+            BYTE2(v20) &= 0xF8u;
+            *((_DWORD *)v4 + 8) = v20;
           }
           MiCreateInitialPfns(i, 1LL, (__int64 *)v4);
         }
@@ -75,9 +78,9 @@ __int64 __fastcall MxInsertFreePages(ULONG_PTR BugCheckParameter2, ULONG_PTR a2,
           MiInitializeAllResidentPageBasePfns((unsigned __int16 *)&MiSystemPartition, v8, v11, v10, 1, v13 == 0, 0);
           MiCreateInitialLargeLeafPfns(v8, v11, v10, 1, 0, 0);
         }
-        v15 = MiLockPageInline(i);
+        v18 = MiLockPageInline(i, v15, v16, v17);
         MiInsertPageInFreeOrZeroedList(v8, a3);
-        MiUnlockPage(i, v15);
+        MiUnlockPage(i, v18);
         break;
       }
       ++v10;

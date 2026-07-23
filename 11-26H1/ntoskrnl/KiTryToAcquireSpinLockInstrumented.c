@@ -1,9 +1,9 @@
 /*
- * XREFs of KiTryToAcquireSpinLockInstrumented @ 0x1404BAD14
+ * XREFs of KiTryToAcquireSpinLockInstrumented @ 0x1404B45A4
  * Callers:
- *     KxTryToAcquireSpinLock @ 0x140330C68 (KxTryToAcquireSpinLock.c)
+ *     KxTryToAcquireSpinLock @ 0x140332C98 (KxTryToAcquireSpinLock.c)
  * Callees:
- *     PerfLogSpinLockAcquire @ 0x1404DA444 (PerfLogSpinLockAcquire.c)
+ *     PerfLogSpinLockAcquire @ 0x1404D3B24 (PerfLogSpinLockAcquire.c)
  */
 
 char __fastcall KiTryToAcquireSpinLockInstrumented(volatile signed __int32 *a1)
@@ -20,7 +20,7 @@ char __fastcall KiTryToAcquireSpinLockInstrumented(volatile signed __int32 *a1)
   InterruptCount = 0;
   v3 = 0;
   v4 = 1;
-  if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+  if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
   {
     v5 = 0;
   }

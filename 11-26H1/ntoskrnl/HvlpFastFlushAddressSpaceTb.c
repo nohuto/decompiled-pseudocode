@@ -1,18 +1,18 @@
 /*
- * XREFs of HvlpFastFlushAddressSpaceTb @ 0x140250E04
+ * XREFs of HvlpFastFlushAddressSpaceTb @ 0x140252764
  * Callers:
- *     KiFlushAddressSpaceTb @ 0x14024FEF8 (KiFlushAddressSpaceTb.c)
- *     MiIssueFlushTbEntire @ 0x140250040 (MiIssueFlushTbEntire.c)
- *     KeFlushCurrentTbOnly @ 0x140250688 (KeFlushCurrentTbOnly.c)
- *     KeFlushTb @ 0x1402507D0 (KeFlushTb.c)
+ *     KiFlushAddressSpaceTb @ 0x140251858 (KiFlushAddressSpaceTb.c)
+ *     MiIssueFlushTbEntire @ 0x1402519A0 (MiIssueFlushTbEntire.c)
+ *     KeFlushCurrentTbOnly @ 0x140251FE8 (KeFlushCurrentTbOnly.c)
+ *     KeFlushTb @ 0x140252130 (KeFlushTb.c)
  * Callees:
- *     RtlGetSystemTimePrecise @ 0x14021C830 (RtlGetSystemTimePrecise.c)
- *     HvlpAffinityToVirtualAffinity @ 0x140251240 (HvlpAffinityToVirtualAffinity.c)
- *     EtwTraceTimedEvent @ 0x14032B770 (EtwTraceTimedEvent.c)
- *     EtwpGetPerfCounter @ 0x14032D3B0 (EtwpGetPerfCounter.c)
- *     EtwpGetHostPerfCounter @ 0x14046F124 (EtwpGetHostPerfCounter.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     HvcallpExtendedFastHypercall @ 0x1407324F0 (HvcallpExtendedFastHypercall.c)
+ *     RtlGetSystemTimePrecise @ 0x14021E1C0 (RtlGetSystemTimePrecise.c)
+ *     HvlpAffinityToVirtualAffinity @ 0x140252BA0 (HvlpAffinityToVirtualAffinity.c)
+ *     EtwTraceTimedEvent @ 0x14032D7A0 (EtwTraceTimedEvent.c)
+ *     EtwpGetPerfCounter @ 0x14032F3E0 (EtwpGetPerfCounter.c)
+ *     EtwpGetHostPerfCounter @ 0x1404688A4 (EtwpGetHostPerfCounter.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     HvcallpExtendedFastHypercall @ 0x1407370C0 (HvcallpExtendedFastHypercall.c)
  */
 
 __int64 __fastcall HvlpFastFlushAddressSpaceTb(__int64 a1, __int64 a2, __int64 a3)
@@ -53,24 +53,24 @@ __int64 __fastcall HvlpFastFlushAddressSpaceTb(__int64 a1, __int64 a2, __int64 a
   LODWORD(v14) = 65538;
   v15 = 0LL;
   v16 = 0LL;
-  if ( (BYTE4(xmmword_140FBFC10) & 0x10) == 0 )
+  if ( (BYTE4(xmmword_140FC0C10) & 0x10) == 0 )
   {
     v6 = 0;
     goto LABEL_15;
   }
-  v8 = qword_140FC8C80;
+  v8 = qword_140FC9C80;
   v10 = 0;
   LODWORD(v13) = 0;
   v6 = 1;
-  if ( qword_140FC8C80 )
+  if ( qword_140FC9C80 )
   {
-    a3 = *(unsigned int *)(qword_140FC8C80 + 4520);
+    a3 = *(unsigned int *)(qword_140FC9C80 + 4520);
     while ( _BitScanForward((unsigned int *)&a1, a3) )
     {
       a3 = ((_DWORD)a3 - 1) & (unsigned int)a3;
-      v12 = qword_140FC8C80 + 32LL * (unsigned int)a1 + 4556;
+      v12 = qword_140FC9C80 + 32LL * (unsigned int)a1 + 4556;
       if ( v12 && (*(_DWORD *)(v12 + 20) & 0x10) != 0 )
-        v10 |= 1 << *(_BYTE *)(qword_140FC8C80 + 2 * a1 + 4505);
+        v10 |= 1 << *(_BYTE *)(qword_140FC9C80 + 2 * a1 + 4505);
     }
     if ( (v10 & 2) == 0 )
       goto LABEL_9;
@@ -79,10 +79,10 @@ __int64 __fastcall HvlpFastFlushAddressSpaceTb(__int64 a1, __int64 a2, __int64 a
   {
     LOBYTE(v10) = 30;
   }
-  *(_QWORD *)&v15 = EtwpGetPerfCounter(a1, qword_140FC8C80, a3);
+  *(_QWORD *)&v15 = EtwpGetPerfCounter(a1, qword_140FC9C80, a3);
 LABEL_9:
   if ( (v10 & 4) != 0 )
-    *((_QWORD *)&v15 + 1) = RtlGetSystemTimePrecise();
+    *((LARGE_INTEGER *)&v15 + 1) = RtlGetSystemTimePrecise();
   else
     *((_QWORD *)&v15 + 1) = 0LL;
   if ( (v10 & 8) != 0 )

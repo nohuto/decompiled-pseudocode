@@ -10,7 +10,7 @@
 
 PVOID __fastcall EtwpFreeKeyNameList(PRTL_AVL_TABLE Table)
 {
-  struct _RTL_AVL_TABLE *i; // rbx
+  _RTL_AVL_TABLE *i; // rbx
   PVOID result; // rax
 
   for ( i = Table; ; Table = i )

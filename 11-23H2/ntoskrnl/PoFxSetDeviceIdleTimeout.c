@@ -1,12 +1,12 @@
 /*
- * XREFs of PoFxSetDeviceIdleTimeout @ 0x14036B250
+ * XREFs of PoFxSetDeviceIdleTimeout @ 0x14036B3F0
  * Callers:
- *     DifPoFxSetDeviceIdleTimeoutWrapper @ 0x1405E9EF0 (DifPoFxSetDeviceIdleTimeoutWrapper.c)
+ *     DifPoFxSetDeviceIdleTimeoutWrapper @ 0x1405EA460 (DifPoFxSetDeviceIdleTimeoutWrapper.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     PopFxUpdateDeviceIdleTimer @ 0x14036B2D4 (PopFxUpdateDeviceIdleTimer.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PopFxUpdateDeviceIdleTimer @ 0x14036B474 (PopFxUpdateDeviceIdleTimer.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall PoFxSetDeviceIdleTimeout(__int64 a1, unsigned __int64 a2)
@@ -29,10 +29,10 @@ __int64 __fastcall PoFxSetDeviceIdleTimeout(__int64 a1, unsigned __int64 a2)
   *(_QWORD *)(a1 + 496) = v6;
   PopFxUpdateDeviceIdleTimer(a1);
   result = KxReleaseSpinLock(v2);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
       && (unsigned __int8)result <= 0xFu
       && (unsigned __int8)v7 <= 0xFu
       && (unsigned __int8)result >= 2u )

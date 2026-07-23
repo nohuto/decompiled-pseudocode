@@ -1,22 +1,22 @@
 /*
- * XREFs of CmpDoWritethroughReparse @ 0x140655080
+ * XREFs of CmpDoWritethroughReparse @ 0x140649EA0
  * Callers:
- *     CmpDoParseKey @ 0x1406F9170 (CmpDoParseKey.c)
+ *     CmpDoParseKey @ 0x140710550 (CmpDoParseKey.c)
  * Callees:
- *     CmSiFreeMemory @ 0x140201A30 (CmSiFreeMemory.c)
- *     RtlUnicodeStringCat @ 0x140206B60 (RtlUnicodeStringCat.c)
- *     RtlUnicodeStringCopy @ 0x140206CD0 (RtlUnicodeStringCopy.c)
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     CmSiFreeMemory @ 0x1402253C0 (CmSiFreeMemory.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     RtlUnicodeStringCat @ 0x1402AB490 (RtlUnicodeStringCat.c)
+ *     RtlUnicodeStringCopy @ 0x1402AB600 (RtlUnicodeStringCopy.c)
  *     CmpUnicodeStringAppendCharacter @ 0x1405CD048 (CmpUnicodeStringAppendCharacter.c)
- *     CmpGetKcbAtLayerHeight @ 0x1405EF550 (CmpGetKcbAtLayerHeight.c)
- *     CmpConstructNameWithStatus @ 0x1405F2FF0 (CmpConstructNameWithStatus.c)
- *     CmpKeyFullNameLength @ 0x1405F3480 (CmpKeyFullNameLength.c)
- *     CmpAttachToRegistryProcess @ 0x1405F6390 (CmpAttachToRegistryProcess.c)
- *     CmpStartKcbStackForTopLayerKcb @ 0x140665D30 (CmpStartKcbStackForTopLayerKcb.c)
- *     CmpRecordParseFailure @ 0x14068A510 (CmpRecordParseFailure.c)
- *     CmpIsKeyStackDeleted @ 0x1406FB540 (CmpIsKeyStackDeleted.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     CmpRecordParseFailure @ 0x1405E99A0 (CmpRecordParseFailure.c)
+ *     CmpStartKcbStackForTopLayerKcb @ 0x14065AB50 (CmpStartKcbStackForTopLayerKcb.c)
+ *     CmpGetKcbAtLayerHeight @ 0x1406DECB0 (CmpGetKcbAtLayerHeight.c)
+ *     CmpConstructNameWithStatus @ 0x1406E2750 (CmpConstructNameWithStatus.c)
+ *     CmpKeyFullNameLength @ 0x1406E2BE0 (CmpKeyFullNameLength.c)
+ *     CmpAttachToRegistryProcess @ 0x1406E5AF0 (CmpAttachToRegistryProcess.c)
+ *     CmpIsKeyStackDeleted @ 0x140712920 (CmpIsKeyStackDeleted.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall CmpDoWritethroughReparse(
@@ -33,28 +33,25 @@ __int64 __fastcall CmpDoWritethroughReparse(
   __int64 KcbAtLayerHeight; // rax
   int started; // eax
   __int64 v15; // rcx
-  __int64 v16; // r8
-  __int64 v17; // rdx
+  int v16; // r8d
+  int v17; // edx
   __int64 v18; // rbx
   unsigned int v19; // eax
-  __int64 v20; // rdx
-  __int64 v21; // r8
-  _DWORD *v22; // r9
-  SIZE_T v23; // rbp
-  __int64 v24; // rdi
-  int v25; // eax
-  int v26; // eax
-  UNICODE_STRING *v27; // rbx
+  SIZE_T v20; // rbp
+  __int64 v21; // rdi
+  int v22; // eax
+  int v23; // eax
+  UNICODE_STRING *v24; // rbx
   UNICODE_STRING DestinationString; // [rsp+20h] [rbp-48h] BYREF
-  __int128 v30; // [rsp+30h] [rbp-38h] BYREF
+  __int128 v27; // [rsp+30h] [rbp-38h] BYREF
   PPRIVILEGE_SET Privileges[2]; // [rsp+40h] [rbp-28h]
   PCUNICODE_STRING SourceString; // [rsp+70h] [rbp+8h] BYREF
 
   DestinationString = 0LL;
   RtlInitUnicodeString(&DestinationString, 0LL);
   v11 = *(_DWORD *)(a1 + 40) == -1;
-  v30 = 0LL;
-  WORD1(v30) = -1;
+  v27 = 0LL;
+  WORD1(v27) = -1;
   SourceString = 0LL;
   *(_OWORD *)Privileges = 0LL;
   if ( !v11 )
@@ -74,88 +71,88 @@ __int64 __fastcall CmpDoWritethroughReparse(
     v12 = -1073741199;
     goto LABEL_28;
   }
-  KcbAtLayerHeight = CmpGetKcbAtLayerHeight(a3, *(_WORD *)(a1 + 66) - 1);
-  started = CmpStartKcbStackForTopLayerKcb(&v30, KcbAtLayerHeight);
+  KcbAtLayerHeight = CmpGetKcbAtLayerHeight(a3);
+  started = CmpStartKcbStackForTopLayerKcb(&v27, KcbAtLayerHeight);
   v12 = started;
   if ( started >= 0 )
   {
-    if ( (unsigned __int8)CmpIsKeyStackDeleted(&v30, 0LL) )
+    if ( (unsigned __int8)CmpIsKeyStackDeleted(&v27, 0LL) )
     {
       v12 = -1073741199;
       goto LABEL_28;
     }
 LABEL_12:
-    v18 = CmpGetKcbAtLayerHeight(a2, *(_WORD *)(a1 + 66) - 1);
+    v18 = CmpGetKcbAtLayerHeight(a2);
     v19 = CmpKeyFullNameLength(v18);
-    v23 = v19;
+    v20 = v19;
     if ( v19 <= 0xFFFF )
     {
-      v24 = a6;
+      v21 = a6;
       if ( (*(_DWORD *)(a6 + 160) & 1) == 0 )
       {
-        CmpAttachToRegistryProcess(a6 + 168, v20, v21, v22);
-        *(_DWORD *)(v24 + 160) |= 1u;
+        CmpAttachToRegistryProcess(a6 + 168);
+        *(_DWORD *)(v21 + 160) |= 1u;
       }
       if ( a4 )
       {
-        v25 = CmpConstructNameWithStatus(*(_QWORD *)(v18 + 72), &SourceString);
-        v12 = v25;
-        if ( v25 < 0 )
+        v22 = CmpConstructNameWithStatus(*(_QWORD *)(v18 + 72), &SourceString);
+        v12 = v22;
+        if ( v22 < 0 )
         {
-          v16 = (unsigned int)v25;
-          v17 = 66048LL;
-          v15 = v24;
+          v16 = v22;
+          v17 = 66048;
+          v15 = v21;
           goto LABEL_27;
         }
       }
       else
       {
-        v26 = CmpConstructNameWithStatus(v18, &SourceString);
-        v12 = v26;
-        if ( v26 < 0 )
+        v23 = CmpConstructNameWithStatus(v18, &SourceString);
+        v12 = v23;
+        if ( v23 < 0 )
         {
-          v16 = (unsigned int)v26;
-          v17 = 66304LL;
-          v15 = v24;
+          v16 = v23;
+          v17 = 66304;
+          v15 = v21;
           goto LABEL_27;
         }
       }
-      DestinationString.Buffer = (wchar_t *)ExAllocatePoolWithTag(PagedPool, v23, 0x36364D43u);
+      DestinationString.Buffer = (wchar_t *)ExAllocatePoolWithTag(PagedPool, v20, 0x36364D43u);
       if ( !DestinationString.Buffer )
       {
         v12 = -1073741670;
-        CmpRecordParseFailure(v24, 66560LL, 3221225626LL);
+        CmpRecordParseFailure(v21, 66560, -1073741670);
         goto LABEL_30;
       }
       DestinationString.Length = 0;
-      DestinationString.MaximumLength = v23;
+      DestinationString.MaximumLength = v20;
       RtlUnicodeStringCopy(&DestinationString, SourceString);
       if ( a4 )
       {
         CmpUnicodeStringAppendCharacter(&DestinationString.Length);
         RtlUnicodeStringCat(&DestinationString, a5);
       }
-      v27 = a7;
+      v24 = a7;
       ExFreePoolWithTag(a7->Buffer, 0);
-      *v27 = DestinationString;
+      *v24 = DestinationString;
       RtlInitUnicodeString(&DestinationString, 0LL);
-      *(_DWORD *)(v24 + 24) |= 0x10u;
-      v17 = 66816LL;
-      v15 = v24;
+      *(_DWORD *)(v21 + 24) |= 0x10u;
+      v17 = 66816;
+      v15 = v21;
       v12 = 872;
     }
     else
     {
       v15 = a6;
       v12 = -1073741811;
-      v17 = 65872LL;
+      v17 = 65872;
     }
     v16 = v12;
     goto LABEL_27;
   }
   v15 = a6;
-  v16 = (unsigned int)started;
-  v17 = 65792LL;
+  v16 = started;
+  v17 = 65792;
 LABEL_27:
   CmpRecordParseFailure(v15, v17, v16);
 LABEL_28:

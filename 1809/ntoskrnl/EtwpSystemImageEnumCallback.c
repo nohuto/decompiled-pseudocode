@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpSystemImageEnumCallback @ 0x14074D2D0
+ * XREFs of EtwpSystemImageEnumCallback @ 0x14074E4C0
  * Callers:
  *     <none>
  * Callees:
- *     EtwpLogKernelEvent @ 0x1400C71D0 (EtwpLogKernelEvent.c)
+ *     EtwpLogKernelEvent @ 0x1400C7110 (EtwpLogKernelEvent.c)
  */
 
 __int64 __fastcall EtwpSystemImageEnumCallback(__int64 a1, __int64 a2)

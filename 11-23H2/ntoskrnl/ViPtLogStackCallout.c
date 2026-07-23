@@ -1,14 +1,14 @@
 /*
- * XREFs of ViPtLogStackCallout @ 0x140ADEF30
+ * XREFs of ViPtLogStackCallout @ 0x140ADEF20
  * Callers:
- *     ViPtLogStackTrace @ 0x140ADF08C (ViPtLogStackTrace.c)
+ *     ViPtLogStackTrace @ 0x140ADF07C (ViPtLogStackTrace.c)
  * Callees:
- *     RtlCaptureStackBackTrace @ 0x1402276E0 (RtlCaptureStackBackTrace.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     VfPtAddStackInfoIfNotExist @ 0x140ADE5D0 (VfPtAddStackInfoIfNotExist.c)
- *     VfPtProcessAllocPoolInfo @ 0x140ADEA48 (VfPtProcessAllocPoolInfo.c)
- *     VfPtProcessFreePoolInfo @ 0x140ADEB00 (VfPtProcessFreePoolInfo.c)
+ *     RtlCaptureStackBackTrace @ 0x1402277F0 (RtlCaptureStackBackTrace.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     VfPtAddStackInfoIfNotExist @ 0x140ADE5C0 (VfPtAddStackInfoIfNotExist.c)
+ *     VfPtProcessAllocPoolInfo @ 0x140ADEA38 (VfPtProcessAllocPoolInfo.c)
+ *     VfPtProcessFreePoolInfo @ 0x140ADEAF0 (VfPtProcessFreePoolInfo.c)
  */
 
 void __fastcall ViPtLogStackCallout(_DWORD *Parameter)

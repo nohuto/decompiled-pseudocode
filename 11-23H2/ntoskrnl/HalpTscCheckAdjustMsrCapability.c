@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpTscCheckAdjustMsrCapability @ 0x1403B1E60
+ * XREFs of HalpTscCheckAdjustMsrCapability @ 0x1403B2040
  * Callers:
- *     HalpTscReserveResources @ 0x1403B1D48 (HalpTscReserveResources.c)
+ *     HalpTscReserveResources @ 0x1403B1F28 (HalpTscReserveResources.c)
  * Callees:
- *     HalpGetCpuInfo @ 0x140380630 (HalpGetCpuInfo.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     HalpGetCpuInfo @ 0x1403807D0 (HalpGetCpuInfo.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 bool HalpTscCheckAdjustMsrCapability()

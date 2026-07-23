@@ -1,12 +1,12 @@
 /*
- * XREFs of KiPrepareReadyThreadForRescheduling @ 0x14022E180
+ * XREFs of KiPrepareReadyThreadForRescheduling @ 0x14022FB10
  * Callers:
- *     KiRescheduleThreadAfterAffinityChange @ 0x14022B26C (KiRescheduleThreadAfterAffinityChange.c)
- *     KiSetPriorityThread @ 0x14037F250 (KiSetPriorityThread.c)
- *     KiApplyForegroundBoostThread @ 0x140521D48 (KiApplyForegroundBoostThread.c)
+ *     KiRescheduleThreadAfterAffinityChange @ 0x14022CBFC (KiRescheduleThreadAfterAffinityChange.c)
+ *     KiSetPriorityThread @ 0x140381000 (KiSetPriorityThread.c)
+ *     KiApplyForegroundBoostThread @ 0x1405243B4 (KiApplyForegroundBoostThread.c)
  * Callees:
- *     KiEnterDeferredReadyState @ 0x14022E6D0 (KiEnterDeferredReadyState.c)
- *     KiUpdateThreadPriority @ 0x14037EAA0 (KiUpdateThreadPriority.c)
+ *     KiEnterDeferredReadyState @ 0x140230060 (KiEnterDeferredReadyState.c)
+ *     KiUpdateThreadPriority @ 0x140380850 (KiUpdateThreadPriority.c)
  */
 
 __int64 __fastcall KiPrepareReadyThreadForRescheduling(__int64 a1, __int64 a2, __int64 *a3)

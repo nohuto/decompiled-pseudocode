@@ -1,12 +1,12 @@
 /*
- * XREFs of DifPoFxSetDeviceIdleTimeoutWrapper @ 0x1405E9EF0
+ * XREFs of DifPoFxSetDeviceIdleTimeoutWrapper @ 0x1405EA460
  * Callers:
  *     <none>
  * Callees:
- *     PoFxSetDeviceIdleTimeout @ 0x14036B250 (PoFxSetDeviceIdleTimeout.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     DifGetAPIThunkContextById @ 0x1404664BE (DifGetAPIThunkContextById.c)
- *     DifGetReturnAddressForWrappers @ 0x1405F88C4 (DifGetReturnAddressForWrappers.c)
+ *     PoFxSetDeviceIdleTimeout @ 0x14036B3F0 (PoFxSetDeviceIdleTimeout.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x1404668BE (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F8E34 (DifGetReturnAddressForWrappers.c)
  */
 
 __int64 __fastcall DifPoFxSetDeviceIdleTimeoutWrapper(__int64 a1, unsigned __int64 a2)

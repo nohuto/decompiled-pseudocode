@@ -8,52 +8,48 @@
  *     _RtlpHpAppCompatDontChangePolicy@0 @ 0x4B2ED850 (_RtlpHpAppCompatDontChangePolicy@0.c)
  */
 
-signed __int32 __fastcall RtlpStackDbSegmentRemoveRef(int a1, int a2)
+void __fastcall RtlpStackDbSegmentRemoveRef(int a1, int a2)
 {
   volatile signed __int32 *v4; // edx
   signed __int32 v5; // esi
-  signed __int32 result; // eax
-  _DWORD *i; // ecx
+  signed __int32 i; // eax
+  _DWORD *j; // ecx
   int v8; // [esp+Ch] [ebp-4h]
 
   v4 = (volatile signed __int32 *)(a2 + 8);
   v5 = *v4;
-  for ( result = *v4; ; v5 = result )
+  for ( i = *v4; (i & 0xFFFFFF) != 1; v5 = i )
   {
-    result &= 0xFFFFFFu;
-    if ( result == 1 )
-      break;
-    result = _InterlockedCompareExchange(v4, v5 ^ (v5 ^ (v5 - 1)) & 0xFFFFFF, v5);
-    if ( result == v5 )
+    i = _InterlockedCompareExchange(v4, v5 ^ (v5 ^ (v5 - 1)) & 0xFFFFFF, v5);
+    if ( i == v5 )
       break;
   }
   if ( (v5 & 0xFFFFFFu) <= 1 )
   {
-    RtlAcquireSRWLockExclusive((volatile signed __int32 *)(a1 + 28));
+    RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 28));
     if ( (_InterlockedDecrement((volatile signed __int32 *)(a2 + 8)) & 0xFFFFFF) != 0 )
     {
-      return RtlReleaseSRWLockExclusive((volatile signed __int32 *)(a1 + 28));
+      RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 28));
     }
     else
     {
       v8 = *(_DWORD *)(a2 + 4) & (-1 << (*(_DWORD *)(a1 + 4) & 0x1F));
-      for ( i = (_DWORD *)(*(_DWORD *)(a1 + 8)
+      for ( j = (_DWORD *)(*(_DWORD *)(a1 + 8)
                          + 4
                          * ((HIBYTE(v8) + 37 * (BYTE2(v8) + 37 * (BYTE1(v8) + 37 * ((unsigned __int8)v8 + 11623883)))) & ((*(_DWORD *)(a1 + 4) >> 5) - 1)));
-            (*i & 1) == 0;
-            i = (_DWORD *)*i )
+            (*j & 1) == 0;
+            j = (_DWORD *)*j )
       {
-        if ( *i == a2 )
+        if ( *j == a2 )
         {
-          *i = *(_DWORD *)a2;
+          *j = *(_DWORD *)a2;
           --*(_DWORD *)a1;
           *(_DWORD *)a2 |= 0x80000002;
           break;
         }
       }
-      RtlReleaseSRWLockExclusive((volatile signed __int32 *)(a1 + 28));
-      return (*(int (__thiscall **)(_DWORD, int, _DWORD))(a1 + 36))(*(_DWORD *)(a1 + 36), a2, *(_DWORD *)(a1 + 40));
+      RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 28));
+      (*(void (__thiscall **)(_DWORD, int, _DWORD))(a1 + 36))(*(_DWORD *)(a1 + 36), a2, *(_DWORD *)(a1 + 40));
     }
   }
-  return result;
 }

@@ -1,17 +1,17 @@
 /*
- * XREFs of IopLoadUnloadDriver @ 0x140A264F0
+ * XREFs of IopLoadUnloadDriver @ 0x140A39590
  * Callers:
- *     IopCompleteUnloadOrDelete @ 0x140437F84 (IopCompleteUnloadOrDelete.c)
- *     IopLoadDriverImage @ 0x14052A428 (IopLoadDriverImage.c)
+ *     IopCompleteUnloadOrDelete @ 0x140426EA4 (IopCompleteUnloadOrDelete.c)
+ *     IopLoadDriverImage @ 0x14052C948 (IopLoadDriverImage.c)
  * Callees:
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     VfIsVerifierEnabled @ 0x1404FC020 (VfIsVerifierEnabled.c)
- *     VfDriverProcessUnload @ 0x140641494 (VfDriverProcessUnload.c)
- *     DifIsPluginRunningWithoutReboot @ 0x14064B940 (DifIsPluginRunningWithoutReboot.c)
- *     ZwOpenKey @ 0x140723630 (ZwOpenKey.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     IopCallDriverReinitializationRoutines @ 0x140A265E4 (IopCallDriverReinitializationRoutines.c)
- *     IopLoadDriver @ 0x140A26FC4 (IopLoadDriver.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     VfIsVerifierEnabled @ 0x1404F5560 (VfIsVerifierEnabled.c)
+ *     VfDriverProcessUnload @ 0x140645074 (VfDriverProcessUnload.c)
+ *     DifIsPluginRunningWithoutReboot @ 0x14064F520 (DifIsPluginRunningWithoutReboot.c)
+ *     ZwOpenKey @ 0x140728200 (ZwOpenKey.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     IopCallDriverReinitializationRoutines @ 0x140A39684 (IopCallDriverReinitializationRoutines.c)
+ *     IopLoadDriver @ 0x140A3A064 (IopLoadDriver.c)
  */
 
 LONG __fastcall IopLoadUnloadDriver(__int64 a1, __int64 a2)

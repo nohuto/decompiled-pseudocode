@@ -1,5 +1,5 @@
 /*
- * XREFs of GxpBitsToBytes @ 0x140387AC8
+ * XREFs of GxpBitsToBytes @ 0x140387CA8
  * Callers:
  *     BgpGxRectangleCreate @ 0x140AEDA94 (BgpGxRectangleCreate.c)
  * Callees:

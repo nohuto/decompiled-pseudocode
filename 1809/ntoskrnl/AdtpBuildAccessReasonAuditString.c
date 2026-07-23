@@ -1,19 +1,19 @@
 /*
- * XREFs of AdtpBuildAccessReasonAuditString @ 0x140325BEC
+ * XREFs of AdtpBuildAccessReasonAuditString @ 0x140325DDC
  * Callers:
- *     AdtpPackageParameters @ 0x140188D9C (AdtpPackageParameters.c)
+ *     AdtpPackageParameters @ 0x140188EDC (AdtpPackageParameters.c)
  * Callees:
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     AdtpIsSDValidSelfRelative @ 0x1401B7A48 (AdtpIsSDValidSelfRelative.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     AdtpBuildAccessReasonAuditStringInternal @ 0x140326154 (AdtpBuildAccessReasonAuditStringInternal.c)
- *     AdtpBuildContextFromSecurityDescriptor @ 0x140326B4C (AdtpBuildContextFromSecurityDescriptor.c)
- *     AdtpBuildStagingReasonAuditStringInternal @ 0x140326BD8 (AdtpBuildStagingReasonAuditStringInternal.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     RtlLengthSecurityDescriptor @ 0x1405CA090 (RtlLengthSecurityDescriptor.c)
- *     AdtpEtwBuildDashString @ 0x1406D0B60 (AdtpEtwBuildDashString.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     AdtpIsSDValidSelfRelative @ 0x1401B7BA8 (AdtpIsSDValidSelfRelative.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     AdtpBuildAccessReasonAuditStringInternal @ 0x140326344 (AdtpBuildAccessReasonAuditStringInternal.c)
+ *     AdtpBuildContextFromSecurityDescriptor @ 0x140326D3C (AdtpBuildContextFromSecurityDescriptor.c)
+ *     AdtpBuildStagingReasonAuditStringInternal @ 0x140326DC8 (AdtpBuildStagingReasonAuditStringInternal.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     RtlLengthSecurityDescriptor @ 0x1405CB090 (RtlLengthSecurityDescriptor.c)
+ *     AdtpEtwBuildDashString @ 0x1406D1E00 (AdtpEtwBuildDashString.c)
  */
 
 __int64 __fastcall AdtpBuildAccessReasonAuditString(

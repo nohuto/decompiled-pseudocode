@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpDeleteData @ 0x1800E9FA8
+ * XREFs of RtlpDeleteData @ 0x1800E91B8
  * Callers:
- *     RtlDeleteAce @ 0x1800E9F10 (RtlDeleteAce.c)
+ *     RtlDeleteAce @ 0x1800E9120 (RtlDeleteAce.c)
  * Callees:
- *     memset$thunk$772440563353939046 @ 0x180170030 (memset$thunk$772440563353939046.c)
+ *     memset$thunk$772440563353939046 @ 0x18016F030 (memset$thunk$772440563353939046.c)
  */
 
 unsigned __int64 __fastcall RtlpDeleteData(__int64 a1, unsigned int a2, unsigned int a3)

@@ -9,82 +9,93 @@
  *     _memmove @ 0x4B2F8BF0 (_memmove.c)
  */
 
-int __stdcall RtlAddAttributeActionToRXact(
-        int a1,
+int __userpurge RtlAddAttributeActionToRXact@<eax>(
+        int a1@<edi>,
         int a2,
-        unsigned __int16 *a3,
-        int a4,
-        unsigned __int16 *a5,
-        int a6,
+        unsigned int a3,
+        unsigned __int16 *a4,
+        unsigned int a5,
+        unsigned __int16 *a6,
+        unsigned int a7,
         void *Src,
-        size_t Size)
+        unsigned int Size)
 {
-  int v9; // edx
-  unsigned int v10; // eax
-  unsigned int v11; // esi
+  int v10; // edx
+  unsigned int v11; // eax
+  unsigned int v12; // esi
   _DWORD *Heap; // eax
-  int v13; // ecx
-  int v14; // esi
-  unsigned int v15; // esi
+  int v14; // ecx
+  int v15; // esi
   unsigned int v16; // esi
-  size_t v17; // [esp+4h] [ebp-Ch]
-  unsigned int v18; // [esp+8h] [ebp-8h]
-  _DWORD *v19; // [esp+Ch] [ebp-4h]
-  unsigned int *v20; // [esp+Ch] [ebp-4h]
+  unsigned int v17; // esi
+  size_t v18; // [esp-18h] [ebp-28h]
+  SIZE_T v19; // [esp-Ch] [ebp-1Ch]
+  size_t v20; // [esp-Ch] [ebp-1Ch]
+  size_t v21; // [esp-Ch] [ebp-1Ch]
+  unsigned int v22; // [esp+4h] [ebp-Ch]
+  unsigned int v23; // [esp+8h] [ebp-8h]
+  _DWORD *v24; // [esp+Ch] [ebp-4h]
+  unsigned int *v25; // [esp+Ch] [ebp-4h]
 
-  if ( a2 != 1 && a2 != 2 )
+  if ( a3 != 1 && a3 != 2 )
     return -1073741811;
-  v17 = (Size + 3) & 0xFFFFFFFC;
-  v9 = *(_DWORD *)(a1 + 12);
-  v18 = (((*a5 + 3) & 0xFFFFFFFC) + 43 + v17 + ((*a3 + 3) & 0xFFFFFFFC)) & 0xFFFFFFFC;
-  v10 = v18 + *(_DWORD *)(v9 + 8);
-  if ( v10 < v18 )
+  HIDWORD(v19) = a1;
+  v22 = (Size + 3) & 0xFFFFFFFC;
+  v10 = *(_DWORD *)(a2 + 12);
+  v23 = (((*a6 + 3) & 0xFFFFFFFC) + 43 + v22 + ((*a4 + 3) & 0xFFFFFFFC)) & 0xFFFFFFFC;
+  v11 = v23 + *(_DWORD *)(v10 + 8);
+  if ( v11 < v23 )
     return -1073741801;
-  v11 = *(_DWORD *)(v9 + 4);
-  if ( v10 > v11 )
+  v12 = *(_DWORD *)(v10 + 4);
+  if ( v11 > v12 )
   {
     do
-      v11 *= 2;
-    while ( v11 < v10 );
-    Heap = (_DWORD *)RtlAllocateHeap((int)NtCurrentPeb()->ProcessHeap, 0, v11);
-    v19 = Heap;
+      v12 *= 2;
+    while ( v12 < v11 );
+    LODWORD(v19) = v12;
+    Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, v19);
+    v24 = Heap;
     if ( Heap )
     {
-      memcpy(Heap, *(const void **)(a1 + 12), *(_DWORD *)(*(_DWORD *)(a1 + 12) + 8));
-      RtlFreeHeap((int)NtCurrentPeb()->ProcessHeap, 0, *(_DWORD *)(a1 + 12));
-      *(_DWORD *)(a1 + 12) = v19;
-      v19[1] = v11;
-      v9 = *(_DWORD *)(a1 + 12);
+      LODWORD(v20) = *(_DWORD *)(*(_DWORD *)(a2 + 12) + 8);
+      memcpy(Heap, *(const void **)(a2 + 12), v20);
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, *(PVOID *)(a2 + 12));
+      *(_DWORD *)(a2 + 12) = v24;
+      v24[1] = v12;
+      v10 = *(_DWORD *)(a2 + 12);
       goto LABEL_9;
     }
     return -1073741801;
   }
 LABEL_9:
-  v20 = (unsigned int *)(v9 + *(_DWORD *)(v9 + 8));
-  *v20 = v18;
-  v20[1] = a2;
-  v20[2] = *(_DWORD *)a3;
-  v20[3] = *((_DWORD *)a3 + 1);
-  v20[4] = *(_DWORD *)a5;
-  v20[5] = *((_DWORD *)a5 + 1);
-  v20[7] = a6;
-  v20[8] = Size;
-  v20[6] = a4;
-  v13 = *(_DWORD *)(a1 + 12);
-  v14 = *(_DWORD *)(v13 + 8) + 40;
-  memmove((void *)(v13 + v14), *((const void **)a3 + 1), *a3);
-  v20[3] = v14;
-  v15 = ((*a3 + 3) & 0xFFFFFFFC) + v14;
-  memmove((void *)(v15 + *(_DWORD *)(a1 + 12)), *((const void **)a5 + 1), *a5);
-  v20[5] = v15;
-  v16 = ((*a5 + 3) & 0xFFFFFFFC) + v15;
-  if ( a2 == 2 )
+  v25 = (unsigned int *)(v10 + *(_DWORD *)(v10 + 8));
+  *v25 = v23;
+  v25[1] = a3;
+  v25[2] = *(_DWORD *)a4;
+  v25[3] = *((_DWORD *)a4 + 1);
+  v25[4] = *(_DWORD *)a6;
+  v25[5] = *((_DWORD *)a6 + 1);
+  v25[7] = a7;
+  v25[8] = Size;
+  v25[6] = a5;
+  v14 = *(_DWORD *)(a2 + 12);
+  LODWORD(v19) = *a4;
+  v15 = *(_DWORD *)(v14 + 8) + 40;
+  memmove((void *)(v14 + v15), *((const void **)a4 + 1), v19);
+  v25[3] = v15;
+  v16 = ((*a4 + 3) & 0xFFFFFFFC) + v15;
+  LODWORD(v18) = *a6;
+  memmove((void *)(v16 + *(_DWORD *)(a2 + 12)), *((const void **)a6 + 1), v18);
+  v25[5] = v16;
+  v17 = ((*a6 + 3) & 0xFFFFFFFC) + v16;
+  if ( a3 == 2 )
   {
-    memmove((void *)(v16 + *(_DWORD *)(a1 + 12)), Src, Size);
-    v20[9] = v16;
-    v16 += v17;
+    LODWORD(v21) = Size;
+    memmove((void *)(v17 + *(_DWORD *)(a2 + 12)), Src, v21);
+    v25[9] = v17;
+    v17 += v22;
   }
-  *(_DWORD *)(*(_DWORD *)(a1 + 12) + 8) = (v16 + 3) & 0xFFFFFFFC;
-  ++**(_DWORD **)(a1 + 12);
+  *(_DWORD *)(*(_DWORD *)(a2 + 12) + 8) = (v17 + 3) & 0xFFFFFFFC;
+  ++**(_DWORD **)(a2 + 12);
   return 0;
 }

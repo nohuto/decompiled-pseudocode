@@ -1,13 +1,13 @@
 /*
- * XREFs of PopSessionConnectionChangeV2 @ 0x1407DDEB4
+ * XREFs of PopSessionConnectionChangeV2 @ 0x1407E24E4
  * Callers:
- *     PopPowerInformationInternal @ 0x140B6F6FC (PopPowerInformationInternal.c)
+ *     PopPowerInformationInternal @ 0x140B73EF0 (PopPowerInformationInternal.c)
  * Callees:
- *     PopPrintEx @ 0x1404C33A8 (PopPrintEx.c)
- *     PopSessionConnectedV2 @ 0x1407DDDF4 (PopSessionConnectedV2.c)
- *     PopAcquireAdaptiveLock @ 0x140A3AFDC (PopAcquireAdaptiveLock.c)
- *     PopSessionDisconnected @ 0x140A3B980 (PopSessionDisconnected.c)
- *     PopReleaseAdaptiveLock @ 0x140A3D6E4 (PopReleaseAdaptiveLock.c)
+ *     PopPrintEx @ 0x1404BCBF8 (PopPrintEx.c)
+ *     PopSessionConnectedV2 @ 0x1407E2424 (PopSessionConnectedV2.c)
+ *     PopSessionDisconnected @ 0x1409F73A0 (PopSessionDisconnected.c)
+ *     PopReleaseAdaptiveLock @ 0x1409F9104 (PopReleaseAdaptiveLock.c)
+ *     PopAcquireAdaptiveLock @ 0x140ABAFAC (PopAcquireAdaptiveLock.c)
  */
 
 __int64 __fastcall PopSessionConnectionChangeV2(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

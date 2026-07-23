@@ -1,16 +1,16 @@
 /*
- * XREFs of _CmSetDeviceInterfaceMappedPropertyFromRegValue @ 0x1408B16A8
+ * XREFs of _CmSetDeviceInterfaceMappedPropertyFromRegValue @ 0x1408AEF9C
  * Callers:
- *     _CmSetDeviceInterfaceMappedProperty @ 0x1408B1540 (_CmSetDeviceInterfaceMappedProperty.c)
+ *     _CmSetDeviceInterfaceMappedProperty @ 0x1408AEE34 (_CmSetDeviceInterfaceMappedProperty.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x14045AA10 (RtlInitUnicodeStringEx.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwCreateKey @ 0x1406A67B0 (ZwCreateKey.c)
- *     _RegRtlOpenPredefinedKey @ 0x1408210F4 (_RegRtlOpenPredefinedKey.c)
- *     _CmOpenDeviceInterfaceRegKey @ 0x1408CB4B4 (_CmOpenDeviceInterfaceRegKey.c)
- *     _RegRtlCreateKeyTransacted @ 0x140926504 (_RegRtlCreateKeyTransacted.c)
- *     _RegRtlIsPredefinedKey @ 0x140926654 (_RegRtlIsPredefinedKey.c)
- *     _RegRtlSetValue @ 0x140993B48 (_RegRtlSetValue.c)
+ *     RtlInitUnicodeStringEx @ 0x14044FE60 (RtlInitUnicodeStringEx.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwCreateKey @ 0x1406A7750 (ZwCreateKey.c)
+ *     _RegRtlOpenPredefinedKey @ 0x140821834 (_RegRtlOpenPredefinedKey.c)
+ *     _CmOpenDeviceInterfaceRegKey @ 0x1408C8EE4 (_CmOpenDeviceInterfaceRegKey.c)
+ *     _RegRtlCreateKeyTransacted @ 0x140928644 (_RegRtlCreateKeyTransacted.c)
+ *     _RegRtlIsPredefinedKey @ 0x140928794 (_RegRtlIsPredefinedKey.c)
+ *     _RegRtlSetValue @ 0x14097EB88 (_RegRtlSetValue.c)
  */
 
 __int64 __fastcall CmSetDeviceInterfaceMappedPropertyFromRegValue(
@@ -56,7 +56,7 @@ __int64 __fastcall CmSetDeviceInterfaceMappedPropertyFromRegValue(
   if ( v7 < 2 )
     return (unsigned int)-1073741264;
   v14 = 0;
-  v15 = &off_140B3B400;
+  v15 = &off_140B3D1B0;
   do
   {
     v16 = *v15;

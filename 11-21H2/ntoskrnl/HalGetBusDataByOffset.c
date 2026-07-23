@@ -2,12 +2,12 @@
  * XREFs of HalGetBusDataByOffset @ 0x1403ADE20
  * Callers:
  *     HalGetBusData @ 0x1403D9110 (HalGetBusData.c)
- *     HalpWhackICHUsbSmi @ 0x140524434 (HalpWhackICHUsbSmi.c)
- *     HalpPiix4Detect @ 0x140A53294 (HalpPiix4Detect.c)
- *     KdpSysReadBusData @ 0x140A73CB0 (KdpSysReadBusData.c)
+ *     sub_140524434 @ 0x140524434 (sub_140524434.c)
+ *     sub_140A53294 @ 0x140A53294 (sub_140A53294.c)
+ *     sub_140A73CB0 @ 0x140A73CB0 (sub_140A73CB0.c)
  * Callees:
- *     HalpGetPCIData @ 0x1403ADE74 (HalpGetPCIData.c)
- *     HalpGetSetCmosData @ 0x1405183DC (HalpGetSetCmosData.c)
+ *     sub_1403ADE74 @ 0x1403ADE74 (sub_1403ADE74.c)
+ *     sub_1405183DC @ 0x1405183DC (sub_1405183DC.c)
  */
 
 ULONG __stdcall HalGetBusDataByOffset(
@@ -19,8 +19,8 @@ ULONG __stdcall HalGetBusDataByOffset(
         ULONG Length)
 {
   if ( BusDataType == Cmos )
-    return HalpGetSetCmosData(0, SlotNumber, (_DWORD)Buffer, Length, 0);
-  if ( BusNumber <= HalpMaxPciBus && BusDataType == PCIConfiguration && BusNumber >= HalpMinPciBus )
-    return HalpGetPCIData(BusNumber >> 8);
+    return sub_1405183DC(0, SlotNumber, (_DWORD)Buffer, Length, 0);
+  if ( BusNumber <= dword_140C54BA0 && BusDataType == PCIConfiguration && BusNumber >= dword_140D0177C )
+    return sub_1403ADE74(BusNumber >> 8);
   return 0;
 }

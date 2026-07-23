@@ -11,71 +11,71 @@
  *     RtlRbRemoveNode @ 0x140048460 (RtlRbRemoveNode.c)
  */
 
-char __fastcall KiRemoveTimer2(__int64 a1, __int64 a2, __int64 a3)
+char __fastcall KiRemoveTimer2(__int64 a1)
 {
-  int v4; // r14d
-  unsigned int v5; // ebp
-  char *v6; // r15
-  unsigned __int64 v7; // rbx
-  __int64 v8; // r13
-  char v9; // cl
-  unsigned __int64 v10; // rax
-  __int64 v11; // rdi
-  __int64 *v12; // rcx
-  __int64 v13; // rdx
-  char *v15; // [rsp+58h] [rbp+10h]
+  int v2; // r14d
+  unsigned int v3; // ebp
+  char *v4; // r15
+  unsigned __int64 v5; // rbx
+  __int64 v6; // r13
+  char v7; // cl
+  unsigned __int64 v8; // rax
+  __int64 v9; // rdi
+  __int64 *v10; // rcx
+  __int64 v11; // rdx
+  _RTL_RB_TREE *v13; // [rsp+58h] [rbp+10h]
 
-  v4 = 0;
-  v5 = 0;
-  v6 = (char *)(a1 + 130);
-  v7 = -1LL;
-  v8 = 48LL;
+  v2 = 0;
+  v3 = 0;
+  v4 = (char *)(a1 + 130);
+  v5 = -1LL;
+  v6 = 48LL;
   do
   {
-    v9 = *v6;
-    LOBYTE(v10) = ~*v6;
-    if ( (v10 & 0x10) != 0 )
+    v7 = *v4;
+    LOBYTE(v8) = ~*v4;
+    if ( (v8 & 0x10) != 0 )
     {
-      v11 = *((_QWORD *)&KiTimer2Collections + 3 * (v9 & 3) + 1);
-      v15 = (char *)&KiTimer2Collections + 24 * (v9 & 3);
-      LOBYTE(v10) = RtlRbRemoveNode(v15, a1 + 24 * (v5 + 1LL), a3);
-      if ( (v11 & 0xFFFFFFFFFFFFFFFEuLL) == a1 + 24 * (v5 + 1LL) )
+      v9 = *((_QWORD *)&KiTimer2Collections + 3 * (v7 & 3) + 1);
+      v13 = (_RTL_RB_TREE *)((char *)&KiTimer2Collections + 24 * (v7 & 3));
+      LOBYTE(v8) = RtlRbRemoveNode(v13, (PRTL_BALANCED_NODE)(a1 + 24 * (v3 + 1LL)));
+      if ( (v9 & 0xFFFFFFFFFFFFFFFEuLL) == a1 + 24 * (v3 + 1LL) )
       {
-        v4 = 1;
-        v10 = *((_QWORD *)v15 + 1) & 0xFFFFFFFFFFFFFFFEuLL;
-        if ( v10 )
+        v2 = 1;
+        v8 = (unsigned __int64)v13->Min & 0xFFFFFFFFFFFFFFFEuLL;
+        if ( v8 )
         {
-          v10 = *(_QWORD *)(v10 + v8);
-          *((_QWORD *)v15 + 2) = v10;
+          v8 = *(_QWORD *)(v8 + v6);
+          v13[1].Root = (_RTL_BALANCED_NODE *)v8;
         }
         else
         {
-          *((_QWORD *)v15 + 2) = -1LL;
+          v13[1].Root = (_RTL_BALANCED_NODE *)-1LL;
         }
       }
     }
-    ++v5;
-    ++v6;
-    v8 -= 16LL;
+    ++v3;
+    ++v4;
+    v6 -= 16LL;
   }
-  while ( v5 < 2 );
-  if ( v4 )
+  while ( v3 < 2 );
+  if ( v2 )
   {
-    v10 = *(_QWORD *)(a1 + 72);
-    if ( KiNextTimer2DueTime == v10 )
+    v8 = *(_QWORD *)(a1 + 72);
+    if ( KiNextTimer2DueTime == v8 )
     {
-      v12 = &qword_140356750;
-      v13 = 4LL;
+      v10 = &qword_140356750;
+      v11 = 4LL;
       do
       {
-        if ( *v12 < v7 )
-          v7 = *v12;
-        v12 += 3;
-        --v13;
+        if ( *v10 < v5 )
+          v5 = *v10;
+        v10 += 3;
+        --v11;
       }
-      while ( v13 );
-      KiNextTimer2DueTime = v7;
+      while ( v11 );
+      KiNextTimer2DueTime = v5;
     }
   }
-  return v10;
+  return v8;
 }

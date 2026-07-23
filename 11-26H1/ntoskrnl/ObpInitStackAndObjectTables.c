@@ -1,28 +1,28 @@
 /*
- * XREFs of ObpInitStackAndObjectTables @ 0x1407C4BE8
+ * XREFs of ObpInitStackAndObjectTables @ 0x1407C7C48
  * Callers:
- *     ObpStartRuntimeStackTraceEx @ 0x1407C53D4 (ObpStartRuntimeStackTraceEx.c)
- *     ObpInitStackTrace @ 0x140CCDE7C (ObpInitStackTrace.c)
+ *     ObpStartRuntimeStackTraceEx @ 0x1407C8434 (ObpStartRuntimeStackTraceEx.c)
+ *     ObpInitStackTrace @ 0x140CD3FDC (ObpInitStackTrace.c)
  * Callees:
- *     RtlRaiseStatus @ 0x1402E84A0 (RtlRaiseStatus.c)
- *     ObpTraceAllocateMemory @ 0x14052F738 (ObpTraceAllocateMemory.c)
- *     ObpTraceFreeMemory @ 0x140530A70 (ObpTraceFreeMemory.c)
- *     RtlStackDbContextCleanup @ 0x140623170 (RtlStackDbContextCleanup.c)
- *     RtlStackDbContextInitialize @ 0x140623368 (RtlStackDbContextInitialize.c)
- *     RtlpInterlockedPushEntrySList @ 0x140730CD0 (RtlpInterlockedPushEntrySList.c)
- *     RtlpInterlockedFlushSList @ 0x140730D10 (RtlpInterlockedFlushSList.c)
+ *     RtlRaiseStatus @ 0x1402CA4E0 (RtlRaiseStatus.c)
+ *     ObpTraceAllocateMemory @ 0x140531C58 (ObpTraceAllocateMemory.c)
+ *     ObpTraceFreeMemory @ 0x140532F70 (ObpTraceFreeMemory.c)
+ *     RtlStackDbContextCleanup @ 0x1406261C0 (RtlStackDbContextCleanup.c)
+ *     RtlStackDbContextInitialize @ 0x1406263B8 (RtlStackDbContextInitialize.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1407358A0 (RtlpInterlockedPushEntrySList.c)
+ *     RtlpInterlockedFlushSList @ 0x1407358E0 (RtlpInterlockedFlushSList.c)
  */
 
 __int64 ObpInitStackAndObjectTables()
 {
   unsigned int v0; // ebx
-  struct _SLIST_ENTRY *Memory; // rax
+  _SLIST_ENTRY *Memory; // rax
   PSLIST_ENTRY v2; // rbx
   PSLIST_ENTRY v3; // rcx
 
   RtlStackDbContextInitialize();
-  qword_140F13228 = (PVOID)ObpTraceAllocateMemory(3208LL);
-  if ( qword_140F13228 )
+  ObpStackTraceLock.SavedApcState.ApcListHead[1].Flink = (struct _LIST_ENTRY *)ObpTraceAllocateMemory(3208LL);
+  if ( ObpStackTraceLock.SavedApcState.ApcListHead[1].Flink )
   {
     if ( ((unsigned __int8)&ObpWorkItemFreeList & 0xF) != 0 )
       RtlRaiseStatus(-2147483646);
@@ -32,7 +32,7 @@ __int64 ObpInitStackAndObjectTables()
     {
       if ( v0 >= 0x1F4 )
         return 0LL;
-      Memory = (struct _SLIST_ENTRY *)ObpTraceAllocateMemory(192LL);
+      Memory = (_SLIST_ENTRY *)ObpTraceAllocateMemory(192LL);
       if ( !Memory )
         break;
       RtlpInterlockedPushEntrySList(&ObpWorkItemFreeList, Memory);
@@ -46,8 +46,8 @@ __int64 ObpInitStackAndObjectTables()
       ObpTraceFreeMemory(v3);
     }
   }
-  if ( qword_140F13228 )
-    ObpTraceFreeMemory(qword_140F13228);
+  if ( ObpStackTraceLock.SavedApcState.ApcListHead[1].Flink )
+    ObpTraceFreeMemory(ObpStackTraceLock.SavedApcState.ApcListHead[1].Flink);
   RtlStackDbContextCleanup();
   return 3221225495LL;
 }

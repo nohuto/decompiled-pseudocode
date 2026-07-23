@@ -6,7 +6,7 @@
  *     <none>
  */
 
-unsigned __int64 PsGetCurrentProcessWin32Process()
+__int64 PsGetCurrentProcessWin32Process()
 {
-  return KeGetCurrentThread()->ApcState.Process[1].Affinity.StaticBitmap[15];
+  return *(_QWORD *)(*((_QWORD *)KeGetCurrentThread() + 23) + 1288LL);
 }

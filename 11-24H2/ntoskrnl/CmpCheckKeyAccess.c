@@ -1,14 +1,14 @@
 /*
- * XREFs of CmpCheckKeyAccess @ 0x140918934
+ * XREFs of CmpCheckKeyAccess @ 0x14090C3A4
  * Callers:
- *     CmRestoreKey @ 0x1407CCF24 (CmRestoreKey.c)
- *     CmpDoAccessCheckOnSubtree @ 0x140BB9B34 (CmpDoAccessCheckOnSubtree.c)
+ *     CmRestoreKey @ 0x1407CD414 (CmRestoreKey.c)
+ *     CmpDoAccessCheckOnSubtree @ 0x140BBBB34 (CmpDoAccessCheckOnSubtree.c)
  * Callees:
- *     HvpGetCellFlat @ 0x140874470 (HvpGetCellFlat.c)
- *     HvpGetCellPaged @ 0x1408744C0 (HvpGetCellPaged.c)
- *     HvpReleaseCellPaged @ 0x140875760 (HvpReleaseCellPaged.c)
- *     HvpReleaseCellFlat @ 0x140884BB0 (HvpReleaseCellFlat.c)
- *     CmpCheckSecurityCellAccess @ 0x1409172C0 (CmpCheckSecurityCellAccess.c)
+ *     HvpGetCellFlat @ 0x1408787A0 (HvpGetCellFlat.c)
+ *     HvpGetCellPaged @ 0x1408787F0 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x140879A90 (HvpReleaseCellPaged.c)
+ *     HvpReleaseCellFlat @ 0x140888A60 (HvpReleaseCellFlat.c)
+ *     CmpCheckSecurityCellAccess @ 0x14090AD30 (CmpCheckSecurityCellAccess.c)
  */
 
 __int64 __fastcall CmpCheckKeyAccess(ULONG_PTR BugCheckParameter3, ULONG_PTR a2)

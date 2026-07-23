@@ -1,5 +1,5 @@
 /*
- * XREFs of PopPowerRequestDeleteEntryById @ 0x140589A34
+ * XREFs of PopPowerRequestDeleteEntryById @ 0x14058AA34
  * Callers:
  *     PopPowerRequestCleanUp @ 0x14000333C (PopPowerRequestCleanUp.c)
  * Callees:

@@ -1,8 +1,8 @@
 /*
- * XREFs of _TlgCreateWsz @ 0x1800D1C68
+ * XREFs of _TlgCreateWsz @ 0x1800D1D28
  * Callers:
- *     LdrpLogRelativePathWithAlteredSearchError @ 0x180009290 (LdrpLogRelativePathWithAlteredSearchError.c)
- *     LdrpResReportResourceAccessInternal @ 0x180082740 (LdrpResReportResourceAccessInternal.c)
+ *     LdrpLogRelativePathWithAlteredSearchError @ 0x180009280 (LdrpLogRelativePathWithAlteredSearchError.c)
+ *     LdrpResReportResourceAccessInternal @ 0x180082730 (LdrpResReportResourceAccessInternal.c)
  * Callees:
  *     <none>
  */
@@ -12,7 +12,7 @@ void __stdcall TlgCreateWsz(PEVENT_DATA_DESCRIPTOR pDesc, LPCWSTR pwsz)
   LPCWSTR v2; // r8
   __int64 v3; // rax
 
-  v2 = (LPCWSTR)&unk_180113454;
+  v2 = &word_180113454;
   LODWORD(v3) = 0;
   if ( pwsz )
   {

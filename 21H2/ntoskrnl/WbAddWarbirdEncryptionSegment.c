@@ -3,16 +3,16 @@
  * Callers:
  *     WbGetWarbirdEncryptionSegment @ 0x1405D71A8 (WbGetWarbirdEncryptionSegment.c)
  * Callees:
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402F2C90 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     KeAbPreAcquire @ 0x14034A230 (KeAbPreAcquire.c)
- *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402FD9E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     KeAbPreAcquire @ 0x140354F80 (KeAbPreAcquire.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x140355AE0 (KiLeaveGuardedRegionUnsafe.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  *     sub_1405D72F4 @ 0x1405D72F4 (sub_1405D72F4.c)
  *     sub_1405D7328 @ 0x1405D7328 (sub_1405D7328.c)
  *     sub_1405D760C @ 0x1405D760C (sub_1405D760C.c)
- *     sub_140688214 @ 0x140688214 (sub_140688214.c)
+ *     sub_1405E7374 @ 0x1405E7374 (sub_1405E7374.c)
  */
 
 __int64 __fastcall WbAddWarbirdEncryptionSegment(__int64 a1, __int64 a2, _QWORD *a3)
@@ -20,8 +20,8 @@ __int64 __fastcall WbAddWarbirdEncryptionSegment(__int64 a1, __int64 a2, _QWORD 
   int v3; // eax
   struct _KTHREAD *CurrentThread; // rax
   unsigned __int64 *v8; // rdi
-  __int64 v9; // rax
-  __int64 v10; // rbx
+  _RTL_BALANCED_NODE *v9; // rax
+  _RTL_BALANCED_NODE *v10; // rbx
   int v11; // eax
   int v12; // r8d
   int v13; // ebx
@@ -47,14 +47,14 @@ __int64 __fastcall WbAddWarbirdEncryptionSegment(__int64 a1, __int64 a2, _QWORD 
   if ( _interlockedbittestandset64((volatile signed __int32 *)v8, 0LL) )
     ExfAcquirePushLockExclusiveEx(v8, v9, (ULONG_PTR)v8);
   if ( v10 )
-    *(_BYTE *)(v10 + 26) |= 1u;
+    BYTE2(v10[1].Left) |= 1u;
   v11 = sub_1405D7328(a1, &v19, &v18, &v17);
   v13 = v11;
   if ( v11 )
   {
     if ( v11 == -1073741198 )
     {
-      v13 = sub_140688214((int)a1 + 136, a2, v12, (unsigned int)&v19, 16, v17);
+      v13 = sub_1405E7374((int)a1 + 136, a2, v12, (unsigned int)&v19, 16, v17);
       if ( v13 >= 0 )
         v13 = sub_1405D760C(a2);
     }

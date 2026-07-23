@@ -3,11 +3,11 @@
  * Callers:
  *     <none>
  * Callees:
- *     MmMapLockedPagesSpecifyCache @ 0x1400DE220 (MmMapLockedPagesSpecifyCache.c)
- *     RtlRaiseStatus @ 0x1400F6738 (RtlRaiseStatus.c)
- *     VfCheckPagePriority @ 0x140704170 (VfCheckPagePriority.c)
- *     VerifierBugCheckIfAppropriate @ 0x14070C2E8 (VerifierBugCheckIfAppropriate.c)
- *     ViTargetAddToCounter @ 0x140710350 (ViTargetAddToCounter.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x1400DC0C0 (MmMapLockedPagesSpecifyCache.c)
+ *     RtlRaiseStatus @ 0x1400F4588 (RtlRaiseStatus.c)
+ *     VfCheckPagePriority @ 0x1407041A0 (VfCheckPagePriority.c)
+ *     VerifierBugCheckIfAppropriate @ 0x14070C318 (VerifierBugCheckIfAppropriate.c)
+ *     ViTargetAddToCounter @ 0x140710380 (ViTargetAddToCounter.c)
  *     ViPoolLogStackTrace @ 0x140710BB0 (ViPoolLogStackTrace.c)
  *     VfFaultsInjectResourceFailure @ 0x140710DF0 (VfFaultsInjectResourceFailure.c)
  *     VfFaultsIsSystemSufficientlyBooted @ 0x140710F24 (VfFaultsIsSystemSufficientlyBooted.c)

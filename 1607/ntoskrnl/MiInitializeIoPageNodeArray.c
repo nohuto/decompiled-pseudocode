@@ -1,8 +1,8 @@
 /*
- * XREFs of MiInitializeIoPageNodeArray @ 0x14009C894
+ * XREFs of MiInitializeIoPageNodeArray @ 0x14009C094
  * Callers:
- *     MiReferenceIoPages @ 0x14009C300 (MiReferenceIoPages.c)
- *     MiRemoveUnmappedIoNode @ 0x14009C7D8 (MiRemoveUnmappedIoNode.c)
+ *     MiReferenceIoPages @ 0x14009BB00 (MiReferenceIoPages.c)
+ *     MiRemoveUnmappedIoNode @ 0x14009BFD8 (MiRemoveUnmappedIoNode.c)
  * Callees:
  *     <none>
  */

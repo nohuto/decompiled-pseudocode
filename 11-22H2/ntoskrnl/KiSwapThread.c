@@ -49,10 +49,10 @@
  *     KiUpdateThreadHgsFeedback @ 0x140578770 (KiUpdateThreadHgsFeedback.c)
  */
 
-struct _KPRCB *__fastcall KiSwapThread(ULONG_PTR BugCheckParameter1, __int64 a2, _QWORD *a3, __int64 a4)
+struct _KPRCB *__fastcall KiSwapThread(ULONG_PTR BugCheckParameter1, ULONG_PTR a2, _QWORD *a3, __int64 a4)
 {
   bool v4; // zf
-  __int64 i; // rdi
+  ULONG_PTR i; // rdi
   int v7; // r15d
   int v8; // ecx
   __int64 p_AbSelfIoBoostsList; // r12
@@ -78,7 +78,7 @@ struct _KPRCB *__fastcall KiSwapThread(ULONG_PTR BugCheckParameter1, __int64 a2,
   volatile signed __int16 *v29; // rbx
   unsigned __int64 v30; // r8
   unsigned __int64 v31; // rsi
-  __int64 v32; // rdx
+  unsigned __int64 v32; // rdx
   __int64 v33; // rax
   unsigned __int64 v34; // rcx
   char v35; // bl
@@ -164,7 +164,7 @@ struct _KPRCB *__fastcall KiSwapThread(ULONG_PTR BugCheckParameter1, __int64 a2,
   __int64 v116; // [rsp+78h] [rbp-88h] BYREF
   unsigned __int64 v117; // [rsp+80h] [rbp-80h] BYREF
   struct _KPRCB *CurrentPrcb; // [rsp+88h] [rbp-78h]
-  __int64 v119; // [rsp+90h] [rbp-70h] BYREF
+  ULONG_PTR v119; // [rsp+90h] [rbp-70h] BYREF
   int v120; // [rsp+98h] [rbp-68h]
   int v121; // [rsp+9Ch] [rbp-64h] BYREF
   int v122; // [rsp+A0h] [rbp-60h] BYREF
@@ -526,7 +526,7 @@ LABEL_59:
           if ( (unsigned __int8)KiCheckMaxOverQuotaTransition(v63, v62) )
           {
             if ( (*(_BYTE *)(v63 + 112) & 1) != 0 )
-              KiRemoveSchedulingGroupQueue(i, v63, 1);
+              KiRemoveSchedulingGroupQueue((_RTL_RB_TREE *)i, v63, 1);
           }
           else if ( *(_QWORD *)v63 >= *(_QWORD *)(v63 + 24) && (*(_BYTE *)(v63 + 112) & 2) == 0 )
           {
@@ -805,10 +805,10 @@ LABEL_224:
     *v130 = *(_QWORD *)(BugCheckParameter1 + 976);
   if ( v107 )
   {
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)(CurrentIrql - 2) <= 0xDu )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && (unsigned __int8)(CurrentIrql - 2) <= 0xDu )
       {
         v99 = KeGetCurrentPrcb();
         v100 = v99->SchedulerAssist;
@@ -821,10 +821,10 @@ LABEL_224:
     __writecr8(1uLL);
     KiDeliverApc(0LL, 0LL, 0LL);
   }
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v101 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v101 <= 0xFu && v70 <= 0xFu && v101 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v101 <= 0xFu && v70 <= 0xFu && v101 >= 2u )
     {
       v102 = KeGetCurrentPrcb();
       v103 = v102->SchedulerAssist;

@@ -1,9 +1,9 @@
 /*
- * XREFs of LdrpThumbProcessRelocation @ 0x1800E5738
+ * XREFs of LdrpThumbProcessRelocation @ 0x1800E0BE8
  * Callers:
- *     LdrProcessRelocationBlockLongLong @ 0x1800E5510 (LdrProcessRelocationBlockLongLong.c)
+ *     LdrProcessRelocationBlockLongLong @ 0x1800E09C0 (LdrProcessRelocationBlockLongLong.c)
  * Callees:
- *     LdrpArmProcessRelocation @ 0x1800E5664 (LdrpArmProcessRelocation.c)
+ *     LdrpArmProcessRelocation @ 0x1800E0B14 (LdrpArmProcessRelocation.c)
  */
 
 __int64 __fastcall LdrpThumbProcessRelocation(unsigned __int16 *a1, __int64 a2, int a3)

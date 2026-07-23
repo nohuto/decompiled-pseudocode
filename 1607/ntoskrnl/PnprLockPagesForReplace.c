@@ -1,11 +1,11 @@
 /*
- * XREFs of PnprLockPagesForReplace @ 0x140644D00
+ * XREFs of PnprLockPagesForReplace @ 0x140644DE4
  * Callers:
- *     PnprQuiesce @ 0x1401D05D4 (PnprQuiesce.c)
+ *     PnprQuiesce @ 0x1401D0400 (PnprQuiesce.c)
  *     PnprQuiesceWorker @ 0x1403DCD24 (PnprQuiesceWorker.c)
- *     PnpReplacePartitionUnit @ 0x1406430D4 (PnpReplacePartitionUnit.c)
+ *     PnpReplacePartitionUnit @ 0x1406431B8 (PnpReplacePartitionUnit.c)
  * Callees:
- *     MiLockPagableImageSection @ 0x140014884 (MiLockPagableImageSection.c)
+ *     MiLockPagableImageSection @ 0x140014404 (MiLockPagableImageSection.c)
  */
 
 void PnprLockPagesForReplace()

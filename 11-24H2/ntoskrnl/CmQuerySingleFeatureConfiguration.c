@@ -1,24 +1,23 @@
 /*
- * XREFs of CmQuerySingleFeatureConfiguration @ 0x1406FA258
+ * XREFs of CmQuerySingleFeatureConfiguration @ 0x1406F7E98
  * Callers:
- *     ExpQuerySystemInformation @ 0x140ADC240 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x140ADDAE0 (ExpQuerySystemInformation.c)
  * Callees:
- *     RtlQueryFeatureConfiguration @ 0x1403A7E90 (RtlQueryFeatureConfiguration.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     RtlQueryFeatureConfiguration @ 0x140496030 (RtlQueryFeatureConfiguration.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 __int64 __fastcall CmQuerySingleFeatureConfiguration(__int64 *a1, int a2, __int64 a3, int a4, _DWORD *a5)
 {
   unsigned int v6; // ecx
   __int64 v7; // rdx
-  int v8; // eax
-  __int64 v11; // [rsp+28h] [rbp-50h] BYREF
+  NTSTATUS v8; // eax
+  ULONGLONG ChangeStamp; // [rsp+28h] [rbp-50h] BYREF
   __int64 v12; // [rsp+30h] [rbp-48h]
-  __int64 v13; // [rsp+50h] [rbp-28h] BYREF
-  int v14; // [rsp+58h] [rbp-20h]
+  _RTL_FEATURE_CONFIGURATION FeatureConfiguration; // [rsp+50h] [rbp-28h] BYREF
 
   v12 = 0LL;
-  v11 = 0LL;
+  ChangeStamp = 0LL;
   if ( a2 != 8 )
     return (unsigned int)-1073741820;
   v7 = *a1;
@@ -30,17 +29,20 @@ LABEL_5:
     *a5 = 24;
     return v6;
   }
-  v13 = 0LL;
-  v14 = 0;
-  v8 = RtlQueryFeatureConfiguration(HIDWORD(v7), v7, &v11, (__int64)&v13);
+  *(_QWORD *)&FeatureConfiguration.FeatureId = 0LL;
+  FeatureConfiguration.VariantPayload = 0;
+  v8 = RtlQueryFeatureConfiguration(
+         HIDWORD(v7),
+         (RTL_FEATURE_CONFIGURATION_TYPE)v7,
+         &ChangeStamp,
+         &FeatureConfiguration);
   v6 = v8;
   if ( v8 >= 0 )
   {
     *(_OWORD *)a3 = 0LL;
     *(_QWORD *)(a3 + 16) = 0LL;
-    *(_QWORD *)a3 = v11;
-    *(_QWORD *)(a3 + 8) = v13;
-    *(_DWORD *)(a3 + 16) = v14;
+    *(_QWORD *)a3 = ChangeStamp;
+    *(_RTL_FEATURE_CONFIGURATION *)(a3 + 8) = FeatureConfiguration;
     *a5 = 24;
     return 0;
   }
@@ -48,7 +50,7 @@ LABEL_5:
   {
     *(_OWORD *)a3 = 0LL;
     *(_QWORD *)(a3 + 16) = 0LL;
-    *(_QWORD *)a3 = v11;
+    *(_QWORD *)a3 = ChangeStamp;
     goto LABEL_5;
   }
   return v6;

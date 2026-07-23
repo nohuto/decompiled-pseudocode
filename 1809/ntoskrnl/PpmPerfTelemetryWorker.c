@@ -1,15 +1,15 @@
 /*
- * XREFs of PpmPerfTelemetryWorker @ 0x140706340
+ * XREFs of PpmPerfTelemetryWorker @ 0x1407075E0
  * Callers:
  *     <none>
  * Callees:
  *     PpmAcquireLock @ 0x140006020 (PpmAcquireLock.c)
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
- *     PpmReleaseLock @ 0x14008BC30 (PpmReleaseLock.c)
- *     PopOkayToQueueNextWorkItem @ 0x14013BA40 (PopOkayToQueueNextWorkItem.c)
- *     PpmPerfUpdateQosDisableReasons @ 0x14016C824 (PpmPerfUpdateQosDisableReasons.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     PpmReleaseLock @ 0x14008BC20 (PpmReleaseLock.c)
+ *     PopOkayToQueueNextWorkItem @ 0x14013BB40 (PopOkayToQueueNextWorkItem.c)
+ *     PpmPerfUpdateQosDisableReasons @ 0x14016C924 (PpmPerfUpdateQosDisableReasons.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 __int64 PpmPerfTelemetryWorker()
@@ -34,14 +34,14 @@ __int64 PpmPerfTelemetryWorker()
 
   PpmAcquireLock((struct _KTHREAD **)&PpmPerfPolicyLock);
   PpmPerfUpdateQosDisableReasons(0LL);
-  v0 = &unk_140541B20;
+  v0 = &unk_140542B20;
   v1 = v17;
-  v2 = qword_140541AB8 - qword_140541AC0;
-  qword_140541AC0 = qword_140541AB8;
+  v2 = qword_140542AB8 - qword_140542AC0;
+  qword_140542AC0 = qword_140542AB8;
   v3 = 9LL;
   v4 = v2 / 0x989680;
-  v5 = qword_140541AC8 - qword_140541AD0;
-  qword_140541AD0 = qword_140541AC8;
+  v5 = qword_140542AC8 - qword_140542AD0;
+  qword_140542AD0 = qword_140542AC8;
   do
   {
     v6 = (unsigned __int64)(*(v0 - 9) - *v0) * (unsigned __int128)0xD6BF94D5E57A42BDuLL;
@@ -62,7 +62,7 @@ __int64 PpmPerfTelemetryWorker()
     v12 = 4LL;
     v14 = 4LL;
     v16 = 36LL;
-    TlgWrite(&pCallbackContext, &unk_14036E961, 0LL, 0LL, 5u, &pData);
+    TlgWrite(&pCallbackContext, &unk_14036F8F1, 0LL, 0LL, 5u, &pData);
   }
-  return PopOkayToQueueNextWorkItem((__int64)&unk_140418908);
+  return PopOkayToQueueNextWorkItem((__int64)&unk_140419988);
 }

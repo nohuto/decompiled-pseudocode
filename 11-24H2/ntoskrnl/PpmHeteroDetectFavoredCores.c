@@ -1,9 +1,9 @@
 /*
- * XREFs of PpmHeteroDetectFavoredCores @ 0x140AB8398
+ * XREFs of PpmHeteroDetectFavoredCores @ 0x140AB285C
  * Callers:
- *     PopInitializeHeteroProcessors @ 0x140A2A138 (PopInitializeHeteroProcessors.c)
+ *     PopInitializeHeteroProcessors @ 0x140AC57E0 (PopInitializeHeteroProcessors.c)
  * Callees:
- *     KeGetPrcb @ 0x140352980 (KeGetPrcb.c)
+ *     KeGetPrcb @ 0x1402B0A10 (KeGetPrcb.c)
  */
 
 char __fastcall PpmHeteroDetectFavoredCores(__int64 a1)
@@ -30,7 +30,7 @@ char __fastcall PpmHeteroDetectFavoredCores(__int64 a1)
       _BitScanForward64(&v5, i);
       v6 = 0;
       i &= ~(1LL << v5);
-      v7 = *((unsigned int *)qword_140F21E78 + 64 * (unsigned __int16)v3 + (unsigned __int8)v5);
+      v7 = *((unsigned int *)qword_140F22998 + 64 * (unsigned __int16)v3 + (unsigned __int8)v5);
       if ( *(_DWORD *)(a1 + 4) )
       {
         do

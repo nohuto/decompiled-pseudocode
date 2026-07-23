@@ -8,7 +8,7 @@
  *     LdrpGetRcConfig @ 0x1800385FC (LdrpGetRcConfig.c)
  */
 
-int __fastcall LdrIsResItemExist(int a1, unsigned __int64 *a2, __int64 a3, unsigned int a4)
+int __fastcall LdrIsResItemExist(void *a1, unsigned __int64 *a2, __int64 a3, unsigned int a4)
 {
   unsigned int *RcConfig; // rax
   unsigned int *v7; // rbx

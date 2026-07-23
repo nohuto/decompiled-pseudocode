@@ -1,10 +1,10 @@
 /*
- * XREFs of AlpcHandleDataDestroyProcedure @ 0x14062C990
+ * XREFs of AlpcHandleDataDestroyProcedure @ 0x140663B20
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
- *     ObpDecrementHandleCount @ 0x14062CA04 (ObpDecrementHandleCount.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
+ *     ObpDecrementHandleCount @ 0x140663B94 (ObpDecrementHandleCount.c)
  */
 
 __int64 __fastcall AlpcHandleDataDestroyProcedure(__int64 a1)

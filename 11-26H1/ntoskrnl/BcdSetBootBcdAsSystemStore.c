@@ -1,13 +1,13 @@
 /*
- * XREFs of BcdSetBootBcdAsSystemStore @ 0x140D01EC4
+ * XREFs of BcdSetBootBcdAsSystemStore @ 0x140D08264
  * Callers:
- *     CmpSetSystemValues @ 0x140CEBA30 (CmpSetSystemValues.c)
+ *     CmpSetSystemValues @ 0x140CF1DD0 (CmpSetSystemValues.c)
  * Callees:
- *     BcdSetSystemStore @ 0x1408910B8 (BcdSetSystemStore.c)
- *     BiOpenKeyNonBcd @ 0x1409D349C (BiOpenKeyNonBcd.c)
- *     BiSetRegistryValue @ 0x1409D47E0 (BiSetRegistryValue.c)
- *     BiOpenKey @ 0x1409D5F14 (BiOpenKey.c)
- *     BiCloseKey @ 0x1409D6368 (BiCloseKey.c)
+ *     BcdSetSystemStore @ 0x1408974B4 (BcdSetSystemStore.c)
+ *     BiOpenKeyNonBcd @ 0x1409A447C (BiOpenKeyNonBcd.c)
+ *     BiSetRegistryValue @ 0x1409A57C0 (BiSetRegistryValue.c)
+ *     BiOpenKey @ 0x1409A6EF4 (BiOpenKey.c)
+ *     BiCloseKey @ 0x1409A7258 (BiCloseKey.c)
  */
 
 __int64 BcdSetBootBcdAsSystemStore()
@@ -26,7 +26,7 @@ __int64 BcdSetBootBcdAsSystemStore()
     {
       v0 = BiSetRegistryValue((unsigned __int64)Handle, L"KeyName", 0LL, 1u, L"BCD00000000", 0x18u);
       if ( v0 >= 0 )
-        v0 = BcdSetSystemStore((__int64)v2);
+        v0 = BcdSetSystemStore(v2);
     }
     if ( Handle )
       BiCloseKey(Handle);

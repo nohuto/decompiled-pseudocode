@@ -1,23 +1,23 @@
 /*
- * XREFs of PopDirectedDripsDiagTraceMarkDevice @ 0x140A80EAC
+ * XREFs of PopDirectedDripsDiagTraceMarkDevice @ 0x140A7B90C
  * Callers:
- *     PopDirectedDripsMarkCandidateDevice @ 0x1406FC214 (PopDirectedDripsMarkCandidateDevice.c)
+ *     PopDirectedDripsMarkCandidateDevice @ 0x1406F9E54 (PopDirectedDripsMarkCandidateDevice.c)
  * Callees:
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     EtwEventEnabled @ 0x1402A1BD0 (EtwEventEnabled.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     EtwWrite @ 0x14041C1B0 (EtwWrite.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     PopDirectedDripsDiagGetOrCreateDeviceDiagnostic @ 0x1406FB9DC (PopDirectedDripsDiagGetOrCreateDeviceDiagnostic.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     EtwEventEnabled @ 0x1402D1300 (EtwEventEnabled.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     EtwWrite @ 0x14040FFB0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     PopDirectedDripsDiagGetOrCreateDeviceDiagnostic @ 0x1406F961C (PopDirectedDripsDiagGetOrCreateDeviceDiagnostic.c)
  */
 
 __int64 __fastcall PopDirectedDripsDiagTraceMarkDevice(__int64 a1)
 {
-  _QWORD *v1; // rax
+  char *v1; // rax
   signed __int8 v2; // cf
-  _QWORD *v3; // rbx
+  char *v3; // rbx
   __int64 DeviceDiagnostic; // rax
   __int64 v6; // [rsp+30h] [rbp-38h] BYREF
   struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+38h] [rbp-30h] BYREF
@@ -26,13 +26,13 @@ __int64 __fastcall PopDirectedDripsDiagTraceMarkDevice(__int64 a1)
   int v10; // [rsp+54h] [rbp-14h]
 
   v6 = a1;
-  v1 = KeAbPreAcquire((__int64)&PopDirectedDripsDiagLock, 0LL);
+  v1 = (char *)KeAbPreAcquire((__int64)&PopDirectedDripsDiagLock, 0LL);
   v2 = _interlockedbittestandset64((volatile signed __int32 *)&PopDirectedDripsDiagLock, 0LL);
   v3 = v1;
   if ( v2 )
-    ExfAcquirePushLockExclusiveEx(&PopDirectedDripsDiagLock, (__int64)v1, (__int64)&PopDirectedDripsDiagLock);
+    ExfAcquirePushLockExclusiveEx(&PopDirectedDripsDiagLock, v1, (__int64)&PopDirectedDripsDiagLock);
   if ( v3 )
-    *((_BYTE *)v3 + 10) = 1;
+    v3[10] = 1;
   DeviceDiagnostic = PopDirectedDripsDiagGetOrCreateDeviceDiagnostic(v6);
   if ( DeviceDiagnostic )
     ++*(_DWORD *)(DeviceDiagnostic + 144);

@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlInsertElementGenericTableFull @ 0x140327DD0
+ * XREFs of RtlInsertElementGenericTableFull @ 0x140328060
  * Callers:
- *     RtlInsertElementGenericTable @ 0x140327D60 (RtlInsertElementGenericTable.c)
+ *     RtlInsertElementGenericTable @ 0x140327FF0 (RtlInsertElementGenericTable.c)
  * Callees:
- *     RtlSplay @ 0x140327ED0 (RtlSplay.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     memmove @ 0x140435700 (memmove.c)
+ *     RtlSplay @ 0x140328160 (RtlSplay.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     memmove @ 0x140435B00 (memmove.c)
  */
 
 PVOID __stdcall RtlInsertElementGenericTableFull(
@@ -18,14 +18,14 @@ PVOID __stdcall RtlInsertElementGenericTableFull(
 {
   size_t v7; // rbp
   _QWORD *v10; // rax
-  RTL_SPLAY_LINKS *v11; // rbx
+  _RTL_SPLAY_LINKS *v11; // rbx
   struct _LIST_ENTRY *v12; // rax
   struct _LIST_ENTRY *Blink; // rdx
 
   v7 = BufferSize;
   if ( SearchResult == TableFoundNode )
   {
-    v11 = (RTL_SPLAY_LINKS *)NodeOrParent;
+    v11 = (_RTL_SPLAY_LINKS *)NodeOrParent;
 LABEL_10:
     Table->TableRoot = RtlSplay(v11);
     if ( NewElement )
@@ -35,7 +35,7 @@ LABEL_10:
   if ( BufferSize + 40 >= BufferSize )
   {
     v10 = (_QWORD *)((__int64 (*)(void))Table->AllocateRoutine)();
-    v11 = (RTL_SPLAY_LINKS *)v10;
+    v11 = (_RTL_SPLAY_LINKS *)v10;
     if ( v10 )
     {
       *v10 = v10;

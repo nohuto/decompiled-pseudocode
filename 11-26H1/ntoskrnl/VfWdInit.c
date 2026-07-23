@@ -1,12 +1,12 @@
 /*
- * XREFs of VfWdInit @ 0x140C39FB0
+ * XREFs of VfWdInit @ 0x140C3FFC0
  * Callers:
- *     ViIovInitialization @ 0x140C2AC6C (ViIovInitialization.c)
+ *     ViIovInitialization @ 0x140C30C7C (ViIovInitialization.c)
  * Callees:
- *     KeInitializeDpc @ 0x140481A50 (KeInitializeDpc.c)
- *     KeInitializeTimer @ 0x140483D00 (KeInitializeTimer.c)
- *     ExInitializeNPagedLookasideListInternal @ 0x140498C60 (ExInitializeNPagedLookasideListInternal.c)
- *     VfWdSetCancelTimeout @ 0x140C3A070 (VfWdSetCancelTimeout.c)
+ *     KeInitializeDpc @ 0x14047B3C0 (KeInitializeDpc.c)
+ *     KeInitializeTimer @ 0x14047D670 (KeInitializeTimer.c)
+ *     ExInitializeNPagedLookasideListInternal @ 0x1404927B0 (ExInitializeNPagedLookasideListInternal.c)
+ *     VfWdSetCancelTimeout @ 0x140C40080 (VfWdSetCancelTimeout.c)
  */
 
 __int64 VfWdInit()
@@ -19,7 +19,7 @@ __int64 VfWdInit()
     if ( !ViWdInitialized )
     {
       VfWdIrpListLock = 0LL;
-      qword_140FF0088 = (__int64)&VfWdIrpListHead;
+      qword_140FF1088 = (__int64)&VfWdIrpListHead;
       VfWdIrpListHead = (__int64)&VfWdIrpListHead;
       ExInitializeNPagedLookasideListInternal(
         (__int64)&ViWdIrpLookasideList,

@@ -1,10 +1,10 @@
 /*
- * XREFs of MiMakeGlobalSubsectionPte @ 0x1404D5FC8
+ * XREFs of MiMakeGlobalSubsectionPte @ 0x1404CF418
  * Callers:
- *     MiPurgeSubsection @ 0x14023C9F0 (MiPurgeSubsection.c)
+ *     MiPurgeSubsection @ 0x140204780 (MiPurgeSubsection.c)
  * Callees:
- *     MiSwizzleInvalidPte @ 0x14022A3B0 (MiSwizzleInvalidPte.c)
- *     MiMakeDemandZeroPte @ 0x1402E3CC0 (MiMakeDemandZeroPte.c)
+ *     MiSwizzleInvalidPte @ 0x1402FD620 (MiSwizzleInvalidPte.c)
+ *     MiMakeDemandZeroPte @ 0x140392C40 (MiMakeDemandZeroPte.c)
  */
 
 __int64 __fastcall MiMakeGlobalSubsectionPte(__int64 a1)

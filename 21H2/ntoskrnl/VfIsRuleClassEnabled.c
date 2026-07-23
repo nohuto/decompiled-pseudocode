@@ -1,10 +1,10 @@
 /*
- * XREFs of VfIsRuleClassEnabled @ 0x1409C6020
+ * XREFs of VfIsRuleClassEnabled @ 0x1409C7020
  * Callers:
- *     ViDifCheckCallbackInterception @ 0x14037DF98 (ViDifCheckCallbackInterception.c)
- *     ViXdvDriverLoadImage @ 0x1409C8E2C (ViXdvDriverLoadImage.c)
- *     IovpCancelRoutine @ 0x1409D03D0 (IovpCancelRoutine.c)
- *     ViThunkReplaceSharedExports @ 0x1409D96B8 (ViThunkReplaceSharedExports.c)
+ *     ViDifCheckCallbackInterception @ 0x14037DAE8 (ViDifCheckCallbackInterception.c)
+ *     ViXdvDriverLoadImage @ 0x1409C9E2C (ViXdvDriverLoadImage.c)
+ *     IovpCancelRoutine @ 0x1409D13D0 (IovpCancelRoutine.c)
+ *     ViThunkReplaceSharedExports @ 0x1409DA6B8 (ViThunkReplaceSharedExports.c)
  * Callees:
  *     <none>
  */

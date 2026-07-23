@@ -1,21 +1,21 @@
 /*
- * XREFs of _CmSetDeviceInterfaceMappedPropertyFromRegValue @ 0x1406DE700
+ * XREFs of _CmSetDeviceInterfaceMappedPropertyFromRegValue @ 0x1406DE838
  * Callers:
- *     _CmSetDeviceInterfaceMappedProperty @ 0x140576A48 (_CmSetDeviceInterfaceMappedProperty.c)
+ *     _CmSetDeviceInterfaceMappedProperty @ 0x140576F88 (_CmSetDeviceInterfaceMappedProperty.c)
  * Callees:
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     _PnpCtxRegCreateKey @ 0x14048706C (_PnpCtxRegCreateKey.c)
- *     _PnpCtxRegSetValue @ 0x1404870E4 (_PnpCtxRegSetValue.c)
- *     _CmOpenDeviceInterfaceRegKey @ 0x1404F8AF8 (_CmOpenDeviceInterfaceRegKey.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     _CmOpenDeviceInterfaceRegKey @ 0x1404DBA84 (_CmOpenDeviceInterfaceRegKey.c)
+ *     _PnpCtxRegCreateKey @ 0x140512D88 (_PnpCtxRegCreateKey.c)
+ *     _PnpCtxRegSetValue @ 0x140512E00 (_PnpCtxRegSetValue.c)
  */
 
 __int64 __fastcall CmSetDeviceInterfaceMappedPropertyFromRegValue(
         __int64 a1,
         __int64 a2,
-        void *a3,
+        char *a3,
         __int64 a4,
         unsigned int a5,
-        __int64 a6,
+        void *a6,
         ULONG a7)
 {
   unsigned int v7; // r11d
@@ -28,8 +28,8 @@ __int64 __fastcall CmSetDeviceInterfaceMappedPropertyFromRegValue(
   int v18; // ecx
   int v19; // ecx
   __int64 v20; // rax
-  HANDLE v21; // rdx
-  int Key; // eax
+  char *v21; // rdx
+  int v22; // eax
   __int64 v23; // rcx
   __int64 v24; // rax
   __int64 v25; // rcx
@@ -47,7 +47,7 @@ __int64 __fastcall CmSetDeviceInterfaceMappedPropertyFromRegValue(
   if ( v7 < 2 )
     return (unsigned int)-1073741264;
   v13 = 0LL;
-  v14 = &off_1406E9A80;
+  v14 = &off_1406E9BB0;
   do
   {
     v15 = *v14;
@@ -90,26 +90,26 @@ __int64 __fastcall CmSetDeviceInterfaceMappedPropertyFromRegValue(
         v20 = *(_QWORD *)(a4 + 8) - *(_QWORD *)DEVPKEY_DeviceInterface_FriendlyName.fmtid.Data4;
       if ( !v20 )
       {
-        v21 = v30;
+        v21 = (char *)v30;
         if ( a3 )
           v21 = a3;
-        Key = PnpCtxRegCreateKey(a1, (__int64)v21, (__int64)L"Device Parameters", v13, 2u, 0LL, (__int64)&v29, 0LL);
-        if ( Key == -1073741444 )
+        v22 = PnpCtxRegCreateKey(a1, v21, L"Device Parameters", v13, 2u, 0LL, &v29, 0LL);
+        if ( v22 == -1073741444 )
           goto LABEL_24;
-        if ( Key < 0 )
+        if ( v22 < 0 )
           goto LABEL_26;
-        Key = PnpCtxRegSetValue(v23, v29, (__int64)L"FriendlyName", 1LL, a6, a7);
+        v22 = PnpCtxRegSetValue(v23, v29, L"FriendlyName", 1u, a6, a7);
 LABEL_36:
-        if ( Key == -1073741444 )
+        if ( v22 == -1073741444 )
         {
 LABEL_24:
           v8 = -1073741772;
           goto LABEL_48;
         }
-        if ( Key >= 0 )
+        if ( v22 >= 0 )
           goto LABEL_48;
 LABEL_26:
-        v8 = Key;
+        v8 = v22;
         goto LABEL_48;
       }
     }
@@ -145,7 +145,7 @@ LABEL_46:
     v8 = CmOpenDeviceInterfaceRegKey(a1, a2, 0x31u, v13, 2, 0, (__int64)&Handle, 0LL);
     if ( v8 >= 0 )
     {
-      Key = PnpCtxRegSetValue(v25, Handle, (__int64)L"DeviceInstance", 1LL, a6, a7);
+      v22 = PnpCtxRegSetValue(v25, Handle, L"DeviceInstance", 1u, a6, a7);
       goto LABEL_36;
     }
   }

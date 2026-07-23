@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpWorkItemRundown @ 0x1406F778C
+ * XREFs of CmpWorkItemRundown @ 0x1406F578C
  * Callers:
- *     CmFcManagerUnregisterFeatureUsageProvider @ 0x1406F768C (CmFcManagerUnregisterFeatureUsageProvider.c)
- *     CmUnregisterMachineHiveLoadedNotification @ 0x1407D1D00 (CmUnregisterMachineHiveLoadedNotification.c)
- *     CmFcManagerUnregisterFeatureConfigurationChangeNotification @ 0x1407E465C (CmFcManagerUnregisterFeatureConfigurationChangeNotification.c)
+ *     CmFcManagerUnregisterFeatureUsageProvider @ 0x1406F568C (CmFcManagerUnregisterFeatureUsageProvider.c)
+ *     CmUnregisterMachineHiveLoadedNotification @ 0x1407D21F0 (CmUnregisterMachineHiveLoadedNotification.c)
+ *     CmFcManagerUnregisterFeatureConfigurationChangeNotification @ 0x1407E4BAC (CmFcManagerUnregisterFeatureConfigurationChangeNotification.c)
  * Callees:
- *     ExWaitForRundownProtectionRelease @ 0x1402C6A90 (ExWaitForRundownProtectionRelease.c)
+ *     ExWaitForRundownProtectionRelease @ 0x1402BB610 (ExWaitForRundownProtectionRelease.c)
  */
 
 __int64 __fastcall CmpWorkItemRundown(struct _EX_RUNDOWN_REF *a1)

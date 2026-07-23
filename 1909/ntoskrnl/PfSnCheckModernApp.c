@@ -9,12 +9,12 @@
  *     PsReferencePrimaryToken @ 0x1405D6170 (PsReferencePrimaryToken.c)
  */
 
-__int64 __fastcall PfSnCheckModernApp(int *a1, _DWORD *a2, unsigned __int8 *a3, _QWORD *a4)
+__int64 __fastcall PfSnCheckModernApp(int *a1, _DWORD *a2, WCHAR *a3, ULONG_PTR *a4)
 {
   int v8; // ebp
   _KPROCESS *Process; // r14
   PACCESS_TOKEN v10; // r15
-  int PackageIdentity; // eax
+  NTSTATUS PackageIdentity; // eax
   unsigned int v12; // esi
   int v13; // edi
   __int64 v15; // r8
@@ -24,7 +24,7 @@ __int64 __fastcall PfSnCheckModernApp(int *a1, _DWORD *a2, unsigned __int8 *a3, 
   __int64 v19; // rcx
   __int64 v20; // rax
   unsigned __int8 *v21; // r11
-  __int64 v22; // r10
+  signed __int64 v22; // r10
   unsigned __int64 v23; // rbx
   __int64 v24; // rcx
   __int64 v25; // rax
@@ -40,19 +40,19 @@ __int64 __fastcall PfSnCheckModernApp(int *a1, _DWORD *a2, unsigned __int8 *a3, 
   int v35; // r10d
   int v36; // r10d
   int v37; // r10d
-  __int64 v38; // [rsp+30h] [rbp-F8h] BYREF
-  _BYTE v39[144]; // [rsp+40h] [rbp-E8h] BYREF
+  ULONG_PTR AppIdSize[2]; // [rsp+30h] [rbp-F8h] BYREF
+  WCHAR AppId[72]; // [rsp+40h] [rbp-E8h] BYREF
 
   v8 = 0;
   Process = KeGetCurrentThread()->ApcState.Process;
   v10 = PsReferencePrimaryToken(Process);
-  v38 = 130LL;
-  PackageIdentity = RtlQueryPackageIdentity((__int64)v10, (__int64)a3, (__int64)a4, (__int64)v39, (__int64)&v38, 0LL);
+  AppIdSize[0] = 130LL;
+  PackageIdentity = RtlQueryPackageIdentity(v10, a3, a4, AppId, AppIdSize, 0LL);
   v12 = PackageIdentity;
   if ( PackageIdentity >= 0 )
   {
     v15 = 314159LL;
-    v16 = *a4 - 2LL;
+    v16 = *a4 - 2;
     v17 = 314159LL;
     v13 = 1;
     if ( v16 >= 8 )
@@ -61,9 +61,18 @@ __int64 __fastcall PfSnCheckModernApp(int *a1, _DWORD *a2, unsigned __int8 *a3, 
       v16 -= 8 * ((unsigned __int64)v16 >> 3);
       do
       {
-        v19 = a3[6] + 37 * (a3[5] + 37 * (a3[4] + 37 * (a3[3] + 37 * (a3[2] + 37 * (a3[1] + 37 * (*a3 + 37 * v17))))));
-        v20 = a3[7];
-        a3 += 8;
+        v19 = *((unsigned __int8 *)a3 + 6)
+            + 37
+            * (*((unsigned __int8 *)a3 + 5)
+             + 37
+             * (*((unsigned __int8 *)a3 + 4)
+              + 37
+              * (*((unsigned __int8 *)a3 + 3)
+               + 37
+               * (*((unsigned __int8 *)a3 + 2)
+                + 37 * (*((unsigned __int8 *)a3 + 1) + 37 * (*(unsigned __int8 *)a3 + 37 * v17))))));
+        v20 = *((unsigned __int8 *)a3 + 7);
+        a3 += 4;
         v17 = v20 + 37 * v19;
         --v18;
       }
@@ -78,49 +87,55 @@ __int64 __fastcall PfSnCheckModernApp(int *a1, _DWORD *a2, unsigned __int8 *a3, 
       if ( !v27 )
       {
 LABEL_18:
-        LODWORD(v17) = *a3++ + 37 * v17;
+        LODWORD(v17) = *(unsigned __int8 *)a3 + 37 * v17;
+        a3 = (WCHAR *)((char *)a3 + 1);
 LABEL_19:
-        LODWORD(v17) = *a3 + 37 * v17;
+        LODWORD(v17) = *(unsigned __int8 *)a3 + 37 * v17;
         goto LABEL_9;
       }
       v28 = v27 - 1;
       if ( !v28 )
       {
 LABEL_31:
-        LODWORD(v17) = *a3++ + 37 * v17;
+        LODWORD(v17) = *(unsigned __int8 *)a3 + 37 * v17;
+        a3 = (WCHAR *)((char *)a3 + 1);
         goto LABEL_18;
       }
       v29 = v28 - 1;
       if ( !v29 )
       {
 LABEL_30:
-        LODWORD(v17) = *a3++ + 37 * v17;
+        LODWORD(v17) = *(unsigned __int8 *)a3 + 37 * v17;
+        a3 = (WCHAR *)((char *)a3 + 1);
         goto LABEL_31;
       }
       v30 = v29 - 1;
       if ( !v30 )
       {
 LABEL_29:
-        LODWORD(v17) = *a3++ + 37 * v17;
+        LODWORD(v17) = *(unsigned __int8 *)a3 + 37 * v17;
+        a3 = (WCHAR *)((char *)a3 + 1);
         goto LABEL_30;
       }
       v31 = v30 - 1;
       if ( !v31 )
       {
 LABEL_28:
-        LODWORD(v17) = *a3++ + 37 * v17;
+        LODWORD(v17) = *(unsigned __int8 *)a3 + 37 * v17;
+        a3 = (WCHAR *)((char *)a3 + 1);
         goto LABEL_29;
       }
       if ( v31 == 1 )
       {
-        LODWORD(v17) = *a3++ + 37 * v17;
+        LODWORD(v17) = *(unsigned __int8 *)a3 + 37 * v17;
+        a3 = (WCHAR *)((char *)a3 + 1);
         goto LABEL_28;
       }
     }
 LABEL_9:
-    v21 = v39;
-    v22 = v38 - 2;
-    if ( v38 - 2 >= 8 )
+    v21 = (unsigned __int8 *)AppId;
+    v22 = AppIdSize[0] - 2;
+    if ( (signed __int64)(AppIdSize[0] - 2) >= 8 )
     {
       v23 = (unsigned __int64)v22 >> 3;
       v22 -= 8 * ((unsigned __int64)v22 >> 3);

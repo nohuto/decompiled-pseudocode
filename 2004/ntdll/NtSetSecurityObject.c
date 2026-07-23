@@ -7,11 +7,14 @@
  *     <none>
  */
 
-__int64 NtSetSecurityObject()
+NTSTATUS __cdecl NtSetSecurityObject(
+        HANDLE Handle,
+        SECURITY_INFORMATION SecurityInformation,
+        PSECURITY_DESCRIPTOR SecurityDescriptor)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 423LL;
+  result = 423;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

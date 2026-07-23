@@ -1,22 +1,22 @@
 /*
- * XREFs of VhdiInitializeBootDisk @ 0x140D02F00
+ * XREFs of VhdiInitializeBootDisk @ 0x140D092A0
  * Callers:
  *     <none>
  * Callees:
- *     RtlStringCbPrintfW @ 0x140433060 (RtlStringCbPrintfW.c)
- *     RtlInitUnicodeStringEx @ 0x14045D040 (RtlInitUnicodeStringEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwDeviceIoControlFile @ 0x1407234D0 (ZwDeviceIoControlFile.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwOpenFile @ 0x140723A50 (ZwOpenFile.c)
- *     RtlCompareMemory @ 0x140730D90 (RtlCompareMemory.c)
- *     IoGetConfigurationInformation @ 0x14077EB70 (IoGetConfigurationInformation.c)
- *     RtlCreateUnicodeStringFromAsciiz @ 0x140801910 (RtlCreateUnicodeStringFromAsciiz.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
- *     VhdiGetPartitionNumber @ 0x140D02CE4 (VhdiGetPartitionNumber.c)
- *     VhdiGetVolumeNumber @ 0x140D02D78 (VhdiGetVolumeNumber.c)
- *     VhdiQueryVolumeVhdFilePath @ 0x140D031F8 (VhdiQueryVolumeVhdFilePath.c)
+ *     RtlStringCbPrintfW @ 0x140420090 (RtlStringCbPrintfW.c)
+ *     RtlInitUnicodeStringEx @ 0x140456BE0 (RtlInitUnicodeStringEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwDeviceIoControlFile @ 0x1407280A0 (ZwDeviceIoControlFile.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwOpenFile @ 0x140728620 (ZwOpenFile.c)
+ *     RtlCompareMemory @ 0x140735960 (RtlCompareMemory.c)
+ *     IoGetConfigurationInformation @ 0x140781670 (IoGetConfigurationInformation.c)
+ *     RtlCreateUnicodeStringFromAsciiz @ 0x1408073B0 (RtlCreateUnicodeStringFromAsciiz.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
+ *     VhdiGetPartitionNumber @ 0x140D09084 (VhdiGetPartitionNumber.c)
+ *     VhdiGetVolumeNumber @ 0x140D09118 (VhdiGetVolumeNumber.c)
+ *     VhdiQueryVolumeVhdFilePath @ 0x140D09598 (VhdiQueryVolumeVhdFilePath.c)
  */
 
 __int64 __fastcall VhdiInitializeBootDisk(__int64 a1, __int64 a2, UNICODE_STRING *a3)
@@ -64,7 +64,7 @@ __int64 __fastcall VhdiInitializeBootDisk(__int64 a1, __int64 a2, UNICODE_STRING
   v5 = *(_DWORD **)(a2 + 24);
   if ( !v5 )
     return 3221225485LL;
-  if ( !RtlCreateUnicodeStringFromAsciiz(a3, *(const char **)(a1 + 184)) )
+  if ( !RtlCreateUnicodeStringFromAsciiz(a3, *(PCSTR *)(a1 + 184)) )
     return 3221225473LL;
   ConfigurationInformation = IoGetConfigurationInformation();
   v8 = 0LL;

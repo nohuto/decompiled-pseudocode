@@ -1,5 +1,5 @@
 /*
- * XREFs of PpmCheckMaintainArtificialDomain @ 0x1404F53B0
+ * XREFs of PpmCheckMaintainArtificialDomain @ 0x1404EE990
  * Callers:
  *     <none>
  * Callees:
@@ -12,14 +12,13 @@ void PpmCheckMaintainArtificialDomain()
 
   if ( !PpmPerfArtificialDomainEnabled )
   {
-    LODWORD(v0) = *(_DWORD *)&PopSleepstudySessionLock.WaitBlockFill11[100];
-    if ( *(__int64 (**)())(*(_QWORD *)&PopSleepstudySessionLock.WaitBlockFill11[16]
-                         + 8LL * *(unsigned int *)&PopSleepstudySessionLock.WaitBlockFill11[100]) != PpmCheckReportComplete )
+    LODWORD(v0) = PpmCheckPipelineIndex;
+    if ( *(__int64 (**)())(PpmCheckPipeline + 8LL * (unsigned int)PpmCheckPipelineIndex) != PpmCheckReportComplete )
     {
       do
         v0 = (unsigned int)(v0 + 1);
-      while ( *(__int64 (**)())(*(_QWORD *)&PopSleepstudySessionLock.WaitBlockFill11[16] + 8 * v0) != PpmCheckReportComplete );
-      *(_DWORD *)&PopSleepstudySessionLock.WaitBlockFill11[100] = v0;
+      while ( *(__int64 (**)())(PpmCheckPipeline + 8 * v0) != PpmCheckReportComplete );
+      PpmCheckPipelineIndex = v0;
     }
   }
 }

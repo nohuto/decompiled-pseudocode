@@ -1,14 +1,14 @@
 /*
- * XREFs of VfSuspectDriversAllocateEntry @ 0x1409374B4
+ * XREFs of VfSuspectDriversAllocateEntry @ 0x1409384B4
  * Callers:
- *     VfDriverEnableVerifierForAll @ 0x140928018 (VfDriverEnableVerifierForAll.c)
- *     VfSuspectDriversLoadCallback @ 0x1409377A4 (VfSuspectDriversLoadCallback.c)
- *     VfAddVerifierEntry @ 0x14094A814 (VfAddVerifierEntry.c)
- *     VfTriageAddDrivers @ 0x1409F84EC (VfTriageAddDrivers.c)
- *     VfSuspectDriversParseRegistryString @ 0x1409F8948 (VfSuspectDriversParseRegistryString.c)
+ *     VfDriverEnableVerifierForAll @ 0x140929018 (VfDriverEnableVerifierForAll.c)
+ *     VfSuspectDriversLoadCallback @ 0x1409387A4 (VfSuspectDriversLoadCallback.c)
+ *     VfAddVerifierEntry @ 0x14094B814 (VfAddVerifierEntry.c)
+ *     VfTriageAddDrivers @ 0x1409F94EC (VfTriageAddDrivers.c)
+ *     VfSuspectDriversParseRegistryString @ 0x1409F9948 (VfSuspectDriversParseRegistryString.c)
  * Callees:
- *     memmove @ 0x1401D1540 (memmove.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
  */
 
 _DWORD *__fastcall VfSuspectDriversAllocateEntry(const void **a1)

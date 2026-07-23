@@ -1,27 +1,27 @@
 /*
- * XREFs of DifZwLoadEnclaveDataWrapper @ 0x1406A8C50
+ * XREFs of DifZwLoadEnclaveDataWrapper @ 0x1406AC830
  * Callers:
  *     <none>
  * Callees:
- *     DifGetReturnAddressForWrappers @ 0x140260EA4 (DifGetReturnAddressForWrappers.c)
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     DifGetAPIThunkContextById @ 0x1404C17A4 (DifGetAPIThunkContextById.c)
- *     ZwLoadEnclaveData @ 0x1407255D0 (ZwLoadEnclaveData.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     DifGetReturnAddressForWrappers @ 0x14026040C (DifGetReturnAddressForWrappers.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     DifGetAPIThunkContextById @ 0x1404BAFF4 (DifGetAPIThunkContextById.c)
+ *     ZwLoadEnclaveData @ 0x14072A1A0 (ZwLoadEnclaveData.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall DifZwLoadEnclaveDataWrapper(
-        __int64 a1,
-        __int64 a2,
-        __int64 a3,
-        __int64 a4,
-        int a5,
-        __int64 a6,
-        int a7,
-        __int64 a8,
-        __int64 a9)
+        void *a1,
+        void *a2,
+        void *a3,
+        SIZE_T a4,
+        ULONG Protect,
+        PVOID PageInformation,
+        ULONG PageInformationLength,
+        ULONG_PTR *NumberOfBytesWritten,
+        ULONG *EnclaveError)
 {
   __int128 *APIThunkContextById; // rax
   __int64 v13; // rdx
@@ -34,13 +34,13 @@ __int64 __fastcall DifZwLoadEnclaveDataWrapper(
   BOOLEAN v20; // di
   __int128 *j; // rbx
   _QWORD v23[3]; // [rsp+58h] [rbp-51h] BYREF
-  int v24; // [rsp+70h] [rbp-39h]
-  __int64 v25; // [rsp+78h] [rbp-31h]
-  int v26; // [rsp+80h] [rbp-29h]
-  __int64 v27; // [rsp+88h] [rbp-21h]
-  __int64 v28; // [rsp+90h] [rbp-19h]
-  __int64 v29; // [rsp+98h] [rbp-11h]
-  __int64 v30; // [rsp+A0h] [rbp-9h]
+  ULONG v24; // [rsp+70h] [rbp-39h]
+  PVOID v25; // [rsp+78h] [rbp-31h]
+  ULONG v26; // [rsp+80h] [rbp-29h]
+  SIZE_T v27; // [rsp+88h] [rbp-21h]
+  void *v28; // [rsp+90h] [rbp-19h]
+  void *v29; // [rsp+98h] [rbp-11h]
+  void *v30; // [rsp+A0h] [rbp-9h]
   unsigned int EnclaveData; // [rsp+A8h] [rbp-1h]
   void *retaddr; // [rsp+E0h] [rbp+37h]
 
@@ -64,11 +64,11 @@ __int64 __fastcall DifZwLoadEnclaveDataWrapper(
 LABEL_7:
   v17 = 0;
   v30 = a1;
-  v26 = a5;
-  v25 = a6;
-  v24 = a7;
-  v23[2] = a8;
-  v23[1] = a9;
+  v26 = Protect;
+  v25 = PageInformation;
+  v24 = PageInformationLength;
+  v23[2] = NumberOfBytesWritten;
+  v23[1] = EnclaveError;
   v29 = a2;
   v28 = a3;
   v27 = a4;
@@ -84,7 +84,16 @@ LABEL_7:
       ExReleaseRundownProtection_0(&DifRebootlessRundown);
   }
 LABEL_17:
-  EnclaveData = ZwLoadEnclaveData(a1, a2, a3, a4, a5, a6, a7, a8, a9);
+  EnclaveData = ZwLoadEnclaveData(
+                  a1,
+                  a2,
+                  a3,
+                  a4,
+                  Protect,
+                  PageInformation,
+                  PageInformationLength,
+                  NumberOfBytesWritten,
+                  EnclaveError);
   if ( v14 )
   {
     if ( (v20 = 0, !VfDifRunningWithoutReboot) && (VfOptionFlags & 0x800) == 0

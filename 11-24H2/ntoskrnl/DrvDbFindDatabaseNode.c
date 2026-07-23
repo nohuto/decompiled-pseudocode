@@ -1,19 +1,19 @@
 /*
- * XREFs of DrvDbFindDatabaseNode @ 0x140926C58
+ * XREFs of DrvDbFindDatabaseNode @ 0x140928D98
  * Callers:
- *     DrvDbGetDriverDatabaseMappedPropertyKeys @ 0x140821C3C (DrvDbGetDriverDatabaseMappedPropertyKeys.c)
- *     DrvDbSetDriverDatabaseMappedProperty @ 0x1408226F4 (DrvDbSetDriverDatabaseMappedProperty.c)
- *     DrvDbRegisterDatabase @ 0x140823800 (DrvDbRegisterDatabase.c)
- *     DrvDbSuspendDatabase @ 0x1408238F0 (DrvDbSuspendDatabase.c)
- *     DrvDbUnregisterDatabase @ 0x1408239A4 (DrvDbUnregisterDatabase.c)
- *     DrvDbDispatchDriverDatabase @ 0x1408BDAB0 (DrvDbDispatchDriverDatabase.c)
- *     DrvDbGetDriverDatabaseMappedProperty @ 0x140922D68 (DrvDbGetDriverDatabaseMappedProperty.c)
- *     DrvDbOpenObjectRegKey @ 0x1409254F0 (DrvDbOpenObjectRegKey.c)
- *     DrvDbGetObjectDatabaseNode @ 0x1409267F8 (DrvDbGetObjectDatabaseNode.c)
- *     DrvDbOpenDriverDatabaseRegKey @ 0x140A88D94 (DrvDbOpenDriverDatabaseRegKey.c)
+ *     DrvDbGetDriverDatabaseMappedPropertyKeys @ 0x14082237C (DrvDbGetDriverDatabaseMappedPropertyKeys.c)
+ *     DrvDbSetDriverDatabaseMappedProperty @ 0x140822E34 (DrvDbSetDriverDatabaseMappedProperty.c)
+ *     DrvDbRegisterDatabase @ 0x140823F40 (DrvDbRegisterDatabase.c)
+ *     DrvDbSuspendDatabase @ 0x140824030 (DrvDbSuspendDatabase.c)
+ *     DrvDbUnregisterDatabase @ 0x1408240E4 (DrvDbUnregisterDatabase.c)
+ *     DrvDbDispatchDriverDatabase @ 0x1408BB400 (DrvDbDispatchDriverDatabase.c)
+ *     DrvDbGetDriverDatabaseMappedProperty @ 0x140924EA0 (DrvDbGetDriverDatabaseMappedProperty.c)
+ *     DrvDbOpenObjectRegKey @ 0x140927630 (DrvDbOpenObjectRegKey.c)
+ *     DrvDbGetObjectDatabaseNode @ 0x140928938 (DrvDbGetObjectDatabaseNode.c)
+ *     DrvDbOpenDriverDatabaseRegKey @ 0x140A85194 (DrvDbOpenDriverDatabaseRegKey.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x14045AA10 (RtlInitUnicodeStringEx.c)
- *     RtlEqualUnicodeString @ 0x140927050 (RtlEqualUnicodeString.c)
+ *     RtlInitUnicodeStringEx @ 0x14044FE60 (RtlInitUnicodeStringEx.c)
+ *     RtlEqualUnicodeString @ 0x140929190 (RtlEqualUnicodeString.c)
  */
 
 __int64 __fastcall DrvDbFindDatabaseNode(__int64 a1, const WCHAR *a2, const UNICODE_STRING **a3)

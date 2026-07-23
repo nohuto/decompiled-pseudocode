@@ -1,23 +1,23 @@
 /*
- * XREFs of PpmParkSteerInterrupts @ 0x140063570
+ * XREFs of PpmParkSteerInterrupts @ 0x140063560
  * Callers:
  *     <none>
  * Callees:
  *     KeIsEmptyAffinityEx @ 0x140062160 (KeIsEmptyAffinityEx.c)
  *     KeIntSteerPeriodic @ 0x1400626A0 (KeIntSteerPeriodic.c)
- *     KeAddProcessorAffinityEx @ 0x140063A40 (KeAddProcessorAffinityEx.c)
- *     KeEnumerateNextProcessor @ 0x140063BE0 (KeEnumerateNextProcessor.c)
- *     KeIntSteerSnapPerf @ 0x14008B720 (KeIntSteerSnapPerf.c)
- *     KeAndAffinityEx @ 0x1400DC700 (KeAndAffinityEx.c)
- *     KeComplementAffinityEx @ 0x1400DC800 (KeComplementAffinityEx.c)
- *     KeSubtractAffinityEx @ 0x1400ED840 (KeSubtractAffinityEx.c)
- *     KeCopyAffinityEx @ 0x1400EDAB0 (KeCopyAffinityEx.c)
- *     KeQuerySystemAllowedCpuSetAffinity @ 0x140119988 (KeQuerySystemAllowedCpuSetAffinity.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     KeFindFirstSetRightAffinityEx @ 0x14028E380 (KeFindFirstSetRightAffinityEx.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
+ *     KeAddProcessorAffinityEx @ 0x140063A30 (KeAddProcessorAffinityEx.c)
+ *     KeEnumerateNextProcessor @ 0x140063BD0 (KeEnumerateNextProcessor.c)
+ *     KeIntSteerSnapPerf @ 0x14008B710 (KeIntSteerSnapPerf.c)
+ *     KeAndAffinityEx @ 0x1400DC780 (KeAndAffinityEx.c)
+ *     KeComplementAffinityEx @ 0x1400DC880 (KeComplementAffinityEx.c)
+ *     KeSubtractAffinityEx @ 0x1400ED8C0 (KeSubtractAffinityEx.c)
+ *     KeCopyAffinityEx @ 0x1400EDB30 (KeCopyAffinityEx.c)
+ *     KeQuerySystemAllowedCpuSetAffinity @ 0x1401199F8 (KeQuerySystemAllowedCpuSetAffinity.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     KeFindFirstSetRightAffinityEx @ 0x14028E570 (KeFindFirstSetRightAffinityEx.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
  */
 
 char PpmParkSteerInterrupts()
@@ -77,7 +77,7 @@ char PpmParkSteerInterrupts()
   v1 = 0;
   v2 = 0;
   memset((char *)v30 + 4, 0, 0xA4uLL);
-  v3 = qword_1405416A8;
+  v3 = qword_1405426A8;
   v4 = v27;
   v23 = KeActiveProcessors;
   v25 = 0;

@@ -22,11 +22,11 @@
  *     CmDumpKey @ 0x14087BD68 (CmDumpKey.c)
  */
 
-__int64 __fastcall NtSaveKeyEx(void *a1, HANDLE a2, int a3)
+NTSTATUS __cdecl NtSaveKeyEx(HANDLE KeyHandle, HANDLE FileHandle, ULONG Format)
 {
   KPROCESSOR_MODE PreviousMode; // r14
   struct _KTHREAD *CurrentThread; // rax
-  int v8; // ebx
+  NTSTATUS v8; // ebx
   __int64 v9; // rdx
   __int64 v10; // r8
   int v11; // eax
@@ -65,35 +65,35 @@ __int64 __fastcall NtSaveKeyEx(void *a1, HANDLE a2, int a3)
   if ( !ExAcquireRundownProtection((PEX_RUNDOWN_REF)&CmpShutdownRundown) )
   {
     KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-    return (unsigned int)-1073741431;
+    return -1073741431;
   }
   v8 = CmCheckNoTxContext();
   if ( v8 >= 0 )
   {
     if ( SeSinglePrivilegeCheck(SeBackupPrivilege, PreviousMode) )
     {
-      if ( ((a3 - 1) & 0xFFFFFFFC) == 0 && a3 != 3 )
+      if ( ((Format - 1) & 0xFFFFFFFC) == 0 && Format != 3 )
       {
         if ( PreviousMode == 1 )
         {
           LOBYTE(v9) = 1;
-          v11 = IoConvertFileHandleToKernelHandle(a2, v9, 2LL, 0LL, &Handle);
+          v11 = IoConvertFileHandleToKernelHandle(FileHandle, v9, 2LL, 0LL, &Handle);
           v12 = Handle;
           v8 = v11;
           if ( v11 < 0 )
           {
 LABEL_20:
-            if ( v12 && v12 != a2 )
+            if ( v12 && v12 != FileHandle )
               ZwClose(v12);
             goto LABEL_23;
           }
         }
         else
         {
-          v12 = a2;
-          Handle = a2;
+          v12 = FileHandle;
+          Handle = FileHandle;
         }
-        v8 = CmObReferenceObjectByHandle(a1, 0, v10, PreviousMode, &DmaAdapter, 0LL);
+        v8 = CmObReferenceObjectByHandle(KeyHandle, 0, v10, PreviousMode, &DmaAdapter, 0LL);
         if ( v8 >= 0 )
         {
           v16 = KeGetCurrentThread();
@@ -104,7 +104,7 @@ LABEL_20:
             && !ExIsResourceAcquiredSharedLite((PERESOURCE)&CmpRegistryLock)
             && (*(_QWORD *)&v29 = v17,
                 *((_QWORD *)&v29 + 1) = v18,
-                LODWORD(v30) = a3,
+                LODWORD(v30) = Format,
                 v19 = CmpCallCallBacksEx(0x2Bu, (__int64)&v29, 0LL, 1, 0x2Cu, 0LL, (__int64)v28),
                 v8 = v19,
                 v19 < 0) )
@@ -115,7 +115,7 @@ LABEL_20:
           else
           {
             CmpAttachToRegistryProcess((__int64)v32, v13, v14, v15);
-            if ( a3 == 4 )
+            if ( Format == 4 )
             {
               LOBYTE(v20) = PreviousMode;
               v23 = CmDumpKey(v17, v18, v20);
@@ -124,7 +124,7 @@ LABEL_20:
             {
               v22 = 5LL;
               LOBYTE(v21) = PreviousMode;
-              if ( a3 != 2 )
+              if ( Format != 2 )
                 v22 = 3LL;
               v23 = CmSaveKey(v17, v18, v22, v21);
             }
@@ -149,5 +149,5 @@ LABEL_20:
 LABEL_23:
   ExReleaseRundownProtection((PEX_RUNDOWN_REF)&CmpShutdownRundown);
   KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-  return (unsigned int)v8;
+  return v8;
 }

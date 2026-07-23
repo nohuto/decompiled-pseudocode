@@ -1,28 +1,28 @@
 /*
- * XREFs of MiAllocateChildVads @ 0x140961AD0
+ * XREFs of MiAllocateChildVads @ 0x140A077C4
  * Callers:
- *     MiCloneProcessAddressSpace @ 0x140961614 (MiCloneProcessAddressSpace.c)
+ *     MiCloneProcessAddressSpace @ 0x140A07308 (MiCloneProcessAddressSpace.c)
  * Callees:
- *     KiUnstackDetachProcess @ 0x1402307C0 (KiUnstackDetachProcess.c)
- *     KiStackAttachProcess @ 0x140247880 (KiStackAttachProcess.c)
- *     MiIsVadLargePrivate @ 0x14030B6CC (MiIsVadLargePrivate.c)
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     MmGetCurrentProcessorColor @ 0x14044ADC0 (MmGetCurrentProcessorColor.c)
- *     MiReadVadFlags @ 0x1404655D0 (MiReadVadFlags.c)
- *     MiCopyVadContents @ 0x1404673AC (MiCopyVadContents.c)
- *     MiVadBytes @ 0x1404C97A0 (MiVadBytes.c)
- *     MiVadShouldBeForked @ 0x1404EE6B8 (MiVadShouldBeForked.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     MiDeletePartialCloneVads @ 0x1409619E4 (MiDeletePartialCloneVads.c)
- *     MiCloneAncillaryVadInfo @ 0x140961D0C (MiCloneAncillaryVadInfo.c)
- *     MiInitializeQuotaTracker @ 0x1409C4B54 (MiInitializeQuotaTracker.c)
- *     MiInsertChildVads @ 0x140B2090C (MiInsertChildVads.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KiUnstackDetachProcess @ 0x140232120 (KiUnstackDetachProcess.c)
+ *     KiStackAttachProcess @ 0x1402491E0 (KiStackAttachProcess.c)
+ *     MiIsVadLargePrivate @ 0x1402ED74C (MiIsVadLargePrivate.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     MmGetCurrentProcessorColor @ 0x140442EF0 (MmGetCurrentProcessorColor.c)
+ *     MiReadVadFlags @ 0x14045E590 (MiReadVadFlags.c)
+ *     MiCopyVadContents @ 0x140460AFC (MiCopyVadContents.c)
+ *     MiVadBytes @ 0x1404C31C0 (MiVadBytes.c)
+ *     MiVadShouldBeForked @ 0x1404E7C98 (MiVadShouldBeForked.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     MiInitializeQuotaTracker @ 0x140995B34 (MiInitializeQuotaTracker.c)
+ *     MiDeletePartialCloneVads @ 0x140A076D8 (MiDeletePartialCloneVads.c)
+ *     MiCloneAncillaryVadInfo @ 0x140A07A00 (MiCloneAncillaryVadInfo.c)
+ *     MiInsertChildVads @ 0x140B22D0C (MiInsertChildVads.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiAllocateChildVads(ULONG_PTR BugCheckParameter1, _QWORD *a2)
 {
-  _QWORD *v3; // r14
+  __int64 *v3; // r14
   _QWORD *v4; // rdi
   _QWORD *i; // rax
   _QWORD **v6; // rcx
@@ -90,7 +90,7 @@ __int64 __fastcall MiAllocateChildVads(ULONG_PTR BugCheckParameter1, _QWORD *a2)
     v19 = (_QWORD *)PoolMm;
     if ( !PoolMm )
       break;
-    v20 = MiInitializeQuotaTracker(PoolMm + 68, BugCheckParameter1, 0LL);
+    MiInitializeQuotaTracker((_BYTE *)(PoolMm + 68), BugCheckParameter1, 0);
     MiCopyVadContents(v20, v7);
     if ( v14 )
       *((_DWORD *)v19 + 12) &= ~2u;

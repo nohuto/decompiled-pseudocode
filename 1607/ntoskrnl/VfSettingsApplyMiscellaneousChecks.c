@@ -1,7 +1,7 @@
 /*
  * XREFs of VfSettingsApplyMiscellaneousChecks @ 0x140716718
  * Callers:
- *     VfInitVerifierComponents @ 0x140703300 (VfInitVerifierComponents.c)
+ *     VfInitVerifierComponents @ 0x140703330 (VfInitVerifierComponents.c)
  *     VfSettingsCheckForChanges @ 0x140716730 (VfSettingsCheckForChanges.c)
  * Callees:
  *     <none>

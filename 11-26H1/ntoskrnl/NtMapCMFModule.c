@@ -1,54 +1,54 @@
 /*
- * XREFs of NtMapCMFModule @ 0x1408446A0
+ * XREFs of NtMapCMFModule @ 0x140849B30
  * Callers:
- *     DifNtMapCMFModuleWrapper @ 0x14067B4E0 (DifNtMapCMFModuleWrapper.c)
+ *     DifNtMapCMFModuleWrapper @ 0x14067F0C0 (DifNtMapCMFModuleWrapper.c)
  * Callees:
- *     ExAcquireResourceExclusiveLite @ 0x140275200 (ExAcquireResourceExclusiveLite.c)
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     ExAcquireResourceSharedLite @ 0x1402B3C80 (ExAcquireResourceSharedLite.c)
- *     ExReleaseResourceLite @ 0x1402B4CF0 (ExReleaseResourceLite.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     ExConvertExclusiveToSharedLite @ 0x140431900 (ExConvertExclusiveToSharedLite.c)
- *     KeInitializeEvent @ 0x140466F30 (KeInitializeEvent.c)
- *     MiRemoveFromSystemSpace @ 0x14048FFF8 (MiRemoveFromSystemSpace.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     RtlReadULong64FromUser @ 0x14077F554 (RtlReadULong64FromUser.c)
- *     RtlReadULongFromUser @ 0x14077F590 (RtlReadULongFromUser.c)
- *     RtlWriteULong64ToUser @ 0x14077F758 (RtlWriteULong64ToUser.c)
- *     RtlWriteULongToUser @ 0x14077F7A0 (RtlWriteULongToUser.c)
- *     CMFCheckAccess @ 0x140842C28 (CMFCheckAccess.c)
- *     CMFFlushHitsFile @ 0x1408434C8 (CMFFlushHitsFile.c)
- *     CMFRegisterEventTime @ 0x140843BB0 (CMFRegisterEventTime.c)
- *     CMFUnmapModules @ 0x14084441C (CMFUnmapModules.c)
- *     MmMapViewInSessionSpace @ 0x1409B7230 (MmMapViewInSessionSpace.c)
- *     MmMapViewOfSection @ 0x1409C1F50 (MmMapViewOfSection.c)
- *     MiUnmapViewOfSection @ 0x1409C3C30 (MiUnmapViewOfSection.c)
- *     PsCreateSystemThreadEx @ 0x140A03170 (PsCreateSystemThreadEx.c)
- *     MUIInitializeResourceLock @ 0x140AE5278 (MUIInitializeResourceLock.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140274770 (ExAcquireResourceExclusiveLite.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     ExAcquireResourceSharedLite @ 0x1402FE950 (ExAcquireResourceSharedLite.c)
+ *     ExReleaseResourceLite @ 0x1402FF9C0 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     ExConvertExclusiveToSharedLite @ 0x14041E930 (ExConvertExclusiveToSharedLite.c)
+ *     KeInitializeEvent @ 0x140460680 (KeInitializeEvent.c)
+ *     MiRemoveFromSystemSpace @ 0x140489AA8 (MiRemoveFromSystemSpace.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     RtlReadULong64FromUser @ 0x140782054 (RtlReadULong64FromUser.c)
+ *     RtlReadULongFromUser @ 0x140782090 (RtlReadULongFromUser.c)
+ *     RtlWriteULong64ToUser @ 0x140782258 (RtlWriteULong64ToUser.c)
+ *     RtlWriteULongToUser @ 0x1407822A0 (RtlWriteULongToUser.c)
+ *     CMFCheckAccess @ 0x1408480B8 (CMFCheckAccess.c)
+ *     CMFFlushHitsFile @ 0x140848958 (CMFFlushHitsFile.c)
+ *     CMFRegisterEventTime @ 0x140849040 (CMFRegisterEventTime.c)
+ *     CMFUnmapModules @ 0x1408498AC (CMFUnmapModules.c)
+ *     MmMapViewInSessionSpace @ 0x140988210 (MmMapViewInSessionSpace.c)
+ *     MmMapViewOfSection @ 0x140992F30 (MmMapViewOfSection.c)
+ *     MiUnmapViewOfSection @ 0x140994C10 (MiUnmapViewOfSection.c)
+ *     PsCreateSystemThreadEx @ 0x140A78DE0 (PsCreateSystemThreadEx.c)
+ *     MUIInitializeResourceLock @ 0x140AE3038 (MUIInitializeResourceLock.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall NtMapCMFModule(
-        int a1,
-        unsigned int a2,
-        unsigned int *a3,
-        unsigned int *a4,
-        unsigned int *a5,
-        PVOID *a6)
+NTSTATUS __cdecl NtMapCMFModule(
+        ULONG What,
+        ULONG Index,
+        PULONG CacheIndexOut,
+        PULONG CacheFlagsOut,
+        PULONG ViewSizeOut,
+        PVOID *BaseAddress)
 {
   __int64 v6; // r12
-  int v8; // r14d
-  unsigned int v9; // r13d
-  unsigned int v10; // edi
-  int v11; // ebx
+  ULONG v8; // r14d
+  ULONG v9; // r13d
+  NTSTATUS v10; // edi
+  ULONG v11; // ebx
   struct _KTHREAD *CurrentThread; // rax
   int v13; // eax
   unsigned int v14; // eax
   _DWORD *v15; // r8
   struct _KTHREAD *v16; // rax
-  unsigned int v17; // ebx
+  ULONG v17; // ebx
   int v18; // ecx
   int v19; // ebx
   PVOID *v20; // r12
@@ -65,7 +65,7 @@ __int64 __fastcall NtMapCMFModule(
   PVOID MappedBase; // [rsp+60h] [rbp-108h] BYREF
   int v33; // [rsp+68h] [rbp-100h]
   unsigned int v34; // [rsp+6Ch] [rbp-FCh]
-  unsigned int v35; // [rsp+70h] [rbp-F8h]
+  ULONG v35; // [rsp+70h] [rbp-F8h]
   ULONG_PTR ViewSize; // [rsp+78h] [rbp-F0h] BYREF
   unsigned int v37; // [rsp+80h] [rbp-E8h]
   int v38; // [rsp+84h] [rbp-E4h]
@@ -83,7 +83,7 @@ __int64 __fastcall NtMapCMFModule(
   __int128 v50; // [rsp+108h] [rbp-60h]
   struct _KEVENT Event; // [rsp+118h] [rbp-50h] BYREF
 
-  v6 = a2;
+  v6 = Index;
   v48 = 0LL;
   v49 = 0LL;
   *(_QWORD *)&v50 = 0LL;
@@ -102,25 +102,25 @@ __int64 __fastcall NtMapCMFModule(
   v9 = 0;
   v34 = 0;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
-  if ( !PreviousMode || (_DWORD)InitSafeBootMode )
+  if ( !PreviousMode || InitSafeBootMode )
   {
     v10 = -1073741823;
     goto LABEL_102;
   }
-  if ( (a1 & 0xFFE0FE81) != 0 )
+  if ( (What & 0xFFE0FE81) != 0 )
     goto LABEL_5;
   v10 = MUIInitializeResourceLock(&CMFLock);
   if ( (v10 & 0xC0000000) == 0xC0000000 )
     goto LABEL_102;
-  if ( (a1 & 0x20000) != 0 )
+  if ( (What & 0x20000) != 0 )
   {
-    if ( (a1 & 0x180000) != 0 && (a1 & 0x40000) != 0 || (a1 & 0x180000) == 0x180000 )
+    if ( (What & 0x180000) != 0 && (What & 0x40000) != 0 || (What & 0x180000) == 0x180000 )
     {
 LABEL_5:
       v10 = -1073741811;
       goto LABEL_102;
     }
-    v11 = a1 & 0x1C0000;
+    v11 = What & 0x1C0000;
     if ( v11 == (CMFFlagsCache & 0x1C0000) )
       goto LABEL_11;
     CurrentThread = KeGetCurrentThread();
@@ -185,9 +185,9 @@ LABEL_29:
   if ( CMFFlagsCache )
   {
     if ( (CMFFlagsCache & 0xF) != 0 )
-      v17 = CMFFlagsCache & 0xF | a1 & 0xFFFFFFF0;
+      v17 = CMFFlagsCache & 0xF | What & 0xFFFFFFF0;
     else
-      v17 = a1 | 1;
+      v17 = What | 1;
     if ( (CMFFlagsCache & 0x100000) == 0 )
     {
       v18 = 0x80000;
@@ -215,7 +215,7 @@ LABEL_36:
   }
   else
   {
-    v17 = a1 | 1;
+    v17 = What | 1;
   }
 LABEL_45:
   v9 = v17 & 0xFFFFFECF;
@@ -320,7 +320,7 @@ LABEL_51:
       *(_QWORD *)((char *)&v44 + 4) = __PAIR64__(v37, v8);
       BYTE12(v44) = v40;
       v9 = v35;
-      *((_QWORD *)&v45 + 1) = __PAIR64__(a2, v35);
+      *((_QWORD *)&v45 + 1) = __PAIR64__(Index, v35);
       LODWORD(v46) = v38;
       *((_QWORD *)&v46 + 1) = v20;
       LODWORD(v47) = v19;
@@ -357,7 +357,7 @@ LABEL_82:
   MappedBase = 0LL;
   ViewSize = 0LL;
   v39 = 0LL;
-  if ( a6 )
+  if ( BaseAddress )
   {
     if ( v19 == 256 || (v10 = CMFCheckAccess((__int64)*v20, v37, PreviousMode), (v10 & 0xC0000000) != 0xC0000000) )
     {
@@ -397,30 +397,30 @@ LABEL_92:
   KeLeaveCriticalRegion();
   if ( (v10 & 0xC0000000) != 0xC0000000 )
   {
-    if ( a6 )
+    if ( BaseAddress )
     {
-      ULong64FromUser = RtlReadULong64FromUser(a6);
-      RtlWriteULong64ToUser(a6, ULong64FromUser);
-      *a6 = MappedBase;
+      ULong64FromUser = RtlReadULong64FromUser(BaseAddress);
+      RtlWriteULong64ToUser(BaseAddress, ULong64FromUser);
+      *BaseAddress = MappedBase;
       MappedBase = 0LL;
     }
-    if ( a5 )
+    if ( ViewSizeOut )
     {
-      ULongFromUser = RtlReadULongFromUser(a5);
-      RtlWriteULongToUser(a5, ULongFromUser);
-      *a5 = ViewSize;
+      ULongFromUser = RtlReadULongFromUser(ViewSizeOut);
+      RtlWriteULongToUser(ViewSizeOut, ULongFromUser);
+      *ViewSizeOut = ViewSize;
     }
-    if ( a3 )
+    if ( CacheIndexOut )
     {
-      v28 = RtlReadULongFromUser(a3);
-      RtlWriteULongToUser(a3, v28);
-      *a3 = v8;
+      v28 = RtlReadULongFromUser(CacheIndexOut);
+      RtlWriteULongToUser(CacheIndexOut, v28);
+      *CacheIndexOut = v8;
     }
-    if ( a4 )
+    if ( CacheFlagsOut )
     {
-      v29 = RtlReadULongFromUser(a4);
-      RtlWriteULongToUser(a4, v29);
-      *a4 = v9;
+      v29 = RtlReadULongFromUser(CacheFlagsOut);
+      RtlWriteULongToUser(CacheFlagsOut, v29);
+      *CacheFlagsOut = v9;
     }
 LABEL_11:
     v10 = 0;

@@ -15,35 +15,31 @@
 __int64 RtlUpdateProcessRegistryInfo()
 {
   int v0; // ebx
-  __int64 v1; // rdx
-  __int64 v2; // rcx
-  __int64 v3; // r8
-  __int64 v4; // r9
-  __int64 v5; // rax
-  __int64 v7; // [rsp+30h] [rbp+8h] BYREF
+  _QWORD *v1; // rax
+  PVOID BaseAddress; // [rsp+30h] [rbp+8h] BYREF
 
   v0 = 0;
-  if ( !g_RegInfo || *(_DWORD *)(g_RegInfo + 12) != MEMORY[0x7FFE03A4] )
+  if ( !g_RegInfo || *((_DWORD *)g_RegInfo + 3) != MEMORY[0x7FFE03A4] )
   {
-    v7 = 0LL;
-    v0 = RtlpMuiRegCreateAndLoadRegistryInfo(&v7);
+    BaseAddress = 0LL;
+    v0 = RtlpMuiRegCreateAndLoadRegistryInfo(&BaseAddress);
     if ( v0 >= 0 )
     {
-      RtlpInitMuiCriticalSection(v2, v1, v3, v4);
-      RtlEnterCriticalSection((__int64)&RegistryInfoCritSect);
-      if ( g_RegInfo && *(_DWORD *)(g_RegInfo + 12) == MEMORY[0x7FFE03A4] )
+      RtlpInitMuiCriticalSection();
+      RtlEnterCriticalSection(&RegistryInfoCritSect);
+      if ( g_RegInfo && *((_DWORD *)g_RegInfo + 3) == MEMORY[0x7FFE03A4] )
       {
-        RtlpMuiFreeLangRegistryInfo(v7);
+        RtlpMuiFreeLangRegistryInfo(BaseAddress);
       }
       else
       {
-        v5 = v7;
-        *(_QWORD *)(v7 + 104) = g_RegInfo;
+        v1 = BaseAddress;
+        *((_QWORD *)BaseAddress + 13) = g_RegInfo;
         if ( g_RegInfo )
-          *(_QWORD *)(v5 + 72) = *(_QWORD *)(g_RegInfo + 72);
-        g_RegInfo = v5;
+          v1[9] = *((_QWORD *)g_RegInfo + 9);
+        g_RegInfo = v1;
       }
-      RtlLeaveCriticalSection((__int64)&RegistryInfoCritSect);
+      RtlLeaveCriticalSection(&RegistryInfoCritSect);
     }
   }
   return (unsigned int)v0;

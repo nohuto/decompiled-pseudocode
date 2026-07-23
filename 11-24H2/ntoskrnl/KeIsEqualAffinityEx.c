@@ -1,19 +1,19 @@
 /*
- * XREFs of KeIsEqualAffinityEx @ 0x1403C8980
+ * XREFs of KeIsEqualAffinityEx @ 0x1403A3520
  * Callers:
- *     KiForwardTick @ 0x14029D53C (KiForwardTick.c)
- *     EtwTraceThreadAffinity @ 0x1403B3E48 (EtwTraceThreadAffinity.c)
- *     PpmParkReportMask @ 0x1403C88E0 (PpmParkReportMask.c)
- *     KeUpdateProcessorRestrictionsEx @ 0x1405B5474 (KeUpdateProcessorRestrictionsEx.c)
- *     KeCpuPartitionMoveCpus @ 0x1405BF6B0 (KeCpuPartitionMoveCpus.c)
- *     KiCpuPartitionCheckGenericDpc @ 0x1405C01CC (KiCpuPartitionCheckGenericDpc.c)
- *     PpmHeteroHgsDetectContainmentPresence @ 0x1405D6E5C (PpmHeteroHgsDetectContainmentPresence.c)
- *     PpmParkApplyPolicyEx @ 0x1405E1344 (PpmParkApplyPolicyEx.c)
- *     PpmRegisterPerfStates @ 0x14074FED4 (PpmRegisterPerfStates.c)
- *     PspSetEffectiveJobLimits @ 0x1408E6C38 (PspSetEffectiveJobLimits.c)
- *     ExpWorkQueueManagerThread @ 0x140A21D40 (ExpWorkQueueManagerThread.c)
- *     PpmHeteroComputeRelativePerformance @ 0x140A2B570 (PpmHeteroComputeRelativePerformance.c)
- *     PpmHeteroInitializeIntelWpsSupport @ 0x140C33C18 (PpmHeteroInitializeIntelWpsSupport.c)
+ *     KiForwardTick @ 0x1402AC02C (KiForwardTick.c)
+ *     EtwTraceThreadAffinity @ 0x1403A2658 (EtwTraceThreadAffinity.c)
+ *     PpmParkReportMask @ 0x1403A3480 (PpmParkReportMask.c)
+ *     KeUpdateProcessorRestrictionsEx @ 0x1405B273C (KeUpdateProcessorRestrictionsEx.c)
+ *     KeCpuPartitionMoveCpus @ 0x1405BCCE0 (KeCpuPartitionMoveCpus.c)
+ *     KiCpuPartitionCheckGenericDpc @ 0x1405BD7FC (KiCpuPartitionCheckGenericDpc.c)
+ *     PpmHeteroHgsDetectContainmentPresence @ 0x1405D4400 (PpmHeteroHgsDetectContainmentPresence.c)
+ *     PpmParkApplyPolicyEx @ 0x1405DE964 (PpmParkApplyPolicyEx.c)
+ *     PpmRegisterPerfStates @ 0x14074E1F4 (PpmRegisterPerfStates.c)
+ *     ExpWorkQueueManagerThread @ 0x1408F84F0 (ExpWorkQueueManagerThread.c)
+ *     PspSetEffectiveJobLimits @ 0x140A2C888 (PspSetEffectiveJobLimits.c)
+ *     PpmHeteroComputeRelativePerformance @ 0x140A65B9C (PpmHeteroComputeRelativePerformance.c)
+ *     PpmHeteroInitializeIntelWpsSupport @ 0x140C35D58 (PpmHeteroInitializeIntelWpsSupport.c)
  * Callees:
  *     <none>
  */

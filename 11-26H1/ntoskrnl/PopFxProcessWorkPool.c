@@ -1,15 +1,15 @@
 /*
- * XREFs of PopFxProcessWorkPool @ 0x140396268
+ * XREFs of PopFxProcessWorkPool @ 0x140397FE8
  * Callers:
- *     PopFxStaticWorkPoolThread @ 0x140605A50 (PopFxStaticWorkPoolThread.c)
- *     PopFxPluginWork @ 0x140A88B70 (PopFxPluginWork.c)
+ *     PopFxStaticWorkPoolThread @ 0x140608550 (PopFxStaticWorkPoolThread.c)
+ *     PopFxPluginWork @ 0x140A8FBC0 (PopFxPluginWork.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     KeLeaveGuardedRegion @ 0x14027DB10 (KeLeaveGuardedRegion.c)
- *     KeWaitForMultipleObjects @ 0x140396440 (KeWaitForMultipleObjects.c)
- *     PopFxDispatchPluginWorkOnce @ 0x1403AE3C4 (PopFxDispatchPluginWorkOnce.c)
- *     ExInterlockedRemoveHeadList @ 0x14045D770 (ExInterlockedRemoveHeadList.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     KeLeaveGuardedRegion @ 0x14027D080 (KeLeaveGuardedRegion.c)
+ *     KeWaitForMultipleObjects @ 0x1403981C0 (KeWaitForMultipleObjects.c)
+ *     PopFxDispatchPluginWorkOnce @ 0x1403B80D4 (PopFxDispatchPluginWorkOnce.c)
+ *     ExInterlockedRemoveHeadList @ 0x140457310 (ExInterlockedRemoveHeadList.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 NTSTATUS __fastcall PopFxProcessWorkPool(__int64 a1, unsigned int a2)
@@ -57,7 +57,7 @@ NTSTATUS __fastcall PopFxProcessWorkPool(__int64 a1, unsigned int a2)
     if ( result == 258 )
       break;
 LABEL_10:
-    if ( (_KPROCESS **)a1 == &stru_140F12420.Process )
+    if ( (_ULARGE_INTEGER *)a1 == &PopFxBlockingDeviceListLock.Timer.DueTime )
     {
       CurrentThread = KeGetCurrentThread();
       --CurrentThread->SpecialApcDisable;
@@ -73,7 +73,7 @@ LABEL_10:
       *v11 = 0LL;
       guard_dispatch_icall_no_overrides(v11[1].Blink, v12, v13);
     }
-    if ( (_KPROCESS **)a1 == &stru_140F12420.Process )
+    if ( (_ULARGE_INTEGER *)a1 == &PopFxBlockingDeviceListLock.Timer.DueTime )
       KeLeaveGuardedRegion();
     if ( !(_DWORD)v2 )
     {

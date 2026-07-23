@@ -1,7 +1,7 @@
 /*
- * XREFs of WerpPathTail @ 0x180088B44
+ * XREFs of WerpPathTail @ 0x18007FEC4
  * Callers:
- *     WerpGlobalFlagsForProcess @ 0x180088964 (WerpGlobalFlagsForProcess.c)
+ *     WerpGlobalFlagsForProcess @ 0x18007FCE4 (WerpGlobalFlagsForProcess.c)
  * Callees:
  *     <none>
  */

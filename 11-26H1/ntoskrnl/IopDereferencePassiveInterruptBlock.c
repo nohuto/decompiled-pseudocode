@@ -1,16 +1,16 @@
 /*
- * XREFs of IopDereferencePassiveInterruptBlock @ 0x1402C4FA4
+ * XREFs of IopDereferencePassiveInterruptBlock @ 0x14030FC64
  * Callers:
- *     IopPassiveInterruptWorker @ 0x1402C4E20 (IopPassiveInterruptWorker.c)
- *     IopDestroyPassiveInterruptBlock @ 0x1407A3BB8 (IopDestroyPassiveInterruptBlock.c)
+ *     IopPassiveInterruptWorker @ 0x14030FAE0 (IopPassiveInterruptWorker.c)
+ *     IopDestroyPassiveInterruptBlock @ 0x1407A66F8 (IopDestroyPassiveInterruptBlock.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KxReleaseSpinLock @ 0x1402BDEF0 (KxReleaseSpinLock.c)
- *     IopReleaseGlobalPassiveInterruptListLock @ 0x1402C507C (IopReleaseGlobalPassiveInterruptListLock.c)
- *     IopAcquireGlobalPassiveInterruptListLock @ 0x1402C50B8 (IopAcquireGlobalPassiveInterruptListLock.c)
- *     KxAcquireSpinLock @ 0x14032F2C0 (KxAcquireSpinLock.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KxReleaseSpinLock @ 0x140308BB0 (KxReleaseSpinLock.c)
+ *     IopReleaseGlobalPassiveInterruptListLock @ 0x14030FD3C (IopReleaseGlobalPassiveInterruptListLock.c)
+ *     IopAcquireGlobalPassiveInterruptListLock @ 0x14030FD78 (IopAcquireGlobalPassiveInterruptListLock.c)
+ *     KxAcquireSpinLock @ 0x1403312F0 (KxAcquireSpinLock.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall IopDereferencePassiveInterruptBlock(PVOID P)

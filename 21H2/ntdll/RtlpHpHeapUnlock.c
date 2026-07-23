@@ -3,14 +3,14 @@
  * Callers:
  *     RtlUnlockProcessHeapOnProcessTerminate @ 0x18005F5D0 (RtlUnlockProcessHeapOnProcessTerminate.c)
  *     RtlUnlockHeap @ 0x18005FA30 (RtlUnlockHeap.c)
- *     RtlpHpUnlockHeapForCloning @ 0x18010E680 (RtlpHpUnlockHeapForCloning.c)
+ *     RtlpHpUnlockHeapForCloning @ 0x18010E640 (RtlpHpUnlockHeapForCloning.c)
  * Callees:
  *     RtlReleaseSRWLockExclusive @ 0x180012C70 (RtlReleaseSRWLockExclusive.c)
  */
 
 void __fastcall RtlpHpHeapUnlock(__int64 a1, int a2)
 {
-  volatile signed __int64 *v3; // rcx
+  _RTL_SRWLOCK *v3; // rcx
   int v5; // eax
   _QWORD *v6; // rax
   __int64 v7; // rcx
@@ -32,12 +32,12 @@ void __fastcall RtlpHpHeapUnlock(__int64 a1, int a2)
         --v7;
       }
       while ( v7 );
-      v3 = (volatile signed __int64 *)(a1 + 64);
+      v3 = (_RTL_SRWLOCK *)(a1 + 64);
       *(_QWORD *)(a1 + 64) = 1LL;
     }
     else
     {
-      v3 = (volatile signed __int64 *)(a1 + 64);
+      v3 = (_RTL_SRWLOCK *)(a1 + 64);
     }
     if ( (*(_WORD *)(a1 + 216))-- == 1 )
     {
@@ -49,18 +49,18 @@ void __fastcall RtlpHpHeapUnlock(__int64 a1, int a2)
         v5 = *(_DWORD *)(a1 + 20);
         if ( (v5 & 1) == 0 )
         {
-          RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a1 + 320));
+          RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 320));
           v5 = *(_DWORD *)(a1 + 20);
           if ( (v5 & 1) == 0 )
           {
-            RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a1 + 512));
+            RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 512));
             v5 = *(_DWORD *)(a1 + 20);
           }
         }
       }
       if ( (v5 & 1) == 0 )
-        RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a1 + 640));
-      RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a1 + 904));
+        RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 640));
+      RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 904));
     }
   }
 }

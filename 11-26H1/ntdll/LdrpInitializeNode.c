@@ -1,20 +1,20 @@
 /*
- * XREFs of LdrpInitializeNode @ 0x18011A300
+ * XREFs of LdrpInitializeNode @ 0x18011A0B0
  * Callers:
- *     LdrpLoadShimEngine @ 0x1800C6518 (LdrpLoadShimEngine.c)
- *     LdrpInitializeGraphRecurse @ 0x1800E81A0 (LdrpInitializeGraphRecurse.c)
+ *     LdrpLoadShimEngine @ 0x1800C3CD8 (LdrpLoadShimEngine.c)
+ *     LdrpInitializeGraphRecurse @ 0x1800E73B0 (LdrpInitializeGraphRecurse.c)
  * Callees:
- *     RtlDeactivateActivationContextUnsafeFast @ 0x180041420 (RtlDeactivateActivationContextUnsafeFast.c)
- *     RtlActivateActivationContextUnsafeFast @ 0x180041FE0 (RtlActivateActivationContextUnsafeFast.c)
- *     LdrpLogInternal @ 0x180046B90 (LdrpLogInternal.c)
- *     LdrpCallTlsInitializers @ 0x18004C040 (LdrpCallTlsInitializers.c)
- *     LdrpCallInitRoutine @ 0x18004C46C (LdrpCallInitRoutine.c)
- *     LdrpApplyPatchImage @ 0x18007115C (LdrpApplyPatchImage.c)
- *     LdrpLogDllState @ 0x1800832E0 (LdrpLogDllState.c)
- *     RtlReportException @ 0x18010BBF0 (RtlReportException.c)
+ *     RtlDeactivateActivationContextUnsafeFast @ 0x18002B990 (RtlDeactivateActivationContextUnsafeFast.c)
+ *     RtlActivateActivationContextUnsafeFast @ 0x18002C550 (RtlActivateActivationContextUnsafeFast.c)
+ *     LdrpLogInternal @ 0x180031100 (LdrpLogInternal.c)
+ *     LdrpCallTlsInitializers @ 0x1800365C0 (LdrpCallTlsInitializers.c)
+ *     LdrpCallInitRoutine @ 0x1800369EC (LdrpCallInitRoutine.c)
+ *     LdrpLogDllState @ 0x18007A680 (LdrpLogDllState.c)
+ *     LdrpApplyPatchImage @ 0x1800915AC (LdrpApplyPatchImage.c)
+ *     RtlReportException @ 0x18010B740 (RtlReportException.c)
  */
 
-__int64 __fastcall LdrpInitializeNode(__int64 a1, __int64 **a2, __int64 a3, __int64 *a4)
+__int64 __fastcall LdrpInitializeNode(__int64 a1, __int64 **a2, __int64 a3, char *a4)
 {
   __int64 v5; // rax
   __int64 v6; // r8
@@ -43,20 +43,20 @@ __int64 __fastcall LdrpInitializeNode(__int64 a1, __int64 **a2, __int64 a3, __in
   v6 = LdrpImageEntry;
   if ( v5 != a1 )
   {
-    a4 = &qword_1801CB8B0;
-    a2 = (__int64 **)qword_1801CB8B8;
+    a4 = (char *)&qword_1801CA8F0;
+    a2 = (__int64 **)qword_1801CA8F8;
     do
     {
       if ( v5 - 160 != v6 )
       {
         v7 = (__int64 *)(v5 - 160 + 32);
-        if ( *a2 != &qword_1801CB8B0 )
+        if ( *a2 != &qword_1801CA8F0 )
           __fastfail(3u);
-        *v7 = (__int64)&qword_1801CB8B0;
+        *v7 = (__int64)&qword_1801CA8F0;
         *(_QWORD *)(v5 - 160 + 40) = a2;
         *a2 = v7;
         a2 = (__int64 **)(v5 - 160 + 32);
-        qword_1801CB8B8 = (__int64)a2;
+        qword_1801CA8F8 = (__int64)a2;
       }
       v5 = *(_QWORD *)(v5 + 8);
     }
@@ -70,13 +70,13 @@ __int64 __fastcall LdrpInitializeNode(__int64 a1, __int64 **a2, __int64 a3, __in
     {
       if ( *(_DWORD *)(v10 + 268) == 9 )
       {
-        v11 = LdrpApplyPatchImage(i - 160, (__int64)a2, v6, (unsigned __int64)a4);
+        v11 = LdrpApplyPatchImage(i - 160, (__int64)a2, v6, a4);
         v8 = v11;
         if ( v11 < 0 )
         {
           LODWORD(v18) = v11;
           LdrpLogInternal(
-            (int)"minkernel\\ldr\\ldrsnap.c",
+            "minkernel\\ldr\\ldrsnap.c",
             1483,
             (__int64)"LdrpInitializeNode",
             0,
@@ -91,7 +91,7 @@ __int64 __fastcall LdrpInitializeNode(__int64 a1, __int64 **a2, __int64 a3, __in
       v14 = *(_QWORD *)(v10 + 56);
       v15 = v10 + 72;
       LdrpLogInternal(
-        (int)"minkernel\\ldr\\ldrsnap.c",
+        "minkernel\\ldr\\ldrsnap.c",
         1502,
         (__int64)"LdrpInitializeNode",
         2,
@@ -121,7 +121,7 @@ __int64 __fastcall LdrpInitializeNode(__int64 a1, __int64 **a2, __int64 a3, __in
       if ( !v16 )
       {
         LdrpLogInternal(
-          (int)"minkernel\\ldr\\ldrsnap.c",
+          "minkernel\\ldr\\ldrsnap.c",
           1556,
           (__int64)"LdrpInitializeNode",
           0,

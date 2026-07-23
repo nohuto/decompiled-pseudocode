@@ -1,21 +1,21 @@
 /*
- * XREFs of MiAddSecureEntry @ 0x140745D84
+ * XREFs of MiAddSecureEntry @ 0x140745F74
  * Callers:
- *     MiMapViewOfImageSection @ 0x1406AEAC0 (MiMapViewOfImageSection.c)
- *     MmSecureVirtualMemoryAgainstWrites @ 0x14071A4A8 (MmSecureVirtualMemoryAgainstWrites.c)
- *     MiReserveUserMemory @ 0x14071F3E0 (MiReserveUserMemory.c)
- *     MiMapViewOfDataSection @ 0x140720280 (MiMapViewOfDataSection.c)
- *     MiMapLockedPagesInUserSpace @ 0x140748574 (MiMapLockedPagesInUserSpace.c)
- *     MiSecureVad @ 0x1407BAA1C (MiSecureVad.c)
- *     MiAllocateNewSubAllocatedRegion @ 0x1407CCB64 (MiAllocateNewSubAllocatedRegion.c)
- *     MiAllocateVad @ 0x1407CFBD8 (MiAllocateVad.c)
- *     MiCloneNoChange @ 0x140A31E38 (MiCloneNoChange.c)
+ *     MiMapViewOfImageSection @ 0x1406AEAF0 (MiMapViewOfImageSection.c)
+ *     MmSecureVirtualMemoryAgainstWrites @ 0x14071A6A8 (MmSecureVirtualMemoryAgainstWrites.c)
+ *     MiReserveUserMemory @ 0x14071F5E0 (MiReserveUserMemory.c)
+ *     MiMapViewOfDataSection @ 0x140720480 (MiMapViewOfDataSection.c)
+ *     MiMapLockedPagesInUserSpace @ 0x140748764 (MiMapLockedPagesInUserSpace.c)
+ *     MiSecureVad @ 0x1407BACEC (MiSecureVad.c)
+ *     MiAllocateNewSubAllocatedRegion @ 0x1407CCE34 (MiAllocateNewSubAllocatedRegion.c)
+ *     MiAllocateVad @ 0x1407CFEA8 (MiAllocateVad.c)
+ *     MiCloneNoChange @ 0x140A320E8 (MiCloneNoChange.c)
  * Callees:
- *     MiSetVadFlags @ 0x1402876B0 (MiSetVadFlags.c)
- *     ExAllocatePoolMm @ 0x1402E26E0 (ExAllocatePoolMm.c)
- *     MiInsertVadEvent @ 0x1402E326C (MiInsertVadEvent.c)
- *     MmGetCurrentProcessorColor @ 0x140328F80 (MmGetCurrentProcessorColor.c)
- *     MiLocateExclusiveSecure @ 0x14035A950 (MiLocateExclusiveSecure.c)
+ *     MiSetVadFlags @ 0x140287940 (MiSetVadFlags.c)
+ *     ExAllocatePoolMm @ 0x1402E2970 (ExAllocatePoolMm.c)
+ *     MiInsertVadEvent @ 0x1402E34FC (MiInsertVadEvent.c)
+ *     MmGetCurrentProcessorColor @ 0x140329210 (MmGetCurrentProcessorColor.c)
+ *     MiLocateExclusiveSecure @ 0x14035AAF0 (MiLocateExclusiveSecure.c)
  */
 
 _DWORD *__fastcall MiAddSecureEntry(__int64 a1, __int64 a2, __int64 a3, int a4, char a5)

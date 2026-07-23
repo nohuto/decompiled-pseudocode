@@ -1,22 +1,22 @@
 /*
- * XREFs of ExUnregisterCallback @ 0x1404ADD30
+ * XREFs of ExUnregisterCallback @ 0x1404A8640
  * Callers:
- *     IopCleanupNotifications @ 0x1404A60A8 (IopCleanupNotifications.c)
- *     DifExUnregisterCallbackWrapper @ 0x140621690 (DifExUnregisterCallbackWrapper.c)
- *     IoRegisterContainerNotification @ 0x140715330 (IoRegisterContainerNotification.c)
- *     IoUnregisterContainerNotification @ 0x1407155F0 (IoUnregisterContainerNotification.c)
- *     KeDeregisterProcessorChangeCallback @ 0x14073C2B0 (KeDeregisterProcessorChangeCallback.c)
- *     KeRegisterProcessorChangeCallback @ 0x14073C2D0 (KeRegisterProcessorChangeCallback.c)
- *     SeUnregisterImageVerificationCallback @ 0x14078E3F0 (SeUnregisterImageVerificationCallback.c)
- *     IoUnregisterBootDriverCallback @ 0x140C22A10 (IoUnregisterBootDriverCallback.c)
- *     PopUmpoInitializeMonitorChannel @ 0x140C326B4 (PopUmpoInitializeMonitorChannel.c)
+ *     IopCleanupNotifications @ 0x1404A0DB4 (IopCleanupNotifications.c)
+ *     DifExUnregisterCallbackWrapper @ 0x14061FC50 (DifExUnregisterCallbackWrapper.c)
+ *     IoRegisterContainerNotification @ 0x140712EC0 (IoRegisterContainerNotification.c)
+ *     IoUnregisterContainerNotification @ 0x140713180 (IoUnregisterContainerNotification.c)
+ *     KeDeregisterProcessorChangeCallback @ 0x14073A1E0 (KeDeregisterProcessorChangeCallback.c)
+ *     KeRegisterProcessorChangeCallback @ 0x14073A200 (KeRegisterProcessorChangeCallback.c)
+ *     SeUnregisterImageVerificationCallback @ 0x14078E320 (SeUnregisterImageVerificationCallback.c)
+ *     IoUnregisterBootDriverCallback @ 0x140C24A40 (IoUnregisterBootDriverCallback.c)
+ *     PopUmpoInitializeMonitorChannel @ 0x140C347F4 (PopUmpoInitializeMonitorChannel.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeResetEvent @ 0x14028EEC0 (KeResetEvent.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeResetEvent @ 0x14029EAC0 (KeResetEvent.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __stdcall ExUnregisterCallback(PVOID CallbackRegistration)

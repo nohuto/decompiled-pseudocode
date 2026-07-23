@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlDeleteElementGenericTable @ 0x140489130
+ * XREFs of RtlDeleteElementGenericTable @ 0x140482C70
  * Callers:
  *     <none>
  * Callees:
- *     RtlDelete @ 0x1402BF430 (RtlDelete.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     RtlDelete @ 0x14030A0F0 (RtlDelete.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 BOOLEAN __stdcall RtlDeleteElementGenericTable(PRTL_GENERIC_TABLE Table, PVOID Buffer)

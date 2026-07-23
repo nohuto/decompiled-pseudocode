@@ -1,11 +1,11 @@
 /*
- * XREFs of PoCallDriver @ 0x1404D4A70
+ * XREFs of PoCallDriver @ 0x1404CE2E0
  * Callers:
- *     IoCheckPagefileDisableReservations @ 0x140795E9C (IoCheckPagefileDisableReservations.c)
- *     IoCancelFileOpen @ 0x140903830 (IoCancelFileOpen.c)
- *     ViFilterDispatchPower @ 0x140C3C260 (ViFilterDispatchPower.c)
+ *     IoCheckPagefileDisableReservations @ 0x1407989CC (IoCheckPagefileDisableReservations.c)
+ *     IoCancelFileOpen @ 0x1409337C0 (IoCancelFileOpen.c)
+ *     ViFilterDispatchPower @ 0x140C42270 (ViFilterDispatchPower.c)
  * Callees:
- *     IofCallDriver @ 0x1402655A0 (IofCallDriver.c)
+ *     IofCallDriver @ 0x140264B10 (IofCallDriver.c)
  */
 
 NTSTATUS __stdcall PoCallDriver(PDEVICE_OBJECT DeviceObject, PIRP Irp)

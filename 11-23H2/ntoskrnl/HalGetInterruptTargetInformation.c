@@ -1,10 +1,10 @@
 /*
- * XREFs of HalGetInterruptTargetInformation @ 0x1403807E0
+ * XREFs of HalGetInterruptTargetInformation @ 0x140380980
  * Callers:
  *     PoInitSystem @ 0x140B50BBC (PoInitSystem.c)
  * Callees:
- *     HalpInterruptIsMsiSupported @ 0x14038091C (HalpInterruptIsMsiSupported.c)
- *     HalpInterruptSetProblemEx @ 0x14051AA08 (HalpInterruptSetProblemEx.c)
+ *     HalpInterruptIsMsiSupported @ 0x140380ABC (HalpInterruptIsMsiSupported.c)
+ *     HalpInterruptSetProblemEx @ 0x14051AF58 (HalpInterruptSetProblemEx.c)
  */
 
 __int64 __fastcall HalGetInterruptTargetInformation(int a1, int a2, __int64 a3)

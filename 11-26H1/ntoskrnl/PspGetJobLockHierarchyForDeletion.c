@@ -1,10 +1,10 @@
 /*
- * XREFs of PspGetJobLockHierarchyForDeletion @ 0x140AAEB40
+ * XREFs of PspGetJobLockHierarchyForDeletion @ 0x140AAC7A0
  * Callers:
- *     PspJobDelete @ 0x140615810 (PspJobDelete.c)
+ *     PspJobDelete @ 0x1406187E0 (PspJobDelete.c)
  * Callees:
- *     PspLockJobAssignment @ 0x140AAECA4 (PspLockJobAssignment.c)
- *     PspUnlockJobAssignment @ 0x140AAED18 (PspUnlockJobAssignment.c)
+ *     PspLockJobAssignment @ 0x140AAC904 (PspLockJobAssignment.c)
+ *     PspUnlockJobAssignment @ 0x140AAC978 (PspUnlockJobAssignment.c)
  */
 
 __int64 __fastcall PspGetJobLockHierarchyForDeletion(__int64 a1, __int64 a2)

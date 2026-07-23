@@ -1,11 +1,11 @@
 /*
- * XREFs of VfMiscMmBuildMdlForNonPagedPool_Exit @ 0x140AE0270
+ * XREFs of VfMiscMmBuildMdlForNonPagedPool_Exit @ 0x140AE0260
  * Callers:
  *     <none>
  * Callees:
- *     VfUtilCheckRuleEnforcement @ 0x140AC2664 (VfUtilCheckRuleEnforcement.c)
- *     VerifierBugCheckIfAppropriate @ 0x140ACD2B4 (VerifierBugCheckIfAppropriate.c)
- *     MmAreMdlPagesLocked @ 0x140AE81C8 (MmAreMdlPagesLocked.c)
+ *     VfUtilCheckRuleEnforcement @ 0x140AC2654 (VfUtilCheckRuleEnforcement.c)
+ *     VerifierBugCheckIfAppropriate @ 0x140ACD2A4 (VerifierBugCheckIfAppropriate.c)
+ *     MmAreMdlPagesLocked @ 0x140AE81B8 (MmAreMdlPagesLocked.c)
  */
 
 void __fastcall VfMiscMmBuildMdlForNonPagedPool_Exit(__int64 a1)

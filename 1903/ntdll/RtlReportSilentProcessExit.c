@@ -14,53 +14,57 @@
  *     sub_1800DC32C @ 0x1800DC32C (sub_1800DC32C.c)
  */
 
-__int64 __fastcall RtlReportSilentProcessExit(__int64 a1, int a2)
+NTSTATUS __cdecl RtlReportSilentProcessExit(HANDLE ProcessHandle, NTSTATUS ExitStatus)
 {
   int v5; // ebx
-  int UniqueProcess; // edi
-  int UniqueThread; // esi
-  int v8; // eax
-  int v9; // ebx
-  unsigned int NtGlobalFlag; // eax
+  unsigned int UniqueProcess; // edi
+  unsigned int UniqueThread; // esi
+  unsigned int v8; // eax
+  unsigned int v9; // ebx
+  ULONG NtGlobalFlag; // eax
   int v11; // eax
-  __int64 v12; // rdx
-  __int64 v13; // rdi
-  int v14; // eax
-  __int64 v15; // [rsp+40h] [rbp-C0h] BYREF
-  _QWORD v16[176]; // [rsp+50h] [rbp-B0h] BYREF
-  _DWORD v17[352]; // [rsp+5D0h] [rbp+4D0h] BYREF
+  HANDLE v12; // rdi
+  NTSTATUS v13; // eax
+  HANDLE TargetHandle; // [rsp+40h] [rbp-C0h] BYREF
+  _PORT_MESSAGE ReceiveMessage[35]; // [rsp+50h] [rbp-B0h] BYREF
+  _PORT_MESSAGE SendMessageA[35]; // [rsp+5D0h] [rbp+4D0h] BYREF
 
-  memset(v17, 0, 0x578uLL);
-  memset(v16, 0, 0x578uLL);
-  v15 = 0LL;
-  if ( !a1 )
-    return 3221225485LL;
-  if ( a1 == -1 && (NtCurrentPeb()->NtGlobalFlag & 0x200) == 0 )
-    return 0LL;
-  v5 = ZwDuplicateObject(-1LL, a1, -1LL, &v15, 4096, 0);
+  memset(SendMessageA, 0, sizeof(SendMessageA));
+  memset(ReceiveMessage, 0, sizeof(ReceiveMessage));
+  TargetHandle = 0LL;
+  if ( !ProcessHandle )
+    return -1073741811;
+  if ( ProcessHandle == (HANDLE)-1LL && (NtCurrentPeb()->NtGlobalFlag & 0x200) == 0 )
+    return 0;
+  v5 = ZwDuplicateObject(
+         (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+         ProcessHandle,
+         (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+         &TargetHandle,
+         0x1000u,
+         0,
+         0);
   if ( v5 < 0 )
     goto LABEL_13;
-  UniqueProcess = (int)NtCurrentTeb()->ClientId.UniqueProcess;
-  UniqueThread = (int)NtCurrentTeb()->ClientId.UniqueThread;
-  v8 = sub_18006B7F4(v15);
+  UniqueProcess = (unsigned int)NtCurrentTeb()->ClientId.UniqueProcess;
+  UniqueThread = (unsigned int)NtCurrentTeb()->ClientId.UniqueThread;
+  v8 = sub_18006B7F4(TargetHandle);
   v9 = v8;
   if ( !UniqueProcess || !UniqueThread || !v8 )
-    return 3221225485LL;
+    return -1073741811;
   if ( UniqueProcess == v8 )
     NtGlobalFlag = NtCurrentPeb()->NtGlobalFlag;
   else
-    LOWORD(NtGlobalFlag) = sub_18006B63C(v15);
+    LOWORD(NtGlobalFlag) = sub_18006B63C(TargetHandle);
   if ( (NtGlobalFlag & 0x200) != 0 )
   {
-    v17[0] = 91751760;
-    v17[10] = 805306368;
-    v17[12] = UniqueThread;
-    v17[13] = UniqueProcess;
-    v17[14] = v9;
-    v17[15] = a2;
-    memset((char *)v16 + 4, 0, 0x574uLL);
-    LODWORD(v16[0]) = 91751760;
-    v11 = sub_1800DC32C(v17, v16);
+    SendMessageA[0].u1.Length = 91751760;
+    SendMessageA[1].u1.Length = 805306368;
+    SendMessageA[1].ClientId.UniqueProcess = (HANDLE)__PAIR64__(UniqueProcess, UniqueThread);
+    SendMessageA[1].ClientId.UniqueThread = (HANDLE)__PAIR64__(ExitStatus, v9);
+    memset(&ReceiveMessage[0].u2, 0, 0x574uLL);
+    ReceiveMessage[0].u1.Length = 91751760;
+    v11 = sub_1800DC32C(SendMessageA, ReceiveMessage);
     if ( v11 >= 0 )
     {
       if ( v11 == 258 )
@@ -69,22 +73,21 @@ __int64 __fastcall RtlReportSilentProcessExit(__int64 a1, int a2)
       }
       else
       {
-        v13 = v16[6];
+        v12 = ReceiveMessage[1].ClientId.UniqueProcess;
         while ( 1 )
         {
-          LOBYTE(v12) = 1;
-          v14 = ZwWaitForSingleObject(v13, v12, 0LL);
-          v5 = v14;
-          if ( v14 < 0 || v14 == 258 )
+          v13 = ZwWaitForSingleObject(v12, 1u, 0LL);
+          v5 = v13;
+          if ( v13 < 0 || v13 == 258 )
             break;
-          if ( v14 != 192 && v14 != 257 )
+          if ( v13 != 192 && v13 != 257 )
           {
             v5 = 0;
             break;
           }
         }
-        if ( v13 )
-          ZwClose(v13);
+        if ( v12 )
+          ZwClose(v12);
       }
     }
     else
@@ -97,7 +100,7 @@ __int64 __fastcall RtlReportSilentProcessExit(__int64 a1, int a2)
     v5 = 0;
   }
 LABEL_13:
-  if ( v15 )
-    ZwClose(v15);
-  return (unsigned int)v5;
+  if ( TargetHandle )
+    ZwClose(TargetHandle);
+  return v5;
 }

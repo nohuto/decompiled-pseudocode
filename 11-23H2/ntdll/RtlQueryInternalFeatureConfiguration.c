@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlQueryInternalFeatureConfiguration @ 0x1800A0430
+ * XREFs of RtlQueryInternalFeatureConfiguration @ 0x1800A03F0
  * Callers:
  *     RtlQueryFeatureConfiguration @ 0x1800710F0 (RtlQueryFeatureConfiguration.c)
- *     RtlpFtQueryConfiguration @ 0x18009F9D8 (RtlpFtQueryConfiguration.c)
+ *     RtlpFtQueryConfiguration @ 0x18009F998 (RtlpFtQueryConfiguration.c)
  * Callees:
  *     RtlpFcReferenceFeatureConfigurationBuffers @ 0x180071234 (RtlpFcReferenceFeatureConfigurationBuffers.c)
  *     RtlpFcBufferManagerDereferenceBuffers @ 0x180071630 (RtlpFcBufferManagerDereferenceBuffers.c)
- *     RtlpFcQueryFeatureConfigurationFromKernel @ 0x18010FF00 (RtlpFcQueryFeatureConfigurationFromKernel.c)
+ *     RtlpFcQueryFeatureConfigurationFromKernel @ 0x18010FED0 (RtlpFcQueryFeatureConfigurationFromKernel.c)
  *     RtlpFcQueryFeatureConfigurationFromBufferSet @ 0x1801300C4 (RtlpFcQueryFeatureConfigurationFromBufferSet.c)
  */
 
@@ -20,7 +20,7 @@ __int64 __fastcall RtlQueryInternalFeatureConfiguration(__int64 a1, unsigned int
 
   v11 = 0LL;
   v7 = a1;
-  if ( (int)RtlpFcReferenceFeatureConfigurationBuffers(a1, 0, &v12, &v11) < 0 )
+  if ( (int)RtlpFcReferenceFeatureConfigurationBuffers(a1, 0LL, &v12, &v11) < 0 )
   {
     FeatureConfigurationFromKernel = RtlpFcQueryFeatureConfigurationFromKernel(v7, a2, a3, a4);
     goto LABEL_9;

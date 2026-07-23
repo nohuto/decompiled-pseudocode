@@ -1,16 +1,16 @@
 /*
- * XREFs of MiFlushTbAsNeeded @ 0x14035FD40
+ * XREFs of MiFlushTbAsNeeded @ 0x140361AE0
  * Callers:
- *     MiLinkPoolCommitChain @ 0x140365560 (MiLinkPoolCommitChain.c)
+ *     MiLinkPoolCommitChain @ 0x140367300 (MiLinkPoolCommitChain.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiGetProcessorFlushList @ 0x1403229E0 (MiGetProcessorFlushList.c)
- *     MiFlushTbList @ 0x140329040 (MiFlushTbList.c)
- *     MiInsertTbFlushEntry @ 0x14035E7E0 (MiInsertTbFlushEntry.c)
- *     MiReleaseProcessorFlushList @ 0x1403613C0 (MiReleaseProcessorFlushList.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiGetProcessorFlushList @ 0x140324A10 (MiGetProcessorFlushList.c)
+ *     MiFlushTbList @ 0x14032B070 (MiFlushTbList.c)
+ *     MiInsertTbFlushEntry @ 0x140360580 (MiInsertTbFlushEntry.c)
+ *     MiReleaseProcessorFlushList @ 0x140363160 (MiReleaseProcessorFlushList.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 *__fastcall MiFlushTbAsNeeded(__int64 a1, ULONG_PTR a2, unsigned __int64 a3, int a4)
@@ -114,9 +114,9 @@ LABEL_14:
     }
     else
     {
-      if ( qword_140E2D740 )
+      if ( qword_140E2D8C0 )
       {
-        v14 = BugCheckParameter4 & qword_140E2D748;
+        v14 = BugCheckParameter4 & qword_140E2D8C8;
         BugCheckParameter4 &= ~0x10uLL;
         if ( (*(_QWORD *)a2 & 0x10) == 0 )
           BugCheckParameter4 = v14;

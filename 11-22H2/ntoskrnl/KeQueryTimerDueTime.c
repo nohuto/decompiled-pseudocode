@@ -25,7 +25,7 @@ __int64 __fastcall KeQueryTimerDueTime(__int64 a1)
   v2 = 0LL;
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     v5 = 4;
@@ -37,10 +37,10 @@ __int64 __fastcall KeQueryTimerDueTime(__int64 a1)
   if ( (*(_BYTE *)(a1 + 3) & 0x40) != 0 )
     v2 = *(_QWORD *)(a1 + 24);
   _InterlockedAnd((volatile signed __int32 *)a1, 0xFFFFFF7F);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v6 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v6 <= 0xFu && CurrentIrql <= 0xFu && v6 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v6 <= 0xFu && CurrentIrql <= 0xFu && v6 >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v8 = CurrentPrcb->SchedulerAssist;

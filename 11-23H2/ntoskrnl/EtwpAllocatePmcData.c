@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpAllocatePmcData @ 0x1409E3248
+ * XREFs of EtwpAllocatePmcData @ 0x1409E34D8
  * Callers:
- *     EtwpUpdatePmcCounters @ 0x1409E4D78 (EtwpUpdatePmcCounters.c)
- *     EtwpUpdatePmcEvents @ 0x1409E4ED0 (EtwpUpdatePmcEvents.c)
+ *     EtwpUpdatePmcCounters @ 0x1409E5008 (EtwpUpdatePmcCounters.c)
+ *     EtwpUpdatePmcEvents @ 0x1409E5160 (EtwpUpdatePmcEvents.c)
  * Callees:
- *     KeQueryMaximumProcessorCountEx @ 0x14033AFA0 (KeQueryMaximumProcessorCountEx.c)
+ *     KeQueryMaximumProcessorCountEx @ 0x14033B230 (KeQueryMaximumProcessorCountEx.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

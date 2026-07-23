@@ -1,24 +1,24 @@
 /*
- * XREFs of PiUEventNotifyClient @ 0x14099A7E8
+ * XREFs of PiUEventNotifyClient @ 0x14095B248
  * Callers:
- *     PiUEventNotifyTargetDeviceChange @ 0x14099A54C (PiUEventNotifyTargetDeviceChange.c)
- *     PiUEventNotifyDeviceInterfaceChange @ 0x1409D5AC8 (PiUEventNotifyDeviceInterfaceChange.c)
- *     PiUEventNotifyDeviceInstancePropertyChange @ 0x1409D60E8 (PiUEventNotifyDeviceInstancePropertyChange.c)
- *     PiUEventNotifyDeviceInstanceChange @ 0x140AEA684 (PiUEventNotifyDeviceInstanceChange.c)
+ *     PiUEventNotifyTargetDeviceChange @ 0x14095AFAC (PiUEventNotifyTargetDeviceChange.c)
+ *     PiUEventNotifyDeviceInterfaceChange @ 0x1409A6AA8 (PiUEventNotifyDeviceInterfaceChange.c)
+ *     PiUEventNotifyDeviceInstancePropertyChange @ 0x1409AA6B8 (PiUEventNotifyDeviceInstancePropertyChange.c)
+ *     PiUEventNotifyDeviceInstanceChange @ 0x140AED174 (PiUEventNotifyDeviceInstanceChange.c)
  * Callees:
- *     ExAcquireFastMutex @ 0x140278070 (ExAcquireFastMutex.c)
- *     KeReleaseGuardedMutex @ 0x140278D40 (KeReleaseGuardedMutex.c)
- *     McTemplateK0qqzqqjqzjztd_EtwWriteTransfer @ 0x1405DA870 (McTemplateK0qqzqqjqzjztd_EtwWriteTransfer.c)
- *     McTemplateK0qqzqqjqzjztx_EtwWriteTransfer @ 0x1405DAA28 (McTemplateK0qqzqqjqzjztx_EtwWriteTransfer.c)
- *     PiUEventIsClientStuck @ 0x14077C0F4 (PiUEventIsClientStuck.c)
- *     PiUEventReferenceEventEntry @ 0x14099C594 (PiUEventReferenceEventEntry.c)
- *     PiUEventNotifyClientPendingEvent @ 0x14099C5D0 (PiUEventNotifyClientPendingEvent.c)
- *     PiUEventDequeuePendingEventWorker @ 0x1409D675C (PiUEventDequeuePendingEventWorker.c)
- *     PiUEventQueuePendingEvent @ 0x140A8C770 (PiUEventQueuePendingEvent.c)
- *     PiUEventGatherEventData @ 0x140AE12C0 (PiUEventGatherEventData.c)
- *     PiUEventGetProcessImagePath @ 0x140B0C8D0 (PiUEventGetProcessImagePath.c)
- *     PiUEventFreeProcessImagePath @ 0x140B3F2BC (PiUEventFreeProcessImagePath.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     ExAcquireFastMutex @ 0x1402775E0 (ExAcquireFastMutex.c)
+ *     KeReleaseGuardedMutex @ 0x1402782B0 (KeReleaseGuardedMutex.c)
+ *     McTemplateK0qqzqqjqzjztd_EtwWriteTransfer @ 0x1405DD070 (McTemplateK0qqzqqjqzjztd_EtwWriteTransfer.c)
+ *     McTemplateK0qqzqqjqzjztx_EtwWriteTransfer @ 0x1405DD228 (McTemplateK0qqzqqjqzjztx_EtwWriteTransfer.c)
+ *     PiUEventIsClientStuck @ 0x1407A8490 (PiUEventIsClientStuck.c)
+ *     PiUEventReferenceEventEntry @ 0x14095CFF4 (PiUEventReferenceEventEntry.c)
+ *     PiUEventNotifyClientPendingEvent @ 0x14095D030 (PiUEventNotifyClientPendingEvent.c)
+ *     PiUEventDequeuePendingEventWorker @ 0x1409A764C (PiUEventDequeuePendingEventWorker.c)
+ *     PiUEventQueuePendingEvent @ 0x140A91444 (PiUEventQueuePendingEvent.c)
+ *     PiUEventGatherEventData @ 0x140ADE7B0 (PiUEventGatherEventData.c)
+ *     PiUEventGetProcessImagePath @ 0x140B0E020 (PiUEventGetProcessImagePath.c)
+ *     PiUEventFreeProcessImagePath @ 0x140B412EC (PiUEventFreeProcessImagePath.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall PiUEventNotifyClient(__int64 a1, __int64 a2)
@@ -50,11 +50,11 @@ __int64 __fastcall PiUEventNotifyClient(__int64 a1, __int64 a2)
     {
       ++*(_DWORD *)(a2 + 136);
       v6 = 1;
-      if ( byte_140EF3DCC < 0 )
+      if ( byte_140EF412C < 0 )
       {
         PiUEventGatherEventData(a1, v13, &v16, &v15);
         PiUEventGetProcessImagePath(*(_QWORD *)(a2 + 48), &v14);
-        if ( byte_140EF3DCC < 0 )
+        if ( byte_140EF412C < 0 )
           McTemplateK0qqzqqjqzjztx_EtwWriteTransfer(
             a1 + 80,
             (const EVENT_DESCRIPTOR *)KMPnPEvt_UEvent_ClientStuck,
@@ -91,11 +91,11 @@ __int64 __fastcall PiUEventNotifyClient(__int64 a1, __int64 a2)
       if ( *(_DWORD *)(a2 + 128) >= 0x10000u )
       {
         v11 = *(_QWORD *)(a2 + 112);
-        if ( (byte_140EF3DCD & 1) != 0 )
+        if ( (byte_140EF412D & 1) != 0 )
         {
           PiUEventGatherEventData(*(_QWORD *)(v11 + 24), v13, &v16, &v15);
           PiUEventGetProcessImagePath(*(_QWORD *)(a2 + 48), &v14);
-          if ( (byte_140EF3DCD & 1) != 0 )
+          if ( (byte_140EF412D & 1) != 0 )
             McTemplateK0qqzqqjqzjztd_EtwWriteTransfer(
               *(_QWORD *)(v11 + 24),
               (const EVENT_DESCRIPTOR *)KMPnPEvt_UEvent_QueueFullDropHead,
@@ -134,11 +134,11 @@ __int64 __fastcall PiUEventNotifyClient(__int64 a1, __int64 a2)
         v12 = *(struct _FAST_MUTEX **)(a2 + 16);
         ++*(_DWORD *)(a2 + 136);
         KeReleaseGuardedMutex(v12);
-        if ( byte_140EF3DCC < 0 )
+        if ( byte_140EF412C < 0 )
         {
           PiUEventGatherEventData(Pool2[3], v13, &v16, &v15);
           PiUEventGetProcessImagePath(*(_QWORD *)(a2 + 48), &v14);
-          if ( byte_140EF3DCC < 0 )
+          if ( byte_140EF412C < 0 )
             McTemplateK0qqzqqjqzjztd_EtwWriteTransfer(
               Pool2[3],
               (const EVENT_DESCRIPTOR *)KMPnPEvt_UEvent_CouldNotQueueEvent,

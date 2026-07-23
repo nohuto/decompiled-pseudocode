@@ -1,14 +1,14 @@
 /*
- * XREFs of PpmIdleInstallNewVetoList @ 0x140602180
+ * XREFs of PpmIdleInstallNewVetoList @ 0x140604C30
  * Callers:
- *     PpmIdleAllocateVetoReasons @ 0x1407C96B4 (PpmIdleAllocateVetoReasons.c)
+ *     PpmIdleAllocateVetoReasons @ 0x1407CC754 (PpmIdleAllocateVetoReasons.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeSetSystemGroupAffinityThread @ 0x14037A1C0 (KeSetSystemGroupAffinityThread.c)
- *     KeRevertToUserGroupAffinityThread @ 0x14037C490 (KeRevertToUserGroupAffinityThread.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memmove @ 0x14073D480 (memmove.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeSetSystemGroupAffinityThread @ 0x14037BF70 (KeSetSystemGroupAffinityThread.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x14037E240 (KeRevertToUserGroupAffinityThread.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memmove @ 0x140742080 (memmove.c)
  */
 
 void __fastcall PpmIdleInstallNewVetoList(__int64 a1, int a2, char *a3)
@@ -26,8 +26,8 @@ void __fastcall PpmIdleInstallNewVetoList(__int64 a1, int a2, char *a3)
   unsigned int v16; // edx
   char *v17; // rcx
   char **v18; // rax
-  struct _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-68h] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+30h] [rbp-58h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-68h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+30h] [rbp-58h] BYREF
 
   Affinity = 0LL;
   v6 = *(_WORD *)(a1 + 64);
@@ -43,7 +43,7 @@ void __fastcall PpmIdleInstallNewVetoList(__int64 a1, int a2, char *a3)
     }
   }
   KeSetSystemGroupAffinityThread(&Affinity, &PreviousAffinity);
-  v9 = KeAcquireSpinLockRaiseToDpc(&stru_140F10070.KcsanThread);
+  v9 = KeAcquireSpinLockRaiseToDpc(&PpmIdleVetoLock);
   v10 = *(const void **)(a1 + 48);
   v11 = (char *)(a1 + 24);
   v12 = *(unsigned int *)(a1 + 44);
@@ -76,6 +76,6 @@ LABEL_17:
       *(_QWORD *)(a1 + 32) = v17;
     }
   }
-  KeReleaseSpinLock(&stru_140F10070.KcsanThread, v13);
+  KeReleaseSpinLock(&PpmIdleVetoLock, v13);
   KeRevertToUserGroupAffinityThread(&PreviousAffinity);
 }

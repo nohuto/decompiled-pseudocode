@@ -1,17 +1,17 @@
 /*
- * XREFs of PspSchedulerSharedDataRegionSlotFree @ 0x140A83D78
+ * XREFs of PspSchedulerSharedDataRegionSlotFree @ 0x14094C09C
  * Callers:
- *     PspExitThread @ 0x14095771C (PspExitThread.c)
- *     NtSetInformationThread @ 0x140A833F0 (NtSetInformationThread.c)
+ *     PspExitThread @ 0x14094B14C (PspExitThread.c)
+ *     NtSetInformationThread @ 0x14094C4F0 (NtSetInformationThread.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     KeSwappablePageDereference @ 0x14041053C (KeSwappablePageDereference.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     KeSwappablePageDereference @ 0x14040FC5C (KeSwappablePageDereference.c)
  */
 
 __int64 __fastcall PspSchedulerSharedDataRegionSlotFree(__int64 a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)

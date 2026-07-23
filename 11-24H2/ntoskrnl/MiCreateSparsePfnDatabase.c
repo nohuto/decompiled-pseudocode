@@ -1,9 +1,9 @@
 /*
- * XREFs of MiCreateSparsePfnDatabase @ 0x140C51308
+ * XREFs of MiCreateSparsePfnDatabase @ 0x140C53498
  * Callers:
- *     MiCreatePfnDatabase @ 0x140C4EE90 (MiCreatePfnDatabase.c)
+ *     MiCreatePfnDatabase @ 0x140C51020 (MiCreatePfnDatabase.c)
  * Callees:
- *     MxMapPfnRange @ 0x140C52F48 (MxMapPfnRange.c)
+ *     MxMapPfnRange @ 0x140C550D8 (MxMapPfnRange.c)
  */
 
 __int64 __fastcall MiCreateSparsePfnDatabase(__int64 a1)
@@ -132,9 +132,9 @@ LABEL_40:
     }
   }
 LABEL_50:
-  MxMapPfnRange(qword_140E2DBE0 + 1);
-  result = qword_140E2DBE0 + 1;
-  if ( qword_140E35B00 != qword_140E2DBE0 + 1 )
-    return MxMapPfnRange(qword_140E35B00);
+  MxMapPfnRange(qword_140E2DD20 + 1);
+  result = qword_140E2DD20 + 1;
+  if ( qword_140E35C40 != qword_140E2DD20 + 1 )
+    return MxMapPfnRange(qword_140E35C40);
   return result;
 }

@@ -1,15 +1,15 @@
 /*
- * XREFs of MiUpdatePartitionMemory @ 0x140563474
+ * XREFs of MiUpdatePartitionMemory @ 0x1405636B4
  * Callers:
- *     MiMakePartitionMemoryBlock @ 0x1408DB580 (MiMakePartitionMemoryBlock.c)
+ *     MiMakePartitionMemoryBlock @ 0x1408DB6E0 (MiMakePartitionMemoryBlock.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     MiDereferencePageRunsEx @ 0x1402C34F8 (MiDereferencePageRunsEx.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     MiDereferencePageRunsEx @ 0x140241A18 (MiDereferencePageRunsEx.c)
+ *     ExAcquireSpinLockExclusive @ 0x1402C1960 (ExAcquireSpinLockExclusive.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402D3660 (KeAcquireInStackQueuedSpinLock.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140346AD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     MiComputeNodeMemory @ 0x1407CD0A0 (MiComputeNodeMemory.c)
+ *     MiComputeNodeMemory @ 0x1407CD210 (MiComputeNodeMemory.c)
  */
 
 void __fastcall MiUpdatePartitionMemory(__int64 a1, __int64 a2, unsigned int a3)
@@ -41,7 +41,7 @@ void __fastcall MiUpdatePartitionMemory(__int64 a1, __int64 a2, unsigned int a3)
   *(_QWORD *)(a1 + 32) = *(_QWORD *)(a2 + 16);
   v11 = v7;
   *(_QWORD *)(a1 + 96) = v9;
-  KeAcquireInStackQueuedSpinLock(&qword_140C4E600, &LockHandle);
+  KeAcquireInStackQueuedSpinLock(&qword_140C4E640, &LockHandle);
   KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
   OldIrql = LockHandle.OldIrql;
   if ( KiIrqlFlags )

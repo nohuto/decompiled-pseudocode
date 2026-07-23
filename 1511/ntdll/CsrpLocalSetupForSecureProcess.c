@@ -20,11 +20,11 @@ __int64 CsrpLocalSetupForSecureProcess()
   size_t v3; // r15
   __int64 v4; // r14
   size_t v5; // r14
-  __int64 Heap; // rax
+  _QWORD *Heap; // rax
   unsigned __int64 v7; // rdi
   NTSTATUS SystemInformation; // ebx
   void **v9; // r13
-  __int64 v10; // rbx
+  char *v10; // rbx
   char *v11; // rbx
   char *v12; // rcx
   __int128 v13; // xmm0
@@ -48,19 +48,19 @@ __int64 CsrpLocalSetupForSecureProcess()
   while ( Destination[v4] );
   v5 = 2 * v4;
   Heap = RtlAllocateHeap(CsrHeap, 8u, v2 + v5 + v2 + 2960);
-  v7 = Heap;
+  v7 = (unsigned __int64)Heap;
   if ( Heap )
   {
-    v9 = (void **)(Heap + 2920);
-    *(_QWORD *)(Heap + 2928) = Heap;
-    v10 = Heap + 2936;
-    *(_QWORD *)(Heap + 8) = Heap + 2936;
+    v9 = (void **)(Heap + 365);
+    Heap[366] = Heap;
+    v10 = (char *)(Heap + 367);
+    Heap[1] = Heap + 367;
     *(_WORD *)Heap = v2;
-    *(_WORD *)(Heap + 2) = v2 + 2;
-    memmove((void *)(Heap + 2936), (const void *)0x7FFE0030, v2);
+    *((_WORD *)Heap + 1) = v2 + 2;
+    memmove(Heap + 367, (const void *)0x7FFE0030, v2);
     *(_WORD *)(v7 + 16) = v3;
     *(_WORD *)(v7 + 18) = v2 + 20;
-    v11 = (char *)(v2 + v10 + 2);
+    v11 = &v10[v2 + 2];
     *(_QWORD *)(v7 + 24) = v11;
     memmove(v11, (const void *)0x7FFE0030, v2);
     v12 = &v11[v3 + 2];
@@ -77,7 +77,7 @@ __int64 CsrpLocalSetupForSecureProcess()
     SystemInformation = NtQuerySystemInformation(SystemTimeOfDayInformation, (PVOID)(v7 + 320), 0x30u, 0LL);
     if ( SystemInformation < 0 )
     {
-      RtlFreeHeap(CsrHeap, 0, v7);
+      RtlFreeHeap(CsrHeap, 0, (PVOID)v7);
     }
     else
     {

@@ -24,7 +24,7 @@
  *     KiCaptureUmsThreadContext @ 0x1408BB630 (KiCaptureUmsThreadContext.c)
  */
 
-__int64 __fastcall KiParkUmsThread(__int64 SparePtr)
+NTSTATUS __fastcall KiParkUmsThread(__int64 SparePtr)
 {
   __int64 v2; // r8
   _DWORD *v3; // r9
@@ -50,7 +50,7 @@ __int64 __fastcall KiParkUmsThread(__int64 SparePtr)
   struct _KPRCB *v23; // r9
   _DWORD *v24; // r8
   int v25; // eax
-  __int64 result; // rax
+  NTSTATUS result; // eax
   unsigned __int64 v27; // rax
   void *v28; // rsp
   NTSTATUS updated; // edi
@@ -65,12 +65,12 @@ __int64 __fastcall KiParkUmsThread(__int64 SparePtr)
   unsigned __int64 NpxState; // [rsp+40h] [rbp+10h]
   __int64 v39; // [rsp+68h] [rbp+38h] BYREF
   __int64 v40; // [rsp+70h] [rbp+40h]
-  NTSTATUS ExitStatus[40]; // [rsp+80h] [rbp+50h] BYREF
+  EXCEPTION_RECORD ExitStatus; // [rsp+80h] [rbp+50h] BYREF
   _QWORD v42[349]; // [rsp+120h] [rbp+F0h] BYREF
   _DWORD v43[4]; // [rsp+C10h] [rbp+BE0h] BYREF
   _QWORD v44[2]; // [rsp+C20h] [rbp+BF0h] BYREF
 
-  memset(ExitStatus, 0, 0x98uLL);
+  memset(&ExitStatus, 0, sizeof(ExitStatus));
   memset(v42, 0, sizeof(v42));
   IsPrimaryPresent = 0;
   v35 = 0;
@@ -238,14 +238,14 @@ LABEL_32:
     }
     KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);
 LABEL_64:
-    ExitStatus[6] = 1;
-    *(_QWORD *)&ExitStatus[8] = *(_QWORD *)&CurrentThread[1].CurrentRunTime;
-    ExitStatus[0] = updated;
-    ExitStatus[1] = 1;
-    *(_QWORD *)&ExitStatus[4] = 0LL;
-    KiDispatchException(ExitStatus, *(_QWORD *)(SparePtr + 88), *(_QWORD *)(SparePtr + 80), 1u, 0);
-    ZwTerminateProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, ExitStatus[0]);
-    return ZwTerminateThread(-2LL, (unsigned int)ExitStatus[0]);
+    ExitStatus.NumberParameters = 1;
+    ExitStatus.ExceptionInformation[0] = *(_QWORD *)&CurrentThread[1].CurrentRunTime;
+    ExitStatus.ExceptionCode = updated;
+    ExitStatus.ExceptionFlags = 1;
+    ExitStatus.ExceptionAddress = 0LL;
+    KiDispatchException(&ExitStatus, *(_QWORD *)(SparePtr + 88), *(_QWORD *)(SparePtr + 80), 1u, 0);
+    ZwTerminateProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, ExitStatus.ExceptionCode);
+    return ZwTerminateThread((HANDLE)0xFFFFFFFFFFFFFFFELL, ExitStatus.ExceptionCode);
   }
   if ( KiIrqlFlags )
   {

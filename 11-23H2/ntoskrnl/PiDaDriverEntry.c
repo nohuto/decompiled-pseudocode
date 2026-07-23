@@ -3,9 +3,9 @@
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     memset @ 0x140435A00 (memset.c)
- *     IoCreateDevice @ 0x14076AFD0 (IoCreateDevice.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     IoCreateDevice @ 0x14076B1C0 (IoCreateDevice.c)
  */
 
 __int64 __fastcall PiDaDriverEntry(PDRIVER_OBJECT DriverObject)

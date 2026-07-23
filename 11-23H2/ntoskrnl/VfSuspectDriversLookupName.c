@@ -1,10 +1,10 @@
 /*
- * XREFs of VfSuspectDriversLookupName @ 0x140ADAA24
+ * XREFs of VfSuspectDriversLookupName @ 0x140ADAA14
  * Callers:
- *     VfDriverApplyDifVerification @ 0x140ACA308 (VfDriverApplyDifVerification.c)
- *     VfDriverEnableVerifier @ 0x140ACA4C8 (VfDriverEnableVerifier.c)
+ *     VfDriverApplyDifVerification @ 0x140ACA2F8 (VfDriverApplyDifVerification.c)
+ *     VfDriverEnableVerifier @ 0x140ACA4B8 (VfDriverEnableVerifier.c)
  * Callees:
- *     ViSuspectDriversLookupEntry @ 0x140ADAD10 (ViSuspectDriversLookupEntry.c)
+ *     ViSuspectDriversLookupEntry @ 0x140ADAD00 (ViSuspectDriversLookupEntry.c)
  */
 
 _BOOL8 __fastcall VfSuspectDriversLookupName(const UNICODE_STRING *a1)

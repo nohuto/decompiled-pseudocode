@@ -1,11 +1,11 @@
 /*
- * XREFs of KiIntSteerDetermineSteeringEnabled @ 0x1409C5B68
+ * XREFs of KiIntSteerDetermineSteeringEnabled @ 0x1409C6B68
  * Callers:
- *     KiIntSteerInit @ 0x1409C5AB0 (KiIntSteerInit.c)
+ *     KiIntSteerInit @ 0x1409C6AB0 (KiIntSteerInit.c)
  * Callees:
- *     KeQueryActiveProcessorCountEx @ 0x1400A7920 (KeQueryActiveProcessorCountEx.c)
- *     HviIsAnyHypervisorPresent @ 0x140176BB0 (HviIsAnyHypervisorPresent.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     KeQueryActiveProcessorCountEx @ 0x1400A7860 (KeQueryActiveProcessorCountEx.c)
+ *     HviIsAnyHypervisorPresent @ 0x140176CB0 (HviIsAnyHypervisorPresent.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 bool KiIntSteerDetermineSteeringEnabled()
@@ -15,12 +15,12 @@ bool KiIntSteerDetermineSteeringEnabled()
   if ( KiInterruptSteeringDisabled
     || (unsigned __int16)KiActiveGroups > 1u
     || KeQueryActiveProcessorCountEx(0) < 2
-    || (_BYTE)dword_14054019C )
+    || (_BYTE)dword_14054119C )
   {
     return 0;
   }
-  v0 = byte_1404039C8;
-  if ( byte_1404039C8 == -1 )
+  v0 = byte_1404049C8;
+  if ( byte_1404049C8 == -1 )
   {
     _RAX = 1LL;
     __asm { cpuid }
@@ -31,7 +31,7 @@ bool KiIntSteerDetermineSteeringEnabled()
       __asm { cpuid }
       v0 = (_DWORD)_RAX == 1986945624;
     }
-    byte_1404039C8 = v0;
+    byte_1404049C8 = v0;
   }
   if ( v0 )
     return 0;

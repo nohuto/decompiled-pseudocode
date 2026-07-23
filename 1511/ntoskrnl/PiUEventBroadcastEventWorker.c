@@ -20,13 +20,14 @@ void __fastcall PiUEventBroadcastEventWorker(void *a1)
   char v4; // bl
   int v5; // ecx
   int v6; // ecx
-  void *v7; // rcx
+  const WNF_STATE_NAME *v7; // rcx
   __int64 v8; // rcx
   int v9; // ecx
   int v10; // ecx
   void *SessionById; // rbx
-  void *v12; // rcx
+  const WNF_STATE_NAME *v12; // rcx
   int v13; // ecx
+  int ExplicitScope; // [rsp+58h] [rbp+10h] BYREF
 
   v2 = 0;
   do
@@ -41,11 +42,12 @@ void __fastcall PiUEventBroadcastEventWorker(void *a1)
       if ( !v5 )
       {
         v6 = v3[6];
+        ExplicitScope = v6;
         if ( v6 == -1 )
         {
           v7 = &WNF_PNPA_DEVNODES_CHANGED;
 LABEL_6:
-          ZwUpdateWnfStateData((__int64)v7, 0LL, 0LL);
+          ZwUpdateWnfStateData(v7, 0LL, 0, 0LL, 0LL, 0, 0);
           goto LABEL_7;
         }
         SessionById = (void *)MmGetSessionById(v6);
@@ -58,17 +60,18 @@ LABEL_6:
       if ( !v9 )
       {
         v10 = v3[6];
+        ExplicitScope = v10;
         if ( v10 == -1 )
         {
-          v7 = &WNF_PNPA_VOLUMES_CHANGED;
+          v7 = (const WNF_STATE_NAME *)&WNF_PNPA_VOLUMES_CHANGED;
           goto LABEL_6;
         }
         SessionById = (void *)MmGetSessionById(v10);
         if ( !SessionById )
           goto LABEL_7;
-        v12 = &WNF_PNPA_VOLUMES_CHANGED_SESSION;
+        v12 = (const WNF_STATE_NAME *)&WNF_PNPA_VOLUMES_CHANGED_SESSION;
 LABEL_18:
-        ZwUpdateWnfStateData((__int64)v12, 0LL, 0LL);
+        ZwUpdateWnfStateData(v12, 0LL, 0, 0LL, &ExplicitScope, 0, 0);
         ObfDereferenceObject(SessionById);
         goto LABEL_7;
       }

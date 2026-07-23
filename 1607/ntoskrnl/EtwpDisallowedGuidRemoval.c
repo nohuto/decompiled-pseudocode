@@ -1,21 +1,21 @@
 /*
- * XREFs of EtwpDisallowedGuidRemoval @ 0x14069FB14
+ * XREFs of EtwpDisallowedGuidRemoval @ 0x14069FC4C
  * Callers:
- *     EtwpUpdateDisallowedGuids @ 0x14052D4FC (EtwpUpdateDisallowedGuids.c)
+ *     EtwpUpdateDisallowedGuids @ 0x14052DA3C (EtwpUpdateDisallowedGuids.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     PsGetCurrentThreadProcessId @ 0x1400857E0 (PsGetCurrentThreadProcessId.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfReleasePushLock @ 0x1400C8620 (ExfReleasePushLock.c)
- *     EtwpFindGuidEntryByGuid @ 0x14040E490 (EtwpFindGuidEntryByGuid.c)
- *     EtwpUnreferenceGuidEntry @ 0x14040ED4C (EtwpUnreferenceGuidEntry.c)
- *     EtwpSendDataBlock @ 0x140490A2C (EtwpSendDataBlock.c)
- *     EtwpCalculateUpdateNotification @ 0x140491000 (EtwpCalculateUpdateNotification.c)
- *     EtwpUpdateRegEntryEnableMask @ 0x140491198 (EtwpUpdateRegEntryEnableMask.c)
- *     EtwpBuildNotificationPacket @ 0x140491E2C (EtwpBuildNotificationPacket.c)
- *     EtwpIsGuidAllowed @ 0x140491F64 (EtwpIsGuidAllowed.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     PsGetCurrentThreadProcessId @ 0x1400870D0 (PsGetCurrentThreadProcessId.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfReleasePushLock @ 0x1400C64C0 (ExfReleasePushLock.c)
+ *     EtwpFindGuidEntryByGuid @ 0x14040D350 (EtwpFindGuidEntryByGuid.c)
+ *     EtwpUnreferenceGuidEntry @ 0x14040DC0C (EtwpUnreferenceGuidEntry.c)
+ *     EtwpSendDataBlock @ 0x1404914BC (EtwpSendDataBlock.c)
+ *     EtwpCalculateUpdateNotification @ 0x140491A90 (EtwpCalculateUpdateNotification.c)
+ *     EtwpUpdateRegEntryEnableMask @ 0x140491C28 (EtwpUpdateRegEntryEnableMask.c)
+ *     EtwpBuildNotificationPacket @ 0x1404928BC (EtwpBuildNotificationPacket.c)
+ *     EtwpIsGuidAllowed @ 0x1404929F4 (EtwpIsGuidAllowed.c)
  */
 
 _QWORD *__fastcall EtwpDisallowedGuidRemoval(_DWORD *a1, __int64 a2)

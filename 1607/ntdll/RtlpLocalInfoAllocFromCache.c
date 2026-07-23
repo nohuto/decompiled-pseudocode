@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlpLocalInfoAllocFromCache @ 0x18004EFB0
+ * XREFs of RtlpLocalInfoAllocFromCache @ 0x18004EFA0
  * Callers:
- *     RtlpLowFragHeapFlushCaches @ 0x18004EAD8 (RtlpLowFragHeapFlushCaches.c)
+ *     RtlpLowFragHeapFlushCaches @ 0x18004EAC8 (RtlpLowFragHeapFlushCaches.c)
  * Callees:
- *     RtlpIsSubSegmentReuseable @ 0x1800460E4 (RtlpIsSubSegmentReuseable.c)
- *     RtlpLfhFindClearBitAndSet @ 0x18004F320 (RtlpLfhFindClearBitAndSet.c)
- *     RtlpIsSubSegmentReuseThresholdExceeded @ 0x18004F4B4 (RtlpIsSubSegmentReuseThresholdExceeded.c)
- *     RtlpSetSegmentInfo @ 0x180051A50 (RtlpSetSegmentInfo.c)
- *     RtlpAffinitizeSegmentInfoForBucket @ 0x180080594 (RtlpAffinitizeSegmentInfoForBucket.c)
+ *     RtlpIsSubSegmentReuseable @ 0x1800460D4 (RtlpIsSubSegmentReuseable.c)
+ *     RtlpLfhFindClearBitAndSet @ 0x18004F310 (RtlpLfhFindClearBitAndSet.c)
+ *     RtlpIsSubSegmentReuseThresholdExceeded @ 0x18004F4A4 (RtlpIsSubSegmentReuseThresholdExceeded.c)
+ *     RtlpSetSegmentInfo @ 0x180051A40 (RtlpSetSegmentInfo.c)
+ *     RtlpAffinitizeSegmentInfoForBucket @ 0x180080584 (RtlpAffinitizeSegmentInfoForBucket.c)
  *     RtlpLogHeapFailure @ 0x1800A5E64 (RtlpLogHeapFailure.c)
  *     RtlpInterlockedPopEntrySList @ 0x1800A9D30 (RtlpInterlockedPopEntrySList.c)
  *     RtlpInterlockedPushEntrySList @ 0x1800A9D70 (RtlpInterlockedPushEntrySList.c)
@@ -37,7 +37,7 @@ __int64 __fastcall RtlpLocalInfoAllocFromCache(__int64 a1, char a2)
   unsigned int v20; // r14d
   _QWORD *v21; // r15
   __int64 v22; // rbx
-  union _SLIST_HEADER *v23; // r14
+  _SLIST_HEADER *v23; // r14
   PSLIST_ENTRY v24; // rax
   _QWORD **v25; // rbx
   signed __int32 v26; // eax
@@ -46,7 +46,7 @@ __int64 __fastcall RtlpLocalInfoAllocFromCache(__int64 a1, char a2)
   unsigned int v29; // ebp
   volatile signed __int32 *v30; // rbx
   volatile signed __int32 *v31; // r15
-  union _SLIST_HEADER *v32; // r14
+  _SLIST_HEADER *v32; // r14
   PSLIST_ENTRY v33; // rax
   __int64 v34; // rbx
   __int64 v35; // rcx
@@ -175,8 +175,7 @@ LABEL_13:
           v17 = 0LL;
           goto LABEL_27;
         }
-        v23 = (union _SLIST_HEADER *)(*(_QWORD *)(*(_QWORD *)(v49 + 24) + 8LL * *(unsigned __int16 *)(a1 + 172) + 1192)
-                                    + 144LL);
+        v23 = (_SLIST_HEADER *)(*(_QWORD *)(*(_QWORD *)(v49 + 24) + 8LL * *(unsigned __int16 *)(a1 + 172) + 1192) + 144LL);
         while ( 1 )
         {
           v24 = RtlpInterlockedPopEntrySList(v23);
@@ -224,8 +223,7 @@ LABEL_27:
     v29 = 0;
     v30 = 0LL;
     v31 = 0LL;
-    v32 = (union _SLIST_HEADER *)(*(_QWORD *)(*(_QWORD *)(v49 + 24) + 8LL * *(unsigned __int16 *)(a1 + 172) + 1192)
-                                + 144LL);
+    v32 = (_SLIST_HEADER *)(*(_QWORD *)(*(_QWORD *)(v49 + 24) + 8LL * *(unsigned __int16 *)(a1 + 172) + 1192) + 144LL);
     v33 = RtlpInterlockedPopEntrySList(v32);
     if ( !v33 )
       return 0LL;

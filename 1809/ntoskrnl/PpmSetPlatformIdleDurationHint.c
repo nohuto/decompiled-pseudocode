@@ -1,9 +1,9 @@
 /*
- * XREFs of PpmSetPlatformIdleDurationHint @ 0x1402D5A50
+ * XREFs of PpmSetPlatformIdleDurationHint @ 0x1402D5C40
  * Callers:
  *     PoIdle @ 0x14005D6B0 (PoIdle.c)
  * Callees:
- *     KeQueryActiveProcessorCountEx @ 0x1400A7920 (KeQueryActiveProcessorCountEx.c)
+ *     KeQueryActiveProcessorCountEx @ 0x1400A7860 (KeQueryActiveProcessorCountEx.c)
  */
 
 ULONG __fastcall PpmSetPlatformIdleDurationHint(unsigned __int64 a1)

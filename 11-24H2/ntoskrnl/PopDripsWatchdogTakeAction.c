@@ -1,18 +1,18 @@
 /*
- * XREFs of PopDripsWatchdogTakeAction @ 0x1407664B0
+ * XREFs of PopDripsWatchdogTakeAction @ 0x140765E80
  * Callers:
- *     PopDripsWatchdogDiagnosticWorker @ 0x14075FF20 (PopDripsWatchdogDiagnosticWorker.c)
+ *     PopDripsWatchdogDiagnosticWorker @ 0x14075EF20 (PopDripsWatchdogDiagnosticWorker.c)
  * Callees:
- *     PopFxBugCheck @ 0x140377108 (PopFxBugCheck.c)
- *     PopFxBuildDripsBlockingDeviceList @ 0x140490504 (PopFxBuildDripsBlockingDeviceList.c)
- *     VfIsVerifierEnabled @ 0x1404BC290 (VfIsVerifierEnabled.c)
- *     PopDeviceConstraintsEnforced @ 0x1404C363C (PopDeviceConstraintsEnforced.c)
- *     PpmIdlePrevetoWatchdog @ 0x1405CE920 (PpmIdlePrevetoWatchdog.c)
- *     PopDiagTraceCsDripsWatchdog @ 0x1405D4728 (PopDiagTraceCsDripsWatchdog.c)
- *     PopDiagTraceCsDripsWatchdogPerfTrack @ 0x1405D4918 (PopDiagTraceCsDripsWatchdogPerfTrack.c)
- *     PopCheckTestsigningEnabled @ 0x1407492F4 (PopCheckTestsigningEnabled.c)
- *     PopFxDestroyDripsBlockingDeviceList @ 0x14074DBBC (PopFxDestroyDripsBlockingDeviceList.c)
- *     DbgkWerCaptureLiveKernelDump @ 0x140AA9B20 (DbgkWerCaptureLiveKernelDump.c)
+ *     PopFxBugCheck @ 0x1403A9948 (PopFxBugCheck.c)
+ *     PopFxBuildDripsBlockingDeviceList @ 0x14048AB44 (PopFxBuildDripsBlockingDeviceList.c)
+ *     VfIsVerifierEnabled @ 0x1404B71A0 (VfIsVerifierEnabled.c)
+ *     PopDeviceConstraintsEnforced @ 0x1404BEB74 (PopDeviceConstraintsEnforced.c)
+ *     PpmIdlePrevetoWatchdog @ 0x1405CC040 (PpmIdlePrevetoWatchdog.c)
+ *     PopDiagTraceCsDripsWatchdog @ 0x1405D1EE8 (PopDiagTraceCsDripsWatchdog.c)
+ *     PopDiagTraceCsDripsWatchdogPerfTrack @ 0x1405D20D8 (PopDiagTraceCsDripsWatchdogPerfTrack.c)
+ *     PopCheckTestsigningEnabled @ 0x140747620 (PopCheckTestsigningEnabled.c)
+ *     PopFxDestroyDripsBlockingDeviceList @ 0x14074BEEC (PopFxDestroyDripsBlockingDeviceList.c)
+ *     DbgkWerCaptureLiveKernelDump @ 0x140AA4BD0 (DbgkWerCaptureLiveKernelDump.c)
  */
 
 __int64 __fastcall PopDripsWatchdogTakeAction(__int64 a1, __int16 a2, int a3)

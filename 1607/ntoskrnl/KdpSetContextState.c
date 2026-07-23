@@ -1,7 +1,7 @@
 /*
- * XREFs of KdpSetContextState @ 0x1406F2FDC
+ * XREFs of KdpSetContextState @ 0x1406F2C74
  * Callers:
- *     KdpReportLoadSymbolsStateChange @ 0x1406F2934 (KdpReportLoadSymbolsStateChange.c)
+ *     KdpReportLoadSymbolsStateChange @ 0x1406F25CC (KdpReportLoadSymbolsStateChange.c)
  *     KdpReportCommandStringStateChange @ 0x1406F3CE0 (KdpReportCommandStringStateChange.c)
  *     KdpReportExceptionStateChange @ 0x1406F4050 (KdpReportExceptionStateChange.c)
  * Callees:

@@ -1,11 +1,11 @@
 /*
- * XREFs of HvFreeDirtyData @ 0x14071C81C
+ * XREFs of HvFreeDirtyData @ 0x1405E01BC
  * Callers:
- *     CmpFlushHive @ 0x14062A0D8 (CmpFlushHive.c)
- *     CmpDeleteHive @ 0x14071C6F4 (CmpDeleteHive.c)
- *     HvFoldBackDirtyData @ 0x140876964 (HvFoldBackDirtyData.c)
+ *     CmpDeleteHive @ 0x1405E0094 (CmpDeleteHive.c)
+ *     CmpFlushHive @ 0x1406A48D8 (CmpFlushHive.c)
+ *     HvFoldBackDirtyData @ 0x140876AC4 (HvFoldBackDirtyData.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall HvFreeDirtyData(__int64 a1)

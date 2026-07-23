@@ -1,13 +1,13 @@
 /*
- * XREFs of KiInitPrcb @ 0x14099C788
+ * XREFs of KiInitPrcb @ 0x14099D788
  * Callers:
- *     KiInitializeBootStructures @ 0x14099C160 (KiInitializeBootStructures.c)
+ *     KiInitializeBootStructures @ 0x14099D160 (KiInitializeBootStructures.c)
  * Callees:
- *     KeInitializeDpc @ 0x14027B6B0 (KeInitializeDpc.c)
- *     KiInitializeDpcList @ 0x1402D3E44 (KiInitializeDpcList.c)
- *     KiIntSteerInitPrcb @ 0x1402D3E54 (KiIntSteerInitPrcb.c)
- *     InitializeSListHead @ 0x14035E3E0 (InitializeSListHead.c)
- *     memset @ 0x140414200 (memset.c)
+ *     KiInitializeDpcList @ 0x1402520B4 (KiInitializeDpcList.c)
+ *     KiIntSteerInitPrcb @ 0x1402520C4 (KiIntSteerInitPrcb.c)
+ *     KeInitializeDpc @ 0x140269650 (KeInitializeDpc.c)
+ *     InitializeSListHead @ 0x1402A3310 (InitializeSListHead.c)
+ *     memset @ 0x140414300 (memset.c)
  */
 
 __int64 __fastcall KiInitPrcb(__int64 a1, int a2)

@@ -12,13 +12,13 @@ char KeReenterRetpolinedCode()
   __int16 v1; // cx
   __int16 v3; // [rsp+0h] [rbp-8h]
 
-  LOBYTE(CurrentPrcb) = KeGetPcr()->Prcb.BpbRetpolineState;
+  LOBYTE(CurrentPrcb) = BYTE2(KeGetPcr()[5].HalReserved[15]);
   if ( ((unsigned __int8)CurrentPrcb & 1) != 0 )
   {
     v1 = v3;
     _disable();
     CurrentPrcb = KeGetCurrentPrcb();
-    CurrentPrcb->BpbRetpolineState &= ~1u;
+    *((_BYTE *)CurrentPrcb + 1750) &= ~1u;
     if ( (v1 & 0x200) != 0 )
       _enable();
   }

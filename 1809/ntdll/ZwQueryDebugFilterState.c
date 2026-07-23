@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwQueryDebugFilterState @ 0x1800A2A10
+ * XREFs of ZwQueryDebugFilterState @ 0x1800A2A30
  * Callers:
  *     vDbgPrintExWithPrefixInternal @ 0x18004F348 (vDbgPrintExWithPrefixInternal.c)
  *     DbgQueryDebugFilterState @ 0x1800E1FC0 (DbgQueryDebugFilterState.c)
@@ -7,11 +7,11 @@
  *     <none>
  */
 
-__int64 ZwQueryDebugFilterState()
+NTSTATUS __cdecl ZwQueryDebugFilterState(ULONG ComponentId, ULONG Level)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 314LL;
+  result = 314;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

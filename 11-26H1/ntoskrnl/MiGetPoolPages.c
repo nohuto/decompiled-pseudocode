@@ -1,18 +1,18 @@
 /*
- * XREFs of MiGetPoolPages @ 0x140365A30
+ * XREFs of MiGetPoolPages @ 0x1403677D0
  * Callers:
- *     RtlpHpEnvAllocVA @ 0x140364570 (RtlpHpEnvAllocVA.c)
+ *     RtlpHpEnvAllocVA @ 0x140366310 (RtlpHpEnvAllocVA.c)
  * Callees:
- *     MiGetPageChain @ 0x140285DD0 (MiGetPageChain.c)
- *     MiSufficientAvailablePages @ 0x14028EAB0 (MiSufficientAvailablePages.c)
- *     MiObtainPoolCharges @ 0x140366384 (MiObtainPoolCharges.c)
- *     MiRetryNonPagedAllocation @ 0x140366440 (MiRetryNonPagedAllocation.c)
- *     MiInitializePoolPageChainPacket @ 0x1403665CC (MiInitializePoolPageChainPacket.c)
- *     MiReturnExcessPoolCharges @ 0x1403C7FB0 (MiReturnExcessPoolCharges.c)
- *     MiGetCachedPoolPages @ 0x1404B2E60 (MiGetCachedPoolPages.c)
- *     MiReturnPhysicalPoolPages @ 0x14051DF40 (MiReturnPhysicalPoolPages.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     MiGetPageChain @ 0x140285330 (MiGetPageChain.c)
+ *     MiSufficientAvailablePages @ 0x14028E010 (MiSufficientAvailablePages.c)
+ *     MiObtainPoolCharges @ 0x140368124 (MiObtainPoolCharges.c)
+ *     MiRetryNonPagedAllocation @ 0x1403681E0 (MiRetryNonPagedAllocation.c)
+ *     MiInitializePoolPageChainPacket @ 0x14036836C (MiInitializePoolPageChainPacket.c)
+ *     MiReturnExcessPoolCharges @ 0x1403D1EA0 (MiReturnExcessPoolCharges.c)
+ *     MiGetCachedPoolPages @ 0x1404AC4E0 (MiGetCachedPoolPages.c)
+ *     MiReturnPhysicalPoolPages @ 0x140520550 (MiReturnPhysicalPoolPages.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall MiGetPoolPages(_QWORD *a1)
@@ -30,7 +30,7 @@ __int64 __fastcall MiGetPoolPages(_QWORD *a1)
   __int64 v13; // [rsp+90h] [rbp+4Fh]
 
   memset_0(v9, 0, 0x70uLL);
-  RtlCopyVolatileMemory(&v11, (const void *)(qword_140E2D6B8 + 96 + 384LL * *((unsigned int *)a1 + 24)), 8uLL);
+  RtlCopyVolatileMemory(&v11, (const void *)(qword_140E2D838 + 96 + 384LL * *((unsigned int *)a1 + 24)), 8uLL);
   if ( v11 && (unsigned int)MiGetCachedPoolPages(a1) )
     return 0LL;
   v2 = a1[1] - a1[4];

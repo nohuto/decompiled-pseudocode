@@ -1,31 +1,31 @@
 /*
- * XREFs of MiBuildReservationCluster @ 0x1406382E4
+ * XREFs of MiBuildReservationCluster @ 0x140638834
  * Callers:
- *     MiGatherPagefilePages @ 0x14063A144 (MiGatherPagefilePages.c)
+ *     MiGatherPagefilePages @ 0x14063A694 (MiGatherPagefilePages.c)
  * Callees:
- *     MiUnlinkPageFromListEx @ 0x140266630 (MiUnlinkPageFromListEx.c)
- *     MiInsertPageInList @ 0x14026EC00 (MiInsertPageInList.c)
- *     MiPteInShadowRange @ 0x140271360 (MiPteInShadowRange.c)
- *     MiReservePtes @ 0x14027D190 (MiReservePtes.c)
- *     MiUpdatePageFileHighInPte @ 0x14028563C (MiUpdatePageFileHighInPte.c)
- *     MiReleasePageFileInfo @ 0x1402952DC (MiReleasePageFileInfo.c)
- *     MiReleasePtes @ 0x1402CB8E0 (MiReleasePtes.c)
- *     MiMakeValidPte @ 0x1402CF2B0 (MiMakeValidPte.c)
- *     MiRemoveLockedPageChargeAndDecRef @ 0x1402DAF84 (MiRemoveLockedPageChargeAndDecRef.c)
- *     MiAddLockedPageCharge @ 0x1402EF368 (MiAddLockedPageCharge.c)
- *     MiLockPageInline @ 0x1402EF680 (MiLockPageInline.c)
- *     MiLockNestedPageAtDpcInline @ 0x140348870 (MiLockNestedPageAtDpcInline.c)
- *     MiReferencePageForModifiedWrite @ 0x140349DE8 (MiReferencePageForModifiedWrite.c)
- *     MiWritePteShadow @ 0x14035734C (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x1403573AC (MiPteHasShadow.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     MiGetPageForWriteCluster @ 0x14046C716 (MiGetPageForWriteCluster.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiAddToReservationCluster @ 0x1406377AC (MiAddToReservationCluster.c)
- *     MiDerefPageFileSpaceBitmaps @ 0x140638EFC (MiDerefPageFileSpaceBitmaps.c)
- *     MiGetPageFileSectionForReservation @ 0x14063AC44 (MiGetPageFileSectionForReservation.c)
- *     MiRefPageFileSpaceBitmaps @ 0x14063B494 (MiRefPageFileSpaceBitmaps.c)
- *     MiReleasePageFileSectionInfo @ 0x14063B578 (MiReleasePageFileSectionInfo.c)
+ *     MiUnlinkPageFromListEx @ 0x1402668C0 (MiUnlinkPageFromListEx.c)
+ *     MiInsertPageInList @ 0x14026EE90 (MiInsertPageInList.c)
+ *     MiPteInShadowRange @ 0x1402715F0 (MiPteInShadowRange.c)
+ *     MiReservePtes @ 0x14027D420 (MiReservePtes.c)
+ *     MiUpdatePageFileHighInPte @ 0x1402858CC (MiUpdatePageFileHighInPte.c)
+ *     MiReleasePageFileInfo @ 0x14029556C (MiReleasePageFileInfo.c)
+ *     MiReleasePtes @ 0x1402CBB70 (MiReleasePtes.c)
+ *     MiMakeValidPte @ 0x1402CF540 (MiMakeValidPte.c)
+ *     MiRemoveLockedPageChargeAndDecRef @ 0x1402DB214 (MiRemoveLockedPageChargeAndDecRef.c)
+ *     MiAddLockedPageCharge @ 0x1402EF5F8 (MiAddLockedPageCharge.c)
+ *     MiLockPageInline @ 0x1402EF910 (MiLockPageInline.c)
+ *     MiLockNestedPageAtDpcInline @ 0x140348B00 (MiLockNestedPageAtDpcInline.c)
+ *     MiReferencePageForModifiedWrite @ 0x140349F80 (MiReferencePageForModifiedWrite.c)
+ *     MiWritePteShadow @ 0x1403574EC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x14035754C (MiPteHasShadow.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     MiGetPageForWriteCluster @ 0x14046CB16 (MiGetPageForWriteCluster.c)
+ *     MiAddToReservationCluster @ 0x140637CFC (MiAddToReservationCluster.c)
+ *     MiDerefPageFileSpaceBitmaps @ 0x14063944C (MiDerefPageFileSpaceBitmaps.c)
+ *     MiGetPageFileSectionForReservation @ 0x14063B194 (MiGetPageFileSectionForReservation.c)
+ *     MiRefPageFileSpaceBitmaps @ 0x14063B9E4 (MiRefPageFileSpaceBitmaps.c)
+ *     MiReleasePageFileSectionInfo @ 0x14063BAC8 (MiReleasePageFileSectionInfo.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
@@ -149,10 +149,13 @@ __int64 __fastcall MiBuildReservationCluster(_QWORD *a1, __int64 a2, unsigned in
     if ( v7 == *(_QWORD *)(v4 + v6 + 3920) )
       break;
     _InterlockedAnd64((volatile signed __int64 *)(v8 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v9 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v9 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -182,10 +185,10 @@ LABEL_24:
       *(_QWORD *)(v8 + 16) = v17 & 0xFFFFFFFFFFFFFFFDuLL;
       MiInsertPageInList(v8, 8u);
       _InterlockedAnd64((volatile signed __int64 *)(v8 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v18 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v18 <= 0xFu && (unsigned __int8)v9 <= 0xFu && v18 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v18 <= 0xFu && (unsigned __int8)v9 <= 0xFu && v18 >= 2u )
         {
           v19 = KeGetCurrentPrcb();
           v20 = v19->SchedulerAssist;
@@ -206,10 +209,10 @@ LABEL_24:
     if ( *a3 == 1 )
     {
       _InterlockedAnd64((volatile signed __int64 *)(v8 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v23 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v23 <= 0xFu && (unsigned __int8)v9 <= 0xFu && v23 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v23 <= 0xFu && (unsigned __int8)v9 <= 0xFu && v23 >= 2u )
         {
           v24 = KeGetCurrentPrcb();
           v25 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v9 + 1));
@@ -231,10 +234,10 @@ LABEL_24:
     MiAddLockedPageCharge(v87, 1);
     _InterlockedAnd64((volatile signed __int64 *)(v87 + 24), 0x7FFFFFFFFFFFFFFFuLL);
     _InterlockedAnd64((volatile signed __int64 *)(v8 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v29 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v29 <= 0xFu && (unsigned __int8)v9 <= 0xFu && v29 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v29 <= 0xFu && (unsigned __int8)v9 <= 0xFu && v29 >= 2u )
       {
         v30 = KeGetCurrentPrcb();
         v31 = v30->SchedulerAssist;
@@ -257,10 +260,10 @@ LABEL_99:
       v65 = (unsigned __int8)MiLockPageInline(v87);
       MiRemoveLockedPageChargeAndDecRef(v64);
       _InterlockedAnd64((volatile signed __int64 *)(v64 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v67 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v67 <= 0xFu && (unsigned __int8)v65 <= 0xFu && v67 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v67 <= 0xFu && (unsigned __int8)v65 <= 0xFu && v67 >= 2u )
         {
           v68 = KeGetCurrentPrcb();
           v69 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v65 + 1));
@@ -400,10 +403,10 @@ LABEL_51:
     goto LABEL_99;
   }
   _InterlockedAnd64((volatile signed __int64 *)(v8 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v71 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v71 <= 0xFu && (unsigned __int8)v9 <= 0xFu && v71 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v71 <= 0xFu && (unsigned __int8)v9 <= 0xFu && v71 >= 2u )
     {
       v72 = KeGetCurrentPrcb();
       v73 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v9 + 1));

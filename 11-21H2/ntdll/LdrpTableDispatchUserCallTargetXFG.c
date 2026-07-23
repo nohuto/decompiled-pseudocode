@@ -41,7 +41,7 @@ LABEL_8:
   v3 = v0;
   v4 = v0 << 8;
   LOBYTE(v4) = v1;
-  v5 = *(_QWORD *)(qword_18018F3A8 + 8 * (v3 >> 9));
+  v5 = *(_QWORD *)(LdrSystemDllInitBlock.CfgBitMap + 8 * (v3 >> 9));
   v6 = __ROR8__(__ROR8__(v4, 8), 3);
   LOBYTE(v1) = v6;
   v7 = __ROL8__(v6, 3);

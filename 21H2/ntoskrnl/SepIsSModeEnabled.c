@@ -1,10 +1,10 @@
 /*
- * XREFs of SepIsSModeEnabled @ 0x14028FE30
+ * XREFs of SepIsSModeEnabled @ 0x14020DDA0
  * Callers:
- *     SeIsSModeAdminlessEnabled @ 0x140252ED0 (SeIsSModeAdminlessEnabled.c)
- *     SeSecurityModelQueryInformation @ 0x14091CD6C (SeSecurityModelQueryInformation.c)
+ *     SeIsSModeAdminlessEnabled @ 0x140285D40 (SeIsSModeAdminlessEnabled.c)
+ *     SeSecurityModelQueryInformation @ 0x14091CECC (SeSecurityModelQueryInformation.c)
  * Callees:
- *     SeCodeIntegrityQueryPolicyInformation @ 0x1406814E0 (SeCodeIntegrityQueryPolicyInformation.c)
+ *     SeCodeIntegrityQueryPolicyInformation @ 0x1405DC520 (SeCodeIntegrityQueryPolicyInformation.c)
  */
 
 bool SepIsSModeEnabled()

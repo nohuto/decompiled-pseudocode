@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlFindLongestRunClearCapped @ 0x140404B2C
+ * XREFs of RtlFindLongestRunClearCapped @ 0x1403FDC2C
  * Callers:
- *     MiFindPageFileWriteCluster @ 0x140405CC8 (MiFindPageFileWriteCluster.c)
- *     MiModwriterConfirmMdl @ 0x140408738 (MiModwriterConfirmMdl.c)
+ *     MiFindPageFileWriteCluster @ 0x1403FEDBC (MiFindPageFileWriteCluster.c)
+ *     MiModwriterConfirmMdl @ 0x140401828 (MiModwriterConfirmMdl.c)
  * Callees:
  *     <none>
  */
@@ -62,7 +62,7 @@ __int64 __fastcall RtlFindLongestRunClearCapped(unsigned int *a1, unsigned int a
   v16 = v39;
   v17 = *(_BYTE *)(v11 + v9);
   if ( (_DWORD)v11 == v39 - 1 && v6 )
-    v17 |= byte_140017F38[v3 & 7];
+    v17 |= byte_140018470[v3 & 7];
   v18 = 0;
   while ( 1 )
   {
@@ -93,7 +93,7 @@ LABEL_14:
         v8 = v33;
       v13 = *((unsigned __int8 *)RtlpBitsClearHigh + v17);
       v14 = 8 * v11 - v13 + 8;
-      v21 = *((_BYTE *)qword_140017F40 - v13) | byte_140032340[*((unsigned __int8 *)RtlpBitsClearLow + v17)];
+      v21 = *((_BYTE *)&qword_140018478 - v13) | byte_1400327C0[*((unsigned __int8 *)RtlpBitsClearLow + v17)];
       while ( 1 )
       {
         v17 |= v21;
@@ -102,7 +102,7 @@ LABEL_14:
         v29 = *((unsigned __int8 *)RtlpBitsClearAnywhere + v17);
         if ( v12 >= (unsigned int)v29 )
           break;
-        v21 = byte_140032340[v29];
+        v21 = byte_1400327C0[v29];
         v30 = 0;
         while ( ((unsigned __int8)v21 & v17) != 0 )
         {
@@ -154,7 +154,7 @@ LABEL_14:
     if ( (_DWORD)v11 == v39 - 1 )
     {
       if ( v35 )
-        v17 |= byte_140017F38[v36 & 7];
+        v17 |= byte_140018470[v36 & 7];
     }
     v10 = v38;
     v18 = v32 + 1;

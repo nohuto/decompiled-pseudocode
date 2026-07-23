@@ -16,7 +16,7 @@ void __fastcall ViIrpLogExposeWmiCallback(PVOID P)
   RtlInitUnicodeString(&ViDdiWmiMofKey, &word_140B99AB0);
   RtlInitUnicodeString(&ViDdiWmiMofResourceName, &word_140B99AB0);
   RtlInitUnicodeString(&DestinationString, L"\\DRIVER\\VERIFIER_DDI");
-  IoCreateDriver(&DestinationString, (unsigned __int64)ViDdiDriverEntry);
+  IoCreateDriver(&DestinationString, ViDdiDriverEntry);
   ViIrpLogDdiLock = 2;
   ExFreePoolWithTag(P, 0);
 }

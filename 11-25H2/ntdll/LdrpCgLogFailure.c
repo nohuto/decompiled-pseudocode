@@ -45,10 +45,10 @@ char __fastcall LdrpCgLogFailure(__int64 a1)
   void *v29; // [rsp+70h] [rbp-98h] BYREF
   __int64 v30; // [rsp+78h] [rbp-90h] BYREF
   __int64 v31; // [rsp+80h] [rbp-88h] BYREF
-  char *v32; // [rsp+88h] [rbp-80h] BYREF
-  char *v33; // [rsp+90h] [rbp-78h]
-  char *v34; // [rsp+98h] [rbp-70h]
-  char *v35; // [rsp+A0h] [rbp-68h]
+  const ULONG *v32; // [rsp+88h] [rbp-80h] BYREF
+  const ULONG *v33; // [rsp+90h] [rbp-78h]
+  const ULONG *v34; // [rsp+98h] [rbp-70h]
+  const ULONG *v35; // [rsp+A0h] [rbp-68h]
   __int64 v36; // [rsp+A8h] [rbp-60h] BYREF
   __int128 v37; // [rsp+B0h] [rbp-58h]
   __int64 v38; // [rsp+C0h] [rbp-48h]
@@ -58,7 +58,7 @@ char __fastcall LdrpCgLogFailure(__int64 a1)
   PVOID BackTrace; // [rsp+F8h] [rbp-10h] BYREF
   __int128 v43; // [rsp+100h] [rbp-8h]
   __int64 v44; // [rsp+110h] [rbp+8h]
-  char v45[32]; // [rsp+118h] [rbp+10h] BYREF
+  _EVENT_DATA_DESCRIPTOR v45; // [rsp+118h] [rbp+10h] BYREF
   void **v46; // [rsp+138h] [rbp+30h]
   __int64 v47; // [rsp+140h] [rbp+38h]
   __int16 *v48; // [rsp+148h] [rbp+40h]
@@ -138,16 +138,12 @@ char __fastcall LdrpCgLogFailure(__int64 a1)
   memset_thunk_772440563353939046(v109, 0, 0x40uLL);
   v106 = 0LL;
   v108 = 0LL;
-  v32 = "unknown";
-  v33 = "unknown";
-  v34 = "unknown";
-  v35 = "unknown";
+  v32 = (const ULONG *)"unknown";
+  v33 = (const ULONG *)"unknown";
+  v34 = (const ULONG *)"unknown";
+  v35 = (const ULONG *)"unknown";
   v107 = 0LL;
-  RtlRunOnceExecuteOnce(
-    &CastGuardTelemetryInitRunOnce,
-    (unsigned int (__fastcall *)(volatile signed __int64 *, __int64, unsigned __int64 *))CastGuardTelemetryInitOnce,
-    0LL,
-    0LL);
+  RtlRunOnceExecuteOnce(&CastGuardTelemetryInitRunOnce, (PRTL_RUN_ONCE_INIT_FN)CastGuardTelemetryInitOnce, 0LL, 0LL);
   ImageBaseAddress = NtCurrentPeb()->ImageBaseAddress;
   LOWORD(LoadedDllByAddress) = RtlCaptureStackBackTrace(1u, 4u, &BackTrace, &BackTraceHash);
   v4 = (unsigned __int16)LoadedDllByAddress;
@@ -281,11 +277,11 @@ char __fastcall LdrpCgLogFailure(__int64 a1)
       v105 = 8LL;
       LOBYTE(LoadedDllByAddress) = tlgWriteTransfer_EtwEventWriteTransfer(
                                      (__int64)&dword_1801CEA28,
-                                     byte_1801A4B73,
+                                     (unsigned __int8 *)dword_1801A4B73,
                                      v18,
                                      v17,
-                                     31,
-                                     (__int64)v45);
+                                     0x1Fu,
+                                     &v45);
     }
   }
   return LoadedDllByAddress;

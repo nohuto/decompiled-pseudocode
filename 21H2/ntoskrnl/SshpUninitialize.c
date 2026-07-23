@@ -1,13 +1,13 @@
 /*
- * XREFs of SshpUninitialize @ 0x140A935A4
+ * XREFs of SshpUninitialize @ 0x140A945A4
  * Callers:
- *     SshInitialize @ 0x140A40584 (SshInitialize.c)
+ *     SshInitialize @ 0x140A41584 (SshInitialize.c)
  * Callees:
- *     ExUnsubscribeWnfStateChange @ 0x1406B2A90 (ExUnsubscribeWnfStateChange.c)
- *     EtwUnregister @ 0x1407601D0 (EtwUnregister.c)
- *     SleepstudyHelperDestroyLibrary @ 0x1408FB990 (SleepstudyHelperDestroyLibrary.c)
- *     SSHSupportEtwUnregister @ 0x1408FBAB8 (SSHSupportEtwUnregister.c)
- *     SSHSupportUnregisterPowerSettingCallback @ 0x1408FBAD4 (SSHSupportUnregisterPowerSettingCallback.c)
+ *     ExUnsubscribeWnfStateChange @ 0x140611AD0 (ExUnsubscribeWnfStateChange.c)
+ *     EtwUnregister @ 0x140760390 (EtwUnregister.c)
+ *     SleepstudyHelperDestroyLibrary @ 0x1408FBAF0 (SleepstudyHelperDestroyLibrary.c)
+ *     SSHSupportEtwUnregister @ 0x1408FBC18 (SSHSupportEtwUnregister.c)
+ *     SSHSupportUnregisterPowerSettingCallback @ 0x1408FBC34 (SSHSupportUnregisterPowerSettingCallback.c)
  */
 
 __int64 *SshpUninitialize()
@@ -22,7 +22,7 @@ __int64 *SshpUninitialize()
   }
   if ( SshpWnfSubscriptionInitialized )
   {
-    ExUnsubscribeWnfStateChange((struct _EX_RUNDOWN_REF *)SshpWnfSubscription);
+    ExUnsubscribeWnfStateChange((void *)SshpWnfSubscription);
     SshpWnfSubscriptionInitialized = 0;
   }
   if ( SshpTelemetryHandleRegistered )

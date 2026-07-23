@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlInitializeCompression @ 0x1405853E4
+ * XREFs of RtlInitializeCompression @ 0x140585614
  * Callers:
- *     Phase1InitializationDiscard @ 0x140A3B6A4 (Phase1InitializationDiscard.c)
+ *     Phase1InitializationDiscard @ 0x140A3C6A4 (Phase1InitializationDiscard.c)
  * Callees:
- *     ExInitializeNPagedLookasideListInternal @ 0x14037A700 (ExInitializeNPagedLookasideListInternal.c)
+ *     ExInitializeNPagedLookasideListInternal @ 0x14037A250 (ExInitializeNPagedLookasideListInternal.c)
  */
 
 __int64 RtlInitializeCompression()

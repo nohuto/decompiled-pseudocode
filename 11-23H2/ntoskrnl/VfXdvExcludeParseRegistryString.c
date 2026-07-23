@@ -3,9 +3,9 @@
  * Callers:
  *     VfInitBootDriversLoaded @ 0x140B577A4 (VfInitBootDriversLoaded.c)
  * Callees:
- *     VfDriverLock @ 0x140ACA76C (VfDriverLock.c)
- *     VfDriverUnlock @ 0x140ACA890 (VfDriverUnlock.c)
- *     VfSuspectExcludedDriversAllocateEntry @ 0x140ADAC40 (VfSuspectExcludedDriversAllocateEntry.c)
+ *     VfDriverLock @ 0x140ACA75C (VfDriverLock.c)
+ *     VfDriverUnlock @ 0x140ACA880 (VfDriverUnlock.c)
+ *     VfSuspectExcludedDriversAllocateEntry @ 0x140ADAC30 (VfSuspectExcludedDriversAllocateEntry.c)
  */
 
 int VfXdvExcludeParseRegistryString()
@@ -76,13 +76,13 @@ LABEL_19:
       if ( Entry )
       {
         VfDriverLock();
-        v9 = (_QWORD *)qword_140C36ED8;
-        if ( *(__int64 **)qword_140C36ED8 != &VfXdvExcludedDriversList )
+        v9 = (_QWORD *)qword_140C36E48;
+        if ( *(__int64 **)qword_140C36E48 != &VfXdvExcludedDriversList )
           __fastfail(3u);
         *v8 = &VfXdvExcludedDriversList;
         v8[1] = v9;
         *v9 = v8;
-        qword_140C36ED8 = (__int64)v8;
+        qword_140C36E48 = (__int64)v8;
         LODWORD(Entry) = VfDriverUnlock();
       }
     }

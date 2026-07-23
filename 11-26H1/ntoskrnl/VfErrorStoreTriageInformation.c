@@ -1,9 +1,9 @@
 /*
- * XREFs of VfErrorStoreTriageInformation @ 0x140C31A8C
+ * XREFs of VfErrorStoreTriageInformation @ 0x140C37A9C
  * Callers:
- *     VfReportIssueWithOptions @ 0x140645558 (VfReportIssueWithOptions.c)
- *     ViErrorFinishReport @ 0x140C31B28 (ViErrorFinishReport.c)
- *     ViCtxCheckAndReleaseIsrState @ 0x140C40D80 (ViCtxCheckAndReleaseIsrState.c)
+ *     VfReportIssueWithOptions @ 0x140649138 (VfReportIssueWithOptions.c)
+ *     ViErrorFinishReport @ 0x140C37B38 (ViErrorFinishReport.c)
+ *     ViCtxCheckAndReleaseIsrState @ 0x140C46D90 (ViCtxCheckAndReleaseIsrState.c)
  * Callees:
  *     <none>
  */
@@ -20,10 +20,10 @@ __int64 __fastcall VfErrorStoreTriageInformation(__int64 a1, ULONG_PTR a2, ULONG
   else
   {
     VfErrorBugcheckData = a1;
-    qword_140FF1970 = a2;
-    qword_140FF1978 = a3;
-    qword_140FF1980 = a4;
-    qword_140FF1988 = a5;
+    qword_140FF2970 = a2;
+    qword_140FF2978 = a3;
+    qword_140FF2980 = a4;
+    qword_140FF2988 = a5;
   }
   return v5;
 }

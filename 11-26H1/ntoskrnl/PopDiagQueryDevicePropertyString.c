@@ -1,13 +1,13 @@
 /*
- * XREFs of PopDiagQueryDevicePropertyString @ 0x140B30AC8
+ * XREFs of PopDiagQueryDevicePropertyString @ 0x140B32CC8
  * Callers:
- *     PopDiagTraceFxDeviceAccounting @ 0x14042B748 (PopDiagTraceFxDeviceAccounting.c)
- *     PopDirectedDripsDiagCreateDeviceDescription @ 0x1407E20F8 (PopDirectedDripsDiagCreateDeviceDescription.c)
- *     PopDiagTraceFxComponentAccounting @ 0x140AF7950 (PopDiagTraceFxComponentAccounting.c)
+ *     PopDiagTraceFxDeviceAccounting @ 0x140422BBC (PopDiagTraceFxDeviceAccounting.c)
+ *     PopDirectedDripsDiagCreateDeviceDescription @ 0x1407E7188 (PopDirectedDripsDiagCreateDeviceDescription.c)
+ *     PopDiagTraceFxComponentAccounting @ 0x140AF9FF0 (PopDiagTraceFxComponentAccounting.c)
  * Callees:
- *     IoGetDeviceProperty @ 0x140994C70 (IoGetDeviceProperty.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     IoGetDeviceProperty @ 0x1409556D0 (IoGetDeviceProperty.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PopDiagQueryDevicePropertyString(

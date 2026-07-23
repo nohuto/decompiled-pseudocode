@@ -1,7 +1,7 @@
 /*
- * XREFs of PspGetJobLockHierarchyForAssignment @ 0x1407207EC
+ * XREFs of PspGetJobLockHierarchyForAssignment @ 0x1406F6C9C
  * Callers:
- *     PspAssignProcessToJob @ 0x14071F430 (PspAssignProcessToJob.c)
+ *     PspAssignProcessToJob @ 0x1406F5FF0 (PspAssignProcessToJob.c)
  * Callees:
  *     <none>
  */

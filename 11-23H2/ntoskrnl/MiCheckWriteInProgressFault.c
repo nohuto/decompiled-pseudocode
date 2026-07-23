@@ -2,7 +2,7 @@
  * XREFs of MiCheckWriteInProgressFault @ 0x140201DD8
  * Callers:
  *     MiStandbyPageContentsIntact @ 0x1402186F0 (MiStandbyPageContentsIntact.c)
- *     MiResolveTransitionFault @ 0x1402624D0 (MiResolveTransitionFault.c)
+ *     MiResolveTransitionFault @ 0x140262760 (MiResolveTransitionFault.c)
  * Callees:
  *     <none>
  */

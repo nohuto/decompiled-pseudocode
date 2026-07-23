@@ -1,11 +1,11 @@
 /*
- * XREFs of IoUnregisterPlugPlayNotification @ 0x14078E3A0
+ * XREFs of IoUnregisterPlugPlayNotification @ 0x14078E590
  * Callers:
- *     SmKmFileInfoCleanup @ 0x1409D8980 (SmKmFileInfoCleanup.c)
+ *     SmKmFileInfoCleanup @ 0x1409D8B80 (SmKmFileInfoCleanup.c)
  *     SbpWaitForVmbus @ 0x140B9BF2C (SbpWaitForVmbus.c)
  * Callees:
- *     PnpUnregisterPlugPlayNotification @ 0x1403205FC (PnpUnregisterPlugPlayNotification.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
+ *     PnpUnregisterPlugPlayNotification @ 0x14032088C (PnpUnregisterPlugPlayNotification.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  */
 
 NTSTATUS __stdcall IoUnregisterPlugPlayNotification(PVOID NotificationEntry)

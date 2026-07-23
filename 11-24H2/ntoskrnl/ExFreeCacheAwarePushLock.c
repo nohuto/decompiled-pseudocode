@@ -1,9 +1,9 @@
 /*
- * XREFs of ExFreeCacheAwarePushLock @ 0x1404FB330
+ * XREFs of ExFreeCacheAwarePushLock @ 0x1404F8C10
  * Callers:
- *     ExAllocateCacheAwarePushLock @ 0x1404BB520 (ExAllocateCacheAwarePushLock.c)
+ *     ExAllocateCacheAwarePushLock @ 0x1404B6390 (ExAllocateCacheAwarePushLock.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall ExFreeCacheAwarePushLock(PVOID *P)

@@ -1,20 +1,20 @@
 /*
- * XREFs of MiUnlinkNodeLargePageHelper @ 0x1402D89C0
+ * XREFs of MiUnlinkNodeLargePageHelper @ 0x1402D8C50
  * Callers:
- *     MiLargePagePromote @ 0x1402D77D0 (MiLargePagePromote.c)
- *     MiGetFreeLargePage @ 0x1402D8720 (MiGetFreeLargePage.c)
- *     MiTryUnlinkNodeLargePages @ 0x1403A0B7C (MiTryUnlinkNodeLargePages.c)
- *     MiChangePageAttributeLargeFreeZeroPage @ 0x14064EAA4 (MiChangePageAttributeLargeFreeZeroPage.c)
+ *     MiLargePagePromote @ 0x1402D7A60 (MiLargePagePromote.c)
+ *     MiGetFreeLargePage @ 0x1402D89B0 (MiGetFreeLargePage.c)
+ *     MiTryUnlinkNodeLargePages @ 0x1403A0D5C (MiTryUnlinkNodeLargePages.c)
+ *     MiChangePageAttributeLargeFreeZeroPage @ 0x14064EFF4 (MiChangePageAttributeLargeFreeZeroPage.c)
  * Callees:
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
- *     MiUpdatePageFileHighInPte @ 0x14028563C (MiUpdatePageFileHighInPte.c)
- *     MiSetOriginalPtePfnFromFreeList @ 0x1402859D4 (MiSetOriginalPtePfnFromFreeList.c)
- *     MiIncreaseAvailablePages @ 0x1402DD9A8 (MiIncreaseAvailablePages.c)
- *     MiPageListCollision @ 0x1403688AC (MiPageListCollision.c)
- *     MiUpdateAvailableEvents @ 0x1403AE720 (MiUpdateAvailableEvents.c)
- *     MiObtainFreePages @ 0x140634F2C (MiObtainFreePages.c)
- *     MiArePageContentsZero @ 0x14064D420 (MiArePageContentsZero.c)
- *     MiWakeLargePageRebuild @ 0x14065E21C (MiWakeLargePageRebuild.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
+ *     MiUpdatePageFileHighInPte @ 0x1402858CC (MiUpdatePageFileHighInPte.c)
+ *     MiSetOriginalPtePfnFromFreeList @ 0x140285C64 (MiSetOriginalPtePfnFromFreeList.c)
+ *     MiIncreaseAvailablePages @ 0x1402DDC38 (MiIncreaseAvailablePages.c)
+ *     MiPageListCollision @ 0x140368A4C (MiPageListCollision.c)
+ *     MiUpdateAvailableEvents @ 0x1403AE900 (MiUpdateAvailableEvents.c)
+ *     MiObtainFreePages @ 0x14063547C (MiObtainFreePages.c)
+ *     MiArePageContentsZero @ 0x14064D970 (MiArePageContentsZero.c)
+ *     MiWakeLargePageRebuild @ 0x14065E76C (MiWakeLargePageRebuild.c)
  */
 
 __int64 __fastcall MiUnlinkNodeLargePageHelper(_QWORD *a1, unsigned __int64 *a2, __int64 a3, unsigned int a4, char a5)

@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpCalculateSubsegmentSizeIndex @ 0x1404B8C8C
+ * XREFs of RtlpCalculateSubsegmentSizeIndex @ 0x1404B24BC
  * Callers:
- *     RtlpHpLfhSubsegmentCreate @ 0x14051C628 (RtlpHpLfhSubsegmentCreate.c)
+ *     RtlpHpLfhSubsegmentCreate @ 0x1405194B4 (RtlpHpLfhSubsegmentCreate.c)
  * Callees:
  *     <none>
  */

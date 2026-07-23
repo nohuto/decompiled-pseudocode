@@ -6,12 +6,12 @@
  *     RtlpFindAndCommitPages @ 0x18001CED8 (RtlpFindAndCommitPages.c)
  *     RtlpCreateSplitBlock @ 0x180020328 (RtlpCreateSplitBlock.c)
  *     RtlpPopulateListIndex @ 0x18006161C (RtlpPopulateListIndex.c)
- *     RtlpUpdateUCRIndexRemove @ 0x180081F50 (RtlpUpdateUCRIndexRemove.c)
- *     RtlpCoalesceHeap @ 0x18008C1C4 (RtlpCoalesceHeap.c)
+ *     RtlpUpdateUCRIndexRemove @ 0x180081F60 (RtlpUpdateUCRIndexRemove.c)
+ *     RtlpCoalesceHeap @ 0x18008C1D4 (RtlpCoalesceHeap.c)
  *     RtlZeroHeap @ 0x1800F5670 (RtlZeroHeap.c)
  *     RtlpValidateHeapSegment @ 0x1801095C0 (RtlpValidateHeapSegment.c)
  * Callees:
- *     RtlpLogHeapFailure @ 0x18009F7AC (RtlpLogHeapFailure.c)
+ *     RtlpLogHeapFailure @ 0x18009F7CC (RtlpLogHeapFailure.c)
  */
 
 __int64 __fastcall RtlpHeapRemoveListEntry(__int64 a1, __int64 a2, char a3, __int64 *a4, unsigned int a5, int a6)

@@ -1,11 +1,11 @@
 /*
- * XREFs of PiDqPnPGetObjectPropertyKeys @ 0x14083A43C
+ * XREFs of PiDqPnPGetObjectPropertyKeys @ 0x14083A73C
  * Callers:
- *     PiDqActionDataGetAllPropertiesInAllLanguages @ 0x140839A28 (PiDqActionDataGetAllPropertiesInAllLanguages.c)
- *     PiDqActionDataGetAllPropertiesInBestLanguage @ 0x14095BE90 (PiDqActionDataGetAllPropertiesInBestLanguage.c)
+ *     PiDqActionDataGetAllPropertiesInAllLanguages @ 0x140839D28 (PiDqActionDataGetAllPropertiesInAllLanguages.c)
+ *     PiDqActionDataGetAllPropertiesInBestLanguage @ 0x14095C090 (PiDqActionDataGetAllPropertiesInBestLanguage.c)
  * Callees:
- *     _PnpGetObjectPropertyKeys @ 0x14083A52C (_PnpGetObjectPropertyKeys.c)
- *     _PnpGetGenericStorePropertyKeys @ 0x140875BC4 (_PnpGetGenericStorePropertyKeys.c)
+ *     _PnpGetObjectPropertyKeys @ 0x14083A82C (_PnpGetObjectPropertyKeys.c)
+ *     _PnpGetGenericStorePropertyKeys @ 0x140875E04 (_PnpGetGenericStorePropertyKeys.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

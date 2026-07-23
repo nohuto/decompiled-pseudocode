@@ -1,10 +1,10 @@
 /*
- * XREFs of ViTargetUpdateTreeAllowed @ 0x140935328
+ * XREFs of ViTargetUpdateTreeAllowed @ 0x140936328
  * Callers:
- *     ViTargetAddToCounter @ 0x140934E3C (ViTargetAddToCounter.c)
- *     ViTargetFreeContiguousMemory @ 0x140934F64 (ViTargetFreeContiguousMemory.c)
- *     ViTargetIncrementCounter @ 0x14093507C (ViTargetIncrementCounter.c)
- *     ViTargetTrackContiguousMemory @ 0x140935218 (ViTargetTrackContiguousMemory.c)
+ *     ViTargetAddToCounter @ 0x140935E3C (ViTargetAddToCounter.c)
+ *     ViTargetFreeContiguousMemory @ 0x140935F64 (ViTargetFreeContiguousMemory.c)
+ *     ViTargetIncrementCounter @ 0x14093607C (ViTargetIncrementCounter.c)
+ *     ViTargetTrackContiguousMemory @ 0x140936218 (ViTargetTrackContiguousMemory.c)
  * Callees:
  *     <none>
  */

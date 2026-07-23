@@ -1,15 +1,15 @@
 /*
- * XREFs of MiAllocateMdlPagesByLists @ 0x140374714
+ * XREFs of MiAllocateMdlPagesByLists @ 0x140374264
  * Callers:
- *     MiFindPagesForMdl @ 0x1402E40DC (MiFindPagesForMdl.c)
+ *     MiFindPagesForMdl @ 0x14029542C (MiFindPagesForMdl.c)
  * Callees:
- *     MiGetPage @ 0x140213610 (MiGetPage.c)
- *     MiPfnZeroingNeeded @ 0x140238B60 (MiPfnZeroingNeeded.c)
- *     MiInitializePageColorBase @ 0x14023F280 (MiInitializePageColorBase.c)
- *     MiReleaseFreshPage @ 0x1402E6774 (MiReleaseFreshPage.c)
- *     MiGetPfnChannel @ 0x1403041C4 (MiGetPfnChannel.c)
- *     MiSearchNumaNodeTable @ 0x14032B790 (MiSearchNumaNodeTable.c)
- *     MiGetEnclavePage @ 0x14054A6D8 (MiGetEnclavePage.c)
+ *     MiReleaseFreshPage @ 0x140297AC4 (MiReleaseFreshPage.c)
+ *     MiGetPage @ 0x1402B7F10 (MiGetPage.c)
+ *     MiPfnZeroingNeeded @ 0x1402DD3B0 (MiPfnZeroingNeeded.c)
+ *     MiInitializePageColorBase @ 0x1402E3AD0 (MiInitializePageColorBase.c)
+ *     MiGetPfnChannel @ 0x14030EF14 (MiGetPfnChannel.c)
+ *     MiSearchNumaNodeTable @ 0x1403364E0 (MiSearchNumaNodeTable.c)
+ *     MiGetEnclavePage @ 0x14054A918 (MiGetEnclavePage.c)
  */
 
 __int64 __fastcall MiAllocateMdlPagesByLists(
@@ -34,111 +34,109 @@ __int64 __fastcall MiAllocateMdlPagesByLists(
   int v18; // r8d
   int v19; // edx
   unsigned __int64 EnclavePage; // rax
-  __int64 v21; // rdx
-  __int64 v22; // r8
-  unsigned __int64 v23; // r12
-  __int64 v24; // rsi
-  BOOL v25; // eax
-  __int64 v26; // rcx
-  ULONG_PTR v27; // rdi
-  int v28; // eax
-  int v29; // edi
-  int v30; // edi
-  unsigned int v31; // esi
-  unsigned int v33; // [rsp+20h] [rbp-68h]
-  int v34; // [rsp+28h] [rbp-60h]
-  unsigned __int64 *v35; // [rsp+30h] [rbp-58h]
-  __int128 v36; // [rsp+38h] [rbp-50h] BYREF
-  int v41; // [rsp+C0h] [rbp+38h]
+  unsigned __int64 v21; // r12
+  __int64 v22; // rsi
+  BOOL v23; // eax
+  __int64 v24; // rcx
+  ULONG_PTR v25; // rdi
+  int v26; // eax
+  int v27; // edi
+  int v28; // edi
+  unsigned int v29; // esi
+  unsigned int v31; // [rsp+20h] [rbp-68h]
+  int v32; // [rsp+28h] [rbp-60h]
+  unsigned __int64 *v33; // [rsp+30h] [rbp-58h]
+  __int128 v34; // [rsp+38h] [rbp-50h] BYREF
+  int v39; // [rsp+C0h] [rbp+38h]
 
   v8 = 0LL;
   v9 = 0LL;
   v10 = a1;
-  v36 = 0LL;
-  MiInitializePageColorBase(0LL, a7 + 1, (__int64)&v36);
-  v12 = _InterlockedExchangeAdd((volatile signed __int32 *)v36, 1u);
+  v34 = 0LL;
+  MiInitializePageColorBase(0LL, a7 + 1, (__int64)&v34);
+  v12 = _InterlockedExchangeAdd((volatile signed __int32 *)v34, 1u);
   v13 = 8;
-  v14 = HIDWORD(v36) | v12 & DWORD2(v36);
+  v14 = HIDWORD(v34) | v12 & DWORD2(v34);
   v15 = -1;
-  v33 = v14;
+  v31 = v14;
   v17 = *(unsigned int *)(a2 + 40);
   v18 = v11 & 0x400;
-  *(_QWORD *)&v36 = KiProcessorBlock[*(unsigned int *)(v16 + 588)];
-  v34 = v18;
-  v35 = (unsigned __int64 *)(a2 + 48 + 8 * (v17 >> 12));
+  *(_QWORD *)&v34 = KiProcessorBlock[*(unsigned int *)(v16 + 588)];
+  v32 = v18;
+  v33 = (unsigned __int64 *)(a2 + 48 + 8 * (v17 >> 12));
   v19 = 1;
-  v41 = 1;
+  v39 = 1;
   while ( 1 )
   {
     if ( v19 == 1 )
     {
-      v41 = 0;
+      v39 = 0;
       v13 = 2 * ((v11 & 1) == 0) + 8;
     }
     if ( v18 )
       EnclavePage = MiGetEnclavePage(v10, 0LL);
     else
       EnclavePage = MiGetPage(v10, v14, v13);
-    v23 = EnclavePage;
+    v21 = EnclavePage;
     if ( EnclavePage == -1LL )
     {
-      v14 = v33;
+      v14 = v31;
 LABEL_21:
-      v31 = 1;
+      v29 = 1;
       goto LABEL_22;
     }
-    v24 = 48 * EnclavePage - 0x58000000000LL;
+    v22 = 48 * EnclavePage - 0x58000000000LL;
     if ( EnclavePage > a5 )
       break;
-    v25 = MiPfnZeroingNeeded(v24, a4);
-    v26 = v9 + 1;
-    if ( !v25 )
-      v26 = v9;
-    v9 = v26;
+    v23 = MiPfnZeroingNeeded(v22, a4);
+    v24 = v9 + 1;
+    if ( !v23 )
+      v24 = v9;
+    v9 = v24;
     if ( v15 == -1 )
-      v15 = *((_DWORD *)MiSearchNumaNodeTable((v24 + 0x58000000000LL) / 48) + 2);
-    v27 = (v24 + 0x58000000000LL) / 48;
-    if ( *((_DWORD *)MiSearchNumaNodeTable(v27) + 2) == v15 )
+      v15 = *((_DWORD *)MiSearchNumaNodeTable((v22 + 0x58000000000LL) / 48) + 2);
+    v25 = (v22 + 0x58000000000LL) / 48;
+    if ( *((_DWORD *)MiSearchNumaNodeTable(v25) + 2) == v15 )
     {
-      if ( (*(_DWORD *)(v24 + 16) & 0x3E0LL) != 0 )
+      if ( (*(_DWORD *)(v22 + 16) & 0x3E0LL) != 0 )
       {
         if ( (a3 & 1) == 0 )
           v13 &= ~2u;
       }
       else
       {
-        v28 = v13 | 2;
+        v26 = v13 | 2;
         if ( (a3 & 1) == 0 )
-          v28 = v13;
-        v13 = v28;
+          v26 = v13;
+        v13 = v26;
       }
     }
     else
     {
-      v41 = 1;
+      v39 = 1;
     }
     ++v8;
-    v15 = *((_DWORD *)MiSearchNumaNodeTable(v27) + 2);
-    *v35++ = v23;
-    v29 = *((_DWORD *)MiSearchNumaNodeTable(v27) + 2);
-    v30 = ((unsigned int)MiGetPfnChannel(v24) << byte_140C4DE8D) | dword_140C4DEF8 & v23 | (v29 << byte_140C4DE8C);
-    v14 = v30 & ~dword_140C4DE80 | dword_140C4DE80 & (v30 + 1);
-    v33 = v14;
+    v15 = *((_DWORD *)MiSearchNumaNodeTable(v25) + 2);
+    *v33++ = v21;
+    v27 = *((_DWORD *)MiSearchNumaNodeTable(v25) + 2);
+    v28 = ((unsigned int)MiGetPfnChannel(v22) << byte_140C4DECD) | dword_140C4DF38 & v21 | (v27 << byte_140C4DECC);
+    v14 = v28 & ~dword_140C4DEC0 | dword_140C4DEC0 & (v28 + 1);
+    v31 = v14;
     if ( v8 >= a6 )
       goto LABEL_21;
-    v19 = v41;
+    v19 = v39;
     LOBYTE(v11) = a3;
     v10 = a1;
-    v18 = v34;
+    v18 = v32;
   }
-  MiReleaseFreshPage(v24, v21, v22);
-  v14 = v33;
-  v31 = 0;
+  MiReleaseFreshPage(v22);
+  v14 = v31;
+  v29 = 0;
 LABEL_22:
   if ( v8 )
-    *(_DWORD *)(v36 + 32528) = v14;
+    *(_DWORD *)(v34 + 32528) = v14;
   *(_DWORD *)(a2 + 40) += (_DWORD)v8 << 12;
   if ( v9 )
     *(_QWORD *)(a2 + 24) = 1LL;
-  return v31;
+  return v29;
 }

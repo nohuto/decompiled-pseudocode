@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlLengthCurrentClearRunBackward @ 0x140295248
+ * XREFs of RtlLengthCurrentClearRunBackward @ 0x1402954D8
  * Callers:
- *     MiCoalescePageFileBitmapsCache @ 0x140295458 (MiCoalescePageFileBitmapsCache.c)
+ *     MiCoalescePageFileBitmapsCache @ 0x1402956E8 (MiCoalescePageFileBitmapsCache.c)
  * Callees:
  *     <none>
  */
@@ -26,7 +26,7 @@ __int64 __fastcall RtlLengthCurrentClearRunBackward(__int64 a1, unsigned int a2,
   v6 = 31 - v5;
   v8 = 0;
   v9 = &v3[v4 >> 5];
-  v10 = *v9 & *((_DWORD *)qword_140016710 + v5);
+  v10 = *v9 & *((_DWORD *)qword_140016700 + v5);
   if ( v10 )
   {
 LABEL_2:

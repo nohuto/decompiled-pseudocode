@@ -12,14 +12,13 @@
 __int64 __fastcall ApiSetQuerySchemaInfo(_BYTE *a1, unsigned __int16 *a2, bool *a3, bool *a4)
 {
   unsigned int v4; // ebx
-  bool *v6; // r12
   bool v8; // r14
   bool v9; // r13
   __int64 v11; // rdi
   char v12; // r8
   unsigned __int64 v13; // rcx
   __int64 v14; // rbp
-  __int16 v15; // ax
+  unsigned __int16 v15; // ax
   __int64 v16; // r9
   _WORD *v17; // rcx
   unsigned int v18; // eax
@@ -38,14 +37,11 @@ __int64 __fastcall ApiSetQuerySchemaInfo(_BYTE *a1, unsigned __int16 *a2, bool *
   _WORD *v31; // r8
   int v32; // r9d
   int v33; // eax
-  _WORD v34[4]; // [rsp+20h] [rbp-48h] BYREF
-  __int64 v35; // [rsp+28h] [rbp-40h]
-  int v36; // [rsp+30h] [rbp-38h] BYREF
-  const wchar_t *v37; // [rsp+38h] [rbp-30h]
+  _UNICODE_STRING String1; // [rsp+20h] [rbp-48h] BYREF
+  _UNICODE_STRING String2; // [rsp+30h] [rbp-38h] BYREF
 
   v4 = 0;
   *a3 = 0;
-  v6 = a3;
   *a4 = 0;
   v8 = 0;
   v9 = 0;
@@ -140,27 +136,26 @@ LABEL_26:
     }
     return (unsigned int)-1073741811;
   }
-  v35 = *((_QWORD *)a2 + 1);
+  String1.Buffer = (wchar_t *)*((_QWORD *)a2 + 1);
   if ( (unsigned __int16)v11 >= 0x14u )
   {
     v15 = 20;
-    v34[0] = 20;
+    String1.Length = 20;
   }
   else
   {
     v15 = v11;
-    v34[0] = v11;
+    String1.Length = v11;
   }
-  v34[1] = v15;
-  v36 = 1310740;
-  LOBYTE(a3) = 1;
-  v37 = L"schemaext-";
-  if ( (unsigned int)RtlCompareUnicodeString(v34, &v36, a3) )
+  String1.MaximumLength = v15;
+  *(_DWORD *)&String2.Length = 1310740;
+  String2.Buffer = L"schemaext-";
+  if ( RtlCompareUnicodeString(&String1, &String2, 1u) )
     return (unsigned int)-1073741811;
   v8 = ApiSetpSearchForApiSet(a1, v14, (unsigned __int16)v11 >> 1, v16) != 0;
   v9 = v8;
 LABEL_37:
-  *v6 = v8;
+  *a3 = v8;
   *a4 = v9;
   return v4;
 }

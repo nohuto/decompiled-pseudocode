@@ -6,66 +6,66 @@
  *     RtlReleaseSRWLockExclusive @ 0x180015B60 (RtlReleaseSRWLockExclusive.c)
  *     RtlAcquireSRWLockExclusive @ 0x180015FF0 (RtlAcquireSRWLockExclusive.c)
  *     RtlRbInsertNodeEx @ 0x18001F940 (RtlRbInsertNodeEx.c)
- *     EtwpRegistrationCompare @ 0x1800753E0 (EtwpRegistrationCompare.c)
+ *     EtwpRegistrationCompare @ 0x1800753F0 (EtwpRegistrationCompare.c)
  */
 
-signed __int64 __fastcall EtwpInsertRegistration(__int64 a1, unsigned __int64 a2, unsigned __int64 *a3, __int64 a4)
+void __fastcall EtwpInsertRegistration(PRTL_BALANCED_NODE Node)
 {
-  __int64 v5; // rdi
-  bool v6; // bl
-  int v7; // esi
-  __int64 v8; // rax
-  __int64 v10; // [rsp+20h] [rbp-18h] BYREF
-  __int16 v11; // [rsp+28h] [rbp-10h]
+  unsigned __int64 Root; // rdi
+  BOOLEAN v3; // bl
+  int v4; // esi
+  unsigned __int64 v5; // rax
+  _RTL_BALANCED_NODE **v6; // [rsp+20h] [rbp-18h] BYREF
+  __int16 v7; // [rsp+28h] [rbp-10h]
 
-  v10 = a1 + 32;
-  v11 = *(_WORD *)(a1 + 96);
-  RtlAcquireSRWLockExclusive((unsigned __int64)&EtwpProvLock, a2, a3, a4);
-  v5 = EtwpRegistrationTable;
-  v6 = 0;
-  if ( (qword_180166428 & 1) != 0 )
+  v6 = &Node[1].Children[1];
+  v7 = (__int16)Node[4].Children[0];
+  RtlAcquireSRWLockExclusive(&EtwpProvLock);
+  Root = (unsigned __int64)EtwpRegistrationTable.Root;
+  v3 = 0;
+  if ( (*(_BYTE *)&EtwpRegistrationTable.0 & 1) != 0 )
   {
-    if ( EtwpRegistrationTable )
-      v5 = (unsigned __int64)&EtwpRegistrationTable ^ EtwpRegistrationTable;
+    if ( EtwpRegistrationTable.Root )
+      Root = (unsigned __int64)&EtwpRegistrationTable ^ (unsigned __int64)EtwpRegistrationTable.Root;
     else
-      v5 = 0LL;
+      Root = 0LL;
   }
-  v7 = qword_180166428 & 1;
-  if ( v5 )
+  v4 = *(_BYTE *)&EtwpRegistrationTable.0 & 1;
+  if ( Root )
   {
     while ( 1 )
     {
-      if ( (int)EtwpRegistrationCompare(&v10, v5) < 0 )
+      if ( (int)EtwpRegistrationCompare(&v6, Root) < 0 )
       {
-        v8 = *(_QWORD *)v5;
-        if ( v7 )
+        v5 = *(_QWORD *)Root;
+        if ( v4 )
         {
-          if ( !v8 )
+          if ( !v5 )
             break;
-          v8 ^= v5;
+          v5 ^= Root;
         }
-        if ( !v8 )
+        if ( !v5 )
           break;
       }
       else
       {
-        v8 = *(_QWORD *)(v5 + 8);
-        if ( v7 )
+        v5 = *(_QWORD *)(Root + 8);
+        if ( v4 )
         {
-          if ( !v8 )
+          if ( !v5 )
             goto LABEL_11;
-          v8 ^= v5;
+          v5 ^= Root;
         }
-        if ( !v8 )
+        if ( !v5 )
         {
 LABEL_11:
-          v6 = 1;
+          v3 = 1;
           break;
         }
       }
-      v5 = v8;
+      Root = v5;
     }
   }
-  RtlRbInsertNodeEx((unsigned __int64)&EtwpRegistrationTable, v5, v6, (_QWORD *)a1);
-  return RtlReleaseSRWLockExclusive(&EtwpProvLock);
+  RtlRbInsertNodeEx(&EtwpRegistrationTable, (PRTL_BALANCED_NODE)Root, v3, Node);
+  RtlReleaseSRWLockExclusive(&EtwpProvLock);
 }

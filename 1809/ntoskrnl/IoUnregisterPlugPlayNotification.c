@@ -1,9 +1,9 @@
 /*
- * XREFs of IoUnregisterPlugPlayNotification @ 0x1406FF0C0
+ * XREFs of IoUnregisterPlugPlayNotification @ 0x140700360
  * Callers:
- *     SbpWaitForVmbus @ 0x1409FA64C (SbpWaitForVmbus.c)
+ *     SbpWaitForVmbus @ 0x1409FB64C (SbpWaitForVmbus.c)
  * Callees:
- *     PnpUnregisterPlugPlayNotification @ 0x14015FF64 (PnpUnregisterPlugPlayNotification.c)
+ *     PnpUnregisterPlugPlayNotification @ 0x140160064 (PnpUnregisterPlugPlayNotification.c)
  */
 
 NTSTATUS __stdcall IoUnregisterPlugPlayNotification(PVOID NotificationEntry)

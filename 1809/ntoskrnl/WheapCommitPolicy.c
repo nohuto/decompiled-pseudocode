@@ -1,12 +1,12 @@
 /*
- * XREFs of WheapCommitPolicy @ 0x1408DC1DC
+ * XREFs of WheapCommitPolicy @ 0x1408DD49C
  * Callers:
- *     WheapWmiExecutePolicyManagementMethod @ 0x140321878 (WheapWmiExecutePolicyManagementMethod.c)
+ *     WheapWmiExecutePolicyManagementMethod @ 0x140321A68 (WheapWmiExecutePolicyManagementMethod.c)
  * Callees:
- *     RtlWriteRegistryValue @ 0x1406C2260 (RtlWriteRegistryValue.c)
- *     RtlCheckRegistryKey @ 0x1406C7660 (RtlCheckRegistryKey.c)
- *     RtlCreateRegistryKey @ 0x140760430 (RtlCreateRegistryKey.c)
- *     WheapPfaReset @ 0x1408DCD48 (WheapPfaReset.c)
+ *     RtlWriteRegistryValue @ 0x1406C3500 (RtlWriteRegistryValue.c)
+ *     RtlCheckRegistryKey @ 0x1406C8900 (RtlCheckRegistryKey.c)
+ *     RtlCreateRegistryKey @ 0x140761620 (RtlCreateRegistryKey.c)
+ *     WheapPfaReset @ 0x1408DE008 (WheapPfaReset.c)
  */
 
 __int64 WheapCommitPolicy()

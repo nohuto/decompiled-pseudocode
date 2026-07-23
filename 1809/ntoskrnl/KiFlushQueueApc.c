@@ -1,11 +1,11 @@
 /*
- * XREFs of KiFlushQueueApc @ 0x140089E78
+ * XREFs of KiFlushQueueApc @ 0x140089E68
  * Callers:
- *     KeRundownApcQueues @ 0x1405F7DE0 (KeRundownApcQueues.c)
+ *     KeRundownApcQueues @ 0x1405F8DE0 (KeRundownApcQueues.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     KiReleaseThreadLockSafe @ 0x14010C410 (KiReleaseThreadLockSafe.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     KiReleaseThreadLockSafe @ 0x14010C490 (KiReleaseThreadLockSafe.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 _QWORD *__fastcall KiFlushQueueApc(__int64 a1, __int64 a2, __int64 a3)

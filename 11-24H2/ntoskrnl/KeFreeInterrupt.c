@@ -1,10 +1,10 @@
 /*
- * XREFs of KeFreeInterrupt @ 0x140498954
+ * XREFs of KeFreeInterrupt @ 0x1404932B4
  * Callers:
- *     IoDisconnectInterrupt @ 0x140A121C0 (IoDisconnectInterrupt.c)
- *     IopConnectInterrupt @ 0x140A12470 (IopConnectInterrupt.c)
+ *     IoDisconnectInterrupt @ 0x1409C05D0 (IoDisconnectInterrupt.c)
+ *     IopConnectInterrupt @ 0x1409C0880 (IopConnectInterrupt.c)
  * Callees:
- *     RtlpInterlockedPushEntrySList @ 0x1406B38D0 (RtlpInterlockedPushEntrySList.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1406B4870 (RtlpInterlockedPushEntrySList.c)
  */
 
 PSLIST_ENTRY __fastcall KeFreeInterrupt(PSLIST_ENTRY ListEntry)

@@ -17,53 +17,53 @@
  *     ExFreePoolWithTag @ 0x140AAF110 (ExFreePoolWithTag.c)
  */
 
-void __fastcall MiUnlockDriverPages(__int64 *a1)
+void __fastcall MiUnlockDriverPages(_RTL_BITMAP_EX *a1)
 {
-  void *v2; // rcx
-  void *v3; // rcx
-  void *v4; // rcx
-  unsigned __int64 v5; // rdi
+  unsigned __int64 *Buffer; // rcx
+  unsigned __int64 *v3; // rcx
+  unsigned __int64 *v4; // rcx
+  unsigned __int64 SizeOfBitMap; // rdi
   __int64 PteAddress; // r14
-  unsigned __int64 SetBits; // rax
-  signed __int64 **v8; // rdi
+  ULONG64 SetBits; // rax
+  signed __int64 **p_Buffer; // rdi
   unsigned __int64 v9; // rbp
 
-  v2 = (void *)a1[7];
-  if ( v2 )
+  Buffer = a1[3].Buffer;
+  if ( Buffer )
   {
-    ExFreePoolWithTag(v2, 0);
-    a1[7] = 0LL;
+    ExFreePoolWithTag(Buffer, 0);
+    a1[3].Buffer = 0LL;
   }
-  v3 = (void *)a1[9];
+  v3 = a1[4].Buffer;
   if ( v3 )
   {
     ExFreePoolWithTag(v3, 0);
-    a1[9] = 0LL;
+    a1[4].Buffer = 0LL;
   }
-  v4 = (void *)a1[11];
+  v4 = a1[5].Buffer;
   if ( v4 )
   {
     ExFreePoolWithTag(v4, 0);
-    a1[11] = 0LL;
+    a1[5].Buffer = 0LL;
   }
-  if ( a1[5] )
+  if ( a1[2].Buffer )
   {
-    v5 = *a1;
-    if ( (a1[12] & 1) != 0 )
+    SizeOfBitMap = a1->SizeOfBitMap;
+    if ( (a1[6].SizeOfBitMap & 1) != 0 )
       KeReservePrivilegedPages();
-    PteAddress = MiGetPteAddress(*(_QWORD *)(v5 + 48));
-    SetBits = RtlFindSetBitsEx((unsigned __int64 *)a1 + 4, 1uLL, 0LL);
-    v8 = (signed __int64 **)(a1 + 5);
+    PteAddress = MiGetPteAddress(*(_QWORD *)(SizeOfBitMap + 48));
+    SetBits = RtlFindSetBitsEx(a1 + 2, 1uLL, 0LL);
+    p_Buffer = (signed __int64 **)&a1[2].Buffer;
     while ( 1 )
     {
       v9 = SetBits;
       if ( SetBits == -1LL )
         break;
-      MiUnlockCodePage(PteAddress + 8 * SetBits, PteAddress + 8 * SetBits, (*((_DWORD *)a1 + 24) >> 1) & 1);
-      _bittestandreset64(*v8, v9);
-      SetBits = RtlFindSetBitsEx((unsigned __int64 *)a1 + 4, 1uLL, v9);
+      MiUnlockCodePage(PteAddress + 8 * SetBits, PteAddress + 8 * SetBits, (LODWORD(a1[6].SizeOfBitMap) >> 1) & 1);
+      _bittestandreset64(*p_Buffer, v9);
+      SetBits = RtlFindSetBitsEx(a1 + 2, 1uLL, v9);
     }
-    ExFreePoolWithTag(*v8, 0);
-    *v8 = 0LL;
+    ExFreePoolWithTag(*p_Buffer, 0);
+    *p_Buffer = 0LL;
   }
 }

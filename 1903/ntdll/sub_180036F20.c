@@ -45,7 +45,7 @@ __int64 __fastcall sub_180036F20(__int64 a1, int a2, int a3)
   v7 = v6 << 24;
   v8 = a3 & 1;
   if ( (a3 & 1) == 0 )
-    RtlAcquireSRWLockExclusive(a1 + 64);
+    RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 64));
   v9 = *(_QWORD *)(a1 + 104);
   v10 = *(_QWORD *)(a1 + 96);
   v11 = 0;
@@ -91,7 +91,7 @@ LABEL_14:
   }
   else
   {
-    RtlRbRemoveNode(a1 + 96, v10);
+    RtlRbRemoveNode((PRTL_RB_TREE)(a1 + 96), (PRTL_BALANCED_NODE)v10);
     *(_QWORD *)v10 = 0LL;
     *(_QWORD *)(v10 + 8) = 0LL;
     *(_QWORD *)(v10 + 16) = 0LL;
@@ -105,7 +105,7 @@ LABEL_14:
   {
 LABEL_35:
     if ( !v8 )
-      RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a1 + 64));
+      RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 64));
     v26 = 0LL;
     if ( (a3 & 0x800000) != 0 )
       v26 = 2LL;
@@ -116,7 +116,7 @@ LABEL_35:
     sub_18004DD48(a1, v27, 0LL);
     v10 = v28 + 32LL * *(unsigned __int8 *)(a1 + 10);
     if ( !v8 )
-      RtlAcquireSRWLockExclusive(a1 + 64);
+      RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 64));
     sub_18004DD00(a1, v28);
     if ( (a3 & 0x800000) != 0 )
       v10 = sub_18010B1BC(a1, v10, v6, 0LL);
@@ -146,13 +146,13 @@ LABEL_35:
     *(_BYTE *)(32LL * (v6 - 1) + v10 + 31) = v6 - 1;
     *(_BYTE *)(v10 + 31) = v6;
     *(_WORD *)(v10 + 28) = ~(*(_WORD *)(v20 + 28) - *(_WORD *)(v10 + 28));
-    sub_180036698(a1, v10 + 32LL * v6, 0LL);
+    sub_180036698(a1, v10 + 32LL * v6, 0);
   }
   v17 = v6 - 1;
   *(_BYTE *)(v10 + 24) |= HIBYTE(a3) & 0xC | 1;
   *(_BYTE *)(32LL * (v6 - 1) + v10 + 24) |= 1u;
   if ( !v8 )
-    RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a1 + 64));
+    RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 64));
   if ( v17 > 1 )
   {
     v24 = (char *)(v10 + 56);

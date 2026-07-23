@@ -93,7 +93,7 @@ LABEL_12:
         v14 = 2 * EtwpQueryUsedProcessorCount(v8);
         *(_DWORD *)(v8 + 240) = v14;
         *(_DWORD *)(v8 + 252) = v14 + 22;
-        KeQuerySystemTimePrecise((__int64 *)(v8 + 808));
+        KeQuerySystemTimePrecise((LARGE_INTEGER *)(v8 + 808));
         KeInitializeMutex((PRKMUTEX)(v8 + 648), 0);
         *(_QWORD *)(v8 + 704) = 0LL;
         *(_QWORD *)(v8 + 352) = v8 + 344;

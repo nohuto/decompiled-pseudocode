@@ -212,7 +212,7 @@ LABEL_7:
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(1uLL);
   if ( !_interlockedbittestandreset(v14, 0) )
-    ExpAcquireFastMutexContended(v11 + 280);
+    ExpAcquireFastMutexContended(v11 + 280, (PRTL_BALANCED_NODE)v10);
   if ( v10 )
     *(_BYTE *)(v10 + 26) |= 1u;
   *(_QWORD *)(v11 + 288) = KeGetCurrentThread();
@@ -464,7 +464,7 @@ LABEL_54:
       v48 = KeGetCurrentIrql();
       __writecr8(1uLL);
       if ( !_interlockedbittestandreset(v41, 0) )
-        ExpAcquireFastMutexContended(v11 + 280);
+        ExpAcquireFastMutexContended(v11 + 280, (PRTL_BALANCED_NODE)v45);
       if ( v45 )
         *(_BYTE *)(v45 + 26) |= 1u;
       *(_QWORD *)(v11 + 288) = KeGetCurrentThread();

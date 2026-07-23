@@ -1,24 +1,24 @@
 /*
- * XREFs of MiMakeProtectionPfnCompatible @ 0x14010A608
+ * XREFs of MiMakeProtectionPfnCompatible @ 0x140108388
  * Callers:
- *     MiMapContiguousMemory @ 0x14009B8AC (MiMapContiguousMemory.c)
- *     MmMapLockedPagesSpecifyCache @ 0x1400DE220 (MmMapLockedPagesSpecifyCache.c)
- *     MiZeroInParallelWorker @ 0x140109B40 (MiZeroInParallelWorker.c)
- *     MiMapSinglePage @ 0x14010A184 (MiMapSinglePage.c)
- *     MiZeroPhysicalPage @ 0x14010A488 (MiZeroPhysicalPage.c)
- *     MiPrivateFixup @ 0x14010B3F0 (MiPrivateFixup.c)
- *     MiMapLockedPagesInUserSpaceHelper @ 0x14010E214 (MiMapLockedPagesInUserSpaceHelper.c)
- *     MmMapMemoryDumpMdlEx @ 0x140113F4C (MmMapMemoryDumpMdlEx.c)
- *     MiInsertViewOfPhysicalSection @ 0x140146848 (MiInsertViewOfPhysicalSection.c)
- *     MiDbgTranslatePhysicalAddress @ 0x1401470C4 (MiDbgTranslatePhysicalAddress.c)
- *     MiMapMdlCommon @ 0x1401E3868 (MiMapMdlCommon.c)
- *     MmProtectMdlSystemAddress @ 0x1401E44E4 (MmProtectMdlSystemAddress.c)
- *     MiCopySinglePage @ 0x1401E49FC (MiCopySinglePage.c)
- *     MiInitializeSlowPte @ 0x1401E88E0 (MiInitializeSlowPte.c)
- *     MiMapArbitraryPage @ 0x1401FA03C (MiMapArbitraryPage.c)
- *     MiZeroAndConvertLargePage @ 0x1401FC4CC (MiZeroAndConvertLargePage.c)
- *     MiRelocateImagePfn @ 0x140447780 (MiRelocateImagePfn.c)
- *     MiValidateImagePfn @ 0x14052685C (MiValidateImagePfn.c)
+ *     MiMapContiguousMemory @ 0x14009B0AC (MiMapContiguousMemory.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x1400DC0C0 (MmMapLockedPagesSpecifyCache.c)
+ *     MiZeroInParallelWorker @ 0x1401078C0 (MiZeroInParallelWorker.c)
+ *     MiMapSinglePage @ 0x140107F04 (MiMapSinglePage.c)
+ *     MiZeroPhysicalPage @ 0x140108208 (MiZeroPhysicalPage.c)
+ *     MiPrivateFixup @ 0x140109170 (MiPrivateFixup.c)
+ *     MiMapLockedPagesInUserSpaceHelper @ 0x14010E778 (MiMapLockedPagesInUserSpaceHelper.c)
+ *     MmMapMemoryDumpMdlEx @ 0x1401144BC (MmMapMemoryDumpMdlEx.c)
+ *     MiInsertViewOfPhysicalSection @ 0x140146DB8 (MiInsertViewOfPhysicalSection.c)
+ *     MiDbgTranslatePhysicalAddress @ 0x140147634 (MiDbgTranslatePhysicalAddress.c)
+ *     MiMapMdlCommon @ 0x1401E3694 (MiMapMdlCommon.c)
+ *     MmProtectMdlSystemAddress @ 0x1401E4310 (MmProtectMdlSystemAddress.c)
+ *     MiCopySinglePage @ 0x1401E4828 (MiCopySinglePage.c)
+ *     MiInitializeSlowPte @ 0x1401E870C (MiInitializeSlowPte.c)
+ *     MiMapArbitraryPage @ 0x1401F9E68 (MiMapArbitraryPage.c)
+ *     MiZeroAndConvertLargePage @ 0x1401FC2F8 (MiZeroAndConvertLargePage.c)
+ *     MiRelocateImagePfn @ 0x140446650 (MiRelocateImagePfn.c)
+ *     MiValidateImagePfn @ 0x1405098BC (MiValidateImagePfn.c)
  * Callees:
  *     <none>
  */

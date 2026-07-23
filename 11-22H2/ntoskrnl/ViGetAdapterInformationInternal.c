@@ -68,10 +68,13 @@ struct _LIST_ENTRY *__fastcall ViGetAdapterInformationInternal(ULONG_PTR a1, cha
     if ( &ViAdapterList == Flink )
     {
       KxReleaseSpinLock((volatile signed __int64 *)&qword_140C36990);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v6 <= 0xFu && CurrentIrql >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+          && CurrentIrql <= 0xFu
+          && (unsigned __int8)v6 <= 0xFu
+          && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -90,10 +93,10 @@ struct _LIST_ENTRY *__fastcall ViGetAdapterInformationInternal(ULONG_PTR a1, cha
     Flink = Flink->Flink;
   }
   KxReleaseSpinLock((volatile signed __int64 *)&qword_140C36990);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v13 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v13 <= 0xFu && (unsigned __int8)v6 <= 0xFu && v13 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v13 <= 0xFu && (unsigned __int8)v6 <= 0xFu && v13 >= 2u )
     {
       v14 = KeGetCurrentPrcb();
       v15 = v14->SchedulerAssist;

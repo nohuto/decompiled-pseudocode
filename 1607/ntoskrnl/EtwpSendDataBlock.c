@@ -1,18 +1,18 @@
 /*
- * XREFs of EtwpSendDataBlock @ 0x140490A2C
+ * XREFs of EtwpSendDataBlock @ 0x1404914BC
  * Callers:
- *     EtwpClearSessionAndUnreferenceEntry @ 0x14040AED0 (EtwpClearSessionAndUnreferenceEntry.c)
- *     EtwpNotifyGuid @ 0x14048DF38 (EtwpNotifyGuid.c)
- *     EtwpEnableGuid @ 0x14048E3D4 (EtwpEnableGuid.c)
- *     EtwpDisallowedGuidAddition @ 0x140572A54 (EtwpDisallowedGuidAddition.c)
- *     EtwpDisallowedGuidRemoval @ 0x14069FB14 (EtwpDisallowedGuidRemoval.c)
+ *     EtwpClearSessionAndUnreferenceEntry @ 0x140409D90 (EtwpClearSessionAndUnreferenceEntry.c)
+ *     EtwpNotifyGuid @ 0x14048E9C8 (EtwpNotifyGuid.c)
+ *     EtwpEnableGuid @ 0x14048EE64 (EtwpEnableGuid.c)
+ *     EtwpDisallowedGuidAddition @ 0x140572F94 (EtwpDisallowedGuidAddition.c)
+ *     EtwpDisallowedGuidRemoval @ 0x14069FC4C (EtwpDisallowedGuidRemoval.c)
  * Callees:
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     MmDetachSession @ 0x1400764B8 (MmDetachSession.c)
- *     MmAttachSession @ 0x14007651C (MmAttachSession.c)
- *     MmGetSessionById @ 0x1400765C0 (MmGetSessionById.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     EtwpQueueNotification @ 0x140490BB0 (EtwpQueueNotification.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     MmDetachSession @ 0x140076538 (MmDetachSession.c)
+ *     MmAttachSession @ 0x14007659C (MmAttachSession.c)
+ *     MmGetSessionById @ 0x140076640 (MmGetSessionById.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     EtwpQueueNotification @ 0x140491640 (EtwpQueueNotification.c)
  */
 
 __int64 __fastcall EtwpSendDataBlock(__int64 a1, __int64 a2, __int64 a3)

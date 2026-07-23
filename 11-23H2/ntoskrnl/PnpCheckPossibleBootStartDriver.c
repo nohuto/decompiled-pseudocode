@@ -1,5 +1,5 @@
 /*
- * XREFs of PnpCheckPossibleBootStartDriver @ 0x14084CC70
+ * XREFs of PnpCheckPossibleBootStartDriver @ 0x14084CF70
  * Callers:
  *     PipCallDriverAddDeviceQueryRoutine @ 0x14068C35C (PipCallDriverAddDeviceQueryRoutine.c)
  * Callees:

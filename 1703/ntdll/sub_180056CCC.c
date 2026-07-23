@@ -20,22 +20,18 @@
  *     ZwCreateKey @ 0x1800A56A0 (ZwCreateKey.c)
  */
 
-__int64 __fastcall sub_180056CCC(int a1, _WORD *a2, char a3, _QWORD *a4)
+__int64 __fastcall sub_180056CCC(int a1, const WCHAR *a2, char a3, HANDLE *a4)
 {
   __int64 v7; // rbx
-  int appended; // ebx
-  int v9; // eax
-  int v11; // [rsp+48h] [rbp-9h] BYREF
-  UNICODE_STRING UnicodeString; // [rsp+58h] [rbp+7h] BYREF
-  int v14; // [rsp+68h] [rbp+17h] BYREF
-  __int64 v15; // [rsp+70h] [rbp+1Fh]
-  int *v16; // [rsp+78h] [rbp+27h]
-  int v17; // [rsp+80h] [rbp+2Fh]
-  __int128 v18; // [rsp+88h] [rbp+37h]
+  NTSTATUS appended; // ebx
+  NTSTATUS v9; // eax
+  _UNICODE_STRING Destination; // [rsp+48h] [rbp-9h] BYREF
+  _UNICODE_STRING CurrentUserKeyPath; // [rsp+58h] [rbp+7h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+68h] [rbp+17h] BYREF
 
   if ( (a1 & 0x40000000) != 0 )
   {
-    *a4 = a2;
+    *a4 = (HANDLE)a2;
     return 0LL;
   }
   else
@@ -48,48 +44,52 @@ __int64 __fastcall sub_180056CCC(int a1, _WORD *a2, char a3, _QWORD *a4)
     {
       return 3221225485LL;
     }
-    else if ( sub_180043FE0(524LL) )
+    else
     {
-      v11 = 34340864;
-      if ( !(_DWORD)v7 )
-        goto LABEL_11;
-      if ( (_DWORD)v7 == 5 && (int)RtlFormatCurrentUserKeyPath(&UnicodeString) >= 0 )
+      Destination.Buffer = (PWCH)sub_180043FE0(0x20CuLL);
+      if ( Destination.Buffer )
       {
-        appended = RtlAppendUnicodeStringToString((unsigned __int16 *)&v11, (__int16 *)&UnicodeString);
-        RtlFreeUnicodeString(&UnicodeString);
+        *(_DWORD *)&Destination.Length = 34340864;
+        if ( !(_DWORD)v7 )
+          goto LABEL_11;
+        if ( (_DWORD)v7 == 5 && RtlFormatCurrentUserKeyPath(&CurrentUserKeyPath) >= 0 )
+        {
+          appended = RtlAppendUnicodeStringToString(&Destination, &CurrentUserKeyPath);
+          RtlFreeUnicodeString(&CurrentUserKeyPath);
+        }
+        else
+        {
+          appended = RtlAppendUnicodeToString(&Destination, qword_180110C20[v7]);
+        }
+        if ( appended >= 0 )
+        {
+          appended = RtlAppendUnicodeToString(&Destination, L"\\");
+          if ( appended >= 0 )
+          {
+LABEL_11:
+            appended = RtlAppendUnicodeToString(&Destination, a2);
+            if ( appended >= 0 )
+            {
+              ObjectAttributes.Length = 48;
+              ObjectAttributes.ObjectName = &Destination;
+              ObjectAttributes.RootDirectory = 0LL;
+              ObjectAttributes.Attributes = 576;
+              *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+              if ( a3 )
+                v9 = ZwCreateKey(a4, 0x40000000u, &ObjectAttributes, 0, 0LL, 0, 0LL);
+              else
+                v9 = ZwOpenKey(a4, 0x82000000, &ObjectAttributes);
+              appended = v9;
+            }
+          }
+        }
+        RtlDeleteBoundaryDescriptor((POBJECT_BOUNDARY_DESCRIPTOR)Destination.Buffer);
+        return (unsigned int)appended;
       }
       else
       {
-        appended = RtlAppendUnicodeToString((unsigned __int16 *)&v11, *((_WORD **)&unk_180110C20 + v7));
+        return 3221225495LL;
       }
-      if ( appended >= 0 )
-      {
-        appended = RtlAppendUnicodeToString((unsigned __int16 *)&v11, L"\\");
-        if ( appended >= 0 )
-        {
-LABEL_11:
-          appended = RtlAppendUnicodeToString((unsigned __int16 *)&v11, a2);
-          if ( appended >= 0 )
-          {
-            v14 = 48;
-            v16 = &v11;
-            v15 = 0LL;
-            v17 = 576;
-            v18 = 0LL;
-            if ( a3 )
-              v9 = ZwCreateKey(a4, 0x40000000LL, &v14, 0LL, 0LL, 0, 0LL);
-            else
-              v9 = ZwOpenKey(a4, 2181038080LL, &v14);
-            appended = v9;
-          }
-        }
-      }
-      RtlDeleteBoundaryDescriptor();
-      return (unsigned int)appended;
-    }
-    else
-    {
-      return 3221225495LL;
     }
   }
 }

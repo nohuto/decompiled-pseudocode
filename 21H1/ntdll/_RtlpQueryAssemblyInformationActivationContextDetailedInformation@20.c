@@ -26,13 +26,15 @@ int __fastcall RtlpQueryAssemblyInformationActivationContextDetailedInformation(
   char *v14; // esi
   char *v15; // esi
   char *v16; // esi
-  int v17; // [esp+Ch] [ebp-10h] BYREF
-  int v18; // [esp+10h] [ebp-Ch] BYREF
-  int v19; // [esp+14h] [ebp-8h] BYREF
-  int v20; // [esp+18h] [ebp-4h] BYREF
+  size_t v17; // [esp-18h] [ebp-34h]
+  size_t v18; // [esp-4h] [ebp-20h]
+  int v19; // [esp+Ch] [ebp-10h] BYREF
+  int v20; // [esp+10h] [ebp-Ch] BYREF
+  int v21; // [esp+14h] [ebp-8h] BYREF
+  int v22; // [esp+18h] [ebp-4h] BYREF
 
-  v18 = -1073741595;
-  v19 = 0;
+  v20 = -1073741595;
+  v21 = 0;
   if ( a5 )
     *a5 = 0;
   v5 = *(_DWORD *)(a1 + 24);
@@ -40,11 +42,13 @@ int __fastcall RtlpQueryAssemblyInformationActivationContextDetailedInformation(
   {
     _mm_lfence();
     v7 = (_DWORD *)(a1 + *(_DWORD *)(24 * a2 + a1 + *(_DWORD *)(v5 + a1 + 12) + 16));
+    HIDWORD(v17) = a1;
     v8 = 88;
-    RtlpLocateActivationContextSectionForQuery(&v19, &v18, a3, a4, a5, 0x58u, a1, 0, 1, (int)&v20, (int)&v17);
-    if ( v19 == 2 )
+    LODWORD(v17) = 88;
+    RtlpLocateActivationContextSectionForQuery(&v21, &v20, a3, a4, a5, v17, 0, 1, (int)&v22, (int)&v19);
+    if ( v21 == 2 )
     {
-      return v18;
+      return v20;
     }
     else
     {
@@ -86,7 +90,8 @@ int __fastcall RtlpQueryAssemblyInformationActivationContextDetailedInformation(
         *((_DWORD *)a3 + 20) = v7[22];
         if ( v7[2] )
         {
-          memcpy(a3 + 88, (const void *)(v20 + v7[3]), v7[2]);
+          LODWORD(v18) = v7[2];
+          memcpy(a3 + 88, (const void *)(v22 + v7[3]), v18);
           *((_DWORD *)a3 + 16) = v13;
           v14 = &v13[v7[2]];
           *(_WORD *)v14 = 0;
@@ -94,7 +99,8 @@ int __fastcall RtlpQueryAssemblyInformationActivationContextDetailedInformation(
         }
         if ( v7[5] )
         {
-          memcpy(v13, (const void *)(v20 + v7[6]), v7[5]);
+          LODWORD(v18) = v7[5];
+          memcpy(v13, (const void *)(v22 + v7[6]), v18);
           *((_DWORD *)a3 + 17) = v13;
           v15 = &v13[v7[5]];
           *(_WORD *)v15 = 0;
@@ -102,7 +108,8 @@ int __fastcall RtlpQueryAssemblyInformationActivationContextDetailedInformation(
         }
         if ( v7[10] )
         {
-          memcpy(v13, (const void *)(v20 + v7[11]), v7[10]);
+          LODWORD(v18) = v7[10];
+          memcpy(v13, (const void *)(v22 + v7[11]), v18);
           *((_DWORD *)a3 + 18) = v13;
           v16 = &v13[v7[10]];
           *(_WORD *)v16 = 0;
@@ -110,7 +117,8 @@ int __fastcall RtlpQueryAssemblyInformationActivationContextDetailedInformation(
         }
         if ( v7[20] )
         {
-          memcpy(v13, (const void *)(v20 + v7[21]), v7[20]);
+          LODWORD(v18) = v7[20];
+          memcpy(v13, (const void *)(v22 + v7[21]), v18);
           *((_DWORD *)a3 + 19) = v13;
           *(_WORD *)&v13[v7[20]] = 0;
         }
@@ -131,10 +139,8 @@ int __fastcall RtlpQueryAssemblyInformationActivationContextDetailedInformation(
     DbgPrintEx(
       51,
       0,
-      "SXS: %s() received invalid sub-instance index %lu out of %lu Assemblies in the Acitvation Context\n",
-      "RtlpQueryAssemblyInformationActivationContextDetailedInformation",
-      a2,
-      *(_DWORD *)(v5 + a1 + 8));
+      (int)"SXS: %s() received invalid sub-instance index %lu out of %lu Assemblies in the Acitvation Context\n",
+      (int)"RtlpQueryAssemblyInformationActivationContextDetailedInformation");
     return -1073741811;
   }
 }

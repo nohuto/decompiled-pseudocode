@@ -330,7 +330,7 @@ LABEL_108:
     {
       memmove(v7 + 5, v13, v16);
       v25 = a2;
-      if ( a2 && (v16 < 8 || v16 != *((unsigned __int16 *)v7 + 11) || !RtlValidAcl((__int64)(v7 + 5))) )
+      if ( a2 && (v16 < 8 || v16 != *((unsigned __int16 *)v7 + 11) || !RtlValidAcl((PACL)(v7 + 5))) )
         goto LABEL_131;
       v7[3] = 20;
       *((_WORD *)v7 + 11) = v53;

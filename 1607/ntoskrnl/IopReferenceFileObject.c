@@ -1,23 +1,23 @@
 /*
- * XREFs of IopReferenceFileObject @ 0x14007B630
+ * XREFs of IopReferenceFileObject @ 0x14007B6B0
  * Callers:
  *     IopValidateJunctionTarget @ 0x1403E2B58 (IopValidateJunctionTarget.c)
- *     NtLockFile @ 0x14046AE5C (NtLockFile.c)
- *     NtQueryEaFile @ 0x14046B6CC (NtQueryEaFile.c)
- *     NtWriteFileGather @ 0x1404BD44C (NtWriteFileGather.c)
- *     NtReadFileScatter @ 0x1404BDB18 (NtReadFileScatter.c)
- *     NtFlushBuffersFileEx @ 0x1404C9430 (NtFlushBuffersFileEx.c)
- *     NtCancelIoFile @ 0x1404CC5BC (NtCancelIoFile.c)
- *     NtCancelIoFileEx @ 0x1404CC738 (NtCancelIoFileEx.c)
- *     NtNotifyChangeDirectoryFile @ 0x1404D51E4 (NtNotifyChangeDirectoryFile.c)
- *     NtSetVolumeInformationFile @ 0x140529574 (NtSetVolumeInformationFile.c)
- *     IopSetEaOrQuotaInformationFile @ 0x1406227EC (IopSetEaOrQuotaInformationFile.c)
- *     NtSetEaFile @ 0x1406251DC (NtSetEaFile.c)
- *     NtQueryQuotaInformationFile @ 0x1406257E0 (NtQueryQuotaInformationFile.c)
+ *     NtLockFile @ 0x140469D2C (NtLockFile.c)
+ *     NtQueryEaFile @ 0x14046A59C (NtQueryEaFile.c)
+ *     NtWriteFileGather @ 0x1404A917C (NtWriteFileGather.c)
+ *     NtReadFileScatter @ 0x1404A9848 (NtReadFileScatter.c)
+ *     NtFlushBuffersFileEx @ 0x1404AF1B0 (NtFlushBuffersFileEx.c)
+ *     NtCancelIoFile @ 0x1404B1FE8 (NtCancelIoFile.c)
+ *     NtCancelIoFileEx @ 0x1404B2164 (NtCancelIoFileEx.c)
+ *     NtNotifyChangeDirectoryFile @ 0x1404B87E8 (NtNotifyChangeDirectoryFile.c)
+ *     NtSetVolumeInformationFile @ 0x140529AB4 (NtSetVolumeInformationFile.c)
+ *     IopSetEaOrQuotaInformationFile @ 0x1406228A0 (IopSetEaOrQuotaInformationFile.c)
+ *     NtSetEaFile @ 0x140625290 (NtSetEaFile.c)
+ *     NtQueryQuotaInformationFile @ 0x140625894 (NtQueryQuotaInformationFile.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14006ACD0 (ObfDereferenceObjectWithTag.c)
- *     IopFileObjectRevoked @ 0x1400D16F0 (IopFileObjectRevoked.c)
- *     ObReferenceObjectByHandle @ 0x140450D40 (ObReferenceObjectByHandle.c)
+ *     ObfDereferenceObjectWithTag @ 0x14006A850 (ObfDereferenceObjectWithTag.c)
+ *     IopFileObjectRevoked @ 0x1400CF590 (IopFileObjectRevoked.c)
+ *     ObReferenceObjectByHandle @ 0x14044FC10 (ObReferenceObjectByHandle.c)
  */
 
 __int64 __fastcall IopReferenceFileObject(

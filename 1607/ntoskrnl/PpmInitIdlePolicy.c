@@ -3,7 +3,7 @@
  * Callers:
  *     PoInitSystem @ 0x140795530 (PoInitSystem.c)
  * Callees:
- *     PpmConvertTime @ 0x14000E064 (PpmConvertTime.c)
+ *     PpmConvertTime @ 0x14000DBE4 (PpmConvertTime.c)
  */
 
 unsigned __int64 PpmInitIdlePolicy()

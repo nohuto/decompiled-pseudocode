@@ -1,9 +1,9 @@
 /*
- * XREFs of MiValidateKernelHalLargePageRange @ 0x140D011B0
+ * XREFs of MiValidateKernelHalLargePageRange @ 0x140D07550
  * Callers:
  *     <none>
  * Callees:
- *     MiMarkPfnVerified @ 0x14038C9E8 (MiMarkPfnVerified.c)
+ *     MiMarkPfnVerified @ 0x14038E794 (MiMarkPfnVerified.c)
  */
 
 __int64 __fastcall MiValidateKernelHalLargePageRange(unsigned __int64 a1, unsigned __int64 a2, int a3)

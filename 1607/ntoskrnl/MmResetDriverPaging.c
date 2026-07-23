@@ -1,14 +1,14 @@
 /*
- * XREFs of MmResetDriverPaging @ 0x14047DB58
+ * XREFs of MmResetDriverPaging @ 0x14047C8AC
  * Callers:
  *     <none>
  * Callees:
- *     RtlImageNtHeader @ 0x140014238 (RtlImageNtHeader.c)
- *     MiLockCode @ 0x1400155F0 (MiLockCode.c)
- *     MiGetPteAddress @ 0x14002BA64 (MiGetPteAddress.c)
- *     MmImageSectionPagable @ 0x14047DC20 (MmImageSectionPagable.c)
- *     MiCancelPhase0Locking @ 0x14047DD28 (MiCancelPhase0Locking.c)
- *     MiImagePagable @ 0x14047DD7C (MiImagePagable.c)
+ *     RtlImageNtHeader @ 0x140013DB8 (RtlImageNtHeader.c)
+ *     MiLockCode @ 0x140015170 (MiLockCode.c)
+ *     MiGetPteAddress @ 0x14002B5E4 (MiGetPteAddress.c)
+ *     MmImageSectionPagable @ 0x14047C974 (MmImageSectionPagable.c)
+ *     MiCancelPhase0Locking @ 0x14047CA7C (MiCancelPhase0Locking.c)
+ *     MiImagePagable @ 0x14047CAD0 (MiImagePagable.c)
  */
 
 void __stdcall MmResetDriverPaging(PVOID AddressWithinSection)

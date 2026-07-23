@@ -8,11 +8,11 @@
  *     KiRemoveSystemWorkPriorityKick @ 0x1401BF308 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-struct _LIST_ENTRY *__fastcall VF_FIND_INACTIVE_ADAPTER_AND_REMOVE(struct _LIST_ENTRY *a1)
+_LIST_ENTRY *__fastcall VF_FIND_INACTIVE_ADAPTER_AND_REMOVE(struct _LIST_ENTRY *a1)
 {
-  struct _LIST_ENTRY *v2; // rdi
+  _LIST_ENTRY *v2; // rdi
   KIRQL v3; // bl
-  struct _LIST_ENTRY *i; // rax
+  _LIST_ENTRY *i; // rax
   struct _KPRCB *CurrentPrcb; // rcx
   struct _LIST_ENTRY *Flink; // rdx
   struct _LIST_ENTRY *Blink; // rcx

@@ -6,7 +6,11 @@
  *     NtReplyWaitReceivePortEx @ 0x1408AC130 (NtReplyWaitReceivePortEx.c)
  */
 
-__int64 __fastcall NtReplyWaitReceivePort(void *a1)
+NTSTATUS __cdecl NtReplyWaitReceivePort(
+        HANDLE PortHandle,
+        PVOID *PortContext,
+        PPORT_MESSAGE ReplyMessage,
+        PPORT_MESSAGE ReceiveMessage)
 {
-  return NtReplyWaitReceivePortEx(a1, 0LL);
+  return NtReplyWaitReceivePortEx(PortHandle, PortContext, ReplyMessage, ReceiveMessage, 0LL);
 }

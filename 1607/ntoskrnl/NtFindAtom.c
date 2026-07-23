@@ -1,20 +1,20 @@
 /*
- * XREFs of NtFindAtom @ 0x140428C60
+ * XREFs of NtFindAtom @ 0x140427B30
  * Callers:
  *     <none>
  * Callees:
- *     MmSessionGetWin32Callouts @ 0x140013F00 (MmSessionGetWin32Callouts.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     ExCallCallBack @ 0x140428DC0 (ExCallCallBack.c)
- *     RtlLookupAtomInAtomTable @ 0x140429390 (RtlLookupAtomInAtomTable.c)
- *     ExRaiseDatatypeMisalignment @ 0x1406B6058 (ExRaiseDatatypeMisalignment.c)
+ *     MmSessionGetWin32Callouts @ 0x140013A80 (MmSessionGetWin32Callouts.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     ExCallCallBack @ 0x140427C90 (ExCallCallBack.c)
+ *     RtlLookupAtomInAtomTable @ 0x140428260 (RtlLookupAtomInAtomTable.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1406B6190 (ExRaiseDatatypeMisalignment.c)
  */
 
 NTSTATUS __stdcall NtFindAtom(PWSTR AtomName, ULONG AtomNameLength, PRTL_ATOM Atom)
 {
   size_t v4; // rdi
-  union _RTL_RUN_ONCE *Win32Callouts; // rax
+  _RTL_RUN_ONCE *Win32Callouts; // rax
   char PreviousMode; // r15
   WCHAR *v8; // rsi
   __int64 v9; // rcx

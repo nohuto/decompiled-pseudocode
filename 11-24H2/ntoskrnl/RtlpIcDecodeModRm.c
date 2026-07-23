@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlpIcDecodeModRm @ 0x140BB72B0
+ * XREFs of RtlpIcDecodeModRm @ 0x140BB92B0
  * Callers:
- *     RtlpIcEmulateGroup0Instruction @ 0x140BB74F8 (RtlpIcEmulateGroup0Instruction.c)
- *     RtlpIcEmulateGroup11Instruction @ 0x140BB7750 (RtlpIcEmulateGroup11Instruction.c)
- *     RtlpIcEmulateGroup1Instruction @ 0x140BB7818 (RtlpIcEmulateGroup1Instruction.c)
- *     RtlpIcEmulateInstruction @ 0x140BB7A08 (RtlpIcEmulateInstruction.c)
- *     RtlpIcEmulateMovzx @ 0x140BB81FC (RtlpIcEmulateMovzx.c)
+ *     RtlpIcEmulateGroup0Instruction @ 0x140BB94F8 (RtlpIcEmulateGroup0Instruction.c)
+ *     RtlpIcEmulateGroup11Instruction @ 0x140BB9750 (RtlpIcEmulateGroup11Instruction.c)
+ *     RtlpIcEmulateGroup1Instruction @ 0x140BB9818 (RtlpIcEmulateGroup1Instruction.c)
+ *     RtlpIcEmulateInstruction @ 0x140BB9A08 (RtlpIcEmulateInstruction.c)
+ *     RtlpIcEmulateMovzx @ 0x140BBA1FC (RtlpIcEmulateMovzx.c)
  * Callees:
- *     RtlpIcFetchInstructionBytes @ 0x140BB8454 (RtlpIcFetchInstructionBytes.c)
+ *     RtlpIcFetchInstructionBytes @ 0x140BBA454 (RtlpIcFetchInstructionBytes.c)
  */
 
 __int64 __fastcall RtlpIcDecodeModRm(__int64 a1, __int64 a2, int *a3)

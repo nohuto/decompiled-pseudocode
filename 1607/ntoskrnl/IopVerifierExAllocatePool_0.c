@@ -1,8 +1,8 @@
 /*
- * XREFs of IopVerifierExAllocatePool_0 @ 0x1400ABF18
+ * XREFs of IopVerifierExAllocatePool_0 @ 0x1400AA480
  * Callers:
- *     NtQueryVolumeInformationFile @ 0x140511B30 (NtQueryVolumeInformationFile.c)
- *     NtSetVolumeInformationFile @ 0x140529574 (NtSetVolumeInformationFile.c)
+ *     NtQueryVolumeInformationFile @ 0x1404F4F20 (NtQueryVolumeInformationFile.c)
+ *     NtSetVolumeInformationFile @ 0x140529AB4 (NtSetVolumeInformationFile.c)
  * Callees:
  *     <none>
  */

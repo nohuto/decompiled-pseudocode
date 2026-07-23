@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpIsSingleStreamLogger @ 0x14024D038
+ * XREFs of EtwpIsSingleStreamLogger @ 0x14027D648
  * Callers:
- *     EtwpSwitchBuffer @ 0x14024CDA0 (EtwpSwitchBuffer.c)
- *     EtwpQueryUsedProcessorCount @ 0x14024CFF4 (EtwpQueryUsedProcessorCount.c)
- *     EtwpRealtimeInjectEtwBuffer @ 0x1409D9E20 (EtwpRealtimeInjectEtwBuffer.c)
+ *     EtwpSwitchBuffer @ 0x14027D3B0 (EtwpSwitchBuffer.c)
+ *     EtwpQueryUsedProcessorCount @ 0x14027D604 (EtwpQueryUsedProcessorCount.c)
+ *     EtwpRealtimeInjectEtwBuffer @ 0x1409D4930 (EtwpRealtimeInjectEtwBuffer.c)
  * Callees:
  *     <none>
  */

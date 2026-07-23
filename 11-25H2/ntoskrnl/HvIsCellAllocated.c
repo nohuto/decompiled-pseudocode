@@ -22,7 +22,7 @@ char __fastcall HvIsCellAllocated(ULONG_PTR BugCheckParameter3, ULONG_PTR BugChe
   unsigned int v3; // edi
   unsigned int v4; // edx
   __int64 v5; // r8
-  RTL_BITMAP *v6; // r9
+  _RTL_BITMAP *v6; // r9
   unsigned int v7; // edx
   __int64 CellMap; // rax
   __int64 v9; // rsi

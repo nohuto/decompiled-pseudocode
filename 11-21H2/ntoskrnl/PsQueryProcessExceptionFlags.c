@@ -3,15 +3,15 @@
  * Callers:
  *     <none>
  * Callees:
- *     ExReleaseRundownProtection @ 0x1402AD030 (ExReleaseRundownProtection.c)
- *     KiUnstackDetachProcess @ 0x1402D0930 (KiUnstackDetachProcess.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1402F9540 (KiLeaveCriticalRegionUnsafe.c)
- *     KiStackAttachProcess @ 0x14030D5C0 (KiStackAttachProcess.c)
- *     ExAcquireRundownProtection @ 0x140347810 (ExAcquireRundownProtection.c)
+ *     sub_1402AD030 @ 0x1402AD030 (sub_1402AD030.c)
+ *     sub_1402D0930 @ 0x1402D0930 (sub_1402D0930.c)
+ *     sub_1402F9540 @ 0x1402F9540 (sub_1402F9540.c)
+ *     sub_14030D5C0 @ 0x14030D5C0 (sub_14030D5C0.c)
+ *     sub_140347810 @ 0x140347810 (sub_140347810.c)
  *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
  */
 
-__int64 __fastcall PsQueryProcessExceptionFlags(ULONG_PTR BugCheckParameter1, int a2, int *a3, _DWORD *a4)
+__int64 __fastcall PsQueryProcessExceptionFlags(ULONG_PTR BugCheckParameter1, int a2, int *a3, __int64 a4)
 {
   int v5; // edi
   int v7; // r15d
@@ -35,10 +35,10 @@ __int64 __fastcall PsQueryProcessExceptionFlags(ULONG_PTR BugCheckParameter1, in
   if ( (a2 & 1) != 0 && !*(_QWORD *)(BugCheckParameter1 + 1408) )
     return 3221225711LL;
   CurrentThread = KeGetCurrentThread();
-  if ( CurrentThread->ApcState.Process == (_KPROCESS *)BugCheckParameter1 )
+  if ( *((_QWORD *)CurrentThread + 23) == BugCheckParameter1 )
   {
     v9 = 0;
-    if ( CurrentThread->Process != (_KPROCESS *)BugCheckParameter1 )
+    if ( *((_QWORD *)CurrentThread + 68) != BugCheckParameter1 )
       v9 = 2;
     if ( v9 < 2 )
       goto LABEL_13;
@@ -47,17 +47,17 @@ __int64 __fastcall PsQueryProcessExceptionFlags(ULONG_PTR BugCheckParameter1, in
   {
     v9 = 3;
   }
-  --CurrentThread->KernelApcDisable;
-  if ( !ExAcquireRundownProtection((PEX_RUNDOWN_REF)(BugCheckParameter1 + 1112)) )
+  --*((_WORD *)CurrentThread + 242);
+  if ( !sub_140347810((struct _EX_RUNDOWN_REF *)(BugCheckParameter1 + 1112)) )
   {
-    KiLeaveCriticalRegionUnsafe((__int64)CurrentThread);
+    sub_1402F9540((__int64)CurrentThread);
     return 3221225738LL;
   }
 LABEL_13:
   v10 = v9 & 1;
   if ( (v9 & 1) != 0 )
   {
-    KiStackAttachProcess((_KPROCESS *)BugCheckParameter1, 0LL, (__int64)v17, a4);
+    sub_14030D5C0(BugCheckParameter1, 0LL, (__int64)v17, a4);
     v10 = v9 & 1;
   }
   if ( v7 )
@@ -81,11 +81,11 @@ LABEL_13:
 LABEL_24:
   v15 = *v14;
   if ( v10 )
-    KiUnstackDetachProcess((__int64)v17, 0LL);
+    sub_1402D0930((__int64)v17, 0LL);
   if ( v9 >= 2 )
   {
-    ExReleaseRundownProtection((PEX_RUNDOWN_REF)(BugCheckParameter1 + 1112));
-    KiLeaveCriticalRegionUnsafe((__int64)CurrentThread);
+    sub_1402AD030((struct _EX_RUNDOWN_REF *)(BugCheckParameter1 + 1112));
+    sub_1402F9540((__int64)CurrentThread);
   }
   *a3 = 0;
   if ( (v15 & 4) != 0 )

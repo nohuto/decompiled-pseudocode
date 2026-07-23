@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpAllocateAtomTableEntry @ 0x180068558
+ * XREFs of RtlpAllocateAtomTableEntry @ 0x180068548
  * Callers:
- *     RtlAddAtomToAtomTableEx @ 0x180067D0C (RtlAddAtomToAtomTableEx.c)
+ *     RtlAddAtomToAtomTableEx @ 0x180067CFC (RtlAddAtomToAtomTableEx.c)
  * Callees:
- *     RtlAllocateHeap @ 0x180022DB0 (RtlAllocateHeap.c)
+ *     RtlAllocateHeap @ 0x180022DA0 (RtlAllocateHeap.c)
  */
 
 _QWORD *__fastcall RtlpAllocateAtomTableEntry(unsigned int a1, _QWORD *a2)
@@ -12,7 +12,7 @@ _QWORD *__fastcall RtlpAllocateAtomTableEntry(unsigned int a1, _QWORD *a2)
   _QWORD *v4; // rcx
   _WORD *v5; // rax
 
-  Heap = (_QWORD *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, a1 + 20LL);
+  Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, a1 + 20LL);
   v4 = Heap;
   if ( !Heap )
     return 0LL;

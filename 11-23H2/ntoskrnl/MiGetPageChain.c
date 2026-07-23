@@ -1,40 +1,40 @@
 /*
- * XREFs of MiGetPageChain @ 0x14026C700
+ * XREFs of MiGetPageChain @ 0x14026C990
  * Callers:
- *     MiResolvePrivateZeroFault @ 0x14026A380 (MiResolvePrivateZeroFault.c)
- *     MiGetHardFaultPages @ 0x1402DF274 (MiGetHardFaultPages.c)
- *     MiCreateSharedZeroPages @ 0x1402E0DC0 (MiCreateSharedZeroPages.c)
- *     MiStealPage @ 0x1403BC3DC (MiStealPage.c)
- *     MiGetClusterPage @ 0x140669FF4 (MiGetClusterPage.c)
- *     MiResolvePageFileFault @ 0x14066B4BC (MiResolvePageFileFault.c)
- *     MiPfPrepareSequentialReadList @ 0x1407446E0 (MiPfPrepareSequentialReadList.c)
+ *     MiResolvePrivateZeroFault @ 0x14026A610 (MiResolvePrivateZeroFault.c)
+ *     MiGetHardFaultPages @ 0x1402DF504 (MiGetHardFaultPages.c)
+ *     MiCreateSharedZeroPages @ 0x1402E1050 (MiCreateSharedZeroPages.c)
+ *     MiStealPage @ 0x1403BC5BC (MiStealPage.c)
+ *     MiGetClusterPage @ 0x14066A544 (MiGetClusterPage.c)
+ *     MiResolvePageFileFault @ 0x14066BA0C (MiResolvePageFileFault.c)
+ *     MiPfPrepareSequentialReadList @ 0x1407448D0 (MiPfPrepareSequentialReadList.c)
  * Callees:
  *     MiChangePageAttributeBatch @ 0x14021C9B4 (MiChangePageAttributeBatch.c)
  *     MiTbFlushTimeStampMayNeedFlush @ 0x14021E394 (MiTbFlushTimeStampMayNeedFlush.c)
- *     MiGetPage @ 0x14026D360 (MiGetPage.c)
- *     MiSearchNumaNodeTable @ 0x14026EAD0 (MiSearchNumaNodeTable.c)
- *     MiPteInShadowRange @ 0x140271360 (MiPteInShadowRange.c)
- *     MiMakeValidPte @ 0x1402CF2B0 (MiMakeValidPte.c)
- *     MiGetUltraMapping @ 0x1402D1A10 (MiGetUltraMapping.c)
- *     MiConvertEntireLargePageToSmall @ 0x1402D2AD0 (MiConvertEntireLargePageToSmall.c)
- *     MiGetLargePage @ 0x1402D7A80 (MiGetLargePage.c)
- *     MiSetPfnBlink @ 0x1402DF0B0 (MiSetPfnBlink.c)
- *     MiWorkingSetIsContended @ 0x1402E69F0 (MiWorkingSetIsContended.c)
- *     KeFlushSingleTb @ 0x1402EB0C4 (KeFlushSingleTb.c)
- *     KeShouldYieldProcessor @ 0x140333C70 (KeShouldYieldProcessor.c)
- *     MiZeroPhysicalPage @ 0x1403391FC (MiZeroPhysicalPage.c)
- *     MiUserPdeOrAbove @ 0x14033C630 (MiUserPdeOrAbove.c)
- *     MiIsAddressGlobal @ 0x140347B28 (MiIsAddressGlobal.c)
- *     MiWritePteShadow @ 0x14035734C (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x1403573AC (MiPteHasShadow.c)
- *     MiChangePageAttribute @ 0x14036F3BC (MiChangePageAttribute.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     KeZeroPages @ 0x140424640 (KeZeroPages.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     EtwTraceShouldYieldProcessor @ 0x1405FD4AC (EtwTraceShouldYieldProcessor.c)
- *     MiPerformFinalZeroing @ 0x14064DC6C (MiPerformFinalZeroing.c)
- *     MiNotifyPageHeat @ 0x1406545FC (MiNotifyPageHeat.c)
+ *     MiGetPage @ 0x14026D5F0 (MiGetPage.c)
+ *     MiSearchNumaNodeTable @ 0x14026ED60 (MiSearchNumaNodeTable.c)
+ *     MiPteInShadowRange @ 0x1402715F0 (MiPteInShadowRange.c)
+ *     MiMakeValidPte @ 0x1402CF540 (MiMakeValidPte.c)
+ *     MiGetUltraMapping @ 0x1402D1CA0 (MiGetUltraMapping.c)
+ *     MiConvertEntireLargePageToSmall @ 0x1402D2D60 (MiConvertEntireLargePageToSmall.c)
+ *     MiGetLargePage @ 0x1402D7D10 (MiGetLargePage.c)
+ *     MiSetPfnBlink @ 0x1402DF340 (MiSetPfnBlink.c)
+ *     MiWorkingSetIsContended @ 0x1402E6C80 (MiWorkingSetIsContended.c)
+ *     KeFlushSingleTb @ 0x1402EB354 (KeFlushSingleTb.c)
+ *     KeShouldYieldProcessor @ 0x140333F00 (KeShouldYieldProcessor.c)
+ *     MiZeroPhysicalPage @ 0x14033948C (MiZeroPhysicalPage.c)
+ *     MiUserPdeOrAbove @ 0x14033C8C0 (MiUserPdeOrAbove.c)
+ *     MiIsAddressGlobal @ 0x140347DB8 (MiIsAddressGlobal.c)
+ *     MiWritePteShadow @ 0x1403574EC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x14035754C (MiPteHasShadow.c)
+ *     MiChangePageAttribute @ 0x14036F55C (MiChangePageAttribute.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     KeZeroPages @ 0x1404249D0 (KeZeroPages.c)
+ *     EtwTraceShouldYieldProcessor @ 0x1405FDA1C (EtwTraceShouldYieldProcessor.c)
+ *     MiPerformFinalZeroing @ 0x14064E1BC (MiPerformFinalZeroing.c)
+ *     MiNotifyPageHeat @ 0x140654B4C (MiNotifyPageHeat.c)
  *     MxGetPhase0Mapping @ 0x140B58DFC (MxGetPhase0Mapping.c)
  */
 
@@ -235,9 +235,9 @@ __int64 __fastcall MiGetPageChain(
       v17 = KeGetCurrentIrql();
       BugCheckParameter2 = v17;
       __writecr8(2uLL);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
-        if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)v17 <= 0xFu )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && (unsigned __int8)v17 <= 0xFu )
         {
           SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
           if ( (_BYTE)v17 == 2 )
@@ -267,10 +267,10 @@ LABEL_80:
 LABEL_82:
     if ( (unsigned __int8)v111 < 2u )
     {
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v85 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v85 <= 0xFu && (unsigned __int8)v17 <= 0xFu && v85 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v85 <= 0xFu && (unsigned __int8)v17 <= 0xFu && v85 >= 2u )
         {
           v86 = KeGetCurrentPrcb();
           v87 = v86->SchedulerAssist;
@@ -458,7 +458,7 @@ LABEL_117:
       v51 = KeGetCurrentIrql();
       v116 = v51;
       __writecr8(2uLL);
-      if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && (unsigned __int8)v51 <= 0xFu )
+      if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && (unsigned __int8)v51 <= 0xFu )
       {
         v60 = KeGetCurrentPrcb()->SchedulerAssist;
         if ( (_BYTE)v51 == 2 )
@@ -478,10 +478,10 @@ LABEL_117:
       *(_QWORD *)(((UltraMapping >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL) = ZeroPte;
       if ( v55 != 17 )
       {
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v94 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v94 <= 0xFu && v55 <= 0xFu && v94 >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v94 <= 0xFu && v55 <= 0xFu && v94 >= 2u )
           {
             v95 = KeGetCurrentPrcb();
             v96 = v95->SchedulerAssist;

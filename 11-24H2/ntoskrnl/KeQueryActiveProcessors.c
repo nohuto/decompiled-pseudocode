@@ -1,5 +1,5 @@
 /*
- * XREFs of KeQueryActiveProcessors @ 0x1404AFBE0
+ * XREFs of KeQueryActiveProcessors @ 0x1404AA5D0
  * Callers:
  *     <none>
  * Callees:

@@ -7,14 +7,15 @@
  *     _RtlpFcRemoveChangeRegistration@8 @ 0x4B2AB526 (_RtlpFcRemoveChangeRegistration@8.c)
  */
 
-int __thiscall RtlUnregisterFeatureConfigurationChangeNotification(void *this, int a2)
+NTSTATUS __cdecl RtlUnregisterFeatureConfigurationChangeNotification(
+        RTL_FEATURE_CONFIGURATION_CHANGE_REGISTRATION RegistrationHandle)
 {
-  int result; // eax
+  NTSTATUS result; // eax
 
   if ( !byte_4B3A5DA8 )
   {
-    RtlpFcRemoveChangeRegistration(this, a2);
-    return RtlpFcFreeChangeRegistration(a2);
+    RtlpFcRemoveChangeRegistration();
+    return RtlpFcFreeChangeRegistration(RegistrationHandle);
   }
   return result;
 }

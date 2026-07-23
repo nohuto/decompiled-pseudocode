@@ -8,11 +8,11 @@
  *     ExFreeToNPagedLookasideList @ 0x140033280 (ExFreeToNPagedLookasideList.c)
  */
 
-void __fastcall IovpSessionDataDereference(struct _SLIST_ENTRY *Entry)
+void __fastcall IovpSessionDataDereference(_SLIST_ENTRY *Entry)
 {
   bool v1; // zf
   _SLIST_ENTRY *Next; // r9
-  struct _SLIST_ENTRY *v3; // rax
+  _SLIST_ENTRY *v3; // rax
   _SLIST_ENTRY *v4; // r8
   _SLIST_ENTRY **v5; // rdx
 

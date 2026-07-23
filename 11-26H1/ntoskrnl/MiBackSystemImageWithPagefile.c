@@ -1,15 +1,15 @@
 /*
- * XREFs of MiBackSystemImageWithPagefile @ 0x140864164
+ * XREFs of MiBackSystemImageWithPagefile @ 0x14086A544
  * Callers:
- *     FsRtlSetDriverBacking @ 0x14078FF20 (FsRtlSetDriverBacking.c)
- *     MiBackSystemImageWithPagefile @ 0x140864164 (MiBackSystemImageWithPagefile.c)
+ *     FsRtlSetDriverBacking @ 0x140792A50 (FsRtlSetDriverBacking.c)
+ *     MiBackSystemImageWithPagefile @ 0x14086A544 (MiBackSystemImageWithPagefile.c)
  * Callees:
- *     MI_IS_PHYSICAL_ADDRESS @ 0x14024C8D0 (MI_IS_PHYSICAL_ADDRESS.c)
- *     MiUnlockLoaderEntry @ 0x1404A4C7C (MiUnlockLoaderEntry.c)
- *     MiGetBaseLoaderPortion @ 0x1404F5130 (MiGetBaseLoaderPortion.c)
- *     MiLockLoaderEntry @ 0x14051E298 (MiLockLoaderEntry.c)
- *     MiBackSingleImageWithPagefile @ 0x1408640D0 (MiBackSingleImageWithPagefile.c)
- *     MiBackSystemImageWithPagefile @ 0x140864164 (MiBackSystemImageWithPagefile.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x14024E230 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     MiUnlockLoaderEntry @ 0x14049E30C (MiUnlockLoaderEntry.c)
+ *     MiGetBaseLoaderPortion @ 0x1404EE710 (MiGetBaseLoaderPortion.c)
+ *     MiLockLoaderEntry @ 0x1405208A8 (MiLockLoaderEntry.c)
+ *     MiBackSingleImageWithPagefile @ 0x14086A4B0 (MiBackSingleImageWithPagefile.c)
+ *     MiBackSystemImageWithPagefile @ 0x14086A544 (MiBackSystemImageWithPagefile.c)
  */
 
 __int64 __fastcall MiBackSystemImageWithPagefile(__int64 a1, unsigned int a2)

@@ -1,13 +1,13 @@
 /*
- * XREFs of PpmEventVpQosChange @ 0x140529810
+ * XREFs of PpmEventVpQosChange @ 0x14052BCA4
  * Callers:
- *     PoSetProcessorQos @ 0x14032FA60 (PoSetProcessorQos.c)
- *     KeCheckAndApplyBamQos @ 0x140330350 (KeCheckAndApplyBamQos.c)
- *     KiCheckForPendingQosUpdate @ 0x140330CB0 (KiCheckForPendingQosUpdate.c)
+ *     PoSetProcessorQos @ 0x140331A90 (PoSetProcessorQos.c)
+ *     KeCheckAndApplyBamQos @ 0x140332380 (KeCheckAndApplyBamQos.c)
+ *     KiCheckForPendingQosUpdate @ 0x140332CE0 (KiCheckForPendingQosUpdate.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 BOOLEAN __fastcall PpmEventVpQosChange(__int64 a1)
@@ -44,10 +44,7 @@ BOOLEAN __fastcall PpmEventVpQosChange(__int64 a1)
 
   v4 = 100;
   v3 = 0;
-  if ( PpmEtwRegistered
-    || (result = EtwEventEnabled(
-                   (REGHANDLE)PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink,
-                   &PPM_ETW_PROCESSOR_PERF_STATE_CHANGE)) != 0 )
+  if ( PpmEtwRegistered || (result = EtwEventEnabled(PpmEtwHandle, &PPM_ETW_PROCESSOR_PERF_STATE_CHANGE)) != 0 )
   {
     v5 = *(unsigned __int8 *)(a1 + 208);
     *(_QWORD *)&UserData.Size = 4LL;
@@ -76,15 +73,7 @@ BOOLEAN __fastcall PpmEventVpQosChange(__int64 a1)
     v26 = 4LL;
     v28 = 4LL;
     v30 = 4LL;
-    return EtwWriteEx(
-             (REGHANDLE)PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink,
-             &PPM_ETW_PROCESSOR_PERF_STATE_CHANGE,
-             0LL,
-             0,
-             0LL,
-             0LL,
-             0xDu,
-             &UserData);
+    return EtwWriteEx(PpmEtwHandle, &PPM_ETW_PROCESSOR_PERF_STATE_CHANGE, 0LL, 0, 0LL, 0LL, 0xDu, &UserData);
   }
   return result;
 }

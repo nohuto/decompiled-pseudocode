@@ -3,10 +3,10 @@
  * Callers:
  *     HalpIommuConstructReservedPageTables @ 0x140A8A61C (HalpIommuConstructReservedPageTables.c)
  * Callees:
- *     HalpIommuMapLogicalRange @ 0x14037D7D8 (HalpIommuMapLogicalRange.c)
- *     HalpIommuGetDmarptRootAddress @ 0x14037FE10 (HalpIommuGetDmarptRootAddress.c)
- *     HalpIommuGetPageTableType @ 0x14037FE50 (HalpIommuGetPageTableType.c)
- *     HalpIommuCreateDmarPageTable @ 0x14037FEA8 (HalpIommuCreateDmarPageTable.c)
+ *     HalpIommuMapLogicalRange @ 0x14037D978 (HalpIommuMapLogicalRange.c)
+ *     HalpIommuGetDmarptRootAddress @ 0x14037FFB0 (HalpIommuGetDmarptRootAddress.c)
+ *     HalpIommuGetPageTableType @ 0x14037FFF0 (HalpIommuGetPageTableType.c)
+ *     HalpIommuCreateDmarPageTable @ 0x140380048 (HalpIommuCreateDmarPageTable.c)
  */
 
 __int64 __fastcall HalpIommuConstructReservedPageTable(__int64 a1, PHYSICAL_ADDRESS *a2, unsigned int a3)

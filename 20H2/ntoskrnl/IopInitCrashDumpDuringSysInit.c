@@ -13,14 +13,14 @@
  *     MmInitializeMemoryLimits @ 0x140A3CB20 (MmInitializeMemoryLimits.c)
  */
 
-__int64 __fastcall IopInitCrashDumpDuringSysInit(__int64 a1, int a2)
+__int64 __fastcall IopInitCrashDumpDuringSysInit(__int64 Context, int a2)
 {
   unsigned int v2; // ebx
   unsigned int v4; // ecx
   unsigned __int64 v5; // rax
   char v7; // [rsp+38h] [rbp-D0h] BYREF
   _QWORD v8[3]; // [rsp+40h] [rbp-C8h]
-  _QWORD v9[14]; // [rsp+58h] [rbp-B0h] BYREF
+  _RTL_QUERY_REGISTRY_TABLE QueryTable[2]; // [rsp+58h] [rbp-B0h] BYREF
   _BYTE v10[30]; // [rsp+C8h] [rbp-40h] BYREF
   __int16 v11; // [rsp+E6h] [rbp-22h]
   char v12; // [rsp+E8h] [rbp-20h]
@@ -30,8 +30,8 @@ __int64 __fastcall IopInitCrashDumpDuringSysInit(__int64 a1, int a2)
   v7 = 0;
   IopReportBugCheckProgress = (__int64)HalSetEnvironmentVariableEx;
   if ( !ForceDumpDisabled )
-    ForceDumpDisabled = (int)SecureDump_Init(a1, a2) < 0;
-  if ( (*(_DWORD *)(a1 + 264) & 2) != 0 )
+    ForceDumpDisabled = (int)SecureDump_Init(Context, a2) < 0;
+  if ( (*(_DWORD *)(Context + 264) & 2) != 0 )
     IopReportBugCheckProgress = (__int64)VslReportBugCheckProgress;
   v4 = 0;
   v5 = 0LL;
@@ -48,19 +48,19 @@ __int64 __fastcall IopInitCrashDumpDuringSysInit(__int64 a1, int a2)
   v10[6] = 1;
   v12 = 1;
   v13 = 1;
-  SpecialMemoryRanges = (__int64)MmInitializeMemoryLimits(a1, (__int64)v10);
-  memset(v9, 0, sizeof(v9));
-  LODWORD(v9[1]) = 4;
-  v9[0] = IopInitCrashDumpRegCallback;
-  LODWORD(v9[4]) = 0;
-  v9[2] = L"ExistingPageFiles";
-  v9[3] = &v7;
-  RtlQueryRegistryValuesEx(2LL, L"Session Manager\\Memory Management", (__int64)v9, a1);
+  SpecialMemoryRanges = (__int64)MmInitializeMemoryLimits(Context, (__int64)v10);
+  memset(QueryTable, 0, sizeof(QueryTable));
+  QueryTable[0].Flags = 4;
+  QueryTable[0].QueryRoutine = (int (__fastcall *)(wchar_t *, unsigned int, void *, unsigned int, void *, void *))IopInitCrashDumpRegCallback;
+  QueryTable[0].DefaultType = 0;
+  QueryTable[0].Name = L"ExistingPageFiles";
+  QueryTable[0].EntryContext = &v7;
+  RtlQueryRegistryValuesEx(2u, L"Session Manager\\Memory Management", QueryTable, (PVOID)Context, 0LL);
   if ( !v7 )
   {
     *(_OWORD *)&v8[1] = 0LL;
     v2 = IoInitializeCrashDump(0LL) == 0 ? 0xC0000001 : 0;
   }
-  IopInitializeOfflineCrashDump(*(_QWORD *)(a1 + 240));
+  IopInitializeOfflineCrashDump(*(_QWORD *)(Context + 240));
   return v2;
 }

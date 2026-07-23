@@ -1,11 +1,11 @@
 /*
- * XREFs of SbpUpdateCacheWithCurrentImpl @ 0x18002EBE0
+ * XREFs of SbpUpdateCacheWithCurrentImpl @ 0x18002EBD0
  * Callers:
- *     SbSelectProcedure @ 0x18002E9C0 (SbSelectProcedure.c)
+ *     SbSelectProcedure @ 0x18002E9B0 (SbSelectProcedure.c)
  * Callees:
- *     SbGetContextDetailsByVersion @ 0x18002EDBC (SbGetContextDetailsByVersion.c)
- *     RtlGetVersion @ 0x18002EE50 (RtlGetVersion.c)
- *     __security_check_cookie @ 0x180096C40 (__security_check_cookie.c)
+ *     SbGetContextDetailsByVersion @ 0x18002EDAC (SbGetContextDetailsByVersion.c)
+ *     RtlGetVersion @ 0x18002EE40 (RtlGetVersion.c)
+ *     __security_check_cookie @ 0x180096C30 (__security_check_cookie.c)
  *     memset @ 0x1800ACCC0 (memset.c)
  *     SbpResolveBasedOnName @ 0x1800FEBF4 (SbpResolveBasedOnName.c)
  */
@@ -27,12 +27,18 @@ __int64 __fastcall SbpUpdateCacheWithCurrentImpl(__int64 a1, __int64 a2)
   _DWORD *v17; // rcx
   __int64 v18; // rdi
   __int64 v19; // [rsp+20h] [rbp-178h] BYREF
-  _WORD v20[144]; // [rsp+30h] [rbp-168h] BYREF
+  _OSVERSIONINFOEXW VersionInformation; // [rsp+30h] [rbp-168h] BYREF
 
-  memset(v20, 0, 0x11CuLL);
+  memset(&VersionInformation, 0, sizeof(VersionInformation));
   v19 = 0LL;
-  if ( (int)RtlGetVersion(v20) < 0 || (unsigned int)SbGetContextDetailsByVersion(v20[2], v20[4], &v19) != 1 )
+  if ( RtlGetVersion(&VersionInformation) < 0
+    || (unsigned int)SbGetContextDetailsByVersion(
+                       LOWORD(VersionInformation.dwMajorVersion),
+                       LOWORD(VersionInformation.dwMinorVersion),
+                       &v19) != 1 )
+  {
     return 0LL;
+  }
   v4 = *(_DWORD **)(a2 + 24);
   v5 = 0LL;
   if ( !*v4 )

@@ -78,7 +78,7 @@ __int64 __fastcall MiUnlinkBadPages(unsigned __int64 a1, unsigned __int64 a2)
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
   v7 = -1LL;
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 2 )
@@ -100,10 +100,10 @@ __int64 __fastcall MiUnlinkBadPages(unsigned __int64 a1, unsigned __int64 a2)
       LOBYTE(v14) = MiIsPageInHugePfn(v4);
       if ( v14 )
       {
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v16 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v16 <= 0xFu && CurrentIrql <= 0xFu && v16 >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v16 <= 0xFu && CurrentIrql <= 0xFu && v16 >= 2u )
           {
             CurrentPrcb = KeGetCurrentPrcb();
             v18 = CurrentPrcb->SchedulerAssist;
@@ -118,7 +118,7 @@ __int64 __fastcall MiUnlinkBadPages(unsigned __int64 a1, unsigned __int64 a2)
         v21 = MiMarkHugePfnGood(v4);
         CurrentIrql = KeGetCurrentIrql();
         __writecr8(2uLL);
-        if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+        if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
         {
           v22 = KeGetCurrentPrcb()->SchedulerAssist;
           if ( CurrentIrql == 2 )
@@ -233,10 +233,10 @@ LABEL_83:
         v7 = -1LL;
         goto LABEL_84;
       }
-      if ( !KiIrqlFlags )
+      if ( !(_DWORD)KiIrqlFlags )
         goto LABEL_69;
       v36 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) == 0 )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) == 0 )
         goto LABEL_69;
       v7 = -1LL;
       if ( (unsigned __int8)(v36 - 2) <= 0xDu )
@@ -256,7 +256,7 @@ LABEL_69:
       __writecr8(CurrentIrql);
       v40 = KeGetCurrentIrql();
       __writecr8(2uLL);
-      if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 )
+      if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 )
       {
         if ( v40 > 0xFu )
           goto LABEL_80;
@@ -322,10 +322,10 @@ LABEL_60:
     goto LABEL_61;
   }
 LABEL_86:
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v43 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v43 <= 0xFu && CurrentIrql <= 0xFu && v43 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v43 <= 0xFu && CurrentIrql <= 0xFu && v43 >= 2u )
     {
       v44 = KeGetCurrentPrcb();
       v45 = v44->SchedulerAssist;

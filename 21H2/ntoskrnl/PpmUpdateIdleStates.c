@@ -1,17 +1,17 @@
 /*
- * XREFs of PpmUpdateIdleStates @ 0x140796560
+ * XREFs of PpmUpdateIdleStates @ 0x140796760
  * Callers:
  *     <none>
  * Callees:
- *     KeAddProcessorAffinityEx @ 0x140229380 (KeAddProcessorAffinityEx.c)
- *     PopExecuteOnTargetProcessors @ 0x14027B7DC (PopExecuteOnTargetProcessors.c)
- *     KeGetProcessorIndexFromNumber @ 0x14027BE80 (KeGetProcessorIndexFromNumber.c)
- *     PopReleaseRwLock @ 0x14027C284 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x140281AD4 (PopAcquireRwLockExclusive.c)
- *     PpmHvUseNativeAlgorithms @ 0x1403AE35C (PpmHvUseNativeAlgorithms.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
- *     PpmUpdateIdleContext @ 0x1408E2974 (PpmUpdateIdleContext.c)
+ *     PopExecuteOnTargetProcessors @ 0x14026977C (PopExecuteOnTargetProcessors.c)
+ *     KeGetProcessorIndexFromNumber @ 0x140269E20 (KeGetProcessorIndexFromNumber.c)
+ *     PopReleaseRwLock @ 0x14026A224 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14026FD14 (PopAcquireRwLockExclusive.c)
+ *     KeAddProcessorAffinityEx @ 0x1402CDC80 (KeAddProcessorAffinityEx.c)
+ *     PpmHvUseNativeAlgorithms @ 0x1403AE4AC (PpmHvUseNativeAlgorithms.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     PpmUpdateIdleContext @ 0x1408E2AD4 (PpmUpdateIdleContext.c)
  */
 
 __int64 __fastcall PpmUpdateIdleStates(__int64 a1)

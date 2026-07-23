@@ -1,21 +1,21 @@
 /*
- * XREFs of WmipAddDataSource @ 0x14086A0E0
+ * XREFs of WmipAddDataSource @ 0x14086A320
  * Callers:
- *     WmipProcessWmiRegInfo @ 0x14086A70C (WmipProcessWmiRegInfo.c)
+ *     WmipProcessWmiRegInfo @ 0x14086A94C (WmipProcessWmiRegInfo.c)
  *     WmipInitializeDataStructs @ 0x140B38FE4 (WmipInitializeDataStructs.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140243CE0 (KeWaitForSingleObject.c)
- *     KeReleaseMutex @ 0x1402AFF70 (KeReleaseMutex.c)
- *     WmipCountedToSz @ 0x1406C6BD0 (WmipCountedToSz.c)
- *     WmipUnreferenceEntry @ 0x1406C6FE0 (WmipUnreferenceEntry.c)
- *     WmipAddMofResource @ 0x14080EC6C (WmipAddMofResource.c)
- *     WmipGenerateMofResourceNotification @ 0x140850260 (WmipGenerateMofResourceNotification.c)
- *     WmipGenerateBinaryMofNotification @ 0x14085240C (WmipGenerateBinaryMofNotification.c)
- *     WmipBuildInstanceSet @ 0x14086A3D4 (WmipBuildInstanceSet.c)
- *     WmipLinkDataSourceToList @ 0x14086A914 (WmipLinkDataSourceToList.c)
- *     WmipGenerateRegistrationNotification @ 0x14086AA48 (WmipGenerateRegistrationNotification.c)
- *     WmipAllocEntry @ 0x14086AF00 (WmipAllocEntry.c)
- *     WmipProcessSynchronousEtw @ 0x14086B158 (WmipProcessSynchronousEtw.c)
+ *     KeWaitForSingleObject @ 0x140243DB0 (KeWaitForSingleObject.c)
+ *     KeReleaseMutex @ 0x1402B0200 (KeReleaseMutex.c)
+ *     WmipCountedToSz @ 0x1406C6C00 (WmipCountedToSz.c)
+ *     WmipUnreferenceEntry @ 0x1406C7010 (WmipUnreferenceEntry.c)
+ *     WmipAddMofResource @ 0x14080EF3C (WmipAddMofResource.c)
+ *     WmipGenerateMofResourceNotification @ 0x140850560 (WmipGenerateMofResourceNotification.c)
+ *     WmipGenerateBinaryMofNotification @ 0x14085270C (WmipGenerateBinaryMofNotification.c)
+ *     WmipBuildInstanceSet @ 0x14086A614 (WmipBuildInstanceSet.c)
+ *     WmipLinkDataSourceToList @ 0x14086AB54 (WmipLinkDataSourceToList.c)
+ *     WmipGenerateRegistrationNotification @ 0x14086AC88 (WmipGenerateRegistrationNotification.c)
+ *     WmipAllocEntry @ 0x14086B140 (WmipAllocEntry.c)
+ *     WmipProcessSynchronousEtw @ 0x14086B398 (WmipProcessSynchronousEtw.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

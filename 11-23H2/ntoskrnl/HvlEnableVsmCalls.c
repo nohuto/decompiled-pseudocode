@@ -3,8 +3,8 @@
  * Callers:
  *     KiInitializeBootStructures @ 0x140A8B590 (KiInitializeBootStructures.c)
  * Callees:
- *     HvlpTryConfigureInterface @ 0x1403836B0 (HvlpTryConfigureInterface.c)
- *     HvlpGetVtlCallVa @ 0x140678A20 (HvlpGetVtlCallVa.c)
+ *     HvlpTryConfigureInterface @ 0x140383890 (HvlpTryConfigureInterface.c)
+ *     HvlpGetVtlCallVa @ 0x140678F70 (HvlpGetVtlCallVa.c)
  *     VslBindNtIum @ 0x140B933D4 (VslBindNtIum.c)
  */
 

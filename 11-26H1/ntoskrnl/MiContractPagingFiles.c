@@ -1,15 +1,15 @@
 /*
- * XREFs of MiContractPagingFiles @ 0x1404E8970
+ * XREFs of MiContractPagingFiles @ 0x1404E1D30
  * Callers:
- *     MiSegmentDereferenceWorker @ 0x1404A3320 (MiSegmentDereferenceWorker.c)
+ *     MiSegmentDereferenceWorker @ 0x14049CE30 (MiSegmentDereferenceWorker.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiQueuePageFileExtension @ 0x1404E6668 (MiQueuePageFileExtension.c)
- *     MiPageFileVolumeFreeSpace @ 0x1404E7680 (MiPageFileVolumeFreeSpace.c)
- *     MiExcessCommitExists @ 0x1405069F0 (MiExcessCommitExists.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiQueuePageFileExtension @ 0x1404DFC08 (MiQueuePageFileExtension.c)
+ *     MiPageFileVolumeFreeSpace @ 0x1404E0A3C (MiPageFileVolumeFreeSpace.c)
+ *     MiExcessCommitExists @ 0x1405002A0 (MiExcessCommitExists.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 void __fastcall MiContractPagingFiles(__int64 a1)

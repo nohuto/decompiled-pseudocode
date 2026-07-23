@@ -1,22 +1,22 @@
 /*
- * XREFs of PopRequestPowerIrp @ 0x14036DD20
+ * XREFs of PopRequestPowerIrp @ 0x14036DED0
  * Callers:
- *     PopScanIdleList @ 0x140280878 (PopScanIdleList.c)
- *     PoRequestPowerIrp @ 0x14036DCF0 (PoRequestPowerIrp.c)
- *     PopFxReleasePowerIrp @ 0x1403A4D14 (PopFxReleasePowerIrp.c)
+ *     PopScanIdleList @ 0x14026EAB8 (PopScanIdleList.c)
+ *     PoRequestPowerIrp @ 0x14036DEA0 (PoRequestPowerIrp.c)
+ *     PopFxReleasePowerIrp @ 0x1403A4E64 (PopFxReleasePowerIrp.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
- *     PopAllocateIrp @ 0x14036DF40 (PopAllocateIrp.c)
- *     IofCallDriverSpecifyReturn @ 0x14036E360 (IofCallDriverSpecifyReturn.c)
- *     PopDiagTraceIrpStart @ 0x14036E3E4 (PopDiagTraceIrpStart.c)
- *     PopMapInternalActionToIrpAction @ 0x1403833EC (PopMapInternalActionToIrpAction.c)
- *     PopQueueQuerySetIrp @ 0x140398344 (PopQueueQuerySetIrp.c)
- *     PopFxGetDeviceDStateReason @ 0x1403A0514 (PopFxGetDeviceDStateReason.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     KeSetEvent @ 0x14034E2F0 (KeSetEvent.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PopAllocateIrp @ 0x14036E0F0 (PopAllocateIrp.c)
+ *     IofCallDriverSpecifyReturn @ 0x14036E510 (IofCallDriverSpecifyReturn.c)
+ *     PopDiagTraceIrpStart @ 0x14036E594 (PopDiagTraceIrpStart.c)
+ *     PopMapInternalActionToIrpAction @ 0x14038359C (PopMapInternalActionToIrpAction.c)
+ *     PopQueueQuerySetIrp @ 0x140398494 (PopQueueQuerySetIrp.c)
+ *     PopFxGetDeviceDStateReason @ 0x1403A0664 (PopFxGetDeviceDStateReason.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     PopPepDeviceWaitWake @ 0x140574570 (PopPepDeviceWaitWake.c)
- *     PopLogNotifyDevice @ 0x140576ACC (PopLogNotifyDevice.c)
+ *     PopPepDeviceWaitWake @ 0x1405747B0 (PopPepDeviceWaitWake.c)
+ *     PopLogNotifyDevice @ 0x140576D0C (PopLogNotifyDevice.c)
  */
 
 __int64 __fastcall PopRequestPowerIrp(__int64 a1, char a2, int a3, int a4, __int64 a5, char a6, PIRP Irp)

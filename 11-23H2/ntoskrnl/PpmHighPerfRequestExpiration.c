@@ -1,12 +1,12 @@
 /*
- * XREFs of PpmHighPerfRequestExpiration @ 0x1403B5510
+ * XREFs of PpmHighPerfRequestExpiration @ 0x1403B56F0
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     PopPowerRequestReferenceRelease @ 0x14032B428 (PopPowerRequestReferenceRelease.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PopPowerRequestReferenceRelease @ 0x14032B6B8 (PopPowerRequestReferenceRelease.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 PpmHighPerfRequestExpiration()
@@ -26,10 +26,10 @@ __int64 PpmHighPerfRequestExpiration()
     PpmHighPerfDeferredEndCount = 0;
   }
   result = KxReleaseSpinLock((volatile signed __int64 *)&PpmHighPerfRequestLock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
       && (unsigned __int8)result <= 0xFu
       && (unsigned __int8)v0 <= 0xFu
       && (unsigned __int8)result >= 2u )

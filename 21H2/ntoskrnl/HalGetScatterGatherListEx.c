@@ -1,9 +1,9 @@
 /*
- * XREFs of HalGetScatterGatherListEx @ 0x1404C62B0
+ * XREFs of HalGetScatterGatherListEx @ 0x1404C64F0
  * Callers:
  *     <none>
  * Callees:
- *     HalpBuildScatterGatherList @ 0x14039F434 (HalpBuildScatterGatherList.c)
+ *     HalpBuildScatterGatherList @ 0x14039F584 (HalpBuildScatterGatherList.c)
  */
 
 __int64 __fastcall HalGetScatterGatherListEx(

@@ -1,40 +1,40 @@
 /*
- * XREFs of IoCaptureLiveDump @ 0x14094B9E8
+ * XREFs of IoCaptureLiveDump @ 0x14094BBE8
  * Callers:
- *     DbgkCaptureLiveKernelDump @ 0x14053C108 (DbgkCaptureLiveKernelDump.c)
- *     DbgkpWerCaptureLiveFullDump @ 0x14093B658 (DbgkpWerCaptureLiveFullDump.c)
+ *     DbgkCaptureLiveKernelDump @ 0x14053C658 (DbgkCaptureLiveKernelDump.c)
+ *     DbgkpWerCaptureLiveFullDump @ 0x14093B858 (DbgkpWerCaptureLiveFullDump.c)
  * Callees:
  *     EtwActivityIdControl @ 0x140208AA0 (EtwActivityIdControl.c)
  *     _tlgKeywordOn @ 0x140212E64 (_tlgKeywordOn.c)
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402390E0 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x14023D410 (ExReleaseResourceLite.c)
- *     EtwWrite @ 0x1402578A0 (EtwWrite.c)
- *     KeQueryPerformanceCounter @ 0x1402C3270 (KeQueryPerformanceCounter.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     ExGetExtensionTable @ 0x1402FA440 (ExGetExtensionTable.c)
- *     ExReleaseExtensionTable @ 0x1402FA470 (ExReleaseExtensionTable.c)
- *     SecureDump_GetSecureDumpSettings @ 0x140395B44 (SecureDump_GetSecureDumpSettings.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     IopLiveDumpGetMillisecondCounter @ 0x140559D3C (IopLiveDumpGetMillisecondCounter.c)
- *     IopLiveDumpIsTracingEnabled @ 0x140559D90 (IopLiveDumpIsTracingEnabled.c)
- *     IopLiveDumpOpenVMMemoryPartition @ 0x140559ED8 (IopLiveDumpOpenVMMemoryPartition.c)
- *     IopLiveDumpTrace @ 0x14055A08C (IopLiveDumpTrace.c)
- *     IopLiveDumpTraceDumpFileWriteEnd @ 0x14055A99C (IopLiveDumpTraceDumpFileWriteEnd.c)
- *     IopLiveDumpTraceInterfaceEnd @ 0x14055ACB0 (IopLiveDumpTraceInterfaceEnd.c)
- *     IopLiveDumpTraceInterfaceStart @ 0x14055AEB4 (IopLiveDumpTraceInterfaceStart.c)
- *     KeGetSupervisorStateExtensionHost @ 0x14057264C (KeGetSupervisorStateExtensionHost.c)
- *     IoCreateNotificationEvent @ 0x1407E90F0 (IoCreateNotificationEvent.c)
- *     IopLiveDumpAllocAndInitResources @ 0x14094C56C (IopLiveDumpAllocAndInitResources.c)
- *     IopLiveDumpInitRegistrySettings @ 0x14094E7CC (IopLiveDumpInitRegistrySettings.c)
- *     IopLiveDumpReleaseResources @ 0x14094EE18 (IopLiveDumpReleaseResources.c)
- *     IopLiveDumpValidateParameters @ 0x14094F280 (IopLiveDumpValidateParameters.c)
- *     IopLiveDumpWriteDumpFile @ 0x14094F484 (IopLiveDumpWriteDumpFile.c)
- *     IopLiveDumpWriteDumpFileWithExtraPages @ 0x14094F958 (IopLiveDumpWriteDumpFileWithExtraPages.c)
- *     IopLiveDumpCaptureMemoryPages @ 0x140A9A8B8 (IopLiveDumpCaptureMemoryPages.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     KeLeaveCriticalRegion @ 0x140231550 (KeLeaveCriticalRegion.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402391B0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14023D4E0 (ExReleaseResourceLite.c)
+ *     EtwWrite @ 0x140257960 (EtwWrite.c)
+ *     KeQueryPerformanceCounter @ 0x1402C3500 (KeQueryPerformanceCounter.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6DB4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     ExGetExtensionTable @ 0x1402FA6D0 (ExGetExtensionTable.c)
+ *     ExReleaseExtensionTable @ 0x1402FA700 (ExReleaseExtensionTable.c)
+ *     SecureDump_GetSecureDumpSettings @ 0x140395D24 (SecureDump_GetSecureDumpSettings.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     IopLiveDumpGetMillisecondCounter @ 0x14055A3FC (IopLiveDumpGetMillisecondCounter.c)
+ *     IopLiveDumpIsTracingEnabled @ 0x14055A450 (IopLiveDumpIsTracingEnabled.c)
+ *     IopLiveDumpOpenVMMemoryPartition @ 0x14055A598 (IopLiveDumpOpenVMMemoryPartition.c)
+ *     IopLiveDumpTrace @ 0x14055A74C (IopLiveDumpTrace.c)
+ *     IopLiveDumpTraceDumpFileWriteEnd @ 0x14055B05C (IopLiveDumpTraceDumpFileWriteEnd.c)
+ *     IopLiveDumpTraceInterfaceEnd @ 0x14055B370 (IopLiveDumpTraceInterfaceEnd.c)
+ *     IopLiveDumpTraceInterfaceStart @ 0x14055B574 (IopLiveDumpTraceInterfaceStart.c)
+ *     KeGetSupervisorStateExtensionHost @ 0x140572B8C (KeGetSupervisorStateExtensionHost.c)
+ *     IoCreateNotificationEvent @ 0x1407E93C0 (IoCreateNotificationEvent.c)
+ *     IopLiveDumpAllocAndInitResources @ 0x14094C76C (IopLiveDumpAllocAndInitResources.c)
+ *     IopLiveDumpInitRegistrySettings @ 0x14094E9CC (IopLiveDumpInitRegistrySettings.c)
+ *     IopLiveDumpReleaseResources @ 0x14094F018 (IopLiveDumpReleaseResources.c)
+ *     IopLiveDumpValidateParameters @ 0x14094F480 (IopLiveDumpValidateParameters.c)
+ *     IopLiveDumpWriteDumpFile @ 0x14094F684 (IopLiveDumpWriteDumpFile.c)
+ *     IopLiveDumpWriteDumpFileWithExtraPages @ 0x14094FB58 (IopLiveDumpWriteDumpFileWithExtraPages.c)
+ *     IopLiveDumpCaptureMemoryPages @ 0x140A9A728 (IopLiveDumpCaptureMemoryPages.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
@@ -218,7 +218,7 @@ LABEL_35:
                 v81 = &v41;
                 tlgWriteTransfer_EtwWriteTransfer(
                   (__int64)&dword_140C03870,
-                  (unsigned __int8 *)&byte_14002BFEF,
+                  (unsigned __int8 *)&byte_14002C0D7,
                   (const GUID *)(v11 + 968),
                   (const GUID *)(v11 + 952),
                   5u,
@@ -285,7 +285,7 @@ LABEL_35:
         }
         tlgWriteTransfer_EtwWriteTransfer(
           (__int64)&dword_140C03870,
-          (unsigned __int8 *)byte_14002BEE9,
+          (unsigned __int8 *)byte_14002BFD1,
           v34,
           v33,
           0xEu,
@@ -381,7 +381,7 @@ LABEL_14:
         v85 = 8;
         tlgWriteTransfer_EtwWriteTransfer(
           (__int64)&dword_140C03870,
-          (unsigned __int8 *)byte_14002C048,
+          (unsigned __int8 *)byte_14002C130,
           (const GUID *)(v11 + 968),
           (const GUID *)(v11 + 952),
           3u,

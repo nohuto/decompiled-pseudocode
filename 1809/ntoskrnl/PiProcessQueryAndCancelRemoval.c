@@ -1,16 +1,16 @@
 /*
- * XREFs of PiProcessQueryAndCancelRemoval @ 0x140840138
+ * XREFs of PiProcessQueryAndCancelRemoval @ 0x140841398
  * Callers:
- *     PnpProcessQueryRemoveAndEject @ 0x1406EF790 (PnpProcessQueryRemoveAndEject.c)
+ *     PnpProcessQueryRemoveAndEject @ 0x1406F0A30 (PnpProcessQueryRemoveAndEject.c)
  * Callees:
- *     memmove @ 0x1401D1540 (memmove.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     PnpAllocateCriticalMemory @ 0x1406EEB64 (PnpAllocateCriticalMemory.c)
- *     PnpNotifyUserModeDeviceRemoval @ 0x1406F00F4 (PnpNotifyUserModeDeviceRemoval.c)
- *     PiEventAreDeviceRelationsExcluded @ 0x1406F0304 (PiEventAreDeviceRelationsExcluded.c)
- *     PnpCancelRemoveOnHungDevices @ 0x140827FEC (PnpCancelRemoveOnHungDevices.c)
- *     PnpFinalizeVetoedRemove @ 0x140832F9C (PnpFinalizeVetoedRemove.c)
- *     PipProcessQueryRemovalInKernelMode @ 0x140840630 (PipProcessQueryRemovalInKernelMode.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     PnpAllocateCriticalMemory @ 0x1406EFE04 (PnpAllocateCriticalMemory.c)
+ *     PnpNotifyUserModeDeviceRemoval @ 0x1406F1394 (PnpNotifyUserModeDeviceRemoval.c)
+ *     PiEventAreDeviceRelationsExcluded @ 0x1406F15A4 (PiEventAreDeviceRelationsExcluded.c)
+ *     PnpCancelRemoveOnHungDevices @ 0x1408291EC (PnpCancelRemoveOnHungDevices.c)
+ *     PnpFinalizeVetoedRemove @ 0x1408341FC (PnpFinalizeVetoedRemove.c)
+ *     PipProcessQueryRemovalInKernelMode @ 0x140841890 (PipProcessQueryRemovalInKernelMode.c)
  */
 
 __int64 __fastcall PiProcessQueryAndCancelRemoval(

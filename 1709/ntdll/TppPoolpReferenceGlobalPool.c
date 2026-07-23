@@ -18,102 +18,99 @@
  *     TppRaiseInvalidParameter @ 0x18010AED8 (TppRaiseInvalidParameter.c)
  */
 
-__int64 __fastcall TppPoolpReferenceGlobalPool(
+NTSTATUS __fastcall TppPoolpReferenceGlobalPool(
         volatile signed __int32 **a1,
         _PEB_LDR_DATA *Ldr,
-        volatile signed __int32 **a3,
-        __int64 a4)
+        volatile signed __int32 **a3)
 {
-  _PEB_LDR_DATA *v5; // r14
-  char v7; // bl
-  __int64 v8; // rdx
-  __int64 v9; // r8
-  __int64 result; // rax
-  int v11; // edi
-  __int64 v12; // rbx
-  int v13; // edx
-  __int64 v14; // rdx
-  int v15; // eax
-  int v16; // [rsp+20h] [rbp-38h]
-  __int64 v17; // [rsp+78h] [rbp+20h] BYREF
+  _RTL_SRWLOCK *v4; // r14
+  char v6; // bl
+  NTSTATUS result; // eax
+  int v8; // edi
+  _TP_POOL *v9; // rbx
+  ULONG v10; // edx
+  __int64 v11; // rdx
+  NTSTATUS v12; // eax
+  NTSTATUS v13; // [rsp+20h] [rbp-38h]
+  PTP_POOL PoolReturn; // [rsp+78h] [rbp+20h] BYREF
 
-  v5 = Ldr;
+  v4 = (_RTL_SRWLOCK *)Ldr;
   if ( !a3 || !a1 || !Ldr || (Ldr = NtCurrentPeb()->Ldr, Ldr->ShutdownInProgress) )
   {
-    TppRaiseInvalidParameter(a1, Ldr, a3, a4);
-    return 3221225485LL;
+    TppRaiseInvalidParameter(a1, Ldr);
+    return -1073741811;
   }
   if ( *a1 )
   {
-    v7 = 0;
-    RtlAcquireSRWLockShared(v5);
+    v6 = 0;
+    RtlAcquireSRWLockShared(v4);
     if ( *a1 )
     {
       _InterlockedIncrement(*a1);
       *a3 = *a1;
-      v7 = 1;
+      v6 = 1;
     }
-    RtlReleaseSRWLockShared(v5, v8, v9);
-    if ( v7 )
-      return 0LL;
+    RtlReleaseSRWLockShared(v4);
+    if ( v6 )
+      return 0;
   }
-  v17 = 0LL;
-  result = TpAllocPool((__int64)&v17, 0LL);
-  v11 = result;
-  v16 = result;
-  if ( (int)result >= 0 )
+  PoolReturn = 0LL;
+  result = TpAllocPool(&PoolReturn, 0LL);
+  v8 = result;
+  v13 = result;
+  if ( result >= 0 )
   {
-    RtlAcquireSRWLockExclusive(v5);
+    RtlAcquireSRWLockExclusive(v4);
     if ( *a1 )
     {
       _InterlockedIncrement(*a1);
-      v11 = v16;
-      v12 = v17;
+      v8 = v13;
+      v9 = PoolReturn;
       goto LABEL_29;
     }
-    v12 = v17;
+    v9 = PoolReturn;
     if ( a1 == (volatile signed __int32 **)&TppPoolpGlobalPool )
     {
       if ( TppPoolpGlobalPoolMaxThreads )
       {
-        TpSetPoolMaxThreads(v17, TppPoolpGlobalPoolMaxThreads);
+        TpSetPoolMaxThreads(PoolReturn, TppPoolpGlobalPoolMaxThreads);
       }
       else
       {
-        v13 = 8 * MEMORY[0x7FFE03C0];
+        v10 = 8 * MEMORY[0x7FFE03C0];
         if ( (unsigned int)(8 * MEMORY[0x7FFE03C0]) < 0x300 )
-          v13 = 768;
-        TpSetPoolMaxThreads(v17, v13);
-        v14 = (unsigned int)(4 * MEMORY[0x7FFE03C0]);
-        if ( (unsigned int)v14 < 0x180 )
-          v14 = 384LL;
-        TpSetPoolMaxThreadsSoftLimit(v12, v14);
+          v10 = 768;
+        TpSetPoolMaxThreads(PoolReturn, v10);
+        v11 = (unsigned int)(4 * MEMORY[0x7FFE03C0]);
+        if ( (unsigned int)v11 < 0x180 )
+          v11 = 384LL;
+        TpSetPoolMaxThreadsSoftLimit(v9, v11);
       }
       if ( !TppPoolpGlobalPoolStackSize )
         goto LABEL_21;
-      v15 = TpSetPoolStackInformation(v12, TppPoolpGlobalPoolStackSize);
+      v12 = TpSetPoolStackInformation(v9, TppPoolpGlobalPoolStackSize);
     }
     else
     {
       if ( a1 != (volatile signed __int32 **)&TppPoolpSerializedPool )
       {
 LABEL_21:
-        *a1 = (volatile signed __int32 *)v12;
-        v12 = 0LL;
-        v17 = 0LL;
+        *a1 = (volatile signed __int32 *)v9;
+        v9 = 0LL;
+        PoolReturn = 0LL;
 LABEL_29:
-        RtlReleaseSRWLockExclusive(v5);
-        if ( v12 )
-          TpReleasePool(v12);
-        if ( v11 >= 0 )
+        RtlReleaseSRWLockExclusive(v4);
+        if ( v9 )
+          TpReleasePool(v9);
+        if ( v8 >= 0 )
           *a3 = *a1;
-        return (unsigned int)v11;
+        return v8;
       }
-      TpSetPoolMaxThreads(v17, 1);
-      v15 = TpSetPoolMinThreads(v12, 1LL);
+      TpSetPoolMaxThreads(PoolReturn, 1u);
+      v12 = TpSetPoolMinThreads(v9, 1u);
     }
-    v11 = v15;
-    if ( v15 < 0 )
+    v8 = v12;
+    if ( v12 < 0 )
       goto LABEL_29;
     goto LABEL_21;
   }

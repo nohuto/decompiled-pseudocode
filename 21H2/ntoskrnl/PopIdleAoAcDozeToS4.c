@@ -1,13 +1,13 @@
 /*
- * XREFs of PopIdleAoAcDozeToS4 @ 0x1408F5540
+ * XREFs of PopIdleAoAcDozeToS4 @ 0x1408F56A0
  * Callers:
  *     <none>
  * Callees:
- *     PopDeepSleepClearDisengageReason @ 0x1402815D0 (PopDeepSleepClearDisengageReason.c)
- *     PopExecutePowerAction @ 0x1407751C8 (PopExecutePowerAction.c)
- *     PopTraceSystemIdleS0LowPowerDoze @ 0x1408EC754 (PopTraceSystemIdleS0LowPowerDoze.c)
- *     PopReleasePolicyLock @ 0x14098F590 (PopReleasePolicyLock.c)
- *     PopAcquirePolicyLock @ 0x14098F5D0 (PopAcquirePolicyLock.c)
+ *     PopDeepSleepClearDisengageReason @ 0x14026F810 (PopDeepSleepClearDisengageReason.c)
+ *     PopExecutePowerAction @ 0x140775388 (PopExecutePowerAction.c)
+ *     PopTraceSystemIdleS0LowPowerDoze @ 0x1408EC8B4 (PopTraceSystemIdleS0LowPowerDoze.c)
+ *     PopReleasePolicyLock @ 0x140991044 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140991084 (PopAcquirePolicyLock.c)
  */
 
 __int64 __fastcall PopIdleAoAcDozeToS4(int a1)
@@ -21,18 +21,18 @@ __int64 __fastcall PopIdleAoAcDozeToS4(int a1)
 
   PopAcquirePolicyLock(a1);
   PopTraceSystemIdleS0LowPowerDoze();
-  dword_140C23390 = 0;
+  dword_140C23990 = 0;
   v7 = 0LL;
-  if ( dword_140C233A8 == 1 )
+  if ( dword_140C239A8 == 1 )
     goto LABEL_10;
-  if ( dword_140C233A8 != 2 )
+  if ( dword_140C239A8 != 2 )
   {
-    if ( dword_140C233A8 == 3 )
+    if ( dword_140C239A8 == 3 )
     {
       v6[0] = 13;
       goto LABEL_11;
     }
-    if ( dword_140C233A8 == 4 )
+    if ( dword_140C239A8 == 4 )
     {
       v6[0] = 14;
       goto LABEL_11;
@@ -42,8 +42,8 @@ LABEL_10:
     goto LABEL_11;
   }
   v6[0] = 11;
-  if ( qword_140C23498
-    && MEMORY[0xFFFFF78000000008] - qword_140C23498 > 10000000
+  if ( qword_140C23AB8
+    && MEMORY[0xFFFFF78000000008] - qword_140C23AB8 > 10000000
                                                     * (unsigned __int64)(unsigned int)PopSmartUserPresenceCheckTimeout )
   {
     v6[0] = 12;
@@ -54,6 +54,6 @@ LABEL_11:
   v4 = 0x8000002400000003uLL;
   PopExecutePowerAction((__int64)v6, 0, &v4, 5, 1u);
   PopReleasePolicyLock(v2, v1);
-  _InterlockedAnd(&dword_140C233AC, 0);
+  _InterlockedAnd(&dword_140C239AC, 0);
   return PopDeepSleepClearDisengageReason(4u);
 }

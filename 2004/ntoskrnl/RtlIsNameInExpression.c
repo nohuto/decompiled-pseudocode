@@ -17,7 +17,7 @@ BOOLEAN __stdcall RtlIsNameInExpression(
         PWCH UpcaseTable)
 {
   int v5; // edi
-  int v6; // eax
+  NTSTATUS v6; // eax
   BOOLEAN IsNameInExpressionPrivate; // bl
   UNICODE_STRING UnicodeString; // [rsp+30h] [rbp-18h] BYREF
 
@@ -27,7 +27,7 @@ BOOLEAN __stdcall RtlIsNameInExpression(
   {
     v6 = RtlpUpcaseUnicodeStringPrivate((__int64)&UnicodeString, &Name->Length);
     if ( v6 < 0 )
-      RtlRaiseStatus((unsigned int)v6);
+      RtlRaiseStatus(v6);
     Name = &UnicodeString;
     IgnoreCase = 0;
   }

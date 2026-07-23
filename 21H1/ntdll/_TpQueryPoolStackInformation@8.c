@@ -6,20 +6,21 @@
  *     _ZwQueryInformationWorkerFactory@20 @ 0x4B2F3E70 (_ZwQueryInformationWorkerFactory@20.c)
  */
 
-int __stdcall TpQueryPoolStackInformation(int a1, _DWORD *a2)
+NTSTATUS __cdecl TpQueryPoolStackInformation(PTP_POOL Pool, PTP_POOL_STACK_INFORMATION PoolStackInformation)
 {
-  int result; // eax
-  _BYTE v3[84]; // [esp+4h] [ebp-60h] BYREF
-  int v4; // [esp+58h] [ebp-Ch]
-  int v5; // [esp+5Ch] [ebp-8h]
+  NTSTATUS result; // eax
+  _BYTE WorkerFactoryInformation[84]; // [esp+4h] [ebp-60h] BYREF
+  SIZE_T v4; // [esp+58h] [ebp-Ch]
 
-  if ( !a1 || !a2 )
+  if ( !Pool || !PoolStackInformation )
     return -1073741811;
-  result = ZwQueryInformationWorkerFactory(*(_DWORD *)(a1 + 36), 7, (int)v3, 96, 0);
+  result = ZwQueryInformationWorkerFactory(
+             *((HANDLE *)Pool + 9),
+             WorkerFactoryBasicInformation,
+             WorkerFactoryInformation,
+             0x60u,
+             0);
   if ( result >= 0 )
-  {
-    a2[1] = v5;
-    *a2 = v4;
-  }
+    PoolStackInformation->StackReserve = v4;
   return result;
 }

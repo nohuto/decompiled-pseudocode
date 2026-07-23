@@ -1,49 +1,49 @@
 /*
- * XREFs of RtlxOemStringToUnicodeSize @ 0x1800BF100
+ * XREFs of RtlxOemStringToUnicodeSize @ 0x1800BCC70
  * Callers:
  *     <none>
  * Callees:
- *     RtlUTF8ToUnicodeN @ 0x18003BC80 (RtlUTF8ToUnicodeN.c)
+ *     RtlUTF8ToUnicodeN @ 0x1800261F0 (RtlUTF8ToUnicodeN.c)
  */
 
 __int64 __fastcall RtlxOemStringToUnicodeSize(unsigned __int16 *a1)
 {
-  unsigned int v1; // eax
+  ULONG UTF8StringByteCount; // eax
   int v2; // edx
-  char *v3; // r9
+  const CHAR *v3; // r9
   __int64 v6; // rcx
   signed __int32 v7[8]; // [rsp+0h] [rbp-38h] BYREF
-  int v8; // [rsp+40h] [rbp+8h] BYREF
+  ULONG UnicodeStringActualByteCount; // [rsp+40h] [rbp+8h] BYREF
 
-  v1 = *a1;
+  UTF8StringByteCount = *a1;
   v2 = 0;
-  v3 = (char *)*((_QWORD *)a1 + 1);
-  v8 = 0;
+  v3 = (const CHAR *)*((_QWORD *)a1 + 1);
+  UnicodeStringActualByteCount = 0;
   _InterlockedOr(v7, 0);
-  if ( word_1801C5FD0 == -535 || GlobalRtlNlsState == -535 )
+  if ( CodePageTable.CodePage == 0xFDE9 || GlobalRtlNlsState.CodePage == 0xFDE9 )
   {
-    if ( v1 )
+    if ( UTF8StringByteCount )
     {
-      RtlUTF8ToUnicodeN(0LL, 0, &v8, v3, v1);
-      return (unsigned int)(v8 + 2);
+      RtlUTF8ToUnicodeN(0LL, 0, &UnicodeStringActualByteCount, v3, UTF8StringByteCount);
+      return UnicodeStringActualByteCount + 2;
     }
   }
   else
   {
     _InterlockedOr(v7, 0);
-    if ( !word_1801C5F9C )
-      return 2 * v1 + 2;
-    while ( v1-- )
+    if ( !GlobalRtlNlsState.DBCSCodePage )
+      return 2 * UTF8StringByteCount + 2;
+    while ( UTF8StringByteCount-- )
     {
-      v6 = (unsigned __int8)*v3++;
-      if ( *(_WORD *)(qword_1801C6020 + 2 * v6) )
+      v6 = *(unsigned __int8 *)v3++;
+      if ( *(_WORD *)(qword_1801C5020 + 2 * v6) )
       {
-        if ( !v1 )
+        if ( !UTF8StringByteCount )
         {
           v2 += 2;
           return (unsigned int)(v2 + 2);
         }
-        --v1;
+        --UTF8StringByteCount;
         ++v3;
       }
       v2 += 2;

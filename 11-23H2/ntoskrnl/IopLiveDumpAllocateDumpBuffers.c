@@ -1,16 +1,16 @@
 /*
- * XREFs of IopLiveDumpAllocateDumpBuffers @ 0x14094CBF4
+ * XREFs of IopLiveDumpAllocateDumpBuffers @ 0x14094CDF4
  * Callers:
- *     IopLiveDumpAllocAndInitResources @ 0x14094C56C (IopLiveDumpAllocAndInitResources.c)
+ *     IopLiveDumpAllocAndInitResources @ 0x14094C76C (IopLiveDumpAllocAndInitResources.c)
  * Callees:
- *     IopLiveDumpGetMillisecondCounter @ 0x140559D3C (IopLiveDumpGetMillisecondCounter.c)
- *     IopLiveDumpIsUnderMemoryPressure @ 0x140559DB4 (IopLiveDumpIsUnderMemoryPressure.c)
- *     IopLiveDumpTraceEstimatedAndAllocatedPageCount @ 0x14055AADC (IopLiveDumpTraceEstimatedAndAllocatedPageCount.c)
- *     MmAllocateIndependentPagesEx @ 0x14086C23C (MmAllocateIndependentPagesEx.c)
- *     IopLiveDumpAllocateFromIOSpace @ 0x14094D4E4 (IopLiveDumpAllocateFromIOSpace.c)
- *     IopLiveDumpAllocateFromVMMemoryPartition @ 0x14094D824 (IopLiveDumpAllocateFromVMMemoryPartition.c)
- *     IopLiveDumpDiscardVirtualAddressRange @ 0x14094DF14 (IopLiveDumpDiscardVirtualAddressRange.c)
- *     IopLiveDumpFreeDumpBuffers @ 0x14094E028 (IopLiveDumpFreeDumpBuffers.c)
+ *     IopLiveDumpGetMillisecondCounter @ 0x14055A3FC (IopLiveDumpGetMillisecondCounter.c)
+ *     IopLiveDumpIsUnderMemoryPressure @ 0x14055A474 (IopLiveDumpIsUnderMemoryPressure.c)
+ *     IopLiveDumpTraceEstimatedAndAllocatedPageCount @ 0x14055B19C (IopLiveDumpTraceEstimatedAndAllocatedPageCount.c)
+ *     MmAllocateIndependentPagesEx @ 0x14086C47C (MmAllocateIndependentPagesEx.c)
+ *     IopLiveDumpAllocateFromIOSpace @ 0x14094D6E4 (IopLiveDumpAllocateFromIOSpace.c)
+ *     IopLiveDumpAllocateFromVMMemoryPartition @ 0x14094DA24 (IopLiveDumpAllocateFromVMMemoryPartition.c)
+ *     IopLiveDumpDiscardVirtualAddressRange @ 0x14094E114 (IopLiveDumpDiscardVirtualAddressRange.c)
+ *     IopLiveDumpFreeDumpBuffers @ 0x14094E228 (IopLiveDumpFreeDumpBuffers.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 

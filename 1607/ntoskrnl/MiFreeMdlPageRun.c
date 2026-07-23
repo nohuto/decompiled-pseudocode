@@ -1,12 +1,12 @@
 /*
- * XREFs of MiFreeMdlPageRun @ 0x140022A34
+ * XREFs of MiFreeMdlPageRun @ 0x1400225B4
  * Callers:
- *     MiFreePagesFromMdl @ 0x140099EF8 (MiFreePagesFromMdl.c)
- *     MiFreePartitionPageRun @ 0x1401F1A20 (MiFreePartitionPageRun.c)
- *     MiCleanPhysicalProcessPages @ 0x14065C30C (MiCleanPhysicalProcessPages.c)
+ *     MiFreePagesFromMdl @ 0x1400996F8 (MiFreePagesFromMdl.c)
+ *     MiFreePartitionPageRun @ 0x1401F184C (MiFreePartitionPageRun.c)
+ *     MiCleanPhysicalProcessPages @ 0x14065C3F0 (MiCleanPhysicalProcessPages.c)
  * Callees:
- *     MiFreeSmallPageFromMdl @ 0x140022AF0 (MiFreeSmallPageFromMdl.c)
- *     MiFreeLargePageMemory @ 0x140090970 (MiFreeLargePageMemory.c)
+ *     MiFreeSmallPageFromMdl @ 0x140022670 (MiFreeSmallPageFromMdl.c)
+ *     MiFreeLargePageMemory @ 0x1400900D0 (MiFreeLargePageMemory.c)
  */
 
 __int64 __fastcall MiFreeMdlPageRun(ULONG_PTR a1, unsigned __int64 a2, char a3)

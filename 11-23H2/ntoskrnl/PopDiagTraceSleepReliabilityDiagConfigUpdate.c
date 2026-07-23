@@ -1,11 +1,11 @@
 /*
- * XREFs of PopDiagTraceSleepReliabilityDiagConfigUpdate @ 0x1409915FC
+ * XREFs of PopDiagTraceSleepReliabilityDiagConfigUpdate @ 0x1409917FC
  * Callers:
- *     PopPowerInformationInternal @ 0x1407ED06C (PopPowerInformationInternal.c)
+ *     PopPowerInformationInternal @ 0x1407ED33C (PopPowerInformationInternal.c)
  * Callees:
  *     _tlgKeywordOn @ 0x140212E64 (_tlgKeywordOn.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6DB4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 void PopDiagTraceSleepReliabilityDiagConfigUpdate()
@@ -33,13 +33,7 @@ void PopDiagTraceSleepReliabilityDiagConfigUpdate()
       v5 = 1;
       v2 = 0x1000000LL;
       v8 = 8;
-      tlgWriteTransfer_EtwWriteTransfer(
-        (__int64)&dword_140C03950,
-        (unsigned __int8 *)&word_1400301D6,
-        0LL,
-        0LL,
-        4u,
-        &v3);
+      tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C03950, (unsigned __int8 *)byte_14002FBD1, 0LL, 0LL, 4u, &v3);
     }
   }
 }

@@ -1,17 +1,17 @@
 /*
- * XREFs of MiFindOptimalEngineToAddThread @ 0x14051F998
+ * XREFs of MiFindOptimalEngineToAddThread @ 0x14052203C
  * Callers:
- *     MiAddZeroingThread @ 0x14051F7F0 (MiAddZeroingThread.c)
+ *     MiAddZeroingThread @ 0x140521E94 (MiAddZeroingThread.c)
  * Callees:
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402DC6D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExAcquireSpinLockSharedAtDpcLevel @ 0x1402EDFB0 (ExAcquireSpinLockSharedAtDpcLevel.c)
- *     MiFindBestZeroingProcessor @ 0x1403E9158 (MiFindBestZeroingProcessor.c)
- *     MiGetEngineBackgroundQualifications @ 0x1404E9F3C (MiGetEngineBackgroundQualifications.c)
- *     MiComputeCurrentZeroBandwidth @ 0x14051FC08 (MiComputeCurrentZeroBandwidth.c)
- *     MiGetNextEngineType @ 0x14051FCA8 (MiGetNextEngineType.c)
- *     MiUpdateBackgroundZeroingActive @ 0x14051FD0C (MiUpdateBackgroundZeroingActive.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402BE490 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x1402D0030 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     MiFindBestZeroingProcessor @ 0x1402F6038 (MiFindBestZeroingProcessor.c)
+ *     MiGetEngineBackgroundQualifications @ 0x1404E32EC (MiGetEngineBackgroundQualifications.c)
+ *     MiComputeCurrentZeroBandwidth @ 0x1405222AC (MiComputeCurrentZeroBandwidth.c)
+ *     MiGetNextEngineType @ 0x14052234C (MiGetNextEngineType.c)
+ *     MiUpdateBackgroundZeroingActive @ 0x1405223B0 (MiUpdateBackgroundZeroingActive.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall MiFindOptimalEngineToAddThread(__int64 a1, int a2, int a3, int *a4, __int64 a5)
@@ -60,7 +60,7 @@ __int64 __fastcall MiFindOptimalEngineToAddThread(__int64 a1, int a2, int a3, in
   }
   *a4 = 0;
   v12 = 0;
-  v13 = *(_QWORD *)(384LL * *(unsigned int *)(a1 + 56) + qword_140E2D6B8 + 376);
+  v13 = *(_QWORD *)(384LL * *(unsigned int *)(a1 + 56) + qword_140E2D838 + 376);
   v14 = (volatile LONG *)(v13 + 64);
   v27 = (volatile LONG *)(v13 + 64);
   ExAcquireSpinLockSharedAtDpcLevel((PEX_SPIN_LOCK)(v13 + 64));

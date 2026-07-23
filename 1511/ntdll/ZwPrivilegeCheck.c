@@ -9,11 +9,11 @@
  *     <none>
  */
 
-__int64 ZwPrivilegeCheck()
+NTSTATUS __cdecl ZwPrivilegeCheck(HANDLE ClientToken, PPRIVILEGE_SET RequiredPrivileges, PBOOLEAN Result)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 293LL;
+  result = 293;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

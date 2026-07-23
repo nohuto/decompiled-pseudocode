@@ -1,13 +1,13 @@
 /*
- * XREFs of CmpLazyWriteWorker @ 0x140143594
+ * XREFs of CmpLazyWriteWorker @ 0x140143B04
  * Callers:
  *     <none>
  * Callees:
- *     KeWaitForSingleObject @ 0x14005C880 (KeWaitForSingleObject.c)
- *     CmpCompleteLazyWrite @ 0x1400B027C (CmpCompleteLazyWrite.c)
- *     KeReleaseSpinLock @ 0x1400E9A70 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1400EFE30 (KeAcquireSpinLockRaiseToDpc.c)
- *     CmpDiskFullWarning @ 0x140603614 (CmpDiskFullWarning.c)
+ *     KeWaitForSingleObject @ 0x14005C400 (KeWaitForSingleObject.c)
+ *     CmpCompleteLazyWrite @ 0x1400AE420 (CmpCompleteLazyWrite.c)
+ *     KeReleaseSpinLock @ 0x1400EB600 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1400EDCB0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     CmpDiskFullWarning @ 0x1406036C8 (CmpDiskFullWarning.c)
  */
 
 void __fastcall __noreturn CmpLazyWriteWorker(struct _KTIMER *StartContext)

@@ -11,9 +11,9 @@ __int64 __fastcall sub_18002DCD4(__int64 a1)
   struct _PEB *v1; // r8
   __int64 result; // rax
   unsigned int NumberOfHeaps; // edx
-  void **ProcessHeaps; // r9
-  void **v5; // rbx
-  void **v6; // rdi
+  PVOID *ProcessHeaps; // r9
+  PVOID *v5; // rbx
+  PVOID *v6; // rdi
   unsigned int v7; // r10d
   __int16 v8; // r11
   __int16 v9; // si
@@ -41,7 +41,7 @@ __int64 __fastcall sub_18002DCD4(__int64 a1)
       do
       {
         v11 = (__int64)*v5++;
-        *v6 = (void *)v11;
+        *v6 = (PVOID)v11;
         if ( *(_DWORD *)(v11 + 16) == -571548178 )
           v12 = *(_WORD *)(v11 + 60);
         else

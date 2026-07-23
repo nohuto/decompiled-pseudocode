@@ -1,14 +1,14 @@
 /*
- * XREFs of ZwPrivilegeCheck @ 0x140725C50
+ * XREFs of ZwPrivilegeCheck @ 0x14072A820
  * Callers:
- *     DifZwPrivilegeCheckWrapper @ 0x1406AED20 (DifZwPrivilegeCheckWrapper.c)
+ *     DifZwPrivilegeCheckWrapper @ 0x1406B2900 (DifZwPrivilegeCheckWrapper.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwPrivilegeCheck(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwPrivilegeCheck(HANDLE ClientToken, PPRIVILEGE_SET RequiredPrivileges, PBOOLEAN Result)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(ClientToken);
 }

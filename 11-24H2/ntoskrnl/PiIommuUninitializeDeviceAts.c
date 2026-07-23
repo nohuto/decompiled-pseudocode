@@ -1,10 +1,10 @@
 /*
- * XREFs of PiIommuUninitializeDeviceAts @ 0x1404C1094
+ * XREFs of PiIommuUninitializeDeviceAts @ 0x1404BC67C
  * Callers:
- *     PnpSurpriseRemoveLockedDeviceNode @ 0x140A109EC (PnpSurpriseRemoveLockedDeviceNode.c)
- *     PiDmaGuardProcessPostRemove @ 0x140A8BD58 (PiDmaGuardProcessPostRemove.c)
+ *     PnpSurpriseRemoveLockedDeviceNode @ 0x1409BEDFC (PnpSurpriseRemoveLockedDeviceNode.c)
+ *     PiDmaGuardProcessPostRemove @ 0x140A88248 (PiDmaGuardProcessPostRemove.c)
  * Callees:
- *     ExUninitializeDeviceAts @ 0x140657E2C (ExUninitializeDeviceAts.c)
+ *     ExUninitializeDeviceAts @ 0x14065652C (ExUninitializeDeviceAts.c)
  */
 
 __int64 __fastcall PiIommuUninitializeDeviceAts(__int64 a1)

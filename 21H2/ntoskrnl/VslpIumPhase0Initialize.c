@@ -1,19 +1,19 @@
 /*
- * XREFs of VslpIumPhase0Initialize @ 0x140A8F5C8
+ * XREFs of VslpIumPhase0Initialize @ 0x140A905C8
  * Callers:
- *     HvlPhase1Initialize @ 0x1403CFB58 (HvlPhase1Initialize.c)
- *     VslInitSystem @ 0x140A72D70 (VslInitSystem.c)
+ *     HvlPhase1Initialize @ 0x1403CFCC8 (HvlPhase1Initialize.c)
+ *     VslInitSystem @ 0x140A73D70 (VslInitSystem.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140262C90 (VslpEnterIumSecureMode.c)
- *     HvlQueryVsmConnection @ 0x140277468 (HvlQueryVsmConnection.c)
- *     MmGetPhysicalAddress @ 0x1402A8700 (MmGetPhysicalAddress.c)
- *     MmSetPageProtection @ 0x140379C80 (MmSetPageProtection.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     memset @ 0x140414200 (memset.c)
- *     KeQueryKvaShadowInformation @ 0x1408BCC88 (KeQueryKvaShadowInformation.c)
- *     VslpIumPhase0InitializeNtKd @ 0x140A8F850 (VslpIumPhase0InitializeNtKd.c)
+ *     MmGetPhysicalAddress @ 0x140226840 (MmGetPhysicalAddress.c)
+ *     HvlQueryVsmConnection @ 0x140265408 (HvlQueryVsmConnection.c)
+ *     VslpEnterIumSecureMode @ 0x1402840D0 (VslpEnterIumSecureMode.c)
+ *     MmSetPageProtection @ 0x1403797D0 (MmSetPageProtection.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     KeQueryKvaShadowInformation @ 0x1408BCDE8 (KeQueryKvaShadowInformation.c)
+ *     VslpIumPhase0InitializeNtKd @ 0x140A90850 (VslpIumPhase0InitializeNtKd.c)
  */
 
 __int64 __fastcall VslpIumPhase0Initialize(__int64 a1)
@@ -77,12 +77,12 @@ __int64 __fastcall VslpIumPhase0Initialize(__int64 a1)
     if ( LODWORD(v12[2]) != 167772168 )
       KeBugCheckEx(0x6Fu, 0xFFFFFFFFC0000059uLL, 0LL, 2uLL, 0LL);
     v10 = 0;
-    qword_140C473D0 = (__int64)&qword_140C473C8;
-    qword_140C473C8 = (__int64)&qword_140C473C8;
-    dword_140C473C4 = HIDWORD(v12[2]);
-    dword_140C473D8 = HIDWORD(v12[2]);
+    qword_140C47390 = (__int64)&qword_140C47388;
+    qword_140C47388 = (__int64)&qword_140C47388;
+    dword_140C47384 = HIDWORD(v12[2]);
+    dword_140C47398 = HIDWORD(v12[2]);
     VslpIumThreadSemaphore = 5;
-    byte_140C473C2 = 8;
+    byte_140C47382 = 8;
     VslVsmEnabled = 1;
     ((void (__fastcall *)(__int64, __int64, int *))off_140C00A70[0])(16LL, 4LL, &v10);
     return ((__int64 (__fastcall *)(__int64, __int64, int *))off_140C00A70[0])(18LL, 4LL, &v11);

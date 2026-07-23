@@ -1,39 +1,39 @@
 /*
- * XREFs of IopfCompleteRequest @ 0x1403FDA10
+ * XREFs of IopfCompleteRequest @ 0x1403FA200
  * Callers:
- *     IofCompleteRequest @ 0x1403FD9D0 (IofCompleteRequest.c)
- *     IopPerfCompleteRequest @ 0x1403FEBF8 (IopPerfCompleteRequest.c)
- *     IovCompleteRequest @ 0x140C45AF0 (IovCompleteRequest.c)
+ *     IofCompleteRequest @ 0x1403FA1C0 (IofCompleteRequest.c)
+ *     IopPerfCompleteRequest @ 0x1403FB3E8 (IopPerfCompleteRequest.c)
+ *     IovCompleteRequest @ 0x140C4BB00 (IovCompleteRequest.c)
  * Callees:
- *     KeInsertQueueApc @ 0x14020AD90 (KeInsertQueueApc.c)
- *     PoDeviceReleaseIrp @ 0x140212C90 (PoDeviceReleaseIrp.c)
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeAreInterruptsEnabled @ 0x1402642E0 (KeAreInterruptsEnabled.c)
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     IopCompleteIrpInFileObjectList @ 0x140266C60 (IopCompleteIrpInFileObjectList.c)
- *     IopDropIrp @ 0x140268190 (IopDropIrp.c)
- *     IoFreeIrp @ 0x140268860 (IoFreeIrp.c)
- *     IopFreeIrpExtension @ 0x140268930 (IopFreeIrpExtension.c)
- *     IoGetRelatedDeviceObject @ 0x14026CA30 (IoGetRelatedDeviceObject.c)
- *     KeAcquireQueuedSpinLock @ 0x1402B4690 (KeAcquireQueuedSpinLock.c)
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     KeReleaseQueuedSpinLock @ 0x1402E2650 (KeReleaseQueuedSpinLock.c)
- *     IopDequeueIrpFromThread @ 0x14032F1A0 (IopDequeueIrpFromThread.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     IoFreeMdl @ 0x14039F190 (IoFreeMdl.c)
- *     IofCompleteRequest @ 0x1403FD9D0 (IofCompleteRequest.c)
- *     IopDoesCompletionNeedsApc @ 0x1403FEB00 (IopDoesCompletionNeedsApc.c)
- *     MmUnlockPages @ 0x140410C10 (MmUnlockPages.c)
- *     IopIoRingCompleteIrp @ 0x1404113E8 (IopIoRingCompleteIrp.c)
- *     IopCompleteRequest @ 0x14045B5C0 (IopCompleteRequest.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KeInsertQueueApc @ 0x14020AE70 (KeInsertQueueApc.c)
+ *     PoDeviceReleaseIrp @ 0x140212D70 (PoDeviceReleaseIrp.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeAreInterruptsEnabled @ 0x140263850 (KeAreInterruptsEnabled.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     IopCompleteIrpInFileObjectList @ 0x1402661D0 (IopCompleteIrpInFileObjectList.c)
+ *     IopDropIrp @ 0x140267700 (IopDropIrp.c)
+ *     IoFreeIrp @ 0x140267DD0 (IoFreeIrp.c)
+ *     IopFreeIrpExtension @ 0x140267EA0 (IopFreeIrpExtension.c)
+ *     IoGetRelatedDeviceObject @ 0x14026BFA0 (IoGetRelatedDeviceObject.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     KeReleaseQueuedSpinLock @ 0x1402C4710 (KeReleaseQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x1402FF360 (KeAcquireQueuedSpinLock.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     IopDequeueIrpFromThread @ 0x1403311D0 (IopDequeueIrpFromThread.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     IoFreeMdl @ 0x1403A0EF0 (IoFreeMdl.c)
+ *     IofCompleteRequest @ 0x1403FA1C0 (IofCompleteRequest.c)
+ *     IopDoesCompletionNeedsApc @ 0x1403FB2F0 (IopDoesCompletionNeedsApc.c)
+ *     MmUnlockPages @ 0x140410330 (MmUnlockPages.c)
+ *     IopIoRingCompleteIrp @ 0x140410B08 (IopIoRingCompleteIrp.c)
+ *     IopCompleteRequest @ 0x140454DF0 (IopCompleteRequest.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall IopfCompleteRequest(IRP *BugCheckParameter1, unsigned __int8 a2)
@@ -94,11 +94,11 @@ void __fastcall IopfCompleteRequest(IRP *BugCheckParameter1, unsigned __int8 a2)
   KIRQL v55; // al
   PIRP v56; // r8
   KIRQL v57; // bl
-  __int64 v58; // rdx
+  _KPROCESS *Process; // rdx
   PETHREAD v59; // r10
-  __int64 *v60; // r9
+  struct _KTHREAD *v60; // r9
   CCHAR ApcStateIndex; // al
-  __int64 **v62; // rax
+  struct _LIST_ENTRY *v62; // rax
   PIRP Irp; // [rsp+48h] [rbp-C0h] BYREF
   __int64 v64; // [rsp+50h] [rbp-B8h]
   CHAR *v65; // [rsp+58h] [rbp-B0h]
@@ -122,7 +122,7 @@ void __fastcall IopfCompleteRequest(IRP *BugCheckParameter1, unsigned __int8 a2)
   v65 = 0LL;
   v67 = 0LL;
   if ( CurrentLocation > (char)(StackCount + 1) || BugCheckParameter1->Type != 6 )
-    KeBugCheckEx(0x44u, (ULONG_PTR)BugCheckParameter1, 0x133AuLL, 0LL, 0LL);
+    KeBugCheckEx(0x44u, (ULONG_PTR)BugCheckParameter1, 0x1336uLL, 0LL, 0LL);
   CurrentStackLocation = BugCheckParameter1->Tail.Overlay.CurrentStackLocation;
   if ( CurrentLocation <= StackCount && CurrentStackLocation->MajorFunction == 22 )
   {
@@ -192,15 +192,12 @@ LABEL_17:
             DeviceObject = Irp->Tail.Overlay.CurrentStackLocation->DeviceObject;
           if ( v7 && (unsigned __int8)(v15 - 2) <= 1u && DeviceObject )
           {
-            v19 = byte_140E67628 == 0;
+            v19 = PopDiagHandleRegistered == 0;
             v20 = *((_QWORD *)&Irp->Tail.CompletionKey + 9 * v17 + 10);
             v66 = (__int64)DeviceObject;
             v68 = Irp;
             *(_QWORD *)(v20 + 40) = DeviceObject;
-            if ( !v19
-              && EtwEventEnabled(
-                   *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-                   &POP_ETW_EVENT_IRP_DRIVERACQUIRE) )
+            if ( !v19 && EtwEventEnabled(PopDiagHandle, &POP_ETW_EVENT_IRP_DRIVERACQUIRE) )
             {
               if ( !v66 )
                 goto LABEL_43;
@@ -248,15 +245,7 @@ LABEL_43:
               while ( !v19 );
               v73 = 2 * v30 + 2;
               v74 = 0;
-              EtwWriteEx(
-                *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-                &POP_ETW_EVENT_IRP_DRIVERACQUIRE,
-                0LL,
-                0,
-                0LL,
-                0LL,
-                3u,
-                &UserData);
+              EtwWriteEx(PopDiagHandle, &POP_ETW_EVENT_IRP_DRIVERACQUIRE, 0LL, 0, 0LL, 0LL, 3u, &UserData);
             }
             v16 = Irp;
           }
@@ -457,9 +446,9 @@ LABEL_109:
     v55 = KeAcquireQueuedSpinLock(0xBuLL);
     v56 = Irp;
     v57 = v55;
-    v58 = qword_140F853E0;
+    Process = IopPerfIoTrackingLock.Process;
     v59 = Irp->Tail.Overlay.Thread;
-    if ( (__int64 *)qword_140F853E0 == &qword_140F853E0 )
+    if ( (_KPROCESS **)IopPerfIoTrackingLock.Process == &IopPerfIoTrackingLock.Process )
     {
 LABEL_130:
       if ( v59 )
@@ -486,19 +475,22 @@ LABEL_130:
     {
       while ( 1 )
       {
-        v60 = *(__int64 **)v58;
-        if ( (PIRP)(v58 - 32) == Irp )
+        v60 = *(struct _KTHREAD **)&Process->Header.Lock;
+        if ( &Process[-1].UserCetLogging == (void **)Irp )
           break;
-        v58 = *(_QWORD *)v58;
-        if ( v60 == &qword_140F853E0 )
+        Process = *(_KPROCESS **)&Process->Header.Lock;
+        if ( v60 == (struct _KTHREAD *)&IopPerfIoTrackingLock.Process )
           goto LABEL_130;
       }
-      if ( v60[1] != v58 || (v62 = *(__int64 ***)(v58 + 8), *v62 != (__int64 *)v58) )
+      if ( (_KPROCESS *)v60->Header.WaitListHead.Flink != Process
+        || (v62 = Process->Header.WaitListHead.Flink, (_KPROCESS *)v62->Flink != Process) )
+      {
         __fastfail(3u);
-      *v62 = v60;
-      v60[1] = (__int64)v62;
-      *(_QWORD *)(v58 + 8) = v58;
-      *(_QWORD *)v58 = v58;
+      }
+      v62->Flink = (struct _LIST_ENTRY *)v60;
+      v60->Header.WaitListHead.Flink = v62;
+      Process->Header.WaitListHead.Flink = (struct _LIST_ENTRY *)Process;
+      *(_QWORD *)&Process->Header.Lock = Process;
       ObfDereferenceObjectWithTag(v59, 0x746C6644u);
     }
     KeReleaseQueuedSpinLock(0xBuLL, v57);

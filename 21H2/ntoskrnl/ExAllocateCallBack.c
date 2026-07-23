@@ -1,15 +1,15 @@
 /*
- * XREFs of ExAllocateCallBack @ 0x140790070
+ * XREFs of ExAllocateCallBack @ 0x140791620
  * Callers:
- *     KeRegisterBoundCallback @ 0x1405148A0 (KeRegisterBoundCallback.c)
- *     DbgkLkmdRegisterCallback @ 0x14078FAE0 (DbgkLkmdRegisterCallback.c)
- *     PsEstablishWin32Callouts @ 0x14078FBB0 (PsEstablishWin32Callouts.c)
- *     PsSetLoadImageNotifyRoutineEx @ 0x14078FC90 (PsSetLoadImageNotifyRoutineEx.c)
- *     PspSetCreateThreadNotifyRoutine @ 0x14078FED4 (PspSetCreateThreadNotifyRoutine.c)
- *     PspSetCreateProcessNotifyRoutine @ 0x14078FF78 (PspSetCreateProcessNotifyRoutine.c)
+ *     KeRegisterBoundCallback @ 0x140514AE0 (KeRegisterBoundCallback.c)
+ *     DbgkLkmdRegisterCallback @ 0x140791090 (DbgkLkmdRegisterCallback.c)
+ *     PsEstablishWin32Callouts @ 0x140791160 (PsEstablishWin32Callouts.c)
+ *     PsSetLoadImageNotifyRoutineEx @ 0x140791240 (PsSetLoadImageNotifyRoutineEx.c)
+ *     PspSetCreateThreadNotifyRoutine @ 0x140791484 (PspSetCreateThreadNotifyRoutine.c)
+ *     PspSetCreateProcessNotifyRoutine @ 0x140791528 (PspSetCreateProcessNotifyRoutine.c)
  * Callees:
- *     ExInitializePushLock @ 0x140278EE0 (ExInitializePushLock.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     ExInitializePushLock @ 0x140266E80 (ExInitializePushLock.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 KSPIN_LOCK *__fastcall ExAllocateCallBack(KSPIN_LOCK a1, KSPIN_LOCK a2)

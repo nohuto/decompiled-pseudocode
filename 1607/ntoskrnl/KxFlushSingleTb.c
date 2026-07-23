@@ -1,12 +1,12 @@
 /*
- * XREFs of KxFlushSingleTb @ 0x14010A720
+ * XREFs of KxFlushSingleTb @ 0x1401084A0
  * Callers:
- *     KeFlushSingleTb @ 0x14010A628 (KeFlushSingleTb.c)
+ *     KeFlushSingleTb @ 0x1401083A8 (KeFlushSingleTb.c)
  * Callees:
- *     KiIpiSendRequestEx @ 0x140030DC0 (KiIpiSendRequestEx.c)
- *     KeRemoveProcessorAffinityEx @ 0x140030FBC (KeRemoveProcessorAffinityEx.c)
- *     KeCopyAffinityEx @ 0x140030FF0 (KeCopyAffinityEx.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     KiIpiSendRequestEx @ 0x140030940 (KiIpiSendRequestEx.c)
+ *     KeRemoveProcessorAffinityEx @ 0x140030B3C (KeRemoveProcessorAffinityEx.c)
+ *     KeCopyAffinityEx @ 0x140030B70 (KeCopyAffinityEx.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall KxFlushSingleTb(__int64 a1, int a2, int a3)

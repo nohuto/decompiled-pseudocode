@@ -7,10 +7,12 @@
  *     ZwReadVirtualMemory @ 0x1800A4850 (ZwReadVirtualMemory.c)
  */
 
-__int64 __fastcall RtlQueryCriticalSectionOwner(char *a1, char a2)
+HANDLE __cdecl RtlQueryCriticalSectionOwner(HANDLE EventHandle)
 {
+  char v1; // dl
+  char v2; // r15
   unsigned int v4; // r8d
-  unsigned __int64 v5; // rax
+  unsigned __int64 Value; // rax
   __int64 v6; // r9
   signed __int64 v8; // rcx
   int v9; // r9d
@@ -19,33 +21,36 @@ __int64 __fastcall RtlQueryCriticalSectionOwner(char *a1, char a2)
   _UNKNOWN **v12; // rbx
   _QWORD *v13; // rdi
   char j; // si
-  __int64 v15; // rbx
-  __int64 v16; // [rsp+48h] [rbp-40h]
-  char *v17; // [rsp+50h] [rbp-38h]
+  __int64 v15; // rdx
+  void *v16; // rbx
+  _BYTE Buffer[16]; // [rsp+38h] [rbp-50h] BYREF
+  void *v18; // [rsp+48h] [rbp-40h]
+  HANDLE v19; // [rsp+50h] [rbp-38h]
   unsigned int i; // [rsp+90h] [rbp+8h]
 
-  if ( !a1 )
+  v2 = v1;
+  if ( !EventHandle )
     return 0LL;
   v4 = 0;
-  v5 = _InterlockedCompareExchange64(&RtlCriticalSectionLock, 17LL, 0LL);
-  if ( v5 )
+  Value = _InterlockedCompareExchange64((volatile signed __int64 *)&RtlCriticalSectionLock, 17LL, 0LL);
+  if ( Value )
   {
     while ( 1 )
     {
-      if ( (v5 & 1) != 0 )
+      if ( (Value & 1) != 0 )
       {
-        v6 = (v5 >> 1) & 1;
-        if ( (_DWORD)v6 || (v5 & 0xFFFFFFFFFFFFFFF0uLL) == 0 )
+        v6 = (Value >> 1) & 1;
+        if ( (_DWORD)v6 || (Value & 0xFFFFFFFFFFFFFFF0uLL) == 0 )
           return 0LL;
       }
       else
       {
-        v6 = (v5 >> 1) & 1;
+        v6 = (Value >> 1) & 1;
       }
-      v8 = (v5 | 1) + 16;
+      v8 = (Value | 1) + 16;
       if ( v6 )
-        v8 = v5 | 1;
-      if ( v5 == _InterlockedCompareExchange64(&RtlCriticalSectionLock, v8, v5) )
+        v8 = Value | 1;
+      if ( Value == _InterlockedCompareExchange64((volatile signed __int64 *)&RtlCriticalSectionLock, v8, Value) )
         break;
       v9 = v4;
       if ( v4 )
@@ -66,20 +71,23 @@ __int64 __fastcall RtlQueryCriticalSectionOwner(char *a1, char a2)
         _mm_pause();
 LABEL_18:
       _m_prefetchw(&RtlCriticalSectionLock);
-      v5 = RtlCriticalSectionLock;
+      Value = RtlCriticalSectionLock.Value;
     }
   }
   v12 = (_UNKNOWN **)RtlCriticalSectionList;
   v13 = RtlCriticalSectionList;
   for ( j = 0; v12 != &RtlCriticalSectionList; j ^= 1u )
   {
-    if ( !*((_WORD *)v12 - 8)
-      && (!a2 || a1 == (char *)*(v12 - 1) + 8)
-      && (int)ZwReadVirtualMemory() >= 0
-      && (a2 || v17 == a1) )
+    if ( !*((_WORD *)v12 - 8) )
     {
-      v15 = v16;
-      goto LABEL_33;
+      v15 = (__int64)*(v12 - 1);
+      if ( (!v2 || EventHandle == (HANDLE)(v15 + 8))
+        && ZwReadVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, (PVOID)v15, Buffer, 0x28uLL, 0LL) >= 0
+        && (v2 || v19 == EventHandle) )
+      {
+        v16 = v18;
+        goto LABEL_33;
+      }
     }
     v12 = (_UNKNOWN **)*v12;
     if ( v12 == v13 )
@@ -87,8 +95,8 @@ LABEL_18:
     if ( j )
       v13 = (_QWORD *)*v13;
   }
-  v15 = 0LL;
+  v16 = 0LL;
 LABEL_33:
   RtlReleaseSRWLockShared(&RtlCriticalSectionLock);
-  return v15;
+  return v16;
 }

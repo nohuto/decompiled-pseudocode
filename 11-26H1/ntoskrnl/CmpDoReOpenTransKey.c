@@ -1,21 +1,21 @@
 /*
- * XREFs of CmpDoReOpenTransKey @ 0x140863A58
+ * XREFs of CmpDoReOpenTransKey @ 0x140869E38
  * Callers:
- *     CmpDoReDoCreateKey @ 0x140863730 (CmpDoReDoCreateKey.c)
- *     CmpDoReDoRecord @ 0x140863828 (CmpDoReDoRecord.c)
+ *     CmpDoReDoCreateKey @ 0x140869B10 (CmpDoReDoCreateKey.c)
+ *     CmpDoReDoRecord @ 0x140869C08 (CmpDoReDoRecord.c)
  * Callees:
- *     CmpTestRegistryLock @ 0x140261EB0 (CmpTestRegistryLock.c)
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ObReferenceObjectByHandle @ 0x1408F9550 (ObReferenceObjectByHandle.c)
- *     ObOpenObjectByName @ 0x1408FC870 (ObOpenObjectByName.c)
- *     CmpInitializeParseContext @ 0x14097C5D0 (CmpInitializeParseContext.c)
- *     CmpCleanupParseContext @ 0x14097C850 (CmpCleanupParseContext.c)
- *     CmpLockRegistry @ 0x140C58850 (CmpLockRegistry.c)
- *     CmpUnlockRegistry @ 0x140C58970 (CmpUnlockRegistry.c)
- *     CmpSplitParentKeyName @ 0x140C58BFC (CmpSplitParentKeyName.c)
+ *     CmpTestRegistryLock @ 0x140261420 (CmpTestRegistryLock.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ObReferenceObjectByHandle @ 0x1409294E0 (ObReferenceObjectByHandle.c)
+ *     ObOpenObjectByName @ 0x14092C800 (ObOpenObjectByName.c)
+ *     CmpInitializeParseContext @ 0x14093E5E0 (CmpInitializeParseContext.c)
+ *     CmpCleanupParseContext @ 0x14093E860 (CmpCleanupParseContext.c)
+ *     CmpLockRegistry @ 0x140C5E850 (CmpLockRegistry.c)
+ *     CmpUnlockRegistry @ 0x140C5E970 (CmpUnlockRegistry.c)
+ *     CmpSplitParentKeyName @ 0x140C5EBFC (CmpSplitParentKeyName.c)
  */
 
 __int64 __fastcall CmpDoReOpenTransKey(__int64 a1, __int128 *a2, int a3, _QWORD *a4)

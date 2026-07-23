@@ -24,10 +24,10 @@ __int64 __fastcall CmpValidateHiveSecurityDescriptors(
         ULONG_PTR BugCheckParameter3,
         int a2,
         _BYTE *a3,
-        RTL_BITMAP *a4,
+        _RTL_BITMAP *a4,
         __int64 a5)
 {
-  RTL_BITMAP *v6; // rdi
+  _RTL_BITMAP *v6; // rdi
   _DWORD *v7; // r14
   unsigned int v8; // edx
   __int64 v9; // rcx

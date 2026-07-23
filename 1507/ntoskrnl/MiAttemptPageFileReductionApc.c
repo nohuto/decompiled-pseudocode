@@ -33,7 +33,7 @@ LONG __fastcall MiAttemptPageFileReductionApc(PRKEVENT Event)
   __int16 v15; // ax
   __int64 v16; // rax
   __int64 v17; // rsi
-  struct _RTL_BITMAP *v18; // r10
+  _RTL_BITMAP *v18; // r10
   unsigned int v19; // ecx
   const signed __int32 *Buffer; // r8
   const signed __int32 *v21; // rdx
@@ -57,12 +57,12 @@ LONG __fastcall MiAttemptPageFileReductionApc(PRKEVENT Event)
   unsigned int v40; // [rsp+40h] [rbp-49h]
   __int64 v41; // [rsp+48h] [rbp-41h]
   __int64 v42; // [rsp+50h] [rbp-39h]
-  struct _RTL_BITMAP *v43; // [rsp+58h] [rbp-31h]
+  _RTL_BITMAP *v43; // [rsp+58h] [rbp-31h]
   ULONG StartingRunIndex; // [rsp+60h] [rbp-29h] BYREF
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+68h] [rbp-21h] BYREF
   ULONG v46; // [rsp+80h] [rbp-9h] BYREF
-  struct _RTL_BITMAP BitMapHeader; // [rsp+88h] [rbp-1h] BYREF
-  struct _RTL_BITMAP v48; // [rsp+98h] [rbp+Fh] BYREF
+  _RTL_BITMAP BitMapHeader; // [rsp+88h] [rbp-1h] BYREF
+  _RTL_BITMAP v48; // [rsp+98h] [rbp+Fh] BYREF
   int v49; // [rsp+F0h] [rbp+67h]
   unsigned int v50; // [rsp+108h] [rbp+7Fh]
 
@@ -111,7 +111,7 @@ LONG __fastcall MiAttemptPageFileReductionApc(PRKEVENT Event)
         v3 = v14[27];
         v39 = (PRTL_BITMAP)(v16 + 8);
         v17 = v16 + 24;
-        v43 = (struct _RTL_BITMAP *)(v16 + 24);
+        v43 = (_RTL_BITMAP *)(v16 + 24);
         KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)v14 + 24, &LockHandle);
         v18 = v39;
         v19 = *(_DWORD *)v14 - 1;

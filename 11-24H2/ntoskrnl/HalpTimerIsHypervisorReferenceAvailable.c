@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpTimerIsHypervisorReferenceAvailable @ 0x1405616AC
+ * XREFs of HalpTimerIsHypervisorReferenceAvailable @ 0x14055F2DC
  * Callers:
- *     HalSocRequestApi @ 0x1404AE160 (HalSocRequestApi.c)
+ *     HalSocRequestApi @ 0x1404A8A70 (HalSocRequestApi.c)
  * Callees:
- *     HalpIsMicrosoftCompatibleHvLoaded @ 0x1404A57AC (HalpIsMicrosoftCompatibleHvLoaded.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     HalpIsMicrosoftCompatibleHvLoaded @ 0x1404A053C (HalpIsMicrosoftCompatibleHvLoaded.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 bool HalpTimerIsHypervisorReferenceAvailable()

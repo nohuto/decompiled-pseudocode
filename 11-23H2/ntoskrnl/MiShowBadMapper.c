@@ -1,23 +1,23 @@
 /*
- * XREFs of MiShowBadMapper @ 0x1406310BC
+ * XREFs of MiShowBadMapper @ 0x14063160C
  * Callers:
- *     MiFillSystemPtes @ 0x14027E8C0 (MiFillSystemPtes.c)
- *     MiDeletePteRun @ 0x1402D50F0 (MiDeletePteRun.c)
- *     MiInsertPhysicalPteMapping @ 0x1402F1714 (MiInsertPhysicalPteMapping.c)
- *     MiMapMdlCommon @ 0x1403A7570 (MiMapMdlCommon.c)
+ *     MiFillSystemPtes @ 0x14027EB50 (MiFillSystemPtes.c)
+ *     MiDeletePteRun @ 0x1402D5380 (MiDeletePteRun.c)
+ *     MiInsertPhysicalPteMapping @ 0x1402F19A4 (MiInsertPhysicalPteMapping.c)
+ *     MiMapMdlCommon @ 0x1403A7750 (MiMapMdlCommon.c)
  * Callees:
  *     RtlAppendUnicodeStringToString @ 0x140208A00 (RtlAppendUnicodeStringToString.c)
  *     MiLookupDataTableEntry @ 0x1402136A0 (MiLookupDataTableEntry.c)
- *     RtlCaptureStackBackTrace @ 0x1402276E0 (RtlCaptureStackBackTrace.c)
- *     RtlAppendUnicodeToString @ 0x14022A860 (RtlAppendUnicodeToString.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MmLockLoadedModuleListExclusive @ 0x140290C18 (MmLockLoadedModuleListExclusive.c)
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     memset @ 0x140435A00 (memset.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiLogBadMapper @ 0x140630DF8 (MiLogBadMapper.c)
+ *     RtlCaptureStackBackTrace @ 0x1402277F0 (RtlCaptureStackBackTrace.c)
+ *     RtlAppendUnicodeToString @ 0x14022A970 (RtlAppendUnicodeToString.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MmLockLoadedModuleListExclusive @ 0x140290EA8 (MmLockLoadedModuleListExclusive.c)
+ *     MiAllocatePool @ 0x1402DF430 (MiAllocatePool.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     MiLogBadMapper @ 0x140631348 (MiLogBadMapper.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
@@ -117,10 +117,10 @@ void __fastcall MiShowBadMapper(__int64 BugCheckParameter2, ULONG_PTR BugCheckPa
           break;
       }
       ExReleaseSpinLockExclusiveFromDpcLevel(&PsLoadedModuleSpinLock);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v21[0] <= 0xFu && CurrentIrql >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v21[0] <= 0xFu && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;

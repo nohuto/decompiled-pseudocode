@@ -1,7 +1,7 @@
 /*
- * XREFs of CmFcpIncrementChangeStamp @ 0x1406FADA8
+ * XREFs of CmFcpIncrementChangeStamp @ 0x1406F89E8
  * Callers:
- *     CmFcManagerStartBootPhase @ 0x140C4D0A8 (CmFcManagerStartBootPhase.c)
+ *     CmFcManagerStartBootPhase @ 0x140C4F244 (CmFcManagerStartBootPhase.c)
  * Callees:
  *     <none>
  */

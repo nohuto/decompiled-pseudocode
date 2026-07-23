@@ -6,7 +6,6 @@
  *     <none>
  */
 
-// local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall ZwCreateThread(
         PHANDLE ThreadHandle,
         ACCESS_MASK DesiredAccess,
@@ -19,5 +18,5 @@ NTSTATUS __stdcall ZwCreateThread(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(ThreadHandle, *(_QWORD *)&DesiredAccess, ObjectAttributes);
+  return KiServiceInternal(ThreadHandle);
 }

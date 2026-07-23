@@ -1,9 +1,9 @@
 /*
- * XREFs of MxFindDescriptorByPfn @ 0x140CF69B8
+ * XREFs of MxFindDescriptorByPfn @ 0x140CFCD38
  * Callers:
- *     MiMarkLargePageRanges @ 0x140CF3BAC (MiMarkLargePageRanges.c)
- *     MxIsRegularMemory @ 0x140CF7C60 (MxIsRegularMemory.c)
- *     MiCheckLargePageSystemImage @ 0x140CFB030 (MiCheckLargePageSystemImage.c)
+ *     MiMarkLargePageRanges @ 0x140CF9F2C (MiMarkLargePageRanges.c)
+ *     MxIsRegularMemory @ 0x140CFDFE0 (MxIsRegularMemory.c)
+ *     MiCheckLargePageSystemImage @ 0x140D013B0 (MiCheckLargePageSystemImage.c)
  * Callees:
  *     <none>
  */

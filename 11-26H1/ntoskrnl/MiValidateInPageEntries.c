@@ -1,19 +1,19 @@
 /*
- * XREFs of MiValidateInPageEntries @ 0x14038C410
+ * XREFs of MiValidateInPageEntries @ 0x14038E1C0
  * Callers:
- *     MiValidateInPage @ 0x14038C154 (MiValidateInPage.c)
+ *     MiValidateInPage @ 0x14038DF04 (MiValidateInPage.c)
  * Callees:
- *     MiReleasePtes @ 0x140281CE0 (MiReleasePtes.c)
- *     MiFlushSingleTbEntry @ 0x140285050 (MiFlushSingleTbEntry.c)
- *     MiMakeValidPte @ 0x1402DA020 (MiMakeValidPte.c)
- *     MiMakeProtectionPfnCompatible @ 0x14033C7D0 (MiMakeProtectionPfnCompatible.c)
- *     MiReservePtes @ 0x14035DE50 (MiReservePtes.c)
- *     MiInPageGapPage @ 0x14038C7D0 (MiInPageGapPage.c)
- *     MiApplyDebuggerPatches @ 0x14038C7F8 (MiApplyDebuggerPatches.c)
- *     MiMarkPfnVerified @ 0x14038C9E8 (MiMarkPfnVerified.c)
- *     MiGetSessionIdForVa @ 0x14038E1A8 (MiGetSessionIdForVa.c)
- *     MiRelocateImagePfn @ 0x1409CEA4C (MiRelocateImagePfn.c)
- *     MiValidateImagePfn @ 0x140B04B5C (MiValidateImagePfn.c)
+ *     MiReleasePtes @ 0x140281250 (MiReleasePtes.c)
+ *     MiFlushSingleTbEntry @ 0x1402845B0 (MiFlushSingleTbEntry.c)
+ *     MiMakeValidPte @ 0x1402BBDE0 (MiMakeValidPte.c)
+ *     MiMakeProtectionPfnCompatible @ 0x14033E850 (MiMakeProtectionPfnCompatible.c)
+ *     MiReservePtes @ 0x14035FBF0 (MiReservePtes.c)
+ *     MiInPageGapPage @ 0x14038E580 (MiInPageGapPage.c)
+ *     MiApplyDebuggerPatches @ 0x14038E5A8 (MiApplyDebuggerPatches.c)
+ *     MiMarkPfnVerified @ 0x14038E794 (MiMarkPfnVerified.c)
+ *     MiGetSessionIdForVa @ 0x14038FF58 (MiGetSessionIdForVa.c)
+ *     MiRelocateImagePfn @ 0x14099FA2C (MiRelocateImagePfn.c)
+ *     MiValidateImagePfn @ 0x140B0676C (MiValidateImagePfn.c)
  */
 
 __int64 __fastcall MiValidateInPageEntries(__int64 *a1)
@@ -57,7 +57,7 @@ __int64 __fastcall MiValidateInPageEntries(__int64 *a1)
   while ( (unsigned __int64)v5 < v7 )
   {
     v8 = 48 * *v5 - 0x220000000000LL;
-    v9 = v8 == qword_140E35FF0;
+    v9 = v8 == qword_140E36170;
     *((_DWORD *)a1 + 16) ^= ((unsigned __int8)*((_DWORD *)a1 + 16) ^ (unsigned __int8)(4 * *((_DWORD *)a1 + 16))) & 0x20;
     if ( v9 || (unsigned int)MiInPageGapPage(v8, 0xFFFFDE0000000000uLL) )
       goto LABEL_16;
@@ -102,7 +102,7 @@ LABEL_8:
     v18 = *v27;
     if ( (*v27 & 0x42) != 0 )
       goto LABEL_24;
-    v16 = MiReservePtes((__int64)&stru_140E36558.WaitBlockList, 1u, v11, v12);
+    v16 = MiReservePtes((__int64)&stru_140E366D8.WaitBlockList, 1u, v11, v12);
     if ( !v16 )
     {
       v9 = (MiFlags & 0x400) == 0;
@@ -123,7 +123,7 @@ LABEL_10:
     {
       *(_DWORD *)(v2 + 80) = -1073741670;
       if ( v16 )
-        MiReleasePtes((__int64)&stru_140E36558.WaitBlockList, (unsigned __int64 *)v16, 1u);
+        MiReleasePtes((__int64)&stru_140E366D8.WaitBlockList, (unsigned __int64 *)v16, 1u);
       return v24;
     }
     if ( (a1[8] & 0x10) != 0 )
@@ -132,7 +132,7 @@ LABEL_10:
       MiApplyDebuggerPatches(v3, v15, *(unsigned int *)(v2 + 216), *v5);
     }
     if ( v16 )
-      MiReleasePtes((__int64)&stru_140E36558.WaitBlockList, (unsigned __int64 *)v16, 1u);
+      MiReleasePtes((__int64)&stru_140E366D8.WaitBlockList, (unsigned __int64 *)v16, 1u);
 LABEL_16:
     *(_QWORD *)(v2 + 96) += 4096LL;
     ++v5;

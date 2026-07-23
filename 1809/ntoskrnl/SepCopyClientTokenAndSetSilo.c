@@ -1,14 +1,14 @@
 /*
- * XREFs of SepCopyClientTokenAndSetSilo @ 0x14089BCD0
+ * XREFs of SepCopyClientTokenAndSetSilo @ 0x14089CF30
  * Callers:
- *     SepCreateClientSecurityEx @ 0x140631EC0 (SepCreateClientSecurityEx.c)
- *     SepUpdateSiloInClientSecurity @ 0x1408A18D4 (SepUpdateSiloInClientSecurity.c)
+ *     SepCreateClientSecurityEx @ 0x140632EE0 (SepCreateClientSecurityEx.c)
+ *     SepUpdateSiloInClientSecurity @ 0x1408A2B34 (SepUpdateSiloInClientSecurity.c)
  * Callees:
  *     PsGetServerSiloServiceSessionId @ 0x1400067D0 (PsGetServerSiloServiceSessionId.c)
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
- *     SeSetSessionIdToken @ 0x1405BC45C (SeSetSessionIdToken.c)
- *     SeCopyClientToken @ 0x140649E74 (SeCopyClientToken.c)
- *     SepSetServerSiloToken @ 0x14089BFE0 (SepSetServerSiloToken.c)
+ *     SeSetSessionIdToken @ 0x1405BD45C (SeSetSessionIdToken.c)
+ *     SeCopyClientToken @ 0x14064B034 (SeCopyClientToken.c)
+ *     SepSetServerSiloToken @ 0x14089D240 (SepSetServerSiloToken.c)
  */
 
 __int64 __fastcall SepCopyClientTokenAndSetSilo(__int64 a1, unsigned int a2, __int64 a3, _QWORD *a4)

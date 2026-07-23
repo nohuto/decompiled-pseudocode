@@ -1,17 +1,17 @@
 /*
- * XREFs of PiDcCompareUpdateProperties @ 0x140768AC0
+ * XREFs of PiDcCompareUpdateProperties @ 0x140768C80
  * Callers:
  *     <none>
  * Callees:
- *     memcmp @ 0x1403D29E0 (memcmp.c)
+ *     memcmp @ 0x1403D2B50 (memcmp.c)
  */
 
-__int64 __fastcall PiDcCompareUpdateProperties(struct _RTL_AVL_TABLE *Table, PVOID FirstStruct, PVOID SecondStruct)
+__int64 __fastcall PiDcCompareUpdateProperties(_RTL_AVL_TABLE *a1, PVOID a2, PVOID a3)
 {
   int v3; // ecx
   __int64 result; // rax
 
-  v3 = memcmp(FirstStruct, SecondStruct, 0x14uLL);
+  v3 = memcmp(a2, a3, 0x14uLL);
   result = 0LL;
   if ( v3 >= 0 )
   {

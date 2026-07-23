@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlFindAceBySid @ 0x1403641E0
+ * XREFs of RtlFindAceBySid @ 0x1403EB0D0
  * Callers:
- *     SepAppendAceToTokenDefaultDacl @ 0x140364418 (SepAppendAceToTokenDefaultDacl.c)
- *     RtlpSetSecurityObject @ 0x140858F70 (RtlpSetSecurityObject.c)
- *     SepAppendAceToTokenObjectAcl @ 0x14090F590 (SepAppendAceToTokenObjectAcl.c)
+ *     SepAppendAceToTokenDefaultDacl @ 0x1403EAEE8 (SepAppendAceToTokenDefaultDacl.c)
+ *     RtlpSetSecurityObject @ 0x140855250 (RtlpSetSecurityObject.c)
+ *     SepAppendAceToTokenObjectAcl @ 0x1408E6CE0 (SepAppendAceToTokenObjectAcl.c)
  * Callees:
- *     RtlEqualSid @ 0x140364150 (RtlEqualSid.c)
- *     memcmp @ 0x1406BFF10 (memcmp.c)
+ *     RtlEqualSid @ 0x1403EB6C0 (RtlEqualSid.c)
+ *     memcmp @ 0x1406C0E10 (memcmp.c)
  */
 
 unsigned __int8 *__fastcall RtlFindAceBySid(__int64 a1, _WORD *a2, unsigned int *a3)

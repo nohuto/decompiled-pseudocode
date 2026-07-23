@@ -1,14 +1,14 @@
 /*
- * XREFs of CcCompleteAsyncWriteBehind @ 0x14053B468
+ * XREFs of CcCompleteAsyncWriteBehind @ 0x14053B9B8
  * Callers:
- *     CcCompleteAsyncLazywriteWorker @ 0x14053B1A0 (CcCompleteAsyncLazywriteWorker.c)
+ *     CcCompleteAsyncLazywriteWorker @ 0x14053B6F0 (CcCompleteAsyncLazywriteWorker.c)
  * Callees:
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
- *     CcWriteBehindPostProcess @ 0x14029B038 (CcWriteBehindPostProcess.c)
- *     CcFreeWorkQueueEntry @ 0x14029C390 (CcFreeWorkQueueEntry.c)
- *     DbgPrintEx @ 0x14032A740 (DbgPrintEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402610F0 (KeAcquireInStackQueuedSpinLock.c)
+ *     CcWriteBehindPostProcess @ 0x14029B2C8 (CcWriteBehindPostProcess.c)
+ *     CcFreeWorkQueueEntry @ 0x14029C620 (CcFreeWorkQueueEntry.c)
+ *     DbgPrintEx @ 0x14032A9D0 (DbgPrintEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
@@ -76,10 +76,13 @@ char __fastcall CcCompleteAsyncWriteBehind(PSLIST_ENTRY ListEntry, char a2)
       *v10 = ListEntry;
       KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
       OldIrql = LockHandle.OldIrql;
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+          && CurrentIrql <= 0xFu
+          && LockHandle.OldIrql <= 0xFu
+          && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -87,7 +90,7 @@ char __fastcall CcCompleteAsyncWriteBehind(PSLIST_ENTRY ListEntry, char a2)
           v17 = (v16 & SchedulerAssist[5]) == 0;
           SchedulerAssist[5] &= v16;
           if ( v17 )
-            KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+            KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
         }
       }
       __writecr8(OldIrql);
@@ -112,10 +115,10 @@ LABEL_20:
       *v19 = ListEntry;
       KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
       v21 = LockHandle.OldIrql;
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v22 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v22 <= 0xFu && LockHandle.OldIrql <= 0xFu && v22 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v22 <= 0xFu && LockHandle.OldIrql <= 0xFu && v22 >= 2u )
         {
           v23 = KeGetCurrentPrcb();
           v24 = v23->SchedulerAssist;
@@ -123,7 +126,7 @@ LABEL_20:
           v17 = (v25 & v24[5]) == 0;
           v24[5] &= v25;
           if ( v17 )
-            KiRemoveSystemWorkPriorityKick(v23);
+            KiRemoveSystemWorkPriorityKick((__int64)v23);
         }
       }
       __writecr8(v21);

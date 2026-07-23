@@ -6,15 +6,15 @@
  *     RtlComputePrivatizedDllName_U @ 0x180002B20 (RtlComputePrivatizedDllName_U.c)
  *     RtlDoesFileExists_UstrEx @ 0x18002A404 (RtlDoesFileExists_UstrEx.c)
  *     RtlFreeAnsiString @ 0x18002A5F0 (RtlFreeAnsiString.c)
- *     RtlpEnsureBufferSize @ 0x180075A30 (RtlpEnsureBufferSize.c)
+ *     RtlpEnsureBufferSize @ 0x180075A40 (RtlpEnsureBufferSize.c)
  *     memmove @ 0x1800A6DC0 (memmove.c)
  */
 
-__int64 __fastcall sxsisol_RespectDotLocal(__int64 a1, unsigned __int16 *a2, _DWORD *a3)
+__int64 __fastcall sxsisol_RespectDotLocal(_UNICODE_STRING *a1, unsigned __int16 *a2, _DWORD *a3)
 {
   __int64 v5; // rdx
-  int v6; // ebx
-  UNICODE_STRING *p_UnicodeString; // rbx
+  NTSTATUS v6; // ebx
+  _UNICODE_STRING *p_LocalName; // rbx
   unsigned __int64 v9; // r8
   __int64 *v10; // r14
   __int64 v11; // rcx
@@ -22,36 +22,36 @@ __int64 __fastcall sxsisol_RespectDotLocal(__int64 a1, unsigned __int16 *a2, _DW
   wchar_t *Buffer; // rdx
   unsigned __int64 v14; // rax
   unsigned __int64 v15; // rcx
-  UNICODE_STRING UnicodeString; // [rsp+20h] [rbp-20h] BYREF
-  UNICODE_STRING v17; // [rsp+30h] [rbp-10h] BYREF
+  _UNICODE_STRING RealName; // [rsp+20h] [rbp-20h] BYREF
+  _UNICODE_STRING LocalName; // [rsp+30h] [rbp-10h] BYREF
 
-  *(_QWORD *)&UnicodeString.Length = 0LL;
-  UnicodeString.Buffer = 0LL;
-  *(_QWORD *)&v17.Length = 0LL;
-  v17.Buffer = 0LL;
+  *(_QWORD *)&RealName.Length = 0LL;
+  RealName.Buffer = 0LL;
+  *(_QWORD *)&LocalName.Length = 0LL;
+  LocalName.Buffer = 0LL;
   if ( !a2 )
   {
     v6 = -1073741811;
     goto LABEL_8;
   }
-  v6 = RtlComputePrivatizedDllName_U(a1, &UnicodeString, &v17);
+  v6 = RtlComputePrivatizedDllName_U(a1, &RealName, &LocalName);
   if ( v6 >= 0 )
   {
-    if ( v17.Buffer && (LOBYTE(v5) = 1, (unsigned __int8)RtlDoesFileExists_UstrEx(&v17, v5)) )
+    if ( LocalName.Buffer && (LOBYTE(v5) = 1, (unsigned __int8)RtlDoesFileExists_UstrEx(&LocalName, v5)) )
     {
-      p_UnicodeString = &v17;
+      p_LocalName = &LocalName;
     }
     else
     {
-      if ( !UnicodeString.Buffer || (LOBYTE(v5) = 1, !(unsigned __int8)RtlDoesFileExists_UstrEx(&UnicodeString, v5)) )
+      if ( !RealName.Buffer || (LOBYTE(v5) = 1, !(unsigned __int8)RtlDoesFileExists_UstrEx(&RealName, v5)) )
       {
 LABEL_7:
         v6 = 0;
         goto LABEL_8;
       }
-      p_UnicodeString = &UnicodeString;
+      p_LocalName = &RealName;
     }
-    v9 = p_UnicodeString->Length + 2LL;
+    v9 = p_LocalName->Length + 2LL;
     *a2 = 0;
     if ( v9 > 0xFFFE )
     {
@@ -65,12 +65,12 @@ LABEL_7:
       goto LABEL_8;
     }
     v11 = *v10;
-    Length = p_UnicodeString->Length;
-    Buffer = p_UnicodeString->Buffer;
+    Length = p_LocalName->Length;
+    Buffer = p_LocalName->Buffer;
     v14 = (unsigned __int64)*a2 >> 1;
     *((_QWORD *)a2 + 1) = *v10;
     memmove((void *)(v11 + 2 * v14), Buffer, Length);
-    v15 = (unsigned __int16)(*a2 + p_UnicodeString->Length);
+    v15 = (unsigned __int16)(*a2 + p_LocalName->Length);
     *a2 = v15;
     a2[1] = v15 + 2;
     *(_WORD *)(*((_QWORD *)a2 + 1) + 2 * (v15 >> 1)) = 0;
@@ -79,7 +79,7 @@ LABEL_7:
     goto LABEL_7;
   }
 LABEL_8:
-  RtlFreeAnsiString(&UnicodeString);
-  RtlFreeAnsiString(&v17);
+  RtlFreeAnsiString(&RealName);
+  RtlFreeAnsiString(&LocalName);
   return (unsigned int)v6;
 }

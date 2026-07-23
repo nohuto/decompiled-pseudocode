@@ -6,7 +6,7 @@
  *     <none>
  */
 
-bool __stdcall RtlIsNonEmptyDirectoryReparsePointAllowed(int a1)
+BOOLEAN __cdecl RtlIsNonEmptyDirectoryReparsePointAllowed(ULONG ReparseTag)
 {
-  return (a1 & 0x10000000) != 0 || a1 == -2147483624;
+  return (ReparseTag & 0x10000000) != 0 || ReparseTag == -2147483624;
 }

@@ -9,7 +9,7 @@
  *     RtlpInitializeHeapSegment @ 0x1800617A8 (RtlpInitializeHeapSegment.c)
  *     RtlpHpSegHeapCheckCommitLimit @ 0x180066980 (RtlpHpSegHeapCheckCommitLimit.c)
  * Callees:
- *     RtlpLogHeapFailure @ 0x18009F7AC (RtlpLogHeapFailure.c)
+ *     RtlpLogHeapFailure @ 0x18009F7CC (RtlpLogHeapFailure.c)
  */
 
 __int64 __fastcall RtlpHpHeapCheckCommitLimit(__int64 a1, __int64 a2, int a3, __int64 *a4)

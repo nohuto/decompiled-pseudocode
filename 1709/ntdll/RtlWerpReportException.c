@@ -7,7 +7,11 @@
  */
 
 // attributes: thunk
-__int64 RtlWerpReportException()
+NTSTATUS __cdecl RtlWerpReportException(
+        ULONG ProcessId,
+        HANDLE CrashReportSharedMem,
+        ULONG Flags,
+        PHANDLE CrashVerticalProcessHandle)
 {
-  return ReportExceptionInternal();
+  return ReportExceptionInternal(ProcessId, CrashReportSharedMem, Flags, CrashVerticalProcessHandle);
 }

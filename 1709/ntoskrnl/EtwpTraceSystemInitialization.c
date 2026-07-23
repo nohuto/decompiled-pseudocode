@@ -34,13 +34,13 @@ char EtwpTraceSystemInitialization()
   int v15; // [rsp+64h] [rbp-A4h] BYREF
   __int64 v16; // [rsp+68h] [rbp-A0h] BYREF
   LARGE_INTEGER v17; // [rsp+70h] [rbp-98h] BYREF
-  __int64 SystemTimePrecise; // [rsp+78h] [rbp-90h] BYREF
+  LARGE_INTEGER SystemTimePrecise; // [rsp+78h] [rbp-90h] BYREF
   _QWORD v19[2]; // [rsp+80h] [rbp-88h] BYREF
   _DWORD v20[6]; // [rsp+90h] [rbp-78h] BYREF
-  struct _OSVERSIONINFOW VersionInformation; // [rsp+A8h] [rbp-60h] BYREF
+  _OSVERSIONINFOW VersionInformation; // [rsp+A8h] [rbp-60h] BYREF
   __int16 v22; // [rsp+1BCh] [rbp+B4h] BYREF
   struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+1C8h] [rbp+C0h] BYREF
-  DWORD *p_SystemTimePrecise; // [rsp+1D8h] [rbp+D0h]
+  LARGE_INTEGER *p_SystemTimePrecise; // [rsp+1D8h] [rbp+D0h]
   __int64 v25; // [rsp+1E0h] [rbp+D8h]
   DWORD *v26; // [rsp+1E8h] [rbp+E0h]
   __int64 v27; // [rsp+1F0h] [rbp+E8h]
@@ -139,7 +139,7 @@ char EtwpTraceSystemInitialization()
       *(_QWORD *)&UserData.Size = 4LL;
       UserData.Ptr = (ULONGLONG)&VersionInformation.dwMajorVersion;
       v25 = 4LL;
-      p_SystemTimePrecise = &VersionInformation.dwMinorVersion;
+      p_SystemTimePrecise = (LARGE_INTEGER *)&VersionInformation.dwMinorVersion;
       v27 = 4LL;
       v26 = &VersionInformation.dwBuildNumber;
       v29 = 4LL;
@@ -165,7 +165,7 @@ char EtwpTraceSystemInitialization()
         v7 = *(_QWORD *)(KeLoaderBlock_0 + 240) + 2592LL;
         *(_QWORD *)&UserData.Size = 8LL;
         UserData.Ptr = v7;
-        p_SystemTimePrecise = (DWORD *)&SystemTimePrecise;
+        p_SystemTimePrecise = &SystemTimePrecise;
         v25 = 8LL;
         v26 = (DWORD *)(*(_QWORD *)(KeLoaderBlock_0 + 240) + 2584LL);
         v27 = 4LL;

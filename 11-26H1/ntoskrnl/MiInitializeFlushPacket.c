@@ -1,12 +1,12 @@
 /*
- * XREFs of MiInitializeFlushPacket @ 0x14038CD08
+ * XREFs of MiInitializeFlushPacket @ 0x14038EAB4
  * Callers:
- *     MiFlushSection @ 0x1404ADA20 (MiFlushSection.c)
+ *     MiFlushSection @ 0x1404A70A8 (MiFlushSection.c)
  * Callees:
- *     PsGetIoPriorityThread @ 0x1403750A0 (PsGetIoPriorityThread.c)
- *     MiReferenceControlAreaFileWithTag @ 0x14038ED10 (MiReferenceControlAreaFileWithTag.c)
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     PsGetIoPriorityThread @ 0x140376E50 (PsGetIoPriorityThread.c)
+ *     MiReferenceControlAreaFileWithTag @ 0x140390AC0 (MiReferenceControlAreaFileWithTag.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall MiInitializeFlushPacket(__int64 a1, __int64 a2, __int64 a3, int a4, _DWORD *a5)

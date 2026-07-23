@@ -6,39 +6,39 @@
  *     <none>
  */
 
-int __stdcall RtlFindNextForwardRunClear(int a1, unsigned int a2, unsigned int *a3)
+ULONG __cdecl RtlFindNextForwardRunClear(PRTL_BITMAP BitMapHeader, ULONG FromIndex, PULONG StartingRunIndex)
 {
-  unsigned int v3; // esi
-  unsigned int v4; // edx
-  int v5; // edx
-  int v6; // ecx
-  _DWORD *v7; // edi
-  _DWORD *v8; // edi
+  ULONG v3; // esi
+  unsigned int SizeOfBitMap; // edx
+  ULONG v5; // edx
+  unsigned int *Buffer; // ecx
+  unsigned int *v7; // edi
+  unsigned int *v8; // edi
   unsigned int i; // eax
-  int v11; // [esp+Ch] [ebp-8h]
+  ULONG v11; // [esp+Ch] [ebp-8h]
   int v12; // [esp+Ch] [ebp-8h]
-  _DWORD *v13; // [esp+10h] [ebp-4h]
+  unsigned int *v13; // [esp+10h] [ebp-4h]
 
-  v3 = a2;
-  v4 = *(_DWORD *)a1;
-  if ( *(_DWORD *)a1 > a2 )
+  v3 = FromIndex;
+  SizeOfBitMap = BitMapHeader->SizeOfBitMap;
+  if ( BitMapHeader->SizeOfBitMap > FromIndex )
   {
-    v6 = *(_DWORD *)(a1 + 4);
-    v13 = (_DWORD *)(v6 + 4 * ((v4 - 1) >> 5));
-    v7 = (_DWORD *)(v6 + 4 * (a2 >> 5));
+    Buffer = BitMapHeader->Buffer;
+    v13 = &Buffer[(SizeOfBitMap - 1) >> 5];
+    v7 = &Buffer[FromIndex >> 5];
     if ( v7 != v13 )
     {
-      v11 = a2 & 0x1F;
+      v11 = FromIndex & 0x1F;
       if ( (*v7 | dword_4B288AA0[v11]) == 0xFFFFFFFF )
       {
-        v3 = a2 - v11 + 32;
+        v3 = FromIndex - v11 + 32;
         for ( ++v7; v7 < v13 && *v7 == -1; ++v7 )
           v3 += 32;
       }
     }
-    for ( ; v3 < v4; ++v3 )
+    for ( ; v3 < SizeOfBitMap; ++v3 )
     {
-      if ( !_bittest(*(const signed __int32 **)(a1 + 4), v3) )
+      if ( !_bittest((const signed __int32 *)BitMapHeader->Buffer, v3) )
         break;
     }
     v5 = 0;
@@ -51,7 +51,7 @@ int __stdcall RtlFindNextForwardRunClear(int a1, unsigned int a2, unsigned int *
         if ( v12 == 33 )
         {
 LABEL_23:
-          *a3 = v3;
+          *StartingRunIndex = v3;
           return v5;
         }
         v8 = v7 + 1;
@@ -64,9 +64,9 @@ LABEL_23:
         }
       }
     }
-    for ( i = v5 + v3; i < *(_DWORD *)a1; ++v5 )
+    for ( i = v5 + v3; i < BitMapHeader->SizeOfBitMap; ++v5 )
     {
-      if ( _bittest(*(const signed __int32 **)(a1 + 4), i) )
+      if ( _bittest((const signed __int32 *)BitMapHeader->Buffer, i) )
         break;
       if ( v5 == -1 )
         break;
@@ -75,6 +75,6 @@ LABEL_23:
     goto LABEL_23;
   }
   v5 = 0;
-  *a3 = a2;
+  *StartingRunIndex = FromIndex;
   return v5;
 }

@@ -17,88 +17,86 @@ __int64 __fastcall RtlpMUIRegPatchLicenseInfortmation(__int64 a1)
 {
   int v1; // r15d
   bool v3; // cc
-  __int64 v4; // r9
   wchar_t *Heap; // r13
-  int v6; // edx
-  int v7; // ebx
-  char v8; // di
-  __int64 v9; // r14
-  unsigned __int16 *v10; // rdx
-  int v11; // eax
-  __int64 v12; // r8
+  int v5; // edx
+  int v6; // ebx
+  char v7; // di
+  __int64 v8; // r14
+  unsigned __int16 *v9; // rdx
+  int v10; // eax
+  _QWORD *v11; // r8
   wchar_t *Buffer; // rbp
-  __int64 v14; // rdx
-  __int64 v15; // rcx
-  __int64 v16; // rax
-  __int64 v17; // rdx
-  __int64 v18; // rax
-  size_t v19; // rax
-  unsigned int v21; // ecx
-  UNICODE_STRING DestinationString; // [rsp+20h] [rbp-38h] BYREF
-  __int16 v23; // [rsp+60h] [rbp+8h] BYREF
+  __int64 v13; // rdx
+  __int64 v14; // rcx
+  __int64 v15; // rax
+  __int64 v16; // rdx
+  __int64 v17; // rax
+  size_t v18; // rax
+  LCID v20; // ecx
+  _UNICODE_STRING String; // [rsp+20h] [rbp-38h] BYREF
+  __int16 v22; // [rsp+60h] [rbp+8h] BYREF
 
   v1 = 0;
-  v23 = 0;
-  DestinationString = 0LL;
+  v22 = 0;
+  String = 0LL;
   if ( !a1 )
     return 3221225473LL;
   v3 = *(_WORD *)(a1 + 4) <= 0x40u;
   *(_QWORD *)(a1 + 32) = 0LL;
   if ( !v3 )
     return 3221225473LL;
-  Heap = (wchar_t *)RtlAllocateHeap((char *)NtCurrentPeb()->ProcessHeap, 8u, 0xAAuLL);
+  Heap = (wchar_t *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, 0xAAuLL);
   if ( !Heap )
     return 3221225495LL;
-  v6 = *(unsigned __int16 *)(a1 + 4);
-  v7 = v6 - 1;
-  if ( v6 - 1 >= 0 )
+  v5 = *(unsigned __int16 *)(a1 + 4);
+  v6 = v5 - 1;
+  if ( v5 - 1 >= 0 )
   {
-    v8 = v6 - 1;
-    v9 = 6LL * *(unsigned __int16 *)(a1 + 4) - 6;
+    v7 = v5 - 1;
+    v8 = 6LL * *(unsigned __int16 *)(a1 + 4) - 6;
     while ( 1 )
     {
-      v10 = (unsigned __int16 *)(v9 + *(_QWORD *)(a1 + 24));
-      v11 = *v10;
-      if ( (_WORD)v11 )
+      v9 = (unsigned __int16 *)(v8 + *(_QWORD *)(a1 + 24));
+      v10 = *v9;
+      if ( (_WORD)v10 )
         break;
 LABEL_23:
-      --v8;
-      v9 -= 6LL;
-      if ( --v7 < 0 )
+      --v7;
+      v8 -= 6LL;
+      if ( --v6 < 0 )
         goto LABEL_24;
     }
-    v12 = g_RegInfo;
+    v11 = g_RegInfo;
     Buffer = Heap;
-    DestinationString.Buffer = Heap;
-    *(_DWORD *)&DestinationString.Length = 11141120;
-    if ( !g_RegInfo || !v10 )
+    String.Buffer = Heap;
+    *(_DWORD *)&String.Length = 11141120;
+    if ( !g_RegInfo || !v9 )
       goto LABEL_22;
-    switch ( v11 )
+    switch ( v10 )
     {
       case 2:
-        v14 = 28LL * (__int16)v10[2];
-        v15 = *(_QWORD *)(*(_QWORD *)(g_RegInfo + 24) + 16LL);
-        v16 = *(__int16 *)(v14 + v15 + 6);
-        v4 = *(unsigned __int16 *)(v14 + v15 + 4);
-        if ( (__int16)v16 > 0 )
+        v13 = 28LL * (__int16)v9[2];
+        v14 = *(_QWORD *)(*((_QWORD *)g_RegInfo + 3) + 16LL);
+        v15 = *(__int16 *)(v13 + v14 + 6);
+        if ( (__int16)v15 > 0 )
         {
-          v12 = *(_QWORD *)(g_RegInfo + 32);
-          *(_QWORD *)&DestinationString.Length = 0LL;
-          v17 = *(__int16 *)(*(_QWORD *)(v12 + 16) + 2 * v16);
-          v18 = *(_QWORD *)(v12 + 24);
-          Buffer = (wchar_t *)(v18 + 2 * v17);
+          v11 = (_QWORD *)*((_QWORD *)g_RegInfo + 4);
+          *(_QWORD *)&String.Length = 0LL;
+          v16 = *(__int16 *)(v11[2] + 2 * v15);
+          v17 = v11[3];
+          Buffer = (wchar_t *)(v17 + 2 * v16);
           if ( Buffer )
           {
-            v19 = 2 * wcslen((const wchar_t *)(v18 + 2 * v17));
-            if ( v19 >= 0xFFFE )
-              LOWORD(v19) = -4;
-            DestinationString.Length = v19;
-            DestinationString.MaximumLength = v19 + 2;
+            v18 = 2 * wcslen((const wchar_t *)(v17 + 2 * v16));
+            if ( v18 >= 0xFFFE )
+              LOWORD(v18) = -4;
+            String.Length = v18;
+            String.MaximumLength = v18 + 2;
           }
 LABEL_15:
           if ( v1 >= 0 )
           {
-            if ( *(_DWORD *)(g_RegInfo + 120) >= 0x3E8u )
+            if ( *((_DWORD *)g_RegInfo + 30) >= 0x3E8u )
             {
               if ( (int)RtlpIsALicensedRegularLanguage(g_RegInfo, Buffer) < 0
                 && (int)RtlpIsALicensedLIPLanguage(g_RegInfo, Buffer) < 0 )
@@ -107,45 +105,45 @@ LABEL_15:
               }
               goto LABEL_21;
             }
-            LOBYTE(v12) = 1;
-            if ( (int)RtlpMuiRegGetInstalledLanguageIndexByName(g_RegInfo, Buffer, v12, &v23) >= 0 )
+            LOBYTE(v11) = 1;
+            if ( (int)RtlpMuiRegGetInstalledLanguageIndexByName(g_RegInfo, Buffer, v11, &v22) >= 0 )
 LABEL_21:
-              *(_QWORD *)(a1 + 32) |= 1LL << v8;
+              *(_QWORD *)(a1 + 32) |= 1LL << v7;
           }
 LABEL_22:
           v1 = 0;
           goto LABEL_23;
         }
-        if ( !(_WORD)v4 )
+        if ( !*(_WORD *)(v13 + v14 + 4) )
         {
 LABEL_29:
           v1 = -1073741595;
           goto LABEL_15;
         }
-        v21 = *(unsigned __int16 *)(v14 + v15 + 4);
+        v20 = *(unsigned __int16 *)(v13 + v14 + 4);
         break;
       case 1:
-        v21 = (__int16)v10[2];
+        v20 = (__int16)v9[2];
         break;
       case 3:
         RtlInitUnicodeString(
-          &DestinationString,
-          (PCWSTR)(*(_QWORD *)(*(_QWORD *)(g_RegInfo + 32) + 24LL)
-                 + 2LL * *(__int16 *)(*(_QWORD *)(*(_QWORD *)(g_RegInfo + 32) + 16LL) + 2LL * (__int16)v10[2])));
+          &String,
+          (PCWSTR)(*(_QWORD *)(*((_QWORD *)g_RegInfo + 4) + 24LL)
+                 + 2LL * *(__int16 *)(*(_QWORD *)(*((_QWORD *)g_RegInfo + 4) + 16LL) + 2LL * (__int16)v9[2])));
         goto LABEL_34;
       default:
         goto LABEL_29;
     }
-    if ( !(unsigned __int8)RtlLCIDToCultureName(v21, (__int64)&DestinationString) )
+    if ( !RtlLCIDToCultureName(v20, &String) )
     {
-      Buffer = DestinationString.Buffer;
+      Buffer = String.Buffer;
       goto LABEL_29;
     }
 LABEL_34:
-    Buffer = DestinationString.Buffer;
+    Buffer = String.Buffer;
     goto LABEL_15;
   }
 LABEL_24:
-  RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (__int64)Heap, v4);
+  RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Heap);
   return 0LL;
 }

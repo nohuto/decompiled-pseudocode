@@ -195,7 +195,7 @@ __int64 __fastcall MiDeleteBootRange(unsigned __int64 a1, unsigned __int64 a2, i
             v46 = v45
                 + (((unsigned int)dword_140C4CBF0 + 4095LL) & 0xFFFFFFFFFFFFF000uLL)
                 + (unsigned int)(*((_DWORD *)v43 + 16) - 1);
-            if ( v45 != PsNtosImageBase && v45 != PsHalImageBase )
+            if ( (PVOID)v45 != PsNtosImageBase && (PVOID)v45 != PsHalImageBase )
               v46 += (unsigned __int64)(unsigned int)dword_140C4CB8C << 12;
             v47 = ((v46 >> 18) & 0x3FFFFFF8) - 0x904C0000000LL;
             if ( v5 >= ((v45 >> 18) & 0x3FFFFFF8) - 0x904C0000000LL && v5 <= v47 )

@@ -1,23 +1,23 @@
 /*
- * XREFs of FsRtlDeleteKeyFromTunnelCache @ 0x140ABBF80
+ * XREFs of FsRtlDeleteKeyFromTunnelCache @ 0x140ABDC80
  * Callers:
  *     <none>
  * Callees:
- *     ExAcquireFastMutex @ 0x140278070 (ExAcquireFastMutex.c)
- *     KeReleaseGuardedMutex @ 0x140278D40 (KeReleaseGuardedMutex.c)
- *     RtlDelete @ 0x1402BF430 (RtlDelete.c)
- *     RtlRealSuccessor @ 0x1402C1830 (RtlRealSuccessor.c)
- *     RtlDeleteNoSplay @ 0x1403B6670 (RtlDeleteNoSplay.c)
- *     FsRtlEmptyFreePoolList @ 0x1403B70B0 (FsRtlEmptyFreePoolList.c)
+ *     ExAcquireFastMutex @ 0x1402775E0 (ExAcquireFastMutex.c)
+ *     KeReleaseGuardedMutex @ 0x1402782B0 (KeReleaseGuardedMutex.c)
+ *     RtlDelete @ 0x14030A0F0 (RtlDelete.c)
+ *     RtlRealSuccessor @ 0x14030C4F0 (RtlRealSuccessor.c)
+ *     RtlDeleteNoSplay @ 0x1403C0570 (RtlDeleteNoSplay.c)
+ *     FsRtlEmptyFreePoolList @ 0x1403C0FB0 (FsRtlEmptyFreePoolList.c)
  */
 
 void __stdcall FsRtlDeleteKeyFromTunnelCache(TUNNEL *Cache, ULONGLONG DirectoryKey)
 {
-  RTL_SPLAY_LINKS *v2; // rbx
+  _RTL_SPLAY_LINKS *v2; // rbx
   char v5; // bp
   PRTL_SPLAY_LINKS v6; // rax
   PRTL_SPLAY_LINKS v7; // r15
-  RTL_SPLAY_LINKS *v8; // rax
+  _RTL_SPLAY_LINKS *v8; // rax
   _RTL_SPLAY_LINKS *Parent; // rdx
   _RTL_SPLAY_LINKS *LeftChild; // rcx
   _QWORD *v11; // rcx

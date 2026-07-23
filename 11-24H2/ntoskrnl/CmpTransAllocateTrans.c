@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpTransAllocateTrans @ 0x140A7F5EC
+ * XREFs of CmpTransAllocateTrans @ 0x140A78D9C
  * Callers:
- *     CmpTransSearchAddLightWeightTrans @ 0x1408790E8 (CmpTransSearchAddLightWeightTrans.c)
- *     CmpTransSearchAddTrans @ 0x14087A4F0 (CmpTransSearchAddTrans.c)
+ *     CmpTransSearchAddLightWeightTrans @ 0x14087D418 (CmpTransSearchAddLightWeightTrans.c)
+ *     CmpTransSearchAddTrans @ 0x14087E39C (CmpTransSearchAddTrans.c)
  * Callees:
- *     CmpBindHiveToTrans @ 0x14087B228 (CmpBindHiveToTrans.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     CmpBindHiveToTrans @ 0x14087F0D8 (CmpBindHiveToTrans.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall CmpTransAllocateTrans(__int64 a1, __int128 *a2, __int64 a3, __int64 a4)
@@ -14,7 +14,7 @@ __int64 __fastcall CmpTransAllocateTrans(__int64 a1, __int128 *a2, __int64 a3, _
   __int64 v9; // rdx
   __int128 v11; // xmm0
 
-  Pool2 = ExAllocatePool2(0x100uLL);
+  Pool2 = ExAllocatePool2(0x100uLL, 0xB8uLL, 0x72544D43u);
   v9 = Pool2;
   if ( Pool2 )
   {

@@ -1,11 +1,11 @@
 /*
- * XREFs of MiReplenishSlabAllocatorByIdentity @ 0x140506498
+ * XREFs of MiReplenishSlabAllocatorByIdentity @ 0x1404FFD48
  * Callers:
- *     MiReplenishSlabAllocator @ 0x14020607C (MiReplenishSlabAllocator.c)
+ *     MiReplenishSlabAllocator @ 0x14020615C (MiReplenishSlabAllocator.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     MiChangeSlabEntryIdentity @ 0x140705BF8 (MiChangeSlabEntryIdentity.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     MiChangeSlabEntryIdentity @ 0x14070A8C8 (MiChangeSlabEntryIdentity.c)
  */
 
 __int64 __fastcall MiReplenishSlabAllocatorByIdentity(__int64 a1)

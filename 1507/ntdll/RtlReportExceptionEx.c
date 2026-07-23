@@ -21,194 +21,230 @@
  *     memset @ 0x180098540 (memset.c)
  */
 
-__int64 __fastcall RtlReportExceptionEx(__int64 a1, __int64 a2, unsigned int a3, __int64 a4)
+NTSTATUS __cdecl RtlReportExceptionEx(
+        PEXCEPTION_RECORD ExceptionRecord,
+        PCONTEXT ContextRecord,
+        ULONG Flags,
+        PLARGE_INTEGER Timeout)
 {
   int v5; // ebx
-  _DWORD *v6; // r13
-  int v7; // r15d
-  char *v8; // rcx
-  int Section; // edi
-  __int64 v10; // rbx
-  _QWORD *v11; // rdi
-  unsigned int v12; // eax
-  __int64 v13; // rbx
-  int InformationThread; // eax
-  unsigned int v15; // ecx
-  int v16; // eax
-  unsigned int v18; // [rsp+54h] [rbp-584h]
-  char *v19; // [rsp+60h] [rbp-578h] BYREF
-  HANDLE v20; // [rsp+68h] [rbp-570h]
-  HANDLE Handle; // [rsp+70h] [rbp-568h]
-  HANDLE v22; // [rsp+78h] [rbp-560h]
-  HANDLE v23[2]; // [rsp+80h] [rbp-558h] BYREF
-  int v24; // [rsp+90h] [rbp-548h] BYREF
-  __int64 v25; // [rsp+98h] [rbp-540h]
-  unsigned int v26; // [rsp+A0h] [rbp-538h]
-  _DWORD *v27; // [rsp+A8h] [rbp-530h]
-  int v28; // [rsp+B0h] [rbp-528h]
-  void *v29; // [rsp+B8h] [rbp-520h]
-  __int64 v30; // [rsp+C0h] [rbp-518h]
-  __int128 v31; // [rsp+C8h] [rbp-510h]
-  __int64 v32; // [rsp+D8h] [rbp-500h]
-  _QWORD v33[2]; // [rsp+E0h] [rbp-4F8h] BYREF
-  int v34; // [rsp+F0h] [rbp-4E8h]
-  __int64 v35; // [rsp+F8h] [rbp-4E0h]
-  __int64 v36; // [rsp+100h] [rbp-4D8h]
-  int v37; // [rsp+108h] [rbp-4D0h]
-  __int128 v38; // [rsp+110h] [rbp-4C8h]
+  PVOID v6; // r13
+  NTSTATUS v7; // r15d
+  HANDLE v8; // rcx
+  NTSTATUS v9; // edi
+  HANDLE v10; // rcx
+  __int64 v11; // rbx
+  _QWORD *v12; // rdi
+  unsigned int v13; // eax
+  __int64 v14; // rbx
+  NTSTATUS InformationThread; // eax
+  unsigned int v16; // ecx
+  LARGE_INTEGER *v17; // rbx
+  NTSTATUS v18; // eax
+  unsigned int v20; // [rsp+54h] [rbp-584h]
+  HANDLE TargetHandle; // [rsp+58h] [rbp-580h] BYREF
+  HANDLE SnapshotHandle; // [rsp+60h] [rbp-578h] BYREF
+  HANDLE v23; // [rsp+68h] [rbp-570h] BYREF
+  HANDLE SectionHandle; // [rsp+70h] [rbp-568h] BYREF
+  HANDLE EventHandle; // [rsp+78h] [rbp-560h] BYREF
+  HANDLE Handle; // [rsp+80h] [rbp-558h] BYREF
+  __int64 v27; // [rsp+88h] [rbp-550h] BYREF
+  int v28; // [rsp+90h] [rbp-548h] BYREF
+  LARGE_INTEGER MaximumSize; // [rsp+98h] [rbp-540h] BYREF
+  unsigned int v30; // [rsp+A0h] [rbp-538h]
+  PVOID v31; // [rsp+A8h] [rbp-530h]
+  int v32; // [rsp+B0h] [rbp-528h]
+  PVOID BaseAddress; // [rsp+B8h] [rbp-520h] BYREF
+  PLARGE_INTEGER Timeouta; // [rsp+C0h] [rbp-518h]
+  HANDLE Handles[2]; // [rsp+C8h] [rbp-510h] BYREF
+  ULONG_PTR ViewSize; // [rsp+D8h] [rbp-500h] BYREF
+  _QWORD v37[2]; // [rsp+E0h] [rbp-4F8h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+F0h] [rbp-4E8h] BYREF
   __int64 v39; // [rsp+120h] [rbp-4B8h]
   __int64 v40; // [rsp+128h] [rbp-4B0h]
-  __int64 v41; // [rsp+148h] [rbp-490h]
-  char v42; // [rsp+160h] [rbp-478h] BYREF
-  _QWORD v43[4]; // [rsp+590h] [rbp-48h] BYREF
+  _BYTE ThreadInformation[24]; // [rsp+130h] [rbp-4A8h] BYREF
+  __int64 v42; // [rsp+148h] [rbp-490h]
+  char v43; // [rsp+160h] [rbp-478h] BYREF
+  _QWORD v44[4]; // [rsp+590h] [rbp-48h] BYREF
 
-  v30 = a4;
-  v23[0] = 0LL;
-  v22 = 0LL;
+  Timeouta = Timeout;
   Handle = 0LL;
-  v20 = 0LL;
-  v31 = 0LL;
+  EventHandle = 0LL;
+  SectionHandle = 0LL;
+  TargetHandle = 0LL;
+  v23 = 0LL;
+  *(_OWORD *)Handles = 0LL;
   v5 = 0;
-  v29 = 0LL;
-  v32 = 0LL;
+  BaseAddress = 0LL;
+  ViewSize = 0LL;
   v6 = 0LL;
-  v27 = 0LL;
-  v25 = 0LL;
-  v19 = 0LL;
-  v33[1] = a2;
-  v33[0] = a1;
-  v34 = 48;
-  v35 = 0LL;
-  v37 = 2;
-  v36 = 0LL;
-  v38 = 0LL;
-  if ( (a3 & 4) == 0 )
+  v31 = 0LL;
+  MaximumSize.QuadPart = 0LL;
+  SnapshotHandle = 0LL;
+  v37[1] = ContextRecord;
+  v37[0] = ExceptionRecord;
+  ObjectAttributes.Length = 48;
+  ObjectAttributes.RootDirectory = 0LL;
+  ObjectAttributes.Attributes = 2;
+  ObjectAttributes.ObjectName = 0LL;
+  *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+  if ( (Flags & 4) == 0 )
   {
-    v23[1] = HANDLE_FLAG_INHERIT;
-    NtSetInformationProcess();
+    v27 = 1LL;
+    NtSetInformationProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, ProcessFaultInformation, &v27, 8u);
   }
-  if ( (int)ZwCreateEvent() < 0 )
+  if ( ZwCreateEvent(&EventHandle, 0x1F0003u, &ObjectAttributes, NotificationEvent, 0) < 0 )
   {
-    v22 = 0LL;
+    EventHandle = 0LL;
   }
   else
   {
-    v43[0] = v22;
+    v44[0] = EventHandle;
     v5 = 1;
   }
-  if ( (int)RtlQueryResourcePolicy(0, 0, &v24, 4LL) < 0 || v24 > 10 )
+  if ( (int)RtlQueryResourcePolicy(0, 0, &v28, 4LL) < 0 || v28 > 10 )
   {
-    v19 = &v42;
-    v7 = PssNtCaptureSnapshot((void **)&v19, -1LL, 0xFC0019FF, 0x10001Fu);
-    v28 = v7;
-    v8 = v19;
+    SnapshotHandle = &v43;
+    v7 = PssNtCaptureSnapshot(&SnapshotHandle, (HANDLE)0xFFFFFFFFFFFFFFFFLL, 0xFC0019FF, 0x10001Fu);
+    v32 = v7;
+    v8 = SnapshotHandle;
     if ( v7 < 0 )
       v8 = 0LL;
-    v19 = v8;
+    SnapshotHandle = v8;
   }
   else
   {
     v7 = -1073741801;
-    v28 = -1073741801;
-    v19 = 0LL;
+    v32 = -1073741801;
+    SnapshotHandle = 0LL;
   }
-  v25 = 248LL;
-  Section = NtCreateSection();
-  if ( Section >= 0 )
+  MaximumSize.QuadPart = 248LL;
+  v9 = NtCreateSection(&SectionHandle, 0xF0007u, &ObjectAttributes, &MaximumSize, 4u, 0x8000000u, 0LL);
+  if ( v9 >= 0 )
   {
-    v43[v5] = Handle;
-    v10 = (unsigned int)(v5 + 1);
-    v18 = v10;
-    Section = ZwMapViewOfSection();
-    if ( Section >= 0 )
+    v10 = SectionHandle;
+    v44[v5] = SectionHandle;
+    v11 = (unsigned int)(v5 + 1);
+    v20 = v11;
+    v9 = ZwMapViewOfSection(v10, (HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, 0LL, 0LL, 0LL, &ViewSize, ViewShare, 0, 4u);
+    if ( v9 >= 0 )
     {
-      if ( (int)ZwDuplicateObject() >= 0 )
+      if ( ZwDuplicateObject(
+             (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+             (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+             (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+             &TargetHandle,
+             0x1FFFFFu,
+             2u,
+             0) < 0 )
       {
-        v43[v10] = 0LL;
-        v10 = (unsigned int)(v10 + 1);
-        v18 = v10;
-      }
-      if ( (int)ZwDuplicateObject() < 0 )
-      {
-        v20 = 0LL;
+        TargetHandle = 0LL;
       }
       else
       {
-        v43[v10] = v20;
-        v18 = v10 + 1;
+        v44[v11] = TargetHandle;
+        v11 = (unsigned int)(v11 + 1);
+        v20 = v11;
       }
-      v11 = v29;
-      v27 = v29;
-      memset(v29, 0, 0xF8uLL);
-      v12 = WerpProcessId((void *)0xFFFFFFFFFFFFFFFFLL);
-      v13 = v12;
-      v26 = v12;
-      InformationThread = ZwQueryInformationThread();
-      v15 = v41;
-      if ( InformationThread < 0 )
-        v15 = 0;
-      v40 = v15;
-      v39 = v13;
-      *(_DWORD *)v11 = 248;
-      v11[21] = v33;
-      *((_DWORD *)v11 + 1) = v13;
-      *((_DWORD *)v11 + 2) = v15;
-      v11[23] = 0LL;
-      v11[24] = v20;
-      v11[26] = v22;
-      v11[28] = v19;
-      *((_DWORD *)v11 + 58) = v7;
-      *((_DWORD *)v11 + 59) = a3;
-      v6 = v27;
-      v27[60] = (MEMORY[0x7FFE0320] * (unsigned __int64)MEMORY[0x7FFE0004]) >> 24;
-      Section = ReportExceptionInternal(v26, (__int64)Handle, (__int64)v43, v18, a3, v23);
-      if ( Section >= 0 )
+      if ( ZwDuplicateObject(
+             (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+             (HANDLE)0xFFFFFFFFFFFFFFFELL,
+             (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+             &v23,
+             0x1FFFFFu,
+             2u,
+             0) < 0 )
       {
-        if ( v23[0] )
+        v23 = 0LL;
+      }
+      else
+      {
+        v44[v11] = v23;
+        v20 = v11 + 1;
+      }
+      v12 = BaseAddress;
+      v31 = BaseAddress;
+      memset(BaseAddress, 0, 0xF8uLL);
+      v13 = WerpProcessId((void *)0xFFFFFFFFFFFFFFFFLL);
+      v14 = v13;
+      v30 = v13;
+      InformationThread = ZwQueryInformationThread(
+                            (HANDLE)0xFFFFFFFFFFFFFFFELL,
+                            ThreadBasicInformation,
+                            ThreadInformation,
+                            0x30u,
+                            0LL);
+      v16 = v42;
+      if ( InformationThread < 0 )
+        v16 = 0;
+      v40 = v16;
+      v39 = v14;
+      *(_DWORD *)v12 = 248;
+      v12[21] = v37;
+      *((_DWORD *)v12 + 1) = v14;
+      *((_DWORD *)v12 + 2) = v16;
+      v12[23] = TargetHandle;
+      v12[24] = v23;
+      v12[26] = EventHandle;
+      v12[28] = SnapshotHandle;
+      *((_DWORD *)v12 + 58) = v7;
+      *((_DWORD *)v12 + 59) = Flags;
+      v6 = v31;
+      *((_DWORD *)v31 + 60) = (MEMORY[0x7FFE0320] * (unsigned __int64)MEMORY[0x7FFE0004]) >> 24;
+      v9 = ReportExceptionInternal(v30, SectionHandle, (__int64)v44, v20, Flags, &Handle);
+      if ( v9 >= 0 )
+      {
+        if ( Handle )
         {
+          v17 = Timeouta;
           while ( 1 )
           {
-            *(HANDLE *)&v31 = v23[0];
-            *((_QWORD *)&v31 + 1) = v22;
-            v16 = NtWaitForMultipleObjects();
-            if ( v16 < 0 )
+            Handles[0] = Handle;
+            Handles[1] = EventHandle;
+            v18 = NtWaitForMultipleObjects((EventHandle != 0LL) + 1, Handles, WaitAny, 1u, v17);
+            if ( v18 < 0 )
               break;
-            if ( v16 == 258 )
+            if ( v18 == 258 )
             {
-              Section = -1073741823;
+              v9 = -1073741823;
               break;
             }
-            if ( v16 != 192 && v16 != 257 )
-              goto LABEL_29;
+            if ( v18 != 192 && v18 != 257 )
+              goto LABEL_31;
           }
         }
         else
         {
-LABEL_29:
-          Section = 0;
+LABEL_31:
+          v9 = 0;
         }
       }
     }
   }
-  if ( v19 )
-    PssNtFreeSnapshot((__int64)v19);
+  if ( SnapshotHandle )
+    PssNtFreeSnapshot((__int64)SnapshotHandle);
   if ( v6 )
   {
-    NtUnmapViewOfSection();
-    if ( Handle )
+    NtUnmapViewOfSection((HANDLE)0xFFFFFFFFFFFFFFFFLL, v6);
+    if ( SectionHandle )
     {
-      NtClose(Handle);
-      Handle = 0LL;
+      NtClose(SectionHandle);
+      SectionHandle = 0LL;
     }
-    if ( v23[0] )
-      NtClose(v23[0]);
+    if ( Handle )
+      NtClose(Handle);
   }
-  if ( v20 )
+  if ( TargetHandle )
   {
-    NtClose(v20);
-    v20 = 0LL;
+    NtClose(TargetHandle);
+    TargetHandle = 0LL;
   }
-  if ( v22 )
-    NtClose(v22);
-  return (unsigned int)Section;
+  if ( v23 )
+  {
+    NtClose(v23);
+    v23 = 0LL;
+  }
+  if ( EventHandle )
+    NtClose(EventHandle);
+  return v9;
 }

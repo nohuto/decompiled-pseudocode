@@ -1,12 +1,12 @@
 /*
- * XREFs of DbgUserBreakPoint @ 0x1800A1190
+ * XREFs of DbgUserBreakPoint @ 0x1800A1150
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-void DbgUserBreakPoint()
+void DbgUserBreakPoint(void)
 {
   __debugbreak();
 }

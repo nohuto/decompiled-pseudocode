@@ -1,9 +1,9 @@
 /*
- * XREFs of _ltow @ 0x1800975F0
+ * XREFs of _ltow @ 0x1800975E0
  * Callers:
  *     <none>
  * Callees:
- *     xtow @ 0x1800976DC (xtow.c)
+ *     xtow @ 0x1800976CC (xtow.c)
  */
 
 wchar_t *__cdecl ltow(int Value, wchar_t *Buffer, int Radix)

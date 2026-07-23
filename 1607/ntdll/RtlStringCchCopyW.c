@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlStringCchCopyW @ 0x1800E5FBC
+ * XREFs of RtlStringCchCopyW @ 0x1800E607C
  * Callers:
- *     RtlFormatMessageEx @ 0x18005C730 (RtlFormatMessageEx.c)
- *     RtlConvertLCIDToString @ 0x1800E57F0 (RtlConvertLCIDToString.c)
- *     RtlpSetInstallLanguage @ 0x1800E76F0 (RtlpSetInstallLanguage.c)
+ *     RtlFormatMessageEx @ 0x18005C720 (RtlFormatMessageEx.c)
+ *     RtlConvertLCIDToString @ 0x1800E58B0 (RtlConvertLCIDToString.c)
+ *     RtlpSetInstallLanguage @ 0x1800E77B0 (RtlpSetInstallLanguage.c)
  *     RtlpOpenAndMapCustomCultureFile @ 0x1800EF630 (RtlpOpenAndMapCustomCultureFile.c)
  *     RtlpMuiRegGetInstalledLanguageInfoByIndex @ 0x1800F4B9C (RtlpMuiRegGetInstalledLanguageInfoByIndex.c)
  *     RtlpMuiRegGetString @ 0x1800F4EE8 (RtlpMuiRegGetString.c)
  * Callees:
- *     RtlStringCopyWorkerW_1 @ 0x1800E6004 (RtlStringCopyWorkerW_1.c)
+ *     RtlStringCopyWorkerW_1 @ 0x1800E60C4 (RtlStringCopyWorkerW_1.c)
  */
 
 __int64 __fastcall RtlStringCchCopyW(_WORD *a1, __int64 a2, __int64 a3)

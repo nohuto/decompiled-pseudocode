@@ -1,15 +1,15 @@
 /*
- * XREFs of MiDeleteSegmentPages @ 0x140090080
+ * XREFs of MiDeleteSegmentPages @ 0x14008F7E0
  * Callers:
- *     MiSegmentDelete @ 0x1404B81E4 (MiSegmentDelete.c)
- *     MiCopyDirectMapHeader @ 0x14065A8E0 (MiCopyDirectMapHeader.c)
- *     MiInitializeImageExtents @ 0x14065ABC4 (MiInitializeImageExtents.c)
+ *     MiSegmentDelete @ 0x1404A25C4 (MiSegmentDelete.c)
+ *     MiCopyDirectMapHeader @ 0x14065A9C4 (MiCopyDirectMapHeader.c)
+ *     MiInitializeImageExtents @ 0x14065ACA8 (MiInitializeImageExtents.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14002E9A0 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14002EB90 (ExAcquireSpinLockExclusive.c)
- *     MiReturnCommit @ 0x14004E500 (MiReturnCommit.c)
- *     MiReturnResidentAvailable @ 0x14004F1E0 (MiReturnResidentAvailable.c)
- *     MiDeleteSubsectionPages @ 0x140061C70 (MiDeleteSubsectionPages.c)
+ *     ExReleaseSpinLockExclusive @ 0x14002E520 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14002E710 (ExAcquireSpinLockExclusive.c)
+ *     MiReturnCommit @ 0x14004E080 (MiReturnCommit.c)
+ *     MiReturnResidentAvailable @ 0x14004ED60 (MiReturnResidentAvailable.c)
+ *     MiDeleteSubsectionPages @ 0x1400617F0 (MiDeleteSubsectionPages.c)
  */
 
 __int64 __fastcall MiDeleteSegmentPages(__int64 *a1, __int64 a2, __int64 a3)
@@ -58,7 +58,7 @@ __int64 __fastcall MiDeleteSegmentPages(__int64 *a1, __int64 a2, __int64 a3)
     MiReturnCommit((__int64)MiSystemPartition, v12 - v5);
     if ( (v8 & 0x1000) != 0 )
       MiReturnResidentAvailable(v12 - v5);
-    _InterlockedExchangeAdd64(&qword_140327918, -v12);
+    _InterlockedExchangeAdd64(&qword_140327958, -v12);
   }
   return v6;
 }

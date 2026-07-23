@@ -1,11 +1,11 @@
 /*
- * XREFs of IopLiveDumpTraceBufferEstimation @ 0x1401CAFF4
+ * XREFs of IopLiveDumpTraceBufferEstimation @ 0x1401CAED8
  * Callers:
  *     IopLiveDumpEstimateMemoryPages @ 0x1403DAE30 (IopLiveDumpEstimateMemoryPages.c)
  * Callees:
- *     EtwWrite @ 0x140013320 (EtwWrite.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     IopLiveDumpIsTracingEnabled @ 0x1401CAEBC (IopLiveDumpIsTracingEnabled.c)
+ *     EtwWrite @ 0x140012EA0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     IopLiveDumpIsTracingEnabled @ 0x1401CADA0 (IopLiveDumpIsTracingEnabled.c)
  */
 
 char IopLiveDumpTraceBufferEstimation()

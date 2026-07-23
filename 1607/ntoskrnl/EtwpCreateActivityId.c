@@ -1,7 +1,7 @@
 /*
- * XREFs of EtwpCreateActivityId @ 0x1400A0D7C
+ * XREFs of EtwpCreateActivityId @ 0x14009F6A4
  * Callers:
- *     NtTraceControl @ 0x14040DD40 (NtTraceControl.c)
+ *     NtTraceControl @ 0x14040CC00 (NtTraceControl.c)
  * Callees:
  *     <none>
  */

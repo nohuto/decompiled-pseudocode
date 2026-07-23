@@ -509,7 +509,7 @@ LABEL_63:
             if ( (v22 & 2) != 0 )
             {
               if ( !v15 )
-                HvUpdateUnreconciledVector((struct _RTL_BITMAP *)BugCheckParameter2, 1);
+                HvUpdateUnreconciledVector((_RTL_BITMAP *)BugCheckParameter2, 1);
               HvFreeDirtyData(BugCheckParameter2);
             }
             else

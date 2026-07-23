@@ -1,13 +1,13 @@
 /*
- * XREFs of PpIrpQueryCapabilities @ 0x1406EB6A4
+ * XREFs of PpIrpQueryCapabilities @ 0x1406EC944
  * Callers:
- *     IoGetDeviceProperty @ 0x1405876E0 (IoGetDeviceProperty.c)
- *     PiProcessNewDeviceNode @ 0x1406E3F14 (PiProcessNewDeviceNode.c)
- *     PnpQueryAndSaveDeviceNodeCapabilities @ 0x1406EB650 (PnpQueryAndSaveDeviceNodeCapabilities.c)
- *     PiControlGetDevicePowerData @ 0x14083B668 (PiControlGetDevicePowerData.c)
+ *     IoGetDeviceProperty @ 0x1405886E0 (IoGetDeviceProperty.c)
+ *     PiProcessNewDeviceNode @ 0x1406E51B4 (PiProcessNewDeviceNode.c)
+ *     PnpQueryAndSaveDeviceNodeCapabilities @ 0x1406EC8F0 (PnpQueryAndSaveDeviceNodeCapabilities.c)
+ *     PiControlGetDevicePowerData @ 0x14083C8C8 (PiControlGetDevicePowerData.c)
  * Callees:
- *     memset @ 0x1401D1880 (memset.c)
- *     IopSynchronousCall @ 0x1405A2CE0 (IopSynchronousCall.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     IopSynchronousCall @ 0x1405A3CE0 (IopSynchronousCall.c)
  */
 
 __int64 __fastcall PpIrpQueryCapabilities(struct _DEVICE_OBJECT *a1, _DWORD *a2)

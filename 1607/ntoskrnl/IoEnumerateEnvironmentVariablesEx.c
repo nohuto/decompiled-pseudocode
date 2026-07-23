@@ -1,12 +1,12 @@
 /*
- * XREFs of IoEnumerateEnvironmentVariablesEx @ 0x1406280BC
+ * XREFs of IoEnumerateEnvironmentVariablesEx @ 0x140628170
  * Callers:
- *     NtEnumerateBootEntries @ 0x1406B378C (NtEnumerateBootEntries.c)
- *     NtEnumerateDriverEntries @ 0x1406B3D2C (NtEnumerateDriverEntries.c)
- *     NtEnumerateSystemEnvironmentValuesEx @ 0x1406B41DC (NtEnumerateSystemEnvironmentValuesEx.c)
+ *     NtEnumerateBootEntries @ 0x1406B38C4 (NtEnumerateBootEntries.c)
+ *     NtEnumerateDriverEntries @ 0x1406B3E64 (NtEnumerateDriverEntries.c)
+ *     NtEnumerateSystemEnvironmentValuesEx @ 0x1406B4314 (NtEnumerateSystemEnvironmentValuesEx.c)
  * Callees:
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     IopOpenSystemVariableDevice @ 0x140628DBC (IopOpenSystemVariableDevice.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     IopOpenSystemVariableDevice @ 0x140628E70 (IopOpenSystemVariableDevice.c)
  */
 
 __int64 __fastcall IoEnumerateEnvironmentVariablesEx(unsigned int a1, __int64 a2, __int64 a3)

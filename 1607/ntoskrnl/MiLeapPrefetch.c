@@ -1,18 +1,18 @@
 /*
- * XREFs of MiLeapPrefetch @ 0x1401E8460
+ * XREFs of MiLeapPrefetch @ 0x1401E828C
  * Callers:
- *     MiResolvePageTablePage @ 0x14003FD10 (MiResolvePageTablePage.c)
- *     MiPrefetchVirtualMemory @ 0x1400BFCA0 (MiPrefetchVirtualMemory.c)
- *     MiPrefetchJumpVad @ 0x1401E8798 (MiPrefetchJumpVad.c)
+ *     MiResolvePageTablePage @ 0x14003F890 (MiResolvePageTablePage.c)
+ *     MiPrefetchVirtualMemory @ 0x1400BDB30 (MiPrefetchVirtualMemory.c)
+ *     MiPrefetchJumpVad @ 0x1401E85C4 (MiPrefetchJumpVad.c)
  * Callees:
- *     KiLeaveGuardedRegionUnsafe @ 0x140013B70 (KiLeaveGuardedRegionUnsafe.c)
- *     UNLOCK_ADDRESS_SPACE_SHARED @ 0x14002BE60 (UNLOCK_ADDRESS_SPACE_SHARED.c)
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     MiGetSharedVm @ 0x14002EA30 (MiGetSharedVm.c)
- *     KeAbPostReleaseEx @ 0x1400C66BC (KeAbPostReleaseEx.c)
- *     ExfTryAcquirePushLockShared @ 0x1400C7C18 (ExfTryAcquirePushLockShared.c)
- *     ExReleaseSpinLockShared @ 0x1400EA240 (ExReleaseSpinLockShared.c)
- *     ExAcquireSpinLockShared @ 0x1400EB1D0 (ExAcquireSpinLockShared.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1400136F0 (KiLeaveGuardedRegionUnsafe.c)
+ *     UNLOCK_ADDRESS_SPACE_SHARED @ 0x14002B9E0 (UNLOCK_ADDRESS_SPACE_SHARED.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     MiGetSharedVm @ 0x14002E5B0 (MiGetSharedVm.c)
+ *     KeAbPostReleaseEx @ 0x1400C455C (KeAbPostReleaseEx.c)
+ *     ExfTryAcquirePushLockShared @ 0x1400C5AB8 (ExfTryAcquirePushLockShared.c)
+ *     ExReleaseSpinLockShared @ 0x1400E80B0 (ExReleaseSpinLockShared.c)
+ *     ExAcquireSpinLockShared @ 0x1400E9040 (ExAcquireSpinLockShared.c)
  */
 
 __int64 __fastcall MiLeapPrefetch(_QWORD *a1, unsigned __int64 a2)

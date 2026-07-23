@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpHpExtrasSetPresent @ 0x1405B6594
+ * XREFs of RtlpHpExtrasSetPresent @ 0x1405B6B04
  * Callers:
- *     RtlpHpExtrasAppend @ 0x1405B6470 (RtlpHpExtrasAppend.c)
+ *     RtlpHpExtrasAppend @ 0x1405B69E0 (RtlpHpExtrasAppend.c)
  * Callees:
- *     RtlCSparseBitmapBitmaskRead @ 0x14032378C (RtlCSparseBitmapBitmaskRead.c)
- *     RtlpHpSegSetExtraPresent @ 0x1405B6B40 (RtlpHpSegSetExtraPresent.c)
- *     RtlpHpLargeAllocSetExtraPresent @ 0x1405B6FB4 (RtlpHpLargeAllocSetExtraPresent.c)
+ *     RtlCSparseBitmapBitmaskRead @ 0x140323A1C (RtlCSparseBitmapBitmaskRead.c)
+ *     RtlpHpSegSetExtraPresent @ 0x1405B70B0 (RtlpHpSegSetExtraPresent.c)
+ *     RtlpHpLargeAllocSetExtraPresent @ 0x1405B7524 (RtlpHpLargeAllocSetExtraPresent.c)
  */
 
 __int64 __fastcall RtlpHpExtrasSetPresent(__int64 a1, __int64 a2, unsigned int a3)

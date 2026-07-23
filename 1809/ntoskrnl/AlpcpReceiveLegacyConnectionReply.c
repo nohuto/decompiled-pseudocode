@@ -1,13 +1,13 @@
 /*
- * XREFs of AlpcpReceiveLegacyConnectionReply @ 0x1406A60CC
+ * XREFs of AlpcpReceiveLegacyConnectionReply @ 0x1406A736C
  * Callers:
- *     NtSecureConnectPort @ 0x1406A5B20 (NtSecureConnectPort.c)
+ *     NtSecureConnectPort @ 0x1406A6DC0 (NtSecureConnectPort.c)
  * Callees:
- *     AlpcpReadMessageData @ 0x140614164 (AlpcpReadMessageData.c)
- *     AlpcpUnlockMessage @ 0x140615E4C (AlpcpUnlockMessage.c)
- *     AlpcpReceiveSynchronousReply @ 0x140634290 (AlpcpReceiveSynchronousReply.c)
- *     AlpcpQueryRemoteView @ 0x1406A61F8 (AlpcpQueryRemoteView.c)
- *     AlpcpGetDataFromUserVaSafe @ 0x1406D4A40 (AlpcpGetDataFromUserVaSafe.c)
+ *     AlpcpReadMessageData @ 0x140615164 (AlpcpReadMessageData.c)
+ *     AlpcpUnlockMessage @ 0x140616E4C (AlpcpUnlockMessage.c)
+ *     AlpcpReceiveSynchronousReply @ 0x1406352B0 (AlpcpReceiveSynchronousReply.c)
+ *     AlpcpQueryRemoteView @ 0x1406A7498 (AlpcpQueryRemoteView.c)
+ *     AlpcpGetDataFromUserVaSafe @ 0x1406D5CE0 (AlpcpGetDataFromUserVaSafe.c)
  */
 
 __int64 __fastcall AlpcpReceiveLegacyConnectionReply(

@@ -1,43 +1,42 @@
 /*
- * XREFs of RtlpTpRevertCapture @ 0x180064D78
+ * XREFs of RtlpTpRevertCapture @ 0x180064D68
  * Callers:
- *     RtlQueueWorkItem @ 0x180039CF0 (RtlQueueWorkItem.c)
- *     RtlDeleteTimerQueueEx @ 0x1800640D0 (RtlDeleteTimerQueueEx.c)
- *     RtlCreateTimerQueue @ 0x180064250 (RtlCreateTimerQueue.c)
- *     RtlUpdateTimer @ 0x180064310 (RtlUpdateTimer.c)
- *     RtlDeregisterWaitEx @ 0x180064430 (RtlDeregisterWaitEx.c)
- *     RtlDeleteTimer @ 0x180064690 (RtlDeleteTimer.c)
- *     RtlCreateTimer @ 0x180064830 (RtlCreateTimer.c)
- *     RtlRegisterWait @ 0x180064AA0 (RtlRegisterWait.c)
- *     RtlSetIoCompletionCallback @ 0x1800902A0 (RtlSetIoCompletionCallback.c)
+ *     RtlQueueWorkItem @ 0x180039CE0 (RtlQueueWorkItem.c)
+ *     RtlDeleteTimerQueueEx @ 0x1800640C0 (RtlDeleteTimerQueueEx.c)
+ *     RtlCreateTimerQueue @ 0x180064240 (RtlCreateTimerQueue.c)
+ *     RtlUpdateTimer @ 0x180064300 (RtlUpdateTimer.c)
+ *     RtlDeregisterWaitEx @ 0x180064420 (RtlDeregisterWaitEx.c)
+ *     RtlDeleteTimer @ 0x180064680 (RtlDeleteTimer.c)
+ *     RtlCreateTimer @ 0x180064820 (RtlCreateTimer.c)
+ *     RtlRegisterWait @ 0x180064A90 (RtlRegisterWait.c)
+ *     RtlSetIoCompletionCallback @ 0x180090290 (RtlSetIoCompletionCallback.c)
  * Callees:
  *     NtSetInformationThread @ 0x1800A65C0 (NtSetInformationThread.c)
  *     NtClose @ 0x1800A6600 (NtClose.c)
  *     NtOpenThreadToken @ 0x1800A68A0 (NtOpenThreadToken.c)
  */
 
-__int64 __fastcall RtlpTpRevertCapture(HANDLE *a1, int a2, __int64 a3)
+NTSTATUS __fastcall RtlpTpRevertCapture(PHANDLE TokenHandle, int a2)
 {
-  __int64 result; // rax
-  int v5; // edi
-  __int64 v6; // [rsp+30h] [rbp+8h] BYREF
+  NTSTATUS result; // eax
+  NTSTATUS v4; // edi
+  __int64 ThreadInformation; // [rsp+30h] [rbp+8h] BYREF
 
-  *a1 = 0LL;
+  *TokenHandle = 0LL;
   if ( !NtCurrentTeb()->IsImpersonating )
-    return 0LL;
-  LOBYTE(a3) = 1;
-  result = NtOpenThreadToken(-2LL, (a2 != 0 ? 2 : 0) | 4u, a3, a1);
-  if ( (int)result >= 0 )
+    return 0;
+  result = NtOpenThreadToken((HANDLE)0xFFFFFFFFFFFFFFFELL, (a2 != 0 ? 2 : 0) | 4, 1u, TokenHandle);
+  if ( result >= 0 )
   {
-    v6 = 0LL;
-    v5 = NtSetInformationThread(-2LL, 5LL, &v6);
-    if ( v5 < 0 )
+    ThreadInformation = 0LL;
+    v4 = NtSetInformationThread((HANDLE)0xFFFFFFFFFFFFFFFELL, ThreadImpersonationToken, &ThreadInformation, 8u);
+    if ( v4 < 0 )
     {
-      NtClose(*a1);
-      *a1 = 0LL;
-      return (unsigned int)v5;
+      NtClose(*TokenHandle);
+      *TokenHandle = 0LL;
+      return v4;
     }
-    return 0LL;
+    return 0;
   }
   return result;
 }

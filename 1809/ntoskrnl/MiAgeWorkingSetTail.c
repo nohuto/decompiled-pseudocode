@@ -1,15 +1,15 @@
 /*
- * XREFs of MiAgeWorkingSetTail @ 0x140075A50
+ * XREFs of MiAgeWorkingSetTail @ 0x140075A40
  * Callers:
- *     MiAgePte @ 0x14006ADD0 (MiAgePte.c)
+ *     MiAgePte @ 0x14006ADC0 (MiAgePte.c)
  * Callees:
- *     KeFlushTb @ 0x1400755B0 (KeFlushTb.c)
- *     KeFlushMultipleRangeTb @ 0x140075BB0 (KeFlushMultipleRangeTb.c)
- *     MiFreeWsleList @ 0x1400B2AB0 (MiFreeWsleList.c)
- *     KeFlushMultipleRangeCurrentTb @ 0x140173C9C (KeFlushMultipleRangeCurrentTb.c)
- *     KeFlushCurrentTbOnly @ 0x140173E00 (KeFlushCurrentTbOnly.c)
- *     MiProcessVmAccessedInfo @ 0x1402B363C (MiProcessVmAccessedInfo.c)
- *     MiQueryEPTAccessedState @ 0x1402B3700 (MiQueryEPTAccessedState.c)
+ *     KeFlushTb @ 0x1400755A0 (KeFlushTb.c)
+ *     KeFlushMultipleRangeTb @ 0x140075BA0 (KeFlushMultipleRangeTb.c)
+ *     MiFreeWsleList @ 0x1400B29F0 (MiFreeWsleList.c)
+ *     KeFlushMultipleRangeCurrentTb @ 0x140173D9C (KeFlushMultipleRangeCurrentTb.c)
+ *     KeFlushCurrentTbOnly @ 0x140173F00 (KeFlushCurrentTbOnly.c)
+ *     MiProcessVmAccessedInfo @ 0x1402B382C (MiProcessVmAccessedInfo.c)
+ *     MiQueryEPTAccessedState @ 0x1402B38F0 (MiQueryEPTAccessedState.c)
  */
 
 __int64 __fastcall MiAgeWorkingSetTail(__int64 a1)
@@ -35,7 +35,7 @@ __int64 __fastcall MiAgeWorkingSetTail(__int64 a1)
     if ( !(_DWORD)v5 )
       goto LABEL_4;
     v8 = *(_BYTE *)(v4 + 4);
-    v9 = qword_14043A110;
+    v9 = qword_14043B1D0;
     if ( (v8 & 2) == 0 )
     {
       v10 = *(_DWORD *)v4;

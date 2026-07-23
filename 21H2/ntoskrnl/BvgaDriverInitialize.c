@@ -1,12 +1,12 @@
 /*
- * XREFs of BvgaDriverInitialize @ 0x140A6B640
+ * XREFs of BvgaDriverInitialize @ 0x140A6C640
  * Callers:
- *     InbvDriverInitialize @ 0x140A6B590 (InbvDriverInitialize.c)
+ *     InbvDriverInitialize @ 0x140A6C590 (InbvDriverInitialize.c)
  * Callees:
- *     _strupr @ 0x1403D1020 (_strupr.c)
- *     strstr @ 0x1403D1880 (strstr.c)
- *     FindBitmapResource @ 0x140A6B744 (FindBitmapResource.c)
- *     BvgaSaveResources @ 0x140A6B7D8 (BvgaSaveResources.c)
+ *     _strupr @ 0x1403D1190 (_strupr.c)
+ *     strstr @ 0x1403D19F0 (strstr.c)
+ *     FindBitmapResource @ 0x140A6C744 (FindBitmapResource.c)
+ *     BvgaSaveResources @ 0x140A6C7D8 (BvgaSaveResources.c)
  */
 
 char __fastcall BvgaDriverInitialize(unsigned int a1, __int64 a2, unsigned int a3)

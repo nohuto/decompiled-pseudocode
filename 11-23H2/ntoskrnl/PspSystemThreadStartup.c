@@ -1,14 +1,14 @@
 /*
- * XREFs of PspSystemThreadStartup @ 0x14030BCD0
+ * XREFs of PspSystemThreadStartup @ 0x14030BF60
  * Callers:
  *     <none>
  * Callees:
- *     KeBugCheck @ 0x14041EA30 (KeBugCheck.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     PspTerminateThreadByPointer @ 0x14076D980 (PspTerminateThreadByPointer.c)
- *     PspDisablePrimaryTokenExchange @ 0x14076F8E0 (PspDisablePrimaryTokenExchange.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheck @ 0x14041EDC0 (KeBugCheck.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     PspTerminateThreadByPointer @ 0x14076DB70 (PspTerminateThreadByPointer.c)
+ *     PspDisablePrimaryTokenExchange @ 0x14076FAD0 (PspDisablePrimaryTokenExchange.c)
  */
 
 __int64 __fastcall PspSystemThreadStartup(void (__fastcall *a1)(__int64), __int64 a2)
@@ -20,10 +20,10 @@ __int64 __fastcall PspSystemThreadStartup(void (__fastcall *a1)(__int64), __int6
   _DWORD *SchedulerAssist; // rdx
   bool v10; // zf
 
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)(CurrentIrql - 2) <= 0xDu )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && (unsigned __int8)(CurrentIrql - 2) <= 0xDu )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

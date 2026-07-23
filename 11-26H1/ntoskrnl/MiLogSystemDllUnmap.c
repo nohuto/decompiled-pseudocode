@@ -1,12 +1,12 @@
 /*
- * XREFs of MiLogSystemDllUnmap @ 0x1406F7FD4
+ * XREFs of MiLogSystemDllUnmap @ 0x1406FCCA4
  * Callers:
- *     MiCheckSystemDllUnmap @ 0x1409E8DCC (MiCheckSystemDllUnmap.c)
+ *     MiCheckSystemDllUnmap @ 0x1409E6908 (MiCheckSystemDllUnmap.c)
  * Callees:
- *     _tlgCreate1Sz_char @ 0x1403EEB48 (_tlgCreate1Sz_char.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     _tlgWriteEx_EtwWriteEx @ 0x1404E33C4 (_tlgWriteEx_EtwWriteEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     _tlgCreate1Sz_char @ 0x140453678 (_tlgCreate1Sz_char.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x1404DC958 (_tlgWriteEx_EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void MiLogSystemDllUnmap()
@@ -34,8 +34,8 @@ void MiLogSystemDllUnmap()
   __int64 *v20; // [rsp+D0h] [rbp+37h]
   __int64 v21; // [rsp+D8h] [rbp+3Fh]
 
-  if ( *(_DWORD *)stru_140E36558.FirstArgument > 5u
-    && tlgKeywordOn((__int64)stru_140E36558.FirstArgument, 0x400000004000LL) )
+  if ( *(_DWORD *)stru_140E366D8.FirstArgument > 5u
+    && tlgKeywordOn((__int64)stru_140E366D8.FirstArgument, 0x400000004000LL) )
   {
     v7 = *(_DWORD *)(v0 + 464);
     v13 = 4LL;
@@ -51,6 +51,6 @@ void MiLogSystemDllUnmap()
     v19 = 4LL;
     v10 = 2164260864LL;
     v20 = &v10;
-    tlgWriteEx_EtwWriteEx(v4, (unsigned __int8 *)&dword_1400580C4, v3, 1u, v5, v6, 8u, &v11);
+    tlgWriteEx_EtwWriteEx(v4, (unsigned __int8 *)&byte_1400590B7, v3, 1u, v5, v6, 8u, &v11);
   }
 }

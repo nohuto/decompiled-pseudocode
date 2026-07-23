@@ -1,18 +1,18 @@
 /*
- * XREFs of EtwpTraceStackWalk @ 0x14020A5C0
+ * XREFs of EtwpTraceStackWalk @ 0x14020A6A0
  * Callers:
- *     EtwpStackWalkApc @ 0x14020A200 (EtwpStackWalkApc.c)
- *     EtwpStackTraceDispatcher @ 0x14020A3A0 (EtwpStackTraceDispatcher.c)
+ *     EtwpStackWalkApc @ 0x14020A2E0 (EtwpStackWalkApc.c)
+ *     EtwpStackTraceDispatcher @ 0x14020A480 (EtwpStackTraceDispatcher.c)
  * Callees:
- *     EtwpExpandStackAndWalkFrameChain @ 0x1402610A0 (EtwpExpandStackAndWalkFrameChain.c)
- *     KeQueryCurrentStackInformationEx @ 0x140263F70 (KeQueryCurrentStackInformationEx.c)
- *     EtwpTraceStackKey @ 0x14032C740 (EtwpTraceStackKey.c)
- *     EtwpLogKernelEvent @ 0x14032CDC0 (EtwpLogKernelEvent.c)
- *     EtwpGetStackLookasideListEntry @ 0x14046E5B0 (EtwpGetStackLookasideListEntry.c)
- *     EtwpReleaseStackLookasideListEntry @ 0x14047A00C (EtwpReleaseStackLookasideListEntry.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     KeGetCurrentStackPointer @ 0x140727390 (KeGetCurrentStackPointer.c)
- *     PsPicoWalkUserStack @ 0x140B4A448 (PsPicoWalkUserStack.c)
+ *     EtwpExpandStackAndWalkFrameChain @ 0x140260610 (EtwpExpandStackAndWalkFrameChain.c)
+ *     KeQueryCurrentStackInformationEx @ 0x1402634E0 (KeQueryCurrentStackInformationEx.c)
+ *     EtwpTraceStackKey @ 0x14032E770 (EtwpTraceStackKey.c)
+ *     EtwpLogKernelEvent @ 0x14032EDF0 (EtwpLogKernelEvent.c)
+ *     EtwpGetStackLookasideListEntry @ 0x140467D30 (EtwpGetStackLookasideListEntry.c)
+ *     EtwpReleaseStackLookasideListEntry @ 0x14047397C (EtwpReleaseStackLookasideListEntry.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     KeGetCurrentStackPointer @ 0x14072BF60 (KeGetCurrentStackPointer.c)
+ *     PsPicoWalkUserStack @ 0x140B4C1D8 (PsPicoWalkUserStack.c)
  */
 
 __int64 __fastcall EtwpTraceStackWalk(int *a1, unsigned int a2, __int64 a3, _QWORD *a4)
@@ -21,7 +21,7 @@ __int64 __fastcall EtwpTraceStackWalk(int *a1, unsigned int a2, __int64 a3, _QWO
   __int64 result; // rax
   int v8; // ecx
   int v9; // r8d
-  struct _SLIST_ENTRY *v10; // r13
+  _SLIST_ENTRY *v10; // r13
   PVOID *v11; // r12
   unsigned int v12; // esi
   int v13; // r14d
@@ -62,7 +62,7 @@ __int64 __fastcall EtwpTraceStackWalk(int *a1, unsigned int a2, __int64 a3, _QWO
       return result;
   }
   result = EtwpGetStackLookasideListEntry();
-  v10 = (struct _SLIST_ENTRY *)result;
+  v10 = (_SLIST_ENTRY *)result;
   if ( !result )
     return result;
   v11 = (PVOID *)(result + 32);
@@ -71,7 +71,7 @@ __int64 __fastcall EtwpTraceStackWalk(int *a1, unsigned int a2, __int64 a3, _QWO
   if ( (a1[204] & 0x40000000) != 0 && (a2 & 0x800) != 0 )
   {
     v12 = 1;
-    *v11 = (PVOID)PsNtosImageBase;
+    *v11 = PsNtosImageBase;
     a2 &= ~0x800u;
   }
   if ( (a2 & 0x800) != 0 )

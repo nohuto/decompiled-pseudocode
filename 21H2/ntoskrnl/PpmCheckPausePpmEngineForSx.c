@@ -1,12 +1,12 @@
 /*
- * XREFs of PpmCheckPausePpmEngineForSx @ 0x14038DD2C
+ * XREFs of PpmCheckPausePpmEngineForSx @ 0x14038DE7C
  * Callers:
- *     PopTransitionSystemPowerStateEx @ 0x1409910F4 (PopTransitionSystemPowerStateEx.c)
+ *     PopTransitionSystemPowerStateEx @ 0x1409920F4 (PopTransitionSystemPowerStateEx.c)
  * Callees:
- *     PpmReleaseLock @ 0x14022AB00 (PpmReleaseLock.c)
- *     PpmAcquireLock @ 0x140281A74 (PpmAcquireLock.c)
- *     PpmPerfUpdateQosDisableReasons @ 0x1402D2004 (PpmPerfUpdateQosDisableReasons.c)
- *     PpmCheckReInit @ 0x1407BA7E4 (PpmCheckReInit.c)
+ *     PpmPerfUpdateQosDisableReasons @ 0x1402503D4 (PpmPerfUpdateQosDisableReasons.c)
+ *     PpmAcquireLock @ 0x14026FCB4 (PpmAcquireLock.c)
+ *     PpmReleaseLock @ 0x1402CF3B0 (PpmReleaseLock.c)
+ *     PpmCheckReInit @ 0x1407BAF74 (PpmCheckReInit.c)
  */
 
 LONG PpmCheckPausePpmEngineForSx()

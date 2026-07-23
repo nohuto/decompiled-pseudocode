@@ -1,10 +1,10 @@
 /*
- * XREFs of MiQueryHardwareCacheInformation @ 0x140CFF1E8
+ * XREFs of MiQueryHardwareCacheInformation @ 0x140D05588
  * Callers:
- *     MiCreatePfnDatabase @ 0x140CF2818 (MiCreatePfnDatabase.c)
+ *     MiCreatePfnDatabase @ 0x140CF8B98 (MiCreatePfnDatabase.c)
  * Callees:
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 MiQueryHardwareCacheInformation()
@@ -29,18 +29,18 @@ __int64 MiQueryHardwareCacheInformation()
       {
         Type = Cache->Type;
         if ( Type == CacheData || Type == CacheUnified )
-          dword_140E2D6F4 = Cache->Size;
+          dword_140E2D874 = Cache->Size;
       }
       ++Cache;
       --CacheCount;
     }
     while ( CacheCount );
   }
-  if ( (unsigned int)dword_140E2D6F4 < 0x4000 )
-    dword_140E2D6F4 = 0x4000;
-  dword_140E2D734 = 256;
+  if ( (unsigned int)dword_140E2D874 < 0x4000 )
+    dword_140E2D874 = 0x4000;
+  dword_140E2D8B4 = 256;
   SecondLevelCacheSize = KeGetPcr()->SecondLevelCacheSize;
-  dword_140E2D6F0 = SecondLevelCacheSize;
+  dword_140E2D870 = SecondLevelCacheSize;
   SecondLevelCacheAssociativity = KeGetPcr()->SecondLevelCacheAssociativity;
   if ( (_BYTE)SecondLevelCacheAssociativity )
     SecondLevelCacheSize /= SecondLevelCacheAssociativity;
@@ -53,7 +53,7 @@ __int64 MiQueryHardwareCacheInformation()
       result = (unsigned __int16)KeNumberNodes;
     }
   }
-  dword_140E2D78C = SecondLevelCacheSize;
-  HIDWORD(qword_140E2D784) = SecondLevelCacheSize >> 4;
+  dword_140E2D90C = SecondLevelCacheSize;
+  HIDWORD(qword_140E2D904) = SecondLevelCacheSize >> 4;
   return result;
 }

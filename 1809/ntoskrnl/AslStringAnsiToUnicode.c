@@ -1,20 +1,20 @@
 /*
- * XREFs of AslStringAnsiToUnicode @ 0x1408E9264
+ * XREFs of AslStringAnsiToUnicode @ 0x1408EA524
  * Callers:
- *     AslpFileGet16BitDescription @ 0x1408EC220 (AslpFileGet16BitDescription.c)
- *     AslpFileGet16BitModuleName @ 0x1408EC304 (AslpFileGet16BitModuleName.c)
- *     AslpFileGetClrVersionAttribute @ 0x1408EC86C (AslpFileGetClrVersionAttribute.c)
- *     AslpFileGetExportName @ 0x1408ECC38 (AslpFileGetExportName.c)
+ *     AslpFileGet16BitDescription @ 0x1408ED4E0 (AslpFileGet16BitDescription.c)
+ *     AslpFileGet16BitModuleName @ 0x1408ED5C4 (AslpFileGet16BitModuleName.c)
+ *     AslpFileGetClrVersionAttribute @ 0x1408EDB2C (AslpFileGetClrVersionAttribute.c)
+ *     AslpFileGetExportName @ 0x1408EDEF8 (AslpFileGetExportName.c)
  * Callees:
  *     RtlInitString @ 0x140002070 (RtlInitString.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     RtlAnsiStringToUnicodeString @ 0x1405AADA0 (RtlAnsiStringToUnicodeString.c)
- *     RtlxAnsiStringToUnicodeSize @ 0x1405AAF20 (RtlxAnsiStringToUnicodeSize.c)
- *     AslAlloc @ 0x14067C780 (AslAlloc.c)
- *     AslLogCallPrintf @ 0x140680C60 (AslLogCallPrintf.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     RtlAnsiStringToUnicodeString @ 0x1405ABDA0 (RtlAnsiStringToUnicodeString.c)
+ *     RtlxAnsiStringToUnicodeSize @ 0x1405ABF20 (RtlxAnsiStringToUnicodeSize.c)
+ *     AslAlloc @ 0x14067D940 (AslAlloc.c)
+ *     AslLogCallPrintf @ 0x140681E20 (AslLogCallPrintf.c)
  */
 
-__int64 __fastcall AslStringAnsiToUnicode(wchar_t **a1, const char *a2)
+__int64 __fastcall AslStringAnsiToUnicode(wchar_t **a1, const CHAR *a2)
 {
   ULONG v3; // eax
   __int64 v4; // rcx
@@ -22,7 +22,7 @@ __int64 __fastcall AslStringAnsiToUnicode(wchar_t **a1, const char *a2)
   unsigned __int16 v6; // si
   NTSTATUS v7; // ebx
   UNICODE_STRING DestinationString; // [rsp+30h] [rbp-28h] BYREF
-  STRING AnsiString; // [rsp+40h] [rbp-18h] BYREF
+  ANSI_STRING AnsiString; // [rsp+40h] [rbp-18h] BYREF
 
   RtlInitString(&AnsiString, a2);
   v3 = RtlxAnsiStringToUnicodeSize(&AnsiString);

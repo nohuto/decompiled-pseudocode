@@ -1,13 +1,13 @@
 /*
- * XREFs of VfInitializeBranchTracing @ 0x140AD3890
+ * XREFs of VfInitializeBranchTracing @ 0x140AD3880
  * Callers:
- *     VfNotifyVerifierOfEvent @ 0x140AC2150 (VfNotifyVerifierOfEvent.c)
+ *     VfNotifyVerifierOfEvent @ 0x140AC2140 (VfNotifyVerifierOfEvent.c)
  * Callees:
- *     memset @ 0x140435A00 (memset.c)
+ *     memset @ 0x140435E00 (memset.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
- *     ViIsBTSSupported @ 0x140AD3B0C (ViIsBTSSupported.c)
- *     ViSetupBTSPerProcNoEnable @ 0x140AD3C40 (ViSetupBTSPerProcNoEnable.c)
+ *     ViIsBTSSupported @ 0x140AD3AFC (ViIsBTSSupported.c)
+ *     ViSetupBTSPerProcNoEnable @ 0x140AD3C30 (ViSetupBTSPerProcNoEnable.c)
  */
 
 __int64 VfInitializeBranchTracing()

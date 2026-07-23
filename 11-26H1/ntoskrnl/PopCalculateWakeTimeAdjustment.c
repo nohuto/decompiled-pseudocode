@@ -1,10 +1,10 @@
 /*
- * XREFs of PopCalculateWakeTimeAdjustment @ 0x1407CF700
+ * XREFs of PopCalculateWakeTimeAdjustment @ 0x1407D27A0
  * Callers:
- *     PopValidateRTCWake @ 0x140C0969C (PopValidateRTCWake.c)
+ *     PopValidateRTCWake @ 0x140C0F8AC (PopValidateRTCWake.c)
  * Callees:
- *     PpmConvertTime @ 0x1403E63D0 (PpmConvertTime.c)
- *     PopPowerTransitionTimesInMs @ 0x1404EBB5C (PopPowerTransitionTimesInMs.c)
+ *     PpmConvertTime @ 0x1402F32B0 (PpmConvertTime.c)
+ *     PopPowerTransitionTimesInMs @ 0x1404E513C (PopPowerTransitionTimesInMs.c)
  */
 
 unsigned __int64 PopCalculateWakeTimeAdjustment()
@@ -14,17 +14,17 @@ unsigned __int64 PopCalculateWakeTimeAdjustment()
 
   result = 0LL;
   v1 = 0;
-  if ( dword_140F0FB8C == 4 )
+  if ( dword_140F1044C == 4 )
   {
-    if ( !LOBYTE(stru_140F10828.OtherOperationCount) )
+    if ( !PoResumeFromHibernate )
     {
       PopPowerTransitionTimesInMs(0LL, 0LL, 0LL, 0LL, (__int64)&v1, 0LL);
       return v1;
     }
   }
-  else if ( !LOBYTE(stru_140F10828.OtherOperationCount) )
+  else if ( !PoResumeFromHibernate )
   {
     return result;
   }
-  return PpmConvertTime((unsigned __int64)stru_140F10070.SavedApcState.ApcListHead[0].Blink, PopQpcFrequency, 0x3E8uLL);
+  return PpmConvertTime(qword_140F10B70, PopQpcFrequency, 0x3E8uLL);
 }

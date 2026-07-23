@@ -1,15 +1,15 @@
 /*
- * XREFs of PopDiagTraceFxRundown @ 0x140110808
+ * XREFs of PopDiagTraceFxRundown @ 0x140110D6C
  * Callers:
- *     PopDiagTraceControlCallback @ 0x14052B2D0 (PopDiagTraceControlCallback.c)
+ *     PopDiagTraceControlCallback @ 0x14052BF20 (PopDiagTraceControlCallback.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfAcquirePushLockSharedEx @ 0x1400C8280 (ExfAcquirePushLockSharedEx.c)
- *     ExfReleasePushLockShared @ 0x1400C8640 (ExfReleasePushLockShared.c)
- *     PopDiagTraceDeviceVerboseRundown @ 0x14052B70C (PopDiagTraceDeviceVerboseRundown.c)
- *     PopFxTraceDeviceRegistration @ 0x14052B8C0 (PopFxTraceDeviceRegistration.c)
- *     PopDiagTraceFxPluginRegistration @ 0x14067165C (PopDiagTraceFxPluginRegistration.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1400C6120 (ExfAcquirePushLockSharedEx.c)
+ *     ExfReleasePushLockShared @ 0x1400C64E0 (ExfReleasePushLockShared.c)
+ *     PopDiagTraceDeviceVerboseRundown @ 0x14052C35C (PopDiagTraceDeviceVerboseRundown.c)
+ *     PopFxTraceDeviceRegistration @ 0x14052C510 (PopFxTraceDeviceRegistration.c)
+ *     PopDiagTraceFxPluginRegistration @ 0x140671740 (PopDiagTraceFxPluginRegistration.c)
  */
 
 __int64 PopDiagTraceFxRundown()

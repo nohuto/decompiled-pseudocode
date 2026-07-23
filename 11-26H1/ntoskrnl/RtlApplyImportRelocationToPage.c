@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlApplyImportRelocationToPage @ 0x14048113C
+ * XREFs of RtlApplyImportRelocationToPage @ 0x14047AAAC
  * Callers:
- *     MiUpdateRetpolineImportFixups @ 0x140480E40 (MiUpdateRetpolineImportFixups.c)
- *     MiApplyDynamicRelocationFixups @ 0x140480F38 (MiApplyDynamicRelocationFixups.c)
+ *     MiUpdateRetpolineImportFixups @ 0x14047A7B0 (MiUpdateRetpolineImportFixups.c)
+ *     MiApplyDynamicRelocationFixups @ 0x14047A8A8 (MiApplyDynamicRelocationFixups.c)
  * Callees:
- *     RtlpConstructImportRelocationFixup @ 0x140481224 (RtlpConstructImportRelocationFixup.c)
+ *     RtlpConstructImportRelocationFixup @ 0x14047AB94 (RtlpConstructImportRelocationFixup.c)
  */
 
 char __fastcall RtlApplyImportRelocationToPage(

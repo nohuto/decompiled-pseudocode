@@ -1,25 +1,25 @@
 /*
- * XREFs of PpmParkSteerInterrupts @ 0x140256A20
+ * XREFs of PpmParkSteerInterrupts @ 0x140256AE0
  * Callers:
  *     <none>
  * Callees:
  *     KeIntSteerPeriodic @ 0x140221440 (KeIntSteerPeriodic.c)
  *     KiIntPartGetLowestClassProcessorInMask @ 0x140221BB4 (KiIntPartGetLowestClassProcessorInMask.c)
  *     KeIntSteerSnapPerf @ 0x140221D60 (KeIntSteerSnapPerf.c)
- *     KiAndAffinityEx @ 0x140252440 (KiAndAffinityEx.c)
- *     KiCopyAffinityEx @ 0x1402545C0 (KiCopyAffinityEx.c)
- *     KeEnumerateNextProcessor @ 0x1402572B0 (KeEnumerateNextProcessor.c)
- *     KeCheckProcessorAffinityEx @ 0x140257360 (KeCheckProcessorAffinityEx.c)
- *     KeAddProcessorAffinityEx @ 0x1402573A0 (KeAddProcessorAffinityEx.c)
- *     KiComplementAffinityEx @ 0x14028FBE4 (KiComplementAffinityEx.c)
- *     KeQuerySystemAllowedCpuSetAffinity @ 0x1402BFCF0 (KeQuerySystemAllowedCpuSetAffinity.c)
- *     KeCountSetBitsAffinityEx @ 0x1402C01C0 (KeCountSetBitsAffinityEx.c)
- *     KiOrAffinityEx @ 0x1402C2AB0 (KiOrAffinityEx.c)
- *     KiSubtractAffinityEx @ 0x14033D83C (KiSubtractAffinityEx.c)
- *     HalQueryMaximumProcessorCount @ 0x14037F8A0 (HalQueryMaximumProcessorCount.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     KiAndAffinityEx @ 0x140252500 (KiAndAffinityEx.c)
+ *     KiCopyAffinityEx @ 0x140254680 (KiCopyAffinityEx.c)
+ *     KeEnumerateNextProcessor @ 0x140257370 (KeEnumerateNextProcessor.c)
+ *     KeCheckProcessorAffinityEx @ 0x140257420 (KeCheckProcessorAffinityEx.c)
+ *     KeAddProcessorAffinityEx @ 0x140257460 (KeAddProcessorAffinityEx.c)
+ *     KiComplementAffinityEx @ 0x14028FE74 (KiComplementAffinityEx.c)
+ *     KeQuerySystemAllowedCpuSetAffinity @ 0x1402BFF80 (KeQuerySystemAllowedCpuSetAffinity.c)
+ *     KeCountSetBitsAffinityEx @ 0x1402C0450 (KeCountSetBitsAffinityEx.c)
+ *     KiOrAffinityEx @ 0x1402C2D40 (KiOrAffinityEx.c)
+ *     KiSubtractAffinityEx @ 0x14033DACC (KiSubtractAffinityEx.c)
+ *     HalQueryMaximumProcessorCount @ 0x14037FA40 (HalQueryMaximumProcessorCount.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140435E00 (memset.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 
@@ -77,7 +77,7 @@ char PpmParkSteerInterrupts()
         LODWORD(v26[0]) = 2097153;
         memset((char *)v26 + 4, 0, 0x104uLL);
         KiCopyAffinityEx((__int64)v26, 0x20u, (unsigned __int16 *)&KeActiveProcessors);
-        KeIntSteerSnapPerf(v0, &v18, &v16, (__int64 *)&v17);
+        KeIntSteerSnapPerf(v0, &v18, &v16, (LARGE_INTEGER *)&v17);
         v24[0] = 2097153;
         memset(&v24[1], 0, 0x104uLL);
         KiComplementAffinityEx(v24, 32LL, PpmPerfCoreParkingMask);
@@ -119,7 +119,7 @@ char PpmParkSteerInterrupts()
         {
           if ( (_WORD)PpmCachedSystemAllowedCpuSet == 1 )
           {
-            v17 = (unsigned __int64)qword_140C38CE8;
+            v17 = (unsigned __int64)qword_140C38C88;
             LowestClassProcessorInMask = KiIntPartGetLowestClassProcessorInMask((__int64 *)&v17);
           }
           else

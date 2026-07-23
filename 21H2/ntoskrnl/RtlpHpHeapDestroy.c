@@ -1,17 +1,17 @@
 /*
- * XREFs of RtlpHpHeapDestroy @ 0x1403898BC
+ * XREFs of RtlpHpHeapDestroy @ 0x140389A0C
  * Callers:
- *     RtlpHpHeapCreate @ 0x14037AF24 (RtlpHpHeapCreate.c)
- *     ExCleanupSessionHeapManager @ 0x140389810 (ExCleanupSessionHeapManager.c)
+ *     RtlpHpHeapCreate @ 0x14037AA74 (RtlpHpHeapCreate.c)
+ *     ExCleanupSessionHeapManager @ 0x140389960 (ExCleanupSessionHeapManager.c)
  * Callees:
- *     RtlpHpMetadataFree @ 0x1402A5660 (RtlpHpMetadataFree.c)
- *     RtlpHpVsSubsegmentCleanup @ 0x1402BF508 (RtlpHpVsSubsegmentCleanup.c)
- *     RtlpHpVsSubsegmentFree @ 0x1402BF744 (RtlpHpVsSubsegmentFree.c)
- *     RtlpHpFreeVA @ 0x1402FA770 (RtlpHpFreeVA.c)
- *     RtlpHpRegisterEnvironment @ 0x14037BB28 (RtlpHpRegisterEnvironment.c)
- *     RtlpHpSegContextCleanup @ 0x140389A6C (RtlpHpSegContextCleanup.c)
- *     RtlpHpLfhContextCleanup @ 0x140389BD0 (RtlpHpLfhContextCleanup.c)
- *     RtlpHpLargeAllocationDestroy @ 0x1405955F0 (RtlpHpLargeAllocationDestroy.c)
+ *     RtlpHpMetadataFree @ 0x140222AA0 (RtlpHpMetadataFree.c)
+ *     RtlpHpVsSubsegmentCleanup @ 0x14023D958 (RtlpHpVsSubsegmentCleanup.c)
+ *     RtlpHpVsSubsegmentFree @ 0x14023DB94 (RtlpHpVsSubsegmentFree.c)
+ *     RtlpHpFreeVA @ 0x1403054C0 (RtlpHpFreeVA.c)
+ *     RtlpHpRegisterEnvironment @ 0x14037B678 (RtlpHpRegisterEnvironment.c)
+ *     RtlpHpSegContextCleanup @ 0x140389BBC (RtlpHpSegContextCleanup.c)
+ *     RtlpHpLfhContextCleanup @ 0x140389D20 (RtlpHpLfhContextCleanup.c)
+ *     RtlpHpLargeAllocationDestroy @ 0x140595820 (RtlpHpLargeAllocationDestroy.c)
  */
 
 __int64 __fastcall RtlpHpHeapDestroy(__int64 a1)

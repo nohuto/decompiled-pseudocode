@@ -1,8 +1,8 @@
 /*
- * XREFs of KeIsBugCheckActive @ 0x14039AAFC
+ * XREFs of KeIsBugCheckActive @ 0x14039AC4C
  * Callers:
- *     RtlQueryFeatureConfiguration @ 0x14038C800 (RtlQueryFeatureConfiguration.c)
- *     RtlRegisterFeatureConfigurationChangeNotification @ 0x14058E160 (RtlRegisterFeatureConfigurationChangeNotification.c)
+ *     RtlQueryFeatureConfiguration @ 0x14038C950 (RtlQueryFeatureConfiguration.c)
+ *     RtlRegisterFeatureConfigurationChangeNotification @ 0x14058E390 (RtlRegisterFeatureConfigurationChangeNotification.c)
  * Callees:
  *     <none>
  */

@@ -1,13 +1,13 @@
 /*
- * XREFs of MiGroupZeroHugeRange @ 0x140685AB4
+ * XREFs of MiGroupZeroHugeRange @ 0x140686BE4
  * Callers:
- *     MiHugePageOperation @ 0x140685BC0 (MiHugePageOperation.c)
+ *     MiHugePageOperation @ 0x140686CF0 (MiHugePageOperation.c)
  * Callees:
- *     MiPageToNode @ 0x14026C1E0 (MiPageToNode.c)
- *     MiZeroInParallel @ 0x1404155D0 (MiZeroInParallel.c)
- *     KeIsThreadedDpcThread @ 0x14044B92C (KeIsThreadedDpcThread.c)
- *     MiDereferencePageChains @ 0x140491294 (MiDereferencePageChains.c)
- *     MiCreatePageChains @ 0x140493E84 (MiCreatePageChains.c)
+ *     MiPageToNode @ 0x140221770 (MiPageToNode.c)
+ *     MiDereferencePageChains @ 0x140270AC0 (MiDereferencePageChains.c)
+ *     MiZeroInParallel @ 0x140271430 (MiZeroInParallel.c)
+ *     KeIsThreadedDpcThread @ 0x140442A6C (KeIsThreadedDpcThread.c)
+ *     MiCreatePageChains @ 0x14048E910 (MiCreatePageChains.c)
  */
 
 __int64 __fastcall MiGroupZeroHugeRange(__int64 a1, __int64 a2, ULONG_PTR a3, int a4, int a5)

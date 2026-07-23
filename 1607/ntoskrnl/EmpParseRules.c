@@ -3,11 +3,11 @@
  * Callers:
  *     EmpParseInfDatabase @ 0x1407A7384 (EmpParseInfDatabase.c)
  * Callees:
- *     EmpSearchRuleDatabase @ 0x1400094D0 (EmpSearchRuleDatabase.c)
- *     EmpSearchEntryDatabase @ 0x14013CE30 (EmpSearchEntryDatabase.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     strtoul @ 0x14014F838 (strtoul.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     EmpSearchRuleDatabase @ 0x140009044 (EmpSearchRuleDatabase.c)
+ *     EmpSearchEntryDatabase @ 0x14013D3A0 (EmpSearchEntryDatabase.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     strtoul @ 0x14014FDF8 (strtoul.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  *     EmpParseRuleExpression @ 0x1407A7BE4 (EmpParseRuleExpression.c)

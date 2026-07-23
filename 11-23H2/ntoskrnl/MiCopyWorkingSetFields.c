@@ -1,13 +1,13 @@
 /*
- * XREFs of MiCopyWorkingSetFields @ 0x1403AE7C4
+ * XREFs of MiCopyWorkingSetFields @ 0x1403AE9A4
  * Callers:
- *     MmInitializeHandBuiltProcess @ 0x14085D118 (MmInitializeHandBuiltProcess.c)
+ *     MmInitializeHandBuiltProcess @ 0x14085D358 (MmInitializeHandBuiltProcess.c)
  * Callees:
- *     MiUnlockWorkingSetShared @ 0x14023C500 (MiUnlockWorkingSetShared.c)
- *     MiLockWorkingSetShared @ 0x140283C90 (MiLockWorkingSetShared.c)
- *     MiGetSharedVm @ 0x140286E74 (MiGetSharedVm.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14028A930 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiUnlockWorkingSetShared @ 0x14023C5D0 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x140283F20 (MiLockWorkingSetShared.c)
+ *     MiGetSharedVm @ 0x140287104 (MiGetSharedVm.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14028ABC0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
  */
 
 __int64 __fastcall MiCopyWorkingSetFields(_QWORD *a1, _QWORD *a2, __int64 a3)

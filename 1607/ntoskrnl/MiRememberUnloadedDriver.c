@@ -1,14 +1,14 @@
 /*
- * XREFs of MiRememberUnloadedDriver @ 0x140545B24
+ * XREFs of MiRememberUnloadedDriver @ 0x140546064
  * Callers:
- *     MiUnloadSystemImage @ 0x140483468 (MiUnloadSystemImage.c)
+ *     MiUnloadSystemImage @ 0x1404821BC (MiUnloadSystemImage.c)
  * Callees:
- *     MiReleaseResourceLite @ 0x140084C14 (MiReleaseResourceLite.c)
- *     MiAcquireResourceExclusiveLite @ 0x140084C38 (MiAcquireResourceExclusiveLite.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     MiReleaseResourceLite @ 0x140082D74 (MiReleaseResourceLite.c)
+ *     MiAcquireResourceExclusiveLite @ 0x140082D98 (MiAcquireResourceExclusiveLite.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     RtlFreeAnsiString @ 0x140458CF0 (RtlFreeAnsiString.c)
+ *     RtlFreeAnsiString @ 0x140457BC0 (RtlFreeAnsiString.c)
  */
 
 void __fastcall MiRememberUnloadedDriver(const void **a1, __int64 a2, unsigned int a3)

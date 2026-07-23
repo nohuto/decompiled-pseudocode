@@ -1,14 +1,14 @@
 /*
- * XREFs of ExpWnfCaptureScopeInstanceId @ 0x14094A070
+ * XREFs of ExpWnfCaptureScopeInstanceId @ 0x1409C59E0
  * Callers:
- *     ExpNtDeleteWnfStateData @ 0x14083F2A8 (ExpNtDeleteWnfStateData.c)
- *     NtQueryWnfStateNameInformation @ 0x1409481F0 (NtQueryWnfStateNameInformation.c)
- *     NtQueryWnfStateData @ 0x140949A90 (NtQueryWnfStateData.c)
+ *     ExpNtDeleteWnfStateData @ 0x1408454E8 (ExpNtDeleteWnfStateData.c)
+ *     NtQueryWnfStateNameInformation @ 0x1409C3B60 (NtQueryWnfStateNameInformation.c)
+ *     NtQueryWnfStateData @ 0x1409C5400 (NtQueryWnfStateData.c)
  * Callees:
- *     PsGetSessionById @ 0x140215D80 (PsGetSessionById.c)
- *     RtlReadULongFromUser @ 0x14077F590 (RtlReadULongFromUser.c)
- *     SeCaptureSid @ 0x1408E9720 (SeCaptureSid.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1408FA680 (ObpReferenceObjectByHandleWithTag.c)
+ *     PsGetSessionById @ 0x1402160B0 (PsGetSessionById.c)
+ *     RtlReadULongFromUser @ 0x140782090 (RtlReadULongFromUser.c)
+ *     SeCaptureSid @ 0x1408EFCE0 (SeCaptureSid.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x14092A610 (ObpReferenceObjectByHandleWithTag.c)
  */
 
 __int64 __fastcall ExpWnfCaptureScopeInstanceId(int a1, unsigned int *a2, __int64 a3, _QWORD *a4, __int64 *a5)
@@ -28,7 +28,7 @@ __int64 __fastcall ExpWnfCaptureScopeInstanceId(int a1, unsigned int *a2, __int6
   }
   if ( a1 == 3 )
   {
-    result = ObpReferenceObjectByHandleWithTag((ULONG_PTR)a2, 0LL, PsProcessType, a3, 0x20666E57u, a5, 0LL, 0LL);
+    result = ObpReferenceObjectByHandleWithTag((ULONG_PTR)a2, 0, (__int64)PsProcessType, a3, 0x20666E57u, a5, 0LL, 0LL);
     if ( (int)result >= 0 )
       *a4 = a5;
     return result;

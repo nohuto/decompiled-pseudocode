@@ -79,7 +79,7 @@ __int64 __fastcall SepDuplicateToken(
   char *v34; // r14
   __int64 v35; // rax
   char *v36; // r14
-  unsigned int v37; // r9d
+  ULONG v37; // r9d
   __int64 v38; // rdx
   __int64 v39; // rcx
   __int64 v40; // rcx
@@ -360,10 +360,10 @@ LABEL_42:
   }
   if ( a3 )
     SepMakeTokenEffectiveOnly(0LL);
-  RtlSidHashInitialize(MEMORY[0x98], MEMORY[0x7C], (_QWORD *)0xE8);
-  RtlSidHashInitialize(MEMORY[0xA0], MEMORY[0x80], (_QWORD *)0x1F8);
+  RtlSidHashInitialize(MEMORY[0x98], MEMORY[0x7C], (PSID_AND_ATTRIBUTES_HASH)0xE8);
+  RtlSidHashInitialize(MEMORY[0xA0], MEMORY[0x80], (PSID_AND_ATTRIBUTES_HASH)0x1F8);
   if ( MEMORY[0x318] )
-    RtlSidHashInitialize(MEMORY[0x318], MEMORY[0x320], (_QWORD *)0x328);
+    RtlSidHashInitialize(MEMORY[0x318], MEMORY[0x320], (PSID_AND_ATTRIBUTES_HASH)0x328);
   if ( SeTokenLeakTracking )
   {
     if ( SepTokenLeakMethodWatch == 13

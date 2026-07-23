@@ -1,13 +1,13 @@
 /*
- * XREFs of IoCreateFileEx @ 0x1409B37C0
+ * XREFs of IoCreateFileEx @ 0x140984880
  * Callers:
- *     DifIoCreateFileExWrapper @ 0x14065A820 (DifIoCreateFileExWrapper.c)
- *     MiOpenHotPatchFile @ 0x140873028 (MiOpenHotPatchFile.c)
- *     IoCreateFileSpecifyDeviceObjectHint @ 0x140AEFFB0 (IoCreateFileSpecifyDeviceObjectHint.c)
- *     NtCreateUserProcess @ 0x140B77FE0 (NtCreateUserProcess.c)
+ *     DifIoCreateFileExWrapper @ 0x14065E400 (DifIoCreateFileExWrapper.c)
+ *     MiOpenHotPatchFile @ 0x140879388 (MiOpenHotPatchFile.c)
+ *     IoCreateFileSpecifyDeviceObjectHint @ 0x140AF2B80 (IoCreateFileSpecifyDeviceObjectHint.c)
+ *     NtCreateUserProcess @ 0x140B7D6F0 (NtCreateUserProcess.c)
  * Callees:
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     IopCreateFile @ 0x1409B3A58 (IopCreateFile.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     IopCreateFile @ 0x140984B18 (IopCreateFile.c)
  */
 
 NTSTATUS __stdcall IoCreateFileEx(

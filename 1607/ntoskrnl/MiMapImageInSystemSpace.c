@@ -1,22 +1,22 @@
 /*
- * XREFs of MiMapImageInSystemSpace @ 0x140525CC8
+ * XREFs of MiMapImageInSystemSpace @ 0x140508D28
  * Callers:
- *     MiSetPagesModified @ 0x1401E5664 (MiSetPagesModified.c)
- *     MiGetSystemAddressForImage @ 0x1404CCEDC (MiGetSystemAddressForImage.c)
- *     MiRelocateImage @ 0x140524330 (MiRelocateImage.c)
- *     MiParseComImage @ 0x1405250A8 (MiParseComImage.c)
- *     MiValidateSectionCreate @ 0x140526D8C (MiValidateSectionCreate.c)
- *     MiCreateSessionDriverProtos @ 0x1406645B4 (MiCreateSessionDriverProtos.c)
+ *     MiSetPagesModified @ 0x1401E5490 (MiSetPagesModified.c)
+ *     MiGetSystemAddressForImage @ 0x1404B2908 (MiGetSystemAddressForImage.c)
+ *     MiRelocateImage @ 0x140507390 (MiRelocateImage.c)
+ *     MiParseComImage @ 0x140508108 (MiParseComImage.c)
+ *     MiValidateSectionCreate @ 0x140509DEC (MiValidateSectionCreate.c)
+ *     MiCreateSessionDriverProtos @ 0x140664698 (MiCreateSessionDriverProtos.c)
  * Callees:
- *     MiGetAnyMultiplexedVm @ 0x14001D05C (MiGetAnyMultiplexedVm.c)
- *     MmGetSessionIdEx @ 0x140024FEC (MmGetSessionIdEx.c)
- *     MiDereferenceControlAreaFile @ 0x140026640 (MiDereferenceControlAreaFile.c)
- *     MiReferenceControlAreaFile @ 0x140026690 (MiReferenceControlAreaFile.c)
- *     KiStackAttachProcess @ 0x1400CD1F0 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x1400CE820 (KiUnstackDetachProcess.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     MmMapViewInSystemSpaceEx @ 0x140525EA8 (MmMapViewInSystemSpaceEx.c)
- *     MiMapImageInSystemProcess @ 0x140657174 (MiMapImageInSystemProcess.c)
+ *     MiGetAnyMultiplexedVm @ 0x14001CBDC (MiGetAnyMultiplexedVm.c)
+ *     MmGetSessionIdEx @ 0x140024B6C (MmGetSessionIdEx.c)
+ *     MiDereferenceControlAreaFile @ 0x1400261C0 (MiDereferenceControlAreaFile.c)
+ *     MiReferenceControlAreaFile @ 0x140026210 (MiReferenceControlAreaFile.c)
+ *     KiStackAttachProcess @ 0x1400CB090 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x1400CC6C0 (KiUnstackDetachProcess.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     MmMapViewInSystemSpaceEx @ 0x140508F08 (MmMapViewInSystemSpaceEx.c)
+ *     MiMapImageInSystemProcess @ 0x140657258 (MiMapImageInSystemProcess.c)
  */
 
 __int64 __fastcall MiMapImageInSystemSpace(__int64 a1, unsigned int a2, __int64 a3)

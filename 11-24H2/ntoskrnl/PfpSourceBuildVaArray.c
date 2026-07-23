@@ -1,10 +1,10 @@
 /*
- * XREFs of PfpSourceBuildVaArray @ 0x140AB04EC
+ * XREFs of PfpSourceBuildVaArray @ 0x140AAB45C
  * Callers:
- *     PfpPrefetchPrivatePages @ 0x14095328C (PfpPrefetchPrivatePages.c)
+ *     PfpPrefetchPrivatePages @ 0x140936C3C (PfpPrefetchPrivatePages.c)
  * Callees:
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PfpSourceBuildVaArray(__int64 a1, unsigned int *a2)
@@ -34,7 +34,7 @@ __int64 __fastcall PfpSourceBuildVaArray(__int64 a1, unsigned int *a2)
       }
       if ( (unsigned __int64)(16 * v2) > 0xFFFFFFFF )
         return (unsigned int)-1073741675;
-      Pool2 = ExAllocatePool2(0x40uLL);
+      Pool2 = ExAllocatePool2(0x40uLL, (unsigned int)(16 * v2), 0x41566650u);
       *v6 = (PVOID)Pool2;
       if ( !Pool2 )
         return (unsigned int)-1073741670;

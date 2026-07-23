@@ -1,11 +1,11 @@
 /*
- * XREFs of PopNetGetNextDueRefreshTime @ 0x14075C844
+ * XREFs of PopNetGetNextDueRefreshTime @ 0x14075B7E4
  * Callers:
- *     PopNetRefreshTimerWorkerCallback @ 0x14075C980 (PopNetRefreshTimerWorkerCallback.c)
- *     PopNetWnfLowPowerEpochCallback @ 0x140A3B690 (PopNetWnfLowPowerEpochCallback.c)
+ *     PopNetRefreshTimerWorkerCallback @ 0x14075B920 (PopNetRefreshTimerWorkerCallback.c)
+ *     PopNetWnfLowPowerEpochCallback @ 0x140A30E70 (PopNetWnfLowPowerEpochCallback.c)
  * Callees:
- *     ExSystemTimeToLocalTime @ 0x140347CE0 (ExSystemTimeToLocalTime.c)
- *     ExLocalTimeToSystemTime @ 0x140348040 (ExLocalTimeToSystemTime.c)
+ *     ExSystemTimeToLocalTime @ 0x1403266E0 (ExSystemTimeToLocalTime.c)
+ *     ExLocalTimeToSystemTime @ 0x140326A40 (ExLocalTimeToSystemTime.c)
  */
 
 LARGE_INTEGER PopNetGetNextDueRefreshTime()
@@ -15,11 +15,11 @@ LARGE_INTEGER PopNetGetNextDueRefreshTime()
 
   LocalTime.QuadPart = 0LL;
   SystemTime.QuadPart = MEMORY[0xFFFFF78000000014];
-  if ( qword_140F0BD98
-    && MEMORY[0xFFFFF78000000014] < qword_140F0BD98
-    && qword_140F0BD98 - MEMORY[0xFFFFF78000000014] >= 1200000000 )
+  if ( qword_140F0B8B8
+    && MEMORY[0xFFFFF78000000014] < qword_140F0B8B8
+    && qword_140F0B8B8 - MEMORY[0xFFFFF78000000014] >= 1200000000 )
   {
-    return (LARGE_INTEGER)(qword_140F0BD98 - 1200000000);
+    return (LARGE_INTEGER)(qword_140F0B8B8 - 1200000000);
   }
   else
   {

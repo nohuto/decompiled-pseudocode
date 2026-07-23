@@ -1,7 +1,7 @@
 /*
- * XREFs of PpHotSwapInitRemovalPolicy @ 0x140AA3DC0
+ * XREFs of PpHotSwapInitRemovalPolicy @ 0x140A9F150
  * Callers:
- *     PnpRemoveLockedDeviceNode @ 0x1404926CC (PnpRemoveLockedDeviceNode.c)
+ *     PnpRemoveLockedDeviceNode @ 0x14048D53C (PnpRemoveLockedDeviceNode.c)
  * Callees:
  *     <none>
  */

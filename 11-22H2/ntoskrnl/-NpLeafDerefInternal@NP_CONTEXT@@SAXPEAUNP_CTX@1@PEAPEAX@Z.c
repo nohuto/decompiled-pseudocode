@@ -35,8 +35,7 @@ void __fastcall NP_CONTEXT::NpLeafDerefInternal(struct NP_CONTEXT::NP_CTX *a1, v
   if ( (v3 & 0xFFC) == 0 )
   {
     *(_DWORD *)a2 = v3 & 0xFFFFFFFD;
-    v4 = (__int64)((unsigned int)KeMaximumIncrement
-                 * (unsigned __int64)(unsigned int)((__int64)MEMORY[0xFFFFF78000000320] >> 12)) >> 17;
+    v4 = (__int64)(KeMaximumIncrement * (unsigned __int64)(unsigned int)((__int64)MEMORY[0xFFFFF78000000320] >> 12)) >> 17;
     v5 = v4 - *(_DWORD *)(*(_QWORD *)a1 + 52LL);
     if ( v5 > 0x3FF )
       v5 = 1023;

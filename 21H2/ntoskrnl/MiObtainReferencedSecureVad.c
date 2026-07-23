@@ -1,18 +1,18 @@
 /*
- * XREFs of MiObtainReferencedSecureVad @ 0x14025B6F0
+ * XREFs of MiObtainReferencedSecureVad @ 0x14027CC60
  * Callers:
- *     MmUnsecureVirtualMemory @ 0x14061F760 (MmUnsecureVirtualMemory.c)
- *     MmStoreAllocateVirtualMemory @ 0x1406B61EC (MmStoreAllocateVirtualMemory.c)
- *     MiPerformImageHotPatch @ 0x1408CCEC4 (MiPerformImageHotPatch.c)
+ *     MmStoreAllocateVirtualMemory @ 0x1406156AC (MmStoreAllocateVirtualMemory.c)
+ *     MmUnsecureVirtualMemory @ 0x1406893D0 (MmUnsecureVirtualMemory.c)
+ *     MiPerformImageHotPatch @ 0x1408CD024 (MiPerformImageHotPatch.c)
  * Callees:
- *     MiUnlockAndDereferenceVad @ 0x14021AF80 (MiUnlockAndDereferenceVad.c)
- *     MiLocateAddress @ 0x14025B810 (MiLocateAddress.c)
- *     UNLOCK_ADDRESS_SPACE_SHARED @ 0x140348790 (UNLOCK_ADDRESS_SPACE_SHARED.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
- *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     MiWaitForVadDeletion @ 0x14055BE10 (MiWaitForVadDeletion.c)
+ *     MiLocateAddress @ 0x14027CD80 (MiLocateAddress.c)
+ *     MiUnlockAndDereferenceVad @ 0x1402BF880 (MiUnlockAndDereferenceVad.c)
+ *     UNLOCK_ADDRESS_SPACE_SHARED @ 0x1403534E0 (UNLOCK_ADDRESS_SPACE_SHARED.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     ExAcquirePushLockSharedEx @ 0x1403558A0 (ExAcquirePushLockSharedEx.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x140355AE0 (KiLeaveGuardedRegionUnsafe.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     MiWaitForVadDeletion @ 0x14055C050 (MiWaitForVadDeletion.c)
  */
 
 __int64 __fastcall MiObtainReferencedSecureVad(ULONG_PTR BugCheckParameter3, int *a2)
@@ -54,7 +54,7 @@ __int64 __fastcall MiObtainReferencedSecureVad(ULONG_PTR BugCheckParameter3, int
   if ( (*(_DWORD *)(v8 + 48) & 4) != 0 )
   {
     MiWaitForVadDeletion(v8);
-    MiUnlockAndDereferenceVad((char *)v8);
+    MiUnlockAndDereferenceVad((PVOID)v8);
     v11 = -1073741558;
     if ( (Process[1].DirectoryTableBase & 0x2000000000LL) == 0 )
       v11 = -1073741664;
@@ -64,7 +64,7 @@ __int64 __fastcall MiObtainReferencedSecureVad(ULONG_PTR BugCheckParameter3, int
   if ( v9 < (*(unsigned int *)(v8 + 24) | ((unsigned __int64)*(unsigned __int8 *)(v8 + 32) << 32))
     || v9 > (*(unsigned int *)(v8 + 28) | ((unsigned __int64)*(unsigned __int8 *)(v8 + 33) << 32)) )
   {
-    MiUnlockAndDereferenceVad((char *)v8);
+    MiUnlockAndDereferenceVad((PVOID)v8);
     *a2 = -1073741664;
     return 0LL;
   }

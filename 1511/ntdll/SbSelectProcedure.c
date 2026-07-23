@@ -25,36 +25,34 @@ __int64 __fastcall SbSelectProcedure(__int64 a1, unsigned int a2, __int64 a3, un
   char *v10; // rax
   char *v11; // rax
   __int64 v12; // rcx
-  __int64 *v14; // r13
+  __int64 v14; // r13
   __int64 v15; // rbx
   char *v16; // rsi
   char *v17; // rsi
-  signed __int64 v18; // r15
-  _RTL_USER_PROCESS_PARAMETERS *ProcessParameters; // rcx
-  __int64 v20; // rcx
-  __int64 v21; // rax
-  __int64 v22; // rcx
-  __int64 v23; // rax
-  __int64 *v24; // r15
+  REGHANDLE v18; // r15
+  unsigned __int64 v19; // rcx
+  __int64 v20; // rax
+  unsigned __int64 v21; // rcx
+  __int64 v22; // rax
+  __int64 v23; // r15
+  char *v24; // rsi
   char *v25; // rsi
-  char *v26; // rsi
-  signed __int64 v27; // r14
-  _RTL_USER_PROCESS_PARAMETERS *v28; // rcx
-  __int64 v29; // rcx
-  __int64 v30; // rax
-  __int64 v31; // rax
-  unsigned __int16 v32; // bx
-  unsigned __int16 v33; // [rsp+30h] [rbp-D0h] BYREF
-  unsigned __int16 v34; // [rsp+34h] [rbp-CCh] BYREF
-  unsigned __int16 v35; // [rsp+38h] [rbp-C8h] BYREF
-  unsigned __int16 v36; // [rsp+3Ch] [rbp-C4h] BYREF
-  signed __int64 v37; // [rsp+40h] [rbp-C0h] BYREF
-  signed __int64 v38; // [rsp+48h] [rbp-B8h] BYREF
-  signed __int64 v39; // [rsp+50h] [rbp-B0h]
-  __int64 v40; // [rsp+58h] [rbp-A8h]
-  signed __int64 v41; // [rsp+60h] [rbp-A0h]
-  _QWORD v42[16]; // [rsp+70h] [rbp-90h] BYREF
-  _QWORD v43[16]; // [rsp+F0h] [rbp-10h] BYREF
+  REGHANDLE v26; // r14
+  unsigned __int64 v27; // rcx
+  __int64 v28; // rax
+  unsigned __int64 v29; // rax
+  unsigned __int16 v30; // bx
+  unsigned __int16 v31; // [rsp+30h] [rbp-D0h] BYREF
+  unsigned __int16 v32; // [rsp+34h] [rbp-CCh] BYREF
+  unsigned __int16 v33; // [rsp+38h] [rbp-C8h] BYREF
+  unsigned __int16 v34; // [rsp+3Ch] [rbp-C4h] BYREF
+  ULONGLONG v35; // [rsp+40h] [rbp-C0h] BYREF
+  ULONGLONG RegHandle; // [rsp+48h] [rbp-B8h] BYREF
+  ULONGLONG v37; // [rsp+50h] [rbp-B0h]
+  __int64 v38; // [rsp+58h] [rbp-A8h]
+  ULONGLONG v39; // [rsp+60h] [rbp-A0h]
+  _EVENT_DATA_DESCRIPTOR UserData[8]; // [rsp+70h] [rbp-90h] BYREF
+  _EVENT_DATA_DESCRIPTOR v41[8]; // [rsp+F0h] [rbp-10h] BYREF
 
   v5 = *(_QWORD *)(a3 + 8);
   v6 = 0LL;
@@ -76,15 +74,15 @@ __int64 __fastcall SbSelectProcedure(__int64 a1, unsigned int a2, __int64 a3, un
   }
   if ( (unsigned int)v7 < *(_DWORD *)(v5 + 12) )
   {
-    v14 = *(__int64 **)(*(_QWORD *)(a3 + 24) + 8 * v7 + 8);
-    v40 = v7;
-    memset(v42, 0, sizeof(v42));
+    v14 = *(_QWORD *)(*(_QWORD *)(a3 + 24) + 8 * v7 + 8);
+    v38 = v7;
+    memset(UserData, 0, sizeof(UserData));
     v15 = -1LL;
-    v35 = 0;
     v33 = 0;
-    if ( *((_DWORD *)v14 + 11) )
+    v31 = 0;
+    if ( *(_DWORD *)(v14 + 44) )
     {
-      v38 = 0LL;
+      RegHandle = 0LL;
       v16 = (char *)NtCurrentPeb()->pShimData;
       if ( v16 )
       {
@@ -96,131 +94,119 @@ __int64 __fastcall SbSelectProcedure(__int64 a1, unsigned int a2, __int64 a3, un
             v18 = *((_QWORD *)v17 + 2);
             if ( v18 )
             {
-              v39 = *((_QWORD *)v17 + 2);
+              v37 = *((_QWORD *)v17 + 2);
               goto LABEL_26;
             }
-            if ( !(unsigned int)EtwEventRegister(&MS_Windows_AeSwitchBack_Provider, 0LL, 0LL, &v38) )
+            if ( !EtwEventRegister(&MS_Windows_AeSwitchBack_Provider, 0LL, 0LL, &RegHandle) )
             {
-              v18 = _InterlockedCompareExchange64((volatile signed __int64 *)v17 + 2, v38, 0LL);
+              v18 = _InterlockedCompareExchange64((volatile signed __int64 *)v17 + 2, RegHandle, 0LL);
               if ( v18 )
               {
-                EtwNotificationUnregister(v38, 0LL);
-                v39 = v18;
+                EtwNotificationUnregister(RegHandle, 0LL);
+                v37 = v18;
               }
               else
               {
-                v39 = v38;
-                ProcessParameters = NtCurrentPeb()->ProcessParameters;
-                SbpTraceContextUpdate(
-                  v38,
-                  (_DWORD)v17 + 48,
-                  0,
-                  ProcessParameters->ImagePathName.Length,
-                  (__int64)ProcessParameters->ImagePathName.Buffer);
-                v18 = v39;
+                v37 = RegHandle;
+                SbpTraceContextUpdate(RegHandle, (__int64)NtCurrentPeb()->ProcessParameters->ImagePathName.Buffer);
+                v18 = v37;
               }
 LABEL_26:
               if ( v18 )
               {
-                v20 = *v14;
-                v42[0] = (char *)v14 + 52;
-                v21 = -1LL;
-                v42[1] = 16LL;
+                v19 = *(_QWORD *)v14;
+                UserData[0].Ptr = v14 + 52;
+                v20 = -1LL;
+                *(_QWORD *)&UserData[0].Size = 16LL;
                 do
-                  ++v21;
-                while ( *(_WORD *)(v20 + 2 * v21) );
-                v42[4] = v20;
-                v22 = v14[1];
-                v42[2] = &v35;
-                v35 = 2 * (v21 + 1);
-                v42[5] = v35;
-                v23 = -1LL;
-                v42[3] = 2LL;
+                  ++v20;
+                while ( *(_WORD *)(v19 + 2 * v20) );
+                UserData[2].Ptr = v19;
+                v21 = *(_QWORD *)(v14 + 8);
+                UserData[1].Ptr = (unsigned __int64)&v33;
+                v33 = 2 * (v20 + 1);
+                *(_QWORD *)&UserData[2].Size = v33;
+                v22 = -1LL;
+                *(_QWORD *)&UserData[1].Size = 2LL;
                 do
-                  ++v23;
-                while ( *(_WORD *)(v22 + 2 * v23) );
-                v42[8] = v22;
-                v42[7] = 2LL;
-                v33 = 2 * (v23 + 1);
-                v42[6] = &v33;
-                v42[9] = v33;
-                EtwEventWrite(v18, &AeSbCallEvent, 5LL, v42);
+                  ++v22;
+                while ( *(_WORD *)(v21 + 2 * v22) );
+                UserData[4].Ptr = v21;
+                *(_QWORD *)&UserData[3].Size = 2LL;
+                v31 = 2 * (v22 + 1);
+                UserData[3].Ptr = (unsigned __int64)&v31;
+                *(_QWORD *)&UserData[4].Size = v31;
+                EtwEventWrite(v18, &AeSbCallEvent, 5u, UserData);
               }
             }
           }
         }
       }
     }
-    memset(v43, 0, sizeof(v43));
-    v24 = *(__int64 **)(v5 + 8 * v40 + 16);
+    memset(v41, 0, sizeof(v41));
+    v23 = *(_QWORD *)(v5 + 8 * v38 + 16);
+    v32 = 0;
     v34 = 0;
-    v36 = 0;
-    if ( *((_DWORD *)v24 + 10) )
+    if ( *(_DWORD *)(v23 + 40) )
     {
-      v37 = 0LL;
-      v25 = (char *)NtCurrentPeb()->pShimData;
-      if ( v25 )
+      v35 = 0LL;
+      v24 = (char *)NtCurrentPeb()->pShimData;
+      if ( v24 )
       {
-        v26 = v25 + 2016;
-        if ( v26 )
+        v25 = v24 + 2016;
+        if ( v25 )
         {
-          if ( *((_DWORD *)v26 + 12) && *((_DWORD *)v26 + 3) )
+          if ( *((_DWORD *)v25 + 12) && *((_DWORD *)v25 + 3) )
           {
-            v27 = *((_QWORD *)v26 + 2);
-            if ( v27 )
+            v26 = *((_QWORD *)v25 + 2);
+            if ( v26 )
               goto LABEL_43;
-            if ( !(unsigned int)EtwEventRegister(&MS_Windows_AeSwitchBack_Provider, 0LL, 0LL, &v37) )
+            if ( !EtwEventRegister(&MS_Windows_AeSwitchBack_Provider, 0LL, 0LL, &v35) )
             {
-              v27 = _InterlockedCompareExchange64((volatile signed __int64 *)v26 + 2, v37, 0LL);
-              if ( v27 )
+              v26 = _InterlockedCompareExchange64((volatile signed __int64 *)v25 + 2, v35, 0LL);
+              if ( v26 )
               {
-                EtwNotificationUnregister(v37, 0LL);
+                EtwNotificationUnregister(v35, 0LL);
               }
               else
               {
-                v41 = v37;
-                v28 = NtCurrentPeb()->ProcessParameters;
-                SbpTraceContextUpdate(
-                  v37,
-                  (_DWORD)v26 + 48,
-                  0,
-                  v28->ImagePathName.Length,
-                  (__int64)v28->ImagePathName.Buffer);
-                v27 = v41;
+                v39 = v35;
+                SbpTraceContextUpdate(v35, (__int64)NtCurrentPeb()->ProcessParameters->ImagePathName.Buffer);
+                v26 = v39;
               }
-              if ( v27 )
+              if ( v26 )
               {
 LABEL_43:
-                v29 = *v24;
-                v43[0] = v24 + 14;
-                v30 = -1LL;
-                v43[1] = 16LL;
+                v27 = *(_QWORD *)v23;
+                v41[0].Ptr = v23 + 112;
+                v28 = -1LL;
+                *(_QWORD *)&v41[0].Size = 16LL;
                 do
-                  ++v30;
-                while ( *(_WORD *)(v29 + 2 * v30) );
-                v43[3] = 2LL;
-                v43[4] = v29;
-                v34 = 2 * (v30 + 1);
-                v43[5] = v34;
-                v31 = v24[3];
-                v43[2] = &v34;
+                  ++v28;
+                while ( *(_WORD *)(v27 + 2 * v28) );
+                *(_QWORD *)&v41[1].Size = 2LL;
+                v41[2].Ptr = v27;
+                v32 = 2 * (v28 + 1);
+                *(_QWORD *)&v41[2].Size = v32;
+                v29 = *(_QWORD *)(v23 + 24);
+                v41[1].Ptr = (unsigned __int64)&v32;
                 do
                   ++v15;
-                while ( *(_WORD *)(v31 + 2 * v15) );
-                v43[8] = v31;
-                v32 = 2 * (v15 + 1);
-                v43[7] = 2LL;
-                v43[6] = &v36;
-                v43[9] = v32;
-                v36 = v32;
-                EtwEventWrite(v27, &AeSbImplEvent, 5LL, v43);
+                while ( *(_WORD *)(v29 + 2 * v15) );
+                v41[4].Ptr = v29;
+                v30 = 2 * (v15 + 1);
+                *(_QWORD *)&v41[3].Size = 2LL;
+                v41[3].Ptr = (unsigned __int64)&v34;
+                *(_QWORD *)&v41[4].Size = v30;
+                v34 = v30;
+                EtwEventWrite(v26, &AeSbImplEvent, 5u, v41);
               }
             }
           }
         }
       }
     }
-    return v24[1];
+    return *(_QWORD *)(v23 + 8);
   }
   return v6;
 }

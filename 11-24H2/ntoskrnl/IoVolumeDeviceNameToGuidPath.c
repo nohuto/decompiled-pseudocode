@@ -1,21 +1,21 @@
 /*
- * XREFs of IoVolumeDeviceNameToGuidPath @ 0x1409674D0
+ * XREFs of IoVolumeDeviceNameToGuidPath @ 0x14094FF60
  * Callers:
- *     IoVolumeDeviceNameToGuid @ 0x140717B10 (IoVolumeDeviceNameToGuid.c)
- *     IoVolumeDeviceToGuidPath @ 0x140967330 (IoVolumeDeviceToGuidPath.c)
+ *     IoVolumeDeviceNameToGuid @ 0x1407156A0 (IoVolumeDeviceNameToGuid.c)
+ *     IoVolumeDeviceToGuidPath @ 0x14094FDC0 (IoVolumeDeviceToGuidPath.c)
  * Callees:
- *     IoBuildDeviceIoControlRequest @ 0x1402678C0 (IoBuildDeviceIoControlRequest.c)
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     IofCallDriver @ 0x140374160 (IofCallDriver.c)
- *     KeInitializeEvent @ 0x140409D80 (KeInitializeEvent.c)
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     _wcsnicmp @ 0x1404FE4F0 (_wcsnicmp.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     IoGetDeviceObjectPointer @ 0x140967A30 (IoGetDeviceObjectPointer.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     IofCallDriver @ 0x14025CA20 (IofCallDriver.c)
+ *     IoBuildDeviceIoControlRequest @ 0x14025EEA0 (IoBuildDeviceIoControlRequest.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     KeInitializeEvent @ 0x140402260 (KeInitializeEvent.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     _wcsnicmp @ 0x1404FBDB0 (_wcsnicmp.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     IoGetDeviceObjectPointer @ 0x1409504C0 (IoGetDeviceObjectPointer.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IoVolumeDeviceNameToGuidPath(const void **a1, unsigned __int16 *a2)
@@ -55,7 +55,7 @@ __int64 __fastcall IoVolumeDeviceNameToGuidPath(const void **a1, unsigned __int1
   if ( (unsigned __int16)v2 > 0xF000u )
     return (unsigned int)-1073741811;
   v7 = v2 + 26;
-  Pool2 = ExAllocatePool2(0x100uLL);
+  Pool2 = ExAllocatePool2(0x100uLL, (unsigned int)(v2 + 26), 0x20473244u);
   v9 = (void *)Pool2;
   if ( !Pool2 )
     return (unsigned int)-1073741670;
@@ -92,7 +92,7 @@ LABEL_27:
     OutputBufferLength = Timeout.LowPart + 32;
     if ( Timeout.LowPart + 32 <= 0xFFFF )
     {
-      OutputBuffer = (LARGE_INTEGER *)ExAllocatePool2(0x100uLL);
+      OutputBuffer = (LARGE_INTEGER *)ExAllocatePool2(0x100uLL, OutputBufferLength, 0x20473244u);
       if ( OutputBuffer )
       {
         v20 = 1;
@@ -126,8 +126,9 @@ LABEL_27:
               {
                 v17 = WORD2(OutputBuffer[(_QWORD)DeviceObject + 1].QuadPart);
                 *a2 = v17;
-                a2[1] = v17 + 2;
-                v18 = (void *)ExAllocatePool2(0x100uLL);
+                v17 += 2;
+                a2[1] = v17;
+                v18 = (void *)ExAllocatePool2(0x100uLL, v17, 0x20473244u);
                 *((_QWORD *)a2 + 1) = v18;
                 if ( v18 )
                 {

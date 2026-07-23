@@ -1,26 +1,23 @@
 /*
- * XREFs of RtlMapGenericMask @ 0x1800D7440
+ * XREFs of RtlMapGenericMask @ 0x1800D4400
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall RtlMapGenericMask(int *a1, _DWORD *a2)
+void __cdecl RtlMapGenericMask(PACCESS_MASK AccessMask, PGENERIC_MAPPING GenericMapping)
 {
-  int v2; // eax
-  __int64 result; // rax
+  ACCESS_MASK v2; // eax
 
-  v2 = *a1;
-  if ( *a1 < 0 )
-    v2 |= *a2;
+  v2 = *AccessMask;
+  if ( (*AccessMask & 0x80000000) != 0 )
+    v2 |= GenericMapping->GenericRead;
   if ( (v2 & 0x40000000) != 0 )
-    v2 |= a2[1];
+    v2 |= GenericMapping->GenericWrite;
   if ( (v2 & 0x20000000) != 0 )
-    v2 |= a2[2];
+    v2 |= GenericMapping->GenericExecute;
   if ( (v2 & 0x10000000) != 0 )
-    v2 |= a2[3];
-  result = v2 & 0xFFFFFFF;
-  *a1 = result;
-  return result;
+    v2 |= GenericMapping->GenericAll;
+  *AccessMask = v2 & 0xFFFFFFF;
 }

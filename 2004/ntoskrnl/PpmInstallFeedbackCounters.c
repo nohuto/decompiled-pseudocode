@@ -34,8 +34,8 @@ void __fastcall PpmInstallFeedbackCounters(__int64 a1, _QWORD *a2)
   int v19; // eax
   bool v20; // zf
   int v21; // [rsp+20h] [rbp-68h] BYREF
-  struct _GROUP_AFFINITY v22; // [rsp+28h] [rbp-60h] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+38h] [rbp-50h] BYREF
+  _GROUP_AFFINITY v22; // [rsp+28h] [rbp-60h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+38h] [rbp-50h] BYREF
   int v24; // [rsp+80h] [rbp-8h]
 
   v21 = 0;

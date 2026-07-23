@@ -30,10 +30,13 @@ NTSTATUS __fastcall MmStoreFlushOutstandingEvictions(_QWORD *a1)
     KeResetEvent((PRKEVENT)(v1 + 1312));
   ++*(_DWORD *)(v1 + 1200);
   ExReleaseSpinLockExclusiveFromDpcLevel(v2);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v3 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v3 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

@@ -1,12 +1,12 @@
 /*
- * XREFs of PopSessionDisconnected @ 0x140534318
+ * XREFs of PopSessionDisconnected @ 0x140534858
  * Callers:
- *     PopSessionConnectionChange @ 0x1405460E8 (PopSessionConnectionChange.c)
+ *     PopSessionConnectionChange @ 0x140546628 (PopSessionConnectionChange.c)
  * Callees:
- *     memset @ 0x1401715C0 (memset.c)
- *     PopDiagTraceSessionStates @ 0x1404F06D0 (PopDiagTraceSessionStates.c)
- *     PopSetSessionUserStatus @ 0x14052E674 (PopSetSessionUserStatus.c)
- *     PopSetSessionDisplayStatus @ 0x140546224 (PopSetSessionDisplayStatus.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     PopDiagTraceSessionStates @ 0x1404D27C4 (PopDiagTraceSessionStates.c)
+ *     PopSetSessionUserStatus @ 0x14052EBB4 (PopSetSessionUserStatus.c)
+ *     PopSetSessionDisplayStatus @ 0x140546764 (PopSetSessionDisplayStatus.c)
  */
 
 __int64 __fastcall PopSessionDisconnected(unsigned int a1, _DWORD *a2)
@@ -18,7 +18,7 @@ __int64 __fastcall PopSessionDisconnected(unsigned int a1, _DWORD *a2)
   {
     memset(&PopConsoleContext, 0, 0x28uLL);
     PopConsoleContext = -1;
-    dword_1403023E0 = 3;
+    dword_140302400 = 3;
   }
   PopSetSessionDisplayStatus(a1, 0LL, 0LL);
   result = PopSetSessionUserStatus(a1, 2u);

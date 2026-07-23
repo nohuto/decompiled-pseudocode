@@ -1,15 +1,15 @@
 /*
- * XREFs of MiDeleteDeferredCloneDescriptors @ 0x1402C9868
+ * XREFs of MiDeleteDeferredCloneDescriptors @ 0x1402C9A58
  * Callers:
- *     MiUnlockWorkingSetExclusive @ 0x140063CE0 (MiUnlockWorkingSetExclusive.c)
- *     MiDeleteVad @ 0x140065E10 (MiDeleteVad.c)
- *     MiFinishVadDeletion @ 0x140067770 (MiFinishVadDeletion.c)
- *     MiGetVadWakeList @ 0x140068270 (MiGetVadWakeList.c)
- *     MiMakeHyperRangeAccessible @ 0x14006E3D0 (MiMakeHyperRangeAccessible.c)
- *     MiDeleteCloneZombies @ 0x140132CC0 (MiDeleteCloneZombies.c)
+ *     MiUnlockWorkingSetExclusive @ 0x140063CD0 (MiUnlockWorkingSetExclusive.c)
+ *     MiDeleteVad @ 0x140065E00 (MiDeleteVad.c)
+ *     MiFinishVadDeletion @ 0x140067760 (MiFinishVadDeletion.c)
+ *     MiGetVadWakeList @ 0x140068260 (MiGetVadWakeList.c)
+ *     MiMakeHyperRangeAccessible @ 0x14006E3C0 (MiMakeHyperRangeAccessible.c)
+ *     MiDeleteCloneZombies @ 0x140132D90 (MiDeleteCloneZombies.c)
  * Callees:
  *     RtlAvlRemoveNode @ 0x140037250 (RtlAvlRemoveNode.c)
- *     RtlpInterlockedFlushSList @ 0x1401C5450 (RtlpInterlockedFlushSList.c)
+ *     RtlpInterlockedFlushSList @ 0x1401C55B0 (RtlpInterlockedFlushSList.c)
  */
 
 unsigned __int64 *__fastcall MiDeleteDeferredCloneDescriptors(__int64 a1)

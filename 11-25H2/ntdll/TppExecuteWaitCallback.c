@@ -20,57 +20,55 @@
  *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180174020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
  */
 
-struct _PEB *__fastcall TppExecuteWaitCallback(__int64 a1, __int64 a2, unsigned int a3)
+int __fastcall TppExecuteWaitCallback(PTP_CALLBACK_INSTANCE a1, PTP_WAIT a2, TP_WAIT_RESULT a3)
 {
-  __int64 v6; // rdi
+  void *RaceDll; // rdi
   __int64 v7; // rdi
   _DWORD *SharedData; // rcx
   __int64 v9; // rcx
   _DWORD *v10; // rcx
   __int64 v11; // rcx
-  __int64 v12; // r8
-  __int64 v13; // r9
-  __int64 v14; // r10
+  void *v12; // r8
+  void *v13; // r9
+  void *v14; // r10
   _QWORD *ThreadPoolData; // rcx
   __int64 v16; // rax
   __int64 v17; // rdx
   _QWORD *v18; // rsi
-  void (__fastcall *v19)(__int64, __int64, __int64, _QWORD); // rax
-  __int64 v20; // rdx
-  struct _PEB *result; // rax
+  void (__cdecl *v19)(PTP_CALLBACK_INSTANCE, PVOID, PTP_WAIT, TP_WAIT_RESULT); // rax
+  void *v20; // rdx
+  struct _PEB *v21; // rax
   _DWORD *v22; // rcx
   __int64 v23; // rcx
   _DWORD *v24; // rcx
   __int64 v25; // rcx
-  __int64 v26; // rdx
-  __int64 v27; // r8
-  __int64 (__fastcall *v28)(); // rax
-  _DWORD v29[2]; // [rsp+30h] [rbp-E8h] BYREF
-  __int64 v30; // [rsp+38h] [rbp-E0h]
-  __int128 v31; // [rsp+40h] [rbp-D8h]
-  __int64 v32; // [rsp+50h] [rbp-C8h]
-  __int64 v33; // [rsp+58h] [rbp-C0h]
-  __int64 v34; // [rsp+60h] [rbp-B8h]
-  __int64 v35; // [rsp+68h] [rbp-B0h]
-  __int64 v36; // [rsp+70h] [rbp-A8h]
-  _DWORD v37[2]; // [rsp+80h] [rbp-98h] BYREF
-  __int64 v38; // [rsp+88h] [rbp-90h]
-  __int128 v39; // [rsp+90h] [rbp-88h]
-  __int64 v40; // [rsp+A0h] [rbp-78h]
-  __int64 v41; // [rsp+A8h] [rbp-70h]
-  __int64 v42; // [rsp+B0h] [rbp-68h]
-  __int64 v43; // [rsp+B8h] [rbp-60h]
-  __int64 v44; // [rsp+C0h] [rbp-58h]
+  void (__fastcall *Free)(_TPP_CLEANUP_GROUP_MEMBER *); // rax
+  _DWORD Fields[2]; // [rsp+30h] [rbp-E8h] BYREF
+  __int64 v29; // [rsp+38h] [rbp-E0h]
+  __int128 v30; // [rsp+40h] [rbp-D8h]
+  _TP_POOL *Pool; // [rsp+50h] [rbp-C8h]
+  _TP_DIRECT *p_Direct; // [rsp+58h] [rbp-C0h]
+  void *Callback; // [rsp+60h] [rbp-B8h]
+  void *Context; // [rsp+68h] [rbp-B0h]
+  void *SubProcessTag; // [rsp+70h] [rbp-A8h]
+  _DWORD v36[2]; // [rsp+80h] [rbp-98h] BYREF
+  __int64 v37; // [rsp+88h] [rbp-90h]
+  __int128 v38; // [rsp+90h] [rbp-88h]
+  _TP_POOL *v39; // [rsp+A0h] [rbp-78h]
+  _TP_DIRECT *v40; // [rsp+A8h] [rbp-70h]
+  void *v41; // [rsp+B0h] [rbp-68h]
+  void *v42; // [rsp+B8h] [rbp-60h]
+  void *v43; // [rsp+C0h] [rbp-58h]
 
   if ( a3 == 258 )
   {
-    result = (struct _PEB *)TppWorkCallbackPrologRelease(a1, a2, 0LL);
-    if ( !(_DWORD)result )
-      return result;
+    LODWORD(v21) = TppWorkCallbackPrologRelease(a1, a2);
+    if ( !(_DWORD)v21 )
+      return (int)v21;
     goto LABEL_4;
   }
-  v6 = *(_QWORD *)(a2 + 136);
-  if ( !v6 )
+  RaceDll = a2->Timer.Work.CleanupGroupMember.RaceDll;
+  if ( !RaceDll )
   {
 LABEL_3:
     TppCleanupGroupMemberCallbackProlog(a1, a2);
@@ -83,25 +81,25 @@ LABEL_4:
       v9 = 2147353478LL;
     if ( *(_BYTE *)v9 )
     {
-      v32 = *(_QWORD *)(a2 + 144);
-      v33 = a2 + 392;
-      v34 = *(_QWORD *)(a2 + 80);
-      v35 = *(_QWORD *)(a2 + 88);
-      v36 = *(_QWORD *)(a2 + 104);
-      v29[0] = 0;
-      v29[1] = 471990272;
+      Pool = a2->Timer.Work.CleanupGroupMember.Pool;
+      p_Direct = &a2->Direct;
+      Callback = a2->Timer.Work.CleanupGroupMember.Callback;
+      Context = a2->Timer.Work.CleanupGroupMember.Context;
+      SubProcessTag = a2->Timer.Work.CleanupGroupMember.SubProcessTag;
+      Fields[0] = 0;
+      Fields[1] = 471990272;
+      v29 = 0LL;
       v30 = 0LL;
-      v31 = 0LL;
       v10 = NtCurrentPeb()->SharedData;
       if ( v10 && *v10 )
         v11 = (__int64)NtCurrentPeb()->SharedData + 556;
       else
         v11 = 2147353478LL;
-      NtTraceEvent(*(unsigned __int8 *)v11, 1026LL, 40LL, v29);
+      NtTraceEvent((HANDLE)*(unsigned __int8 *)v11, 0x402u, 0x28u, Fields);
     }
-    v12 = *(_QWORD *)(a2 + 104);
-    v13 = *(_QWORD *)(a2 + 88);
-    v14 = *(_QWORD *)(a2 + 80);
+    v12 = a2->Timer.Work.CleanupGroupMember.SubProcessTag;
+    v13 = a2->Timer.Work.CleanupGroupMember.Context;
+    v14 = a2->Timer.Work.CleanupGroupMember.Callback;
     ThreadPoolData = NtCurrentTeb()->ThreadPoolData;
     if ( ThreadPoolData )
     {
@@ -120,32 +118,32 @@ LABEL_4:
     {
       v18 = 0LL;
     }
-    *(_QWORD *)(a1 + 88) = *(_QWORD *)(a2 + 80);
-    *(_QWORD *)(a1 + 96) = *(_QWORD *)(a2 + 88);
-    v19 = *(void (__fastcall **)(__int64, __int64, __int64, _QWORD))(a2 + 80);
-    v20 = *(_QWORD *)(a2 + 88);
-    if ( (char *)v19 == (char *)RtlpWnfNotificationThread )
+    a1->Callback = a2->Timer.Work.CleanupGroupMember.Callback;
+    a1->Context = a2->Timer.Work.CleanupGroupMember.Context;
+    v19 = (void (__cdecl *)(PTP_CALLBACK_INSTANCE, PVOID, PTP_WAIT, TP_WAIT_RESULT))a2->Timer.Work.CleanupGroupMember.Callback;
+    v20 = a2->Timer.Work.CleanupGroupMember.Context;
+    if ( v19 == RtlpWnfNotificationThread )
     {
       RtlpWnfNotificationThread(a1, v20, a2, a3);
     }
-    else if ( (char *)v19 == (char *)RtlpTpWaitCallback )
+    else if ( v19 == RtlpTpWaitCallback )
     {
       RtlpTpWaitCallback(a1, v20, a2, a3);
     }
-    else if ( (char *)v19 == (char *)EtwpNotificationThread )
+    else if ( v19 == EtwpNotificationThread )
     {
       EtwpNotificationThread(a1, v20, a2, a3);
     }
     else
     {
-      v19(a1, v20, a2, a3);
+      ((void (__fastcall *)(PTP_CALLBACK_INSTANCE, void *, PTP_WAIT, _QWORD))v19)(a1, v20, a2, a3);
     }
-    result = NtCurrentPeb();
-    v22 = result->SharedData;
+    v21 = NtCurrentPeb();
+    v22 = v21->SharedData;
     if ( v22 && *v22 )
     {
-      result = NtCurrentPeb();
-      v23 = (__int64)result->SharedData + 556;
+      v21 = NtCurrentPeb();
+      v23 = (__int64)v21->SharedData + 556;
     }
     else
     {
@@ -153,59 +151,59 @@ LABEL_4:
     }
     if ( *(_BYTE *)v23 )
     {
-      v40 = *(_QWORD *)(a2 + 144);
-      v41 = a2 + 392;
-      v42 = *(_QWORD *)(a2 + 80);
-      v43 = *(_QWORD *)(a2 + 88);
-      v44 = *(_QWORD *)(a2 + 104);
-      v37[0] = 0;
-      v37[1] = 472055808;
+      v39 = a2->Timer.Work.CleanupGroupMember.Pool;
+      v40 = &a2->Direct;
+      v41 = a2->Timer.Work.CleanupGroupMember.Callback;
+      v42 = a2->Timer.Work.CleanupGroupMember.Context;
+      v43 = a2->Timer.Work.CleanupGroupMember.SubProcessTag;
+      v36[0] = 0;
+      v36[1] = 472055808;
+      v37 = 0LL;
       v38 = 0LL;
-      v39 = 0LL;
       v24 = NtCurrentPeb()->SharedData;
       if ( v24 && *v24 )
         v7 = (__int64)NtCurrentPeb()->SharedData + 556;
-      result = (struct _PEB *)NtTraceEvent(*(unsigned __int8 *)v7, 1027LL, 40LL, v37);
+      LODWORD(v21) = NtTraceEvent((HANDLE)*(unsigned __int8 *)v7, 0x403u, 0x28u, v36);
     }
     if ( v18 )
     {
       v25 = v18[3];
-      result = (struct _PEB *)(MEMORY[0x7FFE0008] - MEMORY[0x7FFE03B0]);
+      v21 = (struct _PEB *)(MEMORY[0x7FFE0008] - MEMORY[0x7FFE03B0]);
       if ( MEMORY[0x7FFE0008] - MEMORY[0x7FFE03B0] >= v25 )
       {
-        result = (struct _PEB *)((char *)result - v25);
-        v18[3] = result;
+        v21 = (struct _PEB *)((char *)v21 - v25);
+        v18[3] = v21;
       }
     }
-    return result;
+    return (int)v21;
   }
-  if ( (int)LdrAddRefDll(0, *(_QWORD *)(a2 + 136)) >= 0 )
+  if ( LdrAddRefDll(0, a2->Timer.Work.CleanupGroupMember.RaceDll) >= 0 )
   {
-    *(_DWORD *)(a1 + 144) |= 0x100u;
-    *(_QWORD *)(a1 + 168) = v6;
+    a1->CallbackEpilogFlags |= 0x100u;
+    a1->RaceDll = RaceDll;
     goto LABEL_3;
   }
-  result = (struct _PEB *)TppBarrierAdjust(a2 + 56, 0xFFFFFFFFLL, 0LL);
-  if ( _InterlockedExchangeAdd((volatile signed __int32 *)a2, 0xFFFFFFFF) == 1 )
+  LODWORD(v21) = TppBarrierAdjust(&a2->Timer.Work.CleanupGroupMember.CallbackBarrier, 0xFFFFFFFFLL, 0LL);
+  if ( _InterlockedExchangeAdd(&a2->Timer.Work.CleanupGroupMember.Refcount.Refcount, 0xFFFFFFFF) == 1 )
   {
-    v28 = **(__int64 (__fastcall ***)())(a2 + 8);
-    if ( v28 == TppSimplepFree )
+    Free = a2->Timer.Work.CleanupGroupMember.VFuncs->Free;
+    if ( (char *)Free == (char *)TppSimplepFree )
     {
       TppCleanupGroupMemberDestroy(a2);
-      return (struct _PEB *)RtlFreeHeap(NtCurrentPeb()->ProcessHeap, (unsigned int)(TppHeapTag + 0x200000), a2);
+      LODWORD(v21) = RtlFreeHeap(NtCurrentPeb()->ProcessHeap, TppHeapTag + 0x200000, a2);
     }
-    else if ( (char *)v28 == (char *)TppAlpcpFree )
+    else if ( (char *)Free == (char *)TppAlpcpFree )
     {
-      return (struct _PEB *)TppAlpcpFree(a2, v26, v27);
+      LODWORD(v21) = TppAlpcpFree(a2);
     }
-    else if ( (char *)v28 == (char *)TppWorkpFree )
+    else if ( (char *)Free == (char *)TppWorkpFree )
     {
-      return (struct _PEB *)TppWorkpFree(a2, v26, v27);
+      LODWORD(v21) = TppWorkpFree(a2);
     }
     else
     {
-      return (struct _PEB *)((__int64 (__fastcall *)(__int64))v28)(a2);
+      LODWORD(v21) = ((__int64 (__fastcall *)(PTP_WAIT))Free)(a2);
     }
   }
-  return result;
+  return (int)v21;
 }

@@ -1,16 +1,16 @@
 /*
- * XREFs of CmpTransSearchAddLightWeightTrans @ 0x14076889C
+ * XREFs of CmpTransSearchAddLightWeightTrans @ 0x140768A8C
  * Callers:
- *     CmpTransSearchAddTransFromHive @ 0x1407687A8 (CmpTransSearchAddTransFromHive.c)
- *     CmpTransSearchAddTransFromKeyBody @ 0x1407687FC (CmpTransSearchAddTransFromKeyBody.c)
+ *     CmpTransSearchAddTransFromHive @ 0x140768998 (CmpTransSearchAddTransFromHive.c)
+ *     CmpTransSearchAddTransFromKeyBody @ 0x1407689EC (CmpTransSearchAddTransFromKeyBody.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExReleaseFastMutexUnsafe @ 0x1403025F0 (ExReleaseFastMutexUnsafe.c)
- *     ExAcquireFastMutexUnsafe @ 0x140302660 (ExAcquireFastMutexUnsafe.c)
- *     CmpTransReferenceTransaction @ 0x1407689D0 (CmpTransReferenceTransaction.c)
- *     CmpTransDereferenceTransaction @ 0x140768A28 (CmpTransDereferenceTransaction.c)
- *     CmpBindHiveToTrans @ 0x140768A44 (CmpBindHiveToTrans.c)
- *     CmpTransAllocateTrans @ 0x1407DB014 (CmpTransAllocateTrans.c)
+ *     KeLeaveCriticalRegion @ 0x140231550 (KeLeaveCriticalRegion.c)
+ *     ExReleaseFastMutexUnsafe @ 0x140302880 (ExReleaseFastMutexUnsafe.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1403028F0 (ExAcquireFastMutexUnsafe.c)
+ *     CmpTransReferenceTransaction @ 0x140768BC0 (CmpTransReferenceTransaction.c)
+ *     CmpTransDereferenceTransaction @ 0x140768C18 (CmpTransDereferenceTransaction.c)
+ *     CmpBindHiveToTrans @ 0x140768C34 (CmpBindHiveToTrans.c)
+ *     CmpTransAllocateTrans @ 0x1407DB2E4 (CmpTransAllocateTrans.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
@@ -77,13 +77,13 @@ LABEL_18:
     goto LABEL_18;
   }
   *((_DWORD *)v14 + 12) = 128;
-  v17 = (_QWORD *)qword_140C13CE8;
-  if ( *(__int64 **)qword_140C13CE8 != &CmpLightTransactionList )
+  v17 = (_QWORD *)qword_140C13C28;
+  if ( *(__int64 **)qword_140C13C28 != &CmpLightTransactionList )
     __fastfail(3u);
   *v14 = &CmpLightTransactionList;
   v14[1] = v17;
   *v17 = v14;
-  qword_140C13CE8 = (__int64)v14;
+  qword_140C13C28 = (__int64)v14;
   ExReleaseFastMutexUnsafe(&CmpTransactionListLock);
   KeLeaveCriticalRegion();
   v10 = 0;

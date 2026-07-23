@@ -1,15 +1,15 @@
 /*
- * XREFs of VmpUpdateCommitStateMemoryRange @ 0x1406C1C10
+ * XREFs of VmpUpdateCommitStateMemoryRange @ 0x1406C57F0
  * Callers:
- *     VmUpdateCommitMemoryRange @ 0x14081C1A0 (VmUpdateCommitMemoryRange.c)
+ *     VmUpdateCommitMemoryRange @ 0x1408223B0 (VmUpdateCommitMemoryRange.c)
  * Callees:
- *     VmpConvertPortionVpnRangeToGpnRange @ 0x140251D40 (VmpConvertPortionVpnRangeToGpnRange.c)
- *     ExReleaseSpinLockShared @ 0x14026CEE0 (ExReleaseSpinLockShared.c)
- *     ExAcquireSpinLockShared @ 0x1402EDF10 (ExAcquireSpinLockShared.c)
- *     VmpFindNextPinnedPageStateHelper @ 0x1406C11C8 (VmpFindNextPinnedPageStateHelper.c)
- *     ZwAllocateVirtualMemory @ 0x1407236F0 (ZwAllocateVirtualMemory.c)
- *     ZwFreeVirtualMemory @ 0x1407237B0 (ZwFreeVirtualMemory.c)
- *     MmCommitDecommitSecuredMemory @ 0x14086AD74 (MmCommitDecommitSecuredMemory.c)
+ *     VmpConvertPortionVpnRangeToGpnRange @ 0x1402536A0 (VmpConvertPortionVpnRangeToGpnRange.c)
+ *     ExReleaseSpinLockShared @ 0x14026C450 (ExReleaseSpinLockShared.c)
+ *     ExAcquireSpinLockShared @ 0x1402CFF90 (ExAcquireSpinLockShared.c)
+ *     VmpFindNextPinnedPageStateHelper @ 0x1406C4DA8 (VmpFindNextPinnedPageStateHelper.c)
+ *     ZwAllocateVirtualMemory @ 0x1407282C0 (ZwAllocateVirtualMemory.c)
+ *     ZwFreeVirtualMemory @ 0x140728380 (ZwFreeVirtualMemory.c)
+ *     MmCommitDecommitSecuredMemory @ 0x140871154 (MmCommitDecommitSecuredMemory.c)
  */
 
 __int64 __fastcall VmpUpdateCommitStateMemoryRange(volatile LONG *SpinLock, __int128 *a2, ULONG a3)

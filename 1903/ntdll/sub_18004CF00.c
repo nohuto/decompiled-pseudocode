@@ -23,7 +23,7 @@ void *__fastcall sub_18004CF00(unsigned __int64 a1, unsigned __int64 a2, int a3,
   char *v8; // rax
   char v9; // dl
   __int64 v10; // rbx
-  char *v11; // rsi
+  PVOID *v11; // rsi
   __int128 v14; // [rsp+30h] [rbp-18h] BYREF
 
   v14 = *a4;
@@ -32,7 +32,7 @@ void *__fastcall sub_18004CF00(unsigned __int64 a1, unsigned __int64 a2, int a3,
   *(_QWORD *)&v14 = v4;
   v9 = BYTE1(v4);
   v10 = 0LL;
-  v11 = v8;
+  v11 = (PVOID *)v8;
   BYTE3(v14) = 0;
   *((_QWORD *)&v14 + 1) = 0LL;
   if ( BYTE1(v4) >= 2u )
@@ -42,13 +42,13 @@ void *__fastcall sub_18004CF00(unsigned __int64 a1, unsigned __int64 a2, int a3,
   {
     if ( a3 )
       return sub_180036D88(
-               *(_QWORD *)v11 + 256LL + (*(unsigned int *)(*(_QWORD *)v11 + 272LL) < a1 ? 0xC0 : 0),
+               (__int64)*v11 + (*((unsigned int *)*v11 + 68) < a1 ? 0xC0 : 0) + 256,
                a1,
                a1,
                a2,
                a2 < a1 ? 83886080 : 0x1000000);
     else
-      return (void *)sub_18004EA3C(*(_QWORD *)v11, a1, 0x1000000LL, 0LL);
+      return (void *)sub_18004EA3C(*v11);
   }
   return (void *)v10;
 }

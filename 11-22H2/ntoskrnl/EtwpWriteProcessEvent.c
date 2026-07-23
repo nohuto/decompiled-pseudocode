@@ -15,7 +15,7 @@
  *     RtlFreeAnsiString @ 0x140756D50 (RtlFreeAnsiString.c)
  */
 
-void __fastcall EtwpWriteProcessEvent(__int64 a1, __int16 a2, int *a3, int *a4, unsigned __int16 *a5, __int64 a6)
+void __fastcall EtwpWriteProcessEvent(__int64 a1, __int16 a2, int *a3, ULONG_PTR *a4, unsigned __int16 *a5, __int64 a6)
 {
   char v6; // r14
   char v11; // si
@@ -23,7 +23,7 @@ void __fastcall EtwpWriteProcessEvent(__int64 a1, __int16 a2, int *a3, int *a4, 
   PVOID *v13; // [rsp+50h] [rbp-B0h]
   __int64 v14; // [rsp+60h] [rbp-A0h] BYREF
   __int64 v15; // [rsp+68h] [rbp-98h]
-  STRING AnsiString; // [rsp+70h] [rbp-90h] BYREF
+  _STRING AnsiString; // [rsp+70h] [rbp-90h] BYREF
   int v17[4]; // [rsp+80h] [rbp-80h] BYREF
   __int128 v18; // [rsp+90h] [rbp-70h]
   __int64 v19; // [rsp+A0h] [rbp-60h]

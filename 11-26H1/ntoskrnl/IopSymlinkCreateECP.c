@@ -1,11 +1,11 @@
 /*
- * XREFs of IopSymlinkCreateECP @ 0x140903B80
+ * XREFs of IopSymlinkCreateECP @ 0x140933B10
  * Callers:
- *     IopParseDevice @ 0x1409008C0 (IopParseDevice.c)
+ *     IopParseDevice @ 0x140930850 (IopParseDevice.c)
  * Callees:
- *     memmove @ 0x14073D480 (memmove.c)
- *     IopSymlinkInitializeSymlinkInfo @ 0x140903AA8 (IopSymlinkInitializeSymlinkInfo.c)
- *     IopSymlinkAllocateAndAddECP @ 0x140903CB0 (IopSymlinkAllocateAndAddECP.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     IopSymlinkInitializeSymlinkInfo @ 0x140933A38 (IopSymlinkInitializeSymlinkInfo.c)
+ *     IopSymlinkAllocateAndAddECP @ 0x140933C40 (IopSymlinkAllocateAndAddECP.c)
  */
 
 __int64 __fastcall IopSymlinkCreateECP(PIRP Irp, __int64 a2, unsigned __int16 *a3, __int16 a4, _QWORD *a5)

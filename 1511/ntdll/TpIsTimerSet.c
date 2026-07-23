@@ -6,15 +6,15 @@
  *     TppTimerpValidateTimer @ 0x18000B2BC (TppTimerpValidateTimer.c)
  */
 
-__int64 __fastcall TpIsTimerSet(__int64 a1)
+LOGICAL __cdecl TpIsTimerSet(PTP_TIMER Timer)
 {
   int v2; // eax
-  unsigned int v3; // edx
+  LOGICAL v3; // edx
 
-  v2 = TppTimerpValidateTimer(a1, 0LL, 1LL);
+  v2 = TppTimerpValidateTimer(Timer, 0LL, 1LL);
   v3 = 0;
   if ( !v2 )
-    return 0LL;
-  LOBYTE(v3) = *(_QWORD *)(a1 + 320) != 0LL;
+    return 0;
+  LOBYTE(v3) = *((_QWORD *)Timer + 40) != 0LL;
   return v3;
 }

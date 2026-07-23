@@ -1,8 +1,8 @@
 /*
- * XREFs of PspComputeReportWakeFilter @ 0x1407DA454
+ * XREFs of PspComputeReportWakeFilter @ 0x1407DA724
  * Callers:
  *     PspAllocateAndQueryNotificationChannel @ 0x14069F068 (PspAllocateAndQueryNotificationChannel.c)
- *     PspFreezeJobTree @ 0x1407DA0C8 (PspFreezeJobTree.c)
+ *     PspFreezeJobTree @ 0x1407DA398 (PspFreezeJobTree.c)
  * Callees:
  *     <none>
  */

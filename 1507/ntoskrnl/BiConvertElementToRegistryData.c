@@ -15,7 +15,7 @@
 
 __int64 __fastcall BiConvertElementToRegistryData(
         unsigned int a1,
-        char *a2,
+        GUID *a2,
         unsigned int a3,
         __int64 a4,
         _QWORD *a5,
@@ -24,7 +24,7 @@ __int64 __fastcall BiConvertElementToRegistryData(
   int v6; // ebx
   size_t v7; // r14
   unsigned int *v9; // r13
-  int v10; // edi
+  NTSTATUS v10; // edi
   int v11; // ecx
   int v12; // ecx
   int v13; // ecx
@@ -40,7 +40,7 @@ __int64 __fastcall BiConvertElementToRegistryData(
   _WORD *v23; // rax
   __int64 v24; // rcx
   size_t v25; // rbx
-  _WORD *v26; // rcx
+  GUID *v26; // rcx
   unsigned int v27; // eax
   _BYTE *v28; // rax
   int v29; // eax
@@ -57,7 +57,7 @@ __int64 __fastcall BiConvertElementToRegistryData(
   v11 = (HIBYTE(a1) & 0xF) - 1;
   if ( !v11 )
   {
-    if ( *(_DWORD *)a2 == 6 )
+    if ( a2->Data1 == 6 )
       v29 = BiConvertQualifiedPartitionToBootEnvironment(a2, a3, &Src);
     else
       v29 = BiConvertNtDeviceToBootEnvironment(a2, a3, 0LL, &Src);
@@ -72,7 +72,7 @@ __int64 __fastcall BiConvertElementToRegistryData(
         Buffer = PoolWithTag;
         if ( PoolWithTag )
         {
-          *PoolWithTag = *(_OWORD *)(a2 + 4);
+          *PoolWithTag = *(_OWORD *)&a2->Data2;
           memmove(PoolWithTag + 1, v9, v9[2]);
           ExFreePoolWithTag(v9, 0);
           v9 = 0LL;
@@ -99,9 +99,9 @@ LABEL_58:
     v27 = a3 >> 1;
     if ( a3 >> 1 )
     {
-      while ( *v26 )
+      while ( LOWORD(v26->Data1) )
       {
-        ++v26;
+        v26 = (GUID *)((char *)v26 + 2);
         if ( !--v27 )
           goto LABEL_38;
       }
@@ -130,7 +130,7 @@ LABEL_38:
   {
     if ( a3 != 16 )
       return (unsigned int)-1073741788;
-    v10 = RtlStringFromGUIDEx((unsigned int *)a2, (__int64)&DestinationString, 1);
+    v10 = RtlStringFromGUIDEx(a2, &DestinationString, 1u);
     if ( v10 < 0 )
       return (unsigned int)v10;
     Buffer = DestinationString.Buffer;
@@ -166,7 +166,7 @@ LABEL_55:
         Buffer = ExAllocatePoolWithTag(PagedPool, 1uLL, 0x4B444342u);
         if ( Buffer )
         {
-          *Buffer = *a2 != 0;
+          *Buffer = LOBYTE(a2->Data1) != 0;
           goto LABEL_55;
         }
         return (unsigned int)-1073741801;
@@ -181,7 +181,7 @@ LABEL_55:
         Buffer = v20;
         if ( v20 )
         {
-          *v20 = *(_QWORD *)a2;
+          *v20 = *(_QWORD *)&a2->Data1;
           goto LABEL_55;
         }
         return (unsigned int)-1073741801;
@@ -208,7 +208,7 @@ LABEL_23:
     {
       while ( 1 )
       {
-        v10 = RtlStringFromGUIDEx((unsigned int *)&a2[16 * v24], (__int64)&DestinationString, 1);
+        v10 = RtlStringFromGUIDEx(&a2[v24], &DestinationString, 1u);
         if ( v10 < 0 )
           break;
         v25 = (unsigned int)DestinationString.Length + 2;
@@ -239,7 +239,7 @@ LABEL_54:
   while ( 1 )
   {
     RtlInitUnicodeString(&DestinationString, 0LL);
-    v10 = RtlStringFromGUIDEx((unsigned int *)&a2[16 * v6], (__int64)&DestinationString, 1);
+    v10 = RtlStringFromGUIDEx(&a2[v6], &DestinationString, 1u);
     if ( v10 < 0 )
       return (unsigned int)v10;
     v22 += DestinationString.Length + 2;

@@ -1,17 +1,17 @@
 /*
- * XREFs of HvHiveStartMemoryBacked @ 0x14076FE14
+ * XREFs of HvHiveStartMemoryBacked @ 0x14076FFD4
  * Callers:
- *     CmpCreateHive @ 0x14071E618 (CmpCreateHive.c)
- *     CmpGetSystemControlValues @ 0x140A5FC0C (CmpGetSystemControlValues.c)
+ *     CmpCreateHive @ 0x1406F756C (CmpCreateHive.c)
+ *     CmpGetSystemControlValues @ 0x140A60C0C (CmpGetSystemControlValues.c)
  * Callees:
- *     SetFailureLocation @ 0x1402C4808 (SetFailureLocation.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     memset @ 0x140414200 (memset.c)
- *     HvpFillFileName @ 0x140721F24 (HvpFillFileName.c)
- *     HvpAdjustHiveFreeDisplay @ 0x14072311C (HvpAdjustHiveFreeDisplay.c)
- *     HvpHeaderCheckSum @ 0x1407248A8 (HvpHeaderCheckSum.c)
- *     HvpBuildMapForMemoryBackedHive @ 0x1407B1EFC (HvpBuildMapForMemoryBackedHive.c)
- *     HvIsInPlaceBaseBlockValid @ 0x140876A74 (HvIsInPlaceBaseBlockValid.c)
+ *     SetFailureLocation @ 0x140242D88 (SetFailureLocation.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     HvpFillFileName @ 0x1406F977C (HvpFillFileName.c)
+ *     HvpAdjustHiveFreeDisplay @ 0x1406FB148 (HvpAdjustHiveFreeDisplay.c)
+ *     HvpHeaderCheckSum @ 0x1406FC8D4 (HvpHeaderCheckSum.c)
+ *     HvpBuildMapForMemoryBackedHive @ 0x1407B209C (HvpBuildMapForMemoryBackedHive.c)
+ *     HvIsInPlaceBaseBlockValid @ 0x140876BD4 (HvIsInPlaceBaseBlockValid.c)
  */
 
 __int64 __fastcall HvHiveStartMemoryBacked(
@@ -42,7 +42,7 @@ __int64 __fastcall HvHiveStartMemoryBacked(
   _OWORD *v26; // rcx
   __int128 v27; // xmm1
   int v28; // eax
-  int v29; // ebx
+  signed int v29; // ebx
   __int64 v30; // rcx
   int v31; // eax
   int v32; // ecx
@@ -55,7 +55,7 @@ __int64 __fastcall HvHiveStartMemoryBacked(
   int v39; // eax
   __int64 v40; // rdx
   __int64 v41; // rax
-  int v42; // [rsp+20h] [rbp-38h]
+  unsigned int v42; // [rsp+20h] [rbp-38h]
 
   *(_QWORD *)(BugCheckParameter2 + 56) = a13;
   if ( (_DWORD)a2 == 2
@@ -204,11 +204,11 @@ LABEL_19:
               *a12 = 0;
             return 0LL;
           }
-          SetFailureLocation(a13, 0, 25, v29, 160);
+          SetFailureLocation(a13, 0, 25, v29, 0xA0u);
         }
         else
         {
-          SetFailureLocation(a13, 0, 25, v29, 144);
+          SetFailureLocation(a13, 0, 25, v29, 0x90u);
         }
         return (unsigned int)v29;
       }
@@ -314,7 +314,7 @@ LABEL_39:
     return 0LL;
   }
   v29 = -1073741492;
-  SetFailureLocation(a13, 0, 25, -1073741492, 240);
+  SetFailureLocation(a13, 0, 25, 0xC000014C, 0xF0u);
   (*(void (__fastcall **)(_QWORD, _QWORD))(BugCheckParameter2 + 32))(
     *(_QWORD *)(BugCheckParameter2 + 64),
     *(unsigned int *)(BugCheckParameter2 + 132));

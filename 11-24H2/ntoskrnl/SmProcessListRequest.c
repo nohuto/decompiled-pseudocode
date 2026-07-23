@@ -1,19 +1,19 @@
 /*
- * XREFs of SmProcessListRequest @ 0x140797FD8
+ * XREFs of SmProcessListRequest @ 0x1407980E8
  * Callers:
- *     SmQueryStoreInformation @ 0x140A18DA0 (SmQueryStoreInformation.c)
+ *     SmQueryStoreInformation @ 0x140A11F10 (SmQueryStoreInformation.c)
  * Callees:
- *     PsDereferencePartition @ 0x140275E60 (PsDereferencePartition.c)
- *     SmKmStoreRefFromStoreIndex @ 0x14042B6B0 (SmKmStoreRefFromStoreIndex.c)
- *     SmAllocEx @ 0x14044AB68 (SmAllocEx.c)
- *     CmSiFreeMemory @ 0x14046B8D0 (CmSiFreeMemory.c)
- *     SmpGetProcessPartition @ 0x140498A6C (SmpGetProcessPartition.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     SmProcessListRequestExtended @ 0x140798258 (SmProcessListRequestExtended.c)
- *     ExRaiseDatatypeMisalignment @ 0x14089B1F0 (ExRaiseDatatypeMisalignment.c)
- *     ProbeForWrite @ 0x1408C0590 (ProbeForWrite.c)
- *     PsReferencePartitionByHandle @ 0x140934434 (PsReferencePartitionByHandle.c)
+ *     PsDereferencePartition @ 0x14022B3F0 (PsDereferencePartition.c)
+ *     SmAllocEx @ 0x1402F5228 (SmAllocEx.c)
+ *     SmKmStoreRefFromStoreIndex @ 0x14041E240 (SmKmStoreRefFromStoreIndex.c)
+ *     CmSiFreeMemory @ 0x140464550 (CmSiFreeMemory.c)
+ *     SmpGetProcessPartition @ 0x1404933CC (SmpGetProcessPartition.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     SmProcessListRequestExtended @ 0x140798368 (SmProcessListRequestExtended.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408A3890 (ExRaiseDatatypeMisalignment.c)
+ *     ProbeForWrite @ 0x1408BDF50 (ProbeForWrite.c)
+ *     PsReferencePartitionByHandle @ 0x1408F6F54 (PsReferencePartitionByHandle.c)
  */
 
 __int64 __fastcall SmProcessListRequest(_OWORD *a1, unsigned int a2, unsigned int *a3, char a4)
@@ -35,7 +35,7 @@ __int64 __fastcall SmProcessListRequest(_OWORD *a1, unsigned int a2, unsigned in
 
   v22[0] = 0LL;
   v8 = 4240;
-  v9 = (_OWORD *)SmAllocEx(4240LL, 1380740467LL, -1);
+  v9 = (_OWORD *)SmAllocEx(0x1090uLL, 0x524C6D73u, -1);
   v10 = v9;
   v22[1] = (__int64)v9;
   if ( !v9 )

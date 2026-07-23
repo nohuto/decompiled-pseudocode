@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlQueryProcessLockInformation @ 0x180046FA0
+ * XREFs of RtlQueryProcessLockInformation @ 0x18002AFA0
  * Callers:
- *     RtlQueryProcessDebugInformation @ 0x180044CD0 (RtlQueryProcessDebugInformation.c)
+ *     RtlQueryProcessDebugInformation @ 0x180028C60 (RtlQueryProcessDebugInformation.c)
  * Callees:
- *     RtlAcquireSRWLockShared @ 0x180010220 (RtlAcquireSRWLockShared.c)
- *     RtlReleaseSRWLockShared @ 0x180010280 (RtlReleaseSRWLockShared.c)
- *     RtlpCommitQueryDebugInfo @ 0x180047450 (RtlpCommitQueryDebugInfo.c)
- *     RtlIsAnyDebuggerPresent @ 0x1800F2A08 (RtlIsAnyDebuggerPresent.c)
+ *     RtlpCommitQueryDebugInfo @ 0x18002B900 (RtlpCommitQueryDebugInfo.c)
+ *     RtlAcquireSRWLockShared @ 0x18003CC20 (RtlAcquireSRWLockShared.c)
+ *     RtlReleaseSRWLockShared @ 0x18003CC80 (RtlReleaseSRWLockShared.c)
+ *     RtlIsAnyDebuggerPresent @ 0x1800ED2F8 (RtlIsAnyDebuggerPresent.c)
  */
 
 __int64 __fastcall RtlQueryProcessLockInformation(__int64 a1)
@@ -65,7 +65,7 @@ __int64 __fastcall RtlQueryProcessLockInformation(__int64 a1)
         v5 = v12;
         v4 = v13;
       }
-      else if ( (unsigned __int8)RtlIsAnyDebuggerPresent() )
+      else if ( RtlIsAnyDebuggerPresent() )
       {
         __debugbreak();
       }

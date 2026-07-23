@@ -1,15 +1,15 @@
 /*
- * XREFs of PopPowerRequestHandleRequestUpdate @ 0x1407A7654
+ * XREFs of PopPowerRequestHandleRequestUpdate @ 0x1407A7844
  * Callers:
- *     PopPowerRequestCallbackWorker @ 0x14032BBB0 (PopPowerRequestCallbackWorker.c)
- *     PopPowerRequestDebounceTimerWorker @ 0x140981560 (PopPowerRequestDebounceTimerWorker.c)
+ *     PopPowerRequestCallbackWorker @ 0x14032BE40 (PopPowerRequestCallbackWorker.c)
+ *     PopPowerRequestDebounceTimerWorker @ 0x140981760 (PopPowerRequestDebounceTimerWorker.c)
  * Callees:
- *     KeSetTimer2 @ 0x140250150 (KeSetTimer2.c)
- *     PopReleaseRwLock @ 0x14032C480 (PopReleaseRwLock.c)
- *     PopUmpoSendPowerMessage @ 0x14032D1A0 (PopUmpoSendPowerMessage.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     memset @ 0x140435A00 (memset.c)
- *     PopAcquirePowerRequestPushLock @ 0x1407A6ED4 (PopAcquirePowerRequestPushLock.c)
+ *     KeSetTimer2 @ 0x140250220 (KeSetTimer2.c)
+ *     PopReleaseRwLock @ 0x14032C710 (PopReleaseRwLock.c)
+ *     PopUmpoSendPowerMessage @ 0x14032D430 (PopUmpoSendPowerMessage.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     PopAcquirePowerRequestPushLock @ 0x1407A70C4 (PopAcquirePowerRequestPushLock.c)
  */
 
 char __fastcall PopPowerRequestHandleRequestUpdate(__int64 a1, unsigned int a2, char a3)

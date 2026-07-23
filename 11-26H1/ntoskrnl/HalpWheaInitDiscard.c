@@ -1,17 +1,17 @@
 /*
- * XREFs of HalpWheaInitDiscard @ 0x140CAFBBC
+ * XREFs of HalpWheaInitDiscard @ 0x140CB5BFC
  * Callers:
- *     HalpWheaInitSystem @ 0x140BEB670 (HalpWheaInitSystem.c)
+ *     HalpWheaInitSystem @ 0x140BF1670 (HalpWheaInitSystem.c)
  * Callees:
- *     WheaConfigureErrorSource @ 0x140BFFC80 (WheaConfigureErrorSource.c)
- *     HalpInitializeWheaPhysicalMappings @ 0x140CB49CC (HalpInitializeWheaPhysicalMappings.c)
- *     KeHwPolicyLocateResource @ 0x140CCA440 (KeHwPolicyLocateResource.c)
+ *     WheaConfigureErrorSource @ 0x140C05E90 (WheaConfigureErrorSource.c)
+ *     HalpInitializeWheaPhysicalMappings @ 0x140CBAA0C (HalpInitializeWheaPhysicalMappings.c)
+ *     KeHwPolicyLocateResource @ 0x140CD0520 (KeHwPolicyLocateResource.c)
  */
 
 __int64 __fastcall HalpWheaInitDiscard(int a1)
 {
-  void *v1; // rax
-  _DISPATCHER_HEADER *v2; // rdx
+  _DISPATCHER_HEADER *v1; // rax
+  struct _LIST_ENTRY *v2; // rdx
   void *v3; // r8
   __int64 v4; // rcx
   __int64 v5; // r8
@@ -32,19 +32,19 @@ __int64 __fastcall HalpWheaInitDiscard(int a1)
   v17 = 0LL;
   if ( HalpHvWheaEnlightenedCpuManager )
   {
-    v1 = HalpHvEpCpuid;
-    v2 = (_DISPATCHER_HEADER *)HalpHvEpWriteMsr;
+    v1 = (_DISPATCHER_HEADER *)HalpHvEpCpuid;
+    v2 = (struct _LIST_ENTRY *)HalpHvEpWriteMsr;
     v3 = HalpHvEpReadMsr;
   }
   else
   {
-    v1 = HalpWheaNativeCpuid;
-    v2 = (_DISPATCHER_HEADER *)HalpWheaNativeWriteMsr;
+    v1 = (_DISPATCHER_HEADER *)HalpWheaNativeCpuid;
+    v2 = (struct _LIST_ENTRY *)HalpWheaNativeWriteMsr;
     v3 = HalpWheaNativeReadMsr;
   }
-  HalpDeviceBlockUnblockPushLock.Queue = v2;
-  HalpDeviceBlockUnblockPushLock.Teb = v1;
-  HalpDeviceBlockUnblockPushLock.RelativeTimerBias = (unsigned __int64)v3;
+  HalpDeviceBlockUnblockPushLock.WaitListEntry.Blink = v2;
+  HalpDeviceBlockUnblockPushLock.Queue = v1;
+  HalpDeviceBlockUnblockPushLock.Teb = v3;
   if ( (int)KeHwPolicyLocateResource(a1, 102, 1, (unsigned int)&v18, (__int64)&v17) >= 0 && v17 >= 0x18 )
   {
     v4 = *(_QWORD *)(v18 + 16);
@@ -53,8 +53,8 @@ __int64 __fastcall HalpWheaInitDiscard(int a1)
     if ( (v4 & 2) != 0 )
       HalpMcaRecoveryPolicy |= 2uLL;
   }
-  v16[0] = HalpDeviceBlockUnblockPushLock.RelativeTimerBias;
-  v16[1] = HalpDeviceBlockUnblockPushLock.Queue;
+  v16[0] = HalpDeviceBlockUnblockPushLock.Teb;
+  v16[1] = HalpDeviceBlockUnblockPushLock.WaitListEntry.Blink;
   PshedSetHalEnlightenments(v16);
   HalpInitializeWheaPhysicalMappings();
   off_140E00918[0] = (__int64 (__fastcall *)())HalpWheaInitProcessorGenericSection;

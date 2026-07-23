@@ -1,12 +1,12 @@
 /*
- * XREFs of PfSnActivateTrace @ 0x140006A00
+ * XREFs of PfSnActivateTrace @ 0x140006B70
  * Callers:
- *     PfSnBeginTrace @ 0x1403E9698 (PfSnBeginTrace.c)
+ *     PfSnBeginTrace @ 0x1403EACC8 (PfSnBeginTrace.c)
  * Callees:
- *     PfSnAddProcessTrace @ 0x140006AA8 (PfSnAddProcessTrace.c)
- *     ExAcquireRundownProtection @ 0x1400D3ED0 (ExAcquireRundownProtection.c)
- *     KeReleaseSpinLock @ 0x1400E9A70 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1400EFE30 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PfSnAddProcessTrace @ 0x140006C18 (PfSnAddProcessTrace.c)
+ *     ExAcquireRundownProtection @ 0x1400D1D70 (ExAcquireRundownProtection.c)
+ *     KeReleaseSpinLock @ 0x1400EB600 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1400EDCB0 (KeAcquireSpinLockRaiseToDpc.c)
  */
 
 __int64 __fastcall PfSnActivateTrace(__int64 a1)
@@ -19,22 +19,22 @@ __int64 __fastcall PfSnActivateTrace(__int64 a1)
   if ( ExAcquireRundownProtection(&RunRef) )
   {
     *(_WORD *)(a1 + 486) |= 2u;
-    v2 = KeAcquireSpinLockRaiseToDpc(&qword_1403286D0);
+    v2 = KeAcquireSpinLockRaiseToDpc(&qword_140328710);
     v3 = PfSnAddProcessTrace(*(_QWORD *)(a1 + 352), a1);
     if ( v3 >= 0 )
     {
-      v4 = (_QWORD *)qword_1403286C8;
+      v4 = (_QWORD *)qword_140328708;
       v5 = (_QWORD *)(a1 + 8);
-      if ( *(__int64 **)qword_1403286C8 != &PfSnGlobals )
+      if ( *(__int64 **)qword_140328708 != &PfSnGlobals )
         __fastfail(3u);
       ++PfSnNumActiveTraces;
       *v5 = &PfSnGlobals;
       v3 = 0;
       *(_QWORD *)(a1 + 16) = v4;
       *v4 = v5;
-      qword_1403286C8 = a1 + 8;
+      qword_140328708 = a1 + 8;
     }
-    KeReleaseSpinLock(&qword_1403286D0, v2);
+    KeReleaseSpinLock(&qword_140328710, v2);
   }
   else
   {

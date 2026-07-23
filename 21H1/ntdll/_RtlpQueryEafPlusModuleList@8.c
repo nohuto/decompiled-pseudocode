@@ -7,12 +7,14 @@
  *     _memset @ 0x4B2F8F30 (_memset.c)
  */
 
-int __fastcall RtlpQueryEafPlusModuleList(int a1, _DWORD *a2)
+NTSTATUS __fastcall RtlpQueryEafPlusModuleList(HANDLE KeyHandle, PULONG Value)
 {
-  int result; // eax
+  NTSTATUS result; // eax
+  size_t v5; // [esp-4h] [ebp-10h]
 
-  memset(a2, 0, 0x400u);
-  result = RtlQueryImageFileKeyOption(a1, (int)L"EAFModules", 1, a2, 0x400u, 0);
+  LODWORD(v5) = 1024;
+  memset(Value, 0, v5);
+  result = RtlQueryImageFileKeyOption(KeyHandle, L"EAFModules", 1, Value, 0x400u, 0);
   if ( result >= 0 || result == -1073741772 )
     return 0;
   return result;

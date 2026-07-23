@@ -1,26 +1,26 @@
 /*
- * XREFs of PspJobIoRateVolumeEntryRemove @ 0x1405A4688
+ * XREFs of PspJobIoRateVolumeEntryRemove @ 0x1405A4BF8
  * Callers:
- *     PspSetJobIoRateControlForVolume @ 0x1409B2AB4 (PspSetJobIoRateControlForVolume.c)
+ *     PspSetJobIoRateControlForVolume @ 0x1409B2CB4 (PspSetJobIoRateControlForVolume.c)
  * Callees:
- *     RtlRbRemoveNode @ 0x14024B930 (RtlRbRemoveNode.c)
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiLockTrackerCompare @ 0x1405A43A0 (MiLockTrackerCompare.c)
+ *     RtlRbRemoveNode @ 0x14024BA00 (RtlRbRemoveNode.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     MiLockTrackerCompare @ 0x1405A4910 (MiLockTrackerCompare.c)
  */
 
-unsigned __int64 __fastcall PspJobIoRateVolumeEntryRemove(__int64 a1, unsigned __int64 a2)
+signed __int64 __fastcall PspJobIoRateVolumeEntryRemove(__int64 a1, unsigned __int64 a2)
 {
   volatile LONG *v2; // r15
   __int64 v4; // rsi
-  unsigned __int64 v5; // r14
+  signed __int64 v5; // r14
   KIRQL v6; // al
-  unsigned __int64 v7; // rbx
+  signed __int64 v7; // rbx
   unsigned __int64 v8; // rbp
   int v9; // edi
   int v10; // eax
-  unsigned __int64 v11; // rax
+  signed __int64 v11; // rax
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
   int v14; // edx
@@ -56,15 +56,18 @@ unsigned __int64 __fastcall PspJobIoRateVolumeEntryRemove(__int64 a1, unsigned _
   }
   if ( v7 )
   {
-    RtlRbRemoveNode((unsigned __int64 *)v4, v7);
+    RtlRbRemoveNode((PRTL_RB_TREE)v4, (PRTL_BALANCED_NODE)v7);
     v5 = v7;
     *(_QWORD *)(v7 + 16) = -1LL;
   }
   ExReleaseSpinLockExclusiveFromDpcLevel(v2);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v8 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v8 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v14 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v8 + 1));

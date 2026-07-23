@@ -1,5 +1,5 @@
 /*
- * XREFs of KeProcessorGroupAffinity @ 0x1404883A0
+ * XREFs of KeProcessorGroupAffinity @ 0x140481EE0
  * Callers:
  *     <none>
  * Callees:
@@ -11,7 +11,7 @@ __int64 __fastcall KeProcessorGroupAffinity(__int64 a1, unsigned int a2)
   unsigned int v3; // ecx
   __int64 result; // rax
 
-  v3 = *(_DWORD *)(*(_QWORD *)&KiSupervisorXStateFeaturesLock.WaitBlockFill11[112] + 4LL * a2);
+  v3 = *((_DWORD *)&KiSupervisorXStateFeaturesLock.SchedulerApc.Thread->Header.Lock + a2);
   *(_DWORD *)(a1 + 10) = 0;
   *(_WORD *)(a1 + 14) = 0;
   *(_WORD *)(a1 + 8) = v3 >> 6;

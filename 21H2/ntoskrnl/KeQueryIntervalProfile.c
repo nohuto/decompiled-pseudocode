@@ -1,10 +1,10 @@
 /*
- * XREFs of KeQueryIntervalProfile @ 0x140734174
+ * XREFs of KeQueryIntervalProfile @ 0x140734334
  * Callers:
- *     NtQueryIntervalProfile @ 0x140734110 (NtQueryIntervalProfile.c)
- *     KeSetIntervalProfile @ 0x140734424 (KeSetIntervalProfile.c)
+ *     NtQueryIntervalProfile @ 0x1407342D0 (NtQueryIntervalProfile.c)
+ *     KeSetIntervalProfile @ 0x1407345E4 (KeSetIntervalProfile.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall KeQueryIntervalProfile(int a1)

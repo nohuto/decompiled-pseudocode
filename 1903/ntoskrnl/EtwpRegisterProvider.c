@@ -60,7 +60,7 @@ __int64 __fastcall EtwpRegisterProvider(
   v27 = a5;
   memset(v28, 0, sizeof(v28));
   *a7 = 0LL;
-  if ( *(_OWORD *)a2 == SecurityProviderGuid )
+  if ( *(_OWORD *)a2 == *(_OWORD *)&SecurityProviderGuid )
     return 3221225506LL;
   if ( !a4 && a5 || a3 != 3 && (a3 != 2 || !a4) )
     return 3221225485LL;

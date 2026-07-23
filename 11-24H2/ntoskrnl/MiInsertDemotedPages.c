@@ -1,18 +1,18 @@
 /*
- * XREFs of MiInsertDemotedPages @ 0x14042F7AC
+ * XREFs of MiInsertDemotedPages @ 0x1402EF010
  * Callers:
- *     MiDemoteLocalLargePage @ 0x1402F6020 (MiDemoteLocalLargePage.c)
- *     MiDemoteLargeFreePage @ 0x14042F57C (MiDemoteLargeFreePage.c)
- *     MiInsertDemotedPages @ 0x14042F7AC (MiInsertDemotedPages.c)
- *     MiInsertPossiblyBadPage @ 0x140683470 (MiInsertPossiblyBadPage.c)
+ *     MiInsertDemotedPages @ 0x1402EF010 (MiInsertDemotedPages.c)
+ *     MiDemoteLargeFreePage @ 0x1402EFE44 (MiDemoteLargeFreePage.c)
+ *     MiDemoteLocalLargePage @ 0x14033E130 (MiDemoteLocalLargePage.c)
+ *     MiInsertPossiblyBadPage @ 0x14068461C (MiInsertPossiblyBadPage.c)
  * Callees:
- *     MiInsertPageInFreeOrZeroedList @ 0x140222210 (MiInsertPageInFreeOrZeroedList.c)
- *     HvlNotifyLongSpinWait @ 0x140293260 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140293290 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     MiGetPfnPageSizeIndex @ 0x1403070C0 (MiGetPfnPageSizeIndex.c)
- *     MiCanPfnOriginalPteBeLost @ 0x14039E1D0 (MiCanPfnOriginalPteBeLost.c)
- *     MiInsertDemotedPages @ 0x14042F7AC (MiInsertDemotedPages.c)
- *     MiUpdateDemotedSubPage @ 0x14042FB30 (MiUpdateDemotedSubPage.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x14024EF60 (MiInsertPageInFreeOrZeroedList.c)
+ *     HvlNotifyLongSpinWait @ 0x1402A2E60 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402A2E90 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     MiCanPfnOriginalPteBeLost @ 0x1402EE318 (MiCanPfnOriginalPteBeLost.c)
+ *     MiInsertDemotedPages @ 0x1402EF010 (MiInsertDemotedPages.c)
+ *     MiUpdateDemotedSubPage @ 0x1402EF390 (MiUpdateDemotedSubPage.c)
+ *     MiGetPfnPageSizeIndex @ 0x140310FA0 (MiGetPfnPageSizeIndex.c)
  */
 
 __int64 __fastcall MiInsertDemotedPages(__int64 a1, __int64 a2, unsigned __int64 a3, unsigned int a4)

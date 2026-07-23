@@ -1,11 +1,11 @@
 /*
- * XREFs of PopQueryPowerButtonBugcheckConfiguration @ 0x1403AE730
+ * XREFs of PopQueryPowerButtonBugcheckConfiguration @ 0x1403AE880
  * Callers:
- *     PopPowerButtonBugcheckConfigure @ 0x140796C08 (PopPowerButtonBugcheckConfigure.c)
+ *     PopPowerButtonBugcheckConfigure @ 0x140796E08 (PopPowerButtonBugcheckConfigure.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     ZwQueryValueKey @ 0x1403FA680 (ZwQueryValueKey.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     ZwQueryValueKey @ 0x1403FA860 (ZwQueryValueKey.c)
  */
 
 NTSTATUS __fastcall PopQueryPowerButtonBugcheckConfiguration(HANDLE KeyHandle, _DWORD *a2)
@@ -37,11 +37,11 @@ NTSTATUS __fastcall PopQueryPowerButtonBugcheckConfiguration(HANDLE KeyHandle, _
     if ( HIDWORD(KeyValueInformation) )
     {
       *a2 = 1;
-      dword_140C20850 = 2;
+      dword_140C20970 = 2;
     }
     else
     {
-      dword_140C20850 = 1;
+      dword_140C20970 = 1;
     }
   }
   else
@@ -58,11 +58,11 @@ NTSTATUS __fastcall PopQueryPowerButtonBugcheckConfiguration(HANDLE KeyHandle, _
       if ( HIDWORD(KeyValueInformation) )
       {
         *a2 = 1;
-        dword_140C20854 = 2;
+        dword_140C20974 = 2;
       }
       else
       {
-        dword_140C20854 = 1;
+        dword_140C20974 = 1;
       }
     }
     else

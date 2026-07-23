@@ -1,11 +1,11 @@
 /*
- * XREFs of BiGetPartitionInformation @ 0x140806CBC
+ * XREFs of BiGetPartitionInformation @ 0x140806F8C
  * Callers:
- *     BiCreatePartitionDevice @ 0x1408066E0 (BiCreatePartitionDevice.c)
+ *     BiCreatePartitionDevice @ 0x1408069B0 (BiCreatePartitionDevice.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     ZwDeviceIoControlFile @ 0x14041AE40 (ZwDeviceIoControlFile.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     ZwDeviceIoControlFile @ 0x14041B1D0 (ZwDeviceIoControlFile.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 __int64 __fastcall BiGetPartitionInformation(HANDLE FileHandle, int a2, _OWORD *a3)

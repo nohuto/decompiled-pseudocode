@@ -1,12 +1,12 @@
 /*
- * XREFs of ViTargetWMIDeregister @ 0x140B8BC38
+ * XREFs of ViTargetWMIDeregister @ 0x140B8DC38
  * Callers:
- *     VfTargetWMIRegistrationControl @ 0x140B8B75C (VfTargetWMIRegistrationControl.c)
+ *     VfTargetWMIRegistrationControl @ 0x140B8D75C (VfTargetWMIRegistrationControl.c)
  * Callees:
- *     VfAvlLookupTreeNode @ 0x1403F1074 (VfAvlLookupTreeNode.c)
- *     VfAvlCleanupLockContext @ 0x1403F142C (VfAvlCleanupLockContext.c)
- *     VfAvlInitializeLockContext @ 0x14049C0D8 (VfAvlInitializeLockContext.c)
- *     VfAvlEnumerateNodes @ 0x140B83C24 (VfAvlEnumerateNodes.c)
+ *     VfAvlLookupTreeNode @ 0x1403E4D94 (VfAvlLookupTreeNode.c)
+ *     VfAvlCleanupLockContext @ 0x1403E514C (VfAvlCleanupLockContext.c)
+ *     VfAvlInitializeLockContext @ 0x140496D08 (VfAvlInitializeLockContext.c)
+ *     VfAvlEnumerateNodes @ 0x140B85C24 (VfAvlEnumerateNodes.c)
  */
 
 __int64 __fastcall ViTargetWMIDeregister(__int64 a1)

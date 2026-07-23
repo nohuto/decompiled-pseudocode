@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpHpCustomVaCallbacksEncodedComparison @ 0x180157BE4
+ * XREFs of RtlpHpCustomVaCallbacksEncodedComparison @ 0x180155FA4
  * Callers:
- *     RtlpHpCustomVaCallbacksRegistrarRegister @ 0x1800F23FC (RtlpHpCustomVaCallbacksRegistrarRegister.c)
+ *     RtlpHpCustomVaCallbacksRegistrarRegister @ 0x18009AC38 (RtlpHpCustomVaCallbacksRegistrarRegister.c)
  * Callees:
  *     <none>
  */

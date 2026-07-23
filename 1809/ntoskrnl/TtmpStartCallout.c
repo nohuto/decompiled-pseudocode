@@ -1,20 +1,20 @@
 /*
- * XREFs of TtmpStartCallout @ 0x14087E5E0
+ * XREFs of TtmpStartCallout @ 0x14087F840
  * Callers:
- *     TtmiSessionDeviceListWorker @ 0x14087D71C (TtmiSessionDeviceListWorker.c)
- *     TtmpCallAssignedToTerminal @ 0x14087D92C (TtmpCallAssignedToTerminal.c)
- *     TtmpCallSetBuiltinPanelState @ 0x14087D9D4 (TtmpCallSetBuiltinPanelState.c)
- *     TtmpCallSetDisplayState @ 0x14087DA5C (TtmpCallSetDisplayState.c)
- *     TtmpCallSetInputMode @ 0x14087DB08 (TtmpCallSetInputMode.c)
- *     TtmpUpdatePrimaryDisplayWnf @ 0x14087E75C (TtmpUpdatePrimaryDisplayWnf.c)
+ *     TtmiSessionDeviceListWorker @ 0x14087E97C (TtmiSessionDeviceListWorker.c)
+ *     TtmpCallAssignedToTerminal @ 0x14087EB8C (TtmpCallAssignedToTerminal.c)
+ *     TtmpCallSetBuiltinPanelState @ 0x14087EC34 (TtmpCallSetBuiltinPanelState.c)
+ *     TtmpCallSetDisplayState @ 0x14087ECBC (TtmpCallSetDisplayState.c)
+ *     TtmpCallSetInputMode @ 0x14087ED68 (TtmpCallSetInputMode.c)
+ *     TtmpUpdatePrimaryDisplayWnf @ 0x14087F9BC (TtmpUpdatePrimaryDisplayWnf.c)
  * Callees:
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
- *     TtmpCalloutArmWatchdog @ 0x14087DBB0 (TtmpCalloutArmWatchdog.c)
- *     TtmpCalloutCreateWatchdog @ 0x14087DC88 (TtmpCalloutCreateWatchdog.c)
- *     TtmpGetCalloutTagFromCalloutType @ 0x14087E08C (TtmpGetCalloutTagFromCalloutType.c)
- *     TtmpInitializeWatchdogTimeouts @ 0x14087E1D4 (TtmpInitializeWatchdogTimeouts.c)
- *     TtmiLogCalloutStart @ 0x140882870 (TtmiLogCalloutStart.c)
+ *     TtmpCalloutArmWatchdog @ 0x14087EE10 (TtmpCalloutArmWatchdog.c)
+ *     TtmpCalloutCreateWatchdog @ 0x14087EEE8 (TtmpCalloutCreateWatchdog.c)
+ *     TtmpGetCalloutTagFromCalloutType @ 0x14087F2EC (TtmpGetCalloutTagFromCalloutType.c)
+ *     TtmpInitializeWatchdogTimeouts @ 0x14087F434 (TtmpInitializeWatchdogTimeouts.c)
+ *     TtmiLogCalloutStart @ 0x140883AD0 (TtmiLogCalloutStart.c)
  */
 
 __int64 __fastcall TtmpStartCallout(__int64 a1, unsigned int *a2, __int64 a3, int a4, __int64 a5, unsigned int a6)

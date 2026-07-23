@@ -1,12 +1,12 @@
 /*
- * XREFs of BiIsFirmwareApplication @ 0x14012E024
+ * XREFs of BiIsFirmwareApplication @ 0x14012E594
  * Callers:
- *     BcdDeleteElement @ 0x14053D21C (BcdDeleteElement.c)
- *     BcdSetElementDataWithFlags @ 0x14053DADC (BcdSetElementDataWithFlags.c)
- *     BcdCreateObject @ 0x1406D1FA4 (BcdCreateObject.c)
- *     BcdDeleteObject @ 0x1406D2034 (BcdDeleteObject.c)
+ *     BcdDeleteElement @ 0x14053D75C (BcdDeleteElement.c)
+ *     BcdSetElementDataWithFlags @ 0x14053E01C (BcdSetElementDataWithFlags.c)
+ *     BcdCreateObject @ 0x1406D20DC (BcdCreateObject.c)
+ *     BcdDeleteObject @ 0x1406D216C (BcdDeleteObject.c)
  * Callees:
- *     BiGetObjectDescription @ 0x14053D854 (BiGetObjectDescription.c)
+ *     BiGetObjectDescription @ 0x14053DD94 (BiGetObjectDescription.c)
  */
 
 bool __fastcall BiIsFirmwareApplication(__int64 a1)

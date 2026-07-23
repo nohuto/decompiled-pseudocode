@@ -6,11 +6,7 @@
  *     <none>
  */
 
-signed __int64 *__fastcall RtlSetBitEx(__int64 a1, unsigned __int64 a2)
+void __cdecl RtlSetBitEx(PRTL_BITMAP_EX BitMapHeader, ULONG64 BitNumber)
 {
-  signed __int64 *result; // rax
-
-  result = *(signed __int64 **)(a1 + 8);
-  _bittestandset64(result, a2);
-  return result;
+  _bittestandset64((signed __int64 *)BitMapHeader->Buffer, BitNumber);
 }

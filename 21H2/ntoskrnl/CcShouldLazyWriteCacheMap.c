@@ -1,10 +1,10 @@
 /*
- * XREFs of CcShouldLazyWriteCacheMap @ 0x1402F6014
+ * XREFs of CcShouldLazyWriteCacheMap @ 0x140300D64
  * Callers:
- *     CcLazyWriteScan @ 0x1402F5894 (CcLazyWriteScan.c)
+ *     CcLazyWriteScan @ 0x1403005E4 (CcLazyWriteScan.c)
  * Callees:
- *     CcCanIWriteStreamEx @ 0x1403134D0 (CcCanIWriteStreamEx.c)
- *     CcGetPartition @ 0x140313800 (CcGetPartition.c)
+ *     CcCanIWriteStreamEx @ 0x14031E220 (CcCanIWriteStreamEx.c)
+ *     CcGetPartition @ 0x14031E550 (CcGetPartition.c)
  */
 
 bool __fastcall CcShouldLazyWriteCacheMap(__int64 a1, __int64 a2, __int64 a3, int a4)
@@ -35,8 +35,7 @@ bool __fastcall CcShouldLazyWriteCacheMap(__int64 a1, __int64 a2, __int64 a3, in
   {
     v11 = *(_QWORD *)(a1 + 240);
     return *(_DWORD *)(v11 + 104)
-        || MEMORY[0xFFFFF78000000320] > (__int64)(*(_QWORD *)(v11 + 136)
-                                                + 0x9896800uLL / (unsigned int)KeMaximumIncrement)
+        || MEMORY[0xFFFFF78000000320] > (__int64)(*(_QWORD *)(v11 + 136) + 0x9896800uLL / KeMaximumIncrement)
         || *(_DWORD *)(a1 + 112) >= 0x40u;
   }
   if ( (v6 & 0x200) != 0 )
@@ -49,7 +48,7 @@ bool __fastcall CcShouldLazyWriteCacheMap(__int64 a1, __int64 a2, __int64 a3, in
   {
     if ( (*(_DWORD *)(a3 + 80) & 0x8000) == 0 || !v8 )
       return 1;
-    Partition = CcGetPartition(a1);
+    Partition = CcGetPartition(a1, v9, v8);
     return (unsigned __int8)CcCanIWriteStreamEx(Partition, a3, 0x1000000, 0, 8, 0LL) == 0;
   }
 }

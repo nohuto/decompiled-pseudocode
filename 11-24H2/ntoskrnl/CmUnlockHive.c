@@ -1,18 +1,18 @@
 /*
- * XREFs of CmUnlockHive @ 0x140846740
+ * XREFs of CmUnlockHive @ 0x140842A00
  * Callers:
- *     CmpWaitForLateUnloadWorker @ 0x1402C8600 (CmpWaitForLateUnloadWorker.c)
- *     CmpCloseKeyObject @ 0x140841890 (CmpCloseKeyObject.c)
- *     CmpPerformCompleteKcbCacheLookup @ 0x140844830 (CmpPerformCompleteKcbCacheLookup.c)
- *     CmpDereferenceKeyControlBlock @ 0x140845CD0 (CmpDereferenceKeyControlBlock.c)
- *     CmpDeleteKeyObject @ 0x140847360 (CmpDeleteKeyObject.c)
- *     CmpFlushNotify @ 0x14086869C (CmpFlushNotify.c)
- *     CmpReportNotifyHelper @ 0x140868820 (CmpReportNotifyHelper.c)
- *     CmpDoQueueLateUnloadWorker @ 0x14087E638 (CmpDoQueueLateUnloadWorker.c)
- *     NtNotifyChangeMultipleKeys @ 0x1408BF750 (NtNotifyChangeMultipleKeys.c)
+ *     CmpWaitForLateUnloadWorker @ 0x1402B98A0 (CmpWaitForLateUnloadWorker.c)
+ *     CmpCloseKeyObject @ 0x14083DB50 (CmpCloseKeyObject.c)
+ *     CmpPerformCompleteKcbCacheLookup @ 0x140840AF0 (CmpPerformCompleteKcbCacheLookup.c)
+ *     CmpDereferenceKeyControlBlock @ 0x140841F90 (CmpDereferenceKeyControlBlock.c)
+ *     CmpDeleteKeyObject @ 0x140843620 (CmpDeleteKeyObject.c)
+ *     CmpFlushNotify @ 0x14086C98C (CmpFlushNotify.c)
+ *     CmpReportNotifyHelper @ 0x14086CB10 (CmpReportNotifyHelper.c)
+ *     CmpDoQueueLateUnloadWorker @ 0x1408824E8 (CmpDoQueueLateUnloadWorker.c)
+ *     NtNotifyChangeMultipleKeys @ 0x1408BD110 (NtNotifyChangeMultipleKeys.c)
  * Callees:
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
  */
 
 __int64 __fastcall CmUnlockHive(__int64 a1)

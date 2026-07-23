@@ -15,34 +15,34 @@
  *     MiInitializeEnclave @ 0x140894190 (MiInitializeEnclave.c)
  */
 
-__int64 __fastcall NtInitializeEnclave(
-        ULONG_PTR BugCheckParameter1,
-        unsigned __int64 a2,
-        char *a3,
-        unsigned int a4,
-        _DWORD *a5)
+NTSTATUS __cdecl NtInitializeEnclave(
+        HANDLE ProcessHandle,
+        PVOID BaseAddress,
+        PVOID EnclaveInformation,
+        ULONG EnclaveInformationLength,
+        PULONG EnclaveError)
 {
   SIZE_T v5; // r13
   PVOID PoolWithTag; // rdi
   char PreviousMode; // dl
   __int64 v10; // rcx
-  int v11; // ebx
+  NTSTATUS v11; // ebx
   struct _KTHREAD *CurrentThread; // rax
   struct _KPROCESS *Process; // rsi
   PVOID v14; // rsi
   char v16; // [rsp+40h] [rbp-B8h]
-  int v17; // [rsp+48h] [rbp-B0h] BYREF
+  ULONG v17; // [rsp+48h] [rbp-B0h] BYREF
   PVOID Object; // [rsp+50h] [rbp-A8h] BYREF
   PVOID v19; // [rsp+58h] [rbp-A0h]
-  ULONG_PTR v20; // [rsp+68h] [rbp-90h]
-  _DWORD *v21; // [rsp+70h] [rbp-88h]
-  unsigned __int64 v22; // [rsp+78h] [rbp-80h]
+  HANDLE v20; // [rsp+68h] [rbp-90h]
+  PULONG v21; // [rsp+70h] [rbp-88h]
+  PVOID v22; // [rsp+78h] [rbp-80h]
   _BYTE v23[48]; // [rsp+88h] [rbp-70h] BYREF
 
-  v5 = a4;
-  v22 = a2;
-  v20 = BugCheckParameter1;
-  v21 = a5;
+  v5 = EnclaveInformationLength;
+  v22 = BaseAddress;
+  v20 = ProcessHandle;
+  v21 = EnclaveError;
   memset(v23, 0, sizeof(v23));
   Object = 0LL;
   v17 = 0;
@@ -50,10 +50,10 @@ __int64 __fastcall NtInitializeEnclave(
   v19 = 0LL;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   v16 = PreviousMode;
-  if ( a5 && PreviousMode == 1 )
+  if ( EnclaveError && PreviousMode == 1 )
   {
-    v10 = (__int64)a5;
-    if ( (unsigned __int64)a5 >= 0x7FFFFFFF0000LL )
+    v10 = (__int64)EnclaveError;
+    if ( (unsigned __int64)EnclaveError >= 0x7FFFFFFF0000LL )
       v10 = 0x7FFFFFFF0000LL;
     *(_DWORD *)v10 = *(_DWORD *)v10;
   }
@@ -68,21 +68,26 @@ __int64 __fastcall NtInitializeEnclave(
       v11 = -1073741670;
       goto LABEL_22;
     }
-    if ( v16 == 1 && v5 - 1 > 0xFFFE && ((unsigned __int64)&a3[v5] > 0x7FFFFFFF0000LL || &a3[v5] < a3) )
+    if ( v16 == 1
+      && v5 - 1 > 0xFFFE
+      && ((unsigned __int64)EnclaveInformation + v5 > 0x7FFFFFFF0000LL
+       || (char *)EnclaveInformation + v5 < EnclaveInformation) )
+    {
       MEMORY[0x7FFFFFFF0000] = 0;
-    memmove(PoolWithTag, a3, v5);
+    }
+    memmove(PoolWithTag, EnclaveInformation, v5);
     PreviousMode = v16;
 LABEL_17:
     CurrentThread = KeGetCurrentThread();
     Process = CurrentThread->ApcState.Process;
-    if ( BugCheckParameter1 == -1LL )
+    if ( ProcessHandle == (HANDLE)-1LL )
     {
       Object = CurrentThread->ApcState.Process;
     }
     else
     {
       v11 = ObpReferenceObjectByHandleWithTag(
-              BugCheckParameter1,
+              (ULONG_PTR)ProcessHandle,
               8,
               (__int64)PsProcessType,
               PreviousMode,
@@ -94,20 +99,20 @@ LABEL_17:
         goto LABEL_22;
       KiStackAttachProcess((_KPROCESS *)Object, 0, (__int64)v23);
     }
-    v11 = MiInitializeEnclave(Process, v22, (__int64)PoolWithTag, v5, &v17);
+    v11 = MiInitializeEnclave(Process, (unsigned __int64)v22, (__int64)PoolWithTag, v5, &v17);
     goto LABEL_22;
   }
   v11 = -1073741820;
 LABEL_22:
   v14 = Object;
-  if ( Object && BugCheckParameter1 != -1LL )
+  if ( Object && ProcessHandle != (HANDLE)-1LL )
   {
     KiUnstackDetachProcess((struct _KTHREAD *)v23, 0);
     ObfDereferenceObjectWithTag(v14, 0x6D566D4Du);
   }
-  if ( a5 )
-    *a5 = v17;
+  if ( EnclaveError )
+    *EnclaveError = v17;
   if ( PoolWithTag )
     ExFreePoolWithTag(PoolWithTag, 0);
-  return (unsigned int)v11;
+  return v11;
 }

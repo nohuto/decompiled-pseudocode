@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwTraceAutoBoostClearFloor @ 0x140225908
+ * XREFs of EtwTraceAutoBoostClearFloor @ 0x140225734
  * Callers:
- *     ExReleaseCacheAwarePushLockSharedEx @ 0x1400139A0 (ExReleaseCacheAwarePushLockSharedEx.c)
- *     KeAbEntryFree @ 0x14002C430 (KeAbEntryFree.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
+ *     ExReleaseCacheAwarePushLockSharedEx @ 0x140013520 (ExReleaseCacheAwarePushLockSharedEx.c)
+ *     KeAbEntryFree @ 0x14002BFB0 (KeAbEntryFree.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
  * Callees:
- *     EtwTraceKernelEvent @ 0x140014190 (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     EtwTraceKernelEvent @ 0x140013D10 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall EtwTraceAutoBoostClearFloor(__int64 a1, __int64 a2, int a3)

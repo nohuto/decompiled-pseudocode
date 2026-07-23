@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwpEventWriteTemplateMaxFileSize @ 0x140825808
+ * XREFs of EtwpEventWriteTemplateMaxFileSize @ 0x14082BA48
  * Callers:
- *     EtwpFlushBufferToLogfile @ 0x140A15524 (EtwpFlushBufferToLogfile.c)
+ *     EtwpFlushBufferToLogfile @ 0x140A14718 (EtwpFlushBufferToLogfile.c)
  * Callees:
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall EtwpEventWriteTemplateMaxFileSize(
@@ -50,5 +50,10 @@ NTSTATUS __fastcall EtwpEventWriteTemplateMaxFileSize(
   v19 = 4LL;
   v21 = 4LL;
   v23 = 8LL;
-  return EtwWrite(EtwpEventTracingProvRegHandle, &ETW_EVENT_MAX_FILE_SIZE_REACHED, 0LL, 7u, &UserData);
+  return EtwWrite(
+           (REGHANDLE)stru_140F03830.SavedApcState.ApcListHead[0].Blink,
+           &ETW_EVENT_MAX_FILE_SIZE_REACHED,
+           0LL,
+           7u,
+           &UserData);
 }

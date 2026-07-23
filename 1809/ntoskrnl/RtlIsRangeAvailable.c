@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlIsRangeAvailable @ 0x14073F640
+ * XREFs of RtlIsRangeAvailable @ 0x140740830
  * Callers:
  *     <none>
  * Callees:
- *     RtlpIsRangeAvailable @ 0x14073F6F0 (RtlpIsRangeAvailable.c)
- *     RtlGetFirstRange @ 0x14073F880 (RtlGetFirstRange.c)
+ *     RtlpIsRangeAvailable @ 0x1407408E0 (RtlpIsRangeAvailable.c)
+ *     RtlGetFirstRange @ 0x140740A70 (RtlGetFirstRange.c)
  */
 
 NTSTATUS __stdcall RtlIsRangeAvailable(

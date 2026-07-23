@@ -1,24 +1,24 @@
 /*
- * XREFs of _RegRtlCreateTreeTransacted @ 0x14091E278
+ * XREFs of _RegRtlCreateTreeTransacted @ 0x140978CD8
  * Callers:
- *     DrvDbOpenObjectRegKey @ 0x14091D580 (DrvDbOpenObjectRegKey.c)
- *     DrvDbAcquireDatabaseNodeBaseKey @ 0x14091DC40 (DrvDbAcquireDatabaseNodeBaseKey.c)
- *     _SysCtxRegCreateTree @ 0x14091E188 (_SysCtxRegCreateTree.c)
- *     _PnpCtxRegCreateTree @ 0x14091E1FC (_PnpCtxRegCreateTree.c)
- *     PiDqOpenUserObjectRegKey @ 0x1409920EC (PiDqOpenUserObjectRegKey.c)
+ *     PiDqOpenUserObjectRegKey @ 0x140952B4C (PiDqOpenUserObjectRegKey.c)
+ *     DrvDbOpenObjectRegKey @ 0x140977FE0 (DrvDbOpenObjectRegKey.c)
+ *     DrvDbAcquireDatabaseNodeBaseKey @ 0x1409786A0 (DrvDbAcquireDatabaseNodeBaseKey.c)
+ *     _SysCtxRegCreateTree @ 0x140978BE8 (_SysCtxRegCreateTree.c)
+ *     _PnpCtxRegCreateTree @ 0x140978C5C (_PnpCtxRegCreateTree.c)
  * Callees:
- *     RtlStringCchCopyExW @ 0x14045AB50 (RtlStringCchCopyExW.c)
- *     RtlInitUnicodeStringEx @ 0x14045D040 (RtlInitUnicodeStringEx.c)
- *     _wcsnicmp @ 0x1405366B0 (_wcsnicmp.c)
- *     wcschr @ 0x140537F60 (wcschr.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwCreateKey @ 0x140723790 (ZwCreateKey.c)
- *     NtCreateKeyTransacted_Stub @ 0x14089DB44 (NtCreateKeyTransacted_Stub.c)
- *     _RegRtlCreateKeyTransacted @ 0x14091E5D4 (_RegRtlCreateKeyTransacted.c)
- *     _RegRtlIsPredefinedKey @ 0x14091E728 (_RegRtlIsPredefinedKey.c)
- *     _RegRtlOpenPredefinedKey @ 0x140AE8C08 (_RegRtlOpenPredefinedKey.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlStringCchCopyExW @ 0x140454380 (RtlStringCchCopyExW.c)
+ *     RtlInitUnicodeStringEx @ 0x140456BE0 (RtlInitUnicodeStringEx.c)
+ *     _wcsnicmp @ 0x140538B30 (_wcsnicmp.c)
+ *     wcschr @ 0x14053A3E0 (wcschr.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwCreateKey @ 0x140728360 (ZwCreateKey.c)
+ *     NtCreateKeyTransacted_Stub @ 0x1408A3F44 (NtCreateKeyTransacted_Stub.c)
+ *     _RegRtlCreateKeyTransacted @ 0x140979034 (_RegRtlCreateKeyTransacted.c)
+ *     _RegRtlIsPredefinedKey @ 0x140979188 (_RegRtlIsPredefinedKey.c)
+ *     _RegRtlOpenPredefinedKey @ 0x140AE6AB8 (_RegRtlOpenPredefinedKey.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall RegRtlCreateTreeTransacted(
@@ -60,7 +60,7 @@ __int64 __fastcall RegRtlCreateTreeTransacted(
   memset(&ObjectAttributes, 0, 44);
   Handlea = 0LL;
   DestinationString = 0LL;
-  if ( !(unsigned __int8)RegRtlIsPredefinedKey(Handle) || (inited = RegRtlOpenPredefinedKey(v13, &Handlea), inited >= 0) )
+  if ( !(unsigned __int8)RegRtlIsPredefinedKey() || (inited = RegRtlOpenPredefinedKey(v13, &Handlea), inited >= 0) )
   {
     inited = RtlInitUnicodeStringEx(&DestinationString, pszSrc);
     if ( inited >= 0 )

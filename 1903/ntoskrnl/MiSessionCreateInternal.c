@@ -42,7 +42,7 @@ __int64 __fastcall MiSessionCreateInternal(ULONG_PTR *a1)
   unsigned __int16 v9; // ax
   int v10; // ecx
   unsigned __int16 v11; // si
-  __int64 InterruptTimePrecise; // rax
+  LARGE_INTEGER InterruptTimePrecise; // rax
   unsigned __int64 v13; // r15
   unsigned __int64 v14; // rcx
   unsigned __int64 PdeAddress; // rax
@@ -50,12 +50,12 @@ __int64 __fastcall MiSessionCreateInternal(ULONG_PTR *a1)
   unsigned __int64 v17; // r9
   void *CurrentServerSilo; // rax
   unsigned int v20; // edi
-  struct _RTL_BITMAP *PoolWithTag; // rax
-  struct _RTL_BITMAP *v22; // r14
+  _RTL_BITMAP *PoolWithTag; // rax
+  _RTL_BITMAP *v22; // r14
   __int64 v23; // [rsp+30h] [rbp-50h] BYREF
   __int64 v24; // [rsp+38h] [rbp-48h]
   __int64 v25; // [rsp+40h] [rbp-40h]
-  LARGE_INTEGER v26; // [rsp+48h] [rbp-38h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+48h] [rbp-38h] BYREF
   __int64 v27; // [rsp+50h] [rbp-30h] BYREF
   ULONG v28; // [rsp+58h] [rbp-28h]
   int v29; // [rsp+5Ch] [rbp-24h]
@@ -73,10 +73,10 @@ __int64 __fastcall MiSessionCreateInternal(ULONG_PTR *a1)
     v20 = qword_140466990->SizeOfBitMap + 128;
     if ( v20 > 0x7FFFF )
       v20 = 0x7FFFF;
-    PoolWithTag = (struct _RTL_BITMAP *)ExAllocatePoolWithTag(
-                                          PagedPool,
-                                          8 * ((v20 >> 6) + ((v20 & 0x3F) != 0) + 2),
-                                          0x20206D4Du);
+    PoolWithTag = (_RTL_BITMAP *)ExAllocatePoolWithTag(
+                                   PagedPool,
+                                   8 * ((v20 >> 6) + ((v20 & 0x3F) != 0) + 2),
+                                   0x20206D4Du);
     v22 = PoolWithTag;
     if ( !PoolWithTag )
       goto LABEL_22;
@@ -112,10 +112,10 @@ __int64 __fastcall MiSessionCreateInternal(ULONG_PTR *a1)
         *(_DWORD *)(v8 + 96) = v10;
         *(_DWORD *)v8 = 1;
         *(_DWORD *)(v8 + 8) = ClearBitsAndSet;
-        InterruptTimePrecise = RtlGetInterruptTimePrecise(&v26);
+        InterruptTimePrecise = RtlGetInterruptTimePrecise(&PerformanceCounter);
         v13 = v24;
         v14 = v24;
-        *(_QWORD *)(v8 + 1336) = InterruptTimePrecise;
+        *(LARGE_INTEGER *)(v8 + 1336) = InterruptTimePrecise;
         PdeAddress = MiGetPdeAddress(v14);
         v23 = MI_READ_PTE_LOCK_FREE(PdeAddress);
         *(_QWORD *)(v8 + 32) = ((unsigned __int64)MI_READ_PTE_LOCK_FREE((unsigned __int64)&v23) >> 12) & 0xFFFFFFFFFLL;

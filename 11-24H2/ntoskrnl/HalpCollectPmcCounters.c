@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpCollectPmcCounters @ 0x140328500
+ * XREFs of HalpCollectPmcCounters @ 0x1402D1090
  * Callers:
- *     EtwpReserveWithPmcCounters @ 0x140328350 (EtwpReserveWithPmcCounters.c)
+ *     EtwpReserveWithPmcCounters @ 0x1402D0EE0 (EtwpReserveWithPmcCounters.c)
  * Callees:
- *     HalpDisableInterrupts @ 0x140320790 (HalpDisableInterrupts.c)
+ *     HalpDisableInterrupts @ 0x1402C9320 (HalpDisableInterrupts.c)
  */
 
 char __fastcall HalpCollectPmcCounters(void *a1)

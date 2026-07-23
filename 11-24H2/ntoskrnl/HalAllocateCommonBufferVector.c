@@ -1,9 +1,9 @@
 /*
- * XREFs of HalAllocateCommonBufferVector @ 0x14054E890
+ * XREFs of HalAllocateCommonBufferVector @ 0x14054C1D0
  * Callers:
  *     <none>
  * Callees:
- *     HalpAllocateCommonBufferVectorInternal @ 0x14041011C (HalpAllocateCommonBufferVectorInternal.c)
+ *     HalpAllocateCommonBufferVectorInternal @ 0x1403976A0 (HalpAllocateCommonBufferVectorInternal.c)
  */
 
 __int64 __fastcall HalAllocateCommonBufferVector(
@@ -11,7 +11,7 @@ __int64 __fastcall HalAllocateCommonBufferVector(
         PHYSICAL_ADDRESS a2,
         unsigned __int64 a3,
         MEMORY_CACHING_TYPE a4,
-        int a5,
+        unsigned int a5,
         int a6,
         unsigned int a7,
         __int64 a8,

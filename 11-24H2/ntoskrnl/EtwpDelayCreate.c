@@ -1,17 +1,17 @@
 /*
- * XREFs of EtwpDelayCreate @ 0x1409DB6A0
+ * XREFs of EtwpDelayCreate @ 0x1409D61B0
  * Callers:
- *     EtwpSavePersistedLogger @ 0x1407AFE60 (EtwpSavePersistedLogger.c)
- *     EtwpRealtimeCreateLogfile @ 0x1409D8F3C (EtwpRealtimeCreateLogfile.c)
- *     EtwpCreateLogFile @ 0x1409DA6AC (EtwpCreateLogFile.c)
+ *     EtwpSavePersistedLogger @ 0x1407B02B0 (EtwpSavePersistedLogger.c)
+ *     EtwpRealtimeCreateLogfile @ 0x1409D3A4C (EtwpRealtimeCreateLogfile.c)
+ *     EtwpCreateLogFile @ 0x1409D51BC (EtwpCreateLogFile.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     ZwCreateFile @ 0x1406A6EB0 (ZwCreateFile.c)
- *     SeImpersonateClientEx @ 0x140910280 (SeImpersonateClientEx.c)
- *     PsRevertToSelf @ 0x140930F00 (PsRevertToSelf.c)
- *     EtwpCreateNtFileName @ 0x1409DB87C (EtwpCreateNtFileName.c)
- *     EtwpCreateDirectoryFile @ 0x140A59508 (EtwpCreateDirectoryFile.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     ZwCreateFile @ 0x1406A7E50 (ZwCreateFile.c)
+ *     SeImpersonateClientEx @ 0x1408E79D0 (SeImpersonateClientEx.c)
+ *     PsRevertToSelf @ 0x140933040 (PsRevertToSelf.c)
+ *     EtwpCreateNtFileName @ 0x1409D638C (EtwpCreateNtFileName.c)
+ *     EtwpCreateDirectoryFile @ 0x140A50CA0 (EtwpCreateDirectoryFile.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpDelayCreate(

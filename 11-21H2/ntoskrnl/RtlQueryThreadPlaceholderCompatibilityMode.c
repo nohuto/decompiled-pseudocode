@@ -6,19 +6,19 @@
  *     <none>
  */
 
-char RtlQueryThreadPlaceholderCompatibilityMode()
+CHAR RtlQueryThreadPlaceholderCompatibilityMode(void)
 {
   struct _KTHREAD *CurrentThread; // rcx
-  _BYTE *Teb; // rax
+  __int64 v1; // rax
 
   CurrentThread = KeGetCurrentThread();
-  if ( (CurrentThread->MiscFlags & 0x400) != 0 )
+  if ( (*((_DWORD *)CurrentThread + 29) & 0x400) != 0 )
     return -2;
-  if ( CurrentThread->ApcStateIndex == 1 )
+  if ( *((_BYTE *)CurrentThread + 586) == 1 )
     return -2;
-  Teb = CurrentThread->Teb;
-  if ( !Teb )
+  v1 = *((_QWORD *)CurrentThread + 30);
+  if ( !v1 )
     return -2;
   else
-    return Teb[640];
+    return *(_BYTE *)(v1 + 640);
 }

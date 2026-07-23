@@ -1,15 +1,15 @@
 /*
- * XREFs of MiCreateKernelHalSlabRange @ 0x140C59210
+ * XREFs of MiCreateKernelHalSlabRange @ 0x140C5B3A0
  * Callers:
  *     <none>
  * Callees:
- *     MiPageToNode @ 0x14026C1E0 (MiPageToNode.c)
- *     KeYieldProcessorEx @ 0x1403F9C60 (KeYieldProcessorEx.c)
- *     MiConvertActiveLargePageToSmall @ 0x14041F5E8 (MiConvertActiveLargePageToSmall.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     MiCreateBootSlabEntries @ 0x140C58FDC (MiCreateBootSlabEntries.c)
+ *     MiPageToNode @ 0x140221770 (MiPageToNode.c)
+ *     MiConvertActiveLargePageToSmall @ 0x1402EDFDC (MiConvertActiveLargePageToSmall.c)
+ *     KeYieldProcessorEx @ 0x1403EFB70 (KeYieldProcessorEx.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     MiCreateBootSlabEntries @ 0x140C5B16C (MiCreateBootSlabEntries.c)
  */
 
 __int64 __fastcall MiCreateKernelHalSlabRange(unsigned __int64 a1, unsigned __int64 a2)
@@ -70,7 +70,7 @@ __int64 __fastcall MiCreateKernelHalSlabRange(unsigned __int64 a1, unsigned __in
     v11 = MiPageToNode(v4 + 511);
     if ( v10 != v11 )
       KeBugCheckEx(0x1Au, 0x3030317uLL, v4, v10, v11);
-    result = MiCreateBootSlabEntries(qword_140E38C10 + 16856 + 57216LL * v10, v4, 512LL, 1);
+    result = MiCreateBootSlabEntries(qword_140E38D50 + 16856 + 57216LL * v10, v4, 512LL, 1);
     if ( (int)result < 0 )
       return result;
     ++v2;

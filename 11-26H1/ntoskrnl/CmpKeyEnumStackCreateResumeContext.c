@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpKeyEnumStackCreateResumeContext @ 0x140AE9194
+ * XREFs of CmpKeyEnumStackCreateResumeContext @ 0x140AEB544
  * Callers:
- *     CmpEnumerateLayeredKey @ 0x140982A88 (CmpEnumerateLayeredKey.c)
+ *     CmpEnumerateLayeredKey @ 0x140944A98 (CmpEnumerateLayeredKey.c)
  * Callees:
- *     CmpAllocatePool @ 0x140474870 (CmpAllocatePool.c)
- *     CmpGetKcbAtLayerHeight @ 0x1408BACF0 (CmpGetKcbAtLayerHeight.c)
- *     CmpReferenceKeyControlBlockUnsafe @ 0x1408BC670 (CmpReferenceKeyControlBlockUnsafe.c)
- *     CmpKeyEnumStackGetEntryAtLayerHeight @ 0x14098235C (CmpKeyEnumStackGetEntryAtLayerHeight.c)
+ *     CmpAllocatePool @ 0x14046DFF0 (CmpAllocatePool.c)
+ *     CmpGetKcbAtLayerHeight @ 0x1408C12C0 (CmpGetKcbAtLayerHeight.c)
+ *     CmpReferenceKeyControlBlockUnsafe @ 0x1408C2C40 (CmpReferenceKeyControlBlockUnsafe.c)
+ *     CmpKeyEnumStackGetEntryAtLayerHeight @ 0x14094436C (CmpKeyEnumStackGetEntryAtLayerHeight.c)
  */
 
 __int64 __fastcall CmpKeyEnumStackCreateResumeContext(__int64 a1, __int64 a2, int a3, char a4, __int64 *a5)

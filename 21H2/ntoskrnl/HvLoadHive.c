@@ -1,26 +1,26 @@
 /*
- * XREFs of HvLoadHive @ 0x140722748
+ * XREFs of HvLoadHive @ 0x1406FA774
  * Callers:
- *     HvHiveStartFileBacked @ 0x140721C68 (HvHiveStartFileBacked.c)
+ *     HvHiveStartFileBacked @ 0x1406F94C0 (HvHiveStartFileBacked.c)
  * Callees:
- *     CmSiFreeMemory @ 0x140201A30 (CmSiFreeMemory.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
- *     SetFailureLocation @ 0x1402C4808 (SetFailureLocation.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     HvpMapHiveImageFromViewMap @ 0x140709450 (HvpMapHiveImageFromViewMap.c)
- *     HvpRemapAndEnlistHiveBins @ 0x14070999C (HvpRemapAndEnlistHiveBins.c)
- *     CmpFileFlush @ 0x14071DA34 (CmpFileFlush.c)
- *     HvpAdjustHiveFreeDisplay @ 0x14072311C (HvpAdjustHiveFreeDisplay.c)
- *     CmpTraceHiveMountBaseFileMounted @ 0x140723468 (CmpTraceHiveMountBaseFileMounted.c)
- *     HvpViewMapStart @ 0x1407234E4 (HvpViewMapStart.c)
- *     HvpInitMap @ 0x140723F9C (HvpInitMap.c)
- *     CmpInitializeActualFileSizes @ 0x140724468 (CmpInitializeActualFileSizes.c)
- *     HvpGetHiveHeader @ 0x140724770 (HvpGetHiveHeader.c)
- *     HvpMapHiveImageFromFile @ 0x140874008 (HvpMapHiveImageFromFile.c)
- *     HvpPerformLogFileRecovery @ 0x1408740BC (HvpPerformLogFileRecovery.c)
- *     HvAnalyzeLogFiles @ 0x140880C2C (HvAnalyzeLogFiles.c)
+ *     CmSiFreeMemory @ 0x1402253C0 (CmSiFreeMemory.c)
+ *     SetFailureLocation @ 0x140242D88 (SetFailureLocation.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14027E1A4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x1402864F4 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     HvpAdjustHiveFreeDisplay @ 0x1406FB148 (HvpAdjustHiveFreeDisplay.c)
+ *     CmpTraceHiveMountBaseFileMounted @ 0x1406FB494 (CmpTraceHiveMountBaseFileMounted.c)
+ *     HvpViewMapStart @ 0x1406FB510 (HvpViewMapStart.c)
+ *     HvpInitMap @ 0x1406FBFC8 (HvpInitMap.c)
+ *     CmpInitializeActualFileSizes @ 0x1406FC494 (CmpInitializeActualFileSizes.c)
+ *     HvpGetHiveHeader @ 0x1406FC79C (HvpGetHiveHeader.c)
+ *     CmpFileFlush @ 0x1406FC904 (CmpFileFlush.c)
+ *     HvpMapHiveImageFromViewMap @ 0x140720830 (HvpMapHiveImageFromViewMap.c)
+ *     HvpRemapAndEnlistHiveBins @ 0x140720D7C (HvpRemapAndEnlistHiveBins.c)
+ *     HvpMapHiveImageFromFile @ 0x140874168 (HvpMapHiveImageFromFile.c)
+ *     HvpPerformLogFileRecovery @ 0x14087421C (HvpPerformLogFileRecovery.c)
+ *     HvAnalyzeLogFiles @ 0x140880D8C (HvAnalyzeLogFiles.c)
  */
 
 __int64 __fastcall HvLoadHive(ULONG_PTR BugCheckParameter2)
@@ -41,20 +41,20 @@ __int64 __fastcall HvLoadHive(ULONG_PTR BugCheckParameter2)
   unsigned int v15; // edx
   int v16; // ecx
   int v17; // eax
-  int v18; // eax
+  signed int v18; // eax
   __int64 v19; // rcx
   char v20; // r12
   int v21; // eax
   int v22; // eax
-  NTSTATUS v24; // eax
-  int v25; // r9d
+  signed int v24; // eax
+  unsigned int v25; // r9d
   int v26; // ebx
   _DWORD *v27; // rax
   int v28; // ecx
-  int v29; // r9d
+  unsigned int v29; // r9d
   int v30; // r10d
-  int v31; // [rsp+28h] [rbp-E0h]
-  int v32; // [rsp+28h] [rbp-E0h]
+  unsigned int v31; // [rsp+28h] [rbp-E0h]
+  unsigned int v32; // [rsp+28h] [rbp-E0h]
   int v33; // [rsp+4Ch] [rbp-BCh] BYREF
   __int64 v34; // [rsp+50h] [rbp-B8h] BYREF
   __int64 v35; // [rsp+58h] [rbp-B0h] BYREF
@@ -91,9 +91,9 @@ __int64 __fastcall HvLoadHive(ULONG_PTR BugCheckParameter2)
   memset(v49, 0, sizeof(v49));
   if ( v2 )
   {
-    v24 = CmpFileFlush(BugCheckParameter2, 0);
+    v24 = CmpFileFlush(BugCheckParameter2, 0LL);
     if ( v24 < 0 )
-      SetFailureLocation(v1, 0, 6, v24, 8);
+      SetFailureLocation(v1, 0, 6, v24, 8u);
   }
   HiveHeader = HvpGetHiveHeader(BugCheckParameter2, &v35, &v36);
   v7 = 2LL;
@@ -226,7 +226,7 @@ LABEL_8:
       v48 = 8LL;
       tlgWriteTransfer_EtwWriteTransfer(
         (__int64)&dword_140C02130,
-        (unsigned __int8 *)byte_140023853,
+        (unsigned __int8 *)byte_140023913,
         0LL,
         0LL,
         5u,
@@ -276,10 +276,13 @@ LABEL_82:
   v12 = v18;
   if ( v18 < 0 )
   {
-    SetFailureLocation(v1, 0, 6, v18, 136);
+    SetFailureLocation(v1, 0, 6, v18, 0x88u);
     goto LABEL_28;
   }
-  inited = HvpMapHiveImageFromViewMap(BugCheckParameter2, 0, *(_DWORD *)(*(_QWORD *)(BugCheckParameter2 + 64) + 40LL));
+  inited = HvpMapHiveImageFromViewMap(
+             BugCheckParameter2,
+             0LL,
+             *(unsigned int *)(*(_QWORD *)(BugCheckParameter2 + 64) + 40LL));
   v12 = inited;
   if ( inited < 0 )
   {
@@ -318,7 +321,7 @@ LABEL_19:
     v32 = 176;
     goto LABEL_82;
   }
-  v12 = HvpRemapAndEnlistHiveBins((_DWORD *)BugCheckParameter2);
+  v12 = HvpRemapAndEnlistHiveBins(BugCheckParameter2);
   if ( v12 != 1073741833 )
   {
     if ( v12 >= 0 )

@@ -1,13 +1,13 @@
 /*
- * XREFs of PsInitSystem @ 0x1409C4944
+ * XREFs of PsInitSystem @ 0x1409C5944
  * Callers:
- *     Phase1InitializationDiscard @ 0x1409B3E10 (Phase1InitializationDiscard.c)
+ *     Phase1InitializationDiscard @ 0x1409B4E10 (Phase1InitializationDiscard.c)
  * Callees:
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     PspInitPhase1 @ 0x1409AB320 (PspInitPhase1.c)
- *     PspInitPhase0 @ 0x1409B10C8 (PspInitPhase0.c)
- *     PspInitPhase2 @ 0x1409D5F0C (PspInitPhase2.c)
- *     PspInitPhase3 @ 0x1409DF584 (PspInitPhase3.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     PspInitPhase1 @ 0x1409AC320 (PspInitPhase1.c)
+ *     PspInitPhase0 @ 0x1409B20C8 (PspInitPhase0.c)
+ *     PspInitPhase2 @ 0x1409D6F0C (PspInitPhase2.c)
+ *     PspInitPhase3 @ 0x1409E0584 (PspInitPhase3.c)
  */
 
 char __fastcall PsInitSystem(int a1, void *a2)

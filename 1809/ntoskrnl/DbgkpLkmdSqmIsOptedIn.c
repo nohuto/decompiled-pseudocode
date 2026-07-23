@@ -1,12 +1,12 @@
 /*
- * XREFs of DbgkpLkmdSqmIsOptedIn @ 0x140812130
+ * XREFs of DbgkpLkmdSqmIsOptedIn @ 0x140813330
  * Callers:
- *     DbgkCaptureLiveDump @ 0x140811720 (DbgkCaptureLiveDump.c)
+ *     DbgkCaptureLiveDump @ 0x140812920 (DbgkCaptureLiveDump.c)
  * Callees:
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     ZwOpenKey @ 0x1401B83D0 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x1401B8470 (ZwQueryValueKey.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     ZwOpenKey @ 0x1401B8530 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1401B85D0 (ZwQueryValueKey.c)
  */
 
 bool DbgkpLkmdSqmIsOptedIn()

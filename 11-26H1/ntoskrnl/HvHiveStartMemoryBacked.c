@@ -1,17 +1,17 @@
 /*
- * XREFs of HvHiveStartMemoryBacked @ 0x140B487A4
+ * XREFs of HvHiveStartMemoryBacked @ 0x140B4A534
  * Callers:
- *     CmpCreateHive @ 0x1408B5E6C (CmpCreateHive.c)
- *     CmpGetSystemControlValues @ 0x140CEC3D8 (CmpGetSystemControlValues.c)
+ *     CmpCreateHive @ 0x1408BC440 (CmpCreateHive.c)
+ *     CmpGetSystemControlValues @ 0x140CF26DC (CmpGetSystemControlValues.c)
  * Callees:
- *     SetFailureLocation @ 0x140494894 (SetFailureLocation.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     HvIsInPlaceBaseBlockValid @ 0x14085F0DC (HvIsInPlaceBaseBlockValid.c)
- *     HvpBuildMapForMemoryBackedHive @ 0x14086040C (HvpBuildMapForMemoryBackedHive.c)
- *     HvpAdjustHiveFreeDisplay @ 0x140A82700 (HvpAdjustHiveFreeDisplay.c)
- *     HvpFillFileName @ 0x140AC2D4C (HvpFillFileName.c)
- *     HvpHeaderCheckSum @ 0x140C58720 (HvpHeaderCheckSum.c)
+ *     SetFailureLocation @ 0x14048E3E4 (SetFailureLocation.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     HvIsInPlaceBaseBlockValid @ 0x1408653CC (HvIsInPlaceBaseBlockValid.c)
+ *     HvpBuildMapForMemoryBackedHive @ 0x1408666FC (HvpBuildMapForMemoryBackedHive.c)
+ *     HvpAdjustHiveFreeDisplay @ 0x140A88570 (HvpAdjustHiveFreeDisplay.c)
+ *     HvpFillFileName @ 0x140AC4DEC (HvpFillFileName.c)
+ *     HvpHeaderCheckSum @ 0x140C5E720 (HvpHeaderCheckSum.c)
  */
 
 __int64 __fastcall HvHiveStartMemoryBacked(

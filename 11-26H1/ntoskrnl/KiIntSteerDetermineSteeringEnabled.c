@@ -1,12 +1,12 @@
 /*
- * XREFs of KiIntSteerDetermineSteeringEnabled @ 0x140CCBAF4
+ * XREFs of KiIntSteerDetermineSteeringEnabled @ 0x140CD1C54
  * Callers:
- *     KiIntSteerInit @ 0x140CCBB80 (KiIntSteerInit.c)
+ *     KiIntSteerInit @ 0x140CD1CE0 (KiIntSteerInit.c)
  * Callees:
- *     KeQueryActiveProcessorCountEx @ 0x140211EA0 (KeQueryActiveProcessorCountEx.c)
- *     HviIsAnyHypervisorPresent @ 0x1404E63D0 (HviIsAnyHypervisorPresent.c)
- *     HviIsXboxNanovisorPresent @ 0x1406DC9D4 (HviIsXboxNanovisorPresent.c)
- *     KiIntSteerInitCheckCycleCounters @ 0x140CCBCF4 (KiIntSteerInitCheckCycleCounters.c)
+ *     KeQueryActiveProcessorCountEx @ 0x140211F80 (KeQueryActiveProcessorCountEx.c)
+ *     HviIsAnyHypervisorPresent @ 0x1404DF970 (HviIsAnyHypervisorPresent.c)
+ *     HviIsXboxNanovisorPresent @ 0x1406E0C74 (HviIsXboxNanovisorPresent.c)
+ *     KiIntSteerInitCheckCycleCounters @ 0x140CD1E54 (KiIntSteerInitCheckCycleCounters.c)
  */
 
 char KiIntSteerDetermineSteeringEnabled()
@@ -19,7 +19,7 @@ char KiIntSteerDetermineSteeringEnabled()
       return 1;
     }
     if ( (KiActiveGroups != 1 || KeQueryActiveProcessorCountEx(0) >= 2)
-      && !(_BYTE)dword_140FBE22C
+      && !(_BYTE)dword_140FBF22C
       && !HviIsXboxNanovisorPresent() )
     {
       if ( HvlHypervisorConnected )

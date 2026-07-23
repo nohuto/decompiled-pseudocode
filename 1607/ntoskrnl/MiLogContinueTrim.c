@@ -1,11 +1,11 @@
 /*
- * XREFs of MiLogContinueTrim @ 0x1401E99E0
+ * XREFs of MiLogContinueTrim @ 0x1401E980C
  * Callers:
- *     MiCheckSystemTrimEndCriteria @ 0x1401E9324 (MiCheckSystemTrimEndCriteria.c)
+ *     MiCheckSystemTrimEndCriteria @ 0x1401E9150 (MiCheckSystemTrimEndCriteria.c)
  * Callees:
- *     _TlgWrite @ 0x14000A598 (_TlgWrite.c)
- *     _TlgKeywordOn @ 0x140088D98 (_TlgKeywordOn.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     _TlgWrite @ 0x14000A118 (_TlgWrite.c)
+ *     _TlgKeywordOn @ 0x14010CF88 (_TlgKeywordOn.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 void MiLogContinueTrim()
@@ -19,9 +19,9 @@ void MiLogContinueTrim()
   int v6; // [rsp+50h] [rbp+0h] BYREF
 
   v0 = (unsigned __int64)&v6 & 0xFFFFFFFFFFFFFFE0uLL;
-  if ( hProvider && hProvider->LevelPlus1 > 5 )
+  if ( qword_1403277E0 && qword_1403277E0->LevelPlus1 > 5 )
   {
-    if ( TlgKeywordOn(hProvider, 1uLL) )
+    if ( TlgKeywordOn(qword_1403277E0, 1uLL) )
     {
       v5 = *v2;
       *(_DWORD *)(((unsigned __int64)&v6 & 0xFFFFFFFFFFFFFFE0uLL) + 0x5C) = 0;
@@ -48,7 +48,7 @@ void MiLogContinueTrim()
       *(_DWORD *)(((unsigned __int64)&v6 & 0xFFFFFFFFFFFFFFE0uLL) + 0x78) = v1 + 7;
       *(_DWORD *)(((unsigned __int64)&v6 & 0xFFFFFFFFFFFFFFE0uLL) + 0x88) = v1 + 7;
       *(_DWORD *)(((unsigned __int64)&v6 & 0xFFFFFFFFFFFFFFE0uLL) + 0x98) = v1 + 7;
-      TlgWrite(v3, &unk_14027C4C1, 0LL, 0LL, 7u, (EVENT_DATA_DESCRIPTOR *)(v0 + 48));
+      TlgWrite(v3, &unk_14027C5C1, 0LL, 0LL, 7u, (EVENT_DATA_DESCRIPTOR *)(v0 + 48));
     }
   }
 }

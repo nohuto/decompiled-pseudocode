@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlIsCodeInEcRanges @ 0x14082F334
+ * XREFs of RtlIsCodeInEcRanges @ 0x140B66104
  * Callers:
- *     MiPrepareToHotPatchImagePatchCallback @ 0x1407F5AE0 (MiPrepareToHotPatchImagePatchCallback.c)
- *     RtlApplyHotPatch @ 0x140B63AD0 (RtlApplyHotPatch.c)
+ *     MiPrepareToHotPatchImagePatchCallback @ 0x1407F61D0 (MiPrepareToHotPatchImagePatchCallback.c)
+ *     RtlApplyHotPatch @ 0x140B65BA0 (RtlApplyHotPatch.c)
  * Callees:
  *     <none>
  */

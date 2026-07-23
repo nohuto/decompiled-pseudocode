@@ -1,14 +1,14 @@
 /*
- * XREFs of VerifierExAllocatePool3 @ 0x1409D4B10
+ * XREFs of VerifierExAllocatePool3 @ 0x1409D5B10
  * Callers:
  *     <none>
  * Callees:
- *     RtlRaiseStatus @ 0x14029AF80 (RtlRaiseStatus.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     ExpPoolFlagsToPoolType @ 0x1409B4030 (ExpPoolFlagsToPoolType.c)
- *     ExAllocatePool3 @ 0x1409B4270 (ExAllocatePool3.c)
- *     VfCheckPoolType @ 0x1409C7D64 (VfCheckPoolType.c)
- *     VeAllocatePoolWithTagPriority @ 0x1409D45D0 (VeAllocatePoolWithTagPriority.c)
+ *     RtlRaiseStatus @ 0x140212910 (RtlRaiseStatus.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     ExpPoolFlagsToPoolType @ 0x1409B5030 (ExpPoolFlagsToPoolType.c)
+ *     ExAllocatePool3 @ 0x1409B5270 (ExAllocatePool3.c)
+ *     VfCheckPoolType @ 0x1409C8D64 (VfCheckPoolType.c)
+ *     VeAllocatePoolWithTagPriority @ 0x1409D55D0 (VeAllocatePoolWithTagPriority.c)
  */
 
 PVOID __fastcall VerifierExAllocatePool3(__int64 a1, SIZE_T a2, ULONG a3, __int64 a4, unsigned int a5)
@@ -36,10 +36,10 @@ PVOID __fastcall VerifierExAllocatePool3(__int64 a1, SIZE_T a2, ULONG a3, __int6
   VfCheckPoolType(v15[0] & 0xFFFFFFE7, retaddr, 0);
   v12 = v11 | 0x80;
   if ( XdvEnabled )
-    result = (PVOID)pXdvExAllocatePool3[0](v12, a2, a3, 32, retaddr, (__int64)VeAllocatePoolWithTagPriority);
+    result = (PVOID)pXdvExAllocatePool3(v12, a2, a3, 32, retaddr, (__int64)VeAllocatePoolWithTagPriority);
   else
     result = VeAllocatePoolWithTagPriority(v12, a2, a3, HighPoolPriority, retaddr);
   if ( !result && (a1 & 0x20) != 0 )
-    RtlRaiseStatus(0xC000009A);
+    RtlRaiseStatus(-1073741670);
   return result;
 }

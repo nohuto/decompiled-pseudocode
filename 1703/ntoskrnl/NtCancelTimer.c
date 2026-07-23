@@ -70,7 +70,7 @@ NTSTATUS __stdcall NtCancelTimer(HANDLE TimerHandle, PBOOLEAN CurrentState)
       __writecr8(CurrentIrql);
       CurrentThread = KeGetCurrentThread();
       --CurrentThread->KernelApcDisable;
-      v14 = KeAbPreAcquire((ULONG_PTR)&ExpWakeTimerLock);
+      v14 = KeAbPreAcquire((ULONG_PTR)&ExpWakeTimerLock, 0LL);
       if ( _interlockedbittestandset64((volatile signed __int32 *)&ExpWakeTimerLock, 0LL) )
         ExfAcquirePushLockExclusiveEx(&ExpWakeTimerLock);
       if ( v14 )

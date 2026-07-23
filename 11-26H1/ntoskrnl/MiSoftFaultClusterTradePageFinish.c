@@ -1,11 +1,11 @@
 /*
- * XREFs of MiSoftFaultClusterTradePageFinish @ 0x1407126D8
+ * XREFs of MiSoftFaultClusterTradePageFinish @ 0x1407173D0
  * Callers:
- *     MiHandleTransitionFault @ 0x1402F6550 (MiHandleTransitionFault.c)
+ *     MiHandleTransitionFault @ 0x1402D85D0 (MiHandleTransitionFault.c)
  * Callees:
- *     MiCopyPage @ 0x140293FA4 (MiCopyPage.c)
- *     MiSwapHardFaultPage @ 0x14031CCEC (MiSwapHardFaultPage.c)
- *     MiReturnResident @ 0x14036E2C0 (MiReturnResident.c)
+ *     MiCopyPage @ 0x140293504 (MiCopyPage.c)
+ *     MiSwapHardFaultPage @ 0x14031ED1C (MiSwapHardFaultPage.c)
+ *     MiReturnResident @ 0x140370060 (MiReturnResident.c)
  */
 
 unsigned __int64 __fastcall MiSoftFaultClusterTradePageFinish(_QWORD *a1, __int64 *a2, char a3)

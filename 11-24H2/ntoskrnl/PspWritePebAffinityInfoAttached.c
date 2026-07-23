@@ -1,48 +1,48 @@
 /*
- * XREFs of PspWritePebAffinityInfoAttached @ 0x140A429F0
+ * XREFs of PspWritePebAffinityInfoAttached @ 0x140A38230
  * Callers:
- *     PspUpdatePebForAffinityChange @ 0x14090815C (PspUpdatePebForAffinityChange.c)
+ *     PspUpdatePebForAffinityChange @ 0x1408DF878 (PspUpdatePebForAffinityChange.c)
  * Callees:
- *     KeQueryPrimaryGroupAffinityProcess @ 0x1404850B4 (KeQueryPrimaryGroupAffinityProcess.c)
+ *     KeQueryPrimaryGroupAffinityProcess @ 0x1404805C4 (KeQueryPrimaryGroupAffinityProcess.c)
  */
 
-__int64 __fastcall PspWritePebAffinityInfoAttached(__int64 a1)
+__int64 __fastcall PspWritePebAffinityInfoAttached(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  __int64 v2; // r15
-  __int64 v3; // rdi
-  __int64 *v4; // rax
-  __int64 v5; // rsi
+  __int64 v5; // r15
+  __int64 v6; // rdi
+  __int64 *v7; // rax
+  __int64 v8; // rsi
   __int64 result; // rax
-  __int128 v7; // [rsp+20h] [rbp-48h] BYREF
-  __int128 v8; // [rsp+30h] [rbp-38h] BYREF
+  __int128 v10; // [rsp+20h] [rbp-48h] BYREF
+  __int128 v11; // [rsp+30h] [rbp-38h] BYREF
 
-  v2 = *(_QWORD *)(a1 + 736);
-  v3 = 0LL;
-  v4 = *(__int64 **)(a1 + 784);
-  if ( v4 )
-    v3 = *v4;
+  v5 = *(_QWORD *)(a1 + 736);
+  v6 = 0LL;
+  v7 = *(__int64 **)(a1 + 784);
+  if ( v7 )
+    v6 = *v7;
   do
   {
-    v7 = 0LL;
+    v10 = 0LL;
     if ( (*(_DWORD *)(a1 + 136) & 0x1000) != 0 )
-      WORD4(v7) = *(_WORD *)(a1 + 416);
+      WORD4(v10) = *(_WORD *)(a1 + 416);
     else
-      KeQueryPrimaryGroupAffinityProcess(a1, (__int64)&v7);
-    v5 = v7;
-    *(_QWORD *)(v2 + 312) = v7;
-    if ( v3 )
-      *(_DWORD *)(v3 + 192) = v5 | HIDWORD(v5);
-    v8 = 0LL;
+      KeQueryPrimaryGroupAffinityProcess(a1, (__int64)&v10, a3, a4);
+    v8 = v10;
+    *(_QWORD *)(v5 + 312) = v10;
+    if ( v6 )
+      *(_DWORD *)(v6 + 192) = v8 | HIDWORD(v8);
+    v11 = 0LL;
     if ( (*(_DWORD *)(a1 + 136) & 0x1000) != 0 )
     {
       result = *(unsigned __int16 *)(a1 + 416);
     }
     else
     {
-      KeQueryPrimaryGroupAffinityProcess(a1, (__int64)&v8);
-      result = WORD4(v8);
+      KeQueryPrimaryGroupAffinityProcess(a1, (__int64)&v11, a3, a4);
+      result = WORD4(v11);
     }
   }
-  while ( WORD4(v7) != (_WORD)result || v5 != (_QWORD)v8 );
+  while ( WORD4(v10) != (_WORD)result || v8 != (_QWORD)v11 );
   return result;
 }

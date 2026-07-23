@@ -1,14 +1,14 @@
 /*
- * XREFs of VmpFlushTbVaRange @ 0x1402240C0
+ * XREFs of VmpFlushTbVaRange @ 0x140223EEC
  * Callers:
- *     VmpFlushTb @ 0x140223F84 (VmpFlushTb.c)
- *     VmpRemoveMemoryRange @ 0x1402245A0 (VmpRemoveMemoryRange.c)
+ *     VmpFlushTb @ 0x140223DB0 (VmpFlushTb.c)
+ *     VmpRemoveMemoryRange @ 0x1402243CC (VmpRemoveMemoryRange.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14002E9E0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     VmpInvalidateOutstandingFaults @ 0x14022441C (VmpInvalidateOutstandingFaults.c)
- *     VmpProcessContextLockExclusive @ 0x140224508 (VmpProcessContextLockExclusive.c)
- *     VmpProcessMemoryRangeCompareVpn @ 0x14022452C (VmpProcessMemoryRangeCompareVpn.c)
- *     HvlMapGpaPages @ 0x14023CF70 (HvlMapGpaPages.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14002E560 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     VmpInvalidateOutstandingFaults @ 0x140224248 (VmpInvalidateOutstandingFaults.c)
+ *     VmpProcessContextLockExclusive @ 0x140224334 (VmpProcessContextLockExclusive.c)
+ *     VmpProcessMemoryRangeCompareVpn @ 0x140224358 (VmpProcessMemoryRangeCompareVpn.c)
+ *     HvlMapGpaPages @ 0x14023CE54 (HvlMapGpaPages.c)
  */
 
 void __fastcall VmpFlushTbVaRange(

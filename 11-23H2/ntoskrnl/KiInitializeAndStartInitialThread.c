@@ -1,10 +1,10 @@
 /*
- * XREFs of KiInitializeAndStartInitialThread @ 0x1403B394C
+ * XREFs of KiInitializeAndStartInitialThread @ 0x1403B3B2C
  * Callers:
  *     KiInitializeKernel @ 0x140A8BF10 (KiInitializeKernel.c)
  * Callees:
- *     KiStartIdleThread @ 0x140382914 (KiStartIdleThread.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     KiStartIdleThread @ 0x140382AB4 (KiStartIdleThread.c)
+ *     memset @ 0x140435E00 (memset.c)
  *     KeInitThread @ 0x140A875D0 (KeInitThread.c)
  */
 

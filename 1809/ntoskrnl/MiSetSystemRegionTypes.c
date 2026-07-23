@@ -1,7 +1,7 @@
 /*
- * XREFs of MiSetSystemRegionTypes @ 0x1409D298C
+ * XREFs of MiSetSystemRegionTypes @ 0x1409D398C
  * Callers:
- *     MiInitializeSystemVa @ 0x1409D23A8 (MiInitializeSystemVa.c)
+ *     MiInitializeSystemVa @ 0x1409D33A8 (MiInitializeSystemVa.c)
  * Callees:
  *     <none>
  */
@@ -16,7 +16,7 @@ unsigned __int64 MiSetSystemRegionTypes()
   unsigned __int64 result; // rax
 
   v0 = 0;
-  v1 = qword_14043BA50;
+  v1 = qword_14043CB10;
   do
   {
     v2 = (((unsigned __int64)*v1 >> 39) & 0x1FF) - 256;

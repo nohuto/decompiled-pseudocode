@@ -1,32 +1,30 @@
 /*
- * XREFs of KiTpWriteMemory @ 0x14051D4FC
+ * XREFs of KiTpWriteMemory @ 0x14051D73C
  * Callers:
- *     KiTpWriteBreakpoint @ 0x14051D468 (KiTpWriteBreakpoint.c)
+ *     KiTpWriteBreakpoint @ 0x14051D6A8 (KiTpWriteBreakpoint.c)
  * Callees:
- *     KiUnstackDetachProcess @ 0x140207000 (KiUnstackDetachProcess.c)
- *     KiStackAttachProcess @ 0x14025C2E0 (KiStackAttachProcess.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     KiTpWriteUmMemory @ 0x14051D624 (KiTpWriteUmMemory.c)
- *     MmDbgCopyMemory @ 0x140546A9C (MmDbgCopyMemory.c)
- *     KdEnterDebugger @ 0x1409B7028 (KdEnterDebugger.c)
- *     KdExitDebugger @ 0x1409B7190 (KdExitDebugger.c)
+ *     KiStackAttachProcess @ 0x14027D850 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x1402AB900 (KiUnstackDetachProcess.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     KiTpWriteUmMemory @ 0x14051D864 (KiTpWriteUmMemory.c)
+ *     MmDbgCopyMemory @ 0x140546CDC (MmDbgCopyMemory.c)
+ *     KdEnterDebugger @ 0x1409B8028 (KdEnterDebugger.c)
+ *     KdExitDebugger @ 0x1409B8190 (KdExitDebugger.c)
  */
 
-__int64 __fastcall KiTpWriteMemory(_KPROCESS *a1, char a2, void *a3, _DWORD *a4)
+__int64 __fastcall KiTpWriteMemory(_KPROCESS *a1, char a2, void *a3, int a4)
 {
-  int v4; // ebp
   int v8; // ebx
   char v9; // r14
   __int64 v10; // rcx
   _OWORD v12[3]; // [rsp+30h] [rbp-68h] BYREF
 
-  v4 = (int)a4;
   memset(v12, 0, sizeof(v12));
   if ( a1 )
-    KiStackAttachProcess(a1, 0LL, (__int64)v12, a4);
+    KiStackAttachProcess(a1, 0, (__int64)v12);
   if ( a2 == 1 )
   {
-    v8 = KiTpWriteUmMemory((_DWORD)a1, (_DWORD)a3, v4, 1uLL);
+    v8 = KiTpWriteUmMemory((_DWORD)a1, (_DWORD)a3, a4, 1uLL);
   }
   else if ( (KiDynamicTraceEnabled & 4) != 0 )
   {
@@ -46,6 +44,6 @@ __int64 __fastcall KiTpWriteMemory(_KPROCESS *a1, char a2, void *a3, _DWORD *a4)
     v8 = -1073741790;
   }
   if ( a1 )
-    KiUnstackDetachProcess((__int64)v12, 0);
+    KiUnstackDetachProcess((__int64)v12, 0LL);
   return (unsigned int)v8;
 }

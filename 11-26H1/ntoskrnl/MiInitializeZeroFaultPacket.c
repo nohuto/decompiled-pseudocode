@@ -1,13 +1,13 @@
 /*
- * XREFs of MiInitializeZeroFaultPacket @ 0x1402D50F0
+ * XREFs of MiInitializeZeroFaultPacket @ 0x1402B6EB0
  * Callers:
- *     MiResolveDemandZeroFault @ 0x1402D4B40 (MiResolveDemandZeroFault.c)
- *     MiZeroFault @ 0x140422AB0 (MiZeroFault.c)
+ *     MiResolveDemandZeroFault @ 0x1402B6900 (MiResolveDemandZeroFault.c)
+ *     MiZeroFault @ 0x14041A2F0 (MiZeroFault.c)
  * Callees:
- *     ExpWaitForSpinLockSharedAndAcquire @ 0x14029BC90 (ExpWaitForSpinLockSharedAndAcquire.c)
- *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x1402EE000 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
- *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14036A848 (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
- *     MiComputeFaultNode @ 0x140370A58 (MiComputeFaultNode.c)
+ *     ExpWaitForSpinLockSharedAndAcquire @ 0x14029B1F0 (ExpWaitForSpinLockSharedAndAcquire.c)
+ *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x1402D0080 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
+ *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14036C5E8 (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
+ *     MiComputeFaultNode @ 0x140372808 (MiComputeFaultNode.c)
  */
 
 __int64 __fastcall MiInitializeZeroFaultPacket(_QWORD *a1, struct _LIST_ENTRY *a2, unsigned int *a3)
@@ -109,7 +109,7 @@ LABEL_22:
     goto LABEL_63;
   }
   v14 = (_DWORD *)&KeGetCurrentThread()->ApcState.Process[2].ActiveProcessors[4].StaticBitmap[8] + 1;
-  if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+  if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
   {
     _m_prefetchw(v14);
     v16 = *v14 & 0x7FFFFFFF;
@@ -168,7 +168,7 @@ LABEL_50:
   v13 = a2;
   v25 = a2;
   ActiveProcessors = KeGetCurrentThread()->ApcState.Process[2].ActiveProcessors;
-  if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+  if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
   {
     _InterlockedAnd((volatile signed __int32 *)&ActiveProcessors[4].StaticBitmap[8] + 1, 0xBFFFFFFF);
     _InterlockedDecrement((volatile signed __int32 *)&ActiveProcessors[4].StaticBitmap[8] + 1);

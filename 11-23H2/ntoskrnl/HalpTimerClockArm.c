@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpTimerClockArm @ 0x140337760
+ * XREFs of HalpTimerClockArm @ 0x1403379F0
  * Callers:
- *     HalpTimerSwitchToNormalClock @ 0x1405089E4 (HalpTimerSwitchToNormalClock.c)
+ *     HalpTimerSwitchToNormalClock @ 0x140508F34 (HalpTimerSwitchToNormalClock.c)
  * Callees:
- *     HalpSetTimer @ 0x1403378E0 (HalpSetTimer.c)
- *     HalpTimerScaleCounter @ 0x1403C4524 (HalpTimerScaleCounter.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     HalpTimerSwitchToNormalClock @ 0x1405089E4 (HalpTimerSwitchToNormalClock.c)
+ *     HalpSetTimer @ 0x140337B70 (HalpSetTimer.c)
+ *     HalpTimerScaleCounter @ 0x1403C4704 (HalpTimerScaleCounter.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     HalpTimerSwitchToNormalClock @ 0x140508F34 (HalpTimerSwitchToNormalClock.c)
  */
 
 __int64 __fastcall HalpTimerClockArm(int a1, ULONG_PTR a2, unsigned __int64 *a3, __int64 a4)

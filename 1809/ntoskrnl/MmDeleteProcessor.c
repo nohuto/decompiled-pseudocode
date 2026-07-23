@@ -1,13 +1,13 @@
 /*
- * XREFs of MmDeleteProcessor @ 0x1402A6164
+ * XREFs of MmDeleteProcessor @ 0x1402A6354
  * Callers:
- *     MmInitializeProcessor @ 0x140572A74 (MmInitializeProcessor.c)
- *     KiStartDynamicProcessor @ 0x140842DC8 (KiStartDynamicProcessor.c)
- *     KeStartAllProcessors @ 0x1409B5DAC (KeStartAllProcessors.c)
+ *     MmInitializeProcessor @ 0x140573A74 (MmInitializeProcessor.c)
+ *     KiStartDynamicProcessor @ 0x140844028 (KiStartDynamicProcessor.c)
+ *     KeStartAllProcessors @ 0x1409B6DAC (KeStartAllProcessors.c)
  * Callees:
  *     MiReleasePtes @ 0x1400340E0 (MiReleasePtes.c)
- *     MiDeleteUltraThreadContext @ 0x1400E180C (MiDeleteUltraThreadContext.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     MiDeleteUltraThreadContext @ 0x1400E188C (MiDeleteUltraThreadContext.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MmDeleteProcessor(__int64 a1)
@@ -18,7 +18,7 @@ void __fastcall MmDeleteProcessor(__int64 a1)
   v1 = *(_QWORD *)(a1 + 24320);
   if ( v1 )
   {
-    MiReleasePtes((__int64)&qword_14043AFA0, ((v1 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL, 0x40u);
+    MiReleasePtes((__int64)&qword_14043C060, ((v1 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL, 0x40u);
     *(_QWORD *)(a1 + 24320) = 0LL;
   }
   v3 = *(void **)(a1 + 23800);

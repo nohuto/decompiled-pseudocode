@@ -23,7 +23,7 @@ unsigned int *__fastcall EtwpBuildProcessEvent(
         _QWORD *a5,
         __int64 a6,
         unsigned int *a7,
-        int *a8,
+        ULONG_PTR *PackageSize,
         PSTRING DestinationString,
         unsigned __int16 *a10,
         PVOID *a11)
@@ -39,7 +39,7 @@ unsigned int *__fastcall EtwpBuildProcessEvent(
   int v21; // eax
   __int64 v22; // rsi
   struct _DMA_ADAPTER *v23; // rax
-  int *v24; // r12
+  ULONG_PTR *v24; // r12
   struct _DMA_ADAPTER *v25; // rdi
   NTSTATUS v26; // ebx
   __int64 *v27; // rdx
@@ -101,9 +101,9 @@ unsigned int *__fastcall EtwpBuildProcessEvent(
   *(_QWORD *)v22 = a4;
   *(_QWORD *)(v22 + 8) = 36LL;
   v23 = (struct _DMA_ADAPTER *)PsReferencePrimaryToken(Process);
-  v24 = a8;
+  v24 = PackageSize;
   v25 = v23;
-  EtwpQueryTokenPackageInfo(v23, a8, a4 + 32);
+  EtwpQueryTokenPackageInfo(v23, PackageSize);
   v26 = SeQueryInformationToken(v25, TokenUser, &TokenInformation);
   ObFastDereferenceObject((signed __int64 *)&Process[1].Affinity.Bitmap[5], v25);
   if ( v26 < 0 )
@@ -182,15 +182,15 @@ unsigned int *__fastcall EtwpBuildProcessEvent(
   v35 *= 2LL;
   *(_QWORD *)(v22 + 8 * v34) = &EtwpNull;
   *(_QWORD *)(v22 + 8 * v34 + 8) = 2LL;
-  v37 = *v24;
-  *(_QWORD *)(v22 + 8 * v35) = v24 + 4;
+  v37 = *(_DWORD *)v24;
+  *(_QWORD *)(v22 + 8 * v35) = v24 + 2;
   *(_DWORD *)(v22 + 8 * v35 + 8) = v37;
   *(_DWORD *)(v22 + 8 * v35 + 12) = 0;
-  v38 = v24[2];
+  v38 = *((_DWORD *)v24 + 2);
   v39 = v36;
   v40 = v36 + 1;
   v39 *= 2LL;
-  *(_QWORD *)(v22 + 8 * v39) = v24 + 68;
+  *(_QWORD *)(v22 + 8 * v39) = v24 + 34;
   *(_QWORD *)(v22 + 8 * v39 + 8) = v38;
   if ( v47 == 807 )
   {

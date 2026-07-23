@@ -1,12 +1,11 @@
 /*
- * XREFs of ZwSetInformationToken @ 0x1407269B0
+ * XREFs of ZwSetInformationToken @ 0x14072B580
  * Callers:
- *     DifZwSetInformationTokenWrapper @ 0x1406BAC40 (DifZwSetInformationTokenWrapper.c)
+ *     DifZwSetInformationTokenWrapper @ 0x1406BE820 (DifZwSetInformationTokenWrapper.c)
  * Callees:
  *     <none>
  */
 
-// local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall ZwSetInformationToken(
         HANDLE TokenHandle,
         TOKEN_INFORMATION_CLASS TokenInformationClass,
@@ -15,5 +14,5 @@ NTSTATUS __stdcall ZwSetInformationToken(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(TokenHandle, *(_QWORD *)&TokenInformationClass);
+  return KiServiceInternal(TokenHandle);
 }

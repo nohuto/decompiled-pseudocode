@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpFreeLineList @ 0x140C18180
+ * XREFs of CmpFreeLineList @ 0x140C1A180
  * Callers:
- *     EmpParseInfDatabase @ 0x140C167C4 (EmpParseInfDatabase.c)
+ *     EmpParseInfDatabase @ 0x140C187C4 (EmpParseInfDatabase.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall CmpFreeLineList(_QWORD *P)

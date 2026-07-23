@@ -1,7 +1,7 @@
 /*
- * XREFs of SymCryptFdefRawMul512Asm @ 0x140406CB0
+ * XREFs of SymCryptFdefRawMul512Asm @ 0x140406E90
  * Callers:
- *     SymCryptFdefModMulMontgomery512 @ 0x140404B50 (SymCryptFdefModMulMontgomery512.c)
+ *     SymCryptFdefModMulMontgomery512 @ 0x140404D30 (SymCryptFdefModMulMontgomery512.c)
  * Callees:
  *     <none>
  */

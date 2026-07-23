@@ -1,14 +1,14 @@
 /*
- * XREFs of MiWritePageFileHash @ 0x1401514B8
+ * XREFs of MiWritePageFileHash @ 0x1401515B8
  * Callers:
- *     MiMapPageFileHash @ 0x14014FCD8 (MiMapPageFileHash.c)
+ *     MiMapPageFileHash @ 0x14014FDD8 (MiMapPageFileHash.c)
  * Callees:
  *     MmMapLockedPagesSpecifyCache @ 0x14005C0C0 (MmMapLockedPagesSpecifyCache.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     MiComputePageHash @ 0x14015168C (MiComputePageHash.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14007DE80 (KeAcquireInStackQueuedSpinLock.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     MiComputePageHash @ 0x14015178C (MiComputePageHash.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void __fastcall MiWritePageFileHash(__int64 a1, __int64 a2, _QWORD *a3, unsigned int a4, unsigned int a5)
@@ -54,12 +54,12 @@ void __fastcall MiWritePageFileHash(__int64 a1, __int64 a2, _QWORD *a3, unsigned
     if ( v11 >= a5 )
       break;
     v26[v9] = 0;
-    if ( a3 && *a3 != qword_14043ADC8 )
+    if ( a3 && *a3 != qword_14043BE88 )
     {
       v14 = 1;
       v15 = 48LL * *a3 - 0x58000000000LL;
       v16 = (*(_QWORD *)(v15 + 16) >> 5) & 0x1FLL;
-      if ( (dword_140540180 & 1) != 0 || (_DWORD)v16 == 31 )
+      if ( (dword_140541180 & 1) != 0 || (_DWORD)v16 == 31 )
         goto LABEL_17;
       v17 = (unsigned int)v16 >> 3;
       if ( (unsigned int)v16 >> 3 == 3 )

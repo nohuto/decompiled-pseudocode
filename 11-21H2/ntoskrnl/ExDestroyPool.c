@@ -3,10 +3,10 @@
  * Callers:
  *     <none>
  * Callees:
- *     ExpSecurePoolDestroy @ 0x14063F6D4 (ExpSecurePoolDestroy.c)
+ *     sub_14063F6D4 @ 0x14063F6D4 (sub_14063F6D4.c)
  */
 
 __int64 __fastcall ExDestroyPool(ULONG_PTR a1)
 {
-  return ExpSecurePoolDestroy(a1);
+  return sub_14063F6D4(a1);
 }

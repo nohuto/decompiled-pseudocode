@@ -1,19 +1,19 @@
 /*
- * XREFs of _PnpObjectRaisePropertyChangeEvent @ 0x14090D610
+ * XREFs of _PnpObjectRaisePropertyChangeEvent @ 0x1409AF740
  * Callers:
- *     _CmRemovePanelDeviceWorker @ 0x14089AE68 (_CmRemovePanelDeviceWorker.c)
- *     _CmSetInterfaceClassMappedProperty @ 0x14089C414 (_CmSetInterfaceClassMappedProperty.c)
- *     _CmRaisePropertyChangeEvent @ 0x14090B994 (_CmRaisePropertyChangeEvent.c)
- *     _PnpSetObjectPropertyWorker @ 0x1409DC180 (_PnpSetObjectPropertyWorker.c)
- *     _CmSetDeviceMappedProperty @ 0x140AAFB8C (_CmSetDeviceMappedProperty.c)
- *     _CmAddPanelDeviceWorker @ 0x140B2B2B0 (_CmAddPanelDeviceWorker.c)
- *     _CmSetInstallerClassMappedProperty @ 0x140B3E1DC (_CmSetInstallerClassMappedProperty.c)
+ *     _CmRemovePanelDeviceWorker @ 0x1408A1268 (_CmRemovePanelDeviceWorker.c)
+ *     _CmSetInterfaceClassMappedProperty @ 0x1408A2814 (_CmSetInterfaceClassMappedProperty.c)
+ *     _CmRaisePropertyChangeEvent @ 0x1409ADAB8 (_CmRaisePropertyChangeEvent.c)
+ *     _PnpSetObjectPropertyWorker @ 0x140A193D0 (_PnpSetObjectPropertyWorker.c)
+ *     _CmSetDeviceMappedProperty @ 0x140AAD7DC (_CmSetDeviceMappedProperty.c)
+ *     _CmAddPanelDeviceWorker @ 0x140B2D330 (_CmAddPanelDeviceWorker.c)
+ *     _CmSetInstallerClassMappedProperty @ 0x140B40214 (_CmSetInstallerClassMappedProperty.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     _PnpInterfaceClassRaisePropertyChangeEventWorker @ 0x140899AF0 (_PnpInterfaceClassRaisePropertyChangeEventWorker.c)
- *     _PnpDeviceRaisePropertyChangeEventWorker @ 0x14090D72C (_PnpDeviceRaisePropertyChangeEventWorker.c)
- *     _PnpInterfaceRaisePropertyChangeEventWorker @ 0x14090F130 (_PnpInterfaceRaisePropertyChangeEventWorker.c)
- *     _PnpInstallerClassRaisePropertyChangeEventWorker @ 0x140B3AE9C (_PnpInstallerClassRaisePropertyChangeEventWorker.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     _PnpInterfaceClassRaisePropertyChangeEventWorker @ 0x14089FEF0 (_PnpInterfaceClassRaisePropertyChangeEventWorker.c)
+ *     _PnpDeviceRaisePropertyChangeEventWorker @ 0x1409AF85C (_PnpDeviceRaisePropertyChangeEventWorker.c)
+ *     _PnpInterfaceRaisePropertyChangeEventWorker @ 0x1409B1260 (_PnpInterfaceRaisePropertyChangeEventWorker.c)
+ *     _PnpInstallerClassRaisePropertyChangeEventWorker @ 0x140B3D11C (_PnpInstallerClassRaisePropertyChangeEventWorker.c)
  */
 
 __int64 __fastcall PnpObjectRaisePropertyChangeEvent(

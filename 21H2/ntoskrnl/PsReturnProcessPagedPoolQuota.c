@@ -1,21 +1,21 @@
 /*
- * XREFs of PsReturnProcessPagedPoolQuota @ 0x140318410
+ * XREFs of PsReturnProcessPagedPoolQuota @ 0x140323160
  * Callers:
- *     FsRtlCancelNotify @ 0x1402AA750 (FsRtlCancelNotify.c)
- *     MiDeletePartialVad @ 0x1402FD8DC (MiDeletePartialVad.c)
- *     ExpFreeHandleTable @ 0x140604378 (ExpFreeHandleTable.c)
- *     ExpFreeTablePagedPool @ 0x1406044E0 (ExpFreeTablePagedPool.c)
- *     LpcExitProcess @ 0x140613E28 (LpcExitProcess.c)
- *     AlpcpReleasePagedPoolQuota @ 0x14061FB44 (AlpcpReleasePagedPoolQuota.c)
- *     ExpAllocateHandleTable @ 0x14062AF9C (ExpAllocateHandleTable.c)
- *     FsRtlNotifyFilterReportChange @ 0x14068FB50 (FsRtlNotifyFilterReportChange.c)
- *     FsRtlNotifyFilterReportChangeLiteEx @ 0x1406907E0 (FsRtlNotifyFilterReportChangeLiteEx.c)
- *     FsRtlNotifyCompleteIrp @ 0x140690DE4 (FsRtlNotifyCompleteIrp.c)
- *     FsRtlNotifyCleanupOneEntry @ 0x14069133C (FsRtlNotifyCleanupOneEntry.c)
- *     MiInsertVadCharges @ 0x1406ECC70 (MiInsertVadCharges.c)
- *     MiReturnVadQuota @ 0x1406EE790 (MiReturnVadQuota.c)
+ *     FsRtlCancelNotify @ 0x140228890 (FsRtlCancelNotify.c)
+ *     MiDeletePartialVad @ 0x14030862C (MiDeletePartialVad.c)
+ *     FsRtlNotifyFilterReportChange @ 0x1405EF9C0 (FsRtlNotifyFilterReportChange.c)
+ *     FsRtlNotifyFilterReportChangeLiteEx @ 0x1405F0650 (FsRtlNotifyFilterReportChangeLiteEx.c)
+ *     FsRtlNotifyCompleteIrp @ 0x1405F0C54 (FsRtlNotifyCompleteIrp.c)
+ *     FsRtlNotifyCleanupOneEntry @ 0x1405F11AC (FsRtlNotifyCleanupOneEntry.c)
+ *     LpcExitProcess @ 0x14067DA88 (LpcExitProcess.c)
+ *     AlpcpReleasePagedPoolQuota @ 0x1406897B4 (AlpcpReleasePagedPoolQuota.c)
+ *     ExpAllocateHandleTable @ 0x14069577C (ExpAllocateHandleTable.c)
+ *     ExpFreeHandleTable @ 0x1406F3AA8 (ExpFreeHandleTable.c)
+ *     ExpFreeTablePagedPool @ 0x1406F3C10 (ExpFreeTablePagedPool.c)
+ *     MiInsertVadCharges @ 0x140704050 (MiInsertVadCharges.c)
+ *     MiReturnVadQuota @ 0x140705B70 (MiReturnVadQuota.c)
  * Callees:
- *     PspReturnQuota @ 0x140341980 (PspReturnQuota.c)
+ *     PspReturnQuota @ 0x14034C6D0 (PspReturnQuota.c)
  */
 
 __int64 __fastcall PsReturnProcessPagedPoolQuota(struct _KPROCESS *a1, __int64 a2)

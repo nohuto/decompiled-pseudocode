@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwpTraceFileName @ 0x1400A05DC
+ * XREFs of EtwpTraceFileName @ 0x14009EF04
  * Callers:
  *     <none>
  * Callees:
- *     EtwWrite @ 0x140013320 (EtwWrite.c)
- *     EtwTraceKernelEvent @ 0x140014190 (EtwTraceKernelEvent.c)
- *     EtwpLogKernelEvent @ 0x140059740 (EtwpLogKernelEvent.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     EtwWrite @ 0x140012EA0 (EtwWrite.c)
+ *     EtwTraceKernelEvent @ 0x140013D10 (EtwTraceKernelEvent.c)
+ *     EtwpLogKernelEvent @ 0x1400592C0 (EtwpLogKernelEvent.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 void __fastcall EtwpTraceFileName(__int64 a1, unsigned __int16 *a2, unsigned int a3, __int16 a4)
@@ -33,7 +33,7 @@ void __fastcall EtwpTraceFileName(__int64 a1, unsigned __int16 *a2, unsigned int
   UserData.Ptr = (ULONGLONG)&v8;
   v10 = *((_QWORD *)a2 + 1);
   v13 = &v7;
-  if ( (dword_1402FD540 & 0x200) != 0 )
+  if ( (dword_1402FD520 & 0x200) != 0 )
   {
     if ( a4 == 1056 )
     {

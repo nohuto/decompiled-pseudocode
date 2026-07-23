@@ -6,7 +6,7 @@
  *     <none>
  */
 
-void (*RtlGetReturnAddressHijackTarget())()
+ULONG_PTR RtlGetReturnAddressHijackTarget(void)
 {
-  return RtlRaiseExceptionForReturnAddressHijack;
+  return (ULONG_PTR)RtlRaiseExceptionForReturnAddressHijack;
 }

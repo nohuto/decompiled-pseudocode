@@ -1,9 +1,9 @@
 /*
- * XREFs of PoGetProcessorIdleAccounting @ 0x14052F9F0
+ * XREFs of PoGetProcessorIdleAccounting @ 0x140531EF0
  * Callers:
- *     EmonOverflowHandlerInternalV2 @ 0x1404B710C (EmonOverflowHandlerInternalV2.c)
- *     EmonOverflowHandlerInternalV1 @ 0x1404B75BC (EmonOverflowHandlerInternalV1.c)
- *     Amd64OverflowHandlerInternal @ 0x1405A4530 (Amd64OverflowHandlerInternal.c)
+ *     EmonOverflowHandlerInternalV2 @ 0x1404B093C (EmonOverflowHandlerInternalV2.c)
+ *     EmonOverflowHandlerInternalV1 @ 0x1404B0DEC (EmonOverflowHandlerInternalV1.c)
+ *     Amd64OverflowHandlerInternal @ 0x1405A6D40 (Amd64OverflowHandlerInternal.c)
  * Callees:
  *     <none>
  */

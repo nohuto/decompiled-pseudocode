@@ -1,14 +1,14 @@
 /*
- * XREFs of McTemplateK0jq_EtwWriteTransfer @ 0x14053EFF4
+ * XREFs of McTemplateK0jq_EtwWriteTransfer @ 0x14053F6B4
  * Callers:
- *     FsRtlpDedupChangeEventsControlCallbackV2 @ 0x14053EED0 (FsRtlpDedupChangeEventsControlCallbackV2.c)
- *     FsRtlpTieringHeatEventsControlCallbackV2 @ 0x14053F190 (FsRtlpTieringHeatEventsControlCallbackV2.c)
- *     FsRtlDedupChangeUninit @ 0x14093E780 (FsRtlDedupChangeUninit.c)
- *     FsRtlpDedupChangeRegisterVolume @ 0x14093E910 (FsRtlpDedupChangeRegisterVolume.c)
- *     FsRtlpHeatRegisterVolume @ 0x14093FB18 (FsRtlpHeatRegisterVolume.c)
+ *     FsRtlpDedupChangeEventsControlCallbackV2 @ 0x14053F590 (FsRtlpDedupChangeEventsControlCallbackV2.c)
+ *     FsRtlpTieringHeatEventsControlCallbackV2 @ 0x14053F850 (FsRtlpTieringHeatEventsControlCallbackV2.c)
+ *     FsRtlDedupChangeUninit @ 0x14093E980 (FsRtlDedupChangeUninit.c)
+ *     FsRtlpDedupChangeRegisterVolume @ 0x14093EB10 (FsRtlpDedupChangeRegisterVolume.c)
+ *     FsRtlpHeatRegisterVolume @ 0x14093FD18 (FsRtlpHeatRegisterVolume.c)
  * Callees:
- *     McGenEventWrite_EtwWriteTransfer @ 0x1403C42C0 (McGenEventWrite_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1403C44A0 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall McTemplateK0jq_EtwWriteTransfer(

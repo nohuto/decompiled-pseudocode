@@ -1,12 +1,12 @@
 /*
- * XREFs of MiBeginHoldingDirtyFaults @ 0x140641BF4
+ * XREFs of MiBeginHoldingDirtyFaults @ 0x140642144
  * Callers:
- *     MiPrepareToHotPatchVad @ 0x140A3AEEC (MiPrepareToHotPatchVad.c)
+ *     MiPrepareToHotPatchVad @ 0x140A3B19C (MiPrepareToHotPatchVad.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     MiMoveDirtyBitsToPfns @ 0x140285A10 (MiMoveDirtyBitsToPfns.c)
- *     MiGetSharedVm @ 0x140286E74 (MiGetSharedVm.c)
- *     MiUnlockWorkingSetExclusive @ 0x14028A2F0 (MiUnlockWorkingSetExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     MiMoveDirtyBitsToPfns @ 0x140285CA0 (MiMoveDirtyBitsToPfns.c)
+ *     MiGetSharedVm @ 0x140287104 (MiGetSharedVm.c)
+ *     MiUnlockWorkingSetExclusive @ 0x14028A580 (MiUnlockWorkingSetExclusive.c)
  */
 
 __int64 __fastcall MiBeginHoldingDirtyFaults(__int64 a1, _QWORD *a2)

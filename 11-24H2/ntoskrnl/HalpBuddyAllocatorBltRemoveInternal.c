@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpBuddyAllocatorBltRemoveInternal @ 0x1403AC580
+ * XREFs of HalpBuddyAllocatorBltRemoveInternal @ 0x14039AD8C
  * Callers:
- *     HalpBuddyAllocatorBltFindAndPop @ 0x1403AC430 (HalpBuddyAllocatorBltFindAndPop.c)
- *     HalpBuddyAllocatorBltPopBuddy @ 0x1403AC510 (HalpBuddyAllocatorBltPopBuddy.c)
- *     HalpBuddyAllocatorBltRemove @ 0x1405747D0 (HalpBuddyAllocatorBltRemove.c)
+ *     HalpBuddyAllocatorBltFindAndPop @ 0x14039AC3C (HalpBuddyAllocatorBltFindAndPop.c)
+ *     HalpBuddyAllocatorBltPopBuddy @ 0x14039AD1C (HalpBuddyAllocatorBltPopBuddy.c)
+ *     HalpBuddyAllocatorBltRemove @ 0x140571C60 (HalpBuddyAllocatorBltRemove.c)
  * Callees:
  *     <none>
  */

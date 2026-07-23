@@ -9,25 +9,37 @@
  *     _RtlpHpMetadataFree@12 @ 0x4B379479 (_RtlpHpMetadataFree@12.c)
  */
 
-void __stdcall RtlpHpStackTraceEtwCallback(int a1, int a2, int a3, int a4, int a5, int a6, int a7, int a8, int a9)
+void __userpurge RtlpHpStackTraceEtwCallback(
+        int a1@<esi>,
+        LPCGUID a2,
+        ULONG a3,
+        UCHAR a4,
+        ULONGLONG a5,
+        ULONGLONG a6,
+        PEVENT_FILTER_DESCRIPTOR a7,
+        PVOID a8)
 {
-  signed __int32 *v9; // edi
-  signed __int32 v10; // esi
-  _DWORD v11[5]; // [esp+0h] [ebp-14h] BYREF
+  signed __int32 *v8; // edi
+  signed __int32 v9; // esi
+  size_t v10; // [esp-Ch] [ebp-20h]
+  PSIZE_T v11; // [esp-8h] [ebp-1Ch]
+  _DWORD HeapInformation[5]; // [esp+0h] [ebp-14h] BYREF
 
-  if ( a2 == 2 )
+  if ( a3 == 2 )
   {
-    v9 = (signed __int32 *)RtlpHpMetadataAlloc(0, RtlpHpEnvHandle, dword_4B3A446C);
-    if ( v9 )
+    v8 = (signed __int32 *)RtlpHpMetadataAlloc(0, RtlpHpEnvHandle, dword_4B3A446C);
+    if ( v8 )
     {
-      v10 = _InterlockedIncrement(&RtlpHpStackTraceLogInstance);
-      memset(v9 + 1, 0, 0x400Cu);
-      *v9 = v10;
-      v11[1] = -1;
-      v11[0] = 2;
-      v11[3] = v9;
-      v11[2] = RtlpHpStackTraceEventWriter;
-      RtlQueryHeapInformation(0, 5, v11, 0x14u, 0);
+      HIDWORD(v10) = a1;
+      v9 = _InterlockedIncrement(&RtlpHpStackTraceLogInstance);
+      LODWORD(v10) = 16396;
+      memset(v8 + 1, 0, v10);
+      *v8 = v9;
+      HeapInformation[1] = -1;
+      HeapInformation[0] = 2;
+      HeapInformation[3] = v8;
+      HeapInformation[2] = RtlpHpStackTraceEventWriter;
+      RtlQueryHeapInformation(0, (HEAP_INFORMATION_CLASS)5, HeapInformation, 0x14uLL, v11);
       RtlpHpMetadataFree(RtlpHpEnvHandle, dword_4B3A446C);
     }
   }

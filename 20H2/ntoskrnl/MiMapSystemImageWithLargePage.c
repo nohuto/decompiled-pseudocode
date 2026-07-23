@@ -41,20 +41,25 @@ char *__fastcall MiMapSystemImageWithLargePage(__int64 a1, unsigned int a2, cons
   unsigned __int64 PageTablesForLargeMap; // rax
   char *v13; // rbx
   size_t v14; // r13
-  __int64 v15; // rax
-  __int64 v16; // rsi
-  int v17; // eax
+  PIMAGE_NT_HEADERS v15; // rax
+  CHAR *v16; // r8
+  NTSTATUS v17; // r9d
+  PIMAGE_NT_HEADERS v18; // rsi
+  unsigned int VirtualAddress; // eax
+  LONGLONG v20; // rdx
   bool IsRetpolineEnabled; // al
-  int v19; // eax
+  int v22; // eax
   unsigned __int64 PteAddress; // rax
   unsigned int inited; // eax
+  NTSTATUS Conflict; // [rsp+20h] [rbp-C8h]
+  NTSTATUS Invalid; // [rsp+28h] [rbp-C0h]
   char *AnyMultiplexedVm; // [rsp+60h] [rbp-88h]
-  _QWORD v23[14]; // [rsp+78h] [rbp-70h] BYREF
-  ULONG_PTR v25; // [rsp+108h] [rbp+20h] BYREF
+  _QWORD v28[14]; // [rsp+78h] [rbp-70h] BYREF
+  ULONG_PTR v30; // [rsp+108h] [rbp+20h] BYREF
 
   v3 = a2;
-  v25 = 0LL;
-  memset(v23, 0, 48);
+  v30 = 0LL;
+  memset(v28, 0, 48);
   if ( a1 )
   {
     v5 = MiSectionControlArea(a1);
@@ -82,11 +87,11 @@ char *__fastcall MiMapSystemImageWithLargePage(__int64 a1, unsigned int a2, cons
               0x80000000,
               0x100000,
               0LL,
-              (__int64 *)&v25) < 0 )
+              (__int64 *)&v30) < 0 )
     return 0LL;
   if ( v9 > v8 )
-    MiFreeContiguousPages(v8 + v25, v9 - v8);
-  v11 = MiPageToNode(v25);
+    MiFreeContiguousPages(v8 + v30, v9 - v8);
+  v11 = MiPageToNode(v30);
   PageTablesForLargeMap = MiGetPageTablesForLargeMap(v8, 12, 1, v11 + 1);
   v13 = (char *)PageTablesForLargeMap;
   if ( !PageTablesForLargeMap )
@@ -96,43 +101,43 @@ char *__fastcall MiMapSystemImageWithLargePage(__int64 a1, unsigned int a2, cons
   {
     MiUnmapLargeDriver(v13, v3);
 LABEL_13:
-    MiFreeContiguousPages(v25, v8);
+    MiFreeContiguousPages(v30, v8);
     return 0LL;
   }
   AnyMultiplexedVm = MiGetAnyMultiplexedVm(1);
-  MiMapWithLargePages((__int64)AnyMultiplexedVm, (unsigned __int64)v13, v25, v8, 1, 6, 1);
+  MiMapWithLargePages((__int64)AnyMultiplexedVm, (unsigned __int64)v13, v30, v8, 1, 6, 1);
   v14 = (unsigned int)((_DWORD)v3 << 12);
   memmove(v13, a3, v14);
   memset(&v13[v14], 0, (unsigned int)(dword_140C4CACC << 12));
   if ( MiIsRetpolineEnabled() )
     memmove(&v13[v14], Base, (unsigned int)(dword_140C4CB08 << 12));
-  v15 = RtlImageNtHeader((__int64)v13);
-  v16 = v15;
-  if ( *(_DWORD *)(v15 + 132) <= 5u
-    || (v17 = *(_DWORD *)(v15 + 176)) != 0
-    && (v17 + *(_DWORD *)(v16 + 180) > (unsigned int)v14
-     || (int)LdrRelocateImageWithBias(v13) < 0
+  v15 = RtlImageNtHeader(v13);
+  v18 = v15;
+  if ( v15->OptionalHeader.NumberOfRvaAndSizes <= 5
+    || (VirtualAddress = v15->OptionalHeader.DataDirectory[5].VirtualAddress) != 0
+    && ((v20 = VirtualAddress + v18->OptionalHeader.DataDirectory[5].Size, (unsigned int)v20 > (unsigned int)v14)
+     || LdrRelocateImageWithBias(v13, v20, v16, v17, Conflict, Invalid) < 0
      || (MiIsRetpolineEnabled() || MiIsImportOptimizationEnabled())
      && (IsRetpolineEnabled = MiIsRetpolineEnabled(),
-         v19 = RtlPerformRetpolineRelocationsOnImage(
-                 (int)v13,
-                 (int)v13,
-                 v14,
-                 (int)v13 + (int)v14,
+         v22 = RtlPerformRetpolineRelocationsOnImage(
+                 v13,
+                 (__int64)v13,
+                 (unsigned int)v14,
+                 (__int64)&v13[v14],
                  (__int64)Base,
                  IsRetpolineEnabled),
-         (int)(v19 + 0x80000000) >= 0)
-     && v19 != -1073741637) )
+         (int)(v22 + 0x80000000) >= 0)
+     && v22 != -1073741637) )
   {
     MiReleasePrivilegedPtes();
     MiUnmapLargeDriver(v13, v7);
     return 0LL;
   }
-  *(_QWORD *)(v16 + 48) = v13;
+  v18->OptionalHeader.ImageBase = (unsigned __int64)v13;
   if ( a1 )
   {
     PteAddress = MiGetPteAddress((unsigned __int64)a3);
-    MiDeleteSystemPagableVm((__int64)AnyMultiplexedVm, v5, PteAddress, v7, 1, v23);
+    MiDeleteSystemPagableVm((__int64)AnyMultiplexedVm, v5, PteAddress, v7, 1, v28);
     MiChargeSystemImageCommitment(a1);
   }
   if ( (BYTE4(PerfGlobalGroupMask[0]) & 1) != 0 )

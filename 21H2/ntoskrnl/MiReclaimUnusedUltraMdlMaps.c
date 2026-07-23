@@ -1,14 +1,14 @@
 /*
- * XREFs of MiReclaimUnusedUltraMdlMaps @ 0x140271C40
+ * XREFs of MiReclaimUnusedUltraMdlMaps @ 0x14025FBE0
  * Callers:
- *     MiWorkingSetManager @ 0x140272C60 (MiWorkingSetManager.c)
+ *     MiWorkingSetManager @ 0x140260C00 (MiWorkingSetManager.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     MiDeleteUltraMapContext @ 0x1402E6634 (MiDeleteUltraMapContext.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     MiDeleteUltraMapContext @ 0x140297984 (MiDeleteUltraMapContext.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402D3660 (KeAcquireInStackQueuedSpinLock.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     RtlpInterlockedPopEntrySList @ 0x140407930 (RtlpInterlockedPopEntrySList.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140407B10 (RtlpInterlockedPopEntrySList.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 MiReclaimUnusedUltraMdlMaps()
@@ -38,9 +38,9 @@ __int64 MiReclaimUnusedUltraMdlMaps()
       v4 = (unsigned __int64)v2 << 9;
       do
       {
-        while ( *(_WORD *)(v4 + qword_140C4EC38) > 2u )
+        while ( *(_WORD *)(v4 + qword_140C4EC78) > 2u )
         {
-          v5 = RtlpInterlockedPopEntrySList((PSLIST_HEADER)(qword_140C4EC38 + ((8LL * v2 + v3) << 6)));
+          v5 = RtlpInterlockedPopEntrySList((PSLIST_HEADER)(qword_140C4EC78 + ((8LL * v2 + v3) << 6)));
           v6 = v5;
           if ( !v5 )
             break;
@@ -58,8 +58,8 @@ __int64 MiReclaimUnusedUltraMdlMaps()
     while ( v2 < (unsigned __int16)KeNumberNodes );
     if ( v1 )
     {
-      KeAcquireInStackQueuedSpinLock(&qword_140C4EBF0, &LockHandle);
-      dword_140C4EC30 -= v1;
+      KeAcquireInStackQueuedSpinLock(&qword_140C4EC30, &LockHandle);
+      dword_140C4EC70 -= v1;
       KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
       result = (unsigned int)KiIrqlFlags;
       OldIrql = LockHandle.OldIrql;

@@ -1,21 +1,21 @@
 /*
- * XREFs of HalpIommuDomainUnmapLogicalRange @ 0x1404C9334
+ * XREFs of HalpIommuDomainUnmapLogicalRange @ 0x1404C9574
  * Callers:
- *     HalDmaAllocateCrashDumpRegistersEx @ 0x1403A6380 (HalDmaAllocateCrashDumpRegistersEx.c)
- *     HalDmaFreeCrashDumpRegistersEx @ 0x1403A7070 (HalDmaFreeCrashDumpRegistersEx.c)
- *     HalpDmaFreeLa @ 0x1404B78F8 (HalpDmaFreeLa.c)
- *     HalFreeCommonBufferV3 @ 0x1404C45F0 (HalFreeCommonBufferV3.c)
- *     HalpLeaveDmaDomain @ 0x1404C4EAC (HalpLeaveDmaDomain.c)
- *     HalFreeCommonBufferVector @ 0x1404C6020 (HalFreeCommonBufferVector.c)
- *     HalFreeCommonBufferThin @ 0x1404CADB0 (HalFreeCommonBufferThin.c)
- *     HalpPutScatterGatherListThin @ 0x1404CBA8C (HalpPutScatterGatherListThin.c)
- *     IommuUnmapLogicalRange @ 0x1404DADA0 (IommuUnmapLogicalRange.c)
+ *     HalDmaAllocateCrashDumpRegistersEx @ 0x1403A64D0 (HalDmaAllocateCrashDumpRegistersEx.c)
+ *     HalDmaFreeCrashDumpRegistersEx @ 0x1403A71C0 (HalDmaFreeCrashDumpRegistersEx.c)
+ *     HalpDmaFreeLa @ 0x1404B7B38 (HalpDmaFreeLa.c)
+ *     HalFreeCommonBufferV3 @ 0x1404C4830 (HalFreeCommonBufferV3.c)
+ *     HalpLeaveDmaDomain @ 0x1404C50EC (HalpLeaveDmaDomain.c)
+ *     HalFreeCommonBufferVector @ 0x1404C6260 (HalFreeCommonBufferVector.c)
+ *     HalFreeCommonBufferThin @ 0x1404CAFF0 (HalFreeCommonBufferThin.c)
+ *     HalpPutScatterGatherListThin @ 0x1404CBCCC (HalpPutScatterGatherListThin.c)
+ *     IommuUnmapLogicalRange @ 0x1404DAFE0 (IommuUnmapLogicalRange.c)
  * Callees:
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     HalpIommuFlushDmaDomain @ 0x1404C9488 (HalpIommuFlushDmaDomain.c)
- *     IommupHvMapDeviceLogicalRange @ 0x1404DA284 (IommupHvMapDeviceLogicalRange.c)
- *     HalpIommuUnmapLogicalRange @ 0x1404DC62C (HalpIommuUnmapLogicalRange.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     HalpIommuFlushDmaDomain @ 0x1404C96C8 (HalpIommuFlushDmaDomain.c)
+ *     IommupHvMapDeviceLogicalRange @ 0x1404DA4C4 (IommupHvMapDeviceLogicalRange.c)
+ *     HalpIommuUnmapLogicalRange @ 0x1404DC86C (HalpIommuUnmapLogicalRange.c)
  */
 
 __int64 __fastcall HalpIommuDomainUnmapLogicalRange(
@@ -49,7 +49,7 @@ __int64 __fastcall HalpIommuDomainUnmapLogicalRange(
     {
       v16 = v9;
       v15[0] = (v8 >> 12) + ((v8 & 0xFFF) != 0);
-      v10 = ((__int64 (__fastcall *)(__int64 *, ULONG_PTR, _QWORD *))qword_140C4A318)(&v16, BugCheckParameter4, v15);
+      v10 = ((__int64 (__fastcall *)(__int64 *, ULONG_PTR, _QWORD *))qword_140C4A358)(&v16, BugCheckParameter4, v15);
     }
     v11 = v10;
     if ( v10 < 0 )

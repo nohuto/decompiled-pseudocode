@@ -1,25 +1,25 @@
 /*
- * XREFs of ExpWorkerFactoryCheckCreate @ 0x140242EF0
+ * XREFs of ExpWorkerFactoryCheckCreate @ 0x1402E7740
  * Callers:
- *     NtWaitForWorkViaWorkerFactory @ 0x140203150 (NtWaitForWorkViaWorkerFactory.c)
- *     NtReleaseWorkerFactoryWorker @ 0x140242B70 (NtReleaseWorkerFactoryWorker.c)
- *     NtSetInformationWorkerFactory @ 0x140285C70 (NtSetInformationWorkerFactory.c)
- *     ExpWorkerFactoryDeferredThreadCreation @ 0x1402CBED4 (ExpWorkerFactoryDeferredThreadCreation.c)
- *     ExpWorkerFactoryManagerThread @ 0x1403B75A0 (ExpWorkerFactoryManagerThread.c)
+ *     NtSetInformationWorkerFactory @ 0x140202E10 (NtSetInformationWorkerFactory.c)
+ *     ExpWorkerFactoryDeferredThreadCreation @ 0x14024A624 (ExpWorkerFactoryDeferredThreadCreation.c)
+ *     NtWaitForWorkViaWorkerFactory @ 0x1402A7A90 (NtWaitForWorkViaWorkerFactory.c)
+ *     NtReleaseWorkerFactoryWorker @ 0x1402E73C0 (NtReleaseWorkerFactoryWorker.c)
+ *     ExpWorkerFactoryManagerThread @ 0x1403B7710 (ExpWorkerFactoryManagerThread.c)
  * Callees:
- *     ExpLeaveWorkerFactoryAwayMode @ 0x140202E08 (ExpLeaveWorkerFactoryAwayMode.c)
- *     ObfReferenceObjectWithTag @ 0x1402056A0 (ObfReferenceObjectWithTag.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
- *     KxWaitForLockOwnerShip @ 0x14022EEA0 (KxWaitForLockOwnerShip.c)
- *     ExpWorkerFactoryCreateThread @ 0x140286A28 (ExpWorkerFactoryCreateThread.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     KxWaitForLockChainValid @ 0x140287190 (KxWaitForLockChainValid.c)
- *     ExpCheckThreadHistory @ 0x1402BA4A0 (ExpCheckThreadHistory.c)
+ *     ExpWorkerFactoryCreateThread @ 0x140203BC8 (ExpWorkerFactoryCreateThread.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KxWaitForLockChainValid @ 0x140204330 (KxWaitForLockChainValid.c)
+ *     ExpCheckThreadHistory @ 0x1402386B0 (ExpCheckThreadHistory.c)
+ *     ExpLeaveWorkerFactoryAwayMode @ 0x1402A7748 (ExpLeaveWorkerFactoryAwayMode.c)
+ *     ObfReferenceObjectWithTag @ 0x1402A9FE0 (ObfReferenceObjectWithTag.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402D3660 (KeAcquireInStackQueuedSpinLock.c)
+ *     KxWaitForLockOwnerShip @ 0x1402D36F0 (KxWaitForLockOwnerShip.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     RtlpInterlockedPushEntrySList @ 0x140407970 (RtlpInterlockedPushEntrySList.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x1405163CC (KiAcquireQueuedSpinLockInstrumented.c)
- *     KiReleaseQueuedSpinLockInstrumented @ 0x14051648C (KiReleaseQueuedSpinLockInstrumented.c)
- *     ExpSetWorkerFactoryDeferredCreateTimer @ 0x1406BC064 (ExpSetWorkerFactoryDeferredCreateTimer.c)
+ *     RtlpInterlockedPushEntrySList @ 0x140407B50 (RtlpInterlockedPushEntrySList.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x14051660C (KiAcquireQueuedSpinLockInstrumented.c)
+ *     KiReleaseQueuedSpinLockInstrumented @ 0x1405166CC (KiReleaseQueuedSpinLockInstrumented.c)
+ *     ExpSetWorkerFactoryDeferredCreateTimer @ 0x14061B0E4 (ExpSetWorkerFactoryDeferredCreateTimer.c)
  */
 
 __int64 __fastcall ExpWorkerFactoryCheckCreate(char *Object, PKLOCK_QUEUE_HANDLE LockHandle, char a3)
@@ -199,7 +199,7 @@ LABEL_16:
         __writecr8(OldIrql);
         return result;
       }
-      Next = KxWaitForLockChainValid(v4);
+      Next = KxWaitForLockChainValid((__int64 *)v4);
     }
     v4->LockQueue.Next = 0LL;
     _InterlockedXor64((volatile signed __int64 *)(Next + 8), 1uLL);
@@ -224,7 +224,7 @@ LABEL_16:
     }
     goto LABEL_51;
   }
-  if ( (!a3 || (*((_DWORD *)Object + 78) & 0x30) != 0x20) && (unsigned __int8)ExpCheckThreadHistory(Object) )
+  if ( (!a3 || (*((_DWORD *)Object + 78) & 0x30) != 0x20) && ExpCheckThreadHistory((__int64)Object) )
   {
     v19 = (unsigned int *)(Object + 312);
     v27 = *((_DWORD *)Object + 78);
@@ -298,7 +298,7 @@ LABEL_16:
     }
   }
   __writecr8(v22);
-  result = ExpWorkerFactoryCreateThread(Object);
+  result = ExpWorkerFactoryCreateThread((__int64)Object);
   v23 = result;
   if ( (int)result < 0 )
   {

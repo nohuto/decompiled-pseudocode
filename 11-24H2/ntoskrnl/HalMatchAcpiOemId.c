@@ -1,14 +1,14 @@
 /*
- * XREFs of HalMatchAcpiOemId @ 0x140478320
+ * XREFs of HalMatchAcpiOemId @ 0x14045F7B0
  * Callers:
- *     EmpEvaluateNodeLink @ 0x14043D87C (EmpEvaluateNodeLink.c)
+ *     EmpEvaluateNodeLink @ 0x140431B1C (EmpEvaluateNodeLink.c)
  * Callees:
- *     KeReleaseGuardedMutex @ 0x14031E470 (KeReleaseGuardedMutex.c)
- *     ExAcquireFastMutex @ 0x14033E850 (ExAcquireFastMutex.c)
- *     HalpAcpiGetTableWork @ 0x14047856C (HalpAcpiGetTableWork.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     strlen @ 0x1406C04D0 (strlen.c)
- *     RtlCompareString @ 0x1408B0610 (RtlCompareString.c)
+ *     KeReleaseGuardedMutex @ 0x1402C7000 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x14031DD30 (ExAcquireFastMutex.c)
+ *     HalpAcpiGetTableWork @ 0x14045F9FC (HalpAcpiGetTableWork.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     strlen @ 0x1406C13D0 (strlen.c)
+ *     RtlCompareString @ 0x140906870 (RtlCompareString.c)
  */
 
 __int64 __fastcall HalMatchAcpiOemId(__int64 a1, __int64 a2, int **a3, int a4)
@@ -36,7 +36,7 @@ __int64 __fastcall HalMatchAcpiOemId(__int64 a1, __int64 a2, int **a3, int a4)
       {
         v6 = **a3;
         ExAcquireFastMutex(&HalpAcpiTableCacheLock);
-        TableWork = HalpAcpiGetTableWork(0, v6, 0LL, 0LL);
+        TableWork = HalpAcpiGetTableWork(0, v6, 0, 0);
         KeReleaseGuardedMutex(&HalpAcpiTableCacheLock);
         if ( TableWork )
         {

@@ -1,14 +1,14 @@
 /*
- * XREFs of PopDiagTracePowerLimitRequestValueUpdate @ 0x1407D4648
+ * XREFs of PopDiagTracePowerLimitRequestValueUpdate @ 0x1407D77C8
  * Callers:
- *     PoSetPowerLimitValue @ 0x1407CA570 (PoSetPowerLimitValue.c)
+ *     PoSetPowerLimitValue @ 0x1407CD610 (PoSetPowerLimitValue.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     PoStoreDiagnosticContext @ 0x1404372B0 (PoStoreDiagnosticContext.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     PoStoreDiagnosticContext @ 0x140426240 (PoStoreDiagnosticContext.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PopDiagTracePowerLimitRequestValueUpdate(__int64 a1, __int64 a2)
@@ -41,11 +41,9 @@ void __fastcall PopDiagTracePowerLimitRequestValueUpdate(__int64 a1, __int64 a2)
   i = 0LL;
   v5 = 0LL;
   v12 = 0;
-  if ( byte_140E67628 )
+  if ( PopDiagHandleRegistered )
   {
-    if ( EtwEventEnabled(
-           *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-           &POP_ETW_EVENT_POWER_LIMIT_REQUEST_UPDATE) )
+    if ( EtwEventEnabled(PopDiagHandle, &POP_ETW_EVENT_POWER_LIMIT_REQUEST_UPDATE) )
     {
       v6 = (unsigned int *)(a1 + 32);
       v7 = 16 * *(_DWORD *)(a1 + 32);
@@ -95,12 +93,7 @@ LABEL_12:
           v22 = 4LL;
           v23 = Pool2;
           v24 = v7;
-          EtwWrite(
-            *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-            &POP_ETW_EVENT_POWER_LIMIT_REQUEST_UPDATE,
-            0LL,
-            5u,
-            &UserData);
+          EtwWrite(PopDiagHandle, &POP_ETW_EVENT_POWER_LIMIT_REQUEST_UPDATE, 0LL, 5u, &UserData);
           if ( !v4 )
             goto LABEL_13;
           goto LABEL_12;

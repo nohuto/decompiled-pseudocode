@@ -1,10 +1,10 @@
 /*
- * XREFs of MiStartDpcZeroingRound @ 0x14038DF48
+ * XREFs of MiStartDpcZeroingRound @ 0x14038E128
  * Callers:
- *     MiZeroPageCalibrateDpc @ 0x14038DCB0 (MiZeroPageCalibrateDpc.c)
+ *     MiZeroPageCalibrateDpc @ 0x14038DE90 (MiZeroPageCalibrateDpc.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x1402C3270 (KeQueryPerformanceCounter.c)
- *     MiInitializeZeroEngineCurrentPassDpcAffinity @ 0x14038E0F8 (MiInitializeZeroEngineCurrentPassDpcAffinity.c)
+ *     KeQueryPerformanceCounter @ 0x1402C3500 (KeQueryPerformanceCounter.c)
+ *     MiInitializeZeroEngineCurrentPassDpcAffinity @ 0x14038E2D8 (MiInitializeZeroEngineCurrentPassDpcAffinity.c)
  */
 
 __int64 __fastcall MiStartDpcZeroingRound(LARGE_INTEGER *a1)

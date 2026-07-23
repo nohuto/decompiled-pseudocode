@@ -1,12 +1,12 @@
 /*
- * XREFs of PopEtEnumEnergyTrackers @ 0x140950D08
+ * XREFs of PopEtEnumEnergyTrackers @ 0x1409CC648
  * Callers:
- *     PoEnergyContextCleanup @ 0x14095042C (PoEnergyContextCleanup.c)
- *     PopEtEnergyContextProcessStateUpdate @ 0x1409521A4 (PopEtEnergyContextProcessStateUpdate.c)
+ *     PoEnergyContextCleanup @ 0x1409CBD6C (PoEnergyContextCleanup.c)
+ *     PopEtEnergyContextProcessStateUpdate @ 0x1409CDAE4 (PopEtEnergyContextProcessStateUpdate.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     PopEtGetNextEnergyTracker @ 0x140950D64 (PopEtGetNextEnergyTracker.c)
- *     PopEtEnergyTrackerEnumSnapshotCallback @ 0x140950DF8 (PopEtEnergyTrackerEnumSnapshotCallback.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     PopEtGetNextEnergyTracker @ 0x1409CC6A4 (PopEtGetNextEnergyTracker.c)
+ *     PopEtEnergyTrackerEnumSnapshotCallback @ 0x1409CC738 (PopEtEnergyTrackerEnumSnapshotCallback.c)
  */
 
 __int64 __fastcall PopEtEnumEnergyTrackers(__int64 a1, __int64 a2)

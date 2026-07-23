@@ -6,11 +6,11 @@
  *     _RtlEnterCriticalSection@4 @ 0x4B2BFE90 (_RtlEnterCriticalSection@4.c)
  */
 
-int __stdcall RtlTraceDatabaseLock(int a1)
+NTSTATUS __stdcall RtlTraceDatabaseLock(int a1)
 {
-  int result; // eax
+  NTSTATUS result; // eax
 
-  result = RtlEnterCriticalSection(a1 + 28);
+  result = RtlEnterCriticalSection((PRTL_CRITICAL_SECTION)(a1 + 28));
   *(_DWORD *)(a1 + 24) = 0;
   return result;
 }

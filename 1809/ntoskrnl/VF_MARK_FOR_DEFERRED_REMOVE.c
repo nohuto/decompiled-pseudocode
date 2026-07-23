@@ -1,11 +1,11 @@
 /*
- * XREFs of VF_MARK_FOR_DEFERRED_REMOVE @ 0x140929A40
+ * XREFs of VF_MARK_FOR_DEFERRED_REMOVE @ 0x14092AA40
  * Callers:
- *     VfIoDeleteDevice @ 0x140934128 (VfIoDeleteDevice.c)
+ *     VfIoDeleteDevice @ 0x140935128 (VfIoDeleteDevice.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1400630D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14008CE80 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall VF_MARK_FOR_DEFERRED_REMOVE(struct _LIST_ENTRY *a1)

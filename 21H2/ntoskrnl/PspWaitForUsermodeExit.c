@@ -1,15 +1,15 @@
 /*
- * XREFs of PspWaitForUsermodeExit @ 0x14090B2EC
+ * XREFs of PspWaitForUsermodeExit @ 0x14090B44C
  * Callers:
- *     PspShutdownCsrProcess @ 0x140906650 (PspShutdownCsrProcess.c)
- *     PspWaitOnAllProcessesJobCallback @ 0x140909D10 (PspWaitOnAllProcessesJobCallback.c)
- *     PsShutdownSystem @ 0x14090A9F4 (PsShutdownSystem.c)
+ *     PspShutdownCsrProcess @ 0x1409067B0 (PspShutdownCsrProcess.c)
+ *     PspWaitOnAllProcessesJobCallback @ 0x140909E70 (PspWaitOnAllProcessesJobCallback.c)
+ *     PsShutdownSystem @ 0x14090AB54 (PsShutdownSystem.c)
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x1402056A0 (ObfReferenceObjectWithTag.c)
- *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
- *     PsQuitNextProcessThread @ 0x1406C39B0 (PsQuitNextProcessThread.c)
- *     PsGetNextProcessThread @ 0x14070A2F0 (PsGetNextProcessThread.c)
+ *     ObfReferenceObjectWithTag @ 0x1402A9FE0 (ObfReferenceObjectWithTag.c)
+ *     KeWaitForSingleObject @ 0x1403504C0 (KeWaitForSingleObject.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
+ *     PsQuitNextProcessThread @ 0x140622590 (PsQuitNextProcessThread.c)
+ *     PsGetNextProcessThread @ 0x1407216D0 (PsGetNextProcessThread.c)
  */
 
 __int64 __fastcall PspWaitForUsermodeExit(__int64 a1)

@@ -1,13 +1,13 @@
 /*
- * XREFs of SepGetProcUniqueLuidAndIndexFromAttributeInfo @ 0x140477830
+ * XREFs of SepGetProcUniqueLuidAndIndexFromAttributeInfo @ 0x140473DD0
  * Callers:
- *     SepInternalQuerySecurityAttributesTokenEx @ 0x140358240 (SepInternalQuerySecurityAttributesTokenEx.c)
- *     SepGetProcUniqueLuidAndIndexFromTokenEx @ 0x140477780 (SepGetProcUniqueLuidAndIndexFromTokenEx.c)
- *     SepValidateAndCopyGlobalEntry @ 0x1404F721C (SepValidateAndCopyGlobalEntry.c)
+ *     SepInternalQuerySecurityAttributesTokenEx @ 0x1403B7650 (SepInternalQuerySecurityAttributesTokenEx.c)
+ *     SepGetProcUniqueLuidAndIndexFromTokenEx @ 0x140473D20 (SepGetProcUniqueLuidAndIndexFromTokenEx.c)
+ *     SepValidateAndCopyGlobalEntry @ 0x1404F4AFC (SepValidateAndCopyGlobalEntry.c)
  * Callees:
- *     AuthzBasepQuerySecurityAttributeAndValues @ 0x1403442B0 (AuthzBasepQuerySecurityAttributeAndValues.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     AuthzBasepQuerySecurityAttributeAndValues @ 0x140323790 (AuthzBasepQuerySecurityAttributeAndValues.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall SepGetProcUniqueLuidAndIndexFromAttributeInfo(__int64 a1, _DWORD *a2, _QWORD *a3)
@@ -25,8 +25,8 @@ __int64 __fastcall SepGetProcUniqueLuidAndIndexFromAttributeInfo(__int64 a1, _DW
   {
     memset_0(v8, 0, 0x48uLL);
     v10 = SepProcUniqueAttributeName;
-    v11 = word_140E088E2;
-    v12 = off_140E088E8;
+    v11 = word_140E08952;
+    v12 = off_140E08958;
     v9 = a1;
     SecurityAttributeAndValues = AuthzBasepQuerySecurityAttributeAndValues((__int64)v8);
     if ( SecurityAttributeAndValues >= 0 )

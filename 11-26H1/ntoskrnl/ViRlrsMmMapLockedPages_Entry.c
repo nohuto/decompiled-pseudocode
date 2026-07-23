@@ -1,10 +1,10 @@
 /*
- * XREFs of ViRlrsMmMapLockedPages_Entry @ 0x140C3E580
+ * XREFs of ViRlrsMmMapLockedPages_Entry @ 0x140C44590
  * Callers:
  *     <none>
  * Callees:
- *     CarReportRuleViolationFromNt @ 0x140C2BF1C (CarReportRuleViolationFromNt.c)
- *     VfFaultsIsSystemSufficientlyBooted @ 0x140C34908 (VfFaultsIsSystemSufficientlyBooted.c)
+ *     CarReportRuleViolationFromNt @ 0x140C31F2C (CarReportRuleViolationFromNt.c)
+ *     VfFaultsIsSystemSufficientlyBooted @ 0x140C3A918 (VfFaultsIsSystemSufficientlyBooted.c)
  */
 
 __int64 __fastcall ViRlrsMmMapLockedPages_Entry(__int64 a1)

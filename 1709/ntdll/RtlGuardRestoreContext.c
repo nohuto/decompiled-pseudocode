@@ -14,35 +14,45 @@
 void __cdecl RtlGuardRestoreContext(PCONTEXT ContextRecord, struct _EXCEPTION_RECORD *ExceptionRecord)
 {
   int v4; // eax
-  unsigned __int64 v5; // rcx
-  unsigned __int64 v6; // rdi
+  int v5; // eax
+  int v6; // eax
+  unsigned __int64 v7; // rcx
+  unsigned __int64 v8; // rdi
+  int v9; // eax
 
   if ( !ExceptionRecord )
   {
 LABEL_2:
-    if ( LdrControlFlowGuardEnforced() && !(unsigned int)RtlGuardIsValidStackPointer(ContextRecord->Rsp) )
+    LOBYTE(v4) = LdrControlFlowGuardEnforced();
+    if ( v4 && !(unsigned int)RtlGuardIsValidStackPointer(ContextRecord->Rsp) )
       __fastfail(0xDu);
     goto LABEL_4;
   }
   if ( ExceptionRecord->ExceptionCode != -2147483610 )
   {
-    if ( ExceptionRecord->ExceptionCode == -2147483607
-      && ExceptionRecord->NumberParameters
-      && LdrControlFlowGuardEnforced() )
+    if ( ExceptionRecord->ExceptionCode == -2147483607 )
     {
-      v4 = LdrControlFlowGuardEnforcedWithExportSuppression();
-      v5 = ExceptionRecord->ExceptionInformation[0];
-      if ( v4 )
-        LdrpValidateUserCallTargetES(v5);
-      else
-        LdrpValidateUserCallTarget(v5);
+      if ( ExceptionRecord->NumberParameters )
+      {
+        LOBYTE(v5) = LdrControlFlowGuardEnforced();
+        if ( v5 )
+        {
+          v6 = LdrControlFlowGuardEnforcedWithExportSuppression();
+          v7 = ExceptionRecord->ExceptionInformation[0];
+          if ( v6 )
+            LdrpValidateUserCallTargetES(v7);
+          else
+            LdrpValidateUserCallTarget(v7);
+        }
+      }
     }
     goto LABEL_2;
   }
-  v6 = ExceptionRecord->ExceptionInformation[0];
-  if ( LdrControlFlowGuardEnforced() && !(unsigned int)RtlGuardIsValidStackPointer(*(_QWORD *)(v6 + 16)) )
+  v8 = ExceptionRecord->ExceptionInformation[0];
+  LOBYTE(v9) = LdrControlFlowGuardEnforced();
+  if ( v9 && !(unsigned int)RtlGuardIsValidStackPointer(*(_QWORD *)(v8 + 16)) )
     __fastfail(0xDu);
-  RtlGuardCheckLongJumpTarget(*(_QWORD *)(v6 + 80), 0, 0LL);
+  RtlGuardCheckLongJumpTarget(*(PVOID *)(v8 + 80), 0, 0LL);
 LABEL_4:
   RtlRestoreContext(ContextRecord, ExceptionRecord);
 }

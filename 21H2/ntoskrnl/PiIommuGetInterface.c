@@ -1,12 +1,12 @@
 /*
- * XREFs of PiIommuGetInterface @ 0x140765678
+ * XREFs of PiIommuGetInterface @ 0x140765838
  * Callers:
- *     PiDmaGuardProcessNewDeviceNode @ 0x1407655E0 (PiDmaGuardProcessNewDeviceNode.c)
+ *     PiDmaGuardProcessNewDeviceNode @ 0x1407657A0 (PiDmaGuardProcessNewDeviceNode.c)
  * Callees:
- *     IoAddTriageDumpDataBlock @ 0x1403CC828 (IoAddTriageDumpDataBlock.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     PnpQueryInterface @ 0x140765D84 (PnpQueryInterface.c)
- *     PiIommuPutInterface @ 0x140765EF8 (PiIommuPutInterface.c)
+ *     IoAddTriageDumpDataBlock @ 0x1403CC998 (IoAddTriageDumpDataBlock.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     PnpQueryInterface @ 0x140765F44 (PnpQueryInterface.c)
+ *     PiIommuPutInterface @ 0x1407660B8 (PiIommuPutInterface.c)
  */
 
 __int64 __fastcall PiIommuGetInterface(struct _DEVICE_OBJECT *MaxDataSize, _QWORD *a2)

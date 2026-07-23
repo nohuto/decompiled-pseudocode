@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpSetFunctionOverrideCapability @ 0x140787E08
+ * XREFs of RtlpSetFunctionOverrideCapability @ 0x140787D38
  * Callers:
- *     RtlpSetUserKernelFunctionOverrideCapability @ 0x140787E48 (RtlpSetUserKernelFunctionOverrideCapability.c)
- *     RtlpInitFunctionOverrideCapabilities @ 0x14078D6B8 (RtlpInitFunctionOverrideCapabilities.c)
+ *     RtlpSetUserKernelFunctionOverrideCapability @ 0x140787D78 (RtlpSetUserKernelFunctionOverrideCapability.c)
+ *     RtlpInitFunctionOverrideCapabilities @ 0x14078D5E8 (RtlpInitFunctionOverrideCapabilities.c)
  * Callees:
- *     ??$RtlpGetCapabilityBitmap@U_RTL_FUNCTION_OVERRIDE_CAPABILITIES@@E@@YAEPEAKPEAU_RTL_FUNCTION_OVERRIDE_CAPABILITIES@@EPEAPEAE@Z @ 0x140787C5C (--$RtlpGetCapabilityBitmap@U_RTL_FUNCTION_OVERRIDE_CAPABILITIES@@E@@YAEPEAKPEAU_RTL_FUNCTION_OVE.c)
+ *     ??$RtlpGetCapabilityBitmap@U_RTL_FUNCTION_OVERRIDE_CAPABILITIES@@E@@YAEPEAKPEAU_RTL_FUNCTION_OVERRIDE_CAPABILITIES@@EPEAPEAE@Z @ 0x140787B8C (--$RtlpGetCapabilityBitmap@U_RTL_FUNCTION_OVERRIDE_CAPABILITIES@@E@@YAEPEAKPEAU_RTL_FUNCTION_OVE.c)
  */
 
 char __fastcall RtlpSetFunctionOverrideCapability(unsigned int a1, __int64 a2, char a3)

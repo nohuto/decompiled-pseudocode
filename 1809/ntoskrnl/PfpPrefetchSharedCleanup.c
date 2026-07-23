@@ -1,17 +1,17 @@
 /*
- * XREFs of PfpPrefetchSharedCleanup @ 0x14065CF04
+ * XREFs of PfpPrefetchSharedCleanup @ 0x14065E0C4
  * Callers:
- *     PfpPrefetchRequestPerform @ 0x14065B99C (PfpPrefetchRequestPerform.c)
- *     PfSnCleanupPrefetchHeader @ 0x14066018C (PfSnCleanupPrefetchHeader.c)
- *     PfpQueryFileExtentsRequest @ 0x140864728 (PfpQueryFileExtentsRequest.c)
+ *     PfpPrefetchRequestPerform @ 0x14065CB5C (PfpPrefetchRequestPerform.c)
+ *     PfSnCleanupPrefetchHeader @ 0x14066134C (PfSnCleanupPrefetchHeader.c)
+ *     PfpQueryFileExtentsRequest @ 0x140865988 (PfpQueryFileExtentsRequest.c)
  * Callees:
  *     ExReleaseRundownProtection_0 @ 0x14004D2F0 (ExReleaseRundownProtection_0.c)
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     PsSetCurrentThreadPrefetching @ 0x14065FC50 (PsSetCurrentThreadPrefetching.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     PsSetCurrentThreadPrefetching @ 0x140660E10 (PsSetCurrentThreadPrefetching.c)
  */
 
 _QWORD *__fastcall PfpPrefetchSharedCleanup(ULONG_PTR a1)
@@ -43,7 +43,7 @@ _QWORD *__fastcall PfpPrefetchSharedCleanup(ULONG_PTR a1)
   result = (_QWORD *)*(unsigned int *)(a1 + 68);
   if ( ((unsigned __int8)result & 1) != 0 )
   {
-    ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)&stru_14043C1C0);
+    ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)&stru_14043D280);
     *(_DWORD *)(a1 + 68) &= ~1u;
     result = (_QWORD *)*(unsigned int *)(a1 + 68);
   }

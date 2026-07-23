@@ -1,14 +1,14 @@
 /*
- * XREFs of KeCheckForTimer @ 0x140570AEC
+ * XREFs of KeCheckForTimer @ 0x14057102C
  * Callers:
- *     ExpFreePoolChecks @ 0x1402AC3A0 (ExpFreePoolChecks.c)
- *     ExFreeHeapPool @ 0x1403230B0 (ExFreeHeapPool.c)
- *     VfMiscKeInitializeTimerEx_Entry @ 0x140ADFED0 (VfMiscKeInitializeTimerEx_Entry.c)
+ *     ExpFreePoolChecks @ 0x1402AC630 (ExpFreePoolChecks.c)
+ *     ExFreeHeapPool @ 0x140323340 (ExFreeHeapPool.c)
+ *     VfMiscKeInitializeTimerEx_Entry @ 0x140ADFEC0 (VfMiscKeInitializeTimerEx_Entry.c)
  * Callees:
  *     KeQueryActiveProcessorCountEx @ 0x140222050 (KeQueryActiveProcessorCountEx.c)
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  */
 
 ULONG __fastcall KeCheckForTimer(ULONG_PTR BugCheckParameter3, __int64 a2)
@@ -63,7 +63,7 @@ ULONG __fastcall KeCheckForTimer(ULONG_PTR BugCheckParameter3, __int64 a2)
           {
             CurrentIrql = KeGetCurrentIrql();
             __writecr8(2uLL);
-            if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+            if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
             {
               SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
               if ( CurrentIrql == 2 )
@@ -102,10 +102,10 @@ ULONG __fastcall KeCheckForTimer(ULONG_PTR BugCheckParameter3, __int64 a2)
               while ( v14 != v9 );
             }
             _InterlockedAnd64((volatile signed __int64 *)v10, 0LL);
-            if ( KiIrqlFlags )
+            if ( (_DWORD)KiIrqlFlags )
             {
               v19 = KeGetCurrentIrql();
-              if ( (KiIrqlFlags & 1) != 0 && v19 <= 0xFu && CurrentIrql <= 0xFu && v19 >= 2u )
+              if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v19 <= 0xFu && CurrentIrql <= 0xFu && v19 >= 2u )
               {
                 CurrentPrcb = KeGetCurrentPrcb();
                 v21 = CurrentPrcb->SchedulerAssist;

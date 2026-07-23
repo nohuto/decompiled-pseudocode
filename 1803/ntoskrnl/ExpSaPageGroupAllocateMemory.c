@@ -95,7 +95,7 @@ __int64 __fastcall ExpSaPageGroupAllocateMemory(__int64 a1, unsigned int a2)
         {
           v20->CrossThreadReleasableAndBusyByte |= 2u;
           if ( (__int64)v20->LockState.LockState < 0 )
-            KiAbEntryRemoveFromTree((__int64)&CurrentThread->LockEntries[v19], SessionId);
+            KiAbEntryRemoveFromTree(&CurrentThread->LockEntries[v19].TreeNode, SessionId);
           v23 = 0;
           v23 = v20->BoostBitmap.AllFields & 0x1FFFF;
           v20->BoostBitmap.AllFields &= 0xFFFE0000;

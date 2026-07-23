@@ -3,9 +3,9 @@
  * Callers:
  *     HalpSetupAcpiPhase0 @ 0x140B65578 (HalpSetupAcpiPhase0.c)
  * Callees:
- *     HalpAcpiGetTable @ 0x140336FF0 (HalpAcpiGetTable.c)
- *     HalReadBootRegister @ 0x140A90CB4 (HalReadBootRegister.c)
- *     HalWriteBootRegister @ 0x140A90CFC (HalWriteBootRegister.c)
+ *     HalpAcpiGetTable @ 0x140337280 (HalpAcpiGetTable.c)
+ *     HalReadBootRegister @ 0x140A90B34 (HalReadBootRegister.c)
+ *     HalWriteBootRegister @ 0x140A90B7C (HalWriteBootRegister.c)
  */
 
 __int64 (*__fastcall HalpInitBootTable(__int64 a1))()

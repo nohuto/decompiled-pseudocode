@@ -1,11 +1,11 @@
 /*
- * XREFs of ExpQueryNumaAvailableMemory @ 0x14054C0E4
+ * XREFs of ExpQueryNumaAvailableMemory @ 0x14054C624
  * Callers:
- *     ExpQuerySystemInformation @ 0x140415620 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x1404144E0 (ExpQuerySystemInformation.c)
  * Callees:
- *     MmGetAvailablePages @ 0x14006D5BC (MmGetAvailablePages.c)
+ *     MmGetAvailablePages @ 0x14006D13C (MmGetAvailablePages.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     MmGetChannelInformation @ 0x14054C23C (MmGetChannelInformation.c)
+ *     MmGetChannelInformation @ 0x14054C77C (MmGetChannelInformation.c)
  */
 
 __int64 __fastcall ExpQueryNumaAvailableMemory(_DWORD *a1, unsigned int a2, _DWORD *a3)

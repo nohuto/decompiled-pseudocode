@@ -1,22 +1,22 @@
 /*
- * XREFs of ObpFreeObjectNameBuffer @ 0x140405DC0
+ * XREFs of ObpFreeObjectNameBuffer @ 0x140404C80
  * Callers:
- *     ObReferenceObjectByName @ 0x140405BE0 (ObReferenceObjectByName.c)
- *     ObCreateObjectEx @ 0x14041D970 (ObCreateObjectEx.c)
- *     IopAllocRealFileObject @ 0x140442AB0 (IopAllocRealFileObject.c)
- *     CmpDoParseKey @ 0x140453D10 (CmpDoParseKey.c)
- *     ObReferenceObjectByNameEx @ 0x140499E04 (ObReferenceObjectByNameEx.c)
+ *     ObReferenceObjectByNameEx @ 0x1403E4434 (ObReferenceObjectByNameEx.c)
+ *     ObReferenceObjectByName @ 0x140404AA0 (ObReferenceObjectByName.c)
+ *     ObCreateObjectEx @ 0x14041C830 (ObCreateObjectEx.c)
+ *     IopAllocRealFileObject @ 0x140441980 (IopAllocRealFileObject.c)
+ *     CmpDoParseKey @ 0x140452BE0 (CmpDoParseKey.c)
  * Callees:
  *     <none>
  */
 
 void __fastcall ObpFreeObjectNameBuffer(__int64 a1)
 {
-  struct _SLIST_ENTRY *v1; // r9
+  _SLIST_ENTRY *v1; // r9
   struct _KPRCB *CurrentPrcb; // rcx
   _GENERAL_LOOKASIDE *P; // r8
 
-  v1 = *(struct _SLIST_ENTRY **)(a1 + 8);
+  v1 = *(_SLIST_ENTRY **)(a1 + 8);
   if ( *(_WORD *)(a1 + 2) == 248 )
   {
     CurrentPrcb = KeGetCurrentPrcb();
@@ -33,7 +33,7 @@ void __fastcall ObpFreeObjectNameBuffer(__int64 a1)
     else
     {
       ++P->FreeMisses;
-      ((void (__fastcall *)(struct _SLIST_ENTRY *))P->FreeEx)(v1);
+      ((void (__fastcall *)(_SLIST_ENTRY *))P->FreeEx)(v1);
     }
   }
   else

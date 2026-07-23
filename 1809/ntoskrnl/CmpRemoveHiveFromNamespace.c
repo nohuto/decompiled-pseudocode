@@ -1,21 +1,21 @@
 /*
  * XREFs of CmpRemoveHiveFromNamespace @ 0x14000FBF0
  * Callers:
- *     CmpCompleteUnloadKey @ 0x1405AF61C (CmpCompleteUnloadKey.c)
- *     CmpLinkHiveToMaster @ 0x1405B8C48 (CmpLinkHiveToMaster.c)
+ *     CmpCompleteUnloadKey @ 0x1405B061C (CmpCompleteUnloadKey.c)
+ *     CmpLinkHiveToMaster @ 0x1405B9C48 (CmpLinkHiveToMaster.c)
  * Callees:
- *     CmpRemoveLayerLinkForDiscardedKcb @ 0x1405810C4 (CmpRemoveLayerLinkForDiscardedKcb.c)
- *     CmpUnlockHashEntryByKcb @ 0x1405AA470 (CmpUnlockHashEntryByKcb.c)
- *     CmpLockHashEntryExclusiveByKcb @ 0x1405AA61C (CmpLockHashEntryExclusiveByKcb.c)
- *     CmpDiscardKcb @ 0x1405AA6A8 (CmpDiscardKcb.c)
- *     CmpMarkKeyUnbacked @ 0x1405AA8A0 (CmpMarkKeyUnbacked.c)
- *     CmpFlushNotifiesOnKeyBodyList @ 0x1405AD310 (CmpFlushNotifiesOnKeyBodyList.c)
- *     CmpFreeKeyByCell @ 0x1405AD6F8 (CmpFreeKeyByCell.c)
- *     HvUnlockHiveFlusherShared @ 0x1405AF5D0 (HvUnlockHiveFlusherShared.c)
- *     HvLockHiveFlusherShared @ 0x1405AF600 (HvLockHiveFlusherShared.c)
- *     CmpLockKcbExclusive @ 0x1405D1728 (CmpLockKcbExclusive.c)
- *     CmpUnlockKcb @ 0x1405E3580 (CmpUnlockKcb.c)
- *     CmpLogHiveDestroyEvent @ 0x1407EBA4C (CmpLogHiveDestroyEvent.c)
+ *     CmpRemoveLayerLinkForDiscardedKcb @ 0x1405820C4 (CmpRemoveLayerLinkForDiscardedKcb.c)
+ *     CmpUnlockHashEntryByKcb @ 0x1405AB470 (CmpUnlockHashEntryByKcb.c)
+ *     CmpLockHashEntryExclusiveByKcb @ 0x1405AB61C (CmpLockHashEntryExclusiveByKcb.c)
+ *     CmpDiscardKcb @ 0x1405AB6A8 (CmpDiscardKcb.c)
+ *     CmpMarkKeyUnbacked @ 0x1405AB8A0 (CmpMarkKeyUnbacked.c)
+ *     CmpFlushNotifiesOnKeyBodyList @ 0x1405AE310 (CmpFlushNotifiesOnKeyBodyList.c)
+ *     CmpFreeKeyByCell @ 0x1405AE6F8 (CmpFreeKeyByCell.c)
+ *     HvUnlockHiveFlusherShared @ 0x1405B05D0 (HvUnlockHiveFlusherShared.c)
+ *     HvLockHiveFlusherShared @ 0x1405B0600 (HvLockHiveFlusherShared.c)
+ *     CmpLockKcbExclusive @ 0x1405D2728 (CmpLockKcbExclusive.c)
+ *     CmpUnlockKcb @ 0x1405E4580 (CmpUnlockKcb.c)
+ *     CmpLogHiveDestroyEvent @ 0x1407ECC4C (CmpLogHiveDestroyEvent.c)
  */
 
 __int64 __fastcall CmpRemoveHiveFromNamespace(__int64 a1, __int64 a2)

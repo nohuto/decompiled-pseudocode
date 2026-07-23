@@ -1,21 +1,21 @@
 /*
- * XREFs of WheapAttemptPhysicalPageOffline @ 0x140A0819C
+ * XREFs of WheapAttemptPhysicalPageOffline @ 0x140A0844C
  * Callers:
- *     WheaAttemptClearPoison @ 0x140A07CB0 (WheaAttemptClearPoison.c)
- *     WheaAttemptPhysicalPageOffline @ 0x140A07D80 (WheaAttemptPhysicalPageOffline.c)
- *     WheaPageOfflineAndPersist @ 0x140A07E60 (WheaPageOfflineAndPersist.c)
- *     WheapAttemptPhysicalPageOfflineWorker @ 0x140A08380 (WheapAttemptPhysicalPageOfflineWorker.c)
+ *     WheaAttemptClearPoison @ 0x140A07F60 (WheaAttemptClearPoison.c)
+ *     WheaAttemptPhysicalPageOffline @ 0x140A08030 (WheaAttemptPhysicalPageOffline.c)
+ *     WheaPageOfflineAndPersist @ 0x140A08110 (WheaPageOfflineAndPersist.c)
+ *     WheapAttemptPhysicalPageOfflineWorker @ 0x140A08630 (WheapAttemptPhysicalPageOfflineWorker.c)
  * Callees:
- *     WheaLogInternalEvent @ 0x140380A50 (WheaLogInternalEvent.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     WheaPersistBadPageToBcd @ 0x140611D90 (WheaPersistBadPageToBcd.c)
- *     WheaPersistBadPageToRegistry @ 0x140611F50 (WheaPersistBadPageToRegistry.c)
- *     MmMarkPhysicalMemoryAsBad @ 0x14062B5B0 (MmMarkPhysicalMemoryAsBad.c)
- *     WheaAddrTranslateAndAddToDefectListInPlugin @ 0x140A07C2C (WheaAddrTranslateAndAddToDefectListInPlugin.c)
- *     WheapCallInUsePageNotificationCallbacks @ 0x140A083D0 (WheapCallInUsePageNotificationCallbacks.c)
- *     WheapClearPoison @ 0x140A084B0 (WheapClearPoison.c)
- *     WheapLogAddToDefectListFail @ 0x140A08630 (WheapLogAddToDefectListFail.c)
- *     WheapLogPageOfflineAttemptEvent @ 0x140A08820 (WheapLogPageOfflineAttemptEvent.c)
+ *     WheaLogInternalEvent @ 0x140380BF0 (WheaLogInternalEvent.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     WheaPersistBadPageToBcd @ 0x1406122E0 (WheaPersistBadPageToBcd.c)
+ *     WheaPersistBadPageToRegistry @ 0x1406124A0 (WheaPersistBadPageToRegistry.c)
+ *     MmMarkPhysicalMemoryAsBad @ 0x14062BB00 (MmMarkPhysicalMemoryAsBad.c)
+ *     WheaAddrTranslateAndAddToDefectListInPlugin @ 0x140A07EDC (WheaAddrTranslateAndAddToDefectListInPlugin.c)
+ *     WheapCallInUsePageNotificationCallbacks @ 0x140A08680 (WheapCallInUsePageNotificationCallbacks.c)
+ *     WheapClearPoison @ 0x140A08760 (WheapClearPoison.c)
+ *     WheapLogAddToDefectListFail @ 0x140A088E0 (WheapLogAddToDefectListFail.c)
+ *     WheapLogPageOfflineAttemptEvent @ 0x140A08AD0 (WheapLogPageOfflineAttemptEvent.c)
  */
 
 __int64 __fastcall WheapAttemptPhysicalPageOffline(

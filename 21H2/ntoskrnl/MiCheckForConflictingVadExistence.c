@@ -1,9 +1,9 @@
 /*
- * XREFs of MiCheckForConflictingVadExistence @ 0x14025B04C
+ * XREFs of MiCheckForConflictingVadExistence @ 0x14027C5BC
  * Callers:
- *     MiIsVaRangeAvailable @ 0x14061DBD8 (MiIsVaRangeAvailable.c)
+ *     MiIsVaRangeAvailable @ 0x140687848 (MiIsVaRangeAvailable.c)
  * Callees:
- *     MiCheckForConflictingVad @ 0x14025B06C (MiCheckForConflictingVad.c)
+ *     MiCheckForConflictingVad @ 0x14027C5DC (MiCheckForConflictingVad.c)
  */
 
 _BOOL8 MiCheckForConflictingVadExistence()

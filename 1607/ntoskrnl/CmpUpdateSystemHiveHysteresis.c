@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpUpdateSystemHiveHysteresis @ 0x14047D460
+ * XREFs of CmpUpdateSystemHiveHysteresis @ 0x14047C1B4
  * Callers:
- *     HvpAddBin @ 0x14047DF10 (HvpAddBin.c)
- *     HvFreeHivePartial @ 0x140481AF0 (HvFreeHivePartial.c)
+ *     HvpAddBin @ 0x14047CC64 (HvpAddBin.c)
+ *     HvFreeHivePartial @ 0x140480844 (HvFreeHivePartial.c)
  * Callees:
- *     CmpDoQueueSystemHiveHysteresis @ 0x1405FC398 (CmpDoQueueSystemHiveHysteresis.c)
+ *     CmpDoQueueSystemHiveHysteresis @ 0x1405FC44C (CmpDoQueueSystemHiveHysteresis.c)
  */
 
 void __fastcall CmpUpdateSystemHiveHysteresis(__int64 a1, unsigned int a2, unsigned int a3)

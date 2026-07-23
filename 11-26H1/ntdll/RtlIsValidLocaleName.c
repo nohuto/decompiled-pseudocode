@@ -1,29 +1,32 @@
 /*
- * XREFs of RtlIsValidLocaleName @ 0x180001D40
+ * XREFs of RtlIsValidLocaleName @ 0x18004D470
  * Callers:
- *     RtlGetSystemPreferredUILanguages @ 0x180002AF0 (RtlGetSystemPreferredUILanguages.c)
- *     RtlGetUserPreferredUILanguages @ 0x180038AA0 (RtlGetUserPreferredUILanguages.c)
- *     RtlUnicodeStringToLcid @ 0x1801148C4 (RtlUnicodeStringToLcid.c)
+ *     RtlGetUserPreferredUILanguages @ 0x180023010 (RtlGetUserPreferredUILanguages.c)
+ *     RtlGetSystemPreferredUILanguages @ 0x18004E220 (RtlGetSystemPreferredUILanguages.c)
+ *     RtlUnicodeStringToLcid @ 0x1801140C0 (RtlUnicodeStringToLcid.c)
  * Callees:
- *     RtlpIsCustomLocale @ 0x180001008 (RtlpIsCustomLocale.c)
- *     RtlpNlsGetNameIndex @ 0x180004930 (RtlpNlsGetNameIndex.c)
- *     RtlpLoadNlsData @ 0x180004A18 (RtlpLoadNlsData.c)
- *     RtlpGetCustomCultureData @ 0x180113878 (RtlpGetCustomCultureData.c)
+ *     RtlpIsCustomLocale @ 0x18004C740 (RtlpIsCustomLocale.c)
+ *     RtlpNlsGetNameIndex @ 0x180050060 (RtlpNlsGetNameIndex.c)
+ *     RtlpLoadNlsData @ 0x180050148 (RtlpLoadNlsData.c)
+ *     RtlpGetCustomCultureData @ 0x180113110 (RtlpGetCustomCultureData.c)
  */
 
-char __fastcall RtlIsValidLocaleName(wchar_t *String, int a2)
+BOOLEAN __cdecl RtlIsValidLocaleName(PCWSTR LocaleName, ULONG Flags)
 {
   char v2; // di
   int NameIndex; // eax
 
-  v2 = a2;
-  if ( !String || (a2 & 0xFFFFFFFD) != 0 || !pTblPtrs && !(unsigned __int8)RtlpLoadNlsData() )
+  v2 = Flags;
+  if ( !LocaleName || (Flags & 0xFFFFFFFD) != 0 || !pTblPtrs && !(unsigned __int8)RtlpLoadNlsData() )
     return 0;
-  NameIndex = RtlpNlsGetNameIndex(String);
+  NameIndex = RtlpNlsGetNameIndex(LocaleName);
   if ( NameIndex < 0 )
   {
-    if ( !RtlpIsCustomLocale(String) || (v2 & 2) == 0 && (int)RtlpGetCustomCultureData(String, 0LL, 0LL, 0LL) < 0 )
+    if ( !RtlpIsCustomLocale((wchar_t *)LocaleName)
+      || (v2 & 2) == 0 && (int)RtlpGetCustomCultureData(LocaleName, 0LL, 0LL, 0LL) < 0 )
+    {
       return 0;
+    }
   }
   else if ( (v2 & 2) == 0 )
   {

@@ -1,16 +1,16 @@
 /*
- * XREFs of PPmHeteroHgsUpdateOrderValue @ 0x14025C2E8
+ * XREFs of PPmHeteroHgsUpdateOrderValue @ 0x1404C1164
  * Callers:
- *     PpmHeteroUpdateHgsConfiguration @ 0x14025B888 (PpmHeteroUpdateHgsConfiguration.c)
+ *     PpmHeteroUpdateHgsConfiguration @ 0x140517458 (PpmHeteroUpdateHgsConfiguration.c)
  * Callees:
- *     RtlCountSetBitsAffinityEx @ 0x140251920 (RtlCountSetBitsAffinityEx.c)
- *     KeGetPrcb @ 0x1402916D0 (KeGetPrcb.c)
+ *     RtlCountSetBitsAffinityEx @ 0x140253280 (RtlCountSetBitsAffinityEx.c)
+ *     KeGetPrcb @ 0x140290C30 (KeGetPrcb.c)
  */
 
 char __fastcall PPmHeteroHgsUpdateOrderValue(__int64 a1, __int64 a2, __int64 a3, unsigned int a4, char a5)
 {
   unsigned int v5; // r11d
-  char v8; // bp
+  char v8; // si
   unsigned __int8 v9; // bl
   unsigned __int16 v10; // dx
   unsigned __int16 i; // cx
@@ -19,12 +19,12 @@ char __fastcall PPmHeteroHgsUpdateOrderValue(__int64 a1, __int64 a2, __int64 a3,
   int v14; // r11d
   unsigned __int16 j; // cx
   unsigned __int64 v16; // r14
-  unsigned __int16 k; // si
+  unsigned __int16 k; // bp
   unsigned __int64 v18; // rdx
   __int64 v19; // rdx
   int v20; // eax
   char v21; // r10
-  unsigned __int8 v22; // si
+  unsigned __int8 v22; // bp
   unsigned __int64 v23; // r15
   unsigned __int16 m; // r14
   unsigned __int64 v25; // rdx
@@ -61,7 +61,7 @@ char __fastcall PPmHeteroHgsUpdateOrderValue(__int64 a1, __int64 a2, __int64 a3,
   }
   else
   {
-    v14 = PpmCurrentProfile[89 * dword_140F106CC + 92];
+    v14 = *((_DWORD *)PpmCurrentProfile + 178 * SHIDWORD(PpmIdlePolicyLock.PropagateBoostsEntry.Next) + 184);
     if ( !v14 )
       v14 = -1;
     v46 = v14;
@@ -72,7 +72,7 @@ char __fastcall PPmHeteroHgsUpdateOrderValue(__int64 a1, __int64 a2, __int64 a3,
   {
     if ( i >= v10 )
     {
-      v12 = qword_140E0B638[0];
+      v12 = PpmCheckRegistered.Bitmap[0];
       LOWORD(v13) = 0;
       while ( 1 )
       {
@@ -80,8 +80,7 @@ char __fastcall PPmHeteroHgsUpdateOrderValue(__int64 a1, __int64 a2, __int64 a3,
         {
           _BitScanForward64(&v41, v12);
           v12 &= ~(1LL << v41);
-          Prcb = KeGetPrcb(*((unsigned int *)&KiSupervisorXStateFeaturesLock.WaitBlock[2].Thread->Header.Lock
-                           + 64 * (unsigned __int16)v13
+          Prcb = KeGetPrcb(*((_DWORD *)&KiSupervisorXStateFeaturesLock.SchedulerApc.ApcListEntry.Flink[16 * (unsigned __int16)v13].Flink
                            + (unsigned int)(unsigned __int8)v41));
           v5 = a4;
           v43 = *(_QWORD *)(Prcb + 35424);
@@ -100,9 +99,9 @@ char __fastcall PPmHeteroHgsUpdateOrderValue(__int64 a1, __int64 a2, __int64 a3,
           }
         }
         v13 = (unsigned __int16)(v13 + 1);
-        if ( (unsigned int)v13 >= LOWORD(PpmCheckRegistered[0]) )
+        if ( (unsigned int)v13 >= PpmCheckRegistered.Count )
           break;
-        v12 = qword_140E0B638[v13];
+        v12 = PpmCheckRegistered.Bitmap[v13];
       }
       v9 = 0;
       goto LABEL_42;
@@ -129,8 +128,7 @@ LABEL_19:
     {
       _BitScanForward64(&v18, v16);
       v16 &= ~(1LL << v18);
-      v19 = *(_QWORD *)(KeGetPrcb(*((unsigned int *)&KiSupervisorXStateFeaturesLock.WaitBlock[2].Thread->Header.Lock
-                                  + 64 * k
+      v19 = *(_QWORD *)(KeGetPrcb(*((_DWORD *)&KiSupervisorXStateFeaturesLock.SchedulerApc.ApcListEntry.Flink[16 * k].Flink
                                   + (unsigned int)(unsigned __int8)v18))
                       + 35424);
       if ( a5 )
@@ -170,8 +168,7 @@ LABEL_39:
       {
         _BitScanForward64(&v25, v23);
         v23 &= ~(1LL << v25);
-        v26 = KeGetPrcb(*((unsigned int *)&KiSupervisorXStateFeaturesLock.WaitBlock[2].Thread->Header.Lock
-                        + 64 * m
+        v26 = KeGetPrcb(*((_DWORD *)&KiSupervisorXStateFeaturesLock.SchedulerApc.ApcListEntry.Flink[16 * m].Flink
                         + (unsigned int)(unsigned __int8)v25));
         if ( *(_BYTE *)(v26 + 35420) )
         {
@@ -194,8 +191,7 @@ LABEL_50:
       {
         _BitScanForward64(&v33, v29);
         v29 &= ~(1LL << v33);
-        v34 = KeGetPrcb(*((unsigned int *)&KiSupervisorXStateFeaturesLock.WaitBlock[2].Thread->Header.Lock
-                        + 64 * v31
+        v34 = KeGetPrcb(*((_DWORD *)&KiSupervisorXStateFeaturesLock.SchedulerApc.ApcListEntry.Flink[16 * v31].Flink
                         + (unsigned int)(unsigned __int8)v33));
         v5 = a4;
         v35 = *(unsigned __int8 *)(7LL - (a5 != 0) + 4LL * a4 + *(_QWORD *)(v34 + 35424));
@@ -223,8 +219,7 @@ LABEL_50:
       {
         _BitScanForward64(&v38, v36);
         v36 &= ~(1LL << v38);
-        v39 = KeGetPrcb(*((unsigned int *)&KiSupervisorXStateFeaturesLock.WaitBlock[2].Thread->Header.Lock
-                        + 64 * n
+        v39 = KeGetPrcb(*((_DWORD *)&KiSupervisorXStateFeaturesLock.SchedulerApc.ApcListEntry.Flink[16 * n].Flink
                         + (unsigned int)(unsigned __int8)v38));
         v5 = a4;
         v40 = *(_QWORD *)(v39 + 35424) + 4LL * a4;
@@ -263,7 +258,7 @@ LABEL_40:
   if ( v9 >= v22 - 1 )
     v9 = v22 - 1;
 LABEL_42:
-  v27 = *(_QWORD *)(a1 + 16);
+  v27 = *(_QWORD *)(a1 + 24);
   if ( a5 )
   {
     if ( *(_BYTE *)(v27 + 2LL * v5 + 1) != v9 )

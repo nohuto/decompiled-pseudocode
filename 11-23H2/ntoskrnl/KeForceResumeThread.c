@@ -1,14 +1,14 @@
 /*
- * XREFs of KeForceResumeThread @ 0x14030ABDC
+ * XREFs of KeForceResumeThread @ 0x14030AE6C
  * Callers:
- *     KeRequestTerminationThread @ 0x1403099FC (KeRequestTerminationThread.c)
+ *     KeRequestTerminationThread @ 0x140309C8C (KeRequestTerminationThread.c)
  *     NtTerminateProcess @ 0x1406837E0 (NtTerminateProcess.c)
- *     PspInsertThread @ 0x14073EE9C (PspInsertThread.c)
- *     KeRundownApcQueues @ 0x14076E440 (KeRundownApcQueues.c)
+ *     PspInsertThread @ 0x14073F08C (PspInsertThread.c)
+ *     KeRundownApcQueues @ 0x14076E630 (KeRundownApcQueues.c)
  * Callees:
- *     KiExitDispatcher @ 0x14023CD70 (KiExitDispatcher.c)
- *     KiAcquireKobjectLockSafe @ 0x140252030 (KiAcquireKobjectLockSafe.c)
- *     KiResumeThread @ 0x14030ACF8 (KiResumeThread.c)
+ *     KiExitDispatcher @ 0x14023CE40 (KiExitDispatcher.c)
+ *     KiAcquireKobjectLockSafe @ 0x1402520F0 (KiAcquireKobjectLockSafe.c)
+ *     KiResumeThread @ 0x14030AF88 (KiResumeThread.c)
  */
 
 __int64 __fastcall KeForceResumeThread(__int64 a1)
@@ -23,7 +23,7 @@ __int64 __fastcall KeForceResumeThread(__int64 a1)
 
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     LODWORD(v9) = 4;
@@ -44,6 +44,6 @@ __int64 __fastcall KeForceResumeThread(__int64 a1)
   LOBYTE(v4) = 1;
   KiResumeThread(a1, CurrentPrcb, v4);
   _InterlockedAnd((volatile signed __int32 *)(a1 + 736), 0xFFFFFF7F);
-  KiExitDispatcher((__int64)CurrentPrcb, 0, (struct _PROCESSOR_NUMBER)1, 0, CurrentIrql);
+  KiExitDispatcher((__int64)CurrentPrcb, 0, (_PROCESSOR_NUMBER)1, 0, CurrentIrql);
   return (unsigned int)(v6 + v5);
 }

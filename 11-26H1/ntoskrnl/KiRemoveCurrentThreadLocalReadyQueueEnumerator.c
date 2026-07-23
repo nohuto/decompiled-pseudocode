@@ -1,9 +1,9 @@
 /*
- * XREFs of KiRemoveCurrentThreadLocalReadyQueueEnumerator @ 0x1404BD66C
+ * XREFs of KiRemoveCurrentThreadLocalReadyQueueEnumerator @ 0x1404B6E4C
  * Callers:
- *     KiSearchForNewThreadsOnTarget @ 0x1402404D0 (KiSearchForNewThreadsOnTarget.c)
+ *     KiSearchForNewThreadsOnTarget @ 0x140241E30 (KiSearchForNewThreadsOnTarget.c)
  * Callees:
- *     KiRemoveThreadFromReadyQueue @ 0x1402306B0 (KiRemoveThreadFromReadyQueue.c)
+ *     KiRemoveThreadFromReadyQueue @ 0x140232008 (KiRemoveThreadFromReadyQueue.c)
  */
 
 __int64 __fastcall KiRemoveCurrentThreadLocalReadyQueueEnumerator(__int64 a1, __int64 a2)

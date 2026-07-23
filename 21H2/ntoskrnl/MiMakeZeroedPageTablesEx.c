@@ -1,29 +1,29 @@
 /*
- * XREFs of MiMakeZeroedPageTablesEx @ 0x1402FCDFC
+ * XREFs of MiMakeZeroedPageTablesEx @ 0x140307B4C
  * Callers:
- *     MiExpandSystemCache @ 0x1402B2F2C (MiExpandSystemCache.c)
- *     MiExpandPtes @ 0x1402B3298 (MiExpandPtes.c)
- *     MiCommitPoolMemory @ 0x14030B22C (MiCommitPoolMemory.c)
- *     MiMakeZeroedPageTables @ 0x14039DE40 (MiMakeZeroedPageTables.c)
- *     MiGetPageTablesForLargeMap @ 0x1403B8DC4 (MiGetPageTablesForLargeMap.c)
- *     MiMapNewPfns @ 0x1408C5CD4 (MiMapNewPfns.c)
- *     MiMapBBTMemory @ 0x140A552A8 (MiMapBBTMemory.c)
- *     MiInitializeKernelCfg @ 0x140A55E64 (MiInitializeKernelCfg.c)
- *     MiCreateTopLevelUltraMappings @ 0x140A6E944 (MiCreateTopLevelUltraMappings.c)
+ *     MiExpandSystemCache @ 0x1402310DC (MiExpandSystemCache.c)
+ *     MiExpandPtes @ 0x140231448 (MiExpandPtes.c)
+ *     MiCommitPoolMemory @ 0x140315F7C (MiCommitPoolMemory.c)
+ *     MiMakeZeroedPageTables @ 0x14039DF90 (MiMakeZeroedPageTables.c)
+ *     MiGetPageTablesForLargeMap @ 0x1403B8F34 (MiGetPageTablesForLargeMap.c)
+ *     MiMapNewPfns @ 0x1408C5E34 (MiMapNewPfns.c)
+ *     MiMapBBTMemory @ 0x140A562A8 (MiMapBBTMemory.c)
+ *     MiInitializeKernelCfg @ 0x140A56E64 (MiInitializeKernelCfg.c)
+ *     MiCreateTopLevelUltraMappings @ 0x140A6F944 (MiCreateTopLevelUltraMappings.c)
  * Callees:
- *     MiWalkPageTables @ 0x1402092C0 (MiWalkPageTables.c)
- *     MiUnlockWorkingSetShared @ 0x14020F790 (MiUnlockWorkingSetShared.c)
- *     MiLockWorkingSetShared @ 0x140219CB0 (MiLockWorkingSetShared.c)
- *     MiGetSharedVm @ 0x14021AF50 (MiGetSharedVm.c)
- *     MiGetAnyMultiplexedVm @ 0x1402FD0FC (MiGetAnyMultiplexedVm.c)
- *     MiCleanupPageTablePages @ 0x1402FD2EC (MiCleanupPageTablePages.c)
- *     MiInitializeColorBase @ 0x1402FD478 (MiInitializeColorBase.c)
- *     MiDeleteSystemPageTables @ 0x1402FD75C (MiDeleteSystemPageTables.c)
- *     MiGetSystemRegionType @ 0x14034A950 (MiGetSystemRegionType.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
- *     MiSetLeafFillToUninitializedWsle @ 0x14055C430 (MiSetLeafFillToUninitializedWsle.c)
- *     MiGetLargePagesForSystemMapping @ 0x1408C8A44 (MiGetLargePagesForSystemMapping.c)
+ *     MiWalkPageTables @ 0x1402ADBC0 (MiWalkPageTables.c)
+ *     MiUnlockWorkingSetShared @ 0x1402B4090 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x1402BE5B0 (MiLockWorkingSetShared.c)
+ *     MiGetSharedVm @ 0x1402BF850 (MiGetSharedVm.c)
+ *     MiGetAnyMultiplexedVm @ 0x140307E4C (MiGetAnyMultiplexedVm.c)
+ *     MiCleanupPageTablePages @ 0x14030803C (MiCleanupPageTablePages.c)
+ *     MiInitializeColorBase @ 0x1403081C8 (MiInitializeColorBase.c)
+ *     MiDeleteSystemPageTables @ 0x1403084AC (MiDeleteSystemPageTables.c)
+ *     MiGetSystemRegionType @ 0x1403556A0 (MiGetSystemRegionType.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     MiSetLeafFillToUninitializedWsle @ 0x14055C670 (MiSetLeafFillToUninitializedWsle.c)
+ *     MiGetLargePagesForSystemMapping @ 0x1408C8BA4 (MiGetLargePagesForSystemMapping.c)
  */
 
 __int64 __fastcall MiMakeZeroedPageTablesEx(__int64 a1, __int64 a2, unsigned int a3, int a4, unsigned int a5)
@@ -149,7 +149,7 @@ LABEL_31:
   }
 LABEL_11:
   v19 = -1LL;
-  v31[4] = *(_QWORD *)(qword_140C4E648 + 8LL * *((unsigned __int16 *)AnyMultiplexedVm + 87));
+  v31[4] = *(_QWORD *)(qword_140C4E688 + 8LL * *((unsigned __int16 *)AnyMultiplexedVm + 87));
   v20 = a5;
   HIDWORD(v31[7]) = a5;
   LODWORD(v31[8]) = v11;

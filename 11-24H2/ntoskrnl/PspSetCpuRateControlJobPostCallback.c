@@ -1,10 +1,10 @@
 /*
- * XREFs of PspSetCpuRateControlJobPostCallback @ 0x1408E8DC0
+ * XREFs of PspSetCpuRateControlJobPostCallback @ 0x1408D77E0
  * Callers:
  *     <none>
  * Callees:
- *     PspSetProcessSchedulingGroup @ 0x1408E8064 (PspSetProcessSchedulingGroup.c)
- *     PspGetNextJobProcess @ 0x1408EB458 (PspGetNextJobProcess.c)
+ *     PspGetNextJobProcess @ 0x14085CC88 (PspGetNextJobProcess.c)
+ *     PspSetProcessSchedulingGroup @ 0x1408D88A8 (PspSetProcessSchedulingGroup.c)
  */
 
 __int64 __fastcall PspSetCpuRateControlJobPostCallback(__int64 a1, __int64 a2)
@@ -12,9 +12,9 @@ __int64 __fastcall PspSetCpuRateControlJobPostCallback(__int64 a1, __int64 a2)
   __int64 v2; // rsi
   struct _KTHREAD *CurrentThread; // rbp
   __int64 v4; // rdi
-  __int64 v5; // r9
-  __int64 v6; // rax
-  __int64 v7; // rbx
+  void *v5; // r9
+  _QWORD *NextJobProcess; // rax
+  _QWORD *v7; // rbx
   __int128 v9; // [rsp+20h] [rbp-28h] BYREF
   __int64 v10; // [rsp+30h] [rbp-18h]
 
@@ -26,15 +26,11 @@ __int64 __fastcall PspSetCpuRateControlJobPostCallback(__int64 a1, __int64 a2)
   v5 = 0LL;
   while ( 1 )
   {
-    v6 = ((__int64 (__fastcall *)(__int64, struct _KTHREAD *, __int128 *, __int64))PspGetNextJobProcess)(
-           a1,
-           CurrentThread,
-           &v9,
-           v5);
-    v7 = v6;
-    if ( !v6 )
+    NextJobProcess = PspGetNextJobProcess(a1, (__int64)CurrentThread, &v9, v5);
+    v7 = NextJobProcess;
+    if ( !NextJobProcess )
       break;
-    PspSetProcessSchedulingGroup(v6, v4);
+    PspSetProcessSchedulingGroup(NextJobProcess, v4);
     v5 = v7;
     a1 = v2;
   }

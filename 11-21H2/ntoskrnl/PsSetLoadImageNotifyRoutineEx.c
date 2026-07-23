@@ -2,12 +2,12 @@
  * XREFs of PsSetLoadImageNotifyRoutineEx @ 0x140832640
  * Callers:
  *     PsSetLoadImageNotifyRoutine @ 0x140832600 (PsSetLoadImageNotifyRoutine.c)
- *     EtwpCoverageSamplerStart @ 0x1409F36F4 (EtwpCoverageSamplerStart.c)
+ *     sub_1409F36F4 @ 0x1409F36F4 (sub_1409F36F4.c)
  * Callees:
  *     EtwWrite @ 0x140300BC0 (EtwWrite.c)
- *     ExCompareExchangeCallBack @ 0x1403C7678 (ExCompareExchangeCallBack.c)
+ *     sub_1403C7678 @ 0x1403C7678 (sub_1403C7678.c)
  *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
- *     ExAllocateCallBack @ 0x140832A20 (ExAllocateCallBack.c)
+ *     sub_140832A20 @ 0x140832A20 (sub_140832A20.c)
  *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
  */
 
@@ -25,11 +25,11 @@ __int64 __fastcall PsSetLoadImageNotifyRoutineEx(__int64 a1, __int64 a2)
 
   if ( (a2 & 0xFFFFFFFFFFFFFFFEuLL) != 0 )
     return 3221225712LL;
-  v3 = (struct _EX_RUNDOWN_REF *)ExAllocateCallBack(a1, a2);
+  v3 = (struct _EX_RUNDOWN_REF *)sub_140832A20(a1, a2);
   if ( v3 )
   {
     v4 = 0LL;
-    while ( !ExCompareExchangeCallBack((signed __int64 *)&PspLoadImageNotifyRoutine.Ptr + v4, v3, 0LL) )
+    while ( !sub_1403C7678((signed __int64 *)&stru_140CF6240.Ptr + v4, v3, 0LL) )
     {
       v4 = (unsigned int)(v4 + 1);
       if ( (unsigned int)v4 >= 0x40 )
@@ -38,9 +38,9 @@ __int64 __fastcall PsSetLoadImageNotifyRoutineEx(__int64 a1, __int64 a2)
         goto LABEL_14;
       }
     }
-    _InterlockedIncrement(&PspLoadImageNotifyRoutineCount);
-    if ( (PspNotifyEnableMask & 1) == 0 )
-      _interlockedbittestandset(&PspNotifyEnableMask, 0);
+    _InterlockedIncrement(&dword_140D3CD4C);
+    if ( (dword_140D3CA20 & 1) == 0 )
+      _interlockedbittestandset(&dword_140D3CA20, 0);
     v5 = 0;
   }
   else
@@ -50,7 +50,7 @@ LABEL_14:
   }
   v7 = v5;
   v8 = a1;
-  if ( EtwApiCallsProvRegHandle )
+  if ( qword_140C15DF8 )
   {
     UserData.Reserved = 0;
     v12 = 0;
@@ -58,7 +58,7 @@ LABEL_14:
     UserData.Size = 8;
     v10 = &v7;
     v11 = 4;
-    EtwWrite(EtwApiCallsProvRegHandle, &KERNEL_AUDIT_API_PSSETLOADIMAGENOTIFYROUTINE, 0LL, 2u, &UserData);
+    EtwWrite(qword_140C15DF8, &stru_140012648, 0LL, 2u, &UserData);
   }
   return v5;
 }

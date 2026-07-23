@@ -1,11 +1,11 @@
 /*
- * XREFs of KeQueryKvaShadowInformation @ 0x1408BCC88
+ * XREFs of KeQueryKvaShadowInformation @ 0x1408BCDE8
  * Callers:
- *     ExpQuerySystemInformation @ 0x140651070 (ExpQuerySystemInformation.c)
- *     VslpIumPhase0Initialize @ 0x140A8F5C8 (VslpIumPhase0Initialize.c)
+ *     ExpQuerySystemInformation @ 0x140645E90 (ExpQuerySystemInformation.c)
+ *     VslpIumPhase0Initialize @ 0x140A905C8 (VslpIumPhase0Initialize.c)
  * Callees:
- *     KeKvaShadowingActive @ 0x1402CF588 (KeKvaShadowingActive.c)
- *     KeQueryImplementedPhysicalBits @ 0x140522204 (KeQueryImplementedPhysicalBits.c)
+ *     KeKvaShadowingActive @ 0x14024D904 (KeKvaShadowingActive.c)
+ *     KeQueryImplementedPhysicalBits @ 0x140522444 (KeQueryImplementedPhysicalBits.c)
  */
 
 __int64 __fastcall KeQueryKvaShadowInformation(_DWORD *a1, unsigned int a2, _DWORD *a3)

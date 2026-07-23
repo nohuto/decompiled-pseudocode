@@ -1,11 +1,11 @@
 /*
- * XREFs of ExpFindEmptyEntry @ 0x14043BA34
+ * XREFs of ExpFindEmptyEntry @ 0x14042E2E4
  * Callers:
- *     ExpAcquireResourceSharedLite @ 0x1402B4158 (ExpAcquireResourceSharedLite.c)
- *     ExpAcquireSharedStarveExclusive @ 0x1402E1B68 (ExpAcquireSharedStarveExclusive.c)
- *     ExAcquireSharedWaitForExclusive @ 0x14043AF30 (ExAcquireSharedWaitForExclusive.c)
+ *     ExpAcquireSharedStarveExclusive @ 0x1402C3C28 (ExpAcquireSharedStarveExclusive.c)
+ *     ExpAcquireResourceSharedLite @ 0x1402FEE28 (ExpAcquireResourceSharedLite.c)
+ *     ExAcquireSharedWaitForExclusive @ 0x14042D7E0 (ExAcquireSharedWaitForExclusive.c)
  * Callees:
- *     ExpExpandResourceOwnerTable @ 0x14043BA94 (ExpExpandResourceOwnerTable.c)
+ *     ExpExpandResourceOwnerTable @ 0x14042E344 (ExpExpandResourceOwnerTable.c)
  */
 
 _QWORD *__fastcall ExpFindEmptyEntry(__int64 a1, __int64 a2)

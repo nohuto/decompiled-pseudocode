@@ -1,11 +1,11 @@
 /*
- * XREFs of HvlDmaUnmapDeviceLogicalRange @ 0x1403AD990
+ * XREFs of HvlDmaUnmapDeviceLogicalRange @ 0x14039C1A0
  * Callers:
- *     IommupHvUnmapDeviceLogicalRange @ 0x1403AD90C (IommupHvUnmapDeviceLogicalRange.c)
+ *     IommupHvUnmapDeviceLogicalRange @ 0x14039C11C (IommupHvUnmapDeviceLogicalRange.c)
  * Callees:
- *     HvlpHvToNtStatus @ 0x1403AE3F8 (HvlpHvToNtStatus.c)
- *     HvcallFastExtended @ 0x1403AF3C0 (HvcallFastExtended.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     HvlpHvToNtStatus @ 0x14039CC08 (HvlpHvToNtStatus.c)
+ *     HvcallFastExtended @ 0x14039DBD0 (HvcallFastExtended.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 __int64 __fastcall HvlDmaUnmapDeviceLogicalRange(int *a1, __int64 a2, unsigned __int64 *a3)

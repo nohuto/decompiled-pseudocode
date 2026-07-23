@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwWriteString @ 0x1404A9DC0
+ * XREFs of EtwWriteString @ 0x1404A4090
  * Callers:
  *     <none>
  * Callees:
- *     EtwpLevelKeywordEnabled @ 0x1402A2030 (EtwpLevelKeywordEnabled.c)
- *     EtwpEventWriteFull @ 0x140328590 (EtwpEventWriteFull.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     EtwpLevelKeywordEnabled @ 0x1402D1760 (EtwpLevelKeywordEnabled.c)
+ *     EtwpEventWriteFull @ 0x140326D30 (EtwpEventWriteFull.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 NTSTATUS __stdcall EtwWriteString(
@@ -54,11 +54,11 @@ NTSTATUS __stdcall EtwWriteString(
     && EtwpLevelKeywordEnabled(*(_QWORD *)((RegHandle & -(__int64)(RegHandle != 0)) + 0x20) + 96LL, Level, Keyword) )
   {
     v8 = EtwpEventWriteFull(
-           *(_QWORD **)(v9 + 32),
+           *(_QWORD *)(v9 + 32),
            *(_WORD *)(v9 + 100),
            0,
            v8,
-           (__int64)v21,
+           (unsigned __int16 *)v21,
            v15,
            0,
            (GUID *)ActivityId,
@@ -74,11 +74,11 @@ NTSTATUS __stdcall EtwWriteString(
   }
   if ( *(_WORD *)(v9 + 102) && EtwpLevelKeywordEnabled(*(_QWORD *)(v9 + 40) + 96LL, Level, Keyword) )
     v8 = EtwpEventWriteFull(
-           *(_QWORD **)(v9 + 32),
+           *(_QWORD *)(v9 + 32),
            *(_WORD *)(v9 + 102),
            0,
            0,
-           (__int64)v21,
+           (unsigned __int16 *)v21,
            v16,
            0,
            (GUID *)ActivityId,
@@ -98,11 +98,11 @@ NTSTATUS __stdcall EtwWriteString(
     v23 = 0LL;
     if ( *(_WORD *)(v9 + 104) && EtwpLevelKeywordEnabled(*(_QWORD *)(v13 + 656) + 96LL, Level, Keyword) )
       v8 = EtwpEventWriteFull(
-             *(_QWORD **)(*(_QWORD *)(v9 + 32) + 656LL),
+             *(_QWORD *)(*(_QWORD *)(v9 + 32) + 656LL),
              *(_WORD *)(v9 + 104),
              0,
              0,
-             (__int64)v21,
+             (unsigned __int16 *)v21,
              4,
              0,
              (GUID *)ActivityId,
@@ -119,11 +119,11 @@ NTSTATUS __stdcall EtwWriteString(
     {
       if ( EtwpLevelKeywordEnabled(*(_QWORD *)(*(_QWORD *)(v9 + 40) + 656LL) + 96LL, Level, Keyword) )
         return EtwpEventWriteFull(
-                 *(_QWORD **)(*(_QWORD *)(v9 + 32) + 656LL),
+                 *(_QWORD *)(*(_QWORD *)(v9 + 32) + 656LL),
                  *(_WORD *)(v9 + 102),
                  0,
                  0,
-                 (__int64)v21,
+                 (unsigned __int16 *)v21,
                  4,
                  0,
                  (GUID *)ActivityId,

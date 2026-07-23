@@ -1,11 +1,11 @@
 /*
- * XREFs of MmIsFileSectionActive @ 0x140489910
+ * XREFs of MmIsFileSectionActive @ 0x140484620
  * Callers:
  *     <none>
  * Callees:
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     MiLockSectionControlArea @ 0x140316190 (MiLockSectionControlArea.c)
- *     MiIsSectionActive @ 0x1404899D4 (MiIsSectionActive.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     MiLockSectionControlArea @ 0x1402BED40 (MiLockSectionControlArea.c)
+ *     MiIsSectionActive @ 0x1404846E4 (MiIsSectionActive.c)
  */
 
 __int64 __fastcall MmIsFileSectionActive(_QWORD *a1, int a2, _DWORD *a3)

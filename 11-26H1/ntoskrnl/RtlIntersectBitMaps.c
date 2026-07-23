@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlIntersectBitMaps @ 0x140618A60
+ * XREFs of RtlIntersectBitMaps @ 0x14061BAB0
  * Callers:
- *     PopHiberWriteBootFreePageMap @ 0x140BFAD84 (PopHiberWriteBootFreePageMap.c)
+ *     PopHiberWriteBootFreePageMap @ 0x140C00D84 (PopHiberWriteBootFreePageMap.c)
  * Callees:
  *     <none>
  */

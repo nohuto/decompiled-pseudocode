@@ -1,22 +1,22 @@
 /*
- * XREFs of ExNotifyWithProcessing @ 0x1402B0658
+ * XREFs of ExNotifyWithProcessing @ 0x14022E9B8
  * Callers:
- *     ExNotifyCallback @ 0x1402B0640 (ExNotifyCallback.c)
- *     IopSessionChangeWorker @ 0x1403A6820 (IopSessionChangeWorker.c)
- *     PoNotifySystemTimeSet @ 0x1403A7804 (PoNotifySystemTimeSet.c)
- *     HvlPhase2Initialize @ 0x1403CF0B8 (HvlPhase2Initialize.c)
- *     KiDynamicProcessorAddNotification @ 0x140518E18 (KiDynamicProcessorAddNotification.c)
- *     ExRebootSystemForRecovery @ 0x1405B2614 (ExRebootSystemForRecovery.c)
- *     SepImageVerificationCallbackWorker @ 0x1407714F0 (SepImageVerificationCallbackWorker.c)
- *     PnpNotifyEarlyLaunchImageLoad @ 0x140A5EB80 (PnpNotifyEarlyLaunchImageLoad.c)
- *     PnpNotifyEarlyLaunchStatusUpdate @ 0x140A5EEE0 (PnpNotifyEarlyLaunchStatusUpdate.c)
+ *     ExNotifyCallback @ 0x14022E9A0 (ExNotifyCallback.c)
+ *     IopSessionChangeWorker @ 0x1403A6970 (IopSessionChangeWorker.c)
+ *     PoNotifySystemTimeSet @ 0x1403A7954 (PoNotifySystemTimeSet.c)
+ *     HvlPhase2Initialize @ 0x1403CF228 (HvlPhase2Initialize.c)
+ *     KiDynamicProcessorAddNotification @ 0x140519058 (KiDynamicProcessorAddNotification.c)
+ *     ExRebootSystemForRecovery @ 0x1405B2844 (ExRebootSystemForRecovery.c)
+ *     SepImageVerificationCallbackWorker @ 0x1407716B0 (SepImageVerificationCallbackWorker.c)
+ *     PnpNotifyEarlyLaunchImageLoad @ 0x140A5FB80 (PnpNotifyEarlyLaunchImageLoad.c)
+ *     PnpNotifyEarlyLaunchStatusUpdate @ 0x140A5FEE0 (PnpNotifyEarlyLaunchStatusUpdate.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     ExpCallProcessing @ 0x1402B0788 (ExpCallProcessing.c)
- *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     ExpCallProcessing @ 0x14022EAE8 (ExpCallProcessing.c)
+ *     KeSetEvent @ 0x14034E2F0 (KeSetEvent.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 void __fastcall ExNotifyWithProcessing(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

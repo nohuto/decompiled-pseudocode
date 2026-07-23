@@ -7,7 +7,7 @@
  *     sub_180055358 @ 0x180055358 (sub_180055358.c)
  */
 
-char __fastcall sub_1800F74B0(unsigned __int64 a1)
+char __fastcall sub_1800F74B0(void *a1)
 {
   char v2; // [rsp+38h] [rbp+10h] BYREF
 

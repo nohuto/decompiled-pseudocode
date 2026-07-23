@@ -12,7 +12,7 @@
 
 __int64 __fastcall MiInitializePartitionFreeZeroLists(_QWORD *a1)
 {
-  union _SLIST_HEADER *v1; // r13
+  _SLIST_HEADER *v1; // r13
   __int64 v2; // r8
   unsigned int v3; // ebx
   __int64 v4; // rsi
@@ -22,7 +22,7 @@ __int64 __fastcall MiInitializePartitionFreeZeroLists(_QWORD *a1)
   _QWORD *v8; // rax
   __int64 v9; // rcx
   __int64 v10; // rdx
-  union _SLIST_HEADER **v11; // rdi
+  _SLIST_HEADER **v11; // rdi
   __int64 v12; // r14
   __int64 v13; // rbp
   int *v14; // rax
@@ -46,14 +46,14 @@ __int64 __fastcall MiInitializePartitionFreeZeroLists(_QWORD *a1)
   __int64 v32; // [rsp+40h] [rbp-78h]
   int *v33; // [rsp+48h] [rbp-70h]
   __int64 v34; // [rsp+50h] [rbp-68h]
-  union _SLIST_HEADER *v35; // [rsp+58h] [rbp-60h]
+  _SLIST_HEADER *v35; // [rsp+58h] [rbp-60h]
   __int64 v36; // [rsp+68h] [rbp-50h]
   int Color; // [rsp+C0h] [rbp+8h] BYREF
   int v38; // [rsp+C8h] [rbp+10h]
   unsigned int v39; // [rsp+D0h] [rbp+18h]
   unsigned int v40; // [rsp+D8h] [rbp+20h]
 
-  v1 = (union _SLIST_HEADER *)a1[2046];
+  v1 = (_SLIST_HEADER *)a1[2046];
   v2 = a1[891];
   v3 = 0;
   v4 = a1[2];
@@ -80,7 +80,7 @@ __int64 __fastcall MiInitializePartitionFreeZeroLists(_QWORD *a1)
     }
     while ( v9 );
     v36 = v2;
-    v11 = (union _SLIST_HEADER **)(v4 + 14944);
+    v11 = (_SLIST_HEADER **)(v4 + 14944);
     v12 = 2LL;
     do
     {

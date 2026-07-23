@@ -6,11 +6,11 @@
  *     ZwQueryEvent @ 0x18009D1A0 (ZwQueryEvent.c)
  */
 
-__int64 __fastcall sub_180112080(__int64 a1, __int64 a2, unsigned int a3, _DWORD *a4)
+NTSTATUS __fastcall sub_180112080(void *a1, void *a2, unsigned int a3, ULONG *ReturnLength)
 {
-  *a4 = 0;
+  *ReturnLength = 0;
   if ( a3 >= 8 )
-    return ZwQueryEvent();
+    return ZwQueryEvent(a1, EventBasicInformation, a2, 8u, ReturnLength);
   else
-    return 3221225507LL;
+    return -1073741789;
 }

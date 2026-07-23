@@ -8,7 +8,7 @@
  *     RtlpHpTagContextUpdate @ 0x180071254 (RtlpHpTagContextUpdate.c)
  */
 
-__int64 __fastcall RtlpHpTagReAllocateHeap(__int64 a1, unsigned __int64 a2, unsigned __int64 a3, int a4)
+__int64 __fastcall RtlpHpTagReAllocateHeap(unsigned __int16 *a1, unsigned __int64 a2, unsigned __int64 a3, int a4)
 {
   __int64 v5; // rcx
   __int64 v6; // rdi

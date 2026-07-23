@@ -1,19 +1,19 @@
 /*
- * XREFs of _CmSetDeviceRegPropWorker @ 0x14090A2C0
+ * XREFs of _CmSetDeviceRegPropWorker @ 0x1409AC878
  * Callers:
- *     _CmSetDeviceRegProp @ 0x14090A0E8 (_CmSetDeviceRegProp.c)
+ *     _CmSetDeviceRegProp @ 0x1409AC6A0 (_CmSetDeviceRegProp.c)
  * Callees:
- *     _MapCmDevicePropertyToRegValue @ 0x14046FBC0 (_MapCmDevicePropertyToRegValue.c)
- *     _MapCmDevicePropertyToRegType @ 0x1404A4638 (_MapCmDevicePropertyToRegType.c)
- *     _CmDevicePropertyWrite @ 0x1404C6094 (_CmDevicePropertyWrite.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     _PnpCtxRegSetValue @ 0x14090AB14 (_PnpCtxRegSetValue.c)
- *     _PnpCtxRegDeleteValue @ 0x14090B324 (_PnpCtxRegDeleteValue.c)
- *     _CmRaisePropertyChangeEvent @ 0x14090B994 (_CmRaisePropertyChangeEvent.c)
- *     RtlLengthSecurityDescriptor @ 0x1409228D0 (RtlLengthSecurityDescriptor.c)
- *     RtlValidRelativeSecurityDescriptor @ 0x14094DC20 (RtlValidRelativeSecurityDescriptor.c)
- *     _CmIsRootDevice @ 0x140991F84 (_CmIsRootDevice.c)
- *     _CmOpenDeviceRegKey @ 0x140996B50 (_CmOpenDeviceRegKey.c)
+ *     _MapCmDevicePropertyToRegValue @ 0x140469340 (_MapCmDevicePropertyToRegValue.c)
+ *     _MapCmDevicePropertyToRegType @ 0x14049DCC8 (_MapCmDevicePropertyToRegType.c)
+ *     _CmDevicePropertyWrite @ 0x1404BFA44 (_CmDevicePropertyWrite.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     RtlLengthSecurityDescriptor @ 0x1408FE3E0 (RtlLengthSecurityDescriptor.c)
+ *     _CmIsRootDevice @ 0x1409529E4 (_CmIsRootDevice.c)
+ *     _CmOpenDeviceRegKey @ 0x1409575B0 (_CmOpenDeviceRegKey.c)
+ *     _PnpCtxRegSetValue @ 0x1409AD0CC (_PnpCtxRegSetValue.c)
+ *     _PnpCtxRegDeleteValue @ 0x1409AD448 (_PnpCtxRegDeleteValue.c)
+ *     _CmRaisePropertyChangeEvent @ 0x1409ADAB8 (_CmRaisePropertyChangeEvent.c)
+ *     RtlValidRelativeSecurityDescriptor @ 0x1409C9570 (RtlValidRelativeSecurityDescriptor.c)
  */
 
 __int64 __fastcall CmSetDeviceRegPropWorker(
@@ -27,7 +27,7 @@ __int64 __fastcall CmSetDeviceRegPropWorker(
         __int16 a8)
 {
   int v8; // ebx
-  int v12; // r12d
+  __int64 v12; // r12
   _DWORD *v13; // rbp
   bool v14; // zf
   int v15; // eax
@@ -160,7 +160,7 @@ LABEL_18:
     {
       if ( !v13 || SecurityDescriptorLength != 4 )
         return (unsigned int)-1073741811;
-      if ( *v13 && (unsigned __int8)CmIsRootDevice(a2) )
+      if ( *v13 && CmIsRootDevice(a2) )
       {
         v8 = -1073741808;
         goto LABEL_41;
@@ -180,7 +180,7 @@ LABEL_18:
     v8 = -1073741811;
     goto LABEL_41;
   }
-  if ( a3 || (v8 = CmOpenDeviceRegKey(v12, (_DWORD)a2, 16, 0, 33554434, 0, (__int64)Handle, 0LL), v8 >= 0) )
+  if ( a3 || (v8 = CmOpenDeviceRegKey(v12, (__int64)a2, 16, 0, 33554434, 0, (__int64)Handle, 0LL), v8 >= 0) )
   {
     if ( a4 == 8 )
       goto LABEL_38;

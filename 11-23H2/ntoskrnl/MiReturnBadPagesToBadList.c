@@ -1,13 +1,13 @@
 /*
- * XREFs of MiReturnBadPagesToBadList @ 0x14062ABA8
+ * XREFs of MiReturnBadPagesToBadList @ 0x14062B0F8
  * Callers:
- *     MiRemoveBadPages @ 0x14062A440 (MiRemoveBadPages.c)
- *     MmRemovePhysicalMemory @ 0x140A2D210 (MmRemovePhysicalMemory.c)
+ *     MiRemoveBadPages @ 0x14062A990 (MiRemoveBadPages.c)
+ *     MmRemovePhysicalMemory @ 0x140A2D4C0 (MmRemovePhysicalMemory.c)
  * Callees:
- *     MiInsertPageInList @ 0x14026EC00 (MiInsertPageInList.c)
- *     MiSetPfnPteFrame @ 0x1402E15A0 (MiSetPfnPteFrame.c)
- *     MiLockPageInline @ 0x1402EF680 (MiLockPageInline.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiInsertPageInList @ 0x14026EE90 (MiInsertPageInList.c)
+ *     MiSetPfnPteFrame @ 0x1402E1830 (MiSetPfnPteFrame.c)
+ *     MiLockPageInline @ 0x1402EF910 (MiLockPageInline.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void __fastcall MiReturnBadPagesToBadList(__int64 a1, __int64 a2)
@@ -35,10 +35,13 @@ void __fastcall MiReturnBadPagesToBadList(__int64 a1, __int64 a2)
       MiSetPfnPteFrame(v3, 0LL);
       MiInsertPageInList(v5, 0x20u);
       _InterlockedAnd64((volatile signed __int64 *)(v3 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v4 <= 0xFu && CurrentIrql >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+          && CurrentIrql <= 0xFu
+          && (unsigned __int8)v4 <= 0xFu
+          && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;

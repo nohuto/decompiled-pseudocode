@@ -1,7 +1,7 @@
 /*
- * XREFs of MiCheckAvailablePagesForFaultDelay @ 0x14041A070
+ * XREFs of MiCheckAvailablePagesForFaultDelay @ 0x1404118C0
  * Callers:
- *     MiConvertFaultStatus @ 0x1403A2F50 (MiConvertFaultStatus.c)
+ *     MiConvertFaultStatus @ 0x1403A4CB0 (MiConvertFaultStatus.c)
  * Callees:
  *     <none>
  */

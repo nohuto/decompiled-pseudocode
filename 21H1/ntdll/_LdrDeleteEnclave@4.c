@@ -6,10 +6,10 @@
  *     _NtFreeVirtualMemory@16 @ 0x4B2F2B60 (_NtFreeVirtualMemory@16.c)
  */
 
-int __stdcall LdrDeleteEnclave(char a1)
+NTSTATUS __cdecl LdrDeleteEnclave(PVOID BaseAddress)
 {
-  int v2; // [esp+0h] [ebp-4h] BYREF
+  ULONG_PTR RegionSize; // [esp+0h] [ebp-4h] BYREF
 
-  v2 = 0;
-  return NtFreeVirtualMemory(-1, (int)&a1, (int)&v2, 0x8000);
+  LODWORD(RegionSize) = 0;
+  return NtFreeVirtualMemory((HANDLE)0xFFFFFFFF, &BaseAddress, &RegionSize, 0x8000u);
 }

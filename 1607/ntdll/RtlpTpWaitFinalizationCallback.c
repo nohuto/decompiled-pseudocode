@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpTpWaitFinalizationCallback @ 0x180064EC0
+ * XREFs of RtlpTpWaitFinalizationCallback @ 0x180064EB0
  * Callers:
  *     <none>
  * Callees:
- *     RtlpTpWaitRundown @ 0x180064EF0 (RtlpTpWaitRundown.c)
+ *     RtlpTpWaitRundown @ 0x180064EE0 (RtlpTpWaitRundown.c)
  */
 
 __int64 __fastcall RtlpTpWaitFinalizationCallback(__int64 a1, __int64 a2)

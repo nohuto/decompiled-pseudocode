@@ -1,33 +1,33 @@
 /*
- * XREFs of ExpAllocateBigPool @ 0x140011AD0
+ * XREFs of ExpAllocateBigPool @ 0x140011650
  * Callers:
- *     ExInsertPoolTag @ 0x14009B2BC (ExInsertPoolTag.c)
+ *     ExInsertPoolTag @ 0x14009AABC (ExInsertPoolTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  * Callees:
- *     KeReleaseGuardedMutex @ 0x14000CA40 (KeReleaseGuardedMutex.c)
- *     ExpAddTagForBigPages @ 0x1400124D0 (ExpAddTagForBigPages.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x140012750 (KeReleaseInStackQueuedSpinLock.c)
- *     ExpInsertPoolTrackerExpansion @ 0x140012AF0 (ExpInsertPoolTrackerExpansion.c)
- *     MiFindNonPagedPoolVa @ 0x140017DC0 (MiFindNonPagedPoolVa.c)
- *     MiFreePoolPages @ 0x140018558 (MiFreePoolPages.c)
- *     MiAssignNonPagedPoolPtes @ 0x14001B400 (MiAssignNonPagedPoolPtes.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14001BD40 (KeAcquireInStackQueuedSpinLock.c)
- *     KxWaitForLockOwnerShip @ 0x14001BDA0 (KxWaitForLockOwnerShip.c)
- *     ExAcquireFastMutex @ 0x14002D0A0 (ExAcquireFastMutex.c)
- *     PsBoostThreadIoEx @ 0x14002D440 (PsBoostThreadIoEx.c)
- *     MiAllocatePoolPages @ 0x14009DBEC (MiAllocatePoolPages.c)
- *     MiFreeExcessSegments @ 0x1400A3910 (MiFreeExcessSegments.c)
- *     MiAllocatePagedPoolPages @ 0x1400DE970 (MiAllocatePagedPoolPages.c)
- *     MiFlushTbAsNeeded @ 0x1400E0040 (MiFlushTbAsNeeded.c)
- *     MiFindNonPagedPoolPages @ 0x1400E7060 (MiFindNonPagedPoolPages.c)
- *     MiReturnNonPagedPoolVa @ 0x140103670 (MiReturnNonPagedPoolVa.c)
- *     EtwTracePool @ 0x1401596BC (EtwTracePool.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     RtlpInterlockedPopEntrySList @ 0x140166E00 (RtlpInterlockedPopEntrySList.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x1401D39E0 (KiAcquireQueuedSpinLockInstrumented.c)
+ *     KeReleaseGuardedMutex @ 0x14000C5C0 (KeReleaseGuardedMutex.c)
+ *     ExpAddTagForBigPages @ 0x140012050 (ExpAddTagForBigPages.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x1400122D0 (KeReleaseInStackQueuedSpinLock.c)
+ *     ExpInsertPoolTrackerExpansion @ 0x140012670 (ExpInsertPoolTrackerExpansion.c)
+ *     MiFindNonPagedPoolVa @ 0x140017940 (MiFindNonPagedPoolVa.c)
+ *     MiFreePoolPages @ 0x1400180D8 (MiFreePoolPages.c)
+ *     MiAssignNonPagedPoolPtes @ 0x14001AF80 (MiAssignNonPagedPoolPtes.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14001B8C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     KxWaitForLockOwnerShip @ 0x14001B920 (KxWaitForLockOwnerShip.c)
+ *     ExAcquireFastMutex @ 0x14002CC20 (ExAcquireFastMutex.c)
+ *     PsBoostThreadIoEx @ 0x14002CFC0 (PsBoostThreadIoEx.c)
+ *     MiAllocatePoolPages @ 0x14009D3EC (MiAllocatePoolPages.c)
+ *     MiFreeExcessSegments @ 0x1400A2238 (MiFreeExcessSegments.c)
+ *     MiAllocatePagedPoolPages @ 0x1400DC810 (MiAllocatePagedPoolPages.c)
+ *     MiFlushTbAsNeeded @ 0x1400DDEE0 (MiFlushTbAsNeeded.c)
+ *     MiFindNonPagedPoolPages @ 0x1400E4F00 (MiFindNonPagedPoolPages.c)
+ *     MiReturnNonPagedPoolVa @ 0x1401013F0 (MiReturnNonPagedPoolVa.c)
+ *     EtwTracePool @ 0x140159C2C (EtwTracePool.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140167370 (RtlpInterlockedPopEntrySList.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x1401D380C (KiAcquireQueuedSpinLockInstrumented.c)
  *     ExDeferredFreePool @ 0x1402557B0 (ExDeferredFreePool.c)
- *     MiSessionPoolVector @ 0x14041BF20 (MiSessionPoolVector.c)
+ *     MiSessionPoolVector @ 0x14041ADE0 (MiSessionPoolVector.c)
  */
 
 ULONG_PTR __fastcall ExpAllocateBigPool(ULONG_PTR a1, int a2, unsigned __int64 a3, unsigned int a4, char a5)
@@ -43,7 +43,7 @@ ULONG_PTR __fastcall ExpAllocateBigPool(ULONG_PTR a1, int a2, unsigned __int64 a
   unsigned __int64 v15; // rsi
   __int64 v16; // rbp
   __int64 v17; // rcx
-  union _SLIST_HEADER *v18; // rcx
+  _SLIST_HEADER *v18; // rcx
   PSLIST_ENTRY v19; // rax
   ULONG_PTR Next; // r9
   ULONG_PTR v21; // rsi
@@ -183,13 +183,13 @@ LABEL_10:
     v17 = 26 * v16;
     if ( (v14 & 0x200) != 0 )
       v17 += 3LL;
-    v18 = &qword_1403269B0[v15 + v17];
+    v18 = &qword_1403269F0[v15 + v17];
     if ( LOWORD(v18->Alignment) && (v19 = RtlpInterlockedPopEntrySList(v18)) != 0LL )
     {
       Next = (ULONG_PTR)v19[-1].Next;
       v21 = (ULONG_PTR)&v19[-1];
       PoolPages = (ULONG_PTR)&v19[-1];
-      BugCheckParameter4 = qword_140327780 ^ (unsigned __int64)&v19[-1];
+      BugCheckParameter4 = qword_1403277C0 ^ (unsigned __int64)&v19[-1];
       if ( Next != BugCheckParameter4 )
         KeBugCheckEx(0x1Au, 0x5200uLL, v21, Next, BugCheckParameter4);
     }
@@ -207,8 +207,8 @@ LABEL_89:
         PoolPages = NonPagedPoolVa;
         if ( !NonPagedPoolVa )
         {
-          ++dword_140326470;
-          ++dword_140326494;
+          ++dword_1403264B0;
+          ++dword_1403264D4;
           MiFreeExcessSegments();
           goto LABEL_137;
         }
@@ -220,7 +220,7 @@ LABEL_89:
         NonPagedPoolPages = MiFindNonPagedPoolPages((unsigned int)v16, ((v11 & 0xFFF) != 0) + (v11 >> 12));
         if ( !NonPagedPoolPages )
         {
-          ++dword_140326470;
+          ++dword_1403264B0;
           MiFreeExcessSegments();
           MiReturnNonPagedPoolVa(PoolPages, ((v11 & 0xFFF) != 0) + (v11 >> 12), v14);
           goto LABEL_137;

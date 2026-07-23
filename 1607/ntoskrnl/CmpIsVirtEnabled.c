@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpIsVirtEnabled @ 0x14040F1C8
+ * XREFs of CmpIsVirtEnabled @ 0x14040E088
  * Callers:
- *     CmpIsSystemEntity @ 0x14040F144 (CmpIsSystemEntity.c)
+ *     CmpIsSystemEntity @ 0x14040E004 (CmpIsSystemEntity.c)
  * Callees:
- *     ObFastDereferenceObject @ 0x14000F690 (ObFastDereferenceObject.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     PsReferenceEffectiveToken @ 0x1404124C0 (PsReferenceEffectiveToken.c)
- *     SeQueryInformationToken @ 0x140439FF0 (SeQueryInformationToken.c)
+ *     ObFastDereferenceObject @ 0x14000F210 (ObFastDereferenceObject.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     PsReferenceEffectiveToken @ 0x140411380 (PsReferenceEffectiveToken.c)
+ *     SeQueryInformationToken @ 0x140438EC0 (SeQueryInformationToken.c)
  */
 
 char CmpIsVirtEnabled()

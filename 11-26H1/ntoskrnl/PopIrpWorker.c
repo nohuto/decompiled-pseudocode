@@ -1,26 +1,26 @@
 /*
- * XREFs of PopIrpWorker @ 0x14060BD70
+ * XREFs of PopIrpWorker @ 0x14060EED0
  * Callers:
  *     <none>
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     ExAcquireFastMutex @ 0x140278070 (ExAcquireFastMutex.c)
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     KeReleaseGuardedMutex @ 0x140278D40 (KeReleaseGuardedMutex.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x1402B4730 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x1402B98C0 (KeReleaseInStackQueuedSpinLock.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     KeReleaseSemaphore @ 0x1403B1D20 (KeReleaseSemaphore.c)
- *     PopPepDeviceDState @ 0x1403B34B4 (PopPepDeviceDState.c)
- *     ExFreeToNPagedLookasideList @ 0x1403B5A60 (ExFreeToNPagedLookasideList.c)
- *     PoDeviceAcquireIrp @ 0x140486D1C (PoDeviceAcquireIrp.c)
- *     PopFxGetDeviceDStateReason @ 0x1404C430C (PopFxGetDeviceDStateReason.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     Feature_Sx_PEP_Notification_Synchronization__private_IsEnabledNoReportingNoInline @ 0x14060124C (Feature_Sx_PEP_Notification_Synchronization__private_IsEnabledNoReportingNoInline.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     PsTerminateSystemThread @ 0x140956130 (PsTerminateSystemThread.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     ExAcquireFastMutex @ 0x1402775E0 (ExAcquireFastMutex.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     KeReleaseGuardedMutex @ 0x1402782B0 (KeReleaseGuardedMutex.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402FF400 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x140304580 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeReleaseSemaphore @ 0x1403BBA30 (KeReleaseSemaphore.c)
+ *     PopPepDeviceDState @ 0x1403BD1C4 (PopPepDeviceDState.c)
+ *     ExFreeToNPagedLookasideList @ 0x1403BF960 (ExFreeToNPagedLookasideList.c)
+ *     PoDeviceAcquireIrp @ 0x1404806EC (PoDeviceAcquireIrp.c)
+ *     PopFxGetDeviceDStateReason @ 0x1404BDBEC (PopFxGetDeviceDStateReason.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     Feature_Sx_PEP_Notification_Synchronization__private_IsEnabledNoReportingNoInline @ 0x140603CFC (Feature_Sx_PEP_Notification_Synchronization__private_IsEnabledNoReportingNoInline.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     PsTerminateSystemThread @ 0x140949E90 (PsTerminateSystemThread.c)
  */
 
 NTSTATUS __fastcall PopIrpWorker(struct _KSEMAPHORE **Entry)
@@ -73,45 +73,45 @@ NTSTATUS __fastcall PopIrpWorker(struct _KSEMAPHORE **Entry)
     Timeout = 0LL;
     v27.m256i_i8[24] = 1;
   }
-  ExAcquireFastMutex((PKGUARDED_MUTEX)&PopWeakChargerLock.WaitBlockFill11[112]);
-  --*(_DWORD *)&PopWeakChargerLock.WaitBlockFill11[84];
-  ++*(_DWORD *)&PopWeakChargerLock.WaitBlockFill11[80];
-  if ( *(struct _KTHREAD **)PopWeakChargerLock.WaitBlock[0].SparePtr != (struct _KTHREAD *)&PopWeakChargerLock.WaitBlockFill11[32] )
+  ExAcquireFastMutex(&PopIrpWorkerMutex);
+  --PopIrpWorkerPendingCount;
+  ++PopIrpWorkerCount;
+  if ( *(__int64 **)qword_140F0D388 != &PopIrpThreadList )
 LABEL_57:
     __fastfail(3u);
-  *(_QWORD *)&v26 = &PopWeakChargerLock.WaitBlock[0].Object;
-  *((_QWORD *)&v26 + 1) = PopWeakChargerLock.WaitBlock[0].SparePtr;
-  *(_QWORD *)PopWeakChargerLock.WaitBlock[0].SparePtr = &v26;
-  PopWeakChargerLock.WaitBlock[0].SparePtr = &v26;
-  KeReleaseGuardedMutex((PKGUARDED_MUTEX)&PopWeakChargerLock.WaitBlockFill11[112]);
+  *(_QWORD *)&v26 = &PopIrpThreadList;
+  *((_QWORD *)&v26 + 1) = qword_140F0D388;
+  *(_QWORD *)qword_140F0D388 = &v26;
+  qword_140F0D388 = (__int64)&v26;
+  KeReleaseGuardedMutex(&PopIrpWorkerMutex);
   do
   {
-    while ( KeWaitForSingleObject(&byte_140F0FB20, Executive, 0, 0, Timeout) != 258 )
+    while ( KeWaitForSingleObject(&PopIrpWorkerSemaphore, Executive, 0, 0, Timeout) != 258 )
     {
-      KeAcquireInStackQueuedSpinLock(qword_140F10540, &LockHandle);
-      v9 = qword_140F0FB00;
-      stru_140F10070.ApcState.ApcListHead[1].Flink = (struct _LIST_ENTRY *)KeGetCurrentThread();
-      if ( *(__int64 **)(qword_140F0FB00 + 8) != &qword_140F0FB00 )
+      KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)&PpmIdlePolicyLock.WaitListEntry.Blink, &LockHandle);
+      v9 = PopIrpWorkerList;
+      PopIrpLockThread = (__int64)KeGetCurrentThread();
+      if ( *(__int64 **)(PopIrpWorkerList + 8) != &PopIrpWorkerList )
         goto LABEL_57;
-      v10 = *(_QWORD *)qword_140F0FB00;
-      if ( *(_QWORD *)(*(_QWORD *)qword_140F0FB00 + 8LL) != qword_140F0FB00 )
+      v10 = *(_QWORD *)PopIrpWorkerList;
+      if ( *(_QWORD *)(*(_QWORD *)PopIrpWorkerList + 8LL) != PopIrpWorkerList )
         goto LABEL_57;
-      qword_140F0FB00 = *(_QWORD *)qword_140F0FB00;
-      *(_QWORD *)(v10 + 8) = &qword_140F0FB00;
-      stru_140F10070.ApcState.ApcListHead[1].Flink = 0LL;
+      PopIrpWorkerList = *(_QWORD *)PopIrpWorkerList;
+      *(_QWORD *)(v10 + 8) = &PopIrpWorkerList;
+      PopIrpLockThread = 0LL;
       KeReleaseInStackQueuedSpinLock(&LockHandle);
-      ExAcquireFastMutex((PKGUARDED_MUTEX)&PopWeakChargerLock.WaitBlockFill11[112]);
-      v11 = ++*(_DWORD *)&PopWeakChargerLock.WaitBlockFill11[76];
-      if ( PopWeakChargerLock.WaitBlockFill6[72]
-        && v11 == *(_DWORD *)&PopWeakChargerLock.WaitBlockFill11[80]
-        && *(_DWORD *)&PopWeakChargerLock.WaitBlockFill11[80] < 0xFu
-        && !*(_DWORD *)&PopWeakChargerLock.WaitBlockFill11[84]
-        && !PopWeakChargerLock.WaitBlockFill6[73] )
+      ExAcquireFastMutex(&PopIrpWorkerMutex);
+      v11 = ++PopIrpWorkerInFlightCount;
+      if ( PopCreateIrpWorkerAllowed
+        && v11 == PopIrpWorkerCount
+        && (unsigned int)PopIrpWorkerCount < 0xF
+        && !PopIrpWorkerPendingCount
+        && !PopIrpWorkerRequested )
       {
-        PopWeakChargerLock.WaitBlockFill6[73] = 1;
-        KeSetEvent((PRKEVENT)&PopWeakChargerLock.WaitBlockFill11[48], 0, 0);
+        PopIrpWorkerRequested = 1;
+        KeSetEvent(&PopIrpWorkerControlEvent, 0, 0);
       }
-      KeReleaseGuardedMutex((PKGUARDED_MUTEX)&PopWeakChargerLock.WaitBlockFill11[112]);
+      KeReleaseGuardedMutex(&PopIrpWorkerMutex);
       v12 = *(_QWORD *)(v9 + 16);
       v13 = v9 - 168;
       v14 = *(_DWORD **)(v12 + 40);
@@ -150,7 +150,7 @@ LABEL_57:
       v27.m256i_i64[1] = v13;
       v23 = 0;
       v27.m256i_i64[2] = (__int64)v14;
-      if ( (v14[12] & 0x2000) == 0 && v13 == qword_140F0FB50 )
+      if ( (v14[12] & 0x2000) == 0 && v13 == PopInrushIrp )
       {
         CurrentIrql = KeGetCurrentIrql();
         if ( CurrentIrql != 2 )
@@ -180,15 +180,13 @@ LABEL_57:
         KeBugCheckEx(0xA0u, 0x901uLL, (ULONG_PTR)v14, v13, KeGetCurrentThread()->CombinedApcDisable);
       *(_OWORD *)&v27.m256i_u64[1] = 0LL;
       ObfDereferenceObjectWithTag(v14, 0x72496F50u);
-      ExAcquireFastMutex((PKGUARDED_MUTEX)&PopWeakChargerLock.WaitBlockFill11[112]);
-      --*(_DWORD *)&PopWeakChargerLock.WaitBlockFill11[76];
-      KeReleaseGuardedMutex((PKGUARDED_MUTEX)&PopWeakChargerLock.WaitBlockFill11[112]);
+      ExAcquireFastMutex(&PopIrpWorkerMutex);
+      --PopIrpWorkerInFlightCount;
+      KeReleaseGuardedMutex(&PopIrpWorkerMutex);
     }
-    ExAcquireFastMutex((PKGUARDED_MUTEX)&PopWeakChargerLock.WaitBlockFill11[112]);
-    if ( PopWeakChargerLock.WaitBlockFill6[72]
-      && ((v5 = *(_DWORD *)&PopWeakChargerLock.WaitBlockFill11[80] - 1,
-           *(_DWORD *)&PopWeakChargerLock.WaitBlockFill11[76] != *(_DWORD *)&PopWeakChargerLock.WaitBlockFill11[80] - 1)
-       || *(_DWORD *)&PopWeakChargerLock.WaitBlockFill11[84]) )
+    ExAcquireFastMutex(&PopIrpWorkerMutex);
+    if ( PopCreateIrpWorkerAllowed
+      && ((v5 = PopIrpWorkerCount - 1, PopIrpWorkerInFlightCount != PopIrpWorkerCount - 1) || PopIrpWorkerPendingCount) )
     {
       v6 = v26;
       v7 = 0;
@@ -196,13 +194,13 @@ LABEL_57:
         goto LABEL_57;
       **((_QWORD **)&v26 + 1) = v26;
       *(_QWORD *)(v6 + 8) = *((_QWORD *)&v6 + 1);
-      *(_DWORD *)&PopWeakChargerLock.WaitBlockFill11[80] = v5;
+      PopIrpWorkerCount = v5;
     }
     else
     {
       v7 = 1;
     }
-    KeReleaseGuardedMutex((PKGUARDED_MUTEX)&PopWeakChargerLock.WaitBlockFill11[112]);
+    KeReleaseGuardedMutex(&PopIrpWorkerMutex);
   }
   while ( v7 );
   return PsTerminateSystemThread(0);

@@ -1,7 +1,7 @@
 /*
- * XREFs of KiInitializeAvailableCpusWorkItem @ 0x1404DE3C8
+ * XREFs of KiInitializeAvailableCpusWorkItem @ 0x1404D7AA8
  * Callers:
- *     KeRegisterAvailableCpusChangeNotification @ 0x1407B8DC4 (KeRegisterAvailableCpusChangeNotification.c)
+ *     KeRegisterAvailableCpusChangeNotification @ 0x1407BBE24 (KeRegisterAvailableCpusChangeNotification.c)
  * Callees:
  *     <none>
  */

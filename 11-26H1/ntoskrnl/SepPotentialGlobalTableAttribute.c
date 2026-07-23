@@ -1,12 +1,12 @@
 /*
- * XREFs of SepPotentialGlobalTableAttribute @ 0x1403CD380
+ * XREFs of SepPotentialGlobalTableAttribute @ 0x1403B1CA0
  * Callers:
- *     SepInternalQuerySecurityAttributesTokenEx @ 0x1403CC2F0 (SepInternalQuerySecurityAttributesTokenEx.c)
- *     AuthzBasepEvaluateAceCondition @ 0x1403CDD60 (AuthzBasepEvaluateAceCondition.c)
- *     SepShouldSetDelinkFlags @ 0x140ACEF00 (SepShouldSetDelinkFlags.c)
+ *     AuthzBasepEvaluateAceCondition @ 0x1402FBC90 (AuthzBasepEvaluateAceCondition.c)
+ *     SepInternalQuerySecurityAttributesTokenEx @ 0x1403B0C10 (SepInternalQuerySecurityAttributesTokenEx.c)
+ *     SepShouldSetDelinkFlags @ 0x140AD1140 (SepShouldSetDelinkFlags.c)
  * Callees:
- *     memcmp @ 0x14073D750 (memcmp.c)
- *     RtlPrefixUnicodeString @ 0x140A29BF0 (RtlPrefixUnicodeString.c)
+ *     memcmp @ 0x140742350 (memcmp.c)
+ *     RtlPrefixUnicodeString @ 0x140A3CC90 (RtlPrefixUnicodeString.c)
  */
 
 char __fastcall SepPotentialGlobalTableAttribute(PCUNICODE_STRING String2)

@@ -84,7 +84,7 @@ __int64 __fastcall CcPinFileData(
   __int64 v37; // rbx
   __int16 v38; // cx
   struct _KTHREAD *CurrentThread; // rdi
-  int v40; // r8d
+  NTSTATUS v40; // r8d
   unsigned __int64 v41; // rdx
   __int64 v42; // rbx
   unsigned int v43; // esi
@@ -127,7 +127,7 @@ __int64 __fastcall CcPinFileData(
   __int16 v80; // cx
   struct _KTHREAD *v81; // rsi
   int v82; // r9d
-  int v83; // edx
+  NTSTATUS v83; // edx
   unsigned __int64 v84; // rbx
   unsigned __int64 v85; // rdi
   unsigned int v86; // r15d
@@ -159,9 +159,9 @@ __int64 __fastcall CcPinFileData(
   int v113; // [rsp+78h] [rbp-A0h]
   _DWORD *v114; // [rsp+80h] [rbp-98h]
   __int64 v115; // [rsp+88h] [rbp-90h]
-  int v116; // [rsp+90h] [rbp-88h]
+  NTSTATUS v116; // [rsp+90h] [rbp-88h]
   int v117; // [rsp+94h] [rbp-84h]
-  int v118; // [rsp+98h] [rbp-80h]
+  NTSTATUS v118; // [rsp+98h] [rbp-80h]
   char *v119; // [rsp+A0h] [rbp-78h]
   ULONG_PTR v120; // [rsp+A8h] [rbp-70h]
   __int64 v121; // [rsp+B0h] [rbp-68h]

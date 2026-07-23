@@ -1,10 +1,10 @@
 /*
- * XREFs of KiFastAcquireQueuedSpinLockInstrumented @ 0x1401D3A94
+ * XREFs of KiFastAcquireQueuedSpinLockInstrumented @ 0x1401D38C0
  * Callers:
- *     EXP_LOCK_RESOURCE @ 0x14022D8A4 (EXP_LOCK_RESOURCE.c)
+ *     EXP_LOCK_RESOURCE @ 0x14022D6D0 (EXP_LOCK_RESOURCE.c)
  * Callees:
- *     KxWaitForLockOwnerShipWithIrql @ 0x140090910 (KxWaitForLockOwnerShipWithIrql.c)
- *     PerfLogSpinLockAcquire @ 0x140228678 (PerfLogSpinLockAcquire.c)
+ *     KxWaitForLockOwnerShipWithIrql @ 0x140090070 (KxWaitForLockOwnerShipWithIrql.c)
+ *     PerfLogSpinLockAcquire @ 0x1402284A4 (PerfLogSpinLockAcquire.c)
  */
 
 char __fastcall KiFastAcquireQueuedSpinLockInstrumented(__int64 a1, volatile __int64 *a2, unsigned __int8 *a3)

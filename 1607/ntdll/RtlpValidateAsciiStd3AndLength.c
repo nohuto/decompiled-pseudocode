@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpValidateAsciiStd3AndLength @ 0x180056110
+ * XREFs of RtlpValidateAsciiStd3AndLength @ 0x180056100
  * Callers:
- *     RtlpNameprepAsciiWorker @ 0x180055E84 (RtlpNameprepAsciiWorker.c)
+ *     RtlpNameprepAsciiWorker @ 0x180055E74 (RtlpNameprepAsciiWorker.c)
  * Callees:
- *     ValidateStd3Range @ 0x180056DF0 (ValidateStd3Range.c)
+ *     ValidateStd3Range @ 0x180056DE0 (ValidateStd3Range.c)
  *     FindEmailAt @ 0x1800F04CC (FindEmailAt.c)
  */
 

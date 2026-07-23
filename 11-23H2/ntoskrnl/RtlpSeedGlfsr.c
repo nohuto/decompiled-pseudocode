@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlpSeedGlfsr @ 0x14067BA60
+ * XREFs of RtlpSeedGlfsr @ 0x14067BFB0
  * Callers:
  *     <none>
  * Callees:

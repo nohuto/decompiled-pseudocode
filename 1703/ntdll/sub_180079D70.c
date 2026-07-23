@@ -23,26 +23,26 @@
  *     sub_1800D76B0 @ 0x1800D76B0 (sub_1800D76B0.c)
  */
 
-__int64 __fastcall sub_180079D70(__int64 a1, __int64 a2, __int64 a3)
+NTSTATUS __fastcall sub_180079D70(__int64 a1, __int64 a2, __int64 a3)
 {
   struct _TEB *v5; // r15
   signed __int32 v6; // eax
-  struct _PEB *ProcessEnvironmentBlock; // r14
+  PPEB ProcessEnvironmentBlock; // r14
   int v8; // edi
-  int v10; // eax
+  NTSTATUS v10; // eax
   __int64 v11; // rcx
   char v12; // al
   char v13; // al
   int v14; // r8d
   int v15; // r9d
-  char *v16; // rcx
+  USHORT *v16; // rcx
   struct _PEB *v17; // rax
   char v18; // cl
   __int64 v19; // rcx
   int v20; // r9d
-  char *v21; // rcx
-  __int64 v22; // [rsp+38h] [rbp-40h] BYREF
-  struct _RTL_USER_PROCESS_PARAMETERS *ProcessParameters; // [rsp+40h] [rbp-38h]
+  USHORT *v21; // rcx
+  LARGE_INTEGER DelayInterval; // [rsp+38h] [rbp-40h] BYREF
+  PRTL_USER_PROCESS_PARAMETERS ProcessParameters; // [rsp+40h] [rbp-38h]
   int v24; // [rsp+90h] [rbp+18h]
 
   v5 = NtCurrentTeb();
@@ -55,12 +55,12 @@ __int64 __fastcall sub_180079D70(__int64 a1, __int64 a2, __int64 a3)
     if ( !v6 )
     {
       v5->SameTebFlags |= 0x20u;
-      ProcessEnvironmentBlock->LoaderLock = (struct _RTL_CRITICAL_SECTION *)&off_1801555A8;
+      ProcessEnvironmentBlock->LoaderLock = &stru_1801555A8;
       dword_18015C018 = 0;
       _interlockedbittestandset((volatile signed __int32 *)&ProcessEnvironmentBlock->CrossProcessFlags, 1u);
       qword_18016B2A0 = (__int64)&qword_18016B298;
       qword_18016B298 = (__int64)&qword_18016B298;
-      qword_18015A2B0 = 0LL;
+      stru_18015A2B0.Ptr = 0LL;
       qword_18016B290 = 0LL;
       v8 = sub_180095AC4();
       if ( v8 < 0 )
@@ -117,16 +117,16 @@ __int64 __fastcall sub_180079D70(__int64 a1, __int64 a2, __int64 a3)
       {
         if ( !dword_18015B264 || dword_18015B398 == 1 )
         {
-          if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-            v11 = (__int64)NtCurrentPeb()->HotpatchInformation + 554;
+          if ( RtlGetCurrentServiceSessionId() )
+            v11 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[2];
           else
             v11 = 2147353476LL;
           if ( *(_BYTE *)v11 && (NtCurrentPeb()->TracingFlags & 4) != 0 )
           {
-            v16 = (unsigned int)RtlGetCurrentServiceSessionId()
-                ? (char *)NtCurrentPeb()->HotpatchInformation + 555
-                : (char *)2147353477;
-            if ( (*v16 & 0x20) != 0 )
+            v16 = RtlGetCurrentServiceSessionId()
+                ? (USHORT *)((char *)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[2] + 1)
+                : (USHORT *)2147353477;
+            if ( (*(_BYTE *)v16 & 0x20) != 0 )
             {
               LOBYTE(v15) = -1;
               LOBYTE(v14) = -1;
@@ -140,7 +140,7 @@ __int64 __fastcall sub_180079D70(__int64 a1, __int64 a2, __int64 a3)
       }
 LABEL_70:
       sub_1800048B8(v8);
-      ZwTerminateProcess(-1LL, (unsigned int)v8);
+      ZwTerminateProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, v8);
       RtlRaiseStatus(v8);
     }
     v8 = 0;
@@ -149,10 +149,10 @@ LABEL_70:
     if ( _InterlockedCompareExchange(&dword_18015B398, 1, 2) == 2 )
       break;
 LABEL_13:
-    v22 = -300000LL;
+    DelayInterval.QuadPart = -300000LL;
     while ( dword_18015B398 == 1 )
     {
-      v10 = ZwDelayExecution(0LL, &v22);
+      v10 = ZwDelayExecution(0, &DelayInterval);
       if ( v10 < 0 )
       {
         v18 = dword_180155A10;
@@ -175,22 +175,22 @@ LABEL_13:
   if ( ProcessEnvironmentBlock->InheritedAddressSpace )
   {
     v17 = NtCurrentPeb();
-    qword_18015C1E8 = 0LL;
-    qword_18015C1F0 = 0LL;
+    stru_18015C1E8.Ptr = 0LL;
+    ConditionVariable.Ptr = 0LL;
     v17->InheritedAddressSpace = 0;
     if ( v17->BeingDebugged )
       sub_1800D6F48();
   }
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-    v19 = (__int64)NtCurrentPeb()->HotpatchInformation + 554;
+  if ( RtlGetCurrentServiceSessionId() )
+    v19 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[2];
   else
     v19 = 2147353476LL;
   if ( *(_BYTE *)v19 && (NtCurrentPeb()->TracingFlags & 4) != 0 )
   {
-    v21 = (unsigned int)RtlGetCurrentServiceSessionId()
-        ? (char *)NtCurrentPeb()->HotpatchInformation + 555
-        : (char *)2147353477;
-    if ( (*v21 & 0x20) != 0 )
+    v21 = RtlGetCurrentServiceSessionId()
+        ? (USHORT *)((char *)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[2] + 1)
+        : (USHORT *)2147353477;
+    if ( (*(_BYTE *)v21 & 0x20) != 0 )
     {
       LOBYTE(v20) = -1;
       LOBYTE(a3) = -1;
@@ -204,10 +204,10 @@ LABEL_5:
   {
     if ( byte_18015AE99 )
     {
-      RtlAcquireSRWLockShared(&qword_18015C1E8);
+      RtlAcquireSRWLockShared(&stru_18015C1E8);
       while ( byte_18015AE99 )
-        RtlSleepConditionVariableSRW(&qword_18015C1F0, &qword_18015C1E8, 0LL, 1);
-      RtlReleaseSRWLockShared(&qword_18015C1E8);
+        RtlSleepConditionVariableSRW(&ConditionVariable, &stru_18015C1E8, 0LL, 1u);
+      RtlReleaseSRWLockShared(&stru_18015C1E8);
     }
     if ( dword_18015B264 )
       qword_18016B210(a1);

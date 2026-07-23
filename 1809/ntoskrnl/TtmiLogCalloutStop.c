@@ -1,12 +1,12 @@
 /*
- * XREFs of TtmiLogCalloutStop @ 0x1408829AC
+ * XREFs of TtmiLogCalloutStop @ 0x140883C0C
  * Callers:
- *     TtmpStopCallout @ 0x14087E6CC (TtmpStopCallout.c)
+ *     TtmpStopCallout @ 0x14087F92C (TtmpStopCallout.c)
  * Callees:
  *     PsGetProcessSessionIdEx @ 0x140003190 (PsGetProcessSessionIdEx.c)
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 char __fastcall TtmiLogCalloutStop(int a1, int a2, __int64 a3, int a4, int a5, unsigned __int64 a6)
@@ -59,9 +59,9 @@ char __fastcall TtmiLogCalloutStop(int a1, int a2, __int64 a3, int a4, int a5, u
   v7 = a6;
   if ( a6 > 0x1312D00 )
   {
-    if ( stru_14096D7E8.LevelPlus1 > 5 )
+    if ( stru_14096E7E8.LevelPlus1 > 5 )
     {
-      LOBYTE(v6) = TlgKeywordOn(&stru_14096D7E8, 0x400000000001uLL);
+      LOBYTE(v6) = TlgKeywordOn(&stru_14096E7E8, 0x400000000001uLL);
       if ( (_BYTE)v6 )
       {
         ProcessSessionId = PsGetProcessSessionIdEx((__int64)KeGetCurrentThread()->ApcState.Process);
@@ -86,13 +86,13 @@ char __fastcall TtmiLogCalloutStop(int a1, int a2, __int64 a3, int a4, int a5, u
         v49[2] = 4LL;
         v49[3] = &v23;
         v49[4] = 8LL;
-        LOBYTE(v6) = TlgWrite(&stru_14096D7E8, &unk_140372278, 0LL, 0LL, 0xAu, &v37);
+        LOBYTE(v6) = TlgWrite(&stru_14096E7E8, &unk_1403730C8, 0LL, 0LL, 0xAu, &v37);
       }
     }
   }
-  else if ( stru_14096D820.LevelPlus1 > 5 )
+  else if ( stru_14096E820.LevelPlus1 > 5 )
   {
-    LOBYTE(v6) = TlgKeywordOn(&stru_14096D820, 1uLL);
+    LOBYTE(v6) = TlgKeywordOn(&stru_14096E820, 1uLL);
     if ( (_BYTE)v6 )
     {
       v12 = PsGetProcessSessionIdEx((__int64)KeGetCurrentThread()->ApcState.Process);
@@ -117,7 +117,7 @@ char __fastcall TtmiLogCalloutStop(int a1, int a2, __int64 a3, int a4, int a5, u
       v36[2] = 4LL;
       v36[3] = &v21;
       v36[4] = 8LL;
-      LOBYTE(v6) = TlgWrite(&stru_14096D820, &unk_14037242A, 0LL, 0LL, 0xAu, &pData);
+      LOBYTE(v6) = TlgWrite(&stru_14096E820, &unk_14037331D, 0LL, 0LL, 0xAu, &pData);
     }
   }
   return (char)v6;

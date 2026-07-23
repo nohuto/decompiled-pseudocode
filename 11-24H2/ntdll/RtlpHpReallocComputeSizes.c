@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpHpReallocComputeSizes @ 0x1800A3D30
+ * XREFs of RtlpHpReallocComputeSizes @ 0x18005DAE0
  * Callers:
- *     RtlpHpReAllocateHeap @ 0x1800A2F84 (RtlpHpReAllocateHeap.c)
- *     RtlpHpReAllocateHeapSlow @ 0x18011C8F0 (RtlpHpReAllocateHeapSlow.c)
+ *     RtlpHpReAllocateHeap @ 0x18005CD30 (RtlpHpReAllocateHeap.c)
+ *     RtlpHpReAllocateHeapSlow @ 0x18011AB20 (RtlpHpReAllocateHeapSlow.c)
  * Callees:
- *     RtlCSparseBitmapBitmaskRead @ 0x18002CA00 (RtlCSparseBitmapBitmaskRead.c)
- *     RtlpHpVsChunkSize @ 0x1800A40A0 (RtlpHpVsChunkSize.c)
- *     RtlpHpLargeAllocSize @ 0x1800A4170 (RtlpHpLargeAllocSize.c)
+ *     RtlCSparseBitmapBitmaskRead @ 0x180059400 (RtlCSparseBitmapBitmaskRead.c)
+ *     RtlpHpVsChunkSize @ 0x18005DE50 (RtlpHpVsChunkSize.c)
+ *     RtlpHpLargeAllocSize @ 0x18005DF20 (RtlpHpLargeAllocSize.c)
  */
 
 __int64 __fastcall RtlpHpReallocComputeSizes(
@@ -62,7 +62,7 @@ __int64 __fastcall RtlpHpReallocComputeSizes(
   }
   else
   {
-    v18 = RtlCSparseBitmapBitmaskRead((__int64)&unk_1801CE930, 2 * ((a2 - qword_1801CE928) >> 20));
+    v18 = RtlCSparseBitmapBitmaskRead((__int64)&BaseAddress, 2 * ((a2 - qword_1801CD918) >> 20));
     if ( !v18 || (v10 = v18 - 1, v10 == 2) )
     {
       v19 = RtlpHpLargeAllocSize(a1, a2, a5 + 2);
@@ -94,7 +94,7 @@ __int64 __fastcall RtlpHpReallocComputeSizes(
   else if ( (*(_BYTE *)(v15 + 24) & 0xC) == 8 )
   {
     v22 = *(_DWORD *)((v15 & *(_QWORD *)v11) + ((__int64)(v15 - (v15 & *(_QWORD *)v11)) >> 5 << v20) + 0x28);
-    v23 = qword_1801CDEC8 ^ v22 ^ (v21 >> 12);
+    v23 = qword_1801CCEC8 ^ v22 ^ (v21 >> 12);
     v24 = a2 - HIWORD(v23) - v21;
     v25 = (v24
          * (unsigned __int64)*(unsigned int *)(((unsigned __int64)*(unsigned __int16 *)(v21 + 44) << 6)
@@ -106,7 +106,7 @@ __int64 __fastcall RtlpHpReallocComputeSizes(
       v27 = (_QWORD *)(v21 + 8 * ((v25 >> 5) + 8));
       if ( (*(_DWORD *)v27 & (unsigned int)v26) != 0 )
       {
-        v19 = (unsigned __int16)qword_1801CDEC8 ^ (unsigned int)(unsigned __int16)(v22 ^ (v21 >> 12));
+        v19 = (unsigned __int16)qword_1801CCEC8 ^ (unsigned int)(unsigned __int16)(v22 ^ (v21 >> 12));
         if ( (HIDWORD(*v27) & v26) != 0 )
         {
           v28 = *(_WORD *)(v19 + a2 - 2);

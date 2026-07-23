@@ -10,12 +10,12 @@
 
 void __fastcall PerfDiagpInitializeLoggerInfo(int a1, __int16 a2)
 {
-  memset(dword_14032B230, 0, 0xB0uLL);
+  memset(&InputBufferLength, 0, 0xB0uLL);
   dword_14032B278 = -2130771792;
   wcscpy(&xmmword_14032B1EC, L"Circular Kernel Context Logger");
   dword_14032B25C = 0x20000;
   RtlInitUnicodeString(&DestinationString, &xmmword_14032B1EC);
-  dword_14032B230[0] = 180;
+  InputBufferLength = 180;
   dword_14032B2E0 = 1;
   if ( a1 )
   {
@@ -23,6 +23,6 @@ void __fastcall PerfDiagpInitializeLoggerInfo(int a1, __int16 a2)
     word_14032B2E4 = a2 + 1;
     HIWORD(dword_14032B2E0) = 1;
     LOWORD(dword_14032B2E0) = a2 + 2;
-    dword_14032B230[0] = 4 * (unsigned __int16)(a2 + 1) + 180;
+    InputBufferLength = 4 * (unsigned __int16)(a2 + 1) + 180;
   }
 }

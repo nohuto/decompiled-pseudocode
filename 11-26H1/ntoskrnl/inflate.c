@@ -1,14 +1,14 @@
 /*
- * XREFs of inflate @ 0x14062664C
+ * XREFs of inflate @ 0x14062969C
  * Callers:
- *     RtlDecompressBufferDeflateInternal @ 0x140624CE8 (RtlDecompressBufferDeflateInternal.c)
+ *     RtlDecompressBufferDeflateInternal @ 0x140627D38 (RtlDecompressBufferDeflateInternal.c)
  * Callees:
- *     inflateStateCheck @ 0x140627754 (inflateStateCheck.c)
- *     updatewindow @ 0x140627794 (updatewindow.c)
- *     adler32_z @ 0x140635164 (adler32_z.c)
- *     inflate_table @ 0x140635550 (inflate_table.c)
- *     inflate_fast @ 0x1406359EC (inflate_fast.c)
- *     memmove @ 0x14073D480 (memmove.c)
+ *     inflateStateCheck @ 0x14062A7A4 (inflateStateCheck.c)
+ *     updatewindow @ 0x14062A7E4 (updatewindow.c)
+ *     adler32_z @ 0x14063816C (adler32_z.c)
+ *     inflate_table @ 0x140638558 (inflate_table.c)
+ *     inflate_fast @ 0x1406389F4 (inflate_fast.c)
+ *     memmove @ 0x140742080 (memmove.c)
  */
 
 __int64 __fastcall inflate(unsigned __int8 **a1)
@@ -378,12 +378,12 @@ LABEL_84:
                 }
                 v40 = v9 & 7;
                 v9 >>= 3;
-                *(_WORD *)&v3[2 * *((unsigned __int16 *)qword_140036B80 + (unsigned int)(*((_DWORD *)v3 + 33))++) + 144] = v40;
+                *(_WORD *)&v3[2 * *((unsigned __int16 *)qword_140037190 + (unsigned int)(*((_DWORD *)v3 + 33))++) + 144] = v40;
                 v10 -= 3;
               }
               while ( (unsigned int)v39 < 0x13 )
               {
-                *(_WORD *)&v3[2 * *((unsigned __int16 *)qword_140036B80 + v39) + 144] = 0;
+                *(_WORD *)&v3[2 * *((unsigned __int16 *)qword_140037190 + v39) + 144] = 0;
                 v39 = (unsigned int)++*((_DWORD *)v3 + 33);
               }
               *v11 = 7;
@@ -681,8 +681,8 @@ LABEL_25:
                 {
                   case 1u:
                     *v11 = 9;
-                    *((_QWORD *)v3 + 12) = qword_140036C30;
-                    *((_QWORD *)v3 + 13) = qword_140036BB0;
+                    *((_QWORD *)v3 + 12) = qword_1400371C0;
+                    *((_QWORD *)v3 + 13) = qword_140037110;
                     *v12 = 5;
                     *((_DWORD *)v3 + 2) = 16199;
                     break;

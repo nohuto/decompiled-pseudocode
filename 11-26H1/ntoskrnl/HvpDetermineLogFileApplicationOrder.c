@@ -1,12 +1,12 @@
 /*
- * XREFs of HvpDetermineLogFileApplicationOrder @ 0x140ADFFB0
+ * XREFs of HvpDetermineLogFileApplicationOrder @ 0x140ADD7F0
  * Callers:
- *     HvAnalyzeLogFiles @ 0x140ADF748 (HvAnalyzeLogFiles.c)
+ *     HvAnalyzeLogFiles @ 0x140ADCF88 (HvAnalyzeLogFiles.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     HvpCompareLogSequenceNumbers @ 0x140862A6C (HvpCompareLogSequenceNumbers.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     HvpCompareLogSequenceNumbers @ 0x140868E4C (HvpCompareLogSequenceNumbers.c)
  */
 
 char __fastcall HvpDetermineLogFileApplicationOrder(_DWORD *a1)
@@ -74,7 +74,7 @@ LABEL_9:
         v16 = 8LL;
         LOBYTE(v7) = tlgWriteTransfer_EtwWriteTransfer(
                        (__int64)&dword_140E09EE8,
-                       (unsigned __int8 *)word_14005748A,
+                       (unsigned __int8 *)&dword_140058494,
                        0LL,
                        0LL,
                        3u,

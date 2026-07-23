@@ -8,10 +8,10 @@
  *     _NtClose@4 @ 0x4B2F2A50 (_NtClose@4.c)
  */
 
-int __thiscall RtlpUninitializeAssemblyStorageMap(_DWORD *this)
+LOGICAL __thiscall RtlpUninitializeAssemblyStorageMap(_DWORD *this)
 {
   unsigned int i; // edi
-  int result; // eax
+  LOGICAL result; // eax
   int v4; // ebx
 
   if ( this )
@@ -30,11 +30,11 @@ int __thiscall RtlpUninitializeAssemblyStorageMap(_DWORD *this)
           *(_DWORD *)(v4 + 12) = 0;
         }
         *(_DWORD *)(this[2] + 4 * i) = 0;
-        result = RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v4);
+        result = RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, (PVOID)v4);
       }
     }
     if ( (*(_BYTE *)this & 1) != 0 )
-      result = RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, this[2]);
+      result = RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, (PVOID)this[2]);
     this[2] = 0;
     this[1] = 0;
     *this = 0;

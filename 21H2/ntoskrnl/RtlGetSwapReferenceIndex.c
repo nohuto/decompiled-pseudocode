@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlGetSwapReferenceIndex @ 0x1407D5104
+ * XREFs of RtlGetSwapReferenceIndex @ 0x1407D5274
  * Callers:
- *     CmFcManagerStartRuntimePhase @ 0x140A38784 (CmFcManagerStartRuntimePhase.c)
+ *     CmFcManagerStartRuntimePhase @ 0x140A39784 (CmFcManagerStartRuntimePhase.c)
  * Callees:
  *     <none>
  */

@@ -36,7 +36,7 @@ __int64 __fastcall WheapQueryPshedForErrorSources(_DWORD *a1, _QWORD *a2)
     }
     LODWORD(WheapStatus) = WheapStatus + 1;
     HIDWORD(WheapStatus) |= 0x20u;
-    dword_140C2CC18 = AllErrorSources;
+    dword_140C2CBD8 = AllErrorSources;
   }
   else
   {

@@ -1,11 +1,11 @@
 /*
- * XREFs of PoGetRequester @ 0x140283794
+ * XREFs of PoGetRequester @ 0x1402719A4
  * Callers:
- *     PoCaptureReasonContext @ 0x14028363C (PoCaptureReasonContext.c)
+ *     PoCaptureReasonContext @ 0x14027184C (PoCaptureReasonContext.c)
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x1402056A0 (ObfReferenceObjectWithTag.c)
- *     MmGetSessionIdEx @ 0x14034AE60 (MmGetSessionIdEx.c)
- *     PopUnicodeStringDeepCopy @ 0x1406C1BA0 (PopUnicodeStringDeepCopy.c)
+ *     ObfReferenceObjectWithTag @ 0x1402A9FE0 (ObfReferenceObjectWithTag.c)
+ *     MmGetSessionIdEx @ 0x140355BB0 (MmGetSessionIdEx.c)
+ *     PopUnicodeStringDeepCopy @ 0x140671F50 (PopUnicodeStringDeepCopy.c)
  */
 
 __int64 __fastcall PoGetRequester(char a1, void *a2, __int64 a3)

@@ -24,7 +24,7 @@ void __fastcall CcProcessDelayedDeletePVCM(__int64 a1)
 
   memset(&LockHandle, 0, sizeof(LockHandle));
   v2 = MEMORY[0xFFFFF78000000320];
-  v3 = CcDelayedDeletePVCMLifetime / (unsigned int)KeMaximumIncrement;
+  v3 = CcDelayedDeletePVCMLifetime / KeMaximumIncrement;
   KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(a1 + 768), &LockHandle);
   v4 = (_QWORD *)(a1 + 112);
   *(_BYTE *)(a1 + 1504) = 0;

@@ -2,21 +2,21 @@
  * XREFs of CmpInitHiveFromFile @ 0x14068B418
  * Callers:
  *     CmpCmdHiveOpen @ 0x14068B2C0 (CmpCmdHiveOpen.c)
- *     CmpLoadHiveThread @ 0x140826880 (CmpLoadHiveThread.c)
+ *     CmpLoadHiveThread @ 0x140826B80 (CmpLoadHiveThread.c)
  * Callees:
  *     CmSiAllocateMemory @ 0x1402089E0 (CmSiAllocateMemory.c)
  *     _tlgKeywordOn @ 0x140212E64 (_tlgKeywordOn.c)
- *     SetFailureLocation @ 0x1402F69F0 (SetFailureLocation.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ZwQueryInformationFile @ 0x14041AF80 (ZwQueryInformationFile.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     SetFailureLocation @ 0x1402F6C80 (SetFailureLocation.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6DB4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ZwQueryInformationFile @ 0x14041B310 (ZwQueryInformationFile.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     memset @ 0x140435E00 (memset.c)
  *     CmpOpenHiveFiles @ 0x14068B784 (CmpOpenHiveFiles.c)
- *     CmpCreateHive @ 0x1407023CC (CmpCreateHive.c)
- *     CmpFlushHive @ 0x140752E88 (CmpFlushHive.c)
- *     CmpLogEvent @ 0x140A0FBD4 (CmpLogEvent.c)
+ *     CmpCreateHive @ 0x1407025DC (CmpCreateHive.c)
+ *     CmpFlushHive @ 0x140753078 (CmpFlushHive.c)
+ *     CmpLogEvent @ 0x140A0FE84 (CmpLogEvent.c)
  *     CmpReleaseHiveLoadUnloadRundown @ 0x140AF5008 (CmpReleaseHiveLoadUnloadRundown.c)
  *     CmpAcquireHiveLoadUnloadRundown @ 0x140AF502C (CmpAcquireHiveLoadUnloadRundown.c)
  *     CmpIsHiveLoadUnloadRundownActive @ 0x140AF506C (CmpIsHiveLoadUnloadRundownActive.c)
@@ -85,7 +85,7 @@ __int64 __fastcall CmpInitHiveFromFile(
   memset(v40, 0, sizeof(v40));
   *(_OWORD *)Handle = 0LL;
   *(_OWORD *)v32 = 0LL;
-  if ( (unsigned int)dword_140C043C8 > 4 && tlgKeywordOn((__int64)&dword_140C043C8, 8LL) )
+  if ( (unsigned int)dword_140C04390 > 4 && tlgKeywordOn((__int64)&dword_140C04390, 8LL) )
   {
     v44 = 0;
     v46[1] = 0;
@@ -93,7 +93,7 @@ __int64 __fastcall CmpInitHiveFromFile(
     v45 = *((_QWORD *)a1 + 1);
     v46[0] = *a1;
     v43 = 2;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C043C8, (unsigned __int8 *)&byte_140037DCF, 0LL, 0LL, 4u, v41);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C04390, (unsigned __int8 *)byte_140037E8D, 0LL, 0LL, 4u, v41);
   }
   v14 = a2;
   v24 = (__int64)a10;
@@ -206,13 +206,13 @@ LABEL_9:
     ZwClose(Handle[1]);
   if ( v32[0] )
     ZwClose(v32[0]);
-  if ( (unsigned int)dword_140C043C8 > 4 && tlgKeywordOn((__int64)&dword_140C043C8, 8LL) )
+  if ( (unsigned int)dword_140C04390 > 4 && tlgKeywordOn((__int64)&dword_140C04390, 8LL) )
   {
     v44 = 0;
     v42 = &v27;
     v27 = v16;
     v43 = 4;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C043C8, (unsigned __int8 *)byte_140037DA5, 0LL, 0LL, 3u, v41);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C04390, (unsigned __int8 *)qword_140037EB8, 0LL, 0LL, 3u, v41);
   }
   return v16;
 }

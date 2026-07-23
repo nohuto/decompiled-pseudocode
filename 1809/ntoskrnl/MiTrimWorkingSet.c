@@ -1,16 +1,16 @@
 /*
- * XREFs of MiTrimWorkingSet @ 0x140130E38
+ * XREFs of MiTrimWorkingSet @ 0x140130F08
  * Callers:
- *     MiTrimOrAgeWorkingSet @ 0x14006D580 (MiTrimOrAgeWorkingSet.c)
- *     MiReduceWs @ 0x140130D9C (MiReduceWs.c)
- *     MiForcedTrim @ 0x14013F210 (MiForcedTrim.c)
+ *     MiTrimOrAgeWorkingSet @ 0x14006D570 (MiTrimOrAgeWorkingSet.c)
+ *     MiReduceWs @ 0x140130E6C (MiReduceWs.c)
+ *     MiForcedTrim @ 0x14013F310 (MiForcedTrim.c)
  * Callees:
- *     MiWalkPageTables @ 0x14006E940 (MiWalkPageTables.c)
- *     MiTbFlushType @ 0x1400EDBA4 (MiTbFlushType.c)
- *     MiLogTrimWs @ 0x140131048 (MiLogTrimWs.c)
- *     MiGenerateRandomPte @ 0x14013111C (MiGenerateRandomPte.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memset @ 0x1401D1880 (memset.c)
+ *     MiWalkPageTables @ 0x14006E930 (MiWalkPageTables.c)
+ *     MiTbFlushType @ 0x1400EDC24 (MiTbFlushType.c)
+ *     MiLogTrimWs @ 0x140131118 (MiLogTrimWs.c)
+ *     MiGenerateRandomPte @ 0x1401311EC (MiGenerateRandomPte.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memset @ 0x1401D1980 (memset.c)
  */
 
 __int64 __fastcall MiTrimWorkingSet(__int64 a1, unsigned __int64 a2, char a3, unsigned int a4, int a5)
@@ -78,7 +78,7 @@ __int64 __fastcall MiTrimWorkingSet(__int64 a1, unsigned __int64 a2, char a3, un
       LODWORD(v24[0]) = v10 | 0xC00;
     }
   }
-  if ( dword_14043A8E8 )
+  if ( dword_14043B9A8 )
     LODWORD(v24[0]) = v9 | 0x10;
   v24[8] = 20LL;
   v12 = MiTbFlushType(a1);

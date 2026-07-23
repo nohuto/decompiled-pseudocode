@@ -1,11 +1,11 @@
 /*
- * XREFs of ShipAssert @ 0x1800E2A20
+ * XREFs of ShipAssert @ 0x1800DDFF0
  * Callers:
- *     ShipAssertMsgA @ 0x180134850 (ShipAssertMsgA.c)
+ *     ShipAssertMsgA @ 0x180132A80 (ShipAssertMsgA.c)
  * Callees:
- *     GetShipAssertBuffer @ 0x1800E2C14 (GetShipAssertBuffer.c)
- *     WerEscalationLazyInit @ 0x1800E2D10 (WerEscalationLazyInit.c)
- *     __security_check_cookie @ 0x1801659C0 (__security_check_cookie.c)
+ *     GetShipAssertBuffer @ 0x1800DE1E4 (GetShipAssertBuffer.c)
+ *     WerEscalationLazyInit @ 0x1800DE2E0 (WerEscalationLazyInit.c)
+ *     __security_check_cookie @ 0x180163D80 (__security_check_cookie.c)
  */
 
 __int64 __fastcall ShipAssert(int a1, int a2)
@@ -13,7 +13,7 @@ __int64 __fastcall ShipAssert(int a1, int a2)
   struct _TEB *v4; // rax
   unsigned int *p_LastErrorValue; // r14
   unsigned int LastErrorValue; // r15d
-  $C9D07D6EB863460955B0DD5F998611AD *v7; // rsi
+  $0F0CF1477DD258E599462CF86DF691E6 *v7; // rsi
   __int64 result; // rax
   __int64 ShipAssertBuffer; // rax
   __int64 v10; // rcx
@@ -42,7 +42,7 @@ __int64 __fastcall ShipAssert(int a1, int a2)
     v11 = 0;
     if ( ShipAssertBuffer && ShipAssertBuffer != 255 && ShipAssertBuffer != 238 )
     {
-      v10 = ((unsigned __int16)_InterlockedExchangeAdd(&dword_1801CCF70, 1u) + 1) & 0x3FF;
+      v10 = ((unsigned __int16)_InterlockedExchangeAdd(&dword_1801CBF70, 1u) + 1) & 0x3FF;
       *(_DWORD *)(ShipAssertBuffer + 8LL * (unsigned int)v10) = a1;
       *(_DWORD *)(ShipAssertBuffer + 8LL * (unsigned int)v10 + 4) = a2;
     }

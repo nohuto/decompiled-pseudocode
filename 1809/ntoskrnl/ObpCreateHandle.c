@@ -1,9 +1,9 @@
 /*
- * XREFs of ObpCreateHandle @ 0x1405E12B0
+ * XREFs of ObpCreateHandle @ 0x1405E22B0
  * Callers:
- *     ObOpenObjectByNameEx @ 0x1405E2E30 (ObOpenObjectByNameEx.c)
- *     ObInsertObjectEx @ 0x14062D080 (ObInsertObjectEx.c)
- *     ObOpenObjectByPointer @ 0x1406470C0 (ObOpenObjectByPointer.c)
+ *     ObOpenObjectByNameEx @ 0x1405E3E30 (ObOpenObjectByNameEx.c)
+ *     ObInsertObjectEx @ 0x14062E0A0 (ObInsertObjectEx.c)
+ *     ObOpenObjectByPointer @ 0x1406480E0 (ObOpenObjectByPointer.c)
  * Callees:
  *     CmSiFreeMemory @ 0x140013000 (CmSiFreeMemory.c)
  *     PsGetCurrentThreadProcessId @ 0x14004D240 (PsGetCurrentThreadProcessId.c)
@@ -18,45 +18,45 @@
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     KeLeaveCriticalRegionThread @ 0x140051600 (KeLeaveCriticalRegionThread.c)
  *     SeAccessCheck @ 0x140051640 (SeAccessCheck.c)
- *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     RtlEqualSid @ 0x1400A7DF0 (RtlEqualSid.c)
- *     SepSidInTokenSidHash @ 0x1400AAB60 (SepSidInTokenSidHash.c)
- *     OBJECT_HEADER_TO_HANDLE_REVOCATION_INFO @ 0x14010DFC4 (OBJECT_HEADER_TO_HANDLE_REVOCATION_INFO.c)
- *     ObReferenceObjectExWithTag @ 0x140111ED0 (ObReferenceObjectExWithTag.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     ZwDuplicateObject @ 0x1401B8910 (ZwDuplicateObject.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     SeOpenObjectAuditAlarmWithTransaction @ 0x140596850 (SeOpenObjectAuditAlarmWithTransaction.c)
- *     ObpDecrementHandleCount @ 0x1405A9584 (ObpDecrementHandleCount.c)
- *     SepAdtPrivilegeObjectAuditAlarm @ 0x1405BB8D8 (SepAdtPrivilegeObjectAuditAlarm.c)
- *     ObpAllocateAndQuerySecurityDescriptorInfo @ 0x1405BBBC0 (ObpAllocateAndQuerySecurityDescriptorInfo.c)
- *     ObpInsertOrLocateNamedObject @ 0x1405C85A8 (ObpInsertOrLocateNamedObject.c)
- *     ObDereferenceSecurityDescriptor @ 0x1405C9410 (ObDereferenceSecurityDescriptor.c)
- *     ObReferenceProcessHandleTable @ 0x1405D1160 (ObReferenceProcessHandleTable.c)
- *     ObpIncrementHandleCountEx @ 0x1405E35F0 (ObpIncrementHandleCountEx.c)
- *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
- *     ExpFreeHandleTableEntry @ 0x1405FB378 (ExpFreeHandleTableEntry.c)
- *     SePrivilegeCheck @ 0x14062A1D0 (SePrivilegeCheck.c)
- *     SePrivilegedServiceAuditAlarm @ 0x14062CE68 (SePrivilegedServiceAuditAlarm.c)
- *     ObpCallPreOperationCallbacks @ 0x1406370E0 (ObpCallPreOperationCallbacks.c)
- *     RtlMapGenericMask @ 0x14063ED30 (RtlMapGenericMask.c)
- *     ExpAllocateHandleTableEntrySlow @ 0x140696B74 (ExpAllocateHandleTableEntrySlow.c)
- *     SeAppendPrivileges @ 0x140699A20 (SeAppendPrivileges.c)
- *     ObpCreateSymbolicLinkName @ 0x1406C4440 (ObpCreateSymbolicLinkName.c)
- *     ObHandleRevocationBlockAddObject @ 0x1408611A0 (ObHandleRevocationBlockAddObject.c)
- *     ObpSetObjectAuditInfo @ 0x140861A70 (ObpSetObjectAuditInfo.c)
- *     ObpPostInterceptHandleCreate @ 0x140862594 (ObpPostInterceptHandleCreate.c)
- *     SepAdtOpenObjectAuditAlarm @ 0x14089E6DC (SepAdtOpenObjectAuditAlarm.c)
- *     SepAdtStagingEvent @ 0x14089F468 (SepAdtStagingEvent.c)
- *     SepAdtClassifyObjectIntoSubCategory @ 0x14089FBD4 (SepAdtClassifyObjectIntoSubCategory.c)
- *     EtwpTraceHandle @ 0x1408B8C10 (EtwpTraceHandle.c)
- *     ExpSetHandleExtraInfo @ 0x1408CE15C (ExpSetHandleExtraInfo.c)
- *     ExpUpdateDebugInfo @ 0x1408CE3E8 (ExpUpdateDebugInfo.c)
+ *     ExfReleasePushLockShared @ 0x1400913F0 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     RtlEqualSid @ 0x1400A7D30 (RtlEqualSid.c)
+ *     SepSidInTokenSidHash @ 0x1400AAAA0 (SepSidInTokenSidHash.c)
+ *     OBJECT_HEADER_TO_HANDLE_REVOCATION_INFO @ 0x14010E044 (OBJECT_HEADER_TO_HANDLE_REVOCATION_INFO.c)
+ *     ObReferenceObjectExWithTag @ 0x140111F40 (ObReferenceObjectExWithTag.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     ZwDuplicateObject @ 0x1401B8A70 (ZwDuplicateObject.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     SeOpenObjectAuditAlarmWithTransaction @ 0x140597850 (SeOpenObjectAuditAlarmWithTransaction.c)
+ *     ObpDecrementHandleCount @ 0x1405AA584 (ObpDecrementHandleCount.c)
+ *     SepAdtPrivilegeObjectAuditAlarm @ 0x1405BC8D8 (SepAdtPrivilegeObjectAuditAlarm.c)
+ *     ObpAllocateAndQuerySecurityDescriptorInfo @ 0x1405BCBC0 (ObpAllocateAndQuerySecurityDescriptorInfo.c)
+ *     ObpInsertOrLocateNamedObject @ 0x1405C95A8 (ObpInsertOrLocateNamedObject.c)
+ *     ObDereferenceSecurityDescriptor @ 0x1405CA410 (ObDereferenceSecurityDescriptor.c)
+ *     ObReferenceProcessHandleTable @ 0x1405D2160 (ObReferenceProcessHandleTable.c)
+ *     ObpIncrementHandleCountEx @ 0x1405E45F0 (ObpIncrementHandleCountEx.c)
+ *     ObReferenceObjectByHandle @ 0x1405E9350 (ObReferenceObjectByHandle.c)
+ *     ExpFreeHandleTableEntry @ 0x1405FC378 (ExpFreeHandleTableEntry.c)
+ *     SePrivilegeCheck @ 0x14062B1F0 (SePrivilegeCheck.c)
+ *     SePrivilegedServiceAuditAlarm @ 0x14062DE88 (SePrivilegedServiceAuditAlarm.c)
+ *     ObpCallPreOperationCallbacks @ 0x140638100 (ObpCallPreOperationCallbacks.c)
+ *     RtlMapGenericMask @ 0x14063FD50 (RtlMapGenericMask.c)
+ *     ExpAllocateHandleTableEntrySlow @ 0x140697D34 (ExpAllocateHandleTableEntrySlow.c)
+ *     SeAppendPrivileges @ 0x14069ABE0 (SeAppendPrivileges.c)
+ *     ObpCreateSymbolicLinkName @ 0x1406C56E0 (ObpCreateSymbolicLinkName.c)
+ *     ObHandleRevocationBlockAddObject @ 0x140862400 (ObHandleRevocationBlockAddObject.c)
+ *     ObpSetObjectAuditInfo @ 0x140862CD0 (ObpSetObjectAuditInfo.c)
+ *     ObpPostInterceptHandleCreate @ 0x1408637F4 (ObpPostInterceptHandleCreate.c)
+ *     SepAdtOpenObjectAuditAlarm @ 0x14089F93C (SepAdtOpenObjectAuditAlarm.c)
+ *     SepAdtStagingEvent @ 0x1408A06C8 (SepAdtStagingEvent.c)
+ *     SepAdtClassifyObjectIntoSubCategory @ 0x1408A0E34 (SepAdtClassifyObjectIntoSubCategory.c)
+ *     EtwpTraceHandle @ 0x1408B9ED0 (EtwpTraceHandle.c)
+ *     ExpSetHandleExtraInfo @ 0x1408CF41C (ExpSetHandleExtraInfo.c)
+ *     ExpUpdateDebugInfo @ 0x1408CF6A8 (ExpUpdateDebugInfo.c)
  */
 
 __int64 __fastcall ObpCreateHandle(
@@ -200,9 +200,9 @@ __int64 __fastcall ObpCreateHandle(
   __int64 v136; // rdx
   int v137; // edi
   int *v138; // rdx
-  PACCESS_TOKEN ClientToken; // rdi
+  char *ClientToken; // rdi
   struct _KTHREAD *v140; // rax
-  PACCESS_TOKEN PrimaryToken; // rsi
+  char *PrimaryToken; // rsi
   struct _KTHREAD *v142; // rax
   struct _ERESOURCE *v143; // rcx
   struct _KTHREAD *v144; // rax
@@ -1186,11 +1186,11 @@ LABEL_262:
     v115 = v167;
     if ( !v137 && (v167 == CmKeyObjectType || v167 == IoFileObjectType) )
     {
-      ClientToken = v118->SubjectSecurityContext.ClientToken;
+      ClientToken = (char *)v118->SubjectSecurityContext.ClientToken;
       if ( ClientToken )
       {
         v140 = KeGetCurrentThread();
-        PrimaryToken = v118->SubjectSecurityContext.PrimaryToken;
+        PrimaryToken = (char *)v118->SubjectSecurityContext.PrimaryToken;
         --v140->KernelApcDisable;
         if ( PrimaryToken >= ClientToken )
         {
@@ -1211,7 +1211,14 @@ LABEL_262:
           && *((int *)ClientToken + 49) >= 2
           && !RtlEqualSid(**((PSID **)PrimaryToken + 19), **((PSID **)ClientToken + 19))
           && OBJECT_HEADER_TO_HANDLE_REVOCATION_INFO(v66)
-          && SepSidInTokenSidHash((__int64)PrimaryToken + 808, 0LL, SeConstrainedImpersonationCapabilitySid, 0, 1, 0, 0) )
+          && SepSidInTokenSidHash(
+               (PSID_AND_ATTRIBUTES_HASH)(PrimaryToken + 808),
+               0LL,
+               SeConstrainedImpersonationCapabilitySid,
+               0,
+               1,
+               0,
+               0) )
         {
           ObHandleRevocationBlockAddObject(*((_QWORD *)ClientToken + 27) + 128LL, Object);
         }
@@ -1239,7 +1246,7 @@ LABEL_290:
   v146 = Object;
   if ( (_QWORD *)v175[0] != v175 )
     ObpPostInterceptHandleCreate((_DWORD)Object, v116, v17, v152, (__int64)v175);
-  if ( (xmmword_140541350 & 0x40) != 0 && v17 >= 0 )
+  if ( (xmmword_140542350 & 0x40) != 0 && v17 >= 0 )
     EtwpTraceHandle(4384LL, *v117, v146, v115);
 LABEL_295:
   v63 = (struct _EX_RUNDOWN_REF *)BugCheckParameter1;

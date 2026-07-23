@@ -3,7 +3,7 @@
  * Callers:
  *     <none>
  * Callees:
- *     _pow_special @ 0x18009FBB0 (_pow_special.c)
+ *     _pow_special @ 0x18009FBA0 (_pow_special.c)
  */
 
 // local variable allocation has failed, the output may be wrong!

@@ -1,14 +1,14 @@
 /*
- * XREFs of IopLiveDumpFreeIoSpaceRanges @ 0x14059AE24
+ * XREFs of IopLiveDumpFreeIoSpaceRanges @ 0x140597DA4
  * Callers:
- *     IopLiveDumpWriteDumpFile @ 0x14049ADE4 (IopLiveDumpWriteDumpFile.c)
- *     IopLiveDumpFreeDumpBuffers @ 0x14049B264 (IopLiveDumpFreeDumpBuffers.c)
- *     IopLiveDumpAllocateFromIOSpace @ 0x140598D2C (IopLiveDumpAllocateFromIOSpace.c)
+ *     IopLiveDumpWriteDumpFile @ 0x1404957D4 (IopLiveDumpWriteDumpFile.c)
+ *     IopLiveDumpFreeDumpBuffers @ 0x140495C54 (IopLiveDumpFreeDumpBuffers.c)
+ *     IopLiveDumpAllocateFromIOSpace @ 0x140595CAC (IopLiveDumpAllocateFromIOSpace.c)
  * Callees:
- *     IopLiveDumpUnpackMemoryRun @ 0x14059E52C (IopLiveDumpUnpackMemoryRun.c)
- *     MmFreeMemoryRanges @ 0x1407EB390 (MmFreeMemoryRanges.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     IopLiveDumpUnpackMemoryRun @ 0x14059B4AC (IopLiveDumpUnpackMemoryRun.c)
+ *     MmFreeMemoryRanges @ 0x1407EB960 (MmFreeMemoryRanges.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall IopLiveDumpFreeIoSpaceRanges(PVOID *a1, unsigned int a2)
@@ -35,7 +35,7 @@ void __fastcall IopLiveDumpFreeIoSpaceRanges(PVOID *a1, unsigned int a2)
   LODWORD(v8) = _mm_cvtsi128_si32((__m128i)0LL) | 1;
   v7 = 1;
   v10 = 0x40000000LL;
-  Pool2 = ExAllocatePool2(0x40uLL);
+  Pool2 = ExAllocatePool2(0x40uLL, 8LL * a2, 0x706D644Cu);
   v4 = (_QWORD *)Pool2;
   if ( Pool2 )
   {

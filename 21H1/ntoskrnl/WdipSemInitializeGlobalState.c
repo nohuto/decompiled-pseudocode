@@ -12,7 +12,7 @@
 void *WdipSemInitializeGlobalState()
 {
   __int64 v0; // rdi
-  union _SLIST_HEADER *v1; // rbx
+  _SLIST_HEADER *v1; // rbx
   void *result; // rax
 
   WdipSemPushLock = 0LL;

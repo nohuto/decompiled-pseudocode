@@ -1,11 +1,11 @@
 /*
- * XREFs of PopSleepstudySendSessionChangeEvent @ 0x140A79CC8
+ * XREFs of PopSleepstudySendSessionChangeEvent @ 0x140A73FC8
  * Callers:
- *     PopSleepstudyStartNextSession @ 0x140AAC910 (PopSleepstudyStartNextSession.c)
+ *     PopSleepstudyStartNextSession @ 0x140AA7940 (PopSleepstudyStartNextSession.c)
  * Callees:
- *     EtwWrite @ 0x14041C1B0 (EtwWrite.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     PopSleepstudySendSessionChangeWnf @ 0x140A79E90 (PopSleepstudySendSessionChangeWnf.c)
+ *     EtwWrite @ 0x14040FFB0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     PopSleepstudySendSessionChangeWnf @ 0x140A74190 (PopSleepstudySendSessionChangeWnf.c)
  */
 
 __int64 __fastcall PopSleepstudySendSessionChangeEvent(__int64 a1, unsigned int *a2)

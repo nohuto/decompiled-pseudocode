@@ -14,8 +14,8 @@ _WORD *__thiscall LdrpInitializationFailure(void *this)
 {
   char v1; // al
   _WORD *result; // eax
-  _BYTE v4[4]; // [esp+8h] [ebp-8h] BYREF
-  void *v5; // [esp+Ch] [ebp-4h] BYREF
+  ULONG Response; // [esp+8h] [ebp-8h] BYREF
+  unsigned __int64 Parameters; // [esp+Ch] [ebp-4h] BYREF
 
   v1 = ShowSnaps;
   if ( (ShowSnaps & 3) != 0 )
@@ -23,7 +23,7 @@ _WORD *__thiscall LdrpInitializationFailure(void *this)
     LdrpLogDbgPrint(
       (int)"minkernel\\ntdll\\ldrinit.c",
       1949,
-      "LdrpInitializationFailure",
+      (int)"LdrpInitializationFailure",
       0,
       "Process initialization failed with status 0x%08lx\n",
       this);
@@ -31,11 +31,13 @@ _WORD *__thiscall LdrpInitializationFailure(void *this)
   }
   if ( (v1 & 0x10) != 0 )
     __debugbreak();
-  result = LdrpLogFatalLdrEtwEvent(&NtCurrentPeb()->ProcessParameters->ImagePathName.Length, LdrFatalInitError);
+  result = LdrpLogFatalLdrEtwEvent(
+             &NtCurrentPeb()->ProcessParameters->ImagePathName.Length,
+             (const EVENT_DESCRIPTOR *)LdrFatalInitError);
   if ( !LdrpFatalHardErrorCount )
   {
-    v5 = this;
-    return (_WORD *)ZwRaiseHardError(-1073741499, 1, 0, (int)&v5, 1, (int)v4);
+    LODWORD(Parameters) = this;
+    return (_WORD *)ZwRaiseHardError(-1073741499, 1u, 0, &Parameters, 1u, &Response);
   }
   return result;
 }

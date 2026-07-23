@@ -1,9 +1,9 @@
 /*
- * XREFs of PdcRwLockInitialize2 @ 0x14085ABB8
+ * XREFs of PdcRwLockInitialize2 @ 0x14085ADF8
  * Callers:
- *     Pdcv2ActivationClientRegister @ 0x14085AA64 (Pdcv2ActivationClientRegister.c)
+ *     Pdcv2ActivationClientRegister @ 0x14085ACA4 (Pdcv2ActivationClientRegister.c)
  * Callees:
- *     KeInitializeMutex @ 0x14033ADB0 (KeInitializeMutex.c)
+ *     KeInitializeMutex @ 0x14033B040 (KeInitializeMutex.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 

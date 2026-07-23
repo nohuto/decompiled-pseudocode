@@ -1,9 +1,9 @@
 /*
- * XREFs of KeSynchronizeTimeToQpc @ 0x14056AF80
+ * XREFs of KeSynchronizeTimeToQpc @ 0x14056B640
  * Callers:
- *     HalpAcpiPreSleep @ 0x140A968A0 (HalpAcpiPreSleep.c)
+ *     HalpAcpiPreSleep @ 0x140A96710 (HalpAcpiPreSleep.c)
  * Callees:
- *     KiUpdateTimeAssist @ 0x1403CF7B8 (KiUpdateTimeAssist.c)
+ *     KiUpdateTimeAssist @ 0x1403CF998 (KiUpdateTimeAssist.c)
  */
 
 __int64 __fastcall KeSynchronizeTimeToQpc(LARGE_INTEGER a1)

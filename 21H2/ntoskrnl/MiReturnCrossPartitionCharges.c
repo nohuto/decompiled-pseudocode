@@ -1,16 +1,16 @@
 /*
- * XREFs of MiReturnCrossPartitionCharges @ 0x140562B90
+ * XREFs of MiReturnCrossPartitionCharges @ 0x140562DD0
  * Callers:
  *     MiFreeLargePageCrossPartitionCharges @ 0x1403F7AD8 (MiFreeLargePageCrossPartitionCharges.c)
- *     MiGetSubsectionCharges @ 0x140554EC8 (MiGetSubsectionCharges.c)
- *     MiReturnCrossPartitionSectionCharges @ 0x1405550EC (MiReturnCrossPartitionSectionCharges.c)
- *     MiReturnCrossPartitionCloneCharges @ 0x14055B6E0 (MiReturnCrossPartitionCloneCharges.c)
- *     MiReturnCrossPartitionCombineCharges @ 0x14055D14C (MiReturnCrossPartitionCombineCharges.c)
- *     MiCreateLargePfnList @ 0x14055DEFC (MiCreateLargePfnList.c)
+ *     MiGetSubsectionCharges @ 0x140555108 (MiGetSubsectionCharges.c)
+ *     MiReturnCrossPartitionSectionCharges @ 0x14055532C (MiReturnCrossPartitionSectionCharges.c)
+ *     MiReturnCrossPartitionCloneCharges @ 0x14055B920 (MiReturnCrossPartitionCloneCharges.c)
+ *     MiReturnCrossPartitionCombineCharges @ 0x14055D38C (MiReturnCrossPartitionCombineCharges.c)
+ *     MiCreateLargePfnList @ 0x14055E13C (MiCreateLargePfnList.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
+ *     ExAcquireSpinLockExclusive @ 0x1402C1960 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140346AD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KeSetEvent @ 0x14034E2F0 (KeSetEvent.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 

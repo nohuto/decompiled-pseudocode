@@ -1,9 +1,9 @@
 /*
- * XREFs of IoSetCompletionRoutineEx @ 0x1402C4740
+ * XREFs of IoSetCompletionRoutineEx @ 0x140242CC0
  * Callers:
  *     <none>
  * Callees:
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 NTSTATUS __stdcall IoSetCompletionRoutineEx(

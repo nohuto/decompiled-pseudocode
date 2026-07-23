@@ -1,14 +1,14 @@
 /*
- * XREFs of MmAllocatePagesForMdlEx @ 0x1400AA410
+ * XREFs of MmAllocatePagesForMdlEx @ 0x1400A8990
  * Callers:
- *     PopGenerateMdl @ 0x1401130EC (PopGenerateMdl.c)
- *     PopGenerateScratchMdl @ 0x1401232F8 (PopGenerateScratchMdl.c)
- *     BgpFwAllocateMemory @ 0x140129508 (BgpFwAllocateMemory.c)
- *     PspIumAllocatePhysicalPages @ 0x1402100F8 (PspIumAllocatePhysicalPages.c)
- *     ?SmStAllocatePhysicalRegion@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@K@Z @ 0x14021CAF8 (-SmStAllocatePhysicalRegion@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@K@Z.c)
+ *     PopGenerateMdl @ 0x14011365C (PopGenerateMdl.c)
+ *     PopGenerateScratchMdl @ 0x140123868 (PopGenerateScratchMdl.c)
+ *     BgpFwAllocateMemory @ 0x140129A78 (BgpFwAllocateMemory.c)
+ *     PspIumAllocatePhysicalPages @ 0x14020FF24 (PspIumAllocatePhysicalPages.c)
+ *     ?SmStAllocatePhysicalRegion@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@K@Z @ 0x14021C924 (-SmStAllocatePhysicalRegion@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@K@Z.c)
  *     ResFwGetContext @ 0x140725238 (ResFwGetContext.c)
  * Callees:
- *     MmAllocateNodePagesForMdlEx @ 0x1400AA474 (MmAllocateNodePagesForMdlEx.c)
+ *     MmAllocateNodePagesForMdlEx @ 0x1400A89F4 (MmAllocateNodePagesForMdlEx.c)
  */
 
 PMDL __stdcall MmAllocatePagesForMdlEx(

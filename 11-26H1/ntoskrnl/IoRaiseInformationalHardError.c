@@ -1,20 +1,20 @@
 /*
- * XREFs of IoRaiseInformationalHardError @ 0x1404DFC20
+ * XREFs of IoRaiseInformationalHardError @ 0x1404D9300
  * Callers:
- *     MiCauseOverCommitPopup @ 0x1404BC9D4 (MiCauseOverCommitPopup.c)
- *     DifIoRaiseInformationalHardErrorWrapper @ 0x14065D900 (DifIoRaiseInformationalHardErrorWrapper.c)
- *     FsRtlLogCcFlushError @ 0x140B57700 (FsRtlLogCcFlushError.c)
- *     PopTransitionSystemPowerStateEx @ 0x140C0B0A0 (PopTransitionSystemPowerStateEx.c)
+ *     MiCauseOverCommitPopup @ 0x1404B61B4 (MiCauseOverCommitPopup.c)
+ *     DifIoRaiseInformationalHardErrorWrapper @ 0x1406614E0 (DifIoRaiseInformationalHardErrorWrapper.c)
+ *     FsRtlLogCcFlushError @ 0x140B5A650 (FsRtlLogCcFlushError.c)
+ *     PopTransitionSystemPowerStateEx @ 0x140C112B0 (PopTransitionSystemPowerStateEx.c)
  * Callees:
- *     KeInsertQueueApc @ 0x14020AD90 (KeInsertQueueApc.c)
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     ExQueueWorkItem @ 0x140381C70 (ExQueueWorkItem.c)
- *     KeReleaseSemaphore @ 0x1403B1D20 (KeReleaseSemaphore.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     memcmp @ 0x14073D750 (memcmp.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KeInsertQueueApc @ 0x14020AE70 (KeInsertQueueApc.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ExQueueWorkItem @ 0x140383A20 (ExQueueWorkItem.c)
+ *     KeReleaseSemaphore @ 0x1403BBA30 (KeReleaseSemaphore.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     memcmp @ 0x140742350 (memcmp.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 BOOLEAN __stdcall IoRaiseInformationalHardError(NTSTATUS ErrorStatus, PUNICODE_STRING String, PKTHREAD Thread)
@@ -27,7 +27,7 @@ BOOLEAN __stdcall IoRaiseInformationalHardError(NTSTATUS ErrorStatus, PUNICODE_S
   void *v12; // rcx
   KIRQL v13; // si
   const void *v14; // rcx
-  __int64 i; // rdi
+  unsigned __int8 *i; // rdi
   const void *v16; // rcx
   _QWORD *v17; // rax
 
@@ -40,11 +40,11 @@ BOOLEAN __stdcall IoRaiseInformationalHardError(NTSTATUS ErrorStatus, PUNICODE_S
     || ErrorStatus == 1073741848
     || ErrorStatus == -1073741283
     || ErrorStatus == -1073741500
-    || !Thread && dword_140F853BC >= 25 )
+    || !Thread && *(int *)&IopPerfIoTrackingLock.SchedulerApcFill5[20] >= 25 )
   {
     return 0;
   }
-  if ( dword_140F853DC > 25 )
+  if ( *(int *)&IopPerfIoTrackingLock.SchedulerApcFill5[52] > 25 )
     return 0;
   Pool2 = ExAllocatePool2(0x40uLL);
   v9 = (_QWORD *)Pool2;
@@ -67,46 +67,48 @@ LABEL_41:
   }
   if ( !Thread )
   {
-    v13 = KeAcquireSpinLockRaiseToDpc(&qword_140F853B0);
-    if ( dword_140F853BC < 25
-      && (!IopCurrentHardError
-       || *((_DWORD *)v9 + 4) != *(_DWORD *)(IopCurrentHardError + 16)
-       || ((v14 = (const void *)v9[4]) != 0LL || *(_QWORD *)(IopCurrentHardError + 32))
-       && (*((_WORD *)v9 + 12) != *(_WORD *)(IopCurrentHardError + 24)
-        || memcmp(v14, *(const void **)(IopCurrentHardError + 32), *((unsigned __int16 *)v9 + 12)))) )
+    v13 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)&IopPerfIoTrackingLock.SchedulerApc.Thread);
+    if ( *(int *)&IopPerfIoTrackingLock.SchedulerApcFill5[20] < 25
+      && (!IopPerfIoTrackingLock.Spare32
+       || *((_DWORD *)v9 + 4) != *((_DWORD *)IopPerfIoTrackingLock.Spare32 + 4)
+       || ((v14 = (const void *)v9[4]) != 0LL || *((_QWORD *)IopPerfIoTrackingLock.Spare32 + 4))
+       && (*((_WORD *)v9 + 12) != *((_WORD *)IopPerfIoTrackingLock.Spare32 + 12)
+        || memcmp(v14, *((const void **)IopPerfIoTrackingLock.Spare32 + 4), *((unsigned __int16 *)v9 + 12)))) )
     {
-      for ( i = qword_140F853A0; (__int64 *)i != &qword_140F853A0; i = *(_QWORD *)i )
+      for ( i = *(unsigned __int8 **)&IopPerfIoTrackingLock.SavedApcStateFill[40];
+            i != &IopPerfIoTrackingLock.SavedApcStateFill[40];
+            i = *(unsigned __int8 **)i )
       {
-        if ( *((_DWORD *)v9 + 4) == *(_DWORD *)(i + 16) )
+        if ( *((_DWORD *)v9 + 4) == *((_DWORD *)i + 4) )
         {
           v16 = (const void *)v9[4];
-          if ( !v16 && !*(_QWORD *)(i + 32) )
+          if ( !v16 && !*((_QWORD *)i + 4) )
             goto LABEL_40;
-          if ( *((_WORD *)v9 + 12) == *(_WORD *)(i + 24)
-            && !memcmp(v16, *(const void **)(i + 32), *((unsigned __int16 *)v9 + 12)) )
+          if ( *((_WORD *)v9 + 12) == *((_WORD *)i + 12)
+            && !memcmp(v16, *((const void **)i + 4), *((unsigned __int16 *)v9 + 12)) )
           {
             goto LABEL_40;
           }
         }
       }
-      v17 = (_QWORD *)qword_140F853A8;
-      if ( *(__int64 **)qword_140F853A8 != &qword_140F853A0 )
+      v17 = *(_QWORD **)&IopPerfIoTrackingLock.SchedulerApc.Type;
+      if ( **(struct _KTHREAD ***)&IopPerfIoTrackingLock.SchedulerApc.Type != (struct _KTHREAD *)&IopPerfIoTrackingLock.SavedApcStateFill[40] )
         __fastfail(3u);
-      *v9 = &qword_140F853A0;
+      *v9 = &IopPerfIoTrackingLock.SavedApcStateFill[40];
       v9[1] = v17;
       *v17 = v9;
-      qword_140F853A8 = (__int64)v9;
-      KeReleaseSemaphore(&byte_140F853B8, 0, 1, 0);
-      if ( !byte_140F853D8 )
+      *(_QWORD *)&IopPerfIoTrackingLock.SchedulerApc.Type = v9;
+      KeReleaseSemaphore((PRKSEMAPHORE)&IopPerfIoTrackingLock.SchedulerApcFill5[16], 0, 1, 0);
+      if ( !IopPerfIoTrackingLock.SchedulerApcFill3[48] )
       {
-        byte_140F853D8 = 1;
-        ExQueueWorkItem(&qword_140F85380, DelayedWorkQueue);
+        IopPerfIoTrackingLock.SchedulerApcFill3[48] = 1;
+        ExQueueWorkItem((PWORK_QUEUE_ITEM)&IopPerfIoTrackingLock.SavedApcStateFill[8], DelayedWorkQueue);
       }
-      KeReleaseSpinLock(&qword_140F853B0, v13);
+      KeReleaseSpinLock((PKSPIN_LOCK)&IopPerfIoTrackingLock.SchedulerApc.Thread, v13);
       return 1;
     }
 LABEL_40:
-    KeReleaseSpinLock(&qword_140F853B0, v13);
+    KeReleaseSpinLock((PKSPIN_LOCK)&IopPerfIoTrackingLock.SchedulerApc.Thread, v13);
     goto LABEL_23;
   }
   v10 = ExAllocatePool2(0x40uLL);
@@ -118,7 +120,7 @@ LABEL_23:
       ExFreePoolWithTag(v12, 0);
     goto LABEL_41;
   }
-  _InterlockedIncrement(&dword_140F853DC);
+  _InterlockedIncrement((volatile signed __int32 *)&IopPerfIoTrackingLock.SchedulerApcFill5[52]);
   *(_WORD *)v10 = 18;
   *(_QWORD *)(v10 + 32) = PspUserApcKernelRoutine;
   *(_BYTE *)(v10 + 2) = 88;

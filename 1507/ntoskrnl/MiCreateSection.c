@@ -89,17 +89,17 @@ int __fastcall MiCreateSection(
   int v32; // ebx
   struct _KTHREAD *CurrentThread; // r14
   int v34; // ebx
-  int v35; // edi
+  int NewSection; // edi
   unsigned int v36; // ebx
-  __int64 v37; // rsi
+  volatile __int64 *DataSectionObject; // rsi
   _QWORD *v38; // rbx
   void *v39; // rax
   __int16 v40; // ax
   signed __int64 v41; // rax
-  __int64 v42; // r15
+  volatile __int64 v42; // r15
   PVOID v43; // rbx
   char v44; // cl
-  __int64 *v45; // rax
+  PSECTION_OBJECT_POINTERS v45; // rax
   signed __int64 v46; // rax
   unsigned __int64 v47; // rax
   __int16 v48; // ax
@@ -127,7 +127,7 @@ int __fastcall MiCreateSection(
   char v70; // r13
   int v71; // ecx
   int v72; // r8d
-  __int64 v73; // rax
+  volatile __int64 *v73; // rax
   __int64 v74; // r8
   __int64 v75; // r9
   PVOID v76; // rsi
@@ -156,41 +156,40 @@ int __fastcall MiCreateSection(
   PVOID v99; // rcx
   PVOID *Object; // [rsp+20h] [rbp-E0h]
   __int64 v101; // [rsp+50h] [rbp-B0h] BYREF
-  __int64 v102; // [rsp+58h] [rbp-A8h] BYREF
+  __int64 ImageSectionObject; // [rsp+58h] [rbp-A8h] BYREF
   unsigned int v103; // [rsp+60h] [rbp-A0h]
-  unsigned __int8 v104[4]; // [rsp+64h] [rbp-9Ch] BYREF
-  __int64 v105; // [rsp+68h] [rbp-98h] BYREF
-  PVOID v106; // [rsp+70h] [rbp-90h]
-  int v107; // [rsp+78h] [rbp-88h]
-  PVOID v108; // [rsp+80h] [rbp-80h] BYREF
-  int v109; // [rsp+88h] [rbp-78h] BYREF
-  int v110; // [rsp+8Ch] [rbp-74h]
-  int v111; // [rsp+90h] [rbp-70h]
-  unsigned int v112; // [rsp+94h] [rbp-6Ch] BYREF
+  _DWORD v104[3]; // [rsp+64h] [rbp-9Ch] BYREF
+  PVOID v105; // [rsp+70h] [rbp-90h]
+  int v106; // [rsp+78h] [rbp-88h]
+  PVOID v107; // [rsp+80h] [rbp-80h] BYREF
+  int v108; // [rsp+88h] [rbp-78h] BYREF
+  int v109; // [rsp+8Ch] [rbp-74h]
+  int v110; // [rsp+90h] [rbp-70h]
+  unsigned int v111; // [rsp+94h] [rbp-6Ch] BYREF
   LARGE_INTEGER FileSize; // [rsp+98h] [rbp-68h] BYREF
-  __int128 v114; // [rsp+A0h] [rbp-60h]
-  __int128 v115; // [rsp+B0h] [rbp-50h]
-  __int128 v116; // [rsp+C0h] [rbp-40h]
-  __int128 v117; // [rsp+D0h] [rbp-30h]
-  LARGE_INTEGER v118; // [rsp+E0h] [rbp-20h] BYREF
-  unsigned __int64 v119; // [rsp+E8h] [rbp-18h] BYREF
-  PVOID v120; // [rsp+F0h] [rbp-10h] BYREF
-  _QWORD v121[24]; // [rsp+100h] [rbp+0h] BYREF
-  char v124; // [rsp+1E0h] [rbp+E0h]
-  unsigned int v125; // [rsp+1E0h] [rbp+E0h]
-  _DWORD *v127; // [rsp+1E8h] [rbp+E8h]
-  int v128; // [rsp+1F8h] [rbp+F8h]
+  __int128 v113; // [rsp+A0h] [rbp-60h]
+  __int128 v114; // [rsp+B0h] [rbp-50h]
+  __int128 v115; // [rsp+C0h] [rbp-40h]
+  __int128 v116; // [rsp+D0h] [rbp-30h]
+  LARGE_INTEGER v117; // [rsp+E0h] [rbp-20h] BYREF
+  unsigned __int64 v118; // [rsp+E8h] [rbp-18h] BYREF
+  PVOID v119; // [rsp+F0h] [rbp-10h] BYREF
+  _QWORD v120[24]; // [rsp+100h] [rbp+0h] BYREF
+  char v123; // [rsp+1E0h] [rbp+E0h]
+  unsigned int v124; // [rsp+1E0h] [rbp+E0h]
+  _DWORD *v126; // [rsp+1E8h] [rbp+E8h]
+  int v127; // [rsp+1F8h] [rbp+F8h]
 
-  v124 = a3;
+  v123 = a3;
   v12 = a3 & 1;
-  v111 = v12;
+  v110 = v12;
   v13 = a3 & 2;
-  v107 = a10;
+  v106 = a10;
   v14 = a4;
-  v110 = v13;
+  v109 = v13;
   while ( 2 )
   {
-    v106 = 0LL;
+    v105 = 0LL;
     v15 = 0;
     if ( v12 )
       v15 = 2048;
@@ -256,7 +255,7 @@ LABEL_21:
     if ( v17 > (unsigned __int16)KeNumberNodes )
       return -1073741580;
     a6 &= 0xFFFFFF80;
-    v128 = a6;
+    v127 = a6;
     if ( (a6 & 0x1000000) != 0 )
     {
       if ( (BYTE2(MiFlags) & 3u) > 1 )
@@ -275,7 +274,7 @@ LABEL_21:
         if ( a5 != 2 )
           return -1073741755;
         a6 &= ~0x10000000u;
-        v128 = a6;
+        v127 = a6;
       }
       else
       {
@@ -308,7 +307,7 @@ LABEL_39:
     v24 = ProtectionMask;
     if ( ProtectionMask == -1 )
       return -1073741755;
-    *((_QWORD *)&v116 + 1) = HandleInformation;
+    *((_QWORD *)&v115 + 1) = HandleInformation;
     v25 = MmMakeFileAccess[ProtectionMask & 7];
     v26 = a9;
     v103 = (v20 ^ (unsigned __int16)v21) & 0xFFF ^ v21;
@@ -322,22 +321,22 @@ LABEL_39:
             goto LABEL_103;
           if ( (a6 & 0x8000000) != 0 )
           {
-            if ( !SeSinglePrivilegeCheck(SeLockMemoryPrivilege, v107) )
+            if ( !SeSinglePrivilegeCheck(SeLockMemoryPrivilege, v106) )
               return -1073741727;
 LABEL_103:
-            result = MiCreatePagingFileMap((PVOID ***)&v105, v14, v24, a6, v17);
+            result = MiCreatePagingFileMap((PVOID ***)&v104[1], v14, v24, a6, v17);
             if ( result < 0 )
               return result;
-            v41 = _InterlockedCompareExchange64((volatile signed __int64 *)(v105 + 24), -1LL, -1LL);
-            v42 = v105;
+            v41 = _InterlockedCompareExchange64((volatile signed __int64 *)(*(_QWORD *)&v104[1] + 24LL), -1LL, -1LL);
+            v42 = *(_QWORD *)&v104[1];
             LODWORD(v43) = v101 | 4;
-            *(_QWORD *)&v117 = v41;
+            *(_QWORD *)&v116 = v41;
             LODWORD(v101) = v101 | 4;
-            v37 = *(_QWORD *)v105;
-            v102 = *(_QWORD *)v105;
+            DataSectionObject = **(volatile __int64 ***)&v104[1];
+            ImageSectionObject = **(_QWORD **)&v104[1];
             if ( (DWORD1(PerfGlobalGroupMask) & 0x400001) != 0 )
             {
-              MiLogSectionCreate(v37, 1LL);
+              MiLogSectionCreate(DataSectionObject, 1LL);
               v44 = a5;
               goto LABEL_130;
             }
@@ -360,47 +359,50 @@ LABEL_48:
         return -1073741792;
       if ( a2 )
       {
-        v29 = (unsigned __int8)v107;
+        v29 = (unsigned __int8)v106;
         if ( (*(_DWORD *)(a2 + 24) & 0x200) != 0 )
           v29 = (int)HandleInformation;
-        v107 = v29;
+        v106 = v29;
       }
       if ( (a6 & 0x1000000) != 0 )
         v30 = SectionObjectPointer[2];
       else
         v30 = *SectionObjectPointer;
-      v102 = v30;
+      ImageSectionObject = v30;
       if ( !v30 || (int)MiReferenceControlAreaForCacheManager((__int64)a9, a6, v15) < 0 )
       {
-        v106 = v26;
+        v105 = v26;
         v31 = v26;
         ObReferenceObjectExWithTag((__int64)v26, 2);
         goto LABEL_66;
       }
-      v45 = (__int64 *)v26->SectionObjectPointer;
+      v45 = v26->SectionObjectPointer;
       LODWORD(v43) = v15 | 4;
       LODWORD(v101) = (_DWORD)v43;
       if ( (a6 & 0x1000000) != 0 )
       {
-        v102 = v45[2];
-        v46 = _InterlockedCompareExchange64((volatile signed __int64 *)(*(_QWORD *)v102 + 24LL), -1LL, -1LL);
+        ImageSectionObject = (__int64)v45->ImageSectionObject;
+        v46 = _InterlockedCompareExchange64(
+                (volatile signed __int64 *)(*(_QWORD *)ImageSectionObject + 24LL),
+                -1LL,
+                -1LL);
       }
       else
       {
-        v37 = *v45;
+        DataSectionObject = (volatile __int64 *)v45->DataSectionObject;
         v47 = *v14;
-        *(_QWORD *)&v117 = *v14;
-        v102 = v37;
+        *(_QWORD *)&v116 = *v14;
+        ImageSectionObject = (__int64)DataSectionObject;
         if ( ((unsigned __int8)v43 & 1) != 0 || v47 )
           goto LABEL_113;
-        v46 = _InterlockedCompareExchange64((volatile signed __int64 *)(*(_QWORD *)v37 + 24LL), -1LL, -1LL);
+        v46 = _InterlockedCompareExchange64((volatile signed __int64 *)(*DataSectionObject + 24), -1LL, -1LL);
       }
-      v37 = v102;
+      DataSectionObject = (volatile __int64 *)ImageSectionObject;
       LODWORD(v43) = v101;
-      *(_QWORD *)&v117 = v46;
+      *(_QWORD *)&v116 = v46;
 LABEL_113:
-      v42 = *(_QWORD *)v37;
-      v105 = *(_QWORD *)v37;
+      v42 = *DataSectionObject;
+      *(_QWORD *)&v104[1] = *DataSectionObject;
 LABEL_114:
       v44 = a5;
       goto LABEL_130;
@@ -409,22 +411,22 @@ LABEL_114:
       goto LABEL_48;
     if ( a6 < 0 )
       return -1073741580;
-    result = ObReferenceObjectByHandle(v23, v25, (POBJECT_TYPE)IoFileObjectType, v107, &v120, HandleInformation);
-    v31 = (struct _FILE_OBJECT *)v120;
-    v106 = v120;
+    result = ObReferenceObjectByHandle(v23, v25, (POBJECT_TYPE)IoFileObjectType, v106, &v119, HandleInformation);
+    v31 = (struct _FILE_OBJECT *)v119;
+    v105 = v119;
     if ( result < 0 )
       return result;
-    if ( !*((_QWORD *)v120 + 5) )
+    if ( !*((_QWORD *)v119 + 5) )
     {
-      ObfDereferenceObject(v120);
+      ObfDereferenceObject(v119);
       return -1073741792;
     }
-    ObfReferenceObject(v120);
+    ObfReferenceObject(v119);
 LABEL_66:
-    memset(v121, 0, 0x78uLL);
-    LODWORD(v121[7]) |= 2u;
-    v121[8] = v31;
-    v105 = 0LL;
+    memset(v120, 0, 0x78uLL);
+    LODWORD(v120[7]) |= 2u;
+    v120[8] = v31;
+    *(_QWORD *)&v104[1] = 0LL;
     if ( (a6 & 0x1000000) != 0 )
     {
       if ( ((v15 >> 10) & 1) != 0 && !IoAllowExecution((__int64)v31) )
@@ -449,8 +451,8 @@ LABEL_66:
     {
       if ( (v34 & 1) == 0 )
       {
-        v35 = FsRtlAcquireToCreateMappedSection(v31, a5, &v109, &v112);
-        if ( v35 < 0 )
+        NewSection = FsRtlAcquireToCreateMappedSection(v31, a5, &v108, &v111);
+        if ( NewSection < 0 )
         {
           v48 = CurrentThread->KernelApcDisable + 1;
           CurrentThread->KernelApcDisable = v48;
@@ -461,20 +463,20 @@ LABEL_66:
             KiCheckForKernelApcDelivery();
           }
           ObDereferenceObjectEx((ULONG_PTR)v31, 2);
-          return v35;
+          return NewSection;
         }
-        if ( (v109 & 2) != 0 && (a6 & 0x1000000) == 0 )
+        if ( (v108 & 2) != 0 && (a6 & 0x1000000) == 0 )
           v34 |= 0x10000u;
-        if ( v112 )
+        if ( v111 )
         {
-          if ( ((v112 - 1) & v112) == 0 )
+          if ( ((v111 - 1) & v111) == 0 )
           {
             v34 |= 0x2000u;
-            if ( v112 < dword_14034F6DC )
-              dword_14034F6DC = v112;
+            if ( v111 < dword_14034F6DC )
+              dword_14034F6DC = v111;
           }
         }
-        if ( v35 == 299 )
+        if ( NewSection == 299 )
           v36 = v34 | 0x80;
         else
           v36 = v34 & 0xFFFFFF7F;
@@ -483,28 +485,28 @@ LABEL_66:
         LODWORD(v101) = v34;
       }
     }
-    while ( (unsigned int)MiReferenceControlArea(a6, v31, (__int64)v121, v34 & 1, &v102) != 1 );
-    v37 = v102;
-    if ( (*(_DWORD *)(v102 + 56) & 2) != 0 )
+    while ( (unsigned int)MiReferenceControlArea(a6, v31, (__int64)v120, v34 & 1, &ImageSectionObject) != 1 );
+    DataSectionObject = (volatile __int64 *)ImageSectionObject;
+    if ( (*(_DWORD *)(ImageSectionObject + 56) & 2) != 0 )
     {
-      v35 = MiCreateNewSection(v31, a6, a5, v17, a11, (char *)&a7, (__int64)a4, (int *)&v101, &v105);
-      if ( v35 < 0 )
+      NewSection = MiCreateNewSection(v31, a6, a5, v17, a11, (char *)&a7, (__int64)a4, (int *)&v101, &v104[1]);
+      if ( NewSection < 0 )
       {
-        if ( v105 )
+        if ( *(_QWORD *)&v104[1] )
         {
-          v37 = *(_QWORD *)v105;
-          v102 = *(_QWORD *)v105;
+          DataSectionObject = **(volatile __int64 ***)&v104[1];
+          ImageSectionObject = **(_QWORD **)&v104[1];
         }
-        v38 = (_QWORD *)MiZeroSectionObjectPointer((__int64)v31, v37, a6);
+        v38 = (_QWORD *)MiZeroSectionObjectPointer((__int64)v31, (__int64)DataSectionObject, a6);
         ObfDereferenceObject(v31);
-        if ( (_QWORD *)v37 == v121 )
+        if ( DataSectionObject == v120 )
         {
-          v39 = (void *)ObFastReplaceObject((volatile __int64 *)(v37 + 64), 0LL);
+          v39 = (void *)ObFastReplaceObject(DataSectionObject + 8, 0LL);
           ObfDereferenceObject(v39);
         }
         else
         {
-          MiDereferenceControlAreaBySection(v37, 1u);
+          MiDereferenceControlAreaBySection((__int64)DataSectionObject, 1u);
         }
         MiReleaseControlAreaWaiters(v38);
         v40 = CurrentThread->KernelApcDisable + 1;
@@ -515,15 +517,15 @@ LABEL_66:
         {
           KiCheckForKernelApcDelivery();
         }
-        if ( v35 == -1073741740 )
+        if ( NewSection == -1073741740 )
         {
-          a3 = v124;
-          v12 = v111;
-          v13 = v110;
+          a3 = v123;
+          v12 = v110;
+          v13 = v109;
           v14 = a4;
           continue;
         }
-        return v35;
+        return NewSection;
       }
       v49 = CurrentThread->KernelApcDisable + 1;
       CurrentThread->KernelApcDisable = v49;
@@ -535,14 +537,14 @@ LABEL_66:
       }
       v50 = *a4;
       if ( !*a4 )
-        v50 = _InterlockedCompareExchange64((volatile signed __int64 *)(v105 + 24), -1LL, -1LL);
-      v42 = v105;
+        v50 = _InterlockedCompareExchange64((volatile signed __int64 *)(*(_QWORD *)&v104[1] + 24LL), -1LL, -1LL);
+      v42 = *(_QWORD *)&v104[1];
       LODWORD(v43) = v101;
       v44 = a5;
-      v37 = *(_QWORD *)v105;
-      v102 = *(_QWORD *)v105;
+      DataSectionObject = **(volatile __int64 ***)&v104[1];
+      ImageSectionObject = **(_QWORD **)&v104[1];
 LABEL_129:
-      *(_QWORD *)&v117 = v50;
+      *(_QWORD *)&v116 = v50;
       goto LABEL_130;
     }
     break;
@@ -555,14 +557,14 @@ LABEL_129:
   {
     KiCheckForKernelApcDelivery();
   }
-  if ( (*(_DWORD *)(v37 + 56) & 0x200) != 0 && !PsIsCurrentThreadPrefetching() )
+  if ( (DataSectionObject[7] & 0x200) != 0 && !PsIsCurrentThreadPrefetching() )
     MmChangeSectionBackingFile(0LL, v31, ((a6 & 0x1000000) != 0) + 1);
   ObfDereferenceObject(v31);
-  v42 = *(_QWORD *)v37;
+  v42 = *DataSectionObject;
   LODWORD(v43) = v34 | 4;
   LODWORD(v101) = (_DWORD)v43;
-  v105 = v42;
-  if ( ((unsigned __int8)v43 & 1) != 0 || (*(_DWORD *)(v37 + 56) & 0x20) != 0 )
+  *(_QWORD *)&v104[1] = v42;
+  if ( ((unsigned __int8)v43 & 1) != 0 || (DataSectionObject[7] & 0x20) != 0 )
   {
     if ( ((unsigned __int8)v43 & 2) != 0 )
     {
@@ -584,7 +586,7 @@ LABEL_129:
       v60 = 2;
     else
       v60 = ((unsigned __int8)v43 & 0x20) != 0;
-    ImageRequiredSigningLevel = MiRelocateImageAgain(v37, v60);
+    ImageRequiredSigningLevel = MiRelocateImageAgain((__int64)DataSectionObject, v60);
     if ( ImageRequiredSigningLevel < 0 )
     {
       v58 = v31;
@@ -614,13 +616,10 @@ LABEL_129:
     {
       v62 = 0;
     }
-    v125 = v62;
+    v124 = v62;
     v63 = ((unsigned int)v43 >> 11) & 1;
     if ( v63 )
-    {
-      v62 |= 0x10u;
-      v125 = v62;
-    }
+      v124 = v62 | 0x10;
     if ( (((unsigned int)v43 >> 10) & 1) == 0 && ((unsigned __int16)v43 & 0x8000) == 0
       || ((unsigned __int8)v43 & 0x10) != 0
       || v63 )
@@ -632,12 +631,7 @@ LABEL_129:
       v64 = a7;
       if ( (_BYTE)a7 )
       {
-        ImageRequiredSigningLevel = SeGetImageRequiredSigningLevel(
-                                      (_DWORD)v106,
-                                      v62,
-                                      (unsigned __int8)a7,
-                                      *(_BYTE *)(v42 + 15) >> 4,
-                                      (__int64)v104);
+        ImageRequiredSigningLevel = SeGetImageRequiredSigningLevel(v105, (__int64)v104);
         if ( ImageRequiredSigningLevel < 0 )
           goto LABEL_234;
         v64 = v104[0];
@@ -646,7 +640,7 @@ LABEL_129:
     }
     if ( ((unsigned int)v43 & 0x20000) != 0 )
     {
-      v125 |= 0x40000000u;
+      v124 |= 0x40000000u;
       v65 = v64;
       if ( !v64 )
         v65 = 4;
@@ -657,50 +651,50 @@ LABEL_129:
       goto LABEL_198;
     if ( ((unsigned __int8)v43 & 0x10) != 0 )
     {
-      v67 = v125;
+      v67 = v124;
     }
     else
     {
       v66 = SeCompareSigningLevels(*(_BYTE *)(v42 + 15) >> 4, v64);
-      v67 = v125;
+      v67 = v124;
       if ( v66
-        && ((v125 & 0x40000000) == 0 || (*(_DWORD *)(v37 + 92) & 0xC000000) == 0x8000000)
+        && ((v124 & 0x40000000) == 0 || (*((_DWORD *)DataSectionObject + 23) & 0xC000000) == 0x8000000)
         && ((*(_BYTE *)(v42 + 15) & 0xF0) != 0 || *(char *)(*(_QWORD *)(v42 + 56) + 46LL) >= 0) )
       {
 LABEL_198:
-        v31 = (struct _FILE_OBJECT *)v106;
+        v31 = (struct _FILE_OBJECT *)v105;
 LABEL_199:
-        a6 = v128;
+        a6 = v127;
 LABEL_200:
         v68.QuadPart = _InterlockedCompareExchange64((volatile signed __int64 *)(v42 + 24), -1LL, -1LL);
         LODWORD(v43) = v101;
         v59 = v68;
-        v37 = v102;
-        v42 = v105;
+        DataSectionObject = (volatile __int64 *)ImageSectionObject;
+        v42 = *(_QWORD *)&v104[1];
         FileSize = v68;
         goto LABEL_201;
       }
     }
-    v31 = (struct _FILE_OBJECT *)v106;
+    v31 = (struct _FILE_OBJECT *)v105;
     LOBYTE(Object) = v64;
-    ImageRequiredSigningLevel = MiValidateSectionCreate(v106, v37, a11, v67, (_DWORD)Object);
+    ImageRequiredSigningLevel = MiValidateSectionCreate(v105, DataSectionObject, a11, v67, (_DWORD)Object);
     if ( ImageRequiredSigningLevel < 0 )
     {
       dword_14034E980 = 60;
       v58 = v31;
       goto LABEL_235;
     }
-    v42 = v105;
+    v42 = *(_QWORD *)&v104[1];
     if ( !(unsigned int)SeCompareSigningLevelsForAuditableProcess(
                           KeGetCurrentThread()->ApcState.Process,
                           v63,
-                          *(_BYTE *)(v105 + 15) >> 4,
+                          *(_BYTE *)(*(_QWORD *)&v104[1] + 15LL) >> 4,
                           (unsigned __int8)a7) )
     {
       ImageRequiredSigningLevel = -1073740760;
       ObfDereferenceObject(v31);
       LOBYTE(v43) = v101;
-      v37 = v102;
+      DataSectionObject = (volatile __int64 *)ImageSectionObject;
       goto LABEL_236;
     }
     goto LABEL_199;
@@ -717,7 +711,7 @@ LABEL_235:
     ObfDereferenceObject(v58);
 LABEL_236:
     if ( ((unsigned __int8)v43 & 4) != 0 )
-      MiDereferenceControlAreaBySection(v37, ((unsigned __int8)v43 & 1) == 0);
+      MiDereferenceControlAreaBySection((__int64)DataSectionObject, ((unsigned __int8)v43 & 1) == 0);
     return ImageRequiredSigningLevel;
   }
   v59 = FileSize;
@@ -754,83 +748,83 @@ LABEL_201:
   if ( *a4 )
     goto LABEL_208;
   LODWORD(v43) = (unsigned int)v43 | 8;
-  *(LARGE_INTEGER *)&v117 = v59;
+  *(LARGE_INTEGER *)&v116 = v59;
   v44 = a5;
   LODWORD(v101) = (_DWORD)v43;
 LABEL_130:
-  v51 = (_DWORD *)(v37 + 56);
-  v52 = *(_DWORD *)(v37 + 56);
+  v51 = DataSectionObject + 7;
+  v52 = *((_DWORD *)DataSectionObject + 14);
   v53 = v103 & 0x7FFFFFFF;
-  *((_QWORD *)&v116 + 1) = v37;
+  *((_QWORD *)&v115 + 1) = DataSectionObject;
   v54 = v52 & 0xFFF7FFFF;
-  v127 = (_DWORD *)(v37 + 56);
+  v126 = DataSectionObject + 7;
   v103 = v53;
-  HIDWORD(v117) = v53;
-  DWORD2(v117) = v52 & 0xFFF7FFFF;
+  HIDWORD(v116) = v53;
+  DWORD2(v116) = v52 & 0xFFF7FFFF;
   if ( (a6 & 0x1000000) != 0 )
   {
     if ( ((unsigned __int16)v43 & 0x400) == 0 )
     {
       v54 |= 0x80000u;
-      DWORD2(v117) = v54;
+      DWORD2(v116) = v54;
     }
     if ( (unsigned __int8)a7 <= 1u && ((unsigned int)v43 & 0x20000) == 0 )
     {
       v103 = v53 | 0x80000000;
-      HIDWORD(v117) = v53 | 0x80000000;
+      HIDWORD(v116) = v53 | 0x80000000;
     }
   }
   if ( (v52 & 0x4000000) == 0 )
   {
-    if ( !a9 && (v44 & 0x44) != 0 && (v52 & 0x20) == 0 && *(_QWORD *)(v37 + 64) )
+    if ( !a9 && (v44 & 0x44) != 0 && (v52 & 0x20) == 0 && *((_QWORD *)DataSectionObject + 8) )
     {
       v54 |= 0x8000000u;
-      DWORD2(v117) = v54;
-      _InterlockedIncrement((volatile signed __int32 *)(v37 + 92));
-      v43 = v106;
-      if ( !(unsigned __int8)ObCheckActiveHandles(v106) )
+      DWORD2(v116) = v54;
+      _InterlockedIncrement((volatile signed __int32 *)DataSectionObject + 23);
+      v43 = v105;
+      if ( !(unsigned __int8)ObCheckActiveHandles(v105) )
       {
-        _InterlockedDecrement((volatile signed __int32 *)(v37 + 92));
+        _InterlockedDecrement((volatile signed __int32 *)DataSectionObject + 23);
         ObfDereferenceObject(v43);
         LOBYTE(v43) = v101;
         ImageRequiredSigningLevel = -1073741788;
-        v37 = v102;
+        DataSectionObject = (volatile __int64 *)ImageSectionObject;
         goto LABEL_236;
       }
       LOBYTE(v43) = v101;
-      v37 = v102;
-      v42 = v105;
+      DataSectionObject = (volatile __int64 *)ImageSectionObject;
+      v42 = *(_QWORD *)&v104[1];
     }
     goto LABEL_219;
   }
   v55 = a11;
-  ImageRequiredSigningLevel = MiCreatePerSessionProtos(v37, a11);
+  ImageRequiredSigningLevel = MiCreatePerSessionProtos(DataSectionObject, a11);
   if ( ImageRequiredSigningLevel < 0 )
   {
 LABEL_234:
-    v58 = v106;
+    v58 = v105;
     goto LABEL_235;
   }
-  v51 = (_DWORD *)(v37 + 56);
+  v51 = DataSectionObject + 7;
   v103 ^= (v103 ^ (v55 << 12)) & 0x7FFFF000;
-  HIDWORD(v117) = v103;
+  HIDWORD(v116) = v103;
 LABEL_219:
   v70 = 0;
-  if ( v106 )
+  if ( v105 )
   {
-    if ( (*(_DWORD *)(*((_QWORD *)v106 + 1) + 52LL) & 0x10) != 0 )
+    if ( (*(_DWORD *)(*((_QWORD *)v105 + 1) + 52LL) & 0x10) != 0 )
       v70 = 1;
     else
-      ObfDereferenceObject(v106);
+      ObfDereferenceObject(v105);
   }
-  if ( (*v51 & 0x20) != 0 || !*(_QWORD *)(v37 + 64) )
+  if ( (*v51 & 0x20) != 0 || !*((_QWORD *)DataSectionObject + 8) )
   {
     v72 = 120;
     v71 = 8 * *(_DWORD *)(v42 + 8) + 64;
-    v73 = v37 + 120;
+    v73 = DataSectionObject + 15;
     do
     {
-      v73 = *(_QWORD *)(v73 + 16);
+      v73 = (volatile __int64 *)*((_QWORD *)v73 + 2);
       v72 += 56;
     }
     while ( v73 );
@@ -838,49 +832,49 @@ LABEL_219:
   else
   {
     v71 = 0;
-    v72 = 112 * *(_DWORD *)(v37 + 240) + 144;
+    v72 = 112 * *((_DWORD *)DataSectionObject + 60) + 144;
   }
   ImageRequiredSigningLevel = ObCreateObjectEx(
-                                v107,
+                                v106,
                                 MmSectionObjectType,
                                 a2,
-                                v107,
+                                v106,
                                 (__int64)Object,
                                 64,
                                 v71,
                                 v72,
-                                &v108,
+                                &v107,
                                 0LL);
   if ( ImageRequiredSigningLevel < 0 )
   {
     if ( (v54 & 0x8000000) != 0 )
     {
-      _InterlockedDecrement((volatile signed __int32 *)(v37 + 92));
+      _InterlockedDecrement((volatile signed __int32 *)DataSectionObject + 23);
       LOBYTE(v43) = v101;
-      v37 = v102;
+      DataSectionObject = (volatile __int64 *)ImageSectionObject;
     }
-    else if ( (*v127 & 0x4000000) != 0 )
+    else if ( (*v126 & 0x4000000) != 0 )
     {
-      MiDereferencePerSessionProtos((_QWORD *)v37, (v103 >> 12) & 0x7FFFF, v74, v75);
+      MiDereferencePerSessionProtos(DataSectionObject, (v103 >> 12) & 0x7FFFF, v74, v75);
     }
     if ( v70 != 1 )
       goto LABEL_236;
     goto LABEL_234;
   }
-  v76 = v108;
-  v77 = v115;
-  *(_OWORD *)v108 = v114;
-  v78 = v116;
+  v76 = v107;
+  v77 = v114;
+  *(_OWORD *)v107 = v113;
+  v78 = v115;
   *((_OWORD *)v76 + 1) = v77;
-  v79 = v117;
+  v79 = v116;
   *((_OWORD *)v76 + 2) = v78;
   *((_OWORD *)v76 + 3) = v79;
   *((_QWORD *)v76 + 3) = 0LL;
   if ( v70 == 1 )
   {
-    v80 = (unsigned __int64)v106;
-    *((_QWORD *)v76 + 5) = v106;
-    if ( (*v127 & 0x20) != 0 )
+    v80 = (unsigned __int64)v105;
+    *((_QWORD *)v76 + 5) = v105;
+    if ( (*v126 & 0x20) != 0 )
       v81 = v80 | 1;
     else
       v81 = v80 | 2;
@@ -890,11 +884,11 @@ LABEL_219:
   if ( v82 )
     goto LABEL_276;
   *((_DWORD *)v76 + 14) |= 0x10000u;
-  if ( (v128 & 0x400000) != 0 )
+  if ( (v127 & 0x400000) != 0 )
     *((_DWORD *)v76 + 14) |= 0x4000u;
   if ( (a5 & 0x44) == 0 )
     *((_DWORD *)v76 + 14) |= 0x800u;
-  if ( (v128 & 0x200000) == 0 )
+  if ( (v127 & 0x200000) == 0 )
     goto LABEL_276;
   *((_DWORD *)v76 + 14) |= 0x40u;
   v83 = *((_QWORD *)v76 + 6);
@@ -917,13 +911,13 @@ LABEL_219:
                                 0x10000,
                                 0x10000,
                                 qword_14034E7B8,
-                                (__int64)&v119);
+                                (__int64)&v118);
   if ( EmptyAddressRangeDownTree >= 0 )
   {
-    v90 = v108;
+    v90 = v107;
     v91 = 0;
-    v92 = v119 >> 12;
-    *((_QWORD *)v76 + 3) = v119 >> 12;
+    v92 = v118 >> 12;
+    *((_QWORD *)v76 + 3) = v118 >> 12;
     v90[4] = ((v83 + 4095) >> 12) + v92 - 1;
     v93 = *((_QWORD *)v76 + 3);
     v94 = (_QWORD *)qword_14034E798;
@@ -946,16 +940,16 @@ LABEL_270:
           v84->SpecialApcDisable = v96;
           if ( !v96 && ($CD287064E7C9F7953DE243E927CFCB99 *)v84->ApcState.ApcListHead[0].Flink != &v84->152 )
             KiCheckForKernelApcDelivery();
-          v42 = v105;
+          v42 = *(_QWORD *)&v104[1];
 LABEL_276:
           v97 = _InterlockedCompareExchange64((volatile signed __int64 *)(v42 + 24), -1LL, -1LL);
-          v98 = v108;
-          if ( (*v127 & 0x8000) != 0 && !v82 && (v101 & 8) == 0 || *((_QWORD *)v108 + 6) > v97 )
+          v98 = v107;
+          if ( (*v126 & 0x8000) != 0 && !v82 && (v101 & 8) == 0 || *((_QWORD *)v107 + 6) > v97 )
           {
-            v118 = *(LARGE_INTEGER *)((char *)v108 + 48);
-            v99 = v108;
-            *((_QWORD *)v108 + 6) = v97;
-            ImageRequiredSigningLevel = MmExtendSection((__int64)v99, &v118, v82 != 0);
+            v117 = *(LARGE_INTEGER *)((char *)v107 + 48);
+            v99 = v107;
+            *((_QWORD *)v107 + 6) = v97;
+            ImageRequiredSigningLevel = MmExtendSection((__int64)v99, &v117, v82 != 0);
             if ( ImageRequiredSigningLevel < 0 )
             {
               ObfDereferenceObject(v98);
@@ -963,7 +957,7 @@ LABEL_276:
             }
           }
           *a1 = v98;
-          if ( (DWORD1(PerfGlobalGroupMask) & 0x400001) != 0 && !*(_QWORD *)(v102 + 64) )
+          if ( (DWORD1(PerfGlobalGroupMask) & 0x400001) != 0 && !*(_QWORD *)(ImageSectionObject + 64) )
           {
             MiLogSectionObjectEvent(v98, 1LL);
             return ImageRequiredSigningLevel;
@@ -990,6 +984,6 @@ LABEL_276:
   v84->SpecialApcDisable = v89;
   if ( !v89 && ($CD287064E7C9F7953DE243E927CFCB99 *)v84->ApcState.ApcListHead[0].Flink != &v84->152 )
     KiCheckForKernelApcDelivery();
-  ObfDereferenceObject(v108);
+  ObfDereferenceObject(v107);
   return EmptyAddressRangeDownTree;
 }

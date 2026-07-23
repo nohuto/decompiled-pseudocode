@@ -1,19 +1,19 @@
 /*
- * XREFs of PiCMDeviceAction @ 0x14072EF74
+ * XREFs of PiCMDeviceAction @ 0x14072F140
  * Callers:
- *     PiCMHandleIoctl @ 0x140634850 (PiCMHandleIoctl.c)
+ *     PiCMHandleIoctl @ 0x140629660 (PiCMHandleIoctl.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x140265AF0 (RtlInitUnicodeStringEx.c)
- *     PiCMReleaseObjectInputData @ 0x140638B40 (PiCMReleaseObjectInputData.c)
- *     PiCMCaptureObjectInputData @ 0x140638B74 (PiCMCaptureObjectInputData.c)
- *     _CmValidateDeviceName @ 0x140642270 (_CmValidateDeviceName.c)
- *     PiCMReturnBasicResultData @ 0x1406A0160 (PiCMReturnBasicResultData.c)
- *     _CmGetDeviceStatus @ 0x1406A0340 (_CmGetDeviceStatus.c)
- *     PiAuDoesClientHaveAccess @ 0x1406A04D4 (PiAuDoesClientHaveAccess.c)
- *     _CmIsRootDevice @ 0x1406B0B44 (_CmIsRootDevice.c)
- *     PiQueueDeviceRequest @ 0x14072F218 (PiQueueDeviceRequest.c)
- *     PiAuDoesClientHavePrivilege @ 0x14072F34C (PiAuDoesClientHavePrivilege.c)
- *     PiCMSetProblem @ 0x14072F648 (PiCMSetProblem.c)
+ *     RtlInitUnicodeStringEx @ 0x140253A90 (RtlInitUnicodeStringEx.c)
+ *     PiCMReturnBasicResultData @ 0x1405FF4A0 (PiCMReturnBasicResultData.c)
+ *     _CmGetDeviceStatus @ 0x1405FF680 (_CmGetDeviceStatus.c)
+ *     PiAuDoesClientHaveAccess @ 0x1405FF814 (PiAuDoesClientHaveAccess.c)
+ *     _CmIsRootDevice @ 0x14060FAF4 (_CmIsRootDevice.c)
+ *     PiCMReleaseObjectInputData @ 0x14062D950 (PiCMReleaseObjectInputData.c)
+ *     PiCMCaptureObjectInputData @ 0x14062D984 (PiCMCaptureObjectInputData.c)
+ *     _CmValidateDeviceName @ 0x140637080 (_CmValidateDeviceName.c)
+ *     PiQueueDeviceRequest @ 0x14072F3E4 (PiQueueDeviceRequest.c)
+ *     PiAuDoesClientHavePrivilege @ 0x14072F518 (PiAuDoesClientHavePrivilege.c)
+ *     PiCMSetProblem @ 0x14072F814 (PiCMSetProblem.c)
  */
 
 __int64 __fastcall PiCMDeviceAction(
@@ -160,7 +160,7 @@ LABEL_26:
       {
         if ( !CmIsRootDevice(v11) )
         {
-          DeviceStatus = CmGetDeviceStatus(*(__int64 *)&PiPnpRtlCtx, v11, 0LL, &v26, &v28, &v27, v24);
+          DeviceStatus = CmGetDeviceStatus(PiPnpRtlCtx, v11, 0, &v26, &v28, &v27, v24);
           if ( DeviceStatus >= 0 )
           {
             if ( (v26 & 8) != 0 )

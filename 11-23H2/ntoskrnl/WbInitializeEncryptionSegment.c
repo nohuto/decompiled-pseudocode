@@ -1,13 +1,13 @@
 /*
- * XREFs of WbInitializeEncryptionSegment @ 0x1407D28F8
+ * XREFs of WbInitializeEncryptionSegment @ 0x1407D2BC8
  * Callers:
- *     WbGetInitializedEncryptionSegment @ 0x1407D2280 (WbGetInitializedEncryptionSegment.c)
+ *     WbGetInitializedEncryptionSegment @ 0x1407D2550 (WbGetInitializedEncryptionSegment.c)
  * Callees:
- *     RtlCompareMemory @ 0x140429820 (RtlCompareMemory.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     sub_140761D28 @ 0x140761D28 (sub_140761D28.c)
- *     WbAlloc @ 0x140763988 (WbAlloc.c)
- *     sub_140763BF4 @ 0x140763BF4 (sub_140763BF4.c)
+ *     RtlCompareMemory @ 0x140429BB0 (RtlCompareMemory.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     sub_140761F18 @ 0x140761F18 (sub_140761F18.c)
+ *     WbAlloc @ 0x140763B78 (WbAlloc.c)
+ *     sub_140763DE4 @ 0x140763DE4 (sub_140763DE4.c)
  */
 
 __int64 __fastcall WbInitializeEncryptionSegment(int *a1, __int64 a2, __int64 a3)
@@ -89,10 +89,10 @@ __int64 __fastcall WbInitializeEncryptionSegment(int *a1, __int64 a2, __int64 a3
         MEMORY[0x7FFFFFFF0000] = 0;
     }
     memmove(*v12, *(const void **)(a2 + 8), v10);
-    v8 = sub_140763BF4(*(PVOID *)(a2 + 8), v10, 1);
+    v8 = sub_140763DE4(*(PVOID *)(a2 + 8), v10, 1);
     if ( v8 >= 0 )
     {
-      v8 = sub_140761D28((UCHAR *)*v12, v10);
+      v8 = sub_140761F18((UCHAR *)*v12, v10);
       if ( v8 >= 0 )
       {
         if ( RtlCompareMemory(*((const void **)a1 + 1), *v12, v11) != v11 )

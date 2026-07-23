@@ -1,10 +1,10 @@
 /*
- * XREFs of PfpTraceLogPartitionId @ 0x1405CCB30
+ * XREFs of PfpTraceLogPartitionId @ 0x1405CA2A0
  * Callers:
- *     PfpPartitionCreate @ 0x1405CC80C (PfpPartitionCreate.c)
- *     PfpTraceLogPfPartitionId @ 0x1405CCB4C (PfpTraceLogPfPartitionId.c)
- *     PfpPartitionFindOrCreate @ 0x1407473E0 (PfpPartitionFindOrCreate.c)
- *     PfpPartitionFindByHandle @ 0x140933E78 (PfpPartitionFindByHandle.c)
+ *     PfpPartitionCreate @ 0x1405C9F7C (PfpPartitionCreate.c)
+ *     PfpTraceLogPfPartitionId @ 0x1405CA2BC (PfpTraceLogPfPartitionId.c)
+ *     PfpPartitionFindOrCreate @ 0x1407456D0 (PfpPartitionFindOrCreate.c)
+ *     PfpPartitionFindByHandle @ 0x1408F6998 (PfpPartitionFindByHandle.c)
  * Callees:
  *     <none>
  */

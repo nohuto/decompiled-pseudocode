@@ -1,18 +1,18 @@
 /*
- * XREFs of HalpInterruptInitializeLocalUnit @ 0x14037BA50
+ * XREFs of HalpInterruptInitializeLocalUnit @ 0x14037BBF0
  * Callers:
- *     HalpInterruptReinitializeThisProcessor @ 0x14037B2B0 (HalpInterruptReinitializeThisProcessor.c)
- *     HalpInterruptInitializeController @ 0x14037E5EC (HalpInterruptInitializeController.c)
- *     HalpInterruptResetThisProcessor @ 0x140504E40 (HalpInterruptResetThisProcessor.c)
+ *     HalpInterruptReinitializeThisProcessor @ 0x14037B450 (HalpInterruptReinitializeThisProcessor.c)
+ *     HalpInterruptInitializeController @ 0x14037E78C (HalpInterruptInitializeController.c)
+ *     HalpInterruptResetThisProcessor @ 0x140505390 (HalpInterruptResetThisProcessor.c)
  * Callees:
- *     KeAddProcessorAffinityEx @ 0x1402573A0 (KeAddProcessorAffinityEx.c)
- *     HalpInitializeDeferredErrorVector @ 0x14037BCE8 (HalpInitializeDeferredErrorVector.c)
- *     HalpInitializeCmciVector @ 0x14037C014 (HalpInitializeCmciVector.c)
- *     HalpInterruptMarkProcessorStarted @ 0x14037D538 (HalpInterruptMarkProcessorStarted.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     HalpInterruptRestoreController @ 0x14051A8E8 (HalpInterruptRestoreController.c)
- *     HalpInterruptSetProblemEx @ 0x14051AA08 (HalpInterruptSetProblemEx.c)
+ *     KeAddProcessorAffinityEx @ 0x140257460 (KeAddProcessorAffinityEx.c)
+ *     HalpInitializeDeferredErrorVector @ 0x14037BE88 (HalpInitializeDeferredErrorVector.c)
+ *     HalpInitializeCmciVector @ 0x14037C1B4 (HalpInitializeCmciVector.c)
+ *     HalpInterruptMarkProcessorStarted @ 0x14037D6D8 (HalpInterruptMarkProcessorStarted.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     HalpInterruptRestoreController @ 0x14051AE38 (HalpInterruptRestoreController.c)
+ *     HalpInterruptSetProblemEx @ 0x14051AF58 (HalpInterruptSetProblemEx.c)
  */
 
 __int64 __fastcall HalpInterruptInitializeLocalUnit(ULONG_PTR BugCheckParameter3)

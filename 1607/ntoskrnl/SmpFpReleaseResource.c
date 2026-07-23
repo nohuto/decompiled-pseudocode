@@ -1,10 +1,10 @@
 /*
- * XREFs of SmpFpReleaseResource @ 0x14022149C
+ * XREFs of SmpFpReleaseResource @ 0x1402212C8
  * Callers:
- *     SmFpFree @ 0x14011ADA8 (SmFpFree.c)
+ *     SmFpFree @ 0x14011B318 (SmFpFree.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14002E9A0 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14002EB90 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusive @ 0x14002E520 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14002E710 (ExAcquireSpinLockExclusive.c)
  */
 
 __int64 __fastcall SmpFpReleaseResource(PEX_SPIN_LOCK SpinLock, int a2, __int64 a3)

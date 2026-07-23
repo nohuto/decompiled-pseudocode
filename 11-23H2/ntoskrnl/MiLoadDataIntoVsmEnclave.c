@@ -1,20 +1,20 @@
 /*
- * XREFs of MiLoadDataIntoVsmEnclave @ 0x140A3E0D4
+ * XREFs of MiLoadDataIntoVsmEnclave @ 0x140A3E384
  * Callers:
- *     NtLoadEnclaveData @ 0x140A3F270 (NtLoadEnclaveData.c)
+ *     NtLoadEnclaveData @ 0x140A3F520 (NtLoadEnclaveData.c)
  * Callees:
  *     MmSizeOfMdl @ 0x140206EA0 (MmSizeOfMdl.c)
- *     KiStackAttachProcess @ 0x14022D600 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x14022D9C0 (KiUnstackDetachProcess.c)
- *     MmProbeAndLockPages @ 0x140238790 (MmProbeAndLockPages.c)
- *     MiMakeProtectionMask @ 0x140276980 (MiMakeProtectionMask.c)
- *     MiCommitExistingVad @ 0x140276A30 (MiCommitExistingVad.c)
- *     MmUnlockPages @ 0x1402CAB10 (MmUnlockPages.c)
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     PsLoadVsmEnclaveData @ 0x1405A6A50 (PsLoadVsmEnclaveData.c)
- *     MiCountCommittedPages @ 0x14064745C (MiCountCommittedPages.c)
- *     MiDecommitRegion @ 0x140744560 (MiDecommitRegion.c)
+ *     KiStackAttachProcess @ 0x14022D710 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x14022DAD0 (KiUnstackDetachProcess.c)
+ *     MmProbeAndLockPages @ 0x140238860 (MmProbeAndLockPages.c)
+ *     MiMakeProtectionMask @ 0x140276C10 (MiMakeProtectionMask.c)
+ *     MiCommitExistingVad @ 0x140276CC0 (MiCommitExistingVad.c)
+ *     MmUnlockPages @ 0x1402CADA0 (MmUnlockPages.c)
+ *     MiAllocatePool @ 0x1402DF430 (MiAllocatePool.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     PsLoadVsmEnclaveData @ 0x1405A6FC0 (PsLoadVsmEnclaveData.c)
+ *     MiCountCommittedPages @ 0x1406479AC (MiCountCommittedPages.c)
+ *     MiDecommitRegion @ 0x140744750 (MiDecommitRegion.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

@@ -21,10 +21,10 @@
  *     PopPepInitializeConstraintOverrides @ 0x1407542FC (PopPepInitializeConstraintOverrides.c)
  */
 
-__int64 __fastcall PopPepPlatformStateRegistered(unsigned int a1)
+int __fastcall PopPepPlatformStateRegistered(unsigned int a1)
 {
   __int64 v1; // rbp
-  __int64 result; // rax
+  signed __int64 v2; // rax
   struct _KTHREAD *CurrentThread; // rax
   __int64 *v4; // rbx
   _DWORD *v5; // rax
@@ -34,11 +34,11 @@ __int64 __fastcall PopPepPlatformStateRegistered(unsigned int a1)
   int v9; // ebx
   __int64 v10; // rbx
   __int64 *v11; // rdi
-  char v12; // [rsp+78h] [rbp+10h] BYREF
+  char Buffer; // [rsp+78h] [rbp+10h] BYREF
 
   v1 = a1;
-  result = _InterlockedCompareExchange64(&PopPepPlatformState, PpmPlatformStates + 64, 0LL);
-  if ( !result )
+  v2 = _InterlockedCompareExchange64(&PopPepPlatformState, PpmPlatformStates + 64, 0LL);
+  if ( !v2 )
   {
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->KernelApcDisable;
@@ -105,8 +105,8 @@ __int64 __fastcall PopPepPlatformStateRegistered(unsigned int a1)
     KeAbPostRelease((ULONG_PTR)&PopPepDeviceListLock);
     KeLeaveCriticalRegion();
     PopPepUpdateIdleStateRefCount((1 << v1) - 1, 0, 0, 0LL);
-    v12 = 1;
-    return ZwUpdateWnfStateData(&WNF_PO_DRIPS_DEVICE_CONSTRAINTS_REGISTERED, &v12, 1LL, 0LL, 0LL, 0, 0);
+    Buffer = 1;
+    LODWORD(v2) = ZwUpdateWnfStateData(&WNF_PO_DRIPS_DEVICE_CONSTRAINTS_REGISTERED, &Buffer, 1u, 0LL, 0LL, 0, 0);
   }
-  return result;
+  return v2;
 }

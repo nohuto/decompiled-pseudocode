@@ -1,9 +1,9 @@
 /*
- * XREFs of CsrCaptureMessageString @ 0x180075B20
+ * XREFs of CsrCaptureMessageString @ 0x180075B10
  * Callers:
- *     CsrCaptureMessageMultiUnicodeStringsInPlace @ 0x180075A00 (CsrCaptureMessageMultiUnicodeStringsInPlace.c)
+ *     CsrCaptureMessageMultiUnicodeStringsInPlace @ 0x1800759F0 (CsrCaptureMessageMultiUnicodeStringsInPlace.c)
  * Callees:
- *     CsrAllocateMessagePointer @ 0x180075BE0 (CsrAllocateMessagePointer.c)
+ *     CsrAllocateMessagePointer @ 0x180075BD0 (CsrAllocateMessagePointer.c)
  *     memmove @ 0x1800AC980 (memmove.c)
  */
 

@@ -1,15 +1,15 @@
 /*
- * XREFs of MmAllocateUserStack @ 0x1409F2008
+ * XREFs of MmAllocateUserStack @ 0x1409EE7D8
  * Callers:
- *     PspReserveAndCommitUserShadowStack @ 0x1409F1E60 (PspReserveAndCommitUserShadowStack.c)
- *     NtSetInformationProcess @ 0x140B72B10 (NtSetInformationProcess.c)
+ *     PspReserveAndCommitUserShadowStack @ 0x1409EE630 (PspReserveAndCommitUserShadowStack.c)
+ *     NtSetInformationProcess @ 0x140B781E0 (NtSetInformationProcess.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     PsDereferencePartition @ 0x140381940 (PsDereferencePartition.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     MiAllocateVirtualMemoryPrepare @ 0x1409F2C94 (MiAllocateVirtualMemoryPrepare.c)
- *     MiAllocateVirtualMemory @ 0x1409F3464 (MiAllocateVirtualMemory.c)
- *     PsReferencePartitionByHandle @ 0x140A53F9C (PsReferencePartitionByHandle.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     PsDereferencePartition @ 0x1403836F0 (PsDereferencePartition.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     MiAllocateVirtualMemoryPrepare @ 0x1409EF464 (MiAllocateVirtualMemoryPrepare.c)
+ *     MiAllocateVirtualMemory @ 0x1409EFC34 (MiAllocateVirtualMemory.c)
+ *     PsReferencePartitionByHandle @ 0x140A5D28C (PsReferencePartitionByHandle.c)
  */
 
 __int64 __fastcall MmAllocateUserStack(__int64 *a1, int a2, __int64 *a3, int a4, int a5)
@@ -76,9 +76,9 @@ __int64 __fastcall MmAllocateUserStack(__int64 *a1, int a2, __int64 *a3, int a4,
       {
 LABEL_16:
         if ( v20[0] )
-          ++*(_DWORD *)&stru_140E2EB88.SchedulerApcFill5[60];
+          ++*(_DWORD *)&stru_140E2ED08.SchedulerApcFill5[60];
         else
-          ++*(_DWORD *)&stru_140E2EB88.SchedulerApcFill5[56];
+          ++*(_DWORD *)&stru_140E2ED08.SchedulerApcFill5[56];
         goto LABEL_11;
       }
     }

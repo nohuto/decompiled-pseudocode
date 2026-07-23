@@ -3,12 +3,12 @@
  * Callers:
  *     <none>
  * Callees:
- *     _PnpCtxRegDeleteTree @ 0x140810A5C (_PnpCtxRegDeleteTree.c)
- *     _PnpCtxRegOpenKey @ 0x1408127C0 (_PnpCtxRegOpenKey.c)
- *     _PnpCtxRegEnumKey @ 0x1408127FC (_PnpCtxRegEnumKey.c)
- *     _PnpCtxRegCloseKey @ 0x140876914 (_PnpCtxRegCloseKey.c)
- *     _PnpCtxRegQueryValue @ 0x1408776DC (_PnpCtxRegQueryValue.c)
- *     _PnpCtxRegQueryInfoKey @ 0x140877B0C (_PnpCtxRegQueryInfoKey.c)
+ *     _PnpCtxRegDeleteTree @ 0x140810D2C (_PnpCtxRegDeleteTree.c)
+ *     _PnpCtxRegOpenKey @ 0x140812A90 (_PnpCtxRegOpenKey.c)
+ *     _PnpCtxRegEnumKey @ 0x140812ACC (_PnpCtxRegEnumKey.c)
+ *     _PnpCtxRegCloseKey @ 0x140876B54 (_PnpCtxRegCloseKey.c)
+ *     _PnpCtxRegQueryValue @ 0x14087791C (_PnpCtxRegQueryValue.c)
+ *     _PnpCtxRegQueryInfoKey @ 0x140877D4C (_PnpCtxRegQueryInfoKey.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

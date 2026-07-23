@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpAcpiSetupPmRegister @ 0x140CB3674
+ * XREFs of HalpAcpiSetupPmRegister @ 0x140CB96B4
  * Callers:
- *     HalpAcpiInitializePmRegisters @ 0x140CB346C (HalpAcpiInitializePmRegisters.c)
- *     HalpAcpiSetupPmRegisterLegacy @ 0x140CB37BC (HalpAcpiSetupPmRegisterLegacy.c)
+ *     HalpAcpiInitializePmRegisters @ 0x140CB94AC (HalpAcpiInitializePmRegisters.c)
+ *     HalpAcpiSetupPmRegisterLegacy @ 0x140CB97FC (HalpAcpiSetupPmRegisterLegacy.c)
  * Callees:
- *     HalMapIoSpace @ 0x14059A1C0 (HalMapIoSpace.c)
+ *     HalMapIoSpace @ 0x14059C940 (HalMapIoSpace.c)
  */
 
 __int64 __fastcall HalpAcpiSetupPmRegister(SIZE_T NumberOfBytes, unsigned int a2, __int64 a3, __int64 a4)

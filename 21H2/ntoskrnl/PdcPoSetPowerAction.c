@@ -1,11 +1,11 @@
 /*
- * XREFs of PdcPoSetPowerAction @ 0x1408EFAF0
+ * XREFs of PdcPoSetPowerAction @ 0x1408EFC50
  * Callers:
  *     <none>
  * Callees:
- *     PopExecutePowerAction @ 0x1407751C8 (PopExecutePowerAction.c)
- *     PopReleasePolicyLock @ 0x14098F590 (PopReleasePolicyLock.c)
- *     PopAcquirePolicyLock @ 0x14098F5D0 (PopAcquirePolicyLock.c)
+ *     PopExecutePowerAction @ 0x140775388 (PopExecutePowerAction.c)
+ *     PopReleasePolicyLock @ 0x140991044 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140991084 (PopAcquirePolicyLock.c)
  */
 
 __int64 __fastcall PdcPoSetPowerAction(__int64 a1, unsigned int a2, __int64 *a3, int a4, unsigned int a5)

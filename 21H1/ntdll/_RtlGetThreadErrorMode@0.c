@@ -6,7 +6,7 @@
  *     <none>
  */
 
-unsigned int __stdcall RtlGetThreadErrorMode()
+ULONG RtlGetThreadErrorMode(void)
 {
   struct _TEB *v0; // eax
   int WowTebOffset; // ecx

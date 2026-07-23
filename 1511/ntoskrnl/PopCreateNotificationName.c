@@ -11,7 +11,7 @@
  *     RtlSetDaclSecurityDescriptor @ 0x140478384 (RtlSetDaclSecurityDescriptor.c)
  */
 
-__int64 __fastcall PopCreateNotificationName(__int64 a1)
+NTSTATUS __fastcall PopCreateNotificationName(PWNF_STATE_NAME StateName)
 {
   _BYTE SecurityDescriptor[48]; // [rsp+40h] [rbp-148h] BYREF
   ACL Acl; // [rsp+70h] [rbp-118h] BYREF
@@ -22,5 +22,5 @@ __int64 __fastcall PopCreateNotificationName(__int64 a1)
   RtlAddAccessAllowedAce(&Acl, 2u, 0x120001u, SeAllAppPackagesSid);
   RtlCreateSecurityDescriptor(SecurityDescriptor, 1u);
   RtlSetDaclSecurityDescriptor(SecurityDescriptor, 1u, &Acl, 0);
-  return ZwCreateWnfStateName(a1, 3LL, 4LL);
+  return ZwCreateWnfStateName(StateName, WnfTemporaryStateName, WnfDataScopeMachine, 0, 0LL, 0x24u, SecurityDescriptor);
 }

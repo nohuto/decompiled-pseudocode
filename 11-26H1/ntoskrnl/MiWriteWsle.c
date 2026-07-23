@@ -1,13 +1,13 @@
 /*
- * XREFs of MiWriteWsle @ 0x14029F7F0
+ * XREFs of MiWriteWsle @ 0x14029ED40
  * Callers:
- *     MiCountWslesInPageTableRange @ 0x14029E490 (MiCountWslesInPageTableRange.c)
- *     MiSetPagingOfDriver @ 0x14030F6BC (MiSetPagingOfDriver.c)
- *     MiRemoveWsle @ 0x140325384 (MiRemoveWsle.c)
- *     MiUnmapKernelScp @ 0x1404F6C64 (MiUnmapKernelScp.c)
- *     MiClearDriverTablePtes @ 0x140505FE8 (MiClearDriverTablePtes.c)
- *     MiPageBootRegistry @ 0x1406E3A98 (MiPageBootRegistry.c)
- *     MiCreatePteWsle @ 0x1406EA2A0 (MiCreatePteWsle.c)
+ *     MiCountWslesInPageTableRange @ 0x14029D9E0 (MiCountWslesInPageTableRange.c)
+ *     MiSetPagingOfDriver @ 0x1402F173C (MiSetPagingOfDriver.c)
+ *     MiRemoveWsle @ 0x1403273B4 (MiRemoveWsle.c)
+ *     MiUnmapKernelScp @ 0x1404F0274 (MiUnmapKernelScp.c)
+ *     MiClearDriverTablePtes @ 0x1404FF898 (MiClearDriverTablePtes.c)
+ *     MiPageBootRegistry @ 0x1406E8744 (MiPageBootRegistry.c)
+ *     MiCreatePteWsle @ 0x1406EEF40 (MiCreatePteWsle.c)
  * Callees:
  *     <none>
  */

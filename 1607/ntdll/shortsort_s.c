@@ -1,7 +1,7 @@
 /*
- * XREFs of shortsort_s @ 0x18009AEC0
+ * XREFs of shortsort_s @ 0x18009AEB0
  * Callers:
- *     qsort_s @ 0x18009AB70 (qsort_s.c)
+ *     qsort_s @ 0x18009AB60 (qsort_s.c)
  * Callees:
  *     _guard_dispatch_icall_nop @ 0x1800A9C80 (_guard_dispatch_icall_nop.c)
  */

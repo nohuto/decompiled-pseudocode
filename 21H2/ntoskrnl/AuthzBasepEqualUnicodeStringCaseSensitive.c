@@ -1,11 +1,11 @@
 /*
- * XREFs of AuthzBasepEqualUnicodeStringCaseSensitive @ 0x14025017C
+ * XREFs of AuthzBasepEqualUnicodeStringCaseSensitive @ 0x1402F49CC
  * Callers:
- *     AuthzBasepEqualUnicodeString @ 0x14024DBB0 (AuthzBasepEqualUnicodeString.c)
- *     AuthzBasepFindSecurityAttribute @ 0x14024EBF0 (AuthzBasepFindSecurityAttribute.c)
- *     AuthzBasepCompareUnicodeStringOperands @ 0x14024F520 (AuthzBasepCompareUnicodeStringOperands.c)
+ *     AuthzBasepEqualUnicodeString @ 0x1402F2400 (AuthzBasepEqualUnicodeString.c)
+ *     AuthzBasepFindSecurityAttribute @ 0x1402F3440 (AuthzBasepFindSecurityAttribute.c)
+ *     AuthzBasepCompareUnicodeStringOperands @ 0x1402F3D70 (AuthzBasepCompareUnicodeStringOperands.c)
  * Callees:
- *     memcmp @ 0x1403D29E0 (memcmp.c)
+ *     memcmp @ 0x1403D2B50 (memcmp.c)
  */
 
 bool __fastcall AuthzBasepEqualUnicodeStringCaseSensitive(const void **a1, __int64 a2)

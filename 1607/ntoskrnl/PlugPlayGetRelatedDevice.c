@@ -1,10 +1,10 @@
 /*
- * XREFs of PlugPlayGetRelatedDevice @ 0x1404CFD20
+ * XREFs of PlugPlayGetRelatedDevice @ 0x14050CDEC
  * Callers:
- *     PiPnpRtlGetDeviceRelatedDeviceRoutine @ 0x1404CFCE8 (PiPnpRtlGetDeviceRelatedDeviceRoutine.c)
+ *     PiPnpRtlGetDeviceRelatedDeviceRoutine @ 0x14050CDB4 (PiPnpRtlGetDeviceRelatedDeviceRoutine.c)
  * Callees:
- *     ZwPlugPlayControl @ 0x14015C0E0 (ZwPlugPlayControl.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     ZwPlugPlayControl @ 0x14015C650 (ZwPlugPlayControl.c)
+ *     memset @ 0x140171AC0 (memset.c)
  */
 
 NTSTATUS __fastcall PlugPlayGetRelatedDevice(__int128 *a1, int a2, __int64 a3, int a4, _DWORD *a5, int a6)

@@ -1,16 +1,16 @@
 /*
- * XREFs of PnpRequestHwProfileChangeNotification @ 0x140825FA4
+ * XREFs of PnpRequestHwProfileChangeNotification @ 0x1408271A4
  * Callers:
- *     PpProfileCancelHardwareProfileTransition @ 0x1408327C4 (PpProfileCancelHardwareProfileTransition.c)
- *     PpProfileCancelTransitioningDock @ 0x14083284C (PpProfileCancelTransitioningDock.c)
- *     PpProfileCommitTransitioningDock @ 0x1408328F4 (PpProfileCommitTransitioningDock.c)
- *     PpProfileQueryHardwareProfileChange @ 0x140832B44 (PpProfileQueryHardwareProfileChange.c)
+ *     PpProfileCancelHardwareProfileTransition @ 0x140833A24 (PpProfileCancelHardwareProfileTransition.c)
+ *     PpProfileCancelTransitioningDock @ 0x140833AAC (PpProfileCancelTransitioningDock.c)
+ *     PpProfileCommitTransitioningDock @ 0x140833B54 (PpProfileCommitTransitioningDock.c)
+ *     PpProfileQueryHardwareProfileChange @ 0x140833DA4 (PpProfileQueryHardwareProfileChange.c)
  * Callees:
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     KeInitializeEvent @ 0x1400B8E70 (KeInitializeEvent.c)
- *     RtlCompareMemory @ 0x1401C5BD0 (RtlCompareMemory.c)
- *     PnpNotifyHwProfileChange @ 0x140825CE4 (PnpNotifyHwProfileChange.c)
- *     PnpSetHwProfileChangeEvent @ 0x14083343C (PnpSetHwProfileChangeEvent.c)
+ *     KeInitializeEvent @ 0x1400B8DB0 (KeInitializeEvent.c)
+ *     RtlCompareMemory @ 0x1401C5D30 (RtlCompareMemory.c)
+ *     PnpNotifyHwProfileChange @ 0x140826EE4 (PnpNotifyHwProfileChange.c)
+ *     PnpSetHwProfileChangeEvent @ 0x14083469C (PnpSetHwProfileChangeEvent.c)
  */
 
 __int64 __fastcall PnpRequestHwProfileChangeNotification(GUID *Source1, int a2, _DWORD *a3, UNICODE_STRING *a4)

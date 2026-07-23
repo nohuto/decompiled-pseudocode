@@ -1,20 +1,20 @@
 /*
- * XREFs of EtwTraceEvent @ 0x1405A60A0
+ * XREFs of EtwTraceEvent @ 0x1405A62D0
  * Callers:
- *     NtTraceEvent @ 0x14025CC60 (NtTraceEvent.c)
- *     IoWMIWriteEvent @ 0x14037E730 (IoWMIWriteEvent.c)
+ *     NtTraceEvent @ 0x14027E790 (NtTraceEvent.c)
+ *     IoWMIWriteEvent @ 0x14037E280 (IoWMIWriteEvent.c)
  * Callees:
- *     EtwpOpenLogger @ 0x14025DB98 (EtwpOpenLogger.c)
- *     EtwpReleaseTraceBuffer @ 0x14025DC40 (EtwpReleaseTraceBuffer.c)
- *     EtwpReserveTraceBuffer @ 0x1403506F0 (EtwpReserveTraceBuffer.c)
- *     PsGetCurrentServerSiloGlobals @ 0x140362150 (PsGetCurrentServerSiloGlobals.c)
- *     EtwpGetReserveTraceBufferStatus @ 0x14036CDBC (EtwpGetReserveTraceBufferStatus.c)
- *     EtwpCloseLogger @ 0x140379F38 (EtwpCloseLogger.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     EtwpSendTraceEvent @ 0x1405AAB68 (EtwpSendTraceEvent.c)
- *     EtwpInvokeEventCallback @ 0x1405AB678 (EtwpInvokeEventCallback.c)
- *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
+ *     EtwpOpenLogger @ 0x14027F6C8 (EtwpOpenLogger.c)
+ *     EtwpReleaseTraceBuffer @ 0x14027F770 (EtwpReleaseTraceBuffer.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x1402F6FB0 (PsGetCurrentServerSiloGlobals.c)
+ *     EtwpReserveTraceBuffer @ 0x14035B440 (EtwpReserveTraceBuffer.c)
+ *     EtwpGetReserveTraceBufferStatus @ 0x14036CF6C (EtwpGetReserveTraceBufferStatus.c)
+ *     EtwpCloseLogger @ 0x140379A88 (EtwpCloseLogger.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     EtwpSendTraceEvent @ 0x1405AAD98 (EtwpSendTraceEvent.c)
+ *     EtwpInvokeEventCallback @ 0x1405AB8A8 (EtwpInvokeEventCallback.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BFB0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall EtwTraceEvent(__int64 a1, unsigned __int64 a2, unsigned int a3, int a4, char a5)
@@ -58,7 +58,7 @@ __int64 __fastcall EtwTraceEvent(__int64 a1, unsigned __int64 a2, unsigned int a
   unsigned int Size_4; // [rsp+68h] [rbp-190h]
   void *v44; // [rsp+70h] [rbp-188h]
   __int64 v45; // [rsp+78h] [rbp-180h]
-  signed __int64 v46[3]; // [rsp+80h] [rbp-178h] BYREF
+  LARGE_INTEGER v46[3]; // [rsp+80h] [rbp-178h] BYREF
   __int128 v47; // [rsp+98h] [rbp-160h] BYREF
   __int64 v48; // [rsp+A8h] [rbp-150h]
   void *Src[32]; // [rsp+B0h] [rbp-148h] BYREF
@@ -72,7 +72,7 @@ __int64 __fastcall EtwTraceEvent(__int64 a1, unsigned __int64 a2, unsigned int a
   v34[0] = 0;
   v37 = 0;
   v35 = 0LL;
-  v46[0] = 0LL;
+  v46[0].QuadPart = 0LL;
   v7 = (unsigned __int16)a1;
   Size_4 = (unsigned __int16)a1;
   if ( a5 )
@@ -85,7 +85,7 @@ __int64 __fastcall EtwTraceEvent(__int64 a1, unsigned __int64 a2, unsigned int a
   {
     v10 = EtwpOpenLogger(v7, v8, a5, v34);
     v11 = v10;
-    v46[1] = v10;
+    v46[1].QuadPart = v10;
     if ( v10 )
     {
       v12 = *(_DWORD *)(v10 + 12);
@@ -160,7 +160,7 @@ __int64 __fastcall EtwTraceEvent(__int64 a1, unsigned __int64 a2, unsigned int a
           }
           v22 = (char *)EtwpReserveTraceBuffer((unsigned int *)v11, v15, (__int64)&v47, v46, 0);
           v23 = v22;
-          v46[2] = (signed __int64)v22;
+          v46[2].QuadPart = (LONGLONG)v22;
           if ( v22 )
           {
             if ( (v14 & 0x100000) != 0 )
@@ -208,7 +208,7 @@ __int64 __fastcall EtwTraceEvent(__int64 a1, unsigned __int64 a2, unsigned int a
             v13 = v36;
             CurrentThread = KeGetCurrentThread();
             *(_DWORD *)v23 = a4 | v35;
-            *((_QWORD *)v23 + 2) = v46[0];
+            *((LARGE_INTEGER *)v23 + 2) = v46[0];
             *((_DWORD *)v23 + 10) = CurrentThread->SchedulerApc.SpareLong0;
             *((_DWORD *)v23 + 11) = CurrentThread->UserTime;
             *((_DWORD *)v23 + 2) = CurrentThread[1].CurrentRunTime;

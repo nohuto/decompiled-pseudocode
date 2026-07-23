@@ -1,18 +1,18 @@
 /*
- * XREFs of KiExpandKernelStackAndCalloutOnStackSegment @ 0x14027C840
+ * XREFs of KiExpandKernelStackAndCalloutOnStackSegment @ 0x140231DD0
  * Callers:
- *     KiExpandKernelStackAndCalloutSwitchStack @ 0x14027D900 (KiExpandKernelStackAndCalloutSwitchStack.c)
+ *     KiExpandKernelStackAndCalloutSwitchStack @ 0x140232E90 (KiExpandKernelStackAndCalloutSwitchStack.c)
  * Callees:
- *     KeInsertQueueDpc @ 0x1402542F0 (KeInsertQueueDpc.c)
- *     KeQueryCurrentStackInformationEx @ 0x140259BD0 (KeQueryCurrentStackInformationEx.c)
- *     MmDeleteKernelStack @ 0x14026A4B0 (MmDeleteKernelStack.c)
- *     MmCreateKernelStack @ 0x14026B230 (MmCreateKernelStack.c)
- *     KeReleaseMutantEx @ 0x1403379F0 (KeReleaseMutantEx.c)
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     KeGetCurrentStackPointer @ 0x1406AA390 (KeGetCurrentStackPointer.c)
- *     KiSwitchKernelStackAndCallout @ 0x1406AB930 (KiSwitchKernelStackAndCallout.c)
- *     RtlpInterlockedPushEntrySList @ 0x1406B38D0 (RtlpInterlockedPushEntrySList.c)
+ *     MmDeleteKernelStack @ 0x14021FA40 (MmDeleteKernelStack.c)
+ *     MmCreateKernelStack @ 0x1402207C0 (MmCreateKernelStack.c)
+ *     KeInsertQueueDpc @ 0x140284900 (KeInsertQueueDpc.c)
+ *     KeQueryCurrentStackInformationEx @ 0x14028A1E0 (KeQueryCurrentStackInformationEx.c)
+ *     KeReleaseMutantEx @ 0x1402DEAA0 (KeReleaseMutantEx.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     KeGetCurrentStackPointer @ 0x1406AB330 (KeGetCurrentStackPointer.c)
+ *     KiSwitchKernelStackAndCallout @ 0x1406AC8D0 (KiSwitchKernelStackAndCallout.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1406B4870 (RtlpInterlockedPushEntrySList.c)
  */
 
 __int64 __fastcall KiExpandKernelStackAndCalloutOnStackSegment(
@@ -38,7 +38,7 @@ __int64 __fastcall KiExpandKernelStackAndCalloutOnStackSegment(
   unsigned __int64 v18; // rsi
   __int64 v19; // rax
   char v20; // al
-  unsigned __int64 CurrentStackPointer; // rax
+  __int64 CurrentStackPointer; // rax
   unsigned int v22; // eax
   unsigned int v23; // esi
   bool v24; // zf
@@ -50,8 +50,8 @@ __int64 __fastcall KiExpandKernelStackAndCalloutOnStackSegment(
   __int128 v30; // [rsp+50h] [rbp-71h]
   __int128 v31; // [rsp+60h] [rbp-61h]
   __int64 v32; // [rsp+78h] [rbp-49h] BYREF
-  unsigned __int64 v33; // [rsp+80h] [rbp-41h] BYREF
-  char *v34; // [rsp+88h] [rbp-39h] BYREF
+  __int64 v33; // [rsp+80h] [rbp-41h] BYREF
+  __int64 v34; // [rsp+88h] [rbp-39h] BYREF
   __int64 CurrentIrql; // [rsp+90h] [rbp-31h]
   int v36[2]; // [rsp+98h] [rbp-29h] BYREF
   __int64 v37; // [rsp+A0h] [rbp-21h]

@@ -1,9 +1,9 @@
 /*
- * XREFs of PipDmgConsoleUnlockCallback @ 0x140731B50
+ * XREFs of PipDmgConsoleUnlockCallback @ 0x14072FB60
  * Callers:
  *     <none>
  * Callees:
- *     PipDmgFlushQueueAndRestartDevices @ 0x140731C6C (PipDmgFlushQueueAndRestartDevices.c)
+ *     PipDmgFlushQueueAndRestartDevices @ 0x14072FC7C (PipDmgFlushQueueAndRestartDevices.c)
  */
 
 __int64 PipDmgConsoleUnlockCallback()

@@ -1,46 +1,46 @@
 /*
- * XREFs of MiImageRvaRawEnumFirst @ 0x1408F3690
+ * XREFs of MiImageRvaRawEnumFirst @ 0x14093E820
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     MiImageGetRawRvaState @ 0x1408F4010 (MiImageGetRawRvaState.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     MiImageGetRawRvaState @ 0x14093F1A0 (MiImageGetRawRvaState.c)
  */
 
-__int64 __fastcall MiImageRvaRawEnumFirst(__int64 a1, _DWORD *a2, __int64 a3, __int64 a4)
+__int64 __fastcall MiImageRvaRawEnumFirst(__int64 a1, _DWORD *a2)
 {
-  unsigned int v4; // ebx
-  __int64 v5; // rsi
+  unsigned int v2; // ebx
+  __int64 v3; // rsi
   unsigned int i; // ebp
-  unsigned int v9; // eax
+  unsigned int v7; // eax
   __int64 result; // rax
 
-  v4 = 0;
-  v5 = a1 + 152;
-  for ( i = 0; i < *(_DWORD *)(a1 + 144); v5 += 40LL )
+  v2 = 0;
+  v3 = a1 + 152;
+  for ( i = 0; i < *(_DWORD *)(a1 + 144); v3 += 40LL )
   {
-    if ( *(_QWORD *)(v5 + 8) )
+    if ( *(_QWORD *)(v3 + 8) )
     {
-      v9 = guard_dispatch_icall_no_overrides(a1, v5 + 24, v5 + 4, a4);
-      *(_DWORD *)v5 = v9;
-      if ( v9 )
+      v7 = guard_dispatch_icall_no_overrides(a1, v3 + 24);
+      *(_DWORD *)v3 = v7;
+      if ( v7 )
       {
-        if ( v4 )
+        if ( v2 )
         {
-          if ( v4 >= v9 )
-            v4 = v9;
+          if ( v2 >= v7 )
+            v2 = v7;
         }
         else
         {
-          v4 = v9;
+          v2 = v7;
         }
       }
     }
     ++i;
   }
-  if ( a2 && v4 )
-    *a2 = MiImageGetRawRvaState(a1, v4);
-  result = v4;
-  *(_DWORD *)(a1 + 312) = v4;
+  if ( a2 && v2 )
+    *a2 = MiImageGetRawRvaState(a1, v2);
+  result = v2;
+  *(_DWORD *)(a1 + 312) = v2;
   return result;
 }

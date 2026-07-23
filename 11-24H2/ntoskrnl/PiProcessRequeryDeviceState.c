@@ -1,12 +1,12 @@
 /*
- * XREFs of PiProcessRequeryDeviceState @ 0x1408BB67C
+ * XREFs of PiProcessRequeryDeviceState @ 0x1408B902C
  * Callers:
- *     PnpDeviceActionWorker @ 0x14046CD70 (PnpDeviceActionWorker.c)
+ *     PnpDeviceActionWorker @ 0x140467910 (PnpDeviceActionWorker.c)
  * Callees:
- *     IoAddTriageDumpDataBlock @ 0x1403F2880 (IoAddTriageDumpDataBlock.c)
- *     Feature_IoInvalidateDeviceState_Unconditional__private_ReportDeviceUsage @ 0x14046D5F4 (Feature_IoInvalidateDeviceState_Unconditional__private_ReportDeviceUsage.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     PiProcessQueryDeviceState @ 0x1408BB868 (PiProcessQueryDeviceState.c)
+ *     IoAddTriageDumpDataBlock @ 0x1403E65A0 (IoAddTriageDumpDataBlock.c)
+ *     Feature_IoInvalidateDeviceState_Unconditional__private_ReportDeviceUsage @ 0x140468194 (Feature_IoInvalidateDeviceState_Unconditional__private_ReportDeviceUsage.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     PiProcessQueryDeviceState @ 0x1408B91C4 (PiProcessQueryDeviceState.c)
  */
 
 __int64 __fastcall PiProcessRequeryDeviceState(__int64 a1)

@@ -1,18 +1,18 @@
 /*
- * XREFs of EtwpRealtimeInjectEtwBuffer @ 0x140491760
+ * XREFs of EtwpRealtimeInjectEtwBuffer @ 0x1404921F0
  * Callers:
- *     EtwpRealtimeDeliverBuffer @ 0x14049163C (EtwpRealtimeDeliverBuffer.c)
- *     EtwpRealtimeNotifyConsumers @ 0x140492464 (EtwpRealtimeNotifyConsumers.c)
+ *     EtwpRealtimeDeliverBuffer @ 0x1404920CC (EtwpRealtimeDeliverBuffer.c)
+ *     EtwpRealtimeNotifyConsumers @ 0x140492EF4 (EtwpRealtimeNotifyConsumers.c)
  * Callees:
- *     KeSetEvent @ 0x1400562D0 (KeSetEvent.c)
- *     KiStackAttachProcess @ 0x1400CD1F0 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x1400CE820 (KiUnstackDetachProcess.c)
- *     ExAcquireRundownProtection @ 0x1400D3ED0 (ExAcquireRundownProtection.c)
- *     ExReleaseRundownProtection @ 0x1400D3F00 (ExReleaseRundownProtection.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     EtwpFindUserBufferSpace @ 0x140491940 (EtwpFindUserBufferSpace.c)
- *     EtwpFreeUserBufferSpace @ 0x1406A993C (EtwpFreeUserBufferSpace.c)
+ *     KeSetEvent @ 0x140055E50 (KeSetEvent.c)
+ *     KiStackAttachProcess @ 0x1400CB090 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x1400CC6C0 (KiUnstackDetachProcess.c)
+ *     ExAcquireRundownProtection @ 0x1400D1D70 (ExAcquireRundownProtection.c)
+ *     ExReleaseRundownProtection @ 0x1400D1DA0 (ExReleaseRundownProtection.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     EtwpFindUserBufferSpace @ 0x1404923D0 (EtwpFindUserBufferSpace.c)
+ *     EtwpFreeUserBufferSpace @ 0x1406A9A74 (EtwpFreeUserBufferSpace.c)
  */
 
 __int64 __fastcall EtwpRealtimeInjectEtwBuffer(_DWORD *a1, __int64 a2, __int64 a3)

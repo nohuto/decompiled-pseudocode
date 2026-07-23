@@ -236,7 +236,11 @@ LABEL_62:
         ObjectAttributes.SecurityQualityOfService = 0LL;
         DeviceInterfaceClassGuid = ZwOpenSymbolicLinkObject((PHANDLE)(v6 + 40), 0xF0001u, &ObjectAttributes);
         if ( DeviceInterfaceClassGuid == -1073741772 )
-          DeviceInterfaceClassGuid = ZwCreateSymbolicLinkObject(v6 + 40, 983041LL);
+          DeviceInterfaceClassGuid = ZwCreateSymbolicLinkObject(
+                                       (PHANDLE)(v6 + 40),
+                                       0xF0001u,
+                                       &ObjectAttributes,
+                                       &DestinationString);
         if ( DeviceInterfaceClassGuid >= 0 )
           HIBYTE(v29) = 1;
         goto LABEL_41;

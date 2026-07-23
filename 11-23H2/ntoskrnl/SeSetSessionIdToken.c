@@ -1,19 +1,19 @@
 /*
- * XREFs of SeSetSessionIdToken @ 0x1407F1174
+ * XREFs of SeSetSessionIdToken @ 0x1407F1444
  * Callers:
- *     NtSetInformationToken @ 0x1407EF480 (NtSetInformationToken.c)
- *     SepCopyAnonymousTokenAndSetSilo @ 0x1409C9360 (SepCopyAnonymousTokenAndSetSilo.c)
- *     SepCopyClientTokenAndSetSilo @ 0x1409C9510 (SepCopyClientTokenAndSetSilo.c)
- *     SeSetSessionIdTokenWithLinked @ 0x1409C9660 (SeSetSessionIdTokenWithLinked.c)
+ *     NtSetInformationToken @ 0x1407EF750 (NtSetInformationToken.c)
+ *     SepCopyAnonymousTokenAndSetSilo @ 0x1409C9560 (SepCopyAnonymousTokenAndSetSilo.c)
+ *     SepCopyClientTokenAndSetSilo @ 0x1409C9710 (SepCopyClientTokenAndSetSilo.c)
+ *     SeSetSessionIdTokenWithLinked @ 0x1409C9860 (SeSetSessionIdTokenWithLinked.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402390E0 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x14023D410 (ExReleaseResourceLite.c)
- *     MmGetSessionObjectById @ 0x1402C0B60 (MmGetSessionObjectById.c)
- *     SepSetTokenSessionById @ 0x1406B7AE0 (SepSetTokenSessionById.c)
- *     SepDereferenceLowBoxNumberEntry @ 0x1407EF1CC (SepDereferenceLowBoxNumberEntry.c)
- *     SepSetTokenLowboxNumber @ 0x1407F474C (SepSetTokenLowboxNumber.c)
+ *     KeLeaveCriticalRegion @ 0x140231550 (KeLeaveCriticalRegion.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402391B0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14023D4E0 (ExReleaseResourceLite.c)
+ *     MmGetSessionObjectById @ 0x1402C0DF0 (MmGetSessionObjectById.c)
+ *     SepSetTokenSessionById @ 0x1406B7B10 (SepSetTokenSessionById.c)
+ *     SepDereferenceLowBoxNumberEntry @ 0x1407EF49C (SepDereferenceLowBoxNumberEntry.c)
+ *     SepSetTokenLowboxNumber @ 0x1407F4A1C (SepSetTokenLowboxNumber.c)
  */
 
 // local variable allocation has failed, the output may be wrong!

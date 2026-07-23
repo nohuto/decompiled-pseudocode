@@ -1,10 +1,10 @@
 /*
- * XREFs of SshpCacheRemoveBlocker @ 0x140A415A4
+ * XREFs of SshpCacheRemoveBlocker @ 0x140A36E84
  * Callers:
- *     SleepstudyHelperDestroyLibrary @ 0x140767660 (SleepstudyHelperDestroyLibrary.c)
- *     SshpUnlinkBlockerFromLibrary @ 0x140A41548 (SshpUnlinkBlockerFromLibrary.c)
+ *     SleepstudyHelperDestroyLibrary @ 0x140767890 (SleepstudyHelperDestroyLibrary.c)
+ *     SshpUnlinkBlockerFromLibrary @ 0x140A36E28 (SshpUnlinkBlockerFromLibrary.c)
  * Callees:
- *     RtlDeleteElementGenericTableAvl @ 0x1403F0610 (RtlDeleteElementGenericTableAvl.c)
+ *     RtlDeleteElementGenericTableAvl @ 0x1403E4330 (RtlDeleteElementGenericTableAvl.c)
  */
 
 char __fastcall SshpCacheRemoveBlocker(__int64 a1, __int64 a2)

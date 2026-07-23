@@ -22,16 +22,16 @@ __int64 __fastcall WbGetWarbirdThread(__int64 a1, __int64 a2, _QWORD *a3)
 {
   struct _KTHREAD *CurrentThread; // r12
   signed __int64 *v6; // rdi
-  unsigned __int64 v7; // rbx
+  PRTL_BALANCED_NODE v7; // rbx
   int v8; // ebx
   __int64 v9; // rcx
   __int64 v10; // rcx
   struct _KTHREAD *v11; // rax
   bool v12; // zf
   struct _KTHREAD *v14; // rax
-  unsigned __int64 v15; // rax
+  PRTL_BALANCED_NODE v15; // rax
   int v16; // r8d
-  unsigned __int64 v17; // rbx
+  PRTL_BALANCED_NODE v17; // rbx
   __int64 v18; // r12
   char v19; // al
   __int64 v20; // [rsp+70h] [rbp+8h] BYREF
@@ -43,9 +43,9 @@ __int64 __fastcall WbGetWarbirdThread(__int64 a1, __int64 a2, _QWORD *a3)
   v6 = (signed __int64 *)(a1 + 128);
   v7 = KeAbPreAcquire(a1 + 128, 0LL, 0);
   if ( _InterlockedCompareExchange64(v6, 17LL, 0LL) )
-    ExfAcquirePushLockSharedEx(v6, v7, (unsigned __int64)v6);
+    ExfAcquirePushLockSharedEx(v6, (__int64)v7, (ULONG_PTR)v6);
   if ( v7 )
-    *(_BYTE *)(v7 + 26) |= 1u;
+    BYTE2(v7[1].Left) |= 1u;
   v20 = 0LL;
   v8 = sub_140501EA0((int)a1 + 88, (_DWORD)CurrentThread, 8, (unsigned int)&v20, 0LL);
   if ( v8 >= 0 )
@@ -75,9 +75,9 @@ __int64 __fastcall WbGetWarbirdThread(__int64 a1, __int64 a2, _QWORD *a3)
     v15 = KeAbPreAcquire((ULONG_PTR)v6, 0LL, 0);
     v17 = v15;
     if ( _interlockedbittestandset64((volatile signed __int32 *)v6, 0LL) )
-      ExfAcquirePushLockExclusiveEx((unsigned __int64 *)v6, v15, (__int16 *)v6);
+      ExfAcquirePushLockExclusiveEx((unsigned __int64 *)v6, (__int64)v15, (__int16 *)v6);
     if ( v17 )
-      *(_BYTE *)(v17 + 26) |= 1u;
+      BYTE2(v17[1].Left) |= 1u;
     v18 = v21;
     v8 = sub_14057660C((int)a1 + 88, v21, v16, *(_QWORD *)v21, 8, -1);
     if ( v8 >= 0 )

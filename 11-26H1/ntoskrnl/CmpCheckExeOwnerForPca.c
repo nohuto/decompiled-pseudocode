@@ -1,15 +1,15 @@
 /*
- * XREFs of CmpCheckExeOwnerForPca @ 0x140AAE3A0
+ * XREFs of CmpCheckExeOwnerForPca @ 0x140AA7384
  * Callers:
- *     CmpDoParseKey @ 0x1408CBC90 (CmpDoParseKey.c)
+ *     CmpDoParseKey @ 0x1408D2240 (CmpDoParseKey.c)
  * Callees:
- *     RtlEqualSid @ 0x1402604A0 (RtlEqualSid.c)
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     PsGetCurrentThreadProcess @ 0x1404AA5F0 (PsGetCurrentThreadProcess.c)
- *     ObQuerySecurityObject @ 0x140AAE4C8 (ObQuerySecurityObject.c)
- *     PsReferenceProcessFilePointer @ 0x140AAE560 (PsReferenceProcessFilePointer.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     RtlEqualSid @ 0x140406680 (RtlEqualSid.c)
+ *     PsGetCurrentThreadProcess @ 0x1404A3C80 (PsGetCurrentThreadProcess.c)
+ *     ObQuerySecurityObject @ 0x140AA74AC (ObQuerySecurityObject.c)
+ *     PsReferenceProcessFilePointer @ 0x140AA7550 (PsReferenceProcessFilePointer.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 char CmpCheckExeOwnerForPca()

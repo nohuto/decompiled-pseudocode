@@ -2,11 +2,11 @@
  * XREFs of CcChargeDirtyPages @ 0x140023780
  * Callers:
  *     CcSetDirtyPinnedData @ 0x1400231C0 (CcSetDirtyPinnedData.c)
- *     CcAddDirtyPagesToExternalCache @ 0x140166F80 (CcAddDirtyPagesToExternalCache.c)
+ *     CcAddDirtyPagesToExternalCache @ 0x140167080 (CcAddDirtyPagesToExternalCache.c)
  * Callees:
  *     CcAdjustWriteBehindThreadPoolIfNeeded @ 0x140023880 (CcAdjustWriteBehindThreadPoolIfNeeded.c)
- *     CcScheduleLazyWriteScan @ 0x14007EEC8 (CcScheduleLazyWriteScan.c)
- *     CcGetPartition @ 0x1400AD030 (CcGetPartition.c)
+ *     CcScheduleLazyWriteScan @ 0x14007EEB8 (CcScheduleLazyWriteScan.c)
+ *     CcGetPartition @ 0x1400ACF70 (CcGetPartition.c)
  */
 
 __int64 __fastcall CcChargeDirtyPages(__int64 a1, __int64 a2, __int64 a3, unsigned int a4)

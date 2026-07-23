@@ -28,7 +28,7 @@ NTSTATUS __stdcall RtlRunOnceExecuteOnce(
   __int64 v10; // rdx
   __int64 v11; // r8
   __int64 v12; // r9
-  NTSTATUS v13; // ebx
+  int v13; // ebx
   PVOID v15; // r8
   NTSTATUS v16; // eax
 

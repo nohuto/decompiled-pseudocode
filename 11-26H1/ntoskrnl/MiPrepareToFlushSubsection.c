@@ -1,19 +1,19 @@
 /*
- * XREFs of MiPrepareToFlushSubsection @ 0x1404EBD20
+ * XREFs of MiPrepareToFlushSubsection @ 0x1404E5300
  * Callers:
- *     MiDeleteCachedSubsection @ 0x1405108F0 (MiDeleteCachedSubsection.c)
+ *     MiDeleteCachedSubsection @ 0x14050A360 (MiDeleteCachedSubsection.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     MiReleaseControlAreaWaiters @ 0x1402733E0 (MiReleaseControlAreaWaiters.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiDecrementModifiedWriteCount @ 0x140469350 (MiDecrementModifiedWriteCount.c)
- *     MiDeleteControlArea @ 0x1404881E0 (MiDeleteControlArea.c)
- *     ObFastReferenceObjectLocked @ 0x14048CC4C (ObFastReferenceObjectLocked.c)
- *     MiTranslateSubsectionState @ 0x140515000 (MiTranslateSubsectionState.c)
- *     FsRtlAcquireFileForCcFlushEx @ 0x140A5D320 (FsRtlAcquireFileForCcFlushEx.c)
- *     FsRtlReleaseFileForCcFlush @ 0x140A5D5D0 (FsRtlReleaseFileForCcFlush.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     MiReleaseControlAreaWaiters @ 0x140272950 (MiReleaseControlAreaWaiters.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiDecrementModifiedWriteCount @ 0x140462920 (MiDecrementModifiedWriteCount.c)
+ *     MiDeleteControlArea @ 0x140481D20 (MiDeleteControlArea.c)
+ *     ObFastReferenceObjectLocked @ 0x14048678C (ObFastReferenceObjectLocked.c)
+ *     MiTranslateSubsectionState @ 0x14050EA70 (MiTranslateSubsectionState.c)
+ *     FsRtlAcquireFileForCcFlushEx @ 0x140A6A2E0 (FsRtlAcquireFileForCcFlushEx.c)
+ *     FsRtlReleaseFileForCcFlush @ 0x140A6A590 (FsRtlReleaseFileForCcFlush.c)
  */
 
 __int64 __fastcall MiPrepareToFlushSubsection(__int64 *a1, KIRQL a2, __int64 a3, struct _FILE_OBJECT **a4)

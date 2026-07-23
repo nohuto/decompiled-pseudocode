@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlpHpSetLowFragHeapGlobalFlags @ 0x180145334
+ * XREFs of RtlpHpSetLowFragHeapGlobalFlags @ 0x1801451E4
  * Callers:
- *     RtlSetGlobalHeapFeatures @ 0x180144518 (RtlSetGlobalHeapFeatures.c)
+ *     RtlSetGlobalHeapFeatures @ 0x180144408 (RtlSetGlobalHeapFeatures.c)
  * Callees:
- *     RtlpHpStackTraceEnable @ 0x180122CF0 (RtlpHpStackTraceEnable.c)
+ *     RtlpHpStackTraceEnable @ 0x180122A60 (RtlpHpStackTraceEnable.c)
  */
 
-char __fastcall RtlpHpSetLowFragHeapGlobalFlags(__int64 a1, __int64 a2)
+char __fastcall RtlpHpSetLowFragHeapGlobalFlags(unsigned int a1, int a2)
 {
   int v2; // eax
   char v3; // bl
@@ -32,9 +32,9 @@ char __fastcall RtlpHpSetLowFragHeapGlobalFlags(__int64 a1, __int64 a2)
   if ( (a1 & 1) != 0 || (v2 & 2) != 0 )
     RtlpLowFragHeapGlobalFlags = v2 | 4;
   if ( (a1 & 0xFFFFFF00) != 0 )
-    RtlpHpLfhPerfFlags = (unsigned int)a1 >> 8;
+    RtlpHpLfhPerfFlags = a1 >> 8;
   if ( (a1 & 0x10) != 0 )
-    RtlpHpStackTraceEnable(a1, a2);
+    RtlpHpStackTraceEnable();
   result = RtlpHpHeapFeatures;
   if ( (v3 & 0x20) != 0 )
   {

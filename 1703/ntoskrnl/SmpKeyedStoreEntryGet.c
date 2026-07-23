@@ -40,36 +40,35 @@ __int64 __fastcall SmpKeyedStoreEntryGet(ULONG_PTR BugCheckParameter2, _QWORD *a
   __int64 v13; // rdi
   struct _KTHREAD *v15; // rdi
   unsigned __int8 v16; // r12
-  ULONG_PTR v17; // r8
-  __int64 v18; // rdx
-  __int64 v20; // rcx
-  __int64 v21; // rsi
-  __int64 v22; // rdx
-  __int16 v23; // ax
-  _QWORD *v24; // rdx
-  unsigned int v25; // edi
-  __int64 v26; // rcx
-  __int64 v27; // rdx
-  unsigned __int64 v28; // rsi
+  __int64 v17; // rdx
+  __int64 v19; // rcx
+  __int64 v20; // rsi
+  __int64 v21; // rdx
+  __int16 v22; // ax
+  _QWORD *v23; // rdx
+  unsigned int v24; // edi
+  __int64 v25; // rcx
+  __int64 v26; // rdx
+  unsigned __int64 v27; // rsi
   char *PoolWithTag; // r8
-  unsigned __int64 v30; // rcx
-  unsigned int v31; // edi
-  __int64 v32; // r10
-  struct _PRIVILEGE_SET *v33; // rcx
-  int v34; // eax
-  char v35; // cl
-  __int64 v36; // r13
-  _QWORD *v37; // r9
-  __int64 v38; // rdx
-  __int64 v39; // [rsp+38h] [rbp-48h]
-  __int64 v40; // [rsp+40h] [rbp-40h]
-  __int64 v41; // [rsp+68h] [rbp-18h]
-  _QWORD *v42; // [rsp+C8h] [rbp+48h]
-  int v43; // [rsp+D0h] [rbp+50h] BYREF
-  int v44; // [rsp+D8h] [rbp+58h]
+  unsigned __int64 v29; // rcx
+  unsigned int v30; // edi
+  __int64 v31; // r10
+  struct _PRIVILEGE_SET *v32; // rcx
+  int v33; // eax
+  char v34; // cl
+  __int64 v35; // r13
+  _QWORD *v36; // r9
+  __int64 v37; // rdx
+  __int64 v38; // [rsp+38h] [rbp-48h]
+  __int64 v39; // [rsp+40h] [rbp-40h]
+  __int64 v40; // [rsp+68h] [rbp-18h]
+  _QWORD *v41; // [rsp+C8h] [rbp+48h]
+  int v42; // [rsp+D0h] [rbp+50h] BYREF
+  int v43; // [rsp+D8h] [rbp+58h]
 
-  v44 = a4;
-  v42 = a2;
+  v43 = a4;
+  v41 = a2;
   if ( !a4 )
   {
     CurrentThread = KeGetCurrentThread();
@@ -78,7 +77,7 @@ __int64 __fastcall SmpKeyedStoreEntryGet(ULONG_PTR BugCheckParameter2, _QWORD *a
       ExAcquirePushLockExclusiveEx(BugCheckParameter2, 0LL);
     else
       ExAcquirePushLockSharedEx(BugCheckParameter2, 0LL);
-    a2 = v42;
+    a2 = v41;
   }
   SessionId = -1;
   if ( !a3 )
@@ -126,48 +125,48 @@ LABEL_15:
         *(_QWORD *)(BugCheckParameter2 + 24) = v8;
         goto LABEL_19;
       }
-      v41 = *(_QWORD *)(v8 + 8) & (-1LL << (*(_DWORD *)(BugCheckParameter2 + 12) & 0x1F));
-      v24 = (_QWORD *)(*(_QWORD *)(BugCheckParameter2 + 16)
+      v40 = *(_QWORD *)(v8 + 8) & (-1LL << (*(_DWORD *)(BugCheckParameter2 + 12) & 0x1F));
+      v23 = (_QWORD *)(*(_QWORD *)(BugCheckParameter2 + 16)
                      + 8LL
                      * ((37
-                       * (BYTE6(v41)
+                       * (BYTE6(v40)
                         + 37
-                        * (BYTE5(v41)
+                        * (BYTE5(v40)
                          + 37
-                         * (BYTE4(v41)
+                         * (BYTE4(v40)
                           + 37
-                          * (BYTE3(v41) + 37 * (BYTE2(v41) + 37 * (BYTE1(v41) + 37 * ((unsigned __int8)v41 + 11623883)))))))
-                       + HIBYTE(v41)) & (unsigned int)((*(_DWORD *)(BugCheckParameter2 + 12) >> 5) - 1)));
+                          * (BYTE3(v40) + 37 * (BYTE2(v40) + 37 * (BYTE1(v40) + 37 * ((unsigned __int8)v40 + 11623883)))))))
+                       + HIBYTE(v40)) & (unsigned int)((*(_DWORD *)(BugCheckParameter2 + 12) >> 5) - 1)));
       if ( (*(_QWORD *)v8 & 0x8000000000000002uLL) == 0x8000000000000002uLL )
-        v24 = (_QWORD *)(*(_QWORD *)(BugCheckParameter2 + 16)
+        v23 = (_QWORD *)(*(_QWORD *)(BugCheckParameter2 + 16)
                        + 8LL
                        * ((37
-                         * (BYTE6(v41)
+                         * (BYTE6(v40)
                           + 37
-                          * (BYTE5(v41)
+                          * (BYTE5(v40)
                            + 37
-                           * (BYTE4(v41)
+                           * (BYTE4(v40)
                             + 37
-                            * (BYTE3(v41)
-                             + 37 * (BYTE2(v41) + 37 * (BYTE1(v41) + 37 * ((unsigned __int8)v41 + 11623883)))))))
-                         + HIBYTE(v41)) & (unsigned int)((*(_DWORD *)(BugCheckParameter2 + 12) >> 5) - 1)));
-      while ( (*v24 & 1) == 0 )
+                            * (BYTE3(v40)
+                             + 37 * (BYTE2(v40) + 37 * (BYTE1(v40) + 37 * ((unsigned __int8)v40 + 11623883)))))))
+                         + HIBYTE(v40)) & (unsigned int)((*(_DWORD *)(BugCheckParameter2 + 12) >> 5) - 1)));
+      while ( (*v23 & 1) == 0 )
       {
-        if ( *v24 == v8 )
+        if ( *v23 == v8 )
         {
-          *v24 = *(_QWORD *)v8;
+          *v23 = *(_QWORD *)v8;
           --*(_DWORD *)v10;
           *(_QWORD *)v8 |= 0x8000000000000002uLL;
           break;
         }
-        v24 = (_QWORD *)*v24;
+        v23 = (_QWORD *)*v23;
       }
       SessionId = -1;
       if ( *(_QWORD *)(BugCheckParameter2 + 24) == v8 )
         *(_QWORD *)(BugCheckParameter2 + 24) = 0LL;
       goto LABEL_20;
     }
-    a2 = v42;
+    a2 = v41;
   }
   if ( a3 != 1 )
   {
@@ -180,135 +179,134 @@ LABEL_19:
   v8 = (__int64)(a2 - 1);
   if ( *(_DWORD *)v10 < (unsigned int)(2 * (*(_DWORD *)(BugCheckParameter2 + 12) >> 5)) )
     goto LABEL_58;
-  v28 = 2 * ((unsigned __int64)*(unsigned int *)(BugCheckParameter2 + 12) >> 5);
-  if ( v28 > 0xFFFFFFFF )
+  v27 = 2 * ((unsigned __int64)*(unsigned int *)(BugCheckParameter2 + 12) >> 5);
+  if ( v27 > 0xFFFFFFFF )
     goto LABEL_58;
-  if ( (unsigned int)v28 < 4 )
-    v28 = 4LL;
-  PoolWithTag = (char *)ExAllocatePoolWithTag(NonPagedPoolNx, 8LL * (unsigned int)v28, 0x54486D73u);
+  if ( (unsigned int)v27 < 4 )
+    v27 = 4LL;
+  PoolWithTag = (char *)ExAllocatePoolWithTag(NonPagedPoolNx, 8LL * (unsigned int)v27, 0x54486D73u);
   if ( PoolWithTag )
   {
-    if ( (((_DWORD)v28 - 1) & (unsigned int)v28) != 0 )
+    if ( (((_DWORD)v27 - 1) & (unsigned int)v27) != 0 )
     {
-      v35 = -1;
+      v34 = -1;
       do
       {
-        ++v35;
-        LODWORD(v28) = (unsigned int)v28 >> 1;
+        ++v34;
+        LODWORD(v27) = (unsigned int)v27 >> 1;
       }
-      while ( (_DWORD)v28 );
-      v28 = (unsigned int)(1 << v35);
+      while ( (_DWORD)v27 );
+      v27 = (unsigned int)(1 << v34);
     }
-    if ( (unsigned int)v28 > 0x4000000 )
-      v28 = 0x4000000LL;
-    v30 = (8 * v28 + 7) >> 3;
-    if ( PoolWithTag > &PoolWithTag[8 * v28] )
-      v30 = 0LL;
-    if ( v30 )
-      memset64(PoolWithTag, v10 | 1, v30);
-    v31 = 0;
-    v32 = -1LL << (*(_BYTE *)(BugCheckParameter2 + 12) & 0x1F);
+    if ( (unsigned int)v27 > 0x4000000 )
+      v27 = 0x4000000LL;
+    v29 = (8 * v27 + 7) >> 3;
+    if ( PoolWithTag > &PoolWithTag[8 * v27] )
+      v29 = 0LL;
+    if ( v29 )
+      memset64(PoolWithTag, v10 | 1, v29);
+    v30 = 0;
+    v31 = -1LL << (*(_BYTE *)(BugCheckParameter2 + 12) & 0x1F);
     if ( (*(_DWORD *)(BugCheckParameter2 + 12) & 0xFFFFFFE0) != 0 )
     {
       do
       {
-        v36 = *(_QWORD *)(v10 + 8);
+        v35 = *(_QWORD *)(v10 + 8);
         while ( 1 )
         {
-          v37 = *(_QWORD **)(v36 + 8LL * v31);
-          if ( ((unsigned __int8)v37 & 1) != 0 )
+          v36 = *(_QWORD **)(v35 + 8LL * v30);
+          if ( ((unsigned __int8)v36 & 1) != 0 )
             break;
-          *(_QWORD *)(v36 + 8LL * v31) = *v37;
-          v40 = v32 & v37[1];
-          v38 = (37
-               * (BYTE6(v40)
+          *(_QWORD *)(v35 + 8LL * v30) = *v36;
+          v39 = v31 & v36[1];
+          v37 = (37
+               * (BYTE6(v39)
                 + 37
-                * (BYTE5(v40)
+                * (BYTE5(v39)
                  + 37
-                 * (BYTE4(v40)
-                  + 37 * (BYTE3(v40) + 37 * (BYTE2(v40) + 37 * (BYTE1(v40) + 37 * ((unsigned __int8)v40 + 11623883)))))))
-               + HIBYTE(v40)) & (unsigned int)(v28 - 1);
-          *v37 = *(_QWORD *)&PoolWithTag[8 * v38];
-          *(_QWORD *)&PoolWithTag[8 * v38] = v37;
+                 * (BYTE4(v39)
+                  + 37 * (BYTE3(v39) + 37 * (BYTE2(v39) + 37 * (BYTE1(v39) + 37 * ((unsigned __int8)v39 + 11623883)))))))
+               + HIBYTE(v39)) & (unsigned int)(v27 - 1);
+          *v36 = *(_QWORD *)&PoolWithTag[8 * v37];
+          *(_QWORD *)&PoolWithTag[8 * v37] = v36;
         }
         v10 = BugCheckParameter2 + 8;
-        ++v31;
+        ++v30;
       }
-      while ( v31 < *(_DWORD *)(BugCheckParameter2 + 12) >> 5 );
+      while ( v30 < *(_DWORD *)(BugCheckParameter2 + 12) >> 5 );
     }
-    v33 = *(struct _PRIVILEGE_SET **)(v10 + 8);
-    v34 = (32 * v28) | *(_DWORD *)(v10 + 4) & 0x1F;
+    v32 = *(struct _PRIVILEGE_SET **)(v10 + 8);
+    v33 = (32 * v27) | *(_DWORD *)(v10 + 4) & 0x1F;
     *(_QWORD *)(v10 + 8) = PoolWithTag;
-    *(_DWORD *)(v10 + 4) = v34;
-    if ( v33 )
-      MiDeleteSubsection(v33);
+    *(_DWORD *)(v10 + 4) = v33;
+    if ( v32 )
+      MiDeleteSubsection(v32);
     goto LABEL_58;
   }
   if ( *(_DWORD *)(BugCheckParameter2 + 12) >= 0x20u )
   {
 LABEL_58:
-    v25 = *(_DWORD *)(v10 + 4);
-    v39 = *(_QWORD *)(v8 + 8) & (-1LL << (v25 & 0x1F));
-    v26 = *(_QWORD *)(v10 + 8);
-    v27 = (37
-         * (BYTE6(v39)
+    v24 = *(_DWORD *)(v10 + 4);
+    v38 = *(_QWORD *)(v8 + 8) & (-1LL << (v24 & 0x1F));
+    v25 = *(_QWORD *)(v10 + 8);
+    v26 = (37
+         * (BYTE6(v38)
           + 37
-          * (BYTE5(v39)
+          * (BYTE5(v38)
            + 37
-           * (BYTE4(v39)
-            + 37 * (BYTE3(v39) + 37 * (BYTE2(v39) + 37 * (BYTE1(v39) + 37 * ((unsigned __int8)v39 + 11623883)))))))
-         + HIBYTE(v39)) & ((v25 >> 5) - 1);
-    *(_QWORD *)v8 = *(_QWORD *)(v26 + 8 * v27);
-    *(_QWORD *)(v26 + 8 * v27) = v8;
+           * (BYTE4(v38)
+            + 37 * (BYTE3(v38) + 37 * (BYTE2(v38) + 37 * (BYTE1(v38) + 37 * ((unsigned __int8)v38 + 11623883)))))))
+         + HIBYTE(v38)) & ((v24 >> 5) - 1);
+    *(_QWORD *)v8 = *(_QWORD *)(v25 + 8 * v26);
+    *(_QWORD *)(v25 + 8 * v26) = v8;
     ++*(_DWORD *)v10;
-    if ( *(_QWORD *)(BugCheckParameter2 + 32) == *v42 )
+    if ( *(_QWORD *)(BugCheckParameter2 + 32) == *v41 )
       *(_QWORD *)(BugCheckParameter2 + 32) = 0LL;
     goto LABEL_19;
   }
   v8 = 0LL;
   SessionId = -1;
 LABEL_20:
-  if ( !v44 )
+  if ( !v43 )
   {
     if ( a3 > 0 )
     {
       if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)BugCheckParameter2, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
         ExfTryToWakePushLock(BugCheckParameter2);
-      v43 = 0;
+      v42 = 0;
       v15 = KeGetCurrentThread();
       if ( (unsigned int)MiGetSystemRegionType(BugCheckParameter2) == 1 )
         SessionId = MmGetSessionIdEx(v15->ApcState.Process);
       --v15->SpecialApcDisable;
       v16 = ++v15->AbAllocationRegionCount;
-      v17 = BugCheckParameter2 & 0x7FFFFFFFFFFFFFFCLL;
-      LODWORD(v18) = ((char)v15->AbEntrySummary | (char)v15->AbOrphanedEntrySummary) ^ 0x3F;
-      while ( _BitScanReverse((unsigned int *)&v20, v18) )
+      LODWORD(v17) = ((char)v15->AbEntrySummary | (char)v15->AbOrphanedEntrySummary) ^ 0x3F;
+      while ( _BitScanReverse((unsigned int *)&v19, v17) )
       {
-        v21 = (__int64)&v15->LockEntries[v20];
-        v18 = ~(1 << v20) & (unsigned int)v18;
-        if ( (*(_BYTE *)(v21 + 26) & 1) != 0
-          && (*(_DWORD *)(v21 + 32) & 1) == 0
-          && (*(_QWORD *)(v21 + 32) & 0x7FFFFFFFFFFFFFFCLL) == v17
-          && *(_DWORD *)(v21 + 40) == SessionId )
+        v20 = (__int64)&v15->LockEntries[v19];
+        v17 = ~(1 << v19) & (unsigned int)v17;
+        if ( (*(_BYTE *)(v20 + 26) & 1) != 0
+          && (*(_DWORD *)(v20 + 32) & 1) == 0
+          && (*(_QWORD *)(v20 + 32) & 0x7FFFFFFFFFFFFFFCLL) == (BugCheckParameter2 & 0x7FFFFFFFFFFFFFFCLL)
+          && *(_DWORD *)(v20 + 40) == SessionId )
         {
-          *(_BYTE *)(v21 + 26) &= ~1u;
-          if ( *(_QWORD *)(v21 + 32) )
+          *(_BYTE *)(v20 + 26) &= ~1u;
+          if ( *(_QWORD *)(v20 + 32) )
           {
-            if ( v21 )
+            if ( v20 )
             {
-              *(_BYTE *)(v21 + 32) |= 2u;
-              if ( *(__int64 *)(v21 + 32) < 0 )
-                KiAbEntryRemoveFromTree(v21, v18, v17);
-              v43 = 0;
-              v43 = *(_DWORD *)(v21 + 88) & 0x1FFFF;
-              *(_DWORD *)(v21 + 88) &= 0xFFFE0000;
-              *(_BYTE *)(v21 + 25) &= ~1u;
-              *(_QWORD *)(v21 + 32) = 0LL;
-              v22 = (v21 - (__int64)v15 - 800) / 96;
+              *(_BYTE *)(v20 + 32) |= 2u;
+              if ( *(__int64 *)(v20 + 32) < 0 )
+                KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v20, v17);
+              v42 = 0;
+              v42 = *(_DWORD *)(v20 + 88) & 0x1FFFF;
+              *(_DWORD *)(v20 + 88) &= 0xFFFE0000;
+              *(_BYTE *)(v20 + 25) &= ~1u;
+              *(_QWORD *)(v20 + 32) = 0LL;
+              v21 = (v20 - (__int64)v15 - 800) / 96;
               if ( v16 == 1 )
-                v15->AbEntrySummary |= 1 << v22;
+                v15->AbEntrySummary |= 1 << v21;
               else
-                _InterlockedOr8((volatile signed __int8 *)&v15->AbOrphanedEntrySummary, 1 << v22);
+                _InterlockedOr8((volatile signed __int8 *)&v15->AbOrphanedEntrySummary, 1 << v21);
               goto LABEL_44;
             }
             break;
@@ -319,10 +317,10 @@ LABEL_20:
         KeBugCheckEx(0x162u, (ULONG_PTR)v15, BugCheckParameter2, SessionId, 0LL);
 LABEL_44:
       --v15->AbAllocationRegionCount;
-      KiAbThreadRemoveBoosts(v15, BugCheckParameter2, &v43);
-      v23 = v15->SpecialApcDisable + 1;
-      v15->SpecialApcDisable = v23;
-      if ( !v23 && ($69CD3F157F9F39B6F7113F2231989901 *)v15->ApcState.ApcListHead[0].Flink != &v15->152 )
+      KiAbThreadRemoveBoosts(v15, BugCheckParameter2, &v42);
+      v22 = v15->SpecialApcDisable + 1;
+      v15->SpecialApcDisable = v22;
+      if ( !v22 && ($69CD3F157F9F39B6F7113F2231989901 *)v15->ApcState.ApcListHead[0].Flink != &v15->152 )
         KiCheckForKernelApcDelivery();
     }
     else

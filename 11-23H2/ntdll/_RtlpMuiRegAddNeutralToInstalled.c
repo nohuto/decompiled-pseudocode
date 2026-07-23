@@ -17,13 +17,12 @@ __int64 __fastcall RtlpMuiRegAddNeutralToInstalled(__int64 a1)
   __int64 v5; // rbp
   __int64 v6; // r8
   __int64 v7; // rcx
-  const WCHAR *v8; // r8
-  __int64 v10; // rcx
-  int v11; // [rsp+20h] [rbp-E8h] BYREF
-  const WCHAR *v12; // [rsp+28h] [rbp-E0h]
-  _BYTE v13[176]; // [rsp+30h] [rbp-D8h] BYREF
+  wchar_t *Buffer; // r8
+  LCID v10; // ecx
+  _UNICODE_STRING LocaleName; // [rsp+20h] [rbp-E8h] BYREF
+  _BYTE v12[176]; // [rsp+30h] [rbp-D8h] BYREF
 
-  memset_thunk_772440563353939046(v13, 0, 0xAAuLL);
+  memset_thunk_772440563353939046(v12, 0, 0xAAuLL);
   v2 = 0;
   if ( a1 && (v3 = *(_QWORD *)(a1 + 24)) != 0 && *(_QWORD *)(v3 + 16) )
   {
@@ -33,11 +32,11 @@ __int64 __fastcall RtlpMuiRegAddNeutralToInstalled(__int64 a1)
       if ( *(__int16 *)(v5 + 6) <= 0 )
       {
         v10 = *(unsigned __int16 *)(v5 + 4);
-        v11 = 11141120;
-        v12 = (const WCHAR *)v13;
-        if ( (int)RtlLcidToLocaleName(v10, &v11, 2LL, 0LL) < 0 )
+        *(_DWORD *)&LocaleName.Length = 11141120;
+        LocaleName.Buffer = (wchar_t *)v12;
+        if ( RtlLcidToLocaleName(v10, &LocaleName, 2u, 0) < 0 )
           goto LABEL_10;
-        v8 = v12;
+        Buffer = LocaleName.Buffer;
       }
       else
       {
@@ -47,11 +46,11 @@ __int64 __fastcall RtlpMuiRegAddNeutralToInstalled(__int64 a1)
           goto LABEL_10;
         if ( (unsigned int)v7 > *(unsigned __int16 *)(v6 + 6) )
           goto LABEL_10;
-        v8 = (const WCHAR *)(*(_QWORD *)(v6 + 24) + 2LL * *(__int16 *)(*(_QWORD *)(v6 + 16) + 2 * v7));
-        if ( !v8 )
+        Buffer = (wchar_t *)(*(_QWORD *)(v6 + 24) + 2LL * *(__int16 *)(*(_QWORD *)(v6 + 16) + 2 * v7));
+        if ( !Buffer )
           goto LABEL_10;
       }
-      RtlpMuiRegAddNeutralLanguage(a1, v5, v8);
+      RtlpMuiRegAddNeutralLanguage(a1, v5, Buffer);
 LABEL_10:
       v3 = *(_QWORD *)(a1 + 24);
     }

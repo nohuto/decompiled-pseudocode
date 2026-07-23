@@ -1,16 +1,16 @@
 /*
- * XREFs of NtSetIRTimer @ 0x1800A08F0
+ * XREFs of NtSetIRTimer @ 0x1800A08B0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 NtSetIRTimer()
+NTSTATUS __cdecl NtSetIRTimer(HANDLE TimerHandle, PLARGE_INTEGER DueTime)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 406LL;
+  result = 406;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

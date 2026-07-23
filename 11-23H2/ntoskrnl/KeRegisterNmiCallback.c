@@ -1,9 +1,9 @@
 /*
- * XREFs of KeRegisterNmiCallback @ 0x14056CA60
+ * XREFs of KeRegisterNmiCallback @ 0x14056D120
  * Callers:
  *     <none>
  * Callees:
- *     KiRegisterNmiSxCallback @ 0x14056CE3C (KiRegisterNmiSxCallback.c)
+ *     KiRegisterNmiSxCallback @ 0x14056D4FC (KiRegisterNmiSxCallback.c)
  */
 
 PVOID __stdcall KeRegisterNmiCallback(PNMI_CALLBACK CallbackRoutine, PVOID Context)

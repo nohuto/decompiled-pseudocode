@@ -1,11 +1,11 @@
 /*
- * XREFs of HvlpHvIdentityInfoCallback @ 0x140583220
+ * XREFs of HvlpHvIdentityInfoCallback @ 0x1405805A0
  * Callers:
  *     <none>
  * Callees:
- *     HviGetHypervisorVendorAndMaxFunction @ 0x1404A36F8 (HviGetHypervisorVendorAndMaxFunction.c)
- *     HviGetHypervisorInterface @ 0x140663AF8 (HviGetHypervisorInterface.c)
- *     HviGetHypervisorVersion @ 0x140663B40 (HviGetHypervisorVersion.c)
+ *     HviGetHypervisorVendorAndMaxFunction @ 0x14049E658 (HviGetHypervisorVendorAndMaxFunction.c)
+ *     HviGetHypervisorInterface @ 0x1406623E8 (HviGetHypervisorInterface.c)
+ *     HviGetHypervisorVersion @ 0x140662430 (HviGetHypervisorVersion.c)
  */
 
 void __fastcall HvlpHvIdentityInfoCallback(

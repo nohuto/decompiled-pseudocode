@@ -68,7 +68,7 @@ __int64 __fastcall MmRelocatePfnList(__int64 a1, _QWORD *a2, unsigned int a3, un
         if ( !MiPfnsWorthTrying((__int64)MiSystemPartition, 48 * v12 - 0x220000000000LL, 1LL, 0, &v15) )
         {
           if ( (v15 & 1) != 0 )
-            MiEmptyKernelStackCache((union _SLIST_HEADER *)MiSystemPartition, 0);
+            MiEmptyKernelStackCache((_SLIST_HEADER *)MiSystemPartition, 0);
           if ( !MiClaimPhysicalRun(
                   (__int64)MiSystemPartition,
                   v12,

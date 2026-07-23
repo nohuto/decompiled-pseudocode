@@ -12,39 +12,39 @@
  *     _RtlInitUnicodeString@8 @ 0x4B2F5020 (_RtlInitUnicodeString@8.c)
  */
 
-int __stdcall RtlpRefreshCachedUILanguage(PCWSTR SourceString, char a2)
+NTSTATUS __stdcall RtlpRefreshCachedUILanguage(PCWSTR SourceString, char a2)
 {
-  int InstallUILanguage; // esi
-  UNICODE_STRING DestinationString; // [esp+8h] [ebp-18h] BYREF
+  NTSTATUS InstalledLanguageIndexByLangId; // esi
+  _UNICODE_STRING DestinationString; // [esp+8h] [ebp-18h] BYREF
   int v5; // [esp+10h] [ebp-10h] BYREF
-  int v6; // [esp+14h] [ebp-Ch] BYREF
+  DWORD Lcid; // [esp+14h] [ebp-Ch] BYREF
   __int16 v7; // [esp+18h] [ebp-8h] BYREF
-  unsigned __int16 v8; // [esp+1Ch] [ebp-4h] BYREF
+  LANGID InstallUILanguageId; // [esp+1Ch] [ebp-4h] BYREF
 
-  v8 = 0;
-  v6 = 0;
+  InstallUILanguageId = 0;
+  Lcid = 0;
   v7 = -1;
   v5 = 0;
   if ( !SourceString )
     return -1073741811;
-  InstallUILanguage = NtQueryInstallUILanguage((int)&v8);
-  if ( InstallUILanguage >= 0 )
+  InstalledLanguageIndexByLangId = NtQueryInstallUILanguage(&InstallUILanguageId);
+  if ( InstalledLanguageIndexByLangId >= 0 )
   {
     RtlInitUnicodeString(&DestinationString, SourceString);
-    if ( RtlCultureNameToLCID(&DestinationString.Length, &v6) )
+    if ( RtlCultureNameToLCID(&DestinationString, &Lcid) )
     {
-      InstallUILanguage = ZwFlushInstallUILanguage(v6, 0);
-      if ( InstallUILanguage >= 0 )
+      InstalledLanguageIndexByLangId = ZwFlushInstallUILanguage(Lcid, 0);
+      if ( InstalledLanguageIndexByLangId >= 0 )
       {
-        InstallUILanguage = RtlpCreateProcessRegistryInfo(&v5);
-        if ( InstallUILanguage >= 0 )
+        InstalledLanguageIndexByLangId = RtlpCreateProcessRegistryInfo(&v5);
+        if ( InstalledLanguageIndexByLangId >= 0 )
         {
-          InstallUILanguage = RtlpMuiRegGetInstalledLanguageIndexByLangId(v5, v6, 1, &v7);
-          if ( InstallUILanguage < 0 )
-            ZwFlushInstallUILanguage(v8, 0);
+          InstalledLanguageIndexByLangId = RtlpMuiRegGetInstalledLanguageIndexByLangId(v5, Lcid, 1, &v7);
+          if ( InstalledLanguageIndexByLangId < 0 )
+            ZwFlushInstallUILanguage(InstallUILanguageId, 0);
           else
-            InstallUILanguage = ZwFlushInstallUILanguage(v6, a2 != 0);
-          NtGetMUIRegistryInfo(10, 0, 0);
+            InstalledLanguageIndexByLangId = ZwFlushInstallUILanguage(Lcid, a2 != 0);
+          NtGetMUIRegistryInfo(0xAu, 0, 0);
         }
       }
     }
@@ -53,5 +53,5 @@ int __stdcall RtlpRefreshCachedUILanguage(PCWSTR SourceString, char a2)
       return -1073741762;
     }
   }
-  return InstallUILanguage;
+  return InstalledLanguageIndexByLangId;
 }

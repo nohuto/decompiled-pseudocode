@@ -35,31 +35,30 @@ __int64 __fastcall IoGetDeviceDirectory(__int64 a1, int a2, int a3, __int64 a4, 
   unsigned int i; // ecx
   __int64 v22; // rax
   int v23; // eax
-  __int64 v24; // r8
-  int v25; // r9d
-  __int64 v27; // [rsp+68h] [rbp-41h] BYREF
-  void *v28; // [rsp+70h] [rbp-39h] BYREF
-  UNICODE_STRING v29; // [rsp+78h] [rbp-31h] BYREF
+  int v24; // r9d
+  __int64 v26; // [rsp+68h] [rbp-41h] BYREF
+  void *v27; // [rsp+70h] [rbp-39h] BYREF
+  UNICODE_STRING UnicodeString; // [rsp+78h] [rbp-31h] BYREF
   UNICODE_STRING DestinationString; // [rsp+88h] [rbp-21h] BYREF
   PCWSTR SourceString; // [rsp+98h] [rbp-11h] BYREF
-  UNICODE_STRING UnicodeString; // [rsp+A0h] [rbp-9h] BYREF
-  UNICODE_STRING v33; // [rsp+B0h] [rbp+7h] BYREF
+  UNICODE_STRING GuidString; // [rsp+A0h] [rbp-9h] BYREF
+  UNICODE_STRING v32; // [rsp+B0h] [rbp+7h] BYREF
   UUID Uuid; // [rsp+C0h] [rbp+17h] BYREF
 
+  v26 = 0LL;
   v27 = 0LL;
-  v28 = 0LL;
   SourceString = 0LL;
   DestinationString = 0LL;
   v7 = 0LL;
   v8 = 0LL;
-  UnicodeString = 0LL;
+  GuidString = 0LL;
   Uuid = 0LL;
-  v29 = 0LL;
-  v33 = 0LL;
+  UnicodeString = 0LL;
+  v32 = 0LL;
   RtlInitUnicodeString(&DestinationString, 0LL);
+  RtlInitUnicodeString(&GuidString, 0LL);
   RtlInitUnicodeString(&UnicodeString, 0LL);
-  RtlInitUnicodeString(&v29, 0LL);
-  RtlInitUnicodeString(&v33, 0LL);
+  RtlInitUnicodeString(&v32, 0LL);
   if ( !a1
     || a3
     || a4
@@ -73,7 +72,11 @@ LABEL_40:
     StateRootPath = -1073741811;
     goto LABEL_41;
   }
-  StateRootPath = PiGetStateRootPath(L"DriverState");
+  StateRootPath = PiGetStateRootPath(
+                    L"DriverState",
+                    L"\\SystemRoot\\System32\\DriverState",
+                    LocationTypeFileSystem,
+                    &DestinationString);
   if ( StateRootPath < 0 )
     goto LABEL_41;
   ObjectProperty = PnpGetObjectProperty(
@@ -81,9 +84,9 @@ LABEL_40:
                      0LL,
                      0LL,
                      (__int64)&DEVPKEY_Device_StateDirectoryId,
-                     (__int64)&v27,
+                     (__int64)&v26,
                      (__int64)&SourceString,
-                     (__int64)&v27 + 4,
+                     (__int64)&v26 + 4,
                      0);
   v8 = (WCHAR *)SourceString;
   v14 = -1LL;
@@ -93,11 +96,11 @@ LABEL_40:
     if ( ObjectProperty != -1073741275 )
       goto LABEL_41;
 LABEL_23:
-    StateRootPath = PnpConcatenateUnicodeStrings(&v29, (PCUNICODE_STRING)(v11 + 40));
+    StateRootPath = PnpConcatenateUnicodeStrings(&UnicodeString, (PCUNICODE_STRING)(v11 + 40));
     if ( StateRootPath < 0 )
       goto LABEL_41;
-    Buffer = v29.Buffer;
-    for ( i = 0; i < v29.Length >> 1; ++i )
+    Buffer = UnicodeString.Buffer;
+    for ( i = 0; i < UnicodeString.Length >> 1; ++i )
     {
       v22 = Buffer[i];
       if ( (unsigned int)v22 > 0x7F )
@@ -105,33 +108,32 @@ LABEL_23:
       if ( (*((_BYTE *)qword_140013DE0 + v22) & 1) == 0 )
       {
         Buffer[i] = 35;
-        Buffer = v29.Buffer;
+        Buffer = UnicodeString.Buffer;
       }
     }
     v23 = PiBuildAndOpenDeviceDirectoryPath(
             (unsigned int)&DestinationString,
-            (unsigned int)&v29,
+            (unsigned int)&UnicodeString,
             (unsigned int)L"Data",
             0,
-            (__int64)&v28);
+            (__int64)&v27);
     StateRootPath = v23;
     if ( v23 == -1073741766 )
     {
       StateRootPath = ExUuidCreate(&Uuid);
       if ( StateRootPath < 0 )
         goto LABEL_39;
-      LOBYTE(v24) = 1;
-      StateRootPath = RtlStringFromGUIDEx(&Uuid, &UnicodeString, v24);
+      StateRootPath = RtlStringFromGUIDEx(&Uuid, &GuidString, 1u);
       if ( StateRootPath < 0 )
         goto LABEL_39;
-      Buffer = UnicodeString.Buffer;
-      LOBYTE(v25) = 1;
+      Buffer = GuidString.Buffer;
+      LOBYTE(v24) = 1;
       v23 = PiBuildAndOpenDeviceDirectoryPath(
               (unsigned int)&DestinationString,
-              (unsigned int)&UnicodeString,
+              (unsigned int)&GuidString,
               (unsigned int)L"Data",
-              v25,
-              (__int64)&v28);
+              v24,
+              (__int64)&v27);
       StateRootPath = v23;
     }
     if ( v23 >= 0 )
@@ -153,15 +155,15 @@ LABEL_37:
       StateRootPath = v19;
       if ( v19 >= 0 )
       {
-        *a5 = v28;
+        *a5 = v27;
         goto LABEL_41;
       }
     }
 LABEL_39:
-    v7 = v28;
+    v7 = v27;
     goto LABEL_41;
   }
-  if ( (_DWORD)v27 != 18 || HIDWORD(v27) < 2 )
+  if ( (_DWORD)v26 != 18 || HIDWORD(v26) < 2 )
     goto LABEL_23;
   v15 = -1LL;
   do
@@ -173,22 +175,22 @@ LABEL_39:
     if ( (unsigned int)v17 > 0x7F || (*((_BYTE *)qword_140013DE0 + v17) & 1) == 0 )
       goto LABEL_23;
   }
-  StateRootPath = RtlInitUnicodeStringEx(&v33, SourceString);
+  StateRootPath = RtlInitUnicodeStringEx(&v32, SourceString);
   if ( StateRootPath >= 0 )
   {
     LOBYTE(v18) = 1;
     v19 = PiBuildAndOpenDeviceDirectoryPath(
             (unsigned int)&DestinationString,
-            (unsigned int)&v33,
+            (unsigned int)&v32,
             (unsigned int)L"Data",
             v18,
-            (__int64)&v28);
+            (__int64)&v27);
     goto LABEL_37;
   }
 LABEL_41:
   RtlFreeAnsiString(&DestinationString);
+  RtlFreeAnsiString(&GuidString);
   RtlFreeAnsiString(&UnicodeString);
-  RtlFreeAnsiString(&v29);
   if ( v8 )
     ExFreePoolWithTag(v8, 0x6F697050u);
   if ( v7 )

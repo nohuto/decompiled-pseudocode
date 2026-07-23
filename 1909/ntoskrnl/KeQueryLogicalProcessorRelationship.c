@@ -27,8 +27,8 @@ NTSTATUS __stdcall KeQueryLogicalProcessorRelationship(
   NTSTATUS v12; // r15d
   __int64 v13; // rax
   __int64 v14; // rbx
-  ULONG v15; // ebx
-  ULONG v16; // r9d
+  DWORD v15; // ebx
+  DWORD v16; // r9d
   __int64 v17; // rcx
   unsigned __int64 v18; // r10
   unsigned __int16 v19; // r11
@@ -44,18 +44,18 @@ NTSTATUS __stdcall KeQueryLogicalProcessorRelationship(
   __int64 v30; // rax
   int v31; // eax
   unsigned __int16 v32; // r9
-  USHORT v33; // dx
+  WORD v33; // dx
   _QWORD *v34; // r8
   __int64 v35; // r10
   bool v36; // zf
-  USHORT v37; // cx
+  WORD v37; // cx
   __int64 v38; // rax
   unsigned __int16 v39; // dx
   GROUP_AFFINITY *GroupMask; // rcx
   unsigned __int64 *v41; // r8
   unsigned __int64 v42; // r10
   int v43; // edx
-  ULONG v44; // eax
+  DWORD v44; // eax
   unsigned int v45; // r12d
   __int64 v46; // rdi
   __int64 v47; // r12
@@ -238,7 +238,7 @@ NTSTATUS __stdcall KeQueryLogicalProcessorRelationship(
             Information->Processor.Flags = *(_QWORD *)(v14 + 200) != v48;
             Information->Relationship = RelationProcessorCore;
             Information->Size = 48;
-            Information->Processor.Reserved[0] = *(_BYTE *)(v14 + 24224);
+            Information->Processor.EfficiencyClass = *(_BYTE *)(v14 + 24224);
             Information->Processor.GroupCount = 1;
             *(_QWORD *)((char *)&Information->NumaNode.NodeNumber + 2) = 0LL;
             *(_QWORD *)&Information->Group.Reserved[6] = 0LL;
@@ -300,7 +300,7 @@ LABEL_13:
         Information->Relationship = RelationCache;
         Information->Size = 56;
         Information->Processor.Flags = *(_BYTE *)(v14 + 12 * v55 + 24536);
-        Information->Processor.Reserved[0] = *(_BYTE *)(v14 + 12 * v55 + 24537);
+        Information->Processor.EfficiencyClass = *(_BYTE *)(v14 + 12 * v55 + 24537);
         Information->Cache.LineSize = *(_WORD *)(v14 + 12 * v55 + 24538);
         Information->Cache.CacheSize = *(_DWORD *)(v14 + 12 * v55 + 24540);
         Information->Cache.Type = *(_DWORD *)(v14 + 12 * v55 + 24544);

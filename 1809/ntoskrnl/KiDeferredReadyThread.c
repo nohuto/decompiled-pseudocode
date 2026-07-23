@@ -1,49 +1,49 @@
 /*
- * XREFs of KiDeferredReadyThread @ 0x1400C3390
+ * XREFs of KiDeferredReadyThread @ 0x1400C32D0
  * Callers:
  *     KiSearchForNewThread @ 0x140056AE0 (KiSearchForNewThread.c)
  *     KiSearchForNewThreadOnProcessor @ 0x1400570B0 (KiSearchForNewThreadOnProcessor.c)
  *     KiAbProcessContextSwitch @ 0x140057DC0 (KiAbProcessContextSwitch.c)
  *     PsImpersonateContainerOfThread @ 0x14005AE90 (PsImpersonateContainerOfThread.c)
  *     KeClearSystemPriority @ 0x14005B570 (KeClearSystemPriority.c)
- *     KiFastReadyThread @ 0x1400A2C58 (KiFastReadyThread.c)
- *     KiExitDispatcher @ 0x1400C2F70 (KiExitDispatcher.c)
- *     KiReadyThread @ 0x1400C5100 (KiReadyThread.c)
- *     KiDirectSwitchThread @ 0x1400C5230 (KiDirectSwitchThread.c)
- *     KiReadyDeferredReadyList @ 0x1400CDC24 (KiReadyDeferredReadyList.c)
- *     KeSetPriorityBoost @ 0x1400CEEE0 (KeSetPriorityBoost.c)
- *     KiQuantumEnd @ 0x1400D0020 (KiQuantumEnd.c)
- *     KiQueueReadyThread @ 0x1400D2370 (KiQueueReadyThread.c)
- *     KiSetThreadSchedulingGroup @ 0x1400F3A98 (KiSetThreadSchedulingGroup.c)
+ *     KiFastReadyThread @ 0x1400A2B98 (KiFastReadyThread.c)
+ *     KiExitDispatcher @ 0x1400C2EB0 (KiExitDispatcher.c)
+ *     KiReadyThread @ 0x1400C5040 (KiReadyThread.c)
+ *     KiDirectSwitchThread @ 0x1400C5170 (KiDirectSwitchThread.c)
+ *     KiReadyDeferredReadyList @ 0x1400CDCA4 (KiReadyDeferredReadyList.c)
+ *     KeSetPriorityBoost @ 0x1400CEF60 (KeSetPriorityBoost.c)
+ *     KiQuantumEnd @ 0x1400D00A0 (KiQuantumEnd.c)
+ *     KiQueueReadyThread @ 0x1400D23F0 (KiQueueReadyThread.c)
+ *     KiSetThreadSchedulingGroup @ 0x1400F3B18 (KiSetThreadSchedulingGroup.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     KiComputeThreadAffinity @ 0x14008A430 (KiComputeThreadAffinity.c)
- *     KiChooseTargetProcessor @ 0x1400C43D0 (KiChooseTargetProcessor.c)
- *     KiEvaluateGroupSchedulingPreemption @ 0x1400C6180 (KiEvaluateGroupSchedulingPreemption.c)
- *     KiHvEnlightenedGuestPriorityKick @ 0x1400CFD98 (KiHvEnlightenedGuestPriorityKick.c)
- *     KiTryScheduleNextForegroundBoost @ 0x1400D0CF4 (KiTryScheduleNextForegroundBoost.c)
- *     KiUpdateThreadPriority @ 0x1400D0D40 (KiUpdateThreadPriority.c)
- *     KiUpdateVPBackingThreadPriority @ 0x1400D0E40 (KiUpdateVPBackingThreadPriority.c)
- *     KiComputeNewPriority @ 0x1400D0E90 (KiComputeNewPriority.c)
- *     KiGetThreadEffectiveRankNonZero @ 0x1400D1520 (KiGetThreadEffectiveRankNonZero.c)
- *     KiPrcbInGroupAffinity @ 0x1400D5734 (KiPrcbInGroupAffinity.c)
- *     KiSetBasePriorityAndClearDecrement @ 0x1400D78EC (KiSetBasePriorityAndClearDecrement.c)
- *     KiReleaseThreadLockSafe @ 0x14010C410 (KiReleaseThreadLockSafe.c)
- *     KiAbQueueAutoBoostDpc @ 0x14010EDDC (KiAbQueueAutoBoostDpc.c)
- *     KiTryToAcquireThreadLock @ 0x140115180 (KiTryToAcquireThreadLock.c)
- *     KiAddThreadToScbQueue @ 0x140116F94 (KiAddThreadToScbQueue.c)
- *     KiSetLockOwnershipQuantum @ 0x140117540 (KiSetLockOwnershipQuantum.c)
- *     KiScheduleNextForegroundBoost @ 0x14012295C (KiScheduleNextForegroundBoost.c)
- *     KiTryToUpdateVPBackingThreadPriority @ 0x140129C80 (KiTryToUpdateVPBackingThreadPriority.c)
- *     KiReadGuestSchedulerAssistPriority @ 0x1401B49D0 (KiReadGuestSchedulerAssistPriority.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KiSetThreadState @ 0x1401B4B8C (KiSetThreadState.c)
- *     KiUpdatePriorityMatrixThreadState @ 0x1401B4B9C (KiUpdatePriorityMatrixThreadState.c)
- *     KiHeteroChooseTargetProcessor @ 0x14029868C (KiHeteroChooseTargetProcessor.c)
- *     KiSetSchedulerAssistPriority @ 0x14029962C (KiSetSchedulerAssistPriority.c)
- *     KiSetVpThreadSystemWork @ 0x140299760 (KiSetVpThreadSystemWork.c)
- *     KiIsThreadRankBiased @ 0x14029B6B0 (KiIsThreadRankBiased.c)
- *     EtwTraceIdealProcessor @ 0x14030FE0C (EtwTraceIdealProcessor.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     KiComputeThreadAffinity @ 0x14008A420 (KiComputeThreadAffinity.c)
+ *     KiChooseTargetProcessor @ 0x1400C4310 (KiChooseTargetProcessor.c)
+ *     KiEvaluateGroupSchedulingPreemption @ 0x1400C60C0 (KiEvaluateGroupSchedulingPreemption.c)
+ *     KiHvEnlightenedGuestPriorityKick @ 0x1400CFE18 (KiHvEnlightenedGuestPriorityKick.c)
+ *     KiTryScheduleNextForegroundBoost @ 0x1400D0D74 (KiTryScheduleNextForegroundBoost.c)
+ *     KiUpdateThreadPriority @ 0x1400D0DC0 (KiUpdateThreadPriority.c)
+ *     KiUpdateVPBackingThreadPriority @ 0x1400D0EC0 (KiUpdateVPBackingThreadPriority.c)
+ *     KiComputeNewPriority @ 0x1400D0F10 (KiComputeNewPriority.c)
+ *     KiGetThreadEffectiveRankNonZero @ 0x1400D15A0 (KiGetThreadEffectiveRankNonZero.c)
+ *     KiPrcbInGroupAffinity @ 0x1400D57B4 (KiPrcbInGroupAffinity.c)
+ *     KiSetBasePriorityAndClearDecrement @ 0x1400D796C (KiSetBasePriorityAndClearDecrement.c)
+ *     KiReleaseThreadLockSafe @ 0x14010C490 (KiReleaseThreadLockSafe.c)
+ *     KiAbQueueAutoBoostDpc @ 0x14010EE5C (KiAbQueueAutoBoostDpc.c)
+ *     KiTryToAcquireThreadLock @ 0x1401151F0 (KiTryToAcquireThreadLock.c)
+ *     KiAddThreadToScbQueue @ 0x140117004 (KiAddThreadToScbQueue.c)
+ *     KiSetLockOwnershipQuantum @ 0x1401175B0 (KiSetLockOwnershipQuantum.c)
+ *     KiScheduleNextForegroundBoost @ 0x140122A2C (KiScheduleNextForegroundBoost.c)
+ *     KiTryToUpdateVPBackingThreadPriority @ 0x140129D50 (KiTryToUpdateVPBackingThreadPriority.c)
+ *     KiReadGuestSchedulerAssistPriority @ 0x1401B4B10 (KiReadGuestSchedulerAssistPriority.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiSetThreadState @ 0x1401B4CCC (KiSetThreadState.c)
+ *     KiUpdatePriorityMatrixThreadState @ 0x1401B4CDC (KiUpdatePriorityMatrixThreadState.c)
+ *     KiHeteroChooseTargetProcessor @ 0x14029887C (KiHeteroChooseTargetProcessor.c)
+ *     KiSetSchedulerAssistPriority @ 0x14029981C (KiSetSchedulerAssistPriority.c)
+ *     KiSetVpThreadSystemWork @ 0x140299950 (KiSetVpThreadSystemWork.c)
+ *     KiIsThreadRankBiased @ 0x14029B8A0 (KiIsThreadRankBiased.c)
+ *     EtwTraceIdealProcessor @ 0x14030FFFC (EtwTraceIdealProcessor.c)
  */
 
 __int64 __fastcall KiDeferredReadyThread(__int64 a1, __int64 a2, __int64 p_AbPropagateBoostsList, unsigned __int64 a4)
@@ -491,8 +491,8 @@ LABEL_93:
         {
           _BitScanReverse64(&v70, v140);
           v145[3] = v70;
-          v66 = *(unsigned int *)(v69 + 4LL * ((unsigned int)v70 + (v141 << 6)) + 5534528);
-          v47 = *(_QWORD *)(v69 + 8 * v66 + 5516608);
+          v66 = *(unsigned int *)(v69 + 4LL * ((unsigned int)v70 + (v141 << 6)) + 5533504);
+          v47 = *(_QWORD *)(v69 + 8 * v66 + 5520704);
         }
         v71 = KeGetCurrentPrcb();
         v144 = 0;
@@ -649,7 +649,7 @@ LABEL_254:
                     result = KiRemoveSystemWorkPriorityKick(v119);
                 }
               }
-              if ( (xmmword_140541350 & 0x8000000) != 0 )
+              if ( (xmmword_140542350 & 0x8000000) != 0 )
               {
                 v121 = v118;
                 return EtwTraceIdealProcessor(i, 1350LL, v137, v121);
@@ -895,7 +895,7 @@ LABEL_150:
     v65 = *(char *)(i + 195);
     KiReleaseThreadLockSafe(i);
     KiHvEnlightenedGuestPriorityKick(a1, v47, v65);
-    if ( (xmmword_140541350 & 0x8000000) != 0 )
+    if ( (xmmword_140542350 & 0x8000000) != 0 )
       EtwTraceIdealProcessor(i, 1350LL, v137, v64);
   }
   v122 = *(_QWORD *)(v47 + 16);
@@ -970,7 +970,7 @@ LABEL_288:
         *(_DWORD *)(v135 + 12) = 2;
         v136 = *(unsigned int *)(v47 + 36);
         if ( v95 )
-          LODWORD(v136) = (unsigned __int8)byte_140545541[2 * (unsigned int)v136] | ((unsigned __int8)HvlpVirtualProcessorMapping[2 * v136] << 6);
+          LODWORD(v136) = (unsigned __int8)byte_140546541[2 * (unsigned int)v136] | ((unsigned __int8)HvlpVirtualProcessorMapping[2 * v136] << 6);
         *(_DWORD *)(v135 + 8) = v136;
         result = (unsigned int)v136;
         __writemsr(0x400000C2u, (unsigned int)v136);
@@ -980,7 +980,7 @@ LABEL_288:
     }
   }
 LABEL_297:
-  if ( (xmmword_140541350 & 0x8000000) != 0 )
+  if ( (xmmword_140542350 & 0x8000000) != 0 )
   {
     v121 = v88;
     return EtwTraceIdealProcessor(i, 1350LL, v137, v121);

@@ -20,7 +20,7 @@
 void __fastcall TppJobpExecuteCallback(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 v4; // rbx
-  volatile signed __int64 *v9; // r14
+  _RTL_SRWLOCK *v9; // r14
   signed __int64 v10; // rax
   __int64 v11; // rbp
   __int64 v12; // rbx
@@ -34,8 +34,8 @@ void __fastcall TppJobpExecuteCallback(__int64 a1, __int64 a2, __int64 a3, __int
   v18 = 0LL;
   v4 = a2 + 72;
   _InterlockedIncrement((volatile signed __int32 *)(a2 + 72));
-  v9 = (volatile signed __int64 *)(a2 + 128);
-  TppBarrierAdjust((volatile signed __int64 *)(a2 + 128), 1, 0);
+  v9 = (_RTL_SRWLOCK *)(a2 + 128);
+  TppBarrierAdjust((_RTL_SRWLOCK *)(a2 + 128), 1, 0);
   v10 = _InterlockedExchangeAdd64((volatile signed __int64 *)(a2 + 280), 2uLL) + 2;
   if ( (v10 & 1) != 0 )
   {
@@ -52,7 +52,7 @@ void __fastcall TppJobpExecuteCallback(__int64 a1, __int64 a2, __int64 a3, __int
       }
       else if ( (char *)v15 == (char *)TppWorkpFree )
       {
-        TppWorkpFree(v4);
+        TppWorkpFree((void *)v4);
       }
       else
       {
@@ -68,7 +68,7 @@ void __fastcall TppJobpExecuteCallback(__int64 a1, __int64 a2, __int64 a3, __int
 LABEL_3:
       TppCleanupGroupMemberCallbackProlog(a1, v4);
       v12 = 2147353478LL;
-      if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+      if ( RtlGetCurrentServiceSessionId() )
         v13 = (__int64)NtCurrentPeb()->SharedData + 556;
       else
         v13 = 2147353478LL;
@@ -90,7 +90,7 @@ LABEL_3:
         *(_QWORD *)(a4 + 8),
         a3,
         *(_DWORD *)a4);
-      if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+      if ( RtlGetCurrentServiceSessionId() )
         v12 = (__int64)NtCurrentPeb()->SharedData + 556;
       if ( *(_BYTE *)v12 )
         TppETWCallbackStop(
@@ -102,7 +102,7 @@ LABEL_3:
       TppCompleteThreadData(v18);
       return;
     }
-    if ( (int)LdrAddRefDll(0, *(_QWORD *)(a2 + 208)) >= 0 )
+    if ( LdrAddRefDll(0, *(PVOID *)(a2 + 208)) >= 0 )
     {
       *(_DWORD *)(a1 + 144) |= 0x100u;
       *(_QWORD *)(a1 + 168) = v11;
@@ -123,7 +123,7 @@ LABEL_3:
     }
     else if ( (char *)v17 == (char *)TppWorkpFree )
     {
-      TppWorkpFree(v4);
+      TppWorkpFree((void *)v4);
     }
     else
     {

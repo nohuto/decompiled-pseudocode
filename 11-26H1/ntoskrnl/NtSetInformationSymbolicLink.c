@@ -1,35 +1,39 @@
 /*
- * XREFs of NtSetInformationSymbolicLink @ 0x1407C3480
+ * XREFs of NtSetInformationSymbolicLink @ 0x1407C64E0
  * Callers:
- *     DifNtSetInformationSymbolicLinkWrapper @ 0x14068C5E0 (DifNtSetInformationSymbolicLinkWrapper.c)
+ *     DifNtSetInformationSymbolicLinkWrapper @ 0x1406901C0 (DifNtSetInformationSymbolicLinkWrapper.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     PsIsCurrentThreadInServerSilo @ 0x140450FF0 (PsIsCurrentThreadInServerSilo.c)
- *     RtlReadULongFromUser @ 0x14077F590 (RtlReadULongFromUser.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408F29F0 (ExRaiseDatatypeMisalignment.c)
- *     ObReferenceObjectByHandle @ 0x1408F9550 (ObReferenceObjectByHandle.c)
- *     SeSinglePrivilegeCheck @ 0x140932280 (SeSinglePrivilegeCheck.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x140449120 (PsIsCurrentThreadInServerSilo.c)
+ *     RtlReadULongFromUser @ 0x140782090 (RtlReadULongFromUser.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408F8FB0 (ExRaiseDatatypeMisalignment.c)
+ *     SeSinglePrivilegeCheck @ 0x14090DE50 (SeSinglePrivilegeCheck.c)
+ *     ObReferenceObjectByHandle @ 0x1409294E0 (ObReferenceObjectByHandle.c)
  */
 
-__int64 __fastcall NtSetInformationSymbolicLink(void *a1, int a2, unsigned int *a3, int a4)
+NTSTATUS __cdecl NtSetInformationSymbolicLink(
+        HANDLE LinkHandle,
+        SYMBOLIC_LINK_INFO_CLASS SymbolicLinkInformationClass,
+        PVOID SymbolicLinkInformation,
+        ULONG SymbolicLinkInformationLength)
 {
   KPROCESSOR_MODE PreviousMode; // r14
-  NTSTATUS v8; // ebx
-  int v9; // esi
+  int v8; // ebx
+  __int32 v9; // esi
   _DWORD *v10; // rcx
-  unsigned int v11; // ecx
+  int v11; // ecx
   _DWORD *v12; // rdx
   int v13; // eax
   PVOID Object; // [rsp+38h] [rbp-20h] BYREF
-  unsigned int ULongFromUser; // [rsp+40h] [rbp-18h]
+  int ULongFromUser; // [rsp+40h] [rbp-18h]
 
   ULongFromUser = 0;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   Object = 0LL;
-  v8 = ObReferenceObjectByHandle(a1, 2u, (POBJECT_TYPE)ObpSymbolicLinkObjectType, PreviousMode, &Object, 0LL);
+  v8 = ObReferenceObjectByHandle(LinkHandle, 2u, (POBJECT_TYPE)ObpSymbolicLinkObjectType, PreviousMode, &Object, 0LL);
   if ( v8 >= 0 )
   {
-    v9 = a2 - 1;
+    v9 = SymbolicLinkInformationClass - 1;
     if ( v9 )
     {
       if ( v9 != 1 )
@@ -37,21 +41,21 @@ __int64 __fastcall NtSetInformationSymbolicLink(void *a1, int a2, unsigned int *
         v8 = -1073741821;
 LABEL_26:
         ObfDereferenceObject(Object);
-        return (unsigned int)v8;
+        return v8;
       }
-      if ( a4 == 4 )
+      if ( SymbolicLinkInformationLength == 4 )
       {
         if ( SeSinglePrivilegeCheck(SeTcbPrivilege, PreviousMode) && !PsIsCurrentThreadInServerSilo() )
         {
           if ( PreviousMode )
           {
-            if ( ((unsigned __int8)a3 & 3) != 0 )
+            if ( ((unsigned __int8)SymbolicLinkInformation & 3) != 0 )
               ExRaiseDatatypeMisalignment();
-            ULongFromUser = RtlReadULongFromUser(a3);
+            ULongFromUser = RtlReadULongFromUser((unsigned int *)SymbolicLinkInformation);
           }
           else
           {
-            ULongFromUser = *a3;
+            ULongFromUser = *(_DWORD *)SymbolicLinkInformation;
           }
           v10 = Object;
           *((_DWORD *)Object + 7) |= 8u;
@@ -62,19 +66,19 @@ LABEL_26:
         goto LABEL_25;
       }
     }
-    else if ( a4 == 4 )
+    else if ( SymbolicLinkInformationLength == 4 )
     {
       if ( SeSinglePrivilegeCheck(SeTcbPrivilege, PreviousMode) && !PsIsCurrentThreadInServerSilo() )
       {
         if ( PreviousMode )
         {
-          if ( ((unsigned __int8)a3 & 3) != 0 )
+          if ( ((unsigned __int8)SymbolicLinkInformation & 3) != 0 )
             ExRaiseDatatypeMisalignment();
-          v11 = RtlReadULongFromUser(a3);
+          v11 = RtlReadULongFromUser((unsigned int *)SymbolicLinkInformation);
         }
         else
         {
-          v11 = *a3;
+          v11 = *(_DWORD *)SymbolicLinkInformation;
         }
         v12 = Object;
         v13 = *((_DWORD *)Object + 7) | 1;
@@ -90,5 +94,5 @@ LABEL_25:
     v8 = -1073741820;
     goto LABEL_26;
   }
-  return (unsigned int)v8;
+  return v8;
 }

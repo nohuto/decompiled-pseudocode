@@ -1,21 +1,21 @@
 /*
- * XREFs of PnpBuildCmResourceList @ 0x140751180
+ * XREFs of PnpBuildCmResourceList @ 0x140751340
  * Callers:
- *     PnpBuildCmResourceLists @ 0x14074F54C (PnpBuildCmResourceLists.c)
- *     IopAllocateBootResourcesInternal @ 0x1407B46D0 (IopAllocateBootResourcesInternal.c)
+ *     PnpBuildCmResourceLists @ 0x14074F70C (PnpBuildCmResourceLists.c)
+ *     IopAllocateBootResourcesInternal @ 0x1407B5FF0 (IopAllocateBootResourcesInternal.c)
  * Callees:
- *     RtlAppendUnicodeToString @ 0x140265A40 (RtlAppendUnicodeToString.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     memset @ 0x140414200 (memset.c)
- *     ObQueryNameStringMode @ 0x140718E10 (ObQueryNameStringMode.c)
- *     IopCreateRegistryKeyEx @ 0x14073FD44 (IopCreateRegistryKeyEx.c)
- *     IopChildToRootTranslation @ 0x140751614 (IopChildToRootTranslation.c)
- *     IopParentToRawTranslation @ 0x1407517C8 (IopParentToRawTranslation.c)
- *     IopWriteResourceList @ 0x14075256C (IopWriteResourceList.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     RtlAppendUnicodeToString @ 0x1402539E0 (RtlAppendUnicodeToString.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     ObQueryNameStringMode @ 0x1406C7460 (ObQueryNameStringMode.c)
+ *     IopCreateRegistryKeyEx @ 0x14073FF04 (IopCreateRegistryKeyEx.c)
+ *     IopChildToRootTranslation @ 0x1407517D4 (IopChildToRootTranslation.c)
+ *     IopParentToRawTranslation @ 0x140751988 (IopParentToRawTranslation.c)
+ *     IopWriteResourceList @ 0x14075272C (IopWriteResourceList.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 int __fastcall PnpBuildCmResourceList(__int64 a1, int a2)

@@ -1,9 +1,9 @@
 /*
- * XREFs of PiDmaGuardAddDevice @ 0x140702338
+ * XREFs of PiDmaGuardAddDevice @ 0x1407035D8
  * Callers:
- *     PipCallDriverAddDevice @ 0x1406E6C4C (PipCallDriverAddDevice.c)
+ *     PipCallDriverAddDevice @ 0x1406E7EEC (PipCallDriverAddDevice.c)
  * Callees:
- *     PipDmgEnforceEnumerationPolicy @ 0x140839320 (PipDmgEnforceEnumerationPolicy.c)
+ *     PipDmgEnforceEnumerationPolicy @ 0x14083A580 (PipDmgEnforceEnumerationPolicy.c)
  */
 
 __int64 __fastcall PiDmaGuardAddDevice(ULONG_PTR a1)

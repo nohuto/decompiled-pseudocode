@@ -1,7 +1,7 @@
 /*
- * XREFs of EtwpTrackRegBinaryInfo @ 0x18008D3B8
+ * XREFs of EtwpTrackRegBinaryInfo @ 0x18008D3C8
  * Callers:
- *     EtwpTrackProviderBinary @ 0x18008D2F4 (EtwpTrackProviderBinary.c)
+ *     EtwpTrackProviderBinary @ 0x18008D304 (EtwpTrackProviderBinary.c)
  * Callees:
  *     EtwpGetUmProcessImageInfo @ 0x18010F5A0 (EtwpGetUmProcessImageInfo.c)
  */

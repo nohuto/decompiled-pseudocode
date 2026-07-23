@@ -1,7 +1,7 @@
 /*
- * XREFs of PpmIdlePrepareExitLatencyTrace @ 0x1405CE8C8
+ * XREFs of PpmIdlePrepareExitLatencyTrace @ 0x1405CBFE8
  * Callers:
- *     PpmIdleExecuteTransition @ 0x1403B4CA0 (PpmIdleExecuteTransition.c)
+ *     PpmIdleExecuteTransition @ 0x140371030 (PpmIdleExecuteTransition.c)
  * Callees:
  *     <none>
  */

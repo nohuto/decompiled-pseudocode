@@ -1,14 +1,14 @@
 /*
- * XREFs of IopFindLegacyDeviceNode @ 0x140AAF2E8
+ * XREFs of IopFindLegacyDeviceNode @ 0x140AAA1C8
  * Callers:
- *     IopLegacyResourceAllocation @ 0x140A0FC24 (IopLegacyResourceAllocation.c)
+ *     IopLegacyResourceAllocation @ 0x1409BE034 (IopLegacyResourceAllocation.c)
  * Callees:
- *     IoDeleteDevice @ 0x1403F1B00 (IoDeleteDevice.c)
- *     PipSetDevNodeState @ 0x140492B28 (PipSetDevNodeState.c)
- *     IopCreateRootEnumeratedDeviceObject @ 0x14072D9EC (IopCreateRootEnumeratedDeviceObject.c)
- *     PipAllocateDeviceNode @ 0x14098EACC (PipAllocateDeviceNode.c)
- *     PipSetDevNodeFlags @ 0x1409905B8 (PipSetDevNodeFlags.c)
- *     IopDestroyDeviceNode @ 0x140A0F43C (IopDestroyDeviceNode.c)
+ *     IoDeleteDevice @ 0x1403E5820 (IoDeleteDevice.c)
+ *     PipSetDevNodeState @ 0x14048D998 (PipSetDevNodeState.c)
+ *     IopCreateRootEnumeratedDeviceObject @ 0x14072B9FC (IopCreateRootEnumeratedDeviceObject.c)
+ *     PipAllocateDeviceNode @ 0x140979B04 (PipAllocateDeviceNode.c)
+ *     PipSetDevNodeFlags @ 0x14097B5F8 (PipSetDevNodeFlags.c)
+ *     IopDestroyDeviceNode @ 0x1409BD84C (IopDestroyDeviceNode.c)
  */
 
 __int64 __fastcall IopFindLegacyDeviceNode(struct _DRIVER_OBJECT *a1, __int64 a2, _QWORD *a3, _QWORD *a4)

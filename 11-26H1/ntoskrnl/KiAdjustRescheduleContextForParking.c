@@ -1,10 +1,10 @@
 /*
- * XREFs of KiAdjustRescheduleContextForParking @ 0x14033559C
+ * XREFs of KiAdjustRescheduleContextForParking @ 0x1403375CC
  * Callers:
- *     KiParkCurrentProcessor @ 0x1403346DC (KiParkCurrentProcessor.c)
- *     KiForceParkDutyCycleDpcCallback @ 0x1405F8980 (KiForceParkDutyCycleDpcCallback.c)
+ *     KiParkCurrentProcessor @ 0x14033670C (KiParkCurrentProcessor.c)
+ *     KiForceParkDutyCycleDpcCallback @ 0x1405FB3A0 (KiForceParkDutyCycleDpcCallback.c)
  * Callees:
- *     ?KiFindRescheduleContextEntryForPrcb@@YAPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KI_RESCHEDULE_CONTEXT@@PEAU_KPRCB@@@Z @ 0x140336900 (-KiFindRescheduleContextEntryForPrcb@@YAPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KI_RESCHEDULE_CON.c)
+ *     ?KiFindRescheduleContextEntryForPrcb@@YAPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KI_RESCHEDULE_CONTEXT@@PEAU_KPRCB@@@Z @ 0x140338930 (-KiFindRescheduleContextEntryForPrcb@@YAPEAU_KI_RESCHEDULE_CONTEXT_ENTRY@@PEAU_KI_RESCHEDULE_CON.c)
  */
 
 _KTHREAD *__fastcall KiAdjustRescheduleContextForParking(struct _KI_RESCHEDULE_CONTEXT *a1, struct _KPRCB *a2)
@@ -22,7 +22,7 @@ _KTHREAD *__fastcall KiAdjustRescheduleContextForParking(struct _KI_RESCHEDULE_C
   _KTHREAD *IdleThread; // rax
 
   result = a2->NextThread;
-  if ( !result && (result = a2->CurrentThread) == 0LL || result->Process != (_KPROCESS *)&unk_140FC8F40 )
+  if ( !result && (result = a2->CurrentThread) == 0LL || result->Process != (_KPROCESS *)&unk_140FC9F40 )
   {
     result = (_KTHREAD *)KeGetCurrentPrcb();
     if ( (HIDWORD(result[11].UserAbEntries) & 0x10000) == 0 )

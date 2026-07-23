@@ -1,13 +1,13 @@
 /*
- * XREFs of CmpKeyEnumStackEntryNotifyPromotion @ 0x140A23EBC
+ * XREFs of CmpKeyEnumStackEntryNotifyPromotion @ 0x140A2416C
  * Callers:
- *     CmpKeyEnumStackNotifyPromotion @ 0x140A24124 (CmpKeyEnumStackNotifyPromotion.c)
+ *     CmpKeyEnumStackNotifyPromotion @ 0x140A243D4 (CmpKeyEnumStackNotifyPromotion.c)
  * Callees:
- *     CmpDoFindSubKeyByNumber @ 0x1406DADDC (CmpDoFindSubKeyByNumber.c)
- *     HvpGetCellPaged @ 0x1406E0150 (HvpGetCellPaged.c)
- *     HvpReleaseCellPaged @ 0x1406E0260 (HvpReleaseCellPaged.c)
- *     HvpReleaseCellFlat @ 0x1407D9470 (HvpReleaseCellFlat.c)
- *     HvpGetCellFlat @ 0x1407FD9F0 (HvpGetCellFlat.c)
+ *     CmpDoFindSubKeyByNumber @ 0x1406DAE0C (CmpDoFindSubKeyByNumber.c)
+ *     HvpGetCellPaged @ 0x1406E0180 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x1406E0290 (HvpReleaseCellPaged.c)
+ *     HvpReleaseCellFlat @ 0x1407D9740 (HvpReleaseCellFlat.c)
+ *     HvpGetCellFlat @ 0x1407FDCC0 (HvpGetCellFlat.c)
  */
 
 __int64 __fastcall CmpKeyEnumStackEntryNotifyPromotion(__int64 a1)

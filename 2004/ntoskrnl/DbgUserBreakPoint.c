@@ -6,7 +6,7 @@
  *     <none>
  */
 
-void DbgUserBreakPoint()
+void DbgUserBreakPoint(void)
 {
   __debugbreak();
 }

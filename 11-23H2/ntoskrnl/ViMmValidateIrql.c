@@ -1,12 +1,12 @@
 /*
- * XREFs of ViMmValidateIrql @ 0x140AE3B80
+ * XREFs of ViMmValidateIrql @ 0x140AE3B70
  * Callers:
- *     VerifierMmAllocateNodePagesForMdlEx @ 0x140AE29A0 (VerifierMmAllocateNodePagesForMdlEx.c)
- *     VerifierMmAllocatePagesForMdl @ 0x140AE2B20 (VerifierMmAllocatePagesForMdl.c)
- *     VerifierMmAllocatePagesForMdlEx @ 0x140AE2C30 (VerifierMmAllocatePagesForMdlEx.c)
- *     VerifierMmFreePagesFromMdl @ 0x140AE2F80 (VerifierMmFreePagesFromMdl.c)
+ *     VerifierMmAllocateNodePagesForMdlEx @ 0x140AE2990 (VerifierMmAllocateNodePagesForMdlEx.c)
+ *     VerifierMmAllocatePagesForMdl @ 0x140AE2B10 (VerifierMmAllocatePagesForMdl.c)
+ *     VerifierMmAllocatePagesForMdlEx @ 0x140AE2C20 (VerifierMmAllocatePagesForMdlEx.c)
+ *     VerifierMmFreePagesFromMdl @ 0x140AE2F70 (VerifierMmFreePagesFromMdl.c)
  * Callees:
- *     VerifierBugCheckIfAppropriate @ 0x140ACD2B4 (VerifierBugCheckIfAppropriate.c)
+ *     VerifierBugCheckIfAppropriate @ 0x140ACD2A4 (VerifierBugCheckIfAppropriate.c)
  */
 
 __int64 __fastcall ViMmValidateIrql(char a1)

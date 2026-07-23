@@ -1,9 +1,9 @@
 /*
- * XREFs of IovDeleteDevice @ 0x1409241B8
+ * XREFs of IovDeleteDevice @ 0x1409251B8
  * Callers:
- *     IoDeleteDevice @ 0x1400DAAE0 (IoDeleteDevice.c)
+ *     IoDeleteDevice @ 0x1400DAB60 (IoDeleteDevice.c)
  * Callees:
- *     VfIoDeleteDevice @ 0x140934128 (VfIoDeleteDevice.c)
+ *     VfIoDeleteDevice @ 0x140935128 (VfIoDeleteDevice.c)
  */
 
 __int64 __fastcall IovDeleteDevice(ULONG_PTR a1)

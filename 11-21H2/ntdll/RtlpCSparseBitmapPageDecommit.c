@@ -10,16 +10,16 @@
  *     ZwFreeVirtualMemory @ 0x1800A4430 (ZwFreeVirtualMemory.c)
  */
 
-char __fastcall RtlpCSparseBitmapPageDecommit(__int64 a1, unsigned __int64 a2, int a3)
+char __fastcall RtlpCSparseBitmapPageDecommit(_RTL_SRWLOCK *a1, unsigned __int64 a2, int a3)
 {
   unsigned __int64 v4; // r14
-  __int64 v6; // r13
-  const signed __int64 *v7; // rax
+  _RTL_SRWLOCK *v6; // r13
+  const signed __int64 *Value; // rax
   unsigned __int64 v8; // rbx
   unsigned __int64 v9; // rdi
   const signed __int64 *v10; // r9
   __int64 v11; // r8
-  const signed __int64 *v12; // rax
+  __int64 v12; // rax
   const signed __int64 *v13; // r8
   const signed __int64 *v14; // r9
   signed __int64 v15; // r10
@@ -29,12 +29,12 @@ char __fastcall RtlpCSparseBitmapPageDecommit(__int64 a1, unsigned __int64 a2, i
   unsigned __int64 v20; // [rsp+38h] [rbp-A0h]
   const signed __int64 *v21; // [rsp+40h] [rbp-98h]
   unsigned __int64 i; // [rsp+48h] [rbp-90h]
-  __int64 v23; // [rsp+50h] [rbp-88h]
+  _RTL_SRWLOCK *v23; // [rsp+50h] [rbp-88h]
   unsigned __int64 v24; // [rsp+58h] [rbp-80h]
   unsigned __int64 v25; // [rsp+60h] [rbp-78h]
-  __int64 v26; // [rsp+68h] [rbp-70h] BYREF
-  __int64 v27; // [rsp+70h] [rbp-68h] BYREF
-  unsigned __int64 v28; // [rsp+78h] [rbp-60h] BYREF
+  unsigned __int64 v26; // [rsp+68h] [rbp-70h] BYREF
+  ULONG_PTR RegionSize; // [rsp+70h] [rbp-68h] BYREF
+  PVOID BaseAddress; // [rsp+78h] [rbp-60h] BYREF
   _BYTE v29[16]; // [rsp+80h] [rbp-58h] BYREF
   __int128 v30; // [rsp+90h] [rbp-48h]
   int v31; // [rsp+F0h] [rbp+18h]
@@ -43,14 +43,13 @@ char __fastcall RtlpCSparseBitmapPageDecommit(__int64 a1, unsigned __int64 a2, i
   v6 = a1;
   v23 = a1;
   v31 = 0;
-  v7 = *(const signed __int64 **)(a1 + 8);
-  v20 = *(_QWORD *)(a1 + 16);
-  v21 = v7;
+  Value = (const signed __int64 *)a1[1].Value;
+  v20 = a1[2].Value;
+  v21 = Value;
   v8 = a2 << 15;
   v24 = a2 << 15;
   v9 = 0x8000LL;
-  v10 = (const signed __int64 *)(v20 - (a2 << 15));
-  if ( (unsigned __int64)v10 <= 0x8000 )
+  if ( v20 - (a2 << 15) <= 0x8000 )
     v9 = v20 - (a2 << 15);
   v25 = v9;
   v30 = 0LL;
@@ -101,27 +100,27 @@ LABEL_10:
       LODWORD(v12) = (v11 & a2) == 0;
     }
 LABEL_20:
-    v19[12] = (int)v12;
+    v19[12] = v12;
     if ( !(_DWORD)v12 )
       goto LABEL_21;
 LABEL_23:
     a3 = 0;
-    RtlpCSparseBitmapLock(a1, 1uLL, (unsigned __int64)v29, (unsigned __int64)v10);
-    v26 = *(_QWORD *)(a1 + 32);
-    if ( v26 == -1 )
+    RtlpCSparseBitmapLock(a1, 1, (__int64)v29);
+    v26 = a1[4].Value;
+    if ( v26 == -1LL )
       break;
     RtlpCSparseBitmapUnlock((__int64)v29);
-    RtlpWaitOnAddress(v6 + 32, (unsigned int)&v26, 8, 0, RtlpWaitOnAddressSpinCycleCount);
-    v12 = *(const signed __int64 **)a1;
-    if ( !_bittest64(*(const signed __int64 **)a1, v4) )
+    RtlpWaitOnAddress((_DWORD)v6 + 32, (unsigned int)&v26, 8, 0, RtlpWaitOnAddressSpinCycleCount);
+    v12 = a1->Value;
+    if ( !_bittest64((const signed __int64 *)a1->Value, v4) )
       goto LABEL_21;
     v6 = v23;
   }
-  *(_QWORD *)(v6 + 32) = v4;
+  v6[4].Value = v4;
   RtlpCSparseBitmapUnlock((__int64)v29);
   v31 = 1;
-  v12 = *(const signed __int64 **)a1;
-  if ( !_bittest64(*(const signed __int64 **)a1, v4) )
+  v12 = a1->Value;
+  if ( !_bittest64((const signed __int64 *)a1->Value, v4) )
     goto LABEL_21;
   LOBYTE(v12) = v20;
   if ( v8 >= v20 )
@@ -133,10 +132,10 @@ LABEL_23:
     if ( !_bittest64(v21, v8) )
     {
 LABEL_36:
-      _interlockedbittestandreset64(*(volatile signed __int32 **)a1, v4);
-      v28 = *(_QWORD *)(a1 + 8) + (v4 << 12);
-      v27 = 4096LL;
-      LOBYTE(v12) = ZwFreeVirtualMemory(-1LL, &v28, &v27, 0x4000LL);
+      _interlockedbittestandreset64((volatile signed __int32 *)a1->Value, v4);
+      BaseAddress = (PVOID)(a1[1].Value + (v4 << 12));
+      RegionSize = 4096LL;
+      LOBYTE(v12) = ZwFreeVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, &RegionSize, 0x4000u);
       goto LABEL_21;
     }
     LOBYTE(v12) = 0;
@@ -160,7 +159,7 @@ LABEL_34:
     LOBYTE(v12) = v17;
     goto LABEL_35;
   }
-  v12 = (const signed __int64 *)(-1LL << v8);
+  v12 = -1LL << v8;
   for ( j = (v15 & (-1LL << v8)) == 0; j; j = *v13 == 0 )
   {
     if ( ++v13 == v14 )
@@ -173,10 +172,10 @@ LABEL_34:
 LABEL_21:
   if ( v31 )
   {
-    *(_QWORD *)(a1 + 32) = -1LL;
+    a1[4].Value = -1LL;
     _InterlockedOr(v19, 0);
     LOBYTE(a2) = 1;
-    LOBYTE(v12) = RtlpWakeByAddress(a1 + 32, a2);
+    LOBYTE(v12) = RtlpWakeByAddress(&a1[4], a2);
   }
-  return (char)v12;
+  return v12;
 }

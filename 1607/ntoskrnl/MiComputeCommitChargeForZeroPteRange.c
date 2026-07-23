@@ -1,9 +1,9 @@
 /*
- * XREFs of MiComputeCommitChargeForZeroPteRange @ 0x1401DF890
+ * XREFs of MiComputeCommitChargeForZeroPteRange @ 0x1401DF6BC
  * Callers:
- *     MiCheckCommitReleaseFromVad @ 0x1401DF4E0 (MiCheckCommitReleaseFromVad.c)
+ *     MiCheckCommitReleaseFromVad @ 0x1401DF30C (MiCheckCommitReleaseFromVad.c)
  * Callees:
- *     MiComputeImageVadCommitCharge @ 0x1401DF938 (MiComputeImageVadCommitCharge.c)
+ *     MiComputeImageVadCommitCharge @ 0x1401DF764 (MiComputeImageVadCommitCharge.c)
  */
 
 __int64 __fastcall MiComputeCommitChargeForZeroPteRange(__int64 a1, __int64 a2, __int64 a3)

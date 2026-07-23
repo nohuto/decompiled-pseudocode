@@ -9,15 +9,15 @@
  *     _TppETWWorkerNodeSwitch@20 @ 0x4B385006 (_TppETWWorkerNodeSwitch@20.c)
  */
 
-int __fastcall TppWorkerSwitchNode(_DWORD *a1, int a2, int a3, char a4)
+NTSTATUS __fastcall TppWorkerSwitchNode(_DWORD *a1, int a2, int a3, char a4)
 {
   int v5; // ecx
-  int result; // eax
+  NTSTATUS result; // eax
   int v7; // ecx
   unsigned __int16 v8; // bx
   __int16 v9; // [esp+8h] [ebp-18h]
   int v10; // [esp+Ch] [ebp-14h]
-  _DWORD v11[3]; // [esp+10h] [ebp-10h] BYREF
+  _DWORD ThreadInformation[3]; // [esp+10h] [ebp-10h] BYREF
 
   v5 = *(_DWORD *)(a2 + 200);
   v10 = v5;
@@ -46,18 +46,18 @@ int __fastcall TppWorkerSwitchNode(_DWORD *a1, int a2, int a3, char a4)
     v8 = *(_WORD *)(12 * a3 + v7 + 4);
     v9 = *(_WORD *)(12 * v10 + v7 + 4);
     if ( RtlGetCurrentServiceSessionId() )
-      result = (int)NtCurrentPeb()->SharedData + 556;
+      result = (NTSTATUS)NtCurrentPeb()->SharedData + 556;
     else
       result = 2147353478;
     if ( *(_BYTE *)result )
       result = TppETWWorkerNodeSwitch(a3, v9, v8);
     if ( v9 != v8 )
     {
-      v11[2] = 0;
-      v11[0] = 0;
-      v11[1] = v8;
-      ZwSetInformationThread(-2, 30, v11, 12);
-      return ZwSetInformationThread(-2, 13, &a4, 4);
+      ThreadInformation[2] = 0;
+      ThreadInformation[0] = 0;
+      ThreadInformation[1] = v8;
+      ZwSetInformationThread((HANDLE)0xFFFFFFFE, ThreadGroupInformation, ThreadInformation, 0xCu);
+      return ZwSetInformationThread((HANDLE)0xFFFFFFFE, ThreadIdealProcessor, &a4, 4u);
     }
   }
   return result;

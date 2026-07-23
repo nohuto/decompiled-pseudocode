@@ -1,17 +1,17 @@
 /*
- * XREFs of SshpWriteBlocker @ 0x1405801CC
+ * XREFs of SshpWriteBlocker @ 0x14058040C
  * Callers:
- *     SshpSendSessionData @ 0x1408FACA8 (SshpSendSessionData.c)
+ *     SshpSendSessionData @ 0x1408FAE08 (SshpSendSessionData.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     EtwWriteEx @ 0x14025DD10 (EtwWriteEx.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14027E1A4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     EtwWriteEx @ 0x14027F840 (EtwWriteEx.c)
+ *     _tlgKeywordOn @ 0x1402864F4 (_tlgKeywordOn.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     memset @ 0x140414200 (memset.c)
- *     SshpStopBlockerAccounting @ 0x14058011C (SshpStopBlockerAccounting.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     SshpStopBlockerAccounting @ 0x14058035C (SshpStopBlockerAccounting.c)
  */
 
 char __fastcall SshpWriteBlocker(__int64 SpinLock, unsigned __int64 a2)
@@ -257,7 +257,7 @@ char __fastcall SshpWriteBlocker(__int64 SpinLock, unsigned __int64 a2)
               v95 = 8LL;
               LOBYTE(v27) = tlgWriteTransfer_EtwWriteTransfer(
                               (__int64)&dword_140C04720,
-                              (unsigned __int8 *)&word_14002A98E,
+                              (unsigned __int8 *)&word_14002AA4E,
                               0LL,
                               0LL,
                               0x13u,

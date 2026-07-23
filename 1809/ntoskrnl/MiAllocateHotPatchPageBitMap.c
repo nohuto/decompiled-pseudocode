@@ -1,11 +1,11 @@
 /*
- * XREFs of MiAllocateHotPatchPageBitMap @ 0x140853F6C
+ * XREFs of MiAllocateHotPatchPageBitMap @ 0x1408551CC
  * Callers:
- *     MiApplyDriverHotPatch @ 0x140854080 (MiApplyDriverHotPatch.c)
- *     MiUnapplyDriverHotPatch @ 0x140858114 (MiUnapplyDriverHotPatch.c)
+ *     MiApplyDriverHotPatch @ 0x1408552E0 (MiApplyDriverHotPatch.c)
+ *     MiUnapplyDriverHotPatch @ 0x140859374 (MiUnapplyDriverHotPatch.c)
  * Callees:
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall MiAllocateHotPatchPageBitMap(_QWORD *a1)

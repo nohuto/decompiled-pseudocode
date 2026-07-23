@@ -14,7 +14,7 @@
  *     PsIsCurrentThreadInServerSilo @ 0x140287350 (PsIsCurrentThreadInServerSilo.c)
  */
 
-char RtlIsMultiSessionSku()
+BOOLEAN RtlIsMultiSessionSku(void)
 {
   if ( PsIsCurrentThreadInServerSilo() )
     return *(_BYTE *)(*((_QWORD *)PsGetCurrentServerSiloGlobals() + 165) + 28LL);

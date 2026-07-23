@@ -1,18 +1,18 @@
 /*
- * XREFs of MiCreateSystemSection @ 0x1400F591C
+ * XREFs of MiCreateSystemSection @ 0x1400F599C
  * Callers:
- *     MiCreateSectionForDriver @ 0x1406822A0 (MiCreateSectionForDriver.c)
- *     MiOpenHotPatchFile @ 0x1408568EC (MiOpenHotPatchFile.c)
+ *     MiCreateSectionForDriver @ 0x140683460 (MiCreateSectionForDriver.c)
+ *     MiOpenHotPatchFile @ 0x140857B4C (MiOpenHotPatchFile.c)
  * Callees:
  *     CcZeroEndOfLastPage @ 0x14001C250 (CcZeroEndOfLastPage.c)
  *     MiDereferenceControlAreaFile @ 0x14001CA78 (MiDereferenceControlAreaFile.c)
  *     MiReferenceControlAreaFile @ 0x14001CBB0 (MiReferenceControlAreaFile.c)
  *     KeDelayExecutionThread @ 0x14004DA20 (KeDelayExecutionThread.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     MiSectionControlArea @ 0x140075E70 (MiSectionControlArea.c)
- *     PsReferencePrimaryToken @ 0x1405DD640 (PsReferencePrimaryToken.c)
- *     MiCreateSection @ 0x1405DDAC0 (MiCreateSection.c)
- *     SeCompareSigningLevels @ 0x1407199B0 (SeCompareSigningLevels.c)
+ *     MiSectionControlArea @ 0x140075E60 (MiSectionControlArea.c)
+ *     PsReferencePrimaryToken @ 0x1405DE640 (PsReferencePrimaryToken.c)
+ *     MiCreateSection @ 0x1405DEAC0 (MiCreateSection.c)
+ *     SeCompareSigningLevels @ 0x14071AC50 (SeCompareSigningLevels.c)
  */
 
 __int64 MiCreateSystemSection(__int64 *a1, __int64 a2, int a3, ...)

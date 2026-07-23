@@ -1,12 +1,12 @@
 /*
- * XREFs of DifMmAllocatePagesForMdlWrapper @ 0x1405E6DA0
+ * XREFs of DifMmAllocatePagesForMdlWrapper @ 0x1405E7310
  * Callers:
  *     <none>
  * Callees:
- *     MmAllocatePagesForMdl @ 0x1403AA9E0 (MmAllocatePagesForMdl.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     DifGetAPIThunkContextById @ 0x1404664BE (DifGetAPIThunkContextById.c)
- *     DifGetReturnAddressForWrappers @ 0x1405F88C4 (DifGetReturnAddressForWrappers.c)
+ *     MmAllocatePagesForMdl @ 0x1403AABC0 (MmAllocatePagesForMdl.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x1404668BE (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F8E34 (DifGetReturnAddressForWrappers.c)
  */
 
 PMDL __fastcall DifMmAllocatePagesForMdlWrapper(

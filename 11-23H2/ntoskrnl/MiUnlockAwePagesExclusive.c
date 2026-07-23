@@ -1,11 +1,11 @@
 /*
- * XREFs of MiUnlockAwePagesExclusive @ 0x14064BE08
+ * XREFs of MiUnlockAwePagesExclusive @ 0x14064C358
  * Callers:
- *     MiDeleteAweInfoPages @ 0x140A41A90 (MiDeleteAweInfoPages.c)
- *     MiResizeAweBitMap @ 0x140A42110 (MiResizeAweBitMap.c)
+ *     MiDeleteAweInfoPages @ 0x140A41D40 (MiDeleteAweInfoPages.c)
+ *     MiResizeAweBitMap @ 0x140A423C0 (MiResizeAweBitMap.c)
  * Callees:
- *     ExReleaseAutoExpandPushLockExclusive @ 0x14022F8B0 (ExReleaseAutoExpandPushLockExclusive.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F820 (KiCheckForKernelApcDelivery.c)
+ *     ExReleaseAutoExpandPushLockExclusive @ 0x14022F9A0 (ExReleaseAutoExpandPushLockExclusive.c)
+ *     KiCheckForKernelApcDelivery @ 0x14030FAB0 (KiCheckForKernelApcDelivery.c)
  */
 
 char __fastcall MiUnlockAwePagesExclusive(__int64 a1, __int64 a2)

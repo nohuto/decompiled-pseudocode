@@ -1,23 +1,23 @@
 /*
- * XREFs of MiWritePteHighLevel @ 0x1406F2B98
+ * XREFs of MiWritePteHighLevel @ 0x1406F7808
  * Callers:
- *     MiTransformValidPteInPlace @ 0x140342458 (MiTransformValidPteInPlace.c)
- *     MiStackTheftFreezeProcessors @ 0x1406F355C (MiStackTheftFreezeProcessors.c)
+ *     MiTransformValidPteInPlace @ 0x1403444D8 (MiTransformValidPteInPlace.c)
+ *     MiStackTheftFreezeProcessors @ 0x1406F81CC (MiStackTheftFreezeProcessors.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     MiVaToFlushVm @ 0x1402843F8 (MiVaToFlushVm.c)
- *     MiPteHasShadow @ 0x1403011E0 (MiPteHasShadow.c)
- *     MiInsertLargeTbFlushEntry @ 0x140343930 (MiInsertLargeTbFlushEntry.c)
- *     MiInitializeTbFlushList @ 0x140360920 (MiInitializeTbFlushList.c)
- *     MiInsertRecursiveTbFlushEntries @ 0x140363B4C (MiInsertRecursiveTbFlushEntries.c)
- *     KeIpiGenericCall @ 0x1404AAD60 (KeIpiGenericCall.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     RtlDeleteBarrier @ 0x140622DC0 (RtlDeleteBarrier.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     MiVaToFlushVm @ 0x140283968 (MiVaToFlushVm.c)
+ *     MiPteHasShadow @ 0x1402E3260 (MiPteHasShadow.c)
+ *     MiInsertLargeTbFlushEntry @ 0x1403459B0 (MiInsertLargeTbFlushEntry.c)
+ *     MiInitializeTbFlushList @ 0x1403626C0 (MiInitializeTbFlushList.c)
+ *     MiInsertRecursiveTbFlushEntries @ 0x1403658EC (MiInsertRecursiveTbFlushEntries.c)
+ *     KeIpiGenericCall @ 0x1404A43F0 (KeIpiGenericCall.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     RtlDeleteBarrier @ 0x140625E10 (RtlDeleteBarrier.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
-int __fastcall MiWritePteHighLevel(ULONG_PTR a1, ULONG_PTR a2, ULONG_PTR a3, int a4, __int64 a5)
+NTSTATUS __fastcall MiWritePteHighLevel(ULONG_PTR a1, ULONG_PTR a2, ULONG_PTR a3, int a4, __int64 a5)
 {
   void *v9; // rax
   __int64 v10; // r9
@@ -31,18 +31,17 @@ int __fastcall MiWritePteHighLevel(ULONG_PTR a1, ULONG_PTR a2, ULONG_PTR a3, int
   ULONG_PTR Context[3]; // [rsp+30h] [rbp-D0h] BYREF
   int v20; // [rsp+48h] [rbp-B8h]
   _BYTE v21[4]; // [rsp+4Ch] [rbp-B4h] BYREF
-  _DWORD v22[2]; // [rsp+50h] [rbp-B0h] BYREF
-  _BYTE v23[200]; // [rsp+58h] [rbp-A8h] BYREF
-  __int64 v24; // [rsp+120h] [rbp+20h]
+  _RTL_BARRIER Barrier; // [rsp+50h] [rbp-B0h] BYREF
+  __int64 v23; // [rsp+120h] [rbp+20h]
 
   memset_0(v21, 0, 0xD4uLL);
-  v24 = a5;
+  v23 = a5;
   Context[0] = a2;
   v20 = 0;
   Context[1] = a1;
   Context[2] = a3;
   v9 = MiVaToFlushVm(a2);
-  MiInitializeTbFlushList((__int64)v23, (__int64)v9, 20, 1, a4);
+  MiInitializeTbFlushList((__int64)Barrier.Reserved3, (__int64)v9, 20, 1, a4);
   v10 = *(_QWORD *)a1;
   if ( a1 >= 0xFFFFF6FB7DBED000uLL
     && a1 <= 0xFFFFF6FB7DBED7F8uLL
@@ -75,12 +74,12 @@ int __fastcall MiWritePteHighLevel(ULONG_PTR a1, ULONG_PTR a2, ULONG_PTR a3, int
   }
   if ( (v10 & 0x80u) == 0LL )
   {
-    MiInsertRecursiveTbFlushEntries((__int64)v23, v15, a2);
+    MiInsertRecursiveTbFlushEntries((__int64)Barrier.Reserved3, v15, a2);
     v21[0] = 0;
   }
   else
   {
-    MiInsertLargeTbFlushEntry((__int64)v23, v15, a2);
+    MiInsertLargeTbFlushEntry((__int64)Barrier.Reserved3, v15, a2);
     v21[0] = v15;
   }
   CurrentIrql = KeGetCurrentIrql();
@@ -88,11 +87,11 @@ int __fastcall MiWritePteHighLevel(ULONG_PTR a1, ULONG_PTR a2, ULONG_PTR a3, int
     __writecr8(0xCuLL);
   if ( KiIrqlFlags )
     KiRaiseIrqlProcessIrqlFlags(CurrentIrql, 12);
-  v22[1] = KeNumberProcessors_0;
-  v22[0] = KeNumberProcessors_0;
+  Barrier.Reserved2 = KeNumberProcessors_0;
+  Barrier.Reserved1 = KeNumberProcessors_0;
   KeIpiGenericCall(MiWritePteHighLevelIsr, (ULONG_PTR)Context);
   if ( KiIrqlFlags )
     KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), CurrentIrql);
   __writecr8(CurrentIrql);
-  return RtlDeleteBarrier(v22);
+  return RtlDeleteBarrier(&Barrier);
 }

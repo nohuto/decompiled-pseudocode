@@ -1,10 +1,10 @@
 /*
- * XREFs of SepFreeTokenCapabilities @ 0x14035F0B4
+ * XREFs of SepFreeTokenCapabilities @ 0x14035F254
  * Callers:
- *     SepSetTokenCapabilities @ 0x1406BD618 (SepSetTokenCapabilities.c)
- *     SepTokenDeleteMethod @ 0x140729590 (SepTokenDeleteMethod.c)
+ *     SepSetTokenCapabilities @ 0x1406BD648 (SepSetTokenCapabilities.c)
+ *     SepTokenDeleteMethod @ 0x140729790 (SepTokenDeleteMethod.c)
  * Callees:
- *     SepDeReferenceSharedSidEntries @ 0x1409D12E0 (SepDeReferenceSharedSidEntries.c)
+ *     SepDeReferenceSharedSidEntries @ 0x1409D14E0 (SepDeReferenceSharedSidEntries.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

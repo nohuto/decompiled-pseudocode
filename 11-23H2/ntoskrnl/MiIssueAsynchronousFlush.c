@@ -1,12 +1,12 @@
 /*
- * XREFs of MiIssueAsynchronousFlush @ 0x140636054
+ * XREFs of MiIssueAsynchronousFlush @ 0x1406365A4
  * Callers:
- *     MiFlushSectionInternal @ 0x140275750 (MiFlushSectionInternal.c)
+ *     MiFlushSectionInternal @ 0x1402759E0 (MiFlushSectionInternal.c)
  * Callees:
- *     KeWaitForMultipleObjects @ 0x1403111A0 (KeWaitForMultipleObjects.c)
- *     IoAsynchronousPageWrite @ 0x140369A0C (IoAsynchronousPageWrite.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiFlushComplete @ 0x140635E60 (MiFlushComplete.c)
+ *     KeWaitForMultipleObjects @ 0x140311430 (KeWaitForMultipleObjects.c)
+ *     IoAsynchronousPageWrite @ 0x140369BAC (IoAsynchronousPageWrite.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     MiFlushComplete @ 0x1406363B0 (MiFlushComplete.c)
  */
 
 unsigned __int64 __fastcall MiIssueAsynchronousFlush(
@@ -70,10 +70,10 @@ unsigned __int64 __fastcall MiIssueAsynchronousFlush(
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(1uLL);
     MiFlushComplete(v11, v11);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v14 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v14 <= 0xFu && CurrentIrql <= 0xFu && v14 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v14 <= 0xFu && CurrentIrql <= 0xFu && v14 >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -102,10 +102,10 @@ LABEL_16:
         v11 = a3;
       if ( !*(_QWORD *)(v11 + 16) || *(_DWORD *)(v11 + 52) )
       {
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v26 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v26 <= 0xFu && v21 <= 0xFu && v26 >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v26 <= 0xFu && v21 <= 0xFu && v26 >= 2u )
           {
             v27 = KeGetCurrentPrcb();
             v28 = v27->SchedulerAssist;
@@ -122,10 +122,10 @@ LABEL_16:
       ++v20;
     }
     while ( v20 != 8 );
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v22 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v22 <= 0xFu && v21 <= 0xFu && v22 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v22 <= 0xFu && v21 <= 0xFu && v22 >= 2u )
       {
         v23 = KeGetCurrentPrcb();
         v24 = v23->SchedulerAssist;

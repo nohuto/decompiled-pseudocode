@@ -1,35 +1,35 @@
 /*
- * XREFs of EtwpUpdateTrace @ 0x140A6C6F0
+ * XREFs of EtwpUpdateTrace @ 0x140AB081C
  * Callers:
- *     EtwWmitraceWorker @ 0x14082C2B8 (EtwWmitraceWorker.c)
- *     NtTraceControl @ 0x14093CB40 (NtTraceControl.c)
+ *     EtwWmitraceWorker @ 0x1408324F8 (EtwWmitraceWorker.c)
+ *     NtTraceControl @ 0x1409186E0 (NtTraceControl.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     ExReleaseRundownProtectionCacheAwareEx @ 0x140257080 (ExReleaseRundownProtectionCacheAwareEx.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     KeReleaseMutex @ 0x1403DD0F0 (KeReleaseMutex.c)
- *     EtwpQueryUsedProcessorCount @ 0x140488A24 (EtwpQueryUsedProcessorCount.c)
- *     EtwpValidateFlagExtension @ 0x14077C6AC (EtwpValidateFlagExtension.c)
- *     EtwpSendDbgId @ 0x14082C740 (EtwpSendDbgId.c)
- *     SeDeleteClientSecurity @ 0x1408E8BE0 (SeDeleteClientSecurity.c)
- *     EtwpAcquireLoggerContext @ 0x14091EE28 (EtwpAcquireLoggerContext.c)
- *     EtwpValidateLoggerInfo @ 0x14091F33C (EtwpValidateLoggerInfo.c)
- *     EtwpGetSecurityDescriptorByGuid @ 0x140920D60 (EtwpGetSecurityDescriptorByGuid.c)
- *     SeCreateClientSecurity @ 0x140929880 (SeCreateClientSecurity.c)
- *     EtwpUpdatePerProcessTracing @ 0x140A6C4E8 (EtwpUpdatePerProcessTracing.c)
- *     EtwpUpdateLoggerSecurityDescriptor @ 0x140A6C604 (EtwpUpdateLoggerSecurityDescriptor.c)
- *     EtwpUpdateLoggerGroupMasks @ 0x140A6D418 (EtwpUpdateLoggerGroupMasks.c)
- *     EtwpGetSystemMaximumBufferCount @ 0x140A6DAC8 (EtwpGetSystemMaximumBufferCount.c)
- *     EtwpCheckForPoolTagFilterExtension @ 0x140A6E09C (EtwpCheckForPoolTagFilterExtension.c)
- *     EtwpCheckForStackTracingExtension @ 0x140A6F1B4 (EtwpCheckForStackTracingExtension.c)
- *     EtwpCheckSystemTraceAccess @ 0x140A6F2BC (EtwpCheckSystemTraceAccess.c)
- *     EtwpCheckLoggerControlAccess @ 0x140A6FAA4 (EtwpCheckLoggerControlAccess.c)
- *     EtwpSynchronizeWithLogger @ 0x140A6FD00 (EtwpSynchronizeWithLogger.c)
- *     EtwpGetLoggerInfoFromContext @ 0x140A6FDA8 (EtwpGetLoggerInfoFromContext.c)
- *     EtwpEventWriteTemplateSession @ 0x140A7010C (EtwpEventWriteTemplateSession.c)
- *     EtwpCaptureString @ 0x140A70314 (EtwpCaptureString.c)
- *     ExFreePool @ 0x140C10E30 (ExFreePool.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     ExReleaseRundownProtectionCacheAwareEx @ 0x140258A10 (ExReleaseRundownProtectionCacheAwareEx.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     KeReleaseMutex @ 0x1403E02E0 (KeReleaseMutex.c)
+ *     EtwpQueryUsedProcessorCount @ 0x140482564 (EtwpQueryUsedProcessorCount.c)
+ *     EtwpValidateFlagExtension @ 0x14077F1A0 (EtwpValidateFlagExtension.c)
+ *     EtwpSendDbgId @ 0x140832980 (EtwpSendDbgId.c)
+ *     SeDeleteClientSecurity @ 0x1408EF1A0 (SeDeleteClientSecurity.c)
+ *     EtwpGetSecurityDescriptorByGuid @ 0x1408FC870 (EtwpGetSecurityDescriptorByGuid.c)
+ *     SeCreateClientSecurity @ 0x140905390 (SeCreateClientSecurity.c)
+ *     EtwpAcquireLoggerContext @ 0x140979888 (EtwpAcquireLoggerContext.c)
+ *     EtwpValidateLoggerInfo @ 0x140979D9C (EtwpValidateLoggerInfo.c)
+ *     EtwpCheckLoggerControlAccess @ 0x14097A438 (EtwpCheckLoggerControlAccess.c)
+ *     EtwpGetLoggerInfoFromContext @ 0x14097A694 (EtwpGetLoggerInfoFromContext.c)
+ *     EtwpCaptureString @ 0x14097A9F8 (EtwpCaptureString.c)
+ *     EtwpUpdatePerProcessTracing @ 0x140AB0700 (EtwpUpdatePerProcessTracing.c)
+ *     EtwpUpdateLoggerGroupMasks @ 0x140AB0CE0 (EtwpUpdateLoggerGroupMasks.c)
+ *     EtwpCheckForPoolTagFilterExtension @ 0x140AB0E14 (EtwpCheckForPoolTagFilterExtension.c)
+ *     EtwpCheckForStackTracingExtension @ 0x140AB1F2C (EtwpCheckForStackTracingExtension.c)
+ *     EtwpGetSystemMaximumBufferCount @ 0x140AB286C (EtwpGetSystemMaximumBufferCount.c)
+ *     EtwpCheckSystemTraceAccess @ 0x140AB2A20 (EtwpCheckSystemTraceAccess.c)
+ *     EtwpUpdateLoggerSecurityDescriptor @ 0x140AB2A5C (EtwpUpdateLoggerSecurityDescriptor.c)
+ *     EtwpSynchronizeWithLogger @ 0x140AB31F8 (EtwpSynchronizeWithLogger.c)
+ *     EtwpEventWriteTemplateSession @ 0x140AB32A0 (EtwpEventWriteTemplateSession.c)
+ *     ExFreePool @ 0x140C16E30 (ExFreePool.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpUpdateTrace(__int64 a1, __int64 a2)
@@ -52,7 +52,7 @@ __int64 __fastcall EtwpUpdateTrace(__int64 a1, __int64 a2)
   struct _KLOCK_ENTRIES *v19; // r9
   unsigned int SystemMaximumBufferCount; // eax
   unsigned int v21; // ecx
-  int v22; // r8d
+  __int64 v22; // r8
   PVOID v23; // r15
   int updated; // eax
   int v25; // eax
@@ -102,7 +102,7 @@ LABEL_53:
         v4 = 160;
       if ( *(_QWORD *)(a2 + 136) && *(_WORD *)(a2 + 128) )
         v4 |= 0x40u;
-      v12 = EtwpCheckLoggerControlAccess(v4);
+      v12 = EtwpCheckLoggerControlAccess(v4, (__int64)P);
       v13 = 0LL;
       LoggerInfoFromContext = v12;
       if ( v12 < 0 )
@@ -111,7 +111,7 @@ LABEL_53:
       {
         if ( (v11 & 8) != 0 || (v10 & 8) != 0 || (v11 & 0x400) != 0 )
           goto LABEL_55;
-        LoggerInfoFromContext = EtwpCaptureString(a2 + 128, v35);
+        LoggerInfoFromContext = EtwpCaptureString((unsigned __int16 *)(a2 + 128), (UNICODE_STRING *)v35);
         if ( LoggerInfoFromContext < 0 )
           goto LABEL_50;
         if ( *((_QWORD *)v9 + 90) )
@@ -150,14 +150,14 @@ LABEL_53:
           v9[52] = (v11 & 0x10) != 0 ? 1000 : 1;
 LABEL_17:
         v14 = *(_QWORD *)(v9 + 69);
-        v15 = HeapGuid - v14;
-        if ( HeapGuid == v14 )
-          v15 = 0x4AA2F2756B3425A8LL - *(_QWORD *)(v9 + 71);
+        v15 = *(_QWORD *)&HeapGuid.Data1 - v14;
+        if ( *(_QWORD *)&HeapGuid.Data1 == v14 )
+          v15 = *(_QWORD *)HeapGuid.Data4 - *(_QWORD *)(v9 + 71);
         if ( v15 )
         {
-          v16 = CritSecGuid - v14;
-          if ( CritSecGuid == v14 )
-            v16 = 0x6B81390EF58D1581LL - *(_QWORD *)(v9 + 71);
+          v16 = *(_QWORD *)&CritSecGuid.Data1 - v14;
+          if ( *(_QWORD *)&CritSecGuid.Data1 == v14 )
+            v16 = *(_QWORD *)CritSecGuid.Data4 - *(_QWORD *)(v9 + 71);
           v17 = a1;
           if ( v16 )
           {
@@ -208,25 +208,25 @@ LABEL_23:
                 {
                   _InterlockedOr((volatile signed __int32 *)v9 + 206, 0x800u);
                   v11 |= 0x80000u;
-                  v22 = 0;
+                  v22 = 0LL;
                   if ( ((_BYTE)KdDebuggerNotPresent || KdPitchDebugger) && !KdEventLoggingPresent )
                     goto LABEL_41;
                   EtwpSendDbgId((__int64)v9, v18, 0LL, v19);
 LABEL_40:
-                  v22 = 0;
+                  v22 = 0LL;
 LABEL_41:
                   if ( (v10 & 0x80u) == 0 )
                     goto LABEL_47;
                   P = 0LL;
                   EtwpGetSecurityDescriptorByGuid(v9 + 69, &P);
                   v23 = P;
-                  updated = EtwpUpdateLoggerSecurityDescriptor((__int64)v9, P);
-                  v22 = 0;
+                  updated = EtwpUpdateLoggerSecurityDescriptor(v9, P);
+                  v22 = 0LL;
                   LoggerInfoFromContext = updated;
                   if ( v23 && v23 != (PVOID)WmipDefaultAccessSd && v23 != EtwpDefaultTraceSecurityDescriptor )
                   {
                     ExFreePoolWithTag(v23, 0);
-                    v22 = 0;
+                    v22 = 0LL;
                   }
                   if ( LoggerInfoFromContext >= 0 )
                   {
@@ -253,9 +253,13 @@ LABEL_98:
                       }
                     }
                     v9[53] = v25;
-                    LoggerInfoFromContext = EtwpGetLoggerInfoFromContext(a2, v9);
-                    if ( EtwEventEnabled(EtwpEventTracingProvRegHandle, &ETW_EVENT_UPDATE_TRACE) )
+                    LoggerInfoFromContext = EtwpGetLoggerInfoFromContext(a2, (__int64)v9, v22, (__int64)v19);
+                    if ( EtwEventEnabled(
+                           (REGHANDLE)stru_140F03830.SavedApcState.ApcListHead[0].Blink,
+                           &ETW_EVENT_UPDATE_TRACE) )
+                    {
                       EtwpEventWriteTemplateSession(v26, &ETW_EVENT_UPDATE_TRACE, v9);
+                    }
                   }
                   goto LABEL_50;
                 }

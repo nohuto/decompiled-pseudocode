@@ -7,9 +7,9 @@
  *     <none>
  */
 
-__int64 __fastcall SepSidFromProcessProtection(_BYTE *a1)
+PSID __fastcall SepSidFromProcessProtection(_BYTE *a1)
 {
-  __int64 result; // rax
+  PSID result; // rax
 
   result = 0LL;
   if ( *a1 == 98 )
@@ -17,24 +17,24 @@ __int64 __fastcall SepSidFromProcessProtection(_BYTE *a1)
   switch ( *a1 )
   {
     case 0x12:
-      result = SeProcTrustAuthenticodeSid;
+      result = (PSID)SeProcTrustAuthenticodeSid;
       break;
     case 0x31:
-      result = SeProcTrustLiteAntimalwareSid;
+      result = (PSID)SeProcTrustLiteAntimalwareSid;
       break;
     case 0x51:
-      result = SeProcTrustLiteWinSid;
+      result = (PSID)SeProcTrustLiteWinSid;
       break;
     case 0x52:
-      result = SeProcTrustWinSid;
+      result = (PSID)SeProcTrustWinSid;
       break;
     case 0x61:
-      result = SeProcTrustLiteWinTcbSid;
+      result = (PSID)SeProcTrustLiteWinTcbSid;
       break;
     case 0x72:
       return SeProcTrustWinTcbSid;
     case 0x81:
-      result = SeProcTrustLiteAppSid;
+      result = (PSID)SeProcTrustLiteAppSid;
       break;
     default:
       return result;

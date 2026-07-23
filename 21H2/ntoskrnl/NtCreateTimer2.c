@@ -1,77 +1,82 @@
 /*
- * XREFs of NtCreateTimer2 @ 0x1406D4930
+ * XREFs of NtCreateTimer2 @ 0x1406ABC10
  * Callers:
- *     NtCreateIRTimer @ 0x14078ECD0 (NtCreateIRTimer.c)
+ *     NtCreateIRTimer @ 0x14078EE90 (NtCreateIRTimer.c)
  * Callees:
- *     ExpExTimerAttributesAreValid @ 0x1402E9220 (ExpExTimerAttributesAreValid.c)
- *     KeInitializeTimer2 @ 0x1402E9260 (KeInitializeTimer2.c)
- *     KeInitializeIRTimer @ 0x1403813E0 (KeInitializeIRTimer.c)
- *     ObCreateObjectEx @ 0x140704810 (ObCreateObjectEx.c)
- *     ObInsertObjectEx @ 0x140704A20 (ObInsertObjectEx.c)
- *     ExpCheckIRTimerAccess @ 0x1407728E8 (ExpCheckIRTimerAccess.c)
+ *     ExpExTimerAttributesAreValid @ 0x14029A570 (ExpExTimerAttributesAreValid.c)
+ *     KeInitializeTimer2 @ 0x14029A5B0 (KeInitializeTimer2.c)
+ *     KeInitializeIRTimer @ 0x140380F30 (KeInitializeIRTimer.c)
+ *     ObCreateObjectEx @ 0x14071BBF0 (ObCreateObjectEx.c)
+ *     ObInsertObjectEx @ 0x14071BE00 (ObInsertObjectEx.c)
+ *     ExpCheckIRTimerAccess @ 0x140772AA8 (ExpCheckIRTimerAccess.c)
  */
 
-__int64 __fastcall NtCreateTimer2(__int64 *a1, __int64 a2, __int64 a3, unsigned int a4)
+NTSTATUS __cdecl NtCreateTimer2(
+        PHANDLE TimerHandle,
+        PVOID Reserved1,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        ULONG Attributes,
+        ACCESS_MASK DesiredAccess)
 {
-  __int64 v6; // rdx
-  __int64 v7; // rcx
-  __int64 v8; // r9
-  unsigned int *v9; // r10
+  __int64 v7; // rdx
+  __int64 v8; // rcx
+  __int64 v9; // r9
+  unsigned int *v10; // r10
   char PreviousMode; // si
-  int Object; // ecx
-  PADAPTER_OBJECT v12; // rbx
-  __int64 result; // rax
-  unsigned int v14; // [rsp+50h] [rbp-28h] BYREF
+  NTSTATUS Object; // ecx
+  PADAPTER_OBJECT v13; // rbx
+  NTSTATUS result; // eax
+  unsigned int v15; // [rsp+50h] [rbp-28h] BYREF
   PADAPTER_OBJECT DmaAdapter; // [rsp+58h] [rbp-20h]
-  __int64 v16; // [rsp+60h] [rbp-18h] BYREF
+  __int64 v17; // [rsp+60h] [rbp-18h] BYREF
 
-  v16 = 0LL;
+  v17 = 0LL;
   DmaAdapter = 0LL;
-  if ( !ExpExTimerAttributesAreValid(a4) )
-    return 3221225714LL;
-  if ( v8 )
-    return 3221225713LL;
-  if ( v9 && (a4 & 2) == 0 )
-    return 3221225712LL;
-  v14 = 0;
+  if ( !ExpExTimerAttributesAreValid(Attributes) )
+    return -1073741582;
+  if ( v9 )
+    return -1073741583;
+  if ( v10 && (Attributes & 2) == 0 )
+    return -1073741584;
+  v15 = 0;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
   {
-    v6 = 0x7FFFFFFF0000LL;
     v7 = 0x7FFFFFFF0000LL;
-    if ( (unsigned __int64)a1 < 0x7FFFFFFF0000LL )
-      v7 = (__int64)a1;
-    *(_QWORD *)v7 = *(_QWORD *)v7;
-    if ( v9 )
+    v8 = 0x7FFFFFFF0000LL;
+    if ( (unsigned __int64)TimerHandle < 0x7FFFFFFF0000LL )
+      v8 = (__int64)TimerHandle;
+    *(_QWORD *)v8 = *(_QWORD *)v8;
+    if ( v10 )
     {
-      if ( (unsigned __int64)v9 < 0x7FFFFFFF0000LL )
-        v6 = (__int64)v9;
-      v14 = *(_DWORD *)v6;
+      if ( (unsigned __int64)v10 < 0x7FFFFFFF0000LL )
+        v7 = (__int64)v10;
+      v15 = *(_DWORD *)v7;
     }
   }
-  else if ( v9 )
+  else if ( v10 )
   {
-    v14 = *v9;
+    v15 = *v10;
   }
-  if ( (a4 & 2) == 0 || (LOBYTE(v6) = PreviousMode, result = ExpCheckIRTimerAccess(v14, v6), (int)result >= 0) )
+  if ( (Attributes & 2) == 0 || (LOBYTE(v7) = PreviousMode, result = ExpCheckIRTimerAccess(v15, v7), result >= 0) )
   {
-    LOBYTE(v7) = PreviousMode;
-    Object = ObCreateObjectEx(v7, (_DWORD)ExpIRTimerObjectType, 0, PreviousMode);
+    LOBYTE(v8) = PreviousMode;
+    Object = ObCreateObjectEx(v8, (_DWORD)ExpIRTimerObjectType, 0, PreviousMode);
     if ( Object >= 0 )
     {
-      v12 = DmaAdapter;
-      if ( (a4 & 2) != 0 )
-        KeInitializeIRTimer((__int64)DmaAdapter, 0LL, 0LL, (unsigned __int8 *)&v14, a4);
+      v13 = DmaAdapter;
+      if ( (Attributes & 2) != 0 )
+        KeInitializeIRTimer((__int64)DmaAdapter, 0LL, 0LL, (unsigned __int8 *)&v15, Attributes);
       else
-        KeInitializeTimer2((__int64)DmaAdapter, 0LL, 0LL, a4);
-      v12[8].DmaOperations = 0LL;
-      *(_DWORD *)&v12[10].Version = a4;
-      Object = ObInsertObjectEx(v12, 0LL, 0, 0LL, (__int64)&v16);
-      v14 = Object;
+        KeInitializeTimer2((__int64)DmaAdapter, 0LL, 0LL, Attributes);
+      v13[8].DmaOperations = 0LL;
+      *(_DWORD *)&v13[10].Version = Attributes;
+      Object = ObInsertObjectEx(v13, 0LL, 0, 0LL, (__int64)&v17);
+      v15 = Object;
       if ( Object >= 0 )
-        *a1 = v16;
+        *TimerHandle = (HANDLE)v17;
     }
-    return (unsigned int)Object;
+    return Object;
   }
   return result;
 }

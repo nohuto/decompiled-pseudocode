@@ -1,50 +1,50 @@
 /*
  * XREFs of ObOpenObjectByPointer @ 0x1407277A0
  * Callers:
- *     SPCallServerHandleFileIntegrityUpdate @ 0x14065EA54 (SPCallServerHandleFileIntegrityUpdate.c)
- *     PsOpenThread @ 0x1406634A0 (PsOpenThread.c)
- *     PspOneDirectionSecurityDomainCombine @ 0x14066CC94 (PspOneDirectionSecurityDomainCombine.c)
- *     CmLoadDifferencingKey @ 0x14067CE4C (CmLoadDifferencingKey.c)
- *     CmConvertHandleToKernelHandle @ 0x14067DA70 (CmConvertHandleToKernelHandle.c)
- *     VrpPreLoadKey @ 0x14069061C (VrpPreLoadKey.c)
- *     VrpPostEnumerateKey @ 0x140691CD8 (VrpPostEnumerateKey.c)
- *     ObpSetDeviceMap @ 0x14069B8FC (ObpSetDeviceMap.c)
- *     PiCMDuplicateRegistryHandle @ 0x1406BAD74 (PiCMDuplicateRegistryHandle.c)
- *     CmFcManagerQueryFeatureConfigurationSectionInformation @ 0x1406BC6A8 (CmFcManagerQueryFeatureConfigurationSectionInformation.c)
- *     NtOpenPrivateNamespace @ 0x1406C0720 (NtOpenPrivateNamespace.c)
- *     WmipIoControl @ 0x1406C3540 (WmipIoControl.c)
- *     NtGetNextProcess @ 0x1406D2920 (NtGetNextProcess.c)
- *     NtGetNextThread @ 0x1406D7150 (NtGetNextThread.c)
- *     EtwpOpenConsumer @ 0x1406ECA80 (EtwpOpenConsumer.c)
- *     PspCreateObjectHandle @ 0x140701A98 (PspCreateObjectHandle.c)
+ *     sub_14065EA54 @ 0x14065EA54 (sub_14065EA54.c)
+ *     sub_1406634A0 @ 0x1406634A0 (sub_1406634A0.c)
+ *     sub_14066CC94 @ 0x14066CC94 (sub_14066CC94.c)
+ *     sub_14067CE4C @ 0x14067CE4C (sub_14067CE4C.c)
+ *     sub_14067DA70 @ 0x14067DA70 (sub_14067DA70.c)
+ *     sub_14069061C @ 0x14069061C (sub_14069061C.c)
+ *     sub_140691CD8 @ 0x140691CD8 (sub_140691CD8.c)
+ *     sub_14069B8FC @ 0x14069B8FC (sub_14069B8FC.c)
+ *     sub_1406BAD74 @ 0x1406BAD74 (sub_1406BAD74.c)
+ *     sub_1406BC6A8 @ 0x1406BC6A8 (sub_1406BC6A8.c)
+ *     sub_1406C0720 @ 0x1406C0720 (sub_1406C0720.c)
+ *     sub_1406C3540 @ 0x1406C3540 (sub_1406C3540.c)
+ *     sub_1406D2920 @ 0x1406D2920 (sub_1406D2920.c)
+ *     sub_1406D7150 @ 0x1406D7150 (sub_1406D7150.c)
+ *     sub_1406ECA80 @ 0x1406ECA80 (sub_1406ECA80.c)
+ *     sub_140701A98 @ 0x140701A98 (sub_140701A98.c)
  *     NtOpenThreadTokenEx @ 0x140725A50 (NtOpenThreadTokenEx.c)
- *     PsOpenProcess @ 0x1407292A0 (PsOpenProcess.c)
+ *     sub_1407292A0 @ 0x1407292A0 (sub_1407292A0.c)
  *     NtQueryInformationProcess @ 0x14073DA00 (NtQueryInformationProcess.c)
- *     PspCombineSecurityDomains @ 0x1407527F4 (PspCombineSecurityDomains.c)
- *     ExGetNextProcess @ 0x1407B69F0 (ExGetNextProcess.c)
- *     NtCreateWorkerFactory @ 0x1407D5050 (NtCreateWorkerFactory.c)
- *     IopInvalidateVolumesForDevice @ 0x14080AB40 (IopInvalidateVolumesForDevice.c)
- *     CmpInitializeRegistryProcess @ 0x140831BF4 (CmpInitializeRegistryProcess.c)
- *     ObInitServerSilo @ 0x140859318 (ObInitServerSilo.c)
- *     SmRegistrationInfoFill @ 0x14085EA64 (SmRegistrationInfoFill.c)
- *     MmManagePartitionGetMemoryEvents @ 0x140861BA4 (MmManagePartitionGetMemoryEvents.c)
- *     DbgkOpenProcessDebugPort @ 0x1409272A0 (DbgkOpenProcessDebugPort.c)
- *     DbgkpOpenHandles @ 0x140927AE4 (DbgkpOpenHandles.c)
- *     DbgkUserReportWorkRoutine @ 0x140929C60 (DbgkUserReportWorkRoutine.c)
- *     MiOpenSpecialPurposeMemory @ 0x14096E7E4 (MiOpenSpecialPurposeMemory.c)
+ *     sub_1407527F4 @ 0x1407527F4 (sub_1407527F4.c)
+ *     sub_1407B69F0 @ 0x1407B69F0 (sub_1407B69F0.c)
+ *     sub_1407D5050 @ 0x1407D5050 (sub_1407D5050.c)
+ *     sub_14080AB40 @ 0x14080AB40 (sub_14080AB40.c)
+ *     sub_140831BF4 @ 0x140831BF4 (sub_140831BF4.c)
+ *     sub_140859318 @ 0x140859318 (sub_140859318.c)
+ *     sub_14085EA64 @ 0x14085EA64 (sub_14085EA64.c)
+ *     sub_140861BA4 @ 0x140861BA4 (sub_140861BA4.c)
+ *     sub_1409272A0 @ 0x1409272A0 (sub_1409272A0.c)
+ *     sub_140927AE4 @ 0x140927AE4 (sub_140927AE4.c)
+ *     sub_140929C60 @ 0x140929C60 (sub_140929C60.c)
+ *     sub_14096E7E4 @ 0x14096E7E4 (sub_14096E7E4.c)
  *     ObOpenObjectByPointerWithTag @ 0x140985170 (ObOpenObjectByPointerWithTag.c)
- *     TtmiOpenDefaultTerminal @ 0x1409A325C (TtmiOpenDefaultTerminal.c)
- *     SmKmFileInfoDuplicate @ 0x1409D5860 (SmKmFileInfoDuplicate.c)
- *     EtwpCapturePreviousRegistryData @ 0x1409E5A54 (EtwpCapturePreviousRegistryData.c)
+ *     sub_1409A325C @ 0x1409A325C (sub_1409A325C.c)
+ *     sub_1409D5860 @ 0x1409D5860 (sub_1409D5860.c)
+ *     sub_1409E5A54 @ 0x1409E5A54 (sub_1409E5A54.c)
  * Callees:
  *     ObReferenceObjectByPointerWithTag @ 0x1402A48C0 (ObReferenceObjectByPointerWithTag.c)
  *     ObfDereferenceObjectWithTag @ 0x1402AC540 (ObfDereferenceObjectWithTag.c)
- *     SepDeleteAccessState @ 0x1403478A0 (SepDeleteAccessState.c)
- *     SepCreateAccessStateFromSubjectContext @ 0x140347A20 (SepCreateAccessStateFromSubjectContext.c)
+ *     sub_1403478A0 @ 0x1403478A0 (sub_1403478A0.c)
+ *     sub_140347A20 @ 0x140347A20 (sub_140347A20.c)
  *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
  *     memset @ 0x140435E00 (memset.c)
  *     SeCaptureSubjectContextEx @ 0x14072A390 (SeCaptureSubjectContextEx.c)
- *     ObpCreateHandle @ 0x140731DA0 (ObpCreateHandle.c)
+ *     sub_140731DA0 @ 0x140731DA0 (sub_140731DA0.c)
  *     SeReleaseSubjectContext @ 0x1407CA9B0 (SeReleaseSubjectContext.c)
  */
 
@@ -73,11 +73,10 @@ NTSTATUS __stdcall ObOpenObjectByPointer(
   if ( result >= 0 )
   {
     if ( !ObjectType )
-      v11 = (POBJECT_TYPE)ObTypeIndexTable[(unsigned __int8)ObHeaderCookie ^ (unsigned __int8)*((char *)Object - 24) ^ (unsigned __int64)(unsigned __int8)((unsigned __int16)((_WORD)Object - 48) >> 8)];
-    if ( (HandleAttributes & v11->TypeInfo.InvalidAttributes) != 0
-      || (*((char *)Object - 21) & 1) != 0 && *((_QWORD *)Object - 2) )
+      v11 = (POBJECT_TYPE)qword_140D07490[(unsigned __int8)dword_140D06C0C ^ (unsigned __int8)*((char *)Object - 24) ^ (unsigned __int64)(unsigned __int8)((unsigned __int16)((_WORD)Object - 48) >> 8)];
+    if ( (HandleAttributes & *((_DWORD *)v11 + 18)) != 0 || (*((char *)Object - 21) & 1) != 0 && *((_QWORD *)Object - 2) )
     {
-      ++ObpInvalidOpenByPointer;
+      ++dword_140C246E0;
       ObfDereferenceObjectWithTag(Object, 0x6E48624Fu);
       return -1073741811;
     }
@@ -86,13 +85,8 @@ NTSTATUS __stdcall ObOpenObjectByPointer(
       if ( !PassedAccessState )
       {
         memset(&SubjectContext, 0, sizeof(SubjectContext));
-        SeCaptureSubjectContextEx(KeGetCurrentThread(), KeGetCurrentThread()->ApcState.Process, &SubjectContext);
-        v14 = SepCreateAccessStateFromSubjectContext(
-                &SubjectContext,
-                v16,
-                v17,
-                DesiredAccess,
-                &v11->TypeInfo.GenericMapping);
+        SeCaptureSubjectContextEx(KeGetCurrentThread(), *((PEPROCESS *)KeGetCurrentThread() + 23), &SubjectContext);
+        v14 = sub_140347A20(&SubjectContext, v16, v17, DesiredAccess, (PGENERIC_MAPPING)((char *)v11 + 76));
         if ( v14 < 0 )
         {
           ObfDereferenceObjectWithTag(Object, 0x6E48624Fu);
@@ -100,12 +94,12 @@ NTSTATUS __stdcall ObOpenObjectByPointer(
         }
         PassedAccessState = (PACCESS_STATE)v16;
       }
-      v13 = ObpCreateHandle(1LL, Object, 0LL, PassedAccessState, 0, HandleAttributes, AccessMode, 0LL, 0, 0LL, Handle);
+      v13 = sub_140731DA0(1LL, Object, 0LL, PassedAccessState, 0, HandleAttributes, AccessMode, 0LL, 0, 0LL, Handle);
       if ( v13 < 0 )
         ObfDereferenceObjectWithTag(Object, 0x6E48624Fu);
       if ( PassedAccessState == (PACCESS_STATE)v16 )
       {
-        SepDeleteAccessState((__int64)PassedAccessState);
+        sub_1403478A0((__int64)PassedAccessState);
         SeReleaseSubjectContext(&PassedAccessState->SubjectSecurityContext);
       }
       return v13;

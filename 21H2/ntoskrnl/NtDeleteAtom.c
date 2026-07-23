@@ -1,20 +1,20 @@
 /*
- * XREFs of NtDeleteAtom @ 0x1406A12F0
+ * XREFs of NtDeleteAtom @ 0x140600A80
  * Callers:
  *     <none>
  * Callees:
- *     PsInvokeWin32Callout @ 0x14061B140 (PsInvokeWin32Callout.c)
- *     RtlDeleteAtomFromAtomTable @ 0x1406A1480 (RtlDeleteAtomFromAtomTable.c)
+ *     RtlDeleteAtomFromAtomTable @ 0x140600C10 (RtlDeleteAtomFromAtomTable.c)
+ *     PsInvokeWin32Callout @ 0x140684DA0 (PsInvokeWin32Callout.c)
  */
 
-__int64 __fastcall NtDeleteAtom(unsigned __int16 a1)
+NTSTATUS __cdecl NtDeleteAtom(RTL_ATOM Atom)
 {
-  __int64 v3; // [rsp+38h] [rbp+10h] BYREF
+  PVOID AtomTableHandle; // [rsp+38h] [rbp+10h] BYREF
 
-  v3 = 0LL;
-  PsInvokeWin32Callout(2, (__int64)&v3, 0, 0LL);
-  if ( v3 )
-    return RtlDeleteAtomFromAtomTable(v3, a1);
+  AtomTableHandle = 0LL;
+  PsInvokeWin32Callout(2LL, &AtomTableHandle, 0LL, 0LL);
+  if ( AtomTableHandle )
+    return RtlDeleteAtomFromAtomTable(AtomTableHandle, Atom);
   else
-    return 3221225506LL;
+    return -1073741790;
 }

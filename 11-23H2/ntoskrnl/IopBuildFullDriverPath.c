@@ -2,15 +2,15 @@
  * XREFs of IopBuildFullDriverPath @ 0x14068DB7C
  * Callers:
  *     PpCheckInDriverDatabase @ 0x140692C14 (PpCheckInDriverDatabase.c)
- *     IopLoadDriver @ 0x1407945D8 (IopLoadDriver.c)
- *     PiNormalizeDeviceText @ 0x140870EB8 (PiNormalizeDeviceText.c)
+ *     IopLoadDriver @ 0x1407947C8 (IopLoadDriver.c)
+ *     PiNormalizeDeviceText @ 0x1408710F8 (PiNormalizeDeviceText.c)
  * Callees:
  *     RtlAppendUnicodeStringToString @ 0x140208A00 (RtlAppendUnicodeStringToString.c)
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
  *     IopGetRegistryValue @ 0x14068CE78 (IopGetRegistryValue.c)
  *     IopQueryRegistryKeySystemPath @ 0x14068ECA0 (IopQueryRegistryKeySystemPath.c)
- *     RtlPrefixUnicodeString @ 0x1406D9E20 (RtlPrefixUnicodeString.c)
- *     RtlFreeUnicodeString @ 0x14076F3D0 (RtlFreeUnicodeString.c)
+ *     RtlPrefixUnicodeString @ 0x1406D9E50 (RtlPrefixUnicodeString.c)
+ *     RtlFreeUnicodeString @ 0x14076F5C0 (RtlFreeUnicodeString.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

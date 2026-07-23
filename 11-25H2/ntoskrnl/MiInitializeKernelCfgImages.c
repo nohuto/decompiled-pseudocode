@@ -14,20 +14,20 @@
 __int64 __fastcall MiInitializeKernelCfgImages(ULONG_PTR BugCheckParameter2, __int64 a2)
 {
   int KernelCfgBitmapPageTables; // eax
-  unsigned __int64 v5; // rdx
-  __int64 v6; // rt1
+  void *v5; // rdx
+  void *v6; // rt1
   int Config; // eax
-  __int64 v8; // [rsp+48h] [rbp+10h] BYREF
+  PIMAGE_NT_HEADERS OutHeaders; // [rsp+48h] [rbp+10h] BYREF
 
   if ( a2 )
   {
     if ( (*(_DWORD *)(BugCheckParameter2 + 104) & 0x2000) != 0 )
       return 0LL;
-    v5 = *(_QWORD *)(BugCheckParameter2 + 48);
-    v6 = *(_QWORD *)&KeNumberProcessorsGroup0[9];
+    v5 = *(void **)(BugCheckParameter2 + 48);
+    v6 = *(void **)&KeNumberProcessorsGroup0[9];
     if ( v5 == v6 )
     {
-      RtlImageNtHeaderEx(1, v5, 0LL, &v8);
+      RtlImageNtHeaderEx(1u, v5, 0LL, &OutHeaders);
       Config = MiMarkKernelImageCfgBits(BugCheckParameter2, 1);
       *(_DWORD *)(BugCheckParameter2 + 104) |= 0x2000u;
     }

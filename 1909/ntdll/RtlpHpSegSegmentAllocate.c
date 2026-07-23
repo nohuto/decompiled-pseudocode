@@ -13,10 +13,9 @@
  *     RtlpHpTlLogMemStats @ 0x180107428 (RtlpHpTlLogMemStats.c)
  */
 
-__int64 __fastcall RtlpHpSegSegmentAllocate(__int64 a1, int a2)
+__int64 __fastcall RtlpHpSegSegmentAllocate(__int64 a1, int a2, int a3)
 {
-  unsigned int v2; // ebp
-  unsigned int v4; // r13d
+  unsigned int v3; // ebp
   __int64 v5; // rdi
   __int64 v6; // r8
   unsigned __int64 v7; // rax
@@ -28,9 +27,8 @@ __int64 __fastcall RtlpHpSegSegmentAllocate(__int64 a1, int a2)
   __int64 v13; // rcx
   __int64 v14; // rsi
 
-  v2 = a2 + 2;
-  v4 = 0;
-  v5 = RtlpHpSegMgrAllocate(a1, (unsigned int)(a2 + 2));
+  v3 = a2 + 2;
+  v5 = RtlpHpSegMgrAllocate(a1, a2 + 2, a3);
   if ( !v5 )
     return 0LL;
   v7 = (unsigned int)-*(_DWORD *)a1;
@@ -41,16 +39,15 @@ __int64 __fastcall RtlpHpSegSegmentAllocate(__int64 a1, int a2)
   if ( v10 >= v11 )
   {
 LABEL_5:
-    v4 = 1;
     _InterlockedExchangeAdd64((volatile signed __int64 *)(*(__int16 *)(a1 + 22) + a1), v8 >> 12);
-    _InterlockedExchangeAdd64((volatile signed __int64 *)(*(__int16 *)(a1 + 22) + a1 + 8), v2);
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+    _InterlockedExchangeAdd64((volatile signed __int64 *)(*(__int16 *)(a1 + 22) + a1 + 8), v3);
+    if ( RtlGetCurrentServiceSessionId() )
       v12 = (__int64)NtCurrentPeb()->SharedData + 550;
     else
       v12 = 2147353472LL;
     if ( *(_BYTE *)v12 && (NtCurrentPeb()->TracingFlags & 1) != 0 )
-      RtlpLogHeapCommit(*(_QWORD *)(a1 + 56), v5, v2 << 12, 12LL);
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+      RtlpLogHeapCommit(*(_QWORD *)(a1 + 56), v5, v3 << 12, 12LL);
+    if ( RtlGetCurrentServiceSessionId() )
       v13 = (__int64)NtCurrentPeb()->SharedData + 558;
     else
       v13 = 2147353480LL;
@@ -63,7 +60,7 @@ LABEL_5:
   }
   else
   {
-    while ( (int)RtlCSparseBitmapBitmaskWrite(&unk_180166A70, v10, v6, v9 + 1) >= 0 )
+    while ( (int)RtlCSparseBitmapBitmaskWrite(&BaseAddress, v10, v6, v9 + 1) >= 0 )
     {
       v10 += 2LL;
       if ( v10 >= v11 )
@@ -72,6 +69,6 @@ LABEL_5:
     v14 = 0LL;
   }
   if ( v5 )
-    RtlpHpSegSegmentFree(a1, v5, v2, v4);
+    RtlpHpSegSegmentFree(a1);
   return v14;
 }

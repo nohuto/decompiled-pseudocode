@@ -1,13 +1,13 @@
 /*
- * XREFs of MiAllocateUserPhysicalPagesCleanup @ 0x140877BB0
+ * XREFs of MiAllocateUserPhysicalPagesCleanup @ 0x14087DF90
  * Callers:
- *     MiAllocateUserPhysicalPages @ 0x140877868 (MiAllocateUserPhysicalPages.c)
+ *     MiAllocateUserPhysicalPages @ 0x14087DC48 (MiAllocateUserPhysicalPages.c)
  * Callees:
- *     KiUnstackDetachProcess @ 0x1402307C0 (KiUnstackDetachProcess.c)
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     UNLOCK_ADDRESS_SPACE_SHARED @ 0x1404057B0 (UNLOCK_ADDRESS_SPACE_SHARED.c)
- *     LOCK_ADDRESS_SPACE_SHARED @ 0x140405820 (LOCK_ADDRESS_SPACE_SHARED.c)
- *     MiReturnProcessCommitment @ 0x14048552C (MiReturnProcessCommitment.c)
+ *     KiUnstackDetachProcess @ 0x140232120 (KiUnstackDetachProcess.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     UNLOCK_ADDRESS_SPACE_SHARED @ 0x1403FE8A4 (UNLOCK_ADDRESS_SPACE_SHARED.c)
+ *     LOCK_ADDRESS_SPACE_SHARED @ 0x1403FE914 (LOCK_ADDRESS_SPACE_SHARED.c)
+ *     MiReturnProcessCommitment @ 0x14047EE9C (MiReturnProcessCommitment.c)
  */
 
 LONG_PTR __fastcall MiAllocateUserPhysicalPagesCleanup(

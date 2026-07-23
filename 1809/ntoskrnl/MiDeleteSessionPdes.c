@@ -1,13 +1,13 @@
 /*
- * XREFs of MiDeleteSessionPdes @ 0x140158D60
+ * XREFs of MiDeleteSessionPdes @ 0x140158E60
  * Callers:
- *     MiUnloadSystemImage @ 0x140651AA4 (MiUnloadSystemImage.c)
+ *     MiUnloadSystemImage @ 0x140652C64 (MiUnloadSystemImage.c)
  * Callees:
- *     MiReturnCommit @ 0x140065D40 (MiReturnCommit.c)
- *     MiDeletePagablePteRange @ 0x140067FE0 (MiDeletePagablePteRange.c)
- *     MiGetSessionVm @ 0x1400E945C (MiGetSessionVm.c)
- *     MiReturnSystemCharges @ 0x1401207D4 (MiReturnSystemCharges.c)
- *     memset @ 0x1401D1880 (memset.c)
+ *     MiReturnCommit @ 0x140065D30 (MiReturnCommit.c)
+ *     MiDeletePagablePteRange @ 0x140067FD0 (MiDeletePagablePteRange.c)
+ *     MiGetSessionVm @ 0x1400E94DC (MiGetSessionVm.c)
+ *     MiReturnSystemCharges @ 0x1401208A4 (MiReturnSystemCharges.c)
+ *     memset @ 0x1401D1980 (memset.c)
  */
 
 void __fastcall MiDeleteSessionPdes(__int64 a1, __int64 a2)
@@ -19,7 +19,7 @@ void __fastcall MiDeleteSessionPdes(__int64 a1, __int64 a2)
 
   memset(v7, 0, 0x28uLL);
   SessionVm = MiGetSessionVm();
-  v5 = *(_QWORD *)(qword_14043A748 + 8LL * *(unsigned __int16 *)(SessionVm + 174));
+  v5 = *(_QWORD *)(qword_14043B808 + 8LL * *(unsigned __int16 *)(SessionVm + 174));
   MiDeletePagablePteRange(SessionVm, 0x11u, a1 << 25 >> 16 << 25 >> 16, a2 << 25 >> 16 << 25 >> 16, 1, 0, (__int64)v7);
   v6 = v7[0];
   MiReturnCommit(v5, v7[0]);

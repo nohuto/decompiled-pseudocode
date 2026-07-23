@@ -1,14 +1,14 @@
 /*
- * XREFs of VerifierExAllocatePoolWithQuotaTag @ 0x1409D4E70
+ * XREFs of VerifierExAllocatePoolWithQuotaTag @ 0x1409D5E70
  * Callers:
  *     <none>
  * Callees:
- *     RtlRaiseStatus @ 0x14029AF80 (RtlRaiseStatus.c)
- *     ExAllocatePoolWithQuotaTag @ 0x140353020 (ExAllocatePoolWithQuotaTag.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     VfCheckPoolType @ 0x1409C7D64 (VfCheckPoolType.c)
- *     VerifierBugCheckIfAppropriate @ 0x1409D0D54 (VerifierBugCheckIfAppropriate.c)
- *     VeAllocatePoolWithTagPriority @ 0x1409D45D0 (VeAllocatePoolWithTagPriority.c)
+ *     RtlRaiseStatus @ 0x140212910 (RtlRaiseStatus.c)
+ *     ExAllocatePoolWithQuotaTag @ 0x14035DD70 (ExAllocatePoolWithQuotaTag.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     VfCheckPoolType @ 0x1409C8D64 (VfCheckPoolType.c)
+ *     VerifierBugCheckIfAppropriate @ 0x1409D1D54 (VerifierBugCheckIfAppropriate.c)
+ *     VeAllocatePoolWithTagPriority @ 0x1409D55D0 (VeAllocatePoolWithTagPriority.c)
  */
 
 PVOID __fastcall VerifierExAllocatePoolWithQuotaTag(__int32 PoolType, ULONG_PTR BugCheckParameter3, ULONG Tag)
@@ -33,7 +33,7 @@ PVOID __fastcall VerifierExAllocatePoolWithQuotaTag(__int32 PoolType, ULONG_PTR 
       v7 = PoolType;
     v8 = v7 | 0x80;
     if ( XdvEnabled )
-      result = (PVOID)pXdvExAllocatePoolWithQuotaTag(
+      result = (PVOID)pXdvExAllocatePoolWithQuotaTag[0](
                         v8,
                         BugCheckParameter3,
                         Tag,
@@ -43,7 +43,7 @@ PVOID __fastcall VerifierExAllocatePoolWithQuotaTag(__int32 PoolType, ULONG_PTR 
     else
       result = VeAllocatePoolWithTagPriority(v8, BugCheckParameter3, Tag, HighPoolPriority, retaddr);
     if ( !result && (PoolType & 8) == 0 )
-      RtlRaiseStatus(0xC000009A);
+      RtlRaiseStatus(-1073741670);
   }
   else
   {

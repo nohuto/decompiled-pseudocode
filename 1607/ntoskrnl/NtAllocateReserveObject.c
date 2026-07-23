@@ -3,47 +3,52 @@
  * Callers:
  *     <none>
  * Callees:
- *     memset @ 0x1401715C0 (memset.c)
- *     ObInsertObject @ 0x140471424 (ObInsertObject.c)
- *     ObCreateObject @ 0x14047181C (ObCreateObject.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     ObInsertObject @ 0x1404702F4 (ObInsertObject.c)
+ *     ObCreateObject @ 0x1404706EC (ObCreateObject.c)
  */
 
-__int64 __fastcall NtAllocateReserveObject(unsigned __int64 a1, int a2, int a3)
+NTSTATUS __cdecl NtAllocateReserveObject(
+        PHANDLE MemoryReserveHandle,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        MEMORY_RESERVE_TYPE Type)
 {
   __int64 v3; // r14
-  _QWORD *v5; // rdi
+  int v4; // r8d
+  PHANDLE v5; // rdi
   char PreviousMode; // si
   __int64 v7; // rdx
-  __int64 result; // rax
+  NTSTATUS result; // eax
   _DWORD *v9; // rbx
-  NTSTATUS inserted; // edx
+  int inserted; // edx
   HANDLE Handle; // [rsp+50h] [rbp-28h] BYREF
   PVOID Object; // [rsp+98h] [rbp+20h] BYREF
 
-  v3 = a3;
-  v5 = (_QWORD *)a1;
+  v3 = Type;
+  v4 = (int)ObjectAttributes;
+  v5 = MemoryReserveHandle;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
   {
-    v7 = a1;
-    if ( a1 >= 0x7FFFFFFF0000LL )
+    v7 = (__int64)MemoryReserveHandle;
+    if ( (unsigned __int64)MemoryReserveHandle >= 0x7FFFFFFF0000LL )
       v7 = 0x7FFFFFFF0000LL;
     *(_QWORD *)v7 = *(_QWORD *)v7;
   }
   if ( (unsigned int)v3 > 1 )
-    return 3221225485LL;
-  LOBYTE(a1) = PreviousMode;
+    return -1073741811;
+  LOBYTE(MemoryReserveHandle) = PreviousMode;
   result = ObCreateObject(
-             a1,
+             (_DWORD)MemoryReserveHandle,
              (unsigned int)*(&PspMemoryReserveObjectTypes + v3),
-             a2,
+             v4,
              PreviousMode,
              0,
              PspMemoryReserveObjectSizes[v3],
              0,
              0,
              (__int64)&Object);
-  if ( (int)result >= 0 )
+  if ( result >= 0 )
   {
     v9 = Object;
     memset(Object, 0, PspMemoryReserveObjectSizes[v3]);
@@ -58,7 +63,7 @@ __int64 __fastcall NtAllocateReserveObject(unsigned __int64 a1, int a2, int a3)
     LODWORD(Object) = inserted;
     if ( inserted >= 0 )
       *v5 = Handle;
-    return (unsigned int)inserted;
+    return inserted;
   }
   return result;
 }

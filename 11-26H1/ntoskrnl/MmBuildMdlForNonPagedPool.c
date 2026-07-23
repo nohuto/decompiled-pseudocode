@@ -1,26 +1,26 @@
 /*
- * XREFs of MmBuildMdlForNonPagedPool @ 0x14024C4E0
+ * XREFs of MmBuildMdlForNonPagedPool @ 0x14024DE40
  * Callers:
- *     ?SmCompressCtxProcessEntry@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_THREAD_CTX@1@PEAU_SM_COMPRESS_ENTRY@1@@Z @ 0x14024B0D0 (-SmCompressCtxProcessEntry@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_THREAD_CTX@1@PEAU_.c)
- *     ?SmCompressCtxCompleteEntry@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_THREAD_CTX@1@PEAU_SM_WORK_ITEM@1@KKJ@Z @ 0x14024C210 (-SmCompressCtxCompleteEntry@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_THREAD_CTX@1@PEAU.c)
- *     VslpLockPagesForTransfer @ 0x14040FF88 (VslpLockPagesForTransfer.c)
- *     VslpLockMdlForTransfer @ 0x14041112C (VslpLockMdlForTransfer.c)
- *     HalpFlushMapBuffers @ 0x14058970C (HalpFlushMapBuffers.c)
- *     IoWriteCapturedPristineTriageDumpToDedicatedDumpFile @ 0x1405C7D7C (IoWriteCapturedPristineTriageDumpToDedicatedDumpFile.c)
- *     DifMmBuildMdlForNonPagedPoolWrapper @ 0x140666420 (DifMmBuildMdlForNonPagedPoolWrapper.c)
- *     HvlpDynamicUpdateMicrocode @ 0x140791E48 (HvlpDynamicUpdateMicrocode.c)
- *     EtwpBuildMdlForTraceBuffer @ 0x14082E080 (EtwpBuildMdlForTraceBuffer.c)
- *     MiCreateMdl @ 0x140A560A8 (MiCreateMdl.c)
- *     MiReplaceRotateWithDemandZero @ 0x140AECA38 (MiReplaceRotateWithDemandZero.c)
- *     PopAllocateHiberContext @ 0x140B71364 (PopAllocateHiberContext.c)
+ *     ?SmCompressCtxProcessEntry@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_THREAD_CTX@1@PEAU_SM_COMPRESS_ENTRY@1@@Z @ 0x14024CA30 (-SmCompressCtxProcessEntry@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_THREAD_CTX@1@PEAU_.c)
+ *     ?SmCompressCtxCompleteEntry@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_THREAD_CTX@1@PEAU_SM_WORK_ITEM@1@KKJ@Z @ 0x14024DB70 (-SmCompressCtxCompleteEntry@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_THREAD_CTX@1@PEAU.c)
+ *     VslpLockPagesForTransfer @ 0x14040F6A8 (VslpLockPagesForTransfer.c)
+ *     VslpLockMdlForTransfer @ 0x14041084C (VslpLockMdlForTransfer.c)
+ *     HalpFlushMapBuffers @ 0x14058BDDC (HalpFlushMapBuffers.c)
+ *     IoWriteCapturedPristineTriageDumpToDedicatedDumpFile @ 0x1405CA64C (IoWriteCapturedPristineTriageDumpToDedicatedDumpFile.c)
+ *     DifMmBuildMdlForNonPagedPoolWrapper @ 0x14066A000 (DifMmBuildMdlForNonPagedPoolWrapper.c)
+ *     HvlpDynamicUpdateMicrocode @ 0x140794978 (HvlpDynamicUpdateMicrocode.c)
+ *     EtwpBuildMdlForTraceBuffer @ 0x1408342C0 (EtwpBuildMdlForTraceBuffer.c)
+ *     MiCreateMdl @ 0x140A63630 (MiCreateMdl.c)
+ *     MiReplaceRotateWithDemandZero @ 0x140AEFA48 (MiReplaceRotateWithDemandZero.c)
+ *     PopAllocateHiberContext @ 0x140B75B48 (PopAllocateHiberContext.c)
  * Callees:
- *     MI_IS_PHYSICAL_ADDRESS @ 0x14024C8D0 (MI_IS_PHYSICAL_ADDRESS.c)
- *     MiQueuePinDriverAddressLog @ 0x14024CA14 (MiQueuePinDriverAddressLog.c)
- *     MiVaToPfnEx @ 0x14024DF10 (MiVaToPfnEx.c)
- *     RtlCSparseBitmapBitmaskRead @ 0x14024E83C (RtlCSparseBitmapBitmaskRead.c)
- *     RtlpHpSegSetNotifyOnEmpty @ 0x14024E8BC (RtlpHpSegSetNotifyOnEmpty.c)
- *     MiLogNoStealNonPagedPool @ 0x14024F538 (MiLogNoStealNonPagedPool.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x14024E230 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     MiQueuePinDriverAddressLog @ 0x14024E374 (MiQueuePinDriverAddressLog.c)
+ *     MiVaToPfnEx @ 0x14024F870 (MiVaToPfnEx.c)
+ *     RtlCSparseBitmapBitmaskRead @ 0x14025019C (RtlCSparseBitmapBitmaskRead.c)
+ *     RtlpHpSegSetNotifyOnEmpty @ 0x14025021C (RtlpHpSegSetNotifyOnEmpty.c)
+ *     MiLogNoStealNonPagedPool @ 0x140250E98 (MiLogNoStealNonPagedPool.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 void __stdcall MmBuildMdlForNonPagedPool(PMDL MemoryDescriptorList)
@@ -107,10 +107,8 @@ LABEL_8:
         if ( i == v11 )
           break;
       }
-      _InterlockedIncrement64(&qword_140E2C740);
-      v12 = RtlCSparseBitmapBitmaskRead(
-              &ExpUuidLock.ThreadLock,
-              2 * ((v1 - (unsigned __int64)ExpUuidLock.StackBase) >> 20));
+      _InterlockedIncrement64(&qword_140E2C8C0);
+      v12 = RtlCSparseBitmapBitmaskRead(&ExpUuidLock.CycleTime, 2 * ((v1 - ExpUuidLock.ThreadLock) >> 20));
       if ( v12 )
       {
         v13 = v12 - 1;
@@ -124,9 +122,7 @@ LABEL_8:
           if ( v15 != 320 )
           {
             v26 = 0LL;
-            v17 = RtlCSparseBitmapBitmaskRead(
-                    &ExpUuidLock.ThreadLock,
-                    2 * ((v1 - (unsigned __int64)ExpUuidLock.StackBase) >> 20));
+            v17 = RtlCSparseBitmapBitmaskRead(&ExpUuidLock.CycleTime, 2 * ((v1 - ExpUuidLock.ThreadLock) >> 20));
             if ( v17 )
             {
               v18 = v17 - 1;
@@ -139,13 +135,13 @@ LABEL_8:
                 else
 LABEL_38:
                   v21 = 0LL;
-                if ( stru_140E36558.FirstArgument )
+                if ( stru_140E366D8.FirstArgument )
                 {
-                  if ( *(_DWORD *)stru_140E36558.FirstArgument )
+                  if ( *(_DWORD *)stru_140E366D8.FirstArgument )
                   {
-                    if ( (*((_QWORD *)stru_140E36558.FirstArgument + 2) & 0x400000008000LL) != 0 )
+                    if ( (*((_QWORD *)stru_140E366D8.FirstArgument + 2) & 0x400000008000LL) != 0 )
                     {
-                      v22 = *((_QWORD *)stru_140E36558.FirstArgument + 3);
+                      v22 = *((_QWORD *)stru_140E366D8.FirstArgument + 3);
                       if ( (v22 & 0x400000008000LL) == v22 )
                         MiLogNoStealNonPagedPool(v22, v1, v21, v20);
                     }

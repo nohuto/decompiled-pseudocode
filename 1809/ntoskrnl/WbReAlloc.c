@@ -1,12 +1,12 @@
 /*
- * XREFs of WbReAlloc @ 0x1406918B0
+ * XREFs of WbReAlloc @ 0x140692A70
  * Callers:
- *     sub_1406244D4 @ 0x1406244D4 (sub_1406244D4.c)
- *     sub_1406917AC @ 0x1406917AC (sub_1406917AC.c)
+ *     sub_1406254F4 @ 0x1406254F4 (sub_1406254F4.c)
+ *     sub_14069296C @ 0x14069296C (sub_14069296C.c)
  * Callees:
- *     memmove @ 0x1401D1540 (memmove.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     WbAlloc @ 0x140624D14 (WbAlloc.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     WbAlloc @ 0x140625D34 (WbAlloc.c)
  */
 
 __int64 __fastcall WbReAlloc(PVOID P, size_t Size, SIZE_T NumberOfBytes, _QWORD *a4)

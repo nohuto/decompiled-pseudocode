@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpAddMcaToProcessorSpecificSection @ 0x14053E7B8
+ * XREFs of HalpAddMcaToProcessorSpecificSection @ 0x14053C0B8
  * Callers:
- *     HalpCreateMcaProcessorErrorRecord @ 0x14053F418 (HalpCreateMcaProcessorErrorRecord.c)
+ *     HalpCreateMcaProcessorErrorRecord @ 0x14053CD18 (HalpCreateMcaProcessorErrorRecord.c)
  * Callees:
- *     HalpWheaGetApicId @ 0x1405408B0 (HalpWheaGetApicId.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     HalpWheaGetApicId @ 0x14053E1B0 (HalpWheaGetApicId.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall HalpAddMcaToProcessorSpecificSection(__int64 a1, GUID *a2, unsigned int *a3)
@@ -36,7 +36,7 @@ __int64 __fastcall HalpAddMcaToProcessorSpecificSection(__int64 a1, GUID *a2, un
   *(_QWORD *)&a2->Data1 |= 2uLL;
   v6 = 64;
   v27 = *(unsigned int *)(a1 + 16);
-  guard_dispatch_icall_no_overrides(v27, 1LL, &a2[1], &a2[1].Data2);
+  guard_dispatch_icall_no_overrides(v27, 1LL);
   *(_QWORD *)&a2->Data1 |= 1uLL;
   *(_QWORD *)a2->Data4 = HalpWheaGetApicId(v27);
   v7 = a2 + 4;

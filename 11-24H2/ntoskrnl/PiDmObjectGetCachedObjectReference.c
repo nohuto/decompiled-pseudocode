@@ -1,15 +1,15 @@
 /*
- * XREFs of PiDmObjectGetCachedObjectReference @ 0x1408B96C8
+ * XREFs of PiDmObjectGetCachedObjectReference @ 0x1408B7070
  * Callers:
- *     PiPnpRtlObjectActionCallback @ 0x1408CE6A0 (PiPnpRtlObjectActionCallback.c)
- *     PiDmObjectGetCachedObjectProperty @ 0x1408D0350 (PiDmObjectGetCachedObjectProperty.c)
- *     PiDmGetReferencedObjectFromProperty @ 0x140A60418 (PiDmGetReferencedObjectFromProperty.c)
+ *     PiPnpRtlObjectActionCallback @ 0x1408CC090 (PiPnpRtlObjectActionCallback.c)
+ *     PiDmObjectGetCachedObjectProperty @ 0x1408CDD40 (PiDmObjectGetCachedObjectProperty.c)
+ *     PiDmGetReferencedObjectFromProperty @ 0x140A58968 (PiDmGetReferencedObjectFromProperty.c)
  * Callees:
- *     PiDmGetCachedKeyIndex @ 0x1408BA590 (PiDmGetCachedKeyIndex.c)
- *     PiDmGetObject @ 0x1408CBB70 (PiDmGetObject.c)
- *     PiDmObjectRelease @ 0x1408D0A30 (PiDmObjectRelease.c)
- *     PiDmObjectAcquireSharedLock @ 0x1408D0A7C (PiDmObjectAcquireSharedLock.c)
- *     PiDmObjectReleaseLock @ 0x1408D12E4 (PiDmObjectReleaseLock.c)
+ *     PiDmGetCachedKeyIndex @ 0x1408B7F40 (PiDmGetCachedKeyIndex.c)
+ *     PiDmGetObject @ 0x1408C95A0 (PiDmGetObject.c)
+ *     PiDmObjectRelease @ 0x1408CE420 (PiDmObjectRelease.c)
+ *     PiDmObjectAcquireSharedLock @ 0x1408CE46C (PiDmObjectAcquireSharedLock.c)
+ *     PiDmObjectReleaseLock @ 0x1408CECD4 (PiDmObjectReleaseLock.c)
  */
 
 __int64 __fastcall PiDmObjectGetCachedObjectReference(unsigned int a1, __int64 a2, void *a3, __int64 a4, _QWORD *a5)

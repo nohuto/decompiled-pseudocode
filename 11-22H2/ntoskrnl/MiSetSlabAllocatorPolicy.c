@@ -28,10 +28,10 @@ __int64 __fastcall MiSetSlabAllocatorPolicy(__int64 a1)
     *(_DWORD *)(a1 + 4) |= 8u;
     result = KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
     OldIrql = LockHandle.OldIrql;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       result = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
         && (unsigned __int8)result <= 0xFu
         && LockHandle.OldIrql <= 0xFu
         && (unsigned __int8)result >= 2u )

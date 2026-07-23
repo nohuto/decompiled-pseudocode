@@ -1,12 +1,12 @@
 /*
- * XREFs of MiPartitionWorkingSetManager @ 0x140629550
+ * XREFs of MiPartitionWorkingSetManager @ 0x140629AA0
  * Callers:
  *     <none>
  * Callees:
  *     MiWorkingSetManager @ 0x14021D5F0 (MiWorkingSetManager.c)
- *     KeSetPriorityThread @ 0x1402B0340 (KeSetPriorityThread.c)
- *     KeWaitForMultipleObjects @ 0x1403111A0 (KeWaitForMultipleObjects.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     KeSetPriorityThread @ 0x1402B05D0 (KeSetPriorityThread.c)
+ *     KeWaitForMultipleObjects @ 0x140311430 (KeWaitForMultipleObjects.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall MiPartitionWorkingSetManager(__int64 a1)

@@ -1,13 +1,13 @@
 /*
- * XREFs of WheapReportLiveDump @ 0x14095E294
+ * XREFs of WheapReportLiveDump @ 0x14095E474
  * Callers:
- *     WheapReportDeferredLiveDumps @ 0x14095E18C (WheapReportDeferredLiveDumps.c)
- *     WheapCreateLiveDumpFromPreviousSession @ 0x1409B38C4 (WheapCreateLiveDumpFromPreviousSession.c)
+ *     WheapReportDeferredLiveDumps @ 0x14095E36C (WheapReportDeferredLiveDumps.c)
+ *     WheapCreateLiveDumpFromPreviousSession @ 0x1409B47F4 (WheapCreateLiveDumpFromPreviousSession.c)
  * Callees:
- *     LkmdTelInsertTriageDataBlock @ 0x1405CAB08 (LkmdTelInsertTriageDataBlock.c)
- *     LkmdTelCreateReport @ 0x140982DD8 (LkmdTelCreateReport.c)
- *     LkmdTelSubmitReport @ 0x140983010 (LkmdTelSubmitReport.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     LkmdTelInsertTriageDataBlock @ 0x1405CAD38 (LkmdTelInsertTriageDataBlock.c)
+ *     LkmdTelCreateReport @ 0x140982FB8 (LkmdTelCreateReport.c)
+ *     LkmdTelSubmitReport @ 0x1409831F0 (LkmdTelSubmitReport.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall WheapReportLiveDump(__int64 a1)

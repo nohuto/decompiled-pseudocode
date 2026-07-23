@@ -19,29 +19,25 @@ __int64 __fastcall EtwpUpdateUmLogger(unsigned int a1, _DWORD *a2, _DWORD *a3, _
   int v11; // eax
   int v12; // eax
   int v13; // edx
-  UNICODE_STRING v14; // xmm6
-  __int64 v15; // r8
-  __int64 v16; // r9
-  __int64 v17; // r8
-  __int64 v18; // r9
-  NTSTATUS v19; // eax
-  UNICODE_STRING UnicodeString; // [rsp+20h] [rbp-48h] BYREF
-  __int64 v21; // [rsp+78h] [rbp+10h] BYREF
+  _UNICODE_STRING v14; // xmm6
+  NTSTATUS v15; // eax
+  _UNICODE_STRING UnicodeString; // [rsp+20h] [rbp-48h] BYREF
+  __int64 v17; // [rsp+78h] [rbp+10h] BYREF
 
-  v21 = 0LL;
+  v17 = 0LL;
   *a2 = 0;
   *a3 = 176;
   if ( a1 < 0xB0 )
     return 234LL;
-  result = EtwpGetPrivateLoggerContext(a4, &v21);
+  result = EtwpGetPrivateLoggerContext(a4, &v17);
   v9 = result;
   if ( !(_DWORD)result )
   {
-    v10 = v21;
-    if ( (*(_BYTE *)(a4 + 64) & 2) != 0 && (*(_BYTE *)(v21 + 324) & 1) != 0
-      || (*(_BYTE *)(a4 + 64) & 1) != 0 && (*(_BYTE *)(v21 + 324) & 2) != 0
+    v10 = v17;
+    if ( (*(_BYTE *)(a4 + 64) & 2) != 0 && (*(_BYTE *)(v17 + 324) & 1) != 0
+      || (*(_BYTE *)(a4 + 64) & 1) != 0 && (*(_BYTE *)(v17 + 324) & 2) != 0
       || (*(_DWORD *)(a4 + 64) & 0x100) != 0
-      || (v11 = *(_DWORD *)(v21 + 324), (v11 & 0x400) != 0)
+      || (v11 = *(_DWORD *)(v17 + 324), (v11 & 0x400) != 0)
       || (v11 & 0x10000) != 0
       || *(_DWORD *)(a4 + 76) && *(_DWORD *)(a4 + 68) )
     {
@@ -64,21 +60,21 @@ __int64 __fastcall EtwpUpdateUmLogger(unsigned int a1, _DWORD *a2, _DWORD *a3, _
     if ( !*(_WORD *)(a4 + 128) )
       goto LABEL_28;
     v13 = *(_DWORD *)(v10 + 72);
-    v14 = *(UNICODE_STRING *)(v10 + 168);
+    v14 = *(_UNICODE_STRING *)(v10 + 168);
     UnicodeString = v14;
-    v9 = EtwpAddInstanceIdToLogFileName(a4, v13, (UNICODE_STRING *)(v10 + 168));
+    v9 = EtwpAddInstanceIdToLogFileName(a4, v13, (_UNICODE_STRING *)(v10 + 168));
     if ( v9 )
       goto LABEL_23;
-    EtwpSynchronizeWithLogger(v10, 2, v15, v16);
-    v19 = EtwpSynchronizeWithLogger(v10, 4, v17, v18);
-    if ( v19 )
+    EtwpSynchronizeWithLogger(v10, 2);
+    v15 = EtwpSynchronizeWithLogger(v10, 4);
+    if ( v15 )
     {
-      v9 = RtlNtStatusToDosError(v19);
+      v9 = RtlNtStatusToDosError(v15);
       if ( v9 )
       {
         RtlFreeAnsiString((PUNICODE_STRING)(v10 + 168));
 LABEL_23:
-        *(UNICODE_STRING *)(v10 + 168) = v14;
+        *(_UNICODE_STRING *)(v10 + 168) = v14;
         goto LABEL_27;
       }
     }

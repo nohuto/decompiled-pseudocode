@@ -12,7 +12,7 @@ PSINGLE_LIST_ENTRY __stdcall ExInterlockedPopEntryList(PSINGLE_LIST_ENTRY ListHe
   __int64 v2; // r8
   __int64 v3; // r9
   char v6; // al
-  struct _SINGLE_LIST_ENTRY *Next; // rbx
+  _SINGLE_LIST_ENTRY *Next; // rbx
 
   v6 = ExpAcquireSpinLockDisabled((volatile signed __int32 *)Lock, (__int64)Lock, v2, v3);
   Next = ListHead->Next;

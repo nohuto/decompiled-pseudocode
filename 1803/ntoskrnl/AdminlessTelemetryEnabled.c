@@ -47,7 +47,7 @@ bool __fastcall AdminlessTelemetryEnabled(__int64 a1, PSECURITY_SUBJECT_CONTEXT 
   }
   else
   {
-    v9 = ZwQuerySystemInformation(SystemContextSwitchInformation|0x80, SystemInformation, 0x20u, 0LL) >= 0
+    v9 = ZwQuerySystemInformation(SystemCodeIntegrityPolicyInformation, SystemInformation, 0x20u, 0LL) >= 0
       && (SystemInformation[0] & 0xA0000000) != 0;
     g_inSMode = v9;
     g_sModeChecked = 1;

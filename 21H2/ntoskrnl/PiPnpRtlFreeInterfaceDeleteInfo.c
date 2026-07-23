@@ -1,11 +1,11 @@
 /*
- * XREFs of PiPnpRtlFreeInterfaceDeleteInfo @ 0x140734990
+ * XREFs of PiPnpRtlFreeInterfaceDeleteInfo @ 0x140734B50
  * Callers:
- *     PiPnpRtlCmActionCallback @ 0x140635920 (PiPnpRtlCmActionCallback.c)
- *     PiPnpRtlGatherInterfaceDeleteInfo @ 0x140732EE4 (PiPnpRtlGatherInterfaceDeleteInfo.c)
+ *     PiPnpRtlCmActionCallback @ 0x14062A730 (PiPnpRtlCmActionCallback.c)
+ *     PiPnpRtlGatherInterfaceDeleteInfo @ 0x1407330A4 (PiPnpRtlGatherInterfaceDeleteInfo.c)
  * Callees:
- *     PiDmObjectRelease @ 0x140636DF0 (PiDmObjectRelease.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     PiDmObjectRelease @ 0x14062BC00 (PiDmObjectRelease.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PiPnpRtlFreeInterfaceDeleteInfo(unsigned int **P)

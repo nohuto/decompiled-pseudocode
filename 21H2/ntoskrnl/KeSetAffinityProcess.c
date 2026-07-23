@@ -1,19 +1,19 @@
 /*
- * XREFs of KeSetAffinityProcess @ 0x1403CB2CC
+ * XREFs of KeSetAffinityProcess @ 0x1403CB43C
  * Callers:
- *     PspSetProcessAffinitySafe @ 0x1409085C4 (PspSetProcessAffinitySafe.c)
- *     KiInitializeDynamicProcessorDpc @ 0x1409AF390 (KiInitializeDynamicProcessorDpc.c)
- *     Phase1InitializationDiscard @ 0x140A3B6A4 (Phase1InitializationDiscard.c)
+ *     PspSetProcessAffinitySafe @ 0x140908724 (PspSetProcessAffinitySafe.c)
+ *     KiInitializeDynamicProcessorDpc @ 0x1409B02C0 (KiInitializeDynamicProcessorDpc.c)
+ *     Phase1InitializationDiscard @ 0x140A3C6A4 (Phase1InitializationDiscard.c)
  * Callees:
- *     KiProcessDeferredReadyList @ 0x140230BD0 (KiProcessDeferredReadyList.c)
- *     KeFirstGroupAffinityEx @ 0x1402C2670 (KeFirstGroupAffinityEx.c)
- *     KiSetIdealNodeProcessByGroup @ 0x1402E9704 (KiSetIdealNodeProcessByGroup.c)
- *     KiSetAffinityThread @ 0x1402EC3D4 (KiSetAffinityThread.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140314D90 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     KeFirstGroupAffinityEx @ 0x140240B10 (KeFirstGroupAffinityEx.c)
+ *     KiSetIdealNodeProcessByGroup @ 0x14029AA54 (KiSetIdealNodeProcessByGroup.c)
+ *     KiSetAffinityThread @ 0x14029D724 (KiSetAffinityThread.c)
+ *     KiProcessDeferredReadyList @ 0x1402D5420 (KiProcessDeferredReadyList.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14031FAE0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140346AD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     memset @ 0x140414200 (memset.c)
+ *     memset @ 0x140414300 (memset.c)
  */
 
 __int64 __fastcall KeSetAffinityProcess(__int64 a1, char a2, unsigned __int16 *a3)
@@ -25,22 +25,22 @@ __int64 __fastcall KeSetAffinityProcess(__int64 a1, char a2, unsigned __int16 *a
   _QWORD *v10; // rcx
   unsigned __int8 CurrentIrql; // r14
   volatile LONG *v12; // r12
-  __int64 v13; // r9
-  char v14; // r15
-  unsigned __int16 *v15; // rcx
-  unsigned __int16 v16; // si
+  char v13; // r15
+  unsigned __int16 *v14; // rcx
+  unsigned __int16 v15; // si
   _QWORD *i; // rbx
-  __int128 *v18; // r8
+  __int128 *v17; // r8
   _DWORD *SchedulerAssist; // r9
-  unsigned __int8 v21; // al
-  struct _KPRCB *v22; // r9
-  _DWORD *v23; // r8
-  int v24; // eax
-  bool v25; // zf
-  unsigned __int16 v26; // si
-  unsigned __int16 v27; // dx
-  _QWORD *v28; // r8
-  char v29; // r12
+  unsigned __int8 v20; // al
+  struct _KPRCB *v21; // r9
+  _DWORD *v22; // r8
+  int v23; // eax
+  bool v24; // zf
+  unsigned __int16 v25; // si
+  unsigned __int16 v26; // dx
+  _QWORD *v27; // r8
+  char v28; // r12
+  __int64 v29; // r9
   __int128 v30; // xmm1
   __int128 v31; // xmm0
   __int128 v32; // xmm1
@@ -103,40 +103,40 @@ __int64 __fastcall KeSetAffinityProcess(__int64 a1, char a2, unsigned __int16 *a
   ExAcquireSpinLockExclusiveAtDpcLevel((PEX_SPIN_LOCK)(a1 + 64));
   if ( !v7 || ((*(_DWORD *)(a1 + 636) - 1) & *(_DWORD *)(a1 + 636)) == 0 )
   {
-    v14 = v39;
-    v15 = (unsigned __int16 *)(a1 + 80);
+    v13 = v39;
+    v14 = (unsigned __int16 *)(a1 + 80);
     if ( v39 )
     {
-      v26 = *v15;
-      v27 = 0;
-      if ( !*v15 )
+      v25 = *v14;
+      v26 = 0;
+      if ( !*v14 )
         goto LABEL_23;
-      v28 = a3 + 4;
-      v29 = 0;
+      v27 = a3 + 4;
+      v28 = 0;
       do
       {
-        v13 = *(_QWORD *)((char *)v28 + a1 - (_QWORD)a3 + 80);
-        if ( v13 )
+        v29 = *(_QWORD *)((char *)v27 + a1 - (_QWORD)a3 + 80);
+        if ( v29 )
         {
-          if ( v27 < *a3 && (v13 | *v28) != v13 )
+          if ( v26 < *a3 && (v29 | *v27) != v29 )
           {
-            v13 |= *v28;
-            v29 = 1;
+            v29 |= *v27;
+            v28 = 1;
           }
-          if ( LOWORD(v46[0]) <= v27 )
-            LOWORD(v46[0]) = v41 + v27;
-          *(_QWORD *)((char *)v28 + (char *)v46 - (char *)a3) |= v13;
+          if ( LOWORD(v46[0]) <= v26 )
+            LOWORD(v46[0]) = v41 + v26;
+          *(_QWORD *)((char *)v27 + (char *)v46 - (char *)a3) |= v29;
         }
+        ++v26;
         ++v27;
-        ++v28;
       }
-      while ( v27 < v26 );
-      v25 = v29 == 0;
+      while ( v26 < v25 );
+      v24 = v28 == 0;
       v12 = (volatile LONG *)(a1 + 64);
-      if ( v25 )
+      if ( v24 )
         goto LABEL_23;
       v30 = v46[1];
-      *(_OWORD *)v15 = v46[0];
+      *(_OWORD *)v14 = v46[0];
       v31 = v46[2];
       *(_OWORD *)(a1 + 96) = v30;
       v32 = v46[3];
@@ -158,8 +158,8 @@ __int64 __fastcall KeSetAffinityProcess(__int64 a1, char a2, unsigned __int16 *a
     }
     else
     {
-      v16 = 0;
-      *(_OWORD *)v15 = *(_OWORD *)a3;
+      v15 = 0;
+      *(_OWORD *)v14 = *(_OWORD *)a3;
       *(_OWORD *)(a1 + 96) = *((_OWORD *)a3 + 1);
       *(_OWORD *)(a1 + 112) = *((_OWORD *)a3 + 2);
       *(_OWORD *)(a1 + 128) = *((_OWORD *)a3 + 3);
@@ -174,32 +174,32 @@ __int64 __fastcall KeSetAffinityProcess(__int64 a1, char a2, unsigned __int16 *a
       {
         do
         {
-          if ( *(_QWORD *)&a3[4 * v16 + 4] )
+          if ( *(_QWORD *)&a3[4 * v15 + 4] )
           {
-            KiSetIdealNodeProcessByGroup(a1, 0LL, v16);
+            KiSetIdealNodeProcessByGroup(a1, 0LL, v15);
             if ( !v6 )
             {
               v6 = 1;
-              *(_WORD *)(a1 + 836) = *(_WORD *)(a1 + 2LL * v16 + 772);
+              *(_WORD *)(a1 + 836) = *(_WORD *)(a1 + 2LL * v15 + 772);
             }
           }
-          ++v16;
+          ++v15;
         }
-        while ( v16 < *a3 );
-        v14 = 0;
+        while ( v15 < *a3 );
+        v13 = 0;
         v12 = (volatile LONG *)(a1 + 64);
       }
     }
     for ( i = *(_QWORD **)(a1 + 48); i != (_QWORD *)(a1 + 48); i = (_QWORD *)*i )
     {
       WORD4(v44) = *((_WORD *)i - 100);
-      v18 = &v44;
+      v17 = &v44;
       *(_QWORD *)&v44 = *(_QWORD *)(a1 + 8LL * WORD4(v44) + 88);
       if ( !(_QWORD)v44 )
-        v18 = &v45;
-      KiSetAffinityThread((__int64)(i - 95), (__int64)&v42, (__int64)v18, v13);
+        v17 = &v45;
+      KiSetAffinityThread((__int64)(i - 95), (__int64)&v42, v17);
     }
-    if ( !v14 )
+    if ( !v13 )
       *(_DWORD *)(a1 + 636) = v40;
 LABEL_23:
     ExReleaseSpinLockExclusiveFromDpcLevel(v12);
@@ -211,16 +211,16 @@ LABEL_23:
   {
     if ( (KiIrqlFlags & 1) != 0 )
     {
-      v21 = KeGetCurrentIrql();
-      if ( v21 <= 0xFu && CurrentIrql <= 0xFu && v21 >= 2u )
+      v20 = KeGetCurrentIrql();
+      if ( v20 <= 0xFu && CurrentIrql <= 0xFu && v20 >= 2u )
       {
-        v22 = KeGetCurrentPrcb();
-        v23 = v22->SchedulerAssist;
-        v24 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
-        v25 = (v24 & v23[5]) == 0;
-        v23[5] &= v24;
-        if ( v25 )
-          KiRemoveSystemWorkPriorityKick(v22);
+        v21 = KeGetCurrentPrcb();
+        v22 = v21->SchedulerAssist;
+        v23 = ~(unsigned __int16)(-1LL << (CurrentIrql + 1));
+        v24 = (v23 & v22[5]) == 0;
+        v22[5] &= v23;
+        if ( v24 )
+          KiRemoveSystemWorkPriorityKick(v21);
       }
     }
   }

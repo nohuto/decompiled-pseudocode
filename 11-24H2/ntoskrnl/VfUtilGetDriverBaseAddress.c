@@ -1,9 +1,9 @@
 /*
- * XREFs of VfUtilGetDriverBaseAddress @ 0x140B83270
+ * XREFs of VfUtilGetDriverBaseAddress @ 0x140B85270
  * Callers:
  *     <none>
  * Callees:
- *     VfTargetDriversGetNode @ 0x1403F00E4 (VfTargetDriversGetNode.c)
+ *     VfTargetDriversGetNode @ 0x1403E3D54 (VfTargetDriversGetNode.c)
  */
 
 __int64 __fastcall VfUtilGetDriverBaseAddress(__int64 a1)

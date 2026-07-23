@@ -1,11 +1,11 @@
 /*
- * XREFs of CcAddExternalCacheInternalEx @ 0x14057A0A8
+ * XREFs of CcAddExternalCacheInternalEx @ 0x140577538
  * Callers:
- *     CcAddExternalCacheToVolumeEx @ 0x14057A13C (CcAddExternalCacheToVolumeEx.c)
+ *     CcAddExternalCacheToVolumeEx @ 0x1405775CC (CcAddExternalCacheToVolumeEx.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 void __fastcall CcAddExternalCacheInternalEx(__int64 a1, __int64 a2)

@@ -13,12 +13,12 @@
  *     ZwAlertThreadByThreadId @ 0x180093FE0 (ZwAlertThreadByThreadId.c)
  */
 
-signed __int64 __fastcall RtlpWakeByAddress(unsigned __int64 a1, char a2)
+int __fastcall RtlpWakeByAddress(unsigned __int64 a1, char a2)
 {
   bool v2; // si
   __int64 v3; // rdi
   __int64 v6; // r10
-  signed __int64 result; // rax
+  signed __int64 v7; // rax
   signed __int64 v8; // rdx
   signed __int64 v9; // rtt
   unsigned __int64 v10; // r9
@@ -38,22 +38,22 @@ signed __int64 __fastcall RtlpWakeByAddress(unsigned __int64 a1, char a2)
   v2 = 0;
   v3 = (a1 >> 5) & 0x7F;
   v6 = 0LL;
-  result = RtlpWaitOnAddressHashTable[v3];
-  while ( result && (result & 1) == 0 )
+  v7 = RtlpWaitOnAddressHashTable[v3];
+  while ( v7 && (v7 & 1) == 0 )
   {
-    if ( (result & 2) != 0 )
+    if ( (v7 & 2) != 0 )
     {
-      v22 = result;
-      result = _InterlockedCompareExchange64(&RtlpWaitOnAddressHashTable[v3], result | 1, result);
-      if ( v22 == result )
-        return result;
+      v22 = v7;
+      v7 = _InterlockedCompareExchange64(&RtlpWaitOnAddressHashTable[v3], v7 | 1, v7);
+      if ( v22 == v7 )
+        return v7;
     }
     else
     {
-      v8 = result | 2;
-      v9 = result;
-      result = _InterlockedCompareExchange64(&RtlpWaitOnAddressHashTable[v3], result | 2, result);
-      if ( v9 == result )
+      v8 = v7 | 2;
+      v9 = v7;
+      v7 = _InterlockedCompareExchange64(&RtlpWaitOnAddressHashTable[v3], v7 | 2, v7);
+      if ( v9 == v7 )
       {
 LABEL_7:
         v10 = v8 & 0xFFFFFFFFFFFFFFFCuLL;
@@ -62,9 +62,9 @@ LABEL_7:
         {
           do
           {
-            result = (signed __int64)v11;
+            v7 = (signed __int64)v11;
             v11 = (_QWORD *)v11[2];
-            v11[3] = result;
+            v11[3] = v7;
           }
           while ( !v11[4] );
         }
@@ -80,10 +80,10 @@ LABEL_7:
               v20 = *(_QWORD *)(v12 + 16);
               if ( v20 )
                 v20 = ((unsigned __int8)v8 ^ (unsigned __int8)v20) & 3 ^ (unsigned __int64)v20;
-              result = _InterlockedCompareExchange64(&RtlpWaitOnAddressHashTable[v3], v20, v8);
-              if ( v8 != result )
+              v7 = _InterlockedCompareExchange64(&RtlpWaitOnAddressHashTable[v3], v20, v8);
+              if ( v8 != v7 )
               {
-                v8 = result;
+                v8 = v7;
                 goto LABEL_7;
               }
               v21 = *(_QWORD *)(v12 + 16);
@@ -109,10 +109,10 @@ LABEL_7:
                 *(_QWORD *)(*(_QWORD *)(v12 + 24) + 32LL) = *(_QWORD *)(v12 + 24);
               }
             }
-            result = (unsigned int)_InterlockedExchange((volatile __int32 *)(v12 + 40), 2);
-            if ( (_DWORD)result != 2 )
+            LODWORD(v7) = _InterlockedExchange((volatile __int32 *)(v12 + 40), 2);
+            if ( (_DWORD)v7 != 2 )
             {
-              if ( !(_DWORD)result )
+              if ( !(_DWORD)v7 )
               {
                 *(_QWORD *)(v12 + 16) = v6;
                 v6 = v12;
@@ -128,17 +128,17 @@ LABEL_7:
           do
           {
             v16 = *(_QWORD *)(v6 + 16);
-            result = ZwAlertThreadByThreadId(*(_QWORD *)(v6 + 8));
+            LODWORD(v7) = ZwAlertThreadByThreadId(*(HANDLE *)(v6 + 8));
             v6 = v16;
           }
           while ( v16 );
         }
         if ( !v2 )
         {
-          result = RtlpWaitOnAddressHashTable[v3];
+          v7 = RtlpWaitOnAddressHashTable[v3];
           do
           {
-            if ( (result & 1) != 0 )
+            if ( (v7 & 1) != 0 )
             {
               v17 = 1;
               v18 = 0LL;
@@ -146,18 +146,18 @@ LABEL_7:
             else
             {
               v17 = 0;
-              v18 = result & 0xFFFFFFFFFFFFFFFCuLL;
+              v18 = v7 & 0xFFFFFFFFFFFFFFFCuLL;
             }
-            v19 = result;
-            result = _InterlockedCompareExchange64(&RtlpWaitOnAddressHashTable[v3], v18, result);
+            v19 = v7;
+            v7 = _InterlockedCompareExchange64(&RtlpWaitOnAddressHashTable[v3], v18, v7);
           }
-          while ( v19 != result );
+          while ( v19 != v7 );
           if ( v17 )
-            return RtlpWaitOnAddressWakeEntireList(result);
+            LODWORD(v7) = RtlpWaitOnAddressWakeEntireList(v7);
         }
-        return result;
+        return v7;
       }
     }
   }
-  return result;
+  return v7;
 }

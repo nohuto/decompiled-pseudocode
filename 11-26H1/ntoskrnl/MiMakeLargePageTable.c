@@ -1,18 +1,18 @@
 /*
- * XREFs of MiMakeLargePageTable @ 0x14052B10C
+ * XREFs of MiMakeLargePageTable @ 0x14052D62C
  * Callers:
- *     MiCreateSystemPageTable @ 0x140339800 (MiCreateSystemPageTable.c)
+ *     MiCreateSystemPageTable @ 0x14033B880 (MiCreateSystemPageTable.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiMakeDemandZeroPte @ 0x14028B2D0 (MiMakeDemandZeroPte.c)
- *     MiSimpleUnlinkPageEx @ 0x14028E170 (MiSimpleUnlinkPageEx.c)
- *     MiGetContainingPageTable @ 0x1402D9BF0 (MiGetContainingPageTable.c)
- *     MiMakeValidPte @ 0x1402DA020 (MiMakeValidPte.c)
- *     MiGetLeafVa @ 0x140326060 (MiGetLeafVa.c)
- *     MiSetPfnContainingFrame @ 0x14033BC10 (MiSetPfnContainingFrame.c)
- *     MiTransformValidPteInPlace @ 0x140342458 (MiTransformValidPteInPlace.c)
- *     MiIncreaseUsedPtes @ 0x140365F20 (MiIncreaseUsedPtes.c)
- *     MiDemotePfnListChain @ 0x1407117C4 (MiDemotePfnListChain.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiMakeDemandZeroPte @ 0x14028A830 (MiMakeDemandZeroPte.c)
+ *     MiSimpleUnlinkPageEx @ 0x14028D6D0 (MiSimpleUnlinkPageEx.c)
+ *     MiGetContainingPageTable @ 0x1402BB9B0 (MiGetContainingPageTable.c)
+ *     MiMakeValidPte @ 0x1402BBDE0 (MiMakeValidPte.c)
+ *     MiGetLeafVa @ 0x140328090 (MiGetLeafVa.c)
+ *     MiSetPfnContainingFrame @ 0x14033DC90 (MiSetPfnContainingFrame.c)
+ *     MiTransformValidPteInPlace @ 0x1403444D8 (MiTransformValidPteInPlace.c)
+ *     MiIncreaseUsedPtes @ 0x140367CC0 (MiIncreaseUsedPtes.c)
+ *     MiDemotePfnListChain @ 0x1407164C4 (MiDemotePfnListChain.c)
  */
 
 __int64 __fastcall MiMakeLargePageTable(__int64 a1, ULONG_PTR a2, int a3)

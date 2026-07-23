@@ -1,16 +1,16 @@
 /*
- * XREFs of MiReferenceInPageFile @ 0x140024E50
+ * XREFs of MiReferenceInPageFile @ 0x1400249D0
  * Callers:
- *     MiIssueHardFault @ 0x140024930 (MiIssueHardFault.c)
- *     MiPfExecuteReadList @ 0x14042C854 (MiPfExecuteReadList.c)
+ *     MiIssueHardFault @ 0x1400244B0 (MiIssueHardFault.c)
+ *     MiPfExecuteReadList @ 0x14042B724 (MiPfExecuteReadList.c)
  * Callees:
- *     ObFastReferenceObject @ 0x14000F760 (ObFastReferenceObject.c)
- *     MiComputeImagePteIndex @ 0x140026C20 (MiComputeImagePteIndex.c)
- *     ObFastReferenceObjectLocked @ 0x1400D1534 (ObFastReferenceObjectLocked.c)
- *     ExReleaseSpinLockShared @ 0x1400EA240 (ExReleaseSpinLockShared.c)
- *     ExAcquireSpinLockShared @ 0x1400EB1D0 (ExAcquireSpinLockShared.c)
- *     MiCanPageMove @ 0x14010745C (MiCanPageMove.c)
- *     MI_GET_PROTECTION_FROM_SOFT_PROTOTYPE_PTE @ 0x1401F25B8 (MI_GET_PROTECTION_FROM_SOFT_PROTOTYPE_PTE.c)
+ *     ObFastReferenceObject @ 0x14000F2E0 (ObFastReferenceObject.c)
+ *     MiComputeImagePteIndex @ 0x1400267A0 (MiComputeImagePteIndex.c)
+ *     ObFastReferenceObjectLocked @ 0x1400CF3D4 (ObFastReferenceObjectLocked.c)
+ *     ExReleaseSpinLockShared @ 0x1400E80B0 (ExReleaseSpinLockShared.c)
+ *     ExAcquireSpinLockShared @ 0x1400E9040 (ExAcquireSpinLockShared.c)
+ *     MiCanPageMove @ 0x1401051DC (MiCanPageMove.c)
+ *     MI_GET_PROTECTION_FROM_SOFT_PROTOTYPE_PTE @ 0x1401F23E4 (MI_GET_PROTECTION_FROM_SOFT_PROTOTYPE_PTE.c)
  */
 
 ULONG_PTR __fastcall MiReferenceInPageFile(__int64 a1, unsigned int a2)

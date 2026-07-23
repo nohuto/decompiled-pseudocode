@@ -1,16 +1,16 @@
 /*
- * XREFs of PopNetEvaluationWorkerCallback @ 0x1403AD840
+ * XREFs of PopNetEvaluationWorkerCallback @ 0x1403ADA20
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     PopNetEvaluateStateMask @ 0x14085AD1C (PopNetEvaluateStateMask.c)
- *     PopNetUpdateCsConsumptionFlags @ 0x14085AD50 (PopNetUpdateCsConsumptionFlags.c)
- *     PopNetPublishWnfStateUpdate @ 0x14085AD68 (PopNetPublishWnfStateUpdate.c)
- *     PopTraceStandbyConnectivityUpdate @ 0x14085ADC8 (PopTraceStandbyConnectivityUpdate.c)
- *     PopNetSetResiliencyPhaseBias @ 0x140996978 (PopNetSetResiliencyPhaseBias.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     PopNetEvaluateStateMask @ 0x14085AF5C (PopNetEvaluateStateMask.c)
+ *     PopNetUpdateCsConsumptionFlags @ 0x14085AF90 (PopNetUpdateCsConsumptionFlags.c)
+ *     PopNetPublishWnfStateUpdate @ 0x14085AFA8 (PopNetPublishWnfStateUpdate.c)
+ *     PopTraceStandbyConnectivityUpdate @ 0x14085B008 (PopTraceStandbyConnectivityUpdate.c)
+ *     PopNetSetResiliencyPhaseBias @ 0x140996B78 (PopNetSetResiliencyPhaseBias.c)
  *     PopReleasePolicyLock @ 0x140A87BA4 (PopReleasePolicyLock.c)
  *     PopAcquirePolicyLock @ 0x140A87BE4 (PopAcquirePolicyLock.c)
  */
@@ -74,14 +74,17 @@ LABEL_7:
       v4 = 1;
       v10 = KeAcquireSpinLockRaiseToDpc(&PopCsResiliencyStatsLock);
       PopNetStandbyReason = v9;
-      if ( PopCsResiliencyStats[0] && !dword_140C3CACC )
-        dword_140C3CACC = v9;
+      if ( PopCsResiliencyStats[0] && !dword_140C3CA4C )
+        dword_140C3CA4C = v9;
       KxReleaseSpinLock((volatile signed __int64 *)&PopCsResiliencyStatsLock);
       v7 = (unsigned int)KiIrqlFlags;
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v10 <= 0xFu && CurrentIrql >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+          && CurrentIrql <= 0xFu
+          && (unsigned __int8)v10 <= 0xFu
+          && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           v7 = (unsigned int)(v10 + 1);
@@ -117,6 +120,6 @@ LABEL_7:
     else
       PopNetDeferLogRequest = 1;
   }
-  _InterlockedExchange(&dword_140C3A2A8, 0);
+  _InterlockedExchange(&dword_140C3A328, 0);
   return PopReleasePolicyLock();
 }

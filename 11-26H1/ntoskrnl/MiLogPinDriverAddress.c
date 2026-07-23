@@ -1,13 +1,13 @@
 /*
- * XREFs of MiLogPinDriverAddress @ 0x140AB3234
+ * XREFs of MiLogPinDriverAddress @ 0x140AB45D4
  * Callers:
- *     MiLogPinDriverAddressesWorker @ 0x140AB3130 (MiLogPinDriverAddressesWorker.c)
+ *     MiLogPinDriverAddressesWorker @ 0x140AB44D0 (MiLogPinDriverAddressesWorker.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     _tlgWriteAgg @ 0x1404599C0 (_tlgWriteAgg.c)
- *     MmLockLoadedDataTableEntry @ 0x1404C3C10 (MmLockLoadedDataTableEntry.c)
- *     MmUnlockLoadedDataTableEntry @ 0x14051E3A8 (MmUnlockLoadedDataTableEntry.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     _tlgWriteAgg @ 0x140451240 (_tlgWriteAgg.c)
+ *     MmLockLoadedDataTableEntry @ 0x1404BD460 (MmLockLoadedDataTableEntry.c)
+ *     MmUnlockLoadedDataTableEntry @ 0x1405209B8 (MmUnlockLoadedDataTableEntry.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void __fastcall MiLogPinDriverAddress(_QWORD *a1)
@@ -78,9 +78,9 @@ void __fastcall MiLogPinDriverAddress(_QWORD *a1)
     p_DestinationString = &DestinationString;
     RtlInitUnicodeString(&DestinationString, L"Image not found");
   }
-  if ( *(_DWORD *)stru_140E36558.FirstArgument > 5u
-    && (*((_QWORD *)stru_140E36558.FirstArgument + 2) & 0x400000000000LL) != 0
-    && (*((_QWORD *)stru_140E36558.FirstArgument + 3) & 0x400000000000LL) == *((_QWORD *)stru_140E36558.FirstArgument + 3) )
+  if ( *(_DWORD *)stru_140E366D8.FirstArgument > 5u
+    && (*((_QWORD *)stru_140E366D8.FirstArgument + 2) & 0x400000000000LL) != 0
+    && (*((_QWORD *)stru_140E366D8.FirstArgument + 3) & 0x400000000000LL) == *((_QWORD *)stru_140E366D8.FirstArgument + 3) )
   {
     v8 = *(_DWORD *)a1;
     v22 = &v20;
@@ -125,9 +125,9 @@ void __fastcall MiLogPinDriverAddress(_QWORD *a1)
     v47 = 4LL;
     v49 = 8LL;
     tlgWriteAgg(
-      (__int64)stru_140E36558.FirstArgument,
-      (unsigned __int8 *)&byte_140059F25,
-      (__int64)stru_140E36558.FirstArgument,
+      (__int64)stru_140E366D8.FirstArgument,
+      (unsigned __int8 *)&word_14005AA96,
+      (__int64)stru_140E366D8.FirstArgument,
       0x10u,
       &v21);
   }

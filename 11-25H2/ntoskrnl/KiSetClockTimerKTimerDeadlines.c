@@ -13,7 +13,7 @@
  *     Feature_Servicing_Kernel_ClockTickIdleEstimateFix__private_IsEnabledNoReportingNoInline @ 0x1404F1AE4 (Feature_Servicing_Kernel_ClockTickIdleEstimateFix__private_IsEnabledNoReportingNoInline.c)
  */
 
-char __fastcall KiSetClockTimerKTimerDeadlines(__int64 a1, __int64 a2, char a3)
+char __fastcall KiSetClockTimerKTimerDeadlines(__int64 a1, LARGE_INTEGER a2, char a3)
 {
   __int64 v4; // rbx
   char v7; // r14

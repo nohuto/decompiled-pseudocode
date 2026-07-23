@@ -1,22 +1,22 @@
 /*
- * XREFs of MiReturnSystemVa @ 0x1402A4238
+ * XREFs of MiReturnSystemVa @ 0x1402A3788
  * Callers:
- *     MiReleaseLargePdeMappings @ 0x1402A2D84 (MiReleaseLargePdeMappings.c)
- *     MiGetPageTablesForLargeMap @ 0x1402A30D4 (MiGetPageTablesForLargeMap.c)
- *     MiExpandSystemCache @ 0x1402A36A0 (MiExpandSystemCache.c)
- *     MiReturnSystemCacheRegionsToKva @ 0x1402A38D8 (MiReturnSystemCacheRegionsToKva.c)
- *     MiReturnSystemPtes @ 0x1402A3A58 (MiReturnSystemPtes.c)
- *     MiReleasePteMappings @ 0x1402A3B00 (MiReleasePteMappings.c)
- *     MmFreePoolMemory @ 0x14035029C (MmFreePoolMemory.c)
- *     MiExpandPtes @ 0x14035ED90 (MiExpandPtes.c)
- *     MiUnmapLargePages @ 0x14050B984 (MiUnmapLargePages.c)
- *     MiDeleteBootRange @ 0x1406E35D0 (MiDeleteBootRange.c)
- *     MmFreeSecurePoolMemory @ 0x1406FBDE8 (MmFreeSecurePoolMemory.c)
- *     MiReleaseDriverPtes @ 0x140A80038 (MiReleaseDriverPtes.c)
- *     MiReserveDriverPtes @ 0x140B0A2B4 (MiReserveDriverPtes.c)
+ *     MiReleaseLargePdeMappings @ 0x1402A22D4 (MiReleaseLargePdeMappings.c)
+ *     MiGetPageTablesForLargeMap @ 0x1402A2624 (MiGetPageTablesForLargeMap.c)
+ *     MiExpandSystemCache @ 0x1402A2BF0 (MiExpandSystemCache.c)
+ *     MiReturnSystemCacheRegionsToKva @ 0x1402A2E28 (MiReturnSystemCacheRegionsToKva.c)
+ *     MiReturnSystemPtes @ 0x1402A2FA8 (MiReturnSystemPtes.c)
+ *     MiReleasePteMappings @ 0x1402A3050 (MiReleasePteMappings.c)
+ *     MmFreePoolMemory @ 0x14035231C (MmFreePoolMemory.c)
+ *     MiExpandPtes @ 0x140360B30 (MiExpandPtes.c)
+ *     MiUnmapLargePages @ 0x1405053F4 (MiUnmapLargePages.c)
+ *     MiDeleteBootRange @ 0x1406E827C (MiDeleteBootRange.c)
+ *     MmFreeSecurePoolMemory @ 0x140700AB8 (MmFreeSecurePoolMemory.c)
+ *     MiReleaseDriverPtes @ 0x140A85EA8 (MiReleaseDriverPtes.c)
+ *     MiReserveDriverPtes @ 0x140B0C074 (MiReserveDriverPtes.c)
  * Callees:
- *     MiMakeSystemRangeAvailable @ 0x1402A4448 (MiMakeSystemRangeAvailable.c)
- *     MiDecommitSystemPageTables @ 0x1402A46B8 (MiDecommitSystemPageTables.c)
+ *     MiMakeSystemRangeAvailable @ 0x1402A3998 (MiMakeSystemRangeAvailable.c)
+ *     MiDecommitSystemPageTables @ 0x1402A3C08 (MiDecommitSystemPageTables.c)
  */
 
 __int64 __fastcall MiReturnSystemVa(unsigned __int64 a1, unsigned __int64 a2)

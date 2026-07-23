@@ -1,11 +1,11 @@
 /*
- * XREFs of PsRegisterSyscallProviderServiceTableMetadata @ 0x140AA208C
+ * XREFs of PsRegisterSyscallProviderServiceTableMetadata @ 0x140A9D41C
  * Callers:
- *     KeAddSystemServiceTable @ 0x140AA1F20 (KeAddSystemServiceTable.c)
- *     PsInitializeSyscallProviders @ 0x140C346F4 (PsInitializeSyscallProviders.c)
+ *     KeAddSystemServiceTable @ 0x140A9D2B0 (KeAddSystemServiceTable.c)
+ *     PsInitializeSyscallProviders @ 0x140C36834 (PsInitializeSyscallProviders.c)
  * Callees:
- *     PsGetSessionIdEx @ 0x1403025D0 (PsGetSessionIdEx.c)
- *     VslRegisterSyscallProviderServiceTableMetadata @ 0x140710134 (VslRegisterSyscallProviderServiceTableMetadata.c)
+ *     PsGetSessionIdEx @ 0x14030CBE0 (PsGetSessionIdEx.c)
+ *     VslRegisterSyscallProviderServiceTableMetadata @ 0x14070DCC4 (VslRegisterSyscallProviderServiceTableMetadata.c)
  */
 
 __int64 __fastcall PsRegisterSyscallProviderServiceTableMetadata(unsigned int a1)

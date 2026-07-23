@@ -27,7 +27,7 @@
  *     CmKeyBodyRemapToVirtual @ 0x140871FF0 (CmKeyBodyRemapToVirtual.c)
  */
 
-__int64 __fastcall NtDeleteValueKey(__int64 a1, unsigned __int64 a2)
+NTSTATUS __cdecl NtDeleteValueKey(HANDLE KeyHandle, PUNICODE_STRING ValueName)
 {
   char v3; // r14
   _DMA_OPERATIONS *DmaOperations; // r13
@@ -38,7 +38,7 @@ __int64 __fastcall NtDeleteValueKey(__int64 a1, unsigned __int64 a2)
   int v9; // r9d
   unsigned __int64 v10; // rdx
   int v11; // eax
-  unsigned __int64 v12; // rcx
+  wchar_t *Buffer; // rcx
   unsigned int v13; // ebx
   char *v14; // rsi
   __int64 v15; // rcx
@@ -50,16 +50,16 @@ __int64 __fastcall NtDeleteValueKey(__int64 a1, unsigned __int64 a2)
   __int64 v21; // r9
   int v23; // r8d
   int v24; // r9d
-  signed int v25; // ebx
+  int v25; // ebx
   void **v26; // rcx
   char v27; // [rsp+40h] [rbp-138h]
-  unsigned int v28; // [rsp+44h] [rbp-134h]
+  NTSTATUS v28; // [rsp+44h] [rbp-134h]
   BOOLEAN v29; // [rsp+4Ah] [rbp-12Eh]
   PADAPTER_OBJECT DmaAdapter[2]; // [rsp+50h] [rbp-128h] BYREF
   void *Src[2]; // [rsp+60h] [rbp-118h] BYREF
   int v32; // [rsp+70h] [rbp-108h] BYREF
   __int64 v33; // [rsp+78h] [rbp-100h] BYREF
-  __int64 v34; // [rsp+80h] [rbp-F8h]
+  HANDLE v34; // [rsp+80h] [rbp-F8h]
   PPRIVILEGE_SET Privileges; // [rsp+88h] [rbp-F0h]
   _DMA_OPERATIONS *v36; // [rsp+90h] [rbp-E8h]
   _QWORD v37[3]; // [rsp+98h] [rbp-E0h] BYREF
@@ -70,7 +70,7 @@ __int64 __fastcall NtDeleteValueKey(__int64 a1, unsigned __int64 a2)
   __int128 v42; // [rsp+110h] [rbp-68h] BYREF
   LARGE_INTEGER v43[4]; // [rsp+120h] [rbp-58h] BYREF
 
-  v34 = a1;
+  v34 = KeyHandle;
   memset(v40, 0, sizeof(v40));
   v41 = 0LL;
   v33 = 0LL;
@@ -102,7 +102,7 @@ LABEL_53:
     goto LABEL_54;
   }
   LOBYTE(v9) = PreviousMode;
-  v25 = CmObReferenceObjectByHandle(v34, 2, v8, v9, (__int64)DmaAdapter, (__int64)&v33);
+  v25 = CmObReferenceObjectByHandle((_DWORD)v34, 2, v8, v9, (__int64)DmaAdapter, (__int64)&v33);
   v28 = v25;
   if ( v25 == -1073741790 )
   {
@@ -111,7 +111,7 @@ LABEL_53:
     if ( !CmDoVirtualTest((__int64)&SubjectContext) )
       goto LABEL_52;
     LOBYTE(v24) = PreviousMode;
-    v25 = CmObReferenceObjectByHandle(v34, 131097, v23, v24, (__int64)DmaAdapter, (__int64)&v33);
+    v25 = CmObReferenceObjectByHandle((_DWORD)v34, 131097, v23, v24, (__int64)DmaAdapter, (__int64)&v33);
     v28 = v25;
     if ( v25 < 0 )
       goto LABEL_54;
@@ -139,25 +139,25 @@ LABEL_54:
   if ( (_BYTE)PreviousMode == 1 )
   {
     v38 = 0LL;
-    if ( a2 >= 0x7FFFFFFF0000LL )
-      a2 = 0x7FFFFFFF0000LL;
-    v11 = *(_DWORD *)a2;
+    if ( (unsigned __int64)ValueName >= 0x7FFFFFFF0000LL )
+      ValueName = (PUNICODE_STRING)0x7FFFFFFF0000LL;
+    v11 = *(_DWORD *)&ValueName->Length;
     LODWORD(v38) = v11;
-    v12 = *(_QWORD *)(a2 + 8);
-    *((_QWORD *)&v38 + 1) = v12;
+    Buffer = ValueName->Buffer;
+    *((_QWORD *)&v38 + 1) = Buffer;
     *(_OWORD *)Src = v38;
     if ( (_WORD)v11 )
     {
-      if ( (v12 & 1) != 0 )
+      if ( ((unsigned __int8)Buffer & 1) != 0 )
         ExRaiseDatatypeMisalignment();
-      v10 = v12 + (unsigned __int16)v11;
-      if ( v10 > 0x7FFFFFFF0000LL || v10 < v12 )
+      v10 = (unsigned __int64)Buffer + (unsigned __int16)v11;
+      if ( v10 > 0x7FFFFFFF0000LL || v10 < (unsigned __int64)Buffer )
         MEMORY[0x7FFFFFFF0000] = 0;
     }
   }
   else
   {
-    *(_OWORD *)Src = *(_OWORD *)a2;
+    *(UNICODE_STRING *)Src = *ValueName;
   }
   v13 = LOWORD(Src[0]);
   v14 = (char *)((unsigned __int64)Src[1] & -(__int64)(LOWORD(Src[0]) != 0));
@@ -280,5 +280,5 @@ LABEL_36:
     KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
     return v28;
   }
-  return (unsigned int)v25;
+  return v25;
 }

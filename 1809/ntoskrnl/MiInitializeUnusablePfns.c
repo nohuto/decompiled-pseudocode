@@ -1,23 +1,23 @@
 /*
- * XREFs of MiInitializeUnusablePfns @ 0x14017F04C
+ * XREFs of MiInitializeUnusablePfns @ 0x14017F18C
  * Callers:
- *     MiInitializeDynamicPfns @ 0x1402A6704 (MiInitializeDynamicPfns.c)
- *     MiInitializeDynamicPfnsTarget @ 0x1402A6AC0 (MiInitializeDynamicPfnsTarget.c)
- *     MiSwitchToPfns @ 0x1409BA954 (MiSwitchToPfns.c)
+ *     MiInitializeDynamicPfns @ 0x1402A68F4 (MiInitializeDynamicPfns.c)
+ *     MiInitializeDynamicPfnsTarget @ 0x1402A6CB0 (MiInitializeDynamicPfnsTarget.c)
+ *     MiSwitchToPfns @ 0x1409BB954 (MiSwitchToPfns.c)
  * Callees:
  *     MiLockPageInline @ 0x14002CE40 (MiLockPageInline.c)
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MiSwizzleInvalidPte @ 0x14003D7C0 (MiSwizzleInvalidPte.c)
  *     MiMakeValidPte @ 0x14003D7F0 (MiMakeValidPte.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     MiGetContainingPageTable @ 0x140079850 (MiGetContainingPageTable.c)
- *     MiPageToChannel @ 0x14009CFEC (MiPageToChannel.c)
- *     MiPageToNode @ 0x14009D010 (MiPageToNode.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     MiSetPageTablePfnBuddy @ 0x14013D9A8 (MiSetPageTablePfnBuddy.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     memset @ 0x1401D1880 (memset.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     MiGetContainingPageTable @ 0x140079840 (MiGetContainingPageTable.c)
+ *     MiPageToChannel @ 0x14009CF2C (MiPageToChannel.c)
+ *     MiPageToNode @ 0x14009CF50 (MiPageToNode.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     MiSetPageTablePfnBuddy @ 0x14013DAA8 (MiSetPageTablePfnBuddy.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x1401D1980 (memset.c)
  */
 
 __int64 __fastcall MiInitializeUnusablePfns(
@@ -71,7 +71,7 @@ __int64 __fastcall MiInitializeUnusablePfns(
   {
     *((_QWORD *)&v41[0] + 1) = 0LL;
     *((_QWORD *)&v41[2] + 1) = *((_QWORD *)&v41[2] + 1) & 0xFE3FFFFFFFFFFFFFuLL | 0xC0000000000000LL;
-    _InterlockedExchangeAdd64(&qword_14043A180, a2);
+    _InterlockedExchangeAdd64(&qword_14043B240, a2);
   }
   else if ( (a4 & 0x40) != 0 )
   {
@@ -111,7 +111,7 @@ __int64 __fastcall MiInitializeUnusablePfns(
     MiSetPageTablePfnBuddy((__int64)v41, (__int64)KeGetCurrentThread()->ApcState.Process, 1);
     *((_QWORD *)&v41[1] + 1) |= 0x4000000000000000uLL;
     LOWORD(v41[2]) = 2;
-    _InterlockedExchangeAdd64(&qword_14043B018, a2);
+    _InterlockedExchangeAdd64(&qword_14043C0D8, a2);
     v15 = *((_QWORD *)&v41[2] + 1);
   }
   *((_QWORD *)&v41[2] + 1) = v15 | 0x20000000000000LL;
@@ -176,7 +176,7 @@ LABEL_43:
         if ( (unsigned int)MiPteHasShadow() )
         {
           v31 = v39;
-          if ( HIBYTE(word_14043A1AC) )
+          if ( HIBYTE(word_14043B26C) )
             goto LABEL_40;
 LABEL_36:
           v36 |= 0x8000000000000000uLL;

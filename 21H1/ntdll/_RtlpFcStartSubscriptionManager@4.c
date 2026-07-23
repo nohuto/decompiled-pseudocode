@@ -8,23 +8,19 @@
  *     @__security_check_cookie@4 @ 0x4B2F4B20 (@__security_check_cookie@4.c)
  */
 
-int RtlpFcStartSubscriptionManager()
+NTSTATUS RtlpFcStartSubscriptionManager()
 {
-  int result; // eax
-  int v1; // [esp+8h] [ebp-18h] BYREF
-  _DWORD v2[4]; // [esp+Ch] [ebp-14h] BYREF
+  NTSTATUS result; // eax
+  ULONG ChangeStamp; // [esp+8h] [ebp-18h] BYREF
+  _WNF_TYPE_ID TypeId; // [esp+Ch] [ebp-14h] BYREF
 
-  v2[0] = RtlpFcWnfTypeId[0];
-  v2[1] = RtlpFcWnfTypeId[1];
-  v2[2] = RtlpFcWnfTypeId[2];
-  v2[3] = RtlpFcWnfTypeId[3];
+  TypeId = *(_WNF_TYPE_ID *)RtlpFcWnfTypeId;
   result = RtlQueryWnfStateData(
-             &v1,
+             &ChangeStamp,
              WNF_CMFC_FEATURE_CONFIGURATION_CHANGED,
-             41943854,
-             (int (__thiscall *)(_DWORD, int, int, int, int, int, _DWORD *, int))RtlpFcNoopCallback,
+             (PWNF_USER_CALLBACK)RtlpFcNoopCallback,
              0,
-             (int)v2);
+             &TypeId);
   if ( result >= 0 )
     return RtlpSubscribeWnfStateChangeNotificationInternal(
              RtlpFcWnfCallback,
@@ -33,7 +29,7 @@ int RtlpFcStartSubscriptionManager()
              0,
              4,
              17,
-             WNF_CMFC_FEATURE_CONFIGURATION_CHANGED,
-             41943854);
+             WNF_CMFC_FEATURE_CONFIGURATION_CHANGED.Data[0],
+             WNF_CMFC_FEATURE_CONFIGURATION_CHANGED.Data[1]);
   return result;
 }

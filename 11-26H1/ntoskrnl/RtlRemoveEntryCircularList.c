@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlRemoveEntryCircularList @ 0x140447A90
+ * XREFs of RtlRemoveEntryCircularList @ 0x140440580
  * Callers:
- *     ExReleaseResourceLite @ 0x1402B4CF0 (ExReleaseResourceLite.c)
- *     SepFilterCheck @ 0x1402B7790 (SepFilterCheck.c)
- *     ExReleaseResourceAndLeaveCriticalRegion @ 0x1402B8340 (ExReleaseResourceAndLeaveCriticalRegion.c)
- *     ExpReleaseResourceForThreadLite @ 0x1402B9360 (ExpReleaseResourceForThreadLite.c)
+ *     ExReleaseResourceLite @ 0x1402FF9C0 (ExReleaseResourceLite.c)
+ *     SepFilterCheck @ 0x140302450 (SepFilterCheck.c)
+ *     ExReleaseResourceAndLeaveCriticalRegion @ 0x140303000 (ExReleaseResourceAndLeaveCriticalRegion.c)
+ *     ExpReleaseResourceForThreadLite @ 0x140304020 (ExpReleaseResourceForThreadLite.c)
  * Callees:
  *     <none>
  */

@@ -21,16 +21,16 @@ __int64 __fastcall KiTimer2Expiration(__int64 a1, unsigned __int64 a2, __int64 a
 {
   __int64 result; // rax
   int v7; // ebx
-  __int64 *v8; // rdi
-  __int64 i; // rsi
+  _RTL_BALANCED_NODE **p_Min; // rdi
+  _RTL_BALANCED_NODE *i; // rsi
   _QWORD *v10; // rbx
   volatile signed __int32 *v11; // rdi
   unsigned int v12; // esi
   char v13; // al
   _BOOL8 v14; // rax
-  __int64 v15; // rsi
-  __int64 v16; // rax
-  _QWORD *v17; // rsi
+  _RTL_BALANCED_NODE *v15; // rsi
+  _RTL_BALANCED_NODE *v16; // rax
+  _RTL_BALANCED_NODE *v17; // rsi
   char inserted; // si
   _QWORD v19[5]; // [rsp+20h] [rbp-28h] BYREF
   void *retaddr; // [rsp+48h] [rbp+0h]
@@ -50,28 +50,28 @@ __int64 __fastcall KiTimer2Expiration(__int64 a1, unsigned __int64 a2, __int64 a
       KxWaitForSpinLockAndAcquire((volatile signed __int32 *)&KiTimer2CollectionLock);
     }
     v7 = 0;
-    v8 = (__int64 *)&unk_140338D88;
+    p_Min = &KiTimer2Collections.Min;
     do
     {
-      for ( i = *v8; *v8; i = *v8 )
+      for ( i = *p_Min; *p_Min; i = *p_Min )
       {
         v14 = v7 != 3 && (unsigned int)v7 >= 2;
-        v15 = i - 24 * (v14 + 1);
-        if ( a2 < *(_QWORD *)(v15 + 72) )
+        v15 = &i[-v14 - 1];
+        if ( (_RTL_BALANCED_NODE *)a2 < v15[3].Children[0] )
           break;
         KiRemoveTimer2(v15);
         KiUpdateTimer2Flags(v15, 2LL, 1LL);
-        v16 = v19[0];
-        v17 = (_QWORD *)(v15 + 24);
-        v17[1] = v19;
-        *v17 = v16;
-        if ( *(_QWORD **)(v16 + 8) != v19 )
+        v16 = (_RTL_BALANCED_NODE *)v19[0];
+        v17 = v15 + 1;
+        v17->Children[1] = (_RTL_BALANCED_NODE *)v19;
+        v17->Children[0] = v16;
+        if ( v16->Children[1] != (_RTL_BALANCED_NODE *)v19 )
           __fastfail(3u);
-        *(_QWORD *)(v16 + 8) = v17;
+        v16->Children[1] = v17;
         v19[0] = v17;
       }
       ++v7;
-      v8 += 3;
+      p_Min += 3;
     }
     while ( v7 < 4 );
     if ( (BYTE6(PerfGlobalGroupMask) & 1) != 0 )

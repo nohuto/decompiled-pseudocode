@@ -1,7 +1,7 @@
 /*
- * XREFs of MiClearLoaderDescriptorFlags @ 0x140C4ED58
+ * XREFs of MiClearLoaderDescriptorFlags @ 0x140C50EE8
  * Callers:
- *     MiInitNucleus @ 0x140C4F298 (MiInitNucleus.c)
+ *     MiInitNucleus @ 0x140C51428 (MiInitNucleus.c)
  * Callees:
  *     <none>
  */

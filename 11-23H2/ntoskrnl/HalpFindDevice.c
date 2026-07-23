@@ -5,7 +5,7 @@
  *     HalpRegisterDeviceInUse @ 0x140AB22D0 (HalpRegisterDeviceInUse.c)
  *     HalpKdReleaseDebuggingDevice @ 0x140AB3A00 (HalpKdReleaseDebuggingDevice.c)
  * Callees:
- *     wcsncmp @ 0x1403DBA50 (wcsncmp.c)
+ *     wcsncmp @ 0x1403DBC30 (wcsncmp.c)
  */
 
 __int64 *__fastcall HalpFindDevice(__int64 a1)

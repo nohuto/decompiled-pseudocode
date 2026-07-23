@@ -10,17 +10,24 @@
  *     sub_18007D494 @ 0x18007D494 (sub_18007D494.c)
  */
 
-__int64 __fastcall sub_180031F48(_WORD *a1, int a2, _QWORD *a3, _QWORD *a4, _DWORD *a5, _OWORD *a6, _QWORD *a7)
+__int64 __fastcall sub_180031F48(
+        PCWSTR DosFileName,
+        int a2,
+        _QWORD *a3,
+        _QWORD *a4,
+        _DWORD *a5,
+        _OWORD *a6,
+        _QWORD *a7)
 {
   bool v9; // r12
   bool v10; // di
   unsigned int v11; // ebx
   char v12; // r14
-  _WORD *v13; // r13
+  PCWSTR v13; // r13
   __int64 v14; // rcx
   __int64 v15; // rax
   _QWORD *v16; // rdx
-  int v18; // eax
+  RTL_PATH_TYPE v18; // eax
   __int64 v19; // rax
   __int64 v20; // r8
   __int64 v21; // rax
@@ -50,15 +57,17 @@ LABEL_4:
   v13 = 0LL;
   if ( (v11 & 0x100) != 0 || v12 )
   {
-    v18 = RtlDetermineDosPathNameType_U(a1);
+    v18 = RtlDetermineDosPathNameType_U(DosFileName);
     if ( (unsigned int)(v18 - 1) > 1 )
-      v10 = v18 != 6 || a1[2] != 63 || (unsigned int)RtlDetermineDosPathNameType_U(a1 + 4) != 2;
-    v13 = a1;
+      v10 = v18 != RtlPathTypeLocalDevice
+         || DosFileName[2] != 63
+         || RtlDetermineDosPathNameType_U(DosFileName + 4) != RtlPathTypeDriveAbsolute;
+    v13 = DosFileName;
     if ( v10 )
     {
       if ( v12 )
       {
-        sub_18007D494(a1);
+        sub_18007D494(DosFileName);
         if ( (dword_180162714 & 0x40) != 0 )
         {
           v12 = 0;
@@ -122,7 +131,7 @@ LABEL_8:
     }
     if ( a5 )
       *a5 = *(_DWORD *)(v14 + 96);
-    sub_180032198(v14, a1, *a3, 5313LL);
+    sub_180032198(v14, DosFileName, *a3, 5313LL);
     return 0LL;
   }
 LABEL_47:

@@ -6,7 +6,17 @@
  *     _Wow64SystemServiceCall@0 @ 0x4B308730 (_Wow64SystemServiceCall@0.c)
  */
 
-int __stdcall NtCreateWorkerFactory(int a1, int a2, int a3, int a4, int a5, int a6, int a7, int a8, int a9, int a10)
+NTSTATUS __cdecl NtCreateWorkerFactory(
+        PHANDLE WorkerFactoryHandleReturn,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        HANDLE CompletionPortHandle,
+        HANDLE WorkerProcessHandle,
+        PVOID StartRoutine,
+        PVOID StartParameter,
+        ULONG MaxThreadCount,
+        SIZE_T StackReserve,
+        SIZE_T StackCommit)
 {
   return Wow64SystemServiceCall();
 }

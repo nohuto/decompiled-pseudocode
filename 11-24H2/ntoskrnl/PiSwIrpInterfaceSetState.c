@@ -1,18 +1,18 @@
 /*
- * XREFs of PiSwIrpInterfaceSetState @ 0x1408B1C78
+ * XREFs of PiSwIrpInterfaceSetState @ 0x1408AF56C
  * Callers:
- *     PiSwDispatch @ 0x140730760 (PiSwDispatch.c)
+ *     PiSwDispatch @ 0x14072E770 (PiSwDispatch.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x14025A450 (ExReleaseResourceLite.c)
- *     McTemplateK0zzd_EtwWriteTransfer @ 0x14032FA04 (McTemplateK0zzd_EtwWriteTransfer.c)
- *     IofCompleteRequest @ 0x1403DBAD0 (IofCompleteRequest.c)
- *     McTemplateK0zz_EtwWriteTransfer @ 0x1405A82A8 (McTemplateK0zz_EtwWriteTransfer.c)
- *     PiSwDeviceInterfaceSetState @ 0x1408B22B0 (PiSwDeviceInterfaceSetState.c)
- *     PiSwLock @ 0x1408B9494 (PiSwLock.c)
- *     PiSwDeviceOperationsAllowed @ 0x1408BA604 (PiSwDeviceOperationsAllowed.c)
- *     PiSwDeviceFindInterfaceEntry @ 0x1408BB17C (PiSwDeviceFindInterfaceEntry.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x14028AA60 (ExReleaseResourceLite.c)
+ *     McTemplateK0zzd_EtwWriteTransfer @ 0x1402B827C (McTemplateK0zzd_EtwWriteTransfer.c)
+ *     IofCompleteRequest @ 0x1403CCDA0 (IofCompleteRequest.c)
+ *     McTemplateK0zz_EtwWriteTransfer @ 0x1405A5298 (McTemplateK0zz_EtwWriteTransfer.c)
+ *     PiSwDeviceInterfaceSetState @ 0x1408AFBA4 (PiSwDeviceInterfaceSetState.c)
+ *     PiSwLock @ 0x1408B6E3C (PiSwLock.c)
+ *     PiSwDeviceOperationsAllowed @ 0x1408B7FB4 (PiSwDeviceOperationsAllowed.c)
+ *     PiSwDeviceFindInterfaceEntry @ 0x1408B8B2C (PiSwDeviceFindInterfaceEntry.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiSwIrpInterfaceSetState(PIRP Irp, __int64 a2, __int64 a3)
@@ -35,7 +35,7 @@ __int64 __fastcall PiSwIrpInterfaceSetState(PIRP Irp, __int64 a2, __int64 a3)
   v16 = FsContext2;
   v15 = 0LL;
   P = 0LL;
-  if ( (byte_140EEFD24 & 0x40) != 0 )
+  if ( (byte_140EEFF64 & 0x40) != 0 )
     McTemplateK0zz_EtwWriteTransfer(
       (__int64)Irp,
       (const EVENT_DESCRIPTOR *)KMPnPEvt_SwDevice_SetInterfaceState_Start,
@@ -48,7 +48,7 @@ __int64 __fastcall PiSwIrpInterfaceSetState(PIRP Irp, __int64 a2, __int64 a3)
   v7 = MesDecodeBufferHandleCreate(MasterIrp, CurrentStackLocation->Parameters.Create.Options, &v15);
   if ( v7 < 0 )
     goto LABEL_11;
-  NdrMesTypeDecode3(v15, "TP 3\a", &off_140B3B430, &off_140E06FF0, 3, &P);
+  NdrMesTypeDecode3(v15, "TP 3\a", &off_140B3D1E0, &off_140E06FF0, 3, &P);
   if ( P && *(_QWORD *)P )
   {
     PiSwLock();
@@ -85,7 +85,7 @@ LABEL_11:
     MesHandleFree();
   Irp->IoStatus.Status = v7;
   IofCompleteRequest(Irp, 0);
-  if ( (byte_140EEFD24 & 0x40) != 0 )
+  if ( (byte_140EEFF64 & 0x40) != 0 )
     McTemplateK0zzd_EtwWriteTransfer(
       v11,
       (__int64)KMPnPEvt_SwDevice_SetInterfaceState_Stop,

@@ -1,19 +1,19 @@
 /*
- * XREFs of RtlpReadExtendedContext @ 0x14076FEE0
+ * XREFs of RtlpReadExtendedContext @ 0x1407700D0
  * Callers:
- *     KiContinuePreviousModeUser @ 0x14030D1E4 (KiContinuePreviousModeUser.c)
- *     KyRaiseException @ 0x140578AF0 (KyRaiseException.c)
- *     KiUnwindUserSspForApcContextCopyBypass @ 0x140580714 (KiUnwindUserSspForApcContextCopyBypass.c)
- *     PspSetContextThreadInternal @ 0x1407705F0 (PspSetContextThreadInternal.c)
- *     PspGetContextThreadInternal @ 0x1407707D4 (PspGetContextThreadInternal.c)
- *     PspWow64GetContextThread @ 0x1407A018C (PspWow64GetContextThread.c)
- *     PspWow64SetContextThread @ 0x1407A0458 (PspWow64SetContextThread.c)
+ *     KiContinuePreviousModeUser @ 0x14030D474 (KiContinuePreviousModeUser.c)
+ *     KyRaiseException @ 0x140578FE0 (KyRaiseException.c)
+ *     KiUnwindUserSspForApcContextCopyBypass @ 0x140580C04 (KiUnwindUserSspForApcContextCopyBypass.c)
+ *     PspSetContextThreadInternal @ 0x1407707E0 (PspSetContextThreadInternal.c)
+ *     PspGetContextThreadInternal @ 0x1407709C4 (PspGetContextThreadInternal.c)
+ *     PspWow64GetContextThread @ 0x1407A037C (PspWow64GetContextThread.c)
+ *     PspWow64SetContextThread @ 0x1407A0648 (PspWow64SetContextThread.c)
  * Callees:
- *     RtlpCopyExtendedContext @ 0x14030D4A0 (RtlpCopyExtendedContext.c)
- *     RtlpValidateContextFlags @ 0x14030DA40 (RtlpValidateContextFlags.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     RtlpReadExtendedContextLayout @ 0x140770AA0 (RtlpReadExtendedContextLayout.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00B60 (ExRaiseDatatypeMisalignment.c)
+ *     RtlpCopyExtendedContext @ 0x14030D730 (RtlpCopyExtendedContext.c)
+ *     RtlpValidateContextFlags @ 0x14030DCD0 (RtlpValidateContextFlags.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     RtlpReadExtendedContextLayout @ 0x140770C90 (RtlpReadExtendedContextLayout.c)
+ *     ExRaiseDatatypeMisalignment @ 0x140A00DF0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall RtlpReadExtendedContext(__int64 a1, char a2, __int64 a3, unsigned int a4, __int64 a5, _OWORD *a6)

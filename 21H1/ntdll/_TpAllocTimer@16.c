@@ -10,23 +10,34 @@
  *     _TppRaiseInvalidParameter@0 @ 0x4B3848BD (_TppRaiseInvalidParameter@0.c)
  */
 
-int __stdcall TpAllocTimer(_DWORD *a1, int a2, int a3, int a4)
+NTSTATUS __cdecl TpAllocTimer(
+        PTP_TIMER *Timer,
+        PTP_TIMER_CALLBACK Callback,
+        PVOID Context,
+        PTP_CALLBACK_ENVIRON CallbackEnviron)
 {
-  int Heap; // esi
-  int result; // eax
+  _TP_TIMER *Heap; // esi
+  NTSTATUS result; // eax
+  SIZE_T v6; // [esp-4h] [ebp-14h]
   _UNKNOWN *retaddr; // [esp+14h] [ebp+4h]
 
-  if ( !a1 || !a2 || a4 && (*(_DWORD *)(a4 + 28) & 0xFFFFFFFC) != 0 || NtCurrentPeb()->Ldr->ShutdownInProgress )
+  if ( !Timer
+    || !Callback
+    || CallbackEnviron && (CallbackEnviron->u.Flags & 0xFFFFFFFC) != 0
+    || NtCurrentPeb()->Ldr->ShutdownInProgress )
+  {
     TppRaiseInvalidParameter();
-  Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, (TppHeapTag + 0x100000) | 8, 224);
+  }
+  LODWORD(v6) = 224;
+  Heap = (_TP_TIMER *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, (TppHeapTag + 0x100000) | 8, v6);
   if ( !Heap )
     return -1073741801;
-  *(_DWORD *)(Heap + 108) = retaddr;
-  result = TppInitializeTimer(a3, a4, TppTimerpCleanupGroupMemberVFuncs, TppTimerpTaskVFuncs);
+  *((_DWORD *)Heap + 27) = retaddr;
+  result = TppInitializeTimer(Context, CallbackEnviron, &TppTimerpCleanupGroupMemberVFuncs, TppTimerpTaskVFuncs);
   if ( result >= 0 )
   {
-    *(_DWORD *)(Heap + 48) = a2;
-    *a1 = Heap;
+    *((_DWORD *)Heap + 12) = Callback;
+    *Timer = Heap;
   }
   return result;
 }

@@ -1,13 +1,13 @@
 /*
- * XREFs of SepLogUnmatchedSessionFlagImpersonationAttempt @ 0x140B56E58
+ * XREFs of SepLogUnmatchedSessionFlagImpersonationAttempt @ 0x140B59DAC
  * Callers:
- *     SeTokenCanImpersonate @ 0x140929184 (SeTokenCanImpersonate.c)
+ *     SeTokenCanImpersonate @ 0x140904C94 (SeTokenCanImpersonate.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     EtwpQueryProcessCommandLine @ 0x14096DF60 (EtwpQueryProcessCommandLine.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     EtwpQueryProcessCommandLine @ 0x1409D37CC (EtwpQueryProcessCommandLine.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall SepLogUnmatchedSessionFlagImpersonationAttempt(__int64 a1, __int64 a2)
@@ -37,7 +37,7 @@ void __fastcall SepLogUnmatchedSessionFlagImpersonationAttempt(__int64 a1, __int
   _DWORD v26[2]; // [rsp+E0h] [rbp+2Fh] BYREF
 
   v12[0] = 0x20000LL;
-  v12[1] = &word_140B814F0;
+  v12[1] = &word_140B8A320;
   LastRebalanceQpc = (unsigned __int16 *)v12;
   *(_OWORD *)P = 0LL;
   Process = KeGetCurrentThread()->ApcState.Process;
@@ -45,7 +45,7 @@ void __fastcall SepLogUnmatchedSessionFlagImpersonationAttempt(__int64 a1, __int
     LastRebalanceQpc = (unsigned __int16 *)Process[1].LastRebalanceQpc;
   EtwpQueryProcessCommandLine((__int64)Process, (__int64)P);
   v6 = P[1];
-  if ( (unsigned int)dword_140E086F0 > 5 && tlgKeywordOn((__int64)&dword_140E086F0, 0x400000000000LL) )
+  if ( (unsigned int)dword_140E086E0 > 5 && tlgKeywordOn((__int64)&dword_140E086E0, 0x400000000000LL) )
   {
     v7 = *(_DWORD *)(*(_QWORD *)(a1 + 216) + 40LL);
     v15 = &v10;
@@ -66,7 +66,7 @@ void __fastcall SepLogUnmatchedSessionFlagImpersonationAttempt(__int64 a1, __int
     v24 = 2LL;
     v25 = v6;
     v26[1] = 0;
-    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E086F0, (unsigned __int8 *)word_140052A72, 0LL, 0LL, 8u, &v14);
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140E086E0, (unsigned __int8 *)byte_140053A65, 0LL, 0LL, 8u, &v14);
   }
   if ( v6 )
     ExFreePoolWithTag(v6, 0);

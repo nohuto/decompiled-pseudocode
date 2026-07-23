@@ -1,18 +1,18 @@
 /*
- * XREFs of IopShutdownBaseFileSystems @ 0x1409AB134
+ * XREFs of IopShutdownBaseFileSystems @ 0x1409AC064
  * Callers:
- *     IoShutdownSystem @ 0x1409AADD8 (IoShutdownSystem.c)
+ *     IoShutdownSystem @ 0x1409ABD08 (IoShutdownSystem.c)
  * Callees:
- *     KeResetEvent @ 0x14027BC40 (KeResetEvent.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
- *     ObfReferenceObject @ 0x14034B230 (ObfReferenceObject.c)
- *     IofCallDriver @ 0x1403519C0 (IofCallDriver.c)
- *     IoGetAttachedDevice @ 0x140353740 (IoGetAttachedDevice.c)
- *     KeInitializeEvent @ 0x1403538F0 (KeInitializeEvent.c)
- *     IopDecrementDeviceObjectRef @ 0x140353B90 (IopDecrementDeviceObjectRef.c)
- *     IopIncrementDeviceObjectRefCount @ 0x140354BA0 (IopIncrementDeviceObjectRefCount.c)
- *     IoBuildSynchronousFsdRequest @ 0x1406D18C0 (IoBuildSynchronousFsdRequest.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     KeResetEvent @ 0x140269BE0 (KeResetEvent.c)
+ *     KeWaitForSingleObject @ 0x1403504C0 (KeWaitForSingleObject.c)
+ *     ObfReferenceObject @ 0x140355F80 (ObfReferenceObject.c)
+ *     IofCallDriver @ 0x14035C710 (IofCallDriver.c)
+ *     IoGetAttachedDevice @ 0x14035E490 (IoGetAttachedDevice.c)
+ *     KeInitializeEvent @ 0x14035E640 (KeInitializeEvent.c)
+ *     IopDecrementDeviceObjectRef @ 0x14035E8E0 (IopDecrementDeviceObjectRef.c)
+ *     IopIncrementDeviceObjectRefCount @ 0x14035F8F0 (IopIncrementDeviceObjectRefCount.c)
+ *     IoBuildSynchronousFsdRequest @ 0x1406A8BA0 (IoBuildSynchronousFsdRequest.c)
  */
 
 void __fastcall IopShutdownBaseFileSystems(__int64 **a1)
@@ -20,13 +20,9 @@ void __fastcall IopShutdownBaseFileSystems(__int64 **a1)
   __int64 *v2; // rbx
   __int64 *v3; // rax
   struct _DMA_ADAPTER *v4; // rsi
-  __int64 v5; // r8
-  _DWORD *v6; // r9
   PDEVICE_OBJECT AttachedDevice; // rbx
-  IRP *v8; // rax
-  __int64 *v9; // rax
-  __int64 v10; // r8
-  _DWORD *v11; // r9
+  IRP *v6; // rax
+  __int64 *v7; // rax
   struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+40h] [rbp-38h] BYREF
   struct _KEVENT Object; // [rsp+50h] [rbp-28h] BYREF
 
@@ -44,25 +40,24 @@ LABEL_14:
     *v2 = 0LL;
     v2[1] = 0LL;
     ObfReferenceObject(v2 - 10);
-    IopIncrementDeviceObjectRefCount((ULONG_PTR)(v2 - 10), 1, v5, v6);
+    IopIncrementDeviceObjectRefCount((ULONG_PTR)(v2 - 10), 1);
     AttachedDevice = (PDEVICE_OBJECT)(v2 - 10);
     v4 = (struct _DMA_ADAPTER *)AttachedDevice;
     if ( AttachedDevice->AttachedDevice )
       AttachedDevice = IoGetAttachedDevice(AttachedDevice);
-    v8 = IoBuildSynchronousFsdRequest(0x10u, AttachedDevice, 0LL, 0, 0LL, &Object, &IoStatusBlock);
-    if ( v8 && IofCallDriver(AttachedDevice, v8) == 259 )
+    v6 = IoBuildSynchronousFsdRequest(0x10u, AttachedDevice, 0LL, 0, 0LL, &Object, &IoStatusBlock);
+    if ( v6 && IofCallDriver(AttachedDevice, v6) == 259 )
       KeWaitForSingleObject(&Object, Executive, 0, 0, 0LL);
     v2 = *a1;
     if ( (__int64 **)(*a1)[1] != a1 )
       goto LABEL_14;
-    v9 = (__int64 *)*v2;
+    v7 = (__int64 *)*v2;
     if ( *(__int64 **)(*v2 + 8) != v2 )
       goto LABEL_14;
-    *a1 = v9;
-    v9[1] = (__int64)a1;
+    *a1 = v7;
+    v7[1] = (__int64)a1;
     KeResetEvent(&Object);
-    LOBYTE(v10) = 1;
-    IopDecrementDeviceObjectRef((ULONG_PTR)v4, 0, v10, v11);
+    IopDecrementDeviceObjectRef((ULONG_PTR)v4, 0, 1u);
     HalPutDmaAdapter(v4);
   }
 }

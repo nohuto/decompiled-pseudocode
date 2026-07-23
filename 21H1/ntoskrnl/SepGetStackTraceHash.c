@@ -40,7 +40,7 @@ ULONG __fastcall SepGetStackTraceHash(ULONG *a1)
       if ( ZwQueryVirtualMemory(
              (HANDLE)0xFFFFFFFFFFFFFFFFLL,
              BackTrace[v4],
-             (MEMORY_INFORMATION_CLASS)6,
+             MemoryImageInformation,
              &MemoryInformation,
              0x18uLL,
              0LL) < 0

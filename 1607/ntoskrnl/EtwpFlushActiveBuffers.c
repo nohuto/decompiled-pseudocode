@@ -1,19 +1,19 @@
 /*
- * XREFs of EtwpFlushActiveBuffers @ 0x140510490
+ * XREFs of EtwpFlushActiveBuffers @ 0x1404F3420
  * Callers:
- *     EtwpLogger @ 0x14048FBA8 (EtwpLogger.c)
+ *     EtwpLogger @ 0x140490638 (EtwpLogger.c)
  * Callees:
- *     EtwpQueryUsedProcessorCount @ 0x14008560C (EtwpQueryUsedProcessorCount.c)
- *     EtwpRequestFlushTimer @ 0x140085ADC (EtwpRequestFlushTimer.c)
- *     EtwpLockUnlockBufferList @ 0x1400929C4 (EtwpLockUnlockBufferList.c)
- *     KeQueryActiveProcessorCountEx @ 0x1400D4030 (KeQueryActiveProcessorCountEx.c)
- *     EtwpEnqueueAvailableBuffer @ 0x1400ED1E0 (EtwpEnqueueAvailableBuffer.c)
- *     EtwpPrepareDirtyBuffer @ 0x1400ED78C (EtwpPrepareDirtyBuffer.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     EtwpAdjustFreeBuffers @ 0x1404901C0 (EtwpAdjustFreeBuffers.c)
- *     EtwpRealtimeSendEmptyMarker @ 0x1404912D0 (EtwpRealtimeSendEmptyMarker.c)
- *     EtwpFlushBuffer @ 0x14049132C (EtwpFlushBuffer.c)
- *     EtwpWaitForBufferReferenceCount @ 0x1404D628C (EtwpWaitForBufferReferenceCount.c)
+ *     EtwpQueryUsedProcessorCount @ 0x140086EF8 (EtwpQueryUsedProcessorCount.c)
+ *     EtwpRequestFlushTimer @ 0x1400873CC (EtwpRequestFlushTimer.c)
+ *     EtwpLockUnlockBufferList @ 0x1400921C4 (EtwpLockUnlockBufferList.c)
+ *     KeQueryActiveProcessorCountEx @ 0x1400D1ED0 (KeQueryActiveProcessorCountEx.c)
+ *     EtwpEnqueueAvailableBuffer @ 0x1400EB050 (EtwpEnqueueAvailableBuffer.c)
+ *     EtwpPrepareDirtyBuffer @ 0x1400EB628 (EtwpPrepareDirtyBuffer.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     EtwpAdjustFreeBuffers @ 0x140490C50 (EtwpAdjustFreeBuffers.c)
+ *     EtwpRealtimeSendEmptyMarker @ 0x140491D60 (EtwpRealtimeSendEmptyMarker.c)
+ *     EtwpFlushBuffer @ 0x140491DBC (EtwpFlushBuffer.c)
+ *     EtwpWaitForBufferReferenceCount @ 0x1404B9890 (EtwpWaitForBufferReferenceCount.c)
  */
 
 __int64 __fastcall EtwpFlushActiveBuffers(unsigned int *a1, int a2)

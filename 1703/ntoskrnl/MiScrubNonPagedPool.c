@@ -16,7 +16,7 @@ void __fastcall MiScrubNonPagedPool(__int64 a1, unsigned int a2, __int64 a3)
   __int64 v4; // r14
   __int64 v7; // rax
   unsigned __int64 v8; // rbx
-  union _SLIST_HEADER *v9; // r15
+  _SLIST_HEADER *v9; // r15
   unsigned __int64 v10; // rsi
   __int64 v11; // rbp
   int v12[10]; // [rsp+20h] [rbp-68h] BYREF
@@ -30,7 +30,7 @@ void __fastcall MiScrubNonPagedPool(__int64 a1, unsigned int a2, __int64 a3)
   v14 = 1;
   while ( !*(_DWORD *)(a3 + 4) )
   {
-    v7 = MiScanNonPagedPoolVa((struct _SLIST_ENTRY *)1, v4, 0LL, (__int64)v12);
+    v7 = MiScanNonPagedPoolVa((_SLIST_ENTRY *)1, v4, 0LL, (__int64)v12);
     v8 = v7;
     if ( v7 == -1 )
       break;

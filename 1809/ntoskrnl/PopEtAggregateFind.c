@@ -1,9 +1,9 @@
 /*
- * XREFs of PopEtAggregateFind @ 0x1405FD070
+ * XREFs of PopEtAggregateFind @ 0x1405FE070
  * Callers:
- *     PopEtAggregateGet @ 0x1405FCD54 (PopEtAggregateGet.c)
+ *     PopEtAggregateGet @ 0x1405FDD54 (PopEtAggregateGet.c)
  * Callees:
- *     memcmp @ 0x140196200 (memcmp.c)
+ *     memcmp @ 0x140196340 (memcmp.c)
  */
 
 __int64 __fastcall PopEtAggregateFind(__int64 a1, unsigned __int8 *a2, __int64 *a3)

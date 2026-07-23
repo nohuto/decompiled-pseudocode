@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlpGetProcessCodepagesForLocale @ 0x18010B0A0
+ * XREFs of RtlpGetProcessCodepagesForLocale @ 0x18010B070
  * Callers:
  *     LdrpFusionManifestCodePages @ 0x1800AF938 (LdrpFusionManifestCodePages.c)
  * Callees:
@@ -8,43 +8,43 @@
  *     RtlpLoadNlsData @ 0x18007FE28 (RtlpLoadNlsData.c)
  */
 
-__int64 __fastcall RtlpGetProcessCodepagesForLocale(__int64 a1, _DWORD *a2, _DWORD *a3)
+__int64 __fastcall RtlpGetProcessCodepagesForLocale(__int64 a1, _DWORD *a2, _DWORD *a3, ULONG *a4)
 {
-  char v6; // si
+  char v7; // si
   int LcidIndex; // eax
-  __int64 v8; // r8
-  int v9; // edx
+  __int64 v9; // r8
+  int v10; // edx
   int NameIndex; // eax
-  __int64 v11; // rcx
+  __int64 v12; // rcx
 
-  if ( !pTblPtrs && !RtlpLoadNlsData() )
+  if ( !pTblPtrs && !RtlpLoadNlsData(a1, (__int64)a2, (__int64)a3, a4) )
     return 3221225473LL;
-  v6 = 0;
+  v7 = 0;
   if ( a1 )
   {
     NameIndex = RtlpNlsGetNameIndex(a1);
     if ( NameIndex < 0 )
       return 3221225473LL;
     _mm_lfence();
-    v8 = pTblPtrs;
-    v9 = *(unsigned __int16 *)(*(_QWORD *)(pTblPtrs + 24) + 8LL * NameIndex + 2);
+    v9 = pTblPtrs;
+    v10 = *(unsigned __int16 *)(*(_QWORD *)(pTblPtrs + 24) + 8LL * NameIndex + 2);
   }
   else
   {
-    v6 = 1;
+    v7 = 1;
     LcidIndex = RtlpNlsGetLcidIndex(gSystemLocale);
     if ( LcidIndex < 0 )
       return 3221225473LL;
     _mm_lfence();
-    v8 = pTblPtrs;
-    v9 = *(unsigned __int16 *)(*(_QWORD *)(pTblPtrs + 16) + 8LL * LcidIndex + 4);
+    v9 = pTblPtrs;
+    v10 = *(unsigned __int16 *)(*(_QWORD *)(pTblPtrs + 16) + 8LL * LcidIndex + 4);
   }
-  v11 = *(_QWORD *)(v8 + 8) + *(unsigned __int16 *)(v8 + 48) * v9;
-  *a2 = *(unsigned __int16 *)(v11 + 110);
-  *a3 = *(unsigned __int16 *)(v11 + 112);
+  v12 = *(_QWORD *)(v9 + 8) + *(unsigned __int16 *)(v9 + 48) * v10;
+  *a2 = *(unsigned __int16 *)(v12 + 110);
+  *a3 = *(unsigned __int16 *)(v12 + 112);
   if ( *a2 )
     return 0LL;
-  if ( v6 )
+  if ( v7 )
   {
     *a2 = 1252;
     *a3 = 437;

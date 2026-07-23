@@ -1,13 +1,13 @@
 /*
- * XREFs of MiFindPageFileMemoryExtent @ 0x14070CB30
+ * XREFs of MiFindPageFileMemoryExtent @ 0x1407117E0
  * Callers:
- *     MiTransferMemoryPagefileData @ 0x140503118 (MiTransferMemoryPagefileData.c)
+ *     MiTransferMemoryPagefileData @ 0x1404FC9E8 (MiTransferMemoryPagefileData.c)
  * Callees:
- *     ExReleaseSpinLockShared @ 0x14026CEE0 (ExReleaseSpinLockShared.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402DC6D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExAcquireSpinLockShared @ 0x1402EDF10 (ExAcquireSpinLockShared.c)
- *     ExAcquireSpinLockSharedAtDpcLevel @ 0x1402EDFB0 (ExAcquireSpinLockSharedAtDpcLevel.c)
- *     MiComparePageFileMemoryExtents @ 0x14070C884 (MiComparePageFileMemoryExtents.c)
+ *     ExReleaseSpinLockShared @ 0x14026C450 (ExReleaseSpinLockShared.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402BE490 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockShared @ 0x1402CFF90 (ExAcquireSpinLockShared.c)
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x1402D0030 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     MiComparePageFileMemoryExtents @ 0x140711534 (MiComparePageFileMemoryExtents.c)
  */
 
 __int64 __fastcall MiFindPageFileMemoryExtent(__int64 a1, int a2, int a3)

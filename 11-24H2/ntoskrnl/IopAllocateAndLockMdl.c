@@ -1,13 +1,13 @@
 /*
- * XREFs of IopAllocateAndLockMdl @ 0x14071194C
+ * XREFs of IopAllocateAndLockMdl @ 0x14070F4DC
  * Callers:
- *     NtCreateIoRing @ 0x140717160 (NtCreateIoRing.c)
- *     IopMcCreateBufferEntryMdl @ 0x140719BD8 (IopMcCreateBufferEntryMdl.c)
+ *     NtCreateIoRing @ 0x140714CF0 (NtCreateIoRing.c)
+ *     IopMcCreateBufferEntryMdl @ 0x140717768 (IopMcCreateBufferEntryMdl.c)
  * Callees:
- *     IoAllocateMdl @ 0x140267BF0 (IoAllocateMdl.c)
- *     IopUnlockAndFreeMdl @ 0x140268818 (IopUnlockAndFreeMdl.c)
- *     MmProbeAndLockPages @ 0x140282330 (MmProbeAndLockPages.c)
- *     MmMapLockedPagesSpecifyCache @ 0x14028F9F0 (MmMapLockedPagesSpecifyCache.c)
+ *     MmProbeAndLockPages @ 0x1402378C0 (MmProbeAndLockPages.c)
+ *     IoAllocateMdl @ 0x14025F1D0 (IoAllocateMdl.c)
+ *     IopUnlockAndFreeMdl @ 0x14025FCC8 (IopUnlockAndFreeMdl.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x14029F5F0 (MmMapLockedPagesSpecifyCache.c)
  */
 
 __int64 __fastcall IopAllocateAndLockMdl(

@@ -1,23 +1,23 @@
 /*
- * XREFs of MiGetVadWakeList @ 0x140068270
+ * XREFs of MiGetVadWakeList @ 0x140068260
  * Callers:
- *     MiRemoveVadCharges @ 0x1405EC820 (MiRemoveVadCharges.c)
- *     MiFreePlaceholderStorage @ 0x1406D0BD0 (MiFreePlaceholderStorage.c)
- *     MiFreeRotateView @ 0x14084F294 (MiFreeRotateView.c)
- *     MiFreeVadEventBitmap @ 0x14084F474 (MiFreeVadEventBitmap.c)
- *     MiFreeLargePageView @ 0x14085D374 (MiFreeLargePageView.c)
+ *     MiRemoveVadCharges @ 0x1405ED820 (MiRemoveVadCharges.c)
+ *     MiFreePlaceholderStorage @ 0x1406D1E70 (MiFreePlaceholderStorage.c)
+ *     MiFreeRotateView @ 0x1408504F4 (MiFreeRotateView.c)
+ *     MiFreeVadEventBitmap @ 0x1408506D4 (MiFreeVadEventBitmap.c)
+ *     MiFreeLargePageView @ 0x14085E5D4 (MiFreeLargePageView.c)
  * Callees:
  *     ExpWaitForSpinLockExclusiveAndAcquire @ 0x1400230C0 (ExpWaitForSpinLockExclusiveAndAcquire.c)
  *     MiUnlockWorkingSetShared @ 0x140046970 (MiUnlockWorkingSetShared.c)
  *     MiCheckProcessShadow @ 0x140046A70 (MiCheckProcessShadow.c)
- *     MiLockWorkingSetShared @ 0x140076050 (MiLockWorkingSetShared.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     HvlNotifyLongSpinWait @ 0x1402713D0 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140298330 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     MiDeleteDeferredCloneDescriptors @ 0x1402C9868 (MiDeleteDeferredCloneDescriptors.c)
- *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14031C0B4 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
- *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14031C278 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     MiLockWorkingSetShared @ 0x140076040 (MiLockWorkingSetShared.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     HvlNotifyLongSpinWait @ 0x1402715C0 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140298520 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     MiDeleteDeferredCloneDescriptors @ 0x1402C9A58 (MiDeleteDeferredCloneDescriptors.c)
+ *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14031C2A4 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14031C468 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 __int64 *__fastcall MiGetVadWakeList(__int64 a1, __int64 *a2, __int64 a3)
@@ -57,14 +57,14 @@ __int64 *__fastcall MiGetVadWakeList(__int64 a1, __int64 *a2, __int64 a3)
   v34 = (unsigned int)a2;
   v3 = (__int64 **)(a1 + 56);
   v4 = 0;
-  v5 = &dword_14043B700;
+  v5 = &dword_14043C7C0;
   v6 = (unsigned int)a2;
   v7 = 0LL;
   Process = KeGetCurrentThread()->ApcState.Process;
   Flink = (char)Process[2].Header.WaitListHead.Flink;
   v10 = (__int64)&Process[1].IdealNode[12];
   if ( (Flink & 7) == 2 )
-    v11 = &dword_14043B700;
+    v11 = &dword_14043C7C0;
   else
     v11 = (LONG *)(v10 + 192);
   CurrentIrql = KeGetCurrentIrql();

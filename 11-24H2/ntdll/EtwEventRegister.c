@@ -1,26 +1,30 @@
 /*
- * XREFs of EtwEventRegister @ 0x18001D400
+ * XREFs of EtwEventRegister @ 0x180049E00
  * Callers:
- *     LdrpInitializeProcess @ 0x180066D74 (LdrpInitializeProcess.c)
- *     LdrpLogDeprecatedDllEtwEvent @ 0x1800F980C (LdrpLogDeprecatedDllEtwEvent.c)
- *     RtlInitializeHeapLogging @ 0x180107340 (RtlInitializeHeapLogging.c)
- *     LdrpAppxEtwGenericIntegrityFailure @ 0x180131698 (LdrpAppxEtwGenericIntegrityFailure.c)
- *     LdrpAppxEtwIntegrityFailure @ 0x180131740 (LdrpAppxEtwIntegrityFailure.c)
- *     LdrpLogFatalUserCallbackException @ 0x1801602F0 (LdrpLogFatalUserCallbackException.c)
- *     TraceLoggingRegisterEx_EtwEventRegister_EtwEventSetInformation @ 0x180171498 (TraceLoggingRegisterEx_EtwEventRegister_EtwEventSetInformation.c)
+ *     LdrpInitializeProcess @ 0x1800AEF54 (LdrpInitializeProcess.c)
+ *     LdrpLogDeprecatedDllEtwEvent @ 0x1800F44BC (LdrpLogDeprecatedDllEtwEvent.c)
+ *     RtlInitializeHeapLogging @ 0x180102270 (RtlInitializeHeapLogging.c)
+ *     LdrpAppxEtwGenericIntegrityFailure @ 0x18012F8C8 (LdrpAppxEtwGenericIntegrityFailure.c)
+ *     LdrpAppxEtwIntegrityFailure @ 0x18012F970 (LdrpAppxEtwIntegrityFailure.c)
+ *     LdrpLogFatalUserCallbackException @ 0x18015E6B0 (LdrpLogFatalUserCallbackException.c)
+ *     TraceLoggingRegisterEx_EtwEventRegister_EtwEventSetInformation @ 0x180170498 (TraceLoggingRegisterEx_EtwEventRegister_EtwEventSetInformation.c)
  * Callees:
- *     RtlSetLastWin32Error @ 0x18001C5D0 (RtlSetLastWin32Error.c)
- *     EtwNotificationRegister @ 0x18001D450 (EtwNotificationRegister.c)
+ *     RtlSetLastWin32Error @ 0x180048FD0 (RtlSetLastWin32Error.c)
+ *     EtwNotificationRegister @ 0x180049E50 (EtwNotificationRegister.c)
  */
 
-__int64 __fastcall EtwEventRegister(int a1, __int64 a2, __int64 a3, __int64 a4)
+NTSTATUS __cdecl EtwEventRegister(
+        LPCGUID ProviderId,
+        PENABLECALLBACK EnableCallback,
+        PVOID CallbackContext,
+        PREGHANDLE RegHandle)
 {
-  unsigned int v4; // eax
-  unsigned int v5; // ebx
+  LONG v4; // eax
+  NTSTATUS v5; // ebx
 
-  if ( !a2 && a3 )
-    return 87LL;
-  v4 = EtwNotificationRegister(a1, 3, a2, a3, a4);
+  if ( !EnableCallback && CallbackContext )
+    return 87;
+  v4 = EtwNotificationRegister(ProviderId, 3u, (PETW_NOTIFICATION_CALLBACK)EnableCallback, CallbackContext, RegHandle);
   v5 = v4;
   if ( v4 )
     RtlSetLastWin32Error(v4);

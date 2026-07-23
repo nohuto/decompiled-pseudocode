@@ -1,15 +1,15 @@
 /*
- * XREFs of PfFbLogEntryReserve @ 0x14048B598
+ * XREFs of PfFbLogEntryReserve @ 0x1404850D8
  * Callers:
- *     PfTFiNotifyVolumeCreateCallback @ 0x14048B160 (PfTFiNotifyVolumeCreateCallback.c)
- *     PfTFiNotifyFileStreamCreateCallback @ 0x14048B2E0 (PfTFiNotifyFileStreamCreateCallback.c)
- *     PfTFiNotifyFileInfoDeleteCallback @ 0x14048B470 (PfTFiNotifyFileInfoDeleteCallback.c)
+ *     PfTFiNotifyVolumeCreateCallback @ 0x140484CA0 (PfTFiNotifyVolumeCreateCallback.c)
+ *     PfTFiNotifyFileStreamCreateCallback @ 0x140484E20 (PfTFiNotifyFileStreamCreateCallback.c)
+ *     PfTFiNotifyFileInfoDeleteCallback @ 0x140484FB0 (PfTFiNotifyFileInfoDeleteCallback.c)
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     RtlpInterlockedPopEntrySList @ 0x140730C90 (RtlpInterlockedPopEntrySList.c)
- *     RtlpInterlockedPushEntrySList @ 0x140730CD0 (RtlpInterlockedPushEntrySList.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140735860 (RtlpInterlockedPopEntrySList.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1407358A0 (RtlpInterlockedPushEntrySList.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall PfFbLogEntryReserve(__int64 a1, __int64 a2, PSLIST_ENTRY *a3, _QWORD *a4, unsigned int a5)

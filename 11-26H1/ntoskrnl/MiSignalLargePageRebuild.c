@@ -1,15 +1,15 @@
 /*
- * XREFs of MiSignalLargePageRebuild @ 0x1402A8360
+ * XREFs of MiSignalLargePageRebuild @ 0x1402A7770
  * Callers:
- *     MiPartitionPeriodicTick @ 0x1402A703C (MiPartitionPeriodicTick.c)
+ *     MiPartitionPeriodicTick @ 0x1402A6458 (MiPartitionPeriodicTick.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     MiWakeLargePageRebuild @ 0x140258684 (MiWakeLargePageRebuild.c)
- *     MiNodeFreeZeroPages @ 0x14028EFD0 (MiNodeFreeZeroPages.c)
- *     MiPageCombiningActive @ 0x1402A96B0 (MiPageCombiningActive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402DED10 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     MiWakeLargePageRebuild @ 0x140259E64 (MiWakeLargePageRebuild.c)
+ *     MiNodeFreeZeroPages @ 0x14028E530 (MiNodeFreeZeroPages.c)
+ *     MiPageCombiningActive @ 0x1402A8AC0 (MiPageCombiningActive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402C0B20 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall MiSignalLargePageRebuild(__int64 a1)
@@ -54,7 +54,7 @@ __int64 __fastcall MiSignalLargePageRebuild(__int64 a1)
           v9 = 0LL;
           v10 = 0;
           for ( j = (-(__int64)(*(_BYTE *)(v6 + 4155) != 0) & 0xFFFFFFFFFFFFE100uLL) + 0x2000;
-                v10 < (unsigned __int8)byte_140E2D718;
+                v10 < (unsigned __int8)byte_140E2D898;
                 ++v10 )
           {
             LOBYTE(v7) = v10;

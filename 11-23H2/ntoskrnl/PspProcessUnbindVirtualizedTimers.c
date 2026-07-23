@@ -1,14 +1,14 @@
 /*
- * XREFs of PspProcessUnbindVirtualizedTimers @ 0x1402F6478
+ * XREFs of PspProcessUnbindVirtualizedTimers @ 0x1402F6708
  * Callers:
- *     PspExitProcess @ 0x140751434 (PspExitProcess.c)
+ *     PspExitProcess @ 0x140751624 (PspExitProcess.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     KxAcquireSpinLock @ 0x1402515B0 (KxAcquireSpinLock.c)
- *     ExpTimerResume @ 0x14036B0A0 (ExpTimerResume.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KxAcquireSpinLock @ 0x140251670 (KxAcquireSpinLock.c)
+ *     ExpTimerResume @ 0x14036B240 (ExpTimerResume.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall PspProcessUnbindVirtualizedTimers(__int64 a1)
@@ -51,10 +51,10 @@ __int64 __fastcall PspProcessUnbindVirtualizedTimers(__int64 a1)
       ObfDereferenceObjectWithTag(v9, 0x54567350u);
     }
     result = KxReleaseSpinLock(v3);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       result = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
         && (unsigned __int8)result <= 0xFu
         && (unsigned __int8)v4 <= 0xFu
         && (unsigned __int8)result >= 2u )

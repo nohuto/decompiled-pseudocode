@@ -1,27 +1,27 @@
 /*
- * XREFs of MiLogHotPatchRundownForProcess @ 0x1406FC34C
+ * XREFs of MiLogHotPatchRundownForProcess @ 0x14070101C
  * Callers:
- *     MiLogHotPatchRundown @ 0x14087272C (MiLogHotPatchRundown.c)
+ *     MiLogHotPatchRundown @ 0x140878A8C (MiLogHotPatchRundown.c)
  * Callees:
- *     KiUnstackDetachProcess @ 0x1402307C0 (KiUnstackDetachProcess.c)
- *     KiStackAttachProcess @ 0x140247880 (KiStackAttachProcess.c)
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     ExfAcquirePushLockSharedEx @ 0x140277CC0 (ExfAcquirePushLockSharedEx.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ExfReleasePushLockShared @ 0x140278BD0 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     KiCheckForKernelApcDelivery @ 0x14027DB80 (KiCheckForKernelApcDelivery.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     _tlgCreate1Sz_char @ 0x1403EEB48 (_tlgCreate1Sz_char.c)
- *     ?KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z @ 0x140444460 (-KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     MiFillLogProcessInfo @ 0x140474E30 (MiFillLogProcessInfo.c)
- *     _tlgWriteEx_EtwWriteEx @ 0x1404E33C4 (_tlgWriteEx_EtwWriteEx.c)
- *     VslQueryActiveSecurePatches @ 0x1405C38F0 (VslQueryActiveSecurePatches.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     MiGetProcessHotPatchContext @ 0x14086FFF8 (MiGetProcessHotPatchContext.c)
- *     PsGetProcessMachine @ 0x140A918B0 (PsGetProcessMachine.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KiUnstackDetachProcess @ 0x140232120 (KiUnstackDetachProcess.c)
+ *     KiStackAttachProcess @ 0x1402491E0 (KiStackAttachProcess.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     ExfAcquirePushLockSharedEx @ 0x140277230 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ExfReleasePushLockShared @ 0x140278140 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x14027D0F0 (KiCheckForKernelApcDelivery.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     ?KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z @ 0x14043CF70 (-KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     _tlgCreate1Sz_char @ 0x140453678 (_tlgCreate1Sz_char.c)
+ *     MiFillLogProcessInfo @ 0x14046E5B0 (MiFillLogProcessInfo.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x1404DC958 (_tlgWriteEx_EtwWriteEx.c)
+ *     VslQueryActiveSecurePatches @ 0x1405C6160 (VslQueryActiveSecurePatches.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     MiGetProcessHotPatchContext @ 0x140876358 (MiGetProcessHotPatchContext.c)
+ *     PsGetProcessMachine @ 0x140A96400 (PsGetProcessMachine.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiLogHotPatchRundownForProcess(ULONG_PTR BugCheckParameter1, __int64 a2)
@@ -112,8 +112,8 @@ void __fastcall MiLogHotPatchRundownForProcess(ULONG_PTR BugCheckParameter1, __i
         v39 = (const CHAR *)v31;
         do
         {
-          FirstArgument = stru_140E36558.FirstArgument;
-          if ( *(_DWORD *)stru_140E36558.FirstArgument > 5u && tlgKeywordOn((__int64)stru_140E36558.FirstArgument, 32LL) )
+          FirstArgument = stru_140E366D8.FirstArgument;
+          if ( *(_DWORD *)stru_140E366D8.FirstArgument > 5u && tlgKeywordOn((__int64)stru_140E366D8.FirstArgument, 32LL) )
           {
             v32 = *(_DWORD *)(BugCheckParameter1 + 464);
             v45 = 4LL;
@@ -151,7 +151,7 @@ void __fastcall MiLogHotPatchRundownForProcess(ULONG_PTR BugCheckParameter1, __i
             v64 = &v31;
             tlgWriteEx_EtwWriteEx(
               (__int64)FirstArgument,
-              (unsigned __int8 *)&byte_14005898F,
+              (unsigned __int8 *)&word_14005960A,
               v17,
               1u,
               v29,
@@ -201,9 +201,9 @@ void __fastcall MiLogHotPatchRundownForProcess(ULONG_PTR BugCheckParameter1, __i
         {
           do
           {
-            *(_QWORD *)v40 = stru_140E36558.FirstArgument;
-            if ( *(_DWORD *)stru_140E36558.FirstArgument > 5u
-              && tlgKeywordOn((__int64)stru_140E36558.FirstArgument, 32LL) )
+            *(_QWORD *)v40 = stru_140E366D8.FirstArgument;
+            if ( *(_DWORD *)stru_140E366D8.FirstArgument > 5u
+              && tlgKeywordOn((__int64)stru_140E366D8.FirstArgument, 32LL) )
             {
               LODWORD(P) = *(_DWORD *)(BugCheckParameter1 + 464);
               v44 = &P;
@@ -236,7 +236,7 @@ void __fastcall MiLogHotPatchRundownForProcess(ULONG_PTR BugCheckParameter1, __i
               LOWORD(v31) = PsGetProcessMachine(BugCheckParameter1);
               v65 = 2LL;
               v64 = &v31;
-              tlgWriteEx_EtwWriteEx(*(__int64 *)v40, (unsigned __int8 *)&dword_1400585C4, v25, 1u, v29, v30, 0xDu, v43);
+              tlgWriteEx_EtwWriteEx(*(__int64 *)v40, (unsigned __int8 *)&byte_140059541, v25, 1u, v29, v30, 0xDu, v43);
             }
             v23 = (_QWORD *)*v23;
           }

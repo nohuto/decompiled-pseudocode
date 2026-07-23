@@ -1,12 +1,12 @@
 /*
- * XREFs of PpmEventParkNodeCapChange @ 0x14060E5D0
+ * XREFs of PpmEventParkNodeCapChange @ 0x1406116D0
  * Callers:
- *     PpmParkApplyPolicy @ 0x1402592F0 (PpmParkApplyPolicy.c)
+ *     PpmParkApplyPolicy @ 0x14025AAD0 (PpmParkApplyPolicy.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     PpmEventAddAffinityMaskAsSubset @ 0x140420DB0 (PpmEventAddAffinityMaskAsSubset.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     PpmEventAddAffinityMaskAsSubset @ 0x1404185F0 (PpmEventAddAffinityMaskAsSubset.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 char __fastcall PpmEventParkNodeCapChange(__int16 a1, unsigned __int16 *a2, __int16 a3, __int16 a4)
@@ -52,9 +52,7 @@ char __fastcall PpmEventParkNodeCapChange(__int16 a1, unsigned __int16 *a2, __in
   {
     if ( PpmEtwRegistered )
     {
-      LOBYTE(v4) = EtwEventEnabled(
-                     (REGHANDLE)PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink,
-                     &PPM_ETW_PARK_NODE_CAP_CHANGE);
+      LOBYTE(v4) = EtwEventEnabled(PpmEtwHandle, &PPM_ETW_PARK_NODE_CAP_CHANGE);
       if ( (_BYTE)v4 )
       {
         v7 = *a2;
@@ -84,15 +82,7 @@ LABEL_11:
           v12 = v10 + 1;
           v5[v12].Ptr = (ULONGLONG)&v32;
           *(_QWORD *)&v5[v12].Size = 2LL;
-          LOBYTE(v4) = EtwWriteEx(
-                         (REGHANDLE)PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink,
-                         &PPM_ETW_PARK_NODE_CAP_CHANGE,
-                         0LL,
-                         0,
-                         0LL,
-                         0LL,
-                         v10 + 2,
-                         v5);
+          LOBYTE(v4) = EtwWriteEx(PpmEtwHandle, &PPM_ETW_PARK_NODE_CAP_CHANGE, 0LL, 0, 0LL, 0LL, v10 + 2, v5);
           return (char)v4;
         }
         UserData.Ptr = (ULONGLONG)&v16;
@@ -105,15 +95,7 @@ LABEL_11:
         v23 = 8LL;
         v25 = 1LL;
         v27 = 1LL;
-        LOBYTE(v4) = EtwWriteEx(
-                       (REGHANDLE)PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink,
-                       &PPM_ETW_PARK_NODE_CAP_CHANGE_V1,
-                       0LL,
-                       0,
-                       0LL,
-                       0LL,
-                       4u,
-                       &UserData);
+        LOBYTE(v4) = EtwWriteEx(PpmEtwHandle, &PPM_ETW_PARK_NODE_CAP_CHANGE_V1, 0LL, 0, 0LL, 0LL, 4u, &UserData);
       }
     }
   }

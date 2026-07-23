@@ -1,15 +1,15 @@
 /*
- * XREFs of VmpUpdateCommitStateMemoryRange @ 0x14064B5C0
+ * XREFs of VmpUpdateCommitStateMemoryRange @ 0x140649B80
  * Callers:
- *     VmUpdateCommitMemoryRange @ 0x14079F090 (VmUpdateCommitMemoryRange.c)
+ *     VmUpdateCommitMemoryRange @ 0x14079F1A0 (VmUpdateCommitMemoryRange.c)
  * Callees:
- *     VmpProcessContextLockShared @ 0x1403ABC30 (VmpProcessContextLockShared.c)
- *     VmpProcessContextUnlockShared @ 0x1403ABC7C (VmpProcessContextUnlockShared.c)
- *     VmpConvertPortionVpnRangeToGpnRange @ 0x1403B04A4 (VmpConvertPortionVpnRangeToGpnRange.c)
- *     VmpFindNextPinnedPageStateHelper @ 0x14064A7D4 (VmpFindNextPinnedPageStateHelper.c)
- *     ZwAllocateVirtualMemory @ 0x1406A6710 (ZwAllocateVirtualMemory.c)
- *     ZwFreeVirtualMemory @ 0x1406A67D0 (ZwFreeVirtualMemory.c)
- *     MmCommitDecommitSecuredMemory @ 0x1407EDC74 (MmCommitDecommitSecuredMemory.c)
+ *     VmpProcessContextLockShared @ 0x14039A340 (VmpProcessContextLockShared.c)
+ *     VmpProcessContextUnlockShared @ 0x14039A38C (VmpProcessContextUnlockShared.c)
+ *     VmpConvertPortionVpnRangeToGpnRange @ 0x14039ECB4 (VmpConvertPortionVpnRangeToGpnRange.c)
+ *     VmpFindNextPinnedPageStateHelper @ 0x140648D94 (VmpFindNextPinnedPageStateHelper.c)
+ *     ZwAllocateVirtualMemory @ 0x1406A76B0 (ZwAllocateVirtualMemory.c)
+ *     ZwFreeVirtualMemory @ 0x1406A7770 (ZwFreeVirtualMemory.c)
+ *     MmCommitDecommitSecuredMemory @ 0x1407EE244 (MmCommitDecommitSecuredMemory.c)
  */
 
 __int64 __fastcall VmpUpdateCommitStateMemoryRange(__int64 a1, __int128 *a2, ULONG a3)

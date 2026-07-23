@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlInitWeakEnumerationHashTable @ 0x1801462F0
+ * XREFs of RtlInitWeakEnumerationHashTable @ 0x1801461A0
  * Callers:
  *     <none>
  * Callees:
@@ -7,7 +7,9 @@
  */
 
 // attributes: thunk
-char __fastcall RtlInitWeakEnumerationHashTable(__int64 a1, __int64 a2)
+BOOLEAN __cdecl RtlInitWeakEnumerationHashTable(
+        PRTL_DYNAMIC_HASH_TABLE HashTable,
+        PRTL_DYNAMIC_HASH_TABLE_ENUMERATOR Enumerator)
 {
-  return RtlInitEnumerationHashTable(a1, a2);
+  return RtlInitEnumerationHashTable(HashTable, Enumerator);
 }

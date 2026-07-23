@@ -1,8 +1,8 @@
 /*
- * XREFs of ExpTimerSetParametersAreValid @ 0x1403A97B8
+ * XREFs of ExpTimerSetParametersAreValid @ 0x1403B33C8
  * Callers:
- *     RtlpHpEnvCompactionSchedule @ 0x14034D650 (RtlpHpEnvCompactionSchedule.c)
- *     ExpSetTimerObject2 @ 0x1403A9988 (ExpSetTimerObject2.c)
+ *     RtlpHpEnvCompactionSchedule @ 0x14034F6D0 (RtlpHpEnvCompactionSchedule.c)
+ *     ExpSetTimerObject2 @ 0x1403B3598 (ExpSetTimerObject2.c)
  * Callees:
  *     <none>
  */

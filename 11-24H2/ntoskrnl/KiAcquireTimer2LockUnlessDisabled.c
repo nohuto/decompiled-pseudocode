@@ -1,12 +1,12 @@
 /*
- * XREFs of KiAcquireTimer2LockUnlessDisabled @ 0x1403C2524
+ * XREFs of KiAcquireTimer2LockUnlessDisabled @ 0x1403B10E4
  * Callers:
- *     KeDisableTimer2 @ 0x1403C01A8 (KeDisableTimer2.c)
- *     KeCancelTimer2 @ 0x1403C0960 (KeCancelTimer2.c)
- *     KeSetTimer2 @ 0x1403C20A0 (KeSetTimer2.c)
+ *     KeDisableTimer2 @ 0x1403AED68 (KeDisableTimer2.c)
+ *     KeCancelTimer2 @ 0x1403AF520 (KeCancelTimer2.c)
+ *     KeSetTimer2 @ 0x1403B0C60 (KeSetTimer2.c)
  * Callees:
- *     HvlNotifyLongSpinWait @ 0x140293260 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140293290 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     HvlNotifyLongSpinWait @ 0x1402A2E60 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402A2E90 (KiCheckVpBackingLongSpinWaitHypercall.c)
  */
 
 bool __fastcall KiAcquireTimer2LockUnlessDisabled(__int64 a1)

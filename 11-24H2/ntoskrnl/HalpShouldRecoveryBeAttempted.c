@@ -1,8 +1,8 @@
 /*
- * XREFs of HalpShouldRecoveryBeAttempted @ 0x14055500C
+ * XREFs of HalpShouldRecoveryBeAttempted @ 0x14055294C
  * Callers:
- *     HalpMcaReportError @ 0x1405400E4 (HalpMcaReportError.c)
- *     HalpMceRecovery @ 0x140554990 (HalpMceRecovery.c)
+ *     HalpMcaReportError @ 0x14053D9E4 (HalpMcaReportError.c)
+ *     HalpMceRecovery @ 0x1405522D0 (HalpMceRecovery.c)
  * Callees:
  *     <none>
  */

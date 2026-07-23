@@ -3,10 +3,10 @@
  * Callers:
  *     MiInitializeSystemVa @ 0x1407AA428 (MiInitializeSystemVa.c)
  * Callees:
- *     ExGenRandom @ 0x1400F0494 (ExGenRandom.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     qsort @ 0x14014DF60 (qsort.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     ExGenRandom @ 0x1400EE314 (ExGenRandom.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     qsort @ 0x14014E520 (qsort.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     MiAssignSystemVa @ 0x1407AAFAC (MiAssignSystemVa.c)
  */
 
@@ -118,6 +118,6 @@ __int64 MiAssignTopLevelRanges()
   }
   while ( v5 );
   result = 1LL;
-  qword_140326CF8 = qword_140327F90 + 0xFFFFFFFFFFLL;
+  qword_140326D38 = qword_140327FD0 + 0xFFFFFFFFFFLL;
   return result;
 }

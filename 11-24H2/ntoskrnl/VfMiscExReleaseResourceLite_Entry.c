@@ -1,9 +1,9 @@
 /*
- * XREFs of VfMiscExReleaseResourceLite_Entry @ 0x140B9DA70
+ * XREFs of VfMiscExReleaseResourceLite_Entry @ 0x140B9FA70
  * Callers:
  *     <none>
  * Callees:
- *     ViMiscCheckResourceRelease @ 0x140B9F404 (ViMiscCheckResourceRelease.c)
+ *     ViMiscCheckResourceRelease @ 0x140BA1404 (ViMiscCheckResourceRelease.c)
  */
 
 __int64 __fastcall VfMiscExReleaseResourceLite_Entry(__int64 a1)

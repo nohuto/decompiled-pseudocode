@@ -1,7 +1,7 @@
 /*
  * XREFs of RtlCompareString @ 0x1406AFF70
  * Callers:
- *     KsepGetModuleInfoByName @ 0x140964D68 (KsepGetModuleInfoByName.c)
+ *     sub_140964D68 @ 0x140964D68 (sub_140964D68.c)
  * Callees:
  *     RtlUpperChar @ 0x1406B00C0 (RtlUpperChar.c)
  */

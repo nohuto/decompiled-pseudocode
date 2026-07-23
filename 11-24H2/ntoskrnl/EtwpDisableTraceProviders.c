@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwpDisableTraceProviders @ 0x140A166D4
+ * XREFs of EtwpDisableTraceProviders @ 0x140A0F8B4
  * Callers:
- *     EtwpStopLoggerInstance @ 0x1409D9164 (EtwpStopLoggerInstance.c)
+ *     EtwpStopLoggerInstance @ 0x1409D3C74 (EtwpStopLoggerInstance.c)
  * Callees:
- *     KeReleaseMutex @ 0x1403379B0 (KeReleaseMutex.c)
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     EtwpDisablePerProcessTracing @ 0x1407AA548 (EtwpDisablePerProcessTracing.c)
- *     EtwpGetNextGuidEntry @ 0x14083D5B0 (EtwpGetNextGuidEntry.c)
- *     EtwpClearSessionAndUnreferenceEntry @ 0x14083ECD8 (EtwpClearSessionAndUnreferenceEntry.c)
+ *     KeReleaseMutex @ 0x1402DEA60 (KeReleaseMutex.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     EtwpDisablePerProcessTracing @ 0x1407AA688 (EtwpDisablePerProcessTracing.c)
+ *     EtwpClearSessionAndUnreferenceEntry @ 0x140837F48 (EtwpClearSessionAndUnreferenceEntry.c)
+ *     EtwpGetNextGuidEntry @ 0x140839C10 (EtwpGetNextGuidEntry.c)
  */
 
 LONG __fastcall EtwpDisableTraceProviders(__int64 a1, int a2)
@@ -29,7 +29,7 @@ LONG __fastcall EtwpDisableTraceProviders(__int64 a1, int a2)
     v6 = i;
     if ( !i )
       break;
-    EtwpClearSessionAndUnreferenceEntry(a2, (__int64)i, 0);
+    EtwpClearSessionAndUnreferenceEntry(a2, (ULONG_PTR)i, 0);
   }
   for ( j = 0LL; ; j = v9 )
   {
@@ -37,7 +37,7 @@ LONG __fastcall EtwpDisableTraceProviders(__int64 a1, int a2)
     v9 = NextGuidEntry;
     if ( !NextGuidEntry )
       break;
-    EtwpClearSessionAndUnreferenceEntry(a2, (__int64)NextGuidEntry, 2);
+    EtwpClearSessionAndUnreferenceEntry(a2, (ULONG_PTR)NextGuidEntry, 2);
   }
   KeWaitForSingleObject(&EtwpGlobalMutex, Executive, 0, 0, 0LL);
   for ( k = 0; k < 9; ++k )

@@ -1,21 +1,21 @@
 /*
- * XREFs of FsRtlPrivateLock @ 0x1400C4BA8
+ * XREFs of FsRtlPrivateLock @ 0x1400C2A48
  * Callers:
- *     FsRtlProcessFileLock @ 0x140132C48 (FsRtlProcessFileLock.c)
+ *     FsRtlProcessFileLock @ 0x1401331B8 (FsRtlProcessFileLock.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x14006ACD0 (ObfDereferenceObjectWithTag.c)
- *     ExAllocateFromNPagedLookasideList @ 0x14006FEB0 (ExAllocateFromNPagedLookasideList.c)
- *     FsRtlPrivateInitializeFileLock @ 0x1400B25C0 (FsRtlPrivateInitializeFileLock.c)
- *     FsRtlPrivateInsertLock @ 0x1400C4EB4 (FsRtlPrivateInsertLock.c)
- *     FsRtlPrivateCheckForSharedLockAccess @ 0x1400C5618 (FsRtlPrivateCheckForSharedLockAccess.c)
- *     FsRtlPrivateCheckForExclusiveLockAccess @ 0x1400C5DF4 (FsRtlPrivateCheckForExclusiveLockAccess.c)
- *     KeReleaseSpinLock @ 0x1400E9A70 (KeReleaseSpinLock.c)
- *     ObfReferenceObjectWithTag @ 0x1400EE4F0 (ObfReferenceObjectWithTag.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1400EFE30 (KeAcquireSpinLockRaiseToDpc.c)
- *     RtlRaiseStatus @ 0x1400F6738 (RtlRaiseStatus.c)
- *     FsRtlCompleteLockIrpReal @ 0x140132D70 (FsRtlCompleteLockIrpReal.c)
- *     FsRtlPrivateCancelFileLockIrp @ 0x1401B9098 (FsRtlPrivateCancelFileLockIrp.c)
- *     FsRtlPrivateRemoveLock @ 0x1401B91A4 (FsRtlPrivateRemoveLock.c)
+ *     ObfDereferenceObjectWithTag @ 0x14006A850 (ObfDereferenceObjectWithTag.c)
+ *     ExAllocateFromNPagedLookasideList @ 0x14006FA30 (ExAllocateFromNPagedLookasideList.c)
+ *     FsRtlPrivateInitializeFileLock @ 0x1400B0500 (FsRtlPrivateInitializeFileLock.c)
+ *     FsRtlPrivateInsertLock @ 0x1400C2D54 (FsRtlPrivateInsertLock.c)
+ *     FsRtlPrivateCheckForSharedLockAccess @ 0x1400C34B8 (FsRtlPrivateCheckForSharedLockAccess.c)
+ *     FsRtlPrivateCheckForExclusiveLockAccess @ 0x1400C3C94 (FsRtlPrivateCheckForExclusiveLockAccess.c)
+ *     KeReleaseSpinLock @ 0x1400EB600 (KeReleaseSpinLock.c)
+ *     ObfReferenceObjectWithTag @ 0x1400EC370 (ObfReferenceObjectWithTag.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1400EDCB0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     RtlRaiseStatus @ 0x1400F4588 (RtlRaiseStatus.c)
+ *     FsRtlCompleteLockIrpReal @ 0x1401332E0 (FsRtlCompleteLockIrpReal.c)
+ *     FsRtlPrivateCancelFileLockIrp @ 0x1401B8CDC (FsRtlPrivateCancelFileLockIrp.c)
+ *     FsRtlPrivateRemoveLock @ 0x1401B8DE8 (FsRtlPrivateRemoveLock.c)
  */
 
 BOOLEAN __stdcall FsRtlPrivateLock(

@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlGetEnabledExtendedFeatures @ 0x140131EA4
+ * XREFs of RtlGetEnabledExtendedFeatures @ 0x140132414
  * Callers:
  *     sub_140778D9C @ 0x140778D9C (sub_140778D9C.c)
  * Callees:

@@ -1,16 +1,16 @@
 /*
- * XREFs of DifObjTrkRemoveItem @ 0x1406181C0
+ * XREFs of DifObjTrkRemoveItem @ 0x140616780
  * Callers:
  *     <none>
  * Callees:
- *     RtlDeleteElementGenericTableAvl @ 0x1403F0610 (RtlDeleteElementGenericTableAvl.c)
- *     RtlGetElementGenericTableAvl @ 0x14048B290 (RtlGetElementGenericTableAvl.c)
- *     DifIsValidTrackingObject @ 0x140617BBC (DifIsValidTrackingObject.c)
- *     DifObjTrkGetPluginContext @ 0x140617CD0 (DifObjTrkGetPluginContext.c)
- *     DifAcquireSpinLockAtDpcLevelSafe @ 0x140619DE4 (DifAcquireSpinLockAtDpcLevelSafe.c)
- *     DifReleaseSpinLockFromDpcLevelSafe @ 0x140619E9C (DifReleaseSpinLockFromDpcLevelSafe.c)
- *     MmGetVaTypeForVerifier @ 0x140675644 (MmGetVaTypeForVerifier.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     RtlDeleteElementGenericTableAvl @ 0x1403E4330 (RtlDeleteElementGenericTableAvl.c)
+ *     RtlGetElementGenericTableAvl @ 0x1404860C0 (RtlGetElementGenericTableAvl.c)
+ *     DifIsValidTrackingObject @ 0x14061617C (DifIsValidTrackingObject.c)
+ *     DifObjTrkGetPluginContext @ 0x140616290 (DifObjTrkGetPluginContext.c)
+ *     DifAcquireSpinLockAtDpcLevelSafe @ 0x1406183A4 (DifAcquireSpinLockAtDpcLevelSafe.c)
+ *     DifReleaseSpinLockFromDpcLevelSafe @ 0x14061845C (DifReleaseSpinLockFromDpcLevelSafe.c)
+ *     MmGetVaTypeForVerifier @ 0x140676814 (MmGetVaTypeForVerifier.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 BOOLEAN __fastcall DifObjTrkRemoveItem(unsigned int a1, unsigned __int64 a2, unsigned int a3)
@@ -19,7 +19,7 @@ BOOLEAN __fastcall DifObjTrkRemoveItem(unsigned int a1, unsigned __int64 a2, uns
   unsigned int *PluginContext; // r15
   __int64 v7; // rdx
   int VaTypeForVerifier; // eax
-  RTL_AVL_TABLE *v9; // rbx
+  _RTL_AVL_TABLE *v9; // rbx
   __int64 v10; // rax
   __int64 v11; // rax
   BOOLEAN v12; // di
@@ -42,7 +42,7 @@ BOOLEAN __fastcall DifObjTrkRemoveItem(unsigned int a1, unsigned __int64 a2, uns
   VaTypeForVerifier = MmGetVaTypeForVerifier(v7);
   if ( VaTypeForVerifier == 5 )
     return 0;
-  v9 = (RTL_AVL_TABLE *)&DifObjTrkContext[30 * VaTypeForVerifier + 16];
+  v9 = (_RTL_AVL_TABLE *)&DifObjTrkContext[30 * VaTypeForVerifier + 16];
   if ( !v9->NumberGenericTableElements
     || (_RTL_BALANCED_LINKS *)a2 < v9[1].BalancedRoot.Parent
     || (_RTL_BALANCED_LINKS *)a2 > v9[1].BalancedRoot.LeftChild )

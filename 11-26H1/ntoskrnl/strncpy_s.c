@@ -1,13 +1,13 @@
 /*
- * XREFs of strncpy_s @ 0x14053C7D0
+ * XREFs of strncpy_s @ 0x14053EC50
  * Callers:
- *     _splitpath_s @ 0x14053BBE0 (_splitpath_s.c)
- *     HalGetEnvironmentVariable @ 0x14057C330 (HalGetEnvironmentVariable.c)
- *     HvlpAcpiDeviceIdToHv @ 0x1405BE724 (HvlpAcpiDeviceIdToHv.c)
- *     PspCatchCriticalBreak @ 0x1407FA818 (PspCatchCriticalBreak.c)
- *     CmpGetToken @ 0x140CB8018 (CmpGetToken.c)
+ *     _splitpath_s @ 0x14053E060 (_splitpath_s.c)
+ *     HalGetEnvironmentVariable @ 0x14057E860 (HalGetEnvironmentVariable.c)
+ *     HvlpAcpiDeviceIdToHv @ 0x1405C0F94 (HvlpAcpiDeviceIdToHv.c)
+ *     PspCatchCriticalBreak @ 0x140800248 (PspCatchCriticalBreak.c)
+ *     CmpGetToken @ 0x140CBE05C (CmpGetToken.c)
  * Callees:
- *     xHalTimerWatchdogStop @ 0x1404D1DF0 (xHalTimerWatchdogStop.c)
+ *     xHalTimerWatchdogStop @ 0x1404CB9A0 (xHalTimerWatchdogStop.c)
  */
 
 errno_t __cdecl strncpy_s(char *a1, rsize_t SizeInBytes, const char *Src, rsize_t MaxCount)

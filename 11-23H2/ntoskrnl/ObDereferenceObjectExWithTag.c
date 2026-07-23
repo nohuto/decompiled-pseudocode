@@ -1,16 +1,16 @@
 /*
- * XREFs of ObDereferenceObjectExWithTag @ 0x1402A2574
+ * XREFs of ObDereferenceObjectExWithTag @ 0x1402A2804
  * Callers:
- *     IopDropIrp @ 0x14028CDC8 (IopDropIrp.c)
- *     ObDereferenceObjectEx @ 0x1402A2558 (ObDereferenceObjectEx.c)
- *     ExTimerRundown @ 0x14030A36C (ExTimerRundown.c)
- *     NtCancelTimer @ 0x14032E230 (NtCancelTimer.c)
- *     ExpSetTimerObject @ 0x14032E824 (ExpSetTimerObject.c)
- *     ObpCreateHandle @ 0x1406E4510 (ObpCreateHandle.c)
+ *     IopDropIrp @ 0x14028D058 (IopDropIrp.c)
+ *     ObDereferenceObjectEx @ 0x1402A27E8 (ObDereferenceObjectEx.c)
+ *     ExTimerRundown @ 0x14030A5FC (ExTimerRundown.c)
+ *     NtCancelTimer @ 0x14032E4C0 (NtCancelTimer.c)
+ *     ExpSetTimerObject @ 0x14032EAB4 (ExpSetTimerObject.c)
+ *     ObpCreateHandle @ 0x1406E4540 (ObpCreateHandle.c)
  * Callees:
  *     ObpDeferObjectDeletion @ 0x14020B930 (ObpDeferObjectDeletion.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     ObpPushStackInfo @ 0x140582BD8 (ObpPushStackInfo.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     ObpPushStackInfo @ 0x1405830C8 (ObpPushStackInfo.c)
  */
 
 __int64 __fastcall ObDereferenceObjectExWithTag(ULONG_PTR BugCheckParameter2, int a2)

@@ -1,24 +1,28 @@
 /*
- * XREFs of NtAlpcSetInformation @ 0x180162E60
+ * XREFs of NtAlpcSetInformation @ 0x180161220
  * Callers:
- *     TppCleanupGroupMemberCallbackProlog @ 0x18001F970 (TppCleanupGroupMemberCallbackProlog.c)
- *     TppFastAlpcAdjustConcurrencyCount @ 0x180021DC0 (TppFastAlpcAdjustConcurrencyCount.c)
- *     TppAlpcpExecuteCallback @ 0x1800258C0 (TppAlpcpExecuteCallback.c)
- *     TppAllocAlpcCompletion @ 0x1800BF374 (TppAllocAlpcCompletion.c)
- *     TpCallbackIndependent @ 0x1800DAD50 (TpCallbackIndependent.c)
- *     AlpcRegisterCompletionList @ 0x18010C490 (AlpcRegisterCompletionList.c)
- *     AlpcAdjustCompletionListConcurrencyCount @ 0x18010FF40 (AlpcAdjustCompletionListConcurrencyCount.c)
- *     AlpcRundownCompletionList @ 0x180112E00 (AlpcRundownCompletionList.c)
- *     AlpcUnregisterCompletionList @ 0x1801133D0 (AlpcUnregisterCompletionList.c)
+ *     TppCleanupGroupMemberCallbackProlog @ 0x18004C370 (TppCleanupGroupMemberCallbackProlog.c)
+ *     TppFastAlpcAdjustConcurrencyCount @ 0x18004E7C0 (TppFastAlpcAdjustConcurrencyCount.c)
+ *     TppAlpcpExecuteCallback @ 0x1800522C0 (TppAlpcpExecuteCallback.c)
+ *     TppAllocAlpcCompletion @ 0x1800B7134 (TppAllocAlpcCompletion.c)
+ *     TpCallbackIndependent @ 0x1800D52B0 (TpCallbackIndependent.c)
+ *     AlpcRegisterCompletionList @ 0x1801071D0 (AlpcRegisterCompletionList.c)
+ *     AlpcAdjustCompletionListConcurrencyCount @ 0x18010AF20 (AlpcAdjustCompletionListConcurrencyCount.c)
+ *     AlpcRundownCompletionList @ 0x18010E0C0 (AlpcRundownCompletionList.c)
+ *     AlpcUnregisterCompletionList @ 0x18010E6D0 (AlpcUnregisterCompletionList.c)
  * Callees:
  *     <none>
  */
 
-__int64 NtAlpcSetInformation()
+NTSTATUS __cdecl NtAlpcSetInformation(
+        HANDLE PortHandle,
+        ALPC_PORT_INFORMATION_CLASS PortInformationClass,
+        PVOID PortInformation,
+        ULONG Length)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 143LL;
+  result = 143;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

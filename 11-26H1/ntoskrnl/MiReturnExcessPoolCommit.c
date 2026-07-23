@@ -1,17 +1,17 @@
 /*
- * XREFs of MiReturnExcessPoolCommit @ 0x140365894
+ * XREFs of MiReturnExcessPoolCommit @ 0x140367634
  * Callers:
- *     MiCommitPoolMemory @ 0x140364AE0 (MiCommitPoolMemory.c)
+ *     MiCommitPoolMemory @ 0x140366880 (MiCommitPoolMemory.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402DED10 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiReturnExcessPoolCharges @ 0x1403C7FB0 (MiReturnExcessPoolCharges.c)
- *     MiFreeLargePageChain @ 0x1403C971C (MiFreeLargePageChain.c)
- *     MiSignalCommitSignals @ 0x14043CAA0 (MiSignalCommitSignals.c)
- *     MiRestockOverCommit @ 0x1404F9494 (MiRestockOverCommit.c)
- *     MiReturnPhysicalPoolPages @ 0x14051DF40 (MiReturnPhysicalPoolPages.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402C0B20 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiReturnExcessPoolCharges @ 0x1403D1EA0 (MiReturnExcessPoolCharges.c)
+ *     MiFreeLargePageChain @ 0x1403D35CC (MiFreeLargePageChain.c)
+ *     MiSignalCommitSignals @ 0x14042F350 (MiSignalCommitSignals.c)
+ *     MiRestockOverCommit @ 0x1404F2AA4 (MiRestockOverCommit.c)
+ *     MiReturnPhysicalPoolPages @ 0x140520550 (MiReturnPhysicalPoolPages.c)
  */
 
 void __fastcall MiReturnExcessPoolCommit(__int64 a1, __int64 a2)
@@ -38,7 +38,7 @@ void __fastcall MiReturnExcessPoolCommit(__int64 a1, __int64 a2)
     v5 = *(_QWORD *)(a1 + 8);
     if ( v4 != v5 )
     {
-      v6 = *(_QWORD *)(stru_140E2EB88.ThreadLock + 8LL * *(unsigned __int16 *)(*(_QWORD *)(a1 + 72) + 174LL));
+      v6 = *(_QWORD *)(stru_140E2ED08.ThreadLock + 8LL * *(unsigned __int16 *)(*(_QWORD *)(a1 + 72) + 174LL));
       v7 = v5 - v4;
       if ( v7 )
       {

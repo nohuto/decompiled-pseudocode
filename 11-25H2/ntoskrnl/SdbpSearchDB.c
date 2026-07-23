@@ -18,7 +18,7 @@
  *     SdbFindNextStringIndexedTag @ 0x140ABEF6C (SdbFindNextStringIndexedTag.c)
  */
 
-__int64 __fastcall SdbpSearchDB(__int64 a1, union _RTL_RUN_ONCE *a2, __int16 a3, __int64 a4, void *a5, int FirstTag)
+__int64 __fastcall SdbpSearchDB(__int64 a1, _RTL_RUN_ONCE *a2, __int16 a3, __int64 a4, void *a5, int FirstTag)
 {
   _DWORD *v6; // r13
   wchar_t *Str1; // rsi
@@ -80,7 +80,7 @@ __int64 __fastcall SdbpSearchDB(__int64 a1, union _RTL_RUN_ONCE *a2, __int16 a3,
     goto LABEL_7;
   }
   v11 = 0LL;
-  if ( a2 != *(union _RTL_RUN_ONCE **)(a1 + 8) )
+  if ( a2 != *(_RTL_RUN_ONCE **)(a1 + 8) )
   {
     FirstIndexedWildCardTag = SdbpFindFirstNamedTagHelper((int)a2, FirstTag, 28679, 24587, Str1, 1);
     while ( 1 )
@@ -195,7 +195,7 @@ LABEL_13:
     goto LABEL_52;
   }
   v25 = 0LL;
-  if ( a2 != *(union _RTL_RUN_ONCE **)(a1 + 8) )
+  if ( a2 != *(_RTL_RUN_ONCE **)(a1 + 8) )
   {
     NextIndexedWildCardTag = SdbpFindFirstNamedTagHelper((int)a2, FirstTag, 28679, 24587, v37, 1);
 LABEL_52:

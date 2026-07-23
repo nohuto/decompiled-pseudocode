@@ -12,7 +12,7 @@
 
 char MiLogPinDriverAddressesWorker()
 {
-  unsigned int v0; // edi
+  ULONG v0; // edi
   __int64 *v1; // rsi
   __int64 v2; // rax
   unsigned int v3; // r14d
@@ -51,7 +51,7 @@ char MiLogPinDriverAddressesWorker()
     {
       LODWORD(v12) = v2 & 0xFFFFFFFE;
       MiPinDriverAddressLog[v0] = v12;
-      RtlInterlockedClearBitRun((__int64)&dword_140C29F60, v0, 1u);
+      RtlInterlockedClearBitRun(&stru_140C29F60, v0, 1u);
       LOBYTE(v2) = MiLogPinDriverAddress(&v12);
     }
     ++v0;

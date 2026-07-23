@@ -1,14 +1,19 @@
 /*
- * XREFs of ZwCreatePort @ 0x140724BB0
+ * XREFs of ZwCreatePort @ 0x140729780
  * Callers:
- *     DifZwCreatePortWrapper @ 0x1406A0A00 (DifZwCreatePortWrapper.c)
+ *     DifZwCreatePortWrapper @ 0x1406A45E0 (DifZwCreatePortWrapper.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwCreatePort(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwCreatePort(
+        PHANDLE PortHandle,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        ULONG MaxConnectionInfoLength,
+        ULONG MaxMessageLength,
+        ULONG MaxPoolUsage)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(PortHandle);
 }

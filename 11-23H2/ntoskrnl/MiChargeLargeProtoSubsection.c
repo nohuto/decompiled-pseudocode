@@ -1,12 +1,12 @@
 /*
- * XREFs of MiChargeLargeProtoSubsection @ 0x140A33644
+ * XREFs of MiChargeLargeProtoSubsection @ 0x140A338F4
  * Callers:
  *     MiCreatePrototypePtes @ 0x14021BA80 (MiCreatePrototypePtes.c)
- *     MiDecrementLargeSubsections @ 0x14063C6F4 (MiDecrementLargeSubsections.c)
- *     MiEnableLargeSubsection @ 0x14063CE00 (MiEnableLargeSubsection.c)
+ *     MiDecrementLargeSubsections @ 0x14063CC44 (MiDecrementLargeSubsections.c)
+ *     MiEnableLargeSubsection @ 0x14063D350 (MiEnableLargeSubsection.c)
  * Callees:
- *     MiReturnResident @ 0x140292E10 (MiReturnResident.c)
- *     MiChargeResident @ 0x1402E43A8 (MiChargeResident.c)
+ *     MiReturnResident @ 0x1402930A0 (MiReturnResident.c)
+ *     MiChargeResident @ 0x1402E4638 (MiChargeResident.c)
  */
 
 __int64 __fastcall MiChargeLargeProtoSubsection(__int64 a1, int a2)

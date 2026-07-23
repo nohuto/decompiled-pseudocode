@@ -1,15 +1,15 @@
 /*
- * XREFs of PsSetIoPriorityThread @ 0x140072110
+ * XREFs of PsSetIoPriorityThread @ 0x140071C90
  * Callers:
- *     IoSetIoPriorityHintIntoThread @ 0x140070B88 (IoSetIoPriorityHintIntoThread.c)
- *     IoApplyPriorityInfoThread @ 0x140070BA4 (IoApplyPriorityInfoThread.c)
- *     CcApplyLowIoPriorityToThread @ 0x1400717E0 (CcApplyLowIoPriorityToThread.c)
- *     CmpSetIoPriorityThread @ 0x1400B4CE0 (CmpSetIoPriorityThread.c)
- *     NtSetInformationProcess @ 0x140425A10 (NtSetInformationProcess.c)
- *     NtSetInformationThread @ 0x14050E5D0 (NtSetInformationThread.c)
+ *     IoSetIoPriorityHintIntoThread @ 0x140070708 (IoSetIoPriorityHintIntoThread.c)
+ *     IoApplyPriorityInfoThread @ 0x140070724 (IoApplyPriorityInfoThread.c)
+ *     CcApplyLowIoPriorityToThread @ 0x140071360 (CcApplyLowIoPriorityToThread.c)
+ *     CmpSetIoPriorityThread @ 0x1400B2B18 (CmpSetIoPriorityThread.c)
+ *     NtSetInformationProcess @ 0x1404248E0 (NtSetInformationProcess.c)
+ *     NtSetInformationThread @ 0x1404F1560 (NtSetInformationThread.c)
  * Callees:
- *     KeAbProcessBaseIoPriorityChange @ 0x140072184 (KeAbProcessBaseIoPriorityChange.c)
- *     EtwTracePriority @ 0x140226010 (EtwTracePriority.c)
+ *     KeAbProcessBaseIoPriorityChange @ 0x140071D04 (KeAbProcessBaseIoPriorityChange.c)
+ *     EtwTracePriority @ 0x140225E3C (EtwTracePriority.c)
  */
 
 __int64 __fastcall PsSetIoPriorityThread(__int64 a1, unsigned int a2)

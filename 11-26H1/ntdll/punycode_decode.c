@@ -1,11 +1,11 @@
 /*
- * XREFs of punycode_decode @ 0x1800AD610
+ * XREFs of punycode_decode @ 0x1800AC740
  * Callers:
- *     RtlpIdnToUnicodeWorker @ 0x1800AD200 (RtlpIdnToUnicodeWorker.c)
+ *     RtlpIdnToUnicodeWorker @ 0x1800AC330 (RtlpIdnToUnicodeWorker.c)
  * Callees:
- *     ValidateStd3Range @ 0x1800AEF30 (ValidateStd3Range.c)
- *     adapt @ 0x1800AEF6C (adapt.c)
- *     _wcsnicmp @ 0x180129080 (_wcsnicmp.c)
+ *     ValidateStd3Range @ 0x1800AE060 (ValidateStd3Range.c)
+ *     adapt @ 0x1800AE09C (adapt.c)
+ *     _wcsnicmp @ 0x180128DF0 (_wcsnicmp.c)
  */
 
 __int64 __fastcall punycode_decode(
@@ -55,14 +55,14 @@ __int64 __fastcall punycode_decode(
   __int64 v44; // rax
   __int64 v45; // rbp
   wchar_t *v46; // r8
-  wchar_t *jj; // rcx
+  wchar_t *kk; // rcx
   __int64 v48; // rcx
   int n; // eax
   wchar_t *ii; // rdx
   wchar_t *v51; // r8
   __int16 v52; // cx
-  wchar_t v53; // cx
-  wchar_t *v54; // rdx
+  wchar_t *v53; // rdx
+  wchar_t jj; // cx
   wchar_t v55; // cx
   int v56; // [rsp+20h] [rbp-78h]
   wchar_t *v57; // [rsp+28h] [rbp-70h]
@@ -304,19 +304,11 @@ LABEL_50:
                 v52 = v34 & 0x3FF;
                 if ( v34 - 0x10000 < 0 )
                   v52 = ((v52 - 1) | 0xFC00) + 1;
-                v53 = v52 - 9216;
-                if ( a3 >= v51 )
-                {
-                  v54 = a3;
-                  do
-                  {
-                    v54[1] = *v54;
-                    --v54;
-                  }
-                  while ( v54 >= v51 );
-                }
+                v53 = a3;
+                for ( jj = v52 - 9216; v53 >= v51; --v53 )
+                  v53[1] = *v53;
                 v31 = v59 + 4;
-                *v51 = v53;
+                *v51 = jj;
                 a3 += 2;
                 ++v56;
                 v30 = v60 + 2;
@@ -325,8 +317,8 @@ LABEL_50:
             }
             else if ( v46 <= a3 && (unsigned __int64)a3 < v58 )
             {
-              for ( jj = v60; jj >= v46; --jj )
-                jj[1] = *jj;
+              for ( kk = v60; kk >= v46; --kk )
+                kk[1] = *kk;
               ++a3;
               v31 = v59 + 2;
               *v46 = v34;

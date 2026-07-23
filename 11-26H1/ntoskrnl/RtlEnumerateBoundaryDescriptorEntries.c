@@ -1,16 +1,16 @@
 /*
- * XREFs of RtlEnumerateBoundaryDescriptorEntries @ 0x1408E98E8
+ * XREFs of RtlEnumerateBoundaryDescriptorEntries @ 0x1408EFEA8
  * Callers:
- *     ObpCaptureBoundaryDescriptor @ 0x1408E87A8 (ObpCaptureBoundaryDescriptor.c)
- *     ObpCompareNamespaceEntry @ 0x1408E8B70 (ObpCompareNamespaceEntry.c)
- *     ObpCheckDuplicateEntries @ 0x1408E8C0C (ObpCheckDuplicateEntries.c)
- *     ObpCompareEntryLevel1 @ 0x1408E9890 (ObpCompareEntryLevel1.c)
- *     ObpVerifyCreatorAccessCheck @ 0x140A967F0 (ObpVerifyCreatorAccessCheck.c)
+ *     ObpCaptureBoundaryDescriptor @ 0x1408EED68 (ObpCaptureBoundaryDescriptor.c)
+ *     ObpCompareNamespaceEntry @ 0x1408EF130 (ObpCompareNamespaceEntry.c)
+ *     ObpCheckDuplicateEntries @ 0x1408EF1CC (ObpCheckDuplicateEntries.c)
+ *     ObpCompareEntryLevel1 @ 0x1408EFE50 (ObpCompareEntryLevel1.c)
+ *     ObpVerifyCreatorAccessCheck @ 0x140A9A970 (ObpVerifyCreatorAccessCheck.c)
  * Callees:
- *     RtlSubAuthorityCountSid @ 0x140491650 (RtlSubAuthorityCountSid.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     RtlLengthRequiredSid @ 0x1408E9A40 (RtlLengthRequiredSid.c)
- *     RtlValidSid @ 0x140924370 (RtlValidSid.c)
+ *     RtlSubAuthorityCountSid @ 0x14048B1A0 (RtlSubAuthorityCountSid.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     RtlLengthRequiredSid @ 0x1408F0000 (RtlLengthRequiredSid.c)
+ *     RtlValidSid @ 0x1408FFE80 (RtlValidSid.c)
  */
 
 __int64 __fastcall RtlEnumerateBoundaryDescriptorEntries(_DWORD *a1, __int64 a2, __int64 a3)

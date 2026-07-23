@@ -1,9 +1,9 @@
 /*
- * XREFs of SmSanitizeString @ 0x14059D1B0
+ * XREFs of SmSanitizeString @ 0x14059D3E0
  * Callers:
- *     SmKmVolumeQueryUniqueId @ 0x14092D09C (SmKmVolumeQueryUniqueId.c)
+ *     SmKmVolumeQueryUniqueId @ 0x14092D1FC (SmKmVolumeQueryUniqueId.c)
  * Callees:
- *     isprint @ 0x1403D2730 (isprint.c)
+ *     isprint @ 0x1403D28A0 (isprint.c)
  */
 
 void __fastcall SmSanitizeString(char *a1, unsigned int a2)

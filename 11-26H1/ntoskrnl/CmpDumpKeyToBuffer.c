@@ -1,19 +1,19 @@
 /*
- * XREFs of CmpDumpKeyToBuffer @ 0x140C5812C
+ * XREFs of CmpDumpKeyToBuffer @ 0x140C5E12C
  * Callers:
- *     CmSaveKeyToBuffer @ 0x140C58010 (CmSaveKeyToBuffer.c)
+ *     CmSaveKeyToBuffer @ 0x140C5E010 (CmSaveKeyToBuffer.c)
  * Callees:
- *     CmSiRWLockReleaseExclusive @ 0x140905AA4 (CmSiRWLockReleaseExclusive.c)
- *     CmpVolumeManagerLockContextListExclusive @ 0x140905BD0 (CmpVolumeManagerLockContextListExclusive.c)
- *     CmpIsKeyBodyEligibleForDump @ 0x140C5825C (CmpIsKeyBodyEligibleForDump.c)
- *     CmpUnlockKcb @ 0x140C582B0 (CmpUnlockKcb.c)
- *     CmpLockKcbShared @ 0x140C583F0 (CmpLockKcbShared.c)
- *     HvSnapshotHiveToOffsetArray @ 0x140C5846C (HvSnapshotHiveToOffsetArray.c)
- *     CmpLockRegistry @ 0x140C58850 (CmpLockRegistry.c)
- *     CmpUnlockRegistry @ 0x140C58970 (CmpUnlockRegistry.c)
- *     CmLockHiveSecurityShared @ 0x140C58B30 (CmLockHiveSecurityShared.c)
- *     CmUnlockHiveSecurity @ 0x140C58BA8 (CmUnlockHiveSecurity.c)
- *     CmpDoAccessCheckOnSubtree @ 0x140C58D4C (CmpDoAccessCheckOnSubtree.c)
+ *     CmpVolumeManagerLockContextListExclusive @ 0x140A2E304 (CmpVolumeManagerLockContextListExclusive.c)
+ *     CmSiRWLockReleaseExclusive @ 0x140A8992C (CmSiRWLockReleaseExclusive.c)
+ *     CmpIsKeyBodyEligibleForDump @ 0x140C5E25C (CmpIsKeyBodyEligibleForDump.c)
+ *     CmpUnlockKcb @ 0x140C5E2B0 (CmpUnlockKcb.c)
+ *     CmpLockKcbShared @ 0x140C5E3F0 (CmpLockKcbShared.c)
+ *     HvSnapshotHiveToOffsetArray @ 0x140C5E46C (HvSnapshotHiveToOffsetArray.c)
+ *     CmpLockRegistry @ 0x140C5E850 (CmpLockRegistry.c)
+ *     CmpUnlockRegistry @ 0x140C5E970 (CmpUnlockRegistry.c)
+ *     CmLockHiveSecurityShared @ 0x140C5EB30 (CmLockHiveSecurityShared.c)
+ *     CmUnlockHiveSecurity @ 0x140C5EBA8 (CmUnlockHiveSecurity.c)
+ *     CmpDoAccessCheckOnSubtree @ 0x140C5ED4C (CmpDoAccessCheckOnSubtree.c)
  */
 
 __int64 __fastcall CmpDumpKeyToBuffer(__int64 a1, __int64 a2, __int64 a3, unsigned int *a4)
@@ -35,7 +35,7 @@ __int64 __fastcall CmpDumpKeyToBuffer(__int64 a1, __int64 a2, __int64 a3, unsign
 
   v18[1] = 0;
   v21 = 0;
-  CmpLockRegistry(a1);
+  CmpLockRegistry(a1, a2, a3, a4);
   v7 = *(_QWORD *)(a1 + 8);
   CmpLockKcbShared(v7);
   IsKeyBodyEligibleForDump = CmpIsKeyBodyEligibleForDump(a1, v7);

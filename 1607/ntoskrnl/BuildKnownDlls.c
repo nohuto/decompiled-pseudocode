@@ -3,20 +3,20 @@
  * Callers:
  *     StartFirstUserProcess @ 0x1407A263C (StartFirstUserProcess.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     ZwCreateDirectoryObject @ 0x14015B000 (ZwCreateDirectoryObject.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     ZwCreateDirectoryObject @ 0x14015B570 (ZwCreateDirectoryObject.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     RtlSetDaclSecurityDescriptor @ 0x140413E70 (RtlSetDaclSecurityDescriptor.c)
- *     RtlCreateSecurityDescriptor @ 0x140413ED0 (RtlCreateSecurityDescriptor.c)
- *     RtlCreateAcl @ 0x140420AB8 (RtlCreateAcl.c)
- *     NtCreateSymbolicLinkObject @ 0x140473B2C (NtCreateSymbolicLinkObject.c)
- *     RtlSetSaclSecurityDescriptor @ 0x14047AD08 (RtlSetSaclSecurityDescriptor.c)
- *     RtlAddAccessAllowedAce @ 0x14048D14C (RtlAddAccessAllowedAce.c)
- *     PsWow64IsMachineSupported @ 0x14051AC70 (PsWow64IsMachineSupported.c)
- *     RtlAddProcessTrustLabelAce @ 0x140553AB8 (RtlAddProcessTrustLabelAce.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x140412D30 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateSecurityDescriptor @ 0x140412D90 (RtlCreateSecurityDescriptor.c)
+ *     RtlCreateAcl @ 0x14041F978 (RtlCreateAcl.c)
+ *     NtCreateSymbolicLinkObject @ 0x1404729FC (NtCreateSymbolicLinkObject.c)
+ *     RtlSetSaclSecurityDescriptor @ 0x140479BD8 (RtlSetSaclSecurityDescriptor.c)
+ *     RtlAddAccessAllowedAce @ 0x14048DBDC (RtlAddAccessAllowedAce.c)
+ *     PsWow64IsMachineSupported @ 0x1404FE060 (PsWow64IsMachineSupported.c)
+ *     RtlAddProcessTrustLabelAce @ 0x140553FF8 (RtlAddProcessTrustLabelAce.c)
  *     ExpandKnownDllsPath @ 0x1407A38A0 (ExpandKnownDllsPath.c)
  */
 
@@ -78,7 +78,7 @@ void BuildKnownDlls()
   RtlAddAccessAllowedAce(v2, 2u, 0xA0000000, SeAllAppPackagesSid);
   RtlAddAccessAllowedAce(v2, 2u, 0xA0000000, SeAllRestrictedAppPackagesSid);
   RtlSetDaclSecurityDescriptor(SecurityDescriptor, 1u, v2, 0);
-  RtlAddProcessTrustLabelAce(v5, 2u, 0, (unsigned __int8 *)SeProcTrustLiteWinTcbSid, 20, 131075);
+  RtlAddProcessTrustLabelAce(v5, 2u, 0, SeProcTrustLiteWinTcbSid, 0x14u, 0x20003u);
   RtlSetSaclSecurityDescriptor(SecurityDescriptor, 1u, v5, 0);
   ObjectAttributes.RootDirectory = 0LL;
   ObjectAttributes.ObjectName = (PUNICODE_STRING)&NtKnownDllsObjectDirectoryName;

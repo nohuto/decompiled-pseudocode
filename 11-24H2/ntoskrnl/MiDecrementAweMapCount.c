@@ -1,15 +1,15 @@
 /*
- * XREFs of MiDecrementAweMapCount @ 0x14068190C
+ * XREFs of MiDecrementAweMapCount @ 0x140682AFC
  * Callers:
- *     MiWriteAwePtes @ 0x1404BA130 (MiWriteAwePtes.c)
- *     MiBuildPhysicalPageFreeChain @ 0x140681434 (MiBuildPhysicalPageFreeChain.c)
- *     MiReferenceIncomingPhysicalPages @ 0x140682A70 (MiReferenceIncomingPhysicalPages.c)
- *     MiUnmapLegacyAwePage @ 0x1406830EC (MiUnmapLegacyAwePage.c)
+ *     MiWriteAwePtes @ 0x1404B4FD0 (MiWriteAwePtes.c)
+ *     MiBuildPhysicalPageFreeChain @ 0x140682624 (MiBuildPhysicalPageFreeChain.c)
+ *     MiReferenceIncomingPhysicalPages @ 0x140683C60 (MiReferenceIncomingPhysicalPages.c)
+ *     MiUnmapLegacyAwePage @ 0x1406842DC (MiUnmapLegacyAwePage.c)
  * Callees:
- *     MiCompareTbFlushTimeStamp @ 0x14023E0A8 (MiCompareTbFlushTimeStamp.c)
- *     MiIssueFlushTbEntire @ 0x1403AFDC8 (MiIssueFlushTbEntire.c)
- *     MiSetPteTimeStamp @ 0x14044F8E8 (MiSetPteTimeStamp.c)
- *     MiValidateAndLockAweMapCountPage @ 0x1404B38C0 (MiValidateAndLockAweMapCountPage.c)
+ *     MiIssueFlushTbEntire @ 0x14039E5D8 (MiIssueFlushTbEntire.c)
+ *     MiSetPteTimeStamp @ 0x140444FC4 (MiSetPteTimeStamp.c)
+ *     MiCompareTbFlushTimeStamp @ 0x14044D95C (MiCompareTbFlushTimeStamp.c)
+ *     MiValidateAndLockAweMapCountPage @ 0x1404AE114 (MiValidateAndLockAweMapCountPage.c)
  */
 
 __int64 __fastcall MiDecrementAweMapCount(__int64 a1, unsigned __int64 a2, unsigned int a3, __int64 a4)
@@ -23,7 +23,7 @@ __int64 __fastcall MiDecrementAweMapCount(__int64 a1, unsigned __int64 a2, unsig
   __int64 v13; // rbp
   unsigned __int64 v14; // rdx
   unsigned __int64 v15; // rcx
-  __int64 v16; // rcx
+  unsigned __int64 v16; // rcx
   __int64 v17; // rcx
   unsigned int v18; // eax
   unsigned __int64 v19; // rdx
@@ -66,8 +66,8 @@ __int64 __fastcall MiDecrementAweMapCount(__int64 a1, unsigned __int64 a2, unsig
   if ( (*v11 & 0x8000) != 0 && (v5 & 1) != 0 )
   {
     _InterlockedAnd(
-      (volatile signed __int32 *)(qword_140E2FFC8 + 4 * (((((__int64)v11 - qword_140E2FFC0) >> 3) & 0x3FFFFFuLL) >> 5)),
-      ~(1 << ((((__int64)v11 - qword_140E2FFC0) >> 3) & 0x1F)));
+      (volatile signed __int32 *)(qword_140E30108 + 4 * (((((__int64)v11 - qword_140E30100) >> 3) & 0x3FFFFFuLL) >> 5)),
+      ~(1 << ((((__int64)v11 - qword_140E30100) >> 3) & 0x1F)));
     return -1LL;
   }
   v14 = ((*v11 & 0xFFFFFFFFFFFE0000uLL) - 0x20000) ^ (*v11 ^ ((*v11 & 0xFFFFFFFFFFFE0000uLL) - 0x20000)) & 0xFFFFFF800001FFFFuLL;
@@ -85,8 +85,8 @@ LABEL_13:
       if ( (*(_DWORD *)(a1 + 8) & 0x10) == 0 )
         goto LABEL_25;
       v15 = *(_QWORD *)(v8 + 16);
-      if ( qword_140E2DB80 && (v15 & 0x10) == 0 )
-        v15 &= ~qword_140E2DB80;
+      if ( qword_140E2DCC0 && (v15 & 0x10) == 0 )
+        v15 &= ~qword_140E2DCC0;
       v16 = HIDWORD(v15);
       if ( !(_DWORD)v16 || !MiCompareTbFlushTimeStamp(v16) )
         goto LABEL_25;
@@ -124,7 +124,7 @@ LABEL_25:
   {
     v17 = *(_QWORD *)a4;
     if ( *(_QWORD *)a4 )
-      v17 = (v17 - qword_140E2FFC0) >> 3;
+      v17 = (v17 - qword_140E30100) >> 3;
     else
       *(_QWORD *)(a4 + 8) = v11;
     *v11 = (v17 << 17) ^ (*v11 ^ (v17 << 17)) & 0xFFFFFF800001FFFFuLL;
@@ -148,8 +148,8 @@ LABEL_45:
   if ( !v8 )
   {
     _InterlockedAnd(
-      (volatile signed __int32 *)(qword_140E2FFC8 + 4 * (((((__int64)v11 - qword_140E2FFC0) >> 3) & 0x3FFFFFuLL) >> 5)),
-      ~(1 << ((((__int64)v11 - qword_140E2FFC0) >> 3) & 0x1F)));
+      (volatile signed __int32 *)(qword_140E30108 + 4 * (((((__int64)v11 - qword_140E30100) >> 3) & 0x3FFFFFuLL) >> 5)),
+      ~(1 << ((((__int64)v11 - qword_140E30100) >> 3) & 0x1F)));
     return v13;
   }
 LABEL_46:

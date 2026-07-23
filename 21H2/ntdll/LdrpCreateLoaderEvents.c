@@ -2,23 +2,17 @@
  * XREFs of LdrpCreateLoaderEvents @ 0x18007EB40
  * Callers:
  *     LdrpInitParallelLoadingSupport @ 0x18007EAF0 (LdrpInitParallelLoadingSupport.c)
- *     LdrpCompleteProcessCloning @ 0x1800D4B68 (LdrpCompleteProcessCloning.c)
+ *     LdrpCompleteProcessCloning @ 0x1800D4B28 (LdrpCompleteProcessCloning.c)
  * Callees:
- *     ZwCreateEvent @ 0x18009DF40 (ZwCreateEvent.c)
+ *     ZwCreateEvent @ 0x18009DF00 (ZwCreateEvent.c)
  */
 
-__int64 LdrpCreateLoaderEvents()
+int LdrpCreateLoaderEvents()
 {
-  __int64 result; // rax
-  char v1; // [rsp+20h] [rbp-18h]
-  int v2; // [rsp+20h] [rbp-18h]
+  int result; // eax
 
-  v1 = 0;
-  result = ZwCreateEvent(&LdrpLoadCompleteEvent, 2031619LL, 0LL, 1LL, v1);
-  if ( (int)result >= 0 )
-  {
-    LOBYTE(v2) = 0;
-    return ZwCreateEvent(&LdrpWorkCompleteEvent, 2031619LL, 0LL, 1LL, v2);
-  }
+  result = ZwCreateEvent(&LdrpLoadCompleteEvent, 0x1F0003u, 0LL, SynchronizationEvent, 0);
+  if ( result >= 0 )
+    return ZwCreateEvent(&LdrpWorkCompleteEvent, 0x1F0003u, 0LL, SynchronizationEvent, 0);
   return result;
 }

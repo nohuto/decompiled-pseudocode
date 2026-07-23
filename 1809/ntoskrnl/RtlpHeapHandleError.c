@@ -1,20 +1,20 @@
 /*
- * XREFs of RtlpHeapHandleError @ 0x1402FBBCC
+ * XREFs of RtlpHeapHandleError @ 0x1402FBDBC
  * Callers:
- *     RtlpCreateUCREntry @ 0x1402F12A8 (RtlpCreateUCREntry.c)
- *     RtlpDeCommitFreeBlock @ 0x1402F13E8 (RtlpDeCommitFreeBlock.c)
- *     RtlpFindAndCommitPages @ 0x1402F1C60 (RtlpFindAndCommitPages.c)
- *     RtlpInsertFreeBlock @ 0x1402F26E4 (RtlpInsertFreeBlock.c)
- *     RtlpHpHeapHandleError @ 0x1402FBBFC (RtlpHpHeapHandleError.c)
- *     RtlpFindUCREntry @ 0x1402FBFE4 (RtlpFindUCREntry.c)
- *     RtlpPopulateListIndex @ 0x1402FC44C (RtlpPopulateListIndex.c)
- *     RtlDestroyHeap @ 0x140702160 (RtlDestroyHeap.c)
- *     RtlCreateHeap @ 0x14070AF20 (RtlCreateHeap.c)
+ *     RtlpCreateUCREntry @ 0x1402F1498 (RtlpCreateUCREntry.c)
+ *     RtlpDeCommitFreeBlock @ 0x1402F15D8 (RtlpDeCommitFreeBlock.c)
+ *     RtlpFindAndCommitPages @ 0x1402F1E50 (RtlpFindAndCommitPages.c)
+ *     RtlpInsertFreeBlock @ 0x1402F28D4 (RtlpInsertFreeBlock.c)
+ *     RtlpHpHeapHandleError @ 0x1402FBDEC (RtlpHpHeapHandleError.c)
+ *     RtlpFindUCREntry @ 0x1402FC1D4 (RtlpFindUCREntry.c)
+ *     RtlpPopulateListIndex @ 0x1402FC63C (RtlpPopulateListIndex.c)
+ *     RtlDestroyHeap @ 0x140703400 (RtlDestroyHeap.c)
+ *     RtlCreateHeap @ 0x14070C1C0 (RtlCreateHeap.c)
  * Callees:
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
  */
 
 void __noreturn RtlpHeapHandleError()
 {
-  KeBugCheckEx(0x13Au, dword_140404418, qword_140404420, qword_140404428, 0LL);
+  KeBugCheckEx(0x13Au, dword_140405418, qword_140405420, qword_140405428, 0LL);
 }

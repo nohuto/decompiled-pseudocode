@@ -1,14 +1,14 @@
 /*
- * XREFs of MiFindLastSubsection @ 0x140293258
+ * XREFs of MiFindLastSubsection @ 0x1402934E8
  * Callers:
- *     MiComputeDataFlushRange @ 0x140288E80 (MiComputeDataFlushRange.c)
- *     MiCanFileBeTruncatedInternal @ 0x14028B9A0 (MiCanFileBeTruncatedInternal.c)
- *     MmExtendSection @ 0x140706504 (MmExtendSection.c)
- *     MmFlushVirtualMemory @ 0x1407B4258 (MmFlushVirtualMemory.c)
+ *     MiComputeDataFlushRange @ 0x140289110 (MiComputeDataFlushRange.c)
+ *     MiCanFileBeTruncatedInternal @ 0x14028BC30 (MiCanFileBeTruncatedInternal.c)
+ *     MmExtendSection @ 0x140706714 (MmExtendSection.c)
+ *     MmFlushVirtualMemory @ 0x1407B4538 (MmFlushVirtualMemory.c)
  * Callees:
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7C00 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExAcquireSpinLockShared @ 0x140314620 (ExAcquireSpinLockShared.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7E90 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockShared @ 0x1403148B0 (ExAcquireSpinLockShared.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiFindLastSubsection(__int64 a1, int a2)
@@ -38,10 +38,10 @@ __int64 __fastcall MiFindLastSubsection(__int64 a1, int a2)
   if ( v3 != 17 )
   {
     ExReleaseSpinLockSharedFromDpcLevel((PEX_SPIN_LOCK)(a1 + 72));
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v3 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && v3 <= 0xFu && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;

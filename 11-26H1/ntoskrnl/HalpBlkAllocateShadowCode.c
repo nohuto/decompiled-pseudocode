@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpBlkAllocateShadowCode @ 0x140CB2E08
+ * XREFs of HalpBlkAllocateShadowCode @ 0x140CB8E48
  * Callers:
- *     HalpBlkInitializeVirtualAddressSpace @ 0x140CB2FF8 (HalpBlkInitializeVirtualAddressSpace.c)
+ *     HalpBlkInitializeVirtualAddressSpace @ 0x140CB9038 (HalpBlkInitializeVirtualAddressSpace.c)
  * Callees:
- *     HalpBlkAddVirtualMapping @ 0x140CB2B28 (HalpBlkAddVirtualMapping.c)
- *     HalpBlkAllocateShadowCodePages @ 0x140CB2E90 (HalpBlkAllocateShadowCodePages.c)
+ *     HalpBlkAddVirtualMapping @ 0x140CB8B68 (HalpBlkAddVirtualMapping.c)
+ *     HalpBlkAllocateShadowCodePages @ 0x140CB8ED0 (HalpBlkAllocateShadowCodePages.c)
  */
 
 __int64 HalpBlkAllocateShadowCode()
@@ -13,7 +13,7 @@ __int64 HalpBlkAllocateShadowCode()
   __int64 v1; // [rsp+40h] [rbp+8h] BYREF
 
   v1 = 0LL;
-  result = HalpBlkAllocateShadowCodePages(HalpLMStub, HalpLMStubEnd - (char *)HalpLMStub, &v1);
+  result = HalpBlkAllocateShadowCodePages(HalpLMStub, HalpLMStubEnd - (_BYTE *)HalpLMStub, &v1);
   if ( (int)result >= 0 )
   {
     result = HalpBlkAddVirtualMapping(HalpBlkTiledMemoryMapPa, v1, (unsigned __int64)HalpLMStub, 1, 32);

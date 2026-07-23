@@ -1,13 +1,13 @@
 /*
- * XREFs of IoGetBaseFileSystemDeviceObject @ 0x1403570C0
+ * XREFs of IoGetBaseFileSystemDeviceObject @ 0x140361E10
  * Callers:
- *     FsRtlReleaseFileForModWrite @ 0x140254F94 (FsRtlReleaseFileForModWrite.c)
- *     FsRtlAcquireFileForModWriteEx @ 0x1402559CC (FsRtlAcquireFileForModWriteEx.c)
- *     FsRtlReleaseFileForCcFlush @ 0x140647024 (FsRtlReleaseFileForCcFlush.c)
- *     FsRtlAcquireFileForCcFlushEx @ 0x140647204 (FsRtlAcquireFileForCcFlushEx.c)
- *     FsRtlReleaseFile @ 0x140707A70 (FsRtlReleaseFile.c)
- *     FsRtlAcquireFileExclusiveCommon @ 0x140707C40 (FsRtlAcquireFileExclusiveCommon.c)
- *     PnpHandleProcessWalkWorker @ 0x1408A1410 (PnpHandleProcessWalkWorker.c)
+ *     FsRtlReleaseFileForModWrite @ 0x140276504 (FsRtlReleaseFileForModWrite.c)
+ *     FsRtlAcquireFileForModWriteEx @ 0x140276F3C (FsRtlAcquireFileForModWriteEx.c)
+ *     FsRtlReleaseFileForCcFlush @ 0x14063BE14 (FsRtlReleaseFileForCcFlush.c)
+ *     FsRtlAcquireFileForCcFlushEx @ 0x14063BFF4 (FsRtlAcquireFileForCcFlushEx.c)
+ *     FsRtlReleaseFile @ 0x14071EE50 (FsRtlReleaseFile.c)
+ *     FsRtlAcquireFileExclusiveCommon @ 0x14071F020 (FsRtlAcquireFileExclusiveCommon.c)
+ *     PnpHandleProcessWalkWorker @ 0x1408A1570 (PnpHandleProcessWalkWorker.c)
  * Callees:
  *     <none>
  */

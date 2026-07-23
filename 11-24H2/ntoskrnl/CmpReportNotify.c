@@ -1,13 +1,13 @@
 /*
- * XREFs of CmpReportNotify @ 0x140869438
+ * XREFs of CmpReportNotify @ 0x14086D768
  * Callers:
- *     CmRestoreKey @ 0x1407CCF24 (CmRestoreKey.c)
- *     CmRenameKey @ 0x1407D9068 (CmRenameKey.c)
- *     CmpProcessLightWeightUOW @ 0x140A069C4 (CmpProcessLightWeightUOW.c)
+ *     CmRestoreKey @ 0x1407CD414 (CmRestoreKey.c)
+ *     CmRenameKey @ 0x1407D95B8 (CmRenameKey.c)
+ *     CmpProcessLightWeightUOW @ 0x140A02EF4 (CmpProcessLightWeightUOW.c)
  * Callees:
- *     CmSiFreeMemory @ 0x14046B8D0 (CmSiFreeMemory.c)
- *     CmpReportNotifyForKcbStack @ 0x14086877C (CmpReportNotifyForKcbStack.c)
- *     CmpStartKcbStackForTopLayerKcb @ 0x14086DD20 (CmpStartKcbStackForTopLayerKcb.c)
+ *     CmSiFreeMemory @ 0x140464550 (CmSiFreeMemory.c)
+ *     CmpReportNotifyForKcbStack @ 0x14086CA6C (CmpReportNotifyForKcbStack.c)
+ *     CmpStartKcbStackForTopLayerKcb @ 0x140872050 (CmpStartKcbStackForTopLayerKcb.c)
  */
 
 void __fastcall CmpReportNotify(__int64 a1, __int64 a2, int a3, __int64 a4)

@@ -1,19 +1,19 @@
 /*
- * XREFs of PopTraceThermalRequestActiveActivity @ 0x1404AB004
+ * XREFs of PopTraceThermalRequestActiveActivity @ 0x1404A5290
  * Callers:
- *     PopCoolingTelemetryWorker @ 0x1404275F4 (PopCoolingTelemetryWorker.c)
- *     PopCoolingSxTransition @ 0x140427860 (PopCoolingSxTransition.c)
- *     PopOrphanCoolingExtension @ 0x14074C3B8 (PopOrphanCoolingExtension.c)
- *     PopDeactiveThermalRequest @ 0x140AB88D4 (PopDeactiveThermalRequest.c)
+ *     PopCoolingTelemetryWorker @ 0x14041B784 (PopCoolingTelemetryWorker.c)
+ *     PopCoolingSxTransition @ 0x14041B9F0 (PopCoolingSxTransition.c)
+ *     PopOrphanCoolingExtension @ 0x14074A6E8 (PopOrphanCoolingExtension.c)
+ *     PopDeactiveThermalRequest @ 0x140AB2D98 (PopDeactiveThermalRequest.c)
  * Callees:
- *     IoGetDeviceAttachmentBaseRefWithTag @ 0x1402D4B68 (IoGetDeviceAttachmentBaseRefWithTag.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     _tlgCreate1Sz_wchar_t @ 0x140330A30 (_tlgCreate1Sz_wchar_t.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     PoStoreDiagnosticContext @ 0x1403312F4 (PoStoreDiagnosticContext.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     _tlgCreate1Sz_wchar_t @ 0x1402B92A8 (_tlgCreate1Sz_wchar_t.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     PoStoreDiagnosticContext @ 0x1402BA9FC (PoStoreDiagnosticContext.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     IoGetDeviceAttachmentBaseRefWithTag @ 0x140355DE8 (IoGetDeviceAttachmentBaseRefWithTag.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PopTraceThermalRequestActiveActivity(__int64 a1)
@@ -34,7 +34,7 @@ void __fastcall PopTraceThermalRequestActiveActivity(__int64 a1)
   unsigned __int64 v15; // rcx
   unsigned __int128 v16; // rax
   unsigned int v17; // ecx
-  unsigned __int64 v18; // [rsp+30h] [rbp-99h] BYREF
+  ULONG_PTR v18; // [rsp+30h] [rbp-99h] BYREF
   int v19; // [rsp+38h] [rbp-91h] BYREF
   __int64 v20; // [rsp+40h] [rbp-89h] BYREF
   struct _EVENT_DATA_DESCRIPTOR v21; // [rsp+50h] [rbp-79h] BYREF
@@ -47,7 +47,7 @@ void __fastcall PopTraceThermalRequestActiveActivity(__int64 a1)
   int *v28; // [rsp+A0h] [rbp-29h]
   int v29; // [rsp+A8h] [rbp-21h]
   int v30; // [rsp+ACh] [rbp-1Dh]
-  unsigned __int64 *v31; // [rsp+B0h] [rbp-19h]
+  ULONG_PTR *v31; // [rsp+B0h] [rbp-19h]
   int v32; // [rsp+B8h] [rbp-11h]
   int v33; // [rsp+BCh] [rbp-Dh]
   __int64 *v34; // [rsp+C0h] [rbp-9h]
@@ -67,7 +67,7 @@ void __fastcall PopTraceThermalRequestActiveActivity(__int64 a1)
     if ( v5 )
     {
       PoStoreDiagnosticContext(*(_QWORD *)(a1 + 24), 0LL, &v18);
-      Pool2 = (unsigned __int64 *)ExAllocatePool2(0x100uLL);
+      Pool2 = (unsigned __int64 *)ExAllocatePool2(0x100uLL, v18, 0x50455654u);
       v2 = Pool2;
       if ( Pool2 )
       {
@@ -99,9 +99,9 @@ void __fastcall PopTraceThermalRequestActiveActivity(__int64 a1)
           *(_QWORD *)(a1 + 560) = v11;
           if ( (unsigned int)(v12 / 0x989680)
             && (v9 || PopThermalTelemetryVerbosity)
-            && (unsigned int)dword_140E076F0 > 5 )
+            && (unsigned int)dword_140E07680 > 5 )
           {
-            if ( (qword_140E07700 & 0x400000000000LL) == 0 || (qword_140E07708 & 0x400000000000LL) != qword_140E07708 )
+            if ( (qword_140E07690 & 0x400000000000LL) == 0 || (qword_140E07698 & 0x400000000000LL) != qword_140E07698 )
               v10 = 0;
             if ( v10 )
             {
@@ -125,8 +125,8 @@ void __fastcall PopTraceThermalRequestActiveActivity(__int64 a1)
               v19 = v13;
               v20 = 0x1000000LL;
               tlgWriteTransfer_EtwWriteTransfer(
-                (__int64)&dword_140E076F0,
-                (unsigned __int8 *)&byte_140049EA7,
+                (__int64)&dword_140E07680,
+                (unsigned __int8 *)byte_14004A085,
                 0LL,
                 0LL,
                 8u,

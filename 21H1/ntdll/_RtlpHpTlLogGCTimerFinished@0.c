@@ -7,18 +7,18 @@
  *     __tlgWriteTransfer_EtwEventWriteTransfer@24 @ 0x4B330F4C (__tlgWriteTransfer_EtwEventWriteTransfer@24.c)
  */
 
-int __thiscall RtlpHpTlLogGCTimerFinished(void *this)
+ULONG __thiscall RtlpHpTlLogGCTimerFinished(void *this)
 {
-  int result; // eax
-  _DWORD v2[9]; // [esp+0h] [ebp-28h] BYREF
+  ULONG result; // eax
+  _EVENT_DATA_DESCRIPTOR UserData; // [esp+0h] [ebp-28h] BYREF
 
   if ( (unsigned int)dword_4B3A33F0 > 5 )
     return _tlgWriteTransfer_EtwEventWriteTransfer(
-             &dword_4B3A33F0,
+             (int)&dword_4B3A33F0,
              (unsigned __int8 *)dword_4B290F70,
              (int)this,
              (int)this,
-             2,
-             v2);
+             2u,
+             &UserData);
   return result;
 }

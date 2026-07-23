@@ -1,15 +1,15 @@
 /*
- * XREFs of KseShimDatabaseBootRelease @ 0x14056E6D0
+ * XREFs of KseShimDatabaseBootRelease @ 0x14056EC10
  * Callers:
- *     PnpCompleteSystemStartProcess @ 0x140145238 (PnpCompleteSystemStartProcess.c)
- *     KseShimDatabaseClose @ 0x140484800 (KseShimDatabaseClose.c)
+ *     PnpCompleteSystemStartProcess @ 0x1401457A8 (PnpCompleteSystemStartProcess.c)
+ *     KseShimDatabaseClose @ 0x140513B88 (KseShimDatabaseClose.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     KsepPoolFreePaged @ 0x140084D54 (KsepPoolFreePaged.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
- *     SdbReleaseDatabase @ 0x140499BF8 (SdbReleaseDatabase.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
+ *     KsepPoolFreePaged @ 0x14010B35C (KsepPoolFreePaged.c)
+ *     SdbReleaseDatabase @ 0x1404CEA90 (SdbReleaseDatabase.c)
  */
 
 __int64 KseShimDatabaseBootRelease()

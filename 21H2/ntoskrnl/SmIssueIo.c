@@ -1,13 +1,13 @@
 /*
- * XREFs of SmIssueIo @ 0x14059FB1C
+ * XREFs of SmIssueIo @ 0x14059FD4C
  * Callers:
- *     ?StDeviceIoIssue@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_PF_QUEUE@@@Z @ 0x14059A854 (-StDeviceIoIssue@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_PF_QUEUE@@@Z.c)
- *     ?StStagingRegionIssueIo@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_STAGING_REGION@1@K@Z @ 0x14059CE44 (-StStagingRegionIssueIo@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_STAGING_REGION@1@.c)
+ *     ?StDeviceIoIssue@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_PF_QUEUE@@@Z @ 0x14059AA84 (-StDeviceIoIssue@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_PF_QUEUE@@@Z.c)
+ *     ?StStagingRegionIssueIo@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_STAGING_REGION@1@K@Z @ 0x14059D074 (-StStagingRegionIssueIo@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_STAGING_REGION@1@.c)
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x14027C4F0 (ExReleaseRundownProtection_0.c)
- *     SmKmStoreReference @ 0x1402D9458 (SmKmStoreReference.c)
- *     SmKmStoreRefFromStoreIndex @ 0x1402D95D8 (SmKmStoreRefFromStoreIndex.c)
- *     SmKmIssueIo @ 0x14059DF3C (SmKmIssueIo.c)
+ *     ExReleaseRundownProtection @ 0x14026A490 (ExReleaseRundownProtection.c)
+ *     SmKmStoreReference @ 0x14028A7A8 (SmKmStoreReference.c)
+ *     SmKmStoreRefFromStoreIndex @ 0x14028A928 (SmKmStoreRefFromStoreIndex.c)
+ *     SmKmIssueIo @ 0x14059E16C (SmKmIssueIo.c)
  */
 
 __int64 __fastcall SmIssueIo(unsigned __int64 a1, int a2, __int64 a3, __int64 a4, __int64 a5, unsigned __int64 a6)
@@ -86,7 +86,7 @@ __int64 __fastcall SmIssueIo(unsigned __int64 a1, int a2, __int64 a3, __int64 a4
   if ( v6 )
   {
     v17 = (struct _EX_RUNDOWN_REF *)SmKmStoreRefFromStoreIndex((__int64)&SmGlobals, *(_DWORD *)(a1 + 6016) & 0x3FF);
-    ExReleaseRundownProtection_0(v17 + 1);
+    ExReleaseRundownProtection(v17 + 1);
   }
   return (unsigned int)v13;
 }

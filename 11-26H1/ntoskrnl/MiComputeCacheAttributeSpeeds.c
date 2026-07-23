@@ -1,23 +1,23 @@
 /*
- * XREFs of MiComputeCacheAttributeSpeeds @ 0x1407102D0
+ * XREFs of MiComputeCacheAttributeSpeeds @ 0x140714FCC
  * Callers:
- *     MiInitializeZeroEngines @ 0x140B277AC (MiInitializeZeroEngines.c)
+ *     MiInitializeZeroEngines @ 0x140B2A06C (MiInitializeZeroEngines.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     KeQueryPerformanceCounter @ 0x14021C3F0 (KeQueryPerformanceCounter.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     MiGetPage @ 0x1402866A0 (MiGetPage.c)
- *     MiMapPageInHyperSpaceWorker @ 0x140287EE0 (MiMapPageInHyperSpaceWorker.c)
- *     MiLockAndInsertPageInFreeList @ 0x140293098 (MiLockAndInsertPageInFreeList.c)
- *     MiFillMemory @ 0x1402A1930 (MiFillMemory.c)
- *     MiChangePageAttribute @ 0x1402D8660 (MiChangePageAttribute.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiInitializePageColorBase @ 0x14036FE20 (MiInitializePageColorBase.c)
- *     MiUnmapPageInHyperSpaceWorker @ 0x14040DF60 (MiUnmapPageInHyperSpaceWorker.c)
- *     MiAllocateEngineDescriptor @ 0x140514C38 (MiAllocateEngineDescriptor.c)
- *     MiFreeHardwareDescriptor @ 0x14070E470 (MiFreeHardwareDescriptor.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     KeQueryPerformanceCounter @ 0x14021DD80 (KeQueryPerformanceCounter.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     MiGetPage @ 0x140285C00 (MiGetPage.c)
+ *     MiMapPageInHyperSpaceWorker @ 0x140287440 (MiMapPageInHyperSpaceWorker.c)
+ *     MiLockAndInsertPageInFreeList @ 0x1402925F8 (MiLockAndInsertPageInFreeList.c)
+ *     MiFillMemory @ 0x1402A0E80 (MiFillMemory.c)
+ *     MiChangePageAttribute @ 0x1402BA420 (MiChangePageAttribute.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiInitializePageColorBase @ 0x140371BD0 (MiInitializePageColorBase.c)
+ *     MiUnmapPageInHyperSpaceWorker @ 0x14042AE90 (MiUnmapPageInHyperSpaceWorker.c)
+ *     MiAllocateEngineDescriptor @ 0x14050E6A8 (MiAllocateEngineDescriptor.c)
+ *     MiFreeHardwareDescriptor @ 0x140713170 (MiFreeHardwareDescriptor.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 void __fastcall MiComputeCacheAttributeSpeeds(__int64 a1)
@@ -89,15 +89,15 @@ void __fastcall MiComputeCacheAttributeSpeeds(__int64 a1)
   LOBYTE(v46) = 0;
   v55 = 0LL;
   memset_0(v61, 0, 0x60uLL);
-  if ( (byte_140E2D798 & 1) == 0 )
+  if ( (byte_140E2D918 & 1) == 0 )
   {
-    v2 = byte_140E2D798 & 4;
+    v2 = byte_140E2D918 & 4;
     v3 = *(_QWORD *)(a1 + 136);
     v47 = *(_DWORD *)a1;
     v60 = v47;
     v4 = *(unsigned int *)(v3 + 56);
     v59 = (__int64)v47 << 6;
-    v5 = qword_140E2D6B8 + 384 * v4;
+    v5 = qword_140E2D838 + 384 * v4;
     v57 = v5;
     if ( !*(_QWORD *)(v59 + v5 + 200) )
     {

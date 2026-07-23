@@ -1,14 +1,14 @@
 /*
- * XREFs of KiAcquireProcessLockShared @ 0x140463000
+ * XREFs of KiAcquireProcessLockShared @ 0x14045BFC0
  * Callers:
- *     KeSetSelectedCpuSetsThread @ 0x140462DA0 (KeSetSelectedCpuSetsThread.c)
- *     KeQueryCpuSetsProcess @ 0x140462EDC (KeQueryCpuSetsProcess.c)
- *     KeQueryPrimaryGroupProcess @ 0x140462F48 (KeQueryPrimaryGroupProcess.c)
- *     KeQueryPrimaryGroupAffinityProcess @ 0x140462F90 (KeQueryPrimaryGroupAffinityProcess.c)
+ *     KeSetSelectedCpuSetsThread @ 0x14045BD60 (KeSetSelectedCpuSetsThread.c)
+ *     KeQueryCpuSetsProcess @ 0x14045BE9C (KeQueryCpuSetsProcess.c)
+ *     KeQueryPrimaryGroupProcess @ 0x14045BF08 (KeQueryPrimaryGroupProcess.c)
+ *     KeQueryPrimaryGroupAffinityProcess @ 0x14045BF50 (KeQueryPrimaryGroupAffinityProcess.c)
  * Callees:
- *     ExpWaitForSpinLockSharedAndAcquire @ 0x14029BC90 (ExpWaitForSpinLockSharedAndAcquire.c)
- *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x1402EE000 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     ExpWaitForSpinLockSharedAndAcquire @ 0x14029B1F0 (ExpWaitForSpinLockSharedAndAcquire.c)
+ *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x1402D0080 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall KiAcquireProcessLockShared(__int64 a1, unsigned __int8 *a2, __int64 a3)
@@ -33,7 +33,7 @@ __int64 __fastcall KiAcquireProcessLockShared(__int64 a1, unsigned __int8 *a2, _
   v6 = (BYTE6(PerfGlobalGroupMask) & 0x21) == 0;
   v7 = (_DWORD *)(a1 + 64);
   *v3 = CurrentIrql;
-  if ( !v6 && !LODWORD(stru_140F11D08.WaitStatus) )
+  if ( !v6 && !PopHibernateInProgress )
     return ExpAcquireSpinLockSharedAtDpcLevelInstrumented(v7, 0xFFu);
   _m_prefetchw(v7);
   LODWORD(result) = *v7 & 0x7FFFFFFF;

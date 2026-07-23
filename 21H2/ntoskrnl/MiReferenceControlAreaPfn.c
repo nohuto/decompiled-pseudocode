@@ -1,14 +1,14 @@
 /*
- * XREFs of MiReferenceControlAreaPfn @ 0x140319F80
+ * XREFs of MiReferenceControlAreaPfn @ 0x140324CD0
  * Callers:
- *     MiInitializeImageProtos @ 0x14026DF7C (MiInitializeImageProtos.c)
- *     MiSectionCreated @ 0x1402E88CC (MiSectionCreated.c)
- *     MiFinishMdlForMappedFileFault @ 0x14031A46C (MiFinishMdlForMappedFileFault.c)
- *     MmCheckCachedPageStates @ 0x140321590 (MmCheckCachedPageStates.c)
- *     MiInitializeDynamicPfns @ 0x14052E5A0 (MiInitializeDynamicPfns.c)
+ *     MiInitializeImageProtos @ 0x14025BF1C (MiInitializeImageProtos.c)
+ *     MiSectionCreated @ 0x140299C1C (MiSectionCreated.c)
+ *     MiFinishMdlForMappedFileFault @ 0x1403251BC (MiFinishMdlForMappedFileFault.c)
+ *     MmCheckCachedPageStates @ 0x14032C2E0 (MmCheckCachedPageStates.c)
+ *     MiInitializeDynamicPfns @ 0x14052E7E0 (MiInitializeDynamicPfns.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusive @ 0x1402C1960 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140346AD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 

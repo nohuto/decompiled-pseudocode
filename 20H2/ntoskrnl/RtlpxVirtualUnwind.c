@@ -136,7 +136,7 @@ __int64 RtlpxVirtualUnwind(int a1, __int64 a2, unsigned __int64 a3, ...)
           if ( (v40 & 1) == 0 )
             v41 = v40;
           if ( (unsigned int)++v24 > 0x20 )
-            RtlRaiseStatus(3221225727LL);
+            RtlRaiseStatus(-1073741569);
           v23 = (_BYTE *)(a2 + *(unsigned int *)&v23[2 * v41 + 12]);
           if ( a3 <= 0x7FFFFFFEFFFFLL && ((unsigned __int8)v23 & 3) != 0 )
             goto LABEL_67;

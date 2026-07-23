@@ -1,12 +1,12 @@
 /*
- * XREFs of PopUserPresencePredictionModeCallback @ 0x1407D2F50
+ * XREFs of PopUserPresencePredictionModeCallback @ 0x1407D30C0
  * Callers:
  *     <none>
  * Callees:
- *     PopUmpoSendPowerMessage @ 0x140282A48 (PopUmpoSendPowerMessage.c)
- *     memset @ 0x140414200 (memset.c)
- *     PopReleasePolicyLock @ 0x14098F590 (PopReleasePolicyLock.c)
- *     PopAcquirePolicyLock @ 0x14098F5D0 (PopAcquirePolicyLock.c)
+ *     PopUmpoSendPowerMessage @ 0x140270CF4 (PopUmpoSendPowerMessage.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     PopReleasePolicyLock @ 0x140991044 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140991084 (PopAcquirePolicyLock.c)
  */
 
 __int64 __fastcall PopUserPresencePredictionModeCallback(_QWORD *a1, _DWORD *a2, int a3)
@@ -28,13 +28,13 @@ __int64 __fastcall PopUserPresencePredictionModeCallback(_QWORD *a1, _DWORD *a2,
   {
     if ( *a2 != 1 )
       goto LABEL_9;
-    dword_140C23EE0 = 1;
+    dword_140C23380 = 1;
     memset(Src, 0, 0x48uLL);
     Src[2] = 3;
   }
   else
   {
-    dword_140C23EE0 = 0;
+    dword_140C23380 = 0;
     memset(Src, 0, 0x48uLL);
     Src[2] = 2;
   }

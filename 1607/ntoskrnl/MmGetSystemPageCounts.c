@@ -1,12 +1,12 @@
 /*
- * XREFs of MmGetSystemPageCounts @ 0x1400AD208
+ * XREFs of MmGetSystemPageCounts @ 0x1400AB770
  * Callers:
- *     ExpQuerySystemPerformanceInformation @ 0x140414000 (ExpQuerySystemPerformanceInformation.c)
+ *     ExpQuerySystemPerformanceInformation @ 0x140412EC0 (ExpQuerySystemPerformanceInformation.c)
  * Callees:
  *     <none>
  */
 
 void __fastcall MmGetSystemPageCounts(_OWORD *a1)
 {
-  *a1 = xmmword_140326868;
+  *a1 = xmmword_1403268A8;
 }

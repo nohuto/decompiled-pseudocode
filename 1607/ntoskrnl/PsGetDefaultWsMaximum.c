@@ -1,7 +1,7 @@
 /*
- * XREFs of PsGetDefaultWsMaximum @ 0x1401035DC
+ * XREFs of PsGetDefaultWsMaximum @ 0x14010135C
  * Callers:
- *     MmCreateProcessAddressSpace @ 0x1405261BC (MmCreateProcessAddressSpace.c)
+ *     MmCreateProcessAddressSpace @ 0x14050921C (MmCreateProcessAddressSpace.c)
  * Callees:
  *     <none>
  */

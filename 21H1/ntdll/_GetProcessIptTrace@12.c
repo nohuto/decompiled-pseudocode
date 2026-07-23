@@ -18,9 +18,9 @@ NTSTATUS __fastcall GetProcessIptTrace(int a1, void *a2, ULONG OutputBufferLengt
   _DWORD InputBuffer[4]; // [esp+10h] [ebp-64h] BYREF
   __int16 v9; // [esp+20h] [ebp-54h]
   __int64 v10; // [esp+28h] [ebp-4Ch]
-  OBJECT_ATTRIBUTES ObjectAttributes; // [esp+44h] [ebp-30h] BYREF
-  struct _IO_STATUS_BLOCK v12; // [esp+5Ch] [ebp-18h] BYREF
-  struct _IO_STATUS_BLOCK IoStatusBlock; // [esp+64h] [ebp-10h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [esp+44h] [ebp-30h] BYREF
+  _IO_STATUS_BLOCK v12; // [esp+5Ch] [ebp-18h] BYREF
+  _IO_STATUS_BLOCK IoStatusBlock; // [esp+64h] [ebp-10h] BYREF
   HANDLE FileHandle; // [esp+6Ch] [ebp-8h] BYREF
 
   if ( OutputBufferLength < 8 )
@@ -32,7 +32,7 @@ NTSTATUS __fastcall GetProcessIptTrace(int a1, void *a2, ULONG OutputBufferLengt
   result = NtCreateFile(&FileHandle, 0x120089u, &ObjectAttributes, &IoStatusBlock, 0, 0x80u, 1u, 1u, 0x4Cu, 0, 0);
   if ( result >= 0 )
   {
-    v6 = AcquireDebugPrivilege((int *)&IoStatusBlock.Information);
+    v6 = AcquireDebugPrivilege((PVOID *)&IoStatusBlock.Information);
     InputBuffer[2] = 2;
     InputBuffer[1] = 0;
     InputBuffer[0] = 1;
@@ -41,7 +41,7 @@ NTSTATUS __fastcall GetProcessIptTrace(int a1, void *a2, ULONG OutputBufferLengt
     v7 = NtDeviceIoControlFile(FileHandle, 0, 0, 0, &v12, 0x220006u, InputBuffer, 0x30u, a2, OutputBufferLength);
     NtClose(FileHandle);
     if ( v6 )
-      RtlReleasePrivilege(IoStatusBlock.Information);
+      RtlReleasePrivilege((PVOID)IoStatusBlock.Information);
     return v7;
   }
   return result;

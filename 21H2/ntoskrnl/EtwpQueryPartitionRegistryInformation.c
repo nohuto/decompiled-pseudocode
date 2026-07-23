@@ -1,20 +1,20 @@
 /*
- * XREFs of EtwpQueryPartitionRegistryInformation @ 0x1403AF83C
+ * XREFs of EtwpQueryPartitionRegistryInformation @ 0x1403AF9AC
  * Callers:
- *     EtwpContainerResumeWnfCallback @ 0x1405AA6D0 (EtwpContainerResumeWnfCallback.c)
- *     EtwInitializeSiloState @ 0x14079ABF8 (EtwInitializeSiloState.c)
+ *     EtwpContainerResumeWnfCallback @ 0x1405AA900 (EtwpContainerResumeWnfCallback.c)
+ *     EtwInitializeSiloState @ 0x14079ADF8 (EtwInitializeSiloState.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     StringToGuidNoBrackets @ 0x1403AFA7C (StringToGuidNoBrackets.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     ZwOpenKey @ 0x1403FA5E0 (ZwOpenKey.c)
- *     memset @ 0x140414200 (memset.c)
- *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
- *     RtlUnicodeToUTF8N @ 0x1406B92D0 (RtlUnicodeToUTF8N.c)
- *     RtlQueryRegistryValuesEx @ 0x1406BBF50 (RtlQueryRegistryValuesEx.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     StringToGuidNoBrackets @ 0x1403AFBEC (StringToGuidNoBrackets.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403FA7C0 (ZwOpenKey.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     RtlUnicodeToUTF8N @ 0x1406188F0 (RtlUnicodeToUTF8N.c)
+ *     RtlQueryRegistryValuesEx @ 0x14061AFD0 (RtlQueryRegistryValuesEx.c)
+ *     RtlFreeAnsiString @ 0x14063DA40 (RtlFreeAnsiString.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpQueryPartitionRegistryInformation(
@@ -42,7 +42,7 @@ __int64 __fastcall EtwpQueryPartitionRegistryInformation(
   PCWCH *v25; // [rsp+B8h] [rbp-48h]
   int v26; // [rsp+C0h] [rbp-40h] BYREF
   UNICODE_STRING *p_UnicodeString; // [rsp+C8h] [rbp-38h]
-  _QWORD v28[28]; // [rsp+E0h] [rbp-20h] BYREF
+  _RTL_QUERY_REGISTRY_TABLE QueryTable[4]; // [rsp+E0h] [rbp-20h] BYREF
 
   KeyHandle = 0LL;
   UTF8StringActualByteCount = 0;
@@ -60,28 +60,28 @@ __int64 __fastcall EtwpQueryPartitionRegistryInformation(
   RegistryValues = ZwOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes);
   if ( RegistryValues >= 0 )
   {
-    memset(v28, 0, sizeof(v28));
+    memset(QueryTable, 0, sizeof(QueryTable));
     v23 = a4;
-    LODWORD(v28[11]) = 1;
-    v28[0] = &EtwpQueryRegistryCallback;
-    v28[3] = &v22;
-    v28[7] = &EtwpQueryRegistryCallback;
-    v28[2] = L"ContainerType";
+    QueryTable[1].DefaultType = 1;
+    QueryTable[0].QueryRoutine = (int (__fastcall *)(wchar_t *, unsigned int, void *, unsigned int, void *, void *))&EtwpQueryRegistryCallback;
+    QueryTable[0].EntryContext = &v22;
+    QueryTable[1].QueryRoutine = (int (__fastcall *)(wchar_t *, unsigned int, void *, unsigned int, void *, void *))&EtwpQueryRegistryCallback;
+    QueryTable[0].Name = L"ContainerType";
     v24 = 1;
-    LODWORD(v28[4]) = 4;
+    QueryTable[0].DefaultType = 4;
     v22 = 4;
-    v28[10] = &v24;
-    v28[9] = L"ContainerId";
-    v28[12] = v15;
+    QueryTable[1].EntryContext = &v24;
+    QueryTable[1].Name = L"ContainerId";
+    QueryTable[1].DefaultData = v15;
     v25 = UnicodeStringSource;
-    v28[17] = &v26;
-    v28[16] = L"ContainerCorrelationId";
-    v28[19] = v15;
-    v28[14] = &EtwpQueryRegistryCallback;
-    LODWORD(v28[18]) = 1;
+    QueryTable[2].EntryContext = &v26;
+    QueryTable[2].Name = L"ContainerCorrelationId";
+    QueryTable[2].DefaultData = v15;
+    QueryTable[2].QueryRoutine = (int (__fastcall *)(wchar_t *, unsigned int, void *, unsigned int, void *, void *))&EtwpQueryRegistryCallback;
+    QueryTable[2].DefaultType = 1;
     v26 = 1;
     p_UnicodeString = &UnicodeString;
-    RegistryValues = RtlQueryRegistryValuesEx(0x40000000LL, KeyHandle, v28, 0LL, 0LL);
+    RegistryValues = RtlQueryRegistryValuesEx(0x40000000u, (PCWSTR)KeyHandle, QueryTable, 0LL, 0LL);
     if ( RegistryValues >= 0 )
     {
       *a5 = 0LL;

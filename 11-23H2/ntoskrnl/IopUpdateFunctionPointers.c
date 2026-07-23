@@ -1,15 +1,15 @@
 /*
- * XREFs of IopUpdateFunctionPointers @ 0x1405563EC
+ * XREFs of IopUpdateFunctionPointers @ 0x140556AAC
  * Callers:
- *     IopIrpExtensionControl @ 0x140555930 (IopIrpExtensionControl.c)
- *     IoPerfInit @ 0x140558ED8 (IoPerfInit.c)
- *     IoPerfReset @ 0x140558FD4 (IoPerfReset.c)
- *     ViIovPluginUnload @ 0x1405D1EE0 (ViIovPluginUnload.c)
- *     IoVerifierInit @ 0x140AC0CAC (IoVerifierInit.c)
+ *     IopIrpExtensionControl @ 0x140555FF0 (IopIrpExtensionControl.c)
+ *     IoPerfInit @ 0x140559598 (IoPerfInit.c)
+ *     IoPerfReset @ 0x140559694 (IoPerfReset.c)
+ *     ViIovPluginUnload @ 0x1405D2450 (ViIovPluginUnload.c)
+ *     IoVerifierInit @ 0x140AC0C9C (IoVerifierInit.c)
  * Callees:
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402610F0 (KeAcquireInStackQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall IopUpdateFunctionPointers(int a1, char a2, char a3)
@@ -58,10 +58,10 @@ __int64 __fastcall IopUpdateFunctionPointers(int a1, char a2, char a3)
   {
     result = KxReleaseQueuedSpinLock((volatile signed __int64 **)&v15);
     OldIrql = v15.OldIrql;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       result = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
         && (unsigned __int8)result <= 0xFu
         && v15.OldIrql <= 0xFu
         && (unsigned __int8)result >= 2u )
@@ -72,7 +72,7 @@ __int64 __fastcall IopUpdateFunctionPointers(int a1, char a2, char a3)
         v14 = ((unsigned int)result & SchedulerAssist[5]) == 0;
         SchedulerAssist[5] &= result;
         if ( v14 )
-          result = KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          result = KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
       }
     }
     __writecr8(OldIrql);

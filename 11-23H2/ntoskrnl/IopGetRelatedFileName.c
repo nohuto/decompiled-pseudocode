@@ -1,11 +1,11 @@
 /*
- * XREFs of IopGetRelatedFileName @ 0x140944A50
+ * XREFs of IopGetRelatedFileName @ 0x140944C50
  * Callers:
- *     IopSymlinkRememberJunction @ 0x14087F418 (IopSymlinkRememberJunction.c)
+ *     IopSymlinkRememberJunction @ 0x14087F658 (IopSymlinkRememberJunction.c)
  * Callees:
- *     memmove @ 0x140435700 (memmove.c)
- *     IopGetFileInformation @ 0x14075AE5C (IopGetFileInformation.c)
- *     ObQueryNameStringMode @ 0x14075B7F4 (ObQueryNameStringMode.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     IopGetFileInformation @ 0x14075B04C (IopGetFileInformation.c)
+ *     ObQueryNameStringMode @ 0x14075B9E4 (ObQueryNameStringMode.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

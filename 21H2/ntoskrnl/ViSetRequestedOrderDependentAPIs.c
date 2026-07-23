@@ -1,9 +1,9 @@
 /*
- * XREFs of ViSetRequestedOrderDependentAPIs @ 0x1405A0E08
+ * XREFs of ViSetRequestedOrderDependentAPIs @ 0x1405A1038
  * Callers:
- *     ViXdvSetRequestedAPIsforDIF @ 0x1409C9220 (ViXdvSetRequestedAPIsforDIF.c)
+ *     ViXdvSetRequestedAPIsforDIF @ 0x1409CA220 (ViXdvSetRequestedAPIsforDIF.c)
  * Callees:
- *     _stricmp @ 0x1403D1DD0 (_stricmp.c)
+ *     _stricmp @ 0x1403D1F40 (_stricmp.c)
  */
 
 void ViSetRequestedOrderDependentAPIs()

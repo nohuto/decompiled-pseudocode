@@ -1,16 +1,16 @@
 /*
- * XREFs of ObHandleRevocationBlockAddObject @ 0x140665A98
+ * XREFs of ObHandleRevocationBlockAddObject @ 0x140665B7C
  * Callers:
- *     ObpCreateHandle @ 0x140419C20 (ObpCreateHandle.c)
+ *     ObpCreateHandle @ 0x140418AE0 (ObpCreateHandle.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     OBJECT_HEADER_TO_HANDLE_REVOCATION_INFO @ 0x140031860 (OBJECT_HEADER_TO_HANDLE_REVOCATION_INFO.c)
- *     KeLeaveCriticalRegion @ 0x140069D00 (KeLeaveCriticalRegion.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfReleasePushLock @ 0x1400C8620 (ExfReleasePushLock.c)
- *     ExAcquireRundownProtection @ 0x1400D3ED0 (ExAcquireRundownProtection.c)
- *     ExReleaseRundownProtection @ 0x1400D3F00 (ExReleaseRundownProtection.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     OBJECT_HEADER_TO_HANDLE_REVOCATION_INFO @ 0x1400313E0 (OBJECT_HEADER_TO_HANDLE_REVOCATION_INFO.c)
+ *     KeLeaveCriticalRegion @ 0x140069880 (KeLeaveCriticalRegion.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfReleasePushLock @ 0x1400C64C0 (ExfReleasePushLock.c)
+ *     ExAcquireRundownProtection @ 0x1400D1D70 (ExAcquireRundownProtection.c)
+ *     ExReleaseRundownProtection @ 0x1400D1DA0 (ExReleaseRundownProtection.c)
  */
 
 __int64 __fastcall ObHandleRevocationBlockAddObject(struct _EX_RUNDOWN_REF *a1, __int64 a2)

@@ -1,22 +1,22 @@
 /*
- * XREFs of CmpVEExecuteVirtualStoreParseLogic @ 0x140870C28
+ * XREFs of CmpVEExecuteVirtualStoreParseLogic @ 0x140870D88
  * Callers:
- *     CmpVEExecuteParseLogic @ 0x1406FC190 (CmpVEExecuteParseLogic.c)
+ *     CmpVEExecuteParseLogic @ 0x140713570 (CmpVEExecuteParseLogic.c)
  * Callees:
- *     RtlUnicodeStringCat @ 0x140206B60 (RtlUnicodeStringCat.c)
- *     RtlUnicodeStringCopy @ 0x140206CD0 (RtlUnicodeStringCopy.c)
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     RtlUnicodeStringCat @ 0x1402AB490 (RtlUnicodeStringCat.c)
+ *     RtlUnicodeStringCopy @ 0x1402AB600 (RtlUnicodeStringCopy.c)
  *     CmpFindPathByNameEx @ 0x1405CC874 (CmpFindPathByNameEx.c)
  *     CmpUnicodeStringAppendCharacter @ 0x1405CD048 (CmpUnicodeStringAppendCharacter.c)
- *     CmpUnblockHiveWrites @ 0x14066FDA8 (CmpUnblockHiveWrites.c)
- *     CmpBlockHiveWrites @ 0x14066FE50 (CmpBlockHiveWrites.c)
- *     CmpVirtualBranchIsReplicated @ 0x1406720EC (CmpVirtualBranchIsReplicated.c)
- *     CmVirtualKCBToRealPath @ 0x14086FAD8 (CmVirtualKCBToRealPath.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     CmpVirtualBranchIsReplicated @ 0x1406647D4 (CmpVirtualBranchIsReplicated.c)
+ *     CmpUnblockHiveWrites @ 0x140666288 (CmpUnblockHiveWrites.c)
+ *     CmpBlockHiveWrites @ 0x140666330 (CmpBlockHiveWrites.c)
+ *     CmVirtualKCBToRealPath @ 0x14086FC38 (CmVirtualKCBToRealPath.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall CmpVEExecuteVirtualStoreParseLogic(__int64 a1, __m128i *a2, _DWORD *a3, UNICODE_STRING *a4)
+__int64 __fastcall CmpVEExecuteVirtualStoreParseLogic(__int64 a1, UNICODE_STRING *a2, _DWORD *a3, UNICODE_STRING *a4)
 {
   volatile signed __int32 *v6; // rsi
   int v9; // ebx
@@ -46,10 +46,10 @@ __int64 __fastcall CmpVEExecuteVirtualStoreParseLogic(__int64 a1, __m128i *a2, _
   v9 = CmVirtualKCBToRealPath(a1, &DestinationString);
   if ( v9 >= 0 )
   {
-    v10 = a2->m128i_u16[0] + DestinationString.Length + 2;
+    v10 = a2->Length + DestinationString.Length + 2;
     if ( v10 <= 0xFFFF )
     {
-      v18.MaximumLength = a2->m128i_i16[0] + DestinationString.Length + 2;
+      v18.MaximumLength = a2->Length + DestinationString.Length + 2;
       v18.Buffer = (wchar_t *)ExAllocatePoolWithTag(PagedPool, (unsigned __int16)v10, 0x624E4D43u);
       if ( !v18.Buffer )
       {
@@ -58,7 +58,7 @@ __int64 __fastcall CmpVEExecuteVirtualStoreParseLogic(__int64 a1, __m128i *a2, _
       }
       RtlUnicodeStringCopy(&v18, &DestinationString);
       CmpUnicodeStringAppendCharacter(&v18.Length);
-      RtlUnicodeStringCat(&v18, (PCUNICODE_STRING)a2);
+      RtlUnicodeStringCat(&v18, a2);
       if ( (*a3 & 1) != 0 && v20 )
       {
         v9 = CmpBlockHiveWrites(0LL, 16, &v16);

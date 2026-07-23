@@ -1,13 +1,13 @@
 /*
- * XREFs of MiTrimSharedPageFromViews @ 0x140A84144
+ * XREFs of MiTrimSharedPageFromViews @ 0x140A89498
  * Callers:
- *     MiTrimSection @ 0x1404651E0 (MiTrimSection.c)
+ *     MiTrimSection @ 0x14045E1A0 (MiTrimSection.c)
  * Callees:
- *     MiTrimSharedPageFromView @ 0x14046BEB4 (MiTrimSharedPageFromView.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     MiDeleteTrimViewInfoList @ 0x140A841F8 (MiDeleteTrimViewInfoList.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     MiTrimSharedPageFromView @ 0x140465634 (MiTrimSharedPageFromView.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     MiDeleteTrimViewInfoList @ 0x140A8954C (MiDeleteTrimViewInfoList.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiTrimSharedPageFromViews(PVOID *P, unsigned int a2, __int64 a3, _QWORD *a4)

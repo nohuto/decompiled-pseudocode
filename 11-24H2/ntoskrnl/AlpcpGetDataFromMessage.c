@@ -1,14 +1,14 @@
 /*
- * XREFs of AlpcpGetDataFromMessage @ 0x14088AE68
+ * XREFs of AlpcpGetDataFromMessage @ 0x140990904
  * Callers:
- *     AlpcpProcessConnectionRequest @ 0x14086392C (AlpcpProcessConnectionRequest.c)
- *     AlpcpReceiveLegacyConnectionReply @ 0x14088A87C (AlpcpReceiveLegacyConnectionReply.c)
- *     AlpcpCompleteDispatchMessage @ 0x1408912A0 (AlpcpCompleteDispatchMessage.c)
- *     AlpcpReceiveMessage @ 0x140899160 (AlpcpReceiveMessage.c)
- *     AlpcpProcessSynchronousRequest @ 0x140A304CC (AlpcpProcessSynchronousRequest.c)
+ *     AlpcpProcessConnectionRequest @ 0x140867F3C (AlpcpProcessConnectionRequest.c)
+ *     AlpcpCompleteDispatchMessage @ 0x14089A890 (AlpcpCompleteDispatchMessage.c)
+ *     AlpcpReceiveMessage @ 0x1408A1800 (AlpcpReceiveMessage.c)
+ *     AlpcpProcessSynchronousRequest @ 0x140A24FBC (AlpcpProcessSynchronousRequest.c)
+ *     AlpcpReceiveLegacyConnectionReply @ 0x140AC1D10 (AlpcpReceiveLegacyConnectionReply.c)
  * Callees:
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     AlpcpGetDataFromUserVaSafe @ 0x14088AE18 (AlpcpGetDataFromUserVaSafe.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     AlpcpGetDataFromUserVaSafe @ 0x1409908B4 (AlpcpGetDataFromUserVaSafe.c)
  */
 
 void *__fastcall AlpcpGetDataFromMessage(__int64 a1, char *a2)

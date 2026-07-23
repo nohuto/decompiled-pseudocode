@@ -1,7 +1,7 @@
 /*
- * XREFs of BiIsValidObject @ 0x14085E18C
+ * XREFs of BiIsValidObject @ 0x140859EFC
  * Callers:
- *     BiCreateObject @ 0x14085E04C (BiCreateObject.c)
+ *     BiCreateObject @ 0x140859DBC (BiCreateObject.c)
  * Callees:
  *     <none>
  */

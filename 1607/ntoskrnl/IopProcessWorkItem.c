@@ -1,15 +1,15 @@
 /*
- * XREFs of IopProcessWorkItem @ 0x1400749F0
+ * XREFs of IopProcessWorkItem @ 0x140086970
  * Callers:
  *     <none>
  * Callees:
- *     EtwActivityIdControlKernel @ 0x140007EA8 (EtwActivityIdControlKernel.c)
- *     ObfDereferenceObjectWithTag @ 0x14006ACD0 (ObfDereferenceObjectWithTag.c)
- *     PsImpersonateContainerOfThread @ 0x1400D1630 (PsImpersonateContainerOfThread.c)
- *     PspRevertContainerImpersonation @ 0x1400D3D20 (PspRevertContainerImpersonation.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     EtwTraceThreadWorkItem @ 0x1402262A4 (EtwTraceThreadWorkItem.c)
+ *     ObfDereferenceObjectWithTag @ 0x14006A850 (ObfDereferenceObjectWithTag.c)
+ *     EtwActivityIdControlKernel @ 0x140086AF0 (EtwActivityIdControlKernel.c)
+ *     PsImpersonateContainerOfThread @ 0x1400CF4D0 (PsImpersonateContainerOfThread.c)
+ *     PspRevertContainerImpersonation @ 0x1400D1BC0 (PspRevertContainerImpersonation.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     EtwTraceThreadWorkItem @ 0x1402260D0 (EtwTraceThreadWorkItem.c)
  */
 
 struct _KTHREAD *__fastcall IopProcessWorkItem(__int64 a1)
@@ -36,7 +36,7 @@ struct _KTHREAD *__fastcall IopProcessWorkItem(__int64 a1)
     v9 = *(_OWORD *)(a1 + 68);
     v10 = &v11;
     v11 = v9;
-    EtwActivityIdControlKernel(2, (PVOID *)&v10);
+    EtwActivityIdControlKernel(2LL, &v10);
     v4 = 1;
   }
   if ( *(_QWORD *)(a1 + 56) )

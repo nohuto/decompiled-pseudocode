@@ -8,15 +8,15 @@
 
 errno_t __cdecl strcpy_s(char *Destination, rsize_t SizeInBytes, const char *Source)
 {
-  rsize_t v3; // edx
-  const char *v4; // ecx
+  int v3; // edx
+  char *v4; // ecx
   char v5; // al
   errno_t v7; // [esp-4h] [ebp-Ch]
 
   if ( Destination && (v3 = SizeInBytes) != 0 )
   {
-    v4 = Source;
-    if ( !Source )
+    v4 = (char *)HIDWORD(SizeInBytes);
+    if ( !HIDWORD(SizeInBytes) )
     {
       v7 = 22;
 LABEL_9:
@@ -27,7 +27,7 @@ LABEL_9:
     do
     {
       v5 = *v4;
-      v4[Destination - Source] = *v4;
+      Destination[(_DWORD)v4 - HIDWORD(SizeInBytes)] = *v4;
       ++v4;
       if ( !v5 )
         break;

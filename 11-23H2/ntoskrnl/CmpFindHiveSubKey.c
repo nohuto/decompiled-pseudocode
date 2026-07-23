@@ -4,11 +4,11 @@
  *     CmpGetStateSepKeysRedirectionPathValue @ 0x140B5AD9C (CmpGetStateSepKeysRedirectionPathValue.c)
  *     CmpGetKnownHivePathNode @ 0x140B98EFC (CmpGetKnownHivePathNode.c)
  * Callees:
- *     RtlEqualUnicodeString @ 0x1406DA2F0 (RtlEqualUnicodeString.c)
- *     HvpGetCellPaged @ 0x1406E0150 (HvpGetCellPaged.c)
- *     HvpGetCellFlat @ 0x1407FD9F0 (HvpGetCellFlat.c)
- *     CmpWalkUnicodeStringPath @ 0x140825BB0 (CmpWalkUnicodeStringPath.c)
- *     CmpGetNextName @ 0x140825C74 (CmpGetNextName.c)
+ *     RtlEqualUnicodeString @ 0x1406DA320 (RtlEqualUnicodeString.c)
+ *     HvpGetCellPaged @ 0x1406E0180 (HvpGetCellPaged.c)
+ *     HvpGetCellFlat @ 0x1407FDCC0 (HvpGetCellFlat.c)
+ *     CmpWalkUnicodeStringPath @ 0x140825EB0 (CmpWalkUnicodeStringPath.c)
+ *     CmpGetNextName @ 0x140825F74 (CmpGetNextName.c)
  */
 
 bool __fastcall CmpFindHiveSubKey(

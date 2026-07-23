@@ -1,11 +1,11 @@
 /*
- * XREFs of ExStopRecordingIRTimerExpiries @ 0x140ABCE48
+ * XREFs of ExStopRecordingIRTimerExpiries @ 0x140AB7EB4
  * Callers:
- *     PopCaptureSleepStudyStatistics @ 0x14032DC2C (PopCaptureSleepStudyStatistics.c)
+ *     PopCaptureSleepStudyStatistics @ 0x1402B63C0 (PopCaptureSleepStudyStatistics.c)
  * Callees:
- *     PoDiagTraceIRTimerSleepStudyRundown @ 0x1404D65C4 (PoDiagTraceIRTimerSleepStudyRundown.c)
- *     ExpGetIRTimerDesc @ 0x1404D9710 (ExpGetIRTimerDesc.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     PoDiagTraceIRTimerSleepStudyRundown @ 0x1404CFA14 (PoDiagTraceIRTimerSleepStudyRundown.c)
+ *     ExpGetIRTimerDesc @ 0x1404D2B60 (ExpGetIRTimerDesc.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void ExStopRecordingIRTimerExpiries()

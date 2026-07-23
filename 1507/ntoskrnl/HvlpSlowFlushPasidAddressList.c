@@ -19,15 +19,15 @@ PSLIST_ENTRY __fastcall HvlpSlowFlushPasidAddressList(
   __int16 v7; // bx
   char v8; // si
   bool v9; // bl
-  struct _SLIST_ENTRY *HypercallCachedPages; // rax
-  struct _SLIST_ENTRY *v11; // r14
+  _SLIST_ENTRY *HypercallCachedPages; // rax
+  _SLIST_ENTRY *v11; // r14
   struct _KPRCB *CurrentPrcb; // rdi
   _SLIST_ENTRY *Next; // rbp
   PSLIST_ENTRY result; // rax
   struct _KPRCB *v15; // rcx
   __int64 v16; // [rsp+20h] [rbp-68h]
   struct _KPRCB *v17; // [rsp+30h] [rbp-58h]
-  struct _SLIST_ENTRY *v18; // [rsp+38h] [rbp-50h]
+  _SLIST_ENTRY *v18; // [rsp+38h] [rbp-50h]
   __int16 v19; // [rsp+80h] [rbp-8h]
 
   if ( (HvlpFlags & 0x10) != 0 )
@@ -49,7 +49,7 @@ PSLIST_ENTRY __fastcall HvlpSlowFlushPasidAddressList(
     v8 = 5;
     HIDWORD(v17) = 5;
     v9 = (v7 & 0x200) != 0;
-    HypercallCachedPages = (struct _SLIST_ENTRY *)KeGetCurrentPrcb()->HypercallCachedPages;
+    HypercallCachedPages = (_SLIST_ENTRY *)KeGetCurrentPrcb()->HypercallCachedPages;
     LOBYTE(v17) = v9;
     v11 = v18;
     CurrentPrcb = v17;

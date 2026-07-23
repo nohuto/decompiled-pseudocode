@@ -1,24 +1,24 @@
 /*
- * XREFs of PopPowerAggregatorEnterScreenOff @ 0x140902758
+ * XREFs of PopPowerAggregatorEnterScreenOff @ 0x140A6E038
  * Callers:
- *     PopPowerAggregatorScreenOffActiveToScreenOffStateHandler @ 0x140759B70 (PopPowerAggregatorScreenOffActiveToScreenOffStateHandler.c)
- *     PopPowerAggregatorScreenOffEnterStateHandler @ 0x140759B90 (PopPowerAggregatorScreenOffEnterStateHandler.c)
- *     PopPowerAggregatorDisengageModernStandby @ 0x1409025F8 (PopPowerAggregatorDisengageModernStandby.c)
- *     PopPowerAggregatorScreenOffExitStateHandler @ 0x1409026E0 (PopPowerAggregatorScreenOffExitStateHandler.c)
+ *     PopPowerAggregatorScreenOffActiveToScreenOffStateHandler @ 0x140757FC0 (PopPowerAggregatorScreenOffActiveToScreenOffStateHandler.c)
+ *     PopPowerAggregatorScreenOffEnterStateHandler @ 0x140757FE0 (PopPowerAggregatorScreenOffEnterStateHandler.c)
+ *     PopPowerAggregatorDisengageModernStandby @ 0x140A6DED8 (PopPowerAggregatorDisengageModernStandby.c)
+ *     PopPowerAggregatorScreenOffExitStateHandler @ 0x140A6DFC0 (PopPowerAggregatorScreenOffExitStateHandler.c)
  * Callees:
- *     PopReleaseRwLock @ 0x1403B5EC8 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x1404283D4 (PopAcquireRwLockExclusive.c)
- *     PopPowerRequestReferenceRelease @ 0x14046BD60 (PopPowerRequestReferenceRelease.c)
- *     PopPowerRequestReferenceAcquire @ 0x14046BE70 (PopPowerRequestReferenceAcquire.c)
- *     PopGetMonitorReasonFromPowerEventId @ 0x1404B1130 (PopGetMonitorReasonFromPowerEventId.c)
- *     PopPdcEngagePhases @ 0x14075D474 (PopPdcEngagePhases.c)
- *     PopPowerAggregatorSetCurrentState @ 0x140902BD0 (PopPowerAggregatorSetCurrentState.c)
- *     PdcPoPerfOverride @ 0x140A9568C (PdcPoPerfOverride.c)
- *     PopPdcDisengagePhases @ 0x140A972F0 (PopPdcDisengagePhases.c)
- *     PopSleepstudyStartNextSession @ 0x140AAC910 (PopSleepstudyStartNextSession.c)
- *     PopSleepstudySnapModernStandbySessionData @ 0x140ABC550 (PopSleepstudySnapModernStandbySessionData.c)
- *     PopAcquirePolicyLock @ 0x140B67CB0 (PopAcquirePolicyLock.c)
- *     PopReleasePolicyLock @ 0x140B67D00 (PopReleasePolicyLock.c)
+ *     PopReleaseRwLock @ 0x1402AE8FC (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14041C564 (PopAcquireRwLockExclusive.c)
+ *     PopPowerRequestReferenceRelease @ 0x1404649E0 (PopPowerRequestReferenceRelease.c)
+ *     PopPowerRequestReferenceAcquire @ 0x140464AF0 (PopPowerRequestReferenceAcquire.c)
+ *     PopGetMonitorReasonFromPowerEventId @ 0x1404AB9C0 (PopGetMonitorReasonFromPowerEventId.c)
+ *     PopPdcEngagePhases @ 0x14075C414 (PopPdcEngagePhases.c)
+ *     PopPowerAggregatorSetCurrentState @ 0x140A6E4B0 (PopPowerAggregatorSetCurrentState.c)
+ *     PdcPoPerfOverride @ 0x140A91EBC (PdcPoPerfOverride.c)
+ *     PopPdcDisengagePhases @ 0x140A93B20 (PopPdcDisengagePhases.c)
+ *     PopSleepstudyStartNextSession @ 0x140AA7940 (PopSleepstudyStartNextSession.c)
+ *     PopSleepstudySnapModernStandbySessionData @ 0x140AB7570 (PopSleepstudySnapModernStandbySessionData.c)
+ *     PopAcquirePolicyLock @ 0x140B69DF0 (PopAcquirePolicyLock.c)
+ *     PopReleasePolicyLock @ 0x140B69E40 (PopReleasePolicyLock.c)
  */
 
 struct _KTHREAD *__fastcall PopPowerAggregatorEnterScreenOff(_OWORD *a1)
@@ -36,64 +36,61 @@ struct _KTHREAD *__fastcall PopPowerAggregatorEnterScreenOff(_OWORD *a1)
   __int64 v11; // rcx
   __int64 v12; // r8
   __int64 v13; // r9
-  __int64 v14; // rdx
-  __int64 v15; // r8
-  __int64 v16; // r9
-  __int128 v18; // [rsp+28h] [rbp-19h] BYREF
-  __int128 v19; // [rsp+38h] [rbp-9h]
-  __m128i v20; // [rsp+48h] [rbp+7h]
-  __int128 v21; // [rsp+58h] [rbp+17h]
-  __int128 v22; // [rsp+68h] [rbp+27h]
-  __int128 v23; // [rsp+78h] [rbp+37h]
+  __int128 v15; // [rsp+28h] [rbp-19h] BYREF
+  __int128 v16; // [rsp+38h] [rbp-9h]
+  __m128i v17; // [rsp+48h] [rbp+7h]
+  __int128 v18; // [rsp+58h] [rbp+17h]
+  __int128 v19; // [rsp+68h] [rbp+27h]
+  __int128 v20; // [rsp+78h] [rbp+37h]
 
   v1 = *(__m128i *)((char *)a1 + 56);
   v2 = a1[1];
-  v21 = *(_OWORD *)((char *)a1 + 72);
+  v18 = *(_OWORD *)((char *)a1 + 72);
   v3 = _mm_cvtsi128_si32(v1);
-  v23 = a1[2];
-  v18 = 0LL;
-  LODWORD(v18) = 4;
-  v20 = v1;
-  v22 = v2;
-  v19 = 0LL;
+  v20 = a1[2];
+  v15 = 0LL;
+  LODWORD(v15) = 4;
+  v17 = v1;
+  v19 = v2;
+  v16 = 0LL;
   if ( v3 == 4 )
   {
-    LOBYTE(v19) = v21;
-    DWORD1(v19) = DWORD1(v21);
+    LOBYTE(v16) = v18;
+    DWORD1(v16) = DWORD1(v18);
   }
-  PopPowerAggregatorSetCurrentState(a1, &v18);
-  PopReleaseRwLock((signed __int64 *)&PopPowerAggregatorLock);
+  PopPowerAggregatorSetCurrentState(a1, &v15);
+  PopReleaseRwLock(&PopPowerAggregatorLock);
   if ( v3 == 1 )
-    PopSleepstudySnapModernStandbySessionData(v5, v4, v6, v7, v18);
-  if ( (v22 & 0xFFFFFFFC) != 0 || (_DWORD)v22 == 1 )
+    PopSleepstudySnapModernStandbySessionData(v5, v4, v6, v7, v15);
+  if ( (v19 & 0xFFFFFFFC) != 0 || (_DWORD)v19 == 1 )
   {
     if ( v3 == 4 || v3 == 1 )
     {
-      if ( v3 == 1 && (_QWORD)v23 == v20.m128i_i64[1] )
+      if ( v3 == 1 && (_QWORD)v20 == v17.m128i_i64[1] )
       {
-        v8 = DWORD2(v21);
-        if ( (DWORD2(v21) & 0xFF000000) != 0x1000000 || (DWORD2(v21) & 0xFFFFFF) == 0 )
+        v8 = DWORD2(v18);
+        if ( (DWORD2(v18) & 0xFF000000) != 0x1000000 || (DWORD2(v18) & 0xFFFFFF) == 0 )
           v8 = 50;
       }
       else
       {
-        v8 = PopGetMonitorReasonFromPowerEventId(SDWORD2(v22)) & 0xFFFFFF;
+        v8 = PopGetMonitorReasonFromPowerEventId(SDWORD2(v19)) & 0xFFFFFF;
       }
       PopSleepstudyStartNextSession(1LL, v8);
     }
-    v9 = (BYTE8(v23) != 0) + 58;
+    v9 = (BYTE8(v20) != 0) + 58;
     PopAcquirePolicyLock(v5, v4);
-    if ( BYTE11(v23) )
+    if ( BYTE11(v20) )
     {
-      dword_140E27D1C = 1;
+      dword_140E27E5C = 1;
       v9 = 26;
     }
     else
     {
-      dword_140E27D1C = 0;
+      dword_140E27E5C = 0;
     }
-    PopReleasePolicyLock(v11, v10, v12, v13, v18);
-    if ( BYTE8(v23) && (_DWORD)v22 == 4 && HIDWORD(v23) == 1 )
+    PopReleasePolicyLock(v11, v10, v12, v13, v15);
+    if ( BYTE8(v20) && (_DWORD)v19 == 4 && HIDWORD(v20) == 1 )
     {
       if ( !PopPowerAggregatorIdleDisabledPowerRequestTaken )
       {
@@ -106,7 +103,7 @@ struct _KTHREAD *__fastcall PopPowerAggregatorEnterScreenOff(_OWORD *a1)
       PopPowerAggregatorIdleDisabledPowerRequestTaken = 0;
       PopPowerRequestReferenceRelease(PopPowerAggregatorIdleDisabledPowerRequest, 1u);
     }
-    PopPdcEngagePhases(v9, v14, v15, v16);
+    PopPdcEngagePhases(v9);
   }
   else
   {
@@ -119,5 +116,5 @@ struct _KTHREAD *__fastcall PopPowerAggregatorEnterScreenOff(_OWORD *a1)
       PopPowerRequestReferenceRelease(PopPowerAggregatorIdleDisabledPowerRequest, 1u);
     }
   }
-  return PopAcquireRwLockExclusive(&PopPowerAggregatorLock);
+  return PopAcquireRwLockExclusive((unsigned __int64 *)&PopPowerAggregatorLock);
 }

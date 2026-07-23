@@ -1,24 +1,24 @@
 /*
- * XREFs of MiInsertSlabEntry @ 0x14039A0CC
+ * XREFs of MiInsertSlabEntry @ 0x14039A21C
  * Callers:
- *     MiReplenishSlabAllocator @ 0x140392814 (MiReplenishSlabAllocator.c)
- *     MiCreateBootSlabEntries @ 0x140A4F8C0 (MiCreateBootSlabEntries.c)
- *     MmUpdateSlabRangeProtection @ 0x140A929A8 (MmUpdateSlabRangeProtection.c)
+ *     MiReplenishSlabAllocator @ 0x140392964 (MiReplenishSlabAllocator.c)
+ *     MiCreateBootSlabEntries @ 0x140A508C0 (MiCreateBootSlabEntries.c)
+ *     MmUpdateSlabRangeProtection @ 0x140A939A8 (MmUpdateSlabRangeProtection.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
- *     KiQueryUnbiasedInterruptTime @ 0x1402546F4 (KiQueryUnbiasedInterruptTime.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     RtlRbInsertNodeEx @ 0x140340480 (RtlRbInsertNodeEx.c)
- *     MiCompareSlabEntry @ 0x140379C58 (MiCompareSlabEntry.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x140275C64 (KiQueryUnbiasedInterruptTime.c)
+ *     ExAcquireSpinLockExclusive @ 0x1402C1960 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140346AD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     RtlRbInsertNodeEx @ 0x14034B1D0 (RtlRbInsertNodeEx.c)
+ *     MiCompareSlabEntry @ 0x1403797A8 (MiCompareSlabEntry.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 
-__int64 __fastcall MiInsertSlabEntry(__int64 a1, __int64 a2, unsigned __int64 a3)
+__int64 __fastcall MiInsertSlabEntry(__int64 a1, __int64 a2, __int64 a3)
 {
   KIRQL v6; // al
-  unsigned __int64 v7; // rbx
+  signed __int64 v7; // rbx
   unsigned __int64 v8; // r14
-  bool v9; // r8
+  BOOLEAN v9; // r8
   int v10; // ebp
   unsigned __int64 v11; // rax
   __int64 v12; // rcx
@@ -74,7 +74,7 @@ LABEL_16:
       v7 = v11;
     }
   }
-  RtlRbInsertNodeEx((unsigned __int64 *)a2, v7, v9, a3);
+  RtlRbInsertNodeEx((PRTL_RB_TREE)a2, (PRTL_BALANCED_NODE)v7, v9, (PRTL_BALANCED_NODE)a3);
   v12 = *(_QWORD *)(a2 + 24);
   if ( !v12 || (v13 = *(_DWORD *)(a3 + 132), *(_DWORD *)(v12 + 132) > v13) && v13 )
     *(_QWORD *)(a2 + 24) = a3;

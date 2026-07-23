@@ -13,23 +13,23 @@
  *     @__security_check_cookie@4 @ 0x4B2F4B20 (@__security_check_cookie@4.c)
  */
 
-unsigned int __thiscall TraceLoggingRegisterEx_EtwEventRegister_EtwEventSetInformation(_DWORD *this, int a2)
+unsigned int __thiscall TraceLoggingRegisterEx_EtwEventRegister_EtwEventSetInformation(char *CallbackContext, int a2)
 {
-  _DWORD *v3; // esi
-  _DWORD *v4; // edi
-  int v5; // eax
-  int v6; // esi
-  _DWORD v8[4]; // [esp+Ch] [ebp-14h] BYREF
+  unsigned int *v3; // esi
+  REGHANDLE *v4; // edi
+  NTSTATUS v5; // eax
+  NTSTATUS v6; // esi
+  GUID ProviderId; // [esp+Ch] [ebp-14h] BYREF
 
-  v3 = (_DWORD *)(this[1] - 16);
-  v8[0] = *v3++;
-  v8[1] = *v3++;
-  v8[2] = *v3;
-  v8[3] = v3[1];
-  this[8] = 0;
-  v4 = this + 6;
-  this[9] = 0;
-  v5 = EtwEventRegister(v8, (int)_tlgEnableCallback, (int)this, (int)(this + 6));
+  v3 = (unsigned int *)(*((_DWORD *)CallbackContext + 1) - 16);
+  ProviderId.Data1 = *v3++;
+  *(_DWORD *)&ProviderId.Data2 = *v3++;
+  *(_DWORD *)ProviderId.Data4 = *v3;
+  *(_DWORD *)&ProviderId.Data4[4] = v3[1];
+  *((_DWORD *)CallbackContext + 8) = 0;
+  v4 = (REGHANDLE *)(CallbackContext + 24);
+  *((_DWORD *)CallbackContext + 9) = 0;
+  v5 = EtwEventRegister(&ProviderId, _tlgEnableCallback, CallbackContext, (PREGHANDLE)CallbackContext + 3);
   v6 = v5;
   if ( v5 )
   {
@@ -38,7 +38,11 @@ unsigned int __thiscall TraceLoggingRegisterEx_EtwEventRegister_EtwEventSetInfor
   }
   else
   {
-    EtwEventSetInformation(*v4, v4[1], 2, this[1], *(unsigned __int16 *)this[1]);
+    EtwEventSetInformation(
+      *v4,
+      (EVENT_INFO_CLASS)2,
+      *((PVOID *)CallbackContext + 1),
+      **((unsigned __int16 **)CallbackContext + 1));
   }
   return v6;
 }

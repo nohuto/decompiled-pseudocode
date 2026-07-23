@@ -1,11 +1,11 @@
 /*
- * XREFs of KiOpDecode @ 0x1403FB5A0
+ * XREFs of KiOpDecode @ 0x1403F5100
  * Callers:
- *     KiPreprocessFault @ 0x1403FB220 (KiPreprocessFault.c)
+ *     KiPreprocessFault @ 0x1403F4D80 (KiPreprocessFault.c)
  * Callees:
- *     KiOpDecodeModRM @ 0x1403FBA3C (KiOpDecodeModRM.c)
- *     KiOpFetchBytes @ 0x1403FBB28 (KiOpFetchBytes.c)
- *     KiOpFetchNextByte @ 0x1403FBB70 (KiOpFetchNextByte.c)
+ *     KiOpDecodeModRM @ 0x1403F559C (KiOpDecodeModRM.c)
+ *     KiOpFetchBytes @ 0x1403F5688 (KiOpFetchBytes.c)
+ *     KiOpFetchNextByte @ 0x1403F56D0 (KiOpFetchNextByte.c)
  */
 
 __int64 __fastcall KiOpDecode(__int64 a1, __int64 a2, char a3, int a4, __int64 a5)
@@ -129,9 +129,9 @@ LABEL_16:
     if ( (a4 & 0x8000000) == 0 )
     {
       v18 = *(_BYTE *)(v7 + 57);
-      v19 = &qword_140002778;
+      v19 = &qword_1400027C8;
       if ( v18 )
-        v19 = &qword_1400029D8;
+        v19 = &qword_140002A28;
       v20 = KiOpOneByteTable;
       if ( v18 )
         v20 = KiOpTwoByteTable;

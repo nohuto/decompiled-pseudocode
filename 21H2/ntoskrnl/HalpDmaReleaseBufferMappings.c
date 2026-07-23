@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpDmaReleaseBufferMappings @ 0x1404C7E8C
+ * XREFs of HalpDmaReleaseBufferMappings @ 0x1404C80CC
  * Callers:
- *     HalpDmaFreeMapRegisters @ 0x1404C7AB8 (HalpDmaFreeMapRegisters.c)
- *     HalpDmaSyncMapBuffers @ 0x1404C81F4 (HalpDmaSyncMapBuffers.c)
- *     HalpDmaZeroMapBuffers @ 0x1404C88D4 (HalpDmaZeroMapBuffers.c)
+ *     HalpDmaFreeMapRegisters @ 0x1404C7CF8 (HalpDmaFreeMapRegisters.c)
+ *     HalpDmaSyncMapBuffers @ 0x1404C8434 (HalpDmaSyncMapBuffers.c)
+ *     HalpDmaZeroMapBuffers @ 0x1404C8B14 (HalpDmaZeroMapBuffers.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     MmUnmapLockedPages @ 0x14031CA30 (MmUnmapLockedPages.c)
- *     RtlpInterlockedPushEntrySList @ 0x140407970 (RtlpInterlockedPushEntrySList.c)
- *     MmUnmapReservedMapping @ 0x140531C90 (MmUnmapReservedMapping.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     MmUnmapLockedPages @ 0x140327780 (MmUnmapLockedPages.c)
+ *     RtlpInterlockedPushEntrySList @ 0x140407B50 (RtlpInterlockedPushEntrySList.c)
+ *     MmUnmapReservedMapping @ 0x140531ED0 (MmUnmapReservedMapping.c)
  */
 
 void __fastcall HalpDmaReleaseBufferMappings(__int64 a1, __int64 a2, unsigned int a3, __int64 a4)
@@ -25,14 +25,14 @@ void __fastcall HalpDmaReleaseBufferMappings(__int64 a1, __int64 a2, unsigned in
     if ( *(_BYTE *)(a4 + 48) )
     {
       MmUnmapReservedMapping(v7, 0x206C6148u, *(PMDL *)a4);
-      if ( !byte_140C53F18 )
+      if ( !byte_140C53F58 )
       {
         KeReleaseInStackQueuedSpinLockFromDpcLevel((PKLOCK_QUEUE_HANDLE)(a4 + 24));
         v8 = *(_QWORD *)(a4 + 16);
         if ( _InterlockedExchangeAdd((volatile signed __int32 *)(v8 + 24), 0xFFFFFFFF) == 1
           && !_InterlockedCompareExchange((volatile signed __int32 *)(v8 + 28), 1, 0) )
         {
-          RtlpInterlockedPushEntrySList(&stru_140CF68A0, (PSLIST_ENTRY)v8);
+          RtlpInterlockedPushEntrySList(&stru_140CF68E0, (PSLIST_ENTRY)v8);
         }
       }
     }

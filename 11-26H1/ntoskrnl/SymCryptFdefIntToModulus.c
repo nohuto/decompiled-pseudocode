@@ -1,13 +1,13 @@
 /*
- * XREFs of SymCryptFdefIntToModulus @ 0x14056F104
+ * XREFs of SymCryptFdefIntToModulus @ 0x14056E2E4
  * Callers:
- *     SymCryptIntToModulus @ 0x14055C4A8 (SymCryptIntToModulus.c)
+ *     SymCryptIntToModulus @ 0x14055E990 (SymCryptIntToModulus.c)
  * Callees:
- *     SymCryptIntGetValueLsbits64 @ 0x14055C304 (SymCryptIntGetValueLsbits64.c)
- *     SymCryptIntToDivisor @ 0x14055C45C (SymCryptIntToDivisor.c)
- *     SymCryptFdefDecideModulusType @ 0x14056EF38 (SymCryptFdefDecideModulusType.c)
- *     SymCryptInverseMod2e64 @ 0x140570F74 (SymCryptInverseMod2e64.c)
- *     _guard_dispatch_icall_nop @ 0x140722950 (_guard_dispatch_icall_nop.c)
+ *     SymCryptIntGetValueLsbits64 @ 0x14055E7EC (SymCryptIntGetValueLsbits64.c)
+ *     SymCryptIntToDivisor @ 0x14055E944 (SymCryptIntToDivisor.c)
+ *     SymCryptFdefDecideModulusType @ 0x14056E118 (SymCryptFdefDecideModulusType.c)
+ *     SymCryptInverseMod2e64 @ 0x140570154 (SymCryptInverseMod2e64.c)
+ *     _guard_dispatch_icall_nop @ 0x140727520 (_guard_dispatch_icall_nop.c)
  */
 
 __int64 __fastcall SymCryptFdefIntToModulus(__int64 a1, int *a2, unsigned int a3, int a4, __int64 a5, __int64 a6)

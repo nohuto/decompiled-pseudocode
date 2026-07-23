@@ -1915,7 +1915,7 @@ __int64 __fastcall ExAllocatePool2(__int64 a1, ULONG_PTR a2, ULONG a3)
   signed __int64 v39; // rbp
   unsigned __int64 v40; // rax
   ULONG_PTR HeapFromVA; // rax
-  int v42; // ecx
+  NTSTATUS v42; // ecx
   signed __int32 v43[8]; // [rsp+0h] [rbp-A8h] BYREF
   int v44; // [rsp+30h] [rbp-78h]
   __int64 v45; // [rsp+38h] [rbp-70h] BYREF

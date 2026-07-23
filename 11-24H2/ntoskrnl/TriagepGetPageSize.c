@@ -1,7 +1,7 @@
 /*
- * XREFs of TriagepGetPageSize @ 0x140C5F16C
+ * XREFs of TriagepGetPageSize @ 0x140C612BC
  * Callers:
- *     TriagepVerifyDump @ 0x140C5F1A0 (TriagepVerifyDump.c)
+ *     TriagepVerifyDump @ 0x140C612F0 (TriagepVerifyDump.c)
  * Callees:
  *     <none>
  */

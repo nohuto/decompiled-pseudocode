@@ -1,7 +1,7 @@
 /*
- * XREFs of CcAdjustThrottle @ 0x14006E728
+ * XREFs of CcAdjustThrottle @ 0x14006E2A8
  * Callers:
- *     CcLazyWriteScan @ 0x140070CA0 (CcLazyWriteScan.c)
+ *     CcLazyWriteScan @ 0x140070820 (CcLazyWriteScan.c)
  * Callees:
  *     <none>
  */

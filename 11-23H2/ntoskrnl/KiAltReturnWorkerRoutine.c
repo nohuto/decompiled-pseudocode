@@ -1,10 +1,10 @@
 /*
- * XREFs of KiAltReturnWorkerRoutine @ 0x140580340
+ * XREFs of KiAltReturnWorkerRoutine @ 0x140580830
  * Callers:
  *     <none>
  * Callees:
- *     ExInterlockedRemoveHeadList @ 0x14032F2F0 (ExInterlockedRemoveHeadList.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     ExInterlockedRemoveHeadList @ 0x14032F580 (ExInterlockedRemoveHeadList.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 PLIST_ENTRY __fastcall KiAltReturnWorkerRoutine(PLIST_ENTRY ListHead)

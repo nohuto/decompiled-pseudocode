@@ -1,30 +1,30 @@
 /*
- * XREFs of MmUnmapReservedMapping @ 0x1403C1C70
+ * XREFs of MmUnmapReservedMapping @ 0x1403CBB70
  * Callers:
- *     ?SmIoCtxWorkItemComplete@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAKPEAU_ST_WORK_ITEM_HDR@@PEAU1@PEAU?$SMKM_STORE@USM_TRAITS@@@@J@Z @ 0x14020CDA0 (-SmIoCtxWorkItemComplete@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAKPEAU_ST_WORK_ITEM_HDR@@PEAU1@PEAU-$SM.c)
- *     SmFpFree @ 0x140281020 (SmFpFree.c)
- *     ?SmIoCtxQueueWork@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU_SM_IO_CONTEXT@1@PEAU1@KPEAU_SM_WORK_ITEM@1@@Z @ 0x140281140 (-SmIoCtxQueueWork@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU_SM_IO_CONTEXT@1@PEAU1@KPEAU_SM_WORK_ITE.c)
- *     HalpDmaFreeMapRegisters @ 0x140359820 (HalpDmaFreeMapRegisters.c)
- *     HalpDmaSyncMapBuffers @ 0x14035BE40 (HalpDmaSyncMapBuffers.c)
- *     ?SmStUnmapPhysicalRegion@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@KKKPEAXK@Z @ 0x1403C0D08 (-SmStUnmapPhysicalRegion@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@KKKPEAXK@Z.c)
- *     PspIumFreePhysicalPages @ 0x1403C2C2C (PspIumFreePhysicalPages.c)
- *     SmKmUnlockMdl @ 0x14040751C (SmKmUnlockMdl.c)
- *     HalpDmaFlushBufferWithEmergencyResources @ 0x1404413A8 (HalpDmaFlushBufferWithEmergencyResources.c)
- *     HalpDmaSyncMapBuffersWithEmergencyResources @ 0x140441650 (HalpDmaSyncMapBuffersWithEmergencyResources.c)
- *     HalpDmaReleaseBufferMappings @ 0x14048F54C (HalpDmaReleaseBufferMappings.c)
- *     PnprCopyReservedMapping @ 0x14050D5C8 (PnprCopyReservedMapping.c)
- *     sub_140551760 @ 0x140551760 (sub_140551760.c)
- *     PnprSwap @ 0x1405DBE70 (PnprSwap.c)
- *     EtwpSavePersistedLogger @ 0x14082E8E4 (EtwpSavePersistedLogger.c)
- *     PnprMapPhysicalPages @ 0x140BF1AD0 (PnprMapPhysicalPages.c)
+ *     ?SmIoCtxWorkItemComplete@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAKPEAU_ST_WORK_ITEM_HDR@@PEAU1@PEAU?$SMKM_STORE@USM_TRAITS@@@@J@Z @ 0x14020CE80 (-SmIoCtxWorkItemComplete@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAKPEAU_ST_WORK_ITEM_HDR@@PEAU1@PEAU-$SM.c)
+ *     SmFpFree @ 0x140280590 (SmFpFree.c)
+ *     ?SmIoCtxQueueWork@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU_SM_IO_CONTEXT@1@PEAU1@KPEAU_SM_WORK_ITEM@1@@Z @ 0x1402806B0 (-SmIoCtxQueueWork@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU_SM_IO_CONTEXT@1@PEAU1@KPEAU_SM_WORK_ITE.c)
+ *     HalpDmaFreeMapRegisters @ 0x14035B5C0 (HalpDmaFreeMapRegisters.c)
+ *     HalpDmaSyncMapBuffers @ 0x14035DBE0 (HalpDmaSyncMapBuffers.c)
+ *     ?SmStUnmapPhysicalRegion@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@KKKPEAXK@Z @ 0x1403CAC08 (-SmStUnmapPhysicalRegion@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@KKKPEAXK@Z.c)
+ *     PspIumFreePhysicalPages @ 0x1403CCB2C (PspIumFreePhysicalPages.c)
+ *     SmKmUnlockMdl @ 0x14040060C (SmKmUnlockMdl.c)
+ *     HalpDmaFlushBufferWithEmergencyResources @ 0x140439EB8 (HalpDmaFlushBufferWithEmergencyResources.c)
+ *     HalpDmaSyncMapBuffersWithEmergencyResources @ 0x14043A160 (HalpDmaSyncMapBuffersWithEmergencyResources.c)
+ *     HalpDmaReleaseBufferMappings @ 0x140488F0C (HalpDmaReleaseBufferMappings.c)
+ *     PnprCopyReservedMapping @ 0x140507038 (PnprCopyReservedMapping.c)
+ *     sub_140553BE0 @ 0x140553BE0 (sub_140553BE0.c)
+ *     PnprSwap @ 0x1405DE720 (PnprSwap.c)
+ *     EtwpSavePersistedLogger @ 0x140834B24 (EtwpSavePersistedLogger.c)
+ *     PnprMapPhysicalPages @ 0x140BF7AD0 (PnprMapPhysicalPages.c)
  * Callees:
- *     ExReleaseSpinLockShared @ 0x14026CEE0 (ExReleaseSpinLockShared.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402DC6D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExAcquireSpinLockShared @ 0x1402EDF10 (ExAcquireSpinLockShared.c)
- *     ExAcquireSpinLockSharedAtDpcLevel @ 0x1402EDFB0 (ExAcquireSpinLockSharedAtDpcLevel.c)
- *     MiRetardMdl @ 0x140504688 (MiRetardMdl.c)
- *     MiUnmapMdlCommon @ 0x14051D098 (MiUnmapMdlCommon.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     ExReleaseSpinLockShared @ 0x14026C450 (ExReleaseSpinLockShared.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402BE490 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockShared @ 0x1402CFF90 (ExAcquireSpinLockShared.c)
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x1402D0030 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     MiRetardMdl @ 0x1404FDE4C (MiRetardMdl.c)
+ *     MiUnmapMdlCommon @ 0x14051F5C4 (MiUnmapMdlCommon.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 void __stdcall MmUnmapReservedMapping(PVOID BaseAddress, ULONG PoolTag, PMDL MemoryDescriptorList)
@@ -51,15 +51,15 @@ void __stdcall MmUnmapReservedMapping(PVOID BaseAddress, ULONG PoolTag, PMDL Mem
   if ( KeGetCurrentIrql() == 2 )
   {
     v7 = 17;
-    ExAcquireSpinLockSharedAtDpcLevel(&dword_140E34B68);
+    ExAcquireSpinLockSharedAtDpcLevel(&dword_140E34CE8);
   }
   else
   {
-    v7 = ExAcquireSpinLockShared(&dword_140E34B68);
+    v7 = ExAcquireSpinLockShared(&dword_140E34CE8);
   }
-  v8 = qword_140E34B70;
+  v8 = qword_140E34CF0;
   v9 = v5 & 0xFFFFFFFFFFFFF000uLL;
-  if ( !qword_140E34B70 )
+  if ( !qword_140E34CF0 )
     goto LABEL_29;
   do
   {
@@ -80,9 +80,9 @@ void __stdcall MmUnmapReservedMapping(PVOID BaseAddress, ULONG PoolTag, PMDL Mem
 LABEL_29:
     KeBugCheckEx(0xDAu, 0x106uLL, v5, v3, 2uLL);
   if ( v7 == 17 )
-    ExReleaseSpinLockSharedFromDpcLevel(&dword_140E34B68);
+    ExReleaseSpinLockSharedFromDpcLevel(&dword_140E34CE8);
   else
-    ExReleaseSpinLockShared(&dword_140E34B68, v7);
+    ExReleaseSpinLockShared(&dword_140E34CE8, v7);
   if ( *(_DWORD *)(v8 + 40) != (_DWORD)v3 )
     KeBugCheckEx(0xDAu, 0x102uLL, v5, v3, BugCheckParameter4);
   if ( (*(_DWORD *)(v8 + 44) & 1) != 0 )

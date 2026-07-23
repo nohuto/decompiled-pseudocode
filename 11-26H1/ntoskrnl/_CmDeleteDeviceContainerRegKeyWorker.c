@@ -1,18 +1,18 @@
 /*
- * XREFs of _CmDeleteDeviceContainerRegKeyWorker @ 0x140A2CCFC
+ * XREFs of _CmDeleteDeviceContainerRegKeyWorker @ 0x140A3FBE4
  * Callers:
- *     _CmDeleteDeviceContainerRegKey @ 0x140B1DFC8 (_CmDeleteDeviceContainerRegKey.c)
+ *     _CmDeleteDeviceContainerRegKey @ 0x140B2004C (_CmDeleteDeviceContainerRegKey.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x14045D040 (RtlInitUnicodeStringEx.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     _PnpCtxGetCachedContextBaseKey @ 0x140996AB8 (_PnpCtxGetCachedContextBaseKey.c)
- *     RtlPrefixUnicodeString @ 0x140A29BF0 (RtlPrefixUnicodeString.c)
- *     _CmGetDeviceContainerRegKeyPath @ 0x140A29D40 (_CmGetDeviceContainerRegKeyPath.c)
- *     _SysCtxRegOpenCurrentUserKey @ 0x140A2AEE0 (_SysCtxRegOpenCurrentUserKey.c)
- *     _PnpCtxRegDeleteKey @ 0x140A2D8BC (_PnpCtxRegDeleteKey.c)
- *     _PnpCtxRegDeleteTree @ 0x140A2D8F8 (_PnpCtxRegDeleteTree.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlInitUnicodeStringEx @ 0x140456BE0 (RtlInitUnicodeStringEx.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     _PnpCtxGetCachedContextBaseKey @ 0x140957518 (_PnpCtxGetCachedContextBaseKey.c)
+ *     RtlPrefixUnicodeString @ 0x140A3CC90 (RtlPrefixUnicodeString.c)
+ *     _CmGetDeviceContainerRegKeyPath @ 0x140A3CDE0 (_CmGetDeviceContainerRegKeyPath.c)
+ *     _SysCtxRegOpenCurrentUserKey @ 0x140A3DF70 (_SysCtxRegOpenCurrentUserKey.c)
+ *     _PnpCtxRegDeleteKey @ 0x140A3F2C8 (_PnpCtxRegDeleteKey.c)
+ *     _PnpCtxRegDeleteTree @ 0x140A3F304 (_PnpCtxRegDeleteTree.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall CmDeleteDeviceContainerRegKeyWorker(__int64 a1, __int64 a2, unsigned int a3, __int64 a4, char a5)
@@ -26,7 +26,7 @@ __int64 __fastcall CmDeleteDeviceContainerRegKeyWorker(__int64 a1, __int64 a2, u
   wchar_t *v14; // rsi
   BOOLEAN v15; // r14
   HANDLE v16; // rdx
-  wchar_t *v17; // rsi
+  __int64 v17; // rsi
   __int64 v18; // rcx
   int v19; // eax
   int v21; // [rsp+20h] [rbp-40h]
@@ -103,14 +103,14 @@ __int64 __fastcall CmDeleteDeviceContainerRegKeyWorker(__int64 a1, __int64 a2, u
       v16 = v24;
       if ( !v15 )
         v14 = pszDest;
-      v17 = v14 + 25;
+      v17 = (__int64)(v14 + 25);
       goto LABEL_23;
     }
 LABEL_30:
     inited = -1073741811;
     goto LABEL_31;
   }
-  v17 = pszDest;
+  v17 = (__int64)pszDest;
   if ( a1 )
     v18 = *(_QWORD *)(a1 + 224);
   else
@@ -121,9 +121,9 @@ LABEL_30:
   v16 = Handle;
 LABEL_23:
   if ( a5 )
-    v19 = PnpCtxRegDeleteTree(a1, v16, v17);
+    v19 = PnpCtxRegDeleteTree(a1, (__int64)v16, v17);
   else
-    v19 = PnpCtxRegDeleteKey(a1, v16, v17);
+    v19 = PnpCtxRegDeleteKey(a1, (__int64)v16, v17);
   if ( (int)(v19 + 0x80000000) >= 0 && v19 != -1073741444 )
     inited = v19;
 LABEL_31:

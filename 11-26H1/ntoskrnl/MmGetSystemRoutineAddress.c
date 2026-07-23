@@ -1,21 +1,21 @@
 /*
- * XREFs of MmGetSystemRoutineAddress @ 0x140A864E0
+ * XREFs of MmGetSystemRoutineAddress @ 0x140A8B460
  * Callers:
- *     HalpCmciLoadThresholdConfiguration @ 0x140514394 (HalpCmciLoadThresholdConfiguration.c)
- *     HalpMcEnumerateAndSetPatchConfig @ 0x1405931E8 (HalpMcEnumerateAndSetPatchConfig.c)
- *     HalpMcGetLoadConfiguration @ 0x1405935E8 (HalpMcGetLoadConfiguration.c)
- *     HalpMcGetRollbackRequest @ 0x1405936A8 (HalpMcGetRollbackRequest.c)
- *     DifMmGetSystemRoutineAddressWrapper @ 0x140666FE0 (DifMmGetSystemRoutineAddressWrapper.c)
- *     HalpPmuArbiterQueryRegistryQuantum @ 0x140781878 (HalpPmuArbiterQueryRegistryQuantum.c)
- *     HalpDmaCvmQueryRegistryKeys @ 0x140CB0590 (HalpDmaCvmQueryRegistryKeys.c)
+ *     HalpCmciLoadThresholdConfiguration @ 0x14050DE04 (HalpCmciLoadThresholdConfiguration.c)
+ *     HalpMcEnumerateAndSetPatchConfig @ 0x140595968 (HalpMcEnumerateAndSetPatchConfig.c)
+ *     HalpMcGetLoadConfiguration @ 0x140595D68 (HalpMcGetLoadConfiguration.c)
+ *     HalpMcGetRollbackRequest @ 0x140595E28 (HalpMcGetRollbackRequest.c)
+ *     DifMmGetSystemRoutineAddressWrapper @ 0x14066ABC0 (DifMmGetSystemRoutineAddressWrapper.c)
+ *     HalpPmuArbiterQueryRegistryQuantum @ 0x140784378 (HalpPmuArbiterQueryRegistryQuantum.c)
+ *     HalpDmaCvmQueryRegistryKeys @ 0x140CB65D0 (HalpDmaCvmQueryRegistryKeys.c)
  * Callees:
- *     RtlImageDirectoryEntryToData @ 0x14040E290 (RtlImageDirectoryEntryToData.c)
- *     MiEnableExportCallers @ 0x140A866C0 (MiEnableExportCallers.c)
+ *     RtlImageDirectoryEntryToData @ 0x14042B1C0 (RtlImageDirectoryEntryToData.c)
+ *     MiEnableExportCallers @ 0x140A8B640 (MiEnableExportCallers.c)
  */
 
 PVOID __stdcall MmGetSystemRoutineAddress(PUNICODE_STRING SystemRoutineName)
 {
-  ULONG_PTR v1; // rdi
+  char *v1; // rdi
   PUNICODE_STRING v2; // rsi
   char *v3; // r8
   char *v4; // rbx
@@ -25,7 +25,7 @@ PVOID __stdcall MmGetSystemRoutineAddress(PUNICODE_STRING SystemRoutineName)
   wchar_t *Buffer; // r11
   int v9; // r9d
   __int64 v10; // r13
-  _BYTE *v11; // r10
+  char *v11; // r10
   wchar_t v12; // ax
   int v13; // esi
   int v14; // ecx
@@ -33,18 +33,18 @@ PVOID __stdcall MmGetSystemRoutineAddress(PUNICODE_STRING SystemRoutineName)
   wchar_t v16; // cx
   int v17; // eax
   __int64 v18; // rax
-  ULONG_PTR v20; // rdi
+  char *v20; // rdi
   char *v21; // rax
   char *v22; // r8
   int v23; // r14d
-  ULONG_PTR v24; // r12
-  ULONG_PTR v25; // r15
+  char *v24; // r12
+  char *v25; // r15
   PUNICODE_STRING v26; // r13
   int v27; // r9d
   unsigned __int16 v28; // si
   wchar_t *v29; // r11
   int v30; // ecx
-  _BYTE *v31; // r10
+  char *v31; // r10
   wchar_t v32; // ax
   int v33; // ebp
   int v34; // edx
@@ -52,13 +52,13 @@ PVOID __stdcall MmGetSystemRoutineAddress(PUNICODE_STRING SystemRoutineName)
   wchar_t v36; // dx
   int v37; // eax
   unsigned int v38; // ecx
-  int v40; // [rsp+68h] [rbp+10h] BYREF
+  ULONG Size; // [rsp+68h] [rbp+10h] BYREF
   char *v41; // [rsp+70h] [rbp+18h]
 
-  v1 = PsNtosImageBase;
+  v1 = (char *)PsNtosImageBase;
   v2 = SystemRoutineName;
-  v40 = 0;
-  v3 = (char *)RtlImageDirectoryEntryToData(PsNtosImageBase, 1, 0, &v40);
+  Size = 0;
+  v3 = (char *)RtlImageDirectoryEntryToData(PsNtosImageBase, 1u, 0, &Size);
   v4 = 0LL;
   v41 = 0LL;
   if ( v3 )
@@ -71,7 +71,7 @@ PVOID __stdcall MmGetSystemRoutineAddress(PUNICODE_STRING SystemRoutineName)
       Buffer = v2->Buffer;
       v9 = (v5 + v6) >> 1;
       v10 = v9;
-      v11 = (_BYTE *)(v1 + *(unsigned int *)(v1 + *((unsigned int *)v3 + 8) + 4LL * v9));
+      v11 = &v1[*(unsigned int *)&v1[4 * v9 + *((unsigned int *)v3 + 8)]];
       if ( v2->Length < 2u )
         v12 = 0;
       else
@@ -107,11 +107,11 @@ PVOID __stdcall MmGetSystemRoutineAddress(PUNICODE_STRING SystemRoutineName)
       {
         if ( v17 <= 0 )
         {
-          v18 = *(unsigned __int16 *)(v1 + *((unsigned int *)v3 + 9) + 2 * v10);
+          v18 = *(unsigned __int16 *)&v1[2 * v10 + *((unsigned int *)v3 + 9)];
           if ( (unsigned int)v18 >= *((_DWORD *)v3 + 5) )
             break;
-          v4 = (char *)(v1 + *(unsigned int *)(v1 + *((unsigned int *)v3 + 7) + 4 * v18));
-          if ( v4 <= v3 || v4 >= &v3[v40] )
+          v4 = &v1[*(unsigned int *)&v1[4 * v18 + *((unsigned int *)v3 + 7)]];
+          if ( v4 <= v3 || v4 >= &v3[Size] )
             break;
           goto LABEL_25;
         }
@@ -123,17 +123,17 @@ PVOID __stdcall MmGetSystemRoutineAddress(PUNICODE_STRING SystemRoutineName)
   if ( !v4 )
   {
 LABEL_25:
-    v20 = PsHalImageBase;
-    v40 = 0;
-    v21 = (char *)RtlImageDirectoryEntryToData(PsHalImageBase, 1, 0, &v40);
+    v20 = (char *)PsHalImageBase;
+    Size = 0;
+    v21 = (char *)RtlImageDirectoryEntryToData(PsHalImageBase, 1u, 0, &Size);
     v41 = v21;
     v22 = v21;
     v4 = 0LL;
     if ( v21 )
     {
       v23 = 0;
-      v24 = v20 + *((unsigned int *)v21 + 8);
-      v25 = v20 + *((unsigned int *)v21 + 9);
+      v24 = &v20[*((unsigned int *)v21 + 8)];
+      v25 = &v20[*((unsigned int *)v21 + 9)];
       v26 = SystemRoutineName;
       v27 = *((_DWORD *)v21 + 6) - 1;
       while ( v27 >= v23 )
@@ -141,7 +141,7 @@ LABEL_25:
         v28 = v26->Length;
         v29 = v26->Buffer;
         v30 = (v23 + v27) >> 1;
-        v31 = (_BYTE *)(v20 + *(unsigned int *)(v24 + 4LL * v30));
+        v31 = &v20[*(unsigned int *)&v24[4 * v30]];
         if ( v26->Length < 2u )
           v32 = 0;
         else
@@ -171,11 +171,11 @@ LABEL_25:
         {
           if ( v37 <= 0 )
           {
-            v38 = *(unsigned __int16 *)(v25 + 2LL * v30);
+            v38 = *(unsigned __int16 *)&v25[2 * v30];
             if ( v38 < *((_DWORD *)v22 + 5) )
             {
-              v4 = (char *)(v20 + *(unsigned int *)(v20 + *((unsigned int *)v22 + 7) + 4LL * v38));
-              if ( v4 > v22 && v4 < &v22[v40] )
+              v4 = &v20[*(unsigned int *)&v20[4 * v38 + *((unsigned int *)v22 + 7)]];
+              if ( v4 > v22 && v4 < &v22[Size] )
                 return 0LL;
             }
             break;

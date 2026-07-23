@@ -45,7 +45,7 @@ void MiEmptyAccessLogs()
   KIRQL v21; // bp
   __int64 v22; // r8
   PSLIST_ENTRY v23; // rbx
-  struct _SLIST_ENTRY *v24; // rcx
+  _SLIST_ENTRY *v24; // rcx
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-58h] BYREF
   $D4FCF91253F76F57393CBFE908971F67 v26; // [rsp+38h] [rbp-40h] BYREF
 
@@ -134,7 +134,7 @@ void MiEmptyAccessLogs()
       v23 = 0LL;
       if ( qword_1402FED80 )
       {
-        v24 = (struct _SLIST_ENTRY *)_InterlockedExchange64(&qword_1402FED80, 0LL);
+        v24 = (_SLIST_ENTRY *)_InterlockedExchange64(&qword_1402FED80, 0LL);
         if ( v24 )
           MiQueuePageAccessLog(v24);
       }

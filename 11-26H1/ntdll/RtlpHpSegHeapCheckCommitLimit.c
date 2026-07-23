@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpHpSegHeapCheckCommitLimit @ 0x180089D10
+ * XREFs of RtlpHpSegHeapCheckCommitLimit @ 0x180070EC0
  * Callers:
- *     RtlpHpSegMgrCommit @ 0x180069E10 (RtlpHpSegMgrCommit.c)
- *     RtlpHpLargeAlloc @ 0x18008A18C (RtlpHpLargeAlloc.c)
+ *     RtlpHpLargeAlloc @ 0x18006FE4C (RtlpHpLargeAlloc.c)
+ *     RtlpHpSegMgrCommit @ 0x18008A260 (RtlpHpSegMgrCommit.c)
  * Callees:
- *     RtlpLogHeapFailure @ 0x1801217EC (RtlpLogHeapFailure.c)
+ *     RtlpLogHeapFailure @ 0x180121588 (RtlpLogHeapFailure.c)
  */
 
 __int64 __fastcall RtlpHpSegHeapCheckCommitLimit(__int64 a1, __int64 *a2)
@@ -14,14 +14,14 @@ __int64 __fastcall RtlpHpSegHeapCheckCommitLimit(__int64 a1, __int64 *a2)
   __int64 v5; // rax
 
   v2 = a2 + 4;
-  if ( dword_1801C5588 )
+  if ( dword_1801C4588 )
     return 1LL;
   v3 = *v2;
   if ( !*v2 )
   {
-    v3 = qword_1801C6ED8;
-    v2 = &qword_1801C6ED8;
-    if ( !qword_1801C6ED8 )
+    v3 = qword_1801C5ED8;
+    v2 = &qword_1801C5ED8;
+    if ( !qword_1801C5ED8 )
       return 1LL;
   }
   if ( ((a2[17] + a2[12]) << 12) + a1 <= v3 )

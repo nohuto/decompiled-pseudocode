@@ -1,14 +1,14 @@
 /*
- * XREFs of IopUncacheInterfaceInformation @ 0x1407908A0
+ * XREFs of IopUncacheInterfaceInformation @ 0x140790A90
  * Callers:
- *     IopDestroyDeviceNode @ 0x14078E4D0 (IopDestroyDeviceNode.c)
- *     PipProcessStartPhase1 @ 0x140790D68 (PipProcessStartPhase1.c)
- *     IopRemoveDevice @ 0x140869968 (IopRemoveDevice.c)
+ *     IopDestroyDeviceNode @ 0x14078E6C0 (IopDestroyDeviceNode.c)
+ *     PipProcessStartPhase1 @ 0x140790F58 (PipProcessStartPhase1.c)
+ *     IopRemoveDevice @ 0x140869BA8 (IopRemoveDevice.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     KeWaitForSingleObject @ 0x140243CE0 (KeWaitForSingleObject.c)
- *     KeReleaseSemaphore @ 0x140321430 (KeReleaseSemaphore.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     KeLeaveCriticalRegion @ 0x140231550 (KeLeaveCriticalRegion.c)
+ *     KeWaitForSingleObject @ 0x140243DB0 (KeWaitForSingleObject.c)
+ *     KeReleaseSemaphore @ 0x1403216C0 (KeReleaseSemaphore.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

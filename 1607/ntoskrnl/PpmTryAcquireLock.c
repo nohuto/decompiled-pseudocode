@@ -1,10 +1,10 @@
 /*
- * XREFs of PpmTryAcquireLock @ 0x140111430
+ * XREFs of PpmTryAcquireLock @ 0x140111994
  * Callers:
- *     PoLatencySensitivityHint @ 0x1401112E0 (PoLatencySensitivityHint.c)
+ *     PoLatencySensitivityHint @ 0x140111844 (PoLatencySensitivityHint.c)
  * Callees:
- *     KiLeaveGuardedRegionUnsafe @ 0x140013B70 (KiLeaveGuardedRegionUnsafe.c)
- *     KeWaitForSingleObject @ 0x14005C880 (KeWaitForSingleObject.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1400136F0 (KiLeaveGuardedRegionUnsafe.c)
+ *     KeWaitForSingleObject @ 0x14005C400 (KeWaitForSingleObject.c)
  */
 
 char __fastcall PpmTryAcquireLock(LARGE_INTEGER a1)

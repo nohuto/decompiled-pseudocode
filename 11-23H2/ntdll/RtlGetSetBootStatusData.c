@@ -7,58 +7,61 @@
  *     RtlpGetSetBootStatusData @ 0x1800FAF08 (RtlpGetSetBootStatusData.c)
  */
 
-__int64 __fastcall RtlGetSetBootStatusData(int a1, char a2, int a3, _BYTE *a4, int a5, _DWORD *a6)
+NTSTATUS __cdecl RtlGetSetBootStatusData(
+        HANDLE FileHandle,
+        BOOLEAN Read,
+        RTL_BSD_ITEM_TYPE DataClass,
+        PVOID Buffer,
+        ULONG BufferSize,
+        PULONG ReturnLength)
 {
-  _BYTE *v6; // rbx
-  __int64 result; // rax
-  __int64 v10; // rcx
-  char v11; // al
-  _BYTE *v12; // rdx
-  __int64 v13; // r8
-  __int64 v14; // rdx
-  _BYTE v15[4]; // [rsp+30h] [rbp-F8h] BYREF
-  _DWORD v16[3]; // [rsp+34h] [rbp-F4h] BYREF
-  _BYTE v17[192]; // [rsp+40h] [rbp-E8h] BYREF
+  NTSTATUS result; // eax
+  __int64 v9; // rcx
+  char v10; // al
+  char *v11; // rdx
+  __int64 v12; // r8
+  __int64 v13; // rdx
+  char v14; // [rsp+30h] [rbp-F8h]
+  __int64 v15; // [rsp+34h] [rbp-F4h] BYREF
+  char v16; // [rsp+40h] [rbp-E8h] BYREF
 
-  v6 = a4;
-  if ( a2 )
-    return RtlpGetSetBootStatusData(a1, 1, a3, (_DWORD)a4, a5, (__int64)a6);
-  if ( a3 == 15 )
-    return 3221225485LL;
-  result = RtlpGetSetBootStatusData(a1, 1, 15, (unsigned int)v15, 1, 0LL);
-  if ( (int)result >= 0 )
+  if ( Read )
+    return RtlpGetSetBootStatusData(FileHandle, BufferSize, (__int64)ReturnLength);
+  if ( DataClass == RtlBsdItemChecksum )
+    return -1073741811;
+  result = RtlpGetSetBootStatusData(FileHandle, 1, 0LL);
+  if ( result >= 0 )
   {
-    result = RtlpGetSetBootStatusData(a1, 1, a3, (unsigned int)v17, 192, 0LL);
-    if ( (int)result >= 0 )
+    result = RtlpGetSetBootStatusData(FileHandle, 192, 0LL);
+    if ( result >= 0 )
     {
-      result = RtlpGetSetBootStatusData(a1, 0, a3, (_DWORD)v6, a5, (__int64)v16);
-      if ( (int)result >= 0 )
+      result = RtlpGetSetBootStatusData(FileHandle, BufferSize, (__int64)&v15);
+      if ( result >= 0 )
       {
-        v10 = v16[0];
-        if ( a6 )
-          *a6 = v16[0];
-        v11 = v15[0];
-        if ( (_DWORD)v10 )
+        v9 = (unsigned int)v15;
+        if ( ReturnLength )
+          *ReturnLength = v15;
+        v10 = v14;
+        if ( (_DWORD)v9 )
         {
-          v12 = v17;
-          v13 = v10;
+          v11 = &v16;
+          v12 = v9;
           do
           {
-            v11 += *v12++;
+            v10 += *v11++;
+            --v12;
+          }
+          while ( v12 );
+          v13 = v9;
+          do
+          {
+            v10 -= *(_BYTE *)Buffer;
+            Buffer = (char *)Buffer + 1;
             --v13;
           }
           while ( v13 );
-          v15[0] = v11;
-          v14 = v10;
-          do
-          {
-            v11 -= *v6++;
-            --v14;
-          }
-          while ( v14 );
-          v15[0] = v11;
         }
-        return RtlpGetSetBootStatusData(a1, 0, 15, (unsigned int)v15, 1, 0LL);
+        return RtlpGetSetBootStatusData(FileHandle, 1, 0LL);
       }
     }
   }

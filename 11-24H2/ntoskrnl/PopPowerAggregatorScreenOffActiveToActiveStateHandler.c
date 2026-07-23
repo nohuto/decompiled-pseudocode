@@ -1,12 +1,12 @@
 /*
- * XREFs of PopPowerAggregatorScreenOffActiveToActiveStateHandler @ 0x140902B80
+ * XREFs of PopPowerAggregatorScreenOffActiveToActiveStateHandler @ 0x140A6E460
  * Callers:
  *     <none>
  * Callees:
- *     PopReleaseRwLock @ 0x1403B5EC8 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x1404283D4 (PopAcquireRwLockExclusive.c)
- *     PopPowerAggregatorSetCurrentState @ 0x140902BD0 (PopPowerAggregatorSetCurrentState.c)
- *     PopPowerAggregatorNotifyCsStateExited @ 0x140902C54 (PopPowerAggregatorNotifyCsStateExited.c)
+ *     PopReleaseRwLock @ 0x1402AE8FC (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14041C564 (PopAcquireRwLockExclusive.c)
+ *     PopPowerAggregatorSetCurrentState @ 0x140A6E4B0 (PopPowerAggregatorSetCurrentState.c)
+ *     PopPowerAggregatorNotifyCsStateExited @ 0x140A6E534 (PopPowerAggregatorNotifyCsStateExited.c)
  */
 
 __int64 __fastcall PopPowerAggregatorScreenOffActiveToActiveStateHandler(__int64 a1)
@@ -16,8 +16,8 @@ __int64 __fastcall PopPowerAggregatorScreenOffActiveToActiveStateHandler(__int64
   memset(v2, 0, 32);
   v2[0] = 2;
   PopPowerAggregatorSetCurrentState(a1, v2);
-  PopReleaseRwLock((signed __int64 *)&PopPowerAggregatorLock);
+  PopReleaseRwLock(&PopPowerAggregatorLock);
   PopPowerAggregatorNotifyCsStateExited();
-  PopAcquireRwLockExclusive(&PopPowerAggregatorLock);
+  PopAcquireRwLockExclusive((unsigned __int64 *)&PopPowerAggregatorLock);
   return 0LL;
 }

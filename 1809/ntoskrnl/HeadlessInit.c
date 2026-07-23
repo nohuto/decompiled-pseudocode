@@ -1,15 +1,15 @@
 /*
- * XREFs of HeadlessInit @ 0x1409DF5DC
+ * XREFs of HeadlessInit @ 0x1409E05DC
  * Callers:
- *     InitBootProcessor @ 0x1409B4EDC (InitBootProcessor.c)
+ *     InitBootProcessor @ 0x1409B5EDC (InitBootProcessor.c)
  * Callees:
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     MmLockPagableDataSection @ 0x140651660 (MmLockPagableDataSection.c)
- *     HdlspEnableTerminal @ 0x14094C4BC (HdlspEnableTerminal.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     MmLockPagableDataSection @ 0x140652820 (MmLockPagableDataSection.c)
+ *     HdlspEnableTerminal @ 0x14094D4BC (HdlspEnableTerminal.c)
  */
 
 void __fastcall HeadlessInit(__int64 a1)
@@ -92,7 +92,7 @@ void __fastcall HeadlessInit(__int64 a1)
           v12 = v2[32] & 0x1F | (32 * (v11 & 7));
           LOBYTE(v20[4]) = -1;
           v20[1] = v12;
-          ((void (__fastcall *)(__int64, _DWORD *))off_1403FE338[0])(a1, v20);
+          ((void (__fastcall *)(__int64, _DWORD *))off_1403FF338[0])(a1, v20);
         }
       }
       v13 = ExAllocatePoolWithTag(NonPagedPoolNx, 0x3800uLL, 0x736C6448u);

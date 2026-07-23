@@ -1,15 +1,15 @@
 /*
- * XREFs of BCryptOpenAlgorithmProvider @ 0x140AA6D0C
+ * XREFs of BCryptOpenAlgorithmProvider @ 0x140AA1E08
  * Callers:
- *     SecureDump_EncryptSymmetricKeyWithPublicKey @ 0x1405A17A4 (SecureDump_EncryptSymmetricKeyWithPublicKey.c)
- *     SecureDump_SymmetricEncryptionSetup @ 0x1405A2774 (SecureDump_SymmetricEncryptionSetup.c)
- *     SmCrEncStart @ 0x14079BA38 (SmCrEncStart.c)
- *     sub_140800A74 @ 0x140800A74 (sub_140800A74.c)
- *     RtlGenerateClass5Guid @ 0x140AAC700 (RtlGenerateClass5Guid.c)
+ *     SecureDump_EncryptSymmetricKeyWithPublicKey @ 0x14059E6E4 (SecureDump_EncryptSymmetricKeyWithPublicKey.c)
+ *     SecureDump_SymmetricEncryptionSetup @ 0x14059F6B4 (SecureDump_SymmetricEncryptionSetup.c)
+ *     SmCrEncStart @ 0x14079BB48 (SmCrEncStart.c)
+ *     sub_1408011B4 @ 0x1408011B4 (sub_1408011B4.c)
+ *     RtlGenerateClass5Guid @ 0x140AA7730 (RtlGenerateClass5Guid.c)
  * Callees:
- *     ExGetExtensionTable @ 0x1403AA530 (ExGetExtensionTable.c)
- *     ExReleaseExtensionTable @ 0x14044FE80 (ExReleaseExtensionTable.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     ExGetExtensionTable @ 0x140398F94 (ExGetExtensionTable.c)
+ *     ExReleaseExtensionTable @ 0x1404450F0 (ExReleaseExtensionTable.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 NTSTATUS __stdcall BCryptOpenAlgorithmProvider(
@@ -18,13 +18,13 @@ NTSTATUS __stdcall BCryptOpenAlgorithmProvider(
         LPCWSTR pszImplementation,
         ULONG dwFlags)
 {
-  NTSTATUS v8; // ebx
+  NTSTATUS v6; // ebx
 
-  v8 = -1073741822;
+  v6 = -1073741822;
   if ( ExGetExtensionTable((struct _EX_RUNDOWN_REF *)SepBCryptExtensionHost) )
   {
-    v8 = guard_dispatch_icall_no_overrides(phAlgorithm, pszAlgId, pszImplementation, dwFlags);
+    v6 = guard_dispatch_icall_no_overrides(phAlgorithm, pszAlgId);
     ExReleaseExtensionTable((struct _EX_RUNDOWN_REF *)SepBCryptExtensionHost);
   }
-  return v8;
+  return v6;
 }

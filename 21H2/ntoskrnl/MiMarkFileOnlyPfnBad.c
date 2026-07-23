@@ -1,17 +1,17 @@
 /*
- * XREFs of MiMarkFileOnlyPfnBad @ 0x140541708
+ * XREFs of MiMarkFileOnlyPfnBad @ 0x140541948
  * Callers:
- *     MmMarkPhysicalMemoryAsBad @ 0x14052F930 (MmMarkPhysicalMemoryAsBad.c)
+ *     MmMarkPhysicalMemoryAsBad @ 0x14052FB70 (MmMarkPhysicalMemoryAsBad.c)
  * Callees:
- *     MiUnlinkPageFromList @ 0x1402178B0 (MiUnlinkPageFromList.c)
- *     MiIsPfnFileOnly @ 0x140218D60 (MiIsPfnFileOnly.c)
- *     MiUnlockPage @ 0x1402AF34C (MiUnlockPage.c)
- *     MiTrimSharedPage @ 0x1402EEA08 (MiTrimSharedPage.c)
- *     MiLockPageInline @ 0x1402FFE30 (MiLockPageInline.c)
- *     MiInsertPageInList @ 0x140326800 (MiInsertPageInList.c)
+ *     MiUnlockPage @ 0x14022D6AC (MiUnlockPage.c)
+ *     MiUnlinkPageFromList @ 0x1402BC1B0 (MiUnlinkPageFromList.c)
+ *     MiIsPfnFileOnly @ 0x1402BD660 (MiIsPfnFileOnly.c)
+ *     MiTrimSharedPage @ 0x1402F9758 (MiTrimSharedPage.c)
+ *     MiLockPageInline @ 0x14030AB80 (MiLockPageInline.c)
+ *     MiInsertPageInList @ 0x140331550 (MiInsertPageInList.c)
  *     MI_PFN_IS_PROTO @ 0x1403F48C8 (MI_PFN_IS_PROTO.c)
- *     MiPersistPage @ 0x14054189C (MiPersistPage.c)
- *     MiSetPfnRemovalRequested @ 0x14054F428 (MiSetPfnRemovalRequested.c)
+ *     MiPersistPage @ 0x140541ADC (MiPersistPage.c)
+ *     MiSetPfnRemovalRequested @ 0x14054F668 (MiSetPfnRemovalRequested.c)
  */
 
 __int64 __fastcall MiMarkFileOnlyPfnBad(ULONG_PTR a1, __int64 a2, __int64 a3, _DWORD *a4)

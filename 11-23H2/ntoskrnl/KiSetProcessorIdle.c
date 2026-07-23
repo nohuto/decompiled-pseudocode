@@ -1,10 +1,10 @@
 /*
- * XREFs of KiSetProcessorIdle @ 0x14038142C
+ * XREFs of KiSetProcessorIdle @ 0x1403815CC
  * Callers:
- *     KiCommitRescheduleContextEntry @ 0x140242E90 (KiCommitRescheduleContextEntry.c)
+ *     KiCommitRescheduleContextEntry @ 0x140242F60 (KiCommitRescheduleContextEntry.c)
  *     KiCompleteKernelInit @ 0x140A8CAE0 (KiCompleteKernelInit.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
  */
 
 __int64 __fastcall KiSetProcessorIdle(__int64 a1, int a2, char a3)

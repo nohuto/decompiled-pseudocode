@@ -1,10 +1,10 @@
 /*
- * XREFs of CmCloseRmHandle @ 0x1404EFED4
+ * XREFs of CmCloseRmHandle @ 0x1404D1FC8
  * Callers:
- *     CmpTryToRundownHive @ 0x1400876A8 (CmpTryToRundownHive.c)
- *     NtUnloadKeyEx @ 0x14049A1D4 (NtUnloadKeyEx.c)
- *     NtUnloadKey2 @ 0x140549F84 (NtUnloadKey2.c)
- *     CmShutdownSystem @ 0x1405FC64C (CmShutdownSystem.c)
+ *     CmpTryToRundownHive @ 0x14010B8A0 (CmpTryToRundownHive.c)
+ *     NtUnloadKeyEx @ 0x1403E3100 (NtUnloadKeyEx.c)
+ *     NtUnloadKey2 @ 0x14054A4C4 (NtUnloadKey2.c)
+ *     CmShutdownSystem @ 0x1405FC700 (CmShutdownSystem.c)
  * Callees:
  *     <none>
  */

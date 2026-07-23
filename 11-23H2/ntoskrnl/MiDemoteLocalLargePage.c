@@ -1,22 +1,22 @@
 /*
- * XREFs of MiDemoteLocalLargePage @ 0x1402E81B0
+ * XREFs of MiDemoteLocalLargePage @ 0x1402E8440
  * Callers:
- *     MiGetFreeOrZeroPageAnyColor @ 0x1402E80D4 (MiGetFreeOrZeroPageAnyColor.c)
+ *     MiGetFreeOrZeroPageAnyColor @ 0x1402E8364 (MiGetFreeOrZeroPageAnyColor.c)
  * Callees:
  *     MiChangePageAttributeContiguous @ 0x14021A6A0 (MiChangePageAttributeContiguous.c)
- *     MiUpdatePageFileHighInPte @ 0x14028563C (MiUpdatePageFileHighInPte.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14028A930 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiConvertEntireLargePageToSmall @ 0x1402D2AD0 (MiConvertEntireLargePageToSmall.c)
- *     MiUnlinkNodeLargePages @ 0x1402D76D0 (MiUnlinkNodeLargePages.c)
- *     MiNodeFreeZeroPages @ 0x1402E8524 (MiNodeFreeZeroPages.c)
- *     MiIsFreeZeroPfnCold @ 0x1402E85D0 (MiIsFreeZeroPfnCold.c)
- *     MiInsertDemotedPages @ 0x1402EA178 (MiInsertDemotedPages.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiAddPageToHeatRanges @ 0x140653CF4 (MiAddPageToHeatRanges.c)
- *     MiNotifyPageHeat @ 0x1406545FC (MiNotifyPageHeat.c)
+ *     MiUpdatePageFileHighInPte @ 0x1402858CC (MiUpdatePageFileHighInPte.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14028ABC0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiConvertEntireLargePageToSmall @ 0x1402D2D60 (MiConvertEntireLargePageToSmall.c)
+ *     MiUnlinkNodeLargePages @ 0x1402D7960 (MiUnlinkNodeLargePages.c)
+ *     MiNodeFreeZeroPages @ 0x1402E87B4 (MiNodeFreeZeroPages.c)
+ *     MiIsFreeZeroPfnCold @ 0x1402E8860 (MiIsFreeZeroPfnCold.c)
+ *     MiInsertDemotedPages @ 0x1402EA408 (MiInsertDemotedPages.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     MiAddPageToHeatRanges @ 0x140654244 (MiAddPageToHeatRanges.c)
+ *     MiNotifyPageHeat @ 0x140654B4C (MiNotifyPageHeat.c)
  */
 
 __int64 __fastcall MiDemoteLocalLargePage(__int64 a1, unsigned int a2, __int64 a3, unsigned __int64 a4)
@@ -113,7 +113,7 @@ LABEL_41:
   CurrentIrql = KeGetCurrentIrql();
   v39 = CurrentIrql;
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 2 )
@@ -188,10 +188,10 @@ LABEL_17:
       if ( *(unsigned __int8 *)(v19 + 34) >> 6 != v38 )
         MiChangePageAttributeContiguous(0xAAAAAAAAAAAAAAABuLL * ((v19 + 0x220000000000LL) >> 4), v20, v38, v23 + 1);
       MiConvertEntireLargePageToSmall(v19, v16, 1, v23, v22, 0LL, 0LL);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v34 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v34 <= 0xFu && v39 <= 0xFu && v34 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v34 <= 0xFu && v39 <= 0xFu && v34 >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           v36 = CurrentPrcb->SchedulerAssist;
@@ -212,10 +212,10 @@ LABEL_17:
     v11 = v41;
     v16 = 2;
   }
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v28 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v28 <= 0xFu && CurrentIrql <= 0xFu && v28 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v28 <= 0xFu && CurrentIrql <= 0xFu && v28 >= 2u )
     {
       v29 = KeGetCurrentPrcb();
       v30 = v29->SchedulerAssist;

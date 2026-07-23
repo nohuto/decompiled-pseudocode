@@ -1,9 +1,9 @@
 /*
- * XREFs of ?SmpFlushStorePages@@YAXPEAX@Z @ 0x14021D5E4
+ * XREFs of ?SmpFlushStorePages@@YAXPEAX@Z @ 0x14021D410
  * Callers:
  *     <none>
  * Callees:
- *     MmStoreFlushAllHintedPages @ 0x140661810 (MmStoreFlushAllHintedPages.c)
+ *     MmStoreFlushAllHintedPages @ 0x1406618F4 (MmStoreFlushAllHintedPages.c)
  */
 
 void __fastcall SmpFlushStorePages(struct _KEVENT *a1)

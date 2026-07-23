@@ -1,11 +1,11 @@
 /*
- * XREFs of MiInitializeAwePfn @ 0x1405105D4
+ * XREFs of MiInitializeAwePfn @ 0x14050A044
  * Callers:
- *     MiInitializeMdlPfn @ 0x14033BC60 (MiInitializeMdlPfn.c)
- *     MiFillUserPhysicalMdl @ 0x1407014E4 (MiFillUserPhysicalMdl.c)
+ *     MiInitializeMdlPfn @ 0x14033DCE0 (MiInitializeMdlPfn.c)
+ *     MiFillUserPhysicalMdl @ 0x1407061B4 (MiFillUserPhysicalMdl.c)
  * Callees:
- *     MiSetPfnContainingFrame @ 0x14033BC10 (MiSetPfnContainingFrame.c)
- *     MiSetPfnIdentity @ 0x140369440 (MiSetPfnIdentity.c)
+ *     MiSetPfnContainingFrame @ 0x14033DC90 (MiSetPfnContainingFrame.c)
+ *     MiSetPfnIdentity @ 0x14036B1E0 (MiSetPfnIdentity.c)
  */
 
 signed __int64 __fastcall MiInitializeAwePfn(__int64 a1)

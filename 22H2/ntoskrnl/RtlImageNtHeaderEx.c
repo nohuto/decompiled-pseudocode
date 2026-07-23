@@ -19,44 +19,44 @@
  *     <none>
  */
 
-__int64 __fastcall RtlImageNtHeaderEx(int a1, unsigned __int64 a2, unsigned __int64 a3, _QWORD *a4)
+NTSTATUS __cdecl RtlImageNtHeaderEx(ULONG Flags, PVOID BaseOfImage, ULONG64 Size, PIMAGE_NT_HEADERS *OutHeaders)
 {
-  unsigned int v4; // r10d
+  NTSTATUS v4; // r10d
   char v5; // al
-  unsigned __int64 v6; // rcx
-  _DWORD *v7; // rax
+  ULONG64 v6; // rcx
+  _IMAGE_NT_HEADERS64 *v7; // rax
 
-  if ( !a4 )
-    return (unsigned int)-1073741811;
+  if ( !OutHeaders )
+    return -1073741811;
   v4 = 0;
-  *a4 = 0LL;
-  if ( (a1 & 0xFFFFFFFE) != 0 || a2 - 1 > 0xFFFFFFFFFFFFFFFDuLL )
-    return (unsigned int)-1073741811;
-  if ( (a1 & 1) != 0 )
+  *OutHeaders = 0LL;
+  if ( (Flags & 0xFFFFFFFE) != 0 || (char *)BaseOfImage - 1 > (char *)0xFFFFFFFFFFFFFFFDLL )
+    return -1073741811;
+  if ( (Flags & 1) != 0 )
   {
     v5 = 0;
   }
   else
   {
     v5 = 1;
-    if ( a3 < 0x40 )
-      return 3221225595LL;
+    if ( Size < 0x40 )
+      return -1073741701;
   }
-  if ( *(_WORD *)a2 == 23117 )
+  if ( *(_WORD *)BaseOfImage == 23117 )
   {
-    v6 = *(unsigned int *)(a2 + 60);
-    if ( !v5 || v6 < a3 && (unsigned int)v6 < 0xFFFFFFE7 && v6 + 24 < a3 )
+    v6 = *((unsigned int *)BaseOfImage + 15);
+    if ( !v5 || v6 < Size && (unsigned int)v6 < 0xFFFFFFE7 && v6 + 24 < Size )
     {
-      v7 = (_DWORD *)(a2 + v6);
-      if ( a2 + v6 >= a2
-        && (a2 >= 0x7FFFFFFEFFFFLL
-         || (unsigned __int64)v7 < 0x7FFFFFFEFFFFLL && (unsigned __int64)(v7 + 66) < 0x7FFFFFFEFFFFLL)
-        && *v7 == 17744 )
+      v7 = (_IMAGE_NT_HEADERS64 *)((char *)BaseOfImage + v6);
+      if ( (char *)BaseOfImage + v6 >= BaseOfImage
+        && ((unsigned __int64)BaseOfImage >= 0x7FFFFFFEFFFFLL
+         || (unsigned __int64)v7 < 0x7FFFFFFEFFFFLL && (unsigned __int64)&v7[1] < 0x7FFFFFFEFFFFLL)
+        && v7->Signature == 17744 )
       {
-        *a4 = v7;
+        *OutHeaders = v7;
         return v4;
       }
     }
   }
-  return 3221225595LL;
+  return -1073741701;
 }

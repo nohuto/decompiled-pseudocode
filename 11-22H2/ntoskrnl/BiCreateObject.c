@@ -29,7 +29,7 @@ NTSTATUS __fastcall BiCreateObject(__int64 a1, __int64 a2, unsigned int *a3, __i
   int v15; // eax
   int v16; // ecx
   __int64 v17; // rax
-  UUID *p_Uuid; // r10
+  GUID *p_Uuid; // r10
   int v19; // ebx
   int v20; // ecx
   int v21; // eax
@@ -38,18 +38,18 @@ NTSTATUS __fastcall BiCreateObject(__int64 a1, __int64 a2, unsigned int *a3, __i
   _BYTE v24[8]; // [rsp+30h] [rbp-50h] BYREF
   __int64 v25; // [rsp+38h] [rbp-48h] BYREF
   __int64 v26; // [rsp+40h] [rbp-40h] BYREF
-  UNICODE_STRING UnicodeString; // [rsp+48h] [rbp-38h] BYREF
+  UNICODE_STRING GuidString; // [rsp+48h] [rbp-38h] BYREF
   __int64 v28; // [rsp+58h] [rbp-28h] BYREF
   _BYTE v29[8]; // [rsp+60h] [rbp-20h] BYREF
   UUID Uuid; // [rsp+68h] [rbp-18h] BYREF
 
-  *(_QWORD *)&UnicodeString.Length = 0LL;
+  *(_QWORD *)&GuidString.Length = 0LL;
   v26 = 0LL;
   v25 = 0LL;
   *a5 = 0LL;
   v6 = a3[1];
   v28 = 0LL;
-  UnicodeString.Buffer = 0LL;
+  GuidString.Buffer = 0LL;
   v8 = *a3;
   v9 = 0LL;
   Uuid = 0LL;
@@ -104,16 +104,16 @@ LABEL_12:
   {
     p_Uuid = &Uuid;
 LABEL_13:
-    v19 = RtlStringFromGUIDEx(&p_Uuid->Data1, (__int64)&UnicodeString, 1);
+    v19 = RtlStringFromGUIDEx(p_Uuid, &GuidString, 1u);
     if ( v19 >= 0 )
     {
-      BiLogMessage(2LL, L"Object GUID: %s", UnicodeString.Buffer);
+      BiLogMessage(2LL, L"Object GUID: %s", GuidString.Buffer);
       v21 = BiOpenKey(a1, L"Objects", (unsigned int)(v20 + 2), &v26);
       v9 = v26;
       v19 = v21;
       if ( v21 >= 0 )
       {
-        v22 = BiCreateKey(v26, UnicodeString.Buffer, 983103LL, 0LL, &v25, v24);
+        v22 = BiCreateKey(v26, GuidString.Buffer, 983103LL, 0LL, &v25, v24);
         v10 = v25;
         v19 = v22;
         if ( v22 >= 0 )
@@ -133,8 +133,8 @@ LABEL_13:
         }
       }
     }
-    if ( UnicodeString.Buffer )
-      RtlFreeUnicodeString(&UnicodeString);
+    if ( GuidString.Buffer )
+      RtlFreeUnicodeString(&GuidString);
     if ( v19 < 0 && v10 )
       BiCloseKey(v10);
     if ( v9 )

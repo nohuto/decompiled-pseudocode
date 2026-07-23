@@ -25,7 +25,7 @@ unsigned __int64 __fastcall sub_180046C60(__int64 a1, unsigned __int64 a2, unsig
   }
   else
   {
-    v13 = sub_1800515E8(&unk_180166A60, 2 * ((a2 - qword_180166A58) >> 20));
+    v13 = sub_1800515E8(&qword_180166A60, 2 * ((a2 - qword_180166A58) >> 20));
     if ( !v13 )
       return sub_180083D40(a1, a2, a3, a4);
     v8 = v13 - 1;

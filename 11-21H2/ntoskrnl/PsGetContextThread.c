@@ -3,10 +3,10 @@
  * Callers:
  *     <none>
  * Callees:
- *     PspGetContextThreadInternal @ 0x1407045D0 (PspGetContextThreadInternal.c)
+ *     sub_1407045D0 @ 0x1407045D0 (sub_1407045D0.c)
  */
 
-__int64 __fastcall PsGetContextThread(__int64 a1, __int64 a2, char a3)
+int __fastcall PsGetContextThread(__int64 a1, __int64 a2, char a3)
 {
-  return PspGetContextThreadInternal(a1, a2, a3, a3, 1);
+  return sub_1407045D0(a1, a2, a3, a3, 1);
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of IopReferenceVerifyVpb @ 0x140555B3C
+ * XREFs of IopReferenceVerifyVpb @ 0x1405561FC
  * Callers:
- *     IoVerifyVolume @ 0x1409476B0 (IoVerifyVolume.c)
+ *     IoVerifyVolume @ 0x1409478B0 (IoVerifyVolume.c)
  * Callees:
- *     KeAcquireQueuedSpinLock @ 0x1402A0760 (KeAcquireQueuedSpinLock.c)
- *     IopIncrementVpbRefCount @ 0x140302780 (IopIncrementVpbRefCount.c)
- *     KeReleaseQueuedSpinLock @ 0x140302810 (KeReleaseQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x1402A09F0 (KeAcquireQueuedSpinLock.c)
+ *     IopIncrementVpbRefCount @ 0x140302A10 (IopIncrementVpbRefCount.c)
+ *     KeReleaseQueuedSpinLock @ 0x140302AA0 (KeReleaseQueuedSpinLock.c)
  */
 
 char __fastcall IopReferenceVerifyVpb(__int64 a1, ULONG_PTR *a2, _QWORD *a3)

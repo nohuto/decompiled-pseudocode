@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlpHpLargeSparseBmpAlloc @ 0x180051080
+ * XREFs of RtlpHpLargeSparseBmpAlloc @ 0x180051070
  * Callers:
  *     <none>
  * Callees:

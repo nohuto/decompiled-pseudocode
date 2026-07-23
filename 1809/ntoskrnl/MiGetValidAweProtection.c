@@ -1,9 +1,9 @@
 /*
- * XREFs of MiGetValidAweProtection @ 0x1402B0D90
+ * XREFs of MiGetValidAweProtection @ 0x1402B0F80
  * Callers:
  *     MiQueryAddressState @ 0x14003EAF0 (MiQueryAddressState.c)
  *     MiGetPageProtection @ 0x14003FFE0 (MiGetPageProtection.c)
- *     MiGetWorkingSetInfoList @ 0x1400965F0 (MiGetWorkingSetInfoList.c)
+ *     MiGetWorkingSetInfoList @ 0x140096530 (MiGetWorkingSetInfoList.c)
  * Callees:
  *     <none>
  */

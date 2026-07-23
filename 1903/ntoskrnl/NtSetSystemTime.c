@@ -31,20 +31,20 @@ NTSTATUS __stdcall NtSetSystemTime(PLARGE_INTEGER SystemTime, PLARGE_INTEGER New
   NTSTATUS v8; // ebx
   char v9; // di
   LARGE_INTEGER v10; // rax
-  char v11[8]; // [rsp+30h] [rbp-58h] BYREF
+  BOOLEAN HasCapability[8]; // [rsp+30h] [rbp-58h] BYREF
   LARGE_INTEGER SystemTimea; // [rsp+38h] [rbp-50h] BYREF
   LARGE_INTEGER v13; // [rsp+40h] [rbp-48h] BYREF
   LARGE_INTEGER Time; // [rsp+48h] [rbp-40h] BYREF
-  UNICODE_STRING SourceString; // [rsp+50h] [rbp-38h] BYREF
-  struct _TIME_FIELDS TimeFields; // [rsp+60h] [rbp-28h] BYREF
+  UNICODE_STRING CapabilityName; // [rsp+50h] [rbp-38h] BYREF
+  _TIME_FIELDS TimeFields; // [rsp+60h] [rbp-28h] BYREF
 
   SystemTimea.QuadPart = 0LL;
   v13.QuadPart = 0LL;
   Time.QuadPart = 0LL;
   *(_QWORD *)&TimeFields.Year = 0LL;
   *(_QWORD *)&TimeFields.Minute = 0LL;
-  *(_QWORD *)&SourceString.Length = 2228256LL;
-  SourceString.Buffer = (wchar_t *)L"systemManagement";
+  *(_QWORD *)&CapabilityName.Length = 2228256LL;
+  CapabilityName.Buffer = (wchar_t *)L"systemManagement";
   if ( !SystemTime )
   {
     v8 = -1073741811;
@@ -82,7 +82,7 @@ LABEL_32:
   }
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( !SeSinglePrivilegeCheck(SeSystemtimePrivilege, PreviousMode)
-    && (RtlIsMultiSessionSku() || (int)RtlCapabilityCheck(0LL, &SourceString, v11) < 0 || !v11[0])
+    && (RtlIsMultiSessionSku() || RtlCapabilityCheck(0LL, &CapabilityName, HasCapability) < 0 || !HasCapability[0])
     || PsIsCurrentThreadInServerSilo() )
   {
     return -1073741727;

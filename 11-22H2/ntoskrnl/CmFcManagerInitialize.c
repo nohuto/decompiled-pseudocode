@@ -25,8 +25,8 @@ void CmFcManagerInitialize()
   __int64 v8; // r9
 
   memset(CmFcSystemManager, 0, 0x6D8uLL);
-  CmSiRWLockInitialize((PRTL_RUN_ONCE)&RunOnce);
-  CmSiRWLockInitialize((PRTL_RUN_ONCE)&stru_140C14030);
+  CmSiRWLockInitialize(&RunOnce);
+  CmSiRWLockInitialize(&stru_140C14030);
   v0 = &unk_140C14048;
   do
   {
@@ -38,7 +38,7 @@ void CmFcManagerInitialize()
   RtlInitializeSwapReference(qword_140C14090);
   memset(&unk_140C140A8, 0, 0x90uLL);
   RtlInitializeSwapReference(qword_140C14150);
-  CmSiRWLockInitialize((PRTL_RUN_ONCE)&stru_140C14168);
+  CmSiRWLockInitialize(&stru_140C14168);
   KeInitializeDpc(
     (PRKDPC)&stru_140C14188,
     (PKDEFERRED_ROUTINE)CmFcpManagerDrainUsageNotificationsDpc,
@@ -49,12 +49,12 @@ void CmFcManagerInitialize()
     (__int64)CmFcpManagerDrainUsageNotificationsWorker,
     (__int64)CmFcSystemManager);
   CmpWorkItemInitialize((__int64)&unk_140C14210, v3, (__int64)CmFcpManagerRetryUsageNotificationsWorker, v4);
-  CmSiRWLockInitialize((PRTL_RUN_ONCE)&stru_140C14250);
+  CmSiRWLockInitialize(&stru_140C14250);
   qword_140C14260 = (__int64)&qword_140C14258;
   qword_140C14258 = (__int64)&qword_140C14258;
   qword_140C14538 = (__int64)&qword_140C14530;
   qword_140C14530 = (__int64)&qword_140C14530;
-  CmSiRWLockInitialize((PRTL_RUN_ONCE)&stru_140C143A0);
+  CmSiRWLockInitialize(&stru_140C143A0);
   KeInitializeDpc(
     &stru_140C14570,
     (PKDEFERRED_ROUTINE)CmFcpManagerArmFeatureUsageProviderFlushTimerDpc,
@@ -62,7 +62,7 @@ void CmFcManagerInitialize()
   KeInitializeDpc(&Dpc, (PKDEFERRED_ROUTINE)CmFcpManagerPublishFeatureUsageDataIfNearCapacityDpc, CmFcSystemManager);
   RtlInitializeSwapReference(qword_140C14388);
   xmmword_140C14550 = 0LL;
-  CmSiRWLockInitialize((PRTL_RUN_ONCE)&stru_140C14568);
+  CmSiRWLockInitialize(&stru_140C14568);
   CmpWorkItemInitialize(
     (__int64)&stru_140C14600,
     4,

@@ -1,11 +1,11 @@
 /*
- * XREFs of MiInitializeImageHeaderPage @ 0x1400FDDB4
+ * XREFs of MiInitializeImageHeaderPage @ 0x1400FBB34
  * Callers:
- *     MiCreateImageFileMap @ 0x1405229BC (MiCreateImageFileMap.c)
+ *     MiCreateImageFileMap @ 0x140505A1C (MiCreateImageFileMap.c)
  * Callees:
- *     MiUnmapPageInHyperSpaceWorker @ 0x14001DBA0 (MiUnmapPageInHyperSpaceWorker.c)
- *     MiMapPageInHyperSpaceWorker @ 0x140034990 (MiMapPageInHyperSpaceWorker.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     MiUnmapPageInHyperSpaceWorker @ 0x14001D720 (MiUnmapPageInHyperSpaceWorker.c)
+ *     MiMapPageInHyperSpaceWorker @ 0x140034510 (MiMapPageInHyperSpaceWorker.c)
+ *     memset @ 0x140171AC0 (memset.c)
  */
 
 unsigned __int64 __fastcall MiInitializeImageHeaderPage(__int64 a1, __int64 a2)

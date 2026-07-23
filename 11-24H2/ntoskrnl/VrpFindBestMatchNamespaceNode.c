@@ -1,9 +1,9 @@
 /*
- * XREFs of VrpFindBestMatchNamespaceNode @ 0x14092925C
+ * XREFs of VrpFindBestMatchNamespaceNode @ 0x14092B39C
  * Callers:
- *     VrpCreateNamespaceNode @ 0x140929B68 (VrpCreateNamespaceNode.c)
+ *     VrpCreateNamespaceNode @ 0x14092BCA8 (VrpCreateNamespaceNode.c)
  * Callees:
- *     VrpFindNamespaceNode @ 0x140928DA0 (VrpFindNamespaceNode.c)
+ *     VrpFindNamespaceNode @ 0x14092AEE0 (VrpFindNamespaceNode.c)
  */
 
 unsigned __int16 *__fastcall VrpFindBestMatchNamespaceNode(

@@ -1,9 +1,9 @@
 /*
- * XREFs of LdrpGetFileDriverStoreRoot @ 0x18007FA78
+ * XREFs of LdrpGetFileDriverStoreRoot @ 0x18007FA88
  * Callers:
  *     LdrLoadAlternateResourceModuleEx @ 0x18003E950 (LdrLoadAlternateResourceModuleEx.c)
  * Callees:
- *     _wcsnicmp @ 0x180091A20 (_wcsnicmp.c)
+ *     _wcsnicmp @ 0x180091A30 (_wcsnicmp.c)
  */
 
 bool __fastcall LdrpGetFileDriverStoreRoot(unsigned __int64 a1, __int64 a2, _WORD *a3)

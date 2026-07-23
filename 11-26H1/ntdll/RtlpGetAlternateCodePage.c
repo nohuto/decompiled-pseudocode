@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpGetAlternateCodePage @ 0x18000138C
+ * XREFs of RtlpGetAlternateCodePage @ 0x18004CAC4
  * Callers:
- *     RtlpConsoleFallbackNameFromLocaleName @ 0x180001794 (RtlpConsoleFallbackNameFromLocaleName.c)
+ *     RtlpConsoleFallbackNameFromLocaleName @ 0x18004CECC (RtlpConsoleFallbackNameFromLocaleName.c)
  * Callees:
- *     RtlpMuiRegGetInstalledLanguageIndexByName @ 0x18000AC20 (RtlpMuiRegGetInstalledLanguageIndexByName.c)
+ *     RtlpMuiRegGetInstalledLanguageIndexByName @ 0x180056350 (RtlpMuiRegGetInstalledLanguageIndexByName.c)
  */
 
 __int64 __fastcall RtlpGetAlternateCodePage(__int64 a1, __int64 a2, _QWORD *a3)

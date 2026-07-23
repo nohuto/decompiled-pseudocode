@@ -1,15 +1,15 @@
 /*
- * XREFs of PopPowerRequestActionInfo @ 0x140AF1B4C
+ * XREFs of PopPowerRequestActionInfo @ 0x140AF441C
  * Callers:
- *     NtPowerInformation @ 0x1409DE3E0 (NtPowerInformation.c)
+ *     NtPowerInformation @ 0x140A1B510 (NtPowerInformation.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     PopPowerRequestReferenceAcquire @ 0x1404A6310 (PopPowerRequestReferenceAcquire.c)
- *     PopPowerRequestReferenceRelease @ 0x1404A64A0 (PopPowerRequestReferenceRelease.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1408FA680 (ObpReferenceObjectByHandleWithTag.c)
- *     SeIsAppContainerOrIdentifyLevelContext @ 0x1409034B4 (SeIsAppContainerOrIdentifyLevelContext.c)
- *     PopPowerRequestSpecialRequestSet @ 0x140AF1C64 (PopPowerRequestSpecialRequestSet.c)
- *     PopPowerRequestSpecialRequestClear @ 0x140AF1D8C (PopPowerRequestSpecialRequestClear.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     PopPowerRequestReferenceAcquire @ 0x14049F9A0 (PopPowerRequestReferenceAcquire.c)
+ *     PopPowerRequestReferenceRelease @ 0x14049FB30 (PopPowerRequestReferenceRelease.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x14092A610 (ObpReferenceObjectByHandleWithTag.c)
+ *     SeIsAppContainerOrIdentifyLevelContext @ 0x140933444 (SeIsAppContainerOrIdentifyLevelContext.c)
+ *     PopPowerRequestSpecialRequestSet @ 0x140AF4534 (PopPowerRequestSpecialRequestSet.c)
+ *     PopPowerRequestSpecialRequestClear @ 0x140AF465C (PopPowerRequestSpecialRequestClear.c)
  */
 
 __int64 __fastcall PopPowerRequestActionInfo(__int64 a1)
@@ -29,8 +29,8 @@ __int64 __fastcall PopPowerRequestActionInfo(__int64 a1)
   Object = 0LL;
   IsAppContainerOrIdentifyLevelContext = ObpReferenceObjectByHandleWithTag(
                                            v2,
-                                           0LL,
-                                           (POBJECT_TYPE *)PopPowerRequestObjectType,
+                                           0,
+                                           PopPowerRequestObjectType,
                                            PreviousMode,
                                            0x72506F50u,
                                            &Object,

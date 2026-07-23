@@ -1,16 +1,16 @@
 /*
- * XREFs of KeRemoveDeviceQueue @ 0x140359C70
+ * XREFs of KeRemoveDeviceQueue @ 0x14035BA10
  * Callers:
- *     IoFreeAdapterChannelV2 @ 0x14035AD80 (IoFreeAdapterChannelV2.c)
- *     IopStartNextPacket @ 0x1404790D0 (IopStartNextPacket.c)
- *     IoFreeController @ 0x1404FA0B0 (IoFreeController.c)
- *     DifKeRemoveDeviceQueueWrapper @ 0x140663A90 (DifKeRemoveDeviceQueueWrapper.c)
+ *     IoFreeAdapterChannelV2 @ 0x14035CB20 (IoFreeAdapterChannelV2.c)
+ *     IopStartNextPacket @ 0x140472A30 (IopStartNextPacket.c)
+ *     IoFreeController @ 0x1404F36C0 (IoFreeController.c)
+ *     DifKeRemoveDeviceQueueWrapper @ 0x140667670 (DifKeRemoveDeviceQueueWrapper.c)
  * Callees:
- *     KxWaitForLockOwnerShip @ 0x1402B29C0 (KxWaitForLockOwnerShip.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x1402B4730 (KeAcquireInStackQueuedSpinLock.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x1402B4830 (KiAcquireQueuedSpinLockInstrumented.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x1402B98C0 (KeReleaseInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402B9F90 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KxWaitForLockOwnerShip @ 0x1402FD690 (KxWaitForLockOwnerShip.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402FF400 (KeAcquireInStackQueuedSpinLock.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x1402FF500 (KiAcquireQueuedSpinLockInstrumented.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x140304580 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140304C50 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
  */
 
 PKDEVICE_QUEUE_ENTRY __stdcall KeRemoveDeviceQueue(PKDEVICE_QUEUE DeviceQueue)
@@ -36,7 +36,7 @@ PKDEVICE_QUEUE_ENTRY __stdcall KeRemoveDeviceQueue(PKDEVICE_QUEUE DeviceQueue)
   {
     LockHandle.LockQueue.Lock = p_Lock;
     LockHandle.LockQueue.Next = 0LL;
-    if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+    if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
     {
       v5 = _InterlockedExchange64((volatile __int64 *)p_Lock, (__int64)&LockHandle);
       if ( v5 )

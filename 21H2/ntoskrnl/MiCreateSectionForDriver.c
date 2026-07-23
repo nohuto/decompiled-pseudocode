@@ -1,15 +1,15 @@
 /*
- * XREFs of MiCreateSectionForDriver @ 0x14075DC48
+ * XREFs of MiCreateSectionForDriver @ 0x14075DE08
  * Callers:
- *     MiObtainSectionForDriver @ 0x14075C358 (MiObtainSectionForDriver.c)
+ *     MiObtainSectionForDriver @ 0x14075C518 (MiObtainSectionForDriver.c)
  * Callees:
- *     MmGetSessionIdEx @ 0x14034AE60 (MmGetSessionIdEx.c)
- *     MiCreateSystemSection @ 0x1403720DC (MiCreateSystemSection.c)
- *     DbgPrintEx @ 0x14037F820 (DbgPrintEx.c)
- *     ZwOpenFile @ 0x1403FAA00 (ZwOpenFile.c)
- *     ObCloseHandle @ 0x14061AB80 (ObCloseHandle.c)
- *     MiLogFailedDriverLoad @ 0x1408C7DA0 (MiLogFailedDriverLoad.c)
- *     KdPullRemoteFile @ 0x1409B6724 (KdPullRemoteFile.c)
+ *     MmGetSessionIdEx @ 0x140355BB0 (MmGetSessionIdEx.c)
+ *     MiCreateSystemSection @ 0x140371C2C (MiCreateSystemSection.c)
+ *     DbgPrintEx @ 0x14037F370 (DbgPrintEx.c)
+ *     ZwOpenFile @ 0x1403FABE0 (ZwOpenFile.c)
+ *     ObCloseHandle @ 0x1406847E0 (ObCloseHandle.c)
+ *     MiLogFailedDriverLoad @ 0x1408C7F00 (MiLogFailedDriverLoad.c)
+ *     KdPullRemoteFile @ 0x1409B7724 (KdPullRemoteFile.c)
  */
 
 NTSTATUS __fastcall MiCreateSectionForDriver(UNICODE_STRING *a1, __int64 a2, int a3, _QWORD *a4)
@@ -26,7 +26,7 @@ NTSTATUS __fastcall MiCreateSectionForDriver(UNICODE_STRING *a1, __int64 a2, int
   HANDLE FileHandle; // [rsp+E8h] [rbp+6Fh] BYREF
   __int64 v17; // [rsp+F8h] [rbp+7Fh] BYREF
 
-  byte_140C4CCE8 = 1;
+  byte_140C4CD28 = 1;
   v17 = 0LL;
   *(&ObjectAttributes.Length + 1) = 0;
   *(&ObjectAttributes.Attributes + 1) = 0;

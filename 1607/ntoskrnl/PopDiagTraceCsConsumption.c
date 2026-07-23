@@ -1,10 +1,10 @@
 /*
- * XREFs of PopDiagTraceCsConsumption @ 0x140670CEC
+ * XREFs of PopDiagTraceCsConsumption @ 0x140670DD0
  * Callers:
- *     PopConnectedStandbySettingCallback @ 0x140547F5C (PopConnectedStandbySettingCallback.c)
+ *     PopConnectedStandbySettingCallback @ 0x14054849C (PopConnectedStandbySettingCallback.c)
  * Callees:
- *     EtwWrite @ 0x140013320 (EtwWrite.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     EtwWrite @ 0x140012EA0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall PopDiagTraceCsConsumption(__int64 a1)

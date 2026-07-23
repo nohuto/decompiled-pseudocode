@@ -1,62 +1,60 @@
 /*
- * XREFs of LdrpCleanupThreadTlsData @ 0x180076A78
+ * XREFs of LdrpCleanupThreadTlsData @ 0x180076A88
  * Callers:
- *     LdrpFreeTls @ 0x1800769BC (LdrpFreeTls.c)
+ *     LdrpFreeTls @ 0x1800769CC (LdrpFreeTls.c)
  * Callees:
  *     RtlReleaseSRWLockExclusive @ 0x180015B60 (RtlReleaseSRWLockExclusive.c)
  *     RtlAcquireSRWLockExclusive @ 0x180015FF0 (RtlAcquireSRWLockExclusive.c)
  *     RtlFreeHeap @ 0x180017E40 (RtlFreeHeap.c)
  */
 
-signed __int64 __fastcall LdrpCleanupThreadTlsData(__int64 a1, unsigned __int64 a2, unsigned __int64 *a3, __int64 a4)
+void LdrpCleanupThreadTlsData()
 {
-  unsigned __int64 v4; // rdi
-  void **v5; // rsi
+  _QWORD *v0; // rdi
+  _QWORD *v1; // rsi
   unsigned __int64 UniqueThread; // r14
   void *ProcessHeap; // r15
-  volatile signed __int64 *v8; // rbx
-  void **v9; // rax
-  signed __int64 result; // rax
-  _QWORD *v11; // rcx
-  unsigned __int64 v12; // rbx
+  _RTL_SRWLOCK *v4; // rbx
+  _QWORD *Value; // rax
+  _QWORD *v6; // rcx
+  _QWORD *v7; // rbx
 
-  v4 = 0LL;
-  v5 = 0LL;
+  v0 = 0LL;
+  v1 = 0LL;
   UniqueThread = (unsigned __int64)NtCurrentTeb()->ClientId.UniqueThread;
   ProcessHeap = NtCurrentPeb()->ProcessHeap;
-  v8 = (volatile signed __int64 *)((char *)&LdrpDelayedTlsReclaimTable + 16 * ((UniqueThread >> 2) & 0xF));
-  RtlAcquireSRWLockExclusive((unsigned __int64)(v8 + 1), a2, a3, a4);
-  v9 = (void **)*v8;
-  if ( *v8 )
+  v4 = (_RTL_SRWLOCK *)((char *)&LdrpDelayedTlsReclaimTable + 16 * ((UniqueThread >> 2) & 0xF));
+  RtlAcquireSRWLockExclusive(v4 + 1);
+  Value = (_QWORD *)v4->Value;
+  if ( v4->Value )
   {
     do
     {
-      v11 = v9[1];
-      if ( *v9 == (void *)UniqueThread )
+      v6 = (_QWORD *)Value[1];
+      if ( *Value == UniqueThread )
       {
-        if ( v5 )
-          v5[1] = v11;
+        if ( v1 )
+          v1[1] = v6;
         else
-          *v8 = (volatile signed __int64)v11;
-        v9[1] = (void *)v4;
-        v4 = (unsigned __int64)v9;
-        v9 = v5;
+          v4->Value = (unsigned __int64)v6;
+        Value[1] = v0;
+        v0 = Value;
+        Value = v1;
       }
-      v5 = v9;
-      v9 = (void **)v11;
+      v1 = Value;
+      Value = v6;
     }
-    while ( v11 );
+    while ( v6 );
   }
-  result = RtlReleaseSRWLockExclusive(v8 + 1);
-  if ( v4 )
+  RtlReleaseSRWLockExclusive(v4 + 1);
+  if ( v0 )
   {
     do
     {
-      v12 = *(_QWORD *)(v4 + 8);
-      result = RtlFreeHeap((__int64)ProcessHeap, 0, v4);
-      v4 = v12;
+      v7 = (_QWORD *)v0[1];
+      RtlFreeHeap(ProcessHeap, 0, v0);
+      v0 = v7;
     }
-    while ( v12 );
+    while ( v7 );
   }
-  return result;
 }

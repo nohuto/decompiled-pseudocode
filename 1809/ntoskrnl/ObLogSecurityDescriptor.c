@@ -1,25 +1,25 @@
 /*
- * XREFs of ObLogSecurityDescriptor @ 0x1405C9E70
+ * XREFs of ObLogSecurityDescriptor @ 0x1405CAE70
  * Callers:
- *     EtwpAllocGuidEntry @ 0x1405C0C8C (EtwpAllocGuidEntry.c)
- *     ObSetSecurityDescriptorInfo @ 0x1405C8A30 (ObSetSecurityDescriptorInfo.c)
- *     SeDefaultObjectMethod @ 0x1405C9C30 (SeDefaultObjectMethod.c)
- *     ExpWnfCreateNameInstance @ 0x14060E058 (ExpWnfCreateNameInstance.c)
- *     EtwpStartLogger @ 0x1406591A0 (EtwpStartLogger.c)
- *     IopGetSetSecurityObject @ 0x1406990D0 (IopGetSetSecurityObject.c)
- *     IopSetDeviceSecurityDescriptor @ 0x140699538 (IopSetDeviceSecurityDescriptor.c)
- *     ObAssignObjectSecurityDescriptor @ 0x1406AAC48 (ObAssignObjectSecurityDescriptor.c)
- *     ObpInitObjectTypeSD @ 0x140728FDC (ObpInitObjectTypeSD.c)
- *     EtwpUpdateLoggerSecurityDescriptor @ 0x1408C3010 (EtwpUpdateLoggerSecurityDescriptor.c)
+ *     EtwpAllocGuidEntry @ 0x1405C1C8C (EtwpAllocGuidEntry.c)
+ *     ObSetSecurityDescriptorInfo @ 0x1405C9A30 (ObSetSecurityDescriptorInfo.c)
+ *     SeDefaultObjectMethod @ 0x1405CAC30 (SeDefaultObjectMethod.c)
+ *     ExpWnfCreateNameInstance @ 0x14060F058 (ExpWnfCreateNameInstance.c)
+ *     EtwpStartLogger @ 0x14065A360 (EtwpStartLogger.c)
+ *     IopGetSetSecurityObject @ 0x14069A290 (IopGetSetSecurityObject.c)
+ *     IopSetDeviceSecurityDescriptor @ 0x14069A6F8 (IopSetDeviceSecurityDescriptor.c)
+ *     ObAssignObjectSecurityDescriptor @ 0x1406ABEE8 (ObAssignObjectSecurityDescriptor.c)
+ *     ObpInitObjectTypeSD @ 0x14072A1CC (ObpInitObjectTypeSD.c)
+ *     EtwpUpdateLoggerSecurityDescriptor @ 0x1408C42D0 (EtwpUpdateLoggerSecurityDescriptor.c)
  * Callees:
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     KeLeaveCriticalRegionThread @ 0x140051600 (KeLeaveCriticalRegionThread.c)
- *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
- *     memcmp @ 0x140196200 (memcmp.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     RtlLengthSecurityDescriptor @ 0x1405CA090 (RtlLengthSecurityDescriptor.c)
- *     ObpCreateCacheEntry @ 0x1405CA164 (ObpCreateCacheEntry.c)
+ *     ExfReleasePushLockShared @ 0x1400913F0 (ExfReleasePushLockShared.c)
+ *     memcmp @ 0x140196340 (memcmp.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     RtlLengthSecurityDescriptor @ 0x1405CB090 (RtlLengthSecurityDescriptor.c)
+ *     ObpCreateCacheEntry @ 0x1405CB164 (ObpCreateCacheEntry.c)
  */
 
 __int64 __fastcall ObLogSecurityDescriptor(char *Src, _QWORD *a2, unsigned int a3)

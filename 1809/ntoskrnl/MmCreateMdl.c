@@ -1,11 +1,11 @@
 /*
- * XREFs of MmCreateMdl @ 0x140113C40
+ * XREFs of MmCreateMdl @ 0x140113CB0
  * Callers:
- *     MiPfAllocateMdls @ 0x1406982A0 (MiPfAllocateMdls.c)
- *     SmKmStoreFileWriteHeader @ 0x1408AE450 (SmKmStoreFileWriteHeader.c)
- *     MiLockRetpolineStubs @ 0x1409F7180 (MiLockRetpolineStubs.c)
+ *     MiPfAllocateMdls @ 0x140699460 (MiPfAllocateMdls.c)
+ *     SmKmStoreFileWriteHeader @ 0x1408AF6B0 (SmKmStoreFileWriteHeader.c)
+ *     MiLockRetpolineStubs @ 0x1409F8180 (MiLockRetpolineStubs.c)
  * Callees:
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
  */
 
 PMDL __stdcall MmCreateMdl(PMDL MemoryDescriptorList, PVOID Base, SIZE_T Length)

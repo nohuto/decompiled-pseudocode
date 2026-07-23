@@ -1,16 +1,16 @@
 /*
- * XREFs of CmpFlushNotify @ 0x1406927A8
+ * XREFs of CmpFlushNotify @ 0x140693968
  * Callers:
- *     CmpFlushNotifiesOnKeyBodyList @ 0x1405AD310 (CmpFlushNotifiesOnKeyBodyList.c)
- *     CmpDeleteKeyObject @ 0x14063F500 (CmpDeleteKeyObject.c)
- *     CmpPerformUnloadKey @ 0x140692390 (CmpPerformUnloadKey.c)
+ *     CmpFlushNotifiesOnKeyBodyList @ 0x1405AE310 (CmpFlushNotifiesOnKeyBodyList.c)
+ *     CmpDeleteKeyObject @ 0x140640520 (CmpDeleteKeyObject.c)
+ *     CmpPerformUnloadKey @ 0x140693550 (CmpPerformUnloadKey.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     CmpPostNotify @ 0x1405DC29C (CmpPostNotify.c)
- *     SeReleaseSubjectContext @ 0x1405E1240 (SeReleaseSubjectContext.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     CmpPostNotify @ 0x1405DD29C (CmpPostNotify.c)
+ *     SeReleaseSubjectContext @ 0x1405E2240 (SeReleaseSubjectContext.c)
  */
 
 void __fastcall CmpFlushNotify(__int64 a1, __int64 a2, __int64 *a3)

@@ -1,11 +1,11 @@
 /*
- * XREFs of BvgaNotifyDisplayOwnershipChange @ 0x14027E0D0
+ * XREFs of BvgaNotifyDisplayOwnershipChange @ 0x14027E2C0
  * Callers:
  *     <none>
  * Callees:
- *     BgkNotifyDisplayOwnershipChange @ 0x14016EAE0 (BgkNotifyDisplayOwnershipChange.c)
- *     BvgaAcquireDisplayOwnership @ 0x14027DE90 (BvgaAcquireDisplayOwnership.c)
- *     BvgaNotifyDisplayOwnershipLost @ 0x14027E120 (BvgaNotifyDisplayOwnershipLost.c)
+ *     BgkNotifyDisplayOwnershipChange @ 0x14016EBE0 (BgkNotifyDisplayOwnershipChange.c)
+ *     BvgaAcquireDisplayOwnership @ 0x14027E080 (BvgaAcquireDisplayOwnership.c)
+ *     BvgaNotifyDisplayOwnershipLost @ 0x14027E310 (BvgaNotifyDisplayOwnershipLost.c)
  */
 
 __int64 __fastcall BvgaNotifyDisplayOwnershipChange(char a1, __int64 (__fastcall *a2)(_QWORD, _QWORD, _QWORD))

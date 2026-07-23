@@ -1,23 +1,23 @@
 /*
- * XREFs of MmSetPageProtection @ 0x1403C2C70
+ * XREFs of MmSetPageProtection @ 0x1403C2E50
  * Callers:
- *     sub_1403F1A70 @ 0x1403F1A70 (sub_1403F1A70.c)
- *     HvpProtectBinPartial @ 0x14070AFE0 (HvpProtectBinPartial.c)
- *     MmAllocateIsrStack @ 0x14081D57C (MmAllocateIsrStack.c)
- *     KeWriteProtectProcessorState @ 0x140A918B0 (KeWriteProtectProcessorState.c)
+ *     sub_1403F1C50 @ 0x1403F1C50 (sub_1403F1C50.c)
+ *     HvpProtectBinPartial @ 0x14070B1F0 (HvpProtectBinPartial.c)
+ *     MmAllocateIsrStack @ 0x14081D84C (MmAllocateIsrStack.c)
+ *     KeWriteProtectProcessorState @ 0x140A91730 (KeWriteProtectProcessorState.c)
  *     sub_140B19730 @ 0x140B19730 (sub_140B19730.c)
  *     VslpIumPhase0Initialize @ 0x140B935CC (VslpIumPhase0Initialize.c)
  * Callees:
  *     MiLockPageAndSetDirty @ 0x140217514 (MiLockPageAndSetDirty.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1402712F0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiMakeProtectionMask @ 0x140276980 (MiMakeProtectionMask.c)
- *     MiFlushTbList @ 0x140279880 (MiFlushTbList.c)
- *     MiInsertTbFlushEntry @ 0x14027F570 (MiInsertTbFlushEntry.c)
- *     MiWriteValidPteNewProtection @ 0x140284800 (MiWriteValidPteNewProtection.c)
- *     MI_IS_PHYSICAL_ADDRESS @ 0x1402848B0 (MI_IS_PHYSICAL_ADDRESS.c)
- *     MiMakeValidPte @ 0x1402CF2B0 (MiMakeValidPte.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140271580 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiMakeProtectionMask @ 0x140276C10 (MiMakeProtectionMask.c)
+ *     MiFlushTbList @ 0x140279B10 (MiFlushTbList.c)
+ *     MiInsertTbFlushEntry @ 0x14027F800 (MiInsertTbFlushEntry.c)
+ *     MiWriteValidPteNewProtection @ 0x140284A90 (MiWriteValidPteNewProtection.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x140284B40 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     MiMakeValidPte @ 0x1402CF540 (MiMakeValidPte.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 char __fastcall MmSetPageProtection(unsigned __int64 a1, unsigned __int64 a2, unsigned int a3)

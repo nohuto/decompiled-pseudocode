@@ -1,14 +1,14 @@
 /*
- * XREFs of RemoveListHeadPte @ 0x1400AD7E0
+ * XREFs of RemoveListHeadPte @ 0x1400AD720
  * Callers:
- *     MiObtainSystemCacheView @ 0x1400AD220 (MiObtainSystemCacheView.c)
- *     MmAllocateSpecialPool @ 0x1402ACB64 (MmAllocateSpecialPool.c)
+ *     MiObtainSystemCacheView @ 0x1400AD160 (MiObtainSystemCacheView.c)
+ *     MmAllocateSpecialPool @ 0x1402ACD54 (MmAllocateSpecialPool.c)
  * Callees:
  *     MiPteInShadowRange @ 0x14003D740 (MiPteInShadowRange.c)
  *     MiSwizzleInvalidPte @ 0x14003D7C0 (MiSwizzleInvalidPte.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall RemoveListHeadPte(__int64 *a1)
@@ -44,8 +44,8 @@ __int64 __fastcall RemoveListHeadPte(__int64 *a1)
   v1 = *a1;
   if ( *a1 )
   {
-    if ( qword_14043A0C0 && (v1 & 0x10) == 0 )
-      v1 &= ~qword_14043A0C0;
+    if ( qword_14043B180 && (v1 & 0x10) == 0 )
+      v1 &= ~qword_14043B180;
     v3 = v1 >> 28;
   }
   else
@@ -95,8 +95,8 @@ __int64 __fastcall RemoveListHeadPte(__int64 *a1)
   if ( v9 )
   {
     v14 = v9;
-    if ( qword_14043A0C0 && (v9 & 0x10) == 0 )
-      v14 = v9 & ~qword_14043A0C0;
+    if ( qword_14043B180 && (v9 & 0x10) == 0 )
+      v14 = v9 & ~qword_14043B180;
     BugCheckParameter4 = v14 >> 28;
   }
   v15 = MiSwizzleInvalidPte(BugCheckParameter4 << 28);
@@ -109,7 +109,7 @@ __int64 __fastcall RemoveListHeadPte(__int64 *a1)
     {
       if ( (unsigned int)MiPteHasShadow(v21, v20) )
       {
-        if ( !HIBYTE(word_14043A1AC) && (v20 & 1) != 0 )
+        if ( !HIBYTE(word_14043B26C) && (v20 & 1) != 0 )
           v20 |= 0x8000000000000000uLL;
         *(_QWORD *)(v22 + 8) = v20;
         MiWritePteShadow(v22 + 8);

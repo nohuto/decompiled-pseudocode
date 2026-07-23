@@ -51,7 +51,7 @@ char __fastcall RtlpCheckDynamicTimeZoneInformation(_OWORD *Buf2, __int16 a2)
   v4 = 0;
   if ( (int)RtlpGetDynamicTimeZoneInfoHandle((_WORD *)Buf2 + 86, &Handle) >= 0 )
   {
-    if ( (int)RtlpFindRegTziForCurrentYear((__int64)v26, (WCHAR *)Handle, a2) >= 0 )
+    if ( (int)RtlpFindRegTziForCurrentYear((__int64)v26, (const WCHAR *)Handle, a2) >= 0 )
     {
       v5 = Buf2[1];
       Buf1 = *Buf2;

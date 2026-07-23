@@ -11,9 +11,9 @@
  *     <none>
  */
 
-__int64 __fastcall ZwDeleteWnfStateName(__int64 a1, __int64 a2, __int64 a3)
+NTSTATUS __cdecl ZwDeleteWnfStateName(PCWNF_STATE_NAME StateName)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2, a3);
+  return KiServiceInternal(StateName);
 }

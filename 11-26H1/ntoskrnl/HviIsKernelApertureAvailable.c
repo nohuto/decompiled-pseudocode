@@ -1,11 +1,11 @@
 /*
- * XREFs of HviIsKernelApertureAvailable @ 0x1406378E8
+ * XREFs of HviIsKernelApertureAvailable @ 0x14063A8EC
  * Callers:
- *     HvipApertureDetectParameters @ 0x1406379B0 (HvipApertureDetectParameters.c)
+ *     HvipApertureDetectParameters @ 0x14063A9B4 (HvipApertureDetectParameters.c)
  * Callees:
- *     HviGetHypervisorFeatures @ 0x1406DC730 (HviGetHypervisorFeatures.c)
- *     HviIsHypervisorVendorMicrosoft @ 0x1406DC990 (HviIsHypervisorVendorMicrosoft.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     HviGetHypervisorFeatures @ 0x1406E09D0 (HviGetHypervisorFeatures.c)
+ *     HviIsHypervisorVendorMicrosoft @ 0x1406E0C30 (HviIsHypervisorVendorMicrosoft.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 char HviIsKernelApertureAvailable()

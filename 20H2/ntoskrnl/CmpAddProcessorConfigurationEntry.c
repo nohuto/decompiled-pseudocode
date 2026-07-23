@@ -29,7 +29,7 @@ __int64 __fastcall CmpAddProcessorConfigurationEntry(__int64 a1, int a2, int a3)
   int v12; // eax
   HANDLE v13; // rsi
   NTSTATUS v14; // edi
-  const char *v16; // r15
+  const CHAR *v16; // r15
   _DWORD *v21; // r8
   unsigned int v22; // r9d
   __int64 v28; // rcx
@@ -116,7 +116,7 @@ __int64 __fastcall CmpAddProcessorConfigurationEntry(__int64 a1, int a2, int a3)
     {
       ZwClose(Handle);
       _RAX = 0x80000000LL;
-      v16 = (const char *)((a1 + 34192) & -(__int64)(*(_BYTE *)(a1 + 65) != 0));
+      v16 = (const CHAR *)((a1 + 34192) & -(__int64)(*(_BYTE *)(a1 + 65) != 0));
       __asm { cpuid }
       if ( (unsigned int)_RAX < 0x80000004 )
         goto LABEL_40;

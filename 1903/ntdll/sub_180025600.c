@@ -51,7 +51,7 @@ __int64 __fastcall sub_180025600(__int64 a1, unsigned __int16 *a2, __int64 a3, c
         {
           if ( a3 && *(_DWORD *)(v16 + 20) > 1u )
           {
-            v17 = sub_18002518C(v16, *(_WORD **)(a3 + 8), *(_WORD *)a3 >> 1, a1);
+            v17 = sub_18002518C(v16, *(const WCHAR **)(a3 + 8), *(_WORD *)a3 >> 1, a1);
             goto LABEL_13;
           }
           if ( *(_DWORD *)(v16 + 20) )

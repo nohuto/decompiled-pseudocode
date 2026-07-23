@@ -1,19 +1,19 @@
 /*
- * XREFs of PiQueryRemovableDeviceOverride @ 0x140A32AF8
+ * XREFs of PiQueryRemovableDeviceOverride @ 0x140A26B08
  * Callers:
- *     PiProcessNewDeviceNode @ 0x140A7C564 (PiProcessNewDeviceNode.c)
+ *     PiProcessNewDeviceNode @ 0x140A76864 (PiProcessNewDeviceNode.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwQueryValueKey @ 0x1406A66F0 (ZwQueryValueKey.c)
- *     PnpOpenFirstMatchingSubKey @ 0x140723584 (PnpOpenFirstMatchingSubKey.c)
- *     _CmGetDeviceRegProp @ 0x1408C5BB0 (_CmGetDeviceRegProp.c)
- *     PnpDeviceObjectToDeviceInstance @ 0x140990DBC (PnpDeviceObjectToDeviceInstance.c)
- *     PnpGetDeviceLocationStrings @ 0x1409C470C (PnpGetDeviceLocationStrings.c)
- *     PipFindDeviceOverrideEntry @ 0x140A32D18 (PipFindDeviceOverrideEntry.c)
- *     IopOpenRegistryKeyEx @ 0x140A43B04 (IopOpenRegistryKeyEx.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwQueryValueKey @ 0x1406A7690 (ZwQueryValueKey.c)
+ *     PnpOpenFirstMatchingSubKey @ 0x140721114 (PnpOpenFirstMatchingSubKey.c)
+ *     _CmGetDeviceRegProp @ 0x1408C35E0 (_CmGetDeviceRegProp.c)
+ *     PnpDeviceObjectToDeviceInstance @ 0x14097BDFC (PnpDeviceObjectToDeviceInstance.c)
+ *     PnpGetDeviceLocationStrings @ 0x1409824C0 (PnpGetDeviceLocationStrings.c)
+ *     PipFindDeviceOverrideEntry @ 0x140A26D28 (PipFindDeviceOverrideEntry.c)
+ *     IopOpenRegistryKeyEx @ 0x140A39394 (IopOpenRegistryKeyEx.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiQueryRemovableDeviceOverride(__int64 a1, void *a2, void *a3, bool *a4)
@@ -31,12 +31,12 @@ __int64 __fastcall PiQueryRemovableDeviceOverride(__int64 a1, void *a2, void *a3
   __int64 v17; // rcx
   unsigned int *v18; // r13
   int v19; // edi
-  int v21; // eax
+  unsigned int v20; // eax
   __int64 v22; // rcx
   char v23; // al
   __int64 v24; // r8
   __int64 v25; // r9
-  int v26; // [rsp+40h] [rbp-89h] BYREF
+  unsigned int v26; // [rsp+40h] [rbp-89h] BYREF
   UNICODE_STRING ValueName; // [rsp+48h] [rbp-81h] BYREF
   int v28; // [rsp+58h] [rbp-71h] BYREF
   HANDLE KeyHandle; // [rsp+60h] [rbp-69h] BYREF
@@ -143,13 +143,15 @@ LABEL_23:
   v19 = 256;
   v37[1] = 3;
   v26 = 256;
+  v20 = 256;
   do
   {
     if ( !Pool2 )
     {
-      Pool2 = (void *)ExAllocatePool2(0x100uLL);
+      Pool2 = (void *)ExAllocatePool2(0x100uLL, v20, 0x6E697050u);
       if ( !Pool2 )
       {
+        v20 = v26;
         DeviceRegProp = -1073741670;
         v19 = v26;
         goto LABEL_36;
@@ -168,14 +170,15 @@ LABEL_23:
     if ( DeviceRegProp == -1073741789 )
     {
       ExFreePoolWithTag(Pool2, 0);
-      Pool2 = (void *)ExAllocatePool2(0x100uLL);
+      Pool2 = (void *)ExAllocatePool2(0x100uLL, v26, 0x6E697050u);
+      v20 = v26;
       v19 = v26;
       if ( !Pool2 )
         DeviceRegProp = -1073741670;
     }
     else
     {
-      v21 = v19;
+      v20 = v19;
       if ( DeviceRegProp >= 0 )
       {
         if ( v28 != 7 )
@@ -185,10 +188,10 @@ LABEL_23:
           goto LABEL_36;
         }
         DeviceRegProp = PipFindDeviceOverrideEntry(Pool2);
-        v21 = v19;
+        v20 = v19;
       }
-      v26 = v21;
-      v19 = v21;
+      v26 = v20;
+      v19 = v20;
       if ( DeviceRegProp >= 0 )
         break;
     }

@@ -5,10 +5,10 @@
  *     PspSendProcessNotificationToJobChain @ 0x14069F410 (PspSendProcessNotificationToJobChain.c)
  *     PspRemoveProcessFromJobChain @ 0x1406A2DB0 (PspRemoveProcessFromJobChain.c)
  *     NtSetInformationJobObject @ 0x1406A4040 (NtSetInformationJobObject.c)
- *     PspSetJobIoRateControl @ 0x1407D809C (PspSetJobIoRateControl.c)
- *     PspSetNetRateControl @ 0x1409B2FF4 (PspSetNetRateControl.c)
+ *     PspSetJobIoRateControl @ 0x1407D836C (PspSetJobIoRateControl.c)
+ *     PspSetNetRateControl @ 0x1409B31F4 (PspSetNetRateControl.c)
  * Callees:
- *     ExAcquireResourceExclusiveLite @ 0x1402390E0 (ExAcquireResourceExclusiveLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402391B0 (ExAcquireResourceExclusiveLite.c)
  */
 
 char __fastcall PspLockJobConditionally(__int64 a1, _QWORD *a2)

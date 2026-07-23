@@ -1,22 +1,20 @@
 /*
- * XREFs of RtlpHpLfhSubsegmentCommitBlock @ 0x1402B9010
+ * XREFs of RtlpHpLfhSubsegmentCommitBlock @ 0x140360750
  * Callers:
- *     ExAllocateHeapPool @ 0x1402ACDB0 (ExAllocateHeapPool.c)
- *     RtlpHpLfhSlotAllocateSlow @ 0x1402B6D78 (RtlpHpLfhSlotAllocateSlow.c)
- *     RtlpHpAllocateHeap @ 0x1402B7A40 (RtlpHpAllocateHeap.c)
- *     RtlpHpAllocateHeapSlow @ 0x1402B819C (RtlpHpAllocateHeapSlow.c)
- *     RtlpHpMetadataAlloc @ 0x140420674 (RtlpHpMetadataAlloc.c)
+ *     ExAllocateHeapPool @ 0x140277790 (ExAllocateHeapPool.c)
+ *     RtlpHpLfhSlotAllocateSlow @ 0x14035EE00 (RtlpHpLfhSlotAllocateSlow.c)
+ *     RtlpHpAllocateHeap @ 0x1403E93B0 (RtlpHpAllocateHeap.c)
  * Callees:
- *     RtlpHpAcquireLockExclusive @ 0x14020D790 (RtlpHpAcquireLockExclusive.c)
- *     RtlpHpLfhSubsegmentIncBlockCounts @ 0x1402B8E70 (RtlpHpLfhSubsegmentIncBlockCounts.c)
- *     RtlpHpSegLfhVsCommit @ 0x1402B92D0 (RtlpHpSegLfhVsCommit.c)
- *     RtlpHpLfhContextUpdateFreeCommitCount @ 0x1402B93D8 (RtlpHpLfhContextUpdateFreeCommitCount.c)
- *     RtlpHpReleaseLockExclusive @ 0x1402B9650 (RtlpHpReleaseLockExclusive.c)
- *     RtlpHpLfhSubsegmentDecBlockCounts @ 0x1404037D0 (RtlpHpLfhSubsegmentDecBlockCounts.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     RtlpHpAcquireLockExclusive @ 0x140336AF0 (RtlpHpAcquireLockExclusive.c)
+ *     RtlpHpLfhSubsegmentIncBlockCounts @ 0x1403605B0 (RtlpHpLfhSubsegmentIncBlockCounts.c)
+ *     RtlpHpSegLfhVsCommit @ 0x140360A10 (RtlpHpSegLfhVsCommit.c)
+ *     RtlpHpLfhContextUpdateFreeCommitCount @ 0x140360B18 (RtlpHpLfhContextUpdateFreeCommitCount.c)
+ *     RtlpHpReleaseLockExclusive @ 0x140360D90 (RtlpHpReleaseLockExclusive.c)
+ *     RtlpHpLfhSubsegmentDecBlockCounts @ 0x1403FE590 (RtlpHpLfhSubsegmentDecBlockCounts.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
-__int64 __fastcall RtlpHpLfhSubsegmentCommitBlock(__int64 a1, unsigned __int64 a2, __int64 a3)
+__int64 __fastcall RtlpHpLfhSubsegmentCommitBlock(__int64 a1, unsigned __int64 a2, unsigned int a3)
 {
   char v5; // cl
   int v6; // r12d
@@ -55,11 +53,11 @@ __int64 __fastcall RtlpHpLfhSubsegmentCommitBlock(__int64 a1, unsigned __int64 a
   v33 = -1;
   v5 = *(_BYTE *)(a2 + 38);
   v6 = 0;
-  v7 = (unsigned int)a3 >> 12 >> v5;
+  v7 = a3 >> 12 >> v5;
   v8 = *(unsigned __int8 *)(a2 + 24);
-  v31 = (unsigned __int16)qword_140E28208 ^ *(unsigned __int16 *)(a2 + 40) ^ (unsigned __int16)(a2 >> 12);
+  v31 = (unsigned __int16)qword_140E28348 ^ *(unsigned __int16 *)(a2 + 40) ^ (unsigned __int16)(a2 >> 12);
   v9 = 2 * v7;
-  v10 = (((unsigned int)a3 + v31 - 1) >> 12 >> v5) - (unsigned int)v7 + 1;
+  v10 = ((a3 + v31 - 1) >> 12 >> v5) - (unsigned int)v7 + 1;
   v11 = (signed __int16 *)(2 * v7 + a2 + 8 * v8);
   _m_prefetchw(v11);
   v12 = &v11[v10];
@@ -87,7 +85,7 @@ __int64 __fastcall RtlpHpLfhSubsegmentCommitBlock(__int64 a1, unsigned __int64 a
       if ( v6 )
         break;
       v6 = 1;
-      v14 = RtlpHpAcquireLockExclusive((int *)(a2 + 56), *(unsigned __int8 *)(a1 + 65), a3);
+      v14 = RtlpHpAcquireLockExclusive((int *)(a2 + 56), *(unsigned __int8 *)(a1 + 65));
     }
     v17 = v35;
     if ( v15 )
@@ -110,7 +108,7 @@ LABEL_7:
   while ( v11 < v12 );
   if ( v13 )
   {
-    RtlpHpLfhContextUpdateFreeCommitCount(a1, a2, (v13 << 12 << *(_BYTE *)(a2 + 38)) / 4096);
+    RtlpHpLfhContextUpdateFreeCommitCount(a1, a2, (v13 << 12 << *(_BYTE *)(a2 + 38)) / 4096, v7);
     v17 = v35;
   }
   if ( v17 == -1 )
@@ -132,7 +130,7 @@ LABEL_7:
   if ( v21 == RtlpHpSegLfhVsCommit )
     v26 = RtlpHpSegLfhVsCommit(v24, v25, v23, &v29);
   else
-    v26 = guard_dispatch_icall_no_overrides(v24, v25, v23, &v29);
+    v26 = guard_dispatch_icall_no_overrides(v24, v25);
   v27 = v26;
   if ( v26 >= 0 )
   {

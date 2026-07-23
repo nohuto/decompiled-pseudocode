@@ -4,8 +4,8 @@
  *     KeAllocateCalloutStack @ 0x1406ECC20 (KeAllocateCalloutStack.c)
  * Callees:
  *     KeInitializeMutex @ 0x140261AA0 (KeInitializeMutex.c)
- *     MmCreateKernelStack @ 0x1402F4B70 (MmCreateKernelStack.c)
- *     MmDeleteKernelStack @ 0x1403A0B28 (MmDeleteKernelStack.c)
+ *     sub_1402F4B70 @ 0x1402F4B70 (sub_1402F4B70.c)
+ *     sub_1403A0B28 @ 0x1403A0B28 (sub_1403A0B28.c)
  *     ExFreePoolWithTag @ 0x140A6E010 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
  */
@@ -17,7 +17,7 @@ __int64 __fastcall KeAllocateCalloutStackEx(int a1, unsigned __int8 a2, __int64 
   _DWORD *PoolWithTag; // rbx
   unsigned int v7; // edi
   __int64 *v8; // r14
-  __int64 KernelStack; // rax
+  __int64 v9; // rax
 
   v4 = a2;
   if ( a1 )
@@ -43,17 +43,17 @@ __int64 __fastcall KeAllocateCalloutStackEx(int a1, unsigned __int8 a2, __int64 
     v8 = (__int64 *)(PoolWithTag + 16);
     while ( 1 )
     {
-      KernelStack = MmCreateKernelStack(v5 != 0 ? 5 : 0, 0, 0LL);
-      if ( !KernelStack )
+      v9 = sub_1402F4B70(v5 != 0 ? 5 : 0, 0, 0LL);
+      if ( !v9 )
         break;
-      *v8 = KernelStack;
+      *v8 = v9;
       ++v7;
       ++v8;
       if ( v7 >= v4 )
         goto LABEL_10;
     }
     while ( v7 )
-      MmDeleteKernelStack(*(_QWORD *)&PoolWithTag[2 * --v7 + 16], v5);
+      sub_1403A0B28(*(_QWORD *)&PoolWithTag[2 * --v7 + 16], v5);
     ExFreePoolWithTag(PoolWithTag, 0);
     return 3221225626LL;
   }

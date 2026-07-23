@@ -1,11 +1,11 @@
 /*
- * XREFs of IvtWaitForGlobalCommandCompletion @ 0x1405A7E38
+ * XREFs of IvtWaitForGlobalCommandCompletion @ 0x1405AA648
  * Callers:
- *     IvtDisableGlobalCommandRegisterField @ 0x1405A5FF8 (IvtDisableGlobalCommandRegisterField.c)
- *     IvtEnableGlobalCommandRegisterField @ 0x1405A6290 (IvtEnableGlobalCommandRegisterField.c)
+ *     IvtDisableGlobalCommandRegisterField @ 0x1405A8808 (IvtDisableGlobalCommandRegisterField.c)
+ *     IvtEnableGlobalCommandRegisterField @ 0x1405A8AA0 (IvtEnableGlobalCommandRegisterField.c)
  * Callees:
- *     KeStallExecutionProcessor @ 0x14037BEF0 (KeStallExecutionProcessor.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     KeStallExecutionProcessor @ 0x14037DCA0 (KeStallExecutionProcessor.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall IvtWaitForGlobalCommandCompletion(__int64 a1, unsigned int a2, unsigned int a3)

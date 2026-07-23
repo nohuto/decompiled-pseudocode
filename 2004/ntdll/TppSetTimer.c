@@ -13,26 +13,23 @@
  *     TppETWTimerSet @ 0x18011290C (TppETWTimerSet.c)
  */
 
-signed __int64 __fastcall TppSetTimer(__int64 a1, __int64 a2, __int64 *a3, int a4, int a5)
+void __fastcall TppSetTimer(__int64 a1, _RTL_SRWLOCK *a2, __int64 *a3, int a4, int a5)
 {
-  __int64 v6; // rcx
-  bool v8; // bp
-  volatile signed __int64 *v9; // r15
-  __int64 *v10; // rbx
-  unsigned __int64 v11; // rsi
+  bool v7; // bp
+  __int64 *v9; // rbx
+  unsigned __int64 v10; // rsi
+  __int64 v11; // rcx
   __int64 v12; // rax
   __int64 v13; // rcx
   __int64 v14; // rdx
-  unsigned int v16; // eax
+  LONG v15; // eax
 
-  v6 = 1LL;
-  v8 = *a3 >= 0;
-  v9 = (volatile signed __int64 *)a2;
+  v7 = *a3 >= 0;
   *(_DWORD *)(a1 + 348) = a4;
-  v10 = (__int64 *)(a1 + 328);
+  v9 = (__int64 *)(a1 + 328);
   *(_DWORD *)(a1 + 344) = a5;
-  v11 = (-(__int64)v8 & 0xFFFFFFFFFFFFFF88uLL) + a2 + 128;
-  if ( v8 )
+  v10 = (unsigned __int64)&a2[16] + (-(__int64)v7 & 0xFFFFFFFFFFFFFF88uLL);
+  if ( v7 )
   {
     *(_BYTE *)(a1 + 354) |= 2u;
     v12 = *a3;
@@ -43,30 +40,29 @@ signed __int64 __fastcall TppSetTimer(__int64 a1, __int64 a2, __int64 *a3, int a
   {
     if ( a1 == -328 )
     {
-      v16 = RtlNtStatusToDosErrorNoTeb(3221225485LL);
-      RtlSetLastWin32Error(v16);
-      v6 = MEMORY[0];
+      v15 = RtlNtStatusToDosErrorNoTeb(-1073741811);
+      RtlSetLastWin32Error(v15);
+      v11 = MEMORY[0];
     }
     else
     {
-      v6 = MEMORY[0x7FFE0008] - MEMORY[0x7FFE03B0] - RtlpFreezeTimeBias;
-      *v10 = v6;
+      v11 = MEMORY[0x7FFE0008] - MEMORY[0x7FFE03B0] - RtlpFreezeTimeBias;
+      *v9 = v11;
     }
-    a2 = 0x7FFFFFFFFFFFFFFFLL;
-    v12 = v6 - *a3;
-    if ( v12 < v6 )
+    v12 = v11 - *a3;
+    if ( v12 < v11 )
       v12 = 0x7FFFFFFFFFFFFFFFLL;
   }
-  *v10 = v12;
-  if ( (unsigned int)RtlGetCurrentServiceSessionId(v6, a2) )
+  *v9 = v12;
+  if ( RtlGetCurrentServiceSessionId() )
     v13 = (__int64)NtCurrentPeb()->SharedData + 556;
   else
     v13 = 2147353478LL;
   if ( *(_BYTE *)v13 )
-    TppETWTimerSet(v11, a1);
-  RtlAcquireSRWLockExclusive(v9);
-  TppEnqueueTimer(v11, a1);
-  LOBYTE(v14) = v8;
-  TppUpdateSubQueueTimer(v11, v14);
-  return RtlReleaseSRWLockExclusive(v9);
+    TppETWTimerSet(v10, a1);
+  RtlAcquireSRWLockExclusive(a2);
+  TppEnqueueTimer(v10, a1);
+  LOBYTE(v14) = v7;
+  TppUpdateSubQueueTimer(v10, v14);
+  RtlReleaseSRWLockExclusive(a2);
 }

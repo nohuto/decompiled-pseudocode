@@ -8,7 +8,7 @@
  *     NtSetInformationWorkerFactory @ 0x180166830 (NtSetInformationWorkerFactory.c)
  */
 
-__int64 __fastcall TpCallbackIndependent(__int64 a1)
+NTSTATUS __fastcall TpCallbackIndependent(__int64 a1)
 {
   __int64 v1; // rbx
   __int64 v2; // rbx
@@ -20,16 +20,16 @@ __int64 __fastcall TpCallbackIndependent(__int64 a1)
   int v8; // eax
   signed __int32 v9; // edx
   signed __int32 v10; // r9d
-  __int64 v12; // rcx
-  int v13; // [rsp+30h] [rbp+8h] BYREF
-  int v14; // [rsp+38h] [rbp+10h] BYREF
+  void *v12; // rcx
+  int WorkerFactoryInformation; // [rsp+30h] [rbp+8h] BYREF
+  int PortInformation; // [rsp+38h] [rbp+10h] BYREF
   signed __int64 v15; // [rsp+40h] [rbp+18h]
 
-  v13 = 0;
+  WorkerFactoryInformation = 0;
   if ( !a1 || *(_DWORD *)(a1 + 72) )
   {
     TppRaiseInvalidParameter();
-    return 3221225485LL;
+    return -1073741811;
   }
   v1 = *(_QWORD *)(a1 + 184);
   if ( v1 )
@@ -37,9 +37,9 @@ __int64 __fastcall TpCallbackIndependent(__int64 a1)
   else
     v2 = *(_QWORD *)(a1 + 128);
   if ( !v2 )
-    return 3221225485LL;
-  if ( TppPoolpSerializedPool == v2 )
-    return 0LL;
+    return -1073741811;
+  if ( TppPoolpSerializedPool == (PVOID)v2 )
+    return 0;
   _InterlockedDecrement((volatile signed __int32 *)(v2 + 416));
   _InterlockedIncrement((volatile signed __int32 *)(v2 + 420));
   _m_prefetchw((const void *)(v2 + 8));
@@ -70,12 +70,12 @@ __int64 __fastcall TpCallbackIndependent(__int64 a1)
         break;
       if ( v7 == _InterlockedCompareExchange((volatile signed __int32 *)(v5 + 284), v10, v7) )
       {
-        v12 = *(_QWORD *)(v5 + 272);
-        v14 = v8 + v9;
-        NtAlpcSetInformation(v12, 8LL, &v14);
+        v12 = *(void **)(v5 + 272);
+        PortInformation = v8 + v9;
+        NtAlpcSetInformation(v12, AlpcAdjustCompletionListConcurrencyCountInformation, &PortInformation, 4u);
       }
     }
   }
-  v13 = 2;
-  return NtSetInformationWorkerFactory(*(_QWORD *)(v2 + 56), 9LL, &v13);
+  WorkerFactoryInformation = 2;
+  return NtSetInformationWorkerFactory(*(HANDLE *)(v2 + 56), WorkerFactoryCallbackType, &WorkerFactoryInformation, 4u);
 }

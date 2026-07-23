@@ -1,9 +1,9 @@
 /*
- * XREFs of KiVerifyXcpt11 @ 0x1409CFE10
+ * XREFs of KiVerifyXcpt11 @ 0x1409D0E10
  * Callers:
  *     <none>
  * Callees:
- *     KiVerifyXcptFilter @ 0x1409CFF7C (KiVerifyXcptFilter.c)
+ *     KiVerifyXcptFilter @ 0x1409D0F7C (KiVerifyXcptFilter.c)
  */
 
 __int64 __fastcall KiVerifyXcpt11(__int64 a1)

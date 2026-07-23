@@ -17,5 +17,5 @@ NTSTATUS __stdcall ZwGetNotificationResourceManager(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(ResourceManagerHandle, TransactionNotification);
+  return KiServiceInternal(ResourceManagerHandle);
 }

@@ -16,47 +16,44 @@
  *     _guard_dispatch_icall_nop @ 0x1800A8C20 (_guard_dispatch_icall_nop.c)
  */
 
-char __fastcall RtlLockHeap(__int64 a1)
+BOOLEAN __cdecl RtlLockHeap(PVOID HeapHandle)
 {
-  __int64 v2; // rdx
-  __int64 v3; // r8
-  __int64 v4; // r9
-  __int64 v5; // rdi
-  _DWORD *HotpatchInformation; // rcx
-  __int64 v7; // rcx
-  _BYTE v9[6]; // [rsp+20h] [rbp-38h] BYREF
-  __int16 v10; // [rsp+26h] [rbp-32h]
-  __int64 v11; // [rsp+40h] [rbp-18h]
+  __int64 v2; // rdi
+  PSILO_USER_SHARED_DATA SharedData; // rcx
+  __int64 UserModeGlobalLogger; // rcx
+  _BYTE Fields[6]; // [rsp+20h] [rbp-38h] BYREF
+  __int16 v7; // [rsp+26h] [rbp-32h]
+  PVOID v8; // [rsp+40h] [rbp-18h]
 
-  if ( *(_DWORD *)(a1 + 16) == -571548178 )
+  if ( *((_DWORD *)HeapHandle + 4) == -571548178 )
   {
     sub_18001F91C();
   }
   else
   {
-    if ( (*(_DWORD *)(a1 + 116) & 0x1000000) != 0 )
+    if ( (*((_DWORD *)HeapHandle + 29) & 0x1000000) != 0 )
       return ((__int64 (*)(void))qword_180155450)();
-    if ( !(unsigned __int8)sub_18001F9B0(a1, "RtlLockHeap") )
+    if ( !(unsigned __int8)sub_18001F9B0(HeapHandle, "RtlLockHeap") )
       return 0;
-    if ( (*(_BYTE *)(a1 + 112) & 1) == 0 )
+    if ( (*((_BYTE *)HeapHandle + 112) & 1) == 0 )
     {
-      RtlEnterCriticalSection(*(_QWORD *)(a1 + 352));
-      ++*(_WORD *)(a1 + 384);
+      RtlEnterCriticalSection(*((PRTL_CRITICAL_SECTION *)HeapHandle + 44));
+      ++*((_WORD *)HeapHandle + 192);
     }
   }
-  v5 = 2147353472LL;
-  HotpatchInformation = NtCurrentPeb()->HotpatchInformation;
-  if ( HotpatchInformation && *HotpatchInformation )
-    v7 = (__int64)NtCurrentPeb()->HotpatchInformation + 550;
+  v2 = 2147353472LL;
+  SharedData = NtCurrentPeb()->SharedData;
+  if ( SharedData && SharedData->ServiceSessionId )
+    UserModeGlobalLogger = (__int64)NtCurrentPeb()->SharedData->UserModeGlobalLogger;
   else
-    v7 = 2147353472LL;
-  if ( *(_BYTE *)v7 && (NtCurrentPeb()->TracingFlags & 1) != 0 )
+    UserModeGlobalLogger = 2147353472LL;
+  if ( *(_BYTE *)UserModeGlobalLogger && (NtCurrentPeb()->TracingFlags & 1) != 0 )
   {
-    v11 = a1;
-    v10 = 4139;
-    if ( (unsigned int)RtlGetCurrentServiceSessionId(v7, v2, v3, v4) )
-      v5 = (__int64)NtCurrentPeb()->HotpatchInformation + 550;
-    ZwTraceEvent(*(unsigned __int8 *)v5, 1026LL, 8LL, v9);
+    v8 = HeapHandle;
+    v7 = 4139;
+    if ( RtlGetCurrentServiceSessionId() )
+      v2 = (__int64)NtCurrentPeb()->SharedData->UserModeGlobalLogger;
+    ZwTraceEvent((HANDLE)*(unsigned __int8 *)v2, 0x402u, 8u, Fields);
   }
   return 1;
 }

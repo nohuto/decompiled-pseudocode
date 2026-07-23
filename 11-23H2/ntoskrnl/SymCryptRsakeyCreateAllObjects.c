@@ -1,14 +1,14 @@
 /*
- * XREFs of SymCryptRsakeyCreateAllObjects @ 0x1403F79EC
+ * XREFs of SymCryptRsakeyCreateAllObjects @ 0x1403F7BCC
  * Callers:
- *     SymCryptRsakeySetValue @ 0x1403F7B0C (SymCryptRsakeySetValue.c)
+ *     SymCryptRsakeySetValue @ 0x1403F7CEC (SymCryptRsakeySetValue.c)
  * Callees:
- *     SymCryptIntCreate @ 0x1403F9348 (SymCryptIntCreate.c)
- *     SymCryptModElementCreate @ 0x1403F966C (SymCryptModElementCreate.c)
- *     SymCryptModulusCreate @ 0x1403F9A40 (SymCryptModulusCreate.c)
- *     SymCryptSizeofIntFromDigits @ 0x1403F9A70 (SymCryptSizeofIntFromDigits.c)
- *     SymCryptSizeofModElementFromModulus @ 0x1403F9A88 (SymCryptSizeofModElementFromModulus.c)
- *     SymCryptSizeofModulusFromDigits @ 0x1403F9AA0 (SymCryptSizeofModulusFromDigits.c)
+ *     SymCryptIntCreate @ 0x1403F9528 (SymCryptIntCreate.c)
+ *     SymCryptModElementCreate @ 0x1403F984C (SymCryptModElementCreate.c)
+ *     SymCryptModulusCreate @ 0x1403F9C20 (SymCryptModulusCreate.c)
+ *     SymCryptSizeofIntFromDigits @ 0x1403F9C50 (SymCryptSizeofIntFromDigits.c)
+ *     SymCryptSizeofModElementFromModulus @ 0x1403F9C68 (SymCryptSizeofModElementFromModulus.c)
+ *     SymCryptSizeofModulusFromDigits @ 0x1403F9C80 (SymCryptSizeofModulusFromDigits.c)
  */
 
 __int64 __fastcall SymCryptRsakeyCreateAllObjects(_DWORD *a1, __int64 a2)

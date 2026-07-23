@@ -1,10 +1,10 @@
 /*
- * XREFs of VerifierExReleaseResourceForThreadLiteNoReboot @ 0x1409E2420
+ * XREFs of VerifierExReleaseResourceForThreadLiteNoReboot @ 0x1409E3420
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     ViResourceReleaseSanityChecks @ 0x1409E2698 (ViResourceReleaseSanityChecks.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     ViResourceReleaseSanityChecks @ 0x1409E3698 (ViResourceReleaseSanityChecks.c)
  */
 
 __int64 __fastcall VerifierExReleaseResourceForThreadLiteNoReboot(ULONG_PTR a1, __int64 a2)

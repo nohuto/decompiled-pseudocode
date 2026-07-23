@@ -1,13 +1,13 @@
 /*
- * XREFs of VfPnpVerifyIrpStackDownward @ 0x140AE6FE0
+ * XREFs of VfPnpVerifyIrpStackDownward @ 0x140AE6FD0
  * Callers:
  *     <none>
  * Callees:
- *     ViErrorReport1 @ 0x1405CFE24 (ViErrorReport1.c)
- *     VfGetPristineDriverInit @ 0x140ACD27C (VfGetPristineDriverInit.c)
- *     IovUtilIsDeviceObjectMarked @ 0x140AD2B44 (IovUtilIsDeviceObjectMarked.c)
- *     IovUtilIsWdmStack @ 0x140AD2CE0 (IovUtilIsWdmStack.c)
- *     ViPnpVerifyMinorWasProcessedProperly @ 0x140AE7460 (ViPnpVerifyMinorWasProcessedProperly.c)
+ *     ViErrorReport1 @ 0x1405D0394 (ViErrorReport1.c)
+ *     VfGetPristineDriverInit @ 0x140ACD26C (VfGetPristineDriverInit.c)
+ *     IovUtilIsDeviceObjectMarked @ 0x140AD2B34 (IovUtilIsDeviceObjectMarked.c)
+ *     IovUtilIsWdmStack @ 0x140AD2CD0 (IovUtilIsWdmStack.c)
+ *     ViPnpVerifyMinorWasProcessedProperly @ 0x140AE7450 (ViPnpVerifyMinorWasProcessedProperly.c)
  */
 
 __int64 __fastcall VfPnpVerifyIrpStackDownward(

@@ -1,12 +1,12 @@
 /*
- * XREFs of KiIntSteerCalculateDistribution @ 0x140229E00
+ * XREFs of KiIntSteerCalculateDistribution @ 0x1402CE6B0
  * Callers:
- *     KeIntSteerPeriodic @ 0x140229480 (KeIntSteerPeriodic.c)
+ *     KeIntSteerPeriodic @ 0x1402CDD80 (KeIntSteerPeriodic.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     qsort @ 0x1403D2AC0 (qsort.c)
- *     _alloca_probe @ 0x1404084A0 (_alloca_probe.c)
- *     KiIntSteerComputeCpuSet @ 0x1405227A0 (KiIntSteerComputeCpuSet.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     qsort @ 0x1403D2C30 (qsort.c)
+ *     _alloca_probe @ 0x140408680 (_alloca_probe.c)
+ *     KiIntSteerComputeCpuSet @ 0x1405229E0 (KiIntSteerComputeCpuSet.c)
  */
 
 __int64 __fastcall KiIntSteerCalculateDistribution(unsigned __int16 *a1, unsigned int a2)
@@ -96,7 +96,7 @@ LABEL_7:
       i = (unsigned int)(i - 1);
     }
   }
-  qsort(Base, v21, 8uLL, KiIntSteerLoadCompare);
+  qsort(Base, v21, 8uLL, (int (__cdecl *)(const void *, const void *))KiIntSteerLoadCompare);
   v23 = 0;
   v24 = 1;
   if ( KiIntTrackRootCount )

@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpIvtProcessDmarTable @ 0x1404E7360
+ * XREFs of HalpIvtProcessDmarTable @ 0x1404E75A0
  * Callers:
- *     HalpIommuRegisterBuiltinPlugins @ 0x1403A94B8 (HalpIommuRegisterBuiltinPlugins.c)
+ *     HalpIommuRegisterBuiltinPlugins @ 0x1403AA248 (HalpIommuRegisterBuiltinPlugins.c)
  * Callees:
- *     HalpIvtProcessDrhdEntry @ 0x1404E740C (HalpIvtProcessDrhdEntry.c)
- *     DmrGetNextRemappingStructure @ 0x1404E861C (DmrGetNextRemappingStructure.c)
+ *     HalpIvtProcessDrhdEntry @ 0x1404E764C (HalpIvtProcessDrhdEntry.c)
+ *     DmrGetNextRemappingStructure @ 0x1404E885C (DmrGetNextRemappingStructure.c)
  */
 
 __int64 __fastcall HalpIvtProcessDmarTable(__int64 a1, _BYTE *a2)
@@ -27,7 +27,7 @@ __int64 __fastcall HalpIvtProcessDmarTable(__int64 a1, _BYTE *a2)
     {
       v5 = (*(_BYTE *)(a1 + 37) & 4) == 0;
       v6 = 0;
-      qword_140CF55D8 = a1;
+      qword_140CF5618 = a1;
       if ( !v5 )
       {
         v7 = 0LL;

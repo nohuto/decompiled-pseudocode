@@ -1,23 +1,25 @@
 /*
- * XREFs of PspProcessQosChangeNotificationWorker @ 0x140B47740
+ * XREFs of PspProcessQosChangeNotificationWorker @ 0x140B77F30
  * Callers:
  *     <none>
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     PsGetProcessId @ 0x140466BE0 (PsGetProcessId.c)
- *     ExReleaseExtensionTable @ 0x14048FC18 (ExReleaseExtensionTable.c)
- *     ExGetExtensionTable @ 0x14049B7B0 (ExGetExtensionTable.c)
- *     KeCalculateProcessDefaultQos @ 0x1405F93F0 (KeCalculateProcessDefaultQos.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     PsGetProcessId @ 0x140460330 (PsGetProcessId.c)
+ *     ExReleaseExtensionTable @ 0x1404896C4 (ExReleaseExtensionTable.c)
+ *     ExGetExtensionTable @ 0x140495300 (ExGetExtensionTable.c)
+ *     KeCalculateProcessDefaultQos @ 0x1405FBE10 (KeCalculateProcessDefaultQos.c)
+ *     Feature_DefaultQosDeletingProcesses__private_IsEnabledDeviceUsageNoInline @ 0x140617CAC (Feature_DefaultQosDeletingProcesses__private_IsEnabledDeviceUsageNoInline.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 void __fastcall PspProcessQosChangeNotificationWorker(__int64 a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
@@ -51,16 +53,16 @@ void __fastcall PspProcessQosChangeNotificationWorker(__int64 a1, __int64 a2, __
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  v5 = (AutoBoost *)KeAbPreAcquire((__int64)&PsAltSystemCallRegistrationLock.WaitBlock[3], 0LL, 0LL, a4);
+  v5 = (AutoBoost *)KeAbPreAcquire((__int64)&PsAltSystemCallRegistrationLock.SchedulerApc.ApcListEntry, 0LL, 0LL, a4);
   v7 = _interlockedbittestandset64(
-         (volatile signed __int32 *)&PsAltSystemCallRegistrationLock.WaitBlockFill11[144],
+         (volatile signed __int32 *)&PsAltSystemCallRegistrationLock.SchedulerApcFill5[16],
          0LL);
   v8 = v5;
   if ( v7 )
     ExfAcquirePushLockExclusiveEx(
-      (unsigned __int64 *)&PsAltSystemCallRegistrationLock.WaitBlock[3],
+      (unsigned __int64 *)&PsAltSystemCallRegistrationLock.SchedulerApc.ApcListEntry,
       v5,
-      (__int64)&PsAltSystemCallRegistrationLock.WaitBlock[3]);
+      (__int64)&PsAltSystemCallRegistrationLock.SchedulerApc.ApcListEntry);
   if ( v8 )
   {
     if ( (KiAbpGlobalState & 1) != 0 )
@@ -71,64 +73,69 @@ void __fastcall PspProcessQosChangeNotificationWorker(__int64 a1, __int64 a2, __
   ExtensionTable = ExGetExtensionTable((struct _EX_RUNDOWN_REF *)PspDxgExtensionHost);
   while ( 1 )
   {
-    Blink = PsAltSystemCallRegistrationLock.WaitBlock[3].WaitListEntry.Blink;
-    if ( !PsAltSystemCallRegistrationLock.WaitBlock[3].WaitListEntry.Blink )
+    Blink = PsAltSystemCallRegistrationLock.SchedulerApc.ApcListEntry.Blink;
+    if ( !PsAltSystemCallRegistrationLock.SchedulerApc.ApcListEntry.Blink )
       break;
-    p_Blink = (struct _KPROCESS *)&PsAltSystemCallRegistrationLock.WaitBlock[3].WaitListEntry.Blink[-132].Blink;
-    PsAltSystemCallRegistrationLock.WaitBlock[3].WaitListEntry.Blink = PsAltSystemCallRegistrationLock.WaitBlock[3].WaitListEntry.Blink->Flink;
+    p_Blink = (struct _KPROCESS *)&PsAltSystemCallRegistrationLock.SchedulerApc.ApcListEntry.Blink[-132].Blink;
+    PsAltSystemCallRegistrationLock.SchedulerApc.ApcListEntry.Blink = PsAltSystemCallRegistrationLock.SchedulerApc.ApcListEntry.Blink->Flink;
     Blink->Flink = (struct _LIST_ENTRY *)1;
     v11 = KeCalculateProcessDefaultQos((__int64)&Blink[-132].Blink);
     if ( (_InterlockedExchangeAdd64(
-            (volatile signed __int64 *)&PsAltSystemCallRegistrationLock.WaitBlock[3].WaitListEntry.Flink,
+            (volatile signed __int64 *)&PsAltSystemCallRegistrationLock.SchedulerApc.ApcListEntry.Flink,
             0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-      ExfTryToWakePushLock((volatile signed __int64 *)&PsAltSystemCallRegistrationLock.WaitBlock[3]);
-    KeAbPostRelease((unsigned __int64)&PsAltSystemCallRegistrationLock.WaitBlock[3]);
+      ExfTryToWakePushLock((volatile signed __int64 *)&PsAltSystemCallRegistrationLock.SchedulerApc.ApcListEntry);
+    KeAbPostRelease((unsigned __int64)&PsAltSystemCallRegistrationLock.SchedulerApc.ApcListEntry);
     if ( ExtensionTable )
     {
       LOBYTE(v12) = v11;
       guard_dispatch_icall_no_overrides((__int64)p_Blink, v12);
-      if ( *(_DWORD *)&SshpBlockerCollections.SavedApcStateFill[40] > 5u
-        && tlgKeywordOn((__int64)&SshpBlockerCollections.SavedApcStateFill[40], 1LL) )
+      if ( *(_DWORD *)&SshpBlockerCollections.SavedApcStateFill[40] <= 5u
+        || !tlgKeywordOn((__int64)&SshpBlockerCollections.SavedApcStateFill[40], 1LL) )
       {
-        ProcessId = (unsigned int)PsGetProcessId(p_Blink);
-        v14 = (unsigned __int8 *)byte_14005256D;
-LABEL_17:
-        v21 = ProcessId;
-        v25 = 4LL;
-        v24 = &v21;
-        v20 = v11;
-        v26 = &v20;
-        v27 = 1LL;
-        v28 = &v22;
-        v22 = 0x1000000LL;
-        v29 = 8LL;
-        tlgWriteTransfer_EtwWriteTransfer(
-          (__int64)&SshpBlockerCollections.SavedApcStateFill[40],
-          v14,
-          0LL,
-          0LL,
-          5u,
-          &v23);
+        goto LABEL_18;
       }
-    }
-    else if ( *(_DWORD *)&SshpBlockerCollections.SavedApcStateFill[40] > 5u
-           && tlgKeywordOn((__int64)&SshpBlockerCollections.SavedApcStateFill[40], 1LL) )
-    {
       ProcessId = (unsigned int)PsGetProcessId(p_Blink);
-      v14 = (unsigned __int8 *)&word_1400525D6;
-      goto LABEL_17;
+      v14 = (unsigned __int8 *)byte_140053675;
     }
-    ObfDereferenceObject(p_Blink);
-    v16 = (AutoBoost *)KeAbPreAcquire((__int64)&PsAltSystemCallRegistrationLock.WaitBlock[3], 0LL, 0LL, v15);
+    else
+    {
+      if ( *(_DWORD *)&SshpBlockerCollections.SavedApcStateFill[40] <= 5u
+        || !tlgKeywordOn((__int64)&SshpBlockerCollections.SavedApcStateFill[40], 1LL) )
+      {
+        goto LABEL_18;
+      }
+      ProcessId = (unsigned int)PsGetProcessId(p_Blink);
+      v14 = (unsigned __int8 *)&word_1400536DE;
+    }
+    v21 = ProcessId;
+    v25 = 4LL;
+    v24 = &v21;
+    v20 = v11;
+    v26 = &v20;
+    v27 = 1LL;
+    v28 = &v22;
+    v22 = 0x1000000LL;
+    v29 = 8LL;
+    tlgWriteTransfer_EtwWriteTransfer((__int64)&SshpBlockerCollections.SavedApcStateFill[40], v14, 0LL, 0LL, 5u, &v23);
+LABEL_18:
+    if ( (unsigned int)Feature_DefaultQosDeletingProcesses__private_IsEnabledDeviceUsageNoInline() )
+      ObfDereferenceObjectWithTag(p_Blink, 0x71447350u);
+    else
+      ObfDereferenceObject(p_Blink);
+    v16 = (AutoBoost *)KeAbPreAcquire(
+                         (__int64)&PsAltSystemCallRegistrationLock.SchedulerApc.ApcListEntry,
+                         0LL,
+                         0LL,
+                         v15);
     v7 = _interlockedbittestandset64(
-           (volatile signed __int32 *)&PsAltSystemCallRegistrationLock.WaitBlockFill11[144],
+           (volatile signed __int32 *)&PsAltSystemCallRegistrationLock.SchedulerApcFill5[16],
            0LL);
     v18 = v16;
     if ( v7 )
       ExfAcquirePushLockExclusiveEx(
-        (unsigned __int64 *)&PsAltSystemCallRegistrationLock.WaitBlock[3],
+        (unsigned __int64 *)&PsAltSystemCallRegistrationLock.SchedulerApc.ApcListEntry,
         v16,
-        (__int64)&PsAltSystemCallRegistrationLock.WaitBlock[3]);
+        (__int64)&PsAltSystemCallRegistrationLock.SchedulerApc.ApcListEntry);
     if ( v18 )
     {
       if ( (KiAbpGlobalState & 1) != 0 )
@@ -137,13 +144,13 @@ LABEL_17:
         *((_BYTE *)v18 + 10) = 1;
     }
   }
-  PsAltSystemCallRegistrationLock.WaitBlock[2].SparePtr = (PVOID)((unsigned __int64)PsAltSystemCallRegistrationLock.WaitBlock[2].SparePtr & ~1uLL);
+  PsAltSystemCallRegistrationLock.SchedulerApc.Thread = (struct _KTHREAD *)((unsigned __int64)PsAltSystemCallRegistrationLock.SchedulerApc.Thread & ~1uLL);
   if ( ExtensionTable )
     ExReleaseExtensionTable((struct _EX_RUNDOWN_REF *)PspDxgExtensionHost);
   if ( (_InterlockedExchangeAdd64(
-          (volatile signed __int64 *)&PsAltSystemCallRegistrationLock.WaitBlock[3].WaitListEntry.Flink,
+          (volatile signed __int64 *)&PsAltSystemCallRegistrationLock.SchedulerApc.ApcListEntry.Flink,
           0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock((volatile signed __int64 *)&PsAltSystemCallRegistrationLock.WaitBlock[3]);
-  KeAbPostRelease((unsigned __int64)&PsAltSystemCallRegistrationLock.WaitBlock[3]);
+    ExfTryToWakePushLock((volatile signed __int64 *)&PsAltSystemCallRegistrationLock.SchedulerApc.ApcListEntry);
+  KeAbPostRelease((unsigned __int64)&PsAltSystemCallRegistrationLock.SchedulerApc.ApcListEntry);
   KeLeaveCriticalRegion();
 }

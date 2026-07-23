@@ -1,7 +1,7 @@
 /*
- * XREFs of KiAbTryDecrementIoWaiterCounts @ 0x1400317E0
+ * XREFs of KiAbTryDecrementIoWaiterCounts @ 0x140031360
  * Callers:
- *     KiAbEntryRemoveFromTree @ 0x140031030 (KiAbEntryRemoveFromTree.c)
+ *     KiAbEntryRemoveFromTree @ 0x140030BB0 (KiAbEntryRemoveFromTree.c)
  * Callees:
  *     <none>
  */

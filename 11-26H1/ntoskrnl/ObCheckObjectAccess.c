@@ -1,22 +1,22 @@
 /*
- * XREFs of ObCheckObjectAccess @ 0x140904A50
+ * XREFs of ObCheckObjectAccess @ 0x1409349E0
  * Callers:
- *     PspReferenceCpuPartitionByHandle @ 0x1407F2CB4 (PspReferenceCpuPartitionByHandle.c)
+ *     PspReferenceCpuPartitionByHandle @ 0x1407F8814 (PspReferenceCpuPartitionByHandle.c)
  * Callees:
- *     ExAcquireResourceSharedLite @ 0x1402B3C80 (ExAcquireResourceSharedLite.c)
- *     ExReleaseResourceLite @ 0x1402B4CF0 (ExReleaseResourceLite.c)
- *     SeAccessCheck @ 0x1402B6340 (SeAccessCheck.c)
- *     KeLeaveCriticalRegionThread @ 0x1402B8A60 (KeLeaveCriticalRegionThread.c)
- *     CmSiFreeMemory @ 0x140495010 (CmSiFreeMemory.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     SepConcatenatePrivileges @ 0x140904FC0 (SepConcatenatePrivileges.c)
- *     ObpReferenceSecurityDescriptorSlow @ 0x140905024 (ObpReferenceSecurityDescriptorSlow.c)
- *     SeOpenObjectAuditAlarmWithTransaction @ 0x14092F570 (SeOpenObjectAuditAlarmWithTransaction.c)
- *     ObDereferenceSecurityDescriptor @ 0x140931DF0 (ObDereferenceSecurityDescriptor.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExAcquireResourceSharedLite @ 0x1402FE950 (ExAcquireResourceSharedLite.c)
+ *     ExReleaseResourceLite @ 0x1402FF9C0 (ExReleaseResourceLite.c)
+ *     SeAccessCheck @ 0x140301000 (SeAccessCheck.c)
+ *     KeLeaveCriticalRegionThread @ 0x140303720 (KeLeaveCriticalRegionThread.c)
+ *     CmSiFreeMemory @ 0x14048EB60 (CmSiFreeMemory.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     SeOpenObjectAuditAlarmWithTransaction @ 0x14090B0A0 (SeOpenObjectAuditAlarmWithTransaction.c)
+ *     ObDereferenceSecurityDescriptor @ 0x14090D9C0 (ObDereferenceSecurityDescriptor.c)
+ *     SepConcatenatePrivileges @ 0x140934F50 (SepConcatenatePrivileges.c)
+ *     ObpReferenceSecurityDescriptorSlow @ 0x140934FB4 (ObpReferenceSecurityDescriptorSlow.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 char __fastcall ObCheckObjectAccess(
@@ -45,35 +45,33 @@ char __fastcall ObCheckObjectAccess(
   int v24; // ecx
   unsigned int v25; // r13d
   ACCESS_MASK v26; // eax
-  __int64 v27; // rdx
-  __int64 v28; // r8
+  __int64 v27; // r8
+  struct _KLOCK_ENTRIES *v28; // r9
   PERESOURCE *ClientToken; // rcx
-  __int64 v30; // rdx
-  __int64 v31; // r8
-  signed __int64 v32; // rax
-  signed __int64 v33; // rtt
-  unsigned int v35; // r13d
-  PVOID *v36; // r15
-  _DWORD *v37; // rdx
-  PPRIVILEGE_SET v38; // r8
-  void *v39; // r12
-  __int64 v40; // rdx
-  int v41; // [rsp+50h] [rbp-68h]
+  signed __int64 v30; // rax
+  signed __int64 v31; // rtt
+  unsigned int v33; // r13d
+  PVOID *v34; // r15
+  _DWORD *v35; // rdx
+  PPRIVILEGE_SET v36; // r8
+  void *v37; // r12
+  __int64 v38; // rdx
+  int v39; // [rsp+50h] [rbp-68h]
   ACCESS_MASK GrantedAccess; // [rsp+58h] [rbp-60h] BYREF
   PPRIVILEGE_SET Privileges; // [rsp+60h] [rbp-58h] BYREF
   PVOID *AuxData; // [rsp+68h] [rbp-50h]
-  void *v45; // [rsp+70h] [rbp-48h]
-  ULONG_PTR v46; // [rsp+78h] [rbp-40h]
-  char v47; // [rsp+C0h] [rbp+8h]
+  void *v43; // [rsp+70h] [rbp-48h]
+  ULONG_PTR v44; // [rsp+78h] [rbp-40h]
+  char v45; // [rsp+C0h] [rbp+8h]
 
   v7 = *((unsigned __int8 *)Object - 24) ^ (unsigned __int64)(unsigned __int8)((unsigned __int16)((_WORD)Object - 48) >> 8);
   GrantedAccess = 0;
   Privileges = 0LL;
   v9 = ObTypeIndexTable[(unsigned __int8)ObHeaderCookie ^ v7];
-  v46 = v9;
-  if ( *(_UNKNOWN **)(v9 + 152) != &SeDefaultObjectMethod )
+  v44 = v9;
+  if ( *(__int64 (__fastcall **)(__int64, int, DWORD *, struct _KLOCK_ENTRIES *, ULONG *, __int64 *, int, __int64))(v9 + 152) != SeDefaultObjectMethod )
   {
-    v41 = ObpDefaultSecurityDescriptorLength;
+    v39 = ObpDefaultSecurityDescriptorLength;
     Pool2 = ExAllocatePool2(0x100uLL);
     if ( Pool2 )
     {
@@ -88,11 +86,11 @@ LABEL_32:
           *AccessStatus = v15;
           return 0;
         }
-        v47 = 1;
+        v45 = 1;
         goto LABEL_9;
       }
       ExFreePoolWithTag((PVOID)Pool2, 0);
-      ObpDefaultSecurityDescriptorLength = v41;
+      ObpDefaultSecurityDescriptorLength = v39;
       Pool2 = ExAllocatePool2(0x100uLL);
       if ( Pool2 )
       {
@@ -122,7 +120,7 @@ LABEL_32:
   v14 = v11 & 0xF;
   if ( (unsigned int)v14 <= 1 && Pool2 )
     Pool2 = ObpReferenceSecurityDescriptorSlow(Object - 6, v14, Pool2);
-  v47 = 0;
+  v45 = 0;
   if ( !Pool2 && ((*(_BYTE *)(v9 + 66) & 8) != 0 || (*((_BYTE *)Object - 22) & 2) != 0) )
     KeBugCheckEx(0x189u, (ULONG_PTR)(Object - 6), v9, 1uLL, 0LL);
   v15 = 0;
@@ -160,28 +158,28 @@ LABEL_9:
       v24 = *(_DWORD *)*AuxData;
       if ( v24 + PrivilegeCount > 3 )
       {
-        v35 = 8;
-        v45 = (void *)ExAllocatePool2(0x100uLL);
-        if ( v45 )
+        v33 = 8;
+        v43 = (void *)ExAllocatePool2(0x100uLL);
+        if ( v43 )
         {
-          v36 = AuxData;
-          v37 = *AuxData;
+          v34 = AuxData;
+          v35 = *AuxData;
           if ( *AuxData )
           {
-            if ( *v37 )
-              v35 = 12 * *v37 + 8;
+            if ( *v35 )
+              v33 = 12 * *v35 + 8;
           }
           else
           {
-            v35 = 0;
+            v33 = 0;
           }
-          memmove(v45, v37, v35);
-          v38 = v20;
-          v39 = v45;
-          SepConcatenatePrivileges(v45, v40, v38);
+          memmove(v43, v35, v33);
+          v36 = v20;
+          v37 = v43;
+          SepConcatenatePrivileges(v43, v38, v36);
           if ( AccessState->PrivilegesAllocated )
-            ExFreePoolWithTag(*v36, 0);
-          *v36 = v39;
+            ExFreePoolWithTag(*v34, 0);
+          *v34 = v37;
           AccessState->PrivilegesAllocated = 1;
         }
       }
@@ -202,7 +200,7 @@ LABEL_9:
         *v23 += v20->PrivilegeCount;
       }
       CmSiFreeMemory(Privileges);
-      v9 = v46;
+      v9 = v44;
     }
     if ( v21 )
     {
@@ -223,29 +221,29 @@ LABEL_9:
         0LL,
         &AccessState->GenerateOnClose);
     ExReleaseResourceLite(*((PERESOURCE *)AccessState->SubjectSecurityContext.PrimaryToken + 6));
-    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v27, v28);
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
     ClientToken = (PERESOURCE *)AccessState->SubjectSecurityContext.ClientToken;
     if ( ClientToken )
     {
       ExReleaseResourceLite(ClientToken[6]);
-      KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v30, v31);
+      KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
     }
-    if ( v47 )
+    if ( v45 )
     {
       ExFreePoolWithTag((PVOID)Pool2, 0);
     }
     else
     {
       _m_prefetchw(Object - 1);
-      v32 = *(Object - 1);
-      while ( (Pool2 ^ v32) < 0xF )
+      v30 = *(Object - 1);
+      while ( (Pool2 ^ v30) < 0xF )
       {
-        v33 = v32;
-        v32 = _InterlockedCompareExchange64(Object - 1, v32 + 1, v32);
-        if ( v33 == v32 )
+        v31 = v30;
+        v30 = _InterlockedCompareExchange64(Object - 1, v30 + 1, v30);
+        if ( v31 == v30 )
           return v21;
       }
-      ObDereferenceSecurityDescriptor(Pool2, 1LL);
+      ObDereferenceSecurityDescriptor(Pool2, 1u, v27, v28);
     }
     return v21;
   }

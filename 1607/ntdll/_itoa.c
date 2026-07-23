@@ -1,9 +1,9 @@
 /*
- * XREFs of _itoa @ 0x1800973E0
+ * XREFs of _itoa @ 0x1800973D0
  * Callers:
  *     <none>
  * Callees:
- *     xtoa @ 0x180097520 (xtoa.c)
+ *     xtoa @ 0x180097510 (xtoa.c)
  */
 
 char *__cdecl itoa(int Value, char *Buffer, int Radix)

@@ -1,19 +1,19 @@
 /*
- * XREFs of PnpNotifyHwProfileChange @ 0x14089FAC8
+ * XREFs of PnpNotifyHwProfileChange @ 0x14089FC28
  * Callers:
- *     PnpDeviceEventWorker @ 0x1406E78D0 (PnpDeviceEventWorker.c)
- *     PnpRequestHwProfileChangeNotification @ 0x14089FD98 (PnpRequestHwProfileChangeNotification.c)
+ *     PnpDeviceEventWorker @ 0x1406FECB0 (PnpDeviceEventWorker.c)
+ *     PnpRequestHwProfileChangeNotification @ 0x14089FEF8 (PnpRequestHwProfileChangeNotification.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     KeReleaseGuardedMutex @ 0x140265CD0 (KeReleaseGuardedMutex.c)
- *     ExAcquireFastMutex @ 0x14034A080 (ExAcquireFastMutex.c)
- *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
- *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
- *     RtlCopyUnicodeString @ 0x1403534C0 (RtlCopyUnicodeString.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     RtlCompareMemory @ 0x1404081B0 (RtlCompareMemory.c)
- *     PnpNotifyDriverCallback @ 0x1406E5CC4 (PnpNotifyDriverCallback.c)
- *     PnpDereferenceNotify @ 0x1406E5E00 (PnpDereferenceNotify.c)
+ *     KeReleaseGuardedMutex @ 0x140253C70 (KeReleaseGuardedMutex.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquireFastMutex @ 0x140354DD0 (ExAcquireFastMutex.c)
+ *     ExReleaseResourceLite @ 0x140356140 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1403568F0 (ExAcquireResourceExclusiveLite.c)
+ *     RtlCopyUnicodeString @ 0x14035E210 (RtlCopyUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     RtlCompareMemory @ 0x140408390 (RtlCompareMemory.c)
+ *     PnpNotifyDriverCallback @ 0x1406FD0AC (PnpNotifyDriverCallback.c)
+ *     PnpDereferenceNotify @ 0x1406FD1E8 (PnpDereferenceNotify.c)
  */
 
 __int64 __fastcall PnpNotifyHwProfileChange(GUID *Source1, _DWORD *a2, UNICODE_STRING *a3)
@@ -24,14 +24,23 @@ __int64 __fastcall PnpNotifyHwProfileChange(GUID *Source1, _DWORD *a2, UNICODE_S
   struct _KTHREAD *CurrentThread; // rax
   GUID v10; // xmm0
   int v11; // ebx
-  PVOID **v12; // rsi
-  PVOID **v13; // rbx
-  struct _KTHREAD *v14; // rax
-  int v16; // [rsp+20h] [rbp-30h] BYREF
-  _BYTE v17[20]; // [rsp+28h] [rbp-28h] BYREF
+  __int64 v12; // rdx
+  __int64 v13; // r8
+  __int64 v14; // r9
+  PVOID **v15; // rsi
+  PVOID **v16; // rbx
+  struct _KTHREAD *v17; // rax
+  __int64 v18; // rdx
+  __int64 v19; // r8
+  __int64 v20; // r9
+  __int64 v22; // rdx
+  __int64 v23; // r8
+  __int64 v24; // r9
+  int v25; // [rsp+20h] [rbp-30h] BYREF
+  _BYTE v26[20]; // [rsp+28h] [rbp-28h] BYREF
 
-  v16 = 0;
-  memset(v17, 0, sizeof(v17));
+  v25 = 0;
+  memset(v26, 0, sizeof(v26));
   v4 = 0;
   ExAcquireFastMutex(&PnpHwProfileNotifyLock);
   v7 = (PVOID *)PnpProfileNotifyList;
@@ -46,21 +55,21 @@ __int64 __fastcall PnpNotifyHwProfileChange(GUID *Source1, _DWORD *a2, UNICODE_S
     if ( *((_BYTE *)v7 + 58) )
     {
       ExReleaseResourceLite((PERESOURCE)v7[9]);
-      KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-      v4 = v16;
+      KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v22, v23, v24);
+      v4 = v25;
     }
     else
     {
       v10 = *Source1;
-      *(_DWORD *)v17 = 1310721;
-      *(GUID *)&v17[4] = v10;
-      v11 = PnpNotifyDriverCallback((__int64)v7, (__int64)v17, &v16);
+      *(_DWORD *)v26 = 1310721;
+      *(GUID *)&v26[4] = v10;
+      v11 = PnpNotifyDriverCallback((__int64)v7, (__int64)v26, &v25);
       ExReleaseResourceLite((PERESOURCE)v7[9]);
-      KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-      v4 = v16;
+      KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v12, v13, v14);
+      v4 = v25;
       if ( v11 < 0 )
         v4 = 0;
-      v16 = v4;
+      v25 = v4;
       if ( v4 < 0
         && (Source1 == &GUID_HWPROFILE_QUERY_CHANGE
          || RtlCompareMemory(Source1, &GUID_HWPROFILE_QUERY_CHANGE, 0x10uLL) == 16) )
@@ -72,30 +81,30 @@ __int64 __fastcall PnpNotifyHwProfileChange(GUID *Source1, _DWORD *a2, UNICODE_S
           a3->Length = 0;
           RtlCopyUnicodeString(a3, (PCUNICODE_STRING)((char *)v7[6] + 56));
         }
-        *(_WORD *)&v17[2] = 16;
-        v12 = (PVOID **)v7;
-        *(GUID *)&v17[4] = GUID_HWPROFILE_CHANGE_CANCELLED;
+        *(_WORD *)&v26[2] = 16;
+        v15 = (PVOID **)v7;
+        *(GUID *)&v26[4] = GUID_HWPROFILE_CHANGE_CANCELLED;
         ExAcquireFastMutex(&PnpHwProfileNotifyLock);
         do
         {
           ++*((_WORD *)v7 + 28);
-          v13 = (PVOID **)v7;
+          v16 = (PVOID **)v7;
           KeReleaseGuardedMutex(&PnpHwProfileNotifyLock);
-          v14 = KeGetCurrentThread();
-          --v14->KernelApcDisable;
+          v17 = KeGetCurrentThread();
+          --v17->KernelApcDisable;
           ExAcquireResourceExclusiveLite((PERESOURCE)v7[9], 1u);
           if ( !*((_BYTE *)v7 + 58) )
-            PnpNotifyDriverCallback((__int64)v7, (__int64)v17, 0LL);
+            PnpNotifyDriverCallback((__int64)v7, (__int64)v26, 0LL);
           ExReleaseResourceLite((PERESOURCE)v7[9]);
-          KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+          KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v18, v19, v20);
           ExAcquireFastMutex(&PnpHwProfileNotifyLock);
           v7 = (PVOID *)v7[1];
-          PnpDereferenceNotify(v13);
-          if ( v13 == v12 )
-            PnpDereferenceNotify(v13);
+          PnpDereferenceNotify(v16);
+          if ( v16 == v15 )
+            PnpDereferenceNotify(v16);
         }
         while ( v7 != &PnpProfileNotifyList );
-        v4 = v16;
+        v4 = v25;
         break;
       }
     }

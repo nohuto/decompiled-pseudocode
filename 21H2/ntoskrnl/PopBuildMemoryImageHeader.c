@@ -1,16 +1,16 @@
 /*
- * XREFs of PopBuildMemoryImageHeader @ 0x140996724
+ * XREFs of PopBuildMemoryImageHeader @ 0x140997724
  * Callers:
- *     PopEndMirroring @ 0x140996250 (PopEndMirroring.c)
+ *     PopEndMirroring @ 0x140997250 (PopEndMirroring.c)
  * Callees:
- *     MmGetPhysicalAddress @ 0x1402A8700 (MmGetPhysicalAddress.c)
- *     MmGetHighestPhysicalPage @ 0x140353318 (MmGetHighestPhysicalPage.c)
- *     PoSetHiberRange @ 0x140388060 (PoSetHiberRange.c)
+ *     MmGetPhysicalAddress @ 0x140226840 (MmGetPhysicalAddress.c)
+ *     MmGetHighestPhysicalPage @ 0x14035E068 (MmGetHighestPhysicalPage.c)
+ *     PoSetHiberRange @ 0x1403881B0 (PoSetHiberRange.c)
  *     Feature_Servicing_HibernateRelaxVBSPolicy__private_IsEnabledNoReporting @ 0x1403F831C (Feature_Servicing_HibernateRelaxVBSPolicy__private_IsEnabledNoReporting.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     memset @ 0x140414200 (memset.c)
- *     PopAllocatePages @ 0x140996B74 (PopAllocatePages.c)
- *     PopBootLoaderTraceCopyPfnList @ 0x140996BE0 (PopBootLoaderTraceCopyPfnList.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     PopAllocatePages @ 0x140997B74 (PopAllocatePages.c)
+ *     PopBootLoaderTraceCopyPfnList @ 0x140997BE0 (PopBootLoaderTraceCopyPfnList.c)
  */
 
 __int64 __fastcall PopBuildMemoryImageHeader(_QWORD *MemoryMap, int a2)
@@ -41,13 +41,13 @@ __int64 __fastcall PopBuildMemoryImageHeader(_QWORD *MemoryMap, int a2)
     *(_QWORD *)(v3 + 16) = (unsigned __int64)MmGetPhysicalAddress((PVOID)v3).QuadPart >> 12;
     *(_QWORD *)(v3 + 32) = MEMORY[0xFFFFF78000000014];
     *(_QWORD *)(v3 + 40) = MEMORY[0xFFFFF78000000008];
-    *(_QWORD *)(v3 + 64) = qword_140C23870;
+    *(_QWORD *)(v3 + 64) = qword_140C23E90;
     *(_DWORD *)(v3 + 60) = 10;
     *(_QWORD *)(v3 + 48) = KeFeatureBits;
     *(_DWORD *)(v3 + 4) = (unsigned __int16)KeProcessorArchitecture;
     *(_BYTE *)(v3 + 56) = *((_BYTE *)MemoryMap + 1);
     *(_BYTE *)(v3 + 57) = -54;
-    *(_BYTE *)(v3 + 868) = byte_140C23880;
+    *(_BYTE *)(v3 + 868) = byte_140C23EA0;
     *(_QWORD *)(v3 + 920) = MmGetHighestPhysicalPage(0);
     *(_BYTE *)(v3 + 869) = PopSecureLaunched;
     *(_BYTE *)(v3 + 870) = *((_BYTE *)MemoryMap + 453);

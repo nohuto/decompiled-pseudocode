@@ -1,9 +1,9 @@
 /*
- * XREFs of PopConfigureHeteroThresholds @ 0x140A9EEA8
+ * XREFs of PopConfigureHeteroThresholds @ 0x140AAA414
  * Callers:
- *     PopConfigureHeteroPolicies @ 0x140A9E35C (PopConfigureHeteroPolicies.c)
+ *     PopConfigureHeteroPolicies @ 0x140AA9D88 (PopConfigureHeteroPolicies.c)
  * Callees:
- *     Feature_UpperThresholdInheritance__private_IsEnabledPreCheck @ 0x1404D5ECC (Feature_UpperThresholdInheritance__private_IsEnabledPreCheck.c)
+ *     Feature_UpperThresholdInheritance__private_IsEnabledPreCheck @ 0x1404CF690 (Feature_UpperThresholdInheritance__private_IsEnabledPreCheck.c)
  */
 
 __int64 __fastcall PopConfigureHeteroThresholds(__int64 a1, unsigned __int8 a2)
@@ -11,7 +11,7 @@ __int64 __fastcall PopConfigureHeteroThresholds(__int64 a1, unsigned __int8 a2)
   _BYTE *v3; // r13
   unsigned __int8 v4; // r14
   unsigned __int8 v5; // r15
-  __int64 *v6; // r9
+  char *v6; // r9
   __int64 v7; // r11
   unsigned __int8 v8; // si
   unsigned __int8 v9; // bp
@@ -32,11 +32,11 @@ __int64 __fastcall PopConfigureHeteroThresholds(__int64 a1, unsigned __int8 a2)
   unsigned __int8 v25; // cl
   __int64 result; // rax
   unsigned __int8 v27; // cl
-  __int64 v28; // rdx
-  __int64 v29; // rdx
+  __int64 QueuedScb; // rdx
+  __int64 OtherTransferCount; // rdx
   __int64 v30; // [rsp+60h] [rbp+18h]
 
-  v3 = &unk_140E0B47C;
+  v3 = &unk_140E0B59C;
   v4 = 0;
   v30 = 7LL;
   v5 = 0;
@@ -60,14 +60,14 @@ __int64 __fastcall PopConfigureHeteroThresholds(__int64 a1, unsigned __int8 a2)
     {
 LABEL_9:
       v7 |= 0xC000000000000000uLL;
-      v6 = &PpmCurrentProfile[89 * dword_140F106CC + 5];
+      v6 = (char *)PpmCurrentProfile + 712 * SHIDWORD(PpmIdlePolicyLock.PropagateBoostsEntry.Next) + 40;
       LOBYTE(v10) = v10 | 3;
       goto LABEL_10;
     }
     if ( (_DWORD)v12 == 1 )
     {
-      v29 = PpmEntryLevelPerfProfile;
-      if ( !PpmEntryLevelPerfProfile )
+      OtherTransferCount = *(_QWORD *)&PopDirectedDripsDiagLock.ThreadTimerDelay;
+      if ( !*(_QWORD *)&PopDirectedDripsDiagLock.ThreadTimerDelay )
         goto LABEL_10;
       goto LABEL_50;
     }
@@ -80,44 +80,44 @@ LABEL_9:
           case 4:
             goto LABEL_9;
           case 5:
-            v28 = PpmEcoQosProfile;
+            QueuedScb = (__int64)PopDirectedDripsDiagLock.QueuedScb;
             break;
           case 6:
-            v28 = PpmUtilityQosProfile;
+            QueuedScb = PopDirectedDripsDiagLock.ReadTransferCount;
             break;
           default:
             goto LABEL_9;
         }
         goto LABEL_47;
       }
-      v29 = PpmMultimediaQosProfile;
-      if ( !PpmMultimediaQosProfile )
+      OtherTransferCount = PopDirectedDripsDiagLock.OtherTransferCount;
+      if ( !PopDirectedDripsDiagLock.OtherTransferCount )
         goto LABEL_9;
 LABEL_50:
-      v6 = (__int64 *)(v29 + 712LL * dword_140F106CC + 40);
-      v7 = *v6;
-      v10 = v6[1];
+      v6 = (char *)(OtherTransferCount + 712LL * SHIDWORD(PpmIdlePolicyLock.PropagateBoostsEntry.Next) + 40);
+      v7 = *(_QWORD *)v6;
+      v10 = *((_QWORD *)v6 + 1);
       goto LABEL_10;
     }
-    v28 = PpmBackgroundProfile;
+    QueuedScb = PopDirectedDripsDiagLock.WriteTransferCount;
 LABEL_47:
-    if ( v28 )
+    if ( QueuedScb )
     {
-      v6 = (__int64 *)(v28 + 712LL * dword_140F106CC + 40);
-      v10 = v6[1];
-      v7 = *v6;
+      v6 = (char *)(QueuedScb + 712LL * SHIDWORD(PpmIdlePolicyLock.PropagateBoostsEntry.Next) + 40);
+      v10 = *((_QWORD *)v6 + 1);
+      v7 = *(_QWORD *)v6;
     }
 LABEL_10:
     if ( v6 )
     {
       if ( (v7 & 0x4000000000000000LL) != 0 )
-        v8 = *((_BYTE *)v6 + 666);
+        v8 = v6[666];
       if ( v7 < 0 )
-        v4 = *((_BYTE *)v6 + 664);
+        v4 = v6[664];
       if ( (v10 & 1) != 0 )
-        v9 = *((_BYTE *)v6 + 667);
+        v9 = v6[667];
       if ( (v10 & 2) != 0 )
-        v5 = *((_BYTE *)v6 + 665);
+        v5 = v6[665];
     }
     v13 = v5;
     v14 = v4;
@@ -149,7 +149,7 @@ LABEL_10:
   while ( v30 );
   Feature_UpperThresholdInheritance__private_IsEnabledPreCheck();
   v17 = *(_BYTE *)(a1 + 76);
-  v18 = &unk_140E0B484;
+  v18 = &unk_140E0B5A4;
   v19 = *(_BYTE *)(a1 + 77);
   v20 = 6LL;
   do

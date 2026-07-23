@@ -30,7 +30,7 @@ signed __int64 __fastcall RtlpRunOnceWaitForInit(signed __int64 a1, volatile sig
   {
     do
     {
-      NtWaitForAlertByThreadId(a2, 0LL);
+      NtWaitForAlertByThreadId((PVOID)a2, 0LL);
       a1 = *a2;
     }
     while ( (BYTE4(v6) & 4) == 0 );

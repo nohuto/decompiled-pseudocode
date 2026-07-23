@@ -1,23 +1,23 @@
 /*
- * XREFs of MiDeleteExtentPfns @ 0x140540780
+ * XREFs of MiDeleteExtentPfns @ 0x1405409C0
  * Callers:
- *     MiAddPhysicalMemory @ 0x1408C4E90 (MiAddPhysicalMemory.c)
+ *     MiAddPhysicalMemory @ 0x1408C4FF0 (MiAddPhysicalMemory.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     KeAbPreAcquire @ 0x14034A230 (KeAbPreAcquire.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402D3660 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     KeAbPreAcquire @ 0x140354F80 (KeAbPreAcquire.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     MiPurgeBadFileOnlyPages @ 0x1405418F0 (MiPurgeBadFileOnlyPages.c)
- *     MiWaitForExtentDeletions @ 0x1405426E0 (MiWaitForExtentDeletions.c)
- *     MiWakeExtentDeletionWaiters @ 0x140542800 (MiWakeExtentDeletionWaiters.c)
- *     MiRemovePhysicalMemory @ 0x1408C5F8C (MiRemovePhysicalMemory.c)
+ *     MiPurgeBadFileOnlyPages @ 0x140541B30 (MiPurgeBadFileOnlyPages.c)
+ *     MiWaitForExtentDeletions @ 0x140542920 (MiWaitForExtentDeletions.c)
+ *     MiWakeExtentDeletionWaiters @ 0x140542A40 (MiWakeExtentDeletionWaiters.c)
+ *     MiRemovePhysicalMemory @ 0x1408C60EC (MiRemovePhysicalMemory.c)
  */
 
 char __fastcall MiDeleteExtentPfns(__int64 a1, __int64 a2)
 {
   __int64 v2; // rdi
-  __int64 v3; // rax
+  PRTL_BALANCED_NODE v3; // rax
   __int64 v4; // rbx
   int v5; // eax
   unsigned __int64 OldIrql; // rsi
@@ -30,27 +30,27 @@ char __fastcall MiDeleteExtentPfns(__int64 a1, __int64 a2)
   memset(&LockHandle, 0, sizeof(LockHandle));
   if ( a1 )
   {
-    v3 = KeAbPreAcquire((ULONG_PTR)&qword_140C4CB10, 0LL, 0);
+    v3 = KeAbPreAcquire((ULONG_PTR)&qword_140C4CB50, 0LL, 0);
     if ( v3 )
-      *(_BYTE *)(v3 + 26) |= 1u;
+      BYTE2(v3[1].Left) |= 1u;
   }
   while ( 1 )
   {
     MiPurgeBadFileOnlyPages(a1, a2);
-    while ( qword_140C4CAE8 )
+    while ( qword_140C4CB28 )
       MiRemovePhysicalMemory(0LL);
-    KeAcquireInStackQueuedSpinLock(&qword_140C51DA0, &LockHandle);
-    v4 = qword_140C4CAE8;
+    KeAcquireInStackQueuedSpinLock(&qword_140C51DE0, &LockHandle);
+    v4 = qword_140C4CB28;
     if ( !v2 )
     {
-      if ( qword_140C4CAE8 || byte_140C4CB31 == 1 )
+      if ( qword_140C4CB28 || byte_140C4CB71 == 1 )
       {
         LOBYTE(v5) = MiWaitForExtentDeletions(&LockHandle);
         return v5;
       }
       goto LABEL_12;
     }
-    if ( !qword_140C4CAE8 )
+    if ( !qword_140C4CB28 )
       break;
 LABEL_12:
     KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
@@ -82,6 +82,6 @@ LABEL_12:
   LOBYTE(v5) = MiWakeExtentDeletionWaiters(&LockHandle);
 LABEL_22:
   if ( v2 )
-    LOBYTE(v5) = KeAbPostRelease((ULONG_PTR)&qword_140C4CB10);
+    LOBYTE(v5) = KeAbPostRelease((ULONG_PTR)&qword_140C4CB50);
   return v5;
 }

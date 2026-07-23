@@ -1,38 +1,37 @@
 /*
- * XREFs of HalpAllocateCommonBufferEntry @ 0x140348EB0
+ * XREFs of HalpAllocateCommonBufferEntry @ 0x14034AF30
  * Callers:
- *     HalpAllocateCommonBufferDmaThin @ 0x140348C34 (HalpAllocateCommonBufferDmaThin.c)
- *     HalpAllocateCommonBufferDmarThin @ 0x1404F1E84 (HalpAllocateCommonBufferDmarThin.c)
- *     HalCreateCommonBufferFromMdl @ 0x140589A30 (HalCreateCommonBufferFromMdl.c)
- *     HalpAllocateDomainCommonBufferInternal @ 0x140589FC0 (HalpAllocateDomainCommonBufferInternal.c)
- *     HalCreateCommonBufferFromMdlDmaThin @ 0x14058AFC0 (HalCreateCommonBufferFromMdlDmaThin.c)
- *     HalCreateCommonBufferFromMdlDmarThin @ 0x14058B4B0 (HalCreateCommonBufferFromMdlDmarThin.c)
+ *     HalpAllocateCommonBufferDmaThin @ 0x14034ACB4 (HalpAllocateCommonBufferDmaThin.c)
+ *     HalpAllocateCommonBufferDmarThin @ 0x1404EB464 (HalpAllocateCommonBufferDmarThin.c)
+ *     HalCreateCommonBufferFromMdl @ 0x14058C160 (HalCreateCommonBufferFromMdl.c)
+ *     HalpAllocateDomainCommonBufferInternal @ 0x14058C6F0 (HalpAllocateDomainCommonBufferInternal.c)
+ *     HalCreateCommonBufferFromMdlDmaThin @ 0x14058D740 (HalCreateCommonBufferFromMdlDmaThin.c)
+ *     HalCreateCommonBufferFromMdlDmarThin @ 0x14058DC30 (HalCreateCommonBufferFromMdlDmarThin.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
- *     RtlRbInsertNodeEx @ 0x1403774B0 (RtlRbInsertNodeEx.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
+ *     RtlRbInsertNodeEx @ 0x140379260 (RtlRbInsertNodeEx.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall HalpAllocateCommonBufferEntry(
         __int64 a1,
-        unsigned __int64 a2,
+        _RTL_BALANCED_NODE *a2,
         __int64 a3,
         __int64 a4,
         char a5,
         __int64 a6)
 {
   __int64 Pool2; // rax
-  char v11; // bl
-  __int64 v12; // rdi
+  BOOLEAN v11; // bl
+  _RTL_BALANCED_NODE *v12; // rdi
   KIRQL v13; // si
-  __int64 v14; // r8
-  unsigned __int64 v15; // rdx
-  unsigned __int64 v16; // rax
+  unsigned __int64 v14; // rdx
+  unsigned __int64 v15; // rax
 
   Pool2 = ExAllocatePool2(0x42uLL);
   v11 = 0;
-  v12 = Pool2;
+  v12 = (_RTL_BALANCED_NODE *)Pool2;
   if ( !Pool2 )
     return 3221225626LL;
   *(_QWORD *)(Pool2 + 48) = a1;
@@ -42,51 +41,50 @@ __int64 __fastcall HalpAllocateCommonBufferEntry(
   *(_BYTE *)(Pool2 + 64) = a5;
   *(_QWORD *)(Pool2 + 32) = a6;
   v13 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(a4 + 80));
-  v15 = *(_QWORD *)(a4 + 64);
+  v14 = *(_QWORD *)(a4 + 64);
   if ( (*(_BYTE *)(a4 + 72) & 1) != 0 )
   {
-    if ( v15 )
-      v15 ^= a4 + 64;
+    if ( v14 )
+      v14 ^= a4 + 64;
     else
-      v15 = 0LL;
+      v14 = 0LL;
   }
-  if ( v15 )
+  if ( v14 )
   {
     while ( 1 )
     {
-      if ( *(_QWORD *)(v15 + 24) > a2 )
+      if ( *(_QWORD *)(v14 + 24) > (unsigned __int64)a2 )
       {
-        v16 = *(_QWORD *)v15;
+        v15 = *(_QWORD *)v14;
         if ( (*(_BYTE *)(a4 + 72) & 1) != 0 )
         {
-          if ( !v16 )
+          if ( !v15 )
             break;
-          v16 ^= v15;
+          v15 ^= v14;
         }
-        if ( !v16 )
+        if ( !v15 )
           break;
       }
       else
       {
-        v16 = *(_QWORD *)(v15 + 8);
+        v15 = *(_QWORD *)(v14 + 8);
         if ( (*(_BYTE *)(a4 + 72) & 1) != 0 )
         {
-          if ( !v16 )
+          if ( !v15 )
             goto LABEL_7;
-          v16 ^= v15;
+          v15 ^= v14;
         }
-        if ( !v16 )
+        if ( !v15 )
         {
 LABEL_7:
           v11 = 1;
           break;
         }
       }
-      v15 = v16;
+      v14 = v15;
     }
   }
-  LOBYTE(v14) = v11;
-  RtlRbInsertNodeEx(a4 + 64, v15, v14, v12);
+  RtlRbInsertNodeEx((PRTL_RB_TREE)(a4 + 64), (PRTL_BALANCED_NODE)v14, v11, v12);
   KeReleaseSpinLock((PKSPIN_LOCK)(a4 + 80), v13);
   return 0LL;
 }

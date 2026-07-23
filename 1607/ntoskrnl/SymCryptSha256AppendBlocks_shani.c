@@ -1,10 +1,10 @@
 /*
- * XREFs of SymCryptSha256AppendBlocks_shani @ 0x140235AEC
+ * XREFs of SymCryptSha256AppendBlocks_shani @ 0x140235918
  * Callers:
- *     SymCryptSha256Result @ 0x1401368E0 (SymCryptSha256Result.c)
- *     SymCryptSha256AppendBlocks @ 0x1401369BC (SymCryptSha256AppendBlocks.c)
- *     SymCryptSha256Append @ 0x140137C78 (SymCryptSha256Append.c)
- *     SymCryptParallelSha256AppendBytes_serial @ 0x1402372B4 (SymCryptParallelSha256AppendBytes_serial.c)
+ *     SymCryptSha256Result @ 0x140136E50 (SymCryptSha256Result.c)
+ *     SymCryptSha256AppendBlocks @ 0x140136F2C (SymCryptSha256AppendBlocks.c)
+ *     SymCryptSha256Append @ 0x1401381E8 (SymCryptSha256Append.c)
+ *     SymCryptParallelSha256AppendBytes_serial @ 0x1402370E0 (SymCryptParallelSha256AppendBytes_serial.c)
  * Callees:
  *     <none>
  */

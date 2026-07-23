@@ -1,13 +1,13 @@
 /*
- * XREFs of PopPepPromoteActivities @ 0x140319590
+ * XREFs of PopPepPromoteActivities @ 0x1402C2120
  * Callers:
- *     PopPepSurprisePowerOn @ 0x1403112AC (PopPepSurprisePowerOn.c)
- *     PopPepUpdateConstraints @ 0x1403128A0 (PopPepUpdateConstraints.c)
- *     PopPepComponentSetLatency @ 0x1403169B8 (PopPepComponentSetLatency.c)
- *     PopPepProcessEvent @ 0x140317DF0 (PopPepProcessEvent.c)
- *     PopPepIdleTimeoutRoutine @ 0x140452AB0 (PopPepIdleTimeoutRoutine.c)
- *     PopPepComponentSetResidency @ 0x1405DB904 (PopPepComponentSetResidency.c)
- *     PopPepComponentSetWakeHint @ 0x1405DBA00 (PopPepComponentSetWakeHint.c)
+ *     PopPepComponentSetLatency @ 0x1402BF568 (PopPepComponentSetLatency.c)
+ *     PopPepProcessEvent @ 0x1402C0980 (PopPepProcessEvent.c)
+ *     PopPepSurprisePowerOn @ 0x1403A60EC (PopPepSurprisePowerOn.c)
+ *     PopPepUpdateConstraints @ 0x1403A750C (PopPepUpdateConstraints.c)
+ *     PopPepIdleTimeoutRoutine @ 0x140447B60 (PopPepIdleTimeoutRoutine.c)
+ *     PopPepComponentSetResidency @ 0x1405D87D4 (PopPepComponentSetResidency.c)
+ *     PopPepComponentSetWakeHint @ 0x1405D88D0 (PopPepComponentSetWakeHint.c)
  * Callees:
  *     <none>
  */
@@ -82,10 +82,10 @@ void __fastcall PopPepPromoteActivities(__int64 a1, __int64 a2, int a3)
   if ( (*v5 & 1) != 0 )
   {
     v8 = *((_BYTE *)v5 + 16);
-    v9 = byte_1400010A8;
+    v9 = byte_140001058;
     v10 = 0;
     if ( !v8 )
-      v9 = byte_140001090;
+      v9 = byte_140001040;
     v11 = (_DWORD **)(a1 + 72);
     while ( v10 <= 0 )
     {
@@ -97,10 +97,10 @@ void __fastcall PopPepPromoteActivities(__int64 a1, __int64 a2, int a3)
     }
     for ( i = *(_DWORD *)(a1 + 180); !i; i = 1 )
     {
-      v13 = &dword_1400010AC;
+      v13 = &dword_14000105C;
       v14 = 1LL;
       if ( !v8 )
-        v13 = &dword_140001094;
+        v13 = &dword_140001044;
       for ( j = 1; j <= 3; ++j )
       {
         if ( *v13 && (*v13 & **(_DWORD **)(a1 + 8 * v14 + 248)) != 0 )
@@ -109,10 +109,10 @@ void __fastcall PopPepPromoteActivities(__int64 a1, __int64 a2, int a3)
         ++v13;
       }
     }
-    v16 = &qword_1400010B8;
+    v16 = &qword_140001068;
     v17 = 4;
     if ( !v8 )
-      v16 = &qword_1400010A0;
+      v16 = &qword_140001050;
     v18 = (_DWORD **)(a1 + 104);
     while ( v17 <= 5 )
     {
@@ -151,10 +151,10 @@ LABEL_31:
       v21 = 136LL;
       v54 = 64LL;
       v53 = 136LL;
-      v22 = qword_1400010E0;
+      v22 = qword_140001090;
       v23 = 3LL;
       v24 = a1 + 208LL * v19 + 192;
-      v55 = qword_1400010E0;
+      v55 = qword_140001090;
       v56 = 3LL;
       do
       {
@@ -165,10 +165,10 @@ LABEL_31:
           v27 = *(_DWORD *)v22;
           if ( *(_DWORD *)v22 )
           {
-            v28 = byte_1400010A8;
+            v28 = byte_140001058;
             v29 = 0;
             if ( !*((_BYTE *)v25 + 16) )
-              v28 = byte_140001090;
+              v28 = byte_140001040;
             v30 = (_DWORD **)(a1 + 72);
             v58 = &v28[v21];
             v31 = &v28[v21];
@@ -263,10 +263,10 @@ LABEL_56:
   if ( (*(_DWORD *)v42 & 1) != 0 )
   {
     v43 = *(_BYTE *)(v42 + 16);
-    v44 = byte_140001350;
+    v44 = byte_140001300;
     v45 = 0;
     if ( !v43 )
-      v44 = byte_140001338;
+      v44 = byte_1400012E8;
     v46 = v44;
     while ( v45 <= 0 )
     {
@@ -290,9 +290,9 @@ LABEL_56:
         ++v48;
       }
     }
-    v50 = &qword_140001360;
+    v50 = &qword_140001310;
     if ( !v43 )
-      v50 = &qword_140001348;
+      v50 = &qword_1400012F8;
     while ( v7 <= 5 )
     {
       if ( *(_DWORD *)v50 && (*(_DWORD *)v50 & **v41) != 0 )

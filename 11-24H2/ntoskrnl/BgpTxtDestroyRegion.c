@@ -1,13 +1,13 @@
 /*
- * XREFs of BgpTxtDestroyRegion @ 0x140BB2B5C
+ * XREFs of BgpTxtDestroyRegion @ 0x140BB4B5C
  * Callers:
- *     BgpDisplayCharacterDestroyContext @ 0x140BB0834 (BgpDisplayCharacterDestroyContext.c)
- *     BgpDisplayCharacterGetContext @ 0x140BB0860 (BgpDisplayCharacterGetContext.c)
- *     BgpFwLibraryDisable @ 0x140BB1724 (BgpFwLibraryDisable.c)
+ *     BgpDisplayCharacterDestroyContext @ 0x140BB2834 (BgpDisplayCharacterDestroyContext.c)
+ *     BgpDisplayCharacterGetContext @ 0x140BB2860 (BgpDisplayCharacterGetContext.c)
+ *     BgpFwLibraryDisable @ 0x140BB3724 (BgpFwLibraryDisable.c)
  * Callees:
- *     BgpFwFreeMemory @ 0x14037DE10 (BgpFwFreeMemory.c)
- *     BgpGxRectangleDestroy @ 0x140BB3F04 (BgpGxRectangleDestroy.c)
- *     BgpTxtCacheDestroy @ 0x140BB4354 (BgpTxtCacheDestroy.c)
+ *     BgpFwFreeMemory @ 0x14045EC7C (BgpFwFreeMemory.c)
+ *     BgpGxRectangleDestroy @ 0x140BB5F04 (BgpGxRectangleDestroy.c)
+ *     BgpTxtCacheDestroy @ 0x140BB6354 (BgpTxtCacheDestroy.c)
  */
 
 void __fastcall BgpTxtDestroyRegion(__int64 a1)

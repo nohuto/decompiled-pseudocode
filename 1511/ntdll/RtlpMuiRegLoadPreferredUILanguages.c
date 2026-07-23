@@ -31,114 +31,100 @@ __int64 __fastcall RtlpMuiRegLoadPreferredUILanguages(
 {
   _BYTE *v6; // rsi
   BOOL v8; // r14d
-  __int64 Heap; // r15
+  PVOID Heap; // r15
   __int64 v11; // rdi
-  int v12; // r8d
-  int v13; // r9d
-  HANDLE v14; // rcx
-  int v15; // ebx
-  int UserUIByPolicy; // eax
-  const WCHAR *v17; // rdx
-  int v18; // ecx
+  HANDLE v12; // rcx
+  NTSTATUS v13; // ebx
+  NTSTATUS UserUIByPolicy; // eax
+  const WCHAR *v15; // rdx
+  int v16; // ecx
   __int64 LanguageList; // rax
-  int v20; // ecx
-  int MachinePreferredUILanguages; // eax
-  int MachineUIByPolicy; // eax
-  __int64 v24; // [rsp+40h] [rbp-A9h] BYREF
+  int v18; // ecx
+  NTSTATUS MachinePreferredUILanguages; // eax
+  NTSTATUS MachineUIByPolicy; // eax
+  __int64 v22; // [rsp+40h] [rbp-A9h] BYREF
   HANDLE Handle; // [rsp+48h] [rbp-A1h] BYREF
-  HANDLE v26; // [rsp+50h] [rbp-99h] BYREF
-  __int64 v27; // [rsp+58h] [rbp-91h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+60h] [rbp-89h] BYREF
-  int v29; // [rsp+70h] [rbp-79h] BYREF
-  __int64 v30; // [rsp+78h] [rbp-71h]
-  UNICODE_STRING *p_DestinationString; // [rsp+80h] [rbp-69h]
-  int v32; // [rsp+88h] [rbp-61h]
-  __int128 v33; // [rsp+90h] [rbp-59h]
-  int v34; // [rsp+A0h] [rbp-49h] BYREF
-  __int64 v35; // [rsp+A8h] [rbp-41h]
-  UNICODE_STRING *v36; // [rsp+B0h] [rbp-39h]
-  int v37; // [rsp+B8h] [rbp-31h]
-  __int128 v38; // [rsp+C0h] [rbp-29h]
-  int v39; // [rsp+D0h] [rbp-19h] BYREF
-  __int64 v40; // [rsp+D8h] [rbp-11h]
-  UNICODE_STRING *v41; // [rsp+E0h] [rbp-9h]
-  int v42; // [rsp+E8h] [rbp-1h]
-  __int128 v43; // [rsp+F0h] [rbp+7h]
-  unsigned int v44; // [rsp+140h] [rbp+57h] BYREF
-  int v45; // [rsp+148h] [rbp+5Fh] BYREF
-  int v46; // [rsp+150h] [rbp+67h] BYREF
+  HANDLE KeyHandle; // [rsp+50h] [rbp-99h] BYREF
+  __int64 v25; // [rsp+58h] [rbp-91h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+60h] [rbp-89h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+70h] [rbp-79h] BYREF
+  _OBJECT_ATTRIBUTES v28; // [rsp+A0h] [rbp-49h] BYREF
+  _OBJECT_ATTRIBUTES v29; // [rsp+D0h] [rbp-19h] BYREF
+  __int64 v30; // [rsp+140h] [rbp+57h] BYREF
+  int v31; // [rsp+148h] [rbp+5Fh]
+  int v32; // [rsp+150h] [rbp+67h]
 
-  v45 = a2;
+  v31 = a2;
   v6 = a5;
-  v27 = 0LL;
+  v25 = 0LL;
   Handle = 0LL;
   v8 = a3;
-  v26 = 0LL;
-  v46 = 7;
+  KeyHandle = 0LL;
+  v32 = 7;
   Heap = 0LL;
-  v44 = 0;
+  LODWORD(v30) = 0;
   v11 = 0LL;
-  v24 = 0LL;
-  LOBYTE(v45) = 0;
+  v22 = 0LL;
+  LOBYTE(v31) = 0;
   if ( !a1 || !a5 || !a6 )
   {
-    v15 = -1073741811;
+    v13 = -1073741811;
     goto LABEL_46;
   }
   *a5 = 0;
   if ( a3 > 1 )
     return (unsigned int)-1073741811;
   RtlInitUnicodeString(&DestinationString, L"\\Registry\\Machine\\Software\\Policies\\Microsoft\\MUI\\Settings");
-  v26 = 0LL;
-  p_DestinationString = &DestinationString;
-  v29 = 48;
-  v30 = 0LL;
-  v32 = 64;
-  v33 = 0LL;
-  if ( (int)NtOpenKey(&v26, 131097LL, &v29) >= 0 )
+  KeyHandle = 0LL;
+  ObjectAttributes.ObjectName = &DestinationString;
+  ObjectAttributes.Length = 48;
+  ObjectAttributes.RootDirectory = 0LL;
+  ObjectAttributes.Attributes = 64;
+  *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+  if ( NtOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes) >= 0 )
   {
-    MachineUIByPolicy = RtlpLoadMachineUIByPolicy(v26, a1, (__int64)&v24);
-    v11 = v24;
-    v15 = MachineUIByPolicy;
-    if ( !MachineUIByPolicy && v24 )
+    MachineUIByPolicy = RtlpLoadMachineUIByPolicy(KeyHandle, a1, (__int64)&v22);
+    v11 = v22;
+    v13 = MachineUIByPolicy;
+    if ( !MachineUIByPolicy && v22 )
     {
 LABEL_18:
       if ( v8
         || v11 && *(_WORD *)(v11 + 4)
-        || (MachinePreferredUILanguages = RtlpMuiRegLoadMachinePreferredUILanguages(a1, a2, v6, (__int64)&v24),
-            v11 = v24,
-            (v15 = MachinePreferredUILanguages) == 0) )
+        || (MachinePreferredUILanguages = RtlpMuiRegLoadMachinePreferredUILanguages(a1, a2, v6, (__int64)&v22),
+            v11 = v22,
+            (v13 = MachinePreferredUILanguages) == 0) )
       {
         if ( !v11 )
         {
           LanguageList = RtlpMuiRegCreateLanguageList(1, !v8, a1);
-          v20 = v15;
+          v18 = v13;
           v11 = LanguageList;
           if ( !LanguageList )
-            v20 = -1073741801;
-          v15 = v20;
+            v18 = -1073741801;
+          v13 = v18;
         }
       }
       goto LABEL_23;
     }
-    v14 = v26;
+    v12 = KeyHandle;
   }
   else
   {
-    v14 = 0LL;
-    v26 = 0LL;
+    v12 = 0LL;
+    KeyHandle = 0LL;
   }
-  if ( v8 && v14 && (int)RtlpHasMachineUILock(v14, &v45) >= 0 )
-    v8 = (_BYTE)v45 != 1;
-  v15 = OpenGlobalizationUserSettingsKey(0x2000000, 0, v12, v13, (__int64)&v27);
-  if ( v15 < 0 )
+  if ( v8 && v12 && (int)RtlpHasMachineUILock(v12) >= 0 )
+    v8 = (_BYTE)v31 != 1;
+  v13 = OpenGlobalizationUserSettingsKey(0x2000000u, (__int64)&v25);
+  if ( v13 < 0 )
     goto LABEL_48;
   if ( v8 )
   {
-    UserUIByPolicy = RtlpLoadUserUIByPolicy(v27, a1, (__int64)&v24);
-    v11 = v24;
-    v15 = UserUIByPolicy;
-    if ( !UserUIByPolicy && v24 )
+    UserUIByPolicy = RtlpLoadUserUIByPolicy((void *)v25, a1, (__int64)&v22);
+    v11 = v22;
+    v13 = UserUIByPolicy;
+    if ( !UserUIByPolicy && v22 )
     {
 LABEL_23:
       *a6 = v11;
@@ -146,18 +132,18 @@ LABEL_23:
     }
     RtlInitUnicodeString(&DestinationString, L"Control Panel\\Desktop");
     Handle = 0LL;
-    v35 = v27;
-    v34 = 48;
-    v36 = &DestinationString;
-    v37 = 64;
-    v38 = 0LL;
-    v15 = NtOpenKey(&Handle, 131097LL, &v34);
-    if ( v15 >= 0 )
+    v28.RootDirectory = (HANDLE)v25;
+    v28.Length = 48;
+    v28.ObjectName = &DestinationString;
+    v28.Attributes = 64;
+    *(_OWORD *)&v28.SecurityDescriptor = 0LL;
+    v13 = NtOpenKey(&Handle, 0x20019u, &v28);
+    if ( v13 >= 0 )
     {
-      v17 = L"PreferredUILanguages";
+      v15 = L"PreferredUILanguages";
       if ( a4 != 3 )
-        v17 = L"PreferredUILanguagesPending";
-      RtlInitUnicodeString(&DestinationString, v17);
+        v15 = L"PreferredUILanguagesPending";
+      RtlInitUnicodeString(&DestinationString, v15);
       goto LABEL_16;
     }
 LABEL_48:
@@ -165,54 +151,61 @@ LABEL_48:
     goto LABEL_46;
   }
   RtlInitUnicodeString(&DestinationString, L"Control Panel\\Desktop\\MuiCached");
-  v40 = v27;
-  v39 = 48;
-  v41 = &DestinationString;
-  v42 = 64;
+  v29.RootDirectory = (HANDLE)v25;
+  v29.Length = 48;
+  v29.ObjectName = &DestinationString;
+  v29.Attributes = 64;
   Handle = 0LL;
-  v43 = 0LL;
-  if ( (int)NtOpenKey(&Handle, 131097LL, &v39) < 0 )
+  *(_OWORD *)&v29.SecurityDescriptor = 0LL;
+  if ( NtOpenKey(&Handle, 0x20019u, &v29) < 0 )
   {
 LABEL_17:
-    v15 = 0;
+    v13 = 0;
     *v6 = 1;
     goto LABEL_18;
   }
   RtlInitUnicodeString(&DestinationString, L"MachinePreferredUILanguages");
 LABEL_16:
-  v15 = -1073741772;
-  v18 = LdrpQueryValueKey(Handle, &DestinationString, &v46, 0LL, &v44);
-  if ( v18 == -1073741772 || !v44 )
+  v13 = -1073741772;
+  v16 = LdrpQueryValueKey(Handle, &DestinationString, (__int64)&v30);
+  if ( v16 == -1073741772 || !(_DWORD)v30 )
     goto LABEL_17;
-  if ( v18 == -2147483643 )
+  if ( v16 == -2147483643 )
   {
-    Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8LL, v44 + 2);
+    Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, (unsigned int)(v30 + 2));
     if ( Heap )
     {
-      v15 = LdrpQueryValueKey(Handle, &DestinationString, &v46, Heap, &v44);
-      if ( v15 >= 0 )
+      v13 = LdrpQueryValueKey(Handle, &DestinationString, (__int64)&v30);
+      if ( v13 >= 0 )
       {
-        if ( v46 != 7 && v46 != 1 )
+        if ( v32 != 7 && v32 != 1 )
         {
-          v11 = v24;
-          v15 = 0;
+          v11 = v22;
+          v13 = 0;
           *v6 = 1;
           goto LABEL_18;
         }
-        v15 = RtlpMuiRegAddMultiSzToLangFallbackList(a1, Heap, v44 >> 1, 8LL, (unsigned int)!v8 + 2, 1, &v24);
+        v13 = RtlpMuiRegAddMultiSzToLangFallbackList(
+                a1,
+                Heap,
+                (unsigned int)v30 >> 1,
+                8LL,
+                (unsigned int)!v8 + 2,
+                1,
+                &v22);
       }
-      v11 = v24;
+      v11 = v22;
 LABEL_46:
-      if ( v15 )
+      if ( v13 )
       {
 LABEL_24:
         if ( Heap )
-          RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, Heap);
+          RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Heap);
         goto LABEL_26;
       }
       goto LABEL_18;
     }
-    v15 = -1073741801;
+    v13 = -1073741801;
   }
 LABEL_26:
   if ( Handle )
@@ -220,12 +213,12 @@ LABEL_26:
     NtClose(Handle);
     Handle = 0LL;
   }
-  if ( v27 )
+  if ( v25 )
   {
-    CloseGlobalizationUserSettingsKey(v27);
-    v27 = 0LL;
+    CloseGlobalizationUserSettingsKey(v25);
+    v25 = 0LL;
   }
-  if ( v26 )
-    NtClose(v26);
-  return (unsigned int)v15;
+  if ( KeyHandle )
+    NtClose(KeyHandle);
+  return (unsigned int)v13;
 }

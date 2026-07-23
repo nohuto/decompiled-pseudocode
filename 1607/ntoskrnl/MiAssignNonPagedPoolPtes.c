@@ -1,16 +1,16 @@
 /*
- * XREFs of MiAssignNonPagedPoolPtes @ 0x14001B400
+ * XREFs of MiAssignNonPagedPoolPtes @ 0x14001AF80
  * Callers:
- *     ExpAllocateBigPool @ 0x140011AD0 (ExpAllocateBigPool.c)
- *     MiAllocatePoolPages @ 0x14009DBEC (MiAllocatePoolPages.c)
+ *     ExpAllocateBigPool @ 0x140011650 (ExpAllocateBigPool.c)
+ *     MiAllocatePoolPages @ 0x14009D3EC (MiAllocatePoolPages.c)
  * Callees:
- *     MiSetPfnOwnedAndActive @ 0x14001B640 (MiSetPfnOwnedAndActive.c)
- *     MiMakeValidKernelPte @ 0x140034D10 (MiMakeValidKernelPte.c)
- *     MiLogPerfMemoryRangeEvent @ 0x1401E35E0 (MiLogPerfMemoryRangeEvent.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
- *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F2550 (MI_GET_PAGE_FRAME_FROM_PTE.c)
- *     MiMakeDemandZeroPte @ 0x1401F2734 (MiMakeDemandZeroPte.c)
+ *     MiSetPfnOwnedAndActive @ 0x14001B1C0 (MiSetPfnOwnedAndActive.c)
+ *     MiMakeValidKernelPte @ 0x140034890 (MiMakeValidKernelPte.c)
+ *     MiLogPerfMemoryRangeEvent @ 0x1401E340C (MiLogPerfMemoryRangeEvent.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
+ *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F237C (MI_GET_PAGE_FRAME_FROM_PTE.c)
+ *     MiMakeDemandZeroPte @ 0x1401F2560 (MiMakeDemandZeroPte.c)
  */
 
 __int64 __fastcall MiAssignNonPagedPoolPtes(unsigned __int64 a1, unsigned __int64 a2, __int64 a3, __int64 *a4)

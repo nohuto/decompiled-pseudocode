@@ -1,10 +1,10 @@
 /*
- * XREFs of PspSetupUserFiberShadowStack @ 0x14090A500
+ * XREFs of PspSetupUserFiberShadowStack @ 0x14090A660
  * Callers:
- *     NtSetInformationProcess @ 0x14070A4B0 (NtSetInformationProcess.c)
+ *     NtSetInformationProcess @ 0x140721890 (NtSetInformationProcess.c)
  * Callees:
- *     MmFreeVirtualMemory @ 0x1406ED600 (MmFreeVirtualMemory.c)
- *     PspReserveAndCommitUserShadowStack @ 0x14090A318 (PspReserveAndCommitUserShadowStack.c)
+ *     MmFreeVirtualMemory @ 0x1407049E0 (MmFreeVirtualMemory.c)
+ *     PspReserveAndCommitUserShadowStack @ 0x14090A478 (PspReserveAndCommitUserShadowStack.c)
  */
 
 __int64 __fastcall PspSetupUserFiberShadowStack(unsigned __int64 a1, ULONG_PTR a2, unsigned int a3, _QWORD *a4)

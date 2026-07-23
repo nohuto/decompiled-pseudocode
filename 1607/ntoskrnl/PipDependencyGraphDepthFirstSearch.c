@@ -1,10 +1,10 @@
 /*
- * XREFs of PipDependencyGraphDepthFirstSearch @ 0x1401248B8
+ * XREFs of PipDependencyGraphDepthFirstSearch @ 0x140124E28
  * Callers:
- *     PipFindDependencyNodePath @ 0x140124840 (PipFindDependencyNodePath.c)
- *     PipDependencyGraphDepthFirstSearch @ 0x1401248B8 (PipDependencyGraphDepthFirstSearch.c)
+ *     PipFindDependencyNodePath @ 0x140124DB0 (PipFindDependencyNodePath.c)
+ *     PipDependencyGraphDepthFirstSearch @ 0x140124E28 (PipDependencyGraphDepthFirstSearch.c)
  * Callees:
- *     PipDependencyGraphDepthFirstSearch @ 0x1401248B8 (PipDependencyGraphDepthFirstSearch.c)
+ *     PipDependencyGraphDepthFirstSearch @ 0x140124E28 (PipDependencyGraphDepthFirstSearch.c)
  */
 
 char __fastcall PipDependencyGraphDepthFirstSearch(__int64 a1, __int64 a2, _DWORD *a3, _DWORD *a4)

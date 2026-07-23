@@ -53,7 +53,7 @@ char __fastcall ExTryToConvertFastResourceSharedToExclusive(ULONG_PTR BugCheckPa
     KeBugCheckEx(0x1C6u, 0x13uLL, BugCheckParameter2, 0LL, 0LL);
   v9 = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v9 <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v9 <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( v9 == 2 )
@@ -67,10 +67,10 @@ char __fastcall ExTryToConvertFastResourceSharedToExclusive(ULONG_PTR BugCheckPa
   KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
   if ( v12 )
     *(_BYTE *)(a2 + 17) |= 4u;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v13 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v13 <= 0xFu && v9 <= 0xFu && v13 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v13 <= 0xFu && v9 <= 0xFu && v13 >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v15 = CurrentPrcb->SchedulerAssist;

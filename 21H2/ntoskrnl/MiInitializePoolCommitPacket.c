@@ -1,16 +1,16 @@
 /*
- * XREFs of MiInitializePoolCommitPacket @ 0x14030BBD8
+ * XREFs of MiInitializePoolCommitPacket @ 0x140316928
  * Callers:
- *     MmAllocatePoolMemory @ 0x14030B0D8 (MmAllocatePoolMemory.c)
- *     MmAllocateSecurePoolMemory @ 0x140544DC0 (MmAllocateSecurePoolMemory.c)
+ *     MmAllocatePoolMemory @ 0x140315E28 (MmAllocatePoolMemory.c)
+ *     MmAllocateSecurePoolMemory @ 0x140545000 (MmAllocateSecurePoolMemory.c)
  * Callees:
- *     MiMakeProtectionMask @ 0x14021AA20 (MiMakeProtectionMask.c)
- *     MiChargeCommit @ 0x14021AAD0 (MiChargeCommit.c)
- *     MiGetPoolPages @ 0x140274A0C (MiGetPoolPages.c)
- *     MiReturnPoolCharges @ 0x140296DB0 (MiReturnPoolCharges.c)
- *     MiGetLargePageChain @ 0x1402BED44 (MiGetLargePageChain.c)
- *     MiObtainPoolCharges @ 0x1402E5C24 (MiObtainPoolCharges.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
+ *     MiGetLargePageChain @ 0x14023D194 (MiGetLargePageChain.c)
+ *     MiGetPoolPages @ 0x1402629AC (MiGetPoolPages.c)
+ *     MiReturnPoolCharges @ 0x140273E90 (MiReturnPoolCharges.c)
+ *     MiObtainPoolCharges @ 0x140296F74 (MiObtainPoolCharges.c)
+ *     MiMakeProtectionMask @ 0x1402BF320 (MiMakeProtectionMask.c)
+ *     MiChargeCommit @ 0x1402BF3D0 (MiChargeCommit.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiInitializePoolCommitPacket(
@@ -39,7 +39,7 @@ __int64 __fastcall MiInitializePoolCommitPacket(
   bool v21; // zf
   __int64 result; // rax
   _QWORD *LargePageChain; // rax
-  _QWORD *PoolPages; // rax
+  unsigned __int64 PoolPages; // rax
   unsigned __int64 v25; // [rsp+30h] [rbp-38h] BYREF
   __int128 v26; // [rsp+38h] [rbp-30h]
   unsigned __int64 v27; // [rsp+48h] [rbp-20h]
@@ -56,7 +56,7 @@ __int64 __fastcall MiInitializePoolCommitPacket(
   *(_QWORD *)(a8 + 40) = 5LL;
   v15 = 8 * (ProtectionMask & 0x1F);
   *(_WORD *)(a8 + 78) = v15;
-  *(_QWORD *)(a8 + 48) = &unk_140C4F640;
+  *(_QWORD *)(a8 + 48) = &unk_140C4F680;
   *(_QWORD *)(a8 + 56) = (((v12 + v9 - 1) >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
   v16 = ((__int64)((((v12 + v9 - 1) >> 9) & 0x7FFFFFFFF8LL) - ((v12 >> 9) & 0x7FFFFFFFF8LL)) >> 3) + 1;
   if ( (a5 & 1) != 0 )
@@ -71,11 +71,11 @@ __int64 __fastcall MiInitializePoolCommitPacket(
     else
     {
       v17 = 6;
-      v18 = (unsigned __int16 *)&unk_140C4F280;
+      v18 = (unsigned __int16 *)&unk_140C4F2C0;
     }
     v19 = v18[87];
     *(_QWORD *)(a8 + 48) = v18;
-    v20 = qword_140C4E648;
+    v20 = qword_140C4E688;
     *(_DWORD *)(a8 + 40) = v17;
     v21 = (unsigned int)MiChargeCommit(*(_QWORD *)(v20 + 8 * v19), v16, 1u) == 0;
     goto LABEL_7;
@@ -91,7 +91,7 @@ __int64 __fastcall MiInitializePoolCommitPacket(
     }
     PoolPages = MiGetPoolPages(v13, a6, v16);
     *(_QWORD *)(a8 + 16) = PoolPages;
-    v21 = PoolPages == 0LL;
+    v21 = PoolPages == 0;
 LABEL_7:
     if ( !v21 )
     {

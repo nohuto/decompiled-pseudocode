@@ -1,12 +1,12 @@
 /*
- * XREFs of ExfAcquireCacheAwarePushLockSharedEx @ 0x140418330
+ * XREFs of ExfAcquireCacheAwarePushLockSharedEx @ 0x1404080E0
  * Callers:
- *     CmpLockRegistry @ 0x140BB9E60 (CmpLockRegistry.c)
+ *     CmpLockRegistry @ 0x140BBBE60 (CmpLockRegistry.c)
  * Callees:
- *     ExfAcquirePushLockSharedEx @ 0x14034050C (ExfAcquirePushLockSharedEx.c)
+ *     ExfAcquirePushLockSharedEx @ 0x14031F9EC (ExfAcquirePushLockSharedEx.c)
  */
 
-signed __int64 *__fastcall ExfAcquireCacheAwarePushLockSharedEx(__int64 a1, char a2, _QWORD *a3, __int64 a4)
+signed __int64 *__fastcall ExfAcquireCacheAwarePushLockSharedEx(__int64 a1, char a2, char *a3, __int64 a4)
 {
   signed __int64 *v4; // rbx
 

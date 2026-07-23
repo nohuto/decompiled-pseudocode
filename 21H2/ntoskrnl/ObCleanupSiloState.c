@@ -1,9 +1,9 @@
 /*
- * XREFs of ObCleanupSiloState @ 0x1408DC470
+ * XREFs of ObCleanupSiloState @ 0x1408DC5D0
  * Callers:
- *     PspDeleteServerSiloGlobals @ 0x1409062AC (PspDeleteServerSiloGlobals.c)
+ *     PspDeleteServerSiloGlobals @ 0x14090640C (PspDeleteServerSiloGlobals.c)
  * Callees:
- *     ObfDereferenceDeviceMap @ 0x140625534 (ObfDereferenceDeviceMap.c)
+ *     ObfDereferenceDeviceMap @ 0x14068F1A4 (ObfDereferenceDeviceMap.c)
  */
 
 void __fastcall ObCleanupSiloState(void **a1)

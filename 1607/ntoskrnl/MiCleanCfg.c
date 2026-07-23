@@ -1,10 +1,10 @@
 /*
- * XREFs of MiCleanCfg @ 0x140075528
+ * XREFs of MiCleanCfg @ 0x1400755A8
  * Callers:
- *     MmCleanProcessAddressSpace @ 0x14045EDFC (MmCleanProcessAddressSpace.c)
+ *     MmCleanProcessAddressSpace @ 0x14045DCCC (MmCleanProcessAddressSpace.c)
  * Callees:
- *     MiUnlockAndDereferenceVad @ 0x14002BDA0 (MiUnlockAndDereferenceVad.c)
- *     MiLockVad @ 0x14002BFB0 (MiLockVad.c)
+ *     MiUnlockAndDereferenceVad @ 0x14002B920 (MiUnlockAndDereferenceVad.c)
+ *     MiLockVad @ 0x14002BB30 (MiLockVad.c)
  */
 
 void MiCleanCfg()
@@ -16,7 +16,7 @@ void MiCleanCfg()
 
   CurrentThread = KeGetCurrentThread();
   v1 = 2LL;
-  v2 = (__int64 *)(qword_140327F90 + 276840680);
+  v2 = (__int64 *)(qword_140327FD0 + 276840680);
   do
   {
     v3 = (char *)*v2;

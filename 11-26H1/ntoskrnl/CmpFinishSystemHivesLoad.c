@@ -1,51 +1,51 @@
 /*
- * XREFs of CmpFinishSystemHivesLoad @ 0x140B4D840
+ * XREFs of CmpFinishSystemHivesLoad @ 0x140B500D0
  * Callers:
  *     <none>
  * Callees:
- *     KiUnstackDetachProcess @ 0x1402307C0 (KiUnstackDetachProcess.c)
- *     KiStackAttachProcess @ 0x140247880 (KiStackAttachProcess.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     ExfReleasePushLock @ 0x1402E3120 (ExfReleasePushLock.c)
- *     KeWaitForMultipleObjects @ 0x140396440 (KeWaitForMultipleObjects.c)
- *     RtlAppendUnicodeToString @ 0x140432EB0 (RtlAppendUnicodeToString.c)
- *     CmpInitializeThreadInfo @ 0x14043CF00 (CmpInitializeThreadInfo.c)
- *     CmCleanupThreadInfo @ 0x14044C0A0 (CmCleanupThreadInfo.c)
- *     CmpRecheckHiveVolumePolicy @ 0x14046EB90 (CmpRecheckHiveVolumePolicy.c)
- *     CmpAllocatePool @ 0x140474870 (CmpAllocatePool.c)
- *     CmSiFreeMemory @ 0x140495010 (CmSiFreeMemory.c)
- *     CmpNotifyMachineHiveLoaded @ 0x140523B2C (CmpNotifyMachineHiveLoaded.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     TmEnableCallbacks @ 0x140534530 (TmEnableCallbacks.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwCreateKey @ 0x140723790 (ZwCreateKey.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     PsBootPhaseComplete @ 0x1407EDCC0 (PsBootPhaseComplete.c)
- *     ExpRefreshSystemTime @ 0x140836324 (ExpRefreshSystemTime.c)
- *     CmpCreatePerfKeys @ 0x14084AEF0 (CmpCreatePerfKeys.c)
- *     CmpInterlockedFunction @ 0x14084B290 (CmpInterlockedFunction.c)
- *     CmpLinkKeyToHive @ 0x14084B448 (CmpLinkKeyToHive.c)
- *     CmpMountPreloadedHives @ 0x14084C298 (CmpMountPreloadedHives.c)
- *     CmpLoadSystemVersionData @ 0x140855F4C (CmpLoadSystemVersionData.c)
- *     CmpSetVersionData @ 0x1408566EC (CmpSetVersionData.c)
- *     CmpFlushHive @ 0x1408B321C (CmpFlushHive.c)
- *     CmpLockRegistryExclusive @ 0x1408C2148 (CmpLockRegistryExclusive.c)
- *     CmpLockHiveListExclusive @ 0x1408C84C8 (CmpLockHiveListExclusive.c)
- *     CmpUnlockHiveList @ 0x1408C8634 (CmpUnlockHiveList.c)
- *     CmpLinkHiveToMaster @ 0x14097C11C (CmpLinkHiveToMaster.c)
- *     CmpInitCmRM @ 0x140A75780 (CmpInitCmRM.c)
- *     CmpAddToHiveFileList @ 0x140B05280 (CmpAddToHiveFileList.c)
- *     CmRmFinalizeRecovery @ 0x140B3A6E8 (CmRmFinalizeRecovery.c)
- *     CmpHiveRootSecurityDescriptor @ 0x140B4E1EC (CmpHiveRootSecurityDescriptor.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
- *     CmpUnlockRegistry @ 0x140C58970 (CmpUnlockRegistry.c)
- *     CmpIsHiveLoadUnloadRundownActive @ 0x140C58FB8 (CmpIsHiveLoadUnloadRundownActive.c)
+ *     ExfReleasePushLock @ 0x14021B220 (ExfReleasePushLock.c)
+ *     KiUnstackDetachProcess @ 0x140232120 (KiUnstackDetachProcess.c)
+ *     KiStackAttachProcess @ 0x1402491E0 (KiStackAttachProcess.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     KeWaitForMultipleObjects @ 0x1403981C0 (KeWaitForMultipleObjects.c)
+ *     RtlAppendUnicodeToString @ 0x14041FEE0 (RtlAppendUnicodeToString.c)
+ *     CmpInitializeThreadInfo @ 0x14042F7B0 (CmpInitializeThreadInfo.c)
+ *     CmCleanupThreadInfo @ 0x1404441C0 (CmCleanupThreadInfo.c)
+ *     CmpRecheckHiveVolumePolicy @ 0x140468310 (CmpRecheckHiveVolumePolicy.c)
+ *     CmpAllocatePool @ 0x14046DFF0 (CmpAllocatePool.c)
+ *     CmSiFreeMemory @ 0x14048EB60 (CmSiFreeMemory.c)
+ *     CmpNotifyMachineHiveLoaded @ 0x14052619C (CmpNotifyMachineHiveLoaded.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     TmEnableCallbacks @ 0x1405369B0 (TmEnableCallbacks.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwCreateKey @ 0x140728360 (ZwCreateKey.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     PsBootPhaseComplete @ 0x1407F3820 (PsBootPhaseComplete.c)
+ *     ExpRefreshSystemTime @ 0x14083C564 (ExpRefreshSystemTime.c)
+ *     CmpCreatePerfKeys @ 0x140851200 (CmpCreatePerfKeys.c)
+ *     CmpInterlockedFunction @ 0x1408515A0 (CmpInterlockedFunction.c)
+ *     CmpLinkKeyToHive @ 0x140851758 (CmpLinkKeyToHive.c)
+ *     CmpMountPreloadedHives @ 0x1408525A8 (CmpMountPreloadedHives.c)
+ *     CmpLoadSystemVersionData @ 0x14085C2E4 (CmpLoadSystemVersionData.c)
+ *     CmpSetVersionData @ 0x14085CA84 (CmpSetVersionData.c)
+ *     CmpFlushHive @ 0x1408B97F0 (CmpFlushHive.c)
+ *     CmpLockRegistryExclusive @ 0x1408C8718 (CmpLockRegistryExclusive.c)
+ *     CmpLockHiveListExclusive @ 0x1408CEA7C (CmpLockHiveListExclusive.c)
+ *     CmpUnlockHiveList @ 0x1408CEBE8 (CmpUnlockHiveList.c)
+ *     CmpLinkHiveToMaster @ 0x14093E12C (CmpLinkHiveToMaster.c)
+ *     CmpInitCmRM @ 0x140A7E4A0 (CmpInitCmRM.c)
+ *     CmpAddToHiveFileList @ 0x140B06E90 (CmpAddToHiveFileList.c)
+ *     CmRmFinalizeRecovery @ 0x140B3CA88 (CmRmFinalizeRecovery.c)
+ *     CmpHiveRootSecurityDescriptor @ 0x140B50A7C (CmpHiveRootSecurityDescriptor.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
+ *     CmpUnlockRegistry @ 0x140C5E970 (CmpUnlockRegistry.c)
+ *     CmpIsHiveLoadUnloadRundownActive @ 0x140C5EFB8 (CmpIsHiveLoadUnloadRundownActive.c)
  */
 
 _KAFFINITY_EX *__fastcall CmpFinishSystemHivesLoad(PRKEVENT Event)
@@ -73,7 +73,7 @@ _KAFFINITY_EX *__fastcall CmpFinishSystemHivesLoad(PRKEVENT Event)
   struct _KTHREAD *Thread; // rcx
   struct _KTHREAD *v23; // rax
   struct _KTHREAD *CurrentThread; // rcx
-  struct _LIST_ENTRY *Flink; // rcx
+  __int64 v25; // rcx
   __int64 v26; // rdx
   __int64 v27; // rcx
   __int64 v28; // rcx
@@ -142,7 +142,7 @@ _KAFFINITY_EX *__fastcall CmpFinishSystemHivesLoad(PRKEVENT Event)
   memset_0(&v83.StaticBitmap[8], 0, 0x1B0uLL);
   BYTE1(NlsMbOemCodePageTag) = 0;
   Destination.Buffer = (wchar_t *)0x800000;
-  WheapPfaLock.QuantumTarget = (unsigned __int64)KeGetCurrentThread();
+  WheapPfaLock.StackBase = KeGetCurrentThread();
   v77 = v84;
   v3 = 0x7FFFLL;
   v4 = 0;
@@ -187,15 +187,15 @@ _KAFFINITY_EX *__fastcall CmpFinishSystemHivesLoad(PRKEVENT Event)
     KeWaitForSingleObject(&stru_140E098B8.LastXStateSaveDebugInfo, Executive, 0, 0, 0LL);
     KeSetEvent((PRKEVENT)&stru_140E098B8.LastXStateSaveDebugInfo, 0, 0);
     KiStackAttachProcess(PsInitialSystemProcess, 0, (__int64)&v83.StaticBitmap[2]);
-    CmpInitCmRM(0LL, WheapPfaLock.ThreadLock);
+    CmpInitCmRM(0LL, WheapPfaLock.CurrentRunTime);
     KiUnstackDetachProcess((__int64)&v83.StaticBitmap[2], 0);
-    if ( WheapPfaLock.Timer.Header.WaitListHead.Flink )
+    if ( *(_QWORD *)&WheapPfaLock.WaitBlockFill11[16] )
     {
       TmEnableCallbacks(
-        (PKRESOURCEMANAGER)WheapPfaLock.Timer.Header.WaitListHead.Flink[3].Blink,
+        *(PKRESOURCEMANAGER *)(*(_QWORD *)&WheapPfaLock.WaitBlockFill11[16] + 56LL),
         (PTM_RM_NOTIFICATION)CmKtmNotification,
-        WheapPfaLock.Timer.Header.WaitListHead.Flink);
-      CmRmFinalizeRecovery((__int64)WheapPfaLock.Timer.Header.WaitListHead.Flink);
+        *(PVOID *)&WheapPfaLock.WaitBlockFill11[16]);
+      CmRmFinalizeRecovery(*(__int64 *)&WheapPfaLock.WaitBlockFill11[16]);
     }
   }
   while ( 2 )
@@ -239,8 +239,8 @@ _KAFFINITY_EX *__fastcall CmpFinishSystemHivesLoad(PRKEVENT Event)
           {
             if ( !(unsigned __int8)CmpIsHiveLoadUnloadRundownActive(v18, v19) )
               KeBugCheckEx(0x73u, 1uLL, v45, v2, (ULONG_PTR)&Destination.Buffer);
-            BYTE4(WheapPfaLock.InitialStack) = 0;
-            WheapPfaLock.QuantumTarget = 0LL;
+            LOBYTE(WheapPfaLock.StackLimit) = 0;
+            WheapPfaLock.StackBase = 0LL;
             CmpUnlockRegistry(v45);
             v47 = 0;
             v48 = (unsigned __int64 *)&stru_140E098B8;
@@ -303,14 +303,14 @@ _KAFFINITY_EX *__fastcall CmpFinishSystemHivesLoad(PRKEVENT Event)
             *(_DWORD *)(*(_QWORD *)((char *)&unk_140E09860 + v15) + 160LL) &= ~0x20u;
             *(_QWORD *)(*(_QWORD *)((char *)&unk_140E09860 + v15) + 4176LL) = 0LL;
           }
-          Flink = WheapPfaLock.Timer.Header.WaitListHead.Flink;
-          if ( WheapPfaLock.Timer.Header.WaitListHead.Flink )
+          v25 = *(_QWORD *)&WheapPfaLock.WaitBlockFill11[16];
+          if ( *(_QWORD *)&WheapPfaLock.WaitBlockFill11[16] )
           {
             v26 = *(_QWORD *)((char *)&unk_140E09860 + v15);
             if ( (*(_DWORD *)(v26 + 160) & 2) == 0 && !*(_QWORD *)(v26 + 4160) )
             {
-              ++LODWORD(WheapPfaLock.Timer.Header.WaitListHead.Flink[4].Flink);
-              *(_QWORD *)(*(_QWORD *)((char *)&unk_140E09860 + v15) + 4160LL) = Flink;
+              ++*(_DWORD *)(*(_QWORD *)&WheapPfaLock.WaitBlockFill11[16] + 64LL);
+              *(_QWORD *)(*(_QWORD *)((char *)&unk_140E09860 + v15) + 4160LL) = v25;
             }
           }
         }
@@ -417,22 +417,22 @@ LABEL_66:
   }
   CmpLockRegistryExclusive();
   CmpSpecialBootCondition = 0;
-  if ( BYTE5(NlsMbOemCodePageTag) || (v59 = 1, CmVEEnabled != 1) )
+  if ( BYTE4(NlsMbOemCodePageTag) || (v59 = 1, CmVEEnabled != 1) )
     v59 = 0;
   CmpVEEnabled = v59;
   CmpUnlockRegistry(v58);
   if ( Event )
   {
     KiStackAttachProcess(PsInitialSystemProcess, 0, (__int64)&v83.StaticBitmap[2]);
-    CmpInitCmRM(0LL, WheapPfaLock.ThreadLock);
+    CmpInitCmRM(0LL, WheapPfaLock.CurrentRunTime);
     KiUnstackDetachProcess((__int64)&v83.StaticBitmap[2], 0);
-    if ( WheapPfaLock.Timer.Header.WaitListHead.Flink )
+    if ( *(_QWORD *)&WheapPfaLock.WaitBlockFill11[16] )
     {
       TmEnableCallbacks(
-        (PKRESOURCEMANAGER)WheapPfaLock.Timer.Header.WaitListHead.Flink[3].Blink,
+        *(PKRESOURCEMANAGER *)(*(_QWORD *)&WheapPfaLock.WaitBlockFill11[16] + 56LL),
         (PTM_RM_NOTIFICATION)CmKtmNotification,
-        WheapPfaLock.Timer.Header.WaitListHead.Flink);
-      CmRmFinalizeRecovery((__int64)WheapPfaLock.Timer.Header.WaitListHead.Flink);
+        *(PVOID *)&WheapPfaLock.WaitBlockFill11[16]);
+      CmRmFinalizeRecovery(*(__int64 *)&WheapPfaLock.WaitBlockFill11[16]);
     }
     CmpMountPreloadedHives();
     CmpLockRegistryExclusive();
@@ -486,8 +486,8 @@ LABEL_66:
     ZwClose(KeyHandle);
 LABEL_115:
   CmpSpecialBootCondition = 0;
-  BYTE4(WheapPfaLock.InitialStack) = 0;
-  WheapPfaLock.QuantumTarget = 0LL;
+  LOBYTE(WheapPfaLock.StackLimit) = 0;
+  WheapPfaLock.StackBase = 0LL;
   if ( Event )
     KeSetEvent(Event, 0, 0);
   if ( P )

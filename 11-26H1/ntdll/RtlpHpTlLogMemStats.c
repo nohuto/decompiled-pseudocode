@@ -1,22 +1,22 @@
 /*
- * XREFs of RtlpHpTlLogMemStats @ 0x180107458
+ * XREFs of RtlpHpTlLogMemStats @ 0x180106E58
  * Callers:
- *     RtlpHpSegFreeRangeInsert @ 0x18006AD78 (RtlpHpSegFreeRangeInsert.c)
- *     RtlpHpSegSegmentAllocate @ 0x18008AB18 (RtlpHpSegSegmentAllocate.c)
+ *     RtlpHpSegSegmentAllocate @ 0x18006DF50 (RtlpHpSegSegmentAllocate.c)
+ *     RtlpHpSegFreeRangeInsert @ 0x18008B1C8 (RtlpHpSegFreeRangeInsert.c)
  * Callees:
- *     _tlgWriteTransfer_EtwEventWriteTransfer @ 0x18006A8B0 (_tlgWriteTransfer_EtwEventWriteTransfer.c)
- *     __security_check_cookie @ 0x180162C90 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwEventWriteTransfer @ 0x18008AD00 (_tlgWriteTransfer_EtwEventWriteTransfer.c)
+ *     __security_check_cookie @ 0x180162B90 (__security_check_cookie.c)
  */
 
-__int64 __fastcall RtlpHpTlLogMemStats(__int64 a1, __int64 *a2, __int64 a3, __int64 a4)
+ULONG __fastcall RtlpHpTlLogMemStats(__int64 a1, __int64 *a2, __int64 a3, __int64 a4)
 {
-  __int64 result; // rax
+  ULONG result; // eax
   __int64 v5; // [rsp+30h] [rbp-59h] BYREF
   __int64 v6; // [rsp+38h] [rbp-51h] BYREF
   __int64 v7; // [rsp+40h] [rbp-49h] BYREF
   __int64 v8; // [rsp+48h] [rbp-41h] BYREF
   __int64 v9; // [rsp+50h] [rbp-39h] BYREF
-  _BYTE v10[32]; // [rsp+60h] [rbp-29h] BYREF
+  _EVENT_DATA_DESCRIPTOR v10; // [rsp+60h] [rbp-29h] BYREF
   __int64 *v11; // [rsp+80h] [rbp-9h]
   __int64 v12; // [rsp+88h] [rbp-1h]
   __int64 *v13; // [rsp+90h] [rbp+7h]
@@ -28,7 +28,7 @@ __int64 __fastcall RtlpHpTlLogMemStats(__int64 a1, __int64 *a2, __int64 a3, __in
   __int64 *v19; // [rsp+C0h] [rbp+37h]
   __int64 v20; // [rsp+C8h] [rbp+3Fh]
 
-  if ( (unsigned int)dword_1801C5680 > 5 )
+  if ( (unsigned int)dword_1801C4680 > 5 )
   {
     v5 = a1;
     v11 = &v5;
@@ -45,7 +45,13 @@ __int64 __fastcall RtlpHpTlLogMemStats(__int64 a1, __int64 *a2, __int64 a3, __in
     v16 = 8LL;
     v18 = 8LL;
     v20 = 8LL;
-    return tlgWriteTransfer_EtwEventWriteTransfer((__int64)&dword_1801C5680, byte_18019BE3D, a3, a4, 7, (__int64)v10);
+    return tlgWriteTransfer_EtwEventWriteTransfer(
+             (__int64)&dword_1801C4680,
+             (unsigned __int8 *)dword_18019AEB0,
+             a3,
+             a4,
+             7u,
+             &v10);
   }
   return result;
 }

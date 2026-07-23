@@ -1,12 +1,12 @@
 /*
- * XREFs of HvpExpandMap @ 0x14047DE4C
+ * XREFs of HvpExpandMap @ 0x14047CBA0
  * Callers:
- *     HvpAddBin @ 0x14047DF10 (HvpAddBin.c)
- *     HvpApplyLogEntry @ 0x140612610 (HvpApplyLogEntry.c)
+ *     HvpAddBin @ 0x14047CC64 (HvpAddBin.c)
+ *     HvpApplyLogEntry @ 0x1406126C4 (HvpApplyLogEntry.c)
  * Callees:
- *     memset @ 0x1401715C0 (memset.c)
- *     HvpAllocateMap @ 0x1404E3210 (HvpAllocateMap.c)
- *     HvpFreeMap @ 0x1404EA6E8 (HvpFreeMap.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     HvpAllocateMap @ 0x1404C6174 (HvpAllocateMap.c)
+ *     HvpFreeMap @ 0x1404CC7DC (HvpFreeMap.c)
  */
 
 __int64 __fastcall HvpExpandMap(__int64 a1, unsigned int a2, unsigned int a3, unsigned int a4)

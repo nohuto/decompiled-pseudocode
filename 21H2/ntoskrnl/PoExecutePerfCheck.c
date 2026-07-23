@@ -1,9 +1,9 @@
 /*
- * XREFs of PoExecutePerfCheck @ 0x140227DA0
+ * XREFs of PoExecutePerfCheck @ 0x1402CC6A0
  * Callers:
- *     KiUpdateTime @ 0x140227730 (KiUpdateTime.c)
+ *     KiUpdateTime @ 0x1402CC030 (KiUpdateTime.c)
  * Callees:
- *     KiInsertQueueDpc @ 0x14021FD60 (KiInsertQueueDpc.c)
+ *     KiInsertQueueDpc @ 0x1402C4660 (KiInsertQueueDpc.c)
  */
 
 void PoExecutePerfCheck()
@@ -27,7 +27,7 @@ void PoExecutePerfCheck()
       v3 = 0;
       if ( PpmCheckLastExecutionTime != 1 )
       {
-        if ( PpmCheckLastExecutionTime + v1 + (unsigned int)KeMaximumIncrement > MEMORY[0xFFFFF78000000008] )
+        if ( PpmCheckLastExecutionTime + v1 + KeMaximumIncrement > MEMORY[0xFFFFF78000000008] )
           v2 = v1 + PpmCheckLastExecutionTime;
         v4 = v2 - v1 - PpmCheckLastExecutionTime;
         if ( v4 >= v1 )

@@ -1,9 +1,9 @@
 /*
- * XREFs of ObpShutdownTraceLoggingProvider @ 0x140C2C684
+ * XREFs of ObpShutdownTraceLoggingProvider @ 0x140C2E7A4
  * Callers:
- *     ObShutdownSystem @ 0x1407432D0 (ObShutdownSystem.c)
+ *     ObShutdownSystem @ 0x140741200 (ObShutdownSystem.c)
  * Callees:
- *     EtwUnregister @ 0x140A00060 (EtwUnregister.c)
+ *     EtwUnregister @ 0x140A52EC0 (EtwUnregister.c)
  */
 
 NTSTATUS ObpShutdownTraceLoggingProvider()

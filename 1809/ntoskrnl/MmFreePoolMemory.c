@@ -1,22 +1,22 @@
 /*
- * XREFs of MmFreePoolMemory @ 0x14007BD58
+ * XREFs of MmFreePoolMemory @ 0x14007BD48
  * Callers:
  *     RtlpHpVaMgrCtxFree @ 0x140008234 (RtlpHpVaMgrCtxFree.c)
  *     RtlpCSparseBitmapPageDecommit @ 0x140008938 (RtlpCSparseBitmapPageDecommit.c)
  *     RtlpHpEnvFreeVA @ 0x14000D2A8 (RtlpHpEnvFreeVA.c)
- *     MmAllocatePoolMemory @ 0x140099140 (MmAllocatePoolMemory.c)
- *     MiFreePoolPages @ 0x140161100 (MiFreePoolPages.c)
- *     MiReturnNonPagedPoolPde @ 0x1401616A0 (MiReturnNonPagedPoolPde.c)
- *     MiFreePagedPoolPages @ 0x140161A50 (MiFreePagedPoolPages.c)
+ *     MmAllocatePoolMemory @ 0x140099080 (MmAllocatePoolMemory.c)
+ *     MiFreePoolPages @ 0x140161200 (MiFreePoolPages.c)
+ *     MiReturnNonPagedPoolPde @ 0x1401617A0 (MiReturnNonPagedPoolPde.c)
+ *     MiFreePagedPoolPages @ 0x140161B50 (MiFreePagedPoolPages.c)
  * Callees:
  *     MiClearNonPagedPtes @ 0x1400282C4 (MiClearNonPagedPtes.c)
  *     MiReturnSystemVa @ 0x14002840C (MiReturnSystemVa.c)
- *     MiReturnCommit @ 0x140065D40 (MiReturnCommit.c)
- *     MiDeleteSystemPagableVm @ 0x140079F10 (MiDeleteSystemPagableVm.c)
- *     MiDeterminePoolType @ 0x14007BF30 (MiDeterminePoolType.c)
- *     MiCountSystemPool @ 0x1401B4E20 (MiCountSystemPool.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     memset @ 0x1401D1880 (memset.c)
+ *     MiReturnCommit @ 0x140065D30 (MiReturnCommit.c)
+ *     MiDeleteSystemPagableVm @ 0x140079F00 (MiDeleteSystemPagableVm.c)
+ *     MiDeterminePoolType @ 0x14007BF20 (MiDeterminePoolType.c)
+ *     MiCountSystemPool @ 0x1401B4F60 (MiCountSystemPool.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     memset @ 0x1401D1980 (memset.c)
  */
 
 __int64 __fastcall MmFreePoolMemory(ULONG_PTR *a1, ULONG_PTR *a2)
@@ -56,10 +56,10 @@ __int64 __fastcall MmFreePoolMemory(ULONG_PTR *a1, ULONG_PTR *a2)
       if ( (v7 & 0x20) != 0 )
         v10 = KeGetCurrentThread()->ApcState.Process[1].ActiveProcessors.Bitmap[2] + 3008;
       else
-        v10 = (unsigned __int64)&unk_14043B2A0;
+        v10 = (unsigned __int64)&unk_14043C360;
       MiDeleteSystemPagableVm(v10, 0LL, ((v3 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL, v4, (v9 & 0x40000000) != 0, v13);
       v11 = v13[3];
-      MiReturnCommit(*(_QWORD *)(qword_14043A748 + 8LL * *(unsigned __int16 *)(v10 + 174)), v13[3] - v13[1]);
+      MiReturnCommit(*(_QWORD *)(qword_14043B808 + 8LL * *(unsigned __int16 *)(v10 + 174)), v13[3] - v13[1]);
       LOWORD(v10) = v9;
     }
     else

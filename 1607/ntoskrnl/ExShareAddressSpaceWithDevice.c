@@ -1,23 +1,23 @@
 /*
- * XREFs of ExShareAddressSpaceWithDevice @ 0x14022EB68
+ * XREFs of ExShareAddressSpaceWithDevice @ 0x14022E994
  * Callers:
  *     <none>
  * Callees:
- *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14001BCF0 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KxReleaseQueuedSpinLock @ 0x140069570 (KxReleaseQueuedSpinLock.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
- *     ExAcquireRundownProtection @ 0x1400D3ED0 (ExAcquireRundownProtection.c)
- *     ExReleaseRundownProtection @ 0x1400D3F00 (ExReleaseRundownProtection.c)
- *     MmEnableProcessSvm @ 0x1401E0FD0 (MmEnableProcessSvm.c)
- *     ExpAllocateAsid @ 0x14022EFA0 (ExpAllocateAsid.c)
- *     ExpPrepareNewSvmDevice @ 0x14022F1BC (ExpPrepareNewSvmDevice.c)
- *     ExpSvmDereferenceDevice @ 0x14022F3F0 (ExpSvmDereferenceDevice.c)
+ *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14001B870 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400690F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
+ *     ExAcquireRundownProtection @ 0x1400D1D70 (ExAcquireRundownProtection.c)
+ *     ExReleaseRundownProtection @ 0x1400D1DA0 (ExReleaseRundownProtection.c)
+ *     MmEnableProcessSvm @ 0x1401E0DFC (MmEnableProcessSvm.c)
+ *     ExpAllocateAsid @ 0x14022EDCC (ExpAllocateAsid.c)
+ *     ExpPrepareNewSvmDevice @ 0x14022EFE8 (ExpPrepareNewSvmDevice.c)
+ *     ExpSvmDereferenceDevice @ 0x14022F21C (ExpSvmDereferenceDevice.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     ExpAssignPasid @ 0x1406B69D0 (ExpAssignPasid.c)
+ *     ExpAssignPasid @ 0x1406B6B08 (ExpAssignPasid.c)
  */
 
 __int64 __fastcall ExShareAddressSpaceWithDevice(__int64 a1, unsigned int *a2)

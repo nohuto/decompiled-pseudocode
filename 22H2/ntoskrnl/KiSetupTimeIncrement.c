@@ -63,8 +63,8 @@ __int64 __fastcall KiSetupTimeIncrement(unsigned __int64 a1, unsigned int a2)
   MEMORY[0xFFFFF78000000368] = v12;
   MEMORY[0xFFFFF78000000348] = v9.QuadPart;
   MEMORY[0xFFFFF78000000350] = v9.QuadPart;
-  result = 0x989680u / KeMaximumIncrement;
-  KiBalanceSetManagerPeriod = 0x989680u / KeMaximumIncrement;
-  KiBalanceSetManagerCount = 0x989680u / KeMaximumIncrement;
+  result = 0x989680 / KeMaximumIncrement;
+  KiBalanceSetManagerPeriod = 0x989680 / KeMaximumIncrement;
+  KiBalanceSetManagerCount = 0x989680 / KeMaximumIncrement;
   return result;
 }

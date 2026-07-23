@@ -1,11 +1,11 @@
 /*
- * XREFs of PpmEventTraceSoftCoreParkingSelection @ 0x140471C0C
+ * XREFs of PpmEventTraceSoftCoreParkingSelection @ 0x14046C3EC
  * Callers:
- *     PpmParkCalculateCoreParkingMask @ 0x1404EDA40 (PpmParkCalculateCoreParkingMask.c)
+ *     PpmParkCalculateCoreParkingMask @ 0x1404E5250 (PpmParkCalculateCoreParkingMask.c)
  * Callees:
- *     EtwWriteEx @ 0x140259680 (EtwWriteEx.c)
- *     EtwEventEnabled @ 0x1402A1BD0 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x140289C90 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x1402D1300 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 void __fastcall PpmEventTraceSoftCoreParkingSelection(
@@ -75,7 +75,7 @@ void __fastcall PpmEventTraceSoftCoreParkingSelection(
     if ( EtwEventEnabled(PpmEtwHandle, &PPM_ETW_SOFT_PARKING_SELECTION_V2) )
     {
       v13 = a1[4];
-      v14 = a1[160] + 640 * v11;
+      v14 = a1[161] + 640 * v11;
       v15 = *(_QWORD *)(v14 + 24);
       a8 &= v15;
       v19 = v15 & v13;

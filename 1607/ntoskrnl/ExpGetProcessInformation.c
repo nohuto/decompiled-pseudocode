@@ -1,45 +1,45 @@
 /*
- * XREFs of ExpGetProcessInformation @ 0x1404513E0
+ * XREFs of ExpGetProcessInformation @ 0x1404502B0
  * Callers:
- *     ExpQuerySystemInformation @ 0x140415620 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x1404144E0 (ExpQuerySystemInformation.c)
  * Callees:
- *     RtlQueryPackageIdentity @ 0x14000CC98 (RtlQueryPackageIdentity.c)
- *     SeSecurityAttributePresent @ 0x14000E300 (SeSecurityAttributePresent.c)
- *     ObFastDereferenceObject @ 0x14000F690 (ObFastDereferenceObject.c)
- *     ObFastReferenceObject @ 0x14000F760 (ObFastReferenceObject.c)
- *     PsGetCurrentServerSilo @ 0x140013620 (PsGetCurrentServerSilo.c)
- *     PsIsProcessInSilo @ 0x14001367C (PsIsProcessInSilo.c)
- *     MmGetSessionId @ 0x140014160 (MmGetSessionId.c)
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KeQueryValuesThread @ 0x140069D50 (KeQueryValuesThread.c)
- *     KeLeaveCriticalRegionThread @ 0x14006A0A0 (KeLeaveCriticalRegionThread.c)
- *     ObfDereferenceObjectWithTag @ 0x14006ACD0 (ObfDereferenceObjectWithTag.c)
- *     ObReferenceObjectSafeWithTag @ 0x14006ADC0 (ObReferenceObjectSafeWithTag.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     RtlUIntAdd @ 0x140089230 (RtlUIntAdd.c)
- *     SmIsCompressionProcess @ 0x14009CF3C (SmIsCompressionProcess.c)
- *     KiCheckForKernelApcDelivery @ 0x1400C7DE0 (KiCheckForKernelApcDelivery.c)
- *     ExfAcquirePushLockSharedEx @ 0x1400C8280 (ExfAcquirePushLockSharedEx.c)
- *     ExfReleasePushLockShared @ 0x1400C8640 (ExfReleasePushLockShared.c)
- *     KeFlushProcessWriteBuffers @ 0x1400C892C (KeFlushProcessWriteBuffers.c)
- *     PspUnlockProcessShared @ 0x1400C9C44 (PspUnlockProcessShared.c)
- *     PspLockProcessShared @ 0x1400C9C88 (PspLockProcessShared.c)
- *     ObFastReferenceObjectLocked @ 0x1400D1534 (ObFastReferenceObjectLocked.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     RtlQueryPackageIdentity @ 0x14000C818 (RtlQueryPackageIdentity.c)
+ *     SeSecurityAttributePresent @ 0x14000DE80 (SeSecurityAttributePresent.c)
+ *     ObFastDereferenceObject @ 0x14000F210 (ObFastDereferenceObject.c)
+ *     ObFastReferenceObject @ 0x14000F2E0 (ObFastReferenceObject.c)
+ *     PsGetCurrentServerSilo @ 0x1400131A0 (PsGetCurrentServerSilo.c)
+ *     PsIsProcessInSilo @ 0x1400131FC (PsIsProcessInSilo.c)
+ *     MmGetSessionId @ 0x140013CE0 (MmGetSessionId.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KeQueryValuesThread @ 0x1400698D0 (KeQueryValuesThread.c)
+ *     KeLeaveCriticalRegionThread @ 0x140069C20 (KeLeaveCriticalRegionThread.c)
+ *     ObfDereferenceObjectWithTag @ 0x14006A850 (ObfDereferenceObjectWithTag.c)
+ *     ObReferenceObjectSafeWithTag @ 0x14006A940 (ObReferenceObjectSafeWithTag.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     SmIsCompressionProcess @ 0x14009C73C (SmIsCompressionProcess.c)
+ *     RtlUIntAdd @ 0x1400C1B78 (RtlUIntAdd.c)
+ *     KiCheckForKernelApcDelivery @ 0x1400C5C80 (KiCheckForKernelApcDelivery.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1400C6120 (ExfAcquirePushLockSharedEx.c)
+ *     ExfReleasePushLockShared @ 0x1400C64E0 (ExfReleasePushLockShared.c)
+ *     KeFlushProcessWriteBuffers @ 0x1400C67CC (KeFlushProcessWriteBuffers.c)
+ *     PspUnlockProcessShared @ 0x1400C7AE4 (PspUnlockProcessShared.c)
+ *     PspLockProcessShared @ 0x1400C7B28 (PspLockProcessShared.c)
+ *     ObFastReferenceObjectLocked @ 0x1400CF3D4 (ObFastReferenceObjectLocked.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     SeQueryUserSidToken @ 0x1403FFC40 (SeQueryUserSidToken.c)
- *     PsReferencePrimaryToken @ 0x140418C20 (PsReferencePrimaryToken.c)
- *     ObOpenObjectByPointer @ 0x1404203C0 (ObOpenObjectByPointer.c)
- *     ExpCheckFullProcessInformationAccess @ 0x14048D0EC (ExpCheckFullProcessInformationAccess.c)
- *     KeSynchronizeWithDynamicProcessors @ 0x1404D22CC (KeSynchronizeWithDynamicProcessors.c)
- *     ExIsRestrictedCaller @ 0x1404F163C (ExIsRestrictedCaller.c)
- *     ExpCopyProcessInfo @ 0x140507350 (ExpCopyProcessInfo.c)
- *     ObCloseHandle @ 0x14050C73C (ObCloseHandle.c)
- *     PsQueryProcessEnergyValues @ 0x1405160D0 (PsQueryProcessEnergyValues.c)
- *     ExpQuitNextProcessThread @ 0x1406AC258 (ExpQuitNextProcessThread.c)
+ *     SeQueryUserSidToken @ 0x1403FEB00 (SeQueryUserSidToken.c)
+ *     PsReferencePrimaryToken @ 0x140417AE0 (PsReferencePrimaryToken.c)
+ *     ObOpenObjectByPointer @ 0x14041F280 (ObOpenObjectByPointer.c)
+ *     ExpCheckFullProcessInformationAccess @ 0x14048DB7C (ExpCheckFullProcessInformationAccess.c)
+ *     KeSynchronizeWithDynamicProcessors @ 0x1404B5D6C (KeSynchronizeWithDynamicProcessors.c)
+ *     ExIsRestrictedCaller @ 0x1404D3730 (ExIsRestrictedCaller.c)
+ *     ExpCopyProcessInfo @ 0x1404EA2E0 (ExpCopyProcessInfo.c)
+ *     ObCloseHandle @ 0x1404EF6CC (ObCloseHandle.c)
+ *     PsQueryProcessEnergyValues @ 0x1404F94C0 (PsQueryProcessEnergyValues.c)
+ *     ExpQuitNextProcessThread @ 0x1406AC390 (ExpQuitNextProcessThread.c)
  */
 
 __int64 __fastcall ExpGetProcessInformation(_DWORD *a1, __int64 a2, UINT *a3, _DWORD *a4, int a5)
@@ -108,8 +108,8 @@ __int64 __fastcall ExpGetProcessInformation(_DWORD *a1, __int64 a2, UINT *a3, _D
   _LIST_ENTRY *v66; // rdi
   unsigned int v67; // eax
   PACCESS_TOKEN v68; // rsi
-  unsigned __int64 v69; // r12
-  unsigned __int64 v70; // r13
+  ULONG_PTR v69; // r12
+  ULONG_PTR v70; // r13
   UINT v71; // r15d
   NTSTATUS v72; // eax
   unsigned int v73; // r9d
@@ -121,7 +121,7 @@ __int64 __fastcall ExpGetProcessInformation(_DWORD *a1, __int64 a2, UINT *a3, _D
   __int64 result; // rax
   signed __int32 v80[8]; // [rsp+0h] [rbp-458h] BYREF
   int v81; // [rsp+40h] [rbp-418h]
-  int PackageIdentity; // [rsp+44h] [rbp-414h]
+  NTSTATUS v82; // [rsp+44h] [rbp-414h]
   UINT uAugend; // [rsp+48h] [rbp-410h] BYREF
   PVOID v84; // [rsp+50h] [rbp-408h]
   char v85; // [rsp+58h] [rbp-400h]
@@ -138,9 +138,9 @@ __int64 __fastcall ExpGetProcessInformation(_DWORD *a1, __int64 a2, UINT *a3, _D
   UINT *v96; // [rsp+A0h] [rbp-3B8h]
   ULONG v97; // [rsp+A8h] [rbp-3B0h] BYREF
   PVOID P; // [rsp+B0h] [rbp-3A8h] BYREF
-  __int64 v99; // [rsp+B8h] [rbp-3A0h] BYREF
+  ULONG_PTR AppIdSize; // [rsp+B8h] [rbp-3A0h] BYREF
   void *v100; // [rsp+C0h] [rbp-398h]
-  __int64 v101; // [rsp+C8h] [rbp-390h] BYREF
+  ULONG_PTR PackageSize; // [rsp+C8h] [rbp-390h] BYREF
   int v102; // [rsp+D0h] [rbp-388h]
   int v103; // [rsp+D8h] [rbp-380h] BYREF
   unsigned __int8 v104; // [rsp+DCh] [rbp-37Ch]
@@ -163,17 +163,17 @@ __int64 __fastcall ExpGetProcessInformation(_DWORD *a1, __int64 a2, UINT *a3, _D
   HANDLE Handle[4]; // [rsp+1B0h] [rbp-2A8h] BYREF
   _QWORD v122[12]; // [rsp+1D0h] [rbp-288h] BYREF
   _BYTE Src[80]; // [rsp+230h] [rbp-228h] BYREF
-  _BYTE v124[144]; // [rsp+280h] [rbp-1D8h] BYREF
-  _BYTE v125[256]; // [rsp+310h] [rbp-148h] BYREF
+  WCHAR AppId[72]; // [rsp+280h] [rbp-1D8h] BYREF
+  WCHAR PackageFullName[128]; // [rsp+310h] [rbp-148h] BYREF
   UINT v126; // [rsp+468h] [rbp+10h]
 
   v126 = a2;
   v113 = a1;
   v96 = a3;
-  v99 = 130LL;
+  AppIdSize = 130LL;
   v5 = 0;
   v87 = 0;
-  v101 = 254LL;
+  PackageSize = 254LL;
   Process = 0LL;
   v81 = 0;
   Object = 0LL;
@@ -204,7 +204,7 @@ __int64 __fastcall ExpGetProcessInformation(_DWORD *a1, __int64 a2, UINT *a3, _D
   {
     if ( (unsigned int)ExIsRestrictedCaller(v6, a2, a3, a4) )
       v85 = 1;
-    PackageIdentity = 0;
+    v82 = 0;
     P = 0LL;
     KeFlushProcessWriteBuffers(1);
     CurrentServerSilo = PsGetCurrentServerSilo();
@@ -246,7 +246,7 @@ LABEL_11:
                 v13 = 0;
               }
               uAugend = v12;
-              PackageIdentity = v13;
+              v82 = v13;
               if ( v13 < 0 )
               {
                 v81 = v13;
@@ -264,7 +264,7 @@ LABEL_11:
                 {
                   v18 = ExpCopyProcessInfo(v11, v7, v86, v122);
                   v13 = v18;
-                  PackageIdentity = v18;
+                  v82 = v18;
                   if ( v18 < 0 )
                   {
                     v81 = v18;
@@ -279,8 +279,8 @@ LABEL_11:
                       *((_QWORD *)v11 + 12) = 0LL;
                     if ( v7 == (struct _KPROCESS *)PsSecureSystemProcess )
                     {
-                      v19 = qword_140326AA0 << 12;
-                      *((_QWORD *)v11 + 18) = qword_140326AA0 << 12;
+                      v19 = qword_140326AE0 << 12;
+                      *((_QWORD *)v11 + 18) = qword_140326AE0 << 12;
                       *((_QWORD *)v11 + 1) = v19;
                     }
                     if ( v13 >= 0 )
@@ -342,7 +342,7 @@ LABEL_26:
                         }
                         v7 = Process;
                         v84 = Process;
-                        v13 = PackageIdentity;
+                        v13 = v82;
                         v12 = uAugend;
                         v11 = v93;
                         v90 = v93;
@@ -367,7 +367,7 @@ LABEL_26:
                           }
                           uAugend = v30;
                           v12 = v30;
-                          PackageIdentity = v13;
+                          v82 = v13;
                           if ( v13 < 0 )
                           {
                             v81 = v13;
@@ -416,7 +416,7 @@ LABEL_26:
                                 }
                                 v7 = Process;
                                 v84 = Process;
-                                v13 = PackageIdentity;
+                                v13 = v82;
                                 p_Blink = (unsigned __int64 *)Object;
                                 v12 = uAugend;
                                 v11 = v93;
@@ -442,7 +442,7 @@ LABEL_26:
                                   *((_QWORD *)v91 + 11) = p_Blink[6];
                                   v7 = Process;
                                   v84 = Process;
-                                  v13 = PackageIdentity;
+                                  v13 = v82;
                                   p_Blink = (unsigned __int64 *)Object;
                                   v12 = uAugend;
                                   v11 = v93;
@@ -524,7 +524,7 @@ LABEL_26:
                           }
                           v7 = Process;
                           v84 = Process;
-                          v13 = PackageIdentity;
+                          v13 = v82;
                           v12 = uAugend;
                           v11 = v93;
                           v90 = v93;
@@ -593,8 +593,8 @@ LABEL_26:
                           *((_DWORD *)v100 + 56) = *(_DWORD *)(v43[1].Affinity.Bitmap[16] + 1236);
                         else
                           *((_DWORD *)v100 + 56) = 0;
-                        v13 = PackageIdentity;
-                        if ( PackageIdentity >= 0 )
+                        v13 = v82;
+                        if ( v82 >= 0 )
                         {
                           v7 = Process;
                           v84 = Process;
@@ -603,7 +603,7 @@ LABEL_26:
                           v90 = v93;
                           goto LABEL_110;
                         }
-                        v81 = PackageIdentity;
+                        v81 = v82;
                         v46 = Process;
                         p_Blink = (unsigned __int64 *)Object;
 LABEL_263:
@@ -626,33 +626,27 @@ LABEL_111:
                       v68 = PsReferencePrimaryToken(v7);
                       Handle[2] = v68;
                       SeQueryUserSidToken((__int64)v68, Src, 0x44u, &v97);
-                      v101 = 254LL;
-                      v99 = 130LL;
-                      PackageIdentity = RtlQueryPackageIdentity(
-                                          (__int64)v68,
-                                          (__int64)v125,
-                                          (__int64)&v101,
-                                          (__int64)v124,
-                                          (__int64)&v99,
-                                          0LL);
-                      if ( PackageIdentity >= 0 )
+                      PackageSize = 254LL;
+                      AppIdSize = 130LL;
+                      v82 = RtlQueryPackageIdentity(v68, PackageFullName, &PackageSize, AppId, &AppIdSize, 0LL);
+                      if ( v82 >= 0 )
                       {
-                        v70 = v99;
-                        v69 = v101;
+                        v70 = AppIdSize;
+                        v69 = PackageSize;
                       }
                       else
                       {
                         v69 = 0LL;
-                        v101 = 0LL;
+                        PackageSize = 0LL;
                         v70 = 0LL;
-                        v99 = 0LL;
+                        AppIdSize = 0LL;
                       }
                       ObFastDereferenceObject((signed __int64 *)v84 + 107, (unsigned __int64)v68);
                       v71 = (v97 + 7) & 0xFFFFFFF8;
                       v94 = v71;
                       v72 = RtlUIntAdd(v12, v71, &uAugend);
                       v13 = v72;
-                      PackageIdentity = v72;
+                      v82 = v72;
                       if ( v72 < 0 )
                       {
                         v81 = v72;
@@ -692,7 +686,7 @@ LABEL_111:
                             v94 = v69;
                             v76 = RtlUIntAdd(v12, v69, &uAugend);
                             v13 = v76;
-                            PackageIdentity = v76;
+                            v82 = v76;
                             if ( v76 >= 0 )
                             {
                               v87 += v69;
@@ -706,7 +700,7 @@ LABEL_111:
                               else
                               {
                                 *((_DWORD *)v39 + 14) = (_DWORD)v74 - (_DWORD)v39;
-                                memmove(v74, v125, (unsigned int)v69);
+                                memmove(v74, PackageFullName, (unsigned int)v69);
                                 v46 = (struct _KPROCESS *)v84;
                                 if ( v13 < 0 )
                                 {
@@ -735,7 +729,7 @@ LABEL_191:
                             v94 = v70;
                             v77 = RtlUIntAdd(v12, v70, &uAugend);
                             v13 = v77;
-                            PackageIdentity = v77;
+                            v82 = v77;
                             if ( v77 < 0 )
                             {
                               v81 = v77;
@@ -752,7 +746,7 @@ LABEL_191:
                                 goto LABEL_111;
                               }
                               *((_DWORD *)v39 + 52) = (_DWORD)v74 - (_DWORD)v39;
-                              memmove(v74, v124, (unsigned int)v70);
+                              memmove(v74, AppId, (unsigned int)v70);
                               v46 = (struct _KPROCESS *)v84;
                               if ( v13 < 0 )
                               {
@@ -818,7 +812,7 @@ LABEL_122:
                                     v102 = v48;
                                   }
                                 }
-                                PackageIdentity = v48;
+                                v82 = v48;
                                 if ( v48 < 0 )
                                   v52 = v47[141];
                                 else
@@ -862,7 +856,7 @@ LABEL_122:
                                 v13 = 0;
                               }
                               uAugend = v58;
-                              PackageIdentity = v13;
+                              v82 = v13;
                               if ( v13 >= 0 )
                               {
                                 v87 += v57;
@@ -1009,9 +1003,9 @@ LABEL_146:
       {
         *v93 = 0;
         v46 = (struct _KPROCESS *)v84;
-        if ( PackageIdentity < 0 )
+        if ( v82 < 0 )
         {
-          v81 = PackageIdentity;
+          v81 = v82;
           p_Blink = (unsigned __int64 *)Object;
           goto LABEL_263;
         }

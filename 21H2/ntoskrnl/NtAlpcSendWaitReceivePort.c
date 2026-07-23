@@ -1,55 +1,55 @@
 /*
- * XREFs of NtAlpcSendWaitReceivePort @ 0x1405E79F0
+ * XREFs of NtAlpcSendWaitReceivePort @ 0x1406D7150
  * Callers:
- *     NtWaitForWorkViaWorkerFactory @ 0x140203150 (NtWaitForWorkViaWorkerFactory.c)
+ *     NtWaitForWorkViaWorkerFactory @ 0x1402A7A90 (NtWaitForWorkViaWorkerFactory.c)
  * Callees:
- *     AlpcpSignal @ 0x140205730 (AlpcpSignal.c)
- *     KiCheckForKernelApcDelivery @ 0x14024A6E0 (KiCheckForKernelApcDelivery.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     memset @ 0x140414200 (memset.c)
- *     AlpcpSendMessage @ 0x1405E4800 (AlpcpSendMessage.c)
- *     AlpcpProcessSynchronousRequest @ 0x1405E6EE0 (AlpcpProcessSynchronousRequest.c)
- *     AlpcpReceiveMessage @ 0x1405E7C70 (AlpcpReceiveMessage.c)
- *     AlpcpTrackPortReferences @ 0x1406B8108 (AlpcpTrackPortReferences.c)
- *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     AlpcpSignal @ 0x1402AA060 (AlpcpSignal.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402EEF30 (KiCheckForKernelApcDelivery.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     AlpcpTrackPortReferences @ 0x140617618 (AlpcpTrackPortReferences.c)
+ *     AlpcpSendMessage @ 0x1406D3F60 (AlpcpSendMessage.c)
+ *     AlpcpProcessSynchronousRequest @ 0x1406D6640 (AlpcpProcessSynchronousRequest.c)
+ *     AlpcpReceiveMessage @ 0x1406D73D0 (AlpcpReceiveMessage.c)
+ *     ObReferenceObjectByHandle @ 0x140707FA0 (ObReferenceObjectByHandle.c)
  */
 
-__int64 __fastcall NtAlpcSendWaitReceivePort(
-        HANDLE Handle,
-        int a2,
-        __int128 *a3,
-        __int64 a4,
-        unsigned __int64 a5,
-        unsigned __int64 *a6,
-        unsigned int *Address,
-        LARGE_INTEGER *a8)
+NTSTATUS __cdecl NtAlpcSendWaitReceivePort(
+        HANDLE PortHandle,
+        ULONG Flags,
+        PPORT_MESSAGE SendMessageA,
+        PALPC_MESSAGE_ATTRIBUTES SendMessageAttributes,
+        PPORT_MESSAGE ReceiveMessage,
+        PSIZE_T BufferLength,
+        PALPC_MESSAGE_ATTRIBUTES ReceiveMessageAttributes,
+        PLARGE_INTEGER Timeout)
 {
   struct _KTHREAD *CurrentThread; // rax
-  unsigned int v13; // edi
-  char PreviousMode; // r14
-  int v15; // esi
-  int v16; // r9d
+  ULONG v13; // edi
+  KPROCESSOR_MODE PreviousMode; // r14
+  NTSTATUS v15; // esi
+  __int64 v16; // r9
   struct _DMA_ADAPTER *v17; // rbx
   struct _KTHREAD *v19; // rax
-  $C459BD0D405E8E46662177FB3D0A143F *v21; // rcx
+  bool v20; // zf
   PVOID Object; // [rsp+50h] [rbp-68h] BYREF
-  _QWORD v24[8]; // [rsp+60h] [rbp-58h] BYREF
+  _QWORD v23[8]; // [rsp+60h] [rbp-58h] BYREF
 
-  memset(v24, 0, sizeof(v24));
+  memset(v23, 0, sizeof(v23));
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  v13 = a2 & 0xFFFF0000;
+  v13 = Flags & 0xFFFF0000;
   Object = 0LL;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
-  v15 = ObReferenceObjectByHandle(Handle, 1u, AlpcPortObjectType, PreviousMode, &Object, 0LL);
+  v15 = ObReferenceObjectByHandle(PortHandle, 1u, AlpcPortObjectType, PreviousMode, &Object, 0LL);
   if ( v15 >= 0 )
   {
     v17 = (struct _DMA_ADAPTER *)Object;
     if ( (v13 & 0x40000) != 0 )
-      AlpcpTrackPortReferences(Object);
+      AlpcpTrackPortReferences((__int64)Object);
     if ( (v13 & 0x20000) != 0 )
     {
-      if ( a3 )
+      if ( SendMessageA )
       {
         if ( (v13 & 0x10000) != 0 )
         {
@@ -59,9 +59,18 @@ __int64 __fastcall NtAlpcSendWaitReceivePort(
         {
           v15 = -1073741584;
         }
-        else if ( a5 )
+        else if ( ReceiveMessage )
         {
-          v15 = AlpcpProcessSynchronousRequest((__int64)v17, v13, a3, a4, a5, a6, Address, a8, PreviousMode);
+          v15 = AlpcpProcessSynchronousRequest(
+                  (__int64)v17,
+                  v13,
+                  (__int128 *)&SendMessageA->u1.s1.DataLength,
+                  (__int64)SendMessageAttributes,
+                  (unsigned __int64)ReceiveMessage,
+                  BufferLength,
+                  (int *)ReceiveMessageAttributes,
+                  Timeout,
+                  PreviousMode);
         }
         else
         {
@@ -75,18 +84,18 @@ __int64 __fastcall NtAlpcSendWaitReceivePort(
     }
     else
     {
-      v24[0] = v17;
-      LODWORD(v24[6]) = v13;
-      if ( !a3 )
+      v23[0] = v17;
+      LODWORD(v23[6]) = v13;
+      if ( !SendMessageA )
       {
 LABEL_6:
-        if ( a5 )
-          v15 = AlpcpReceiveMessage(v24, a5, a6, Address, a8);
-        if ( _bittestandreset((signed __int32 *)&v24[6], 2u) )
+        if ( ReceiveMessage )
+          v15 = AlpcpReceiveMessage(v23, ReceiveMessage, BufferLength, ReceiveMessageAttributes, Timeout);
+        if ( _bittestandreset((signed __int32 *)&v23[6], 2u) )
         {
-          AlpcpSignal((__int64)v24, 0LL, 0LL, v16);
-          if ( v24[4] )
-            HalPutDmaAdapter((PADAPTER_OBJECT)v24[4]);
+          AlpcpSignal((__int64)v23, 0, 0, v16);
+          if ( v23[4] )
+            HalPutDmaAdapter((PADAPTER_OBJECT)v23[4]);
         }
         goto LABEL_9;
       }
@@ -96,9 +105,9 @@ LABEL_6:
       }
       else
       {
-        LODWORD(v24[6]) = v13 | 4;
-        memset(&v24[3], 0, 24);
-        v15 = AlpcpSendMessage((__int64)v24, (__m256i *)a3, a4, PreviousMode);
+        LODWORD(v23[6]) = v13 | 4;
+        memset(&v23[3], 0, 24);
+        v15 = AlpcpSendMessage((__int64)v23, (__m256i *)SendMessageA, (__int64)SendMessageAttributes, PreviousMode);
         if ( v15 >= 0 )
           goto LABEL_6;
       }
@@ -107,11 +116,12 @@ LABEL_9:
     HalPutDmaAdapter(v17);
   }
   v19 = KeGetCurrentThread();
-  if ( v19->KernelApcDisable++ == -1 )
+  v20 = v19->KernelApcDisable++ == -1;
+  if ( v20
+    && ($C459BD0D405E8E46662177FB3D0A143F *)v19->ApcState.ApcListHead[0].Flink != &v19->152
+    && !v19->SpecialApcDisable )
   {
-    v21 = &v19->152;
-    if ( ($C459BD0D405E8E46662177FB3D0A143F *)v21->ApcState.ApcListHead[0].Flink != v21 && !v19->SpecialApcDisable )
-      KiCheckForKernelApcDelivery((__int64)v21);
+    KiCheckForKernelApcDelivery();
   }
-  return (unsigned int)v15;
+  return v15;
 }

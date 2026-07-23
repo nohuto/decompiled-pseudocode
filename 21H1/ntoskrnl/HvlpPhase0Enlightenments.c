@@ -22,7 +22,7 @@ __int64 __fastcall HvlpPhase0Enlightenments(__int64 a1)
   v5 = 0LL;
   if ( (HvlEnlightenments & 0x100) == 0 )
     return 0LL;
-  HvlpGetRegister64(589847LL, &v6);
+  HvlpGetRegister64(589847, &v6);
   v3 = v6 | 1;
   if ( (HvlpFlags & 2) != 0 )
   {
@@ -34,7 +34,7 @@ __int64 __fastcall HvlpPhase0Enlightenments(__int64 a1)
     if ( v1 )
     {
 LABEL_5:
-      HvlpSetRegister64(589847LL, v3);
+      HvlpSetRegister64(589847, v3);
       if ( v1 )
         HvlpReferenceTscPage = v1;
       return 0LL;

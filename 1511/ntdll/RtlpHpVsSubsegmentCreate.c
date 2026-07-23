@@ -16,7 +16,7 @@ __int64 __fastcall RtlpHpVsSubsegmentCreate(__int64 a1, int a2, unsigned int a3)
   __int64 (__fastcall *v7)(_QWORD, _QWORD); // rdi
   __int64 v8; // rax
   __int64 v9; // rdi
-  __int64 (__fastcall *v10)(__int64, __int64, unsigned int); // rbp
+  __int64 (__fastcall *v10)(PVOID, __int64); // rbp
   int v11; // eax
   unsigned __int64 v12; // rbx
   __int64 v13; // rcx
@@ -40,11 +40,11 @@ __int64 __fastcall RtlpHpVsSubsegmentCreate(__int64 a1, int a2, unsigned int a3)
   v9 = v8;
   if ( !v8 )
     return 0LL;
-  v10 = (__int64 (__fastcall *)(__int64, __int64, unsigned int))(a1 ^ RtlpHeapKey ^ *(_QWORD *)(a1 + 80));
+  v10 = (__int64 (__fastcall *)(PVOID, __int64))(a1 ^ RtlpHeapKey ^ *(_QWORD *)(a1 + 80));
   if ( v10 == RtlpHpSegLfhVsCommit )
-    v11 = RtlpHpSegLfhVsCommit(*(_QWORD *)(a1 + 56), v8, 0x1000u);
+    v11 = RtlpHpSegLfhVsCommit(*(PVOID *)(a1 + 56), v8);
   else
-    v11 = v10(*(_QWORD *)(a1 + 56), v8, 4096u);
+    v11 = ((__int64 (__fastcall *)(_QWORD, __int64, __int64))v10)(*(_QWORD *)(a1 + 56), v8, 4096LL);
   if ( v11 < 0 )
   {
     v14 = 0LL;

@@ -12,6 +12,6 @@ __int64 LdrpInitParallelLoadingSupport()
   LdrpWorkQueue = (__int64)&LdrpWorkQueue;
   qword_180165278 = (__int64)&LdrpRetryQueue;
   LdrpRetryQueue = (__int64)&LdrpRetryQueue;
-  RtlInitializeCriticalSectionEx((__int64)&LdrpWorkQueueLock, 0, 0);
+  RtlInitializeCriticalSectionEx(&LdrpWorkQueueLock, 0, 0);
   return LdrpCreateLoaderEvents();
 }

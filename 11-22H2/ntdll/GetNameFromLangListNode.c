@@ -11,7 +11,7 @@
  *     RtlInitUnicodeString @ 0x1800189D0 (RtlInitUnicodeString.c)
  */
 
-__int64 __fastcall GetNameFromLangListNode(__int64 a1, _WORD *a2, UNICODE_STRING *a3)
+__int64 __fastcall GetNameFromLangListNode(__int64 a1, _WORD *a2, _UNICODE_STRING *a3)
 {
   unsigned int v3; // ebx
   __int64 v6; // rdx
@@ -25,7 +25,7 @@ __int64 __fastcall GetNameFromLangListNode(__int64 a1, _WORD *a2, UNICODE_STRING
     switch ( *a2 )
     {
       case 1:
-        if ( !(unsigned __int8)RtlLCIDToCultureName((unsigned int)(__int16)a2[2], a3) )
+        if ( !RtlLCIDToCultureName((__int16)a2[2], a3) )
           return (unsigned int)-1073741595;
         return v3;
       case 2:
@@ -39,7 +39,7 @@ LABEL_8:
           RtlInitUnicodeString(a3, (PCWSTR)(*(_QWORD *)(v8 + 24) + 2LL * *(__int16 *)(*(_QWORD *)(v8 + 16) + 2 * v9)));
           return v3;
         }
-        if ( *(_WORD *)(v6 + v7 + 4) && (unsigned __int8)RtlLCIDToCultureName(*(unsigned __int16 *)(v6 + v7 + 4), a3) )
+        if ( *(_WORD *)(v6 + v7 + 4) && RtlLCIDToCultureName(*(unsigned __int16 *)(v6 + v7 + 4), a3) )
           return v3;
         break;
       case 3:

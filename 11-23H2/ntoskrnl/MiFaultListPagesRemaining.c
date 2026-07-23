@@ -1,7 +1,7 @@
 /*
- * XREFs of MiFaultListPagesRemaining @ 0x14034B48C
+ * XREFs of MiFaultListPagesRemaining @ 0x14034B62C
  * Callers:
- *     MiComputeMaximumFaultCluster @ 0x1402385F0 (MiComputeMaximumFaultCluster.c)
+ *     MiComputeMaximumFaultCluster @ 0x1402386C0 (MiComputeMaximumFaultCluster.c)
  * Callees:
  *     <none>
  */

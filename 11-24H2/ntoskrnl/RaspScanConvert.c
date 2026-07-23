@@ -1,16 +1,16 @@
 /*
- * XREFs of RaspScanConvert @ 0x1404666F0
+ * XREFs of RaspScanConvert @ 0x14045E04C
  * Callers:
- *     RaspRasterize @ 0x14069BE1C (RaspRasterize.c)
+ *     RaspRasterize @ 0x14069CE9C (RaspRasterize.c)
  * Callees:
- *     RaspTestIntersection @ 0x140466B4C (RaspTestIntersection.c)
- *     RaspCreateSegmentList @ 0x140466E68 (RaspCreateSegmentList.c)
- *     BgpFmRoundUp @ 0x1404671A8 (BgpFmRoundUp.c)
- *     RaspDestroySegmentList @ 0x1404671C8 (RaspDestroySegmentList.c)
- *     RaspAllocateMemory @ 0x140467288 (RaspAllocateMemory.c)
- *     RaspFreeMemory @ 0x140467304 (RaspFreeMemory.c)
- *     BgpGxInitializeRectangle @ 0x14069855C (BgpGxInitializeRectangle.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     RaspTestIntersection @ 0x14045E4A8 (RaspTestIntersection.c)
+ *     RaspCreateSegmentList @ 0x14045E7C4 (RaspCreateSegmentList.c)
+ *     BgpFmRoundUp @ 0x14045EB04 (BgpFmRoundUp.c)
+ *     RaspDestroySegmentList @ 0x14045EB24 (RaspDestroySegmentList.c)
+ *     RaspAllocateMemory @ 0x14045EBE4 (RaspAllocateMemory.c)
+ *     RaspFreeMemory @ 0x14045EC60 (RaspFreeMemory.c)
+ *     BgpGxInitializeRectangle @ 0x1406995DC (BgpGxInitializeRectangle.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall RaspScanConvert(
@@ -138,8 +138,8 @@ __int64 __fastcall RaspScanConvert(
   v65[2] = v34;
   if ( v13 )
   {
-    v12 = qword_141027870;
-    SegmentList = BgpGxInitializeRectangle(v65, 1LL, qword_141027870, 3140LL);
+    v12 = qword_141028870;
+    SegmentList = BgpGxInitializeRectangle(v65, 1LL, qword_141028870, 3140LL);
     if ( SegmentList < 0 )
       goto LABEL_34;
   }
@@ -170,7 +170,7 @@ __int64 __fastcall RaspScanConvert(
   {
     if ( v34 <= 104 )
     {
-      v38 = qword_1410276D0;
+      v38 = qword_1410286D0;
 LABEL_15:
       a5 = 0;
       v39 = 0;
@@ -214,7 +214,7 @@ LABEL_31:
           v50 = v70;
           *a6 = v12;
           *a7 = v50;
-          if ( v38 != qword_1410276D0 )
+          if ( v38 != qword_1410286D0 )
           {
             v51 = v38;
             goto LABEL_33;

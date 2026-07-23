@@ -1,27 +1,27 @@
 /*
- * XREFs of RtlUnwind @ 0x1402D0AF0
+ * XREFs of RtlUnwind @ 0x14024EF80
  * Callers:
- *     _local_unwind @ 0x1403D1B90 (_local_unwind.c)
+ *     _local_unwind @ 0x1403D1D00 (_local_unwind.c)
  * Callees:
- *     RtlUnwindEx @ 0x140275A30 (RtlUnwindEx.c)
- *     RtlGetExtendedContextLength2 @ 0x1402765C0 (RtlGetExtendedContextLength2.c)
- *     RtlInitializeExtendedContext2 @ 0x140276FC0 (RtlInitializeExtendedContext2.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     _alloca_probe @ 0x1404084A0 (_alloca_probe.c)
+ *     RtlUnwindEx @ 0x1402639D0 (RtlUnwindEx.c)
+ *     RtlGetExtendedContextLength2 @ 0x140264560 (RtlGetExtendedContextLength2.c)
+ *     RtlInitializeExtendedContext2 @ 0x140264F60 (RtlInitializeExtendedContext2.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     _alloca_probe @ 0x140408680 (_alloca_probe.c)
  */
 
-__int64 __fastcall RtlUnwind(unsigned __int64 a1, __int64 a2, _QWORD *a3, __int64 a4)
+void __cdecl RtlUnwind(PVOID TargetFrame, PVOID TargetIp, PEXCEPTION_RECORD ExceptionRecord, PVOID ReturnValue)
 {
   unsigned __int64 v8; // r10
   void *v9; // rsp
-  __int64 v11; // [rsp+30h] [rbp+0h] BYREF
+  PCONTEXT_EX ContextLength; // [rsp+30h] [rbp+0h] BYREF
 
-  LODWORD(v11) = 0;
-  RtlGetExtendedContextLength2(1048587LL, &v11, 0LL);
-  v8 = (unsigned int)v11 + 15LL;
-  if ( v8 <= (unsigned int)v11 )
+  LODWORD(ContextLength) = 0;
+  RtlGetExtendedContextLength2(0x10000Bu, (PULONG)&ContextLength, 0LL);
+  v8 = (unsigned int)ContextLength + 15LL;
+  if ( v8 <= (unsigned int)ContextLength )
     v8 = 0xFFFFFFFFFFFFFF0LL;
   v9 = alloca(v8 & 0xFFFFFFFFFFFFFFF0uLL);
-  RtlInitializeExtendedContext2((__int64)&v11, 1048587, &v11, 0LL);
-  return RtlUnwindEx(a1, a2, a3, a4, (__int64)&v11, 0LL);
+  RtlInitializeExtendedContext2((PCONTEXT)&ContextLength, 0x10000Bu, &ContextLength, 0LL);
+  RtlUnwindEx(TargetFrame, TargetIp, ExceptionRecord, ReturnValue, (PCONTEXT)&ContextLength, 0LL);
 }

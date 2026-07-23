@@ -1,8 +1,8 @@
 /*
- * XREFs of SepConstrainByTrust @ 0x14008DC0C
+ * XREFs of SepConstrainByTrust @ 0x14008D36C
  * Callers:
- *     SeAccessCheckByType @ 0x14005FEF0 (SeAccessCheckByType.c)
- *     SepAccessCheckAndAuditAlarm @ 0x1404B6D30 (SepAccessCheckAndAuditAlarm.c)
+ *     SeAccessCheckByType @ 0x14005FA70 (SeAccessCheckByType.c)
+ *     SepAccessCheckAndAuditAlarm @ 0x1404A1110 (SepAccessCheckAndAuditAlarm.c)
  * Callees:
  *     <none>
  */

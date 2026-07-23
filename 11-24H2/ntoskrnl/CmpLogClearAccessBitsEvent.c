@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpLogClearAccessBitsEvent @ 0x140931C10
+ * XREFs of CmpLogClearAccessBitsEvent @ 0x140933D50
  * Callers:
- *     CmpClearKeyAccessBits @ 0x1409312E0 (CmpClearKeyAccessBits.c)
+ *     CmpClearKeyAccessBits @ 0x140933420 (CmpClearKeyAccessBits.c)
  * Callees:
- *     EtwWrite @ 0x14041C1B0 (EtwWrite.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     EtwWrite @ 0x14040FFB0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall CmpLogClearAccessBitsEvent(unsigned __int16 *a1, int a2, int a3)

@@ -1,20 +1,20 @@
 /*
- * XREFs of KeFlushMultipleRangeCurrentTb @ 0x1403C951C
+ * XREFs of KeFlushMultipleRangeCurrentTb @ 0x1403C96BC
  * Callers:
- *     MiAgeWorkingSetTail @ 0x14022E460 (MiAgeWorkingSetTail.c)
- *     MiDeleteVaTail @ 0x14033AB30 (MiDeleteVaTail.c)
- *     MiFlushTbList @ 0x14033B520 (MiFlushTbList.c)
+ *     MiAgeWorkingSetTail @ 0x1402D2CB0 (MiAgeWorkingSetTail.c)
+ *     MiDeleteVaTail @ 0x140345880 (MiDeleteVaTail.c)
+ *     MiFlushTbList @ 0x140346270 (MiFlushTbList.c)
  * Callees:
- *     KiIsSecureProcessFlush @ 0x14033B4E0 (KiIsSecureProcessFlush.c)
- *     HvlFlushRangeListTb @ 0x14038FF5C (HvlFlushRangeListTb.c)
- *     KiPrepareFlushParameters @ 0x140390D2C (KiPrepareFlushParameters.c)
- *     KiFlushRangeTb @ 0x1403C9600 (KiFlushRangeTb.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     KiIsSecureProcessFlush @ 0x140346230 (KiIsSecureProcessFlush.c)
+ *     HvlFlushRangeListTb @ 0x1403900AC (HvlFlushRangeListTb.c)
+ *     KiPrepareFlushParameters @ 0x140390E7C (KiPrepareFlushParameters.c)
+ *     KiFlushRangeTb @ 0x1403C97A0 (KiFlushRangeTb.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     memset @ 0x140414200 (memset.c)
- *     KiPrepareFlushCurrentAffinity @ 0x140519AC4 (KiPrepareFlushCurrentAffinity.c)
- *     VmFlushTb @ 0x1405A274C (VmFlushTb.c)
- *     ExFlushTb @ 0x1405B7218 (ExFlushTb.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     KiPrepareFlushCurrentAffinity @ 0x140519D04 (KiPrepareFlushCurrentAffinity.c)
+ *     VmFlushTb @ 0x1405A297C (VmFlushTb.c)
+ *     ExFlushTb @ 0x1405B7448 (ExFlushTb.c)
  */
 
 char __fastcall KeFlushMultipleRangeCurrentTb(unsigned int a1, unsigned __int64 *a2, unsigned int a3)

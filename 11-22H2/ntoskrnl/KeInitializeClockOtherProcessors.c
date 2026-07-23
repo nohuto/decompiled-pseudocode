@@ -29,7 +29,7 @@ __int64 __fastcall KeInitializeClockOtherProcessors(__int64 a1)
   ClockTimerState = KiGetClockTimerState(a1);
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(0xDuLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 13 )
@@ -43,16 +43,16 @@ __int64 __fastcall KeInitializeClockOtherProcessors(__int64 a1)
   off_140C01C90[0]();
   LOBYTE(v3) = 1;
   ((void (__fastcall *)(__int64))off_140C01C88[0])(v3);
-  ((void (__fastcall *)(_QWORD, _QWORD, __int64 *))off_140C01CA0[0])(0LL, (unsigned int)KeMaximumIncrement, &v13);
+  ((void (__fastcall *)(_QWORD, _QWORD, __int64 *))off_140C01CA0[0])(0LL, KeMaximumIncrement, &v13);
   KiSetPendingTick(1);
   v4 = v13;
   *(_DWORD *)(ClockTimerState + 12) = KeMaximumIncrement;
   *(_DWORD *)(ClockTimerState + 8) = v4;
   *(_BYTE *)(ClockTimerState + 136) = 1;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v8 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v8 <= 0xFu && CurrentIrql <= 0xFu && v8 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v8 <= 0xFu && CurrentIrql <= 0xFu && v8 >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v10 = CurrentPrcb->SchedulerAssist;

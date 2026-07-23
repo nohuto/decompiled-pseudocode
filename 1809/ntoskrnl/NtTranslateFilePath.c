@@ -1,18 +1,18 @@
 /*
- * XREFs of NtTranslateFilePath @ 0x1408D5E60
+ * XREFs of NtTranslateFilePath @ 0x1408D7120
  * Callers:
  *     <none>
  * Callees:
- *     memmove @ 0x1401D1540 (memmove.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     SeSinglePrivilegeCheck @ 0x140612160 (SeSinglePrivilegeCheck.c)
- *     ProbeForWrite @ 0x140629A60 (ProbeForWrite.c)
- *     ExpTranslateArcPath @ 0x1408D2570 (ExpTranslateArcPath.c)
- *     ExpTranslateEfiPath @ 0x1408D280C (ExpTranslateEfiPath.c)
- *     ExpTranslateNtPath @ 0x1408D2E78 (ExpTranslateNtPath.c)
- *     ExpVerifyFilePath @ 0x1408D3380 (ExpVerifyFilePath.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     SeSinglePrivilegeCheck @ 0x140613160 (SeSinglePrivilegeCheck.c)
+ *     ProbeForWrite @ 0x14062AA80 (ProbeForWrite.c)
+ *     ExpTranslateArcPath @ 0x1408D3830 (ExpTranslateArcPath.c)
+ *     ExpTranslateEfiPath @ 0x1408D3ACC (ExpTranslateEfiPath.c)
+ *     ExpTranslateNtPath @ 0x1408D4138 (ExpTranslateNtPath.c)
+ *     ExpVerifyFilePath @ 0x1408D4640 (ExpVerifyFilePath.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D7880 (ExRaiseDatatypeMisalignment.c)
  */
 
 // local variable allocation has failed, the output may be wrong!
@@ -43,7 +43,7 @@ NTSTATUS __stdcall NtTranslateFilePath(
 
   v26 = *(unsigned int **)&OutputFilePathLength;
   P = 0LL;
-  if ( dword_140409D90 != 2 )
+  if ( dword_14040ADF0 != 2 )
     return -1073741822;
   if ( OutputType - 1 <= 4 )
   {
@@ -172,7 +172,7 @@ LABEL_54:
       }
       if ( v18 == 4 )
       {
-        v19 = ExpTranslateEfiPath((__int64)v15, OutputType, v16, (__int64)&v21);
+        v19 = ExpTranslateEfiPath((__int64)v15, OutputType, v16, &v21);
 LABEL_47:
         v17 = v19;
         v12 = v21;

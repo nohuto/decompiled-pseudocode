@@ -1,35 +1,35 @@
 /*
- * XREFs of KiSetHeteroPolicyThread @ 0x140577A0C
+ * XREFs of KiSetHeteroPolicyThread @ 0x140577EFC
  * Callers:
- *     KeSetUserHeteroCpuPolicyThread @ 0x14056F094 (KeSetUserHeteroCpuPolicyThread.c)
- *     PopUpdateSingleThreadHeteroPolicies @ 0x1408A5AC0 (PopUpdateSingleThreadHeteroPolicies.c)
+ *     KeSetUserHeteroCpuPolicyThread @ 0x14056F5D4 (KeSetUserHeteroCpuPolicyThread.c)
+ *     PopUpdateSingleThreadHeteroPolicies @ 0x1408A5D10 (PopUpdateSingleThreadHeteroPolicies.c)
  * Callees:
  *     KiRescheduleThreadAfterAffinityChange @ 0x140203570 (KiRescheduleThreadAfterAffinityChange.c)
- *     KiQueueReadyThread @ 0x140234510 (KiQueueReadyThread.c)
- *     KiDeferredReadySingleThread @ 0x14023A2D0 (KiDeferredReadySingleThread.c)
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     KiAcquirePrcbLocksForIsolationUnit @ 0x140246770 (KiAcquirePrcbLocksForIsolationUnit.c)
- *     KiEndThreadAccountingPeriodEx @ 0x140248450 (KiEndThreadAccountingPeriodEx.c)
- *     KiReadyDeferredReadyList @ 0x140249C90 (KiReadyDeferredReadyList.c)
- *     KiAndAffinityEx @ 0x140252440 (KiAndAffinityEx.c)
- *     KiFlushSoftwareInterruptBatch @ 0x140252760 (KiFlushSoftwareInterruptBatch.c)
- *     KeAndGroupAffinityEx @ 0x140254480 (KeAndGroupAffinityEx.c)
- *     KeGetProcessorIndexFromNumber @ 0x1402551B0 (KeGetProcessorIndexFromNumber.c)
- *     KeEnumerateNextProcessor @ 0x1402572B0 (KeEnumerateNextProcessor.c)
- *     KeAddProcessorAffinityEx @ 0x1402573A0 (KeAddProcessorAffinityEx.c)
- *     KiComputeHeteroThreadQos @ 0x1402B0DF0 (KiComputeHeteroThreadQos.c)
- *     KiAbPropagateBoosts @ 0x1402BBED0 (KiAbPropagateBoosts.c)
- *     KiAbProcessThreadLocks @ 0x1402BC350 (KiAbProcessThreadLocks.c)
- *     KiReleasePrcbLocksForIsolationUnit @ 0x1403078C0 (KiReleasePrcbLocksForIsolationUnit.c)
- *     KiDeliverApc @ 0x14030F890 (KiDeliverApc.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     KiSwapContext @ 0x1404282E0 (KiSwapContext.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     memset @ 0x140435A00 (memset.c)
- *     KiConvertDynamicHeteroPolicy @ 0x140461648 (KiConvertDynamicHeteroPolicy.c)
- *     KiGenerateHeteroSets @ 0x1404616A0 (KiGenerateHeteroSets.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     EtwTraceIdealProcessor @ 0x1405FCD90 (EtwTraceIdealProcessor.c)
+ *     KiQueueReadyThread @ 0x1402345E0 (KiQueueReadyThread.c)
+ *     KiDeferredReadySingleThread @ 0x14023A3A0 (KiDeferredReadySingleThread.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     KiAcquirePrcbLocksForIsolationUnit @ 0x140246840 (KiAcquirePrcbLocksForIsolationUnit.c)
+ *     KiEndThreadAccountingPeriodEx @ 0x140248520 (KiEndThreadAccountingPeriodEx.c)
+ *     KiReadyDeferredReadyList @ 0x140249D60 (KiReadyDeferredReadyList.c)
+ *     KiAndAffinityEx @ 0x140252500 (KiAndAffinityEx.c)
+ *     KiFlushSoftwareInterruptBatch @ 0x140252820 (KiFlushSoftwareInterruptBatch.c)
+ *     KeAndGroupAffinityEx @ 0x140254540 (KeAndGroupAffinityEx.c)
+ *     KeGetProcessorIndexFromNumber @ 0x140255270 (KeGetProcessorIndexFromNumber.c)
+ *     KeEnumerateNextProcessor @ 0x140257370 (KeEnumerateNextProcessor.c)
+ *     KeAddProcessorAffinityEx @ 0x140257460 (KeAddProcessorAffinityEx.c)
+ *     KiComputeHeteroThreadQos @ 0x1402B1080 (KiComputeHeteroThreadQos.c)
+ *     KiAbPropagateBoosts @ 0x1402BC160 (KiAbPropagateBoosts.c)
+ *     KiAbProcessThreadLocks @ 0x1402BC5E0 (KiAbProcessThreadLocks.c)
+ *     KiReleasePrcbLocksForIsolationUnit @ 0x140307B50 (KiReleasePrcbLocksForIsolationUnit.c)
+ *     KiDeliverApc @ 0x14030FB20 (KiDeliverApc.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KiSwapContext @ 0x140428670 (KiSwapContext.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     KiConvertDynamicHeteroPolicy @ 0x140461A48 (KiConvertDynamicHeteroPolicy.c)
+ *     KiGenerateHeteroSets @ 0x140461AA0 (KiGenerateHeteroSets.c)
+ *     EtwTraceIdealProcessor @ 0x1405FD300 (EtwTraceIdealProcessor.c)
  */
 
 __int64 __fastcall KiSetHeteroPolicyThread(__int64 a1, int a2)
@@ -86,7 +86,7 @@ __int64 __fastcall KiSetHeteroPolicyThread(__int64 a1, int a2)
   struct _KPRCB *v53; // r9
   _DWORD *v54; // r8
   int v55; // eax
-  void (__fastcall *v56)(_QWORD, _DWORD *, int *, __int64, struct _PROCESSOR_NUMBER *); // rax
+  void (__fastcall *v56)(_QWORD, _DWORD *, int *, __int64, _PROCESSOR_NUMBER *); // rax
   __int16 v57; // r12
   unsigned int *v58; // rbx
   unsigned __int64 v59; // rdi
@@ -99,7 +99,7 @@ __int64 __fastcall KiSetHeteroPolicyThread(__int64 a1, int a2)
   __int64 (__fastcall *v66)(_QWORD, _DWORD *, __int128 *, __int64, _DWORD *); // rax
   int v67; // eax
   _DWORD v69[4]; // [rsp+40h] [rbp-398h] BYREF
-  struct _PROCESSOR_NUMBER ProcNumber; // [rsp+50h] [rbp-388h] BYREF
+  _PROCESSOR_NUMBER ProcNumber; // [rsp+50h] [rbp-388h] BYREF
   int v71; // [rsp+54h] [rbp-384h]
   unsigned int v72; // [rsp+58h] [rbp-380h]
   __int64 v73; // [rsp+60h] [rbp-378h] BYREF
@@ -144,7 +144,7 @@ __int64 __fastcall KiSetHeteroPolicyThread(__int64 a1, int a2)
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
   v5 = (unsigned int)(unsigned __int8)v73 + 1;
-  if ( KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & (unsigned __int8)(v73 + 1)) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & (unsigned __int8)(v73 + 1)) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 2 )
@@ -388,7 +388,7 @@ LABEL_59:
     }
     if ( !v48 )
     {
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v49 = KeGetCurrentIrql();
         if ( ((unsigned __int8)KiIrqlFlags & (unsigned __int8)v5) != 0 && (unsigned __int8)(v49 - 2) <= 0xDu )
@@ -405,7 +405,7 @@ LABEL_59:
       *(_DWORD *)(v35 + 116) &= ~0x40u;
       KiDeliverApc(0, 0LL, 0LL);
     }
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v52 = KeGetCurrentIrql();
       if ( ((unsigned __int8)KiIrqlFlags & (unsigned __int8)v5) != 0 && (unsigned __int8)(v52 - 2) <= 0xDu )
@@ -434,11 +434,10 @@ LABEL_59:
   if ( (*(_DWORD *)(HalpInterruptController + 244) & 0x40) != 0 && !HalpInterruptNoShorthand )
   {
     v99 = 3;
-    ProcNumber = (struct _PROCESSOR_NUMBER)-1;
+    ProcNumber = (_PROCESSOR_NUMBER)-1;
     v69[1] = *(_DWORD *)(HalpInterruptIpiLines + 20);
     v69[0] = *(_DWORD *)(HalpInterruptIpiLines + 16);
-    v56 = *(void (__fastcall **)(_QWORD, _DWORD *, int *, __int64, struct _PROCESSOR_NUMBER *))(HalpInterruptController
-                                                                                              + 120);
+    v56 = *(void (__fastcall **)(_QWORD, _DWORD *, int *, __int64, _PROCESSOR_NUMBER *))(HalpInterruptController + 120);
     v71 = 1;
     _disable();
     v56(*(_QWORD *)(HalpInterruptController + 16), v69, &v99, 47LL, &ProcNumber);

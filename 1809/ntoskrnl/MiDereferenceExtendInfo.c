@@ -1,8 +1,8 @@
 /*
- * XREFs of MiDereferenceExtendInfo @ 0x140138928
+ * XREFs of MiDereferenceExtendInfo @ 0x140138A28
  * Callers:
- *     MiDeleteVad @ 0x140065E10 (MiDeleteVad.c)
- *     MiMapViewOfDataSection @ 0x1405F0BB0 (MiMapViewOfDataSection.c)
+ *     MiDeleteVad @ 0x140065E00 (MiDeleteVad.c)
+ *     MiMapViewOfDataSection @ 0x1405F1BB0 (MiMapViewOfDataSection.c)
  * Callees:
  *     KiAbEntryRemoveFromTree @ 0x140004530 (KiAbEntryRemoveFromTree.c)
  *     KiCheckForKernelApcDelivery @ 0x140005A50 (KiCheckForKernelApcDelivery.c)
@@ -11,9 +11,9 @@
  *     KiAbThreadRemoveBoosts @ 0x14004EFD0 (KiAbThreadRemoveBoosts.c)
  *     MmGetSessionIdEx @ 0x14004F060 (MmGetSessionIdEx.c)
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiDereferenceExtendInfo(__int64 a1, __int64 a2)
@@ -37,18 +37,18 @@ void __fastcall MiDereferenceExtendInfo(__int64 a1, __int64 a2)
   CurrentThread = KeGetCurrentThread();
   v3 = 0LL;
   --CurrentThread->SpecialApcDisable;
-  ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_140438BD0, 0LL);
+  ExAcquirePushLockExclusiveEx((ULONG_PTR)&qword_140439C90, 0LL);
   SessionId = -1;
   if ( !--*(_DWORD *)(*(_QWORD *)(a1 + 120) + 8LL) )
   {
     v3 = *(void **)(a1 + 120);
     *(_QWORD *)(*(_QWORD *)a2 + 32LL) = 0LL;
   }
-  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140438BD0, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock((volatile signed __int64 *)&qword_140438BD0);
+  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140439C90, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    ExfTryToWakePushLock((volatile signed __int64 *)&qword_140439C90);
   v17 = 0;
   v7 = KeGetCurrentThread();
-  if ( (unsigned int)MiGetSystemRegionType((unsigned __int64)&qword_140438BD0) == 1 )
+  if ( (unsigned int)MiGetSystemRegionType((unsigned __int64)&qword_140439C90) == 1 )
     SessionId = MmGetSessionIdEx((__int64)v7->ApcState.Process);
   --v7->SpecialApcDisable;
   v8 = ++v7->AbAllocationRegionCount;
@@ -65,7 +65,7 @@ void __fastcall MiDereferenceExtendInfo(__int64 a1, __int64 a2)
     v9 = ~v12 & (unsigned int)v9;
     if ( (v14->AcquiredByte & 1) != 0
       && (*(_DWORD *)&v14->LockState.0 & 1) == 0
-      && (*(_QWORD *)&v14->LockState.0 & 0x7FFFFFFFFFFFFFFCLL) == ((unsigned __int64)&qword_140438BD0 & 0x7FFFFFFFFFFFFFFCLL)
+      && (*(_QWORD *)&v14->LockState.0 & 0x7FFFFFFFFFFFFFFCLL) == ((unsigned __int64)&qword_140439C90 & 0x7FFFFFFFFFFFFFFCLL)
       && v14->LockState.SessionId == SessionId )
     {
       v14->AcquiredByte &= ~1u;
@@ -75,7 +75,7 @@ void __fastcall MiDereferenceExtendInfo(__int64 a1, __int64 a2)
         {
           v14->CrossThreadReleasableAndBusyByte |= 2u;
           if ( (__int64)v14->LockState.LockState < 0 )
-            KiAbEntryRemoveFromTree((__int64)&v7->LockEntries[v13], v9);
+            KiAbEntryRemoveFromTree(&v7->LockEntries[v13].TreeNode, v9);
           v17 = 0;
           v17 = v14->BoostBitmap.AllFields & 0x1FFFF;
           v14->BoostBitmap.AllFields &= 0xFFFE0000;
@@ -93,10 +93,10 @@ void __fastcall MiDereferenceExtendInfo(__int64 a1, __int64 a2)
     }
   }
   if ( (*((_DWORD *)&v7->0 + 1) & 0x10000) == 0 )
-    KeBugCheckEx(0x162u, (ULONG_PTR)v7, (ULONG_PTR)&qword_140438BD0, SessionId, 0LL);
+    KeBugCheckEx(0x162u, (ULONG_PTR)v7, (ULONG_PTR)&qword_140439C90, SessionId, 0LL);
 LABEL_19:
   --v7->AbAllocationRegionCount;
-  KiAbThreadRemoveBoosts((ULONG_PTR)v7, (__int64)&qword_140438BD0, (__int64)&v17);
+  KiAbThreadRemoveBoosts((ULONG_PTR)v7, (__int64)&qword_140439C90, (__int64)&v17);
   v10 = v7->SpecialApcDisable++ == -1;
   if ( v10 && ($FFD56A4B518EFE5E17FDE2C5CC486782 *)v7->ApcState.ApcListHead[0].Flink != &v7->152 )
     KiCheckForKernelApcDelivery(v16);

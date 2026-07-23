@@ -1,14 +1,14 @@
 /*
  * XREFs of ResFwBackgroundTransition @ 0x140AEEAF8
  * Callers:
- *     BgpFwLibraryEnable @ 0x140387E44 (BgpFwLibraryEnable.c)
+ *     BgpFwLibraryEnable @ 0x140388024 (BgpFwLibraryEnable.c)
  *     BgpFwLibraryDestroy @ 0x140AEEA88 (BgpFwLibraryDestroy.c)
  * Callees:
- *     BgpFwReleaseLock @ 0x140385660 (BgpFwReleaseLock.c)
- *     BgpFwAcquireLock @ 0x1403856B0 (BgpFwAcquireLock.c)
- *     BgpFwFreeMemory @ 0x1403860A0 (BgpFwFreeMemory.c)
- *     BgpFwAllocateMemory @ 0x14038762C (BgpFwAllocateMemory.c)
- *     memmove @ 0x140435700 (memmove.c)
+ *     BgpFwReleaseLock @ 0x140385840 (BgpFwReleaseLock.c)
+ *     BgpFwAcquireLock @ 0x140385890 (BgpFwAcquireLock.c)
+ *     BgpFwFreeMemory @ 0x140386280 (BgpFwFreeMemory.c)
+ *     BgpFwAllocateMemory @ 0x14038780C (BgpFwAllocateMemory.c)
+ *     memmove @ 0x140435B00 (memmove.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ResFwpPageOutBackground @ 0x140AEEBF0 (ResFwpPageOutBackground.c)
  */

@@ -1,18 +1,18 @@
 /*
- * XREFs of PiDqActionDataGetChangedProperties @ 0x1406DB244
+ * XREFs of PiDqActionDataGetChangedProperties @ 0x1406DC4E4
  * Callers:
- *     PiDqActionDataCreate @ 0x140591404 (PiDqActionDataCreate.c)
+ *     PiDqActionDataCreate @ 0x140592404 (PiDqActionDataCreate.c)
  * Callees:
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     _wcsicmp @ 0x140195930 (_wcsicmp.c)
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     PnpFreeDevProperty @ 0x1405954EC (PnpFreeDevProperty.c)
- *     PiPnpRtlEndOperation @ 0x140595CA4 (PiPnpRtlEndOperation.c)
- *     PiPnpRtlBeginOperation @ 0x140596E08 (PiPnpRtlBeginOperation.c)
- *     PiDqPnPGetObjectProperty @ 0x1405972F0 (PiDqPnPGetObjectProperty.c)
- *     PiDqPnPGetObjectPropertyInBestLocale @ 0x1406D98B0 (PiDqPnPGetObjectPropertyInBestLocale.c)
- *     PiDqOpenObjectRegKey @ 0x1406D9C04 (PiDqOpenObjectRegKey.c)
- *     PiDqGrowPropertyArray @ 0x1406DB430 (PiDqGrowPropertyArray.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     _wcsicmp @ 0x140195A70 (_wcsicmp.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     PnpFreeDevProperty @ 0x1405964EC (PnpFreeDevProperty.c)
+ *     PiPnpRtlEndOperation @ 0x140596CA4 (PiPnpRtlEndOperation.c)
+ *     PiPnpRtlBeginOperation @ 0x140597E08 (PiPnpRtlBeginOperation.c)
+ *     PiDqPnPGetObjectProperty @ 0x1405982F0 (PiDqPnPGetObjectProperty.c)
+ *     PiDqPnPGetObjectPropertyInBestLocale @ 0x1406DAB50 (PiDqPnPGetObjectPropertyInBestLocale.c)
+ *     PiDqOpenObjectRegKey @ 0x1406DAEA4 (PiDqOpenObjectRegKey.c)
+ *     PiDqGrowPropertyArray @ 0x1406DC6D0 (PiDqGrowPropertyArray.c)
  */
 
 __int64 __fastcall PiDqActionDataGetChangedProperties(

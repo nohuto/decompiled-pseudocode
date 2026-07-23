@@ -5,33 +5,33 @@
  * Callees:
  *     RtlSetLastWin32Error @ 0x1800518D0 (RtlSetLastWin32Error.c)
  *     RtlNtStatusToDosError @ 0x180051950 (RtlNtStatusToDosError.c)
- *     NtTraceControl @ 0x1800A0ED0 (NtTraceControl.c)
+ *     NtTraceControl @ 0x1800A0E90 (NtTraceControl.c)
  */
 
-__int64 __fastcall EtwEventActivityIdControl(int a1, _GUID *p_ActivityId)
+ULONG __cdecl EtwEventActivityIdControl(ULONG ControlCode, LPGUID ActivityId)
 {
   ULONG v2; // ebx
-  __int64 result; // rax
-  int v4; // ecx
-  int v5; // ecx
+  ULONG result; // eax
+  ULONG v4; // ecx
+  ULONG v5; // ecx
   NTSTATUS v6; // eax
-  int v7; // ecx
-  _GUID ActivityId; // xmm1
-  ULONG v9; // eax
-  char v10; // [rsp+48h] [rbp+10h] BYREF
+  ULONG v7; // ecx
+  _GUID v8; // xmm1
+  LONG v9; // eax
+  ULONG ReturnLength; // [rsp+48h] [rbp+10h] BYREF
 
-  if ( !p_ActivityId )
-    return 87LL;
-  if ( a1 == 2 )
+  if ( !ActivityId )
+    return 87;
+  if ( ControlCode == 2 )
   {
-    NtCurrentTeb()->ActivityId = *p_ActivityId;
+    NtCurrentTeb()->ActivityId = *ActivityId;
     return 0;
   }
-  v4 = a1 - 1;
+  v4 = ControlCode - 1;
   if ( !v4 )
   {
-    result = 0LL;
-    *p_ActivityId = NtCurrentTeb()->ActivityId;
+    result = 0;
+    *ActivityId = NtCurrentTeb()->ActivityId;
     return result;
   }
   v5 = v4 - 2;
@@ -45,10 +45,10 @@ __int64 __fastcall EtwEventActivityIdControl(int a1, _GUID *p_ActivityId)
       v6 = -1073741811;
       goto LABEL_17;
     }
-    *p_ActivityId = NtCurrentTeb()->ActivityId;
-    p_ActivityId = &NtCurrentTeb()->ActivityId;
+    *ActivityId = NtCurrentTeb()->ActivityId;
+    ActivityId = &NtCurrentTeb()->ActivityId;
 LABEL_9:
-    v6 = NtTraceControl(12LL, 0LL, 0LL, p_ActivityId, 16, &v10);
+    v6 = NtTraceControl(EtwActivityIdCreate, 0LL, 0, ActivityId, 0x10u, &ReturnLength);
     if ( !v6 )
       return 0;
 LABEL_17:
@@ -58,9 +58,9 @@ LABEL_17:
       RtlSetLastWin32Error(v9);
     return v2;
   }
-  ActivityId = NtCurrentTeb()->ActivityId;
-  NtCurrentTeb()->ActivityId = *p_ActivityId;
-  result = 0LL;
-  *p_ActivityId = ActivityId;
+  v8 = NtCurrentTeb()->ActivityId;
+  NtCurrentTeb()->ActivityId = *ActivityId;
+  result = 0;
+  *ActivityId = v8;
   return result;
 }

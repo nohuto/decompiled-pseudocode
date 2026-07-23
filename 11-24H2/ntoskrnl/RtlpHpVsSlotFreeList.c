@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlpHpVsSlotFreeList @ 0x1402B3510
+ * XREFs of RtlpHpVsSlotFreeList @ 0x14035C0D0
  * Callers:
- *     RtlpHpVsContextFree @ 0x1402B2F20 (RtlpHpVsContextFree.c)
- *     RtlpHpVsContextCompact @ 0x1402B3A2C (RtlpHpVsContextCompact.c)
+ *     RtlpHpVsContextFree @ 0x14035BAE0 (RtlpHpVsContextFree.c)
+ *     RtlpHpVsContextCompact @ 0x14035CB7C (RtlpHpVsContextCompact.c)
  * Callees:
- *     RtlpHpAcquireQueuedLockExclusive @ 0x14020D900 (RtlpHpAcquireQueuedLockExclusive.c)
- *     RtlpLogHeapFailure @ 0x1402B2E04 (RtlpLogHeapFailure.c)
- *     RtlpHpVsSubsegmentFree @ 0x1402B415C (RtlpHpVsSubsegmentFree.c)
- *     RtlpHpReleaseQueuedLockExclusive @ 0x1402BB160 (RtlpHpReleaseQueuedLockExclusive.c)
- *     RtlpHpVsChunkFree @ 0x1402BCE90 (RtlpHpVsChunkFree.c)
+ *     RtlpHpAcquireQueuedLockExclusive @ 0x140336C60 (RtlpHpAcquireQueuedLockExclusive.c)
+ *     RtlpLogHeapFailure @ 0x14035B9C4 (RtlpLogHeapFailure.c)
+ *     RtlpHpVsSubsegmentFree @ 0x14035CC40 (RtlpHpVsSubsegmentFree.c)
+ *     RtlpHpReleaseQueuedLockExclusive @ 0x1403628A0 (RtlpHpReleaseQueuedLockExclusive.c)
+ *     RtlpHpVsChunkFree @ 0x1403645D0 (RtlpHpVsChunkFree.c)
  */
 
 __int64 **__fastcall RtlpHpVsSlotFreeList(__int64 a1, __int64 a2, _QWORD *a3)

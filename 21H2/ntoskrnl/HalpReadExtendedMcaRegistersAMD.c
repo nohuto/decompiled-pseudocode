@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpReadExtendedMcaRegistersAMD @ 0x1404BD50C
+ * XREFs of HalpReadExtendedMcaRegistersAMD @ 0x1404BD74C
  * Callers:
- *     HalpMcaPopulateErrorData @ 0x1404BA67C (HalpMcaPopulateErrorData.c)
+ *     HalpMcaPopulateErrorData @ 0x1404BA8BC (HalpMcaPopulateErrorData.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 void __fastcall HalpReadExtendedMcaRegistersAMD(__int64 a1, int a2, __int64 a3, _QWORD *a4)

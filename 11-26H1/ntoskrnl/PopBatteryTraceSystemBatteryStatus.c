@@ -1,12 +1,12 @@
 /*
- * XREFs of PopBatteryTraceSystemBatteryStatus @ 0x1404F0044
+ * XREFs of PopBatteryTraceSystemBatteryStatus @ 0x1404E9624
  * Callers:
- *     PopBatteryApplyCompositeState @ 0x140946EB0 (PopBatteryApplyCompositeState.c)
- *     PopBatteryEtwCallback @ 0x140B4FC50 (PopBatteryEtwCallback.c)
+ *     PopBatteryApplyCompositeState @ 0x1409C2820 (PopBatteryApplyCompositeState.c)
+ *     PopBatteryEtwCallback @ 0x140B524E0 (PopBatteryEtwCallback.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 char __fastcall PopBatteryTraceSystemBatteryStatus(char a1)
@@ -14,14 +14,14 @@ char __fastcall PopBatteryTraceSystemBatteryStatus(char a1)
   const EVENT_DESCRIPTOR *v1; // rax
   const EVENT_DESCRIPTOR *v2; // rbx
   unsigned __int64 v3; // rax
-  int ThreadLock_high; // ecx
-  int ThreadLock; // edx
-  int StackBase_high; // r8d
-  int StackBase; // r9d
-  int StackLimit_high; // r10d
-  int StackLimit; // r11d
-  int QuantumTarget; // edi
-  int CycleTime; // eax
+  int v4; // ecx
+  int v5; // edx
+  int v6; // r8d
+  int v7; // r9d
+  int v8; // r10d
+  int v9; // r11d
+  int v10; // edi
+  int v11; // eax
   int v13; // [rsp+48h] [rbp-C0h] BYREF
   __int64 v14; // [rsp+4Ch] [rbp-BCh] BYREF
   int v15; // [rsp+54h] [rbp-B4h] BYREF
@@ -63,44 +63,42 @@ char __fastcall PopBatteryTraceSystemBatteryStatus(char a1)
     v2 = &BATTERY_EVT_SYSTEM_BATTERY_STATUS_RUNDOWN;
   if ( PopBatteryEtwRegistered )
   {
-    LOBYTE(v1) = EtwEventEnabled((REGHANDLE)PopWeakChargerLock.Header.WaitListHead.Blink, v2);
+    LOBYTE(v1) = EtwEventEnabled(PopBatteryEtwHandle, v2);
     if ( (_BYTE)v1 )
     {
-      if ( BYTE1(stru_140F10070.Header.WaitListHead.Blink) )
+      if ( BYTE1(xmmword_140F10840) )
       {
-        v14 = xmmword_140F0FEA0;
+        v14 = xmmword_140F10660;
         v13 = 1;
-        if ( LODWORD(stru_140F10070.SListFaultAddress) )
-          v3 = 100000
-             * (unsigned __int64)HIDWORD(stru_140F10070.SListFaultAddress)
-             / LODWORD(stru_140F10070.SListFaultAddress);
+        if ( DWORD2(xmmword_140F10840) )
+          v3 = 100000 * (unsigned __int64)HIDWORD(xmmword_140F10840) / DWORD2(xmmword_140F10840);
         else
           LODWORD(v3) = 0;
-        ThreadLock_high = HIDWORD(stru_140F10070.ThreadLock);
-        ThreadLock = stru_140F10070.ThreadLock;
-        StackBase_high = HIDWORD(stru_140F10070.StackBase);
-        StackBase = (int)stru_140F10070.StackBase;
-        StackLimit_high = HIDWORD(stru_140F10070.StackLimit);
-        StackLimit = (int)stru_140F10070.StackLimit;
-        QuantumTarget = stru_140F10070.QuantumTarget;
+        v4 = DWORD1(xmmword_140F10870);
+        v5 = xmmword_140F10870;
+        v6 = HIDWORD(xmmword_140F10860);
+        v7 = DWORD2(xmmword_140F10860);
+        v8 = DWORD1(xmmword_140F10860);
+        v9 = xmmword_140F10860;
+        v10 = xmmword_140F10850;
         v15 = v3;
-        CycleTime = stru_140F10070.CycleTime;
+        v11 = DWORD2(xmmword_140F10870);
       }
       else
       {
-        CycleTime = -1;
+        v11 = -1;
         v13 = 0;
-        ThreadLock_high = -1;
+        v4 = -1;
         v14 = 0LL;
-        ThreadLock = -1;
-        StackBase_high = -1;
+        v5 = -1;
+        v6 = -1;
         v15 = 0;
-        StackBase = -1;
-        StackLimit_high = -1;
-        StackLimit = -1;
-        QuantumTarget = 0;
+        v7 = -1;
+        v8 = -1;
+        v9 = -1;
+        v10 = 0;
       }
-      v23 = CycleTime;
+      v23 = v11;
       UserData.Ptr = (ULONGLONG)&v13;
       v25 = &v14;
       v27 = (char *)&v14 + 4;
@@ -113,13 +111,13 @@ char __fastcall PopBatteryTraceSystemBatteryStatus(char a1)
       v41 = &v21;
       v43 = &v22;
       v45 = &v23;
-      v19 = StackBase;
-      v20 = StackBase_high;
-      v21 = ThreadLock;
-      v22 = ThreadLock_high;
-      v16 = QuantumTarget;
-      v17 = StackLimit;
-      v18 = StackLimit_high;
+      v19 = v7;
+      v20 = v6;
+      v21 = v5;
+      v22 = v4;
+      v16 = v10;
+      v17 = v9;
+      v18 = v8;
       *(_QWORD *)&UserData.Size = 4LL;
       v26 = 4LL;
       v28 = 4LL;
@@ -132,15 +130,7 @@ char __fastcall PopBatteryTraceSystemBatteryStatus(char a1)
       v42 = 4LL;
       v44 = 4LL;
       v46 = 4LL;
-      LOBYTE(v1) = EtwWriteEx(
-                     (REGHANDLE)PopWeakChargerLock.Header.WaitListHead.Blink,
-                     v2,
-                     0LL,
-                     0,
-                     0LL,
-                     0LL,
-                     0xCu,
-                     &UserData);
+      LOBYTE(v1) = EtwWriteEx(PopBatteryEtwHandle, v2, 0LL, 0, 0LL, 0LL, 0xCu, &UserData);
     }
   }
   return (char)v1;

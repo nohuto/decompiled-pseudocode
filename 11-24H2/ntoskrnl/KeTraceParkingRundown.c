@@ -1,12 +1,12 @@
 /*
- * XREFs of KeTraceParkingRundown @ 0x1405C8144
+ * XREFs of KeTraceParkingRundown @ 0x1405C5874
  * Callers:
- *     EtwpKernelTraceRundown @ 0x140A15E44 (EtwpKernelTraceRundown.c)
+ *     EtwpKernelTraceRundown @ 0x140A0F024 (EtwpKernelTraceRundown.c)
  * Callees:
- *     KiAcquirePrcbLocksForIsolationUnit @ 0x140293190 (KiAcquirePrcbLocksForIsolationUnit.c)
- *     KiReleasePrcbLocksForIsolationUnit @ 0x140339330 (KiReleasePrcbLocksForIsolationUnit.c)
- *     EtwTraceForceParkTransition @ 0x14064D8C4 (EtwTraceForceParkTransition.c)
- *     EtwTraceParkTransition @ 0x14064DC44 (EtwTraceParkTransition.c)
+ *     KiAcquirePrcbLocksForIsolationUnit @ 0x1402A2D90 (KiAcquirePrcbLocksForIsolationUnit.c)
+ *     KiReleasePrcbLocksForIsolationUnit @ 0x140318810 (KiReleasePrcbLocksForIsolationUnit.c)
+ *     EtwTraceForceParkTransition @ 0x14064BED4 (EtwTraceForceParkTransition.c)
+ *     EtwTraceParkTransition @ 0x14064C254 (EtwTraceParkTransition.c)
  */
 
 void __fastcall KeTraceParkingRundown(char a1)
@@ -28,7 +28,7 @@ void __fastcall KeTraceParkingRundown(char a1)
     {
       v3 = KiProcessorBlock[i];
       v4 = 0;
-      KiAcquirePrcbLocksForIsolationUnit(v3, 0, (unsigned __int64 *)&v8);
+      KiAcquirePrcbLocksForIsolationUnit(v3, 0LL, (unsigned __int64 *)&v8);
       v5 = *(_BYTE *)(v3 + 35);
       if ( (v5 & 0x10) != 0 )
       {

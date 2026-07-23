@@ -8,7 +8,7 @@
  *     adapt @ 0x180001908 (adapt.c)
  *     FindLabelEnd @ 0x18000CE5C (FindLabelEnd.c)
  *     _wcsnicmp @ 0x18008E4B0 (_wcsnicmp.c)
- *     GetUTF32 @ 0x1800FEF64 (GetUTF32.c)
+ *     GetUTF32 @ 0x1800FEF24 (GetUTF32.c)
  */
 
 __int64 __fastcall punycode_encode(wchar_t *String1, int a2, wchar_t *a3, unsigned int *a4, char a5, char a6)

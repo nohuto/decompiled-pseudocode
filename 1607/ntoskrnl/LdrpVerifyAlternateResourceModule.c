@@ -1,11 +1,11 @@
 /*
- * XREFs of LdrpVerifyAlternateResourceModule @ 0x14014B5B8
+ * XREFs of LdrpVerifyAlternateResourceModule @ 0x14014BB28
  * Callers:
- *     LdrLoadAlternateResourceModuleEx @ 0x1400FA708 (LdrLoadAlternateResourceModuleEx.c)
+ *     LdrLoadAlternateResourceModuleEx @ 0x1400F8494 (LdrLoadAlternateResourceModuleEx.c)
  * Callees:
- *     LdrpGetRcConfig @ 0x1400FAB68 (LdrpGetRcConfig.c)
- *     _wcsicmp @ 0x14014D79C (_wcsicmp.c)
- *     LdrResGetRCConfig @ 0x140542FA0 (LdrResGetRCConfig.c)
+ *     LdrpGetRcConfig @ 0x1400F88F4 (LdrpGetRcConfig.c)
+ *     _wcsicmp @ 0x14014DD0C (_wcsicmp.c)
+ *     LdrResGetRCConfig @ 0x1405434E0 (LdrResGetRCConfig.c)
  */
 
 bool __fastcall LdrpVerifyAlternateResourceModule(void *a1, void *a2, const wchar_t *a3, __int16 a4)

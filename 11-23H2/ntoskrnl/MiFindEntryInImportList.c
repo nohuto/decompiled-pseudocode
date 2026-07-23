@@ -1,8 +1,8 @@
 /*
- * XREFs of MiFindEntryInImportList @ 0x140A2B030
+ * XREFs of MiFindEntryInImportList @ 0x140A2B2E0
  * Callers:
- *     MiActOnPatchInAllSessions @ 0x140A34610 (MiActOnPatchInAllSessions.c)
- *     MiApplyHotPatchToLoadedDriver @ 0x140A35068 (MiApplyHotPatchToLoadedDriver.c)
+ *     MiActOnPatchInAllSessions @ 0x140A348C0 (MiActOnPatchInAllSessions.c)
+ *     MiApplyHotPatchToLoadedDriver @ 0x140A35318 (MiApplyHotPatchToLoadedDriver.c)
  * Callees:
  *     <none>
  */

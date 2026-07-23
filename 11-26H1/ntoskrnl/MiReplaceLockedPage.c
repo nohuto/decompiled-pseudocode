@@ -1,20 +1,20 @@
 /*
- * XREFs of MiReplaceLockedPage @ 0x140295664
+ * XREFs of MiReplaceLockedPage @ 0x140294BC4
  * Callers:
- *     MiTrimViewLeafPte @ 0x14046C164 (MiTrimViewLeafPte.c)
+ *     MiTrimViewLeafPte @ 0x1404658E4 (MiTrimViewLeafPte.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     MiGetPage @ 0x1402866A0 (MiGetPage.c)
- *     MiPageToNode @ 0x140289710 (MiPageToNode.c)
- *     MiMakeDemandZeroPte @ 0x14028B2D0 (MiMakeDemandZeroPte.c)
- *     MiReleaseFreshPage @ 0x140292190 (MiReleaseFreshPage.c)
- *     MiPageToChannel @ 0x140295870 (MiPageToChannel.c)
- *     MiTradeActivePage @ 0x140295898 (MiTradeActivePage.c)
- *     MiReleaseFreshPageAtDpc @ 0x140295CA0 (MiReleaseFreshPageAtDpc.c)
- *     MiUnlockProtoPoolPage @ 0x1402D3E40 (MiUnlockProtoPoolPage.c)
- *     MiLockProtoPoolPage @ 0x1402F50D0 (MiLockProtoPoolPage.c)
- *     MiGetPfnSlabType @ 0x1402FDC40 (MiGetPfnSlabType.c)
- *     MiCanPageMove @ 0x1402FDC9C (MiCanPageMove.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     MiGetPage @ 0x140285C00 (MiGetPage.c)
+ *     MiPageToNode @ 0x140288C70 (MiPageToNode.c)
+ *     MiMakeDemandZeroPte @ 0x14028A830 (MiMakeDemandZeroPte.c)
+ *     MiReleaseFreshPage @ 0x1402916F0 (MiReleaseFreshPage.c)
+ *     MiPageToChannel @ 0x140294DD0 (MiPageToChannel.c)
+ *     MiTradeActivePage @ 0x140294DF8 (MiTradeActivePage.c)
+ *     MiReleaseFreshPageAtDpc @ 0x140295200 (MiReleaseFreshPageAtDpc.c)
+ *     MiUnlockProtoPoolPage @ 0x1402B5C00 (MiUnlockProtoPoolPage.c)
+ *     MiLockProtoPoolPage @ 0x1402D7150 (MiLockProtoPoolPage.c)
+ *     MiGetPfnSlabType @ 0x1402DFCC0 (MiGetPfnSlabType.c)
+ *     MiCanPageMove @ 0x1402DFD1C (MiCanPageMove.c)
  */
 
 __int64 __fastcall MiReplaceLockedPage(__int64 a1, __int64 a2, unsigned int a3, unsigned int a4)
@@ -41,7 +41,7 @@ __int64 __fastcall MiReplaceLockedPage(__int64 a1, __int64 a2, unsigned int a3, 
   v9 = MiPageToChannel((a1 + 0x220000000000LL) / 48);
   v10 = MiPageToNode((a1 + 0x220000000000LL) / 48);
   Page = MiGetPage(
-           *(_QWORD *)(stru_140E2EB88.ThreadLock + 8 * ((*(_QWORD *)(a1 + 40) >> 43) & 0x3FFLL)),
+           *(_QWORD *)(stru_140E2ED08.ThreadLock + 8 * ((*(_QWORD *)(a1 + 40) >> 43) & 0x3FFLL)),
            (unsigned __int8)((a1 + 0x220000000000LL) / 48) | (v8 >> 4) & 0xC0000 | ((v9 & 1 | (2 * (v10 & 0x3F | 0x180))) << 8),
            a3);
   if ( Page == -1 )

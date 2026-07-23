@@ -2,14 +2,14 @@
  * XREFs of EtwpTraceImageUnload @ 0x140211D68
  * Callers:
  *     EtwpTraceImageUnloadApc @ 0x1402107C0 (EtwpTraceImageUnloadApc.c)
- *     EtwpCancelTraceImageUnloadApc @ 0x1405FD960 (EtwpCancelTraceImageUnloadApc.c)
+ *     EtwpCancelTraceImageUnloadApc @ 0x1405FDED0 (EtwpCancelTraceImageUnloadApc.c)
  *     PerfLogImageUnload @ 0x140697438 (PerfLogImageUnload.c)
- *     EtwpEnumerateAddressSpace @ 0x1406ADAFC (EtwpEnumerateAddressSpace.c)
+ *     EtwpEnumerateAddressSpace @ 0x1406ADB2C (EtwpEnumerateAddressSpace.c)
  * Callees:
  *     EtwTraceKernelEvent @ 0x140211EDC (EtwTraceKernelEvent.c)
  *     EtwTraceSiloKernelEvent @ 0x140214950 (EtwTraceSiloKernelEvent.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     EtwpPsProvTraceImage @ 0x1409E6324 (EtwpPsProvTraceImage.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     EtwpPsProvTraceImage @ 0x1409E65B4 (EtwpPsProvTraceImage.c)
  */
 
 void __fastcall EtwpTraceImageUnload(

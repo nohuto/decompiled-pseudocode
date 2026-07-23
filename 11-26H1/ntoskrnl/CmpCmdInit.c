@@ -1,16 +1,16 @@
 /*
- * XREFs of CmpCmdInit @ 0x140854874
+ * XREFs of CmpCmdInit @ 0x14085AB84
  * Callers:
- *     CmCompleteRegistryInitialization @ 0x14084E49C (CmCompleteRegistryInitialization.c)
+ *     CmCompleteRegistryInitialization @ 0x1408547AC (CmCompleteRegistryInitialization.c)
  * Callees:
  *     ExGenRandom @ 0x140200C10 (ExGenRandom.c)
- *     KiSetTimerEx @ 0x1403ABF20 (KiSetTimerEx.c)
- *     KeInitializeDpc @ 0x140481A50 (KeInitializeDpc.c)
- *     KeInitializeTimer @ 0x140483D00 (KeInitializeTimer.c)
- *     CmpInitializeLazyWriters @ 0x14085CCE4 (CmpInitializeLazyWriters.c)
- *     PoRegisterCoalescingCallback @ 0x140B5D720 (PoRegisterCoalescingCallback.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KiSetTimerEx @ 0x1403B5C30 (KiSetTimerEx.c)
+ *     KeInitializeDpc @ 0x14047B3C0 (KeInitializeDpc.c)
+ *     KeInitializeTimer @ 0x14047D670 (KeInitializeTimer.c)
+ *     CmpInitializeLazyWriters @ 0x140862FD4 (CmpInitializeLazyWriters.c)
+ *     PoRegisterCoalescingCallback @ 0x140B608A0 (PoRegisterCoalescingCallback.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall CmpCmdInit(unsigned __int8 a1)
@@ -54,18 +54,18 @@ __int64 __fastcall CmpCmdInit(unsigned __int8 a1)
   {
     v5 = 0LL;
   }
-  KeInitializeDpc((PRKDPC)&CmpFreezeListLock.WaitRegister, (PKDEFERRED_ROUTINE)CmpFreezeThawDpcRoutine, v5);
-  KeInitializeTimer((PKTIMER)&CmpFreezeListLock.StackLimit);
-  CmpFreezeListLock.WaitStatus = 0LL;
-  *(_QWORD *)&CmpFreezeListLock.ApcStateFill[40] = CmpFreezeThawWorker;
-  CmpFreezeListLock.ApcState.ApcListHead[1].Blink = 0LL;
+  KeInitializeDpc(&CmpFreezeThawDpc, (PKDEFERRED_ROUTINE)CmpFreezeThawDpcRoutine, v5);
+  KeInitializeTimer(&CmpFreezeThawTimer);
+  CmpFreezeThawWorkItem.Parameter = 0LL;
+  CmpFreezeThawWorkItem.WorkerRoutine = (void (__fastcall *)(void *))CmpFreezeThawWorker;
+  CmpFreezeThawWorkItem.List.Flink = 0LL;
   LOBYTE(v11) = 1;
   BYTE1(NlsMbOemCodePageTag) = BYTE6(NlsMbOemCodePageTag);
-  BYTE1(WheapPfaLock.TrapFrame) = 1;
-  CmpCallbackListLock.ApcStateFill[24] = a1;
-  HIDWORD(WheapPfaLock.TrapFrame) = 1;
+  WheapPfaLock.ApcStateFill[24] = 1;
+  CmpContextListLock.ApcStateFill[16] = a1;
+  *(_DWORD *)&WheapPfaLock.ApcStateFill[20] = 1;
   result = PoRegisterCoalescingCallback(CmpCoalescingCallback, v11, &CmpCoalescingRegistration, 0LL);
   if ( (int)result >= 0 )
-    LOBYTE(WheapPfaLock.TrapFrame) = 1;
+    WheapPfaLock.ApcStateFill[16] = 1;
   return result;
 }

@@ -6,7 +6,15 @@
  *     _Wow64SystemServiceCall@0 @ 0x4B308730 (_Wow64SystemServiceCall@0.c)
  */
 
-int __stdcall NtConnectPort(int a1, int a2, int a3, int a4, int a5, int a6, int a7, int a8)
+NTSTATUS __cdecl NtConnectPort(
+        PHANDLE PortHandle,
+        PUNICODE_STRING PortName,
+        PSECURITY_QUALITY_OF_SERVICE SecurityQos,
+        PPORT_VIEW ClientView,
+        PREMOTE_PORT_VIEW ServerView,
+        PULONG MaxMessageLength,
+        PVOID ConnectionInformation,
+        PULONG ConnectionInformationLength)
 {
   return Wow64SystemServiceCall();
 }

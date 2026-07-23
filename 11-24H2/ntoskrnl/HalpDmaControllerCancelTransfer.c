@@ -1,57 +1,57 @@
 /*
- * XREFs of HalpDmaControllerCancelTransfer @ 0x140552C50
+ * XREFs of HalpDmaControllerCancelTransfer @ 0x140550590
  * Callers:
- *     HalCancelMappedTransfer @ 0x140551C00 (HalCancelMappedTransfer.c)
+ *     HalCancelMappedTransfer @ 0x14054F540 (HalCancelMappedTransfer.c)
  * Callees:
- *     KeInsertQueueDpc @ 0x1402542F0 (KeInsertQueueDpc.c)
- *     KxAcquireSpinLock @ 0x140254AE0 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x140279CC0 (KxReleaseSpinLock.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     KxReleaseSpinLock @ 0x14022F250 (KxReleaseSpinLock.c)
+ *     KeInsertQueueDpc @ 0x140284900 (KeInsertQueueDpc.c)
+ *     KxAcquireSpinLock @ 0x1402850F0 (KxAcquireSpinLock.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
-char __fastcall HalpDmaControllerCancelTransfer(__int64 a1, unsigned int a2, __int64 a3, __int64 a4)
+char __fastcall HalpDmaControllerCancelTransfer(__int64 a1, unsigned int a2, __int64 a3)
 {
-  __int64 v7; // rbx
+  __int64 v6; // rbx
   unsigned __int8 CurrentIrql; // di
-  char v9; // r14
-  unsigned __int64 v10; // rdx
-  volatile signed __int64 *v11; // rbp
+  char v8; // r14
+  unsigned __int64 v9; // rdx
+  volatile signed __int64 *v10; // rbp
   char result; // al
-  bool v13; // zf
+  bool v12; // zf
 
-  v7 = *(_QWORD *)(a1 + 56) + 160LL * a2;
+  v6 = *(_QWORD *)(a1 + 56) + 160LL * a2;
   CurrentIrql = KeGetCurrentIrql();
-  v9 = 0;
+  v8 = 0;
   if ( CurrentIrql == 15 )
   {
-    v11 = (volatile signed __int64 *)(a1 + 168);
+    v10 = (volatile signed __int64 *)(a1 + 168);
   }
   else
   {
-    v10 = *(unsigned __int8 *)(a1 + 176);
+    v9 = *(unsigned __int8 *)(a1 + 176);
     CurrentIrql = KeGetCurrentIrql();
-    __writecr8(v10);
+    __writecr8(v9);
     if ( KiIrqlFlags )
-      KiRaiseIrqlProcessIrqlFlags(CurrentIrql, v10);
-    v11 = (volatile signed __int64 *)(a1 + 168);
+      KiRaiseIrqlProcessIrqlFlags(CurrentIrql, v9);
+    v10 = (volatile signed __int64 *)(a1 + 168);
     KxAcquireSpinLock((PKSPIN_LOCK)(a1 + 168));
-    v9 = 1;
+    v8 = 1;
   }
   *(_DWORD *)(a3 + 12) |= 1u;
-  result = guard_dispatch_icall_no_overrides(*(_QWORD *)(a1 + 64), a2, a3, a4);
+  result = guard_dispatch_icall_no_overrides(*(_QWORD *)(a1 + 64), a2);
   if ( result )
   {
-    v13 = *(_QWORD *)(v7 + 8) == 0LL;
-    *(_BYTE *)(v7 + 6) = 1;
-    *(_DWORD *)(v7 + 32) = 2;
-    if ( !v13 )
-      result = KeInsertQueueDpc((PRKDPC)(v7 + 40), 0LL, 0LL);
+    v12 = *(_QWORD *)(v6 + 8) == 0LL;
+    *(_BYTE *)(v6 + 6) = 1;
+    *(_DWORD *)(v6 + 32) = 2;
+    if ( !v12 )
+      result = KeInsertQueueDpc((PRKDPC)(v6 + 40), 0LL, 0LL);
   }
-  if ( v9 )
+  if ( v8 )
   {
-    KxReleaseSpinLock(v11);
+    KxReleaseSpinLock(v10);
     if ( KiIrqlFlags )
       KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), CurrentIrql);
     result = CurrentIrql;

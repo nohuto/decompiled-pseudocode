@@ -1,10 +1,10 @@
 /*
- * XREFs of AlpcpAvailableBufferSize @ 0x140896380
+ * XREFs of AlpcpAvailableBufferSize @ 0x14089E820
  * Callers:
- *     AlpcpSendLegacySynchronousRequest @ 0x14088D3F8 (AlpcpSendLegacySynchronousRequest.c)
- *     AlpcpCaptureMessageDataSafe @ 0x140892480 (AlpcpCaptureMessageDataSafe.c)
- *     AlpcpReceiveLegacyMessage @ 0x1408952E0 (AlpcpReceiveLegacyMessage.c)
- *     AlpcpReplyLegacySynchronousRequest @ 0x1409EC9B0 (AlpcpReplyLegacySynchronousRequest.c)
+ *     AlpcpSendLegacySynchronousRequest @ 0x14089055C (AlpcpSendLegacySynchronousRequest.c)
+ *     AlpcpCaptureMessageDataSafe @ 0x14089BA70 (AlpcpCaptureMessageDataSafe.c)
+ *     AlpcpReceiveLegacyMessage @ 0x14089D780 (AlpcpReceiveLegacyMessage.c)
+ *     AlpcpReplyLegacySynchronousRequest @ 0x1409E5CE0 (AlpcpReplyLegacySynchronousRequest.c)
  * Callees:
  *     <none>
  */

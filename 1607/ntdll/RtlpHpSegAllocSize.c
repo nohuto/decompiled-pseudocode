@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpHpSegAllocSize @ 0x180029310
+ * XREFs of RtlpHpSegAllocSize @ 0x180029300
  * Callers:
- *     RtlpHpExtrasGet @ 0x18002926C (RtlpHpExtrasGet.c)
- *     RtlpHpSizeHeapInternal @ 0x1800519EC (RtlpHpSizeHeapInternal.c)
+ *     RtlpHpExtrasGet @ 0x18002925C (RtlpHpExtrasGet.c)
+ *     RtlpHpSizeHeapInternal @ 0x1800519DC (RtlpHpSizeHeapInternal.c)
  * Callees:
- *     RtlpHpSegDescriptorValidate @ 0x180043604 (RtlpHpSegDescriptorValidate.c)
- *     RtlpHpSegAllocSizeInternal @ 0x18004460C (RtlpHpSegAllocSizeInternal.c)
+ *     RtlpHpSegDescriptorValidate @ 0x1800435F4 (RtlpHpSegDescriptorValidate.c)
+ *     RtlpHpSegAllocSizeInternal @ 0x1800445FC (RtlpHpSegAllocSizeInternal.c)
  */
 
 __int64 __fastcall RtlpHpSegAllocSize(int a1, int a2, __int64 a3, __int64 a4)

@@ -1,12 +1,12 @@
 /*
- * XREFs of MiAddViewsForSection @ 0x140077170
+ * XREFs of MiAddViewsForSection @ 0x140077160
  * Callers:
  *     MiReferenceDataSubsections @ 0x140026658 (MiReferenceDataSubsections.c)
- *     MmMapViewInSystemCache @ 0x1400AD930 (MmMapViewInSystemCache.c)
- *     MiPfPrepareReadList @ 0x1405DFDE0 (MiPfPrepareReadList.c)
- *     MiPfPrepareSequentialReadList @ 0x1405EBA20 (MiPfPrepareSequentialReadList.c)
- *     MiMapViewOfDataSection @ 0x1405F0BB0 (MiMapViewOfDataSection.c)
- *     MiCommitPagefileBackedSection @ 0x14061DFB0 (MiCommitPagefileBackedSection.c)
+ *     MmMapViewInSystemCache @ 0x1400AD870 (MmMapViewInSystemCache.c)
+ *     MiPfPrepareReadList @ 0x1405E0DE0 (MiPfPrepareReadList.c)
+ *     MiPfPrepareSequentialReadList @ 0x1405ECA20 (MiPfPrepareSequentialReadList.c)
+ *     MiMapViewOfDataSection @ 0x1405F1BB0 (MiMapViewOfDataSection.c)
+ *     MiCommitPagefileBackedSection @ 0x14061EFB0 (MiCommitPagefileBackedSection.c)
  * Callees:
  *     KiAbEntryRemoveFromTree @ 0x140004530 (KiAbEntryRemoveFromTree.c)
  *     KiCheckForKernelApcDelivery @ 0x140005A50 (KiCheckForKernelApcDelivery.c)
@@ -16,20 +16,20 @@
  *     KiAbThreadRemoveBoosts @ 0x14004EFD0 (KiAbThreadRemoveBoosts.c)
  *     MmGetSessionIdEx @ 0x14004F060 (MmGetSessionIdEx.c)
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     MiCheckControlArea @ 0x1400764A0 (MiCheckControlArea.c)
- *     MiReferenceActiveSubsection @ 0x140077950 (MiReferenceActiveSubsection.c)
- *     MiDecrementSubsections @ 0x140079410 (MiDecrementSubsections.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     MiCreatePrototypePtes @ 0x140095B30 (MiCreatePrototypePtes.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     MiReturnCrossPartitionSectionCharges @ 0x1402C4CB4 (MiReturnCrossPartitionSectionCharges.c)
- *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14031C0B4 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
- *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14031C278 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
- *     MiAllocateFileExtents @ 0x1408521B0 (MiAllocateFileExtents.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     MiCheckControlArea @ 0x140076490 (MiCheckControlArea.c)
+ *     MiReferenceActiveSubsection @ 0x140077940 (MiReferenceActiveSubsection.c)
+ *     MiDecrementSubsections @ 0x140079400 (MiDecrementSubsections.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     MiCreatePrototypePtes @ 0x140095A70 (MiCreatePrototypePtes.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC420 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC5A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     MiReturnCrossPartitionSectionCharges @ 0x1402C4EA4 (MiReturnCrossPartitionSectionCharges.c)
+ *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14031C2A4 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14031C468 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     MiAllocateFileExtents @ 0x140853410 (MiAllocateFileExtents.c)
  */
 
 __int64 __fastcall MiAddViewsForSection(__int64 *BugCheckParameter2, unsigned __int64 a2, __int64 a3)
@@ -65,7 +65,7 @@ __int64 __fastcall MiAddViewsForSection(__int64 *BugCheckParameter2, unsigned __
   __int64 v32; // r11
   unsigned int v33; // r8d
   __int64 v34; // rcx
-  __int64 v35; // rcx
+  ULONG_PTR v35; // rcx
   unsigned __int8 v36; // al
   ULONG_PTR v37; // rcx
   _DWORD *v38; // rcx
@@ -104,7 +104,7 @@ __int64 __fastcall MiAddViewsForSection(__int64 *BugCheckParameter2, unsigned __
   __int64 v71; // r11
   __int64 v72; // rdx
   __int64 v73; // rcx
-  __int64 v74; // rcx
+  _KLOCK_ENTRY *v74; // rcx
   unsigned __int8 v75; // bl
   unsigned __int8 v76; // [rsp+30h] [rbp-79h]
   ULONG_PTR BugCheckParameter2a; // [rsp+38h] [rbp-71h]
@@ -299,7 +299,7 @@ LABEL_91:
               *(_BYTE *)(v35 + 32) |= 2u;
               if ( *(__int64 *)(v35 + 32) < 0 )
               {
-                KiAbEntryRemoveFromTree(v35, 1LL);
+                KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v35, 1LL);
                 v35 = v97;
                 v31 = BugCheckParameter1;
                 v32 = BugCheckParameter2a;
@@ -410,15 +410,15 @@ LABEL_16:
         while ( 1 )
         {
           v72 = ~(1 << v73) & (unsigned int)v72;
-          v74 = (__int64)&v68->LockEntries[v73];
-          v89 = v74;
-          if ( (*(_BYTE *)(v74 + 26) & 1) != 0
-            && (*(_DWORD *)(v74 + 32) & 1) == 0
-            && (v98 & *(_QWORD *)(v74 + 32)) == (v109 & 0x7FFFFFFFFFFFFFFCLL)
-            && *(_DWORD *)(v74 + 40) == v69 )
+          v74 = &v68->LockEntries[v73];
+          v89 = (__int64)v74;
+          if ( (v74->AcquiredByte & 1) != 0
+            && (*(_DWORD *)&v74->LockState.0 & 1) == 0
+            && (v98 & *(_QWORD *)&v74->LockState.0) == (v109 & 0x7FFFFFFFFFFFFFFCLL)
+            && v74->LockState.SessionId == v69 )
           {
-            *(_BYTE *)(v74 + 26) &= ~1u;
-            if ( *(_QWORD *)(v74 + 32) )
+            v74->AcquiredByte &= ~1u;
+            if ( v74->LockState.0 )
               break;
           }
           v21 = !_BitScanReverse((unsigned int *)&v73, v72);
@@ -434,20 +434,20 @@ LABEL_200:
         }
         else
         {
-          *(_BYTE *)(v74 + 32) |= 2u;
-          if ( *(__int64 *)(v74 + 32) < 0 )
+          v74->CrossThreadReleasableAndBusyByte |= 2u;
+          if ( (__int64)v74->LockState.LockState < 0 )
           {
-            KiAbEntryRemoveFromTree(v74, v72);
+            KiAbEntryRemoveFromTree(&v74->TreeNode, v72);
             v70 = (ULONG_PTR)v68;
-            v74 = v89;
+            v74 = (_KLOCK_ENTRY *)v89;
             v71 = v109;
           }
           v84 = 0;
-          v84 = *(_DWORD *)(v74 + 88) & 0x1FFFF;
-          *(_DWORD *)(v74 + 88) &= 0xFFFE0000;
-          *(_BYTE *)(v74 + 25) &= ~1u;
-          *(_QWORD *)(v74 + 32) = 0LL;
-          v75 = 1 << ((char)(v74 - v70 - 32) / 96);
+          v84 = v74->BoostBitmap.AllFields & 0x1FFFF;
+          v74->BoostBitmap.AllFields &= 0xFFFE0000;
+          v74->ThreadLocalFlags &= ~1u;
+          v74->LockState.0 = 0LL;
+          v75 = 1 << ((char)((_BYTE)v74 - v70 - 32) / 96);
           if ( AbAllocationRegionCount == 1 )
             *(_BYTE *)(v70 + 792) |= v75;
           else
@@ -538,7 +538,7 @@ LABEL_162:
           *(_BYTE *)(v57 + 32) |= 2u;
           if ( *(__int64 *)(v57 + 32) < 0 )
           {
-            KiAbEntryRemoveFromTree(v57, v57);
+            KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v57, v57);
             v53 = (ULONG_PTR)v51;
             v57 = v97;
             v54 = v108;
@@ -637,7 +637,7 @@ LABEL_58:
         {
           *(_BYTE *)(v23 + 32) |= 2u;
           if ( *(__int64 *)(v23 + 32) < 0 )
-            KiAbEntryRemoveFromTree(v23, v20);
+            KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v23, v20);
           v83 = 0;
           v83 = *(_DWORD *)(v23 + 88) & 0x1FFFF;
           *(_DWORD *)(v23 + 88) &= 0xFFFE0000;
@@ -710,7 +710,7 @@ LABEL_150:
     }
     __writecr8(v106);
     if ( v61 )
-      MiReturnCrossPartitionSectionCharges(*(_QWORD *)(qword_14043A748 + 8LL * (*(_WORD *)(v3 + 60) & 0x3FF)), v40, v61);
+      MiReturnCrossPartitionSectionCharges(*(_QWORD *)(qword_14043B808 + 8LL * (*(_WORD *)(v3 + 60) & 0x3FF)), v40, v61);
     result = v101;
   }
   if ( (v4 & 1) != 0 )

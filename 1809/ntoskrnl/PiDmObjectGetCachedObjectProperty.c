@@ -1,13 +1,13 @@
 /*
- * XREFs of PiDmObjectGetCachedObjectProperty @ 0x140598848
+ * XREFs of PiDmObjectGetCachedObjectProperty @ 0x140599848
  * Callers:
- *     PiPnpRtlObjectActionCallback @ 0x1405983A0 (PiPnpRtlObjectActionCallback.c)
- *     PiDmObjectGetCachedCmProperty @ 0x14059967C (PiDmObjectGetCachedCmProperty.c)
+ *     PiPnpRtlObjectActionCallback @ 0x1405993A0 (PiPnpRtlObjectActionCallback.c)
+ *     PiDmObjectGetCachedCmProperty @ 0x14059A67C (PiDmObjectGetCachedCmProperty.c)
  * Callees:
- *     PiDmGetObject @ 0x1405989C8 (PiDmGetObject.c)
- *     PiDmObjectRelease @ 0x140598D30 (PiDmObjectRelease.c)
- *     PiDmObjectGetCachedObjectPropertyData @ 0x140598D6C (PiDmObjectGetCachedObjectPropertyData.c)
- *     PiDmObjectGetCachedObjectReference @ 0x1406F2A84 (PiDmObjectGetCachedObjectReference.c)
+ *     PiDmGetObject @ 0x1405999C8 (PiDmGetObject.c)
+ *     PiDmObjectRelease @ 0x140599D30 (PiDmObjectRelease.c)
+ *     PiDmObjectGetCachedObjectPropertyData @ 0x140599D6C (PiDmObjectGetCachedObjectPropertyData.c)
+ *     PiDmObjectGetCachedObjectReference @ 0x1406F3D24 (PiDmObjectGetCachedObjectReference.c)
  */
 
 __int64 __fastcall PiDmObjectGetCachedObjectProperty(

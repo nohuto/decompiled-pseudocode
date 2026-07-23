@@ -1,11 +1,11 @@
 /*
- * XREFs of IommuGetLibraryContext @ 0x1404D8DD0
+ * XREFs of IommuGetLibraryContext @ 0x1404D9010
  * Callers:
  *     <none>
  * Callees:
- *     HalpMmAllocCtxFree @ 0x140379460 (HalpMmAllocCtxFree.c)
- *     HalpMmAllocCtxAlloc @ 0x14037CA48 (HalpMmAllocCtxAlloc.c)
- *     IommupGetSystemContext @ 0x1403CC014 (IommupGetSystemContext.c)
+ *     HalpMmAllocCtxFree @ 0x140378FB0 (HalpMmAllocCtxFree.c)
+ *     HalpMmAllocCtxAlloc @ 0x14037C598 (HalpMmAllocCtxAlloc.c)
+ *     IommupGetSystemContext @ 0x1403CC184 (IommupGetSystemContext.c)
  */
 
 __int64 __fastcall IommuGetLibraryContext(int a1, unsigned int a2, _QWORD *a3)

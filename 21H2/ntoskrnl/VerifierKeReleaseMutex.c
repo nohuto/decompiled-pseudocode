@@ -1,11 +1,11 @@
 /*
- * XREFs of VerifierKeReleaseMutex @ 0x1409DB310
+ * XREFs of VerifierKeReleaseMutex @ 0x1409DC310
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     VfUtilCheckKernelAddress @ 0x1409C658C (VfUtilCheckKernelAddress.c)
- *     VfDeadlockReleaseResource @ 0x1409DE338 (VfDeadlockReleaseResource.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     VfUtilCheckKernelAddress @ 0x1409C758C (VfUtilCheckKernelAddress.c)
+ *     VfDeadlockReleaseResource @ 0x1409DF338 (VfDeadlockReleaseResource.c)
  */
 
 __int64 __fastcall VerifierKeReleaseMutex(ULONG_PTR a1, char a2)

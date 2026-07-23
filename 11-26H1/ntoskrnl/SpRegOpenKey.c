@@ -1,10 +1,10 @@
 /*
- * XREFs of SpRegOpenKey @ 0x14083A654
+ * XREFs of SpRegOpenKey @ 0x140840894
  * Callers:
- *     SpRegOpenRedirectedKey @ 0x14083A6F0 (SpRegOpenRedirectedKey.c)
+ *     SpRegOpenRedirectedKey @ 0x140840930 (SpRegOpenRedirectedKey.c)
  * Callees:
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwCreateKey @ 0x140723790 (ZwCreateKey.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwCreateKey @ 0x140728360 (ZwCreateKey.c)
  */
 
 __int64 __fastcall SpRegOpenKey(UNICODE_STRING *a1, HANDLE *a2)

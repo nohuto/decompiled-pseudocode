@@ -131,13 +131,15 @@ LABEL_25:
   }
   if ( (unsigned __int16)v12 >= 0x14u )
     LOWORD(v12) = 20;
-  if ( (unsigned int)RtlCompareUnicodeStrings(
-                       *((unsigned __int16 **)a2 + 1),
-                       (unsigned __int64)(unsigned __int16)v12 >> 1,
-                       L"schemaext-",
-                       0xAuLL,
-                       1) )
+  if ( RtlCompareUnicodeStrings(
+         *((PCWCH *)a2 + 1),
+         (unsigned __int64)(unsigned __int16)v12 >> 1,
+         L"schemaext-",
+         0xAuLL,
+         1u) )
+  {
     return (unsigned int)-1073741811;
+  }
   v9 = ApiSetpSearchForApiSet((_DWORD *)a1, *((unsigned __int16 **)a2 + 1), *a2 >> 1) != 0;
   v10 = v9;
 LABEL_36:

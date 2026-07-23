@@ -1,22 +1,22 @@
 /*
- * XREFs of RtlInitializeGenericTableAvl @ 0x140264400
+ * XREFs of RtlInitializeGenericTableAvl @ 0x1402524C0
  * Callers:
- *     PiDqQueryCreate @ 0x14062EE18 (PiDqQueryCreate.c)
- *     PiPnpRtlBeginOperation @ 0x140634680 (PiPnpRtlBeginOperation.c)
- *     PopDirectedDripsUmInitialize @ 0x140796898 (PopDirectedDripsUmInitialize.c)
- *     EtwpInitializeAutoLoggers @ 0x14079AFB4 (EtwpInitializeAutoLoggers.c)
- *     EtwpEnableKeyProviders @ 0x14079C0FC (EtwpEnableKeyProviders.c)
- *     PiDmObjectManagerInit @ 0x1407A2F80 (PiDmObjectManagerInit.c)
- *     VfAvlInitializeTreeEx @ 0x1409C2634 (VfAvlInitializeTreeEx.c)
- *     IoInitSystemPreDrivers @ 0x140A3EB60 (IoInitSystemPreDrivers.c)
- *     PiDcInit @ 0x140A53024 (PiDcInit.c)
- *     PiInitializeDDBCache @ 0x140A53128 (PiInitializeDDBCache.c)
- *     PiSwInit @ 0x140A534A0 (PiSwInit.c)
- *     PopPowerRequestInit @ 0x140A704D4 (PopPowerRequestInit.c)
- *     PopStatsInitPowerRequestLibrary @ 0x140A706D8 (PopStatsInitPowerRequestLibrary.c)
- *     PpInitSystem @ 0x140A72804 (PpInitSystem.c)
+ *     PiDqQueryCreate @ 0x140623E98 (PiDqQueryCreate.c)
+ *     PiPnpRtlBeginOperation @ 0x140629498 (PiPnpRtlBeginOperation.c)
+ *     PopDirectedDripsUmInitialize @ 0x140796A98 (PopDirectedDripsUmInitialize.c)
+ *     EtwpInitializeAutoLoggers @ 0x14079B1B4 (EtwpInitializeAutoLoggers.c)
+ *     EtwpEnableKeyProviders @ 0x14079C2FC (EtwpEnableKeyProviders.c)
+ *     PiDmObjectManagerInit @ 0x1407A3180 (PiDmObjectManagerInit.c)
+ *     VfAvlInitializeTreeEx @ 0x1409C3634 (VfAvlInitializeTreeEx.c)
+ *     IoInitSystemPreDrivers @ 0x140A3FB60 (IoInitSystemPreDrivers.c)
+ *     PiDcInit @ 0x140A54024 (PiDcInit.c)
+ *     PiInitializeDDBCache @ 0x140A54128 (PiInitializeDDBCache.c)
+ *     PiSwInit @ 0x140A544A0 (PiSwInit.c)
+ *     PopPowerRequestInit @ 0x140A714D4 (PopPowerRequestInit.c)
+ *     PopStatsInitPowerRequestLibrary @ 0x140A716D8 (PopStatsInitPowerRequestLibrary.c)
+ *     PpInitSystem @ 0x140A73804 (PpInitSystem.c)
  * Callees:
- *     memset @ 0x140414200 (memset.c)
+ *     memset @ 0x140414300 (memset.c)
  */
 
 void __stdcall RtlInitializeGenericTableAvl(
@@ -26,7 +26,7 @@ void __stdcall RtlInitializeGenericTableAvl(
         PRTL_AVL_FREE_ROUTINE FreeRoutine,
         PVOID TableContext)
 {
-  memset(Table, 0, sizeof(RTL_AVL_TABLE));
+  memset(Table, 0, sizeof(_RTL_AVL_TABLE));
   Table->CompareRoutine = (_RTL_GENERIC_COMPARE_RESULTS (__fastcall *)(_RTL_AVL_TABLE *, void *, void *))CompareRoutine;
   Table->FreeRoutine = (void (__fastcall *)(_RTL_AVL_TABLE *, void *))FreeRoutine;
   Table->TableContext = TableContext;

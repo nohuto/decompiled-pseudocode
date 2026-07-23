@@ -7,25 +7,31 @@
  *     ZwQuerySecurityAttributesToken @ 0x1800A3B40 (ZwQuerySecurityAttributesToken.c)
  */
 
-__int64 __fastcall RtlQueryTokenHostIdAsUlong64(__int64 a1, _QWORD *a2)
+NTSTATUS __cdecl RtlQueryTokenHostIdAsUlong64(HANDLE TokenHandle, PULONG64 HostId)
 {
-  __int64 result; // rax
-  _BYTE v4[8]; // [rsp+30h] [rbp-348h] BYREF
-  _BYTE v5[4]; // [rsp+38h] [rbp-340h] BYREF
+  NTSTATUS result; // eax
+  ULONG ReturnLength; // [rsp+30h] [rbp-348h] BYREF
+  _BYTE Buffer[4]; // [rsp+38h] [rbp-340h] BYREF
   int v6; // [rsp+3Ch] [rbp-33Ch]
   __int64 v7; // [rsp+40h] [rbp-338h]
 
-  result = ZwQuerySecurityAttributesToken(a1, &unk_1801339A0, 1LL, v5, 816, v4);
-  if ( (int)result >= 0 )
+  result = ZwQuerySecurityAttributesToken(
+             TokenHandle,
+             (PUNICODE_STRING)&stru_1801339A0,
+             1u,
+             Buffer,
+             0x330u,
+             &ReturnLength);
+  if ( result >= 0 )
   {
     if ( v6 )
     {
-      *a2 = **(_QWORD **)(v7 + 32);
-      return 0LL;
+      *HostId = **(_QWORD **)(v7 + 32);
+      return 0;
     }
     else
     {
-      return 3221226021LL;
+      return -1073741275;
     }
   }
   return result;

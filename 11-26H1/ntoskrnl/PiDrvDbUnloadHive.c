@@ -1,25 +1,24 @@
 /*
- * XREFs of PiDrvDbUnloadHive @ 0x140B1F12C
+ * XREFs of PiDrvDbUnloadHive @ 0x140B211AC
  * Callers:
- *     PiDrvDbSetupNodeHive @ 0x1407B7DA0 (PiDrvDbSetupNodeHive.c)
- *     PiDrvDbLoadNodeWorkerCallback @ 0x140B1EEB0 (PiDrvDbLoadNodeWorkerCallback.c)
+ *     PiDrvDbSetupNodeHive @ 0x1407BAE00 (PiDrvDbSetupNodeHive.c)
+ *     PiDrvDbLoadNodeWorkerCallback @ 0x140B20F30 (PiDrvDbLoadNodeWorkerCallback.c)
  * Callees:
- *     ZwUnloadKey2 @ 0x140726F70 (ZwUnloadKey2.c)
- *     ZwUnloadKeyEx @ 0x140726F90 (ZwUnloadKeyEx.c)
+ *     ZwUnloadKey2 @ 0x14072BB40 (ZwUnloadKey2.c)
+ *     ZwUnloadKeyEx @ 0x14072BB60 (ZwUnloadKeyEx.c)
  */
 
-__int64 __fastcall PiDrvDbUnloadHive(__int64 a1, __int64 a2)
+NTSTATUS __fastcall PiDrvDbUnloadHive(UNICODE_STRING *a1, void *a2)
 {
-  _QWORD v3[4]; // [rsp+20h] [rbp-38h] BYREF
-  __int128 v4; // [rsp+40h] [rbp-18h]
+  OBJECT_ATTRIBUTES v3; // [rsp+20h] [rbp-38h] BYREF
 
-  v3[2] = a1;
-  v3[1] = 0LL;
-  v3[0] = 48LL;
-  v3[3] = 576LL;
-  v4 = 0LL;
+  v3.ObjectName = a1;
+  v3.RootDirectory = 0LL;
+  *(_QWORD *)&v3.Length = 48LL;
+  *(_QWORD *)&v3.Attributes = 576LL;
+  *(_OWORD *)&v3.SecurityDescriptor = 0LL;
   if ( a2 )
-    return ZwUnloadKeyEx((__int64)v3, a2);
+    return ZwUnloadKeyEx(&v3, a2);
   else
-    return ZwUnloadKey2((__int64)v3, 0LL);
+    return ZwUnloadKey2(&v3, 0);
 }

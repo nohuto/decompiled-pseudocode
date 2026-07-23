@@ -1,11 +1,11 @@
 /*
- * XREFs of PfpServiceMainThreadBoostPrep @ 0x140AB2FAC
+ * XREFs of PfpServiceMainThreadBoostPrep @ 0x140AADF1C
  * Callers:
- *     PfpScenCtxScenarioSet @ 0x140B6D510 (PfpScenCtxScenarioSet.c)
+ *     PfpScenCtxScenarioSet @ 0x140B6EDB0 (PfpScenCtxScenarioSet.c)
  * Callees:
- *     ObDereferenceObjectDeferDelete @ 0x1403C5CE0 (ObDereferenceObjectDeferDelete.c)
- *     PsLookupThreadByThreadId @ 0x14084A4B0 (PsLookupThreadByThreadId.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     ObDereferenceObjectDeferDelete @ 0x1403B48A0 (ObDereferenceObjectDeferDelete.c)
+ *     PsLookupThreadByThreadId @ 0x140846770 (PsLookupThreadByThreadId.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall PfpServiceMainThreadBoostPrep(__int64 a1, PETHREAD *a2)
@@ -28,7 +28,7 @@ __int64 __fastcall PfpServiceMainThreadBoostPrep(__int64 a1, PETHREAD *a2)
     {
       if ( *(_QWORD *)&Thread[1].Header.Lock == *(_QWORD *)(a1 + 80) )
       {
-        Pool2 = ExAllocatePool2(0x40uLL);
+        Pool2 = ExAllocatePool2(0x40uLL, 0xA8uLL, 0x44506650u);
         if ( Pool2 )
         {
           *a2 = v7;

@@ -1,21 +1,21 @@
 /*
- * XREFs of PiDrvDbOverlayCopyKeys @ 0x140970188
+ * XREFs of PiDrvDbOverlayCopyKeys @ 0x140970388
  * Callers:
- *     PiDrvDbOverlayCopyKeys @ 0x140970188 (PiDrvDbOverlayCopyKeys.c)
- *     PiDrvDbOverlayNodeHive @ 0x140970728 (PiDrvDbOverlayNodeHive.c)
+ *     PiDrvDbOverlayCopyKeys @ 0x140970388 (PiDrvDbOverlayCopyKeys.c)
+ *     PiDrvDbOverlayNodeHive @ 0x140970928 (PiDrvDbOverlayNodeHive.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     _wcsnicmp @ 0x1403D9B90 (_wcsnicmp.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ZwQueryKey @ 0x14041B020 (ZwQueryKey.c)
- *     _RegRtlQueryValue @ 0x1406CE868 (_RegRtlQueryValue.c)
- *     _SysCtxRegOpenKey @ 0x1406CED20 (_SysCtxRegOpenKey.c)
- *     _PnpCtxRegCreateKey @ 0x140797EC0 (_PnpCtxRegCreateKey.c)
- *     _RegRtlSetValue @ 0x1407D49D4 (_RegRtlSetValue.c)
- *     _RegRtlEnumKey @ 0x14086B4AC (_RegRtlEnumKey.c)
- *     _PnpCtxRegEnumValue @ 0x1408779A4 (_PnpCtxRegEnumValue.c)
- *     _PnpCtxRegQueryInfoKey @ 0x140877B0C (_PnpCtxRegQueryInfoKey.c)
- *     PiDrvDbOverlayCopyKeys @ 0x140970188 (PiDrvDbOverlayCopyKeys.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     _wcsnicmp @ 0x1403D9D70 (_wcsnicmp.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ZwQueryKey @ 0x14041B3B0 (ZwQueryKey.c)
+ *     _RegRtlQueryValue @ 0x1406CE898 (_RegRtlQueryValue.c)
+ *     _SysCtxRegOpenKey @ 0x1406CED50 (_SysCtxRegOpenKey.c)
+ *     _PnpCtxRegCreateKey @ 0x1407980B0 (_PnpCtxRegCreateKey.c)
+ *     _RegRtlSetValue @ 0x1407D4CA4 (_RegRtlSetValue.c)
+ *     _RegRtlEnumKey @ 0x14086B6EC (_RegRtlEnumKey.c)
+ *     _PnpCtxRegEnumValue @ 0x140877BE4 (_PnpCtxRegEnumValue.c)
+ *     _PnpCtxRegQueryInfoKey @ 0x140877D4C (_PnpCtxRegQueryInfoKey.c)
+ *     PiDrvDbOverlayCopyKeys @ 0x140970388 (PiDrvDbOverlayCopyKeys.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

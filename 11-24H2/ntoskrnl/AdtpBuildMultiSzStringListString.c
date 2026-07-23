@@ -1,10 +1,10 @@
 /*
- * XREFs of AdtpBuildMultiSzStringListString @ 0x140453EDC
+ * XREFs of AdtpBuildMultiSzStringListString @ 0x140448F8C
  * Callers:
- *     AdtpPackageParameters @ 0x1404534B8 (AdtpPackageParameters.c)
+ *     AdtpPackageParameters @ 0x140448568 (AdtpPackageParameters.c)
  * Callees:
- *     AdtpEtwBuildDashString @ 0x140A93E50 (AdtpEtwBuildDashString.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     AdtpEtwBuildDashString @ 0x140A90600 (AdtpEtwBuildDashString.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall AdtpBuildMultiSzStringListString(unsigned __int16 *a1, _QWORD *a2, _BYTE *a3)
@@ -48,7 +48,7 @@ __int64 __fastcall AdtpBuildMultiSzStringListString(unsigned __int16 *a1, _QWORD
     return 3221225621LL;
   if ( (unsigned int)v13 > 0xFFFF )
     return 3221225485LL;
-  Pool2 = (_QWORD *)ExAllocatePool2(0x100uLL);
+  Pool2 = (_QWORD *)ExAllocatePool2(0x100uLL, (unsigned int)v13, 0x6B416553u);
   if ( !Pool2 )
     return 3221225495LL;
   *a3 = 1;

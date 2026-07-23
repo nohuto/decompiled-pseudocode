@@ -3,8 +3,8 @@
  * Callers:
  *     <none>
  * Callees:
- *     KeAbPreAcquire @ 0x140347C10 (KeAbPreAcquire.c)
- *     KeAbPostReleaseEx @ 0x140353BB0 (KeAbPostReleaseEx.c)
+ *     sub_140347C10 @ 0x140347C10 (sub_140347C10.c)
+ *     sub_140353BB0 @ 0x140353BB0 (sub_140353BB0.c)
  *     ExfTryToWakePushLock @ 0x140359F40 (ExfTryToWakePushLock.c)
  *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
  */
@@ -25,7 +25,7 @@ char __fastcall ExTryAcquireCacheAwarePushLockExclusiveEx(
   if ( (BugCheckParameter1 & 2) != 0 )
     v5 = 0LL;
   else
-    v5 = KeAbPreAcquire((__int64)BugCheckParameter2, 0LL);
+    v5 = sub_140347C10((__int64)BugCheckParameter2, 0LL);
   if ( (unsigned __int64)BugCheckParameter2 >= v3 )
   {
 LABEL_9:
@@ -47,7 +47,7 @@ LABEL_9:
         ExfTryToWakePushLock(v7);
     }
     if ( v5 )
-      KeAbPostReleaseEx((ULONG_PTR)BugCheckParameter2, v5);
+      sub_140353BB0((ULONG_PTR)BugCheckParameter2, v5);
     return 0;
   }
 }

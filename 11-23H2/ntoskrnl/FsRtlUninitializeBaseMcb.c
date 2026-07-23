@@ -1,9 +1,9 @@
 /*
- * XREFs of FsRtlUninitializeBaseMcb @ 0x1402B9610
+ * XREFs of FsRtlUninitializeBaseMcb @ 0x1402B98A0
  * Callers:
- *     FsRtlUninitializeLargeMcb @ 0x140364C80 (FsRtlUninitializeLargeMcb.c)
+ *     FsRtlUninitializeLargeMcb @ 0x140364E20 (FsRtlUninitializeLargeMcb.c)
  * Callees:
- *     ExFreeToNPagedLookasideList @ 0x1402B6B70 (ExFreeToNPagedLookasideList.c)
+ *     ExFreeToNPagedLookasideList @ 0x1402B6E00 (ExFreeToNPagedLookasideList.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

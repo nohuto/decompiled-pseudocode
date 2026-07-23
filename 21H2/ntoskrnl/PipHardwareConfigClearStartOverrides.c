@@ -1,14 +1,14 @@
 /*
- * XREFs of PipHardwareConfigClearStartOverrides @ 0x14089B5CC
+ * XREFs of PipHardwareConfigClearStartOverrides @ 0x14089B72C
  * Callers:
- *     PipHardwareConfigInit @ 0x140A512F4 (PipHardwareConfigInit.c)
+ *     PipHardwareConfigInit @ 0x140A522F4 (PipHardwareConfigInit.c)
  * Callees:
- *     RtlStringCchPrintfExW @ 0x140265B34 (RtlStringCchPrintfExW.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     _PnpCtxGetCachedContextBaseKey @ 0x140642808 (_PnpCtxGetCachedContextBaseKey.c)
- *     _PnpCtxRegEnumKeyWithCallback @ 0x1407B1488 (_PnpCtxRegEnumKeyWithCallback.c)
- *     PiOpenDriverRedirectedStateRootKey @ 0x14089F7C0 (PiOpenDriverRedirectedStateRootKey.c)
+ *     RtlStringCchPrintfExW @ 0x140253AD4 (RtlStringCchPrintfExW.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     _PnpCtxGetCachedContextBaseKey @ 0x140637618 (_PnpCtxGetCachedContextBaseKey.c)
+ *     _PnpCtxRegEnumKeyWithCallback @ 0x1407B1628 (_PnpCtxRegEnumKeyWithCallback.c)
+ *     PiOpenDriverRedirectedStateRootKey @ 0x14089F920 (PiOpenDriverRedirectedStateRootKey.c)
  */
 
 __int64 __fastcall PipHardwareConfigClearStartOverrides(__int64 a1)

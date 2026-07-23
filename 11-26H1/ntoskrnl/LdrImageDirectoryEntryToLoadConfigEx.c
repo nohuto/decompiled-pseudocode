@@ -1,49 +1,48 @@
 /*
- * XREFs of LdrImageDirectoryEntryToLoadConfigEx @ 0x14040C74C
+ * XREFs of LdrImageDirectoryEntryToLoadConfigEx @ 0x140429E94
  * Callers:
- *     LdrImageDirectoryEntryToLoadConfig @ 0x14077DECC (LdrImageDirectoryEntryToLoadConfig.c)
- *     MiCaptureBootDriverRetpolineInfo @ 0x14086D520 (MiCaptureBootDriverRetpolineInfo.c)
- *     LdrInitSecurityCookie @ 0x140B05D40 (LdrInitSecurityCookie.c)
+ *     LdrImageDirectoryEntryToLoadConfig @ 0x1407809CC (LdrImageDirectoryEntryToLoadConfig.c)
+ *     MiCaptureBootDriverRetpolineInfo @ 0x1408738F0 (MiCaptureBootDriverRetpolineInfo.c)
+ *     LdrInitSecurityCookie @ 0x140B07DD4 (LdrInitSecurityCookie.c)
  * Callees:
- *     RtlImageDirectoryEntryToData @ 0x14040E290 (RtlImageDirectoryEntryToData.c)
- *     ProbeForRead @ 0x1408EF880 (ProbeForRead.c)
+ *     RtlImageDirectoryEntryToData @ 0x14042B1C0 (RtlImageDirectoryEntryToData.c)
+ *     ProbeForRead @ 0x1408F5E40 (ProbeForRead.c)
  */
 
-_DWORD *__fastcall LdrImageDirectoryEntryToLoadConfigEx(unsigned __int64 a1, __int64 a2)
+_DWORD *__fastcall LdrImageDirectoryEntryToLoadConfigEx(unsigned int *a1)
 {
-  __int64 v2; // rbx
-  unsigned __int64 v4; // rdi
-  _DWORD *v5; // rax
-  _DWORD *v6; // rbp
-  int v8; // [rsp+48h] [rbp+10h] BYREF
+  __int64 v1; // rbx
+  unsigned __int64 v3; // rdi
+  _DWORD *v4; // rax
+  _DWORD *v5; // rbp
+  ULONG Size; // [rsp+48h] [rbp+10h] BYREF
 
-  v2 = 0LL;
-  v8 = 0;
-  if ( a1 - 1 > 0xFFFFFFFFFFFFFFFDuLL )
+  v1 = 0LL;
+  Size = 0;
+  if ( (unsigned __int64)a1 - 1 > 0xFFFFFFFFFFFFFFFDuLL )
   {
-    v4 = 0LL;
+    v3 = 0LL;
     if ( !a1 )
       return 0LL;
   }
   else if ( *(_WORD *)a1 == 23117
-         && (v4 = a1 + *(unsigned int *)(a1 + 60), v4 >= a1)
-         && (a1 >= 0x7FFFFFFF0000LL || v4 + 264 <= 0x7FFFFFFF0000LL && v4 + 264 > v4) )
+         && (v3 = (unsigned __int64)a1 + a1[15], v3 >= (unsigned __int64)a1)
+         && ((unsigned __int64)a1 >= 0x7FFFFFFF0000LL || v3 + 264 <= 0x7FFFFFFF0000LL && v3 + 264 > v3) )
   {
-    if ( *(_DWORD *)v4 != 17744 )
-      v4 = 0LL;
+    if ( *(_DWORD *)v3 != 17744 )
+      v3 = 0LL;
   }
   else
   {
-    v4 = 0LL;
+    v3 = 0LL;
   }
-  LOBYTE(a2) = 1;
-  v5 = (_DWORD *)RtlImageDirectoryEntryToData(a1, a2, 10LL, &v8);
-  v6 = v5;
-  if ( a1 < 0x7FFFFFFF0000LL )
-    ProbeForRead(v5, 4uLL, 1u);
-  if ( !v6 || !v8 || v8 != *v6 )
+  v4 = RtlImageDirectoryEntryToData(a1, 1u, 0xAu, &Size);
+  v5 = v4;
+  if ( (unsigned __int64)a1 < 0x7FFFFFFF0000LL )
+    ProbeForRead(v4, 4uLL, 1u);
+  if ( !v5 || !Size || Size != *v5 )
     return 0LL;
-  if ( *(_WORD *)(v4 + 4) == 0x8664 )
-    return v6;
-  return (_DWORD *)v2;
+  if ( *(_WORD *)(v3 + 4) == 0x8664 )
+    return v5;
+  return (_DWORD *)v1;
 }

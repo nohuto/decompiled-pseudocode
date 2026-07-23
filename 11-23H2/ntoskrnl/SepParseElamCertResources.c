@@ -1,13 +1,13 @@
 /*
- * XREFs of SepParseElamCertResources @ 0x14080FE0C
+ * XREFs of SepParseElamCertResources @ 0x1408100DC
  * Callers:
- *     SeRegisterElamCertResources @ 0x140810C80 (SeRegisterElamCertResources.c)
+ *     SeRegisterElamCertResources @ 0x140810F50 (SeRegisterElamCertResources.c)
  * Callees:
- *     RtlStringCchLengthW @ 0x14022C640 (RtlStringCchLengthW.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     wcschr @ 0x1403DB910 (wcschr.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     __report_rangecheckfailure @ 0x1404FE0EC (__report_rangecheckfailure.c)
+ *     RtlStringCchLengthW @ 0x14022C750 (RtlStringCchLengthW.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     wcschr @ 0x1403DBAF0 (wcschr.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     __report_rangecheckfailure @ 0x1404FE63C (__report_rangecheckfailure.c)
  */
 
 NTSTATUS __fastcall SepParseElamCertResources(_WORD *a1, __int64 a2)
@@ -222,11 +222,11 @@ LABEL_27:
 LABEL_37:
     v29 = v19 != 0 ? v20 : 0;
     v30 = -(__int64)v19;
-    if ( !qword_140C379F0 )
+    if ( !qword_140C37990 )
       return -1073741637;
     v40 = v29;
     LOBYTE(v29) = 7;
-    v2 = qword_140C379F0(v29, v47, v9, *v45, (unsigned __int64)v46 & -(__int64)(v30 != 0), v40, 0LL);
+    v2 = qword_140C37990(v29, v47, v9, *v45, (unsigned __int64)v46 & -(__int64)(v30 != 0), v40, 0LL);
     if ( v2 >= 0 && ++v41 < v42 )
       continue;
     return v2;

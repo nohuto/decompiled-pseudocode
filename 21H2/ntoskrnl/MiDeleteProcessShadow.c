@@ -1,66 +1,67 @@
 /*
- * XREFs of MiDeleteProcessShadow @ 0x140305768
+ * XREFs of MiDeleteProcessShadow @ 0x1403104B8
  * Callers:
- *     MiDeleteFinalPageTables @ 0x140296F6C (MiDeleteFinalPageTables.c)
- *     PspDisablePrimaryTokenExchange @ 0x1406478CC (PspDisablePrimaryTokenExchange.c)
- *     MmCreateProcessAddressSpace @ 0x1406D04E4 (MmCreateProcessAddressSpace.c)
- *     MmSynchronizeAddressPolicy @ 0x1407C6680 (MmSynchronizeAddressPolicy.c)
+ *     MiDeleteFinalPageTables @ 0x14027404C (MiDeleteFinalPageTables.c)
+ *     PspDisablePrimaryTokenExchange @ 0x14063C6BC (PspDisablePrimaryTokenExchange.c)
+ *     MmCreateProcessAddressSpace @ 0x1406A77C4 (MmCreateProcessAddressSpace.c)
+ *     MmSynchronizeAddressPolicy @ 0x1407C69A0 (MmSynchronizeAddressPolicy.c)
  * Callees:
- *     MiGetSharedVm @ 0x14021AF50 (MiGetSharedVm.c)
- *     MiUnlockWorkingSetExclusive @ 0x14021CAE0 (MiUnlockWorkingSetExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
- *     MiReleasePtes @ 0x140245800 (MiReleasePtes.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     MiDeleteTopLevelPage @ 0x1402970E8 (MiDeleteTopLevelPage.c)
- *     KeFlushProcessTb @ 0x140297284 (KeFlushProcessTb.c)
- *     KeMakeUserDirectoryTableBase @ 0x1402E46A4 (KeMakeUserDirectoryTableBase.c)
- *     MiReturnCommit @ 0x1403182A0 (MiReturnCommit.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x14032DEC0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiPteInShadowRange @ 0x140348AF0 (MiPteInShadowRange.c)
- *     KxAcquireQueuedSpinLock @ 0x140350970 (KxAcquireQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     MiDeleteTopLevelPage @ 0x1402741C8 (MiDeleteTopLevelPage.c)
+ *     KeFlushProcessTb @ 0x140274364 (KeFlushProcessTb.c)
+ *     KeMakeUserDirectoryTableBase @ 0x1402959F4 (KeMakeUserDirectoryTableBase.c)
+ *     MiGetSharedVm @ 0x1402BF850 (MiGetSharedVm.c)
+ *     MiUnlockWorkingSetExclusive @ 0x1402C13E0 (MiUnlockWorkingSetExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x1402C1960 (ExAcquireSpinLockExclusive.c)
+ *     MiReleasePtes @ 0x1402EA050 (MiReleasePtes.c)
+ *     MiReturnCommit @ 0x140322FF0 (MiReturnCommit.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140338C10 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x140353840 (MiPteInShadowRange.c)
+ *     KxAcquireQueuedSpinLock @ 0x14035B6C0 (KxAcquireQueuedSpinLock.c)
  */
 
-void __fastcall MiDeleteProcessShadow(__int64 a1, int a2, __int64 a3)
+void __fastcall MiDeleteProcessShadow(__int64 a1, int a2, __int64 a3, __int64 a4)
 {
-  __int64 v4; // r13
-  unsigned __int64 v5; // rdi
-  __int64 v6; // r14
+  __int64 v5; // r13
+  unsigned __int64 v6; // rdi
+  __int64 v7; // r14
   LONG *SharedVm; // rbx
-  KIRQL v8; // al
-  __int64 Flink; // rdx
+  KIRQL v9; // al
   unsigned __int8 v10; // r12
   unsigned __int64 v11; // rsi
   __int64 v12; // r15
   signed __int64 v13; // rbx
   _QWORD *v14; // r15
   unsigned __int64 v15; // rbx
-  __int64 v16; // rdx
-  __int64 v17; // rbx
-  __int64 v18; // rcx
-  __int64 v19; // r8
+  __int64 v16; // rbx
+  __int64 v17; // rcx
+  __int64 v18; // r8
+  __int64 v19; // r9
   struct _KPRCB *CurrentPrcb; // r8
   __int64 CachedResidentAvailable; // rdx
   bool v22; // zf
   signed __int32 v23; // eax
   signed __int64 v24; // rax
-  __int64 v25; // rax
-  struct _LIST_ENTRY *v26; // r8
-  __int64 v27; // rax
+  struct _LIST_ENTRY *Flink; // rdx
+  __int64 v26; // rax
+  __int64 v27; // rdx
+  struct _LIST_ENTRY *v28; // r8
+  __int64 v29; // rax
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-58h] BYREF
-  __int64 v29; // [rsp+98h] [rbp+20h] BYREF
+  __int64 v31; // [rsp+98h] [rbp+20h] BYREF
 
   *(_QWORD *)&LockHandle.OldIrql = 0LL;
   if ( (MiFlags & 0xC00000) == 0 || !*(_QWORD *)(a1 + 1928) )
     return;
-  v4 = a1 + 1664;
-  v5 = 1LL;
-  v6 = *(_QWORD *)(qword_140C4E648 + 8LL * *(unsigned __int16 *)(a1 + 1838));
+  v5 = a1 + 1664;
+  v6 = 1LL;
+  v7 = *(_QWORD *)(qword_140C4E688 + 8LL * *(unsigned __int16 *)(a1 + 1838));
   if ( a2 )
   {
-    SharedVm = MiGetSharedVm(v4);
-    v8 = ExAcquireSpinLockExclusive(SharedVm);
+    SharedVm = MiGetSharedVm(v5);
+    v9 = ExAcquireSpinLockExclusive(SharedVm);
     SharedVm[1] = 0;
-    v10 = v8;
+    v10 = v9;
     if ( *(_QWORD *)(a1 + 1928) )
     {
       v11 = 0xFFFFF6FB7DBED000uLL;
@@ -68,7 +69,7 @@ void __fastcall MiDeleteProcessShadow(__int64 a1, int a2, __int64 a3)
       while ( 1 )
       {
         v13 = *(_QWORD *)v11;
-        if ( !(unsigned int)MiPteInShadowRange(v11, Flink)
+        if ( !(unsigned int)MiPteInShadowRange(v11)
           || (MiFlags & 0xC00000) == 0
           || KeGetCurrentThread()->ApcState.Process->AddressPolicy == 1 )
         {
@@ -83,16 +84,16 @@ LABEL_10:
       }
       if ( (v13 & 0x20) == 0 || (v13 & 0x42) == 0 )
       {
-        Flink = (__int64)KeGetCurrentThread()->ApcState.Process[1].ProcessListEntry.Flink;
+        Flink = KeGetCurrentThread()->ApcState.Process[1].ProcessListEntry.Flink;
         if ( Flink )
         {
-          v25 = *(_QWORD *)(Flink + 8 * ((v11 >> 3) & 0x1FF));
-          Flink = v13 | 0x20;
-          if ( (v25 & 0x20) == 0 )
-            Flink = v13;
-          v13 = Flink;
-          if ( (v25 & 0x42) != 0 )
-            v13 = Flink | 0x42;
+          v26 = *((_QWORD *)&Flink->Flink + ((v11 >> 3) & 0x1FF));
+          v27 = v13 | 0x20;
+          if ( (v26 & 0x20) == 0 )
+            v27 = v13;
+          v13 = v27;
+          if ( (v26 & 0x42) != 0 )
+            v13 = v27 | 0x42;
         }
       }
 LABEL_9:
@@ -112,7 +113,7 @@ LABEL_9:
       }
       goto LABEL_10;
     }
-    MiUnlockWorkingSetExclusive(v4, v8);
+    MiUnlockWorkingSetExclusive(v5, v9);
   }
   else
   {
@@ -120,42 +121,42 @@ LABEL_9:
 LABEL_11:
     LockHandle.LockQueue.Next = 0LL;
     LockHandle.LockQueue.Lock = &SpinLock;
-    KxAcquireQueuedSpinLock(&LockHandle, &SpinLock, a3);
+    KxAcquireQueuedSpinLock(&LockHandle, &SpinLock, a3, a4);
     v14 = (_QWORD *)(((*(_QWORD *)(a1 + 1928) >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL);
-    v29 = MI_READ_PTE_LOCK_FREE(v14);
-    v15 = v29;
-    if ( (unsigned int)MiPteInShadowRange(&v29, v16)
+    v31 = MI_READ_PTE_LOCK_FREE(v14);
+    v15 = v31;
+    if ( (unsigned int)MiPteInShadowRange(&v31)
       && (MiFlags & 0xC00000) != 0
       && KeGetCurrentThread()->ApcState.Process->AddressPolicy != 1
       && (v15 & 1) != 0
       && ((v15 & 0x20) == 0 || (v15 & 0x42) == 0) )
     {
-      v26 = KeGetCurrentThread()->ApcState.Process[1].ProcessListEntry.Flink;
-      if ( v26 )
+      v28 = KeGetCurrentThread()->ApcState.Process[1].ProcessListEntry.Flink;
+      if ( v28 )
       {
-        v27 = *((_QWORD *)&v26->Flink + (((unsigned __int64)&v29 >> 3) & 0x1FF));
-        if ( (v27 & 0x20) != 0 )
+        v29 = *((_QWORD *)&v28->Flink + (((unsigned __int64)&v31 >> 3) & 0x1FF));
+        if ( (v29 & 0x20) != 0 )
           v15 |= 0x20uLL;
-        if ( (v27 & 0x42) != 0 )
+        if ( (v29 & 0x42) != 0 )
           v15 |= 0x42uLL;
       }
       else
       {
-        v15 = v29;
+        v15 = v31;
       }
     }
     *(_QWORD *)(a1 + 1928) = 0LL;
-    v17 = (v15 >> 12) & 0xFFFFFFFFFLL;
+    v16 = (v15 >> 12) & 0xFFFFFFFFFLL;
     KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
     *(_QWORD *)(a1 + 904) = KeMakeUserDirectoryTableBase(0LL);
     if ( v10 != 17 )
-      MiUnlockWorkingSetExclusive(v4, v10);
-    MiReleasePtes((__int64)&qword_140C4EF40, v14, 1u);
-    KeFlushProcessTb(v17 << 12);
-    if ( (unsigned int)MiDeleteTopLevelPage(v18, v17, v19) != 3 )
+      MiUnlockWorkingSetExclusive(v5, v10);
+    MiReleasePtes((__int64)&qword_140C4EF80, v14, 1u);
+    KeFlushProcessTb(v16 << 12);
+    if ( (unsigned int)MiDeleteTopLevelPage(v17, v16) != 3 )
     {
-      MiReturnCommit(v6, 1LL);
-      if ( (ULONG_PTR *)v6 == &MiSystemPartition )
+      MiReturnCommit(v7, 1LL, v18, v19);
+      if ( (ULONG_PTR *)v7 == &MiSystemPartition )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         CachedResidentAvailable = (int)CurrentPrcb->CachedResidentAvailable;
@@ -182,13 +183,13 @@ LABEL_11:
                                                     192,
                                                     CachedResidentAvailable) )
           {
-            v5 = (int)CachedResidentAvailable - 192 + 1LL;
+            v6 = (int)CachedResidentAvailable - 192 + 1LL;
           }
-          if ( !v5 )
+          if ( !v6 )
             return;
         }
       }
-      _InterlockedExchangeAdd64((volatile signed __int64 *)(v6 + 7168), v5);
+      _InterlockedExchangeAdd64((volatile signed __int64 *)(v7 + 7168), v6);
     }
   }
 }

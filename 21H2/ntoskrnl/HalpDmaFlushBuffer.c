@@ -1,25 +1,25 @@
 /*
- * XREFs of HalpDmaFlushBuffer @ 0x1404C755C
+ * XREFs of HalpDmaFlushBuffer @ 0x1404C779C
  * Callers:
- *     HalBuildScatterGatherListV2 @ 0x14028E2A0 (HalBuildScatterGatherListV2.c)
- *     IoMapTransferInternal @ 0x140388CEC (IoMapTransferInternal.c)
- *     IoFlushAdapterBuffersV2 @ 0x140389E60 (IoFlushAdapterBuffersV2.c)
- *     HalMapTransferEx @ 0x14039F6E0 (HalMapTransferEx.c)
- *     HalpDmaFlushContiguousTransferV3 @ 0x1404B75EC (HalpDmaFlushContiguousTransferV3.c)
- *     HalpDmaFlushScatterTransferV3 @ 0x1404B773C (HalpDmaFlushScatterTransferV3.c)
- *     HalpDmaMapContiguousTransferV3 @ 0x1404B7ACC (HalpDmaMapContiguousTransferV3.c)
- *     HalpDmaMapScatterTransferV3 @ 0x1404B7BF0 (HalpDmaMapScatterTransferV3.c)
- *     HalpDmaFlushContiguousTransferV2 @ 0x1404CD82C (HalpDmaFlushContiguousTransferV2.c)
- *     HalpDmaFlushScatterTransferV2 @ 0x1404CD948 (HalpDmaFlushScatterTransferV2.c)
- *     HalpDmaMapContiguousTransferV2 @ 0x1404CDAAC (HalpDmaMapContiguousTransferV2.c)
- *     HalpDmaMapScatterTransferV2 @ 0x1404CDC04 (HalpDmaMapScatterTransferV2.c)
+ *     HalBuildScatterGatherListV2 @ 0x14020B440 (HalBuildScatterGatherListV2.c)
+ *     IoMapTransferInternal @ 0x140388E3C (IoMapTransferInternal.c)
+ *     IoFlushAdapterBuffersV2 @ 0x140389FB0 (IoFlushAdapterBuffersV2.c)
+ *     HalMapTransferEx @ 0x14039F830 (HalMapTransferEx.c)
+ *     HalpDmaFlushContiguousTransferV3 @ 0x1404B782C (HalpDmaFlushContiguousTransferV3.c)
+ *     HalpDmaFlushScatterTransferV3 @ 0x1404B797C (HalpDmaFlushScatterTransferV3.c)
+ *     HalpDmaMapContiguousTransferV3 @ 0x1404B7D0C (HalpDmaMapContiguousTransferV3.c)
+ *     HalpDmaMapScatterTransferV3 @ 0x1404B7E30 (HalpDmaMapScatterTransferV3.c)
+ *     HalpDmaFlushContiguousTransferV2 @ 0x1404CDA6C (HalpDmaFlushContiguousTransferV2.c)
+ *     HalpDmaFlushScatterTransferV2 @ 0x1404CDB88 (HalpDmaFlushScatterTransferV2.c)
+ *     HalpDmaMapContiguousTransferV2 @ 0x1404CDCEC (HalpDmaMapContiguousTransferV2.c)
+ *     HalpDmaMapScatterTransferV2 @ 0x1404CDE44 (HalpDmaMapScatterTransferV2.c)
  * Callees:
- *     MmMapLockedPagesSpecifyCache @ 0x140226CC0 (MmMapLockedPagesSpecifyCache.c)
- *     IoBuildPartialMdl @ 0x140290D90 (IoBuildPartialMdl.c)
- *     KeFlushIoBuffers @ 0x1402A7EB0 (KeFlushIoBuffers.c)
+ *     IoBuildPartialMdl @ 0x14020ED00 (IoBuildPartialMdl.c)
+ *     KeFlushIoBuffers @ 0x140225FF0 (KeFlushIoBuffers.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x1402CB5C0 (MmMapLockedPagesSpecifyCache.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     HalpDmaFlushBufferWithEmergencyResources @ 0x1404C7790 (HalpDmaFlushBufferWithEmergencyResources.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     HalpDmaFlushBufferWithEmergencyResources @ 0x1404C79D0 (HalpDmaFlushBufferWithEmergencyResources.c)
  */
 
 void __fastcall HalpDmaFlushBuffer(int a1, __int64 a2, unsigned __int64 a3, unsigned int a4, char a5, char a6)
@@ -61,7 +61,7 @@ void __fastcall HalpDmaFlushBuffer(int a1, __int64 a2, unsigned __int64 a3, unsi
         }
       }
     }
-    v14 = *(struct _MDL **)(qword_140C53F20 + 8LL * KeGetPcr()->Prcb.Number);
+    v14 = *(struct _MDL **)(qword_140C53F60 + 8LL * KeGetPcr()->Prcb.Number);
     v14->Next = 0LL;
     v14->MdlFlags = 0;
     v14->Size = 8 * (v11 + 6);

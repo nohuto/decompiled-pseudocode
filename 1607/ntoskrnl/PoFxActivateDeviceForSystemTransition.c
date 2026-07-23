@@ -1,5 +1,5 @@
 /*
- * XREFs of PoFxActivateDeviceForSystemTransition @ 0x14011450C
+ * XREFs of PoFxActivateDeviceForSystemTransition @ 0x140114A7C
  * Callers:
  *     PopNotifyDevice @ 0x1403CF498 (PopNotifyDevice.c)
  * Callees:

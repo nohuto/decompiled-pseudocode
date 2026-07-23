@@ -1,21 +1,21 @@
 /*
- * XREFs of PopSystemIrpCompletion @ 0x140997040
+ * XREFs of PopSystemIrpCompletion @ 0x140998040
  * Callers:
- *     PoFxReportDevicePoweredOn @ 0x14039FC80 (PoFxReportDevicePoweredOn.c)
+ *     PoFxReportDevicePoweredOn @ 0x14039FDD0 (PoFxReportDevicePoweredOn.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
- *     KeReleaseSemaphore @ 0x14029AC70 (KeReleaseSemaphore.c)
- *     EtwTraceKernelEvent @ 0x1402EAC90 (EtwTraceKernelEvent.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
- *     PopFreeIrp @ 0x14037AA7C (PopFreeIrp.c)
- *     IoFindDeviceThatFailedIrp @ 0x14037ADF4 (IoFindDeviceThatFailedIrp.c)
- *     PopCompleteNotifyTransitionCommon @ 0x1403887B8 (PopCompleteNotifyTransitionCommon.c)
- *     PopFxIncrementDeviceSleepCount @ 0x140388A54 (PopFxIncrementDeviceSleepCount.c)
- *     PopDequeueQuerySetIrp @ 0x14039814C (PopDequeueQuerySetIrp.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     KeReleaseSemaphore @ 0x140212600 (KeReleaseSemaphore.c)
+ *     EtwTraceKernelEvent @ 0x14029BFE0 (EtwTraceKernelEvent.c)
+ *     ExAcquireSpinLockExclusive @ 0x1402C1960 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140346AD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
+ *     PopFreeIrp @ 0x14037A5CC (PopFreeIrp.c)
+ *     IoFindDeviceThatFailedIrp @ 0x14037A944 (IoFindDeviceThatFailedIrp.c)
+ *     PopCompleteNotifyTransitionCommon @ 0x140388908 (PopCompleteNotifyTransitionCommon.c)
+ *     PopFxIncrementDeviceSleepCount @ 0x140388BA4 (PopFxIncrementDeviceSleepCount.c)
+ *     PopDequeueQuerySetIrp @ 0x14039829C (PopDequeueQuerySetIrp.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     PopDiagTraceIrpPended @ 0x140572E1C (PopDiagTraceIrpPended.c)
+ *     PopDiagTraceIrpPended @ 0x14057305C (PopDiagTraceIrpPended.c)
  */
 
 __int64 __fastcall PopSystemIrpCompletion(__int64 a1, IRP *a2, __int64 a3)
@@ -92,8 +92,8 @@ LABEL_6:
       DeviceThatFailedIrp = IoFindDeviceThatFailedIrp((__int64)a2);
     PopDequeueQuerySetIrp((__int64)a2);
     PopFreeIrp(a2);
-    v9 = (PRKSEMAPHORE *)qword_140C23430;
-    if ( (unsigned __int8)(*(_BYTE *)qword_140C23430 - 2) <= 1u && *((int *)qword_140C23430 + 1) > 1 )
+    v9 = (PRKSEMAPHORE *)qword_140C23A50;
+    if ( (unsigned __int8)(*(_BYTE *)qword_140C23A50 - 2) <= 1u && *((int *)qword_140C23A50 + 1) > 1 )
     {
       PopFxIncrementDeviceSleepCount(*(v6 - 16));
       ObfDereferenceObjectWithTag((PVOID)*(v6 - 16), 0x72496F50u);

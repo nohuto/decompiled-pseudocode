@@ -7,17 +7,17 @@
  *     _TppPoolpReferenceGlobalPool@12 @ 0x4B2B50CD (_TppPoolpReferenceGlobalPool@12.c)
  */
 
-int __fastcall TpReserveTaskPost(volatile signed __int32 *a1, int a2, int a3)
+NTSTATUS __fastcall TpReserveTaskPost(volatile signed __int32 *a1, int a2, int a3)
 {
-  volatile signed __int32 *v3; // eax
-  int v4; // esi
+  _RTL_SRWLOCK *v3; // eax
+  NTSTATUS v4; // esi
   int *v6; // ecx
-  void *v7; // edx
-  volatile signed __int32 *v9; // [esp+8h] [ebp-4h] BYREF
+  _RTL_SRWLOCK *v7; // edx
+  _RTL_SRWLOCK *v9; // [esp+8h] [ebp-4h] BYREF
 
-  v3 = a1;
+  v3 = (_RTL_SRWLOCK *)a1;
   v4 = 0;
-  v9 = a1;
+  v9 = (_RTL_SRWLOCK *)a1;
   if ( a1 )
   {
     _InterlockedIncrement(a1);
@@ -26,14 +26,14 @@ int __fastcall TpReserveTaskPost(volatile signed __int32 *a1, int a2, int a3)
   if ( a3 && (*(_BYTE *)(a3 + 28) & 2) != 0 )
   {
     v6 = &TppPoolpSerializedPool;
-    v7 = &TppPoolpSerializedPoolLock;
+    v7 = (_RTL_SRWLOCK *)&TppPoolpSerializedPoolLock;
   }
   else
   {
     v6 = &TppPoolpGlobalPool;
     v7 = &TppPoolpGlobalPoolLock;
   }
-  v4 = TppPoolpReferenceGlobalPool((volatile signed __int32 **)v6, (int)v7, &v9);
+  v4 = TppPoolpReferenceGlobalPool((volatile signed __int32 **)v6, v7, (volatile signed __int32 **)&v9);
   if ( v4 >= 0 )
   {
     v3 = v9;

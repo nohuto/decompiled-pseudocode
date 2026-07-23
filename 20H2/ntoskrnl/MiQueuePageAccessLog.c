@@ -14,7 +14,7 @@
  *     RtlpInterlockedPushEntrySList @ 0x140405300 (RtlpInterlockedPushEntrySList.c)
  */
 
-void __fastcall MiQueuePageAccessLog(struct _SLIST_ENTRY *P)
+void __fastcall MiQueuePageAccessLog(_SLIST_ENTRY *P)
 {
   unsigned int Alignment_low; // ebx
   int v3; // ebx

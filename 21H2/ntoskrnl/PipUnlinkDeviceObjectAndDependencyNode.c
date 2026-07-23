@@ -1,9 +1,9 @@
 /*
- * XREFs of PipUnlinkDeviceObjectAndDependencyNode @ 0x14089E0A4
+ * XREFs of PipUnlinkDeviceObjectAndDependencyNode @ 0x14089E204
  * Callers:
- *     IoResolveDependency @ 0x1403BE1B0 (IoResolveDependency.c)
+ *     IoResolveDependency @ 0x1403BF8D0 (IoResolveDependency.c)
  * Callees:
- *     PipDeleteDependencyNode @ 0x1407CD6B0 (PipDeleteDependencyNode.c)
+ *     PipDeleteDependencyNode @ 0x1407CD820 (PipDeleteDependencyNode.c)
  */
 
 void __fastcall PipUnlinkDeviceObjectAndDependencyNode(__int64 a1, __int64 a2)

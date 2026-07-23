@@ -1,12 +1,12 @@
 /*
- * XREFs of TtmiLogTerminalOffRequest @ 0x140885F18
+ * XREFs of TtmiLogTerminalOffRequest @ 0x140887178
  * Callers:
- *     TtmiSetPendingOnOffRequest @ 0x14087ED84 (TtmiSetPendingOnOffRequest.c)
+ *     TtmiSetPendingOnOffRequest @ 0x14087FFE4 (TtmiSetPendingOnOffRequest.c)
  * Callees:
  *     PsGetProcessSessionIdEx @ 0x140003190 (PsGetProcessSessionIdEx.c)
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 char __fastcall TtmiLogTerminalOffRequest(int a1, int a2, int a3)
@@ -36,9 +36,9 @@ char __fastcall TtmiLogTerminalOffRequest(int a1, int a2, int a3)
 
   v3 = &retaddr;
   v27 = a3;
-  if ( stru_14096D820.LevelPlus1 > 5 )
+  if ( stru_14096E820.LevelPlus1 > 5 )
   {
-    LOBYTE(v3) = TlgKeywordOn(&stru_14096D820, 1uLL);
+    LOBYTE(v3) = TlgKeywordOn(&stru_14096E820, 1uLL);
     if ( (_BYTE)v3 )
     {
       ProcessSessionId = PsGetProcessSessionIdEx((__int64)KeGetCurrentThread()->ApcState.Process);
@@ -60,7 +60,7 @@ char __fastcall TtmiLogTerminalOffRequest(int a1, int a2, int a3)
       v19 = 4;
       v22 = 2;
       v25[0] = 4;
-      LOBYTE(v3) = TlgWrite(&stru_14096D820, &unk_140372994, 0LL, 0LL, 7u, &pData);
+      LOBYTE(v3) = TlgWrite(&stru_14096E820, &unk_14037379D, 0LL, 0LL, 7u, &pData);
     }
   }
   return (char)v3;

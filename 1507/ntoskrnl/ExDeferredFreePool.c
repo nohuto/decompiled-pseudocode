@@ -21,7 +21,7 @@
 void __fastcall ExDeferredFreePool(__int64 a1, int a2)
 {
   int v3; // ebp
-  struct _SLIST_ENTRY *v4; // r12
+  _SLIST_ENTRY *v4; // r12
   signed __int64 v5; // r14
   ULONG_PTR v6; // r15
   int v7; // r13d
@@ -50,7 +50,7 @@ void __fastcall ExDeferredFreePool(__int64 a1, int a2)
   signed __int32 v30; // eax
   unsigned __int8 v31; // al
   _QWORD *v32; // rdx
-  struct _SLIST_ENTRY *Next; // rbx
+  _SLIST_ENTRY *Next; // rbx
   unsigned __int8 v34; // bl
   signed __int32 v35; // eax
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+30h] [rbp-48h] BYREF
@@ -173,7 +173,7 @@ void __fastcall ExDeferredFreePool(__int64 a1, int a2)
           {
             ++v37;
             *(_QWORD *)v14 = v4;
-            v4 = (struct _SLIST_ENTRY *)v14;
+            v4 = (_SLIST_ENTRY *)v14;
           }
           if ( v13 == (_QWORD *)v5 )
             break;

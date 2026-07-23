@@ -7,71 +7,66 @@
  *     memcmp @ 0x180092B10 (memcmp.c)
  */
 
-char *__fastcall RtlFindUnicodeSubstring(unsigned __int16 *a1, unsigned __int16 *a2, char a3)
+PWCHAR __cdecl RtlFindUnicodeSubstring(
+        PUNICODE_STRING FullString,
+        PUNICODE_STRING SearchString,
+        BOOLEAN CaseInSensitive)
 {
-  __int64 v3; // rax
+  __int64 Length; // rax
   size_t v4; // rsi
-  char *v5; // rbx
-  char *v6; // rdi
-  char *v7; // r14
+  wchar_t *Buffer; // rbx
+  wchar_t *v6; // rdi
+  wchar_t *v7; // r14
   unsigned __int16 *v8; // rbp
-  char *i; // rsi
-  unsigned __int16 *v10; // r11
+  signed __int64 i; // rsi
+  wchar_t *j; // r11
   int v11; // edx
   __int64 v12; // r11
   __int16 v13; // ax
   __int16 v14; // r10
-  const void *v16; // rbp
+  wchar_t *v16; // rbp
 
-  v3 = *a2;
-  if ( *a1 < (unsigned __int16)v3 )
+  Length = SearchString->Length;
+  if ( FullString->Length < (unsigned __int16)Length )
     return 0LL;
-  v4 = *a2;
-  v5 = (char *)*((_QWORD *)a1 + 1);
-  v6 = &v5[*a1 - v3];
-  if ( !a3 )
+  v4 = SearchString->Length;
+  Buffer = FullString->Buffer;
+  v6 = (wchar_t *)((char *)Buffer + FullString->Length - Length);
+  if ( !CaseInSensitive )
   {
-    if ( v5 <= v6 )
+    if ( Buffer <= v6 )
     {
-      v16 = (const void *)*((_QWORD *)a2 + 1);
-      while ( memcmp(v5, v16, v4) )
+      v16 = SearchString->Buffer;
+      while ( memcmp(Buffer, v16, v4) )
       {
-        v5 += 2;
-        if ( v5 > v6 )
+        if ( ++Buffer > v6 )
           return 0LL;
       }
-      return v5;
+      return Buffer;
     }
     return 0LL;
   }
-  v7 = (char *)*((_QWORD *)a2 + 1);
-  v8 = (unsigned __int16 *)&v7[v3];
-  if ( v5 > v6 )
+  v7 = SearchString->Buffer;
+  v8 = (wchar_t *)((char *)v7 + Length);
+  if ( Buffer > v6 )
     return 0LL;
-  for ( i = (char *)(v5 - v7); ; i += 2 )
+  for ( i = (char *)Buffer - (char *)v7; ; i += 2LL )
   {
-    v10 = (unsigned __int16 *)v7;
-    if ( v7 < (char *)v8 )
+    for ( j = v7; j < v8; ++j )
     {
-      do
+      v11 = *j;
+      if ( *(wchar_t *)((char *)j + i) != (_WORD)v11 )
       {
-        v11 = *v10;
-        if ( *(unsigned __int16 *)((char *)v10 + (_QWORD)i) != (_WORD)v11 )
-        {
-          NLS_UPCASE(qword_1801817B8, v11);
-          v13 = NLS_UPCASE(qword_1801817B8, *(unsigned __int16 *)&i[v12]);
-          if ( v13 != v14 )
-            break;
-        }
-        ++v10;
+        NLS_UPCASE(qword_1801817B8, v11);
+        v13 = NLS_UPCASE(qword_1801817B8, *(unsigned __int16 *)(i + v12));
+        if ( v13 != v14 )
+          break;
       }
-      while ( v10 < v8 );
     }
-    if ( v10 == v8 )
+    if ( j == v8 )
       break;
-    v5 += 2;
-    if ( v5 > v6 )
+    if ( ++Buffer > v6 )
       return 0LL;
   }
-  return v5;
+  return Buffer;
 }

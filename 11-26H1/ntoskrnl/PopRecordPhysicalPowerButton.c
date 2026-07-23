@@ -1,57 +1,56 @@
 /*
- * XREFs of PopRecordPhysicalPowerButton @ 0x1407C9068
+ * XREFs of PopRecordPhysicalPowerButton @ 0x1407CC108
  * Callers:
- *     PopPowerButtonWorkCallback @ 0x14060CD70 (PopPowerButtonWorkCallback.c)
+ *     PopPowerButtonWorkCallback @ 0x14060FE80 (PopPowerButtonWorkCallback.c)
  * Callees:
- *     PopReleaseRwLock @ 0x14043630C (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x140436378 (PopAcquireRwLockExclusive.c)
- *     PopBsdHandleRequest @ 0x1404E5A30 (PopBsdHandleRequest.c)
- *     PopGetCurrentPdcPhase @ 0x14060D670 (PopGetCurrentPdcPhase.c)
+ *     PopReleaseRwLock @ 0x14021B1A8 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x140425310 (PopAcquireRwLockExclusive.c)
+ *     PopBsdHandleRequest @ 0x1404DEFD0 (PopBsdHandleRequest.c)
+ *     PopGetCurrentPdcPhase @ 0x140610778 (PopGetCurrentPdcPhase.c)
  */
 
 __int64 __fastcall PopRecordPhysicalPowerButton(char a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
 {
   unsigned int v5; // r9d
-  unsigned __int8 CurrentPdcPhase; // al
+  char CurrentPdcPhase; // al
   __int64 v7; // r8
   unsigned __int64 v8; // rcx
 
-  PopAcquireRwLockExclusive((unsigned __int64 *)&stru_140F12D20.AbWaitObject, a2, a3, a4);
+  PopAcquireRwLockExclusive((unsigned __int64 *)&PopBsdUpdateLock, a2, a3, a4);
   v5 = 1;
   if ( a1 )
   {
-    stru_140E66FF0.MutantListHead.Blink = (struct _LIST_ENTRY *)MEMORY[0xFFFFF78000000014];
-    ++*(_DWORD *)&stru_140E66FF0.AbWaitEntryCount;
-    LOWORD(stru_140E66FF0.SecureThreadCookie) = MEMORY[0xFFFFF780000002C4];
-    BYTE2(stru_140E66FF0.SecureThreadCookie) = stru_140E66FF0.SavedApcStateFill[8];
-    HIBYTE(stru_140E66FF0.SecureThreadCookie) = stru_140E66FF0.SavedApcStateFill[12] & 1 | HIBYTE(stru_140E66FF0.SecureThreadCookie) & 0xFC | (2 * (stru_140E66FF0.SavedApcStateFill[16] & 1));
-    *(_OWORD *)&stru_140E66FF0.SchedulerSharedSystemSlot = *(_OWORD *)&PopModernStandbyStateNotify.Spare35[1];
+    *(_QWORD *)&stru_140E67200.ResourceIndex = MEMORY[0xFFFFF78000000014];
+    ++LODWORD(stru_140E67200.SchedulerSharedSwappablePage);
+    WORD2(stru_140E67200.SchedulerSharedSwappablePage) = MEMORY[0xFFFFF780000002C4];
+    BYTE6(stru_140E67200.SchedulerSharedSwappablePage) = stru_140E67200.OtherOperationCount;
+    HIBYTE(stru_140E67200.SchedulerSharedSwappablePage) = stru_140E67200.ReadTransferCount & 1 | HIBYTE(stru_140E67200.SchedulerSharedSwappablePage) & 0xFC | (2 * (BYTE4(stru_140E67200.OtherOperationCount) & 1));
+    *(_OWORD *)&stru_140E67200.AutoBoostThreadState = *(_OWORD *)&PopPdcDeviceListLock.NpxState;
     CurrentPdcPhase = PopGetCurrentPdcPhase();
-    PopModernStandbyStateNotify.KernelShadowStackLimit.AllFields |= v7;
-    LODWORD(PopModernStandbyStateNotify.KernelShadowStackBase) += v5;
-    stru_140E66FF0.PriorityFloorCounts[8] = CurrentPdcPhase;
-    *(_DWORD *)&stru_140E66FF0.PriorityFloorCounts[12] = *(_DWORD *)&stru_140F12D20.PriorityFloorCounts[24];
-    *(_DWORD *)&stru_140E66FF0.PriorityFloorCounts[16] = *(_DWORD *)&stru_140F12D20.PriorityFloorCounts[28];
-    *(_DWORD *)&stru_140E66FF0.PriorityFloorCounts[20] = stru_140F12D20.SuspendEvent.Header.Lock;
-    PopModernStandbyStateNotify.ExtendedFeatureDisableMask = v8;
+    *(_QWORD *)&PopPdcDeviceListLock.UserAffinityPrimaryGroup |= v7;
+    LODWORD(PopPdcDeviceListLock.UserAffinity) += v5;
+    LOBYTE(stru_140E67200.SchedulerAssistLastYieldBoostTime) = CurrentPdcPhase;
+    HIDWORD(stru_140E67200.SchedulerAssistLastYieldBoostTime) = stru_140F12EA0.Padding[4];
+    LODWORD(stru_140E67200.Padding[0]) = HIDWORD(stru_140F12EA0.Padding[3]);
+    HIDWORD(stru_140E67200.Padding[0]) = stru_140F12EA0.Padding[3];
+    PopPdcDeviceListLock.AffinityVersion = v8;
   }
   else
   {
-    stru_140E66FF0.IoSelfBoostsEntry.Next = (struct _SINGLE_LIST_ENTRY *)MEMORY[0xFFFFF78000000014];
-    ++*(_DWORD *)stru_140E66FF0.PriorityFloorCounts;
-    PopModernStandbyStateNotify.KernelShadowStackLimit.AllFields &= ~(1LL << (LOBYTE(PopModernStandbyStateNotify.KernelShadowStackBase)
-                                                                            + BYTE4(PopModernStandbyStateNotify.KernelShadowStackBase)));
-    ++HIDWORD(PopModernStandbyStateNotify.KernelShadowStackBase);
-    *(_WORD *)&stru_140E66FF0.PriorityFloorCounts[4] = MEMORY[0xFFFFF780000002C4];
-    *(_OWORD *)&stru_140E66FF0.SchedulerSharedSystemSlot = 0LL;
-    PopModernStandbyStateNotify.WpsFeedback = (_KTHREAD_WPS_FEEDBACK *)MEMORY[0xFFFFF78000000014];
+    stru_140E67200.KcsanThread = MEMORY[0xFFFFF78000000014];
+    ++stru_140E67200.SchedulerAssistYieldCounter;
+    *(_QWORD *)&PopPdcDeviceListLock.UserAffinityPrimaryGroup &= ~(1LL << (LOBYTE(PopPdcDeviceListLock.UserAffinity)
+                                                                         + BYTE4(PopPdcDeviceListLock.UserAffinity)));
+    ++HIDWORD(PopPdcDeviceListLock.UserAffinity);
+    LOWORD(stru_140E67200.SchedulerAssistYieldBoostCount) = MEMORY[0xFFFFF780000002C4];
+    *(_OWORD *)&stru_140E67200.AutoBoostThreadState = 0LL;
+    PopPdcDeviceListLock.Affinity = (_KAFFINITY_EX *)MEMORY[0xFFFFF78000000014];
   }
-  if ( LODWORD(PopModernStandbyStateNotify.KernelShadowStackBase) < HIDWORD(PopModernStandbyStateNotify.KernelShadowStackBase)
-    || LODWORD(PopModernStandbyStateNotify.KernelShadowStackBase)
-     - HIDWORD(PopModernStandbyStateNotify.KernelShadowStackBase) > v5 )
+  if ( LODWORD(PopPdcDeviceListLock.UserAffinity) < HIDWORD(PopPdcDeviceListLock.UserAffinity)
+    || LODWORD(PopPdcDeviceListLock.UserAffinity) - HIDWORD(PopPdcDeviceListLock.UserAffinity) > v5 )
   {
-    LOBYTE(PopModernStandbyStateNotify.SchedulerSharedSwappablePage) = v5;
+    PopPdcDeviceListLock.SavedApcStateFill[32] = v5;
   }
   PopBsdHandleRequest(4u);
-  return PopReleaseRwLock((struct _KTHREAD *)&stru_140F12D20.AbWaitObject);
+  return PopReleaseRwLock((struct _KTHREAD *)&PopBsdUpdateLock);
 }

@@ -1,7 +1,7 @@
 /*
- * XREFs of ___entry_from_strcat_in_strcpy @ 0x180094813
+ * XREFs of ___entry_from_strcat_in_strcpy @ 0x180094823
  * Callers:
- *     strcat @ 0x180094770 (strcat.c)
+ *     strcat @ 0x180094780 (strcat.c)
  * Callees:
  *     <none>
  */

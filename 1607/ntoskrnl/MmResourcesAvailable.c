@@ -1,21 +1,21 @@
 /*
- * XREFs of MmResourcesAvailable @ 0x14007E280
+ * XREFs of MmResourcesAvailable @ 0x14007E300
  * Callers:
- *     ExAllocatePoolWithTagPriority @ 0x14007E210 (ExAllocatePoolWithTagPriority.c)
+ *     ExAllocatePoolWithTagPriority @ 0x14007E290 (ExAllocatePoolWithTagPriority.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140012750 (KeReleaseInStackQueuedSpinLock.c)
- *     KiLeaveGuardedRegionUnsafe @ 0x140013B70 (KiLeaveGuardedRegionUnsafe.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14001BD40 (KeAcquireInStackQueuedSpinLock.c)
- *     MiFreePoolPagesLeft @ 0x140028190 (MiFreePoolPagesLeft.c)
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     MiMaximumCommitmentAvailable @ 0x14007E4D0 (MiMaximumCommitmentAvailable.c)
- *     MiFreeExcessSegments @ 0x1400A3910 (MiFreeExcessSegments.c)
- *     KePulseEvent @ 0x1400BEF10 (KePulseEvent.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
- *     MiSessionPoolVaRemaining @ 0x1401ECD40 (MiSessionPoolVaRemaining.c)
- *     MiIssuePageExtendRequest @ 0x1401EE988 (MiIssuePageExtendRequest.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x1400122D0 (KeReleaseInStackQueuedSpinLock.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1400136F0 (KiLeaveGuardedRegionUnsafe.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14001B8C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     MiFreePoolPagesLeft @ 0x140027D10 (MiFreePoolPagesLeft.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     MiMaximumCommitmentAvailable @ 0x14007E550 (MiMaximumCommitmentAvailable.c)
+ *     MiFreeExcessSegments @ 0x1400A2238 (MiFreeExcessSegments.c)
+ *     KePulseEvent @ 0x1400BCDA0 (KePulseEvent.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
+ *     MiSessionPoolVaRemaining @ 0x1401ECB6C (MiSessionPoolVaRemaining.c)
+ *     MiIssuePageExtendRequest @ 0x1401EE7B4 (MiIssuePageExtendRequest.c)
  */
 
 __int64 __fastcall MmResourcesAvailable(__int64 a1, __int64 a2, __int64 a3)
@@ -56,7 +56,7 @@ __int64 __fastcall MmResourcesAvailable(__int64 a1, __int64 a2, __int64 a3)
   }
   else
   {
-    v8 = MiState[0] - qword_140326458;
+    v8 = MiState[0] - qword_140326498;
   }
   v9 = v8 << 12;
 LABEL_7:
@@ -72,7 +72,7 @@ LABEL_7:
     }
     else
     {
-      if ( v5 + 10485760 < v9 || qword_140324DD0 < 0x40000 )
+      if ( v5 + 10485760 < v9 || qword_140324E10 < 0x40000 )
         return 1LL;
       v11 = 1;
     }
@@ -82,28 +82,28 @@ LABEL_7:
   {
     if ( v7 )
     {
-      ++dword_1403264E0;
+      ++dword_140326520;
       CurrentThread = KeGetCurrentThread();
       --CurrentThread->SpecialApcDisable;
-      v18 = KeAbPreAcquire((ULONG_PTR)&qword_140327828, 0LL, 0);
+      v18 = KeAbPreAcquire((ULONG_PTR)&qword_140327868, 0LL, 0);
       v19 = v18;
-      if ( _interlockedbittestandset64((volatile signed __int32 *)&qword_140327828, 0LL) )
-        ExfAcquirePushLockExclusiveEx(&qword_140327828, v18, &qword_140327828);
+      if ( _interlockedbittestandset64((volatile signed __int32 *)&qword_140327868, 0LL) )
+        ExfAcquirePushLockExclusiveEx(&qword_140327868, v18, &qword_140327868);
       if ( v19 )
         *(_BYTE *)(v19 + 26) |= 1u;
-      if ( !qword_140323658->Header.SignalState )
-        KePulseEvent(qword_140323658, 0, 0);
-      if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140327828, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-        ExfTryToWakePushLock(&qword_140327828);
-      KeAbPostRelease((ULONG_PTR)&qword_140327828);
+      if ( !qword_140323698->Header.SignalState )
+        KePulseEvent(qword_140323698, 0, 0);
+      if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&qword_140327868, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+        ExfTryToWakePushLock(&qword_140327868);
+      KeAbPostRelease((ULONG_PTR)&qword_140327868);
       KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);
     }
     else
     {
-      ++dword_1403264DC;
-      KeAcquireInStackQueuedSpinLock(&qword_140324640, &LockHandle);
-      if ( !qword_140323668->Header.SignalState )
-        KePulseEvent(qword_140323668, 0, 0);
+      ++dword_14032651C;
+      KeAcquireInStackQueuedSpinLock(&qword_140324680, &LockHandle);
+      if ( !qword_1403236A8->Header.SignalState )
+        KePulseEvent(qword_1403236A8, 0, 0);
       KeReleaseInStackQueuedSpinLock(&LockHandle);
     }
     MiFreeExcessSegments(v15);
@@ -129,7 +129,7 @@ LABEL_7:
     {
       ++*((_DWORD *)&MiState[6] + v20);
     }
-    ++dword_140326498;
+    ++dword_1403264D8;
   }
   return v11;
 }

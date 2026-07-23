@@ -1,23 +1,23 @@
 /*
- * XREFs of SPCallServerHandleQueryPolicy @ 0x140976EFC
+ * XREFs of SPCallServerHandleQueryPolicy @ 0x14095F70C
  * Callers:
- *     sub_140973C40 @ 0x140973C40 (sub_140973C40.c)
+ *     sub_14095C450 @ 0x14095C450 (sub_14095C450.c)
  * Callees:
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     KeResetEvent @ 0x14028EEC0 (KeResetEvent.c)
- *     KeReleaseMutex @ 0x1403379B0 (KeReleaseMutex.c)
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     KeQueryTimeIncrement @ 0x140444C20 (KeQueryTimeIncrement.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwOpenKey @ 0x1406A6650 (ZwOpenKey.c)
- *     ZwUpdateWnfStateData @ 0x1406AA030 (ZwUpdateWnfStateData.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ntoskrnl_27 @ 0x140977FD0 (ntoskrnl_27.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     KeResetEvent @ 0x14029EAC0 (KeResetEvent.c)
+ *     KeReleaseMutex @ 0x1402DEA60 (KeReleaseMutex.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     KeQueryTimeIncrement @ 0x14043CEE0 (KeQueryTimeIncrement.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwOpenKey @ 0x1406A75F0 (ZwOpenKey.c)
+ *     ZwUpdateWnfStateData @ 0x1406AAFD0 (ZwUpdateWnfStateData.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ntoskrnl_27 @ 0x1409607E0 (ntoskrnl_27.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SPCallServerHandleQueryPolicy(__int64 a1, void *a2, unsigned int a3, __int64 a4)
@@ -66,7 +66,7 @@ __int64 __fastcall SPCallServerHandleQueryPolicy(__int64 a1, void *a2, unsigned 
   unsigned int v48; // eax
   unsigned int v49; // ecx
   unsigned int v50; // eax
-  int v51; // ebx
+  unsigned int v51; // ebx
   __int64 v52; // r15
   __int64 v53; // rbx
   ULONG TimeIncrement; // eax
@@ -222,7 +222,7 @@ LABEL_240:
   if ( !v20 || 2 * v22 + 2 != v17 || 2 * (unsigned int)((2 * v22) >> 1) == -2 )
     return (unsigned int)-1073741762;
   v23 = 2 * ((2 * v22) >> 1) + 2;
-  Pool2 = (WCHAR *)ExAllocatePool2(0x100uLL);
+  Pool2 = (WCHAR *)ExAllocatePool2(0x100uLL, v23, 0x20534C53u);
   v25 = Pool2;
   if ( !Pool2 )
     return (unsigned int)-1073741801;
@@ -289,10 +289,10 @@ LABEL_240:
     v39 = 0;
   }
   Size[0] = v38;
-  if ( (__int64 (__fastcall *)(int, int, int, int, __int64))qword_140FD7438 == ntoskrnl_27 )
+  if ( (__int64 (__fastcall *)(int, int, int, int, __int64))qword_140FD8448 == ntoskrnl_27 )
     v103 = ntoskrnl_27((int)&DestinationString, (int)&v116, 0, 0, (__int64)&v112);
   else
-    v103 = guard_dispatch_icall_no_overrides(&DestinationString, &v116, 0LL, 0LL);
+    v103 = guard_dispatch_icall_no_overrides(&DestinationString, &v116);
   v115 = v103;
   v42 = v103;
   if ( v103 == -1073741789 )
@@ -333,16 +333,16 @@ LABEL_240:
   }
 LABEL_65:
   v40 = Size[0];
-  P = (PVOID)ExAllocatePool2(0x100uLL);
+  P = (PVOID)ExAllocatePool2(0x100uLL, (unsigned int)Size[0], 0x20534C53u);
   if ( !P )
   {
     v12 = -1073741801;
     goto LABEL_43;
   }
-  if ( (__int64 (__fastcall *)(int, int, int, int, __int64))qword_140FD7438 == ntoskrnl_27 )
+  if ( (__int64 (__fastcall *)(int, int, int, int, __int64))qword_140FD8448 == ntoskrnl_27 )
     v41 = ntoskrnl_27((int)&DestinationString, (int)&v116, (int)P, Size[0], (__int64)&v112);
   else
-    v41 = guard_dispatch_icall_no_overrides(&DestinationString, &v116, P, (unsigned int)Size[0]);
+    v41 = guard_dispatch_icall_no_overrides(&DestinationString, &v116);
   v115 = v41;
   v42 = v41;
   if ( v41 != -1073741789 )
@@ -403,10 +403,10 @@ LABEL_71:
     v57 = (void *)((v56 >> 63) + v56);
     KeyHandle = v57;
     RtlInitUnicodeString(&v122, L"Security-SPP-GenuineLocalStatus");
-    if ( (__int64 (__fastcall *)(int, int, int, int, __int64))qword_140FD7438 == ntoskrnl_27 )
+    if ( (__int64 (__fastcall *)(int, int, int, int, __int64))qword_140FD8448 == ntoskrnl_27 )
       v58 = ntoskrnl_27((int)&v122, (int)&Size[1], (int)&Size[2], 4, (__int64)&v114);
     else
-      v58 = guard_dispatch_icall_no_overrides(&v122, &Size[1], &Size[2], 4LL);
+      v58 = guard_dispatch_icall_no_overrides(&v122, &Size[1]);
     if ( v58 == -1073741772 || v58 >= 0 && (Size[1] != 4 || !Size[2]) )
       v55 = 0;
     if ( g_ulOldGenuineStateForWnf != v55 )
@@ -431,7 +431,7 @@ LABEL_71:
       if ( v61 )
       {
         g_bWNFEventFired = 1;
-        ZwUpdateWnfStateData((__int64)&WNF_OLIC_OS_LICENSE_NON_GENUINE, 0LL);
+        ZwUpdateWnfStateData(&WNF_OLIC_OS_LICENSE_NON_GENUINE, 0LL, 0, 0LL, 0LL, 0, 0);
       }
     }
     v51 = Size[0] + 48;
@@ -449,16 +449,16 @@ LABEL_126:
     {
       if ( v55 )
       {
-        KeResetEvent(&stru_140EF09C0);
+        KeResetEvent(&stru_140EF0C00);
       }
       else
       {
         v110 = MEMORY[0xFFFFF78000000320];
-        qword_140FD7118 = v110 * KeQueryTimeIncrement() / 10000;
+        qword_140FD8118 = v110 * KeQueryTimeIncrement() / 10000;
       }
     }
     g_ulOldGenuineState = v55;
-    if ( v55 || !dword_140FD7184 || (char *)KeyHandle - qword_140FD7118 < (char *)0xADF4FC )
+    if ( v55 || !dword_140FD8184 || (char *)KeyHandle - qword_140FD8118 < (char *)0xADF4FC )
     {
       KeReleaseMutex(&Mutex, 0);
       v40 = Size[0];
@@ -466,22 +466,22 @@ LABEL_126:
       v51 = Size[0] + 48;
       goto LABEL_103;
     }
-    KeSetEvent(&stru_140EF09C0, 1, 0);
+    KeSetEvent(&stru_140EF0C00, 1, 0);
     Size[1] = 0;
     Size[2] = 4;
     v114 = 0;
     KeyHandle = 0LL;
-    if ( ZwOpenKey(&KeyHandle, 1u, &stru_140FD7850) >= 0 )
+    if ( ZwOpenKey(&KeyHandle, 1u, &stru_140FD8860) >= 0 )
     {
       v105 = 3;
       Size[1] = 3;
     }
     else
     {
-      if ( (__int64 (__fastcall *)(int, int, int, int, __int64))qword_140FD7438 == ntoskrnl_27 )
+      if ( (__int64 (__fastcall *)(int, int, int, int, __int64))qword_140FD8448 == ntoskrnl_27 )
         v104 = ntoskrnl_27((int)aBd, (int)&Size[2], (int)&Size[1], 4, (__int64)&v114);
       else
-        v104 = guard_dispatch_icall_no_overrides(aBd, &Size[2], &Size[1], 4LL);
+        v104 = guard_dispatch_icall_no_overrides(aBd, &Size[2]);
       if ( v104 < 0 )
       {
 LABEL_234:
@@ -494,10 +494,10 @@ LABEL_221:
         v123 = 0LL;
         v124 = 0;
         Size[1] = 0;
-        if ( (__int64 (__fastcall *)(int, int, int, int, __int64))qword_140FD7438 == ntoskrnl_27 )
+        if ( (__int64 (__fastcall *)(int, int, int, int, __int64))qword_140FD8448 == ntoskrnl_27 )
           v106 = ntoskrnl_27((int)aLn, (int)&Size[2], (int)&v123, 12, (__int64)&Size[1]);
         else
-          v106 = guard_dispatch_icall_no_overrides(aLn, &Size[2], &v123, 12LL);
+          v106 = guard_dispatch_icall_no_overrides(aLn, &Size[2]);
         v52 = v15;
         v51 = Size[0] + 48;
         v25 = v117;
@@ -510,9 +510,9 @@ LABEL_221:
               goto LABEL_232;
           }
         }
-        v108 = dword_140FD7058 & 0xFFFF0000 | 0x3211;
+        v108 = dword_140FD8058 & 0xFFFF0000 | 0x3211;
 LABEL_232:
-        dword_140FD7058 = v108;
+        dword_140FD8058 = v108;
         if ( v113 )
           v6 = v108;
         else
@@ -532,7 +532,7 @@ LABEL_103:
     v12 = -1073741762;
     goto LABEL_43;
   }
-  v63 = ExAllocatePool2(0x100uLL);
+  v63 = ExAllocatePool2(0x100uLL, v51, 0x20534C53u);
   if ( !v63 )
   {
     v12 = -1073741801;

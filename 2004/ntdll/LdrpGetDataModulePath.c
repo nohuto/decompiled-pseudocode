@@ -10,48 +10,48 @@
  */
 
 __int64 __fastcall LdrpGetDataModulePath(
-        __int64 a1,
+        void *a1,
         void *a2,
         __int64 a3,
         unsigned int *a4,
         wchar_t **a5,
         _DWORD *a6,
-        _QWORD *a7)
+        PVOID DllHandle)
 {
-  int EntryForAddress; // ebx
+  NTSTATUS EntryForAddress; // ebx
   wchar_t *v10; // rdi
   wchar_t *v11; // rcx
   wchar_t *v12; // rcx
   __int64 v13; // r8
   unsigned int v14; // ecx
   _QWORD *v15; // rcx
-  __int64 v16; // rax
-  __int64 v18; // rdi
+  struct _ACTIVATION_CONTEXT *EntryPointActivationContext; // rax
+  PLDR_DATA_TABLE_ENTRY v18; // rdi
   unsigned int v19; // eax
   wchar_t *v20[4]; // [rsp+20h] [rbp-48h] BYREF
   __int128 v21; // [rsp+40h] [rbp-28h]
-  __int64 v22; // [rsp+70h] [rbp+8h] BYREF
+  PLDR_DATA_TABLE_ENTRY Entry; // [rsp+70h] [rbp+8h] BYREF
 
-  v22 = 0LL;
+  Entry = 0LL;
   memset(v20, 0, sizeof(v20));
   v21 = 0LL;
-  if ( (a1 & 3) == 0 )
+  if ( ((unsigned __int8)a1 & 3) == 0 )
   {
-    EntryForAddress = LdrFindEntryForAddress(a1, &v22);
+    EntryForAddress = LdrFindEntryForAddress(a1, &Entry);
     if ( EntryForAddress < 0 )
       return (unsigned int)EntryForAddress;
-    v18 = v22;
-    v19 = *(unsigned __int16 *)(v22 + 72) - *(unsigned __int16 *)(v22 + 88);
+    v18 = Entry;
+    v19 = Entry->FullDllName.Length - Entry->BaseDllName.Length;
     *a4 = v19;
-    if ( v19 <= *(unsigned __int16 *)(v18 + 72) && v19 < 0x2BE )
+    if ( v19 <= v18->FullDllName.Length && v19 < 0x2BE )
     {
-      memmove(a2, *(const void **)(v18 + 80), v19);
-      *a5 = *(wchar_t **)(v18 + 96);
-      *a6 = *(unsigned __int16 *)(v18 + 88);
-      v15 = a7;
-      if ( !a7 )
+      memmove(a2, v18->FullDllName.Buffer, v19);
+      *a5 = v18->BaseDllName.Buffer;
+      *a6 = v18->BaseDllName.Length;
+      v15 = DllHandle;
+      if ( !DllHandle )
         return (unsigned int)EntryForAddress;
-      v16 = *(_QWORD *)(v18 + 136);
+      EntryPointActivationContext = v18->EntryPointActivationContext;
       goto LABEL_9;
     }
     return (unsigned int)-2147483643;
@@ -75,13 +75,13 @@ __int64 __fastcall LdrpGetDataModulePath(
   if ( v14 >= 0x2BE )
     return (unsigned int)-2147483643;
   memmove(a2, v10, v14);
-  v15 = a7;
-  if ( a7 )
+  v15 = DllHandle;
+  if ( DllHandle )
   {
-    v16 = *((_QWORD *)&v21 + 1);
+    EntryPointActivationContext = (struct _ACTIVATION_CONTEXT *)*((_QWORD *)&v21 + 1);
     if ( *((_QWORD *)&v21 + 1) != -1LL )
 LABEL_9:
-      *v15 = v16;
+      *v15 = EntryPointActivationContext;
   }
   return (unsigned int)EntryForAddress;
 }

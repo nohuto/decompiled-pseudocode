@@ -1,5 +1,5 @@
 /*
- * XREFs of ZwEnumerateSystemEnvironmentValuesEx @ 0x14015B700
+ * XREFs of ZwEnumerateSystemEnvironmentValuesEx @ 0x14015BC70
  * Callers:
  *     <none>
  * Callees:
@@ -11,5 +11,5 @@ NTSTATUS __stdcall ZwEnumerateSystemEnvironmentValuesEx(ULONG InformationClass, 
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(*(_QWORD *)&InformationClass, Buffer, *(_QWORD *)&BufferLength);
+  return KiServiceInternal(*(_QWORD *)&InformationClass);
 }

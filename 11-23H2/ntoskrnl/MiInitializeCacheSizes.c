@@ -3,7 +3,7 @@
  * Callers:
  *     MiInitializeColors @ 0x140B6EF18 (MiInitializeColors.c)
  * Callees:
- *     MiInitializeLargePageColorSizes @ 0x1403AE3B0 (MiInitializeLargePageColorSizes.c)
+ *     MiInitializeLargePageColorSizes @ 0x1403AE590 (MiInitializeLargePageColorSizes.c)
  */
 
 __int64 MiInitializeCacheSizes()

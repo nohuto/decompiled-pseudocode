@@ -1,7 +1,7 @@
 /*
- * XREFs of MiIsActivePfnCold @ 0x14055079C
+ * XREFs of MiIsActivePfnCold @ 0x1405509DC
  * Callers:
- *     MiIdentifyPfn @ 0x140349250 (MiIdentifyPfn.c)
+ *     MiIdentifyPfn @ 0x140353FA0 (MiIdentifyPfn.c)
  * Callees:
  *     <none>
  */

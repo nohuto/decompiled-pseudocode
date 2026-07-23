@@ -1,35 +1,35 @@
 /*
- * XREFs of MiDeletePagablePteRange @ 0x140337360
+ * XREFs of MiDeletePagablePteRange @ 0x1403420B0
  * Callers:
- *     MiDeleteVad @ 0x14021BFF0 (MiDeleteVad.c)
- *     MiDeleteVirtualAddresses @ 0x1402FE580 (MiDeleteVirtualAddresses.c)
- *     MiDeleteSessionAddressSpace @ 0x1403895EC (MiDeleteSessionAddressSpace.c)
- *     MiDeleteSessionPdes @ 0x14038CAC8 (MiDeleteSessionPdes.c)
- *     MiDeleteVadBitmap @ 0x140682EB0 (MiDeleteVadBitmap.c)
+ *     MiDeleteVad @ 0x1402C08F0 (MiDeleteVad.c)
+ *     MiDeleteVirtualAddresses @ 0x1403092D0 (MiDeleteVirtualAddresses.c)
+ *     MiDeleteSessionAddressSpace @ 0x14038973C (MiDeleteSessionAddressSpace.c)
+ *     MiDeleteSessionPdes @ 0x14038CC18 (MiDeleteSessionPdes.c)
+ *     MiDeleteVadBitmap @ 0x14067C9A4 (MiDeleteVadBitmap.c)
  * Callees:
- *     MiWalkPageTables @ 0x1402092C0 (MiWalkPageTables.c)
- *     MiFastLockLeafPageTable @ 0x14020E6D0 (MiFastLockLeafPageTable.c)
- *     MiCheckProcessShadow @ 0x14020F880 (MiCheckProcessShadow.c)
- *     MiGetSharedVm @ 0x14021AF50 (MiGetSharedVm.c)
- *     MiUnlockWorkingSetExclusive @ 0x14021CAE0 (MiUnlockWorkingSetExclusive.c)
- *     ExAcquireSpinLockShared @ 0x14021CD80 (ExAcquireSpinLockShared.c)
- *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
- *     MiUnlockPageTableInternal @ 0x1402855F0 (MiUnlockPageTableInternal.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     ExReleaseAutoExpandPushLockExclusive @ 0x1402A22D0 (ExReleaseAutoExpandPushLockExclusive.c)
- *     ExAcquireAutoExpandPushLockExclusive @ 0x1402A2710 (ExAcquireAutoExpandPushLockExclusive.c)
- *     MiGetUsedPtesHandle @ 0x14030CA60 (MiGetUsedPtesHandle.c)
- *     MiTbFlushType @ 0x140337208 (MiTbFlushType.c)
- *     MiDeleteVa @ 0x140337A80 (MiDeleteVa.c)
- *     MiDeleteVaTail @ 0x14033AB30 (MiDeleteVaTail.c)
- *     KiLeaveGuardedRegionUnsafe @ 0x14034AD90 (KiLeaveGuardedRegionUnsafe.c)
- *     KxAcquireQueuedSpinLock @ 0x140350970 (KxAcquireQueuedSpinLock.c)
- *     MiPreUnlockWorkingSetShared @ 0x14036C210 (MiPreUnlockWorkingSetShared.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     MiUnlockPageTableInternal @ 0x140202790 (MiUnlockPageTableInternal.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     ExReleaseAutoExpandPushLockExclusive @ 0x14021F710 (ExReleaseAutoExpandPushLockExclusive.c)
+ *     ExAcquireAutoExpandPushLockExclusive @ 0x14021FB50 (ExAcquireAutoExpandPushLockExclusive.c)
+ *     MiWalkPageTables @ 0x1402ADBC0 (MiWalkPageTables.c)
+ *     MiFastLockLeafPageTable @ 0x1402B2FD0 (MiFastLockLeafPageTable.c)
+ *     MiCheckProcessShadow @ 0x1402B4180 (MiCheckProcessShadow.c)
+ *     MiGetSharedVm @ 0x1402BF850 (MiGetSharedVm.c)
+ *     MiUnlockWorkingSetExclusive @ 0x1402C13E0 (MiUnlockWorkingSetExclusive.c)
+ *     ExAcquireSpinLockShared @ 0x1402C1680 (ExAcquireSpinLockShared.c)
+ *     ExAcquireSpinLockExclusive @ 0x1402C1960 (ExAcquireSpinLockExclusive.c)
+ *     MiGetUsedPtesHandle @ 0x1403177B0 (MiGetUsedPtesHandle.c)
+ *     MiTbFlushType @ 0x140341F58 (MiTbFlushType.c)
+ *     MiDeleteVa @ 0x1403427D0 (MiDeleteVa.c)
+ *     MiDeleteVaTail @ 0x140345880 (MiDeleteVaTail.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x140355AE0 (KiLeaveGuardedRegionUnsafe.c)
+ *     KxAcquireQueuedSpinLock @ 0x14035B6C0 (KxAcquireQueuedSpinLock.c)
+ *     MiPreUnlockWorkingSetShared @ 0x14036C3C0 (MiPreUnlockWorkingSetShared.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     MiFreePhysicalPageChain @ 0x14054BBE8 (MiFreePhysicalPageChain.c)
- *     MiFreeLargePages @ 0x14055E498 (MiFreeLargePages.c)
- *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x1405B5DBC (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
+ *     MiFreePhysicalPageChain @ 0x14054BE28 (MiFreePhysicalPageChain.c)
+ *     MiFreeLargePages @ 0x14055E6D8 (MiFreeLargePages.c)
+ *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x1405B5FEC (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
  */
 
 void __fastcall MiDeletePagablePteRange(
@@ -66,11 +66,11 @@ void __fastcall MiDeletePagablePteRange(
   LONG *SharedVm; // rbx
   LONG *v31; // rax
   __int64 v32; // r8
-  int v33; // eax
-  unsigned __int64 v34; // r15
+  __int64 v33; // r9
+  int v34; // eax
+  unsigned __int64 v35; // r15
   unsigned __int64 i; // rdi
-  __int64 v36; // rax
-  __int64 v37; // rdx
+  __int64 v37; // rax
   bool v38; // zf
   char v39; // al
   int v40; // eax
@@ -232,7 +232,7 @@ void __fastcall MiDeletePagablePteRange(
         }
         goto LABEL_26;
       }
-      v28 = &dword_140C4F780;
+      v28 = &dword_140C4F7C0;
       if ( v26 != 2 )
         v28 = (LONG *)(a1 + 192);
       v29 = ExAcquireSpinLockShared(v28);
@@ -259,7 +259,7 @@ LABEL_27:
       v31 = MiGetSharedVm(a1);
       LockHandle.LockQueue.Next = 0LL;
       LockHandle.LockQueue.Lock = (unsigned __int64 *volatile)(v31 + 16);
-      KxAcquireQueuedSpinLock(&LockHandle, v31 + 16, v32);
+      KxAcquireQueuedSpinLock(&LockHandle, v31 + 16, v32, v33);
     }
     if ( (a6 & 0x80) == 0 )
       goto LABEL_42;
@@ -267,32 +267,32 @@ LABEL_27:
       goto LABEL_42;
     if ( ((a4 ^ v10) & 0xFFFFFFE00000LL) != 0 )
       goto LABEL_42;
-    v33 = MiFastLockLeafPageTable(a1, v10, 0);
-    if ( !v33 )
+    v34 = MiFastLockLeafPageTable(a1, v10, 0);
+    if ( !v34 )
       goto LABEL_42;
     v7 = ((v10 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
     v56 = v7;
     v57 = ((v7 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
     v58 = ((v57 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
     v59 = ((v58 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
-    v34 = *(&v56 + v33);
-    if ( v33 == 1 )
+    v35 = *(&v56 + v34);
+    if ( v34 == 1 )
     {
-      for ( i = ((a4 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL; v7 <= i; v7 += 8 * v36 )
+      for ( i = ((a4 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL; v7 <= i; v7 += 8 * v37 )
       {
         MiDeleteVa(&v60, v7, 0LL);
-        v36 = (unsigned int)BYTE3(v60) + 1;
+        v37 = (unsigned int)BYTE3(v60) + 1;
         BYTE3(v60) = 0;
       }
       MiDeleteVaTail(&v60);
-      v38 = (*(_DWORD *)(MiGetUsedPtesHandle(v54, v37) + 16) & 0x3FF0000) == 0;
+      v38 = (*(_DWORD *)(MiGetUsedPtesHandle(v54) + 16) & 0x3FF0000) == 0;
       v39 = v51;
       if ( v38 )
         v39 = 1;
       v13 = 1;
       LOBYTE(v51) = v39;
     }
-    MiUnlockPageTableInternal(a1, v34);
+    MiUnlockPageTableInternal(a1, v35);
     if ( !v13 )
 LABEL_42:
       MiWalkPageTables((__int64)&v60);
@@ -314,7 +314,7 @@ LABEL_42:
             MiPreUnlockWorkingSetShared(a1, CurrentIrql);
             LOBYTE(v40) = *(_BYTE *)(a1 + 184);
           }
-          v7 = (unsigned __int64)&dword_140C4F780;
+          v7 = (unsigned __int64)&dword_140C4F7C0;
           if ( (v40 & 7) != 2 )
             v7 = a1 + 192;
           MiCheckProcessShadow(a1, 1u);

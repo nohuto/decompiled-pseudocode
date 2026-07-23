@@ -9,30 +9,34 @@
  *     sub_180108884 @ 0x180108884 (sub_180108884.c)
  */
 
-__int64 __fastcall TpSetPoolMinThreads(__int64 a1, struct _PEB_LDR_DATA *Ldr, __int64 a3, __int64 a4)
+// local variable allocation has failed, the output may be wrong!
+NTSTATUS __cdecl TpSetPoolMinThreads(PTP_POOL Pool, ULONG MinThreads)
 {
-  int v5; // edi
-  __int64 v6; // rdx
-  unsigned int v8; // [rsp+38h] [rbp+10h] BYREF
+  __int64 v2; // r8
+  int v4; // edi
+  __int64 v5; // rdx
+  ULONG WorkerFactoryInformation; // [rsp+38h] [rbp+10h] BYREF
 
-  v8 = (unsigned int)Ldr;
-  if ( !a1 || (int)Ldr < 0 || (Ldr = NtCurrentPeb()->Ldr, Ldr->ShutdownInProgress) )
+  WorkerFactoryInformation = MinThreads;
+  if ( !Pool
+    || (MinThreads & 0x80000000) != 0
+    || (*(_QWORD *)&MinThreads = NtCurrentPeb()->Ldr, *(_BYTE *)(*(_QWORD *)&MinThreads + 72LL)) )
   {
-    sub_1801086C8(a1, Ldr, a3, a4);
-    return 3221225485LL;
+    sub_1801086C8(Pool, *(_QWORD *)&MinThreads, v2);
+    return -1073741811;
   }
   else
   {
-    v5 = ZwSetInformationWorkerFactory(*(_QWORD *)(a1 + 56), 4LL, &v8);
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-      v6 = (__int64)NtCurrentPeb()->HotpatchInformation + 556;
+    v4 = ZwSetInformationWorkerFactory(*((HANDLE *)Pool + 7), WorkerFactoryThreadMinimum, &WorkerFactoryInformation, 4u);
+    if ( RtlGetCurrentServiceSessionId() )
+      v5 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[3];
     else
-      v6 = 2147353478LL;
-    if ( *(_BYTE *)v6 )
+      v5 = 2147353478LL;
+    if ( *(_BYTE *)v5 )
     {
-      if ( v5 >= 0 )
-        sub_180108884(a1, v8);
+      if ( v4 >= 0 )
+        sub_180108884(Pool, WorkerFactoryInformation);
     }
-    return (unsigned int)v5;
+    return v4;
   }
 }

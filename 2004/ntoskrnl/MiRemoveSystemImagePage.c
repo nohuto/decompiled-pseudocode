@@ -23,10 +23,16 @@ __int64 __fastcall MiRemoveSystemImagePage(__int64 a1, __int64 a2, __int64 a3)
   *(_BYTE *)(a3 + 35) |= 8u;
   _InterlockedAnd64((volatile signed __int64 *)(a3 + 24), 0x7FFFFFFFFFFFFFFFuLL);
   v4 = a2 << 25 >> 16;
-  if ( PsNtosImageBase && (v4 < PsNtosImageEnd && v4 >= PsNtosImageBase || v4 < PsHalImageEnd && v4 >= PsHalImageBase) )
+  if ( PsNtosImageBase
+    && (v4 < PsNtosImageEnd && v4 >= (unsigned __int64)PsNtosImageBase
+     || v4 < PsHalImageEnd && v4 >= (unsigned __int64)PsHalImageBase) )
+  {
     v5 = (volatile signed __int32 *)&xmmword_140C4CB48 + 2;
+  }
   else
+  {
     v5 = (volatile signed __int32 *)&xmmword_140C4CB48 + 3;
+  }
   _InterlockedDecrement(v5);
   result = MiTerminateWsle(a1, v4, 2, &v10);
   v11 = 0;

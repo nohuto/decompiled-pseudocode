@@ -8,82 +8,78 @@
  *     sub_1800FFDB0 @ 0x1800FFDB0 (sub_1800FFDB0.c)
  */
 
-__int64 __fastcall sub_18002F644(__int64 a1, unsigned __int8 a2, __int64 a3, char a4)
+__int64 __fastcall sub_18002F644(__int64 a1, unsigned __int8 a2, __int64 a3)
 {
-  int v8; // r14d
-  int v9; // eax
-  __int64 v10; // rsi
-  __int64 v11; // rbx
-  __int64 v12; // rdx
-  __int64 v13; // r9
-  PSLIST_ENTRY v14; // r10
-  __int64 v15; // rbp
-  unsigned __int64 v16; // rax
-  unsigned __int64 v17; // rsi
-  _DWORD *HotpatchInformation; // rcx
-  __int64 v19; // rcx
-  unsigned int v20; // edx
-  unsigned __int32 v22; // eax
-  unsigned __int32 v23; // eax
+  int v6; // r14d
+  int v7; // eax
+  __int64 v8; // rsi
+  __int64 v9; // rbx
+  PSLIST_ENTRY v10; // r10
+  __int64 v11; // rbp
+  unsigned __int64 v12; // rax
+  unsigned __int64 v13; // rsi
+  PSILO_USER_SHARED_DATA SharedData; // rcx
+  __int64 UserModeGlobalLogger; // rcx
+  unsigned int v16; // edx
+  unsigned __int32 v18; // eax
+  unsigned __int32 v19; // eax
 
-  v8 = a2;
-  v9 = a2 - 7;
-  v10 = 6LL * v9;
-  v11 = a1 + 48LL * v9;
-  ++*(_WORD *)(v11 + 124);
-  v14 = RtlInterlockedPopEntrySList((PSLIST_HEADER)(v11 + 96));
-  if ( v14 )
+  v6 = a2;
+  v7 = a2 - 7;
+  v8 = 6LL * v7;
+  v9 = a1 + 48LL * v7;
+  ++*(_WORD *)(v9 + 124);
+  v10 = RtlInterlockedPopEntrySList((PSLIST_HEADER)(v9 + 96));
+  if ( v10 )
   {
-    ++*(_WORD *)(v11 + 128);
+    ++*(_WORD *)(v9 + 128);
 LABEL_3:
-    v15 = (__int64)v14;
-    v16 = 1LL << LOBYTE(v14[1].Next);
-    if ( v16 > 0xF0000 )
-      v16 = 983040LL;
-    v17 = v16 + WORD1(v14[1].Next);
-    HotpatchInformation = NtCurrentPeb()->HotpatchInformation;
-    if ( HotpatchInformation && *HotpatchInformation )
-      v19 = (__int64)NtCurrentPeb()->HotpatchInformation + 550;
+    v11 = (__int64)v10;
+    v12 = 1LL << LOBYTE(v10[1].Next);
+    if ( v12 > 0xF0000 )
+      v12 = 983040LL;
+    v13 = v12 + WORD1(v10[1].Next);
+    SharedData = NtCurrentPeb()->SharedData;
+    if ( SharedData && SharedData->ServiceSessionId )
+      UserModeGlobalLogger = (__int64)NtCurrentPeb()->SharedData->UserModeGlobalLogger;
     else
-      v19 = 2147353472LL;
-    if ( *(_BYTE *)v19 && (NtCurrentPeb()->TracingFlags & 1) != 0 )
-      sub_1800FFDB0(*(_QWORD *)(a1 + 24), v14, v17, a3);
-    _InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 72), -(__int64)v17);
+      UserModeGlobalLogger = 2147353472LL;
+    if ( *(_BYTE *)UserModeGlobalLogger && (NtCurrentPeb()->TracingFlags & 1) != 0 )
+      sub_1800FFDB0(*(_QWORD *)(a1 + 24), v10, v13, a3);
+    _InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 72), -(__int64)v13);
     goto LABEL_9;
   }
   if ( a2 > 7u )
   {
-    v14 = RtlInterlockedPopEntrySList((PSLIST_HEADER)(a1 + 48 * (v8 - 8 + 2LL)));
-    if ( v14 )
+    v10 = RtlInterlockedPopEntrySList((PSLIST_HEADER)(a1 + 48 * (v6 - 8 + 2LL)));
+    if ( v10 )
       goto LABEL_3;
   }
-  LOBYTE(v13) = a4;
-  LOBYTE(v12) = a2;
-  v15 = sub_1800751BC(*(_QWORD *)(a1 + 24), v12, a3, v13);
-  if ( v15 )
-    _InterlockedIncrement((volatile signed __int32 *)(a1 + 8 * v10 + 112));
+  v11 = sub_1800751BC(*(PVOID *)(a1 + 24));
+  if ( v11 )
+    _InterlockedIncrement((volatile signed __int32 *)(a1 + 8 * v8 + 112));
 LABEL_9:
-  v20 = *(unsigned __int16 *)(v11 + 124);
-  if ( v20 > 0x40 )
+  v16 = *(unsigned __int16 *)(v9 + 124);
+  if ( v16 > 0x40 )
   {
-    if ( v20 < *(unsigned __int16 *)(v11 + 126) + (*(unsigned __int16 *)(v11 + 126) >> 1)
-      && *(unsigned __int16 *)(v11 + 128) < v20 - (v20 >> 1) )
+    if ( v16 < *(unsigned __int16 *)(v9 + 126) + (*(unsigned __int16 *)(v9 + 126) >> 1)
+      && *(unsigned __int16 *)(v9 + 128) < v16 - (v16 >> 1) )
     {
-      v22 = *(_DWORD *)(v11 + 116);
-      if ( v22 < 2 )
+      v18 = *(_DWORD *)(v9 + 116);
+      if ( v18 < 2 )
       {
-        _InterlockedCompareExchange((volatile signed __int32 *)(v11 + 116), v22 + 1, v22);
+        _InterlockedCompareExchange((volatile signed __int32 *)(v9 + 116), v18 + 1, v18);
       }
       else
       {
-        v23 = *(_DWORD *)(v11 + 120);
-        if ( v23 > 2 )
-          _InterlockedCompareExchange((volatile signed __int32 *)(v11 + 120), v23 - 1, v23);
+        v19 = *(_DWORD *)(v9 + 120);
+        if ( v19 > 2 )
+          _InterlockedCompareExchange((volatile signed __int32 *)(v9 + 120), v19 - 1, v19);
       }
     }
-    *(_WORD *)(v11 + 124) = 0;
-    *(_WORD *)(v11 + 126) = 0;
-    *(_WORD *)(v11 + 128) = 0;
+    *(_WORD *)(v9 + 124) = 0;
+    *(_WORD *)(v9 + 126) = 0;
+    *(_WORD *)(v9 + 128) = 0;
   }
-  return v15;
+  return v11;
 }

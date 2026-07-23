@@ -1,5 +1,5 @@
 /*
- * XREFs of NtRenameTransactionManager @ 0x1404FC7B0
+ * XREFs of NtRenameTransactionManager @ 0x1404FA050
  * Callers:
  *     <none>
  * Callees:

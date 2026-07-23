@@ -14,7 +14,7 @@ __int64 RtlpClearEnvironmentHashTable()
   __int64 *i; // rdi
   __int64 result; // rax
   unsigned __int64 v3; // rdx
-  __int64 v4; // r8
+  void *v4; // r8
 
   v0 = (__int64 *)qword_18017A868;
   qword_18017A878 = 0LL;
@@ -50,7 +50,7 @@ LABEL_6:
     {
       if ( *i == result )
       {
-        v4 = result;
+        v4 = (void *)result;
         *i = *(_QWORD *)result;
         --RtlpEnvironmentHashTable;
         *(_QWORD *)result |= 0x8000000000000002uLL;
@@ -60,6 +60,6 @@ LABEL_6:
     v4 = 0LL;
     i = (__int64 *)result;
 LABEL_13:
-    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, v4);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v4);
   }
 }

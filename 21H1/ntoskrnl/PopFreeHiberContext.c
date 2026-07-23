@@ -21,7 +21,7 @@
  *     ExFreePoolWithTag @ 0x1409B1010 (ExFreePoolWithTag.c)
  */
 
-_UNKNOWN **__fastcall PopFreeHiberContext(__int64 a1)
+_UNKNOWN **__fastcall PopFreeHiberContext(UNICODE_STRING *a1)
 {
   _UNKNOWN **result; // rax
   ULONG_PTR v2; // rbx
@@ -34,17 +34,17 @@ _UNKNOWN **__fastcall PopFreeHiberContext(__int64 a1)
   void *v9; // rcx
   __int64 v10; // rcx
   _UNKNOWN *retaddr; // [rsp+38h] [rbp+0h] BYREF
-  __int64 v12; // [rsp+40h] [rbp+8h] BYREF
+  HANDLE BcdStoreHandle; // [rsp+40h] [rbp+8h] BYREF
 
   result = &retaddr;
   v2 = qword_140C23440;
-  v12 = 0LL;
+  BcdStoreHandle = 0LL;
   if ( qword_140C23440 )
   {
-    if ( (int)BcdOpenStore(a1, 2LL, &v12) >= 0 )
+    if ( BcdOpenStore(a1, BCD_OPEN_SYNC_FIRMWARE_ENTRIES, &BcdStoreHandle) >= 0 )
     {
-      PopBcdClearPendingResume(v12);
-      BcdCloseStore(v12);
+      PopBcdClearPendingResume(BcdStoreHandle);
+      BcdCloseStore(BcdStoreHandle);
     }
     v3 = *(void **)(v2 + 240);
     if ( v3 )

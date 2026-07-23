@@ -1,18 +1,18 @@
 /*
- * XREFs of MiFreeUnusedSlabPages @ 0x1402D398C
+ * XREFs of MiFreeUnusedSlabPages @ 0x140354C04
  * Callers:
- *     MiWorkingSetManager @ 0x1402D3D20 (MiWorkingSetManager.c)
+ *     MiWorkingSetManager @ 0x140354FA0 (MiWorkingSetManager.c)
  * Callees:
- *     MiDemoteSlabEntries @ 0x1402CF530 (MiDemoteSlabEntries.c)
- *     MiSlabDemotionLowMemoryConditionUpdate @ 0x1402D1890 (MiSlabDemotionLowMemoryConditionUpdate.c)
- *     MiSlabUpdateRecentFailure @ 0x1402D24A4 (MiSlabUpdateRecentFailure.c)
- *     MiFreeSlabEntries @ 0x1402D3B04 (MiFreeSlabEntries.c)
- *     KeGenericCallDpcEx @ 0x140414C8C (KeGenericCallDpcEx.c)
- *     MiGetSlabCurrentTime @ 0x14048ED80 (MiGetSlabCurrentTime.c)
- *     MiCheckMdlSlabFragmentation @ 0x140495450 (MiCheckMdlSlabFragmentation.c)
- *     MiLogSlabEntriesDemote @ 0x14068857C (MiLogSlabEntriesDemote.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     MiSlabDemotionLowMemoryConditionUpdate @ 0x140261770 (MiSlabDemotionLowMemoryConditionUpdate.c)
+ *     MiDemoteSlabEntries @ 0x1402619FC (MiDemoteSlabEntries.c)
+ *     MiGetSlabCurrentTime @ 0x140263454 (MiGetSlabCurrentTime.c)
+ *     KeGenericCallDpcEx @ 0x140270AE8 (KeGenericCallDpcEx.c)
+ *     MiSlabUpdateRecentFailure @ 0x14035371C (MiSlabUpdateRecentFailure.c)
+ *     MiFreeSlabEntries @ 0x140354D7C (MiFreeSlabEntries.c)
+ *     MiCheckMdlSlabFragmentation @ 0x14048FD10 (MiCheckMdlSlabFragmentation.c)
+ *     MiLogSlabEntriesDemote @ 0x1406896AC (MiLogSlabEntriesDemote.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 void __fastcall MiFreeUnusedSlabPages(_QWORD *a1)
@@ -56,7 +56,7 @@ LABEL_3:
       v15 = -1LL;
       v12 = a1;
       v14 = v6;
-      KeGenericCallDpcEx(MiDemoteSlabEntriesDpc, &v12);
+      KeGenericCallDpcEx((__int64)MiDemoteSlabEntriesDpc, (__int64)&v12);
       *(_QWORD *)(a1[2] + v5 + 57016) = MiGetSlabCurrentTime();
       MiLogSlabEntriesDemote(&v12, v7);
     }

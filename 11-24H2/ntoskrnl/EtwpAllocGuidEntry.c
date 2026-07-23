@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwpAllocGuidEntry @ 0x140838E48
+ * XREFs of EtwpAllocGuidEntry @ 0x140836A58
  * Callers:
- *     EtwpAddGuidEntry @ 0x140838B30 (EtwpAddGuidEntry.c)
+ *     EtwpAddGuidEntry @ 0x1408367C0 (EtwpAddGuidEntry.c)
  * Callees:
- *     ObLogSecurityDescriptor @ 0x140838F50 (ObLogSecurityDescriptor.c)
- *     EtwpGetSecurityDescriptorByGuid @ 0x140839D68 (EtwpGetSecurityDescriptorByGuid.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ObLogSecurityDescriptor @ 0x140836B60 (ObLogSecurityDescriptor.c)
+ *     EtwpGetSecurityDescriptorByGuid @ 0x140836FE0 (EtwpGetSecurityDescriptorByGuid.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpAllocGuidEntry(__int64 a1, _OWORD *a2)
@@ -18,7 +18,7 @@ __int64 __fastcall EtwpAllocGuidEntry(__int64 a1, _OWORD *a2)
   PVOID P; // [rsp+40h] [rbp+18h] BYREF
 
   P = 0LL;
-  result = ExAllocatePool2(0x40uLL);
+  result = ExAllocatePool2(0x40uLL, 0x2A8uLL, 0x47777445u);
   v5 = (_QWORD *)result;
   if ( result )
   {

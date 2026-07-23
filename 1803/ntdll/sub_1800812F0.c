@@ -11,12 +11,12 @@
 __int64 sub_1800812F0()
 {
   __int64 result; // rax
-  int v1; // [rsp+40h] [rbp+8h]
+  ULONG ReturnLength; // [rsp+40h] [rbp+8h] BYREF
 
   result = (unsigned int)dword_18015A438;
   if ( !dword_18015A438 )
   {
-    if ( (unsigned int)ZwTraceControl(42LL, 0LL, 0LL) || v1 != 4 )
+    if ( ZwTraceControl(EtwMaxLoggers, 0LL, 0, &dword_18015A438, 4u, &ReturnLength) || ReturnLength != 4 )
     {
       result = 64LL;
       dword_18015A438 = 64;

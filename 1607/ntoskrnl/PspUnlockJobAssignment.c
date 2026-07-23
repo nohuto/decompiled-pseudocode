@@ -1,11 +1,11 @@
 /*
- * XREFs of PspUnlockJobAssignment @ 0x1404F2FC0
+ * XREFs of PspUnlockJobAssignment @ 0x1404D5F4C
  * Callers:
- *     PspGetJobLockHierarchyForDeletion @ 0x1404F28A4 (PspGetJobLockHierarchyForDeletion.c)
- *     PspAssignProcessToJob @ 0x1404F2C60 (PspAssignProcessToJob.c)
+ *     PspGetJobLockHierarchyForDeletion @ 0x1404D5830 (PspGetJobLockHierarchyForDeletion.c)
+ *     PspAssignProcessToJob @ 0x1404D5BEC (PspAssignProcessToJob.c)
  * Callees:
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
  */
 
 __int64 __fastcall PspUnlockJobAssignment(__int64 a1)

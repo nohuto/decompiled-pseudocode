@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwpCoverageSamplerContextSwap @ 0x1405325B4
+ * XREFs of EtwpCoverageSamplerContextSwap @ 0x140534A54
  * Callers:
- *     EtwTraceContextSwap @ 0x140412DE0 (EtwTraceContextSwap.c)
+ *     EtwTraceContextSwap @ 0x140407410 (EtwTraceContextSwap.c)
  * Callees:
- *     ExSaDecodeHandle @ 0x1402C15D0 (ExSaDecodeHandle.c)
- *     EtwpCovSampCaptureSample @ 0x1406C8944 (EtwpCovSampCaptureSample.c)
+ *     ExSaDecodeHandle @ 0x14030C290 (ExSaDecodeHandle.c)
+ *     EtwpCovSampCaptureSample @ 0x1406CC924 (EtwpCovSampCaptureSample.c)
  */
 
-void __fastcall EtwpCoverageSamplerContextSwap(_KTHREAD *a1)
+void __fastcall EtwpCoverageSamplerContextSwap(struct _LIST_ENTRY *a1)
 {
   __int64 v1; // rax
   unsigned __int64 v2; // r11
@@ -20,9 +20,11 @@ void __fastcall EtwpCoverageSamplerContextSwap(_KTHREAD *a1)
   unsigned int v9; // eax
   int v10; // edx
 
-  if ( a1 && a1 != *(_KTHREAD **)ExpSysDbgLock.TracingPrivate[0] && a1 != KeGetCurrentPrcb()->IdleThread )
+  if ( a1
+    && a1 != ExpSysDbgLock.GlobalUpdateVpThreadPriorityListEntry.Blink->Flink
+    && a1 != (struct _LIST_ENTRY *)KeGetCurrentPrcb()->IdleThread )
   {
-    v1 = ExSaDecodeHandle(*(_QWORD *)(ExpSysDbgLock.TracingPrivate[0] + 8));
+    v1 = ExSaDecodeHandle(*(_QWORD *)(ExpSysDbgLock.InGlobalUpdateVpThreadPriorityList + 8));
     v2 = (v1 + 15) & 0xFFFFFFFFFFFFFFF0uLL;
     v3 = *(_DWORD *)(v2 + 0xB8);
     if ( !v3 )

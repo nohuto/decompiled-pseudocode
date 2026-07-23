@@ -1,13 +1,13 @@
 /*
- * XREFs of HaliAcpiMachineStateInit @ 0x1407CEB50
+ * XREFs of HaliAcpiMachineStateInit @ 0x1407CECC0
  * Callers:
  *     <none>
  * Callees:
- *     HalpInterruptModel @ 0x14037B354 (HalpInterruptModel.c)
- *     HalpIsXboxNanovisorPresent @ 0x1403A2240 (HalpIsXboxNanovisorPresent.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     ZwPowerInformation @ 0x1403FAF80 (ZwPowerInformation.c)
- *     HalpHvSetSleepStateProperty @ 0x1404C2C58 (HalpHvSetSleepStateProperty.c)
+ *     HalpInterruptModel @ 0x14037AEA4 (HalpInterruptModel.c)
+ *     HalpIsXboxNanovisorPresent @ 0x1403A2390 (HalpIsXboxNanovisorPresent.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     ZwPowerInformation @ 0x1403FB160 (ZwPowerInformation.c)
+ *     HalpHvSetSleepStateProperty @ 0x1404C2E98 (HalpHvSetSleepStateProperty.c)
  */
 
 int __fastcall HaliAcpiMachineStateInit(_BYTE *a1)
@@ -92,7 +92,7 @@ int __fastcall HaliAcpiMachineStateInit(_BYTE *a1)
         if ( !v2 )
           goto LABEL_19;
         v9 = a1[8] & 0xF;
-        BYTE4(InputBuffer) = (unsigned __int8)dword_140C4A050 >> 7;
+        BYTE4(InputBuffer) = (unsigned __int8)dword_140C4A090 >> 7;
         *((_QWORD *)&InputBuffer + 1) = HaliAcpiSleep;
         v10 = a1[7] & 0xF;
         LODWORD(InputBuffer) = 6;
@@ -104,7 +104,7 @@ int __fastcall HaliAcpiMachineStateInit(_BYTE *a1)
   if ( v2 )
   {
     v11 = a1[10] & 0xF;
-    BYTE4(InputBuffer) = (unsigned __int8)dword_140C4A050 >> 7;
+    BYTE4(InputBuffer) = (unsigned __int8)dword_140C4A090 >> 7;
     v12 = a1[11] & 0xF;
     LODWORD(InputBuffer) = 3;
     *((_QWORD *)&InputBuffer + 1) = HaliAcpiSleep;

@@ -1,17 +1,17 @@
 /*
- * XREFs of WheapWriteTriageDump @ 0x1406BB1F8
+ * XREFs of WheapWriteTriageDump @ 0x1406BB330
  * Callers:
  *     WheapCreateTriageDumpFromPreviousSession @ 0x1403E07FC (WheapCreateTriageDumpFromPreviousSession.c)
- *     WheaCrashDumpInitializationComplete @ 0x1405812AC (WheaCrashDumpInitializationComplete.c)
+ *     WheaCrashDumpInitializationComplete @ 0x140581758 (WheaCrashDumpInitializationComplete.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     swprintf_s @ 0x140151960 (swprintf_s.c)
- *     ZwWriteFile @ 0x140159D80 (ZwWriteFile.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     ZwOpenKey @ 0x140159EC0 (ZwOpenKey.c)
- *     ZwCreateKey @ 0x14015A020 (ZwCreateKey.c)
- *     ZwCreateFile @ 0x14015A720 (ZwCreateFile.c)
- *     ZwSetValueKey @ 0x14015A880 (ZwSetValueKey.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     swprintf_s @ 0x140151F20 (swprintf_s.c)
+ *     ZwWriteFile @ 0x14015A2F0 (ZwWriteFile.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     ZwOpenKey @ 0x14015A430 (ZwOpenKey.c)
+ *     ZwCreateKey @ 0x14015A590 (ZwCreateKey.c)
+ *     ZwCreateFile @ 0x14015AC90 (ZwCreateFile.c)
+ *     ZwSetValueKey @ 0x14015ADF0 (ZwSetValueKey.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */

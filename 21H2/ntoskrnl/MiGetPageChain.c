@@ -1,29 +1,29 @@
 /*
- * XREFs of MiGetPageChain @ 0x140212D10
+ * XREFs of MiGetPageChain @ 0x1402B7610
  * Callers:
- *     MiResolvePrivateZeroFault @ 0x140210120 (MiResolvePrivateZeroFault.c)
- *     MiCreateSharedZeroPages @ 0x140241770 (MiCreateSharedZeroPages.c)
- *     MiStealPage @ 0x14026BCA4 (MiStealPage.c)
- *     MiResolvePageFileFault @ 0x14028AF68 (MiResolvePageFileFault.c)
- *     MiGetHardFaultPages @ 0x1402E7D84 (MiGetHardFaultPages.c)
- *     MiGetClusterPage @ 0x140555970 (MiGetClusterPage.c)
- *     MiPfPrepareSequentialReadList @ 0x1406EDDD0 (MiPfPrepareSequentialReadList.c)
+ *     MiResolvePageFileFault @ 0x140208108 (MiResolvePageFileFault.c)
+ *     MiStealPage @ 0x140259C44 (MiStealPage.c)
+ *     MiGetHardFaultPages @ 0x1402990D4 (MiGetHardFaultPages.c)
+ *     MiResolvePrivateZeroFault @ 0x1402B4A20 (MiResolvePrivateZeroFault.c)
+ *     MiCreateSharedZeroPages @ 0x1402E5FC0 (MiCreateSharedZeroPages.c)
+ *     MiGetClusterPage @ 0x140555BB0 (MiGetClusterPage.c)
+ *     MiPfPrepareSequentialReadList @ 0x1407051B0 (MiPfPrepareSequentialReadList.c)
  * Callees:
- *     MiGetPage @ 0x140213610 (MiGetPage.c)
- *     KeShouldYieldProcessor @ 0x140293FD0 (KeShouldYieldProcessor.c)
- *     KiResetGlobalDpcWatchdogProfiler @ 0x1402940C8 (KiResetGlobalDpcWatchdogProfiler.c)
- *     MiZeroPhysicalPage @ 0x1402E6380 (MiZeroPhysicalPage.c)
- *     MiChangePageAttributeBatch @ 0x1403035A0 (MiChangePageAttributeBatch.c)
- *     MiGetLargePage @ 0x140303A34 (MiGetLargePage.c)
- *     MiChangePageAttribute @ 0x1403041E4 (MiChangePageAttribute.c)
- *     MiWorkingSetIsContended @ 0x14030B7D0 (MiWorkingSetIsContended.c)
- *     MiSetPfnBlink @ 0x140318130 (MiSetPfnBlink.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     KeShouldYieldProcessor @ 0x140211F40 (KeShouldYieldProcessor.c)
+ *     KiResetGlobalDpcWatchdogProfiler @ 0x140212038 (KiResetGlobalDpcWatchdogProfiler.c)
+ *     MiZeroPhysicalPage @ 0x1402976D0 (MiZeroPhysicalPage.c)
+ *     MiGetPage @ 0x1402B7F10 (MiGetPage.c)
+ *     MiChangePageAttributeBatch @ 0x14030E2F0 (MiChangePageAttributeBatch.c)
+ *     MiGetLargePage @ 0x14030E784 (MiGetLargePage.c)
+ *     MiChangePageAttribute @ 0x14030EF34 (MiChangePageAttribute.c)
+ *     MiWorkingSetIsContended @ 0x140316520 (MiWorkingSetIsContended.c)
+ *     MiSetPfnBlink @ 0x140322E80 (MiSetPfnBlink.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  *     MiConvertEntireLargePageToSmall @ 0x1403F5C28 (MiConvertEntireLargePageToSmall.c)
- *     MiPerformFinalZeroing @ 0x14054F348 (MiPerformFinalZeroing.c)
- *     MiNotifyPageHeat @ 0x14055FDC4 (MiNotifyPageHeat.c)
- *     EtwTraceShouldYieldProcessor @ 0x1405A811C (EtwTraceShouldYieldProcessor.c)
+ *     MiPerformFinalZeroing @ 0x14054F588 (MiPerformFinalZeroing.c)
+ *     MiNotifyPageHeat @ 0x140560004 (MiNotifyPageHeat.c)
+ *     EtwTraceShouldYieldProcessor @ 0x1405A834C (EtwTraceShouldYieldProcessor.c)
  */
 
 __int64 __fastcall MiGetPageChain(
@@ -119,14 +119,14 @@ __int64 __fastcall MiGetPageChain(
   if ( a3 )
   {
     CurrentPrcb = KeGetCurrentPrcb();
-    NodeShiftedColor = (a3 - 1) << byte_140C4DE8C;
+    NodeShiftedColor = (a3 - 1) << byte_140C4DECC;
   }
   else
   {
     CurrentPrcb = (struct _KPRCB *)KiProcessorBlock[KeGetCurrentThread()->IdealProcessor];
     NodeShiftedColor = CurrentPrcb->NodeShiftedColor;
   }
-  v13 = (1 << byte_140C4DE8D) - 1;
+  v13 = (1 << byte_140C4DECD) - 1;
   v71 = NodeShiftedColor;
   v69 = v13;
   if ( a2 && (*(_BYTE *)(a2 + 184) & 7u) < 2 )
@@ -162,8 +162,8 @@ LABEL_44:
       if ( v16 == -1 )
         goto LABEL_112;
       v37 = 15LL;
-      if ( (unsigned int)dword_140C4DEF8 < 0xFuLL )
-        v37 = (unsigned int)dword_140C4DEF8;
+      if ( (unsigned int)dword_140C4DF38 < 0xFuLL )
+        v37 = (unsigned int)dword_140C4DF38;
       v38 = v37 & v16;
       v36 = v38 | v36 & 0xFFFFFFF0;
       Page = MiGetPage(v73, v36, v17);
@@ -184,7 +184,7 @@ LABEL_112:
       v17 = v41;
       v18 = 48 * v40 - 0x58000000000LL;
       v42 = *(unsigned __int8 *)(v18 + 34) >> 6;
-      if ( v42 != a4 && ((unsigned __int8)((1 << v42) | (1 << a4)) & (unsigned __int8)byte_140C4DFD8) != 0 )
+      if ( v42 != a4 && ((unsigned __int8)((1 << v42) | (1 << a4)) & (unsigned __int8)byte_140C4E018) != 0 )
       {
         v43 = v70;
         v82[v70] = v40;
@@ -198,7 +198,7 @@ LABEL_112:
       }
       if ( (*(_DWORD *)(v18 + 16) & 0x3E0LL) != 0 && (a5 & 0x100) != 0 )
       {
-        MiZeroPhysicalPage(v40);
+        MiZeroPhysicalPage(v40, 1, a4);
         *(_QWORD *)(v18 + 16) &= 0xFFFFFFFFFFFFFC1FuLL;
         _InterlockedOr(v67, 0);
         v44 = *(_QWORD *)(v18 + 24);
@@ -232,7 +232,7 @@ LABEL_112:
           && ((v63 & 1) != 0 || v64 < 2) )
         {
           if ( (*(_DWORD *)(v18 + 16) & 0x3E0LL) != 0 )
-            MiZeroPhysicalPage(v40);
+            MiZeroPhysicalPage(v40, 1, a4);
           *(_QWORD *)(v18 + 16) = v78;
           v78 = 48 * v40 - 0x58000000000LL;
           goto LABEL_68;
@@ -270,7 +270,7 @@ LABEL_68:
       v19 = ++v68;
       if ( (unsigned __int8)v74 >= 2u )
       {
-        v56 = &dword_140C4F780;
+        v56 = &dword_140C4F7C0;
         if ( (*(_BYTE *)(v79 + 184) & 7) != 2 )
           v56 = (LONG *)(v79 + 192);
         if ( (*v56 & 0x40000000) != 0 )
@@ -312,7 +312,7 @@ LABEL_97:
             _disable();
             v57->DpcWatchdogCount = 0;
             v57->DpcTimeCount = 0;
-            KiResetGlobalDpcWatchdogProfiler();
+            KiResetGlobalDpcWatchdogProfiler((__int64)v57);
             _enable();
             v62 = 0;
             goto LABEL_98;

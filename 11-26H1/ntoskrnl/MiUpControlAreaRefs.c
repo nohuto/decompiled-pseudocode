@@ -1,27 +1,27 @@
 /*
- * XREFs of MiUpControlAreaRefs @ 0x1404DE558
+ * XREFs of MiUpControlAreaRefs @ 0x1404D7C38
  * Callers:
- *     MiDeleteNewlyCreatedPartialVads @ 0x14087EFD4 (MiDeleteNewlyCreatedPartialVads.c)
- *     MiAllocateSplitVads @ 0x140AC04EC (MiAllocateSplitVads.c)
- *     MiInsertChildVads @ 0x140B2090C (MiInsertChildVads.c)
+ *     MiDeleteNewlyCreatedPartialVads @ 0x1408853D4 (MiDeleteNewlyCreatedPartialVads.c)
+ *     MiAllocateSplitVads @ 0x140AC258C (MiAllocateSplitVads.c)
+ *     MiInsertChildVads @ 0x140B22D0C (MiInsertChildVads.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     KiCheckForKernelApcDelivery @ 0x14027DB80 (KiCheckForKernelApcDelivery.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     MiGetProtoPteAddress @ 0x1402D2540 (MiGetProtoPteAddress.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     MiDecrementSubsections @ 0x14036E360 (MiDecrementSubsections.c)
- *     MiDecrementSubsectionViewCount @ 0x14036E5D0 (MiDecrementSubsectionViewCount.c)
- *     MiReferenceActiveSubsection @ 0x14045AE40 (MiReferenceActiveSubsection.c)
- *     MiControlAreaRequiresCharge @ 0x1404A9D84 (MiControlAreaRequiresCharge.c)
- *     MiReturnCrossPartitionSectionCharges @ 0x1404D1140 (MiReturnCrossPartitionSectionCharges.c)
- *     MiLockNestedVad @ 0x140A99C90 (MiLockNestedVad.c)
- *     MiUnlockNestedVad @ 0x140A9F610 (MiUnlockNestedVad.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x14027D0F0 (KiCheckForKernelApcDelivery.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     MiGetProtoPteAddress @ 0x1402B4300 (MiGetProtoPteAddress.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     MiDecrementSubsections @ 0x140370100 (MiDecrementSubsections.c)
+ *     MiDecrementSubsectionViewCount @ 0x140370370 (MiDecrementSubsectionViewCount.c)
+ *     MiReferenceActiveSubsection @ 0x140454670 (MiReferenceActiveSubsection.c)
+ *     MiControlAreaRequiresCharge @ 0x1404A3414 (MiControlAreaRequiresCharge.c)
+ *     MiReturnCrossPartitionSectionCharges @ 0x1404CAB70 (MiReturnCrossPartitionSectionCharges.c)
+ *     MiLockNestedVad @ 0x140A9DE10 (MiLockNestedVad.c)
+ *     MiUnlockNestedVad @ 0x140A9F940 (MiUnlockNestedVad.c)
  */
 
 __int64 __fastcall MiUpControlAreaRefs(__int64 a1, int a2)
@@ -198,7 +198,7 @@ LABEL_49:
     ExReleaseSpinLockExclusive(v25, v19);
   if ( v9 )
     MiReturnCrossPartitionSectionCharges(
-      *(_QWORD *)(stru_140E2EB88.ThreadLock + 8LL * (*(_DWORD *)(v4 + 60) & 0x3FF)),
+      *(_QWORD *)(stru_140E2ED08.ThreadLock + 8LL * (*(_DWORD *)(v4 + 60) & 0x3FF)),
       v30,
       v9);
   if ( !*(_QWORD *)(v4 + 64) )
@@ -208,7 +208,7 @@ LABEL_49:
       ExfTryToWakePushLock((volatile signed __int64 *)v27 + 5);
     KeAbPostRelease((unsigned __int64)(v27 + 10));
     v8 = CurrentThread->SpecialApcDisable++ == -1;
-    if ( v8 && ($7A85BAF4F1FA08634C1C4A3E45B775B3 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+    if ( v8 && ($241382875694CED3D471BC5892DE3337 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
       KiCheckForKernelApcDelivery(v28, v26);
   }
   if ( v36 )

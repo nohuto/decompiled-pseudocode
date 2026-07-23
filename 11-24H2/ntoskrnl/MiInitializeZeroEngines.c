@@ -1,15 +1,15 @@
 /*
- * XREFs of MiInitializeZeroEngines @ 0x1407FF3F0
+ * XREFs of MiInitializeZeroEngines @ 0x1407FFB34
  * Callers:
- *     MiNodeZeroConductor @ 0x1407FF7C0 (MiNodeZeroConductor.c)
+ *     MiNodeZeroConductor @ 0x1407FFF00 (MiNodeZeroConductor.c)
  * Callees:
- *     MiGetOptimalProcessorWriteCount @ 0x1404B4C64 (MiGetOptimalProcessorWriteCount.c)
- *     MiAbsorbPossibleEngineChanges @ 0x14068F0A4 (MiAbsorbPossibleEngineChanges.c)
- *     MiZeroEngineSetOptimalCount @ 0x14069001C (MiZeroEngineSetOptimalCount.c)
- *     MiComputeCacheAttributeSpeeds @ 0x1406931D8 (MiComputeCacheAttributeSpeeds.c)
- *     MiZeroPageCalibrate @ 0x140693E8C (MiZeroPageCalibrate.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     MiGetOptimalProcessorWriteCount @ 0x1404AF460 (MiGetOptimalProcessorWriteCount.c)
+ *     MiAbsorbPossibleEngineChanges @ 0x140690174 (MiAbsorbPossibleEngineChanges.c)
+ *     MiZeroEngineSetOptimalCount @ 0x1406910EC (MiZeroEngineSetOptimalCount.c)
+ *     MiComputeCacheAttributeSpeeds @ 0x1406942A8 (MiComputeCacheAttributeSpeeds.c)
+ *     MiZeroPageCalibrate @ 0x140694F5C (MiZeroPageCalibrate.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall MiInitializeZeroEngines(__int64 a1)

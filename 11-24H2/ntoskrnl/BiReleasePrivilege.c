@@ -1,22 +1,22 @@
 /*
- * XREFs of BiReleasePrivilege @ 0x1409C0C38
+ * XREFs of BiReleasePrivilege @ 0x1409A7288
  * Callers:
- *     BiAddBootEntry @ 0x14081494C (BiAddBootEntry.c)
- *     BiDeleteBootEntry @ 0x14081519C (BiDeleteBootEntry.c)
- *     BiModifyBootEntry @ 0x14081556C (BiModifyBootEntry.c)
- *     BiSetBootOptions @ 0x1408156BC (BiSetBootOptions.c)
- *     SiGetEspFromFirmware @ 0x1408167A0 (SiGetEspFromFirmware.c)
- *     BiUnloadHiveByName @ 0x14085EE48 (BiUnloadHiveByName.c)
- *     BiQueryBootEntryOrder @ 0x1409C0848 (BiQueryBootEntryOrder.c)
- *     BiQueryBootOptions @ 0x1409C0924 (BiQueryBootOptions.c)
- *     BiTranslateFilePath @ 0x1409C0B6C (BiTranslateFilePath.c)
- *     BiEnumerateBootEntries @ 0x1409C0EC8 (BiEnumerateBootEntries.c)
- *     BiDeleteEfiVariable @ 0x1409C13D0 (BiDeleteEfiVariable.c)
- *     BiSetBootEntryOrder @ 0x1409C1968 (BiSetBootEntryOrder.c)
- *     BiLoadHive @ 0x1409C2190 (BiLoadHive.c)
+ *     BiAddBootEntry @ 0x14081508C (BiAddBootEntry.c)
+ *     BiDeleteBootEntry @ 0x1408158DC (BiDeleteBootEntry.c)
+ *     BiModifyBootEntry @ 0x140815CAC (BiModifyBootEntry.c)
+ *     BiSetBootOptions @ 0x140815DFC (BiSetBootOptions.c)
+ *     SiGetEspFromFirmware @ 0x140816EE0 (SiGetEspFromFirmware.c)
+ *     BiQueryBootEntryOrder @ 0x1409A6E98 (BiQueryBootEntryOrder.c)
+ *     BiQueryBootOptions @ 0x1409A6F74 (BiQueryBootOptions.c)
+ *     BiTranslateFilePath @ 0x1409A71BC (BiTranslateFilePath.c)
+ *     BiEnumerateBootEntries @ 0x1409A7518 (BiEnumerateBootEntries.c)
+ *     BiDeleteEfiVariable @ 0x1409A7A20 (BiDeleteEfiVariable.c)
+ *     BiSetBootEntryOrder @ 0x1409A7FB8 (BiSetBootEntryOrder.c)
+ *     BiLoadHive @ 0x1409A87E0 (BiLoadHive.c)
+ *     BiUnloadHiveByName @ 0x140A81BF0 (BiUnloadHiveByName.c)
  * Callees:
- *     ZwSetInformationThread @ 0x1406A65B0 (ZwSetInformationThread.c)
- *     BiAdjustPrivilege @ 0x1409C0D40 (BiAdjustPrivilege.c)
+ *     ZwSetInformationThread @ 0x1406A7550 (ZwSetInformationThread.c)
+ *     BiAdjustPrivilege @ 0x1409A7390 (BiAdjustPrivilege.c)
  */
 
 NTSTATUS __fastcall BiReleasePrivilege(unsigned int *a1)

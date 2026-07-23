@@ -1,12 +1,12 @@
 /*
- * XREFs of HvlpLogMicrocodeUpdateStatus @ 0x140941174
+ * XREFs of HvlpLogMicrocodeUpdateStatus @ 0x140941374
  * Callers:
- *     HvlPhase2Initialize @ 0x1403B4CA0 (HvlPhase2Initialize.c)
- *     HvlpDynamicUpdateMicrocode @ 0x140941598 (HvlpDynamicUpdateMicrocode.c)
+ *     HvlPhase2Initialize @ 0x1403B4E80 (HvlPhase2Initialize.c)
+ *     HvlpDynamicUpdateMicrocode @ 0x140941798 (HvlpDynamicUpdateMicrocode.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     HvlpGetLogicalProcessorProperty @ 0x140540EA8 (HvlpGetLogicalProcessorProperty.c)
- *     CmLogMcUpdateStatus @ 0x14061581C (CmLogMcUpdateStatus.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     HvlpGetLogicalProcessorProperty @ 0x140541568 (HvlpGetLogicalProcessorProperty.c)
+ *     CmLogMcUpdateStatus @ 0x140615D6C (CmLogMcUpdateStatus.c)
  */
 
 void HvlpLogMicrocodeUpdateStatus()

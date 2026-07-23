@@ -1,9 +1,9 @@
 /*
- * XREFs of KeRcuFreePool @ 0x1405BBEB0
+ * XREFs of KeRcuFreePool @ 0x1405B94E0
  * Callers:
  *     <none>
  * Callees:
- *     KiRcuStartGracePeriod @ 0x1405BBF44 (KiRcuStartGracePeriod.c)
+ *     KiRcuStartGracePeriod @ 0x1405B9574 (KiRcuStartGracePeriod.c)
  */
 
 __int64 __fastcall KeRcuFreePool(_QWORD *a1, __int64 a2)

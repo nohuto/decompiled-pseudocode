@@ -1,10 +1,10 @@
 /*
- * XREFs of __ft_marker_array_set_flags @ 0x18009FD78
+ * XREFs of __ft_marker_array_set_flags @ 0x18009FD38
  * Callers:
- *     RtlGetFeatureToggleConfiguration @ 0x18009F600 (RtlGetFeatureToggleConfiguration.c)
+ *     RtlGetFeatureToggleConfiguration @ 0x18009F5C0 (RtlGetFeatureToggleConfiguration.c)
  * Callees:
- *     __ft_array_insert @ 0x18009FADC (__ft_array_insert.c)
- *     __ft_marker_array_lower_bound @ 0x18009FC5C (__ft_marker_array_lower_bound.c)
+ *     __ft_array_insert @ 0x18009FA9C (__ft_array_insert.c)
+ *     __ft_marker_array_lower_bound @ 0x18009FC1C (__ft_marker_array_lower_bound.c)
  */
 
 __int64 __fastcall _ft_marker_array_set_flags(_QWORD *a1, unsigned int a2, __int64 a3)

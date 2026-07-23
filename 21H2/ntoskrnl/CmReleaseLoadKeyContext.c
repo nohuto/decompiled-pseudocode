@@ -1,14 +1,14 @@
 /*
- * XREFs of CmReleaseLoadKeyContext @ 0x140671FD0
+ * XREFs of CmReleaseLoadKeyContext @ 0x140667510
  * Callers:
- *     CmLoadDifferencingKey @ 0x14066E58C (CmLoadDifferencingKey.c)
+ *     CmLoadDifferencingKey @ 0x140664A6C (CmLoadDifferencingKey.c)
  * Callees:
- *     UNLOCK_HIVE_LOAD @ 0x1406725C0 (UNLOCK_HIVE_LOAD.c)
- *     CmpDoQueueLateUnloadWorker @ 0x1406725FC (CmpDoQueueLateUnloadWorker.c)
- *     LOCK_HIVE_LOAD @ 0x140672754 (LOCK_HIVE_LOAD.c)
- *     CmpUnlockRegistry @ 0x1406F5ED0 (CmpUnlockRegistry.c)
- *     CmpLockRegistry @ 0x1406F5F10 (CmpLockRegistry.c)
- *     CmpDereferenceKeyControlBlock @ 0x1406FB610 (CmpDereferenceKeyControlBlock.c)
+ *     UNLOCK_HIVE_LOAD @ 0x1406677F0 (UNLOCK_HIVE_LOAD.c)
+ *     CmpDoQueueLateUnloadWorker @ 0x14066782C (CmpDoQueueLateUnloadWorker.c)
+ *     LOCK_HIVE_LOAD @ 0x140667984 (LOCK_HIVE_LOAD.c)
+ *     CmpUnlockRegistry @ 0x14070D2B0 (CmpUnlockRegistry.c)
+ *     CmpLockRegistry @ 0x14070D2F0 (CmpLockRegistry.c)
+ *     CmpDereferenceKeyControlBlock @ 0x1407129F0 (CmpDereferenceKeyControlBlock.c)
  */
 
 __int64 __fastcall CmReleaseLoadKeyContext(ULONG_PTR BugCheckParameter2, int a2)
@@ -21,7 +21,7 @@ __int64 __fastcall CmReleaseLoadKeyContext(ULONG_PTR BugCheckParameter2, int a2)
 
   if ( a2 < 0 )
   {
-    LOCK_HIVE_LOAD();
+    LOCK_HIVE_LOAD(BugCheckParameter2);
     CmpLockRegistry(v6);
     if ( *(_BYTE *)(*(_QWORD *)(BugCheckParameter2 + 32) + 2936LL) == 1 )
     {

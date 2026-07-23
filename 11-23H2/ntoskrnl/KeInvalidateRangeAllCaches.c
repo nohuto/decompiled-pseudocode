@@ -1,15 +1,15 @@
 /*
- * XREFs of KeInvalidateRangeAllCaches @ 0x1404606A0
+ * XREFs of KeInvalidateRangeAllCaches @ 0x140460AA0
  * Callers:
- *     KiFlushRangeAllCaches @ 0x1405721C0 (KiFlushRangeAllCaches.c)
- *     MiPersistMdl @ 0x14063E614 (MiPersistMdl.c)
- *     MiPersistPage @ 0x14063E9FC (MiPersistPage.c)
- *     MiTransferFileExtent @ 0x14063F86C (MiTransferFileExtent.c)
+ *     KiFlushRangeAllCaches @ 0x140572700 (KiFlushRangeAllCaches.c)
+ *     MiPersistMdl @ 0x14063EB64 (MiPersistMdl.c)
+ *     MiPersistPage @ 0x14063EF4C (MiPersistPage.c)
+ *     MiTransferFileExtent @ 0x14063FDBC (MiTransferFileExtent.c)
  * Callees:
  *     KeInvalidateRangeAllCachesNoIpi @ 0x14021AE20 (KeInvalidateRangeAllCachesNoIpi.c)
- *     KiIpiSendRequestEx @ 0x1402EB5F0 (KiIpiSendRequestEx.c)
- *     KeInvalidateAllCaches @ 0x14036DB40 (KeInvalidateAllCaches.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiIpiSendRequestEx @ 0x1402EB880 (KiIpiSendRequestEx.c)
+ *     KeInvalidateAllCaches @ 0x14036DCE0 (KeInvalidateAllCaches.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void __stdcall KeInvalidateRangeAllCaches(PVOID BaseAddress, ULONG Length)
@@ -27,7 +27,7 @@ void __stdcall KeInvalidateRangeAllCaches(PVOID BaseAddress, ULONG Length)
   {
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(0xCuLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
       if ( CurrentIrql == 12 )
@@ -37,10 +37,10 @@ void __stdcall KeInvalidateRangeAllCaches(PVOID BaseAddress, ULONG Length)
       SchedulerAssist[5] |= v6;
     }
     KiIpiSendRequestEx((__int64)KeGetCurrentPrcb(), 1, 0LL, 0LL, 7LL, 0LL, 0LL);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v7 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v7 <= 0xFu && CurrentIrql <= 0xFu && v7 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v7 <= 0xFu && CurrentIrql <= 0xFu && v7 >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         v9 = CurrentPrcb->SchedulerAssist;
@@ -48,7 +48,7 @@ void __stdcall KeInvalidateRangeAllCaches(PVOID BaseAddress, ULONG Length)
         v11 = (v10 & v9[5]) == 0;
         v9[5] &= v10;
         if ( v11 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
       }
     }
     __writecr8(CurrentIrql);

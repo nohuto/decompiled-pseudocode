@@ -1,11 +1,11 @@
 /*
- * XREFs of ExFreeHeapPages @ 0x14044074C
+ * XREFs of ExFreeHeapPages @ 0x1403E931C
  * Callers:
- *     ExGetBigPoolInfo @ 0x140440530 (ExGetBigPoolInfo.c)
- *     ExPoolCleanupExpansionTable @ 0x1406541CC (ExPoolCleanupExpansionTable.c)
+ *     ExGetBigPoolInfo @ 0x1403E9100 (ExGetBigPoolInfo.c)
+ *     ExPoolCleanupExpansionTable @ 0x1406528C4 (ExPoolCleanupExpansionTable.c)
  * Callees:
- *     RtlpHpFreeHeap @ 0x1402B2660 (RtlpHpFreeHeap.c)
- *     ExGetHeapFromVA @ 0x1402B3750 (ExGetHeapFromVA.c)
+ *     RtlpHpFreeHeap @ 0x14035B220 (RtlpHpFreeHeap.c)
+ *     ExGetHeapFromVA @ 0x14035C310 (ExGetHeapFromVA.c)
  */
 
 __int64 __fastcall ExFreeHeapPages(ULONG_PTR a1)

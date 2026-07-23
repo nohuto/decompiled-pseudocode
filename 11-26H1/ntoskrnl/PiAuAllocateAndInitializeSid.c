@@ -1,16 +1,16 @@
 /*
- * XREFs of PiAuAllocateAndInitializeSid @ 0x1407A81C4
+ * XREFs of PiAuAllocateAndInitializeSid @ 0x1407AAD74
  * Callers:
- *     PiAuCreateStandardSecurityObject @ 0x140CC5994 (PiAuCreateStandardSecurityObject.c)
- *     PiAuCreateUserSids @ 0x140CC5EB4 (PiAuCreateUserSids.c)
+ *     PiAuCreateStandardSecurityObject @ 0x140CCBA74 (PiAuCreateStandardSecurityObject.c)
+ *     PiAuCreateUserSids @ 0x140CCBF94 (PiAuCreateUserSids.c)
  * Callees:
- *     RtlLengthRequiredSid @ 0x1408E9A40 (RtlLengthRequiredSid.c)
- *     RtlInitializeSid @ 0x140A6AF80 (RtlInitializeSid.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlLengthRequiredSid @ 0x1408F0000 (RtlLengthRequiredSid.c)
+ *     RtlInitializeSid @ 0x140A77920 (RtlInitializeSid.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall PiAuAllocateAndInitializeSid(PVOID *a1, struct _SID_IDENTIFIER_AUTHORITY *a2, ULONG a3)
+__int64 __fastcall PiAuAllocateAndInitializeSid(PVOID *a1, _SID_IDENTIFIER_AUTHORITY *a2, ULONG a3)
 {
   UCHAR v4; // bl
   void *Pool2; // rax

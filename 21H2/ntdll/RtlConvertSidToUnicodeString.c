@@ -3,9 +3,9 @@
  * Callers:
  *     RtlFormatCurrentUserKeyPath @ 0x180036C40 (RtlFormatCurrentUserKeyPath.c)
  *     RtlpGetTokenNamedObjectPath @ 0x180044040 (RtlpGetTokenNamedObjectPath.c)
- *     AVrfpAppendCurrentUserSid @ 0x1800DA554 (AVrfpAppendCurrentUserSid.c)
- *     WerEscalationLazyInit @ 0x1800DE1B8 (WerEscalationLazyInit.c)
- *     OpenGlobalizationUserSettingsKey_ForMua @ 0x180119C80 (OpenGlobalizationUserSettingsKey_ForMua.c)
+ *     AVrfpAppendCurrentUserSid @ 0x1800DA514 (AVrfpAppendCurrentUserSid.c)
+ *     WerEscalationLazyInit @ 0x1800DE178 (WerEscalationLazyInit.c)
+ *     OpenGlobalizationUserSettingsKey_ForMua @ 0x180119C20 (OpenGlobalizationUserSettingsKey_ForMua.c)
  * Callees:
  *     RtlIntegerToUnicode @ 0x180037440 (RtlIntegerToUnicode.c)
  *     RtlValidSid @ 0x180037950 (RtlValidSid.c)
@@ -13,8 +13,8 @@
  *     __security_check_cookie @ 0x18008C940 (__security_check_cookie.c)
  *     wcscat_s @ 0x180098250 (wcscat_s.c)
  *     wcscpy_s @ 0x1800982F0 (wcscpy_s.c)
- *     memmove @ 0x1800A44C0 (memmove.c)
- *     RtlLargeIntegerToUnicode @ 0x1800EDBC0 (RtlLargeIntegerToUnicode.c)
+ *     memmove @ 0x1800A4480 (memmove.c)
+ *     RtlLargeIntegerToUnicode @ 0x1800EDB80 (RtlLargeIntegerToUnicode.c)
  */
 
 NTSTATUS __stdcall RtlConvertSidToUnicodeString(
@@ -41,7 +41,7 @@ NTSTATUS __stdcall RtlConvertSidToUnicodeString(
   char v22; // [rsp+22Ch] [rbp+12Ch] BYREF
   char v23; // [rsp+22Eh] [rbp+12Eh] BYREF
 
-  if ( (unsigned __int8)RtlValidSid(Sid) != 1 || *(_BYTE *)Sid != 1 )
+  if ( RtlValidSid(Sid) != 1 || *(_BYTE *)Sid != 1 )
     return -1073741704;
   wcscpy_s(&Destination, 0x100uLL, L"S-1-");
   v6 = 0;
@@ -99,7 +99,7 @@ NTSTATUS __stdcall RtlConvertSidToUnicodeString(
     {
 LABEL_14:
       if ( AllocateDestinationString )
-        return (unsigned __int8)RtlCreateUnicodeString(UnicodeString, &Destination) == 0 ? 0xC0000017 : 0;
+        return RtlCreateUnicodeString(UnicodeString, &Destination) == 0 ? 0xC0000017 : 0;
       while ( v7 < &v23 && *(_WORD *)v7 )
         v7 += 2;
       MaximumLength = UnicodeString->MaximumLength;

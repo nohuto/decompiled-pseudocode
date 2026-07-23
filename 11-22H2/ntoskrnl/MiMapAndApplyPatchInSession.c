@@ -27,7 +27,7 @@ __int64 __fastcall MiMapAndApplyPatchInSession(__int64 a1, __int64 a2, __int64 a
   __int64 HotPatchBase; // rax
   __int64 v13; // r9
   ULONG_PTR v15; // [rsp+78h] [rbp+10h] BYREF
-  unsigned __int64 v16; // [rsp+88h] [rbp+20h] BYREF
+  PVOID v16; // [rsp+88h] [rbp+20h] BYREF
 
   v3 = *(__int64 **)(a2 + 88);
   v16 = 0LL;
@@ -40,7 +40,7 @@ __int64 __fastcall MiMapAndApplyPatchInSession(__int64 a1, __int64 a2, __int64 a
     if ( v8 < 0 )
       goto LABEL_11;
     v10 = 1;
-    HotPatchInformation = RtlFindHotPatchInformation(*(_QWORD *)(a1 + 48));
+    HotPatchInformation = RtlFindHotPatchInformation(*(PVOID *)(a1 + 48));
     *(_QWORD *)(a3 + 24) = HotPatchInformation;
     HotPatchBase = RtlFindHotPatchBase(HotPatchInformation);
     *(_QWORD *)(a3 + 32) = v13 + *(unsigned int *)(HotPatchBase + 24);

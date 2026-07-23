@@ -11,58 +11,51 @@
 __int64 __fastcall HvlLpReadMultipleMsr(int a1, unsigned int a2, int *a3, _QWORD *a4)
 {
   __int64 v8; // r15
-  __int64 v9; // r9
-  __int64 *v10; // r14
-  __int64 v11; // rax
-  _DWORD *v12; // rdx
-  int v13; // ecx
-  unsigned int v14; // ebx
-  __int64 v15; // rcx
-  _QWORD *v17; // [rsp+28h] [rbp-48h]
-  __int128 v18; // [rsp+30h] [rbp-40h] BYREF
-  __int128 v19; // [rsp+40h] [rbp-30h]
-  __int128 v20; // [rsp+50h] [rbp-20h] BYREF
-  __int128 v21; // [rsp+60h] [rbp-10h]
+  __int64 *v9; // r14
+  __int64 v10; // rax
+  _DWORD *v11; // rdx
+  int v12; // ecx
+  unsigned int v13; // ebx
+  __int64 v14; // rcx
+  _QWORD *v16; // [rsp+28h] [rbp-48h]
+  _OWORD v17[2]; // [rsp+30h] [rbp-40h] BYREF
+  _OWORD v18[2]; // [rsp+50h] [rbp-20h] BYREF
 
-  v20 = 0LL;
-  v21 = 0LL;
-  v18 = 0LL;
-  v19 = 0LL;
+  memset(v18, 0, sizeof(v18));
+  memset(v17, 0, sizeof(v17));
   if ( 16 * a2 > 0x1000 )
     return 3221225485LL;
   v8 = a2;
-  v17 = HvlpAcquireHypercallPage((PHYSICAL_ADDRESS *)&v20, 1, 0LL, 16LL * a2);
-  v10 = HvlpAcquireHypercallPage((PHYSICAL_ADDRESS *)&v18, 2, 0LL, 16LL * a2);
+  v16 = HvlpAcquireHypercallPage((PHYSICAL_ADDRESS *)v18, 1, 0LL, 16LL * a2);
+  v9 = HvlpAcquireHypercallPage((PHYSICAL_ADDRESS *)v17, 2, 0LL, 16LL * a2);
   if ( a2 )
   {
-    v11 = a2;
-    v12 = v17 + 1;
+    v10 = a2;
+    v11 = v16 + 1;
     do
     {
-      *(v12 - 2) = a1;
-      *(v12 - 1) = 65537;
-      v13 = *a3++;
-      *v12 = v13;
-      v12 += 4;
-      --v11;
+      *(v11 - 2) = a1;
+      *(v11 - 1) = 65537;
+      v12 = *a3++;
+      *v11 = v12;
+      v11 += 4;
+      --v10;
     }
-    while ( v11 );
+    while ( v10 );
   }
-  v14 = (unsigned __int16)HvcallInitiateHypercall(136, *((__int64 *)&v21 + 1), *((__int64 *)&v19 + 1), v9) != 0
-      ? 0xC0000001
-      : 0;
+  v13 = (unsigned __int16)HvcallInitiateHypercall(136) != 0 ? 0xC0000001 : 0;
   if ( a2 )
   {
     do
     {
-      v15 = *v10;
-      v10 += 2;
-      *a4++ = v15;
+      v14 = *v9;
+      v9 += 2;
+      *a4++ = v14;
       --v8;
     }
     while ( v8 );
   }
-  HvlpReleaseHypercallPage((__int64)&v18);
-  HvlpReleaseHypercallPage((__int64)&v20);
-  return v14;
+  HvlpReleaseHypercallPage((__int64)v17);
+  HvlpReleaseHypercallPage((__int64)v18);
+  return v13;
 }

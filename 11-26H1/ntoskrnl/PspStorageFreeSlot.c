@@ -1,22 +1,22 @@
 /*
- * XREFs of PspStorageFreeSlot @ 0x1407FFAF4
+ * XREFs of PspStorageFreeSlot @ 0x140805524
  * Callers:
- *     PsFreeSiloContextSlot @ 0x1407EE620 (PsFreeSiloContextSlot.c)
- *     PsUnregisterSiloMonitor @ 0x1407FBE80 (PsUnregisterSiloMonitor.c)
- *     PspInitializeSiloStructures @ 0x140CD8CA4 (PspInitializeSiloStructures.c)
+ *     PsFreeSiloContextSlot @ 0x1407F4180 (PsFreeSiloContextSlot.c)
+ *     PsUnregisterSiloMonitor @ 0x1408018B0 (PsUnregisterSiloMonitor.c)
+ *     PspInitializeSiloStructures @ 0x140CDF024 (PspInitializeSiloStructures.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
  */
 
 __int64 __fastcall PspStorageFreeSlot(unsigned int a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
 {
   unsigned int v4; // edi
-  void **p_InitialStack; // r14
+  void **p_StackBase; // r14
   struct _KTHREAD *CurrentThread; // rax
   AutoBoost *v7; // rax
   void *v8; // rdx
@@ -27,14 +27,14 @@ __int64 __fastcall PspStorageFreeSlot(unsigned int a1, __int64 a2, __int64 a3, s
   v4 = a1;
   if ( a1 >= 0x20 )
   {
-    p_InitialStack = &KiSystemServiceTraceCallbackLock.InitialStack;
+    p_StackBase = &KiSystemServiceTraceCallbackLock.StackBase;
     v4 = a1 - 32;
     if ( a1 - 32 >= 0x100 )
       return 3221225485LL;
   }
   else
   {
-    p_InitialStack = &KiSystemServiceTraceCallbackLock.StackBase;
+    p_StackBase = &KiSystemServiceTraceCallbackLock.InitialStack;
   }
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
@@ -54,8 +54,8 @@ __int64 __fastcall PspStorageFreeSlot(unsigned int a1, __int64 a2, __int64 a3, s
     else
       *((_BYTE *)v10 + 10) = 1;
   }
-  if ( _bittest64((const signed __int64 *)p_InitialStack[1], v4) )
-    *((_BYTE *)p_InitialStack[1] + ((unsigned __int64)v4 >> 3)) &= ~(1 << (v4 & 7));
+  if ( _bittest64((const signed __int64 *)p_StackBase[1], v4) )
+    *((_BYTE *)p_StackBase[1] + ((unsigned __int64)v4 >> 3)) &= ~(1 << (v4 & 7));
   else
     v11 = -1073741811;
   if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&PspSiloMonitorLock.UserAffinity, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )

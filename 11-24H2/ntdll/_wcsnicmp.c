@@ -1,15 +1,15 @@
 /*
- * XREFs of _wcsnicmp @ 0x180122DB0
+ * XREFs of _wcsnicmp @ 0x180120FE0
  * Callers:
- *     RtlQueryEnvironmentVariable @ 0x1800851D0 (RtlQueryEnvironmentVariable.c)
- *     _IsProgramFilesPath @ 0x180086E7C (_IsProgramFilesPath.c)
- *     RtlpHpOptIntoSegmentHeap @ 0x1800AC2B0 (RtlpHpOptIntoSegmentHeap.c)
- *     RtlpHpFindImageNameInList @ 0x1800ACDF8 (RtlpHpFindImageNameInList.c)
- *     LdrpGetModuleName @ 0x1800B0FD0 (LdrpGetModuleName.c)
- *     GetOverlayFilePathUsingChecksum @ 0x1800B25C0 (GetOverlayFilePathUsingChecksum.c)
- *     punycode_decode @ 0x1800BB890 (punycode_decode.c)
- *     punycode_encode @ 0x1800BDBA8 (punycode_encode.c)
- *     LdrpGetFileDriverStoreRoot @ 0x1800ED484 (LdrpGetFileDriverStoreRoot.c)
+ *     RtlQueryEnvironmentVariable @ 0x180007080 (RtlQueryEnvironmentVariable.c)
+ *     _IsProgramFilesPath @ 0x180008D2C (_IsProgramFilesPath.c)
+ *     RtlpHpFindImageNameInList @ 0x1800094E4 (RtlpHpFindImageNameInList.c)
+ *     RtlpHpOptIntoSegmentHeap @ 0x180009E48 (RtlpHpOptIntoSegmentHeap.c)
+ *     LdrpGetModuleName @ 0x18007D870 (LdrpGetModuleName.c)
+ *     GetOverlayFilePathUsingChecksum @ 0x18007EE60 (GetOverlayFilePathUsingChecksum.c)
+ *     punycode_decode @ 0x1800B3650 (punycode_decode.c)
+ *     punycode_encode @ 0x1800B5968 (punycode_encode.c)
+ *     LdrpGetFileDriverStoreRoot @ 0x1800E8774 (LdrpGetFileDriverStoreRoot.c)
  * Callees:
  *     <none>
  */

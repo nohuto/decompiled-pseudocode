@@ -1,9 +1,9 @@
 /*
- * XREFs of __asan_alloca_poison @ 0x1405DDBE0
+ * XREFs of __asan_alloca_poison @ 0x1405E0550
  * Callers:
  *     <none>
  * Callees:
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 void __fastcall _asan_alloca_poison(ULONG_PTR BugCheckParameter3, ULONG_PTR a2)
@@ -22,7 +22,7 @@ void __fastcall _asan_alloca_poison(ULONG_PTR BugCheckParameter3, ULONG_PTR a2)
   unsigned __int64 v15; // rcx
   _BYTE *v16; // rcx
 
-  if ( byte_140FC7BE8 )
+  if ( byte_140FC8BD8 )
   {
     v4 = BugCheckParameter3 - 32;
     if ( BugCheckParameter3 - 32 < 0xFFFF800000000000uLL )
@@ -32,9 +32,9 @@ void __fastcall _asan_alloca_poison(ULONG_PTR BugCheckParameter3, ULONG_PTR a2)
     if ( BugCheckParameter3 < v4 )
       KeBugCheckEx(0x1F1u, 2uLL, 3uLL, BugCheckParameter3 - 32, 0x20uLL);
     v5 = 4LL;
-    v6 = qword_140FBE300;
+    v6 = qword_140FBF2F8;
     v7 = 4LL;
-    v8 = (_BYTE *)(qword_140FBE300 + (v4 >> 3));
+    v8 = (_BYTE *)(qword_140FBF2F8 + (v4 >> 3));
     do
     {
       *v8++ = -127;

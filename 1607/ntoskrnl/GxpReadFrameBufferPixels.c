@@ -3,9 +3,9 @@
  * Callers:
  *     BgpGxReadRectangle @ 0x140725CE0 (BgpGxReadRectangle.c)
  * Callees:
- *     BgpGetResolution @ 0x1400B5C34 (BgpGetResolution.c)
- *     BgpGetBitsPerPixel @ 0x140127790 (BgpGetBitsPerPixel.c)
- *     memmove @ 0x140171280 (memmove.c)
+ *     BgpGetResolution @ 0x1400B3A5C (BgpGetResolution.c)
+ *     BgpGetBitsPerPixel @ 0x140127D00 (BgpGetBitsPerPixel.c)
+ *     memmove @ 0x140171780 (memmove.c)
  */
 
 __int64 __fastcall GxpReadFrameBufferPixels(int *a1)

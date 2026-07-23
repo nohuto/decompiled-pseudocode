@@ -1,10 +1,10 @@
 /*
- * XREFs of HalFreeHardwareCounters @ 0x1408643D0
+ * XREFs of HalFreeHardwareCounters @ 0x140864530
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     HalpReleaseHalCounters @ 0x1404B9130 (HalpReleaseHalCounters.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     HalpReleaseHalCounters @ 0x1404B9370 (HalpReleaseHalCounters.c)
  */
 
 NTSTATUS __stdcall HalFreeHardwareCounters(HANDLE CounterSetHandle)

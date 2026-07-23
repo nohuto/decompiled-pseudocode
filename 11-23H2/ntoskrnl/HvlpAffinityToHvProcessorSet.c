@@ -1,18 +1,18 @@
 /*
- * XREFs of HvlpAffinityToHvProcessorSet @ 0x1405496B0
+ * XREFs of HvlpAffinityToHvProcessorSet @ 0x140549D70
  * Callers:
- *     HvlMapDeviceInterrupt @ 0x140544BC0 (HvlMapDeviceInterrupt.c)
- *     HvlRetargetDeviceInterrupt @ 0x1405455C0 (HvlRetargetDeviceInterrupt.c)
- *     HvlpFastSendSyntheticClusterIpiEx @ 0x140546208 (HvlpFastSendSyntheticClusterIpiEx.c)
- *     HvlpSlowSendSyntheticClusterIpiEx @ 0x1405464CC (HvlpSlowSendSyntheticClusterIpiEx.c)
- *     HvlParkedVirtualProcessors @ 0x1405469A8 (HvlParkedVirtualProcessors.c)
- *     HvlpFastFlushAddressSpaceTbEx @ 0x1405498C4 (HvlpFastFlushAddressSpaceTbEx.c)
- *     HvlpFastFlushListTbEx @ 0x140549980 (HvlpFastFlushListTbEx.c)
- *     HvlpSlowFlushAddressSpaceTbEx @ 0x140549C5C (HvlpSlowFlushAddressSpaceTbEx.c)
- *     HvlpSlowFlushListTbEx @ 0x140549EF8 (HvlpSlowFlushListTbEx.c)
+ *     HvlMapDeviceInterrupt @ 0x140545280 (HvlMapDeviceInterrupt.c)
+ *     HvlRetargetDeviceInterrupt @ 0x140545C80 (HvlRetargetDeviceInterrupt.c)
+ *     HvlpFastSendSyntheticClusterIpiEx @ 0x1405468C8 (HvlpFastSendSyntheticClusterIpiEx.c)
+ *     HvlpSlowSendSyntheticClusterIpiEx @ 0x140546B8C (HvlpSlowSendSyntheticClusterIpiEx.c)
+ *     HvlParkedVirtualProcessors @ 0x140547068 (HvlParkedVirtualProcessors.c)
+ *     HvlpFastFlushAddressSpaceTbEx @ 0x140549F84 (HvlpFastFlushAddressSpaceTbEx.c)
+ *     HvlpFastFlushListTbEx @ 0x14054A040 (HvlpFastFlushListTbEx.c)
+ *     HvlpSlowFlushAddressSpaceTbEx @ 0x14054A31C (HvlpSlowFlushAddressSpaceTbEx.c)
+ *     HvlpSlowFlushListTbEx @ 0x14054A5B8 (HvlpSlowFlushListTbEx.c)
  * Callees:
- *     KeEnumerateNextProcessor @ 0x1402572B0 (KeEnumerateNextProcessor.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     KeEnumerateNextProcessor @ 0x140257370 (KeEnumerateNextProcessor.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 __int64 __fastcall HvlpAffinityToHvProcessorSet(__int64 a1, _QWORD *a2, unsigned int a3)

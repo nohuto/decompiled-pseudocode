@@ -1,16 +1,16 @@
 /*
- * XREFs of _CmSetDeviceMappedProperty @ 0x140995AA0
+ * XREFs of _CmSetDeviceMappedProperty @ 0x140980AE0
  * Callers:
- *     _PnpDispatchDevice @ 0x1408CDBB0 (_PnpDispatchDevice.c)
- *     _CmDeleteDeviceWorker @ 0x1409B2CB8 (_CmDeleteDeviceWorker.c)
+ *     _PnpDispatchDevice @ 0x1408CB5A0 (_PnpDispatchDevice.c)
+ *     _CmDeleteDeviceWorker @ 0x1409AA048 (_CmDeleteDeviceWorker.c)
  * Callees:
- *     _CmDeleteDeviceMappedPropertyFromDriverKeyRegValue @ 0x14081E024 (_CmDeleteDeviceMappedPropertyFromDriverKeyRegValue.c)
- *     _CmDeleteDeviceMappedPropertyFromInstanceKeyRegValue @ 0x14081E148 (_CmDeleteDeviceMappedPropertyFromInstanceKeyRegValue.c)
- *     _CmSetDeviceMappedPropertyFromInstanceKeyRegValue @ 0x14081F61C (_CmSetDeviceMappedPropertyFromInstanceKeyRegValue.c)
- *     _PnpObjectRaisePropertyChangeEvent @ 0x1408B95AC (_PnpObjectRaisePropertyChangeEvent.c)
- *     _CmIsRootDevice @ 0x140926C14 (_CmIsRootDevice.c)
- *     _CmSetDeviceMappedPropertyFromDriverKeyRegValue @ 0x140995494 (_CmSetDeviceMappedPropertyFromDriverKeyRegValue.c)
- *     _CmSetDeviceMappedPropertyFromRegProp @ 0x140995CF0 (_CmSetDeviceMappedPropertyFromRegProp.c)
+ *     _CmDeleteDeviceMappedPropertyFromDriverKeyRegValue @ 0x14081E764 (_CmDeleteDeviceMappedPropertyFromDriverKeyRegValue.c)
+ *     _CmDeleteDeviceMappedPropertyFromInstanceKeyRegValue @ 0x14081E888 (_CmDeleteDeviceMappedPropertyFromInstanceKeyRegValue.c)
+ *     _CmSetDeviceMappedPropertyFromInstanceKeyRegValue @ 0x14081FD5C (_CmSetDeviceMappedPropertyFromInstanceKeyRegValue.c)
+ *     _PnpObjectRaisePropertyChangeEvent @ 0x1408B6F54 (_PnpObjectRaisePropertyChangeEvent.c)
+ *     _CmIsRootDevice @ 0x140928D54 (_CmIsRootDevice.c)
+ *     _CmSetDeviceMappedPropertyFromDriverKeyRegValue @ 0x1409804D4 (_CmSetDeviceMappedPropertyFromDriverKeyRegValue.c)
+ *     _CmSetDeviceMappedPropertyFromRegProp @ 0x140980D30 (_CmSetDeviceMappedPropertyFromRegProp.c)
  */
 
 __int64 __fastcall CmSetDeviceMappedProperty(
@@ -66,7 +66,7 @@ __int64 __fastcall CmSetDeviceMappedProperty(
       }
       for ( j = 0; j < 0xD; ++j )
       {
-        v15 = (__int64)*(&off_140B3E8A0 + 4 * j);
+        v15 = (__int64)*(&off_140B406A0 + 4 * j);
         if ( *(_DWORD *)(a5 + 16) == *(_DWORD *)(v15 + 16) )
         {
           v23 = *(_QWORD *)a5 - *(_QWORD *)v15;
@@ -85,7 +85,7 @@ __int64 __fastcall CmSetDeviceMappedProperty(
       }
       for ( k = 0; k < 2; ++k )
       {
-        v17 = (__int64)*(&off_140B3B930 + 4 * k);
+        v17 = (__int64)*(&off_140B3D6F0 + 4 * k);
         if ( *(_DWORD *)(a5 + 16) == *(_DWORD *)(v17 + 16) )
         {
           v24 = *(_QWORD *)a5 - *(_QWORD *)v17;
@@ -100,7 +100,7 @@ __int64 __fastcall CmSetDeviceMappedProperty(
             v11 = v25;
             if ( v25 >= 0 )
             {
-              PnpObjectRaisePropertyChangeEvent(a1, (__int64)a2, 1LL, (__int64)a3, 0LL, a5);
+              PnpObjectRaisePropertyChangeEvent(a1, (__int64)a2, 1, (__int64)a3, 0LL, a5);
               return v11;
             }
             if ( v25 != -1073741802 )
@@ -111,7 +111,7 @@ __int64 __fastcall CmSetDeviceMappedProperty(
       }
       for ( m = 0; m < 0x1C; ++m )
       {
-        v19 = (__int64)*(&off_140B3DD70 + 2 * m);
+        v19 = (__int64)*(&off_140B3FB70 + 2 * m);
         if ( *(_DWORD *)(a5 + 16) == *(_DWORD *)(v19 + 16) )
         {
           v20 = *(_QWORD *)a5 - *(_QWORD *)v19;

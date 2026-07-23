@@ -1,10 +1,10 @@
 /*
- * XREFs of KiIsQosGroupingActive @ 0x14034F2E8
+ * XREFs of KiIsQosGroupingActive @ 0x14034F488
  * Callers:
- *     KiCheckPreferredHeteroProcessor @ 0x1402C8490 (KiCheckPreferredHeteroProcessor.c)
- *     PpmPerfArbitratorApplyProcessorState @ 0x14034F190 (PpmPerfArbitratorApplyProcessorState.c)
- *     KiHeteroIdleSetReduction @ 0x140461D4C (KiHeteroIdleSetReduction.c)
- *     KiSelectProcessorToPreempt @ 0x140461F7C (KiSelectProcessorToPreempt.c)
+ *     KiCheckPreferredHeteroProcessor @ 0x1402C8720 (KiCheckPreferredHeteroProcessor.c)
+ *     PpmPerfArbitratorApplyProcessorState @ 0x14034F330 (PpmPerfArbitratorApplyProcessorState.c)
+ *     KiHeteroIdleSetReduction @ 0x14046214C (KiHeteroIdleSetReduction.c)
+ *     KiSelectProcessorToPreempt @ 0x14046237C (KiSelectProcessorToPreempt.c)
  * Callees:
  *     <none>
  */

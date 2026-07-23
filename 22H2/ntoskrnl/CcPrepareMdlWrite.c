@@ -81,7 +81,7 @@ void __stdcall CcPrepareMdlWrite(
   SharedCacheMap = (struct _FAST_MUTEX *)FileObject->SectionObjectPointer->SharedCacheMap;
   v35 = SharedCacheMap;
   if ( (FileObject->Flags & 0x10) == 0 && (unsigned __int8)CcForceWriteThrough(FileObject, Length, SharedCacheMap, 0LL) )
-    RtlRaiseStatus(0xC000009A);
+    RtlRaiseStatus(-1073741670);
   QuadPart = FileOffset->QuadPart;
   v33 = QuadPart;
   while ( v5 )
@@ -129,7 +129,7 @@ LABEL_16:
     CcMapAndRead(v10, v12, 1, (__int64)VirtualAddress);
     Mdl = IoAllocateMdl(VirtualAddress, v10, 0, 0, 0LL);
     if ( !Mdl )
-      RtlRaiseStatus(0xC000009A);
+      RtlRaiseStatus(-1073741670);
     CurrentThread = KeGetCurrentThread();
     v14 = BYTE5(CurrentThread[1].Queue) + 2;
     v28 = BYTE5(CurrentThread[1].Queue) + 2;

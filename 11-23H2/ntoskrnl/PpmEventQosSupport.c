@@ -1,12 +1,12 @@
 /*
- * XREFs of PpmEventQosSupport @ 0x1407EA2BC
+ * XREFs of PpmEventQosSupport @ 0x1407EA58C
  * Callers:
- *     PpmPerfUpdateDomainPolicy @ 0x1407A6350 (PpmPerfUpdateDomainPolicy.c)
- *     PpmEventTraceControlCallback @ 0x140864C90 (PpmEventTraceControlCallback.c)
+ *     PpmPerfUpdateDomainPolicy @ 0x1407A6540 (PpmPerfUpdateDomainPolicy.c)
+ *     PpmEventTraceControlCallback @ 0x140864ED0 (PpmEventTraceControlCallback.c)
  * Callees:
- *     EtwWrite @ 0x1402578A0 (EtwWrite.c)
- *     EtwEventEnabled @ 0x140258420 (EtwEventEnabled.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     EtwWrite @ 0x140257960 (EtwWrite.c)
+ *     EtwEventEnabled @ 0x1402584E0 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 char __fastcall PpmEventQosSupport(char a1)

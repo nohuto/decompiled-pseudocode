@@ -1,18 +1,18 @@
 /*
- * XREFs of ObpCaptureObjectCreateInformation @ 0x1406EEF10
+ * XREFs of ObpCaptureObjectCreateInformation @ 0x1406EEF40
  * Callers:
- *     ObOpenObjectByNameEx @ 0x1406ECFE0 (ObOpenObjectByNameEx.c)
- *     ObReferenceObjectByNameEx @ 0x14071535C (ObReferenceObjectByNameEx.c)
- *     SepDuplicateToken @ 0x140729B80 (SepDuplicateToken.c)
- *     IopAllocRealFileObject @ 0x14072F300 (IopAllocRealFileObject.c)
- *     CmpCreateKeyBody @ 0x14072F810 (CmpCreateKeyBody.c)
- *     ObCreateObjectEx @ 0x1407308B0 (ObCreateObjectEx.c)
+ *     ObOpenObjectByNameEx @ 0x1406ED010 (ObOpenObjectByNameEx.c)
+ *     ObReferenceObjectByNameEx @ 0x140715568 (ObReferenceObjectByNameEx.c)
+ *     SepDuplicateToken @ 0x140729D80 (SepDuplicateToken.c)
+ *     IopAllocRealFileObject @ 0x14072F500 (IopAllocRealFileObject.c)
+ *     CmpCreateKeyBody @ 0x14072FA00 (CmpCreateKeyBody.c)
+ *     ObCreateObjectEx @ 0x140730AA0 (ObCreateObjectEx.c)
  * Callees:
- *     ObpCaptureObjectName @ 0x1406EF1A0 (ObpCaptureObjectName.c)
- *     SeComputeQuotaInformationSize @ 0x140728B80 (SeComputeQuotaInformationSize.c)
- *     SeCaptureSecurityDescriptor @ 0x140736B50 (SeCaptureSecurityDescriptor.c)
- *     SeReleaseSecurityDescriptor @ 0x1407373D0 (SeReleaseSecurityDescriptor.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00B60 (ExRaiseDatatypeMisalignment.c)
+ *     ObpCaptureObjectName @ 0x1406EF1D0 (ObpCaptureObjectName.c)
+ *     SeComputeQuotaInformationSize @ 0x140728D80 (SeComputeQuotaInformationSize.c)
+ *     SeCaptureSecurityDescriptor @ 0x140736D40 (SeCaptureSecurityDescriptor.c)
+ *     SeReleaseSecurityDescriptor @ 0x1407375C0 (SeReleaseSecurityDescriptor.c)
+ *     ExRaiseDatatypeMisalignment @ 0x140A00DF0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall ObpCaptureObjectCreateInformation(

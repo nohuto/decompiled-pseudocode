@@ -34,15 +34,15 @@ __int64 __fastcall FsRtlPrivateFastUnlockAll(
   _RTL_SPLAY_LINKS *v9; // r14
   __int64 v10; // rsi
   __int64 CurrentIrql; // r12
-  struct _RTL_SPLAY_LINKS *v12; // rbp
+  _RTL_SPLAY_LINKS *v12; // rbp
   _RTL_SPLAY_LINKS *i; // rax
-  struct _RTL_SPLAY_LINKS *v15; // r12
+  _RTL_SPLAY_LINKS *v15; // r12
   PRTL_SPLAY_LINKS v16; // rax
   _RTL_SPLAY_LINKS *Parent; // r14
   _RTL_SPLAY_LINKS *v18; // rbx
   PRTL_SPLAY_LINKS v19; // r15
-  struct _RTL_SPLAY_LINKS *v20; // rcx
-  struct _RTL_SPLAY_LINKS *v21; // r13
+  _RTL_SPLAY_LINKS *v20; // rcx
+  _RTL_SPLAY_LINKS *v21; // r13
   PRTL_SPLAY_LINKS v22; // rbx
   void *v23; // rdi
   void **v24; // r14
@@ -62,7 +62,7 @@ __int64 __fastcall FsRtlPrivateFastUnlockAll(
   _RTL_SPLAY_LINKS *v38; // [rsp+48h] [rbp-70h] BYREF
   _RTL_SPLAY_LINKS *v39; // [rsp+50h] [rbp-68h] BYREF
   PVOID Entry; // [rsp+58h] [rbp-60h]
-  struct _RTL_SPLAY_LINKS *v41; // [rsp+60h] [rbp-58h]
+  _RTL_SPLAY_LINKS *v41; // [rsp+60h] [rbp-58h]
   void *retaddr; // [rsp+B8h] [rbp+0h]
   char v43; // [rsp+C0h] [rbp+8h]
   struct _KPROCESS *v45; // [rsp+D0h] [rbp+18h]
@@ -89,7 +89,7 @@ __int64 __fastcall FsRtlPrivateFastUnlockAll(
   {
     KxWaitForSpinLockAndAcquire((volatile signed __int32 *)(v6 + 24));
   }
-  v12 = *(struct _RTL_SPLAY_LINKS **)(v6 + 32);
+  v12 = *(_RTL_SPLAY_LINKS **)(v6 + 32);
   if ( v12 )
   {
     for ( i = v12->LeftChild; i; i = i->LeftChild )

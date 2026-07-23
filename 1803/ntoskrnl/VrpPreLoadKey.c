@@ -34,7 +34,7 @@
  *     VrpStripTrailingCharacters @ 0x14070E020 (VrpStripTrailingCharacters.c)
  */
 
-__int64 __fastcall VrpPreLoadKey(_QWORD *a1, unsigned int *a2)
+__int64 __fastcall VrpPreLoadKey(_QWORD *a1, GUID *a2)
 {
   __int64 v4; // r15
   const UNICODE_STRING *v5; // rcx
@@ -46,7 +46,7 @@ __int64 __fastcall VrpPreLoadKey(_QWORD *a1, unsigned int *a2)
   PVOID *v11; // rax
   int v12; // ecx
   PVOID v13; // rax
-  unsigned int *v14; // r15
+  GUID *v14; // r15
   const UNICODE_STRING *v15; // rbx
   wchar_t *Buffer; // rcx
   struct _KTHREAD *CurrentThread; // rax
@@ -65,8 +65,8 @@ __int64 __fastcall VrpPreLoadKey(_QWORD *a1, unsigned int *a2)
   UNICODE_STRING Destination; // [rsp+70h] [rbp-2A8h] BYREF
   int v33; // [rsp+80h] [rbp-298h]
   PVOID P[2]; // [rsp+88h] [rbp-290h] BYREF
-  UNICODE_STRING Source; // [rsp+98h] [rbp-280h] BYREF
-  UNICODE_STRING v36; // [rsp+A8h] [rbp-270h] BYREF
+  UNICODE_STRING GuidString; // [rsp+98h] [rbp-280h] BYREF
+  UNICODE_STRING Source; // [rsp+A8h] [rbp-270h] BYREF
   UNICODE_STRING String1; // [rsp+B8h] [rbp-260h] BYREF
   int v38; // [rsp+C8h] [rbp-250h]
   int v39; // [rsp+CCh] [rbp-24Ch] BYREF
@@ -83,7 +83,7 @@ __int64 __fastcall VrpPreLoadKey(_QWORD *a1, unsigned int *a2)
   PVOID Object; // [rsp+120h] [rbp-1F8h] BYREF
   HANDLE v51; // [rsp+128h] [rbp-1F0h] BYREF
   PVOID v52; // [rsp+130h] [rbp-1E8h]
-  unsigned int *v53; // [rsp+138h] [rbp-1E0h]
+  GUID *v53; // [rsp+138h] [rbp-1E0h]
   int v54[12]; // [rsp+140h] [rbp-1D8h] BYREF
   int v55[12]; // [rsp+170h] [rbp-1A8h] BYREF
   GUID ActivityId; // [rsp+1A0h] [rbp-178h] BYREF
@@ -116,16 +116,16 @@ __int64 __fastcall VrpPreLoadKey(_QWORD *a1, unsigned int *a2)
   *(_QWORD *)&Destination.Length = 0LL;
   Destination.Buffer = 0LL;
   memset(v55, 0, sizeof(v55));
-  *(_QWORD *)&v36.Length = 0LL;
-  v36.Buffer = 0LL;
+  *(_QWORD *)&Source.Length = 0LL;
+  Source.Buffer = 0LL;
   *(_QWORD *)&String1.Length = 0LL;
   String1.Buffer = 0LL;
   *(_QWORD *)&ActivityId.Data1 = 0LL;
   *(_QWORD *)ActivityId.Data4 = 0LL;
   EtwActivityIdControl(3u, &ActivityId);
   v4 = *a1;
-  Source.Buffer = (wchar_t *)&v76;
-  *(_DWORD *)&Source.Length = 5111808;
+  GuidString.Buffer = (wchar_t *)&v76;
+  *(_DWORD *)&GuidString.Length = 5111808;
   v30 = 0;
   v33 = 0;
   v5 = *(const UNICODE_STRING **)(v4 + 72);
@@ -192,33 +192,33 @@ LABEL_10:
       if ( !RtlEqualUnicodeString(&String1, &VrpUserString, 1u) )
         goto LABEL_10;
     }
-    v36.Buffer = (wchar_t *)((char *)P[1] + 2 * v41);
-    v36.Length = LOWORD(P[0]) - 2 * v41;
-    v36.MaximumLength = v36.Length;
-    VrpStripTrailingCharacters(&v36);
+    Source.Buffer = (wchar_t *)((char *)P[1] + 2 * v41);
+    Source.Length = LOWORD(P[0]) - 2 * v41;
+    Source.MaximumLength = Source.Length;
+    VrpStripTrailingCharacters(&Source);
     v10 = 0LL;
-    Length = v36.Length;
-    if ( v36.Length )
+    Length = Source.Length;
+    if ( Source.Length )
     {
-      Buffer = v36.Buffer;
+      Buffer = Source.Buffer;
       while ( *Buffer != 92 )
       {
         v10 = (unsigned int)(v10 + 1);
         ++Buffer;
-        if ( 2LL * (int)v10 >= (unsigned __int64)v36.Length )
+        if ( 2LL * (int)v10 >= (unsigned __int64)Source.Length )
           goto LABEL_22;
       }
       goto LABEL_10;
     }
 LABEL_22:
-    NamespaceNodePlaceholderKey = RtlStringFromGUIDEx(a2, (__int64)&Source, 0);
+    NamespaceNodePlaceholderKey = RtlStringFromGUIDEx(a2, &GuidString, 0);
     if ( NamespaceNodePlaceholderKey >= 0 )
     {
-      ++Source.Buffer;
-      Source.Length -= 4;
-      Source.MaximumLength -= 4;
+      ++GuidString.Buffer;
+      GuidString.Length -= 4;
+      GuidString.MaximumLength -= 4;
       Destination.Length = 0;
-      Destination.MaximumLength = v36.Length + v15->Length + Source.Length + 40;
+      Destination.MaximumLength = Source.Length + v15->Length + GuidString.Length + 40;
       Destination.Buffer = (wchar_t *)ExAllocatePoolWithTag(PagedPool, Destination.MaximumLength, 0x67655256u);
       if ( !Destination.Buffer )
       {
@@ -227,14 +227,14 @@ LABEL_22:
       }
       RtlAppendUnicodeStringToString(&Destination, &VrpRootHivePath);
       RtlAppendUnicodeToString(&Destination, L"\\Silo_");
-      RtlAppendUnicodeStringToString(&Destination, &Source);
+      RtlAppendUnicodeStringToString(&Destination, &GuidString);
       RtlAppendUnicodeToString(&Destination, L"_");
       RtlAppendUnicodeStringToString(&Destination, v15);
       RtlAppendUnicodeToString(&Destination, L"_");
-      RtlAppendUnicodeStringToString(&Destination, &v36);
+      RtlAppendUnicodeStringToString(&Destination, &Source);
       CurrentThread = KeGetCurrentThread();
       --CurrentThread->KernelApcDisable;
-      ExAcquirePushLockExclusiveEx((ULONG_PTR)(a2 + 4), 0LL);
+      ExAcquirePushLockExclusiveEx((ULONG_PTR)&a2[1], 0LL);
       v33 = 1;
       v38 = 1;
       NamespaceNodePlaceholderKey = VrpCreateNamespaceNode(
@@ -416,13 +416,13 @@ LABEL_54:
 LABEL_56:
   v14 = a2;
   if ( v43 )
-    VrpDestroyNamespaceNode((ULONGLONG *)a2, v43);
+    VrpDestroyNamespaceNode((ULONGLONG *)&a2->Data1, v43);
 LABEL_59:
   if ( v33 )
   {
-    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)v14 + 2, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-      ExfTryToWakePushLock((volatile signed __int64 *)v14 + 2, Length, (__int64)v9, v10);
-    KeAbPostRelease((ULONG_PTR)(v14 + 4));
+    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&v14[1], 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+      ExfTryToWakePushLock((volatile signed __int64 *)&v14[1], Length, (__int64)v9, v10);
+    KeAbPostRelease((ULONG_PTR)&v14[1]);
     KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   }
   if ( ((NamespaceNodePlaceholderKey + 0x80000000) & 0x80000000) == 0

@@ -1,16 +1,16 @@
 /*
- * XREFs of PspMapSystemDll @ 0x1408FF7F8
+ * XREFs of PspMapSystemDll @ 0x1409220D8
  * Callers:
- *     PsLocateSystemDlls @ 0x140771B30 (PsLocateSystemDlls.c)
- *     PspLocateSystemDll @ 0x140771E70 (PspLocateSystemDll.c)
- *     PsMapSystemDlls @ 0x1408F8E70 (PsMapSystemDlls.c)
- *     PspInitPhase3 @ 0x140C35304 (PspInitPhase3.c)
+ *     PsLocateSystemDlls @ 0x140771D50 (PsLocateSystemDlls.c)
+ *     PspLocateSystemDll @ 0x140772090 (PspLocateSystemDll.c)
+ *     PsMapSystemDlls @ 0x14091B210 (PsMapSystemDlls.c)
+ *     PspInitPhase3 @ 0x140C37444 (PspInitPhase3.c)
  * Callees:
- *     ObFastDereferenceObject @ 0x140356880 (ObFastDereferenceObject.c)
- *     RtlImageNtHeader @ 0x14043E310 (RtlImageNtHeader.c)
- *     MmMapViewOfSectionEx @ 0x1404830A0 (MmMapViewOfSectionEx.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     PspReferenceSystemDll @ 0x1408FF9C8 (PspReferenceSystemDll.c)
+ *     ObFastDereferenceObject @ 0x140324D60 (ObFastDereferenceObject.c)
+ *     RtlImageNtHeader @ 0x140432E80 (RtlImageNtHeader.c)
+ *     MmMapViewOfSectionEx @ 0x14047E1D4 (MmMapViewOfSectionEx.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     PspReferenceSystemDll @ 0x1409222A8 (PspReferenceSystemDll.c)
  */
 
 __int64 __fastcall PspMapSystemDll(struct _KPROCESS *a1, __int64 a2, int a3, int a4)
@@ -22,11 +22,11 @@ __int64 __fastcall PspMapSystemDll(struct _KPROCESS *a1, __int64 a2, int a3, int
   int v12; // ecx
   __int64 v13; // rax
   unsigned int v14; // esi
-  unsigned __int64 v16; // r14
-  unsigned __int64 v17; // rax
-  __int64 v18; // rdx
+  PVOID v16; // r14
+  PIMAGE_NT_HEADERS v17; // rax
+  unsigned __int64 ImageBase_high; // rdx
   __int64 v19; // [rsp+58h] [rbp-51h]
-  unsigned __int64 v20; // [rsp+70h] [rbp-39h] BYREF
+  PVOID BaseOfImage; // [rsp+70h] [rbp-39h] BYREF
   __int64 v21; // [rsp+78h] [rbp-31h] BYREF
   __int64 v22; // [rsp+80h] [rbp-29h] BYREF
   __int128 v23; // [rsp+88h] [rbp-21h] BYREF
@@ -37,7 +37,7 @@ __int64 __fastcall PspMapSystemDll(struct _KPROCESS *a1, __int64 a2, int a3, int
   v8 = PspReferenceSystemDll(*(_QWORD *)a2);
   if ( v8 )
   {
-    v20 = 0LL;
+    BaseOfImage = 0LL;
     v22 = 0LL;
     v21 = 0LL;
     v9 = *(_DWORD *)(a2 + 8);
@@ -66,7 +66,7 @@ __int64 __fastcall PspMapSystemDll(struct _KPROCESS *a1, __int64 a2, int a3, int
     v14 = MmMapViewOfSectionEx(
             v8,
             (int)a1,
-            (int)&v20,
+            (int)&BaseOfImage,
             (__int64)&v22,
             (__int64)&v21,
             v12,
@@ -89,19 +89,19 @@ __int64 __fastcall PspMapSystemDll(struct _KPROCESS *a1, __int64 a2, int a3, int
     }
     if ( a4 )
     {
-      v16 = v20;
+      v16 = BaseOfImage;
       v14 = 0;
-      v17 = RtlImageNtHeader(v20);
-      if ( *(_WORD *)(v17 + 24) == 267 )
-        v18 = *(unsigned int *)(v17 + 52);
+      v17 = RtlImageNtHeader(BaseOfImage);
+      if ( v17->OptionalHeader.Magic == 267 )
+        ImageBase_high = HIDWORD(v17->OptionalHeader.ImageBase);
       else
-        v18 = *(_QWORD *)(v17 + 48);
-      *(_QWORD *)(a2 + 32) = v18;
-      *(_DWORD *)(a2 + 12) = *(_DWORD *)(v17 + 80);
+        ImageBase_high = v17->OptionalHeader.ImageBase;
+      *(_QWORD *)(a2 + 32) = ImageBase_high;
+      *(_DWORD *)(a2 + 12) = v17->OptionalHeader.SizeOfImage;
       *(_QWORD *)(a2 + 40) = v16;
       return v14;
     }
-    if ( *(_QWORD *)(a2 + 32) == v20 )
+    if ( *(PVOID *)(a2 + 32) == BaseOfImage )
       return v14;
   }
   return 3221225473LL;

@@ -1,17 +1,17 @@
 /*
- * XREFs of PpmInstallFeedbackCounters @ 0x140393078
+ * XREFs of PpmInstallFeedbackCounters @ 0x140393258
  * Callers:
- *     PpmRegisterPerfStates @ 0x14082E54C (PpmRegisterPerfStates.c)
+ *     PpmRegisterPerfStates @ 0x14082E84C (PpmRegisterPerfStates.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KxAcquireSpinLock @ 0x1402515B0 (KxAcquireSpinLock.c)
- *     KeQueryPerformanceCounter @ 0x1402C3270 (KeQueryPerformanceCounter.c)
- *     KeRevertToUserGroupAffinityThread @ 0x140305E00 (KeRevertToUserGroupAffinityThread.c)
- *     KeSetSystemGroupAffinityThread @ 0x140306C50 (KeSetSystemGroupAffinityThread.c)
- *     PpmPerfFeedbackCounterRead @ 0x14033CA40 (PpmPerfFeedbackCounterRead.c)
- *     PpmContinueActiveTimeAccumulation @ 0x14034F15C (PpmContinueActiveTimeAccumulation.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x140251670 (KxAcquireSpinLock.c)
+ *     KeQueryPerformanceCounter @ 0x1402C3500 (KeQueryPerformanceCounter.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x140306090 (KeRevertToUserGroupAffinityThread.c)
+ *     KeSetSystemGroupAffinityThread @ 0x140306EE0 (KeSetSystemGroupAffinityThread.c)
+ *     PpmPerfFeedbackCounterRead @ 0x14033CCD0 (PpmPerfFeedbackCounterRead.c)
+ *     PpmContinueActiveTimeAccumulation @ 0x14034F2FC (PpmContinueActiveTimeAccumulation.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 void __fastcall PpmInstallFeedbackCounters(__int64 a1, __int64 *a2, char a3)
@@ -38,8 +38,8 @@ void __fastcall PpmInstallFeedbackCounters(__int64 a1, __int64 *a2, char a3)
   int v25; // eax
   bool v26; // zf
   int v27; // [rsp+20h] [rbp-68h] BYREF
-  struct _GROUP_AFFINITY v28; // [rsp+28h] [rbp-60h] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+38h] [rbp-50h] BYREF
+  _GROUP_AFFINITY v28; // [rsp+28h] [rbp-60h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+38h] [rbp-50h] BYREF
   int v30; // [rsp+80h] [rbp-8h]
 
   v27 = 0;
@@ -55,7 +55,7 @@ void __fastcall PpmInstallFeedbackCounters(__int64 a1, __int64 *a2, char a3)
   CurrentIrql = KeGetCurrentIrql();
   v8 = 2LL;
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     LODWORD(v21) = 4;
@@ -118,10 +118,10 @@ void __fastcall PpmInstallFeedbackCounters(__int64 a1, __int64 *a2, char a3)
     }
     _enable();
   }
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v22 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v22 <= 0xFu && CurrentIrql <= 0xFu && v22 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v22 <= 0xFu && CurrentIrql <= 0xFu && v22 >= 2u )
     {
       v23 = KeGetCurrentPrcb();
       v24 = v23->SchedulerAssist;

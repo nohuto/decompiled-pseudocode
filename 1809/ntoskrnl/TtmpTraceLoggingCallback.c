@@ -1,9 +1,9 @@
 /*
- * XREFs of TtmpTraceLoggingCallback @ 0x140886610
+ * XREFs of TtmpTraceLoggingCallback @ 0x140887870
  * Callers:
  *     <none>
  * Callees:
- *     TtmiSessionsRundown @ 0x140880254 (TtmiSessionsRundown.c)
+ *     TtmiSessionsRundown @ 0x1408814B4 (TtmiSessionsRundown.c)
  */
 
 void __fastcall TtmpTraceLoggingCallback(LPCGUID SourceId, ULONG ControlCode, UCHAR Level, ULONGLONG MatchAnyKeyword)

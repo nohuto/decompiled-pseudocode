@@ -1,17 +1,17 @@
 /*
- * XREFs of KsepEngineGetShimsFromRegistry @ 0x14095A578
+ * XREFs of KsepEngineGetShimsFromRegistry @ 0x140942038
  * Callers:
- *     KsepGetShimsForDriver @ 0x140959F74 (KsepGetShimsForDriver.c)
+ *     KsepGetShimsForDriver @ 0x140941A34 (KsepGetShimsForDriver.c)
  * Callees:
- *     KsepDebugPrint @ 0x1402CA2D8 (KsepDebugPrint.c)
- *     KsepLogError @ 0x14048E6F8 (KsepLogError.c)
- *     KsepPoolAllocatePaged @ 0x1404A03F0 (KsepPoolAllocatePaged.c)
- *     KsepPoolFreePaged @ 0x1404A6F94 (KsepPoolFreePaged.c)
- *     KsepDbGetShimInfo @ 0x14073E5B4 (KsepDbGetShimInfo.c)
- *     KsepStringSplitMultiString @ 0x140740268 (KsepStringSplitMultiString.c)
- *     KsepRegistryQueryDriverShims @ 0x14095AB74 (KsepRegistryQueryDriverShims.c)
- *     KsepStringFree @ 0x14095B694 (KsepStringFree.c)
- *     KsepStringDuplicate @ 0x14095CB04 (KsepStringDuplicate.c)
+ *     KsepLogError @ 0x140488B28 (KsepLogError.c)
+ *     KsepPoolAllocatePaged @ 0x14049AA70 (KsepPoolAllocatePaged.c)
+ *     KsepPoolFreePaged @ 0x1404A18F4 (KsepPoolFreePaged.c)
+ *     KsepDebugPrint @ 0x1404CC7D8 (KsepDebugPrint.c)
+ *     KsepDbGetShimInfo @ 0x14073C4E4 (KsepDbGetShimInfo.c)
+ *     KsepStringSplitMultiString @ 0x14073E198 (KsepStringSplitMultiString.c)
+ *     KsepRegistryQueryDriverShims @ 0x140942634 (KsepRegistryQueryDriverShims.c)
+ *     KsepStringFree @ 0x140943154 (KsepStringFree.c)
+ *     KsepStringDuplicate @ 0x1409445C4 (KsepStringDuplicate.c)
  */
 
 __int64 __fastcall KsepEngineGetShimsFromRegistry(__int64 a1, __int64 a2, _QWORD *a3, _DWORD *a4)

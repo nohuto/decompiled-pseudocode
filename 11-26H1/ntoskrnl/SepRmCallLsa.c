@@ -1,26 +1,26 @@
 /*
- * XREFs of SepRmCallLsa @ 0x1402C3DC0
+ * XREFs of SepRmCallLsa @ 0x14030EA80
  * Callers:
  *     <none>
  * Callees:
- *     KiUnstackDetachProcess @ 0x1402307C0 (KiUnstackDetachProcess.c)
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     ExAcquireResourceExclusiveLite @ 0x140275200 (ExAcquireResourceExclusiveLite.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x1402B4730 (KeAcquireInStackQueuedSpinLock.c)
- *     ExReleaseResourceLite @ 0x1402B4CF0 (ExReleaseResourceLite.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x1402B98C0 (KeReleaseInStackQueuedSpinLock.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     KeStackAttachProcess @ 0x1402C5270 (KeStackAttachProcess.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     SepRmDispatchDataToLsa @ 0x1404DDA94 (SepRmDispatchDataToLsa.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     NtClose @ 0x1408F9F30 (NtClose.c)
- *     NtWaitForSingleObject @ 0x1408FA270 (NtWaitForSingleObject.c)
- *     SepAuditFailed @ 0x14092FD10 (SepAuditFailed.c)
- *     AdtpWriteToEtw @ 0x140AAC7D8 (AdtpWriteToEtw.c)
- *     SepAdtOpenEtwReadyEvent @ 0x140B4C9F4 (SepAdtOpenEtwReadyEvent.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KiUnstackDetachProcess @ 0x140232120 (KiUnstackDetachProcess.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140274770 (ExAcquireResourceExclusiveLite.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402FF400 (KeAcquireInStackQueuedSpinLock.c)
+ *     ExReleaseResourceLite @ 0x1402FF9C0 (ExReleaseResourceLite.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x140304580 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     KeStackAttachProcess @ 0x14030FF30 (KeStackAttachProcess.c)
+ *     SepRmDispatchDataToLsa @ 0x1404D7174 (SepRmDispatchDataToLsa.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     SepAuditFailed @ 0x14090B840 (SepAuditFailed.c)
+ *     NtClose @ 0x140929EC0 (NtClose.c)
+ *     NtWaitForSingleObject @ 0x14092A200 (NtWaitForSingleObject.c)
+ *     AdtpWriteToEtw @ 0x140AAA894 (AdtpWriteToEtw.c)
+ *     SepAdtOpenEtwReadyEvent @ 0x140B4E784 (SepAdtOpenEtwReadyEvent.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SepRmCallLsa(__int64 **a1)
@@ -44,7 +44,7 @@ __int64 __fastcall SepRmCallLsa(__int64 **a1)
   _QWORD *v18; // rdx
   __int64 *v19; // rcx
   __int64 v20; // rax
-  int v21; // ebx
+  NTSTATUS v21; // ebx
   struct _KEVENT *v22; // rcx
   struct _KEVENT *v23; // rcx
   _BYTE v24[8]; // [rsp+20h] [rbp-60h] BYREF
@@ -52,7 +52,7 @@ __int64 __fastcall SepRmCallLsa(__int64 **a1)
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+30h] [rbp-50h] BYREF
   struct _KAPC_STATE ApcState; // [rsp+48h] [rbp-38h] BYREF
 
-  v1 = BYTE4(SepRmCapTableLock.Header.WaitListHead.Flink);
+  v1 = SepRmAuditingEnabled;
   Handle = 0LL;
   memset(&ApcState, 0, sizeof(ApcState));
   v3 = 1;
@@ -62,7 +62,7 @@ __int64 __fastcall SepRmCallLsa(__int64 **a1)
     result = SepAdtOpenEtwReadyEvent(&Handle);
     if ( (int)result < 0 )
       return result;
-    v21 = NtWaitForSingleObject((_DWORD)Handle);
+    v21 = NtWaitForSingleObject(Handle, 1u, 0LL);
     NtClose(Handle);
     if ( v21 < 0 )
       return (unsigned int)v21;
@@ -141,7 +141,7 @@ LABEL_49:
       if ( v13 < 0 )
       {
         SepAdtLastAuditFailStatus = v13;
-        _InterlockedIncrement((volatile signed __int32 *)&RtlpBootStatHandleLock.QueuedScb);
+        _InterlockedIncrement((volatile signed __int32 *)&RtlpBootStatHandleLock.ReservedPreviousReadyTimeValue);
         if ( !v24[0] )
           SepAuditFailed((unsigned int)v13);
       }

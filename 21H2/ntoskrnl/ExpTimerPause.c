@@ -1,13 +1,13 @@
 /*
- * XREFs of ExpTimerPause @ 0x1402C7A34
+ * XREFs of ExpTimerPause @ 0x140246288
  * Callers:
- *     PsInsertVirtualizedTimer @ 0x1402C1F18 (PsInsertVirtualizedTimer.c)
- *     PspSetProcessFreezeStateCallback @ 0x1402C5460 (PspSetProcessFreezeStateCallback.c)
- *     ExWakeTimersPause @ 0x14038D260 (ExWakeTimersPause.c)
+ *     PsInsertVirtualizedTimer @ 0x1402403B8 (PsInsertVirtualizedTimer.c)
+ *     PspSetProcessFreezeStateCallback @ 0x140243CC0 (PspSetProcessFreezeStateCallback.c)
+ *     ExWakeTimersPause @ 0x14038D3B0 (ExWakeTimersPause.c)
  * Callees:
- *     KxAcquireSpinLock @ 0x1402295B0 (KxAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     KeCancelTimerInternal @ 0x1402C7AF0 (KeCancelTimerInternal.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     KeCancelTimerInternal @ 0x140246344 (KeCancelTimerInternal.c)
+ *     KxAcquireSpinLock @ 0x1402CDEB0 (KxAcquireSpinLock.c)
  */
 
 void __fastcall ExpTimerPause(__int64 a1, __int64 a2, unsigned __int64 a3, char a4)

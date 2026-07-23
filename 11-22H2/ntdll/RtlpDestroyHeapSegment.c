@@ -16,12 +16,12 @@ __int64 __fastcall RtlpDestroyHeapSegment(__int64 a1)
   __int64 *v4; // rcx
   __int64 v5; // r9
   __int64 v6; // rdx
-  __int64 v7; // rax
+  void *v7; // rax
   __int64 v8; // rdi
-  unsigned int v9; // ebx
+  unsigned __int32 v9; // ebx
   __int64 v10; // rdx
-  __int64 v12; // [rsp+40h] [rbp+8h] BYREF
-  __int64 v13; // [rsp+48h] [rbp+10h] BYREF
+  ULONG_PTR v12; // [rsp+40h] [rbp+8h] BYREF
+  PVOID v13; // [rsp+48h] [rbp+10h] BYREF
 
   if ( (*(_BYTE *)(a1 + 20) & 1) != 0 )
     return 0LL;
@@ -39,12 +39,12 @@ __int64 __fastcall RtlpDestroyHeapSegment(__int64 a1)
   {
     RtlpLogHeapFailure(13, 0, v2, v5, v6, 0LL);
   }
-  v7 = *(_QWORD *)(a1 + 48);
+  v7 = *(void **)(a1 + 48);
   v8 = *(_QWORD *)(a1 + 40);
   v12 = 0LL;
   v13 = v7;
-  v9 = RtlpSecMemFreeVirtualMemory((__int64)v4, &v13, &v12, 0x8000LL);
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+  v9 = RtlpSecMemFreeVirtualMemory((__int64)v4, &v13, &v12, 0x8000u);
+  if ( RtlGetCurrentServiceSessionId() )
     v10 = (__int64)NtCurrentPeb()->SharedData + 558;
   else
     v10 = 2147353480LL;

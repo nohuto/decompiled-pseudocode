@@ -1,7 +1,7 @@
 /*
- * XREFs of HvlpAllocatePageListResources @ 0x140941690
+ * XREFs of HvlpAllocatePageListResources @ 0x140941890
  * Callers:
- *     PopAllocateHiberContext @ 0x140987D38 (PopAllocateHiberContext.c)
+ *     PopAllocateHiberContext @ 0x140987F38 (PopAllocateHiberContext.c)
  * Callees:
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

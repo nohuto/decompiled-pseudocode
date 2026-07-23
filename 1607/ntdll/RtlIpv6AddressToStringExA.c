@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlIpv6AddressToStringExA @ 0x1800EDFF0
+ * XREFs of RtlIpv6AddressToStringExA @ 0x1800EE0B0
  * Callers:
  *     <none>
  * Callees:
- *     RtlIpv6AddressToStringA @ 0x18007D8E0 (RtlIpv6AddressToStringA.c)
- *     __security_check_cookie @ 0x180096C40 (__security_check_cookie.c)
+ *     RtlIpv6AddressToStringA @ 0x18007D8D0 (RtlIpv6AddressToStringA.c)
+ *     __security_check_cookie @ 0x180096C30 (__security_check_cookie.c)
  *     sprintf_s @ 0x1800A1E20 (sprintf_s.c)
  *     memmove @ 0x1800AC980 (memmove.c)
  */

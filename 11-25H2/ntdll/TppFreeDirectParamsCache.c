@@ -6,17 +6,17 @@
  *     RtlFreeHeap @ 0x180080DD0 (RtlFreeHeap.c)
  */
 
-__int64 __fastcall TppFreeDirectParamsCache(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+LOGICAL __fastcall TppFreeDirectParamsCache(__int64 a1)
 {
-  __int64 v4; // r8
-  __int64 result; // rax
+  __int64 v1; // r8
+  LOGICAL result; // eax
 
-  v4 = *(_QWORD *)(a1 + 344);
-  if ( v4 )
+  v1 = *(_QWORD *)(a1 + 344);
+  if ( v1 )
   {
-    result = (unsigned int)_InterlockedExchangeAdd((volatile signed __int32 *)(v4 + 8), 0xFFFFFFFF);
-    if ( (_DWORD)result == 1 )
-      return RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, TppHeapTag + 3145728, *(_QWORD *)v4, a4);
+    result = _InterlockedExchangeAdd((volatile signed __int32 *)(v1 + 8), 0xFFFFFFFF);
+    if ( result == 1 )
+      return RtlFreeHeap(NtCurrentPeb()->ProcessHeap, TppHeapTag + 3145728, *(PVOID *)v1);
   }
   return result;
 }

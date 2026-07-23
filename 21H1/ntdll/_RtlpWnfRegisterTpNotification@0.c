@@ -11,31 +11,31 @@
  *     _ZwSetWnfProcessNotificationEvent@4 @ 0x4B2F44B0 (_ZwSetWnfProcessNotificationEvent@4.c)
  */
 
-int __stdcall RtlpWnfRegisterTpNotification()
+NTSTATUS __stdcall RtlpWnfRegisterTpNotification()
 {
-  int v0; // esi
-  int v2; // [esp+8h] [ebp-8h] BYREF
-  HANDLE Handle; // [esp+Ch] [ebp-4h] BYREF
+  NTSTATUS v0; // esi
+  PTP_WAIT WaitReturn; // [esp+8h] [ebp-8h] BYREF
+  HANDLE EventHandle; // [esp+Ch] [ebp-4h] BYREF
 
-  v2 = 0;
-  Handle = 0;
-  v0 = NtCreateEvent(&Handle, 2031619, 0, 1, 0);
+  WaitReturn = 0;
+  EventHandle = 0;
+  v0 = NtCreateEvent(&EventHandle, 0x1F0003u, 0, SynchronizationEvent, 0);
   if ( v0 >= 0 )
   {
-    v0 = TpAllocWait(&v2, RtlpWnfNotificationThread, Handle, 0);
+    v0 = TpAllocWait(&WaitReturn, RtlpWnfNotificationThread, EventHandle, 0);
     if ( v0 >= 0 )
     {
-      v0 = ZwSetWnfProcessNotificationEvent(Handle);
+      v0 = ZwSetWnfProcessNotificationEvent(EventHandle);
       if ( v0 >= 0 )
       {
-        TpSetWaitEx(v2, Handle, 0, 0);
+        TpSetWaitEx(WaitReturn, EventHandle, 0, 0);
         return v0;
       }
     }
-    if ( v2 )
-      TpReleaseWait(v2);
+    if ( WaitReturn )
+      TpReleaseWait(WaitReturn);
   }
-  if ( Handle )
-    NtClose(Handle);
+  if ( EventHandle )
+    NtClose(EventHandle);
   return v0;
 }

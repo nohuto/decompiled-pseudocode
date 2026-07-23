@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlLookupFunctionEntryEx @ 0x140C7B400
+ * XREFs of RtlLookupFunctionEntryEx @ 0x140C81400
  * Callers:
  *     <none>
  * Callees:

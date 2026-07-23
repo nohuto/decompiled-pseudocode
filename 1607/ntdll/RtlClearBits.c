@@ -1,16 +1,16 @@
 /*
- * XREFs of RtlClearBits @ 0x180050B40
+ * XREFs of RtlClearBits @ 0x180050B30
  * Callers:
- *     RtlpSparseBitmapCtxUpdateBits @ 0x18004FE80 (RtlpSparseBitmapCtxUpdateBits.c)
- *     LdrpAcquireTlsIndex @ 0x1800500C0 (LdrpAcquireTlsIndex.c)
- *     RtlFlsFree @ 0x180050A10 (RtlFlsFree.c)
- *     LdrpInitializeTls @ 0x180051188 (LdrpInitializeTls.c)
- *     RtlFindSetBitsAndClear @ 0x1800E4260 (RtlFindSetBitsAndClear.c)
+ *     RtlpSparseBitmapCtxUpdateBits @ 0x18004FE70 (RtlpSparseBitmapCtxUpdateBits.c)
+ *     LdrpAcquireTlsIndex @ 0x1800500B0 (LdrpAcquireTlsIndex.c)
+ *     RtlFlsFree @ 0x180050A00 (RtlFlsFree.c)
+ *     LdrpInitializeTls @ 0x180051178 (LdrpInitializeTls.c)
+ *     RtlFindSetBitsAndClear @ 0x1800E4320 (RtlFindSetBitsAndClear.c)
  * Callees:
  *     memset @ 0x1800ACCC0 (memset.c)
  */
 
-void __fastcall RtlClearBits(__int64 a1, unsigned int a2, unsigned int a3)
+void __cdecl RtlClearBits(PRTL_BITMAP BitMapHeader, ULONG StartingIndex, ULONG NumberToClear)
 {
   unsigned __int64 v3; // rdi
   __int64 v4; // rdx
@@ -18,20 +18,20 @@ void __fastcall RtlClearBits(__int64 a1, unsigned int a2, unsigned int a3)
   __int64 v6; // rsi
   char v7; // al
 
-  if ( a3 )
+  if ( NumberToClear )
   {
-    v3 = a2;
-    v4 = a2 & 7;
-    v5 = (_BYTE *)(*(_QWORD *)(a1 + 8) + (v3 >> 3));
-    v6 = a3;
-    if ( (unsigned int)v4 + a3 <= 8 )
+    v3 = StartingIndex;
+    v4 = StartingIndex & 7;
+    v5 = (char *)BitMapHeader->Buffer + (v3 >> 3);
+    v6 = NumberToClear;
+    if ( (unsigned int)v4 + NumberToClear <= 8 )
     {
-      v7 = ~(byte_180119330[a3] << v4);
+      v7 = ~(byte_180119330[NumberToClear] << v4);
       goto LABEL_9;
     }
     if ( (_DWORD)v4 )
     {
-      v6 = (unsigned int)v4 + a3 - 8;
+      v6 = (unsigned int)v4 + NumberToClear - 8;
       *v5++ &= byte_180119330[v4];
     }
     if ( (unsigned int)v6 > 8 )

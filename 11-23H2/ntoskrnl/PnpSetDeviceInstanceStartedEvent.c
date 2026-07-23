@@ -1,9 +1,9 @@
 /*
- * XREFs of PnpSetDeviceInstanceStartedEvent @ 0x140323070
+ * XREFs of PnpSetDeviceInstanceStartedEvent @ 0x140323300
  * Callers:
- *     PipProcessStartPhase3 @ 0x14079B9C4 (PipProcessStartPhase3.c)
+ *     PipProcessStartPhase3 @ 0x14079BBB4 (PipProcessStartPhase3.c)
  * Callees:
- *     PnpSetDeviceInstanceStartedEventFromDeviceInstance @ 0x140321C4C (PnpSetDeviceInstanceStartedEventFromDeviceInstance.c)
+ *     PnpSetDeviceInstanceStartedEventFromDeviceInstance @ 0x140321EDC (PnpSetDeviceInstanceStartedEventFromDeviceInstance.c)
  */
 
 __int64 __fastcall PnpSetDeviceInstanceStartedEvent(__int64 a1)

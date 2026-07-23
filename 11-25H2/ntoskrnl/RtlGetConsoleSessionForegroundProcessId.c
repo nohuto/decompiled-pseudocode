@@ -7,10 +7,10 @@
  *     PsIsCurrentThreadInServerSilo @ 0x140311890 (PsIsCurrentThreadInServerSilo.c)
  */
 
-struct _LIST_ENTRY *RtlGetConsoleSessionForegroundProcessId()
+ULONGLONG RtlGetConsoleSessionForegroundProcessId(void)
 {
   if ( PsIsCurrentThreadInServerSilo() )
-    return PsGetCurrentServerSiloGlobals()[80].Blink->Blink;
+    return (ULONGLONG)PsGetCurrentServerSiloGlobals()[80].Blink->Blink;
   else
-    return (struct _LIST_ENTRY *)MEMORY[0xFFFFF78000000338];
+    return MEMORY[0xFFFFF78000000338];
 }

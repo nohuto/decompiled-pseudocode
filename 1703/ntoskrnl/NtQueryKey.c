@@ -104,7 +104,7 @@ NTSTATUS __stdcall NtQueryKey(
   v39 = 0LL;
   v41 = 0LL;
   if ( CmpTraceRoutine )
-    EtwGetKernelTraceTimestamp(v63, (char *)0x20000);
+    EtwGetKernelTraceTimestamp(v63, 0x20000u);
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   v12 = ExAcquireRundownProtection((PEX_RUNDOWN_REF)&CmpShutdownRundown);
@@ -116,7 +116,7 @@ LABEL_57:
     v29 = 0LL;
     goto LABEL_45;
   }
-  if ( (unsigned int)KeyInformationClass <= MaxKeyInfoClass )
+  if ( (unsigned int)KeyInformationClass <= KeyTrustInformation )
   {
     PreviousMode = KeGetCurrentThread()->PreviousMode;
     if ( PreviousMode == 1 )

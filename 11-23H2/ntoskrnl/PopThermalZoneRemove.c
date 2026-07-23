@@ -1,24 +1,24 @@
 /*
- * XREFs of PopThermalZoneRemove @ 0x14098B010
+ * XREFs of PopThermalZoneRemove @ 0x14098B210
  * Callers:
  *     <none>
  * Callees:
- *     KeWaitForSingleObject @ 0x140243CE0 (KeWaitForSingleObject.c)
- *     KeDisableTimer2 @ 0x14031DB78 (KeDisableTimer2.c)
- *     PopReleaseRwLock @ 0x14032C480 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x14032C5E4 (PopAcquireRwLockExclusive.c)
- *     IoCancelIrp @ 0x140351E90 (IoCancelIrp.c)
- *     PopThermalUpdateTelemetryClientCount @ 0x140389E70 (PopThermalUpdateTelemetryClientCount.c)
- *     PopThermalStandbyNotify @ 0x14058FBF0 (PopThermalStandbyNotify.c)
- *     PopDiagTraceThermalStandbyState @ 0x140594C08 (PopDiagTraceThermalStandbyState.c)
- *     PopTraceCr3Mitigated @ 0x1405952E4 (PopTraceCr3Mitigated.c)
- *     PopTraceThermalZoneActiveActivity @ 0x140595D4C (PopTraceThermalZoneActiveActivity.c)
- *     PopTraceThermalZonePassiveHistogram @ 0x140595F20 (PopTraceThermalZonePassiveHistogram.c)
- *     PopTraceZoneCr3Mitigated @ 0x1405960A8 (PopTraceZoneCr3Mitigated.c)
- *     PopResetCurrentPolicies @ 0x1408240F8 (PopResetCurrentPolicies.c)
- *     PopThermalUpdateActiveTimeTracking @ 0x140848090 (PopThermalUpdateActiveTimeTracking.c)
- *     PopThermalUpdatePassiveTimeTracking @ 0x14098AFC0 (PopThermalUpdatePassiveTimeTracking.c)
- *     PopUpdateOverThrottledCount @ 0x14098B1F8 (PopUpdateOverThrottledCount.c)
+ *     KeWaitForSingleObject @ 0x140243DB0 (KeWaitForSingleObject.c)
+ *     KeDisableTimer2 @ 0x14031DE08 (KeDisableTimer2.c)
+ *     PopReleaseRwLock @ 0x14032C710 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14032C874 (PopAcquireRwLockExclusive.c)
+ *     IoCancelIrp @ 0x140352030 (IoCancelIrp.c)
+ *     PopThermalUpdateTelemetryClientCount @ 0x14038A050 (PopThermalUpdateTelemetryClientCount.c)
+ *     PopThermalStandbyNotify @ 0x1405900E0 (PopThermalStandbyNotify.c)
+ *     PopDiagTraceThermalStandbyState @ 0x1405950F8 (PopDiagTraceThermalStandbyState.c)
+ *     PopTraceCr3Mitigated @ 0x1405957D4 (PopTraceCr3Mitigated.c)
+ *     PopTraceThermalZoneActiveActivity @ 0x14059623C (PopTraceThermalZoneActiveActivity.c)
+ *     PopTraceThermalZonePassiveHistogram @ 0x140596410 (PopTraceThermalZonePassiveHistogram.c)
+ *     PopTraceZoneCr3Mitigated @ 0x140596598 (PopTraceZoneCr3Mitigated.c)
+ *     PopResetCurrentPolicies @ 0x1408243F8 (PopResetCurrentPolicies.c)
+ *     PopThermalUpdateActiveTimeTracking @ 0x140848390 (PopThermalUpdateActiveTimeTracking.c)
+ *     PopThermalUpdatePassiveTimeTracking @ 0x14098B1C0 (PopThermalUpdatePassiveTimeTracking.c)
+ *     PopUpdateOverThrottledCount @ 0x14098B3F8 (PopUpdateOverThrottledCount.c)
  *     PopReleasePolicyLock @ 0x140A87BA4 (PopReleasePolicyLock.c)
  *     PopAcquirePolicyLock @ 0x140A87BE4 (PopAcquirePolicyLock.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
@@ -31,7 +31,10 @@ void __fastcall PopThermalZoneRemove(__int64 a1)
   __int64 v4; // rdx
   __int64 v5; // rcx
   __int64 v6; // r8
-  void *v7; // rcx
+  __int64 v7; // r9
+  void *v8; // rcx
+  __int64 v9; // [rsp+20h] [rbp-18h]
+  __int64 v10; // [rsp+28h] [rbp-10h]
 
   *(_BYTE *)(a1 + 66) = 1;
   IoCancelIrp(*(PIRP *)(a1 + 56));
@@ -51,15 +54,15 @@ void __fastcall PopThermalZoneRemove(__int64 a1)
   {
     PopDiagTraceThermalStandbyState(*(_QWORD *)(a1 + 48), 0LL);
     PopAcquireRwLockExclusive((ULONG_PTR)&PopSystemThermalInfo);
-    --dword_140C3C6F4;
-    PopTraceZoneCr3Mitigated(dword_140C3C6F8, a1);
-    if ( !dword_140C3C6F4 )
+    --dword_140C3C774;
+    PopTraceZoneCr3Mitigated(dword_140C3C778, a1);
+    if ( !dword_140C3C774 )
     {
       PopTraceCr3Mitigated();
-      if ( HIBYTE(word_140C3C6F0) == 1 )
+      if ( HIBYTE(word_140C3C770) == 1 )
       {
         PopThermalStandbyNotify(0);
-        HIBYTE(word_140C3C6F0) = 0;
+        HIBYTE(word_140C3C770) = 0;
       }
     }
     PopReleaseRwLock(&PopSystemThermalInfo);
@@ -76,10 +79,10 @@ void __fastcall PopThermalZoneRemove(__int64 a1)
       BYTE13(PopCapabilities) = 0;
       PopResetCurrentPolicies();
     }
-    PopReleasePolicyLock(v5, v4, v6);
+    PopReleasePolicyLock(v5, v4, v6, v7, v9, v10);
   }
   PopThermalUpdateTelemetryClientCount(0);
-  v7 = *(void **)(a1 + 1048);
-  if ( v7 )
-    ExFreePoolWithTag(v7, 0);
+  v8 = *(void **)(a1 + 1048);
+  if ( v8 )
+    ExFreePoolWithTag(v8, 0);
 }

@@ -4,7 +4,7 @@
  *     ReadString_0 @ 0x1800A340C (ReadString_0.c)
  *     _input_s @ 0x1800A3754 (_input_s.c)
  * Callees:
- *     _filbuf_s @ 0x1800A5A78 (_filbuf_s.c)
+ *     _filbuf_s @ 0x1800A0AC4 (_filbuf_s.c)
  */
 
 __int64 __fastcall inc_0(__int64 a1)

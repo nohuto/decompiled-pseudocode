@@ -8,20 +8,32 @@
  *     UpcaseUnicodeToSingleByteNHelper @ 0x18007E660 (UpcaseUnicodeToSingleByteNHelper.c)
  */
 
-__int64 RtlUpcaseUnicodeToMultiByteN()
+NTSTATUS __cdecl RtlUpcaseUnicodeToMultiByteN(
+        PCHAR MultiByteString,
+        ULONG MaxBytesInMultiByteString,
+        PULONG BytesInMultiByteString,
+        PCWCH UnicodeString,
+        ULONG BytesInUnicodeString)
 {
-  int v0; // edx
-  int v1; // ecx
-  int v2; // r8d
-  int v3; // r9d
-  int v4; // r10d
-  signed __int32 v6[8]; // [rsp+0h] [rbp-48h] BYREF
+  ULONG v5; // edx
+  CHAR *v6; // rcx
+  ULONG *v7; // r8
+  const WCHAR *v8; // r9
+  ULONG v9; // r10d
+  signed __int32 v11[8]; // [rsp+0h] [rbp-48h] BYREF
 
   if ( RtlpIsUtf8Process() )
-    return UpcaseUnicodeToUTF8NHelper(v1, v0, v2, v3, v4);
-  _InterlockedOr(v6, 0);
-  if ( word_18018171C )
-    return UpcaseUnicodeToMultiByteNHelper(v1, v0, v2, v3, v4);
+    return UpcaseUnicodeToUTF8NHelper(v6, v5, v7, v8, v9);
+  _InterlockedOr(v11, 0);
+  if ( GlobalRtlNlsState.DBCSCodePage )
+    return UpcaseUnicodeToMultiByteNHelper(v6, v5, v7, v8, v9);
   else
-    return UpcaseUnicodeToSingleByteNHelper(v1, v0, v2, v3, v4, qword_180181738, qword_180181730);
+    return UpcaseUnicodeToSingleByteNHelper(
+             (_DWORD)v6,
+             v5,
+             (_DWORD)v7,
+             (_DWORD)v8,
+             v9,
+             (__int64)GlobalRtlNlsState.WideCharTable,
+             (__int64)GlobalRtlNlsState.MultiByteTable);
 }

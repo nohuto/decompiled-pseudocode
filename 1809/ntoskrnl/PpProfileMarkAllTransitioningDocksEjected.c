@@ -1,7 +1,7 @@
 /*
- * XREFs of PpProfileMarkAllTransitioningDocksEjected @ 0x140832AF8
+ * XREFs of PpProfileMarkAllTransitioningDocksEjected @ 0x140833D58
  * Callers:
- *     PnpProcessCompletedEject @ 0x140828280 (PnpProcessCompletedEject.c)
+ *     PnpProcessCompletedEject @ 0x140829480 (PnpProcessCompletedEject.c)
  * Callees:
  *     KeReleaseGuardedMutex @ 0x140014E30 (KeReleaseGuardedMutex.c)
  *     ExAcquireFastMutex @ 0x14004E530 (ExAcquireFastMutex.c)

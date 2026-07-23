@@ -6,11 +6,15 @@
  *     <none>
  */
 
-__int64 NtSetInformationToken()
+NTSTATUS __cdecl NtSetInformationToken(
+        HANDLE TokenHandle,
+        ULONG TokenInformationClass,
+        PVOID TokenInformation,
+        ULONG TokenInformationLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 383LL;
+  result = 383;
   __asm { syscall; Low latency system call }
   return result;
 }

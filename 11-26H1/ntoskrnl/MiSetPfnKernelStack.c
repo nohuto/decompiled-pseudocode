@@ -1,8 +1,8 @@
 /*
- * XREFs of MiSetPfnKernelStack @ 0x1402A06C0
+ * XREFs of MiSetPfnKernelStack @ 0x14029FC10
  * Callers:
- *     MiInPageSingleKernelStack @ 0x1402A0214 (MiInPageSingleKernelStack.c)
- *     MiCreateKernelStackFromNodeCache @ 0x1403D11D4 (MiCreateKernelStackFromNodeCache.c)
+ *     MiInPageSingleKernelStack @ 0x14029F764 (MiInPageSingleKernelStack.c)
+ *     MiCreateKernelStackFromNodeCache @ 0x1403D41A0 (MiCreateKernelStackFromNodeCache.c)
  * Callees:
  *     <none>
  */

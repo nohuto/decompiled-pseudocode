@@ -1,5 +1,5 @@
 /*
- * XREFs of PpmPerfSelectDomainStates @ 0x14048AF00
+ * XREFs of PpmPerfSelectDomainStates @ 0x140484A40
  * Callers:
  *     <none>
  * Callees:

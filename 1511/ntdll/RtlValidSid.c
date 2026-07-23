@@ -19,7 +19,7 @@
  *     <none>
  */
 
-bool __fastcall RtlValidSid(_BYTE *a1)
+BOOLEAN __cdecl RtlValidSid(PSID Sid)
 {
-  return a1 && (*a1 & 0xF) == 1 && a1[1] <= 0xFu;
+  return Sid && (*(_BYTE *)Sid & 0xF) == 1 && *((_BYTE *)Sid + 1) <= 0xFu;
 }

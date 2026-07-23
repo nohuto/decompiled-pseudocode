@@ -1,12 +1,12 @@
 /*
- * XREFs of PsQueryTotalCycleTimeProcess @ 0x1404B9E68
+ * XREFs of PsQueryTotalCycleTimeProcess @ 0x1404A5B98
  * Callers:
- *     NtQueryInformationProcess @ 0x140422590 (NtQueryInformationProcess.c)
+ *     NtQueryInformationProcess @ 0x140421450 (NtQueryInformationProcess.c)
  * Callees:
- *     PspUnlockProcessThreadListShared @ 0x140095C98 (PspUnlockProcessThreadListShared.c)
- *     PspLockProcessThreadListShared @ 0x140095CDC (PspLockProcessThreadListShared.c)
- *     KeUpdateTotalCyclesCurrentThread @ 0x140095D9C (KeUpdateTotalCyclesCurrentThread.c)
- *     KeFlushProcessWriteBuffers @ 0x1400C892C (KeFlushProcessWriteBuffers.c)
+ *     PspUnlockProcessThreadListShared @ 0x140095498 (PspUnlockProcessThreadListShared.c)
+ *     PspLockProcessThreadListShared @ 0x1400954DC (PspLockProcessThreadListShared.c)
+ *     KeUpdateTotalCyclesCurrentThread @ 0x14009559C (KeUpdateTotalCyclesCurrentThread.c)
+ *     KeFlushProcessWriteBuffers @ 0x1400C67CC (KeFlushProcessWriteBuffers.c)
  */
 
 __int64 __fastcall PsQueryTotalCycleTimeProcess(__int64 a1, __int64 a2)

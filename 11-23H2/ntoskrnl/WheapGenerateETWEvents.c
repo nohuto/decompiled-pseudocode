@@ -1,14 +1,14 @@
 /*
- * XREFs of WheapGenerateETWEvents @ 0x1406132C8
+ * XREFs of WheapGenerateETWEvents @ 0x140613818
  * Callers:
- *     WheaReportHwError @ 0x140610630 (WheaReportHwError.c)
- *     WheapProcessWorkQueueItem @ 0x140611020 (WheapProcessWorkQueueItem.c)
- *     WheapProcessWaitingETWEvents @ 0x140860F40 (WheapProcessWaitingETWEvents.c)
+ *     WheaReportHwError @ 0x140610B80 (WheaReportHwError.c)
+ *     WheapProcessWorkQueueItem @ 0x140611570 (WheapProcessWorkQueueItem.c)
+ *     WheapProcessWaitingETWEvents @ 0x140861180 (WheapProcessWaitingETWEvents.c)
  * Callees:
- *     WheaIsCriticalState @ 0x140380B70 (WheaIsCriticalState.c)
- *     WheapCompressErrorRecord @ 0x140610D28 (WheapCompressErrorRecord.c)
- *     WheapGenerateETWErrorRecord @ 0x140613130 (WheapGenerateETWErrorRecord.c)
- *     WheapGenerateETWErrorRecordLarge @ 0x1406131B0 (WheapGenerateETWErrorRecordLarge.c)
+ *     WheaIsCriticalState @ 0x140380D10 (WheaIsCriticalState.c)
+ *     WheapCompressErrorRecord @ 0x140611278 (WheapCompressErrorRecord.c)
+ *     WheapGenerateETWErrorRecord @ 0x140613680 (WheapGenerateETWErrorRecord.c)
+ *     WheapGenerateETWErrorRecordLarge @ 0x140613700 (WheapGenerateETWErrorRecordLarge.c)
  */
 
 char __fastcall WheapGenerateETWEvents(__int64 a1)

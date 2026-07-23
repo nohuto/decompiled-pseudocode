@@ -1,8 +1,8 @@
 /*
- * XREFs of SmCompressionProcessHoldsPartitionReference @ 0x1404F6D2C
+ * XREFs of SmCompressionProcessHoldsPartitionReference @ 0x1404F4610
  * Callers:
- *     PspProcessDelete @ 0x1408A99B0 (PspProcessDelete.c)
- *     SmProcessDeleteNotification @ 0x140A51570 (SmProcessDeleteNotification.c)
+ *     PspProcessDelete @ 0x1408FFC10 (PspProcessDelete.c)
+ *     SmProcessDeleteNotification @ 0x140A4863C (SmProcessDeleteNotification.c)
  * Callees:
  *     <none>
  */

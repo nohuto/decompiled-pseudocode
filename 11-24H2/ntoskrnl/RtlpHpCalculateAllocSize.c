@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpHpCalculateAllocSize @ 0x14040C270
+ * XREFs of RtlpHpCalculateAllocSize @ 0x140404870
  * Callers:
- *     RtlpHpAllocateHeapSlow @ 0x1402B819C (RtlpHpAllocateHeapSlow.c)
+ *     RtlpHpAllocateHeapSlow @ 0x1404D2B7C (RtlpHpAllocateHeapSlow.c)
  * Callees:
  *     <none>
  */

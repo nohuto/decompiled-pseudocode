@@ -1,19 +1,19 @@
 /*
- * XREFs of TtmCleanupCurrentSession @ 0x140AAD48C
+ * XREFs of TtmCleanupCurrentSession @ 0x140AA850C
  * Callers:
- *     NtPowerInformation @ 0x1409F0230 (NtPowerInformation.c)
+ *     NtPowerInformation @ 0x1409EDB00 (NtPowerInformation.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x14025A450 (ExReleaseResourceLite.c)
- *     PsGetSessionIdEx @ 0x1403025D0 (PsGetSessionIdEx.c)
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     TtmpAcquireSessionLock @ 0x1406F73C8 (TtmpAcquireSessionLock.c)
- *     TtmpCleanupPowerRequestsTrackingFromCurrentSession @ 0x14076A4E4 (TtmpCleanupPowerRequestsTrackingFromCurrentSession.c)
- *     TtmpDereferenceSessionMaybeLast @ 0x14076A638 (TtmpDereferenceSessionMaybeLast.c)
- *     ObCloseHandle @ 0x1408A2B10 (ObCloseHandle.c)
- *     PoUnregisterPowerSettingCallback @ 0x140A76B70 (PoUnregisterPowerSettingCallback.c)
- *     TtmiLogCleanupCurrentSessionStart @ 0x140AAD584 (TtmiLogCleanupCurrentSessionStart.c)
- *     TtmiLogCleanupCurrentSessionStop @ 0x140AAD62C (TtmiLogCleanupCurrentSessionStop.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x14028AA60 (ExReleaseResourceLite.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     PsGetSessionIdEx @ 0x14030CBE0 (PsGetSessionIdEx.c)
+ *     TtmpAcquireSessionLock @ 0x1406F53C8 (TtmpAcquireSessionLock.c)
+ *     TtmpCleanupPowerRequestsTrackingFromCurrentSession @ 0x14076A704 (TtmpCleanupPowerRequestsTrackingFromCurrentSession.c)
+ *     TtmpDereferenceSessionMaybeLast @ 0x14076A858 (TtmpDereferenceSessionMaybeLast.c)
+ *     ObCloseHandle @ 0x1408AB1B0 (ObCloseHandle.c)
+ *     PoUnregisterPowerSettingCallback @ 0x140A70C90 (PoUnregisterPowerSettingCallback.c)
+ *     TtmiLogCleanupCurrentSessionStart @ 0x140AA8604 (TtmiLogCleanupCurrentSessionStart.c)
+ *     TtmiLogCleanupCurrentSessionStop @ 0x140AA86AC (TtmiLogCleanupCurrentSessionStop.c)
  */
 
 __int64 TtmCleanupCurrentSession()

@@ -1,21 +1,28 @@
 /*
- * XREFs of NtAlpcCreatePortSection @ 0x1406D4210
+ * XREFs of NtAlpcCreatePortSection @ 0x1406AB4F0
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     AlpcpDereferenceBlobEx @ 0x1405E9FC0 (AlpcpDereferenceBlobEx.c)
- *     AlpcpDeleteBlob @ 0x1405EA09C (AlpcpDeleteBlob.c)
- *     AlpcpCreateSection @ 0x1406D43DC (AlpcpCreateSection.c)
- *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     AlpcpCreateSection @ 0x1406AB6BC (AlpcpCreateSection.c)
+ *     AlpcpDereferenceBlobEx @ 0x1406D9720 (AlpcpDereferenceBlobEx.c)
+ *     AlpcpDeleteBlob @ 0x1406D97FC (AlpcpDeleteBlob.c)
+ *     ObReferenceObjectByHandle @ 0x140707FA0 (ObReferenceObjectByHandle.c)
  */
 
-__int64 __fastcall NtAlpcCreatePortSection(HANDLE Handle, int a2, __int64 a3, __int64 a4, _QWORD *a5, _QWORD *a6)
+// local variable allocation has failed, the output may be wrong!
+NTSTATUS __cdecl NtAlpcCreatePortSection(
+        HANDLE PortHandle,
+        ULONG Flags,
+        HANDLE SectionHandle,
+        SIZE_T SectionSize,
+        PALPC_HANDLE AlpcSectionHandle,
+        PSIZE_T ActualSectionSize)
 {
   struct _KTHREAD *CurrentThread; // rax
   char PreviousMode; // r14
-  NTSTATUS Section; // ebx
+  int Section; // ebx
   __int64 v11; // rdx
   __int64 v12; // rcx
   KPROCESSOR_MODE v13; // r9
@@ -28,7 +35,7 @@ __int64 __fastcall NtAlpcCreatePortSection(HANDLE Handle, int a2, __int64 a3, __
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
-  if ( (a2 & 0xFFFBFFFF) != 0 || (a2 & 0x40000) != 0 && a3 )
+  if ( (Flags & 0xFFFBFFFF) != 0 || (Flags & 0x40000) != 0 && SectionHandle )
   {
     Section = -1073741811;
   }
@@ -38,30 +45,30 @@ __int64 __fastcall NtAlpcCreatePortSection(HANDLE Handle, int a2, __int64 a3, __
     {
       v11 = 0x7FFFFFFF0000LL;
       v12 = 0x7FFFFFFF0000LL;
-      if ( (unsigned __int64)a5 < 0x7FFFFFFF0000LL )
-        v12 = (__int64)a5;
+      if ( (unsigned __int64)AlpcSectionHandle < 0x7FFFFFFF0000LL )
+        v12 = (__int64)AlpcSectionHandle;
       *(_QWORD *)v12 = *(_QWORD *)v12;
-      if ( (unsigned __int64)a6 < 0x7FFFFFFF0000LL )
-        v11 = (__int64)a6;
+      if ( (unsigned __int64)ActualSectionSize < 0x7FFFFFFF0000LL )
+        v11 = (__int64)ActualSectionSize;
       *(_QWORD *)v11 = *(_QWORD *)v11;
     }
     v13 = KeGetCurrentThread()->PreviousMode;
     Object = 0LL;
-    Section = ObReferenceObjectByHandle(Handle, 1u, AlpcPortObjectType, v13, &Object, 0LL);
+    Section = ObReferenceObjectByHandle(PortHandle, 1u, AlpcPortObjectType, v13, &Object, 0LL);
     if ( Section >= 0 )
     {
       v14 = (struct _DMA_ADAPTER *)Object;
-      Section = AlpcpCreateSection(Object, a4, (__int64)&BugCheckParameter2);
+      Section = AlpcpCreateSection(Object, SectionSize, (__int64)&BugCheckParameter2);
       if ( Section >= 0 )
       {
         v15 = BugCheckParameter2;
-        *a5 = *(_QWORD *)(BugCheckParameter2 + 24);
-        *a6 = *(_QWORD *)(v15 + 8);
-        AlpcpDereferenceBlobEx(v15, 1);
+        *AlpcSectionHandle = *(HANDLE *)(BugCheckParameter2 + 24);
+        *ActualSectionSize = *(_QWORD *)(v15 + 8);
+        AlpcpDereferenceBlobEx(v15);
       }
       HalPutDmaAdapter(v14);
     }
   }
-  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-  return (unsigned int)Section;
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), *(__int64 *)&Flags, (__int64)SectionHandle, SectionSize);
+  return Section;
 }

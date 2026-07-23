@@ -1,14 +1,14 @@
 /*
- * XREFs of CmpUnlockHashEntry @ 0x1405D19F8
+ * XREFs of CmpUnlockHashEntry @ 0x1405D29F8
  * Callers:
- *     CmpDelayCloseWorker @ 0x1405D1760 (CmpDelayCloseWorker.c)
- *     CmpWalkOneLevel @ 0x1405D4560 (CmpWalkOneLevel.c)
- *     CmpPerformCompleteKcbCacheLookup @ 0x1405E5320 (CmpPerformCompleteKcbCacheLookup.c)
- *     CmpDoParseKey @ 0x140641CA0 (CmpDoParseKey.c)
- *     CmpFindSubkeyInHashByChildCell @ 0x1406F81DC (CmpFindSubkeyInHashByChildCell.c)
+ *     CmpDelayCloseWorker @ 0x1405D2760 (CmpDelayCloseWorker.c)
+ *     CmpWalkOneLevel @ 0x1405D5560 (CmpWalkOneLevel.c)
+ *     CmpPerformCompleteKcbCacheLookup @ 0x1405E6320 (CmpPerformCompleteKcbCacheLookup.c)
+ *     CmpDoParseKey @ 0x140642CC0 (CmpDoParseKey.c)
+ *     CmpFindSubkeyInHashByChildCell @ 0x1406F947C (CmpFindSubkeyInHashByChildCell.c)
  * Callees:
  *     ExReleasePushLockEx @ 0x14004F160 (ExReleasePushLockEx.c)
- *     CmpDeleteHive @ 0x1405AFDEC (CmpDeleteHive.c)
+ *     CmpDeleteHive @ 0x1405B0DEC (CmpDeleteHive.c)
  */
 
 void __fastcall CmpUnlockHashEntry(_QWORD *P, unsigned int a2)

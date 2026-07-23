@@ -1,8 +1,8 @@
 /*
- * XREFs of MiZeroThreadContending @ 0x1403E9760
+ * XREFs of MiZeroThreadContending @ 0x1402F6640
  * Callers:
- *     MiFindReductionContendingThread @ 0x1403E8FFC (MiFindReductionContendingThread.c)
- *     MiMoveZeroThreadsToOtherCores @ 0x1403E9690 (MiMoveZeroThreadsToOtherCores.c)
+ *     MiFindReductionContendingThread @ 0x1402F5EDC (MiFindReductionContendingThread.c)
+ *     MiMoveZeroThreadsToOtherCores @ 0x1402F6570 (MiMoveZeroThreadsToOtherCores.c)
  * Callees:
  *     <none>
  */
@@ -29,8 +29,8 @@ __int64 __fastcall MiZeroThreadContending(__int64 a1)
       v3 = *(_DWORD **)(a1 + 80);
       v4 = 0;
       _BitScanForward64(&v5, v11);
-      v6 = *((unsigned int *)&KiSupervisorXStateFeaturesLock.WaitBlock[2].Thread->Header.Lock + 64 * WORD4(v11)
-                                                                                              + (int)v5);
+      v6 = *((unsigned int *)&KiSupervisorXStateFeaturesLock.SchedulerApc.ApcListEntry.Flink[16 * WORD4(v11)].Flink
+           + (int)v5);
       v7 = *(_QWORD *)(KiProcessorBlock[v6] + 200) | v11 & *(_QWORD *)(KiProcessorBlock[v6] + 36512);
       while ( v7 )
       {

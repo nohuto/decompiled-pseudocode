@@ -1,51 +1,48 @@
 /*
- * XREFs of MiLockPagableImageSection @ 0x14031C4F0
+ * XREFs of MiLockPagableImageSection @ 0x140327240
  * Callers:
- *     MmUnlockPagableImageSection @ 0x14031AA10 (MmUnlockPagableImageSection.c)
- *     PoRunDownDeviceObject @ 0x140360EE8 (PoRunDownDeviceObject.c)
- *     HalpPowerStateCallback @ 0x1403A6EF0 (HalpPowerStateCallback.c)
- *     IopLiveDumpUnLockPages @ 0x14050A2DC (IopLiveDumpUnLockPages.c)
- *     MmLockPagableDataSection @ 0x1406D0CD0 (MmLockPagableDataSection.c)
- *     MmLockPagableSectionByHandle @ 0x1406EF0C0 (MmLockPagableSectionByHandle.c)
- *     IopLiveDumpLockPages @ 0x1408986C8 (IopLiveDumpLockPages.c)
- *     PnprLockPagesForReplace @ 0x1408ADFC4 (PnprLockPagesForReplace.c)
- *     KiStartDynamicProcessor @ 0x1408BA678 (KiStartDynamicProcessor.c)
- *     MiApplyImageHotPatch @ 0x1408C955C (MiApplyImageHotPatch.c)
- *     PopDirectedDripsNotifyAppsAndServices @ 0x1408E3608 (PopDirectedDripsNotifyAppsAndServices.c)
- *     KiInitializeMTRR @ 0x140A4CEC4 (KiInitializeMTRR.c)
- *     MiLockPagableSections @ 0x140A545BC (MiLockPagableSections.c)
+ *     PoRunDownDeviceObject @ 0x1402A5F48 (PoRunDownDeviceObject.c)
+ *     MmUnlockPagableImageSection @ 0x140325760 (MmUnlockPagableImageSection.c)
+ *     HalpPowerStateCallback @ 0x1403A7040 (HalpPowerStateCallback.c)
+ *     IopLiveDumpUnLockPages @ 0x14050A518 (IopLiveDumpUnLockPages.c)
+ *     MmLockPagableDataSection @ 0x1406A7FB0 (MmLockPagableDataSection.c)
+ *     MmLockPagableSectionByHandle @ 0x1407064A0 (MmLockPagableSectionByHandle.c)
+ *     IopLiveDumpLockPages @ 0x140898828 (IopLiveDumpLockPages.c)
+ *     PnprLockPagesForReplace @ 0x1408AE124 (PnprLockPagesForReplace.c)
+ *     KiStartDynamicProcessor @ 0x1408BA7D8 (KiStartDynamicProcessor.c)
+ *     MiApplyImageHotPatch @ 0x1408C96BC (MiApplyImageHotPatch.c)
+ *     PopDirectedDripsNotifyAppsAndServices @ 0x1408E3768 (PopDirectedDripsNotifyAppsAndServices.c)
+ *     KiInitializeMTRR @ 0x140A4DEC4 (KiInitializeMTRR.c)
+ *     MiLockPagableSections @ 0x140A555BC (MiLockPagableSections.c)
  * Callees:
- *     MiUnlockImageSection @ 0x14031AA30 (MiUnlockImageSection.c)
- *     MmUnlockLoadedModuleListShared @ 0x14031C754 (MmUnlockLoadedModuleListShared.c)
- *     MmLockLoadedModuleListShared @ 0x14031C888 (MmLockLoadedModuleListShared.c)
- *     RtlImageNtHeader @ 0x14031C950 (RtlImageNtHeader.c)
- *     MI_IS_PHYSICAL_ADDRESS @ 0x14031CBD0 (MI_IS_PHYSICAL_ADDRESS.c)
- *     MiGetSystemRegionType @ 0x14034A950 (MiGetSystemRegionType.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     MiLockImageSection @ 0x1406EF0DC (MiLockImageSection.c)
+ *     MiUnlockImageSection @ 0x140325780 (MiUnlockImageSection.c)
+ *     MmUnlockLoadedModuleListShared @ 0x1403274A4 (MmUnlockLoadedModuleListShared.c)
+ *     MmLockLoadedModuleListShared @ 0x1403275D8 (MmLockLoadedModuleListShared.c)
+ *     RtlImageNtHeader @ 0x1403276A0 (RtlImageNtHeader.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x140327920 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     MiGetSystemRegionType @ 0x1403556A0 (MiGetSystemRegionType.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     MiLockImageSection @ 0x1407064BC (MiLockImageSection.c)
  */
 
 void __fastcall MiLockPagableImageSection(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter3)
 {
   ULONG_PTR v2; // rbp
-  __int64 v4; // rdx
-  __int64 v5; // r8
-  __int64 v6; // r9
-  _QWORD *v7; // rdi
-  _QWORD *v8; // rax
-  ULONG_PTR v9; // r8
-  __int64 v10; // rsi
-  __int64 v11; // r8
+  _QWORD *v4; // rdi
+  _QWORD *v5; // rax
+  ULONG_PTR v6; // r8
+  char *v7; // rsi
+  PIMAGE_NT_HEADERS v8; // r8
   ULONG_PTR BugCheckParameter4; // r10
-  __int64 v13; // rdx
-  __int64 v14; // r9
-  volatile signed __int32 *v15; // rcx
-  unsigned int v16; // eax
-  unsigned __int64 v17; // r11
-  unsigned __int64 v18; // r10
-  unsigned __int64 v19; // rdx
-  unsigned __int64 v20; // r9
-  unsigned __int8 v21; // [rsp+50h] [rbp+8h] BYREF
+  __int64 v10; // rdx
+  __int64 v11; // r9
+  volatile signed __int32 *v12; // rcx
+  unsigned int v13; // eax
+  unsigned __int64 v14; // r11
+  unsigned __int64 SectionAlignment; // r10
+  unsigned __int64 v16; // rdx
+  unsigned __int64 v17; // r9
+  unsigned __int8 v18; // [rsp+50h] [rbp+8h] BYREF
 
   if ( BugCheckParameter2 == 1 )
     return;
@@ -55,52 +52,52 @@ void __fastcall MiLockPagableImageSection(ULONG_PTR BugCheckParameter2, ULONG_PT
   {
     return;
   }
-  v7 = 0LL;
-  v21 = 17;
-  MmLockLoadedModuleListShared(&v21, v4, v5, v6);
-  v8 = (_QWORD *)qword_140C4CD60;
-  if ( !qword_140C4CD60 )
+  v4 = 0LL;
+  v18 = 17;
+  MmLockLoadedModuleListShared(&v18);
+  v5 = (_QWORD *)qword_140C4CDA0;
+  if ( !qword_140C4CDA0 )
     goto LABEL_10;
   while ( 1 )
   {
-    v9 = *(v8 - 23);
-    if ( BugCheckParameter2 > v9 + (unsigned int)(*((_DWORD *)v8 - 42) - 1) )
+    v6 = *(v5 - 23);
+    if ( BugCheckParameter2 > v6 + (unsigned int)(*((_DWORD *)v5 - 42) - 1) )
     {
-      v8 = (_QWORD *)v8[1];
+      v5 = (_QWORD *)v5[1];
       goto LABEL_21;
     }
-    if ( BugCheckParameter2 >= v9 )
+    if ( BugCheckParameter2 >= v6 )
       break;
-    v8 = (_QWORD *)*v8;
+    v5 = (_QWORD *)*v5;
 LABEL_21:
-    if ( !v8 )
+    if ( !v5 )
       goto LABEL_10;
   }
-  if ( v8 )
-    v7 = v8 - 29;
+  if ( v5 )
+    v4 = v5 - 29;
 LABEL_10:
-  MmUnlockLoadedModuleListShared(v21);
-  if ( !v7 )
+  MmUnlockLoadedModuleListShared(v18);
+  if ( !v4 )
     KeBugCheckEx(0x1Au, 0x1012uLL, BugCheckParameter2, v2, 0LL);
-  v10 = v7[6];
-  v11 = RtlImageNtHeader(v10);
-  BugCheckParameter4 = *(unsigned __int16 *)(v11 + 6);
-  v13 = (__int64)(BugCheckParameter2 - *(unsigned __int16 *)(v11 + 20) - v11 - 24) / 40;
-  if ( (unsigned int)v13 >= (unsigned int)BugCheckParameter4 )
-    KeBugCheckEx(0x1Au, 0x1013uLL, BugCheckParameter2 | v2, (unsigned int)v13, BugCheckParameter4);
-  v14 = *(unsigned int *)(BugCheckParameter2 + 16);
-  v15 = (volatile signed __int32 *)(v7[28] + 4LL * (unsigned int)v13);
-  v16 = *(_DWORD *)(BugCheckParameter2 + 8);
-  if ( (unsigned int)v14 < v16 )
-    v14 = v16;
-  v17 = v10 + *(unsigned int *)(BugCheckParameter2 + 12);
-  v18 = *(unsigned int *)(v11 + 56);
-  v19 = ((v17 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
-  if ( v18 > 0x1000 )
-    v18 = 4096LL;
-  v20 = (((~(v18 - 1) & (v17 + v18 + v14 - 1)) + 4095) >> 9) & 0x7FFFFFFFF8LL;
+  v7 = (char *)v4[6];
+  v8 = RtlImageNtHeader(v7);
+  BugCheckParameter4 = v8->FileHeader.NumberOfSections;
+  v10 = (__int64)(BugCheckParameter2 - v8->FileHeader.SizeOfOptionalHeader - (_QWORD)v8 - 24) / 40;
+  if ( (unsigned int)v10 >= (unsigned int)BugCheckParameter4 )
+    KeBugCheckEx(0x1Au, 0x1013uLL, BugCheckParameter2 | v2, (unsigned int)v10, BugCheckParameter4);
+  v11 = *(unsigned int *)(BugCheckParameter2 + 16);
+  v12 = (volatile signed __int32 *)(v4[28] + 4LL * (unsigned int)v10);
+  v13 = *(_DWORD *)(BugCheckParameter2 + 8);
+  if ( (unsigned int)v11 < v13 )
+    v11 = v13;
+  v14 = (unsigned __int64)&v7[*(unsigned int *)(BugCheckParameter2 + 12)];
+  SectionAlignment = v8->OptionalHeader.SectionAlignment;
+  v16 = ((v14 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
+  if ( SectionAlignment > 0x1000 )
+    SectionAlignment = 4096LL;
+  v17 = (((~(SectionAlignment - 1) & (v14 + SectionAlignment + v11 - 1)) + 4095) >> 9) & 0x7FFFFFFFF8LL;
   if ( (_DWORD)v2 == 1 )
-    MiLockImageSection(v7, v15, v19, v20 - 0x98000000008LL);
+    MiLockImageSection(v4, v12, v16, v17 - 0x98000000008LL);
   else
-    MiUnlockImageSection(v15, v19, v20 - 0x98000000008LL, BugCheckParameter2);
+    MiUnlockImageSection(v12, v16, v17 - 0x98000000008LL, BugCheckParameter2);
 }

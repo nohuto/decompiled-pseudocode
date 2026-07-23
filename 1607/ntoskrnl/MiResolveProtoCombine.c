@@ -1,29 +1,29 @@
 /*
- * XREFs of MiResolveProtoCombine @ 0x1401FA48C
+ * XREFs of MiResolveProtoCombine @ 0x1401FA2B8
  * Callers:
- *     MiConvertPrivateToProto @ 0x1401F8908 (MiConvertPrivateToProto.c)
+ *     MiConvertPrivateToProto @ 0x1401F8734 (MiConvertPrivateToProto.c)
  * Callees:
- *     MiCaptureDirtyBitToPfn @ 0x140015D60 (MiCaptureDirtyBitToPfn.c)
- *     MiReleasePageFileInfo @ 0x14001A280 (MiReleasePageFileInfo.c)
- *     MiLockLeafPage @ 0x14002EA50 (MiLockLeafPage.c)
- *     MiLockPageAtDpcInline @ 0x14002EB30 (MiLockPageAtDpcInline.c)
- *     MiMakeValidKernelPte @ 0x140034D10 (MiMakeValidKernelPte.c)
- *     MI_SHOULD_PTE_BE_GLOBAL @ 0x140036D30 (MI_SHOULD_PTE_BE_GLOBAL.c)
- *     MiAllocateWsle @ 0x14003C0F0 (MiAllocateWsle.c)
- *     MiUnlockProtoPoolPage @ 0x14004C4E0 (MiUnlockProtoPoolPage.c)
- *     MiLockProtoPoolPage @ 0x14004ED80 (MiLockProtoPoolPage.c)
- *     MiUnlinkPageFromList @ 0x140065A40 (MiUnlinkPageFromList.c)
- *     MiPartitionIdToPointer @ 0x1400680A0 (MiPartitionIdToPointer.c)
- *     MiLockAndDecrementShareCount @ 0x140075DFC (MiLockAndDecrementShareCount.c)
- *     MiIsPteInStore @ 0x140122330 (MiIsPteInStore.c)
- *     MiDiscardTransitionPte @ 0x1401238C0 (MiDiscardTransitionPte.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
- *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F2550 (MI_GET_PAGE_FRAME_FROM_PTE.c)
- *     MI_GET_PROTECTION_FROM_SOFT_PROTOTYPE_PTE @ 0x1401F25B8 (MI_GET_PROTECTION_FROM_SOFT_PROTOTYPE_PTE.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiGetContainingPageTable @ 0x1401F25F0 (MiGetContainingPageTable.c)
- *     MiMakeTransitionPteValid @ 0x1401F27C4 (MiMakeTransitionPteValid.c)
+ *     MiCaptureDirtyBitToPfn @ 0x1400158E0 (MiCaptureDirtyBitToPfn.c)
+ *     MiReleasePageFileInfo @ 0x140019E00 (MiReleasePageFileInfo.c)
+ *     MiLockLeafPage @ 0x14002E5D0 (MiLockLeafPage.c)
+ *     MiLockPageAtDpcInline @ 0x14002E6B0 (MiLockPageAtDpcInline.c)
+ *     MiMakeValidKernelPte @ 0x140034890 (MiMakeValidKernelPte.c)
+ *     MI_SHOULD_PTE_BE_GLOBAL @ 0x1400368B0 (MI_SHOULD_PTE_BE_GLOBAL.c)
+ *     MiAllocateWsle @ 0x14003BC70 (MiAllocateWsle.c)
+ *     MiUnlockProtoPoolPage @ 0x14004C060 (MiUnlockProtoPoolPage.c)
+ *     MiLockProtoPoolPage @ 0x14004E900 (MiLockProtoPoolPage.c)
+ *     MiUnlinkPageFromList @ 0x1400655C0 (MiUnlinkPageFromList.c)
+ *     MiPartitionIdToPointer @ 0x140067C20 (MiPartitionIdToPointer.c)
+ *     MiLockAndDecrementShareCount @ 0x140075E7C (MiLockAndDecrementShareCount.c)
+ *     MiIsPteInStore @ 0x1401228A0 (MiIsPteInStore.c)
+ *     MiDiscardTransitionPte @ 0x140123E30 (MiDiscardTransitionPte.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
+ *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F237C (MI_GET_PAGE_FRAME_FROM_PTE.c)
+ *     MI_GET_PROTECTION_FROM_SOFT_PROTOTYPE_PTE @ 0x1401F23E4 (MI_GET_PROTECTION_FROM_SOFT_PROTOTYPE_PTE.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
+ *     MiGetContainingPageTable @ 0x1401F241C (MiGetContainingPageTable.c)
+ *     MiMakeTransitionPteValid @ 0x1401F25F0 (MiMakeTransitionPteValid.c)
  */
 
 __int64 __fastcall MiResolveProtoCombine(unsigned __int64 a1, __int64 a2, __int64 *a3)
@@ -137,7 +137,7 @@ LABEL_18:
   }
   else
   {
-    ValidKernelPte = MmProtectToPteMask[v24] & 0xFFFFFFFFFFFFFF7FuLL | (((16 * (v16 & 0xFFFFFFFFFLL)) | HIBYTE(word_140326AA8) & 1) << 8) | 0x25;
+    ValidKernelPte = MmProtectToPteMask[v24] & 0xFFFFFFFFFFFFFF7FuLL | (((16 * (v16 & 0xFFFFFFFFFLL)) | HIBYTE(word_140326AE8) & 1) << 8) | 0x25;
   }
   if ( !MiAllocateWsle(a2, (unsigned __int64 *)a1, v17, (unsigned int)v23 & 0xFFFFFE0F, ValidKernelPte, 0LL) )
   {

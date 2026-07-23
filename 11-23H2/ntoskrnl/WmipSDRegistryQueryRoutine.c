@@ -1,10 +1,10 @@
 /*
- * XREFs of WmipSDRegistryQueryRoutine @ 0x1407B3EE0
+ * XREFs of WmipSDRegistryQueryRoutine @ 0x1407B40D0
  * Callers:
  *     <none>
  * Callees:
- *     memmove @ 0x140435700 (memmove.c)
- *     SeValidSecurityDescriptor @ 0x1407B3F60 (SeValidSecurityDescriptor.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     SeValidSecurityDescriptor @ 0x1407B4150 (SeValidSecurityDescriptor.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 

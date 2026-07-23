@@ -8,26 +8,26 @@
  *     RtlAllocateHeap @ 0x18002A9A0 (RtlAllocateHeap.c)
  */
 
-__int64 __fastcall RtlpFcAllocateChangeRegistration(__int64 a1, __int64 a2)
+PTP_WORK *__fastcall RtlpFcAllocateChangeRegistration(_TP_WORK *a1, _TP_WORK *a2)
 {
-  __int64 v3; // rdi
-  __int64 Heap; // rax
-  __int64 v6; // rbx
+  PTP_WORK *v3; // rdi
+  PTP_WORK *Heap; // rax
+  PTP_WORK *v6; // rbx
 
   v3 = 0LL;
-  Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8LL, 48LL);
+  Heap = (PTP_WORK *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, 0x30uLL);
   v6 = Heap;
   if ( Heap )
   {
-    if ( (int)TpAllocWork(Heap + 40, RtlpFcChangeRegistrationCallback, Heap, 0LL) >= 0 )
+    if ( TpAllocWork(Heap + 5, RtlpFcChangeRegistrationCallback, Heap, 0LL) >= 0 )
     {
-      *(_QWORD *)(v6 + 16) = a1;
+      v6[2] = a1;
       v3 = v6;
-      *(_QWORD *)(v6 + 24) = a2;
+      v6[3] = a2;
       v6 = 0LL;
     }
     if ( v6 )
-      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, v6);
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v6);
   }
   return v3;
 }

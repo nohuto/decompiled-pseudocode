@@ -1,11 +1,11 @@
 /*
- * XREFs of MxGetFreePageDescriptor @ 0x140CF6CA0
+ * XREFs of MxGetFreePageDescriptor @ 0x140CFD020
  * Callers:
- *     MxGetPage @ 0x140CF6D70 (MxGetPage.c)
+ *     MxGetPage @ 0x140CFD0F0 (MxGetPage.c)
  * Callees:
- *     MxFindFreePageDescriptor @ 0x140CF6A30 (MxFindFreePageDescriptor.c)
- *     MxRemoveFreeZeroMemoryDescriptor @ 0x140CF82D0 (MxRemoveFreeZeroMemoryDescriptor.c)
- *     MxUpdateBootNodeFreePageCount @ 0x140CF85D8 (MxUpdateBootNodeFreePageCount.c)
+ *     MxFindFreePageDescriptor @ 0x140CFCDB0 (MxFindFreePageDescriptor.c)
+ *     MxRemoveFreeZeroMemoryDescriptor @ 0x140CFE650 (MxRemoveFreeZeroMemoryDescriptor.c)
+ *     MxUpdateBootNodeFreePageCount @ 0x140CFE958 (MxUpdateBootNodeFreePageCount.c)
  */
 
 __int64 __fastcall MxGetFreePageDescriptor(unsigned int a1)

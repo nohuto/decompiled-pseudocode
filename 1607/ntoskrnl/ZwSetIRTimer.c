@@ -1,14 +1,14 @@
 /*
- * XREFs of ZwSetIRTimer @ 0x14015CCA0
+ * XREFs of ZwSetIRTimer @ 0x14015D210
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwSetIRTimer(__int64 a1, __int64 a2, __int64 a3)
+NTSTATUS __cdecl ZwSetIRTimer(HANDLE TimerHandle, PLARGE_INTEGER DueTime)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2, a3);
+  return KiServiceInternal(TimerHandle);
 }

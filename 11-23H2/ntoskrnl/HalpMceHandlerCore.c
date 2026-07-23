@@ -1,17 +1,17 @@
 /*
- * XREFs of HalpMceHandlerCore @ 0x140503B18
+ * XREFs of HalpMceHandlerCore @ 0x140504068
  * Callers:
- *     HalpMceHandler @ 0x140503A04 (HalpMceHandler.c)
+ *     HalpMceHandler @ 0x140503F54 (HalpMceHandler.c)
  * Callees:
  *     KxTryToAcquireSpinLock @ 0x14020D8E4 (KxTryToAcquireSpinLock.c)
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     HalpGetMcaPcrContext @ 0x140380334 (HalpGetMcaPcrContext.c)
- *     HalpMcaReadErrorPresence @ 0x140380524 (HalpMcaReadErrorPresence.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     HalpMcaClearError @ 0x140502F90 (HalpMcaClearError.c)
- *     HalpMcaReadError @ 0x1405034B0 (HalpMcaReadError.c)
- *     HalpMcaReportError @ 0x140503748 (HalpMcaReportError.c)
- *     WheaIsAltContextAllocPossible @ 0x140611CE0 (WheaIsAltContextAllocPossible.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     HalpGetMcaPcrContext @ 0x1403804D4 (HalpGetMcaPcrContext.c)
+ *     HalpMcaReadErrorPresence @ 0x1403806C4 (HalpMcaReadErrorPresence.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     HalpMcaClearError @ 0x1405034E0 (HalpMcaClearError.c)
+ *     HalpMcaReadError @ 0x140503A00 (HalpMcaReadError.c)
+ *     HalpMcaReportError @ 0x140503C98 (HalpMcaReportError.c)
+ *     WheaIsAltContextAllocPossible @ 0x140612230 (WheaIsAltContextAllocPossible.c)
  */
 
 char __fastcall HalpMceHandlerCore(__int64 a1, char a2, __int64 a3)

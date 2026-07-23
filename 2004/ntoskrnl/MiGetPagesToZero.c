@@ -20,7 +20,7 @@ __int64 __fastcall MiGetPagesToZero(__int64 a1, unsigned __int64 a2, __int64 a3)
   unsigned __int64 v9; // r9
   __int64 v10; // rbp
   __int64 v11; // rax
-  struct _GROUP_AFFINITY Affinity; // [rsp+50h] [rbp-18h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+50h] [rbp-18h] BYREF
 
   v3 = a3;
   if ( !(_DWORD)a3 && *(_BYTE *)(a2 + 80) )
@@ -43,7 +43,7 @@ __int64 __fastcall MiGetPagesToZero(__int64 a1, unsigned __int64 a2, __int64 a3)
       if ( *(_DWORD *)(a2 + 268) != (_DWORD)v11 )
       {
         *(_DWORD *)(a2 + 268) = v11;
-        Affinity = *(struct _GROUP_AFFINITY *)(4544 * v11 + *(_QWORD *)(a1 + 16) + 4472);
+        Affinity = *(_GROUP_AFFINITY *)(4544 * v11 + *(_QWORD *)(a1 + 16) + 4472);
         MiSetIdealProcessorThread(&Affinity);
       }
     }

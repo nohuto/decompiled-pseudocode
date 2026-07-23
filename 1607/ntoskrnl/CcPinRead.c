@@ -1,11 +1,11 @@
 /*
- * XREFs of CcPinRead @ 0x1404BCAF0
+ * XREFs of CcPinRead @ 0x1404A8820
  * Callers:
- *     HvViewMapFlush @ 0x14060FB24 (HvViewMapFlush.c)
+ *     HvViewMapFlush @ 0x14060FBD8 (HvViewMapFlush.c)
  * Callees:
- *     CcPinFileData @ 0x140031DE0 (CcPinFileData.c)
- *     CcUnpinData @ 0x14050C700 (CcUnpinData.c)
- *     CcAllocateObcb @ 0x1405F8F04 (CcAllocateObcb.c)
+ *     CcPinFileData @ 0x140031960 (CcPinFileData.c)
+ *     CcUnpinData @ 0x1404EF690 (CcUnpinData.c)
+ *     CcAllocateObcb @ 0x1405F8FB8 (CcAllocateObcb.c)
  */
 
 BOOLEAN __stdcall CcPinRead(

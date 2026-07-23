@@ -7,15 +7,14 @@
  *     ViZwShouldCheck @ 0x1406D4C58 (ViZwShouldCheck.c)
  */
 
-__int64 __fastcall VfZwEnumerateDriverEntries(__int64 a1, __int64 a2)
+NTSTATUS __fastcall VfZwEnumerateDriverEntries(void *a1, ULONG *a2)
 {
-  __int64 v4; // r8
   _UNKNOWN *retaddr; // [rsp+28h] [rbp+0h]
 
   if ( (unsigned int)ViZwShouldCheck() )
   {
-    ViZwCheckVirtualAddress(a1, (int)retaddr);
-    ViZwCheckVirtualAddress(a2, (int)retaddr);
+    ViZwCheckVirtualAddress((int)a1, (int)retaddr);
+    ViZwCheckVirtualAddress((int)a2, (int)retaddr);
   }
-  return pXdvZwEnumerateDriverEntries(a1, a2, v4);
+  return pXdvZwEnumerateDriverEntries(a1, a2);
 }

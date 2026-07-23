@@ -1,10 +1,10 @@
 /*
- * XREFs of ExpTryAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x140433D10
+ * XREFs of ExpTryAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x140428DE0
  * Callers:
- *     ExTryAcquireSpinLockSharedAtDpcLevel @ 0x140433DB0 (ExTryAcquireSpinLockSharedAtDpcLevel.c)
+ *     ExTryAcquireSpinLockSharedAtDpcLevel @ 0x140428E80 (ExTryAcquireSpinLockSharedAtDpcLevel.c)
  * Callees:
- *     ExpTryAcquireSpinLockShared @ 0x140433DF0 (ExpTryAcquireSpinLockShared.c)
- *     PerfLogSpinLockAcquire @ 0x1404DA444 (PerfLogSpinLockAcquire.c)
+ *     ExpTryAcquireSpinLockShared @ 0x140428EC0 (ExpTryAcquireSpinLockShared.c)
+ *     PerfLogSpinLockAcquire @ 0x1404D3B24 (PerfLogSpinLockAcquire.c)
  */
 
 __int64 __fastcall ExpTryAcquireSpinLockSharedAtDpcLevelInstrumented(
@@ -23,7 +23,7 @@ __int64 __fastcall ExpTryAcquireSpinLockSharedAtDpcLevelInstrumented(
   unsigned __int64 v12; // rax
 
   CurrentPrcb = KeGetCurrentPrcb();
-  if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+  if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
   {
     LOBYTE(a4) = 0;
   }

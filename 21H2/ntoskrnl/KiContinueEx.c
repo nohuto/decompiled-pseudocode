@@ -1,17 +1,17 @@
 /*
- * XREFs of KiContinueEx @ 0x1402766C0
+ * XREFs of KiContinueEx @ 0x140264660
  * Callers:
- *     NtContinueEx @ 0x1403FE630 (NtContinueEx.c)
+ *     NtContinueEx @ 0x1403FE810 (NtContinueEx.c)
  * Callees:
- *     KiDeliverApc @ 0x14024A750 (KiDeliverApc.c)
- *     KiContinuePreviousModeUser @ 0x140276A00 (KiContinuePreviousModeUser.c)
- *     KeTestAlertThread @ 0x140277530 (KeTestAlertThread.c)
+ *     KiContinuePreviousModeUser @ 0x1402649A0 (KiContinuePreviousModeUser.c)
+ *     KeTestAlertThread @ 0x1402654D0 (KeTestAlertThread.c)
+ *     KiDeliverApc @ 0x1402EEFA0 (KiDeliverApc.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     KeContextToKframes @ 0x1403FE020 (KeContextToKframes.c)
- *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
+ *     KeContextToKframes @ 0x1403FE200 (KeContextToKframes.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BFB0 (ExRaiseDatatypeMisalignment.c)
  */
 
-__int64 __fastcall KiContinueEx(unsigned __int64 a1, unsigned __int64 a2, unsigned __int64 a3, _KTRAP_FRAME *a4)
+__int64 __fastcall KiContinueEx(unsigned __int64 a1, unsigned __int64 a2, __int64 a3, __int64 a4)
 {
   unsigned __int64 v6; // rbx
   unsigned __int8 CurrentIrql; // di
@@ -19,10 +19,11 @@ __int64 __fastcall KiContinueEx(unsigned __int64 a1, unsigned __int64 a2, unsign
   char v10; // cl
   bool v11; // zf
   __int64 v12; // rcx
+  __int64 v13; // rcx
   struct _KPRCB *CurrentPrcb; // r10
   _DWORD *SchedulerAssist; // r9
-  bool v16; // [rsp+31h] [rbp-27h]
-  int v17; // [rsp+34h] [rbp-24h]
+  bool v17; // [rsp+31h] [rbp-27h]
+  int v18; // [rsp+34h] [rbp-24h]
 
   v6 = a2;
   CurrentIrql = KeGetCurrentIrql();
@@ -31,11 +32,11 @@ __int64 __fastcall KiContinueEx(unsigned __int64 a1, unsigned __int64 a2, unsign
     KeGetCurrentIrql();
     __writecr8(1uLL);
   }
-  v17 = 1;
+  v18 = 1;
   CurrentThread = KeGetCurrentThread();
   if ( CurrentThread->PreviousMode )
   {
-    v16 = 0;
+    v17 = 0;
     if ( a2 <= 0xFF )
     {
       v10 = a2;
@@ -47,7 +48,7 @@ __int64 __fastcall KiContinueEx(unsigned __int64 a1, unsigned __int64 a2, unsign
       if ( a2 + 24 > 0x7FFFFFFF0000LL || a2 + 24 < a2 )
         MEMORY[0x7FFFFFFF0000] = 0;
       v10 = *(_DWORD *)(a2 + 4) & 1;
-      v16 = (*(_DWORD *)(a2 + 4) & 2) != 0;
+      v17 = (*(_DWORD *)(a2 + 4) & 2) != 0;
     }
     v11 = v10 == 0;
     v12 = a1;
@@ -56,9 +57,9 @@ __int64 __fastcall KiContinueEx(unsigned __int64 a1, unsigned __int64 a2, unsign
       if ( (a1 & 0xF) == 0 )
       {
 LABEL_11:
-        v17 = KiContinuePreviousModeUser(a1, a3, a4, v6);
-        if ( v17 >= 0 )
-          v17 = 1;
+        v18 = KiContinuePreviousModeUser(a1, a3, a4, v6);
+        if ( v18 >= 0 )
+          v18 = 1;
         goto LABEL_23;
       }
     }
@@ -70,12 +71,13 @@ LABEL_11:
       *(_BYTE *)(v12 + 1231) = *(_BYTE *)(v12 + 1231);
       LOBYTE(v12) = 1;
       KeTestAlertThread(v12);
-      if ( v16 && (CurrentThread->ApcState.UserApcPendingAll & 2) != 0 )
+      if ( v17 && (CurrentThread->ApcState.UserApcPendingAll & 2) != 0 )
       {
-        a4->FaultAddress = a1;
-        a4->ErrorCode = a3;
-        KiDeliverApc(1, 0, a4);
-        v17 = 0;
+        *(_QWORD *)(a4 + 208) = a1;
+        *(_QWORD *)(a4 + 352) = a3;
+        LOBYTE(v13) = 1;
+        KiDeliverApc(v13, 0LL, a4);
+        v18 = 0;
         goto LABEL_23;
       }
       goto LABEL_11;
@@ -84,7 +86,7 @@ LABEL_11:
   }
   if ( a2 > 0xFF )
     LOBYTE(v6) = *(_BYTE *)(a2 + 4) & 1;
-  KeContextToKframes((_DWORD)a4, a3, a1, *(_DWORD *)(a1 + 48), 0LL);
+  KeContextToKframes(a4, a3, a1, *(_DWORD *)(a1 + 48), 0LL);
   if ( (_BYTE)v6 )
     KeTestAlertThread(0LL);
 LABEL_23:
@@ -104,5 +106,5 @@ LABEL_23:
     }
     __writecr8(0LL);
   }
-  return (unsigned int)v17;
+  return (unsigned int)v18;
 }

@@ -115,7 +115,7 @@ char __fastcall KiIpiProcessRequests(_KTRAP_FRAME *a1)
       *(LARGE_INTEGER *)&v43 = KeQueryPerformanceCounter(0LL);
 LABEL_13:
       if ( (v10 & 4) != 0 )
-        *((_QWORD *)&v43 + 1) = RtlGetSystemTimePrecise();
+        *((LARGE_INTEGER *)&v43 + 1) = RtlGetSystemTimePrecise();
       else
         *((_QWORD *)&v43 + 1) = 0LL;
       if ( (v10 & 8) != 0 )

@@ -1,36 +1,36 @@
 /*
- * XREFs of PpmRegisterPerfStates @ 0x14082E54C
+ * XREFs of PpmRegisterPerfStates @ 0x14082E84C
  * Callers:
- *     PpmPerfRegisterNativePerfStates @ 0x14082F190 (PpmPerfRegisterNativePerfStates.c)
- *     PpmPerfRegisterHvPerfStateCounters @ 0x14099DA10 (PpmPerfRegisterHvPerfStateCounters.c)
+ *     PpmPerfRegisterNativePerfStates @ 0x14082F490 (PpmPerfRegisterNativePerfStates.c)
+ *     PpmPerfRegisterHvPerfStateCounters @ 0x14099DC10 (PpmPerfRegisterHvPerfStateCounters.c)
  * Callees:
  *     KeFindFirstSetRightGroupAffinity @ 0x140221CF0 (KeFindFirstSetRightGroupAffinity.c)
- *     KeSetTimer2 @ 0x140250150 (KeSetTimer2.c)
- *     KiCopyAffinityEx @ 0x1402545C0 (KiCopyAffinityEx.c)
- *     KeIsEmptyAffinityEx @ 0x140255170 (KeIsEmptyAffinityEx.c)
- *     PpmConvertTime @ 0x140255510 (PpmConvertTime.c)
- *     KeGetPrcb @ 0x140257330 (KeGetPrcb.c)
- *     KeCheckProcessorAffinityEx @ 0x140257360 (KeCheckProcessorAffinityEx.c)
- *     KeAddProcessorAffinityEx @ 0x1402573A0 (KeAddProcessorAffinityEx.c)
- *     KeIsEqualAffinityEx @ 0x1402BFED0 (KeIsEqualAffinityEx.c)
- *     KiOrAffinityEx @ 0x1402C2AB0 (KiOrAffinityEx.c)
- *     KeQueryPerformanceCounter @ 0x1402C3270 (KeQueryPerformanceCounter.c)
- *     KeFirstGroupAffinityEx @ 0x1403090E0 (KeFirstGroupAffinityEx.c)
- *     PpmReleaseLock @ 0x14032C280 (PpmReleaseLock.c)
- *     PpmAcquireLock @ 0x14032C2D0 (PpmAcquireLock.c)
- *     PpmParkApplyPolicy @ 0x140392600 (PpmParkApplyPolicy.c)
- *     PpmInstallFeedbackCounters @ 0x140393078 (PpmInstallFeedbackCounters.c)
- *     PpmCheckResetProcessors @ 0x14039325C (PpmCheckResetProcessors.c)
- *     KeQueryActiveProcessorAffinity2 @ 0x140393770 (KeQueryActiveProcessorAffinity2.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     PopDiagTraceProcessorThrottlePerfTrack @ 0x14059438C (PopDiagTraceProcessorThrottlePerfTrack.c)
- *     PpmPerfUpdateDomainPolicy @ 0x1407A6350 (PpmPerfUpdateDomainPolicy.c)
- *     PpmUpdateProcessorPolicy @ 0x14082C7B0 (PpmUpdateProcessorPolicy.c)
- *     PpmCheckReInit @ 0x14082CAEC (PpmCheckReInit.c)
- *     PpmAllocatePerfCheck @ 0x14082F014 (PpmAllocatePerfCheck.c)
- *     PpmReinitializeHeteroEngine @ 0x14082F1A8 (PpmReinitializeHeteroEngine.c)
- *     PpmPerfResizeHistory @ 0x140986A10 (PpmPerfResizeHistory.c)
+ *     KeSetTimer2 @ 0x140250220 (KeSetTimer2.c)
+ *     KiCopyAffinityEx @ 0x140254680 (KiCopyAffinityEx.c)
+ *     KeIsEmptyAffinityEx @ 0x140255230 (KeIsEmptyAffinityEx.c)
+ *     PpmConvertTime @ 0x1402555D0 (PpmConvertTime.c)
+ *     KeGetPrcb @ 0x1402573F0 (KeGetPrcb.c)
+ *     KeCheckProcessorAffinityEx @ 0x140257420 (KeCheckProcessorAffinityEx.c)
+ *     KeAddProcessorAffinityEx @ 0x140257460 (KeAddProcessorAffinityEx.c)
+ *     KeIsEqualAffinityEx @ 0x1402C0160 (KeIsEqualAffinityEx.c)
+ *     KiOrAffinityEx @ 0x1402C2D40 (KiOrAffinityEx.c)
+ *     KeQueryPerformanceCounter @ 0x1402C3500 (KeQueryPerformanceCounter.c)
+ *     KeFirstGroupAffinityEx @ 0x140309370 (KeFirstGroupAffinityEx.c)
+ *     PpmReleaseLock @ 0x14032C510 (PpmReleaseLock.c)
+ *     PpmAcquireLock @ 0x14032C560 (PpmAcquireLock.c)
+ *     PpmParkApplyPolicy @ 0x1403927E0 (PpmParkApplyPolicy.c)
+ *     PpmInstallFeedbackCounters @ 0x140393258 (PpmInstallFeedbackCounters.c)
+ *     PpmCheckResetProcessors @ 0x14039343C (PpmCheckResetProcessors.c)
+ *     KeQueryActiveProcessorAffinity2 @ 0x140393950 (KeQueryActiveProcessorAffinity2.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     PopDiagTraceProcessorThrottlePerfTrack @ 0x14059487C (PopDiagTraceProcessorThrottlePerfTrack.c)
+ *     PpmPerfUpdateDomainPolicy @ 0x1407A6540 (PpmPerfUpdateDomainPolicy.c)
+ *     PpmUpdateProcessorPolicy @ 0x14082CAB0 (PpmUpdateProcessorPolicy.c)
+ *     PpmCheckReInit @ 0x14082CDEC (PpmCheckReInit.c)
+ *     PpmAllocatePerfCheck @ 0x14082F314 (PpmAllocatePerfCheck.c)
+ *     PpmReinitializeHeteroEngine @ 0x14082F4A8 (PpmReinitializeHeteroEngine.c)
+ *     PpmPerfResizeHistory @ 0x140986C10 (PpmPerfResizeHistory.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
@@ -463,7 +463,7 @@ LABEL_143:
       while ( (__int64 *)v68 != &PpmPerfDomainHead );
       LOBYTE(v87) = v67;
     }
-    KiOrAffinityEx((char *)v102, &PpmPerfStatesRegistered, &PpmPerfStatesRegistered, word_140C0BD52);
+    KiOrAffinityEx((char *)v102, &PpmPerfStatesRegistered, &PpmPerfStatesRegistered, word_140C0BD62);
     if ( (unsigned int)KeIsEqualAffinityEx(&PpmPerfStatesRegistered, (unsigned __int16 *)&PpmCheckRegistered) )
     {
       v70 = PpmPerfDomainHead;

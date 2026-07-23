@@ -6,12 +6,12 @@
  *     <none>
  */
 
-int __stdcall LdrFastFailInLoaderCallout()
+void *__stdcall LdrFastFailInLoaderCallout()
 {
-  int result; // eax
+  void *result; // eax
 
-  result = dword_4B3A339C;
-  if ( (void *)dword_4B3A339C == NtCurrentTeb()->ClientId.UniqueThread || LdrpProcessInitialized < 2 )
+  result = LdrpLoaderLock.OwningThread;
+  if ( LdrpLoaderLock.OwningThread == NtCurrentTeb()->ClientId.UniqueThread || LdrpProcessInitialized < 2 )
     __fastfail(0x17u);
   return result;
 }

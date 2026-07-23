@@ -1,7 +1,7 @@
 /*
- * XREFs of GxpMatchPaletteColor @ 0x140716384
+ * XREFs of GxpMatchPaletteColor @ 0x14071B074
  * Callers:
- *     BgpGxConvertRectangleEx @ 0x140491870 (BgpGxConvertRectangleEx.c)
+ *     BgpGxConvertRectangleEx @ 0x14048B3C0 (BgpGxConvertRectangleEx.c)
  * Callees:
  *     <none>
  */

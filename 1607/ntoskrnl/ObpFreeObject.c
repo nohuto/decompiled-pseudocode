@@ -1,20 +1,20 @@
 /*
- * XREFs of ObpFreeObject @ 0x14041B800
+ * XREFs of ObpFreeObject @ 0x14041A6C0
  * Callers:
- *     ObpRemoveObjectRoutine @ 0x14041B730 (ObpRemoveObjectRoutine.c)
+ *     ObpRemoveObjectRoutine @ 0x14041A5F0 (ObpRemoveObjectRoutine.c)
  * Callees:
- *     PspReturnQuota @ 0x140010AA0 (PspReturnQuota.c)
- *     KiLeaveGuardedRegionUnsafe @ 0x140013B70 (KiLeaveGuardedRegionUnsafe.c)
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     PspReturnResourceQuota @ 0x1400C6840 (PspReturnResourceQuota.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfReleasePushLock @ 0x1400C8620 (ExfReleasePushLock.c)
- *     RtlpInterlockedPushEntrySList @ 0x140166E40 (RtlpInterlockedPushEntrySList.c)
+ *     PspReturnQuota @ 0x140010620 (PspReturnQuota.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1400136F0 (KiLeaveGuardedRegionUnsafe.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     PspReturnResourceQuota @ 0x1400C46E0 (PspReturnResourceQuota.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfReleasePushLock @ 0x1400C64C0 (ExfReleasePushLock.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1401673B0 (RtlpInterlockedPushEntrySList.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     SeReleaseSecurityDescriptor @ 0x14044DB84 (SeReleaseSecurityDescriptor.c)
- *     PspDereferenceQuotaBlock @ 0x1404A6018 (PspDereferenceQuotaBlock.c)
- *     PspRemoveQuotaBlock @ 0x14067CF60 (PspRemoveQuotaBlock.c)
+ *     SeReleaseSecurityDescriptor @ 0x14044CA54 (SeReleaseSecurityDescriptor.c)
+ *     PspDereferenceQuotaBlock @ 0x14051E418 (PspDereferenceQuotaBlock.c)
+ *     PspRemoveQuotaBlock @ 0x14067D044 (PspRemoveQuotaBlock.c)
  */
 
 void __fastcall ObpFreeObject(unsigned __int64 a1, PVOID *a2, __int64 a3)
@@ -35,7 +35,7 @@ void __fastcall ObpFreeObject(unsigned __int64 a1, PVOID *a2, __int64 a3)
   __int64 v17; // rax
   __int64 v18; // rcx
   struct _KPRCB *CurrentPrcb; // rcx
-  struct _SLIST_ENTRY *v20; // rdx
+  _SLIST_ENTRY *v20; // rdx
   _GENERAL_LOOKASIDE *P; // r8
   PVOID v22; // rcx
   struct _KTHREAD *CurrentThread; // rax
@@ -139,7 +139,7 @@ void __fastcall ObpFreeObject(unsigned __int64 a1, PVOID *a2, __int64 a3)
       *(_QWORD *)(*(_QWORD *)(a1 + 32) + 32LL) = 0LL;
     }
     CurrentPrcb = KeGetCurrentPrcb();
-    v20 = *(struct _SLIST_ENTRY **)(a1 + 32);
+    v20 = *(_SLIST_ENTRY **)(a1 + 32);
     P = CurrentPrcb->PPLookasideList[4].P;
     ++P->TotalFrees;
     if ( LOWORD(P->ListHead.Alignment) < P->Depth
@@ -153,7 +153,7 @@ void __fastcall ObpFreeObject(unsigned __int64 a1, PVOID *a2, __int64 a3)
     else
     {
       ++P->FreeMisses;
-      ((void (__fastcall *)(struct _SLIST_ENTRY *))P->FreeEx)(v20);
+      ((void (__fastcall *)(_SLIST_ENTRY *))P->FreeEx)(v20);
     }
     goto LABEL_25;
   }

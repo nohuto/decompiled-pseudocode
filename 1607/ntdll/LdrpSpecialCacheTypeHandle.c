@@ -1,9 +1,9 @@
 /*
- * XREFs of LdrpSpecialCacheTypeHandle @ 0x1800DC770
+ * XREFs of LdrpSpecialCacheTypeHandle @ 0x1800DC830
  * Callers:
- *     LdrpSetAlternateResourceModuleHandle @ 0x1800726C0 (LdrpSetAlternateResourceModuleHandle.c)
+ *     LdrpSetAlternateResourceModuleHandle @ 0x1800726B0 (LdrpSetAlternateResourceModuleHandle.c)
  * Callees:
- *     RtlAllocateHeap @ 0x180022DB0 (RtlAllocateHeap.c)
+ *     RtlAllocateHeap @ 0x180022DA0 (RtlAllocateHeap.c)
  *     NtClose @ 0x1800A6600 (NtClose.c)
  *     NtUnmapViewOfSection @ 0x1800A6960 (NtUnmapViewOfSection.c)
  *     memmove @ 0x1800AC980 (memmove.c)
@@ -14,7 +14,7 @@ __int64 __fastcall LdrpSpecialCacheTypeHandle(__int64 a1, char a2)
   __int64 result; // rax
   char v5; // dl
   void *v6; // rcx
-  void *Heap; // rax
+  PVOID Heap; // rax
   unsigned __int64 v8; // rdi
 
   if ( !a1 )
@@ -45,12 +45,12 @@ __int64 __fastcall LdrpSpecialCacheTypeHandle(__int64 a1, char a2)
         {
           if ( *(_DWORD *)(a1 + 64) == -1073741799 )
             return 3221225497LL;
-          Heap = (void *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, *(_QWORD *)(a1 + 48));
+          Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, *(_QWORD *)(a1 + 48));
           v8 = (unsigned __int64)Heap;
           if ( !Heap )
             return 3221225495LL;
           memmove(Heap, (const void *)(*(_QWORD *)(a1 + 32) & 0xFFFFFFFFFFFFFFFCuLL), *(_QWORD *)(a1 + 48));
-          NtUnmapViewOfSection();
+          NtUnmapViewOfSection((HANDLE)0xFFFFFFFFFFFFFFFFLL, (PVOID)(*(_QWORD *)(a1 + 32) & 0xFFFFFFFFFFFFFFFCuLL));
           *(_DWORD *)(a1 + 64) = -1073741799;
           *(_QWORD *)(a1 + 32) = v8 | 1;
         }

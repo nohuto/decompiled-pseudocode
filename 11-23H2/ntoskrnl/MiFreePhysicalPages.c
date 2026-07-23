@@ -1,21 +1,21 @@
 /*
- * XREFs of MiFreePhysicalPages @ 0x14064A540
+ * XREFs of MiFreePhysicalPages @ 0x14064AA90
  * Callers:
- *     NtFreeUserPhysicalPages @ 0x140A42320 (NtFreeUserPhysicalPages.c)
+ *     NtFreeUserPhysicalPages @ 0x140A425D0 (NtFreeUserPhysicalPages.c)
  * Callees:
- *     ExAcquireAutoExpandPushLockExclusive @ 0x14022F760 (ExAcquireAutoExpandPushLockExclusive.c)
- *     ExReleaseAutoExpandPushLockExclusive @ 0x14022F8B0 (ExReleaseAutoExpandPushLockExclusive.c)
- *     ExAcquireAutoExpandPushLockShared @ 0x1402308C0 (ExAcquireAutoExpandPushLockShared.c)
- *     MiFlushTbList @ 0x140279880 (MiFlushTbList.c)
- *     KiCheckForKernelApcDelivery @ 0x14030F820 (KiCheckForKernelApcDelivery.c)
- *     MiGetLeafPfnBuddy @ 0x14038BFDC (MiGetLeafPfnBuddy.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     qsort @ 0x1403DA430 (qsort.c)
- *     memset @ 0x140435A00 (memset.c)
- *     MiDecrementAweMapCount @ 0x140649648 (MiDecrementAweMapCount.c)
- *     MiLockAweVadsShared @ 0x14064B070 (MiLockAweVadsShared.c)
- *     MiUnlockAweVadsShared @ 0x14064BE48 (MiUnlockAweVadsShared.c)
- *     MiUnmapLegacyAwePage @ 0x14064BED8 (MiUnmapLegacyAwePage.c)
+ *     ExAcquireAutoExpandPushLockExclusive @ 0x14022F850 (ExAcquireAutoExpandPushLockExclusive.c)
+ *     ExReleaseAutoExpandPushLockExclusive @ 0x14022F9A0 (ExReleaseAutoExpandPushLockExclusive.c)
+ *     ExAcquireAutoExpandPushLockShared @ 0x1402309B0 (ExAcquireAutoExpandPushLockShared.c)
+ *     MiFlushTbList @ 0x140279B10 (MiFlushTbList.c)
+ *     KiCheckForKernelApcDelivery @ 0x14030FAB0 (KiCheckForKernelApcDelivery.c)
+ *     MiGetLeafPfnBuddy @ 0x14038C1BC (MiGetLeafPfnBuddy.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     qsort @ 0x1403DA610 (qsort.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     MiDecrementAweMapCount @ 0x140649B98 (MiDecrementAweMapCount.c)
+ *     MiLockAweVadsShared @ 0x14064B5C0 (MiLockAweVadsShared.c)
+ *     MiUnlockAweVadsShared @ 0x14064C398 (MiUnlockAweVadsShared.c)
+ *     MiUnmapLegacyAwePage @ 0x14064C428 (MiUnmapLegacyAwePage.c)
  */
 
 __int64 __fastcall MiFreePhysicalPages(__int64 a1, unsigned int *a2, __int64 *a3)

@@ -1,10 +1,10 @@
 /*
- * XREFs of AuthzBasepProbeAndInsertTailList @ 0x1406CA328
+ * XREFs of AuthzBasepProbeAndInsertTailList @ 0x1406CA460
  * Callers:
- *     AuthzBasepCopyoutInternalSecurityAttributeValues @ 0x140087EC0 (AuthzBasepCopyoutInternalSecurityAttributeValues.c)
- *     AuthzBasepCopyoutInternalSecurityAttributes @ 0x1404A0CD8 (AuthzBasepCopyoutInternalSecurityAttributes.c)
+ *     AuthzBasepCopyoutInternalSecurityAttributeValues @ 0x14010C0B0 (AuthzBasepCopyoutInternalSecurityAttributeValues.c)
+ *     AuthzBasepCopyoutInternalSecurityAttributes @ 0x1405190E4 (AuthzBasepCopyoutInternalSecurityAttributes.c)
  * Callees:
- *     ProbeForWrite @ 0x14044DAC0 (ProbeForWrite.c)
+ *     ProbeForWrite @ 0x14044C990 (ProbeForWrite.c)
  */
 
 __int64 __fastcall AuthzBasepProbeAndInsertTailList(unsigned __int64 a1, unsigned __int64 *a2)

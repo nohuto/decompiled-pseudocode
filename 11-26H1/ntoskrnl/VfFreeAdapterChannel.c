@@ -1,17 +1,17 @@
 /*
- * XREFs of VfFreeAdapterChannel @ 0x140C24430
+ * XREFs of VfFreeAdapterChannel @ 0x140C2A440
  * Callers:
  *     <none>
  * Callees:
- *     ExFreeToNPagedLookasideList @ 0x1403B5A60 (ExFreeToNPagedLookasideList.c)
- *     ViRemoveChannelWcb @ 0x140641264 (ViRemoveChannelWcb.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     DECREMENT_ADAPTER_CHANNELS @ 0x140C22A54 (DECREMENT_ADAPTER_CHANNELS.c)
- *     SUBTRACT_MAP_REGISTERS @ 0x140C22D7C (SUBTRACT_MAP_REGISTERS.c)
- *     VF_ASSERT_IRQL @ 0x140C22E9C (VF_ASSERT_IRQL.c)
- *     ViFreeMapRegisterFile @ 0x140C26C90 (ViFreeMapRegisterFile.c)
- *     ViGetAdapterInformationInternal @ 0x140C26F80 (ViGetAdapterInformationInternal.c)
- *     ViGetRealDmaAdapter @ 0x140C271E4 (ViGetRealDmaAdapter.c)
+ *     ExFreeToNPagedLookasideList @ 0x1403BF960 (ExFreeToNPagedLookasideList.c)
+ *     ViRemoveChannelWcb @ 0x140644E44 (ViRemoveChannelWcb.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     DECREMENT_ADAPTER_CHANNELS @ 0x140C28A64 (DECREMENT_ADAPTER_CHANNELS.c)
+ *     SUBTRACT_MAP_REGISTERS @ 0x140C28D8C (SUBTRACT_MAP_REGISTERS.c)
+ *     VF_ASSERT_IRQL @ 0x140C28EAC (VF_ASSERT_IRQL.c)
+ *     ViFreeMapRegisterFile @ 0x140C2CCA0 (ViFreeMapRegisterFile.c)
+ *     ViGetAdapterInformationInternal @ 0x140C2CF90 (ViGetAdapterInformationInternal.c)
+ *     ViGetRealDmaAdapter @ 0x140C2D1F4 (ViGetRealDmaAdapter.c)
  */
 
 void __fastcall VfFreeAdapterChannel(int a1)
@@ -34,7 +34,7 @@ void __fastcall VfFreeAdapterChannel(int a1)
       SUBTRACT_MAP_REGISTERS(AdapterInformationInternal, *(_DWORD *)(v4 + 48));
       if ( *(_QWORD *)(v4 + 96) )
         ViFreeMapRegisterFile(AdapterInformationInternal);
-      ExFreeToNPagedLookasideList((PPAGED_LOOKASIDE_LIST)&stru_140E27B08.AffinityVersion, (PVOID)v4);
+      ExFreeToNPagedLookasideList((PPAGED_LOOKASIDE_LIST)&stru_140E27C48.AffinityVersion, (PVOID)v4);
     }
   }
 }

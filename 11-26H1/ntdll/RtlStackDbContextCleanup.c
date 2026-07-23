@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlStackDbContextCleanup @ 0x18010C76C
+ * XREFs of RtlStackDbContextCleanup @ 0x18010C2BC
  * Callers:
- *     RtlpHpStackTraceDisable @ 0x18014F998 (RtlpHpStackTraceDisable.c)
+ *     RtlpHpStackTraceDisable @ 0x18014F848 (RtlpHpStackTraceDisable.c)
  * Callees:
- *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180170020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x18016F020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
  */
 
 __int64 __fastcall RtlStackDbContextCleanup(__int64 a1)

@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlIsValidOemCharacter @ 0x140896AA0
+ * XREFs of RtlIsValidOemCharacter @ 0x140897D00
  * Callers:
- *     GetNextWchar @ 0x14069D52C (GetNextWchar.c)
+ *     GetNextWchar @ 0x14069E6EC (GetNextWchar.c)
  * Callees:
  *     <none>
  */

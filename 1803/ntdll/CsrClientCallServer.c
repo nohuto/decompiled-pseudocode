@@ -7,20 +7,20 @@
  *     _guard_dispatch_icall_nop @ 0x18009E4A0 (_guard_dispatch_icall_nop.c)
  */
 
-__int64 __fastcall CsrClientCallServer(__int64 a1, __int64 a2, int a3, int a4)
+__int64 __fastcall CsrClientCallServer(char *ReplyMessage, __int64 a2, int a3, int a4)
 {
   unsigned int v7; // r8d
   int v8; // ecx
   __int64 v9; // r8
   int v10; // ecx
-  _QWORD **v11; // rdx
-  _QWORD *v12; // rax
-  int v13; // eax
+  char **v11; // rdx
+  char *v12; // rax
+  NTSTATUS v13; // eax
   __int64 v14; // r9
   __int64 *v15; // rdx
   int i; // r8d
   __int64 v17; // rcx
-  _QWORD *v18; // rcx
+  char *v18; // rcx
 
   if ( byte_18015C298 )
     return 3221225659LL;
@@ -29,19 +29,19 @@ __int64 __fastcall CsrClientCallServer(__int64 a1, __int64 a2, int a3, int a4)
   if ( a4 < 0 )
   {
     a4 = -a4;
-    *(_WORD *)(a1 + 4) = 0;
+    *((_WORD *)ReplyMessage + 2) = 0;
   }
   else
   {
-    *(_DWORD *)(a1 + 4) = 0;
+    *((_DWORD *)ReplyMessage + 1) = 0;
   }
-  *(_QWORD *)(a1 + 40) = 0LL;
-  *(_DWORD *)(a1 + 48) = v7;
-  *(_DWORD *)a1 = (a4 | (a4 << 16)) + 4194328;
+  *((_QWORD *)ReplyMessage + 5) = 0LL;
+  *((_DWORD *)ReplyMessage + 12) = v7;
+  *(_DWORD *)ReplyMessage = (a4 | (a4 << 16)) + 4194328;
   if ( (NtCurrentPeb()->BitField & 2) != 0
     && ((v7 & 0xFFFF0000) == 0x20000 || v8 && (NtCurrentPeb()->BitField & 0x40) == 0) )
   {
-    *(_DWORD *)(a1 + 52) = -1073741790;
+    *((_DWORD *)ReplyMessage + 13) = -1073741790;
     return 3221225506LL;
   }
   else
@@ -51,10 +51,10 @@ __int64 __fastcall CsrClientCallServer(__int64 a1, __int64 a2, int a3, int a4)
       if ( a2 )
       {
         v9 = qword_18015CAE0;
-        *(_QWORD *)(a1 + 40) = qword_18015CAE0 + a2;
+        *((_QWORD *)ReplyMessage + 5) = qword_18015CAE0 + a2;
         v10 = *(_DWORD *)(a2 + 16);
         *(_QWORD *)(a2 + 24) = 0LL;
-        v11 = (_QWORD **)(a2 + 32);
+        v11 = (char **)(a2 + 32);
         while ( v10 )
         {
           v12 = *v11;
@@ -62,36 +62,36 @@ __int64 __fastcall CsrClientCallServer(__int64 a1, __int64 a2, int a3, int a4)
           ++v11;
           if ( v12 )
           {
-            *v12 += v9;
-            *(v11 - 1) = (_QWORD *)((char *)v12 - a1);
+            *(_QWORD *)v12 += v9;
+            *(v11 - 1) = (char *)(v12 - ReplyMessage);
           }
         }
       }
-      v13 = ZwRequestWaitReplyPort(qword_18015CAE8, a1, a1);
+      v13 = ZwRequestWaitReplyPort(PortHandle, (PPORT_MESSAGE)ReplyMessage, (PPORT_MESSAGE)ReplyMessage);
       if ( a2 )
       {
         v14 = qword_18015CAE0;
         v15 = (__int64 *)(a2 + 32);
-        *(_QWORD *)(a1 + 40) -= qword_18015CAE0;
+        *((_QWORD *)ReplyMessage + 5) -= qword_18015CAE0;
         for ( i = *(_DWORD *)(a2 + 16); i; --i )
         {
           v17 = *v15++;
           if ( v17 )
           {
-            v18 = (_QWORD *)(a1 + v17);
+            v18 = &ReplyMessage[v17];
             *(v15 - 1) = (__int64)v18;
-            *v18 -= v14;
+            *(_QWORD *)v18 -= v14;
           }
         }
       }
     }
     else
     {
-      *(struct _CLIENT_ID *)(a1 + 8) = NtCurrentTeb()->ClientId;
-      v13 = ((__int64 (__fastcall *)(__int64, __int64))qword_18015CAA8)(a1, a1);
+      *(CLIENT_ID *)(ReplyMessage + 8) = NtCurrentTeb()->ClientId;
+      v13 = ((__int64 (__fastcall *)(char *, char *))ProcedureAddress)(ReplyMessage, ReplyMessage);
     }
     if ( v13 < 0 )
-      *(_DWORD *)(a1 + 52) = v13;
-    return *(unsigned int *)(a1 + 52);
+      *((_DWORD *)ReplyMessage + 13) = v13;
+    return *((unsigned int *)ReplyMessage + 13);
   }
 }

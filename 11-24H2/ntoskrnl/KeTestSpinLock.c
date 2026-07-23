@@ -1,11 +1,11 @@
 /*
- * XREFs of KeTestSpinLock @ 0x140418A40
+ * XREFs of KeTestSpinLock @ 0x1404087F0
  * Callers:
- *     EtwpLockUnlockBufferList @ 0x1404189B8 (EtwpLockUnlockBufferList.c)
- *     HalpDmaMarkHiberAdapter @ 0x1404D0F9C (HalpDmaMarkHiberAdapter.c)
- *     KiDecodeMcaFault @ 0x1405080F0 (KiDecodeMcaFault.c)
- *     BvgaAcquireLock @ 0x1405904A0 (BvgaAcquireLock.c)
- *     EtwpBugCheckMultiPartCallback @ 0x14064FFD0 (EtwpBugCheckMultiPartCallback.c)
+ *     EtwpLockUnlockBufferList @ 0x140408768 (EtwpLockUnlockBufferList.c)
+ *     HalpDmaMarkHiberAdapter @ 0x1404C9FDC (HalpDmaMarkHiberAdapter.c)
+ *     KiDecodeMcaFault @ 0x1405059B0 (KiDecodeMcaFault.c)
+ *     BvgaAcquireLock @ 0x14058D4C0 (BvgaAcquireLock.c)
+ *     EtwpBugCheckMultiPartCallback @ 0x14064E610 (EtwpBugCheckMultiPartCallback.c)
  * Callees:
  *     <none>
  */

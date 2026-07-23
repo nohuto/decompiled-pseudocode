@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpAddPrmAddressTranslationToMemoryExtAmdSection @ 0x14057E140
+ * XREFs of HalpAddPrmAddressTranslationToMemoryExtAmdSection @ 0x140580660
  * Callers:
- *     HalpCreateMcaMemoryErrorRecord @ 0x140454498 (HalpCreateMcaMemoryErrorRecord.c)
+ *     HalpCreateMcaMemoryErrorRecord @ 0x14044C5C8 (HalpCreateMcaMemoryErrorRecord.c)
  * Callees:
- *     WheaPrmTranslatePhysicalAddress @ 0x1406D7570 (WheaPrmTranslatePhysicalAddress.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     WheaPrmTranslatePhysicalAddress @ 0x1406DB700 (WheaPrmTranslatePhysicalAddress.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall HalpAddPrmAddressTranslationToMemoryExtAmdSection(__int64 a1, __int64 *a2)

@@ -31,12 +31,12 @@ __int64 __fastcall PopBootStatGet(__int64 a1, __int64 a2)
   struct _KTHREAD *CurrentThread; // rax
   __int64 j; // r12
   __int64 v11; // r11
-  unsigned int Size; // [rsp+30h] [rbp-68h] BYREF
-  int Size_4; // [rsp+34h] [rbp-64h]
+  ULONG ReturnLength; // [rsp+30h] [rbp-68h] BYREF
+  int v14; // [rsp+34h] [rbp-64h]
   unsigned int v15; // [rsp+38h] [rbp-60h] BYREF
   HANDLE FileHandle; // [rsp+40h] [rbp-58h] BYREF
   int v17; // [rsp+48h] [rbp-50h] BYREF
-  unsigned int v18; // [rsp+4Ch] [rbp-4Ch]
+  RTL_BSD_ITEM_TYPE DataClass; // [rsp+4Ch] [rbp-4Ch]
   PVOID P; // [rsp+50h] [rbp-48h]
   ULONGLONG pullResult; // [rsp+58h] [rbp-40h] BYREF
   char *v21; // [rsp+60h] [rbp-38h]
@@ -44,7 +44,7 @@ __int64 __fastcall PopBootStatGet(__int64 a1, __int64 a2)
   char v24; // [rsp+B8h] [rbp+20h]
 
   pullResult = 0LL;
-  Size = 0;
+  ReturnLength = 0;
   v15 = 0;
   v17 = 0;
   Pool2 = 0LL;
@@ -75,7 +75,7 @@ __int64 __fastcall PopBootStatGet(__int64 a1, __int64 a2)
     memmove(Pool2, *(const void **)(a1 + 16), v6);
     for ( i = 0LL; ; i = (unsigned int)(i + 1) )
     {
-      Size_4 = i;
+      v14 = i;
       if ( (unsigned int)i >= *(_DWORD *)(a1 + 8) )
         break;
       v21 = &Pool2[24 * i];
@@ -99,20 +99,26 @@ __int64 __fastcall PopBootStatGet(__int64 a1, __int64 a2)
     {
       for ( j = 0LL; ; j = (unsigned int)(j + 1) )
       {
-        Size_4 = j;
+        v14 = j;
         if ( (unsigned int)j >= *(_DWORD *)(a1 + 8) )
           break;
         v21 = &Pool2[24 * j];
-        v18 = *(_DWORD *)v21;
-        SetBootStatusData = RtlBootStatusItemInfo(v18, &v15, &v17);
+        DataClass = *(_DWORD *)v21;
+        SetBootStatusData = RtlBootStatusItemInfo((unsigned int)DataClass, &v15, &v17);
         if ( SetBootStatusData < 0 )
           break;
         Src = (char *)&PopBootStat + v15;
-        SetBootStatusData = RtlGetSetBootStatusData(FileHandle, *(_DWORD *)(v11 + 16), (__int64)&Size);
-        if ( SetBootStatusData >= 0 && Size )
-          memmove(*((void **)v21 + 1), Src, Size);
+        SetBootStatusData = RtlGetSetBootStatusData(
+                              FileHandle,
+                              1u,
+                              DataClass,
+                              Src,
+                              *(_DWORD *)(v11 + 16),
+                              &ReturnLength);
+        if ( SetBootStatusData >= 0 && ReturnLength )
+          memmove(*((void **)v21 + 1), Src, ReturnLength);
         if ( a2 )
-          *(_DWORD *)(a2 + 4 * j) = Size;
+          *(_DWORD *)(a2 + 4 * j) = ReturnLength;
       }
     }
   }

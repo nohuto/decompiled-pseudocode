@@ -11,19 +11,19 @@
  *     sub_1800F6FF4 @ 0x1800F6FF4 (sub_1800F6FF4.c)
  */
 
-char __fastcall RtlIsValidLocaleName(PCWSTR SourceString, int a2)
+BOOLEAN __cdecl RtlIsValidLocaleName(PCWSTR LocaleName, ULONG Flags)
 {
   char v2; // di
   int v4; // eax
 
-  v2 = a2;
-  if ( !SourceString || (a2 & 0xFFFFFFFD) != 0 || !qword_180166368 && !sub_18007B398() )
+  v2 = Flags;
+  if ( !LocaleName || (Flags & 0xFFFFFFFD) != 0 || !qword_180166368 && !sub_18007B398() )
     return 0;
-  v4 = sub_180016E30((__int64)SourceString);
+  v4 = sub_180016E30((__int64)LocaleName);
   if ( v4 < 0 )
   {
-    if ( !(unsigned __int8)sub_1800F6FF4(SourceString)
-      || (v2 & 2) == 0 && (int)sub_1800F6C80(SourceString, 0LL, 0LL, 0LL) < 0 )
+    if ( !(unsigned __int8)sub_1800F6FF4(LocaleName)
+      || (v2 & 2) == 0 && (int)sub_1800F6C80(LocaleName, 0LL, 0LL, 0LL) < 0 )
     {
       return 0;
     }

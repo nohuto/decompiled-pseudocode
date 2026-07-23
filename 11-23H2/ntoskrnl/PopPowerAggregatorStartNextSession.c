@@ -1,13 +1,13 @@
 /*
- * XREFs of PopPowerAggregatorStartNextSession @ 0x140877C84
+ * XREFs of PopPowerAggregatorStartNextSession @ 0x140877EC4
  * Callers:
- *     PopPowerAggregatorActiveToScreenOffStateHandler @ 0x140877C40 (PopPowerAggregatorActiveToScreenOffStateHandler.c)
- *     PopPowerAggregatorDisplayPoweringOnStateHandler @ 0x140993660 (PopPowerAggregatorDisplayPoweringOnStateHandler.c)
+ *     PopPowerAggregatorActiveToScreenOffStateHandler @ 0x140877E80 (PopPowerAggregatorActiveToScreenOffStateHandler.c)
+ *     PopPowerAggregatorDisplayPoweringOnStateHandler @ 0x140993860 (PopPowerAggregatorDisplayPoweringOnStateHandler.c)
  * Callees:
- *     PopReleaseRwLock @ 0x14032C480 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x14032C5E4 (PopAcquireRwLockExclusive.c)
- *     PopGetMonitorReasonFromPowerEventId @ 0x1403C799C (PopGetMonitorReasonFromPowerEventId.c)
- *     PopSleepstudyStartNextSession @ 0x140878644 (PopSleepstudyStartNextSession.c)
+ *     PopReleaseRwLock @ 0x14032C710 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14032C874 (PopAcquireRwLockExclusive.c)
+ *     PopGetMonitorReasonFromPowerEventId @ 0x1403C7B7C (PopGetMonitorReasonFromPowerEventId.c)
+ *     PopSleepstudyStartNextSession @ 0x140878884 (PopSleepstudyStartNextSession.c)
  */
 
 struct _KTHREAD *__fastcall PopPowerAggregatorStartNextSession(unsigned int a1, int a2)

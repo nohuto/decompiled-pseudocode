@@ -1,17 +1,17 @@
 /*
- * XREFs of SepExamineSaclEx @ 0x140691D50
+ * XREFs of SepExamineSaclEx @ 0x140691E34
  * Callers:
- *     SepExamineGlobalSaclEx @ 0x14021A318 (SepExamineGlobalSaclEx.c)
- *     SepAccessCheckAndAuditAlarm @ 0x1404B6D30 (SepAccessCheckAndAuditAlarm.c)
+ *     SepExamineGlobalSaclEx @ 0x14021A144 (SepExamineGlobalSaclEx.c)
+ *     SepAccessCheckAndAuditAlarm @ 0x1404A1110 (SepAccessCheckAndAuditAlarm.c)
  * Callees:
- *     AuthzBasepFreeSecurityAttributesList @ 0x140088740 (AuthzBasepFreeSecurityAttributesList.c)
- *     AuthzBasepEvaluateAceCondition @ 0x14009FBFC (AuthzBasepEvaluateAceCondition.c)
- *     AuthzBasepInitializeResourceClaimsFromSacl @ 0x1400AC934 (AuthzBasepInitializeResourceClaimsFromSacl.c)
- *     SepSidInToken @ 0x1400C45A4 (SepSidInToken.c)
- *     memcmp @ 0x14014DE90 (memcmp.c)
- *     AuthzBasepObjectInTypeList @ 0x140234488 (AuthzBasepObjectInTypeList.c)
+ *     AuthzBasepEvaluateAceCondition @ 0x14009E524 (AuthzBasepEvaluateAceCondition.c)
+ *     AuthzBasepInitializeResourceClaimsFromSacl @ 0x1400AAE9C (AuthzBasepInitializeResourceClaimsFromSacl.c)
+ *     SepSidInToken @ 0x1400C2444 (SepSidInToken.c)
+ *     AuthzBasepFreeSecurityAttributesList @ 0x14010C930 (AuthzBasepFreeSecurityAttributesList.c)
+ *     memcmp @ 0x14014E450 (memcmp.c)
+ *     AuthzBasepObjectInTypeList @ 0x1402342B4 (AuthzBasepObjectInTypeList.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     SepSetAuditInfoForObjectType @ 0x1406924C8 (SepSetAuditInfoForObjectType.c)
+ *     SepSetAuditInfoForObjectType @ 0x1406925AC (SepSetAuditInfoForObjectType.c)
  */
 
 void __fastcall SepExamineSaclEx(

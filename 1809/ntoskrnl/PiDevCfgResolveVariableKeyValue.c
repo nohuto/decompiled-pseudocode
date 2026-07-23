@@ -1,17 +1,17 @@
 /*
- * XREFs of PiDevCfgResolveVariableKeyValue @ 0x140830FF0
+ * XREFs of PiDevCfgResolveVariableKeyValue @ 0x140832250
  * Callers:
  *     <none>
  * Callees:
- *     PnpValidateRegistryString @ 0x14015D94C (PnpValidateRegistryString.c)
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     PnpValidateRegistryValue @ 0x140289738 (PnpValidateRegistryValue.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     IopGetRegistryValue @ 0x1406804D4 (IopGetRegistryValue.c)
- *     PiDevCfgResolveVariable @ 0x1406F33FC (PiDevCfgResolveVariable.c)
- *     PiDevCfgResolveVariableKeyHandle @ 0x140830820 (PiDevCfgResolveVariableKeyHandle.c)
+ *     PnpValidateRegistryString @ 0x14015DA4C (PnpValidateRegistryString.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     PnpValidateRegistryValue @ 0x140289928 (PnpValidateRegistryValue.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     IopGetRegistryValue @ 0x140681694 (IopGetRegistryValue.c)
+ *     PiDevCfgResolveVariable @ 0x1406F469C (PiDevCfgResolveVariable.c)
+ *     PiDevCfgResolveVariableKeyHandle @ 0x140831A80 (PiDevCfgResolveVariableKeyHandle.c)
  */
 
 __int64 __fastcall PiDevCfgResolveVariableKeyValue(_QWORD *a1, void *a2, __int64 a3)

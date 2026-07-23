@@ -30,14 +30,14 @@ __int64 PoInitHiberServices()
   __int64 v4; // rdx
   __int64 v5; // rcx
   __int64 v6; // rdx
-  __int64 v7; // rcx
-  __int64 v8; // rbx
+  UNICODE_STRING *v7; // rcx
+  HANDLE v8; // rbx
   __int64 v9; // rcx
   __int64 result; // rax
   char v11; // [rsp+30h] [rbp+8h] BYREF
-  __int64 v12; // [rsp+38h] [rbp+10h] BYREF
+  HANDLE BcdStoreHandle; // [rsp+38h] [rbp+10h] BYREF
 
-  v12 = 0LL;
+  BcdStoreHandle = 0LL;
   v11 = 0;
   RtlInitUnicodeString(&PoHiberFileRoot, L"\\OSDataRoot");
   PopInitializeHibernateGlobals();
@@ -54,10 +54,12 @@ __int64 PoInitHiberServices()
   PopReleaseTransitionLock(2LL);
   LOBYTE(v6) = v11;
   PopTraceHibernatePolicyUpdate(v3, v6);
-  if ( !ExIsSoftBoot() && (v11 || !PopHiberBootOptimizationEnabledReg) && (int)BcdOpenStore(v7, 2LL, &v12) >= 0 )
+  if ( !ExIsSoftBoot()
+    && (v11 || !PopHiberBootOptimizationEnabledReg)
+    && BcdOpenStore(v7, BCD_OPEN_SYNC_FIRMWARE_ENTRIES, &BcdStoreHandle) >= 0 )
   {
-    v8 = v12;
-    PopBcdEstablishResumeObject(v12, 0LL);
+    v8 = BcdStoreHandle;
+    PopBcdEstablishResumeObject(BcdStoreHandle);
     PopBcdClearPendingResume(v8);
     BcdCloseStore(v8);
   }

@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpMcaAMDIsMemoryError @ 0x1404BD194
+ * XREFs of HalpMcaAMDIsMemoryError @ 0x1404BD3D4
  * Callers:
- *     HalpCreateMachineCheckErrorRecord @ 0x1404B9AF0 (HalpCreateMachineCheckErrorRecord.c)
+ *     HalpCreateMachineCheckErrorRecord @ 0x1404B9D30 (HalpCreateMachineCheckErrorRecord.c)
  * Callees:
- *     HalpMcaAMDMapHwidAndMcaTypeToBlock @ 0x1404BD210 (HalpMcaAMDMapHwidAndMcaTypeToBlock.c)
+ *     HalpMcaAMDMapHwidAndMcaTypeToBlock @ 0x1404BD450 (HalpMcaAMDMapHwidAndMcaTypeToBlock.c)
  */
 
 bool __fastcall HalpMcaAMDIsMemoryError(__int64 a1, __int16 a2)

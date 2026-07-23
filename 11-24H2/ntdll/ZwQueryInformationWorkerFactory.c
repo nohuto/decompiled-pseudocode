@@ -1,16 +1,21 @@
 /*
- * XREFs of ZwQueryInformationWorkerFactory @ 0x1801647E0
+ * XREFs of ZwQueryInformationWorkerFactory @ 0x180162BA0
  * Callers:
- *     TpQueryPoolStackInformation @ 0x18015C500 (TpQueryPoolStackInformation.c)
+ *     TpQueryPoolStackInformation @ 0x18015A8C0 (TpQueryPoolStackInformation.c)
  * Callees:
  *     <none>
  */
 
-__int64 ZwQueryInformationWorkerFactory()
+NTSTATUS __cdecl ZwQueryInformationWorkerFactory(
+        HANDLE WorkerFactoryHandle,
+        WORKERFACTORYINFOCLASS WorkerFactoryInformationClass,
+        PVOID WorkerFactoryInformation,
+        ULONG WorkerFactoryInformationLength,
+        PULONG ReturnLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 347LL;
+  result = 347;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

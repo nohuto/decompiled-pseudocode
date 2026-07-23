@@ -1,20 +1,20 @@
 /*
- * XREFs of CcBoostLowPriorityWorkerThread @ 0x1404F13AC
+ * XREFs of CcBoostLowPriorityWorkerThread @ 0x1404EA98C
  * Callers:
- *     CcAdjustWriteBehindThreadPoolIfNeeded @ 0x1403856E4 (CcAdjustWriteBehindThreadPoolIfNeeded.c)
- *     CcFlushCachePreProcess @ 0x1403991C8 (CcFlushCachePreProcess.c)
+ *     CcAdjustWriteBehindThreadPoolIfNeeded @ 0x140387494 (CcAdjustWriteBehindThreadPoolIfNeeded.c)
+ *     CcFlushCachePreProcess @ 0x14039AF28 (CcFlushCachePreProcess.c)
  * Callees:
- *     KeSetPriorityThread @ 0x140204540 (KeSetPriorityThread.c)
- *     IoBoostThreadIoPriority @ 0x140205ACC (IoBoostThreadIoPriority.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     PsBoostThreadIo @ 0x1402BA700 (PsBoostThreadIo.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     PsGetIoPriorityThread @ 0x1403750A0 (PsGetIoPriorityThread.c)
- *     CcUpdateSharedCacheMapFlag @ 0x1404B3B68 (CcUpdateSharedCacheMapFlag.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     KeSetPriorityThread @ 0x140204620 (KeSetPriorityThread.c)
+ *     IoBoostThreadIoPriority @ 0x140205BAC (IoBoostThreadIoPriority.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     PsBoostThreadIo @ 0x1403053C0 (PsBoostThreadIo.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     PsGetIoPriorityThread @ 0x140376E50 (PsGetIoPriorityThread.c)
+ *     CcUpdateSharedCacheMapFlag @ 0x1404AD134 (CcUpdateSharedCacheMapFlag.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 void __fastcall CcBoostLowPriorityWorkerThread(__int64 a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)

@@ -16,7 +16,7 @@ __int64 __fastcall MiAssignSystemVa(ULONG NumberToClear, unsigned int a2)
   ULONG ClearBitsAndSet; // eax
   __int64 v8; // rdi
   ULONG v9; // ebx
-  RTL_BITMAP BitMapHeader; // [rsp+20h] [rbp-18h] BYREF
+  _RTL_BITMAP BitMapHeader; // [rsp+20h] [rbp-18h] BYREF
 
   *(_QWORD *)&BitMapHeader.SizeOfBitMap = 256LL;
   BitMapHeader.Buffer = (unsigned int *)&xmmword_140E2EE28;

@@ -39,44 +39,43 @@ __int64 __fastcall SmpKeyedStoreEntryGet(ULONG_PTR BugCheckParameter2, __int64 *
   __int64 v13; // rdi
   struct _KTHREAD *v15; // rdi
   unsigned __int8 v16; // r12
-  ULONG_PTR v17; // r8
-  __int64 v18; // rdx
-  bool v19; // zf
-  __int64 v20; // rcx
-  __int64 v21; // rsi
+  unsigned int v17; // edx
+  bool v18; // zf
+  __int64 v19; // rcx
+  __int64 v20; // rsi
+  __int64 v21; // rdx
   __int64 v22; // rdx
-  __int64 v23; // rdx
-  __int64 v24; // rcx
-  __int64 v25; // r8
-  __int64 v26; // r9
-  ULONG_PTR v27; // r15
-  unsigned int v28; // esi
-  unsigned int v29; // eax
-  __int64 v30; // rcx
-  __int64 v31; // rdx
-  __int64 v32; // rsi
-  char *v33; // r8
-  int v34; // edi
+  __int64 v23; // rcx
+  __int64 v24; // r8
+  __int64 v25; // r9
+  ULONG_PTR v26; // r15
+  unsigned int v27; // esi
+  unsigned int v28; // eax
+  __int64 v29; // rcx
+  __int64 v30; // rdx
+  __int64 v31; // rsi
+  char *v32; // r8
+  int v33; // edi
   _QWORD *i; // rdx
   char j; // cl
-  unsigned __int64 v37; // rcx
-  unsigned int v38; // edi
-  __int64 v39; // r10
-  __int64 v40; // r15
-  _QWORD *v41; // r9
-  __int64 v42; // rdx
-  struct _PRIVILEGE_SET *v43; // rcx
-  int v44; // [rsp+34h] [rbp-2Ch] BYREF
-  __int64 v45; // [rsp+38h] [rbp-28h]
-  __int64 v46; // [rsp+40h] [rbp-20h]
-  __int64 v47; // [rsp+48h] [rbp-18h]
-  __int64 v48; // [rsp+50h] [rbp-10h]
-  __int64 v49; // [rsp+58h] [rbp-8h]
-  int v50; // [rsp+B0h] [rbp+50h] BYREF
-  int v51; // [rsp+B8h] [rbp+58h]
+  unsigned __int64 v36; // rcx
+  unsigned int v37; // edi
+  __int64 v38; // r10
+  __int64 v39; // r15
+  _QWORD *v40; // r9
+  __int64 v41; // rdx
+  struct _PRIVILEGE_SET *v42; // rcx
+  int v43; // [rsp+34h] [rbp-2Ch] BYREF
+  __int64 v44; // [rsp+38h] [rbp-28h]
+  __int64 v45; // [rsp+40h] [rbp-20h]
+  __int64 v46; // [rsp+48h] [rbp-18h]
+  __int64 v47; // [rsp+50h] [rbp-10h]
+  __int64 v48; // [rsp+58h] [rbp-8h]
+  int v49; // [rsp+B0h] [rbp+50h] BYREF
+  int v50; // [rsp+B8h] [rbp+58h]
 
-  v51 = a4;
-  v50 = 0;
+  v50 = a4;
+  v49 = 0;
   if ( !a4 )
   {
     CurrentThread = KeGetCurrentThread();
@@ -102,20 +101,20 @@ __int64 __fastcall SmpKeyedStoreEntryGet(ULONG_PTR BugCheckParameter2, __int64 *
   v11 = *(_DWORD *)(BugCheckParameter2 + 12) >> 5;
   v12 = -1LL << (*(_BYTE *)(BugCheckParameter2 + 12) & 0x1F);
   v13 = v12 & *a2;
-  v45 = v13;
+  v44 = v13;
   if ( !v11 )
     goto LABEL_15;
-  v48 = v13;
+  v47 = v13;
   v9 = *(_QWORD *)(BugCheckParameter2 + 16)
      + 8LL
      * ((37
-       * (BYTE6(v45)
+       * (BYTE6(v44)
         + 37
-        * (BYTE5(v45)
+        * (BYTE5(v44)
          + 37
-         * (BYTE4(v45)
-          + 37 * (BYTE3(v45) + 37 * (BYTE2(v45) + 37 * (BYTE1(v45) + 37 * ((unsigned __int8)v13 + 11623883)))))))
-       + HIBYTE(v45)) & (unsigned int)(v11 - 1));
+         * (BYTE4(v44)
+          + 37 * (BYTE3(v44) + 37 * (BYTE2(v44) + 37 * (BYTE1(v44) + 37 * ((unsigned __int8)v13 + 11623883)))))))
+       + HIBYTE(v44)) & (unsigned int)(v11 - 1));
   while ( 1 )
   {
     v9 = *(_QWORD *)v9;
@@ -130,21 +129,21 @@ LABEL_14:
   {
     if ( a3 == 2 )
     {
-      v34 = *(_DWORD *)(BugCheckParameter2 + 12) >> 5;
-      v45 = *(_QWORD *)(v9 + 8) & (-1LL << (*(_DWORD *)(BugCheckParameter2 + 12) & 0x1F));
-      v49 = v45;
+      v33 = *(_DWORD *)(BugCheckParameter2 + 12) >> 5;
+      v44 = *(_QWORD *)(v9 + 8) & (-1LL << (*(_DWORD *)(BugCheckParameter2 + 12) & 0x1F));
+      v48 = v44;
       for ( i = (_QWORD *)(*(_QWORD *)(BugCheckParameter2 + 16)
                          + 8LL
                          * ((37
-                           * (BYTE6(v45)
+                           * (BYTE6(v44)
                             + 37
-                            * (BYTE5(v45)
+                            * (BYTE5(v44)
                              + 37
-                             * (BYTE4(v45)
+                             * (BYTE4(v44)
                               + 37
-                              * (BYTE3(v45)
-                               + 37 * (BYTE2(v45) + 37 * (BYTE1(v45) + 37 * ((unsigned __int8)v45 + 11623883)))))))
-                           + HIBYTE(v45)) & (unsigned int)(v34 - 1))); (*i & 1) == 0; i = (_QWORD *)*i )
+                              * (BYTE3(v44)
+                               + 37 * (BYTE2(v44) + 37 * (BYTE1(v44) + 37 * ((unsigned __int8)v44 + 11623883)))))))
+                           + HIBYTE(v44)) & (unsigned int)(v33 - 1))); (*i & 1) == 0; i = (_QWORD *)*i )
       {
         if ( *i == v9 )
         {
@@ -171,77 +170,77 @@ LABEL_15:
       v9 = 0LL;
       goto LABEL_17;
     }
-    v27 = BugCheckParameter2 + 8;
-    v50 = 1414032755;
-    v28 = *(_DWORD *)(BugCheckParameter2 + 12);
+    v26 = BugCheckParameter2 + 8;
+    v49 = 1414032755;
+    v27 = *(_DWORD *)(BugCheckParameter2 + 12);
     v9 = (__int64)(a2 - 1);
-    v29 = 2 * (v28 >> 5);
-    if ( *(_DWORD *)(BugCheckParameter2 + 8) >= v29 )
+    v28 = 2 * (v27 >> 5);
+    if ( *(_DWORD *)(BugCheckParameter2 + 8) >= v28 )
     {
-      v32 = v29;
-      if ( v29 < 4 )
-        v32 = 4LL;
-      v33 = (char *)SmAllocWrapper(8LL * (unsigned int)v32, &v50);
-      if ( v33 )
+      v31 = v28;
+      if ( v28 < 4 )
+        v31 = 4LL;
+      v32 = (char *)SmAllocWrapper(8LL * (unsigned int)v31, &v49);
+      if ( v32 )
       {
-        if ( (((_DWORD)v32 - 1) & (unsigned int)v32) != 0 )
+        if ( (((_DWORD)v31 - 1) & (unsigned int)v31) != 0 )
         {
-          for ( j = -1; (_DWORD)v32; LODWORD(v32) = (unsigned int)v32 >> 1 )
+          for ( j = -1; (_DWORD)v31; LODWORD(v31) = (unsigned int)v31 >> 1 )
             ++j;
-          v32 = (unsigned int)(1 << j);
+          v31 = (unsigned int)(1 << j);
         }
-        if ( (unsigned int)v32 > 0x4000000 )
-          v32 = 0x4000000LL;
-        v37 = (unsigned int)v32;
-        if ( v33 > &v33[8 * v32] )
-          v37 = 0LL;
-        if ( v37 )
-          memset64(v33, v27 | 1, v37);
-        v38 = 0;
-        v39 = -1LL << (*(_BYTE *)(BugCheckParameter2 + 12) & 0x1F);
+        if ( (unsigned int)v31 > 0x4000000 )
+          v31 = 0x4000000LL;
+        v36 = (unsigned int)v31;
+        if ( v32 > &v32[8 * v31] )
+          v36 = 0LL;
+        if ( v36 )
+          memset64(v32, v26 | 1, v36);
+        v37 = 0;
+        v38 = -1LL << (*(_BYTE *)(BugCheckParameter2 + 12) & 0x1F);
         if ( (*(_DWORD *)(BugCheckParameter2 + 12) & 0xFFFFFFE0) != 0 )
         {
           do
           {
-            v40 = *(_QWORD *)(v27 + 8);
+            v39 = *(_QWORD *)(v26 + 8);
             while ( 1 )
             {
-              v41 = *(_QWORD **)(v40 + 8LL * v38);
-              if ( ((unsigned __int8)v41 & 1) != 0 )
+              v40 = *(_QWORD **)(v39 + 8LL * v37);
+              if ( ((unsigned __int8)v40 & 1) != 0 )
                 break;
-              *(_QWORD *)(v40 + 8LL * v38) = *v41;
-              v46 = v39 & v41[1];
-              v42 = (37
-                   * (BYTE6(v46)
+              *(_QWORD *)(v39 + 8LL * v37) = *v40;
+              v45 = v38 & v40[1];
+              v41 = (37
+                   * (BYTE6(v45)
                     + 37
-                    * (BYTE5(v46)
+                    * (BYTE5(v45)
                      + 37
-                     * (BYTE4(v46)
+                     * (BYTE4(v45)
                       + 37
-                      * (BYTE3(v46) + 37 * (BYTE2(v46) + 37 * (BYTE1(v46) + 37 * ((unsigned __int8)v46 + 11623883)))))))
-                   + HIBYTE(v46)) & (unsigned int)(v32 - 1);
-              *v41 = *(_QWORD *)&v33[8 * v42];
-              *(_QWORD *)&v33[8 * v42] = v41;
+                      * (BYTE3(v45) + 37 * (BYTE2(v45) + 37 * (BYTE1(v45) + 37 * ((unsigned __int8)v45 + 11623883)))))))
+                   + HIBYTE(v45)) & (unsigned int)(v31 - 1);
+              *v40 = *(_QWORD *)&v32[8 * v41];
+              *(_QWORD *)&v32[8 * v41] = v40;
             }
-            v27 = BugCheckParameter2 + 8;
-            ++v38;
+            v26 = BugCheckParameter2 + 8;
+            ++v37;
           }
-          while ( v38 < *(_DWORD *)(BugCheckParameter2 + 12) >> 5 );
+          while ( v37 < *(_DWORD *)(BugCheckParameter2 + 12) >> 5 );
         }
-        v43 = *(struct _PRIVILEGE_SET **)(v27 + 8);
-        v28 = *(_DWORD *)(v27 + 4) & 0x1F | (32 * v32);
-        *(_QWORD *)(v27 + 8) = v33;
-        *(_DWORD *)(v27 + 4) = v28;
-        if ( v43 )
+        v42 = *(struct _PRIVILEGE_SET **)(v26 + 8);
+        v27 = *(_DWORD *)(v26 + 4) & 0x1F | (32 * v31);
+        *(_QWORD *)(v26 + 8) = v32;
+        *(_DWORD *)(v26 + 4) = v27;
+        if ( v42 )
         {
-          CmSiFreeMemory(v43);
-          v28 = *(_DWORD *)(BugCheckParameter2 + 12);
+          CmSiFreeMemory(v42);
+          v27 = *(_DWORD *)(BugCheckParameter2 + 12);
         }
       }
       else
       {
-        v28 = *(_DWORD *)(BugCheckParameter2 + 12);
-        if ( v28 < 0x20 )
+        v27 = *(_DWORD *)(BugCheckParameter2 + 12);
+        if ( v27 < 0x20 )
         {
           v9 = 0LL;
           SessionId = -1;
@@ -249,67 +248,66 @@ LABEL_15:
         }
       }
     }
-    v47 = *a2 & (-1LL << (v28 & 0x1F));
-    v30 = *(_QWORD *)(v27 + 8);
-    v31 = (37
-         * (BYTE6(v47)
+    v46 = *a2 & (-1LL << (v27 & 0x1F));
+    v29 = *(_QWORD *)(v26 + 8);
+    v30 = (37
+         * (BYTE6(v46)
           + 37
-          * (BYTE5(v47)
+          * (BYTE5(v46)
            + 37
-           * (BYTE4(v47)
-            + 37 * (BYTE3(v47) + 37 * (BYTE2(v47) + 37 * (BYTE1(v47) + 37 * ((unsigned __int8)v47 + 11623883)))))))
-         + HIBYTE(v47)) & ((v28 >> 5) - 1);
-    *(_QWORD *)v9 = *(_QWORD *)(v30 + 8 * v31);
-    *(_QWORD *)(v30 + 8 * v31) = v9;
-    ++*(_DWORD *)v27;
+           * (BYTE4(v46)
+            + 37 * (BYTE3(v46) + 37 * (BYTE2(v46) + 37 * (BYTE1(v46) + 37 * ((unsigned __int8)v46 + 11623883)))))))
+         + HIBYTE(v46)) & ((v27 >> 5) - 1);
+    *(_QWORD *)v9 = *(_QWORD *)(v29 + 8 * v30);
+    *(_QWORD *)(v29 + 8 * v30) = v9;
+    ++*(_DWORD *)v26;
     SessionId = -1;
     if ( *(_QWORD *)(BugCheckParameter2 + 32) == *a2 )
       *(_QWORD *)(BugCheckParameter2 + 32) = 0LL;
   }
 LABEL_17:
-  if ( !v51 )
+  if ( !v50 )
   {
     if ( a3 > 0 )
     {
       if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)BugCheckParameter2, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
         ExfTryToWakePushLock((volatile signed __int64 *)BugCheckParameter2);
-      v44 = 0;
+      v43 = 0;
       v15 = KeGetCurrentThread();
       if ( (unsigned int)MiGetSystemRegionType(BugCheckParameter2) == 1 )
         SessionId = MmGetSessionIdEx((__int64)v15->ApcState.Process);
       --v15->SpecialApcDisable;
       v16 = ++v15->AbAllocationRegionCount;
-      v17 = BugCheckParameter2 & 0x7FFFFFFFFFFFFFFCLL;
-      LODWORD(v18) = ((char)v15->AbEntrySummary | (char)v15->AbOrphanedEntrySummary) ^ 0x3F;
+      v17 = ((char)v15->AbEntrySummary | (char)v15->AbOrphanedEntrySummary) ^ 0x3F;
       while ( 1 )
       {
-        v19 = !_BitScanReverse((unsigned int *)&v20, v18);
-        if ( v19 )
+        v18 = !_BitScanReverse((unsigned int *)&v19, v17);
+        if ( v18 )
           break;
-        v21 = (__int64)&v15->LockEntries[v20];
-        v18 = ~(1 << v20) & (unsigned int)v18;
-        if ( (*(_BYTE *)(v21 + 26) & 1) != 0
-          && (*(_DWORD *)(v21 + 32) & 1) == 0
-          && (*(_QWORD *)(v21 + 32) & 0x7FFFFFFFFFFFFFFCLL) == v17
-          && *(_DWORD *)(v21 + 40) == SessionId )
+        v20 = (__int64)&v15->LockEntries[v19];
+        v17 &= ~(1 << v19);
+        if ( (*(_BYTE *)(v20 + 26) & 1) != 0
+          && (*(_DWORD *)(v20 + 32) & 1) == 0
+          && (*(_QWORD *)(v20 + 32) & 0x7FFFFFFFFFFFFFFCLL) == (BugCheckParameter2 & 0x7FFFFFFFFFFFFFFCLL)
+          && *(_DWORD *)(v20 + 40) == SessionId )
         {
-          *(_BYTE *)(v21 + 26) &= ~1u;
-          if ( *(_QWORD *)(v21 + 32) )
+          *(_BYTE *)(v20 + 26) &= ~1u;
+          if ( *(_QWORD *)(v20 + 32) )
           {
-            if ( v21 )
+            if ( v20 )
             {
-              *(_BYTE *)(v21 + 32) |= 2u;
-              if ( *(__int64 *)(v21 + 32) < 0 )
-                KiAbEntryRemoveFromTree(v21, v18, v17);
-              v44 = *(_DWORD *)(v21 + 88) & 0x1FFFF;
-              *(_DWORD *)(v21 + 88) &= 0xFFFE0000;
-              *(_BYTE *)(v21 + 25) &= ~1u;
-              *(_QWORD *)(v21 + 32) = 0LL;
-              v22 = (signed __int64)(v21 - (unsigned __int64)v15->LockEntries) / 96;
+              *(_BYTE *)(v20 + 32) |= 2u;
+              if ( *(__int64 *)(v20 + 32) < 0 )
+                KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v20);
+              v43 = *(_DWORD *)(v20 + 88) & 0x1FFFF;
+              *(_DWORD *)(v20 + 88) &= 0xFFFE0000;
+              *(_BYTE *)(v20 + 25) &= ~1u;
+              *(_QWORD *)(v20 + 32) = 0LL;
+              v21 = (signed __int64)(v20 - (unsigned __int64)v15->LockEntries) / 96;
               if ( v16 == 1 )
-                v15->AbEntrySummary |= 1 << v22;
+                v15->AbEntrySummary |= 1 << v21;
               else
-                _InterlockedOr8((volatile signed __int8 *)&v15->AbOrphanedEntrySummary, 1 << v22);
+                _InterlockedOr8((volatile signed __int8 *)&v15->AbOrphanedEntrySummary, 1 << v21);
               goto LABEL_45;
             }
             break;
@@ -320,10 +318,10 @@ LABEL_17:
         KeBugCheckEx(0x162u, (ULONG_PTR)v15, BugCheckParameter2, SessionId, 0LL);
 LABEL_45:
       --v15->AbAllocationRegionCount;
-      KiAbThreadRemoveBoosts((ULONG_PTR)v15, BugCheckParameter2, &v44);
-      v19 = v15->SpecialApcDisable++ == -1;
-      if ( v19 && ($C774EFD68449142D8271B1EC1EB7FB26 *)v15->ApcState.ApcListHead[0].Flink != &v15->152 )
-        KiCheckForKernelApcDelivery(v24, v23, v25, v26);
+      KiAbThreadRemoveBoosts((ULONG_PTR)v15, BugCheckParameter2, &v43);
+      v18 = v15->SpecialApcDisable++ == -1;
+      if ( v18 && ($C774EFD68449142D8271B1EC1EB7FB26 *)v15->ApcState.ApcListHead[0].Flink != &v15->152 )
+        KiCheckForKernelApcDelivery(v23, v22, v24, v25);
     }
     else
     {

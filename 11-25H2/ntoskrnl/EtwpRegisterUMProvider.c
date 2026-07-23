@@ -76,7 +76,7 @@ __int64 __fastcall EtwpRegisterUMProvider(__int64 a1, ULONGLONG a2, unsigned int
   POBJECT_TYPE v32; // r14
   struct _KPRCB *CurrentPrcb; // r13
   _GENERAL_LOOKASIDE *P; // rbx
-  struct _SLIST_ENTRY *v35; // rsi
+  _SLIST_ENTRY *v35; // rsi
   unsigned int DefaultNonPagedPoolCharge; // ecx
   _SLIST_ENTRY *Next; // rcx
   struct _KPRCB *v38; // rdx
@@ -128,10 +128,10 @@ __int64 __fastcall EtwpRegisterUMProvider(__int64 a1, ULONGLONG a2, unsigned int
   unsigned __int64 *v85; // rbx
   __int64 *v86; // rax
   __int64 *v87; // rsi
-  __int64 *v88; // rdi
+  signed __int64 *v88; // rdi
   signed __int64 v89; // rax
   signed __int64 v90; // rdx
-  __int64 v91; // rtt
+  signed __int64 v91; // rtt
   char v92; // dl
   char v93; // [rsp+50h] [rbp-B0h] BYREF
   char v94[3]; // [rsp+51h] [rbp-AFh] BYREF
@@ -160,7 +160,7 @@ __int64 __fastcall EtwpRegisterUMProvider(__int64 a1, ULONGLONG a2, unsigned int
   LOWORD(v95) = *(_WORD *)(a2 + 20);
   v8 = *(_QWORD *)a2;
   v98 = a3;
-  v9 = v8 - SecurityProviderGuid;
+  v9 = v8 - *(_QWORD *)&SecurityProviderGuid.Data1;
   v10 = 0LL;
   v93 = a4;
   v108 = a2;
@@ -169,7 +169,7 @@ __int64 __fastcall EtwpRegisterUMProvider(__int64 a1, ULONGLONG a2, unsigned int
   v94[0] = 0;
   LODWORD(v96) = v6;
   if ( !v9 )
-    v9 = *(_QWORD *)(a2 + 8) - *((_QWORD *)&SecurityProviderGuid + 1);
+    v9 = *(_QWORD *)(a2 + 8) - *(_QWORD *)SecurityProviderGuid.Data4;
   if ( v9 )
   {
     v11 = *(_DWORD *)(a2 + 8);
@@ -306,7 +306,7 @@ LABEL_62:
           (v35 = RtlpInterlockedPopEntrySList(&L->ListHead)) != 0LL)
       || (Type = (unsigned int)L->Type,
           ++L->AllocateMisses,
-          (v35 = (struct _SLIST_ENTRY *)guard_dispatch_icall_no_overrides(Type)) != 0LL) )
+          (v35 = (_SLIST_ENTRY *)guard_dispatch_icall_no_overrides(Type)) != 0LL) )
     {
       LODWORD(v35->Next) = CurrentPrcb->Number;
     }
@@ -358,7 +358,7 @@ LABEL_55:
       if ( v49 )
       {
         *(_QWORD *)(v49 + 416) = 0LL;
-        v88 = (__int64 *)(v13[50] + 408LL);
+        v88 = (signed __int64 *)(v13[50] + 408LL);
         _m_prefetchw(v88);
         v89 = *v88;
         v90 = *v88 - 16;

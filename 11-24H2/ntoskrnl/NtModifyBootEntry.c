@@ -1,15 +1,15 @@
 /*
- * XREFs of NtModifyBootEntry @ 0x1407BE280
+ * XREFs of NtModifyBootEntry @ 0x1407BE6D0
  * Callers:
  *     <none>
  * Callees:
- *     ExpSetBootEntry @ 0x1407BC32C (ExpSetBootEntry.c)
+ *     ExpSetBootEntry @ 0x1407BC77C (ExpSetBootEntry.c)
  */
 
-__int64 __fastcall NtModifyBootEntry(const void *a1)
+NTSTATUS __cdecl NtModifyBootEntry(PBOOT_ENTRY BootEntry)
 {
-  if ( dword_140EFEAF0 == 2 )
-    return ExpSetBootEntry(0, a1, 0LL);
+  if ( dword_140EFEE10 == 2 )
+    return ExpSetBootEntry(0, BootEntry, 0LL);
   else
-    return 3221225474LL;
+    return -1073741822;
 }

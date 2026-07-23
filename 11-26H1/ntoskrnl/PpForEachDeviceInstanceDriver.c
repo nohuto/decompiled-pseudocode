@@ -1,20 +1,20 @@
 /*
- * XREFs of PpForEachDeviceInstanceDriver @ 0x140912FE0
+ * XREFs of PpForEachDeviceInstanceDriver @ 0x1409B50C0
  * Callers:
- *     PiDeviceRegistration @ 0x140912D28 (PiDeviceRegistration.c)
+ *     PiDeviceRegistration @ 0x1409B4E08 (PiDeviceRegistration.c)
  * Callees:
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     PiForEachDriverQueryRoutine @ 0x140913514 (PiForEachDriverQueryRoutine.c)
- *     _CmGetInstallerClassRegProp @ 0x140918E5C (_CmGetInstallerClassRegProp.c)
- *     _CmGetDeviceRegProp @ 0x140996210 (_CmGetDeviceRegProp.c)
- *     _CmOpenDeviceRegKey @ 0x140996B50 (_CmOpenDeviceRegKey.c)
- *     _PnpGetObjectProperty @ 0x14099E300 (_PnpGetObjectProperty.c)
- *     _CmOpenCommonClassRegKey @ 0x14099F0C4 (_CmOpenCommonClassRegKey.c)
- *     PnpUnicodeStringToWstrFree @ 0x1409DB5D0 (PnpUnicodeStringToWstrFree.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     _CmGetDeviceRegProp @ 0x140956C70 (_CmGetDeviceRegProp.c)
+ *     _CmOpenDeviceRegKey @ 0x1409575B0 (_CmOpenDeviceRegKey.c)
+ *     _PnpGetObjectProperty @ 0x14095ED60 (_PnpGetObjectProperty.c)
+ *     _CmOpenCommonClassRegKey @ 0x14095FB24 (_CmOpenCommonClassRegKey.c)
+ *     _CmGetInstallerClassRegProp @ 0x1409738BC (_CmGetInstallerClassRegProp.c)
+ *     PiForEachDriverQueryRoutine @ 0x1409B55F4 (PiForEachDriverQueryRoutine.c)
+ *     PnpUnicodeStringToWstrFree @ 0x140A18820 (PnpUnicodeStringToWstrFree.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PpForEachDeviceInstanceDriver(unsigned __int16 *a1, __int64 a2, __int64 a3)
@@ -31,13 +31,13 @@ __int64 __fastcall PpForEachDeviceInstanceDriver(unsigned __int16 *a1, __int64 a
   __int64 v15; // rax
   int ObjectProperty; // eax
   __int64 v17; // rcx
-  int v18; // r9d
+  char *v18; // r9
   int v19; // r8d
   _BYTE *v20; // rdx
   int InstallerClassRegProp; // eax
   _WORD *Pool2; // rax
-  unsigned int v23; // [rsp+60h] [rbp-79h] BYREF
-  int v24; // [rsp+64h] [rbp-75h] BYREF
+  ULONG v23; // [rsp+60h] [rbp-79h] BYREF
+  ULONG v24; // [rsp+64h] [rbp-75h] BYREF
   unsigned int v25; // [rsp+68h] [rbp-71h] BYREF
   int v26; // [rsp+6Ch] [rbp-6Dh] BYREF
   HANDLE Handle; // [rsp+70h] [rbp-69h] BYREF
@@ -91,21 +91,29 @@ __int64 __fastcall PpForEachDeviceInstanceDriver(unsigned __int16 *a1, __int64 a
     return (unsigned int)-1073741670;
   }
 LABEL_12:
-  DeviceRegProp = CmOpenDeviceRegKey(PiPnpRtlCtx, (_DWORD)v7, 16, 0, 131097, 0, (__int64)&v28, 0LL);
+  DeviceRegProp = CmOpenDeviceRegKey(*(__int64 *)&PiPnpRtlCtx, (__int64)v7, 16, 0, 131097, 0, (__int64)&v28, 0LL);
   if ( DeviceRegProp >= 0 )
   {
     v24 = 78;
     DeviceRegProp = CmGetDeviceRegProp(
-                      PiPnpRtlCtx,
-                      (_DWORD)v7,
-                      (_DWORD)v28,
-                      9,
+                      *(__int64 *)&PiPnpRtlCtx,
+                      (__int64)v7,
+                      (__int64)v28,
+                      9u,
                       (__int64)&v25,
                       (__int64)v30,
                       (__int64)&v24,
                       0);
     if ( DeviceRegProp >= 0 && v25 == 1 && v24 )
-      DeviceRegProp = CmOpenCommonClassRegKey(PiPnpRtlCtx, (unsigned int)v30, 32, 0, 131097, 0, (__int64)&Handle, 0LL);
+      DeviceRegProp = CmOpenCommonClassRegKey(
+                        *(__int64 *)&PiPnpRtlCtx,
+                        (__int64)v30,
+                        32,
+                        0,
+                        131097,
+                        0,
+                        (__int64)&Handle,
+                        0LL);
     v29[2] = a3;
     v29[0] = a1;
     v29[1] = PiProcessDriverInstance;
@@ -122,35 +130,35 @@ LABEL_18:
       if ( i >= 5 )
         goto LABEL_19;
       v13 = 4LL * i;
-      v14 = qword_140001350[v13 + 2];
+      v14 = qword_140001F60[v13 + 2];
       if ( !v14 || Handle )
         break;
 LABEL_39:
       ;
     }
-    v15 = qword_140001350[v13 + 1];
+    v15 = qword_140001F60[v13 + 1];
     v23 = v24;
     if ( v14 )
     {
       if ( v15 )
         ObjectProperty = PnpGetObjectProperty(
-                           PiPnpRtlCtx,
-                           (unsigned int)v30,
+                           *(__int64 *)&PiPnpRtlCtx,
+                           (__int64)v30,
                            2,
-                           (_DWORD)Handle,
+                           (char *)Handle,
                            0LL,
                            v15,
-                           (__int64)&v26,
+                           &v26,
                            (__int64)v5,
                            v24,
                            (__int64)&v23,
                            0);
       else
         ObjectProperty = CmGetInstallerClassRegProp(
-                           PiPnpRtlCtx,
-                           (unsigned int)v30,
-                           (_DWORD)Handle,
-                           qword_140001350[v13],
+                           *(__int64 *)&PiPnpRtlCtx,
+                           (__int64)v30,
+                           (__int64)Handle,
+                           qword_140001F60[v13],
                            (__int64)&v25,
                            (__int64)v5,
                            (__int64)&v23);
@@ -158,13 +166,13 @@ LABEL_39:
     else if ( v15 )
     {
       ObjectProperty = PnpGetObjectProperty(
-                         PiPnpRtlCtx,
-                         (_DWORD)v7,
+                         *(__int64 *)&PiPnpRtlCtx,
+                         (__int64)v7,
                          1,
-                         (_DWORD)v28,
+                         (char *)v28,
                          0LL,
                          v15,
-                         (__int64)&v26,
+                         &v26,
                          (__int64)v5,
                          v24,
                          (__int64)&v23,
@@ -173,10 +181,10 @@ LABEL_39:
     else
     {
       ObjectProperty = CmGetDeviceRegProp(
-                         PiPnpRtlCtx,
-                         (_DWORD)v7,
-                         (_DWORD)v28,
-                         qword_140001350[v13],
+                         *(__int64 *)&PiPnpRtlCtx,
+                         (__int64)v7,
+                         (__int64)v28,
+                         qword_140001F60[v13],
                          (__int64)&v25,
                          (__int64)v5,
                          (__int64)&v23,
@@ -194,7 +202,7 @@ LABEL_37:
       {
         if ( DeviceRegProp < 0 )
           goto LABEL_19;
-        DeviceRegProp = PiForEachDriverQueryRoutine(v25, v5, v23, qword_140001350[4 * i + 3], v29);
+        DeviceRegProp = PiForEachDriverQueryRoutine(v25, v5, v23, qword_140001F60[4 * i + 3], v29);
         if ( DeviceRegProp < 0 )
           goto LABEL_19;
       }
@@ -205,22 +213,22 @@ LABEL_37:
     v5 = (void *)ExAllocatePool2(0x100uLL);
     if ( !v5 )
       goto LABEL_18;
-    v17 = qword_140001350[v13 + 1];
-    if ( LOBYTE(qword_140001350[4 * i + 2]) )
+    v17 = qword_140001F60[v13 + 1];
+    if ( LOBYTE(qword_140001F60[4 * i + 2]) )
     {
       if ( !v17 )
       {
         InstallerClassRegProp = CmGetInstallerClassRegProp(
-                                  PiPnpRtlCtx,
-                                  (unsigned int)v30,
-                                  (_DWORD)Handle,
-                                  qword_140001350[4 * i],
+                                  *(__int64 *)&PiPnpRtlCtx,
+                                  (__int64)v30,
+                                  (__int64)Handle,
+                                  qword_140001F60[4 * i],
                                   (__int64)&v25,
                                   (__int64)v5,
                                   (__int64)&v23);
         goto LABEL_51;
       }
-      v18 = (int)Handle;
+      v18 = (char *)Handle;
       v20 = v30;
       v19 = 2;
     }
@@ -229,28 +237,28 @@ LABEL_37:
       if ( !v17 )
       {
         InstallerClassRegProp = CmGetDeviceRegProp(
-                                  PiPnpRtlCtx,
-                                  (_DWORD)v7,
-                                  (_DWORD)v28,
-                                  qword_140001350[4 * i],
+                                  *(__int64 *)&PiPnpRtlCtx,
+                                  (__int64)v7,
+                                  (__int64)v28,
+                                  qword_140001F60[4 * i],
                                   (__int64)&v25,
                                   (__int64)v5,
                                   (__int64)&v23,
                                   0);
         goto LABEL_51;
       }
-      v18 = (int)v28;
+      v18 = (char *)v28;
       v19 = 1;
-      LODWORD(v20) = (_DWORD)v7;
+      v20 = v7;
     }
     InstallerClassRegProp = PnpGetObjectProperty(
-                              PiPnpRtlCtx,
-                              (_DWORD)v20,
+                              *(__int64 *)&PiPnpRtlCtx,
+                              (__int64)v20,
                               v19,
                               v18,
                               0LL,
                               v17,
-                              (__int64)&v26,
+                              &v26,
                               (__int64)v5,
                               v24,
                               (__int64)&v23,

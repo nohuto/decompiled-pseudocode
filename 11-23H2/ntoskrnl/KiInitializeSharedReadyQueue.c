@@ -1,9 +1,9 @@
 /*
- * XREFs of KiInitializeSharedReadyQueue @ 0x140381138
+ * XREFs of KiInitializeSharedReadyQueue @ 0x1403812D8
  * Callers:
  *     KiInitPrcb @ 0x140A8BB8C (KiInitPrcb.c)
  * Callees:
- *     memset @ 0x140435A00 (memset.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 __int64 (__fastcall *__fastcall KiInitializeSharedReadyQueue(__int64 a1, __int64 a2))()

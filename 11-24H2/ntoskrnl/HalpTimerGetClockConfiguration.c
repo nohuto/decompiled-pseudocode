@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpTimerGetClockConfiguration @ 0x140546BD0
+ * XREFs of HalpTimerGetClockConfiguration @ 0x140544490
  * Callers:
  *     <none>
  * Callees:
- *     HalpTimerGetClockRates @ 0x140546C7C (HalpTimerGetClockRates.c)
+ *     HalpTimerGetClockRates @ 0x14054453C (HalpTimerGetClockRates.c)
  */
 
 __int64 __fastcall HalpTimerGetClockConfiguration(__int64 a1)

@@ -72,7 +72,7 @@ __int64 __fastcall MiLockFreeLargePageLists(__int64 a1)
           v7 = (int *)(*(_QWORD *)(a1 + 160) + 23104LL);
           CurrentIrql = KeGetCurrentIrql();
           __writecr8(2uLL);
-          if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+          if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
           {
             SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
             if ( CurrentIrql == 2 )
@@ -127,10 +127,10 @@ __int64 __fastcall MiLockFreeLargePageLists(__int64 a1)
       v29 = *(_QWORD *)(v10 + 23008);
       *(_QWORD *)(v10 + 23008) = &v29;
       ExReleaseSpinLockExclusiveFromDpcLevel(v12);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v16 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v16 <= 0xFu && (unsigned __int8)v11 <= 0xFu && v16 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v16 <= 0xFu && (unsigned __int8)v11 <= 0xFu && v16 >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           v18 = CurrentPrcb->SchedulerAssist;
@@ -147,10 +147,10 @@ __int64 __fastcall MiLockFreeLargePageLists(__int64 a1)
     else
     {
       ExReleaseSpinLockExclusiveFromDpcLevel(v12);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v21 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v21 <= 0xFu && (unsigned __int8)v11 <= 0xFu && v21 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v21 <= 0xFu && (unsigned __int8)v11 <= 0xFu && v21 >= 2u )
         {
           v22 = KeGetCurrentPrcb();
           v23 = v22->SchedulerAssist;
@@ -171,10 +171,10 @@ __int64 __fastcall MiLockFreeLargePageLists(__int64 a1)
     v2 = 0;
   }
   ExReleaseSpinLockExclusiveFromDpcLevel(v12);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v25 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v25 <= 0xFu && (unsigned __int8)v11 <= 0xFu && v25 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v25 <= 0xFu && (unsigned __int8)v11 <= 0xFu && v25 >= 2u )
     {
       v26 = KeGetCurrentPrcb();
       v27 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v11 + 1));

@@ -1,10 +1,10 @@
 /*
- * XREFs of MD4Final @ 0x1801245D0
+ * XREFs of MD4Final @ 0x1801245A0
  * Callers:
  *     <none>
  * Callees:
  *     __security_check_cookie @ 0x18008EF90 (__security_check_cookie.c)
- *     MD4Update @ 0x180124C60 (MD4Update.c)
+ *     MD4Update @ 0x180124C30 (MD4Update.c)
  *     memset$thunk$772440563353939046 @ 0x180132010 (memset$thunk$772440563353939046.c)
  */
 

@@ -1,7 +1,7 @@
 /*
- * XREFs of MiComputeTrimAmount @ 0x1403BA0D0
+ * XREFs of MiComputeTrimAmount @ 0x1403C3F40
  * Callers:
- *     MiPeriodicTrimWorkingSet @ 0x1403B9E10 (MiPeriodicTrimWorkingSet.c)
+ *     MiPeriodicTrimWorkingSet @ 0x1403C3C80 (MiPeriodicTrimWorkingSet.c)
  * Callees:
  *     <none>
  */
@@ -29,7 +29,7 @@ unsigned __int64 __fastcall MiComputeTrimAmount(__int64 a1, __int64 a2)
   unsigned __int64 v21; // r8
   int v22; // [rsp+8h] [rbp+8h]
 
-  v3 = *(_QWORD *)(stru_140E2EB88.ThreadLock + 8LL * *(unsigned __int16 *)(a2 + 174));
+  v3 = *(_QWORD *)(stru_140E2ED08.ThreadLock + 8LL * *(unsigned __int16 *)(a2 + 174));
   if ( *(_QWORD *)(a1 + 56) == *(_QWORD *)(a1 + 16) )
     return 0LL;
   v4 = *(_QWORD *)(v3 + 22464);

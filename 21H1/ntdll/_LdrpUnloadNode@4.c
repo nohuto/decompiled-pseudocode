@@ -29,14 +29,14 @@ struct _PEB *__thiscall LdrpUnloadNode(_DWORD *this)
 {
   struct _PEB *result; // eax
   _DWORD *v2; // esi
-  void (__thiscall *v3)(_DWORD, _DWORD *); // ebx
+  void (__thiscall *v3)(_DWORD, int); // ebx
   _DWORD **v4; // ecx
   _DWORD *v5; // edi
   _DWORD *v6; // ebx
-  int v7; // edi
+  _DWORD *v7; // edi
   int v8; // ecx
   _DWORD *i; // eax
-  _DWORD *v10; // edi
+  int v10; // edi
   _DWORD *v11; // edi
   _DWORD *v12; // ebx
   _DWORD *v13; // edx
@@ -65,16 +65,16 @@ LABEL_12:
   }
 LABEL_13:
   if ( g_ShimsEnabled )
-    v3 = (void (__thiscall *)(_DWORD, _DWORD *))(MEMORY[0x7FFE0330] ^ __ROR4__(
-                                                                        g_pfnSE_LdrEntryRemoved,
-                                                                        32 - (MEMORY[0x7FFE0330] & 0x1F)));
-  RtlEnterCriticalSection((int)&LdrpDllNotificationLock);
+    v3 = (void (__thiscall *)(_DWORD, int))(MEMORY[0x7FFE0330] ^ __ROR4__(
+                                                                   g_pfnSE_LdrEntryRemoved,
+                                                                   32 - (MEMORY[0x7FFE0330] & 0x1F)));
+  RtlEnterCriticalSection(&LdrpDllNotificationLock);
   for ( i = (_DWORD *)*v2; ; i = (_DWORD *)*v16 )
   {
     v16 = i;
     if ( i == v2 )
       break;
-    v10 = i - 21;
+    v10 = (int)(i - 21);
     if ( (*(_BYTE *)(i - 8) & 8) != 0 )
     {
       LdrpSendDllNotifications((int)(i - 21), 2, v8);
@@ -85,10 +85,10 @@ LABEL_13:
         AVrfDllUnloadNotification(v10);
     }
     if ( (ShowSnaps & 5) != 0 )
-      LdrpLogDbgPrint("minkernel\\ntdll\\ldrsnap.c", 3293, "LdrpUnloadNode", 2, "Unmapping DLL \"%wZ\"\n", v10 + 9);
-    LdrUnloadAlternateResourceModuleEx(v10[6], 0);
+      LdrpLogDbgPrint("minkernel\\ntdll\\ldrsnap.c", 3293, "LdrpUnloadNode", 2, "Unmapping DLL \"%wZ\"\n", v10 + 36);
+    LdrUnloadAlternateResourceModuleEx(*(PVOID *)(v10 + 24), 0);
   }
-  result = (struct _PEB *)RtlLeaveCriticalSection((int)&LdrpDllNotificationLock);
+  result = (struct _PEB *)RtlLeaveCriticalSection(&LdrpDllNotificationLock);
 LABEL_4:
   while ( 1 )
   {
@@ -129,7 +129,7 @@ LABEL_4:
     RtlReleaseSRWLockExclusive(&LdrpModuleDatatableLock);
     if ( v19 )
       LdrpUnloadNode(v12);
-    result = (struct _PEB *)RtlFreeHeap(LdrpHeap, 0, (int)v11);
+    result = (struct _PEB *)RtlFreeHeap(LdrpHeap, 0, v11);
   }
   v5 = (_DWORD *)*v2;
   v2[8] = -2;
@@ -138,20 +138,20 @@ LABEL_4:
     do
     {
       v6 = (_DWORD *)*v5;
-      v7 = (int)(v5 - 21);
-      *(_DWORD *)(v7 + 52) |= 2u;
+      v7 = v5 - 21;
+      v7[13] |= 2u;
       RtlAcquireSRWLockExclusive(&LdrpModuleDatatableLock);
       LdrpRemoveDataTableEntry(v7);
-      if ( *(char *)(v7 + 52) < 0 )
+      if ( *((char *)v7 + 52) < 0 )
       {
-        RtlRbRemoveNode(&LdrpMappingInfoIndex, v7 + 116);
-        RtlRbRemoveNode(&LdrpModuleBaseAddressIndex, v7 + 104);
-        *(_DWORD *)(v7 + 32) = 0;
+        RtlRbRemoveNode(&LdrpMappingInfoIndex, (PRTL_BALANCED_NODE)(v7 + 29));
+        RtlRbRemoveNode(&LdrpModuleBaseAddressIndex, (PRTL_BALANCED_NODE)(v7 + 26));
+        v7[8] = 0;
       }
       RtlReleaseSRWLockExclusive(&LdrpModuleDatatableLock);
       if ( LdrpIsSecureProcess )
         LdrpUnmapModule(v7);
-      result = (struct _PEB *)LdrpDereferenceModule(v7);
+      result = (struct _PEB *)LdrpDereferenceModule((char *)v7);
       v5 = v6;
     }
     while ( v6 != v2 );

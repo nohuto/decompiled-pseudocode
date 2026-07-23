@@ -1,8 +1,8 @@
 /*
- * XREFs of MiCheckPhysicalAddressRange @ 0x1406439BC
+ * XREFs of MiCheckPhysicalAddressRange @ 0x140643F0C
  * Callers:
- *     MmCopyMemory @ 0x1402EDB50 (MmCopyMemory.c)
- *     MiDbgTranslatePhysicalAddress @ 0x140643EF8 (MiDbgTranslatePhysicalAddress.c)
+ *     MmCopyMemory @ 0x1402EDDE0 (MmCopyMemory.c)
+ *     MiDbgTranslatePhysicalAddress @ 0x140644448 (MiDbgTranslatePhysicalAddress.c)
  * Callees:
  *     <none>
  */

@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpInsertUCRBlock @ 0x18004D02C
+ * XREFs of RtlpInsertUCRBlock @ 0x18004D01C
  * Callers:
- *     RtlpDeCommitFreeBlock @ 0x18004A810 (RtlpDeCommitFreeBlock.c)
- *     RtlpCreateUCREntry @ 0x18004CED0 (RtlpCreateUCREntry.c)
+ *     RtlpDeCommitFreeBlock @ 0x18004A800 (RtlpDeCommitFreeBlock.c)
+ *     RtlpCreateUCREntry @ 0x18004CEC0 (RtlpCreateUCREntry.c)
  * Callees:
- *     RtlpUpdateUCRIndexInsert @ 0x18004D0D4 (RtlpUpdateUCRIndexInsert.c)
- *     RtlpFindUCREntry @ 0x18004D130 (RtlpFindUCREntry.c)
+ *     RtlpUpdateUCRIndexInsert @ 0x18004D0C4 (RtlpUpdateUCRIndexInsert.c)
+ *     RtlpFindUCREntry @ 0x18004D120 (RtlpFindUCREntry.c)
  *     RtlpLogHeapFailure @ 0x1800A5E64 (RtlpLogHeapFailure.c)
  */
 

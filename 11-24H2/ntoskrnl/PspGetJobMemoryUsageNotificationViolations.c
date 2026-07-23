@@ -1,7 +1,7 @@
 /*
- * XREFs of PspGetJobMemoryUsageNotificationViolations @ 0x1409F5C78
+ * XREFs of PspGetJobMemoryUsageNotificationViolations @ 0x1409E932C
  * Callers:
- *     NtSetInformationJobObject @ 0x140ACE760 (NtSetInformationJobObject.c)
+ *     NtSetInformationJobObject @ 0x140ACC7F0 (NtSetInformationJobObject.c)
  * Callees:
  *     <none>
  */

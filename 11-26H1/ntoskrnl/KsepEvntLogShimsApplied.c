@@ -1,16 +1,16 @@
 /*
- * XREFs of KsepEvntLogShimsApplied @ 0x1405FE07C
+ * XREFs of KsepEvntLogShimsApplied @ 0x140600ACC
  * Callers:
- *     KseDriverLoadImage @ 0x140A25978 (KseDriverLoadImage.c)
+ *     KseDriverLoadImage @ 0x140A38A18 (KseDriverLoadImage.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     RtlAppendUnicodeToString @ 0x140432EB0 (RtlAppendUnicodeToString.c)
- *     RtlAppendUnicodeStringToString @ 0x140432F70 (RtlAppendUnicodeStringToString.c)
- *     KsepPoolAllocatePaged @ 0x1404DE51C (KsepPoolAllocatePaged.c)
- *     KsepPoolFreePaged @ 0x1404E2A70 (KsepPoolFreePaged.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     RtlStringFromGUIDEx @ 0x140A3EB50 (RtlStringFromGUIDEx.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     RtlAppendUnicodeToString @ 0x14041FEE0 (RtlAppendUnicodeToString.c)
+ *     RtlAppendUnicodeStringToString @ 0x14041FFA0 (RtlAppendUnicodeStringToString.c)
+ *     KsepPoolAllocatePaged @ 0x1404D7BFC (KsepPoolAllocatePaged.c)
+ *     KsepPoolFreePaged @ 0x1404DC150 (KsepPoolFreePaged.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     RtlStringFromGUIDEx @ 0x1409FA570 (RtlStringFromGUIDEx.c)
  */
 
 void __fastcall KsepEvntLogShimsApplied(unsigned __int16 *a1, __int64 a2, unsigned int a3)
@@ -19,7 +19,7 @@ void __fastcall KsepEvntLogShimsApplied(unsigned __int16 *a1, __int64 a2, unsign
   unsigned __int16 v6; // r14
   __int64 Paged; // rax
   UNICODE_STRING *v8; // rsi
-  __int64 v9; // rdi
+  wchar_t *v9; // rdi
   UNICODE_STRING *v10; // rbx
   unsigned __int16 *v11; // r15
   wchar_t *Buffer; // rbx
@@ -42,8 +42,8 @@ void __fastcall KsepEvntLogShimsApplied(unsigned __int16 *a1, __int64 a2, unsign
   v15 = a3;
   v6 = 0;
   Destination = 0LL;
-  if ( stru_140E66B30.StackLimit
-    && EtwEventEnabled((REGHANDLE)stru_140E66B30.StackLimit, &KseShimsApplied)
+  if ( stru_140E66D40.StackLimit
+    && EtwEventEnabled((REGHANDLE)stru_140E66D40.StackLimit, &KseShimsApplied)
     && v15
     && a2
     && a1 )
@@ -52,15 +52,15 @@ void __fastcall KsepEvntLogShimsApplied(unsigned __int16 *a1, __int64 a2, unsign
     v8 = (UNICODE_STRING *)Paged;
     if ( Paged )
     {
-      v9 = Paged + 16LL * v15;
+      v9 = (wchar_t *)(Paged + 16LL * v15);
       do
       {
         v10 = &v8[v3];
         *v10 = 0LL;
-        v10->Buffer = (wchar_t *)v9;
-        v9 += 78LL;
+        v10->Buffer = v9;
+        v9 += 39;
         v10->MaximumLength = 78;
-        RtlStringFromGUIDEx(a2 + 80LL * v3++, v10, 0LL);
+        RtlStringFromGUIDEx((PGUID)(a2 + 80LL * v3++), v10, 0);
         v6 += v10->Length + 4;
       }
       while ( v3 < v15 );
@@ -92,7 +92,7 @@ void __fastcall KsepEvntLogShimsApplied(unsigned __int16 *a1, __int64 a2, unsign
           UserData.Reserved = 0;
           v23 = Destination.Buffer;
           v25 = 0;
-          EtwWriteEx((REGHANDLE)stru_140E66B30.StackLimit, &KseShimsApplied, 0LL, 0, 0LL, 0LL, 4u, &UserData);
+          EtwWriteEx((REGHANDLE)stru_140E66D40.StackLimit, &KseShimsApplied, 0LL, 0, 0LL, 0LL, 4u, &UserData);
         }
       }
       else

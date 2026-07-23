@@ -1,9 +1,9 @@
 /*
- * XREFs of ?GetStoragePropertyPre@SC_DISK@@MEAAJW4_STORAGE_PROPERTY_ID@@PEAK@Z @ 0x14071B0E0
+ * XREFs of ?GetStoragePropertyPre@SC_DISK@@MEAAJW4_STORAGE_PROPERTY_ID@@PEAK@Z @ 0x14071FD70
  * Callers:
  *     <none>
  * Callees:
- *     ?GetStoragePropertyPre@SC_DEVICE@@MEAAJW4_STORAGE_PROPERTY_ID@@PEAK@Z @ 0x14071C420 (-GetStoragePropertyPre@SC_DEVICE@@MEAAJW4_STORAGE_PROPERTY_ID@@PEAK@Z.c)
+ *     ?GetStoragePropertyPre@SC_DEVICE@@MEAAJW4_STORAGE_PROPERTY_ID@@PEAK@Z @ 0x1407210B0 (-GetStoragePropertyPre@SC_DEVICE@@MEAAJW4_STORAGE_PROPERTY_ID@@PEAK@Z.c)
  */
 
 __int64 __fastcall SC_DISK::GetStoragePropertyPre(SC_DISK *this, enum _STORAGE_PROPERTY_ID a2, unsigned int *a3)
@@ -16,19 +16,19 @@ __int64 __fastcall SC_DISK::GetStoragePropertyPre(SC_DISK *this, enum _STORAGE_P
   {
     switch ( a2 )
     {
-      case 21:
+      case StorageAdapterCryptoProperty|StorageDeviceWriteCacheProperty:
         *a3 = 24;
         return v3;
-      case 57:
+      case StorageAdapterSerialNumberProperty:
         *a3 = 264;
         return v3;
-      case 58:
+      case StorageDeviceLocationProperty:
         *a3 = 36;
         return v3;
-      case 60:
+      case StorageDeviceZonedDeviceProperty:
         *a3 = 48;
         return v3;
-      case 65:
+      case StorageFruIdProperty:
         *a3 = 16;
         return v3;
     }

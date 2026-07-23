@@ -270,7 +270,7 @@ LABEL_95:
         break;
     }
     v8 = qword_1403CC2F0;
-    v68 = (!qword_1403CC2F0 || v28 < qword_1403CC2F0 || v28 >= qword_1403CC2F0 + (qword_1403CC300 << 30))
+    v68 = (!qword_1403CC2F0 || v28 < qword_1403CC2F0 || v28 >= qword_1403CC2F0 + (BitMapHeader.SizeOfBitMap << 30))
        && (unsigned int)v22 <= 1;
     if ( !v24 )
     {

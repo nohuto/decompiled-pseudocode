@@ -1,19 +1,19 @@
 /*
- * XREFs of MmQueryCommitReleaseState @ 0x140130954
+ * XREFs of MmQueryCommitReleaseState @ 0x140130A24
  * Callers:
- *     NtQueryInformationProcess @ 0x14066DB70 (NtQueryInformationProcess.c)
+ *     NtQueryInformationProcess @ 0x14066ED30 (NtQueryInformationProcess.c)
  * Callees:
  *     KeForceAttachProcess @ 0x14001674C (KeForceAttachProcess.c)
  *     MiUnlockWorkingSetShared @ 0x140046970 (MiUnlockWorkingSetShared.c)
- *     MiGetSharedVm @ 0x140064D30 (MiGetSharedVm.c)
- *     MiLockWorkingSetShared @ 0x140076050 (MiLockWorkingSetShared.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14007DE90 (KeAcquireInStackQueuedSpinLock.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     MiPrepareAttachThread @ 0x1400EEA3C (MiPrepareAttachThread.c)
- *     MiAttachThreadDone @ 0x1400EEA9C (MiAttachThreadDone.c)
- *     KeForceDetachProcess @ 0x140127F74 (KeForceDetachProcess.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiGetSharedVm @ 0x140064D20 (MiGetSharedVm.c)
+ *     MiLockWorkingSetShared @ 0x140076040 (MiLockWorkingSetShared.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14007DE80 (KeAcquireInStackQueuedSpinLock.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     MiPrepareAttachThread @ 0x1400EEABC (MiPrepareAttachThread.c)
+ *     MiAttachThreadDone @ 0x1400EEB1C (MiAttachThreadDone.c)
+ *     KeForceDetachProcess @ 0x140128044 (KeForceDetachProcess.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
  */
 
 char __fastcall MmQueryCommitReleaseState(ULONG_PTR a1, _DWORD *a2, _QWORD *a3, _QWORD *a4, _QWORD *a5)
@@ -49,7 +49,7 @@ char __fastcall MmQueryCommitReleaseState(ULONG_PTR a1, _DWORD *a2, _QWORD *a3, 
   v15 = 0LL;
   v16 = *((_QWORD *)SharedVm + 1);
   v17 = 0LL;
-  if ( dword_1405401D0 == 1 )
+  if ( dword_1405411D0 == 1 )
   {
     v18 = HIBYTE(v12);
     v16 = 0LL;
@@ -58,7 +58,7 @@ char __fastcall MmQueryCommitReleaseState(ULONG_PTR a1, _DWORD *a2, _QWORD *a3, 
   {
     if ( (HIBYTE(v12) & 0x60) == 0x40 )
     {
-      KeAcquireInStackQueuedSpinLock(&qword_14043AE80, &LockHandle);
+      KeAcquireInStackQueuedSpinLock(&qword_14043BF40, &LockHandle);
       v24 = MiPrepareAttachThread(a1, v5);
       KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
       OldIrql = LockHandle.OldIrql;

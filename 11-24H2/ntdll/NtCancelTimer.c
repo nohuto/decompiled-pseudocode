@@ -1,16 +1,16 @@
 /*
- * XREFs of NtCancelTimer @ 0x1801628A0
+ * XREFs of NtCancelTimer @ 0x180160C60
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 NtCancelTimer()
+NTSTATUS __cdecl NtCancelTimer(HANDLE TimerHandle, PBOOLEAN CurrentState)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 97LL;
+  result = 97;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

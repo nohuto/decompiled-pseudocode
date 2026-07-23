@@ -1,10 +1,10 @@
 /*
- * XREFs of ??_ENT_DISK@@UEAAPEAXI@Z @ 0x140816C00
+ * XREFs of ??_ENT_DISK@@UEAAPEAXI@Z @ 0x140817E00
  * Callers:
  *     <none>
  * Callees:
- *     ??1SC_DISK@@UEAA@XZ @ 0x1401685C0 (--1SC_DISK@@UEAA@XZ.c)
- *     ??3SC_ENV_ALLOCATOR@@SAXPEAX@Z @ 0x140329A8C (--3SC_ENV_ALLOCATOR@@SAXPEAX@Z.c)
+ *     ??1SC_DISK@@UEAA@XZ @ 0x1401686C0 (--1SC_DISK@@UEAA@XZ.c)
+ *     ??3SC_ENV_ALLOCATOR@@SAXPEAX@Z @ 0x140329C7C (--3SC_ENV_ALLOCATOR@@SAXPEAX@Z.c)
  */
 
 NT_DISK *__fastcall NT_DISK::`vector deleting destructor'(NT_DISK *this, char a2)

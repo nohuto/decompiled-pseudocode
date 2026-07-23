@@ -38,7 +38,7 @@ __int64 __fastcall MmGrowKernelStackEx(__int64 a1, __int64 a2)
   v4 = *(_QWORD *)(qword_140C674C8 + 8LL * CurrentThread->Process[1].IdealProcessor[25]);
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     LODWORD(v11) = 4;
@@ -105,10 +105,10 @@ LABEL_29:
     v3 = -1073741801;
   }
 LABEL_8:
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v16 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v16 <= 0xFu && CurrentIrql <= 0xFu && v16 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v16 <= 0xFu && CurrentIrql <= 0xFu && v16 >= 2u )
     {
       v17 = KeGetCurrentPrcb();
       v18 = v17->SchedulerAssist;

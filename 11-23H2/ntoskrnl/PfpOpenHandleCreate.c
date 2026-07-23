@@ -1,19 +1,19 @@
 /*
- * XREFs of PfpOpenHandleCreate @ 0x14075D084
+ * XREFs of PfpOpenHandleCreate @ 0x14075D274
  * Callers:
  *     PfpVolumeOpenAndVerify @ 0x1406853AC (PfpVolumeOpenAndVerify.c)
  *     PfSnOpenVolumesForPrefetch @ 0x140686328 (PfSnOpenVolumesForPrefetch.c)
  *     PfSnQueryVolumeInfo @ 0x1406869B4 (PfSnQueryVolumeInfo.c)
- *     PfSnGetSectionObject @ 0x14075C9A0 (PfSnGetSectionObject.c)
- *     PfpFileBuildReadSupport @ 0x14075E1A4 (PfpFileBuildReadSupport.c)
- *     PfpPrefetchEntireDirectory @ 0x14075E8CC (PfpPrefetchEntireDirectory.c)
- *     PfpPrefetchDirectoryStream @ 0x1407D7B0C (PfpPrefetchDirectoryStream.c)
- *     PfpQueryFileExtentsRequest @ 0x14097E4F0 (PfpQueryFileExtentsRequest.c)
+ *     PfSnGetSectionObject @ 0x14075CB90 (PfSnGetSectionObject.c)
+ *     PfpFileBuildReadSupport @ 0x14075E394 (PfpFileBuildReadSupport.c)
+ *     PfpPrefetchEntireDirectory @ 0x14075EABC (PfpPrefetchEntireDirectory.c)
+ *     PfpPrefetchDirectoryStream @ 0x1407D7DDC (PfpPrefetchDirectoryStream.c)
+ *     PfpQueryFileExtentsRequest @ 0x14097E6F0 (PfpQueryFileExtentsRequest.c)
  * Callees:
- *     KeDelayExecutionThread @ 0x140246810 (KeDelayExecutionThread.c)
- *     PfpCheckPrefetchAbort @ 0x1402F88F8 (PfpCheckPrefetchAbort.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     KeDelayExecutionThread @ 0x1402468E0 (KeDelayExecutionThread.c)
+ *     PfpCheckPrefetchAbort @ 0x1402F8B88 (PfpCheckPrefetchAbort.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 __int64 __fastcall PfpOpenHandleCreate(

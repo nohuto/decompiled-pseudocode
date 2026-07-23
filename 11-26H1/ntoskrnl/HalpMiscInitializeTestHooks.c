@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpMiscInitializeTestHooks @ 0x140CAFA84
+ * XREFs of HalpMiscInitializeTestHooks @ 0x140CB5AC4
  * Callers:
- *     HalpMiscInitSystem @ 0x140BEB3F0 (HalpMiscInitSystem.c)
+ *     HalpMiscInitSystem @ 0x140BF13F0 (HalpMiscInitSystem.c)
  * Callees:
- *     xHalTimerWatchdogStop @ 0x1404D1DF0 (xHalTimerWatchdogStop.c)
+ *     xHalTimerWatchdogStop @ 0x1404CB9A0 (xHalTimerWatchdogStop.c)
  */
 
 void __fastcall HalpMiscInitializeTestHooks(__int64 a1)

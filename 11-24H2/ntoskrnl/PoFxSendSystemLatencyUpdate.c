@@ -1,19 +1,19 @@
 /*
- * XREFs of PoFxSendSystemLatencyUpdate @ 0x1403B5638
+ * XREFs of PoFxSendSystemLatencyUpdate @ 0x1402AD9A8
  * Callers:
- *     PoNotifyVSyncChange @ 0x1403B5600 (PoNotifyVSyncChange.c)
- *     PopDeepSleepEvaluateCallback @ 0x14049DC40 (PopDeepSleepEvaluateCallback.c)
- *     PopCheckResiliencyScenarios @ 0x140A27318 (PopCheckResiliencyScenarios.c)
- *     PopWnfFullscreenVideoCallback @ 0x140A3B590 (PopWnfFullscreenVideoCallback.c)
- *     PopEnforceResiliencyScenarios @ 0x140AAC0B0 (PopEnforceResiliencyScenarios.c)
- *     PoInitSystem @ 0x140C61990 (PoInitSystem.c)
+ *     PoNotifyVSyncChange @ 0x1402AD970 (PoNotifyVSyncChange.c)
+ *     PopDeepSleepEvaluateCallback @ 0x140498A40 (PopDeepSleepEvaluateCallback.c)
+ *     PopCheckResiliencyScenarios @ 0x140A1BD98 (PopCheckResiliencyScenarios.c)
+ *     PopWnfFullscreenVideoCallback @ 0x140A30D70 (PopWnfFullscreenVideoCallback.c)
+ *     PopEnforceResiliencyScenarios @ 0x140AA7080 (PopEnforceResiliencyScenarios.c)
+ *     PoInitSystem @ 0x140C63AE4 (PoInitSystem.c)
  * Callees:
- *     EtwWriteEx @ 0x140259680 (EtwWriteEx.c)
- *     EtwEventEnabled @ 0x1402A1BD0 (EtwEventEnabled.c)
- *     PpmIdleUpdateSystemLatencyLimit @ 0x1403B5810 (PpmIdleUpdateSystemLatencyLimit.c)
- *     PopFxGetLatencyLimitWithoutResiliency @ 0x1403B68A0 (PopFxGetLatencyLimitWithoutResiliency.c)
- *     PoFxSystemLatencyNotify @ 0x1403B68D8 (PoFxSystemLatencyNotify.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x140289C90 (EtwWriteEx.c)
+ *     PpmIdleUpdateSystemLatencyLimit @ 0x1402AEDA4 (PpmIdleUpdateSystemLatencyLimit.c)
+ *     EtwEventEnabled @ 0x1402D1300 (EtwEventEnabled.c)
+ *     PoFxSystemLatencyNotify @ 0x140463574 (PoFxSystemLatencyNotify.c)
+ *     PopFxGetLatencyLimitWithoutResiliency @ 0x140470EB8 (PopFxGetLatencyLimitWithoutResiliency.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 __int64 PoFxSendSystemLatencyUpdate()
@@ -24,8 +24,8 @@ __int64 PoFxSendSystemLatencyUpdate()
   unsigned int v3; // [rsp+40h] [rbp-28h] BYREF
   struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+48h] [rbp-20h] BYREF
 
-  if ( byte_140F0BB54 && (!PopDeepSleepIsEnabled && PopPdcIdleResiliency || PopDeepSleepIsEngaged) )
-    LatencyLimitWithoutResiliency = dword_140FC444C;
+  if ( byte_140F0B674 && (!PopDeepSleepIsEnabled && PopPdcIdleResiliency || PopDeepSleepIsEngaged) )
+    LatencyLimitWithoutResiliency = dword_140FC545C;
   else
     LatencyLimitWithoutResiliency = PopFxGetLatencyLimitWithoutResiliency();
   result = (unsigned int)PopFxSystemLatencyLimit;

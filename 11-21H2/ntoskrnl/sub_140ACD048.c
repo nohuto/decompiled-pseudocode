@@ -1,7 +1,7 @@
 /*
  * XREFs of sub_140ACD048 @ 0x140ACD048
  * Callers:
- *     FsRtlMdlReadCompleteDevEx @ 0x140AB9010 (FsRtlMdlReadCompleteDevEx.c)
+ *     sub_140AB9010 @ 0x140AB9010 (sub_140AB9010.c)
  *     sub_140ACD048 @ 0x140ACD048 (sub_140ACD048.c)
  *     sub_140AD7DE4 @ 0x140AD7DE4 (sub_140AD7DE4.c)
  * Callees:
@@ -10,9 +10,9 @@
  *     sub_140ACD048 @ 0x140ACD048 (sub_140ACD048.c)
  *     sub_140ACF0E0 @ 0x140ACF0E0 (sub_140ACF0E0.c)
  *     sub_140ACFC24 @ 0x140ACFC24 (sub_140ACFC24.c)
- *     $$b9 @ 0x140AD049C ($$b9.c)
+ *     sub_140AD049C @ 0x140AD049C (sub_140AD049C.c)
  *     sub_140AD0CE4 @ 0x140AD0CE4 (sub_140AD0CE4.c)
- *     KeGuardDispatchICall @ 0x140AD23B0 (KeGuardDispatchICall.c)
+ *     j__guard_dispatch_icall_nop @ 0x140AD23B0 (j__guard_dispatch_icall_nop.c)
  *     sub_140AD6FD0 @ 0x140AD6FD0 (sub_140AD6FD0.c)
  */
 
@@ -700,7 +700,7 @@ LABEL_94:
   LODWORD(v336) = v29 & 1;
   _disable();
   v60 = v334;
-  v61 = *(_QWORD *)((char *)&KeGetCurrentPrcb()->MxCsr + *((_QWORD *)v334 + 195));
+  v61 = *(_QWORD *)((char *)KeGetCurrentPrcb() + *((_QWORD *)v334 + 195));
   _enable();
   (*((void (__fastcall **)(__int64))v60 + 43))(v61);
   LOBYTE(v62) = 1;
@@ -763,7 +763,7 @@ LABEL_110:
       *((_QWORD *)v60 + 281) = v60 - 0x5C5FC0A76E374B18LL;
       *((_QWORD *)v60 + 284) = v32;
       *((_DWORD *)v60 + 560) = 1;
-      __b9(v60, 0LL, v75, v76);
+      sub_140AD049C(v60, 0LL, v75, v76);
     }
     v34 = -1073741701;
     goto LABEL_237;
@@ -1324,7 +1324,7 @@ LABEL_252:
       *((_QWORD *)v58 + 282) = 0LL;
       *((_QWORD *)v58 + 283) = 271LL;
       *((_QWORD *)v58 + 284) = v111;
-      __b9(v58, 0LL, v172, v174);
+      sub_140AD049C(v58, 0LL, v172, v174);
       goto LABEL_246;
     }
 LABEL_259:
@@ -1770,7 +1770,7 @@ LABEL_411:
                       *((_QWORD *)v201 + 282) = 0LL;
                       *((_DWORD *)v201 + 560) = 1;
                       *((_QWORD *)v201 + 283) = 271LL;
-                      __b9(v201, 0LL, v271, v174);
+                      sub_140AD049C(v201, 0LL, v271, v174);
                       v248 = 0;
                     }
                   }
@@ -2053,7 +2053,7 @@ LABEL_341:
           *((_QWORD *)v58 + 281) = v58 - 0x5C5FC0A76E374B18LL;
           *((_QWORD *)v58 + 284) = v192;
           *((_DWORD *)v58 + 560) = 1;
-          __b9(v58, 0LL, v192, v190);
+          sub_140AD049C(v58, 0LL, v192, v190);
         }
       }
       v193 = (unsigned int *)(*((__int64 (__fastcall **)(unsigned int *, ULONG_PTR, ULONG_PTR))v58 + 130))(
@@ -2077,7 +2077,7 @@ LABEL_341:
           *((_QWORD *)v58 + 281) = v58 - 0x5C5FC0A76E374B18LL;
           *((_QWORD *)v58 + 284) = v111;
           *((_DWORD *)v58 + 560) = 1;
-          __b9(v58, 0LL, v172, v174);
+          sub_140AD049C(v58, 0LL, v172, v174);
         }
       }
       v182 = v330;

@@ -12,31 +12,35 @@
 
 int __fastcall LdrpAllocatePlaceHolder(unsigned __int16 *a1, int a2, int a3, int a4, int a5, int *a6, int a7)
 {
-  int v8; // esi
-  int Heap; // esi
+  ULONG v8; // esi
+  _DWORD *Heap; // esi
   int ModuleEntry; // ecx
+  SIZE_T v12; // [esp-4h] [ebp-18h]
+  size_t v13; // [esp-4h] [ebp-18h]
 
   v8 = (NtdllBaseTag + 0x40000) | 8;
   *a6 = 0;
-  Heap = RtlAllocateHeap(LdrpHeap, v8, *a1 + 110);
+  LODWORD(v12) = *a1 + 110;
+  Heap = RtlAllocateHeap(LdrpHeap, v8, v12);
   if ( Heap )
   {
-    *(_DWORD *)(Heap + 100) = -1;
-    *(_DWORD *)(Heap + 16) = a3 | 0x8000;
-    *(_DWORD *)(Heap + 8) = a2;
-    *(_DWORD *)(Heap + 24) = a7;
-    *(_DWORD *)(Heap + 28) = a5;
-    *(_DWORD *)(Heap + 4) = Heap + 108;
+    Heap[25] = -1;
+    Heap[4] = a3 | 0x8000;
+    Heap[2] = a2;
+    Heap[6] = a7;
+    Heap[7] = a5;
+    Heap[1] = Heap + 27;
     *(_WORD *)Heap = *a1;
-    *(_WORD *)(Heap + 2) = *a1 + 2;
-    memcpy((void *)(Heap + 108), *((const void **)a1 + 1), *a1);
-    *(_WORD *)(*(_DWORD *)(Heap + 4) + 2 * (*a1 >> 1)) = 0;
+    *((_WORD *)Heap + 1) = *a1 + 2;
+    LODWORD(v13) = *a1;
+    memcpy(Heap + 27, *((const void **)a1 + 1), v13);
+    *(_WORD *)(Heap[1] + 2 * (*a1 >> 1)) = 0;
     ModuleEntry = LdrpAllocateModuleEntry(Heap);
     *a6 = ModuleEntry;
     if ( ModuleEntry )
     {
       *(_DWORD *)(ModuleEntry + 148) = a4;
-      LdrpLogDllState(0, Heap, 5292);
+      LdrpLogDllState(0, (int)Heap, 5292);
     }
     else
     {

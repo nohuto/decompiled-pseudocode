@@ -3,7 +3,7 @@
  * Callers:
  *     MiReferenceControlArea @ 0x14001C358 (MiReferenceControlArea.c)
  *     MiReferenceControlAreaForCacheManager @ 0x14001E9BC (MiReferenceControlAreaForCacheManager.c)
- *     MiShareExistingControlArea @ 0x1405DEC94 (MiShareExistingControlArea.c)
+ *     MiShareExistingControlArea @ 0x1405DFC94 (MiShareExistingControlArea.c)
  * Callees:
  *     <none>
  */
@@ -14,13 +14,13 @@ __int64 __fastcall MiValidateControlAreaPartition(__int64 a1, __int64 a2)
   ULONG_PTR **v3; // rax
   int v5; // eax
 
-  v2 = *(ULONG_PTR **)(qword_14043A748 + 8LL * (*(_WORD *)(a2 + 60) & 0x3FF));
+  v2 = *(ULONG_PTR **)(qword_14043B808 + 8LL * (*(_WORD *)(a2 + 60) & 0x3FF));
   v3 = *(ULONG_PTR ***)(a1 + 176);
   if ( !v3 )
   {
     if ( (*(_BYTE *)(a2 + 62) & 1) != 0 )
     {
-      if ( v2 == *(ULONG_PTR **)(qword_14043A748
+      if ( v2 == *(ULONG_PTR **)(qword_14043B808
                                + 8LL
                                * *((unsigned __int16 *)&KeGetCurrentThread()->ApcState.Process[1].SecureState.Flags + 3)) )
         return 0LL;

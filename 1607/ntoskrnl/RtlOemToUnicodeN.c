@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlOemToUnicodeN @ 0x140549AD0
+ * XREFs of RtlOemToUnicodeN @ 0x14054A010
  * Callers:
- *     FsRtlNotifyUpdateBuffer @ 0x1404BFB78 (FsRtlNotifyUpdateBuffer.c)
- *     RtlOemStringToUnicodeString @ 0x1405499E8 (RtlOemStringToUnicodeString.c)
- *     RtlOemStringToCountedUnicodeString @ 0x140685480 (RtlOemStringToCountedUnicodeString.c)
+ *     FsRtlNotifyUpdateBuffer @ 0x1404AB8A8 (FsRtlNotifyUpdateBuffer.c)
+ *     RtlOemStringToUnicodeString @ 0x140549F28 (RtlOemStringToUnicodeString.c)
+ *     RtlOemStringToCountedUnicodeString @ 0x140685564 (RtlOemStringToCountedUnicodeString.c)
  * Callees:
  *     <none>
  */

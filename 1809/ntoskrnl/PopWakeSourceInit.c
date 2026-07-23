@@ -1,7 +1,7 @@
 /*
- * XREFs of PopWakeSourceInit @ 0x1409DE818
+ * XREFs of PopWakeSourceInit @ 0x1409DF818
  * Callers:
- *     PoInitSystem @ 0x1409B2C10 (PoInitSystem.c)
+ *     PoInitSystem @ 0x1409B3C10 (PoInitSystem.c)
  * Callees:
  *     <none>
  */
@@ -12,11 +12,11 @@ PVOID *(*PopWakeSourceInit())()
 
   PopWakeSourceAvailable.Header.Size = 6;
   PopWakeInfoCount = 0;
-  qword_140418558 = (__int64)&PopWakeInfoList;
+  qword_1404195F8 = (__int64)&PopWakeInfoList;
   PopWakeInfoList = (__int64)&PopWakeInfoList;
   PopWakeSourceAvailable.Header.WaitListHead.Blink = &PopWakeSourceAvailable.Header.WaitListHead;
   PopWakeSourceAvailable.Header.WaitListHead.Flink = &PopWakeSourceAvailable.Header.WaitListHead;
-  qword_140418578 = (__int64)&PopWakeSourceWorkList;
+  qword_140419638 = (__int64)&PopWakeSourceWorkList;
   PopWakeSourceWorkList = &PopWakeSourceWorkList;
   result = PopUpdateWakeSourceWorker;
   PopWakeSourceWorkItem.WorkerRoutine = (void (__fastcall *)(void *))PopUpdateWakeSourceWorker;

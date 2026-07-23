@@ -1,15 +1,15 @@
 /*
- * XREFs of MiPageFileNoFreeSpace @ 0x140543C34
+ * XREFs of MiPageFileNoFreeSpace @ 0x140543E74
  * Callers:
- *     MiGatherPagefilePages @ 0x1402688A4 (MiGatherPagefilePages.c)
+ *     MiGatherPagefilePages @ 0x140256844 (MiGatherPagefilePages.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
- *     MiMakePagefileWriterEntryAvailable @ 0x1402D00F4 (MiMakePagefileWriterEntryAvailable.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiMakePagefileWriterEntryAvailable @ 0x14024E474 (MiMakePagefileWriterEntryAvailable.c)
+ *     ExAcquireSpinLockExclusive @ 0x1402C1960 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140346AD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     MiFreeModifiedReservations @ 0x140543724 (MiFreeModifiedReservations.c)
- *     MiIssuePageExtendRequest @ 0x140543944 (MiIssuePageExtendRequest.c)
- *     MiCauseOverCommitPopup @ 0x1405503F0 (MiCauseOverCommitPopup.c)
+ *     MiFreeModifiedReservations @ 0x140543964 (MiFreeModifiedReservations.c)
+ *     MiIssuePageExtendRequest @ 0x140543B84 (MiIssuePageExtendRequest.c)
+ *     MiCauseOverCommitPopup @ 0x140550630 (MiCauseOverCommitPopup.c)
  */
 
 __int64 __fastcall MiPageFileNoFreeSpace(__int64 a1, _QWORD *a2, __int64 a3, _DWORD *a4)

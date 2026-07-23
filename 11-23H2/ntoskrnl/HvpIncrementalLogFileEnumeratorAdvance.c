@@ -1,15 +1,15 @@
 /*
- * XREFs of HvpIncrementalLogFileEnumeratorAdvance @ 0x1407FE078
+ * XREFs of HvpIncrementalLogFileEnumeratorAdvance @ 0x1407FE348
  * Callers:
- *     HvpDetermineIncrementalLogFileMaximums @ 0x1407FDE70 (HvpDetermineIncrementalLogFileMaximums.c)
- *     HvpApplyIncrementalLogFile @ 0x1407FDF28 (HvpApplyIncrementalLogFile.c)
+ *     HvpDetermineIncrementalLogFileMaximums @ 0x1407FE140 (HvpDetermineIncrementalLogFileMaximums.c)
+ *     HvpApplyIncrementalLogFile @ 0x1407FE1F8 (HvpApplyIncrementalLogFile.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     HvpReadLogEntryHeader @ 0x1407FE1A8 (HvpReadLogEntryHeader.c)
- *     HvpIsLogEntryHeaderCoherent @ 0x1407FE204 (HvpIsLogEntryHeaderCoherent.c)
- *     HvpLogEntryCheckDataChecksum @ 0x1407FE2DC (HvpLogEntryCheckDataChecksum.c)
- *     HvpIsMetadataArrayCoherent @ 0x1407FE338 (HvpIsMetadataArrayCoherent.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     HvpReadLogEntryHeader @ 0x1407FE478 (HvpReadLogEntryHeader.c)
+ *     HvpIsLogEntryHeaderCoherent @ 0x1407FE4D4 (HvpIsLogEntryHeaderCoherent.c)
+ *     HvpLogEntryCheckDataChecksum @ 0x1407FE5AC (HvpLogEntryCheckDataChecksum.c)
+ *     HvpIsMetadataArrayCoherent @ 0x1407FE608 (HvpIsMetadataArrayCoherent.c)
  */
 
 __int64 __fastcall HvpIncrementalLogFileEnumeratorAdvance(__int64 a1, _QWORD *a2)

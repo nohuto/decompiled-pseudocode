@@ -1,7 +1,7 @@
 /*
- * XREFs of PsGetProcessSectionBaseAddress @ 0x140074D2C
+ * XREFs of PsGetProcessSectionBaseAddress @ 0x140074DAC
  * Callers:
- *     EtwpQueryProcessOtherInfo @ 0x14045DBFC (EtwpQueryProcessOtherInfo.c)
+ *     EtwpQueryProcessOtherInfo @ 0x14045CACC (EtwpQueryProcessOtherInfo.c)
  * Callees:
  *     <none>
  */

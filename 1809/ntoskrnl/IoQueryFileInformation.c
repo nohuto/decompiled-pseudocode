@@ -1,9 +1,9 @@
 /*
- * XREFs of IoQueryFileInformation @ 0x1406CEE30
+ * XREFs of IoQueryFileInformation @ 0x1406D00D0
  * Callers:
- *     IopParseDevice @ 0x14063CCE0 (IopParseDevice.c)
+ *     IopParseDevice @ 0x14063DD00 (IopParseDevice.c)
  * Callees:
- *     IopQueryXxxInformation @ 0x140661720 (IopQueryXxxInformation.c)
+ *     IopQueryXxxInformation @ 0x1406628E0 (IopQueryXxxInformation.c)
  */
 
 NTSTATUS __stdcall IoQueryFileInformation(

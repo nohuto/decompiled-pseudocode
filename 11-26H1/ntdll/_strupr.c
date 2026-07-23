@@ -1,9 +1,9 @@
 /*
- * XREFs of _strupr @ 0x180128950
+ * XREFs of _strupr @ 0x1801286C0
  * Callers:
  *     <none>
  * Callees:
- *     _invalid_parameter @ 0x180126898 (_invalid_parameter.c)
+ *     _invalid_parameter @ 0x180126608 (_invalid_parameter.c)
  */
 
 char *__cdecl strupr(char *String)

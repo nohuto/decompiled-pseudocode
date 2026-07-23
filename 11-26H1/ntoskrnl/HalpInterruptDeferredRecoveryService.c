@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpInterruptDeferredRecoveryService @ 0x140594410
+ * XREFs of HalpInterruptDeferredRecoveryService @ 0x140596B90
  * Callers:
  *     <none>
  * Callees:
- *     WheaDeferredRecoveryService @ 0x1406D6CC0 (WheaDeferredRecoveryService.c)
+ *     WheaDeferredRecoveryService @ 0x1406DADA0 (WheaDeferredRecoveryService.c)
  */
 
 char HalpInterruptDeferredRecoveryService()

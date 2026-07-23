@@ -1,7 +1,7 @@
 /*
- * XREFs of PopComputeCounterShifts @ 0x140527818
+ * XREFs of PopComputeCounterShifts @ 0x140529E88
  * Callers:
- *     PoInitSystem @ 0x140CCE870 (PoInitSystem.c)
+ *     PoInitSystem @ 0x140CD49D0 (PoInitSystem.c)
  * Callees:
  *     <none>
  */

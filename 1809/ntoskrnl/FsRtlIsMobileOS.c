@@ -1,7 +1,7 @@
 /*
- * XREFs of FsRtlIsMobileOS @ 0x1406DC050
+ * XREFs of FsRtlIsMobileOS @ 0x1406DD2F0
  * Callers:
- *     CcInitializeCacheManager @ 0x1409B06D8 (CcInitializeCacheManager.c)
+ *     CcInitializeCacheManager @ 0x1409B16D8 (CcInitializeCacheManager.c)
  * Callees:
  *     <none>
  */

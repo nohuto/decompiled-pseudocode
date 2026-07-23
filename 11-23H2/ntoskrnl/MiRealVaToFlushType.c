@@ -1,12 +1,12 @@
 /*
- * XREFs of MiRealVaToFlushType @ 0x14038CBC8
+ * XREFs of MiRealVaToFlushType @ 0x14038CDA8
  * Callers:
- *     MiFlushValidPteFromTb @ 0x14038C8B4 (MiFlushValidPteFromTb.c)
- *     MiDbgReleaseAddress @ 0x14038C960 (MiDbgReleaseAddress.c)
- *     MiDbgWriteCheck @ 0x14038CA24 (MiDbgWriteCheck.c)
+ *     MiFlushValidPteFromTb @ 0x14038CA94 (MiFlushValidPteFromTb.c)
+ *     MiDbgReleaseAddress @ 0x14038CB40 (MiDbgReleaseAddress.c)
+ *     MiDbgWriteCheck @ 0x14038CC04 (MiDbgWriteCheck.c)
  * Callees:
- *     MiHyperSpaceSize @ 0x14025D514 (MiHyperSpaceSize.c)
- *     MiGetSystemRegionType @ 0x140284870 (MiGetSystemRegionType.c)
+ *     MiHyperSpaceSize @ 0x14025D7A4 (MiHyperSpaceSize.c)
+ *     MiGetSystemRegionType @ 0x140284B00 (MiGetSystemRegionType.c)
  */
 
 __int64 __fastcall MiRealVaToFlushType(unsigned __int64 a1)

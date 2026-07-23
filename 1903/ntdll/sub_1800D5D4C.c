@@ -13,12 +13,12 @@ void __fastcall sub_1800D5D4C(int a1)
   if ( a1 )
   {
     if ( a1 == 1 )
-      qword_180165010 = 1LL;
+      stru_180165010.Ptr = (PVOID)1;
     else
-      RtlReleaseSRWLockExclusive(&qword_180165010);
+      RtlReleaseSRWLockExclusive(&stru_180165010);
   }
   else
   {
-    RtlAcquireSRWLockExclusive(&qword_180165010);
+    RtlAcquireSRWLockExclusive(&stru_180165010);
   }
 }

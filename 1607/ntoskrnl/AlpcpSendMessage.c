@@ -1,48 +1,48 @@
 /*
- * XREFs of AlpcpSendMessage @ 0x14044A880
+ * XREFs of AlpcpSendMessage @ 0x140449750
  * Callers:
- *     NtWaitForWorkViaWorkerFactory @ 0x14005E910 (NtWaitForWorkViaWorkerFactory.c)
- *     AlpcpProcessSynchronousRequest @ 0x140448B60 (AlpcpProcessSynchronousRequest.c)
- *     NtAlpcSendWaitReceivePort @ 0x140449270 (NtAlpcSendWaitReceivePort.c)
- *     NtReplyWaitReceivePortEx @ 0x1404B2FA0 (NtReplyWaitReceivePortEx.c)
- *     NtReplyPort @ 0x1404B3B90 (NtReplyPort.c)
- *     AlpcpSendLegacySynchronousRequest @ 0x1404B436C (AlpcpSendLegacySynchronousRequest.c)
- *     LpcRequestPort @ 0x1404C105C (LpcRequestPort.c)
- *     NtRequestPort @ 0x1404E99A4 (NtRequestPort.c)
+ *     NtWaitForWorkViaWorkerFactory @ 0x14005E490 (NtWaitForWorkViaWorkerFactory.c)
+ *     AlpcpProcessSynchronousRequest @ 0x140447A30 (AlpcpProcessSynchronousRequest.c)
+ *     NtAlpcSendWaitReceivePort @ 0x140448140 (NtAlpcSendWaitReceivePort.c)
+ *     NtReplyWaitReceivePortEx @ 0x14049D380 (NtReplyWaitReceivePortEx.c)
+ *     NtReplyPort @ 0x14049DF70 (NtReplyPort.c)
+ *     AlpcpSendLegacySynchronousRequest @ 0x14049E74C (AlpcpSendLegacySynchronousRequest.c)
+ *     LpcRequestPort @ 0x1404ACD8C (LpcRequestPort.c)
+ *     NtRequestPort @ 0x1404CBC00 (NtRequestPort.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     AlpcpReleaseDirectAttribute @ 0x1400A97D0 (AlpcpReleaseDirectAttribute.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfAcquirePushLockSharedEx @ 0x1400C8280 (ExfAcquirePushLockSharedEx.c)
- *     ExfReleasePushLockShared @ 0x1400C8640 (ExfReleasePushLockShared.c)
- *     ObfReferenceObjectWithTag @ 0x1400EE4F0 (ObfReferenceObjectWithTag.c)
- *     ExfUnblockPushLock @ 0x1401598C0 (ExfUnblockPushLock.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     RtlpInterlockedPopEntrySList @ 0x140166E00 (RtlpInterlockedPopEntrySList.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     ExHandleLogBadReference @ 0x14022CA54 (ExHandleLogBadReference.c)
- *     AlpcpCancelMessage @ 0x140408B94 (AlpcpCancelMessage.c)
- *     AlpcpUnlockMessage @ 0x1404091E8 (AlpcpUnlockMessage.c)
- *     AlpcpLockForCachedReferenceBlob @ 0x14040B470 (AlpcpLockForCachedReferenceBlob.c)
- *     AlpcReferenceBlobByHandle @ 0x14040BC58 (AlpcReferenceBlobByHandle.c)
- *     AlpcpDereferenceBlobEx @ 0x14040C274 (AlpcpDereferenceBlobEx.c)
- *     AlpcpChargePagedPoolQuota @ 0x14040D6F4 (AlpcpChargePagedPoolQuota.c)
- *     AlpcpDispatchReplyToWaitingThread @ 0x140447F40 (AlpcpDispatchReplyToWaitingThread.c)
- *     AlpcpDispatchReplyToPort @ 0x140448450 (AlpcpDispatchReplyToPort.c)
- *     AlpcpDispatchNewMessage @ 0x14044B560 (AlpcpDispatchNewMessage.c)
- *     AlpcpCaptureAttributes @ 0x14044C7D0 (AlpcpCaptureAttributes.c)
- *     ExpLookupHandleTableEntry @ 0x140451390 (ExpLookupHandleTableEntry.c)
- *     ExUnlockHandleTableEntry @ 0x14045EDD4 (ExUnlockHandleTableEntry.c)
- *     PsReleaseProcessWakeCounter @ 0x140468620 (PsReleaseProcessWakeCounter.c)
- *     ExpBlockOnLockedHandleEntry @ 0x14049B4BC (ExpBlockOnLockedHandleEntry.c)
- *     AlpcpReleaseAttributes @ 0x1404B55C8 (AlpcpReleaseAttributes.c)
- *     AlpcpValidateMessage @ 0x1404B5B14 (AlpcpValidateMessage.c)
- *     AlpcpReleaseViewAttribute @ 0x1404B5BFC (AlpcpReleaseViewAttribute.c)
- *     AlpcpCaptureMessageData @ 0x1404B5DD8 (AlpcpCaptureMessageData.c)
- *     AlpcpDestroyBlob @ 0x14050FCC4 (AlpcpDestroyBlob.c)
- *     AlpcpEnterAllocationEventMessageLog @ 0x140654D3C (AlpcpEnterAllocationEventMessageLog.c)
- *     AlpcpValidateDataInformation @ 0x140655500 (AlpcpValidateDataInformation.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     AlpcpReleaseDirectAttribute @ 0x1400A7D50 (AlpcpReleaseDirectAttribute.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1400C6120 (ExfAcquirePushLockSharedEx.c)
+ *     ExfReleasePushLockShared @ 0x1400C64E0 (ExfReleasePushLockShared.c)
+ *     ObfReferenceObjectWithTag @ 0x1400EC370 (ObfReferenceObjectWithTag.c)
+ *     ExfUnblockPushLock @ 0x140159E30 (ExfUnblockPushLock.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140167370 (RtlpInterlockedPopEntrySList.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     ExHandleLogBadReference @ 0x14022C880 (ExHandleLogBadReference.c)
+ *     AlpcpCancelMessage @ 0x140407A54 (AlpcpCancelMessage.c)
+ *     AlpcpUnlockMessage @ 0x1404080A8 (AlpcpUnlockMessage.c)
+ *     AlpcpLockForCachedReferenceBlob @ 0x14040A330 (AlpcpLockForCachedReferenceBlob.c)
+ *     AlpcReferenceBlobByHandle @ 0x14040AB18 (AlpcReferenceBlobByHandle.c)
+ *     AlpcpDereferenceBlobEx @ 0x14040B134 (AlpcpDereferenceBlobEx.c)
+ *     AlpcpChargePagedPoolQuota @ 0x14040C5B4 (AlpcpChargePagedPoolQuota.c)
+ *     AlpcpDispatchReplyToWaitingThread @ 0x140446E10 (AlpcpDispatchReplyToWaitingThread.c)
+ *     AlpcpDispatchReplyToPort @ 0x140447320 (AlpcpDispatchReplyToPort.c)
+ *     AlpcpDispatchNewMessage @ 0x14044A430 (AlpcpDispatchNewMessage.c)
+ *     AlpcpCaptureAttributes @ 0x14044B6A0 (AlpcpCaptureAttributes.c)
+ *     ExpLookupHandleTableEntry @ 0x140450260 (ExpLookupHandleTableEntry.c)
+ *     ExUnlockHandleTableEntry @ 0x14045DCA4 (ExUnlockHandleTableEntry.c)
+ *     PsReleaseProcessWakeCounter @ 0x1404674F0 (PsReleaseProcessWakeCounter.c)
+ *     AlpcpReleaseAttributes @ 0x14049F9A8 (AlpcpReleaseAttributes.c)
+ *     AlpcpValidateMessage @ 0x14049FEF4 (AlpcpValidateMessage.c)
+ *     AlpcpReleaseViewAttribute @ 0x14049FFDC (AlpcpReleaseViewAttribute.c)
+ *     AlpcpCaptureMessageData @ 0x1404A01B8 (AlpcpCaptureMessageData.c)
+ *     ExpBlockOnLockedHandleEntry @ 0x1404AF024 (ExpBlockOnLockedHandleEntry.c)
+ *     AlpcpDestroyBlob @ 0x1404F2C54 (AlpcpDestroyBlob.c)
+ *     AlpcpEnterAllocationEventMessageLog @ 0x140654E20 (AlpcpEnterAllocationEventMessageLog.c)
+ *     AlpcpValidateDataInformation @ 0x1406555E4 (AlpcpValidateDataInformation.c)
  */
 
 __int64 __fastcall AlpcpSendMessage(__int64 a1, __m256i *a2, __int64 a3, char a4)
@@ -285,15 +285,15 @@ LABEL_74:
         }
         if ( !v14 )
         {
-          ++dword_14033B454;
+          ++dword_14033B494;
           v21 = RtlpInterlockedPopEntrySList(&AlpcpLookasides);
           if ( !v21 )
           {
-            ++dword_14033B458;
-            v21 = (PSLIST_ENTRY)qword_14033B470(
-                                  (unsigned int)dword_14033B464,
-                                  (unsigned int)dword_14033B46C,
-                                  (unsigned int)dword_14033B468);
+            ++dword_14033B498;
+            v21 = (PSLIST_ENTRY)qword_14033B4B0(
+                                  (unsigned int)dword_14033B4A4,
+                                  (unsigned int)dword_14033B4AC,
+                                  (unsigned int)dword_14033B4A8);
             if ( !v21 )
               return 3221225626LL;
           }

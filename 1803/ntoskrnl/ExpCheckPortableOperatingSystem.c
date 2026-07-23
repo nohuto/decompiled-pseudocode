@@ -21,7 +21,7 @@
 __int64 __fastcall ExpCheckPortableOperatingSystem(_DWORD *a1)
 {
   unsigned int *v2; // rsi
-  int DevicePropertyData; // ebx
+  NTSTATUS DevicePropertyData; // ebx
   __int64 HostSilo; // rax
   unsigned int v6; // edi
   int i; // r14d
@@ -33,7 +33,7 @@ __int64 __fastcall ExpCheckPortableOperatingSystem(_DWORD *a1)
   char v13; // dl
   char *v14; // rcx
   char *v15; // r8
-  bool v16; // [rsp+40h] [rbp-C0h] BYREF
+  BOOLEAN IsPortable; // [rsp+40h] [rbp-C0h] BYREF
   _BYTE Data[7]; // [rsp+41h] [rbp-BFh] BYREF
   unsigned __int64 v18; // [rsp+48h] [rbp-B8h] BYREF
   _BYTE v19[4]; // [rsp+50h] [rbp-B0h] BYREF
@@ -50,8 +50,8 @@ __int64 __fastcall ExpCheckPortableOperatingSystem(_DWORD *a1)
   *a1 = 0;
   v2 = 0LL;
   *(_QWORD *)&NumberOfBytes[1] = 0LL;
-  DevicePropertyData = RtlCheckPortableOperatingSystem(&v16);
-  if ( DevicePropertyData >= 0 && v16 )
+  DevicePropertyData = RtlCheckPortableOperatingSystem(&IsPortable);
+  if ( DevicePropertyData >= 0 && IsPortable )
   {
     wcscpy(SourceString, L"\\??\\x:");
     HostSilo = PsGetHostSilo();

@@ -1,8 +1,8 @@
 /*
- * XREFs of PpmHeteroHgsProcessorThreadFeedbackInit @ 0x140523F64
+ * XREFs of PpmHeteroHgsProcessorThreadFeedbackInit @ 0x1405265D4
  * Callers:
- *     PpmResetPerfEngineForProcessor @ 0x140523DE4 (PpmResetPerfEngineForProcessor.c)
- *     PpmHeteroHgsProcessorInit @ 0x14060B45C (PpmHeteroHgsProcessorInit.c)
+ *     PpmResetPerfEngineForProcessor @ 0x140526454 (PpmResetPerfEngineForProcessor.c)
+ *     PpmHeteroHgsProcessorInit @ 0x14060E1CC (PpmHeteroHgsProcessorInit.c)
  * Callees:
  *     <none>
  */

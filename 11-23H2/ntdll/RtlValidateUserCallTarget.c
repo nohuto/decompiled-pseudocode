@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlValidateUserCallTarget @ 0x18010B8C4
+ * XREFs of RtlValidateUserCallTarget @ 0x18010B894
  * Callers:
  *     LdrGetProcedureAddressForCaller @ 0x180021FB0 (LdrGetProcedureAddressForCaller.c)
  *     LdrpUnsuppressAddressTakenIat @ 0x1800E15E4 (LdrpUnsuppressAddressTakenIat.c)
- *     RtlpUnsuppressForwardReferencingCallTarget @ 0x18010BC74 (RtlpUnsuppressForwardReferencingCallTarget.c)
+ *     RtlpUnsuppressForwardReferencingCallTarget @ 0x18010BC44 (RtlpUnsuppressForwardReferencingCallTarget.c)
  * Callees:
  *     LdrControlFlowGuardEnforcedWithExportSuppression @ 0x180021AD0 (LdrControlFlowGuardEnforcedWithExportSuppression.c)
- *     CfgAddressToBitState @ 0x18010B724 (CfgAddressToBitState.c)
+ *     CfgAddressToBitState @ 0x18010B6F4 (CfgAddressToBitState.c)
  */
 
 __int64 __fastcall RtlValidateUserCallTarget(unsigned __int64 a1, _DWORD *a2)
@@ -19,7 +19,7 @@ __int64 __fastcall RtlValidateUserCallTarget(unsigned __int64 a1, _DWORD *a2)
   int v8; // eax
 
   v3 = a1;
-  v4 = CfgAddressToBitState(a1, (const signed __int64 *)qword_18019C3C8);
+  v4 = CfgAddressToBitState(a1, (const signed __int64 *)LdrSystemDllInitBlock.CfgBitMap);
   v5 = 0;
   if ( !v4 )
     goto LABEL_12;

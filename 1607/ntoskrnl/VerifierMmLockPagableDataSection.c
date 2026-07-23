@@ -1,5 +1,5 @@
 /*
- * XREFs of VerifierMmLockPagableDataSection @ 0x14070CB30
+ * XREFs of VerifierMmLockPagableDataSection @ 0x14070CB60
  * Callers:
  *     <none>
  * Callees:

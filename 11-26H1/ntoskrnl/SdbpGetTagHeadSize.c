@@ -1,13 +1,13 @@
 /*
- * XREFs of SdbpGetTagHeadSize @ 0x1409E88C0
+ * XREFs of SdbpGetTagHeadSize @ 0x1409D52D0
  * Callers:
- *     SdbpGetNextTagId @ 0x1409E79BC (SdbpGetNextTagId.c)
- *     SdbpGetMappedTagData @ 0x1409E7A4C (SdbpGetMappedTagData.c)
- *     SdbpReadTagData @ 0x1409E8130 (SdbpReadTagData.c)
+ *     SdbpGetNextTagId @ 0x1409D43D4 (SdbpGetNextTagId.c)
+ *     SdbpGetMappedTagData @ 0x1409D4464 (SdbpGetMappedTagData.c)
+ *     SdbpReadTagData @ 0x1409D4B40 (SdbpReadTagData.c)
  * Callees:
- *     Feature_SdbValidateRootTagsOnOpen__private_IsEnabledDeviceUsageNoInline @ 0x1404B9F54 (Feature_SdbValidateRootTagsOnOpen__private_IsEnabledDeviceUsageNoInline.c)
- *     SdbpReadMappedData @ 0x1409E85D8 (SdbpReadMappedData.c)
- *     AslLogCallPrintf @ 0x1409E8884 (AslLogCallPrintf.c)
+ *     Feature_SdbValidateRootTagsOnOpen__private_IsEnabledDeviceUsageNoInline @ 0x1404B37E4 (Feature_SdbValidateRootTagsOnOpen__private_IsEnabledDeviceUsageNoInline.c)
+ *     SdbpReadMappedData @ 0x1409D4FE8 (SdbpReadMappedData.c)
+ *     AslLogCallPrintf @ 0x1409D5294 (AslLogCallPrintf.c)
  */
 
 __int64 __fastcall SdbpGetTagHeadSize(__int64 a1, unsigned int a2)

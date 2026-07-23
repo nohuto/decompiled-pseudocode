@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpInitializeLowFragHeapManager @ 0x18005D598
+ * XREFs of RtlpInitializeLowFragHeapManager @ 0x18005D588
  * Callers:
- *     RtlInitializeHeapManager @ 0x18005D72C (RtlInitializeHeapManager.c)
+ *     RtlInitializeHeapManager @ 0x18005D71C (RtlInitializeHeapManager.c)
  * Callees:
- *     RtlpHeapGenerateRandomValue64 @ 0x180041770 (RtlpHeapGenerateRandomValue64.c)
- *     DbgPrint @ 0x18005C3E0 (DbgPrint.c)
- *     __security_check_cookie @ 0x180096C40 (__security_check_cookie.c)
+ *     RtlpHeapGenerateRandomValue64 @ 0x180041760 (RtlpHeapGenerateRandomValue64.c)
+ *     DbgPrint @ 0x18005C3D0 (DbgPrint.c)
+ *     __security_check_cookie @ 0x180096C30 (__security_check_cookie.c)
  *     NtQuerySystemInformation @ 0x1800A6AE0 (NtQuerySystemInformation.c)
  *     memset @ 0x1800ACCC0 (memset.c)
  */

@@ -1,11 +1,11 @@
 /*
- * XREFs of IopIsFileOpenOrSection @ 0x140A67350
+ * XREFs of IopIsFileOpenOrSection @ 0x140A74320
  * Callers:
  *     <none>
  * Callees:
- *     ExGetHandlePointer @ 0x140457590 (ExGetHandlePointer.c)
- *     ExfUnblockPushLock @ 0x1404CE970 (ExfUnblockPushLock.c)
- *     MmSectionToSectionObjectPointers @ 0x140A67440 (MmSectionToSectionObjectPointers.c)
+ *     ExGetHandlePointer @ 0x14044EE00 (ExGetHandlePointer.c)
+ *     ExfUnblockPushLock @ 0x1404C83A0 (ExfUnblockPushLock.c)
+ *     MmSectionToSectionObjectPointers @ 0x140A74410 (MmSectionToSectionObjectPointers.c)
  */
 
 _BOOL8 __fastcall IopIsFileOpenOrSection(__int64 a1, __int64 *a2, __int64 a3, __int64 *a4)

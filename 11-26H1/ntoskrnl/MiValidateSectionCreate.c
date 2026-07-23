@@ -1,21 +1,21 @@
 /*
- * XREFs of MiValidateSectionCreate @ 0x1409CB8F4
+ * XREFs of MiValidateSectionCreate @ 0x14099C8D4
  * Callers:
- *     MiLoadHotPatch @ 0x140870D5C (MiLoadHotPatch.c)
- *     MiValidateSectionSigningPolicy @ 0x1409CB78C (MiValidateSectionSigningPolicy.c)
- *     MiMapImageForEnclaveUse @ 0x140B5ED58 (MiMapImageForEnclaveUse.c)
+ *     MiLoadHotPatch @ 0x1408770BC (MiLoadHotPatch.c)
+ *     MiValidateSectionSigningPolicy @ 0x14099C76C (MiValidateSectionSigningPolicy.c)
+ *     MiMapImageForEnclaveUse @ 0x140B61ED8 (MiMapImageForEnclaveUse.c)
  * Callees:
- *     MiWriteSegmentSignatureFlags @ 0x1404D49C4 (MiWriteSegmentSignatureFlags.c)
- *     MiValidateSectionRetry @ 0x1404E8BF4 (MiValidateSectionRetry.c)
- *     MiStrongCodeImage @ 0x14050554C (MiStrongCodeImage.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     MiValidateSectionUnmap @ 0x14087B3F8 (MiValidateSectionUnmap.c)
- *     MiValidateSectionMap @ 0x1409CBB1C (MiValidateSectionMap.c)
- *     MiValidateImageHeader @ 0x1409CBC24 (MiValidateImageHeader.c)
- *     MiValidateSectionRevertRelocations @ 0x1409CD26C (MiValidateSectionRevertRelocations.c)
- *     MiValidateSectionNewSecurity @ 0x140AC8074 (MiValidateSectionNewSecurity.c)
- *     MiValidateSectionUpdate @ 0x140AFC634 (MiValidateSectionUpdate.c)
- *     MiValidateSectionPrepare @ 0x140B03C04 (MiValidateSectionPrepare.c)
+ *     MiWriteSegmentSignatureFlags @ 0x1404CE234 (MiWriteSegmentSignatureFlags.c)
+ *     MiValidateSectionRetry @ 0x1404E1FB4 (MiValidateSectionRetry.c)
+ *     MiStrongCodeImage @ 0x140521118 (MiStrongCodeImage.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     MiValidateSectionUnmap @ 0x1408817F8 (MiValidateSectionUnmap.c)
+ *     MiValidateSectionMap @ 0x14099CAFC (MiValidateSectionMap.c)
+ *     MiValidateImageHeader @ 0x14099CC04 (MiValidateImageHeader.c)
+ *     MiValidateSectionRevertRelocations @ 0x14099E24C (MiValidateSectionRevertRelocations.c)
+ *     MiValidateSectionNewSecurity @ 0x140AC9C64 (MiValidateSectionNewSecurity.c)
+ *     MiValidateSectionUpdate @ 0x140AFE1A8 (MiValidateSectionUpdate.c)
+ *     MiValidateSectionPrepare @ 0x140B05814 (MiValidateSectionPrepare.c)
  */
 
 __int64 __fastcall MiValidateSectionCreate(__int64 a1, __int64 *a2, int a3, __int64 a4, int a5, char a6, char a7)
@@ -133,7 +133,7 @@ LABEL_11:
       result = MiValidateSectionRetry(v21, v12, v18);
       if ( (int)result < 0 )
       {
-        *(_DWORD *)&stru_140E2D150.WaitBlockFill10[8] = 117;
+        *(_DWORD *)&stru_140E2D2D0.WaitBlockFill10[8] = 117;
         return result;
       }
     }

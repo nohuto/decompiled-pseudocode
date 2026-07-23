@@ -1,19 +1,19 @@
 /*
- * XREFs of SyspartGetFirmwarePartition @ 0x1407713C4
+ * XREFs of SyspartGetFirmwarePartition @ 0x1407743C4
  * Callers:
- *     BiGetSystemPartition @ 0x140771324 (BiGetSystemPartition.c)
+ *     BiGetSystemPartition @ 0x140774324 (BiGetSystemPartition.c)
  * Callees:
- *     SiLogMessage @ 0x140771464 (SiLogMessage.c)
- *     SiGetSystemDeviceName @ 0x140AE9378 (SiGetSystemDeviceName.c)
- *     SiQuerySystemInformationString @ 0x140B25240 (SiQuerySystemInformationString.c)
+ *     SiLogMessage @ 0x140774464 (SiLogMessage.c)
+ *     SiGetSystemDeviceName @ 0x140AEB728 (SiGetSystemDeviceName.c)
+ *     SiQuerySystemInformationString @ 0x140B273D0 (SiQuerySystemInformationString.c)
  */
 
-__int64 __fastcall SyspartGetFirmwarePartition(__int64 a1, unsigned int a2, __int64 a3)
+__int64 __fastcall SyspartGetFirmwarePartition(void *a1, unsigned int a2, __int64 a3)
 {
   int SystemInformationString; // eax
   int SystemDeviceName; // ebx
 
-  SystemInformationString = SiQuerySystemInformationString(200LL, a1, a2, a3);
+  SystemInformationString = SiQuerySystemInformationString(SystemFirmwarePartitionInformation, a1);
   SystemDeviceName = SystemInformationString;
   if ( SystemInformationString >= 0
     || SystemInformationString != -1073741789

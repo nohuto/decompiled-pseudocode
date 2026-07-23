@@ -1,16 +1,16 @@
 /*
- * XREFs of PipKsrNotifyDrivers @ 0x1408B2F78
+ * XREFs of PipKsrNotifyDrivers @ 0x1408B30D8
  * Callers:
- *     PipKsrCallback @ 0x1408B2F00 (PipKsrCallback.c)
+ *     PipKsrCallback @ 0x1408B3060 (PipKsrCallback.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     KeReleaseGuardedMutex @ 0x140265CD0 (KeReleaseGuardedMutex.c)
- *     ExAcquireFastMutex @ 0x14034A080 (ExAcquireFastMutex.c)
- *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
- *     ExAcquireResourceExclusiveLite @ 0x14034BBA0 (ExAcquireResourceExclusiveLite.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     PnpNotifyDriverCallback @ 0x1406E5CC4 (PnpNotifyDriverCallback.c)
- *     PnpDereferenceNotify @ 0x1406E5E00 (PnpDereferenceNotify.c)
+ *     KeReleaseGuardedMutex @ 0x140253C70 (KeReleaseGuardedMutex.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquireFastMutex @ 0x140354DD0 (ExAcquireFastMutex.c)
+ *     ExReleaseResourceLite @ 0x140356140 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1403568F0 (ExAcquireResourceExclusiveLite.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     PnpNotifyDriverCallback @ 0x1406FD0AC (PnpNotifyDriverCallback.c)
+ *     PnpDereferenceNotify @ 0x1406FD1E8 (PnpDereferenceNotify.c)
  */
 
 __int64 __fastcall PipKsrNotifyDrivers(_QWORD *a1)
@@ -25,13 +25,16 @@ __int64 __fastcall PipKsrNotifyDrivers(_QWORD *a1)
   int v9; // eax
   __int64 v10; // rax
   __int64 v11; // rax
-  __int64 v12; // rax
-  int v14; // [rsp+20h] [rbp-48h] BYREF
-  _BYTE v15[20]; // [rsp+28h] [rbp-40h] BYREF
+  __int64 v12; // rdx
+  __int64 v13; // r8
+  __int64 v14; // r9
+  __int64 v15; // rax
+  int v17; // [rsp+20h] [rbp-48h] BYREF
+  _BYTE v18[20]; // [rsp+28h] [rbp-40h] BYREF
 
   v2 = 0;
-  memset(v15, 0, sizeof(v15));
-  v14 = 0;
+  memset(v18, 0, sizeof(v18));
+  v17 = 0;
   ExAcquireFastMutex(&PnpKsrNotifyLock);
   v3 = (PVOID *)PnpKsrNotifyList;
   if ( PnpKsrNotifyList != &PnpKsrNotifyList )
@@ -57,12 +60,12 @@ __int64 __fastcall PipKsrNotifyDrivers(_QWORD *a1)
       if ( v7 || !*((_BYTE *)v3 + 80) )
       {
         v8 = *(_OWORD *)a1;
-        *(_DWORD *)v15 = 1310721;
-        *(_OWORD *)&v15[4] = v8;
-        v9 = PnpNotifyDriverCallback((__int64)v3, (__int64)v15, &v14);
+        *(_DWORD *)v18 = 1310721;
+        *(_OWORD *)&v18[4] = v8;
+        v9 = PnpNotifyDriverCallback((__int64)v3, (__int64)v18, &v17);
         if ( v9 < 0 )
         {
-          v14 = v9;
+          v17 = v9;
         }
         else
         {
@@ -86,20 +89,20 @@ __int64 __fastcall PipKsrNotifyDrivers(_QWORD *a1)
       else
       {
 LABEL_21:
-        v14 = 0;
+        v17 = 0;
       }
       ExReleaseResourceLite((PERESOURCE)v3[9]);
-      KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+      KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v12, v13, v14);
       ExAcquireFastMutex(&PnpKsrNotifyLock);
       v3 = (PVOID *)*v3;
       PnpDereferenceNotify(v4);
-      v2 = v14;
-      if ( v14 < 0 )
+      v2 = v17;
+      if ( v17 < 0 )
       {
-        v12 = *a1 - *(_QWORD *)&GUID_KERNEL_SOFT_RESTART_PREPARE.Data1;
+        v15 = *a1 - *(_QWORD *)&GUID_KERNEL_SOFT_RESTART_PREPARE.Data1;
         if ( *a1 == *(_QWORD *)&GUID_KERNEL_SOFT_RESTART_PREPARE.Data1 )
-          v12 = a1[1] - *(_QWORD *)GUID_KERNEL_SOFT_RESTART_PREPARE.Data4;
-        if ( !v12 )
+          v15 = a1[1] - *(_QWORD *)GUID_KERNEL_SOFT_RESTART_PREPARE.Data4;
+        if ( !v15 )
           break;
       }
     }

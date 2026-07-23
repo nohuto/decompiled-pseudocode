@@ -40,7 +40,7 @@ __int64 __fastcall RtlAddAccessFilterAce(
     return 3221225592LL;
   if ( (a3 & 0x40) != 0 )
   {
-    if ( !RtlIsValidProcessTrustLabelSid(a4) )
+    if ( !RtlIsValidProcessTrustLabelSid((PSID)a4) )
       return 3221225485LL;
   }
   else

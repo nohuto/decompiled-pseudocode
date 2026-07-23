@@ -1,10 +1,10 @@
 /*
- * XREFs of CcMdlWriteComplete @ 0x1404EFB78
+ * XREFs of CcMdlWriteComplete @ 0x1404D1B94
  * Callers:
  *     <none>
  * Callees:
- *     IoGetRelatedDeviceObject @ 0x14002E0E0 (IoGetRelatedDeviceObject.c)
- *     CcMdlWriteComplete2 @ 0x1400B3998 (CcMdlWriteComplete2.c)
+ *     IoGetRelatedDeviceObject @ 0x14002DC60 (IoGetRelatedDeviceObject.c)
+ *     CcMdlWriteComplete2 @ 0x1400B1818 (CcMdlWriteComplete2.c)
  */
 
 void __stdcall CcMdlWriteComplete(PFILE_OBJECT FileObject, PLARGE_INTEGER FileOffset, PMDL MdlChain)

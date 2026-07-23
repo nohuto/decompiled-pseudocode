@@ -1,10 +1,10 @@
 /*
- * XREFs of AlpcpValidateConnectionMessage @ 0x140717328
+ * XREFs of AlpcpValidateConnectionMessage @ 0x140717528
  * Callers:
- *     AlpcpFormatConnectionRequest @ 0x140716258 (AlpcpFormatConnectionRequest.c)
- *     AlpcpAcceptConnectPort @ 0x14071697C (AlpcpAcceptConnectPort.c)
+ *     AlpcpFormatConnectionRequest @ 0x140716458 (AlpcpFormatConnectionRequest.c)
+ *     AlpcpAcceptConnectPort @ 0x140716B7C (AlpcpAcceptConnectPort.c)
  * Callees:
- *     AlpcpValidateMessage @ 0x14071BFA8 (AlpcpValidateMessage.c)
+ *     AlpcpValidateMessage @ 0x14071C1A8 (AlpcpValidateMessage.c)
  */
 
 __int64 __fastcall AlpcpValidateConnectionMessage(__int64 a1, _WORD *a2, char a3)

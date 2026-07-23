@@ -1,18 +1,18 @@
 /*
- * XREFs of SdbpCheckUptoStringVersion @ 0x1408875E8
+ * XREFs of SdbpCheckUptoStringVersion @ 0x14088D9E4
  * Callers:
- *     SdbpCheckApplicationTypeAttributes @ 0x140714174 (SdbpCheckApplicationTypeAttributes.c)
- *     SdbpCheckAttribute @ 0x140887228 (SdbpCheckAttribute.c)
+ *     SdbpCheckApplicationTypeAttributes @ 0x140718E64 (SdbpCheckApplicationTypeAttributes.c)
+ *     SdbpCheckAttribute @ 0x14088D628 (SdbpCheckAttribute.c)
  * Callees:
  *     <none>
  */
 
 _BOOL8 __fastcall SdbpCheckUptoStringVersion(unsigned __int16 *a1, unsigned __int16 *a2)
 {
-  int v3; // r10d
-  BOOL v4; // r9d
+  int v3; // r11d
+  BOOL v4; // r8d
   unsigned __int16 v5; // ax
-  unsigned __int16 v6; // r11
+  unsigned __int16 v6; // r10
   unsigned __int64 v7; // rdi
   unsigned __int64 v8; // rbx
 
@@ -25,7 +25,7 @@ _BOOL8 __fastcall SdbpCheckUptoStringVersion(unsigned __int16 *a1, unsigned __in
       break;
     v6 = *a2;
     if ( !*a2 )
-      goto LABEL_27;
+      return 0;
     v7 = 0LL;
     v8 = 0LL;
     v3 = 0;
@@ -64,13 +64,7 @@ _BOOL8 __fastcall SdbpCheckUptoStringVersion(unsigned __int16 *a1, unsigned __in
     if ( *a2 )
       ++a2;
   }
-  if ( v5 || *a2 )
-  {
-    if ( !v4 )
-      return 0;
-LABEL_27:
-    if ( *a1 || !v3 )
-      return 0;
-  }
+  if ( (v5 || *a2) && (!v4 || v5 || !v3) )
+    return 0;
   return v4;
 }

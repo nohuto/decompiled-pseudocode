@@ -1,15 +1,15 @@
 /*
- * XREFs of ExpAllocateOwnerEntryForLegacyShim @ 0x1402B26BC
+ * XREFs of ExpAllocateOwnerEntryForLegacyShim @ 0x1402FD38C
  * Callers:
- *     ExEnterPriorityRegionAndAcquireResourceShared @ 0x1402B39B0 (ExEnterPriorityRegionAndAcquireResourceShared.c)
- *     ExEnterCriticalRegionAndAcquireResourceShared @ 0x1402B3B20 (ExEnterCriticalRegionAndAcquireResourceShared.c)
- *     SeSecurityAttributePresent @ 0x1402B4AC0 (SeSecurityAttributePresent.c)
- *     SepMandatoryIntegrityCheck @ 0x1402B5410 (SepMandatoryIntegrityCheck.c)
- *     ExpFastResourceLegacyConvertExclusiveToShared @ 0x1404319B8 (ExpFastResourceLegacyConvertExclusiveToShared.c)
- *     ExpFastResourceLegacyAcquireSharedStarveExclusive @ 0x1404563A4 (ExpFastResourceLegacyAcquireSharedStarveExclusive.c)
- *     ExpFastResourceLegacyAcquireShared @ 0x1404B8FEC (ExpFastResourceLegacyAcquireShared.c)
+ *     ExpFastResourceLegacyAcquireSharedStarveExclusive @ 0x14025F9B4 (ExpFastResourceLegacyAcquireSharedStarveExclusive.c)
+ *     ExEnterPriorityRegionAndAcquireResourceShared @ 0x1402FE680 (ExEnterPriorityRegionAndAcquireResourceShared.c)
+ *     ExEnterCriticalRegionAndAcquireResourceShared @ 0x1402FE7F0 (ExEnterCriticalRegionAndAcquireResourceShared.c)
+ *     SeSecurityAttributePresent @ 0x1402FF790 (SeSecurityAttributePresent.c)
+ *     SepMandatoryIntegrityCheck @ 0x1403000E0 (SepMandatoryIntegrityCheck.c)
+ *     ExpFastResourceLegacyConvertExclusiveToShared @ 0x14041E9E8 (ExpFastResourceLegacyConvertExclusiveToShared.c)
+ *     ExpFastResourceLegacyAcquireShared @ 0x1404B281C (ExpFastResourceLegacyAcquireShared.c)
  * Callees:
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 ExpAllocateOwnerEntryForLegacyShim()

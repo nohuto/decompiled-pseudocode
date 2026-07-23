@@ -1,22 +1,22 @@
 /*
- * XREFs of EtwpFindGuidEntryByGuid @ 0x140939130
+ * XREFs of EtwpFindGuidEntryByGuid @ 0x140914CD0
  * Callers:
- *     NtTraceEvent @ 0x140411E40 (NtTraceEvent.c)
- *     SendCaptureStateNotificationsWorker @ 0x14082D4F0 (SendCaptureStateNotificationsWorker.c)
- *     EtwpAddGuidEntry @ 0x140920870 (EtwpAddGuidEntry.c)
- *     EtwpNotifyGuid @ 0x140938434 (EtwpNotifyGuid.c)
- *     EtwpGetTraceGroupInfo @ 0x140939330 (EtwpGetTraceGroupInfo.c)
- *     EtwpNotifyDisallowedGuidChange @ 0x1409399BC (EtwpNotifyDisallowedGuidChange.c)
- *     EtwpBufferingModeFlush @ 0x140A13654 (EtwpBufferingModeFlush.c)
- *     EtwpEnableGuid @ 0x140ADA008 (EtwpEnableGuid.c)
+ *     NtTraceEvent @ 0x1404067D0 (NtTraceEvent.c)
+ *     SendCaptureStateNotificationsWorker @ 0x140833730 (SendCaptureStateNotificationsWorker.c)
+ *     EtwpAddGuidEntry @ 0x1408FC380 (EtwpAddGuidEntry.c)
+ *     EtwpNotifyGuid @ 0x140913FD4 (EtwpNotifyGuid.c)
+ *     EtwpGetTraceGroupInfo @ 0x140914ED0 (EtwpGetTraceGroupInfo.c)
+ *     EtwpNotifyDisallowedGuidChange @ 0x14091555C (EtwpNotifyDisallowedGuidChange.c)
+ *     EtwpBufferingModeFlush @ 0x140A12844 (EtwpBufferingModeFlush.c)
+ *     EtwpEnableGuid @ 0x140AD6AB8 (EtwpEnableGuid.c)
  * Callees:
- *     ExfAcquirePushLockSharedEx @ 0x140277CC0 (ExfAcquirePushLockSharedEx.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ExfReleasePushLockShared @ 0x140278BD0 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KeLeaveCriticalRegionThread @ 0x1402B8A60 (KeLeaveCriticalRegionThread.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     ExfAcquirePushLockSharedEx @ 0x140277230 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ExfReleasePushLockShared @ 0x140278140 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeLeaveCriticalRegionThread @ 0x140303720 (KeLeaveCriticalRegionThread.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 _QWORD *__fastcall EtwpFindGuidEntryByGuid(__int64 a1, _DWORD *a2, unsigned int a3)
@@ -33,8 +33,6 @@ _QWORD *__fastcall EtwpFindGuidEntryByGuid(__int64 a1, _DWORD *a2, unsigned int 
   __int64 v13; // rax
   signed __int64 j; // r8
   signed __int64 v15; // rax
-  __int64 v16; // rdx
-  __int64 v17; // r8
 
   v4 = (struct _KLOCK_ENTRIES *)(((unsigned __int8)*a2 ^ (unsigned __int8)(a2[1] ^ a2[2] ^ a2[3])) & 0x3F);
   v5 = 0LL;
@@ -78,6 +76,6 @@ LABEL_18:
   if ( _InterlockedCompareExchange64(v9, 0LL, 17LL) != 17 )
     ExfReleasePushLockShared(v9);
   KeAbPostRelease((unsigned __int64)v9);
-  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v16, v17);
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   return v5;
 }

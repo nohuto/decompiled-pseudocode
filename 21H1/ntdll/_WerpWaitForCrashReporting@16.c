@@ -9,44 +9,44 @@
  *     _WerpProcessId@4 @ 0x4B33B2CF (_WerpProcessId@4.c)
  */
 
-int __fastcall WerpWaitForCrashReporting(void *a1, int a2, int a3, int a4)
+NTSTATUS __fastcall WerpWaitForCrashReporting(void *a1, void *a2, void *a3, PLARGE_INTEGER Timeout)
 {
-  int v4; // esi
+  LARGE_INTEGER *v4; // esi
   int v5; // ebx
-  int v6; // edi
+  ULONG v6; // edi
   struct _TEB *v7; // esi
   bool v8; // zf
-  int v9; // eax
-  _DWORD v13[3]; // [esp+18h] [ebp-10h] BYREF
+  NTSTATUS v9; // eax
+  HANDLE Handles[3]; // [esp+18h] [ebp-10h] BYREF
 
-  v4 = a4;
+  v4 = Timeout;
   v5 = 0;
   v6 = 0;
   if ( a1 )
   {
     v7 = NtCurrentTeb();
     v8 = (void *)WerpProcessId(a1) == v7->ClientId.UniqueProcess;
-    v4 = a4;
+    v4 = Timeout;
     if ( !v8 )
     {
       v6 = 1;
-      v13[0] = a1;
+      Handles[0] = a1;
     }
   }
   if ( a2 )
-    v13[v6++] = a2;
+    Handles[v6++] = a2;
   if ( a3 )
-    v13[v6++] = a3;
+    Handles[v6++] = a3;
   if ( v6 )
   {
-    if ( (unsigned int)v6 <= 3 )
+    if ( v6 <= 3 )
     {
       do
       {
-        v9 = NtWaitForMultipleObjects(v6, (int)v13, 1, 1, v4);
+        v9 = NtWaitForMultipleObjects(v6, Handles, WaitAny, 1u, v4);
         if ( v9 < 0 )
           return v9;
-        if ( v9 < v6 )
+        if ( v9 < (int)v6 )
           return v5;
       }
       while ( v9 != 258 );

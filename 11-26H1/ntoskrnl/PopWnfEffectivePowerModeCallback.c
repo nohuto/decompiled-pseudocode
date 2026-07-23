@@ -1,13 +1,13 @@
 /*
- * XREFs of PopWnfEffectivePowerModeCallback @ 0x1407CF5B0
+ * XREFs of PopWnfEffectivePowerModeCallback @ 0x1407D2650
  * Callers:
  *     <none>
  * Callees:
- *     PopReleaseRwLock @ 0x14043630C (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x140436378 (PopAcquireRwLockExclusive.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memcmp @ 0x14073D750 (memcmp.c)
- *     ExQueryWnfStateData @ 0x1409489F0 (ExQueryWnfStateData.c)
+ *     PopReleaseRwLock @ 0x14021B1A8 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x140425310 (PopAcquireRwLockExclusive.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memcmp @ 0x140742350 (memcmp.c)
+ *     ExQueryWnfStateData @ 0x1409C4360 (ExQueryWnfStateData.c)
  */
 
 __int64 __fastcall PopWnfEffectivePowerModeCallback(

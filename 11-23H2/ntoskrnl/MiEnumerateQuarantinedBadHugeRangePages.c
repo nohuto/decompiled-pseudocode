@@ -1,13 +1,13 @@
 /*
- * XREFs of MiEnumerateQuarantinedBadHugeRangePages @ 0x140629E08
+ * XREFs of MiEnumerateQuarantinedBadHugeRangePages @ 0x14062A358
  * Callers:
- *     MmEnumerateBadPages @ 0x140A2FBE4 (MmEnumerateBadPages.c)
+ *     MmEnumerateBadPages @ 0x140A2FE94 (MmEnumerateBadPages.c)
  * Callees:
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7C00 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     ExAcquireSpinLockShared @ 0x140314620 (ExAcquireSpinLockShared.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiEnumerateBadHugeRangePages @ 0x14061FA70 (MiEnumerateBadHugeRangePages.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7E90 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     MiAllocatePool @ 0x1402DF430 (MiAllocatePool.c)
+ *     ExAcquireSpinLockShared @ 0x1403148B0 (ExAcquireSpinLockShared.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     MiEnumerateBadHugeRangePages @ 0x14061FFC0 (MiEnumerateBadHugeRangePages.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 
@@ -45,10 +45,13 @@ void __fastcall MiEnumerateQuarantinedBadHugeRangePages(__int64 a1)
       if ( v1 >= qword_140C67368 )
         break;
       ExReleaseSpinLockSharedFromDpcLevel(&dword_140C67310);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v5 <= 0xFu && CurrentIrql >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+          && CurrentIrql <= 0xFu
+          && (unsigned __int8)v5 <= 0xFu
+          && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -68,10 +71,10 @@ void __fastcall MiEnumerateQuarantinedBadHugeRangePages(__int64 a1)
     Pool[3] = Pool + 4;
     v11 = MiEnumerateBadHugeRangePages((__int64)(Pool + 4), v1, 1);
     ExReleaseSpinLockSharedFromDpcLevel(&dword_140C67310);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v12 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v12 <= 0xFu && (unsigned __int8)v5 <= 0xFu && v12 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v12 <= 0xFu && (unsigned __int8)v5 <= 0xFu && v12 >= 2u )
       {
         v13 = KeGetCurrentPrcb();
         v14 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v5 + 1));

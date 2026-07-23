@@ -30,7 +30,7 @@
 __int64 __fastcall MiHotRemoveHugeRange(ULONG_PTR BugCheckParameter2, ULONG_PTR a2, int a3)
 {
   ULONG_PTR v3; // r14
-  ULONG_PTR v4; // rbx
+  ULONG_PTR SizeOfBitMap; // rbx
   __int64 v5; // rsi
   ULONG_PTR v6; // r13
   unsigned __int64 v7; // rdi
@@ -52,29 +52,29 @@ __int64 __fastcall MiHotRemoveHugeRange(ULONG_PTR BugCheckParameter2, ULONG_PTR 
   _QWORD *v23; // rdi
   ULONG_PTR v24; // r14
   KIRQL v25; // r15
-  unsigned __int64 v26; // rax
-  unsigned __int64 v27; // r8
+  unsigned __int64 *v26; // rax
+  ULONG64 v27; // r8
   const signed __int64 *v28; // r15
   __int64 v29; // rdi
   unsigned __int8 v30; // bl
-  unsigned __int64 SetBitsAndClear; // r14
+  ULONG64 SetBitsAndClear; // r14
   __int64 v33; // [rsp+28h] [rbp-30h]
   const signed __int64 *v34; // [rsp+30h] [rbp-28h]
-  unsigned __int64 v35[4]; // [rsp+38h] [rbp-20h] BYREF
+  _RTL_BITMAP_EX BitMapHeader; // [rsp+38h] [rbp-20h] BYREF
   ULONG_PTR v36; // [rsp+A0h] [rbp+48h]
   int v37; // [rsp+A0h] [rbp+48h]
   unsigned __int8 v39; // [rsp+A8h] [rbp+50h]
   _QWORD *v41; // [rsp+B8h] [rbp+60h] BYREF
 
   v3 = BugCheckParameter2;
-  v4 = (BugCheckParameter2 >> 18) & 0x3FFFFF;
+  SizeOfBitMap = (BugCheckParameter2 >> 18) & 0x3FFFFF;
   v36 = a2;
   v5 = 0LL;
-  v35[0] = v4;
+  BitMapHeader.SizeOfBitMap = SizeOfBitMap;
   v6 = a2;
   v41 = 0LL;
-  v7 = v4;
-  v8 = (unsigned __int64 *)(qword_140E2FD80 + 8 * v4);
+  v7 = SizeOfBitMap;
+  v8 = (unsigned __int64 *)(qword_140E2FD80 + 8 * SizeOfBitMap);
   v33 = MiHugePfnPartition(v8);
   if ( v9 )
   {
@@ -136,7 +136,7 @@ LABEL_15:
       v36 = v6;
       if ( !v6 )
       {
-        v4 = v35[0];
+        SizeOfBitMap = BitMapHeader.SizeOfBitMap;
         v6 = a2;
         break;
       }
@@ -144,7 +144,7 @@ LABEL_15:
   }
   v21 = 0LL;
   v22 = v6 >> 18;
-  v23 = (_QWORD *)(qword_140E2FD80 + 8 * v4);
+  v23 = (_QWORD *)(qword_140E2FD80 + 8 * SizeOfBitMap);
   v24 = 0LL;
   v25 = ExAcquireSpinLockExclusive(&dword_140E2FDC0);
   if ( v22 )
@@ -153,7 +153,7 @@ LABEL_15:
     {
       MiLockHugePfnInternal((__int64)v23);
       *v23 = 0LL;
-      RtlClearBitsEx((__int64)&qword_140E2FD70, v4 + v24, 1uLL);
+      RtlClearBitsEx((__int64)&stru_140E2FD70, SizeOfBitMap + v24, 1uLL);
       _InterlockedAnd(
         (volatile signed __int32 *)(qword_140E2FD88 + 4 * (((((__int64)v23 - qword_140E2FD80) >> 3) & 0x3FFFFFuLL) >> 5)),
         ~(1 << ((((__int64)v23 - qword_140E2FD80) >> 3) & 0x1F)));
@@ -169,15 +169,15 @@ LABEL_15:
     RtlAvlRemoveNode((unsigned __int64 *)&v41, v5);
     if ( !a3 )
     {
-      v26 = *(_QWORD *)(v5 + 32);
-      v35[0] = 0x40000LL;
+      v26 = *(unsigned __int64 **)(v5 + 32);
+      BitMapHeader.SizeOfBitMap = 0x40000LL;
       v27 = 0LL;
-      v35[1] = v26;
-      v28 = (const signed __int64 *)(v26 + 0x8000);
-      v34 = (const signed __int64 *)(v26 + 0x8000);
+      BitMapHeader.Buffer = v26;
+      v28 = (const signed __int64 *)(v26 + 4096);
+      v34 = (const signed __int64 *)(v26 + 4096);
       while ( 1 )
       {
-        SetBitsAndClear = RtlFindSetBitsAndClearEx(v35, 1uLL, v27);
+        SetBitsAndClear = RtlFindSetBitsAndClearEx(&BitMapHeader, 1uLL, v27);
         if ( SetBitsAndClear == -1LL )
           break;
         ++v21;

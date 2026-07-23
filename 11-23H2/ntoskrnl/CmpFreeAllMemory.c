@@ -1,13 +1,13 @@
 /*
- * XREFs of CmpFreeAllMemory @ 0x140A1132C
+ * XREFs of CmpFreeAllMemory @ 0x140A115DC
  * Callers:
- *     CmShutdownSystem2 @ 0x140615E1C (CmShutdownSystem2.c)
+ *     CmShutdownSystem2 @ 0x14061636C (CmShutdownSystem2.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     CmpGetNextActiveHive @ 0x140752060 (CmpGetNextActiveHive.c)
- *     CmpDumpKeyBodyList @ 0x140A17098 (CmpDumpKeyBodyList.c)
- *     CmpDestroyHive @ 0x140A1CCA0 (CmpDestroyHive.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     CmpGetNextActiveHive @ 0x140752250 (CmpGetNextActiveHive.c)
+ *     CmpDumpKeyBodyList @ 0x140A17348 (CmpDumpKeyBodyList.c)
+ *     CmpDestroyHive @ 0x140A1CF50 (CmpDestroyHive.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     CmpDetachFromRegistryProcess @ 0x140AF5230 (CmpDetachFromRegistryProcess.c)
  *     CmpAttachToRegistryProcess @ 0x140AF5250 (CmpAttachToRegistryProcess.c)

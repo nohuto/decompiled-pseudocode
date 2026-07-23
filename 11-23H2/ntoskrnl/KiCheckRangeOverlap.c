@@ -1,10 +1,10 @@
 /*
- * XREFs of KiCheckRangeOverlap @ 0x140569B94
+ * XREFs of KiCheckRangeOverlap @ 0x14056A254
  * Callers:
- *     KiAddTriageDumpDataBlock @ 0x1403A8224 (KiAddTriageDumpDataBlock.c)
- *     KiDeduplicateTriageDumpDataArrays @ 0x140569F38 (KiDeduplicateTriageDumpDataArrays.c)
+ *     KiAddTriageDumpDataBlock @ 0x1403A8404 (KiAddTriageDumpDataBlock.c)
+ *     KiDeduplicateTriageDumpDataArrays @ 0x14056A5F8 (KiDeduplicateTriageDumpDataArrays.c)
  * Callees:
- *     DbgPrintEx @ 0x14032A740 (DbgPrintEx.c)
+ *     DbgPrintEx @ 0x14032A9D0 (DbgPrintEx.c)
  */
 
 char __fastcall KiCheckRangeOverlap(unsigned __int64 *a1, unsigned __int64 *a2, _QWORD *a3)

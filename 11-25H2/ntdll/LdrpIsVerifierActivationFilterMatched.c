@@ -10,7 +10,7 @@
  *     __security_check_cookie @ 0x180166F50 (__security_check_cookie.c)
  */
 
-__int64 __fastcall LdrpIsVerifierActivationFilterMatched(__int64 a1, __int64 a2, __int64 a3)
+__int64 __fastcall LdrpIsVerifierActivationFilterMatched(__int64 a1, void *a2, void *a3)
 {
   int ImageFileKeyOption; // eax
   int v6; // edx
@@ -21,29 +21,31 @@ __int64 __fastcall LdrpIsVerifierActivationFilterMatched(__int64 a1, __int64 a2,
   WCHAR v11; // ax
   const WCHAR *v12; // rdx
   const char *v13; // rax
-  UNICODE_STRING DestinationString; // [rsp+30h] [rbp-248h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+30h] [rbp-248h] BYREF
   WCHAR SourceString[256]; // [rsp+40h] [rbp-238h] BYREF
 
   SourceString[0] = 0;
   DestinationString = 0LL;
   if ( (a2
-     && ((ImageFileKeyOption = RtlQueryImageFileKeyOption(a2, L"VerifierActivationFilter", 1LL, SourceString, 512, 0LL),
+     && ((ImageFileKeyOption = RtlQueryImageFileKeyOption(a2, (wchar_t *)L"VerifierActivationFilter", 512, 0LL),
           v6 = ImageFileKeyOption,
           ((ImageFileKeyOption + 0x80000000) & 0x80000000) != 0)
       || ImageFileKeyOption == -2147483643)
      || a3
-     && ((v6 = RtlQueryImageFileKeyOption(a3, L"VerifierActivationFilter", 1LL, SourceString, 512, 0LL),
+     && ((v6 = RtlQueryImageFileKeyOption(a3, (wchar_t *)L"VerifierActivationFilter", 512, 0LL),
           ((v6 + 0x80000000) & 0x80000000) != 0)
       || v6 == -2147483643))
     && v6 >= 0 )
   {
     LdrpLogInternal(
-      (__int64)"minkernel\\ldr\\ldrinit.c",
+      "minkernel\\ldr\\ldrinit.c",
       9084,
       (__int64)"LdrpIsVerifierActivationFilterMatched",
       2,
       "VerifierActivationFilter found, contents = \"%ws\"\n",
-      (char)SourceString);
+      SourceString,
+      *(_QWORD *)&DestinationString.Length,
+      DestinationString.Buffer);
     v7 = 0;
     if ( SourceString[0] == 42 || !SourceString[0] )
     {
@@ -87,16 +89,16 @@ __int64 __fastcall LdrpIsVerifierActivationFilterMatched(__int64 a1, __int64 a2,
         ++v8;
       }
     }
-    v13 = (const char *)&unk_18017BF30;
+    v13 = (const char *)&Flags;
     if ( !v7 )
       v13 = "not ";
     LdrpLogInternal(
-      (__int64)"minkernel\\ldr\\ldrinit.c",
+      "minkernel\\ldr\\ldrinit.c",
       9138,
       (__int64)"LdrpIsVerifierActivationFilterMatched",
       2,
       "VerifierActivationFilter match %sfound.\n",
-      (char)v13);
+      v13);
   }
   else
   {

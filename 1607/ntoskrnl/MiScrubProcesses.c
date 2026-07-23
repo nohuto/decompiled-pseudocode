@@ -1,37 +1,37 @@
 /*
- * XREFs of MiScrubProcesses @ 0x140664E40
+ * XREFs of MiScrubProcesses @ 0x140664F24
  * Callers:
- *     MmScrubMemory @ 0x14066528C (MmScrubMemory.c)
+ *     MmScrubMemory @ 0x140665370 (MmScrubMemory.c)
  * Callees:
- *     KiLeaveGuardedRegionUnsafe @ 0x140013B70 (KiLeaveGuardedRegionUnsafe.c)
- *     MiUnlockVad @ 0x1400144A0 (MiUnlockVad.c)
- *     MiGetProcessPartition @ 0x14002BAF0 (MiGetProcessPartition.c)
- *     MiUnlockAndDereferenceVad @ 0x14002BDA0 (MiUnlockAndDereferenceVad.c)
- *     UNLOCK_ADDRESS_SPACE_SHARED @ 0x14002BE60 (UNLOCK_ADDRESS_SPACE_SHARED.c)
- *     LOCK_ADDRESS_SPACE_SHARED @ 0x14002BED0 (LOCK_ADDRESS_SPACE_SHARED.c)
- *     MiLockVad @ 0x14002BFB0 (MiLockVad.c)
- *     MiVadDeleted @ 0x14002C370 (MiVadDeleted.c)
- *     MiReferenceVad @ 0x14002C37C (MiReferenceVad.c)
- *     MiVadMapsLargeImage @ 0x14002C410 (MiVadMapsLargeImage.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExReleaseAutoExpandPushLockExclusive @ 0x140097430 (ExReleaseAutoExpandPushLockExclusive.c)
- *     ExAcquireAutoExpandPushLockExclusive @ 0x1400982A0 (ExAcquireAutoExpandPushLockExclusive.c)
- *     KiStackAttachProcess @ 0x1400CD1F0 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x1400CE820 (KiUnstackDetachProcess.c)
- *     RtlFindSetBitsEx @ 0x1401129F0 (RtlFindSetBitsEx.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     MiLockPage @ 0x1401593D8 (MiLockPage.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     MiUnlockPage @ 0x1401F2B80 (MiUnlockPage.c)
- *     MiMakePageBad @ 0x1401FE1A0 (MiMakePageBad.c)
- *     MiScrubAweMappedPage @ 0x1401FE224 (MiScrubAweMappedPage.c)
- *     MiScrubLargeMappedPage @ 0x1401FE334 (MiScrubLargeMappedPage.c)
- *     MiScrubPage @ 0x1401FE864 (MiScrubPage.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1400136F0 (KiLeaveGuardedRegionUnsafe.c)
+ *     MiUnlockVad @ 0x140014020 (MiUnlockVad.c)
+ *     MiGetProcessPartition @ 0x14002B670 (MiGetProcessPartition.c)
+ *     MiUnlockAndDereferenceVad @ 0x14002B920 (MiUnlockAndDereferenceVad.c)
+ *     UNLOCK_ADDRESS_SPACE_SHARED @ 0x14002B9E0 (UNLOCK_ADDRESS_SPACE_SHARED.c)
+ *     LOCK_ADDRESS_SPACE_SHARED @ 0x14002BA50 (LOCK_ADDRESS_SPACE_SHARED.c)
+ *     MiLockVad @ 0x14002BB30 (MiLockVad.c)
+ *     MiVadDeleted @ 0x14002BEF0 (MiVadDeleted.c)
+ *     MiReferenceVad @ 0x14002BEFC (MiReferenceVad.c)
+ *     MiVadMapsLargeImage @ 0x14002BF90 (MiVadMapsLargeImage.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExReleaseAutoExpandPushLockExclusive @ 0x140096C30 (ExReleaseAutoExpandPushLockExclusive.c)
+ *     ExAcquireAutoExpandPushLockExclusive @ 0x140097AA0 (ExAcquireAutoExpandPushLockExclusive.c)
+ *     KiStackAttachProcess @ 0x1400CB090 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x1400CC6C0 (KiUnstackDetachProcess.c)
+ *     RtlFindSetBitsEx @ 0x140112F60 (RtlFindSetBitsEx.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     MiLockPage @ 0x140159948 (MiLockPage.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     MiUnlockPage @ 0x1401F29AC (MiUnlockPage.c)
+ *     MiMakePageBad @ 0x1401FDFCC (MiMakePageBad.c)
+ *     MiScrubAweMappedPage @ 0x1401FE050 (MiScrubAweMappedPage.c)
+ *     MiScrubLargeMappedPage @ 0x1401FE160 (MiScrubLargeMappedPage.c)
+ *     MiScrubPage @ 0x1401FE690 (MiScrubPage.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     PsGetNextProcess @ 0x140508FFC (PsGetNextProcess.c)
- *     MiInitializeScrubPacket @ 0x140664CDC (MiInitializeScrubPacket.c)
- *     MiReleaseScrubPacket @ 0x140664D84 (MiReleaseScrubPacket.c)
+ *     PsGetNextProcess @ 0x1404EBF8C (PsGetNextProcess.c)
+ *     MiInitializeScrubPacket @ 0x140664DC0 (MiInitializeScrubPacket.c)
+ *     MiReleaseScrubPacket @ 0x140664E68 (MiReleaseScrubPacket.c)
  */
 
 __int64 __fastcall MiScrubProcesses(__int64 a1, __int64 a2, _QWORD *a3)
@@ -61,17 +61,17 @@ __int64 __fastcall MiScrubProcesses(__int64 a1, __int64 a2, _QWORD *a3)
   unsigned int i; // ebp
   char *v26; // rbx
   __int64 v27; // rcx
-  unsigned __int64 v28; // rbx
-  unsigned __int64 SetBits; // rax
-  unsigned __int64 v30; // r14
+  ULONG64 v28; // rbx
+  ULONG64 SetBits; // rax
+  ULONG64 v30; // r14
   __int64 v31; // rbp
   unsigned __int64 v32; // rcx
   int v33; // eax
   unsigned __int8 v34; // bl
-  _DWORD *v35; // rcx
+  _RTL_BITMAP_EX *v35; // rcx
   _QWORD *v38; // [rsp+30h] [rbp-D8h]
   _QWORD *v39; // [rsp+30h] [rbp-D8h]
-  unsigned __int64 *v40; // [rsp+38h] [rbp-D0h]
+  _RTL_BITMAP_EX *BitMapHeader; // [rsp+38h] [rbp-D0h]
   _BYTE v42[24]; // [rsp+50h] [rbp-B8h] BYREF
   __int64 v43; // [rsp+68h] [rbp-A0h]
   __int64 v44; // [rsp+78h] [rbp-90h]
@@ -93,8 +93,8 @@ __int64 __fastcall MiScrubProcesses(__int64 a1, __int64 a2, _QWORD *a3)
         {
           if ( *(_DWORD *)(v4 + 4) )
             break;
-          v40 = *(unsigned __int64 **)(NextProcess + 1032);
-          if ( v40 || *(_DWORD *)(NextProcess + 1708) )
+          BitMapHeader = *(_RTL_BITMAP_EX **)(NextProcess + 1032);
+          if ( BitMapHeader || *(_DWORD *)(NextProcess + 1708) )
           {
             KiStackAttachProcess((_KPROCESS *)NextProcess, 0, (__int64)v45);
             --CurrentThread->KernelApcDisable;
@@ -209,18 +209,18 @@ LABEL_43:
                 else
                 {
                   UNLOCK_ADDRESS_SPACE_SHARED((__int64)CurrentThread, NextProcess);
-                  if ( v40 )
+                  if ( BitMapHeader )
                   {
                     v28 = 0LL;
                     while ( !*(_DWORD *)(a2 + 4) )
                     {
                       --CurrentThread->SpecialApcDisable;
-                      ExAcquireAutoExpandPushLockExclusive((ULONG_PTR)(v40 + 2), 0LL);
-                      SetBits = RtlFindSetBitsEx(v40, 1uLL, v28);
+                      ExAcquireAutoExpandPushLockExclusive((ULONG_PTR)&BitMapHeader[1], 0LL);
+                      SetBits = RtlFindSetBitsEx(BitMapHeader, 1uLL, v28);
                       v30 = SetBits;
                       if ( SetBits < v28 || SetBits == -1LL )
                       {
-                        v35 = v40 + 2;
+                        v35 = BitMapHeader + 1;
 LABEL_64:
                         ExReleaseAutoExpandPushLockExclusive(v35, 0LL);
                         KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);
@@ -239,8 +239,8 @@ LABEL_64:
                         MiUnlockPage(v31, v34);
                       }
                       v28 = v30 + 1;
-                      v35 = v40 + 2;
-                      if ( v30 + 1 >= *v40 )
+                      v35 = BitMapHeader + 1;
+                      if ( v30 + 1 >= BitMapHeader->SizeOfBitMap )
                         goto LABEL_64;
                       ExReleaseAutoExpandPushLockExclusive(v35, 0LL);
                       KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);

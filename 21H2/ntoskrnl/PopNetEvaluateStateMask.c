@@ -1,7 +1,7 @@
 /*
- * XREFs of PopNetEvaluateStateMask @ 0x1407CD35C
+ * XREFs of PopNetEvaluateStateMask @ 0x1407CD4CC
  * Callers:
- *     PopNetEvaluationWorkerCallback @ 0x1403CB650 (PopNetEvaluationWorkerCallback.c)
+ *     PopNetEvaluationWorkerCallback @ 0x1403CB7C0 (PopNetEvaluationWorkerCallback.c)
  * Callees:
  *     <none>
  */

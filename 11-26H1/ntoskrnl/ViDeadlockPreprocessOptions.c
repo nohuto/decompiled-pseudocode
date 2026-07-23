@@ -1,15 +1,15 @@
 /*
- * XREFs of ViDeadlockPreprocessOptions @ 0x140C37DC0
+ * XREFs of ViDeadlockPreprocessOptions @ 0x140C3DDD0
  * Callers:
- *     ViDeadlockAddResource @ 0x140C36AF0 (ViDeadlockAddResource.c)
- *     ViDeadlockAnalyze @ 0x140C36E58 (ViDeadlockAnalyze.c)
- *     ViDeadlockRemoveResource @ 0x140C37FF8 (ViDeadlockRemoveResource.c)
- *     ViDeadlockRemoveThread @ 0x140C38198 (ViDeadlockRemoveThread.c)
- *     VfDeadlockReleaseResource @ 0x140C4493C (VfDeadlockReleaseResource.c)
- *     VfDeadlockAcquireResource @ 0x140C47314 (VfDeadlockAcquireResource.c)
+ *     ViDeadlockAddResource @ 0x140C3CB00 (ViDeadlockAddResource.c)
+ *     ViDeadlockAnalyze @ 0x140C3CE68 (ViDeadlockAnalyze.c)
+ *     ViDeadlockRemoveResource @ 0x140C3E008 (ViDeadlockRemoveResource.c)
+ *     ViDeadlockRemoveThread @ 0x140C3E1A8 (ViDeadlockRemoveThread.c)
+ *     VfDeadlockReleaseResource @ 0x140C4A94C (VfDeadlockReleaseResource.c)
+ *     VfDeadlockAcquireResource @ 0x140C4D324 (VfDeadlockAcquireResource.c)
  * Callees:
- *     DbgPrintEx @ 0x140397530 (DbgPrintEx.c)
- *     VfUtilDbgPrint @ 0x14052FE80 (VfUtilDbgPrint.c)
+ *     DbgPrintEx @ 0x1403992B0 (DbgPrintEx.c)
+ *     VfUtilDbgPrint @ 0x140532380 (VfUtilDbgPrint.c)
  */
 
 __int64 ViDeadlockPreprocessOptions(_DWORD *a1, const char *a2, __int64 a3, __int64 a4, __int64 a5, __int64 a6, ...)
@@ -35,9 +35,9 @@ __int64 ViDeadlockPreprocessOptions(_DWORD *a1, const char *a2, __int64 a3, __in
     *a1 = 0;
 LABEL_7:
   ViDeadlockIssue = a3;
-  qword_140F082C8 = a4;
-  qword_140F082D0 = a5;
-  qword_140F082D8 = a6;
+  qword_140F08688 = a4;
+  qword_140F08690 = a5;
+  qword_140F08698 = a6;
   VfUtilDbgPrint("************ Verifier Detected a Potential Deadlock *************\n");
   VfUtilDbgPrint("**\n");
   VfUtilDbgPrint("** ");

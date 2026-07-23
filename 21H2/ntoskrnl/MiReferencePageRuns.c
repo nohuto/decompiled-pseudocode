@@ -1,29 +1,29 @@
 /*
- * XREFs of MiReferencePageRuns @ 0x14022FB90
+ * XREFs of MiReferencePageRuns @ 0x1402D43E0
  * Callers:
- *     MiReferencePageRuns @ 0x14022FB90 (MiReferencePageRuns.c)
- *     MiZeroLargePages @ 0x140232520 (MiZeroLargePages.c)
- *     MiFindContiguousPages @ 0x1403016E0 (MiFindContiguousPages.c)
- *     MiFinishResume @ 0x1403848A0 (MiFinishResume.c)
- *     MiWaitForFreePagesToZero @ 0x14054FF8C (MiWaitForFreePagesToZero.c)
- *     MiRebuildLargePage @ 0x1405526D8 (MiRebuildLargePage.c)
- *     MiCombineAllPhysicalMemory @ 0x1407272B0 (MiCombineAllPhysicalMemory.c)
- *     MiGetPhysicalMemoryRanges @ 0x14076F768 (MiGetPhysicalMemoryRanges.c)
- *     MmGetNodeChannelRanges @ 0x1407C84D0 (MmGetNodeChannelRanges.c)
- *     MiComputeNodeMemory @ 0x1407CD0A0 (MiComputeNodeMemory.c)
- *     MiAddPhysicalMemory @ 0x1408C4E90 (MiAddPhysicalMemory.c)
- *     MiRemovePhysicalMemory @ 0x1408C5F8C (MiRemovePhysicalMemory.c)
- *     MmIdentifyPhysicalMemory @ 0x1408C70B8 (MmIdentifyPhysicalMemory.c)
- *     MiScanPagefileSpace @ 0x1408D07D0 (MiScanPagefileSpace.c)
- *     MiInitializeScrubPacket @ 0x1408DBE50 (MiInitializeScrubPacket.c)
+ *     MiReferencePageRuns @ 0x1402D43E0 (MiReferencePageRuns.c)
+ *     MiZeroLargePages @ 0x1402D6D70 (MiZeroLargePages.c)
+ *     MiFindContiguousPages @ 0x14030C430 (MiFindContiguousPages.c)
+ *     MiFinishResume @ 0x1403849F0 (MiFinishResume.c)
+ *     MiWaitForFreePagesToZero @ 0x1405501CC (MiWaitForFreePagesToZero.c)
+ *     MiRebuildLargePage @ 0x140552918 (MiRebuildLargePage.c)
+ *     MiCombineAllPhysicalMemory @ 0x140727760 (MiCombineAllPhysicalMemory.c)
+ *     MiGetPhysicalMemoryRanges @ 0x14076F928 (MiGetPhysicalMemoryRanges.c)
+ *     MmGetNodeChannelRanges @ 0x1407C87F0 (MmGetNodeChannelRanges.c)
+ *     MiComputeNodeMemory @ 0x1407CD210 (MiComputeNodeMemory.c)
+ *     MiAddPhysicalMemory @ 0x1408C4FF0 (MiAddPhysicalMemory.c)
+ *     MiRemovePhysicalMemory @ 0x1408C60EC (MiRemovePhysicalMemory.c)
+ *     MmIdentifyPhysicalMemory @ 0x1408C7218 (MmIdentifyPhysicalMemory.c)
+ *     MiScanPagefileSpace @ 0x1408D0930 (MiScanPagefileSpace.c)
+ *     MiInitializeScrubPacket @ 0x1408DBFB0 (MiInitializeScrubPacket.c)
  * Callees:
- *     ExpAcquireSpinLockExclusive @ 0x14021D170 (ExpAcquireSpinLockExclusive.c)
- *     MiReferencePageRuns @ 0x14022FB90 (MiReferencePageRuns.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140314D90 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExpAcquireSpinLockExclusive @ 0x1402C1A70 (ExpAcquireSpinLockExclusive.c)
+ *     MiReferencePageRuns @ 0x1402D43E0 (MiReferencePageRuns.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14031FAE0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140346AD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x1405B5BA8 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
- *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x1405B5D8C (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x1405B5DD8 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x1405B5FBC (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
  */
 
 __int64 __fastcall MiReferencePageRuns(__int64 a1, unsigned int a2, __int64 a3, _DWORD *SchedulerAssist)
@@ -49,9 +49,9 @@ __int64 __fastcall MiReferencePageRuns(__int64 a1, unsigned int a2, __int64 a3, 
     SchedulerAssist[5] = a3;
   }
   if ( (BYTE6(PerfGlobalGroupMask) & 0x21) != 0 )
-    ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented(&dword_140C50E48, CurrentIrql);
+    ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented(&dword_140C50E88, CurrentIrql);
   else
-    ExpAcquireSpinLockExclusive(&dword_140C50E48, CurrentIrql, a3, (__int64)SchedulerAssist);
+    ExpAcquireSpinLockExclusive(&dword_140C50E88, CurrentIrql, a3, (__int64)SchedulerAssist);
   if ( (ULONG_PTR *)a1 != &MiSystemPartition )
     ExAcquireSpinLockExclusiveAtDpcLevel((PEX_SPIN_LOCK)(a1 + 200));
   if ( a2 == 1 )
@@ -69,14 +69,14 @@ __int64 __fastcall MiReferencePageRuns(__int64 a1, unsigned int a2, __int64 a3, 
   if ( v7 )
   {
     ++*(v7 - 1);
-    ++qword_140C50DA8;
+    ++qword_140C50DE8;
   }
   if ( (ULONG_PTR *)a1 != &MiSystemPartition )
     ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(a1 + 200));
   if ( (BYTE6(PerfGlobalGroupMask) & 1) != 0 )
-    ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(&dword_140C50E48, retaddr);
+    ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(&dword_140C50E88, retaddr);
   else
-    dword_140C50E48 = 0;
+    dword_140C50E88 = 0;
   CurrentPrcb = KeGetCurrentPrcb();
   v9 = CurrentPrcb->SchedulerAssist;
   if ( v9 )

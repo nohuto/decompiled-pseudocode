@@ -1,8 +1,8 @@
 /*
- * XREFs of ExpGetProductInfoSuiteTypeMap @ 0x1407B7030
+ * XREFs of ExpGetProductInfoSuiteTypeMap @ 0x1407B7480
  * Callers:
- *     ExGetSuiteMask @ 0x1407B6ED0 (ExGetSuiteMask.c)
- *     ExpInitSystemPhase1 @ 0x140C40A64 (ExpInitSystemPhase1.c)
+ *     ExGetSuiteMask @ 0x1407B7320 (ExGetSuiteMask.c)
+ *     ExpInitSystemPhase1 @ 0x140C42BB4 (ExpInitSystemPhase1.c)
  * Callees:
  *     <none>
  */

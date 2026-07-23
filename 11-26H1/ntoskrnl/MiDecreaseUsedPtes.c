@@ -1,22 +1,22 @@
 /*
- * XREFs of MiDecreaseUsedPtes @ 0x14033F020
+ * XREFs of MiDecreaseUsedPtes @ 0x1403410A0
  * Callers:
- *     MiSectionProtectPageFilePte @ 0x1402CF8E8 (MiSectionProtectPageFilePte.c)
- *     MiDeleteSystemPageTable @ 0x140309A60 (MiDeleteSystemPageTable.c)
- *     MiSectionProtectTransitionPte @ 0x14033EF60 (MiSectionProtectTransitionPte.c)
- *     MiUpdateAwePageTable @ 0x140340414 (MiUpdateAwePageTable.c)
- *     MiDeleteShadowStackPtes @ 0x1403407F4 (MiDeleteShadowStackPtes.c)
- *     MiFillPoolCommitPageTable @ 0x1403652A0 (MiFillPoolCommitPageTable.c)
- *     MiDecommitLargePoolVa @ 0x1403C3720 (MiDecommitLargePoolVa.c)
- *     MiUnmapKernelScp @ 0x1404F6C64 (MiUnmapKernelScp.c)
- *     MiUnmapMdlCommon @ 0x14051D098 (MiUnmapMdlCommon.c)
- *     MiMarkBootGuardPage @ 0x1406FF204 (MiMarkBootGuardPage.c)
- *     MiInitializeBootShadowStackPage @ 0x140CFC214 (MiInitializeBootShadowStackPage.c)
+ *     MiSectionProtectPageFilePte @ 0x1402B16A8 (MiSectionProtectPageFilePte.c)
+ *     MiDeleteSystemPageTable @ 0x1402EBAE0 (MiDeleteSystemPageTable.c)
+ *     MiSectionProtectTransitionPte @ 0x140340FE0 (MiSectionProtectTransitionPte.c)
+ *     MiUpdateAwePageTable @ 0x140342494 (MiUpdateAwePageTable.c)
+ *     MiDeleteShadowStackPtes @ 0x140342874 (MiDeleteShadowStackPtes.c)
+ *     MiFillPoolCommitPageTable @ 0x140367040 (MiFillPoolCommitPageTable.c)
+ *     MiDecommitLargePoolVa @ 0x1403CD620 (MiDecommitLargePoolVa.c)
+ *     MiUnmapKernelScp @ 0x1404F0274 (MiUnmapKernelScp.c)
+ *     MiUnmapMdlCommon @ 0x14051F5C4 (MiUnmapMdlCommon.c)
+ *     MiMarkBootGuardPage @ 0x140703ED4 (MiMarkBootGuardPage.c)
+ *     MiInitializeBootShadowStackPage @ 0x140D02594 (MiInitializeBootShadowStackPage.c)
  * Callees:
- *     HvlNotifyLongSpinWait @ 0x1402BBF00 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402BC760 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     MiInitializeUsedPtesCount @ 0x1403403C0 (MiInitializeUsedPtesCount.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     HvlNotifyLongSpinWait @ 0x140306BC0 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140307420 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     MiInitializeUsedPtesCount @ 0x140342440 (MiInitializeUsedPtesCount.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiDecreaseUsedPtes(__int64 a1, unsigned __int64 a2, _KPROCESS *Process)

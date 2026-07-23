@@ -4,13 +4,13 @@
  *     KiInitializeBootStructures @ 0x140A8B590 (KiInitializeBootStructures.c)
  * Callees:
  *     InitializeSListHead @ 0x140221420 (InitializeSListHead.c)
- *     KeInitializeDpc @ 0x1402BF9A0 (KeInitializeDpc.c)
- *     KiInitializeDpcList @ 0x14036EF40 (KiInitializeDpcList.c)
- *     KiIntSteerInitPrcb @ 0x14038105C (KiIntSteerInitPrcb.c)
- *     KiInitializeSoftwareInterruptBatch @ 0x140381098 (KiInitializeSoftwareInterruptBatch.c)
- *     KiInitializeBugcheckRecoveryProcessor @ 0x1403810E0 (KiInitializeBugcheckRecoveryProcessor.c)
- *     KiInitializeSharedReadyQueue @ 0x140381138 (KiInitializeSharedReadyQueue.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     KeInitializeDpc @ 0x1402BFC30 (KeInitializeDpc.c)
+ *     KiInitializeDpcList @ 0x14036F0E0 (KiInitializeDpcList.c)
+ *     KiIntSteerInitPrcb @ 0x1403811FC (KiIntSteerInitPrcb.c)
+ *     KiInitializeSoftwareInterruptBatch @ 0x140381238 (KiInitializeSoftwareInterruptBatch.c)
+ *     KiInitializeBugcheckRecoveryProcessor @ 0x140381280 (KiInitializeBugcheckRecoveryProcessor.c)
+ *     KiInitializeSharedReadyQueue @ 0x1403812D8 (KiInitializeSharedReadyQueue.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 void *__fastcall KiInitPrcb(__int64 a1, int a2)

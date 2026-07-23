@@ -1,16 +1,16 @@
 /*
- * XREFs of MmCallDllInitialize @ 0x1405442A0
+ * XREFs of MmCallDllInitialize @ 0x1405447E0
  * Callers:
- *     MiLoadImportDll @ 0x140544204 (MiLoadImportDll.c)
+ *     MiLoadImportDll @ 0x140544744 (MiLoadImportDll.c)
  *     PipInitializeDriverDependentDLLs @ 0x14079ACD0 (PipInitializeDriverDependentDLLs.c)
  * Callees:
- *     RtlAppendUnicodeStringToString @ 0x140087614 (RtlAppendUnicodeStringToString.c)
- *     RtlAppendUnicodeToString @ 0x1400C3920 (RtlAppendUnicodeToString.c)
- *     wcschr @ 0x14014EF44 (wcschr.c)
- *     memmove @ 0x140171280 (memmove.c)
+ *     RtlAppendUnicodeToString @ 0x1400C17B0 (RtlAppendUnicodeToString.c)
+ *     RtlAppendUnicodeStringToString @ 0x14010B80C (RtlAppendUnicodeStringToString.c)
+ *     wcschr @ 0x14014F504 (wcschr.c)
+ *     memmove @ 0x140171780 (memmove.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     RtlFindExportedRoutineByName @ 0x1403F5F04 (RtlFindExportedRoutineByName.c)
+ *     RtlFindExportedRoutineByName @ 0x1403F4DC8 (RtlFindExportedRoutineByName.c)
  *     VfDriverInitStarting @ 0x1406FE168 (VfDriverInitStarting.c)
  *     VfDriverInitSuccess @ 0x1406FE22C (VfDriverInitSuccess.c)
  */
@@ -33,7 +33,7 @@ __int64 __fastcall MmCallDllInitialize(__int64 a1, __int64 a2)
   UNICODE_STRING Destination; // [rsp+20h] [rbp-20h] BYREF
   UNICODE_STRING Source; // [rsp+30h] [rbp-10h] BYREF
 
-  result = (__int64)RtlFindExportedRoutineByName(*(char **)(a1 + 48), "DllInitialize");
+  result = (__int64)RtlFindExportedRoutineByName(*(PVOID *)(a1 + 48), "DllInitialize");
   v5 = (__int64 (__fastcall *)(UNICODE_STRING *))result;
   if ( result )
   {
@@ -86,7 +86,7 @@ __int64 __fastcall MmCallDllInitialize(__int64 a1, __int64 a2)
             inited = VfDriverInitStarting(v14);
             v16 = v5(&Destination);
             ExFreePoolWithTag(Destination.Buffer, 0);
-            if ( v16 >= 0 && !byte_140326810 )
+            if ( v16 >= 0 && !byte_140326850 )
               VfDriverInitSuccess(inited, a2);
             return (unsigned int)v16;
           }

@@ -1,13 +1,13 @@
 /*
- * XREFs of CcProcessDelayedDeletePVCM @ 0x14057C520
+ * XREFs of CcProcessDelayedDeletePVCM @ 0x1405799B0
  * Callers:
  *     <none>
  * Callees:
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x140275CD0 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x1402D8540 (KeAcquireInStackQueuedSpinLock.c)
- *     KeSetCoalescableTimer @ 0x140334000 (KeSetCoalescableTimer.c)
- *     CcPostPVCMForDeleteToPartition @ 0x1404B8134 (CcPostPVCMForDeleteToPartition.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x14022B260 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeSetCoalescableTimer @ 0x1402BE6B0 (KeSetCoalescableTimer.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1403597C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     CcPostPVCMForDeleteToPartition @ 0x1404B2A84 (CcPostPVCMForDeleteToPartition.c)
  */
 
 void __fastcall CcProcessDelayedDeletePVCM(__int64 a1)
@@ -24,7 +24,7 @@ void __fastcall CcProcessDelayedDeletePVCM(__int64 a1)
 
   memset(&LockHandle, 0, sizeof(LockHandle));
   v2 = MEMORY[0xFFFFF78000000320];
-  v3 = CcDelayedDeletePVCMLifetime / (unsigned int)KeMaximumIncrement;
+  v3 = CcDelayedDeletePVCMLifetime / KeMaximumIncrement;
   KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(a1 + 768), &LockHandle);
   v4 = (_QWORD *)(a1 + 112);
   *(_BYTE *)(a1 + 1504) = 0;

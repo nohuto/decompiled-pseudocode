@@ -35,194 +35,182 @@
 __int64 __fastcall RtlpMuiRegCreateAndLoadRegistryInfo(_QWORD *a1)
 {
   _QWORD *v2; // rbx
-  __int64 Heap; // rax
-  __int64 v4; // rsi
-  __int64 v5; // r9
-  __int64 v6; // rdx
-  __int64 v7; // rcx
+  PVOID Heap; // rax
+  void *v4; // rsi
+  __int64 v5; // rdx
+  __int64 v6; // rcx
   int Installed; // edi
-  __int64 v9; // r8
+  int v8; // eax
+  __int64 v9; // rdx
   int v10; // eax
-  __int64 v11; // rdx
-  int v12; // eax
-  int v13; // eax
+  int v11; // eax
   void *RegistryInfo; // rax
   int LicInformation; // eax
-  __int64 v16; // r8
-  __int64 v17; // r9
-  __int64 v18; // r9
+  __int64 v14; // rax
+  __int64 v15; // rax
+  size_t v17; // rax
+  __int64 v18; // rax
   __int64 v19; // rax
-  __int64 v20; // rax
-  size_t v22; // rax
-  __int64 v23; // r8
-  __int64 v24; // r9
-  __int64 v25; // r8
-  __int64 v26; // r9
-  __int64 v27; // rax
-  __int64 v28; // r8
-  __int64 v29; // r9
-  __int64 v30; // rax
-  __int128 v31; // [rsp+20h] [rbp-40h] BYREF
-  _QWORD v32[4]; // [rsp+30h] [rbp-30h] BYREF
-  __int128 v33; // [rsp+50h] [rbp-10h]
-  unsigned int v34; // [rsp+A0h] [rbp+40h] BYREF
-  __int64 v35; // [rsp+A8h] [rbp+48h] BYREF
-  HANDLE Handle; // [rsp+B0h] [rbp+50h] BYREF
-  HANDLE v37; // [rsp+B8h] [rbp+58h] BYREF
+  __int128 v20; // [rsp+20h] [rbp-40h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+30h] [rbp-30h] BYREF
+  ULONG DataSize; // [rsp+A0h] [rbp+40h] BYREF
+  __int64 v23; // [rsp+A8h] [rbp+48h] BYREF
+  PVOID BaseAddress; // [rsp+B0h] [rbp+50h] BYREF
+  HANDLE KeyHandle; // [rsp+B8h] [rbp+58h] BYREF
 
   v2 = 0LL;
-  Handle = 0LL;
+  BaseAddress = 0LL;
   if ( !a1 || *a1 )
   {
     Installed = -1073741811;
     goto LABEL_29;
   }
-  v34 = 0;
-  if ( (int)ZwGetMUIRegistryInfo(0LL, &v34, 0LL) >= 0 )
+  DataSize = 0;
+  if ( ZwGetMUIRegistryInfo(0, &DataSize, 0LL) >= 0 )
   {
-    if ( !v34 )
+    if ( !DataSize )
     {
 LABEL_48:
       Installed = -1073741801;
       goto LABEL_29;
     }
-    Heap = RtlAllocateHeap((char *)NtCurrentPeb()->ProcessHeap, 8u, v34);
+    Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, DataSize);
     v4 = Heap;
     if ( !Heap )
     {
-      v2 = Handle;
+      v2 = BaseAddress;
       goto LABEL_48;
     }
-    if ( (int)ZwGetMUIRegistryInfo(0LL, &v34, Heap) >= 0
-      && (int)RtlpMuiRegDeserializeRegistryInfo(v4, v34, &Handle) >= 0 )
+    if ( ZwGetMUIRegistryInfo(0, &DataSize, Heap) >= 0
+      && (int)RtlpMuiRegDeserializeRegistryInfo(v4, DataSize, &BaseAddress) >= 0 )
     {
-      v2 = Handle;
-      Installed = RtlpMuiRegAddNeutralToInstalled(Handle);
+      v2 = BaseAddress;
+      Installed = RtlpMuiRegAddNeutralToInstalled(BaseAddress);
       if ( Installed >= 0 )
       {
         if ( !v2[5] )
           goto LABEL_37;
-        Handle = 0LL;
-        v31 = 0LL;
-        v37 = 0LL;
-        v10 = GetGlobalizationUserModelType(v7, v6) - 1;
-        if ( v10 )
+        BaseAddress = 0LL;
+        v20 = 0LL;
+        KeyHandle = 0LL;
+        v8 = GetGlobalizationUserModelType(v6, v5) - 1;
+        if ( v8 )
         {
-          v12 = v10 - 1;
-          if ( v12 )
+          v10 = v8 - 1;
+          if ( v10 )
           {
-            if ( v12 == 1 )
+            if ( v10 == 1 )
             {
-              LODWORD(v35) = 0;
-              v13 = OpenGlobalizationUserSettingsKey_ForMua(0x2000000u, v11, (__int64)&Handle, &v35);
+              LODWORD(v23) = 0;
+              v11 = OpenGlobalizationUserSettingsKey_ForMua(0x2000000u, v9, &BaseAddress, &v23);
               goto LABEL_32;
             }
 LABEL_37:
-            v35 = 0LL;
-            RtlpMuiRegFreeRegistryInfo((__int64)v2, 8u, v9, v5);
-            if ( (int)RtlpLoadLanguageConfigList(8LL, &v35, v2) >= 0 )
+            v23 = 0LL;
+            RtlpMuiRegFreeRegistryInfo((__int64)v2, 8u);
+            if ( (int)RtlpLoadLanguageConfigList(8u) >= 0 )
             {
-              v27 = v35;
-              if ( v35 )
+              v18 = v23;
+              if ( v23 )
               {
                 *(_DWORD *)v2 |= 8u;
-                v2[6] = v27;
+                v2[6] = v18;
               }
-              RtlpMuiRegFreeRegistryInfo((__int64)v2, 0x20u, v25, v26);
+              RtlpMuiRegFreeRegistryInfo((__int64)v2, 0x20u);
               if ( (int)RtlpSetProcUserMachineLangList((__int64)v2, 1u) >= 0 )
               {
-                RtlpMuiRegFreeRegistryInfo((__int64)v2, 0x10u, v28, v29);
+                RtlpMuiRegFreeRegistryInfo((__int64)v2, 0x10u);
                 RtlpSetProcUserMachineLangList((__int64)v2, 0);
               }
             }
             goto LABEL_29;
           }
-          v13 = OpenGlobalizationUserSettingsKey_ForSingleUserModel(0x2000000u, &Handle);
+          v11 = OpenGlobalizationUserSettingsKey_ForSingleUserModel(0x2000000u, &BaseAddress);
         }
         else
         {
-          v13 = RtlOpenCurrentUser(0x2000000u, (__int64)&Handle);
+          v11 = RtlOpenCurrentUser(0x2000000u, &BaseAddress);
         }
 LABEL_32:
-        if ( v13 >= 0 )
+        if ( v11 >= 0 )
         {
-          DWORD1(v31) = 0;
-          *((_QWORD *)&v31 + 1) = L"Control Panel\\Desktop\\MuiCached\\MachineLanguageConfiguration";
-          v22 = 2 * wcslen(L"Control Panel\\Desktop\\MuiCached\\MachineLanguageConfiguration");
-          v32[0] = 48LL;
-          v32[3] = 64LL;
-          if ( v22 >= 0xFFFE )
-            LOWORD(v22) = -4;
-          LOWORD(v31) = v22;
-          WORD1(v31) = v22 + 2;
-          v32[1] = Handle;
-          v32[2] = &v31;
-          v33 = 0LL;
-          if ( (int)NtOpenKey(&v37, 131097LL, v32) >= 0 )
+          DWORD1(v20) = 0;
+          *((_QWORD *)&v20 + 1) = L"Control Panel\\Desktop\\MuiCached\\MachineLanguageConfiguration";
+          v17 = 2 * wcslen(L"Control Panel\\Desktop\\MuiCached\\MachineLanguageConfiguration");
+          *(_QWORD *)&ObjectAttributes.Length = 48LL;
+          *(_QWORD *)&ObjectAttributes.Attributes = 64LL;
+          if ( v17 >= 0xFFFE )
+            LOWORD(v17) = -4;
+          LOWORD(v20) = v17;
+          WORD1(v20) = v17 + 2;
+          ObjectAttributes.RootDirectory = BaseAddress;
+          ObjectAttributes.ObjectName = (PUNICODE_STRING)&v20;
+          *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+          if ( NtOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes) >= 0 )
           {
-            v35 = 0LL;
-            RtlpMuiRegFreeRegistryInfo((__int64)v2, 4u, v23, v24);
-            if ( (int)RtlpLoadLanguageConfigList(4LL, &v35, v2) >= 0 )
+            v23 = 0LL;
+            RtlpMuiRegFreeRegistryInfo((__int64)v2, 4u);
+            if ( (int)RtlpLoadLanguageConfigList(4u) >= 0 )
             {
-              v30 = v35;
-              if ( v35 )
+              v19 = v23;
+              if ( v23 )
               {
                 *(_DWORD *)v2 |= 4u;
-                v2[5] = v30;
+                v2[5] = v19;
               }
             }
-            NtClose(v37);
+            NtClose(KeyHandle);
           }
-          NtClose(Handle);
+          NtClose(BaseAddress);
         }
         goto LABEL_37;
       }
     }
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, v4, v5);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v4);
   }
   RegistryInfo = (void *)RtlpMuiRegCreateRegistryInfo();
-  Handle = RegistryInfo;
+  BaseAddress = RegistryInfo;
   v2 = RegistryInfo;
   if ( !RegistryInfo )
     goto LABEL_48;
-  v35 = 0LL;
+  v23 = 0LL;
   LicInformation = RtlpMuiRegLoadLicInformation((__int64)RegistryInfo);
   if ( LicInformation < 0 )
     DbgPrint("*** RtlpMuiRegLoadLicInformation failed with status %x", LicInformation);
-  Installed = RtlpMuiRegLoadInstalled(v2);
+  Installed = RtlpMuiRegLoadInstalled((int)v2);
   if ( Installed < 0 )
     goto LABEL_19;
-  RtlpMuiRegFreeRegistryInfo((__int64)v2, 4u, v16, v17);
-  Installed = RtlpLoadLanguageConfigList(4LL, &v35, v2);
+  RtlpMuiRegFreeRegistryInfo((__int64)v2, 4u);
+  Installed = RtlpLoadLanguageConfigList(4u);
   if ( Installed < 0 )
     goto LABEL_19;
-  v19 = v35;
-  if ( v35 )
+  v14 = v23;
+  if ( v23 )
   {
     *(_DWORD *)v2 |= 4u;
-    v2[5] = v19;
-    v35 = 0LL;
+    v2[5] = v14;
+    v23 = 0LL;
   }
-  RtlpMuiRegFreeRegistryInfo((__int64)v2, 8u, v16, v17);
-  Installed = RtlpLoadLanguageConfigList(8LL, &v35, v2);
+  RtlpMuiRegFreeRegistryInfo((__int64)v2, 8u);
+  Installed = RtlpLoadLanguageConfigList(8u);
   if ( Installed < 0 )
     goto LABEL_19;
-  v20 = v35;
-  if ( v35 )
+  v15 = v23;
+  if ( v23 )
   {
     *(_DWORD *)v2 |= 8u;
-    v2[6] = v20;
+    v2[6] = v15;
   }
-  RtlpMuiRegFreeRegistryInfo((__int64)v2, 0x20u, v16, v17);
+  RtlpMuiRegFreeRegistryInfo((__int64)v2, 0x20u);
   Installed = RtlpSetProcUserMachineLangList((__int64)v2, 1u);
   if ( Installed < 0
-    || (RtlpMuiRegFreeRegistryInfo((__int64)v2, 0x10u, v16, v17),
+    || (RtlpMuiRegFreeRegistryInfo((__int64)v2, 0x10u),
         Installed = RtlpSetProcUserMachineLangList((__int64)v2, 0),
         Installed < 0) )
   {
 LABEL_19:
-    RtlpMuiRegFreeRegistryInfo((__int64)v2, 0xFFFu, v16, v17);
-    RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, (__int64)Handle, v18);
+    RtlpMuiRegFreeRegistryInfo((__int64)v2, 0xFFFu);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, BaseAddress);
     v2 = 0LL;
   }
   else

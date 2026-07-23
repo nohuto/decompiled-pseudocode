@@ -104,7 +104,7 @@ __int64 __fastcall CmpGetSymbolicLinkTarget(
   ULONG_PTR v55; // rsi
   __int64 v56; // r15
   wchar_t *v57; // rdi
-  struct _SLIST_ENTRY *v58; // rdx
+  _SLIST_ENTRY *v58; // rdx
   struct _KPRCB *CurrentPrcb; // r8
   _GENERAL_LOOKASIDE *L; // rcx
   __int16 v62; // si

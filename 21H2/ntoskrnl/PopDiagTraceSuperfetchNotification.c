@@ -1,9 +1,9 @@
 /*
- * XREFs of PopDiagTraceSuperfetchNotification @ 0x1407765B8
+ * XREFs of PopDiagTraceSuperfetchNotification @ 0x140776778
  * Callers:
- *     PopDispatchSuperfetchNotification @ 0x1407765E4 (PopDispatchSuperfetchNotification.c)
+ *     PopDispatchSuperfetchNotification @ 0x1407767A4 (PopDispatchSuperfetchNotification.c)
  * Callees:
- *     PopDiagTraceEventNoPayload @ 0x1402CD1D4 (PopDiagTraceEventNoPayload.c)
+ *     PopDiagTraceEventNoPayload @ 0x14024B6D4 (PopDiagTraceEventNoPayload.c)
  */
 
 void __fastcall PopDiagTraceSuperfetchNotification(char a1)

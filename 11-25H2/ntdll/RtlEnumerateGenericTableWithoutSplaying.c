@@ -6,21 +6,21 @@
  *     <none>
  */
 
-_QWORD *__fastcall RtlEnumerateGenericTableWithoutSplaying(_QWORD *a1, _QWORD *a2)
+PVOID __cdecl RtlEnumerateGenericTableWithoutSplaying(PRTL_GENERIC_TABLE Table, PVOID *RestartKey)
 {
-  _QWORD *result; // rax
+  PVOID result; // rax
   _QWORD *v3; // rcx
   _QWORD *j; // rax
-  _QWORD *v5; // rcx
+  void *v5; // rcx
   _QWORD *i; // rcx
   _QWORD *k; // rcx
-  _QWORD *v8; // rcx
+  char *v8; // rcx
 
-  result = (_QWORD *)*a1;
-  if ( !*a1 )
+  result = Table->TableRoot;
+  if ( !Table->TableRoot )
     return result;
-  v3 = (_QWORD *)*a2;
-  if ( *a2 )
+  v3 = *RestartKey;
+  if ( *RestartKey )
   {
     j = (_QWORD *)v3[2];
     if ( j )
@@ -43,13 +43,13 @@ LABEL_8:
       }
     }
     if ( j )
-      *a2 = j;
+      *RestartKey = j;
     goto LABEL_8;
   }
-  for ( k = (_QWORD *)result[1]; k; k = (_QWORD *)k[1] )
+  for ( k = (_QWORD *)*((_QWORD *)result + 1); k; k = (_QWORD *)k[1] )
     result = k;
-  *a2 = result;
-  v8 = result + 5;
+  *RestartKey = result;
+  v8 = (char *)result + 40;
   if ( !result )
     return 0LL;
   return v8;

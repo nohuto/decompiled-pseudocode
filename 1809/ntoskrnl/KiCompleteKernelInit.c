@@ -1,16 +1,16 @@
 /*
- * XREFs of KiCompleteKernelInit @ 0x140571B50
+ * XREFs of KiCompleteKernelInit @ 0x140572B50
  * Callers:
- *     KiInitializeKernel @ 0x140571310 (KiInitializeKernel.c)
+ *     KiInitializeKernel @ 0x140572310 (KiInitializeKernel.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14006C9F0 (KeYieldProcessorEx.c)
- *     KeInitializeDpc @ 0x1400A56F0 (KeInitializeDpc.c)
- *     KiUpdateThreadPriority @ 0x1400D0D40 (KiUpdateThreadPriority.c)
- *     KiSetProcessorIdle @ 0x1400D7344 (KiSetProcessorIdle.c)
- *     KeInitializeTimer2 @ 0x1400FD4D0 (KeInitializeTimer2.c)
- *     KeAttachProcess @ 0x14012F560 (KeAttachProcess.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KiCreateCpuSetForProcessor @ 0x140571D00 (KiCreateCpuSetForProcessor.c)
+ *     KeYieldProcessorEx @ 0x14006C9E0 (KeYieldProcessorEx.c)
+ *     KeInitializeDpc @ 0x1400A5630 (KeInitializeDpc.c)
+ *     KiUpdateThreadPriority @ 0x1400D0DC0 (KiUpdateThreadPriority.c)
+ *     KiSetProcessorIdle @ 0x1400D73C4 (KiSetProcessorIdle.c)
+ *     KeInitializeTimer2 @ 0x1400FD550 (KeInitializeTimer2.c)
+ *     KeAttachProcess @ 0x14012F630 (KeAttachProcess.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiCreateCpuSetForProcessor @ 0x140572D00 (KiCreateCpuSetForProcessor.c)
  */
 
 __int64 __fastcall KiCompleteKernelInit(__int64 a1, __int64 a2, int a3)
@@ -45,12 +45,12 @@ __int64 __fastcall KiCompleteKernelInit(__int64 a1, __int64 a2, int a3)
   KeAttachProcess(PsInitialSystemProcess);
   if ( !a3 )
   {
-    qword_140421F98 = 0LL;
-    qword_140421F90 = (__int64)&qword_140421F88;
-    qword_140421F88 = (__int64)&qword_140421F88;
+    qword_140423078 = 0LL;
+    qword_140423070 = (__int64)&qword_140423068;
+    qword_140423068 = (__int64)&qword_140423068;
     KeInitializeTimer2((__int64)&KiForegroundState);
-    KeInitializeDpc((PRKDPC)&stru_140421F08, (PKDEFERRED_ROUTINE)KiProcessPendingForegroundBoosts, 0LL);
-    KeInitializeDpc(&stru_140421F48, (PKDEFERRED_ROUTINE)KiTriggerForegroundBoostDpc, 0LL);
+    KeInitializeDpc((PRKDPC)&stru_140422FE8, (PKDEFERRED_ROUTINE)KiProcessPendingForegroundBoosts, 0LL);
+    KeInitializeDpc(&stru_140423028, (PKDEFERRED_ROUTINE)KiTriggerForegroundBoostDpc, 0LL);
   }
   v10 = 0;
   _interlockedbittestandset64((volatile signed __int32 *)(*(_QWORD *)(a1 + 192) + 80LL), *(unsigned __int8 *)(a1 + 209));

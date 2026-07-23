@@ -1,12 +1,12 @@
 /*
- * XREFs of KiAllocateDpcDelegateThread @ 0x1405B5908
+ * XREFs of KiAllocateDpcDelegateThread @ 0x1405B2BD0
  * Callers:
- *     KiAllocatePrcbThreads @ 0x1405B5BB8 (KiAllocatePrcbThreads.c)
- *     KiCompleteBootProcessorContextInitialization @ 0x1405B65C0 (KiCompleteBootProcessorContextInitialization.c)
+ *     KiAllocatePrcbThreads @ 0x1405B2E80 (KiAllocatePrcbThreads.c)
+ *     KiCompleteBootProcessorContextInitialization @ 0x1405B3888 (KiCompleteBootProcessorContextInitialization.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     PsAssignThreadId @ 0x14046A77C (PsAssignThreadId.c)
- *     KiAllocatePrcbThread @ 0x1405B7CE0 (KiAllocatePrcbThread.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     PsAssignThreadId @ 0x140463114 (PsAssignThreadId.c)
+ *     KiAllocatePrcbThread @ 0x1405B52C0 (KiAllocatePrcbThread.c)
  */
 
 __int64 __fastcall KiAllocateDpcDelegateThread(_QWORD *a1, int a2, int a3, int a4)

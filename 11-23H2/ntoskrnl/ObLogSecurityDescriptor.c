@@ -1,23 +1,23 @@
 /*
- * XREFs of ObLogSecurityDescriptor @ 0x140728CC0
+ * XREFs of ObLogSecurityDescriptor @ 0x140728EC0
  * Callers:
  *     IopGetSetSecurityObject @ 0x14069C1D0 (IopGetSetSecurityObject.c)
  *     IopSetDeviceSecurityDescriptor @ 0x14069E6A4 (IopSetDeviceSecurityDescriptor.c)
  *     ObSetSecurityDescriptorInfo @ 0x14069E860 (ObSetSecurityDescriptorInfo.c)
- *     ExpWnfCreateNameInstance @ 0x1407117F4 (ExpWnfCreateNameInstance.c)
- *     SeDefaultObjectMethod @ 0x140728FB0 (SeDefaultObjectMethod.c)
- *     EtwpAllocGuidEntry @ 0x140781A1C (EtwpAllocGuidEntry.c)
- *     ObAssignObjectSecurityDescriptor @ 0x1407BDF64 (ObAssignObjectSecurityDescriptor.c)
- *     EtwpInitializeLoggerSecurityDescriptor @ 0x1407E5CDC (EtwpInitializeLoggerSecurityDescriptor.c)
- *     ObpInitObjectTypeSD @ 0x14081F824 (ObpInitObjectTypeSD.c)
- *     EtwpUpdateLoggerSecurityDescriptor @ 0x1409EC314 (EtwpUpdateLoggerSecurityDescriptor.c)
+ *     ExpWnfCreateNameInstance @ 0x140711A04 (ExpWnfCreateNameInstance.c)
+ *     SeDefaultObjectMethod @ 0x1407291B0 (SeDefaultObjectMethod.c)
+ *     EtwpAllocGuidEntry @ 0x140781C0C (EtwpAllocGuidEntry.c)
+ *     ObAssignObjectSecurityDescriptor @ 0x1407BE234 (ObAssignObjectSecurityDescriptor.c)
+ *     EtwpInitializeLoggerSecurityDescriptor @ 0x1407E5FAC (EtwpInitializeLoggerSecurityDescriptor.c)
+ *     ObpInitObjectTypeSD @ 0x14081FB24 (ObpInitObjectTypeSD.c)
+ *     EtwpUpdateLoggerSecurityDescriptor @ 0x1409EC5A4 (EtwpUpdateLoggerSecurityDescriptor.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1402BD860 (ExfReleasePushLockShared.c)
- *     memcmp @ 0x1403DA350 (memcmp.c)
- *     memmove @ 0x140435700 (memmove.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockSharedEx @ 0x140230E80 (ExAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfReleasePushLockShared @ 0x1402BDAF0 (ExfReleasePushLockShared.c)
+ *     memcmp @ 0x1403DA530 (memcmp.c)
+ *     memmove @ 0x140435B00 (memmove.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

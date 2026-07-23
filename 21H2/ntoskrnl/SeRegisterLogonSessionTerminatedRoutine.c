@@ -1,18 +1,21 @@
 /*
- * XREFs of SeRegisterLogonSessionTerminatedRoutine @ 0x140923480
+ * XREFs of SeRegisterLogonSessionTerminatedRoutine @ 0x1409235E0
  * Callers:
  *     <none>
  * Callees:
- *     ExAcquireFastMutexUnsafe @ 0x1402067E0 (ExAcquireFastMutexUnsafe.c)
- *     ExReleaseFastMutexUnsafe @ 0x140206970 (ExReleaseFastMutexUnsafe.c)
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1402AB110 (ExAcquireFastMutexUnsafe.c)
+ *     ExReleaseFastMutexUnsafe @ 0x1402AB2A0 (ExReleaseFastMutexUnsafe.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 NTSTATUS __stdcall SeRegisterLogonSessionTerminatedRoutine(PSE_LOGON_SESSION_TERMINATED_ROUTINE CallbackRoutine)
 {
   _QWORD *PoolWithTag; // rbx
   struct _KTHREAD *CurrentThread; // rax
+  __int64 v5; // rdx
+  __int64 v6; // r8
+  __int64 v7; // r9
 
   if ( !CallbackRoutine )
     return -1073741811;
@@ -26,6 +29,6 @@ NTSTATUS __stdcall SeRegisterLogonSessionTerminatedRoutine(PSE_LOGON_SESSION_TER
   PoolWithTag[1] = CallbackRoutine;
   SeFileSystemNotifyRoutinesHead = PoolWithTag;
   ExReleaseFastMutexUnsafe(&SepRmNotifyMutex);
-  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v5, v6, v7);
   return 0;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of ViGenericSetInformation @ 0x140942E00
+ * XREFs of ViGenericSetInformation @ 0x140943E00
  * Callers:
  *     <none>
  * Callees:
- *     ViGenericDispatchHandler @ 0x1409429F4 (ViGenericDispatchHandler.c)
+ *     ViGenericDispatchHandler @ 0x1409439F4 (ViGenericDispatchHandler.c)
  */
 
 __int64 __fastcall ViGenericSetInformation(__int64 a1, __int64 a2)

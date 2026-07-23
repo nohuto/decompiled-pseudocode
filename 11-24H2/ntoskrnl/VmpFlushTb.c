@@ -1,17 +1,17 @@
 /*
- * XREFs of VmpFlushTb @ 0x140292380
+ * XREFs of VmpFlushTb @ 0x1402A1F80
  * Callers:
- *     MiFlushTbList @ 0x140291730 (MiFlushTbList.c)
- *     VmFlushTb @ 0x140292340 (VmFlushTb.c)
+ *     MiFlushTbList @ 0x1402A1330 (MiFlushTbList.c)
+ *     VmFlushTb @ 0x1402A1F40 (VmFlushTb.c)
  * Callees:
- *     VmpProcessContextLockExclusive @ 0x1403B0458 (VmpProcessContextLockExclusive.c)
- *     VmpConvertPortionVpnRangeToGpnRange @ 0x1403B04A4 (VmpConvertPortionVpnRangeToGpnRange.c)
- *     VmpInvalidateOutstandingFaults @ 0x1403B1140 (VmpInvalidateOutstandingFaults.c)
- *     VmpInsertInvalidateListRange @ 0x1403B12F8 (VmpInsertInvalidateListRange.c)
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     VmpProcessContextUnlockExclusive @ 0x14047F1E4 (VmpProcessContextUnlockExclusive.c)
- *     VmpProcessInvalidateList @ 0x1404A9F18 (VmpProcessInvalidateList.c)
- *     VmpLogTbFlushSlatFlushEntire @ 0x14064BD54 (VmpLogTbFlushSlatFlushEntire.c)
+ *     VmpProcessContextLockExclusive @ 0x14039EC68 (VmpProcessContextLockExclusive.c)
+ *     VmpConvertPortionVpnRangeToGpnRange @ 0x14039ECB4 (VmpConvertPortionVpnRangeToGpnRange.c)
+ *     VmpInvalidateOutstandingFaults @ 0x14039F950 (VmpInvalidateOutstandingFaults.c)
+ *     VmpInsertInvalidateListRange @ 0x14039FB08 (VmpInsertInvalidateListRange.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     VmpProcessContextUnlockExclusive @ 0x14047A000 (VmpProcessContextUnlockExclusive.c)
+ *     VmpProcessInvalidateList @ 0x1404A41E8 (VmpProcessInvalidateList.c)
+ *     VmpLogTbFlushSlatFlushEntire @ 0x14064A314 (VmpLogTbFlushSlatFlushEntire.c)
  */
 
 unsigned __int64 __fastcall VmpFlushTb(PEX_SPIN_LOCK SpinLock, unsigned int a2, unsigned __int64 *a3)

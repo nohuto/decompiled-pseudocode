@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpKeyEnumStackEntryCleanup @ 0x1409823B8
+ * XREFs of CmpKeyEnumStackEntryCleanup @ 0x1409443C8
  * Callers:
- *     CmpKeyEnumStackReset @ 0x140981794 (CmpKeyEnumStackReset.c)
- *     CmpKeyEnumStackCleanup @ 0x140982190 (CmpKeyEnumStackCleanup.c)
- *     CmpGetSubKeyCountForKeyNodeStack @ 0x140AE49F4 (CmpGetSubKeyCountForKeyNodeStack.c)
+ *     CmpKeyEnumStackReset @ 0x1409437A4 (CmpKeyEnumStackReset.c)
+ *     CmpKeyEnumStackCleanup @ 0x1409441A0 (CmpKeyEnumStackCleanup.c)
+ *     CmpGetSubKeyCountForKeyNodeStack @ 0x140AE2504 (CmpGetSubKeyCountForKeyNodeStack.c)
  * Callees:
- *     HvpReleaseCellFlat @ 0x1408D51E0 (HvpReleaseCellFlat.c)
- *     HvpReleaseCellPaged @ 0x1408D73B0 (HvpReleaseCellPaged.c)
+ *     HvpReleaseCellFlat @ 0x1408DB7A0 (HvpReleaseCellFlat.c)
+ *     HvpReleaseCellPaged @ 0x1408DD970 (HvpReleaseCellPaged.c)
  */
 
 __int64 __fastcall CmpKeyEnumStackEntryCleanup(_QWORD *a1)

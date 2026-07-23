@@ -40,16 +40,15 @@ BOOLEAN __fastcall ExpDeleteTimer(PKTIMER a1)
   struct _LIST_ENTRY *Blink; // rax
   struct _KTHREAD *v19; // rbx
   unsigned __int8 v20; // r14
-  unsigned __int64 v21; // r8
-  __int64 v22; // rdx
-  __int64 v23; // rcx
-  __int64 v24; // rsi
-  unsigned int v25; // ecx
-  unsigned __int8 v26; // al
-  __int64 v27; // rcx
+  unsigned int v21; // edx
+  __int64 v22; // rcx
+  __int64 v23; // rsi
+  unsigned int v24; // ecx
+  unsigned __int8 v25; // al
+  __int64 v26; // rcx
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r9
-  int v30; // eax
+  int v29; // eax
   _DWORD *SchedulerAssist; // r8
   PVOID P; // [rsp+30h] [rbp-58h]
 
@@ -123,37 +122,36 @@ LABEL_21:
     v10 = MmGetSessionIdEx(v19->ApcState.Process);
   --v19->SpecialApcDisable;
   v20 = ++v19->AbAllocationRegionCount;
-  v21 = (unsigned __int64)&ExpWakeTimerLock & 0x7FFFFFFFFFFFFFFCLL;
-  LODWORD(v22) = ((char)v19->AbEntrySummary | (char)v19->AbOrphanedEntrySummary) ^ 0x3F;
+  v21 = ((char)v19->AbEntrySummary | (char)v19->AbOrphanedEntrySummary) ^ 0x3F;
   while ( 1 )
   {
-    v15 = !_BitScanReverse((unsigned int *)&v23, v22);
+    v15 = !_BitScanReverse((unsigned int *)&v22, v21);
     if ( v15 )
       break;
-    v24 = (__int64)&v19->LockEntries[v23];
-    v22 = ~(1 << v23) & (unsigned int)v22;
-    if ( (*(_BYTE *)(v24 + 26) & 1) != 0
-      && (*(_DWORD *)(v24 + 32) & 1) == 0
-      && (*(_QWORD *)(v24 + 32) & 0x7FFFFFFFFFFFFFFCLL) == v21
-      && *(_DWORD *)(v24 + 40) == v10 )
+    v23 = (__int64)&v19->LockEntries[v22];
+    v21 &= ~(1 << v22);
+    if ( (*(_BYTE *)(v23 + 26) & 1) != 0
+      && (*(_DWORD *)(v23 + 32) & 1) == 0
+      && (*(_QWORD *)(v23 + 32) & 0x7FFFFFFFFFFFFFFCLL) == ((unsigned __int64)&ExpWakeTimerLock & 0x7FFFFFFFFFFFFFFCLL)
+      && *(_DWORD *)(v23 + 40) == v10 )
     {
-      *(_BYTE *)(v24 + 26) &= ~1u;
-      if ( *(_QWORD *)(v24 + 32) )
+      *(_BYTE *)(v23 + 26) &= ~1u;
+      if ( *(_QWORD *)(v23 + 32) )
       {
-        if ( v24 )
+        if ( v23 )
         {
-          *(_BYTE *)(v24 + 32) |= 2u;
-          if ( *(__int64 *)(v24 + 32) < 0 )
-            KiAbEntryRemoveFromTree(v24, v22, v21);
-          v25 = *(_DWORD *)(v24 + 88) & 0xFFFE0000;
-          *(_BYTE *)(v24 + 25) &= ~1u;
-          *(_DWORD *)(v24 + 88) = v25;
-          *(_QWORD *)(v24 + 32) = 0LL;
-          v26 = 1 << ((char)(v24 - LOBYTE(v19->LockEntries)) / 96);
+          *(_BYTE *)(v23 + 32) |= 2u;
+          if ( *(__int64 *)(v23 + 32) < 0 )
+            KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v23);
+          v24 = *(_DWORD *)(v23 + 88) & 0xFFFE0000;
+          *(_BYTE *)(v23 + 25) &= ~1u;
+          *(_DWORD *)(v23 + 88) = v24;
+          *(_QWORD *)(v23 + 32) = 0LL;
+          v25 = 1 << ((char)(v23 - LOBYTE(v19->LockEntries)) / 96);
           if ( v20 == 1 )
-            v19->AbEntrySummary |= v26;
+            v19->AbEntrySummary |= v25;
           else
-            _InterlockedOr8((volatile signed __int8 *)&v19->AbOrphanedEntrySummary, v26);
+            _InterlockedOr8((volatile signed __int8 *)&v19->AbOrphanedEntrySummary, v25);
           goto LABEL_46;
         }
         break;
@@ -167,7 +165,7 @@ LABEL_46:
   KiAbThreadRemoveBoosts((ULONG_PTR)v19);
   v15 = v19->SpecialApcDisable++ == -1;
   if ( v15 && ($C459BD0D405E8E46662177FB3D0A143F *)v19->ApcState.ApcListHead[0].Flink != &v19->152 )
-    KiCheckForKernelApcDelivery(v27);
+    KiCheckForKernelApcDelivery(v26);
   KeLeaveCriticalRegionThread((__int64)CurrentThread);
   if ( P )
     PoDestroyReasonContext(P);
@@ -190,10 +188,10 @@ LABEL_2:
         if ( CurrentIrql <= 0xFu && (unsigned __int8)v5 <= 0xFu && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
-          v30 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v5 + 1));
+          v29 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v5 + 1));
           SchedulerAssist = CurrentPrcb->SchedulerAssist;
-          v15 = (v30 & SchedulerAssist[5]) == 0;
-          SchedulerAssist[5] &= v30;
+          v15 = (v29 & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= v29;
           if ( v15 )
             KiRemoveSystemWorkPriorityKick(CurrentPrcb);
         }

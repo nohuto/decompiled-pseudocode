@@ -1,10 +1,10 @@
 /*
- * XREFs of SSHSupportQueryInterruptTime @ 0x1404B1668
+ * XREFs of SSHSupportQueryInterruptTime @ 0x1404ABEF8
  * Callers:
- *     SshpSessionManagerInterruptTimeToSystemTime @ 0x1407673B8 (SshpSessionManagerInterruptTimeToSystemTime.c)
- *     SleepstudyHelperBuildBlocker @ 0x140A24F30 (SleepstudyHelperBuildBlocker.c)
- *     SshpTracingRundownCollectionState @ 0x140A76764 (SshpTracingRundownCollectionState.c)
- *     SshpTracingWriteCollectionStateChange @ 0x140A9561C (SshpTracingWriteCollectionStateChange.c)
+ *     SshpSessionManagerInterruptTimeToSystemTime @ 0x140766E18 (SshpSessionManagerInterruptTimeToSystemTime.c)
+ *     SleepstudyHelperBuildBlocker @ 0x140A18F20 (SleepstudyHelperBuildBlocker.c)
+ *     SshpTracingRundownCollectionState @ 0x140A70884 (SshpTracingRundownCollectionState.c)
+ *     SshpTracingWriteCollectionStateChange @ 0x140A91E4C (SshpTracingWriteCollectionStateChange.c)
  * Callees:
  *     <none>
  */

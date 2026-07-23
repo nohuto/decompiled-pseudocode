@@ -1,9 +1,9 @@
 /*
- * XREFs of TtmpTsmEvaluateTimeouts @ 0x1408FE188
+ * XREFs of TtmpTsmEvaluateTimeouts @ 0x1408FE2E8
  * Callers:
- *     TtmpTsmIterate @ 0x1408FE1F0 (TtmpTsmIterate.c)
+ *     TtmpTsmIterate @ 0x1408FE350 (TtmpTsmIterate.c)
  * Callees:
- *     TtmpTsmTestTimeout @ 0x1408FE2C0 (TtmpTsmTestTimeout.c)
+ *     TtmpTsmTestTimeout @ 0x1408FE420 (TtmpTsmTestTimeout.c)
  */
 
 _QWORD *__fastcall TtmpTsmEvaluateTimeouts(__int64 a1, __int64 a2, __int64 a3, __int64 a4, _QWORD *a5)

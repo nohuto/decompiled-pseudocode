@@ -1,10 +1,10 @@
 /*
- * XREFs of MiInitializeNuma @ 0x1403AFCA8
+ * XREFs of MiInitializeNuma @ 0x1403AFE18
  * Callers:
- *     MiInitializePartition @ 0x14079C65C (MiInitializePartition.c)
+ *     MiInitializePartition @ 0x14079C85C (MiInitializePartition.c)
  * Callees:
- *     InitializeSListHead @ 0x14035E3E0 (InitializeSListHead.c)
- *     MiInitializeChannelOrdering @ 0x14079CCFC (MiInitializeChannelOrdering.c)
+ *     InitializeSListHead @ 0x1402A3310 (InitializeSListHead.c)
+ *     MiInitializeChannelOrdering @ 0x14079CEFC (MiInitializeChannelOrdering.c)
  */
 
 void __fastcall MiInitializeNuma(ULONG_PTR *a1)
@@ -14,7 +14,7 @@ void __fastcall MiInitializeNuma(ULONG_PTR *a1)
   unsigned int i; // ebx
   int v5; // esi
   int *v6; // r14
-  union _SLIST_HEADER *v7; // r15
+  _SLIST_HEADER *v7; // r15
   int v8; // eax
   unsigned int v9; // edx
   _DWORD *v10; // r8
@@ -33,7 +33,7 @@ void __fastcall MiInitializeNuma(ULONG_PTR *a1)
     *(_BYTE *)(v1 + 3250) = 8;
     *(_QWORD *)(v1 + 4296) = 0LL;
     *(_QWORD *)(v1 + 4328) = 0LL;
-    *(_DWORD *)(v1 + 4208) = i << byte_140C4DE8C;
+    *(_DWORD *)(v1 + 4208) = i << byte_140C4DECC;
     if ( a1 == &MiSystemPartition )
     {
       v5 = 0;
@@ -54,7 +54,7 @@ void __fastcall MiInitializeNuma(ULONG_PTR *a1)
     v10 = (_DWORD *)(v1 + 4032);
     do
     {
-      *v10 = dword_140C4DEF8 + 1;
+      *v10 = dword_140C4DF38 + 1;
       v10 += 4;
       v11 = (unsigned __int64)(v9++ << 8) >> 5;
       *((_QWORD *)v10 - 1) = v1 + 4 * (v11 + 1016);

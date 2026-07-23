@@ -4,7 +4,7 @@
  *     RtlpHpSegMgrAllocate @ 0x14000AC04 (RtlpHpSegMgrAllocate.c)
  *     RtlpHpSegLfhVsCommit @ 0x14000BF30 (RtlpHpSegLfhVsCommit.c)
  *     RtlpHpSegPageRangeCommit @ 0x14000C594 (RtlpHpSegPageRangeCommit.c)
- *     RtlpHpSegMgrRelease @ 0x14015474C (RtlpHpSegMgrRelease.c)
+ *     RtlpHpSegMgrRelease @ 0x14015484C (RtlpHpSegMgrRelease.c)
  * Callees:
  *     RtlpHpSegMgrCommitComplete @ 0x140009B00 (RtlpHpSegMgrCommitComplete.c)
  *     RtlpHpSegHeapCheckCommitLimit @ 0x14000C51C (RtlpHpSegHeapCheckCommitLimit.c)
@@ -13,7 +13,7 @@
  *     RtlpHpEnvGetHeapManager @ 0x14000CE30 (RtlpHpEnvGetHeapManager.c)
  *     RtlpHpAllocVA @ 0x14000CE68 (RtlpHpAllocVA.c)
  *     RtlpHpFreeVA @ 0x14000D214 (RtlpHpFreeVA.c)
- *     memset @ 0x1401D1880 (memset.c)
+ *     memset @ 0x1401D1980 (memset.c)
  */
 
 __int64 __fastcall RtlpHpSegMgrCommit(__int64 a1, __int64 a2, unsigned int a3, int a4, int a5, int a6, int a7)

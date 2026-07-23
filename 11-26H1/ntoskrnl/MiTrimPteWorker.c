@@ -1,17 +1,17 @@
 /*
- * XREFs of MiTrimPteWorker @ 0x140320BF0
+ * XREFs of MiTrimPteWorker @ 0x140322C20
  * Callers:
- *     MiTrimWorkingSetVpabCallback @ 0x1403BA950 (MiTrimWorkingSetVpabCallback.c)
+ *     MiTrimWorkingSetVpabCallback @ 0x1403C47C0 (MiTrimWorkingSetVpabCallback.c)
  * Callees:
- *     MiFlushDeferredAgingBucket @ 0x14029CF90 (MiFlushDeferredAgingBucket.c)
- *     MiGetPagePrivilege @ 0x1402F9878 (MiGetPagePrivilege.c)
- *     MiPteHasShadow @ 0x1403011E0 (MiPteHasShadow.c)
- *     MiLogPageAccess @ 0x140320930 (MiLogPageAccess.c)
- *     MiTrimThisWsle @ 0x140322190 (MiTrimThisWsle.c)
- *     MiFreeWsleList @ 0x140328E50 (MiFreeWsleList.c)
- *     MiCompressTbFlushList @ 0x1404DAB9C (MiCompressTbFlushList.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     qsort @ 0x140536F00 (qsort.c)
+ *     MiFlushDeferredAgingBucket @ 0x14029C4F0 (MiFlushDeferredAgingBucket.c)
+ *     MiGetPagePrivilege @ 0x1402DB8F8 (MiGetPagePrivilege.c)
+ *     MiPteHasShadow @ 0x1402E3260 (MiPteHasShadow.c)
+ *     MiLogPageAccess @ 0x140322960 (MiLogPageAccess.c)
+ *     MiTrimThisWsle @ 0x1403241C0 (MiTrimThisWsle.c)
+ *     MiFreeWsleList @ 0x14032AE80 (MiFreeWsleList.c)
+ *     MiCompressTbFlushList @ 0x1404D427C (MiCompressTbFlushList.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     qsort @ 0x140539380 (qsort.c)
  */
 
 __int64 __fastcall MiTrimPteWorker(
@@ -85,9 +85,9 @@ __int64 __fastcall MiTrimPteWorker(
     MmInternal = (__int64 *)CurrentPrcb->MmInternal;
     if ( !MmInternal )
     {
-      dword_141031C94 = 512;
+      dword_141032C94 = 512;
       MmInternal = MxTempPrcb;
-      dword_14102EE18 = 1;
+      dword_14102FE18 = 1;
     }
     v15 = *((unsigned int *)MmInternal + 85);
     if ( (_DWORD)v15 == *((_DWORD *)MmInternal + 86) )
@@ -315,7 +315,7 @@ LABEL_47:
           if ( *(_QWORD *)(v7 + 624) || (*(_QWORD *)(v7 - 656) & 0xFFFFFFFFFFFFFFFCuLL) != 0 )
             goto LABEL_47;
 LABEL_57:
-          MiLogPageAccess(v7, a2);
+          MiLogPageAccess(v7, a2, v32);
         }
       }
     }

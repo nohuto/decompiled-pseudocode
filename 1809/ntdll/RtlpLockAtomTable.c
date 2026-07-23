@@ -1,21 +1,21 @@
 /*
- * XREFs of RtlpLockAtomTable @ 0x180073658
+ * XREFs of RtlpLockAtomTable @ 0x180073668
  * Callers:
  *     RtlDeleteAtomFromAtomTable @ 0x180072E60 (RtlDeleteAtomFromAtomTable.c)
  *     RtlQueryAtomInAtomTable @ 0x180072F60 (RtlQueryAtomInAtomTable.c)
- *     RtlAddAtomToAtomTableEx @ 0x18007319C (RtlAddAtomToAtomTableEx.c)
- *     RtlLookupAtomInAtomTable @ 0x1800733B0 (RtlLookupAtomInAtomTable.c)
- *     RtlDestroyAtomTable @ 0x18008B5A0 (RtlDestroyAtomTable.c)
- *     RtlEmptyAtomTable @ 0x18008B660 (RtlEmptyAtomTable.c)
+ *     RtlAddAtomToAtomTableEx @ 0x1800731AC (RtlAddAtomToAtomTableEx.c)
+ *     RtlLookupAtomInAtomTable @ 0x1800733C0 (RtlLookupAtomInAtomTable.c)
+ *     RtlDestroyAtomTable @ 0x18008B5B0 (RtlDestroyAtomTable.c)
+ *     RtlEmptyAtomTable @ 0x18008B670 (RtlEmptyAtomTable.c)
  *     RtlPinAtomInAtomTable @ 0x1800EB850 (RtlPinAtomInAtomTable.c)
  * Callees:
  *     RtlAcquireSRWLockExclusive @ 0x180015FF0 (RtlAcquireSRWLockExclusive.c)
  */
 
-char __fastcall RtlpLockAtomTable(_DWORD *a1, unsigned __int64 a2, unsigned __int64 *a3, __int64 a4)
+char __fastcall RtlpLockAtomTable(__int64 a1)
 {
-  if ( !a1 || *a1 != 1836020801 )
+  if ( !a1 || *(_DWORD *)a1 != 1836020801 )
     return 0;
-  RtlAcquireSRWLockExclusive((unsigned __int64)(a1 + 2), a2, a3, a4);
+  RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 8));
   return 1;
 }

@@ -1,13 +1,13 @@
 /*
- * XREFs of IopCallBootDriverReinitializationRoutines @ 0x1409DA5EC
+ * XREFs of IopCallBootDriverReinitializationRoutines @ 0x1409DB5EC
  * Callers:
- *     IopInitializeBootDrivers @ 0x1409CB0BC (IopInitializeBootDrivers.c)
+ *     IopInitializeBootDrivers @ 0x1409CC0BC (IopInitializeBootDrivers.c)
  * Callees:
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     IopInterlockedRemoveHeadList @ 0x1401356A8 (IopInterlockedRemoveHeadList.c)
- *     PnpDiagnosticTrace @ 0x1401371E4 (PnpDiagnosticTrace.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     IopInterlockedRemoveHeadList @ 0x140135778 (IopInterlockedRemoveHeadList.c)
+ *     PnpDiagnosticTrace @ 0x1401372E4 (PnpDiagnosticTrace.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  */
 
 char IopCallBootDriverReinitializationRoutines()

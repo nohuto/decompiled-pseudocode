@@ -1,17 +1,17 @@
 /*
- * XREFs of MiGetPageChainSmallPageProcess @ 0x1402FBB90
+ * XREFs of MiGetPageChainSmallPageProcess @ 0x140253A70
  * Callers:
- *     MiGetPageChain @ 0x1402FCDC0 (MiGetPageChain.c)
+ *     MiGetPageChain @ 0x140307540 (MiGetPageChain.c)
  * Callees:
- *     MiZeroPhysicalPage @ 0x14021EC40 (MiZeroPhysicalPage.c)
- *     MiChangePageAttribute @ 0x14021F58C (MiChangePageAttribute.c)
- *     MiMakeLinkedListPte @ 0x1402D1A40 (MiMakeLinkedListPte.c)
- *     MiSetPfnTbFlushStamp @ 0x1402FBDB0 (MiSetPfnTbFlushStamp.c)
- *     MiTbFlushTimeStampMayNeedFlush @ 0x1404519BC (MiTbFlushTimeStampMayNeedFlush.c)
- *     MiPerformFinalZeroing @ 0x1404F8564 (MiPerformFinalZeroing.c)
+ *     MiZeroPhysicalPage @ 0x14024B990 (MiZeroPhysicalPage.c)
+ *     MiChangePageAttribute @ 0x14024C2DC (MiChangePageAttribute.c)
+ *     MiSetPfnTbFlushStamp @ 0x140253C90 (MiSetPfnTbFlushStamp.c)
+ *     MiMakeLinkedListPte @ 0x1403F8EF0 (MiMakeLinkedListPte.c)
+ *     MiTbFlushTimeStampMayNeedFlush @ 0x140446A68 (MiTbFlushTimeStampMayNeedFlush.c)
+ *     MiPerformFinalZeroing @ 0x1404F5E44 (MiPerformFinalZeroing.c)
  */
 
-__int64 __fastcall MiGetPageChainSmallPageProcess(__int64 a1, __int64 *a2, __int64 a3)
+__int64 __fastcall MiGetPageChainSmallPageProcess(__int64 a1, _QWORD *a2, __int64 a3)
 {
   int v6; // r8d
   unsigned int v7; // esi
@@ -34,7 +34,7 @@ __int64 __fastcall MiGetPageChainSmallPageProcess(__int64 a1, __int64 *a2, __int
   v7 = (*(_DWORD *)(a1 + 48) >> 18) & 3;
   v8 = 48 * a3 - 0x220000000000LL;
   v9 = (unsigned __int8)BYTE2(*(_DWORD *)(v8 + 32)) >> 6;
-  if ( v9 != v7 && ((unsigned __int8)((1 << v9) | (1 << v7)) & (unsigned __int8)byte_140E2DBD8) != 0 )
+  if ( v9 != v7 && ((unsigned __int8)((1 << v9) | (1 << v7)) & (unsigned __int8)byte_140E2DD18) != 0 )
   {
     *(_QWORD *)(v8 + 16) = MiMakeLinkedListPte(*a2);
     v17 = ++v19[1] == 16;

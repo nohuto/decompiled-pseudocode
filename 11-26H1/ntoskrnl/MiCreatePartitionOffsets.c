@@ -1,11 +1,11 @@
 /*
- * XREFs of MiCreatePartitionOffsets @ 0x140868CB0
+ * XREFs of MiCreatePartitionOffsets @ 0x14086F090
  * Callers:
- *     MmCreatePartition @ 0x140869D7C (MmCreatePartition.c)
- *     MiCreatePfnDatabase @ 0x140CF2818 (MiCreatePfnDatabase.c)
+ *     MmCreatePartition @ 0x14087015C (MmCreatePartition.c)
+ *     MiCreatePfnDatabase @ 0x140CF8B98 (MiCreatePfnDatabase.c)
  * Callees:
- *     MiComputePartitionHugeIoSpaceSize @ 0x1406EB368 (MiComputePartitionHugeIoSpaceSize.c)
- *     MiFreeCachedKernelShadowStackEntryCount @ 0x1406FF188 (MiFreeCachedKernelShadowStackEntryCount.c)
+ *     MiComputePartitionHugeIoSpaceSize @ 0x1406F0008 (MiComputePartitionHugeIoSpaceSize.c)
+ *     MiFreeCachedKernelShadowStackEntryCount @ 0x140703E58 (MiFreeCachedKernelShadowStackEntryCount.c)
  */
 
 __int64 __fastcall MiCreatePartitionOffsets(_QWORD *a1, __int64 a2)
@@ -30,7 +30,7 @@ __int64 __fastcall MiCreatePartitionOffsets(_QWORD *a1, __int64 a2)
   __int64 v21; // rcx
 
   v2 = (unsigned __int16)KeNumberNodes;
-  v5 = dword_140E2D78C * (unsigned __int16)KeNumberNodes;
+  v5 = dword_140E2D90C * (unsigned __int16)KeNumberNodes;
   if ( a1 )
     a1[939] = a2;
   v6 = (8LL * (unsigned int)(3 * v5) + 15) & 0xFFFFFFFFFFFFFFF0uLL;
@@ -43,19 +43,19 @@ __int64 __fastcall MiCreatePartitionOffsets(_QWORD *a1, __int64 a2)
   v9 = 56320 * v2 + v7;
   if ( a1 )
     a1[2093] = v9 + a2;
-  v10 = dword_140E2EAE0;
-  if ( !dword_140E2EAE0 )
+  v10 = dword_140E2EC60;
+  if ( !dword_140E2EC60 )
   {
-    v11 = dword_140E2D780;
+    v11 = dword_140E2D900;
     for ( i = 0; i <= 3; ++i )
     {
       v13 = 6;
       if ( i != 3 )
         v13 = 12;
-      v14 = *v11++ * (unsigned __int8)byte_140E2D718 * v13;
+      v14 = *v11++ * (unsigned __int8)byte_140E2D898 * v13;
       v10 += v14;
     }
-    dword_140E2EAE0 = v10;
+    dword_140E2EC60 = v10;
   }
   v15 = 88 * v8 * v10 + v9;
   if ( a1 )

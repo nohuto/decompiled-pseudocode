@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpGetContainingRange @ 0x180089D0C
+ * XREFs of RtlpGetContainingRange @ 0x180089CFC
  * Callers:
- *     RtlpQueryExtendedInformationHeap @ 0x180095020 (RtlpQueryExtendedInformationHeap.c)
+ *     RtlpQueryExtendedInformationHeap @ 0x180095010 (RtlpQueryExtendedInformationHeap.c)
  * Callees:
- *     RtlpGetHeapProtection @ 0x1800436E4 (RtlpGetHeapProtection.c)
+ *     RtlpGetHeapProtection @ 0x1800436D4 (RtlpGetHeapProtection.c)
  */
 
 __int64 __fastcall RtlpGetContainingRange(

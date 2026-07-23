@@ -4,12 +4,12 @@
  *     KiInitializeDynamicProcessorDpc @ 0x1403DD5DC (KiInitializeDynamicProcessorDpc.c)
  *     KeInitSystem @ 0x140791AC4 (KeInitSystem.c)
  * Callees:
- *     KeInitializeGate @ 0x1400AF81C (KeInitializeGate.c)
- *     KiInitializeDpcList @ 0x1400B5EE0 (KiInitializeDpcList.c)
- *     KeSetCoalescableTimer @ 0x1400EFC00 (KeSetCoalescableTimer.c)
- *     KeInitializeTimerEx @ 0x1400F0C50 (KeInitializeTimerEx.c)
- *     KeInitializeThreadedDpc @ 0x140138CE8 (KeInitializeThreadedDpc.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     KeInitializeGate @ 0x1400ADD84 (KeInitializeGate.c)
+ *     KiInitializeDpcList @ 0x1400B3D08 (KiInitializeDpcList.c)
+ *     KeSetCoalescableTimer @ 0x1400EDA80 (KeSetCoalescableTimer.c)
+ *     KeInitializeTimerEx @ 0x1400EEAA0 (KeInitializeTimerEx.c)
+ *     KeInitializeThreadedDpc @ 0x140139258 (KeInitializeThreadedDpc.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */
 

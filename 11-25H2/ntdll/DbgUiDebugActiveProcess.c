@@ -8,16 +8,16 @@
  *     NtDebugActiveProcess @ 0x180164CD0 (NtDebugActiveProcess.c)
  */
 
-__int64 __fastcall DbgUiDebugActiveProcess(HANDLE ProcessHandle)
+NTSTATUS __cdecl DbgUiDebugActiveProcess(HANDLE Process)
 {
   int active; // ebx
 
-  active = NtDebugActiveProcess(ProcessHandle, NtCurrentTeb()->DbgSsReserved[1]);
+  active = NtDebugActiveProcess(Process, NtCurrentTeb()->DbgSsReserved[1]);
   if ( active >= 0 )
   {
-    active = DbgUiIssueRemoteBreakin(ProcessHandle);
+    active = DbgUiIssueRemoteBreakin(Process);
     if ( active < 0 )
-      DbgUiStopDebugging(ProcessHandle);
+      DbgUiStopDebugging(Process);
   }
-  return (unsigned int)active;
+  return active;
 }

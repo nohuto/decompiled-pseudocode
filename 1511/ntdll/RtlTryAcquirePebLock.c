@@ -6,7 +6,7 @@
  *     <none>
  */
 
-__int64 RtlTryAcquirePebLock()
+LOGICAL RtlTryAcquirePebLock(void)
 {
   return RtlTryEnterCriticalSection(NtCurrentPeb()->FastPebLock);
 }

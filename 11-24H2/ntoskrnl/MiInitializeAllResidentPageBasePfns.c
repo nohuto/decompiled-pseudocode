@@ -1,15 +1,15 @@
 /*
- * XREFs of MiInitializeAllResidentPageBasePfns @ 0x140459D90
+ * XREFs of MiInitializeAllResidentPageBasePfns @ 0x14044F1DC
  * Callers:
- *     MiCoalesceFreeSmallPages @ 0x1402238B0 (MiCoalesceFreeSmallPages.c)
- *     MiDeleteSectionCluster @ 0x1403A0124 (MiDeleteSectionCluster.c)
- *     MiInitializeDynamicPfns @ 0x14066D8BC (MiInitializeDynamicPfns.c)
- *     MxInsertFreePages @ 0x140C52D50 (MxInsertFreePages.c)
+ *     MiDeleteSectionCluster @ 0x140216B54 (MiDeleteSectionCluster.c)
+ *     MiCoalesceFreeSmallPages @ 0x140250600 (MiCoalesceFreeSmallPages.c)
+ *     MiInitializeDynamicPfns @ 0x14066EA90 (MiInitializeDynamicPfns.c)
+ *     MxInsertFreePages @ 0x140C54EE0 (MxInsertFreePages.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x1403F9C60 (KeYieldProcessorEx.c)
- *     MiSetFreeZeroPfnCold @ 0x1404319A0 (MiSetFreeZeroPfnCold.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KeYieldProcessorEx @ 0x1403EFB70 (KeYieldProcessorEx.c)
+ *     MiSetFreeZeroPfnCold @ 0x140423EE0 (MiSetFreeZeroPfnCold.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 char __fastcall MiInitializeAllResidentPageBasePfns(
@@ -49,7 +49,7 @@ char __fastcall MiInitializeAllResidentPageBasePfns(
   v28 = 0LL;
   do
   {
-    v26.m128i_i64[v7] = *(_QWORD *)((char *)&unk_140E2FE70 + v7 * 8);
+    v26.m128i_i64[v7] = *(_QWORD *)((char *)&unk_140E2FFB0 + v7 * 8);
     ++v7;
     --v10;
   }

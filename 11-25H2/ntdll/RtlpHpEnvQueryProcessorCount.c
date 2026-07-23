@@ -14,20 +14,20 @@ __int64 RtlpHpEnvQueryProcessorCount()
   char *v1; // rdx
   __int64 v2; // r8
   unsigned int v3; // ecx
-  int v4[4]; // [rsp+30h] [rbp-678h] BYREF
-  _BYTE v5[10]; // [rsp+40h] [rbp-668h] BYREF
+  int InputBuffer[4]; // [rsp+30h] [rbp-678h] BYREF
+  _BYTE SystemInformation[10]; // [rsp+40h] [rbp-668h] BYREF
   __int64 v6; // [rsp+4Ah] [rbp-65Eh]
   char v7; // [rsp+61h] [rbp-647h] BYREF
 
-  memset_thunk_772440563353939046(v5, 0, 0x650uLL);
-  v4[0] = 4;
-  if ( (int)((__int64 (__fastcall *)(__int64, int *, __int64, _BYTE *, int, _QWORD))NtQuerySystemInformationEx)(
-              107LL,
-              v4,
-              4LL,
-              v5,
-              1616,
-              0LL) < 0 )
+  memset_thunk_772440563353939046(SystemInformation, 0, 0x650uLL);
+  InputBuffer[0] = 4;
+  if ( NtQuerySystemInformationEx(
+         SystemLogicalProcessorAndGroupInformation,
+         InputBuffer,
+         4u,
+         SystemInformation,
+         0x650u,
+         0LL) < 0 )
     return 64LL;
   result = 1LL;
   if ( (_WORD)v6 )

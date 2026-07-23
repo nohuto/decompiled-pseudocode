@@ -1,5 +1,5 @@
 /*
- * XREFs of NtdllDispatchHook_A @ 0x18009D4F0
+ * XREFs of NtdllDispatchHook_A @ 0x18009D4B0
  * Callers:
  *     <none>
  * Callees:

@@ -1,10 +1,10 @@
 /*
- * XREFs of IopAddPageDumpRange @ 0x1401C6C5C
+ * XREFs of IopAddPageDumpRange @ 0x1401C6AFC
  * Callers:
- *     IopDumpCallAddPagesCallbacks @ 0x1401C7164 (IopDumpCallAddPagesCallbacks.c)
+ *     IopDumpCallAddPagesCallbacks @ 0x1401C7004 (IopDumpCallAddPagesCallbacks.c)
  * Callees:
- *     memset @ 0x1401715C0 (memset.c)
- *     IoSetDumpRange @ 0x1401C6354 (IoSetDumpRange.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     IoSetDumpRange @ 0x1401C61F4 (IoSetDumpRange.c)
  */
 
 __int64 __fastcall IopAddPageDumpRange(__int64 a1, char *a2)

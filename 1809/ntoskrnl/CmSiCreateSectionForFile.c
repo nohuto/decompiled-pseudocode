@@ -1,9 +1,9 @@
 /*
  * XREFs of CmSiCreateSectionForFile @ 0x14000F16C
  * Callers:
- *     HvpViewMapStart @ 0x1405A51A0 (HvpViewMapStart.c)
+ *     HvpViewMapStart @ 0x1405A61A0 (HvpViewMapStart.c)
  * Callees:
- *     ZwCreateSection @ 0x1401B8AD0 (ZwCreateSection.c)
+ *     ZwCreateSection @ 0x1401B8C30 (ZwCreateSection.c)
  */
 
 NTSTATUS __fastcall CmSiCreateSectionForFile(

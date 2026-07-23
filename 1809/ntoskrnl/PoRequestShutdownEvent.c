@@ -1,9 +1,9 @@
 /*
- * XREFs of PoRequestShutdownEvent @ 0x140740720
+ * XREFs of PoRequestShutdownEvent @ 0x140741910
  * Callers:
- *     SepRmCommandServerThread @ 0x1407402A0 (SepRmCommandServerThread.c)
+ *     SepRmCommandServerThread @ 0x140741490 (SepRmCommandServerThread.c)
  * Callees:
- *     PopRequestShutdownWait @ 0x140740764 (PopRequestShutdownWait.c)
+ *     PopRequestShutdownWait @ 0x140741954 (PopRequestShutdownWait.c)
  */
 
 NTSTATUS __stdcall PoRequestShutdownEvent(PVOID *Event)

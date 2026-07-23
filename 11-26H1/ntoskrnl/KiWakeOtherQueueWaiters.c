@@ -1,16 +1,16 @@
 /*
- * XREFs of KiWakeOtherQueueWaiters @ 0x1402C2F00
+ * XREFs of KiWakeOtherQueueWaiters @ 0x14030DBC0
  * Callers:
- *     NtReleaseWorkerFactoryWorker @ 0x1402C2440 (NtReleaseWorkerFactoryWorker.c)
- *     KeInsertQueue @ 0x1403F6B50 (KeInsertQueue.c)
- *     IopPassiveInterruptDpc @ 0x1403F6CA0 (IopPassiveInterruptDpc.c)
- *     FsRtlpPostStackOverflow @ 0x1405B8130 (FsRtlpPostStackOverflow.c)
- *     KeInsertHeadQueue @ 0x1405F1610 (KeInsertHeadQueue.c)
+ *     NtReleaseWorkerFactoryWorker @ 0x14030D100 (NtReleaseWorkerFactoryWorker.c)
+ *     KeInsertQueue @ 0x1403F0500 (KeInsertQueue.c)
+ *     IopPassiveInterruptDpc @ 0x1403F0650 (IopPassiveInterruptDpc.c)
+ *     FsRtlpPostStackOverflow @ 0x1405BA9A0 (FsRtlpPostStackOverflow.c)
+ *     KeInsertHeadQueue @ 0x1405F3FD0 (KeInsertHeadQueue.c)
  * Callees:
- *     KiInsertQueueInternal @ 0x140274E80 (KiInsertQueueInternal.c)
- *     KiSignalThread @ 0x14027C940 (KiSignalThread.c)
- *     HvlNotifyLongSpinWait @ 0x1402BBF00 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402BC760 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     KiInsertQueueInternal @ 0x1402743F0 (KiInsertQueueInternal.c)
+ *     KiSignalThread @ 0x14027BEB0 (KiSignalThread.c)
+ *     HvlNotifyLongSpinWait @ 0x140306BC0 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140307420 (KiCheckVpBackingLongSpinWaitHypercall.c)
  */
 
 __int64 __fastcall KiWakeOtherQueueWaiters(__int64 a1, __int64 a2)

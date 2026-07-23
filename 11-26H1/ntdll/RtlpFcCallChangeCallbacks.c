@@ -1,22 +1,22 @@
 /*
- * XREFs of RtlpFcCallChangeCallbacks @ 0x180014374
+ * XREFs of RtlpFcCallChangeCallbacks @ 0x18005FAA4
  * Callers:
- *     RtlpFcWnfCallback @ 0x180014340 (RtlpFcWnfCallback.c)
+ *     RtlpFcWnfCallback @ 0x18005FA70 (RtlpFcWnfCallback.c)
  * Callees:
- *     RtlAcquireSRWLockShared @ 0x18004C610 (RtlAcquireSRWLockShared.c)
- *     TpPostWork @ 0x180067FB0 (TpPostWork.c)
+ *     RtlAcquireSRWLockShared @ 0x180036B90 (RtlAcquireSRWLockShared.c)
+ *     TpPostWork @ 0x180088400 (TpPostWork.c)
  */
 
-__int64 __fastcall RtlpFcCallChangeCallbacks(__int64 a1)
+void __fastcall RtlpFcCallChangeCallbacks(_RTL_SRWLOCK *a1)
 {
-  __int64 v1; // rsi
-  _QWORD *v2; // rdi
-  _QWORD *i; // rbx
+  _RTL_SRWLOCK *v1; // rsi
+  unsigned __int64 *v2; // rdi
+  unsigned __int64 i; // rbx
 
-  v1 = a1 + 256;
-  v2 = (_QWORD *)(a1 + 264);
-  RtlAcquireSRWLockShared(a1 + 256);
-  for ( i = (_QWORD *)*v2; i != v2; i = (_QWORD *)*i )
-    TpPostWork(i[5]);
-  return RtlReleaseSRWLockShared(v1);
+  v1 = a1 + 32;
+  v2 = (unsigned __int64 *)&a1[33];
+  RtlAcquireSRWLockShared(a1 + 32);
+  for ( i = *v2; (unsigned __int64 *)i != v2; i = *(_QWORD *)i )
+    TpPostWork(*(PTP_WORK *)(i + 40));
+  RtlReleaseSRWLockShared(v1);
 }

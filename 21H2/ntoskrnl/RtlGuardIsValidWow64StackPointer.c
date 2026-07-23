@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlGuardIsValidWow64StackPointer @ 0x140697098
+ * XREFs of RtlGuardIsValidWow64StackPointer @ 0x1405F65E8
  * Callers:
- *     KiContinuePreviousModeUser @ 0x140276A00 (KiContinuePreviousModeUser.c)
- *     KeVerifyContextRecord @ 0x14027748C (KeVerifyContextRecord.c)
- *     PspWow64SetContextThread @ 0x140695D20 (PspWow64SetContextThread.c)
+ *     KiContinuePreviousModeUser @ 0x1402649A0 (KiContinuePreviousModeUser.c)
+ *     KeVerifyContextRecord @ 0x14026542C (KeVerifyContextRecord.c)
+ *     PspWow64SetContextThread @ 0x1405F5270 (PspWow64SetContextThread.c)
  * Callees:
  *     <none>
  */

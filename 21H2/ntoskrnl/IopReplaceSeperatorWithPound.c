@@ -1,8 +1,8 @@
 /*
- * XREFs of IopReplaceSeperatorWithPound @ 0x1407643AC
+ * XREFs of IopReplaceSeperatorWithPound @ 0x14076456C
  * Callers:
- *     PipFindDeviceOverrideEntry @ 0x1407641FC (PipFindDeviceOverrideEntry.c)
- *     PiDevCfgConfigureDeviceLocation @ 0x140770D0C (PiDevCfgConfigureDeviceLocation.c)
+ *     PipFindDeviceOverrideEntry @ 0x1407643BC (PipFindDeviceOverrideEntry.c)
+ *     PiDevCfgConfigureDeviceLocation @ 0x140770ECC (PiDevCfgConfigureDeviceLocation.c)
  * Callees:
  *     <none>
  */

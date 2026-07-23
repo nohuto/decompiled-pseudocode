@@ -1,9 +1,9 @@
 /*
- * XREFs of FlushTimerCallbackKernelMode @ 0x1400B5C08
+ * XREFs of FlushTimerCallbackKernelMode @ 0x1400B3A30
  * Callers:
  *     <none>
  * Callees:
- *     ExQueueWorkItem @ 0x14005FE5C (ExQueueWorkItem.c)
+ *     ExQueueWorkItem @ 0x14005F9DC (ExQueueWorkItem.c)
  */
 
 void __fastcall FlushTimerCallbackKernelMode(__int64 a1, __int64 a2)

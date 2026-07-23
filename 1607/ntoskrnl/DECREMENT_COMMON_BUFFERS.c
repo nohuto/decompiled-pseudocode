@@ -1,11 +1,11 @@
 /*
- * XREFs of DECREMENT_COMMON_BUFFERS @ 0x140705C28
+ * XREFs of DECREMENT_COMMON_BUFFERS @ 0x140705C58
  * Callers:
- *     VfFreeCommonBuffer @ 0x140707280 (VfFreeCommonBuffer.c)
- *     ViSpecialFreeCommonBuffer @ 0x14070A524 (ViSpecialFreeCommonBuffer.c)
+ *     VfFreeCommonBuffer @ 0x1407072B0 (VfFreeCommonBuffer.c)
+ *     ViSpecialFreeCommonBuffer @ 0x14070A554 (ViSpecialFreeCommonBuffer.c)
  * Callees:
- *     VfReportIssueWithOptions @ 0x140223544 (VfReportIssueWithOptions.c)
- *     ViHalPreprocessOptions @ 0x140709ABC (ViHalPreprocessOptions.c)
+ *     VfReportIssueWithOptions @ 0x140223370 (VfReportIssueWithOptions.c)
+ *     ViHalPreprocessOptions @ 0x140709AEC (ViHalPreprocessOptions.c)
  */
 
 void __fastcall DECREMENT_COMMON_BUFFERS(__int64 a1)

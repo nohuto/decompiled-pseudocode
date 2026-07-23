@@ -26,27 +26,27 @@
  *     CmEnumerateValueKeyFromMergedView @ 0x140871BE0 (CmEnumerateValueKeyFromMergedView.c)
  */
 
-__int64 __fastcall NtEnumerateValueKey(
-        HANDLE Handle,
-        unsigned int a2,
-        unsigned int a3,
-        char *a4,
-        size_t Size,
-        _DWORD *a6)
+NTSTATUS __cdecl NtEnumerateValueKey(
+        HANDLE KeyHandle,
+        ULONG Index,
+        KEY_VALUE_INFORMATION_CLASS KeyValueInformationClass,
+        PVOID KeyValueInformation,
+        ULONG Length,
+        PULONG ResultLength)
 {
-  unsigned int v8; // r15d
+  ULONG v8; // r15d
   struct _KTHREAD *CurrentThread; // rax
   BOOLEAN v11; // di
   int v12; // r15d
   struct _DMA_ADAPTER *v13; // rcx
-  unsigned int v14; // edi
+  ULONG v14; // edi
   __int64 v15; // rcx
   struct _KTHREAD *v16; // rax
   int v17; // eax
-  unsigned int v18; // eax
+  ULONG v18; // eax
   struct _KTHREAD *v19; // rcx
   __int64 v21; // rcx
-  int v23; // ebx
+  NTSTATUS v23; // ebx
   _DMA_OPERATIONS *v24; // r14
   KPROCESSOR_MODE PreviousMode; // r9
   BOOLEAN v26; // [rsp+50h] [rbp-1E8h]
@@ -55,7 +55,7 @@ __int64 __fastcall NtEnumerateValueKey(
   PADAPTER_OBJECT DmaAdapter; // [rsp+58h] [rbp-1E0h] BYREF
   __int64 v31; // [rsp+60h] [rbp-1D8h] BYREF
   _DMA_OPERATIONS *DmaOperations; // [rsp+68h] [rbp-1D0h]
-  unsigned int v33; // [rsp+70h] [rbp-1C8h]
+  ULONG v33; // [rsp+70h] [rbp-1C8h]
   PADAPTER_OBJECT v34; // [rsp+78h] [rbp-1C0h] BYREF
   _DMA_OPERATIONS *v35; // [rsp+80h] [rbp-1B8h]
   _QWORD v36[2]; // [rsp+88h] [rbp-1B0h] BYREF
@@ -63,10 +63,10 @@ __int64 __fastcall NtEnumerateValueKey(
   PVOID Object; // [rsp+A0h] [rbp-198h] BYREF
   PVOID v39; // [rsp+A8h] [rbp-190h]
   PADAPTER_OBJECT v40; // [rsp+B0h] [rbp-188h] BYREF
-  int v41; // [rsp+B8h] [rbp-180h]
+  NTSTATUS v41; // [rsp+B8h] [rbp-180h]
   int v42; // [rsp+BCh] [rbp-17Ch]
   _QWORD *v43; // [rsp+C0h] [rbp-178h]
-  int v44; // [rsp+C8h] [rbp-170h]
+  NTSTATUS v44; // [rsp+C8h] [rbp-170h]
   __int128 v45; // [rsp+CCh] [rbp-16Ch]
   __int64 v46; // [rsp+DCh] [rbp-15Ch]
   int v47; // [rsp+E4h] [rbp-154h]
@@ -77,8 +77,8 @@ __int64 __fastcall NtEnumerateValueKey(
   char v52; // [rsp+1A0h] [rbp-98h]
   _BYTE v53[71]; // [rsp+1A1h] [rbp-97h] BYREF
 
-  v8 = a2;
-  v33 = a2;
+  v8 = Index;
+  v33 = Index;
   memset(v50, 0, sizeof(v50));
   memset(v53, 0, sizeof(v53));
   memset(v49, 0, sizeof(v49));
@@ -107,13 +107,13 @@ __int64 __fastcall NtEnumerateValueKey(
     v24 = 0LL;
     goto LABEL_39;
   }
-  if ( a3 > 2 )
+  if ( (unsigned int)KeyValueInformationClass > KeyValuePartialInformation )
   {
     if ( *(BOOLEAN **)((char *)&NlsMbCodePageTag + 7)
-      && Handle
+      && KeyHandle
       && (PreviousMode = KeGetCurrentThread()->PreviousMode,
           v37 = 0LL,
-          ObReferenceObjectByHandle(Handle, 0, (POBJECT_TYPE)CmKeyObjectType, PreviousMode, &v37, 0LL) >= 0) )
+          ObReferenceObjectByHandle(KeyHandle, 0, (POBJECT_TYPE)CmKeyObjectType, PreviousMode, &v37, 0LL) >= 0) )
     {
       v24 = (_DMA_OPERATIONS *)*((_QWORD *)v37 + 1);
       HalPutDmaAdapter((PADAPTER_OBJECT)v37);
@@ -128,7 +128,7 @@ __int64 __fastcall NtEnumerateValueKey(
   v12 = KeGetCurrentThread()->PreviousMode;
   v48[8] = 0LL;
   Object = 0LL;
-  v23 = ObReferenceObjectByHandle(Handle, 1u, (POBJECT_TYPE)CmKeyObjectType, v12, &Object, 0LL);
+  v23 = ObReferenceObjectByHandle(KeyHandle, 1u, (POBJECT_TYPE)CmKeyObjectType, v12, &Object, 0LL);
   v13 = (struct _DMA_ADAPTER *)Object;
   v39 = Object;
   if ( v23 >= 0 )
@@ -149,7 +149,7 @@ __int64 __fastcall NtEnumerateValueKey(
     HalPutDmaAdapter(v13);
   if ( v23 < 0 )
   {
-    v8 = a2;
+    v8 = Index;
     v24 = 0LL;
     goto LABEL_39;
   }
@@ -160,22 +160,25 @@ __int64 __fastcall NtEnumerateValueKey(
   }
   if ( (_BYTE)v12 == 1 )
   {
-    v14 = Size;
-    if ( (_DWORD)Size )
+    v14 = Length;
+    if ( Length )
     {
-      if ( ((unsigned __int8)a4 & 3) != 0 )
+      if ( ((unsigned __int8)KeyValueInformation & 3) != 0 )
         ExRaiseDatatypeMisalignment();
-      if ( (unsigned __int64)&a4[(unsigned int)Size] > 0x7FFFFFFF0000LL || &a4[(unsigned int)Size] < a4 )
+      if ( (unsigned __int64)KeyValueInformation + Length > 0x7FFFFFFF0000LL
+        || (char *)KeyValueInformation + Length < KeyValueInformation )
+      {
         MEMORY[0x7FFFFFFF0000] = 0;
+      }
     }
-    v15 = (__int64)a6;
-    if ( (unsigned __int64)a6 >= 0x7FFFFFFF0000LL )
+    v15 = (__int64)ResultLength;
+    if ( (unsigned __int64)ResultLength >= 0x7FFFFFFF0000LL )
       v15 = 0x7FFFFFFF0000LL;
     *(_DWORD *)v15 = *(_DWORD *)v15;
   }
   else
   {
-    v14 = Size;
+    v14 = Length;
   }
   v16 = KeGetCurrentThread();
   --v16->KernelApcDisable;
@@ -183,16 +186,16 @@ __int64 __fastcall NtEnumerateValueKey(
   if ( CmpCallBackCount && !ExIsResourceAcquiredSharedLite((PERESOURCE)&CmpRegistryLock) )
   {
     v48[0] = DmaAdapter;
-    v48[1] = __PAIR64__(a3, a2);
-    v48[2] = a4;
+    v48[1] = __PAIR64__(KeyValueInformationClass, Index);
+    v48[2] = KeyValueInformation;
     LODWORD(v48[3]) = v14;
-    v48[4] = a6;
+    v48[4] = ResultLength;
     v17 = CmpCallCallBacksEx(6u, (__int64)v48, 0LL, 1, 0x15u, (__int64)DmaAdapter, (__int64)v36);
     v23 = v17;
     if ( v17 < 0 )
     {
       v11 = v26;
-      v8 = a2;
+      v8 = Index;
       v24 = DmaOperations;
       if ( v17 == -1073740541 )
         v23 = 0;
@@ -201,9 +204,9 @@ __int64 __fastcall NtEnumerateValueKey(
     v27 = 1;
   }
   v23 = CmKeyBodyRemapToVirtualForEnum((__int64 *)&DmaAdapter, v12, 1, &v34);
-  if ( v23 < 0 || (v23 = CmpBounceContextStart((__int64)Src, a4, v14, v12, 1), v23 < 0) )
+  if ( v23 < 0 || (v23 = CmpBounceContextStart((__int64)Src, KeyValueInformation, v14, v12, 1), v23 < 0) )
   {
-    v8 = a2;
+    v8 = Index;
 LABEL_57:
     v24 = DmaOperations;
     v11 = v26;
@@ -212,13 +215,13 @@ LABEL_57:
   if ( v34 )
   {
     CmpAttachToRegistryProcess(v50);
-    v8 = a2;
+    v8 = Index;
     v23 = CmEnumerateValueKeyFromMergedView(
             (int)DmaAdapter,
             (int)v34,
             0,
-            a2,
-            a3,
+            Index,
+            KeyValueInformationClass,
             (size_t)Src[1],
             v14,
             (__int64)&v31,
@@ -227,13 +230,13 @@ LABEL_57:
   }
   else
   {
-    v8 = a2;
-    v23 = CmEnumerateValueKey(DmaAdapter, a2, a3, Src[1], v14, &v31);
+    v8 = Index;
+    v23 = CmEnumerateValueKey(DmaAdapter, Index, (unsigned int)KeyValueInformationClass, Src[1], v14, &v31);
   }
   if ( v23 < 0 && v23 != -2147483643 && v23 != -1073741789 )
     goto LABEL_57;
   v18 = v31;
-  *a6 = v31;
+  *ResultLength = v31;
   if ( v23 != -1073741789 )
   {
     if ( v14 >= v18 )
@@ -291,5 +294,5 @@ LABEL_39:
     ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)&CmpShutdownRundown);
     KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   }
-  return (unsigned int)v23;
+  return v23;
 }

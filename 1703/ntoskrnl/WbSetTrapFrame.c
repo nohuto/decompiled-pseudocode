@@ -13,25 +13,25 @@
 
 __int64 __fastcall WbSetTrapFrame(__int64 a1)
 {
-  _DWORD *PoolWithTag; // rbx
+  CONTEXT *PoolWithTag; // rbx
   struct _KTHREAD *CurrentThread; // rax
   int ContextThreadInternal; // edi
   struct _KTHREAD *v5; // rcx
   __int16 v6; // ax
 
-  PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x4D0uLL, 0x42524157u);
+  PoolWithTag = (CONTEXT *)ExAllocatePoolWithTag(PagedPool, 0x4D0uLL, 0x42524157u);
   if ( !PoolWithTag )
     return 3221225495LL;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->SpecialApcDisable;
-  PoolWithTag[12] = 1048577;
+  PoolWithTag->ContextFlags = 1048577;
   ContextThreadInternal = PspGetContextThreadInternal((__int64)KeGetCurrentThread(), (__int64)PoolWithTag, 0, 1, 1);
   if ( ContextThreadInternal >= 0 )
   {
-    *((_QWORD *)PoolWithTag + 31) = *(_QWORD *)(a1 + 8);
-    *((_QWORD *)PoolWithTag + 19) = *(_QWORD *)a1;
-    PoolWithTag[17] = *(_DWORD *)(a1 + 16);
-    ContextThreadInternal = PspSetContextThreadInternal(KeGetCurrentThread(), (__int64)PoolWithTag, 0, 1, 1);
+    PoolWithTag->Rip = *(_QWORD *)(a1 + 8);
+    PoolWithTag->Rsp = *(_QWORD *)a1;
+    PoolWithTag->EFlags = *(_DWORD *)(a1 + 16);
+    ContextThreadInternal = PspSetContextThreadInternal(KeGetCurrentThread(), PoolWithTag, 0, 1, 1);
   }
   v5 = KeGetCurrentThread();
   v6 = v5->SpecialApcDisable + 1;

@@ -16,7 +16,7 @@ void __fastcall HvlDeleteProcessor(struct _KPRCB *a1, SIZE_T a2, MEMORY_CACHING_
   void *VirtualApicAssist; // rcx
   void *SchedulerAssist; // rcx
   unsigned __int64 HypercallCachedPages; // rcx
-  unsigned __int64 v7; // [rsp+30h] [rbp+8h] BYREF
+  __int64 v7; // [rsp+30h] [rbp+8h] BYREF
 
   v7 = 0LL;
   if ( a1->VirtualApicAssist )

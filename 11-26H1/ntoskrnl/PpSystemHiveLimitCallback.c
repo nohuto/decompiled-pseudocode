@@ -1,13 +1,13 @@
 /*
- * XREFs of PpSystemHiveLimitCallback @ 0x1407A4340
+ * XREFs of PpSystemHiveLimitCallback @ 0x1407A6E80
  * Callers:
  *     <none>
  * Callees:
- *     PnpRequestDeviceAction @ 0x140482588 (PnpRequestDeviceAction.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     PpDevNodeLockTree @ 0x140A88424 (PpDevNodeLockTree.c)
- *     PpDevNodeUnlockTree @ 0x140A921A4 (PpDevNodeUnlockTree.c)
- *     PipForDeviceNodeSubtree @ 0x140AC6C80 (PipForDeviceNodeSubtree.c)
+ *     PnpRequestDeviceAction @ 0x14047BEF8 (PnpRequestDeviceAction.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     PpDevNodeLockTree @ 0x140A8F554 (PpDevNodeLockTree.c)
+ *     PpDevNodeUnlockTree @ 0x140A96CF4 (PpDevNodeUnlockTree.c)
+ *     PipForDeviceNodeSubtree @ 0x140AC8870 (PipForDeviceNodeSubtree.c)
  */
 
 __int64 __fastcall PpSystemHiveLimitCallback(__int64 a1, unsigned int a2)

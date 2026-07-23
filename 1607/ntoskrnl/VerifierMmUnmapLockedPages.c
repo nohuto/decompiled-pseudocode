@@ -3,8 +3,8 @@
  * Callers:
  *     <none>
  * Callees:
- *     VerifierBugCheckIfAppropriate @ 0x14070C2E8 (VerifierBugCheckIfAppropriate.c)
- *     ViTargetAddToCounter @ 0x140710350 (ViTargetAddToCounter.c)
+ *     VerifierBugCheckIfAppropriate @ 0x14070C318 (VerifierBugCheckIfAppropriate.c)
+ *     ViTargetAddToCounter @ 0x140710380 (ViTargetAddToCounter.c)
  */
 
 __int64 __fastcall VerifierMmUnmapLockedPages(ULONG_PTR a1, ULONG_PTR a2, __int64 a3)

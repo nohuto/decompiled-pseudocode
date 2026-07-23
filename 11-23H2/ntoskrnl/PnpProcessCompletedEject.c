@@ -1,20 +1,20 @@
 /*
- * XREFs of PnpProcessCompletedEject @ 0x140958FF0
+ * XREFs of PnpProcessCompletedEject @ 0x1409591F0
  * Callers:
- *     PnpProcessQueryRemoveAndEject @ 0x140867478 (PnpProcessQueryRemoveAndEject.c)
+ *     PnpProcessQueryRemoveAndEject @ 0x1408676B8 (PnpProcessQueryRemoveAndEject.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     PpDevNodeUnlockTree @ 0x1406C98FC (PpDevNodeUnlockTree.c)
- *     PpDevNodeLockTree @ 0x1406C9990 (PpDevNodeLockTree.c)
- *     PnpCompleteDeviceEvent @ 0x140783D70 (PnpCompleteDeviceEvent.c)
- *     PnpDisableAndFreeEventWatchdog @ 0x14078554C (PnpDisableAndFreeEventWatchdog.c)
- *     IopFreeRelationList @ 0x1408684BC (IopFreeRelationList.c)
- *     PnpInvalidateRelationsInList @ 0x1408814C8 (PnpInvalidateRelationsInList.c)
- *     PpProfileMarkAllTransitioningDocksEjected @ 0x140963DD4 (PpProfileMarkAllTransitioningDocksEjected.c)
- *     PnpSetDeviceRemovalSafe @ 0x1409646A0 (PnpSetDeviceRemovalSafe.c)
- *     PnpTrackQueryRemoveDevices @ 0x140964A6C (PnpTrackQueryRemoveDevices.c)
- *     IopWarmEjectDevice @ 0x14096F13C (IopWarmEjectDevice.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     PpDevNodeUnlockTree @ 0x1406C992C (PpDevNodeUnlockTree.c)
+ *     PpDevNodeLockTree @ 0x1406C99C0 (PpDevNodeLockTree.c)
+ *     PnpCompleteDeviceEvent @ 0x140783F60 (PnpCompleteDeviceEvent.c)
+ *     PnpDisableAndFreeEventWatchdog @ 0x14078573C (PnpDisableAndFreeEventWatchdog.c)
+ *     IopFreeRelationList @ 0x1408686FC (IopFreeRelationList.c)
+ *     PnpInvalidateRelationsInList @ 0x140881708 (PnpInvalidateRelationsInList.c)
+ *     PpProfileMarkAllTransitioningDocksEjected @ 0x140963FD4 (PpProfileMarkAllTransitioningDocksEjected.c)
+ *     PnpSetDeviceRemovalSafe @ 0x1409648A0 (PnpSetDeviceRemovalSafe.c)
+ *     PnpTrackQueryRemoveDevices @ 0x140964C6C (PnpTrackQueryRemoveDevices.c)
+ *     IopWarmEjectDevice @ 0x14096F33C (IopWarmEjectDevice.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

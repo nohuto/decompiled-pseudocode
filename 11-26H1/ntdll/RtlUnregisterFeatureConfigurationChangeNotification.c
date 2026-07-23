@@ -1,20 +1,21 @@
 /*
- * XREFs of RtlUnregisterFeatureConfigurationChangeNotification @ 0x1800ED4D0
+ * XREFs of RtlUnregisterFeatureConfigurationChangeNotification @ 0x1800EC970
  * Callers:
  *     <none>
  * Callees:
- *     RtlpFcFreeChangeRegistration @ 0x180064B0C (RtlpFcFreeChangeRegistration.c)
- *     RtlpFcRemoveChangeRegistration @ 0x1800ED500 (RtlpFcRemoveChangeRegistration.c)
+ *     RtlpFcFreeChangeRegistration @ 0x180084F5C (RtlpFcFreeChangeRegistration.c)
+ *     RtlpFcRemoveChangeRegistration @ 0x1800EC9A0 (RtlpFcRemoveChangeRegistration.c)
  */
 
-__int64 __fastcall RtlUnregisterFeatureConfigurationChangeNotification(__int64 a1)
+NTSTATUS __cdecl RtlUnregisterFeatureConfigurationChangeNotification(
+        RTL_FEATURE_CONFIGURATION_CHANGE_REGISTRATION RegistrationHandle)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  if ( !byte_1801CB8C8 )
+  if ( !byte_1801CA908 )
   {
-    RtlpFcRemoveChangeRegistration(a1, a1);
-    return RtlpFcFreeChangeRegistration(a1);
+    RtlpFcRemoveChangeRegistration(RegistrationHandle, RegistrationHandle);
+    return RtlpFcFreeChangeRegistration(RegistrationHandle);
   }
   return result;
 }

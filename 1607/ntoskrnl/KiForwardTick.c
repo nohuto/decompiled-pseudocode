@@ -1,12 +1,12 @@
 /*
- * XREFs of KiForwardTick @ 0x1400D89C0
+ * XREFs of KiForwardTick @ 0x1400D6860
  * Callers:
- *     KeClockInterruptNotify @ 0x1400D9870 (KeClockInterruptNotify.c)
+ *     KeClockInterruptNotify @ 0x1400D7710 (KeClockInterruptNotify.c)
  * Callees:
- *     KeCopyAffinityEx @ 0x140030FF0 (KeCopyAffinityEx.c)
- *     KeOrAffinityEx @ 0x1400968D0 (KeOrAffinityEx.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     KeCopyAffinityEx @ 0x140030B70 (KeCopyAffinityEx.c)
+ *     KeOrAffinityEx @ 0x1400960D0 (KeOrAffinityEx.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memset @ 0x140171AC0 (memset.c)
  */
 
 __int64 __fastcall KiForwardTick(__int64 a1, unsigned int a2, __int64 a3, char a4, char *a5)

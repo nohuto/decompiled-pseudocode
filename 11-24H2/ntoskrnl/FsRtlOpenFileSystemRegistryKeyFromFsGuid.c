@@ -1,14 +1,14 @@
 /*
- * XREFs of FsRtlOpenFileSystemRegistryKeyFromFsGuid @ 0x14070C6F0
+ * XREFs of FsRtlOpenFileSystemRegistryKeyFromFsGuid @ 0x14070A290
  * Callers:
  *     <none>
  * Callees:
- *     RtlUnicodeStringPrintf @ 0x140480894 (RtlUnicodeStringPrintf.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwOpenKey @ 0x1406A6650 (ZwOpenKey.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     RtlpQueryRegistryValues @ 0x1409CC350 (RtlpQueryRegistryValues.c)
+ *     RtlUnicodeStringPrintf @ 0x14047B368 (RtlUnicodeStringPrintf.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwOpenKey @ 0x1406A75F0 (ZwOpenKey.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     RtlpQueryRegistryValues @ 0x1409B4DD0 (RtlpQueryRegistryValues.c)
  */
 
 __int64 __fastcall FsRtlOpenFileSystemRegistryKeyFromFsGuid(

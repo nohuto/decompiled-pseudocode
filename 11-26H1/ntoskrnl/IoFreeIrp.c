@@ -1,57 +1,57 @@
 /*
- * XREFs of IoFreeIrp @ 0x140268860
+ * XREFs of IoFreeIrp @ 0x140267DD0
  * Callers:
- *     IoRemoveIoCompletion @ 0x1402207D0 (IoRemoveIoCompletion.c)
- *     IopCompleteIrpInFileObjectList @ 0x140266C60 (IopCompleteIrpInFileObjectList.c)
- *     IopDropIrp @ 0x140268190 (IopDropIrp.c)
- *     IopBuildDeviceIoControlRequest @ 0x14026B1B0 (IopBuildDeviceIoControlRequest.c)
- *     PopFreeIrp @ 0x1403B5EEC (PopFreeIrp.c)
- *     IopfCompleteRequest @ 0x1403FDA10 (IopfCompleteRequest.c)
- *     IopCompleteRequest @ 0x14045B5C0 (IopCompleteRequest.c)
- *     PnpDeviceCompletionRoutine @ 0x1404937E0 (PnpDeviceCompletionRoutine.c)
- *     IopCompletePageWrite @ 0x1404A0A70 (IopCompletePageWrite.c)
- *     IopBuildAsynchronousFsdRequest @ 0x1404B4190 (IopBuildAsynchronousFsdRequest.c)
- *     PopFxDestroyDeviceDpm @ 0x1404EF894 (PopFxDestroyDeviceDpm.c)
- *     IopCancelIrpsInFileObjectList @ 0x14051B53C (IopCancelIrpsInFileObjectList.c)
- *     FsRtlGetFileExtents @ 0x1405B5170 (FsRtlGetFileExtents.c)
- *     IopDeviceEjectComplete @ 0x1405DD020 (IopDeviceEjectComplete.c)
- *     PnpDiagnosticCompletionRoutine @ 0x1405DD080 (PnpDiagnosticCompletionRoutine.c)
- *     DifIoFreeIrpWrapper @ 0x14065BE70 (DifIoFreeIrpWrapper.c)
- *     ?Read@NT_DISK@@UEAAJ_KKPEAE@Z @ 0x140790C90 (-Read@NT_DISK@@UEAAJ_KKPEAE@Z.c)
- *     ?Write@NT_DISK@@UEAAJ_KKPEAE@Z @ 0x140790D30 (-Write@NT_DISK@@UEAAJ_KKPEAE@Z.c)
- *     IopCancelPendingEject @ 0x1407B2760 (IopCancelPendingEject.c)
- *     PopAcquirePowerLimitInterface @ 0x1407CA744 (PopAcquirePowerLimitInterface.c)
- *     PopAcquireCoolingInterface @ 0x1407CB760 (PopAcquireCoolingInterface.c)
- *     PopConnectToPolicyDevice @ 0x1407D746C (PopConnectToPolicyDevice.c)
- *     PopPolicyDeviceRemove @ 0x1407D7B84 (PopPolicyDeviceRemove.c)
- *     CmpGetVolumeClusterSize @ 0x1408B685C (CmpGetVolumeClusterSize.c)
- *     IopParseDevice @ 0x1409008C0 (IopParseDevice.c)
- *     IoCancelFileOpen @ 0x140903830 (IoCancelFileOpen.c)
- *     IopExceptionCleanupEx @ 0x1409B6D64 (IopExceptionCleanupEx.c)
- *     WmipSendWmiIrp @ 0x140A0E708 (WmipSendWmiIrp.c)
- *     FsRtlSetKernelEaFile @ 0x140A199F0 (FsRtlSetKernelEaFile.c)
- *     FsRtlKernelFsControlFile @ 0x140A1A200 (FsRtlKernelFsControlFile.c)
- *     FsRtlQueryKernelEaFile @ 0x140A1A550 (FsRtlQueryKernelEaFile.c)
- *     IopDeleteFile @ 0x140A1ECD0 (IopDeleteFile.c)
- *     IopCloseFile @ 0x140A1EFA0 (IopCloseFile.c)
- *     IopFreeCompletionListPackets @ 0x140A7A574 (IopFreeCompletionListPackets.c)
- *     CmpFileFlushAndPurge @ 0x140AAAF1C (CmpFileFlushAndPurge.c)
- *     IopUserRundown @ 0x140AAFB70 (IopUserRundown.c)
- *     FsRtlQueryInformationFile @ 0x140AB4A90 (FsRtlQueryInformationFile.c)
- *     FsRtlPrepareMdlWriteEx @ 0x140AFE0E0 (FsRtlPrepareMdlWriteEx.c)
- *     FsRtlMdlReadEx @ 0x140B05420 (FsRtlMdlReadEx.c)
- *     WmipSendWmiIrpToTraceDeviceList @ 0x140B0BA58 (WmipSendWmiIrpToTraceDeviceList.c)
- *     WmipGetFilePDO @ 0x140B2E4D8 (WmipGetFilePDO.c)
- *     WmipSetTraceNotify @ 0x140B49CFC (WmipSetTraceNotify.c)
- *     VfIrpSendSynchronousIrp @ 0x140C2C5F0 (VfIrpSendSynchronousIrp.c)
+ *     IoRemoveIoCompletion @ 0x140222160 (IoRemoveIoCompletion.c)
+ *     IopCompleteIrpInFileObjectList @ 0x1402661D0 (IopCompleteIrpInFileObjectList.c)
+ *     IopDropIrp @ 0x140267700 (IopDropIrp.c)
+ *     IopBuildDeviceIoControlRequest @ 0x14026A720 (IopBuildDeviceIoControlRequest.c)
+ *     PopFreeIrp @ 0x1403BFDEC (PopFreeIrp.c)
+ *     IopfCompleteRequest @ 0x1403FA200 (IopfCompleteRequest.c)
+ *     IopCompleteRequest @ 0x140454DF0 (IopCompleteRequest.c)
+ *     PnpDeviceCompletionRoutine @ 0x14048D330 (PnpDeviceCompletionRoutine.c)
+ *     IopCompletePageWrite @ 0x14049A5C0 (IopCompletePageWrite.c)
+ *     IopBuildAsynchronousFsdRequest @ 0x1404AD760 (IopBuildAsynchronousFsdRequest.c)
+ *     PopFxDestroyDeviceDpm @ 0x1404E8E74 (PopFxDestroyDeviceDpm.c)
+ *     IopCancelIrpsInFileObjectList @ 0x140515BDC (IopCancelIrpsInFileObjectList.c)
+ *     FsRtlGetFileExtents @ 0x1405B7980 (FsRtlGetFileExtents.c)
+ *     IopDeviceEjectComplete @ 0x1405DF990 (IopDeviceEjectComplete.c)
+ *     PnpDiagnosticCompletionRoutine @ 0x1405DF9F0 (PnpDiagnosticCompletionRoutine.c)
+ *     DifIoFreeIrpWrapper @ 0x14065FA50 (DifIoFreeIrpWrapper.c)
+ *     ?Read@NT_DISK@@UEAAJ_KKPEAE@Z @ 0x1407937C0 (-Read@NT_DISK@@UEAAJ_KKPEAE@Z.c)
+ *     ?Write@NT_DISK@@UEAAJ_KKPEAE@Z @ 0x140793860 (-Write@NT_DISK@@UEAAJ_KKPEAE@Z.c)
+ *     IopCancelPendingEject @ 0x1407B57C0 (IopCancelPendingEject.c)
+ *     PopAcquirePowerLimitInterface @ 0x1407CD7E4 (PopAcquirePowerLimitInterface.c)
+ *     PopAcquireCoolingInterface @ 0x1407CE800 (PopAcquireCoolingInterface.c)
+ *     PopConnectToPolicyDevice @ 0x1407DAA8C (PopConnectToPolicyDevice.c)
+ *     PopPolicyDeviceRemove @ 0x1407DB1A4 (PopPolicyDeviceRemove.c)
+ *     CmpGetVolumeClusterSize @ 0x1408BCE30 (CmpGetVolumeClusterSize.c)
+ *     IopExceptionCleanupEx @ 0x140924ADC (IopExceptionCleanupEx.c)
+ *     IopParseDevice @ 0x140930850 (IopParseDevice.c)
+ *     IoCancelFileOpen @ 0x1409337C0 (IoCancelFileOpen.c)
+ *     WmipSendWmiIrp @ 0x140A0D8E4 (WmipSendWmiIrp.c)
+ *     FsRtlSetKernelEaFile @ 0x140A23020 (FsRtlSetKernelEaFile.c)
+ *     FsRtlKernelFsControlFile @ 0x140A23830 (FsRtlKernelFsControlFile.c)
+ *     FsRtlQueryKernelEaFile @ 0x140A23B80 (FsRtlQueryKernelEaFile.c)
+ *     IopDeleteFile @ 0x140A282F0 (IopDeleteFile.c)
+ *     IopCloseFile @ 0x140A285C0 (IopCloseFile.c)
+ *     IopFreeCompletionListPackets @ 0x140A824B4 (IopFreeCompletionListPackets.c)
+ *     CmpFileFlushAndPurge @ 0x140AA84FC (CmpFileFlushAndPurge.c)
+ *     IopUserRundown @ 0x140AAD7C0 (IopUserRundown.c)
+ *     FsRtlQueryInformationFile @ 0x140AB5E30 (FsRtlQueryInformationFile.c)
+ *     FsRtlPrepareMdlWriteEx @ 0x140B00150 (FsRtlPrepareMdlWriteEx.c)
+ *     FsRtlMdlReadEx @ 0x140B07030 (FsRtlMdlReadEx.c)
+ *     WmipSendWmiIrpToTraceDeviceList @ 0x140B0D1A8 (WmipSendWmiIrpToTraceDeviceList.c)
+ *     WmipGetFilePDO @ 0x140B30428 (WmipGetFilePDO.c)
+ *     WmipSetTraceNotify @ 0x140B4BA8C (WmipSetTraceNotify.c)
+ *     VfIrpSendSynchronousIrp @ 0x140C32600 (VfIrpSendSynchronousIrp.c)
  * Callees:
- *     ExReturnPoolQuota @ 0x140264B30 (ExReturnPoolQuota.c)
- *     IopFreeIrpExtension @ 0x140268930 (IopFreeIrpExtension.c)
- *     IopFreeReserveIrp @ 0x14050D934 (IopFreeReserveIrp.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     RtlpInterlockedPushEntrySList @ 0x140730CD0 (RtlpInterlockedPushEntrySList.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
- *     IovFreeIrpPrivate @ 0x140C459C0 (IovFreeIrpPrivate.c)
+ *     ExReturnPoolQuota @ 0x1402640A0 (ExReturnPoolQuota.c)
+ *     IopFreeIrpExtension @ 0x140267EA0 (IopFreeIrpExtension.c)
+ *     IopFreeReserveIrp @ 0x1405073A4 (IopFreeReserveIrp.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1407358A0 (RtlpInterlockedPushEntrySList.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
+ *     IovFreeIrpPrivate @ 0x140C4B9D0 (IovFreeIrpPrivate.c)
  */
 
 void __stdcall IoFreeIrp(PIRP Irp)
@@ -74,7 +74,7 @@ void __stdcall IoFreeIrp(PIRP Irp)
   else
   {
     if ( Irp->Type != 6 )
-      KeBugCheckEx(0x44u, (ULONG_PTR)Irp, 0x2845uLL, 0LL, 0LL);
+      KeBugCheckEx(0x44u, (ULONG_PTR)Irp, 0x2839uLL, 0LL, 0LL);
     v2 = (Irp->AllocationFlags & 0x40) == 0;
     Irp->Type = 0;
     if ( !v2 )
@@ -98,19 +98,15 @@ void __stdcall IoFreeIrp(PIRP Irp)
         _InterlockedIncrement(&CurrentPrcb->LookasideIrpFloat);
       }
       if ( (Irp->AllocationFlags & 4) != 0
-        && (((__int64)IopSessionNotificationLock.Timer.Header.WaitListHead.Blink & 3) == 0
-         || (v6 = Irp->Size, v6 == 72 * SBYTE4(IopSessionNotificationLock.SchedulerSharedSwappablePage) + 208)
-         || v6 == 72 * SLOBYTE(IopSessionNotificationLock.SchedulerSharedSwappablePage) + 208
+        && ((IopIrpStackProfilerFlags & 3) == 0
+         || (v6 = Irp->Size, v6 == 72 * SLOBYTE(IopPerfIoTrackingLock.AffinityVersion) + 208)
+         || v6 == 72 * SBYTE4(IopPerfIoTrackingLock.AffinityVersion) + 208
          || v6 == 280) )
       {
         Size = Irp->Size;
-        if ( (unsigned __int16)Size < (unsigned __int16)(72
-                                                       * SBYTE4(IopSessionNotificationLock.SchedulerSharedSwappablePage)
-                                                       + 208) )
+        if ( (unsigned __int16)Size < (unsigned __int16)(72 * SLOBYTE(IopPerfIoTrackingLock.AffinityVersion) + 208) )
         {
-          if ( (unsigned __int16)Size < (unsigned __int16)(72
-                                                         * SLOBYTE(IopSessionNotificationLock.SchedulerSharedSwappablePage)
-                                                         + 208) )
+          if ( (unsigned __int16)Size < (unsigned __int16)(72 * SBYTE4(IopPerfIoTrackingLock.AffinityVersion) + 208) )
           {
             v8 = 2112LL;
             v9 = 2120LL;

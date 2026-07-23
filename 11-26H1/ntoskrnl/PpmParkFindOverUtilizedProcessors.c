@@ -1,11 +1,11 @@
 /*
- * XREFs of PpmParkFindOverUtilizedProcessors @ 0x1404A37B0
+ * XREFs of PpmParkFindOverUtilizedProcessors @ 0x14049D2C0
  * Callers:
- *     PpmParkCalculateCoreParkingMask @ 0x14025C720 (PpmParkCalculateCoreParkingMask.c)
+ *     PpmParkCalculateCoreParkingMask @ 0x14025D070 (PpmParkCalculateCoreParkingMask.c)
  * Callees:
- *     KeAddProcessorAffinityEx @ 0x140246720 (KeAddProcessorAffinityEx.c)
- *     KeGetPrcb @ 0x1402916D0 (KeGetPrcb.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     KeAddProcessorAffinityEx @ 0x140248080 (KeAddProcessorAffinityEx.c)
+ *     KeGetPrcb @ 0x140290C30 (KeGetPrcb.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall PpmParkFindOverUtilizedProcessors(__int64 a1, unsigned int a2, unsigned __int16 *a3)
@@ -25,7 +25,8 @@ __int64 __fastcall PpmParkFindOverUtilizedProcessors(__int64 a1, unsigned int a2
     {
       _BitScanForward64(&v9, i);
       i &= ~(1LL << v9);
-      v10 = *((_DWORD *)&KiSupervisorXStateFeaturesLock.WaitBlock[2].Thread->Header.Lock + 64 * v7 + (unsigned __int8)v9);
+      v10 = *((_DWORD *)&KiSupervisorXStateFeaturesLock.SchedulerApc.ApcListEntry.Flink[16 * v7].Flink
+            + (unsigned __int8)v9);
       result = KeGetPrcb(v10);
       if ( *(_DWORD *)(result + 35308) >= a2 )
         result = KeAddProcessorAffinityEx(a3, v10);

@@ -1,16 +1,16 @@
 /*
- * XREFs of KiFastExitThreadWait @ 0x1402BBC10
+ * XREFs of KiFastExitThreadWait @ 0x1402BBEA0
  * Callers:
- *     KeWaitForSingleObject @ 0x140243CE0 (KeWaitForSingleObject.c)
- *     KeDelayExecutionThread @ 0x140246810 (KeDelayExecutionThread.c)
- *     KeRemoveQueueEx @ 0x1402AA040 (KeRemoveQueueEx.c)
- *     KeRemovePriQueue @ 0x1402BF0B0 (KeRemovePriQueue.c)
- *     KeWaitForAlertByThreadId @ 0x1402C17A4 (KeWaitForAlertByThreadId.c)
- *     KeWaitForGate @ 0x14034AD80 (KeWaitForGate.c)
- *     KiWaitForAllObjects @ 0x14034AEFC (KiWaitForAllObjects.c)
+ *     KeWaitForSingleObject @ 0x140243DB0 (KeWaitForSingleObject.c)
+ *     KeDelayExecutionThread @ 0x1402468E0 (KeDelayExecutionThread.c)
+ *     KeRemoveQueueEx @ 0x1402AA2D0 (KeRemoveQueueEx.c)
+ *     KeRemovePriQueue @ 0x1402BF340 (KeRemovePriQueue.c)
+ *     KeWaitForAlertByThreadId @ 0x1402C1A34 (KeWaitForAlertByThreadId.c)
+ *     KeWaitForGate @ 0x14034AF20 (KeWaitForGate.c)
+ *     KiWaitForAllObjects @ 0x14034B09C (KiWaitForAllObjects.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     KiExitThreadWait @ 0x1402BBC90 (KiExitThreadWait.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     KiExitThreadWait @ 0x1402BBF20 (KiExitThreadWait.c)
  */
 
 __int64 __fastcall KiFastExitThreadWait(__int64 a1, __int64 a2, __int64 a3)

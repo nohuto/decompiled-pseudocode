@@ -1,10 +1,10 @@
 /*
- * XREFs of SiIsValidWindowsBootEntry @ 0x140A602B0
+ * XREFs of SiIsValidWindowsBootEntry @ 0x140A60560
  * Callers:
- *     SiGetEspFromFirmware @ 0x140A5FE34 (SiGetEspFromFirmware.c)
+ *     SiGetEspFromFirmware @ 0x140A600E4 (SiGetEspFromFirmware.c)
  * Callees:
- *     _wcsicmp @ 0x1403D9A50 (_wcsicmp.c)
- *     wcsnlen @ 0x1403DBAE0 (wcsnlen.c)
+ *     _wcsicmp @ 0x1403D9C30 (_wcsicmp.c)
+ *     wcsnlen @ 0x1403DBCC0 (wcsnlen.c)
  */
 
 bool __fastcall SiIsValidWindowsBootEntry(_DWORD *a1, __int64 a2)

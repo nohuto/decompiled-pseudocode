@@ -1,19 +1,19 @@
 /*
- * XREFs of MiGetBaseResidentPage @ 0x140307100
+ * XREFs of MiGetBaseResidentPage @ 0x140310FE0
  * Callers:
- *     MiTradePage @ 0x14022B650 (MiTradePage.c)
- *     MiProbeUnlockPage @ 0x14028A3B0 (MiProbeUnlockPage.c)
- *     MiPfnsWorthTrying @ 0x140305B00 (MiPfnsWorthTrying.c)
- *     MiActivePageClaimCandidate @ 0x140306540 (MiActivePageClaimCandidate.c)
- *     MiIdentifyPfn @ 0x140307510 (MiIdentifyPfn.c)
- *     MiDemoteLargeFreePage @ 0x14042F57C (MiDemoteLargeFreePage.c)
- *     MiGetPfnPageSizeIndexUnsynchronized @ 0x140463848 (MiGetPfnPageSizeIndexUnsynchronized.c)
- *     MiSetPfnRemovalRequested @ 0x1406745D0 (MiSetPfnRemovalRequested.c)
+ *     MiProbeUnlockPage @ 0x140299FB0 (MiProbeUnlockPage.c)
+ *     MiDemoteLargeFreePage @ 0x1402EFE44 (MiDemoteLargeFreePage.c)
+ *     MiTradePage @ 0x1402FEF60 (MiTradePage.c)
+ *     MiPfnsWorthTrying @ 0x14030F9E0 (MiPfnsWorthTrying.c)
+ *     MiActivePageClaimCandidate @ 0x140310420 (MiActivePageClaimCandidate.c)
+ *     MiIdentifyPfn @ 0x1403113F0 (MiIdentifyPfn.c)
+ *     MiGetPfnPageSizeIndexUnsynchronized @ 0x14041DC14 (MiGetPfnPageSizeIndexUnsynchronized.c)
+ *     MiSetPfnRemovalRequested @ 0x1406757A0 (MiSetPfnRemovalRequested.c)
  * Callees:
- *     HvlNotifyLongSpinWait @ 0x140293260 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140293290 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     HvlNotifyLongSpinWait @ 0x1402A2E60 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402A2E90 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 __int64 __fastcall MiGetBaseResidentPage(__int64 a1)

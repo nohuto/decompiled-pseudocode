@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpValidateSidBuffer @ 0x1407C9108
+ * XREFs of RtlpValidateSidBuffer @ 0x1407C93D8
  * Callers:
- *     RtlEnumerateBoundaryDescriptorEntries @ 0x1407C8FE8 (RtlEnumerateBoundaryDescriptorEntries.c)
+ *     RtlEnumerateBoundaryDescriptorEntries @ 0x1407C92B8 (RtlEnumerateBoundaryDescriptorEntries.c)
  * Callees:
- *     RtlSubAuthorityCountSid @ 0x140297AC0 (RtlSubAuthorityCountSid.c)
- *     RtlValidSid @ 0x1407373A0 (RtlValidSid.c)
+ *     RtlSubAuthorityCountSid @ 0x140297D50 (RtlSubAuthorityCountSid.c)
+ *     RtlValidSid @ 0x140737590 (RtlValidSid.c)
  */
 
 BOOLEAN __fastcall RtlpValidateSidBuffer(PSID Sid, unsigned int a2)

@@ -1,14 +1,14 @@
 /*
- * XREFs of VfTargetEtwRegister @ 0x140C29154
+ * XREFs of VfTargetEtwRegister @ 0x140C2F164
  * Callers:
- *     VerifierEtwRegister @ 0x140C402F0 (VerifierEtwRegister.c)
- *     VerifierEtwRegisterClassicProvider @ 0x140C40330 (VerifierEtwRegisterClassicProvider.c)
+ *     VerifierEtwRegister @ 0x140C46300 (VerifierEtwRegister.c)
+ *     VerifierEtwRegisterClassicProvider @ 0x140C46340 (VerifierEtwRegisterClassicProvider.c)
  * Callees:
- *     VfAvlLookupTreeNode @ 0x1403B7E8C (VfAvlLookupTreeNode.c)
- *     VfAvlCleanupLockContext @ 0x1403B84FC (VfAvlCleanupLockContext.c)
- *     VfAvlInitializeLockContext @ 0x1404DCB40 (VfAvlInitializeLockContext.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     VfAvlLookupTreeNode @ 0x1403C1D8C (VfAvlLookupTreeNode.c)
+ *     VfAvlCleanupLockContext @ 0x1403C23FC (VfAvlCleanupLockContext.c)
+ *     VfAvlInitializeLockContext @ 0x1404D6220 (VfAvlInitializeLockContext.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall VfTargetEtwRegister(__int64 a1, unsigned __int64 a2)

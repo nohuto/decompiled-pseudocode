@@ -14,18 +14,18 @@ int __fastcall _RtlpMuiRegInitAnyLanguage(int a1, int a2, PCWSTR SourceString, _
 {
   int v5; // edi
   __int16 v6; // cx
-  UNICODE_STRING DestinationString; // [esp+10h] [ebp-10h] BYREF
-  __int16 v9; // [esp+18h] [ebp-8h] BYREF
+  _UNICODE_STRING DestinationString; // [esp+10h] [ebp-10h] BYREF
+  DWORD Lcid; // [esp+18h] [ebp-8h] BYREF
   __int16 v10; // [esp+1Ch] [ebp-4h] BYREF
 
   v10 = -1;
   RtlInitUnicodeString(&DestinationString, SourceString);
-  if ( !(unsigned __int8)RtlCultureNameToLCID(&DestinationString, &v9) )
+  if ( !RtlCultureNameToLCID(&DestinationString, &Lcid) )
     return -1073020924;
   v5 = RtlpMuiRegGetOrAddString(1, &v10);
   if ( v5 >= 0 )
   {
-    v6 = v9;
+    v6 = Lcid;
     *(_WORD *)(a2 + 2) = 0;
     *(_WORD *)(a2 + 6) = v10;
     *(_WORD *)a2 = a4;

@@ -1,25 +1,22 @@
 /*
- * XREFs of RtlpSparseBitmapCtxUnlockShared @ 0x18004FE14
+ * XREFs of RtlpSparseBitmapCtxUnlockShared @ 0x18004FE04
  * Callers:
- *     RtlpSparseBitmapCtxUpdateBitRanges @ 0x18004FAC4 (RtlpSparseBitmapCtxUpdateBitRanges.c)
- *     RtlpSparseBitmapCtxCheckRangeArray @ 0x18004FC28 (RtlpSparseBitmapCtxCheckRangeArray.c)
- *     RtlSparseBitmapCtxCheckBitsInternal @ 0x18004FCB4 (RtlSparseBitmapCtxCheckBitsInternal.c)
- *     RtlSparseBitmapCtxCountBitsSet @ 0x1801004E0 (RtlSparseBitmapCtxCountBitsSet.c)
- *     RtlSparseBitmapCtxFindSetRuns @ 0x1801005B0 (RtlSparseBitmapCtxFindSetRuns.c)
- *     RtlSparseBitmapCtxMetadataForBit @ 0x180100680 (RtlSparseBitmapCtxMetadataForBit.c)
- *     RtlSparseBitmapCtxOrBitmap @ 0x180100760 (RtlSparseBitmapCtxOrBitmap.c)
- *     RtlSparseBitmapCtxPrepareBits @ 0x1801008B0 (RtlSparseBitmapCtxPrepareBits.c)
- *     RtlpSparseBitmapCtxFindNextBitInternal @ 0x180100CCC (RtlpSparseBitmapCtxFindNextBitInternal.c)
- *     RtlpSparseBitmapCtxFindRunsInternal @ 0x18010123C (RtlpSparseBitmapCtxFindRunsInternal.c)
+ *     RtlpSparseBitmapCtxUpdateBitRanges @ 0x18004FAB4 (RtlpSparseBitmapCtxUpdateBitRanges.c)
+ *     RtlpSparseBitmapCtxCheckRangeArray @ 0x18004FC18 (RtlpSparseBitmapCtxCheckRangeArray.c)
+ *     RtlSparseBitmapCtxCheckBitsInternal @ 0x18004FCA4 (RtlSparseBitmapCtxCheckBitsInternal.c)
+ *     RtlSparseBitmapCtxCountBitsSet @ 0x180100420 (RtlSparseBitmapCtxCountBitsSet.c)
+ *     RtlSparseBitmapCtxFindSetRuns @ 0x1801004F0 (RtlSparseBitmapCtxFindSetRuns.c)
+ *     RtlSparseBitmapCtxMetadataForBit @ 0x1801005C0 (RtlSparseBitmapCtxMetadataForBit.c)
+ *     RtlSparseBitmapCtxOrBitmap @ 0x1801006A0 (RtlSparseBitmapCtxOrBitmap.c)
+ *     RtlSparseBitmapCtxPrepareBits @ 0x1801007F0 (RtlSparseBitmapCtxPrepareBits.c)
+ *     RtlpSparseBitmapCtxFindNextBitInternal @ 0x180100C0C (RtlpSparseBitmapCtxFindNextBitInternal.c)
+ *     RtlpSparseBitmapCtxFindRunsInternal @ 0x18010117C (RtlpSparseBitmapCtxFindRunsInternal.c)
  * Callees:
- *     RtlReleaseSRWLockShared @ 0x180042570 (RtlReleaseSRWLockShared.c)
+ *     RtlReleaseSRWLockShared @ 0x180042560 (RtlReleaseSRWLockShared.c)
  */
 
-unsigned __int64 __fastcall RtlpSparseBitmapCtxUnlockShared(__int64 a1, volatile signed __int64 *a2)
+void __fastcall RtlpSparseBitmapCtxUnlockShared(__int64 a1, _RTL_SRWLOCK *a2)
 {
-  unsigned __int64 result; // rax
-
   if ( (*(_BYTE *)(a1 + 72) & 4) == 0 )
-    return RtlReleaseSRWLockShared(a2);
-  return result;
+    RtlReleaseSRWLockShared(a2);
 }

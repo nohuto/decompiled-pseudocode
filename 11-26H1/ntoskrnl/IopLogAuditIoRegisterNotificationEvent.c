@@ -1,16 +1,16 @@
 /*
- * XREFs of IopLogAuditIoRegisterNotificationEvent @ 0x14077B6E8
+ * XREFs of IopLogAuditIoRegisterNotificationEvent @ 0x14077E328
  * Callers:
- *     IoRegisterLastChanceShutdownNotification @ 0x140796A30 (IoRegisterLastChanceShutdownNotification.c)
- *     IoRegisterShutdownNotification @ 0x140B4AEC0 (IoRegisterShutdownNotification.c)
+ *     IoRegisterLastChanceShutdownNotification @ 0x140799560 (IoRegisterLastChanceShutdownNotification.c)
+ *     IoRegisterShutdownNotification @ 0x140B4CC50 (IoRegisterShutdownNotification.c)
  * Callees:
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void __fastcall IopLogAuditIoRegisterNotificationEvent(PCEVENT_DESCRIPTOR EventDescriptor, __int64 a2)
 {
-  struct _LIST_ENTRY *Flink; // r10
+  REGHANDLE v2; // r10
   __int64 v4; // rax
   unsigned int v5; // r9d
   ULONGLONG v6; // rcx
@@ -21,9 +21,9 @@ void __fastcall IopLogAuditIoRegisterNotificationEvent(PCEVENT_DESCRIPTOR EventD
   int v11; // [rsp+38h] [rbp-50h] BYREF
   struct _EVENT_DATA_DESCRIPTOR UserData[3]; // [rsp+40h] [rbp-48h] BYREF
 
-  Flink = EtwpSecurityLock.MutantListHead.Flink;
+  v2 = EtwApiCallsProvRegHandle;
   v11 = 0;
-  if ( EtwpSecurityLock.MutantListHead.Flink )
+  if ( EtwApiCallsProvRegHandle )
   {
     v4 = *(_QWORD *)(a2 + 8);
     v5 = 0;
@@ -46,6 +46,6 @@ void __fastcall IopLogAuditIoRegisterNotificationEvent(PCEVENT_DESCRIPTOR EventD
     v9 = v8;
     UserData[v9].Ptr = (ULONGLONG)&v11;
     *(_QWORD *)&UserData[v9].Size = 4LL;
-    EtwWrite((REGHANDLE)Flink, EventDescriptor, 0LL, v8 + 1, UserData);
+    EtwWrite(v2, EventDescriptor, 0LL, v8 + 1, UserData);
   }
 }

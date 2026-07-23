@@ -16,16 +16,15 @@
  *     _LdrpCalloutExceptionFilter@4 @ 0x4B334818 (_LdrpCalloutExceptionFilter@4.c)
  */
 
-char __fastcall LdrpCallTlsInitializers(int a1, int a2)
+void __fastcall LdrpCallTlsInitializers(int a1, int a2)
 {
   char v3; // dl
   unsigned int v4; // edi
   _UNKNOWN **i; // eax
   int v6; // esi
-  char result; // al
-  int v8; // esi
-  int *v9; // esi
-  int v10; // edi
+  int v7; // esi
+  int *v8; // esi
+  int v9; // edi
 
   RtlAcquireSRWLockShared(&LdrpTlsLock);
   v3 = 0;
@@ -40,19 +39,19 @@ char __fastcall LdrpCallTlsInitializers(int a1, int a2)
     }
   }
   v6 = -(v3 != 0);
-  result = RtlReleaseSRWLockShared(&LdrpTlsLock);
-  v8 = v4 & v6;
-  if ( v8 )
+  RtlReleaseSRWLockShared(&LdrpTlsLock);
+  v7 = v4 & v6;
+  if ( v7 )
   {
-    v9 = *(int **)(v8 + 20);
-    if ( v9 )
+    v8 = *(int **)(v7 + 20);
+    if ( v8 )
     {
       while ( 1 )
       {
-        v10 = *v9;
-        if ( !*v9 )
+        v9 = *v8;
+        if ( !*v8 )
           break;
-        ++v9;
+        ++v8;
         if ( (ShowSnaps & 5) != 0 )
           LdrpLogDbgPrint(
             "minkernel\\ntdll\\ldrtls.c",
@@ -60,12 +59,11 @@ char __fastcall LdrpCallTlsInitializers(int a1, int a2)
             "LdrpCallTlsInitializers",
             2,
             "Calling TLS callback %p for DLL \"%wZ\" at %p\n",
-            v10,
+            v9,
             a2 + 36,
             *(_DWORD *)(a2 + 24));
-        result = LdrpCallInitRoutine(v10, *(_DWORD *)(a2 + 24), a1, 0);
+        LdrpCallInitRoutine(v9, *(_DWORD *)(a2 + 24), a1, 0);
       }
     }
   }
-  return result;
 }

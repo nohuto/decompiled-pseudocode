@@ -7,18 +7,18 @@
  *     RtlpLowFragHeapAllocFromContext @ 0x18002B650 (RtlpLowFragHeapAllocFromContext.c)
  *     RtlpHpLfhSlotAllocate @ 0x18002C2B0 (RtlpHpLfhSlotAllocate.c)
  *     RtlpAllocateHeap @ 0x18002D160 (RtlpAllocateHeap.c)
- *     RtlpHpSegMgrApplyLargePagePolicy @ 0x18010EFC0 (RtlpHpSegMgrApplyLargePagePolicy.c)
+ *     RtlpHpSegMgrApplyLargePagePolicy @ 0x18010EF80 (RtlpHpSegMgrApplyLargePagePolicy.c)
  * Callees:
  *     RtlRunOnceBeginInitialize @ 0x18000A530 (RtlRunOnceBeginInitialize.c)
  *     RtlRunOnceComplete @ 0x180043AB0 (RtlRunOnceComplete.c)
- *     NtQueryInformationProcess @ 0x18009D960 (NtQueryInformationProcess.c)
- *     RtlReportCriticalFailure @ 0x1800FF47C (RtlReportCriticalFailure.c)
- *     RtlpInitRandomExVector @ 0x180102720 (RtlpInitRandomExVector.c)
+ *     NtQueryInformationProcess @ 0x18009D920 (NtQueryInformationProcess.c)
+ *     RtlReportCriticalFailure @ 0x1800FF43C (RtlReportCriticalFailure.c)
+ *     RtlpInitRandomExVector @ 0x1801026E0 (RtlpInitRandomExVector.c)
  */
 
 __int64 RtlpHeapGenerateRandomValue32()
 {
-  int v0; // eax
+  NTSTATUS v0; // eax
   __int32 v1; // r8d
   int v2; // ecx
   unsigned int v5; // r8d
@@ -26,11 +26,11 @@ __int64 RtlpHeapGenerateRandomValue32()
   int v8; // [rsp+48h] [rbp+10h]
 
   if ( !dword_18016D230
-    && NtQueryInformationProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, (PROCESSINFOCLASS)36, &dword_18016D230, 4u, 0LL) < 0 )
+    && NtQueryInformationProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, ProcessCookie, &dword_18016D230, 4u, 0LL) < 0 )
   {
     dword_18016D230 = (MEMORY[0x7FFE0320] * (unsigned __int64)MEMORY[0x7FFE0004]) >> 24;
   }
-  v0 = RtlRunOnceBeginInitialize(&RtlpRandomExInit, 0LL, 0LL);
+  v0 = RtlRunOnceBeginInitialize(&RtlpRandomExInit, 0, 0LL);
   if ( v0 < 0 )
   {
     v7 = 0;
@@ -39,16 +39,16 @@ __int64 RtlpHeapGenerateRandomValue32()
   {
     if ( v0 != 259 )
       goto LABEL_4;
-    if ( (unsigned int)RtlpInitRandomExVector(&RtlpRandomExInit, 0LL, 0LL) )
+    if ( RtlpInitRandomExVector(&RtlpRandomExInit, 0LL, 0LL) )
     {
-      v0 = RtlRunOnceComplete(&RtlpRandomExInit, 0LL, 0LL);
+      v0 = RtlRunOnceComplete(&RtlpRandomExInit, 0, 0LL);
       if ( v0 >= 0 )
         goto LABEL_4;
       v7 = 1;
     }
     else
     {
-      v0 = RtlRunOnceComplete(&RtlpRandomExInit, 4LL, 0LL);
+      v0 = RtlRunOnceComplete(&RtlpRandomExInit, 4u, 0LL);
       if ( v0 >= 0 )
         goto LABEL_4;
       v7 = 2;

@@ -1,17 +1,17 @@
 /*
- * XREFs of KeForceAttachProcess @ 0x14042D8D0
+ * XREFs of KeForceAttachProcess @ 0x140424E30
  * Callers:
- *     MiLockStealUserVm @ 0x140227A3C (MiLockStealUserVm.c)
- *     MiReleaseOutSwappedProcessCommit @ 0x14042D608 (MiReleaseOutSwappedProcessCommit.c)
- *     MmQueryCommitReleaseState @ 0x14047DB54 (MmQueryCommitReleaseState.c)
- *     MiReAcquireOutSwappedProcessCommit @ 0x14066A288 (MiReAcquireOutSwappedProcessCommit.c)
- *     MiReleaseCommitForResetPages @ 0x14066A7E8 (MiReleaseCommitForResetPages.c)
- *     MmReleaseCommitForMemResetPages @ 0x14066AB1C (MmReleaseCommitForMemResetPages.c)
- *     PopHandleNextState @ 0x140B65E10 (PopHandleNextState.c)
+ *     MiLockStealUserVm @ 0x14025539C (MiLockStealUserVm.c)
+ *     MiReleaseOutSwappedProcessCommit @ 0x140424B70 (MiReleaseOutSwappedProcessCommit.c)
+ *     MmQueryCommitReleaseState @ 0x140478DE4 (MmQueryCommitReleaseState.c)
+ *     MiReAcquireOutSwappedProcessCommit @ 0x14066B458 (MiReAcquireOutSwappedProcessCommit.c)
+ *     MiReleaseCommitForResetPages @ 0x14066B9B8 (MiReleaseCommitForResetPages.c)
+ *     MmReleaseCommitForMemResetPages @ 0x14066BCEC (MmReleaseCommitForMemResetPages.c)
+ *     PopHandleNextState @ 0x140B67F50 (PopHandleNextState.c)
  * Callees:
- *     KiStackAttachProcess @ 0x1403209E0 (KiStackAttachProcess.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     KiStackAttachProcess @ 0x1402C9570 (KiStackAttachProcess.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 int __fastcall KeForceAttachProcess(_KPROCESS *BugCheckParameter1, _OWORD *a2, char a3)

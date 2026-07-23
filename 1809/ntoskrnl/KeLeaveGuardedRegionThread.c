@@ -1,7 +1,7 @@
 /*
  * XREFs of KeLeaveGuardedRegionThread @ 0x1400167F4
  * Callers:
- *     NtSetInformationJobObject @ 0x140600B10 (NtSetInformationJobObject.c)
+ *     NtSetInformationJobObject @ 0x140601B10 (NtSetInformationJobObject.c)
  * Callees:
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
  */

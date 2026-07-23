@@ -1,7 +1,7 @@
 /*
- * XREFs of StringCopyWorkerW @ 0x18010C78C
+ * XREFs of StringCopyWorkerW @ 0x1801074CC
  * Callers:
- *     EtwpGetRegDwordValue @ 0x1800B532C (EtwpGetRegDwordValue.c)
+ *     EtwpGetRegDwordValue @ 0x180081BCC (EtwpGetRegDwordValue.c)
  * Callees:
  *     <none>
  */

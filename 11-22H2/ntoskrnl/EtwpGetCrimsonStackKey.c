@@ -19,7 +19,7 @@ char __fastcall EtwpGetCrimsonStackKey(__int64 a1, __int64 a2, PSLIST_ENTRY *a3)
 {
   char v3; // di
   unsigned int v5; // ebp
-  struct _SLIST_ENTRY *v6; // r13
+  _SLIST_ENTRY *v6; // r13
   unsigned int v7; // r15d
   unsigned __int64 v8; // r8
   unsigned int v9; // r9d
@@ -54,7 +54,7 @@ char __fastcall EtwpGetCrimsonStackKey(__int64 a1, __int64 a2, PSLIST_ENTRY *a3)
   struct _KPRCB *v38; // r9
   _DWORD *v39; // r8
   int v40; // eax
-  struct _SLIST_ENTRY *v41; // rbx
+  _SLIST_ENTRY *v41; // rbx
   PSLIST_ENTRY *v42; // rax
   unsigned __int8 v43; // al
   struct _KPRCB *v44; // r9
@@ -64,7 +64,7 @@ char __fastcall EtwpGetCrimsonStackKey(__int64 a1, __int64 a2, PSLIST_ENTRY *a3)
   unsigned __int8 v49; // [rsp+28h] [rbp-70h]
   unsigned int v50; // [rsp+30h] [rbp-68h]
   __int64 v51; // [rsp+38h] [rbp-60h]
-  struct _SLIST_ENTRY *ListEntry; // [rsp+40h] [rbp-58h]
+  _SLIST_ENTRY *ListEntry; // [rsp+40h] [rbp-58h]
   unsigned __int8 v53; // [rsp+A0h] [rbp+8h]
   unsigned int v55; // [rsp+A8h] [rbp+10h]
   int ListHead; // [rsp+B8h] [rbp+20h]
@@ -106,7 +106,7 @@ char __fastcall EtwpGetCrimsonStackKey(__int64 a1, __int64 a2, PSLIST_ENTRY *a3)
     {
       v16 = KeGetCurrentIrql();
       __writecr8(2uLL);
-      if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v16 <= 0xFu )
+      if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v16 <= 0xFu )
       {
         SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
         if ( v16 == 2 )
@@ -160,10 +160,10 @@ LABEL_19:
                     *((_QWORD *)&v25->Next + 1) = v19;
                     *(_QWORD *)v13 = v19;
                     KxReleaseSpinLock((volatile signed __int64 *)(v13 + 16));
-                    if ( KiIrqlFlags )
+                    if ( (_DWORD)KiIrqlFlags )
                     {
                       v26 = KeGetCurrentIrql();
-                      if ( (KiIrqlFlags & 1) != 0 && v26 <= 0xFu && v49 <= 0xFu && v26 >= 2u )
+                      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v26 <= 0xFu && v49 <= 0xFu && v26 >= 2u )
                       {
                         CurrentPrcb = KeGetCurrentPrcb();
                         v28 = CurrentPrcb->SchedulerAssist;
@@ -189,10 +189,10 @@ LABEL_69:
         while ( v19 != (PSLIST_ENTRY)v13 );
         if ( v14 == 4 )
         {
-          v6 = *(struct _SLIST_ENTRY **)(v13 + 8);
+          v6 = *(_SLIST_ENTRY **)(v13 + 8);
           ListEntry = v6;
           v31 = (__int64 *)*((_QWORD *)&v6->Next + 1);
-          if ( v6->Next != (_SLIST_ENTRY *)v13 || (struct _SLIST_ENTRY *)*v31 != v6 )
+          if ( v6->Next != (_SLIST_ENTRY *)v13 || (_SLIST_ENTRY *)*v31 != v6 )
             goto LABEL_69;
           *(_QWORD *)(v13 + 8) = v31;
           *v31 = v13;
@@ -230,10 +230,10 @@ LABEL_69:
       if ( v32 < v5 )
       {
         KxReleaseSpinLock((volatile signed __int64 *)(v13 + 16));
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v37 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v37 <= 0xFu && v49 <= 0xFu && v37 >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v37 <= 0xFu && v49 <= 0xFu && v37 >= 2u )
           {
             v38 = KeGetCurrentPrcb();
             v39 = v38->SchedulerAssist;
@@ -272,10 +272,10 @@ LABEL_68:
         *v42 = v19;
         *(_QWORD *)(v13 + 8) = v19;
         KxReleaseSpinLock((volatile signed __int64 *)(v13 + 16));
-        if ( KiIrqlFlags )
+        if ( (_DWORD)KiIrqlFlags )
         {
           v43 = KeGetCurrentIrql();
-          if ( (KiIrqlFlags & 1) != 0 && v43 <= 0xFu && v49 <= 0xFu && v43 >= 2u )
+          if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v43 <= 0xFu && v49 <= 0xFu && v43 >= 2u )
           {
             v44 = KeGetCurrentPrcb();
             v45 = v44->SchedulerAssist;

@@ -1,7 +1,7 @@
 /*
- * XREFs of KiAssignAllSubNodesToGroup0 @ 0x140C289C8
+ * XREFs of KiAssignAllSubNodesToGroup0 @ 0x140C2AA68
  * Callers:
- *     KiPerformGroupConfiguration @ 0x140C28DE0 (KiPerformGroupConfiguration.c)
+ *     KiPerformGroupConfiguration @ 0x140C2AE80 (KiPerformGroupConfiguration.c)
  * Callees:
  *     <none>
  */

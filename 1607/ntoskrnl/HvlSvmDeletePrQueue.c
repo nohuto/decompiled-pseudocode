@@ -1,9 +1,9 @@
 /*
- * XREFs of HvlSvmDeletePrQueue @ 0x1401BE1C4
+ * XREFs of HvlSvmDeletePrQueue @ 0x1401BE0A8
  * Callers:
  *     <none>
  * Callees:
- *     HvcallpExtendedFastHypercall @ 0x1401685A0 (HvcallpExtendedFastHypercall.c)
+ *     HvcallpExtendedFastHypercall @ 0x140168B10 (HvcallpExtendedFastHypercall.c)
  */
 
 __int64 __fastcall HvlSvmDeletePrQueue(unsigned int a1)

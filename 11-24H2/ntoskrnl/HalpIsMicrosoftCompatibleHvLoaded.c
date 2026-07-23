@@ -1,25 +1,24 @@
 /*
- * XREFs of HalpIsMicrosoftCompatibleHvLoaded @ 0x1404A57AC
+ * XREFs of HalpIsMicrosoftCompatibleHvLoaded @ 0x1404A053C
  * Callers:
- *     HalpArtAvailable @ 0x1404A5570 (HalpArtAvailable.c)
- *     HalpCmcStartPolling @ 0x1404F7940 (HalpCmcStartPolling.c)
- *     HalpIsPartitionCpuManager @ 0x1404F79EC (HalpIsPartitionCpuManager.c)
- *     HalpInterruptGetX2ApicPolicy @ 0x1405423F4 (HalpInterruptGetX2ApicPolicy.c)
- *     HalpHvIsFrequencyAvailable @ 0x14054AB84 (HalpHvIsFrequencyAvailable.c)
- *     HalpProcGetFeatureBits @ 0x14054D160 (HalpProcGetFeatureBits.c)
- *     HalpWdatDiscover @ 0x14055F328 (HalpWdatDiscover.c)
- *     HalpHvWatchdogDiscover @ 0x140560630 (HalpHvWatchdogDiscover.c)
- *     HalSocRequestConfigurationData @ 0x1405614AC (HalSocRequestConfigurationData.c)
- *     HalpTimerIsHypervisorReferenceAvailable @ 0x1405616AC (HalpTimerIsHypervisorReferenceAvailable.c)
- *     HaliAcpiSleepOld @ 0x140569940 (HaliAcpiSleepOld.c)
- *     HaliCompleteAcpiAPSleep @ 0x140569FA0 (HaliCompleteAcpiAPSleep.c)
- *     HalpInterruptGetIrtInfo @ 0x1406FDDA4 (HalpInterruptGetIrtInfo.c)
- *     HalpLoadMicrocode @ 0x140701A80 (HalpLoadMicrocode.c)
- *     HalpInitializeProfiling @ 0x140B4EAB8 (HalpInitializeProfiling.c)
- *     HalpMiscGetParameters @ 0x140C0F650 (HalpMiscGetParameters.c)
+ *     HalpArtAvailable @ 0x1404A0300 (HalpArtAvailable.c)
+ *     HalpCmcStartPolling @ 0x1404F5220 (HalpCmcStartPolling.c)
+ *     HalpIsPartitionCpuManager @ 0x1404F52CC (HalpIsPartitionCpuManager.c)
+ *     HalpInterruptGetX2ApicPolicy @ 0x14053FD44 (HalpInterruptGetX2ApicPolicy.c)
+ *     HalpHvIsFrequencyAvailable @ 0x140548444 (HalpHvIsFrequencyAvailable.c)
+ *     HalpProcGetFeatureBits @ 0x14054AA20 (HalpProcGetFeatureBits.c)
+ *     HalpWdatDiscover @ 0x14055CF58 (HalpWdatDiscover.c)
+ *     HalpHvWatchdogDiscover @ 0x14055E260 (HalpHvWatchdogDiscover.c)
+ *     HalSocRequestConfigurationData @ 0x14055F0DC (HalSocRequestConfigurationData.c)
+ *     HalpTimerIsHypervisorReferenceAvailable @ 0x14055F2DC (HalpTimerIsHypervisorReferenceAvailable.c)
+ *     HaliCompleteAcpiAPSleep @ 0x140567430 (HaliCompleteAcpiAPSleep.c)
+ *     HalpInterruptGetIrtInfo @ 0x1406FB9E4 (HalpInterruptGetIrtInfo.c)
+ *     HalpLoadMicrocode @ 0x1406FF6C0 (HalpLoadMicrocode.c)
+ *     HalpInitializeProfiling @ 0x140B50B08 (HalpInitializeProfiling.c)
+ *     HalpMiscGetParameters @ 0x140C11650 (HalpMiscGetParameters.c)
  * Callees:
- *     HalpIsHvPresent @ 0x1404A5710 (HalpIsHvPresent.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     HalpIsHvPresent @ 0x1404A04A0 (HalpIsHvPresent.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 bool HalpIsMicrosoftCompatibleHvLoaded()

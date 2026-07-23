@@ -1,15 +1,15 @@
 /*
- * XREFs of HvlMapSparseGpaPages @ 0x14048ED40
+ * XREFs of HvlMapSparseGpaPages @ 0x140488880
  * Callers:
- *     VmpProcessInvalidateList @ 0x140518B00 (VmpProcessInvalidateList.c)
- *     VmpFillSlat @ 0x1406C0FB4 (VmpFillSlat.c)
+ *     VmpProcessInvalidateList @ 0x140512570 (VmpProcessInvalidateList.c)
+ *     VmpFillSlat @ 0x1406C4B94 (VmpFillSlat.c)
  * Callees:
- *     KeDisableInterrupts @ 0x1402BA170 (KeDisableInterrupts.c)
- *     HvlpReleaseHypercallPage @ 0x14032B890 (HvlpReleaseHypercallPage.c)
- *     HvcallInitiateHypercall @ 0x14032BB00 (HvcallInitiateHypercall.c)
- *     HvlpHvToNtStatus @ 0x1403E7DC0 (HvlpHvToNtStatus.c)
- *     RtlpInterlockedPopEntrySList @ 0x140730C90 (RtlpInterlockedPopEntrySList.c)
- *     memmove @ 0x14073D480 (memmove.c)
+ *     HvlpHvToNtStatus @ 0x1402F4CA0 (HvlpHvToNtStatus.c)
+ *     KeDisableInterrupts @ 0x140304E30 (KeDisableInterrupts.c)
+ *     HvlpReleaseHypercallPage @ 0x14032D8C0 (HvlpReleaseHypercallPage.c)
+ *     HvcallInitiateHypercall @ 0x14032DB30 (HvcallInitiateHypercall.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140735860 (RtlpInterlockedPopEntrySList.c)
+ *     memmove @ 0x140742080 (memmove.c)
  */
 
 __int64 __fastcall HvlMapSparseGpaPages(__int64 a1, int a2, unsigned __int64 a3, __int64 a4, _QWORD *a5)

@@ -1,14 +1,14 @@
 /*
- * XREFs of WdipSemGetLoggerIds @ 0x140A48AF4
+ * XREFs of WdipSemGetLoggerIds @ 0x140A3E8A4
  * Callers:
- *     WdipSemCleanStart @ 0x1407A0DC0 (WdipSemCleanStart.c)
- *     WdipSemDisableScenario @ 0x140A47AF0 (WdipSemDisableScenario.c)
- *     WdipSemEnableScenario @ 0x140A4835C (WdipSemEnableScenario.c)
+ *     WdipSemCleanStart @ 0x1407A0ED0 (WdipSemCleanStart.c)
+ *     WdipSemDisableScenario @ 0x140A3D910 (WdipSemDisableScenario.c)
+ *     WdipSemEnableScenario @ 0x140A3E10C (WdipSemEnableScenario.c)
  * Callees:
- *     ExReleaseRundownProtectionCacheAwareEx @ 0x140259600 (ExReleaseRundownProtectionCacheAwareEx.c)
- *     PsGetCurrentServerSiloGlobals @ 0x140347D10 (PsGetCurrentServerSiloGlobals.c)
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     EtwpAcquireLoggerContextByLoggerName @ 0x140926E6C (EtwpAcquireLoggerContextByLoggerName.c)
+ *     ExReleaseRundownProtectionCacheAwareEx @ 0x140289C10 (ExReleaseRundownProtectionCacheAwareEx.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140326710 (PsGetCurrentServerSiloGlobals.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     EtwpAcquireLoggerContextByLoggerName @ 0x140928FAC (EtwpAcquireLoggerContextByLoggerName.c)
  */
 
 __int64 WdipSemGetLoggerIds()

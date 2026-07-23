@@ -1,11 +1,11 @@
 /*
- * XREFs of MiLockAndIncrementShareCount @ 0x1404D14B8
+ * XREFs of MiLockAndIncrementShareCount @ 0x1404CAEE8
  * Callers:
- *     MiLinkPoolCommitChain @ 0x140365560 (MiLinkPoolCommitChain.c)
- *     MiMapKernelScp @ 0x1404F3160 (MiMapKernelScp.c)
- *     MiInitializeSharedUserData @ 0x140CF1F60 (MiInitializeSharedUserData.c)
+ *     MiLinkPoolCommitChain @ 0x140367300 (MiLinkPoolCommitChain.c)
+ *     MiMapKernelScp @ 0x1404EC740 (MiMapKernelScp.c)
+ *     MiInitializeSharedUserData @ 0x140CF82E0 (MiInitializeSharedUserData.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
  */
 
 __int64 __fastcall MiLockAndIncrementShareCount(__int64 a1)

@@ -13,7 +13,7 @@
 
 PSLIST_ENTRY __fastcall CmpLockTableRemove(__int64 a1, int a2)
 {
-  union _SLIST_HEADER *v4; // rcx
+  _SLIST_HEADER *v4; // rcx
   __int64 v5; // r11
   int v6; // r10d
   __int64 v7; // rdi
@@ -21,7 +21,7 @@ PSLIST_ENTRY __fastcall CmpLockTableRemove(__int64 a1, int a2)
   int v9; // edx
   __int64 v10; // r8
   unsigned __int64 *p_Region; // rcx
-  struct _SLIST_ENTRY *v12; // rdx
+  _SLIST_ENTRY *v12; // rdx
 
   v4 = CmpLockTable;
   v5 = a1 | 1;
@@ -49,7 +49,7 @@ LABEL_13:
       v4 = CmpLockTable;
     }
   }
-  v12 = (struct _SLIST_ENTRY *)&v4[v6 + 2];
+  v12 = (_SLIST_ENTRY *)&v4[v6 + 2];
   v4[v6 + 2].Region = 0LL;
   v12->Next = 0LL;
   return RtlpInterlockedPushEntrySList(v4, v12);

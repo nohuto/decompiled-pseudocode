@@ -1,8 +1,8 @@
 /*
- * XREFs of ZwManageWobTicket @ 0x1801612B0
+ * XREFs of ZwManageWobTicket @ 0x1801611B0
  * Callers:
- *     RtlQueryPriorityForWobTicket @ 0x180143F10 (RtlQueryPriorityForWobTicket.c)
- *     RtlQueryQosForWobTicket @ 0x180143F80 (RtlQueryQosForWobTicket.c)
+ *     RtlQueryPriorityForWobTicket @ 0x180143E10 (RtlQueryPriorityForWobTicket.c)
+ *     RtlQueryQosForWobTicket @ 0x180143E80 (RtlQueryQosForWobTicket.c)
  * Callees:
  *     <none>
  */

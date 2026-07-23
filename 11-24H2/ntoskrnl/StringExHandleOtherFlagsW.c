@@ -1,23 +1,23 @@
 /*
- * XREFs of StringExHandleOtherFlagsW @ 0x14041DE80
+ * XREFs of StringExHandleOtherFlagsW @ 0x140412250
  * Callers:
- *     RtlStringCbPrintfExW @ 0x140356698 (RtlStringCbPrintfExW.c)
- *     RtlStringCchCopyExW @ 0x14041DC50 (RtlStringCchCopyExW.c)
- *     RtlStringCchPrintfExW @ 0x140424CB0 (RtlStringCchPrintfExW.c)
- *     RtlStringCchCopyNExW @ 0x1404310C0 (RtlStringCchCopyNExW.c)
- *     RtlStringCbCopyExW @ 0x14044D8AC (RtlStringCbCopyExW.c)
- *     StringCchPrintfExW @ 0x140697558 (StringCchPrintfExW.c)
- *     _CmGetDeviceInterfaceName @ 0x1408B7B74 (_CmGetDeviceInterfaceName.c)
- *     _CmIsDeviceSafeRemovalRequired @ 0x1408BC37C (_CmIsDeviceSafeRemovalRequired.c)
- *     PiCMGetRelatedDeviceInstance @ 0x1408BE750 (PiCMGetRelatedDeviceInstance.c)
- *     _CmGetDeviceInterfaceSubkeyPath @ 0x1408C9360 (_CmGetDeviceInterfaceSubkeyPath.c)
- *     _CmValidateDeviceInterfaceName @ 0x1408C9D90 (_CmValidateDeviceInterfaceName.c)
- *     _CmGetDeviceInterfaceRegKeyPath @ 0x1408CA360 (_CmGetDeviceInterfaceRegKeyPath.c)
- *     EtwpQueryTokenPackageInfo @ 0x14094B90C (EtwpQueryTokenPackageInfo.c)
- *     _CmGetDeviceChildren @ 0x1409B400C (_CmGetDeviceChildren.c)
- *     PiPnpRtlGetFilteredDeviceList @ 0x1409D4550 (PiPnpRtlGetFilteredDeviceList.c)
+ *     RtlStringCchCopyExW @ 0x140412020 (RtlStringCchCopyExW.c)
+ *     RtlStringCchPrintfExW @ 0x140418B60 (RtlStringCchPrintfExW.c)
+ *     RtlStringCbPrintfExW @ 0x140423038 (RtlStringCbPrintfExW.c)
+ *     RtlStringCchCopyNExW @ 0x140423600 (RtlStringCchCopyNExW.c)
+ *     RtlStringCbCopyExW @ 0x1404447AC (RtlStringCbCopyExW.c)
+ *     StringCchPrintfExW @ 0x1406985D8 (StringCchPrintfExW.c)
+ *     _CmGetDeviceInterfaceName @ 0x1408B54E4 (_CmGetDeviceInterfaceName.c)
+ *     _CmIsDeviceSafeRemovalRequired @ 0x1408B9CCC (_CmIsDeviceSafeRemovalRequired.c)
+ *     PiCMGetRelatedDeviceInstance @ 0x1408BC0A0 (PiCMGetRelatedDeviceInstance.c)
+ *     _CmGetDeviceInterfaceSubkeyPath @ 0x1408C6D90 (_CmGetDeviceInterfaceSubkeyPath.c)
+ *     _CmValidateDeviceInterfaceName @ 0x1408C77C0 (_CmValidateDeviceInterfaceName.c)
+ *     _CmGetDeviceInterfaceRegKeyPath @ 0x1408C7D90 (_CmGetDeviceInterfaceRegKeyPath.c)
+ *     EtwpQueryTokenPackageInfo @ 0x1408EFE7C (EtwpQueryTokenPackageInfo.c)
+ *     _CmGetDeviceChildren @ 0x1409AB39C (_CmGetDeviceChildren.c)
+ *     PiPnpRtlGetFilteredDeviceList @ 0x1409C4380 (PiPnpRtlGetFilteredDeviceList.c)
  * Callees:
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 HRESULT __stdcall StringExHandleOtherFlagsW(

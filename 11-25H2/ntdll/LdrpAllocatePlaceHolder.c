@@ -22,56 +22,53 @@ __int64 __fastcall LdrpAllocatePlaceHolder(
         __int64 a7)
 {
   unsigned int v10; // ebx
-  unsigned int v11; // edx
-  __int64 Heap; // rax
+  ULONG v11; // edx
+  _QWORD *Heap; // rax
   __int64 v14; // rsi
-  __int64 ModuleEntry; // rax
-  __int64 v16; // r9
+  char *ModuleEntry; // rax
   _DWORD *SharedData; // rcx
-  __int64 v18; // rcx
-  char *v20; // rcx
+  __int64 v17; // rcx
+  char *v19; // rcx
 
   v10 = 0;
   v11 = (NtdllBaseTag + 0x40000) | 8;
   *(_QWORD *)a6 = 0LL;
-  Heap = RtlAllocateHeap((char *)LdrpHeap, v11, *(unsigned __int16 *)a1 + 210LL);
-  v14 = Heap;
+  Heap = RtlAllocateHeap(LdrpHeap, v11, *(unsigned __int16 *)a1 + 210LL);
+  v14 = (__int64)Heap;
   if ( Heap )
   {
-    *(_QWORD *)(Heap + 16) = a2;
-    *(_QWORD *)(Heap + 184) = -1LL;
-    *(_DWORD *)(Heap + 32) = a3 | 0x8000;
-    *(_QWORD *)(Heap + 40) = a7;
-    *(_QWORD *)(Heap + 48) = a5;
-    *(_QWORD *)(Heap + 8) = Heap + 208;
+    Heap[2] = a2;
+    Heap[23] = -1LL;
+    *((_DWORD *)Heap + 8) = a3 | 0x8000;
+    Heap[5] = a7;
+    Heap[6] = a5;
+    Heap[1] = Heap + 26;
     *(_WORD *)Heap = *(_WORD *)a1;
-    *(_WORD *)(Heap + 2) = *(_WORD *)a1 + 2;
-    memmove((void *)(Heap + 208), a1[1], *(unsigned __int16 *)a1);
+    *((_WORD *)Heap + 1) = *(_WORD *)a1 + 2;
+    memmove(Heap + 26, a1[1], *(unsigned __int16 *)a1);
     *(_WORD *)(*(_QWORD *)(v14 + 8) + 2 * ((unsigned __int64)*(unsigned __int16 *)a1 >> 1)) = 0;
     ModuleEntry = LdrpAllocateModuleEntry(v14);
     *(_QWORD *)a6 = ModuleEntry;
     if ( ModuleEntry )
     {
-      *(_DWORD *)(ModuleEntry + 268) = a4;
+      *((_DWORD *)ModuleEntry + 67) = a4;
       if ( a4 == 9 )
         *(_DWORD *)(*(_QWORD *)a6 + 304LL) = 1;
       SharedData = NtCurrentPeb()->SharedData;
       if ( SharedData && *SharedData )
-        v18 = (__int64)NtCurrentPeb()->SharedData + 554;
+        v17 = (__int64)NtCurrentPeb()->SharedData + 554;
       else
-        v18 = 2147353476LL;
-      if ( *(_BYTE *)v18 && (NtCurrentPeb()->TracingFlags & 4) != 0 )
+        v17 = 2147353476LL;
+      if ( *(_BYTE *)v17 && (NtCurrentPeb()->TracingFlags & 4) != 0 )
       {
-        v20 = (unsigned int)RtlGetCurrentServiceSessionId()
-            ? (char *)NtCurrentPeb()->SharedData + 555
-            : (char *)2147353477;
-        if ( (*v20 & 0x20) != 0 )
+        v19 = RtlGetCurrentServiceSessionId() ? (char *)NtCurrentPeb()->SharedData + 555 : (char *)2147353477;
+        if ( (*v19 & 0x20) != 0 )
           LdrpLogEtwEvent(5292, 0LL, 0, 0, (unsigned __int16 *)v14, 0LL);
       }
     }
     else
     {
-      RtlFreeHeap(LdrpHeap, 0, v14, v16);
+      RtlFreeHeap(LdrpHeap, 0, (PVOID)v14);
     }
   }
   if ( !*(_QWORD *)a6 )

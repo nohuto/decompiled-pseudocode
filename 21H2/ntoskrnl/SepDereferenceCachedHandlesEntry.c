@@ -1,17 +1,17 @@
 /*
- * XREFs of SepDereferenceCachedHandlesEntry @ 0x1406E8000
+ * XREFs of SepDereferenceCachedHandlesEntry @ 0x1406FF3E0
  * Callers:
- *     SepSetTokenBnoIsolation @ 0x140251968 (SepSetTokenBnoIsolation.c)
- *     NtSetInformationToken @ 0x1406749A0 (NtSetInformationToken.c)
- *     SepTokenDeleteMethod @ 0x1406E7CF0 (SepTokenDeleteMethod.c)
+ *     SepSetTokenBnoIsolation @ 0x1402F6178 (SepSetTokenBnoIsolation.c)
+ *     NtSetInformationToken @ 0x140694530 (NtSetInformationToken.c)
+ *     SepTokenDeleteMethod @ 0x1406FF0D0 (SepTokenDeleteMethod.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     RtlRemoveEntryHashTable @ 0x140251CC0 (RtlRemoveEntryHashTable.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     SepCloseCachedTokenHandles @ 0x1403605C4 (SepCloseCachedTokenHandles.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     SepCloseCachedTokenHandles @ 0x1402A54F4 (SepCloseCachedTokenHandles.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     RtlRemoveEntryHashTable @ 0x1402F64D0 (RtlRemoveEntryHashTable.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall SepDereferenceCachedHandlesEntry(__int64 a1, __int64 a2)
@@ -21,9 +21,15 @@ __int64 __fastcall SepDereferenceCachedHandlesEntry(__int64 a1, __int64 a2)
   unsigned int v4; // esi
   __int64 v6; // rax
   char v7; // di
-  BOOLEAN v9; // r14
-  char v10; // di
-  void *v11; // rcx
+  __int64 v8; // rdx
+  __int64 v9; // r8
+  __int64 v10; // r9
+  BOOLEAN v12; // r14
+  char v13; // di
+  __int64 v14; // rdx
+  __int64 v15; // r8
+  __int64 v16; // r9
+  void *v17; // rcx
 
   CurrentThread = KeGetCurrentThread();
   v3 = a1 + 88;
@@ -35,18 +41,18 @@ __int64 __fastcall SepDereferenceCachedHandlesEntry(__int64 a1, __int64 a2)
   {
     if ( v6 )
       __fastfail(0xEu);
-    v9 = RtlRemoveEntryHashTable(*(PRTL_DYNAMIC_HASH_TABLE *)(v3 + 8), (PRTL_DYNAMIC_HASH_TABLE_ENTRY)a2, 0LL);
-    v10 = _InterlockedExchangeAdd64((volatile signed __int64 *)v3, 0xFFFFFFFFFFFFFFFFuLL);
-    if ( (v10 & 2) != 0 && (v10 & 4) == 0 )
+    v12 = RtlRemoveEntryHashTable(*(PRTL_DYNAMIC_HASH_TABLE *)(v3 + 8), (PRTL_DYNAMIC_HASH_TABLE_ENTRY)a2, 0LL);
+    v13 = _InterlockedExchangeAdd64((volatile signed __int64 *)v3, 0xFFFFFFFFFFFFFFFFuLL);
+    if ( (v13 & 2) != 0 && (v13 & 4) == 0 )
       ExfTryToWakePushLock(v3);
     KeAbPostRelease(v3);
-    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-    if ( v9 )
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v14, v15, v16);
+    if ( v12 )
     {
       SepCloseCachedTokenHandles(*(_DWORD *)(a2 + 56), *(HANDLE **)(a2 + 64));
-      v11 = *(void **)(a2 + 64);
-      if ( v11 )
-        ExFreePoolWithTag(v11, 0);
+      v17 = *(void **)(a2 + 64);
+      if ( v17 )
+        ExFreePoolWithTag(v17, 0);
       ExFreePoolWithTag((PVOID)a2, 0);
     }
     else
@@ -61,7 +67,7 @@ __int64 __fastcall SepDereferenceCachedHandlesEntry(__int64 a1, __int64 a2)
     if ( (v7 & 2) != 0 && (v7 & 4) == 0 )
       ExfTryToWakePushLock(v3);
     KeAbPostRelease(v3);
-    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v8, v9, v10);
     return 0LL;
   }
 }

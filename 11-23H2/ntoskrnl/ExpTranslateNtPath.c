@@ -1,24 +1,24 @@
 /*
- * XREFs of ExpTranslateNtPath @ 0x1409FE45C
+ * XREFs of ExpTranslateNtPath @ 0x1409FE6EC
  * Callers:
- *     NtTranslateFilePath @ 0x14083E130 (NtTranslateFilePath.c)
- *     ExpConvertArcName @ 0x1409FBA98 (ExpConvertArcName.c)
+ *     NtTranslateFilePath @ 0x14083E430 (NtTranslateFilePath.c)
+ *     ExpConvertArcName @ 0x1409FBD28 (ExpConvertArcName.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     ZwDeviceIoControlFile @ 0x14041AE40 (ZwDeviceIoControlFile.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ZwOpenFile @ 0x14041B3C0 (ZwOpenFile.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     ZwDeviceIoControlFile @ 0x14041B1D0 (ZwDeviceIoControlFile.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ZwOpenFile @ 0x14041B750 (ZwOpenFile.c)
+ *     memset @ 0x140435E00 (memset.c)
  *     BcdEnumerateDisks @ 0x140680EC0 (BcdEnumerateDisks.c)
- *     ExpTranslateSymbolicLink @ 0x14083E8A8 (ExpTranslateSymbolicLink.c)
- *     ExpCreateOutputARC @ 0x1409FBEA0 (ExpCreateOutputARC.c)
- *     ExpCreateOutputEFI @ 0x1409FBF98 (ExpCreateOutputEFI.c)
- *     ExpCreateOutputSIGNATURE @ 0x1409FC168 (ExpCreateOutputSIGNATURE.c)
+ *     ExpTranslateSymbolicLink @ 0x14083EBA8 (ExpTranslateSymbolicLink.c)
+ *     ExpCreateOutputARC @ 0x1409FC130 (ExpCreateOutputARC.c)
+ *     ExpCreateOutputEFI @ 0x1409FC228 (ExpCreateOutputEFI.c)
+ *     ExpCreateOutputSIGNATURE @ 0x1409FC3F8 (ExpCreateOutputSIGNATURE.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
 
-NTSTATUS __fastcall ExpTranslateNtPath(__int64 a1, int a2, char *a3, unsigned int *a4)
+int __fastcall ExpTranslateNtPath(__int64 a1, int a2, char *a3, unsigned int *a4)
 {
   int v5; // esi
   const WCHAR *v8; // rbx
@@ -27,7 +27,7 @@ NTSTATUS __fastcall ExpTranslateNtPath(__int64 a1, int a2, char *a3, unsigned in
   unsigned __int64 v11; // rdx
   __int64 v12; // rax
   wchar_t *v13; // r14
-  NTSTATUS result; // eax
+  int result; // eax
   wchar_t *Buffer; // rbx
   int OutputARC; // esi
   NTSTATUS v17; // ebx
@@ -36,7 +36,7 @@ NTSTATUS __fastcall ExpTranslateNtPath(__int64 a1, int a2, char *a3, unsigned in
   NTSTATUS v20; // r15d
   _DWORD *v21; // rbx
   __int64 v22; // rcx
-  unsigned int *v23; // rbx
+  GUID *v23; // rbx
   int v24; // eax
   HANDLE FileHandle; // [rsp+50h] [rbp-B0h] BYREF
   UNICODE_STRING v26; // [rsp+58h] [rbp-A8h] BYREF
@@ -131,11 +131,11 @@ NTSTATUS __fastcall ExpTranslateNtPath(__int64 a1, int a2, char *a3, unsigned in
       ZwClose(FileHandle);
       if ( LODWORD(OutputBuffer[0]) == 1 )
       {
-        v23 = (unsigned int *)&OutputBuffer[6];
+        v23 = (GUID *)&OutputBuffer[6];
       }
       else
       {
-        v23 = (unsigned int *)&v32;
+        v23 = (GUID *)&v32;
         v9 = 0;
       }
       if ( v5 != 4 )

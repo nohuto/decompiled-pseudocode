@@ -26,8 +26,8 @@ void __fastcall HdlspProcessDumpCommand(char a1)
   __int64 v9; // rcx
   unsigned __int64 v10; // rax
   const char *v11; // rcx
-  TIME_FIELDS TimeFields; // [rsp+40h] [rbp-30h] BYREF
-  STRING v13; // [rsp+50h] [rbp-20h] BYREF
+  _TIME_FIELDS TimeFields; // [rsp+40h] [rbp-30h] BYREF
+  _STRING v13; // [rsp+50h] [rbp-20h] BYREF
   UNICODE_STRING DestinationString; // [rsp+60h] [rbp-10h] BYREF
   char v15; // [rsp+A8h] [rbp+38h] BYREF
 

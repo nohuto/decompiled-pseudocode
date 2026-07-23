@@ -1,9 +1,9 @@
 /*
- * XREFs of HalAllocateCommonBufferDmarThinEx @ 0x140513470
+ * XREFs of HalAllocateCommonBufferDmarThinEx @ 0x1405139C0
  * Callers:
- *     HalAllocateCommonBufferDmarThin @ 0x140513440 (HalAllocateCommonBufferDmarThin.c)
+ *     HalAllocateCommonBufferDmarThin @ 0x140513990 (HalAllocateCommonBufferDmarThin.c)
  * Callees:
- *     HalpAllocateCommonBufferDmarThin @ 0x140513B58 (HalpAllocateCommonBufferDmarThin.c)
+ *     HalpAllocateCommonBufferDmarThin @ 0x1405140A8 (HalpAllocateCommonBufferDmarThin.c)
  */
 
 __int64 __fastcall HalAllocateCommonBufferDmarThinEx(__int64 a1, __int64 a2, __int64 a3, _QWORD *a4, char a5, int a6)

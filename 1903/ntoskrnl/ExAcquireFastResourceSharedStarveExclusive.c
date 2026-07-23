@@ -31,7 +31,7 @@ char __fastcall ExAcquireFastResourceSharedStarveExclusive(ULONG_PTR BugCheckPar
   ULONG_PTR *v15; // rcx
   _QWORD *v16; // rax
   char v17; // r14
-  __int64 v19; // rax
+  PRTL_BALANCED_NODE v19; // rax
   _QWORD *v20; // r8
   _QWORD *v21; // rdx
   __int64 v22; // rdx
@@ -104,7 +104,7 @@ LABEL_22:
   v19 = KeAbPreAcquire(BugCheckParameter2, 0LL, a3 == 0);
   v6 = (_KLOCK_ENTRY *)v19;
   if ( v19 )
-    *(_BYTE *)(a2 + 16) = (2 * ((char)(16 * (*(_BYTE *)(v19 + 24) - 50)) / 96)) | 1;
+    *(_BYTE *)(a2 + 16) = (2 * ((char)(16 * (LOBYTE(v19[1].Children[0]) - 50)) / 96)) | 1;
   LockHandle.LockQueue.Next = 0LL;
   LockHandle.LockQueue.Lock = (unsigned __int64 *volatile)(BugCheckParameter2 + 96);
   KxAcquireQueuedSpinLock((__int64)&LockHandle, (volatile __int64 *)(BugCheckParameter2 + 96));
@@ -163,7 +163,7 @@ LABEL_18:
   ExpWaitForResource((struct _LIST_ENTRY *)BugCheckParameter2, (__int64)v29, 0x10244u, 0LL);
   *(_BYTE *)(a2 + 19) = 0;
   if ( v6 )
-    KeAbPreAcquire(BugCheckParameter2, (__int64)v6, 0);
+    KeAbPreAcquire(BugCheckParameter2, &v6->TreeNode, 0);
   v17 = 1;
 LABEL_20:
   if ( v6 )

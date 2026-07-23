@@ -1,20 +1,20 @@
 /*
- * XREFs of MiFindPagesForMdl @ 0x140412AB4
+ * XREFs of MiFindPagesForMdl @ 0x140394EF4
  * Callers:
- *     MiAllocatePagesForMdl @ 0x14041225C (MiAllocatePagesForMdl.c)
+ *     MiAllocatePagesForMdl @ 0x14039469C (MiAllocatePagesForMdl.c)
  * Callees:
- *     MiAllocateFastLargePagesForMdl @ 0x1403A7798 (MiAllocateFastLargePagesForMdl.c)
- *     MiAllocateMdlPagesByLists @ 0x140412C40 (MiAllocateMdlPagesByLists.c)
- *     MiAllocateEnclavePagesForMdl @ 0x1404136E4 (MiAllocateEnclavePagesForMdl.c)
- *     MiAllocateMostlyContiguousPagesForMdl @ 0x140413798 (MiAllocateMostlyContiguousPagesForMdl.c)
- *     MiAllocateSkipPagesForMdl @ 0x140414774 (MiAllocateSkipPagesForMdl.c)
+ *     MiAllocateMostlyContiguousPagesForMdl @ 0x14021C6C4 (MiAllocateMostlyContiguousPagesForMdl.c)
+ *     MiAllocateFastLargePagesForMdl @ 0x14026EEC8 (MiAllocateFastLargePagesForMdl.c)
+ *     MiAllocateMdlPagesByLists @ 0x140395080 (MiAllocateMdlPagesByLists.c)
+ *     MiAllocateEnclavePagesForMdl @ 0x1403956D0 (MiAllocateEnclavePagesForMdl.c)
+ *     MiAllocateSkipPagesForMdl @ 0x1403968B8 (MiAllocateSkipPagesForMdl.c)
  */
 
 unsigned __int64 __fastcall MiFindPagesForMdl(__int64 a1)
 {
   _DWORD *v1; // rax
   unsigned int v2; // edx
-  __int64 v4; // r14
+  unsigned __int64 v4; // r14
   __int64 v5; // rbp
   _DWORD *v6; // rsi
   _DWORD *v7; // r15
@@ -43,7 +43,7 @@ LABEL_3:
     v13[0] = v12;
     goto LABEL_3;
   }
-  v6 = (_DWORD *)(qword_140E2DAD0 + 4LL * (unsigned int)(unsigned __int16)KeNumberNodes * v12);
+  v6 = (_DWORD *)(qword_140E2DC10 + 4LL * (unsigned int)(unsigned __int16)KeNumberNodes * v12);
   v1 = &v6[(unsigned __int16)KeNumberNodes];
 LABEL_4:
   v7 = v6 + 1;
@@ -82,7 +82,7 @@ LABEL_4:
     {
       if ( (v8 & 0x40) != 0 )
       {
-        MiAllocateFastLargePagesForMdl((__int64 *)a1, v11, v8);
+        MiAllocateFastLargePagesForMdl((unsigned __int64 *)a1, v11, v8);
       }
       else if ( (v8 & 0x20) != 0 )
       {
@@ -90,7 +90,7 @@ LABEL_4:
       }
       else
       {
-        MiAllocateMostlyContiguousPagesForMdl(a1, v11, v8);
+        MiAllocateMostlyContiguousPagesForMdl((__int64 *)a1, v11, v8);
       }
     }
     result = *(_QWORD *)(a1 + 48) * ((unsigned __int64)*(unsigned int *)(v5 + 40) >> 12);

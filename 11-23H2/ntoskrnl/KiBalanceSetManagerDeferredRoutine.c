@@ -1,13 +1,13 @@
 /*
- * XREFs of KiBalanceSetManagerDeferredRoutine @ 0x140358250
+ * XREFs of KiBalanceSetManagerDeferredRoutine @ 0x1403583F0
  * Callers:
  *     <none>
  * Callees:
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
- *     _local_unwind @ 0x1403D9510 (_local_unwind.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     KiCustomAccessRoutine6 @ 0x14042B3D0 (KiCustomAccessRoutine6.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
+ *     _local_unwind @ 0x1403D96F0 (_local_unwind.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     KiCustomAccessRoutine6 @ 0x14042B760 (KiCustomAccessRoutine6.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 LONG __fastcall KiBalanceSetManagerDeferredRoutine(__int64 a1, struct _KEVENT *a2, __int64 a3, unsigned __int64 a4)

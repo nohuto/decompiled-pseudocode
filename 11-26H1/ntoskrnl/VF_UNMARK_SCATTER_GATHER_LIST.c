@@ -1,8 +1,8 @@
 /*
- * XREFs of VF_UNMARK_SCATTER_GATHER_LIST @ 0x140C230CC
+ * XREFs of VF_UNMARK_SCATTER_GATHER_LIST @ 0x140C290DC
  * Callers:
- *     VfBuildMdlFromScatterGatherList @ 0x140C238B0 (VfBuildMdlFromScatterGatherList.c)
- *     VfPutScatterGatherList @ 0x140C25980 (VfPutScatterGatherList.c)
+ *     VfBuildMdlFromScatterGatherList @ 0x140C298C0 (VfBuildMdlFromScatterGatherList.c)
+ *     VfPutScatterGatherList @ 0x140C2B990 (VfPutScatterGatherList.c)
  * Callees:
  *     <none>
  */

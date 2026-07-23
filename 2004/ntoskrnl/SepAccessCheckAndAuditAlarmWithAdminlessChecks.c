@@ -135,7 +135,7 @@ __int64 __fastcall SepAccessCheckAndAuditAlarmWithAdminlessChecks(
   __int64 v71; // r9
   __int16 v73; // ax
   __int64 v74; // rax
-  __int64 v75; // rcx
+  ACL *v75; // rcx
   int v76; // eax
   unsigned int v77; // eax
   int v78; // ebx
@@ -152,10 +152,10 @@ __int64 __fastcall SepAccessCheckAndAuditAlarmWithAdminlessChecks(
   __int64 v89; // rcx
   __int16 v90; // dx
   __int64 v91; // rax
-  char *v92; // rax
-  unsigned __int8 *ScopedPolicySid; // rax
+  ACL *v92; // rax
+  _BYTE *ScopedPolicySid; // rax
   int Cap; // eax
-  struct _RTL_DYNAMIC_HASH_TABLE_ENTRY *v95; // rdx
+  _RTL_DYNAMIC_HASH_TABLE_ENTRY *v95; // rdx
   char *v96; // rax
   unsigned int v97; // edx
   unsigned int v98; // esi
@@ -260,7 +260,7 @@ __int64 __fastcall SepAccessCheckAndAuditAlarmWithAdminlessChecks(
   __int64 v197; // [rsp+160h] [rbp-188h] BYREF
   void *Src; // [rsp+168h] [rbp-180h]
   int v199; // [rsp+170h] [rbp-178h] BYREF
-  char *v200; // [rsp+178h] [rbp-170h]
+  ACL *v200; // [rsp+178h] [rbp-170h]
   PRTL_DYNAMIC_HASH_TABLE_ENTRY v201; // [rsp+180h] [rbp-168h] BYREF
   volatile void *Address; // [rsp+188h] [rbp-160h]
   PVOID v203; // [rsp+190h] [rbp-158h] BYREF
@@ -619,7 +619,7 @@ LABEL_55:
                           goto LABEL_57;
                         if ( v90 >= 0 )
                         {
-                          v92 = (char *)*((_QWORD *)v172 + 3);
+                          v92 = (ACL *)*((_QWORD *)v172 + 3);
                         }
                         else
                         {
@@ -633,18 +633,18 @@ LABEL_57:
                             v27 = v162;
                             goto LABEL_58;
                           }
-                          v92 = (char *)v172 + v91;
+                          v92 = (ACL *)((char *)v172 + v91);
                         }
                         v200 = v92;
                         if ( v92 )
                         {
-                          ScopedPolicySid = SepGetScopedPolicySid((__int64)v92);
+                          ScopedPolicySid = SepGetScopedPolicySid(v92);
                           if ( ScopedPolicySid )
                           {
                             Cap = SepRmReferenceFindCap(ScopedPolicySid, &v201);
                             v95 = v201;
                             if ( Cap < 0 )
-                              v95 = (struct _RTL_DYNAMIC_HASH_TABLE_ENTRY *)SepRmDefaultCap;
+                              v95 = (_RTL_DYNAMIC_HASH_TABLE_ENTRY *)SepRmDefaultCap;
                             v201 = v95;
                             v27 = 0;
                             v162 = 0;
@@ -657,11 +657,11 @@ LABEL_58:
                               && ((v73 = *((_WORD *)v28 + 1), (v73 & 4) == 0)
                                 ? (v75 = 0LL)
                                 : v73 >= 0
-                                ? (v75 = *((_QWORD *)v28 + 4))
+                                ? (v75 = (ACL *)*((_QWORD *)v28 + 4))
                                 : (v74 = v28[4], !(_DWORD)v74)
                                 ? (v75 = 0LL)
-                                : (v75 = (__int64)v28 + v74),
-                                  !(unsigned __int8)RtlOwnerAcesPresent(v75)) )
+                                : (v75 = (ACL *)((char *)v28 + v74)),
+                                  !RtlOwnerAcesPresent(v75)) )
                             {
                               if ( (v37 & 0x2000000) != 0 )
                               {
@@ -1294,7 +1294,7 @@ LABEL_291:
                                   v27 = SepBuildCapeSecurityDescriptor(
                                           SecurityDescriptor,
                                           *(unsigned __int8 **)(v215 + 32),
-                                          (__int64)v200);
+                                          v200);
                                   v162 = v27;
                                   if ( v27 < 0 )
                                   {

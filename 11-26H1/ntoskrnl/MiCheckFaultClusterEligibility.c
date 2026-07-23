@@ -1,9 +1,9 @@
 /*
- * XREFs of MiCheckFaultClusterEligibility @ 0x14045F870
+ * XREFs of MiCheckFaultClusterEligibility @ 0x140458F70
  * Callers:
- *     MiDetermineThreadFaultCluster @ 0x1402D60A8 (MiDetermineThreadFaultCluster.c)
+ *     MiDetermineThreadFaultCluster @ 0x1402B7E68 (MiDetermineThreadFaultCluster.c)
  * Callees:
- *     MiReadPteShadow @ 0x140314FF0 (MiReadPteShadow.c)
+ *     MiReadPteShadow @ 0x140317020 (MiReadPteShadow.c)
  */
 
 unsigned __int64 __fastcall MiCheckFaultClusterEligibility(unsigned __int64 a1, __int64 a2, int a3)
@@ -36,8 +36,8 @@ unsigned __int64 __fastcall MiCheckFaultClusterEligibility(unsigned __int64 a1, 
         if ( (PteShadow & 1) != 0 )
           return (unsigned __int64)((__int64)((__int64)v8 - v5) >> 3) >> 4;
         v10 = PteShadow;
-        if ( qword_140E2D740 && (PteShadow & 0x10) == 0 )
-          v10 = PteShadow & qword_140E2D748;
+        if ( qword_140E2D8C0 && (PteShadow & 0x10) == 0 )
+          v10 = PteShadow & qword_140E2D8C8;
         if ( (v10 & 0x400) != 0 || (v10 & 0x800) != 0 || (v10 & 8) != 0 )
           return (unsigned __int64)((__int64)((__int64)v8 - v5) >> 3) >> 4;
         v11 = ((PteShadow >> 5) & 0x1F) == v4;

@@ -1,18 +1,18 @@
 /*
- * XREFs of HsaAllocateRemappingTableEntry @ 0x1405724A0
+ * XREFs of HsaAllocateRemappingTableEntry @ 0x14056F930
  * Callers:
  *     <none>
  * Callees:
- *     RtlClearBits @ 0x14037CD40 (RtlClearBits.c)
- *     HalpReleaseHighLevelLock @ 0x1403B9898 (HalpReleaseHighLevelLock.c)
- *     HalpAcquireHighLevelLock @ 0x1403B9FD0 (HalpAcquireHighLevelLock.c)
- *     ExtEnvAllocateMemory @ 0x14055FA30 (ExtEnvAllocateMemory.c)
- *     ExtEnvAllocatePhysicalMemory @ 0x14055FAA4 (ExtEnvAllocatePhysicalMemory.c)
- *     ExtEnvFreeMemory @ 0x14055FCA0 (ExtEnvFreeMemory.c)
- *     ExtEnvFreePhysicalMemory @ 0x14055FCE0 (ExtEnvFreePhysicalMemory.c)
- *     HsaGetDeviceAperture @ 0x140572F08 (HsaGetDeviceAperture.c)
- *     HsaUpdateRemappingTableInDeviceTableEntry @ 0x140573E5C (HsaUpdateRemappingTableInDeviceTableEntry.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     RtlClearBits @ 0x1402EA360 (RtlClearBits.c)
+ *     HalpReleaseHighLevelLock @ 0x140372268 (HalpReleaseHighLevelLock.c)
+ *     HalpAcquireHighLevelLock @ 0x1403729A0 (HalpAcquireHighLevelLock.c)
+ *     ExtEnvAllocateMemory @ 0x14055D660 (ExtEnvAllocateMemory.c)
+ *     ExtEnvAllocatePhysicalMemory @ 0x14055D6D4 (ExtEnvAllocatePhysicalMemory.c)
+ *     ExtEnvFreeMemory @ 0x14055D8D0 (ExtEnvFreeMemory.c)
+ *     ExtEnvFreePhysicalMemory @ 0x14055D910 (ExtEnvFreePhysicalMemory.c)
+ *     HsaGetDeviceAperture @ 0x140570398 (HsaGetDeviceAperture.c)
+ *     HsaUpdateRemappingTableInDeviceTableEntry @ 0x1405712EC (HsaUpdateRemappingTableInDeviceTableEntry.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall HsaAllocateRemappingTableEntry(
@@ -75,7 +75,7 @@ __int64 __fastcall HsaAllocateRemappingTableEntry(
       }
       else
       {
-        byte_140F8E878 = HalpAcquireHighLevelLock(&qword_140F8E870);
+        byte_140F8EA58 = HalpAcquireHighLevelLock(&qword_140F8EA50);
         DeviceAperture = HsaGetDeviceAperture(a2);
         v19 = DeviceAperture;
         if ( DeviceAperture && *(_QWORD *)(DeviceAperture + 16) )
@@ -87,7 +87,7 @@ __int64 __fastcall HsaAllocateRemappingTableEntry(
         {
           v34 = 1;
         }
-        HalpReleaseHighLevelLock((volatile signed __int64 *)&qword_140F8E870, byte_140F8E878);
+        HalpReleaseHighLevelLock((volatile signed __int64 *)&qword_140F8EA50, byte_140F8EA58);
         if ( v34 )
         {
           if ( v19 )
@@ -113,7 +113,7 @@ LABEL_21:
               *(_DWORD *)&Size[8] = *(_DWORD *)&Size[4];
               *(_QWORD *)&Size[16] = v29;
               RtlClearBits((PRTL_BITMAP)&Size[8], 0, *(ULONG *)&Size[4]);
-              byte_140F8E878 = HalpAcquireHighLevelLock(&qword_140F8E870);
+              byte_140F8EA58 = HalpAcquireHighLevelLock(&qword_140F8EA50);
               if ( !HsaDeviceApertureRanges[v17] )
               {
                 HsaDeviceApertureRanges[v17] = v12;
@@ -136,7 +136,7 @@ LABEL_21:
                 v35 = 0;
               }
               *(_DWORD *)(v19 + 48) += a3;
-              HalpReleaseHighLevelLock((volatile signed __int64 *)&qword_140F8E870, byte_140F8E878);
+              HalpReleaseHighLevelLock((volatile signed __int64 *)&qword_140F8EA50, byte_140F8EA58);
               if ( v35 )
               {
 LABEL_28:

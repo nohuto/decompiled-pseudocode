@@ -1,13 +1,13 @@
 /*
- * XREFs of VmCreateMemoryProcess @ 0x14092EC70
+ * XREFs of VmCreateMemoryProcess @ 0x14092EDD0
  * Callers:
  *     <none>
  * Callees:
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     ZwAllocateVirtualMemory @ 0x1403FA6A0 (ZwAllocateVirtualMemory.c)
- *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
- *     PsCreateMinimalProcess @ 0x1407C6284 (PsCreateMinimalProcess.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     ZwAllocateVirtualMemory @ 0x1403FA880 (ZwAllocateVirtualMemory.c)
+ *     ObReferenceObjectByHandle @ 0x140707FA0 (ObReferenceObjectByHandle.c)
+ *     PsCreateMinimalProcess @ 0x1407C65A4 (PsCreateMinimalProcess.c)
  */
 
 __int64 __fastcall VmCreateMemoryProcess(
@@ -15,7 +15,7 @@ __int64 __fastcall VmCreateMemoryProcess(
         __int64 a2,
         struct _DMA_ADAPTER *a3,
         int a4,
-        __int64 a5,
+        _QWORD *a5,
         _QWORD *a6)
 {
   char v9; // r9

@@ -1,18 +1,18 @@
 /*
- * XREFs of wcsnlen @ 0x140538260
+ * XREFs of wcsnlen @ 0x14053A6E0
  * Callers:
- *     _wcslwr_s @ 0x140536630 (_wcslwr_s.c)
- *     wcsncat @ 0x140538130 (wcsncat.c)
- *     wcsncpy @ 0x1405381E0 (wcsncpy.c)
- *     EmonAddProfileSource @ 0x140594AB0 (EmonAddProfileSource.c)
- *     Amd64AddProfileSource @ 0x1405A3000 (Amd64AddProfileSource.c)
- *     NtSetInformationJobObject @ 0x1407F4C70 (NtSetInformationJobObject.c)
- *     RtlpQueryTimeZoneKeyNameRoutine @ 0x140805140 (RtlpQueryTimeZoneKeyNameRoutine.c)
- *     RtlpSetTimeZoneInformationWorker @ 0x1408051C8 (RtlpSetTimeZoneInformationWorker.c)
- *     EtwpLoadMicroarchitecturalProfileSource @ 0x1408269B8 (EtwpLoadMicroarchitecturalProfileSource.c)
- *     SiIsValidWindowsBootEntry @ 0x1408954B0 (SiIsValidWindowsBootEntry.c)
- *     BiIsWindowsEfiEntry @ 0x1409D4368 (BiIsWindowsEfiEntry.c)
- *     EtwSetPerformanceTraceInformation @ 0x140B36610 (EtwSetPerformanceTraceInformation.c)
+ *     _wcslwr_s @ 0x140538AB0 (_wcslwr_s.c)
+ *     wcsncat @ 0x14053A5B0 (wcsncat.c)
+ *     wcsncpy @ 0x14053A660 (wcsncpy.c)
+ *     EmonAddProfileSource @ 0x140597230 (EmonAddProfileSource.c)
+ *     Amd64AddProfileSource @ 0x1405A5810 (Amd64AddProfileSource.c)
+ *     NtSetInformationJobObject @ 0x1407FA7D0 (NtSetInformationJobObject.c)
+ *     RtlpQueryTimeZoneKeyNameRoutine @ 0x14080ABE0 (RtlpQueryTimeZoneKeyNameRoutine.c)
+ *     RtlpSetTimeZoneInformationWorker @ 0x14080AC68 (RtlpSetTimeZoneInformationWorker.c)
+ *     EtwpLoadMicroarchitecturalProfileSource @ 0x14082CBF8 (EtwpLoadMicroarchitecturalProfileSource.c)
+ *     SiIsValidWindowsBootEntry @ 0x14089B8B0 (SiIsValidWindowsBootEntry.c)
+ *     BiIsWindowsEfiEntry @ 0x1409A5348 (BiIsWindowsEfiEntry.c)
+ *     EtwSetPerformanceTraceInformation @ 0x140B38820 (EtwSetPerformanceTraceInformation.c)
  * Callees:
  *     <none>
  */

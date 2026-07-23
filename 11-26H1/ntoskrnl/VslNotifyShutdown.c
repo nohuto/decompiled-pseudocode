@@ -1,13 +1,13 @@
 /*
- * XREFs of VslNotifyShutdown @ 0x1405C36C0
+ * XREFs of VslNotifyShutdown @ 0x1405C5F30
  * Callers:
- *     ExRebootSystemForRecovery @ 0x1406CB54C (ExRebootSystemForRecovery.c)
- *     PopSaveHiberContext @ 0x140BFBD50 (PopSaveHiberContext.c)
- *     PopShutdownSystem @ 0x140BFDFD4 (PopShutdownSystem.c)
+ *     ExRebootSystemForRecovery @ 0x1406CF57C (ExRebootSystemForRecovery.c)
+ *     PopSaveHiberContext @ 0x140C01D50 (PopSaveHiberContext.c)
+ *     PopShutdownSystem @ 0x140C04024 (PopShutdownSystem.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x1403685AC (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     VslpEnterIumSecureMode @ 0x14036A34C (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall VslNotifyShutdown(unsigned __int8 a1)

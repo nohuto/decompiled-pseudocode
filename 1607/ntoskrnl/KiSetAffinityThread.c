@@ -1,21 +1,21 @@
 /*
- * XREFs of KiSetAffinityThread @ 0x1400CA9BC
+ * XREFs of KiSetAffinityThread @ 0x1400C885C
  * Callers:
- *     KeSetLegacyAffinityThread @ 0x1400CA8C8 (KeSetLegacyAffinityThread.c)
- *     KeSetAffinityThread @ 0x140134304 (KeSetAffinityThread.c)
- *     KeSetAffinityProcess @ 0x14014A0B8 (KeSetAffinityProcess.c)
+ *     KeSetLegacyAffinityThread @ 0x1400C8768 (KeSetLegacyAffinityThread.c)
+ *     KeSetAffinityThread @ 0x140134874 (KeSetAffinityThread.c)
+ *     KeSetAffinityProcess @ 0x14014A628 (KeSetAffinityProcess.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14002ECB0 (KeYieldProcessorEx.c)
- *     KeSelectIdealProcessor @ 0x14007D1B0 (KeSelectIdealProcessor.c)
- *     KeSelectNodeForAffinity @ 0x1400B079C (KeSelectNodeForAffinity.c)
- *     KiRescheduleThreadAfterAffinityChange @ 0x1400CAF3C (KiRescheduleThreadAfterAffinityChange.c)
- *     KiPrcbInGroupAffinity @ 0x1400CCD10 (KiPrcbInGroupAffinity.c)
- *     KiAcquireThreadStateLock @ 0x1400D3590 (KiAcquireThreadStateLock.c)
- *     KiComputeThreadAffinity @ 0x1400F2060 (KiComputeThreadAffinity.c)
- *     KiUpdateSharedReadyQueueAffinityThread @ 0x1400F2E14 (KiUpdateSharedReadyQueueAffinityThread.c)
- *     KiUpdateNodeAffinitizedFlag @ 0x1400F2EA8 (KiUpdateNodeAffinitizedFlag.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     EtwTraceThreadAffinity @ 0x140226228 (EtwTraceThreadAffinity.c)
+ *     KeYieldProcessorEx @ 0x14002E830 (KeYieldProcessorEx.c)
+ *     KeSelectIdealProcessor @ 0x14007D230 (KeSelectIdealProcessor.c)
+ *     KeSelectNodeForAffinity @ 0x1400AE80C (KeSelectNodeForAffinity.c)
+ *     KiRescheduleThreadAfterAffinityChange @ 0x1400C8DDC (KiRescheduleThreadAfterAffinityChange.c)
+ *     KiPrcbInGroupAffinity @ 0x1400CABB0 (KiPrcbInGroupAffinity.c)
+ *     KiAcquireThreadStateLock @ 0x1400D1430 (KiAcquireThreadStateLock.c)
+ *     KiComputeThreadAffinity @ 0x1400EFEB0 (KiComputeThreadAffinity.c)
+ *     KiUpdateSharedReadyQueueAffinityThread @ 0x1400F0C64 (KiUpdateSharedReadyQueueAffinityThread.c)
+ *     KiUpdateNodeAffinitizedFlag @ 0x1400F0CF8 (KiUpdateNodeAffinitizedFlag.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     EtwTraceThreadAffinity @ 0x140226054 (EtwTraceThreadAffinity.c)
  */
 
 __int64 __fastcall KiSetAffinityThread(__int64 a1, __int64 a2, __int64 *a3)

@@ -1,21 +1,21 @@
 /*
- * XREFs of MmSetPfnListInfo @ 0x14013FC90
+ * XREFs of MmSetPfnListInfo @ 0x14013FD90
  * Callers:
- *     PfpPfnPrioRequest @ 0x14062A220 (PfpPfnPrioRequest.c)
+ *     PfpPfnPrioRequest @ 0x14062B240 (PfpPfnPrioRequest.c)
  * Callees:
  *     MiLockPageInline @ 0x14002CE40 (MiLockPageInline.c)
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     MiSetNonResidentPteHeat @ 0x140081E50 (MiSetNonResidentPteHeat.c)
- *     MiGetPfnPriority @ 0x140082B70 (MiGetPfnPriority.c)
- *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
- *     MiIdentifyPfn @ 0x1400A7EE0 (MiIdentifyPfn.c)
- *     MiRelinkStandbyPage @ 0x1400F0A38 (MiRelinkStandbyPage.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     MiAddPageToHeatRanges @ 0x1402CEAD0 (MiAddPageToHeatRanges.c)
- *     MiNotifyPageHeat @ 0x1402CEF40 (MiNotifyPageHeat.c)
+ *     MiSetNonResidentPteHeat @ 0x140081E40 (MiSetNonResidentPteHeat.c)
+ *     MiGetPfnPriority @ 0x140082B60 (MiGetPfnPriority.c)
+ *     ExfReleasePushLockShared @ 0x1400913F0 (ExfReleasePushLockShared.c)
+ *     MiIdentifyPfn @ 0x1400A7E20 (MiIdentifyPfn.c)
+ *     MiRelinkStandbyPage @ 0x1400F0AB8 (MiRelinkStandbyPage.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiAddPageToHeatRanges @ 0x1402CECC0 (MiAddPageToHeatRanges.c)
+ *     MiNotifyPageHeat @ 0x1402CF130 (MiNotifyPageHeat.c)
  */
 
 __int64 __fastcall MmSetPfnListInfo(__int64 a1, _QWORD *a2, int a3)
@@ -66,7 +66,7 @@ __int64 __fastcall MmSetPfnListInfo(__int64 a1, _QWORD *a2, int a3)
   v27 = v6;
   --CurrentThread->SpecialApcDisable;
   v26 = CurrentThread;
-  ExAcquirePushLockSharedEx((ULONG_PTR)&qword_14043C9F8, 0LL);
+  ExAcquirePushLockSharedEx((ULONG_PTR)&qword_14043DAB8, 0LL);
   if ( (unsigned __int64)v4 < v6 )
   {
     while ( 1 )
@@ -156,9 +156,9 @@ LABEL_15:
   }
   if ( a3 && v29 )
     MiNotifyPageHeat(&v28);
-  if ( _InterlockedCompareExchange64((volatile signed __int64 *)&qword_14043C9F8, 0LL, 17LL) != 17 )
-    ExfReleasePushLockShared((signed __int64 *)&qword_14043C9F8);
-  KeAbPostRelease((ULONG_PTR)&qword_14043C9F8);
+  if ( _InterlockedCompareExchange64((volatile signed __int64 *)&qword_14043DAB8, 0LL, 17LL) != 17 )
+    ExfReleasePushLockShared((signed __int64 *)&qword_14043DAB8);
+  KeAbPostRelease((ULONG_PTR)&qword_14043DAB8);
   KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);
   return v7;
 }

@@ -1,14 +1,14 @@
 /*
- * XREFs of SshSessionManagerFlushBuffers @ 0x1407E3BB0
+ * XREFs of SshSessionManagerFlushBuffers @ 0x1407E8EFC
  * Callers:
- *     PopGracefulShutdown @ 0x140BF9180 (PopGracefulShutdown.c)
+ *     PopGracefulShutdown @ 0x140BFF180 (PopGracefulShutdown.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     SSHSupportReleasePushLockExclusive @ 0x1404B32FC (SSHSupportReleasePushLockExclusive.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     SSHSupportReleasePushLockExclusive @ 0x1404AC97C (SSHSupportReleasePushLockExclusive.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
  */
 
 void __fastcall SshSessionManagerFlushBuffers(__int64 a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
@@ -29,16 +29,14 @@ void __fastcall SshSessionManagerFlushBuffers(__int64 a1, __int64 a2, __int64 a3
   AutoBoost *v17; // rbx
   LARGE_INTEGER Timeout; // [rsp+40h] [rbp+8h] BYREF
 
-  v4 = (AutoBoost *)KeAbPreAcquire((__int64)&PsAltSystemCallRegistrationLock.KernelShadowStackInitial, 0LL, 0LL, a4);
-  v6 = _interlockedbittestandset64(
-         (volatile signed __int32 *)&PsAltSystemCallRegistrationLock.KernelShadowStackInitial,
-         0LL);
+  v4 = (AutoBoost *)KeAbPreAcquire((__int64)&PsAltSystemCallRegistrationLock.Padding[4], 0LL, 0LL, a4);
+  v6 = _interlockedbittestandset64((volatile signed __int32 *)&PsAltSystemCallRegistrationLock.Padding[4], 0LL);
   v7 = v4;
   if ( v6 )
     ExfAcquirePushLockExclusiveEx(
-      (unsigned __int64 *)&PsAltSystemCallRegistrationLock.KernelShadowStackInitial,
+      &PsAltSystemCallRegistrationLock.Padding[4],
       v4,
-      (__int64)&PsAltSystemCallRegistrationLock.KernelShadowStackInitial);
+      (__int64)&PsAltSystemCallRegistrationLock.Padding[4]);
   if ( v7 )
   {
     if ( (KiAbpGlobalState & 1) != 0 )
@@ -46,18 +44,15 @@ void __fastcall SshSessionManagerFlushBuffers(__int64 a1, __int64 a2, __int64 a3
     else
       *((_BYTE *)v7 + 10) = 1;
   }
-  v8 = PsAltSystemCallRegistrationLock.KernelShadowStackBase != 0LL;
-  SSHSupportReleasePushLockExclusive((struct _KTHREAD *)&PsAltSystemCallRegistrationLock.KernelShadowStackInitial);
+  v8 = qword_140F0A830 != 0LL;
+  SSHSupportReleasePushLockExclusive((struct _KTHREAD *)&PsAltSystemCallRegistrationLock.Padding[4]);
   if ( v8 )
   {
-    v10 = (AutoBoost *)KeAbPreAcquire((__int64)&PsAltSystemCallRegistrationLock.Spare35[1], 0LL, 0LL, v9);
-    v6 = _interlockedbittestandset64((volatile signed __int32 *)&PsAltSystemCallRegistrationLock.Spare35[1], 0LL);
+    v10 = (AutoBoost *)KeAbPreAcquire((__int64)&qword_140F0A858, 0LL, 0LL, v9);
+    v6 = _interlockedbittestandset64((volatile signed __int32 *)&qword_140F0A858, 0LL);
     v12 = v10;
     if ( v6 )
-      ExfAcquirePushLockExclusiveEx(
-        &PsAltSystemCallRegistrationLock.Spare35[1],
-        v10,
-        (__int64)&PsAltSystemCallRegistrationLock.Spare35[1]);
+      ExfAcquirePushLockExclusiveEx((unsigned __int64 *)&qword_140F0A858, v10, (__int64)&qword_140F0A858);
     if ( v12 )
     {
       if ( (KiAbpGlobalState & 1) != 0 )
@@ -67,24 +62,16 @@ void __fastcall SshSessionManagerFlushBuffers(__int64 a1, __int64 a2, __int64 a3
     }
     do
     {
-      if ( !LODWORD(PsAltSystemCallRegistrationLock.Padding[2]) || !*(_QWORD *)&PsAltSystemCallRegistrationLock.Spare36 )
+      if ( !(_DWORD)dword_140F0A8C0 || !qword_140F0A860 )
         break;
-      SSHSupportReleasePushLockExclusive((struct _KTHREAD *)&PsAltSystemCallRegistrationLock.Spare35[1]);
+      SSHSupportReleasePushLockExclusive((struct _KTHREAD *)&qword_140F0A858);
       Timeout.QuadPart = -10000000LL;
-      v13 = KeWaitForSingleObject(
-              &PsAltSystemCallRegistrationLock.SchedulerAssistLastYieldBoostTime,
-              Executive,
-              0,
-              0,
-              &Timeout);
-      v15 = (AutoBoost *)KeAbPreAcquire((__int64)&PsAltSystemCallRegistrationLock.Spare35[1], 0LL, 0LL, v14);
-      v6 = _interlockedbittestandset64((volatile signed __int32 *)&PsAltSystemCallRegistrationLock.Spare35[1], 0LL);
+      v13 = KeWaitForSingleObject(&word_140F0A8A8, Executive, 0, 0, &Timeout);
+      v15 = (AutoBoost *)KeAbPreAcquire((__int64)&qword_140F0A858, 0LL, 0LL, v14);
+      v6 = _interlockedbittestandset64((volatile signed __int32 *)&qword_140F0A858, 0LL);
       v17 = v15;
       if ( v6 )
-        ExfAcquirePushLockExclusiveEx(
-          &PsAltSystemCallRegistrationLock.Spare35[1],
-          v15,
-          (__int64)&PsAltSystemCallRegistrationLock.Spare35[1]);
+        ExfAcquirePushLockExclusiveEx((unsigned __int64 *)&qword_140F0A858, v15, (__int64)&qword_140F0A858);
       if ( v17 )
       {
         if ( (KiAbpGlobalState & 1) != 0 )
@@ -94,11 +81,11 @@ void __fastcall SshSessionManagerFlushBuffers(__int64 a1, __int64 a2, __int64 a3
       }
     }
     while ( v13 >= 0 );
-    if ( *(_QWORD *)&PsAltSystemCallRegistrationLock.Spare36 )
+    if ( qword_140F0A860 )
     {
-      ZwClose(*(HANDLE *)&PsAltSystemCallRegistrationLock.Spare36);
-      *(_QWORD *)&PsAltSystemCallRegistrationLock.Spare36 = 0LL;
+      ZwClose(qword_140F0A860);
+      qword_140F0A860 = 0LL;
     }
-    SSHSupportReleasePushLockExclusive((struct _KTHREAD *)&PsAltSystemCallRegistrationLock.Spare35[1]);
+    SSHSupportReleasePushLockExclusive((struct _KTHREAD *)&qword_140F0A858);
   }
 }

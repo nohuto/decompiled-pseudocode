@@ -1,27 +1,27 @@
 /*
- * XREFs of DifNtCreateProfileWrapper @ 0x140673070
+ * XREFs of DifNtCreateProfileWrapper @ 0x140676C50
  * Callers:
  *     <none>
  * Callees:
- *     DifGetReturnAddressForWrappers @ 0x140260EA4 (DifGetReturnAddressForWrappers.c)
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     DifGetAPIThunkContextById @ 0x1404C17A4 (DifGetAPIThunkContextById.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     NtCreateProfile @ 0x1408425B0 (NtCreateProfile.c)
+ *     DifGetReturnAddressForWrappers @ 0x14026040C (DifGetReturnAddressForWrappers.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     DifGetAPIThunkContextById @ 0x1404BAFF4 (DifGetAPIThunkContextById.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     NtCreateProfile @ 0x14084B650 (NtCreateProfile.c)
  */
 
 __int64 __fastcall DifNtCreateProfileWrapper(
-        __int64 a1,
-        __int64 a2,
-        __int64 a3,
-        __int64 a4,
-        int a5,
-        __int64 a6,
-        int a7,
-        int a8,
-        __int64 a9)
+        HANDLE *a1,
+        void *a2,
+        void *a3,
+        SIZE_T a4,
+        ULONG BucketSize,
+        ULONG *Buffer,
+        ULONG BufferSize,
+        KPROFILE_SOURCE ProfileSource,
+        KAFFINITY Affinity)
 {
   __int128 *APIThunkContextById; // rax
   __int64 v13; // rdx
@@ -34,14 +34,14 @@ __int64 __fastcall DifNtCreateProfileWrapper(
   BOOLEAN v20; // di
   __int128 *j; // rbx
   _QWORD v23[2]; // [rsp+58h] [rbp-41h] BYREF
-  int v24; // [rsp+68h] [rbp-31h]
-  int v25; // [rsp+6Ch] [rbp-2Dh]
-  __int64 v26; // [rsp+70h] [rbp-29h]
-  int v27; // [rsp+78h] [rbp-21h]
-  __int64 v28; // [rsp+80h] [rbp-19h]
-  __int64 v29; // [rsp+88h] [rbp-11h]
-  __int64 v30; // [rsp+90h] [rbp-9h]
-  __int64 v31; // [rsp+98h] [rbp-1h]
+  KPROFILE_SOURCE v24; // [rsp+68h] [rbp-31h]
+  ULONG v25; // [rsp+6Ch] [rbp-2Dh]
+  ULONG *v26; // [rsp+70h] [rbp-29h]
+  ULONG v27; // [rsp+78h] [rbp-21h]
+  SIZE_T v28; // [rsp+80h] [rbp-19h]
+  void *v29; // [rsp+88h] [rbp-11h]
+  void *v30; // [rsp+90h] [rbp-9h]
+  HANDLE *v31; // [rsp+98h] [rbp-1h]
   unsigned int Profile; // [rsp+A0h] [rbp+7h]
   void *retaddr; // [rsp+D0h] [rbp+37h]
 
@@ -65,11 +65,11 @@ __int64 __fastcall DifNtCreateProfileWrapper(
 LABEL_7:
   v17 = 0;
   v31 = a1;
-  v27 = a5;
-  v26 = a6;
-  v25 = a7;
-  v24 = a8;
-  v23[1] = a9;
+  v27 = BucketSize;
+  v26 = Buffer;
+  v25 = BufferSize;
+  v24 = ProfileSource;
+  v23[1] = Affinity;
   v30 = a2;
   v29 = a3;
   v28 = a4;
@@ -85,7 +85,7 @@ LABEL_7:
       ExReleaseRundownProtection_0(&DifRebootlessRundown);
   }
 LABEL_17:
-  Profile = NtCreateProfile(a1, a2, a3, a4, a5, a6, a7, a8, a9);
+  Profile = NtCreateProfile(a1, a2, a3, a4, BucketSize, Buffer, BufferSize, ProfileSource, Affinity);
   if ( v14 )
   {
     if ( (v20 = 0, !VfDifRunningWithoutReboot) && (VfOptionFlags & 0x800) == 0

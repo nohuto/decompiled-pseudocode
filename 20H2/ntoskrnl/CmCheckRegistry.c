@@ -16,7 +16,7 @@ __int64 __fastcall CmCheckRegistry(ULONG_PTR a1, int a2, __int64 a3)
 {
   unsigned int v3; // ebx
   unsigned int *v6; // r13
-  RTL_BITMAP *p_BitMapHeader; // r12
+  _RTL_BITMAP *p_BitMapHeader; // r12
   char v8; // si
   unsigned int v9; // ebx
   unsigned int v10; // r15d
@@ -26,7 +26,7 @@ __int64 __fastcall CmCheckRegistry(ULONG_PTR a1, int a2, __int64 a3)
   int v15; // r9d
   int v16; // [rsp+20h] [rbp-49h]
   int v17; // [rsp+40h] [rbp-29h] BYREF
-  RTL_BITMAP BitMapHeader; // [rsp+48h] [rbp-21h] BYREF
+  _RTL_BITMAP BitMapHeader; // [rsp+48h] [rbp-21h] BYREF
   __int128 v19; // [rsp+58h] [rbp-11h] BYREF
   __int128 v20; // [rsp+68h] [rbp-1h]
   __int128 v21; // [rsp+78h] [rbp+Fh]

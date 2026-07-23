@@ -1,26 +1,26 @@
 /*
- * XREFs of PspCreateProcess @ 0x14075DE10
+ * XREFs of PspCreateProcess @ 0x14075F000
  * Callers:
- *     NtCreateProcessEx @ 0x140887E90 (NtCreateProcessEx.c)
- *     PspInitPhase0 @ 0x1409B10C8 (PspInitPhase0.c)
+ *     NtCreateProcessEx @ 0x1408890F0 (NtCreateProcessEx.c)
+ *     PspInitPhase0 @ 0x1409B20C8 (PspInitPhase0.c)
  * Callees:
  *     SepDeleteAccessState @ 0x14004D950 (SepDeleteAccessState.c)
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     SeReleaseSubjectContext @ 0x1405E1240 (SeReleaseSubjectContext.c)
- *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
- *     ObpReferenceObjectByHandleWithTag @ 0x1405E8390 (ObpReferenceObjectByHandleWithTag.c)
- *     PspRundownSingleProcess @ 0x140603A48 (PspRundownSingleProcess.c)
- *     PspGetProcessProtectionRequirementsFromImage @ 0x140608F94 (PspGetProcessProtectionRequirementsFromImage.c)
- *     PspInsertProcess @ 0x1406093A8 (PspInsertProcess.c)
- *     SeQuerySigningPolicy @ 0x14060D5D0 (SeQuerySigningPolicy.c)
- *     PspReferenceTokenForNewProcess @ 0x14060DA9C (PspReferenceTokenForNewProcess.c)
- *     PspCreateObjectHandle @ 0x140621C88 (PspCreateObjectHandle.c)
- *     PspAllocateProcess @ 0x14064BCB8 (PspAllocateProcess.c)
- *     PsCreateMinimalProcess @ 0x14075752C (PsCreateMinimalProcess.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     SeReleaseSubjectContext @ 0x1405E2240 (SeReleaseSubjectContext.c)
+ *     ObReferenceObjectByHandle @ 0x1405E9350 (ObReferenceObjectByHandle.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x1405E9390 (ObpReferenceObjectByHandleWithTag.c)
+ *     PspRundownSingleProcess @ 0x140604A48 (PspRundownSingleProcess.c)
+ *     PspGetProcessProtectionRequirementsFromImage @ 0x140609F94 (PspGetProcessProtectionRequirementsFromImage.c)
+ *     PspInsertProcess @ 0x14060A3A8 (PspInsertProcess.c)
+ *     SeQuerySigningPolicy @ 0x14060E5D0 (SeQuerySigningPolicy.c)
+ *     PspReferenceTokenForNewProcess @ 0x14060EA9C (PspReferenceTokenForNewProcess.c)
+ *     PspCreateObjectHandle @ 0x140622C88 (PspCreateObjectHandle.c)
+ *     PspAllocateProcess @ 0x14064CE78 (PspAllocateProcess.c)
+ *     PsCreateMinimalProcess @ 0x14075871C (PsCreateMinimalProcess.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D7880 (ExRaiseDatatypeMisalignment.c)
  */
 
 NTSTATUS __fastcall PspCreateProcess(

@@ -1,11 +1,11 @@
 /*
- * XREFs of WheapPfaLogPageMonitorRemoval @ 0x140A08C20
+ * XREFs of WheapPfaLogPageMonitorRemoval @ 0x140A08ED0
  * Callers:
- *     WheapPfaMemoryCheck @ 0x140A08CB8 (WheapPfaMemoryCheck.c)
- *     WheapPfaRetireExpiredMemoryEntries @ 0x140A08F4C (WheapPfaRetireExpiredMemoryEntries.c)
+ *     WheapPfaMemoryCheck @ 0x140A08F68 (WheapPfaMemoryCheck.c)
+ *     WheapPfaRetireExpiredMemoryEntries @ 0x140A091FC (WheapPfaRetireExpiredMemoryEntries.c)
  * Callees:
- *     WheaLogInternalEvent @ 0x140380A50 (WheaLogInternalEvent.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     WheaLogInternalEvent @ 0x140380BF0 (WheaLogInternalEvent.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 LONG __fastcall WheapPfaLogPageMonitorRemoval(__int64 a1, int a2, __int64 a3)

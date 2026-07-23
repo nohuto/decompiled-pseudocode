@@ -1,8 +1,8 @@
 /*
- * XREFs of HalpIommuCheckDpptException @ 0x1403914F4
+ * XREFs of HalpIommuCheckDpptException @ 0x1403916D4
  * Callers:
- *     HalpIommuUnblockDevice @ 0x1405187A0 (HalpIommuUnblockDevice.c)
- *     HalpIommuCreateDevice @ 0x140829048 (HalpIommuCreateDevice.c)
+ *     HalpIommuUnblockDevice @ 0x140518CF0 (HalpIommuUnblockDevice.c)
+ *     HalpIommuCreateDevice @ 0x140829348 (HalpIommuCreateDevice.c)
  * Callees:
  *     <none>
  */

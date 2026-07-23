@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpHpVsContextGetSlotInfo @ 0x140354454
+ * XREFs of RtlpHpVsContextGetSlotInfo @ 0x1403561FC
  * Callers:
- *     RtlpHpVsContextCompact @ 0x140347BE4 (RtlpHpVsContextCompact.c)
- *     RtlpHpVsContextCleanup @ 0x1403529C8 (RtlpHpVsContextCleanup.c)
- *     RtlpHpVsContextHandleContention @ 0x140354304 (RtlpHpVsContextHandleContention.c)
+ *     RtlpHpVsContextCompact @ 0x140349C64 (RtlpHpVsContextCompact.c)
+ *     RtlpHpVsContextCleanup @ 0x140354A48 (RtlpHpVsContextCleanup.c)
+ *     RtlpHpVsContextHandleContention @ 0x1403560AC (RtlpHpVsContextHandleContention.c)
  * Callees:
  *     <none>
  */

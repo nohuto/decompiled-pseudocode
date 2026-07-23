@@ -17,10 +17,10 @@
  *     ObReferenceObjectByHandle @ 0x1405A4730 (ObReferenceObjectByHandle.c)
  */
 
-__int64 __fastcall NtAlpcImpersonateClientContainerOfPort(HANDLE Handle, __int64 a2, int a3)
+NTSTATUS __cdecl NtAlpcImpersonateClientContainerOfPort(HANDLE PortHandle, PPORT_MESSAGE Message, ULONG Flags)
 {
   struct _KTHREAD *CurrentThread; // rax
-  int v5; // ebx
+  NTSTATUS v5; // ebx
   _QWORD *v6; // r8
   __int64 v7; // r9
   __int64 v8; // rdx
@@ -38,15 +38,15 @@ __int64 __fastcall NtAlpcImpersonateClientContainerOfPort(HANDLE Handle, __int64
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   v16 = 0LL;
-  if ( a3 )
+  if ( Flags )
   {
     v5 = -1073741811;
   }
   else
   {
-    AlpcpCaptureIdMessage(a2, &v19, &v18);
+    AlpcpCaptureIdMessage((__int64)Message, &v19, &v18);
     v5 = ObReferenceObjectByHandle(
-           Handle,
+           PortHandle,
            0x20000u,
            AlpcPortObjectType,
            KeGetCurrentThread()->PreviousMode,
@@ -117,5 +117,5 @@ __int64 __fastcall NtAlpcImpersonateClientContainerOfPort(HANDLE Handle, __int64
   if ( v16 )
     ObfDereferenceObject(v16);
   KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-  return (unsigned int)v5;
+  return v5;
 }

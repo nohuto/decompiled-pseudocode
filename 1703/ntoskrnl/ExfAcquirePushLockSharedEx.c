@@ -39,7 +39,7 @@
  *     RtlBackoff @ 0x1400FEE20 (RtlBackoff.c)
  */
 
-signed __int64 __fastcall ExfAcquirePushLockSharedEx(signed __int64 *a1, __int64 a2, ULONG_PTR a3)
+signed __int64 __fastcall ExfAcquirePushLockSharedEx(signed __int64 *a1, _RTL_BALANCED_NODE *a2, ULONG_PTR a3)
 {
   signed __int64 v6; // rbx
   signed __int64 v7; // rcx
@@ -57,7 +57,7 @@ signed __int64 __fastcall ExfAcquirePushLockSharedEx(signed __int64 *a1, __int64
   __int64 v20; // [rsp+58h] [rbp-18h]
   int v21; // [rsp+60h] [rbp-10h]
   signed __int32 v22; // [rsp+64h] [rbp-Ch] BYREF
-  __int64 v23; // [rsp+68h] [rbp-8h]
+  _RTL_BALANCED_NODE *v23; // [rsp+68h] [rbp-8h]
   int v24; // [rsp+B0h] [rbp+40h] BYREF
 
   v24 = 0;
@@ -110,7 +110,7 @@ signed __int64 __fastcall ExfAcquirePushLockSharedEx(signed __int64 *a1, __int64
       KeWaitForSingleObject(&Object, WrPushLock, 0, 0, 0LL);
 LABEL_15:
     if ( a2 )
-      a2 = KeAbPreAcquire(a3, a2, 0LL);
+      a2 = KeAbPreAcquire(a3, a2, 0);
   }
   v7 = v6 | 1;
   if ( (v6 & 2) == 0 )

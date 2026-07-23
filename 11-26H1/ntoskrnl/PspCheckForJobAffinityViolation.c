@@ -1,8 +1,8 @@
 /*
- * XREFs of PspCheckForJobAffinityViolation @ 0x140AF43A4
+ * XREFs of PspCheckForJobAffinityViolation @ 0x140AF6A18
  * Callers:
- *     PspInsertThread @ 0x140A026D0 (PspInsertThread.c)
- *     NtSetInformationThread @ 0x140A833F0 (NtSetInformationThread.c)
+ *     NtSetInformationThread @ 0x14094C4F0 (NtSetInformationThread.c)
+ *     PspInsertThread @ 0x140A7B188 (PspInsertThread.c)
  * Callees:
  *     <none>
  */

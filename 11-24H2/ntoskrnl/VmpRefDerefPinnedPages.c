@@ -1,10 +1,10 @@
 /*
- * XREFs of VmpRefDerefPinnedPages @ 0x14064B1B0
+ * XREFs of VmpRefDerefPinnedPages @ 0x140649770
  * Callers:
- *     VmpCheckPinAndReference @ 0x14064A43C (VmpCheckPinAndReference.c)
- *     VmpCheckUnpinAndDereference @ 0x14064A530 (VmpCheckUnpinAndDereference.c)
+ *     VmpCheckPinAndReference @ 0x1406489FC (VmpCheckPinAndReference.c)
+ *     VmpCheckUnpinAndDereference @ 0x140648AF0 (VmpCheckUnpinAndDereference.c)
  * Callees:
- *     RtlRbRemoveNode @ 0x1402BE130 (RtlRbRemoveNode.c)
+ *     RtlRbRemoveNode @ 0x140365870 (RtlRbRemoveNode.c)
  */
 
 unsigned __int64 *__fastcall VmpRefDerefPinnedPages(
@@ -138,7 +138,7 @@ LABEL_37:
       }
       if ( v21 == v22 )
       {
-        RtlRbRemoveNode((unsigned __int64 *)(a1 + 40), (unsigned __int64 *)v13);
+        RtlRbRemoveNode((PRTL_RB_TREE)(a1 + 40), (PRTL_BALANCED_NODE)v13);
         result = *(unsigned __int64 **)(a5 + 8);
         if ( *result != a5 )
           __fastfail(3u);

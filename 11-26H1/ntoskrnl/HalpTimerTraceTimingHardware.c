@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpTimerTraceTimingHardware @ 0x14077FF5C
+ * XREFs of HalpTimerTraceTimingHardware @ 0x140782A5C
  * Callers:
- *     HalpTimerInitSystem @ 0x1405774F0 (HalpTimerInitSystem.c)
+ *     HalpTimerInitSystem @ 0x140579A20 (HalpTimerInitSystem.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 void HalpTimerTraceTimingHardware()
@@ -101,7 +101,7 @@ void HalpTimerTraceTimingHardware()
     v33 = &v17;
     v34 = 4LL;
     if ( (KeFeatureBits2 & 0x800000) == 0
-      || qword_140FBB040
+      || qword_140FBB3E0
       || (*(_DWORD *)(HalpStallCounter + 224) & 0x6000) != 0
       || (v8 = 1, *(_DWORD *)(HalpStallCounter + 228) != 5) )
     {
@@ -112,7 +112,7 @@ void HalpTimerTraceTimingHardware()
     v35 = &v9;
     tlgWriteTransfer_EtwWriteTransfer(
       (__int64)&dword_140E024C8,
-      (unsigned __int8 *)byte_140044601,
+      (unsigned __int8 *)byte_140044C01,
       0LL,
       0LL,
       0xBu,

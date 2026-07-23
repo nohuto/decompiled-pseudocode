@@ -1,12 +1,12 @@
 /*
- * XREFs of PopConsoleSessionActiveInput @ 0x14052E33C
+ * XREFs of PopConsoleSessionActiveInput @ 0x14052E87C
  * Callers:
- *     PopSessionInputChange @ 0x14052E19C (PopSessionInputChange.c)
- *     PopSessionConnected @ 0x140546184 (PopSessionConnected.c)
- *     PopLazySensorActiveInput @ 0x140674B58 (PopLazySensorActiveInput.c)
+ *     PopSessionInputChange @ 0x14052E6DC (PopSessionInputChange.c)
+ *     PopSessionConnected @ 0x1405466C4 (PopSessionConnected.c)
+ *     PopLazySensorActiveInput @ 0x140674C3C (PopLazySensorActiveInput.c)
  * Callees:
- *     PopUpdateTimeouts @ 0x14052E3B0 (PopUpdateTimeouts.c)
- *     PopRemoteSessionActiveInput @ 0x14052E614 (PopRemoteSessionActiveInput.c)
+ *     PopUpdateTimeouts @ 0x14052E8F0 (PopUpdateTimeouts.c)
+ *     PopRemoteSessionActiveInput @ 0x14052EB54 (PopRemoteSessionActiveInput.c)
  */
 
 __int64 __fastcall PopConsoleSessionActiveInput(__int64 a1, __int64 a2, int *a3)
@@ -30,8 +30,8 @@ __int64 __fastcall PopConsoleSessionActiveInput(__int64 a1, __int64 a2, int *a3)
   v11 = a3[1];
   v7 = v11;
   v9 = v6;
-  byte_1403023E4 = v6 != 0;
-  dword_1403023D8 = v4;
+  byte_140302404 = v6 != 0;
+  dword_1403023F8 = v4;
   result = PopUpdateTimeouts(v5, &v11, &v9);
   *a3 = v6;
   a3[1] = v7;

@@ -10,75 +10,94 @@
  *     ExpRaiseHardError @ 0x140A4C224 (ExpRaiseHardError.c)
  */
 
-__int64 __fastcall NtRaiseHardError(int a1, unsigned int a2, int a3, char *a4, unsigned int a5, _DWORD *a6)
+NTSTATUS __cdecl NtRaiseHardError(
+        NTSTATUS ErrorStatus,
+        ULONG NumberOfParameters,
+        ULONG UnicodeStringParameterMask,
+        PULONG_PTR Parameters,
+        ULONG ValidResponseOptions,
+        PULONG Response)
 {
   __int64 v7; // rbx
   __int64 v9; // rcx
   unsigned int i; // eax
   _OWORD *v11; // rdx
-  _OWORD *v12; // r9
-  unsigned int v13; // edx
-  int v15; // [rsp+40h] [rbp-F8h] BYREF
+  __int64 v12; // rcx
+  NTSTATUS v13; // edx
+  ULONG v15; // [rsp+40h] [rbp-F8h] BYREF
   unsigned int v16; // [rsp+44h] [rbp-F4h]
-  unsigned int v17; // [rsp+48h] [rbp-F0h]
+  NTSTATUS v17; // [rsp+48h] [rbp-F0h]
   _QWORD Src[5]; // [rsp+50h] [rbp-E8h] BYREF
   _WORD v19[21]; // [rsp+78h] [rbp-C0h] BYREF
 
-  v7 = a2;
+  v7 = NumberOfParameters;
   v15 = 0;
-  if ( a2 > 5 )
-    return 3221225712LL;
-  if ( !a4 )
+  if ( NumberOfParameters > 5 )
+    return -1073741584;
+  if ( !Parameters )
   {
-    if ( !a2 )
+    if ( !NumberOfParameters )
       goto LABEL_4;
-    return 3221225712LL;
+    return -1073741584;
   }
-  if ( !a2 )
-    return 3221225712LL;
+  if ( !NumberOfParameters )
+    return -1073741584;
 LABEL_4:
   if ( !KeGetCurrentThread()->PreviousMode )
   {
-    v13 = ExRaiseHardError(a1, a2, a3, a4, a5, &v15);
-    *a6 = v15;
+    v13 = ExRaiseHardError(
+            ErrorStatus,
+            NumberOfParameters,
+            UnicodeStringParameterMask,
+            (char *)Parameters,
+            ValidResponseOptions,
+            (int *)&v15);
+    *Response = v15;
     return v13;
   }
-  if ( a5 <= 6 || a5 - 7 <= 1 )
+  if ( ValidResponseOptions <= 6 || ValidResponseOptions - 7 <= 1 )
   {
     v9 = 0x7FFFFFFF0000LL;
-    if ( (unsigned __int64)a6 < 0x7FFFFFFF0000LL )
-      v9 = (__int64)a6;
+    if ( (unsigned __int64)Response < 0x7FFFFFFF0000LL )
+      v9 = (__int64)Response;
     *(_DWORD *)v9 = *(_DWORD *)v9;
-    if ( a4 )
+    if ( Parameters )
     {
-      if ( 8LL * a2 && ((unsigned __int8)a4 & 7) != 0 )
+      if ( 8LL * NumberOfParameters && ((unsigned __int8)Parameters & 7) != 0 )
         ExRaiseDatatypeMisalignment();
-      memmove(Src, a4, 8LL * a2);
+      memmove(Src, Parameters, 8LL * NumberOfParameters);
       memmove(v19, Src, 8 * v7);
-      if ( a3 )
+      if ( UnicodeStringParameterMask )
       {
         for ( i = 0; ; ++i )
         {
           v16 = i;
           if ( i >= (unsigned int)v7 )
             break;
-          if ( _bittest(&a3, i) )
+          if ( _bittest((const int *)&UnicodeStringParameterMask, i) )
           {
             v11 = (_OWORD *)Src[i];
             if ( ((unsigned __int8)v11 & 7) != 0 )
               ExRaiseDatatypeMisalignment();
-            v12 = &v19[8 * i + 20];
-            *v12 = *v11;
-            *(_QWORD *)&v19[4 * i] = v12;
+            v12 = 8LL * i;
+            *(_OWORD *)&v19[v12 + 20] = *v11;
+            *(_QWORD *)&v19[4 * i] = &v19[v12 + 20];
             i = v16;
           }
         }
       }
     }
-    v13 = ExpRaiseHardError(a1, v7, a3, (unsigned int)Src, (__int64)v19, a5, (__int64)&v15);
+    v13 = ExpRaiseHardError(
+            ErrorStatus,
+            v7,
+            UnicodeStringParameterMask,
+            (unsigned int)Src,
+            (__int64)v19,
+            ValidResponseOptions,
+            (__int64)&v15);
     v17 = v13;
-    *a6 = v15;
+    *Response = v15;
     return v13;
   }
-  return 3221225714LL;
+  return -1073741582;
 }

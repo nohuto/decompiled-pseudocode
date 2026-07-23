@@ -1,9 +1,9 @@
 /*
- * XREFs of XmRdtscOp @ 0x1405AE1C0
+ * XREFs of XmRdtscOp @ 0x1405B09D0
  * Callers:
  *     <none>
  * Callees:
- *     KeQueryPerformanceCounter @ 0x14021C3F0 (KeQueryPerformanceCounter.c)
+ *     KeQueryPerformanceCounter @ 0x14021DD80 (KeQueryPerformanceCounter.c)
  */
 
 unsigned __int64 __fastcall XmRdtscOp(__int64 a1)

@@ -1,11 +1,11 @@
 /*
- * XREFs of PopTraceEsState @ 0x1405D6094
+ * XREFs of PopTraceEsState @ 0x1405D36A8
  * Callers:
- *     PopEsSnapTelemetry @ 0x14075D6C8 (PopEsSnapTelemetry.c)
+ *     PopEsSnapTelemetry @ 0x14075C668 (PopEsSnapTelemetry.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x140426AF0 (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402B92F0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14041A970 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 void __fastcall PopTraceEsState(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int a5, int a6, int a7, int a8)
@@ -41,7 +41,7 @@ void __fastcall PopTraceEsState(__int64 a1, __int64 a2, __int64 a3, __int64 a4, 
   __int64 *v36; // [rsp+100h] [rbp+0h]
   __int64 v37; // [rsp+108h] [rbp+8h]
 
-  if ( (unsigned int)dword_140E076F0 > 5 && tlgKeywordOn((__int64)&dword_140E076F0, 0x400000000000LL) )
+  if ( (unsigned int)dword_140E07680 > 5 && tlgKeywordOn((__int64)&dword_140E07680, 0x400000000000LL) )
   {
     v10 = PopEsReason;
     v17 = v9;
@@ -71,8 +71,8 @@ void __fastcall PopTraceEsState(__int64 a1, __int64 a2, __int64 a3, __int64 a4, 
     v18 = 0x1000000LL;
     v37 = 8LL;
     tlgWriteTransfer_EtwWriteTransfer(
-      (__int64)&dword_140E076F0,
-      (unsigned __int8 *)byte_14004A7F8,
+      (__int64)&dword_140E07680,
+      (unsigned __int8 *)byte_14004A68D,
       0LL,
       0LL,
       0xBu,

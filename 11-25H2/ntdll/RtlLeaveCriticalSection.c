@@ -133,48 +133,47 @@
  *     ZwSetEventEx @ 0x180166630 (ZwSetEventEx.c)
  */
 
-__int64 __fastcall RtlLeaveCriticalSection(__int64 a1)
+NTSTATUS __cdecl RtlLeaveCriticalSection(PRTL_CRITICAL_SECTION CriticalSection)
 {
   signed __int64 v3; // rbp
-  signed __int32 v4; // r14d
+  signed __int32 LockCount; // r14d
   char *SchedulerSharedDataSlot; // rdx
   unsigned int v6; // ecx
-  __int64 v7; // rbx
+  unsigned __int64 v7; // rbx
   char *v8; // rdi
-  HANDLE v9; // rdi
+  void *LockSemaphore; // rdi
   unsigned int v10; // ecx
-  int v11; // eax
+  NTSTATUS v11; // eax
   char *v13; // rdx
   unsigned int v14; // ecx
-  __int64 v15; // rbx
+  unsigned __int64 v15; // rbx
   int v16; // r8d
   unsigned __int64 v17; // rax
   unsigned int v18; // eax
   unsigned int i; // r8d
   signed __int32 v20[8]; // [rsp+0h] [rbp-68h] BYREF
-  int v21; // [rsp+20h] [rbp-48h]
-  _QWORD v22[7]; // [rsp+30h] [rbp-38h] BYREF
-  HANDLE Handle; // [rsp+80h] [rbp+18h] BYREF
+  _QWORD ThreadInformation[7]; // [rsp+30h] [rbp-38h] BYREF
+  HANDLE EventHandle; // [rsp+80h] [rbp+18h] BYREF
 
-  if ( (*(_DWORD *)(a1 + 12))-- != 1 )
-    return 0LL;
+  if ( CriticalSection->RecursionCount-- != 1 )
+    return 0;
   v3 = -1LL;
-  *(_QWORD *)(a1 + 16) = 0LL;
-  v4 = _InterlockedCompareExchange((volatile signed __int32 *)(a1 + 8), -1, -2);
-  if ( v4 == -2 )
+  CriticalSection->OwningThread = 0LL;
+  LockCount = _InterlockedCompareExchange(&CriticalSection->LockCount, -1, -2);
+  if ( LockCount == -2 )
   {
     SchedulerSharedDataSlot = (char *)NtCurrentTeb()->SchedulerSharedDataSlot;
     if ( SchedulerSharedDataSlot )
     {
       v6 = 0;
-      v7 = a1 & 0x7FFFFFFFFFFFFFFCLL;
+      v7 = (unsigned __int64)CriticalSection & 0x7FFFFFFFFFFFFFFCLL;
       while ( v6 < 8 )
       {
         v8 = &SchedulerSharedDataSlot[8 * v6];
         if ( (*(_QWORD *)v8 & 0x7FFFFFFFFFFFFFFCLL) == v7 )
         {
           if ( !v8 )
-            return 0LL;
+            return 0;
           *v8 |= 2u;
           if ( v8[7] >= 0 )
             goto LABEL_46;
@@ -183,36 +182,41 @@ __int64 __fastcall RtlLeaveCriticalSection(__int64 a1)
         ++v6;
       }
     }
-    return 0LL;
+    return 0;
   }
-  if ( (*(_BYTE *)(a1 + 8) & 1) != 0 )
-    RtlpNotOwnerCriticalSection(a1);
-  v9 = *(HANDLE *)(a1 + 24);
-  if ( !v9 )
+  if ( (CriticalSection->LockCount & 1) != 0 )
+    RtlpNotOwnerCriticalSection(CriticalSection);
+  LockSemaphore = CriticalSection->LockSemaphore;
+  if ( !LockSemaphore )
   {
-    Handle = (HANDLE)-1LL;
+    EventHandle = (HANDLE)-1LL;
     if ( RtlpForceCSToUseEvents )
     {
-      LOBYTE(v21) = 0;
-      if ( (int)ZwCreateEvent(&Handle, 1048579LL, 0LL, 1LL, v21) >= 0 )
-        v3 = (signed __int64)Handle;
+      if ( ZwCreateEvent(&EventHandle, 0x100003u, 0LL, SynchronizationEvent, 0) >= 0 )
+        v3 = (signed __int64)EventHandle;
       else
-        Handle = (HANDLE)-1LL;
+        EventHandle = (HANDLE)-1LL;
     }
-    v9 = (HANDLE)_InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 24), v3, 0LL);
-    if ( v9 )
+    LockSemaphore = (void *)_InterlockedCompareExchange64(
+                              (volatile signed __int64 *)&CriticalSection->LockSemaphore,
+                              v3,
+                              0LL);
+    if ( LockSemaphore )
     {
-      if ( Handle != (HANDLE)-1LL )
-        NtClose(Handle);
-      Handle = v9;
+      if ( EventHandle != (HANDLE)-1LL )
+        NtClose(EventHandle);
+      EventHandle = LockSemaphore;
     }
     else
     {
-      v9 = Handle;
+      LockSemaphore = EventHandle;
     }
   }
   v10 = 0;
-  while ( v4 != _InterlockedCompareExchange((volatile signed __int32 *)(a1 + 8), (v4 & 2 | 1) + v4, v4) )
+  while ( LockCount != _InterlockedCompareExchange(
+                         &CriticalSection->LockCount,
+                         (LockCount & 2 | 1) + LockCount,
+                         LockCount) )
   {
     v16 = v10;
     if ( v10 )
@@ -232,28 +236,28 @@ __int64 __fastcall RtlLeaveCriticalSection(__int64 a1)
     for ( i = 0; i < v18; ++i )
       _mm_pause();
 LABEL_38:
-    _m_prefetchw((const void *)(a1 + 8));
-    v4 = *(_DWORD *)(a1 + 8);
+    _m_prefetchw(&CriticalSection->LockCount);
+    LockCount = CriticalSection->LockCount;
   }
-  if ( (v4 & 2) != 0 )
+  if ( (LockCount & 2) != 0 )
   {
-    if ( v9 == (HANDLE)-1LL )
+    if ( LockSemaphore == (void *)-1LL )
     {
       _InterlockedOr(v20, 0);
-      RtlpWakeByAddress(a1 + 8, 0LL, a1);
+      RtlpWakeByAddress(&CriticalSection->LockCount, 0LL, CriticalSection);
     }
     else
     {
-      v11 = ZwSetEventEx(v9, 0LL, a1);
+      v11 = ZwSetEventEx(LockSemaphore, 0LL, CriticalSection);
       if ( v11 < 0 )
-        RtlRaiseStatus((unsigned int)v11);
+        RtlRaiseStatus(v11);
     }
   }
   v13 = (char *)NtCurrentTeb()->SchedulerSharedDataSlot;
   if ( v13 )
   {
     v14 = 0;
-    v15 = a1 & 0x7FFFFFFFFFFFFFFCLL;
+    v15 = (unsigned __int64)CriticalSection & 0x7FFFFFFFFFFFFFFCLL;
     while ( v14 < 8 )
     {
       v8 = &v13[8 * v14];
@@ -265,17 +269,17 @@ LABEL_38:
           if ( v8[7] < 0 )
           {
 LABEL_45:
-            v22[1] = 0LL;
-            v22[0] = (v8 - (char *)NtCurrentTeb()->SchedulerSharedDataSlot) >> 3;
-            NtSetInformationThread(-2LL, 56LL, v22);
+            ThreadInformation[1] = 0LL;
+            ThreadInformation[0] = (v8 - (char *)NtCurrentTeb()->SchedulerSharedDataSlot) >> 3;
+            NtSetInformationThread((HANDLE)0xFFFFFFFFFFFFFFFELL, ThreadUpdateLockOwnership, ThreadInformation, 0x10u);
           }
 LABEL_46:
           *(_QWORD *)v8 = 0LL;
         }
-        return 0LL;
+        return 0;
       }
       ++v14;
     }
   }
-  return 0LL;
+  return 0;
 }

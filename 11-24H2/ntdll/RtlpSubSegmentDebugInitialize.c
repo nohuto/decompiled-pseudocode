@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlpSubSegmentDebugInitialize @ 0x1800D0D50
+ * XREFs of RtlpSubSegmentDebugInitialize @ 0x1800CE2C0
  * Callers:
- *     RtlpSubSegmentInitialize @ 0x1800D0810 (RtlpSubSegmentInitialize.c)
+ *     RtlpSubSegmentInitialize @ 0x1800CDD80 (RtlpSubSegmentInitialize.c)
  * Callees:
- *     RtlpGetFirstBlockAddress @ 0x180049E20 (RtlpGetFirstBlockAddress.c)
- *     RtlGetCurrentServiceSessionId @ 0x180055A20 (RtlGetCurrentServiceSessionId.c)
- *     RtlpLogHeapSubSegmentInitialize @ 0x1800D0C90 (RtlpLogHeapSubSegmentInitialize.c)
- *     RtlpInitializeLfhBitmapData @ 0x1800E3D20 (RtlpInitializeLfhBitmapData.c)
- *     RtlInitializeSListHead @ 0x1800E5EB0 (RtlInitializeSListHead.c)
- *     RtlpProtectBlock @ 0x18014CD54 (RtlpProtectBlock.c)
+ *     RtlpGetFirstBlockAddress @ 0x18005FA00 (RtlpGetFirstBlockAddress.c)
+ *     RtlGetCurrentServiceSessionId @ 0x18006B600 (RtlGetCurrentServiceSessionId.c)
+ *     RtlpLogHeapSubSegmentInitialize @ 0x1800CE200 (RtlpLogHeapSubSegmentInitialize.c)
+ *     RtlpInitializeLfhBitmapData @ 0x1800DF6A0 (RtlpInitializeLfhBitmapData.c)
+ *     RtlInitializeSListHead @ 0x1800E1360 (RtlInitializeSListHead.c)
+ *     RtlpProtectBlock @ 0x18014B11C (RtlpProtectBlock.c)
  */
 
 __int64 __fastcall RtlpSubSegmentDebugInitialize(
@@ -105,7 +105,7 @@ __int64 __fastcall RtlpSubSegmentDebugInitialize(
   *(_DWORD *)(a3 + 20) = -253701952;
   *(_DWORD *)(a2 + 44) = 1;
   _InterlockedCompareExchange((volatile signed __int32 *)(a2 + 32), (unsigned __int16)v16, v11);
-  if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+  if ( RtlGetCurrentServiceSessionId() )
     v26 = (__int64)NtCurrentPeb()->SharedData + 550;
   else
     v26 = 2147353472LL;

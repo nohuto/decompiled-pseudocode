@@ -1,11 +1,11 @@
 /*
- * XREFs of KiCheckStall @ 0x14052A940
+ * XREFs of KiCheckStall @ 0x14052CE60
  * Callers:
- *     KeSwitchFrozenProcessor @ 0x1404F1C1C (KeSwitchFrozenProcessor.c)
- *     KeStallWhileFrozen @ 0x14052A920 (KeStallWhileFrozen.c)
- *     KiFreezeTargetExecution @ 0x1405F5E50 (KiFreezeTargetExecution.c)
+ *     KeSwitchFrozenProcessor @ 0x1404EB1FC (KeSwitchFrozenProcessor.c)
+ *     KeStallWhileFrozen @ 0x14052CE40 (KeStallWhileFrozen.c)
+ *     KiFreezeTargetExecution @ 0x1405F8810 (KiFreezeTargetExecution.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x14021C3F0 (KeQueryPerformanceCounter.c)
+ *     KeQueryPerformanceCounter @ 0x14021DD80 (KeQueryPerformanceCounter.c)
  */
 
 __int64 __fastcall KiCheckStall(__int64 a1, char a2)

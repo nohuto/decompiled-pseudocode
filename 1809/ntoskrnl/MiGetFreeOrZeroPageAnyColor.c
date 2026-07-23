@@ -1,11 +1,11 @@
 /*
- * XREFs of MiGetFreeOrZeroPageAnyColor @ 0x1400EB0D0
+ * XREFs of MiGetFreeOrZeroPageAnyColor @ 0x1400EB150
  * Callers:
  *     MiGetPage @ 0x140049D50 (MiGetPage.c)
  * Callees:
- *     MiDemoteLocalLargePage @ 0x140064060 (MiDemoteLocalLargePage.c)
- *     MiRemovePageAnyColor @ 0x1400EB17C (MiRemovePageAnyColor.c)
- *     MiGetPageSlist @ 0x14010CCA0 (MiGetPageSlist.c)
+ *     MiDemoteLocalLargePage @ 0x140064050 (MiDemoteLocalLargePage.c)
+ *     MiRemovePageAnyColor @ 0x1400EB1FC (MiRemovePageAnyColor.c)
+ *     MiGetPageSlist @ 0x14010CD20 (MiGetPageSlist.c)
  */
 
 __int64 __fastcall MiGetFreeOrZeroPageAnyColor(__int64 a1, unsigned int a2, unsigned int a3)
@@ -21,7 +21,7 @@ __int64 __fastcall MiGetFreeOrZeroPageAnyColor(__int64 a1, unsigned int a2, unsi
   if ( v3 >= 0x10 )
     v3 = 16LL;
   v7 = 1;
-  v8 = (unsigned int)dword_14043A088 * v3;
+  v8 = (unsigned int)dword_14043B148 * v3;
   v9 = a3 & 0x10001;
   while ( 1 )
   {

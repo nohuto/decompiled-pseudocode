@@ -1,21 +1,21 @@
 /*
- * XREFs of ObpCaptureBoundaryDescriptor @ 0x140A09D98
+ * XREFs of ObpCaptureBoundaryDescriptor @ 0x140A062C8
  * Callers:
- *     NtCreatePrivateNamespace @ 0x140A09670 (NtCreatePrivateNamespace.c)
- *     NtOpenPrivateNamespace @ 0x140A09B40 (NtOpenPrivateNamespace.c)
+ *     NtCreatePrivateNamespace @ 0x140A05BA0 (NtCreatePrivateNamespace.c)
+ *     NtOpenPrivateNamespace @ 0x140A06070 (NtOpenPrivateNamespace.c)
  * Callees:
- *     RtlLengthSid @ 0x140456300 (RtlLengthSid.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     RtlCopyVolatileMemory @ 0x1406B5CF0 (RtlCopyVolatileMemory.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     SeCaptureSubjectContextEx @ 0x14083FC40 (SeCaptureSubjectContextEx.c)
- *     SeReleaseSubjectContext @ 0x14084D7E0 (SeReleaseSubjectContext.c)
- *     RtlEnumerateBoundaryDescriptorEntries @ 0x140867130 (RtlEnumerateBoundaryDescriptorEntries.c)
- *     ExRaiseDatatypeMisalignment @ 0x14089B1F0 (ExRaiseDatatypeMisalignment.c)
- *     SeQueryInformationToken @ 0x14090D870 (SeQueryInformationToken.c)
- *     ObpCheckDuplicateEntries @ 0x140A0A0F8 (ObpCheckDuplicateEntries.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlLengthSid @ 0x14044B2D0 (RtlLengthSid.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     RtlCopyVolatileMemory @ 0x1406B6C90 (RtlCopyVolatileMemory.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     SeCaptureSubjectContextEx @ 0x14083BF00 (SeCaptureSubjectContextEx.c)
+ *     SeReleaseSubjectContext @ 0x140849AA0 (SeReleaseSubjectContext.c)
+ *     RtlEnumerateBoundaryDescriptorEntries @ 0x14086B5C0 (RtlEnumerateBoundaryDescriptorEntries.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408A3890 (ExRaiseDatatypeMisalignment.c)
+ *     SeQueryInformationToken @ 0x1408E4F90 (SeQueryInformationToken.c)
+ *     ObpCheckDuplicateEntries @ 0x140A06628 (ObpCheckDuplicateEntries.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall ObpCaptureBoundaryDescriptor(char *Src, __int64 *a2)
@@ -94,7 +94,7 @@ __int64 __fastcall ObpCaptureBoundaryDescriptor(char *Src, __int64 *a2)
     InformationToken = -1073741675;
     goto LABEL_22;
   }
-  Pool2 = ExAllocatePool2(0x100uLL);
+  Pool2 = ExAllocatePool2(0x100uLL, (unsigned int)v12, 0x534E624Fu);
   P[1] = (PVOID)Pool2;
   if ( !Pool2 )
   {

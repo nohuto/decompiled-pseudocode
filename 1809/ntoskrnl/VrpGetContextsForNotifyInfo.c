@@ -1,7 +1,7 @@
 /*
- * XREFs of VrpGetContextsForNotifyInfo @ 0x140807A9C
+ * XREFs of VrpGetContextsForNotifyInfo @ 0x140808C9C
  * Callers:
- *     VrpShouldOperateOnCall @ 0x14080823C (VrpShouldOperateOnCall.c)
+ *     VrpShouldOperateOnCall @ 0x14080943C (VrpShouldOperateOnCall.c)
  * Callees:
  *     <none>
  */

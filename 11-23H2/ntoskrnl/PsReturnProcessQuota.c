@@ -1,12 +1,12 @@
 /*
- * XREFs of PsReturnProcessQuota @ 0x1402EA0CC
+ * XREFs of PsReturnProcessQuota @ 0x1402EA35C
  * Callers:
- *     MmAdjustWorkingSetSizeEx @ 0x1402E9C78 (MmAdjustWorkingSetSizeEx.c)
- *     MmDeleteProcessAddressSpace @ 0x1407059E8 (MmDeleteProcessAddressSpace.c)
- *     MmCreateProcessAddressSpace @ 0x140705E50 (MmCreateProcessAddressSpace.c)
- *     MmCleanProcessAddressSpace @ 0x14071FA58 (MmCleanProcessAddressSpace.c)
+ *     MmAdjustWorkingSetSizeEx @ 0x1402E9F08 (MmAdjustWorkingSetSizeEx.c)
+ *     MmDeleteProcessAddressSpace @ 0x140705BF8 (MmDeleteProcessAddressSpace.c)
+ *     MmCreateProcessAddressSpace @ 0x140706060 (MmCreateProcessAddressSpace.c)
+ *     MmCleanProcessAddressSpace @ 0x14071FC58 (MmCleanProcessAddressSpace.c)
  * Callees:
- *     PspReturnQuota @ 0x1402AD0A0 (PspReturnQuota.c)
+ *     PspReturnQuota @ 0x1402AD330 (PspReturnQuota.c)
  */
 
 signed __int64 __fastcall PsReturnProcessQuota(ULONG_PTR a1, __int64 a2, ULONG_PTR a3)

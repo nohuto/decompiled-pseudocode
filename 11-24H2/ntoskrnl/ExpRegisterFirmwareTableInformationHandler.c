@@ -1,15 +1,15 @@
 /*
- * XREFs of ExpRegisterFirmwareTableInformationHandler @ 0x1407B5650
+ * XREFs of ExpRegisterFirmwareTableInformationHandler @ 0x1407B5AA0
  * Callers:
- *     NtSetSystemInformation @ 0x140AE1300 (NtSetSystemInformation.c)
+ *     NtSetSystemInformation @ 0x140AE2BE0 (NtSetSystemInformation.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x14025A450 (ExReleaseResourceLite.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402769C0 (ExAcquireResourceExclusiveLite.c)
- *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
- *     PsReferenceSiloContext @ 0x14033FA90 (PsReferenceSiloContext.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14022BF50 (ExAcquireResourceExclusiveLite.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x14028AA60 (ExReleaseResourceLite.c)
+ *     ObfDereferenceObject @ 0x1402CE210 (ObfDereferenceObject.c)
+ *     PsReferenceSiloContext @ 0x14031EF70 (PsReferenceSiloContext.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall ExpRegisterFirmwareTableInformationHandler(__int64 a1, unsigned int a2, char a3)
@@ -73,7 +73,7 @@ LABEL_21:
       v3 = -1073741811;
       goto LABEL_22;
     }
-    Pool2 = ExAllocatePool2(0x100uLL);
+    Pool2 = ExAllocatePool2(0x100uLL, 0x28uLL, 0x54465241u);
     if ( Pool2 )
     {
       v11 = (_QWORD *)(Pool2 + 24);
@@ -83,13 +83,13 @@ LABEL_21:
       *(_QWORD *)(Pool2 + 32) = Pool2 + 24;
       *(_QWORD *)(Pool2 + 24) = Pool2 + 24;
       PsReferenceSiloContext(*(void **)(Pool2 + 16));
-      v12 = (_QWORD *)qword_140EFEB98;
-      if ( *(__int64 **)qword_140EFEB98 != &ExpFirmwareTableProviderListHead )
+      v12 = (_QWORD *)qword_140EFEE48;
+      if ( *(__int64 **)qword_140EFEE48 != &ExpFirmwareTableProviderListHead )
         goto LABEL_19;
       *v11 = &ExpFirmwareTableProviderListHead;
       v11[1] = v12;
       *v12 = v11;
-      qword_140EFEB98 = (__int64)v11;
+      qword_140EFEE48 = (__int64)v11;
     }
     else
     {

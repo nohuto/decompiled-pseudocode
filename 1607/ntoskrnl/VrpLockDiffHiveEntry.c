@@ -1,12 +1,12 @@
 /*
- * XREFs of VrpLockDiffHiveEntry @ 0x14061771C
+ * XREFs of VrpLockDiffHiveEntry @ 0x1406177D0
  * Callers:
- *     VrpLoadDifferencingHive @ 0x140617474 (VrpLoadDifferencingHive.c)
- *     VrpUnloadDifferencingHive @ 0x140617878 (VrpUnloadDifferencingHive.c)
- *     VrpWaitForDiffHiveEntryTransitionOwnerToLeave @ 0x140617A28 (VrpWaitForDiffHiveEntryTransitionOwnerToLeave.c)
+ *     VrpLoadDifferencingHive @ 0x140617528 (VrpLoadDifferencingHive.c)
+ *     VrpUnloadDifferencingHive @ 0x14061792C (VrpUnloadDifferencingHive.c)
+ *     VrpWaitForDiffHiveEntryTransitionOwnerToLeave @ 0x140617ADC (VrpWaitForDiffHiveEntryTransitionOwnerToLeave.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
  */
 
 _BYTE *__fastcall VrpLockDiffHiveEntry(__int64 a1)

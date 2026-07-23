@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpDmaAllocateMapRegisterFrame @ 0x140588C88
+ * XREFs of HalpDmaAllocateMapRegisterFrame @ 0x14058B358
  * Callers:
- *     HalpDmaAllocateMapRegisters @ 0x14035A8E0 (HalpDmaAllocateMapRegisters.c)
+ *     HalpDmaAllocateMapRegisters @ 0x14035C680 (HalpDmaAllocateMapRegisters.c)
  * Callees:
- *     MmGetPhysicalAddress @ 0x14024D8F0 (MmGetPhysicalAddress.c)
- *     MmFreeContiguousMemory @ 0x140344580 (MmFreeContiguousMemory.c)
- *     MmAllocateContiguousMemoryEx @ 0x140348FD0 (MmAllocateContiguousMemoryEx.c)
- *     HalpMmAllocCtxAlloc @ 0x140357FFC (HalpMmAllocCtxAlloc.c)
- *     MmMapIoSpaceEx @ 0x140363DC0 (MmMapIoSpaceEx.c)
- *     HalpDmaCvmSetPageShareability @ 0x140783234 (HalpDmaCvmSetPageShareability.c)
+ *     MmGetPhysicalAddress @ 0x14024F250 (MmGetPhysicalAddress.c)
+ *     MmFreeContiguousMemory @ 0x140346600 (MmFreeContiguousMemory.c)
+ *     MmAllocateContiguousMemoryEx @ 0x14034B050 (MmAllocateContiguousMemoryEx.c)
+ *     HalpMmAllocCtxAlloc @ 0x140359D9C (HalpMmAllocCtxAlloc.c)
+ *     MmMapIoSpaceEx @ 0x140365B60 (MmMapIoSpaceEx.c)
+ *     HalpDmaCvmSetPageShareability @ 0x140785D68 (HalpDmaCvmSetPageShareability.c)
  */
 
 __int64 __fastcall HalpDmaAllocateMapRegisterFrame(__int64 a1)

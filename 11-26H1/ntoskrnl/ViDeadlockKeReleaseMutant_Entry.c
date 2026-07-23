@@ -1,9 +1,9 @@
 /*
- * XREFs of ViDeadlockKeReleaseMutant_Entry @ 0x140C37A50
+ * XREFs of ViDeadlockKeReleaseMutant_Entry @ 0x140C3DA60
  * Callers:
  *     <none>
  * Callees:
- *     VfDeadlockReleaseResource @ 0x140C4493C (VfDeadlockReleaseResource.c)
+ *     VfDeadlockReleaseResource @ 0x140C4A94C (VfDeadlockReleaseResource.c)
  */
 
 __int64 __fastcall ViDeadlockKeReleaseMutant_Entry(__int64 a1)

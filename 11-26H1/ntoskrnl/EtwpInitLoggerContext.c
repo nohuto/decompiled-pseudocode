@@ -1,23 +1,23 @@
 /*
- * XREFs of EtwpInitLoggerContext @ 0x140A6DD54
+ * XREFs of EtwpInitLoggerContext @ 0x140AB20E0
  * Callers:
- *     EtwpStartLogger @ 0x140A6E1B4 (EtwpStartLogger.c)
+ *     EtwpStartLogger @ 0x140AB0F2C (EtwpStartLogger.c)
  * Callees:
- *     KeQuerySystemTimePrecise @ 0x14021B070 (KeQuerySystemTimePrecise.c)
- *     KeQueryMaximumProcessorCountEx @ 0x1402767B0 (KeQueryMaximumProcessorCountEx.c)
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     KeInitializeEvent @ 0x140466F30 (KeInitializeEvent.c)
- *     KeInitializeDpc @ 0x140481A50 (KeInitializeDpc.c)
- *     EtwpQueryUsedProcessorCount @ 0x140488A24 (EtwpQueryUsedProcessorCount.c)
- *     EtwpInitializeApcPool @ 0x140498EE8 (EtwpInitializeApcPool.c)
- *     KeInitializeTimerEx @ 0x1404A5F90 (KeInitializeTimerEx.c)
- *     MmGetNumberOfPhysicalPages @ 0x1404AF740 (MmGetNumberOfPhysicalPages.c)
- *     KeInitializeMutex @ 0x1404B26F0 (KeInitializeMutex.c)
- *     EtwpInitializeCompression @ 0x1404F9C80 (EtwpInitializeCompression.c)
- *     HalQueryMaximumProcessorCount @ 0x1404FB520 (HalQueryMaximumProcessorCount.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     KeQuerySystemTimePrecise @ 0x14021CA00 (KeQuerySystemTimePrecise.c)
+ *     KeQueryMaximumProcessorCountEx @ 0x140275D20 (KeQueryMaximumProcessorCountEx.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     HalQueryMaximumProcessorCount @ 0x1404362A0 (HalQueryMaximumProcessorCount.c)
+ *     KeInitializeEvent @ 0x140460680 (KeInitializeEvent.c)
+ *     KeInitializeDpc @ 0x14047B3C0 (KeInitializeDpc.c)
+ *     EtwpQueryUsedProcessorCount @ 0x140482564 (EtwpQueryUsedProcessorCount.c)
+ *     EtwpInitializeApcPool @ 0x140492A38 (EtwpInitializeApcPool.c)
+ *     KeInitializeTimerEx @ 0x14049F620 (KeInitializeTimerEx.c)
+ *     MmGetNumberOfPhysicalPages @ 0x1404A8DD0 (MmGetNumberOfPhysicalPages.c)
+ *     KeInitializeMutex @ 0x1404ABC00 (KeInitializeMutex.c)
+ *     EtwpInitializeCompression @ 0x1404F3290 (EtwpInitializeCompression.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpInitLoggerContext(const void **a1, int a2, int a3)
@@ -28,7 +28,7 @@ __int64 __fastcall EtwpInitLoggerContext(const void **a1, int a2, int a3)
   _QWORD *Pool2; // rax
   __int64 v9; // rbx
   char *v10; // rdi
-  void *v11; // rax
+  char *v11; // rax
   unsigned __int64 v12; // rcx
   __int64 v13; // rcx
   int UsedProcessorCount; // edi
@@ -74,18 +74,18 @@ __int64 __fastcall EtwpInitLoggerContext(const void **a1, int a2, int a3)
   *(_DWORD *)(v9 + 300) = (a2 & 0x1000000) != 0 ? 1 : 512;
   if ( a2 < 0 && (a2 & 0x1000000) != 0 )
     *(_DWORD *)(v9 + 12) = a2 & 0x7FFFFFFF;
-  if ( (unsigned __int8)EtwpBootPhase > 3u )
+  if ( LOBYTE(stru_140F03830.CycleTime) > 3u )
     _InterlockedOr((volatile signed __int32 *)(v9 + 816), 4u);
   if ( (a2 & 0x8000) != 0 )
   {
-    v11 = (void *)(v9 + 272);
+    v11 = (char *)(v9 + 272);
 LABEL_18:
     *(_QWORD *)(v9 + 264) = v11;
     goto LABEL_19;
   }
   if ( (a2 & 0x4000) != 0 )
   {
-    v11 = &EtwpGlobalSequence;
+    v11 = (char *)&stru_140F03830.TrapFrame + 4;
     goto LABEL_18;
   }
 LABEL_19:

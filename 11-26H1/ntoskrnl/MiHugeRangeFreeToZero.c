@@ -1,15 +1,15 @@
 /*
- * XREFs of MiHugeRangeFreeToZero @ 0x14048DD70
+ * XREFs of MiHugeRangeFreeToZero @ 0x1404878B0
  * Callers:
- *     MiMoveZeroedPage @ 0x14051F60C (MiMoveZeroedPage.c)
- *     MiCanPageBeScrubbed @ 0x14070BE30 (MiCanPageBeScrubbed.c)
+ *     MiMoveZeroedPage @ 0x140521CB0 (MiMoveZeroedPage.c)
+ *     MiCanPageBeScrubbed @ 0x140710AE0 (MiCanPageBeScrubbed.c)
  * Callees:
- *     MiPageToNode @ 0x140289710 (MiPageToNode.c)
- *     MiStopPageAccessor @ 0x14048E008 (MiStopPageAccessor.c)
- *     MiHugePfnPartition @ 0x14048E180 (MiHugePfnPartition.c)
- *     MiLockHugeRangeColorHeadAtDpc @ 0x14048E350 (MiLockHugeRangeColorHeadAtDpc.c)
- *     MiUnlinkHugeRangeEx @ 0x14048E398 (MiUnlinkHugeRangeEx.c)
- *     MiInsertHugeRangeInList @ 0x14048E66C (MiInsertHugeRangeInList.c)
+ *     MiPageToNode @ 0x140288C70 (MiPageToNode.c)
+ *     MiStopPageAccessor @ 0x140487B48 (MiStopPageAccessor.c)
+ *     MiHugePfnPartition @ 0x140487CC0 (MiHugePfnPartition.c)
+ *     MiLockHugeRangeColorHeadAtDpc @ 0x140487E90 (MiLockHugeRangeColorHeadAtDpc.c)
+ *     MiUnlinkHugeRangeEx @ 0x140487ED8 (MiUnlinkHugeRangeEx.c)
+ *     MiInsertHugeRangeInList @ 0x1404881AC (MiInsertHugeRangeInList.c)
  */
 
 __int64 __fastcall MiHugeRangeFreeToZero(__int64 a1, char a2, int a3)
@@ -38,7 +38,7 @@ __int64 __fastcall MiHugeRangeFreeToZero(__int64 a1, char a2, int a3)
   __int64 v27; // [rsp+50h] [rbp+8h]
 
   v4 = a1 & 0x3FFFFF;
-  v7 = *(_QWORD *)((char *)&stru_140E2EB88.116 + 4) + 8 * v4;
+  v7 = *(_QWORD *)((char *)&stru_140E2ED08.116 + 4) + 8 * v4;
   v8 = (volatile signed __int64 *)MiLockHugeRangeColorHeadAtDpc(v7);
   v27 = MiHugePfnPartition(v7);
   v9 = MiPageToNode((unsigned __int64)(unsigned int)v4 << 18);
@@ -78,12 +78,12 @@ LABEL_2:
     v10 = v27;
     goto LABEL_2;
   }
-  result = LODWORD(stru_140E2EB88.Timer.TimerListEntry.Flink);
-  if ( LODWORD(stru_140E2EB88.Timer.TimerListEntry.Flink) == 1 )
+  result = LODWORD(stru_140E2ED08.Timer.TimerListEntry.Flink);
+  if ( LODWORD(stru_140E2ED08.Timer.TimerListEntry.Flink) == 1 )
   {
     v17 = v4 & 0x1F;
     LOBYTE(v18) = 1;
-    v19 = (volatile signed __int32 *)stru_140E2EB88.WaitBlock[2].WaitListEntry.Blink + (v4 >> 5);
+    v19 = (volatile signed __int32 *)stru_140E2ED08.WaitBlock[2].WaitListEntry.Blink + (v4 >> 5);
     result = v17 + 1;
     if ( (unsigned __int64)(v17 + 1) > 0x20 )
     {
@@ -118,11 +118,11 @@ LABEL_24:
       _InterlockedOr(v19, 1 << v17);
     }
   }
-  else if ( LODWORD(stru_140E2EB88.Timer.TimerListEntry.Flink) == 3 )
+  else if ( LODWORD(stru_140E2ED08.Timer.TimerListEntry.Flink) == 3 )
   {
     v20 = v4 & 0x1F;
     LOBYTE(v21) = 1;
-    v22 = (volatile signed __int32 *)stru_140E2EB88.WaitBlock[2].WaitListEntry.Blink + (v4 >> 5);
+    v22 = (volatile signed __int32 *)stru_140E2ED08.WaitBlock[2].WaitListEntry.Blink + (v4 >> 5);
     result = v20 + 1;
     if ( (unsigned __int64)(v20 + 1) > 0x20 )
     {

@@ -1,42 +1,42 @@
 /*
- * XREFs of AlpcpCompleteDispatchMessage @ 0x1409BF938
+ * XREFs of AlpcpCompleteDispatchMessage @ 0x140990918
  * Callers:
- *     AlpcpDispatchConnectionRequest @ 0x1408E8048 (AlpcpDispatchConnectionRequest.c)
- *     AlpcpDispatchCloseMessage @ 0x1408E8CF0 (AlpcpDispatchCloseMessage.c)
- *     AlpcpDispatchNewMessage @ 0x1409BF430 (AlpcpDispatchNewMessage.c)
- *     AlpcpDispatchReplyToPort @ 0x140B6F318 (AlpcpDispatchReplyToPort.c)
+ *     AlpcpDispatchConnectionRequest @ 0x1408EE608 (AlpcpDispatchConnectionRequest.c)
+ *     AlpcpDispatchCloseMessage @ 0x1408EF2B0 (AlpcpDispatchCloseMessage.c)
+ *     AlpcpDispatchNewMessage @ 0x140990410 (AlpcpDispatchNewMessage.c)
+ *     AlpcpDispatchReplyToPort @ 0x140B73328 (AlpcpDispatchReplyToPort.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     AlpcpQueueIoCompletionPort @ 0x140268A70 (AlpcpQueueIoCompletionPort.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ExfReleasePushLockShared @ 0x140278BD0 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     KeReleaseSemaphoreEx @ 0x1404396D0 (KeReleaseSemaphoreEx.c)
- *     KeGetProcessPpmPolicy @ 0x14046DC90 (KeGetProcessPpmPolicy.c)
- *     ExNotifyCallback @ 0x14047A7E0 (ExNotifyCallback.c)
- *     AlpcpReleaseDirectAttribute @ 0x1405FFB08 (AlpcpReleaseDirectAttribute.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     memcmp @ 0x14073D750 (memcmp.c)
- *     AlpcpLogWaitForReply @ 0x14077A1B0 (AlpcpLogWaitForReply.c)
- *     AlpcpInsertMessageDirectQueue @ 0x1407C07A8 (AlpcpInsertMessageDirectQueue.c)
- *     AlpcpGetDataFromMessage @ 0x1408E63B4 (AlpcpGetDataFromMessage.c)
- *     AlpcpExposeAttributes @ 0x140972B20 (AlpcpExposeAttributes.c)
- *     PsChargeProcessWakeCounter @ 0x1409BE250 (PsChargeProcessWakeCounter.c)
- *     AlpcpUnlockMessage @ 0x1409C07A0 (AlpcpUnlockMessage.c)
- *     AlpcpCaptureMessageDataSafe @ 0x1409C09E8 (AlpcpCaptureMessageDataSafe.c)
- *     AlpcpExposeAttributesInSenderContext @ 0x1409C0C60 (AlpcpExposeAttributesInSenderContext.c)
- *     AlpcpAllocateCompletionBuffer @ 0x140A476A0 (AlpcpAllocateCompletionBuffer.c)
- *     AlpcpFreeBitmap @ 0x140A47A9C (AlpcpFreeBitmap.c)
- *     AlpcpInsertMessagePendingQueue @ 0x140A4A040 (AlpcpInsertMessagePendingQueue.c)
- *     AlpcpInsertCompletionListEntry @ 0x140A64BA0 (AlpcpInsertCompletionListEntry.c)
- *     AlpcpInsertMessageMainQueue @ 0x140A7D4C0 (AlpcpInsertMessageMainQueue.c)
- *     AlpcpLogSendMessage @ 0x140B484DC (AlpcpLogSendMessage.c)
- *     AlpcpLogReceiveMessage @ 0x140B4854C (AlpcpLogReceiveMessage.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     AlpcpQueueIoCompletionPort @ 0x140267FE0 (AlpcpQueueIoCompletionPort.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ExfReleasePushLockShared @ 0x140278140 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     KeReleaseSemaphoreEx @ 0x14042BF80 (KeReleaseSemaphoreEx.c)
+ *     KeGetProcessPpmPolicy @ 0x140467410 (KeGetProcessPpmPolicy.c)
+ *     ExNotifyCallback @ 0x140474150 (ExNotifyCallback.c)
+ *     AlpcpReleaseDirectAttribute @ 0x140602558 (AlpcpReleaseDirectAttribute.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     memcmp @ 0x140742350 (memcmp.c)
+ *     AlpcpLogWaitForReply @ 0x14077D0E0 (AlpcpLogWaitForReply.c)
+ *     AlpcpInsertMessageDirectQueue @ 0x1407C3808 (AlpcpInsertMessageDirectQueue.c)
+ *     AlpcpGetDataFromMessage @ 0x1408EC974 (AlpcpGetDataFromMessage.c)
+ *     PsChargeProcessWakeCounter @ 0x14098F230 (PsChargeProcessWakeCounter.c)
+ *     AlpcpUnlockMessage @ 0x140991780 (AlpcpUnlockMessage.c)
+ *     AlpcpCaptureMessageDataSafe @ 0x1409919C8 (AlpcpCaptureMessageDataSafe.c)
+ *     AlpcpExposeAttributesInSenderContext @ 0x140991C40 (AlpcpExposeAttributesInSenderContext.c)
+ *     AlpcpExposeAttributes @ 0x1409B93B0 (AlpcpExposeAttributes.c)
+ *     AlpcpAllocateCompletionBuffer @ 0x140A50990 (AlpcpAllocateCompletionBuffer.c)
+ *     AlpcpFreeBitmap @ 0x140A50D8C (AlpcpFreeBitmap.c)
+ *     AlpcpInsertMessagePendingQueue @ 0x140A53330 (AlpcpInsertMessagePendingQueue.c)
+ *     AlpcpInsertCompletionListEntry @ 0x140A71B70 (AlpcpInsertCompletionListEntry.c)
+ *     AlpcpInsertMessageMainQueue @ 0x140A83330 (AlpcpInsertMessageMainQueue.c)
+ *     AlpcpLogSendMessage @ 0x140B4A26C (AlpcpLogSendMessage.c)
+ *     AlpcpLogReceiveMessage @ 0x140B4A2DC (AlpcpLogReceiveMessage.c)
  */
 
 void __fastcall AlpcpCompleteDispatchMessage(__int64 a1)
@@ -240,7 +240,7 @@ LABEL_51:
       ++*v26;
       v27 = v23 - 185;
       *(_DWORD *)(v5 + 40) |= 0x2000u;
-      v28 = BYTE4(stru_140E66B30.StackBase) == 0;
+      v28 = LOBYTE(stru_140E66D40.CycleTime) == 0;
       *(v23 - 1) = v5;
       if ( !v28 )
         AlpcpLogSendMessage(v5);
@@ -355,7 +355,7 @@ LABEL_51:
     v48 = &v44[v60 + v32];
     *(_DWORD *)v48 = v47;
     *((_DWORD *)v48 + 1) = 0;
-    AlpcpExposeAttributes(v4, v61, v5, (struct _KLOCK_ENTRIES *)*(unsigned int *)(v33 + 148), (ULONG_PTR)v48, 0);
+    AlpcpExposeAttributes(v4, v61, v5, *(_DWORD *)(v33 + 148), (__int64)v48, 0);
   }
   inserted = AlpcpInsertCompletionListEntry(v4, CompletionBuffer);
   if ( !inserted )
@@ -405,11 +405,11 @@ LABEL_115:
   }
   *(_WORD *)(v5 + 244) = v51 & 0xDFFF;
 LABEL_119:
-  if ( BYTE4(stru_140E66B30.StackBase) )
+  if ( LOBYTE(stru_140E66D40.CycleTime) )
     AlpcpLogSendMessage(v5);
-  if ( v50 && BYTE4(stru_140E66B30.StackBase) )
+  if ( v50 && LOBYTE(stru_140E66D40.CycleTime) )
     AlpcpLogReceiveMessage(v5);
-  if ( v57 && BYTE4(stru_140E66B30.StackBase) )
+  if ( v57 && LOBYTE(stru_140E66D40.CycleTime) )
     AlpcpLogWaitForReply(v5);
   *(_DWORD *)(v5 + 40) &= ~0x10000u;
   AlpcpUnlockMessage(v5);

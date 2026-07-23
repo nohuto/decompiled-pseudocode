@@ -1,7 +1,7 @@
 /*
- * XREFs of CmpRemoveKeyControlBlock @ 0x1403FB928
+ * XREFs of CmpRemoveKeyControlBlock @ 0x1403FA7E8
  * Callers:
- *     CmpDiscardKcb @ 0x14000ADEC (CmpDiscardKcb.c)
+ *     CmpDiscardKcb @ 0x14000A96C (CmpDiscardKcb.c)
  * Callees:
  *     <none>
  */

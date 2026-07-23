@@ -1,9 +1,9 @@
 /*
- * XREFs of PopPepAttemptAcitivityPromotion @ 0x1400FFB0C
+ * XREFs of PopPepAttemptAcitivityPromotion @ 0x1400FFB8C
  * Callers:
- *     PopPepPromoteActivities @ 0x1400FF954 (PopPepPromoteActivities.c)
+ *     PopPepPromoteActivities @ 0x1400FF9D4 (PopPepPromoteActivities.c)
  * Callees:
- *     PopPepShouldActivityWait @ 0x1400FFCA4 (PopPepShouldActivityWait.c)
+ *     PopPepShouldActivityWait @ 0x1400FFD24 (PopPepShouldActivityWait.c)
  */
 
 volatile signed __int32 *__fastcall PopPepAttemptAcitivityPromotion(
@@ -19,7 +19,7 @@ volatile signed __int32 *__fastcall PopPepAttemptAcitivityPromotion(
   unsigned int v12; // esi
   unsigned int v13; // edi
 
-  v9 = *((_DWORD *)&unk_14034FD38 + 34 * a4);
+  v9 = *((_DWORD *)&unk_140350D38 + 34 * a4);
   if ( !v9 )
   {
     *(_DWORD *)a3 = *(_DWORD *)a3 & 0xFFFFFFFC | 2;

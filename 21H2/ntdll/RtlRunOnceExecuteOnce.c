@@ -11,50 +11,50 @@
  *     RtlSetHeapInformation @ 0x180074DE0 (RtlSetHeapInformation.c)
  *     LdrpLogCFGModuleInfoTelemetry @ 0x1800853A8 (LdrpLogCFGModuleInfoTelemetry.c)
  *     RtlpQueryDiskSpeedPolicy @ 0x180088BB4 (RtlpQueryDiskSpeedPolicy.c)
- *     LdrpLogImportRedirectionTelemetry @ 0x1800CF6C4 (LdrpLogImportRedirectionTelemetry.c)
- *     LdrpLogIntegrityContinuityTelemetry @ 0x1800CF7D0 (LdrpLogIntegrityContinuityTelemetry.c)
- *     LdrpLogMapAndVerifyResourceFileFailure @ 0x1800CFAD4 (LdrpLogMapAndVerifyResourceFileFailure.c)
- *     LdrpLogVerifyAlternateResourceModuleWithServiceChecksumFailure @ 0x1800CFD64 (LdrpLogVerifyAlternateResourceModuleWithServiceChecksumFailure.c)
- *     LdrpLogVsmEnclaveLdrCreateEnclaveTelemetry @ 0x1800CFEB0 (LdrpLogVsmEnclaveLdrCreateEnclaveTelemetry.c)
- *     LdrpLogVsmEnclaveLdrDeleteEnclaveTelemetry @ 0x1800CFFB4 (LdrpLogVsmEnclaveLdrDeleteEnclaveTelemetry.c)
- *     LdrpLogVsmEnclaveLdrInitializeEnclaveTelemetry @ 0x1800D0094 (LdrpLogVsmEnclaveLdrInitializeEnclaveTelemetry.c)
- *     LdrpLogVsmEnclaveLdrLoadEnclaveModuleTelemetry @ 0x1800D0174 (LdrpLogVsmEnclaveLdrLoadEnclaveModuleTelemetry.c)
- *     RtlpHpStackTraceHeapGetContext @ 0x18010938C (RtlpHpStackTraceHeapGetContext.c)
+ *     LdrpLogImportRedirectionTelemetry @ 0x1800CF684 (LdrpLogImportRedirectionTelemetry.c)
+ *     LdrpLogIntegrityContinuityTelemetry @ 0x1800CF790 (LdrpLogIntegrityContinuityTelemetry.c)
+ *     LdrpLogMapAndVerifyResourceFileFailure @ 0x1800CFA94 (LdrpLogMapAndVerifyResourceFileFailure.c)
+ *     LdrpLogVerifyAlternateResourceModuleWithServiceChecksumFailure @ 0x1800CFD24 (LdrpLogVerifyAlternateResourceModuleWithServiceChecksumFailure.c)
+ *     LdrpLogVsmEnclaveLdrCreateEnclaveTelemetry @ 0x1800CFE70 (LdrpLogVsmEnclaveLdrCreateEnclaveTelemetry.c)
+ *     LdrpLogVsmEnclaveLdrDeleteEnclaveTelemetry @ 0x1800CFF74 (LdrpLogVsmEnclaveLdrDeleteEnclaveTelemetry.c)
+ *     LdrpLogVsmEnclaveLdrInitializeEnclaveTelemetry @ 0x1800D0054 (LdrpLogVsmEnclaveLdrInitializeEnclaveTelemetry.c)
+ *     LdrpLogVsmEnclaveLdrLoadEnclaveModuleTelemetry @ 0x1800D0134 (LdrpLogVsmEnclaveLdrLoadEnclaveModuleTelemetry.c)
+ *     RtlpHpStackTraceHeapGetContext @ 0x18010934C (RtlpHpStackTraceHeapGetContext.c)
  * Callees:
  *     RtlRunOnceComplete @ 0x180043AB0 (RtlRunOnceComplete.c)
  *     RtlpRunOnceWaitForInit @ 0x180084440 (RtlpRunOnceWaitForInit.c)
- *     _guard_dispatch_icall_nop @ 0x1800A1160 (_guard_dispatch_icall_nop.c)
- *     RtlReportCriticalFailure @ 0x1800FF47C (RtlReportCriticalFailure.c)
+ *     _guard_dispatch_icall_nop @ 0x1800A1120 (_guard_dispatch_icall_nop.c)
+ *     RtlReportCriticalFailure @ 0x1800FF43C (RtlReportCriticalFailure.c)
  */
 
-__int64 __fastcall RtlRunOnceExecuteOnce(
-        volatile signed __int64 *a1,
-        unsigned int (__fastcall *a2)(volatile signed __int64 *, __int64, unsigned __int64 *),
-        __int64 a3,
-        unsigned __int64 *a4)
+NTSTATUS __cdecl RtlRunOnceExecuteOnce(
+        PRTL_RUN_ONCE RunOnce,
+        PRTL_RUN_ONCE_INIT_FN InitFn,
+        PVOID Parameter,
+        PVOID *Context)
 {
-  signed __int64 v4; // rax
-  unsigned int v9; // edi
-  signed __int64 v11; // rdx
-  signed __int64 v12; // rcx
-  unsigned __int64 v13; // r8
+  unsigned __int64 Value; // rax
+  NTSTATUS v9; // edi
+  unsigned __int64 v11; // rdx
+  unsigned __int64 v12; // rcx
+  PVOID v13; // r8
   int v14; // ebx
   char v15[24]; // [rsp+20h] [rbp-18h] BYREF
 
-  v4 = *a1;
-  if ( (*a1 & 3) == 2 )
+  Value = RunOnce->Value;
+  if ( (RunOnce->Value & 3) == 2 )
   {
 LABEL_2:
-    if ( a4 )
-      *a4 = v4 & 0xFFFFFFFFFFFFFFFCuLL;
+    if ( Context )
+      *Context = (PVOID)(Value & 0xFFFFFFFFFFFFFFFCuLL);
     return 0;
   }
   do
   {
     while ( 1 )
     {
-      v11 = v4 & 3;
-      if ( (v4 & 3) == 0 )
+      v11 = Value & 3;
+      if ( (Value & 3) == 0 )
         break;
       if ( v11 != 1 )
       {
@@ -64,32 +64,32 @@ LABEL_2:
         v15[0] = 0;
         goto LABEL_20;
       }
-      v4 = RtlpRunOnceWaitForInit(v4, a1);
+      Value = RtlpRunOnceWaitForInit(Value, RunOnce);
     }
-    v12 = v4;
-    v4 = _InterlockedCompareExchange64(a1, 1LL, v4);
+    v12 = Value;
+    Value = _InterlockedCompareExchange64((volatile signed __int64 *)RunOnce, 1LL, Value);
   }
-  while ( v4 != v12 );
-  if ( !a2(a1, a3, a4) )
+  while ( Value != v12 );
+  if ( !((unsigned int (__fastcall *)(PRTL_RUN_ONCE, PVOID, PVOID *))InitFn)(RunOnce, Parameter, Context) )
   {
     v9 = -1073741823;
-    v14 = RtlRunOnceComplete(a1, 4LL, 0LL);
+    v14 = RtlRunOnceComplete(RunOnce, 4u, 0LL);
     if ( v14 >= 0 )
       return v9;
     v15[0] = 2;
     goto LABEL_20;
   }
-  if ( a4 )
-    v13 = *a4;
+  if ( Context )
+    v13 = *Context;
   else
     v13 = 0LL;
-  v14 = RtlRunOnceComplete(a1, 0LL, v13);
+  v14 = RtlRunOnceComplete(RunOnce, 0, v13);
   if ( v14 < 0 )
   {
     v15[0] = 1;
 LABEL_20:
     RtlReportCriticalFailure((unsigned int)v14, v15, 1LL);
-    return (unsigned int)v14;
+    return v14;
   }
   return 0;
 }

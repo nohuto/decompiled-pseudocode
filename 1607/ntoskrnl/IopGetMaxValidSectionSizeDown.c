@@ -1,9 +1,9 @@
 /*
- * XREFs of IopGetMaxValidSectionSizeDown @ 0x1401C7598
+ * XREFs of IopGetMaxValidSectionSizeDown @ 0x1401C7438
  * Callers:
- *     KeCapturePersistentThreadState @ 0x1401C8248 (KeCapturePersistentThreadState.c)
+ *     KeCapturePersistentThreadState @ 0x1401C80E8 (KeCapturePersistentThreadState.c)
  * Callees:
- *     MiIsAddressValid @ 0x140037540 (MiIsAddressValid.c)
+ *     MiIsAddressValid @ 0x1400370C0 (MiIsAddressValid.c)
  */
 
 __int64 __fastcall IopGetMaxValidSectionSizeDown(unsigned __int64 a1, unsigned int a2)

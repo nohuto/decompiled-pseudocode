@@ -1,18 +1,18 @@
 /*
- * XREFs of MiFreePageToSlabAllocator @ 0x140369964
+ * XREFs of MiFreePageToSlabAllocator @ 0x14036B704
  * Callers:
- *     MiFreeSlabPage @ 0x1403695C8 (MiFreeSlabPage.c)
+ *     MiFreeSlabPage @ 0x14036B368 (MiFreeSlabPage.c)
  * Callees:
- *     MiZeroPhysicalPage @ 0x1402D8B20 (MiZeroPhysicalPage.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402DC6D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ExAcquireSpinLockSharedAtDpcLevel @ 0x1402EDFB0 (ExAcquireSpinLockSharedAtDpcLevel.c)
- *     MiAbortCombineScan @ 0x1403691D0 (MiAbortCombineScan.c)
- *     VslSetPlaceholderPages @ 0x1403693A0 (VslSetPlaceholderPages.c)
- *     MiSetPfnIdentity @ 0x140369440 (MiSetPfnIdentity.c)
- *     MiReInitializeFreeSlabPfn @ 0x140369C98 (MiReInitializeFreeSlabPfn.c)
- *     MiSlabEntryPageFreed @ 0x140369D24 (MiSlabEntryPageFreed.c)
- *     MiFreePageToSlabEntry @ 0x140369DBC (MiFreePageToSlabEntry.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     MiZeroPhysicalPage @ 0x1402BA8E0 (MiZeroPhysicalPage.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402BE490 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x1402D0030 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     MiAbortCombineScan @ 0x14036AF70 (MiAbortCombineScan.c)
+ *     VslSetPlaceholderPages @ 0x14036B140 (VslSetPlaceholderPages.c)
+ *     MiSetPfnIdentity @ 0x14036B1E0 (MiSetPfnIdentity.c)
+ *     MiReInitializeFreeSlabPfn @ 0x14036BA38 (MiReInitializeFreeSlabPfn.c)
+ *     MiSlabEntryPageFreed @ 0x14036BAC4 (MiSlabEntryPageFreed.c)
+ *     MiFreePageToSlabEntry @ 0x14036BB5C (MiFreePageToSlabEntry.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 void __fastcall MiFreePageToSlabAllocator(__int64 a1, __int64 a2)

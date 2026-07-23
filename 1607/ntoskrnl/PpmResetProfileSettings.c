@@ -1,8 +1,8 @@
 /*
- * XREFs of PpmResetProfileSettings @ 0x140148D14
+ * XREFs of PpmResetProfileSettings @ 0x140149284
  * Callers:
- *     PpmRegisterProfiles @ 0x1405784E0 (PpmRegisterProfiles.c)
- *     PpmDisableProfile @ 0x140675B6C (PpmDisableProfile.c)
+ *     PpmRegisterProfiles @ 0x140578A20 (PpmRegisterProfiles.c)
+ *     PpmDisableProfile @ 0x140675C50 (PpmDisableProfile.c)
  * Callees:
  *     <none>
  */

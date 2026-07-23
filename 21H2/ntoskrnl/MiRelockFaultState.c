@@ -1,19 +1,19 @@
 /*
- * XREFs of MiRelockFaultState @ 0x1403052A8
+ * XREFs of MiRelockFaultState @ 0x14030FFF8
  * Callers:
- *     MiFinishHardFault @ 0x140239890 (MiFinishHardFault.c)
- *     MiWaitForCollidedFaultComplete @ 0x14028C1F0 (MiWaitForCollidedFaultComplete.c)
- *     MiPrivateFixup @ 0x14028CA28 (MiPrivateFixup.c)
- *     MiIssueHardFault @ 0x14030E9B0 (MiIssueHardFault.c)
- *     MiKernelWriteToExecutableMemory @ 0x1405489B4 (MiKernelWriteToExecutableMemory.c)
- *     MiIdealClusterPage @ 0x140555E14 (MiIdealClusterPage.c)
+ *     MiWaitForCollidedFaultComplete @ 0x140209390 (MiWaitForCollidedFaultComplete.c)
+ *     MiPrivateFixup @ 0x140209BC8 (MiPrivateFixup.c)
+ *     MiFinishHardFault @ 0x1402DE0E0 (MiFinishHardFault.c)
+ *     MiIssueHardFault @ 0x140319700 (MiIssueHardFault.c)
+ *     MiKernelWriteToExecutableMemory @ 0x140548BF4 (MiKernelWriteToExecutableMemory.c)
+ *     MiIdealClusterPage @ 0x140556054 (MiIdealClusterPage.c)
  * Callees:
- *     MiUnlockWorkingSetShared @ 0x14020F790 (MiUnlockWorkingSetShared.c)
- *     MiLockWorkingSetShared @ 0x140219CB0 (MiLockWorkingSetShared.c)
- *     MiGetSharedVm @ 0x14021AF50 (MiGetSharedVm.c)
- *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
- *     MiUnlockPageTableInternal @ 0x1402855F0 (MiUnlockPageTableInternal.c)
- *     MiLockLowestValidPageTable @ 0x1403055C0 (MiLockLowestValidPageTable.c)
+ *     MiUnlockPageTableInternal @ 0x140202790 (MiUnlockPageTableInternal.c)
+ *     MiUnlockWorkingSetShared @ 0x1402B4090 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x1402BE5B0 (MiLockWorkingSetShared.c)
+ *     MiGetSharedVm @ 0x1402BF850 (MiGetSharedVm.c)
+ *     ExAcquireSpinLockExclusive @ 0x1402C1960 (ExAcquireSpinLockExclusive.c)
+ *     MiLockLowestValidPageTable @ 0x140310310 (MiLockLowestValidPageTable.c)
  */
 
 char __fastcall MiRelockFaultState(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4)

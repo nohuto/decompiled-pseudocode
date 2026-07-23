@@ -1,13 +1,13 @@
 /*
- * XREFs of KeEnableCoreIsolationMitigationPolicyThread @ 0x1404D3380
+ * XREFs of KeEnableCoreIsolationMitigationPolicyThread @ 0x1404CCBF0
  * Callers:
- *     PspApplyCoreIsolationPolicy @ 0x140776AFC (PspApplyCoreIsolationPolicy.c)
- *     PspInsertThread @ 0x140A026D0 (PspInsertThread.c)
+ *     PspApplyCoreIsolationPolicy @ 0x1407799A4 (PspApplyCoreIsolationPolicy.c)
+ *     PspInsertThread @ 0x140A7B188 (PspInsertThread.c)
  * Callees:
- *     KiProcessDeferredReadyList @ 0x14037C920 (KiProcessDeferredReadyList.c)
- *     KiAdjustCoreIsolationReasonThread @ 0x1404D3414 (KiAdjustCoreIsolationReasonThread.c)
- *     KiAdjustUserIsolationDomainThread @ 0x1404D35B4 (KiAdjustUserIsolationDomainThread.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiProcessDeferredReadyList @ 0x14037E6D0 (KiProcessDeferredReadyList.c)
+ *     KiAdjustCoreIsolationReasonThread @ 0x1404CCC84 (KiAdjustCoreIsolationReasonThread.c)
+ *     KiAdjustUserIsolationDomainThread @ 0x1404CCE24 (KiAdjustUserIsolationDomainThread.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall KeEnableCoreIsolationMitigationPolicyThread(struct _KTHREAD *a1)

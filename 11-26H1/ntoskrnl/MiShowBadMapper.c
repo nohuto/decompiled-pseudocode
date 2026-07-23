@@ -1,23 +1,23 @@
 /*
- * XREFs of MiShowBadMapper @ 0x1403669CC
+ * XREFs of MiShowBadMapper @ 0x14036876C
  * Callers:
- *     MiDecommitFreePagesTail @ 0x1402DA750 (MiDecommitFreePagesTail.c)
- *     MiMapMdlCommon @ 0x140312C2C (MiMapMdlCommon.c)
- *     MiFillSystemPtes @ 0x14035F448 (MiFillSystemPtes.c)
- *     MiInsertPhysicalPteMapping @ 0x140366150 (MiInsertPhysicalPteMapping.c)
+ *     MiDecommitFreePagesTail @ 0x1402BC510 (MiDecommitFreePagesTail.c)
+ *     MiMapMdlCommon @ 0x140314C5C (MiMapMdlCommon.c)
+ *     MiFillSystemPtes @ 0x1403611E8 (MiFillSystemPtes.c)
+ *     MiInsertPhysicalPteMapping @ 0x140367EF0 (MiInsertPhysicalPteMapping.c)
  * Callees:
- *     RtlCaptureStackBackTrace @ 0x140261920 (RtlCaptureStackBackTrace.c)
- *     MmUnlockLoadedModuleListShared @ 0x140366D8C (MmUnlockLoadedModuleListShared.c)
- *     MmLockLoadedModuleListShared @ 0x140366E14 (MmLockLoadedModuleListShared.c)
- *     MmFindDataTableEntryByAddress @ 0x140366EA0 (MmFindDataTableEntryByAddress.c)
- *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
- *     RtlAppendUnicodeToString @ 0x140432EB0 (RtlAppendUnicodeToString.c)
- *     RtlAppendUnicodeStringToString @ 0x140432F70 (RtlAppendUnicodeStringToString.c)
- *     MiLogBadMapper @ 0x140459AC0 (MiLogBadMapper.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlCaptureStackBackTrace @ 0x140260E90 (RtlCaptureStackBackTrace.c)
+ *     MmUnlockLoadedModuleListShared @ 0x140368B2C (MmUnlockLoadedModuleListShared.c)
+ *     MmLockLoadedModuleListShared @ 0x140368BB4 (MmLockLoadedModuleListShared.c)
+ *     MmFindDataTableEntryByAddress @ 0x140368C40 (MmFindDataTableEntryByAddress.c)
+ *     ExAllocatePoolMm @ 0x14039A310 (ExAllocatePoolMm.c)
+ *     RtlAppendUnicodeToString @ 0x14041FEE0 (RtlAppendUnicodeToString.c)
+ *     RtlAppendUnicodeStringToString @ 0x14041FFA0 (RtlAppendUnicodeStringToString.c)
+ *     MiLogBadMapper @ 0x140451340 (MiLogBadMapper.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiShowBadMapper(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter3, int a3)
@@ -53,7 +53,7 @@ void __fastcall MiShowBadMapper(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheck
   BackTraceHash = 0;
   memset_0(BackTrace, 0, sizeof(BackTrace));
   Destination = 0LL;
-  v7 = dword_140FBE26C != 0;
+  v7 = dword_140FBF26C != 0;
   if ( (v3 & 1) != 0 && !KdPitchDebugger && !(_BYTE)KdDebuggerNotPresent )
   {
     v7 = 1;
@@ -121,18 +121,18 @@ LABEL_26:
     v4 = v19;
     goto LABEL_27;
   }
-  if ( !stru_140E36558.FirstArgument )
+  if ( !stru_140E366D8.FirstArgument )
   {
-    _InterlockedIncrement((volatile signed __int32 *)&stru_140E2EB88.SchedulerApcFill5[76]);
+    _InterlockedIncrement((volatile signed __int32 *)&stru_140E2ED08.SchedulerApcFill5[76]);
     goto LABEL_26;
   }
-  _InterlockedIncrement((volatile signed __int32 *)&stru_140E2EB88.SchedulerApcFill5[80]);
-  if ( !*(_DWORD *)stru_140E36558.FirstArgument
-    || (*((_QWORD *)stru_140E36558.FirstArgument + 2) & 0x400000000080LL) == 0 )
+  _InterlockedIncrement((volatile signed __int32 *)&stru_140E2ED08.SchedulerApcFill5[80]);
+  if ( !*(_DWORD *)stru_140E366D8.FirstArgument
+    || (*((_QWORD *)stru_140E366D8.FirstArgument + 2) & 0x400000000080LL) == 0 )
   {
     goto LABEL_26;
   }
-  v18 = *((_QWORD *)stru_140E36558.FirstArgument + 3);
+  v18 = *((_QWORD *)stru_140E366D8.FirstArgument + 3);
   v4 = v19;
   v5 = BugCheckParameter2;
   if ( (v18 & 0x400000000080LL) == v18 )

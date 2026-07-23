@@ -1,19 +1,19 @@
 /*
- * XREFs of BapdpQueryData @ 0x140C3F83C
+ * XREFs of BapdpQueryData @ 0x140C4198C
  * Callers:
- *     BapdpProcessEtwEvents @ 0x140652CA4 (BapdpProcessEtwEvents.c)
- *     BapdpProcessSpacesBootInformation @ 0x140652DE0 (BapdpProcessSpacesBootInformation.c)
- *     BapdpProcessBitlockerStatus @ 0x140C3ECB8 (BapdpProcessBitlockerStatus.c)
- *     BapdpProcessBootMetadata @ 0x140C3ED98 (BapdpProcessBootMetadata.c)
- *     BapdpProcessEDrvHintInfo @ 0x140C3EED8 (BapdpProcessEDrvHintInfo.c)
- *     BapdpProcessFwUpdateResults @ 0x140C3EFB8 (BapdpProcessFwUpdateResults.c)
- *     BapdpProcessHSTIResults @ 0x140C3F098 (BapdpProcessHSTIResults.c)
- *     BapdpProcessResumeInformation @ 0x140C3F17C (BapdpProcessResumeInformation.c)
- *     BapdpProcessVsmKeyBlobs @ 0x140C3F25C (BapdpProcessVsmKeyBlobs.c)
- *     BapdpProcessWmdResults @ 0x140C3F658 (BapdpProcessWmdResults.c)
- *     BapdpRegisterWbclData @ 0x140C40038 (BapdpRegisterWbclData.c)
+ *     BapdpProcessEtwEvents @ 0x140651404 (BapdpProcessEtwEvents.c)
+ *     BapdpProcessSpacesBootInformation @ 0x140651540 (BapdpProcessSpacesBootInformation.c)
+ *     BapdpProcessBitlockerStatus @ 0x140C40E08 (BapdpProcessBitlockerStatus.c)
+ *     BapdpProcessBootMetadata @ 0x140C40EE8 (BapdpProcessBootMetadata.c)
+ *     BapdpProcessEDrvHintInfo @ 0x140C41028 (BapdpProcessEDrvHintInfo.c)
+ *     BapdpProcessFwUpdateResults @ 0x140C41108 (BapdpProcessFwUpdateResults.c)
+ *     BapdpProcessHSTIResults @ 0x140C411E8 (BapdpProcessHSTIResults.c)
+ *     BapdpProcessResumeInformation @ 0x140C412CC (BapdpProcessResumeInformation.c)
+ *     BapdpProcessVsmKeyBlobs @ 0x140C413AC (BapdpProcessVsmKeyBlobs.c)
+ *     BapdpProcessWmdResults @ 0x140C417A8 (BapdpProcessWmdResults.c)
+ *     BapdpRegisterWbclData @ 0x140C42188 (BapdpRegisterWbclData.c)
  * Callees:
- *     memmove @ 0x1406BFC40 (memmove.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
  */
 
 __int64 __fastcall BapdpQueryData(__int64 a1, _QWORD *a2, int a3, void *a4, unsigned int *a5, _OWORD *a6)
@@ -26,12 +26,12 @@ __int64 __fastcall BapdpQueryData(__int64 a1, _QWORD *a2, int a3, void *a4, unsi
 
   if ( !a5 || !a2 || *a5 && !a4 )
     return 3221225485LL;
-  v9 = (__int64 *)qword_140E62300;
+  v9 = (__int64 *)qword_140E62450;
   for ( i = 0; ; ++i )
   {
     while ( 1 )
     {
-      if ( v9 == &qword_140E62300 )
+      if ( v9 == &qword_140E62450 )
         return 3221226021LL;
       v11 = v9[2];
       v9 = (__int64 *)*v9;

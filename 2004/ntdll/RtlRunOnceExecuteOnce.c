@@ -27,34 +27,34 @@
  *     RtlReportCriticalFailure @ 0x1800FF0CC (RtlReportCriticalFailure.c)
  */
 
-__int64 __fastcall RtlRunOnceExecuteOnce(
-        volatile signed __int64 *a1,
-        unsigned int (__fastcall *a2)(volatile signed __int64 *, __int64, unsigned __int64 *),
-        __int64 a3,
-        unsigned __int64 *a4)
+NTSTATUS __cdecl RtlRunOnceExecuteOnce(
+        PRTL_RUN_ONCE RunOnce,
+        PRTL_RUN_ONCE_INIT_FN InitFn,
+        PVOID Parameter,
+        PVOID *Context)
 {
-  signed __int64 v4; // rax
-  unsigned int v9; // edi
-  signed __int64 v11; // rdx
-  signed __int64 v12; // rcx
-  unsigned __int64 v13; // r8
+  unsigned __int64 Value; // rax
+  NTSTATUS v9; // edi
+  unsigned __int64 v11; // rdx
+  unsigned __int64 v12; // rcx
+  PVOID v13; // r8
   int v14; // ebx
   char v15[24]; // [rsp+20h] [rbp-18h] BYREF
 
-  v4 = *a1;
-  if ( (*a1 & 3) == 2 )
+  Value = RunOnce->Value;
+  if ( (RunOnce->Value & 3) == 2 )
   {
 LABEL_2:
-    if ( a4 )
-      *a4 = v4 & 0xFFFFFFFFFFFFFFFCuLL;
+    if ( Context )
+      *Context = (PVOID)(Value & 0xFFFFFFFFFFFFFFFCuLL);
     return 0;
   }
   do
   {
     while ( 1 )
     {
-      v11 = v4 & 3;
-      if ( (v4 & 3) == 0 )
+      v11 = Value & 3;
+      if ( (Value & 3) == 0 )
         break;
       if ( v11 != 1 )
       {
@@ -64,32 +64,32 @@ LABEL_2:
         v15[0] = 0;
         goto LABEL_20;
       }
-      v4 = RtlpRunOnceWaitForInit(v4, a1);
+      Value = RtlpRunOnceWaitForInit(Value, RunOnce);
     }
-    v12 = v4;
-    v4 = _InterlockedCompareExchange64(a1, 1LL, v4);
+    v12 = Value;
+    Value = _InterlockedCompareExchange64((volatile signed __int64 *)RunOnce, 1LL, Value);
   }
-  while ( v4 != v12 );
-  if ( !a2(a1, a3, a4) )
+  while ( Value != v12 );
+  if ( !((unsigned int (__fastcall *)(PRTL_RUN_ONCE, PVOID, PVOID *))InitFn)(RunOnce, Parameter, Context) )
   {
     v9 = -1073741823;
-    v14 = RtlRunOnceComplete(a1, 4LL, 0LL);
+    v14 = RtlRunOnceComplete(RunOnce, 4u, 0LL);
     if ( v14 >= 0 )
       return v9;
     v15[0] = 2;
     goto LABEL_20;
   }
-  if ( a4 )
-    v13 = *a4;
+  if ( Context )
+    v13 = *Context;
   else
     v13 = 0LL;
-  v14 = RtlRunOnceComplete(a1, 0LL, v13);
+  v14 = RtlRunOnceComplete(RunOnce, 0, v13);
   if ( v14 < 0 )
   {
     v15[0] = 1;
 LABEL_20:
     RtlReportCriticalFailure((unsigned int)v14, v15, 1LL);
-    return (unsigned int)v14;
+    return v14;
   }
   return 0;
 }

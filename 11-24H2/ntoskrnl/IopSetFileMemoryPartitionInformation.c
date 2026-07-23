@@ -1,17 +1,17 @@
 /*
- * XREFs of IopSetFileMemoryPartitionInformation @ 0x140715044
+ * XREFs of IopSetFileMemoryPartitionInformation @ 0x140712BD4
  * Callers:
- *     NtSetInformationFile @ 0x1403C34C0 (NtSetInformationFile.c)
- *     IoSetInformation @ 0x140714820 (IoSetInformation.c)
+ *     NtSetInformationFile @ 0x1403B2080 (NtSetInformationFile.c)
+ *     IoSetInformation @ 0x1407123B0 (IoSetInformation.c)
  * Callees:
- *     PsDereferencePartition @ 0x140275E60 (PsDereferencePartition.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     ObfReferenceObjectWithTag @ 0x1403403E0 (ObfReferenceObjectWithTag.c)
- *     IopAllocateFileObjectExtension @ 0x1403C5A80 (IopAllocateFileObjectExtension.c)
- *     IopSetTypeSpecificFoExtension @ 0x14044BF10 (IopSetTypeSpecificFoExtension.c)
- *     PsReferencePartitionByHandle @ 0x140934434 (PsReferencePartitionByHandle.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     PsDereferencePartition @ 0x14022B3F0 (PsDereferencePartition.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x14031F8C0 (ObfReferenceObjectWithTag.c)
+ *     IopAllocateFileObjectExtension @ 0x1403B4640 (IopAllocateFileObjectExtension.c)
+ *     IopSetTypeSpecificFoExtension @ 0x140443050 (IopSetTypeSpecificFoExtension.c)
+ *     PsReferencePartitionByHandle @ 0x1408F6F54 (PsReferencePartitionByHandle.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall IopSetFileMemoryPartitionInformation(__int64 a1, __int128 *a2, unsigned int a3)
@@ -41,7 +41,7 @@ __int64 __fastcall IopSetFileMemoryPartitionInformation(__int64 a1, __int128 *a2
   }
   else
   {
-    Pool2 = (_DWORD *)ExAllocatePool2(0x40uLL);
+    Pool2 = (_DWORD *)ExAllocatePool2(0x40uLL, 0x10uLL, 0x66506F49u);
     if ( Pool2 )
     {
       v8 = PsReferencePartitionByHandle(*(_QWORD *)a2, 2LL, 0LL, 1716547401LL, &Object);

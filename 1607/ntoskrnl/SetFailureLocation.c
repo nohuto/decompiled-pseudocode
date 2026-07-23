@@ -1,29 +1,29 @@
 /*
- * XREFs of SetFailureLocation @ 0x1401B2AF8
+ * XREFs of SetFailureLocation @ 0x1401B29DC
  * Callers:
- *     CmpFileReadEx @ 0x1400848A0 (CmpFileReadEx.c)
- *     CmpValidateHiveSecurityDescriptors @ 0x1403F8C28 (CmpValidateHiveSecurityDescriptors.c)
- *     HvCheckBin @ 0x14042EFC0 (HvCheckBin.c)
- *     CmpCheckValueList @ 0x14043C940 (CmpCheckValueList.c)
- *     CmpCheckKey @ 0x14043D610 (CmpCheckKey.c)
- *     CmpCheckRegistry2 @ 0x14043EF70 (CmpCheckRegistry2.c)
- *     CmpCheckLeaf @ 0x14043FDC0 (CmpCheckLeaf.c)
- *     HvLoadHive @ 0x14047ECF8 (HvLoadHive.c)
- *     CmpInitializeHive @ 0x14047F184 (CmpInitializeHive.c)
- *     HvInitializeHive @ 0x14047FBA4 (HvInitializeHive.c)
- *     CmCheckRegistry @ 0x140480374 (CmCheckRegistry.c)
- *     HvpInitMap @ 0x1404E3088 (HvpInitMap.c)
- *     HvCheckHive @ 0x140513594 (HvCheckHive.c)
- *     HvpMapHiveImage @ 0x140513C14 (HvpMapHiveImage.c)
- *     HvpEnlistBinInMap @ 0x140513FE0 (HvpEnlistBinInMap.c)
- *     CmpLoadHiveThread @ 0x14054D5A8 (CmpLoadHiveThread.c)
- *     CmpMountPreloadedHives @ 0x14055E464 (CmpMountPreloadedHives.c)
- *     HvpBuildMapForLoaderHive @ 0x140563D50 (HvpBuildMapForLoaderHive.c)
- *     HvpBuildMap @ 0x140610554 (HvpBuildMap.c)
+ *     CmpFileReadEx @ 0x140082A00 (CmpFileReadEx.c)
+ *     CmpValidateHiveSecurityDescriptors @ 0x1403F7AE8 (CmpValidateHiveSecurityDescriptors.c)
+ *     HvCheckBin @ 0x14042DE90 (HvCheckBin.c)
+ *     CmpCheckValueList @ 0x14043B810 (CmpCheckValueList.c)
+ *     CmpCheckKey @ 0x14043C4E0 (CmpCheckKey.c)
+ *     CmpCheckRegistry2 @ 0x14043DE40 (CmpCheckRegistry2.c)
+ *     CmpCheckLeaf @ 0x14043EC90 (CmpCheckLeaf.c)
+ *     HvLoadHive @ 0x14047DA4C (HvLoadHive.c)
+ *     CmpInitializeHive @ 0x14047DED8 (CmpInitializeHive.c)
+ *     HvInitializeHive @ 0x14047E8F8 (HvInitializeHive.c)
+ *     CmCheckRegistry @ 0x14047F0C8 (CmCheckRegistry.c)
+ *     HvpInitMap @ 0x1404C5FEC (HvpInitMap.c)
+ *     HvCheckHive @ 0x1404F6984 (HvCheckHive.c)
+ *     HvpMapHiveImage @ 0x1404F7004 (HvpMapHiveImage.c)
+ *     HvpEnlistBinInMap @ 0x1404F73D0 (HvpEnlistBinInMap.c)
+ *     CmpLoadHiveThread @ 0x14054D948 (CmpLoadHiveThread.c)
+ *     CmpMountPreloadedHives @ 0x14055E9A4 (CmpMountPreloadedHives.c)
+ *     HvpBuildMapForLoaderHive @ 0x140564290 (HvpBuildMapForLoaderHive.c)
+ *     HvpBuildMap @ 0x140610608 (HvpBuildMap.c)
  * Callees:
- *     _TlgWrite @ 0x14000A598 (_TlgWrite.c)
- *     _TlgKeywordOn @ 0x140088D98 (_TlgKeywordOn.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     _TlgWrite @ 0x14000A118 (_TlgWrite.c)
+ *     _TlgKeywordOn @ 0x14010CF88 (_TlgKeywordOn.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 char __fastcall SetFailureLocation(__int64 a1, int a2, int a3, int a4, int a5)
@@ -71,7 +71,7 @@ char __fastcall SetFailureLocation(__int64 a1, int a2, int a3, int a4, int a5)
       v21 = 4;
       v24 = 4;
       v27 = 4;
-      LOBYTE(v5) = TlgWrite(&stru_1402F34E0, &unk_14027F0C2, 0LL, 0LL, 6u, &pData);
+      LOBYTE(v5) = TlgWrite(&stru_1402F34E0, &unk_14027F1C2, 0LL, 0LL, 6u, &pData);
     }
   }
   if ( a1 )

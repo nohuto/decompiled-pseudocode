@@ -1,5 +1,5 @@
 /*
- * XREFs of MxConsumedBootDescriptorSort @ 0x140CF5750
+ * XREFs of MxConsumedBootDescriptorSort @ 0x140CFBAD0
  * Callers:
  *     <none>
  * Callees:

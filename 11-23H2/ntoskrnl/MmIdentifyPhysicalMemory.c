@@ -1,17 +1,17 @@
 /*
- * XREFs of MmIdentifyPhysicalMemory @ 0x140A2ED08
+ * XREFs of MmIdentifyPhysicalMemory @ 0x140A2EFB8
  * Callers:
- *     EtwpKernelTraceRundown @ 0x1408200C8 (EtwpKernelTraceRundown.c)
- *     EtwpSetMark @ 0x1409E68B0 (EtwpSetMark.c)
+ *     EtwpKernelTraceRundown @ 0x1408203C8 (EtwpKernelTraceRundown.c)
+ *     EtwpSetMark @ 0x1409E6B40 (EtwpSetMark.c)
  * Callees:
- *     MiIdentifyPfnWrapper @ 0x14023CC40 (MiIdentifyPfnWrapper.c)
- *     PsDereferencePartition @ 0x1402F9C4C (PsDereferencePartition.c)
- *     MiReferencePageRuns @ 0x1403576E0 (MiReferencePageRuns.c)
- *     MiDereferencePageRuns @ 0x140357BC8 (MiDereferencePageRuns.c)
- *     MiPfnsWorthTrying @ 0x1403BB694 (MiPfnsWorthTrying.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     EtwTraceSiloDcEvent @ 0x1405FD520 (EtwTraceSiloDcEvent.c)
- *     MiReferencePagePartition @ 0x140629604 (MiReferencePagePartition.c)
+ *     MiIdentifyPfnWrapper @ 0x14023CD10 (MiIdentifyPfnWrapper.c)
+ *     PsDereferencePartition @ 0x1402F9EDC (PsDereferencePartition.c)
+ *     MiReferencePageRuns @ 0x140357880 (MiReferencePageRuns.c)
+ *     MiDereferencePageRuns @ 0x140357D68 (MiDereferencePageRuns.c)
+ *     MiPfnsWorthTrying @ 0x1403BB874 (MiPfnsWorthTrying.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     EtwTraceSiloDcEvent @ 0x1405FDA90 (EtwTraceSiloDcEvent.c)
+ *     MiReferencePagePartition @ 0x140629B54 (MiReferencePagePartition.c)
  */
 
 __int64 __fastcall MmIdentifyPhysicalMemory(__int64 a1, unsigned int a2, unsigned __int16 a3, int a4)

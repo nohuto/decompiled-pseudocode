@@ -1,5 +1,5 @@
 /*
- * XREFs of KiInitDynamicProcessorIpi @ 0x1401D59BC
+ * XREFs of KiInitDynamicProcessorIpi @ 0x1401D57E8
  * Callers:
  *     <none>
  * Callees:

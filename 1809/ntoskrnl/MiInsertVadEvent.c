@@ -1,16 +1,16 @@
 /*
- * XREFs of MiInsertVadEvent @ 0x140087B30
+ * XREFs of MiInsertVadEvent @ 0x140087B20
  * Callers:
- *     MiWaitForVadDeletion @ 0x1402CB150 (MiWaitForVadDeletion.c)
- *     MiAddSecureEntry @ 0x1405F3490 (MiAddSecureEntry.c)
- *     MiMapViewOfImageSection @ 0x1405F3660 (MiMapViewOfImageSection.c)
- *     MiCreateVadEventBitmap @ 0x140696188 (MiCreateVadEventBitmap.c)
- *     MiCreateRotateView @ 0x1406CA9C4 (MiCreateRotateView.c)
- *     MiCreatePlaceholderStorage @ 0x14085C6B8 (MiCreatePlaceholderStorage.c)
- *     MiCreateLargePageVad @ 0x14085D028 (MiCreateLargePageVad.c)
+ *     MiWaitForVadDeletion @ 0x1402CB340 (MiWaitForVadDeletion.c)
+ *     MiAddSecureEntry @ 0x1405F4490 (MiAddSecureEntry.c)
+ *     MiMapViewOfImageSection @ 0x1405F4660 (MiMapViewOfImageSection.c)
+ *     MiCreateVadEventBitmap @ 0x140697348 (MiCreateVadEventBitmap.c)
+ *     MiCreateRotateView @ 0x1406CBC64 (MiCreateRotateView.c)
+ *     MiCreatePlaceholderStorage @ 0x14085D918 (MiCreatePlaceholderStorage.c)
+ *     MiCreateLargePageVad @ 0x14085E288 (MiCreateLargePageVad.c)
  * Callees:
- *     MiUnlockWorkingSetExclusive @ 0x140063CE0 (MiUnlockWorkingSetExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x1400BC4E0 (ExAcquireSpinLockExclusive.c)
+ *     MiUnlockWorkingSetExclusive @ 0x140063CD0 (MiUnlockWorkingSetExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x1400BC420 (ExAcquireSpinLockExclusive.c)
  */
 
 void __fastcall MiInsertVadEvent(__int64 a1, _QWORD *a2, __int64 a3, __int64 a4)
@@ -24,7 +24,7 @@ void __fastcall MiInsertVadEvent(__int64 a1, _QWORD *a2, __int64 a3, __int64 a4)
 
   if ( (_DWORD)a3 == 1 )
   {
-    v6 = &dword_14043B700;
+    v6 = &dword_14043C7C0;
     Process = KeGetCurrentThread()->ApcState.Process;
     Flink = (char)Process[2].Header.WaitListHead.Flink;
     v9 = (__int64)&Process[1].IdealNode[12];

@@ -3,24 +3,24 @@
  * Callers:
  *     IopInitializeBootDrivers @ 0x14079B23C (IopInitializeBootDrivers.c)
  * Callees:
- *     RtlStringCbPrintfW @ 0x14000C1D4 (RtlStringCbPrintfW.c)
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     RtlInitAnsiString @ 0x140074CF4 (RtlInitAnsiString.c)
- *     RtlStringCbPrintfA @ 0x140139A14 (RtlStringCbPrintfA.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     _strupr @ 0x14014CC70 (_strupr.c)
- *     strstr @ 0x14014CF38 (strstr.c)
- *     _atoi64 @ 0x14014CF94 (_atoi64.c)
- *     atol @ 0x14014CFC8 (atol.c)
- *     ZwDeviceIoControlFile @ 0x140159D60 (ZwDeviceIoControlFile.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     ZwOpenFile @ 0x14015A2E0 (ZwOpenFile.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     RtlAnsiStringToUnicodeString @ 0x1403F6600 (RtlAnsiStringToUnicodeString.c)
- *     RtlFreeAnsiString @ 0x140458CF0 (RtlFreeAnsiString.c)
- *     RtlStringFromGUID @ 0x1404EE054 (RtlStringFromGUID.c)
- *     IoCreateSymbolicLink @ 0x1404EEF88 (IoCreateSymbolicLink.c)
+ *     RtlStringCbPrintfW @ 0x14000BD54 (RtlStringCbPrintfW.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     RtlInitAnsiString @ 0x140074D74 (RtlInitAnsiString.c)
+ *     RtlStringCbPrintfA @ 0x140139F84 (RtlStringCbPrintfA.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     _strupr @ 0x14014D1E0 (_strupr.c)
+ *     strstr @ 0x14014D4A8 (strstr.c)
+ *     _atoi64 @ 0x14014D504 (_atoi64.c)
+ *     atol @ 0x14014D538 (atol.c)
+ *     ZwDeviceIoControlFile @ 0x14015A2D0 (ZwDeviceIoControlFile.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     ZwOpenFile @ 0x14015A850 (ZwOpenFile.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     RtlAnsiStringToUnicodeString @ 0x1403F54C4 (RtlAnsiStringToUnicodeString.c)
+ *     RtlFreeAnsiString @ 0x140457BC0 (RtlFreeAnsiString.c)
+ *     RtlStringFromGUID @ 0x1404D011C (RtlStringFromGUID.c)
+ *     IoCreateSymbolicLink @ 0x1404D107C (IoCreateSymbolicLink.c)
  */
 
 __int64 __fastcall RamdiskStart(__int64 a1)
@@ -43,7 +43,7 @@ __int64 __fastcall RamdiskStart(__int64 a1)
   struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+68h] [rbp-98h] BYREF
   UNICODE_STRING GuidString; // [rsp+78h] [rbp-88h] BYREF
   UNICODE_STRING SymbolicLinkName; // [rsp+88h] [rbp-78h] BYREF
-  STRING DestinationString; // [rsp+98h] [rbp-68h] BYREF
+  _STRING DestinationString; // [rsp+98h] [rbp-68h] BYREF
   UNICODE_STRING DeviceName; // [rsp+A8h] [rbp-58h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+B8h] [rbp-48h] BYREF
   _QWORD InputBuffer[8]; // [rsp+F0h] [rbp-10h] BYREF

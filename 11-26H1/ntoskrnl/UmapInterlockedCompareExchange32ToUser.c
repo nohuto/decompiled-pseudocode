@@ -1,9 +1,9 @@
 /*
- * XREFs of UmapInterlockedCompareExchange32ToUser @ 0x14077FD70
+ * XREFs of UmapInterlockedCompareExchange32ToUser @ 0x140782870
  * Callers:
  *     <none>
  * Callees:
- *     ProbeForRead @ 0x1408EF880 (ProbeForRead.c)
+ *     ProbeForRead @ 0x1408F5E40 (ProbeForRead.c)
  */
 
 __int64 __fastcall UmapInterlockedCompareExchange32ToUser(volatile void *a1, signed __int32 a2, signed __int32 a3)

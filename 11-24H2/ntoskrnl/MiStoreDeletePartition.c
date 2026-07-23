@@ -1,19 +1,19 @@
 /*
- * XREFs of MiStoreDeletePartition @ 0x14068BE24
+ * XREFs of MiStoreDeletePartition @ 0x14068CF54
  * Callers:
- *     MiDrainCrossPartitionUsage @ 0x14068A0B4 (MiDrainCrossPartitionUsage.c)
+ *     MiDrainCrossPartitionUsage @ 0x14068B1E4 (MiDrainCrossPartitionUsage.c)
  * Callees:
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     MiStoreDrainWriteSupports @ 0x1402CF620 (MiStoreDrainWriteSupports.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     MiQueueSyncModifiedWriterApc @ 0x1404ACE38 (MiQueueSyncModifiedWriterApc.c)
- *     MmStoreFlushOutstandingEvictions @ 0x1404ACF40 (MmStoreFlushOutstandingEvictions.c)
- *     MiStoreReleaseReservedPageCharges @ 0x14068C784 (MiStoreReleaseReservedPageCharges.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     MiStoreDrainWriteSupports @ 0x140470054 (MiStoreDrainWriteSupports.c)
+ *     MiQueueSyncModifiedWriterApc @ 0x1404A73D8 (MiQueueSyncModifiedWriterApc.c)
+ *     MmStoreFlushOutstandingEvictions @ 0x1404A7624 (MmStoreFlushOutstandingEvictions.c)
+ *     MiStoreReleaseReservedPageCharges @ 0x14068D8B4 (MiStoreReleaseReservedPageCharges.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiStoreDeletePartition(__int64 a1)
@@ -50,7 +50,7 @@ __int64 __fastcall MiStoreDeletePartition(__int64 a1)
     *(_QWORD *)(a1 + 1320) = 0LL;
     ExFreePoolWithTag(v4, 0);
     *(_QWORD *)(a1 + 1416) = 0LL;
-    MiStoreDrainWriteSupports((union _SLIST_HEADER *)a1);
+    MiStoreDrainWriteSupports((_SLIST_HEADER *)a1);
     return MiStoreReleaseReservedPageCharges(a1);
   }
   return result;

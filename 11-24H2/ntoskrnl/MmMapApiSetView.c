@@ -1,13 +1,13 @@
 /*
- * XREFs of MmMapApiSetView @ 0x140907078
+ * XREFs of MmMapApiSetView @ 0x1408DDA88
  * Callers:
- *     PspSetupUserProcessAddressSpace @ 0x140907EE0 (PspSetupUserProcessAddressSpace.c)
- *     PspAllocateProcess @ 0x140A1C4C0 (PspAllocateProcess.c)
+ *     PspSetupUserProcessAddressSpace @ 0x1408DF5FC (PspSetupUserProcessAddressSpace.c)
+ *     PspAllocateProcess @ 0x1409FACD0 (PspAllocateProcess.c)
  * Callees:
- *     PsGetServerSiloGlobals @ 0x140349380 (PsGetServerSiloGlobals.c)
- *     PsIsHostSilo @ 0x14043E2E0 (PsIsHostSilo.c)
- *     PsGetProcessServerSilo @ 0x140445660 (PsGetProcessServerSilo.c)
- *     MmMapViewOfSection @ 0x1409071A0 (MmMapViewOfSection.c)
+ *     PsGetServerSiloGlobals @ 0x1403C2DC0 (PsGetServerSiloGlobals.c)
+ *     PsIsHostSilo @ 0x1404329D0 (PsIsHostSilo.c)
+ *     PsGetProcessServerSilo @ 0x14043D810 (PsGetProcessServerSilo.c)
+ *     MmMapViewOfSection @ 0x1408DE270 (MmMapViewOfSection.c)
  */
 
 __int64 __fastcall MmMapApiSetView(__int64 a1)
@@ -29,7 +29,7 @@ __int64 __fastcall MmMapApiSetView(__int64 a1)
   v11 = 0LL;
   ProcessServerSilo = PsGetProcessServerSilo(a1);
   if ( PsIsHostSilo(ProcessServerSilo) )
-    LODWORD(v3) = qword_140E2D6D8;
+    LODWORD(v3) = qword_140E2D818;
   else
     v3 = *((_QWORD *)PsGetServerSiloGlobals(ProcessServerSilo) + 125);
   v4 = 1;

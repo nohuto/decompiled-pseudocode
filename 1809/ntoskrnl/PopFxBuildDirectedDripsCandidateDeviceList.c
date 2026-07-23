@@ -1,12 +1,12 @@
 /*
- * XREFs of PopFxBuildDirectedDripsCandidateDeviceList @ 0x1402D74E4
+ * XREFs of PopFxBuildDirectedDripsCandidateDeviceList @ 0x1402D76D4
  * Callers:
- *     PopDirectedDripsInitializeBroadcast @ 0x140867DFC (PopDirectedDripsInitializeBroadcast.c)
+ *     PopDirectedDripsInitializeBroadcast @ 0x14086905C (PopDirectedDripsInitializeBroadcast.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     PopFxAddRefDevice @ 0x1400FE2C8 (PopFxAddRefDevice.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     PopFxAddRefDevice @ 0x1400FE348 (PopFxAddRefDevice.c)
  */
 
 __int64 __fastcall PopFxBuildDirectedDripsCandidateDeviceList(_QWORD *a1)

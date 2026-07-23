@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 ZwImpersonateClientOfPort()
+NTSTATUS __cdecl ZwImpersonateClientOfPort(HANDLE PortHandle, PPORT_MESSAGE Message)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 31LL;
+  result = 31;
   __asm { syscall; Low latency system call }
   return result;
 }

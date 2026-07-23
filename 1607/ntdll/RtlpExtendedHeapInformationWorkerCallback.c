@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlpExtendedHeapInformationWorkerCallback @ 0x1800E9F30
+ * XREFs of RtlpExtendedHeapInformationWorkerCallback @ 0x1800E9FF0
  * Callers:
  *     <none>
  * Callees:
@@ -8,43 +8,55 @@
  *     memmove @ 0x1800AC980 (memmove.c)
  */
 
-__int64 __fastcall RtlpExtendedHeapInformationWorkerCallback(_QWORD *Src, __int64 a2)
+NTSTATUS __fastcall RtlpExtendedHeapInformationWorkerCallback(_QWORD *Src, __int64 a2)
 {
   unsigned __int64 v2; // rax
-  __int64 result; // rax
-  _QWORD *v6; // rsi
+  NTSTATUS result; // eax
+  ULONG_PTR *ViewSize; // rsi
   unsigned __int64 v7; // rcx
-  _QWORD *v8; // r14
-  __int64 v9; // rax
+  PVOID *v8; // r14
+  SIZE_T CommitSize; // rdx
+  __int64 v10; // rax
 
   v2 = Src[1];
   if ( v2 > 0x10000 )
-    return 3221225701LL;
+    return -1073741595;
   *(_QWORD *)(a2 + 32) += v2;
   if ( *(_DWORD *)(a2 + 28) == -1073741789 )
-    return 0LL;
-  v6 = (_QWORD *)(a2 + 56);
+    return 0;
+  ViewSize = (ULONG_PTR *)(a2 + 56);
   v7 = (*(_QWORD *)(a2 + 72) + 7LL) & 0xFFFFFFFFFFFFFFF8uLL;
   *(_QWORD *)(a2 + 72) = v7;
   if ( Src[1] + v7 <= *(_QWORD *)(a2 + 56) )
     goto LABEL_9;
-  v8 = (_QWORD *)(a2 + 48);
-  NtUnmapViewOfSection();
-  *(_QWORD *)(a2 + 64) += *v6;
-  v9 = *(_QWORD *)(a2 + 64);
+  v8 = (PVOID *)(a2 + 48);
+  NtUnmapViewOfSection((HANDLE)0xFFFFFFFFFFFFFFFFLL, *(PVOID *)(a2 + 48));
+  CommitSize = *ViewSize;
+  *(_QWORD *)(a2 + 64) += *ViewSize;
+  v10 = *(_QWORD *)(a2 + 64);
   *v8 = 0LL;
-  if ( v9 < *(_QWORD *)(a2 + 8) )
+  if ( v10 < *(_QWORD *)(a2 + 8) )
   {
-    result = ZwMapViewOfSection();
-    if ( (int)result < 0 )
+    result = ZwMapViewOfSection(
+               *(HANDLE *)a2,
+               (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+               v8,
+               0LL,
+               CommitSize,
+               (PLARGE_INTEGER)(a2 + 64),
+               ViewSize,
+               ViewUnmap,
+               0,
+               4u);
+    if ( result < 0 )
       return result;
     *(_QWORD *)(a2 + 72) = 0LL;
 LABEL_9:
     memmove((void *)(*(_QWORD *)(a2 + 72) + *(_QWORD *)(a2 + 48)), Src, Src[1]);
     ++*(_DWORD *)(a2 + 40);
     *(_QWORD *)(a2 + 72) += Src[1];
-    return 0LL;
+    return 0;
   }
   *(_DWORD *)(a2 + 28) = -1073741789;
-  return 0LL;
+  return 0;
 }

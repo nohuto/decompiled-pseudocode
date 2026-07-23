@@ -6,7 +6,7 @@
  *     <none>
  */
 
-int __stdcall RtlDecodeSystemPointer(int a1)
+PVOID __cdecl RtlDecodeSystemPointer(PVOID Ptr)
 {
-  return MEMORY[0x7FFE0330] ^ __ROR4__(a1, 32 - (MEMORY[0x7FFE0330] & 0x1F));
+  return (PVOID)(MEMORY[0x7FFE0330] ^ __ROR4__(Ptr, 32 - (MEMORY[0x7FFE0330] & 0x1F)));
 }

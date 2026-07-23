@@ -7,7 +7,7 @@
  *     RtlpAddLanguagesToMultiSZ @ 0x1800FB8C8 (RtlpAddLanguagesToMultiSZ.c)
  */
 
-char __fastcall RtlpMUIGetAllInstalledLang(__int64 a1, __int64 *a2, _QWORD *a3)
+char __fastcall RtlpMUIGetAllInstalledLang(__int64 a1, char **a2, _QWORD *a3)
 {
   char v6; // bl
   char *v7; // r9
@@ -16,14 +16,14 @@ char __fastcall RtlpMUIGetAllInstalledLang(__int64 a1, __int64 *a2, _QWORD *a3)
   unsigned int v10; // edi
   _WORD *v11; // r9
   unsigned int v13; // [rsp+40h] [rbp-20h] BYREF
-  __int64 Heap; // [rsp+48h] [rbp-18h] BYREF
+  char *Heap; // [rsp+48h] [rbp-18h] BYREF
   __int64 v15; // [rsp+50h] [rbp-10h] BYREF
   unsigned int v16; // [rsp+98h] [rbp+38h] BYREF
 
   v13 = 520;
   v6 = 0;
-  Heap = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, 520LL);
-  v7 = (char *)Heap;
+  Heap = (char *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, 0x208uLL);
+  v7 = Heap;
   if ( Heap )
   {
     v8 = *(_QWORD *)(a1 + 24);
@@ -42,7 +42,7 @@ char __fastcall RtlpMUIGetAllInstalledLang(__int64 a1, __int64 *a2, _QWORD *a3)
         ++v10;
       }
       while ( v10 < *(unsigned __int16 *)(v8 + 6) );
-      v7 = (char *)Heap;
+      v7 = Heap;
       v9 = v16;
     }
     if ( (v9 & 1) == 0 )

@@ -129,7 +129,7 @@ __int64 __fastcall ST_STORE<SM_TRAITS>::StDmpSinglePageAdd(__int64 a1, __int64 a
             {
               *(_BYTE *)(v20 + 32) |= 2u;
               if ( *(__int64 *)(v20 + 32) < 0 )
-                KiAbEntryRemoveFromTree(v20);
+                KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v20);
               v48 = 0;
               v48 = *(_DWORD *)(v20 + 88) & 0x1FFFF;
               *(_DWORD *)(v20 + 88) &= 0xFFFE0000;

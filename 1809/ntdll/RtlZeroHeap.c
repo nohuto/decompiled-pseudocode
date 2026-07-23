@@ -10,18 +10,18 @@
  *     RtlpFindEntry @ 0x18001D898 (RtlpFindEntry.c)
  *     RtlpHeapAddListEntry @ 0x18002070C (RtlpHeapAddListEntry.c)
  *     RtlpCommitBlock @ 0x180060934 (RtlpCommitBlock.c)
- *     RtlpLogHeapFailure @ 0x18009F7AC (RtlpLogHeapFailure.c)
+ *     RtlpLogHeapFailure @ 0x18009F7CC (RtlpLogHeapFailure.c)
  *     RtlpAnalyzeHeapFailure @ 0x180103934 (RtlpAnalyzeHeapFailure.c)
  *     RtlDebugZeroHeap @ 0x180108CB4 (RtlDebugZeroHeap.c)
  *     RtlpHeapExceptionFilter @ 0x18010C5C8 (RtlpHeapExceptionFilter.c)
  */
 
-__int64 __fastcall RtlZeroHeap(__int64 a1, int a2)
+NTSTATUS __cdecl RtlZeroHeap(PVOID HeapHandle, ULONG Flags)
 {
   _BYTE *v3; // r14
-  int v5; // edx
-  _QWORD *v6; // rax
-  _QWORD *v7; // r13
+  ULONG v5; // edx
+  char *v6; // rax
+  char *v7; // r13
   unsigned __int64 v8; // r15
   int v9; // edx
   unsigned __int8 v10; // cl
@@ -55,34 +55,34 @@ __int64 __fastcall RtlZeroHeap(__int64 a1, int a2)
 
   v3 = 0LL;
   v35 = 0;
-  if ( *(_DWORD *)(a1 + 16) == -571548178 )
-    return 0LL;
-  v5 = *(_DWORD *)(a1 + 116) | a2;
+  if ( *((_DWORD *)HeapHandle + 4) == -571548178 )
+    return 0;
+  v5 = *((_DWORD *)HeapHandle + 29) | Flags;
   if ( (v5 & 0x61000000) != 0 && (v5 & 0x10000000) == 0 )
-    return RtlDebugZeroHeap(a1);
+    return RtlDebugZeroHeap(HeapHandle);
   if ( (v5 & 1) == 0 )
   {
-    RtlEnterCriticalSection(*(_QWORD *)(a1 + 352));
+    RtlEnterCriticalSection(*((PRTL_CRITICAL_SECTION *)HeapHandle + 44));
     v35 = 1;
   }
-  v6 = (_QWORD *)(a1 + 288);
-  v7 = *(_QWORD **)(a1 + 288);
+  v6 = (char *)HeapHandle + 288;
+  v7 = (char *)*((_QWORD *)HeapHandle + 36);
 LABEL_8:
   if ( v7 != v6 )
   {
-    v8 = v7[5];
+    v8 = *((_QWORD *)v7 + 5);
     v36 = v8;
     while ( 1 )
     {
-      if ( v8 >= v7[6] )
+      if ( v8 >= *((_QWORD *)v7 + 6) )
       {
-        v7 = (_QWORD *)*v7;
-        v6 = (_QWORD *)(a1 + 288);
+        v7 = *(char **)v7;
+        v6 = (char *)HeapHandle + 288;
         goto LABEL_8;
       }
       if ( !v3 )
         goto LABEL_14;
-      if ( *(_DWORD *)(a1 + 124) )
+      if ( *((_DWORD *)HeapHandle + 31) )
         break;
 LABEL_17:
       v3 = (_BYTE *)v8;
@@ -99,8 +99,8 @@ LABEL_17:
         v15 = *(_QWORD *)(v12 + 8);
         if ( *v13 == v15 && v14 == v8 + 16 )
         {
-          *(_QWORD *)(a1 + 192) -= *(unsigned __int16 *)(v8 + 8);
-          v16 = *(_QWORD *)(a1 + 312);
+          *((_QWORD *)HeapHandle + 24) -= *(unsigned __int16 *)(v8 + 8);
+          v16 = *((_QWORD *)HeapHandle + 39);
           if ( v16 )
           {
             v17 = *(unsigned __int16 *)(v8 + 8);
@@ -118,27 +118,27 @@ LABEL_17:
             }
             v19 = v18 - 1;
 LABEL_27:
-            RtlpHeapRemoveListEntry(a1, v16, 1, (__int64 *)(v8 + 16), v19, v17);
+            RtlpHeapRemoveListEntry((__int64)HeapHandle, v16, 1, (__int64 *)(v8 + 16), v19, v17);
           }
           *v13 = v12;
           *(_QWORD *)(v12 + 8) = v13;
-          if ( (*(_BYTE *)(v8 + 10) & 8) == 0 || RtlpCommitBlock(a1, v8) )
+          if ( (*(_BYTE *)(v8 + 10) & 8) == 0 || RtlpCommitBlock((char *)HeapHandle, v8) )
           {
             v20 = *(unsigned __int16 *)(v8 + 8);
             *(_BYTE *)(v8 + 10) = 0;
             *(_BYTE *)(v8 + 15) = 0;
-            v21 = (__int64 **)(a1 + 336);
-            if ( *(_QWORD *)(a1 + 312) )
-              Entry = RtlpFindEntry(a1, (unsigned int)v20);
+            v21 = (__int64 **)((char *)HeapHandle + 336);
+            if ( *((_QWORD *)HeapHandle + 39) )
+              Entry = RtlpFindEntry((__int64)HeapHandle, (unsigned int)v20);
             else
               Entry = *v21;
             while ( v21 != (__int64 **)Entry )
             {
-              if ( *(_DWORD *)(a1 + 124) )
+              if ( *((_DWORD *)HeapHandle + 31) )
               {
                 v23 = *((_DWORD *)Entry - 2);
-                if ( (v23 & *(_DWORD *)(a1 + 124)) != 0 )
-                  v24 = v23 ^ *(_DWORD *)(a1 + 136);
+                if ( (v23 & *((_DWORD *)HeapHandle + 31)) != 0 )
+                  v24 = v23 ^ *((_DWORD *)HeapHandle + 34);
                 else
                   LOWORD(v24) = *((_DWORD *)Entry - 2);
                 v8 = v36;
@@ -165,8 +165,8 @@ LABEL_27:
             {
               RtlpLogHeapFailure(13, 0LL, (__int64)Entry, 0LL, *v26, 0LL);
             }
-            *(_QWORD *)(a1 + 192) += *(unsigned __int16 *)(v11 + 8);
-            v27 = *(_QWORD *)(a1 + 312);
+            *((_QWORD *)HeapHandle + 24) += *(unsigned __int16 *)(v11 + 8);
+            v27 = *((_QWORD *)HeapHandle + 39);
             if ( v27 )
             {
               v28 = *(unsigned __int16 *)(v11 + 8);
@@ -184,22 +184,22 @@ LABEL_27:
               }
               v30 = v29 - 1;
 LABEL_53:
-              RtlpHeapAddListEntry(a1, v27, 1, v11 + 16, v30, v28);
+              RtlpHeapAddListEntry((__int64)HeapHandle, v27, 1, v11 + 16, v30, v28);
             }
-            if ( *(_DWORD *)(a1 + 124) )
+            if ( *((_DWORD *)HeapHandle + 31) )
             {
               *(_BYTE *)(v11 + 11) = *(_BYTE *)(v11 + 8) ^ *(_BYTE *)(v11 + 9) ^ *(_BYTE *)(v11 + 10);
-              *(_DWORD *)(v11 + 8) ^= *(_DWORD *)(a1 + 136);
+              *(_DWORD *)(v11 + 8) ^= *((_DWORD *)HeapHandle + 34);
             }
           }
           else
           {
-            RtlpDeCommitFreeBlock(a1, v8, *(unsigned __int16 *)(v8 + 8), 1);
+            RtlpDeCommitFreeBlock(HeapHandle, v8, *(unsigned __int16 *)(v8 + 8), 1);
           }
         }
         else
         {
-          RtlpLogHeapFailure(13, a1, v8 + 16, v15, v14, 0LL);
+          RtlpLogHeapFailure(13, (__int64)HeapHandle, v8 + 16, v15, v14, 0LL);
         }
         v3 = 0LL;
       }
@@ -207,7 +207,7 @@ LABEL_53:
       {
         v31 = 16LL * *(unsigned __int16 *)(v8 + 8) - 32;
         v32 = (_DWORD *)(v8 + 32);
-        if ( ((v10 >> 2) & ((*(_BYTE *)(a1 + 112) & 0x40) != 0)) != 0 )
+        if ( ((v10 >> 2) & ((*((_BYTE *)HeapHandle + 112) & 0x40) != 0)) != 0 )
         {
           v33 = v31 >> 2;
           if ( !v33 )
@@ -248,23 +248,23 @@ LABEL_72:
       }
     }
     v3[11] = v3[8] ^ v3[9] ^ v3[10];
-    *((_DWORD *)v3 + 2) ^= *(_DWORD *)(a1 + 136);
+    *((_DWORD *)v3 + 2) ^= *((_DWORD *)HeapHandle + 34);
 LABEL_14:
-    if ( *(_DWORD *)(a1 + 124) )
+    if ( *((_DWORD *)HeapHandle + 31) )
     {
-      v9 = *(_DWORD *)(v8 + 8) ^ *(_DWORD *)(a1 + 136);
+      v9 = *(_DWORD *)(v8 + 8) ^ *((_DWORD *)HeapHandle + 34);
       *(_DWORD *)(v8 + 8) = v9;
       if ( HIBYTE(v9) != ((unsigned __int8)v9 ^ (unsigned __int8)(BYTE1(v9) ^ BYTE2(v9))) )
-        RtlpAnalyzeHeapFailure(a1, v8);
+        RtlpAnalyzeHeapFailure(HeapHandle, v8);
     }
     goto LABEL_17;
   }
-  if ( v3 && *(_DWORD *)(a1 + 124) )
+  if ( v3 && *((_DWORD *)HeapHandle + 31) )
   {
     v3[11] = v3[8] ^ v3[9] ^ v3[10];
-    *((_DWORD *)v3 + 2) ^= *(_DWORD *)(a1 + 136);
+    *((_DWORD *)v3 + 2) ^= *((_DWORD *)HeapHandle + 34);
   }
   if ( v35 )
-    RtlLeaveCriticalSection(*(_QWORD *)(a1 + 352));
-  return 0LL;
+    RtlLeaveCriticalSection(*((PRTL_CRITICAL_SECTION *)HeapHandle + 44));
+  return 0;
 }

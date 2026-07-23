@@ -14,11 +14,11 @@
 char RtlpScanHeapAllocBlocks()
 {
   __int64 *v0; // rbx
-  __int64 *j; // rbx
+  __int64 j; // rbx
   __int64 BlockInfo; // rax
   int v3; // r10d
   __int64 v4; // rdi
-  __int64 v5; // rax
+  SIZE_T v5; // rax
   _QWORD *v7; // rdi
   __int64 *v8; // rsi
   __int64 v9; // rcx
@@ -64,19 +64,19 @@ char RtlpScanHeapAllocBlocks()
       ++v7;
     }
   }
-  for ( j = (__int64 *)RtlpLeakList; j != &RtlpLeakList; j = (__int64 *)*j )
+  for ( j = RtlpLeakList; (__int64 *)j != &RtlpLeakList; j = *(_QWORD *)j )
   {
-    BlockInfo = RtlpGetBlockInfo(RtlpProcessMemoryMap, j[2]);
+    BlockInfo = RtlpGetBlockInfo(RtlpProcessMemoryMap, *(_QWORD *)(j + 16));
     v4 = BlockInfo;
     if ( BlockInfo )
     {
       if ( *((_QWORD *)&xmmword_1801D6060 + 1) )
       {
-        v5 = RtlSizeHeap(*(_QWORD *)(BlockInfo + 8), 0LL, j[2]);
-        (*((void (__fastcall **)(_QWORD, _QWORD, __int64, __int64, _DWORD, _QWORD))&xmmword_1801D6060 + 1))(
+        v5 = RtlSizeHeap(*(PVOID *)(BlockInfo + 8), 0, *(PVOID *)(j + 16));
+        (*((void (__fastcall **)(_QWORD, _QWORD, _QWORD, SIZE_T, _DWORD, _QWORD))&xmmword_1801D6060 + 1))(
           0LL,
           *(_QWORD *)(v4 + 8),
-          j[2],
+          *(_QWORD *)(j + 16),
           v5,
           0,
           0LL);
@@ -89,7 +89,7 @@ char RtlpScanHeapAllocBlocks()
           DbgPrint("Entry     Heap              Size       \n");
           DbgPrint("---------------------------------------\n");
         }
-        RtlpDumpEntryInfo(*(_QWORD *)(v4 + 8), j[2]);
+        RtlpDumpEntryInfo(*(_QWORD *)(v4 + 8), *(_QWORD *)(j + 16));
       }
       ++RtlpLeaksCount;
     }

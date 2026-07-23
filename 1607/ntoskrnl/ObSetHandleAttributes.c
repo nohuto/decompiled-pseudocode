@@ -1,16 +1,16 @@
 /*
- * XREFs of ObSetHandleAttributes @ 0x14045E6E8
+ * XREFs of ObSetHandleAttributes @ 0x14045D5B8
  * Callers:
  *     <none>
  * Callees:
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExSetHandleAttributes @ 0x140074EE4 (ExSetHandleAttributes.c)
- *     KiStackAttachProcess @ 0x1400CD1F0 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x1400CE820 (KiUnstackDetachProcess.c)
- *     ObpIsKernelHandle @ 0x1400CFD28 (ObpIsKernelHandle.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     ExUnlockHandleTableEntry @ 0x14045EDD4 (ExUnlockHandleTableEntry.c)
- *     ExMapHandleToPointer @ 0x14050DF14 (ExMapHandleToPointer.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExSetHandleAttributes @ 0x140074F64 (ExSetHandleAttributes.c)
+ *     KiStackAttachProcess @ 0x1400CB090 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x1400CC6C0 (KiUnstackDetachProcess.c)
+ *     ObpIsKernelHandle @ 0x1400CDBC8 (ObpIsKernelHandle.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     ExUnlockHandleTableEntry @ 0x14045DCA4 (ExUnlockHandleTableEntry.c)
+ *     ExMapHandleToPointer @ 0x1404F0EA4 (ExMapHandleToPointer.c)
  */
 
 __int64 __fastcall ObSetHandleAttributes(unsigned __int64 a1, _BYTE *a2, char a3)

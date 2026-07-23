@@ -1,8 +1,8 @@
 /*
- * XREFs of PspIoRateControlInfoIsAnySet @ 0x140362644
+ * XREFs of PspIoRateControlInfoIsAnySet @ 0x1403627E4
  * Callers:
- *     PspSetJobIoRateControl @ 0x1407D809C (PspSetJobIoRateControl.c)
- *     PspSetJobIoRateControlForVolume @ 0x1409B2AB4 (PspSetJobIoRateControlForVolume.c)
+ *     PspSetJobIoRateControl @ 0x1407D836C (PspSetJobIoRateControl.c)
+ *     PspSetJobIoRateControlForVolume @ 0x1409B2CB4 (PspSetJobIoRateControlForVolume.c)
  * Callees:
  *     <none>
  */

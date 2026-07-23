@@ -1,15 +1,15 @@
 /*
  * XREFs of sub_140B0F838 @ 0x140B0F838
  * Callers:
- *     sub_1403E5840 @ 0x1403E5840 (sub_1403E5840.c)
+ *     sub_1403E5A20 @ 0x1403E5A20 (sub_1403E5A20.c)
  *     FsRtlMdlReadCompleteDevEx @ 0x140AFA010 (FsRtlMdlReadCompleteDevEx.c)
  *     sub_140B0D7A8 @ 0x140B0D7A8 (sub_140B0D7A8.c)
  *     sub_140B19730 @ 0x140B19730 (sub_140B19730.c)
  * Callees:
- *     KeInitializeGate @ 0x140293234 (KeInitializeGate.c)
- *     ExQueueWorkItem @ 0x1402B7C30 (ExQueueWorkItem.c)
- *     KeWaitForGate @ 0x14034AD80 (KeWaitForGate.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
+ *     KeInitializeGate @ 0x1402934C4 (KeInitializeGate.c)
+ *     ExQueueWorkItem @ 0x1402B7EC0 (ExQueueWorkItem.c)
+ *     KeWaitForGate @ 0x14034AF20 (KeWaitForGate.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  *     sub_140B11020 @ 0x140B11020 (sub_140B11020.c)
  *     $$ba @ 0x140B11898 ($$ba.c)
  *     KeGuardDispatchICall @ 0x140B137A0 (KeGuardDispatchICall.c)

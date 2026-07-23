@@ -1,51 +1,51 @@
 /*
- * XREFs of RtlPrefixUnicodeString @ 0x18008AA00
+ * XREFs of RtlPrefixUnicodeString @ 0x1800A64C0
  * Callers:
- *     RtlDeriveCapabilitySidsFromName @ 0x18003A820 (RtlDeriveCapabilitySidsFromName.c)
- *     RtlpDosPathNameToRelativeNtPathName @ 0x180059C40 (RtlpDosPathNameToRelativeNtPathName.c)
- *     RtlpProcessIFEOKeyFilter @ 0x18008A254 (RtlpProcessIFEOKeyFilter.c)
- *     RtlNtPathNameToDosPathName @ 0x18008A780 (RtlNtPathNameToDosPathName.c)
- *     RtlpDetermineDosPathNameType4 @ 0x18008B6D4 (RtlpDetermineDosPathNameType4.c)
- *     LdrpFindOrPrepareEnclaveModule @ 0x1800D86F0 (LdrpFindOrPrepareEnclaveModule.c)
+ *     RtlDeriveCapabilitySidsFromName @ 0x18001AAA0 (RtlDeriveCapabilitySidsFromName.c)
+ *     RtlpDosPathNameToRelativeNtPathName @ 0x18006F820 (RtlpDosPathNameToRelativeNtPathName.c)
+ *     RtlpProcessIFEOKeyFilter @ 0x1800A5D14 (RtlpProcessIFEOKeyFilter.c)
+ *     RtlNtPathNameToDosPathName @ 0x1800A6240 (RtlNtPathNameToDosPathName.c)
+ *     RtlpDetermineDosPathNameType4 @ 0x1800A7194 (RtlpDetermineDosPathNameType4.c)
+ *     LdrpFindOrPrepareEnclaveModule @ 0x1800D3A60 (LdrpFindOrPrepareEnclaveModule.c)
  * Callees:
- *     memcmp @ 0x1801676D0 (memcmp.c)
+ *     memcmp @ 0x180165A90 (memcmp.c)
  */
 
-bool __fastcall RtlPrefixUnicodeString(unsigned __int16 *a1, __int64 a2, char a3)
+BOOLEAN __cdecl RtlPrefixUnicodeString(PUNICODE_STRING String1, PUNICODE_STRING String2, BOOLEAN CaseInSensitive)
 {
-  __int64 v3; // r9
-  unsigned __int16 *v4; // rcx
-  unsigned __int16 *v5; // r11
-  __int64 v6; // rbx
+  __int64 Length; // r9
+  wchar_t *Buffer; // rcx
+  wchar_t *v5; // r11
+  char *v6; // rbx
   unsigned __int64 v7; // r9
   unsigned __int64 v8; // r10
 
-  v3 = *a1;
-  v4 = (unsigned __int16 *)*((_QWORD *)a1 + 1);
-  if ( *(_WORD *)a2 < (unsigned __int16)v3 )
+  Length = String1->Length;
+  Buffer = String1->Buffer;
+  if ( String2->Length < (unsigned __int16)Length )
     return 0;
-  v5 = (unsigned __int16 *)((char *)v4 + v3);
-  if ( !a3 )
-    return memcmp(v4, *(const void **)(a2 + 8), (unsigned int)v3) == 0;
-  v6 = *(_QWORD *)(a2 + 8) - (_QWORD)v4;
-  while ( v4 < v5 )
+  v5 = (wchar_t *)((char *)Buffer + Length);
+  if ( !CaseInSensitive )
+    return memcmp(Buffer, String2->Buffer, (unsigned int)Length) == 0;
+  v6 = (char *)((char *)String2->Buffer - (char *)Buffer);
+  while ( Buffer < v5 )
   {
-    v7 = *v4;
-    v8 = *(unsigned __int16 *)((char *)v4 + v6);
+    v7 = *Buffer;
+    v8 = *(unsigned __int16 *)((char *)Buffer + (_QWORD)v6);
     if ( (_WORD)v7 != (_WORD)v8 )
     {
       if ( (unsigned int)v7 >= 0x61 )
       {
         if ( (unsigned int)v7 > 0x7A )
         {
-          if ( qword_1801CD038 && (unsigned __int16)v7 >= 0xC0u )
-            LOWORD(v7) = *(_WORD *)(qword_1801CD038
+          if ( qword_1801CC038 && (unsigned __int16)v7 >= 0xC0u )
+            LOWORD(v7) = *(_WORD *)(qword_1801CC038
                                   + 2
                                   * ((v7 & 0xF)
-                                   + *(unsigned __int16 *)(qword_1801CD038
+                                   + *(unsigned __int16 *)(qword_1801CC038
                                                          + 2LL
                                                          * (((unsigned __int8)v7 >> 4)
-                                                          + (unsigned int)*(unsigned __int16 *)(qword_1801CD038
+                                                          + (unsigned int)*(unsigned __int16 *)(qword_1801CC038
                                                                                               + 2 * (v7 >> 8))))))
                        + v7;
         }
@@ -58,16 +58,16 @@ bool __fastcall RtlPrefixUnicodeString(unsigned __int16 *a1, __int64 a2, char a3
       {
         if ( (unsigned int)v8 > 0x7A )
         {
-          if ( qword_1801CD038 )
+          if ( qword_1801CC038 )
           {
             if ( (unsigned __int16)v8 >= 0xC0u )
-              LOWORD(v8) = *(_WORD *)(qword_1801CD038
+              LOWORD(v8) = *(_WORD *)(qword_1801CC038
                                     + 2
                                     * ((v8 & 0xF)
-                                     + *(unsigned __int16 *)(qword_1801CD038
+                                     + *(unsigned __int16 *)(qword_1801CC038
                                                            + 2LL
                                                            * (((unsigned __int8)v8 >> 4)
-                                                            + (unsigned int)*(unsigned __int16 *)(qword_1801CD038
+                                                            + (unsigned int)*(unsigned __int16 *)(qword_1801CC038
                                                                                                 + 2 * (v8 >> 8))))))
                          + v8;
           }
@@ -80,7 +80,7 @@ bool __fastcall RtlPrefixUnicodeString(unsigned __int16 *a1, __int64 a2, char a3
       if ( (_WORD)v7 != (_WORD)v8 )
         return 0;
     }
-    ++v4;
+    ++Buffer;
   }
   return 1;
 }

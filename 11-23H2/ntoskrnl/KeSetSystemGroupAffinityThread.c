@@ -1,57 +1,57 @@
 /*
- * XREFs of KeSetSystemGroupAffinityThread @ 0x140306C50
+ * XREFs of KeSetSystemGroupAffinityThread @ 0x140306EE0
  * Callers:
- *     HalpTimerStallExecutionProcessor @ 0x1402C43B0 (HalpTimerStallExecutionProcessor.c)
- *     KeGenericProcessorCallback @ 0x140305B34 (KeGenericProcessorCallback.c)
- *     KiAcquireInterruptConnectLock @ 0x140320EA0 (KiAcquireInterruptConnectLock.c)
- *     PnpSetDeviceAffinityThread @ 0x140322840 (PnpSetDeviceAffinityThread.c)
- *     HalGetEnvironmentVariableEx @ 0x14035E920 (HalGetEnvironmentVariableEx.c)
- *     PpmInstallFeedbackCounters @ 0x140393078 (PpmInstallFeedbackCounters.c)
- *     KiSetSystemAffinityThreadToProcessor @ 0x14039AAC0 (KiSetSystemAffinityThreadToProcessor.c)
- *     HalpEnumerateEnvironmentVariablesWithFilter @ 0x14039C740 (HalpEnumerateEnvironmentVariablesWithFilter.c)
- *     KiInterruptDispatchCommon @ 0x1403A2F44 (KiInterruptDispatchCommon.c)
- *     IopPassiveInterruptWorker @ 0x1403A3340 (IopPassiveInterruptWorker.c)
- *     ExAllocateCacheAwarePushLock @ 0x1403A7FF0 (ExAllocateCacheAwarePushLock.c)
- *     MakeGdtReadOnly @ 0x1403AE4AC (MakeGdtReadOnly.c)
- *     ExpSaPageGroupDescriptorAllocate @ 0x1403C5DDC (ExpSaPageGroupDescriptorAllocate.c)
- *     HalpCreateMachineCheckErrorRecord @ 0x140502700 (HalpCreateMachineCheckErrorRecord.c)
- *     HalQueryEnvironmentVariableInfoEx @ 0x140504880 (HalQueryEnvironmentVariableInfoEx.c)
- *     HalSetEnvironmentVariableEx @ 0x140504A60 (HalSetEnvironmentVariableEx.c)
- *     HalpAllocatePmcCounterSetEx @ 0x140506F60 (HalpAllocatePmcCounterSetEx.c)
- *     HalpFreePmcCounterSet @ 0x140507660 (HalpFreePmcCounterSet.c)
- *     HalpQueryCapsuleCapabilities @ 0x1405212C0 (HalpQueryCapsuleCapabilities.c)
- *     HalpUpdateCapsule @ 0x1405213A0 (HalpUpdateCapsule.c)
- *     Amd64InitializeUncoreProfiling @ 0x1405298D0 (Amd64InitializeUncoreProfiling.c)
- *     KiDynamicProcessorInitialization @ 0x14056BC68 (KiDynamicProcessorInitialization.c)
- *     KeSetSystemAffinityThreadEx @ 0x14056F040 (KeSetSystemAffinityThreadEx.c)
- *     KiDeferredBugcheckRecoveryWorker @ 0x14057ADE0 (KiDeferredBugcheckRecoveryWorker.c)
- *     KiStallBugcheckThread @ 0x14057B5B8 (KiStallBugcheckThread.c)
- *     PpmClearSimulatedIdle @ 0x14058404C (PpmClearSimulatedIdle.c)
- *     PpmIdleInstallNewVetoList @ 0x140585078 (PpmIdleInstallNewVetoList.c)
- *     PpmSetSimulatedIdle @ 0x140585C6C (PpmSetSimulatedIdle.c)
- *     MiSetIdealProcessorThread @ 0x14066706C (MiSetIdealProcessorThread.c)
- *     HalpCmcWorkerRoutine @ 0x14081E6F0 (HalpCmcWorkerRoutine.c)
- *     PpmIdleInitializeConcurrency @ 0x14082BE04 (PpmIdleInitializeConcurrency.c)
- *     HalpLoadMicrocodeSerialized @ 0x140934CD8 (HalpLoadMicrocodeSerialized.c)
- *     PnpReplacePartitionUnit @ 0x140964AF0 (PnpReplacePartitionUnit.c)
- *     CmInitializeProcessor @ 0x140A0F90C (CmInitializeProcessor.c)
+ *     HalpTimerStallExecutionProcessor @ 0x1402C4640 (HalpTimerStallExecutionProcessor.c)
+ *     KeGenericProcessorCallback @ 0x140305DC4 (KeGenericProcessorCallback.c)
+ *     KiAcquireInterruptConnectLock @ 0x140321130 (KiAcquireInterruptConnectLock.c)
+ *     PnpSetDeviceAffinityThread @ 0x140322AD0 (PnpSetDeviceAffinityThread.c)
+ *     HalGetEnvironmentVariableEx @ 0x14035EAC0 (HalGetEnvironmentVariableEx.c)
+ *     PpmInstallFeedbackCounters @ 0x140393258 (PpmInstallFeedbackCounters.c)
+ *     KiSetSystemAffinityThreadToProcessor @ 0x14039ACA0 (KiSetSystemAffinityThreadToProcessor.c)
+ *     HalpEnumerateEnvironmentVariablesWithFilter @ 0x14039C920 (HalpEnumerateEnvironmentVariablesWithFilter.c)
+ *     KiInterruptDispatchCommon @ 0x1403A3124 (KiInterruptDispatchCommon.c)
+ *     IopPassiveInterruptWorker @ 0x1403A3520 (IopPassiveInterruptWorker.c)
+ *     ExAllocateCacheAwarePushLock @ 0x1403A81D0 (ExAllocateCacheAwarePushLock.c)
+ *     MakeGdtReadOnly @ 0x1403AE68C (MakeGdtReadOnly.c)
+ *     ExpSaPageGroupDescriptorAllocate @ 0x1403C5FBC (ExpSaPageGroupDescriptorAllocate.c)
+ *     HalpCreateMachineCheckErrorRecord @ 0x140502C50 (HalpCreateMachineCheckErrorRecord.c)
+ *     HalQueryEnvironmentVariableInfoEx @ 0x140504DD0 (HalQueryEnvironmentVariableInfoEx.c)
+ *     HalSetEnvironmentVariableEx @ 0x140504FB0 (HalSetEnvironmentVariableEx.c)
+ *     HalpAllocatePmcCounterSetEx @ 0x1405074B0 (HalpAllocatePmcCounterSetEx.c)
+ *     HalpFreePmcCounterSet @ 0x140507BB0 (HalpFreePmcCounterSet.c)
+ *     HalpQueryCapsuleCapabilities @ 0x140521810 (HalpQueryCapsuleCapabilities.c)
+ *     HalpUpdateCapsule @ 0x1405218F0 (HalpUpdateCapsule.c)
+ *     Amd64InitializeUncoreProfiling @ 0x140529E20 (Amd64InitializeUncoreProfiling.c)
+ *     KiDynamicProcessorInitialization @ 0x14056C328 (KiDynamicProcessorInitialization.c)
+ *     KeSetSystemAffinityThreadEx @ 0x14056F580 (KeSetSystemAffinityThreadEx.c)
+ *     KiDeferredBugcheckRecoveryWorker @ 0x14057B2D0 (KiDeferredBugcheckRecoveryWorker.c)
+ *     KiStallBugcheckThread @ 0x14057BAA8 (KiStallBugcheckThread.c)
+ *     PpmClearSimulatedIdle @ 0x14058453C (PpmClearSimulatedIdle.c)
+ *     PpmIdleInstallNewVetoList @ 0x140585568 (PpmIdleInstallNewVetoList.c)
+ *     PpmSetSimulatedIdle @ 0x14058615C (PpmSetSimulatedIdle.c)
+ *     MiSetIdealProcessorThread @ 0x1406675BC (MiSetIdealProcessorThread.c)
+ *     HalpCmcWorkerRoutine @ 0x14081E9C0 (HalpCmcWorkerRoutine.c)
+ *     PpmIdleInitializeConcurrency @ 0x14082C104 (PpmIdleInitializeConcurrency.c)
+ *     HalpLoadMicrocodeSerialized @ 0x140934ED8 (HalpLoadMicrocodeSerialized.c)
+ *     PnpReplacePartitionUnit @ 0x140964CF0 (PnpReplacePartitionUnit.c)
+ *     CmInitializeProcessor @ 0x140A0FBBC (CmInitializeProcessor.c)
  *     HalpCmciInit @ 0x140A8A70C (HalpCmciInit.c)
  *     HalpMceInit @ 0x140A8A918 (HalpMceInit.c)
  *     HalpInitializeMce @ 0x140A8ADA0 (HalpInitializeMce.c)
- *     HalpHandlePreviousMcaErrors @ 0x140A94FF0 (HalpHandlePreviousMcaErrors.c)
- *     IopLiveDumpCorralProcessors @ 0x140A9AEB0 (IopLiveDumpCorralProcessors.c)
- *     PopEndMirroring @ 0x140AA2820 (PopEndMirroring.c)
- *     PopInvokeSystemStateHandler @ 0x140AA859C (PopInvokeSystemStateHandler.c)
- *     ViIsBTSSupported @ 0x140AD3B0C (ViIsBTSSupported.c)
- *     ViSetupBTSPerProcNoEnable @ 0x140AD3C40 (ViSetupBTSPerProcNoEnable.c)
+ *     HalpHandlePreviousMcaErrors @ 0x140A94E60 (HalpHandlePreviousMcaErrors.c)
+ *     IopLiveDumpCorralProcessors @ 0x140A9AD20 (IopLiveDumpCorralProcessors.c)
+ *     PopEndMirroring @ 0x140AA2690 (PopEndMirroring.c)
+ *     PopInvokeSystemStateHandler @ 0x140AA840C (PopInvokeSystemStateHandler.c)
+ *     ViIsBTSSupported @ 0x140AD3AFC (ViIsBTSSupported.c)
+ *     ViSetupBTSPerProcNoEnable @ 0x140AD3C30 (ViSetupBTSPerProcNoEnable.c)
  *     CmpInitializeMachineDependentConfiguration @ 0x140B36E28 (CmpInitializeMachineDependentConfiguration.c)
  *     KiComputeNumaCosts @ 0x140B75D24 (KiComputeNumaCosts.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     KiProcessDeferredReadyList @ 0x1402B0E70 (KiProcessDeferredReadyList.c)
- *     KiSetSystemAffinityThread @ 0x14030715C (KiSetSystemAffinityThread.c)
- *     KeFirstGroupAffinityEx @ 0x1403090E0 (KeFirstGroupAffinityEx.c)
- *     EtwTraceThreadAffinity @ 0x140467710 (EtwTraceThreadAffinity.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     KiProcessDeferredReadyList @ 0x1402B1100 (KiProcessDeferredReadyList.c)
+ *     KiSetSystemAffinityThread @ 0x1403073EC (KiSetSystemAffinityThread.c)
+ *     KeFirstGroupAffinityEx @ 0x140309370 (KeFirstGroupAffinityEx.c)
+ *     EtwTraceThreadAffinity @ 0x140467B10 (EtwTraceThreadAffinity.c)
  */
 
 void __stdcall KeSetSystemGroupAffinityThread(PGROUP_AFFINITY Affinity, PGROUP_AFFINITY PreviousAffinity)
@@ -65,7 +65,7 @@ void __stdcall KeSetSystemGroupAffinityThread(PGROUP_AFFINITY Affinity, PGROUP_A
   _DWORD *SchedulerAssist; // r9
   __int64 v11; // rax
   struct _SINGLE_LIST_ENTRY *Next; // rdx
-  struct _GROUP_AFFINITY v13; // [rsp+30h] [rbp-38h] BYREF
+  _GROUP_AFFINITY v13; // [rsp+30h] [rbp-38h] BYREF
   int v14; // [rsp+70h] [rbp+8h] BYREF
   __int64 v15; // [rsp+78h] [rbp+10h] BYREF
 
@@ -85,7 +85,7 @@ void __stdcall KeSetSystemGroupAffinityThread(PGROUP_AFFINITY Affinity, PGROUP_A
   }
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     LODWORD(v11) = 4;

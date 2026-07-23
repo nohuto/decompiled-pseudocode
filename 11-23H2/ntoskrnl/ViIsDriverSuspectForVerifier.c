@@ -1,12 +1,12 @@
 /*
- * XREFs of ViIsDriverSuspectForVerifier @ 0x140AC2B7C
+ * XREFs of ViIsDriverSuspectForVerifier @ 0x140AC2B6C
  * Callers:
- *     VfIsVerificationEnabledForImage @ 0x1405CE1F8 (VfIsVerificationEnabledForImage.c)
- *     MmIsDriverSuspectForVerifier @ 0x140AC2090 (MmIsDriverSuspectForVerifier.c)
- *     VfThunkApplyThunksCurrentSession @ 0x140ADB3DC (VfThunkApplyThunksCurrentSession.c)
- *     ViThunkApplyWdmThunksCurrentSession @ 0x140ADB6EC (ViThunkApplyWdmThunksCurrentSession.c)
+ *     VfIsVerificationEnabledForImage @ 0x1405CE768 (VfIsVerificationEnabledForImage.c)
+ *     MmIsDriverSuspectForVerifier @ 0x140AC2080 (MmIsDriverSuspectForVerifier.c)
+ *     VfThunkApplyThunksCurrentSession @ 0x140ADB3CC (VfThunkApplyThunksCurrentSession.c)
+ *     ViThunkApplyWdmThunksCurrentSession @ 0x140ADB6DC (ViThunkApplyWdmThunksCurrentSession.c)
  * Callees:
- *     RtlEqualUnicodeString @ 0x1406DA2F0 (RtlEqualUnicodeString.c)
+ *     RtlEqualUnicodeString @ 0x1406DA320 (RtlEqualUnicodeString.c)
  */
 
 __int64 __fastcall ViIsDriverSuspectForVerifier(__int64 a1)

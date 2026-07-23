@@ -1,15 +1,15 @@
 /*
- * XREFs of PsSetProcessTelemetryAppState @ 0x140953E54
+ * XREFs of PsSetProcessTelemetryAppState @ 0x1409CF794
  * Callers:
- *     DbgkForwardException @ 0x1409535F0 (DbgkForwardException.c)
- *     EtwpPsProvProcessEnumCallback @ 0x140954D20 (EtwpPsProvProcessEnumCallback.c)
- *     PspExitProcess @ 0x140A43620 (PspExitProcess.c)
- *     PsSetProcessFaultInformation @ 0x140ABDE90 (PsSetProcessFaultInformation.c)
+ *     EtwpPsProvProcessEnumCallback @ 0x1409BA820 (EtwpPsProvProcessEnumCallback.c)
+ *     DbgkForwardException @ 0x1409CEF30 (DbgkForwardException.c)
+ *     PspExitProcess @ 0x1409FE380 (PspExitProcess.c)
+ *     PsSetProcessFaultInformation @ 0x140AC0480 (PsSetProcessFaultInformation.c)
  * Callees:
- *     PspLockProcessExclusive @ 0x140487FB8 (PspLockProcessExclusive.c)
- *     PspUnlockProcessExclusive @ 0x14048FE44 (PspUnlockProcessExclusive.c)
- *     PsGetProcessDeepFreezeStats @ 0x140953FC0 (PsGetProcessDeepFreezeStats.c)
- *     EtwTraceAppStateChange @ 0x1409540B8 (EtwTraceAppStateChange.c)
+ *     PspLockProcessExclusive @ 0x140481AF8 (PspLockProcessExclusive.c)
+ *     PspUnlockProcessExclusive @ 0x1404898F4 (PspUnlockProcessExclusive.c)
+ *     PsGetProcessDeepFreezeStats @ 0x1409CF900 (PsGetProcessDeepFreezeStats.c)
+ *     EtwTraceAppStateChange @ 0x1409CF9F8 (EtwTraceAppStateChange.c)
  */
 
 __int64 __fastcall PsSetProcessTelemetryAppState(PRKPROCESS PROCESS, int a2)

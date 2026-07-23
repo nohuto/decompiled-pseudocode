@@ -1,13 +1,13 @@
 /*
- * XREFs of MiUpdateEngineConfiguration @ 0x1404F8D64
+ * XREFs of MiUpdateEngineConfiguration @ 0x1404F2374
  * Callers:
- *     MiAbsorbPossibleEngineChanges @ 0x1404EBE80 (MiAbsorbPossibleEngineChanges.c)
+ *     MiAbsorbPossibleEngineChanges @ 0x1404E5460 (MiAbsorbPossibleEngineChanges.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiAllocateZeroPageDecisionTraceBuffer @ 0x14070E1AC (MiAllocateZeroPageDecisionTraceBuffer.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiAllocateZeroPageDecisionTraceBuffer @ 0x140712EB8 (MiAllocateZeroPageDecisionTraceBuffer.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiUpdateEngineConfiguration(__int64 a1, __int64 a2)

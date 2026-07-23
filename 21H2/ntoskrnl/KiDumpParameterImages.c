@@ -1,29 +1,29 @@
 /*
- * XREFs of KiDumpParameterImages @ 0x140518454
+ * XREFs of KiDumpParameterImages @ 0x140518694
  * Callers:
- *     KeBugCheck2 @ 0x140516AD0 (KeBugCheck2.c)
- *     KiDisplayBlueScreen @ 0x1405180C0 (KiDisplayBlueScreen.c)
+ *     KeBugCheck2 @ 0x140516D10 (KeBugCheck2.c)
+ *     KiDisplayBlueScreen @ 0x140518300 (KiDisplayBlueScreen.c)
  * Callees:
- *     MmIsAddressValidEx @ 0x14030C4F0 (MmIsAddressValidEx.c)
- *     RtlImageNtHeader @ 0x14031C950 (RtlImageNtHeader.c)
- *     RtlStringCbPrintfA @ 0x1403AD5C4 (RtlStringCbPrintfA.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     KiBugCheckUnicodeToAnsi @ 0x140518040 (KiBugCheckUnicodeToAnsi.c)
- *     KiPcToFileHeader @ 0x140518870 (KiPcToFileHeader.c)
- *     MmLocateUnloadedDriver @ 0x1405358CC (MmLocateUnloadedDriver.c)
+ *     MmIsAddressValidEx @ 0x140317240 (MmIsAddressValidEx.c)
+ *     RtlImageNtHeader @ 0x1403276A0 (RtlImageNtHeader.c)
+ *     RtlStringCbPrintfA @ 0x1403AD714 (RtlStringCbPrintfA.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     KiBugCheckUnicodeToAnsi @ 0x140518280 (KiBugCheckUnicodeToAnsi.c)
+ *     KiPcToFileHeader @ 0x140518AB0 (KiPcToFileHeader.c)
+ *     MmLocateUnloadedDriver @ 0x140535B0C (MmLocateUnloadedDriver.c)
  */
 
 void __fastcall KiDumpParameterImages(NTSTRSAFE_PSTR pszDest, const void **a2, unsigned int a3, char a4)
 {
   char v7; // r13
   __int64 v8; // r14
-  int v9; // r15d
+  unsigned int TimeDateStamp; // r15d
   const void *v10; // rbp
   __int64 UnloadedDriver; // rax
   __int64 v12; // rbx
   unsigned __int16 *v13; // rcx
   __int64 v14; // rbx
-  __int64 v15; // rax
+  PIMAGE_NT_HEADERS v15; // rax
   const char *v16; // r9
   _BYTE v17[8]; // [rsp+40h] [rbp-D8h] BYREF
   __int64 v18; // [rsp+48h] [rbp-D0h] BYREF
@@ -39,7 +39,7 @@ void __fastcall KiDumpParameterImages(NTSTRSAFE_PSTR pszDest, const void **a2, u
     v8 = a3;
     while ( 1 )
     {
-      v9 = 0;
+      TimeDateStamp = 0;
       v10 = (const void *)KiPcToFileHeader(*a2, &v18, 1LL, v17);
       if ( v10 )
         break;
@@ -63,9 +63,9 @@ LABEL_20:
     v14 = v18;
     if ( MmIsAddressValidEx(*(_QWORD *)(v18 + 48)) == 1 )
     {
-      v15 = RtlImageNtHeader(*(_QWORD *)(v14 + 48));
+      v15 = RtlImageNtHeader(*(PVOID *)(v14 + 48));
       if ( v15 )
-        v9 = *(_DWORD *)(v15 + 8);
+        TimeDateStamp = v15->FileHeader.TimeDateStamp;
     }
     v12 = v14 + 88;
     if ( a4 )
@@ -88,7 +88,7 @@ LABEL_15:
         v19,
         *a2,
         v10,
-        v9);
+        TimeDateStamp);
     }
     KiBugCheckDriver = v12;
     v7 = 0;

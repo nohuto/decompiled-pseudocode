@@ -1,5 +1,5 @@
 /*
- * XREFs of ScpCfgExceptionHandler_ES @ 0x18016D280
+ * XREFs of ScpCfgExceptionHandler_ES @ 0x18016C280
  * Callers:
  *     <none>
  * Callees:

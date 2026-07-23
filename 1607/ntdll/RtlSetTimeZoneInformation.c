@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlSetTimeZoneInformation @ 0x1800E5470
+ * XREFs of RtlSetTimeZoneInformation @ 0x1800E5530
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall RtlSetTimeZoneInformation(__int64 a1)
+NTSTATUS __cdecl RtlSetTimeZoneInformation(PRTL_TIME_ZONE_INFORMATION TimeZoneInformation)
 {
-  return RtlpSetTimeZoneInformationWorker(a1, 172LL);
+  return RtlpSetTimeZoneInformationWorker(TimeZoneInformation);
 }

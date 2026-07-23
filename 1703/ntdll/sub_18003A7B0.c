@@ -18,42 +18,46 @@
 
 __int64 __fastcall sub_18003A7B0(__int64 a1, int a2)
 {
-  unsigned __int64 v2; // rsi
-  int v5; // edi
-  unsigned __int16 *v6; // rbp
-  unsigned __int64 v7; // rax
+  char *v2; // rsi
+  NTSTATUS v5; // edi
+  PIMAGE_NT_HEADERS v6; // rbp
+  char *v7; // rax
   bool v8; // zf
   __int64 v9; // rax
   int v10; // eax
-  unsigned __int16 *v12; // [rsp+60h] [rbp+8h] BYREF
+  PIMAGE_NT_HEADERS OutHeaders; // [rsp+60h] [rbp+8h] BYREF
   __int64 v13; // [rsp+70h] [rbp+18h] BYREF
 
-  v2 = *(_QWORD *)(a1 + 48);
-  v5 = RtlImageNtHeaderEx(3, v2, 0LL, &v12);
+  v2 = *(char **)(a1 + 48);
+  v5 = RtlImageNtHeaderEx(3u, v2, 0LL, &OutHeaders);
   if ( v5 < 0 )
     return (unsigned int)v5;
-  v6 = v12;
+  v6 = OutHeaders;
   if ( (*(_DWORD *)(a1 + 104) & 0x1000004) == 4 )
   {
-    if ( *((_DWORD *)v12 + 10) )
-      v7 = v2 + *((unsigned int *)v12 + 10);
+    if ( OutHeaders->OptionalHeader.AddressOfEntryPoint )
+      v7 = &v2[OutHeaders->OptionalHeader.AddressOfEntryPoint];
     else
       v7 = 0LL;
     *(_QWORD *)(a1 + 56) = v7;
   }
   if ( !(unsigned __int8)sub_18003A958(a1) )
     return (unsigned int)-1073741701;
-  *(_QWORD *)(a1 + 248) = *((_QWORD *)v6 + 6);
+  *(_QWORD *)(a1 + 248) = v6->OptionalHeader.ImageBase;
   v8 = (*(_BYTE *)(a1 + 104) & 4) == 0;
   *(_QWORD *)(a1 + 256) = MEMORY[0x7FFE0014];
   if ( !v8 && (*(_DWORD *)(a1 + 104) & 0x2000) == 0 && a2 )
   {
     v13 = 0LL;
     v9 = sub_18003A4FC();
-    v10 = sub_18003A528(v2, *(_DWORD *)(a1 + 64), 0LL, v9 ^ (unsigned int)dword_18016B358, &v13);
-    if ( v2 == 0x180000000LL || !*(_QWORD *)(a1 + 56) || (v12[36] != 6 || v12[37] < 3u) && v12[36] < 7u || v10 )
+    v10 = sub_18003A528(v2, *(unsigned int *)(a1 + 64), 0LL, v9 ^ LdrSystemDllInitBlock.RngData, &v13);
+    if ( v2 == (char *)0x180000000LL
+      || !*(_QWORD *)(a1 + 56)
+      || (OutHeaders->OptionalHeader.MajorSubsystemVersion != 6 || OutHeaders->OptionalHeader.MinorSubsystemVersion < 3u)
+      && OutHeaders->OptionalHeader.MajorSubsystemVersion < 7u
+      || v10 )
     {
-      v5 = sub_180039F38(a1, v12, v13);
+      v5 = sub_180039F38(a1, (unsigned __int16 *)OutHeaders, v13);
       if ( v5 < 0 )
         return (unsigned int)v5;
       goto LABEL_16;
@@ -62,13 +66,13 @@ __int64 __fastcall sub_18003A7B0(__int64 a1, int a2)
   }
 LABEL_16:
   if ( (*(_DWORD *)(a1 + 104) & 0x200) == 0 )
-    sub_180039AE0(v2, *(_DWORD *)(a1 + 64));
+    sub_180039AE0((unsigned __int64)v2, *(_DWORD *)(a1 + 64));
   *(_DWORD *)(a1 + 104) |= 0x2200u;
-  RtlAcquireSRWLockExclusive(&qword_18015C040);
+  RtlAcquireSRWLockExclusive(&stru_18015C040);
   *(_DWORD *)(*(_QWORD *)(a1 + 152) + 56LL) = 2;
   if ( *(_QWORD *)(a1 + 176) )
     sub_180039C44(a1);
-  RtlReleaseSRWLockExclusive(&qword_18015C040);
+  RtlReleaseSRWLockExclusive(&stru_18015C040);
   sub_18003CA5C(*(_QWORD *)(a1 + 48), a1 + 72, 5281LL);
   return (unsigned int)v5;
 }

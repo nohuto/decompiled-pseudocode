@@ -1,30 +1,30 @@
 /*
- * XREFs of NtWriteFileGather @ 0x1404BD44C
+ * XREFs of NtWriteFileGather @ 0x1404A917C
  * Callers:
  *     <none>
  * Callees:
- *     IoGetRelatedDeviceObject @ 0x14002E0E0 (IoGetRelatedDeviceObject.c)
- *     IopResetEvent @ 0x14002E5C0 (IopResetEvent.c)
- *     KeResetEvent @ 0x14002E630 (KeResetEvent.c)
- *     IoAllocateMdl @ 0x14002EF90 (IoAllocateMdl.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     KeSetEvent @ 0x1400562D0 (KeSetEvent.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     IopReferenceFileObject @ 0x14007B630 (IopReferenceFileObject.c)
- *     MmProbeAndLockSelectedPages @ 0x14009A5D4 (MmProbeAndLockSelectedPages.c)
- *     IopVerifierExAllocatePoolWithQuota_0 @ 0x14009AB34 (IopVerifierExAllocatePoolWithQuota_0.c)
- *     RtlRaiseStatus @ 0x1400F6738 (RtlRaiseStatus.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     IopExceptionFilter @ 0x1401C4CFC (IopExceptionFilter.c)
- *     IopAcquireFastLock_1 @ 0x1401CAD9C (IopAcquireFastLock_1.c)
- *     MmUpdateMdlTracker @ 0x1401E3260 (MmUpdateMdlTracker.c)
+ *     IoGetRelatedDeviceObject @ 0x14002DC60 (IoGetRelatedDeviceObject.c)
+ *     IopResetEvent @ 0x14002E140 (IopResetEvent.c)
+ *     KeResetEvent @ 0x14002E1B0 (KeResetEvent.c)
+ *     IoAllocateMdl @ 0x14002EB10 (IoAllocateMdl.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     KeSetEvent @ 0x140055E50 (KeSetEvent.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     IopReferenceFileObject @ 0x14007B6B0 (IopReferenceFileObject.c)
+ *     MmProbeAndLockSelectedPages @ 0x140099DD4 (MmProbeAndLockSelectedPages.c)
+ *     IopVerifierExAllocatePoolWithQuota_0 @ 0x14009A334 (IopVerifierExAllocatePoolWithQuota_0.c)
+ *     RtlRaiseStatus @ 0x1400F4588 (RtlRaiseStatus.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     IopExceptionFilter @ 0x1401C4BE0 (IopExceptionFilter.c)
+ *     IopAcquireFastLock_1 @ 0x1401CAD48 (IopAcquireFastLock_1.c)
+ *     MmUpdateMdlTracker @ 0x1401E308C (MmUpdateMdlTracker.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     IopAcquireFileObjectLock @ 0x1403ECA60 (IopAcquireFileObjectLock.c)
- *     IopSynchronousServiceTail @ 0x1404457B0 (IopSynchronousServiceTail.c)
- *     ObReferenceObjectByHandle @ 0x140450D40 (ObReferenceObjectByHandle.c)
- *     IopAllocateIrpCleanup @ 0x140620DC0 (IopAllocateIrpCleanup.c)
- *     IopExceptionCleanup @ 0x1406213D4 (IopExceptionCleanup.c)
- *     ExRaiseDatatypeMisalignment @ 0x1406B6058 (ExRaiseDatatypeMisalignment.c)
+ *     IopAcquireFileObjectLock @ 0x1403EE090 (IopAcquireFileObjectLock.c)
+ *     IopSynchronousServiceTail @ 0x140444680 (IopSynchronousServiceTail.c)
+ *     ObReferenceObjectByHandle @ 0x14044FC10 (ObReferenceObjectByHandle.c)
+ *     IopAllocateIrpCleanup @ 0x140620E74 (IopAllocateIrpCleanup.c)
+ *     IopExceptionCleanup @ 0x140621488 (IopExceptionCleanup.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1406B6190 (ExRaiseDatatypeMisalignment.c)
  */
 
 NTSTATUS __stdcall NtWriteFileGather(

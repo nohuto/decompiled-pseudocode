@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpGetPidDemuxList @ 0x14093F140
+ * XREFs of EtwpGetPidDemuxList @ 0x14093F310
  * Callers:
- *     EtwpGetPrivateSessionTraceHandle @ 0x14093F1B0 (EtwpGetPrivateSessionTraceHandle.c)
+ *     EtwpGetPrivateSessionTraceHandle @ 0x14093F380 (EtwpGetPrivateSessionTraceHandle.c)
  * Callees:
- *     PidNodeCompare @ 0x14093F920 (PidNodeCompare.c)
+ *     PidNodeCompare @ 0x14093FAF0 (PidNodeCompare.c)
  */
 
 unsigned __int64 __fastcall EtwpGetPidDemuxList(int a1, __int64 a2)

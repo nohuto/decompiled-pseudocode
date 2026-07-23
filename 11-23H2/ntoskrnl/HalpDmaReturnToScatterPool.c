@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpDmaReturnToScatterPool @ 0x14045CA08
+ * XREFs of HalpDmaReturnToScatterPool @ 0x14045CE08
  * Callers:
- *     HalpDmaReturnPageToOwner @ 0x14045C896 (HalpDmaReturnPageToOwner.c)
- *     HalpDmaReturnPageToSource @ 0x1405114D4 (HalpDmaReturnPageToSource.c)
+ *     HalpDmaReturnPageToOwner @ 0x14045CC96 (HalpDmaReturnPageToOwner.c)
+ *     HalpDmaReturnPageToSource @ 0x140511A24 (HalpDmaReturnPageToSource.c)
  * Callees:
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402610F0 (KeAcquireInStackQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall HalpDmaReturnToScatterPool(__int64 a1, __int64 a2, char a3)
@@ -33,10 +33,10 @@ __int64 __fastcall HalpDmaReturnToScatterPool(__int64 a1, __int64 a2, char a3)
   {
     result = KxReleaseQueuedSpinLock((volatile signed __int64 **)&v12);
     OldIrql = v12.OldIrql;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       result = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
         && (unsigned __int8)result <= 0xFu
         && v12.OldIrql <= 0xFu
         && (unsigned __int8)result >= 2u )
@@ -47,7 +47,7 @@ __int64 __fastcall HalpDmaReturnToScatterPool(__int64 a1, __int64 a2, char a3)
         v11 = ((unsigned int)result & SchedulerAssist[5]) == 0;
         SchedulerAssist[5] &= result;
         if ( v11 )
-          result = KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          result = KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
       }
     }
     __writecr8(OldIrql);

@@ -1,12 +1,12 @@
 /*
- * XREFs of CmpDoReadTxRBigLogRecord @ 0x14085E0CC
+ * XREFs of CmpDoReadTxRBigLogRecord @ 0x1408643BC
  * Callers:
- *     CmpRmReDoPhase @ 0x14085E540 (CmpRmReDoPhase.c)
+ *     CmpRmReDoPhase @ 0x140864830 (CmpRmReDoPhase.c)
  * Callees:
- *     CmpAllocatePool @ 0x140474870 (CmpAllocatePool.c)
- *     CmSiFreeMemory @ 0x140495010 (CmSiFreeMemory.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     CmpVerifyBigLogRecordChunk @ 0x14085E8B0 (CmpVerifyBigLogRecordChunk.c)
+ *     CmpAllocatePool @ 0x14046DFF0 (CmpAllocatePool.c)
+ *     CmSiFreeMemory @ 0x14048EB60 (CmSiFreeMemory.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     CmpVerifyBigLogRecordChunk @ 0x140864BA0 (CmpVerifyBigLogRecordChunk.c)
  */
 
 __int64 __fastcall CmpDoReadTxRBigLogRecord(void *a1, void *a2, ULONG a3, struct _PRIVILEGE_SET **a4, unsigned int *a5)

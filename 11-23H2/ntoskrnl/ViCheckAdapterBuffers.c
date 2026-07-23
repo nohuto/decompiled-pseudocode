@@ -1,13 +1,13 @@
 /*
- * XREFs of ViCheckAdapterBuffers @ 0x140AC8214
+ * XREFs of ViCheckAdapterBuffers @ 0x140AC8204
  * Callers:
- *     VfMapTransfer @ 0x140AC6F30 (VfMapTransfer.c)
- *     VfMapTransferEx @ 0x140AC70E0 (VfMapTransferEx.c)
+ *     VfMapTransfer @ 0x140AC6F20 (VfMapTransfer.c)
+ *     VfMapTransferEx @ 0x140AC70D0 (VfMapTransferEx.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     ViCheckTag @ 0x140AC8544 (ViCheckTag.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     ViCheckTag @ 0x140AC8534 (ViCheckTag.c)
  */
 
 __int64 __fastcall ViCheckAdapterBuffers(__int64 a1)
@@ -51,10 +51,10 @@ __int64 __fastcall ViCheckAdapterBuffers(__int64 a1)
       i = *v6 - 48LL;
     }
     result = KxReleaseSpinLock(v4);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       result = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
         && (unsigned __int8)result <= 0xFu
         && (unsigned __int8)v7 <= 0xFu
         && (unsigned __int8)result >= 2u )

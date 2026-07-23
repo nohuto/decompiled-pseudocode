@@ -1,20 +1,20 @@
 /*
- * XREFs of KiSelectReadyThread @ 0x14005C1C0
+ * XREFs of KiSelectReadyThread @ 0x14005BD40
  * Callers:
- *     KiSearchForNewThread @ 0x14005B980 (KiSearchForNewThread.c)
- *     KiSelectReadyThreadEx @ 0x14005DF30 (KiSelectReadyThreadEx.c)
- *     ExpReleaseResourceForThreadLite @ 0x140068950 (ExpReleaseResourceForThreadLite.c)
- *     KiChooseLowestRankedThread @ 0x140099144 (KiChooseLowestRankedThread.c)
- *     KiSelectNextThread @ 0x1400CA5B0 (KiSelectNextThread.c)
- *     KeDelayExecutionThread @ 0x1400D0580 (KeDelayExecutionThread.c)
- *     KiQuantumEnd @ 0x1400D1780 (KiQuantumEnd.c)
- *     KiGroupSchedulingQuantumEnd @ 0x1400D20C0 (KiGroupSchedulingQuantumEnd.c)
- *     KiGroupSchedulingGenerationEnd @ 0x1400D24A0 (KiGroupSchedulingGenerationEnd.c)
+ *     KiSearchForNewThread @ 0x14005B500 (KiSearchForNewThread.c)
+ *     KiSelectReadyThreadEx @ 0x14005DAB0 (KiSelectReadyThreadEx.c)
+ *     ExpReleaseResourceForThreadLite @ 0x1400684D0 (ExpReleaseResourceForThreadLite.c)
+ *     KiChooseLowestRankedThread @ 0x140098944 (KiChooseLowestRankedThread.c)
+ *     KiSelectNextThread @ 0x1400C8450 (KiSelectNextThread.c)
+ *     KeDelayExecutionThread @ 0x1400CE420 (KeDelayExecutionThread.c)
+ *     KiQuantumEnd @ 0x1400CF620 (KiQuantumEnd.c)
+ *     KiGroupSchedulingQuantumEnd @ 0x1400CFF60 (KiGroupSchedulingQuantumEnd.c)
+ *     KiGroupSchedulingGenerationEnd @ 0x1400D0340 (KiGroupSchedulingGenerationEnd.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x14002ECB0 (KeYieldProcessorEx.c)
- *     KiAddThreadToScbQueue @ 0x14009950C (KiAddThreadToScbQueue.c)
- *     KiGetThreadEffectiveRankNonZero @ 0x1400D0220 (KiGetThreadEffectiveRankNonZero.c)
- *     KiConvertDynamicHeteroPolicy @ 0x1401D7E4C (KiConvertDynamicHeteroPolicy.c)
+ *     KeYieldProcessorEx @ 0x14002E830 (KeYieldProcessorEx.c)
+ *     KiAddThreadToScbQueue @ 0x140098D0C (KiAddThreadToScbQueue.c)
+ *     KiGetThreadEffectiveRankNonZero @ 0x1400CE0C0 (KiGetThreadEffectiveRankNonZero.c)
+ *     KiConvertDynamicHeteroPolicy @ 0x1401D7C78 (KiConvertDynamicHeteroPolicy.c)
  */
 
 unsigned __int64 *__fastcall KiSelectReadyThread(signed int a1, __int64 a2, unsigned __int64 *a3)

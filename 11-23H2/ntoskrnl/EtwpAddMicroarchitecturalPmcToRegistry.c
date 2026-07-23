@@ -1,16 +1,16 @@
 /*
- * XREFs of EtwpAddMicroarchitecturalPmcToRegistry @ 0x1409E2FC4
+ * XREFs of EtwpAddMicroarchitecturalPmcToRegistry @ 0x1409E3254
  * Callers:
- *     EtwSetPerformanceTraceInformation @ 0x1409E1E84 (EtwSetPerformanceTraceInformation.c)
+ *     EtwSetPerformanceTraceInformation @ 0x1409E2114 (EtwSetPerformanceTraceInformation.c)
  * Callees:
- *     RtlStringCbPrintfW @ 0x140229604 (RtlStringCbPrintfW.c)
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ZwCreateKey @ 0x14041B100 (ZwCreateKey.c)
- *     ZwSetValueKey @ 0x14041B960 (ZwSetValueKey.c)
- *     EtwpAddMicroarchitecturalPmcToPmcGroup @ 0x1409E2C94 (EtwpAddMicroarchitecturalPmcToPmcGroup.c)
- *     EtwpFindMatchingPmcRegistryGroup @ 0x1409E3ED8 (EtwpFindMatchingPmcRegistryGroup.c)
+ *     RtlStringCbPrintfW @ 0x140229714 (RtlStringCbPrintfW.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ZwCreateKey @ 0x14041B490 (ZwCreateKey.c)
+ *     ZwSetValueKey @ 0x14041BCF0 (ZwSetValueKey.c)
+ *     EtwpAddMicroarchitecturalPmcToPmcGroup @ 0x1409E2F24 (EtwpAddMicroarchitecturalPmcToPmcGroup.c)
+ *     EtwpFindMatchingPmcRegistryGroup @ 0x1409E4168 (EtwpFindMatchingPmcRegistryGroup.c)
  *     KiGetCpuVendor @ 0x140A888A0 (KiGetCpuVendor.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)

@@ -21,13 +21,12 @@ __int64 __fastcall RtlpGetNormalization(__int64 a1, char **a2, __int64 a3, __int
   int v7; // ecx
   char *v8; // rsi
   char *v9; // rax
-  __int64 v10; // rdx
-  int NlsSectionPtr; // ebx
-  char *v12; // rax
-  _DWORD *v13; // rbx
+  NTSTATUS NlsSectionPtr; // ebx
+  char *v11; // rax
+  _DWORD *v12; // rbx
   int Tables; // ebp
-  unsigned __int64 v15; // [rsp+58h] [rbp+10h]
-  unsigned __int16 *v16; // [rsp+60h] [rbp+18h]
+  unsigned __int64 SectionSize; // [rsp+58h] [rbp+10h] BYREF
+  PVOID SectionPointer; // [rsp+60h] [rbp+18h] BYREF
 
   v5 = a1;
   if ( !a2 )
@@ -39,36 +38,34 @@ __int64 __fastcall RtlpGetNormalization(__int64 a1, char **a2, __int64 a3, __int
     v9 = NormalizationList__Lookup(v7 ^ 0x100u);
     if ( v9 )
     {
-      v16 = (unsigned __int16 *)*((_QWORD *)v9 + 1);
-      v15 = *((_QWORD *)v9 + 2);
+      SectionPointer = (PVOID)*((_QWORD *)v9 + 1);
+      SectionSize = *((_QWORD *)v9 + 2);
     }
     else
     {
-      v10 = v5;
-      LODWORD(v10) = v5 & 0xFFFFFEFF;
-      NlsSectionPtr = ZwGetNlsSectionPtr(12LL, v10, 0LL);
+      NlsSectionPtr = ZwGetNlsSectionPtr(0xCu, v5 & 0xFFFFFEFF, 0LL, &SectionPointer, (PULONG)&SectionSize);
       if ( NlsSectionPtr < 0 )
         goto LABEL_12;
     }
-    v12 = (char *)NormalizationListEntry_Alloc();
-    v13 = v12;
-    if ( !v12 )
+    v11 = (char *)NormalizationListEntry_Alloc();
+    v12 = v11;
+    if ( !v11 )
     {
       NlsSectionPtr = -1073741801;
 LABEL_12:
       NormalizationList__Unlock();
       return (unsigned int)NlsSectionPtr;
     }
-    v8 = v12 + 24;
-    Tables = Normalization__LoadTables(v5, v16, v15, (_DWORD *)v12 + 6);
+    v8 = v11 + 24;
+    Tables = Normalization__LoadTables(v5, (unsigned __int16 *)SectionPointer, SectionSize, (_DWORD *)v11 + 6);
     if ( Tables < 0 )
     {
-      ExFreePoolWithTag(v13, 0);
+      ExFreePoolWithTag(v12, 0);
       NlsSectionPtr = Tables;
       goto LABEL_12;
     }
-    v13[4] = v5;
-    NormalizationList__InsertTail((__int64)v13);
+    v12[4] = v5;
+    NormalizationList__InsertTail((__int64)v12);
   }
   NormalizationList__Unlock();
   result = 0LL;

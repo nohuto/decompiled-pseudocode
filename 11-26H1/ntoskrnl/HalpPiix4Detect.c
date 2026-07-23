@@ -1,28 +1,28 @@
 /*
- * XREFs of HalpPiix4Detect @ 0x140C0A8DC
+ * XREFs of HalpPiix4Detect @ 0x140C10AEC
  * Callers:
- *     HalpAcpiDetectPiix4Work @ 0x1407823C0 (HalpAcpiDetectPiix4Work.c)
- *     HaliInitPowerManagement @ 0x140785870 (HaliInitPowerManagement.c)
- *     HalpAcpiPostSleep @ 0x140BECAA0 (HalpAcpiPostSleep.c)
+ *     HalpAcpiDetectPiix4Work @ 0x140784EC0 (HalpAcpiDetectPiix4Work.c)
+ *     HaliInitPowerManagement @ 0x1407883A0 (HaliInitPowerManagement.c)
+ *     HalpAcpiPostSleep @ 0x140BF2AA0 (HalpAcpiPostSleep.c)
  * Callees:
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     HalpInterruptModel @ 0x140427BB0 (HalpInterruptModel.c)
- *     HalSetBusDataByOffset @ 0x140439AB0 (HalSetBusDataByOffset.c)
- *     HalGetBusDataByOffset @ 0x140439D40 (HalGetBusDataByOffset.c)
- *     HalpGetCpuInfo @ 0x1404C55D0 (HalpGetCpuInfo.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     HalGetBusData @ 0x140579940 (HalGetBusData.c)
- *     HalpInterruptSetLineSpecificOverride @ 0x14057D9D8 (HalpInterruptSetLineSpecificOverride.c)
- *     HalpInterruptSetMsiOverride @ 0x14057DA9C (HalpInterruptSetMsiOverride.c)
- *     HalpWhackICHUsbSmi @ 0x14059A3DC (HalpWhackICHUsbSmi.c)
- *     HalpUsbLegacyStopUhciInterrupt @ 0x14059A6BC (HalpUsbLegacyStopUhciInterrupt.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwOpenKey @ 0x140723630 (ZwOpenKey.c)
- *     ZwQueryValueKey @ 0x1407236D0 (ZwQueryValueKey.c)
- *     ZwCreateKey @ 0x140723790 (ZwCreateKey.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     HalpGetChipHacks @ 0x140CB3B5C (HalpGetChipHacks.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     HalSetBusDataByOffset @ 0x14042C360 (HalSetBusDataByOffset.c)
+ *     HalGetBusDataByOffset @ 0x14042C5F0 (HalGetBusDataByOffset.c)
+ *     HalpInterruptModel @ 0x140434CC0 (HalpInterruptModel.c)
+ *     HalpGetCpuInfo @ 0x1404BEF80 (HalpGetCpuInfo.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     HalGetBusData @ 0x14057BE70 (HalGetBusData.c)
+ *     HalpInterruptSetLineSpecificOverride @ 0x14057FEF8 (HalpInterruptSetLineSpecificOverride.c)
+ *     HalpInterruptSetMsiOverride @ 0x14057FFBC (HalpInterruptSetMsiOverride.c)
+ *     HalpWhackICHUsbSmi @ 0x14059CB5C (HalpWhackICHUsbSmi.c)
+ *     HalpUsbLegacyStopUhciInterrupt @ 0x14059CE3C (HalpUsbLegacyStopUhciInterrupt.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140728200 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1407282A0 (ZwQueryValueKey.c)
+ *     ZwCreateKey @ 0x140728360 (ZwCreateKey.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     HalpGetChipHacks @ 0x140CB9B9C (HalpGetChipHacks.c)
  */
 
 char __fastcall HalpPiix4Detect(char a1)
@@ -84,7 +84,7 @@ char __fastcall HalpPiix4Detect(char a1)
   KeyValueInformation = 0LL;
   if ( a1 )
   {
-    BusData = _InterlockedIncrement((volatile signed __int32 *)&IommuInterfaceStateChangeCallbackPushLock.WriteOperationCount);
+    BusData = _InterlockedIncrement((_DWORD *)&IommuInterfaceStateChangeCallbackPushLock.WriteOperationCount + 1);
     if ( BusData != 1 )
       return BusData;
     LODWORD(ObjectAttributes[1]) = 48;
@@ -103,7 +103,7 @@ char __fastcall HalpPiix4Detect(char a1)
     if ( ZwCreateKey(&Handle, 0x20019u, (POBJECT_ATTRIBUTES)&ObjectAttributes[1], 0, 0LL, 0, Disposition) < 0 )
       goto LABEL_78;
   }
-  else if ( !BYTE4(IommuInterfaceStateChangeCallbackPushLock.ReadOperationCount) )
+  else if ( !LOBYTE(IommuInterfaceStateChangeCallbackPushLock.WriteOperationCount) )
   {
     return BusData;
   }
@@ -153,12 +153,12 @@ LABEL_10:
       LOBYTE(v10) = v32;
       v12 = v30;
       if ( ((HIBYTE(Buffer) >> 5) & ((Buffer & 0x1800) != 0)) != 0 )
-        HalpDeviceBlockUnblockPushLock.PriorityFloorCounts[18] = 1;
+        LOBYTE(HalpDeviceBlockUnblockPushLock.PropagateBoostsEntry.Next) = 1;
     }
     if ( (int)HalpGetChipHacks(v12, v31, v10, &Buffer_4) >= 0 )
     {
       if ( (Buffer_4 & 2) != 0 )
-        HalpDisableHibernate = 1;
+        BYTE2(HalpDeviceBlockUnblockPushLock.OtherTransferCount) = 1;
       if ( (Buffer_4 & 8) != 0 )
         HalpWhackICHUsbSmi(v5, v7);
     }
@@ -226,24 +226,30 @@ LABEL_55:
 LABEL_56:
   if ( v13 != 28944 )
     goto LABEL_57;
-  BYTE4(IommuInterfaceStateChangeCallbackPushLock.ReadOperationCount) = 1;
+  LOBYTE(IommuInterfaceStateChangeCallbackPushLock.WriteOperationCount) = 1;
   v15 = v7 & 0xFFFFFF1F | 0x60;
   HalGetBusData(PCIConfiguration, v5, v15, &v30, 0x40u);
   LOBYTE(v16) = v32;
-  LOBYTE(HalpDeviceBlockUnblockPushLock.AbCompletedIoQoSBoostCount) = v32;
-  if ( ((__int64)HalpDeviceBlockUnblockPushLock.SchedulerAssist & 2) == 0 )
+  HalpDeviceBlockUnblockPushLock.PriorityFloorCounts[4] = v32;
+  if ( (HalpDeviceBlockUnblockPushLock.WriteTransferCount & 0x200000000LL) == 0 )
     KeBugCheckEx(0x5Cu, 0x111uLL, (ULONG_PTR)"minkernel\\hals\\lib\\acpi\\xxacpi.c", 0x662uLL, 0LL);
   if ( v32 <= 1u )
   {
-    HalpDeviceBlockUnblockPushLock.AbCompletedIoBoostCount = v5;
-    HalpDeviceBlockUnblockPushLock.ForegroundLossTime = v15;
-    HalGetBusDataByOffset(PCIConfiguration, v5, v15, &HalpDeviceBlockUnblockPushLock.PriorityFloorSummary, 0x58u, 4u);
-    HalpDeviceBlockUnblockPushLock.PriorityFloorSummary |= 0x23u;
+    *(_DWORD *)HalpDeviceBlockUnblockPushLock.PriorityFloorCounts = v5;
+    *(_DWORD *)&HalpDeviceBlockUnblockPushLock.PriorityFloorCounts[12] = v15;
+    HalGetBusDataByOffset(
+      PCIConfiguration,
+      v5,
+      v15,
+      (char *)&HalpDeviceBlockUnblockPushLock.PropagateBoostsEntry.Next + 4,
+      0x58u,
+      4u);
+    HIDWORD(HalpDeviceBlockUnblockPushLock.PropagateBoostsEntry.Next) |= 0x23u;
     HalSetBusDataByOffset(
       PCIConfiguration,
-      HalpDeviceBlockUnblockPushLock.AbCompletedIoBoostCount,
-      HalpDeviceBlockUnblockPushLock.ForegroundLossTime,
-      &HalpDeviceBlockUnblockPushLock.PriorityFloorSummary,
+      *(ULONG *)HalpDeviceBlockUnblockPushLock.PriorityFloorCounts,
+      *(ULONG *)&HalpDeviceBlockUnblockPushLock.PriorityFloorCounts[12],
+      (char *)&HalpDeviceBlockUnblockPushLock.PropagateBoostsEntry.Next + 4,
       0x58u,
       4u);
   }
@@ -275,7 +281,7 @@ LABEL_70:
              (PULONG)ObjectAttributes) >= 0
         && DWORD2(KeyValueInformation) )
       {
-        HalpDeviceBlockUnblockPushLock.PriorityFloorCounts[18] = BYTE12(KeyValueInformation);
+        LOBYTE(HalpDeviceBlockUnblockPushLock.PropagateBoostsEntry.Next) = BYTE12(KeyValueInformation);
       }
 LABEL_78:
       v17 = Handle;

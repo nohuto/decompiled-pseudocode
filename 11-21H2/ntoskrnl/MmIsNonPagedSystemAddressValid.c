@@ -1,18 +1,18 @@
 /*
  * XREFs of MmIsNonPagedSystemAddressValid @ 0x14045BA00
  * Callers:
- *     VfMiscIoInitializeWorkItem_Entry @ 0x140AA3EB0 (VfMiscIoInitializeWorkItem_Entry.c)
- *     ViMiscValidateSynchronizationObject @ 0x140AA59E0 (ViMiscValidateSynchronizationObject.c)
- *     VfPnpVerifyNewRequest @ 0x140AA6600 (VfPnpVerifyNewRequest.c)
- *     ViPnpVerifyMinorWasProcessedProperly @ 0x140AA66E0 (ViPnpVerifyMinorWasProcessedProperly.c)
+ *     sub_140AA3EB0 @ 0x140AA3EB0 (sub_140AA3EB0.c)
+ *     sub_140AA59E0 @ 0x140AA59E0 (sub_140AA59E0.c)
+ *     sub_140AA6600 @ 0x140AA6600 (sub_140AA6600.c)
+ *     sub_140AA66E0 @ 0x140AA66E0 (sub_140AA66E0.c)
  * Callees:
- *     MiGetSystemRegionType @ 0x14027B080 (MiGetSystemRegionType.c)
+ *     sub_14027B080 @ 0x14027B080 (sub_14027B080.c)
  */
 
 BOOLEAN __stdcall MmIsNonPagedSystemAddressValid(PVOID VirtualAddress)
 {
-  int SystemRegionType; // eax
+  int v1; // eax
 
-  SystemRegionType = MiGetSystemRegionType((unsigned __int64)VirtualAddress);
-  return SystemRegionType != 6 && SystemRegionType != 1;
+  v1 = sub_14027B080((unsigned __int64)VirtualAddress);
+  return v1 != 6 && v1 != 1;
 }

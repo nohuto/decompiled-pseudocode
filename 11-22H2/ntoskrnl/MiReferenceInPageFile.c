@@ -42,10 +42,13 @@ unsigned __int64 __fastcall MiReferenceInPageFile(__int64 a1, unsigned int a2)
     if ( v6 )
       ObfReferenceObjectWithTag((PVOID)(*(_QWORD *)(v5 + 64) & 0xFFFFFFFFFFFFFFF0uLL), 0x63536D4Du);
     ExReleaseSpinLockSharedFromDpcLevel((PEX_SPIN_LOCK)(v5 + 72));
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v11 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v11 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;

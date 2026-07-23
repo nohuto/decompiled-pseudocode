@@ -1,13 +1,13 @@
 /*
- * XREFs of AccelpQatOperationHandler @ 0x1406DF9C4
+ * XREFs of AccelpQatOperationHandler @ 0x1406E3C44
  * Callers:
- *     AccelpSiovInternalOperationHandler @ 0x140511B88 (AccelpSiovInternalOperationHandler.c)
+ *     AccelpSiovInternalOperationHandler @ 0x14050B5F8 (AccelpSiovInternalOperationHandler.c)
  * Callees:
- *     AccelpQatCompressionDecompression @ 0x1406DF784 (AccelpQatCompressionDecompression.c)
- *     AccelpQatGetCompressionWorkspaceSize @ 0x1406E0E9C (AccelpQatGetCompressionWorkspaceSize.c)
- *     AccelpQatSetCompressionWorkspace @ 0x1406E0F2C (AccelpQatSetCompressionWorkspace.c)
- *     QatGetStatusFromCompletionRecord @ 0x1406E1064 (QatGetStatusFromCompletionRecord.c)
- *     QatValidateDescriptorFlags @ 0x1406E1218 (QatValidateDescriptorFlags.c)
+ *     AccelpQatCompressionDecompression @ 0x1406E3A04 (AccelpQatCompressionDecompression.c)
+ *     AccelpQatGetCompressionWorkspaceSize @ 0x1406E511C (AccelpQatGetCompressionWorkspaceSize.c)
+ *     AccelpQatSetCompressionWorkspace @ 0x1406E51AC (AccelpQatSetCompressionWorkspace.c)
+ *     QatGetStatusFromCompletionRecord @ 0x1406E52E4 (QatGetStatusFromCompletionRecord.c)
+ *     QatValidateDescriptorFlags @ 0x1406E5498 (QatValidateDescriptorFlags.c)
  */
 
 __int64 __fastcall AccelpQatOperationHandler(__int64 a1, __int64 *a2)

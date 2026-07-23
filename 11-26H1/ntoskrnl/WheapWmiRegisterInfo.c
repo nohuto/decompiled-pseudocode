@@ -1,9 +1,9 @@
 /*
- * XREFs of WheapWmiRegisterInfo @ 0x1406D8B5C
+ * XREFs of WheapWmiRegisterInfo @ 0x1406DCCEC
  * Callers:
- *     WheaWmiDispatch @ 0x1406D8000 (WheaWmiDispatch.c)
+ *     WheaWmiDispatch @ 0x1406DC190 (WheaWmiDispatch.c)
  * Callees:
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall WheapWmiRegisterInfo(__int64 a1, unsigned int a2, _DWORD *a3, int *a4)
@@ -20,7 +20,7 @@ __int64 __fastcall WheapWmiRegisterInfo(__int64 a1, unsigned int a2, _DWORD *a3,
   {
     memset_0(a3, 0, 0xDEuLL);
     v8 = 5LL;
-    v9 = &dword_14000DCEC;
+    v9 = &dword_14000DF9C;
     a3[4] = 5;
     v10 = a3 + 10;
     do

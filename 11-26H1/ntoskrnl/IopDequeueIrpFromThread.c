@@ -1,20 +1,20 @@
 /*
- * XREFs of IopDequeueIrpFromThread @ 0x14032F1A0
+ * XREFs of IopDequeueIrpFromThread @ 0x1403311D0
  * Callers:
- *     IopfCompleteRequest @ 0x1403FDA10 (IopfCompleteRequest.c)
- *     IopCopyCompleteReadRequest @ 0x14040FD30 (IopCopyCompleteReadRequest.c)
- *     IopIoRingCompleteIrp @ 0x1404113E8 (IopIoRingCompleteIrp.c)
- *     IopCompleteRequest @ 0x14045B5C0 (IopCompleteRequest.c)
- *     IopParseDevice @ 0x1409008C0 (IopParseDevice.c)
- *     IoCancelFileOpen @ 0x140903830 (IoCancelFileOpen.c)
- *     IopDeleteFile @ 0x140A1ECD0 (IopDeleteFile.c)
- *     IopCloseFile @ 0x140A1EFA0 (IopCloseFile.c)
+ *     IopfCompleteRequest @ 0x1403FA200 (IopfCompleteRequest.c)
+ *     IopCopyCompleteReadRequest @ 0x14040F450 (IopCopyCompleteReadRequest.c)
+ *     IopIoRingCompleteIrp @ 0x140410B08 (IopIoRingCompleteIrp.c)
+ *     IopCompleteRequest @ 0x140454DF0 (IopCompleteRequest.c)
+ *     IopParseDevice @ 0x140930850 (IopParseDevice.c)
+ *     IoCancelFileOpen @ 0x1409337C0 (IoCancelFileOpen.c)
+ *     IopDeleteFile @ 0x140A282F0 (IopDeleteFile.c)
+ *     IopCloseFile @ 0x140A285C0 (IopCloseFile.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiReleaseSpinLockInstrumented @ 0x1402BDFEC (KiReleaseSpinLockInstrumented.c)
- *     KiAcquireSpinLockInstrumented @ 0x14032F380 (KiAcquireSpinLockInstrumented.c)
- *     KxWaitForSpinLockAndAcquire @ 0x14032F490 (KxWaitForSpinLockAndAcquire.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiReleaseSpinLockInstrumented @ 0x140308CAC (KiReleaseSpinLockInstrumented.c)
+ *     KiAcquireSpinLockInstrumented @ 0x1403313B0 (KiAcquireSpinLockInstrumented.c)
+ *     KxWaitForSpinLockAndAcquire @ 0x1403314C0 (KxWaitForSpinLockAndAcquire.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 _QWORD *__fastcall IopDequeueIrpFromThread(_QWORD *a1, __int64 a2)
@@ -40,7 +40,7 @@ _QWORD *__fastcall IopDequeueIrpFromThread(_QWORD *a1, __int64 a2)
       LOBYTE(a2) = 2;
       KiRaiseIrqlProcessIrqlFlags(CurrentIrql, a2);
     }
-    if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+    if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
     {
       if ( _interlockedbittestandset64(v5, 0LL) )
         KxWaitForSpinLockAndAcquire(v2 + 1560);
@@ -60,7 +60,7 @@ _QWORD *__fastcall IopDequeueIrpFromThread(_QWORD *a1, __int64 a2)
   *result = result;
   if ( v2 )
   {
-    if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+    if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
       _InterlockedAnd64((volatile signed __int64 *)v5, 0LL);
     else
       KiReleaseSpinLockInstrumented((volatile signed __int64 *)(v2 + 1560), retaddr);

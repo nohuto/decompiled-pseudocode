@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpHvIsReferenceTscConfigured @ 0x1403A773C
+ * XREFs of HalpHvIsReferenceTscConfigured @ 0x1403A788C
  * Callers:
- *     HaliAcpiSleep @ 0x140385F30 (HaliAcpiSleep.c)
- *     HalpPostSleepMP @ 0x140995864 (HalpPostSleepMP.c)
+ *     HaliAcpiSleep @ 0x140386080 (HaliAcpiSleep.c)
+ *     HalpPostSleepMP @ 0x140996864 (HalpPostSleepMP.c)
  * Callees:
  *     <none>
  */
 
 bool HalpHvIsReferenceTscConfigured()
 {
-  return qword_140C4A188 != 0;
+  return qword_140C4A1C8 != 0;
 }

@@ -1,13 +1,13 @@
 /*
  * XREFs of ObDeleteCapturedInsertInfo @ 0x140692B60
  * Callers:
- *     CcInitializeCacheMapInternal @ 0x14025E8D0 (CcInitializeCacheMapInternal.c)
- *     ExCreateDpcEvent @ 0x14060BEE0 (ExCreateDpcEvent.c)
+ *     CcInitializeCacheMapInternal @ 0x14025EB60 (CcInitializeCacheMapInternal.c)
+ *     ExCreateDpcEvent @ 0x14060C430 (ExCreateDpcEvent.c)
  *     CmLoadDifferencingKey @ 0x14069108C (CmLoadDifferencingKey.c)
  * Callees:
- *     RtlpInterlockedPushEntrySList @ 0x140428EF0 (RtlpInterlockedPushEntrySList.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     SeReleaseSecurityDescriptor @ 0x1407373D0 (SeReleaseSecurityDescriptor.c)
+ *     RtlpInterlockedPushEntrySList @ 0x140429280 (RtlpInterlockedPushEntrySList.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     SeReleaseSecurityDescriptor @ 0x1407375C0 (SeReleaseSecurityDescriptor.c)
  */
 
 void __fastcall ObDeleteCapturedInsertInfo(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -15,7 +15,7 @@ void __fastcall ObDeleteCapturedInsertInfo(__int64 a1, __int64 a2, __int64 a3, _
   __int64 v5; // rax
   __int64 v6; // rcx
   struct _KPRCB *CurrentPrcb; // r8
-  struct _SLIST_ENTRY *v8; // rdx
+  _SLIST_ENTRY *v8; // rdx
   _GENERAL_LOOKASIDE *P; // rcx
 
   if ( (*(_BYTE *)(a1 - 21) & 1) != 0 )
@@ -32,7 +32,7 @@ void __fastcall ObDeleteCapturedInsertInfo(__int64 a1, __int64 a2, __int64 a3, _
         *(_QWORD *)(*(_QWORD *)(a1 - 16) + 32LL) = 0LL;
       }
       CurrentPrcb = KeGetCurrentPrcb();
-      v8 = *(struct _SLIST_ENTRY **)(a1 - 16);
+      v8 = *(_SLIST_ENTRY **)(a1 - 16);
       P = CurrentPrcb->PPLookasideList[4].P;
       ++P->TotalFrees;
       if ( LOWORD(P->ListHead.Alignment) < P->Depth
@@ -46,7 +46,7 @@ void __fastcall ObDeleteCapturedInsertInfo(__int64 a1, __int64 a2, __int64 a3, _
       else
       {
         ++P->FreeMisses;
-        ((void (__fastcall *)(struct _SLIST_ENTRY *))P->FreeEx)(v8);
+        ((void (__fastcall *)(_SLIST_ENTRY *))P->FreeEx)(v8);
       }
       *(_QWORD *)(a1 - 16) = 0LL;
     }

@@ -1,23 +1,23 @@
 /*
- * XREFs of PopPdcCsDeviceNotification @ 0x140A89968
+ * XREFs of PopPdcCsDeviceNotification @ 0x140A85D68
  * Callers:
- *     NtPowerInformation @ 0x1409F0230 (NtPowerInformation.c)
- *     PopPdcCsCheckSystemVolumeDevice @ 0x140C328E4 (PopPdcCsCheckSystemVolumeDevice.c)
+ *     NtPowerInformation @ 0x1409EDB00 (NtPowerInformation.c)
+ *     PopPdcCsCheckSystemVolumeDevice @ 0x140C34A24 (PopPdcCsCheckSystemVolumeDevice.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     SSHSupportIsPlatformAoAc @ 0x140490DC8 (SSHSupportIsPlatformAoAc.c)
- *     PopNetCompliantNicUpdate @ 0x14075C6B4 (PopNetCompliantNicUpdate.c)
- *     PopNetNonCompliantDeviceUpdate @ 0x14075C920 (PopNetNonCompliantDeviceUpdate.c)
- *     PopPdcUpdateDeviceCompliance @ 0x140A89B24 (PopPdcUpdateDeviceCompliance.c)
- *     PopNetUpdateCsConsumptionFlags @ 0x140A89BD4 (PopNetUpdateCsConsumptionFlags.c)
- *     PopAcquirePolicyLock @ 0x140B67CB0 (PopAcquirePolicyLock.c)
- *     PopReleasePolicyLock @ 0x140B67D00 (PopReleasePolicyLock.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     SSHSupportIsPlatformAoAc @ 0x14048B408 (SSHSupportIsPlatformAoAc.c)
+ *     PopNetCompliantNicUpdate @ 0x14075B650 (PopNetCompliantNicUpdate.c)
+ *     PopNetNonCompliantDeviceUpdate @ 0x14075B8C0 (PopNetNonCompliantDeviceUpdate.c)
+ *     PopPdcUpdateDeviceCompliance @ 0x140A85F24 (PopPdcUpdateDeviceCompliance.c)
+ *     PopNetUpdateCsConsumptionFlags @ 0x140A85FD4 (PopNetUpdateCsConsumptionFlags.c)
+ *     PopAcquirePolicyLock @ 0x140B69DF0 (PopAcquirePolicyLock.c)
+ *     PopReleasePolicyLock @ 0x140B69E40 (PopReleasePolicyLock.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PopPdcCsDeviceNotification(__int64 a1)
@@ -25,9 +25,9 @@ __int64 __fastcall PopPdcCsDeviceNotification(__int64 a1)
   unsigned int v2; // edi
   __int64 v3; // rcx
   struct _KTHREAD *CurrentThread; // rax
-  _QWORD *v5; // rax
+  char *v5; // rax
   signed __int8 v6; // cf
-  _QWORD *v7; // rbp
+  char *v7; // rbp
   _DWORD *v8; // rcx
   _DWORD *v9; // r8
   char v10; // dl
@@ -50,13 +50,13 @@ __int64 __fastcall PopPdcCsDeviceNotification(__int64 a1)
     return (unsigned int)-1073741811;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  v5 = KeAbPreAcquire((__int64)&PopPdcDeviceListLock, 0LL);
+  v5 = (char *)KeAbPreAcquire((__int64)&PopPdcDeviceListLock, 0LL);
   v6 = _interlockedbittestandset64((volatile signed __int32 *)&PopPdcDeviceListLock, 0LL);
   v7 = v5;
   if ( v6 )
-    ExfAcquirePushLockExclusiveEx(&PopPdcDeviceListLock, (__int64)v5, (__int64)&PopPdcDeviceListLock);
+    ExfAcquirePushLockExclusiveEx(&PopPdcDeviceListLock, v5, (__int64)&PopPdcDeviceListLock);
   if ( v7 )
-    *((_BYTE *)v7 + 10) = 1;
+    v7[10] = 1;
   v8 = PopPdcDeviceList;
   v9 = 0LL;
   v10 = 0;
@@ -77,7 +77,7 @@ __int64 __fastcall PopPdcCsDeviceNotification(__int64 a1)
       ++v9[7];
       goto LABEL_14;
     }
-    Pool2 = ExAllocatePool2(0x100uLL);
+    Pool2 = ExAllocatePool2(0x100uLL, 0x28uLL, 0x6F435343u);
     if ( !Pool2 )
     {
       v2 = -1073741801;
@@ -87,13 +87,13 @@ __int64 __fastcall PopPdcCsDeviceNotification(__int64 a1)
     *(_DWORD *)(Pool2 + 24) = *(_DWORD *)(a1 + 8);
     *(_BYTE *)(Pool2 + 32) = *(_BYTE *)(a1 + 13);
     *(_DWORD *)(Pool2 + 28) = 1;
-    v21 = (__int64 *)off_140E081A8;
-    if ( *off_140E081A8 == (_UNKNOWN *)&PopPdcDeviceList )
+    v21 = (__int64 *)off_140E08210;
+    if ( *off_140E08210 == (_UNKNOWN *)&PopPdcDeviceList )
     {
       *(_QWORD *)Pool2 = &PopPdcDeviceList;
       *(_QWORD *)(Pool2 + 8) = v21;
       *v21 = Pool2;
-      off_140E081A8 = (_UNKNOWN **)Pool2;
+      off_140E08210 = (_UNKNOWN **)Pool2;
 LABEL_18:
       PopPdcUpdateDeviceCompliance();
       PopAcquirePolicyLock(v13, v12);

@@ -62,7 +62,7 @@ __int64 __fastcall MiUnlockDriverMappings(__int64 a1, __int64 a2, __int64 a3, __
         {
           v13->CrossThreadReleasableAndBusyByte |= 2u;
           if ( (__int64)v13->LockState.LockState < 0 )
-            KiAbEntryRemoveFromTree((__int64)&CurrentThread->LockEntries[v12], SessionId);
+            KiAbEntryRemoveFromTree(&CurrentThread->LockEntries[v12].TreeNode, SessionId);
           v16 = 0;
           v16 = v13->BoostBitmap.AllFields & 0x1FFFF;
           v13->BoostBitmap.AllFields &= 0xFFFE0000;

@@ -1,16 +1,16 @@
 /*
- * XREFs of RtlpLookupUserFunctionTable @ 0x140133C98
+ * XREFs of RtlpLookupUserFunctionTable @ 0x140133D68
  * Callers:
- *     RtlpLookupFunctionEntryForStackWalks @ 0x1400A0410 (RtlpLookupFunctionEntryForStackWalks.c)
+ *     RtlpLookupFunctionEntryForStackWalks @ 0x1400A0350 (RtlpLookupFunctionEntryForStackWalks.c)
  * Callees:
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
- *     RtlpImageDirectoryEntryToDataEx @ 0x1400F2C70 (RtlpImageDirectoryEntryToDataEx.c)
- *     RtlpLookupUserFunctionTableInverted @ 0x140134008 (RtlpLookupUserFunctionTableInverted.c)
- *     MmGetImageBase @ 0x1406BA3A4 (MmGetImageBase.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
+ *     ExfReleasePushLockShared @ 0x1400913F0 (ExfReleasePushLockShared.c)
+ *     RtlpImageDirectoryEntryToDataEx @ 0x1400F2CF0 (RtlpImageDirectoryEntryToDataEx.c)
+ *     RtlpLookupUserFunctionTableInverted @ 0x1401340D8 (RtlpLookupUserFunctionTableInverted.c)
+ *     MmGetImageBase @ 0x1406BB644 (MmGetImageBase.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D7880 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall RtlpLookupUserFunctionTable(unsigned __int64 a1, __int64 a2)
@@ -31,15 +31,16 @@ __int64 __fastcall RtlpLookupUserFunctionTable(unsigned __int64 a1, __int64 a2)
   unsigned __int64 v17; // rcx
   __int64 v18; // rdx
   unsigned __int64 v19; // rdx
-  PVOID v20; // rsi
-  int v21; // eax
-  unsigned __int64 v22; // r8
-  NTSTATUS v23; // eax
-  unsigned int v24; // eax
-  __int128 v25; // [rsp+40h] [rbp-88h]
-  PVOID BaseAddress; // [rsp+60h] [rbp-68h] BYREF
-  __int64 v27[12]; // [rsp+68h] [rbp-60h] BYREF
-  __int64 v28; // [rsp+E8h] [rbp+20h] BYREF
+  __int64 v20; // rdx
+  PVOID v21; // rsi
+  int v22; // eax
+  unsigned __int64 v23; // r8
+  NTSTATUS v24; // eax
+  unsigned int v25; // eax
+  __int128 v26; // [rsp+40h] [rbp-88h]
+  PVOID BaseOfImage; // [rsp+60h] [rbp-68h] BYREF
+  __int64 v28[12]; // [rsp+68h] [rbp-60h] BYREF
+  __int64 v29; // [rsp+E8h] [rbp+20h] BYREF
 
   result = RtlpLookupUserFunctionTableInverted();
   if ( !result )
@@ -54,7 +55,7 @@ __int64 __fastcall RtlpLookupUserFunctionTable(unsigned __int64 a1, __int64 a2)
       v8 = (_DWORD *)Process[2].Affinity.Bitmap[18];
       if ( v8 && *v8 != 1 )
       {
-        v9 = (KiSpeculationFeatures & 0x20000000000LL) != 0 ? dword_140438E74 : 0;
+        v9 = (KiSpeculationFeatures & 0x20000000000LL) != 0 ? dword_140439F34 : 0;
         v10 = (KiSpeculationFeatures & 0x20000000000LL) != 0 ? 0x1000 : 0;
         v11 = 1;
         v12 = *v8 - 1;
@@ -82,14 +83,14 @@ __int64 __fastcall RtlpLookupUserFunctionTable(unsigned __int64 a1, __int64 a2)
           }
           if ( a1 < v15 )
           {
-            v25 = *(_OWORD *)&v8[6 * v13 + 4];
+            v26 = *(_OWORD *)&v8[6 * v13 + 4];
             v10 = *(_QWORD *)&v8[6 * v13 + 8];
             v16 = *(_QWORD *)&v8[6 * v13 + 6];
             goto LABEL_18;
           }
           v11 = v13 + 1;
         }
-        *(_QWORD *)&v25 = &RtlRetpolineStubsFunctionTable;
+        *(_QWORD *)&v26 = &RtlRetpolineStubsFunctionTable;
         v16 = v15 + v9;
 LABEL_18:
         *(_QWORD *)(a2 + 8) = v16;
@@ -98,9 +99,9 @@ LABEL_18:
           ExfReleasePushLockShared(v7);
         KeAbPostRelease((ULONG_PTR)v7);
         KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);
-        v17 = *(_QWORD *)(v25 + 16);
+        v17 = *(_QWORD *)(v26 + 16);
         *(_QWORD *)a2 = v17;
-        v18 = (unsigned int)(12 * *(_DWORD *)(v25 + 84));
+        v18 = (unsigned int)(12 * *(_DWORD *)(v26 + 84));
         *(_DWORD *)(a2 + 20) = v18;
         if ( (_DWORD)v18 )
         {
@@ -118,43 +119,44 @@ LABEL_26:
       KeAbPostRelease((ULONG_PTR)v7);
       KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);
     }
-    if ( (int)MmGetImageBase(a1, &BaseAddress, v27) >= 0 )
+    if ( (int)MmGetImageBase(a1, &BaseOfImage, v28) >= 0 )
     {
-      v20 = BaseAddress;
-      v23 = RtlpImageDirectoryEntryToDataEx((unsigned __int64)BaseAddress, 1, 3u, a2 + 20, &v28);
-      v22 = v28;
-      if ( v23 < 0 )
-        v22 = 0LL;
-      v28 = v22;
-      if ( v22 )
+      LOBYTE(v20) = 1;
+      v21 = BaseOfImage;
+      v24 = RtlpImageDirectoryEntryToDataEx((unsigned __int64)BaseOfImage, v20, 3LL, a2 + 20, &v29);
+      v23 = v29;
+      if ( v24 < 0 )
+        v23 = 0LL;
+      v29 = v23;
+      if ( v23 )
       {
-        v24 = *(_DWORD *)(a2 + 20);
-        if ( v24 && v24 == 12 * (v24 / 0xCuLL) )
+        v25 = *(_DWORD *)(a2 + 20);
+        if ( v25 && v25 == 12 * (v25 / 0xCuLL) )
         {
-          if ( (v22 & 3) != 0 )
+          if ( (v23 & 3) != 0 )
             ExRaiseDatatypeMisalignment();
-          if ( v24 + v22 > 0x7FFFFFFF0000LL || v24 + v22 < v22 )
+          if ( v25 + v23 > 0x7FFFFFFF0000LL || v25 + v23 < v23 )
             MEMORY[0x7FFFFFFF0000] = 0;
         }
         else
         {
-          v22 = 0LL;
+          v23 = 0LL;
         }
       }
-      v21 = v27[0];
+      v22 = v28[0];
     }
     else
     {
-      v20 = 0LL;
-      v21 = 0;
-      v22 = 0LL;
+      v21 = 0LL;
+      v22 = 0;
+      v23 = 0LL;
     }
-    *(_QWORD *)(a2 + 8) = v20;
-    *(_DWORD *)(a2 + 16) = v21;
-    *(_QWORD *)a2 = v22;
-    if ( !v22 )
+    *(_QWORD *)(a2 + 8) = v21;
+    *(_DWORD *)(a2 + 16) = v22;
+    *(_QWORD *)a2 = v23;
+    if ( !v23 )
       *(_DWORD *)(a2 + 20) = 0;
-    return v22;
+    return v23;
   }
   return result;
 }

@@ -1,7 +1,7 @@
 /*
- * XREFs of TppPHExtractMin @ 0x18003CB74
+ * XREFs of TppPHExtractMin @ 0x18003CB64
  * Callers:
- *     TppPHDelete @ 0x18003CB0C (TppPHDelete.c)
+ *     TppPHDelete @ 0x18003CAFC (TppPHDelete.c)
  * Callees:
  *     <none>
  */

@@ -1,16 +1,20 @@
 /*
- * XREFs of NtQuerySystemEnvironmentValue @ 0x1800A0230
+ * XREFs of NtQuerySystemEnvironmentValue @ 0x1800A01F0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 NtQuerySystemEnvironmentValue()
+NTSTATUS __cdecl NtQuerySystemEnvironmentValue(
+        PUNICODE_STRING VariableName,
+        PWSTR VariableValue,
+        USHORT ValueLength,
+        PUSHORT ReturnLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 352LL;
+  result = 352;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

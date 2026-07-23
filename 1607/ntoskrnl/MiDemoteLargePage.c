@@ -1,22 +1,22 @@
 /*
- * XREFs of MiDemoteLargePage @ 0x14013EC14
+ * XREFs of MiDemoteLargePage @ 0x14013F184
  * Callers:
- *     MiPfnRangeIsZero @ 0x14013E6D4 (MiPfnRangeIsZero.c)
+ *     MiPfnRangeIsZero @ 0x14013EC44 (MiPfnRangeIsZero.c)
  * Callees:
- *     MiUnmapPageInHyperSpaceWorker @ 0x14001DBA0 (MiUnmapPageInHyperSpaceWorker.c)
- *     MiMarkPageActive @ 0x1400214D4 (MiMarkPageActive.c)
- *     MiInitializePfnForOtherProcess @ 0x140021708 (MiInitializePfnForOtherProcess.c)
- *     MiUpdateLargePageBitMap @ 0x140022BE0 (MiUpdateLargePageBitMap.c)
- *     MiLockPageAtDpcInline @ 0x14002EB30 (MiLockPageAtDpcInline.c)
- *     MiMapPageInHyperSpaceWorker @ 0x140034990 (MiMapPageInHyperSpaceWorker.c)
- *     MiMakeValidKernelPte @ 0x140034D10 (MiMakeValidKernelPte.c)
- *     MiInsertTbFlushEntry @ 0x1400E0240 (MiInsertTbFlushEntry.c)
- *     MiGetPageTablePages @ 0x140102808 (MiGetPageTablePages.c)
- *     MI_INTERLOCKED_EXCHANGE_PTE @ 0x1401E1AF8 (MI_INTERLOCKED_EXCHANGE_PTE.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
- *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F2550 (MI_GET_PAGE_FRAME_FROM_PTE.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiUnmapPageInHyperSpaceWorker @ 0x14001D720 (MiUnmapPageInHyperSpaceWorker.c)
+ *     MiMarkPageActive @ 0x140021054 (MiMarkPageActive.c)
+ *     MiInitializePfnForOtherProcess @ 0x140021288 (MiInitializePfnForOtherProcess.c)
+ *     MiUpdateLargePageBitMap @ 0x140022760 (MiUpdateLargePageBitMap.c)
+ *     MiLockPageAtDpcInline @ 0x14002E6B0 (MiLockPageAtDpcInline.c)
+ *     MiMapPageInHyperSpaceWorker @ 0x140034510 (MiMapPageInHyperSpaceWorker.c)
+ *     MiMakeValidKernelPte @ 0x140034890 (MiMakeValidKernelPte.c)
+ *     MiInsertTbFlushEntry @ 0x1400DE0E0 (MiInsertTbFlushEntry.c)
+ *     MiGetPageTablePages @ 0x140100588 (MiGetPageTablePages.c)
+ *     MI_INTERLOCKED_EXCHANGE_PTE @ 0x1401E1924 (MI_INTERLOCKED_EXCHANGE_PTE.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
+ *     MI_GET_PAGE_FRAME_FROM_PTE @ 0x1401F237C (MI_GET_PAGE_FRAME_FROM_PTE.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
  */
 
 __int64 __fastcall MiDemoteLargePage(unsigned __int64 a1, __int64 a2)

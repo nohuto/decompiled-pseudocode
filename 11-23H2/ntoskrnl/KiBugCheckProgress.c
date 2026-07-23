@@ -1,14 +1,14 @@
 /*
- * XREFs of KiBugCheckProgress @ 0x140569830
+ * XREFs of KiBugCheckProgress @ 0x140569EF0
  * Callers:
  *     <none>
  * Callees:
- *     BgpFwReleaseLock @ 0x140385660 (BgpFwReleaseLock.c)
- *     BgpFwAcquireLock @ 0x1403856B0 (BgpFwAcquireLock.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     KiBugCheckConvertProgressValueToUnicodeString @ 0x140569698 (KiBugCheckConvertProgressValueToUnicodeString.c)
- *     KiHeadlessDisplayString @ 0x14056A6A0 (KiHeadlessDisplayString.c)
- *     BgpFwDisplayBugCheckProgressUpdate @ 0x140672F08 (BgpFwDisplayBugCheckProgressUpdate.c)
+ *     BgpFwReleaseLock @ 0x140385840 (BgpFwReleaseLock.c)
+ *     BgpFwAcquireLock @ 0x140385890 (BgpFwAcquireLock.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiBugCheckConvertProgressValueToUnicodeString @ 0x140569D58 (KiBugCheckConvertProgressValueToUnicodeString.c)
+ *     KiHeadlessDisplayString @ 0x14056AD60 (KiHeadlessDisplayString.c)
+ *     BgpFwDisplayBugCheckProgressUpdate @ 0x140673458 (BgpFwDisplayBugCheckProgressUpdate.c)
  */
 
 __int64 __fastcall KiBugCheckProgress(unsigned int a1)

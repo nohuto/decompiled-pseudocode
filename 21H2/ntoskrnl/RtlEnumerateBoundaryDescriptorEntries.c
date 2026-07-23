@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlEnumerateBoundaryDescriptorEntries @ 0x14067362C
+ * XREFs of RtlEnumerateBoundaryDescriptorEntries @ 0x14066885C
  * Callers:
- *     ObpCompareEntryLevel1 @ 0x140672DA0 (ObpCompareEntryLevel1.c)
- *     ObpVerifyCreatorAccessCheck @ 0x1406E50F0 (ObpVerifyCreatorAccessCheck.c)
- *     ObpCaptureBoundaryDescriptor @ 0x1406E52CC (ObpCaptureBoundaryDescriptor.c)
- *     ObpCheckDuplicateEntries @ 0x1406E5544 (ObpCheckDuplicateEntries.c)
- *     ObpLookupNamespaceEntry @ 0x1406E5668 (ObpLookupNamespaceEntry.c)
+ *     ObpCompareEntryLevel1 @ 0x140667FD0 (ObpCompareEntryLevel1.c)
+ *     ObpVerifyCreatorAccessCheck @ 0x1406BC3D0 (ObpVerifyCreatorAccessCheck.c)
+ *     ObpCaptureBoundaryDescriptor @ 0x1406BC5AC (ObpCaptureBoundaryDescriptor.c)
+ *     ObpCheckDuplicateEntries @ 0x1406BC824 (ObpCheckDuplicateEntries.c)
+ *     ObpLookupNamespaceEntry @ 0x1406BC948 (ObpLookupNamespaceEntry.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     RtlpValidateSidBuffer @ 0x14067374C (RtlpValidateSidBuffer.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     RtlpValidateSidBuffer @ 0x14066897C (RtlpValidateSidBuffer.c)
  */
 
 __int64 __fastcall RtlEnumerateBoundaryDescriptorEntries(

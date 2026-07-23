@@ -1,17 +1,23 @@
 /*
- * XREFs of NtChangeThreadState @ 0x180162FA0
+ * XREFs of NtChangeThreadState @ 0x180161360
  * Callers:
- *     RtlpWow64SuspendThread @ 0x1800F8F50 (RtlpWow64SuspendThread.c)
- *     RtlWow64ChangeThreadState @ 0x1801126A0 (RtlWow64ChangeThreadState.c)
+ *     RtlpWow64SuspendThread @ 0x1800F3B20 (RtlpWow64SuspendThread.c)
+ *     RtlWow64ChangeThreadState @ 0x18010D980 (RtlWow64ChangeThreadState.c)
  * Callees:
  *     <none>
  */
 
-__int64 NtChangeThreadState()
+NTSTATUS __cdecl NtChangeThreadState(
+        HANDLE ThreadStateChangeHandle,
+        HANDLE ThreadHandle,
+        THREAD_STATE_CHANGE_TYPE StateChangeType,
+        PVOID ExtendedInformation,
+        SIZE_T ExtendedInformationLength,
+        ULONG64 Reserved)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 153LL;
+  result = 153;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

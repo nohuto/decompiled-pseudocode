@@ -1,18 +1,18 @@
 /*
- * XREFs of KiSetHeteroPolicyThread @ 0x1401D8354
+ * XREFs of KiSetHeteroPolicyThread @ 0x1401D8180
  * Callers:
- *     KeSetHeteroCpuPolicyThread @ 0x1401D2F08 (KeSetHeteroCpuPolicyThread.c)
- *     KeSetUserHeteroCpuPolicyThread @ 0x1401D2F5C (KeSetUserHeteroCpuPolicyThread.c)
+ *     KeSetHeteroCpuPolicyThread @ 0x1401D2D34 (KeSetHeteroCpuPolicyThread.c)
+ *     KeSetUserHeteroCpuPolicyThread @ 0x1401D2D88 (KeSetUserHeteroCpuPolicyThread.c)
  *     KeUpdateThreadHeteroPolicy @ 0x1403DD090 (KeUpdateThreadHeteroPolicy.c)
  * Callees:
- *     KiPrepareReadyThreadForRescheduling @ 0x140091E58 (KiPrepareReadyThreadForRescheduling.c)
- *     KiRemoveThreadFromAnyReadyQueue @ 0x1400AA948 (KiRemoveThreadFromAnyReadyQueue.c)
- *     KiSelectNextThread @ 0x1400CA5B0 (KiSelectNextThread.c)
- *     KiAcquireThreadLockRaiseToDpc @ 0x1400CEDEC (KiAcquireThreadLockRaiseToDpc.c)
- *     KiProcessDeferredReadyList @ 0x1400D3450 (KiProcessDeferredReadyList.c)
- *     KiAcquireThreadStateLock @ 0x1400D3590 (KiAcquireThreadStateLock.c)
- *     KiConvertDynamicHeteroPolicy @ 0x1401D7E4C (KiConvertDynamicHeteroPolicy.c)
- *     KiGenerateHeteroSets @ 0x1401D7ED8 (KiGenerateHeteroSets.c)
+ *     KiPrepareReadyThreadForRescheduling @ 0x1400915B8 (KiPrepareReadyThreadForRescheduling.c)
+ *     KiRemoveThreadFromAnyReadyQueue @ 0x1400A8EC8 (KiRemoveThreadFromAnyReadyQueue.c)
+ *     KiSelectNextThread @ 0x1400C8450 (KiSelectNextThread.c)
+ *     KiAcquireThreadLockRaiseToDpc @ 0x1400CCC8C (KiAcquireThreadLockRaiseToDpc.c)
+ *     KiProcessDeferredReadyList @ 0x1400D12F0 (KiProcessDeferredReadyList.c)
+ *     KiAcquireThreadStateLock @ 0x1400D1430 (KiAcquireThreadStateLock.c)
+ *     KiConvertDynamicHeteroPolicy @ 0x1401D7C78 (KiConvertDynamicHeteroPolicy.c)
+ *     KiGenerateHeteroSets @ 0x1401D7D04 (KiGenerateHeteroSets.c)
  */
 
 __int64 __fastcall KiSetHeteroPolicyThread(__int64 a1, int a2, int a3, int a4)

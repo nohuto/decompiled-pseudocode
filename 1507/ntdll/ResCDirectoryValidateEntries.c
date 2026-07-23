@@ -28,18 +28,18 @@ __int64 __fastcall ResCDirectoryValidateEntries(_QWORD *a1, unsigned int a2, __i
   __int64 v21; // rcx
   int v22; // eax
   __int64 v24; // [rsp+0h] [rbp-58h] BYREF
-  unsigned int *v25; // [rsp+60h] [rbp+8h] BYREF
+  PVOID BaseAddress; // [rsp+60h] [rbp+8h] BYREF
 
   v4 = 0;
-  v25 = 0LL;
+  BaseAddress = 0LL;
   v8 = 0;
   if ( a1 && (v9 = a1[3]) != 0 && a2 < *(_DWORD *)(v9 + 72) )
   {
     if ( a4 )
       *a4 = 0;
-    inited = InitStack<int>((unsigned __int64 *)&v25);
-    v11 = v25;
-    if ( inited && (unsigned int)StackPush<unsigned int>(a2, v25) )
+    inited = InitStack<int>(&BaseAddress);
+    v11 = (unsigned int *)BaseAddress;
+    if ( inited && (unsigned int)StackPush<unsigned int>(a2, (unsigned int *)BaseAddress) )
     {
       while ( v11 )
       {
@@ -81,12 +81,12 @@ __int64 __fastcall ResCDirectoryValidateEntries(_QWORD *a1, unsigned int a2, __i
         v4 = 1;
     }
 LABEL_32:
-    ReleaseStack<unsigned int>((unsigned __int64)v11);
+    ReleaseStack<unsigned int>(v11);
     return v4;
   }
   else
   {
-    RtlSetLastWin32Error(0x57u);
+    RtlSetLastWin32Error(87);
     return 0LL;
   }
 }

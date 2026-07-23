@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlpUpdateHeapRates @ 0x1405EDAB0
+ * XREFs of RtlpUpdateHeapRates @ 0x1405EB098
  * Callers:
- *     RtlpDeCommitFreeBlock @ 0x1405EBFC0 (RtlpDeCommitFreeBlock.c)
- *     RtlpFindAndCommitPages @ 0x1405EC7B4 (RtlpFindAndCommitPages.c)
+ *     RtlpDeCommitFreeBlock @ 0x1405E953C (RtlpDeCommitFreeBlock.c)
+ *     RtlpFindAndCommitPages @ 0x1405E9D48 (RtlpFindAndCommitPages.c)
  * Callees:
  *     <none>
  */
@@ -19,16 +19,16 @@ void __fastcall RtlpUpdateHeapRates(_DWORD *a1, int a2)
     if ( v3 )
     {
       if ( v3 == 1 )
-        ++a1[157];
+        ++a1[159];
     }
     else
     {
-      ++a1[156];
+      ++a1[158];
     }
   }
   else
   {
-    ++a1[154];
-    ++a1[155];
+    ++a1[156];
+    ++a1[157];
   }
 }

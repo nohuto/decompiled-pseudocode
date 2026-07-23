@@ -77,10 +77,13 @@ __int64 __fastcall KeIntSteerPeriodic(__int64 a1, __int64 a2, __int64 a3, __int6
   KiIntSteerLogStatus(0LL);
   KiIntSteerDistributeInterrupts(v14, v13, v15, v16, v23, *((_QWORD *)&v23 + 1));
   KxReleaseSpinLock(&KiIntTrackSpinlock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v9 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v9 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;

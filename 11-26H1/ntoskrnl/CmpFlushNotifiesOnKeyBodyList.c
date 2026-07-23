@@ -1,23 +1,23 @@
 /*
- * XREFs of CmpFlushNotifiesOnKeyBodyList @ 0x1408BA114
+ * XREFs of CmpFlushNotifiesOnKeyBodyList @ 0x1408C06E4
  * Callers:
- *     CmDeleteLayeredKey @ 0x140446A10 (CmDeleteLayeredKey.c)
- *     CmpRemoveHiveFromNamespace @ 0x1404CC980 (CmpRemoveHiveFromNamespace.c)
- *     CmpRefreshHive @ 0x14084DD4C (CmpRefreshHive.c)
- *     CmpRefreshWorkerRoutine @ 0x14084E200 (CmpRefreshWorkerRoutine.c)
- *     CmRenameKey @ 0x140857A3C (CmRenameKey.c)
- *     CmpFlushNotifiesPostCallback @ 0x14085ECB0 (CmpFlushNotifiesPostCallback.c)
- *     CmpInvalidateAllHigherLayerKcbsPostCallback @ 0x14085ED40 (CmpInvalidateAllHigherLayerKcbsPostCallback.c)
- *     CmpPerformUnloadKey @ 0x1408AFC14 (CmpPerformUnloadKey.c)
- *     CmpCompleteUnloadKey @ 0x1408B9ACC (CmpCompleteUnloadKey.c)
- *     CmDeleteKey @ 0x1408BAD90 (CmDeleteKey.c)
- *     CmpTransMgrFreeVolatileData @ 0x1408BC6D0 (CmpTransMgrFreeVolatileData.c)
- *     CmpLightWeightCommitDeleteKeyUoW @ 0x140A2E164 (CmpLightWeightCommitDeleteKeyUoW.c)
- *     CmpLightWeightCommitRecreateKeyUoW @ 0x140A2E314 (CmpLightWeightCommitRecreateKeyUoW.c)
- *     CmpInvalidateSubtreeWorker @ 0x140B1C7F0 (CmpInvalidateSubtreeWorker.c)
+ *     CmDeleteLayeredKey @ 0x14043F510 (CmDeleteLayeredKey.c)
+ *     CmpRemoveHiveFromNamespace @ 0x1404C6120 (CmpRemoveHiveFromNamespace.c)
+ *     CmpRefreshHive @ 0x140854058 (CmpRefreshHive.c)
+ *     CmpRefreshWorkerRoutine @ 0x140854510 (CmpRefreshWorkerRoutine.c)
+ *     CmRenameKey @ 0x14085DDCC (CmRenameKey.c)
+ *     CmpFlushNotifiesPostCallback @ 0x140864FA0 (CmpFlushNotifiesPostCallback.c)
+ *     CmpInvalidateAllHigherLayerKcbsPostCallback @ 0x140865030 (CmpInvalidateAllHigherLayerKcbsPostCallback.c)
+ *     CmpPerformUnloadKey @ 0x1408B6104 (CmpPerformUnloadKey.c)
+ *     CmpCompleteUnloadKey @ 0x1408C009C (CmpCompleteUnloadKey.c)
+ *     CmDeleteKey @ 0x1408C1360 (CmDeleteKey.c)
+ *     CmpTransMgrFreeVolatileData @ 0x1408C2CA0 (CmpTransMgrFreeVolatileData.c)
+ *     CmpLightWeightCommitDeleteKeyUoW @ 0x140A3FFF0 (CmpLightWeightCommitDeleteKeyUoW.c)
+ *     CmpLightWeightCommitRecreateKeyUoW @ 0x140A401A0 (CmpLightWeightCommitRecreateKeyUoW.c)
+ *     CmpInvalidateSubtreeWorker @ 0x140B1EA00 (CmpInvalidateSubtreeWorker.c)
  * Callees:
- *     CmpFlushNotify @ 0x1408BA228 (CmpFlushNotify.c)
- *     CmpKeyEnumStackFreeResumeContext @ 0x140AE3E28 (CmpKeyEnumStackFreeResumeContext.c)
+ *     CmpFlushNotify @ 0x1408C07F8 (CmpFlushNotify.c)
+ *     CmpKeyEnumStackFreeResumeContext @ 0x140AE1930 (CmpKeyEnumStackFreeResumeContext.c)
  */
 
 __int64 __fastcall CmpFlushNotifiesOnKeyBodyList(__int64 a1, __int64 a2, __int64 a3, char a4)

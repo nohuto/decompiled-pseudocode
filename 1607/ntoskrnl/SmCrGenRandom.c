@@ -1,8 +1,8 @@
 /*
- * XREFs of SmCrGenRandom @ 0x1402224B8
+ * XREFs of SmCrGenRandom @ 0x1402222E4
  * Callers:
- *     SmKmKeyGenNewKey @ 0x140698598 (SmKmKeyGenNewKey.c)
- *     SmCrEncStart @ 0x140699B6C (SmCrEncStart.c)
+ *     SmKmKeyGenNewKey @ 0x14069867C (SmKmKeyGenNewKey.c)
+ *     SmCrEncStart @ 0x140699C50 (SmCrEncStart.c)
  * Callees:
  *     <none>
  */

@@ -1,13 +1,13 @@
 /*
- * XREFs of MiLockMemoryLists @ 0x140703960
+ * XREFs of MiLockMemoryLists @ 0x140708630
  * Callers:
  *     <none>
  * Callees:
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiWalkAllFreeZeroLists @ 0x14042F800 (MiWalkAllFreeZeroLists.c)
- *     MiGetColorHeadHugeRangeBase @ 0x14048E87C (MiGetColorHeadHugeRangeBase.c)
- *     MiEnumerateSlabAllocatorsEx @ 0x1404A0C04 (MiEnumerateSlabAllocatorsEx.c)
- *     MiAcquireReleaseLock @ 0x140703800 (MiAcquireReleaseLock.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiWalkAllFreeZeroLists @ 0x14041C710 (MiWalkAllFreeZeroLists.c)
+ *     MiGetColorHeadHugeRangeBase @ 0x1404883BC (MiGetColorHeadHugeRangeBase.c)
+ *     MiEnumerateSlabAllocatorsEx @ 0x14049A754 (MiEnumerateSlabAllocatorsEx.c)
+ *     MiAcquireReleaseLock @ 0x1407084D0 (MiAcquireReleaseLock.c)
  */
 
 void __fastcall MiLockMemoryLists(__int64 a1, __int64 a2)
@@ -34,7 +34,7 @@ void __fastcall MiLockMemoryLists(__int64 a1, __int64 a2)
   MiAcquireReleaseLock(a2, (volatile LONG *)(a1 + 7456));
   MiWalkAllFreeZeroLists(a1, (__int64)MiLockMemoryListsCallback, a2);
   v5 = 0;
-  v21 = dword_140E2D780[0];
+  v21 = dword_140E2D900[0];
   for ( i = 8LL; v5 < (unsigned __int16)KeNumberNodes; ++v5 )
   {
     v7 = 0;

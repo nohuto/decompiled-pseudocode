@@ -1,7 +1,7 @@
 /*
- * XREFs of PopSqmCreateDwordStreamEntry @ 0x1404FFA48
+ * XREFs of PopSqmCreateDwordStreamEntry @ 0x1404F9238
  * Callers:
- *     PopSqmBatteryUpdate @ 0x1409465DC (PopSqmBatteryUpdate.c)
+ *     PopSqmBatteryUpdate @ 0x1409C1F4C (PopSqmBatteryUpdate.c)
  * Callees:
  *     <none>
  */

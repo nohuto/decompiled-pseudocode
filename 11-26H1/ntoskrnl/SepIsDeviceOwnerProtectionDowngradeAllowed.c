@@ -1,12 +1,12 @@
 /*
- * XREFs of SepIsDeviceOwnerProtectionDowngradeAllowed @ 0x14063B720
+ * XREFs of SepIsDeviceOwnerProtectionDowngradeAllowed @ 0x14063E83C
  * Callers:
- *     SeSecurityModelQueryInformation @ 0x14077A94C (SeSecurityModelQueryInformation.c)
+ *     SeSecurityModelQueryInformation @ 0x14077D87C (SeSecurityModelQueryInformation.c)
  * Callees:
  *     <none>
  */
 
 bool SepIsDeviceOwnerProtectionDowngradeAllowed()
 {
-  return LODWORD(RtlpBootStatHandleLock.FirstArgument) != 0;
+  return *(_DWORD *)&RtlpBootStatHandleLock.ApcStateFill[32] != 0;
 }

@@ -28,15 +28,15 @@ __int64 __fastcall LdrpHandleProtectedDelayload(
         __int64 a2,
         __int64 a3,
         __int64 a4,
-        _QWORD *a5,
+        __int64 a5,
         unsigned int a6)
 {
   int v7; // r15d
   int v8; // ebx
   __int64 v9; // r14
-  int DelayloadExportDll; // eax
-  int v11; // r13d
-  __int64 v12; // rbx
+  NTSTATUS DelayloadExportDll; // eax
+  NTSTATUS Status; // r13d
+  char *v12; // rbx
   __int64 v13; // r9
   _QWORD *v14; // r12
   __int64 v15; // rsi
@@ -48,20 +48,20 @@ __int64 __fastcall LdrpHandleProtectedDelayload(
   __int64 v21; // rdx
   int v22; // esi
   const char *v23; // r12
-  __int64 v24; // r15
-  __int64 v25; // r13
+  _QWORD *v24; // r15
+  _QWORD *v25; // r13
   unsigned __int64 v26; // rax
   char ShouldModuleImportBeRedirected; // al
   __int64 v28; // rax
   char *v29; // rdi
   unsigned __int64 v30; // r15
   bool v31; // bl
-  unsigned __int64 v32; // rdi
+  char *v32; // rdi
   char *v33; // r14
-  int v34; // eax
-  __int16 v35; // ax
-  __int64 v36; // rax
-  unsigned int v37; // edx
+  NTSTATUS v34; // eax
+  unsigned __int16 Magic; // ax
+  __int64 SizeOfHeapCommit_low; // rax
+  unsigned int SizeOfHeapCommit_high; // edx
   int v38; // r10d
   int v39; // r11d
   int v40; // r9d
@@ -73,139 +73,133 @@ __int64 __fastcall LdrpHandleProtectedDelayload(
   int ForwardedDll; // ebx
   unsigned int v47; // esi
   unsigned int v48; // eax
-  unsigned __int64 v49; // rdx
-  unsigned __int64 v50; // r8
-  unsigned __int64 v51; // r9
-  unsigned int v52; // ecx
-  __int64 v53; // rdx
-  unsigned __int64 v54; // rdx
-  unsigned __int64 v55; // r8
-  unsigned __int64 v56; // r9
-  __int64 v57; // rbx
+  unsigned int v49; // ecx
+  __int64 v50; // rdx
+  __int64 v51; // rbx
   char i; // [rsp+40h] [rbp-588h]
-  __int64 v60; // [rsp+48h] [rbp-580h] BYREF
-  int v61; // [rsp+50h] [rbp-578h]
-  unsigned int v62; // [rsp+54h] [rbp-574h]
-  int v63; // [rsp+58h] [rbp-570h] BYREF
-  __int64 v64; // [rsp+60h] [rbp-568h] BYREF
-  unsigned int v65; // [rsp+68h] [rbp-560h]
-  int v66; // [rsp+6Ch] [rbp-55Ch]
-  unsigned int v67; // [rsp+70h] [rbp-558h]
-  __int64 v68; // [rsp+78h] [rbp-550h]
-  _BYTE *v69; // [rsp+80h] [rbp-548h]
-  _QWORD *v70; // [rsp+88h] [rbp-540h] BYREF
-  __int64 v71; // [rsp+90h] [rbp-538h]
-  __int64 v72; // [rsp+98h] [rbp-530h]
-  __int64 v73; // [rsp+A0h] [rbp-528h]
-  const char *v74; // [rsp+A8h] [rbp-520h] BYREF
-  __int64 v75; // [rsp+B0h] [rbp-518h] BYREF
-  __int64 v76; // [rsp+B8h] [rbp-510h] BYREF
-  __int64 v77; // [rsp+C0h] [rbp-508h]
-  void (__fastcall *v78)(char **, __int64, char *, _QWORD, _QWORD); // [rsp+C8h] [rbp-500h]
-  char *v79; // [rsp+D0h] [rbp-4F8h] BYREF
-  __int64 v80; // [rsp+D8h] [rbp-4F0h]
-  char **v81; // [rsp+E0h] [rbp-4E8h]
-  __int64 v82; // [rsp+E8h] [rbp-4E0h]
-  __int64 v83; // [rsp+F0h] [rbp-4D8h]
-  _BYTE v84[24]; // [rsp+F8h] [rbp-4D0h] BYREF
-  __int128 v85; // [rsp+110h] [rbp-4B8h] BYREF
-  __int128 v86; // [rsp+120h] [rbp-4A8h]
-  __int128 v87; // [rsp+130h] [rbp-498h]
-  __int128 v88; // [rsp+140h] [rbp-488h]
-  __int128 v89; // [rsp+150h] [rbp-478h]
-  __int128 v90; // [rsp+160h] [rbp-468h]
-  __int128 v91; // [rsp+170h] [rbp-458h]
-  __int128 v92; // [rsp+180h] [rbp-448h]
-  _BYTE v93[1024]; // [rsp+190h] [rbp-438h] BYREF
+  PVOID v54; // [rsp+48h] [rbp-580h] BYREF
+  int v55; // [rsp+50h] [rbp-578h]
+  unsigned int v56; // [rsp+54h] [rbp-574h]
+  int v57; // [rsp+58h] [rbp-570h] BYREF
+  __int64 v58; // [rsp+60h] [rbp-568h] BYREF
+  unsigned int v59; // [rsp+68h] [rbp-560h]
+  NTSTATUS v60; // [rsp+6Ch] [rbp-55Ch]
+  unsigned int v61; // [rsp+70h] [rbp-558h]
+  int v62[2]; // [rsp+78h] [rbp-550h]
+  _BYTE *v63; // [rsp+80h] [rbp-548h]
+  __int64 v64; // [rsp+88h] [rbp-540h] BYREF
+  __int64 v65; // [rsp+90h] [rbp-538h]
+  __int64 v66; // [rsp+98h] [rbp-530h]
+  __int64 v67; // [rsp+A0h] [rbp-528h]
+  const char *v68; // [rsp+A8h] [rbp-520h] BYREF
+  PIMAGE_NT_HEADERS OutHeaders; // [rsp+B0h] [rbp-518h] BYREF
+  PVOID v70; // [rsp+B8h] [rbp-510h] BYREF
+  __int64 v71; // [rsp+C0h] [rbp-508h]
+  void (__fastcall *v72)(char **, _QWORD *, char *, _QWORD, _QWORD); // [rsp+C8h] [rbp-500h]
+  char *v73; // [rsp+D0h] [rbp-4F8h] BYREF
+  __int64 v74; // [rsp+D8h] [rbp-4F0h]
+  char **v75; // [rsp+E0h] [rbp-4E8h]
+  __int64 v76; // [rsp+E8h] [rbp-4E0h]
+  int v77[2]; // [rsp+F0h] [rbp-4D8h]
+  _BYTE v78[24]; // [rsp+F8h] [rbp-4D0h] BYREF
+  PWSTR Path[2]; // [rsp+110h] [rbp-4B8h] BYREF
+  __int128 v80; // [rsp+120h] [rbp-4A8h]
+  __int128 v81; // [rsp+130h] [rbp-498h]
+  __int128 v82; // [rsp+140h] [rbp-488h]
+  __int128 v83; // [rsp+150h] [rbp-478h]
+  __int128 v84; // [rsp+160h] [rbp-468h]
+  __int128 v85; // [rsp+170h] [rbp-458h]
+  __int128 v86; // [rsp+180h] [rbp-448h]
+  _BYTE BaseAddress[1024]; // [rsp+190h] [rbp-438h] BYREF
 
-  v82 = a4;
+  v76 = a4;
   v7 = a3;
-  v83 = a3;
+  *(_QWORD *)v77 = a3;
   v8 = a2;
-  v68 = a2;
+  *(_QWORD *)v62 = a2;
   v9 = a1;
-  v77 = a1;
-  v70 = a5;
-  v73 = 0LL;
-  DelayloadExportDll = LdrpGetDelayloadExportDll(a1, a2, &v60, a6, (__int64)a5);
-  v11 = DelayloadExportDll;
-  v66 = DelayloadExportDll;
+  v71 = a1;
+  v64 = a5;
+  v67 = 0LL;
+  DelayloadExportDll = LdrpGetDelayloadExportDll(a1, a2, (volatile signed __int32 **)&v54, a6, a5);
+  Status = DelayloadExportDll;
+  v60 = DelayloadExportDll;
   if ( DelayloadExportDll < 0 )
   {
-    v57 = LdrpRedirectDelayloadFailure(v9, 0, v8, v7, a4, (__int64)a5, DelayloadExportDll);
-    v70 = (_QWORD *)v57;
-    if ( v57 && (v11 == -1073741515 || v11 == -1073740671) )
-      LdrpWriteBackProtectedDelayLoad(v9, (_DWORD)a5, (unsigned int)&v70, 1, 0);
+    v51 = LdrpRedirectDelayloadFailure(v9, 0, v8, v7, a4, a5, DelayloadExportDll);
+    v64 = v51;
+    if ( v51 && (Status == -1073741515 || Status == -1073740671) )
+      LdrpWriteBackProtectedDelayLoad(v9, a5, (unsigned int)&v64, 1, 0);
   }
   else
   {
-    v12 = v60;
-    RtlGuardCheckImageBase(*(_QWORD *)(v60 + 48), 0LL);
-    v13 = v68;
-    v14 = (_QWORD *)(*(_QWORD *)(v9 + 48) + *(unsigned int *)(v68 + 12));
-    v71 = (__int64)v14;
-    v15 = a5 - v14;
-    v80 = v15;
+    v12 = (char *)v54;
+    RtlGuardCheckImageBase(*((PVOID *)v54 + 6));
+    v13 = *(_QWORD *)v62;
+    v14 = (_QWORD *)(*(_QWORD *)(v9 + 48) + *(unsigned int *)(*(_QWORD *)v62 + 12LL));
+    v65 = (__int64)v14;
+    v15 = (a5 - (__int64)v14) >> 3;
+    v74 = v15;
     LODWORD(v16) = 0;
-    v61 = 0;
+    v55 = 0;
     if ( *v14 )
     {
       do
         v16 = (unsigned int)(v16 + 1);
       while ( v14[v16] );
-      v61 = v16;
+      v55 = v16;
     }
     if ( (unsigned int)v16 <= 0x80 )
     {
-      Heap = v93;
-      v69 = v93;
+      Heap = BaseAddress;
+      v63 = BaseAddress;
     }
     else
     {
-      Heap = (_BYTE *)RtlAllocateHeap(LdrpHeap, NtdllBaseTag + 0x40000, 8LL * (unsigned int)v16);
-      v69 = Heap;
-      v13 = v68;
+      Heap = RtlAllocateHeap(LdrpHeap, NtdllBaseTag + 0x40000, 8LL * (unsigned int)v16);
+      v63 = Heap;
+      v13 = *(_QWORD *)v62;
       if ( !Heap )
       {
-        Heap = v93;
-        v69 = v93;
-        v14 = v70;
-        v71 = (__int64)v70;
+        Heap = BaseAddress;
+        v63 = BaseAddress;
+        v14 = (_QWORD *)v64;
+        v65 = v64;
         LODWORD(v16) = v16 - v15;
         if ( (unsigned int)v16 > 0x80 )
           LODWORD(v16) = 128;
-        v61 = v16;
+        v55 = v16;
         LODWORD(v15) = 0;
-        v80 = 0LL;
+        v74 = 0LL;
       }
     }
     if ( g_ShimsEnabled )
-      v78 = (void (__fastcall *)(char **, __int64, char *, _QWORD, _QWORD))(__ROR8__(
-                                                                              g_pfnSE_GetProcAddressForCaller,
-                                                                              64 - (MEMORY[0x7FFE0330] & 0x3Fu)) ^ MEMORY[0x7FFE0330]);
+      v72 = (void (__fastcall *)(char **, _QWORD *, char *, _QWORD, _QWORD))(__ROR8__(
+                                                                               g_pfnSE_GetProcAddressForCaller,
+                                                                               64 - (MEMORY[0x7FFE0330] & 0x3Fu)) ^ MEMORY[0x7FFE0330]);
     else
-      v78 = 0LL;
+      v72 = 0LL;
     v18 = 0LL;
-    v62 = 0;
+    v56 = 0;
     if ( (_DWORD)v16 )
     {
       v19 = 0LL;
-      v72 = 0LL;
-      v65 = v66;
+      v66 = 0LL;
+      v59 = v60;
       while ( 1 )
       {
-        v81 = (char **)&Heap[8 * v19];
-        *v81 = 0LL;
+        v75 = (char **)&Heap[8 * v19];
+        *v75 = 0LL;
         if ( (_DWORD)v18 != (_DWORD)v15 )
         {
           if ( v14[v19] - *(_QWORD *)(v9 + 48) >= (unsigned __int64)*(unsigned int *)(v9 + 64) )
           {
-            v52 = v62;
+            v49 = v56;
             goto LABEL_100;
           }
-          v18 = v62;
+          v18 = v56;
         }
-        v64 = 0LL;
+        v58 = 0LL;
         v20 = *(_QWORD *)(v9 + 48);
         v21 = *(_QWORD *)(v20
                         + *(unsigned int *)(v13 + 16)
@@ -220,21 +214,21 @@ __int64 __fastcall LdrpHandleProtectedDelayload(
           v22 = (unsigned __int16)v21;
           v23 = 0LL;
         }
-        v74 = v23;
-        v63 = v22;
-        v24 = v60;
-        v25 = v60;
-        v76 = v60;
-        v67 = 0;
-        v26 = *(_QWORD *)(v60 + 80);
+        v68 = v23;
+        v57 = v22;
+        v24 = v54;
+        v25 = v54;
+        v70 = v54;
+        v61 = 0;
+        v26 = *((_QWORD *)v54 + 10);
+        *(_OWORD *)Path = 0LL;
+        v80 = 0LL;
+        v82 = 0LL;
+        v83 = 0LL;
+        v84 = 0LL;
         v85 = 0LL;
         v86 = 0LL;
-        v88 = 0LL;
-        v89 = 0LL;
-        v90 = 0LL;
-        v91 = 0LL;
-        v92 = 0LL;
-        v87 = v26;
+        v81 = v26;
         ShouldModuleImportBeRedirected = LdrpShouldModuleImportBeRedirected(v9);
         for ( i = ShouldModuleImportBeRedirected; ; ShouldModuleImportBeRedirected = i )
         {
@@ -246,50 +240,50 @@ __int64 __fastcall LdrpHandleProtectedDelayload(
               v29 = (char *)v28;
               if ( v28 != -4530927 )
               {
-                v64 = v28;
+                v58 = v28;
                 ForwardedDll = 0;
                 goto LABEL_90;
               }
             }
           }
-          v30 = *(_QWORD *)(v25 + 48);
+          v30 = v25[6];
           v31 = 1;
-          v32 = v30;
-          v75 = 0LL;
+          v32 = (char *)v30;
+          OutHeaders = 0LL;
           v33 = 0LL;
           if ( (v30 & 3) != 0 )
           {
-            v32 = v30 & 0xFFFFFFFFFFFFFFFCuLL;
+            v32 = (char *)(v30 & 0xFFFFFFFFFFFFFFFCuLL);
             v31 = (v30 & 1) == 0;
           }
-          v34 = RtlImageNtHeaderEx(1LL, v32, 0LL, &v75);
-          if ( !v75 )
+          v34 = RtlImageNtHeaderEx(1u, v32, 0LL, &OutHeaders);
+          if ( !OutHeaders )
             goto LABEL_37;
-          v35 = *(_WORD *)(v75 + 24);
-          if ( v35 == 267 )
+          Magic = OutHeaders->OptionalHeader.Magic;
+          if ( Magic == 267 )
           {
-            if ( !*(_DWORD *)(v75 + 116) )
+            if ( !HIDWORD(OutHeaders->OptionalHeader.SizeOfHeapReserve) )
               goto LABEL_38;
-            v36 = *(unsigned int *)(v75 + 120);
-            if ( !(_DWORD)v36 )
+            SizeOfHeapCommit_low = LODWORD(OutHeaders->OptionalHeader.SizeOfHeapCommit);
+            if ( !(_DWORD)SizeOfHeapCommit_low )
               goto LABEL_38;
-            v37 = *(_DWORD *)(v75 + 124);
+            SizeOfHeapCommit_high = HIDWORD(OutHeaders->OptionalHeader.SizeOfHeapCommit);
           }
           else
           {
-            if ( v35 != 523 )
+            if ( Magic != 523 )
               goto LABEL_38;
-            if ( !*(_DWORD *)(v75 + 132) )
+            if ( !OutHeaders->OptionalHeader.NumberOfRvaAndSizes )
               goto LABEL_38;
-            v36 = *(unsigned int *)(v75 + 136);
-            if ( !(_DWORD)v36 )
+            SizeOfHeapCommit_low = OutHeaders->OptionalHeader.DataDirectory[0].VirtualAddress;
+            if ( !(_DWORD)SizeOfHeapCommit_low )
               goto LABEL_38;
-            v37 = *(_DWORD *)(v75 + 140);
+            SizeOfHeapCommit_high = OutHeaders->OptionalHeader.DataDirectory[0].Size;
           }
-          v65 = v37;
-          if ( !v31 && (unsigned int)v36 >= *(_DWORD *)(v75 + 84) )
+          v59 = SizeOfHeapCommit_high;
+          if ( !v31 && (unsigned int)SizeOfHeapCommit_low >= OutHeaders->OptionalHeader.SizeOfHeaders )
           {
-            v33 = (char *)RtlAddressInSectionTable(v75, v32, (unsigned int)v36);
+            v33 = (char *)RtlAddressInSectionTable(OutHeaders, v32, SizeOfHeapCommit_low);
             if ( v33 )
             {
               v34 = 0;
@@ -301,7 +295,7 @@ LABEL_38:
             v33 = 0LL;
             goto LABEL_39;
           }
-          v33 = (char *)(v32 + v36);
+          v33 = &v32[SizeOfHeapCommit_low];
 LABEL_39:
           if ( !v33 )
           {
@@ -322,7 +316,7 @@ LABEL_39:
           {
             ForwardedDll = -1073741811;
 LABEL_83:
-            v29 = (char *)v64;
+            v29 = (char *)v58;
             goto LABEL_84;
           }
           v47 = v22 - *((_DWORD *)v33 + 4);
@@ -330,39 +324,39 @@ LABEL_70:
           if ( v47 >= *((_DWORD *)v33 + 5) )
           {
             ForwardedDll = (v23 != 0LL) - 1073741512;
-            v29 = (char *)v64;
-            v24 = v60;
+            v29 = (char *)v58;
+            v24 = v54;
             goto LABEL_85;
           }
           v29 = (char *)(v30 + *(unsigned int *)(v30 + *((unsigned int *)v33 + 7) + 4LL * (int)v47));
-          v64 = (__int64)v29;
-          if ( v29 < v33 || v29 >= &v33[v65] )
+          v58 = (__int64)v29;
+          if ( v29 < v33 || v29 >= &v33[v59] )
           {
             ForwardedDll = 0;
-            v24 = v60;
+            v24 = v54;
             goto LABEL_85;
           }
-          v48 = v67++;
+          v48 = v61++;
           if ( v48 >= 0x20 )
           {
             ForwardedDll = -1073741701;
 LABEL_84:
-            v24 = v60;
+            v24 = v54;
             goto LABEL_85;
           }
-          ForwardedDll = LdrpParseForwarderDescription(v29, v84, &v74, &v63);
-          v24 = v60;
+          ForwardedDll = LdrpParseForwarderDescription(v29, v78, &v68, &v57);
+          v24 = v54;
           if ( ForwardedDll < 0 )
             goto LABEL_85;
-          DWORD2(v86) = *(_DWORD *)(v25 + 272);
-          ForwardedDll = LdrpLoadForwardedDll((__int64)v84, (int)&v85, v60, v25, 2, (__int64)&v76);
+          DWORD2(v80) = *((_DWORD *)v25 + 68);
+          ForwardedDll = LdrpLoadForwardedDll((__int64)v78, (__int64)Path, (__int64)v54, (__int64)v25, 2, (__int64)&v70);
           if ( ForwardedDll < 0 )
             goto LABEL_85;
-          v25 = v76;
-          LdrpDereferenceModule(v76, v49, v50, v51);
-          v23 = v74;
-          v22 = v63;
-          v9 = v77;
+          v25 = v70;
+          LdrpDereferenceModule((char *)v70);
+          v23 = v68;
+          v22 = v57;
+          v9 = v71;
         }
         if ( (LdrpDebugFlags & 5) != 0 )
           LdrpLogDbgPrint(
@@ -423,77 +417,77 @@ LABEL_60:
         if ( (LdrpDebugFlags & 0x40) != 0 )
           __debugbreak();
         ForwardedDll = -1073741702;
-        v29 = (char *)v64;
-        v24 = v60;
+        v29 = (char *)v58;
+        v24 = v54;
 LABEL_85:
-        if ( BYTE12(v92) )
-          RtlReleasePath(v85);
+        if ( BYTE12(v86) )
+          RtlReleasePath(Path[0]);
         if ( ForwardedDll < 0 )
           v29 = 0LL;
-        v64 = (__int64)v29;
-        v9 = v77;
+        v58 = (__int64)v29;
+        v9 = v71;
 LABEL_90:
-        v63 = ForwardedDll;
+        v57 = ForwardedDll;
         if ( ForwardedDll >= 0 )
         {
           if ( AvrfpAPILookupCallbacksEnabled )
           {
-            AVrfCallAPILookupCallback(*(_QWORD *)(v9 + 48), *(_QWORD *)(v24 + 48), (_DWORD)v29, 1, (__int64)&v64);
-            v29 = (char *)v64;
+            AVrfCallAPILookupCallback(*(_QWORD *)(v9 + 48), v24[6], (_DWORD)v29, 1, (__int64)&v58);
+            v29 = (char *)v58;
           }
-          if ( v78 )
+          if ( v72 )
           {
-            v79 = 0LL;
-            v78(&v79, v24, v29, *(_QWORD *)(v9 + 48), 0LL);
-            if ( v79 )
-              v29 = v79;
+            v73 = 0LL;
+            v72(&v73, v24, v29, *(_QWORD *)(v9 + 48), 0LL);
+            if ( v73 )
+              v29 = v73;
           }
         }
-        *v81 = v29;
-        v52 = v62;
-        LODWORD(v15) = v80;
-        Heap = v69;
-        LODWORD(v16) = v61;
-        v14 = (_QWORD *)v71;
-        v19 = v72;
-        if ( v62 == (_DWORD)v80 )
+        *v75 = v29;
+        v49 = v56;
+        LODWORD(v15) = v74;
+        Heap = v63;
+        LODWORD(v16) = v55;
+        v14 = (_QWORD *)v65;
+        v19 = v66;
+        if ( v56 == (_DWORD)v74 )
         {
-          v11 = ForwardedDll;
-          v66 = ForwardedDll;
-          v73 = *(_QWORD *)&v69[8 * (unsigned int)v80];
+          Status = ForwardedDll;
+          v60 = ForwardedDll;
+          v67 = *(_QWORD *)&v63[8 * (unsigned int)v74];
         }
         else
         {
-          v11 = v66;
+          Status = v60;
         }
 LABEL_100:
-        v18 = v52 + 1;
-        v62 = v18;
-        v72 = ++v19;
-        v13 = v68;
+        v18 = v49 + 1;
+        v56 = v18;
+        v66 = ++v19;
+        v13 = *(_QWORD *)v62;
         if ( (unsigned int)v18 >= (unsigned int)v16 )
         {
-          v12 = v60;
+          v12 = (char *)v54;
           break;
         }
       }
     }
-    if ( v11 < 0 )
+    if ( Status < 0 )
     {
-      v53 = LdrpRedirectDelayloadFailure(v9, v12, v68, v83, v82, (__int64)v70, v11);
-      v73 = v53;
-      v70 = (_QWORD *)v53;
-      if ( v53 )
+      v50 = LdrpRedirectDelayloadFailure(v9, (int)v12, v62[0], v77[0], v76, v64, Status);
+      v67 = v50;
+      v64 = v50;
+      if ( v50 )
       {
-        if ( (unsigned int)(v11 + 1073741512) <= 1 || v11 == -1073741702 || v11 == -1073740671 )
-          *(_QWORD *)&Heap[8 * (unsigned int)v15] = v53;
+        if ( (unsigned int)(Status + 1073741512) <= 1 || Status == -1073741702 || Status == -1073740671 )
+          *(_QWORD *)&Heap[8 * (unsigned int)v15] = v50;
       }
     }
     LdrpWriteBackProtectedDelayLoad(v9, (_DWORD)v14, (_DWORD)Heap, v16, v15);
-    if ( v93 != Heap )
-      RtlFreeHeap(LdrpHeap, 0, (__int64)Heap);
-    LdrpDereferenceModule(v12, v54, v55, v56);
-    return v73;
+    if ( BaseAddress != Heap )
+      RtlFreeHeap(LdrpHeap, 0, Heap);
+    LdrpDereferenceModule(v12);
+    return v67;
   }
-  return v57;
+  return v51;
 }

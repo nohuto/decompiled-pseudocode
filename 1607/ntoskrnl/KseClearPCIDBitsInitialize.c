@@ -3,9 +3,9 @@
  * Callers:
  *     KseInitialize @ 0x14079DAE8 (KseInitialize.c)
  * Callees:
- *     KsepDebugPrint @ 0x1401DCC3C (KsepDebugPrint.c)
- *     KsepLogError @ 0x1401DCEA4 (KsepLogError.c)
- *     KseRegisterShim @ 0x140570434 (KseRegisterShim.c)
+ *     KsepDebugPrint @ 0x1401DCA68 (KsepDebugPrint.c)
+ *     KsepLogError @ 0x1401DCCD0 (KsepLogError.c)
+ *     KseRegisterShim @ 0x140570974 (KseRegisterShim.c)
  */
 
 void KseClearPCIDBitsInitialize()

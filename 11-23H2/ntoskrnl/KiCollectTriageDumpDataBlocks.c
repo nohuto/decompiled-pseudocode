@@ -1,16 +1,16 @@
 /*
- * XREFs of KiCollectTriageDumpDataBlocks @ 0x140569C94
+ * XREFs of KiCollectTriageDumpDataBlocks @ 0x14056A354
  * Callers:
- *     KeBugCheck2 @ 0x140568290 (KeBugCheck2.c)
+ *     KeBugCheck2 @ 0x140568950 (KeBugCheck2.c)
  * Callees:
- *     MmIsAddressValidEx @ 0x1402E5FB0 (MmIsAddressValidEx.c)
- *     IoAddTriageDumpDataBlock @ 0x1403882BC (IoAddTriageDumpDataBlock.c)
- *     KiIsAddressRangeValid @ 0x14038840C (KiIsAddressRangeValid.c)
- *     KiMarkBugCheckRegions @ 0x1403E4184 (KiMarkBugCheckRegions.c)
- *     IopAddBugcheckTriageThread @ 0x14055C14C (IopAddBugcheckTriageThread.c)
- *     KiCollectFullProcessName @ 0x140569C4C (KiCollectFullProcessName.c)
- *     KiSaveCurrentEtwTraceBuffer @ 0x14056AA64 (KiSaveCurrentEtwTraceBuffer.c)
- *     PopInternalAddToDumpFile @ 0x140583160 (PopInternalAddToDumpFile.c)
+ *     MmIsAddressValidEx @ 0x1402E6240 (MmIsAddressValidEx.c)
+ *     IoAddTriageDumpDataBlock @ 0x14038849C (IoAddTriageDumpDataBlock.c)
+ *     KiIsAddressRangeValid @ 0x1403885EC (KiIsAddressRangeValid.c)
+ *     KiMarkBugCheckRegions @ 0x1403E4364 (KiMarkBugCheckRegions.c)
+ *     IopAddBugcheckTriageThread @ 0x14055C80C (IopAddBugcheckTriageThread.c)
+ *     KiCollectFullProcessName @ 0x14056A30C (KiCollectFullProcessName.c)
+ *     KiSaveCurrentEtwTraceBuffer @ 0x14056B124 (KiSaveCurrentEtwTraceBuffer.c)
+ *     PopInternalAddToDumpFile @ 0x140583650 (PopInternalAddToDumpFile.c)
  */
 
 void __fastcall KiCollectTriageDumpDataBlocks(int a1, char a2)
@@ -106,10 +106,10 @@ LABEL_27:
     if ( CriticalProcessExceptionData )
     {
       IoAddTriageDumpDataBlock((ULONG)&CriticalProcessExceptionData, (PVOID)0x30);
-      if ( (_WORD)xmmword_140C31B50 )
+      if ( (_WORD)xmmword_140C31AF0 )
       {
-        LODWORD(v8) = DWORD2(xmmword_140C31B50);
-        v9 = (unsigned __int16)xmmword_140C31B50;
+        LODWORD(v8) = DWORD2(xmmword_140C31AF0);
+        v9 = (unsigned __int16)xmmword_140C31AF0;
         goto LABEL_27;
       }
     }

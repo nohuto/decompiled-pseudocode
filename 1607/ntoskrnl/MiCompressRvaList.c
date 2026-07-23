@@ -1,9 +1,9 @@
 /*
- * XREFs of MiCompressRvaList @ 0x14042F860
+ * XREFs of MiCompressRvaList @ 0x14042E730
  * Callers:
- *     MiParseImageCfgBits @ 0x1405256E0 (MiParseImageCfgBits.c)
+ *     MiParseImageCfgBits @ 0x140508740 (MiParseImageCfgBits.c)
  * Callees:
- *     MiQueryFlagsForRvaEntry @ 0x1404D7EEC (MiQueryFlagsForRvaEntry.c)
+ *     MiQueryFlagsForRvaEntry @ 0x1404BB4F0 (MiQueryFlagsForRvaEntry.c)
  */
 
 __int64 __fastcall MiCompressRvaList(
@@ -115,7 +115,7 @@ LABEL_24:
     }
     FlagsForRvaEntry = -1073741701;
 LABEL_41:
-    dword_1403267A8 = 14;
+    dword_1403267E8 = 14;
   }
 LABEL_25:
   if ( !a7 )

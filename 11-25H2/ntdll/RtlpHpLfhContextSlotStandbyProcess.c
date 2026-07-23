@@ -13,74 +13,70 @@
  *     RtlpHpLfhHeatMapQuery @ 0x180033740 (RtlpHpLfhHeatMapQuery.c)
  */
 
-__int64 **__fastcall RtlpHpLfhContextSlotStandbyProcess(unsigned __int64 a1, char a2)
+void __fastcall RtlpHpLfhContextSlotStandbyProcess(unsigned __int64 a1, char a2)
 {
   _QWORD *v2; // rbx
-  __int64 **result; // rax
-  _QWORD *v6; // rsi
-  unsigned __int8 *v7; // rbp
-  char v8; // r9
-  int v9; // eax
-  _QWORD *v10; // rcx
-  _QWORD *v11; // rax
-  __int64 *v12[7]; // [rsp+20h] [rbp-38h] BYREF
+  _QWORD *v5; // rsi
+  unsigned __int8 *v6; // rbp
+  char v7; // r9
+  int v8; // eax
+  _QWORD *v9; // rcx
+  _QWORD *v10; // rax
+  __int64 *v11[7]; // [rsp+20h] [rbp-38h] BYREF
 
   v2 = 0LL;
-  v12[1] = (__int64 *)v12;
-  result = v12;
-  v12[0] = (__int64 *)v12;
+  v11[1] = (__int64 *)v11;
+  v11[0] = (__int64 *)v11;
   if ( *(_QWORD *)(a1 + 160) )
   {
     do
     {
-      RtlpHpLfhContextLockExtension(a1);
-      v6 = *(_QWORD **)(a1 + 160);
-      if ( v6 )
-        *(_QWORD *)(a1 + 160) = *v6;
-      result = (__int64 **)RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a1 + 128));
-      if ( !v6 )
+      RtlpHpLfhContextLockExtension((_RTL_SRWLOCK *)a1);
+      v5 = *(_QWORD **)(a1 + 160);
+      if ( v5 )
+        *(_QWORD *)(a1 + 160) = *v5;
+      RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 128));
+      if ( !v5 )
         break;
-      v7 = (unsigned __int8 *)(a1 + ((unsigned __int64)*((unsigned __int16 *)v6 - 7) << 6));
-      RtlpHpLfhOwnerFreeListProcess((_QWORD *)a1, (__int64)(v6 - 2), (unsigned __int64 *)v12, 0);
+      v6 = (unsigned __int8 *)(a1 + ((unsigned __int64)*((unsigned __int16 *)v5 - 7) << 6));
+      RtlpHpLfhOwnerFreeListProcess((_QWORD *)a1, (__int64)(v5 - 2), (unsigned __int64 *)v11, 0);
       if ( (a2 & 1) != 0 )
       {
-        v8 = 8;
+        v7 = 8;
       }
       else
       {
-        v9 = RtlpHpLfhHeatMapQuery(a1, (volatile signed __int32 *)(a1 + 192), v7);
-        v8 = 4;
-        if ( v9 >= 1 )
-          v8 = 8;
+        v8 = RtlpHpLfhHeatMapQuery(a1, (volatile signed __int32 *)(a1 + 192), v6);
+        v7 = 4;
+        if ( v8 >= 1 )
+          v7 = 8;
       }
-      RtlpHpLfhBucketAddSubsegment(a1, (__int64)v7, v12, v8);
-      result = (__int64 **)(v6 + 3);
-      if ( *result == (__int64 *)result )
+      RtlpHpLfhBucketAddSubsegment(a1, (__int64)v6, v11, v7);
+      if ( (_QWORD *)v5[3] == v5 + 3 )
       {
-        result = (__int64 **)RtlpHpLfhContextMetadataFree(a1, v6 - 2, 2);
+        RtlpHpLfhContextMetadataFree((_RTL_SRWLOCK *)a1, v5 - 2, 2);
       }
       else
       {
-        *v6 = v2;
-        v2 = v6;
+        *v5 = v2;
+        v2 = v5;
       }
     }
     while ( *(_QWORD *)(a1 + 160) );
     if ( v2 )
     {
-      RtlpHpLfhContextLockExtension(a1);
-      v10 = *(_QWORD **)(a1 + 160);
+      RtlpHpLfhContextLockExtension((_RTL_SRWLOCK *)a1);
+      v9 = *(_QWORD **)(a1 + 160);
       do
       {
-        v11 = v2;
+        v10 = v2;
         v2 = (_QWORD *)*v2;
-        *v11 = v10;
-        v10 = v11;
-        *(_QWORD *)(a1 + 160) = v11;
+        *v10 = v9;
+        v9 = v10;
+        *(_QWORD *)(a1 + 160) = v10;
       }
       while ( v2 );
-      return (__int64 **)RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a1 + 128));
+      RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 128));
     }
   }
-  return result;
 }

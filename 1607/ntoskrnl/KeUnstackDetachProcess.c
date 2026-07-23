@@ -1,11 +1,11 @@
 /*
- * XREFs of KeUnstackDetachProcess @ 0x1400CD1BC
+ * XREFs of KeUnstackDetachProcess @ 0x1400CB05C
  * Callers:
- *     ObpCreateHandle @ 0x140419C20 (ObpCreateHandle.c)
- *     PsCreateMinimalProcess @ 0x14057E30C (PsCreateMinimalProcess.c)
- *     MmCreateShadowMapping @ 0x14065BC98 (MmCreateShadowMapping.c)
- *     MmDeleteShadowMapping @ 0x14065BE04 (MmDeleteShadowMapping.c)
- *     EtwpTiQueryVad @ 0x1406A63DC (EtwpTiQueryVad.c)
+ *     ObpCreateHandle @ 0x140418AE0 (ObpCreateHandle.c)
+ *     PsCreateMinimalProcess @ 0x14057E7B8 (PsCreateMinimalProcess.c)
+ *     MmCreateShadowMapping @ 0x14065BD7C (MmCreateShadowMapping.c)
+ *     MmDeleteShadowMapping @ 0x14065BEE8 (MmDeleteShadowMapping.c)
+ *     EtwpTiQueryVad @ 0x1406A6514 (EtwpTiQueryVad.c)
  * Callees:
  *     <none>
  */

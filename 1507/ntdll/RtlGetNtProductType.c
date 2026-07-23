@@ -14,84 +14,78 @@
  *     NtQueryValueKey @ 0x180093A70 (NtQueryValueKey.c)
  */
 
-char __fastcall RtlGetNtProductType(_DWORD *a1)
+BOOLEAN __cdecl RtlGetNtProductType(PNT_PRODUCT_TYPE NtProductType)
 {
-  char v3; // si
-  int v4; // eax
-  unsigned __int64 Heap; // rbx
-  unsigned __int64 v6; // rax
-  unsigned __int16 v7; // [rsp+30h] [rbp-49h] BYREF
-  __int16 v8; // [rsp+32h] [rbp-47h]
-  unsigned __int64 v9; // [rsp+38h] [rbp-41h]
-  UNICODE_STRING v10; // [rsp+40h] [rbp-39h] BYREF
-  UNICODE_STRING v11; // [rsp+50h] [rbp-29h] BYREF
-  UNICODE_STRING v12; // [rsp+60h] [rbp-19h] BYREF
-  UNICODE_STRING v13; // [rsp+70h] [rbp-9h] BYREF
-  UNICODE_STRING DestinationString; // [rsp+80h] [rbp+7h] BYREF
-  int v15; // [rsp+90h] [rbp+17h] BYREF
-  __int64 v16; // [rsp+98h] [rbp+1Fh]
-  UNICODE_STRING *p_DestinationString; // [rsp+A0h] [rbp+27h]
-  int v18; // [rsp+A8h] [rbp+2Fh]
-  __int128 v19; // [rsp+B0h] [rbp+37h]
-  char v20; // [rsp+E8h] [rbp+6Fh] BYREF
-  HANDLE Handle; // [rsp+F0h] [rbp+77h] BYREF
+  BOOLEAN v3; // si
+  NTSTATUS v4; // eax
+  unsigned __int16 *Heap; // rbx
+  unsigned __int16 *v6; // rax
+  _UNICODE_STRING String1; // [rsp+30h] [rbp-49h] BYREF
+  _UNICODE_STRING String2; // [rsp+40h] [rbp-39h] BYREF
+  _UNICODE_STRING v9; // [rsp+50h] [rbp-29h] BYREF
+  _UNICODE_STRING ValueName; // [rsp+60h] [rbp-19h] BYREF
+  _UNICODE_STRING v11; // [rsp+70h] [rbp-9h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+80h] [rbp+7h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+90h] [rbp+17h] BYREF
+  ULONG ResultLength; // [rsp+E8h] [rbp+6Fh] BYREF
+  HANDLE KeyHandle; // [rsp+F0h] [rbp+77h] BYREF
 
   if ( MEMORY[0x7FFE0268] )
   {
-    *a1 = MEMORY[0x7FFE0264];
+    *NtProductType = MEMORY[0x7FFE0264];
     return 1;
   }
-  *a1 = 1;
+  *NtProductType = NtProductWinNt;
   v3 = 0;
   RtlInitUnicodeString(&DestinationString, L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\ProductOptions");
-  RtlInitUnicodeString(&v12, L"ProductType");
-  v16 = 0LL;
-  p_DestinationString = &DestinationString;
-  v15 = 48;
-  v18 = 576;
-  v19 = 0LL;
-  v4 = NtOpenKey(&Handle, 0x2000000LL, &v15);
+  RtlInitUnicodeString(&ValueName, L"ProductType");
+  ObjectAttributes.RootDirectory = 0LL;
+  ObjectAttributes.ObjectName = &DestinationString;
+  ObjectAttributes.Length = 48;
+  ObjectAttributes.Attributes = 576;
+  *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+  v4 = NtOpenKey(&KeyHandle, 0x2000000u, &ObjectAttributes);
   Heap = 0LL;
   if ( v4 < 0 )
   {
-    Handle = 0LL;
+    KeyHandle = 0LL;
     goto LABEL_7;
   }
-  Heap = RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, 256LL);
+  Heap = (unsigned __int16 *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, 0x100uLL);
   if ( Heap )
   {
-    v4 = NtQueryValueKey(Handle, &v12, 1LL, Heap, 256, &v20);
+    v4 = NtQueryValueKey(KeyHandle, &ValueName, KeyValueFullInformation, Heap, 0x100u, &ResultLength);
 LABEL_7:
-    if ( v4 >= 0 && *(_DWORD *)(Heap + 4) == 1 )
+    if ( v4 >= 0 && *((_DWORD *)Heap + 1) == 1 )
     {
-      v6 = Heap + *(unsigned int *)(Heap + 8);
-      v8 = *(_WORD *)(Heap + 12);
-      v9 = v6;
-      v7 = v8 - 2;
-      RtlInitUnicodeString(&v10, L"WinNt");
-      RtlInitUnicodeString(&v11, L"LanmanNt");
-      RtlInitUnicodeString(&v13, L"ServerNt");
-      if ( RtlEqualUnicodeString(&v7, &v10.Length, 1) )
+      v6 = (unsigned __int16 *)((char *)Heap + *((unsigned int *)Heap + 2));
+      String1.MaximumLength = Heap[6];
+      String1.Buffer = v6;
+      String1.Length = String1.MaximumLength - 2;
+      RtlInitUnicodeString(&String2, L"WinNt");
+      RtlInitUnicodeString(&v9, L"LanmanNt");
+      RtlInitUnicodeString(&v11, L"ServerNt");
+      if ( RtlEqualUnicodeString(&String1, &String2, 1u) )
       {
-        *a1 = 1;
+        *NtProductType = NtProductWinNt;
       }
-      else if ( RtlEqualUnicodeString(&v7, &v11.Length, 1) )
+      else if ( RtlEqualUnicodeString(&String1, &v9, 1u) )
       {
-        *a1 = 2;
+        *NtProductType = NtProductLanManNt;
       }
       else
       {
-        if ( !RtlEqualUnicodeString(&v7, &v13.Length, 1) )
+        if ( !RtlEqualUnicodeString(&String1, &v11, 1u) )
           goto LABEL_16;
-        *a1 = 3;
+        *NtProductType = NtProductServer;
       }
       v3 = 1;
     }
 LABEL_16:
     if ( Heap )
-      RtlFreeHeap((__int64)NtCurrentPeb()->ProcessHeap, 0, Heap);
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Heap);
   }
-  if ( Handle )
-    NtClose(Handle);
+  if ( KeyHandle )
+    NtClose(KeyHandle);
   return v3;
 }

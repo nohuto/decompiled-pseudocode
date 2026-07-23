@@ -38,7 +38,7 @@ __int64 __fastcall MmCreateKernelStack(unsigned int a1, unsigned int a2, unsigne
   ULONG_PTR v12; // r9
   __int64 v13; // rbp
   __int64 i; // rbp
-  union _SLIST_HEADER *v16; // rsi
+  _SLIST_HEADER *v16; // rsi
   __int16 Alignment; // r12
   unsigned __int8 CurrentIrql; // cl
   PSLIST_ENTRY v19; // rax

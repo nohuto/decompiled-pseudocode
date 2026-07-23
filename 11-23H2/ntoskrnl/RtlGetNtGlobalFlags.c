@@ -1,12 +1,12 @@
 /*
- * XREFs of RtlGetNtGlobalFlags @ 0x1409BD740
+ * XREFs of RtlGetNtGlobalFlags @ 0x1409BD940
  * Callers:
- *     RtlpAllocateHeap @ 0x1405AB248 (RtlpAllocateHeap.c)
+ *     RtlpAllocateHeap @ 0x1405AB7B8 (RtlpAllocateHeap.c)
  * Callees:
  *     <none>
  */
 
-__int64 RtlGetNtGlobalFlags()
+ULONG RtlGetNtGlobalFlags(void)
 {
   return NtGlobalFlag;
 }

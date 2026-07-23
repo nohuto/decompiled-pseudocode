@@ -1,24 +1,24 @@
 /*
- * XREFs of RtlpUnlockHeapManagerForCloning @ 0x1800EAC68
+ * XREFs of RtlpUnlockHeapManagerForCloning @ 0x1800EAD28
  * Callers:
- *     RtlLockHeapManagerForCloning @ 0x1800E9040 (RtlLockHeapManagerForCloning.c)
- *     RtlUnlockHeapManagerForCloning @ 0x1800E97E8 (RtlUnlockHeapManagerForCloning.c)
+ *     RtlLockHeapManagerForCloning @ 0x1800E9100 (RtlLockHeapManagerForCloning.c)
+ *     RtlUnlockHeapManagerForCloning @ 0x1800E98A8 (RtlUnlockHeapManagerForCloning.c)
  * Callees:
- *     RtlLeaveCriticalSection @ 0x180019DC0 (RtlLeaveCriticalSection.c)
- *     RtlpHpHeapUnlock @ 0x18001C4A4 (RtlpHpHeapUnlock.c)
- *     RtlReleaseSRWLockExclusive @ 0x18001C550 (RtlReleaseSRWLockExclusive.c)
- *     RtlpSparseBitmapCtxUnlockExclusive @ 0x18004FF30 (RtlpSparseBitmapCtxUnlockExclusive.c)
+ *     RtlLeaveCriticalSection @ 0x180019DB0 (RtlLeaveCriticalSection.c)
+ *     RtlpHpHeapUnlock @ 0x18001C494 (RtlpHpHeapUnlock.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18001C540 (RtlReleaseSRWLockExclusive.c)
+ *     RtlpSparseBitmapCtxUnlockExclusive @ 0x18004FF20 (RtlpSparseBitmapCtxUnlockExclusive.c)
  *     RtlpHpLfhContextLockUnlock @ 0x1800FCC54 (RtlpHpLfhContextLockUnlock.c)
  */
 
-__int64 __fastcall RtlpUnlockHeapManagerForCloning(int a1, unsigned int a2)
+NTSTATUS __fastcall RtlpUnlockHeapManagerForCloning(int a1, unsigned int a2)
 {
   struct _PEB *v2; // r14
   __int64 v4; // rsi
   __int64 v5; // rbp
   __int64 v6; // rbx
   int v7; // edx
-  volatile signed __int64 *v8; // rcx
+  _RTL_SRWLOCK *v8; // rcx
   __int64 v9; // rdx
   __int64 v10; // rax
 
@@ -44,20 +44,20 @@ __int64 __fastcall RtlpUnlockHeapManagerForCloning(int a1, unsigned int a2)
             v7 = 0;
           }
           RtlpHpLfhContextLockUnlock(v6 + 288, v7 | 1u);
-          RtlReleaseSRWLockExclusive((volatile signed __int64 *)(v6 + 144));
+          RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(v6 + 144));
           RtlpHpHeapUnlock(v6, a1);
         }
       }
       else if ( (*(_BYTE *)(v6 + 112) & 1) == 0 )
       {
         if ( *(_BYTE *)(v6 + 386) == 2 )
-          v8 = *(volatile signed __int64 **)(v6 + 376);
+          v8 = *(_RTL_SRWLOCK **)(v6 + 376);
         else
           v8 = 0LL;
         if ( v8 )
         {
           if ( a1 )
-            *v8 = 1LL;
+            v8->Value = 1LL;
           RtlReleaseSRWLockExclusive(v8);
         }
         if ( a1 )
@@ -69,7 +69,7 @@ __int64 __fastcall RtlpUnlockHeapManagerForCloning(int a1, unsigned int a2)
           *(_DWORD *)(v9 + 12) = 1;
           *(_QWORD *)(v9 + 24) = 0LL;
         }
-        RtlLeaveCriticalSection(*(_QWORD *)(v6 + 352));
+        RtlLeaveCriticalSection(*(PRTL_CRITICAL_SECTION *)(v6 + 352));
       }
       ++v4;
       --v5;
@@ -78,15 +78,17 @@ __int64 __fastcall RtlpUnlockHeapManagerForCloning(int a1, unsigned int a2)
   }
   if ( a1 )
   {
-    qword_180150AF0 = (__int64)NtCurrentTeb()->ClientId.UniqueThread;
-    dword_180150AE8 = -2;
-    dword_180150AEC = 1;
-    qword_180150AF8 = 0LL;
+    RtlpProcessHeapsListLock.OwningThread = NtCurrentTeb()->ClientId.UniqueThread;
+    RtlpProcessHeapsListLock.LockCount = -2;
+    RtlpProcessHeapsListLock.RecursionCount = 1;
+    RtlpProcessHeapsListLock.LockSemaphore = 0LL;
   }
-  v10 = RtlpHpLargeAllocationBitmap[0];
+  v10 = RtlpHpLargeAllocationBitmap;
   if ( (_BYTE)a1 )
     v10 = 1LL;
-  RtlpHpLargeAllocationBitmap[0] = v10;
-  RtlpSparseBitmapCtxUnlockExclusive((__int64)RtlpHpLargeAllocationBitmap, RtlpHpLargeAllocationBitmap);
-  return RtlLeaveCriticalSection((__int64)&RtlpProcessHeapsListLock);
+  RtlpHpLargeAllocationBitmap = v10;
+  RtlpSparseBitmapCtxUnlockExclusive(
+    (__int64)&RtlpHpLargeAllocationBitmap,
+    (_RTL_SRWLOCK *)&RtlpHpLargeAllocationBitmap);
+  return RtlLeaveCriticalSection(&RtlpProcessHeapsListLock);
 }

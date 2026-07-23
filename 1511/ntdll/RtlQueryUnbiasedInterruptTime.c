@@ -7,21 +7,21 @@
  *     RtlNtStatusToDosErrorNoTeb @ 0x180077430 (RtlNtStatusToDosErrorNoTeb.c)
  */
 
-__int64 __fastcall RtlQueryUnbiasedInterruptTime(_QWORD *a1)
+BOOLEAN __cdecl RtlQueryUnbiasedInterruptTime(PLARGE_INTEGER InterruptTime)
 {
-  __int64 result; // rax
-  unsigned int v2; // eax
+  BOOLEAN result; // al
+  LONG v2; // eax
 
-  if ( a1 )
+  if ( InterruptTime )
   {
-    result = 1LL;
-    *a1 = MEMORY[0x7FFE0008] - MEMORY[0x7FFE03B0] - RtlpFreezeTimeBias;
+    result = 1;
+    InterruptTime->QuadPart = MEMORY[0x7FFE0008] - MEMORY[0x7FFE03B0] - RtlpFreezeTimeBias;
   }
   else
   {
-    v2 = RtlNtStatusToDosErrorNoTeb(3221225485LL);
+    v2 = RtlNtStatusToDosErrorNoTeb(-1073741811);
     RtlSetLastWin32Error(v2);
-    return 0LL;
+    return 0;
   }
   return result;
 }

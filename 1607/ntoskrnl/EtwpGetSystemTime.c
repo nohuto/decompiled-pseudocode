@@ -1,5 +1,5 @@
 /*
- * XREFs of EtwpGetSystemTime @ 0x1400AB8E4
+ * XREFs of EtwpGetSystemTime @ 0x1400A9E4C
  * Callers:
  *     <none>
  * Callees:
@@ -7,7 +7,7 @@
  */
 
 // attributes: thunk
-__int64 EtwpGetSystemTime()
+LARGE_INTEGER EtwpGetSystemTime(void)
 {
   return RtlGetSystemTimePrecise();
 }

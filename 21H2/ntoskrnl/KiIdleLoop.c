@@ -1,26 +1,26 @@
 /*
- * XREFs of KiIdleLoop @ 0x140402950
+ * XREFs of KiIdleLoop @ 0x140402B30
  * Callers:
- *     KiSystemStartup @ 0x14098F010 (KiSystemStartup.c)
+ *     KiSystemStartup @ 0x140990010 (KiSystemStartup.c)
  * Callees:
- *     PoIdle @ 0x140221ED0 (PoIdle.c)
- *     KiRetireDpcList @ 0x1402466B0 (KiRetireDpcList.c)
- *     KiIdleSchedule @ 0x140256BD0 (KiIdleSchedule.c)
- *     KiQuantumEnd @ 0x140257CF0 (KiQuantumEnd.c)
- *     HvlNotifyLongSpinWait @ 0x140390140 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140390F20 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     SwapContext @ 0x1404067C0 (SwapContext.c)
- *     KzSetIrqlUnsafe @ 0x140512C40 (KzSetIrqlUnsafe.c)
+ *     KiIdleSchedule @ 0x140278140 (KiIdleSchedule.c)
+ *     KiQuantumEnd @ 0x140279260 (KiQuantumEnd.c)
+ *     PoIdle @ 0x1402C67D0 (PoIdle.c)
+ *     KiRetireDpcList @ 0x1402EAF00 (KiRetireDpcList.c)
+ *     HvlNotifyLongSpinWait @ 0x140390290 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140391070 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     SwapContext @ 0x1404069A0 (SwapContext.c)
+ *     KzSetIrqlUnsafe @ 0x140512E80 (KzSetIrqlUnsafe.c)
  */
 
-void __fastcall __noreturn KiIdleLoop(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+void __fastcall __noreturn KiIdleLoop(__int64 a1, __int64 a2)
 {
   struct _KPRCB *CurrentPrcb; // rbx
   _KTHREAD *IdleThread; // rdi
-  unsigned int v6; // esi
+  unsigned int v4; // esi
   _KTHREAD *NextThread; // rsi
-  unsigned __int64 v8; // rax
-  unsigned __int64 v9; // rax
+  unsigned __int64 v6; // rax
+  unsigned __int64 v7; // rax
   _UNKNOWN *retaddr; // [rsp+28h] [rbp+0h]
 
   if ( (_BYTE)KeSmapEnabled )
@@ -41,7 +41,7 @@ void __fastcall __noreturn KiIdleLoop(__int64 a1, __int64 a2, __int64 a3, __int6
       {
         CurrentPrcb->QuantumEnd = 0;
         _enable();
-        KiQuantumEnd(a1, a2, a3, a4);
+        KiQuantumEnd(a1, a2);
         _disable();
       }
       _InterlockedOr8((volatile signed __int8 *)&CurrentPrcb->IdleHalt, 1u);
@@ -52,14 +52,14 @@ void __fastcall __noreturn KiIdleLoop(__int64 a1, __int64 a2, __int64 a3, __int6
       IdleThread = CurrentPrcb->IdleThread;
       if ( _interlockedbittestandset64((volatile signed __int32 *)&CurrentPrcb->PrcbLock, 0LL) )
       {
-        v6 = 0;
+        v4 = 0;
         do
         {
-          if ( (++v6 & HvlLongSpinCountMask) == 0
+          if ( (++v4 & HvlLongSpinCountMask) == 0
             && (HvlEnlightenments & 0x40) != 0
             && KiCheckVpBackingLongSpinWaitHypercall() )
           {
-            HvlNotifyLongSpinWait(v6);
+            HvlNotifyLongSpinWait(v4);
           }
           _mm_pause();
         }
@@ -72,10 +72,10 @@ void __fastcall __noreturn KiIdleLoop(__int64 a1, __int64 a2, __int64 a3, __int6
       {
         _disable();
         ++CurrentPrcb->NestingLevel;
-        v8 = __rdtsc();
-        v9 = (((unsigned __int64)HIDWORD(v8) << 32) | (unsigned int)v8) - CurrentPrcb->StartCycles;
-        IdleThread->CycleTime += v9;
-        CurrentPrcb->StartCycles += v9;
+        v6 = __rdtsc();
+        v7 = (((unsigned __int64)HIDWORD(v6) << 32) | (unsigned int)v6) - CurrentPrcb->StartCycles;
+        IdleThread->CycleTime += v7;
+        CurrentPrcb->StartCycles += v7;
         _enable();
         CurrentPrcb->CurrentThread = NextThread;
         NextThread->WaitBlockFill6[68] = 2;
@@ -88,7 +88,7 @@ void __fastcall __noreturn KiIdleLoop(__int64 a1, __int64 a2, __int64 a3, __int6
     {
       CurrentPrcb->IdleHalt = 0;
       _enable();
-      if ( KiIdleSchedule((__int64)CurrentPrcb, a2, a3, a4) )
+      if ( KiIdleSchedule((__int64)CurrentPrcb) )
       {
 LABEL_33:
         CurrentPrcb->InterruptRequest |= (CurrentPrcb->DpcRequestSummary & 0x2F) != 0;

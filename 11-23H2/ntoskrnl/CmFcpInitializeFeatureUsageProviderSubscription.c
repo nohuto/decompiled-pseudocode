@@ -3,9 +3,9 @@
  * Callers:
  *     CmFcpManagerAllocateUsageProviderSubscription @ 0x14067FB9C (CmFcpManagerAllocateUsageProviderSubscription.c)
  * Callees:
- *     MmGetSessionIdEx @ 0x1402A1720 (MmGetSessionIdEx.c)
- *     MmIsSessionAddress @ 0x1402BC7E0 (MmIsSessionAddress.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     MmGetSessionIdEx @ 0x1402A19B0 (MmGetSessionIdEx.c)
+ *     MmIsSessionAddress @ 0x1402BCA70 (MmIsSessionAddress.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 __int64 *__fastcall CmFcpInitializeFeatureUsageProviderSubscription(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

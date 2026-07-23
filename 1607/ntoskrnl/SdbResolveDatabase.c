@@ -1,20 +1,20 @@
 /*
- * XREFs of SdbResolveDatabase @ 0x1406C44AC
+ * XREFs of SdbResolveDatabase @ 0x1406C45E4
  * Callers:
- *     SdbpOpenLocalDatabaseEx @ 0x1406C421C (SdbpOpenLocalDatabaseEx.c)
+ *     SdbpOpenLocalDatabaseEx @ 0x1406C4354 (SdbpOpenLocalDatabaseEx.c)
  * Callees:
- *     RtlAppendUnicodeStringToString @ 0x140087614 (RtlAppendUnicodeStringToString.c)
- *     RtlAppendUnicodeToString @ 0x1400C3920 (RtlAppendUnicodeToString.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     ZwOpenKey @ 0x140159EC0 (ZwOpenKey.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     AslFree @ 0x14048538C (AslFree.c)
- *     AslAlloc @ 0x14048554C (AslAlloc.c)
- *     SdbGetAppPatchDirEx @ 0x1406C440C (SdbGetAppPatchDirEx.c)
- *     SdbpGetStandardDatabasePath @ 0x1406C4894 (SdbpGetStandardDatabasePath.c)
- *     AslGuidToString_UStr @ 0x1406C50FC (AslGuidToString_UStr.c)
- *     AslRegistryGetUInt32_UStr @ 0x1406C5728 (AslRegistryGetUInt32_UStr.c)
- *     AslLogCallPrintf @ 0x1406C5804 (AslLogCallPrintf.c)
+ *     RtlAppendUnicodeToString @ 0x1400C17B0 (RtlAppendUnicodeToString.c)
+ *     RtlAppendUnicodeStringToString @ 0x14010B80C (RtlAppendUnicodeStringToString.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     ZwOpenKey @ 0x14015A430 (ZwOpenKey.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     AslFree @ 0x140514714 (AslFree.c)
+ *     AslAlloc @ 0x1405148D4 (AslAlloc.c)
+ *     SdbGetAppPatchDirEx @ 0x1406C4544 (SdbGetAppPatchDirEx.c)
+ *     SdbpGetStandardDatabasePath @ 0x1406C49CC (SdbpGetStandardDatabasePath.c)
+ *     AslGuidToString_UStr @ 0x1406C5234 (AslGuidToString_UStr.c)
+ *     AslRegistryGetUInt32_UStr @ 0x1406C5860 (AslRegistryGetUInt32_UStr.c)
+ *     AslLogCallPrintf @ 0x1406C593C (AslLogCallPrintf.c)
  */
 
 __int64 __fastcall SdbResolveDatabase(__int64 a1, _QWORD *a2, int *a3, wchar_t *a4, unsigned int a5)
@@ -26,21 +26,19 @@ __int64 __fastcall SdbResolveDatabase(__int64 a1, _QWORD *a2, int *a3, wchar_t *
   GUID **v13; // r8
   int v14; // edx
   __int64 v15; // rcx
-  int v16; // eax
-  __int64 v17; // rcx
-  unsigned int v18; // edi
-  wchar_t *v19; // rax
-  NTSTATUS v20; // eax
-  int UInt32_UStr; // eax
-  __int64 v22; // rax
-  NTSTATUS appended; // eax
-  int v24; // r8d
-  const char *v25; // r9
-  __int16 v26; // ax
-  HANDLE v27; // rcx
+  __int64 v16; // rcx
+  const char *v17; // r9
+  int v18; // r8d
+  unsigned __int16 v19; // di
+  wchar_t *v20; // rax
+  __int64 v21; // rax
+  int v22; // r8d
+  const char *v23; // r9
+  __int16 v24; // ax
+  HANDLE v25; // rcx
   wchar_t *Buffer; // rbx
-  __int64 v29; // rcx
-  UNICODE_STRING v30; // [rsp+38h] [rbp-31h] BYREF
+  __int64 v27; // rcx
+  UNICODE_STRING v28; // [rsp+38h] [rbp-31h] BYREF
   UNICODE_STRING Destination; // [rsp+48h] [rbp-21h] BYREF
   UNICODE_STRING Source; // [rsp+58h] [rbp-11h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+68h] [rbp-1h] BYREF
@@ -60,10 +58,10 @@ __int64 __fastcall SdbResolveDatabase(__int64 a1, _QWORD *a2, int *a3, wchar_t *
   *(_QWORD *)&Source.MaximumLength = 0LL;
   *(_DWORD *)((char *)&Source.Buffer + 2) = 0;
   HIWORD(Source.Buffer) = 0;
-  v30.Length = 0;
-  *(_QWORD *)&v30.MaximumLength = 0LL;
-  *(_DWORD *)((char *)&v30.Buffer + 2) = 0;
-  HIWORD(v30.Buffer) = 0;
+  v28.Length = 0;
+  *(_QWORD *)&v28.MaximumLength = 0LL;
+  *(_DWORD *)((char *)&v28.Buffer + 2) = 0;
+  HIWORD(v28.Buffer) = 0;
   if ( !a4 )
     return result;
   *a4 = 0;
@@ -91,24 +89,19 @@ LABEL_9:
       *a3 = v11;
     return result;
   }
-  v16 = AslGuidToString_UStr(&Source, a2, v13);
-  if ( v16 < 0 )
+  if ( (int)AslGuidToString_UStr(&Source, a2, v13) >= 0 )
   {
-    AslLogCallPrintf(
-      1,
-      (unsigned int)"SdbResolveDatabase",
-      1091,
-      (unsigned int)"Failed to convert guid to string [%x]",
-      v16);
-    goto LABEL_42;
-  }
-  v18 = Source.Length + 184;
-  v19 = (wchar_t *)AslAlloc(v17, v18);
-  v12 = v19;
-  if ( v19 )
-  {
-    Destination.Buffer = v19;
-    Destination.MaximumLength = v18;
+    v19 = Source.Length + 184;
+    v20 = (wchar_t *)AslAlloc(v16, (unsigned int)Source.Length + 184);
+    v12 = v20;
+    if ( !v20 )
+    {
+      v17 = "Failed to allocate %ld bytes for key path";
+      v18 = 1112;
+      goto LABEL_14;
+    }
+    Destination.Buffer = v20;
+    Destination.MaximumLength = v19;
     Destination.Length = 0;
     RtlAppendUnicodeToString(
       &Destination,
@@ -121,68 +114,49 @@ LABEL_9:
     ObjectAttributes.RootDirectory = 0LL;
     ObjectAttributes.Attributes = 576;
     *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
-    v20 = ZwOpenKey(&KeyHandle, 0x80000100, &ObjectAttributes);
-    if ( v20 < 0 )
+    if ( ZwOpenKey(&KeyHandle, 0x80000100, &ObjectAttributes) < 0 )
     {
-      AslLogCallPrintf(
-        1,
-        (unsigned int)"SdbResolveDatabase",
-        1128,
-        (unsigned int)"Failed to open Key \"%ws\" [%x]",
-        Destination.Buffer,
-        v20,
-        *(_QWORD *)&v30.Length,
-        v30.Buffer);
+      AslLogCallPrintf(1, (unsigned int)"SdbResolveDatabase", 1128, (unsigned int)"Failed to open Key \"%ws\" [%x]");
       goto LABEL_42;
     }
     if ( a3 )
     {
-      UInt32_UStr = AslRegistryGetUInt32_UStr(&a5, KeyHandle, &g_ustrDatabaseType);
-      if ( UInt32_UStr < 0 )
+      if ( (int)AslRegistryGetUInt32_UStr(&a5, KeyHandle, &g_ustrDatabaseType) < 0 )
       {
-        AslLogCallPrintf(
-          1,
-          (unsigned int)"SdbResolveDatabase",
-          1140,
-          (unsigned int)"Failed to get database type [%x]",
-          UInt32_UStr);
+        AslLogCallPrintf(1, (unsigned int)"SdbResolveDatabase", 1140, (unsigned int)"Failed to get database type [%x]");
         *a3 = 0;
         goto LABEL_42;
       }
       *a3 = a5 & 0x7FFFFFFF;
     }
     SdbGetAppPatchDirEx(a1, a4, 0x104u, 0);
-    v22 = -1LL;
-    v30.Buffer = a4;
+    v21 = -1LL;
+    v28.Buffer = a4;
     do
-      ++v22;
-    while ( a4[v22] );
-    v30.Length = 2 * v22;
-    v30.MaximumLength = 520;
-    appended = RtlAppendUnicodeToString(&v30, L"\\CUSTOM\\");
-    if ( appended >= 0 )
+      ++v21;
+    while ( a4[v21] );
+    v28.Length = 2 * v21;
+    v28.MaximumLength = 520;
+    if ( RtlAppendUnicodeToString(&v28, L"\\CUSTOM\\") >= 0 )
     {
-      v26 = *(_WORD *)(a1 + 568);
-      if ( (v26 == -31132 || v26 == 512 || v26 == -21916)
-        && (appended = RtlAppendUnicodeToString(&v30, L"CUSTOM64\\"), appended < 0) )
+      v24 = *(_WORD *)(a1 + 568);
+      if ( (v24 == -31132 || v24 == 512 || v24 == -21916) && RtlAppendUnicodeToString(&v28, L"CUSTOM64\\") < 0 )
       {
-        v24 = 1165;
+        v22 = 1165;
       }
       else
       {
-        appended = RtlAppendUnicodeStringToString(&v30, &Source);
-        if ( appended < 0 )
+        if ( RtlAppendUnicodeStringToString(&v28, &Source) < 0 )
         {
-          v25 = "RtlAppendUnicodeStringToString failed while creating CustomSdb path [%x]";
-          v24 = 1174;
+          v23 = "RtlAppendUnicodeStringToString failed while creating CustomSdb path [%x]";
+          v22 = 1174;
           goto LABEL_28;
         }
-        appended = RtlAppendUnicodeToString(&v30, L".sdb");
-        if ( appended >= 0 )
+        if ( RtlAppendUnicodeToString(&v28, L".sdb") >= 0 )
         {
-          if ( v30.Length < (unsigned __int64)v30.MaximumLength - 2 )
+          if ( v28.Length < (unsigned __int64)v28.MaximumLength - 2 )
           {
-            v10 = v30.Length >> 1;
+            v10 = v28.Length >> 1;
             a4[v10] = 0;
             goto LABEL_42;
           }
@@ -193,37 +167,35 @@ LABEL_9:
             (unsigned int)"Insufficient buffer for the database path");
           goto LABEL_29;
         }
-        v24 = 1182;
+        v22 = 1182;
       }
     }
     else
     {
-      v24 = 1156;
+      v22 = 1156;
     }
-    v25 = "RtlAppendUnicodeToString failed while creating CustomSdb path [%x]";
+    v23 = "RtlAppendUnicodeToString failed while creating CustomSdb path [%x]";
 LABEL_28:
-    AslLogCallPrintf(1, (unsigned int)"SdbResolveDatabase", v24, (_DWORD)v25, appended);
+    AslLogCallPrintf(1, (unsigned int)"SdbResolveDatabase", v22, (_DWORD)v23);
 LABEL_29:
     *a4 = 0;
     goto LABEL_42;
   }
-  AslLogCallPrintf(
-    1,
-    (unsigned int)"SdbResolveDatabase",
-    1112,
-    (unsigned int)"Failed to allocate %ld bytes for key path",
-    v18);
+  v17 = "Failed to convert guid to string [%x]";
+  v18 = 1091;
+LABEL_14:
+  AslLogCallPrintf(1, (unsigned int)"SdbResolveDatabase", v18, (_DWORD)v17);
 LABEL_42:
-  v27 = KeyHandle;
+  v25 = KeyHandle;
   if ( KeyHandle )
     ZwClose(KeyHandle);
   if ( v12 )
-    AslFree((__int64)v27, v12);
+    AslFree((__int64)v25, v12);
   Buffer = Source.Buffer;
   if ( Source.Buffer )
   {
     memset(Source.Buffer, 66, Source.MaximumLength);
-    AslFree(v29, Buffer);
+    AslFree(v27, Buffer);
   }
   return (unsigned int)v10;
 }

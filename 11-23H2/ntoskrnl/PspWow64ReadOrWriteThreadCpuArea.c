@@ -1,20 +1,20 @@
 /*
- * XREFs of PspWow64ReadOrWriteThreadCpuArea @ 0x1407A0844
+ * XREFs of PspWow64ReadOrWriteThreadCpuArea @ 0x1407A0A34
  * Callers:
- *     PspWow64GetContextThread @ 0x1407A018C (PspWow64GetContextThread.c)
- *     PspWow64SetContextThread @ 0x1407A0458 (PspWow64SetContextThread.c)
+ *     PspWow64GetContextThread @ 0x1407A037C (PspWow64GetContextThread.c)
+ *     PspWow64SetContextThread @ 0x1407A0648 (PspWow64SetContextThread.c)
  * Callees:
- *     KiStackAttachProcess @ 0x14022D600 (KiStackAttachProcess.c)
- *     KiUnstackDetachProcess @ 0x14022D9C0 (KiUnstackDetachProcess.c)
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     ExAcquirePushLockSharedEx @ 0x140230D90 (ExAcquirePushLockSharedEx.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1402BD860 (ExfReleasePushLockShared.c)
- *     PsGetThreadTeb @ 0x14032A030 (PsGetThreadTeb.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     ProbeForWrite @ 0x140729380 (ProbeForWrite.c)
- *     RtlWow64GetCpuAreaInfo @ 0x1407A0BC8 (RtlWow64GetCpuAreaInfo.c)
- *     ExRaiseDatatypeMisalignment @ 0x140A00B60 (ExRaiseDatatypeMisalignment.c)
+ *     KiStackAttachProcess @ 0x14022D710 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x14022DAD0 (KiUnstackDetachProcess.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockSharedEx @ 0x140230E80 (ExAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfReleasePushLockShared @ 0x1402BDAF0 (ExfReleasePushLockShared.c)
+ *     PsGetThreadTeb @ 0x14032A2C0 (PsGetThreadTeb.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     ProbeForWrite @ 0x140729580 (ProbeForWrite.c)
+ *     RtlWow64GetCpuAreaInfo @ 0x1407A0DB8 (RtlWow64GetCpuAreaInfo.c)
+ *     ExRaiseDatatypeMisalignment @ 0x140A00DF0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall PspWow64ReadOrWriteThreadCpuArea(

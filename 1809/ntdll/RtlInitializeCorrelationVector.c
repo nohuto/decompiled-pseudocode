@@ -1,28 +1,30 @@
 /*
- * XREFs of RtlInitializeCorrelationVector @ 0x180088670
+ * XREFs of RtlInitializeCorrelationVector @ 0x180088680
  * Callers:
  *     <none>
  * Callees:
- *     RtlpBase64Encode @ 0x1800886E4 (RtlpBase64Encode.c)
+ *     RtlpBase64Encode @ 0x1800886F4 (RtlpBase64Encode.c)
  *     memset @ 0x1800A7100 (memset.c)
  */
 
-__int64 __fastcall RtlInitializeCorrelationVector(char *a1, char a2, __int64 a3)
+DWORD __cdecl RtlInitializeCorrelationVector(PCORRELATION_VECTOR CorrelationVector, int Version, const GUID *Guid)
 {
+  CHAR v4; // di
   __int64 v6; // rdx
-  __int64 result; // rax
+  DWORD result; // eax
 
-  if ( (unsigned __int8)(a2 - 1) > 1u || !a3 )
-    return 3221225485LL;
-  memset(a1, 0, 0x82uLL);
-  *a1 = a2;
-  result = RtlpBase64Encode(a3, v6, a1 + 1);
-  if ( (int)result >= 0 )
+  v4 = Version;
+  if ( (unsigned __int8)(Version - 1) > 1u || !Guid )
+    return -1073741811;
+  memset(CorrelationVector, 0, sizeof(CORRELATION_VECTOR));
+  CorrelationVector->Version = v4;
+  result = RtlpBase64Encode(Guid, v6, CorrelationVector->Vector);
+  if ( (result & 0x80000000) == 0 )
   {
-    if ( a2 == 1 )
-      strcpy(a1 + 17, ".0");
+    if ( v4 == 1 )
+      strcpy(&CorrelationVector->Vector[16], ".0");
     else
-      strcpy(a1 + 23, ".0");
+      strcpy(&CorrelationVector->Vector[22], ".0");
   }
   return result;
 }

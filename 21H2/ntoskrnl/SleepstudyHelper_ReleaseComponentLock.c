@@ -1,9 +1,9 @@
 /*
- * XREFs of SleepstudyHelper_ReleaseComponentLock @ 0x1405809C0
+ * XREFs of SleepstudyHelper_ReleaseComponentLock @ 0x140580C00
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 

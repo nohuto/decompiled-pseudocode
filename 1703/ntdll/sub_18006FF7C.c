@@ -16,27 +16,26 @@
  *     RtlReportException @ 0x1800DD400 (RtlReportException.c)
  */
 
-char __fastcall sub_18006FF7C(int a1, __int64 a2)
+void __fastcall sub_18006FF7C(int a1, __int64 a2)
 {
   __int64 v4; // rbx
-  char result; // al
-  __int64 *v6; // rbx
-  __int64 v7; // rdi
+  __int64 *v5; // rbx
+  __int64 v6; // rdi
 
-  RtlAcquireSRWLockShared(&qword_18015C0D8);
+  RtlAcquireSRWLockShared(&stru_18015C0D8);
   v4 = sub_180070068(a2);
-  result = RtlReleaseSRWLockShared(&qword_18015C0D8);
+  RtlReleaseSRWLockShared(&stru_18015C0D8);
   if ( v4 )
   {
-    v6 = *(__int64 **)(v4 + 40);
-    if ( v6 )
+    v5 = *(__int64 **)(v4 + 40);
+    if ( v5 )
     {
       while ( 1 )
       {
-        v7 = *v6;
-        if ( !*v6 )
+        v6 = *v5;
+        if ( !*v5 )
           break;
-        ++v6;
+        ++v5;
         if ( (dword_180155A10 & 5) != 0 )
           sub_1800D5274(
             (unsigned int)"minkernel\\ntdll\\ldrtls.c",
@@ -44,12 +43,11 @@ char __fastcall sub_18006FF7C(int a1, __int64 a2)
             (unsigned int)"LdrpCallTlsInitializers",
             2,
             "Calling TLS callback %p for DLL \"%wZ\" at %p\n",
-            v7,
+            v6,
             a2 + 72,
             *(_QWORD *)(a2 + 48));
-        result = sub_180043C64(v7, *(_QWORD *)(a2 + 48), a1);
+        sub_180043C64(v6, *(_QWORD *)(a2 + 48), a1);
       }
     }
   }
-  return result;
 }

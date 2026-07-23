@@ -1,9 +1,9 @@
 /*
- * XREFs of MmIsIoSpaceActive @ 0x14062EAC0
+ * XREFs of MmIsIoSpaceActive @ 0x14062F010
  * Callers:
  *     <none>
  * Callees:
- *     MiIsProbeActive @ 0x14062E1F8 (MiIsProbeActive.c)
+ *     MiIsProbeActive @ 0x14062E748 (MiIsProbeActive.c)
  */
 
 LOGICAL __stdcall MmIsIoSpaceActive(PHYSICAL_ADDRESS StartAddress, SIZE_T NumberOfBytes)

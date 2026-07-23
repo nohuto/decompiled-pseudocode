@@ -1,40 +1,40 @@
 /*
- * XREFs of PnpDeviceActionWorker @ 0x1403700A0
+ * XREFs of PnpDeviceActionWorker @ 0x140381DA0
  * Callers:
- *     PnpRequestDeviceAction @ 0x140370854 (PnpRequestDeviceAction.c)
+ *     PnpRequestDeviceAction @ 0x1403703A4 (PnpRequestDeviceAction.c)
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x1402056A0 (ObfReferenceObjectWithTag.c)
- *     KeReleaseSpinLock @ 0x140229C10 (KeReleaseSpinLock.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     IoReportTargetDeviceChangeAsynchronous @ 0x1402EE5E0 (IoReportTargetDeviceChangeAsynchronous.c)
- *     KeSetEvent @ 0x1403435A0 (KeSetEvent.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
- *     ObfReferenceObject @ 0x14034B230 (ObfReferenceObject.c)
- *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
- *     PnpLogActionQueueEvent @ 0x140370598 (PnpLogActionQueueEvent.c)
- *     PnpDeleteDeviceActionRequest @ 0x14037F174 (PnpDeleteDeviceActionRequest.c)
- *     PpProcessClearProblem @ 0x140381E10 (PpProcessClearProblem.c)
- *     PnpCompleteSystemStartProcess @ 0x1403C3418 (PnpCompleteSystemStartProcess.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     PnpProcessRebalance @ 0x14051049C (PnpProcessRebalance.c)
- *     PoNotifyPnpActionQueueEvent @ 0x14057699C (PoNotifyPnpActionQueueEvent.c)
- *     PpDevNodeUnlockTree @ 0x140639BC0 (PpDevNodeUnlockTree.c)
- *     PpDevNodeLockTree @ 0x140639C54 (PpDevNodeLockTree.c)
- *     PiConfigureDevice @ 0x14072FDD8 (PiConfigureDevice.c)
- *     PiProcessSetDeviceProblem @ 0x140731584 (PiProcessSetDeviceProblem.c)
- *     PiProcessClearDeviceProblem @ 0x140731768 (PiProcessClearDeviceProblem.c)
- *     PiRestartDevice @ 0x140733C40 (PiRestartDevice.c)
- *     PipProcessDevNodeTree @ 0x140741204 (PipProcessDevNodeTree.c)
- *     PiQueryPowerRelations @ 0x14074C3A4 (PiQueryPowerRelations.c)
- *     PiPnpRtlPdoRaiseNtPlugPlayPropertyChangeEvent @ 0x14074C844 (PiPnpRtlPdoRaiseNtPlugPlayPropertyChangeEvent.c)
- *     PiProcessReenumeration @ 0x14076D850 (PiProcessReenumeration.c)
- *     PiProcessRequeryDeviceState @ 0x14078CEE8 (PiProcessRequeryDeviceState.c)
- *     PiProcessStartSystemDevices @ 0x1407D3DFC (PiProcessStartSystemDevices.c)
- *     PiProcessHaltDevice @ 0x1408A265C (PiProcessHaltDevice.c)
- *     PiProcessResourceRequirementsChanged @ 0x1408A26E8 (PiProcessResourceRequirementsChanged.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     ObfReferenceObjectWithTag @ 0x1402A9FE0 (ObfReferenceObjectWithTag.c)
+ *     KeReleaseSpinLock @ 0x1402CE500 (KeReleaseSpinLock.c)
+ *     IoReportTargetDeviceChangeAsynchronous @ 0x1402F9330 (IoReportTargetDeviceChangeAsynchronous.c)
+ *     KeSetEvent @ 0x14034E2F0 (KeSetEvent.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140355BE0 (ExReleasePushLockEx.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
+ *     ObfReferenceObject @ 0x140355F80 (ObfReferenceObject.c)
+ *     KeLeaveCriticalRegion @ 0x140356100 (KeLeaveCriticalRegion.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PnpDeleteDeviceActionRequest @ 0x14037ECC4 (PnpDeleteDeviceActionRequest.c)
+ *     PpProcessClearProblem @ 0x140381960 (PpProcessClearProblem.c)
+ *     PnpLogActionQueueEvent @ 0x140382298 (PnpLogActionQueueEvent.c)
+ *     PnpCompleteSystemStartProcess @ 0x1403C3848 (PnpCompleteSystemStartProcess.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     PnpProcessRebalance @ 0x1405106DC (PnpProcessRebalance.c)
+ *     PoNotifyPnpActionQueueEvent @ 0x140576BDC (PoNotifyPnpActionQueueEvent.c)
+ *     PpDevNodeUnlockTree @ 0x14062E9D0 (PpDevNodeUnlockTree.c)
+ *     PpDevNodeLockTree @ 0x14062EA64 (PpDevNodeLockTree.c)
+ *     PiConfigureDevice @ 0x14072FFA4 (PiConfigureDevice.c)
+ *     PiProcessSetDeviceProblem @ 0x140731744 (PiProcessSetDeviceProblem.c)
+ *     PiProcessClearDeviceProblem @ 0x140731928 (PiProcessClearDeviceProblem.c)
+ *     PiRestartDevice @ 0x140733E00 (PiRestartDevice.c)
+ *     PipProcessDevNodeTree @ 0x1407413C4 (PipProcessDevNodeTree.c)
+ *     PiQueryPowerRelations @ 0x14074C564 (PiQueryPowerRelations.c)
+ *     PiPnpRtlPdoRaiseNtPlugPlayPropertyChangeEvent @ 0x14074CA04 (PiPnpRtlPdoRaiseNtPlugPlayPropertyChangeEvent.c)
+ *     PiProcessReenumeration @ 0x14076DA10 (PiProcessReenumeration.c)
+ *     PiProcessRequeryDeviceState @ 0x14078D0A8 (PiProcessRequeryDeviceState.c)
+ *     PiProcessStartSystemDevices @ 0x1407D3F6C (PiProcessStartSystemDevices.c)
+ *     PiProcessHaltDevice @ 0x1408A27BC (PiProcessHaltDevice.c)
+ *     PiProcessResourceRequirementsChanged @ 0x1408A2848 (PiProcessResourceRequirementsChanged.c)
  */
 
 __int64 PnpDeviceActionWorker()
@@ -57,7 +57,7 @@ __int64 PnpDeviceActionWorker()
   int started; // eax
   int PowerRelations; // eax
   int v18; // r15d
-  __int64 *v19; // rbx
+  volatile signed __int32 *v19; // rbx
   __int64 v20; // rax
   int *v21; // rax
   struct _KEVENT *v22; // rcx
@@ -159,7 +159,7 @@ LABEL_6:
           if ( v13 )
           {
             ObfReferenceObjectWithTag(v11, 0x65706E50u);
-            PnpLogActionQueueEvent(v13, *(unsigned int *)(v5 + 24), 1LL);
+            PnpLogActionQueueEvent(v13, *(unsigned int *)(v5 + 24), 1LL, 0LL);
           }
           v14 = *(_DWORD *)(v5 + 24);
           if ( v14 <= 12 )
@@ -188,7 +188,7 @@ LABEL_33:
 LABEL_34:
                 if ( v13 )
                 {
-                  PnpLogActionQueueEvent(v13, *(unsigned int *)(v5 + 24), 2LL);
+                  PnpLogActionQueueEvent(v13, *(unsigned int *)(v5 + 24), 2LL, (unsigned int)v3);
                   ObfDereferenceObjectWithTag(*(PVOID *)(v5 + 16), 0x65706E50u);
                 }
                 goto LABEL_36;
@@ -312,26 +312,26 @@ LABEL_36:
       v18 = 1;
       do
       {
-        v19 = *(__int64 **)v5;
+        v19 = *(volatile signed __int32 **)v5;
         if ( *(_QWORD *)(*(_QWORD *)v5 + 8LL) != v5 )
           goto LABEL_99;
-        v20 = *v19;
-        if ( *(__int64 **)(*v19 + 8) != v19 )
+        v20 = *(_QWORD *)v19;
+        if ( *(volatile signed __int32 **)(*(_QWORD *)v19 + 8LL) != v19 )
           goto LABEL_99;
         *(_QWORD *)v5 = v20;
         *(_QWORD *)(v20 + 8) = v5;
         PoNotifyPnpActionQueueEvent(1LL, *((unsigned int *)v19 + 6));
-        v21 = (int *)v19[6];
+        v21 = (int *)*((_QWORD *)v19 + 6);
         if ( v21 )
           *v21 = v3;
-        v22 = (struct _KEVENT *)v19[5];
+        v22 = (struct _KEVENT *)*((_QWORD *)v19 + 5);
         if ( v22 )
           KeSetEvent(v22, 0, 0);
-        if ( v19 == (__int64 *)v5 )
+        if ( v19 == (volatile signed __int32 *)v5 )
         {
           v18 = 0;
           if ( v33 )
-            HalPutDmaAdapter((PADAPTER_OBJECT)v19[2]);
+            HalPutDmaAdapter(*((PADAPTER_OBJECT *)v19 + 2));
         }
         PnpDeleteDeviceActionRequest(v19);
       }

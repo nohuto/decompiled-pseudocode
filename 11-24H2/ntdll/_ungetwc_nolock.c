@@ -1,10 +1,10 @@
 /*
- * XREFs of _ungetwc_nolock @ 0x1801314B8
+ * XREFs of _ungetwc_nolock @ 0x18012F6E8
  * Callers:
- *     ReadString_1 @ 0x1801305DC (ReadString_1.c)
- *     _winput_s @ 0x180130AA4 (_winput_s.c)
+ *     ReadString_1 @ 0x18012E80C (ReadString_1.c)
+ *     _winput_s @ 0x18012ECD4 (_winput_s.c)
  * Callees:
- *     _invalid_parameter @ 0x180120778 (_invalid_parameter.c)
+ *     _invalid_parameter @ 0x18011E9A8 (_invalid_parameter.c)
  */
 
 wint_t __cdecl ungetwc_nolock(wint_t Character, FILE *Stream)

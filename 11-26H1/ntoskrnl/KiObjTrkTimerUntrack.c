@@ -1,9 +1,9 @@
 /*
- * XREFs of KiObjTrkTimerUntrack @ 0x1403AB700
+ * XREFs of KiObjTrkTimerUntrack @ 0x1403B5410
  * Callers:
- *     KiProcessExpiredTimerList @ 0x1403ABBEC (KiProcessExpiredTimerList.c)
+ *     KiProcessExpiredTimerList @ 0x1403B58FC (KiProcessExpiredTimerList.c)
  * Callees:
- *     DifObjTrkRemoveItem @ 0x1403ADC70 (DifObjTrkRemoveItem.c)
+ *     DifObjTrkRemoveItem @ 0x1403B7980 (DifObjTrkRemoveItem.c)
  */
 
 char __fastcall KiObjTrkTimerUntrack(__int64 a1)

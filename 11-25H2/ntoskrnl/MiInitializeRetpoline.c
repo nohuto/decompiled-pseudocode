@@ -39,9 +39,9 @@ __int64 __fastcall MiInitializeRetpoline(_DWORD *a1)
       *a1 = 165;
       return result;
     }
-    if ( (unsigned int)RtlIsImageFullyRetpolined(PsHalImageBase) )
+    if ( (unsigned int)RtlIsImageFullyRetpolined((__int64)PsHalImageBase) )
     {
-      result = MiMarkRetpolineBits(PsHalImageBase, PsHalImageEnd - PsHalImageBase, 1);
+      result = MiMarkRetpolineBits((__int64)PsHalImageBase, PsHalImageEnd - (_QWORD)PsHalImageBase, 1);
       if ( (int)result < 0 )
       {
         *a1 = 166;

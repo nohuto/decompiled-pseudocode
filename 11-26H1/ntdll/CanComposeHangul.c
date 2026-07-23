@@ -1,9 +1,9 @@
 /*
- * XREFs of CanComposeHangul @ 0x1800B0994
+ * XREFs of CanComposeHangul @ 0x1800AFAC4
  * Callers:
- *     Normalization__IsNormalized @ 0x1800ADD10 (Normalization__IsNormalized.c)
+ *     Normalization__IsNormalized @ 0x1800ACE40 (Normalization__IsNormalized.c)
  * Callees:
- *     IsHangulLV @ 0x1800B087C (IsHangulLV.c)
+ *     IsHangulLV @ 0x1800AF9AC (IsHangulLV.c)
  */
 
 char __fastcall CanComposeHangul(int a1, int a2)

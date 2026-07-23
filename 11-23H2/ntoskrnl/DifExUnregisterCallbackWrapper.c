@@ -1,12 +1,12 @@
 /*
- * XREFs of DifExUnregisterCallbackWrapper @ 0x1405DA030
+ * XREFs of DifExUnregisterCallbackWrapper @ 0x1405DA5A0
  * Callers:
  *     <none>
  * Callees:
- *     ExUnregisterCallback @ 0x14036E6A0 (ExUnregisterCallback.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     DifGetAPIThunkContextById @ 0x1404664BE (DifGetAPIThunkContextById.c)
- *     DifGetReturnAddressForWrappers @ 0x1405F88C4 (DifGetReturnAddressForWrappers.c)
+ *     ExUnregisterCallback @ 0x14036E840 (ExUnregisterCallback.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x1404668BE (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F8E34 (DifGetReturnAddressForWrappers.c)
  */
 
 void __fastcall DifExUnregisterCallbackWrapper(PVOID CallbackRegistration)

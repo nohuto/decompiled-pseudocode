@@ -18,7 +18,7 @@ __int64 MiCreateTopLevelUltraMappings()
   __int64 v3; // rsi
   __int16 v4; // bx
   __int64 v5; // rbp
-  union _SLIST_HEADER *v6; // rbx
+  _SLIST_HEADER *v6; // rbx
 
   v0 = qword_1403CD0D0;
   v1 = 0;
@@ -44,7 +44,7 @@ __int64 MiCreateTopLevelUltraMappings()
     do
     {
       v5 = 8LL;
-      v6 = (union _SLIST_HEADER *)(v3 + ((unsigned __int64)v1 << 9));
+      v6 = (_SLIST_HEADER *)(v3 + ((unsigned __int64)v1 << 9));
       do
       {
         InitializeSListHead(v6);

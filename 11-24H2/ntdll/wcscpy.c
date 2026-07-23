@@ -1,10 +1,10 @@
 /*
- * XREFs of wcscpy @ 0x180127660
+ * XREFs of wcscpy @ 0x180125890
  * Callers:
- *     wcscat @ 0x180127620 (wcscat.c)
+ *     wcscat @ 0x180125850 (wcscat.c)
  * Callees:
- *     wcslen @ 0x1801277D0 (wcslen.c)
- *     memmove @ 0x180167400 (memmove.c)
+ *     wcslen @ 0x180125A00 (wcslen.c)
+ *     memmove @ 0x1801657C0 (memmove.c)
  */
 
 wchar_t *__cdecl wcscpy(wchar_t *Destination, const wchar_t *Source)

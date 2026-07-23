@@ -1,7 +1,7 @@
 /*
- * XREFs of KiShouldSoftParkElectionBePerformed @ 0x14022A630
+ * XREFs of KiShouldSoftParkElectionBePerformed @ 0x14022BFC0
  * Callers:
- *     KiSoftParkElectionDpcRoutine @ 0x14022A460 (KiSoftParkElectionDpcRoutine.c)
+ *     KiSoftParkElectionDpcRoutine @ 0x14022BDF0 (KiSoftParkElectionDpcRoutine.c)
  * Callees:
  *     <none>
  */
@@ -15,8 +15,7 @@ bool __fastcall KiShouldSoftParkElectionBePerformed(__int64 a1)
   {
     return 0;
   }
-  v1 = *(_QWORD *)(KiProcessorBlock[*((unsigned int *)&KiSupervisorXStateFeaturesLock.WaitBlock[2].Thread->Header.Lock
-                                    + 64 * (unsigned __int64)*(unsigned __int16 *)(a1 + 710)
+  v1 = *(_QWORD *)(KiProcessorBlock[*((unsigned int *)&KiSupervisorXStateFeaturesLock.SchedulerApc.ApcListEntry.Flink[16 * (unsigned __int64)*(unsigned __int16 *)(a1 + 710)].Flink
                                     + *(unsigned __int8 *)(a1 + 705))]
                  + 192);
   return (~*(_QWORD *)(v1 + 80) & *(_QWORD *)(v1 + 96)) != 0LL;

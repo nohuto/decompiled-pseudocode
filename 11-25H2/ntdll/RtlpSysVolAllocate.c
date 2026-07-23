@@ -8,7 +8,7 @@
  *     <none>
  */
 
-__int64 __fastcall RtlpSysVolAllocate(unsigned int a1)
+PVOID __fastcall RtlpSysVolAllocate(unsigned int a1)
 {
-  return RtlAllocateHeap((char *)NtCurrentPeb()->ProcessHeap, 0, a1);
+  return RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, a1);
 }

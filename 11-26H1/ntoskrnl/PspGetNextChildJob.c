@@ -1,15 +1,15 @@
 /*
- * XREFs of PspGetNextChildJob @ 0x14095A784
+ * XREFs of PspGetNextChildJob @ 0x140A00044
  * Callers:
- *     PspEnumJobsAndProcessesInJobHierarchy @ 0x14095A350 (PspEnumJobsAndProcessesInJobHierarchy.c)
+ *     PspEnumJobsAndProcessesInJobHierarchy @ 0x1409FFC10 (PspEnumJobsAndProcessesInJobHierarchy.c)
  * Callees:
- *     ObReferenceObjectSafeWithTag @ 0x140258450 (ObReferenceObjectSafeWithTag.c)
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     ExAcquireFastResourceShared @ 0x140276AE0 (ExAcquireFastResourceShared.c)
- *     KiCheckForKernelApcDelivery @ 0x14027DB80 (KiCheckForKernelApcDelivery.c)
- *     ExInitializeFastOwnerEntry @ 0x14043D670 (ExInitializeFastOwnerEntry.c)
- *     ExReleaseFastResourceShared @ 0x140485E00 (ExReleaseFastResourceShared.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     ObReferenceObjectSafeWithTag @ 0x140259C30 (ObReferenceObjectSafeWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     ExAcquireFastResourceShared @ 0x140276050 (ExAcquireFastResourceShared.c)
+ *     KiCheckForKernelApcDelivery @ 0x14027D0F0 (KiCheckForKernelApcDelivery.c)
+ *     ExInitializeFastOwnerEntry @ 0x14042FF20 (ExInitializeFastOwnerEntry.c)
+ *     ExReleaseFastResourceShared @ 0x14047F770 (ExReleaseFastResourceShared.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 _QWORD *__fastcall PspGetNextChildJob(__int64 a1, _QWORD *a2)
@@ -22,7 +22,7 @@ _QWORD *__fastcall PspGetNextChildJob(__int64 a1, _QWORD *a2)
   _QWORD **v9; // r14
   _QWORD *v10; // rdi
   __int64 v11; // rdx
-  $7A85BAF4F1FA08634C1C4A3E45B775B3 *v13; // rcx
+  $241382875694CED3D471BC5892DE3337 *v13; // rcx
   ULONG_PTR v15[10]; // [rsp+20h] [rbp-78h] BYREF
 
   memset_0(v15, 0, 0x48uLL);
@@ -53,7 +53,7 @@ _QWORD *__fastcall PspGetNextChildJob(__int64 a1, _QWORD *a2)
     if ( CurrentThread->SpecialApcDisable++ == -1 )
     {
       v13 = &CurrentThread->152;
-      if ( ($7A85BAF4F1FA08634C1C4A3E45B775B3 *)v13->ApcState.ApcListHead[0].Flink != v13 )
+      if ( ($241382875694CED3D471BC5892DE3337 *)v13->ApcState.ApcListHead[0].Flink != v13 )
         KiCheckForKernelApcDelivery((__int64)v13, v11);
     }
   }

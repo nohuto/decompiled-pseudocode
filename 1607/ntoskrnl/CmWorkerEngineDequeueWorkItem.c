@@ -1,10 +1,10 @@
 /*
- * XREFs of CmWorkerEngineDequeueWorkItem @ 0x1405FCC88
+ * XREFs of CmWorkerEngineDequeueWorkItem @ 0x1405FCD3C
  * Callers:
- *     CmpUnfreezeHive @ 0x1401B47F4 (CmpUnfreezeHive.c)
+ *     CmpUnfreezeHive @ 0x1401B46D8 (CmpUnfreezeHive.c)
  * Callees:
- *     KeReleaseGuardedMutex @ 0x14000CA40 (KeReleaseGuardedMutex.c)
- *     ExAcquireFastMutex @ 0x14002D0A0 (ExAcquireFastMutex.c)
+ *     KeReleaseGuardedMutex @ 0x14000C5C0 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x14002CC20 (ExAcquireFastMutex.c)
  */
 
 char __fastcall CmWorkerEngineDequeueWorkItem(_QWORD *a1)

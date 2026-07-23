@@ -1,12 +1,12 @@
 /*
- * XREFs of MiInitializeWowPeb @ 0x1409C2B2C
+ * XREFs of MiInitializeWowPeb @ 0x1408DCF04
  * Callers:
- *     MmCreatePeb @ 0x140AE79AC (MmCreatePeb.c)
+ *     MmCreatePeb @ 0x1408DDBA4 (MmCreatePeb.c)
  * Callees:
- *     MiSectionControlArea @ 0x1402D4800 (MiSectionControlArea.c)
- *     RtlImageDirectoryEntryToData @ 0x14042CAF0 (RtlImageDirectoryEntryToData.c)
- *     ExRaiseDatatypeMisalignment @ 0x14089B1F0 (ExRaiseDatatypeMisalignment.c)
- *     MiCreatePebOrTeb @ 0x1409C3014 (MiCreatePebOrTeb.c)
+ *     RtlImageDirectoryEntryToData @ 0x1402EEB70 (RtlImageDirectoryEntryToData.c)
+ *     MiSectionControlArea @ 0x140355A80 (MiSectionControlArea.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408A3890 (ExRaiseDatatypeMisalignment.c)
+ *     MiCreatePebOrTeb @ 0x1408DE464 (MiCreatePebOrTeb.c)
  */
 
 __int64 __fastcall MiInitializeWowPeb(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
@@ -28,15 +28,15 @@ __int64 __fastcall MiInitializeWowPeb(__int64 a1, __int64 a2, __int64 a3, __int6
   __int64 v20; // rcx
   unsigned __int64 v21; // rax
   __int64 v22; // r8
-  __int64 v23; // rax
-  __int64 v24; // rcx
+  _DWORD *v23; // rax
+  _DWORD *v24; // rcx
   __int16 v25; // ax
   int v26; // ecx
   __int64 v27; // rax
   unsigned int v28; // [rsp+20h] [rbp-48h]
-  __int64 v29; // [rsp+28h] [rbp-40h]
+  _DWORD *v29; // [rsp+28h] [rbp-40h]
   _QWORD v30[7]; // [rsp+30h] [rbp-38h] BYREF
-  int v31; // [rsp+80h] [rbp+18h] BYREF
+  ULONG Size; // [rsp+80h] [rbp+18h] BYREF
   __int64 v32; // [rsp+88h] [rbp+20h]
 
   v32 = a4;
@@ -68,14 +68,14 @@ LABEL_3:
   v21 = MiSectionControlArea(v20);
   if ( (*(_DWORD *)(v21 + 56) & 0x20) == 0 )
     return 3221225477LL;
-  v23 = RtlImageDirectoryEntryToData(*(_QWORD *)(a3 + 688), *(_QWORD *)(v21 + 144) != v22, 0xAu, &v31);
+  v23 = RtlImageDirectoryEntryToData(*(PVOID *)(a3 + 688), *(_QWORD *)(v21 + 144) != v22, 0xAu, &Size);
   v24 = v23;
   v29 = v23;
   if ( v23 )
   {
-    if ( (v23 & 3) != 0 )
+    if ( ((unsigned __int8)v23 & 3) != 0 )
       ExRaiseDatatypeMisalignment();
-    v28 = *(_DWORD *)(v23 + 48);
+    v28 = v23[12];
     a2 = v32;
     v27 = v28;
     if ( (v28 & KeActiveProcessors.Bitmap[*(unsigned __int16 *)(v32 + 8)]) != v28 )
@@ -90,7 +90,7 @@ LABEL_3:
   {
     if ( v24 )
     {
-      v25 = *(_WORD *)(v24 + 52);
+      v25 = *((_WORD *)v24 + 26);
       if ( v25 )
         *(_WORD *)(a1 + 26) = v25;
     }
@@ -146,10 +146,10 @@ LABEL_10:
       *(_DWORD *)(v11 + 100) = KeNumberProcessors_0;
       *(_DWORD *)(v11 + 104) = NtGlobalFlag;
       *(_DWORD *)(v11 + 1144) = NtGlobalFlag2;
-      *(_QWORD *)(v11 + 112) = qword_140E2DA50;
-      *(_DWORD *)(v11 + 520) = dword_140FC4218;
-      *(_DWORD *)(v11 + 128) = qword_140FC4228;
-      *(_DWORD *)(v11 + 132) = qword_140FC4220;
+      *(_QWORD *)(v11 + 112) = qword_140E2DB90;
+      *(_DWORD *)(v11 + 520) = dword_140FC5218;
+      *(_DWORD *)(v11 + 128) = qword_140FC5228;
+      *(_DWORD *)(v11 + 132) = qword_140FC5220;
       *(_DWORD *)(v11 + 468) = *(_DWORD *)(a1 + 60);
       *(_DWORD *)(v11 + 180) = *(_DWORD *)a1;
       *(_DWORD *)(v11 + 184) = *(_DWORD *)(a1 + 4);
@@ -176,10 +176,10 @@ LABEL_10:
       *(_DWORD *)(v11 + 184) = KeNumberProcessors_0;
       *(_DWORD *)(v11 + 188) = NtGlobalFlag;
       *(_DWORD *)(v11 + 1988) = NtGlobalFlag2;
-      *(_QWORD *)(v11 + 192) = qword_140E2DA50;
-      *(_QWORD *)(v11 + 792) = (unsigned int)dword_140FC4218;
-      *(_QWORD *)(v11 + 216) = qword_140FC4228;
-      *(_QWORD *)(v11 + 224) = qword_140FC4220;
+      *(_QWORD *)(v11 + 192) = qword_140E2DB90;
+      *(_QWORD *)(v11 + 792) = (unsigned int)dword_140FC5218;
+      *(_QWORD *)(v11 + 216) = qword_140FC5228;
+      *(_QWORD *)(v11 + 224) = qword_140FC5220;
       *(_DWORD *)(v11 + 704) = *(_DWORD *)(a1 + 60);
       *(_DWORD *)(v11 + 296) = *(_DWORD *)a1;
       *(_DWORD *)(v11 + 300) = *(_DWORD *)(a1 + 4);

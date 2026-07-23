@@ -1,31 +1,26 @@
 /*
- * XREFs of TpCaptureCaller @ 0x1800E0340
+ * XREFs of TpCaptureCaller @ 0x1800DDBE0
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall TpCaptureCaller(int a1)
+void __cdecl TpCaptureCaller(TP_TRACE_TYPE Type)
 {
-  __int64 result; // rax
-  __int64 v2; // r8
-  __int64 v3; // rdx
+  _DWORD *ThreadPoolData; // r8
+  __int64 v2; // rdx
   _UNKNOWN *retaddr; // [rsp+0h] [rbp+0h]
 
-  result = (__int64)NtCurrentTeb();
-  v2 = *(_QWORD *)(result + 6008);
-  if ( v2 )
+  ThreadPoolData = NtCurrentTeb()->ThreadPoolData;
+  if ( ThreadPoolData )
   {
-    result = (unsigned int)(a1 - 1);
-    if ( (unsigned int)result <= 1 )
+    if ( (unsigned int)(Type - 1) <= 1 )
     {
-      v3 = ((unsigned __int8)*(_DWORD *)(v2 + 128) - 1) & 1;
-      *(_DWORD *)(v2 + 128) = v3;
-      *(_DWORD *)(v2 + 16 * v3 + 104) = a1;
-      result = 2 * (v3 + 6);
-      *(_QWORD *)(v2 + 16 * (v3 + 6)) = retaddr;
+      v2 = ((unsigned __int8)ThreadPoolData[32] - 1) & 1;
+      ThreadPoolData[32] = v2;
+      ThreadPoolData[4 * v2 + 26] = Type;
+      *(_QWORD *)&ThreadPoolData[4 * v2 + 24] = retaddr;
     }
   }
-  return result;
 }

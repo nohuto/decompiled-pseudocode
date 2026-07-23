@@ -1,15 +1,26 @@
 /*
  * XREFs of ZwAlpcConnectPort @ 0x14041C680
  * Callers:
- *     DifZwAlpcConnectPortWrapper @ 0x14061CEB0 (DifZwAlpcConnectPortWrapper.c)
- *     DbgkRegisterErrorPort @ 0x140929940 (DbgkRegisterErrorPort.c)
+ *     sub_14061CEB0 @ 0x14061CEB0 (sub_14061CEB0.c)
+ *     sub_140929940 @ 0x140929940 (sub_140929940.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwAlpcConnectPort(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwAlpcConnectPort(
+        PHANDLE PortHandle,
+        PUNICODE_STRING PortName,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        PALPC_PORT_ATTRIBUTES PortAttributes,
+        ULONG Flags,
+        PSID RequiredServerSid,
+        PPORT_MESSAGE ConnectionMessage,
+        PSIZE_T BufferLength,
+        PALPC_MESSAGE_ATTRIBUTES OutMessageAttributes,
+        PALPC_MESSAGE_ATTRIBUTES InMessageAttributes,
+        PLARGE_INTEGER Timeout)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return sub_140433F80(PortHandle, PortName);
 }

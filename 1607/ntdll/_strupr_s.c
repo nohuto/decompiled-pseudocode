@@ -1,10 +1,10 @@
 /*
- * XREFs of _strupr_s @ 0x180097F30
+ * XREFs of _strupr_s @ 0x180097F20
  * Callers:
  *     <none>
  * Callees:
- *     _invalid_parameter @ 0x180096B68 (_invalid_parameter.c)
- *     strnlen @ 0x18009B9D0 (strnlen.c)
+ *     _invalid_parameter @ 0x180096B58 (_invalid_parameter.c)
+ *     strnlen @ 0x18009B9C0 (strnlen.c)
  */
 
 errno_t __cdecl strupr_s(char *String, size_t Size)

@@ -1,23 +1,23 @@
 /*
- * XREFs of VrpDestroyNamespaceNode @ 0x140977AF4
+ * XREFs of VrpDestroyNamespaceNode @ 0x140939B04
  * Callers:
- *     VrpDestroyNamespaceNodeList @ 0x140977C58 (VrpDestroyNamespaceNodeList.c)
- *     VrpHandleIoctlCreateNamespaceNode @ 0x14097854C (VrpHandleIoctlCreateNamespaceNode.c)
- *     VrpHandleIoctlCreateMultipleNamespaceNodes @ 0x140979150 (VrpHandleIoctlCreateMultipleNamespaceNodes.c)
- *     VrpHandleIoctlUnloadDynamicallyLoadedHives @ 0x140AFF5E4 (VrpHandleIoctlUnloadDynamicallyLoadedHives.c)
- *     VrpPreLoadKey @ 0x140B1B118 (VrpPreLoadKey.c)
- *     VrpPostUnloadKey @ 0x140B60EDC (VrpPostUnloadKey.c)
+ *     VrpDestroyNamespaceNodeList @ 0x140939C68 (VrpDestroyNamespaceNodeList.c)
+ *     VrpHandleIoctlCreateNamespaceNode @ 0x14093A55C (VrpHandleIoctlCreateNamespaceNode.c)
+ *     VrpHandleIoctlCreateMultipleNamespaceNodes @ 0x14093B160 (VrpHandleIoctlCreateMultipleNamespaceNodes.c)
+ *     VrpHandleIoctlUnloadDynamicallyLoadedHives @ 0x140B01274 (VrpHandleIoctlUnloadDynamicallyLoadedHives.c)
+ *     VrpPreLoadKey @ 0x140B1D3C8 (VrpPreLoadKey.c)
+ *     VrpPostUnloadKey @ 0x140B63F7C (VrpPostUnloadKey.c)
  * Callees:
- *     ObDereferenceObjectDeferDeleteWithTag @ 0x14027C870 (ObDereferenceObjectDeferDeleteWithTag.c)
- *     ULongLongMult @ 0x14046FB90 (ULongLongMult.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwOpenKey @ 0x140723630 (ZwOpenKey.c)
- *     ZwDeleteKey @ 0x140724F70 (ZwDeleteKey.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     VrpFindExactNamespaceNode @ 0x14097778C (VrpFindExactNamespaceNode.c)
- *     ExAllocatePoolWithTag @ 0x140C10340 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ObDereferenceObjectDeferDeleteWithTag @ 0x14027BDE0 (ObDereferenceObjectDeferDeleteWithTag.c)
+ *     ULongLongMult @ 0x140469310 (ULongLongMult.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140728200 (ZwOpenKey.c)
+ *     ZwDeleteKey @ 0x140729B40 (ZwDeleteKey.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     VrpFindExactNamespaceNode @ 0x14093979C (VrpFindExactNamespaceNode.c)
+ *     ExAllocatePoolWithTag @ 0x140C16340 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall VrpDestroyNamespaceNode(size_t *a1, __int64 a2)

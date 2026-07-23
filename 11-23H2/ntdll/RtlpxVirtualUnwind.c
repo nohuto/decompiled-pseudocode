@@ -5,14 +5,14 @@
  *     RtlDispatchException @ 0x18001E680 (RtlDispatchException.c)
  *     RtlUnwindEx @ 0x18001FF80 (RtlUnwindEx.c)
  *     RtlVirtualUnwind @ 0x180020C40 (RtlVirtualUnwind.c)
- *     RtlVirtualUnwind2 @ 0x180111040 (RtlVirtualUnwind2.c)
+ *     RtlVirtualUnwind2 @ 0x180111010 (RtlVirtualUnwind2.c)
  * Callees:
  *     RtlpUnwindPrologue @ 0x1800214D0 (RtlpUnwindPrologue.c)
  *     RtlpVirtualPopShadowStack @ 0x18007CF7C (RtlpVirtualPopShadowStack.c)
  *     RtlpSameFunction @ 0x18007E0DC (RtlpSameFunction.c)
  *     RtlpUnwindOpSlots @ 0x1800896AC (RtlpUnwindOpSlots.c)
- *     RtlRaiseStatus @ 0x1801106D0 (RtlRaiseStatus.c)
- *     RtlpUnwindEpilogue @ 0x180111134 (RtlpUnwindEpilogue.c)
+ *     RtlRaiseStatus @ 0x1801106A0 (RtlRaiseStatus.c)
+ *     RtlpUnwindEpilogue @ 0x180111104 (RtlpUnwindEpilogue.c)
  */
 
 __int64 __fastcall RtlpxVirtualUnwind(
@@ -147,7 +147,7 @@ __int64 __fastcall RtlpxVirtualUnwind(
           if ( (v63 & 1) != 0 )
             v63 = (unsigned int)(v63 + 1);
           if ( (unsigned int)++v20 > 0x20 )
-            RtlRaiseStatus(3221225727LL);
+            RtlRaiseStatus(-1073741569);
           v19 = (_BYTE *)(v13 + *(unsigned int *)&v19[2 * v63 + 12]);
         }
         while ( !v19[2] );

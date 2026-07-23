@@ -141,14 +141,14 @@ BOOLEAN __stdcall RtlDispatchException(PEXCEPTION_RECORD ExceptionRecord, PCONTE
   PVOID HandlerData; // [rsp+88h] [rbp+48h] BYREF
   PEXCEPTION_RECORD v115; // [rsp+90h] [rbp+50h]
   int v116; // [rsp+98h] [rbp+58h] BYREF
-  unsigned int v117; // [rsp+9Ch] [rbp+5Ch] BYREF
+  ULONG ContextLength; // [rsp+9Ch] [rbp+5Ch] BYREF
   unsigned __int64 EstablisherFrame; // [rsp+A0h] [rbp+60h] BYREF
   DWORD64 v119; // [rsp+A8h] [rbp+68h]
   PRUNTIME_FUNCTION v120; // [rsp+B0h] [rbp+70h]
   PEXCEPTION_ROUTINE v121; // [rsp+B8h] [rbp+78h] BYREF
   DWORD64 ControlPc[10]; // [rsp+C0h] [rbp+80h] BYREF
   PCONTEXT v123; // [rsp+110h] [rbp+D0h]
-  __int64 v124; // [rsp+118h] [rbp+D8h] BYREF
+  PCONTEXT_EX ContextEx; // [rsp+118h] [rbp+D8h] BYREF
   struct _UNWIND_HISTORY_TABLE HistoryTable; // [rsp+120h] [rbp+E0h] BYREF
 
   v123 = Context;
@@ -172,14 +172,14 @@ BOOLEAN __stdcall RtlDispatchException(PEXCEPTION_RECORD ExceptionRecord, PCONTE
     ExceptionRecord->ExceptionFlags = v4 | 8;
     return 0;
   }
-  RtlGetExtendedContextLength2(1048587LL, &v117);
-  v7 = v117 + 15LL;
-  if ( v7 <= v117 )
+  RtlGetExtendedContextLength2(0x10000Bu, &ContextLength, 0LL);
+  v7 = ContextLength + 15LL;
+  if ( v7 <= ContextLength )
     v7 = 0xFFFFFFFFFFFFFF0LL;
   v8 = v7 & 0xFFFFFFFFFFFFFFF0uLL;
   v9 = alloca(v8);
   v10 = alloca(v8);
-  RtlInitializeExtendedContext2((__int64)&ContextRecord, 0x10000Bu, &v124, 0LL);
+  RtlInitializeExtendedContext2((PCONTEXT)&ContextRecord, 0x10000Bu, &ContextEx, 0LL);
   RtlpCopyContext(&ContextRecord, Context);
   Rip = Context->Rip;
   p_HistoryTable = &HistoryTable;

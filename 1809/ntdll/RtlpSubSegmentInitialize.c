@@ -4,10 +4,10 @@
  *     RtlpLowFragHeapAllocFromContext @ 0x18000FEB0 (RtlpLowFragHeapAllocFromContext.c)
  * Callees:
  *     RtlpHeapGenerateRandomValue32 @ 0x18000E9A4 (RtlpHeapGenerateRandomValue32.c)
- *     RtlRunOnceComplete @ 0x180077F50 (RtlRunOnceComplete.c)
- *     RtlpRunOnceWaitForInit @ 0x180086DEC (RtlpRunOnceWaitForInit.c)
- *     RtlRaiseStatus @ 0x18009F6A0 (RtlRaiseStatus.c)
- *     NtQueryInformationProcess @ 0x1800A0600 (NtQueryInformationProcess.c)
+ *     RtlRunOnceComplete @ 0x180077F60 (RtlRunOnceComplete.c)
+ *     RtlpRunOnceWaitForInit @ 0x180086DFC (RtlpRunOnceWaitForInit.c)
+ *     RtlRaiseStatus @ 0x18009F6C0 (RtlRaiseStatus.c)
+ *     NtQueryInformationProcess @ 0x1800A0620 (NtQueryInformationProcess.c)
  *     memset @ 0x1800A7100 (memset.c)
  *     RtlReportCriticalFailure @ 0x1800FB3FC (RtlReportCriticalFailure.c)
  *     RtlpInitRandomExVector @ 0x1800FE940 (RtlpInitRandomExVector.c)
@@ -43,13 +43,13 @@ struct _PEB *__fastcall RtlpSubSegmentInitialize(
   unsigned __int16 HeapData_high; // si
   __int16 v28; // ax
   __int16 v29; // bx
-  signed __int64 v30; // rax
-  int v31; // edi
+  signed __int64 Value; // rax
+  NTSTATUS v31; // edi
   __int32 v32; // r8d
   unsigned int v34; // r8d
   unsigned __int64 v35; // rdi
   signed __int64 v36; // rax
-  int v37; // esi
+  NTSTATUS v37; // esi
   __int32 v38; // r9d
   unsigned int v40; // r9d
   struct _PEB *result; // rax
@@ -121,7 +121,7 @@ struct _PEB *__fastcall RtlpSubSegmentInitialize(
   *(_WORD *)(a2 + 38) = 0;
   *(_QWORD *)(a2 + 8) = a3;
   if ( (((_BYTE)a2 + 16) & 0xF) != 0 )
-    RtlRaiseStatus(2147483650LL);
+    RtlRaiseStatus(-2147483646);
   *(_QWORD *)(a2 + 16) = 0LL;
   *(_QWORD *)(a2 + 24) = 0LL;
   LOWORD(v64) = v60;
@@ -187,13 +187,13 @@ LABEL_11:
   {
     v29 = HIWORD(NtCurrentTeb()->HeapData);
     if ( !dword_1801660B4
-      && NtQueryInformationProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, (PROCESSINFOCLASS)36, &dword_1801660B4, 4u, 0LL) < 0 )
+      && NtQueryInformationProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, ProcessCookie, &dword_1801660B4, 4u, 0LL) < 0 )
     {
       dword_1801660B4 = (MEMORY[0x7FFE0320] * (unsigned __int64)MEMORY[0x7FFE0004]) >> 24;
     }
-    v30 = RtlpRandomExInit;
+    Value = RtlpRandomExInit.Value;
     v31 = 0;
-    if ( (RtlpRandomExInit & 3) == 2 )
+    if ( ((__int64)RtlpRandomExInit.Ptr & 3) == 2 )
     {
 LABEL_19:
       if ( v31 >= 0 )
@@ -206,8 +206,8 @@ LABEL_19:
       {
         while ( 1 )
         {
-          v52 = v30 & 3;
-          if ( (v30 & 3) == 0 )
+          v52 = Value & 3;
+          if ( (Value & 3) == 0 )
             break;
           if ( v52 != 1 )
           {
@@ -215,22 +215,22 @@ LABEL_19:
               v31 = -1073741584;
             goto LABEL_19;
           }
-          v30 = RtlpRunOnceWaitForInit(v30, &RtlpRandomExInit);
+          Value = RtlpRunOnceWaitForInit(Value, &RtlpRandomExInit);
         }
-        v53 = v30;
-        v30 = _InterlockedCompareExchange64(&RtlpRandomExInit, 1LL, v30);
+        v53 = Value;
+        Value = _InterlockedCompareExchange64((volatile signed __int64 *)&RtlpRandomExInit, 1LL, Value);
       }
-      while ( v30 != v53 );
-      if ( (unsigned int)RtlpInitRandomExVector(&RtlpRandomExInit, 0LL, 0LL) )
+      while ( Value != v53 );
+      if ( RtlpInitRandomExVector(&RtlpRandomExInit, 0LL, 0LL) )
       {
-        v31 = RtlRunOnceComplete(&RtlpRandomExInit, 0LL, 0LL);
+        v31 = RtlRunOnceComplete(&RtlpRandomExInit, 0, 0LL);
         if ( v31 >= 0 )
           goto LABEL_20;
         v57 = 1;
       }
       else
       {
-        v31 = RtlRunOnceComplete(&RtlpRandomExInit, 4LL, 0LL);
+        v31 = RtlRunOnceComplete(&RtlpRandomExInit, 4u, 0LL);
         if ( v31 >= 0 )
           goto LABEL_20;
         v57 = 2;
@@ -262,13 +262,13 @@ LABEL_21:
     _InterlockedExchangeAdd(&RtlpRandomExAuxVarY, v34);
     v35 = (unsigned __int64)v34 << 32;
     if ( !dword_1801660B4
-      && NtQueryInformationProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, (PROCESSINFOCLASS)36, &dword_1801660B4, 4u, 0LL) < 0 )
+      && NtQueryInformationProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, ProcessCookie, &dword_1801660B4, 4u, 0LL) < 0 )
     {
       dword_1801660B4 = (MEMORY[0x7FFE0320] * (unsigned __int64)MEMORY[0x7FFE0004]) >> 24;
     }
-    v36 = RtlpRandomExInit;
+    v36 = RtlpRandomExInit.Value;
     v37 = 0;
-    if ( (RtlpRandomExInit & 3) == 2 )
+    if ( ((__int64)RtlpRandomExInit.Ptr & 3) == 2 )
     {
 LABEL_24:
       if ( v37 >= 0 )
@@ -319,19 +319,19 @@ LABEL_26:
           v36 = RtlpRunOnceWaitForInit(v36, &RtlpRandomExInit);
         }
         v55 = v36;
-        v36 = _InterlockedCompareExchange64(&RtlpRandomExInit, 1LL, v36);
+        v36 = _InterlockedCompareExchange64((volatile signed __int64 *)&RtlpRandomExInit, 1LL, v36);
       }
       while ( v36 != v55 );
-      if ( (unsigned int)RtlpInitRandomExVector(&RtlpRandomExInit, 0LL, 0LL) )
+      if ( RtlpInitRandomExVector(&RtlpRandomExInit, 0LL, 0LL) )
       {
-        v37 = RtlRunOnceComplete(&RtlpRandomExInit, 0LL, 0LL);
+        v37 = RtlRunOnceComplete(&RtlpRandomExInit, 0, 0LL);
         if ( v37 >= 0 )
           goto LABEL_25;
         v58[0] = 1;
       }
       else
       {
-        v37 = RtlRunOnceComplete(&RtlpRandomExInit, 4LL, 0LL);
+        v37 = RtlRunOnceComplete(&RtlpRandomExInit, 4u, 0LL);
         if ( v37 >= 0 )
           goto LABEL_25;
         v58[0] = 2;

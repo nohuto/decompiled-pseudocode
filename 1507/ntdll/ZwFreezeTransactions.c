@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 ZwFreezeTransactions()
+NTSTATUS __cdecl ZwFreezeTransactions(PLARGE_INTEGER FreezeTimeout, PLARGE_INTEGER ThawTimeout)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 224LL;
+  result = 224;
   __asm { syscall; Low latency system call }
   return result;
 }

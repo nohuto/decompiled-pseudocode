@@ -1,13 +1,13 @@
 /*
- * XREFs of CcPerfLogLoggedStreamsStats @ 0x14039B5F4
+ * XREFs of CcPerfLogLoggedStreamsStats @ 0x14039B7D4
  * Callers:
- *     CcLazyWriteScanVolume @ 0x14029A600 (CcLazyWriteScanVolume.c)
- *     CcLazyWriteScan @ 0x140535F6C (CcLazyWriteScan.c)
+ *     CcLazyWriteScanVolume @ 0x14029A890 (CcLazyWriteScanVolume.c)
+ *     CcLazyWriteScan @ 0x1405364BC (CcLazyWriteScan.c)
  * Callees:
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
- *     CcPerfLogVolumeLogHandleInfo @ 0x14039B6C0 (CcPerfLogVolumeLogHandleInfo.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402610F0 (KeAcquireInStackQueuedSpinLock.c)
+ *     CcPerfLogVolumeLogHandleInfo @ 0x14039B8A0 (CcPerfLogVolumeLogHandleInfo.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall CcPerfLogLoggedStreamsStats(int a1, int a2)
@@ -37,10 +37,10 @@ __int64 __fastcall CcPerfLogLoggedStreamsStats(int a1, int a2)
   }
   result = KxReleaseQueuedSpinLock((volatile signed __int64 **)&v11);
   OldIrql = v11.OldIrql;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
       && (unsigned __int8)result <= 0xFu
       && v11.OldIrql <= 0xFu
       && (unsigned __int8)result >= 2u )

@@ -14,27 +14,35 @@
  *     NtSetInformationWorkerFactory @ 0x1800A3350 (NtSetInformationWorkerFactory.c)
  */
 
-__int64 __fastcall TpAdjustBindingCount(__int64 a1, unsigned int a2)
+int __fastcall TpAdjustBindingCount(__int64 a1, unsigned int a2)
 {
-  __int64 result; // rax
+  int result; // eax
   int v3; // r8d
-  int v4; // [rsp+38h] [rbp+10h] BYREF
+  int WorkerFactoryInformation; // [rsp+38h] [rbp+10h] BYREF
 
   if ( a2 )
   {
-    result = (unsigned int)_InterlockedExchangeAdd((volatile signed __int32 *)(a1 + 432), a2);
+    result = _InterlockedExchangeAdd((volatile signed __int32 *)(a1 + 432), a2);
     v3 = result + a2;
-    if ( (int)result > 0 )
+    if ( result > 0 )
     {
       if ( v3 > 0 )
         return result;
-      v4 = -1;
-      return NtSetInformationWorkerFactory(*(_QWORD *)(a1 + 56), 3LL, &v4);
+      WorkerFactoryInformation = -1;
+      return NtSetInformationWorkerFactory(
+               *(HANDLE *)(a1 + 56),
+               WorkerFactoryBindingCount,
+               &WorkerFactoryInformation,
+               4u);
     }
     if ( v3 > 0 )
     {
-      v4 = 1;
-      return NtSetInformationWorkerFactory(*(_QWORD *)(a1 + 56), 3LL, &v4);
+      WorkerFactoryInformation = 1;
+      return NtSetInformationWorkerFactory(
+               *(HANDLE *)(a1 + 56),
+               WorkerFactoryBindingCount,
+               &WorkerFactoryInformation,
+               4u);
     }
   }
   return result;

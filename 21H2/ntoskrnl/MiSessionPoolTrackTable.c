@@ -1,12 +1,12 @@
 /*
- * XREFs of MiSessionPoolTrackTable @ 0x1406C3F90
+ * XREFs of MiSessionPoolTrackTable @ 0x140622B50
  * Callers:
- *     ExInitializeSessionHeapManager @ 0x14039D5C4 (ExInitializeSessionHeapManager.c)
+ *     ExInitializeSessionHeapManager @ 0x14039D714 (ExInitializeSessionHeapManager.c)
  * Callees:
  *     <none>
  */
 
 __int64 MiSessionPoolTrackTable()
 {
-  return qword_140C4DDE0 + 4096;
+  return qword_140C4DE20 + 4096;
 }

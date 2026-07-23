@@ -1,11 +1,11 @@
 /*
- * XREFs of CcDeductDirtyPagesInternal @ 0x1402CD7EC
+ * XREFs of CcDeductDirtyPagesInternal @ 0x1402E5440
  * Callers:
- *     CcDeductDirtyPagesFromExternalCache @ 0x1402CC0E0 (CcDeductDirtyPagesFromExternalCache.c)
- *     CcDeductDirtyPages @ 0x1402CD7A8 (CcDeductDirtyPages.c)
- *     CcUpdateExternalCacheInfoEx @ 0x14057AD00 (CcUpdateExternalCacheInfoEx.c)
+ *     CcDeductDirtyPages @ 0x1402E53FC (CcDeductDirtyPages.c)
+ *     CcDeductDirtyPagesFromExternalCache @ 0x140496AE0 (CcDeductDirtyPagesFromExternalCache.c)
+ *     CcUpdateExternalCacheInfoEx @ 0x140578190 (CcUpdateExternalCacheInfoEx.c)
  * Callees:
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 void __fastcall CcDeductDirtyPagesInternal(__int64 a1, unsigned int a2, __int64 a3, _QWORD *a4)

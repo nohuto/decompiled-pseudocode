@@ -1,10 +1,10 @@
 /*
- * XREFs of KiCheckMicrocode @ 0x140C0D88C
+ * XREFs of KiCheckMicrocode @ 0x140C13A9C
  * Callers:
- *     KiRestoreFeatureBits @ 0x140516590 (KiRestoreFeatureBits.c)
- *     KiInitializeKernel @ 0x140BF6190 (KiInitializeKernel.c)
+ *     KiRestoreFeatureBits @ 0x140510000 (KiRestoreFeatureBits.c)
+ *     KiInitializeKernel @ 0x140BFC190 (KiInitializeKernel.c)
  * Callees:
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 void __fastcall KiCheckMicrocode(__int64 a1)

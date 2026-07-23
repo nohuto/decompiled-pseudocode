@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpHpCustomVaCallbacksRegistrarInitialize @ 0x180089BC4
+ * XREFs of RtlpHpCustomVaCallbacksRegistrarInitialize @ 0x1800D0F04
  * Callers:
- *     RtlHpHeapManagerInitialize @ 0x180089AEC (RtlHpHeapManagerInitialize.c)
+ *     RtlHpHeapManagerInitialize @ 0x1800D0E2C (RtlHpHeapManagerInitialize.c)
  * Callees:
  *     <none>
  */
@@ -10,12 +10,12 @@ char *RtlpHpCustomVaCallbacksRegistrarInitialize()
 {
   char *result; // rax
 
-  qword_1801CC550 = 0LL;
+  qword_1801CB590 = 0LL;
   RtlpHpHeapVaCallbacksRegistrar = 0;
-  qword_1801CC548 = (__int64)&unk_1801CC558;
+  qword_1801CB588 = (__int64)&unk_1801CB598;
   result = (char *)&RtlpHpHeapVaCallbacksRegistrar + 1;
-  dword_1801CC544 = 2048;
-  if ( (&unk_1801CC758 >= &unk_1801CC558 ? 0x40 : 0) != 0 )
-    memset64(&unk_1801CC558, (unsigned __int64)result, &unk_1801CC758 >= &unk_1801CC558 ? 0x40 : 0);
+  dword_1801CB584 = 2048;
+  if ( (&unk_1801CB798 >= &unk_1801CB598 ? 0x40 : 0) != 0 )
+    memset64(&unk_1801CB598, (unsigned __int64)result, &unk_1801CB798 >= &unk_1801CB598 ? 0x40 : 0);
   return result;
 }

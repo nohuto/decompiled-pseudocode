@@ -1,5 +1,5 @@
 /*
- * XREFs of _RtlpMuiRegLoadInstalled @ 0x180115154
+ * XREFs of _RtlpMuiRegLoadInstalled @ 0x180115124
  * Callers:
  *     RtlpMuiRegLoadRegistryInfo @ 0x18000A230 (RtlpMuiRegLoadRegistryInfo.c)
  * Callees:
@@ -7,26 +7,26 @@
  *     RtlpLoadInstallLanguageFallback @ 0x18008E5F8 (RtlpLoadInstallLanguageFallback.c)
  *     NtIsUILanguageComitted @ 0x1800A2FE0 (NtIsUILanguageComitted.c)
  *     NtQueryInstallUILanguage @ 0x1800A39E0 (NtQueryInstallUILanguage.c)
- *     RtlpMuiRegCreateLanguages @ 0x180112970 (RtlpMuiRegCreateLanguages.c)
- *     RtlpMuiRegCreateStringPool @ 0x180112A08 (RtlpMuiRegCreateStringPool.c)
- *     _RtlpMuiRegLoadInstalledFromKey @ 0x180115234 (_RtlpMuiRegLoadInstalledFromKey.c)
- *     _RtlpMuiRegValidateInstalled @ 0x180115980 (_RtlpMuiRegValidateInstalled.c)
+ *     RtlpMuiRegCreateLanguages @ 0x180112940 (RtlpMuiRegCreateLanguages.c)
+ *     RtlpMuiRegCreateStringPool @ 0x1801129D8 (RtlpMuiRegCreateStringPool.c)
+ *     _RtlpMuiRegLoadInstalledFromKey @ 0x180115204 (_RtlpMuiRegLoadInstalledFromKey.c)
+ *     _RtlpMuiRegValidateInstalled @ 0x180115950 (_RtlpMuiRegValidateInstalled.c)
  */
 
 __int64 __fastcall RtlpMuiRegLoadInstalled(__int64 a1)
 {
-  int InstallUILanguage; // edi
+  NTSTATUS InstallUILanguage; // edi
   __int64 result; // rax
   unsigned int v4; // ecx
-  __int64 Languages; // rax
-  __int64 StringPool; // rax
+  _QWORD *Languages; // rax
+  _QWORD *StringPool; // rax
 
   InstallUILanguage = 0;
   if ( !a1 )
     return 3221225485LL;
-  if ( (int)NtIsUILanguageComitted() >= 0 )
+  if ( NtIsUILanguageComitted() >= 0 )
   {
-    InstallUILanguage = NtQueryInstallUILanguage();
+    InstallUILanguage = NtQueryInstallUILanguage((LANGID *)(a1 + 4));
     if ( InstallUILanguage < 0 || ((*(_WORD *)(a1 + 4) - 4096) & 0xFBFF) == 0 )
       goto LABEL_12;
     RtlpLoadInstallLanguageFallback(a1, (_WORD *)(a1 + 6), (_WORD *)(a1 + 8));

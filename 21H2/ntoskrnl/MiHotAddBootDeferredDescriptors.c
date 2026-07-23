@@ -1,10 +1,10 @@
 /*
- * XREFs of MiHotAddBootDeferredDescriptors @ 0x140A552F0
+ * XREFs of MiHotAddBootDeferredDescriptors @ 0x140A562F0
  * Callers:
- *     MiInitSystem @ 0x140A53E5C (MiInitSystem.c)
+ *     MiInitSystem @ 0x140A54E5C (MiInitSystem.c)
  * Callees:
- *     MiSearchNumaNodeTable @ 0x14032B790 (MiSearchNumaNodeTable.c)
- *     MiAddPhysicalMemoryChunks @ 0x1408C542C (MiAddPhysicalMemoryChunks.c)
+ *     MiSearchNumaNodeTable @ 0x1403364E0 (MiSearchNumaNodeTable.c)
+ *     MiAddPhysicalMemoryChunks @ 0x1408C558C (MiAddPhysicalMemoryChunks.c)
  */
 
 void MiHotAddBootDeferredDescriptors()

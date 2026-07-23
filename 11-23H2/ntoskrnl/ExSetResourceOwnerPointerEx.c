@@ -1,10 +1,10 @@
 /*
- * XREFs of ExSetResourceOwnerPointerEx @ 0x14031A0E0
+ * XREFs of ExSetResourceOwnerPointerEx @ 0x14031A370
  * Callers:
  *     <none>
  * Callees:
- *     ExpSetResourceOwnerPointerEx @ 0x14031A170 (ExpSetResourceOwnerPointerEx.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
+ *     ExpSetResourceOwnerPointerEx @ 0x14031A400 (ExpSetResourceOwnerPointerEx.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  */
 
 void __stdcall ExSetResourceOwnerPointerEx(PERESOURCE Resource, PVOID OwnerPointer, ULONG Flags)

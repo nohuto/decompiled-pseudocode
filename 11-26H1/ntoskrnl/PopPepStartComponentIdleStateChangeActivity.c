@@ -1,12 +1,12 @@
 /*
- * XREFs of PopPepStartComponentIdleStateChangeActivity @ 0x1403B3140
+ * XREFs of PopPepStartComponentIdleStateChangeActivity @ 0x1403BCE50
  * Callers:
  *     <none>
  * Callees:
- *     PopPlNotifyDeviceFState @ 0x1403AE02C (PopPlNotifyDeviceFState.c)
- *     PopPepUpdateIdleStateRefCount @ 0x1403B2278 (PopPepUpdateIdleStateRefCount.c)
- *     PopFxUpdateComponentAccountingEnhanced @ 0x1403B32C8 (PopFxUpdateComponentAccountingEnhanced.c)
- *     PopPluginNotifyIdleState @ 0x1403B3394 (PopPluginNotifyIdleState.c)
+ *     PopPlNotifyDeviceFState @ 0x1403B7D3C (PopPlNotifyDeviceFState.c)
+ *     PopPepUpdateIdleStateRefCount @ 0x1403BBF88 (PopPepUpdateIdleStateRefCount.c)
+ *     PopFxUpdateComponentAccountingEnhanced @ 0x1403BCFD8 (PopFxUpdateComponentAccountingEnhanced.c)
+ *     PopPluginNotifyIdleState @ 0x1403BD0A4 (PopPluginNotifyIdleState.c)
  */
 
 char __fastcall PopPepStartComponentIdleStateChangeActivity(__int64 a1, __int64 a2, __int64 a3)

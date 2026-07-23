@@ -1,23 +1,23 @@
 /*
- * XREFs of IopInvalidateVolumesForDevice @ 0x140881E68
+ * XREFs of IopInvalidateVolumesForDevice @ 0x1408820A8
  * Callers:
- *     IopRemoveDevice @ 0x140869968 (IopRemoveDevice.c)
- *     PiIrpQueryRemoveDevice @ 0x14096D11C (PiIrpQueryRemoveDevice.c)
+ *     IopRemoveDevice @ 0x140869BA8 (IopRemoveDevice.c)
+ *     PiIrpQueryRemoveDevice @ 0x14096D31C (PiIrpQueryRemoveDevice.c)
  * Callees:
- *     IofCallDriver @ 0x14022EEF0 (IofCallDriver.c)
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
- *     ExReleaseResourceLite @ 0x14023D410 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x14023D680 (ExAcquireResourceSharedLite.c)
- *     KeWaitForSingleObject @ 0x140243CE0 (KeWaitForSingleObject.c)
- *     IoBuildDeviceIoControlRequest @ 0x140251550 (IoBuildDeviceIoControlRequest.c)
- *     KeInitializeEvent @ 0x1402AF870 (KeInitializeEvent.c)
- *     KeResetEvent @ 0x1402AF940 (KeResetEvent.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ObOpenObjectByPointer @ 0x1407374D0 (ObOpenObjectByPointer.c)
- *     IoCreateStreamFileObjectLite @ 0x140767C90 (IoCreateStreamFileObjectLite.c)
+ *     IofCallDriver @ 0x14022F000 (IofCallDriver.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     KeLeaveCriticalRegion @ 0x140231550 (KeLeaveCriticalRegion.c)
+ *     ObfDereferenceObject @ 0x140231660 (ObfDereferenceObject.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
+ *     ExReleaseResourceLite @ 0x14023D4E0 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x14023D750 (ExAcquireResourceSharedLite.c)
+ *     KeWaitForSingleObject @ 0x140243DB0 (KeWaitForSingleObject.c)
+ *     IoBuildDeviceIoControlRequest @ 0x140251610 (IoBuildDeviceIoControlRequest.c)
+ *     KeInitializeEvent @ 0x1402AFB00 (KeInitializeEvent.c)
+ *     KeResetEvent @ 0x1402AFE30 (KeResetEvent.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ObOpenObjectByPointer @ 0x1407376C0 (ObOpenObjectByPointer.c)
+ *     IoCreateStreamFileObjectLite @ 0x140767E80 (IoCreateStreamFileObjectLite.c)
  */
 
 __int64 __fastcall IopInvalidateVolumesForDevice(PDEVICE_OBJECT DeviceObject)

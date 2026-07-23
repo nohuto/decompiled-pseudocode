@@ -1,17 +1,17 @@
 /*
- * XREFs of MiFlushRelease @ 0x14036D520
+ * XREFs of MiFlushRelease @ 0x14036F2C0
  * Callers:
- *     MmFlushSection @ 0x14039AA40 (MmFlushSection.c)
- *     MiFreeOverlappedFlushEntry @ 0x1403C1BA8 (MiFreeOverlappedFlushEntry.c)
- *     MmTrimSection @ 0x140464EF0 (MmTrimSection.c)
- *     MiCommitFileBackedSection @ 0x140A58878 (MiCommitFileBackedSection.c)
- *     MmFlushVirtualMemory @ 0x140A5CF70 (MmFlushVirtualMemory.c)
+ *     MmFlushSection @ 0x14039C7A0 (MmFlushSection.c)
+ *     MiFreeOverlappedFlushEntry @ 0x1403CBAA8 (MiFreeOverlappedFlushEntry.c)
+ *     MmTrimSection @ 0x14045DEB0 (MmTrimSection.c)
+ *     MiCommitFileBackedSection @ 0x140A65DF8 (MiCommitFileBackedSection.c)
+ *     MmFlushVirtualMemory @ 0x140A69F30 (MmFlushVirtualMemory.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     MiCheckControlArea @ 0x14036DCC0 (MiCheckControlArea.c)
- *     MiDecrementSubsectionViewCount @ 0x14036E5D0 (MiDecrementSubsectionViewCount.c)
- *     MiInsertUnusedSubsectionInternal @ 0x14036E724 (MiInsertUnusedSubsectionInternal.c)
- *     MiReturnCrossPartitionSectionCharges @ 0x1404D1140 (MiReturnCrossPartitionSectionCharges.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     MiCheckControlArea @ 0x14036FA60 (MiCheckControlArea.c)
+ *     MiDecrementSubsectionViewCount @ 0x140370370 (MiDecrementSubsectionViewCount.c)
+ *     MiInsertUnusedSubsectionInternal @ 0x1403704C4 (MiInsertUnusedSubsectionInternal.c)
+ *     MiReturnCrossPartitionSectionCharges @ 0x1404CAB70 (MiReturnCrossPartitionSectionCharges.c)
  */
 
 __int64 __fastcall MiFlushRelease(__int64 a1, ULONG_PTR a2, ULONG_PTR a3)
@@ -35,7 +35,7 @@ __int64 __fastcall MiFlushRelease(__int64 a1, ULONG_PTR a2, ULONG_PTR a3)
 
   v3 = 0LL;
   v6 = a1;
-  v7 = *(_QWORD *)(stru_140E2EB88.ThreadLock + 8LL * (*(_DWORD *)(a1 + 60) & 0x3FF));
+  v7 = *(_QWORD *)(stru_140E2ED08.ThreadLock + 8LL * (*(_DWORD *)(a1 + 60) & 0x3FF));
   v18 = v7;
   v8 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(a1 + 72));
   v20 = v8;

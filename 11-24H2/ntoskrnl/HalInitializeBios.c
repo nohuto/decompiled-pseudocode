@@ -1,21 +1,21 @@
 /*
- * XREFs of HalInitializeBios @ 0x14053BD40
+ * XREFs of HalInitializeBios @ 0x140539620
  * Callers:
- *     KiInitializeBootStructures @ 0x140B580C0 (KiInitializeBootStructures.c)
- *     InitBootProcessor @ 0x140C0AC88 (InitBootProcessor.c)
+ *     KiInitializeBootStructures @ 0x140B5A140 (KiInitializeBootStructures.c)
+ *     InitBootProcessor @ 0x140C0CC88 (InitBootProcessor.c)
  * Callees:
- *     HalpMmAllocCtxAlloc @ 0x14024BD68 (HalpMmAllocCtxAlloc.c)
- *     MiUnmapContiguousMemory @ 0x140263178 (MiUnmapContiguousMemory.c)
- *     MmUnmapLockedPages @ 0x14028D9C0 (MmUnmapLockedPages.c)
- *     MmMapLockedPagesSpecifyCache @ 0x14028F9F0 (MmMapLockedPagesSpecifyCache.c)
- *     MmMapIoSpaceEx @ 0x1402E9A50 (MmMapIoSpaceEx.c)
- *     x86BiosTranslateAddress @ 0x140469260 (x86BiosTranslateAddress.c)
- *     _strupr @ 0x1404FD210 (_strupr.c)
- *     strstr @ 0x1404FD9B0 (strstr.c)
- *     x86BiosInitializeBiosEx @ 0x140546558 (x86BiosInitializeBiosEx.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     HalpMmAllocCtxAlloc @ 0x14027C378 (HalpMmAllocCtxAlloc.c)
+ *     MiUnmapContiguousMemory @ 0x1402929E8 (MiUnmapContiguousMemory.c)
+ *     MmUnmapLockedPages @ 0x14029D5C0 (MmUnmapLockedPages.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x14029F5F0 (MmMapLockedPagesSpecifyCache.c)
+ *     MmMapIoSpaceEx @ 0x14034B090 (MmMapIoSpaceEx.c)
+ *     x86BiosTranslateAddress @ 0x140461C10 (x86BiosTranslateAddress.c)
+ *     _strupr @ 0x1404FAAD0 (_strupr.c)
+ *     strstr @ 0x1404FB270 (strstr.c)
+ *     x86BiosInitializeBiosEx @ 0x140543E18 (x86BiosInitializeBiosEx.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall HalInitializeBios(int a1, _QWORD *a2)
@@ -64,7 +64,7 @@ void __fastcall HalInitializeBios(int a1, _QWORD *a2)
       }
       return;
     }
-    Pool2 = ExAllocatePool2(0x40uLL);
+    Pool2 = ExAllocatePool2(0x40uLL, 0x830uLL, 0x466C6148u);
     v8 = (struct _MDL *)Pool2;
     if ( !Pool2 )
       return;
@@ -145,7 +145,7 @@ LABEL_31:
     HalpIoMemoryBase = MmMapLockedPagesSpecifyCache(v8, 0, MmCached, 0LL, 0, 0x40000020u);
     if ( HalpIoMemoryBase )
     {
-      v25 = MmMapIoSpaceEx(655360LL, 0x20000LL, 0x204u);
+      v25 = MmMapIoSpaceEx(655360LL, 0x20000LL, 516LL);
       if ( v25 )
       {
         v26 = HalpMmAllocCtxAlloc(v24, 0x2000LL);
@@ -153,7 +153,7 @@ LABEL_31:
         {
           HalpFrameBufferBase = v25 - 655360;
           x86BiosInitializeBiosEx(v27, HalpIoMemoryBase, v25 - 655360, v26);
-          v28 = (const void *)MmMapIoSpaceEx(0LL, 2048LL, 4u);
+          v28 = (const void *)MmMapIoSpaceEx(0LL, 2048LL, 4LL);
           if ( v28 )
           {
             v29 = x86BiosTranslateAddress(0, 0);

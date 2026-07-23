@@ -1,19 +1,19 @@
 /*
- * XREFs of LdrpWaitForInitializationComplete @ 0x1800CEB74
+ * XREFs of LdrpWaitForInitializationComplete @ 0x1800CC2E4
  * Callers:
- *     LdrpInitializeInternal @ 0x1800CEA78 (LdrpInitializeInternal.c)
- *     _LdrpInitialize @ 0x1800CEF48 (_LdrpInitialize.c)
+ *     LdrpInitializeInternal @ 0x1800CC1E8 (LdrpInitializeInternal.c)
+ *     _LdrpInitialize @ 0x1800CC6B8 (_LdrpInitialize.c)
  * Callees:
- *     LdrpLogInternal @ 0x180046B90 (LdrpLogInternal.c)
- *     NtWaitForSingleObject @ 0x18015EFC0 (NtWaitForSingleObject.c)
- *     ZwDelayExecution @ 0x18015F5C0 (ZwDelayExecution.c)
+ *     LdrpLogInternal @ 0x180031100 (LdrpLogInternal.c)
+ *     NtWaitForSingleObject @ 0x18015EEC0 (NtWaitForSingleObject.c)
+ *     ZwDelayExecution @ 0x18015F4C0 (ZwDelayExecution.c)
  */
 
 void __fastcall LdrpWaitForInitializationComplete(_DWORD *a1, HANDLE *a2)
 {
   NTSTATUS v3; // eax
-  int v4; // eax
-  __int64 v5; // [rsp+48h] [rbp+10h] BYREF
+  NTSTATUS v4; // eax
+  LARGE_INTEGER DelayInterval; // [rsp+48h] [rbp+10h] BYREF
 
   if ( *a2 )
   {
@@ -21,20 +21,20 @@ void __fastcall LdrpWaitForInitializationComplete(_DWORD *a1, HANDLE *a2)
     if ( v3 >= 0 )
       return;
     LdrpLogInternal(
-      (int)"minkernel\\ldr\\ldrinit.c",
+      "minkernel\\ldr\\ldrinit.c",
       1287,
       (__int64)"LdrpWaitForInitializationComplete",
       1,
       "NtWaitForSingleObject failed with status 0x%08lx, fallback to delay loop\n",
       v3);
   }
-  v5 = -300000LL;
+  DelayInterval.QuadPart = -300000LL;
   while ( *a1 == 1 )
   {
-    v4 = ZwDelayExecution(0LL, &v5);
+    v4 = ZwDelayExecution(0, &DelayInterval);
     if ( v4 < 0 )
       LdrpLogInternal(
-        (int)"minkernel\\ldr\\ldrinit.c",
+        "minkernel\\ldr\\ldrinit.c",
         1305,
         (__int64)"LdrpWaitForInitializationComplete",
         1,

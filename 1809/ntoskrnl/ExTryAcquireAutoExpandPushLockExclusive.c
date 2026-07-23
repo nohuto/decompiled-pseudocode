@@ -1,14 +1,14 @@
 /*
- * XREFs of ExTryAcquireAutoExpandPushLockExclusive @ 0x140169D10
+ * XREFs of ExTryAcquireAutoExpandPushLockExclusive @ 0x140169E10
  * Callers:
  *     <none>
  * Callees:
  *     KeAbPostReleaseEx @ 0x1400043BC (KeAbPostReleaseEx.c)
  *     KeAbPreAcquire @ 0x14004E270 (KeAbPreAcquire.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     ExpAeUpdateStatsForExclusiveRelease @ 0x140117C1C (ExpAeUpdateStatsForExclusiveRelease.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     ExpTryAcquireFannedOutPushLockExclusive @ 0x14031ABC8 (ExpTryAcquireFannedOutPushLockExclusive.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     ExpAeUpdateStatsForExclusiveRelease @ 0x140117C8C (ExpAeUpdateStatsForExclusiveRelease.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     ExpTryAcquireFannedOutPushLockExclusive @ 0x14031ADB8 (ExpTryAcquireFannedOutPushLockExclusive.c)
  */
 
 char __fastcall ExTryAcquireAutoExpandPushLockExclusive(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter1)

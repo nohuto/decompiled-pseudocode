@@ -1,13 +1,13 @@
 /*
- * XREFs of ExpInsertLowLevelTableIntoFreeList @ 0x14093CD5C
+ * XREFs of ExpInsertLowLevelTableIntoFreeList @ 0x14094D60C
  * Callers:
- *     ExpAllocateHandleTable @ 0x14093BFFC (ExpAllocateHandleTable.c)
- *     ExpAllocateHandleTableEntrySlow @ 0x14093CBE8 (ExpAllocateHandleTableEntrySlow.c)
+ *     ExpAllocateHandleTable @ 0x14094D2D4 (ExpAllocateHandleTable.c)
+ *     ExpAllocateHandleTableEntrySlow @ 0x14094D498 (ExpAllocateHandleTableEntrySlow.c)
  * Callees:
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
  */
 
 void __fastcall ExpInsertLowLevelTableIntoFreeList(
@@ -22,8 +22,8 @@ void __fastcall ExpInsertLowLevelTableIntoFreeList(
   unsigned __int64 v9; // r11
   unsigned int v10; // eax
   __m128i v11; // xmm1
-  _QWORD *v12; // rax
-  _QWORD *v13; // rsi
+  char *v12; // rax
+  char *v13; // rsi
   unsigned __int64 v14; // rcx
   __m128i v15; // [rsp+20h] [rbp-18h]
 
@@ -56,12 +56,12 @@ void __fastcall ExpInsertLowLevelTableIntoFreeList(
   _InterlockedAdd(a1, 0x400u);
   if ( a4 )
   {
-    v12 = KeAbPreAcquire((__int64)a3, 0LL);
+    v12 = (char *)KeAbPreAcquire((__int64)a3, 0LL);
     v13 = v12;
     if ( _interlockedbittestandset64((volatile signed __int32 *)a3, 0LL) )
-      ExfAcquirePushLockExclusiveEx(a3, (__int64)v12, (__int64)a3);
+      ExfAcquirePushLockExclusiveEx(a3, v12, (__int64)a3);
     if ( v13 )
-      *((_BYTE *)v13 + 10) = 1;
+      v13[10] = 1;
     v14 = (unsigned __int64)(a2 + 2);
     if ( a3[1] )
       *(_QWORD *)(a3[2] + 8) = v14;

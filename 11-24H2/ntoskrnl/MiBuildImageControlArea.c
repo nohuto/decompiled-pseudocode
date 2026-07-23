@@ -1,15 +1,15 @@
 /*
- * XREFs of MiBuildImageControlArea @ 0x1409451C0
+ * XREFs of MiBuildImageControlArea @ 0x14098F030
  * Callers:
- *     MiCreateImageFileMap @ 0x140944150 (MiCreateImageFileMap.c)
+ *     MiCreateImageFileMap @ 0x14098DFC0 (MiCreateImageFileMap.c)
  * Callees:
- *     MiMakeSubsectionPte @ 0x14022929C (MiMakeSubsectionPte.c)
- *     MiUpdateSystemProtoPtesTree @ 0x14026047C (MiUpdateSystemProtoPtesTree.c)
- *     MiAllocatePool @ 0x1402ACA70 (MiAllocatePool.c)
- *     MiMakeDemandZeroPte @ 0x1402E3CC0 (MiMakeDemandZeroPte.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     MiParseImageSectionHeaders @ 0x1409459C0 (MiParseImageSectionHeaders.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     MiAllocatePool @ 0x140277450 (MiAllocatePool.c)
+ *     MiUpdateSystemProtoPtesTree @ 0x140290A8C (MiUpdateSystemProtoPtesTree.c)
+ *     MiMakeSubsectionPte @ 0x1402FC49C (MiMakeSubsectionPte.c)
+ *     MiMakeDemandZeroPte @ 0x140392C40 (MiMakeDemandZeroPte.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     MiParseImageSectionHeaders @ 0x14098F6FC (MiParseImageSectionHeaders.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiBuildImageControlArea(
@@ -37,24 +37,26 @@ __int64 __fastcall MiBuildImageControlArea(
   __int64 v22; // rax
   __int64 v23; // r8
   unsigned int v24; // r9d
-  unsigned int v25; // ecx
+  unsigned __int64 v25; // rdx
+  unsigned int v26; // ecx
   __int64 SubsectionPte; // rax
-  unsigned int v27; // r10d
-  unsigned int v28; // edx
+  unsigned int v28; // r10d
+  unsigned int v29; // edx
   unsigned int i; // r9d
-  int v30; // ebx
-  unsigned __int64 v32; // rdx
-  __int64 DemandZeroPte; // rax
+  int v31; // ebx
+  unsigned __int64 v33; // rdx
   __int64 v34; // rdx
-  __int64 v35; // r11
-  unsigned int v36; // r9d
-  unsigned int v37; // r8d
-  __int64 v38; // r9
-  __int64 v39; // rcx
-  __int64 v40; // [rsp+30h] [rbp-48h]
-  int v42; // [rsp+90h] [rbp+18h]
+  __int64 DemandZeroPte; // rax
+  __int64 v36; // rdx
+  __int64 v37; // r11
+  unsigned int v38; // r9d
+  unsigned int v39; // r8d
+  __int64 v40; // r9
+  __int64 v41; // rcx
+  __int64 v42; // [rsp+30h] [rbp-48h]
+  int v44; // [rsp+90h] [rbp+18h]
 
-  v42 = *(unsigned __int16 *)(a4 + 2);
+  v44 = *(unsigned __int16 *)(a4 + 2);
   v9 = (*(_DWORD *)(a3 + 16) >> 12) + (unsigned int)((*(_DWORD *)(a3 + 16) & 0xFFF) != 0);
   if ( !(_DWORD)v9 )
     return 3221225595LL;
@@ -70,14 +72,14 @@ __int64 __fastcall MiBuildImageControlArea(
     *(_DWORD *)(Pool + 56) |= 0x20u;
     v15 = Pool + v12 + 128;
     *(_QWORD *)(Pool + 96) = v15;
-    v40 = v15;
+    v42 = v15;
     *(_QWORD *)(v15 + 24) = *(_QWORD *)(v15 + 24) & 0xFFFFFFFFFFFFFFF8uLL | 2;
     v16 = (__int64 *)MiAllocatePool(0x112uLL, 8 * v9, 1951624525);
     v17 = v16;
     if ( !v16 )
     {
-      dword_140E2D6F8 = 27;
-      v30 = -1073741670;
+      dword_140E2D838 = 27;
+      v31 = -1073741670;
       goto LABEL_23;
     }
     memset_0(v16, 0, 8 * v9);
@@ -85,8 +87,8 @@ __int64 __fastcall MiBuildImageControlArea(
     v19 = v18;
     if ( !v18 )
     {
-      dword_140E2D6F8 = 28;
-      v30 = -1073741670;
+      dword_140E2D838 = 28;
+      v31 = -1073741670;
       goto LABEL_32;
     }
     *(_QWORD *)(v18 + 40) = 0LL;
@@ -139,23 +141,23 @@ __int64 __fastcall MiBuildImageControlArea(
         v24 = v22 + v23 - 1;
         if ( v24 <= (unsigned int)v22 )
         {
-          dword_140E2D6F8 = 30;
+          dword_140E2D838 = 30;
         }
         else
         {
-          v25 = (((v24 & -(int)v23 & 0xFFF) + 4095) >> 12)
-              + (((unsigned __int64)(v23 + v22 - 1) >> 12) & ((unsigned __int64)~(v23 - 1) >> 12));
-          *((_DWORD *)v14 + 43) = v25;
-          if ( v25 <= (unsigned int)v9 )
+          v25 = (unsigned __int64)(v23 + v22 - 1) >> 12;
+          v26 = (((v24 & -(int)v23 & 0xFFF) + 4095) >> 12) + (v25 & ((unsigned __int64)~(v23 - 1) >> 12));
+          *((_DWORD *)v14 + 43) = v26;
+          if ( v26 <= (unsigned int)v9 )
           {
-            LODWORD(v9) = v9 - v25;
+            LODWORD(v9) = v9 - v26;
             *((_DWORD *)v14 + 42) = *(_DWORD *)(a3 + 24) >> 9;
             *((_DWORD *)v14 + 40) = ((*(_WORD *)(a3 + 24) & 0x1FF) << 20) | 2;
-            SubsectionPte = MiMakeSubsectionPte((__int64)(v14 + 16));
-            v28 = *((_DWORD *)v14 + 43);
-            for ( i = 0; i < v28; ++i )
+            SubsectionPte = MiMakeSubsectionPte((__int64)(v14 + 16), v25);
+            v29 = *((_DWORD *)v14 + 43);
+            for ( i = 0; i < v29; ++i )
             {
-              if ( v27 >= *(_DWORD *)(a3 + 24) )
+              if ( v28 >= *(_DWORD *)(a3 + 24) )
               {
                 *v17 = CLFS_LSN_NULL_EXT;
                 *((_DWORD *)v14 + 45) ^= (*((_DWORD *)v14 + 45) ^ (*((_DWORD *)v14 + 45) + 1)) & 0x3FFFFFFF;
@@ -164,52 +166,53 @@ __int64 __fastcall MiBuildImageControlArea(
               {
                 *v17 = SubsectionPte;
               }
-              v28 = *((_DWORD *)v14 + 43);
-              v27 += 4096;
+              v29 = *((_DWORD *)v14 + 43);
+              v28 += 4096;
               ++v17;
             }
-            v17 -= v28;
+            v17 -= v29;
             goto LABEL_20;
           }
-          dword_140E2D6F8 = 31;
+          dword_140E2D838 = 31;
         }
       }
       else
       {
-        dword_140E2D6F8 = 29;
+        dword_140E2D838 = 29;
       }
-      v30 = -1073741701;
+      v31 = -1073741701;
       goto LABEL_32;
     }
     *((_DWORD *)v14 + 43) = v9;
-    v32 = *(_QWORD *)a6;
+    v33 = *(_QWORD *)a6;
     if ( (unsigned __int64)*(unsigned int *)(a3 + 16) <= *(_QWORD *)a6 )
-      v32 = *(unsigned int *)(a3 + 16);
-    *((_DWORD *)v14 + 42) = v32 >> 9;
+      v33 = *(unsigned int *)(a3 + 16);
+    *((_DWORD *)v14 + 42) = v33 >> 9;
     *(_BYTE *)(v19 + 123) |= 8u;
     *(_BYTE *)(v19 + 122) = 1;
-    *((_DWORD *)v14 + 40) = ((v32 & 0x1FF) << 20) | 0xE;
-    MiMakeSubsectionPte((__int64)(v14 + 16));
+    v34 = ((v33 & 0x1FF) << 20) | 0xE;
+    *((_DWORD *)v14 + 40) = v34;
+    MiMakeSubsectionPte((__int64)(v14 + 16), v34);
     DemandZeroPte = MiMakeDemandZeroPte(7);
-    v37 = v36;
-    v38 = v35;
+    v39 = v38;
+    v40 = v37;
     do
     {
-      v39 = DemandZeroPte;
-      if ( v37 < *a6 )
-        v39 = v34;
-      v37 += 4096;
-      *v17++ = v39;
-      --v38;
+      v41 = DemandZeroPte;
+      if ( v39 < *a6 )
+        v41 = v36;
+      v39 += 4096;
+      *v17++ = v41;
+      --v40;
     }
-    while ( v38 );
-    *(_QWORD *)(v19 + 48) = v35;
+    while ( v40 );
+    *(_QWORD *)(v19 + 48) = v37;
     v17 -= v9;
 LABEL_20:
-    v30 = MiParseImageSectionHeaders(a5, (_DWORD)v14, a2, v42, a3, v9);
-    if ( v30 >= 0 )
+    v31 = MiParseImageSectionHeaders(a5, (_DWORD)v14, a2, v44, a3, v9);
+    if ( v31 >= 0 )
     {
-      MiUpdateSystemProtoPtesTree(v40, 1);
+      MiUpdateSystemProtoPtesTree(v42, 1);
       *a7 = v14;
       return 0LL;
     }
@@ -222,8 +225,8 @@ LABEL_37:
       ExFreePoolWithTag((PVOID)v19, 0);
 LABEL_23:
     ExFreePoolWithTag(v14, 0);
-    return (unsigned int)v30;
+    return (unsigned int)v31;
   }
-  dword_140E2D6F8 = 26;
+  dword_140E2D838 = 26;
   return 3221225626LL;
 }

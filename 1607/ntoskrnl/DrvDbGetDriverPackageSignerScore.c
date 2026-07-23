@@ -1,11 +1,11 @@
 /*
- * XREFs of DrvDbGetDriverPackageSignerScore @ 0x1404EB2B8
+ * XREFs of DrvDbGetDriverPackageSignerScore @ 0x1404CD43C
  * Callers:
- *     DrvDbGetDriverPackageMappedProperty @ 0x140503A30 (DrvDbGetDriverPackageMappedProperty.c)
- *     DrvDbGetDriverPackageMappedPropertyKeys @ 0x1406E15DC (DrvDbGetDriverPackageMappedPropertyKeys.c)
- *     DrvDbSetDriverPackageMappedProperty @ 0x1406E2CD4 (DrvDbSetDriverPackageMappedProperty.c)
+ *     DrvDbGetDriverPackageMappedProperty @ 0x1404E69C0 (DrvDbGetDriverPackageMappedProperty.c)
+ *     DrvDbGetDriverPackageMappedPropertyKeys @ 0x1406E1714 (DrvDbGetDriverPackageMappedPropertyKeys.c)
+ *     DrvDbSetDriverPackageMappedProperty @ 0x1406E2E0C (DrvDbSetDriverPackageMappedProperty.c)
  * Callees:
- *     DrvDbGetDriverPackageMappedProperty @ 0x140503A30 (DrvDbGetDriverPackageMappedProperty.c)
+ *     DrvDbGetDriverPackageMappedProperty @ 0x1404E69C0 (DrvDbGetDriverPackageMappedProperty.c)
  */
 
 __int64 __fastcall DrvDbGetDriverPackageSignerScore(int a1, int a2, int a3, wchar_t *a4)

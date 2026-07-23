@@ -1,16 +1,16 @@
 /*
- * XREFs of MiZeroInParallel @ 0x1402E2D60
+ * XREFs of MiZeroInParallel @ 0x1402940B0
  * Callers:
- *     MiInitializeMdlOneNodeBatchPages @ 0x1402E3D24 (MiInitializeMdlOneNodeBatchPages.c)
- *     MiAllocateLargeZeroPages @ 0x14055DA5C (MiAllocateLargeZeroPages.c)
- *     MiFindLargePageMemory @ 0x1408DA0E4 (MiFindLargePageMemory.c)
+ *     MiInitializeMdlOneNodeBatchPages @ 0x140295074 (MiInitializeMdlOneNodeBatchPages.c)
+ *     MiAllocateLargeZeroPages @ 0x14055DC9C (MiAllocateLargeZeroPages.c)
+ *     MiFindLargePageMemory @ 0x1408DA244 (MiFindLargePageMemory.c)
  * Callees:
- *     KeSetPriorityThread @ 0x140257AE0 (KeSetPriorityThread.c)
- *     KeWaitForGate @ 0x140299F74 (KeWaitForGate.c)
- *     KeSignalGate @ 0x1402C2B70 (KeSignalGate.c)
- *     MiZeroInParallelWorker @ 0x1402E6010 (MiZeroInParallelWorker.c)
- *     ObCloseHandle @ 0x14061AB80 (ObCloseHandle.c)
- *     PsCreateSystemThread @ 0x1406D0140 (PsCreateSystemThread.c)
+ *     KeWaitForGate @ 0x14022A4E4 (KeWaitForGate.c)
+ *     KeSignalGate @ 0x140241090 (KeSignalGate.c)
+ *     KeSetPriorityThread @ 0x140279050 (KeSetPriorityThread.c)
+ *     MiZeroInParallelWorker @ 0x140297360 (MiZeroInParallelWorker.c)
+ *     ObCloseHandle @ 0x1406847E0 (ObCloseHandle.c)
+ *     PsCreateSystemThread @ 0x1406A7420 (PsCreateSystemThread.c)
  */
 
 void __fastcall MiZeroInParallel(__int64 *a1)
@@ -28,16 +28,14 @@ void __fastcall MiZeroInParallel(__int64 *a1)
   unsigned __int64 v11; // rax
   KPRIORITY v12; // esi
   int v13; // edi
-  __int64 v14; // r8
-  _DWORD *v15; // r9
-  __int128 v16; // [rsp+40h] [rbp-9h]
-  __int64 v17; // [rsp+58h] [rbp+Fh]
+  __int128 v14; // [rsp+40h] [rbp-9h]
+  __int64 v15; // [rsp+58h] [rbp+Fh]
   _QWORD StartContext[2]; // [rsp+60h] [rbp+17h] BYREF
-  __int16 v19; // [rsp+70h] [rbp+27h] BYREF
-  char v20; // [rsp+72h] [rbp+29h]
-  char v21; // [rsp+73h] [rbp+2Ah]
-  int v22; // [rsp+74h] [rbp+2Bh]
-  _QWORD v23[3]; // [rsp+78h] [rbp+2Fh] BYREF
+  __int16 v17; // [rsp+70h] [rbp+27h] BYREF
+  char v18; // [rsp+72h] [rbp+29h]
+  char v19; // [rsp+73h] [rbp+2Ah]
+  int v20; // [rsp+74h] [rbp+2Bh]
+  _QWORD v21[3]; // [rsp+78h] [rbp+2Fh] BYREF
   HANDLE ThreadHandle; // [rsp+B8h] [rbp+6Fh] BYREF
 
   ThreadHandle = 0LL;
@@ -45,11 +43,11 @@ void __fastcall MiZeroInParallel(__int64 *a1)
   StartContext[0] = 0LL;
   v2 = *((_DWORD *)a1 + 4);
   v3 = *a1;
-  v21 = 0;
+  v19 = 0;
   CurrentThread = KeGetCurrentThread();
-  v5 = dword_140C4DEE4;
+  v5 = dword_140C4DF24;
   v6 = *((_OWORD *)a1 + 2);
-  v17 = *((_QWORD *)&v6 + 1);
+  v15 = *((_QWORD *)&v6 + 1);
   if ( v2 )
   {
     v7 = v6;
@@ -67,9 +65,9 @@ void __fastcall MiZeroInParallel(__int64 *a1)
         if ( v7 )
         {
           v9 = 0LL;
-          *((_QWORD *)&v16 + 1) = *((_QWORD *)&v6 + 1);
+          *((_QWORD *)&v14 + 1) = *((_QWORD *)&v6 + 1);
           v10 = 0;
-          *(_QWORD *)&v16 = 0LL;
+          *(_QWORD *)&v14 = 0LL;
           if ( v5 )
           {
             do
@@ -82,10 +80,10 @@ void __fastcall MiZeroInParallel(__int64 *a1)
               ++v10;
             }
             while ( v10 < v5 );
-            *((_QWORD *)&v6 + 1) = v17;
-            *(_QWORD *)&v16 = v9;
+            *((_QWORD *)&v6 + 1) = v15;
+            *(_QWORD *)&v14 = v9;
           }
-          *(_OWORD *)(v3 + 8) = v16;
+          *(_OWORD *)(v3 + 8) = v14;
         }
         else
         {
@@ -105,12 +103,12 @@ void __fastcall MiZeroInParallel(__int64 *a1)
   {
     v1 = 0;
   }
-  v22 = 0;
-  v23[1] = v23;
-  v23[0] = v23;
+  v20 = 0;
+  v21[1] = v21;
+  v21[0] = v21;
   StartContext[1] = a1;
-  v19 = 263;
-  v20 = 6;
+  v17 = 263;
+  v18 = 6;
   HIDWORD(StartContext[0]) = v1;
   if ( v1 )
     v12 = KeSetPriorityThread(CurrentThread, 15);
@@ -128,13 +126,13 @@ void __fastcall MiZeroInParallel(__int64 *a1)
     }
     v1 -= v13;
     if ( _InterlockedExchangeAdd((volatile signed __int32 *)StartContext + 1, -v1) == v1 )
-      KeSignalGate((__int64)&v19, 1LL, v14, v15);
+      KeSignalGate((__int64)&v17, 1);
 LABEL_28:
     if ( v1 )
       KeSetPriorityThread(CurrentThread, v12);
   }
   if ( v13 )
-    KeWaitForGate((__int64)&v19, 0);
+    KeWaitForGate((__int64)&v17, 0);
   else
     MiZeroInParallelWorker(StartContext);
 }

@@ -1,7 +1,8 @@
 /*
- * XREFs of IoGetIrpExtraCreateParameter @ 0x14098D2B0
+ * XREFs of IoGetIrpExtraCreateParameter @ 0x140977BD0
  * Callers:
- *     FsRtlpAttachOplockKey @ 0x14041D800 (FsRtlpAttachOplockKey.c)
+ *     FsRtlpAttachOplockKey @ 0x1403CD800 (FsRtlpAttachOplockKey.c)
+ *     FsRtlCheckOplockEx2 @ 0x1403CE7F0 (FsRtlCheckOplockEx2.c)
  * Callees:
  *     <none>
  */

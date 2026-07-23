@@ -1,16 +1,16 @@
 /*
- * XREFs of HalpTimerMeasureFrequencies @ 0x140379ED8
+ * XREFs of HalpTimerMeasureFrequencies @ 0x14037A078
  * Callers:
- *     HalpTimerSelectRoles @ 0x14037A2AC (HalpTimerSelectRoles.c)
+ *     HalpTimerSelectRoles @ 0x14037A44C (HalpTimerSelectRoles.c)
  * Callees:
- *     KeStallExecutionProcessor @ 0x1402C3030 (KeStallExecutionProcessor.c)
- *     HalpTimerStallExecutionProcessor @ 0x1402C43B0 (HalpTimerStallExecutionProcessor.c)
- *     HalpTimerGetInternalData @ 0x1402C4570 (HalpTimerGetInternalData.c)
- *     HalpTimerReadTimerPairWithLatencyLimit @ 0x14037A1D0 (HalpTimerReadTimerPairWithLatencyLimit.c)
- *     HalpTimerInitialize @ 0x14037A580 (HalpTimerInitialize.c)
- *     HalpTimerDetermineValidTimerPairReadLatency @ 0x14037A7D8 (HalpTimerDetermineValidTimerPairReadLatency.c)
- *     HalpTimerScaleCounter @ 0x1403C4524 (HalpTimerScaleCounter.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     KeStallExecutionProcessor @ 0x1402C32C0 (KeStallExecutionProcessor.c)
+ *     HalpTimerStallExecutionProcessor @ 0x1402C4640 (HalpTimerStallExecutionProcessor.c)
+ *     HalpTimerGetInternalData @ 0x1402C4800 (HalpTimerGetInternalData.c)
+ *     HalpTimerReadTimerPairWithLatencyLimit @ 0x14037A370 (HalpTimerReadTimerPairWithLatencyLimit.c)
+ *     HalpTimerInitialize @ 0x14037A720 (HalpTimerInitialize.c)
+ *     HalpTimerDetermineValidTimerPairReadLatency @ 0x14037A978 (HalpTimerDetermineValidTimerPairReadLatency.c)
+ *     HalpTimerScaleCounter @ 0x1403C4704 (HalpTimerScaleCounter.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 void __fastcall HalpTimerMeasureFrequencies(__int64 a1, __int64 a2)

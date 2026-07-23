@@ -1,9 +1,9 @@
 /*
- * XREFs of DrpVerifyData @ 0x1406650FC
+ * XREFs of DrpVerifyData @ 0x1406639EC
  * Callers:
- *     DrpGetRecord @ 0x140665030 (DrpGetRecord.c)
- *     DrpGetRecordCount @ 0x14066506C (DrpGetRecordCount.c)
- *     DrpGetSectionAtIndex @ 0x140665098 (DrpGetSectionAtIndex.c)
+ *     DrpGetRecord @ 0x140663920 (DrpGetRecord.c)
+ *     DrpGetRecordCount @ 0x14066395C (DrpGetRecordCount.c)
+ *     DrpGetSectionAtIndex @ 0x140663988 (DrpGetSectionAtIndex.c)
  * Callees:
  *     <none>
  */

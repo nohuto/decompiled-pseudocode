@@ -126,7 +126,7 @@ LABEL_12:
     goto LABEL_12;
   }
 LABEL_18:
-  RtlAcquireSRWLockShared((volatile signed __int64 *)(a1 + 40));
+  RtlAcquireSRWLockShared((PRTL_SRWLOCK)(a1 + 40));
   v16 = 0LL;
   v17 = -1LL << (*(_BYTE *)(a1 + 4) & 0x1F);
   v18 = v6 & v17;
@@ -160,14 +160,14 @@ LABEL_22:
         if ( RtlpStackDbSegmentComparitor(v16, a2) )
         {
           v20 = v16 & -(__int64)((unsigned int)RtlpStackDbRefCountIncrement((volatile signed __int32 *)(v16 + 16)) != 0);
-          RtlReleaseSRWLockShared((volatile signed __int64 *)(a1 + 40));
+          RtlReleaseSRWLockShared((PRTL_SRWLOCK)(a1 + 40));
           return v20;
         }
         goto LABEL_19;
       }
     }
   }
-  RtlReleaseSRWLockShared((volatile signed __int64 *)(a1 + 40));
+  RtlReleaseSRWLockShared((PRTL_SRWLOCK)(a1 + 40));
   v21 = (_QWORD *)(a1 + 64);
   v22 = (*(__int64 (__fastcall **)(_QWORD, _QWORD))(a1 + 48))(8 * *a2 + 24, *(_QWORD *)(a1 + 64));
   v23 = (_QWORD *)v22;
@@ -179,7 +179,7 @@ LABEL_22:
   *(_BYTE *)(v22 + 19) = *(_BYTE *)a2;
   *(_QWORD *)(v22 + 8) = v6;
   memmove((void *)(v22 + 24), *((const void **)a2 + 1), 8LL * *a2);
-  RtlAcquireSRWLockExclusive((volatile signed __int32 *)(a1 + 40));
+  RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 40));
   v24 = *(_DWORD *)(a1 + 4);
   v25 = 0LL;
   v51 = -1LL << (*(_BYTE *)(a1 + 4) & 0x1F);
@@ -313,7 +313,7 @@ LABEL_59:
   }
   v20 = 0LL;
 LABEL_60:
-  RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a1 + 40));
+  RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(a1 + 40));
   if ( v23 )
     (*(void (__fastcall **)(_QWORD *, _QWORD))(a1 + 56))(v23, *v21);
   return v20;

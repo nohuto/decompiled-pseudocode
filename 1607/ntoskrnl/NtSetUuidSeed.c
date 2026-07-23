@@ -1,28 +1,28 @@
 /*
- * XREFs of NtSetUuidSeed @ 0x140577398
+ * XREFs of NtSetUuidSeed @ 0x1405778D8
  * Callers:
  *     <none>
  * Callees:
- *     RtlLengthSid @ 0x14000C2AC (RtlLengthSid.c)
- *     RtlSubAuthoritySid @ 0x14000D6F8 (RtlSubAuthoritySid.c)
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     SeAccessCheck @ 0x140062B10 (SeAccessCheck.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
- *     RtlRaiseStatus @ 0x1400F6738 (RtlRaiseStatus.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     RtlLengthSid @ 0x14000BE2C (RtlLengthSid.c)
+ *     RtlSubAuthoritySid @ 0x14000D278 (RtlSubAuthoritySid.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     SeAccessCheck @ 0x140062690 (SeAccessCheck.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
+ *     RtlRaiseStatus @ 0x1400F4588 (RtlRaiseStatus.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     SeCaptureSubjectContext @ 0x140412030 (SeCaptureSubjectContext.c)
- *     RtlSetDaclSecurityDescriptor @ 0x140413E70 (RtlSetDaclSecurityDescriptor.c)
- *     RtlCreateSecurityDescriptor @ 0x140413ED0 (RtlCreateSecurityDescriptor.c)
- *     SeReleaseSubjectContext @ 0x14041F9B0 (SeReleaseSubjectContext.c)
- *     RtlCreateAcl @ 0x140420AB8 (RtlCreateAcl.c)
- *     RtlpAddKnownAce @ 0x140421800 (RtlpAddKnownAce.c)
- *     RtlLengthRequiredSid @ 0x1404792F0 (RtlLengthRequiredSid.c)
- *     RtlInitializeSid @ 0x140479578 (RtlInitializeSid.c)
+ *     SeCaptureSubjectContext @ 0x140410EF0 (SeCaptureSubjectContext.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x140412D30 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateSecurityDescriptor @ 0x140412D90 (RtlCreateSecurityDescriptor.c)
+ *     SeReleaseSubjectContext @ 0x14041E870 (SeReleaseSubjectContext.c)
+ *     RtlCreateAcl @ 0x14041F978 (RtlCreateAcl.c)
+ *     RtlpAddKnownAce @ 0x1404206C0 (RtlpAddKnownAce.c)
+ *     RtlLengthRequiredSid @ 0x1404781C0 (RtlLengthRequiredSid.c)
+ *     RtlInitializeSid @ 0x140478448 (RtlInitializeSid.c)
  */
 
 NTSTATUS __stdcall NtSetUuidSeed(PUCHAR UuidSeed)
@@ -47,7 +47,7 @@ NTSTATUS __stdcall NtSetUuidSeed(PUCHAR UuidSeed)
   __int64 v20; // r9
   NTSTATUS v21; // ebx
   NTSTATUS AccessStatus; // [rsp+54h] [rbp-B4h] BYREF
-  struct _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+58h] [rbp-B0h] BYREF
+  _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+58h] [rbp-B0h] BYREF
   int v26; // [rsp+64h] [rbp-A4h]
   __int16 v27; // [rsp+68h] [rbp-A0h]
   int v28; // [rsp+6Ch] [rbp-9Ch]
@@ -140,7 +140,7 @@ NTSTATUS __stdcall NtSetUuidSeed(PUCHAR UuidSeed)
   if ( v16 )
     v16[26] |= 1u;
   *(int *)((char *)&dword_140747294 + 2) = v26;
-  HIWORD(dword_140747298) = v27;
+  word_14074729A = v27;
   ExpUuidCacheValid = (unsigned __int8)v26 >> 7 == 0;
   if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&ExpUuidLock, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
     ExfTryToWakePushLock((volatile signed __int64 *)&ExpUuidLock);

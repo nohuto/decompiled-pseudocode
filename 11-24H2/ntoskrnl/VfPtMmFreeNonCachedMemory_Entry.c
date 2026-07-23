@@ -1,10 +1,10 @@
 /*
- * XREFs of VfPtMmFreeNonCachedMemory_Entry @ 0x140B8C520
+ * XREFs of VfPtMmFreeNonCachedMemory_Entry @ 0x140B8E520
  * Callers:
  *     <none>
  * Callees:
- *     VfPtMiscPoolNotification @ 0x140400260 (VfPtMiscPoolNotification.c)
- *     VfIsKernelVerificationOn @ 0x1404FB110 (VfIsKernelVerificationOn.c)
+ *     VfPtMiscPoolNotification @ 0x1403FA750 (VfPtMiscPoolNotification.c)
+ *     VfIsKernelVerificationOn @ 0x1404F89F0 (VfIsKernelVerificationOn.c)
  */
 
 char __fastcall VfPtMmFreeNonCachedMemory_Entry(__int64 a1)

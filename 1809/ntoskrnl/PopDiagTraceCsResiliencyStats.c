@@ -1,11 +1,11 @@
 /*
- * XREFs of PopDiagTraceCsResiliencyStats @ 0x140871C20
+ * XREFs of PopDiagTraceCsResiliencyStats @ 0x140872E80
  * Callers:
- *     PdcPoCurrentPdcPhase @ 0x1402DE260 (PdcPoCurrentPdcPhase.c)
+ *     PdcPoCurrentPdcPhase @ 0x1402DE450 (PdcPoCurrentPdcPhase.c)
  * Callees:
  *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
  *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 char __fastcall PopDiagTraceCsResiliencyStats(__int64 a1)
@@ -135,7 +135,7 @@ char __fastcall PopDiagTraceCsResiliencyStats(__int64 a1)
       v59 = 4LL;
       v61 = 80LL;
       v60 = v4 + 32;
-      LOBYTE(v1) = TlgWrite(&pCallbackContext, &unk_14036F42F, 0LL, 0LL, 0x14u, &pData);
+      LOBYTE(v1) = TlgWrite(&pCallbackContext, &unk_1403703BF, 0LL, 0LL, 0x14u, &pData);
     }
   }
   return (char)v1;

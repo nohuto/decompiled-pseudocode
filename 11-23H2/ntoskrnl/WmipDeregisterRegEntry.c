@@ -1,18 +1,18 @@
 /*
- * XREFs of WmipDeregisterRegEntry @ 0x1403D4AE0
+ * XREFs of WmipDeregisterRegEntry @ 0x1403D4CC0
  * Callers:
- *     WmipRegisterDevice @ 0x14086BF88 (WmipRegisterDevice.c)
- *     WmipDeregisterDevice @ 0x140882568 (WmipDeregisterDevice.c)
+ *     WmipRegisterDevice @ 0x14086C1C8 (WmipRegisterDevice.c)
+ *     WmipDeregisterDevice @ 0x1408827A8 (WmipDeregisterDevice.c)
  * Callees:
- *     WmipUnreferenceRegEntry @ 0x14022AAB4 (WmipUnreferenceRegEntry.c)
- *     ObfDereferenceObjectWithTag @ 0x14022F5B0 (ObfDereferenceObjectWithTag.c)
- *     KeWaitForSingleObject @ 0x140243CE0 (KeWaitForSingleObject.c)
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeReleaseMutex @ 0x1402AFF70 (KeReleaseMutex.c)
- *     ExFreeToNPagedLookasideList @ 0x1402B6B70 (ExFreeToNPagedLookasideList.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     WmipRemoveDS @ 0x140882608 (WmipRemoveDS.c)
+ *     WmipUnreferenceRegEntry @ 0x14022ABC4 (WmipUnreferenceRegEntry.c)
+ *     ObfDereferenceObjectWithTag @ 0x14022F6C0 (ObfDereferenceObjectWithTag.c)
+ *     KeWaitForSingleObject @ 0x140243DB0 (KeWaitForSingleObject.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeReleaseMutex @ 0x1402B0200 (KeReleaseMutex.c)
+ *     ExFreeToNPagedLookasideList @ 0x1402B6E00 (ExFreeToNPagedLookasideList.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     WmipRemoveDS @ 0x140882848 (WmipRemoveDS.c)
  */
 
 void __fastcall WmipDeregisterRegEntry(char *Entry)
@@ -46,10 +46,13 @@ void __fastcall WmipDeregisterRegEntry(char *Entry)
   _m_prefetchw(Entry + 48);
   v3 = _InterlockedOr((volatile signed __int32 *)Entry + 12, 0xA0000000);
   KxReleaseSpinLock((volatile signed __int64 *)&WmipRegistrationSpinLock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     CurrentIrql = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v2 <= 0xFu && CurrentIrql >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)v2 <= 0xFu
+      && CurrentIrql >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -75,10 +78,10 @@ void __fastcall WmipDeregisterRegEntry(char *Entry)
   *v5 = v7;
   v7[1] = v5;
   KxReleaseSpinLock((volatile signed __int64 *)&WmipRegistrationSpinLock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v14 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v14 <= 0xFu && (unsigned __int8)v6 <= 0xFu && v14 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v14 <= 0xFu && (unsigned __int8)v6 <= 0xFu && v14 >= 2u )
     {
       v15 = KeGetCurrentPrcb();
       v16 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v6 + 1));

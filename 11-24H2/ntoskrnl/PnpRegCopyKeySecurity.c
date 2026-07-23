@@ -1,14 +1,14 @@
 /*
- * XREFs of PnpRegCopyKeySecurity @ 0x14072362C
+ * XREFs of PnpRegCopyKeySecurity @ 0x1407211BC
  * Callers:
- *     PnpRegCopyKeySecurityTree @ 0x14072375C (PnpRegCopyKeySecurityTree.c)
+ *     PnpRegCopyKeySecurityTree @ 0x1407212EC (PnpRegCopyKeySecurityTree.c)
  * Callees:
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     _PnpCtxRegGetKeySecurity @ 0x14081792C (_PnpCtxRegGetKeySecurity.c)
- *     _PnpCtxRegSetKeySecurity @ 0x14081797C (_PnpCtxRegSetKeySecurity.c)
- *     _PnpCtxRegOpenKey @ 0x1408C7AFC (_PnpCtxRegOpenKey.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     _PnpCtxRegGetKeySecurity @ 0x14081806C (_PnpCtxRegGetKeySecurity.c)
+ *     _PnpCtxRegSetKeySecurity @ 0x1408180BC (_PnpCtxRegSetKeySecurity.c)
+ *     _PnpCtxRegOpenKey @ 0x1408C552C (_PnpCtxRegOpenKey.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PnpRegCopyKeySecurity(int a1, int a2)
@@ -19,7 +19,7 @@ __int64 __fastcall PnpRegCopyKeySecurity(int a1, int a2)
   __int64 v6; // rcx
   int v7; // ecx
   HANDLE v9[2]; // [rsp+30h] [rbp-10h] BYREF
-  int v10; // [rsp+70h] [rbp+30h] BYREF
+  unsigned int v10; // [rsp+70h] [rbp+30h] BYREF
   HANDLE Handle; // [rsp+78h] [rbp+38h] BYREF
 
   v10 = 0;
@@ -35,7 +35,7 @@ __int64 __fastcall PnpRegCopyKeySecurity(int a1, int a2)
       KeySecurity = PnpCtxRegGetKeySecurity(v5, (_DWORD)Handle, 7, 0, (__int64)&v10);
       if ( KeySecurity == -1073741789 )
       {
-        Pool2 = (void *)ExAllocatePool2(0x100uLL);
+        Pool2 = (void *)ExAllocatePool2(0x100uLL, v10, 0x75737050u);
         if ( !Pool2 )
         {
           KeySecurity = -1073741670;

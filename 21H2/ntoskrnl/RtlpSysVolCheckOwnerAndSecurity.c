@@ -1,22 +1,22 @@
 /*
- * XREFs of RtlpSysVolCheckOwnerAndSecurity @ 0x140731FF8
+ * XREFs of RtlpSysVolCheckOwnerAndSecurity @ 0x1407321B8
  * Callers:
- *     RtlCreateSystemVolumeInformationFolder @ 0x140731C60 (RtlCreateSystemVolumeInformationFolder.c)
+ *     RtlCreateSystemVolumeInformationFolder @ 0x140731E20 (RtlCreateSystemVolumeInformationFolder.c)
  * Callees:
- *     RtlGetDaclSecurityDescriptor @ 0x140252E50 (RtlGetDaclSecurityDescriptor.c)
- *     RtlEqualSid @ 0x14027C9E0 (RtlEqualSid.c)
- *     RtlGetAce @ 0x14027EA10 (RtlGetAce.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     RtlSetDaclSecurityDescriptor @ 0x140660500 (RtlSetDaclSecurityDescriptor.c)
- *     RtlSetOwnerSecurityDescriptor @ 0x140676C70 (RtlSetOwnerSecurityDescriptor.c)
- *     RtlGetOwnerSecurityDescriptor @ 0x14067FD40 (RtlGetOwnerSecurityDescriptor.c)
- *     NtQuerySecurityObject @ 0x14068A550 (NtQuerySecurityObject.c)
- *     NtSetSecurityObject @ 0x140697440 (NtSetSecurityObject.c)
- *     RtlMakeSelfRelativeSD @ 0x140768454 (RtlMakeSelfRelativeSD.c)
- *     RtlSelfRelativeToAbsoluteSD2 @ 0x140911FD0 (RtlSelfRelativeToAbsoluteSD2.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     RtlEqualSid @ 0x14026A980 (RtlEqualSid.c)
+ *     RtlGetAce @ 0x14026C9B0 (RtlGetAce.c)
+ *     RtlGetDaclSecurityDescriptor @ 0x140285CC0 (RtlGetDaclSecurityDescriptor.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     RtlGetOwnerSecurityDescriptor @ 0x1405DA7E0 (RtlGetOwnerSecurityDescriptor.c)
+ *     NtQuerySecurityObject @ 0x1405E99E0 (NtQuerySecurityObject.c)
+ *     NtSetSecurityObject @ 0x1405F8450 (NtSetSecurityObject.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x140655320 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlSetOwnerSecurityDescriptor @ 0x14066A340 (RtlSetOwnerSecurityDescriptor.c)
+ *     RtlMakeSelfRelativeSD @ 0x140768614 (RtlMakeSelfRelativeSD.c)
+ *     RtlSelfRelativeToAbsoluteSD2 @ 0x140912130 (RtlSelfRelativeToAbsoluteSD2.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall RtlpSysVolCheckOwnerAndSecurity(HANDLE Handle, PACL Dacl)
@@ -35,7 +35,7 @@ __int64 __fastcall RtlpSysVolCheckOwnerAndSecurity(HANDLE Handle, PACL Dacl)
   ULONG v16; // r15d
   PVOID v17; // rax
   void *v18; // rsi
-  int v19; // r14d
+  NTSTATUS v19; // r14d
   PVOID v20; // rax
   ULONG Length; // [rsp+38h] [rbp-29h] BYREF
   BOOLEAN DaclPresent; // [rsp+3Ch] [rbp-25h] BYREF
@@ -114,7 +114,7 @@ LABEL_24:
     }
   }
   v15 = Length;
-  if ( (unsigned int)RtlSelfRelativeToAbsoluteSD2(PoolWithTag, &Length) != -1073741789 )
+  if ( RtlSelfRelativeToAbsoluteSD2(PoolWithTag, &Length) != -1073741789 )
     goto LABEL_30;
   v16 = Length;
   v17 = ExAllocatePoolWithTag(PagedPool, Length, 0x536C6F56u);

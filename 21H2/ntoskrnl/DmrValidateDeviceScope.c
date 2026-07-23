@@ -1,11 +1,11 @@
 /*
- * XREFs of DmrValidateDeviceScope @ 0x1404E8670
+ * XREFs of DmrValidateDeviceScope @ 0x1404E88B0
  * Callers:
- *     HalpIvtProcessDrhdEntry @ 0x1404E740C (HalpIvtProcessDrhdEntry.c)
+ *     HalpIvtProcessDrhdEntry @ 0x1404E764C (HalpIvtProcessDrhdEntry.c)
  * Callees:
- *     DmrGetNextDrhdDeviceScope @ 0x1404E842C (DmrGetNextDrhdDeviceScope.c)
- *     DmrCheckPathMatch @ 0x1404E8458 (DmrCheckPathMatch.c)
- *     DmrGetNextRemappingStructure @ 0x1404E861C (DmrGetNextRemappingStructure.c)
+ *     DmrGetNextDrhdDeviceScope @ 0x1404E866C (DmrGetNextDrhdDeviceScope.c)
+ *     DmrCheckPathMatch @ 0x1404E8698 (DmrCheckPathMatch.c)
+ *     DmrGetNextRemappingStructure @ 0x1404E885C (DmrGetNextRemappingStructure.c)
  */
 
 __int64 __fastcall DmrValidateDeviceScope(unsigned __int64 a1, unsigned __int64 a2)

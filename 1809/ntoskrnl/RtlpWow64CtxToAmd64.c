@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpWow64CtxToAmd64 @ 0x1406A93F0
+ * XREFs of RtlpWow64CtxToAmd64 @ 0x1406AA690
  * Callers:
- *     RtlpWow64SetContextOnAmd64 @ 0x1406A920C (RtlpWow64SetContextOnAmd64.c)
+ *     RtlpWow64SetContextOnAmd64 @ 0x1406AA4AC (RtlpWow64SetContextOnAmd64.c)
  * Callees:
- *     RtlFnToFxFrame @ 0x140123AF0 (RtlFnToFxFrame.c)
+ *     RtlFnToFxFrame @ 0x140123BC0 (RtlFnToFxFrame.c)
  */
 
 __int64 __fastcall RtlpWow64CtxToAmd64(unsigned int a1, _DWORD *a2, __int64 a3)

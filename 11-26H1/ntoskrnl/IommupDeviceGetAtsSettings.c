@@ -1,10 +1,10 @@
 /*
- * XREFs of IommupDeviceGetAtsSettings @ 0x140587E48
+ * XREFs of IommupDeviceGetAtsSettings @ 0x14058A420
  * Callers:
- *     HalpIommuCreateDevice @ 0x14051AC18 (HalpIommuCreateDevice.c)
- *     IommupDeviceEnableSvm @ 0x14078287C (IommupDeviceEnableSvm.c)
+ *     HalpIommuCreateDevice @ 0x140514688 (HalpIommuCreateDevice.c)
+ *     IommupDeviceEnableSvm @ 0x14078537C (IommupDeviceEnableSvm.c)
  * Callees:
- *     IommupGetDeviceCreationConfigEntry @ 0x14059FF2C (IommupGetDeviceCreationConfigEntry.c)
+ *     IommupGetDeviceCreationConfigEntry @ 0x1405A271C (IommupGetDeviceCreationConfigEntry.c)
  */
 
 __int64 __fastcall IommupDeviceGetAtsSettings(__int64 a1, _BYTE *a2)

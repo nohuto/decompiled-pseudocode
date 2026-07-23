@@ -1,15 +1,15 @@
 /*
- * XREFs of CmpInitializeSystemHive @ 0x140A5AA10
+ * XREFs of CmpInitializeSystemHive @ 0x140A5BA10
  * Callers:
- *     CmpInitializePreloadedHives @ 0x140A5A924 (CmpInitializePreloadedHives.c)
+ *     CmpInitializePreloadedHives @ 0x140A5B924 (CmpInitializePreloadedHives.c)
  * Callees:
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     memset @ 0x140414200 (memset.c)
- *     CmpLinkHiveToMaster @ 0x14071E230 (CmpLinkHiveToMaster.c)
- *     CmpCreateHive @ 0x14071E618 (CmpCreateHive.c)
- *     CmpSetupLoggingState @ 0x1407A7088 (CmpSetupLoggingState.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     CmpCreateHive @ 0x1406F756C (CmpCreateHive.c)
+ *     CmpLinkHiveToMaster @ 0x1406F8338 (CmpLinkHiveToMaster.c)
+ *     CmpSetupLoggingState @ 0x1407A7288 (CmpSetupLoggingState.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall CmpInitializeSystemHive(__int64 a1, __int64 a2, __int64 a3)

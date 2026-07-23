@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 ZwUnloadKeyEx()
+NTSTATUS __cdecl ZwUnloadKeyEx(POBJECT_ATTRIBUTES TargetKey, HANDLE Event)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 428LL;
+  result = 428;
   __asm { syscall; Low latency system call }
   return result;
 }

@@ -53,7 +53,7 @@ char __fastcall ExpSaAllocatorFree(ULONG_PTR BugCheckParameter2, __int64 *a2, __
   unsigned __int8 v36; // r15
   unsigned int v37; // edx
   __int64 v38; // rcx
-  unsigned __int64 v39; // r14
+  __int64 v39; // r14
   __int64 v40; // rdx
   __int64 v41; // rdx
   __int64 v42; // rcx
@@ -229,7 +229,7 @@ LABEL_61:
     v17 = !_BitScanReverse((unsigned int *)&v38, v37);
     if ( v17 )
       goto LABEL_68;
-    v39 = (unsigned __int64)&v34->LockEntries[v38];
+    v39 = (__int64)&v34->LockEntries[v38];
     v37 &= ~(1 << v38);
     if ( (*(_BYTE *)(v39 + 26) & 1) != 0
       && (*(_DWORD *)(v39 + 32) & 1) == 0
@@ -250,12 +250,12 @@ LABEL_68:
   }
   *(_BYTE *)(v39 + 32) |= 2u;
   if ( *(__int64 *)(v39 + 32) < 0 )
-    KiAbEntryRemoveFromTree(v39);
+    KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v39);
   v46 = *(_DWORD *)(v39 + 88) & 0x1FFFF;
   *(_DWORD *)(v39 + 88) &= 0xFFFE0000;
   *(_BYTE *)(v39 + 25) &= ~1u;
   *(_QWORD *)(v39 + 32) = 0LL;
-  v40 = (__int64)(v39 - (unsigned __int64)v34->LockEntries) / 96;
+  v40 = (signed __int64)(v39 - (unsigned __int64)v34->LockEntries) / 96;
   if ( v36 == 1 )
     v34->AbEntrySummary |= 1 << v40;
   else

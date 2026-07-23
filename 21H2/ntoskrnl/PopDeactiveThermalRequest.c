@@ -1,22 +1,22 @@
 /*
- * XREFs of PopDeactiveThermalRequest @ 0x1408E2BE8
+ * XREFs of PopDeactiveThermalRequest @ 0x1408E2D48
  * Callers:
- *     PoDeleteThermalRequest @ 0x1408E29D0 (PoDeleteThermalRequest.c)
+ *     PoDeleteThermalRequest @ 0x1408E2B30 (PoDeleteThermalRequest.c)
  * Callees:
- *     PopReleaseRwLock @ 0x14027C284 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x140281AD4 (PopAcquireRwLockExclusive.c)
- *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
- *     KeInitializeEvent @ 0x1403538F0 (KeInitializeEvent.c)
- *     PopTraceThermalRequestPassiveHistogram @ 0x14038A888 (PopTraceThermalRequestPassiveHistogram.c)
- *     PopTraceThermalRequestActiveActivity @ 0x14038AA74 (PopTraceThermalRequestActiveActivity.c)
- *     PopGetDope @ 0x140399D04 (PopGetDope.c)
- *     PopThermalUpdateTelemetryClientCount @ 0x1403A7FC8 (PopThermalUpdateTelemetryClientCount.c)
- *     PopPropogateCoolingChange @ 0x1403C9C84 (PopPropogateCoolingChange.c)
- *     PopDiagTraceThermalRequest @ 0x1406C1DA4 (PopDiagTraceThermalRequest.c)
- *     PopDiagTraceCoolingExtension @ 0x1406C2380 (PopDiagTraceCoolingExtension.c)
- *     PopThermalUpdatePassiveTimeTracking @ 0x140778678 (PopThermalUpdatePassiveTimeTracking.c)
- *     PopThermalUpdateActiveTimeTracking @ 0x14078DF1C (PopThermalUpdateActiveTimeTracking.c)
- *     PopCleanCoolingExtension @ 0x1408E2ABC (PopCleanCoolingExtension.c)
+ *     PopReleaseRwLock @ 0x14026A224 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14026FD14 (PopAcquireRwLockExclusive.c)
+ *     KeWaitForSingleObject @ 0x1403504C0 (KeWaitForSingleObject.c)
+ *     KeInitializeEvent @ 0x14035E640 (KeInitializeEvent.c)
+ *     PopTraceThermalRequestPassiveHistogram @ 0x14038A9D8 (PopTraceThermalRequestPassiveHistogram.c)
+ *     PopTraceThermalRequestActiveActivity @ 0x14038ABC4 (PopTraceThermalRequestActiveActivity.c)
+ *     PopGetDope @ 0x140399E54 (PopGetDope.c)
+ *     PopThermalUpdateTelemetryClientCount @ 0x1403A8D58 (PopThermalUpdateTelemetryClientCount.c)
+ *     PopPropogateCoolingChange @ 0x1403C9E24 (PopPropogateCoolingChange.c)
+ *     PopDiagTraceThermalRequest @ 0x140620A64 (PopDiagTraceThermalRequest.c)
+ *     PopDiagTraceCoolingExtension @ 0x140621040 (PopDiagTraceCoolingExtension.c)
+ *     PopThermalUpdatePassiveTimeTracking @ 0x140778838 (PopThermalUpdatePassiveTimeTracking.c)
+ *     PopThermalUpdateActiveTimeTracking @ 0x14078E0DC (PopThermalUpdateActiveTimeTracking.c)
+ *     PopCleanCoolingExtension @ 0x1408E2C1C (PopCleanCoolingExtension.c)
  */
 
 void __fastcall PopDeactiveThermalRequest(__int64 a1)

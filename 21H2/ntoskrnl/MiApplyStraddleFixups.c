@@ -1,10 +1,10 @@
 /*
- * XREFs of MiApplyStraddleFixups @ 0x1402BA60C
+ * XREFs of MiApplyStraddleFixups @ 0x14023881C
  * Callers:
- *     MiPerformFixups @ 0x1405FC5B8 (MiPerformFixups.c)
+ *     MiPerformFixups @ 0x1406EBD18 (MiPerformFixups.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memmove @ 0x140413F40 (memmove.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memmove @ 0x140414040 (memmove.c)
  */
 
 void __fastcall MiApplyStraddleFixups(__int64 a1, char *a2, int a3, __int64 a4, __int64 a5, char a6)

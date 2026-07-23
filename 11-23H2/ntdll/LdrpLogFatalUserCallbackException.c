@@ -10,81 +10,75 @@
  *     NtQueryInformationProcess @ 0x1800A11D0 (NtQueryInformationProcess.c)
  *     ZwRaiseException @ 0x1800A3CE0 (ZwRaiseException.c)
  *     _guard_xfg_dispatch_icall_nop @ 0x1800A4B90 (_guard_xfg_dispatch_icall_nop.c)
- *     RtlUnhandledExceptionFilter2 @ 0x18010EB60 (RtlUnhandledExceptionFilter2.c)
- *     RtlRaiseStatus @ 0x1801106D0 (RtlRaiseStatus.c)
+ *     RtlUnhandledExceptionFilter2 @ 0x18010EB30 (RtlUnhandledExceptionFilter2.c)
+ *     RtlRaiseStatus @ 0x1801106A0 (RtlRaiseStatus.c)
  */
 
-__int64 __fastcall LdrpLogFatalUserCallbackException(__int64 a1, __int64 a2)
+LONG __fastcall LdrpLogFatalUserCallbackException(_EXCEPTION_RECORD *a1, struct _CONTEXT *a2)
 {
   unsigned int v2; // eax
   __int64 v4; // rbx
-  NTSTATUS v6; // eax
-  __int64 (__fastcall *v7)(_QWORD *); // rbx
-  __int64 result; // rax
+  int v6; // eax
+  __int64 (__fastcall *v7)(_EXCEPTION_POINTERS *); // rbx
+  LONG result; // eax
   _RTL_USER_PROCESS_PARAMETERS *ProcessParameters; // rdx
   unsigned __int16 Length; // ax
   int v11; // ecx
   wchar_t *Buffer; // rax
-  __int64 v13; // rax
-  unsigned int v14; // eax
+  void *Rip; // rax
+  NTSTATUS v14; // eax
   __int16 v15; // [rsp+30h] [rbp-D0h] BYREF
-  __int64 ProcessInformation; // [rsp+38h] [rbp-C8h] BYREF
-  _QWORD v17[2]; // [rsp+40h] [rbp-C0h] BYREF
-  int v18; // [rsp+50h] [rbp-B0h]
-  int v19; // [rsp+54h] [rbp-ACh]
-  __int64 v20; // [rsp+58h] [rbp-A8h]
-  __int64 v21; // [rsp+60h] [rbp-A0h]
-  int v22; // [rsp+68h] [rbp-98h]
-  __int16 *v23; // [rsp+F0h] [rbp-10h] BYREF
-  int v24; // [rsp+F8h] [rbp-8h]
-  int v25; // [rsp+FCh] [rbp-4h]
-  wchar_t *v26; // [rsp+100h] [rbp+0h]
-  int v27; // [rsp+108h] [rbp+8h]
-  int v28; // [rsp+10Ch] [rbp+Ch]
+  ULONGLONG ProcessInformation; // [rsp+38h] [rbp-C8h] BYREF
+  _EXCEPTION_POINTERS ExceptionPointers; // [rsp+40h] [rbp-C0h] BYREF
+  EXCEPTION_RECORD ExceptionRecord; // [rsp+50h] [rbp-B0h] BYREF
+  _EVENT_DATA_DESCRIPTOR UserData; // [rsp+F0h] [rbp-10h] BYREF
+  wchar_t *v20; // [rsp+100h] [rbp+0h]
+  int v21; // [rsp+108h] [rbp+8h]
+  int v22; // [rsp+10Ch] [rbp+Ch]
 
   v2 = `RtlpGetCookieValue'::`2'::CookieValue;
   v4 = RtlpUnhandledExceptionFilter;
-  v17[0] = a1;
-  v17[1] = a2;
+  ExceptionPointers.ExceptionRecord = a1;
+  ExceptionPointers.ContextRecord = a2;
   if ( !`RtlpGetCookieValue'::`2'::CookieValue )
   {
-    v6 = NtQueryInformationProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, (PROCESSINFOCLASS)36, &ProcessInformation, 4u, 0LL);
+    v6 = NtQueryInformationProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, ProcessCookie, &ProcessInformation, 4u, 0LL);
     if ( v6 < 0 )
-      RtlRaiseStatus((unsigned int)v6);
+      RtlRaiseStatus(v6);
     v2 = ProcessInformation;
     `RtlpGetCookieValue'::`2'::CookieValue = ProcessInformation;
   }
-  v7 = (__int64 (__fastcall *)(_QWORD *))(v2 ^ __ROR8__(v4, 64 - (v2 & 0x3F)));
+  v7 = (__int64 (__fastcall *)(_EXCEPTION_POINTERS *))(v2 ^ __ROR8__(v4, 64 - (v2 & 0x3F)));
   if ( v7 )
-    result = v7(v17);
+    result = v7(&ExceptionPointers);
   else
-    result = RtlUnhandledExceptionFilter2(v17, &unk_180138CCA);
-  if ( (_DWORD)result != -1 )
+    result = RtlUnhandledExceptionFilter2(&ExceptionPointers, (ULONG)&Flags);
+  if ( result != -1 )
   {
-    if ( !(unsigned int)EtwEventRegister((int)&UserLoaderGuid, 0LL, 0LL, (__int64)&ProcessInformation) )
+    if ( !EtwEventRegister(&UserLoaderGuid, 0LL, 0LL, &ProcessInformation) )
     {
       ProcessParameters = NtCurrentPeb()->ProcessParameters;
       Length = ProcessParameters->ImagePathName.Length;
-      v25 = 0;
+      UserData.Reserved = 0;
       v15 = Length >> 1;
-      v23 = &v15;
-      v24 = 2;
+      UserData.Ptr = (unsigned __int64)&v15;
+      UserData.Size = 2;
       v11 = ProcessParameters->ImagePathName.Length;
       Buffer = ProcessParameters->ImagePathName.Buffer;
-      v28 = 0;
-      v27 = v11;
-      v26 = Buffer;
-      EtwEventWrite(ProcessInformation, (int)&FatalUserCallbackException, 2, (__int64)&v23);
+      v22 = 0;
+      v21 = v11;
+      v20 = Buffer;
+      EtwEventWrite(ProcessInformation, &FatalUserCallbackException, 2u, &UserData);
       EtwNotificationUnregister(ProcessInformation, 0LL);
     }
-    v13 = *(_QWORD *)(a2 + 248);
-    v22 = 0;
-    v21 = v13;
-    LODWORD(v13) = *(_DWORD *)(a1 + 4) | 1;
-    v18 = -1073740771;
-    v19 = v13;
-    v20 = a1;
-    v14 = ZwRaiseException();
+    Rip = (void *)a2->Rip;
+    ExceptionRecord.NumberParameters = 0;
+    ExceptionRecord.ExceptionAddress = Rip;
+    LODWORD(Rip) = a1->ExceptionFlags | 1;
+    ExceptionRecord.ExceptionCode = -1073740771;
+    ExceptionRecord.ExceptionFlags = (unsigned int)Rip;
+    ExceptionRecord.ExceptionRecord = a1;
+    v14 = ZwRaiseException(&ExceptionRecord, a2, 0);
     RtlRaiseStatus(v14);
   }
   return result;

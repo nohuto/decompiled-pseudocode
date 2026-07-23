@@ -1,17 +1,17 @@
 /*
- * XREFs of CmpDecommisssionKcb @ 0x140870D10
+ * XREFs of CmpDecommisssionKcb @ 0x140875040
  * Callers:
- *     CmpPerformCompleteKcbCacheLookup @ 0x140844830 (CmpPerformCompleteKcbCacheLookup.c)
- *     CmpDereferenceKeyControlBlock @ 0x140845CD0 (CmpDereferenceKeyControlBlock.c)
- *     CmpCommitDiscardReplacePost @ 0x140870A94 (CmpCommitDiscardReplacePost.c)
- *     CmpCleanUpKCBCacheTable @ 0x14097BF7C (CmpCleanUpKCBCacheTable.c)
- *     CmpSearchKeyControlBlockTreeEx @ 0x140A4F298 (CmpSearchKeyControlBlockTreeEx.c)
- *     CmpUnlockKcb @ 0x140BB92C0 (CmpUnlockKcb.c)
+ *     CmpPerformCompleteKcbCacheLookup @ 0x140840AF0 (CmpPerformCompleteKcbCacheLookup.c)
+ *     CmpDereferenceKeyControlBlock @ 0x140841F90 (CmpDereferenceKeyControlBlock.c)
+ *     CmpCommitDiscardReplacePost @ 0x140874DC4 (CmpCommitDiscardReplacePost.c)
+ *     CmpCleanUpKCBCacheTable @ 0x14096478C (CmpCleanUpKCBCacheTable.c)
+ *     CmpSearchKeyControlBlockTreeEx @ 0x140A46048 (CmpSearchKeyControlBlockTreeEx.c)
+ *     CmpUnlockKcb @ 0x140BBB2C0 (CmpUnlockKcb.c)
  * Callees:
- *     ExFreeToLookasideListEx @ 0x1402CD350 (ExFreeToLookasideListEx.c)
- *     CmpFreeTransientPoolWithTag @ 0x140441FC0 (CmpFreeTransientPoolWithTag.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExFreeToLookasideListEx @ 0x1402E6050 (ExFreeToLookasideListEx.c)
+ *     CmpFreeTransientPoolWithTag @ 0x140438B90 (CmpFreeTransientPoolWithTag.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall CmpDecommisssionKcb(ULONG_PTR BugCheckParameter2)
@@ -36,7 +36,7 @@ void __fastcall CmpDecommisssionKcb(ULONG_PTR BugCheckParameter2)
       CmpFreeTransientPoolWithTag((void *)v3, 0x624E4D43u);
     *(_DWORD *)(BugCheckParameter2 + 8) |= 0x10000u;
     *(_QWORD *)(BugCheckParameter2 + 32) = 0LL;
-    ExFreeToLookasideListEx(&CmpKcbLookaside, (PVOID)BugCheckParameter2);
-    _InterlockedDecrement64(qword_140FD9430);
+    ExFreeToLookasideListEx((PLOOKASIDE_LIST_EX)&CmpKcbLookaside, (PVOID)BugCheckParameter2);
+    _InterlockedDecrement64(qword_140FDA440);
   }
 }

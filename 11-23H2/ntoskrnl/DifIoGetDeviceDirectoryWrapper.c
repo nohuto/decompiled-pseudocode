@@ -1,12 +1,12 @@
 /*
- * XREFs of DifIoGetDeviceDirectoryWrapper @ 0x1405DF5F0
+ * XREFs of DifIoGetDeviceDirectoryWrapper @ 0x1405DFB60
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     DifGetAPIThunkContextById @ 0x1404664BE (DifGetAPIThunkContextById.c)
- *     DifGetReturnAddressForWrappers @ 0x1405F88C4 (DifGetReturnAddressForWrappers.c)
- *     IoGetDeviceDirectory @ 0x140955010 (IoGetDeviceDirectory.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x1404668BE (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F8E34 (DifGetReturnAddressForWrappers.c)
+ *     IoGetDeviceDirectory @ 0x140955210 (IoGetDeviceDirectory.c)
  */
 
 __int64 __fastcall DifIoGetDeviceDirectoryWrapper(__int64 a1, unsigned int a2, unsigned int a3, __int64 a4, __int64 a5)

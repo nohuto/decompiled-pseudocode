@@ -1,20 +1,20 @@
 /*
- * XREFs of PpForEachDeviceInstanceDriver @ 0x14074BFA4
+ * XREFs of PpForEachDeviceInstanceDriver @ 0x14074C164
  * Callers:
- *     PiDeviceRegistration @ 0x14074BDF0 (PiDeviceRegistration.c)
+ *     PiDeviceRegistration @ 0x14074BFB0 (PiDeviceRegistration.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     PnpUnicodeStringToWstrFree @ 0x140635794 (PnpUnicodeStringToWstrFree.c)
- *     PnpUnicodeStringToWstr @ 0x14063755C (PnpUnicodeStringToWstr.c)
- *     _PnpGetObjectProperty @ 0x140637B7C (_PnpGetObjectProperty.c)
- *     _CmGetDeviceRegProp @ 0x14064146C (_CmGetDeviceRegProp.c)
- *     _CmOpenDeviceRegKey @ 0x140641B70 (_CmOpenDeviceRegKey.c)
- *     _CmOpenInstallerClassRegKey @ 0x140645BF0 (_CmOpenInstallerClassRegKey.c)
- *     _CmGetInstallerClassRegProp @ 0x14073F798 (_CmGetInstallerClassRegProp.c)
- *     PiForEachDriverQueryRoutine @ 0x14074C2A8 (PiForEachDriverQueryRoutine.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     PnpUnicodeStringToWstrFree @ 0x14062A5A4 (PnpUnicodeStringToWstrFree.c)
+ *     PnpUnicodeStringToWstr @ 0x14062C36C (PnpUnicodeStringToWstr.c)
+ *     _PnpGetObjectProperty @ 0x14062C98C (_PnpGetObjectProperty.c)
+ *     _CmGetDeviceRegProp @ 0x14063627C (_CmGetDeviceRegProp.c)
+ *     _CmOpenDeviceRegKey @ 0x140636980 (_CmOpenDeviceRegKey.c)
+ *     _CmOpenInstallerClassRegKey @ 0x14063A9DC (_CmOpenInstallerClassRegKey.c)
+ *     _CmGetInstallerClassRegProp @ 0x14073F958 (_CmGetInstallerClassRegProp.c)
+ *     PiForEachDriverQueryRoutine @ 0x14074C468 (PiForEachDriverQueryRoutine.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PpForEachDeviceInstanceDriver(unsigned __int16 *a1, __int64 a2, __int64 a3)
@@ -31,7 +31,7 @@ __int64 __fastcall PpForEachDeviceInstanceDriver(unsigned __int16 *a1, __int64 a
   __int64 v14; // rax
   int v15; // eax
   __int64 v16; // rcx
-  __int16 *v17; // rdx
+  WCHAR *v17; // rdx
   HANDLE v18; // r9
   __int64 v19; // r8
   int InstallerClassRegProp; // eax
@@ -42,7 +42,7 @@ __int64 __fastcall PpForEachDeviceInstanceDriver(unsigned __int16 *a1, __int64 a
   HANDLE v25; // [rsp+78h] [rbp-61h] BYREF
   __int16 *v26; // [rsp+80h] [rbp-59h] BYREF
   _QWORD v27[3]; // [rsp+88h] [rbp-51h] BYREF
-  _BYTE v28[80]; // [rsp+A0h] [rbp-39h] BYREF
+  WCHAR v28[40]; // [rsp+A0h] [rbp-39h] BYREF
 
   Handle = 0LL;
   v25 = 0LL;
@@ -71,7 +71,7 @@ __int64 __fastcall PpForEachDeviceInstanceDriver(unsigned __int16 *a1, __int64 a
       if ( DeviceRegProp >= 0 && v22 == 1 && HIDWORD(NumberOfBytes) )
         DeviceRegProp = CmOpenInstallerClassRegKey(
                           *(__int64 *)&PiPnpRtlCtx,
-                          (__int64)v28,
+                          v28,
                           v9,
                           v10,
                           131097,
@@ -86,7 +86,7 @@ __int64 __fastcall PpForEachDeviceInstanceDriver(unsigned __int16 *a1, __int64 a
       if ( PoolWithTag )
       {
         v11 = 0;
-        v12 = &qword_140007B60;
+        v12 = &qword_140007B70;
         while ( 1 )
         {
           v13 = *((_BYTE *)v12 + 16);
@@ -169,7 +169,7 @@ LABEL_16:
         v16 = v12[1];
         if ( *((_BYTE *)v12 + 16) )
         {
-          v17 = (__int16 *)v28;
+          v17 = v28;
           if ( !v16 )
           {
             InstallerClassRegProp = CmGetInstallerClassRegProp(
@@ -187,7 +187,7 @@ LABEL_16:
         }
         else
         {
-          v17 = v7;
+          v17 = (WCHAR *)v7;
           if ( !v16 )
           {
             InstallerClassRegProp = CmGetDeviceRegProp(

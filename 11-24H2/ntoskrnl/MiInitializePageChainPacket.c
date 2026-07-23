@@ -1,12 +1,12 @@
 /*
- * XREFs of MiInitializePageChainPacket @ 0x1402D0D10
+ * XREFs of MiInitializePageChainPacket @ 0x1402F4870
  * Callers:
- *     MiStealPage @ 0x1402263B0 (MiStealPage.c)
- *     MiInitializePoolPageChainPacket @ 0x1402D0A70 (MiInitializePoolPageChainPacket.c)
- *     MiGetHardFaultPages @ 0x1402D0AC8 (MiGetHardFaultPages.c)
- *     MiResolvePageFileFault @ 0x1402F783C (MiResolvePageFileFault.c)
- *     MiGetClusterPage @ 0x1404D2DE4 (MiGetClusterPage.c)
- *     MiPfPrepareSequentialReadList @ 0x140956378 (MiPfPrepareSequentialReadList.c)
+ *     MiStealPage @ 0x140253D10 (MiStealPage.c)
+ *     MiInitializePoolPageChainPacket @ 0x1402F45D8 (MiInitializePoolPageChainPacket.c)
+ *     MiGetHardFaultPages @ 0x1402F4630 (MiGetHardFaultPages.c)
+ *     MiResolvePageFileFault @ 0x14033FD3C (MiResolvePageFileFault.c)
+ *     MiGetClusterPage @ 0x1404CBFA4 (MiGetClusterPage.c)
+ *     MiPfPrepareSequentialReadList @ 0x140939D28 (MiPfPrepareSequentialReadList.c)
  * Callees:
  *     <none>
  */
@@ -63,7 +63,7 @@ __int64 __fastcall MiInitializePageChainPacket(
       IdealGlobalNode = CurrentPrcb->NodeColor;
     }
   }
-  v18 = qword_140E38C10 + 57216LL * IdealGlobalNode;
+  v18 = qword_140E38D50 + 57216LL * IdealGlobalNode;
   if ( (*(_DWORD *)(v18 + 15184) & 1) != 0 )
   {
     v22 = v18 + 15237;

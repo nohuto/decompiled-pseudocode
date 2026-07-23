@@ -1,18 +1,18 @@
 /*
- * XREFs of MiUpdatePageAttributeStamp @ 0x140334C78
+ * XREFs of MiUpdatePageAttributeStamp @ 0x140334F08
  * Callers:
  *     MiCopyHeaderIfResident @ 0x14020ECB0 (MiCopyHeaderIfResident.c)
  * Callees:
- *     MiAcquirePageListLock @ 0x1402673A0 (MiAcquirePageListLock.c)
- *     MiSearchNumaNodeTable @ 0x14026EAD0 (MiSearchNumaNodeTable.c)
- *     MiDetermineModifiedPageListHead @ 0x1402D91F0 (MiDetermineModifiedPageListHead.c)
- *     MiReleasePageListLock @ 0x1402DDAD0 (MiReleasePageListLock.c)
- *     MiGetPfnPriority @ 0x1402DF258 (MiGetPfnPriority.c)
- *     MiSetPfnTbFlushStamp @ 0x1402E1630 (MiSetPfnTbFlushStamp.c)
- *     MiCheckSlabPfnBitmap @ 0x140324730 (MiCheckSlabPfnBitmap.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     MiGetSlabAllocatorStandbyList @ 0x140656C58 (MiGetSlabAllocatorStandbyList.c)
+ *     MiAcquirePageListLock @ 0x140267630 (MiAcquirePageListLock.c)
+ *     MiSearchNumaNodeTable @ 0x14026ED60 (MiSearchNumaNodeTable.c)
+ *     MiDetermineModifiedPageListHead @ 0x1402D9480 (MiDetermineModifiedPageListHead.c)
+ *     MiReleasePageListLock @ 0x1402DDD60 (MiReleasePageListLock.c)
+ *     MiGetPfnPriority @ 0x1402DF4E8 (MiGetPfnPriority.c)
+ *     MiSetPfnTbFlushStamp @ 0x1402E18C0 (MiSetPfnTbFlushStamp.c)
+ *     MiCheckSlabPfnBitmap @ 0x1403249C0 (MiCheckSlabPfnBitmap.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     MiGetSlabAllocatorStandbyList @ 0x1406571A8 (MiGetSlabAllocatorStandbyList.c)
  */
 
 void __fastcall MiUpdatePageAttributeStamp(__int64 a1)

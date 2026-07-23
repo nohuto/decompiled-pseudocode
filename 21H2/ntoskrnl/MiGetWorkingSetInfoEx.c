@@ -1,17 +1,17 @@
 /*
- * XREFs of MiGetWorkingSetInfoEx @ 0x140546DE0
+ * XREFs of MiGetWorkingSetInfoEx @ 0x140547020
  * Callers:
- *     MiGetWorkingSetInfo @ 0x140546C38 (MiGetWorkingSetInfo.c)
- *     MmLogSystemShareablePfnInfo @ 0x1408D17F0 (MmLogSystemShareablePfnInfo.c)
- *     EtwpEnumerateWorkingSet @ 0x14093DA2C (EtwpEnumerateWorkingSet.c)
+ *     MiGetWorkingSetInfo @ 0x140546E78 (MiGetWorkingSetInfo.c)
+ *     MmLogSystemShareablePfnInfo @ 0x1408D1950 (MmLogSystemShareablePfnInfo.c)
+ *     EtwpEnumerateWorkingSet @ 0x14093DBFC (EtwpEnumerateWorkingSet.c)
  * Callees:
- *     KiUnstackDetachProcess @ 0x140207000 (KiUnstackDetachProcess.c)
- *     MiWalkPageTables @ 0x1402092C0 (MiWalkPageTables.c)
- *     MiUnlockWorkingSetShared @ 0x14020F790 (MiUnlockWorkingSetShared.c)
- *     MiLockWorkingSetShared @ 0x140219CB0 (MiLockWorkingSetShared.c)
- *     KiStackAttachProcess @ 0x14025C2E0 (KiStackAttachProcess.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
+ *     KiStackAttachProcess @ 0x14027D850 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x1402AB900 (KiUnstackDetachProcess.c)
+ *     MiWalkPageTables @ 0x1402ADBC0 (MiWalkPageTables.c)
+ *     MiUnlockWorkingSetShared @ 0x1402B4090 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x1402BE5B0 (MiLockWorkingSetShared.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
  */
 
 __int64 __fastcall MiGetWorkingSetInfoEx(__int64 a1, int a2, unsigned __int64 *a3, unsigned __int64 a4)
@@ -62,7 +62,7 @@ __int64 __fastcall MiGetWorkingSetInfoEx(__int64 a1, int a2, unsigned __int64 *a
     }
     if ( KeGetCurrentThread()->ApcState.Process != (_KPROCESS *)v12 )
     {
-      KiStackAttachProcess((_KPROCESS *)(a1 - 1664), 0LL, (__int64)v25, v10);
+      KiStackAttachProcess((_KPROCESS *)(a1 - 1664), 0, (__int64)v25);
       v13 = 1;
     }
   }
@@ -133,6 +133,6 @@ LABEL_31:
 LABEL_33:
   MiUnlockWorkingSetShared(a1, BYTE6(v24[0]));
   if ( v13 == 1 )
-    KiUnstackDetachProcess((__int64)v25, 0);
+    KiUnstackDetachProcess((__int64)v25, 0LL);
   return v11;
 }

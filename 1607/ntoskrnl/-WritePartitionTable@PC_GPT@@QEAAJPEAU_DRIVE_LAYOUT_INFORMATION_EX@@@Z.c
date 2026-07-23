@@ -1,18 +1,18 @@
 /*
- * XREFs of ?WritePartitionTable@PC_GPT@@QEAAJPEAU_DRIVE_LAYOUT_INFORMATION_EX@@@Z @ 0x14023C894
+ * XREFs of ?WritePartitionTable@PC_GPT@@QEAAJPEAU_DRIVE_LAYOUT_INFORMATION_EX@@@Z @ 0x14023C778
  * Callers:
- *     PcWritePartitionTable @ 0x14023B81C (PcWritePartitionTable.c)
- *     ?CreatePartitionTable@PC_GPT@@QEAAJPEAU_CREATE_DISK@@@Z @ 0x14023BFB0 (-CreatePartitionTable@PC_GPT@@QEAAJPEAU_CREATE_DISK@@@Z.c)
- *     ?ReadPartitionTable@PC_GPT@@QEAAJPEAPEAU_DRIVE_LAYOUT_INFORMATION_EX@@@Z @ 0x14023C2C0 (-ReadPartitionTable@PC_GPT@@QEAAJPEAPEAU_DRIVE_LAYOUT_INFORMATION_EX@@@Z.c)
- *     ?SetPartition@PC_GPT@@QEAAJKPEAU_SET_PARTITION_INFORMATION_EX@@@Z @ 0x14023C52C (-SetPartition@PC_GPT@@QEAAJKPEAU_SET_PARTITION_INFORMATION_EX@@@Z.c)
+ *     PcWritePartitionTable @ 0x14023B700 (PcWritePartitionTable.c)
+ *     ?CreatePartitionTable@PC_GPT@@QEAAJPEAU_CREATE_DISK@@@Z @ 0x14023BE94 (-CreatePartitionTable@PC_GPT@@QEAAJPEAU_CREATE_DISK@@@Z.c)
+ *     ?ReadPartitionTable@PC_GPT@@QEAAJPEAPEAU_DRIVE_LAYOUT_INFORMATION_EX@@@Z @ 0x14023C1A4 (-ReadPartitionTable@PC_GPT@@QEAAJPEAPEAU_DRIVE_LAYOUT_INFORMATION_EX@@@Z.c)
+ *     ?SetPartition@PC_GPT@@QEAAJKPEAU_SET_PARTITION_INFORMATION_EX@@@Z @ 0x14023C410 (-SetPartition@PC_GPT@@QEAAJKPEAU_SET_PARTITION_INFORMATION_EX@@@Z.c)
  * Callees:
- *     RtlComputeCrc32 @ 0x14010FFAC (RtlComputeCrc32.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     ?ReadHeader@PC_GPT@@AEAAJKPEAVGPT_HEADER@@@Z @ 0x14023C208 (-ReadHeader@PC_GPT@@AEAAJKPEAVGPT_HEADER@@@Z.c)
- *     ?WriteSectors@PC_DISK@@QEAAJK_KPEAX@Z @ 0x14023CCBC (-WriteSectors@PC_DISK@@QEAAJK_KPEAX@Z.c)
- *     PspQueueApcSpecialApc @ 0x1403E5244 (PspQueueApcSpecialApc.c)
- *     ?AllocatePool@PC_ENVIRONMENT@@SAPEAXKEK@Z @ 0x140574E38 (-AllocatePool@PC_ENVIRONMENT@@SAPEAXKEK@Z.c)
- *     ?CreateGuid@PC_ENVIRONMENT@@SAJPEAU_GUID@@@Z @ 0x14061FE90 (-CreateGuid@PC_ENVIRONMENT@@SAJPEAU_GUID@@@Z.c)
+ *     RtlComputeCrc32 @ 0x140110510 (RtlComputeCrc32.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     ?ReadHeader@PC_GPT@@AEAAJKPEAVGPT_HEADER@@@Z @ 0x14023C0EC (-ReadHeader@PC_GPT@@AEAAJKPEAVGPT_HEADER@@@Z.c)
+ *     ?WriteSectors@PC_DISK@@QEAAJK_KPEAX@Z @ 0x14023CBA0 (-WriteSectors@PC_DISK@@QEAAJK_KPEAX@Z.c)
+ *     PspQueueApcSpecialApc @ 0x1403E6870 (PspQueueApcSpecialApc.c)
+ *     ?AllocatePool@PC_ENVIRONMENT@@SAPEAXKEK@Z @ 0x140575378 (-AllocatePool@PC_ENVIRONMENT@@SAPEAXKEK@Z.c)
+ *     ?CreateGuid@PC_ENVIRONMENT@@SAJPEAU_GUID@@@Z @ 0x14061FF44 (-CreateGuid@PC_ENVIRONMENT@@SAJPEAU_GUID@@@Z.c)
  */
 
 __int64 __fastcall PC_GPT::WritePartitionTable(PC_DISK **this, struct _DRIVE_LAYOUT_INFORMATION_EX *a2)
@@ -95,7 +95,7 @@ __int64 __fastcall PC_GPT::WritePartitionTable(PC_DISK **this, struct _DRIVE_LAY
         while ( 1 )
         {
           v22 = v14;
-          if ( *(_QWORD *)&a2->PartitionEntry[v14].Mbr != v20
+          if ( *(_QWORD *)&a2->PartitionEntry[v14].Mbr.PartitionType != v20
             || *(_QWORD *)a2->PartitionEntry[v14].Gpt.PartitionType.Data4 != v15 )
           {
             v23 = (UUID *)((char *)a2 + 144 * v14);
@@ -136,7 +136,7 @@ __int64 __fastcall PC_GPT::WritePartitionTable(PC_DISK **this, struct _DRIVE_LAY
           }
         }
       }
-      if ( *(_QWORD *)&a2->Mbr.Signature == v20 && *(_QWORD *)a2->Gpt.DiskId.Data4 == v15 )
+      if ( *(_QWORD *)&a2->Mbr == v20 && *(_QWORD *)a2->Gpt.DiskId.Data4 == v15 )
         PC_ENVIRONMENT::CreateGuid(&a2->Gpt.DiskId);
       *((_DWORD *)v13 + 2) = 0x10000;
       *(_QWORD *)v13 = 0x5452415020494645LL;

@@ -1,108 +1,110 @@
 /*
- * XREFs of RtlpRemoveUserSubFromNameSub @ 0x180099388
+ * XREFs of RtlpRemoveUserSubFromNameSub @ 0x18002E1D8
  * Callers:
- *     RtlUnsubscribeWnfStateChangeNotification @ 0x180099EA0 (RtlUnsubscribeWnfStateChangeNotification.c)
+ *     RtlUnsubscribeWnfStateChangeNotification @ 0x18002ECF0 (RtlUnsubscribeWnfStateChangeNotification.c)
  * Callees:
- *     RtlGetCurrentServiceSessionId @ 0x180055A20 (RtlGetCurrentServiceSessionId.c)
- *     RtlAcquireSRWLockExclusive @ 0x180055AE0 (RtlAcquireSRWLockExclusive.c)
- *     RtlReleaseSRWLockExclusive @ 0x1800567B0 (RtlReleaseSRWLockExclusive.c)
- *     RtlpDereferenceWnfUserSubscription @ 0x180099550 (RtlpDereferenceWnfUserSubscription.c)
- *     RtlpDereferenceWnfNameSubscription @ 0x1800996E0 (RtlpDereferenceWnfNameSubscription.c)
- *     RtlpWnfETWEventUnsubscribe @ 0x18009989C (RtlpWnfETWEventUnsubscribe.c)
- *     NtSubscribeWnfStateChange @ 0x180165620 (NtSubscribeWnfStateChange.c)
- *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180172020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ *     RtlpDereferenceWnfUserSubscription @ 0x18002E3A0 (RtlpDereferenceWnfUserSubscription.c)
+ *     RtlpDereferenceWnfNameSubscription @ 0x18002E530 (RtlpDereferenceWnfNameSubscription.c)
+ *     RtlpWnfETWEventUnsubscribe @ 0x18002E6EC (RtlpWnfETWEventUnsubscribe.c)
+ *     RtlGetCurrentServiceSessionId @ 0x18006B600 (RtlGetCurrentServiceSessionId.c)
+ *     RtlAcquireSRWLockExclusive @ 0x18006B6C0 (RtlAcquireSRWLockExclusive.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18006C390 (RtlReleaseSRWLockExclusive.c)
+ *     NtSubscribeWnfStateChange @ 0x1801639E0 (NtSubscribeWnfStateChange.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180171020 (_guard_dispatch_icall$thunk$10345483385596137414.c)
  */
 
-__int64 __fastcall RtlpRemoveUserSubFromNameSub(__int64 a1, __int64 a2, _DWORD *a3)
+__int64 __fastcall RtlpRemoveUserSubFromNameSub(char *BaseAddress, _QWORD *a2, _DWORD *a3)
 {
-  volatile signed __int32 *v5; // rcx
-  volatile signed __int32 **v7; // rdx
-  unsigned __int64 v8; // r8
-  __int64 v9; // rcx
-  _DWORD *v10; // rcx
-  unsigned int v11; // edx
-  int v12; // eax
-  __int64 v13; // r8
-  _DWORD *v14; // rdx
+  _RTL_SRWLOCK *v5; // rcx
+  __int64 v7; // rcx
+  _DWORD *v8; // rcx
+  unsigned int v9; // edx
+  int v10; // eax
+  ULONG v11; // r8d
+  _DWORD *v12; // rdx
   unsigned int i; // ecx
-  unsigned int v16; // edi
-  int v17; // eax
-  __int64 v19; // [rsp+50h] [rbp+8h] BYREF
-  void (__fastcall *v20)(__int64); // [rsp+58h] [rbp+10h] BYREF
-  __int64 v21; // [rsp+60h] [rbp+18h] BYREF
+  unsigned __int32 v14; // edi
+  NTSTATUS v15; // eax
+  unsigned __int64 SubscriptionId; // [rsp+50h] [rbp+8h] BYREF
+  void (__fastcall *v18)(__int64); // [rsp+58h] [rbp+10h]
+  __int64 v19; // [rsp+60h] [rbp+18h]
 
+  SubscriptionId = 0LL;
+  v18 = 0LL;
+  v5 = (_RTL_SRWLOCK *)(qword_1801CD200 + 8);
   v19 = 0LL;
-  v20 = 0LL;
-  v5 = (volatile signed __int32 *)(qword_1801CE200 + 8);
-  v21 = 0LL;
   *a3 = 0;
-  RtlAcquireSRWLockExclusive(v5, (volatile signed __int32 **)a2, (unsigned __int64)a3);
-  RtlAcquireSRWLockExclusive((volatile signed __int32 *)(a1 + 64), v7, v8);
-  if ( *(_DWORD *)(a2 + 76) )
+  RtlAcquireSRWLockExclusive(v5);
+  RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)BaseAddress + 8);
+  if ( *((_DWORD *)a2 + 19) )
   {
-    RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a1 + 64));
-    RtlReleaseSRWLockExclusive((volatile signed __int64 *)(qword_1801CE200 + 8));
+    RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)BaseAddress + 8);
+    RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(qword_1801CD200 + 8));
     return 3221225473LL;
   }
   else
   {
-    if ( (unsigned int)RtlGetCurrentServiceSessionId() )
-      v9 = (__int64)NtCurrentPeb()->SharedData + 564;
+    if ( RtlGetCurrentServiceSessionId() )
+      v7 = (__int64)NtCurrentPeb()->SharedData + 564;
     else
-      v9 = 2147353486LL;
-    if ( *(_BYTE *)v9 )
+      v7 = 2147353486LL;
+    if ( *(_BYTE *)v7 )
       RtlpWnfETWEventUnsubscribe(
-        *(_QWORD *)(a1 + 16),
-        a2,
-        a1,
-        *(_DWORD *)(a1 + 88),
-        *(_QWORD *)(a2 + 40),
-        *(_DWORD *)(a2 + 72));
-    v10 = (_DWORD *)(a1 + 104);
-    v11 = 0;
-    *(_DWORD *)(a2 + 76) = 1;
+        *((_QWORD *)BaseAddress + 2),
+        (_DWORD)a2,
+        (_DWORD)BaseAddress,
+        *((_DWORD *)BaseAddress + 22),
+        a2[5],
+        *((_DWORD *)a2 + 18));
+    v8 = BaseAddress + 104;
+    v9 = 0;
+    *((_DWORD *)a2 + 19) = 1;
     *a3 = 1;
     do
     {
-      v12 = *(_DWORD *)(a2 + 72);
-      if ( _bittest(&v12, v11) )
-        --*v10;
-      ++v11;
-      ++v10;
+      v10 = *((_DWORD *)a2 + 18);
+      if ( _bittest(&v10, v9) )
+        --*v8;
+      ++v9;
+      ++v8;
     }
-    while ( v11 < 5 );
-    v13 = 0LL;
-    v14 = (_DWORD *)(a1 + 104);
+    while ( v9 < 5 );
+    v11 = 0;
+    v12 = BaseAddress + 104;
     for ( i = 0; i < 5; ++i )
     {
-      if ( *v14 )
-        v13 = (1 << i) | (unsigned int)v13;
-      ++v14;
+      if ( *v12 )
+        v11 |= 1 << i;
+      ++v12;
     }
-    --*(_DWORD *)(a1 + 96);
-    if ( (*(_BYTE *)(a2 + 68) & 4) != 0 )
-      --*(_DWORD *)(a1 + 100);
-    v16 = 0;
-    if ( *(_QWORD *)(a1 + 8) )
+    --*((_DWORD *)BaseAddress + 24);
+    if ( (*((_BYTE *)a2 + 68) & 4) != 0 )
+      --*((_DWORD *)BaseAddress + 25);
+    v14 = 0;
+    if ( *((_QWORD *)BaseAddress + 1) )
     {
-      v17 = NtSubscribeWnfStateChange(a1 + 16, *(unsigned int *)(a1 + 24), v13, &v19);
-      v16 = v17;
-      if ( v17 < 0 )
+      v15 = NtSubscribeWnfStateChange(
+              (PCWNF_STATE_NAME)BaseAddress + 2,
+              *((_DWORD *)BaseAddress + 6),
+              v11,
+              &SubscriptionId);
+      v14 = v15;
+      if ( v15 < 0 )
       {
-        if ( v17 == -1073741431 || v17 == -1073741772 )
-          v16 = 0;
+        if ( v15 == -1073741431 || v15 == -1073741772 )
+          v14 = 0;
       }
       else
       {
-        *(_QWORD *)(a1 + 8) = v19;
+        *((_QWORD *)BaseAddress + 1) = SubscriptionId;
       }
     }
-    RtlpDereferenceWnfUserSubscription(a2, &v20, &v21);
-    RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a1 + 64));
-    RtlReleaseSRWLockExclusive((volatile signed __int64 *)(qword_1801CE200 + 8));
-    if ( v20 )
-      v20(v21);
-    RtlpDereferenceWnfNameSubscription(a1);
-    return v16;
+    RtlpDereferenceWnfUserSubscription(a2);
+    RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)BaseAddress + 8);
+    RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(qword_1801CD200 + 8));
+    if ( v18 )
+      v18(v19);
+    RtlpDereferenceWnfNameSubscription(BaseAddress);
+    return v14;
   }
 }

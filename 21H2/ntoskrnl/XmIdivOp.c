@@ -1,10 +1,10 @@
 /*
- * XREFs of XmIdivOp @ 0x1404E6EC0
+ * XREFs of XmIdivOp @ 0x1404E7100
  * Callers:
- *     XmEmulateStream @ 0x140397208 (XmEmulateStream.c)
+ *     XmEmulateStream @ 0x140397358 (XmEmulateStream.c)
  * Callees:
- *     XmStoreResult @ 0x140396DC0 (XmStoreResult.c)
- *     longjmp @ 0x1403D0670 (longjmp.c)
+ *     XmStoreResult @ 0x140396F10 (XmStoreResult.c)
+ *     longjmp @ 0x1403D07E0 (longjmp.c)
  */
 
 _WORD *__fastcall XmIdivOp(__int64 a1)

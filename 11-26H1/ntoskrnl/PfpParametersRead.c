@@ -1,11 +1,11 @@
 /*
- * XREFs of PfpParametersRead @ 0x1407C7B10
+ * XREFs of PfpParametersRead @ 0x1407CAB70
  * Callers:
- *     PfpParametersWatcher @ 0x1407C7CE0 (PfpParametersWatcher.c)
- *     PfpParametersInitialize @ 0x140CCE460 (PfpParametersInitialize.c)
+ *     PfpParametersWatcher @ 0x1407CAD40 (PfpParametersWatcher.c)
+ *     PfpParametersInitialize @ 0x140CD45C0 (PfpParametersInitialize.c)
  * Callees:
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     PfpGetParameter @ 0x1407C7A20 (PfpGetParameter.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     PfpGetParameter @ 0x1407CAA80 (PfpGetParameter.c)
  */
 
 __int64 __fastcall PfpParametersRead(__int64 a1)
@@ -34,7 +34,7 @@ __int64 __fastcall PfpParametersRead(__int64 a1)
   LODWORD(v14) = 4;
   v15 = v1;
   v5 = 0;
-  if ( PfpGetParameter(v2, L"EnableSuperfetch", 4, &v15, (unsigned int *)&v14) < 0 || (_DWORD)InitSafeBootMode )
+  if ( PfpGetParameter(v2, L"EnableSuperfetch", 4, &v15, (unsigned int *)&v14) < 0 || InitSafeBootMode )
     LODWORD(v15) = 0x80000000;
   LODWORD(v14) = 4;
   PfpGetParameter(v2, L"SavedSectInfoTracesMax", 4, (char *)&v15 + 8, (unsigned int *)&v14);

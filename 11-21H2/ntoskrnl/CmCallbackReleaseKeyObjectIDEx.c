@@ -3,10 +3,10 @@
  * Callers:
  *     <none>
  * Callees:
- *     CmpFreeTransientPoolWithTag @ 0x140346D64 (CmpFreeTransientPoolWithTag.c)
+ *     sub_140346D64 @ 0x140346D64 (sub_140346D64.c)
  */
 
 void __fastcall CmCallbackReleaseKeyObjectIDEx(void *a1)
 {
-  CmpFreeTransientPoolWithTag(a1, 0x624E4D43u);
+  sub_140346D64(a1, 0x624E4D43u);
 }

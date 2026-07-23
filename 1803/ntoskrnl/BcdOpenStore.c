@@ -12,33 +12,33 @@
  *     BiLogMessage @ 0x140609614 (BiLogMessage.c)
  */
 
-__int64 __fastcall BcdOpenStore(__int64 a1, unsigned int a2, __int64 a3)
+NTSTATUS __cdecl BcdOpenStore(UNICODE_STRING *BcdFilePath, BCD_OPEN_FLAGS BcdOpenFlags, PHANDLE BcdStoreHandle)
 {
   char v3; // di
-  int v6; // ebx
+  __int32 v6; // ebx
   int v7; // eax
   __int64 v8; // rcx
   int v9; // eax
-  unsigned int v10; // ebx
-  unsigned int v12; // r10d
+  NTSTATUS v10; // ebx
+  NTSTATUS v12; // r10d
 
-  v3 = a2 & 1;
-  LOBYTE(a1) = a2 & 1;
-  v6 = a2 & 2;
-  v7 = BiAcquireBcdSyncMutant(a1);
+  v3 = BcdOpenFlags & 1;
+  LOBYTE(BcdFilePath) = BcdOpenFlags & 1;
+  v6 = BcdOpenFlags & 2;
+  v7 = BiAcquireBcdSyncMutant(BcdFilePath);
   if ( v7 < 0 )
   {
     BiLogMessage(
       4LL,
       L"BcdOpenStore: Failed to acquire BCD sync Mutant. Store: %wsFlags: 0x%x Status: %x",
       L"NULL",
-      a2,
+      (unsigned int)BcdOpenFlags,
       v7);
     return v12;
   }
   else
   {
-    BiLogMessage(2LL, L"Opening store. Flags: 0x%x", a2);
+    BiLogMessage(2LL, L"Opening store. Flags: 0x%x", (unsigned int)BcdOpenFlags);
     if ( v3 )
     {
       v10 = -1073741811;
@@ -47,7 +47,7 @@ __int64 __fastcall BcdOpenStore(__int64 a1, unsigned int a2, __int64 a3)
     {
       if ( v6 )
         BiLogMessage(v8, L"Store will be synchronized with firmware.");
-      v9 = BiOpenSystemStore(a3, v6 == 0 ? 2 : 0);
+      v9 = BiOpenSystemStore(BcdStoreHandle, v6 == 0 ? 2 : 0);
       v10 = v9;
       if ( v9 < 0 )
         BiLogMessage(4LL, L"Failed to open system store. Status: %x", (unsigned int)v9);

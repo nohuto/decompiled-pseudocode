@@ -13,9 +13,13 @@
  *     <none>
  */
 
-__int64 __fastcall ZwPlugPlayControl(__int64 a1, __int64 a2)
+// local variable allocation has failed, the output may be wrong!
+NTSTATUS __cdecl ZwPlugPlayControl(
+        PLUGPLAY_CONTROL_CLASS PnPControlClass,
+        PVOID PnPControlData,
+        ULONG PnPControlDataLength)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(*(_QWORD *)&PnPControlClass);
 }

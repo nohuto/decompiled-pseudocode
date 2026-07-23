@@ -1,15 +1,15 @@
 /*
- * XREFs of ResFwpPageOutBackground @ 0x140C50FE4
+ * XREFs of ResFwpPageOutBackground @ 0x140C56FE4
  * Callers:
- *     ResFwFreeContext @ 0x140C528B8 (ResFwFreeContext.c)
- *     ResFwBackgroundTransition @ 0x140C54F20 (ResFwBackgroundTransition.c)
+ *     ResFwFreeContext @ 0x140C588B8 (ResFwFreeContext.c)
+ *     ResFwBackgroundTransition @ 0x140C5AF20 (ResFwBackgroundTransition.c)
  * Callees:
- *     BgpFwFreeMemory @ 0x140355E00 (BgpFwFreeMemory.c)
- *     BgpFwAcquireLock @ 0x1404E7E04 (BgpFwAcquireLock.c)
- *     BgpFwReleaseLock @ 0x1404E81BC (BgpFwReleaseLock.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     BgpFwFreeMemory @ 0x140357BA8 (BgpFwFreeMemory.c)
+ *     BgpFwAcquireLock @ 0x1404E11C4 (BgpFwAcquireLock.c)
+ *     BgpFwReleaseLock @ 0x1404E157C (BgpFwReleaseLock.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void ResFwpPageOutBackground()

@@ -1,14 +1,14 @@
 /*
- * XREFs of MiReuseStandbyPage @ 0x140651CBC
+ * XREFs of MiReuseStandbyPage @ 0x14065220C
  * Callers:
- *     MiTradePage @ 0x1403BA960 (MiTradePage.c)
- *     MiSwapNumaStandbyPage @ 0x140651DD0 (MiSwapNumaStandbyPage.c)
- *     MiHandleSpecialPurposeMemoryCachedFault @ 0x140660408 (MiHandleSpecialPurposeMemoryCachedFault.c)
- *     MiLockSpecialPurposeMemoryCachedPage @ 0x140660858 (MiLockSpecialPurposeMemoryCachedPage.c)
+ *     MiTradePage @ 0x1403BAB40 (MiTradePage.c)
+ *     MiSwapNumaStandbyPage @ 0x140652320 (MiSwapNumaStandbyPage.c)
+ *     MiHandleSpecialPurposeMemoryCachedFault @ 0x140660958 (MiHandleSpecialPurposeMemoryCachedFault.c)
+ *     MiLockSpecialPurposeMemoryCachedPage @ 0x140660DA8 (MiLockSpecialPurposeMemoryCachedPage.c)
  * Callees:
- *     MiUnlinkPageFromListEx @ 0x140266630 (MiUnlinkPageFromListEx.c)
- *     MiSetOriginalPtePfnFromFreeList @ 0x1402859D4 (MiSetOriginalPtePfnFromFreeList.c)
- *     MiRestoreTransitionPte @ 0x1403351BC (MiRestoreTransitionPte.c)
+ *     MiUnlinkPageFromListEx @ 0x1402668C0 (MiUnlinkPageFromListEx.c)
+ *     MiSetOriginalPtePfnFromFreeList @ 0x140285C64 (MiSetOriginalPtePfnFromFreeList.c)
+ *     MiRestoreTransitionPte @ 0x14033544C (MiRestoreTransitionPte.c)
  */
 
 _BOOL8 __fastcall MiReuseStandbyPage(ULONG_PTR BugCheckParameter2)

@@ -12,7 +12,7 @@
 __int64 __fastcall RtlpMuiRegGetInstalledLanguageInfoByIndex(
         __int64 a1,
         __int16 a2,
-        unsigned int *a3,
+        LCID *a3,
         _WORD *a4,
         unsigned int a5,
         _DWORD *a6)
@@ -21,12 +21,11 @@ __int64 __fastcall RtlpMuiRegGetInstalledLanguageInfoByIndex(
   __int64 v8; // r9
   __int64 v9; // rdx
   __int64 v10; // rdx
-  unsigned int v12; // ecx
-  _DWORD v13[2]; // [rsp+20h] [rbp-E8h] BYREF
-  char *v14; // [rsp+28h] [rbp-E0h]
-  char v15; // [rsp+30h] [rbp-D8h] BYREF
+  LCID v12; // ecx
+  _UNICODE_STRING String; // [rsp+20h] [rbp-E8h] BYREF
+  char v14; // [rsp+30h] [rbp-D8h] BYREF
 
-  v13[1] = 0;
+  *(_DWORD *)(&String.MaximumLength + 1) = 0;
   if ( !a1 || !a3 || !a4 || !a5 || !a6 )
     return 3221225485LL;
   v7 = *(_QWORD *)(a1 + 24);
@@ -42,10 +41,10 @@ __int64 __fastcall RtlpMuiRegGetInstalledLanguageInfoByIndex(
   if ( (__int16)v10 > 0 )
     return RtlpMuiRegGetString(a1, v10, a4, a5);
   v12 = *a3;
-  v14 = &v15;
-  v13[0] = 11141120;
-  if ( (unsigned __int8)RtlLCIDToCultureName(v12, (__int64)v13) )
-    return RtlStringCchCopyW(a4, a5, (__int64)v14);
+  String.Buffer = (wchar_t *)&v14;
+  *(_DWORD *)&String.Length = 11141120;
+  if ( RtlLCIDToCultureName(v12, &String) )
+    return RtlStringCchCopyW(a4, a5, (__int64)String.Buffer);
   else
     return 3221226021LL;
 }

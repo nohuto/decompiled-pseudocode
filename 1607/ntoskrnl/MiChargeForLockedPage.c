@@ -1,15 +1,15 @@
 /*
- * XREFs of MiChargeForLockedPage @ 0x140103380
+ * XREFs of MiChargeForLockedPage @ 0x140101100
  * Callers:
- *     MiObtainProtoReference @ 0x140023658 (MiObtainProtoReference.c)
- *     MiFinishHardFault @ 0x14004D6A0 (MiFinishHardFault.c)
- *     MiAddLockedPageCharge @ 0x14004F188 (MiAddLockedPageCharge.c)
+ *     MiObtainProtoReference @ 0x1400231D8 (MiObtainProtoReference.c)
+ *     MiFinishHardFault @ 0x14004D220 (MiFinishHardFault.c)
+ *     MiAddLockedPageCharge @ 0x14004ED08 (MiAddLockedPageCharge.c)
  * Callees:
- *     MiChargeCommit @ 0x14002B650 (MiChargeCommit.c)
- *     MiReturnCommit @ 0x14004E500 (MiReturnCommit.c)
- *     MiIsPfnCommitNotCharged @ 0x14004F140 (MiIsPfnCommitNotCharged.c)
- *     MiPartitionIdToPointer @ 0x1400680A0 (MiPartitionIdToPointer.c)
- *     MiChargeResident @ 0x140103450 (MiChargeResident.c)
+ *     MiChargeCommit @ 0x14002B1D0 (MiChargeCommit.c)
+ *     MiReturnCommit @ 0x14004E080 (MiReturnCommit.c)
+ *     MiIsPfnCommitNotCharged @ 0x14004ECC0 (MiIsPfnCommitNotCharged.c)
+ *     MiPartitionIdToPointer @ 0x140067C20 (MiPartitionIdToPointer.c)
+ *     MiChargeResident @ 0x1401011D0 (MiChargeResident.c)
  */
 
 __int64 __fastcall MiChargeForLockedPage(__int64 a1, char a2)

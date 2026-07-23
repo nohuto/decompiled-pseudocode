@@ -1,17 +1,17 @@
 /*
- * XREFs of PnpProcessWatchdogWorkItem @ 0x140289B8C
+ * XREFs of PnpProcessWatchdogWorkItem @ 0x140289D7C
  * Callers:
- *     PnpDelayedRemoveWorkerWatchdogWorkItem @ 0x140289A30 (PnpDelayedRemoveWorkerWatchdogWorkItem.c)
- *     PnpDeviceCompletionQueueWatchdogWorkItem @ 0x140289A70 (PnpDeviceCompletionQueueWatchdogWorkItem.c)
- *     PnpEventWorkerWatchdogWorkItem @ 0x140289B50 (PnpEventWorkerWatchdogWorkItem.c)
+ *     PnpDelayedRemoveWorkerWatchdogWorkItem @ 0x140289C20 (PnpDelayedRemoveWorkerWatchdogWorkItem.c)
+ *     PnpDeviceCompletionQueueWatchdogWorkItem @ 0x140289C60 (PnpDeviceCompletionQueueWatchdogWorkItem.c)
+ *     PnpEventWorkerWatchdogWorkItem @ 0x140289D40 (PnpEventWorkerWatchdogWorkItem.c)
  * Callees:
  *     PnpRecordBlackbox @ 0x140005BB0 (PnpRecordBlackbox.c)
  *     PnpWatchdogInitializeTimer @ 0x140005C9C (PnpWatchdogInitializeTimer.c)
  *     PnpQueryWatchdogTimeout @ 0x140005D00 (PnpQueryWatchdogTimeout.c)
  *     KiSetTimerEx @ 0x14001D380 (KiSetTimerEx.c)
- *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
- *     PnpQueryWatchdogBugcheckEnabled @ 0x140289C54 (PnpQueryWatchdogBugcheckEnabled.c)
- *     PnpWatchdogBugcheck @ 0x140289D30 (PnpWatchdogBugcheck.c)
+ *     KeSetEvent @ 0x1400C2A40 (KeSetEvent.c)
+ *     PnpQueryWatchdogBugcheckEnabled @ 0x140289E44 (PnpQueryWatchdogBugcheckEnabled.c)
+ *     PnpWatchdogBugcheck @ 0x140289F20 (PnpWatchdogBugcheck.c)
  */
 
 LONG __fastcall PnpProcessWatchdogWorkItem(__int64 a1, __int64 a2)

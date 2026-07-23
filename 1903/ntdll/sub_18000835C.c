@@ -11,13 +11,13 @@
  *     RtlTryAcquireSRWLockShared @ 0x180078D70 (RtlTryAcquireSRWLockShared.c)
  */
 
-__int64 __fastcall sub_18000835C(unsigned __int64 a1)
+__int64 __fastcall sub_18000835C(_RTL_SRWLOCK *a1)
 {
   char v2; // si
   unsigned __int64 v3; // rbp
-  unsigned __int64 j; // rbx
+  unsigned __int64 Ptr; // rbx
   unsigned __int64 v5; // rax
-  __int64 i; // rbx
+  unsigned __int64 i; // rbx
   _QWORD *v7; // rcx
   _QWORD **v9; // rax
   unsigned __int64 v10; // rcx
@@ -25,19 +25,19 @@ __int64 __fastcall sub_18000835C(unsigned __int64 a1)
 
   v2 = 0;
   v3 = 0LL;
-  RtlAcquireSRWLockExclusive(&unk_180166440);
+  RtlAcquireSRWLockExclusive(&stru_180166440);
   if ( a1 )
   {
-    j = *(_QWORD *)(a1 + 8);
-    v5 = a1;
-    if ( j )
+    Ptr = (unsigned __int64)a1[1].Ptr;
+    v5 = (unsigned __int64)a1;
+    if ( Ptr )
     {
-      v7 = *(_QWORD **)j;
-      if ( *(_QWORD *)j )
+      v7 = *(_QWORD **)Ptr;
+      if ( *(_QWORD *)Ptr )
       {
         do
         {
-          j = (unsigned __int64)v7;
+          Ptr = (unsigned __int64)v7;
           v7 = (_QWORD *)*v7;
         }
         while ( v7 );
@@ -45,55 +45,55 @@ __int64 __fastcall sub_18000835C(unsigned __int64 a1)
     }
     else
     {
-      for ( i = *(_QWORD *)(a1 + 16); ; i = *(_QWORD *)(j + 16) )
+      for ( i = (unsigned __int64)a1[2].Ptr; ; i = *(_QWORD *)(Ptr + 16) )
       {
-        j = i & 0xFFFFFFFFFFFFFFFCuLL;
-        if ( !j || *(_QWORD *)j == v5 )
+        Ptr = i & 0xFFFFFFFFFFFFFFFCuLL;
+        if ( !Ptr || *(_QWORD *)Ptr == v5 )
           break;
-        v5 = j;
+        v5 = Ptr;
       }
     }
   }
-  else if ( (qword_180166438 & 1) != 0 )
+  else if ( ((__int64)Tree.Min & 1) != 0 )
   {
-    if ( qword_180166438 == 1 )
-      j = 0LL;
+    if ( Tree.Min == (PRTL_BALANCED_NODE)1 )
+      Ptr = 0LL;
     else
-      j = qword_180166438 ^ ((unsigned __int64)&qword_180166430 + 1);
+      Ptr = (unsigned __int64)Tree.Min ^ ((unsigned __int64)&Tree.Root + 1);
   }
   else
   {
-    j = qword_180166438;
+    Ptr = (unsigned __int64)Tree.Min;
   }
-  while ( j )
+  while ( Ptr )
   {
-    v3 = j;
-    if ( (unsigned __int8)RtlTryAcquireSRWLockShared(j + 72) )
+    v3 = Ptr;
+    if ( RtlTryAcquireSRWLockShared((PRTL_SRWLOCK)(Ptr + 72)) )
     {
       v2 = 1;
       break;
     }
-    v9 = *(_QWORD ***)(j + 8);
-    v10 = j;
+    v9 = *(_QWORD ***)(Ptr + 8);
+    v10 = Ptr;
     if ( v9 )
     {
       v11 = *v9;
-      for ( j = *(_QWORD *)(j + 8); v11; v11 = (_QWORD *)*v11 )
-        j = (unsigned __int64)v11;
+      for ( Ptr = *(_QWORD *)(Ptr + 8); v11; v11 = (_QWORD *)*v11 )
+        Ptr = (unsigned __int64)v11;
     }
     else
     {
       while ( 1 )
       {
-        j = *(_QWORD *)(j + 16) & 0xFFFFFFFFFFFFFFFCuLL;
-        if ( !j || *(_QWORD *)j == v10 )
+        Ptr = *(_QWORD *)(Ptr + 16) & 0xFFFFFFFFFFFFFFFCuLL;
+        if ( !Ptr || *(_QWORD *)Ptr == v10 )
           break;
-        v10 = j;
+        v10 = Ptr;
       }
     }
   }
-  RtlReleaseSRWLockExclusive(&unk_180166440);
+  RtlReleaseSRWLockExclusive(&stru_180166440);
   if ( a1 )
-    RtlReleaseSRWLockShared(a1 + 72);
+    RtlReleaseSRWLockShared(a1 + 9);
   return v3 & -(__int64)(v2 != 0);
 }

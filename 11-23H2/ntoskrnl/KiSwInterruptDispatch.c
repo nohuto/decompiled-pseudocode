@@ -1,12 +1,12 @@
 /*
- * XREFs of KiSwInterruptDispatch @ 0x1403E45D0
+ * XREFs of KiSwInterruptDispatch @ 0x1403E47B0
  * Callers:
- *     KiSwInterrupt @ 0x140426B20 (KiSwInterrupt.c)
+ *     KiSwInterrupt @ 0x140426EB0 (KiSwInterrupt.c)
  * Callees:
- *     KeExitRetpoline @ 0x14034C0DC (KeExitRetpoline.c)
- *     KiGetTrapFrameMode @ 0x1403D6530 (KiGetTrapFrameMode.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     KiReadKernelDr7 @ 0x14056C01C (KiReadKernelDr7.c)
+ *     KeExitRetpoline @ 0x14034C27C (KeExitRetpoline.c)
+ *     KiGetTrapFrameMode @ 0x1403D6710 (KiGetTrapFrameMode.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     KiReadKernelDr7 @ 0x14056C6DC (KiReadKernelDr7.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  *     $$ba @ 0x140B11898 ($$ba.c)
  *     SdbpCheckDll @ 0x140B134F0 (SdbpCheckDll.c)
@@ -197,7 +197,7 @@ char __fastcall KiSwInterruptDispatch(__int64 a1, __int64 a2, __int64 a3)
     v9 = Pool2 + 4;
     Pool2[3] = Pool2;
     *Pool2 = 0LL;
-    Pool2[2] = sub_1403F1970;
+    Pool2[2] = sub_1403F1B50;
     v163 = Pool2 + 4;
     memmove(Pool2 + 4, v3, 0xAA0uLL);
     v8[339] = v3;
@@ -861,7 +861,7 @@ LABEL_201:
       *(_QWORD *)(v117 + v9[211]) = 0LL;
       *(_QWORD *)(v117 + v9[213]) = 0LL;
       SdbpCheckDll(265, v114, v113, v112, v111, v9[43], v116);
-      JUMPOUT(0x1403E54F5LL);
+      JUMPOUT(0x1403E56D5LL);
     }
     *((_DWORD *)v9 + 522) += 1576;
     v130 = *((_DWORD *)v9 + 49);

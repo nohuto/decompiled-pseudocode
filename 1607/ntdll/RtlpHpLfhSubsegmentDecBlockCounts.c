@@ -1,10 +1,10 @@
 /*
- * XREFs of RtlpHpLfhSubsegmentDecBlockCounts @ 0x18004C3A0
+ * XREFs of RtlpHpLfhSubsegmentDecBlockCounts @ 0x18004C390
  * Callers:
- *     RtlpAllocateHeapInternal @ 0x180022DF0 (RtlpAllocateHeapInternal.c)
- *     RtlpHpLfhSubsegmentCommitBlock @ 0x18003F7D0 (RtlpHpLfhSubsegmentCommitBlock.c)
- *     RtlpHpLfhSubsegmentDecommitPages @ 0x18004B97C (RtlpHpLfhSubsegmentDecommitPages.c)
- *     RtlpHpLfhSubsegmentFreeBlock @ 0x180089210 (RtlpHpLfhSubsegmentFreeBlock.c)
+ *     RtlpAllocateHeapInternal @ 0x180022DE0 (RtlpAllocateHeapInternal.c)
+ *     RtlpHpLfhSubsegmentCommitBlock @ 0x18003F7C0 (RtlpHpLfhSubsegmentCommitBlock.c)
+ *     RtlpHpLfhSubsegmentDecommitPages @ 0x18004B96C (RtlpHpLfhSubsegmentDecommitPages.c)
+ *     RtlpHpLfhSubsegmentFreeBlock @ 0x180089200 (RtlpHpLfhSubsegmentFreeBlock.c)
  * Callees:
  *     <none>
  */

@@ -11,7 +11,7 @@ void WdipSemFreePool()
 {
   PVOID *v0; // rax
   PVOID *v1; // rcx
-  union _SLIST_HEADER *v2; // rbx
+  _SLIST_HEADER *v2; // rbx
   __int64 v3; // rdi
 
   v0 = (PVOID *)WdipSemPool;

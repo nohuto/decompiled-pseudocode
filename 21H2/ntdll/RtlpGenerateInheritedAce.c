@@ -6,7 +6,7 @@
  *     RtlFirstFreeAce @ 0x180037710 (RtlFirstFreeAce.c)
  *     RtlpCopyEffectiveAce @ 0x180037A3C (RtlpCopyEffectiveAce.c)
  *     RtlpIsDuplicateAce @ 0x1800380D8 (RtlpIsDuplicateAce.c)
- *     memmove @ 0x1800A44C0 (memmove.c)
+ *     memmove @ 0x1800A4480 (memmove.c)
  */
 
 __int64 __fastcall RtlpGenerateInheritedAce(
@@ -17,11 +17,11 @@ __int64 __fastcall RtlpGenerateInheritedAce(
         __int64 a5,
         __int64 a6,
         __int64 a7,
-        __int64 a8,
+        PGENERIC_MAPPING GenericMapping,
         __int64 a9,
         int a10,
         unsigned int *a11,
-        __int64 a12,
+        PACL Acl,
         unsigned int *a13,
         _BYTE *a14)
 {
@@ -52,7 +52,7 @@ __int64 __fastcall RtlpGenerateInheritedAce(
   v18 = 0;
   v19 = 0;
   v28 = a2 && (v24 = Src[1], (v24 & 4) == 0) && ((v24 & 1) != 0 || (v24 & 2) != 0);
-  if ( !(unsigned __int8)RtlFirstFreeAce(a12, v31) )
+  if ( !RtlFirstFreeAce(Acl, (PVOID *)v31) )
     return 3221225597LL;
   v20 = (void *)v31[0];
   if ( !v31[0] )
@@ -70,12 +70,12 @@ __int64 __fastcall RtlpGenerateInheritedAce(
                            a5,
                            a6,
                            a7,
-                           a8,
+                           GenericMapping,
                            a9,
                            a10,
                            (__int64)v31,
                            (__int64)&v30,
-                           a12,
+                           (__int64)Acl,
                            (__int64)a14,
                            (__int64)&v29,
                            (__int64)&v27) )
@@ -83,11 +83,11 @@ __int64 __fastcall RtlpGenerateInheritedAce(
   v18 = v30;
   if ( !v27 && v30 )
   {
-    if ( (unsigned __int8)RtlpIsDuplicateAce(a12, v17) )
+    if ( (unsigned __int8)RtlpIsDuplicateAce(Acl, v17) )
     {
       v16 = v30;
       v20 = (void *)v17;
-      --*(_WORD *)(a12 + 4);
+      --Acl->AceCount;
       v18 = 0;
       v31[0] = v17;
       v30 = 0;
@@ -123,7 +123,7 @@ LABEL_16:
   v15 += *((unsigned __int16 *)Src + 1);
   if ( v15 <= 0xFFFF )
   {
-    if ( *((unsigned __int16 *)Src + 1) > a12 + *(unsigned __int16 *)(a12 + 2) - (_QWORD)v20 )
+    if ( *((unsigned __int16 *)Src + 1) > (__int64)Acl + Acl->AclSize - (_QWORD)v20 )
     {
       v27 = 1;
     }
@@ -131,13 +131,13 @@ LABEL_16:
     {
       memmove(v20, Src, *((unsigned __int16 *)Src + 1));
       *(_BYTE *)(v31[0] + 1) |= 8u;
-      ++*(_WORD *)(a12 + 4);
+      ++Acl->AceCount;
       if ( a3 )
       {
         *(_BYTE *)(v31[0] + 1) |= 0x10u;
-        if ( (unsigned __int8)RtlpIsDuplicateAce(a12, v31[0]) )
+        if ( (unsigned __int8)RtlpIsDuplicateAce(Acl, v31[0]) )
         {
-          --*(_WORD *)(a12 + 4);
+          --Acl->AceCount;
           v26 = *((unsigned __int16 *)Src + 1);
           v15 -= v26;
           if ( v16 <= v26 )

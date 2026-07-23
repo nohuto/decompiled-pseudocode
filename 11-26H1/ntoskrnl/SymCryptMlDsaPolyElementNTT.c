@@ -1,9 +1,9 @@
 /*
- * XREFs of SymCryptMlDsaPolyElementNTT @ 0x1405734A0
+ * XREFs of SymCryptMlDsaPolyElementNTT @ 0x1405726AC
  * Callers:
- *     SymCryptMlDsaSignEx @ 0x14055D89C (SymCryptMlDsaSignEx.c)
- *     SymCryptMlDsaVerifyEx @ 0x14055DDF0 (SymCryptMlDsaVerifyEx.c)
- *     SymCryptMlDsaVectorNTT @ 0x14057463C (SymCryptMlDsaVectorNTT.c)
+ *     SymCryptMlDsaSignEx @ 0x14055FD94 (SymCryptMlDsaSignEx.c)
+ *     SymCryptMlDsaVerifyEx @ 0x140560308 (SymCryptMlDsaVerifyEx.c)
+ *     SymCryptMlDsaVectorNTT @ 0x1405738A0 (SymCryptMlDsaVectorNTT.c)
  * Callees:
  *     <none>
  */

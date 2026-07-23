@@ -6,9 +6,9 @@
  *     PipInitializeCoreDriversByGroup @ 0x14079AB28 (PipInitializeCoreDriversByGroup.c)
  *     IopInitializeBootDrivers @ 0x14079B23C (IopInitializeBootDrivers.c)
  * Callees:
- *     PnpDiagnosticTraceObject @ 0x1400084E8 (PnpDiagnosticTraceObject.c)
- *     PnpDiagnosticTraceObjectWithStatus @ 0x1400B1388 (PnpDiagnosticTraceObjectWithStatus.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     PnpDiagnosticTraceObject @ 0x14000805C (PnpDiagnosticTraceObject.c)
+ *     PnpDiagnosticTraceObjectWithStatus @ 0x1400AF2C8 (PnpDiagnosticTraceObjectWithStatus.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     VfDriverInitStarting @ 0x1406FE168 (VfDriverInitStarting.c)
  *     VfDriverInitSuccess @ 0x1406FE22C (VfDriverInitSuccess.c)
  *     IopInitializeBuiltinDriver @ 0x14079BB9C (IopInitializeBuiltinDriver.c)

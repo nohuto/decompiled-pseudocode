@@ -1,16 +1,16 @@
 /*
- * XREFs of MiSetPageZeroInProgress @ 0x14041E500
+ * XREFs of MiSetPageZeroInProgress @ 0x140414240
  * Callers:
- *     MiGetBestPageToZero @ 0x14041E190 (MiGetBestPageToZero.c)
+ *     MiGetBestPageToZero @ 0x140413ED0 (MiGetBestPageToZero.c)
  * Callees:
- *     MiSafeLockPage @ 0x140216290 (MiSafeLockPage.c)
- *     MiIsDecayPfn @ 0x14022EFD0 (MiIsDecayPfn.c)
- *     MiUnlockPage @ 0x1402915F0 (MiUnlockPage.c)
- *     MiGetPfnPageSizeIndex @ 0x1403070C0 (MiGetPfnPageSizeIndex.c)
- *     MiTryLockPageAtDpcInline @ 0x1404251B0 (MiTryLockPageAtDpcInline.c)
- *     MiBeginPageAccessor @ 0x1404342F0 (MiBeginPageAccessor.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     MiUnlockPage @ 0x1402A11F0 (MiUnlockPage.c)
+ *     MiIsDecayPfn @ 0x1403028E0 (MiIsDecayPfn.c)
+ *     MiGetPfnPageSizeIndex @ 0x140310FA0 (MiGetPfnPageSizeIndex.c)
+ *     MiSafeLockPage @ 0x140334630 (MiSafeLockPage.c)
+ *     MiTryLockPageAtDpcInline @ 0x140419060 (MiTryLockPageAtDpcInline.c)
+ *     MiBeginPageAccessor @ 0x140425C90 (MiBeginPageAccessor.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall MiSetPageZeroInProgress(__int64 *a1)
@@ -21,7 +21,7 @@ __int64 __fastcall MiSetPageZeroInProgress(__int64 *a1)
   __int64 v5; // rdx
   __int64 v6; // r15
   ULONG_PTR v7; // rsi
-  __int64 v8; // r8
+  unsigned __int64 v8; // r8
   __int64 v9; // rdx
   __int64 v10; // rdi
   unsigned __int8 CurrentIrql; // bl
@@ -43,7 +43,7 @@ __int64 __fastcall MiSetPageZeroInProgress(__int64 *a1)
   while ( 1 )
   {
     v9 = 2LL;
-    if ( v7 <= qword_140E2DBE0 )
+    if ( v7 <= qword_140E2DD20 )
       break;
     if ( MiIsDecayPfn(v7) )
     {
@@ -60,7 +60,7 @@ LABEL_30:
     return 0LL;
   if ( (a1[4] & 0x400) != 0 )
   {
-    CurrentIrql = MiSafeLockPage(v7, 2LL, v8);
+    CurrentIrql = MiSafeLockPage(v7);
   }
   else
   {
@@ -98,7 +98,7 @@ LABEL_29:
   v12 = HIWORD(*(_DWORD *)(v10 + 32));
   if ( (HIWORD(*(_DWORD *)(v10 + 32)) & 7) != 1
     || (unsigned int)MiGetPfnPageSizeIndex(v10) != (_DWORD)v4
-    || *((_QWORD *)qword_140E2FF88 + ((*(_QWORD *)(v10 + 40) >> 43) & 0x3FFLL)) != *(_QWORD *)(v3 + 14984) )
+    || *((_QWORD *)qword_140E300C8 + ((*(_QWORD *)(v10 + 40) >> 43) & 0x3FFLL)) != *(_QWORD *)(v3 + 14984) )
   {
     MiUnlockPage(v10, CurrentIrql);
     goto LABEL_29;

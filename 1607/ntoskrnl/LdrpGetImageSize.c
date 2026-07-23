@@ -1,11 +1,11 @@
 /*
- * XREFs of LdrpGetImageSize @ 0x1400FA298
+ * XREFs of LdrpGetImageSize @ 0x1400F8024
  * Callers:
- *     LdrpAccessResourceData @ 0x14051C620 (LdrpAccessResourceData.c)
- *     LdrpAccessResourceDataNoMultipleLanguage @ 0x14051C6F4 (LdrpAccessResourceDataNoMultipleLanguage.c)
+ *     LdrpAccessResourceData @ 0x1404FFA10 (LdrpAccessResourceData.c)
+ *     LdrpAccessResourceDataNoMultipleLanguage @ 0x1404FFAE4 (LdrpAccessResourceDataNoMultipleLanguage.c)
  * Callees:
- *     RtlImageNtHeader @ 0x140014238 (RtlImageNtHeader.c)
- *     LdrpKrnGetDataTableEntry @ 0x1400FA31C (LdrpKrnGetDataTableEntry.c)
+ *     RtlImageNtHeader @ 0x140013DB8 (RtlImageNtHeader.c)
+ *     LdrpKrnGetDataTableEntry @ 0x1400F80A8 (LdrpKrnGetDataTableEntry.c)
  */
 
 __int64 __fastcall LdrpGetImageSize(__int64 a1, _QWORD *a2)

@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlDestroyHeap @ 0x140772B30
+ * XREFs of RtlDestroyHeap @ 0x140772CF0
  * Callers:
  *     <none>
  * Callees:
- *     DbgPrint @ 0x140284160 (DbgPrint.c)
- *     ExDeleteResourceLite @ 0x1402F50A0 (ExDeleteResourceLite.c)
- *     ZwFreeVirtualMemory @ 0x1403FA760 (ZwFreeVirtualMemory.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     RtlpHeapHandleError @ 0x1405938E4 (RtlpHeapHandleError.c)
- *     RtlpDestroyHeapSegment @ 0x140915E04 (RtlpDestroyHeapSegment.c)
+ *     DbgPrint @ 0x140272780 (DbgPrint.c)
+ *     ExDeleteResourceLite @ 0x1402FFDF0 (ExDeleteResourceLite.c)
+ *     ZwFreeVirtualMemory @ 0x1403FA940 (ZwFreeVirtualMemory.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     RtlpHeapHandleError @ 0x140593B14 (RtlpHeapHandleError.c)
+ *     RtlpDestroyHeapSegment @ 0x140915F64 (RtlpDestroyHeapSegment.c)
  */
 
 PVOID __stdcall RtlDestroyHeap(PVOID HeapHandle)

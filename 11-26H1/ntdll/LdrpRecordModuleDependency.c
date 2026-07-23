@@ -1,22 +1,22 @@
 /*
- * XREFs of LdrpRecordModuleDependency @ 0x180050E60
+ * XREFs of LdrpRecordModuleDependency @ 0x18003B3E0
  * Callers:
- *     LdrpLoadDependentModuleInternal @ 0x18003AF90 (LdrpLoadDependentModuleInternal.c)
- *     LdrpBuildForwarderLink @ 0x180050D90 (LdrpBuildForwarderLink.c)
- *     LdrpFastpthReloadedDll @ 0x180052D40 (LdrpFastpthReloadedDll.c)
- *     LdrpInitializeNtdllDataTableEntry @ 0x180118DB0 (LdrpInitializeNtdllDataTableEntry.c)
+ *     LdrpLoadDependentModuleInternal @ 0x180025500 (LdrpLoadDependentModuleInternal.c)
+ *     LdrpBuildForwarderLink @ 0x18003B310 (LdrpBuildForwarderLink.c)
+ *     LdrpFastpthReloadedDll @ 0x18003D2C0 (LdrpFastpthReloadedDll.c)
+ *     LdrpInitializeNtdllDataTableEntry @ 0x180118B60 (LdrpInitializeNtdllDataTableEntry.c)
  * Callees:
- *     RtlAllocateHeap_0 @ 0x1800439E0 (RtlAllocateHeap_0.c)
+ *     RtlAllocateHeap_0 @ 0x18002DF50 (RtlAllocateHeap_0.c)
  */
 
-__int64 __fastcall LdrpRecordModuleDependency(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4)
+_DWORD *__fastcall LdrpRecordModuleDependency(__int64 a1, __int64 a2, _DWORD *a3, _DWORD *a4)
 {
   __int64 v4; // rbx
   __int64 v6; // rdi
   _QWORD *v7; // rcx
   _QWORD *v8; // rax
-  __int64 result; // rax
-  __int64 *v10; // rcx
+  _DWORD *result; // rax
+  _QWORD *v10; // rcx
   _QWORD *v11; // rcx
   _QWORD *v12; // rdx
   int v13; // ecx
@@ -47,16 +47,16 @@ LABEL_22:
   }
   if ( !a3 )
   {
-    result = RtlAllocateHeap_0();
+    result = RtlAllocateHeap_0(LdrpHeap, NtdllBaseTag + 2359296, 0x20uLL);
     a3 = result;
     if ( !result )
     {
       *a4 = -1073741801;
       return result;
     }
-    *(_DWORD *)(result + 24) |= 1u;
+    result[6] |= 1u;
   }
-  v10 = *(__int64 **)(v6 + 40);
+  v10 = *(_QWORD **)(v6 + 40);
   if ( v10 )
   {
     *(_QWORD *)a3 = *v10;
@@ -67,8 +67,8 @@ LABEL_22:
     *(_QWORD *)a3 = a3;
   }
   *(_QWORD *)(v6 + 40) = a3;
-  v11 = (_QWORD *)(a3 + 16);
-  *(_QWORD *)(a3 + 8) = v4;
+  v11 = a3 + 4;
+  *((_QWORD *)a3 + 1) = v4;
   v12 = *(_QWORD **)(v4 + 48);
   if ( v12 )
   {
@@ -80,9 +80,9 @@ LABEL_22:
     *v11 = v11;
   }
   *(_QWORD *)(v4 + 48) = v11;
-  v13 = *(_DWORD *)(a3 + 24);
-  *(_QWORD *)(a3 + 24) = v6;
+  v13 = a3[6];
+  *((_QWORD *)a3 + 3) = v6;
   if ( (v13 & 1) != 0 )
-    *(_DWORD *)(a3 + 24) = v6 ^ ((unsigned __int8)v13 ^ (unsigned __int8)v6) & 1;
+    a3[6] = v6 ^ ((unsigned __int8)v13 ^ (unsigned __int8)v6) & 1;
   return 0LL;
 }

@@ -1,5 +1,5 @@
 /*
- * XREFs of ExSecurePoolUpdate @ 0x1406D0F90
+ * XREFs of ExSecurePoolUpdate @ 0x1406D4FC0
  * Callers:
  *     <none>
  * Callees:
@@ -14,7 +14,7 @@ __int64 __fastcall ExSecurePoolUpdate(__int64 a1, __int64 a2, __int64 a3, __int6
   v7 = 0LL;
   if ( a1 )
   {
-    v8 = (_DWORD *)((unsigned __int64)&dword_140E6BC60 ^ qword_140E6BCA8 ^ a1);
+    v8 = (_DWORD *)((unsigned __int64)&dword_140E6BF60 ^ qword_140E6BFA8 ^ a1);
     if ( *v8 == -1381122884 )
       v7 = v8;
   }

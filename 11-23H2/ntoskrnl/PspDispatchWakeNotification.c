@@ -1,10 +1,10 @@
 /*
- * XREFs of PspDispatchWakeNotification @ 0x1407DA334
+ * XREFs of PspDispatchWakeNotification @ 0x1407DA604
  * Callers:
  *     PspAllocateAndQueryNotificationChannel @ 0x14069F068 (PspAllocateAndQueryNotificationChannel.c)
- *     PspFreezeJobTree @ 0x1407DA0C8 (PspFreezeJobTree.c)
+ *     PspFreezeJobTree @ 0x1407DA398 (PspFreezeJobTree.c)
  * Callees:
- *     PspSendWakeNotification @ 0x1407DA3A8 (PspSendWakeNotification.c)
+ *     PspSendWakeNotification @ 0x1407DA678 (PspSendWakeNotification.c)
  */
 
 __int64 __fastcall PspDispatchWakeNotification(PVOID Object, _DWORD *a2, __int64 a3)

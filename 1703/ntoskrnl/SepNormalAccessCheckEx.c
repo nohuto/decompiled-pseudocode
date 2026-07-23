@@ -42,7 +42,7 @@ void __fastcall SepNormalAccessCheckEx(
   int v23; // ecx
   char v24; // al
   void *v25; // r8
-  __int64 v26; // rcx
+  _SID_AND_ATTRIBUTES_HASH *v26; // rcx
   __int64 v27; // r11
   __int64 v28; // rbx
   __int64 v29; // r11
@@ -128,7 +128,7 @@ LABEL_18:
           {
             if ( a10
               && SepSidInTokenSidHash(
-                   v16 + (a11 != 0 ? 504LL : 232LL),
+                   (PSID_AND_ATTRIBUTES_HASH)(v16 + (a11 != 0 ? 504LL : 232LL)),
                    0LL,
                    &v21[8 * (v32 & 2) + (v33 != 0 ? 28LL : 12LL)],
                    0,
@@ -140,7 +140,7 @@ LABEL_18:
             }
           }
           else if ( SepSidInTokenSidHash(
-                      v16 + (a11 != 0 ? 504LL : 232LL),
+                      (PSID_AND_ATTRIBUTES_HASH)(v16 + (a11 != 0 ? 504LL : 232LL)),
                       0LL,
                       &v21[8 * (v32 & 2) + (v33 != 0 ? 28LL : 12LL)],
                       0,
@@ -152,7 +152,7 @@ LABEL_18:
           goto LABEL_105;
         case 4:
           if ( SepSidInTokenSidHash(
-                 v16 + (a11 != 0 ? 504LL : 232LL),
+                 (PSID_AND_ATTRIBUTES_HASH)(v16 + (a11 != 0 ? 504LL : 232LL)),
                  0LL,
                  &v21[4 * (unsigned __int8)v21[13] + 20],
                  0,
@@ -160,7 +160,7 @@ LABEL_18:
                  a12) )
           {
             v25 = v21 + 12;
-            v26 = a3 + (a11 != 0 ? 504LL : 232LL);
+            v26 = (_SID_AND_ATTRIBUTES_HASH *)(a3 + (a11 != 0 ? 504LL : 232LL));
 LABEL_13:
             if ( SepSidInTokenSidHash(v26, 0LL, v25, 0, a11, a12) )
               AuthzBasepAddAccessTypeList(a9, a8, 0, v20, *((_DWORD *)v21 + 1), 0);
@@ -168,7 +168,13 @@ LABEL_13:
           }
           goto LABEL_15;
         case 1:
-          if ( SepSidInTokenSidHash(v16 + (a11 != 0 ? 504LL : 232LL), 0LL, v21 + 8, 1, a11, a12) )
+          if ( SepSidInTokenSidHash(
+                 (PSID_AND_ATTRIBUTES_HASH)(v16 + (a11 != 0 ? 504LL : 232LL)),
+                 0LL,
+                 v21 + 8,
+                 1,
+                 a11,
+                 a12) )
           {
             v35 = *((_DWORD *)v21 + 1);
             if ( (v35 & *(_DWORD *)(a9 + 24)) != 0 )
@@ -206,7 +212,13 @@ LABEL_13:
               a11,
               &v51);
             if ( ((v51 + 1) & 0xFFFFFFFD) == 0
-              && SepSidInTokenSidHash(v16 + (a11 != 0 ? 504LL : 232LL), 0LL, v21 + 8, 1, a11, a12) )
+              && SepSidInTokenSidHash(
+                   (PSID_AND_ATTRIBUTES_HASH)(v16 + (a11 != 0 ? 504LL : 232LL)),
+                   0LL,
+                   v21 + 8,
+                   1,
+                   a11,
+                   a12) )
             {
               v35 = *((_DWORD *)v21 + 1);
               if ( (v35 & *(_DWORD *)(a9 + 24)) != 0 )
@@ -300,13 +312,13 @@ LABEL_105:
         if ( *(_DWORD *)(a9 + 24) )
         {
           v25 = v21 + 8;
-          v26 = a2 + (a11 != 0 ? 504LL : 232LL);
+          v26 = (_SID_AND_ATTRIBUTES_HASH *)(a2 + (a11 != 0 ? 504LL : 232LL));
           goto LABEL_13;
         }
         goto LABEL_15;
       }
       if ( SepSidInTokenSidHash(
-             v16 + (a11 != 0 ? 504LL : 232LL),
+             (PSID_AND_ATTRIBUTES_HASH)(v16 + (a11 != 0 ? 504LL : 232LL)),
              0LL,
              &v21[8 * (*((_DWORD *)v21 + 2) & 2) + ((*((_DWORD *)v21 + 2) & 1) != 0 ? 28LL : 12LL)],
              1,

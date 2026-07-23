@@ -1,7 +1,7 @@
 /*
- * XREFs of EtwpPerfectHashFunctionSearch @ 0x14041B340
+ * XREFs of EtwpPerfectHashFunctionSearch @ 0x14040EE80
  * Callers:
- *     EtwpApplyStackWalkIdFilter @ 0x14041B264 (EtwpApplyStackWalkIdFilter.c)
+ *     EtwpApplyStackWalkIdFilter @ 0x14040EDA4 (EtwpApplyStackWalkIdFilter.c)
  * Callees:
  *     <none>
  */

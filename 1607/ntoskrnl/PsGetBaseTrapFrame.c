@@ -1,7 +1,7 @@
 /*
- * XREFs of PsGetBaseTrapFrame @ 0x14020F0A8
+ * XREFs of PsGetBaseTrapFrame @ 0x14020EED4
  * Callers:
- *     PsPicoWalkUserStack @ 0x1406813AC (PsPicoWalkUserStack.c)
+ *     PsPicoWalkUserStack @ 0x140681490 (PsPicoWalkUserStack.c)
  * Callees:
  *     <none>
  */

@@ -9,7 +9,7 @@
  *     PopRequestRead @ 0x1403CE5E8 (PopRequestRead.c)
  *     ProducerGetBuffer @ 0x1403CE93C (ProducerGetBuffer.c)
  * Callees:
- *     KdCheckForDebugBreak @ 0x1401140F8 (KdCheckForDebugBreak.c)
+ *     KdCheckForDebugBreak @ 0x140114668 (KdCheckForDebugBreak.c)
  */
 
 LARGE_INTEGER PopHiberCheckForDebugBreak()

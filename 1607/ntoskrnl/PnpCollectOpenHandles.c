@@ -1,11 +1,11 @@
 /*
- * XREFs of PnpCollectOpenHandles @ 0x1406428B8
+ * XREFs of PnpCollectOpenHandles @ 0x14064299C
  * Callers:
- *     PiEventQueryRemoveDevices @ 0x14064CFD0 (PiEventQueryRemoveDevices.c)
- *     PiEventRemovalOpenHandleVeto @ 0x14064D3E8 (PiEventRemovalOpenHandleVeto.c)
+ *     PiEventQueryRemoveDevices @ 0x14064D0B4 (PiEventQueryRemoveDevices.c)
+ *     PiEventRemovalOpenHandleVeto @ 0x14064D4CC (PiEventRemovalOpenHandleVeto.c)
  * Callees:
- *     PnpHandleEnumerateHandlesAgainstPdoStack @ 0x1401CD830 (PnpHandleEnumerateHandlesAgainstPdoStack.c)
- *     IopDebugPrint @ 0x1401CDCC4 (IopDebugPrint.c)
+ *     PnpHandleEnumerateHandlesAgainstPdoStack @ 0x1401CD67C (PnpHandleEnumerateHandlesAgainstPdoStack.c)
+ *     IopDebugPrint @ 0x1401CDB10 (IopDebugPrint.c)
  */
 
 __int64 __fastcall PnpCollectOpenHandles(_QWORD **a1, __int64 a2, __int64 a3)

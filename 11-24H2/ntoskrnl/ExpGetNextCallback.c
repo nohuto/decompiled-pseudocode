@@ -1,12 +1,12 @@
 /*
- * XREFs of ExpGetNextCallback @ 0x140A60060
+ * XREFs of ExpGetNextCallback @ 0x140A585B0
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     ObReferenceObjectSafeWithTag @ 0x14033E7D0 (ObReferenceObjectSafeWithTag.c)
- *     ExpUnlockCallbackListShared @ 0x1404A19B8 (ExpUnlockCallbackListShared.c)
- *     ExpLockCallbackListShared @ 0x1404A7574 (ExpLockCallbackListShared.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     ObReferenceObjectSafeWithTag @ 0x14031DCB0 (ObReferenceObjectSafeWithTag.c)
+ *     ExpUnlockCallbackListShared @ 0x14049C948 (ExpUnlockCallbackListShared.c)
+ *     ExpLockCallbackListShared @ 0x1404A1FA4 (ExpLockCallbackListShared.c)
  */
 
 unsigned __int64 __fastcall ExpGetNextCallback(_QWORD *Object)

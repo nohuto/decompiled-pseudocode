@@ -1,10 +1,10 @@
 /*
- * XREFs of CimfsGetDiskParameters @ 0x140C5DC94
+ * XREFs of CimfsGetDiskParameters @ 0x140C5FDE4
  * Callers:
- *     IopGetBootDiskInformationLite @ 0x140C1DD34 (IopGetBootDiskInformationLite.c)
- *     CimfsInitialize @ 0x140C5DD6C (CimfsInitialize.c)
+ *     IopGetBootDiskInformationLite @ 0x140C1FD74 (IopGetBootDiskInformationLite.c)
+ *     CimfsInitialize @ 0x140C5FEBC (CimfsInitialize.c)
  * Callees:
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall CimfsGetDiskParameters(__int64 a1, _DWORD *a2, _QWORD *a3, _OWORD *a4, _DWORD *a5)

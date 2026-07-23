@@ -1,21 +1,21 @@
 /*
- * XREFs of EtwWmitraceWorker @ 0x1409EB9EC
+ * XREFs of EtwWmitraceWorker @ 0x1409EBC7C
  * Callers:
  *     ExpDebuggerWorker @ 0x140AB1D30 (ExpDebuggerWorker.c)
  * Callees:
- *     RtlInitAnsiString @ 0x1402F6C50 (RtlInitAnsiString.c)
- *     DbgPrintEx @ 0x14032A740 (DbgPrintEx.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     PsGetSiloBySessionId @ 0x140741E78 (PsGetSiloBySessionId.c)
- *     RtlFreeUnicodeString @ 0x14076F3D0 (RtlFreeUnicodeString.c)
- *     RtlAnsiStringToUnicodeString @ 0x140773C00 (RtlAnsiStringToUnicodeString.c)
- *     EtwpStartTrace @ 0x1407E4DE0 (EtwpStartTrace.c)
- *     EtwpUpdateTrace @ 0x1407F7F7C (EtwpUpdateTrace.c)
- *     EtwpStopTrace @ 0x1407F8284 (EtwpStopTrace.c)
- *     EtwpQueryTrace @ 0x1407F8920 (EtwpQueryTrace.c)
- *     EtwEnableTrace @ 0x140831D00 (EtwEnableTrace.c)
- *     EtwpPrepareWmitraceLoggerInfo @ 0x1409EBD14 (EtwpPrepareWmitraceLoggerInfo.c)
+ *     RtlInitAnsiString @ 0x1402F6EE0 (RtlInitAnsiString.c)
+ *     DbgPrintEx @ 0x14032A9D0 (DbgPrintEx.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     PsGetSiloBySessionId @ 0x140742068 (PsGetSiloBySessionId.c)
+ *     RtlFreeUnicodeString @ 0x14076F5C0 (RtlFreeUnicodeString.c)
+ *     RtlAnsiStringToUnicodeString @ 0x140773DF0 (RtlAnsiStringToUnicodeString.c)
+ *     EtwpStartTrace @ 0x1407E50B0 (EtwpStartTrace.c)
+ *     EtwpUpdateTrace @ 0x1407F824C (EtwpUpdateTrace.c)
+ *     EtwpStopTrace @ 0x1407F8554 (EtwpStopTrace.c)
+ *     EtwpQueryTrace @ 0x1407F8BF0 (EtwpQueryTrace.c)
+ *     EtwEnableTrace @ 0x140832000 (EtwEnableTrace.c)
+ *     EtwpPrepareWmitraceLoggerInfo @ 0x1409EBFA4 (EtwpPrepareWmitraceLoggerInfo.c)
  */
 
 void EtwWmitraceWorker()

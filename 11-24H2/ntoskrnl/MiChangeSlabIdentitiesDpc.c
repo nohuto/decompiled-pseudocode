@@ -1,14 +1,14 @@
 /*
- * XREFs of MiChangeSlabIdentitiesDpc @ 0x140686640
+ * XREFs of MiChangeSlabIdentitiesDpc @ 0x140687770
  * Callers:
  *     <none>
  * Callees:
- *     HvlNotifyLongSpinWait @ 0x140293260 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140293290 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     KeWakeAddressAll @ 0x140321AA0 (KeWakeAddressAll.c)
- *     MiEnumerateSlabAllocatorsEx @ 0x14046A884 (MiEnumerateSlabAllocatorsEx.c)
- *     KiHaltOnAddress @ 0x1404FA2B8 (KiHaltOnAddress.c)
- *     KeCanUseHaltOnAddress @ 0x1404FA680 (KeCanUseHaltOnAddress.c)
+ *     HvlNotifyLongSpinWait @ 0x1402A2E60 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402A2E90 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     KeWakeAddressAll @ 0x1402CA630 (KeWakeAddressAll.c)
+ *     MiEnumerateSlabAllocatorsEx @ 0x14046321C (MiEnumerateSlabAllocatorsEx.c)
+ *     KiHaltOnAddress @ 0x1404F7B98 (KiHaltOnAddress.c)
+ *     KeCanUseHaltOnAddress @ 0x1404F7F60 (KeCanUseHaltOnAddress.c)
  */
 
 __int64 __fastcall MiChangeSlabIdentitiesDpc(__int64 a1, __int64 a2, volatile signed __int32 *a3, unsigned __int64 a4)
@@ -92,7 +92,7 @@ __int64 __fastcall MiChangeSlabIdentitiesDpc(__int64 a1, __int64 a2, volatile si
     v24 = _InterlockedExchange((volatile __int32 *)a4, *(_DWORD *)(a4 + 4) | v8);
     if ( (v24 & 0x40000000) != 0 )
       KeWakeAddressAll(a4, a2);
-    MiEnumerateSlabAllocatorsEx(v6, (__int64)MiDeleteSlabEntriesForIdentity, 1LL, 0xFFFFFFFFLL, 8u);
+    MiEnumerateSlabAllocatorsEx(v6, (__int64)MiDeleteSlabEntriesForIdentity, 1LL, 0xFFFFFFFF, 8u);
   }
   result = (unsigned int)_InterlockedDecrement((volatile signed __int32 *)a4);
   v16 = ~(_DWORD)result & 0x80000000;

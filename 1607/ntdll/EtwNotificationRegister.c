@@ -1,54 +1,56 @@
 /*
- * XREFs of EtwNotificationRegister @ 0x18002A410
+ * XREFs of EtwNotificationRegister @ 0x18002A400
  * Callers:
- *     EtwRegisterTraceGuidsW @ 0x18002A2F0 (EtwRegisterTraceGuidsW.c)
- *     EtwEventRegister @ 0x18002A3C0 (EtwEventRegister.c)
+ *     EtwRegisterTraceGuidsW @ 0x18002A2E0 (EtwRegisterTraceGuidsW.c)
+ *     EtwEventRegister @ 0x18002A3B0 (EtwEventRegister.c)
  * Callees:
- *     RtlReleaseSRWLockExclusive @ 0x18001C550 (RtlReleaseSRWLockExclusive.c)
- *     RtlAcquireSRWLockExclusive @ 0x180020BF0 (RtlAcquireSRWLockExclusive.c)
- *     EtwpRegisterProvider @ 0x18002A504 (EtwpRegisterProvider.c)
- *     EtwpAllocateRegistration @ 0x18002A654 (EtwpAllocateRegistration.c)
- *     EtwpInsertRegistration @ 0x18002A86C (EtwpInsertRegistration.c)
- *     EtwpFreeRegistration @ 0x1800597D8 (EtwpFreeRegistration.c)
- *     RtlSetLastWin32Error @ 0x18005A470 (RtlSetLastWin32Error.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18001C540 (RtlReleaseSRWLockExclusive.c)
+ *     RtlAcquireSRWLockExclusive @ 0x180020BE0 (RtlAcquireSRWLockExclusive.c)
+ *     EtwpRegisterProvider @ 0x18002A4F4 (EtwpRegisterProvider.c)
+ *     EtwpAllocateRegistration @ 0x18002A644 (EtwpAllocateRegistration.c)
+ *     EtwpInsertRegistration @ 0x18002A85C (EtwpInsertRegistration.c)
+ *     EtwpFreeRegistration @ 0x1800597C8 (EtwpFreeRegistration.c)
+ *     RtlSetLastWin32Error @ 0x18005A460 (RtlSetLastWin32Error.c)
  */
 
-__int64 __fastcall EtwNotificationRegister(__int64 a1, unsigned int a2, __int64 a3, __int64 a4, unsigned __int64 *a5)
+ULONG __cdecl EtwNotificationRegister(
+        LPCGUID Guid,
+        ULONG Type,
+        PETW_NOTIFICATION_CALLBACK Callback,
+        PVOID Context,
+        PREGHANDLE RegHandle)
 {
-  unsigned int v7; // ebx
-  __int64 Registration; // rax
-  char *v9; // rdx
-  __int64 v10; // r8
-  __int64 v11; // r9
-  __int64 v12; // rdi
-  volatile signed __int64 *v13; // rbp
+  unsigned __int32 v7; // ebx
+  _RTL_SRWLOCK *Registration; // rax
+  _RTL_BALANCED_NODE *v9; // rdi
+  _RTL_SRWLOCK *v10; // rbp
 
-  if ( a1 && a5 )
+  if ( Guid && RegHandle )
   {
-    *a5 = 0LL;
+    *RegHandle = 0LL;
     v7 = 0;
-    Registration = EtwpAllocateRegistration(a1, a3, a4, a2);
-    v12 = Registration;
+    Registration = (_RTL_SRWLOCK *)EtwpAllocateRegistration(Guid, Callback, Context, Type);
+    v9 = (_RTL_BALANCED_NODE *)Registration;
     if ( !Registration )
     {
       v7 = 14;
       goto LABEL_10;
     }
-    v13 = (volatile signed __int64 *)(Registration + 64);
-    RtlAcquireSRWLockExclusive(Registration + 64, v9, v10, v11);
-    *(_DWORD *)(v12 + 80) = NtCurrentTeb()->ClientId.UniqueThread;
-    if ( a2 != 10 && (v7 = EtwpRegisterProvider(v12, a3, a2)) != 0 )
+    v10 = Registration + 8;
+    RtlAcquireSRWLockExclusive(Registration + 8);
+    LODWORD(v9[3].Right) = NtCurrentTeb()->ClientId.UniqueThread;
+    if ( Type != 10 && (v7 = EtwpRegisterProvider(v9, Callback, Type)) != 0 )
     {
-      *(_DWORD *)(v12 + 80) = 0;
-      RtlReleaseSRWLockExclusive(v13);
-      EtwpFreeRegistration(v12);
+      LODWORD(v9[3].Right) = 0;
+      RtlReleaseSRWLockExclusive(v10);
+      EtwpFreeRegistration(v9);
     }
     else
     {
-      EtwpInsertRegistration(v12);
-      *(_DWORD *)(v12 + 80) = 0;
-      RtlReleaseSRWLockExclusive(v13);
-      *a5 = v12 | ((unsigned __int64)*(unsigned __int16 *)(v12 + 96) << 48);
+      EtwpInsertRegistration(v9);
+      LODWORD(v9[3].Right) = 0;
+      RtlReleaseSRWLockExclusive(v10);
+      *RegHandle = (unsigned __int64)v9 | ((unsigned __int64)LOWORD(v9[4].Children[0]) << 48);
     }
   }
   else

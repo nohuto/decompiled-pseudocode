@@ -15,10 +15,10 @@
  *     sub_18010DD48 @ 0x18010DD48 (sub_18010DD48.c)
  */
 
-__int64 __fastcall sub_180002BD0(__int64 a1, __int64 a2, unsigned int a3, int a4, char a5)
+__int64 __fastcall sub_180002BD0(__int64 a1, unsigned int a2, unsigned int a3, int a4, char a5)
 {
   int v5; // r10d
-  __int64 v6; // r9
+  unsigned int v6; // r9d
   __int64 v7; // r15
   __int64 v9; // rbx
   __int64 v10; // r8
@@ -33,26 +33,26 @@ __int64 __fastcall sub_180002BD0(__int64 a1, __int64 a2, unsigned int a3, int a4
 
   v5 = a4;
   v6 = a3;
-  v7 = (unsigned int)a2;
+  v7 = a2;
   v9 = 0LL;
   if ( !a1 || !v5 )
   {
     if ( !NtCurrentTeb()->LastErrorValue )
-      RtlSetLastWin32Error(87LL);
+      RtlSetLastWin32Error(87);
     return 0LL;
   }
   v10 = *(_QWORD *)(a1 + 16);
-  if ( (unsigned int)a2 >= *(_DWORD *)(*(_QWORD *)(v10 + 24) + 68LL)
-    || (a5 & 2) == 0 && *(_DWORD *)(32LL * (unsigned int)a2 + *(_QWORD *)(v10 + 32) + 24) )
+  if ( a2 >= *(_DWORD *)(*(_QWORD *)(v10 + 24) + 68LL)
+    || (a5 & 2) == 0 && *(_DWORD *)(32LL * a2 + *(_QWORD *)(v10 + 32) + 24) )
   {
     return 0LL;
   }
-  if ( !*(_QWORD *)(*(_QWORD *)(a1 + 24) + 8LL * (unsigned int)a2) && (a5 & 0x10) == 0 )
+  if ( !*(_QWORD *)(*(_QWORD *)(a1 + 24) + 8LL * a2) && (a5 & 0x10) == 0 )
   {
     v14 = (*(_DWORD *)(a1 + 4) >> 2) & 1;
     if ( *(char *)a1 >= 0 )
     {
-      v15 = sub_180109A28(v10, (unsigned int)a2);
+      v15 = sub_180109A28(v10, a2);
       v16 = v15;
       if ( !v15 )
         return 0LL;
@@ -81,10 +81,10 @@ __int64 __fastcall sub_180002BD0(__int64 a1, __int64 a2, unsigned int a3, int a4
     }
     else
     {
-      *(_QWORD *)(*(_QWORD *)(a1 + 24) + 8LL * (unsigned int)a2) = sub_180002D84((unsigned int)a2, a2, v10, v6);
+      *(_QWORD *)(*(_QWORD *)(a1 + 24) + 8LL * a2) = sub_180002D84(a2);
     }
     v5 = a4;
-    LODWORD(v6) = a3;
+    v6 = a3;
   }
   if ( !*(_QWORD *)(*(_QWORD *)(a1 + 24) + 8 * v7) )
     return 0LL;
@@ -93,14 +93,14 @@ __int64 __fastcall sub_180002BD0(__int64 a1, __int64 a2, unsigned int a3, int a4
   v12 = *(_QWORD *)(v11 + 32);
   if ( *(_QWORD *)v12 != 0x47455343534552LL )
   {
-    DbgPrintEx(0xFFFFFFFFLL, 0LL, "*** RESCACHE: Segment %u magic field is corrupt!!! ***\n", v7);
-    DbgPrintEx(0xFFFFFFFFLL, 0LL, "*** --------> Follow-up: avgarcia;erik;muidev ***\n");
+    DbgPrintEx(0xFFFFFFFF, 0, "*** RESCACHE: Segment %u magic field is corrupt!!! ***\n", v7);
+    DbgPrintEx(0xFFFFFFFF, 0, "*** --------> Follow-up: avgarcia;erik;muidev ***\n");
     return 0LL;
   }
-  if ( (unsigned int)(v6 + v5) >= *(_DWORD *)(v12 + 28) )
+  if ( v6 + v5 >= *(_DWORD *)(v12 + 28) )
     return 0LL;
-  if ( v12 && (unsigned int)v6 < *(_DWORD *)(v12 + 28) )
-    return *(_QWORD *)(v11 + 40) + (unsigned int)v6;
-  RtlSetLastWin32Error(87LL);
+  if ( v12 && v6 < *(_DWORD *)(v12 + 28) )
+    return *(_QWORD *)(v11 + 40) + v6;
+  RtlSetLastWin32Error(87);
   return v9;
 }

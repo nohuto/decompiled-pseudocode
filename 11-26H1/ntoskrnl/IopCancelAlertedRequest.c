@@ -1,19 +1,19 @@
 /*
- * XREFs of IopCancelAlertedRequest @ 0x140B1F1D4
+ * XREFs of IopCancelAlertedRequest @ 0x140B21254
  * Callers:
- *     NtSetInformationFile @ 0x14026A2F0 (NtSetInformationFile.c)
- *     IopWaitForSynchronousIoEvent @ 0x140469C58 (IopWaitForSynchronousIoEvent.c)
- *     IopWaitForSynchronousIo @ 0x140469D30 (IopWaitForSynchronousIo.c)
- *     IopParseDevice @ 0x1409008C0 (IopParseDevice.c)
- *     IopSynchronousApiServiceTail @ 0x1409B18E4 (IopSynchronousApiServiceTail.c)
- *     NtQueryInformationFile @ 0x1409B4B00 (NtQueryInformationFile.c)
- *     IoSetInformation @ 0x140B326A0 (IoSetInformation.c)
+ *     NtSetInformationFile @ 0x140269860 (NtSetInformationFile.c)
+ *     IopWaitForSynchronousIoEvent @ 0x1404633D8 (IopWaitForSynchronousIoEvent.c)
+ *     IopWaitForSynchronousIo @ 0x1404634B0 (IopWaitForSynchronousIo.c)
+ *     IopParseDevice @ 0x140930850 (IopParseDevice.c)
+ *     IopSynchronousApiServiceTail @ 0x1409829A4 (IopSynchronousApiServiceTail.c)
+ *     NtQueryInformationFile @ 0x140985BC0 (NtQueryInformationFile.c)
+ *     IoSetInformation @ 0x140B34AF0 (IoSetInformation.c)
  * Callees:
- *     KeDelayExecutionThread @ 0x140244840 (KeDelayExecutionThread.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
- *     IoCancelIrp @ 0x14049B940 (IoCancelIrp.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KeDelayExecutionThread @ 0x1402461A0 (KeDelayExecutionThread.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeWaitForSingleObject @ 0x140277AD0 (KeWaitForSingleObject.c)
+ *     IoCancelIrp @ 0x140495490 (IoCancelIrp.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 NTSTATUS __fastcall IopCancelAlertedRequest(_DWORD *Object, PIRP Irp)

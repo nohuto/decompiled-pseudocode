@@ -6,11 +6,15 @@
  *     <none>
  */
 
-__int64 NtSetInformationSymbolicLink()
+NTSTATUS __cdecl NtSetInformationSymbolicLink(
+        HANDLE LinkHandle,
+        SYMBOLIC_LINK_INFO_CLASS SymbolicLinkInformationClass,
+        PVOID SymbolicLinkInformation,
+        ULONG SymbolicLinkInformationLength)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 404LL;
+  result = 404;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

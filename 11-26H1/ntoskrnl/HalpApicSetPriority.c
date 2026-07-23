@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpApicSetPriority @ 0x1405A2010
+ * XREFs of HalpApicSetPriority @ 0x1405A4820
  * Callers:
- *     HalpApicInitializeLocalUnit @ 0x1405A18A0 (HalpApicInitializeLocalUnit.c)
+ *     HalpApicInitializeLocalUnit @ 0x1405A40B0 (HalpApicInitializeLocalUnit.c)
  * Callees:
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 struct _KPRCB *__fastcall HalpApicSetPriority(__int64 a1, unsigned int a2)

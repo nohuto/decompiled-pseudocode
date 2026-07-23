@@ -1,10 +1,10 @@
 /*
- * XREFs of MiUpdateOldPagesVpabCallback @ 0x1404C96D0
+ * XREFs of MiUpdateOldPagesVpabCallback @ 0x1404C30F0
  * Callers:
  *     <none>
  * Callees:
- *     MiUpdateOldPteWorker @ 0x14029C38C (MiUpdateOldPteWorker.c)
- *     MiReadPteShadow @ 0x140314FF0 (MiReadPteShadow.c)
+ *     MiUpdateOldPteWorker @ 0x14029B8EC (MiUpdateOldPteWorker.c)
+ *     MiReadPteShadow @ 0x140317020 (MiReadPteShadow.c)
  */
 
 __int64 __fastcall MiUpdateOldPagesVpabCallback(__int64 a1, _QWORD *a2, __int64 *a3, __int64 a4, unsigned int *a5)

@@ -1,26 +1,26 @@
 /*
- * XREFs of NtAlpcImpersonateClientContainerOfPort @ 0x140849F20
+ * XREFs of NtAlpcImpersonateClientContainerOfPort @ 0x14084B180
  * Callers:
  *     <none>
  * Callees:
  *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
  *     PsImpersonateContainerOfThread @ 0x14005AE90 (PsImpersonateContainerOfThread.c)
- *     PsGetWorkOnBehalfThread @ 0x1400ACD14 (PsGetWorkOnBehalfThread.c)
- *     PsEncodeThreadWorkOnBehalfTicket @ 0x1400ACDC0 (PsEncodeThreadWorkOnBehalfTicket.c)
- *     IoThreadToProcess @ 0x1400ACF20 (IoThreadToProcess.c)
- *     PoEnergyEstimationEnabled @ 0x1400ACF80 (PoEnergyEstimationEnabled.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     ObDereferenceObjectDeferDelete @ 0x1400C1060 (ObDereferenceObjectDeferDelete.c)
- *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
- *     AlpcpUnlockMessage @ 0x140615E4C (AlpcpUnlockMessage.c)
- *     AlpcpLookupMessage @ 0x140636970 (AlpcpLookupMessage.c)
- *     AlpcpCaptureIdMessage @ 0x140637AE0 (AlpcpCaptureIdMessage.c)
+ *     PsGetWorkOnBehalfThread @ 0x1400ACC54 (PsGetWorkOnBehalfThread.c)
+ *     PsEncodeThreadWorkOnBehalfTicket @ 0x1400ACD00 (PsEncodeThreadWorkOnBehalfTicket.c)
+ *     IoThreadToProcess @ 0x1400ACE60 (IoThreadToProcess.c)
+ *     PoEnergyEstimationEnabled @ 0x1400ACEC0 (PoEnergyEstimationEnabled.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     ObDereferenceObjectDeferDelete @ 0x1400C0FA0 (ObDereferenceObjectDeferDelete.c)
+ *     ObReferenceObjectByHandle @ 0x1405E9350 (ObReferenceObjectByHandle.c)
+ *     AlpcpUnlockMessage @ 0x140616E4C (AlpcpUnlockMessage.c)
+ *     AlpcpLookupMessage @ 0x140637990 (AlpcpLookupMessage.c)
+ *     AlpcpCaptureIdMessage @ 0x140638B00 (AlpcpCaptureIdMessage.c)
  */
 
-__int64 __fastcall NtAlpcImpersonateClientContainerOfPort(HANDLE Handle, __int64 a2, int a3)
+NTSTATUS __cdecl NtAlpcImpersonateClientContainerOfPort(HANDLE PortHandle, PPORT_MESSAGE Message, ULONG Flags)
 {
   struct _KTHREAD *CurrentThread; // rax
-  int v5; // ebx
+  NTSTATUS v5; // ebx
   struct _KTHREAD *v6; // rsi
   struct _KTHREAD *WorkOnBehalfThread; // rax
   struct _KTHREAD *v8; // rdi
@@ -38,15 +38,15 @@ __int64 __fastcall NtAlpcImpersonateClientContainerOfPort(HANDLE Handle, __int64
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   v16 = 0LL;
-  if ( a3 )
+  if ( Flags )
   {
     v5 = -1073741811;
   }
   else
   {
-    AlpcpCaptureIdMessage(a2, &v19, &v18);
+    AlpcpCaptureIdMessage((__int64)Message, &v19, &v18);
     v5 = ObReferenceObjectByHandle(
-           Handle,
+           PortHandle,
            0x20000u,
            AlpcPortObjectType,
            KeGetCurrentThread()->PreviousMode,
@@ -116,5 +116,5 @@ __int64 __fastcall NtAlpcImpersonateClientContainerOfPort(HANDLE Handle, __int64
   if ( v16 )
     ObfDereferenceObject(v16);
   KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread());
-  return (unsigned int)v5;
+  return v5;
 }

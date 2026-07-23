@@ -1,5 +1,5 @@
 /*
- * XREFs of PsGetThreadFreezeCount @ 0x1400B25A4
+ * XREFs of PsGetThreadFreezeCount @ 0x1400B04E4
  * Callers:
  *     <none>
  * Callees:

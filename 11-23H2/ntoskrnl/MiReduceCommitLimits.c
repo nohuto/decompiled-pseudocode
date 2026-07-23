@@ -1,16 +1,16 @@
 /*
- * XREFs of MiReduceCommitLimits @ 0x14065655C
+ * XREFs of MiReduceCommitLimits @ 0x140656AAC
  * Callers:
- *     MiAttemptPageFileReductionApc @ 0x140637D70 (MiAttemptPageFileReductionApc.c)
- *     MiInsertPartitionPages @ 0x14065A480 (MiInsertPartitionPages.c)
- *     MiCreatePagingFile @ 0x1408330DC (MiCreatePagingFile.c)
- *     MiMapNewPfns @ 0x140A2C910 (MiMapNewPfns.c)
- *     MiRemovePhysicalMemory @ 0x140A2CC4C (MiRemovePhysicalMemory.c)
+ *     MiAttemptPageFileReductionApc @ 0x1406382C0 (MiAttemptPageFileReductionApc.c)
+ *     MiInsertPartitionPages @ 0x14065A9D0 (MiInsertPartitionPages.c)
+ *     MiCreatePagingFile @ 0x1408333DC (MiCreatePagingFile.c)
+ *     MiMapNewPfns @ 0x140A2CBC0 (MiMapNewPfns.c)
+ *     MiRemovePhysicalMemory @ 0x140A2CEFC (MiRemovePhysicalMemory.c)
  * Callees:
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
- *     MiComputeCommitThresholds @ 0x140396178 (MiComputeCommitThresholds.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402610F0 (KeAcquireInStackQueuedSpinLock.c)
+ *     MiComputeCommitThresholds @ 0x140396358 (MiComputeCommitThresholds.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall MiReduceCommitLimits(_QWORD *a1, __int64 a2, __int64 a3)
@@ -31,10 +31,10 @@ __int64 __fastcall MiReduceCommitLimits(_QWORD *a1, __int64 a2, __int64 a3)
   MiComputeCommitThresholds(a1);
   result = KxReleaseQueuedSpinLock((volatile signed __int64 **)&v11);
   OldIrql = v11.OldIrql;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
       && (unsigned __int8)result <= 0xFu
       && v11.OldIrql <= 0xFu
       && (unsigned __int8)result >= 2u )

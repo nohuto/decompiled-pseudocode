@@ -1,22 +1,22 @@
 /*
- * XREFs of EtwpGetLoggerInfoFromContext @ 0x1406DF154
+ * XREFs of EtwpGetLoggerInfoFromContext @ 0x1406B6434
  * Callers:
- *     EtwpTransitionToRealtime @ 0x1403F9098 (EtwpTransitionToRealtime.c)
- *     EtwpFlushTrace @ 0x1406DD6A4 (EtwpFlushTrace.c)
- *     EtwpStopTrace @ 0x1406DDFBC (EtwpStopTrace.c)
- *     EtwpStartLogger @ 0x1406DE1A0 (EtwpStartLogger.c)
- *     EtwpQueryTrace @ 0x1406DEE18 (EtwpQueryTrace.c)
- *     EtwpUpdateTrace @ 0x140796D68 (EtwpUpdateTrace.c)
- *     EtwpIncrementTraceFile @ 0x140934BE4 (EtwpIncrementTraceFile.c)
+ *     EtwpTransitionToRealtime @ 0x1403F91C4 (EtwpTransitionToRealtime.c)
+ *     EtwpFlushTrace @ 0x1406B4984 (EtwpFlushTrace.c)
+ *     EtwpStopTrace @ 0x1406B529C (EtwpStopTrace.c)
+ *     EtwpStartLogger @ 0x1406B5480 (EtwpStartLogger.c)
+ *     EtwpQueryTrace @ 0x1406B60F8 (EtwpQueryTrace.c)
+ *     EtwpUpdateTrace @ 0x140796F68 (EtwpUpdateTrace.c)
+ *     EtwpIncrementTraceFile @ 0x140934DB4 (EtwpIncrementTraceFile.c)
  * Callees:
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     RtlCopyUnicodeString @ 0x1403534C0 (RtlCopyUnicodeString.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     RtlEqualUnicodeString @ 0x140601410 (RtlEqualUnicodeString.c)
- *     ProbeForWrite @ 0x1406547A0 (ProbeForWrite.c)
- *     EtwpMapEnableFlags @ 0x1406C0960 (EtwpMapEnableFlags.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     RtlCopyUnicodeString @ 0x14035E210 (RtlCopyUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     EtwpMapEnableFlags @ 0x14061F870 (EtwpMapEnableFlags.c)
+ *     ProbeForWrite @ 0x1406495C0 (ProbeForWrite.c)
+ *     RtlEqualUnicodeString @ 0x1406F0B70 (RtlEqualUnicodeString.c)
  */
 
 __int64 __fastcall EtwpGetLoggerInfoFromContext(__int64 a1, __int64 a2)

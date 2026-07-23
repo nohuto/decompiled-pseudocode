@@ -1,7 +1,7 @@
 /*
- * XREFs of MiMakeOutswappedPageResident @ 0x1402A4368
+ * XREFs of MiMakeOutswappedPageResident @ 0x1402A4558
  * Callers:
- *     KiInSwapProcesses @ 0x14010B340 (KiInSwapProcesses.c)
+ *     KiInSwapProcesses @ 0x14010B3C0 (KiInSwapProcesses.c)
  * Callees:
  *     MiIsRetryIoStatus @ 0x140022E18 (MiIsRetryIoStatus.c)
  *     MiInitializePfnForOtherProcess @ 0x140026C2C (MiInitializePfnForOtherProcess.c)
@@ -19,23 +19,23 @@
  *     MiGetPage @ 0x140049D50 (MiGetPage.c)
  *     KeDelayExecutionThread @ 0x14004DA20 (KeDelayExecutionThread.c)
  *     KeWaitForSingleObject @ 0x140054880 (KeWaitForSingleObject.c)
- *     MiCaptureDirtyBitToPfn @ 0x140087910 (MiCaptureDirtyBitToPfn.c)
- *     KeSetEvent @ 0x1400C2B00 (KeSetEvent.c)
- *     IoPageReadEx @ 0x1400DE740 (IoPageReadEx.c)
- *     MiGetPagingFileOffset @ 0x14010FA24 (MiGetPagingFileOffset.c)
- *     MiWritePteShadow @ 0x140120E70 (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x140120ED0 (MiPteHasShadow.c)
- *     MiSetPageTablePfnBuddy @ 0x14013D9A8 (MiSetPageTablePfnBuddy.c)
- *     MiIsPteInStore @ 0x140141808 (MiIsPteInStore.c)
- *     SmPageRead @ 0x14014F78C (SmPageRead.c)
- *     MiStoreFaultComplete @ 0x140157C60 (MiStoreFaultComplete.c)
- *     MiDiscardTransitionPte @ 0x14015829C (MiDiscardTransitionPte.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     MiFlushAllFilesystemPages @ 0x1402AAFF0 (MiFlushAllFilesystemPages.c)
- *     MiWaitForFreePage @ 0x1402CB4A4 (MiWaitForFreePage.c)
- *     MiValidatePagefilePageHash @ 0x1402CC514 (MiValidatePagefilePageHash.c)
+ *     MiCaptureDirtyBitToPfn @ 0x140087900 (MiCaptureDirtyBitToPfn.c)
+ *     KeSetEvent @ 0x1400C2A40 (KeSetEvent.c)
+ *     IoPageReadEx @ 0x1400DE7C0 (IoPageReadEx.c)
+ *     MiGetPagingFileOffset @ 0x14010FAA4 (MiGetPagingFileOffset.c)
+ *     MiWritePteShadow @ 0x140120F40 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140120FA0 (MiPteHasShadow.c)
+ *     MiSetPageTablePfnBuddy @ 0x14013DAA8 (MiSetPageTablePfnBuddy.c)
+ *     MiIsPteInStore @ 0x140141908 (MiIsPteInStore.c)
+ *     SmPageRead @ 0x14014F88C (SmPageRead.c)
+ *     MiStoreFaultComplete @ 0x140157D60 (MiStoreFaultComplete.c)
+ *     MiDiscardTransitionPte @ 0x14015839C (MiDiscardTransitionPte.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     MiFlushAllFilesystemPages @ 0x1402AB1E0 (MiFlushAllFilesystemPages.c)
+ *     MiWaitForFreePage @ 0x1402CB694 (MiWaitForFreePage.c)
+ *     MiValidatePagefilePageHash @ 0x1402CC704 (MiValidatePagefilePageHash.c)
  */
 
 __int64 __fastcall MiMakeOutswappedPageResident(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int a5)
@@ -107,7 +107,7 @@ __int64 __fastcall MiMakeOutswappedPageResident(__int64 a1, __int64 a2, __int64 
   __int64 v70; // [rsp+1C0h] [rbp+B8h]
 
   v5 = (__int64 *)(a1 + 1088);
-  v6 = *(struct _KEVENT **)(qword_14043A748 + 8LL * *(unsigned __int16 *)(a1 + 1454));
+  v6 = *(struct _KEVENT **)(qword_14043B808 + 8LL * *(unsigned __int16 *)(a1 + 1454));
   v56 = v6;
   while ( 1 )
   {
@@ -117,12 +117,12 @@ __int64 __fastcall MiMakeOutswappedPageResident(__int64 a1, __int64 a2, __int64 
     if ( (v8 & 0x800) == 0 )
       break;
     v11 = v8;
-    if ( qword_14043A0C0 )
+    if ( qword_14043B180 )
     {
       if ( (v7 & 0x10) != 0 )
         v11 = v8 & 0xFFFFFFFFFFFFFFEFuLL;
       else
-        v11 = v8 & ~qword_14043A0C0;
+        v11 = v8 & ~qword_14043B180;
     }
     v12 = v10 & (v11 >> 12);
     if ( (*(_QWORD *)(48 * v12 - 0x57FFFFFFFD8LL) & 0x20000000000000LL) != 0 )
@@ -197,7 +197,7 @@ LABEL_19:
     if ( (unsigned int)MiPteHasShadow() )
     {
       v30 = 1;
-      if ( !HIBYTE(word_14043A1AC) )
+      if ( !HIBYTE(word_14043B26C) )
       {
         v31 = (v29 & 1) == 0;
 LABEL_42:
@@ -347,7 +347,7 @@ LABEL_29:
     if ( (unsigned int)MiPteHasShadow() )
     {
       v22 = 1;
-      if ( !HIBYTE(word_14043A1AC) )
+      if ( !HIBYTE(word_14043B26C) )
         goto LABEL_84;
     }
     else if ( (KeGetCurrentThread()->ApcState.Process[2].ActiveProcessors.Bitmap[0] & 0x100000000000LL) != 0 )

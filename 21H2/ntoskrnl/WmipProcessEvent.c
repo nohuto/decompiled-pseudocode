@@ -1,22 +1,22 @@
 /*
- * XREFs of WmipProcessEvent @ 0x140757D80
+ * XREFs of WmipProcessEvent @ 0x140757F40
  * Callers:
- *     WmipEventNotification @ 0x140756510 (WmipEventNotification.c)
- *     WmipSendGuidUpdateNotifications @ 0x140757C1C (WmipSendGuidUpdateNotifications.c)
- *     WmipGenerateMofResourceNotification @ 0x1407C55D0 (WmipGenerateMofResourceNotification.c)
- *     WmipGenerateBinaryMofNotification @ 0x1407D116C (WmipGenerateBinaryMofNotification.c)
+ *     WmipEventNotification @ 0x1407566D0 (WmipEventNotification.c)
+ *     WmipSendGuidUpdateNotifications @ 0x140757DDC (WmipSendGuidUpdateNotifications.c)
+ *     WmipGenerateMofResourceNotification @ 0x1407C5AF0 (WmipGenerateMofResourceNotification.c)
+ *     WmipGenerateBinaryMofNotification @ 0x1407D12DC (WmipGenerateBinaryMofNotification.c)
  * Callees:
- *     ObReferenceObjectSafe @ 0x14029B150 (ObReferenceObjectSafe.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     KeReleaseMutex @ 0x1402EE5A0 (KeReleaseMutex.c)
- *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
- *     WmipWriteWnodeToObject @ 0x1403713C4 (WmipWriteWnodeToObject.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     WmipUnreferenceEntry @ 0x140639618 (WmipUnreferenceEntry.c)
- *     WmipFindGEByGuid @ 0x14063F1D0 (WmipFindGEByGuid.c)
- *     WmipDereferenceEvent @ 0x1409323EC (WmipDereferenceEvent.c)
- *     WmipIncludeStaticNames @ 0x1409327DC (WmipIncludeStaticNames.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     ObReferenceObjectSafe @ 0x140212AE0 (ObReferenceObjectSafe.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     KeReleaseMutex @ 0x1402F92F0 (KeReleaseMutex.c)
+ *     KeWaitForSingleObject @ 0x1403504C0 (KeWaitForSingleObject.c)
+ *     WmipWriteWnodeToObject @ 0x140370F14 (WmipWriteWnodeToObject.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     WmipUnreferenceEntry @ 0x14062E428 (WmipUnreferenceEntry.c)
+ *     WmipFindGEByGuid @ 0x140633FE0 (WmipFindGEByGuid.c)
+ *     WmipDereferenceEvent @ 0x14093254C (WmipDereferenceEvent.c)
+ *     WmipIncludeStaticNames @ 0x14093293C (WmipIncludeStaticNames.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall WmipProcessEvent(_DWORD *P, char a2, char a3)

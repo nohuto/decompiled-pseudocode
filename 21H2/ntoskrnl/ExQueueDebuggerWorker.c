@@ -1,10 +1,10 @@
 /*
- * XREFs of ExQueueDebuggerWorker @ 0x1403C6C4C
+ * XREFs of ExQueueDebuggerWorker @ 0x1403C6DEC
  * Callers:
- *     KdExitDebugger @ 0x1409B7190 (KdExitDebugger.c)
- *     ExpWorkerInitialization @ 0x140A6AE74 (ExpWorkerInitialization.c)
+ *     KdExitDebugger @ 0x1409B8190 (KdExitDebugger.c)
+ *     ExpWorkerInitialization @ 0x140A6BE74 (ExpWorkerInitialization.c)
  * Callees:
- *     KeInsertQueueDpc @ 0x14021FD40 (KeInsertQueueDpc.c)
+ *     KeInsertQueueDpc @ 0x1402C4640 (KeInsertQueueDpc.c)
  */
 
 char ExQueueDebuggerWorker()

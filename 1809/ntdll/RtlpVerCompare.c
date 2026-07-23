@@ -5,7 +5,7 @@
  *     RtlVerifyVersionInfo @ 0x180064C60 (RtlVerifyVersionInfo.c)
  * Callees:
  *     RtlStringCbPrintfA @ 0x18006354C (RtlStringCbPrintfA.c)
- *     __security_check_cookie @ 0x18008FEC0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x18008FED0 (__security_check_cookie.c)
  */
 
 bool __fastcall RtlpVerCompare(int a1, int a2, int a3, bool *a4, char a5)

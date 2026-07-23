@@ -1,9 +1,9 @@
 /*
- * XREFs of KiCommitNodeAssignment @ 0x1403B5EDC
+ * XREFs of KiCommitNodeAssignment @ 0x1403B604C
  * Callers:
- *     KiConfigureInitialNodes @ 0x1403B5A3C (KiConfigureInitialNodes.c)
- *     KxInitializeProcessorState @ 0x14079FD80 (KxInitializeProcessorState.c)
- *     KePerformGroupConfiguration @ 0x140A4D3D8 (KePerformGroupConfiguration.c)
+ *     KiConfigureInitialNodes @ 0x1403B5BAC (KiConfigureInitialNodes.c)
+ *     KxInitializeProcessorState @ 0x14079FF80 (KxInitializeProcessorState.c)
+ *     KePerformGroupConfiguration @ 0x140A4E3D8 (KePerformGroupConfiguration.c)
  * Callees:
  *     <none>
  */
@@ -23,7 +23,7 @@ __int16 __fastcall KiCommitNodeAssignment(__int64 a1)
   __int16 result; // ax
 
   v1 = *(_WORD *)(a1 + 144);
-  v2 = word_140C50D5C;
+  v2 = word_140C50D94;
   if ( KeNumberNodes )
   {
     v3 = KeNodeBlock;
@@ -55,6 +55,6 @@ __int16 __fastcall KiCommitNodeAssignment(__int64 a1)
     while ( v4 );
   }
   result = v2 + 1;
-  word_140C50D5C = result;
+  word_140C50D94 = result;
   return result;
 }

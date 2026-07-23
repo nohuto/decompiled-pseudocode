@@ -1,16 +1,16 @@
 /*
- * XREFs of SwapContext @ 0x140166000
+ * XREFs of SwapContext @ 0x140166570
  * Callers:
- *     KiIdleLoop @ 0x140161A70 (KiIdleLoop.c)
- *     KiSwapContext @ 0x140165CD0 (KiSwapContext.c)
- *     KxDispatchInterrupt @ 0x140165E40 (KxDispatchInterrupt.c)
+ *     KiIdleLoop @ 0x140161FE0 (KiIdleLoop.c)
+ *     KiSwapContext @ 0x140166240 (KiSwapContext.c)
+ *     KxDispatchInterrupt @ 0x1401663B0 (KxDispatchInterrupt.c)
  * Callees:
- *     KiBeginThreadAccountingPeriod @ 0x1400C9150 (KiBeginThreadAccountingPeriod.c)
- *     EtwTraceContextSwap @ 0x1400D6460 (EtwTraceContextSwap.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     HvlNotifyLongSpinWait @ 0x1401BAE68 (HvlNotifyLongSpinWait.c)
- *     HvlSwitchVirtualAddressSpace @ 0x1401C1588 (HvlSwitchVirtualAddressSpace.c)
- *     KiUpdateSpeculationControl @ 0x1401DA084 (KiUpdateSpeculationControl.c)
+ *     KiBeginThreadAccountingPeriod @ 0x1400C6FF0 (KiBeginThreadAccountingPeriod.c)
+ *     EtwTraceContextSwap @ 0x1400D4300 (EtwTraceContextSwap.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     HvlNotifyLongSpinWait @ 0x1401BAD4C (HvlNotifyLongSpinWait.c)
+ *     HvlSwitchVirtualAddressSpace @ 0x1401C146C (HvlSwitchVirtualAddressSpace.c)
+ *     KiUpdateSpeculationControl @ 0x1401D9EB0 (KiUpdateSpeculationControl.c)
  */
 
 bool __fastcall SwapContext(unsigned __int8 a1)

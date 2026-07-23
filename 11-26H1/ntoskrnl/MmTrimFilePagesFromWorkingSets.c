@@ -1,10 +1,10 @@
 /*
- * XREFs of MmTrimFilePagesFromWorkingSets @ 0x1406F7F58
+ * XREFs of MmTrimFilePagesFromWorkingSets @ 0x1406FCC28
  * Callers:
- *     PopTransitionToSleep @ 0x140C04000 (PopTransitionToSleep.c)
+ *     PopTransitionToSleep @ 0x140C0A210 (PopTransitionToSleep.c)
  * Callees:
- *     PsGetNextPartition @ 0x1402580F8 (PsGetNextPartition.c)
- *     MiWalkAllWorkingSets @ 0x1402A9370 (MiWalkAllWorkingSets.c)
+ *     PsGetNextPartition @ 0x1402598D8 (PsGetNextPartition.c)
+ *     MiWalkAllWorkingSets @ 0x1402A8780 (MiWalkAllWorkingSets.c)
  */
 
 void MmTrimFilePagesFromWorkingSets()
@@ -16,7 +16,7 @@ void MmTrimFilePagesFromWorkingSets()
   _OWORD v4[2]; // [rsp+20h] [rbp-28h] BYREF
 
   memset(v4, 0, sizeof(v4));
-  if ( LOBYTE(stru_140E36558.ReadyTime) )
+  if ( LOBYTE(stru_140E366D8.ReadyTime) )
   {
     for ( i = 0LL; ; i = v3 )
     {
@@ -24,7 +24,7 @@ void MmTrimFilePagesFromWorkingSets()
       v3 = NextPartition;
       if ( !NextPartition )
         break;
-      if ( LOBYTE(stru_140E36558.ReadyTime) )
+      if ( LOBYTE(stru_140E366D8.ReadyTime) )
       {
         v1 = *NextPartition;
         memset((char *)v4 + 12, 0, 20);

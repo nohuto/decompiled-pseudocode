@@ -5,50 +5,50 @@
  * Callees:
  *     ExInitializeResourceLite @ 0x140207480 (ExInitializeResourceLite.c)
  *     _tlgKeywordOn @ 0x140212E64 (_tlgKeywordOn.c)
- *     PipSetDevNodeState @ 0x14022AE84 (PipSetDevNodeState.c)
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6B24 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     IoDeleteDevice @ 0x140304E10 (IoDeleteDevice.c)
- *     PnpRequestDeviceAction @ 0x140359044 (PnpRequestDeviceAction.c)
- *     PnpDiagnosticTrace @ 0x140362B58 (PnpDiagnosticTrace.c)
- *     PiDmaGuardInitialize @ 0x140374DD8 (PiDmaGuardInitialize.c)
- *     PnpGetRegistryDword @ 0x1403A09FC (PnpGetRegistryDword.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ZwCreateKey @ 0x14041B100 (ZwCreateKey.c)
+ *     PipSetDevNodeState @ 0x14022AF94 (PipSetDevNodeState.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1402F6DB4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     IoDeleteDevice @ 0x1403050A0 (IoDeleteDevice.c)
+ *     PnpRequestDeviceAction @ 0x1403591E4 (PnpRequestDeviceAction.c)
+ *     PnpDiagnosticTrace @ 0x140362CF8 (PnpDiagnosticTrace.c)
+ *     PiDmaGuardInitialize @ 0x140374F78 (PiDmaGuardInitialize.c)
+ *     PnpGetRegistryDword @ 0x1403A0BDC (PnpGetRegistryDword.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ZwCreateKey @ 0x14041B490 (ZwCreateKey.c)
  *     IopGetRegistryValue @ 0x14068CE78 (IopGetRegistryValue.c)
- *     _PnpCtxGetCachedContextBaseKey @ 0x1406CEEB0 (_PnpCtxGetCachedContextBaseKey.c)
- *     RtlGUIDFromString @ 0x1406CF6C0 (RtlGUIDFromString.c)
- *     IoCreateDevice @ 0x14076AFD0 (IoCreateDevice.c)
- *     PipSetDevNodeUserFlags @ 0x1407906BC (PipSetDevNodeUserFlags.c)
- *     PipSetDevNodeFlags @ 0x1407956CC (PipSetDevNodeFlags.c)
- *     _CmSetDeviceRegProp @ 0x14079862C (_CmSetDeviceRegProp.c)
- *     _CmAddDeviceToContainer @ 0x14079B778 (_CmAddDeviceToContainer.c)
- *     PnpQueryAndSaveDeviceNodeCapabilities @ 0x14079B8D4 (PnpQueryAndSaveDeviceNodeCapabilities.c)
- *     _CmCreateDevice @ 0x1407D76A4 (_CmCreateDevice.c)
- *     IopCreateRegistryKeyEx @ 0x1407DA498 (IopCreateRegistryKeyEx.c)
- *     PipAllocateDeviceNode @ 0x1407DA6B0 (PipAllocateDeviceNode.c)
- *     PnpMapDeviceObjectToDeviceInstance @ 0x1407E1D48 (PnpMapDeviceObjectToDeviceInstance.c)
- *     IoCreateDriver @ 0x140810200 (IoCreateDriver.c)
- *     IopPortInitialize @ 0x140810B58 (IopPortInitialize.c)
- *     IopOpenRegistryKeyEx @ 0x140811070 (IopOpenRegistryKeyEx.c)
- *     PiPnpRtlInit @ 0x140811214 (PiPnpRtlInit.c)
- *     PnpAllocateDeviceInstancePath @ 0x140812538 (PnpAllocateDeviceInstancePath.c)
- *     IopDmaInitialize @ 0x1408125F8 (IopDmaInitialize.c)
- *     IopIrqInitialize @ 0x140812670 (IopIrqInitialize.c)
- *     IopBusNumberInitialize @ 0x1408126D8 (IopBusNumberInitialize.c)
- *     CmRegisterSystemHiveLimitCallback @ 0x140812828 (CmRegisterSystemHiveLimitCallback.c)
- *     IopMemInitialize @ 0x1408144D4 (IopMemInitialize.c)
- *     TlgRegisterAggregateProvider @ 0x140821C8C (TlgRegisterAggregateProvider.c)
- *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x140821DDC (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
- *     PipUpdateSetupInProgress @ 0x1408626E8 (PipUpdateSetupInProgress.c)
- *     PnpCopyDeviceInstancePath @ 0x140865E64 (PnpCopyDeviceInstancePath.c)
- *     PipUpdateAsyncOptionsCallback @ 0x1408756E0 (PipUpdateAsyncOptionsCallback.c)
- *     TraceLoggingUnregister_EtwUnregister @ 0x140941738 (TraceLoggingUnregister_EtwUnregister.c)
- *     IoDeleteDriver @ 0x140947320 (IoDeleteDriver.c)
- *     PipUpdateSetupInProgressNotify @ 0x1409520C8 (PipUpdateSetupInProgressNotify.c)
- *     PnpLogEvent @ 0x140958AB0 (PnpLogEvent.c)
- *     PiDcHandleSystemFirmwareUpdate @ 0x14095B210 (PiDcHandleSystemFirmwareUpdate.c)
+ *     _PnpCtxGetCachedContextBaseKey @ 0x1406CEEE0 (_PnpCtxGetCachedContextBaseKey.c)
+ *     RtlGUIDFromString @ 0x1406CF6F0 (RtlGUIDFromString.c)
+ *     IoCreateDevice @ 0x14076B1C0 (IoCreateDevice.c)
+ *     PipSetDevNodeUserFlags @ 0x1407908AC (PipSetDevNodeUserFlags.c)
+ *     PipSetDevNodeFlags @ 0x1407958BC (PipSetDevNodeFlags.c)
+ *     _CmSetDeviceRegProp @ 0x14079881C (_CmSetDeviceRegProp.c)
+ *     _CmAddDeviceToContainer @ 0x14079B968 (_CmAddDeviceToContainer.c)
+ *     PnpQueryAndSaveDeviceNodeCapabilities @ 0x14079BAC4 (PnpQueryAndSaveDeviceNodeCapabilities.c)
+ *     _CmCreateDevice @ 0x1407D7974 (_CmCreateDevice.c)
+ *     IopCreateRegistryKeyEx @ 0x1407DA768 (IopCreateRegistryKeyEx.c)
+ *     PipAllocateDeviceNode @ 0x1407DA980 (PipAllocateDeviceNode.c)
+ *     PnpMapDeviceObjectToDeviceInstance @ 0x1407E2018 (PnpMapDeviceObjectToDeviceInstance.c)
+ *     IoCreateDriver @ 0x1408104D0 (IoCreateDriver.c)
+ *     IopPortInitialize @ 0x140810E28 (IopPortInitialize.c)
+ *     IopOpenRegistryKeyEx @ 0x140811340 (IopOpenRegistryKeyEx.c)
+ *     PiPnpRtlInit @ 0x1408114E4 (PiPnpRtlInit.c)
+ *     PnpAllocateDeviceInstancePath @ 0x140812808 (PnpAllocateDeviceInstancePath.c)
+ *     IopDmaInitialize @ 0x1408128C8 (IopDmaInitialize.c)
+ *     IopIrqInitialize @ 0x140812940 (IopIrqInitialize.c)
+ *     IopBusNumberInitialize @ 0x1408129A8 (IopBusNumberInitialize.c)
+ *     CmRegisterSystemHiveLimitCallback @ 0x140812AF8 (CmRegisterSystemHiveLimitCallback.c)
+ *     IopMemInitialize @ 0x1408147A4 (IopMemInitialize.c)
+ *     TlgRegisterAggregateProvider @ 0x140821F8C (TlgRegisterAggregateProvider.c)
+ *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x1408220DC (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
+ *     PipUpdateSetupInProgress @ 0x140862928 (PipUpdateSetupInProgress.c)
+ *     PnpCopyDeviceInstancePath @ 0x1408660A4 (PnpCopyDeviceInstancePath.c)
+ *     PipUpdateAsyncOptionsCallback @ 0x140875920 (PipUpdateAsyncOptionsCallback.c)
+ *     TraceLoggingUnregister_EtwUnregister @ 0x140941938 (TraceLoggingUnregister_EtwUnregister.c)
+ *     IoDeleteDriver @ 0x140947520 (IoDeleteDriver.c)
+ *     PipUpdateSetupInProgressNotify @ 0x1409522C8 (PipUpdateSetupInProgressNotify.c)
+ *     PnpLogEvent @ 0x140958CB0 (PnpLogEvent.c)
+ *     PiDcHandleSystemFirmwareUpdate @ 0x14095B410 (PiDcHandleSystemFirmwareUpdate.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     PiCslInitialize @ 0x140B3BC84 (PiCslInitialize.c)
  *     PiSwInit @ 0x140B3BD2C (PiSwInit.c)
@@ -170,8 +170,8 @@ int __fastcall IopInitializePlugPlayServices(__int64 a1, __int64 a2)
     if ( result >= 0 )
     {
       TlgRegisterAggregateProvider(&dword_140C03918);
-      TlgRegisterAggregateProvider(&dword_140C06930);
-      TraceLoggingRegisterEx_EtwRegister_EtwSetInformation((char *)&dword_140C06968, 0LL, 0LL);
+      TlgRegisterAggregateProvider(&dword_140C06920);
+      TraceLoggingRegisterEx_EtwRegister_EtwSetInformation((char *)&dword_140C06958, 0LL, 0LL);
       result = PiDcInit(1LL);
       if ( result >= 0 )
       {
@@ -184,7 +184,7 @@ int __fastcall IopInitializePlugPlayServices(__int64 a1, __int64 a2)
           UserData.Ptr = v19 + 136;
           v43 = v19 + 3864;
           PnpDiagnosticTrace(&KMPnPEvt_OsLoader_Time, 2u, &UserData);
-          if ( (unsigned int)dword_140C06760 > 4 && tlgKeywordOn((__int64)&dword_140C06760, 0x400000000000LL) )
+          if ( (unsigned int)dword_140C06758 > 4 && tlgKeywordOn((__int64)&dword_140C06758, 0x400000000000LL) )
           {
             v20 = *(_QWORD *)(a1 + 240);
             DeviceObject = *(PDEVICE_OBJECT *)(v20 + 136);
@@ -215,14 +215,14 @@ int __fastcall IopInitializePlugPlayServices(__int64 a1, __int64 a2)
             v62 = &v35;
             v63 = 8LL;
             tlgWriteTransfer_EtwWriteTransfer(
-              (__int64)&dword_140C06760,
-              (unsigned __int8 *)byte_14002C81F,
+              (__int64)&dword_140C06758,
+              (unsigned __int8 *)byte_14002C907,
               0LL,
               0LL,
               0xBu,
               &v45);
           }
-          TraceLoggingUnregister_EtwUnregister((__int64)&dword_140C06760);
+          TraceLoggingUnregister_EtwUnregister((__int64)&dword_140C06758);
           result = PiPnpRtlInit(1u);
           if ( result >= 0 )
           {

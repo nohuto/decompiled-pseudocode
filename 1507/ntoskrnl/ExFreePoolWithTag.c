@@ -2734,7 +2734,7 @@ LABEL_156:
             KeReleaseInStackQueuedSpinLock(&LockHandle);
           }
           _InterlockedDecrement((volatile signed __int32 *)(v31 + 192));
-          MiFreePoolPages((struct _SLIST_ENTRY *)v20, 0x1000uLL, v103);
+          MiFreePoolPages((_SLIST_ENTRY *)v20, 0x1000uLL, v103);
         }
         return;
       }

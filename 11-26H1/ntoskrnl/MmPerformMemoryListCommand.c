@@ -1,18 +1,18 @@
 /*
- * XREFs of MmPerformMemoryListCommand @ 0x140C0C460
+ * XREFs of MmPerformMemoryListCommand @ 0x140C12670
  * Callers:
- *     PfpLogScenarioEventCallback @ 0x1407C5760 (PfpLogScenarioEventCallback.c)
- *     MmIssueMemoryListCommand @ 0x14086AD20 (MmIssueMemoryListCommand.c)
- *     PfpPowerActionSleepSystemPhaseCallback @ 0x140BF8770 (PfpPowerActionSleepSystemPhaseCallback.c)
- *     PfpPowerActionStartScenarioTracingCallback @ 0x140BF87E0 (PfpPowerActionStartScenarioTracingCallback.c)
- *     PopVerifierFlushMemoryBeforeSleep @ 0x140BFD704 (PopVerifierFlushMemoryBeforeSleep.c)
+ *     PfpLogScenarioEventCallback @ 0x1407C87C0 (PfpLogScenarioEventCallback.c)
+ *     MmIssueMemoryListCommand @ 0x140871100 (MmIssueMemoryListCommand.c)
+ *     PfpPowerActionSleepSystemPhaseCallback @ 0x140BFE770 (PfpPowerActionSleepSystemPhaseCallback.c)
+ *     PfpPowerActionStartScenarioTracingCallback @ 0x140BFE7E0 (PfpPowerActionStartScenarioTracingCallback.c)
+ *     PopVerifierFlushMemoryBeforeSleep @ 0x140C03704 (PopVerifierFlushMemoryBeforeSleep.c)
  * Callees:
- *     MiPartitionObjectToPartition @ 0x1403486D4 (MiPartitionObjectToPartition.c)
- *     PsDereferencePartition @ 0x140381940 (PsDereferencePartition.c)
- *     MiPurgePartitionStandby @ 0x14046886C (MiPurgePartitionStandby.c)
- *     MiFlushAllPages @ 0x140504838 (MiFlushAllPages.c)
- *     MiCaptureAllWorkingSetAccessBits @ 0x1405318A4 (MiCaptureAllWorkingSetAccessBits.c)
- *     MiEmptyAllWorkingSets @ 0x1406F79C4 (MiEmptyAllWorkingSets.c)
+ *     MiPartitionObjectToPartition @ 0x14034A754 (MiPartitionObjectToPartition.c)
+ *     PsDereferencePartition @ 0x1403836F0 (PsDereferencePartition.c)
+ *     MiPurgePartitionStandby @ 0x140461F1C (MiPurgePartitionStandby.c)
+ *     MiFlushAllPages @ 0x1404FE17C (MiFlushAllPages.c)
+ *     MiCaptureAllWorkingSetAccessBits @ 0x140533D4C (MiCaptureAllWorkingSetAccessBits.c)
+ *     MiEmptyAllWorkingSets @ 0x1406FC690 (MiEmptyAllWorkingSets.c)
  */
 
 __int64 __fastcall MmPerformMemoryListCommand(int a1, ULONG **a2)

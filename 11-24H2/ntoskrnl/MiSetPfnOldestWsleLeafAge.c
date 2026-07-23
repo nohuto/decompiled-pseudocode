@@ -1,20 +1,23 @@
 /*
- * XREFs of MiSetPfnOldestWsleLeafAge @ 0x1402E3C1C
+ * XREFs of MiSetPfnOldestWsleLeafAge @ 0x14039234C
  * Callers:
- *     MiRebuildPageTableAges @ 0x1402E3D14 (MiRebuildPageTableAges.c)
- *     MiLockActivePageTableInList @ 0x1403CF89C (MiLockActivePageTableInList.c)
+ *     MiLockActivePageTableInList @ 0x14039094C (MiLockActivePageTableInList.c)
+ *     MiRebuildPageTableAges @ 0x140392C6C (MiRebuildPageTableAges.c)
  * Callees:
- *     MiInsertActivePageTableLinksTail @ 0x1402E24F8 (MiInsertActivePageTableLinksTail.c)
- *     MiRemoveActivePageTableLinks @ 0x1402E2CB8 (MiRemoveActivePageTableLinks.c)
+ *     MiInsertActivePageTableLinksTail @ 0x140392798 (MiInsertActivePageTableLinksTail.c)
+ *     MiRemoveActivePageTableLinks @ 0x1403929A8 (MiRemoveActivePageTableLinks.c)
  */
 
-void __fastcall MiSetPfnOldestWsleLeafAge(__int64 a1, __int64 a2, unsigned __int8 a3, __int16 a4, int a5)
+__int64 __fastcall MiSetPfnOldestWsleLeafAge(__int64 a1, unsigned __int64 *a2, __int64 a3, __int16 a4, unsigned int a5)
 {
-  __int64 v5; // rbx
+  unsigned __int64 v5; // rbx
+  char v8; // bp
 
-  v5 = *(_QWORD *)a2;
-  if ( (*(_DWORD *)(a2 + 36) & 0x4000000) != 0 )
+  v5 = *a2;
+  v8 = a3;
+  if ( (*((_DWORD *)a2 + 9) & 0x4000000) != 0 )
     MiRemoveActivePageTableLinks(a1, a2, a5);
-  *(_QWORD *)a2 = v5 & 0xFC001FFFFFFFFFFFuLL | ((a4 & 0x3FF | ((unsigned __int64)(a3 & 7) << 10)) << 45);
-  MiInsertActivePageTableLinksTail(a1, a2, a3, a5);
+  LOBYTE(a3) = v8;
+  *a2 = v5 & 0xFC001FFFFFFFFFFFuLL | ((a4 & 0x3FF | ((unsigned __int64)(v8 & 7) << 10)) << 45);
+  return MiInsertActivePageTableLinksTail(a1, a2, a3, a5);
 }

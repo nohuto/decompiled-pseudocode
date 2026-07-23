@@ -1,10 +1,10 @@
 /*
- * XREFs of AslpFileLargeGetCrcChecksum @ 0x14088F920
+ * XREFs of AslpFileLargeGetCrcChecksum @ 0x140895D1C
  * Callers:
- *     AslpFileLargeGetChecksumAttributes @ 0x14088F824 (AslpFileLargeGetChecksumAttributes.c)
+ *     AslpFileLargeGetChecksumAttributes @ 0x140895C20 (AslpFileLargeGetChecksumAttributes.c)
  * Callees:
- *     AslComputeCrc32 @ 0x14088805C (AslComputeCrc32.c)
- *     AslLogCallPrintf @ 0x1409E8884 (AslLogCallPrintf.c)
+ *     AslComputeCrc32 @ 0x14088E458 (AslComputeCrc32.c)
+ *     AslLogCallPrintf @ 0x1409D5294 (AslLogCallPrintf.c)
  */
 
 __int64 __fastcall AslpFileLargeGetCrcChecksum(_DWORD *a1, unsigned __int64 *a2)

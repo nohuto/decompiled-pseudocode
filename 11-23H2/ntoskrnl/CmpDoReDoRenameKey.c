@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpDoReDoRenameKey @ 0x140A2A9C4
+ * XREFs of CmpDoReDoRenameKey @ 0x140A2AC74
  * Callers:
- *     CmpDoReDoRecord @ 0x140A2A8DC (CmpDoReDoRecord.c)
+ *     CmpDoReDoRecord @ 0x140A2AB8C (CmpDoReDoRecord.c)
  * Callees:
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ZwRenameKey @ 0x14041DD40 (ZwRenameKey.c)
- *     CmpDoReOpenTransKey @ 0x140A2ABD4 (CmpDoReOpenTransKey.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ZwRenameKey @ 0x14041E0D0 (ZwRenameKey.c)
+ *     CmpDoReOpenTransKey @ 0x140A2AE84 (CmpDoReOpenTransKey.c)
  */
 
 __int64 __fastcall CmpDoReDoRenameKey(__int64 a1, UNICODE_STRING *a2)

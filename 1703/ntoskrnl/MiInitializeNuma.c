@@ -9,13 +9,13 @@
 
 void __fastcall MiInitializeNuma(ULONG_PTR *a1)
 {
-  union _SLIST_HEADER *v2; // r14
+  _SLIST_HEADER *v2; // r14
   unsigned int v3; // edi
   __int64 v4; // rbx
   int v5; // esi
   int *v6; // r15
   int v7; // eax
-  union _SLIST_HEADER *v8; // rsi
+  _SLIST_HEADER *v8; // rsi
   __int64 v9; // r15
   _QWORD *v10; // rcx
   __int64 v11; // rdx

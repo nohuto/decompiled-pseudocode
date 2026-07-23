@@ -1,12 +1,12 @@
 /*
- * XREFs of MiCheckResetDiscardVirtualMemory @ 0x140AB1810
+ * XREFs of MiCheckResetDiscardVirtualMemory @ 0x140AAF800
  * Callers:
- *     MiResetVirtualMemory @ 0x140AB1600 (MiResetVirtualMemory.c)
- *     MiProcessVaRangesInfoClass @ 0x140B6B41C (MiProcessVaRangesInfoClass.c)
+ *     MiResetVirtualMemory @ 0x140AAF5F0 (MiResetVirtualMemory.c)
+ *     MiProcessVaRangesInfoClass @ 0x140B6E518 (MiProcessVaRangesInfoClass.c)
  * Callees:
- *     MiAllowProtectionChange @ 0x140306C24 (MiAllowProtectionChange.c)
- *     MiReadVadFlags @ 0x1404655D0 (MiReadVadFlags.c)
- *     MiCheckSecuredVad @ 0x14095DB28 (MiCheckSecuredVad.c)
+ *     MiAllowProtectionChange @ 0x1402E8CA4 (MiAllowProtectionChange.c)
+ *     MiReadVadFlags @ 0x14045E590 (MiReadVadFlags.c)
+ *     MiCheckSecuredVad @ 0x140A033E8 (MiCheckSecuredVad.c)
  */
 
 __int64 __fastcall MiCheckResetDiscardVirtualMemory(

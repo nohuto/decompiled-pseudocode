@@ -1,13 +1,13 @@
 /*
- * XREFs of PfpLogEventRequest @ 0x1406E1A94
+ * XREFs of PfpLogEventRequest @ 0x1406E2D34
  * Callers:
- *     PfSetSuperfetchInformation @ 0x140665878 (PfSetSuperfetchInformation.c)
+ *     PfSetSuperfetchInformation @ 0x140666A38 (PfSetSuperfetchInformation.c)
  * Callees:
- *     PfLogEvent @ 0x1400D53F8 (PfLogEvent.c)
- *     MmGetDefaultPagePriority @ 0x1400E219C (MmGetDefaultPagePriority.c)
- *     PfTSetTracingPriority @ 0x14057C87C (PfTSetTracingPriority.c)
- *     PfGenerateTrace @ 0x14071BDC4 (PfGenerateTrace.c)
- *     MmIssueMemoryListCommand @ 0x14071BED8 (MmIssueMemoryListCommand.c)
+ *     PfLogEvent @ 0x1400D5478 (PfLogEvent.c)
+ *     MmGetDefaultPagePriority @ 0x1400E221C (MmGetDefaultPagePriority.c)
+ *     PfTSetTracingPriority @ 0x14057D87C (PfTSetTracingPriority.c)
+ *     PfGenerateTrace @ 0x14071D064 (PfGenerateTrace.c)
+ *     MmIssueMemoryListCommand @ 0x14071D178 (MmIssueMemoryListCommand.c)
  */
 
 __int64 __fastcall PfpLogEventRequest(int *a1, __int64 a2, __int64 a3, __int64 a4)
@@ -21,8 +21,8 @@ __int64 __fastcall PfpLogEventRequest(int *a1, __int64 a2, __int64 a3, __int64 a
   if ( (*a1 & 0x1Fu) - 2 <= 1 )
   {
     v8 = *((_QWORD *)a1 + 1);
-    *(_OWORD *)v8 = xmmword_14043BE50;
-    *(_QWORD *)(v8 + 16) = unk_14043BE60;
+    *(_OWORD *)v8 = xmmword_14043CF10;
+    *(_QWORD *)(v8 + 16) = unk_14043CF20;
     if ( (*a1 & 0x1F) == 2 )
       DefaultPagePriority = (*(_DWORD *)(v8 + 24) >> 5) & 7;
     else
@@ -30,9 +30,9 @@ __int64 __fastcall PfpLogEventRequest(int *a1, __int64 a2, __int64 a3, __int64 a
     PfTSetTracingPriority(DefaultPagePriority);
   }
   if ( (*(_BYTE *)a1 & 0x1F) == 0x1B && (*(_DWORD *)(*((_QWORD *)a1 + 1) + 8LL) & 3) == 1 )
-    _InterlockedAnd(&dword_1404D7554, 0xFFFFFFFE);
+    _InterlockedAnd(&dword_1404D8614, 0xFFFFFFFE);
   v5 = *a1;
-  v6 = dword_14043C09C
+  v6 = dword_14043D15C
      + ((((MEMORY[0xFFFFF78000000004] * (unsigned __int64)MEMORY[0xFFFFF78000000320]) >> 24)
        + ((MEMORY[0xFFFFF78000000004] * HIDWORD(MEMORY[0xFFFFF78000000320])) << 8)) >> 10);
   if ( (*a1 & 0x20) != 0 )

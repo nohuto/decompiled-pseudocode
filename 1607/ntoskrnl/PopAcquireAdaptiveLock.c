@@ -1,18 +1,18 @@
 /*
- * XREFs of PopAcquireAdaptiveLock @ 0x1404EF160
+ * XREFs of PopAcquireAdaptiveLock @ 0x1404D1254
  * Callers:
  *     PopSessionWinlogonNotification @ 0x1403E2A1C (PopSessionWinlogonNotification.c)
- *     PopSessionInputChange @ 0x14052E19C (PopSessionInputChange.c)
- *     PopSetDisplayStatus @ 0x1405342D0 (PopSetDisplayStatus.c)
- *     PopSessionConnectionChange @ 0x1405460E8 (PopSessionConnectionChange.c)
- *     PopAdaptivePowerSettingCallback @ 0x14056D410 (PopAdaptivePowerSettingCallback.c)
- *     PopActiveLockScreenPowerRequest @ 0x140674910 (PopActiveLockScreenPowerRequest.c)
- *     PopUserPresentOverride @ 0x140674D04 (PopUserPresentOverride.c)
+ *     PopSessionInputChange @ 0x14052E6DC (PopSessionInputChange.c)
+ *     PopSetDisplayStatus @ 0x140534810 (PopSetDisplayStatus.c)
+ *     PopSessionConnectionChange @ 0x140546628 (PopSessionConnectionChange.c)
+ *     PopAdaptivePowerSettingCallback @ 0x14056D950 (PopAdaptivePowerSettingCallback.c)
+ *     PopActiveLockScreenPowerRequest @ 0x1406749F4 (PopActiveLockScreenPowerRequest.c)
+ *     PopUserPresentOverride @ 0x140674DE8 (PopUserPresentOverride.c)
  * Callees:
- *     ExAcquireResourceExclusiveLite @ 0x140068160 (ExAcquireResourceExclusiveLite.c)
- *     KeDelayExecutionThread @ 0x1400D0580 (KeDelayExecutionThread.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     PoBlockConsoleSwitch @ 0x1404EF230 (PoBlockConsoleSwitch.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140067CE0 (ExAcquireResourceExclusiveLite.c)
+ *     KeDelayExecutionThread @ 0x1400CE420 (KeDelayExecutionThread.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     PoBlockConsoleSwitch @ 0x1404D1324 (PoBlockConsoleSwitch.c)
  */
 
 struct _KTHREAD *__fastcall PopAcquireAdaptiveLock(char a1)
@@ -48,7 +48,7 @@ struct _KTHREAD *__fastcall PopAcquireAdaptiveLock(char a1)
     result = 0LL;
     PopLazyContext = 1uLL;
     DWORD1(PopLazyContext) = v1;
-    qword_140302410 = 0LL;
+    qword_140302430 = 0LL;
   }
   return result;
 }

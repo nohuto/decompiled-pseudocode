@@ -1,7 +1,7 @@
 /*
- * XREFs of KiQueryDpcRuntimeHistory @ 0x140359C08
+ * XREFs of KiQueryDpcRuntimeHistory @ 0x140359DA8
  * Callers:
- *     KiTryLocalThreadSchedule @ 0x14023A080 (KiTryLocalThreadSchedule.c)
+ *     KiTryLocalThreadSchedule @ 0x14023A150 (KiTryLocalThreadSchedule.c)
  * Callees:
  *     <none>
  */

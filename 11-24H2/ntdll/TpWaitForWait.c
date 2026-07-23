@@ -1,32 +1,30 @@
 /*
- * XREFs of TpWaitForWait @ 0x18006EB30
+ * XREFs of TpWaitForWait @ 0x18008B410
  * Callers:
- *     RtlDeregisterWaitEx @ 0x18006E2B0 (RtlDeregisterWaitEx.c)
+ *     RtlDeregisterWaitEx @ 0x18008AB90 (RtlDeregisterWaitEx.c)
  * Callees:
- *     RtlAcquireSRWLockExclusive @ 0x180055AE0 (RtlAcquireSRWLockExclusive.c)
- *     RtlReleaseSRWLockExclusive @ 0x1800567B0 (RtlReleaseSRWLockExclusive.c)
- *     TppCancelWait @ 0x18006ADE0 (TppCancelWait.c)
- *     TppRaiseInvalidParameter @ 0x18006B7F4 (TppRaiseInvalidParameter.c)
- *     TppWorkWait @ 0x18006ED50 (TppWorkWait.c)
+ *     RtlAcquireSRWLockExclusive @ 0x18006B6C0 (RtlAcquireSRWLockExclusive.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18006C390 (RtlReleaseSRWLockExclusive.c)
+ *     TppCancelWait @ 0x1800876C0 (TppCancelWait.c)
+ *     TppRaiseInvalidParameter @ 0x1800880D4 (TppRaiseInvalidParameter.c)
+ *     TppWorkWait @ 0x18008B630 (TppWorkWait.c)
  */
 
-void __fastcall TpWaitForWait(__int64 a1, volatile signed __int32 **a2, unsigned __int64 a3)
+void __cdecl TpWaitForWait(PTP_WAIT Wait, LOGICAL CancelPendingCallbacks)
 {
-  int v3; // eax
-  char v4; // r14
-  __int64 v6; // rdi
-  volatile signed __int32 **v7; // rdx
-  unsigned __int64 v8; // r8
-  unsigned int v9; // ecx
-  __int64 (__fastcall *v10)(__int64); // rax
-  unsigned int v11; // [rsp+40h] [rbp+8h] BYREF
+  volatile int Flags; // eax
+  char v3; // r14
+  _TP_POOL *Pool; // rdi
+  unsigned int v7; // ecx
+  void (__fastcall *Free)(_TPP_CLEANUP_GROUP_MEMBER *); // rax
+  unsigned int v9; // [rsp+40h] [rbp+8h] BYREF
 
-  v3 = *(_DWORD *)(a1 + 168);
-  v4 = 0;
-  v11 = 0;
-  if ( (v3 & 0x10000) != 0
-    || (v3 & 0x20000) != 0
-    || *(__int64 (__fastcall ***)())(a1 + 8) != TppWaitpCleanupGroupMemberVFuncs
+  Flags = Wait->Timer.Work.CleanupGroupMember.Flags;
+  v3 = 0;
+  v9 = 0;
+  if ( (Flags & 0x10000) != 0
+    || (Flags & 0x20000) != 0
+    || (__int64 (__fastcall **)())Wait->Timer.Work.CleanupGroupMember.VFuncs != TppWaitpCleanupGroupMemberVFuncs
     || NtCurrentPeb()->Ldr->ShutdownInProgress )
   {
     if ( !NtCurrentPeb()->Ldr->ShutdownInProgress )
@@ -34,44 +32,44 @@ void __fastcall TpWaitForWait(__int64 a1, volatile signed __int32 **a2, unsigned
   }
   else
   {
-    if ( (_DWORD)a2 )
+    if ( CancelPendingCallbacks )
     {
-      v6 = *(_QWORD *)(a1 + 144);
-      RtlAcquireSRWLockExclusive((volatile signed __int32 *)(a1 + 240), a2, a3);
-      ++*(_BYTE *)(a1 + 355);
-      TppCancelWait(a1, v6 + 112, 2, &v11);
-      if ( *(_DWORD *)(a1 + 56) )
-        v4 = 1;
+      Pool = Wait->Timer.Work.CleanupGroupMember.Pool;
+      RtlAcquireSRWLockExclusive(&Wait->Timer.Lock);
+      ++Wait->Timer.BlockInsert;
+      TppCancelWait((__int64)Wait, (__int64)&Pool->TimerQueue, 2, &v9);
+      if ( Wait->Timer.Work.CleanupGroupMember.CallbackBarrier.Ptr.0 )
+        v3 = 1;
       else
-        --*(_BYTE *)(a1 + 355);
-      RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a1 + 240));
-      TppWorkWait(a1);
-      if ( v4 )
+        --Wait->Timer.BlockInsert;
+      RtlReleaseSRWLockExclusive(&Wait->Timer.Lock);
+      TppWorkWait(Wait, CancelPendingCallbacks);
+      if ( v3 )
       {
-        RtlAcquireSRWLockExclusive((volatile signed __int32 *)(a1 + 240), v7, v8);
-        --*(_BYTE *)(a1 + 355);
-        RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a1 + 240));
+        RtlAcquireSRWLockExclusive(&Wait->Timer.Lock);
+        --Wait->Timer.BlockInsert;
+        RtlReleaseSRWLockExclusive(&Wait->Timer.Lock);
       }
     }
     else
     {
-      TppWorkWait(a1);
+      TppWorkWait(Wait, CancelPendingCallbacks);
     }
-    v9 = v11;
-    if ( v11 && _InterlockedExchangeAdd((volatile signed __int32 *)a1, v11) == -v9 )
+    v7 = v9;
+    if ( v9 && _InterlockedExchangeAdd(&Wait->Timer.Work.CleanupGroupMember.Refcount.Refcount, v9) == -v7 )
     {
-      v10 = **(__int64 (__fastcall ***)(__int64))(a1 + 8);
-      if ( v10 == TppFreeWait )
+      Free = Wait->Timer.Work.CleanupGroupMember.VFuncs->Free;
+      if ( (char *)Free == (char *)TppFreeWait )
       {
-        TppFreeWait(a1);
+        TppFreeWait((__int64)Wait);
       }
-      else if ( v10 == TppTimerpFree )
+      else if ( (char *)Free == (char *)TppTimerpFree )
       {
-        TppTimerpFree(a1);
+        TppTimerpFree(Wait);
       }
       else
       {
-        v10(a1);
+        Free(&Wait->Timer.Work.CleanupGroupMember);
       }
     }
   }

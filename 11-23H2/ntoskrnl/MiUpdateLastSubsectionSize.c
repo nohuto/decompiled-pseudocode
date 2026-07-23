@@ -1,14 +1,14 @@
 /*
- * XREFs of MiUpdateLastSubsectionSize @ 0x140365E94
+ * XREFs of MiUpdateLastSubsectionSize @ 0x140366034
  * Callers:
- *     MmExtendSection @ 0x140706504 (MmExtendSection.c)
+ *     MmExtendSection @ 0x140706714 (MmExtendSection.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiGetSubsectionHoldingCrossPartitionReferences @ 0x1402ED410 (MiGetSubsectionHoldingCrossPartitionReferences.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiGetSubsectionCharges @ 0x14066B1A8 (MiGetSubsectionCharges.c)
- *     MiReturnCrossPartitionSectionCharges @ 0x14066B3B4 (MiReturnCrossPartitionSectionCharges.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024D430 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiGetSubsectionHoldingCrossPartitionReferences @ 0x1402ED6A0 (MiGetSubsectionHoldingCrossPartitionReferences.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     MiGetSubsectionCharges @ 0x14066B6F8 (MiGetSubsectionCharges.c)
+ *     MiReturnCrossPartitionSectionCharges @ 0x14066B904 (MiReturnCrossPartitionSectionCharges.c)
  */
 
 __int64 __fastcall MiUpdateLastSubsectionSize(__int64 a1, _QWORD *a2, unsigned int a3)
@@ -55,10 +55,13 @@ LABEL_6:
     if ( v7 )
       goto LABEL_6;
     ExReleaseSpinLockExclusiveFromDpcLevel(v8);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v9 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v9 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -79,10 +82,10 @@ LABEL_6:
   *(_DWORD *)(a1 + 40) = (*a2 >> 12) - (*(_DWORD *)(a1 + 36) | ((*(_WORD *)(a1 + 32) & 0xFFC0) << 26));
   *(_WORD *)(a1 + 34) = (16 * *(_WORD *)a2) | v11 & 0xF;
   ExReleaseSpinLockExclusiveFromDpcLevel(v8);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v21 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v21 <= 0xFu && (unsigned __int8)v9 <= 0xFu && v21 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v21 <= 0xFu && (unsigned __int8)v9 <= 0xFu && v21 >= 2u )
     {
       v22 = KeGetCurrentPrcb();
       v23 = v22->SchedulerAssist;

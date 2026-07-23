@@ -1,20 +1,20 @@
 /*
- * XREFs of IoReuseIrp @ 0x1402903D0
+ * XREFs of IoReuseIrp @ 0x140290660
  * Callers:
- *     PopAllocateIrp @ 0x14028F434 (PopAllocateIrp.c)
- *     PopPrepareIoctl @ 0x140847E20 (PopPrepareIoctl.c)
- *     SmKmFileInfoCleanup @ 0x1409D8980 (SmKmFileInfoCleanup.c)
+ *     PopAllocateIrp @ 0x14028F6C4 (PopAllocateIrp.c)
+ *     PopPrepareIoctl @ 0x140848120 (PopPrepareIoctl.c)
+ *     SmKmFileInfoCleanup @ 0x1409D8B80 (SmKmFileInfoCleanup.c)
  * Callees:
  *     EtwActivityIdControl @ 0x140208AA0 (EtwActivityIdControl.c)
- *     EtwWriteEx @ 0x1402581E0 (EtwWriteEx.c)
- *     IopFreeCopyObjectsFromIrp @ 0x14028F1B0 (IopFreeCopyObjectsFromIrp.c)
- *     IopIrpHasExtensionType @ 0x140290278 (IopIrpHasExtensionType.c)
- *     IoSetActivityIdIrp @ 0x1402905A0 (IoSetActivityIdIrp.c)
- *     IopIsActivityTracingEventEnabled @ 0x1403C3078 (IopIsActivityTracingEventEnabled.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     IovpLogStackTrace @ 0x140AC1E08 (IovpLogStackTrace.c)
- *     VfIoInitializeIrp @ 0x140ACD9CC (VfIoInitializeIrp.c)
+ *     EtwWriteEx @ 0x1402582A0 (EtwWriteEx.c)
+ *     IopFreeCopyObjectsFromIrp @ 0x14028F440 (IopFreeCopyObjectsFromIrp.c)
+ *     IopIrpHasExtensionType @ 0x140290508 (IopIrpHasExtensionType.c)
+ *     IoSetActivityIdIrp @ 0x140290830 (IoSetActivityIdIrp.c)
+ *     IopIsActivityTracingEventEnabled @ 0x1403C3258 (IopIsActivityTracingEventEnabled.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     IovpLogStackTrace @ 0x140AC1DF8 (IovpLogStackTrace.c)
+ *     VfIoInitializeIrp @ 0x140ACD9BC (VfIoInitializeIrp.c)
  */
 
 void __stdcall IoReuseIrp(PIRP Irp, NTSTATUS Iostatus)

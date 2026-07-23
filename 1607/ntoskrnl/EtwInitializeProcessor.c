@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwInitializeProcessor @ 0x140552C9C
+ * XREFs of EtwInitializeProcessor @ 0x1405531DC
  * Callers:
- *     KiStartDynamicProcessor @ 0x14064F040 (KiStartDynamicProcessor.c)
+ *     KiStartDynamicProcessor @ 0x14064F124 (KiStartDynamicProcessor.c)
  *     EtwpInitialize @ 0x1407A0D3C (EtwpInitialize.c)
  * Callees:
- *     memset @ 0x1401715C0 (memset.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     EtwpInitializeStackTracing @ 0x140552D48 (EtwpInitializeStackTracing.c)
- *     EtwpInitializeActivityIdSeed @ 0x140552DE0 (EtwpInitializeActivityIdSeed.c)
+ *     EtwpInitializeStackTracing @ 0x140553288 (EtwpInitializeStackTracing.c)
+ *     EtwpInitializeActivityIdSeed @ 0x140553320 (EtwpInitializeActivityIdSeed.c)
  */
 
 __int64 __fastcall EtwInitializeProcessor(__int64 a1)

@@ -1,22 +1,22 @@
 /*
- * XREFs of BgpRasPrintGlyph @ 0x140385724
+ * XREFs of BgpRasPrintGlyph @ 0x140385904
  * Callers:
- *     BgpTxtDisplayCharacter @ 0x140384F88 (BgpTxtDisplayCharacter.c)
- *     BgpTxtDisplayString @ 0x140AF27A0 (BgpTxtDisplayString.c)
+ *     BgpTxtDisplayCharacter @ 0x140385168 (BgpTxtDisplayCharacter.c)
+ *     BgpTxtDisplayString @ 0x140AF27B0 (BgpTxtDisplayString.c)
  * Callees:
- *     DbgPrintEx @ 0x14032A740 (DbgPrintEx.c)
- *     RaspGetCacheEntry @ 0x140385E44 (RaspGetCacheEntry.c)
- *     RaspRasterize @ 0x140385EC0 (RaspRasterize.c)
- *     RaspFreeMemory @ 0x140386084 (RaspFreeMemory.c)
- *     BgpFmRoundUp @ 0x140386AAC (BgpFmRoundUp.c)
- *     RaspRectangleCreate @ 0x140386CD4 (RaspRectangleCreate.c)
- *     BgpFwAllocateMemory @ 0x14038762C (BgpFwAllocateMemory.c)
- *     RaspAntiAlias @ 0x140387AE0 (RaspAntiAlias.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     DbgPrintEx @ 0x14032A9D0 (DbgPrintEx.c)
+ *     RaspGetCacheEntry @ 0x140386024 (RaspGetCacheEntry.c)
+ *     RaspRasterize @ 0x1403860A0 (RaspRasterize.c)
+ *     RaspFreeMemory @ 0x140386264 (RaspFreeMemory.c)
+ *     BgpFmRoundUp @ 0x140386C8C (BgpFmRoundUp.c)
+ *     RaspRectangleCreate @ 0x140386EB4 (RaspRectangleCreate.c)
+ *     BgpFwAllocateMemory @ 0x14038780C (BgpFwAllocateMemory.c)
+ *     RaspAntiAlias @ 0x140387CC0 (RaspAntiAlias.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
  *     RaspDestroyCachedBitmap @ 0x140AEDB20 (RaspDestroyCachedBitmap.c)
  *     RaspAddCacheEntry @ 0x140AEDB60 (RaspAddCacheEntry.c)
- *     BgpGxCopyRectangle @ 0x140AF2654 (BgpGxCopyRectangle.c)
+ *     BgpGxCopyRectangle @ 0x140AF2664 (BgpGxCopyRectangle.c)
  */
 
 __int64 __fastcall BgpRasPrintGlyph(

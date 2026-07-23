@@ -1,11 +1,11 @@
 /*
- * XREFs of CmSiEventTupleCleanup @ 0x1404B535C
+ * XREFs of CmSiEventTupleCleanup @ 0x1404AE7AC
  * Callers:
- *     CmpHiveCacheEntryCleanup @ 0x140861D7C (CmpHiveCacheEntryCleanup.c)
- *     CmpOpenHiveFile @ 0x1408B51B0 (CmpOpenHiveFile.c)
+ *     CmpHiveCacheEntryCleanup @ 0x14086815C (CmpHiveCacheEntryCleanup.c)
+ *     CmpOpenHiveFile @ 0x1408BB784 (CmpOpenHiveFile.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
  */
 
 NTSTATUS __fastcall CmSiEventTupleCleanup(__int64 a1)

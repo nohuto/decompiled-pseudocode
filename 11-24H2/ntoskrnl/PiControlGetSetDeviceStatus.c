@@ -1,30 +1,30 @@
 /*
- * XREFs of PiControlGetSetDeviceStatus @ 0x1408D1350
+ * XREFs of PiControlGetSetDeviceStatus @ 0x1408CED40
  * Callers:
- *     NtPlugPlayControl @ 0x1408CFA10 (NtPlugPlayControl.c)
+ *     NtPlugPlayControl @ 0x1408CD400 (NtPlugPlayControl.c)
  * Callees:
- *     KeReleaseGuardedMutex @ 0x14031E470 (KeReleaseGuardedMutex.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     ExAcquireFastMutex @ 0x14033E850 (ExAcquireFastMutex.c)
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     ObfReferenceObjectWithTag @ 0x1403403E0 (ObfReferenceObjectWithTag.c)
- *     RtlLookupElementGenericTableAvl @ 0x1403FFF00 (RtlLookupElementGenericTableAvl.c)
- *     KeInitializeEvent @ 0x140409D80 (KeInitializeEvent.c)
- *     PnpRequestDeviceAction @ 0x14046C968 (PnpRequestDeviceAction.c)
- *     PnpCancelDeviceActionRequest @ 0x1405A71D0 (PnpCancelDeviceActionRequest.c)
- *     PnpRemoveDeviceActionRequestFromQueue @ 0x1405A7280 (PnpRemoveDeviceActionRequestFromQueue.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     PiControlCopyUserModeCallersBuffer @ 0x1408D0240 (PiControlCopyUserModeCallersBuffer.c)
- *     PiControlGetUserFlagsFromDeviceNode @ 0x1408D15E8 (PiControlGetUserFlagsFromDeviceNode.c)
- *     PnpDeleteDeviceActionRequest @ 0x1409EF704 (PnpDeleteDeviceActionRequest.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeReleaseGuardedMutex @ 0x1402C7000 (KeReleaseGuardedMutex.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     ExAcquireFastMutex @ 0x14031DD30 (ExAcquireFastMutex.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     ObfReferenceObjectWithTag @ 0x14031F8C0 (ObfReferenceObjectWithTag.c)
+ *     RtlLookupElementGenericTableAvl @ 0x1403FA3F0 (RtlLookupElementGenericTableAvl.c)
+ *     KeInitializeEvent @ 0x140402260 (KeInitializeEvent.c)
+ *     PnpRequestDeviceAction @ 0x140467508 (PnpRequestDeviceAction.c)
+ *     PnpCancelDeviceActionRequest @ 0x1405A41C0 (PnpCancelDeviceActionRequest.c)
+ *     PnpRemoveDeviceActionRequestFromQueue @ 0x1405A4270 (PnpRemoveDeviceActionRequestFromQueue.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     PiControlCopyUserModeCallersBuffer @ 0x1408CDC30 (PiControlCopyUserModeCallersBuffer.c)
+ *     PiControlGetUserFlagsFromDeviceNode @ 0x1408CEFD8 (PiControlGetUserFlagsFromDeviceNode.c)
+ *     PnpDeleteDeviceActionRequest @ 0x1409ECFD4 (PnpDeleteDeviceActionRequest.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiControlGetSetDeviceStatus(__int64 a1, unsigned __int16 *a2, unsigned int a3, char a4)
 {
   unsigned int v4; // ecx
-  size_t v5; // r15
+  ULONG_PTR v5; // r15
   unsigned __int16 *v8; // r12
   const void *v9; // rbx
   unsigned int v10; // edi
@@ -70,7 +70,7 @@ __int64 __fastcall PiControlGetSetDeviceStatus(__int64 a1, unsigned __int16 *a2,
     v10 = v4;
     if ( a4 )
     {
-      Pool2 = (void *)ExAllocatePool2(0x101uLL);
+      Pool2 = (void *)ExAllocatePool2(0x101uLL, v4, 0x20207050u);
       P[1] = Pool2;
       if ( !Pool2 )
         return (unsigned int)-1073741670;
@@ -147,7 +147,7 @@ LABEL_22:
     {
       if ( v16 )
       {
-        v27 = (unsigned __int16 *)ExAllocatePool2(0x100uLL);
+        v27 = (unsigned __int16 *)ExAllocatePool2(0x100uLL, v5, 0x55706E50u);
         v8 = v27;
         if ( !v27 )
         {

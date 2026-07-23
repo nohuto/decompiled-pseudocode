@@ -1,19 +1,19 @@
 /*
- * XREFs of ExpWnfAllocateNextPersistentNameSequence @ 0x140AA5144
+ * XREFs of ExpWnfAllocateNextPersistentNameSequence @ 0x140833C84
  * Callers:
- *     ExpWnfGenerateStateName @ 0x140836DD8 (ExpWnfGenerateStateName.c)
+ *     ExpWnfGenerateStateName @ 0x140834538 (ExpWnfGenerateStateName.c)
  * Callees:
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     PsGetCurrentServerSiloGlobals @ 0x140347D10 (PsGetCurrentServerSiloGlobals.c)
- *     PsAttachSiloToCurrentThread @ 0x14043CF50 (PsAttachSiloToCurrentThread.c)
- *     PsDetachSiloFromCurrentThread @ 0x140444750 (PsDetachSiloFromCurrentThread.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwQueryValueKey @ 0x1406A66F0 (ZwQueryValueKey.c)
- *     ZwSetValueKey @ 0x1406A7010 (ZwSetValueKey.c)
- *     ExpWnfGetNameStoreRegistryRoot @ 0x14085AE94 (ExpWnfGetNameStoreRegistryRoot.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140326710 (PsGetCurrentServerSiloGlobals.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     PsAttachSiloToCurrentThread @ 0x14042FBB0 (PsAttachSiloToCurrentThread.c)
+ *     PsDetachSiloFromCurrentThread @ 0x14043A1F0 (PsDetachSiloFromCurrentThread.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwQueryValueKey @ 0x1406A7690 (ZwQueryValueKey.c)
+ *     ZwSetValueKey @ 0x1406A7FB0 (ZwSetValueKey.c)
+ *     ExpWnfGetNameStoreRegistryRoot @ 0x140833900 (ExpWnfGetNameStoreRegistryRoot.c)
  */
 
 __int64 __fastcall ExpWnfAllocateNextPersistentNameSequence(struct _LIST_ENTRY *a1, unsigned __int64 *a2)
@@ -22,12 +22,12 @@ __int64 __fastcall ExpWnfAllocateNextPersistentNameSequence(struct _LIST_ENTRY *
   NTSTATUS NameStoreRegistryRoot; // edi
   struct _LIST_ENTRY *v5; // r12
   struct _LIST_ENTRY *CurrentServerSiloGlobals; // rbx
-  _QWORD *v7; // rax
-  _QWORD *v8; // r14
+  char *v7; // rax
+  char *v8; // r14
   NTSTATUS v9; // eax
   unsigned __int64 v10; // rsi
-  _QWORD *v11; // rax
-  _QWORD *v12; // r15
+  char *v11; // rax
+  char *v12; // r15
   unsigned __int64 v13; // rax
   unsigned __int64 Data; // [rsp+30h] [rbp-40h] BYREF
   HANDLE KeyHandle; // [rsp+38h] [rbp-38h] BYREF
@@ -47,15 +47,15 @@ __int64 __fastcall ExpWnfAllocateNextPersistentNameSequence(struct _LIST_ENTRY *
   NameStoreRegistryRoot = ExpWnfGetNameStoreRegistryRoot(1, (volatile signed __int64 *)&KeyHandle);
   if ( NameStoreRegistryRoot < 0 )
     goto LABEL_34;
-  v7 = KeAbPreAcquire((__int64)&CurrentServerSiloGlobals[57], 0LL);
+  v7 = (char *)KeAbPreAcquire((__int64)&CurrentServerSiloGlobals[57], 0LL);
   v8 = v7;
   if ( _interlockedbittestandset64((volatile signed __int32 *)&CurrentServerSiloGlobals[57], 0LL) )
     ExfAcquirePushLockExclusiveEx(
       (unsigned __int64 *)&CurrentServerSiloGlobals[57],
-      (__int64)v7,
+      v7,
       (__int64)&CurrentServerSiloGlobals[57]);
   if ( v8 )
-    *((_BYTE *)v8 + 10) = 1;
+    v8[10] = 1;
   v3 = 1;
   if ( CurrentServerSiloGlobals[57].Blink )
     goto LABEL_13;
@@ -86,15 +86,15 @@ LABEL_13:
       }
       if ( !v3 )
       {
-        v11 = KeAbPreAcquire((__int64)&CurrentServerSiloGlobals[57], 0LL);
+        v11 = (char *)KeAbPreAcquire((__int64)&CurrentServerSiloGlobals[57], 0LL);
         v12 = v11;
         if ( _interlockedbittestandset64((volatile signed __int32 *)&CurrentServerSiloGlobals[57], 0LL) )
           ExfAcquirePushLockExclusiveEx(
             (unsigned __int64 *)&CurrentServerSiloGlobals[57],
-            (__int64)v11,
+            v11,
             (__int64)&CurrentServerSiloGlobals[57]);
         if ( v12 )
-          *((_BYTE *)v12 + 10) = 1;
+          v12[10] = 1;
         v3 = 1;
       }
       if ( (struct _LIST_ENTRY *)v10 <= CurrentServerSiloGlobals[57].Blink )

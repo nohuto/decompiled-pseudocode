@@ -1,12 +1,12 @@
 /*
- * XREFs of PspInitializeQuotaBlock @ 0x14085D22C
+ * XREFs of PspInitializeQuotaBlock @ 0x14085D46C
  * Callers:
- *     PspAssignProcessQuotaBlock @ 0x1407F8468 (PspAssignProcessQuotaBlock.c)
+ *     PspAssignProcessQuotaBlock @ 0x1407F8738 (PspAssignProcessQuotaBlock.c)
  * Callees:
- *     PspInsertExpansionEntry @ 0x1403AE8D4 (PspInsertExpansionEntry.c)
- *     memset @ 0x140435A00 (memset.c)
- *     PspExpandLimit @ 0x1405A3BB8 (PspExpandLimit.c)
- *     IoEnableIrpCredits @ 0x140943F9C (IoEnableIrpCredits.c)
+ *     PspInsertExpansionEntry @ 0x1403AEAB4 (PspInsertExpansionEntry.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     PspExpandLimit @ 0x1405A40A8 (PspExpandLimit.c)
+ *     IoEnableIrpCredits @ 0x14094419C (IoEnableIrpCredits.c)
  */
 
 __int64 __fastcall PspInitializeQuotaBlock(__int64 a1, int *a2, __int64 *a3)

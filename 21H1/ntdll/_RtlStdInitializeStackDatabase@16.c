@@ -8,92 +8,100 @@
  *     _memset @ 0x4B2F8F30 (_memset.c)
  */
 
-int __stdcall RtlStdInitializeStackDatabase(int a1, unsigned int a2, unsigned int a3, _DWORD *a4)
+NTSTATUS __stdcall RtlStdInitializeStackDatabase(_BYTE *ZeroBits, unsigned int ZeroBits_4, ULONG_PTR RegionSize)
 {
-  unsigned int v4; // eax
-  int v5; // ecx
-  int v6; // edi
-  unsigned int v7; // ebx
-  int result; // eax
-  int VirtualMemory; // ebx
-  int v10; // edx
+  unsigned int v3; // eax
+  _BYTE *v4; // ecx
+  int v5; // edi
+  unsigned int v6; // ebx
+  NTSTATUS result; // eax
+  NTSTATUS v8; // ebx
+  char *v9; // edx
   unsigned int i; // ecx
-  int v12; // eax
-  unsigned int v13; // edx
-  int v14; // ecx
-  int v15; // eax
-  int v16; // [esp+Ch] [ebp-4h] BYREF
+  char *v11; // eax
+  unsigned int v12; // edx
+  char *v13; // ecx
+  int v14; // eax
+  ULONG_PTR v15; // [esp-10h] [ebp-20h]
+  ULONG_PTR v16; // [esp-10h] [ebp-20h]
+  size_t v17; // [esp-4h] [ebp-14h]
+  PVOID BaseAddress; // [esp+Ch] [ebp-4h] BYREF
 
-  v4 = a2;
-  if ( a2 && (a2 != a3 || !a1) )
+  v3 = ZeroBits_4;
+  if ( ZeroBits_4 && (ZeroBits_4 != (_DWORD)RegionSize || !ZeroBits) )
     return -1073741811;
-  v5 = a1;
-  v16 = a1;
-  v6 = a3 < 0x1000000 ? 5569 : 9551;
-  v7 = 8 * v6 + 392;
-  if ( a3 <= v7 )
+  v4 = ZeroBits;
+  BaseAddress = ZeroBits;
+  v5 = (unsigned int)RegionSize < 0x1000000 ? 5569 : 9551;
+  v6 = 8 * v5 + 392;
+  if ( (unsigned int)RegionSize <= v6 )
     return -1073741811;
-  if ( !a1 )
+  if ( !ZeroBits )
   {
-    result = NtAllocateVirtualMemory(-1, (int)&v16, 0, (int)&a3, 0x2000, 4);
+    HIDWORD(v15) = &RegionSize;
+    LODWORD(v15) = 0;
+    result = NtAllocateVirtualMemory((HANDLE)0xFFFFFFFF, &BaseAddress, v15, (PSIZE_T)0x2000, 4u, HIDWORD(v17));
     if ( result < 0 )
       return result;
-    v4 = a2;
-    v5 = v16;
+    v3 = ZeroBits_4;
+    v4 = BaseAddress;
   }
-  if ( v4 )
+  if ( v3 )
   {
-    *(_BYTE *)(v5 + 68) = 1;
+    v4[68] = 1;
 LABEL_16:
-    v10 = v16;
-    *(_DWORD *)(v16 + 72) = v16;
-    *(_DWORD *)(v16 + 376) = v6;
-    *(_DWORD *)(v16 + 88) = v10 + a3;
-    *(_DWORD *)(v16 + 100) = *(_DWORD *)(v16 + 88);
-    if ( *(_BYTE *)(v16 + 68) )
+    v9 = (char *)BaseAddress;
+    *((_DWORD *)BaseAddress + 18) = BaseAddress;
+    *((_DWORD *)BaseAddress + 94) = v5;
+    *((_DWORD *)BaseAddress + 22) = &v9[RegionSize];
+    *((_DWORD *)BaseAddress + 25) = *((_DWORD *)BaseAddress + 22);
+    if ( *((_BYTE *)BaseAddress + 68) )
     {
-      memset((void *)(v16 + 380), 0, 8 * *(_DWORD *)(v16 + 376));
+      LODWORD(v17) = 8 * *((_DWORD *)BaseAddress + 94);
+      memset((char *)BaseAddress + 380, 0, v17);
     }
     else
     {
-      *(_DWORD *)(v16 + 76) = v10 + a2;
-      *(_DWORD *)(v16 + 80) = v10 + a3;
+      *((_DWORD *)BaseAddress + 19) = &v9[ZeroBits_4];
+      *((_DWORD *)BaseAddress + 20) = &v9[RegionSize];
     }
-    *(_DWORD *)(v16 + 84) = v7 + v16 + 4;
-    *(_DWORD *)(v16 + 64) = *(_DWORD *)(v16 + 84);
+    *((_DWORD *)BaseAddress + 21) = (char *)BaseAddress + v6 + 4;
+    *((_DWORD *)BaseAddress + 16) = *((_DWORD *)BaseAddress + 21);
     for ( i = 120; i < 0x178; i += 8 )
     {
-      v12 = v16;
-      *(_DWORD *)(i + v16) = 0;
-      *(_DWORD *)(i + v12 + 4) = 0;
+      v11 = (char *)BaseAddress;
+      *(_DWORD *)((char *)BaseAddress + i) = 0;
+      *(_DWORD *)&v11[i + 4] = 0;
     }
-    v13 = 0;
-    *(_DWORD *)v16 = 0;
-    v14 = v16;
-    if ( *(_DWORD *)(v16 + 376) )
+    v12 = 0;
+    *(_DWORD *)BaseAddress = 0;
+    v13 = (char *)BaseAddress;
+    if ( *((_DWORD *)BaseAddress + 94) )
     {
-      v15 = 384;
+      v14 = 384;
       do
       {
-        *(_DWORD *)(v15 + v14) = 0;
-        ++v13;
-        v14 = v16;
-        v15 += 8;
+        *(_DWORD *)&v13[v14] = 0;
+        ++v12;
+        v13 = (char *)BaseAddress;
+        v14 += 8;
       }
-      while ( v13 < *(_DWORD *)(v16 + 376) );
+      while ( v12 < *((_DWORD *)BaseAddress + 94) );
     }
-    *a4 = v14;
+    *(_DWORD *)HIDWORD(RegionSize) = v13;
     return 0;
   }
-  a2 = (8 * v6 + 4487) & 0xFFFFF000;
-  VirtualMemory = NtAllocateVirtualMemory(-1, (int)&v16, 0, (int)&a2, 4096, 4);
-  if ( VirtualMemory >= 0 )
+  ZeroBits_4 = (8 * v5 + 4487) & 0xFFFFF000;
+  HIDWORD(v16) = &ZeroBits_4;
+  LODWORD(v16) = 0;
+  v8 = NtAllocateVirtualMemory((HANDLE)0xFFFFFFFF, &BaseAddress, v16, (PSIZE_T)0x1000, 4u, HIDWORD(v17));
+  if ( v8 >= 0 )
   {
-    v7 = 8 * v6 + 392;
-    *(_BYTE *)(v16 + 68) = 0;
+    v6 = 8 * v5 + 392;
+    *((_BYTE *)BaseAddress + 68) = 0;
     goto LABEL_16;
   }
-  if ( !a1 )
-    NtFreeVirtualMemory(-1, (int)&v16, (int)&a3, 0x8000);
-  return VirtualMemory;
+  if ( !ZeroBits )
+    NtFreeVirtualMemory((HANDLE)0xFFFFFFFF, &BaseAddress, &RegionSize, 0x8000u);
+  return v8;
 }

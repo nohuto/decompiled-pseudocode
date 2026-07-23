@@ -1,30 +1,30 @@
 /*
- * XREFs of PspCreateProcess @ 0x1407CE460
+ * XREFs of PspCreateProcess @ 0x1407CE5D0
  * Callers:
- *     NtCreateProcessEx @ 0x140906F70 (NtCreateProcessEx.c)
- *     PspInitPhase0 @ 0x140A3DC68 (PspInitPhase0.c)
+ *     NtCreateProcessEx @ 0x1409070D0 (NtCreateProcessEx.c)
+ *     PspInitPhase0 @ 0x140A3EC68 (PspInitPhase0.c)
  * Callees:
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memset @ 0x140414200 (memset.c)
- *     PspRundownSingleProcess @ 0x140604738 (PspRundownSingleProcess.c)
- *     PspGetProcessProtectionRequirementsFromImage @ 0x1406070A8 (PspGetProcessProtectionRequirementsFromImage.c)
- *     PspInsertProcess @ 0x140607710 (PspInsertProcess.c)
- *     SeQuerySigningPolicy @ 0x14060CFF0 (SeQuerySigningPolicy.c)
- *     PspReferenceTokenForNewProcess @ 0x14060D2C4 (PspReferenceTokenForNewProcess.c)
- *     PspCreateObjectHandle @ 0x14064A7C4 (PspCreateObjectHandle.c)
- *     PspAllocateProcess @ 0x1406D6638 (PspAllocateProcess.c)
- *     ObReferenceObjectByHandleWithTag @ 0x1406F0B80 (ObReferenceObjectByHandleWithTag.c)
- *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
- *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
- *     PsCreateMinimalProcess @ 0x1407C6284 (PsCreateMinimalProcess.c)
- *     PspDeleteObjectAccessState @ 0x14090A0DC (PspDeleteObjectAccessState.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     PspCreateObjectHandle @ 0x14063F5E4 (PspCreateObjectHandle.c)
+ *     PspGetProcessProtectionRequirementsFromImage @ 0x140696B38 (PspGetProcessProtectionRequirementsFromImage.c)
+ *     PspInsertProcess @ 0x1406971A0 (PspInsertProcess.c)
+ *     SeQuerySigningPolicy @ 0x14069CAA0 (SeQuerySigningPolicy.c)
+ *     PspReferenceTokenForNewProcess @ 0x14069CD74 (PspReferenceTokenForNewProcess.c)
+ *     PspAllocateProcess @ 0x1406AD918 (PspAllocateProcess.c)
+ *     PspRundownSingleProcess @ 0x1406F3E68 (PspRundownSingleProcess.c)
+ *     ObReferenceObjectByHandleWithTag @ 0x140707F60 (ObReferenceObjectByHandleWithTag.c)
+ *     ObReferenceObjectByHandle @ 0x140707FA0 (ObReferenceObjectByHandle.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BFB0 (ExRaiseDatatypeMisalignment.c)
+ *     PsCreateMinimalProcess @ 0x1407C65A4 (PsCreateMinimalProcess.c)
+ *     PspDeleteObjectAccessState @ 0x14090A23C (PspDeleteObjectAccessState.c)
  */
 
 NTSTATUS __fastcall PspCreateProcess(
         __int64 a1,
-        int a2,
+        ACCESS_MASK a2,
         __int64 a3,
         void *a4,
         KPROCESSOR_MODE AccessMode,
@@ -36,43 +36,44 @@ NTSTATUS __fastcall PspCreateProcess(
   struct _DMA_ADAPTER *v11; // r12
   PVOID v12; // r15
   int ProcessProtectionRequirementsFromImage; // esi
-  char v14; // bl
-  int v15; // eax
-  int v16; // ebx
-  char v17; // al
+  __int64 v14; // r9
+  char v15; // bl
+  int v16; // eax
+  int v17; // ebx
+  char v18; // al
   NTSTATUS result; // eax
-  __int64 v19; // rax
-  int v20; // eax
+  __int64 v20; // rax
   int v21; // eax
-  __int64 v22; // rdx
-  char v23; // [rsp+80h] [rbp-248h] BYREF
-  unsigned __int8 v24; // [rsp+81h] [rbp-247h] BYREF
-  char v25; // [rsp+82h] [rbp-246h] BYREF
-  char v26; // [rsp+83h] [rbp-245h]
-  char v27; // [rsp+84h] [rbp-244h]
-  int v28; // [rsp+88h] [rbp-240h]
+  int v22; // eax
+  __int64 v23; // rdx
+  char v24; // [rsp+80h] [rbp-248h] BYREF
+  char v25; // [rsp+81h] [rbp-247h] BYREF
+  char v26; // [rsp+82h] [rbp-246h] BYREF
+  char v27; // [rsp+83h] [rbp-245h]
+  char v28; // [rsp+84h] [rbp-244h]
+  int v29; // [rsp+88h] [rbp-240h]
   PVOID Object; // [rsp+90h] [rbp-238h] BYREF
   PADAPTER_OBJECT DmaAdapter; // [rsp+98h] [rbp-230h] BYREF
-  int v31; // [rsp+A0h] [rbp-228h]
-  PVOID v32; // [rsp+A8h] [rbp-220h] BYREF
-  PVOID v33; // [rsp+B0h] [rbp-218h] BYREF
-  void *v34; // [rsp+B8h] [rbp-210h]
-  __int64 v35; // [rsp+C0h] [rbp-208h] BYREF
-  __int64 v36; // [rsp+C8h] [rbp-200h]
-  PVOID v37; // [rsp+D0h] [rbp-1F8h]
-  HANDLE v38; // [rsp+D8h] [rbp-1F0h]
-  _BYTE v39[400]; // [rsp+F0h] [rbp-1D8h] BYREF
+  ACCESS_MASK v32; // [rsp+A0h] [rbp-228h]
+  PVOID v33; // [rsp+A8h] [rbp-220h] BYREF
+  PVOID v34; // [rsp+B0h] [rbp-218h] BYREF
+  void *v35; // [rsp+B8h] [rbp-210h]
+  __int64 v36; // [rsp+C0h] [rbp-208h] BYREF
+  __int64 v37; // [rsp+C8h] [rbp-200h]
+  PVOID v38; // [rsp+D0h] [rbp-1F8h]
+  HANDLE v39; // [rsp+D8h] [rbp-1F0h]
+  _BYTE v40[400]; // [rsp+F0h] [rbp-1D8h] BYREF
 
-  v31 = a2;
-  v36 = a1;
-  v38 = a8;
-  v34 = a9;
-  v35 = 0LL;
-  v27 = 0;
-  v32 = 0LL;
+  v32 = a2;
+  v37 = a1;
+  v39 = a8;
+  v35 = a9;
+  v36 = 0LL;
+  v28 = 0;
+  v33 = 0LL;
   Object = 0LL;
-  v24 = 0;
   v25 = 0;
+  v26 = 0;
   DmaAdapter = 0LL;
   if ( (a6 & 0xFFF94040) != 0
     || (BYTE2(KeGetCurrentThread()->ApcState.Process[2].Header.WaitListHead.Flink) & 7) != 0 && AccessMode )
@@ -81,7 +82,7 @@ NTSTATUS __fastcall PspCreateProcess(
   }
   if ( (a6 & 0x4000) != 0 && (a6 & 0x2000) == 0 )
     return -1073741811;
-  v28 = a6 & 0x800;
+  v29 = a6 & 0x800;
   if ( (a6 & 0x2000) != 0 && (a6 & 0x800) == 0 )
     return -1073741811;
   if ( (a6 & 0x800) != 0 )
@@ -92,10 +93,10 @@ NTSTATUS __fastcall PspCreateProcess(
     {
       if ( *(_QWORD *)(a3 + 8) )
         return -1073741811;
-      v19 = *(_QWORD *)(a3 + 16);
-      if ( !v19
-        || !*(_QWORD *)(v19 + 8)
-        || !*(_WORD *)v19
+      v20 = *(_QWORD *)(a3 + 16);
+      if ( !v20
+        || !*(_QWORD *)(v20 + 8)
+        || !*(_WORD *)v20
         || *(_DWORD *)(a3 + 24) != 512
         || *(_QWORD *)(a3 + 32)
         || *(_QWORD *)(a3 + 40) )
@@ -108,40 +109,40 @@ NTSTATUS __fastcall PspCreateProcess(
   }
   if ( (a6 & 0x20000) != 0 && (AccessMode || (a6 & 0x800) == 0) )
     return -1073741811;
-  memset(v39, 0, sizeof(v39));
-  v39[388] = AccessMode;
+  memset(v40, 0, sizeof(v40));
+  v40[388] = AccessMode;
   if ( a3 )
   {
     if ( AccessMode )
     {
       if ( (a3 & 3) != 0 )
         ExRaiseDatatypeMisalignment();
-      v20 = *(_DWORD *)(a3 + 24);
-      *(_DWORD *)&v39[384] = v20;
+      v21 = *(_DWORD *)(a3 + 24);
+      *(_DWORD *)&v40[384] = v21;
     }
     else
     {
-      v20 = *(_DWORD *)(a3 + 24);
+      v21 = *(_DWORD *)(a3 + 24);
     }
     if ( AccessMode )
-      v21 = v20 & 0x1DF2;
+      v22 = v21 & 0x1DF2;
     else
-      v21 = v20 & 0x11FF2;
-    *(_DWORD *)&v39[384] = v21;
+      v22 = v21 & 0x11FF2;
+    *(_DWORD *)&v40[384] = v22;
   }
   if ( Handle )
   {
-    v33 = 0LL;
-    result = ObReferenceObjectByHandle(Handle, 8u, MmSectionObjectType, AccessMode, &v33, 0LL);
-    v11 = (struct _DMA_ADAPTER *)v33;
-    v37 = v33;
+    v34 = 0LL;
+    result = ObReferenceObjectByHandle(Handle, 8u, MmSectionObjectType, AccessMode, &v34, 0LL);
+    v11 = (struct _DMA_ADAPTER *)v34;
+    v38 = v34;
     if ( result < 0 )
       return result;
   }
   else
   {
     v11 = 0LL;
-    v37 = 0LL;
+    v38 = 0LL;
   }
   if ( !a4
     || (ProcessProtectionRequirementsFromImage = ObReferenceObjectByHandleWithTag(
@@ -150,13 +151,13 @@ NTSTATUS __fastcall PspCreateProcess(
                                                    (POBJECT_TYPE)PsProcessType,
                                                    AccessMode,
                                                    0x72437350u,
-                                                   &v32,
+                                                   &v33,
                                                    0LL),
         ProcessProtectionRequirementsFromImage >= 0) )
   {
-    v12 = v32;
+    v12 = v33;
     ProcessProtectionRequirementsFromImage = PspReferenceTokenForNewProcess(
-                                               (struct _KPROCESS *)v32,
+                                               (struct _KPROCESS *)v33,
                                                a9,
                                                AccessMode,
                                                &DmaAdapter);
@@ -166,19 +167,13 @@ NTSTATUS __fastcall PspCreateProcess(
     {
       if ( v11 )
       {
-        v23 = 0;
-        ProcessProtectionRequirementsFromImage = SeQuerySigningPolicy(
-                                                   DmaAdapter,
-                                                   0LL,
-                                                   0,
-                                                   0,
-                                                   &v24,
-                                                   (unsigned __int8 *)&v25,
-                                                   (unsigned __int8 *)&v23);
+        v24 = 0;
+        LOBYTE(v14) = 0;
+        ProcessProtectionRequirementsFromImage = SeQuerySigningPolicy(DmaAdapter, 0LL, 0LL, v14, &v25, &v26, &v24);
         if ( ProcessProtectionRequirementsFromImage < 0 )
           goto LABEL_27;
-        v26 = v24;
-        if ( v24 > 1u || (v14 = v23) != 0 )
+        v27 = v25;
+        if ( (unsigned __int8)v25 > 1u || (v15 = v24) != 0 )
         {
 LABEL_72:
           ProcessProtectionRequirementsFromImage = -1073741637;
@@ -190,77 +185,77 @@ LABEL_15:
         ProcessProtectionRequirementsFromImage = PspGetProcessProtectionRequirementsFromImage((__int64)v11);
         if ( ProcessProtectionRequirementsFromImage >= 0 )
         {
-          if ( v14 == v27 )
+          if ( v15 == v28 )
           {
 LABEL_16:
-            if ( v28 )
+            if ( v29 )
             {
               if ( a3 )
-                v22 = *(_QWORD *)(a3 + 16);
+                v23 = *(_QWORD *)(a3 + 16);
               else
-                v22 = 0LL;
+                v23 = 0LL;
               ProcessProtectionRequirementsFromImage = PsCreateMinimalProcess(
                                                          (PEPROCESS)v12,
-                                                         v22,
+                                                         v23,
                                                          0LL,
-                                                         v14,
-                                                         (PADAPTER_OBJECT)((unsigned __int64)DmaAdapter & -(__int64)(v34 != 0LL)),
+                                                         v15,
+                                                         (PADAPTER_OBJECT)((unsigned __int64)DmaAdapter & -(__int64)(v35 != 0LL)),
                                                          a6,
                                                          0,
                                                          0LL,
                                                          0LL,
-                                                         (_QWORD *)v36);
+                                                         (_QWORD *)v37);
             }
             else
             {
-              v15 = PspAllocateProcess(
+              v16 = PspAllocateProcess(
                       (__int64)v12,
                       AccessMode,
                       (volatile signed __int32 *)a3,
-                      v14,
+                      v15,
+                      v27,
                       v26,
-                      v25,
                       v11,
                       DmaAdapter,
                       a6,
                       0,
                       0LL,
-                      v34 != 0LL,
+                      v35 != 0LL,
                       0LL,
-                      (__int64)&v35,
+                      (__int64)&v36,
                       &Object);
-              ProcessProtectionRequirementsFromImage = v15;
-              if ( v15 >= 0 )
+              ProcessProtectionRequirementsFromImage = v16;
+              if ( v16 >= 0 )
               {
-                v16 = v15;
-                v28 = v15;
-                v17 = 1;
-                if ( (_DWORD)v35 )
-                  v17 = 3;
+                v17 = v16;
+                v29 = v16;
+                v18 = 1;
+                if ( (_DWORD)v36 )
+                  v18 = 3;
                 ProcessProtectionRequirementsFromImage = PspInsertProcess(
                                                            (char *)Object,
                                                            (struct _KPROCESS *)v12,
-                                                           v31,
+                                                           v32,
                                                            a6,
-                                                           v38,
-                                                           v17,
+                                                           v39,
+                                                           v18,
                                                            0LL,
-                                                           (PACCESS_STATE)v39);
+                                                           (PACCESS_STATE)v40);
                 if ( ProcessProtectionRequirementsFromImage >= 0 )
                 {
                   ProcessProtectionRequirementsFromImage = PspCreateObjectHandle(
                                                              Object,
-                                                             (__int64)v39,
+                                                             (__int64)v40,
                                                              (struct _OBJECT_TYPE *)PsProcessType);
                   if ( ProcessProtectionRequirementsFromImage >= 0 )
                   {
-                    *(_QWORD *)v36 = *(_QWORD *)&v39[392];
-                    ProcessProtectionRequirementsFromImage = v16;
+                    *(_QWORD *)v37 = *(_QWORD *)&v40[392];
+                    ProcessProtectionRequirementsFromImage = v17;
                   }
-                  PspDeleteObjectAccessState(v39);
+                  PspDeleteObjectAccessState(v40);
                 }
                 if ( ProcessProtectionRequirementsFromImage < 0 )
-                  PspRundownSingleProcess((__int64)Object, 0);
+                  PspRundownSingleProcess((ULONG_PTR)Object, 0);
                 ObfDereferenceObjectWithTag(Object, 0x72437350u);
               }
             }
@@ -275,19 +270,19 @@ LABEL_28:
           ObfDereferenceObjectWithTag(v12, 0x72437350u);
         goto LABEL_30;
       }
-      v14 = *((_BYTE *)v12 + 2170);
-      v25 = *((_BYTE *)v12 + 2169);
-      v26 = *((_BYTE *)v12 + 2168);
-      v24 = v26;
+      v15 = *((_BYTE *)v12 + 2170);
+      v26 = *((_BYTE *)v12 + 2169);
+      v27 = *((_BYTE *)v12 + 2168);
+      v25 = v27;
     }
     else
     {
-      v14 = 114;
-      v26 = 30;
-      v24 = 30;
-      v25 = 28;
+      v15 = 114;
+      v27 = 30;
+      v25 = 30;
+      v26 = 28;
     }
-    v23 = v14;
+    v24 = v15;
     goto LABEL_15;
   }
 LABEL_30:

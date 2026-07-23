@@ -29,47 +29,47 @@ PSTR __stdcall RtlIpv6AddressToStringA(const struct in6_addr *Addr, PSTR S)
   v3 = S + 46;
   v4 = 0LL;
   v5 = S;
-  if ( !*(_DWORD *)Addr->u.Byte && !Addr->u.Word[2] && !Addr->u.Word[3] && Addr->u.Word[6] )
+  if ( !*(_DWORD *)Addr && !*((_WORD *)Addr + 2) && !*((_WORD *)Addr + 3) && *((_WORD *)Addr + 6) )
   {
-    if ( !Addr->u.Word[4] && ((Addr->u.Word[5] + 1) & 0xFFFE) == 0 )
+    if ( !*((_WORD *)Addr + 4) && ((*((_WORD *)Addr + 5) + 1) & 0xFFFE) == 0 )
     {
-      v18 = (const char *)&unk_1801150C2;
-      if ( Addr->u.Word[5] )
+      v18 = (const char *)&dword_1801150C2;
+      if ( *((_WORD *)Addr + 5) )
         v18 = "ffff:";
       v19 = sprintf_s(
               S,
               0x2EuLL,
               "::%hs%u.%u.%u.%u",
               v18,
-              Addr->u.Byte[12],
-              Addr->u.Byte[13],
-              Addr->u.Byte[14],
-              Addr->u.Byte[15]);
+              *((unsigned __int8 *)Addr + 12),
+              *((unsigned __int8 *)Addr + 13),
+              *((unsigned __int8 *)Addr + 14),
+              *((unsigned __int8 *)Addr + 15));
       return &v5[v19];
     }
-    if ( Addr->u.Word[4] == 0xFFFF && !Addr->u.Word[5] )
+    if ( *((_WORD *)Addr + 4) == 0xFFFF && !*((_WORD *)Addr + 5) )
     {
       v19 = sprintf_s(
               S,
               0x2EuLL,
               "::ffff:0:%u.%u.%u.%u",
-              Addr->u.Byte[12],
-              Addr->u.Byte[13],
-              Addr->u.Byte[14],
-              Addr->u.Byte[15]);
+              *((unsigned __int8 *)Addr + 12),
+              *((unsigned __int8 *)Addr + 13),
+              *((unsigned __int8 *)Addr + 14),
+              *((unsigned __int8 *)Addr + 15));
       return &v5[v19];
     }
   }
   v7 = 0;
   v8 = 0;
   v9 = 0LL;
-  if ( (Addr->u.Word[4] & 0xFFFD) == 0 && Addr->u.Word[5] == 0xFE5E )
+  if ( (*((_WORD *)Addr + 4) & 0xFFFD) == 0 && *((_WORD *)Addr + 5) == 0xFE5E )
     v2 = 6;
   v10 = 0LL;
   v11 = 1;
   do
   {
-    if ( Addr->u.Word[v10] )
+    if ( *((_WORD *)Addr + v10) )
     {
       v9 = v11;
     }
@@ -96,7 +96,7 @@ PSTR __stdcall RtlIpv6AddressToStringA(const struct in6_addr *Addr, PSTR S)
     {
       if ( v4 && v4 != v13 )
         v5 += sprintf_s(v5, v3 - v5, ":", v9);
-      v16 = sprintf_s(v5, v3 - v5, "%x", (unsigned __int16)__ROR2__(Addr->u.Word[v4], 8));
+      v16 = sprintf_s(v5, v3 - v5, "%x", (unsigned __int16)__ROR2__(*((_WORD *)Addr + v4), 8));
     }
     else
     {
@@ -108,6 +108,13 @@ PSTR __stdcall RtlIpv6AddressToStringA(const struct in6_addr *Addr, PSTR S)
   }
   while ( v4 < v2 );
   if ( v2 < 8 )
-    v5 += sprintf_s(v5, v3 - v5, ":%u.%u.%u.%u", Addr->u.Byte[12], Addr->u.Byte[13], Addr->u.Byte[14], Addr->u.Byte[15]);
+    v5 += sprintf_s(
+            v5,
+            v3 - v5,
+            ":%u.%u.%u.%u",
+            *((unsigned __int8 *)Addr + 12),
+            *((unsigned __int8 *)Addr + 13),
+            *((unsigned __int8 *)Addr + 14),
+            *((unsigned __int8 *)Addr + 15));
   return v5;
 }

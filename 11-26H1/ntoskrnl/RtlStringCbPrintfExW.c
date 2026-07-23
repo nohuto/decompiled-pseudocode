@@ -1,19 +1,19 @@
 /*
- * XREFs of RtlStringCbPrintfExW @ 0x140460AA8
+ * XREFs of RtlStringCbPrintfExW @ 0x140459FE8
  * Callers:
- *     RtlQueryPackageIdentityEx @ 0x1404602F0 (RtlQueryPackageIdentityEx.c)
- *     RtlQueryPackageClaims @ 0x140460570 (RtlQueryPackageClaims.c)
- *     RtlQueryPackageIdentity @ 0x140460890 (RtlQueryPackageIdentity.c)
- *     WmipGenerateBinaryMofNotification @ 0x140823E24 (WmipGenerateBinaryMofNotification.c)
- *     EtwpQueryPsmKey @ 0x140828334 (EtwpQueryPsmKey.c)
- *     PiNormalizeDeviceText @ 0x140A27F78 (PiNormalizeDeviceText.c)
- *     ConvertDevpropertyToString @ 0x140A3B674 (ConvertDevpropertyToString.c)
- *     ConvertDevpropcompkeyToString @ 0x140A3D128 (ConvertDevpropcompkeyToString.c)
- *     PipCreateComputerId @ 0x140CC14A4 (PipCreateComputerId.c)
+ *     RtlQueryPackageIdentityEx @ 0x140459830 (RtlQueryPackageIdentityEx.c)
+ *     RtlQueryPackageClaims @ 0x140459AB0 (RtlQueryPackageClaims.c)
+ *     RtlQueryPackageIdentity @ 0x140459DD0 (RtlQueryPackageIdentity.c)
+ *     WmipGenerateBinaryMofNotification @ 0x14082A070 (WmipGenerateBinaryMofNotification.c)
+ *     EtwpQueryPsmKey @ 0x14082E574 (EtwpQueryPsmKey.c)
+ *     ConvertDevpropertyToString @ 0x1409F7094 (ConvertDevpropertyToString.c)
+ *     ConvertDevpropcompkeyToString @ 0x1409F8B48 (ConvertDevpropcompkeyToString.c)
+ *     PiNormalizeDeviceText @ 0x140A3B018 (PiNormalizeDeviceText.c)
+ *     PipCreateComputerId @ 0x140CC7574 (PipCreateComputerId.c)
  * Callees:
- *     StringExHandleOtherFlagsW @ 0x14044E280 (StringExHandleOtherFlagsW.c)
- *     RtlStringExHandleFillBehindNullW @ 0x140532B24 (RtlStringExHandleFillBehindNullW.c)
- *     _vsnwprintf @ 0x1405353B0 (_vsnwprintf.c)
+ *     StringExHandleOtherFlagsW @ 0x1404463B0 (StringExHandleOtherFlagsW.c)
+ *     RtlStringExHandleFillBehindNullW @ 0x140534FC4 (RtlStringExHandleFillBehindNullW.c)
+ *     _vsnwprintf @ 0x140537830 (_vsnwprintf.c)
  */
 
 NTSTATUS RtlStringCbPrintfExW(

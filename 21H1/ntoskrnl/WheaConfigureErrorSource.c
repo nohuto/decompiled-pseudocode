@@ -34,12 +34,12 @@ __int64 __fastcall WheaConfigureErrorSource(signed int a1, __int64 a2)
     return (unsigned int)-1073741811;
   v4 = (volatile signed __int32 *)((char *)&WheapSourceConfiguration + 64 * (__int64)a1);
   v5 = -1073741823;
-  v6 = KeAbPreAcquire((ULONG_PTR)&WheapConfigTableLock, 0LL, 0LL);
+  v6 = KeAbPreAcquire((ULONG_PTR)&WheapConfigTableLock, 0LL, 0);
   if ( _InterlockedCompareExchange64((volatile signed __int64 *)&WheapConfigTableLock, 17LL, 0LL) )
     ExfAcquirePushLockSharedEx(&WheapConfigTableLock, v6, (ULONG_PTR)&WheapConfigTableLock);
   if ( v6 )
     *(_BYTE *)(v6 + 26) |= 1u;
-  v7 = KeAbPreAcquire((ULONG_PTR)&WheapSourceConfiguration + 64 * v2, 0LL, 0LL);
+  v7 = KeAbPreAcquire((ULONG_PTR)&WheapSourceConfiguration + 64 * v2, 0LL, 0);
   v8 = v7;
   if ( _interlockedbittestandset64(v4, 0LL) )
     ExfAcquirePushLockExclusiveEx(

@@ -1,26 +1,22 @@
 /*
- * XREFs of SepBuildCapeSecurityDescriptor @ 0x1405B7A98
+ * XREFs of SepBuildCapeSecurityDescriptor @ 0x1405B8008
  * Callers:
- *     SepCommonAccessCheckEx @ 0x140228CE0 (SepCommonAccessCheckEx.c)
- *     SeAccessCheckWithHint @ 0x1402316C0 (SeAccessCheckWithHint.c)
- *     SeAccessCheckByType @ 0x1402B3AC0 (SeAccessCheckByType.c)
- *     SepAccessCheckAndAuditAlarm @ 0x1406C1070 (SepAccessCheckAndAuditAlarm.c)
+ *     SepCommonAccessCheckEx @ 0x140228DF0 (SepCommonAccessCheckEx.c)
+ *     SeAccessCheckWithHint @ 0x140231790 (SeAccessCheckWithHint.c)
+ *     SeAccessCheckByType @ 0x1402B3D50 (SeAccessCheckByType.c)
+ *     SepAccessCheckAndAuditAlarm @ 0x1406C10A0 (SepAccessCheckAndAuditAlarm.c)
  * Callees:
- *     RtlSetDaclSecurityDescriptor @ 0x1406BD500 (RtlSetDaclSecurityDescriptor.c)
- *     RtlCreateSecurityDescriptor @ 0x140736580 (RtlCreateSecurityDescriptor.c)
- *     RtlSetSaclSecurityDescriptor @ 0x1407365B0 (RtlSetSaclSecurityDescriptor.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x1406BD530 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateSecurityDescriptor @ 0x140736770 (RtlCreateSecurityDescriptor.c)
+ *     RtlSetSaclSecurityDescriptor @ 0x1407367A0 (RtlSetSaclSecurityDescriptor.c)
  */
 
-NTSTATUS __fastcall SepBuildCapeSecurityDescriptor(
-        PSECURITY_DESCRIPTOR SecurityDescriptor,
-        unsigned __int8 *a2,
-        __int64 a3)
+int __fastcall SepBuildCapeSecurityDescriptor(PSECURITY_DESCRIPTOR SecurityDescriptor, unsigned __int8 *a2, ACL *a3)
 {
-  NTSTATUS result; // eax
+  int result; // eax
   __int16 v7; // ax
   ACL *v8; // r8
   __int64 v9; // rax
-  __int64 v10; // rdx
 
   result = RtlCreateSecurityDescriptor(SecurityDescriptor, *a2);
   if ( result >= 0 )
@@ -51,10 +47,7 @@ LABEL_8:
                v8,
                (*((_WORD *)a2 + 1) & 8) != 0);
     if ( result >= 0 )
-    {
-      LOBYTE(v10) = 1;
-      return RtlSetSaclSecurityDescriptor(SecurityDescriptor, v10, a3, 0LL);
-    }
+      return RtlSetSaclSecurityDescriptor(SecurityDescriptor, 1u, a3, 0);
   }
   return result;
 }

@@ -1,14 +1,14 @@
 /*
- * XREFs of KiSetBasePriorityAndClearDecrement @ 0x1400D78EC
+ * XREFs of KiSetBasePriorityAndClearDecrement @ 0x1400D796C
  * Callers:
  *     KeDelayExecutionThread @ 0x14004DA20 (KeDelayExecutionThread.c)
- *     KeRemovePriQueue @ 0x1400B61A0 (KeRemovePriQueue.c)
- *     KiDeferredReadyThread @ 0x1400C3390 (KiDeferredReadyThread.c)
- *     KiDirectSwitchThread @ 0x1400C5230 (KiDirectSwitchThread.c)
- *     KiUpdateVPBackingThreadPriority @ 0x1400D0E40 (KiUpdateVPBackingThreadPriority.c)
- *     KeSetPriorityAndQuantumProcess @ 0x1400D6984 (KeSetPriorityAndQuantumProcess.c)
+ *     KeRemovePriQueue @ 0x1400B60E0 (KeRemovePriQueue.c)
+ *     KiDeferredReadyThread @ 0x1400C32D0 (KiDeferredReadyThread.c)
+ *     KiDirectSwitchThread @ 0x1400C5170 (KiDirectSwitchThread.c)
+ *     KiUpdateVPBackingThreadPriority @ 0x1400D0EC0 (KiUpdateVPBackingThreadPriority.c)
+ *     KeSetPriorityAndQuantumProcess @ 0x1400D6A04 (KeSetPriorityAndQuantumProcess.c)
  * Callees:
- *     KiAbQueueAutoBoostDpc @ 0x14010EDDC (KiAbQueueAutoBoostDpc.c)
+ *     KiAbQueueAutoBoostDpc @ 0x14010EE5C (KiAbQueueAutoBoostDpc.c)
  */
 
 __int64 __fastcall KiSetBasePriorityAndClearDecrement(__int64 a1, char *a2, int a3)

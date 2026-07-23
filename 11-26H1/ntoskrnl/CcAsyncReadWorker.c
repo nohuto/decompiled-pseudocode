@@ -1,25 +1,25 @@
 /*
- * XREFs of CcAsyncReadWorker @ 0x140388380
+ * XREFs of CcAsyncReadWorker @ 0x14038A130
  * Callers:
- *     CcAsyncReadWorkerThread @ 0x14038A000 (CcAsyncReadWorkerThread.c)
+ *     CcAsyncReadWorkerThread @ 0x14038BDB0 (CcAsyncReadWorkerThread.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfReleasePushLock @ 0x1402E3120 (ExfReleasePushLock.c)
- *     ExQueueWorkItemToPartition @ 0x1403830D0 (ExQueueWorkItemToPartition.c)
- *     CcFreeWorkQueueEntry @ 0x14038364C (CcFreeWorkQueueEntry.c)
- *     CcFindNextWorkQueueEntry @ 0x1403852F0 (CcFindNextWorkQueueEntry.c)
- *     CcPostWorkQueueAsyncRead @ 0x140387C88 (CcPostWorkQueueAsyncRead.c)
- *     CcShouldSpinAsyncReadWorkerThread @ 0x1403881CC (CcShouldSpinAsyncReadWorkerThread.c)
- *     CcAsyncReadPrefetch @ 0x140388A0C (CcAsyncReadPrefetch.c)
- *     KeWaitForMultipleObjects @ 0x140396440 (KeWaitForMultipleObjects.c)
- *     MmWaitMultipleForCacheManagerPrefetch @ 0x1403968FC (MmWaitMultipleForCacheManagerPrefetch.c)
- *     CcDereferencePartitionAndPrivateVolumeCacheMap @ 0x14039C160 (CcDereferencePartitionAndPrivateVolumeCacheMap.c)
- *     CcCompleteAsyncRead @ 0x14039E848 (CcCompleteAsyncRead.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExfReleasePushLock @ 0x14021B220 (ExfReleasePushLock.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExQueueWorkItemToPartition @ 0x140384E80 (ExQueueWorkItemToPartition.c)
+ *     CcFreeWorkQueueEntry @ 0x1403853FC (CcFreeWorkQueueEntry.c)
+ *     CcFindNextWorkQueueEntry @ 0x1403870A0 (CcFindNextWorkQueueEntry.c)
+ *     CcPostWorkQueueAsyncRead @ 0x140389A38 (CcPostWorkQueueAsyncRead.c)
+ *     CcShouldSpinAsyncReadWorkerThread @ 0x140389F7C (CcShouldSpinAsyncReadWorkerThread.c)
+ *     CcAsyncReadPrefetch @ 0x14038A7BC (CcAsyncReadPrefetch.c)
+ *     KeWaitForMultipleObjects @ 0x1403981C0 (KeWaitForMultipleObjects.c)
+ *     MmWaitMultipleForCacheManagerPrefetch @ 0x14039867C (MmWaitMultipleForCacheManagerPrefetch.c)
+ *     CcDereferencePartitionAndPrivateVolumeCacheMap @ 0x14039DEC0 (CcDereferencePartitionAndPrivateVolumeCacheMap.c)
+ *     CcCompleteAsyncRead @ 0x1403A05A8 (CcCompleteAsyncRead.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall CcAsyncReadWorker(_QWORD *StartContext)
@@ -51,13 +51,13 @@ void __fastcall CcAsyncReadWorker(_QWORD *StartContext)
   AutoBoost *v26; // rdi
   __int64 v27; // rsi
   _QWORD *v28; // r8
-  struct _SLIST_ENTRY *NextWorkQueueEntry; // rdi
+  _SLIST_ENTRY *NextWorkQueueEntry; // rdi
   signed __int64 v30; // rax
   signed __int64 v31; // rdx
   unsigned __int64 v32; // rtt
   struct _KLOCK_ENTRIES *v33; // r9
-  struct _SLIST_ENTRY **p_Next; // rcx
-  struct _SLIST_ENTRY *v35; // rdx
+  _SLIST_ENTRY **p_Next; // rcx
+  _SLIST_ENTRY *v35; // rdx
   __int64 v36; // rcx
   __int64 v37; // rax
   AutoBoost *v38; // rax
@@ -204,7 +204,7 @@ LABEL_58:
           }
           goto LABEL_51;
         }
-        NextWorkQueueEntry = (struct _SLIST_ENTRY *)CcFindNextWorkQueueEntry(v25, v2, v28);
+        NextWorkQueueEntry = (_SLIST_ENTRY *)CcFindNextWorkQueueEntry(v25, v2, v28);
         _m_prefetchw(v12);
         v30 = *v12;
         v31 = *v12 - 16;

@@ -9,38 +9,36 @@
  *     RtlpLookupCurDirSetting @ 0x18006ABA8 (RtlpLookupCurDirSetting.c)
  */
 
-__int64 __fastcall RtlpComputeDllPath(__int64 a1, __int64 a2, unsigned __int64 a3, unsigned __int64 a4)
+__int64 __fastcall RtlpComputeDllPath(__int64 a1)
 {
-  _RTL_USER_PROCESS_PARAMETERS *ProcessParameters; // rdx
   unsigned __int64 EnvironmentVersion; // rdi
-  int v7; // ebx
-  char *v8; // rcx
-  __int64 v9; // rbx
+  int v3; // ebx
+  char *v4; // rcx
+  __int64 v5; // rbx
 
-  ProcessParameters = NtCurrentPeb()->ProcessParameters;
-  EnvironmentVersion = ProcessParameters->EnvironmentVersion;
-  if ( *((_QWORD *)&LdrpDllDirectory + 1) )
+  EnvironmentVersion = NtCurrentPeb()->ProcessParameters->EnvironmentVersion;
+  if ( LdrpDllDirectory.Buffer )
   {
-    RtlAcquireSRWLockShared(&LdrpDllDirectoryLock, (unsigned __int64)ProcessParameters, a3, a4);
-    if ( *((_QWORD *)&LdrpDllDirectory + 1) )
+    RtlAcquireSRWLockShared(&LdrpDllDirectoryLock);
+    if ( LdrpDllDirectory.Buffer )
     {
-      v8 = (char *)&unk_18013796C;
+      v4 = (char *)&unk_18013796C;
       goto LABEL_5;
     }
     RtlReleaseSRWLockShared(&LdrpDllDirectoryLock);
   }
-  v7 = dword_180185088;
+  v3 = dword_180185088;
   if ( !dword_180185088 )
-    v7 = RtlpLookupCurDirSetting(L"\"$", 1LL, &dword_180185088);
-  RtlAcquireSRWLockShared(&LdrpDllDirectoryLock, (unsigned __int64)ProcessParameters, a3, a4);
-  v8 = (char *)&unk_180137930 + 20 * v7;
+    v3 = RtlpLookupCurDirSetting((PUNICODE_STRING)&stru_180131580);
+  RtlAcquireSRWLockShared(&LdrpDllDirectoryLock);
+  v4 = (char *)&unk_180137930 + 20 * v3;
 LABEL_5:
-  v9 = RtlpComputePath(v8, 5LL, a1);
+  v5 = RtlpComputePath(v4, 5LL, a1);
   RtlReleaseSRWLockShared(&LdrpDllDirectoryLock);
-  if ( v9 )
+  if ( v5 )
   {
-    *(_QWORD *)(v9 + 88) = EnvironmentVersion;
-    *(_BYTE *)(v9 + 116) = 0;
+    *(_QWORD *)(v5 + 88) = EnvironmentVersion;
+    *(_BYTE *)(v5 + 116) = 0;
   }
-  return v9;
+  return v5;
 }

@@ -1,12 +1,12 @@
 /*
- * XREFs of MiMirrorBrownPhasePartition @ 0x14044B2EC
+ * XREFs of MiMirrorBrownPhasePartition @ 0x14044341C
  * Callers:
- *     MiMirrorBrownPhase @ 0x140C0D430 (MiMirrorBrownPhase.c)
+ *     MiMirrorBrownPhase @ 0x140C13640 (MiMirrorBrownPhase.c)
  * Callees:
- *     MiWalkAllBitmapRanges @ 0x14044B8F0 (MiWalkAllBitmapRanges.c)
- *     MiEmptyAllWorkingSets @ 0x1406F79C4 (MiEmptyAllWorkingSets.c)
- *     MiWalkPagesOnLists @ 0x140C05688 (MiWalkPagesOnLists.c)
- *     MiActOnMirrorBitmap @ 0x140C0CAE8 (MiActOnMirrorBitmap.c)
+ *     MiWalkAllBitmapRanges @ 0x140443A20 (MiWalkAllBitmapRanges.c)
+ *     MiEmptyAllWorkingSets @ 0x1406FC690 (MiEmptyAllWorkingSets.c)
+ *     MiWalkPagesOnLists @ 0x140C0B898 (MiWalkPagesOnLists.c)
+ *     MiActOnMirrorBitmap @ 0x140C12CF8 (MiActOnMirrorBitmap.c)
  */
 
 __int64 __fastcall MiMirrorBrownPhasePartition(__int64 *a1, __int64 a2)
@@ -36,7 +36,7 @@ __int64 __fastcall MiMirrorBrownPhasePartition(__int64 *a1, __int64 a2)
       if ( (v8 & 1) == 0 )
       {
         *((_DWORD *)a1 + 16) = v8 | 1;
-        _InterlockedIncrement(&dword_140E35FD8);
+        _InterlockedIncrement(&dword_140E36158);
       }
     }
     v9 = *((_DWORD *)a1 + 2);
@@ -56,7 +56,7 @@ __int64 __fastcall MiMirrorBrownPhasePartition(__int64 *a1, __int64 a2)
     v14 = 0;
     v15 = 0LL;
     v16 = 0LL;
-    result = MiWalkAllBitmapRanges(&stru_140E2EB88.WaitBlockFill11[48], MiWriteBrownPages, &v12);
+    result = MiWalkAllBitmapRanges(&stru_140E2ED08.WaitBlockFill11[48], MiWriteBrownPages, &v12);
     if ( (int)result < 0 || (a1[8] & 1) != 0 || v15 < 0x400 )
       break;
   }

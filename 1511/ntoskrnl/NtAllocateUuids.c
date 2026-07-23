@@ -80,7 +80,7 @@ NTSTATUS __stdcall NtAllocateUuids(PULARGE_INTEGER Time, PULONG Range, PULONG Se
       ExfTryToWakePushLock((volatile signed __int64 *)&ExpUuidLock);
     KeAbPostRelease((ULONG_PTR)&ExpUuidLock);
     KiLeaveCriticalRegionUnsafe((__int64)CurrentThread);
-    *v7 = (union _ULARGE_INTEGER)v19[0];
+    *v7 = (ULARGE_INTEGER)v19[0];
     *Range = v17;
     *Sequence = v18;
     *(_DWORD *)Seed = *(int *)((char *)&dword_1406FB2A4 + 2);

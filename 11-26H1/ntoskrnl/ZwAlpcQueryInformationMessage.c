@@ -1,14 +1,20 @@
 /*
- * XREFs of ZwAlpcQueryInformationMessage @ 0x140724570
+ * XREFs of ZwAlpcQueryInformationMessage @ 0x140729140
  * Callers:
- *     DifZwAlpcQueryInformationMessageWrapper @ 0x14069B7D0 (DifZwAlpcQueryInformationMessageWrapper.c)
+ *     DifZwAlpcQueryInformationMessageWrapper @ 0x14069F3B0 (DifZwAlpcQueryInformationMessageWrapper.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwAlpcQueryInformationMessage(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwAlpcQueryInformationMessage(
+        HANDLE PortHandle,
+        PPORT_MESSAGE PortMessage,
+        ALPC_MESSAGE_INFORMATION_CLASS MessageInformationClass,
+        PVOID MessageInformation,
+        ULONG Length,
+        PULONG ReturnLength)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(PortHandle);
 }

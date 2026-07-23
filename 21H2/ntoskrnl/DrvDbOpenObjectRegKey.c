@@ -1,46 +1,46 @@
 /*
- * XREFs of DrvDbOpenObjectRegKey @ 0x140640410
+ * XREFs of DrvDbOpenObjectRegKey @ 0x140635220
  * Callers:
- *     DrvDbOpenDriverInfFileRegKey @ 0x14063B014 (DrvDbOpenDriverInfFileRegKey.c)
- *     DrvDbGetDriverPackageMappedProperty @ 0x14063B8BC (DrvDbGetDriverPackageMappedProperty.c)
- *     DrvDbOpenDriverPackageRegKey @ 0x14063EB9C (DrvDbOpenDriverPackageRegKey.c)
- *     DrvDbGetDeviceIdMappedProperty @ 0x1406C4158 (DrvDbGetDeviceIdMappedProperty.c)
- *     DrvDbSetDriverDatabaseMappedProperty @ 0x14072DDF8 (DrvDbSetDriverDatabaseMappedProperty.c)
- *     DrvDbOpenDeviceIdRegKey @ 0x140735174 (DrvDbOpenDeviceIdRegKey.c)
- *     DrvDbGetDriverDatabaseMappedProperty @ 0x140735830 (DrvDbGetDriverDatabaseMappedProperty.c)
- *     DrvDbCreateDatabaseNode @ 0x1407A4268 (DrvDbCreateDatabaseNode.c)
- *     DrvDbGetDriverDatabaseMappedPropertyKeys @ 0x14097D3A4 (DrvDbGetDriverDatabaseMappedPropertyKeys.c)
- *     DrvDbGetObjectDatabaseNodeName @ 0x14097DE60 (DrvDbGetObjectDatabaseNodeName.c)
- *     DrvDbOpenDriverFileRegKey @ 0x14097E558 (DrvDbOpenDriverFileRegKey.c)
+ *     DrvDbOpenDriverInfFileRegKey @ 0x14062FE24 (DrvDbOpenDriverInfFileRegKey.c)
+ *     DrvDbGetDriverPackageMappedProperty @ 0x1406306CC (DrvDbGetDriverPackageMappedProperty.c)
+ *     DrvDbOpenDriverPackageRegKey @ 0x1406339AC (DrvDbOpenDriverPackageRegKey.c)
+ *     DrvDbGetDeviceIdMappedProperty @ 0x140672A48 (DrvDbGetDeviceIdMappedProperty.c)
+ *     DrvDbSetDriverDatabaseMappedProperty @ 0x14072E2A8 (DrvDbSetDriverDatabaseMappedProperty.c)
+ *     DrvDbOpenDeviceIdRegKey @ 0x140735334 (DrvDbOpenDeviceIdRegKey.c)
+ *     DrvDbGetDriverDatabaseMappedProperty @ 0x1407359F0 (DrvDbGetDriverDatabaseMappedProperty.c)
+ *     DrvDbCreateDatabaseNode @ 0x1407A4468 (DrvDbCreateDatabaseNode.c)
+ *     DrvDbGetDriverDatabaseMappedPropertyKeys @ 0x14097D584 (DrvDbGetDriverDatabaseMappedPropertyKeys.c)
+ *     DrvDbGetObjectDatabaseNodeName @ 0x14097E040 (DrvDbGetObjectDatabaseNodeName.c)
+ *     DrvDbOpenDriverFileRegKey @ 0x14097E738 (DrvDbOpenDriverFileRegKey.c)
  * Callees:
- *     _PnpCtxRegCreateTree @ 0x14063E278 (_PnpCtxRegCreateTree.c)
- *     DrvDbGetObjectDatabaseNode @ 0x14063ECFC (DrvDbGetObjectDatabaseNode.c)
- *     DrvDbReleaseDatabaseNodeBaseKey @ 0x1406405FC (DrvDbReleaseDatabaseNodeBaseKey.c)
- *     DrvDbAcquireDatabaseNodeBaseKey @ 0x140640698 (DrvDbAcquireDatabaseNodeBaseKey.c)
- *     _PnpCtxRegOpenKey @ 0x14064081C (_PnpCtxRegOpenKey.c)
+ *     _PnpCtxRegCreateTree @ 0x140633088 (_PnpCtxRegCreateTree.c)
+ *     DrvDbGetObjectDatabaseNode @ 0x140633B0C (DrvDbGetObjectDatabaseNode.c)
+ *     DrvDbReleaseDatabaseNodeBaseKey @ 0x14063540C (DrvDbReleaseDatabaseNodeBaseKey.c)
+ *     DrvDbAcquireDatabaseNodeBaseKey @ 0x1406354A8 (DrvDbAcquireDatabaseNodeBaseKey.c)
+ *     _PnpCtxRegOpenKey @ 0x14063562C (_PnpCtxRegOpenKey.c)
  */
 
-__int64 DrvDbOpenObjectRegKey(__int64 *a1, const UNICODE_STRING *a2, unsigned int a3, ...)
+__int64 DrvDbOpenObjectRegKey(__int64 *a1, __int64 *a2, unsigned int a3, ...)
 {
   int ObjectDatabaseNode; // eax
   __int64 v7; // r8
-  const UNICODE_STRING *v8; // rdi
+  __int64 *v8; // rdi
   int Tree; // ebx
-  const UNICODE_STRING *i; // r14
+  __int64 *i; // r14
   int v11; // eax
   __int64 v12; // r8
   int v14; // eax
   __int64 v15; // rcx
   int v16; // eax
   __int64 v17; // [rsp+40h] [rbp-10h] BYREF
-  const UNICODE_STRING *v18; // [rsp+48h] [rbp-8h] BYREF
+  __int64 *v18; // [rsp+48h] [rbp-8h] BYREF
   wchar_t *v20; // [rsp+98h] [rbp+48h] BYREF
   va_list va; // [rsp+98h] [rbp+48h]
   __int64 v22; // [rsp+A0h] [rbp+50h]
   __int64 v23; // [rsp+A8h] [rbp+58h]
   __int64 v24; // [rsp+B0h] [rbp+60h]
   _DWORD *v25; // [rsp+B8h] [rbp+68h]
-  const UNICODE_STRING **v26; // [rsp+C0h] [rbp+70h]
+  __int64 **v26; // [rsp+C0h] [rbp+70h]
   va_list va1; // [rsp+C8h] [rbp+78h] BYREF
 
   va_start(va1, a3);
@@ -50,7 +50,7 @@ __int64 DrvDbOpenObjectRegKey(__int64 *a1, const UNICODE_STRING *a2, unsigned in
   v23 = va_arg(va1, _QWORD);
   v24 = va_arg(va1, _QWORD);
   v25 = va_arg(va1, _DWORD *);
-  v26 = va_arg(va1, const UNICODE_STRING **);
+  v26 = va_arg(va1, __int64 **);
   v17 = 0LL;
   v18 = 0LL;
   ObjectDatabaseNode = DrvDbGetObjectDatabaseNode((__int64)a1, v20, (wchar_t **)va, &v18);
@@ -63,9 +63,7 @@ __int64 DrvDbOpenObjectRegKey(__int64 *a1, const UNICODE_STRING *a2, unsigned in
     v8 = a2;
     if ( !a2 )
     {
-      for ( i = (const UNICODE_STRING *)a1[2];
-            i != (const UNICODE_STRING *)(a1 + 2);
-            i = *(const UNICODE_STRING **)&i->Length )
+      for ( i = (__int64 *)a1[2]; i != a1 + 2; i = (__int64 *)*i )
       {
         v8 = i;
         v11 = DrvDbAcquireDatabaseNodeBaseKey(a1, i, a3, &v17);
@@ -89,7 +87,7 @@ __int64 DrvDbOpenObjectRegKey(__int64 *a1, const UNICODE_STRING *a2, unsigned in
       {
         if ( !(_BYTE)v23 )
           goto LABEL_12;
-        v8 = (const UNICODE_STRING *)a1[4];
+        v8 = (__int64 *)a1[4];
         v16 = DrvDbAcquireDatabaseNodeBaseKey(a1, v8, a3, &v17);
         Tree = v16;
         if ( v16 < 0 )

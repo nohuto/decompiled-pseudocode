@@ -1,9 +1,9 @@
 /*
- * XREFs of CmPostCallbackNotification @ 0x1405D1A94
+ * XREFs of CmPostCallbackNotification @ 0x1405D2A94
  * Callers:
  *     CmpDoQueryKeyName @ 0x140016840 (CmpDoQueryKeyName.c)
  * Callees:
- *     CmPostCallbackNotificationEx @ 0x14063FAA0 (CmPostCallbackNotificationEx.c)
+ *     CmPostCallbackNotificationEx @ 0x140640AC0 (CmPostCallbackNotificationEx.c)
  */
 
 __int64 __fastcall CmPostCallbackNotification(int a1, int a2, int a3, int a4, __int64 a5)

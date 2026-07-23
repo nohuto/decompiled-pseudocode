@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwRegisterEventCallback @ 0x14082C950
+ * XREFs of EtwRegisterEventCallback @ 0x140832B90
  * Callers:
  *     <none>
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x1402150C0 (PsGetCurrentServerSiloGlobals.c)
- *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
- *     EtwpAcquireLoggerContextByLoggerId @ 0x14091EFC0 (EtwpAcquireLoggerContextByLoggerId.c)
- *     EtwpReleaseLoggerContext @ 0x14093D918 (EtwpReleaseLoggerContext.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x1402153F0 (PsGetCurrentServerSiloGlobals.c)
+ *     KeLeaveCriticalRegion @ 0x14030E7A0 (KeLeaveCriticalRegion.c)
+ *     EtwpReleaseLoggerContext @ 0x1409194B8 (EtwpReleaseLoggerContext.c)
+ *     EtwpAcquireLoggerContextByLoggerId @ 0x140979A20 (EtwpAcquireLoggerContextByLoggerId.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall EtwRegisterEventCallback(__int64 a1, __int64 a2, __int64 a3)
@@ -23,7 +23,7 @@ __int64 __fastcall EtwRegisterEventCallback(__int64 a1, __int64 a2, __int64 a3)
 
   v4 = 0;
   Flink = PsGetCurrentServerSiloGlobals()[52].Flink;
-  if ( !v5 || v5 != *(_QWORD *)&stru_140FC01F0.PriorityFloorSummary )
+  if ( !v5 || v5 != *(_QWORD *)&stru_140FC11F0.PriorityFloorSummary )
     return 3221225506LL;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;

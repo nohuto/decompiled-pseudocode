@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwTraceAutoBoostEntryExhaustion @ 0x1403408CC
+ * XREFs of EtwTraceAutoBoostEntryExhaustion @ 0x14031FDAC
  * Callers:
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
  * Callees:
- *     EtwTraceSiloKernelEvent @ 0x140348590 (EtwTraceSiloKernelEvent.c)
- *     Feature_Servicing_AutoBoostEtwEventingFixes__private_IsEnabledNoReportingNoInline @ 0x1404F5CFC (Feature_Servicing_AutoBoostEtwEventingFixes__private_IsEnabledNoReportingNoInline.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     EtwTraceSiloKernelEvent @ 0x1403C1FD0 (EtwTraceSiloKernelEvent.c)
+ *     Feature_Servicing_AutoBoostEtwEventingFixes__private_IsEnabledNoReportingNoInline @ 0x1404F35FC (Feature_Servicing_AutoBoostEtwEventingFixes__private_IsEnabledNoReportingNoInline.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 __int64 __fastcall EtwTraceAutoBoostEntryExhaustion(__int64 a1, __int64 a2)

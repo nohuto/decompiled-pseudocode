@@ -17,7 +17,7 @@ PSLIST_ENTRY __fastcall MiAllocateInPageSupport(__int64 a1, char a2, unsigned in
   char v9; // bl
   char v10; // cl
   PSLIST_ENTRY result; // rax
-  struct _SLIST_ENTRY *v12; // rdi
+  _SLIST_ENTRY *v12; // rdi
   __int64 v13; // rax
 
   if ( a4 )

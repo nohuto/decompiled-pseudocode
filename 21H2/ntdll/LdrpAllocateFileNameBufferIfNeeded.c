@@ -5,8 +5,8 @@
  *     LdrpAppendUnicodeStringToFilenameBuffer @ 0x18001A8AC (LdrpAppendUnicodeStringToFilenameBuffer.c)
  * Callees:
  *     NtdllpAllocateStringRoutine @ 0x18006EBE0 (NtdllpAllocateStringRoutine.c)
- *     memmove @ 0x1800A44C0 (memmove.c)
- *     NtdllpReallocateStringRoutine @ 0x1800D4A28 (NtdllpReallocateStringRoutine.c)
+ *     memmove @ 0x1800A4480 (memmove.c)
+ *     NtdllpReallocateStringRoutine @ 0x1800D49E8 (NtdllpReallocateStringRoutine.c)
  */
 
 __int64 __fastcall LdrpAllocateFileNameBufferIfNeeded(unsigned __int16 *a1, unsigned int a2, __int64 a3, __int64 a4)

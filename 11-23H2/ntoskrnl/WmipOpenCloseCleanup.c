@@ -1,9 +1,9 @@
 /*
- * XREFs of WmipOpenCloseCleanup @ 0x1407E8510
+ * XREFs of WmipOpenCloseCleanup @ 0x1407E87E0
  * Callers:
  *     <none>
  * Callees:
- *     IofCompleteRequest @ 0x1402C9980 (IofCompleteRequest.c)
+ *     IofCompleteRequest @ 0x1402C9C10 (IofCompleteRequest.c)
  */
 
 __int64 __fastcall WmipOpenCloseCleanup(__int64 a1, IRP *a2)

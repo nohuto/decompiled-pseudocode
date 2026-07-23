@@ -1,15 +1,15 @@
 /*
- * XREFs of ?WritePartitionTable@SC_MBR@@QEAAJPEAVSC_DISK_LAYOUT@@@Z @ 0x14069E6A4
+ * XREFs of ?WritePartitionTable@SC_MBR@@QEAAJPEAVSC_DISK_LAYOUT@@@Z @ 0x14069F73C
  * Callers:
- *     ?WritePartitionTable@SC_DISK@@QEAAJPEAVSC_DISK_LAYOUT@@@Z @ 0x14069E00C (-WritePartitionTable@SC_DISK@@QEAAJPEAVSC_DISK_LAYOUT@@@Z.c)
- *     ?CreatePartitionTable@SC_MBR@@QEAAJPEAU_CREATE_DISK@@@Z @ 0x14069E258 (-CreatePartitionTable@SC_MBR@@QEAAJPEAU_CREATE_DISK@@@Z.c)
+ *     ?WritePartitionTable@SC_DISK@@QEAAJPEAVSC_DISK_LAYOUT@@@Z @ 0x14069F09C (-WritePartitionTable@SC_DISK@@QEAAJPEAVSC_DISK_LAYOUT@@@Z.c)
+ *     ?CreatePartitionTable@SC_MBR@@QEAAJPEAU_CREATE_DISK@@@Z @ 0x14069F2E8 (-CreatePartitionTable@SC_MBR@@QEAAJPEAU_CREATE_DISK@@@Z.c)
  * Callees:
- *     ?ReadSectors@SC_DISK@@QEAAJK_KPEAX@Z @ 0x14069DCEC (-ReadSectors@SC_DISK@@QEAAJK_KPEAX@Z.c)
- *     ?WriteSectors@SC_DISK@@QEAAJK_KPEAX@Z @ 0x14069E0EC (-WriteSectors@SC_DISK@@QEAAJK_KPEAX@Z.c)
- *     ?CheckSum@MBR_HEADER@@QEAAKXZ @ 0x14069E130 (-CheckSum@MBR_HEADER@@QEAAKXZ.c)
- *     ?ComputeChs@MBR_ENTRY@@QEAAXPEAU_DISK_GEOMETRY@@@Z @ 0x14069E174 (-ComputeChs@MBR_ENTRY@@QEAAXPEAU_DISK_GEOMETRY@@@Z.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ?CreateGuid@SC_ENV@@SAJPEAU_GUID@@@Z @ 0x14070DE20 (-CreateGuid@SC_ENV@@SAJPEAU_GUID@@@Z.c)
+ *     ?ReadSectors@SC_DISK@@QEAAJK_KPEAX@Z @ 0x14069ED80 (-ReadSectors@SC_DISK@@QEAAJK_KPEAX@Z.c)
+ *     ?WriteSectors@SC_DISK@@QEAAJK_KPEAX@Z @ 0x14069F17C (-WriteSectors@SC_DISK@@QEAAJK_KPEAX@Z.c)
+ *     ?CheckSum@MBR_HEADER@@QEAAKXZ @ 0x14069F1C0 (-CheckSum@MBR_HEADER@@QEAAKXZ.c)
+ *     ?ComputeChs@MBR_ENTRY@@QEAAXPEAU_DISK_GEOMETRY@@@Z @ 0x14069F204 (-ComputeChs@MBR_ENTRY@@QEAAXPEAU_DISK_GEOMETRY@@@Z.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ?CreateGuid@SC_ENV@@SAJPEAU_GUID@@@Z @ 0x14070B9C0 (-CreateGuid@SC_ENV@@SAJPEAU_GUID@@@Z.c)
  */
 
 __int64 __fastcall SC_MBR::WritePartitionTable(SC_DISK **this, struct SC_DISK_LAYOUT *a2)
@@ -114,7 +114,7 @@ __int64 __fastcall SC_MBR::WritePartitionTable(SC_DISK **this, struct SC_DISK_LA
     }
     if ( v11 )
     {
-      v9 = SC_DISK::WriteSectors(*this, 1, v10, 0LL);
+      v9 = SC_DISK::WriteSectors(*this, 1LL, v10, 0LL);
       if ( v9 < 0 )
         return (unsigned int)v9;
       v11 = 0;
@@ -123,7 +123,7 @@ __int64 __fastcall SC_MBR::WritePartitionTable(SC_DISK **this, struct SC_DISK_LA
       break;
     v22 = *((_DWORD *)v12 + 2);
     v26 = v22 + v7;
-    Sectors = SC_DISK::ReadSectors(*this, 1, v22 + v7, 0LL);
+    Sectors = SC_DISK::ReadSectors(*this, 1LL, v22 + v7, 0LL);
     v2 = 0LL;
     v9 = Sectors;
     if ( Sectors < 0 )

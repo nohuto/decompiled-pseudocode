@@ -6,7 +6,7 @@
  *     RtlQueryPerformanceCounter @ 0x180010930 (RtlQueryPerformanceCounter.c)
  */
 
-__int64 __fastcall RtlGetMultiTimePrecise(_QWORD *a1, __int64 a2, int *a3)
+__int64 __fastcall RtlGetMultiTimePrecise(LARGE_INTEGER *a1, int a2, int *a3)
 {
   __int64 v3; // rdi
   __int64 v4; // r14
@@ -17,11 +17,11 @@ __int64 __fastcall RtlGetMultiTimePrecise(_QWORD *a1, __int64 a2, int *a3)
   __int64 v9; // rbx
   __int64 v10; // r15
   int v11; // esi
-  unsigned __int64 v12; // rdx
+  LARGE_INTEGER v12; // rdx
   __int64 v14; // rdx
   int v15; // [rsp+20h] [rbp-88h]
   __int64 v16; // [rsp+28h] [rbp-80h]
-  unsigned __int64 v17; // [rsp+30h] [rbp-78h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+30h] [rbp-78h] BYREF
   __int64 v18; // [rsp+38h] [rbp-70h]
   __int64 v19; // [rsp+40h] [rbp-68h]
   unsigned __int64 v20; // [rsp+48h] [rbp-60h]
@@ -39,7 +39,7 @@ __int64 __fastcall RtlGetMultiTimePrecise(_QWORD *a1, __int64 a2, int *a3)
   v19 = 0LL;
   v18 = 0LL;
   v21 = 0LL;
-  if ( (_DWORD)a2 )
+  if ( a2 )
   {
     v6 = RtlpHypervisorSharedUserVa;
     v7 = a2 & 4;
@@ -69,7 +69,7 @@ __int64 __fastcall RtlGetMultiTimePrecise(_QWORD *a1, __int64 a2, int *a3)
               v4 = *(_QWORD *)(v16 + 24);
               v10 = MEMORY[0x7FFE03B8];
               v19 = MEMORY[0x7FFE03B8];
-              RtlQueryPerformanceCounter(&v17, a2);
+              RtlQueryPerformanceCounter(&PerformanceCounter);
             }
             while ( v4 != *(_QWORD *)(v16 + 24) );
           }
@@ -80,7 +80,7 @@ __int64 __fastcall RtlGetMultiTimePrecise(_QWORD *a1, __int64 a2, int *a3)
         }
         else
         {
-          RtlQueryPerformanceCounter(&v17, a2);
+          RtlQueryPerformanceCounter(&PerformanceCounter);
         }
         if ( MEMORY[0x7FFE0340] == v9 )
           break;
@@ -88,27 +88,27 @@ __int64 __fastcall RtlGetMultiTimePrecise(_QWORD *a1, __int64 a2, int *a3)
       _mm_pause();
     }
     v11 = 0;
-    v12 = v17;
+    v12 = PerformanceCounter;
     if ( (v24 & 1) != 0 )
     {
-      *a1 = v17;
+      *a1 = PerformanceCounter;
       v11 = 1;
     }
     if ( v26 && !v18 && v4 )
     {
-      a1[1] = v4 + v12 - v19;
+      a1[1].QuadPart = v4 + v12.QuadPart - v19;
       v11 |= 2u;
     }
     if ( v15 )
     {
-      if ( v12 > v20 )
+      if ( v12.QuadPart > v20 )
       {
-        v14 = v12 - v20 - 1;
+        v14 = v12.QuadPart - v20 - 1;
         if ( v5 )
           v14 <<= v5;
         v3 = ((unsigned __int64)v14 * (unsigned __int128)v21) >> 64;
       }
-      a1[2] = v3 + v22;
+      a1[2].QuadPart = v3 + v22;
       v11 |= 4u;
     }
     *a3 = v11;

@@ -1,12 +1,12 @@
 /*
- * XREFs of MiStoreCheckCandidatePage @ 0x14046D640
+ * XREFs of MiStoreCheckCandidatePage @ 0x14046DA40
  * Callers:
- *     MiStoreWriteModifiedPages @ 0x14046DAAA (MiStoreWriteModifiedPages.c)
+ *     MiStoreWriteModifiedPages @ 0x14046DEAA (MiStoreWriteModifiedPages.c)
  * Callees:
  *     MiGetTopLevelPfn @ 0x140215FA0 (MiGetTopLevelPfn.c)
  *     MiIsStoreProcess @ 0x140216D94 (MiIsStoreProcess.c)
- *     MiGetSystemRegionType @ 0x140284870 (MiGetSystemRegionType.c)
- *     MiGetPfnPriority @ 0x1402DF258 (MiGetPfnPriority.c)
+ *     MiGetSystemRegionType @ 0x140284B00 (MiGetSystemRegionType.c)
+ *     MiGetPfnPriority @ 0x1402DF4E8 (MiGetPfnPriority.c)
  */
 
 __int64 __fastcall MiStoreCheckCandidatePage(

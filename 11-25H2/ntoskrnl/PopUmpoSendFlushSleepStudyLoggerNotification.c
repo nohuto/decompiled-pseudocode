@@ -18,7 +18,7 @@ __int64 PopUmpoSendFlushSleepStudyLoggerNotification()
   PopDiagTraceFlushSleepStudyLogger();
   memset_0(Src, 0, 0x48uLL);
   Src[0] = 13;
-  PopUmpoSendPowerMessage(Src, 0x48uLL, 1, 0LL);
+  PopUmpoSendPowerMessage(Src, 0x48uLL, 1);
   qword_140F0B080 = KeQueryPerformanceCounter(0LL).QuadPart;
   return PopDiagTraceFlushSleepStudyLoggerEnd();
 }

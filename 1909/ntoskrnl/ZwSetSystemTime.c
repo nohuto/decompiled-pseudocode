@@ -9,9 +9,7 @@
 
 NTSTATUS __stdcall ZwSetSystemTime(PLARGE_INTEGER SystemTime, PLARGE_INTEGER NewSystemTime)
 {
-  __int64 v2; // r8
-
   _disable();
   __readeflags();
-  return KiServiceInternal(SystemTime, NewSystemTime, v2);
+  return KiServiceInternal(SystemTime);
 }

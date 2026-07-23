@@ -1,17 +1,17 @@
 /*
- * XREFs of PipServiceInstanceToDeviceInstance @ 0x1408276B0
+ * XREFs of PipServiceInstanceToDeviceInstance @ 0x1408288B0
  * Callers:
- *     PnpDriverLoadingFailed @ 0x1407630B0 (PnpDriverLoadingFailed.c)
+ *     PnpDriverLoadingFailed @ 0x1407642A0 (PnpDriverLoadingFailed.c)
  * Callees:
  *     RtlStringCbPrintfW @ 0x1400161B0 (RtlStringCbPrintfW.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ZwClose @ 0x1401B8370 (ZwClose.c)
- *     ZwOpenKey @ 0x1401B83D0 (ZwOpenKey.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     IopGetRegistryValue @ 0x1406804D4 (IopGetRegistryValue.c)
- *     PnpRegSzToString @ 0x1406F5B74 (PnpRegSzToString.c)
- *     PipOpenServiceEnumKeys @ 0x140709534 (PipOpenServiceEnumKeys.c)
- *     PnpConcatenateUnicodeStrings @ 0x14070F83C (PnpConcatenateUnicodeStrings.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ZwClose @ 0x1401B84D0 (ZwClose.c)
+ *     ZwOpenKey @ 0x1401B8530 (ZwOpenKey.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     IopGetRegistryValue @ 0x140681694 (IopGetRegistryValue.c)
+ *     PnpRegSzToString @ 0x1406F6E14 (PnpRegSzToString.c)
+ *     PipOpenServiceEnumKeys @ 0x14070A7D4 (PipOpenServiceEnumKeys.c)
+ *     PnpConcatenateUnicodeStrings @ 0x140710ADC (PnpConcatenateUnicodeStrings.c)
  */
 
 NTSTATUS __fastcall PipServiceInstanceToDeviceInstance(

@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 NtSetDriverEntryOrder()
+NTSTATUS __cdecl NtSetDriverEntryOrder(PULONG Ids, ULONG Count)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 372LL;
+  result = 372;
   __asm { syscall; Low latency system call }
   return result;
 }

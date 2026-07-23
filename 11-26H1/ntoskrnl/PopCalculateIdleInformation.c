@@ -1,17 +1,17 @@
 /*
- * XREFs of PopCalculateIdleInformation @ 0x140434E0C
+ * XREFs of PopCalculateIdleInformation @ 0x140423CE4
  * Callers:
- *     PopCalculateCsSummary @ 0x14042A4C8 (PopCalculateCsSummary.c)
- *     PopCaptureSleepStudyStatistics @ 0x14042AB54 (PopCaptureSleepStudyStatistics.c)
- *     PopDripsWatchdogCallbackWorker @ 0x1407DE0A0 (PopDripsWatchdogCallbackWorker.c)
- *     PopDripsWatchdogDiagnosticWorker @ 0x1407DE3A0 (PopDripsWatchdogDiagnosticWorker.c)
- *     PopSleepstudyStartNextSession @ 0x140A39120 (PopSleepstudyStartNextSession.c)
- *     PopDripsWatchdogStartWatchdog @ 0x140A3C690 (PopDripsWatchdogStartWatchdog.c)
- *     PopSleepstudySnapModernStandbySessionData @ 0x140B47E34 (PopSleepstudySnapModernStandbySessionData.c)
+ *     PopCaptureSleepStudyStatistics @ 0x140421FC8 (PopCaptureSleepStudyStatistics.c)
+ *     PopCalculateCsSummary @ 0x140422F4C (PopCalculateCsSummary.c)
+ *     PopDripsWatchdogCallbackWorker @ 0x1407E2720 (PopDripsWatchdogCallbackWorker.c)
+ *     PopDripsWatchdogDiagnosticWorker @ 0x1407E2A20 (PopDripsWatchdogDiagnosticWorker.c)
+ *     PopSleepstudyStartNextSession @ 0x1409F4CE0 (PopSleepstudyStartNextSession.c)
+ *     PopDripsWatchdogStartWatchdog @ 0x1409F80B0 (PopDripsWatchdogStartWatchdog.c)
+ *     PopSleepstudySnapModernStandbySessionData @ 0x140B49BC4 (PopSleepstudySnapModernStandbySessionData.c)
  * Callees:
- *     PpmConvertTimeTo @ 0x140429470 (PpmConvertTimeTo.c)
- *     PpmQueryPlatformStateResidency @ 0x1404361AC (PpmQueryPlatformStateResidency.c)
- *     Feature_Servicing_SWDripsDiagnostics__private_IsEnabledDeviceUsageNoInline @ 0x140526BA0 (Feature_Servicing_SWDripsDiagnostics__private_IsEnabledDeviceUsageNoInline.c)
+ *     PpmConvertTimeTo @ 0x1404239FC (PpmConvertTimeTo.c)
+ *     PpmQueryPlatformStateResidency @ 0x14042493C (PpmQueryPlatformStateResidency.c)
+ *     Feature_Servicing_SWDripsDiagnostics__private_IsEnabledDeviceUsageNoInline @ 0x140529210 (Feature_Servicing_SWDripsDiagnostics__private_IsEnabledDeviceUsageNoInline.c)
  */
 
 __int64 __fastcall PopCalculateIdleInformation(__int64 a1)
@@ -52,7 +52,7 @@ __int64 __fastcall PopCalculateIdleInformation(__int64 a1)
   v5 = 0LL;
   v16 = 0LL;
   v6 = 0LL;
-  *(_QWORD *)&v7 = PpmQueryPlatformStateResidency((unsigned int)dword_140E27100);
+  *(_QWORD *)&v7 = PpmQueryPlatformStateResidency((unsigned int)dword_140E27240);
   v8 = v7;
   if ( (_QWORD)v7 != -1LL )
   {
@@ -65,7 +65,7 @@ __int64 __fastcall PopCalculateIdleInformation(__int64 a1)
   if ( v4 )
   {
     v11 = v1 + 72;
-    v12 = dword_140E27100;
+    v12 = dword_140E27240;
     do
     {
       if ( !(unsigned int)Feature_Servicing_SWDripsDiagnostics__private_IsEnabledDeviceUsageNoInline(

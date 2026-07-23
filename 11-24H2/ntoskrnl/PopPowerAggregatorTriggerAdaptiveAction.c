@@ -1,89 +1,80 @@
 /*
- * XREFs of PopPowerAggregatorTriggerAdaptiveAction @ 0x140759F40
+ * XREFs of PopPowerAggregatorTriggerAdaptiveAction @ 0x140758390
  * Callers:
- *     PopIdleTriggerAdaptiveStandbyAction @ 0x14075C50C (PopIdleTriggerAdaptiveStandbyAction.c)
- *     PopAdaptiveStandbyActionWorker @ 0x1407602D0 (PopAdaptiveStandbyActionWorker.c)
+ *     PopAdaptiveStandbyActionWorker @ 0x14075F2D0 (PopAdaptiveStandbyActionWorker.c)
  * Callees:
- *     PopReleaseRwLock @ 0x1403B5EC8 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x1404283D4 (PopAcquireRwLockExclusive.c)
- *     Feature_PoAdaptiveStandby__private_IsEnabledDeviceUsageNoInline @ 0x1405CCC74 (Feature_PoAdaptiveStandby__private_IsEnabledDeviceUsageNoInline.c)
- *     Feature_AdaptiveHibernateEnhancements__private_IsEnabledDeviceUsageNoInline @ 0x1405D787C (Feature_AdaptiveHibernateEnhancements__private_IsEnabledDeviceUsageNoInline.c)
- *     PopExecutePowerAction @ 0x140753574 (PopExecutePowerAction.c)
- *     PopPowerAggregatorHandleIntentUnsafe @ 0x1409BC0E8 (PopPowerAggregatorHandleIntentUnsafe.c)
+ *     PopReleaseRwLock @ 0x1402AE8FC (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14041C564 (PopAcquireRwLockExclusive.c)
+ *     Feature_AdaptiveHibernateEnhancements__private_IsEnabledDeviceUsageNoInline @ 0x1405D4DFC (Feature_AdaptiveHibernateEnhancements__private_IsEnabledDeviceUsageNoInline.c)
+ *     PopExecutePowerAction @ 0x140751894 (PopExecutePowerAction.c)
+ *     PopPowerAggregatorHandleIntentUnsafe @ 0x1409A2738 (PopPowerAggregatorHandleIntentUnsafe.c)
  */
 
 __int64 __fastcall PopPowerAggregatorTriggerAdaptiveAction(int a1)
 {
-  int IsEnabledDeviceUsageNoInline; // eax
-  int v3; // edx
+  int v2; // ebx
+  int v3; // ebx
   int v4; // ebx
   int v5; // ebx
-  int v6; // ebx
-  int v7; // ebx
   __int64 result; // rax
-  _DWORD v9[4]; // [rsp+30h] [rbp-30h] BYREF
-  _OWORD v10[2]; // [rsp+40h] [rbp-20h] BYREF
+  _DWORD v7[4]; // [rsp+30h] [rbp-30h] BYREF
+  _DWORD v8[2]; // [rsp+40h] [rbp-20h] BYREF
+  __int128 v9; // [rsp+48h] [rbp-18h]
+  __int64 v10; // [rsp+58h] [rbp-8h]
 
-  memset(v10, 0, sizeof(v10));
-  IsEnabledDeviceUsageNoInline = Feature_PoAdaptiveStandby__private_IsEnabledDeviceUsageNoInline();
-  v3 = 0;
-  if ( IsEnabledDeviceUsageNoInline )
-    v3 = 17;
-  LODWORD(v10[0]) = v3;
-  PopAcquireRwLockExclusive(&PopPowerAggregatorLock);
-  if ( (_DWORD)xmmword_140F08910 != 1 )
-    goto LABEL_18;
-  if ( !byte_140F08A2C )
+  v10 = 0LL;
+  v8[0] = 17;
+  v9 = 0LL;
+  PopAcquireRwLockExclusive((unsigned __int64 *)&PopPowerAggregatorLock);
+  if ( (_DWORD)xmmword_140F08C70 != 1 )
+    goto LABEL_14;
+  if ( byte_140F08D8C )
   {
-    dword_140F08A30 = a1;
-    goto LABEL_18;
-  }
-  v4 = a1 - 1;
-  if ( !v4 )
-    goto LABEL_13;
-  v5 = v4 - 1;
-  if ( !v5 )
-  {
-LABEL_15:
-    if ( (unsigned int)Feature_PoAdaptiveStandby__private_IsEnabledDeviceUsageNoInline() )
-      LODWORD(v10[0]) = 14;
-    goto LABEL_18;
-  }
-  v6 = v5 - 1;
-  if ( !v6 )
-  {
+    v2 = a1 - 1;
+    if ( !v2 )
+    {
 LABEL_11:
-    PopPowerAggregatorHandleIntentUnsafe(3LL, 0LL, 0LL, 53LL);
-    goto LABEL_18;
-  }
-  v7 = v6 - 1;
-  if ( !v7 )
-  {
-    if ( !(unsigned int)Feature_AdaptiveHibernateEnhancements__private_IsEnabledDeviceUsageNoInline() )
-      goto LABEL_18;
-LABEL_13:
-    if ( (unsigned int)Feature_PoAdaptiveStandby__private_IsEnabledDeviceUsageNoInline() )
-    {
-      LODWORD(v10[0]) = 13;
-      goto LABEL_18;
+      v8[0] = 13;
+      goto LABEL_14;
     }
-    goto LABEL_15;
-  }
-  if ( v7 == 1 && (unsigned int)Feature_AdaptiveHibernateEnhancements__private_IsEnabledDeviceUsageNoInline() )
-    goto LABEL_11;
-LABEL_18:
-  PopReleaseRwLock((signed __int64 *)&PopPowerAggregatorLock);
-  result = Feature_PoAdaptiveStandby__private_IsEnabledDeviceUsageNoInline();
-  if ( (_DWORD)result )
-  {
-    if ( LODWORD(v10[0]) != 17 )
+    v3 = v2 - 1;
+    if ( v3 )
     {
-      v9[2] = 0;
-      DWORD1(v10[0]) = 128;
-      v9[0] = 3;
-      v9[1] = -2147483612;
-      return PopExecutePowerAction(v10, 0, v9, 5, 1u);
+      v4 = v3 - 1;
+      if ( !v4 )
+      {
+LABEL_9:
+        PopPowerAggregatorHandleIntentUnsafe(3LL, 0LL, 0LL, 53LL);
+        goto LABEL_14;
+      }
+      v5 = v4 - 1;
+      if ( v5 )
+      {
+        if ( v5 != 1 || !(unsigned int)Feature_AdaptiveHibernateEnhancements__private_IsEnabledDeviceUsageNoInline() )
+          goto LABEL_14;
+        goto LABEL_9;
+      }
+      if ( (unsigned int)Feature_AdaptiveHibernateEnhancements__private_IsEnabledDeviceUsageNoInline() )
+        goto LABEL_11;
     }
+    else
+    {
+      v8[0] = 14;
+    }
+  }
+  else
+  {
+    dword_140F08D90 = a1;
+  }
+LABEL_14:
+  result = PopReleaseRwLock(&PopPowerAggregatorLock);
+  if ( v8[0] != 17 )
+  {
+    v7[2] = 0;
+    v8[1] = 128;
+    v7[0] = 3;
+    v7[1] = -2147483612;
+    return PopExecutePowerAction(v8, 0, v7, 5, 1u);
   }
   return result;
 }

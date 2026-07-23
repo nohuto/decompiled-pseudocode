@@ -1,16 +1,16 @@
 /*
- * XREFs of MiNotifyPageHeat @ 0x14055FDC4
+ * XREFs of MiNotifyPageHeat @ 0x140560004
  * Callers:
- *     MiGetPageChain @ 0x140212D10 (MiGetPageChain.c)
- *     MiGetLargePage @ 0x140303A34 (MiGetLargePage.c)
- *     MiReplenishPageSlist @ 0x140318700 (MiReplenishPageSlist.c)
- *     MmSetPfnListInfo @ 0x140372BE4 (MmSetPfnListInfo.c)
+ *     MiGetPageChain @ 0x1402B7610 (MiGetPageChain.c)
+ *     MiGetLargePage @ 0x14030E784 (MiGetLargePage.c)
+ *     MiReplenishPageSlist @ 0x140323450 (MiReplenishPageSlist.c)
+ *     MmSetPfnListInfo @ 0x140372734 (MmSetPfnListInfo.c)
  *     MiAddPageToHeatList @ 0x1403F7C88 (MiAddPageToHeatList.c)
- *     MiMakeUnusedImageExtentsCold @ 0x1405543E8 (MiMakeUnusedImageExtentsCold.c)
- *     MiProcessTransitionHeatBatch @ 0x14055FDFC (MiProcessTransitionHeatBatch.c)
+ *     MiMakeUnusedImageExtentsCold @ 0x140554628 (MiMakeUnusedImageExtentsCold.c)
+ *     MiProcessTransitionHeatBatch @ 0x14056003C (MiProcessTransitionHeatBatch.c)
  * Callees:
- *     MiLogNotifyPageHeat @ 0x14055F678 (MiLogNotifyPageHeat.c)
- *     HvlNotifyPageHeat @ 0x1405C9680 (HvlNotifyPageHeat.c)
+ *     MiLogNotifyPageHeat @ 0x14055F8B8 (MiLogNotifyPageHeat.c)
+ *     HvlNotifyPageHeat @ 0x1405C98B0 (HvlNotifyPageHeat.c)
  */
 
 __int64 __fastcall MiNotifyPageHeat(unsigned int *a1)

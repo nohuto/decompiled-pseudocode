@@ -1,45 +1,45 @@
 /*
- * XREFs of MiZeroPageThread @ 0x140139C40
+ * XREFs of MiZeroPageThread @ 0x14013A1B0
  * Callers:
  *     <none>
  * Callees:
- *     KeQueryNodeActiveAffinity @ 0x140004F28 (KeQueryNodeActiveAffinity.c)
- *     KxWaitForLockOwnerShip @ 0x14001BDA0 (KxWaitForLockOwnerShip.c)
- *     MiChangePageAttribute @ 0x14001D088 (MiChangePageAttribute.c)
- *     MiFinalizePageAttribute @ 0x14002375C (MiFinalizePageAttribute.c)
- *     KeResetEvent @ 0x14002E630 (KeResetEvent.c)
- *     KeYieldProcessorEx @ 0x14002ECB0 (KeYieldProcessorEx.c)
- *     ExpWaitForSpinLockExclusiveAndAcquire @ 0x14002EF00 (ExpWaitForSpinLockExclusiveAndAcquire.c)
- *     KeWaitForMultipleObjects @ 0x14005A2E0 (KeWaitForMultipleObjects.c)
- *     MiZeroSinglePage @ 0x140066B90 (MiZeroSinglePage.c)
- *     MiGetLargePageToZero @ 0x14008A680 (MiGetLargePageToZero.c)
- *     MiZeroLargePage @ 0x14008B1C0 (MiZeroLargePage.c)
- *     KeFindFirstSetLeftGroupAffinity @ 0x1400A8690 (KeFindFirstSetLeftGroupAffinity.c)
- *     KeSignalGate @ 0x1400A889C (KeSignalGate.c)
- *     KeSetIdealProcessorThreadEx @ 0x1400CA3A4 (KeSetIdealProcessorThreadEx.c)
- *     KeDelayExecutionThread @ 0x1400D0580 (KeDelayExecutionThread.c)
- *     KeSetActualBasePriorityThread @ 0x1400D2840 (KeSetActualBasePriorityThread.c)
- *     MiInsertTbFlushEntry @ 0x1400E0240 (MiInsertTbFlushEntry.c)
- *     MiFlushTbList @ 0x1400E0490 (MiFlushTbList.c)
- *     KxWaitForLockChainValid @ 0x1400F9530 (KxWaitForLockChainValid.c)
- *     MiDereferencePageRuns @ 0x140107058 (MiDereferencePageRuns.c)
- *     MiReferencePageRuns @ 0x1401070F0 (MiReferencePageRuns.c)
- *     MiCreateZeroThreadContext @ 0x14013AB00 (MiCreateZeroThreadContext.c)
- *     MiInitializePageZeroing @ 0x14013AE70 (MiInitializePageZeroing.c)
- *     MiDeleteZeroThreadContext @ 0x14013F1EC (MiDeleteZeroThreadContext.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     HvlNotifyLongSpinWait @ 0x1401BAE68 (HvlNotifyLongSpinWait.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x1401D39E0 (KiAcquireQueuedSpinLockInstrumented.c)
- *     KiReleaseQueuedSpinLockInstrumented @ 0x1401D3B5C (KiReleaseQueuedSpinLockInstrumented.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiGetPteTimeStamp @ 0x1401F269C (MiGetPteTimeStamp.c)
- *     MiUpdatePageFileHighInPte @ 0x1401F2958 (MiUpdatePageFileHighInPte.c)
- *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14022DD30 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
- *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14022DE9C (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     KeQueryNodeActiveAffinity @ 0x14000509C (KeQueryNodeActiveAffinity.c)
+ *     KxWaitForLockOwnerShip @ 0x14001B920 (KxWaitForLockOwnerShip.c)
+ *     MiChangePageAttribute @ 0x14001CC08 (MiChangePageAttribute.c)
+ *     MiFinalizePageAttribute @ 0x1400232DC (MiFinalizePageAttribute.c)
+ *     KeResetEvent @ 0x14002E1B0 (KeResetEvent.c)
+ *     KeYieldProcessorEx @ 0x14002E830 (KeYieldProcessorEx.c)
+ *     ExpWaitForSpinLockExclusiveAndAcquire @ 0x14002EA80 (ExpWaitForSpinLockExclusiveAndAcquire.c)
+ *     KeWaitForMultipleObjects @ 0x140059E60 (KeWaitForMultipleObjects.c)
+ *     MiZeroSinglePage @ 0x140066710 (MiZeroSinglePage.c)
+ *     MiGetLargePageToZero @ 0x140089D80 (MiGetLargePageToZero.c)
+ *     MiZeroLargePage @ 0x14008A8C0 (MiZeroLargePage.c)
+ *     KeFindFirstSetLeftGroupAffinity @ 0x1400A6C08 (KeFindFirstSetLeftGroupAffinity.c)
+ *     KeSignalGate @ 0x1400A6E1C (KeSignalGate.c)
+ *     KeSetIdealProcessorThreadEx @ 0x1400C8244 (KeSetIdealProcessorThreadEx.c)
+ *     KeDelayExecutionThread @ 0x1400CE420 (KeDelayExecutionThread.c)
+ *     KeSetActualBasePriorityThread @ 0x1400D06E0 (KeSetActualBasePriorityThread.c)
+ *     MiInsertTbFlushEntry @ 0x1400DE0E0 (MiInsertTbFlushEntry.c)
+ *     MiFlushTbList @ 0x1400DE330 (MiFlushTbList.c)
+ *     KxWaitForLockChainValid @ 0x1400F7370 (KxWaitForLockChainValid.c)
+ *     MiDereferencePageRuns @ 0x140104DD8 (MiDereferencePageRuns.c)
+ *     MiReferencePageRuns @ 0x140104E70 (MiReferencePageRuns.c)
+ *     MiCreateZeroThreadContext @ 0x14013B070 (MiCreateZeroThreadContext.c)
+ *     MiInitializePageZeroing @ 0x14013B3E0 (MiInitializePageZeroing.c)
+ *     MiDeleteZeroThreadContext @ 0x14013F75C (MiDeleteZeroThreadContext.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     HvlNotifyLongSpinWait @ 0x1401BAD4C (HvlNotifyLongSpinWait.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x1401D380C (KiAcquireQueuedSpinLockInstrumented.c)
+ *     KiReleaseQueuedSpinLockInstrumented @ 0x1401D3988 (KiReleaseQueuedSpinLockInstrumented.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
+ *     MiGetPteTimeStamp @ 0x1401F24C8 (MiGetPteTimeStamp.c)
+ *     MiUpdatePageFileHighInPte @ 0x1401F2840 (MiUpdatePageFileHighInPte.c)
+ *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x14022DB5C (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14022DCC8 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  */
 
@@ -258,12 +258,12 @@ LABEL_159:
           if ( !*(_QWORD *)(v3 + 1856) )
             break;
 LABEL_35:
-          if ( !dword_140327788 && *(_QWORD *)(v3 + 6464) >= 0xA0uLL )
+          if ( !dword_1403277C8 && *(_QWORD *)(v3 + 6464) >= 0xA0uLL )
           {
             if ( (unsigned __int16)KeNumberNodes <= 1u )
               goto LABEL_62;
-            v23 = v7 >> byte_1403269C9;
-            v24 = v7 >> byte_1403269C9;
+            v23 = v7 >> byte_140326A09;
+            v24 = v7 >> byte_140326A09;
             while ( 1 )
             {
               v25 = v11 + 2184LL * v24;
@@ -348,7 +348,7 @@ LABEL_62:
             if ( v31 != -1 )
             {
               v37 = 0;
-              v38 = (_QWORD *)(*(_QWORD *)(v3 + 48) + 2184 * ((unsigned __int64)v31 >> byte_1403269C9) + 8);
+              v38 = (_QWORD *)(*(_QWORD *)(v3 + 48) + 2184 * ((unsigned __int64)v31 >> byte_140326A09) + 8);
               while ( !*v38 )
               {
                 ++v37;
@@ -369,7 +369,7 @@ LABEL_62:
               {
 LABEL_91:
                 v42 = *(_QWORD *)(v3 + 1736);
-                v43 = dword_1403269A0;
+                v43 = dword_1403269E0;
                 while ( 1 )
                 {
                   v44 = *(_QWORD *)(v42 + 40LL * v7 + 16);
@@ -396,7 +396,7 @@ LABEL_91:
                       while ( (*(_QWORD *)(v45 + 24) & 0x8000000000000000uLL) != 0
                            || _interlockedbittestandset64((volatile signed __int32 *)(v45 + 24), 0x3FuLL) );
                     }
-                    if ( v44 <= qword_140326A90
+                    if ( v44 <= qword_140326AD0
                       && (!MmPhysicalMemoryBlock || (*(_QWORD *)(48 * v44 - 0x57FFFFFFFD8LL) & 0x20000000000000LL) != 0)
                       && (*(_BYTE *)(v45 + 34) & 7) == 1 )
                     {
@@ -445,7 +445,7 @@ LABEL_91:
                         if ( (v66 & 0xC0) == 0xC0 )
                           MiFinalizePageAttribute(48 * v44 - 0x58000000000LL, 1u, 1u);
                       }
-                      else if ( dword_140326A24[4 * (v66 >> 6)] == 1 )
+                      else if ( dword_140326A64[4 * (v66 >> 6)] == 1 )
                       {
                         MiChangePageAttribute(48 * v44 - 0x58000000000LL, 1u, 1);
                       }
@@ -472,25 +472,25 @@ LABEL_91:
                       }
                       if ( v64 < 0xFFFFF6C000000000uLL )
                       {
-                        v70 = HIBYTE(word_140326AA8);
+                        v70 = HIBYTE(word_140326AE8);
                         goto LABEL_146;
                       }
-                      if ( (v64 < (((unsigned __int64)qword_140326910 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL
-                         || v64 >= (((unsigned __int64)(qword_140326910 + 0x8000000000LL) >> 9) & 0x7FFFFFFFF8LL)
+                      if ( (v64 < (((unsigned __int64)qword_140326950 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL
+                         || v64 >= (((unsigned __int64)(qword_140326950 + 0x8000000000LL) >> 9) & 0x7FFFFFFFF8LL)
                                  - 0x98000000000LL)
                         && (v64 < 0xFFFFF6FB40000000uLL || v64 > 0xFFFFF6FB7FFFFFF8uLL) )
                       {
-                        if ( v64 < (((unsigned __int64)qword_140327F90 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL
-                          || (v70 = HIBYTE(word_140326AA8),
-                              v64 > (((unsigned __int64)qword_140326CF8 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL) )
+                        if ( v64 < (((unsigned __int64)qword_140327FD0 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL
+                          || (v70 = HIBYTE(word_140326AE8),
+                              v64 > (((unsigned __int64)qword_140326D38 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL) )
                         {
-                          v70 = (unsigned __int8)word_140326AA8;
+                          v70 = (unsigned __int8)word_140326AE8;
                         }
 LABEL_146:
                         if ( v70 )
                           v69 |= 0x100uLL;
                       }
-                      v71 = v69 & 0xFFFFFFFFFFFFFE7FuLL | ((unsigned __int64)(word_140326AA8 & 1) << 8) | 0x42;
+                      v71 = v69 & 0xFFFFFFFFFFFFFE7FuLL | ((unsigned __int64)(word_140326AE8 & 1) << 8) | 0x42;
                       *(_QWORD *)v64 = v71;
                       if ( (unsigned int)MiPteInShadowRange(v64, v71) )
                         MiWritePteShadow(v73, v72);
@@ -503,7 +503,7 @@ LABEL_146:
 LABEL_115:
                     _InterlockedAnd64((volatile signed __int64 *)(v45 + 24), 0x7FFFFFFFFFFFFFFFuLL);
                     __writecr8(v46);
-                    v43 = dword_1403269A0;
+                    v43 = dword_1403269E0;
                     v7 = *(_DWORD *)v1;
                   }
                   v3 = *(_QWORD *)(((unsigned __int64)&v77 & 0xFFFFFFFFFFFFFFE0uLL) + 0x48);
@@ -516,8 +516,8 @@ LABEL_115:
               }
               v50 = *(_QWORD *)(((unsigned __int64)&v77 & 0xFFFFFFFFFFFFFFE0uLL) + 0x20);
 LABEL_152:
-              v75 = v7 >> byte_1403269C9;
-              if ( v7 >> byte_1403269C9 != *(_DWORD *)(((unsigned __int64)&v77 & 0xFFFFFFFFFFFFFFE0uLL) + 0x10) )
+              v75 = v7 >> byte_140326A09;
+              if ( v7 >> byte_140326A09 != *(_DWORD *)(((unsigned __int64)&v77 & 0xFFFFFFFFFFFFFFE0uLL) + 0x10) )
               {
                 *(_DWORD *)(((unsigned __int64)&v77 & 0xFFFFFFFFFFFFFFE0uLL) + 0x10) = v75;
                 KeQueryNodeActiveAffinity(v75, (PGROUP_AFFINITY)(v1 + 120), 0LL);

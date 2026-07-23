@@ -1,17 +1,17 @@
 /*
- * XREFs of PopDirectedDripsDiagTraceMarkDevice @ 0x140B0C538
+ * XREFs of PopDirectedDripsDiagTraceMarkDevice @ 0x140B0DF2C
  * Callers:
- *     PopDirectedDripsMarkCandidateDevice @ 0x14077EF08 (PopDirectedDripsMarkCandidateDevice.c)
+ *     PopDirectedDripsMarkCandidateDevice @ 0x140781A08 (PopDirectedDripsMarkCandidateDevice.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     PopDirectedDripsDiagGetOrCreateDeviceDiagnostic @ 0x140B0C608 (PopDirectedDripsDiagGetOrCreateDeviceDiagnostic.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     PopDirectedDripsDiagGetOrCreateDeviceDiagnostic @ 0x140B0DFFC (PopDirectedDripsDiagGetOrCreateDeviceDiagnostic.c)
  */
 
 void __fastcall PopDirectedDripsDiagTraceMarkDevice(__int64 a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
@@ -27,14 +27,11 @@ void __fastcall PopDirectedDripsDiagTraceMarkDevice(__int64 a1, __int64 a2, __in
   __int64 v12; // [rsp+50h] [rbp-18h]
 
   v9 = a1;
-  v4 = (AutoBoost *)KeAbPreAcquire((__int64)&PopDirectedDripsUmLock.ApcState.ApcListHead[0].Blink, 0LL, 0LL, a4);
-  v6 = _interlockedbittestandset64((volatile signed __int32 *)&PopDirectedDripsUmLock.ApcStateFill[8], 0LL);
+  v4 = (AutoBoost *)KeAbPreAcquire((__int64)&PopDirectedDripsDiagLock, 0LL, 0LL, a4);
+  v6 = _interlockedbittestandset64(&PopDirectedDripsDiagLock.Header.Lock, 0LL);
   v7 = v4;
   if ( v6 )
-    ExfAcquirePushLockExclusiveEx(
-      (unsigned __int64 *)&PopDirectedDripsUmLock.ApcState.ApcListHead[0].Blink,
-      v4,
-      (__int64)&PopDirectedDripsUmLock.ApcState.ApcListHead[0].Blink);
+    ExfAcquirePushLockExclusiveEx((unsigned __int64 *)&PopDirectedDripsDiagLock, v4, (__int64)&PopDirectedDripsDiagLock);
   if ( v7 )
   {
     if ( (KiAbpGlobalState & 1) != 0 )
@@ -45,25 +42,15 @@ void __fastcall PopDirectedDripsDiagTraceMarkDevice(__int64 a1, __int64 a2, __in
   DeviceDiagnostic = PopDirectedDripsDiagGetOrCreateDeviceDiagnostic(v9);
   if ( DeviceDiagnostic )
     ++*(_DWORD *)(DeviceDiagnostic + 144);
-  if ( byte_140E67628
-    && EtwEventEnabled(
-         *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-         &POP_ETW_EVENT_DIRECTED_DRIPS_MARK_DEVICE) )
+  if ( PopDiagHandleRegistered && EtwEventEnabled(PopDiagHandle, &POP_ETW_EVENT_DIRECTED_DRIPS_MARK_DEVICE) )
   {
-    UserData.Ptr = (ULONGLONG)&qword_140F0F5D0;
+    UserData.Ptr = (ULONGLONG)&PopWnfCsEnterScenarioId;
     *(_QWORD *)&UserData.Size = 1LL;
     v11 = &v9;
     v12 = 8LL;
-    EtwWrite(
-      *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-      &POP_ETW_EVENT_DIRECTED_DRIPS_MARK_DEVICE,
-      0LL,
-      2u,
-      &UserData);
+    EtwWrite(PopDiagHandle, &POP_ETW_EVENT_DIRECTED_DRIPS_MARK_DEVICE, 0LL, 2u, &UserData);
   }
-  if ( (_InterlockedExchangeAdd64(
-          (volatile signed __int64 *)&PopDirectedDripsUmLock.ApcState.ApcListHead[0].Blink,
-          0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock((volatile signed __int64 *)&PopDirectedDripsUmLock.ApcState.ApcListHead[0].Blink);
-  KeAbPostRelease((unsigned __int64)&PopDirectedDripsUmLock.ApcState.ApcListHead[0].Blink);
+  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&PopDirectedDripsDiagLock, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    ExfTryToWakePushLock((volatile signed __int64 *)&PopDirectedDripsDiagLock.Header.Lock);
+  KeAbPostRelease((unsigned __int64)&PopDirectedDripsDiagLock);
 }

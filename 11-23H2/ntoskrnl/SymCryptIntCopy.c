@@ -1,12 +1,12 @@
 /*
- * XREFs of SymCryptIntCopy @ 0x1403F9318
+ * XREFs of SymCryptIntCopy @ 0x1403F94F8
  * Callers:
- *     SymCryptEckeySetValue @ 0x1403F8A98 (SymCryptEckeySetValue.c)
- *     SymCryptEcpointMultiScalarMulWnafWithInterleaving @ 0x1403FE3A0 (SymCryptEcpointMultiScalarMulWnafWithInterleaving.c)
- *     SymCryptEcpointScalarMulFixedWindow @ 0x1403FE8B0 (SymCryptEcpointScalarMulFixedWindow.c)
- *     SymCryptFdefModInvGeneric @ 0x1404044E0 (SymCryptFdefModInvGeneric.c)
+ *     SymCryptEckeySetValue @ 0x1403F8C78 (SymCryptEckeySetValue.c)
+ *     SymCryptEcpointMultiScalarMulWnafWithInterleaving @ 0x1403FE580 (SymCryptEcpointMultiScalarMulWnafWithInterleaving.c)
+ *     SymCryptEcpointScalarMulFixedWindow @ 0x1403FEA90 (SymCryptEcpointScalarMulFixedWindow.c)
+ *     SymCryptFdefModInvGeneric @ 0x1404046C0 (SymCryptFdefModInvGeneric.c)
  * Callees:
- *     SymCryptFdefIntCopy @ 0x1404057A0 (SymCryptFdefIntCopy.c)
+ *     SymCryptFdefIntCopy @ 0x140405980 (SymCryptFdefIntCopy.c)
  */
 
 __int64 SymCryptIntCopy()

@@ -1,22 +1,22 @@
 /*
- * XREFs of x86BiosTranslateAddress @ 0x1403BEFC0
+ * XREFs of x86BiosTranslateAddress @ 0x1403BF1A0
  * Callers:
- *     x86BiosReadMemory @ 0x140398540 (x86BiosReadMemory.c)
- *     XmGetStringAddress @ 0x1403992EC (XmGetStringAddress.c)
- *     XmGetStringAddressRange @ 0x140399364 (XmGetStringAddressRange.c)
- *     XmGetLongImmediate @ 0x140399CD8 (XmGetLongImmediate.c)
- *     HalInitializeBios @ 0x14039F060 (HalInitializeBios.c)
- *     XmInitializeEmulator @ 0x14039F408 (XmInitializeEmulator.c)
- *     x86BiosWriteMemory @ 0x1403A0900 (x86BiosWriteMemory.c)
- *     XmGetOffsetAddress @ 0x1403A50DC (XmGetOffsetAddress.c)
- *     XmEvaluateAddressSpecifier @ 0x1403B922C (XmEvaluateAddressSpecifier.c)
- *     XmGetCodeByte @ 0x1403B9414 (XmGetCodeByte.c)
- *     XmPopStack @ 0x1403B9474 (XmPopStack.c)
- *     XmPushStack @ 0x1403B9590 (XmPushStack.c)
- *     XmGetWordImmediate @ 0x1403B9670 (XmGetWordImmediate.c)
- *     XmEmulateInterrupt @ 0x1403BE43C (XmEmulateInterrupt.c)
- *     XmEmulateStream @ 0x1403BE4E0 (XmEmulateStream.c)
- *     XmIntOp @ 0x140533D40 (XmIntOp.c)
+ *     x86BiosReadMemory @ 0x140398720 (x86BiosReadMemory.c)
+ *     XmGetStringAddress @ 0x1403994CC (XmGetStringAddress.c)
+ *     XmGetStringAddressRange @ 0x140399544 (XmGetStringAddressRange.c)
+ *     XmGetLongImmediate @ 0x140399EB8 (XmGetLongImmediate.c)
+ *     HalInitializeBios @ 0x14039F240 (HalInitializeBios.c)
+ *     XmInitializeEmulator @ 0x14039F5E8 (XmInitializeEmulator.c)
+ *     x86BiosWriteMemory @ 0x1403A0AE0 (x86BiosWriteMemory.c)
+ *     XmGetOffsetAddress @ 0x1403A52BC (XmGetOffsetAddress.c)
+ *     XmEvaluateAddressSpecifier @ 0x1403B940C (XmEvaluateAddressSpecifier.c)
+ *     XmGetCodeByte @ 0x1403B95F4 (XmGetCodeByte.c)
+ *     XmPopStack @ 0x1403B9654 (XmPopStack.c)
+ *     XmPushStack @ 0x1403B9770 (XmPushStack.c)
+ *     XmGetWordImmediate @ 0x1403B9850 (XmGetWordImmediate.c)
+ *     XmEmulateInterrupt @ 0x1403BE61C (XmEmulateInterrupt.c)
+ *     XmEmulateStream @ 0x1403BE6C0 (XmEmulateStream.c)
+ *     XmIntOp @ 0x140534290 (XmIntOp.c)
  * Callees:
  *     <none>
  */

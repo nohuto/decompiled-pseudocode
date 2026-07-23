@@ -1,10 +1,10 @@
 /*
- * XREFs of BiGetDriveLayoutBlock @ 0x140807838
+ * XREFs of BiGetDriveLayoutBlock @ 0x140807B08
  * Callers:
- *     BiGetNtPartitionPath @ 0x140807310 (BiGetNtPartitionPath.c)
+ *     BiGetNtPartitionPath @ 0x1408075E0 (BiGetNtPartitionPath.c)
  * Callees:
- *     BiGetDriveLayoutInformation @ 0x140806B1C (BiGetDriveLayoutInformation.c)
- *     BiGetPhysicalDriveName @ 0x140A5D030 (BiGetPhysicalDriveName.c)
+ *     BiGetDriveLayoutInformation @ 0x140806DEC (BiGetDriveLayoutInformation.c)
+ *     BiGetPhysicalDriveName @ 0x140A5D2E0 (BiGetPhysicalDriveName.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

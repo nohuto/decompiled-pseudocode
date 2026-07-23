@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlCSparseBitmapStart @ 0x140639CF8
+ * XREFs of RtlCSparseBitmapStart @ 0x14063CD08
  * Callers:
- *     RtlpHpVaMgrCtxStart @ 0x140638EB0 (RtlpHpVaMgrCtxStart.c)
- *     RtlHpKInitializeHeapManager @ 0x1406D308C (RtlHpKInitializeHeapManager.c)
+ *     RtlpHpVaMgrCtxStart @ 0x14063BEC0 (RtlpHpVaMgrCtxStart.c)
+ *     RtlHpKInitializeHeapManager @ 0x1406D70BC (RtlHpKInitializeHeapManager.c)
  * Callees:
- *     RtlpHpEnvAllocVA @ 0x140364570 (RtlpHpEnvAllocVA.c)
- *     RtlpEnvRegisterFaultRange @ 0x14063AA48 (RtlpEnvRegisterFaultRange.c)
+ *     RtlpHpEnvAllocVA @ 0x140366310 (RtlpHpEnvAllocVA.c)
+ *     RtlpEnvRegisterFaultRange @ 0x14063DA58 (RtlpEnvRegisterFaultRange.c)
  */
 
 __int64 __fastcall RtlCSparseBitmapStart(__int64 a1, unsigned __int64 a2, __int64 a3, int a4)

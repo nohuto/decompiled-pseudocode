@@ -45,7 +45,6 @@
  *     <none>
  */
 
-// local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall ZwEnumerateKey(
         HANDLE KeyHandle,
         ULONG Index,
@@ -56,5 +55,5 @@ NTSTATUS __stdcall ZwEnumerateKey(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(KeyHandle, *(_QWORD *)&Index);
+  return KiServiceInternal(KeyHandle);
 }

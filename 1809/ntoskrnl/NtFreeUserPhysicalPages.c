@@ -1,5 +1,5 @@
 /*
- * XREFs of NtFreeUserPhysicalPages @ 0x140850F10
+ * XREFs of NtFreeUserPhysicalPages @ 0x140852170
  * Callers:
  *     <none>
  * Callees:
@@ -7,20 +7,20 @@
  *     KiUnstackDetachProcess @ 0x140017190 (KiUnstackDetachProcess.c)
  *     MiFreePagesFromMdl @ 0x14002A000 (MiFreePagesFromMdl.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     MiReturnProcessCommitment @ 0x140065D24 (MiReturnProcessCommitment.c)
- *     MiSectionControlArea @ 0x140075E70 (MiSectionControlArea.c)
- *     LOCK_ADDRESS_SPACE @ 0x1400767B8 (LOCK_ADDRESS_SPACE.c)
- *     UNLOCK_ADDRESS_SPACE @ 0x140078294 (UNLOCK_ADDRESS_SPACE.c)
- *     ExGetCallBackBlockRoutine @ 0x140088BB0 (ExGetCallBackBlockRoutine.c)
- *     IoAllocateMdl @ 0x1400DFCD0 (IoAllocateMdl.c)
- *     IoFreeMdl @ 0x1400E0B60 (IoFreeMdl.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     MiFreePhysicalPages @ 0x1402B08E0 (MiFreePhysicalPages.c)
- *     MiPreparePhysicalPagesMdlForFree @ 0x1402B1388 (MiPreparePhysicalPagesMdlForFree.c)
- *     MiReferenceAweHandle @ 0x1402B1B6C (MiReferenceAweHandle.c)
- *     MiCaptureUlongPtrArray @ 0x14084F6FC (MiCaptureUlongPtrArray.c)
- *     MiGetAweInfoPartition @ 0x14084FED0 (MiGetAweInfoPartition.c)
+ *     MiReturnProcessCommitment @ 0x140065D14 (MiReturnProcessCommitment.c)
+ *     MiSectionControlArea @ 0x140075E60 (MiSectionControlArea.c)
+ *     LOCK_ADDRESS_SPACE @ 0x1400767A8 (LOCK_ADDRESS_SPACE.c)
+ *     UNLOCK_ADDRESS_SPACE @ 0x140078284 (UNLOCK_ADDRESS_SPACE.c)
+ *     ExGetCallBackBlockRoutine @ 0x140088BA0 (ExGetCallBackBlockRoutine.c)
+ *     IoAllocateMdl @ 0x1400DFD50 (IoAllocateMdl.c)
+ *     IoFreeMdl @ 0x1400E0BE0 (IoFreeMdl.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     MiFreePhysicalPages @ 0x1402B0AD0 (MiFreePhysicalPages.c)
+ *     MiPreparePhysicalPagesMdlForFree @ 0x1402B1578 (MiPreparePhysicalPagesMdlForFree.c)
+ *     MiReferenceAweHandle @ 0x1402B1D5C (MiReferenceAweHandle.c)
+ *     MiCaptureUlongPtrArray @ 0x14085095C (MiCaptureUlongPtrArray.c)
+ *     MiGetAweInfoPartition @ 0x140851130 (MiGetAweInfoPartition.c)
  */
 
 NTSTATUS __stdcall NtFreeUserPhysicalPages(HANDLE ProcessHandle, PULONG_PTR NumberOfPages, PULONG_PTR UserPfnArray)

@@ -12,7 +12,7 @@
 unsigned __int64 __fastcall EtwpPreallocateApcPool(__int64 a1)
 {
   unsigned __int64 result; // rax
-  struct _SLIST_ENTRY *v3; // rdi
+  _SLIST_ENTRY *v3; // rdi
 
   result = *(unsigned int *)(a1 + 164);
   if ( (int)result < *(_DWORD *)(a1 + 168) )
@@ -23,7 +23,7 @@ unsigned __int64 __fastcall EtwpPreallocateApcPool(__int64 a1)
       if ( (unsigned int)result > *(_DWORD *)(a1 + 168) )
         break;
       result = ExAllocatePool2(0x48uLL);
-      v3 = (struct _SLIST_ENTRY *)result;
+      v3 = (_SLIST_ENTRY *)result;
       if ( !result )
         break;
       *(_QWORD *)(result + 128) = a1;

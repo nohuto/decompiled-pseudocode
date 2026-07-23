@@ -1,27 +1,27 @@
 /*
- * XREFs of EtwpRemoveMicroarchitecturalPmcFromPmcGroup @ 0x1407A8F64
+ * XREFs of EtwpRemoveMicroarchitecturalPmcFromPmcGroup @ 0x1407A90A4
  * Callers:
- *     EtwpRemoveMicroarchitecturalPmcFromRegistry @ 0x1407A91EC (EtwpRemoveMicroarchitecturalPmcFromRegistry.c)
+ *     EtwpRemoveMicroarchitecturalPmcFromRegistry @ 0x1407A932C (EtwpRemoveMicroarchitecturalPmcFromRegistry.c)
  * Callees:
- *     RtlStringCbPrintfW @ 0x14040BC90 (RtlStringCbPrintfW.c)
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     wcsncmp @ 0x1404FFFD0 (wcsncmp.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwOpenKey @ 0x1406A6650 (ZwOpenKey.c)
- *     ZwQueryKey @ 0x1406A66D0 (ZwQueryKey.c)
- *     ZwEnumerateKey @ 0x1406A6A50 (ZwEnumerateKey.c)
- *     ZwDeleteKey @ 0x1406A7F90 (ZwDeleteKey.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     RtlStringCbPrintfW @ 0x140404170 (RtlStringCbPrintfW.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     wcsncmp @ 0x1404FD890 (wcsncmp.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwOpenKey @ 0x1406A75F0 (ZwOpenKey.c)
+ *     ZwQueryKey @ 0x1406A7670 (ZwQueryKey.c)
+ *     ZwEnumerateKey @ 0x1406A79F0 (ZwEnumerateKey.c)
+ *     ZwDeleteKey @ 0x1406A8F30 (ZwDeleteKey.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall EtwpRemoveMicroarchitecturalPmcFromPmcGroup(PCWSTR SourceString, wchar_t *Str1, size_t MaxCount)
 {
   size_t v3; // r12
   __int64 v6; // rax
-  size_t v7; // rsi
+  ULONG_PTR v7; // rsi
   wchar_t *Pool2; // rdi
   NTSTATUS v10; // ebx
   int v11; // r14d
@@ -52,7 +52,7 @@ __int64 __fastcall EtwpRemoveMicroarchitecturalPmcFromPmcGroup(PCWSTR SourceStri
     ++v6;
   while ( SourceString[v6] );
   v7 = 2LL * (unsigned int)(v6 + v3 + 2);
-  Pool2 = (wchar_t *)ExAllocatePool2(0x100uLL);
+  Pool2 = (wchar_t *)ExAllocatePool2(0x100uLL, v7, 0x50777445u);
   if ( !Pool2 )
     return 3221225495LL;
   RtlInitUnicodeString(&DestinationString, SourceString);

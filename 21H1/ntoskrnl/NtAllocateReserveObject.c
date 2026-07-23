@@ -8,43 +8,46 @@
  *     ObInsertObjectEx @ 0x140602150 (ObInsertObjectEx.c)
  */
 
-__int64 __fastcall NtAllocateReserveObject(__int64 *a1, __int64 a2, signed int a3)
+NTSTATUS __cdecl NtAllocateReserveObject(
+        PHANDLE MemoryReserveHandle,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        MEMORY_RESERVE_TYPE Type)
 {
   __int64 v3; // r14
   char PreviousMode; // si
   __int64 v6; // rcx
-  __int64 result; // rax
+  NTSTATUS result; // eax
   PADAPTER_OBJECT v8; // rbx
-  int inserted; // edx
+  NTSTATUS inserted; // edx
   __int64 v10; // [rsp+20h] [rbp-58h]
   __int64 v11; // [rsp+50h] [rbp-28h] BYREF
   PADAPTER_OBJECT DmaAdapter; // [rsp+98h] [rbp+20h] BYREF
 
-  v3 = a3;
+  v3 = Type;
   v11 = 0LL;
   DmaAdapter = 0LL;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode )
   {
     v6 = 0x7FFFFFFF0000LL;
-    if ( (unsigned __int64)a1 < 0x7FFFFFFF0000LL )
-      v6 = (__int64)a1;
+    if ( (unsigned __int64)MemoryReserveHandle < 0x7FFFFFFF0000LL )
+      v6 = (__int64)MemoryReserveHandle;
     *(_QWORD *)v6 = *(_QWORD *)v6;
   }
-  if ( (unsigned int)a3 > 1 )
-    return 3221225485LL;
+  if ( (unsigned int)Type > MemoryReserveIoCompletion )
+    return -1073741811;
   result = ObCreateObjectEx(
              PreviousMode,
-             *(&PspMemoryReserveObjectTypes + a3),
-             a2,
+             *(&PspMemoryReserveObjectTypes + (int)Type),
+             (__int64)ObjectAttributes,
              PreviousMode,
              v10,
-             PspMemoryReserveObjectSizes[a3],
+             PspMemoryReserveObjectSizes[Type],
              0,
              0,
              &DmaAdapter,
              0LL);
-  if ( (int)result >= 0 )
+  if ( result >= 0 )
   {
     v8 = DmaAdapter;
     memset(DmaAdapter, 0, PspMemoryReserveObjectSizes[v3]);
@@ -58,8 +61,8 @@ __int64 __fastcall NtAllocateReserveObject(__int64 *a1, __int64 a2, signed int a
     inserted = ObInsertObjectEx(v8, 0LL, 0xF0003u, 0, 0, 0LL, &v11);
     LODWORD(DmaAdapter) = inserted;
     if ( inserted >= 0 )
-      *a1 = v11;
-    return (unsigned int)inserted;
+      *MemoryReserveHandle = (HANDLE)v11;
+    return inserted;
   }
   return result;
 }

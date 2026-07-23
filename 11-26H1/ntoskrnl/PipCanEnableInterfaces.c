@@ -1,7 +1,7 @@
 /*
- * XREFs of PipCanEnableInterfaces @ 0x140B13054
+ * XREFs of PipCanEnableInterfaces @ 0x1409AB49C
  * Callers:
- *     IopProcessSetInterfaceState @ 0x1409D82B0 (IopProcessSetInterfaceState.c)
+ *     IopProcessSetInterfaceState @ 0x1409A91A0 (IopProcessSetInterfaceState.c)
  * Callees:
  *     <none>
  */

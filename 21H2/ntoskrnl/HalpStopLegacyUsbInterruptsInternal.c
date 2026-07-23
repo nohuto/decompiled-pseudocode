@@ -1,13 +1,13 @@
 /*
- * XREFs of HalpStopLegacyUsbInterruptsInternal @ 0x1409A91D4
+ * XREFs of HalpStopLegacyUsbInterruptsInternal @ 0x1409AA104
  * Callers:
- *     HalpStopLegacyUsbInterrupts @ 0x140999240 (HalpStopLegacyUsbInterrupts.c)
+ *     HalpStopLegacyUsbInterrupts @ 0x14099A240 (HalpStopLegacyUsbInterrupts.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     memset @ 0x140414200 (memset.c)
- *     HalpUsbLegacyStopOhciInterrupt @ 0x1404D737C (HalpUsbLegacyStopOhciInterrupt.c)
- *     HalpUsbLegacyStopUhciInterrupt @ 0x1404D74A8 (HalpUsbLegacyStopUhciInterrupt.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     HalpUsbLegacyStopOhciInterrupt @ 0x1404D75BC (HalpUsbLegacyStopOhciInterrupt.c)
+ *     HalpUsbLegacyStopUhciInterrupt @ 0x1404D76E8 (HalpUsbLegacyStopUhciInterrupt.c)
  */
 
 char __fastcall HalpStopLegacyUsbInterruptsInternal(int a1)

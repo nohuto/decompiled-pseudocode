@@ -1,8 +1,8 @@
 /*
- * XREFs of PopQueryPowerButtonSuppressionCount @ 0x14087895C
+ * XREFs of PopQueryPowerButtonSuppressionCount @ 0x140878B9C
  * Callers:
- *     PopCaptureSleepStudyStatistics @ 0x1403C7F00 (PopCaptureSleepStudyStatistics.c)
- *     PopCalculateCsSummary @ 0x140591334 (PopCalculateCsSummary.c)
+ *     PopCaptureSleepStudyStatistics @ 0x1403C80E0 (PopCaptureSleepStudyStatistics.c)
+ *     PopCalculateCsSummary @ 0x140591824 (PopCalculateCsSummary.c)
  * Callees:
  *     <none>
  */

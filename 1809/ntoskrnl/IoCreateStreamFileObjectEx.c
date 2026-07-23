@@ -1,9 +1,9 @@
 /*
- * XREFs of IoCreateStreamFileObjectEx @ 0x140702460
+ * XREFs of IoCreateStreamFileObjectEx @ 0x140703700
  * Callers:
  *     <none>
  * Callees:
- *     IoCreateStreamFileObjectEx2 @ 0x1405A35A0 (IoCreateStreamFileObjectEx2.c)
+ *     IoCreateStreamFileObjectEx2 @ 0x1405A45A0 (IoCreateStreamFileObjectEx2.c)
  */
 
 PFILE_OBJECT __stdcall IoCreateStreamFileObjectEx(

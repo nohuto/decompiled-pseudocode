@@ -13,10 +13,10 @@
 __int64 __fastcall HvlpSetLogicalProcessorProperty(int a1, int a2, _OWORD *a3)
 {
   char v6; // bp
-  union _SLIST_HEADER *CurrentPrcb; // rbx
+  _SLIST_HEADER *CurrentPrcb; // rbx
   char *HypercallCachedPages; // rax
   _SLIST_ENTRY *v9; // r14
-  struct _SLIST_ENTRY *v10; // r15
+  _SLIST_ENTRY *v10; // r15
   char v11; // si
   __int16 v12; // ax
   _OWORD *v13; // rcx
@@ -35,8 +35,8 @@ __int64 __fastcall HvlpSetLogicalProcessorProperty(int a1, int a2, _OWORD *a3)
   unsigned int v26; // edi
   __int64 v27; // rax
   struct _KPRCB *v28; // rcx
-  union _SLIST_HEADER *v30; // [rsp+28h] [rbp-40h]
-  struct _SLIST_ENTRY *v31; // [rsp+30h] [rbp-38h]
+  _SLIST_HEADER *v30; // [rsp+28h] [rbp-40h]
+  _SLIST_ENTRY *v31; // [rsp+30h] [rbp-38h]
   _SLIST_ENTRY *v32; // [rsp+38h] [rbp-30h]
   __int16 v33; // [rsp+60h] [rbp-8h]
 
@@ -55,7 +55,7 @@ LABEL_6:
     HIDWORD(v30) = 1;
     goto LABEL_7;
   }
-  CurrentPrcb = (union _SLIST_HEADER *)KeGetCurrentPrcb();
+  CurrentPrcb = (_SLIST_HEADER *)KeGetCurrentPrcb();
   HypercallCachedPages = (char *)RtlpInterlockedPopEntrySList(CurrentPrcb + 1535);
   if ( !HypercallCachedPages )
   {
@@ -71,7 +71,7 @@ LABEL_6:
   v9 = (_SLIST_ENTRY *)*((_QWORD *)HypercallCachedPages + 2);
   v6 = 1;
   v30 = CurrentPrcb;
-  v10 = (struct _SLIST_ENTRY *)HypercallCachedPages;
+  v10 = (_SLIST_ENTRY *)HypercallCachedPages;
   v11 = BYTE4(CurrentPrcb);
 LABEL_7:
   *(_DWORD *)HypercallCachedPages = a1;

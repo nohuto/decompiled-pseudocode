@@ -9,15 +9,15 @@
  *     sub_1800CDB44 @ 0x1800CDB44 (sub_1800CDB44.c)
  */
 
-char __fastcall sub_1800CD600(unsigned __int64 a1)
+char __fastcall sub_1800CD600(PVOID BaseAddress)
 {
   __int64 *v2; // rax
   bool v3; // bl
   __int64 *v4; // rdi
   __int64 v5; // rax
-  char v7; // [rsp+3Ch] [rbp-2Ch]
+  _BYTE MemoryInformation[56]; // [rsp+30h] [rbp-38h] BYREF
 
-  v2 = sub_18001B2F8(a1, 0);
+  v2 = sub_18001B2F8((unsigned __int64)BaseAddress, 0);
   v3 = 0;
   v4 = v2;
   if ( v2 )
@@ -27,11 +27,20 @@ char __fastcall sub_1800CD600(unsigned __int64 a1)
       v5 = v2[14];
       if ( v5 )
       {
-        if ( a1 == *(_QWORD *)(v5 + 184) && (int)ZwQueryVirtualMemory() >= 0 )
-          v3 = (v7 & 0x40) != 0;
+        if ( BaseAddress == *(PVOID *)(v5 + 184)
+          && ZwQueryVirtualMemory(
+               (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+               BaseAddress,
+               MemoryRegionInformationEx,
+               MemoryInformation,
+               0x28uLL,
+               0LL) >= 0 )
+        {
+          v3 = (MemoryInformation[12] & 0x40) != 0;
+        }
       }
     }
-    RtlLeaveCriticalSection((__int64)(v4 + 2));
+    RtlLeaveCriticalSection((PRTL_CRITICAL_SECTION)(v4 + 2));
     sub_1800CDB44(v4);
     LOBYTE(v2) = v3;
   }

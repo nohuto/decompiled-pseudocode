@@ -22,7 +22,7 @@ char __fastcall sub_1800ED3C0(__int64 a1, _QWORD *a2, _QWORD *a3)
 
   v13 = 520;
   v6 = 0;
-  Heap = (wchar_t *)RtlAllocateHeap((__int64)NtCurrentPeb()->ProcessHeap, 8u, 520LL);
+  Heap = (wchar_t *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, 0x208uLL);
   v7 = Heap;
   if ( Heap )
   {

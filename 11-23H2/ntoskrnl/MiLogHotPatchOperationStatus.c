@@ -1,23 +1,23 @@
 /*
- * XREFs of MiLogHotPatchOperationStatus @ 0x140A38F58
+ * XREFs of MiLogHotPatchOperationStatus @ 0x140A39208
  * Callers:
- *     MiActOnPatchInAllSessions @ 0x140A34610 (MiActOnPatchInAllSessions.c)
- *     MiApplyDriverHotPatch @ 0x140A34878 (MiApplyDriverHotPatch.c)
- *     MiApplyHotPatchToDriver @ 0x140A34E70 (MiApplyHotPatchToDriver.c)
- *     MiApplyImageHotPatchRequest @ 0x140A355E0 (MiApplyImageHotPatchRequest.c)
- *     MiApplySingleSessionPatch @ 0x140A360A0 (MiApplySingleSessionPatch.c)
- *     MiInjectThreadForHotPatch @ 0x140A37954 (MiInjectThreadForHotPatch.c)
- *     MiLoadHotPatch @ 0x140A37F60 (MiLoadHotPatch.c)
- *     MiUnloadHotPatch @ 0x140A3BF34 (MiUnloadHotPatch.c)
+ *     MiActOnPatchInAllSessions @ 0x140A348C0 (MiActOnPatchInAllSessions.c)
+ *     MiApplyDriverHotPatch @ 0x140A34B28 (MiApplyDriverHotPatch.c)
+ *     MiApplyHotPatchToDriver @ 0x140A35120 (MiApplyHotPatchToDriver.c)
+ *     MiApplyImageHotPatchRequest @ 0x140A35890 (MiApplyImageHotPatchRequest.c)
+ *     MiApplySingleSessionPatch @ 0x140A36350 (MiApplySingleSessionPatch.c)
+ *     MiInjectThreadForHotPatch @ 0x140A37C04 (MiInjectThreadForHotPatch.c)
+ *     MiLoadHotPatch @ 0x140A38210 (MiLoadHotPatch.c)
+ *     MiUnloadHotPatch @ 0x140A3C1E4 (MiUnloadHotPatch.c)
  *     MmRegisterHotPatches @ 0x140B73D38 (MmRegisterHotPatches.c)
  * Callees:
  *     _tlgKeywordOn @ 0x140212E64 (_tlgKeywordOn.c)
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     MiFillLogProcessInfo @ 0x14025B460 (MiFillLogProcessInfo.c)
- *     PsGetProcessId @ 0x1402FA490 (PsGetProcessId.c)
- *     _tlgWriteEx_EtwWriteEx @ 0x140367F70 (_tlgWriteEx_EtwWriteEx.c)
- *     _tlgCreate1Sz_char @ 0x1403C431C (_tlgCreate1Sz_char.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     MiFillLogProcessInfo @ 0x14025B6F0 (MiFillLogProcessInfo.c)
+ *     PsGetProcessId @ 0x1402FA720 (PsGetProcessId.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x140368110 (_tlgWriteEx_EtwWriteEx.c)
+ *     _tlgCreate1Sz_char @ 0x1403C44FC (_tlgCreate1Sz_char.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 void __fastcall MiLogHotPatchOperationStatus(
@@ -93,7 +93,7 @@ void __fastcall MiLogHotPatchOperationStatus(
       if ( **(_DWORD **)&qword_140C698E8 <= 5u || !tlgKeywordOn(*(__int64 *)&qword_140C698E8, 0x400000000020LL) )
         return;
       v25 = v26 == 7;
-      v13 = (__int16 *)&byte_14003915D;
+      v13 = (__int16 *)&byte_14003935D;
     }
     else
     {
@@ -105,7 +105,7 @@ void __fastcall MiLogHotPatchOperationStatus(
             return;
           ProcessId = a4;
           p_ProcessId = &ProcessId;
-          v13 = (__int16 *)byte_140039275;
+          v13 = (__int16 *)byte_140039475;
           v43 = 4LL;
           v44 = &v32;
           v46 = (unsigned int *)&v35;
@@ -157,7 +157,7 @@ void __fastcall MiLogHotPatchOperationStatus(
               DestinationString = p_DestinationString_8;
               v53 = 8LL;
               v55[0] = 8LL;
-              tlgWriteEx_EtwWriteEx(v18, (unsigned __int8 *)byte_1400392EF, v20, 1u, v28, v29, 9u, v41);
+              tlgWriteEx_EtwWriteEx(v18, (unsigned __int8 *)byte_1400394EF, v20, 1u, v28, v29, 9u, v41);
             }
             return;
           }
@@ -165,7 +165,7 @@ void __fastcall MiLogHotPatchOperationStatus(
             return;
           LODWORD(v36) = a4;
           p_ProcessId = (unsigned int *)&v36;
-          v13 = word_140039382;
+          v13 = word_140039582;
           v43 = 4LL;
           v44 = &ProcessId;
           v46 = &v32;
@@ -192,7 +192,7 @@ LABEL_31:
       if ( **(_DWORD **)&qword_140C698E8 <= 5u || !tlgKeywordOn(*(__int64 *)&qword_140C698E8, 0x400000000020LL) )
         return;
       v25 = v22 == 6;
-      v13 = &word_1400391E6;
+      v13 = &word_1400393E6;
     }
     v32 = a2;
     p_ProcessId = (unsigned int *)&v36;
@@ -235,7 +235,7 @@ LABEL_31:
     v12 = v11 + 1;
     v32 = a1;
     v48 = (__int64 *)&v32;
-    v13 = word_1400390D2;
+    v13 = word_1400392D2;
     v49 = 4LL;
     Buffer = (__int64 *)&ProcessId;
     v14 = v9;

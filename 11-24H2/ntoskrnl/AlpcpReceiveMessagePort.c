@@ -1,71 +1,71 @@
 /*
- * XREFs of AlpcpReceiveMessagePort @ 0x140895660
+ * XREFs of AlpcpReceiveMessagePort @ 0x14089DB00
  * Callers:
- *     AlpcpReceiveLegacyMessage @ 0x1408952E0 (AlpcpReceiveLegacyMessage.c)
- *     AlpcpReceiveMessage @ 0x140899160 (AlpcpReceiveMessage.c)
+ *     AlpcpReceiveLegacyMessage @ 0x14089D780 (AlpcpReceiveLegacyMessage.c)
+ *     AlpcpReceiveMessage @ 0x1408A1800 (AlpcpReceiveMessage.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x1402595A0 (KeLeaveCriticalRegionThread.c)
- *     ExfReleasePushLockShared @ 0x14025DE00 (ExfReleasePushLockShared.c)
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     AlpcpSignalAndWait @ 0x140324E10 (AlpcpSignalAndWait.c)
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ExfAcquirePushLockSharedEx @ 0x14034050C (ExfAcquirePushLockSharedEx.c)
- *     AlpcpLogUnwait @ 0x140742948 (AlpcpLogUnwait.c)
- *     AlpcpLogWaitForNewMessage @ 0x1407429B4 (AlpcpLogWaitForNewMessage.c)
- *     AlpcpLockForCachedReferenceBlob @ 0x140890590 (AlpcpLockForCachedReferenceBlob.c)
- *     AlpcpLogReceiveMessage @ 0x1408928A0 (AlpcpLogReceiveMessage.c)
- *     AlpcpQueryHeadCanceledQueue @ 0x14089627C (AlpcpQueryHeadCanceledQueue.c)
- *     AlpcpTryLockForCachedReferenceBlob @ 0x1408962B0 (AlpcpTryLockForCachedReferenceBlob.c)
- *     AlpcpQueryHeadLargeQueue @ 0x14089633C (AlpcpQueryHeadLargeQueue.c)
- *     AlpcpQueryHeadMainQueue @ 0x140896358 (AlpcpQueryHeadMainQueue.c)
- *     AlpcpReferenceBlob @ 0x1408966C0 (AlpcpReferenceBlob.c)
- *     AlpcpUnlockMessage @ 0x140898D70 (AlpcpUnlockMessage.c)
+ *     KeLeaveCriticalRegionThread @ 0x140289BB0 (KeLeaveCriticalRegionThread.c)
+ *     ExfReleasePushLockShared @ 0x14028E410 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     AlpcpSignalAndWait @ 0x1402CD9A0 (AlpcpSignalAndWait.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockSharedEx @ 0x14031F9EC (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     AlpcpLogUnwait @ 0x140740878 (AlpcpLogUnwait.c)
+ *     AlpcpLogWaitForNewMessage @ 0x1407408E4 (AlpcpLogWaitForNewMessage.c)
+ *     AlpcpLogReceiveMessage @ 0x14089BECC (AlpcpLogReceiveMessage.c)
+ *     AlpcpQueryHeadCanceledQueue @ 0x14089E71C (AlpcpQueryHeadCanceledQueue.c)
+ *     AlpcpTryLockForCachedReferenceBlob @ 0x14089E750 (AlpcpTryLockForCachedReferenceBlob.c)
+ *     AlpcpQueryHeadLargeQueue @ 0x14089E7DC (AlpcpQueryHeadLargeQueue.c)
+ *     AlpcpQueryHeadMainQueue @ 0x14089E7F8 (AlpcpQueryHeadMainQueue.c)
+ *     AlpcpReferenceBlob @ 0x14089EB60 (AlpcpReferenceBlob.c)
+ *     AlpcpLockForCachedReferenceBlob @ 0x14089ED30 (AlpcpLockForCachedReferenceBlob.c)
+ *     AlpcpUnlockMessage @ 0x1408A1410 (AlpcpUnlockMessage.c)
  */
 
-__int64 __fastcall AlpcpReceiveMessagePort(__int64 a1, unsigned __int8 a2, LARGE_INTEGER *a3, __int64 *a4, LONG a5)
+__int64 __fastcall AlpcpReceiveMessagePort(__int64 a1, KPROCESSOR_MODE a2, LARGE_INTEGER *a3, __int64 *a4, LONG a5)
 {
   struct _KTHREAD *CurrentThread; // r15
   __int64 v6; // rdi
   volatile signed __int64 *v8; // r14
-  _QWORD *v9; // rsi
+  char *v9; // rsi
   int i; // r12d
   int v11; // eax
   volatile signed __int64 *v12; // rbp
-  _QWORD *v13; // rax
-  _QWORD *v14; // rsi
+  char *v13; // rax
+  char *v14; // rsi
   __int64 HeadLargeQueue; // rsi
   ULONG_PTR HeadCanceledQueue; // rax
   ULONG_PTR v17; // rsi
   __int64 v18; // rax
   unsigned int v19; // esi
   volatile signed __int64 *v20; // rdi
-  _QWORD *v21; // r15
-  _QWORD *v22; // rax
-  _QWORD *v23; // r15
+  char *v21; // r15
+  char *v22; // rax
+  char *v23; // r15
   unsigned int v24; // edx
   int v25; // ecx
-  _QWORD *v26; // rax
-  _QWORD *v27; // r14
+  char *v26; // rax
+  char *v27; // r14
   int v28; // eax
   volatile signed __int64 *v29; // rdi
-  _QWORD *v30; // rax
-  _QWORD *v31; // rbp
+  char *v30; // rax
+  char *v31; // rbp
   struct _LIST_ENTRY *v32; // rcx
   LIST_ENTRY *p_WaitListHead; // rdx
   void *v34; // rbp
   int v35; // esi
   struct _KTHREAD *v36; // rax
-  _QWORD *v38; // rax
-  _QWORD *v39; // rsi
-  _QWORD *v40; // rsi
+  char *v38; // rax
+  char *v39; // rsi
+  char *v40; // rsi
   int v41; // esi
   unsigned int v42; // r15d
   struct _KTHREAD *v43; // rax
-  _QWORD *v44; // rax
-  _QWORD *v45; // rbp
+  char *v44; // rax
+  char *v45; // rbp
   struct _LIST_ENTRY *Flink; // rax
   NTSTATUS v47; // eax
   struct _KTHREAD *v48; // rcx
@@ -81,11 +81,11 @@ __int64 __fastcall AlpcpReceiveMessagePort(__int64 a1, unsigned __int8 a2, LARGE
 LABEL_2:
   while ( 2 )
   {
-    v9 = KeAbPreAcquire(v6 + 352, 0LL);
+    v9 = (char *)KeAbPreAcquire(v6 + 352, 0LL);
     if ( _InterlockedCompareExchange64(v8, 17LL, 0LL) )
       ExfAcquirePushLockSharedEx((signed __int64 *)(v6 + 352), 0, v9, v6 + 352);
     if ( v9 )
-      *((_BYTE *)v9 + 10) = 1;
+      v9[10] = 1;
     for ( i = 0; ; i = 1 )
     {
       while ( 1 )
@@ -102,12 +102,12 @@ LABEL_2:
           goto LABEL_21;
         }
         v12 = (volatile signed __int64 *)(v6 + 136);
-        v13 = KeAbPreAcquire(v6 + 136, 0LL);
+        v13 = (char *)KeAbPreAcquire(v6 + 136, 0LL);
         v14 = v13;
         if ( _interlockedbittestandset64((volatile signed __int32 *)(v6 + 136), 0LL) )
-          ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(v6 + 136), (__int64)v13, v6 + 136);
+          ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(v6 + 136), v13, v6 + 136);
         if ( v14 )
-          *((_BYTE *)v14 + 10) = 1;
+          v14[10] = 1;
         HeadLargeQueue = AlpcpQueryHeadLargeQueue(v6);
         if ( HeadLargeQueue || (HeadLargeQueue = AlpcpQueryHeadMainQueue(v6)) != 0 )
         {
@@ -128,7 +128,7 @@ LABEL_2:
               ExfReleasePushLockShared((signed __int64 *)(v6 + 352));
             }
             KeAbPostRelease(v6 + 352);
-            v40 = KeAbPreAcquire(v6 + 352, 0LL);
+            v40 = (char *)KeAbPreAcquire(v6 + 352, 0LL);
             if ( _interlockedbittestandset64((volatile signed __int32 *)v8, 0LL) )
               goto LABEL_108;
             goto LABEL_109;
@@ -152,11 +152,11 @@ LABEL_2:
           KeAbPostRelease(v6 + 352);
           AlpcpLockForCachedReferenceBlob(HeadLargeQueue);
           --*(_WORD *)(HeadLargeQueue - 30);
-          v21 = KeAbPreAcquire(v6 + 352, 0LL);
+          v21 = (char *)KeAbPreAcquire(v6 + 352, 0LL);
           if ( _InterlockedCompareExchange64(v8, 17LL, 0LL) )
             ExfAcquirePushLockSharedEx((signed __int64 *)(v6 + 352), 0, v21, v6 + 352);
           if ( v21 )
-            *((_BYTE *)v21 + 10) = 1;
+            v21[10] = 1;
           if ( (*(_DWORD *)(v6 + 416) & 0x50) != 0 )
           {
             if ( _InterlockedCompareExchange64(v8, 0LL, 17LL) == 17 )
@@ -164,12 +164,12 @@ LABEL_2:
           }
           else
           {
-            v22 = KeAbPreAcquire(v6 + 136, 0LL);
+            v22 = (char *)KeAbPreAcquire(v6 + 136, 0LL);
             v23 = v22;
             if ( _interlockedbittestandset64((volatile signed __int32 *)v12, 0LL) )
-              ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(v6 + 136), (__int64)v22, v6 + 136);
+              ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(v6 + 136), v22, v6 + 136);
             if ( v23 )
-              *((_BYTE *)v23 + 10) = 1;
+              v23[10] = 1;
             if ( !AlpcpQueryHeadLargeQueue(v6) && HeadLargeQueue == AlpcpQueryHeadMainQueue(v6) )
               goto LABEL_49;
             v50 = *(_QWORD *)(v6 + 160);
@@ -203,12 +203,12 @@ LABEL_49:
               {
 LABEL_57:
                 *(_WORD *)(HeadLargeQueue + 244) |= 0x2000u;
-                v26 = KeAbPreAcquire(v6 + 176, 0LL);
+                v26 = (char *)KeAbPreAcquire(v6 + 176, 0LL);
                 v27 = v26;
                 if ( _interlockedbittestandset64((volatile signed __int32 *)(v6 + 176), 0LL) )
-                  ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(v6 + 176), (__int64)v26, v6 + 176);
+                  ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(v6 + 176), v26, v6 + 176);
                 if ( v27 )
-                  *((_BYTE *)v27 + 10) = 1;
+                  v27[10] = 1;
                 v28 = *(_DWORD *)(HeadLargeQueue + 40);
                 *(_QWORD *)(HeadLargeQueue + 16) = v6;
                 *(_DWORD *)(HeadLargeQueue + 40) = v28 & 0xFFFFFF83 | (4 * (*(_DWORD *)(v6 + 416) & 6)) | 3;
@@ -293,13 +293,13 @@ LABEL_180:
           ExfReleasePushLockShared((signed __int64 *)(v6 + 352));
         }
         KeAbPostRelease(v6 + 352);
-        v40 = KeAbPreAcquire(v6 + 352, 0LL);
+        v40 = (char *)KeAbPreAcquire(v6 + 352, 0LL);
         if ( _interlockedbittestandset64((volatile signed __int32 *)v8, 0LL) )
 LABEL_108:
-          ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(v6 + 352), (__int64)v40, v6 + 352);
+          ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(v6 + 352), v40, v6 + 352);
 LABEL_109:
         if ( v40 )
-          *((_BYTE *)v40 + 10) = 1;
+          v40[10] = 1;
         i = 1;
       }
       v18 = *(_QWORD *)(v6 + 360);
@@ -385,21 +385,21 @@ LABEL_29:
         if ( _InterlockedCompareExchange64(v8, 0LL, 17LL) != 17 )
           ExfReleasePushLockShared((signed __int64 *)(v6 + 352));
         KeAbPostRelease(v6 + 352);
-        v38 = KeAbPreAcquire(v6 + 352, 0LL);
+        v38 = (char *)KeAbPreAcquire(v6 + 352, 0LL);
         v39 = v38;
         if ( _interlockedbittestandset64((volatile signed __int32 *)v8, 0LL) )
-          ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(v6 + 352), (__int64)v38, v6 + 352);
+          ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(v6 + 352), v38, v6 + 352);
         if ( v39 )
-          *((_BYTE *)v39 + 10) = 1;
+          v39[10] = 1;
       }
     }
     CurrentThread[1].Timer.Header.LockNV = a5;
-    v30 = KeAbPreAcquire(v6 + 224, 0LL);
+    v30 = (char *)KeAbPreAcquire(v6 + 224, 0LL);
     v31 = v30;
     if ( _interlockedbittestandset64((volatile signed __int32 *)(v6 + 224), 0LL) )
-      ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(v6 + 224), (__int64)v30, v6 + 224);
+      ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(v6 + 224), v30, v6 + 224);
     if ( v31 )
-      *((_BYTE *)v31 + 10) = 1;
+      v31[10] = 1;
     v32 = *(struct _LIST_ENTRY **)(v6 + 240);
     p_WaitListHead = &CurrentThread[1].Timer.Header.WaitListHead;
     if ( v32->Flink != (struct _LIST_ENTRY *)(v6 + 232) )
@@ -433,12 +433,12 @@ LABEL_77:
     }
     if ( v42 )
     {
-      v44 = KeAbPreAcquire(v6 + 224, 0LL);
+      v44 = (char *)KeAbPreAcquire(v6 + 224, 0LL);
       v45 = v44;
       if ( _interlockedbittestandset64((volatile signed __int32 *)(v6 + 224), 0LL) )
-        ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(v6 + 224), (__int64)v44, v6 + 224);
+        ExfAcquirePushLockExclusiveEx((unsigned __int64 *)(v6 + 224), v44, v6 + 224);
       if ( v45 )
-        *((_BYTE *)v45 + 10) = 1;
+        v45[10] = 1;
       Flink = v52[1].Timer.Header.WaitListHead.Flink;
       if ( Flink )
       {

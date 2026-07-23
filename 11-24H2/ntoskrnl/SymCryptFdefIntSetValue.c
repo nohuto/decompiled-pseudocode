@@ -1,9 +1,9 @@
 /*
- * XREFs of SymCryptFdefIntSetValue @ 0x140537464
+ * XREFs of SymCryptFdefIntSetValue @ 0x140531904
  * Callers:
- *     SymCryptIntSetValue @ 0x140523A08 (SymCryptIntSetValue.c)
+ *     SymCryptIntSetValue @ 0x140521320 (SymCryptIntSetValue.c)
  * Callees:
- *     SymCryptFdefRawSetValue @ 0x140537600 (SymCryptFdefRawSetValue.c)
+ *     SymCryptFdefRawSetValue @ 0x140531AA0 (SymCryptFdefRawSetValue.c)
  */
 
 __int64 __fastcall SymCryptFdefIntSetValue(int a1, int a2, int a3, __int64 a4)

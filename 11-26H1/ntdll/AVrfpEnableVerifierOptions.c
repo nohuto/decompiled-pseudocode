@@ -1,10 +1,10 @@
 /*
- * XREFs of AVrfpEnableVerifierOptions @ 0x180120F94
+ * XREFs of AVrfpEnableVerifierOptions @ 0x180120D44
  * Callers:
- *     AVrfInitializeVerifier @ 0x1801163F0 (AVrfInitializeVerifier.c)
+ *     AVrfInitializeVerifier @ 0x180115BD0 (AVrfInitializeVerifier.c)
  * Callees:
- *     AVrfpEnableHandleVerifier @ 0x1801381E8 (AVrfpEnableHandleVerifier.c)
- *     AVrfpEnableHeapVerifier @ 0x180138268 (AVrfpEnableHeapVerifier.c)
+ *     AVrfpEnableHandleVerifier @ 0x180137F58 (AVrfpEnableHandleVerifier.c)
+ *     AVrfpEnableHeapVerifier @ 0x180137FD8 (AVrfpEnableHeapVerifier.c)
  */
 
 __int64 __fastcall AVrfpEnableVerifierOptions(__int64 a1, __int64 a2)

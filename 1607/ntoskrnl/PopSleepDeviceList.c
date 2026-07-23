@@ -3,12 +3,12 @@
  * Callers:
  *     PoBroadcastSystemState @ 0x1403CEBF8 (PoBroadcastSystemState.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140012750 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14001BD40 (KeAcquireInStackQueuedSpinLock.c)
- *     KeInitializeEvent @ 0x14002DEA0 (KeInitializeEvent.c)
- *     KeWaitForMultipleObjects @ 0x14005A2E0 (KeWaitForMultipleObjects.c)
- *     KeWaitForSingleObject @ 0x14005C880 (KeWaitForSingleObject.c)
- *     KeInitializeSemaphore @ 0x1400F2030 (KeInitializeSemaphore.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x1400122D0 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14001B8C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeInitializeEvent @ 0x14002DA20 (KeInitializeEvent.c)
+ *     KeWaitForMultipleObjects @ 0x140059E60 (KeWaitForMultipleObjects.c)
+ *     KeWaitForSingleObject @ 0x14005C400 (KeWaitForSingleObject.c)
+ *     KeInitializeSemaphore @ 0x1400EFE80 (KeInitializeSemaphore.c)
  *     PopNotifyDevice @ 0x1403CF498 (PopNotifyDevice.c)
  */
 
@@ -55,7 +55,7 @@ int __fastcall PopSleepDeviceList(__int64 a1, __int64 a2)
       LODWORD(p_Semaphore) = KeWaitForMultipleObjects(2u, Object, WaitAny, Executive, 0, 0, 0LL, 0LL);
       if ( *(int *)(a1 + 440) < 0 )
         break;
-      KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)qword_1403033F0 + 1, &LockHandle);
+      KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)qword_140303330 + 1, &LockHandle);
       v9 = *v3;
       v10 = **v3;
       if ( (__int64 **)(*v3)[1] != v3 || *(__int64 **)(v10 + 8) != v9 )

@@ -1,10 +1,10 @@
 /*
- * XREFs of MiMakePagefileWriterEntryAvailable @ 0x14063B028
+ * XREFs of MiMakePagefileWriterEntryAvailable @ 0x14063B578
  * Callers:
- *     MiWriteComplete @ 0x1402F4320 (MiWriteComplete.c)
- *     MiModifiedPageWriter @ 0x1403B2760 (MiModifiedPageWriter.c)
- *     MiGatherPagefilePages @ 0x14063A144 (MiGatherPagefilePages.c)
- *     MiPageFileNoFreeSpace @ 0x14063B114 (MiPageFileNoFreeSpace.c)
+ *     MiWriteComplete @ 0x1402F45B0 (MiWriteComplete.c)
+ *     MiModifiedPageWriter @ 0x1403B2940 (MiModifiedPageWriter.c)
+ *     MiGatherPagefilePages @ 0x14063A694 (MiGatherPagefilePages.c)
+ *     MiPageFileNoFreeSpace @ 0x14063B664 (MiPageFileNoFreeSpace.c)
  * Callees:
  *     <none>
  */

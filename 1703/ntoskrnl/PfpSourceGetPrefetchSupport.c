@@ -54,7 +54,7 @@ __int64 __fastcall PfpSourceGetPrefetchSupport(int *a1, __int64 a2)
     ObjectAttributes.Length = 48;
     ObjectAttributes.Attributes = 512;
     *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
-    v10 = NtOpenSession(&ClientId, 983043LL, &ObjectAttributes);
+    v10 = NtOpenSession(&ClientId.UniqueProcess, 0xF0003u, &ObjectAttributes);
     if ( v10 < 0 )
     {
       UniqueProcess = ClientId.UniqueProcess;

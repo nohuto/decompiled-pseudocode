@@ -1,22 +1,22 @@
 /*
- * XREFs of KiAbSetMinimumThreadPriority @ 0x140318E28
+ * XREFs of KiAbSetMinimumThreadPriority @ 0x1403190B8
  * Callers:
- *     KiSwapThread @ 0x14023F3F0 (KiSwapThread.c)
- *     KiDispatchInterrupt @ 0x140249530 (KiDispatchInterrupt.c)
- *     KiAbProcessThreadLocks @ 0x1402BC350 (KiAbProcessThreadLocks.c)
- *     KiAbIoBoostOwners @ 0x140318C24 (KiAbIoBoostOwners.c)
- *     KiAbCpuBoostOwners @ 0x140318D28 (KiAbCpuBoostOwners.c)
+ *     KiSwapThread @ 0x14023F4C0 (KiSwapThread.c)
+ *     KiDispatchInterrupt @ 0x140249600 (KiDispatchInterrupt.c)
+ *     KiAbProcessThreadLocks @ 0x1402BC5E0 (KiAbProcessThreadLocks.c)
+ *     KiAbIoBoostOwners @ 0x140318EB4 (KiAbIoBoostOwners.c)
+ *     KiAbCpuBoostOwners @ 0x140318FB8 (KiAbCpuBoostOwners.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     PsGetBaseIoPriorityThread @ 0x1402A7BC0 (PsGetBaseIoPriorityThread.c)
- *     PsGetIoPriorityThread @ 0x1402A8BB0 (PsGetIoPriorityThread.c)
- *     KiSetPriorityThread @ 0x1402B05D0 (KiSetPriorityThread.c)
- *     KiAbThreadGetIoQoSPriority @ 0x1403190A0 (KiAbThreadGetIoQoSPriority.c)
- *     KiAbEntryGetCpuPriorityKey @ 0x1403191A0 (KiAbEntryGetCpuPriorityKey.c)
- *     KiAbThreadBoostIoPriority @ 0x1403192F8 (KiAbThreadBoostIoPriority.c)
- *     KiAbThreadInsertList @ 0x140360020 (KiAbThreadInsertList.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     EtwTraceAutoBoostSetFloor @ 0x1404670FE (EtwTraceAutoBoostSetFloor.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     PsGetBaseIoPriorityThread @ 0x1402A7E50 (PsGetBaseIoPriorityThread.c)
+ *     PsGetIoPriorityThread @ 0x1402A8E40 (PsGetIoPriorityThread.c)
+ *     KiSetPriorityThread @ 0x1402B0860 (KiSetPriorityThread.c)
+ *     KiAbThreadGetIoQoSPriority @ 0x140319330 (KiAbThreadGetIoQoSPriority.c)
+ *     KiAbEntryGetCpuPriorityKey @ 0x140319430 (KiAbEntryGetCpuPriorityKey.c)
+ *     KiAbThreadBoostIoPriority @ 0x140319588 (KiAbThreadBoostIoPriority.c)
+ *     KiAbThreadInsertList @ 0x1403601C0 (KiAbThreadInsertList.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     EtwTraceAutoBoostSetFloor @ 0x1404674FE (EtwTraceAutoBoostSetFloor.c)
  */
 
 __int64 __fastcall KiAbSetMinimumThreadPriority(

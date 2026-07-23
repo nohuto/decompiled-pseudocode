@@ -1,13 +1,13 @@
 /*
- * XREFs of IopFreeIrp @ 0x140055DE0
+ * XREFs of IopFreeIrp @ 0x140055960
  * Callers:
  *     IovFreeIrpPrivate @ 0x140700FA8 (IovFreeIrpPrivate.c)
  * Callees:
- *     IopFreeIrpExtension @ 0x1400B38E4 (IopFreeIrpExtension.c)
- *     ExReturnPoolQuota @ 0x1400F9564 (ExReturnPoolQuota.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     RtlpInterlockedPushEntrySList @ 0x140166E40 (RtlpInterlockedPushEntrySList.c)
- *     IopFreeReserveIrp @ 0x1401C4D94 (IopFreeReserveIrp.c)
+ *     IopFreeIrpExtension @ 0x1400B1764 (IopFreeIrpExtension.c)
+ *     ExReturnPoolQuota @ 0x1400F73A4 (ExReturnPoolQuota.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1401673B0 (RtlpInterlockedPushEntrySList.c)
+ *     IopFreeReserveIrp @ 0x1401C4C78 (IopFreeReserveIrp.c)
  */
 
 void __fastcall IopFreeIrp(ULONG_PTR BugCheckParameter1, __int64 a2, __int64 a3, __int64 a4)

@@ -1,8 +1,8 @@
 /*
- * XREFs of MmGetSessionGlobalVA @ 0x1406CB504
+ * XREFs of MmGetSessionGlobalVA @ 0x140679DF4
  * Callers:
- *     PfpLogApplicationEvent @ 0x1402D48C8 (PfpLogApplicationEvent.c)
- *     PfpPrivSourceEnum @ 0x1406CE0D0 (PfpPrivSourceEnum.c)
+ *     PfpLogApplicationEvent @ 0x1402735A8 (PfpLogApplicationEvent.c)
+ *     PfpPrivSourceEnum @ 0x1406A53B4 (PfpPrivSourceEnum.c)
  * Callees:
  *     <none>
  */

@@ -1,37 +1,39 @@
 /*
- * XREFs of HvlNotifyDebugDeviceAvailable @ 0x140587A40
+ * XREFs of HvlNotifyDebugDeviceAvailable @ 0x140584DC0
  * Callers:
- *     PopHiberCheckResume @ 0x140B6E970 (PopHiberCheckResume.c)
+ *     PopHiberCheckResume @ 0x140B709E0 (PopHiberCheckResume.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140265D90 (VslpEnterIumSecureMode.c)
- *     HvlpReleaseHypercallPage @ 0x1403AF6A0 (HvlpReleaseHypercallPage.c)
- *     HvcallInitiateHypercall @ 0x1403AF710 (HvcallInitiateHypercall.c)
- *     HvlpAcquireHypercallPage @ 0x140465ED0 (HvlpAcquireHypercallPage.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     HvlpReleaseHypercallPage @ 0x14039DEB0 (HvlpReleaseHypercallPage.c)
+ *     HvcallInitiateHypercall @ 0x14039DF20 (HvcallInitiateHypercall.c)
+ *     HvlpAcquireHypercallPage @ 0x14045D900 (HvlpAcquireHypercallPage.c)
+ *     VslReinitializeIumDebuggerTransport @ 0x14058B290 (VslReinitializeIumDebuggerTransport.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 __int64 HvlNotifyDebugDeviceAvailable()
 {
   __int16 v0; // bx
-  __int128 v2; // [rsp+20h] [rbp-B8h] BYREF
-  __int64 v3; // [rsp+30h] [rbp-A8h]
-  __int64 v4; // [rsp+38h] [rbp-A0h]
-  _BYTE v5[112]; // [rsp+40h] [rbp-98h] BYREF
-  __int64 v6; // [rsp+B0h] [rbp-28h] BYREF
+  __int64 v1; // rdx
+  __int64 v2; // rcx
+  __int64 v3; // r8
+  __int64 v4; // r9
+  __int128 v6; // [rsp+20h] [rbp-48h] BYREF
+  __int64 v7; // [rsp+30h] [rbp-38h]
+  __int64 v8; // [rsp+38h] [rbp-30h]
+  _BYTE v9[16]; // [rsp+40h] [rbp-28h] BYREF
 
-  v3 = 0LL;
-  LODWORD(v4) = 0;
-  v2 = 0LL;
-  *(_DWORD *)HvlpAcquireHypercallPage((__int64)&v2, 1, (__int64)&v6, 8LL) = 1;
-  v0 = HvcallInitiateHypercall(135);
-  HvlpReleaseHypercallPage((unsigned int *)&v2);
-  if ( v0 )
-    return 3221225473LL;
-  if ( VslVsmEnabled )
+  v7 = 0LL;
+  LODWORD(v8) = 0;
+  v6 = 0LL;
+  if ( (HvlpRootFlags & 1) != 0 )
   {
-    memset_0(v5, 0, 0x68uLL);
-    VslpEnterIumSecureMode(2u, 270LL, 0, (__int64)v5);
+    *(_DWORD *)HvlpAcquireHypercallPage((__int64)&v6, 1, (__int64)v9, 8LL) = 1;
+    v0 = HvcallInitiateHypercall(135);
+    HvlpReleaseHypercallPage((unsigned int *)&v6);
+    if ( v0 )
+      return 3221225473LL;
+    if ( VslVsmEnabled )
+      VslReinitializeIumDebuggerTransport(v2, v1, v3, v4);
   }
   return 0LL;
 }

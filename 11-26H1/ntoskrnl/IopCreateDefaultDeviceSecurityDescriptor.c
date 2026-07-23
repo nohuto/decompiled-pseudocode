@@ -1,15 +1,15 @@
 /*
- * XREFs of IopCreateDefaultDeviceSecurityDescriptor @ 0x1409FEA80
+ * XREFs of IopCreateDefaultDeviceSecurityDescriptor @ 0x14091B880
  * Callers:
- *     PipChangeDeviceObjectFromRegistryProperties @ 0x140914F6C (PipChangeDeviceObjectFromRegistryProperties.c)
+ *     PipChangeDeviceObjectFromRegistryProperties @ 0x14096F9D8 (PipChangeDeviceObjectFromRegistryProperties.c)
  * Callees:
- *     RtlGetNtProductType @ 0x140450F70 (RtlGetNtProductType.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     RtlpAddKnownAce @ 0x1409D7990 (RtlpAddKnownAce.c)
- *     IopCreateSecurityDescriptorPerType @ 0x1409FF1D0 (IopCreateSecurityDescriptorPerType.c)
- *     RtlSetDaclSecurityDescriptor @ 0x140A6B0F0 (RtlSetDaclSecurityDescriptor.c)
- *     RtlCreateSecurityDescriptor @ 0x140A6C2F0 (RtlCreateSecurityDescriptor.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     RtlGetNtProductType @ 0x1404490A0 (RtlGetNtProductType.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     IopCreateSecurityDescriptorPerType @ 0x14091BFD0 (IopCreateSecurityDescriptorPerType.c)
+ *     RtlpAddKnownAce @ 0x1409A8880 (RtlpAddKnownAce.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x140A7C820 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateSecurityDescriptor @ 0x140A7D920 (RtlCreateSecurityDescriptor.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 void *__fastcall IopCreateDefaultDeviceSecurityDescriptor(
@@ -28,12 +28,12 @@ void *__fastcall IopCreateDefaultDeviceSecurityDescriptor(
   unsigned int v12; // r15d
   bool v14; // zf
   USHORT AclSize; // r14
-  unsigned __int8 *UserAffinity; // rax
+  unsigned __int64 AffinityVersion; // rax
   ACL *Pool2; // rax
   ACL *v18; // rsi
-  int v19; // [rsp+70h] [rbp+18h] BYREF
+  _NT_PRODUCT_TYPE NtProductType; // [rsp+70h] [rbp+18h] BYREF
 
-  LOBYTE(v19) = a3;
+  LOBYTE(NtProductType) = a3;
   v7 = a7;
   v8 = a6;
   v9 = a4;
@@ -75,36 +75,36 @@ LABEL_5:
   }
   if ( a1 != 2 && (a2 & 1) == 0 )
     goto LABEL_5;
-  v19 = 0;
+  NtProductType = 0;
   AclSize = SePublicDefaultUnrestrictedDacl->AclSize;
-  if ( RtlGetNtProductType(&v19) )
+  if ( RtlGetNtProductType(&NtProductType) )
   {
-    if ( v19 == 1 )
+    if ( NtProductType == NtProductWinNt )
     {
-      UserAffinity = (unsigned __int8 *)RtlpBootStatHandleLock.UserAffinity;
+      AffinityVersion = RtlpBootStatHandleLock.AffinityVersion;
     }
     else
     {
       if ( a1 != 2 )
         goto LABEL_31;
-      UserAffinity = (unsigned __int8 *)RtlpBootStatHandleLock.StateSaveArea;
+      AffinityVersion = *(_QWORD *)&RtlpBootStatHandleLock.WaitRegister.Flags;
     }
-    AclSize += 4 * (UserAffinity[1] + 4);
+    AclSize += 4 * (*(unsigned __int8 *)(AffinityVersion + 1) + 4);
 LABEL_31:
     Pool2 = (ACL *)ExAllocatePool2(0x100uLL);
     v18 = Pool2;
     if ( Pool2 )
     {
       memmove(Pool2, SePublicDefaultUnrestrictedDacl, SePublicDefaultUnrestrictedDacl->AclSize);
-      v14 = v19 == 1;
+      v14 = NtProductType == NtProductWinNt;
       v18->AclSize = AclSize;
       if ( v14 )
       {
-        RtlpAddKnownAce((char *)v18, 2u, 0, -1073676288, (unsigned __int8 *)RtlpBootStatHandleLock.UserAffinity, 0);
+        RtlpAddKnownAce((int)v18, 2, 0, -1073676288, (void *)RtlpBootStatHandleLock.AffinityVersion, 0);
       }
       else if ( a1 == 2 )
       {
-        RtlpAddKnownAce((char *)v18, 2u, 0, 0x80000000, (unsigned __int8 *)RtlpBootStatHandleLock.StateSaveArea, 0);
+        RtlpAddKnownAce((int)v18, 2, 0, 0x80000000, *(void **)&RtlpBootStatHandleLock.WaitRegister.Flags, 0);
       }
       RtlCreateSecurityDescriptor(v9, 1u);
       RtlSetDaclSecurityDescriptor(v9, 1u, v18, 0);

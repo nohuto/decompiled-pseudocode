@@ -1,13 +1,13 @@
 /*
- * XREFs of PnpCheckDeviceIdsChanged @ 0x1407987F0
+ * XREFs of PnpCheckDeviceIdsChanged @ 0x1407989E0
  * Callers:
- *     PiProcessNewDeviceNode @ 0x140795748 (PiProcessNewDeviceNode.c)
- *     PipProcessStartPhase3 @ 0x14079B9C4 (PipProcessStartPhase3.c)
+ *     PiProcessNewDeviceNode @ 0x140795938 (PiProcessNewDeviceNode.c)
+ *     PipProcessStartPhase3 @ 0x14079BBB4 (PipProcessStartPhase3.c)
  * Callees:
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     _CmGetDeviceRegProp @ 0x1406CD45C (_CmGetDeviceRegProp.c)
- *     _CmOpenDeviceRegKey @ 0x1406CE0C4 (_CmOpenDeviceRegKey.c)
- *     RtlCompareUnicodeStrings @ 0x1406D9FE0 (RtlCompareUnicodeStrings.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     _CmGetDeviceRegProp @ 0x1406CD48C (_CmGetDeviceRegProp.c)
+ *     _CmOpenDeviceRegKey @ 0x1406CE0F4 (_CmOpenDeviceRegKey.c)
+ *     RtlCompareUnicodeStrings @ 0x1406DA010 (RtlCompareUnicodeStrings.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

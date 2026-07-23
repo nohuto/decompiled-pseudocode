@@ -1,8 +1,8 @@
 /*
- * XREFs of CcCalculatePagesToWriteForVolume @ 0x14038A160
+ * XREFs of CcCalculatePagesToWriteForVolume @ 0x14038BF10
  * Callers:
- *     CcLazyWriteScanVolume @ 0x140388CAC (CcLazyWriteScanVolume.c)
- *     CcNotifyExternalCachesInternal @ 0x140506DEC (CcNotifyExternalCachesInternal.c)
+ *     CcLazyWriteScanVolume @ 0x14038AA5C (CcLazyWriteScanVolume.c)
+ *     CcNotifyExternalCachesInternal @ 0x1405007BC (CcNotifyExternalCachesInternal.c)
  * Callees:
  *     <none>
  */

@@ -1,13 +1,13 @@
 /*
- * XREFs of PnpUpdateRebootRequiredReason @ 0x140958DC0
+ * XREFs of PnpUpdateRebootRequiredReason @ 0x140958FC0
  * Callers:
- *     PipProcessStartPhase2 @ 0x140790E98 (PipProcessStartPhase2.c)
- *     PiDevCfgProcessDevice @ 0x14087A1F0 (PiDevCfgProcessDevice.c)
- *     PnpReallocateResources @ 0x14096D548 (PnpReallocateResources.c)
- *     PipProcessRestartPhase2 @ 0x14096F408 (PipProcessRestartPhase2.c)
+ *     PipProcessStartPhase2 @ 0x140791088 (PipProcessStartPhase2.c)
+ *     PiDevCfgProcessDevice @ 0x14087A430 (PiDevCfgProcessDevice.c)
+ *     PnpReallocateResources @ 0x14096D748 (PnpReallocateResources.c)
+ *     PipProcessRestartPhase2 @ 0x14096F608 (PipProcessRestartPhase2.c)
  * Callees:
- *     _PnpGetObjectProperty @ 0x1406D01F0 (_PnpGetObjectProperty.c)
- *     _PnpSetObjectProperty @ 0x140796B7C (_PnpSetObjectProperty.c)
+ *     _PnpGetObjectProperty @ 0x1406D0220 (_PnpGetObjectProperty.c)
+ *     _PnpSetObjectProperty @ 0x140796D6C (_PnpSetObjectProperty.c)
  */
 
 __int64 __fastcall PnpUpdateRebootRequiredReason(__int64 a1, __int64 a2, __int64 a3)

@@ -30,7 +30,7 @@ char __fastcall RtlpAllowsLowBoxAccess(__int64 a1)
   char *v12; // [rsp+78h] [rbp-88h] BYREF
   UNICODE_STRING v13; // [rsp+80h] [rbp-80h] BYREF
   char v14; // [rsp+90h] [rbp-70h] BYREF
-  int v15; // [rsp+94h] [rbp-6Ch] BYREF
+  NTSTATUS v15; // [rsp+94h] [rbp-6Ch] BYREF
   _QWORD v16[2]; // [rsp+98h] [rbp-68h] BYREF
   PVOID Object; // [rsp+A8h] [rbp-58h]
   struct _LIST_ENTRY *Blink; // [rsp+B0h] [rbp-50h]

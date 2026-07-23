@@ -1,16 +1,16 @@
 /*
- * XREFs of ObGetObjectSecurity @ 0x1409B26F0
+ * XREFs of ObGetObjectSecurity @ 0x1409A9A80
  * Callers:
- *     SepSetProcessTrustLabelAceForToken @ 0x140363E20 (SepSetProcessTrustLabelAceForToken.c)
- *     DifObGetObjectSecurityWrapper @ 0x140635EB0 (DifObGetObjectSecurityWrapper.c)
+ *     SepSetProcessTrustLabelAceForToken @ 0x1403EB390 (SepSetProcessTrustLabelAceForToken.c)
+ *     DifObGetObjectSecurityWrapper @ 0x140634470 (DifObGetObjectSecurityWrapper.c)
  * Callees:
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
- *     CmpSecurityMethod @ 0x140852E10 (CmpSecurityMethod.c)
- *     IopGetSetSecurityObject @ 0x1408796F0 (IopGetSetSecurityObject.c)
- *     ObpReferenceSecurityDescriptorSlow @ 0x14087AEFC (ObpReferenceSecurityDescriptorSlow.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
+ *     CmpSecurityMethod @ 0x14084F0D0 (CmpSecurityMethod.c)
+ *     IopGetSetSecurityObject @ 0x14087DA20 (IopGetSetSecurityObject.c)
+ *     ObpReferenceSecurityDescriptorSlow @ 0x14087EDAC (ObpReferenceSecurityDescriptorSlow.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 NTSTATUS __stdcall ObGetObjectSecurity(
@@ -25,67 +25,69 @@ NTSTATUS __stdcall ObGetObjectSecurity(
   unsigned int v10; // edx
   void *v11; // rax
   void *Pool2; // rax
-  __int64 (__fastcall *v14)(__int64, int, ULONG *, __int16 *, PULONG, int, int, __int64, char); // rax
+  __int64 (__fastcall *v14)(__int64, int, DWORD *, __int16 *, PULONG, int, int, __int64, char); // rax
   PSECURITY_DESCRIPTOR v15; // r9
   NTSTATUS SetSecurityObject; // eax
   NTSTATUS v17; // r15d
   ULONG v18; // eax
-  void *v19; // rax
-  char *v20; // [rsp+28h] [rbp-60h]
-  int v21; // [rsp+30h] [rbp-58h]
-  __int64 v22; // [rsp+38h] [rbp-50h]
+  ULONG_PTR v19; // rdx
+  void *v20; // rax
+  char *v21; // [rsp+28h] [rbp-60h]
+  int v22; // [rsp+30h] [rbp-58h]
+  __int64 v23; // [rsp+38h] [rbp-50h]
   ULONG Length; // [rsp+90h] [rbp+8h] BYREF
-  ULONG v24; // [rsp+A8h] [rbp+20h] BYREF
+  DWORD v25; // [rsp+A8h] [rbp+20h] BYREF
 
   v6 = ObTypeIndexTable[(unsigned __int8)ObHeaderCookie ^ (unsigned __int8)*((char *)Object - 24) ^ (unsigned __int64)(unsigned __int8)((unsigned __int16)((_WORD)Object - 48) >> 8)];
-  if ( *(__int64 (__fastcall **)(__int64, int, ULONG *, unsigned __int64, ULONG *, __int64 *, int, __int64))(v6 + 152) != SeDefaultObjectMethod )
+  if ( *(__int64 (__fastcall **)(__int64, int, DWORD *, unsigned __int64, ULONG *, __int64 *, int, __int64))(v6 + 152) != SeDefaultObjectMethod )
   {
-    v24 = 447;
+    v25 = 447;
     Length = ObpDefaultSecurityDescriptorLength;
-    Pool2 = (void *)ExAllocatePool2(0x100uLL);
+    Pool2 = (void *)ExAllocatePool2(0x100uLL, (unsigned int)ObpDefaultSecurityDescriptorLength, 0x7153624Fu);
     *SecurityDescriptor = Pool2;
     if ( !Pool2 )
       return -1073741670;
     *MemoryAllocated = 1;
-    v14 = *(__int64 (__fastcall **)(__int64, int, ULONG *, __int16 *, PULONG, int, int, __int64, char))(v6 + 152);
+    v14 = *(__int64 (__fastcall **)(__int64, int, DWORD *, __int16 *, PULONG, int, int, __int64, char))(v6 + 152);
     v15 = *SecurityDescriptor;
-    v22 = v6 + 76;
-    v21 = *(_DWORD *)(v6 + 100);
-    v20 = (char *)Object - 8;
+    v23 = v6 + 76;
+    v22 = *(_DWORD *)(v6 + 100);
+    v21 = (char *)Object - 8;
     if ( (char *)v14 == (char *)CmpSecurityMethod )
     {
-      SetSecurityObject = CmpSecurityMethod((ULONG_PTR *)Object, 1, &v24, v15, &Length, (__int64)v20, v21, v22);
+      SetSecurityObject = CmpSecurityMethod((ULONG_PTR *)Object, 1, &v25, v15, &Length, (__int64)v21, v22, v23);
     }
     else if ( v14 == IopGetSetSecurityObject )
     {
       SetSecurityObject = IopGetSetSecurityObject(
                             (__int64)Object,
                             1,
-                            &v24,
+                            &v25,
                             (__int16 *)v15,
                             &Length,
-                            (int)v20,
-                            v21,
+                            (int)v21,
                             v22,
+                            v23,
                             0);
     }
     else
     {
-      SetSecurityObject = guard_dispatch_icall_no_overrides(Object, 1LL, &v24, v15);
+      SetSecurityObject = guard_dispatch_icall_no_overrides(Object, 1LL);
     }
     v17 = SetSecurityObject;
     if ( SetSecurityObject == -1073741789 )
     {
       ExFreePoolWithTag(*SecurityDescriptor, 0);
       v18 = Length;
+      v19 = Length;
       *MemoryAllocated = 0;
       ObpDefaultSecurityDescriptorLength = v18;
-      v19 = (void *)ExAllocatePool2(0x100uLL);
-      *SecurityDescriptor = v19;
-      if ( !v19 )
+      v20 = (void *)ExAllocatePool2(0x100uLL, v19, 0x7153624Fu);
+      *SecurityDescriptor = v20;
+      if ( !v20 )
         return -1073741670;
       *MemoryAllocated = 1;
-      v17 = guard_dispatch_icall_no_overrides(Object, 1LL, &v24, *SecurityDescriptor);
+      v17 = guard_dispatch_icall_no_overrides(Object, 1LL);
     }
     if ( v17 < 0 )
     {

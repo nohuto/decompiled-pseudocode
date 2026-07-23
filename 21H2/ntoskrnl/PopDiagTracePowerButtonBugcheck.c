@@ -1,17 +1,17 @@
 /*
- * XREFs of PopDiagTracePowerButtonBugcheck @ 0x1408EADF8
+ * XREFs of PopDiagTracePowerButtonBugcheck @ 0x1408EAF58
  * Callers:
- *     PopPowerButtonWorkCallback @ 0x140578850 (PopPowerButtonWorkCallback.c)
+ *     PopPowerButtonWorkCallback @ 0x140578A90 (PopPowerButtonWorkCallback.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     PopRecordLongPowerButtonPressDetected @ 0x1407905E4 (PopRecordLongPowerButtonPressDetected.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14027E1A4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x1402864F4 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     PopRecordLongPowerButtonPressDetected @ 0x140791B94 (PopRecordLongPowerButtonPressDetected.c)
  */
 
 void __fastcall PopDiagTracePowerButtonBugcheck(int a1)
 {
-  unsigned __int8 *v1; // rdx
+  char *v1; // rdx
   int *v2; // rax
   int v3; // r9d
   char v4; // [rsp+30h] [rbp-D0h] BYREF
@@ -59,28 +59,28 @@ void __fastcall PopDiagTracePowerButtonBugcheck(int a1)
     {
       v6 = 7000;
       v17 = &v6;
-      v1 = (unsigned __int8 *)&dword_140028C14;
-      v7 = dword_140C20808;
+      v1 = byte_140028D68;
+      v7 = dword_140C20928;
       v19 = &v7;
-      v8 = dword_140C20804;
+      v8 = dword_140C20924;
       v21 = &v8;
-      v4 = byte_140C20848;
+      v4 = byte_140C20968;
       v23 = &v4;
-      v14 = qword_140C20810;
+      v14 = qword_140C20930;
       v25 = &v14;
-      v9 = dword_140C20818;
+      v9 = dword_140C20938;
       v27 = &v9;
-      v10 = dword_140C2081C;
+      v10 = dword_140C2093C;
       v29 = &v10;
-      v15[0] = qword_140C20820;
+      v15[0] = qword_140C20940;
       v31 = v15;
-      v11 = dword_140C2084C;
+      v11 = dword_140C2096C;
       v33 = &v11;
-      v5[0] = byte_140C20858;
+      v5[0] = byte_140C20978;
       v35 = v5;
-      v12 = dword_140C20850;
+      v12 = dword_140C20970;
       v37 = &v12;
-      v13 = dword_140C20854;
+      v13 = dword_140C20974;
       v2 = &v13;
       v18 = 4LL;
       v20 = 4LL;
@@ -96,7 +96,7 @@ LABEL_9:
       v36 = 1LL;
       v38 = 4LL;
       v40 = 4LL;
-      tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C02228, v1, 0LL, 0LL, 0xEu, &v16);
+      tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_140C02228, (unsigned __int8 *)v1, 0LL, 0LL, 0xEu, &v16);
     }
   }
   else if ( a1 == 15000
@@ -105,28 +105,28 @@ LABEL_9:
   {
     v13 = v3;
     v17 = &v13;
-    v1 = (unsigned __int8 *)byte_140028D31;
-    v12 = dword_140C20808;
+    v1 = byte_140028C43;
+    v12 = dword_140C20928;
     v19 = &v12;
-    v11 = dword_140C20804;
+    v11 = dword_140C20924;
     v21 = &v11;
-    v5[0] = byte_140C20848;
+    v5[0] = byte_140C20968;
     v23 = v5;
-    v15[0] = qword_140C20810;
+    v15[0] = qword_140C20930;
     v25 = v15;
-    v10 = dword_140C20818;
+    v10 = dword_140C20938;
     v27 = &v10;
-    v9 = dword_140C2081C;
+    v9 = dword_140C2093C;
     v29 = &v9;
-    v14 = qword_140C20820;
+    v14 = qword_140C20940;
     v31 = &v14;
-    v8 = dword_140C2084C;
+    v8 = dword_140C2096C;
     v33 = &v8;
-    v4 = byte_140C20858;
+    v4 = byte_140C20978;
     v35 = &v4;
-    v7 = dword_140C20850;
+    v7 = dword_140C20970;
     v37 = &v7;
-    v6 = dword_140C20854;
+    v6 = dword_140C20974;
     v2 = &v6;
     v18 = 4LL;
     v20 = 4LL;

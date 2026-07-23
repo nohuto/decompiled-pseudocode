@@ -1,11 +1,11 @@
 /*
- * XREFs of MiReturnProcessVads @ 0x1409627CC
+ * XREFs of MiReturnProcessVads @ 0x140A08654
  * Callers:
- *     MiAllocateProcessVads @ 0x14095E044 (MiAllocateProcessVads.c)
- *     MmInitializeProcessAddressSpace @ 0x1409622B0 (MmInitializeProcessAddressSpace.c)
- *     MiInsertProcessVads @ 0x140962720 (MiInsertProcessVads.c)
+ *     MiAllocateProcessVads @ 0x140A03904 (MiAllocateProcessVads.c)
+ *     MmInitializeProcessAddressSpace @ 0x140A08138 (MmInitializeProcessAddressSpace.c)
+ *     MiInsertProcessVads @ 0x140A085A8 (MiInsertProcessVads.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall MiReturnProcessVads(_QWORD *P)

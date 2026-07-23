@@ -1,12 +1,12 @@
 /*
- * XREFs of Amd64OverflowHandler @ 0x1404DDAB0
+ * XREFs of Amd64OverflowHandler @ 0x1404DDCF0
  * Callers:
  *     <none>
  * Callees:
- *     KeQueryPerformanceCounter @ 0x14022C340 (KeQueryPerformanceCounter.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     KeProfileInterruptWithSource @ 0x14051BB80 (KeProfileInterruptWithSource.c)
- *     PoGetProcessorIdleAccounting @ 0x1405654E0 (PoGetProcessorIdleAccounting.c)
+ *     KeQueryPerformanceCounter @ 0x1402D0BC0 (KeQueryPerformanceCounter.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     KeProfileInterruptWithSource @ 0x14051BDC0 (KeProfileInterruptWithSource.c)
+ *     PoGetProcessorIdleAccounting @ 0x140565720 (PoGetProcessorIdleAccounting.c)
  */
 
 int __fastcall Amd64OverflowHandler(__int64 a1)

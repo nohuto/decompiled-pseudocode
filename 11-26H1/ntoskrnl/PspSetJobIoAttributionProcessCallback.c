@@ -1,9 +1,9 @@
 /*
- * XREFs of PspSetJobIoAttributionProcessCallback @ 0x140B097A0
+ * XREFs of PspSetJobIoAttributionProcessCallback @ 0x140B0B560
  * Callers:
  *     <none>
  * Callees:
- *     IoSetDiskIoAttributionOnProcess @ 0x1404C7ED4 (IoSetDiskIoAttributionOnProcess.c)
+ *     IoSetDiskIoAttributionOnProcess @ 0x1404C1C14 (IoSetDiskIoAttributionOnProcess.c)
  */
 
 __int64 __fastcall PspSetJobIoAttributionProcessCallback(__int64 a1, __int64 *a2)

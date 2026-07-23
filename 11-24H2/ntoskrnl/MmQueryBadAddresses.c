@@ -1,14 +1,14 @@
 /*
- * XREFs of MmQueryBadAddresses @ 0x1409876D4
+ * XREFs of MmQueryBadAddresses @ 0x14096FEB8
  * Callers:
- *     MmQueryVirtualMemory @ 0x140986420 (MmQueryVirtualMemory.c)
+ *     MmQueryVirtualMemory @ 0x14096EC30 (MmQueryVirtualMemory.c)
  * Callees:
- *     MiAllocatePool @ 0x1402ACA70 (MiAllocatePool.c)
- *     MiGetListOfPendingBadPages @ 0x140673AD0 (MiGetListOfPendingBadPages.c)
- *     MiUpdateBadPfnIdentity @ 0x140674990 (MiUpdateBadPfnIdentity.c)
- *     MiLocateSharedPageViews @ 0x1406790E0 (MiLocateSharedPageViews.c)
- *     MiDeleteTrimViewInfoList @ 0x140A4C370 (MiDeleteTrimViewInfoList.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     MiAllocatePool @ 0x140277450 (MiAllocatePool.c)
+ *     MiGetListOfPendingBadPages @ 0x140674CA0 (MiGetListOfPendingBadPages.c)
+ *     MiUpdateBadPfnIdentity @ 0x140675B60 (MiUpdateBadPfnIdentity.c)
+ *     MiLocateSharedPageViews @ 0x14067A2C0 (MiLocateSharedPageViews.c)
+ *     MiDeleteTrimViewInfoList @ 0x140A42F00 (MiDeleteTrimViewInfoList.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MmQueryBadAddresses(__int64 a1, int a2, _QWORD *a3, unsigned __int64 a4, _QWORD *a5)
@@ -62,7 +62,7 @@ __int64 __fastcall MmQueryBadAddresses(__int64 a1, int a2, _QWORD *a3, unsigned 
   v9 = a4 >> 4;
   v42 = a4 >> 4;
   v37 = a4 >> 4;
-  if ( !qword_140E2FEC8 )
+  if ( !qword_140E30008 )
   {
 LABEL_49:
     if ( ListOfPendingBadPages < 0 )

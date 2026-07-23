@@ -1,23 +1,23 @@
 /*
- * XREFs of PopDecompressHiberBlocks @ 0x140994874
+ * XREFs of PopDecompressHiberBlocks @ 0x140995874
  * Callers:
- *     PopRestoreHiberContext @ 0x1409934E8 (PopRestoreHiberContext.c)
+ *     PopRestoreHiberContext @ 0x1409944E8 (PopRestoreHiberContext.c)
  * Callees:
- *     KeQueryPerformanceCounter @ 0x14022C340 (KeQueryPerformanceCounter.c)
- *     MmMapMemoryDumpMdlEx2 @ 0x1403839D0 (MmMapMemoryDumpMdlEx2.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     memset @ 0x140414200 (memset.c)
- *     PopInternalAddToDumpFile @ 0x140564F44 (PopInternalAddToDumpFile.c)
- *     RtlDecompressBufferProgress @ 0x140591EB0 (RtlDecompressBufferProgress.c)
- *     PopCheckpointSystemSleep @ 0x140993484 (PopCheckpointSystemSleep.c)
- *     ProducerConsumerBufferComplete @ 0x1409946AC (ProducerConsumerBufferComplete.c)
- *     PopHiberCheckForDebugBreak @ 0x14099481C (PopHiberCheckForDebugBreak.c)
- *     ConsumerPeekAndConsumeBuffer @ 0x1409949AC (ConsumerPeekAndConsumeBuffer.c)
- *     PopReadProducerConsumerBuffer @ 0x1409B16F0 (PopReadProducerConsumerBuffer.c)
- *     ProducerConsumerCopyFromContextBuffer @ 0x1409B1F40 (ProducerConsumerCopyFromContextBuffer.c)
- *     BgDisplayProgressIndicator @ 0x1409F4334 (BgDisplayProgressIndicator.c)
+ *     KeQueryPerformanceCounter @ 0x1402D0BC0 (KeQueryPerformanceCounter.c)
+ *     MmMapMemoryDumpMdlEx2 @ 0x140383B80 (MmMapMemoryDumpMdlEx2.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     PopInternalAddToDumpFile @ 0x140565184 (PopInternalAddToDumpFile.c)
+ *     RtlDecompressBufferProgress @ 0x1405920E0 (RtlDecompressBufferProgress.c)
+ *     PopCheckpointSystemSleep @ 0x140994484 (PopCheckpointSystemSleep.c)
+ *     ProducerConsumerBufferComplete @ 0x1409956AC (ProducerConsumerBufferComplete.c)
+ *     PopHiberCheckForDebugBreak @ 0x14099581C (PopHiberCheckForDebugBreak.c)
+ *     ConsumerPeekAndConsumeBuffer @ 0x1409959AC (ConsumerPeekAndConsumeBuffer.c)
+ *     PopReadProducerConsumerBuffer @ 0x1409B2620 (PopReadProducerConsumerBuffer.c)
+ *     ProducerConsumerCopyFromContextBuffer @ 0x1409B2E70 (ProducerConsumerCopyFromContextBuffer.c)
+ *     BgDisplayProgressIndicator @ 0x1409F5334 (BgDisplayProgressIndicator.c)
  */
 
 __int64 __fastcall PopDecompressHiberBlocks(
@@ -72,31 +72,31 @@ __int64 __fastcall PopDecompressHiberBlocks(
 
   v44 = a5;
   memset(v50, 0, sizeof(v50));
-  LODWORD(v8) = (_DWORD)qword_140C238D8;
+  LODWORD(v8) = (_DWORD)qword_140C23EF8;
   v9 = 0;
   v43 = 0;
   v47 = 0LL;
   v41 = 0;
-  v45 = qword_140C238D8;
+  v45 = qword_140C23EF8;
   while ( 1 )
   {
     PopHiberCheckForDebugBreak();
-    if ( !qword_140C23B18 && BugCheckParameter3[48] == KeGetCurrentPrcb()->Number && byte_140C23880 )
-      qword_140C23B18 = KeQueryPerformanceCounter(0LL).QuadPart;
+    if ( !qword_140C24138 && BugCheckParameter3[48] == KeGetCurrentPrcb()->Number && byte_140C23EA0 )
+      qword_140C24138 = KeQueryPerformanceCounter(0LL).QuadPart;
     Number = KeGetCurrentPrcb()->Number;
     if ( BugCheckParameter3[48] == (_DWORD)Number
-      && !byte_140C23881
-      && (!byte_140C23880 || (unsigned int)dword_140C23864 > 0x640) )
+      && !byte_140C23EA1
+      && (!byte_140C23EA0 || (unsigned int)dword_140C23E84 > 0x640) )
     {
       v15 = __rdtsc();
-      if ( byte_140C50650 )
+      if ( byte_140C50690 )
       {
         LOBYTE(Number) = 1;
         BgDisplayProgressIndicator(Number);
-        byte_140C50745 = 1;
+        byte_140C50785 = 1;
       }
       v16 = __rdtsc();
-      qword_140C23B00 += (((unsigned __int64)HIDWORD(v16) << 32) | (unsigned int)v16) - v15;
+      qword_140C24120 += (((unsigned __int64)HIDWORD(v16) << 32) | (unsigned int)v16) - v15;
     }
     v40 = 4;
     v12 = ConsumerPeekAndConsumeBuffer(v8, (unsigned int)&v40, a3, v10, (__int64)a2);
@@ -165,7 +165,7 @@ __int64 __fastcall PopDecompressHiberBlocks(
       if ( v44 )
       {
         v44(BugCheckParameter3);
-        v47 = qword_140C23AF0;
+        v47 = qword_140C24110;
       }
       v34 = v48;
       v35 = __rdtsc();
@@ -189,7 +189,7 @@ __int64 __fastcall PopDecompressHiberBlocks(
       }
       a2[8] += v37 - v35;
       if ( v44 )
-        a2[8] = v47 + a2[8] - qword_140C23AF0;
+        a2[8] = v47 + a2[8] - qword_140C24110;
       LODWORD(v8) = (_DWORD)v45;
       v38 = *v34 >> 30;
       *(_QWORD *)((char *)a2 + (-(__int64)(v38 < 2) & 0xFFFFFFFFFFFFFFF8uLL) + 112) += v49;

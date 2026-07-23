@@ -1,25 +1,25 @@
 /*
- * XREFs of RtlUnsubscribeWnfStateChangeNotification @ 0x180099EA0
+ * XREFs of RtlUnsubscribeWnfStateChangeNotification @ 0x18002ECF0
  * Callers:
- *     RtlUnsubscribeWnfNotificationWaitForCompletion @ 0x180099E20 (RtlUnsubscribeWnfNotificationWaitForCompletion.c)
- *     RtlUnsubscribeWnfNotificationWithCompletionCallback @ 0x180111D10 (RtlUnsubscribeWnfNotificationWithCompletionCallback.c)
+ *     RtlUnsubscribeWnfNotificationWaitForCompletion @ 0x18002EC70 (RtlUnsubscribeWnfNotificationWaitForCompletion.c)
+ *     RtlUnsubscribeWnfNotificationWithCompletionCallback @ 0x18010D180 (RtlUnsubscribeWnfNotificationWithCompletionCallback.c)
  * Callees:
- *     RtlpRemoveUserSubFromNameSub @ 0x180099388 (RtlpRemoveUserSubFromNameSub.c)
+ *     RtlpRemoveUserSubFromNameSub @ 0x18002E1D8 (RtlpRemoveUserSubFromNameSub.c)
  */
 
-__int64 __fastcall RtlUnsubscribeWnfStateChangeNotification(__int64 a1)
+NTSTATUS __cdecl RtlUnsubscribeWnfStateChangeNotification(PWNF_USER_CALLBACK Callback)
 {
   int v2; // [rsp+30h] [rbp+8h] BYREF
 
   v2 = 0;
-  if ( *(_QWORD *)(a1 + 88)
-    || *(_QWORD *)(a1 + 96)
-    || LODWORD(NtCurrentTeb()->ClientId.UniqueThread) == *(_DWORD *)(a1 + 136) )
+  if ( *((_QWORD *)Callback + 11)
+    || *((_QWORD *)Callback + 12)
+    || LODWORD(NtCurrentTeb()->ClientId.UniqueThread) == *((_DWORD *)Callback + 34) )
   {
-    return RtlpRemoveUserSubFromNameSub(*(_QWORD *)(a1 + 24), a1, &v2);
+    return RtlpRemoveUserSubFromNameSub(*((char **)Callback + 3), Callback, &v2);
   }
   else
   {
-    return RtlUnsubscribeWnfNotificationWaitForCompletion(a1);
+    return RtlUnsubscribeWnfNotificationWaitForCompletion((__int64)Callback);
   }
 }

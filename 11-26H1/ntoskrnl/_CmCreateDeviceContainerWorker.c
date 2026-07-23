@@ -1,10 +1,10 @@
 /*
- * XREFs of _CmCreateDeviceContainerWorker @ 0x140AE8878
+ * XREFs of _CmCreateDeviceContainerWorker @ 0x140AE6728
  * Callers:
- *     _CmCreateDeviceContainer @ 0x140AE86F8 (_CmCreateDeviceContainer.c)
+ *     _CmCreateDeviceContainer @ 0x140AE65A8 (_CmCreateDeviceContainer.c)
  * Callees:
- *     _CmOpenDeviceContainerRegKey @ 0x140A29150 (_CmOpenDeviceContainerRegKey.c)
- *     _CmRaiseCreateEvent @ 0x140AF2E58 (_CmRaiseCreateEvent.c)
+ *     _CmOpenDeviceContainerRegKey @ 0x140A3C1F0 (_CmOpenDeviceContainerRegKey.c)
+ *     _CmRaiseCreateEvent @ 0x140AF5644 (_CmRaiseCreateEvent.c)
  */
 
 __int64 __fastcall CmCreateDeviceContainerWorker(__int64 a1, __int64 a2, __int64 a3, _QWORD *a4, _BYTE *a5, __int16 a6)

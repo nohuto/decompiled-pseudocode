@@ -1,16 +1,16 @@
 /*
- * XREFs of KiAssignCooperativeIdleSearchContexts @ 0x1405B6014
+ * XREFs of KiAssignCooperativeIdleSearchContexts @ 0x1405B32DC
  * Callers:
- *     KiConfigureNodeSchedulingInformation @ 0x1405B6A2C (KiConfigureNodeSchedulingInformation.c)
+ *     KiConfigureNodeSchedulingInformation @ 0x1405B3CEC (KiConfigureNodeSchedulingInformation.c)
  * Callees:
- *     KeEnumerateNextProcessor @ 0x14040D4F0 (KeEnumerateNextProcessor.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     KiRegisterProcessorWithCooperativeIdleSearchContext @ 0x1405C7A74 (KiRegisterProcessorWithCooperativeIdleSearchContext.c)
- *     KiMergeSmallSharedReadyQueueAssignments @ 0x1405C8FB8 (KiMergeSmallSharedReadyQueueAssignments.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeEnumerateNextProcessor @ 0x140405740 (KeEnumerateNextProcessor.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiRegisterProcessorWithCooperativeIdleSearchContext @ 0x1405C51A4 (KiRegisterProcessorWithCooperativeIdleSearchContext.c)
+ *     KiMergeSmallSharedReadyQueueAssignments @ 0x1405C66E8 (KiMergeSmallSharedReadyQueueAssignments.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall KiAssignCooperativeIdleSearchContexts(__int64 a1)
@@ -99,7 +99,7 @@ __int64 __fastcall KiAssignCooperativeIdleSearchContexts(__int64 a1)
             v14 = *(v11 - 2);
           else
             v14 = *(_QWORD *)((char *)v11
-                            + KiProcessorBlock[*((unsigned int *)qword_140F21E78
+                            + KiProcessorBlock[*((unsigned int *)qword_140F22998
                                                + 64 * (unsigned __int64)*(unsigned __int16 *)(a1 + 136)
                                                + v13)]
                             - v10);

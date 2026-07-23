@@ -15,7 +15,7 @@ __int64 __fastcall PfSnNameRemove(__int64 a1, unsigned __int64 a2)
   unsigned int v5; // edi
   KIRQL v6; // r14
   unsigned __int64 v7; // rbx
-  unsigned __int64 v8; // rax
+  _RTL_BALANCED_NODE *v8; // rax
   unsigned __int64 v9; // rax
   _QWORD *v11; // rcx
   unsigned __int64 v12; // rdx
@@ -32,8 +32,8 @@ __int64 __fastcall PfSnNameRemove(__int64 a1, unsigned __int64 a2)
       __writecr8(v6);
       return v5;
     }
-    v8 = *(_QWORD *)(v7 + 24);
-    if ( v8 <= a2 )
+    v8 = *(_RTL_BALANCED_NODE **)(v7 + 24);
+    if ( (unsigned __int64)v8 <= a2 )
       break;
     v9 = *(_QWORD *)v7;
 LABEL_6:
@@ -42,12 +42,12 @@ LABEL_6:
     else
       v7 = v9;
   }
-  if ( v8 < a2 )
+  if ( (unsigned __int64)v8 < a2 )
   {
     v9 = *(_QWORD *)(v7 + 8);
     goto LABEL_6;
   }
-  RtlRbRemoveNode(a1 + 520, v7);
+  RtlRbRemoveNode((PRTL_RB_TREE)(a1 + 520), (PRTL_BALANCED_NODE)v7);
   ExReleaseSpinLockExclusiveFromDpcLevel(v2);
   __writecr8(v6);
   v11 = (_QWORD *)(a1 + 488);

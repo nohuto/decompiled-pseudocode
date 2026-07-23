@@ -1,14 +1,14 @@
 /*
- * XREFs of KdpReportCommandStringStateChange @ 0x140C14890
+ * XREFs of KdpReportCommandStringStateChange @ 0x140C1A890
  * Callers:
- *     KdpCommandString @ 0x140C15C54 (KdpCommandString.c)
+ *     KdpCommandString @ 0x140C1BC54 (KdpCommandString.c)
  * Callees:
- *     KdpSetCommonState @ 0x14050A0C4 (KdpSetCommonState.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     KdpSendWaitContinue @ 0x140C17038 (KdpSendWaitContinue.c)
- *     KdpSetContextState @ 0x140C174E8 (KdpSetContextState.c)
- *     KdpCopyMemoryChunks @ 0x140C17780 (KdpCopyMemoryChunks.c)
+ *     KdpSetCommonState @ 0x140503B74 (KdpSetCommonState.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     KdpSendWaitContinue @ 0x140C1D038 (KdpSendWaitContinue.c)
+ *     KdpSetContextState @ 0x140C1D4E8 (KdpSetContextState.c)
+ *     KdpCopyMemoryChunks @ 0x140C1D780 (KdpCopyMemoryChunks.c)
  */
 
 __int64 __fastcall KdpReportCommandStringStateChange(unsigned __int16 *a1, unsigned __int16 *a2, __int64 a3)

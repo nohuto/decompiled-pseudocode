@@ -1,17 +1,17 @@
 /*
- * XREFs of RtlFreeUserStack @ 0x180108C30
+ * XREFs of RtlFreeUserStack @ 0x180103B60
  * Callers:
  *     <none>
  * Callees:
- *     ZwFreeVirtualMemory @ 0x180162050 (ZwFreeVirtualMemory.c)
+ *     ZwFreeVirtualMemory @ 0x180160410 (ZwFreeVirtualMemory.c)
  */
 
-__int64 __fastcall RtlFreeUserStack(__int64 a1)
+NTSTATUS __cdecl RtlFreeUserStack(PVOID AllocationBase)
 {
-  __int64 v2; // [rsp+30h] [rbp+8h] BYREF
-  __int64 v3; // [rsp+38h] [rbp+10h] BYREF
+  PVOID v2; // [rsp+30h] [rbp+8h] BYREF
+  ULONG_PTR v3; // [rsp+38h] [rbp+10h] BYREF
 
-  v2 = a1;
+  v2 = AllocationBase;
   v3 = 0LL;
-  return ZwFreeVirtualMemory(-1LL, &v2, &v3, 0x8000LL);
+  return ZwFreeVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &v2, &v3, 0x8000u);
 }

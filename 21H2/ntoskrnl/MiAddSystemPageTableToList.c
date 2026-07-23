@@ -1,47 +1,46 @@
 /*
- * XREFs of MiAddSystemPageTableToList @ 0x1402B6FA0
+ * XREFs of MiAddSystemPageTableToList @ 0x140235180
  * Callers:
- *     MiDeleteSystemPageTable @ 0x1402B6DC0 (MiDeleteSystemPageTable.c)
+ *     MiDeleteSystemPageTable @ 0x140234FA0 (MiDeleteSystemPageTable.c)
  * Callees:
- *     MiDecrementShareCount @ 0x1402401C0 (MiDecrementShareCount.c)
- *     KeYieldProcessorEx @ 0x14024B280 (KeYieldProcessorEx.c)
+ *     MiDecrementShareCount @ 0x1402E4A10 (MiDecrementShareCount.c)
+ *     KeYieldProcessorEx @ 0x1402EFAD0 (KeYieldProcessorEx.c)
  */
 
-__int64 __fastcall MiAddSystemPageTableToList(__int64 *a1, __int64 a2, __int64 a3, __int64 a4)
+__int64 __fastcall MiAddSystemPageTableToList(_QWORD *a1, __int64 a2)
 {
-  __int64 i; // rbx
-  __int64 v6; // rbx
+  __int64 v4; // rbx
   __int64 result; // rax
-  int v8; // [rsp+30h] [rbp+8h] BYREF
-  int v9; // [rsp+38h] [rbp+10h] BYREF
+  int v6; // [rsp+30h] [rbp+8h] BYREF
+  int v7; // [rsp+38h] [rbp+10h] BYREF
 
-  for ( i = a2; ; _InterlockedAnd64((volatile signed __int64 *)(i + 24), 0x7FFFFFFFFFFFFFFFuLL) )
+  while ( 1 )
   {
-    v8 = 0;
-    while ( _interlockedbittestandset64((volatile signed __int32 *)(i + 24), 0x3FuLL) )
+    v6 = 0;
+    while ( _interlockedbittestandset64((volatile signed __int32 *)(a2 + 24), 0x3FuLL) )
     {
       do
-        KeYieldProcessorEx(&v8, a2, a3, a4);
-      while ( *(__int64 *)(i + 24) < 0 );
+        KeYieldProcessorEx(&v6);
+      while ( *(__int64 *)(a2 + 24) < 0 );
     }
-    a2 = 0x3FFFFFFFFFFFFFFFLL;
-    if ( (*(_QWORD *)(i + 24) & 0x3FFFFFFFFFFFFFFFLL) == 1 )
+    if ( (*(_QWORD *)(a2 + 24) & 0x3FFFFFFFFFFFFFFFLL) == 1 )
       break;
+    _InterlockedAnd64((volatile signed __int64 *)(a2 + 24), 0x7FFFFFFFFFFFFFFFuLL);
   }
-  *(_QWORD *)(i + 24) |= 0x4000000000000000uLL;
-  *(_QWORD *)i = *a1;
-  *a1 = i;
-  *(_BYTE *)(i + 34) = *(_BYTE *)(i + 34) & 0xF8 | 5;
-  _InterlockedAnd64((volatile signed __int64 *)(i + 24), 0x7FFFFFFFFFFFFFFFuLL);
-  v6 = 48 * (*(_QWORD *)(i + 40) & 0xFFFFFFFFFLL) - 0x58000000000LL;
-  v9 = 0;
-  while ( _interlockedbittestandset64((volatile signed __int32 *)(v6 + 24), 0x3FuLL) )
+  *(_QWORD *)(a2 + 24) |= 0x4000000000000000uLL;
+  *(_QWORD *)a2 = *a1;
+  *a1 = a2;
+  *(_BYTE *)(a2 + 34) = *(_BYTE *)(a2 + 34) & 0xF8 | 5;
+  _InterlockedAnd64((volatile signed __int64 *)(a2 + 24), 0x7FFFFFFFFFFFFFFFuLL);
+  v4 = 48 * (*(_QWORD *)(a2 + 40) & 0xFFFFFFFFFLL) - 0x58000000000LL;
+  v7 = 0;
+  while ( _interlockedbittestandset64((volatile signed __int32 *)(v4 + 24), 0x3FuLL) )
   {
     do
-      KeYieldProcessorEx(&v9, a2, a3, a4);
-    while ( *(__int64 *)(v6 + 24) < 0 );
+      KeYieldProcessorEx(&v7);
+    while ( *(__int64 *)(v4 + 24) < 0 );
   }
-  result = MiDecrementShareCount(v6);
-  _InterlockedAnd64((volatile signed __int64 *)(v6 + 24), 0x7FFFFFFFFFFFFFFFuLL);
+  result = MiDecrementShareCount(v4);
+  _InterlockedAnd64((volatile signed __int64 *)(v4 + 24), 0x7FFFFFFFFFFFFFFFuLL);
   return result;
 }

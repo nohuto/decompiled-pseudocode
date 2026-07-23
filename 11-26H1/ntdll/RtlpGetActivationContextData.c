@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlpGetActivationContextData @ 0x1800CD7E0
+ * XREFs of RtlpGetActivationContextData @ 0x1800CAF50
  * Callers:
- *     RtlQueryInformationActivationContext @ 0x18004DED0 (RtlQueryInformationActivationContext.c)
+ *     RtlQueryInformationActivationContext @ 0x180038450 (RtlQueryInformationActivationContext.c)
  * Callees:
  *     <none>
  */

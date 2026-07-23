@@ -1,14 +1,14 @@
 /*
- * XREFs of MiObtainFreePages @ 0x140531914
+ * XREFs of MiObtainFreePages @ 0x140533DBC
  * Callers:
- *     MiDecreaseAvailablePages @ 0x1402F8CD0 (MiDecreaseAvailablePages.c)
- *     MiWaitForFreePage @ 0x1403D1DB4 (MiWaitForFreePage.c)
+ *     MiDecreaseAvailablePages @ 0x1402DAD50 (MiDecreaseAvailablePages.c)
+ *     MiWaitForFreePage @ 0x1403D4D84 (MiWaitForFreePage.c)
  * Callees:
- *     PsReferencePartitionSafe @ 0x140258850 (PsReferencePartitionSafe.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     PsDereferencePartition @ 0x140381940 (PsDereferencePartition.c)
- *     CcNotifyWriteBehindEx @ 0x1403E045C (CcNotifyWriteBehindEx.c)
- *     MiWakeModifiedPageWriter @ 0x1403E0E48 (MiWakeModifiedPageWriter.c)
+ *     PsReferencePartitionSafe @ 0x14025A030 (PsReferencePartitionSafe.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     PsDereferencePartition @ 0x1403836F0 (PsDereferencePartition.c)
+ *     CcNotifyWriteBehindEx @ 0x1403E364C (CcNotifyWriteBehindEx.c)
+ *     MiWakeModifiedPageWriter @ 0x1403E4038 (MiWakeModifiedPageWriter.c)
  */
 
 char __fastcall MiObtainFreePages(__int64 a1)

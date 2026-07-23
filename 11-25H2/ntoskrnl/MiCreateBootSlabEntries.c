@@ -23,7 +23,7 @@ __int64 __fastcall MiCreateBootSlabEntries(__int64 a1, unsigned __int64 a2, __in
   unsigned __int64 v8; // r13
   __int64 v9; // r14
   __int64 SlabEntry; // rax
-  unsigned __int64 v11; // rbx
+  __int64 v11; // rbx
   int v12; // edx
   int v13; // eax
   __int64 v14; // r15

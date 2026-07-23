@@ -2,7 +2,7 @@
  * XREFs of RtlPcToFilePath @ 0x1408828C0
  * Callers:
  *     KitLogFeatureUsage @ 0x140641A10 (KitLogFeatureUsage.c)
- *     EtwpProviderArrivalCallback @ 0x140758DB8 (EtwpProviderArrivalCallback.c)
+ *     sub_140758DB8 @ 0x140758DB8 (sub_140758DB8.c)
  * Callees:
  *     RtlCopyUnicodeString @ 0x1402A76A0 (RtlCopyUnicodeString.c)
  *     KeLeaveCriticalRegion @ 0x1402AD060 (KeLeaveCriticalRegion.c)
@@ -19,7 +19,7 @@ __int64 __fastcall RtlPcToFilePath(unsigned __int64 a1, UNICODE_STRING *a2)
   PVOID v8; // rcx
 
   CurrentThread = KeGetCurrentThread();
-  --CurrentThread->KernelApcDisable;
+  --*((_WORD *)CurrentThread + 242);
   ExAcquireResourceSharedLite(&PsLoadedModuleResource, 1u);
   v5 = (PVOID *)PsLoadedModuleList;
   v6 = 0;

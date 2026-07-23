@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlpHpLfhSubsegmentSizeBlock @ 0x1800191C0
+ * XREFs of RtlpHpLfhSubsegmentSizeBlock @ 0x1800042A0
  * Callers:
- *     RtlpHpExtrasGet @ 0x1800192E0 (RtlpHpExtrasGet.c)
- *     RtlpHpTagFreeHeap @ 0x1800195A0 (RtlpHpTagFreeHeap.c)
- *     RtlpHpSizeHeap @ 0x18001A0F0 (RtlpHpSizeHeap.c)
- *     RtlSizeHeap @ 0x18001A7D0 (RtlSizeHeap.c)
- *     RtlpHpTagReAllocateHeap @ 0x1800B13D0 (RtlpHpTagReAllocateHeap.c)
- *     RtlpHpReallocComputeSizes @ 0x1800B1670 (RtlpHpReallocComputeSizes.c)
- *     RtlpHpSegReportPageRange @ 0x18011D3B4 (RtlpHpSegReportPageRange.c)
+ *     RtlpHpExtrasGet @ 0x1800043C0 (RtlpHpExtrasGet.c)
+ *     RtlpHpTagFreeHeap @ 0x180004680 (RtlpHpTagFreeHeap.c)
+ *     RtlpHpSizeHeap @ 0x1800051D0 (RtlpHpSizeHeap.c)
+ *     RtlSizeHeap @ 0x1800058B0 (RtlSizeHeap.c)
+ *     RtlpHpTagReAllocateHeap @ 0x180080F40 (RtlpHpTagReAllocateHeap.c)
+ *     RtlpHpReallocComputeSizes @ 0x1800811E0 (RtlpHpReallocComputeSizes.c)
+ *     RtlpHpSegReportPageRange @ 0x18011D164 (RtlpHpSegReportPageRange.c)
  * Callees:
  *     <none>
  */
@@ -26,7 +26,7 @@ __int64 __fastcall RtlpHpLfhSubsegmentSizeBlock(__int64 a1, unsigned __int64 a2,
   unsigned int v16; // ecx
 
   v6 = a2 >> 12;
-  v8 = qword_1801C6EC8 ^ *(_DWORD *)(a2 + 40) ^ (a2 >> 12);
+  v8 = qword_1801C5EC8 ^ *(_DWORD *)(a2 + 40) ^ (a2 >> 12);
   v9 = (unsigned int)a3 - HIWORD(v8) - (unsigned int)a2;
   v10 = (v9 * (unsigned __int64)*(unsigned int *)(((unsigned __int64)*(unsigned __int16 *)(a2 + 44) << 6) + a1 + 72)) >> 32;
   if ( (_DWORD)v9 != (_DWORD)v10 * (unsigned __int16)v8 )
@@ -37,7 +37,7 @@ __int64 __fastcall RtlpHpLfhSubsegmentSizeBlock(__int64 a1, unsigned __int64 a2,
       * ((v9 * (unsigned __int64)*(unsigned int *)(((unsigned __int64)*(unsigned __int16 *)(a2 + 44) << 6) + a1 + 72)) >> 37);
   if ( ((unsigned int)*(_QWORD *)(v12 + 64) & (unsigned int)v11) == 0 )
     return -1LL;
-  v13 = *(_WORD *)(a2 + 40) ^ qword_1801C6EC8 ^ v6;
+  v13 = *(_WORD *)(a2 + 40) ^ qword_1801C5EC8 ^ v6;
   if ( (HIDWORD(*(_QWORD *)(v12 + 64)) & v11) != 0 )
   {
     v14 = *(unsigned __int16 *)(v13 + a3 - 2);

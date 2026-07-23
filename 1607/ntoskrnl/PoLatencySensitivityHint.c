@@ -1,16 +1,16 @@
 /*
- * XREFs of PoLatencySensitivityHint @ 0x1401112E0
+ * XREFs of PoLatencySensitivityHint @ 0x140111844
  * Callers:
- *     PopPowerInformationInternal @ 0x14051D314 (PopPowerInformationInternal.c)
- *     PopPerfBoostPowerRequest @ 0x140544740 (PopPerfBoostPowerRequest.c)
+ *     PopPowerInformationInternal @ 0x140500704 (PopPowerInformationInternal.c)
+ *     PopPerfBoostPowerRequest @ 0x140544C80 (PopPerfBoostPowerRequest.c)
  * Callees:
- *     EtwWrite @ 0x140013320 (EtwWrite.c)
- *     ExQueueWorkItem @ 0x14005FE5C (ExQueueWorkItem.c)
- *     PpmInterlockedUpdateTimeNoFence @ 0x1400C1C90 (PpmInterlockedUpdateTimeNoFence.c)
- *     EtwEventEnabled @ 0x1400D54D0 (EtwEventEnabled.c)
- *     PpmTryAcquireLock @ 0x140111430 (PpmTryAcquireLock.c)
- *     PpmCheckCustomRun @ 0x140111494 (PpmCheckCustomRun.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     EtwWrite @ 0x140012EA0 (EtwWrite.c)
+ *     ExQueueWorkItem @ 0x14005F9DC (ExQueueWorkItem.c)
+ *     PpmInterlockedUpdateTimeNoFence @ 0x1400BFB20 (PpmInterlockedUpdateTimeNoFence.c)
+ *     EtwEventEnabled @ 0x1400D3370 (EtwEventEnabled.c)
+ *     PpmTryAcquireLock @ 0x140111994 (PpmTryAcquireLock.c)
+ *     PpmCheckCustomRun @ 0x1401119F8 (PpmCheckCustomRun.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 void __fastcall PoLatencySensitivityHint(int a1)
@@ -25,7 +25,7 @@ void __fastcall PoLatencySensitivityHint(int a1)
   struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+40h] [rbp-28h] BYREF
 
   v1 = 0;
-  for ( i = (char *)&PpmCurrentProfile[174 * dword_140303E0C + 13] + 1; !*i; ++i )
+  for ( i = (char *)&PpmCurrentProfile[174 * dword_140303D4C + 13] + 1; !*i; ++i )
   {
     if ( (unsigned int)++v1 >= 2 )
       return;

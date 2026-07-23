@@ -1,15 +1,15 @@
 /*
- * XREFs of MiAddExpansionNonPagedPool @ 0x140143164
+ * XREFs of MiAddExpansionNonPagedPool @ 0x1401436D4
  * Callers:
- *     MiFreeInitializationCode @ 0x14047D5E8 (MiFreeInitializationCode.c)
+ *     MiFreeInitializationCode @ 0x14047C33C (MiFreeInitializationCode.c)
  *     MxConsumeLargePageSlush @ 0x1407D0D5C (MxConsumeLargePageSlush.c)
  * Callees:
- *     KeAcquireInStackQueuedSpinLock @ 0x14001BD40 (KeAcquireInStackQueuedSpinLock.c)
- *     MiChangePageAttribute @ 0x14001D088 (MiChangePageAttribute.c)
- *     MiLockPageInline @ 0x140022E70 (MiLockPageInline.c)
- *     KxWaitForLockChainValid @ 0x1400F9530 (KxWaitForLockChainValid.c)
- *     KiReleaseQueuedSpinLockInstrumented @ 0x1401D3B5C (KiReleaseQueuedSpinLockInstrumented.c)
- *     MiMakeDemandZeroPte @ 0x1401F2734 (MiMakeDemandZeroPte.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14001B8C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     MiChangePageAttribute @ 0x14001CC08 (MiChangePageAttribute.c)
+ *     MiLockPageInline @ 0x1400229F0 (MiLockPageInline.c)
+ *     KxWaitForLockChainValid @ 0x1400F7370 (KxWaitForLockChainValid.c)
+ *     KiReleaseQueuedSpinLockInstrumented @ 0x1401D3988 (KiReleaseQueuedSpinLockInstrumented.c)
+ *     MiMakeDemandZeroPte @ 0x1401F2560 (MiMakeDemandZeroPte.c)
  */
 
 void __fastcall MiAddExpansionNonPagedPool(__int64 a1, __int64 a2)
@@ -25,11 +25,11 @@ void __fastcall MiAddExpansionNonPagedPool(__int64 a1, __int64 a2)
   unsigned int v10; // edi
   unsigned __int64 v11; // r14
   __int64 v12; // r15
-  union _SLIST_HEADER *v13; // rdi
+  _SLIST_HEADER *v13; // rdi
   __int64 Next; // rax
   unsigned __int64 v15; // rcx
   char v16; // al
-  union _SLIST_HEADER *v17; // rbx
+  _SLIST_HEADER *v17; // rbx
   __int64 v18; // rax
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-20h] BYREF
   void *retaddr; // [rsp+68h] [rbp+28h]
@@ -51,7 +51,7 @@ void __fastcall MiAddExpansionNonPagedPool(__int64 a1, __int64 a2)
       goto LABEL_13;
     if ( v12 )
     {
-      v13 = &qword_1403269B0[26 * v10];
+      v13 = &qword_1403269F0[26 * v10];
       KeAcquireInStackQueuedSpinLock(&v13[19].Region, &LockHandle);
       *(_QWORD *)v11 = v13[20].Alignment;
       v13[19].Alignment += v12;
@@ -112,7 +112,7 @@ LABEL_13:
     v4 += 48LL;
   }
   while ( v4 < v8 );
-  v17 = &qword_1403269B0[26 * v10];
+  v17 = &qword_1403269F0[26 * v10];
   KeAcquireInStackQueuedSpinLock(&v17[19].Region, &LockHandle);
   *(_QWORD *)v11 = v17[20].Alignment;
   v17[19].Alignment += v12;

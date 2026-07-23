@@ -1,11 +1,11 @@
 /*
- * XREFs of SdbpGetCustomSdbFileName @ 0x1408868B4
+ * XREFs of SdbpGetCustomSdbFileName @ 0x14088CCB4
  * Callers:
- *     SdbGetPathCustomSdb @ 0x14088645C (SdbGetPathCustomSdb.c)
+ *     SdbGetPathCustomSdb @ 0x14088C85C (SdbGetPathCustomSdb.c)
  * Callees:
- *     RtlStringCchCatW @ 0x1404DEE7C (RtlStringCchCatW.c)
- *     AslLogCallPrintf @ 0x1409E8884 (AslLogCallPrintf.c)
- *     AslGuidToString @ 0x140B4ADE4 (AslGuidToString.c)
+ *     RtlStringCchCatW @ 0x1404D855C (RtlStringCchCatW.c)
+ *     AslLogCallPrintf @ 0x1409D5294 (AslLogCallPrintf.c)
+ *     AslGuidToString @ 0x140B4CB74 (AslGuidToString.c)
  */
 
 __int64 __fastcall SdbpGetCustomSdbFileName(NTSTRSAFE_PWSTR pszDest)

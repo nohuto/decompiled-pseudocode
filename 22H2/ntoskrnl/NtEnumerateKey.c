@@ -24,232 +24,230 @@
  *     CmKeyBodyRemapToVirtualForEnum @ 0x1406CE470 (CmKeyBodyRemapToVirtualForEnum.c)
  */
 
-__int64 __fastcall NtEnumerateKey(
-        HANDLE Handle,
-        unsigned int a2,
-        unsigned int a3,
-        volatile void *a4,
-        SIZE_T Length,
-        _DWORD *a6)
+NTSTATUS __cdecl NtEnumerateKey(
+        HANDLE KeyHandle,
+        ULONG Index,
+        KEY_INFORMATION_CLASS KeyInformationClass,
+        PVOID KeyInformation,
+        ULONG Length,
+        PULONG ResultLength)
 {
-  unsigned int v8; // r14d
-  __int64 v10; // r8
-  __int64 v11; // r9
+  ULONG v8; // r14d
   struct _KTHREAD *CurrentThread; // rax
-  unsigned int v13; // r14d
-  struct _DMA_ADAPTER *v14; // rcx
-  unsigned int v15; // edi
-  __int64 v16; // rcx
-  struct _KTHREAD *v17; // rax
-  int v18; // r9d
-  int v19; // eax
-  unsigned int v20; // eax
-  __int64 v21; // rcx
-  NTSTATUS v23; // ebx
-  _DMA_OPERATIONS *v24; // rdi
+  unsigned int v11; // r14d
+  struct _DMA_ADAPTER *v12; // rcx
+  ULONG v13; // edi
+  __int64 v14; // rcx
+  struct _KTHREAD *v15; // rax
+  int v16; // r9d
+  int v17; // eax
+  ULONG v18; // eax
+  __int64 v19; // rcx
+  int v21; // ebx
+  _DMA_OPERATIONS *v22; // rdi
   KPROCESSOR_MODE PreviousMode; // r9
-  char v26; // [rsp+40h] [rbp-1B8h]
-  char v27; // [rsp+41h] [rbp-1B7h]
-  BOOLEAN v28; // [rsp+42h] [rbp-1B6h]
+  char v24; // [rsp+40h] [rbp-1B8h]
+  char v25; // [rsp+41h] [rbp-1B7h]
+  BOOLEAN v26; // [rsp+42h] [rbp-1B6h]
   PADAPTER_OBJECT DmaAdapter; // [rsp+48h] [rbp-1B0h] BYREF
   _DMA_OPERATIONS *DmaOperations; // [rsp+50h] [rbp-1A8h]
-  _DWORD v32[4]; // [rsp+58h] [rbp-1A0h] BYREF
-  _DMA_OPERATIONS *v33; // [rsp+68h] [rbp-190h]
-  PADAPTER_OBJECT v34; // [rsp+70h] [rbp-188h] BYREF
-  _QWORD v35[2]; // [rsp+78h] [rbp-180h] BYREF
-  PVOID v36; // [rsp+88h] [rbp-170h] BYREF
+  _DWORD v30[4]; // [rsp+58h] [rbp-1A0h] BYREF
+  _DMA_OPERATIONS *v31; // [rsp+68h] [rbp-190h]
+  PADAPTER_OBJECT v32; // [rsp+70h] [rbp-188h] BYREF
+  _QWORD v33[2]; // [rsp+78h] [rbp-180h] BYREF
+  PVOID v34; // [rsp+88h] [rbp-170h] BYREF
   PVOID Object; // [rsp+90h] [rbp-168h] BYREF
-  PVOID v38; // [rsp+98h] [rbp-160h]
-  PADAPTER_OBJECT v39; // [rsp+A0h] [rbp-158h] BYREF
-  NTSTATUS v40; // [rsp+A8h] [rbp-150h]
-  int v41; // [rsp+ACh] [rbp-14Ch]
-  _QWORD *v42; // [rsp+B0h] [rbp-148h]
-  NTSTATUS v43; // [rsp+B8h] [rbp-140h]
-  __int128 v44; // [rsp+BCh] [rbp-13Ch]
-  __int64 v45; // [rsp+CCh] [rbp-12Ch]
-  int v46; // [rsp+D4h] [rbp-124h]
-  _QWORD v47[9]; // [rsp+E0h] [rbp-118h] BYREF
-  _OWORD v48[2]; // [rsp+128h] [rbp-D0h] BYREF
+  PVOID v36; // [rsp+98h] [rbp-160h]
+  PADAPTER_OBJECT v37; // [rsp+A0h] [rbp-158h] BYREF
+  int v38; // [rsp+A8h] [rbp-150h]
+  int v39; // [rsp+ACh] [rbp-14Ch]
+  _QWORD *v40; // [rsp+B0h] [rbp-148h]
+  int v41; // [rsp+B8h] [rbp-140h]
+  __int128 v42; // [rsp+BCh] [rbp-13Ch]
+  __int64 v43; // [rsp+CCh] [rbp-12Ch]
+  int v44; // [rsp+D4h] [rbp-124h]
+  _QWORD v45[9]; // [rsp+E0h] [rbp-118h] BYREF
+  _OWORD v46[2]; // [rsp+128h] [rbp-D0h] BYREF
   void *Src[2]; // [rsp+150h] [rbp-A8h] BYREF
-  char v50; // [rsp+160h] [rbp-98h]
-  _BYTE v51[71]; // [rsp+161h] [rbp-97h] BYREF
+  char v48; // [rsp+160h] [rbp-98h]
+  _BYTE v49[71]; // [rsp+161h] [rbp-97h] BYREF
 
-  v8 = a2;
-  v32[2] = a2;
-  memset(v51, 0, sizeof(v51));
-  memset(v48, 0, sizeof(v48));
+  v8 = Index;
+  v30[2] = Index;
+  memset(v49, 0, sizeof(v49));
+  memset(v46, 0, sizeof(v46));
   DmaOperations = 0LL;
-  v33 = 0LL;
+  v31 = 0LL;
   if ( *(BOOLEAN **)((char *)&NlsMbCodePageTag + 7) )
-    EtwGetKernelTraceTimestamp((LARGE_INTEGER *)v48, 0x20000LL, v10, v11);
-  v26 = 0;
-  v27 = 0;
-  memset(v47, 0, 0x40uLL);
+    EtwGetKernelTraceTimestamp((LARGE_INTEGER *)v46, 0x20000u);
+  v24 = 0;
+  v25 = 0;
+  memset(v45, 0, 0x40uLL);
   DmaAdapter = 0LL;
-  v32[0] = 0;
+  v30[0] = 0;
   *(_OWORD *)Src = 0LL;
-  v50 = 0;
-  v35[1] = v35;
-  v35[0] = v35;
-  v34 = 0LL;
+  v48 = 0;
+  v33[1] = v33;
+  v33[0] = v33;
+  v32 = 0LL;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  v28 = ExAcquireRundownProtection((PEX_RUNDOWN_REF)&CmpShutdownRundown);
-  if ( !v28 )
+  v26 = ExAcquireRundownProtection((PEX_RUNDOWN_REF)&CmpShutdownRundown);
+  if ( !v26 )
   {
     KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
-    v23 = -1073741431;
-    v24 = 0LL;
+    v21 = -1073741431;
+    v22 = 0LL;
     goto LABEL_30;
   }
-  if ( a3 > 2 )
+  if ( (unsigned int)KeyInformationClass > KeyFullInformation )
   {
     if ( *(BOOLEAN **)((char *)&NlsMbCodePageTag + 7)
-      && Handle
+      && KeyHandle
       && (PreviousMode = KeGetCurrentThread()->PreviousMode,
-          v36 = 0LL,
-          ObReferenceObjectByHandle(Handle, 0, (POBJECT_TYPE)CmKeyObjectType, PreviousMode, &v36, 0LL) >= 0) )
+          v34 = 0LL,
+          ObReferenceObjectByHandle(KeyHandle, 0, (POBJECT_TYPE)CmKeyObjectType, PreviousMode, &v34, 0LL) >= 0) )
     {
-      v24 = (_DMA_OPERATIONS *)*((_QWORD *)v36 + 1);
-      HalPutDmaAdapter((PADAPTER_OBJECT)v36);
+      v22 = (_DMA_OPERATIONS *)*((_QWORD *)v34 + 1);
+      HalPutDmaAdapter((PADAPTER_OBJECT)v34);
     }
     else
     {
-      v24 = 0LL;
+      v22 = 0LL;
     }
-    v23 = -1073741811;
+    v21 = -1073741811;
     goto LABEL_30;
   }
-  v13 = KeGetCurrentThread()->PreviousMode;
-  v47[8] = 0LL;
+  v11 = KeGetCurrentThread()->PreviousMode;
+  v45[8] = 0LL;
   Object = 0LL;
-  v23 = ObReferenceObjectByHandle(Handle, 8u, (POBJECT_TYPE)CmKeyObjectType, v13, &Object, 0LL);
-  v14 = (struct _DMA_ADAPTER *)Object;
-  v38 = Object;
-  if ( v23 >= 0 )
+  v21 = ObReferenceObjectByHandle(KeyHandle, 8u, (POBJECT_TYPE)CmKeyObjectType, v11, &Object, 0LL);
+  v12 = (struct _DMA_ADAPTER *)Object;
+  v36 = Object;
+  if ( v21 >= 0 )
   {
     if ( *(_DWORD *)Object == 1803104306 )
     {
       DmaAdapter = (PADAPTER_OBJECT)Object;
-      v14 = 0LL;
-      v38 = 0LL;
-      v23 = 0;
+      v12 = 0LL;
+      v36 = 0LL;
+      v21 = 0;
     }
     else
     {
-      v23 = -1073741816;
+      v21 = -1073741816;
     }
   }
-  if ( v14 )
-    HalPutDmaAdapter(v14);
-  if ( v23 < 0 )
+  if ( v12 )
+    HalPutDmaAdapter(v12);
+  if ( v21 < 0 )
   {
-    v8 = a2;
-    v24 = 0LL;
+    v8 = Index;
+    v22 = 0LL;
     goto LABEL_30;
   }
   if ( *(BOOLEAN **)((char *)&NlsMbCodePageTag + 7) && DmaAdapter )
   {
     DmaOperations = DmaAdapter->DmaOperations;
-    v33 = DmaOperations;
+    v31 = DmaOperations;
   }
-  if ( (_BYTE)v13 == 1 )
+  if ( (_BYTE)v11 == 1 )
   {
-    v15 = Length;
-    ProbeForWrite(a4, (unsigned int)Length, 4u);
-    v16 = (__int64)a6;
-    if ( (unsigned __int64)a6 >= 0x7FFFFFFF0000LL )
-      v16 = 0x7FFFFFFF0000LL;
-    *(_DWORD *)v16 = *(_DWORD *)v16;
+    v13 = Length;
+    ProbeForWrite(KeyInformation, Length, 4u);
+    v14 = (__int64)ResultLength;
+    if ( (unsigned __int64)ResultLength >= 0x7FFFFFFF0000LL )
+      v14 = 0x7FFFFFFF0000LL;
+    *(_DWORD *)v14 = *(_DWORD *)v14;
   }
   else
   {
-    v15 = Length;
+    v13 = Length;
   }
-  v17 = KeGetCurrentThread();
-  --v17->KernelApcDisable;
-  v27 = 1;
+  v15 = KeGetCurrentThread();
+  --v15->KernelApcDisable;
+  v25 = 1;
   if ( CmpCallBackCount && !ExIsResourceAcquiredSharedLite((PERESOURCE)&CmpRegistryLock) )
   {
-    v47[0] = DmaAdapter;
-    v47[1] = __PAIR64__(a3, a2);
-    v47[2] = a4;
-    LODWORD(v47[3]) = v15;
-    v47[4] = a6;
-    LOBYTE(v18) = 1;
-    v19 = CmpCallCallBacksEx(5, (unsigned int)v47, 0, v18, 20, (__int64)DmaAdapter, (__int64)v35);
-    v23 = v19;
-    if ( v19 < 0 )
+    v45[0] = DmaAdapter;
+    v45[1] = __PAIR64__(KeyInformationClass, Index);
+    v45[2] = KeyInformation;
+    LODWORD(v45[3]) = v13;
+    v45[4] = ResultLength;
+    LOBYTE(v16) = 1;
+    v17 = CmpCallCallBacksEx(5, (unsigned int)v45, 0, v16, 20, (__int64)DmaAdapter, (__int64)v33);
+    v21 = v17;
+    if ( v17 < 0 )
     {
-      v8 = a2;
-      v24 = DmaOperations;
-      if ( v19 == -1073740541 )
-        v23 = 0;
+      v8 = Index;
+      v22 = DmaOperations;
+      if ( v17 == -1073740541 )
+        v21 = 0;
       goto LABEL_30;
     }
-    v26 = 1;
+    v24 = 1;
   }
-  v23 = CmKeyBodyRemapToVirtualForEnum(&DmaAdapter, (unsigned __int8)v13, 8LL, &v34);
-  if ( v23 < 0 || (v23 = CmpBounceContextStart(Src, a4, v15, v13, 0), v23 < 0) )
+  v21 = CmKeyBodyRemapToVirtualForEnum(&DmaAdapter, (unsigned __int8)v11, 8LL, &v32);
+  if ( v21 < 0 || (v21 = CmpBounceContextStart(Src, KeyInformation, v13, v11, 0), v21 < 0) )
   {
-    v8 = a2;
+    v8 = Index;
 LABEL_48:
-    v24 = DmaOperations;
+    v22 = DmaOperations;
     goto LABEL_30;
   }
-  v8 = a2;
-  v23 = CmEnumerateKey((_DWORD)DmaAdapter, (_DWORD)v34, a2, a3, (__int64)Src[1], v15, (__int64)v32);
-  if ( v23 < 0 && v23 != -2147483643 && v23 != -1073741789 )
+  v8 = Index;
+  v21 = CmEnumerateKey((_DWORD)DmaAdapter, (_DWORD)v32, Index, KeyInformationClass, (__int64)Src[1], v13, (__int64)v30);
+  if ( v21 < 0 && v21 != -2147483643 && v21 != -1073741789 )
     goto LABEL_48;
-  v20 = v32[0];
-  *a6 = v32[0];
-  if ( v23 != -1073741789 )
+  v18 = v30[0];
+  *ResultLength = v30[0];
+  if ( v21 != -1073741789 )
   {
-    if ( v15 >= v20 )
-      v15 = v20;
+    if ( v13 >= v18 )
+      v13 = v18;
     if ( Src[0] != Src[1] )
-      memmove(Src[0], Src[1], v15);
+      memmove(Src[0], Src[1], v13);
   }
-  v24 = DmaOperations;
+  v22 = DmaOperations;
 LABEL_30:
-  if ( v34 )
-    HalPutDmaAdapter(v34);
-  if ( v26
+  if ( v32 )
+    HalPutDmaAdapter(v32);
+  if ( v24
     && CmpCallBackCount
     && !ExIsResourceAcquiredSharedLite((PERESOURCE)&CmpRegistryLock)
-    && (_QWORD *)v35[0] != v35 )
+    && (_QWORD *)v33[0] != v33 )
   {
-    v41 = 0;
-    v44 = 0LL;
-    v45 = 0LL;
-    v46 = 0;
-    v39 = DmaAdapter;
-    v40 = v23;
-    v43 = v23;
-    v42 = v47;
-    CmpCallCallBacksEx(20, (unsigned int)&v39, 0, 0, 20, (__int64)DmaAdapter, (__int64)v35);
-    v23 = v43;
+    v39 = 0;
+    v42 = 0LL;
+    v43 = 0LL;
+    v44 = 0;
+    v37 = DmaAdapter;
+    v38 = v21;
+    v41 = v21;
+    v40 = v45;
+    CmpCallCallBacksEx(20, (unsigned int)&v37, 0, 0, 20, (__int64)DmaAdapter, (__int64)v33);
+    v21 = v41;
   }
-  if ( v27 )
+  if ( v25 )
     KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   if ( DmaAdapter )
     HalPutDmaAdapter(DmaAdapter);
   CmpBounceContextCleanup(Src);
   if ( *(BOOLEAN **)((char *)&NlsMbCodePageTag + 7) )
   {
-    LOBYTE(v21) = 17;
+    LOBYTE(v19) = 17;
     (*(void (__fastcall **)(__int64, _OWORD *, _QWORD, _QWORD, _DMA_OPERATIONS *, _QWORD))((char *)&NlsMbCodePageTag + 7))(
-      v21,
-      v48,
-      (unsigned int)v23,
+      v19,
+      v46,
+      (unsigned int)v21,
       v8,
-      v24,
+      v22,
       0LL);
   }
-  if ( v28 )
+  if ( v26 )
   {
     ExReleaseRundownProtection((PEX_RUNDOWN_REF)&CmpShutdownRundown);
     KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
   }
-  return (unsigned int)v23;
+  return v21;
 }

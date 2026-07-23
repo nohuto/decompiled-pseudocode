@@ -1,17 +1,17 @@
 /*
- * XREFs of RtlGetNeutralFallback @ 0x180033500
+ * XREFs of RtlGetNeutralFallback @ 0x180012B40
  * Callers:
- *     RtlpAddNeutralsToMergedList @ 0x180033B90 (RtlpAddNeutralsToMergedList.c)
+ *     RtlpAddNeutralsToMergedList @ 0x180012510 (RtlpAddNeutralsToMergedList.c)
  * Callees:
- *     RtlCultureNameToLCID @ 0x1800330E0 (RtlCultureNameToLCID.c)
- *     RtlpNlsGetNameIndex @ 0x180033300 (RtlpNlsGetNameIndex.c)
- *     RtlpLoadNlsData @ 0x1800333EC (RtlpLoadNlsData.c)
- *     GetNameFromLangListNode @ 0x180033ED0 (GetNameFromLangListNode.c)
- *     RtlpIsCustomLocale @ 0x1800F77DC (RtlpIsCustomLocale.c)
- *     RtlpGetCustomCultureData @ 0x180115750 (RtlpGetCustomCultureData.c)
- *     _wcsicmp @ 0x180122C70 (_wcsicmp.c)
- *     wcslen @ 0x1801277D0 (wcslen.c)
- *     memmove @ 0x180167400 (memmove.c)
+ *     RtlCultureNameToLCID @ 0x1800141A0 (RtlCultureNameToLCID.c)
+ *     RtlpNlsGetNameIndex @ 0x1800143C0 (RtlpNlsGetNameIndex.c)
+ *     RtlpLoadNlsData @ 0x1800144AC (RtlpLoadNlsData.c)
+ *     GetNameFromLangListNode @ 0x1800C7870 (GetNameFromLangListNode.c)
+ *     RtlpIsCustomLocale @ 0x1800F2354 (RtlpIsCustomLocale.c)
+ *     RtlpGetCustomCultureData @ 0x180110BE4 (RtlpGetCustomCultureData.c)
+ *     _wcsicmp @ 0x180120EA0 (_wcsicmp.c)
+ *     wcslen @ 0x180125A00 (wcslen.c)
+ *     memmove @ 0x1801657C0 (memmove.c)
  */
 
 __int64 __fastcall RtlGetNeutralFallback(__int64 a1, wchar_t *a2, __int64 a3, _BYTE *a4)
@@ -37,15 +37,14 @@ __int64 __fastcall RtlGetNeutralFallback(__int64 a1, wchar_t *a2, __int64 a3, _B
   unsigned __int64 v26; // rdi
   unsigned __int16 v27; // bx
   __int64 v29; // rdx
-  int v30; // [rsp+20h] [rbp-48h] BYREF
+  DWORD Lcid; // [rsp+20h] [rbp-48h] BYREF
   int v31; // [rsp+24h] [rbp-44h] BYREF
   __int16 v32; // [rsp+28h] [rbp-40h]
-  __int64 v33; // [rsp+30h] [rbp-38h] BYREF
-  wchar_t *v34; // [rsp+38h] [rbp-30h]
+  _UNICODE_STRING String; // [rsp+30h] [rbp-38h] BYREF
 
   v31 = 0;
   v32 = 0;
-  v30 = 0;
+  Lcid = 0;
   NameFromLangListNode = 0;
   if ( a1 && a3 && a4 )
   {
@@ -53,7 +52,7 @@ __int64 __fastcall RtlGetNeutralFallback(__int64 a1, wchar_t *a2, __int64 a3, _B
     if ( a2 )
     {
       v9 = *(_QWORD *)(a1 + 24);
-      v33 = v9;
+      *(_QWORD *)&String.Length = v9;
       if ( *a2 )
       {
         v10 = *(_QWORD *)(a1 + 32);
@@ -64,7 +63,7 @@ __int64 __fastcall RtlGetNeutralFallback(__int64 a1, wchar_t *a2, __int64 a3, _B
           {
             if ( v11 >= *(unsigned __int16 *)(v10 + 6) )
             {
-              v9 = v33;
+              v9 = *(_QWORD *)&String.Length;
               goto LABEL_42;
             }
             v13 = (const wchar_t *)(*(_QWORD *)(v10 + 24) + 2LL * *(__int16 *)(*(_QWORD *)(v10 + 16) + i));
@@ -72,7 +71,7 @@ __int64 __fastcall RtlGetNeutralFallback(__int64 a1, wchar_t *a2, __int64 a3, _B
               break;
             ++v11;
           }
-          v9 = v33;
+          v9 = *(_QWORD *)&String.Length;
           if ( v11 < 0 )
             goto LABEL_42;
         }
@@ -97,7 +96,7 @@ LABEL_42:
               NameFromLangListNode = GetNameFromLangListNode(a1, &v31, a3, 0LL);
               if ( (NameFromLangListNode & 0x80000000) != 0 )
               {
-                v33 = 0LL;
+                *(_QWORD *)&String.Length = 0LL;
                 goto LABEL_22;
               }
               return NameFromLangListNode;
@@ -105,21 +104,21 @@ LABEL_42:
           }
         }
       }
-      v33 = 0LL;
+      *(_QWORD *)&String.Length = 0LL;
 LABEL_22:
-      v34 = a2;
+      String.Buffer = a2;
       v18 = 2 * wcslen(a2);
       if ( v18 >= 0xFFFE )
         LOWORD(v18) = -4;
-      LOWORD(v33) = v18;
-      WORD1(v33) = v18 + 2;
+      String.Length = v18;
+      String.MaximumLength = v18 + 2;
     }
     else
     {
-      v33 = 0LL;
-      v34 = 0LL;
+      *(_QWORD *)&String.Length = 0LL;
+      String.Buffer = 0LL;
     }
-    if ( RtlCultureNameToLCID((unsigned __int16 *)&v33, &v30) && ((v30 - 4096) & 0xFFFFFBFF) == 0 )
+    if ( RtlCultureNameToLCID(&String, &Lcid) && ((Lcid - 4096) & 0xFFFFFBFF) == 0 )
     {
       *a4 = 1;
       return NameFromLangListNode;
@@ -130,9 +129,9 @@ LABEL_22:
     {
       if ( !*(_QWORD *)(a3 + 8) )
         return (unsigned int)-1073741584;
-      if ( !pTblPtrs && !RtlpLoadNlsData() )
+      if ( !pTblPtrs && !(unsigned __int8)RtlpLoadNlsData() )
         return (unsigned int)-1073741823;
-      NameIndex = RtlpNlsGetNameIndex((__int64)a2);
+      NameIndex = RtlpNlsGetNameIndex(a2);
       if ( NameIndex >= 0 )
       {
         _mm_lfence();

@@ -1,12 +1,12 @@
 /*
- * XREFs of MiTrimSingleWsle @ 0x1401011F4
+ * XREFs of MiTrimSingleWsle @ 0x1400FEF74
  * Callers:
- *     MiReplaceWorkingSetEntryLarge @ 0x140100DD4 (MiReplaceWorkingSetEntryLarge.c)
+ *     MiReplaceWorkingSetEntryLarge @ 0x1400FEB54 (MiReplaceWorkingSetEntryLarge.c)
  * Callees:
- *     MiGetSharedWorkingSetList @ 0x140047070 (MiGetSharedWorkingSetList.c)
- *     MiRemoveSingleWsle @ 0x14010133C (MiRemoveSingleWsle.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiDemoteCombinedPte @ 0x1401F97B0 (MiDemoteCombinedPte.c)
+ *     MiGetSharedWorkingSetList @ 0x140046BF0 (MiGetSharedWorkingSetList.c)
+ *     MiRemoveSingleWsle @ 0x1400FF0BC (MiRemoveSingleWsle.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
+ *     MiDemoteCombinedPte @ 0x1401F95DC (MiDemoteCombinedPte.c)
  */
 
 __int64 __fastcall MiTrimSingleWsle(__int64 a1, __int64 a2)

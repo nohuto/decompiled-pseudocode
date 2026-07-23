@@ -7,9 +7,9 @@
  *     sub_1800F75C0 @ 0x1800F75C0 (sub_1800F75C0.c)
  */
 
-__int64 __fastcall sub_1800F7730(__int64 a1, __int64 *a2)
+void __fastcall sub_1800F7730(PTP_CALLBACK_INSTANCE a1, HANDLE *a2, PTP_WORK a3)
 {
-  ZwWaitForSingleObject();
-  sub_1800F75C0(a2);
-  return (unsigned int)_InterlockedExchange(&dword_18015AA4C, 0);
+  ZwWaitForSingleObject(a2[2], 0, 0LL);
+  sub_1800F75C0((__int64)a2);
+  _InterlockedExchange(&dword_18015AA4C, 0);
 }

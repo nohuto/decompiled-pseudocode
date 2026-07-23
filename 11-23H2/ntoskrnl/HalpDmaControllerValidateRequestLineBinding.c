@@ -1,12 +1,12 @@
 /*
- * XREFs of HalpDmaControllerValidateRequestLineBinding @ 0x140516DB0
+ * XREFs of HalpDmaControllerValidateRequestLineBinding @ 0x140517300
  * Callers:
- *     HalGetAdapterV3 @ 0x140827530 (HalGetAdapterV3.c)
+ *     HalGetAdapterV3 @ 0x140827830 (HalGetAdapterV3.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KxAcquireSpinLock @ 0x1402515B0 (KxAcquireSpinLock.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x140251670 (KxAcquireSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 char __fastcall HalpDmaControllerValidateRequestLineBinding(__int64 a1, __int64 a2)
@@ -39,7 +39,10 @@ char __fastcall HalpDmaControllerValidateRequestLineBinding(__int64 a1, __int64 
     v5 = *(unsigned __int8 *)(a1 + 176);
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(v5);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)(v5 - 2) <= 0xDu )
+    if ( (_DWORD)KiIrqlFlags
+      && ((unsigned __int8)KiIrqlFlags & 1) != 0
+      && CurrentIrql <= 0xFu
+      && (unsigned __int8)(v5 - 2) <= 0xDu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
       if ( CurrentIrql == (_BYTE)v5 )
@@ -56,10 +59,10 @@ char __fastcall HalpDmaControllerValidateRequestLineBinding(__int64 a1, __int64 
   if ( v3 )
   {
     KxReleaseSpinLock(v8);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v10 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v10 <= 0xFu && CurrentIrql <= 0xFu && v10 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v10 <= 0xFu && CurrentIrql <= 0xFu && v10 >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         v12 = CurrentPrcb->SchedulerAssist;
@@ -67,7 +70,7 @@ char __fastcall HalpDmaControllerValidateRequestLineBinding(__int64 a1, __int64 
         v14 = (v13 & v12[5]) == 0;
         v12[5] &= v13;
         if ( v14 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
       }
     }
     __writecr8(CurrentIrql);

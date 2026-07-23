@@ -5,7 +5,7 @@
  * Callees:
  *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140282BA0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
  *     KeAcquireInStackQueuedSpinLock @ 0x140311930 (KeAcquireInStackQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
+ *     sub_140418E4C @ 0x140418E4C (sub_140418E4C.c)
  */
 
 PFILE_OBJECT __stdcall CcGetFileObjectFromSectionPtrs(PSECTION_OBJECT_POINTERS SectionObjectPointer)
@@ -15,14 +15,14 @@ PFILE_OBJECT __stdcall CcGetFileObjectFromSectionPtrs(PSECTION_OBJECT_POINTERS S
   unsigned __int64 OldIrql; // rbx
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // rax
-  _DWORD *SchedulerAssist; // r9
+  __int64 v7; // r9
   int v8; // edx
   bool v9; // zf
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
 
   v2 = 0LL;
   memset(&LockHandle, 0, sizeof(LockHandle));
-  KeAcquireInStackQueuedSpinLock(&CcMasterLock, &LockHandle);
+  KeAcquireInStackQueuedSpinLock(&SpinLock, &LockHandle);
   SharedCacheMap = SectionObjectPointer->SharedCacheMap;
   if ( SharedCacheMap )
   {
@@ -31,20 +31,20 @@ PFILE_OBJECT __stdcall CcGetFileObjectFromSectionPtrs(PSECTION_OBJECT_POINTERS S
   }
   KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
   OldIrql = LockHandle.OldIrql;
-  if ( KiIrqlFlags )
+  if ( dword_140D06B08 )
   {
-    if ( (KiIrqlFlags & 1) != 0 )
+    if ( (dword_140D06B08 & 1) != 0 )
     {
       CurrentIrql = KeGetCurrentIrql();
       if ( CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
-        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        v7 = *((_QWORD *)CurrentPrcb + 4375);
         v8 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
-        v9 = (v8 & SchedulerAssist[5]) == 0;
-        SchedulerAssist[5] &= v8;
+        v9 = (v8 & *(_DWORD *)(v7 + 20)) == 0;
+        *(_DWORD *)(v7 + 20) &= v8;
         if ( v9 )
-          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+          sub_140418E4C((__int64)CurrentPrcb);
       }
     }
   }

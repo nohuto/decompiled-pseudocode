@@ -1,10 +1,10 @@
 /*
- * XREFs of PopWin32kActivatorCallback @ 0x1407CCC90
+ * XREFs of PopWin32kActivatorCallback @ 0x1407CFD30
  * Callers:
  *     <none>
  * Callees:
- *     PopReleaseRwLock @ 0x14043630C (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x140436378 (PopAcquireRwLockExclusive.c)
+ *     PopReleaseRwLock @ 0x14021B1A8 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x140425310 (PopAcquireRwLockExclusive.c)
  */
 
 __int64 __fastcall PopWin32kActivatorCallback(__int64 a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
@@ -20,9 +20,9 @@ __int64 __fastcall PopWin32kActivatorCallback(__int64 a1, __int64 a2, __int64 a3
   {
     v10 = 0;
     v5 = (unsigned int)a4;
-    PopAcquireRwLockExclusive((unsigned __int64 *)&stru_140F12420.SchedulerAssistPriorityFloor, a2, a3, a4);
-    v6 = *((_DWORD *)&stru_140F12420.KernelShadowStackBase + v5);
-    result = PopReleaseRwLock((struct _KTHREAD *)&stru_140F12420.SchedulerAssistPriorityFloor);
+    PopAcquireRwLockExclusive((unsigned __int64 *)&qword_140F12AE0, a2, a3, a4);
+    v6 = *((_DWORD *)&qword_140F12AE0 + v5 + 6);
+    result = PopReleaseRwLock((struct _KTHREAD *)&qword_140F12AE0);
     if ( v6 )
     {
       v8[0] = 0x12C00000001uLL;

@@ -1,45 +1,45 @@
 /*
- * XREFs of PopBcdSetupResumeObject @ 0x140714F28
+ * XREFs of PopBcdSetupResumeObject @ 0x1407161C8
  * Callers:
- *     PopBcdSetPendingResume @ 0x1406DF978 (PopBcdSetPendingResume.c)
- *     PopBcdSetDefaultResumeObjectElements @ 0x140712310 (PopBcdSetDefaultResumeObjectElements.c)
+ *     PopBcdSetPendingResume @ 0x1406E0C18 (PopBcdSetPendingResume.c)
+ *     PopBcdSetDefaultResumeObjectElements @ 0x1407135B0 (PopBcdSetDefaultResumeObjectElements.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     memmove @ 0x1401D1540 (memmove.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     BcdSetElementDataWithFlags @ 0x140713370 (BcdSetElementDataWithFlags.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     BcdSetElementDataWithFlags @ 0x140714610 (BcdSetElementDataWithFlags.c)
  */
 
-__int64 __fastcall PopBcdSetupResumeObject(void *a1)
+__int64 __fastcall PopBcdSetupResumeObject(HANDLE BcdObjectHandle)
 {
-  unsigned int v2; // ebx
+  ULONG BufferSize; // ebx
   _DWORD *PoolWithTag; // rax
   _DWORD *v4; // rdi
-  __int64 v5; // r8
-  int v6; // ebx
-  __int64 v7; // r8
+  BCD_FLAGS v5; // r8d
+  NTSTATUS v6; // ebx
+  BCD_FLAGS v7; // r8d
   UNICODE_STRING DestinationString; // [rsp+30h] [rbp-18h] BYREF
 
-  v2 = IoArcBootDeviceName.Length + 22;
-  PoolWithTag = ExAllocatePoolWithTag(PagedPool, v2, 0x64634250u);
+  BufferSize = IoArcBootDeviceName.Length + 22;
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, BufferSize, 0x64634250u);
   v4 = PoolWithTag;
   if ( PoolWithTag )
   {
-    memset(PoolWithTag, 0, v2);
+    memset(PoolWithTag, 0, BufferSize);
     *v4 = 2;
     memmove(v4 + 5, IoArcBootDeviceName.Buffer, IoArcBootDeviceName.Length);
-    v6 = BcdSetElementDataWithFlags(a1, 0x21000001u, v5, (__int64)v4, v2);
+    v6 = BcdSetElementDataWithFlags(BcdObjectHandle, 0x21000001u, v5, v4, BufferSize);
     if ( v6 >= 0 )
     {
       RtlInitUnicodeString(&DestinationString, L"\\hiberfil.sys");
       v6 = BcdSetElementDataWithFlags(
-             a1,
+             BcdObjectHandle,
              0x22000002u,
              v7,
-             (__int64)DestinationString.Buffer,
-             (unsigned int)DestinationString.Length + 2);
+             DestinationString.Buffer,
+             DestinationString.Length + 2);
     }
     ExFreePoolWithTag(v4, 0);
   }

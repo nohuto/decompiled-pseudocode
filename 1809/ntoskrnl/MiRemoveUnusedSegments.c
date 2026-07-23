@@ -1,15 +1,15 @@
 /*
- * XREFs of MiRemoveUnusedSegments @ 0x1402A3030
+ * XREFs of MiRemoveUnusedSegments @ 0x1402A3220
  * Callers:
- *     MiProcessDereferenceList @ 0x140154050 (MiProcessDereferenceList.c)
- *     MiDereferenceSegmentThread @ 0x1401875A0 (MiDereferenceSegmentThread.c)
+ *     MiProcessDereferenceList @ 0x140154150 (MiProcessDereferenceList.c)
+ *     MiDereferenceSegmentThread @ 0x1401876E0 (MiDereferenceSegmentThread.c)
  * Callees:
  *     KeDelayExecutionThread @ 0x14004DA20 (KeDelayExecutionThread.c)
- *     MiProcessDereferenceList @ 0x140154050 (MiProcessDereferenceList.c)
- *     CcUnmapInactiveViews @ 0x14026A960 (CcUnmapInactiveViews.c)
- *     MiDeleteCachedSegment @ 0x1402A1864 (MiDeleteCachedSegment.c)
- *     MiDeleteCachedSubsection @ 0x1402A1A18 (MiDeleteCachedSubsection.c)
- *     MiShouldTrimUnusedSegments @ 0x1402A3404 (MiShouldTrimUnusedSegments.c)
+ *     MiProcessDereferenceList @ 0x140154150 (MiProcessDereferenceList.c)
+ *     CcUnmapInactiveViews @ 0x14026AB50 (CcUnmapInactiveViews.c)
+ *     MiDeleteCachedSegment @ 0x1402A1A54 (MiDeleteCachedSegment.c)
+ *     MiDeleteCachedSubsection @ 0x1402A1C08 (MiDeleteCachedSubsection.c)
+ *     MiShouldTrimUnusedSegments @ 0x1402A35F4 (MiShouldTrimUnusedSegments.c)
  */
 
 __int64 __fastcall MiRemoveUnusedSegments(__int64 a1, unsigned __int64 a2)
@@ -29,10 +29,10 @@ __int64 __fastcall MiRemoveUnusedSegments(__int64 a1, unsigned __int64 a2)
   v3 = 0;
   if ( a2 )
   {
-    if ( a2 >= qword_14043E728 )
+    if ( a2 >= qword_14043F7E8 )
       v6 = 0LL;
     else
-      v6 = qword_14043E728 - a2;
+      v6 = qword_14043F7E8 - a2;
     v7 = 0;
   }
   else
@@ -40,15 +40,15 @@ __int64 __fastcall MiRemoveUnusedSegments(__int64 a1, unsigned __int64 a2)
     v7 = 32;
     v6 = 0LL;
   }
-  v8 = 1000LL * *(_QWORD *)(a1 + 7120) / qword_14043E510;
+  v8 = 1000LL * *(_QWORD *)(a1 + 7120) / qword_14043F5D0;
   if ( v8 )
   {
     v9 = *(_QWORD *)(a1 + 1632);
-    v10 = ((unsigned __int64)qword_140438BD8 * (unsigned __int128)0x624DD2F1A9FBE77uLL) >> 64;
+    v10 = ((unsigned __int64)qword_140439C98 * (unsigned __int128)0x624DD2F1A9FBE77uLL) >> 64;
     v11 = v9;
-    v12 = v8 * (qword_140438BD8 / 0x3E8uLL);
+    v12 = v8 * (qword_140439C98 / 0x3E8uLL);
     if ( v12 <= v9 )
-      v11 = v8 * (qword_140438BD8 / 0x3E8uLL);
+      v11 = v8 * (qword_140439C98 / 0x3E8uLL);
     if ( v11 )
     {
       v13 = v9 - v11;
@@ -60,16 +60,16 @@ __int64 __fastcall MiRemoveUnusedSegments(__int64 a1, unsigned __int64 a2)
         {
           if ( a2 )
           {
-            if ( qword_14043E728 <= v6 )
+            if ( qword_14043F7E8 <= v6 )
               return v2;
           }
           else
           {
             if ( !v7 )
               return v2;
-            v12 = qword_14043E7A8;
-            v10 = qword_14043E7A8 / 0xAuLL;
-            if ( qword_14043E728 < 9 * (qword_14043E7A8 / 0xAuLL) )
+            v12 = qword_14043F868;
+            v10 = qword_14043F868 / 0xAuLL;
+            if ( qword_14043F7E8 < 9 * (qword_14043F868 / 0xAuLL) )
               return v2;
             --v7;
           }

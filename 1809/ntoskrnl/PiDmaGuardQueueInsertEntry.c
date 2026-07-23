@@ -1,11 +1,11 @@
 /*
- * XREFs of PiDmaGuardQueueInsertEntry @ 0x140840A80
+ * XREFs of PiDmaGuardQueueInsertEntry @ 0x140841CE0
  * Callers:
- *     PiDmaGuardProcessPostRemove @ 0x1406ED60C (PiDmaGuardProcessPostRemove.c)
+ *     PiDmaGuardProcessPostRemove @ 0x1406EE8AC (PiDmaGuardProcessPostRemove.c)
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x1400ACDF0 (ObfReferenceObjectWithTag.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     PipDgqInsertEntry @ 0x140840B20 (PipDgqInsertEntry.c)
+ *     ObfReferenceObjectWithTag @ 0x1400ACD30 (ObfReferenceObjectWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     PipDgqInsertEntry @ 0x140841D80 (PipDgqInsertEntry.c)
  */
 
 __int64 __fastcall PiDmaGuardQueueInsertEntry(PVOID Object)

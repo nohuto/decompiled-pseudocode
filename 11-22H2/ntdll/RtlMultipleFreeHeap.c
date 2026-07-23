@@ -6,19 +6,19 @@
  *     RtlFreeHeap @ 0x18003B190 (RtlFreeHeap.c)
  */
 
-__int64 __fastcall RtlMultipleFreeHeap(__int64 a1, unsigned int a2, unsigned int a3, __int64 *a4)
+ULONG __cdecl RtlMultipleFreeHeap(PVOID HeapHandle, ULONG Flags, ULONG Count, PVOID *Array)
 {
-  unsigned int v4; // ebx
+  ULONG v4; // ebx
 
   v4 = 0;
-  if ( !a3 )
-    return a3;
-  while ( (unsigned int)RtlFreeHeap(a1, a2, *a4) )
+  if ( !Count )
+    return Count;
+  while ( RtlFreeHeap(HeapHandle, Flags, *Array) )
   {
     ++v4;
-    ++a4;
-    if ( v4 >= a3 )
-      return a3;
+    ++Array;
+    if ( v4 >= Count )
+      return Count;
   }
   return v4;
 }

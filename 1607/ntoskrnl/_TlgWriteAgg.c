@@ -1,13 +1,13 @@
 /*
- * XREFs of _TlgWriteAgg @ 0x14009EE88
+ * XREFs of _TlgWriteAgg @ 0x14008517C
  * Callers:
- *     PnpTraceSetDevNodeProblem @ 0x1404C5CB4 (PnpTraceSetDevNodeProblem.c)
- *     EtwpWriteAppStateChangeSummary @ 0x14054A9D8 (EtwpWriteAppStateChangeSummary.c)
- *     PnpTraceClearDevNodeProblem @ 0x140648BC4 (PnpTraceClearDevNodeProblem.c)
+ *     PnpTraceSetDevNodeProblem @ 0x140484348 (PnpTraceSetDevNodeProblem.c)
+ *     EtwpWriteAppStateChangeSummary @ 0x14054AF18 (EtwpWriteAppStateChangeSummary.c)
+ *     PnpTraceClearDevNodeProblem @ 0x140648CA8 (PnpTraceClearDevNodeProblem.c)
  * Callees:
- *     EtwWriteTransfer @ 0x14000A630 (EtwWriteTransfer.c)
- *     InsertEventEntryInLookUpTable @ 0x14009EF40 (InsertEventEntryInLookUpTable.c)
- *     ExtractAggregateFieldTypes @ 0x14009F26C (ExtractAggregateFieldTypes.c)
+ *     EtwWriteTransfer @ 0x14000A1B0 (EtwWriteTransfer.c)
+ *     InsertEventEntryInLookUpTable @ 0x140085234 (InsertEventEntryInLookUpTable.c)
+ *     ExtractAggregateFieldTypes @ 0x140085560 (ExtractAggregateFieldTypes.c)
  */
 
 NTSTATUS __fastcall TlgWriteAgg(

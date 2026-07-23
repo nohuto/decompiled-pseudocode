@@ -1,15 +1,15 @@
 /*
- * XREFs of EtwpCovSampContextCleanup @ 0x140943074
+ * XREFs of EtwpCovSampContextCleanup @ 0x140943244
  * Callers:
- *     EtwpCoverageSamplerCleanup @ 0x140946194 (EtwpCoverageSamplerCleanup.c)
+ *     EtwpCoverageSamplerCleanup @ 0x140946364 (EtwpCoverageSamplerCleanup.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     EtwpCovSampContextRemoveAndFreeModule @ 0x1409447E4 (EtwpCovSampContextRemoveAndFreeModule.c)
- *     EtwpCovSampProcessCleanup @ 0x140945700 (EtwpCovSampProcessCleanup.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     EtwpCovSampContextRemoveAndFreeModule @ 0x1409449B4 (EtwpCovSampContextRemoveAndFreeModule.c)
+ *     EtwpCovSampProcessCleanup @ 0x1409458D0 (EtwpCovSampProcessCleanup.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 _QWORD *__fastcall EtwpCovSampContextCleanup(__int64 a1)
@@ -31,6 +31,9 @@ _QWORD *__fastcall EtwpCovSampContextCleanup(__int64 a1)
   __int64 v16; // rax
   _QWORD *v17; // rsi
   void *v18; // rcx
+  __int64 v19; // rdx
+  __int64 v20; // r8
+  __int64 v21; // r9
 
   EtwpCovSampProcessCleanup(a1 + 736, 0LL);
   CurrentThread = KeGetCurrentThread();
@@ -148,5 +151,5 @@ LABEL_40:
   if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 664), 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
     ExfTryToWakePushLock(a1 + 664);
   KeAbPostRelease(a1 + 664);
-  return KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+  return KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v19, v20, v21);
 }

@@ -6,7 +6,7 @@
  *     RtlIpv6AddressToStringA @ 0x180078720 (RtlIpv6AddressToStringA.c)
  *     RtlIpv4AddressToStringExA @ 0x18007E1B0 (RtlIpv4AddressToStringExA.c)
  *     RtlIpv4AddressToStringA @ 0x18007E250 (RtlIpv4AddressToStringA.c)
- *     RtlEthernetAddressToStringA @ 0x1800FBED0 (RtlEthernetAddressToStringA.c)
+ *     RtlEthernetAddressToStringA @ 0x1800FBE90 (RtlEthernetAddressToStringA.c)
  * Callees:
  *     vsprintf_s @ 0x180097C10 (vsprintf_s.c)
  */

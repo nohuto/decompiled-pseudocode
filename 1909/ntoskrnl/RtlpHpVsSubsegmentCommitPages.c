@@ -37,7 +37,7 @@ __int64 __fastcall RtlpHpVsSubsegmentCommitPages(__int64 a1, __int64 a2, unsigne
   struct _KTHREAD *v19; // rsi
   unsigned int SessionId; // r8d
   unsigned __int8 v21; // bp
-  __int64 v22; // rdx
+  unsigned int v22; // edx
   bool v23; // zf
   __int64 v24; // rcx
   int v25; // eax
@@ -123,7 +123,7 @@ LABEL_9:
       SessionId = -1;
     --v19->SpecialApcDisable;
     v21 = ++v19->AbAllocationRegionCount;
-    LODWORD(v22) = ((char)v19->AbEntrySummary | (char)v19->AbOrphanedEntrySummary) ^ 0x3F;
+    v22 = ((char)v19->AbEntrySummary | (char)v19->AbOrphanedEntrySummary) ^ 0x3F;
     v23 = !_BitScanReverse((unsigned int *)&v24, v22);
     v34 = v24;
     if ( v23 )
@@ -133,7 +133,7 @@ LABEL_9:
       v25 = 1 << v24;
       v26 = v24;
       v27 = &v19->LockEntries[v26];
-      v22 = ~v25 & (unsigned int)v22;
+      v22 &= ~v25;
       if ( (v27->AcquiredByte & 1) != 0
         && (*(_DWORD *)&v27->LockState.0 & 1) == 0
         && (*(_QWORD *)&v27->LockState.0 & 0x7FFFFFFFFFFFFFFCLL) == (v10 & 0x7FFFFFFFFFFFFFFCLL)
@@ -158,7 +158,7 @@ LABEL_35:
     {
       v27->CrossThreadReleasableAndBusyByte |= 2u;
       if ( (__int64)v27->LockState.LockState < 0 )
-        KiAbEntryRemoveFromTree(&v19->LockEntries[v26], v22);
+        KiAbEntryRemoveFromTree(&v19->LockEntries[v26].TreeNode);
       v33 = v27->BoostBitmap.AllFields & 0x1FFFF;
       v27->BoostBitmap.AllFields &= 0xFFFE0000;
       v27->ThreadLocalFlags &= ~1u;

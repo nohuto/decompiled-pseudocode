@@ -1,19 +1,19 @@
 /*
- * XREFs of RtlUpdateSwapReference @ 0x14080E0D8
+ * XREFs of RtlUpdateSwapReference @ 0x14080E3A8
  * Callers:
  *     CmFcpManagerPublishFeatureUsageData @ 0x14067FF3C (CmFcpManagerPublishFeatureUsageData.c)
- *     RtlpFcBufferManagerUpdateBuffers @ 0x14080DC94 (RtlpFcBufferManagerUpdateBuffers.c)
- *     CmFcpManagerDrainUsageNotifications @ 0x14080E008 (CmFcpManagerDrainUsageNotifications.c)
+ *     RtlpFcBufferManagerUpdateBuffers @ 0x14080DF64 (RtlpFcBufferManagerUpdateBuffers.c)
+ *     CmFcpManagerDrainUsageNotifications @ 0x14080E2D8 (CmFcpManagerDrainUsageNotifications.c)
  *     CmFcManagerStartRuntimePhase @ 0x140B37FF0 (CmFcManagerStartRuntimePhase.c)
  * Callees:
- *     KeIsEmptyAffinityEx @ 0x140255170 (KeIsEmptyAffinityEx.c)
- *     PoCopyDeepIdleMask @ 0x14028FC5C (PoCopyDeepIdleMask.c)
- *     KeRemoveProcessorAffinityEx @ 0x1402C02B0 (KeRemoveProcessorAffinityEx.c)
- *     KeGenericProcessorCallback @ 0x140305B34 (KeGenericProcessorCallback.c)
- *     KiSubtractAffinityEx @ 0x14033D83C (KiSubtractAffinityEx.c)
- *     ExBlockOnAddressPushLock @ 0x1403486A0 (ExBlockOnAddressPushLock.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     KeIsEmptyAffinityEx @ 0x140255230 (KeIsEmptyAffinityEx.c)
+ *     PoCopyDeepIdleMask @ 0x14028FEEC (PoCopyDeepIdleMask.c)
+ *     KeRemoveProcessorAffinityEx @ 0x1402C0540 (KeRemoveProcessorAffinityEx.c)
+ *     KeGenericProcessorCallback @ 0x140305DC4 (KeGenericProcessorCallback.c)
+ *     KiSubtractAffinityEx @ 0x14033DACC (KiSubtractAffinityEx.c)
+ *     ExBlockOnAddressPushLock @ 0x140348930 (ExBlockOnAddressPushLock.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 void *__fastcall RtlUpdateSwapReference(volatile __int64 *a1, char a2)

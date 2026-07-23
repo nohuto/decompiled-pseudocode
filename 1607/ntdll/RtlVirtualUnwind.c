@@ -1,21 +1,21 @@
 /*
- * XREFs of RtlVirtualUnwind @ 0x180036EF0
+ * XREFs of RtlVirtualUnwind @ 0x180036EE0
  * Callers:
- *     RtlDispatchException @ 0x1800349C0 (RtlDispatchException.c)
- *     RtlUnwindEx @ 0x180035340 (RtlUnwindEx.c)
- *     _invalid_parameter @ 0x180096B68 (_invalid_parameter.c)
- *     __report_gsfailure @ 0x180096C90 (__report_gsfailure.c)
+ *     RtlDispatchException @ 0x1800349B0 (RtlDispatchException.c)
+ *     RtlUnwindEx @ 0x180035330 (RtlUnwindEx.c)
+ *     _invalid_parameter @ 0x180096B58 (_invalid_parameter.c)
+ *     __report_gsfailure @ 0x180096C80 (__report_gsfailure.c)
  * Callees:
- *     RtlpSameFunction @ 0x180078BE4 (RtlpSameFunction.c)
- *     RtlpUnwindOpSlots @ 0x180088E64 (RtlpUnwindOpSlots.c)
- *     RtlpTrivialFunction @ 0x1800A5B88 (RtlpTrivialFunction.c)
- *     RtlpUnwindEpilogue @ 0x1800A5BE0 (RtlpUnwindEpilogue.c)
+ *     RtlpSameFunction @ 0x180078BD4 (RtlpSameFunction.c)
+ *     RtlpUnwindOpSlots @ 0x180088E54 (RtlpUnwindOpSlots.c)
+ *     RtlpTrivialFunction @ 0x1800A5B7C (RtlpTrivialFunction.c)
+ *     RtlpUnwindEpilogue @ 0x1800A5BD4 (RtlpUnwindEpilogue.c)
  *     RtlRaiseStatus @ 0x1800A5DE0 (RtlRaiseStatus.c)
  */
 
 PEXCEPTION_ROUTINE __stdcall RtlVirtualUnwind(ULONG HandlerType, ULONG64 ImageBase, ULONG64 ControlPc, PRUNTIME_FUNCTION FunctionEntry, PCONTEXT ContextRecord, PVOID *HandlerData, PULONG64 EstablisherFrame, PKNONVOLATILE_CONTEXT_POINTERS ContextPointers)
 {
-  EXCEPTION_ROUTINE *v8; // rsi
+  EXCEPTION_DISPOSITION (__cdecl *v8)(_EXCEPTION_RECORD *, PVOID, _CONTEXT *, PVOID); // rsi
   ULONG64 v9; // rbp
   PRUNTIME_FUNCTION v10; // r14
   ULONG64 v11; // rdi
@@ -388,7 +388,7 @@ LABEL_19:
                   {
                     if ( v67 != 1 )
 LABEL_155:
-                      RtlRaiseStatus(3221225727LL);
+                      RtlRaiseStatus(-1073741569);
                     v68 = (DWORD64 *)v17->Rsp;
                     v85 = 1;
                     v69 = v68 + 3;
@@ -517,7 +517,7 @@ LABEL_155:
     v22 = (struct _IMAGE_RUNTIME_FUNCTION_ENTRY *)&v26[2 * v63 + 4];
     v86 = v22;
     if ( v24 > 0x20 )
-      RtlRaiseStatus(3221225727LL);
+      RtlRaiseStatus(-1073741569);
   }
   if ( !(_BYTE)FunctionEntry )
   {

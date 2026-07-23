@@ -1,9 +1,9 @@
 /*
- * XREFs of NtOpenProcess @ 0x140646BF0
+ * XREFs of NtOpenProcess @ 0x140647C10
  * Callers:
- *     PfpSourceGetPrefetchSupport @ 0x140864E60 (PfpSourceGetPrefetchSupport.c)
+ *     PfpSourceGetPrefetchSupport @ 0x1408660C0 (PfpSourceGetPrefetchSupport.c)
  * Callees:
- *     PsOpenProcess @ 0x1406467C0 (PsOpenProcess.c)
+ *     PsOpenProcess @ 0x1406477E0 (PsOpenProcess.c)
  */
 
 NTSTATUS __stdcall NtOpenProcess(

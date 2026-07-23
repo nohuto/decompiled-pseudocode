@@ -1,9 +1,9 @@
 /*
- * XREFs of WheaIsAltContextAllocPossible @ 0x140611CE0
+ * XREFs of WheaIsAltContextAllocPossible @ 0x140612230
  * Callers:
- *     HalpMceHandlerCore @ 0x140503B18 (HalpMceHandlerCore.c)
+ *     HalpMceHandlerCore @ 0x140504068 (HalpMceHandlerCore.c)
  * Callees:
- *     KeQueryCurrentStackInformationEx @ 0x14022E9B0 (KeQueryCurrentStackInformationEx.c)
+ *     KeQueryCurrentStackInformationEx @ 0x14022EAC0 (KeQueryCurrentStackInformationEx.c)
  */
 
 char __fastcall WheaIsAltContextAllocPossible(__int64 a1, char a2, _DWORD *a3)

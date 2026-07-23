@@ -1,32 +1,32 @@
 /*
- * XREFs of KeReleaseSemaphore @ 0x140321430
+ * XREFs of KeReleaseSemaphore @ 0x1403216C0
  * Callers:
- *     AlpcpDoPortCleanup @ 0x140718D20 (AlpcpDoPortCleanup.c)
- *     PnpAllocateResources @ 0x14078F4C4 (PnpAllocateResources.c)
- *     IopUncacheInterfaceInformation @ 0x1407908A0 (IopUncacheInterfaceInformation.c)
- *     IopLegacyResourceAllocation @ 0x140815844 (IopLegacyResourceAllocation.c)
- *     IopAllocateBootResources @ 0x140816C90 (IopAllocateBootResources.c)
- *     FsRtlpRegisterUncProvider @ 0x140851418 (FsRtlpRegisterUncProvider.c)
- *     IopInsertLegacyBusDeviceNode @ 0x140860184 (IopInsertLegacyBusDeviceNode.c)
- *     FsRtlDeregisterUncProvider @ 0x14093DA90 (FsRtlDeregisterUncProvider.c)
- *     PpProfileCancelHardwareProfileTransition @ 0x140963A90 (PpProfileCancelHardwareProfileTransition.c)
- *     PpProfileCancelTransitioningDock @ 0x140963B18 (PpProfileCancelTransitioningDock.c)
- *     PpProfileCommitTransitioningDock @ 0x140963BC4 (PpProfileCommitTransitioningDock.c)
- *     PnpReallocateResources @ 0x14096D548 (PnpReallocateResources.c)
- *     NtReleaseKeyedEvent @ 0x140A04A90 (NtReleaseKeyedEvent.c)
- *     NtWaitForKeyedEvent @ 0x140A04E50 (NtWaitForKeyedEvent.c)
- *     PopSystemIrpCompletion @ 0x140AA75C0 (PopSystemIrpCompletion.c)
+ *     AlpcpDoPortCleanup @ 0x140718F20 (AlpcpDoPortCleanup.c)
+ *     PnpAllocateResources @ 0x14078F6B4 (PnpAllocateResources.c)
+ *     IopUncacheInterfaceInformation @ 0x140790A90 (IopUncacheInterfaceInformation.c)
+ *     IopLegacyResourceAllocation @ 0x140815B14 (IopLegacyResourceAllocation.c)
+ *     IopAllocateBootResources @ 0x140816F60 (IopAllocateBootResources.c)
+ *     FsRtlpRegisterUncProvider @ 0x140851718 (FsRtlpRegisterUncProvider.c)
+ *     IopInsertLegacyBusDeviceNode @ 0x1408603C4 (IopInsertLegacyBusDeviceNode.c)
+ *     FsRtlDeregisterUncProvider @ 0x14093DC90 (FsRtlDeregisterUncProvider.c)
+ *     PpProfileCancelHardwareProfileTransition @ 0x140963C90 (PpProfileCancelHardwareProfileTransition.c)
+ *     PpProfileCancelTransitioningDock @ 0x140963D18 (PpProfileCancelTransitioningDock.c)
+ *     PpProfileCommitTransitioningDock @ 0x140963DC4 (PpProfileCommitTransitioningDock.c)
+ *     PnpReallocateResources @ 0x14096D748 (PnpReallocateResources.c)
+ *     NtReleaseKeyedEvent @ 0x140A04D20 (NtReleaseKeyedEvent.c)
+ *     NtWaitForKeyedEvent @ 0x140A050E0 (NtWaitForKeyedEvent.c)
+ *     PopSystemIrpCompletion @ 0x140AA7430 (PopSystemIrpCompletion.c)
  * Callees:
- *     KiTryUnwaitThread @ 0x140238CD0 (KiTryUnwaitThread.c)
- *     KiExitDispatcher @ 0x14023CD70 (KiExitDispatcher.c)
- *     KiAcquireKobjectLockSafe @ 0x140252030 (KiAcquireKobjectLockSafe.c)
- *     KiInsertQueueDpc @ 0x140254790 (KiInsertQueueDpc.c)
- *     KiWakeQueueWaiter @ 0x1402B8780 (KiWakeQueueWaiter.c)
- *     KiWakeOtherQueueWaiters @ 0x14031AC98 (KiWakeOtherQueueWaiters.c)
- *     RtlRaiseStatus @ 0x1403217B0 (RtlRaiseStatus.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     KeIsThreadRunning @ 0x14056EDD0 (KeIsThreadRunning.c)
- *     EtwTraceEnqueueWork @ 0x1405FCD0C (EtwTraceEnqueueWork.c)
+ *     KiTryUnwaitThread @ 0x140238DA0 (KiTryUnwaitThread.c)
+ *     KiExitDispatcher @ 0x14023CE40 (KiExitDispatcher.c)
+ *     KiAcquireKobjectLockSafe @ 0x1402520F0 (KiAcquireKobjectLockSafe.c)
+ *     KiInsertQueueDpc @ 0x140254850 (KiInsertQueueDpc.c)
+ *     KiWakeQueueWaiter @ 0x1402B8A10 (KiWakeQueueWaiter.c)
+ *     KiWakeOtherQueueWaiters @ 0x14031AF28 (KiWakeOtherQueueWaiters.c)
+ *     RtlRaiseStatus @ 0x140321A40 (RtlRaiseStatus.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeIsThreadRunning @ 0x14056F310 (KeIsThreadRunning.c)
+ *     EtwTraceEnqueueWork @ 0x1405FD27C (EtwTraceEnqueueWork.c)
  */
 
 LONG __stdcall KeReleaseSemaphore(PRKSEMAPHORE Semaphore, KPRIORITY Increment, LONG Adjustment, BOOLEAN Wait)
@@ -62,7 +62,7 @@ LONG __stdcall KeReleaseSemaphore(PRKSEMAPHORE Semaphore, KPRIORITY Increment, L
 
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 2 )
@@ -80,10 +80,10 @@ LONG __stdcall KeReleaseSemaphore(PRKSEMAPHORE Semaphore, KPRIORITY Increment, L
   if ( SignalState + Adjustment > Semaphore->Limit || v11 < SignalState )
   {
     _InterlockedAnd(&Semaphore->Header.Lock, 0xFFFFFF7F);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v29 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v29 <= 0xFu && CurrentIrql <= 0xFu && v29 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v29 <= 0xFu && CurrentIrql <= 0xFu && v29 >= 2u )
       {
         v30 = KeGetCurrentPrcb();
         v31 = v30->SchedulerAssist;
@@ -95,7 +95,7 @@ LONG __stdcall KeReleaseSemaphore(PRKSEMAPHORE Semaphore, KPRIORITY Increment, L
       }
     }
     __writecr8(CurrentIrql);
-    RtlRaiseStatus(3221225543LL);
+    RtlRaiseStatus(-1073741753);
   }
   Semaphore->Header.SignalState = v11;
   if ( !SignalState )
@@ -130,7 +130,7 @@ LABEL_45:
           v20 = (_QWORD *)(v19 + 8);
           v21 = KeGetCurrentIrql();
           __writecr8(2uLL);
-          if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v21 <= 0xFu )
+          if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v21 <= 0xFu )
           {
             v22 = KeGetCurrentPrcb()->SchedulerAssist;
             if ( v21 == 2 )
@@ -187,6 +187,6 @@ LABEL_45:
   }
 LABEL_17:
   _InterlockedAnd(&Semaphore->Header.Lock, 0xFFFFFF7F);
-  KiExitDispatcher(v33, Wait != 0 ? 3 : 0, (struct _PROCESSOR_NUMBER)1, Increment, CurrentIrql);
+  KiExitDispatcher(v33, Wait != 0 ? 3 : 0, (_PROCESSOR_NUMBER)1, Increment, CurrentIrql);
   return v35;
 }

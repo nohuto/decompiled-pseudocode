@@ -89,7 +89,7 @@ __int64 __fastcall ExAcquireFastResourceSharedStarveExclusive(ULONG_PTR BugCheck
   *(_QWORD *)(a2 + 24) = BugCheckParameter2;
   v14 = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v14 <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v14 <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( v14 == 2 )
@@ -173,10 +173,10 @@ LABEL_24:
       *(_BYTE *)(a2 + 19) = 1;
       KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
       ExpAddFastOwnerEntryToThreadList(v42, v32, 0LL, a2);
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v33 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v33 <= 0xFu && v14 <= 0xFu && v33 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v33 <= 0xFu && v14 <= 0xFu && v33 >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           v35 = CurrentPrcb->SchedulerAssist;
@@ -202,10 +202,10 @@ LABEL_24:
   *(_QWORD *)(a2 + 24) = 0LL;
   KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
 LABEL_34:
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v25 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v25 <= 0xFu && v14 <= 0xFu && v25 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v25 <= 0xFu && v14 <= 0xFu && v25 >= 2u )
     {
       v26 = KeGetCurrentPrcb();
       v27 = v26->SchedulerAssist;

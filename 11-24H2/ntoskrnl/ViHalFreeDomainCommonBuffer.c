@@ -1,11 +1,11 @@
 /*
- * XREFs of ViHalFreeDomainCommonBuffer @ 0x140B89178
+ * XREFs of ViHalFreeDomainCommonBuffer @ 0x140B8B178
  * Callers:
- *     VfFreeCommonBuffer @ 0x140B86660 (VfFreeCommonBuffer.c)
+ *     VfFreeCommonBuffer @ 0x140B88660 (VfFreeCommonBuffer.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 char __fastcall ViHalFreeDomainCommonBuffer(_QWORD *a1)
@@ -20,7 +20,7 @@ char __fastcall ViHalFreeDomainCommonBuffer(_QWORD *a1)
 
   v2 = 0;
   v3 = 0LL;
-  v4 = KeAcquireSpinLockRaiseToDpc(&qword_140F03AB0);
+  v4 = KeAcquireSpinLockRaiseToDpc(&qword_140F03DB0);
   v5 = (__int64 *)ViDomainCommonBufferList;
   v6 = v4;
   while ( v5 != &ViDomainCommonBufferList )
@@ -38,7 +38,7 @@ char __fastcall ViHalFreeDomainCommonBuffer(_QWORD *a1)
     }
     v5 = (__int64 *)*v5;
   }
-  KeReleaseSpinLock(&qword_140F03AB0, v6);
+  KeReleaseSpinLock(&qword_140F03DB0, v6);
   if ( v2 )
     ExFreePoolWithTag(v3, 0);
   return v2;

@@ -8,22 +8,22 @@
  *     _RtlpLfhBucketUsageUpdate@12 @ 0x4B377DEF (_RtlpLfhBucketUsageUpdate@12.c)
  */
 
-BOOL __fastcall RtlpHpLfhBucketUpdateStats(int a1, int a2, int a3)
+BOOL __userpurge RtlpHpLfhBucketUpdateStats@<eax>(int a1@<edx>, int a2@<ecx>, int a3@<ebx>, int a4)
 {
-  int v4; // edi
-  unsigned int v5; // eax
+  int v5; // edi
   unsigned int v6; // eax
+  unsigned int v7; // eax
 
-  v4 = (unsigned __int8)RtlpLfhBucketIndexMap[(unsigned int)(a2 + 7) >> 3];
-  if ( (*(_DWORD *)(a1 + 4 * v4 + 128) & 1) != 0 )
+  v5 = (unsigned __int8)RtlpLfhBucketIndexMap[(unsigned int)(a1 + 7) >> 3];
+  if ( (*(_DWORD *)(a2 + 4 * v5 + 128) & 1) != 0 )
   {
-    v5 = RtlpLfhBucketUsageUpdate(a3);
-    if ( a3 )
+    v6 = RtlpLfhBucketUsageUpdate(a4);
+    if ( a4 )
     {
-      v6 = HIWORD(v5);
-      if ( (v6 & 0x1F) > 0x10 || (unsigned __int16)v6 > 0xFF00u )
-        RtlpHpLfhBucketActivate(a1, v4);
+      v7 = HIWORD(v6);
+      if ( (v7 & 0x1F) > 0x10 || (unsigned __int16)v7 > 0xFF00u )
+        RtlpHpLfhBucketActivate(v5, a2, a3);
     }
   }
-  return (*(_DWORD *)(a1 + 4 * v4 + 128) & 1) == 0;
+  return (*(_DWORD *)(a2 + 4 * v5 + 128) & 1) == 0;
 }

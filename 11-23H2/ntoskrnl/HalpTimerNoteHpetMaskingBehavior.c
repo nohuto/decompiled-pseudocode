@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpTimerNoteHpetMaskingBehavior @ 0x14037A9AC
+ * XREFs of HalpTimerNoteHpetMaskingBehavior @ 0x14037AB4C
  * Callers:
- *     HalpTimerInitialize @ 0x14037A580 (HalpTimerInitialize.c)
+ *     HalpTimerInitialize @ 0x14037A720 (HalpTimerInitialize.c)
  * Callees:
- *     HalpFindTimer @ 0x14037B008 (HalpFindTimer.c)
+ *     HalpFindTimer @ 0x14037B1A8 (HalpFindTimer.c)
  */
 
 __int64 HalpTimerNoteHpetMaskingBehavior()

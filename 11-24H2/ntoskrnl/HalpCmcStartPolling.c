@@ -1,14 +1,14 @@
 /*
- * XREFs of HalpCmcStartPolling @ 0x1404F7940
+ * XREFs of HalpCmcStartPolling @ 0x1404F5220
  * Callers:
- *     HalpCmciDeferredRoutine @ 0x14047CE90 (HalpCmciDeferredRoutine.c)
- *     HalpInitializeCmc @ 0x140B4BAE8 (HalpInitializeCmc.c)
+ *     HalpCmciDeferredRoutine @ 0x140478020 (HalpCmciDeferredRoutine.c)
+ *     HalpInitializeCmc @ 0x140B4DB28 (HalpInitializeCmc.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiSetTimerEx @ 0x1403347A0 (KiSetTimerEx.c)
- *     HalpIsMicrosoftCompatibleHvLoaded @ 0x1404A57AC (HalpIsMicrosoftCompatibleHvLoaded.c)
- *     HalpIsPartitionCpuManager @ 0x1404F79EC (HalpIsPartitionCpuManager.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiSetTimerEx @ 0x140316810 (KiSetTimerEx.c)
+ *     HalpIsMicrosoftCompatibleHvLoaded @ 0x1404A053C (HalpIsMicrosoftCompatibleHvLoaded.c)
+ *     HalpIsPartitionCpuManager @ 0x1404F52CC (HalpIsPartitionCpuManager.c)
  */
 
 void HalpCmcStartPolling()
@@ -26,11 +26,11 @@ void HalpCmcStartPolling()
         && !HalpCmcPollingStarted )
       {
         KiSetTimerEx(
-          (__int64)&qword_140E0FF98,
+          (__int64)&qword_140E10118,
           -10000LL * (unsigned int)HalpCmcContext,
           HalpCmcContext,
           0,
-          (__int64)&dword_140E0FFD8);
+          (__int64)&dword_140E10158);
         HalpCmcPollingStarted = 1;
       }
     }

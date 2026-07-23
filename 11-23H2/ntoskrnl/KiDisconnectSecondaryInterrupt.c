@@ -1,16 +1,16 @@
 /*
- * XREFs of KiDisconnectSecondaryInterrupt @ 0x140571A38
+ * XREFs of KiDisconnectSecondaryInterrupt @ 0x140571F78
  * Callers:
- *     KeDisconnectInterrupt @ 0x14031F398 (KeDisconnectInterrupt.c)
+ *     KeDisconnectInterrupt @ 0x14031F628 (KeDisconnectInterrupt.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KiDisconnectInterruptCommon @ 0x14031F720 (KiDisconnectInterruptCommon.c)
- *     HalDisableInterrupt @ 0x14031F8F0 (HalDisableInterrupt.c)
- *     KiAcquireSecondaryInterruptConnectLock @ 0x1403A3228 (KiAcquireSecondaryInterruptConnectLock.c)
- *     KiAcquireSecondaryPassiveConnectLock @ 0x1403A3858 (KiAcquireSecondaryPassiveConnectLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F7F0 (KeLeaveCriticalRegionThread.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KiDisconnectInterruptCommon @ 0x14031F9B0 (KiDisconnectInterruptCommon.c)
+ *     HalDisableInterrupt @ 0x14031FB80 (HalDisableInterrupt.c)
+ *     KiAcquireSecondaryInterruptConnectLock @ 0x1403A3408 (KiAcquireSecondaryInterruptConnectLock.c)
+ *     KiAcquireSecondaryPassiveConnectLock @ 0x1403A3A38 (KiAcquireSecondaryPassiveConnectLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall KiDisconnectSecondaryInterrupt(__int64 a1, _DWORD *a2)
@@ -39,7 +39,9 @@ __int64 __fastcall KiDisconnectSecondaryInterrupt(__int64 a1, _DWORD *a2)
       v4 = *(_QWORD *)(v6 + 8) == v6 + 8;
   }
   KxReleaseSpinLock((volatile signed __int64 *)v5);
-  if ( KiIrqlFlags && (CurrentIrql = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags
+    && (CurrentIrql = KeGetCurrentIrql(), ((unsigned __int8)KiIrqlFlags & 1) != 0)
+    && CurrentIrql <= 0xFu )
   {
     v8 = v15;
     if ( v15 <= 0xFu && CurrentIrql >= 2u )

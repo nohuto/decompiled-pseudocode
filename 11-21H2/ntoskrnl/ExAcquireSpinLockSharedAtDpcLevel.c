@@ -1,100 +1,100 @@
 /*
  * XREFs of ExAcquireSpinLockSharedAtDpcLevel @ 0x1403127E0
  * Callers:
- *     KiSetLegacyAffinityThread @ 0x14020E6EC (KiSetLegacyAffinityThread.c)
- *     MiLockIoPfnTree @ 0x1402165BC (MiLockIoPfnTree.c)
- *     MiRemoveWsleList @ 0x140218310 (MiRemoveWsleList.c)
- *     MiIsDriverPage @ 0x1402189A0 (MiIsDriverPage.c)
- *     KeQueryBasePriorityThread @ 0x140234504 (KeQueryBasePriorityThread.c)
- *     MiCaptureWriteWatchDirtyBit @ 0x1402358D4 (MiCaptureWriteWatchDirtyBit.c)
- *     KeQueryAffinityProcess @ 0x1402395A0 (KeQueryAffinityProcess.c)
- *     MiGetSharedProtosAtDpcLevel @ 0x140256EAC (MiGetSharedProtosAtDpcLevel.c)
- *     KeQueryPrimaryGroupProcess @ 0x140257BB4 (KeQueryPrimaryGroupProcess.c)
- *     MiAbortCombineScan @ 0x140268998 (MiAbortCombineScan.c)
- *     MiUpdateWorkingSetPrivateSize @ 0x14026EEA8 (MiUpdateWorkingSetPrivateSize.c)
- *     MiZeroCfgSystemWideBitmapWorker @ 0x1402710C4 (MiZeroCfgSystemWideBitmapWorker.c)
- *     MiTrimSharedPageFromViews @ 0x14027B820 (MiTrimSharedPageFromViews.c)
- *     InsertEventEntryInLookUpTable @ 0x1402A1AEC (InsertEventEntryInLookUpTable.c)
- *     MiInsertPageInList @ 0x1402BF9C0 (MiInsertPageInList.c)
- *     ViAvlAcquireTableLockAtDpcLevelSafe @ 0x1402D8304 (ViAvlAcquireTableLockAtDpcLevelSafe.c)
- *     MmLockLoadedModuleListShared @ 0x1402DC098 (MmLockLoadedModuleListShared.c)
- *     MiLockVadTree @ 0x1402ED128 (MiLockVadTree.c)
- *     KiActivateWaiterQueueWithNoLocks @ 0x1402EE104 (KiActivateWaiterQueueWithNoLocks.c)
- *     KiRundownMutants @ 0x1402F0604 (KiRundownMutants.c)
- *     MiLookupDataTableEntry @ 0x1402FDA80 (MiLookupDataTableEntry.c)
- *     MiEmptyDecayClusterTimers @ 0x1403122F0 (MiEmptyDecayClusterTimers.c)
- *     MiSharePages @ 0x140314BA0 (MiSharePages.c)
- *     MiCopyOnWrite @ 0x140316400 (MiCopyOnWrite.c)
- *     MiLockPageTableInternal @ 0x14031DE00 (MiLockPageTableInternal.c)
- *     MiCompleteProtoPteFault @ 0x1403203D0 (MiCompleteProtoPteFault.c)
- *     MiCrcStillIntact @ 0x140339D70 (MiCrcStillIntact.c)
- *     MiReservePageFileSpace @ 0x14033AC90 (MiReservePageFileSpace.c)
- *     KiAbEntryRemoveFromTree @ 0x14034EE30 (KiAbEntryRemoveFromTree.c)
- *     KiAbEntryGetLockedHeadEntry @ 0x14034F230 (KiAbEntryGetLockedHeadEntry.c)
- *     MiCheckVirtualAddress @ 0x1403536F0 (MiCheckVirtualAddress.c)
- *     vDbgPrintExWithPrefixInternal @ 0x140369C50 (vDbgPrintExWithPrefixInternal.c)
- *     DbgEnumerateCallback @ 0x140389E40 (DbgEnumerateCallback.c)
- *     VmpProcessContextLockShared @ 0x14045F804 (VmpProcessContextLockShared.c)
- *     KeQueryCpuSetsProcess @ 0x140572490 (KeQueryCpuSetsProcess.c)
+ *     sub_14020E6EC @ 0x14020E6EC (sub_14020E6EC.c)
+ *     sub_1402165BC @ 0x1402165BC (sub_1402165BC.c)
+ *     sub_140218310 @ 0x140218310 (sub_140218310.c)
+ *     sub_1402189A0 @ 0x1402189A0 (sub_1402189A0.c)
+ *     sub_140234504 @ 0x140234504 (sub_140234504.c)
+ *     sub_1402358D4 @ 0x1402358D4 (sub_1402358D4.c)
+ *     sub_1402395A0 @ 0x1402395A0 (sub_1402395A0.c)
+ *     sub_140256EAC @ 0x140256EAC (sub_140256EAC.c)
+ *     sub_140257BB4 @ 0x140257BB4 (sub_140257BB4.c)
+ *     sub_140268998 @ 0x140268998 (sub_140268998.c)
+ *     sub_14026EEA8 @ 0x14026EEA8 (sub_14026EEA8.c)
+ *     sub_1402710C4 @ 0x1402710C4 (sub_1402710C4.c)
+ *     sub_14027B820 @ 0x14027B820 (sub_14027B820.c)
+ *     sub_1402A1AEC @ 0x1402A1AEC (sub_1402A1AEC.c)
+ *     sub_1402BF9C0 @ 0x1402BF9C0 (sub_1402BF9C0.c)
+ *     sub_1402D8304 @ 0x1402D8304 (sub_1402D8304.c)
+ *     sub_1402DC098 @ 0x1402DC098 (sub_1402DC098.c)
+ *     sub_1402ED128 @ 0x1402ED128 (sub_1402ED128.c)
+ *     sub_1402EE104 @ 0x1402EE104 (sub_1402EE104.c)
+ *     sub_1402F0604 @ 0x1402F0604 (sub_1402F0604.c)
+ *     sub_1402FDA80 @ 0x1402FDA80 (sub_1402FDA80.c)
+ *     sub_1403122F0 @ 0x1403122F0 (sub_1403122F0.c)
+ *     sub_140314BA0 @ 0x140314BA0 (sub_140314BA0.c)
+ *     sub_140316400 @ 0x140316400 (sub_140316400.c)
+ *     sub_14031DE00 @ 0x14031DE00 (sub_14031DE00.c)
+ *     sub_1403203D0 @ 0x1403203D0 (sub_1403203D0.c)
+ *     sub_140339D70 @ 0x140339D70 (sub_140339D70.c)
+ *     sub_14033AC90 @ 0x14033AC90 (sub_14033AC90.c)
+ *     sub_14034EE30 @ 0x14034EE30 (sub_14034EE30.c)
+ *     sub_14034F230 @ 0x14034F230 (sub_14034F230.c)
+ *     sub_1403536F0 @ 0x1403536F0 (sub_1403536F0.c)
+ *     sub_140369C50 @ 0x140369C50 (sub_140369C50.c)
+ *     sub_140389E40 @ 0x140389E40 (sub_140389E40.c)
+ *     sub_14045F804 @ 0x14045F804 (sub_14045F804.c)
+ *     sub_140572490 @ 0x140572490 (sub_140572490.c)
  *     KeSetSelectedCpuSetsThread @ 0x140572A90 (KeSetSelectedCpuSetsThread.c)
- *     KiSelectCandidateProcessor @ 0x14057D168 (KiSelectCandidateProcessor.c)
- *     MiLocatePageCollisionNodeByPfn @ 0x1405AF30C (MiLocatePageCollisionNodeByPfn.c)
- *     MiPurgeSlabEntries @ 0x1405B1568 (MiPurgeSlabEntries.c)
- *     MiLockPageListAndFirstPage @ 0x1405B350C (MiLockPageListAndFirstPage.c)
- *     MiLockPageListAndLastPage @ 0x1405B3654 (MiLockPageListAndLastPage.c)
- *     DbgpRemoveDebugPrintCallback @ 0x1405E439C (DbgpRemoveDebugPrintCallback.c)
- *     RtlpAcquirePropStoreLockShared @ 0x1405E7B68 (RtlpAcquirePropStoreLockShared.c)
- *     ViPtAcquireTreeLockAtDpcLevelSafe @ 0x140601F88 (ViPtAcquireTreeLockAtDpcLevelSafe.c)
- *     VmpInvalidateOutstandingFaults @ 0x14062A198 (VmpInvalidateOutstandingFaults.c)
- *     ViDeadlockDetectionLock @ 0x140A994C4 (ViDeadlockDetectionLock.c)
+ *     sub_14057D168 @ 0x14057D168 (sub_14057D168.c)
+ *     sub_1405AF30C @ 0x1405AF30C (sub_1405AF30C.c)
+ *     sub_1405B1568 @ 0x1405B1568 (sub_1405B1568.c)
+ *     sub_1405B350C @ 0x1405B350C (sub_1405B350C.c)
+ *     sub_1405B3654 @ 0x1405B3654 (sub_1405B3654.c)
+ *     sub_1405E439C @ 0x1405E439C (sub_1405E439C.c)
+ *     sub_1405E7B68 @ 0x1405E7B68 (sub_1405E7B68.c)
+ *     sub_140601F88 @ 0x140601F88 (sub_140601F88.c)
+ *     sub_14062A198 @ 0x14062A198 (sub_14062A198.c)
+ *     sub_140A994C4 @ 0x140A994C4 (sub_140A994C4.c)
  * Callees:
- *     ExpWaitForSpinLockSharedAndAcquire @ 0x140366A20 (ExpWaitForSpinLockSharedAndAcquire.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x140418E4C (KiRemoveSystemWorkPriorityKick.c)
- *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x140461B20 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
+ *     sub_140366A20 @ 0x140366A20 (sub_140366A20.c)
+ *     sub_140418E4C @ 0x140418E4C (sub_140418E4C.c)
+ *     sub_140461B20 @ 0x140461B20 (sub_140461B20.c)
  */
 
 void __stdcall ExAcquireSpinLockSharedAtDpcLevel(PEX_SPIN_LOCK SpinLock)
 {
   __int64 v1; // rdx
   struct _KPRCB *CurrentPrcb; // rdi
-  _DWORD *SchedulerAssist; // rcx
+  __int64 v4; // rcx
   signed __int32 v5; // ett
-  _DWORD *v6; // rcx
+  __int64 v6; // rcx
   int v7; // eax
   int v8; // eax
 
-  if ( (BYTE6(PerfGlobalGroupMask) & 0x21) != 0 )
+  if ( (BYTE6(xmmword_140D06900) & 0x21) != 0 )
   {
-    ExpAcquireSpinLockSharedAtDpcLevelInstrumented(SpinLock, -1);
+    sub_140461B20(SpinLock, -1);
   }
   else
   {
     CurrentPrcb = KeGetCurrentPrcb();
-    SchedulerAssist = CurrentPrcb->SchedulerAssist;
-    if ( SchedulerAssist )
+    v4 = *((_QWORD *)CurrentPrcb + 4375);
+    if ( v4 )
     {
-      if ( CurrentPrcb->NestingLevel <= 1u )
+      if ( *((_BYTE *)CurrentPrcb + 32) <= 1u )
       {
-        v7 = SchedulerAssist[6];
-        SchedulerAssist[6] = v7 + 1;
+        v7 = *(_DWORD *)(v4 + 24);
+        *(_DWORD *)(v4 + 24) = v7 + 1;
         if ( v7 == -1 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          sub_140418E4C(CurrentPrcb);
       }
     }
     _m_prefetchw((const void *)SpinLock);
     v5 = *SpinLock & 0x7FFFFFFF;
     if ( v5 != _InterlockedCompareExchange(SpinLock, v5 + 1, v5) )
     {
-      v6 = CurrentPrcb->SchedulerAssist;
-      if ( v6 && CurrentPrcb->NestingLevel <= 1u )
+      v6 = *((_QWORD *)CurrentPrcb + 4375);
+      if ( v6 && *((_BYTE *)CurrentPrcb + 32) <= 1u )
       {
-        v8 = v6[6] - 1;
-        v6[6] = v8;
+        v8 = *(_DWORD *)(v6 + 24) - 1;
+        *(_DWORD *)(v6 + 24) = v8;
         if ( !v8 )
-          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          sub_140418E4C(CurrentPrcb);
       }
       LOBYTE(v1) = -1;
-      ExpWaitForSpinLockSharedAndAcquire(SpinLock, v1);
+      sub_140366A20(SpinLock, v1);
     }
   }
 }

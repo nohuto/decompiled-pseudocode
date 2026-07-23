@@ -10,19 +10,18 @@
  *     memmove @ 0x180168980 (memmove.c)
  */
 
-__int64 __fastcall LdrpCheckModule(wchar_t *Src)
+unsigned int __fastcall LdrpCheckModule(wchar_t *Src)
 {
-  __int64 result; // rax
+  unsigned int result; // eax
   __int64 v3; // rbx
   __int64 v4; // rdx
   __int64 v5; // r14
   char *Heap; // rax
   char *v7; // rsi
   __int64 v8; // rbp
-  char v9; // [rsp+28h] [rbp-20h]
 
   result = CompatCachepLookupCdb(Src, 16);
-  if ( (_DWORD)result )
+  if ( result )
   {
     v3 = -1LL;
     v4 = -1LL;
@@ -33,7 +32,7 @@ __int64 __fastcall LdrpCheckModule(wchar_t *Src)
       v5 = v4 + g_pShimmedModuleListLength + 1;
     else
       v5 = v4 + 2;
-    Heap = (char *)RtlAllocateHeap((char *)NtCurrentPeb()->ProcessHeap, 8u, 2 * v5);
+    Heap = (char *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, 2 * v5);
     v7 = Heap;
     if ( Heap )
     {
@@ -45,14 +44,14 @@ __int64 __fastcall LdrpCheckModule(wchar_t *Src)
           ++v3;
         while ( Src[v3] );
         memmove(&v7[v8 + 2], Src, 2 * v3);
-        result = RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, g_pShimmedModuleList);
+        result = RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, g_pShimmedModuleList);
       }
       else
       {
         do
           ++v3;
         while ( Src[v3] );
-        result = (__int64)memmove(Heap, Src, 2 * v3);
+        result = (unsigned int)memmove(Heap, Src, 2 * v3);
       }
       g_pShimmedModuleList = v7;
       g_pShimmedModuleListLength = v5;
@@ -60,12 +59,11 @@ __int64 __fastcall LdrpCheckModule(wchar_t *Src)
     else
     {
       return LdrpLogInternal(
-               (int)"minkernel\\ldr\\ldrinit.c",
-               3876,
-               (int)"LdrpCheckModule",
-               0,
-               "Failed to allocated memory for shimmed module list\n",
-               v9);
+               "minkernel\\ldr\\ldrinit.c",
+               3876LL,
+               "LdrpCheckModule",
+               0LL,
+               "Failed to allocated memory for shimmed module list\n");
     }
   }
   return result;

@@ -15,7 +15,7 @@ __int64 EtwpInitializeSecurity()
   unsigned int PersistedStateLocation; // ebx
   UNICODE_STRING DestinationString; // [rsp+40h] [rbp-C0h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+50h] [rbp-B0h] BYREF
-  __int64 v4; // [rsp+80h] [rbp-80h] BYREF
+  ULONG BufferLengthOut; // [rsp+80h] [rbp-80h] BYREF
   UNICODE_STRING v5; // [rsp+88h] [rbp-78h] BYREF
   WCHAR SourceString[256]; // [rsp+A0h] [rbp-60h] BYREF
 
@@ -35,10 +35,10 @@ __int64 EtwpInitializeSecurity()
                              L"ETWSecurityPath",
                              0LL,
                              0LL,
-                             0,
+                             LocationTypeRegistry,
                              SourceString,
                              0x1FEu,
-                             (unsigned int *)&v4);
+                             &BufferLengthOut);
   if ( PersistedStateLocation
     || (RtlInitUnicodeString(&DestinationString, SourceString),
         ObjectAttributes.RootDirectory = 0LL,

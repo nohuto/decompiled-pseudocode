@@ -1,13 +1,13 @@
 /*
- * XREFs of PspQueryWorkingSetWatch @ 0x140908250
+ * XREFs of PspQueryWorkingSetWatch @ 0x1409083B0
  * Callers:
- *     NtQueryInformationProcess @ 0x1406212A0 (NtQueryInformationProcess.c)
+ *     NtQueryInformationProcess @ 0x14068AF10 (NtQueryInformationProcess.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     KeWaitForGate @ 0x140299F74 (KeWaitForGate.c)
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
- *     ExIsRestrictedCaller @ 0x1406A18B0 (ExIsRestrictedCaller.c)
- *     ObReferenceObjectByHandleWithTag @ 0x1406F0B80 (ObReferenceObjectByHandleWithTag.c)
+ *     KeWaitForGate @ 0x14022A4E4 (KeWaitForGate.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
+ *     ExIsRestrictedCaller @ 0x1406017E4 (ExIsRestrictedCaller.c)
+ *     ObReferenceObjectByHandleWithTag @ 0x140707F60 (ObReferenceObjectByHandleWithTag.c)
  */
 
 NTSTATUS __fastcall PspQueryWorkingSetWatch(
@@ -15,22 +15,22 @@ NTSTATUS __fastcall PspQueryWorkingSetWatch(
         int a2,
         __int64 a3,
         unsigned int a4,
-        unsigned int *a5,
+        _DWORD *a5,
         KPROCESSOR_MODE AccessMode)
 {
   NTSTATUS result; // eax
   int v8; // r13d
-  PVOID v9; // rcx
-  __int64 v10; // rdi
-  int v11; // esi
-  struct _KTHREAD *CurrentThread; // r12
-  __int64 v13; // r14
-  signed __int32 v14; // eax
-  unsigned int v15; // r15d
-  unsigned int v16; // r9d
-  __int64 i; // rcx
-  __int64 v18; // rdx
+  __int64 v9; // rdx
   __int64 j; // r8
+  __int64 v11; // r9
+  PVOID v12; // rcx
+  __int64 v13; // rdi
+  int v14; // esi
+  struct _KTHREAD *CurrentThread; // r12
+  __int64 v16; // r14
+  signed __int32 v17; // eax
+  unsigned int v18; // r15d
+  __int64 i; // rcx
   PVOID Object; // [rsp+50h] [rbp-48h] BYREF
   __int64 v21; // [rsp+58h] [rbp-40h]
   struct _KTHREAD *v22; // [rsp+60h] [rbp-38h]
@@ -59,91 +59,91 @@ NTSTATUS __fastcall PspQueryWorkingSetWatch(
              0LL);
   if ( result >= 0 )
   {
-    v9 = Object;
-    v10 = *((_QWORD *)Object + 166);
-    v23 = v10;
-    if ( !v10 )
+    v12 = Object;
+    v13 = *((_QWORD *)Object + 166);
+    v23 = v13;
+    if ( !v13 )
     {
-      v11 = -1073741823;
+      v14 = -1073741823;
 LABEL_17:
-      ObfDereferenceObjectWithTag(v9, 0x79517350u);
-      return v11;
+      ObfDereferenceObjectWithTag(v12, 0x79517350u);
+      return v14;
     }
     CurrentThread = KeGetCurrentThread();
     v22 = CurrentThread;
-    v11 = 0;
-    v13 = 0LL;
+    v14 = 0;
+    v16 = 0LL;
     --CurrentThread->KernelApcDisable;
-    _m_prefetchw((const void *)v10);
-    v14 = _InterlockedOr((volatile signed __int32 *)v10, 1u);
-    if ( (v14 & 1) != 0 )
+    _m_prefetchw((const void *)v13);
+    v17 = _InterlockedOr((volatile signed __int32 *)v13, 1u);
+    if ( (v17 & 1) != 0 )
     {
-      v11 = -2147483622;
+      v14 = -2147483622;
     }
     else
     {
-      v15 = (unsigned __int16)v14 >> 1;
-      if ( (unsigned __int16)v14 >> 1 )
+      v18 = (unsigned __int16)v17 >> 1;
+      if ( (unsigned __int16)v17 >> 1 )
       {
-        if ( (v14 & 0x7FFF0000) != 0 )
-          KeWaitForGate(v10 + 16, 0);
-        v16 = v8 * (v15 + 1);
-        if ( a4 >= v16 )
+        if ( (v17 & 0x7FFF0000) != 0 )
+          KeWaitForGate(v13 + 16, 0);
+        v11 = v8 * (v18 + 1);
+        if ( a4 >= (unsigned int)v11 )
         {
-          _m_prefetchw((const void *)(v10 + 8));
-          v13 = *(_QWORD *)(v10 + 8);
+          _m_prefetchw((const void *)(v13 + 8));
+          v16 = *(_QWORD *)(v13 + 8);
           if ( a2 == 42 )
           {
             for ( i = 0LL; ; i = (unsigned int)(i + 1) )
             {
-              v18 = a3 + 32LL * (unsigned int)i;
-              if ( (unsigned int)i >= v15 )
+              v9 = a3 + 32LL * (unsigned int)i;
+              if ( (unsigned int)i >= v18 )
                 break;
-              *(_OWORD *)v18 = *(_OWORD *)(v10 + 24 * i + 40);
-              *(_OWORD *)(v18 + 16) = *(unsigned __int64 *)(v10 + 24 * i + 56);
+              *(_OWORD *)v9 = *(_OWORD *)(v13 + 24 * i + 40);
+              *(_OWORD *)(v9 + 16) = *(unsigned __int64 *)(v13 + 24 * i + 56);
             }
             v21 = a3 + 32LL * (unsigned int)i;
-            *(_QWORD *)(v18 + 16) = 0LL;
-            *(_QWORD *)(v18 + 24) = 0LL;
+            *(_QWORD *)(v9 + 16) = 0LL;
+            *(_QWORD *)(v9 + 24) = 0LL;
           }
           else
           {
-            v18 = a3;
+            v9 = a3;
             v21 = a3;
-            for ( j = 0LL; (unsigned int)j < v15; j = (unsigned int)(j + 1) )
+            for ( j = 0LL; (unsigned int)j < v18; j = (unsigned int)(j + 1) )
             {
-              *(_OWORD *)v18 = *(_OWORD *)(v10 + 24 * j + 40);
-              v18 += 16LL;
-              v21 = v18;
+              *(_OWORD *)v9 = *(_OWORD *)(v13 + 24 * j + 40);
+              v9 += 16LL;
+              v21 = v9;
             }
           }
-          *(_QWORD *)v18 = 0LL;
-          *(_QWORD *)(v18 + 8) = v13;
+          *(_QWORD *)v9 = 0LL;
+          *(_QWORD *)(v9 + 8) = v16;
           if ( a5 )
-            *a5 = v16;
+            *a5 = v11;
         }
         else
         {
-          v11 = -1073741789;
+          v14 = -1073741789;
           if ( a5 )
-            *a5 = v16;
+            *a5 = v11;
         }
-        if ( v11 >= 0 )
+        if ( v14 >= 0 )
         {
-          _InterlockedExchangeAdd64((volatile signed __int64 *)(v10 + 8), -v13);
-          *(_DWORD *)v10 = 0;
+          _InterlockedExchangeAdd64((volatile signed __int64 *)(v13 + 8), -v16);
+          *(_DWORD *)v13 = 0;
           goto LABEL_16;
         }
       }
       else
       {
-        v11 = -2147483622;
+        v14 = -2147483622;
       }
-      _interlockedbittestandreset((volatile signed __int32 *)v10, 0);
+      _interlockedbittestandreset((volatile signed __int32 *)v13, 0);
     }
 LABEL_16:
-    KeLeaveCriticalRegionThread((__int64)CurrentThread);
-    v9 = Object;
+    KeLeaveCriticalRegionThread((__int64)CurrentThread, v9, j, v11);
+    v12 = Object;
     goto LABEL_17;
   }
   return result;

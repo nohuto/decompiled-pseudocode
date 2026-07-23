@@ -1,52 +1,58 @@
 /*
- * XREFs of LdrpDoPostSnapWork @ 0x1800073C0
+ * XREFs of LdrpDoPostSnapWork @ 0x180033DC0
  * Callers:
- *     LdrpSnapModule @ 0x180056F30 (LdrpSnapModule.c)
+ *     LdrpSnapModule @ 0x18006CB10 (LdrpSnapModule.c)
  * Callees:
- *     LdrpUnsuppressAddressTakenIat @ 0x1800074AC (LdrpUnsuppressAddressTakenIat.c)
- *     LdrpHandleTlsData @ 0x180008200 (LdrpHandleTlsData.c)
- *     LdrControlFlowGuardEnforcedWithExportSuppression @ 0x180009670 (LdrControlFlowGuardEnforcedWithExportSuppression.c)
- *     LdrpLogInternal @ 0x180013D80 (LdrpLogInternal.c)
- *     ZwProtectVirtualMemory @ 0x180162690 (ZwProtectVirtualMemory.c)
+ *     LdrpUnsuppressAddressTakenIat @ 0x180033EAC (LdrpUnsuppressAddressTakenIat.c)
+ *     LdrpHandleTlsData @ 0x180034C00 (LdrpHandleTlsData.c)
+ *     LdrControlFlowGuardEnforcedWithExportSuppression @ 0x180036070 (LdrControlFlowGuardEnforcedWithExportSuppression.c)
+ *     LdrpLogInternal @ 0x180040780 (LdrpLogInternal.c)
+ *     ZwProtectVirtualMemory @ 0x180160A50 (ZwProtectVirtualMemory.c)
  */
 
-__int64 __fastcall LdrpDoPostSnapWork(__int64 a1, __int64 a2, __int64 a3)
+NTSTATUS __fastcall LdrpDoPostSnapWork(__int64 a1)
 {
-  __int64 v3; // rsi
-  __int64 v4; // rdx
-  int v5; // ebx
-  __int64 result; // rax
-  _QWORD *v8; // rax
-  int v9; // [rsp+50h] [rbp+8h] BYREF
+  __int64 v1; // rsi
+  int v2; // ebx
+  NTSTATUS result; // eax
+  _QWORD *v5; // rax
+  int v6; // eax
+  ULONG OldProtect; // [rsp+50h] [rbp+8h] BYREF
 
-  v3 = *(_QWORD *)(a1 + 56);
-  v4 = a1 + 112;
-  v5 = 0;
-  v9 = 0;
+  v1 = *(_QWORD *)(a1 + 56);
+  v2 = 0;
+  OldProtect = 0;
   if ( !*(_QWORD *)(a1 + 112)
-    || (result = ZwProtectVirtualMemory(-1LL, v4, a1 + 120, *(unsigned int *)(a1 + 144), &v9),
-        v5 = result,
-        (int)result >= 0) )
+    || (result = ZwProtectVirtualMemory(
+                   (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+                   (PVOID *)(a1 + 112),
+                   (PSIZE_T)(a1 + 120),
+                   *(_DWORD *)(a1 + 144),
+                   &OldProtect),
+        v2 = result,
+        result >= 0) )
   {
-    v8 = *(_QWORD **)(a1 + 160);
-    if ( v8 && *v8 != *(_QWORD *)(a1 + 152) )
+    v5 = *(_QWORD **)(a1 + 160);
+    if ( v5 && *v5 != *(_QWORD *)(a1 + 152) )
       __fastfail(0x13u);
-    if ( *(_WORD *)(v3 + 110) || (result = LdrpHandleTlsData(v3), v5 = result, (int)result >= 0) )
+    if ( *(_WORD *)(v1 + 110) || (result = LdrpHandleTlsData(v1), v2 = result, result >= 0) )
     {
-      if ( (unsigned int)LdrControlFlowGuardEnforcedWithExportSuppression(a1, v4, a3) )
+      if ( (unsigned int)LdrControlFlowGuardEnforcedWithExportSuppression() )
       {
-        v5 = LdrpUnsuppressAddressTakenIat(*(_QWORD *)(v3 + 48), 0LL, 0LL);
-        if ( v5 < 0 )
+        v6 = LdrpUnsuppressAddressTakenIat(*(PVOID *)(v1 + 48));
+        v2 = v6;
+        if ( v6 < 0 )
           LdrpLogInternal(
-            (int)"minkernel\\ldr\\ldrsnap.c",
-            590,
-            (int)"LdrpDoPostSnapWork",
-            0,
+            "minkernel\\ldr\\ldrsnap.c",
+            590LL,
+            "LdrpDoPostSnapWork",
+            0LL,
             "LdrpDoPostSnapWork:Unable to unsuppress the export suppressed functions that are imported in the DLL based a"
             "t 0x%p.Status = 0x%x\n",
-            *(_QWORD *)(v3 + 48));
+            *(const void **)(v1 + 48),
+            v6);
       }
-      return (unsigned int)v5;
+      return v2;
     }
   }
   return result;

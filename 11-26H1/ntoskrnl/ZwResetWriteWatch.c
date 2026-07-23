@@ -1,14 +1,14 @@
 /*
- * XREFs of ZwResetWriteWatch @ 0x140726510
+ * XREFs of ZwResetWriteWatch @ 0x14072B0E0
  * Callers:
- *     DifZwResetWriteWatchWrapper @ 0x1406B7F70 (DifZwResetWriteWatchWrapper.c)
+ *     DifZwResetWriteWatchWrapper @ 0x1406BBB50 (DifZwResetWriteWatchWrapper.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwResetWriteWatch(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwResetWriteWatch(HANDLE ProcessHandle, PVOID BaseAddress, SIZE_T RegionSize)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(ProcessHandle);
 }

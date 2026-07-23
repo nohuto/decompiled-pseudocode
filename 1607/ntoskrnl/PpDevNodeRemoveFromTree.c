@@ -1,13 +1,13 @@
 /*
- * XREFs of PpDevNodeRemoveFromTree @ 0x14009F608
+ * XREFs of PpDevNodeRemoveFromTree @ 0x140084FB0
  * Callers:
- *     PnpUnlinkDeviceRemovalRelations @ 0x1404C5220 (PnpUnlinkDeviceRemovalRelations.c)
- *     IoReportDetectedDevice @ 0x140554CFC (IoReportDetectedDevice.c)
+ *     PnpUnlinkDeviceRemovalRelations @ 0x140485654 (PnpUnlinkDeviceRemovalRelations.c)
+ *     IoReportDetectedDevice @ 0x14055523C (IoReportDetectedDevice.c)
  * Callees:
- *     KeReleaseSpinLock @ 0x1400E9A70 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1400EFE30 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeReleaseSpinLock @ 0x1400EB600 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1400EDCB0 (KeAcquireSpinLockRaiseToDpc.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     PnpOrphanNotification @ 0x1404C7BE0 (PnpOrphanNotification.c)
+ *     PnpOrphanNotification @ 0x140483BDC (PnpOrphanNotification.c)
  */
 
 char __fastcall PpDevNodeRemoveFromTree(__int64 a1)

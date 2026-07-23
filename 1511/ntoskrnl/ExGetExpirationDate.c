@@ -12,50 +12,63 @@
 
 __int64 __fastcall ExGetExpirationDate(PLARGE_INTEGER Time)
 {
-  int LicenseValue; // eax
-  unsigned int v3; // ebx
-  int v5; // [rsp+34h] [rbp-4Ch] BYREF
-  struct _TIME_FIELDS TimeFields; // [rsp+38h] [rbp-48h]
+  NTSTATUS v2; // eax
+  NTSTATUS v3; // ebx
+  __int64 v4; // rax
+  ULONG ResultDataSize; // [rsp+30h] [rbp-50h] BYREF
+  ULONG Type; // [rsp+34h] [rbp-4Ch] BYREF
+  _TIME_FIELDS TimeFields; // [rsp+38h] [rbp-48h] BYREF
   UNICODE_STRING DestinationString; // [rsp+48h] [rbp-38h] BYREF
-  char v8; // [rsp+58h] [rbp-28h]
-  __int64 v9; // [rsp+59h] [rbp-27h]
-  int v10; // [rsp+61h] [rbp-1Fh]
-  __int16 v11; // [rsp+65h] [rbp-1Bh]
-  char v12; // [rsp+67h] [rbp-19h]
-  _BYTE v13[9]; // [rsp+68h] [rbp-18h] BYREF
-  int v14; // [rsp+71h] [rbp-Fh]
-  __int16 v15; // [rsp+75h] [rbp-Bh]
-  char v16; // [rsp+77h] [rbp-9h]
+  __int128 Data; // [rsp+58h] [rbp-28h] BYREF
+  __int128 v11; // [rsp+68h] [rbp-18h]
 
-  v8 = 0;
-  v5 = 0;
-  v9 = 0LL;
-  v10 = 0;
-  v11 = 0;
-  v12 = 0;
-  memset(v13, 0, sizeof(v13));
-  v14 = 0;
-  v15 = 0;
-  v16 = 0;
+  Data = 0uLL;
+  Type = 0;
+  ResultDataSize = 0;
+  v11 = 0uLL;
   TimeFields = 0LL;
-  if ( Time )
+  if ( !Time )
+    return (unsigned int)-1073741811;
+  RtlInitUnicodeString(&DestinationString, L"Kernel-ExpirationDate");
+  v2 = ZwQueryLicenseValue(&DestinationString, &Type, 0LL, 0, &ResultDataSize);
+  v3 = v2;
+  if ( v2 != -1073741789 )
   {
-    RtlInitUnicodeString(&DestinationString, L"Kernel-ExpirationDate");
-    LicenseValue = ZwQueryLicenseValue((__int64)&DestinationString, (__int64)&v5, 0LL);
-    v3 = LicenseValue;
-    if ( LicenseValue == -1073741789 )
+    if ( v2 < 0 )
+      goto LABEL_12;
+    goto LABEL_15;
+  }
+  if ( ResultDataSize == 16 && Type == 3 )
+  {
+    v3 = ZwQueryLicenseValue(&DestinationString, &Type, &Data, 0x10u, &ResultDataSize);
+    if ( v3 < 0 )
     {
-      v3 = -1073741772;
+LABEL_12:
+      Time->QuadPart = 0LL;
+      return (unsigned int)v3;
     }
-    else if ( LicenseValue >= 0 )
+    v4 = v11 - Data;
+    if ( (_QWORD)v11 == (_QWORD)Data )
+      v4 = *((_QWORD *)&v11 + 1) - *((_QWORD *)&Data + 1);
+    if ( v4 )
     {
+      *(_QWORD *)&TimeFields.Year = Data;
+      LOWORD(ResultDataSize) = WORD5(Data);
+      *(_DWORD *)&TimeFields.Minute = DWORD2(Data);
+      if ( RtlTimeFieldsToTime(&TimeFields, Time) == 1 )
+        goto LABEL_10;
+LABEL_15:
       v3 = -1073741823;
+      goto LABEL_12;
     }
     Time->QuadPart = 0LL;
   }
   else
   {
-    return (unsigned int)-1073741811;
+    v3 = -1073741772;
   }
-  return v3;
+LABEL_10:
+  if ( v3 < 0 )
+    goto LABEL_12;
+  return (unsigned int)v3;
 }

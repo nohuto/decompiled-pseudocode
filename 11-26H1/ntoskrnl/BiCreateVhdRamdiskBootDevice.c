@@ -1,15 +1,15 @@
 /*
- * XREFs of BiCreateVhdRamdiskBootDevice @ 0x140891EE0
+ * XREFs of BiCreateVhdRamdiskBootDevice @ 0x1408982DC
  * Callers:
- *     BiCreatePartitionDevice @ 0x140891AB0 (BiCreatePartitionDevice.c)
+ *     BiCreatePartitionDevice @ 0x140897EAC (BiCreatePartitionDevice.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     ZwDeviceIoControlFile @ 0x1407234D0 (ZwDeviceIoControlFile.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwOpenFile @ 0x140723A50 (ZwOpenFile.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     ZwDeviceIoControlFile @ 0x1407280A0 (ZwDeviceIoControlFile.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwOpenFile @ 0x140728620 (ZwOpenFile.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall BiCreateVhdRamdiskBootDevice(__int64 a1, _QWORD *a2)

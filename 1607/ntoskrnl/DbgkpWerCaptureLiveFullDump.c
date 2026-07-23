@@ -1,16 +1,16 @@
 /*
- * XREFs of DbgkpWerCaptureLiveFullDump @ 0x14061BD38
+ * XREFs of DbgkpWerCaptureLiveFullDump @ 0x14061BDEC
  * Callers:
- *     DbgkpWerProcessPolicyResult @ 0x14061C4CC (DbgkpWerProcessPolicyResult.c)
+ *     DbgkpWerProcessPolicyResult @ 0x14061C580 (DbgkpWerProcessPolicyResult.c)
  * Callees:
  *     WerLiveKernelOpenDumpFile_0 @ 0x140001328 (WerLiveKernelOpenDumpFile_0.c)
- *     ExQueueWorkItem @ 0x14005FE5C (ExQueueWorkItem.c)
- *     DbgPrintEx @ 0x140081B0C (DbgPrintEx.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     ExQueueWorkItem @ 0x14005F9DC (ExQueueWorkItem.c)
+ *     DbgPrintEx @ 0x140084C90 (DbgPrintEx.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     DbgkpWerInitializeDeferredLiveDump @ 0x14061C2CC (DbgkpWerInitializeDeferredLiveDump.c)
- *     DbgkpWerInvokeCallbacks @ 0x14061C420 (DbgkpWerInvokeCallbacks.c)
- *     IoCaptureLiveDump @ 0x140625F30 (IoCaptureLiveDump.c)
+ *     DbgkpWerInitializeDeferredLiveDump @ 0x14061C380 (DbgkpWerInitializeDeferredLiveDump.c)
+ *     DbgkpWerInvokeCallbacks @ 0x14061C4D4 (DbgkpWerInvokeCallbacks.c)
+ *     IoCaptureLiveDump @ 0x140625FE4 (IoCaptureLiveDump.c)
  */
 
 __int64 __fastcall DbgkpWerCaptureLiveFullDump(__int64 a1, _BYTE *a2)

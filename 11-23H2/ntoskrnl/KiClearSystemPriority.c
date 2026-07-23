@@ -1,20 +1,20 @@
 /*
- * XREFs of KiClearSystemPriority @ 0x140345FE0
+ * XREFs of KiClearSystemPriority @ 0x140346270
  * Callers:
- *     PspRevertContainerImpersonation @ 0x140259E3C (PspRevertContainerImpersonation.c)
- *     MiZeroInParallel @ 0x140304230 (MiZeroInParallel.c)
- *     KeDisconnectInterrupt @ 0x14031F398 (KeDisconnectInterrupt.c)
- *     KeConnectInterrupt @ 0x140320A54 (KeConnectInterrupt.c)
- *     PpmCheckCustomRun @ 0x14032B63C (PpmCheckCustomRun.c)
- *     PpmReleaseLock @ 0x14032C280 (PpmReleaseLock.c)
- *     PpmTryAcquireLock @ 0x14036D9F8 (PpmTryAcquireLock.c)
- *     KeClearSystemPriorityThread @ 0x140576C7C (KeClearSystemPriorityThread.c)
- *     MiDemoteSlabEntries @ 0x1406567B4 (MiDemoteSlabEntries.c)
+ *     PspRevertContainerImpersonation @ 0x14025A0CC (PspRevertContainerImpersonation.c)
+ *     MiZeroInParallel @ 0x1403044C0 (MiZeroInParallel.c)
+ *     KeDisconnectInterrupt @ 0x14031F628 (KeDisconnectInterrupt.c)
+ *     KeConnectInterrupt @ 0x140320CE4 (KeConnectInterrupt.c)
+ *     PpmCheckCustomRun @ 0x14032B8CC (PpmCheckCustomRun.c)
+ *     PpmReleaseLock @ 0x14032C510 (PpmReleaseLock.c)
+ *     PpmTryAcquireLock @ 0x14036DB98 (PpmTryAcquireLock.c)
+ *     KeClearSystemPriorityThread @ 0x14057716C (KeClearSystemPriorityThread.c)
+ *     MiDemoteSlabEntries @ 0x140656D04 (MiDemoteSlabEntries.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     KiSetPriorityThread @ 0x1402B05D0 (KiSetPriorityThread.c)
- *     KiProcessDeferredReadyList @ 0x1402B0E70 (KiProcessDeferredReadyList.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     KiSetPriorityThread @ 0x1402B0860 (KiSetPriorityThread.c)
+ *     KiProcessDeferredReadyList @ 0x1402B1100 (KiProcessDeferredReadyList.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  */
 
 char __fastcall KiClearSystemPriority(ULONG_PTR BugCheckParameter1, char *a2)
@@ -34,7 +34,7 @@ char __fastcall KiClearSystemPriority(ULONG_PTR BugCheckParameter1, char *a2)
   v15 = 0LL;
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     LODWORD(v13) = 4;

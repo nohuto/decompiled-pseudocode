@@ -1,20 +1,20 @@
 /*
- * XREFs of AslFileAllocAndGetAttributes @ 0x1407B24C4
+ * XREFs of AslFileAllocAndGetAttributes @ 0x1407B2664
  * Callers:
- *     SdbpCheckAllAttributes @ 0x1407B1FFC (SdbpCheckAllAttributes.c)
+ *     SdbpCheckAllAttributes @ 0x1407B219C (SdbpCheckAllAttributes.c)
  * Callees:
- *     AslLogCallPrintf @ 0x140755F64 (AslLogCallPrintf.c)
- *     AslFileMappingEnsure @ 0x1407B28C8 (AslFileMappingEnsure.c)
- *     AslpFileGetVersionAttributes @ 0x1407B2958 (AslpFileGetVersionAttributes.c)
- *     AslFileResourceNotFound @ 0x140967C94 (AslFileResourceNotFound.c)
- *     AslpFileGetChecksumAttributes @ 0x14096A9F4 (AslpFileGetChecksumAttributes.c)
- *     AslpFileGetClrVersionAttribute @ 0x14096AD80 (AslpFileGetClrVersionAttribute.c)
- *     AslpFileGetFileKindDetailAttribute @ 0x14096B210 (AslpFileGetFileKindDetailAttribute.c)
- *     AslpFileGetHeaderAttributesNE @ 0x14096B294 (AslpFileGetHeaderAttributesNE.c)
- *     AslpFileGetHeaderAttributesPE @ 0x14096B434 (AslpFileGetHeaderAttributesPE.c)
- *     AslpFileGetModuleType @ 0x14096B740 (AslpFileGetModuleType.c)
- *     AslpFileGetPeExportNameExeWrapper @ 0x14096B8E0 (AslpFileGetPeExportNameExeWrapper.c)
- *     AslpFileLargeEnsureLargeFileMapping @ 0x14096BEF4 (AslpFileLargeEnsureLargeFileMapping.c)
+ *     AslLogCallPrintf @ 0x140756124 (AslLogCallPrintf.c)
+ *     AslFileMappingEnsure @ 0x1407B2A68 (AslFileMappingEnsure.c)
+ *     AslpFileGetVersionAttributes @ 0x1407B2AF8 (AslpFileGetVersionAttributes.c)
+ *     AslFileResourceNotFound @ 0x140967E74 (AslFileResourceNotFound.c)
+ *     AslpFileGetChecksumAttributes @ 0x14096ABD4 (AslpFileGetChecksumAttributes.c)
+ *     AslpFileGetClrVersionAttribute @ 0x14096AF60 (AslpFileGetClrVersionAttribute.c)
+ *     AslpFileGetFileKindDetailAttribute @ 0x14096B3F0 (AslpFileGetFileKindDetailAttribute.c)
+ *     AslpFileGetHeaderAttributesNE @ 0x14096B474 (AslpFileGetHeaderAttributesNE.c)
+ *     AslpFileGetHeaderAttributesPE @ 0x14096B614 (AslpFileGetHeaderAttributesPE.c)
+ *     AslpFileGetModuleType @ 0x14096B920 (AslpFileGetModuleType.c)
+ *     AslpFileGetPeExportNameExeWrapper @ 0x14096BAC0 (AslpFileGetPeExportNameExeWrapper.c)
+ *     AslpFileLargeEnsureLargeFileMapping @ 0x14096C0D4 (AslpFileLargeEnsureLargeFileMapping.c)
  */
 
 __int64 __fastcall AslFileAllocAndGetAttributes(__int64 a1, _DWORD *a2, unsigned __int64 a3)

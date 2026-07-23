@@ -1,13 +1,13 @@
 /*
- * XREFs of SmProcessListRequestExtended @ 0x1409D6FF8
+ * XREFs of SmProcessListRequestExtended @ 0x1409D71F8
  * Callers:
- *     SmProcessListRequest @ 0x1409D6DAC (SmProcessListRequest.c)
+ *     SmProcessListRequest @ 0x1409D6FAC (SmProcessListRequest.c)
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x14028B390 (ExReleaseRundownProtection_0.c)
- *     SmKmStoreReference @ 0x140345010 (SmKmStoreReference.c)
- *     SmKmStoreRefFromStoreIndex @ 0x140345194 (SmKmStoreRefFromStoreIndex.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     SmKmFileInfoGetPath @ 0x1409D8BAC (SmKmFileInfoGetPath.c)
+ *     ExReleaseRundownProtection_0 @ 0x14028B620 (ExReleaseRundownProtection_0.c)
+ *     SmKmStoreReference @ 0x1403452A0 (SmKmStoreReference.c)
+ *     SmKmStoreRefFromStoreIndex @ 0x140345424 (SmKmStoreRefFromStoreIndex.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     SmKmFileInfoGetPath @ 0x1409D8DAC (SmKmFileInfoGetPath.c)
  */
 
 __int64 __fastcall SmProcessListRequestExtended(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

@@ -1,22 +1,19 @@
 /*
- * XREFs of SepCanTokenMatchAllPackageSid @ 0x1403440B0
+ * XREFs of SepCanTokenMatchAllPackageSid @ 0x140323590
  * Callers:
- *     SepMatchPackage @ 0x140344430 (SepMatchPackage.c)
- *     SepNormalAccessCheck @ 0x140344500 (SepNormalAccessCheck.c)
- *     SepNormalAccessCheckEx @ 0x14036292C (SepNormalAccessCheckEx.c)
- *     SepMaximumAccessCheck @ 0x140363250 (SepMaximumAccessCheck.c)
- *     SeQueryInformationToken @ 0x14090D870 (SeQueryInformationToken.c)
+ *     SepMatchPackage @ 0x140323910 (SepMatchPackage.c)
+ *     SeQueryInformationToken @ 0x1408E4F90 (SeQueryInformationToken.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x1402595A0 (KeLeaveCriticalRegionThread.c)
- *     ExReleaseResourceLite @ 0x14025A450 (ExReleaseResourceLite.c)
- *     ExAcquireFastResourceShared @ 0x1403411F0 (ExAcquireFastResourceShared.c)
- *     ExpAcquireResourceSharedLite @ 0x140342300 (ExpAcquireResourceSharedLite.c)
- *     ExIsFastResourceHeldExclusive @ 0x1403436B0 (ExIsFastResourceHeldExclusive.c)
- *     ExpAllocateOwnerEntryForLegacyShim @ 0x140343DB0 (ExpAllocateOwnerEntryForLegacyShim.c)
- *     AuthzBasepQuerySecurityAttributeAndValues @ 0x1403442B0 (AuthzBasepQuerySecurityAttributeAndValues.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x140289BB0 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseResourceLite @ 0x14028AA60 (ExReleaseResourceLite.c)
+ *     ExAcquireFastResourceShared @ 0x1403206D0 (ExAcquireFastResourceShared.c)
+ *     ExpAcquireResourceSharedLite @ 0x1403217E0 (ExpAcquireResourceSharedLite.c)
+ *     ExIsFastResourceHeldExclusive @ 0x140322B90 (ExIsFastResourceHeldExclusive.c)
+ *     ExpAllocateOwnerEntryForLegacyShim @ 0x140323290 (ExpAllocateOwnerEntryForLegacyShim.c)
+ *     AuthzBasepQuerySecurityAttributeAndValues @ 0x140323790 (AuthzBasepQuerySecurityAttributeAndValues.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 _BOOL8 __fastcall SepCanTokenMatchAllPackageSid(__int64 a1, __int64 a2, unsigned __int64 a3)

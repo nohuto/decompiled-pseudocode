@@ -1,11 +1,11 @@
 /*
- * XREFs of ObpInsertCallbackByAltitude @ 0x1409D5EA4
+ * XREFs of ObpInsertCallbackByAltitude @ 0x1409C5CD4
  * Callers:
- *     ObRegisterCallbacks @ 0x1409D5C70 (ObRegisterCallbacks.c)
+ *     ObRegisterCallbacks @ 0x1409C5AA0 (ObRegisterCallbacks.c)
  * Callees:
- *     RtlCompareAltitudes @ 0x1404564A0 (RtlCompareAltitudes.c)
- *     ObpUnlockObjectType @ 0x1409D66BC (ObpUnlockObjectType.c)
- *     ObpLockObjectTypeExclusive @ 0x1409D6734 (ObpLockObjectTypeExclusive.c)
+ *     RtlCompareAltitudes @ 0x14044B470 (RtlCompareAltitudes.c)
+ *     ObpUnlockObjectType @ 0x1409C64EC (ObpUnlockObjectType.c)
+ *     ObpLockObjectTypeExclusive @ 0x1409C6564 (ObpLockObjectTypeExclusive.c)
  */
 
 __int64 __fastcall ObpInsertCallbackByAltitude(__int64 a1, _QWORD *a2)

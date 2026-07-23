@@ -1,10 +1,10 @@
 /*
- * XREFs of PopDiagTracePostSleepNotification @ 0x140B68114
+ * XREFs of PopDiagTracePostSleepNotification @ 0x140B6A254
  * Callers:
- *     PopTransitionSystemPowerStateEx @ 0x140B667DC (PopTransitionSystemPowerStateEx.c)
+ *     PopTransitionSystemPowerStateEx @ 0x140B6891C (PopTransitionSystemPowerStateEx.c)
  * Callees:
- *     EtwWrite @ 0x14041C1B0 (EtwWrite.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     EtwWrite @ 0x14040FFB0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 int __fastcall PopDiagTracePostSleepNotification(int a1, int a2, int a3, __int64 a4, __int64 a5, char a6, char a7)

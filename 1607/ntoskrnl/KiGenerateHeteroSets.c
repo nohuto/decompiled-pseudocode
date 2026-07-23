@@ -1,9 +1,9 @@
 /*
- * XREFs of KiGenerateHeteroSets @ 0x1401D7ED8
+ * XREFs of KiGenerateHeteroSets @ 0x1401D7D04
  * Callers:
- *     KiCheckPreferredHeteroProcessor @ 0x1400DD2C0 (KiCheckPreferredHeteroProcessor.c)
- *     KiHeteroChooseTargetProcessor @ 0x1401D7F44 (KiHeteroChooseTargetProcessor.c)
- *     KiSetHeteroPolicyThread @ 0x1401D8354 (KiSetHeteroPolicyThread.c)
+ *     KiCheckPreferredHeteroProcessor @ 0x1400DB160 (KiCheckPreferredHeteroProcessor.c)
+ *     KiHeteroChooseTargetProcessor @ 0x1401D7D70 (KiHeteroChooseTargetProcessor.c)
+ *     KiSetHeteroPolicyThread @ 0x1401D8180 (KiSetHeteroPolicyThread.c)
  * Callees:
  *     <none>
  */

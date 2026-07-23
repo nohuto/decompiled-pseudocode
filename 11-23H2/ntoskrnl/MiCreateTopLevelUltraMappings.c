@@ -5,7 +5,7 @@
  * Callees:
  *     MiMakeZeroedPageTablesEx @ 0x140214310 (MiMakeZeroedPageTablesEx.c)
  *     InitializeSListHead @ 0x140221420 (InitializeSListHead.c)
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
+ *     MiAllocatePool @ 0x1402DF430 (MiAllocatePool.c)
  *     MiInitializeUltraSpace @ 0x140B43950 (MiInitializeUltraSpace.c)
  */
 
@@ -15,7 +15,7 @@ __int64 MiCreateTopLevelUltraMappings()
   unsigned int v1; // ebx
   char *Pool; // rsi
   __int64 v3; // rbp
-  union _SLIST_HEADER *v4; // rdi
+  _SLIST_HEADER *v4; // rdi
 
   v0 = qword_140C6A538;
   v1 = 0;
@@ -36,7 +36,7 @@ __int64 MiCreateTopLevelUltraMappings()
     do
     {
       v3 = 8LL;
-      v4 = (union _SLIST_HEADER *)&Pool[512 * (unsigned __int64)v1];
+      v4 = (_SLIST_HEADER *)&Pool[512 * (unsigned __int64)v1];
       do
       {
         InitializeSListHead(v4);

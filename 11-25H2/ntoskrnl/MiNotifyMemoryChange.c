@@ -18,7 +18,7 @@ LONG __fastcall MiNotifyMemoryChange(__int64 a1)
     if ( stru_140E2FC68.Header.SignalState )
     {
       if ( ((unsigned __int8)MiFlags & 0x30u) >= 0x20 )
-        ZwUpdateWnfStateData((__int64)&WNF_MM_PHYSICAL_MEMORY_CHANGE, 0LL);
+        ZwUpdateWnfStateData(&WNF_MM_PHYSICAL_MEMORY_CHANGE, 0LL, 0, 0LL, 0LL, 0, 0);
     }
     return KePulseEvent(qword_140E38B08, 0, 0);
   }

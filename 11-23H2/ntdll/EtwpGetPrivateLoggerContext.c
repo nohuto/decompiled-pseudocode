@@ -4,12 +4,12 @@
  *     EtwpQueryUmLogger @ 0x18005F188 (EtwpQueryUmLogger.c)
  *     EtwpFlushUmLogger @ 0x18005F2C0 (EtwpFlushUmLogger.c)
  *     EtwpStopUmLogger @ 0x18005F5F0 (EtwpStopUmLogger.c)
- *     EtwpIncrementUmLoggerFile @ 0x1801258BC (EtwpIncrementUmLoggerFile.c)
- *     EtwpUpdateUmLogger @ 0x180125F74 (EtwpUpdateUmLogger.c)
+ *     EtwpIncrementUmLoggerFile @ 0x18012588C (EtwpIncrementUmLoggerFile.c)
+ *     EtwpUpdateUmLogger @ 0x180125F44 (EtwpUpdateUmLogger.c)
  * Callees:
  *     RtlInitUnicodeString @ 0x1800187C0 (RtlInitUnicodeString.c)
  *     EtwpGetPrivateLoggerContextByName @ 0x18005C500 (EtwpGetPrivateLoggerContextByName.c)
- *     EtwpDemuxUmTraceHandle @ 0x180125590 (EtwpDemuxUmTraceHandle.c)
+ *     EtwpDemuxUmTraceHandle @ 0x180125560 (EtwpDemuxUmTraceHandle.c)
  */
 
 __int64 __fastcall EtwpGetPrivateLoggerContext(__int64 a1, _QWORD *a2)
@@ -19,13 +19,13 @@ __int64 __fastcall EtwpGetPrivateLoggerContext(__int64 a1, _QWORD *a2)
   unsigned int v5; // eax
   __int64 v6; // rdx
   __int64 result; // rax
-  UNICODE_STRING DestinationString; // [rsp+20h] [rbp-18h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+20h] [rbp-18h] BYREF
   unsigned int v9; // [rsp+40h] [rbp+8h] BYREF
 
   if ( *(_WORD *)(a1 + 144) )
   {
     RtlInitUnicodeString(&DestinationString, (PCWSTR)(a1 + 176));
-    return EtwpGetPrivateLoggerContextByName((__int64)&DestinationString, a2);
+    return EtwpGetPrivateLoggerContextByName(&DestinationString, a2);
   }
   v3 = *(unsigned __int16 *)(a1 + 8);
   v4 = EtwpLoggerArray;

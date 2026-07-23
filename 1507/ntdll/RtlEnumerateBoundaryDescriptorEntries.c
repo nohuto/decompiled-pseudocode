@@ -52,7 +52,7 @@ LABEL_7:
   if ( (unsigned int)++v4 <= 1 )
   {
 LABEL_6:
-    if ( !RtlpValidateSidBuffer((_BYTE *)(v3 + 8), v7 - 8) )
+    if ( !RtlpValidateSidBuffer((unsigned __int8 *)(v3 + 8), v7 - 8) )
       return 3221225485LL;
     goto LABEL_7;
   }

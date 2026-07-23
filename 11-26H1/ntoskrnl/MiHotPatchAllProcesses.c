@@ -1,14 +1,14 @@
 /*
- * XREFs of MiHotPatchAllProcesses @ 0x140870190
+ * XREFs of MiHotPatchAllProcesses @ 0x1408764F0
  * Callers:
- *     MiLoadHotPatch @ 0x140870D5C (MiLoadHotPatch.c)
- *     MiLoadHotPatchForUserSid @ 0x1408712F4 (MiLoadHotPatchForUserSid.c)
+ *     MiLoadHotPatch @ 0x1408770BC (MiLoadHotPatch.c)
+ *     MiLoadHotPatchForUserSid @ 0x140877654 (MiLoadHotPatchForUserSid.c)
  * Callees:
- *     KiUnstackDetachProcess @ 0x1402307C0 (KiUnstackDetachProcess.c)
- *     KeStackAttachProcess @ 0x1402C5270 (KeStackAttachProcess.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     MiHotPatchProcess @ 0x140870248 (MiHotPatchProcess.c)
- *     PsGetNextProcess @ 0x14096EE20 (PsGetNextProcess.c)
+ *     KiUnstackDetachProcess @ 0x140232120 (KiUnstackDetachProcess.c)
+ *     KeStackAttachProcess @ 0x14030FF30 (KeStackAttachProcess.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     MiHotPatchProcess @ 0x1408765A8 (MiHotPatchProcess.c)
+ *     PsGetNextProcess @ 0x1409BC470 (PsGetNextProcess.c)
  */
 
 __int64 __fastcall MiHotPatchAllProcesses(unsigned int a1, unsigned int a2, unsigned int a3)

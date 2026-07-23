@@ -1,51 +1,51 @@
 /*
- * XREFs of MiDeleteVirtualAddresses @ 0x140045C00
+ * XREFs of MiDeleteVirtualAddresses @ 0x140045780
  * Callers:
- *     MiDeleteVad @ 0x1400288D0 (MiDeleteVad.c)
- *     MiDeleteFinalPageTables @ 0x140075A98 (MiDeleteFinalPageTables.c)
- *     MiDeletePartialVad @ 0x140095DC0 (MiDeletePartialVad.c)
- *     MiDeleteRotateAndStopFaults @ 0x14010E5B4 (MiDeleteRotateAndStopFaults.c)
+ *     MiDeleteVad @ 0x140028450 (MiDeleteVad.c)
+ *     MiDeleteFinalPageTables @ 0x140075B18 (MiDeleteFinalPageTables.c)
+ *     MiDeletePartialVad @ 0x1400955C0 (MiDeletePartialVad.c)
+ *     MiDeleteRotateAndStopFaults @ 0x14010EB18 (MiDeleteRotateAndStopFaults.c)
  * Callees:
- *     MiReleasePageFileInfo @ 0x14001A280 (MiReleasePageFileInfo.c)
- *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14001BCF0 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
- *     KeYieldProcessorEx @ 0x14002ECB0 (KeYieldProcessorEx.c)
- *     MiGetNextPageTable @ 0x1400438F0 (MiGetNextPageTable.c)
- *     MiLocateWsle @ 0x140046B50 (MiLocateWsle.c)
- *     MiRemoveWsle @ 0x140046F10 (MiRemoveWsle.c)
- *     MiGetSharedWorkingSetList @ 0x140047070 (MiGetSharedWorkingSetList.c)
- *     MiLogPageAccess @ 0x140048940 (MiLogPageAccess.c)
- *     MiDeletePteRun @ 0x140065140 (MiDeletePteRun.c)
- *     KxReleaseQueuedSpinLock @ 0x140069570 (KxReleaseQueuedSpinLock.c)
- *     KeShouldYieldProcessor @ 0x1400956C0 (KeShouldYieldProcessor.c)
- *     MiDecayPfnFullyInitialized @ 0x140096A10 (MiDecayPfnFullyInitialized.c)
- *     MiCompressTbFlushList @ 0x1400974F0 (MiCompressTbFlushList.c)
- *     MiCreateDecayPfn @ 0x1400976F0 (MiCreateDecayPfn.c)
- *     MiLockSetPfnPriority @ 0x1400AA598 (MiLockSetPfnPriority.c)
- *     MiDecrementCloneBlockReference @ 0x1400B8CA0 (MiDecrementCloneBlockReference.c)
- *     MiRemoveLockedPageFromWorkingSet @ 0x1400BAB0C (MiRemoveLockedPageFromWorkingSet.c)
- *     MiLocateCloneAddress @ 0x1400BDB00 (MiLocateCloneAddress.c)
- *     MiRotatedToFrameBuffer @ 0x1400BDE00 (MiRotatedToFrameBuffer.c)
- *     MiInsertTbFlushEntry @ 0x1400E0240 (MiInsertTbFlushEntry.c)
- *     MiFlushTbList @ 0x1400E0490 (MiFlushTbList.c)
- *     MiDeletePageTableHierarchy @ 0x1400E4D40 (MiDeletePageTableHierarchy.c)
- *     MiGetPfnPriority @ 0x1400E67A4 (MiGetPfnPriority.c)
- *     MiUnmapFrameBuffer @ 0x14010DDA0 (MiUnmapFrameBuffer.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     qsort @ 0x14014DF60 (qsort.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     KiResetGlobalDpcWatchdogProfiler @ 0x1401D1EAC (KiResetGlobalDpcWatchdogProfiler.c)
- *     MiPteHasShadow @ 0x1401EF38C (MiPteHasShadow.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
- *     MiGetUsedPtesHandle @ 0x1401EF7E0 (MiGetUsedPtesHandle.c)
- *     MI_GET_PFN_FROM_PTE @ 0x1401F2594 (MI_GET_PFN_FROM_PTE.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiGetPrototypePteDirect @ 0x1401F26B0 (MiGetPrototypePteDirect.c)
- *     MiIsPrototypePteVadLookup @ 0x1401F2708 (MiIsPrototypePteVadLookup.c)
- *     MiReverseSwizzleInvalidPte @ 0x1401F2934 (MiReverseSwizzleInvalidPte.c)
- *     MiRelockWorkingSetExclusive @ 0x1401F2AEC (MiRelockWorkingSetExclusive.c)
- *     MiDecrementCombinedPte @ 0x1401F972C (MiDecrementCombinedPte.c)
- *     EtwTraceShouldYieldProcessor @ 0x1402261BC (EtwTraceShouldYieldProcessor.c)
+ *     MiReleasePageFileInfo @ 0x140019E00 (MiReleasePageFileInfo.c)
+ *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x14001B870 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     KeYieldProcessorEx @ 0x14002E830 (KeYieldProcessorEx.c)
+ *     MiGetNextPageTable @ 0x140043470 (MiGetNextPageTable.c)
+ *     MiLocateWsle @ 0x1400466D0 (MiLocateWsle.c)
+ *     MiRemoveWsle @ 0x140046A90 (MiRemoveWsle.c)
+ *     MiGetSharedWorkingSetList @ 0x140046BF0 (MiGetSharedWorkingSetList.c)
+ *     MiLogPageAccess @ 0x1400484C0 (MiLogPageAccess.c)
+ *     MiDeletePteRun @ 0x140064CC0 (MiDeletePteRun.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400690F0 (KxReleaseQueuedSpinLock.c)
+ *     KeShouldYieldProcessor @ 0x140094EC0 (KeShouldYieldProcessor.c)
+ *     MiDecayPfnFullyInitialized @ 0x140096210 (MiDecayPfnFullyInitialized.c)
+ *     MiCompressTbFlushList @ 0x140096CF0 (MiCompressTbFlushList.c)
+ *     MiCreateDecayPfn @ 0x140096EF0 (MiCreateDecayPfn.c)
+ *     MiLockSetPfnPriority @ 0x1400A8B18 (MiLockSetPfnPriority.c)
+ *     MiDecrementCloneBlockReference @ 0x1400B6B30 (MiDecrementCloneBlockReference.c)
+ *     MiRemoveLockedPageFromWorkingSet @ 0x1400B899C (MiRemoveLockedPageFromWorkingSet.c)
+ *     MiLocateCloneAddress @ 0x1400BB990 (MiLocateCloneAddress.c)
+ *     MiRotatedToFrameBuffer @ 0x1400BBC90 (MiRotatedToFrameBuffer.c)
+ *     MiInsertTbFlushEntry @ 0x1400DE0E0 (MiInsertTbFlushEntry.c)
+ *     MiFlushTbList @ 0x1400DE330 (MiFlushTbList.c)
+ *     MiDeletePageTableHierarchy @ 0x1400E2BE0 (MiDeletePageTableHierarchy.c)
+ *     MiGetPfnPriority @ 0x1400E4644 (MiGetPfnPriority.c)
+ *     MiUnmapFrameBuffer @ 0x14010E304 (MiUnmapFrameBuffer.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     qsort @ 0x14014E520 (qsort.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     KiResetGlobalDpcWatchdogProfiler @ 0x1401D1CD8 (KiResetGlobalDpcWatchdogProfiler.c)
+ *     MiPteHasShadow @ 0x1401EF1B8 (MiPteHasShadow.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
+ *     MiGetUsedPtesHandle @ 0x1401EF60C (MiGetUsedPtesHandle.c)
+ *     MI_GET_PFN_FROM_PTE @ 0x1401F23C0 (MI_GET_PFN_FROM_PTE.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
+ *     MiGetPrototypePteDirect @ 0x1401F24DC (MiGetPrototypePteDirect.c)
+ *     MiIsPrototypePteVadLookup @ 0x1401F2534 (MiIsPrototypePteVadLookup.c)
+ *     MiReverseSwizzleInvalidPte @ 0x1401F2760 (MiReverseSwizzleInvalidPte.c)
+ *     MiRelockWorkingSetExclusive @ 0x1401F2918 (MiRelockWorkingSetExclusive.c)
+ *     MiDecrementCombinedPte @ 0x1401F9558 (MiDecrementCombinedPte.c)
+ *     EtwTraceShouldYieldProcessor @ 0x140225FE8 (EtwTraceShouldYieldProcessor.c)
  */
 
 int __fastcall MiDeleteVirtualAddresses(unsigned __int64 a1, unsigned __int64 a2, char a3, __int64 a4, __int64 a5)
@@ -184,7 +184,7 @@ int __fastcall MiDeleteVirtualAddresses(unsigned __int64 a1, unsigned __int64 a2
   if ( v7 == 1023 )
     v117 = (struct _KEVENT *)MiSystemPartition;
   else
-    v117 = *(struct _KEVENT **)(qword_140326FF8 + 8LL * v7);
+    v117 = *(struct _KEVENT **)(qword_140327038 + 8LL * v7);
   BugCheckParameter2 = 0LL;
   v126 = 1;
   v127 = 0;
@@ -207,7 +207,7 @@ int __fastcall MiDeleteVirtualAddresses(unsigned __int64 a1, unsigned __int64 a2
         return NextPageTable;
       v12 = *((_BYTE *)v6 + 187) & 1;
       v108 = v12;
-      if ( (v5 & 2) != 0 && !v12 && dword_140327188 )
+      if ( (v5 & 2) != 0 && !v12 && dword_1403271C8 )
         SharedWorkingSetList = MiGetSharedWorkingSetList(v6);
       else
         SharedWorkingSetList = 0LL;
@@ -435,7 +435,7 @@ LABEL_86:
               if ( v52 == 7 )
               {
                 v53 = WORD2(Process[1].InstrumentationCallback);
-                v54 = v53 == 1023 ? MiSystemPartition : *(int **)(qword_140326FF8 + 8LL * v53);
+                v54 = v53 == 1023 ? MiSystemPartition : *(int **)(qword_140327038 + 8LL * v53);
                 v55 = *((_QWORD *)v54 + 781);
                 if ( *(_QWORD *)&Process[1].Spare2[12] < *(_QWORD *)(v55 + 64) )
                 {
@@ -444,7 +444,7 @@ LABEL_86:
                   {
                     if ( *((char **)v54 + 783) != p_ProcessListEntry )
                     {
-                      KeAcquireInStackQueuedSpinLockAtDpcLevel(&qword_140327740, &LockHandle);
+                      KeAcquireInStackQueuedSpinLockAtDpcLevel(&qword_140327780, &LockHandle);
                       if ( *(_BYTE *)(v55 + 53) || !*(_QWORD *)p_ProcessListEntry )
                       {
                         *(_BYTE *)(v55 + 54) = 1;
@@ -500,9 +500,9 @@ LABEL_86:
           }
           if ( ((__int64)v51[2].Header.WaitListHead.Flink & 7) == 2 )
           {
-            --qword_140327D08;
+            --qword_140327D48;
             if ( v63 == 1 )
-              --qword_140327D10;
+              --qword_140327D50;
           }
           if ( v32 >= v104[1] )
           {
@@ -639,7 +639,7 @@ LABEL_141:
           goto LABEL_201;
         if ( (((_BYTE)v11 + 8) & 0x78) == 0 )
         {
-          v81 = &dword_140327C80;
+          v81 = &dword_140327CC0;
           if ( (v6[92] & 7) != 2 )
             v81 = (LONG *)(v6 + 96);
           if ( (*v81 & 0x40000000) != 0 )
@@ -753,7 +753,7 @@ LABEL_205:
         MiDeletePageTableHierarchy(0LL, v11 - 8);
       if ( v105 == 2 )
         goto LABEL_222;
-      v97 = &dword_140327C80;
+      v97 = &dword_140327CC0;
       if ( (v6[92] & 7) != 2 )
         v97 = (LONG *)(v6 + 96);
       if ( (*v97 & 0x40000000) != 0 || (LODWORD(NextPageTable) = KeShouldYieldProcessor(), (_DWORD)NextPageTable) )

@@ -1,10 +1,10 @@
 /*
- * XREFs of KiQuerySubNodeActiveAffinity @ 0x140467FD0
+ * XREFs of KiQuerySubNodeActiveAffinity @ 0x140461720
  * Callers:
- *     KeQueryNodeActiveAffinity2 @ 0x14050E130 (KeQueryNodeActiveAffinity2.c)
- *     KiDoesNodeIntersectAffinity @ 0x1405EF7EC (KiDoesNodeIntersectAffinity.c)
- *     KiSynchNumaCounterSetCallback @ 0x140A67EF0 (KiSynchNumaCounterSetCallback.c)
- *     KiConfigureSchedulingInformation @ 0x140BF3AF0 (KiConfigureSchedulingInformation.c)
+ *     KeQueryNodeActiveAffinity2 @ 0x140507BA0 (KeQueryNodeActiveAffinity2.c)
+ *     KiDoesNodeIntersectAffinity @ 0x1405F215C (KiDoesNodeIntersectAffinity.c)
+ *     KiSynchNumaCounterSetCallback @ 0x140A74EC0 (KiSynchNumaCounterSetCallback.c)
+ *     KiConfigureSchedulingInformation @ 0x140BF9AF0 (KiConfigureSchedulingInformation.c)
  * Callees:
  *     <none>
  */

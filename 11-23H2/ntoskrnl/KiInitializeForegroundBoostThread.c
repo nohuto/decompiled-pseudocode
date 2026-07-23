@@ -1,14 +1,14 @@
 /*
- * XREFs of KiInitializeForegroundBoostThread @ 0x1402BDE58
+ * XREFs of KiInitializeForegroundBoostThread @ 0x1402BE0E8
  * Callers:
- *     KeStartThread @ 0x1402BE0D8 (KeStartThread.c)
+ *     KeStartThread @ 0x1402BE368 (KeStartThread.c)
  * Callees:
- *     KiComputeHeteroThreadQos @ 0x1402B0DF0 (KiComputeHeteroThreadQos.c)
- *     KiAbProcessThreadPriorityModification @ 0x140307920 (KiAbProcessThreadPriorityModification.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     KiSetSchedulerAssistPriority @ 0x1404104A0 (KiSetSchedulerAssistPriority.c)
- *     memset @ 0x140435A00 (memset.c)
- *     KiSetThreadQosLevelUnsafe @ 0x140462658 (KiSetThreadQosLevelUnsafe.c)
+ *     KiComputeHeteroThreadQos @ 0x1402B1080 (KiComputeHeteroThreadQos.c)
+ *     KiAbProcessThreadPriorityModification @ 0x140307BB0 (KiAbProcessThreadPriorityModification.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiSetSchedulerAssistPriority @ 0x140410704 (KiSetSchedulerAssistPriority.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     KiSetThreadQosLevelUnsafe @ 0x140462A58 (KiSetThreadQosLevelUnsafe.c)
  */
 
 char __fastcall KiInitializeForegroundBoostThread(__int64 a1)

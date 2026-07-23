@@ -1,63 +1,63 @@
 /*
- * XREFs of CmDeleteValueKey @ 0x14086D078
+ * XREFs of CmDeleteValueKey @ 0x1408713A8
  * Callers:
- *     NtDeleteValueKey @ 0x140979A90 (NtDeleteValueKey.c)
+ *     NtDeleteValueKey @ 0x1409622A0 (NtDeleteValueKey.c)
  * Callees:
- *     CmpAllocatePool @ 0x1403E1834 (CmpAllocatePool.c)
- *     CmpDrainDelayDerefContext @ 0x14041AEB0 (CmpDrainDelayDerefContext.c)
- *     CmpInitializeDelayDerefContext @ 0x140424470 (CmpInitializeDelayDerefContext.c)
- *     CmpFreeTransientPoolWithTag @ 0x140441FC0 (CmpFreeTransientPoolWithTag.c)
- *     CmSiFreeMemory @ 0x14046B8D0 (CmSiFreeMemory.c)
- *     CmpTransEnlistUowInCmTrans @ 0x14048052C (CmpTransEnlistUowInCmTrans.c)
- *     CmpTransEnlistUowInKcb @ 0x140484100 (CmpTransEnlistUowInKcb.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     SeAdtRegistryValueChangedAuditAlarm @ 0x140790124 (SeAdtRegistryValueChangedAuditAlarm.c)
- *     CmpGetValueForAudit @ 0x1407E3450 (CmpGetValueForAudit.c)
- *     CmpReportNotifyHelper @ 0x140868820 (CmpReportNotifyHelper.c)
- *     CmpGetSecurityCacheEntryForKcbStack @ 0x140869130 (CmpGetSecurityCacheEntryForKcbStack.c)
- *     HvUnlockHiveFlusherShared @ 0x14086A604 (HvUnlockHiveFlusherShared.c)
- *     CmpUpdateKeyNodeAccessBits @ 0x14086A638 (CmpUpdateKeyNodeAccessBits.c)
- *     CmpSignalDeferredPosts @ 0x14086A690 (CmpSignalDeferredPosts.c)
- *     CmpSnapshotTxOwnerArray @ 0x14086C0D0 (CmpSnapshotTxOwnerArray.c)
- *     CmpRollbackTransactionArray @ 0x14086C1E8 (CmpRollbackTransactionArray.c)
- *     CmpLockKcbStackTopExclusiveRestShared @ 0x14086C494 (CmpLockKcbStackTopExclusiveRestShared.c)
- *     CmpFindNameInListWithStatus @ 0x14086C510 (CmpFindNameInListWithStatus.c)
- *     CmpStartKcbStackForTopLayerKcb @ 0x14086DD20 (CmpStartKcbStackForTopLayerKcb.c)
- *     CmpUnlockKcbStack @ 0x14086E6E0 (CmpUnlockKcbStack.c)
- *     HvpMarkCellDirty @ 0x140871600 (HvpMarkCellDirty.c)
- *     HvpGetCellFlat @ 0x140874470 (HvpGetCellFlat.c)
- *     HvpGetCellPaged @ 0x1408744C0 (HvpGetCellPaged.c)
- *     HvpGetCellContextInitialize @ 0x140875730 (HvpGetCellContextInitialize.c)
- *     HvpReleaseCellPaged @ 0x140875760 (HvpReleaseCellPaged.c)
- *     CmpTransSearchAddTransFromKeyBody @ 0x140879368 (CmpTransSearchAddTransFromKeyBody.c)
- *     CmpRundownUnitOfWork @ 0x14087B024 (CmpRundownUnitOfWork.c)
- *     HvLockHiveFlusherShared @ 0x14087DD28 (HvLockHiveFlusherShared.c)
- *     CmpDelayDerefKeyControlBlock @ 0x14087E570 (CmpDelayDerefKeyControlBlock.c)
- *     CmpMarkValueDataDirty @ 0x140880248 (CmpMarkValueDataDirty.c)
- *     CmpFreeValue @ 0x14088092C (CmpFreeValue.c)
- *     CmpFreeValueData @ 0x1408809D4 (CmpFreeValueData.c)
- *     HvFreeCell @ 0x140881C04 (HvFreeCell.c)
- *     HvpReleaseCellFlat @ 0x140884BB0 (HvpReleaseCellFlat.c)
- *     CmpIsValueTombstone @ 0x140914310 (CmpIsValueTombstone.c)
- *     CmpGetEffectiveKcbSemantics @ 0x1409145A0 (CmpGetEffectiveKcbSemantics.c)
- *     CmpCleanupKcbStack @ 0x1409172A0 (CmpCleanupKcbStack.c)
- *     CmpLogTransactionAbortedWithChildName @ 0x14097ACC8 (CmpLogTransactionAbortedWithChildName.c)
- *     CmpPromoteKey @ 0x1409880D8 (CmpPromoteKey.c)
- *     CmpRemoveValueFromList @ 0x1409FF414 (CmpRemoveValueFromList.c)
- *     CmAddLogForAction @ 0x140A05328 (CmAddLogForAction.c)
- *     CmpLockIXLockIntent @ 0x140A2E5B4 (CmpLockIXLockIntent.c)
- *     CmpAllocateUnitOfWork @ 0x140A2E660 (CmpAllocateUnitOfWork.c)
- *     CmpLockIXLockExclusive @ 0x140A2E6B8 (CmpLockIXLockExclusive.c)
- *     CmpCloneKCBValueListForTrans @ 0x140A4187C (CmpCloneKCBValueListForTrans.c)
- *     CmpSetValueKeyTombstone @ 0x140AADCF4 (CmpSetValueKeyTombstone.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
- *     CmpIsKeyDeletedForKeyBody @ 0x140BB9480 (CmpIsKeyDeletedForKeyBody.c)
- *     CmpAttachToRegistryProcess @ 0x140BB98E0 (CmpAttachToRegistryProcess.c)
- *     CmpDetachFromRegistryProcess @ 0x140BB9920 (CmpDetachFromRegistryProcess.c)
- *     CmpIsShutdownRundownActive @ 0x140BB9A84 (CmpIsShutdownRundownActive.c)
- *     CmpLockRegistry @ 0x140BB9E60 (CmpLockRegistry.c)
- *     CmpUnlockRegistry @ 0x140BB9F50 (CmpUnlockRegistry.c)
+ *     CmpAllocatePool @ 0x1403C9EA4 (CmpAllocatePool.c)
+ *     CmpDrainDelayDerefContext @ 0x14040AEB0 (CmpDrainDelayDerefContext.c)
+ *     CmpInitializeDelayDerefContext @ 0x140418320 (CmpInitializeDelayDerefContext.c)
+ *     CmpFreeTransientPoolWithTag @ 0x140438B90 (CmpFreeTransientPoolWithTag.c)
+ *     CmSiFreeMemory @ 0x140464550 (CmSiFreeMemory.c)
+ *     CmpTransEnlistUowInCmTrans @ 0x14047B08C (CmpTransEnlistUowInCmTrans.c)
+ *     CmpTransEnlistUowInKcb @ 0x14047F6A0 (CmpTransEnlistUowInKcb.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     SeAdtRegistryValueChangedAuditAlarm @ 0x1407900F4 (SeAdtRegistryValueChangedAuditAlarm.c)
+ *     CmpGetValueForAudit @ 0x1407E39A0 (CmpGetValueForAudit.c)
+ *     CmpReportNotifyHelper @ 0x14086CB10 (CmpReportNotifyHelper.c)
+ *     CmpGetSecurityCacheEntryForKcbStack @ 0x14086D420 (CmpGetSecurityCacheEntryForKcbStack.c)
+ *     HvUnlockHiveFlusherShared @ 0x14086E934 (HvUnlockHiveFlusherShared.c)
+ *     CmpUpdateKeyNodeAccessBits @ 0x14086E968 (CmpUpdateKeyNodeAccessBits.c)
+ *     CmpSignalDeferredPosts @ 0x14086E9C0 (CmpSignalDeferredPosts.c)
+ *     CmpSnapshotTxOwnerArray @ 0x140870400 (CmpSnapshotTxOwnerArray.c)
+ *     CmpRollbackTransactionArray @ 0x140870518 (CmpRollbackTransactionArray.c)
+ *     CmpLockKcbStackTopExclusiveRestShared @ 0x1408707C4 (CmpLockKcbStackTopExclusiveRestShared.c)
+ *     CmpFindNameInListWithStatus @ 0x140870840 (CmpFindNameInListWithStatus.c)
+ *     CmpStartKcbStackForTopLayerKcb @ 0x140872050 (CmpStartKcbStackForTopLayerKcb.c)
+ *     CmpUnlockKcbStack @ 0x140872A10 (CmpUnlockKcbStack.c)
+ *     HvpMarkCellDirty @ 0x140875930 (HvpMarkCellDirty.c)
+ *     HvpGetCellFlat @ 0x1408787A0 (HvpGetCellFlat.c)
+ *     HvpGetCellPaged @ 0x1408787F0 (HvpGetCellPaged.c)
+ *     HvpGetCellContextInitialize @ 0x140879A60 (HvpGetCellContextInitialize.c)
+ *     HvpReleaseCellPaged @ 0x140879A90 (HvpReleaseCellPaged.c)
+ *     CmpTransSearchAddTransFromKeyBody @ 0x14087D698 (CmpTransSearchAddTransFromKeyBody.c)
+ *     CmpRundownUnitOfWork @ 0x14087EED4 (CmpRundownUnitOfWork.c)
+ *     HvLockHiveFlusherShared @ 0x140881BD8 (HvLockHiveFlusherShared.c)
+ *     CmpDelayDerefKeyControlBlock @ 0x140882420 (CmpDelayDerefKeyControlBlock.c)
+ *     CmpMarkValueDataDirty @ 0x1408840F8 (CmpMarkValueDataDirty.c)
+ *     CmpFreeValue @ 0x1408847DC (CmpFreeValue.c)
+ *     CmpFreeValueData @ 0x140884884 (CmpFreeValueData.c)
+ *     HvFreeCell @ 0x140885AB4 (HvFreeCell.c)
+ *     HvpReleaseCellFlat @ 0x140888A60 (HvpReleaseCellFlat.c)
+ *     CmpIsValueTombstone @ 0x140907D80 (CmpIsValueTombstone.c)
+ *     CmpGetEffectiveKcbSemantics @ 0x140908010 (CmpGetEffectiveKcbSemantics.c)
+ *     CmpCleanupKcbStack @ 0x14090AD10 (CmpCleanupKcbStack.c)
+ *     CmpLogTransactionAbortedWithChildName @ 0x1409634D8 (CmpLogTransactionAbortedWithChildName.c)
+ *     CmpPromoteKey @ 0x1409708BC (CmpPromoteKey.c)
+ *     CmpRemoveValueFromList @ 0x1409F835C (CmpRemoveValueFromList.c)
+ *     CmAddLogForAction @ 0x140A01858 (CmAddLogForAction.c)
+ *     CmpLockIXLockIntent @ 0x140A22FF4 (CmpLockIXLockIntent.c)
+ *     CmpAllocateUnitOfWork @ 0x140A230A0 (CmpAllocateUnitOfWork.c)
+ *     CmpLockIXLockExclusive @ 0x140A230F8 (CmpLockIXLockExclusive.c)
+ *     CmpCloneKCBValueListForTrans @ 0x140A3715C (CmpCloneKCBValueListForTrans.c)
+ *     CmpSetValueKeyTombstone @ 0x140AA8D74 (CmpSetValueKeyTombstone.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
+ *     CmpIsKeyDeletedForKeyBody @ 0x140BBB480 (CmpIsKeyDeletedForKeyBody.c)
+ *     CmpAttachToRegistryProcess @ 0x140BBB8E0 (CmpAttachToRegistryProcess.c)
+ *     CmpDetachFromRegistryProcess @ 0x140BBB920 (CmpDetachFromRegistryProcess.c)
+ *     CmpIsShutdownRundownActive @ 0x140BBBA84 (CmpIsShutdownRundownActive.c)
+ *     CmpLockRegistry @ 0x140BBBE60 (CmpLockRegistry.c)
+ *     CmpUnlockRegistry @ 0x140BBBF50 (CmpUnlockRegistry.c)
  */
 
 __int64 __fastcall CmDeleteValueKey(__int64 a1, unsigned __int16 *a2, __int64 a3, char a4)
@@ -238,7 +238,7 @@ LABEL_7:
       break;
     if ( *(int *)(v7 + 248) < 0 )
     {
-      started = CmpSnapshotTxOwnerArray(v7 + 248, &v76, &v86);
+      started = CmpSnapshotTxOwnerArray((unsigned int *)(v7 + 248), &v76, &v86);
       if ( started < 0 )
         goto LABEL_159;
       v56 = v76;
@@ -253,7 +253,7 @@ LABEL_7:
     {
       if ( !*(_DWORD *)(v7 + 264) )
         goto LABEL_11;
-      started = CmpSnapshotTxOwnerArray(v7 + 264, &v76, &v86);
+      started = CmpSnapshotTxOwnerArray((unsigned int *)(v7 + 264), &v76, &v86);
       if ( started < 0 )
       {
 LABEL_159:
@@ -429,7 +429,7 @@ LABEL_40:
       if ( v71 )
       {
         SecurityCacheEntryForKcbStack = CmpGetSecurityCacheEntryForKcbStack((__int64)&v81, v31, 0LL);
-        Pool = (void *)CmpAllocatePool(0x100uLL);
+        Pool = (void *)CmpAllocatePool(0x100uLL, *(unsigned int *)(SecurityCacheEntryForKcbStack + 24), 0x32414D43u);
         v67 = (__int64)Pool;
         if ( Pool )
         {

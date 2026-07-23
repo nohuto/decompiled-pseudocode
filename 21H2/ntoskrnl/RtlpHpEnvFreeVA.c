@@ -1,16 +1,16 @@
 /*
- * XREFs of RtlpHpEnvFreeVA @ 0x1402FA804
+ * XREFs of RtlpHpEnvFreeVA @ 0x140305554
  * Callers:
- *     RtlpHpVaMgrRegionAllocate @ 0x1402A33F4 (RtlpHpVaMgrRegionAllocate.c)
- *     RtlpHpVaMgrCtxFree @ 0x1402A3484 (RtlpHpVaMgrCtxFree.c)
- *     RtlpHpVaMgrRangeFree @ 0x1402A35E8 (RtlpHpVaMgrRangeFree.c)
- *     RtlpCSparseBitmapPageDecommit @ 0x1402A3A20 (RtlpCSparseBitmapPageDecommit.c)
- *     RtlpHpVaMgrAlloc @ 0x1402A3F84 (RtlpHpVaMgrAlloc.c)
- *     RtlpHpFreeVA @ 0x1402FA770 (RtlpHpFreeVA.c)
- *     RtlpHpEnvAllocVA @ 0x14030AF2C (RtlpHpEnvAllocVA.c)
- *     RtlCSparseBitmapCleanup @ 0x14038CCA0 (RtlCSparseBitmapCleanup.c)
+ *     RtlpHpVaMgrRegionAllocate @ 0x140220834 (RtlpHpVaMgrRegionAllocate.c)
+ *     RtlpHpVaMgrCtxFree @ 0x1402208C4 (RtlpHpVaMgrCtxFree.c)
+ *     RtlpHpVaMgrRangeFree @ 0x140220A28 (RtlpHpVaMgrRangeFree.c)
+ *     RtlpCSparseBitmapPageDecommit @ 0x140220E60 (RtlpCSparseBitmapPageDecommit.c)
+ *     RtlpHpVaMgrAlloc @ 0x1402213C4 (RtlpHpVaMgrAlloc.c)
+ *     RtlpHpFreeVA @ 0x1403054C0 (RtlpHpFreeVA.c)
+ *     RtlpHpEnvAllocVA @ 0x140315C7C (RtlpHpEnvAllocVA.c)
+ *     RtlCSparseBitmapCleanup @ 0x14038CDF0 (RtlCSparseBitmapCleanup.c)
  * Callees:
- *     MmFreePoolMemory @ 0x1402FA848 (MmFreePoolMemory.c)
+ *     MmFreePoolMemory @ 0x140305598 (MmFreePoolMemory.c)
  */
 
 __int64 __fastcall RtlpHpEnvFreeVA(unsigned __int64 *a1, unsigned __int64 *a2, __int64 a3)

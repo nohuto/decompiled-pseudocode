@@ -1,15 +1,15 @@
 /*
- * XREFs of PoUnregisterPowerSettingCallback @ 0x140A76B70
+ * XREFs of PoUnregisterPowerSettingCallback @ 0x140A70C90
  * Callers:
- *     SSHSupportUnregisterPowerSettingCallback @ 0x14076796C (SSHSupportUnregisterPowerSettingCallback.c)
- *     TtmCleanupCurrentSession @ 0x140AAD48C (TtmCleanupCurrentSession.c)
- *     PopModernStandbyNotificationInit @ 0x140C33490 (PopModernStandbyNotificationInit.c)
+ *     SSHSupportUnregisterPowerSettingCallback @ 0x140767B9C (SSHSupportUnregisterPowerSettingCallback.c)
+ *     TtmCleanupCurrentSession @ 0x140AA850C (TtmCleanupCurrentSession.c)
+ *     PopModernStandbyNotificationInit @ 0x140C355D0 (PopModernStandbyNotificationInit.c)
  * Callees:
- *     KeResetEvent @ 0x14028EEC0 (KeResetEvent.c)
- *     KeReleaseGuardedMutex @ 0x14031E470 (KeReleaseGuardedMutex.c)
- *     ExAcquireFastMutex @ 0x14033E850 (ExAcquireFastMutex.c)
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     PopUnregisterPowerSettingCallback @ 0x1404AD028 (PopUnregisterPowerSettingCallback.c)
+ *     KeResetEvent @ 0x14029EAC0 (KeResetEvent.c)
+ *     KeReleaseGuardedMutex @ 0x1402C7000 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x14031DD30 (ExAcquireFastMutex.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     PopUnregisterPowerSettingCallback @ 0x1404A770C (PopUnregisterPowerSettingCallback.c)
  */
 
 NTSTATUS __stdcall PoUnregisterPowerSettingCallback(PVOID Handle)

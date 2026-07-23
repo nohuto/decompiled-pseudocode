@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwTraceSystemTimeChange @ 0x140998CE8
+ * XREFs of EtwTraceSystemTimeChange @ 0x140999CE8
  * Callers:
- *     PoNotifySystemTimeSet @ 0x1403A7804 (PoNotifySystemTimeSet.c)
+ *     PoNotifySystemTimeSet @ 0x1403A7954 (PoNotifySystemTimeSet.c)
  * Callees:
- *     EtwWrite @ 0x14025DC90 (EtwWrite.c)
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14025FAE0 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     _tlgKeywordOn @ 0x1402605BC (_tlgKeywordOn.c)
- *     PsGetProcessId @ 0x14027B6A0 (PsGetProcessId.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     PsGetProcessId @ 0x140269640 (PsGetProcessId.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14027E1A4 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     EtwWrite @ 0x14027F7C0 (EtwWrite.c)
+ *     _tlgKeywordOn @ 0x1402864F4 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 char __fastcall EtwTraceSystemTimeChange(__int64 *a1, _QWORD *a2, int a3)
@@ -50,7 +50,7 @@ char __fastcall EtwTraceSystemTimeChange(__int64 *a1, _QWORD *a2, int a3)
 
   v40 = a3;
   v14[0] = 0x20000LL;
-  v14[1] = &word_1409A1D10;
+  v14[1] = &word_1409A2C40;
   Process = KeGetCurrentThread()->ApcState.Process;
   ProcessId = (unsigned int)PsGetProcessId(Process);
   LODWORD(v13) = ProcessId;
@@ -81,7 +81,7 @@ char __fastcall EtwTraceSystemTimeChange(__int64 *a1, _QWORD *a2, int a3)
       v39 = 4LL;
       LOBYTE(ProcessId) = tlgWriteTransfer_EtwWriteTransfer(
                             (__int64)&dword_140C02BF0,
-                            (unsigned __int8 *)&dword_14002C784,
+                            (unsigned __int8 *)&word_14002C93E,
                             0LL,
                             0LL,
                             8u,

@@ -1,11 +1,11 @@
 /*
- * XREFs of AuthzBasepAllocateClaimCollectionNoLists @ 0x140A59D64
+ * XREFs of AuthzBasepAllocateClaimCollectionNoLists @ 0x140A5A014
  * Callers:
- *     SepCreateClaimAttributes @ 0x1407CF434 (SepCreateClaimAttributes.c)
- *     SepDuplicateClaimAttributes @ 0x1409D1444 (SepDuplicateClaimAttributes.c)
+ *     SepCreateClaimAttributes @ 0x1407CF704 (SepCreateClaimAttributes.c)
+ *     SepDuplicateClaimAttributes @ 0x1409D1644 (SepDuplicateClaimAttributes.c)
  * Callees:
- *     AuthzBasepMemAlloc @ 0x14022588C (AuthzBasepMemAlloc.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     AuthzBasepMemAlloc @ 0x14022599C (AuthzBasepMemAlloc.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 void *__fastcall AuthzBasepAllocateClaimCollectionNoLists(__int64 a1, __int64 a2)

@@ -1,5 +1,5 @@
 /*
- * XREFs of NtGetCompleteWnfStateSubscription @ 0x1800A2030
+ * XREFs of NtGetCompleteWnfStateSubscription @ 0x1800A2050
  * Callers:
  *     RtlpWnfNotificationThread @ 0x18005DF40 (RtlpWnfNotificationThread.c)
  *     RtlpWnfProcessCurrentDescriptor @ 0x18005E058 (RtlpWnfProcessCurrentDescriptor.c)
@@ -8,11 +8,17 @@
  *     <none>
  */
 
-__int64 __fastcall NtGetCompleteWnfStateSubscription()
+NTSTATUS __cdecl NtGetCompleteWnfStateSubscription(
+        PWNF_STATE_NAME OldDescriptorStateName,
+        ULONG64 *OldSubscriptionId,
+        ULONG OldDescriptorEventMask,
+        ULONG OldDescriptorStatus,
+        PWNF_DELIVERY_DESCRIPTOR NewDeliveryDescriptor,
+        ULONG DescriptorSize)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 235LL;
+  result = 235;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

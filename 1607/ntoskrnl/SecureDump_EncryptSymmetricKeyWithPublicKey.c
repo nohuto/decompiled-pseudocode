@@ -1,17 +1,17 @@
 /*
- * XREFs of SecureDump_EncryptSymmetricKeyWithPublicKey @ 0x1401CB578
+ * XREFs of SecureDump_EncryptSymmetricKeyWithPublicKey @ 0x1401CB45C
  * Callers:
- *     SecureDump_Init @ 0x1401CBA9C (SecureDump_Init.c)
+ *     SecureDump_Init @ 0x1401CB980 (SecureDump_Init.c)
  * Callees:
- *     BCryptCloseAlgorithmProvider @ 0x14013C1B4 (BCryptCloseAlgorithmProvider.c)
- *     SecureDump_LogErrorEvent @ 0x1401CBBDC (SecureDump_LogErrorEvent.c)
- *     BCryptDestroyKey @ 0x140219514 (BCryptDestroyKey.c)
- *     BCryptEncrypt @ 0x14021955C (BCryptEncrypt.c)
+ *     BCryptCloseAlgorithmProvider @ 0x14013C724 (BCryptCloseAlgorithmProvider.c)
+ *     SecureDump_LogErrorEvent @ 0x1401CBAC0 (SecureDump_LogErrorEvent.c)
+ *     BCryptDestroyKey @ 0x140219340 (BCryptDestroyKey.c)
+ *     BCryptEncrypt @ 0x140219388 (BCryptEncrypt.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     BCryptGetProperty @ 0x140550520 (BCryptGetProperty.c)
- *     BCryptOpenAlgorithmProvider @ 0x1405505A0 (BCryptOpenAlgorithmProvider.c)
- *     BCryptImportKeyPair @ 0x14068CC74 (BCryptImportKeyPair.c)
+ *     BCryptGetProperty @ 0x140550A60 (BCryptGetProperty.c)
+ *     BCryptOpenAlgorithmProvider @ 0x140550AE0 (BCryptOpenAlgorithmProvider.c)
+ *     BCryptImportKeyPair @ 0x14068CD58 (BCryptImportKeyPair.c)
  */
 
 __int64 SecureDump_EncryptSymmetricKeyWithPublicKey()
@@ -40,7 +40,7 @@ __int64 SecureDump_EncryptSymmetricKeyWithPublicKey()
   pPaddingInfo[1] = 0LL;
   v1 = 1;
   v12 = 0;
-  dword_1403234C0 = 2;
+  dword_140323500 = 2;
   Property = BCryptExportKey(hObject, 0LL, L"KeyDataBlob", 0LL, 0, &cbInput, 0);
   if ( Property >= 0 )
   {
@@ -69,8 +69,8 @@ LABEL_3:
           Property = BCryptEncrypt(phKey, v0, cbInput, pPaddingInfo, 0LL, 0, 0LL, 0, &::pcbResult, 4u);
           if ( Property >= 0 )
           {
-            qword_140323498 = ExAllocatePoolWithTag(NonPagedPoolNx, ::pcbResult, 0x706D6453u);
-            if ( !qword_140323498 )
+            qword_1403234D8 = ExAllocatePoolWithTag(NonPagedPoolNx, ::pcbResult, 0x706D6453u);
+            if ( !qword_1403234D8 )
               goto LABEL_3;
             Property = BCryptEncrypt(
                          phKey,
@@ -79,7 +79,7 @@ LABEL_3:
                          pPaddingInfo,
                          0LL,
                          0,
-                         (PUCHAR)qword_140323498,
+                         (PUCHAR)qword_1403234D8,
                          ::pcbResult,
                          &::pcbResult,
                          4u);

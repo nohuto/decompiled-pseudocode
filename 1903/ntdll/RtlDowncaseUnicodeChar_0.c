@@ -8,22 +8,22 @@
  *     <none>
  */
 
-unsigned __int16 __fastcall RtlDowncaseUnicodeChar_0(unsigned __int16 a1)
+WCHAR __cdecl RtlDowncaseUnicodeChar_0(WCHAR SourceCharacter)
 {
-  if ( a1 < 0x41u )
-    return a1;
-  if ( a1 <= 0x5Au )
-    return a1 + 32;
-  if ( !qword_180166520 || a1 < 0xC0u )
-    return a1;
-  return a1
+  if ( SourceCharacter < 0x41u )
+    return SourceCharacter;
+  if ( SourceCharacter <= 0x5Au )
+    return SourceCharacter + 32;
+  if ( !qword_180166520 || SourceCharacter < 0xC0u )
+    return SourceCharacter;
+  return SourceCharacter
        + *(_WORD *)(qword_180166520
                   + 2LL
-                  * ((a1 & 0xF)
+                  * ((SourceCharacter & 0xF)
                    + (unsigned int)*(unsigned __int16 *)(qword_180166520
                                                        + 2LL
-                                                       * (((unsigned __int8)a1 >> 4)
+                                                       * (((unsigned __int8)SourceCharacter >> 4)
                                                         + (unsigned int)*(unsigned __int16 *)(qword_180166520
                                                                                             + 2
-                                                                                            * ((unsigned __int64)a1 >> 8))))));
+                                                                                            * ((unsigned __int64)SourceCharacter >> 8))))));
 }

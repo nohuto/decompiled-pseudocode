@@ -1,84 +1,82 @@
 /*
- * XREFs of NtRaiseHardError @ 0x140840420
+ * XREFs of NtRaiseHardError @ 0x140846660
  * Callers:
- *     DifNtRaiseHardErrorWrapper @ 0x1406875B0 (DifNtRaiseHardErrorWrapper.c)
+ *     DifNtRaiseHardErrorWrapper @ 0x14068B190 (DifNtRaiseHardErrorWrapper.c)
  * Callees:
- *     RtlCopyFromUser @ 0x140533E38 (RtlCopyFromUser.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     RtlReadULong64FromUser @ 0x14077F554 (RtlReadULong64FromUser.c)
- *     RtlReadULongFromUser @ 0x14077F590 (RtlReadULongFromUser.c)
- *     RtlWriteULongToUser @ 0x14077F7A0 (RtlWriteULongToUser.c)
- *     ProbeForRead @ 0x1408EF880 (ProbeForRead.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408F29F0 (ExRaiseDatatypeMisalignment.c)
- *     ExRaiseHardError @ 0x140B06D30 (ExRaiseHardError.c)
- *     ExpRaiseHardError @ 0x140B33F0C (ExpRaiseHardError.c)
+ *     RtlCopyFromUser @ 0x1405362B8 (RtlCopyFromUser.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     RtlReadULong64FromUser @ 0x140782054 (RtlReadULong64FromUser.c)
+ *     RtlReadULongFromUser @ 0x140782090 (RtlReadULongFromUser.c)
+ *     RtlWriteULongToUser @ 0x1407822A0 (RtlWriteULongToUser.c)
+ *     ProbeForRead @ 0x1408F5E40 (ProbeForRead.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408F8FB0 (ExRaiseDatatypeMisalignment.c)
+ *     ExRaiseHardError @ 0x140B08E60 (ExRaiseHardError.c)
+ *     ExpRaiseHardError @ 0x140B3635C (ExpRaiseHardError.c)
  */
 
-__int64 __fastcall NtRaiseHardError(
-        __int64 a1,
-        unsigned int a2,
-        __int64 a3,
-        void *a4,
-        unsigned int a5,
-        unsigned int *a6)
+NTSTATUS __cdecl NtRaiseHardError(
+        NTSTATUS ErrorStatus,
+        ULONG NumberOfParameters,
+        ULONG UnicodeStringParameterMask,
+        PULONG_PTR Parameters,
+        ULONG ValidResponseOptions,
+        PULONG Response)
 {
-  int v7; // r13d
   __int64 v8; // r15
-  unsigned int v9; // esi
+  NTSTATUS v9; // esi
   unsigned int v10; // r14d
-  unsigned int v11; // edi
+  ULONG v11; // edi
   int ULongFromUser; // eax
   volatile void *v14; // rcx
   unsigned int *v15; // rbx
   __int64 v16; // rdi
-  unsigned int v17; // ebx
-  unsigned int v18; // [rsp+40h] [rbp-118h] BYREF
-  unsigned int v19; // [rsp+44h] [rbp-114h]
+  NTSTATUS v17; // ebx
+  ULONG v18; // [rsp+40h] [rbp-118h] BYREF
+  NTSTATUS v19; // [rsp+44h] [rbp-114h]
   unsigned int v20; // [rsp+48h] [rbp-110h]
   __int64 v21; // [rsp+58h] [rbp-100h]
   __int128 v22; // [rsp+60h] [rbp-F8h]
   _QWORD Src[5]; // [rsp+70h] [rbp-E8h] BYREF
   volatile void *v24[15]; // [rsp+98h] [rbp-C0h] BYREF
 
-  v7 = a3;
-  v8 = a2;
-  v9 = a1;
-  v19 = a1;
+  v8 = NumberOfParameters;
+  v9 = ErrorStatus;
+  v19 = ErrorStatus;
   v10 = 0;
   v18 = 0;
-  if ( a2 > 5 )
-    return 3221225712LL;
-  if ( a4 )
+  if ( NumberOfParameters > 5 )
+    return -1073741584;
+  if ( Parameters )
   {
-    if ( a2 )
+    if ( NumberOfParameters )
       goto LABEL_6;
-    return 3221225712LL;
+    return -1073741584;
   }
-  if ( a2 )
-    return 3221225712LL;
+  if ( NumberOfParameters )
+    return -1073741584;
 LABEL_6:
   if ( KeGetCurrentThread()->PreviousMode )
   {
-    v11 = a5;
-    if ( a5 > 6 && a5 - 7 >= 2 )
-      return 3221225714LL;
-    ULongFromUser = RtlReadULongFromUser(a6);
-    RtlWriteULongToUser(a6, ULongFromUser);
-    if ( a4 )
+    v11 = ValidResponseOptions;
+    if ( ValidResponseOptions > 6 && ValidResponseOptions - 7 >= 2 )
+      return -1073741582;
+    ULongFromUser = RtlReadULongFromUser(Response);
+    RtlWriteULongToUser(Response, ULongFromUser);
+    if ( Parameters )
     {
-      if ( 8 * v8 && ((unsigned __int8)a4 & 7) != 0 )
+      if ( 8 * v8 && ((unsigned __int8)Parameters & 7) != 0 )
         ExRaiseDatatypeMisalignment();
-      RtlCopyFromUser(Src, a4, 8 * v8);
+      RtlCopyFromUser(Src, Parameters, 8 * v8);
       memmove(v24, Src, 8 * v8);
-      if ( v7 )
+      if ( UnicodeStringParameterMask )
       {
         while ( 1 )
         {
           v20 = v10;
           if ( v10 >= (unsigned int)v8 )
             break;
-          if ( _bittest(&v7, v10) )
+          if ( _bittest((const int *)&UnicodeStringParameterMask, v10) )
           {
             v21 = 16LL;
             v14 = (volatile void *)Src[v10];
@@ -97,16 +95,22 @@ LABEL_6:
         }
         v9 = v19;
       }
-      v11 = a5;
+      v11 = ValidResponseOptions;
     }
-    v17 = ExpRaiseHardError(v9, v8, v7, (unsigned int)Src, (__int64)v24, v11, (__int64)&v18);
+    v17 = ExpRaiseHardError(v9, v8, UnicodeStringParameterMask, (unsigned int)Src, (__int64)v24, v11, (__int64)&v18);
     v19 = v17;
-    RtlWriteULongToUser(a6, v18);
+    RtlWriteULongToUser(Response, v18);
   }
   else
   {
-    v17 = ExRaiseHardError(a1, a2, a3, a4, a5, &v18);
-    *a6 = v18;
+    v17 = ExRaiseHardError(
+            ErrorStatus,
+            NumberOfParameters,
+            UnicodeStringParameterMask,
+            Parameters,
+            ValidResponseOptions,
+            &v18);
+    *Response = v18;
   }
   return v17;
 }

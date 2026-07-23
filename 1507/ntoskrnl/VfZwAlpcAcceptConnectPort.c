@@ -8,25 +8,41 @@
  *     ViZwShouldCheck @ 0x14075882C (ViZwShouldCheck.c)
  */
 
-__int64 __fastcall VfZwAlpcAcceptConnectPort(
-        __int64 a1,
-        __int64 a2,
-        unsigned int a3,
-        __int64 a4,
-        int a5,
-        __int64 a6,
-        int a7,
-        int a8)
+NTSTATUS __fastcall VfZwAlpcAcceptConnectPort(
+        HANDLE *a1,
+        HANDLE ConnectionPortHandle,
+        ULONG Flags,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        PALPC_PORT_ATTRIBUTES PortAttributes,
+        void *a6,
+        PPORT_MESSAGE ConnectionRequest,
+        PALPC_MESSAGE_ATTRIBUTES ConnectionMessageAttributes,
+        __int64 a9,
+        __int64 a10,
+        __int64 a11,
+        __int64 a12)
 {
   void *retaddr; // [rsp+78h] [rbp+0h]
 
   if ( (unsigned int)ViZwShouldCheck() )
   {
-    ViZwCheckVirtualAddress(a1, (int)retaddr);
-    ViZwCheckVirtualAddress(a5, (int)retaddr);
-    ViZwCheckVirtualAddress(a7, (int)retaddr);
-    ViZwCheckVirtualAddress(a8, (int)retaddr);
-    ViZwCheckObjectAttributes(a4, retaddr);
+    ViZwCheckVirtualAddress((int)a1, (int)retaddr);
+    ViZwCheckVirtualAddress((int)PortAttributes, (int)retaddr);
+    ViZwCheckVirtualAddress((int)ConnectionRequest, (int)retaddr);
+    ViZwCheckVirtualAddress((int)ConnectionMessageAttributes, (int)retaddr);
+    ViZwCheckObjectAttributes(ObjectAttributes, retaddr);
   }
-  return pXdvZwAlpcAcceptConnectPort(a1, a2, a3);
+  return pXdvZwAlpcAcceptConnectPort(
+           a1,
+           ConnectionPortHandle,
+           Flags,
+           ObjectAttributes,
+           PortAttributes,
+           a6,
+           ConnectionRequest,
+           ConnectionMessageAttributes,
+           a9,
+           a10,
+           a11,
+           a12);
 }

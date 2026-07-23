@@ -1,11 +1,11 @@
 /*
- * XREFs of IopInsertRemoveDevice @ 0x140483320
+ * XREFs of IopInsertRemoveDevice @ 0x14047E864
  * Callers:
- *     IopCompleteUnloadOrDelete @ 0x1403F2590 (IopCompleteUnloadOrDelete.c)
- *     IoCreateDevice @ 0x1409A3530 (IoCreateDevice.c)
+ *     IopCompleteUnloadOrDelete @ 0x1403E62B0 (IopCompleteUnloadOrDelete.c)
+ *     IoCreateDevice @ 0x1408ABEC0 (IoCreateDevice.c)
  * Callees:
- *     KeAcquireQueuedSpinLock @ 0x1402D6AF0 (KeAcquireQueuedSpinLock.c)
- *     KeReleaseQueuedSpinLock @ 0x140322C90 (KeReleaseQueuedSpinLock.c)
+ *     KeReleaseQueuedSpinLock @ 0x1402CB820 (KeReleaseQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x140357D70 (KeAcquireQueuedSpinLock.c)
  */
 
 void __fastcall IopInsertRemoveDevice(__int64 a1, __int64 a2, char a3)

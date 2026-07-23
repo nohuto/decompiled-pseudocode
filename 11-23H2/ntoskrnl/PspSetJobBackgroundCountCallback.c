@@ -1,9 +1,9 @@
 /*
- * XREFs of PspSetJobBackgroundCountCallback @ 0x1407D7240
+ * XREFs of PspSetJobBackgroundCountCallback @ 0x1407D7510
  * Callers:
  *     <none>
  * Callees:
- *     PspUpdateJobEffectivePriorityLimits @ 0x1407D7294 (PspUpdateJobEffectivePriorityLimits.c)
+ *     PspUpdateJobEffectivePriorityLimits @ 0x1407D7564 (PspUpdateJobEffectivePriorityLimits.c)
  */
 
 __int64 __fastcall PspSetJobBackgroundCountCallback(__int64 a1, __int64 a2)

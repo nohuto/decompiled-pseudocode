@@ -1,11 +1,11 @@
 /*
- * XREFs of TtmiLogSessionDisplayRequiredDereference @ 0x14067B990
+ * XREFs of TtmiLogSessionDisplayRequiredDereference @ 0x14067BA74
  * Callers:
- *     TtmNotifySessionDisplayRequiredChange @ 0x140678A30 (TtmNotifySessionDisplayRequiredChange.c)
+ *     TtmNotifySessionDisplayRequiredChange @ 0x140678B14 (TtmNotifySessionDisplayRequiredChange.c)
  * Callees:
- *     _TlgWrite @ 0x14000A598 (_TlgWrite.c)
- *     _TlgKeywordOn @ 0x140088D98 (_TlgKeywordOn.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     _TlgWrite @ 0x14000A118 (_TlgWrite.c)
+ *     _TlgKeywordOn @ 0x14010CF88 (_TlgKeywordOn.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  */
 
 void TtmiLogSessionDisplayRequiredDereference()
@@ -37,7 +37,7 @@ void TtmiLogSessionDisplayRequiredDereference()
       v8 = 4LL;
       v10 = 4LL;
       v12 = 4LL;
-      TlgWrite(&stru_1407478B0, &unk_14027DB7A, 0LL, 0LL, 5u, &pData);
+      TlgWrite(&stru_1407478B0, &unk_14027DC7A, 0LL, 0LL, 5u, &pData);
     }
   }
 }

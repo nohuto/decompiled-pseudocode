@@ -1,5 +1,5 @@
 /*
- * XREFs of PopAwayModeUserPresenceDpc @ 0x140365C00
+ * XREFs of PopAwayModeUserPresenceDpc @ 0x140365DB0
  * Callers:
  *     <none>
  * Callees:

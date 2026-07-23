@@ -1,32 +1,30 @@
 /*
- * XREFs of HalpTimerUpdateApiConsumers @ 0x1405616F8
+ * XREFs of HalpTimerUpdateApiConsumers @ 0x14055F328
  * Callers:
- *     HalpPrepareForBugcheck @ 0x14054AD30 (HalpPrepareForBugcheck.c)
- *     HalpRestoreHvEnlightenment @ 0x14054BA00 (HalpRestoreHvEnlightenment.c)
- *     HalpSaveAndDisableEnlightenment @ 0x14054BDA0 (HalpSaveAndDisableEnlightenment.c)
+ *     HalpPrepareForBugcheck @ 0x1405485F0 (HalpPrepareForBugcheck.c)
+ *     HalpRestoreHvEnlightenment @ 0x1405492C0 (HalpRestoreHvEnlightenment.c)
+ *     HalpSaveAndDisableEnlightenment @ 0x140549660 (HalpSaveAndDisableEnlightenment.c)
  * Callees:
- *     HalpDisableInterrupts @ 0x140320790 (HalpDisableInterrupts.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     HalpDisableInterrupts @ 0x1402C9320 (HalpDisableInterrupts.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 char HalpTimerUpdateApiConsumers()
 {
   char result; // al
   __int64 v1; // rdx
-  __int64 v2; // r8
-  __int64 v3; // r9
-  _QWORD *v4; // rbx
-  char v5; // di
+  _QWORD *v2; // rbx
+  char v3; // di
 
   result = HalpDisableInterrupts();
-  v4 = (_QWORD *)HalpTimerHvApicCallbackList;
-  v5 = result;
-  while ( v4 )
+  v2 = (_QWORD *)HalpTimerHvApicCallbackList;
+  v3 = result;
+  while ( v2 )
   {
-    result = guard_dispatch_icall_no_overrides(5LL, v1, v2, v3);
-    v4 = (_QWORD *)*v4;
+    result = guard_dispatch_icall_no_overrides(5LL, v1);
+    v2 = (_QWORD *)*v2;
   }
-  if ( v5 )
+  if ( v3 )
     _enable();
   return result;
 }

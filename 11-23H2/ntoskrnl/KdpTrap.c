@@ -1,10 +1,10 @@
 /*
  * XREFs of KdpTrap @ 0x140AB037C
  * Callers:
- *     KdTrap @ 0x14030DF3C (KdTrap.c)
- *     KdpStub @ 0x1403D074C (KdpStub.c)
+ *     KdTrap @ 0x14030E1CC (KdTrap.c)
+ *     KdpStub @ 0x1403D092C (KdpStub.c)
  * Callees:
- *     KdpReport @ 0x14030E874 (KdpReport.c)
+ *     KdpReport @ 0x14030EB04 (KdpReport.c)
  *     KdpSymbol @ 0x140AB0510 (KdpSymbol.c)
  *     KdpCommandString @ 0x140AB528C (KdpCommandString.c)
  *     KdpPrint @ 0x140AB5368 (KdpPrint.c)

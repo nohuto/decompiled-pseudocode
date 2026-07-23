@@ -1,31 +1,31 @@
 /*
- * XREFs of PsOpenProcess @ 0x1408EFC40
+ * XREFs of PsOpenProcess @ 0x1408F6200
  * Callers:
- *     NtAlpcOpenSenderProcess @ 0x1408E6510 (NtAlpcOpenSenderProcess.c)
- *     NtOpenProcess @ 0x1408EFC10 (NtOpenProcess.c)
+ *     NtAlpcOpenSenderProcess @ 0x1408ECAD0 (NtAlpcOpenSenderProcess.c)
+ *     NtOpenProcess @ 0x1408F61D0 (NtOpenProcess.c)
  * Callees:
- *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212E30 (_tlgWriteTransfer_EtwWriteTransfer.c)
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     PspUnlockThreadSecurityShared @ 0x140271DC0 (PspUnlockThreadSecurityShared.c)
- *     ObfReferenceObjectWithTag @ 0x140278B30 (ObfReferenceObjectWithTag.c)
- *     PsReferencePrimaryTokenWithTag @ 0x140279DC0 (PsReferencePrimaryTokenWithTag.c)
- *     SepCreateAccessStateFromSubjectContext @ 0x1404425E0 (SepCreateAccessStateFromSubjectContext.c)
- *     PspLockThreadSecurityShared @ 0x14044ADE0 (PspLockThreadSecurityShared.c)
- *     PsGetProcessId @ 0x140466BE0 (PsGetProcessId.c)
- *     RtlCopyFromUser @ 0x140533E38 (RtlCopyFromUser.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     RtlReadULong64FromUser @ 0x14077F554 (RtlReadULong64FromUser.c)
- *     RtlReadULongFromUser @ 0x14077F590 (RtlReadULongFromUser.c)
- *     RtlWriteULong64ToUser @ 0x14077F758 (RtlWriteULong64ToUser.c)
- *     PsLookupProcessByProcessId @ 0x1408EF4E0 (PsLookupProcessByProcessId.c)
- *     ProbeForRead @ 0x1408EF880 (ProbeForRead.c)
- *     SeDeleteAccessState @ 0x1408F16E0 (SeDeleteAccessState.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408F29F0 (ExRaiseDatatypeMisalignment.c)
- *     ObOpenObjectByPointer @ 0x14092AFF0 (ObOpenObjectByPointer.c)
- *     SeSinglePrivilegeCheck @ 0x140932280 (SeSinglePrivilegeCheck.c)
- *     PsLookupThreadByThreadId @ 0x140A10B70 (PsLookupThreadByThreadId.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140212F10 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     PspUnlockThreadSecurityShared @ 0x140271330 (PspUnlockThreadSecurityShared.c)
+ *     ObfReferenceObjectWithTag @ 0x1402780A0 (ObfReferenceObjectWithTag.c)
+ *     PsReferencePrimaryTokenWithTag @ 0x140279330 (PsReferencePrimaryTokenWithTag.c)
+ *     SepCreateAccessStateFromSubjectContext @ 0x14043B0F0 (SepCreateAccessStateFromSubjectContext.c)
+ *     PspLockThreadSecurityShared @ 0x140442F10 (PspLockThreadSecurityShared.c)
+ *     PsGetProcessId @ 0x140460330 (PsGetProcessId.c)
+ *     RtlCopyFromUser @ 0x1405362B8 (RtlCopyFromUser.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     RtlReadULong64FromUser @ 0x140782054 (RtlReadULong64FromUser.c)
+ *     RtlReadULongFromUser @ 0x140782090 (RtlReadULongFromUser.c)
+ *     RtlWriteULong64ToUser @ 0x140782258 (RtlWriteULong64ToUser.c)
+ *     PsLookupProcessByProcessId @ 0x1408F5AA0 (PsLookupProcessByProcessId.c)
+ *     ProbeForRead @ 0x1408F5E40 (ProbeForRead.c)
+ *     SeDeleteAccessState @ 0x1408F7CA0 (SeDeleteAccessState.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408F8FB0 (ExRaiseDatatypeMisalignment.c)
+ *     ObOpenObjectByPointer @ 0x140906B20 (ObOpenObjectByPointer.c)
+ *     SeSinglePrivilegeCheck @ 0x14090DE50 (SeSinglePrivilegeCheck.c)
+ *     PsLookupThreadByThreadId @ 0x140A0FD60 (PsLookupThreadByThreadId.c)
  */
 
 __int64 __fastcall PsOpenProcess(HANDLE *a1, int a2, unsigned int *a3, _OWORD *a4, char a5, KPROCESSOR_MODE a6)
@@ -43,8 +43,8 @@ __int64 __fastcall PsOpenProcess(HANDLE *a1, int a2, unsigned int *a3, _OWORD *a
   _DWORD *v19; // r12
   struct _KTHREAD *CurrentThread; // rbx
   __int64 v21; // r14
-  _KTRAP_FRAME *v22; // r15
-  _KTRAP_FRAME *v23; // rax
+  struct _LIST_ENTRY *v22; // r15
+  struct _LIST_ENTRY *v23; // rax
   ULONG v24; // ebx
   int v25; // r14d
   KPROCESSOR_MODE AccessMode; // r15
@@ -193,7 +193,7 @@ __int64 __fastcall PsOpenProcess(HANDLE *a1, int a2, unsigned int *a3, _OWORD *a
       PspLockThreadSecurityShared((__int64)CurrentThread, (__int64)Thread, v16, v17);
       if ( (*(_DWORD *)(&CurrentThread[1].SwapListEntry + 1) & 8) != 0 )
       {
-        v22 = (_KTRAP_FRAME *)(*(_QWORD *)((char *)&CurrentThread[1].116 + 4) & 0xFFFFFFFFFFFFFFF8uLL);
+        v22 = (struct _LIST_ENTRY *)(*(_QWORD *)((char *)&CurrentThread[1].116 + 4) & 0xFFFFFFFFFFFFFFF8uLL);
         ObfReferenceObjectWithTag(v22, 0x75536553u);
         UserData.Size = *((_DWORD *)&CurrentThread[1].0 + 1) & 3;
       }
@@ -208,20 +208,20 @@ __int64 __fastcall PsOpenProcess(HANDLE *a1, int a2, unsigned int *a3, _OWORD *a
       v22 = 0LL;
     }
     UserData.Ptr = (ULONGLONG)v22;
-    v23 = (_KTRAP_FRAME *)PsReferencePrimaryTokenWithTag(v21, 0x75536553u, v16, v17);
+    v23 = (struct _LIST_ENTRY *)PsReferencePrimaryTokenWithTag(v21, 0x75536553u, v16, v17);
     v49 = (unsigned int *)v23;
     if ( SeTokenLeakTracking )
     {
       if ( v23 )
       {
-        _InterlockedIncrement((volatile signed __int32 *)(v23[2].Rbp + 284));
-        if ( v23 == RtlpBootStatHandleLock.TrapFrame )
+        _InterlockedIncrement((volatile signed __int32 *)&v23[71].Blink[17].Blink + 1);
+        if ( v23 == RtlpBootStatHandleLock.ApcState.ApcListHead[1].Flink )
           __debugbreak();
       }
       if ( v22 )
       {
-        _InterlockedIncrement((volatile signed __int32 *)(v22[2].Rbp + 284));
-        if ( v22 == RtlpBootStatHandleLock.TrapFrame )
+        _InterlockedIncrement((volatile signed __int32 *)&v22[71].Blink[17].Blink + 1);
+        if ( v22 == RtlpBootStatHandleLock.ApcState.ApcListHead[1].Flink )
           __debugbreak();
       }
     }
@@ -285,7 +285,7 @@ __int64 __fastcall PsOpenProcess(HANDLE *a1, int a2, unsigned int *a3, _OWORD *a
     v65 = 8LL;
     tlgWriteTransfer_EtwWriteTransfer(
       (__int64)&SshpBlockerCollections.SavedApcStateFill[40],
-      (unsigned __int8 *)byte_1400527F5,
+      (unsigned __int8 *)&dword_140053749 + 1,
       0LL,
       0LL,
       8u,
@@ -305,7 +305,7 @@ LABEL_30:
   v50 = 4LL;
   v51 = &v34;
   v52 = 4LL;
-  EtwWrite((REGHANDLE)EtwpSecurityLock.MutantListHead.Flink, &KERNEL_AUDIT_API_OPENPROCESS, 0LL, 3u, &UserData);
+  EtwWrite(EtwApiCallsProvRegHandle, &KERNEL_AUDIT_API_OPENPROCESS, 0LL, 3u, &UserData);
   if ( v10 )
     SeDeleteAccessState(&PassedAccessState);
   if ( v11 )

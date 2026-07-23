@@ -1,11 +1,11 @@
 /*
- * XREFs of WheaAddHwErrorReportSectionDeviceDriver @ 0x1405BBCB0
+ * XREFs of WheaAddHwErrorReportSectionDeviceDriver @ 0x1405BBEE0
  * Callers:
- *     WheaReportFatalHwErrorDeviceDriverEx @ 0x1405BC090 (WheaReportFatalHwErrorDeviceDriverEx.c)
- *     WheaReportHwErrorDeviceDriverEx @ 0x1405BC1B0 (WheaReportHwErrorDeviceDriverEx.c)
+ *     WheaReportFatalHwErrorDeviceDriverEx @ 0x1405BC2C0 (WheaReportFatalHwErrorDeviceDriverEx.c)
+ *     WheaReportHwErrorDeviceDriverEx @ 0x1405BC3E0 (WheaReportHwErrorDeviceDriverEx.c)
  * Callees:
- *     WheapGetErrorSource @ 0x1405BBACC (WheapGetErrorSource.c)
- *     WheapErrorHandleIsValid @ 0x1405BC350 (WheapErrorHandleIsValid.c)
+ *     WheapGetErrorSource @ 0x1405BBCFC (WheapGetErrorSource.c)
+ *     WheapErrorHandleIsValid @ 0x1405BC580 (WheapErrorHandleIsValid.c)
  */
 
 __int64 __fastcall WheaAddHwErrorReportSectionDeviceDriver(__int64 a1, unsigned int a2, __int64 a3)

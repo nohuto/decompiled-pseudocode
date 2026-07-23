@@ -1,13 +1,13 @@
 /*
- * XREFs of MiMoveWorkingFreeToTail @ 0x1400FE014
+ * XREFs of MiMoveWorkingFreeToTail @ 0x1400FBD94
  * Callers:
- *     MiConvertToLinkedWsles @ 0x1400A1844 (MiConvertToLinkedWsles.c)
+ *     MiConvertToLinkedWsles @ 0x1400A016C (MiConvertToLinkedWsles.c)
  * Callees:
- *     MiGetSharedWorkingSetList @ 0x140047070 (MiGetSharedWorkingSetList.c)
- *     MiReleaseWsle @ 0x1400E2430 (MiReleaseWsle.c)
- *     MiPopFreeWsle @ 0x1400FEE10 (MiPopFreeWsle.c)
- *     MiMoveValidWsle @ 0x1400FEECC (MiMoveValidWsle.c)
- *     MiGetAggregateWorkingSetSize @ 0x1400FF208 (MiGetAggregateWorkingSetSize.c)
+ *     MiGetSharedWorkingSetList @ 0x140046BF0 (MiGetSharedWorkingSetList.c)
+ *     MiReleaseWsle @ 0x1400E02D0 (MiReleaseWsle.c)
+ *     MiPopFreeWsle @ 0x1400FCB90 (MiPopFreeWsle.c)
+ *     MiMoveValidWsle @ 0x1400FCC4C (MiMoveValidWsle.c)
+ *     MiGetAggregateWorkingSetSize @ 0x1400FCF88 (MiGetAggregateWorkingSetSize.c)
  */
 
 char __fastcall MiMoveWorkingFreeToTail(ULONG_PTR BugCheckParameter2)

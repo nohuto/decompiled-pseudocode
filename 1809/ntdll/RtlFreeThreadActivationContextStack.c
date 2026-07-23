@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlFreeThreadActivationContextStack @ 0x180076570
+ * XREFs of RtlFreeThreadActivationContextStack @ 0x180076580
  * Callers:
  *     LdrShutdownThread @ 0x1800232A0 (LdrShutdownThread.c)
  * Callees:
- *     RtlFreeActivationContextStack @ 0x180076610 (RtlFreeActivationContextStack.c)
+ *     RtlFreeActivationContextStack @ 0x180076620 (RtlFreeActivationContextStack.c)
  */
 
 __int64 RtlFreeThreadActivationContextStack()

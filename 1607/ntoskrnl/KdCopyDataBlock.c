@@ -1,10 +1,10 @@
 /*
- * XREFs of KdCopyDataBlock @ 0x1401D1260
+ * XREFs of KdCopyDataBlock @ 0x1401D108C
  * Callers:
- *     IoFillTriageDumpBuffer @ 0x1401C5868 (IoFillTriageDumpBuffer.c)
- *     IopInitializeInMemoryDumpData @ 0x1401C75E4 (IopInitializeInMemoryDumpData.c)
- *     KeCapturePersistentThreadState @ 0x1401C8248 (KeCapturePersistentThreadState.c)
- *     KdDecodeDataBlock @ 0x1401D1358 (KdDecodeDataBlock.c)
+ *     IoFillTriageDumpBuffer @ 0x1401C5708 (IoFillTriageDumpBuffer.c)
+ *     IopInitializeInMemoryDumpData @ 0x1401C7484 (IopInitializeInMemoryDumpData.c)
+ *     KeCapturePersistentThreadState @ 0x1401C80E8 (KeCapturePersistentThreadState.c)
+ *     KdDecodeDataBlock @ 0x1401D1184 (KdDecodeDataBlock.c)
  * Callees:
  *     <none>
  */

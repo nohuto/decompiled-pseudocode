@@ -1,20 +1,20 @@
 /*
- * XREFs of SepFlattenAcl @ 0x14060897C
+ * XREFs of SepFlattenAcl @ 0x1406061F0
  * Callers:
- *     SeLogAccessFailure @ 0x14035F070 (SeLogAccessFailure.c)
+ *     SeLogAccessFailure @ 0x140438750 (SeLogAccessFailure.c)
  * Callees:
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
-__int64 __fastcall SepFlattenAcl(__int64 a1, __int64 *a2, _DWORD *a3, _WORD *a4)
+__int64 __fastcall SepFlattenAcl(__int64 a1, __int64 *a2, unsigned int *a3, _WORD *a4)
 {
   unsigned int v4; // eax
   unsigned __int8 *v5; // r14
   unsigned int v6; // r15d
   __int16 v8; // bp
   char *v9; // r10
-  int v10; // edi
+  unsigned int v10; // edi
   __int64 v11; // rcx
   unsigned __int8 v12; // al
   __int64 Pool2; // rax
@@ -50,7 +50,7 @@ __int64 __fastcall SepFlattenAcl(__int64 a1, __int64 *a2, _DWORD *a3, _WORD *a4)
   while ( v11 );
   if ( !v8 )
     return 3221226021LL;
-  Pool2 = ExAllocatePool2(0x100uLL);
+  Pool2 = ExAllocatePool2(0x100uLL, v10, 0x614C6553u);
   v14 = Pool2;
   if ( !Pool2 )
     return 3221225495LL;

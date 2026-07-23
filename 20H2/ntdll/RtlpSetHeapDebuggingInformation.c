@@ -9,41 +9,41 @@
  *     RtlSetLFHDebuggingInformation @ 0x18010BA20 (RtlSetLFHDebuggingInformation.c)
  */
 
-__int64 __fastcall RtlpSetHeapDebuggingInformation(__int64 a1, __int64 a2, __int64 a3)
+__int64 __fastcall RtlpSetHeapDebuggingInformation(_DWORD *HeapHandle, __int64 a2)
 {
-  __int64 v3; // rsi
-  int v6; // ecx
-  __int64 (__fastcall *v7)(); // rcx
-  __int64 v8; // rcx
+  __int64 v2; // rsi
+  int v5; // ecx
+  __int64 (__fastcall *v6)(); // rcx
+  __int64 v7; // rcx
 
-  v3 = 24LL;
-  if ( *(_DWORD *)(a1 + 16) != -571548178 )
-    v3 = 144LL;
+  v2 = 6LL;
+  if ( HeapHandle[4] != -571548178 )
+    v2 = 36LL;
   if ( *(_DWORD *)(a2 + 16) )
   {
-    v6 = *(_DWORD *)(v3 + a1);
-    if ( v6 )
-      RtlpCallInterceptRoutine(v6, a1, 0LL, 7u, 0LL);
-    v7 = RtlpStackTraceDatabaseLogPrefix;
+    v5 = HeapHandle[v2];
+    if ( v5 )
+      RtlpCallInterceptRoutine(v5, (__int64)HeapHandle, 0LL, 7u, 0LL);
+    v6 = RtlpStackTraceDatabaseLogPrefix;
   }
   else
   {
-    v7 = *(__int64 (__fastcall **)())a2;
+    v6 = *(__int64 (__fastcall **)())a2;
     if ( !*(_QWORD *)a2 )
       goto LABEL_9;
   }
-  *(_DWORD *)(v3 + a1) = (unsigned __int16)RtlpGetHeapInterceptorIndex(v7);
+  HeapHandle[v2] = (unsigned __int16)RtlpGetHeapInterceptorIndex(v6);
 LABEL_9:
-  if ( *(_DWORD *)(a1 + 16) != -571548178 && *(_DWORD *)(a2 + 12) )
+  if ( HeapHandle[4] != -571548178 && *(_DWORD *)(a2 + 12) )
   {
-    v8 = *(_BYTE *)(a1 + 418) == 2 ? *(_QWORD *)(a1 + 408) : 0LL;
-    if ( v8
-      || ((RtlpActivateLowFragmentationHeap(a1, a2, a3), *(_BYTE *)(a1 + 418) != 2)
-        ? (v8 = 0LL)
-        : (v8 = *(_QWORD *)(a1 + 408)),
-          v8) )
+    v7 = *((_BYTE *)HeapHandle + 418) == 2 ? *((_QWORD *)HeapHandle + 51) : 0LL;
+    if ( v7
+      || ((RtlpActivateLowFragmentationHeap((__int64)HeapHandle), *((_BYTE *)HeapHandle + 418) != 2)
+        ? (v7 = 0LL)
+        : (v7 = *((_QWORD *)HeapHandle + 51)),
+          v7) )
     {
-      RtlSetLFHDebuggingInformation(v8, a2);
+      RtlSetLFHDebuggingInformation(v7, a2);
     }
   }
   return 0LL;

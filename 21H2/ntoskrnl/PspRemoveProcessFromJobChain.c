@@ -1,27 +1,27 @@
 /*
- * XREFs of PspRemoveProcessFromJobChain @ 0x140616398
+ * XREFs of PspRemoveProcessFromJobChain @ 0x14067FFF8
  * Callers:
- *     PspRundownSingleProcess @ 0x140604738 (PspRundownSingleProcess.c)
- *     PspProcessDelete @ 0x1406136C0 (PspProcessDelete.c)
- *     PspEnforceLimitsJobPostCallback @ 0x140618320 (PspEnforceLimitsJobPostCallback.c)
- *     PspTerminateProcessesJobCallback @ 0x1406ABD40 (PspTerminateProcessesJobCallback.c)
- *     PspAssignProcessToJob @ 0x14071F430 (PspAssignProcessToJob.c)
+ *     PspTerminateProcessesJobCallback @ 0x14060A430 (PspTerminateProcessesJobCallback.c)
+ *     PspProcessDelete @ 0x14067D320 (PspProcessDelete.c)
+ *     PspEnforceLimitsJobPostCallback @ 0x140681F80 (PspEnforceLimitsJobPostCallback.c)
+ *     PspRundownSingleProcess @ 0x1406F3E68 (PspRundownSingleProcess.c)
+ *     PspAssignProcessToJob @ 0x1406F5FF0 (PspAssignProcessToJob.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     PspSendJobNotification @ 0x1402C3DCC (PspSendJobNotification.c)
- *     memset @ 0x140414200 (memset.c)
- *     PspRequestProcessExecutionState @ 0x140605920 (PspRequestProcessExecutionState.c)
- *     PspChangeProcessExecutionState @ 0x140605D50 (PspChangeProcessExecutionState.c)
- *     PspLockRootJobFromProcess @ 0x1406162D4 (PspLockRootJobFromProcess.c)
- *     PspLockJobConditionally @ 0x140616368 (PspLockJobConditionally.c)
- *     PspUnlockJob @ 0x140618730 (PspUnlockJob.c)
- *     PsQueryStatisticsProcess @ 0x140618CC0 (PsQueryStatisticsProcess.c)
- *     PspUnlockJobConditionally @ 0x140618F8C (PspUnlockJobConditionally.c)
- *     PspFoldProcessAccountingIntoJob @ 0x1406AD32C (PspFoldProcessAccountingIntoJob.c)
- *     PspUnlinkJobProcess @ 0x1406B40E8 (PspUnlinkJobProcess.c)
- *     PsTerminateProcess @ 0x1406BC4B8 (PsTerminateProcess.c)
- *     PspSubtractAccountingValues @ 0x140909BE8 (PspSubtractAccountingValues.c)
- *     EtwTraceJobRemoveProcess @ 0x140935ED8 (EtwTraceJobRemoveProcess.c)
+ *     PspSendJobNotification @ 0x14024234C (PspSendJobNotification.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     PspFoldProcessAccountingIntoJob @ 0x14060BA1C (PspFoldProcessAccountingIntoJob.c)
+ *     PspUnlinkJobProcess @ 0x1406132B8 (PspUnlinkJobProcess.c)
+ *     PsTerminateProcess @ 0x14061B628 (PsTerminateProcess.c)
+ *     PspLockRootJobFromProcess @ 0x14067FF34 (PspLockRootJobFromProcess.c)
+ *     PspLockJobConditionally @ 0x14067FFC8 (PspLockJobConditionally.c)
+ *     PspUnlockJob @ 0x140682390 (PspUnlockJob.c)
+ *     PsQueryStatisticsProcess @ 0x140682920 (PsQueryStatisticsProcess.c)
+ *     PspUnlockJobConditionally @ 0x140682BEC (PspUnlockJobConditionally.c)
+ *     PspRequestProcessExecutionState @ 0x1406F5050 (PspRequestProcessExecutionState.c)
+ *     PspChangeProcessExecutionState @ 0x1406F5340 (PspChangeProcessExecutionState.c)
+ *     PspSubtractAccountingValues @ 0x140909D48 (PspSubtractAccountingValues.c)
+ *     EtwTraceJobRemoveProcess @ 0x1409360A8 (EtwTraceJobRemoveProcess.c)
  */
 
 _QWORD *__fastcall PspRemoveProcessFromJobChain(PEPROCESS Process, _QWORD *a2, unsigned int a3, unsigned int a4)
@@ -36,13 +36,13 @@ _QWORD *__fastcall PspRemoveProcessFromJobChain(PEPROCESS Process, _QWORD *a2, u
   __int64 v13; // rbx
   __int64 v14; // rdx
   __int64 v15; // r8
-  _DWORD *v16; // r9
+  __int64 v16; // r9
   _QWORD *v17; // rax
   char v18; // [rsp+28h] [rbp-69h]
   __int64 v19; // [rsp+30h] [rbp-61h] BYREF
   __int64 v20; // [rsp+38h] [rbp-59h] BYREF
   struct _KTHREAD *v21; // [rsp+40h] [rbp-51h]
-  _BYTE v22[160]; // [rsp+48h] [rbp-49h] BYREF
+  __int64 v22[20]; // [rsp+48h] [rbp-49h] BYREF
   _UNKNOWN *retaddr; // [rsp+F0h] [rbp+5Fh] BYREF
   char v25; // [rsp+108h] [rbp+77h]
 
@@ -64,7 +64,7 @@ _QWORD *__fastcall PspRemoveProcessFromJobChain(PEPROCESS Process, _QWORD *a2, u
       && (Process[1].DirectoryTableBase & 0x400000000000000LL) != 0
       && (BYTE4(Process[2].Header.WaitListHead.Flink) & 0x40) == 0 )
     {
-      PsTerminateProcess(Process, a4);
+      PsTerminateProcess((ULONG_PTR)Process);
       v18 = 1;
     }
     v12 = 1;
@@ -95,7 +95,7 @@ _QWORD *__fastcall PspRemoveProcessFromJobChain(PEPROCESS Process, _QWORD *a2, u
           PspSendJobNotification(v13, a2[1], a2[2], 0);
         if ( v5 )
         {
-          PspFoldProcessAccountingIntoJob(v13, Process, v22);
+          PspFoldProcessAccountingIntoJob(v13, (__int64)Process, v22);
           if ( v13 == Process[1].Affinity.Bitmap[16] && *(_DWORD *)(v13 + 1232) != PspEnforcementSequenceNumber )
             v12 = 0;
           if ( v12 == 1 )
@@ -125,19 +125,19 @@ LABEL_13:
     PspLockJobConditionally(v13, &v19);
     if ( (v8 & 1) != 0 )
     {
-      PspUnlinkJobProcess(v13, Process);
+      PspUnlinkJobProcess(v13, (__int64)Process);
       PspUnlockJobConditionally(v13, &v19);
       return (_QWORD *)PspUnlockJob(v19, CurrentThread);
     }
     else
     {
       if ( v11 && (Process[1].DirectoryTableBase & 4) != 0 && !v18 )
-        PspRequestProcessExecutionState((__int64)Process, 0, 0);
+        PspRequestProcessExecutionState(Process, 0LL, 0LL);
       PspUnlockJobConditionally(v13, &v19);
       PspUnlockJob(v19, CurrentThread);
       --CurrentThread->KernelApcDisable;
-      PspChangeProcessExecutionState(Process, v14, v15, v16);
-      return KeLeaveCriticalRegionThread((__int64)CurrentThread);
+      PspChangeProcessExecutionState(Process);
+      return KeLeaveCriticalRegionThread((__int64)CurrentThread, v14, v15, v16);
     }
   }
   return result;

@@ -1,33 +1,33 @@
 /*
- * XREFs of MiInsertFreeZeroPage @ 0x1402DCE70
+ * XREFs of MiInsertFreeZeroPage @ 0x1402BEC30
  * Callers:
- *     MiInsertPageInFreeOrZeroedList @ 0x1402DCDD0 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x1402BEB90 (MiInsertPageInFreeOrZeroedList.c)
  * Callees:
- *     MiFreeZeroPageSlistSufficient @ 0x1402898A0 (MiFreeZeroPageSlistSufficient.c)
- *     MiColorGetCache @ 0x140289A00 (MiColorGetCache.c)
- *     MiGetPfnPageSizeIndex @ 0x14028B290 (MiGetPfnPageSizeIndex.c)
- *     MiCoalesceFreeSmallPages @ 0x14028D060 (MiCoalesceFreeSmallPages.c)
- *     MI_PAGE_TO_FULL_COLOR @ 0x14028DF90 (MI_PAGE_TO_FULL_COLOR.c)
- *     MiSufficientAvailablePages @ 0x14028EAB0 (MiSufficientAvailablePages.c)
- *     MiUpdateLargePageCandidateValue @ 0x1402DD890 (MiUpdateLargePageCandidateValue.c)
- *     MiInsertPageInList @ 0x1402DDC40 (MiInsertPageInList.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402DED10 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiDecreaseAvailablePages @ 0x1402F8CD0 (MiDecreaseAvailablePages.c)
- *     MiGetPagePrivilege @ 0x1402F9878 (MiGetPagePrivilege.c)
- *     MiGetPfnSlabType @ 0x1402FDC40 (MiGetPfnSlabType.c)
- *     MiClearPfnReuseFields @ 0x14031A250 (MiClearPfnReuseFields.c)
- *     MiSetPfnIdentity @ 0x140369440 (MiSetPfnIdentity.c)
- *     MiFreeSlabPage @ 0x1403695C8 (MiFreeSlabPage.c)
- *     MiSimpleInsertPage @ 0x1403C5100 (MiSimpleInsertPage.c)
- *     MiIncreaseAvailablePages @ 0x1403E59D0 (MiIncreaseAvailablePages.c)
- *     MiColorHasSlists @ 0x14042FDD0 (MiColorHasSlists.c)
- *     MiSetPfnSlist @ 0x1404331B0 (MiSetPfnSlist.c)
- *     MiRecordLargePageCandidate @ 0x140447EB0 (MiRecordLargePageCandidate.c)
- *     KeSetPagePrivilege @ 0x1404B0F70 (KeSetPagePrivilege.c)
- *     MiClearFileOnlyPfn @ 0x1405224D8 (MiClearFileOnlyPfn.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     RtlpInterlockedPushEntrySList @ 0x140730CD0 (RtlpInterlockedPushEntrySList.c)
+ *     MiFreeZeroPageSlistSufficient @ 0x140288E00 (MiFreeZeroPageSlistSufficient.c)
+ *     MiColorGetCache @ 0x140288F60 (MiColorGetCache.c)
+ *     MiGetPfnPageSizeIndex @ 0x14028A7F0 (MiGetPfnPageSizeIndex.c)
+ *     MiCoalesceFreeSmallPages @ 0x14028C5C0 (MiCoalesceFreeSmallPages.c)
+ *     MI_PAGE_TO_FULL_COLOR @ 0x14028D4F0 (MI_PAGE_TO_FULL_COLOR.c)
+ *     MiSufficientAvailablePages @ 0x14028E010 (MiSufficientAvailablePages.c)
+ *     MiUpdateLargePageCandidateValue @ 0x1402BF650 (MiUpdateLargePageCandidateValue.c)
+ *     MiInsertPageInList @ 0x1402BFA00 (MiInsertPageInList.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402C0B20 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiDecreaseAvailablePages @ 0x1402DAD50 (MiDecreaseAvailablePages.c)
+ *     MiGetPagePrivilege @ 0x1402DB8F8 (MiGetPagePrivilege.c)
+ *     MiGetPfnSlabType @ 0x1402DFCC0 (MiGetPfnSlabType.c)
+ *     MiClearPfnReuseFields @ 0x14031C280 (MiClearPfnReuseFields.c)
+ *     MiSetPfnIdentity @ 0x14036B1E0 (MiSetPfnIdentity.c)
+ *     MiFreeSlabPage @ 0x14036B368 (MiFreeSlabPage.c)
+ *     MiSimpleInsertPage @ 0x1403CF00C (MiSimpleInsertPage.c)
+ *     MiIncreaseAvailablePages @ 0x1403E8BC0 (MiIncreaseAvailablePages.c)
+ *     MiColorHasSlists @ 0x14041CE00 (MiColorHasSlists.c)
+ *     MiSetPfnSlist @ 0x140428280 (MiSetPfnSlist.c)
+ *     MiRecordLargePageCandidate @ 0x1404409A0 (MiRecordLargePageCandidate.c)
+ *     KeSetPagePrivilege @ 0x1404AA600 (KeSetPagePrivilege.c)
+ *     MiClearFileOnlyPfn @ 0x140524B44 (MiClearFileOnlyPfn.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1407358A0 (RtlpInterlockedPushEntrySList.c)
  */
 
 void __fastcall MiInsertFreeZeroPage(ULONG_PTR BugCheckParameter2, __int16 a2, ULONG_PTR *a3, __int64 *a4)
@@ -154,7 +154,7 @@ void __fastcall MiInsertFreeZeroPage(ULONG_PTR BugCheckParameter2, __int16 a2, U
   v80 = PfnPageSizeIndex;
   v68 = (*(_QWORD *)(v8 + 40) >> 43) & 0x3FFLL;
   v84 = MiPageSizes[PfnPageSizeIndex];
-  v83 = *(_QWORD *)(stru_140E2EB88.ThreadLock + 8 * v68);
+  v83 = *(_QWORD *)(stru_140E2ED08.ThreadLock + 8 * v68);
   if ( (a2 & 1) != 0 )
   {
     v69 = 0;
@@ -226,9 +226,9 @@ void __fastcall MiInsertFreeZeroPage(ULONG_PTR BugCheckParameter2, __int16 a2, U
       v23 = *(_QWORD *)(v8 + 16);
       if ( v23 )
       {
-        if ( qword_140E2D740 )
+        if ( qword_140E2D8C0 )
         {
-          v24 = qword_140E2D748 & v23;
+          v24 = qword_140E2D8C8 & v23;
           LODWORD(v23) = v23 & 0xFFFFFFEF;
           if ( (*(_QWORD *)(v8 + 16) & 0x10) == 0 )
             LODWORD(v23) = v24;
@@ -240,9 +240,9 @@ void __fastcall MiInsertFreeZeroPage(ULONG_PTR BugCheckParameter2, __int16 a2, U
       }
       v25 = (unsigned int)v23;
       v26 = (unsigned int)v23 | -(__int64)(v20 != 0) & 0xFFFFFFFD00000000uLL;
-      if ( qword_140E2D740 )
+      if ( qword_140E2D8C0 )
       {
-        if ( (qword_140E2D740 & v26) != 0 )
+        if ( (qword_140E2D8C0 & v26) != 0 )
         {
           v55 = 0xFFFFFFFD00000010uLL;
           if ( (a2 & 0x400) == 0 )
@@ -251,12 +251,12 @@ void __fastcall MiInsertFreeZeroPage(ULONG_PTR BugCheckParameter2, __int16 a2, U
         }
         else
         {
-          v26 |= qword_140E2D740;
+          v26 |= qword_140E2D8C0;
         }
       }
       v27 = v80 == 3;
       *(_QWORD *)(v8 + 16) = v26;
-      if ( v27 && !LODWORD(stru_140E2EB88.Timer.TimerListEntry.Flink) && (a2 & 0x4040) == 0 )
+      if ( v27 && !LODWORD(stru_140E2ED08.Timer.TimerListEntry.Flink) && (a2 & 0x4040) == 0 )
       {
         if ( (a2 & 0x200) == 0 )
         {
@@ -291,13 +291,13 @@ void __fastcall MiInsertFreeZeroPage(ULONG_PTR BugCheckParameter2, __int16 a2, U
         {
           LOBYTE(v61) = 1;
           v62 = (volatile signed __int32 *)(*(_QWORD *)(v57 + 16 * v59 + 13768)
-                                          + 4 * ((unsigned __int64)(v60 % dword_140E2D78C) >> 5));
-          if ( (unsigned __int64)((v60 % dword_140E2D78C) & 0x1F) + 1 > 0x20 )
+                                          + 4 * ((unsigned __int64)(v60 % dword_140E2D90C) >> 5));
+          if ( (unsigned __int64)((v60 % dword_140E2D90C) & 0x1F) + 1 > 0x20 )
           {
-            if ( ((v60 % dword_140E2D78C) & 0x1F) == 0 )
+            if ( ((v60 % dword_140E2D90C) & 0x1F) == 0 )
               goto LABEL_89;
-            v73 = (v60 % dword_140E2D78C) & 0x1F;
-            _InterlockedOr(v62, ((1 << (32 - v73)) - 1) << ((v60 % dword_140E2D78C) & 0x1F));
+            v73 = (v60 % dword_140E2D90C) & 0x1F;
+            _InterlockedOr(v62, ((1 << (32 - v73)) - 1) << ((v60 % dword_140E2D90C) & 0x1F));
             v61 = 1LL - (32 - v73);
             ++v62;
             if ( v61 >= 0x20 )
@@ -317,7 +317,7 @@ LABEL_89:
           }
           else
           {
-            _InterlockedOr(v62, 1 << ((v60 % dword_140E2D78C) & 0x1F));
+            _InterlockedOr(v62, 1 << ((v60 % dword_140E2D90C) & 0x1F));
           }
         }
         return;
@@ -343,12 +343,12 @@ LABEL_89:
       LODWORD(BugCheckParameter2a) = v35;
       if ( v80 == 3 )
       {
-        if ( (unsigned __int8)byte_140E2D718 > 1u )
+        if ( (unsigned __int8)byte_140E2D898 > 1u )
           _InterlockedIncrement64((volatile signed __int64 *)(v31 + 8 * (v32 + 2LL * (unsigned __int8)v35) + 14064));
         MiUpdateLargePageCandidateValue(v83, BugCheckParameter2, 3LL, 1LL, 0LL);
         LOBYTE(v35) = BugCheckParameter2a;
       }
-      if ( (unsigned __int8)byte_140E2D718 > 1u )
+      if ( (unsigned __int8)byte_140E2D898 > 1u )
         v36 = v35;
       else
         v36 = 0;
@@ -389,14 +389,14 @@ LABEL_89:
         LOWORD(BugCheckParameter2a) = 0;
         LODWORD(v81) = 0;
         v45 = (*(_QWORD *)(v7 - 0x21FFFFFFFFD8LL) >> 43) & 0x3FFLL;
-        v46 = *(_QWORD *)(stru_140E2EB88.ThreadLock + 8 * v45);
+        v46 = *(_QWORD *)(stru_140E2ED08.ThreadLock + 8 * v45);
         if ( !*(_BYTE *)(v46 + 16486) )
         {
 LABEL_40:
           v81 = 0LL;
           goto LABEL_41;
         }
-        v47 = *(_QWORD *)(stru_140E2EB88.ThreadLock + 8 * v45);
+        v47 = *(_QWORD *)(stru_140E2ED08.ThreadLock + 8 * v45);
         if ( !(_DWORD)v43 )
         {
           MiUpdateLargePageCandidateValue(v47, BugCheckParameter2, 0LL, 1LL, 0LL);

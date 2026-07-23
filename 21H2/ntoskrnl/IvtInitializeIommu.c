@@ -1,27 +1,27 @@
 /*
- * XREFs of IvtInitializeIommu @ 0x1409A9950
+ * XREFs of IvtInitializeIommu @ 0x1409AA880
  * Callers:
  *     <none>
  * Callees:
- *     KeStallExecutionProcessor @ 0x14022A880 (KeStallExecutionProcessor.c)
- *     MmGetPhysicalAddress @ 0x1402A8700 (MmGetPhysicalAddress.c)
- *     HalSocRequestApi @ 0x1403A209C (HalSocRequestApi.c)
- *     HalMapIoSpace @ 0x1403AC2D0 (HalMapIoSpace.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     memset @ 0x140414200 (memset.c)
- *     IvtBuildContextEntry @ 0x1404DF820 (IvtBuildContextEntry.c)
- *     IvtBuildExtendedContextEntry @ 0x1404DF86C (IvtBuildExtendedContextEntry.c)
- *     IvtFlushTbInternal @ 0x1404DFAA4 (IvtFlushTbInternal.c)
- *     IvtGetBlockedDomain @ 0x1404DFF1C (IvtGetBlockedDomain.c)
- *     IvtGetContextEntryType @ 0x1404DFF70 (IvtGetContextEntryType.c)
- *     IvtGetIdentityMappedDomain @ 0x1404E0024 (IvtGetIdentityMappedDomain.c)
- *     IvtInitializeIdentityMappings @ 0x1404E01F0 (IvtInitializeIdentityMappings.c)
- *     IvtInitializeMTRR @ 0x1404E0474 (IvtInitializeMTRR.c)
- *     IvtInvalidateAllContextEntries @ 0x1404E0660 (IvtInvalidateAllContextEntries.c)
- *     IvtInvalidateRemappingTableEntries @ 0x1404E07BC (IvtInvalidateRemappingTableEntries.c)
- *     IvtUpdateGlobalCommand @ 0x1404E1050 (IvtUpdateGlobalCommand.c)
- *     IvtProcessDeviceExceptions @ 0x1409AA188 (IvtProcessDeviceExceptions.c)
+ *     MmGetPhysicalAddress @ 0x140226840 (MmGetPhysicalAddress.c)
+ *     KeStallExecutionProcessor @ 0x1402CF130 (KeStallExecutionProcessor.c)
+ *     HalSocRequestApi @ 0x1403A21EC (HalSocRequestApi.c)
+ *     HalMapIoSpace @ 0x1403AD060 (HalMapIoSpace.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     IvtBuildContextEntry @ 0x1404DFA60 (IvtBuildContextEntry.c)
+ *     IvtBuildExtendedContextEntry @ 0x1404DFAAC (IvtBuildExtendedContextEntry.c)
+ *     IvtFlushTbInternal @ 0x1404DFCE4 (IvtFlushTbInternal.c)
+ *     IvtGetBlockedDomain @ 0x1404E015C (IvtGetBlockedDomain.c)
+ *     IvtGetContextEntryType @ 0x1404E01B0 (IvtGetContextEntryType.c)
+ *     IvtGetIdentityMappedDomain @ 0x1404E0264 (IvtGetIdentityMappedDomain.c)
+ *     IvtInitializeIdentityMappings @ 0x1404E0430 (IvtInitializeIdentityMappings.c)
+ *     IvtInitializeMTRR @ 0x1404E06B4 (IvtInitializeMTRR.c)
+ *     IvtInvalidateAllContextEntries @ 0x1404E08A0 (IvtInvalidateAllContextEntries.c)
+ *     IvtInvalidateRemappingTableEntries @ 0x1404E09FC (IvtInvalidateRemappingTableEntries.c)
+ *     IvtUpdateGlobalCommand @ 0x1404E1290 (IvtUpdateGlobalCommand.c)
+ *     IvtProcessDeviceExceptions @ 0x1409AB0B8 (IvtProcessDeviceExceptions.c)
  */
 
 __int64 __fastcall IvtInitializeIommu(__int64 a1, int a2, char a3)

@@ -1,26 +1,22 @@
 /*
- * XREFs of WbProcessModuleUnload @ 0x1406A2680
+ * XREFs of WbProcessModuleUnload @ 0x140605A88
  * Callers:
- *     WbDispatchOperation @ 0x14064EE24 (WbDispatchOperation.c)
+ *     WbDispatchOperation @ 0x140643C44 (WbDispatchOperation.c)
  * Callees:
- *     WbAlloc @ 0x14064DC04 (WbAlloc.c)
- *     WbInPlaceEncryptionUnloadModule @ 0x1406A2768 (WbInPlaceEncryptionUnloadModule.c)
- *     WbHeapExecutionUnloadModule @ 0x1406A287C (WbHeapExecutionUnloadModule.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     WbInPlaceEncryptionUnloadModule @ 0x140605B70 (WbInPlaceEncryptionUnloadModule.c)
+ *     WbHeapExecutionUnloadModule @ 0x140605C84 (WbHeapExecutionUnloadModule.c)
+ *     WbAlloc @ 0x140642A24 (WbAlloc.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall WbProcessModuleUnload(__int64 a1, _QWORD *a2, unsigned int a3)
 {
   int v5; // edi
   _OWORD *v6; // rax
-  _DWORD *v7; // rcx
-  _QWORD *v8; // rbx
-  PVOID P; // [rsp+58h] [rbp+20h] BYREF
 
-  P = 0LL;
   if ( a3 >= 0x10 && *a2 == 9LL )
   {
-    v5 = WbAlloc(0x10uLL, &P);
+    v5 = WbAlloc(0x10uLL);
     if ( v5 >= 0 )
     {
       v6 = (_OWORD *)a2[1];
@@ -29,25 +25,21 @@ __int64 __fastcall WbProcessModuleUnload(__int64 a1, _QWORD *a2, unsigned int a3
         MEMORY[0x7FFFFFFF0000] = 0;
         v6 = (_OWORD *)a2[1];
       }
-      v7 = P;
-      *(_OWORD *)P = *v6;
-      if ( *v7 )
+      MEMORY[0] = *v6;
+      if ( MEMORY[0] )
       {
-        v5 = -1073741811;
+        return (unsigned int)-1073741811;
       }
       else
       {
-        v8 = P;
-        WbHeapExecutionUnloadModule(a1, *((_QWORD *)P + 1));
-        WbInPlaceEncryptionUnloadModule(a1, v8[1]);
+        WbHeapExecutionUnloadModule(a1, MEMORY[8]);
+        WbInPlaceEncryptionUnloadModule(a1, MEMORY[8]);
       }
     }
   }
   else
   {
-    v5 = -1073741811;
+    return (unsigned int)-1073741811;
   }
-  if ( P )
-    ExFreePoolWithTag(P, 0x42524157u);
   return (unsigned int)v5;
 }

@@ -1,15 +1,15 @@
 /*
  * XREFs of ExUpdateSystemTimeFromCmos @ 0x140A88304
  * Callers:
- *     ExpTimeRefreshWork @ 0x140A92380 (ExpTimeRefreshWork.c)
- *     PopTransitionSystemPowerStateEx @ 0x140AA90F0 (PopTransitionSystemPowerStateEx.c)
+ *     ExpTimeRefreshWork @ 0x140A92200 (ExpTimeRefreshWork.c)
+ *     PopTransitionSystemPowerStateEx @ 0x140AA8F60 (PopTransitionSystemPowerStateEx.c)
  *     KdpTimeSlipWork @ 0x140AB0480 (KdpTimeSlipWork.c)
  * Callees:
- *     HalQueryRealTimeClock @ 0x14033B130 (HalQueryRealTimeClock.c)
- *     ExLocalTimeToSystemTime @ 0x14033B2A0 (ExLocalTimeToSystemTime.c)
- *     RtlTimeFieldsToTime @ 0x14033B350 (RtlTimeFieldsToTime.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     ExpSetSystemTime @ 0x140AAAC64 (ExpSetSystemTime.c)
+ *     HalQueryRealTimeClock @ 0x14033B3C0 (HalQueryRealTimeClock.c)
+ *     ExLocalTimeToSystemTime @ 0x14033B530 (ExLocalTimeToSystemTime.c)
+ *     RtlTimeFieldsToTime @ 0x14033B5E0 (RtlTimeFieldsToTime.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     ExpSetSystemTime @ 0x140AAAAD4 (ExpSetSystemTime.c)
  */
 
 char __fastcall ExUpdateSystemTimeFromCmos(char a1, unsigned int a2)
@@ -21,7 +21,7 @@ char __fastcall ExUpdateSystemTimeFromCmos(char a1, unsigned int a2)
   LARGE_INTEGER Time; // [rsp+30h] [rbp-30h] BYREF
   LARGE_INTEGER SystemTime; // [rsp+38h] [rbp-28h] BYREF
   __int64 v9; // [rsp+40h] [rbp-20h] BYREF
-  TIME_FIELDS TimeFields; // [rsp+48h] [rbp-18h] BYREF
+  _TIME_FIELDS TimeFields; // [rsp+48h] [rbp-18h] BYREF
 
   SystemTime.QuadPart = 0LL;
   Time.QuadPart = 0LL;

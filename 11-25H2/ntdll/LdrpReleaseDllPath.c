@@ -25,7 +25,7 @@ void __fastcall LdrpReleaseDllPath(__int64 *a1)
 {
   char *SchedulerSharedDataSlot; // r8
   __int64 v2; // rdi
-  __int64 v3; // rbx
+  void *v3; // rbx
   unsigned int i; // edx
   char *v5; // rcx
 
@@ -33,7 +33,7 @@ void __fastcall LdrpReleaseDllPath(__int64 *a1)
   {
     SchedulerSharedDataSlot = (char *)NtCurrentTeb()->SchedulerSharedDataSlot;
     v2 = *a1;
-    v3 = *a1 - 128;
+    v3 = (void *)(*a1 - 128);
     if ( SchedulerSharedDataSlot )
     {
       for ( i = 0; i < 8; ++i )
@@ -53,6 +53,6 @@ void __fastcall LdrpReleaseDllPath(__int64 *a1)
       v3 = 0LL;
     RtlReleaseSRWLockExclusive(&RtlpCachedPathLock);
     if ( v3 )
-      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, v3);
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v3);
   }
 }

@@ -1,11 +1,11 @@
 /*
- * XREFs of MmGetPhysicalMemoryRangesEx @ 0x1404E5A08
+ * XREFs of MmGetPhysicalMemoryRangesEx @ 0x1404C843C
  * Callers:
- *     MmGetPhysicalMemoryRanges @ 0x1404E5A00 (MmGetPhysicalMemoryRanges.c)
+ *     MmGetPhysicalMemoryRanges @ 0x1404C8434 (MmGetPhysicalMemoryRanges.c)
  * Callees:
- *     MiDereferencePageRuns @ 0x140107058 (MiDereferencePageRuns.c)
- *     MiReferencePageRuns @ 0x1401070F0 (MiReferencePageRuns.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
+ *     MiDereferencePageRuns @ 0x140104DD8 (MiDereferencePageRuns.c)
+ *     MiReferencePageRuns @ 0x140104E70 (MiReferencePageRuns.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */
 

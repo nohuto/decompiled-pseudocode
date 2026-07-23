@@ -1,10 +1,10 @@
 /*
- * XREFs of _PnpMapCmStatusToDispatchStatus @ 0x14044D63C
+ * XREFs of _PnpMapCmStatusToDispatchStatus @ 0x14044453C
  * Callers:
- *     _PnpDispatchInterfaceClass @ 0x1408BBDB0 (_PnpDispatchInterfaceClass.c)
- *     _PnpDispatchDeviceInterface @ 0x1408CCC00 (_PnpDispatchDeviceInterface.c)
- *     _PnpDispatchDevice @ 0x1408CDBB0 (_PnpDispatchDevice.c)
- *     _PnpDispatchInstallerClass @ 0x1409B6670 (_PnpDispatchInstallerClass.c)
+ *     _PnpDispatchInterfaceClass @ 0x1408B9700 (_PnpDispatchInterfaceClass.c)
+ *     _PnpDispatchDeviceInterface @ 0x1408CA5F0 (_PnpDispatchDeviceInterface.c)
+ *     _PnpDispatchDevice @ 0x1408CB5A0 (_PnpDispatchDevice.c)
+ *     _PnpDispatchInstallerClass @ 0x1409ADA00 (_PnpDispatchInstallerClass.c)
  * Callees:
  *     <none>
  */

@@ -22,8 +22,8 @@ __int64 __fastcall sub_1800F9170(__int64 a1, __int64 a2, WCHAR *a3, char a4, __i
   __int64 v15; // r8
   __int64 v16; // rcx
   __int64 result; // rax
-  UNICODE_STRING DestinationString; // [rsp+30h] [rbp-28h] BYREF
-  int v19; // [rsp+60h] [rbp+8h] BYREF
+  _UNICODE_STRING DestinationString; // [rsp+30h] [rbp-28h] BYREF
+  DWORD Lcid; // [rsp+60h] [rbp+8h] BYREF
 
   if ( !a1 )
     return 3221225485LL;
@@ -34,9 +34,9 @@ __int64 __fastcall sub_1800F9170(__int64 a1, __int64 a2, WCHAR *a3, char a4, __i
   v9 = a5;
   if ( !a5 )
     return 3221225485LL;
-  if ( (int)sub_1800353C4(a1, a3, 0LL, (__int16 *)&v19) >= 0 )
+  if ( (int)sub_1800353C4(a1, a3, 0LL, (__int16 *)&Lcid) >= 0 )
   {
-    v10 = v19;
+    v10 = Lcid;
     v11 = 0;
     for ( i = 0; i < 8; i += 2 )
     {
@@ -46,7 +46,7 @@ __int64 __fastcall sub_1800F9170(__int64 a1, __int64 a2, WCHAR *a3, char a4, __i
       {
         v15 = v14;
         v16 = *(_QWORD *)(*(_QWORD *)(a1 + 24) + 16LL);
-        if ( *(_WORD *)(28 * v15 + v16 + 6) == (_WORD)v19 )
+        if ( *(_WORD *)(28 * v15 + v16 + 6) == (_WORD)Lcid )
         {
           *(_OWORD *)v9 = *(_OWORD *)(28 * v15 + v16);
           *(_QWORD *)(v9 + 16) = *(_QWORD *)(28 * v15 + v16 + 16);
@@ -54,7 +54,7 @@ __int64 __fastcall sub_1800F9170(__int64 a1, __int64 a2, WCHAR *a3, char a4, __i
           return 0LL;
         }
       }
-      else if ( v14 != (_WORD)v19 && v13 != 3 )
+      else if ( v14 != (_WORD)Lcid && v13 != 3 )
       {
         result = 0LL;
         *(_QWORD *)v9 = 0LL;
@@ -68,10 +68,10 @@ __int64 __fastcall sub_1800F9170(__int64 a1, __int64 a2, WCHAR *a3, char a4, __i
     }
   }
   if ( a4
-    && (RtlInitUnicodeString(&DestinationString, a3), RtlCultureNameToLCID(&DestinationString.Length, &v19))
-    && v19 != 4096 )
+    && (RtlInitUnicodeString(&DestinationString, a3), RtlCultureNameToLCID(&DestinationString, &Lcid))
+    && Lcid != 4096 )
   {
-    return sub_1800F8FB0(a1, a2, v19, 0, v9);
+    return sub_1800F8FB0(a1, a2, Lcid, 0, v9);
   }
   else
   {

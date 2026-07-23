@@ -1,10 +1,10 @@
 /*
- * XREFs of ExpWorkQueueManagerStart @ 0x1407548A0
+ * XREFs of ExpWorkQueueManagerStart @ 0x140755A90
  * Callers:
- *     ExpPartitionStart @ 0x1407547FC (ExpPartitionStart.c)
- *     ExpNodeHotAddProcessorWorker @ 0x1408D6210 (ExpNodeHotAddProcessorWorker.c)
+ *     ExpPartitionStart @ 0x1407559EC (ExpPartitionStart.c)
+ *     ExpNodeHotAddProcessorWorker @ 0x1408D74D0 (ExpNodeHotAddProcessorWorker.c)
  * Callees:
- *     ExpPartitionCreateSystemThread @ 0x14066A954 (ExpPartitionCreateSystemThread.c)
+ *     ExpPartitionCreateSystemThread @ 0x14066BB14 (ExpPartitionCreateSystemThread.c)
  */
 
 __int64 __fastcall ExpWorkQueueManagerStart(__int64 a1, __int64 a2, int a3)

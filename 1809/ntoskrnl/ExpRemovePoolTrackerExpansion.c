@@ -1,17 +1,17 @@
 /*
- * XREFs of ExpRemovePoolTrackerExpansion @ 0x140107680
+ * XREFs of ExpRemovePoolTrackerExpansion @ 0x140107700
  * Callers:
- *     ExFreeLargePool @ 0x14009ADD0 (ExFreeLargePool.c)
- *     ExPoolCleanupExpansionTable @ 0x140141F60 (ExPoolCleanupExpansionTable.c)
- *     ExpFreeHeapSpecialPool @ 0x14031EC64 (ExpFreeHeapSpecialPool.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     ExFreeLargePool @ 0x14009AD10 (ExFreeLargePool.c)
+ *     ExPoolCleanupExpansionTable @ 0x140142060 (ExPoolCleanupExpansionTable.c)
+ *     ExpFreeHeapSpecialPool @ 0x14031EE54 (ExpFreeHeapSpecialPool.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  * Callees:
  *     KxWaitForLockChainValid @ 0x140022C50 (KxWaitForLockChainValid.c)
- *     KxWaitForLockOwnerShip @ 0x14007DF20 (KxWaitForLockOwnerShip.c)
- *     KxReleaseQueuedSpinLock @ 0x1400BC760 (KxReleaseQueuedSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x140290A00 (KiAcquireQueuedSpinLockInstrumented.c)
- *     KiReleaseQueuedSpinLockInstrumented @ 0x140290AB8 (KiReleaseQueuedSpinLockInstrumented.c)
+ *     KxWaitForLockOwnerShip @ 0x14007DF10 (KxWaitForLockOwnerShip.c)
+ *     KxReleaseQueuedSpinLock @ 0x1400BC6A0 (KxReleaseQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x140290BF0 (KiAcquireQueuedSpinLockInstrumented.c)
+ *     KiReleaseQueuedSpinLockInstrumented @ 0x140290CA8 (KiReleaseQueuedSpinLockInstrumented.c)
  */
 
 __int64 __fastcall ExpRemovePoolTrackerExpansion(int a1, __int64 a2, char a3)

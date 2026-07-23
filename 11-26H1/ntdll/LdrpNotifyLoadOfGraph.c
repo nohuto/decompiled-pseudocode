@@ -1,11 +1,11 @@
 /*
- * XREFs of LdrpNotifyLoadOfGraph @ 0x180119830
+ * XREFs of LdrpNotifyLoadOfGraph @ 0x1801195E0
  * Callers:
- *     LdrpNotifyLoadOfGraph @ 0x180119830 (LdrpNotifyLoadOfGraph.c)
- *     LdrpPrepareModuleForExecution @ 0x18011ADA0 (LdrpPrepareModuleForExecution.c)
+ *     LdrpNotifyLoadOfGraph @ 0x1801195E0 (LdrpNotifyLoadOfGraph.c)
+ *     LdrpPrepareModuleForExecution @ 0x18011AB50 (LdrpPrepareModuleForExecution.c)
  * Callees:
- *     LdrpNotifyLoadOfGraph @ 0x180119830 (LdrpNotifyLoadOfGraph.c)
- *     LdrpSendPostSnapNotifications @ 0x18011B220 (LdrpSendPostSnapNotifications.c)
+ *     LdrpNotifyLoadOfGraph @ 0x1801195E0 (LdrpNotifyLoadOfGraph.c)
+ *     LdrpSendPostSnapNotifications @ 0x18011AFD0 (LdrpSendPostSnapNotifications.c)
  */
 
 __int64 __fastcall LdrpNotifyLoadOfGraph(__int64 a1)

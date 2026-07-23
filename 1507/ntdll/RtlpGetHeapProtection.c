@@ -23,25 +23,34 @@
  *     ZwQueryVirtualMemory @ 0x180093B30 (ZwQueryVirtualMemory.c)
  */
 
-__int64 __fastcall RtlpGetHeapProtection(_DWORD *a1, int a2)
+__int64 __fastcall RtlpGetHeapProtection(_DWORD *BaseAddress, int a2)
 {
   unsigned int v4; // ebx
-  _DWORD *v6; // [rsp+30h] [rbp-38h] BYREF
+  _DWORD *MemoryInformation; // [rsp+30h] [rbp-38h] BYREF
   int v7; // [rsp+54h] [rbp-14h]
 
-  if ( a1[4] == -571548178 )
+  if ( BaseAddress[4] == -571548178 )
   {
-    if ( (a1[5] & 0x40000000) == 0 )
+    if ( (BaseAddress[5] & 0x40000000) == 0 )
       return 4;
   }
-  else if ( (a1[28] & 0x40000) == 0 )
+  else if ( (BaseAddress[28] & 0x40000) == 0 )
   {
     return 4;
   }
   v4 = 64;
-  if ( a2 && ((int)ZwQueryVirtualMemory(-1LL, a1, 0LL, &v6, 48LL, 0LL) < 0 || (v7 & 0x60) == 0 || v6 != a1) )
+  if ( a2
+    && (ZwQueryVirtualMemory(
+          (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+          BaseAddress,
+          MemoryBasicInformation,
+          &MemoryInformation,
+          0x30uLL,
+          0LL) < 0
+     || (v7 & 0x60) == 0
+     || MemoryInformation != BaseAddress) )
   {
-    RtlpLogHeapFailure(0, (_DWORD)a1, a2, v7, 0LL, 0LL);
+    RtlpLogHeapFailure(0, (_DWORD)BaseAddress, a2, v7, 0LL, 0LL);
     return 4;
   }
   return v4;

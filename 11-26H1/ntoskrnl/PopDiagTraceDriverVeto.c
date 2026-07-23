@@ -1,13 +1,13 @@
 /*
- * XREFs of PopDiagTraceDriverVeto @ 0x140BFD778
+ * XREFs of PopDiagTraceDriverVeto @ 0x140C03778
  * Callers:
- *     PopCompleteNotifyTransitionCommon @ 0x1404B21BC (PopCompleteNotifyTransitionCommon.c)
+ *     PopCompleteNotifyTransitionCommon @ 0x1404AB6C8 (PopCompleteNotifyTransitionCommon.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     PopDiagGetDriverName @ 0x140486FD8 (PopDiagGetDriverName.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     PopDiagGetDriverName @ 0x1404809A8 (PopDiagGetDriverName.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 char __fastcall PopDiagTraceDriverVeto(__int64 a1, __int64 a2)
@@ -32,16 +32,14 @@ char __fastcall PopDiagTraceDriverVeto(__int64 a1, __int64 a2)
 
   v2 = &retaddr;
   DestinationString_8 = 0LL;
-  if ( byte_140E67628 )
+  if ( PopDiagHandleRegistered )
   {
-    LOBYTE(v2) = EtwEventEnabled(
-                   *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-                   &POP_ETW_EVENT_DRIVERVETO);
+    LOBYTE(v2) = EtwEventEnabled(PopDiagHandle, &POP_ETW_EVENT_DRIVERVETO);
     if ( (_BYTE)v2 )
     {
       if ( (int)PopDiagGetDriverName(a1, SourceString) < 0 )
       {
-        RtlInitUnicodeString(&DestinationString_8, &word_140C0E0E0);
+        RtlInitUnicodeString(&DestinationString_8, &word_140C142F0);
         Length = DestinationString_8.Length;
         v6 = 0;
       }
@@ -75,12 +73,7 @@ char __fastcall PopDiagTraceDriverVeto(__int64 a1, __int64 a2)
         *(&UserData.Size + 2 * v11) = v7;
         *(&UserData.Reserved + 2 * v11) = 0;
       }
-      LOBYTE(v2) = EtwWrite(
-                     *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-                     &POP_ETW_EVENT_DRIVERVETO,
-                     0LL,
-                     v10,
-                     &UserData);
+      LOBYTE(v2) = EtwWrite(PopDiagHandle, &POP_ETW_EVENT_DRIVERVETO, 0LL, v10, &UserData);
     }
   }
   return (char)v2;

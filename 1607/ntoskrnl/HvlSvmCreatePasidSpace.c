@@ -1,10 +1,10 @@
 /*
- * XREFs of HvlSvmCreatePasidSpace @ 0x1401BE060
+ * XREFs of HvlSvmCreatePasidSpace @ 0x1401BDF44
  * Callers:
  *     <none>
  * Callees:
- *     HvcallpExtendedFastHypercall @ 0x1401685A0 (HvcallpExtendedFastHypercall.c)
- *     HvlpDepositPages @ 0x1401BB624 (HvlpDepositPages.c)
+ *     HvcallpExtendedFastHypercall @ 0x140168B10 (HvcallpExtendedFastHypercall.c)
+ *     HvlpDepositPages @ 0x1401BB508 (HvlpDepositPages.c)
  */
 
 __int64 __fastcall HvlSvmCreatePasidSpace(unsigned int a1, unsigned int a2)

@@ -1,14 +1,14 @@
 /*
- * XREFs of PnpGetDeviceInstancePropertyData @ 0x140AB1650
+ * XREFs of PnpGetDeviceInstancePropertyData @ 0x140AAC5C0
  * Callers:
  *     <none>
  * Callees:
- *     DbgPrint @ 0x1402CB260 (DbgPrint.c)
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     DownLevelLangIDToLanguageName @ 0x1404B167C (DownLevelLangIDToLanguageName.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     _PnpGetObjectProperty @ 0x1408CDFD0 (_PnpGetObjectProperty.c)
+ *     DbgPrint @ 0x140274290 (DbgPrint.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     DownLevelLangIDToLanguageName @ 0x1404ABF0C (DownLevelLangIDToLanguageName.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     _PnpGetObjectProperty @ 0x1408CB9C0 (_PnpGetObjectProperty.c)
  */
 
 __int64 __fastcall PnpGetDeviceInstancePropertyData(
@@ -37,9 +37,9 @@ __int64 __fastcall PnpGetDeviceInstancePropertyData(
     if ( a3 == 4096 )
       return 3221225473LL;
     DbgPrint("!!! RTLMUI: Reusing LocaleBuffer !!!");
-    if ( (int)DownLevelLangIDToLanguageName(a3, &word_140E62280, 64, 2) <= 0 )
+    if ( (int)DownLevelLangIDToLanguageName(a3, word_140E623D0, 64, 2) <= 0 )
       return 3221225473LL;
-    RtlInitUnicodeString(&DestinationString, &word_140E62280);
+    RtlInitUnicodeString(&DestinationString, word_140E623D0);
     Buffer = DestinationString.Buffer;
   }
   else

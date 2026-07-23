@@ -1,35 +1,33 @@
 /*
- * XREFs of CmpUnlockCallbackList @ 0x140A05350
+ * XREFs of CmpUnlockCallbackList @ 0x1409F0B40
  * Callers:
- *     CmUnRegisterCallback @ 0x1408505D0 (CmUnRegisterCallback.c)
- *     CmpInsertCallbackInListByAltitude @ 0x140A051A4 (CmpInsertCallbackInListByAltitude.c)
- *     CmpEnumerateCallback @ 0x140A05280 (CmpEnumerateCallback.c)
+ *     CmUnRegisterCallback @ 0x1408568E0 (CmUnRegisterCallback.c)
+ *     CmpInsertCallbackInListByAltitude @ 0x1409F0994 (CmpInsertCallbackInListByAltitude.c)
+ *     CmpEnumerateCallback @ 0x1409F0A70 (CmpEnumerateCallback.c)
  * Callees:
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     KeLeaveCriticalRegionThread @ 0x1402B8A60 (KeLeaveCriticalRegionThread.c)
- *     ExfReleasePushLock @ 0x1402E3120 (ExfReleasePushLock.c)
+ *     ExfReleasePushLock @ 0x14021B220 (ExfReleasePushLock.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegionThread @ 0x140303720 (KeLeaveCriticalRegionThread.c)
  */
 
 __int64 CmpUnlockCallbackList()
 {
-  signed __int64 v0; // rdx
-  __int64 v1; // rtt
-  __int64 v2; // rdx
-  __int64 v3; // r8
+  struct _LIST_ENTRY *v0; // rdx
+  struct _LIST_ENTRY *Flink; // rtt
 
-  _m_prefetchw(&CmpCallbackListLock);
-  v0 = *(_QWORD *)&CmpCallbackListLock.Header.Lock - 16LL;
-  if ( (*(_QWORD *)&CmpCallbackListLock.Header.Lock & 0xFFFFFFFFFFFFFFF0uLL) <= 0x10 )
+  _m_prefetchw(&CmpContextListLock.Header.WaitListHead);
+  v0 = CmpContextListLock.Header.WaitListHead.Flink - 1;
+  if ( ((unsigned __int64)CmpContextListLock.Header.WaitListHead.Flink & 0xFFFFFFFFFFFFFFF0uLL) <= 0x10 )
     v0 = 0LL;
-  if ( (CmpCallbackListLock.Header.Type & 2) != 0
-    || (v1 = *(_QWORD *)&CmpCallbackListLock.Header.Lock,
-        v1 != _InterlockedCompareExchange64(
-                (volatile signed __int64 *)&CmpCallbackListLock,
-                v0,
-                *(signed __int64 *)&CmpCallbackListLock.Header.Lock)) )
+  if ( ((__int64)CmpContextListLock.Header.WaitListHead.Flink & 2) != 0
+    || (Flink = CmpContextListLock.Header.WaitListHead.Flink,
+        Flink != (struct _LIST_ENTRY *)_InterlockedCompareExchange64(
+                                         (volatile signed __int64 *)&CmpContextListLock.Header.WaitListHead.Flink,
+                                         (signed __int64)v0,
+                                         (signed __int64)CmpContextListLock.Header.WaitListHead.Flink)) )
   {
-    ExfReleasePushLock(&CmpCallbackListLock);
+    ExfReleasePushLock(&CmpContextListLock.Header.WaitListHead.Flink);
   }
-  KeAbPostRelease((unsigned __int64)&CmpCallbackListLock);
-  return KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v2, v3);
+  KeAbPostRelease((unsigned __int64)&CmpContextListLock.Header.WaitListHead);
+  return KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
 }

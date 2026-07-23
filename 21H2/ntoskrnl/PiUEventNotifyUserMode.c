@@ -1,29 +1,29 @@
 /*
- * XREFs of PiUEventNotifyUserMode @ 0x1406E675C
+ * XREFs of PiUEventNotifyUserMode @ 0x1406FDB3C
  * Callers:
- *     PnpProcessCustomDeviceEvent @ 0x1406E60D8 (PnpProcessCustomDeviceEvent.c)
- *     PnpDeviceEventWorker @ 0x1406E78D0 (PnpDeviceEventWorker.c)
- *     PnpNotifyUserModeDeviceRemoval @ 0x140736F70 (PnpNotifyUserModeDeviceRemoval.c)
- *     PnpProcessTargetDeviceEvent @ 0x14074B120 (PnpProcessTargetDeviceEvent.c)
+ *     PnpProcessCustomDeviceEvent @ 0x1406FD4C0 (PnpProcessCustomDeviceEvent.c)
+ *     PnpDeviceEventWorker @ 0x1406FECB0 (PnpDeviceEventWorker.c)
+ *     PnpNotifyUserModeDeviceRemoval @ 0x140737130 (PnpNotifyUserModeDeviceRemoval.c)
+ *     PnpProcessTargetDeviceEvent @ 0x14074B2E0 (PnpProcessTargetDeviceEvent.c)
  * Callees:
- *     ExQueueWorkItem @ 0x14023E750 (ExQueueWorkItem.c)
- *     KeWaitForMultipleObjects @ 0x14024BB90 (KeWaitForMultipleObjects.c)
- *     KeReleaseGuardedMutex @ 0x140265CD0 (KeReleaseGuardedMutex.c)
- *     PiUEventShouldQueueEvent @ 0x1402EE500 (PiUEventShouldQueueEvent.c)
- *     KeInitializeGuardedMutex @ 0x1402EE570 (KeInitializeGuardedMutex.c)
- *     ExAcquireFastMutex @ 0x14034A080 (ExAcquireFastMutex.c)
- *     KeInitializeEvent @ 0x1403538F0 (KeInitializeEvent.c)
- *     ZwUpdateWnfStateData @ 0x1403FDDA0 (ZwUpdateWnfStateData.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     memset @ 0x140414200 (memset.c)
- *     PiUEventDereferenceEventEntry @ 0x1406E62DC (PiUEventDereferenceEventEntry.c)
- *     PiUEventFreeEventEntry @ 0x1406E6340 (PiUEventFreeEventEntry.c)
- *     PiUEventCacheObjectProperties @ 0x1406E6A9C (PiUEventCacheObjectProperties.c)
- *     PiUEventReferenceEventEntry @ 0x1406E6EFC (PiUEventReferenceEventEntry.c)
- *     PiUEventIsDeviceEventVetoable @ 0x1406E7410 (PiUEventIsDeviceEventVetoable.c)
- *     PiUEventDeviceNeedsInstall @ 0x14076BA94 (PiUEventDeviceNeedsInstall.c)
- *     PiUEventSendDeviceInstallNotification @ 0x1408A2CDC (PiUEventSendDeviceInstallNotification.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     KeReleaseGuardedMutex @ 0x140253C70 (KeReleaseGuardedMutex.c)
+ *     ExQueueWorkItem @ 0x1402E2FA0 (ExQueueWorkItem.c)
+ *     KeWaitForMultipleObjects @ 0x1402F03E0 (KeWaitForMultipleObjects.c)
+ *     PiUEventShouldQueueEvent @ 0x1402F9250 (PiUEventShouldQueueEvent.c)
+ *     KeInitializeGuardedMutex @ 0x1402F92C0 (KeInitializeGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x140354DD0 (ExAcquireFastMutex.c)
+ *     KeInitializeEvent @ 0x14035E640 (KeInitializeEvent.c)
+ *     ZwUpdateWnfStateData @ 0x1403FDF80 (ZwUpdateWnfStateData.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     PiUEventDereferenceEventEntry @ 0x1406FD6BC (PiUEventDereferenceEventEntry.c)
+ *     PiUEventFreeEventEntry @ 0x1406FD720 (PiUEventFreeEventEntry.c)
+ *     PiUEventCacheObjectProperties @ 0x1406FDE7C (PiUEventCacheObjectProperties.c)
+ *     PiUEventReferenceEventEntry @ 0x1406FE2DC (PiUEventReferenceEventEntry.c)
+ *     PiUEventIsDeviceEventVetoable @ 0x1406FE7F0 (PiUEventIsDeviceEventVetoable.c)
+ *     PiUEventDeviceNeedsInstall @ 0x14076BC54 (PiUEventDeviceNeedsInstall.c)
+ *     PiUEventSendDeviceInstallNotification @ 0x1408A2E3C (PiUEventSendDeviceInstallNotification.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 __int64 __fastcall PiUEventNotifyUserMode(__int64 a1)
@@ -128,14 +128,14 @@ LABEL_36:
     memmove((void *)(v7 + 72), (const void *)(a1 + 112), *(unsigned int *)(a1 + 148));
     PiUEventCacheObjectProperties(v7);
     ExAcquireFastMutex(&PiUEventUsermodeEventQueueLock);
-    v11 = (__int64 *)qword_140C44F28;
+    v11 = (__int64 *)qword_140C452E8;
     v12 = (PVOID *)PiUEventUsermodeEventQueue;
-    if ( *(PVOID **)qword_140C44F28 != &PiUEventUsermodeEventQueue )
+    if ( *(PVOID **)qword_140C452E8 != &PiUEventUsermodeEventQueue )
       goto LABEL_42;
     *(_QWORD *)v7 = &PiUEventUsermodeEventQueue;
     *(_QWORD *)(v7 + 8) = v11;
     *v11 = v7;
-    qword_140C44F28 = v7;
+    qword_140C452E8 = v7;
     KeReleaseGuardedMutex(&PiUEventUsermodeEventQueueLock);
     if ( v12 != &PiUEventUsermodeEventQueue )
       goto LABEL_17;
@@ -155,7 +155,7 @@ LABEL_17:
         v17 = KeWaitForMultipleObjects(2u, Object, WaitAny, Executive, 0, 1u, &Timeout, 0LL);
         LODWORD(Size) = 0;
         v18 = v17;
-        ZwUpdateWnfStateData((__int64)&WNF_PNPB_AWAITING_RESPONSE, (__int64)&Size);
+        ZwUpdateWnfStateData(&WNF_PNPB_AWAITING_RESPONSE, &Size, 4u, 0LL, 0LL, 0, 0);
         if ( v18 )
         {
           if ( v18 == 1 )

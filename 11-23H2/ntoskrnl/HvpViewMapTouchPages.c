@@ -1,11 +1,11 @@
 /*
- * XREFs of HvpViewMapTouchPages @ 0x14070B40C
+ * XREFs of HvpViewMapTouchPages @ 0x14070B61C
  * Callers:
  *     HvpViewMapMakeViewRangeValid @ 0x140689AA4 (HvpViewMapMakeViewRangeValid.c)
- *     HvpViewMapMakeViewRangeCOWByCaller @ 0x14070B044 (HvpViewMapMakeViewRangeCOWByCaller.c)
- *     HvpMappedViewConvertRegionFromLockedToCOWByPolicy @ 0x1407C3644 (HvpMappedViewConvertRegionFromLockedToCOWByPolicy.c)
+ *     HvpViewMapMakeViewRangeCOWByCaller @ 0x14070B254 (HvpViewMapMakeViewRangeCOWByCaller.c)
+ *     HvpMappedViewConvertRegionFromLockedToCOWByPolicy @ 0x1407C3914 (HvpMappedViewConvertRegionFromLockedToCOWByPolicy.c)
  * Callees:
- *     HvpInpageErrorFilter @ 0x140A1D2B0 (HvpInpageErrorFilter.c)
+ *     HvpInpageErrorFilter @ 0x140A1D560 (HvpInpageErrorFilter.c)
  */
 
 __int64 __fastcall HvpViewMapTouchPages(_BYTE *a1, __int64 a2, char a3)

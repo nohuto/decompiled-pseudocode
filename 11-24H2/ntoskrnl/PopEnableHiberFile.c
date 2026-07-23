@@ -1,34 +1,34 @@
 /*
- * XREFs of PopEnableHiberFile @ 0x140AB3950
+ * XREFs of PopEnableHiberFile @ 0x140AAE8C0
  * Callers:
- *     PopNotifyPolicyDevice @ 0x14075A6B0 (PopNotifyPolicyDevice.c)
- *     PopHibernateEvaluation @ 0x140AB38B0 (PopHibernateEvaluation.c)
+ *     PopNotifyPolicyDevice @ 0x140758DA0 (PopNotifyPolicyDevice.c)
+ *     PopHibernateEvaluation @ 0x140AAE820 (PopHibernateEvaluation.c)
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     MmGetHighestPhysicalPage @ 0x14046DA3C (MmGetHighestPhysicalPage.c)
- *     PopOpenPowerKey @ 0x1404AA6FC (PopOpenPowerKey.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwQueryValueKey @ 0x1406A66F0 (ZwQueryValueKey.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     PopCalculateHiberFileSize @ 0x140751B58 (PopCalculateHiberFileSize.c)
- *     PopClearHiberFileSignature @ 0x140751C50 (PopClearHiberFileSignature.c)
- *     PopCreateHiberFile @ 0x140751D30 (PopCreateHiberFile.c)
- *     PopPreallocateHibernateMemory @ 0x140752A4C (PopPreallocateHibernateMemory.c)
- *     PopZeroHiberFile @ 0x14075333C (PopZeroHiberFile.c)
- *     MmZeroPageFileAtShutdown @ 0x1407E8304 (MmZeroPageFileAtShutdown.c)
- *     MmReleaseDumpHibernateResources @ 0x1407ED788 (MmReleaseDumpHibernateResources.c)
- *     PopCheckDisabledReason @ 0x1409B80C0 (PopCheckDisabledReason.c)
- *     PopLogSleepDisabled @ 0x1409B80F8 (PopLogSleepDisabled.c)
- *     PopRemoveReasonRecordByReasonCode @ 0x1409B9950 (PopRemoveReasonRecordByReasonCode.c)
- *     PopResetCurrentPolicies @ 0x140A688CC (PopResetCurrentPolicies.c)
- *     MmAllocateDumpHibernateResources @ 0x140A9D1CC (MmAllocateDumpHibernateResources.c)
- *     MmReturnChargesToLockPagedPool @ 0x140ABABD0 (MmReturnChargesToLockPagedPool.c)
- *     EmClientQueryRuleState @ 0x140B682E0 (EmClientQueryRuleState.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     MmGetHighestPhysicalPage @ 0x1404684E4 (MmGetHighestPhysicalPage.c)
+ *     PopOpenPowerKey @ 0x1404A48FC (PopOpenPowerKey.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwQueryValueKey @ 0x1406A7690 (ZwQueryValueKey.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     PopCalculateHiberFileSize @ 0x14074FE78 (PopCalculateHiberFileSize.c)
+ *     PopClearHiberFileSignature @ 0x14074FF70 (PopClearHiberFileSignature.c)
+ *     PopCreateHiberFile @ 0x140750050 (PopCreateHiberFile.c)
+ *     PopPreallocateHibernateMemory @ 0x140750D6C (PopPreallocateHibernateMemory.c)
+ *     PopZeroHiberFile @ 0x14075165C (PopZeroHiberFile.c)
+ *     MmZeroPageFileAtShutdown @ 0x1407E88D4 (MmZeroPageFileAtShutdown.c)
+ *     MmReleaseDumpHibernateResources @ 0x1407EDD58 (MmReleaseDumpHibernateResources.c)
+ *     PopCheckDisabledReason @ 0x14099E710 (PopCheckDisabledReason.c)
+ *     PopLogSleepDisabled @ 0x14099E748 (PopLogSleepDisabled.c)
+ *     PopRemoveReasonRecordByReasonCode @ 0x14099FFA0 (PopRemoveReasonRecordByReasonCode.c)
+ *     PopResetCurrentPolicies @ 0x140A61C7C (PopResetCurrentPolicies.c)
+ *     MmAllocateDumpHibernateResources @ 0x140A9873C (MmAllocateDumpHibernateResources.c)
+ *     MmReturnChargesToLockPagedPool @ 0x140AB5BF0 (MmReturnChargesToLockPagedPool.c)
+ *     EmClientQueryRuleState @ 0x140B6A420 (EmClientQueryRuleState.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PopEnableHiberFile(char a1)
@@ -94,10 +94,10 @@ __int64 __fastcall PopEnableHiberFile(char a1)
   {
     if ( FileObject )
       goto LABEL_54;
-    dword_140F0AD84 = 1;
-    dword_140F0AD64 = 1601;
-    byte_140F0AD81 = 0;
-    dword_140F0AE18 = 0;
+    dword_140F0BBC4 = 1;
+    dword_140F0BBA4 = 1601;
+    byte_140F0BBC1 = 0;
+    dword_140F0BC58 = 0;
     if ( (int)PopOpenPowerKey((__int64)&KeyHandle) >= 0 )
     {
       RtlInitUnicodeString(&DestinationString, L"MaxHuffRatio");
@@ -111,9 +111,9 @@ __int64 __fastcall PopEnableHiberFile(char a1)
              &ResultLength) >= 0
         && *(_QWORD *)((char *)&KeyValueInformation + 4) == 0x400000004LL )
       {
-        dword_140F0AD84 = HIDWORD(KeyValueInformation);
+        dword_140F0BBC4 = HIDWORD(KeyValueInformation);
         if ( (unsigned int)(HIDWORD(KeyValueInformation) - 1) > 0x62 )
-          dword_140F0AD84 = 1;
+          dword_140F0BBC4 = 1;
       }
       RtlInitUnicodeString(&ValueName, L"HybridBootAnimationTime");
       v25 = 0;
@@ -121,7 +121,7 @@ __int64 __fastcall PopEnableHiberFile(char a1)
       if ( ZwQueryValueKey(v11, &ValueName, KeyValuePartialInformation, &KeyValueInformation, 0x14u, &ResultLength) >= 0
         && *(_QWORD *)((char *)&KeyValueInformation + 4) == 0x400000004LL )
       {
-        dword_140F0AD64 = HIDWORD(KeyValueInformation);
+        dword_140F0BBA4 = HIDWORD(KeyValueInformation);
       }
       RtlInitUnicodeString(&v23, L"MultiPhaseResumeDisabled");
       v25 = 0;
@@ -129,8 +129,8 @@ __int64 __fastcall PopEnableHiberFile(char a1)
       if ( ZwQueryValueKey(v11, &v23, KeyValuePartialInformation, &KeyValueInformation, 0x14u, &ResultLength) >= 0
         && *(_QWORD *)((char *)&KeyValueInformation + 4) == 0x400000004LL )
       {
-        byte_140F0AD81 = HIDWORD(KeyValueInformation) == 1;
-        dword_140F0AE18 |= 0x20u;
+        byte_140F0BBC1 = HIDWORD(KeyValueInformation) == 1;
+        dword_140F0BC58 |= 0x20u;
       }
       ZwClose(v11);
     }
@@ -163,10 +163,10 @@ LABEL_40:
     v1 = HiberFile;
     if ( HiberFile >= 0 )
     {
-      *(_QWORD *)&xmmword_140F0AD68 = v4;
+      *(_QWORD *)&xmmword_140F0BBA8 = v4;
       v4 = 0LL;
-      *((_QWORD *)&xmmword_140F0AD68 + 1) = v13;
-      Pool2 = (void *)ExAllocatePool2(0x40uLL);
+      *((_QWORD *)&xmmword_140F0BBA8 + 1) = v13;
+      Pool2 = (void *)ExAllocatePool2(0x40uLL, 0x1F0uLL, 0x70616D48u);
       v3 = Pool2;
       if ( !Pool2 )
       {
@@ -184,13 +184,13 @@ LABEL_40:
         EmClientQueryRuleState(EM_RULE_DISABLE_MULTI_PHASE_RESUME, &v18);
         if ( (_DWORD)v18 == 2 )
         {
-          dword_140F0AE18 |= 0x10u;
-          byte_140F0AD81 = 1;
+          dword_140F0BC58 |= 0x10u;
+          byte_140F0BBC1 = 1;
         }
-        byte_140F0BB56 = v17[0];
-        byte_140F0BB48 = 1;
-        if ( !(_DWORD)InitSafeBootMode )
-          byte_140F0BB52 = 1;
+        byte_140F0B676 = v17[0];
+        byte_140F0B668 = 1;
+        if ( !InitSafeBootMode )
+          byte_140F0B672 = 1;
         if ( (BYTE8(PopBsdPowerTransitionAtBoot) & 1) == 0 )
           PopClearHiberFileSignature();
         PopResetCurrentPolicies();
@@ -217,18 +217,18 @@ LABEL_54:
     goto LABEL_55;
   }
   if ( (unsigned int)MmZeroPageFileAtShutdown() )
-    PopZeroHiberFile(PopHiberInfo, (__int64)FileObject);
+    PopZeroHiberFile(PopHiberInfo, FileObject);
   ObfDereferenceObjectWithTag(FileObject, 0x62486F50u);
   ZwClose(PopHiberInfo);
-  ExFreePoolWithTag(qword_140F0AD58, 0x72626968u);
-  v4 = xmmword_140F0AD68;
-  v5 = qword_140F0AD90;
+  ExFreePoolWithTag(qword_140F0BB98, 0x72626968u);
+  v4 = xmmword_140F0BBA8;
+  v5 = qword_140F0BBD0;
   v3 = MemoryMap;
-  xmmword_140F0AD68 = 0LL;
-  byte_140F0BB48 = 0;
-  byte_140F0BB56 = 0;
-  byte_140F0BB52 = 0;
-  qword_140F0AD78 = 0LL;
+  xmmword_140F0BBA8 = 0LL;
+  byte_140F0B668 = 0;
+  byte_140F0B676 = 0;
+  byte_140F0B672 = 0;
+  qword_140F0BBB8 = 0LL;
   v1 = PopResetCurrentPolicies();
   LODWORD(v18) = v1;
   v7 = v1;
@@ -251,7 +251,7 @@ LABEL_55:
   {
     MmReturnChargesToLockPagedPool(v5, Length);
     ExFreePoolWithTag(v5, 0);
-    memset_0(&qword_140F0AD90, 0, 0x88uLL);
+    memset_0(&qword_140F0BBD0, 0, 0x88uLL);
   }
   if ( v3 )
   {

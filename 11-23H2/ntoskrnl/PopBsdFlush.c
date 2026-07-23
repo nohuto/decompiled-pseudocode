@@ -1,15 +1,15 @@
 /*
- * XREFs of PopBsdFlush @ 0x1407A64C4
+ * XREFs of PopBsdFlush @ 0x1407A66B4
  * Callers:
- *     PopBsdHandleRequest @ 0x14032D388 (PopBsdHandleRequest.c)
- *     PopBsdUpdateWorker @ 0x140875680 (PopBsdUpdateWorker.c)
- *     PopBsdFlushWorker @ 0x140980620 (PopBsdFlushWorker.c)
+ *     PopBsdHandleRequest @ 0x14032D618 (PopBsdHandleRequest.c)
+ *     PopBsdUpdateWorker @ 0x1408758C0 (PopBsdUpdateWorker.c)
+ *     PopBsdFlushWorker @ 0x140980820 (PopBsdFlushWorker.c)
  * Callees:
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
- *     KeWaitForSingleObject @ 0x140243CE0 (KeWaitForSingleObject.c)
- *     PopWriteBsdPoInfo @ 0x14032B2E0 (PopWriteBsdPoInfo.c)
- *     PopReleaseRwLock @ 0x14032C480 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x14032C5E4 (PopAcquireRwLockExclusive.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
+ *     KeWaitForSingleObject @ 0x140243DB0 (KeWaitForSingleObject.c)
+ *     PopWriteBsdPoInfo @ 0x14032B570 (PopWriteBsdPoInfo.c)
+ *     PopReleaseRwLock @ 0x14032C710 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14032C874 (PopAcquireRwLockExclusive.c)
  */
 
 LONG __fastcall PopBsdFlush(char a1)
@@ -25,10 +25,10 @@ LONG __fastcall PopBsdFlush(char a1)
     PopAcquireRwLockExclusive((ULONG_PTR)&PopBsdUpdateLock);
   }
   if ( (a1 & 1) != 0 )
-    PopWriteBsdPoInfo(7u);
+    PopWriteBsdPoInfo(RtlBsdPowerTransition);
   if ( (a1 & 2) != 0 )
-    PopWriteBsdPoInfo(0x10u);
+    PopWriteBsdPoInfo(RtlBsdPowerTransitionExtension);
   if ( (a1 & 4) != 0 )
-    PopWriteBsdPoInfo(0xEu);
+    PopWriteBsdPoInfo(RtlBsdItemPowerButtonPressInfo);
   return KeSetEvent(&PopBsdFlushInactiveEvent, 0, 0);
 }

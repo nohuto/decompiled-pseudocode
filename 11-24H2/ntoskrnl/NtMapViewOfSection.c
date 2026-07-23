@@ -1,41 +1,41 @@
 /*
- * XREFs of NtMapViewOfSection @ 0x140899970
+ * XREFs of NtMapViewOfSection @ 0x1408A2010
  * Callers:
- *     DifNtMapViewOfSectionWrapper @ 0x140635780 (DifNtMapViewOfSectionWrapper.c)
+ *     DifNtMapViewOfSectionWrapper @ 0x140633D40 (DifNtMapViewOfSectionWrapper.c)
  * Callees:
- *     EtwEventEnabled @ 0x1402A1BD0 (EtwEventEnabled.c)
- *     MiSectionControlArea @ 0x1402D4800 (MiSectionControlArea.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     EtwProviderEnabled @ 0x1403D47F0 (EtwProviderEnabled.c)
- *     EtwpTiFillProcessIdentity @ 0x1403D4B94 (EtwpTiFillProcessIdentity.c)
- *     EtwWrite @ 0x14041C1B0 (EtwWrite.c)
- *     RtlFindMostSignificantBit @ 0x1404489A0 (RtlFindMostSignificantBit.c)
- *     EtwpTiFillThreadIdentity @ 0x140467AC0 (EtwpTiFillThreadIdentity.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     DbgkMapViewOfSection @ 0x140897F08 (DbgkMapViewOfSection.c)
- *     MiMapViewOfSectionCommon @ 0x140899F20 (MiMapViewOfSectionCommon.c)
- *     MiMapViewOfSection @ 0x14089A1A0 (MiMapViewOfSection.c)
+ *     EtwProviderEnabled @ 0x140262770 (EtwProviderEnabled.c)
+ *     EtwpTiFillProcessIdentity @ 0x1402633C0 (EtwpTiFillProcessIdentity.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     EtwEventEnabled @ 0x1402D1300 (EtwEventEnabled.c)
+ *     MiSectionControlArea @ 0x140355A80 (MiSectionControlArea.c)
+ *     EtwWrite @ 0x14040FFB0 (EtwWrite.c)
+ *     RtlFindMostSignificantBit @ 0x1404410F0 (RtlFindMostSignificantBit.c)
+ *     EtwpTiFillThreadIdentity @ 0x14045F510 (EtwpTiFillThreadIdentity.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     DbgkMapViewOfSection @ 0x1408A05A8 (DbgkMapViewOfSection.c)
+ *     MiMapViewOfSectionCommon @ 0x1408A25C0 (MiMapViewOfSectionCommon.c)
+ *     MiMapViewOfSection @ 0x1408A2840 (MiMapViewOfSection.c)
  */
 
-__int64 __fastcall NtMapViewOfSection(
-        __int64 a1,
-        __int64 a2,
-        _QWORD *a3,
-        ULONGLONG a4,
-        int a5,
-        _QWORD *a6,
-        _QWORD *a7,
-        int a8,
-        int a9,
-        int a10)
+NTSTATUS __cdecl NtMapViewOfSection(
+        HANDLE SectionHandle,
+        HANDLE ProcessHandle,
+        PVOID *BaseAddress,
+        ULONG_PTR ZeroBits,
+        SIZE_T CommitSize,
+        PLARGE_INTEGER SectionOffset,
+        PSIZE_T ViewSize,
+        SECTION_INHERIT InheritDisposition,
+        ULONG AllocationType,
+        ULONG Win32Protect)
 {
-  unsigned __int64 v10; // rbx
-  __int64 result; // rax
+  ULONG_PTR v10; // rbx
+  NTSTATUS result; // eax
   unsigned __int64 v15; // r8
   char v16; // cl
   unsigned __int64 v17; // rdx
   unsigned __int64 v18; // rcx
-  int v19; // ebx
+  NTSTATUS v19; // ebx
   __int64 v20; // r9
   bool v21; // zf
   _KPROCESS *v22; // rdi
@@ -59,7 +59,7 @@ __int64 __fastcall NtMapViewOfSection(
   __int128 v40; // [rsp+58h] [rbp-250h] BYREF
   __int128 v41; // [rsp+68h] [rbp-240h] BYREF
   PVOID Object[2]; // [rsp+78h] [rbp-230h]
-  int v43; // [rsp+88h] [rbp-220h] BYREF
+  ULONG v43; // [rsp+88h] [rbp-220h] BYREF
   _DWORD v44[4]; // [rsp+90h] [rbp-218h] BYREF
   __int64 v45; // [rsp+A0h] [rbp-208h] BYREF
   __int64 v46; // [rsp+A8h] [rbp-200h] BYREF
@@ -75,19 +75,29 @@ __int64 __fastcall NtMapViewOfSection(
   unsigned __int64 v56; // [rsp+138h] [rbp-170h] BYREF
   struct _EVENT_DATA_DESCRIPTOR v57[18]; // [rsp+140h] [rbp-168h] BYREF
 
-  v10 = a4;
+  v10 = ZeroBits;
   v40 = 0LL;
   v41 = 0LL;
   *(_OWORD *)Object = 0LL;
-  if ( a4 )
+  if ( ZeroBits )
   {
-    v10 = a4 < 0x20 ? a4 + 32 : 63 - RtlFindMostSignificantBit(a4);
+    v10 = ZeroBits < 0x20 ? ZeroBits + 32 : 63 - RtlFindMostSignificantBit(ZeroBits);
     if ( v10 > 0x35 )
-      return 3221225485LL;
+      return -1073741811;
   }
   PreviousMode = KeGetCurrentThread()->PreviousMode;
-  result = MiMapViewOfSectionCommon(a2, a1, 0LL, a3, a7, a6, a10, v10, PreviousMode, &v40);
-  if ( (int)result >= 0 )
+  result = MiMapViewOfSectionCommon(
+             ProcessHandle,
+             SectionHandle,
+             0LL,
+             BaseAddress,
+             ViewSize,
+             SectionOffset,
+             Win32Protect,
+             v10,
+             PreviousMode,
+             &v40);
+  if ( result >= 0 )
   {
     v15 = MiSectionControlArea((__int64)Object[0]);
     v47 = 0LL;
@@ -101,7 +111,7 @@ __int64 __fastcall NtMapViewOfSection(
     *(_QWORD *)&v53 = KeGetCurrentThread()->ApcState.Process;
     *((PVOID *)&v52 + 1) = Object[1];
     BYTE9(v50) = KeGetCurrentThread()->PreviousMode;
-    DWORD1(v50) = a9 & 0x7F;
+    DWORD1(v50) = AllocationType & 0x7F;
     if ( DWORD1(v50) > (unsigned __int16)KeNumberNodes )
     {
       v19 = -1073741811;
@@ -109,8 +119,8 @@ __int64 __fastcall NtMapViewOfSection(
     }
     else
     {
-      DWORD2(v49) = a9 & 0xFFFFFF80;
-      HIDWORD(v49) = a10;
+      DWORD2(v49) = AllocationType & 0xFFFFFF80;
+      HIDWORD(v49) = Win32Protect;
       LODWORD(v51) = 0;
       v16 = BYTE12(v50);
       if ( (_QWORD)v40 )
@@ -143,25 +153,32 @@ __int64 __fastcall NtMapViewOfSection(
       *(_QWORD *)&v48 = 0x10000LL;
       if ( (*(_DWORD *)(v15 + 56) & 0x420) == 0 )
       {
-        if ( (a9 & 0x20000000) != 0 )
+        if ( (AllocationType & 0x20000000) != 0 )
         {
           *(_QWORD *)&v48 = 0x200000LL;
         }
-        else if ( (a9 & 0x40000000) != 0 )
+        else if ( (AllocationType & 0x40000000) != 0 )
         {
           *(_QWORD *)&v48 = 4096LL;
         }
       }
-      v19 = MiMapViewOfSection(Object[0], (unsigned int)&v47, (unsigned int)&v40, a5, (__int64)&v41, a8, 0);
+      v19 = MiMapViewOfSection(
+              Object[0],
+              (unsigned int)&v47,
+              (unsigned int)&v40,
+              CommitSize,
+              (__int64)&v41,
+              InheritDisposition,
+              0);
       v44[2] = v19;
       if ( v19 >= 0 )
       {
         if ( (BYTE12(v50) & 4) != 0 )
-          DbgkMapViewOfSection((_KPROCESS *)Object[1], (__int64)Object[0], v40, v20, (__int64)UserData, 0, 0);
+          DbgkMapViewOfSection((_KPROCESS *)Object[1], (__int64)Object[0], (void *)v40, v20, (__int64)UserData, 0, 0);
         if ( (*((_DWORD *)Object[0] + 14) & 0x20) == 0 && (BYTE8(v41) & 2) != 0 )
         {
-          v44[0] = a10;
-          v43 = a9;
+          v44[0] = Win32Protect;
+          v43 = AllocationType;
           v46 = *((_QWORD *)&v48 + 1);
           v45 = v40;
           v22 = (_KPROCESS *)Object[1];
@@ -174,7 +191,7 @@ __int64 __fastcall NtMapViewOfSection(
             v25 = 2LL;
             if ( PreviousMode )
               v25 = 0LL;
-            v26 = (const EVENT_DESCRIPTOR *)off_1400016C0[v25 + v24];
+            v26 = (const EVENT_DESCRIPTOR *)off_140001750[v25 + v24];
             if ( EtwEventEnabled(EtwThreatIntProvRegHandle, v26) )
             {
               v27 = EtwpTiFillProcessIdentity(v57, (__int64)Process, &v55);
@@ -197,23 +214,23 @@ __int64 __fastcall NtMapViewOfSection(
             }
           }
         }
-        *a7 = *((_QWORD *)&v48 + 1);
-        *a3 = v40;
-        if ( a6 )
-          *a6 = v41;
+        *ViewSize = *((_QWORD *)&v48 + 1);
+        *BaseAddress = (PVOID)v40;
+        if ( SectionOffset )
+          SectionOffset->QuadPart = v41;
         goto LABEL_20;
       }
       v21 = (_QWORD)v40 == 0LL;
     }
     if ( v21 )
-      ++dword_140E301A8;
+      ++dword_140E302E8;
     else
-      ++dword_140E301AC;
+      ++dword_140E302EC;
 LABEL_20:
     ObfDereferenceObjectWithTag(Object[0], 0x77566D4Du);
     ObfDereferenceObjectWithTag(Object[1], 0x77566D4Du);
-    return (unsigned int)v19;
+    return v19;
   }
-  ++dword_140E301A8;
+  ++dword_140E302E8;
   return result;
 }

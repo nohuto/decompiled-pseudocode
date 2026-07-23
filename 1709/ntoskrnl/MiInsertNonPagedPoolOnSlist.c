@@ -45,7 +45,7 @@ __int64 __fastcall MiInsertNonPagedPoolOnSlist(unsigned __int64 *a1, unsigned __
   __int64 v29; // r10
   unsigned __int64 v30; // r11
   __int64 v31; // r15
-  union _SLIST_HEADER *v32; // r15
+  _SLIST_HEADER *v32; // r15
   int v33; // r12d
   unsigned __int64 v34; // r14
   __int64 v35; // r9
@@ -55,7 +55,7 @@ __int64 __fastcall MiInsertNonPagedPoolOnSlist(unsigned __int64 *a1, unsigned __
   unsigned __int16 v39; // ax
   __int64 v40; // rcx
   int v41; // eax
-  struct _SLIST_ENTRY *v43; // rcx
+  _SLIST_ENTRY *v43; // rcx
   unsigned __int8 v44[8]; // [rsp+30h] [rbp-59h] BYREF
   unsigned __int64 v45; // [rsp+38h] [rbp-51h] BYREF
   int v46; // [rsp+40h] [rbp-49h] BYREF
@@ -255,7 +255,7 @@ LABEL_60:
   if ( !v41 )
     return v28;
 LABEL_69:
-  v43 = (struct _SLIST_ENTRY *)v50;
+  v43 = (_SLIST_ENTRY *)v50;
   *v50 = qword_140389280 ^ (unsigned __int64)v50;
   RtlpInterlockedPushEntrySList(v32, v43 + 1);
   return 1LL;

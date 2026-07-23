@@ -1,10 +1,10 @@
 /*
- * XREFs of SshpUnlinkBlockerFromLibrary @ 0x140A41548
+ * XREFs of SshpUnlinkBlockerFromLibrary @ 0x140A36E28
  * Callers:
- *     SshpDereferenceBlocker @ 0x14047C6F0 (SshpDereferenceBlocker.c)
- *     SshpPurgeBlockersWorker @ 0x140A41310 (SshpPurgeBlockersWorker.c)
+ *     SshpDereferenceBlocker @ 0x140477900 (SshpDereferenceBlocker.c)
+ *     SshpPurgeBlockersWorker @ 0x140A36BF0 (SshpPurgeBlockersWorker.c)
  * Callees:
- *     SshpCacheRemoveBlocker @ 0x140A415A4 (SshpCacheRemoveBlocker.c)
+ *     SshpCacheRemoveBlocker @ 0x140A36E84 (SshpCacheRemoveBlocker.c)
  */
 
 _QWORD *__fastcall SshpUnlinkBlockerFromLibrary(__int64 a1)

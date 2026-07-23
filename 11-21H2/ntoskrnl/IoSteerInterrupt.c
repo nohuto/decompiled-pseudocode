@@ -3,9 +3,9 @@
  * Callers:
  *     <none>
  * Callees:
- *     IoAddTriageDumpDataBlock @ 0x1403D99B4 (IoAddTriageDumpDataBlock.c)
+ *     sub_1403D99B4 @ 0x1403D99B4 (sub_1403D99B4.c)
  *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
- *     KeIntSteerAssignCpuSet @ 0x140577F94 (KeIntSteerAssignCpuSet.c)
+ *     sub_140577F94 @ 0x140577F94 (sub_140577F94.c)
  */
 
 __int64 __fastcall IoSteerInterrupt(__int64 a1, __int64 a2)
@@ -82,23 +82,23 @@ LABEL_21:
               v9 = 0;
               v8 = 0LL;
             }
-            return (unsigned int)KeIntSteerAssignCpuSet(*(_QWORD *)(v7 + 384), v9, v8);
+            return (unsigned int)sub_140577F94(*(_QWORD *)(v7 + 384), v9, v8);
           }
 LABEL_62:
           __fastfail(5u);
         }
-        IoAddTriageDumpDataBlock(v5, (PVOID)*(unsigned __int16 *)(v5 + 2));
+        sub_1403D99B4(v5, (PVOID)*(unsigned __int16 *)(v5 + 2));
         v5 = *(_QWORD *)(a1 + 16);
         v11 = *(_QWORD *)(v5 + 8);
         if ( v11 )
         {
-          IoAddTriageDumpDataBlock(v11, (PVOID)(unsigned int)*(__int16 *)(v11 + 2));
+          sub_1403D99B4(v11, (PVOID)(unsigned int)*(__int16 *)(v11 + 2));
           v5 = *(_QWORD *)(a1 + 16);
           v12 = (_WORD *)(*(_QWORD *)(v5 + 8) + 56LL);
           if ( *v12 )
           {
-            IoAddTriageDumpDataBlock((ULONG)v12, (PVOID)2);
-            IoAddTriageDumpDataBlock(
+            sub_1403D99B4((ULONG)v12, (PVOID)2);
+            sub_1403D99B4(
               *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(a1 + 16) + 8LL) + 64LL),
               (PVOID)*(unsigned __int16 *)(*(_QWORD *)(*(_QWORD *)(a1 + 16) + 8LL) + 56LL));
             v5 = *(_QWORD *)(a1 + 16);
@@ -111,11 +111,11 @@ LABEL_62:
           if ( v14 )
           {
             v15 = *(_QWORD *)(v13 + 40);
-            IoAddTriageDumpDataBlock(v14, (PVOID)0x310);
+            sub_1403D99B4(v14, (PVOID)0x310);
             if ( *(_WORD *)(v15 + 40) )
             {
-              IoAddTriageDumpDataBlock(v15 + 40, (PVOID)2);
-              IoAddTriageDumpDataBlock(*(_QWORD *)(v15 + 48), (PVOID)*(unsigned __int16 *)(v15 + 40));
+              sub_1403D99B4(v15 + 40, (PVOID)2);
+              sub_1403D99B4(*(_QWORD *)(v15 + 48), (PVOID)*(unsigned __int16 *)(v15 + 40));
             }
             v16 = *(_QWORD *)(a1 + 16);
             if ( v16 )
@@ -128,7 +128,7 @@ LABEL_62:
                 v18 = *(_QWORD *)(*(_QWORD *)(v16 + 312) + 40LL);
               else
                 LODWORD(v18) = 0;
-              IoAddTriageDumpDataBlock(v18 + 56, (PVOID)2);
+              sub_1403D99B4(v18 + 56, (PVOID)2);
               v19 = *(_QWORD *)(a1 + 16);
               if ( v19 )
               {
@@ -140,7 +140,7 @@ LABEL_62:
                 v20 = 0LL;
                 v21 = 0LL;
               }
-              IoAddTriageDumpDataBlock(*(_QWORD *)(v21 + 64), (PVOID)*(unsigned __int16 *)(v20 + 56));
+              sub_1403D99B4(*(_QWORD *)(v21 + 64), (PVOID)*(unsigned __int16 *)(v20 + 56));
               v16 = *(_QWORD *)(a1 + 16);
             }
             if ( v16 )
@@ -157,7 +157,7 @@ LABEL_62:
                   v24 = *(_QWORD *)(*(_QWORD *)(v16 + 312) + 40LL);
                 else
                   v24 = 0LL;
-                IoAddTriageDumpDataBlock(*(_QWORD *)(v24 + 16) + 56, (PVOID)2);
+                sub_1403D99B4(*(_QWORD *)(v24 + 16) + 56, (PVOID)2);
                 v25 = *(_QWORD *)(a1 + 16);
                 if ( v25 )
                 {
@@ -169,7 +169,7 @@ LABEL_62:
                   v26 = 0LL;
                   v27 = 0LL;
                 }
-                IoAddTriageDumpDataBlock(
+                sub_1403D99B4(
                   *(_QWORD *)(*(_QWORD *)(v27 + 16) + 64LL),
                   (PVOID)*(unsigned __int16 *)(*(_QWORD *)(v26 + 16) + 56LL));
                 v5 = *(_QWORD *)(a1 + 16);

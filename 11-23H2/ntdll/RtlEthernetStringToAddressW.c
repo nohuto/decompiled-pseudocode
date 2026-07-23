@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlEthernetStringToAddressW @ 0x1801098F0
+ * XREFs of RtlEthernetStringToAddressW @ 0x1801098C0
  * Callers:
  *     <none>
  * Callees:

@@ -7,11 +7,11 @@
  *     <none>
  */
 
-__int64 ZwQueryDebugFilterState()
+NTSTATUS __cdecl ZwQueryDebugFilterState(ULONG ComponentId, ULONG Level)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 298LL;
+  result = 298;
   __asm { syscall; Low latency system call }
   return result;
 }

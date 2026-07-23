@@ -4,8 +4,8 @@
  *     HalpNumaInitializeStaticConfiguration @ 0x140B65B38 (HalpNumaInitializeStaticConfiguration.c)
  *     HalpInitializeConfigurationFromMadt @ 0x140B65CA4 (HalpInitializeConfigurationFromMadt.c)
  * Callees:
- *     qsort @ 0x1403DA430 (qsort.c)
- *     HalpValidateMpns @ 0x140935CD4 (HalpValidateMpns.c)
+ *     qsort @ 0x1403DA610 (qsort.c)
+ *     HalpValidateMpns @ 0x140935ED4 (HalpValidateMpns.c)
  *     HalpSelectFeasibleLowPowerState @ 0x140B92A18 (HalpSelectFeasibleLowPowerState.c)
  */
 

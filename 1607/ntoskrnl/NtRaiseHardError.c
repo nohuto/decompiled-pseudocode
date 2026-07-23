@@ -1,13 +1,13 @@
 /*
- * XREFs of NtRaiseHardError @ 0x1406B66AC
+ * XREFs of NtRaiseHardError @ 0x1406B67E4
  * Callers:
  *     <none>
  * Callees:
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memmove @ 0x140171280 (memmove.c)
- *     ExRaiseDatatypeMisalignment @ 0x1406B6058 (ExRaiseDatatypeMisalignment.c)
- *     ExRaiseHardError @ 0x1406B6068 (ExRaiseHardError.c)
- *     ExpRaiseHardError @ 0x1406B634C (ExpRaiseHardError.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memmove @ 0x140171780 (memmove.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1406B6190 (ExRaiseDatatypeMisalignment.c)
+ *     ExRaiseHardError @ 0x1406B61A0 (ExRaiseHardError.c)
+ *     ExpRaiseHardError @ 0x1406B6484 (ExpRaiseHardError.c)
  */
 
 NTSTATUS __stdcall NtRaiseHardError(

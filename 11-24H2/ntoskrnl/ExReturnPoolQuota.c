@@ -1,16 +1,16 @@
 /*
- * XREFs of ExReturnPoolQuota @ 0x1402B4980
+ * XREFs of ExReturnPoolQuota @ 0x14021ACC0
  * Callers:
- *     IopFreeMiniCompletionPacket @ 0x1409A71B0 (IopFreeMiniCompletionPacket.c)
+ *     IopFreeMiniCompletionPacket @ 0x140990680 (IopFreeMiniCompletionPacket.c)
  * Callees:
- *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x1402465FC (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
- *     PspReturnResourceQuota @ 0x14024B468 (PspReturnResourceQuota.c)
- *     ExIsSpecialPoolAddress @ 0x1402B4928 (ExIsSpecialPoolAddress.c)
- *     ExAcquireSpinLockShared @ 0x14031A1A0 (ExAcquireSpinLockShared.c)
- *     ObpPushStackInfo @ 0x1403407AC (ObpPushStackInfo.c)
- *     ObpDeferObjectDeletion @ 0x1403C485C (ObpDeferObjectDeletion.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x140219638 (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
+ *     PspReturnResourceQuota @ 0x14027BA78 (PspReturnResourceQuota.c)
+ *     ExAcquireSpinLockShared @ 0x1402C2D30 (ExAcquireSpinLockShared.c)
+ *     ObpPushStackInfo @ 0x14031FC8C (ObpPushStackInfo.c)
+ *     ObpDeferObjectDeletion @ 0x1403B341C (ObpDeferObjectDeletion.c)
+ *     ExIsSpecialPoolAddress @ 0x14048BD64 (ExIsSpecialPoolAddress.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 char __fastcall ExReturnPoolQuota(ULONG_PTR BugCheckParameter2)
@@ -53,11 +53,11 @@ char __fastcall ExReturnPoolQuota(ULONG_PTR BugCheckParameter2)
   BugCheckParameter4 = 0LL;
   if ( ExpSpecialAllocations )
   {
-    LODWORD(v7) = ExIsSpecialPoolAddress(BugCheckParameter2);
+    LODWORD(v7) = ExIsSpecialPoolAddress();
     if ( (_DWORD)v7 )
       return v7;
   }
-  if ( BugCheckParameter2 >= 0xFFFF800000000000uLL && byte_140E389A8[((BugCheckParameter2 >> 39) & 0x1FF) - 256] == 5 )
+  if ( BugCheckParameter2 >= 0xFFFF800000000000uLL && byte_140E38AE8[((BugCheckParameter2 >> 39) & 0x1FF) - 256] == 5 )
     v4 = 256LL;
   else
     v4 = 64LL;
@@ -150,7 +150,7 @@ LABEL_10:
         {
           if ( v15 > v14 )
           {
-            v16 = (unsigned __int64 *)&qword_140F05848[7 * v10];
+            v16 = (unsigned __int64 *)&qword_140F05B28[7 * v10];
             v17 = *v16;
             if ( v15 - v14 > *v16 )
             {
@@ -162,7 +162,7 @@ LABEL_10:
                 v25 = _InterlockedExchange64((volatile __int64 *)v13 + 9, 0LL);
                 if ( v25 )
                 {
-                  PspReturnResourceQuota(v10, (__int64)v13, v25, 0);
+                  PspReturnResourceQuota((unsigned int)v10, v13, v25, 0LL);
                   v10 = v34;
                   v11 = v35;
                 }

@@ -9,11 +9,11 @@
  *     RtlpAffinitizeSegmentInfoForBucket @ 0x18005CB1C (RtlpAffinitizeSegmentInfoForBucket.c)
  *     RtlpLfhFindClearBitAndSet @ 0x180069524 (RtlpLfhFindClearBitAndSet.c)
  *     RtlpIsSubSegmentReuseThresholdExceeded @ 0x1800695D4 (RtlpIsSubSegmentReuseThresholdExceeded.c)
- *     RtlpSetSegmentInfo @ 0x18007D60C (RtlpSetSegmentInfo.c)
- *     RtlpLogHeapFailure @ 0x18009F7AC (RtlpLogHeapFailure.c)
- *     RtlpInterlockedPopEntrySList @ 0x1800A3D90 (RtlpInterlockedPopEntrySList.c)
- *     RtlpInterlockedPushEntrySList @ 0x1800A3DD0 (RtlpInterlockedPushEntrySList.c)
- *     InterlockedPushListSList @ 0x1800A3E40 (InterlockedPushListSList.c)
+ *     RtlpSetSegmentInfo @ 0x18007D61C (RtlpSetSegmentInfo.c)
+ *     RtlpLogHeapFailure @ 0x18009F7CC (RtlpLogHeapFailure.c)
+ *     RtlpInterlockedPopEntrySList @ 0x1800A3DB0 (RtlpInterlockedPopEntrySList.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1800A3DF0 (RtlpInterlockedPushEntrySList.c)
+ *     InterlockedPushListSList @ 0x1800A3E60 (InterlockedPushListSList.c)
  *     RtlpLogHeapAffinityManagerEnable @ 0x180105974 (RtlpLogHeapAffinityManagerEnable.c)
  *     RtlpLogHeapSubSegmentActivate @ 0x1801060C8 (RtlpLogHeapSubSegmentActivate.c)
  */
@@ -39,7 +39,7 @@ __int64 __fastcall RtlpLocalInfoAllocFromCache(__int64 a1, char a2)
   volatile signed __int64 *v20; // rsi
   unsigned int v21; // r13d
   __int64 v22; // rbx
-  union _SLIST_HEADER *v23; // rbp
+  _SLIST_HEADER *v23; // rbp
   PSLIST_ENTRY v24; // rax
   _QWORD **v25; // rbx
   signed __int32 v26; // eax
@@ -48,8 +48,8 @@ __int64 __fastcall RtlpLocalInfoAllocFromCache(__int64 a1, char a2)
   unsigned int v29; // r12d
   unsigned int v30; // ebp
   _SLIST_ENTRY *v31; // rbx
-  struct _SLIST_ENTRY *v32; // r15
-  union _SLIST_HEADER *v33; // r12
+  _SLIST_ENTRY *v32; // r15
+  _SLIST_HEADER *v33; // r12
   PSLIST_ENTRY v34; // rsi
   __int16 RandomValue32; // ax
   __int64 v36; // rbx
@@ -87,9 +87,7 @@ LABEL_1:
           && (int)RtlpAffinitizeSegmentInfoForBucket(v4, *(unsigned __int8 *)(v4 + 4 * v36 + 678)) >= 0 )
         {
           *(_BYTE *)(v4 + 4 * v36 + 679) |= 1u;
-          v37 = (unsigned int)RtlGetCurrentServiceSessionId()
-              ? (char *)NtCurrentPeb()->SharedData + 550
-              : (char *)2147353472;
+          v37 = RtlGetCurrentServiceSessionId() ? (char *)NtCurrentPeb()->SharedData + 550 : (char *)2147353472;
           if ( *v37 && (NtCurrentPeb()->TracingFlags & 1) != 0 )
             RtlpLogHeapAffinityManagerEnable(*(_QWORD *)(v4 + 24), *(unsigned __int8 *)(v4 + 4 * v36 + 678));
         }
@@ -191,8 +189,7 @@ LABEL_19:
           v16 = 0LL;
           goto LABEL_29;
         }
-        v23 = (union _SLIST_HEADER *)(*(_QWORD *)(*(_QWORD *)(v53 + 24) + 8LL * *(unsigned __int16 *)(a1 + 172) + 1192)
-                                    + 144LL);
+        v23 = (_SLIST_HEADER *)(*(_QWORD *)(*(_QWORD *)(v53 + 24) + 8LL * *(unsigned __int16 *)(a1 + 172) + 1192) + 144LL);
         while ( 1 )
         {
           v24 = RtlpInterlockedPopEntrySList(v23);
@@ -244,8 +241,7 @@ LABEL_29:
     v30 = 0;
     v31 = 0LL;
     v32 = 0LL;
-    v33 = (union _SLIST_HEADER *)(*(_QWORD *)(*(_QWORD *)(v53 + 24) + 8LL * *(unsigned __int16 *)(a1 + 172) + 1192)
-                                + 144LL);
+    v33 = (_SLIST_HEADER *)(*(_QWORD *)(*(_QWORD *)(v53 + 24) + 8LL * *(unsigned __int16 *)(a1 + 172) + 1192) + 144LL);
     v34 = RtlpInterlockedPopEntrySList(v33);
     if ( !v34 )
       return 0LL;
@@ -302,7 +298,7 @@ LABEL_31:
     v27 = *(__int64 **)v16;
     if ( *(_QWORD *)v16 == a1 )
     {
-      if ( (unsigned int)RtlGetCurrentServiceSessionId() )
+      if ( RtlGetCurrentServiceSessionId() )
         v28 = (__int64)NtCurrentPeb()->SharedData + 550;
       else
         v28 = 2147353472LL;

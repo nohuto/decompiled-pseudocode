@@ -6,7 +6,12 @@
  *     ZwFreeVirtualMemory @ 0x18009CAA0 (ZwFreeVirtualMemory.c)
  */
 
-__int64 sub_1800FAB50()
+NTSTATUS __fastcall sub_1800FAB50(_QWORD *a1)
 {
-  return ZwFreeVirtualMemory();
+  PVOID v2; // [rsp+30h] [rbp+8h] BYREF
+  ULONG_PTR v3; // [rsp+38h] [rbp+10h] BYREF
+
+  v2 = a1;
+  v3 = a1[23] - (_QWORD)a1;
+  return ZwFreeVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &v2, &v3, 0x8000u);
 }

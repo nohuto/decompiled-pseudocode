@@ -1,5 +1,5 @@
 /*
- * XREFs of MmCopyMemory @ 0x1400EA870
+ * XREFs of MmCopyMemory @ 0x1400EA8F0
  * Callers:
  *     <none>
  * Callees:
@@ -8,14 +8,14 @@
  *     MiReleasePtes @ 0x1400340E0 (MiReleasePtes.c)
  *     MiGetSystemRegionType @ 0x14004EC30 (MiGetSystemRegionType.c)
  *     MiReservePtes @ 0x14005C890 (MiReservePtes.c)
- *     MiGetSessionVm @ 0x1400E945C (MiGetSessionVm.c)
- *     MiTranslatePageForCopy @ 0x1400E9C30 (MiTranslatePageForCopy.c)
- *     MiPrefetchVirtualMemory @ 0x1400EA140 (MiPrefetchVirtualMemory.c)
- *     MiCopySinglePage @ 0x1400EA628 (MiCopySinglePage.c)
- *     MiUnlockSystemVa @ 0x1400ECDC4 (MiUnlockSystemVa.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ZwReadVirtualMemory @ 0x1401B8970 (ZwReadVirtualMemory.c)
- *     MiCheckPhysicalAddressRange @ 0x1402BA48C (MiCheckPhysicalAddressRange.c)
+ *     MiGetSessionVm @ 0x1400E94DC (MiGetSessionVm.c)
+ *     MiTranslatePageForCopy @ 0x1400E9CB0 (MiTranslatePageForCopy.c)
+ *     MiPrefetchVirtualMemory @ 0x1400EA1C0 (MiPrefetchVirtualMemory.c)
+ *     MiCopySinglePage @ 0x1400EA6A8 (MiCopySinglePage.c)
+ *     MiUnlockSystemVa @ 0x1400ECE44 (MiUnlockSystemVa.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ZwReadVirtualMemory @ 0x1401B8AD0 (ZwReadVirtualMemory.c)
+ *     MiCheckPhysicalAddressRange @ 0x1402BA67C (MiCheckPhysicalAddressRange.c)
  */
 
 NTSTATUS __fastcall MmCopyMemory(char *Buffer, char *a2, SIZE_T NumberOfBytesToRead, int a4, PSIZE_T NumberOfBytesRead)
@@ -97,7 +97,7 @@ LABEL_10:
   CurrentThread = KeGetCurrentThread();
   Process = CurrentThread->ApcState.Process;
   v11 = v7 & 0xFFF;
-  v39 = MiReservePtes((__int64)&qword_14043AFA0, (unsigned __int64 *)(unsigned int)v10);
+  v39 = MiReservePtes((__int64)&qword_14043C060, (unsigned __int64 *)(unsigned int)v10);
   v32 = v39;
   v12 = 0;
   v13 = v6;
@@ -188,7 +188,7 @@ LABEL_20:
     if ( SystemRegionType == (_DWORD)v26 )
       break;
 LABEL_50:
-    if ( v7 >= qword_14043BAC0 && v7 <= qword_14043A530 )
+    if ( v7 >= qword_14043CB80 && v7 <= qword_14043B5F0 )
     {
       v12 = -1073741585;
       goto LABEL_30;
@@ -212,7 +212,7 @@ LABEL_30:
   v5 = NumberOfBytesRead;
 LABEL_31:
   if ( v39 )
-    MiReleasePtes((__int64)&qword_14043AFA0, v39, v10);
+    MiReleasePtes((__int64)&qword_14043C060, v39, v10);
   *v5 += v34;
   return v12;
 }

@@ -6,11 +6,11 @@
  *     <none>
  */
 
-__int64 NtRequestPort()
+NTSTATUS __cdecl NtRequestPort(HANDLE PortHandle, PPORT_MESSAGE RequestMessage)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 349LL;
+  result = 349;
   __asm { syscall; Low latency system call }
   return result;
 }

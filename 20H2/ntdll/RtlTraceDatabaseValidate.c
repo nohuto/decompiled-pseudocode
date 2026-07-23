@@ -9,23 +9,22 @@
 
 char __fastcall RtlTraceDatabaseValidate(__int64 a1)
 {
-  __int64 v2; // rdx
-  __int64 v3; // r8
-  __int64 v4; // r9
+  __int64 v2; // r8
+  __int64 v3; // r9
 
-  RtlEnterCriticalSection(a1 + 48);
+  RtlEnterCriticalSection((PRTL_CRITICAL_SECTION)(a1 + 48));
   *(_QWORD *)(a1 + 40) = 0LL;
   if ( *(_DWORD *)(a1 + 88) )
   {
-    v3 = *(_QWORD *)(a1 + 96);
-    v4 = *(unsigned int *)(a1 + 88);
+    v2 = *(_QWORD *)(a1 + 96);
+    v3 = *(unsigned int *)(a1 + 88);
     do
     {
-      v3 += 8LL;
-      --v4;
+      v2 += 8LL;
+      --v3;
     }
-    while ( v4 );
+    while ( v3 );
   }
-  RtlLeaveCriticalSection(a1 + 48, v2, v3);
+  RtlLeaveCriticalSection((PRTL_CRITICAL_SECTION)(a1 + 48));
   return 1;
 }

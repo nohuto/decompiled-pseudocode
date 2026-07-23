@@ -1,8 +1,8 @@
 /*
- * XREFs of PopCloneUnicodeString @ 0x140980824
+ * XREFs of PopCloneUnicodeString @ 0x140980A24
  * Callers:
- *     PopQueryMostRecentWakeSourceInfo @ 0x140987674 (PopQueryMostRecentWakeSourceInfo.c)
- *     PopDirectedDripsDiagCreateDeviceDescription @ 0x14099DFA8 (PopDirectedDripsDiagCreateDeviceDescription.c)
+ *     PopQueryMostRecentWakeSourceInfo @ 0x140987874 (PopQueryMostRecentWakeSourceInfo.c)
+ *     PopDirectedDripsDiagCreateDeviceDescription @ 0x14099E1A8 (PopDirectedDripsDiagCreateDeviceDescription.c)
  * Callees:
  *     RtlUnicodeStringCopy @ 0x140208E68 (RtlUnicodeStringCopy.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)

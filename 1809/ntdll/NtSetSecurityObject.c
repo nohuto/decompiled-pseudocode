@@ -1,17 +1,20 @@
 /*
- * XREFs of NtSetSecurityObject @ 0x1800A36D0
+ * XREFs of NtSetSecurityObject @ 0x1800A36F0
  * Callers:
- *     RtlpSysVolCheckOwnerAndSecurity @ 0x18008D104 (RtlpSysVolCheckOwnerAndSecurity.c)
- *     RtlpSysVolTakeOwnership @ 0x18008F800 (RtlpSysVolTakeOwnership.c)
+ *     RtlpSysVolCheckOwnerAndSecurity @ 0x18008D114 (RtlpSysVolCheckOwnerAndSecurity.c)
+ *     RtlpSysVolTakeOwnership @ 0x18008F810 (RtlpSysVolTakeOwnership.c)
  * Callees:
  *     <none>
  */
 
-__int64 NtSetSecurityObject()
+NTSTATUS __cdecl NtSetSecurityObject(
+        HANDLE Handle,
+        SECURITY_INFORMATION SecurityInformation,
+        PSECURITY_DESCRIPTOR SecurityDescriptor)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 416LL;
+  result = 416;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

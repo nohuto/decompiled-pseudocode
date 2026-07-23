@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpGetStackLookasideListEntry @ 0x14046E5B0
+ * XREFs of EtwpGetStackLookasideListEntry @ 0x140467D30
  * Callers:
- *     EtwpTraceStackWalk @ 0x14020A5C0 (EtwpTraceStackWalk.c)
- *     EtwpEventWriteFull @ 0x14021336C (EtwpEventWriteFull.c)
- *     EtwpWriteUserEvent @ 0x140B7D098 (EtwpWriteUserEvent.c)
+ *     EtwpTraceStackWalk @ 0x14020A6A0 (EtwpTraceStackWalk.c)
+ *     EtwpEventWriteFull @ 0x14021344C (EtwpEventWriteFull.c)
+ *     EtwpWriteUserEvent @ 0x140B85DAC (EtwpWriteUserEvent.c)
  * Callees:
- *     RtlpInterlockedPopEntrySList @ 0x140730C90 (RtlpInterlockedPopEntrySList.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140735860 (RtlpInterlockedPopEntrySList.c)
  */
 
 PSLIST_ENTRY EtwpGetStackLookasideListEntry()
@@ -15,19 +15,19 @@ PSLIST_ENTRY EtwpGetStackLookasideListEntry()
   result = RtlpInterlockedPopEntrySList((PSLIST_HEADER)KeGetCurrentPrcb()->EtwSupport + 24);
   if ( !result )
   {
-    result = RtlpInterlockedPopEntrySList((PSLIST_HEADER)&stru_140E28440.IoSelfBoostsEntry);
+    result = RtlpInterlockedPopEntrySList((PSLIST_HEADER)&stru_140E285C0.ThreadListEntry.Blink);
     if ( result )
     {
-      _InterlockedIncrement((volatile signed __int32 *)&stru_140E28440.PriorityFloorCounts[20]);
-      if ( *(int *)&stru_140E28440.PriorityFloorCounts[20] > *(int *)&stru_140E28440.PriorityFloorCounts[24] )
+      _InterlockedIncrement((volatile signed __int32 *)&stru_140E285C0.SecureThreadCookie);
+      if ( (int)stru_140E285C0.SecureThreadCookie > SLODWORD(stru_140E285C0.SchedulerSharedSystemSlot) )
         _InterlockedExchange(
-          (volatile __int32 *)&stru_140E28440.PriorityFloorCounts[24],
-          *(__int32 *)&stru_140E28440.PriorityFloorCounts[20]);
+          (volatile __int32 *)&stru_140E285C0.SchedulerSharedSystemSlot,
+          stru_140E285C0.SecureThreadCookie);
     }
     else
     {
-      if ( *(int *)&stru_140E28440.PriorityFloorCounts[8] > 0 )
-        _InterlockedIncrement((volatile signed __int32 *)&stru_140E28440.PriorityFloorCounts[28]);
+      if ( SLODWORD(stru_140E285C0.MutantListHead.Blink) > 0 )
+        _InterlockedIncrement((_DWORD *)&stru_140E285C0.SchedulerSharedSystemSlot + 1);
       return 0LL;
     }
   }

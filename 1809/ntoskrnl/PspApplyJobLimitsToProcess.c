@@ -1,16 +1,16 @@
 /*
- * XREFs of PspApplyJobLimitsToProcess @ 0x140604550
+ * XREFs of PspApplyJobLimitsToProcess @ 0x140605550
  * Callers:
- *     PspApplyJobChainLimitsToProcess @ 0x140603EB0 (PspApplyJobChainLimitsToProcess.c)
- *     PspSetJobLimitsProcessCallback @ 0x14088A330 (PspSetJobLimitsProcessCallback.c)
+ *     PspApplyJobChainLimitsToProcess @ 0x140604EB0 (PspApplyJobChainLimitsToProcess.c)
+ *     PspSetJobLimitsProcessCallback @ 0x14088B590 (PspSetJobLimitsProcessCallback.c)
  * Callees:
- *     KeSetDisableQuantumProcess @ 0x14008FA78 (KeSetDisableQuantumProcess.c)
- *     PspSetProcessPriorityByClass @ 0x1400D79DC (PspSetProcessPriorityByClass.c)
- *     KeSetQuantumProcess @ 0x1400D80C4 (KeSetQuantumProcess.c)
- *     PspUnlockJobMemoryLimitsShared @ 0x1405FE2B4 (PspUnlockJobMemoryLimitsShared.c)
- *     PspLockJobMemoryLimitsShared @ 0x1405FE360 (PspLockJobMemoryLimitsShared.c)
- *     PspWritePebAffinityInfo @ 0x14066CE10 (PspWritePebAffinityInfo.c)
- *     PspSetProcessAffinitySafe @ 0x140889054 (PspSetProcessAffinitySafe.c)
+ *     KeSetDisableQuantumProcess @ 0x14008F998 (KeSetDisableQuantumProcess.c)
+ *     PspSetProcessPriorityByClass @ 0x1400D7A5C (PspSetProcessPriorityByClass.c)
+ *     KeSetQuantumProcess @ 0x1400D8144 (KeSetQuantumProcess.c)
+ *     PspUnlockJobMemoryLimitsShared @ 0x1405FF2B4 (PspUnlockJobMemoryLimitsShared.c)
+ *     PspLockJobMemoryLimitsShared @ 0x1405FF360 (PspLockJobMemoryLimitsShared.c)
+ *     PspWritePebAffinityInfo @ 0x14066DFD0 (PspWritePebAffinityInfo.c)
+ *     PspSetProcessAffinitySafe @ 0x14088A2B4 (PspSetProcessAffinitySafe.c)
  */
 
 void __fastcall PspApplyJobLimitsToProcess(__int64 a1, __int16 a2)

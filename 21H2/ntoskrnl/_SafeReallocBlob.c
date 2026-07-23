@@ -1,13 +1,13 @@
 /*
- * XREFs of _SafeReallocBlob @ 0x1405CAA5C
+ * XREFs of _SafeReallocBlob @ 0x1405CAC8C
  * Callers:
- *     RtlpMuiRegResizeLanguageConfigList @ 0x1409819A8 (RtlpMuiRegResizeLanguageConfigList.c)
- *     RtlpMuiRegResizeLanguages @ 0x140981A14 (RtlpMuiRegResizeLanguages.c)
+ *     RtlpMuiRegResizeLanguageConfigList @ 0x140981B88 (RtlpMuiRegResizeLanguageConfigList.c)
+ *     RtlpMuiRegResizeLanguages @ 0x140981BF4 (RtlpMuiRegResizeLanguages.c)
  * Callees:
- *     ExFreeHeapPool @ 0x140341AC0 (ExFreeHeapPool.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     memset @ 0x140414200 (memset.c)
- *     ExAllocatePoolWithTag @ 0x1409B4160 (ExAllocatePoolWithTag.c)
+ *     ExFreeHeapPool @ 0x14034C810 (ExFreeHeapPool.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x1409B5160 (ExAllocatePoolWithTag.c)
  */
 
 void *__fastcall SafeReallocBlob(
@@ -24,9 +24,6 @@ void *__fastcall SafeReallocBlob(
   unsigned int v10; // esi
   PVOID PoolWithTag; // rax
   void *v12; // rbx
-  __int64 v13; // rdx
-  __int64 v14; // r8
-  _DWORD *v15; // r9
 
   if ( !BugCheckParameter2 )
     return 0LL;
@@ -53,6 +50,6 @@ void *__fastcall SafeReallocBlob(
   if ( !v12 )
     return 0LL;
   memmove(v12, BugCheckParameter2, *BugCheckParameter2);
-  ExFreeHeapPool((ULONG_PTR)BugCheckParameter2, v13, v14, v15);
+  ExFreeHeapPool((ULONG_PTR)BugCheckParameter2);
   return v12;
 }

@@ -1,15 +1,15 @@
 /*
- * XREFs of _CmGetDevicesInBaseContainerList @ 0x1406DA55C
+ * XREFs of _CmGetDevicesInBaseContainerList @ 0x1406DA694
  * Callers:
- *     _CmMoveBaseContainer @ 0x1406DA7B0 (_CmMoveBaseContainer.c)
+ *     _CmMoveBaseContainer @ 0x1406DA8E8 (_CmMoveBaseContainer.c)
  * Callees:
- *     ZwClose @ 0x140159E60 (ZwClose.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     _PnpCtxRegEnumValue @ 0x1404D5ABC (_PnpCtxRegEnumValue.c)
- *     _PnpCtxRegQueryInfoKey @ 0x1404D5B08 (_PnpCtxRegQueryInfoKey.c)
- *     _SysCtxRegOpenKey @ 0x1404FDB8C (_SysCtxRegOpenKey.c)
- *     _PnpCtxGetCachedContextBaseKey @ 0x1404FDCC4 (_PnpCtxGetCachedContextBaseKey.c)
+ *     _PnpCtxRegEnumValue @ 0x1404B90C0 (_PnpCtxRegEnumValue.c)
+ *     _PnpCtxRegQueryInfoKey @ 0x1404B910C (_PnpCtxRegQueryInfoKey.c)
+ *     _SysCtxRegOpenKey @ 0x1404E0B1C (_SysCtxRegOpenKey.c)
+ *     _PnpCtxGetCachedContextBaseKey @ 0x1404E0C54 (_PnpCtxGetCachedContextBaseKey.c)
  */
 
 __int64 __fastcall CmGetDevicesInBaseContainerList(__int64 *a1, __int64 a2, __int64 a3, PVOID *a4)

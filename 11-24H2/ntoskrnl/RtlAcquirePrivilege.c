@@ -1,20 +1,20 @@
 /*
- * XREFs of RtlAcquirePrivilege @ 0x1409C1C84
+ * XREFs of RtlAcquirePrivilege @ 0x1409A82D4
  * Callers:
- *     VhdiAutoAttachOneVhd @ 0x140829E6C (VhdiAutoAttachOneVhd.c)
- *     PspAllocateProcess @ 0x140A1C4C0 (PspAllocateProcess.c)
+ *     VhdiAutoAttachOneVhd @ 0x14082A69C (VhdiAutoAttachOneVhd.c)
+ *     PspAllocateProcess @ 0x1409FACD0 (PspAllocateProcess.c)
  * Callees:
- *     ZwSetInformationThread @ 0x1406A65B0 (ZwSetInformationThread.c)
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwOpenProcessTokenEx @ 0x1406A6A10 (ZwOpenProcessTokenEx.c)
- *     ZwAdjustPrivilegesToken @ 0x1406A6C30 (ZwAdjustPrivilegesToken.c)
- *     RtlImpersonateSelfEx @ 0x1409C1F04 (RtlImpersonateSelfEx.c)
- *     RtlpOpenThreadToken @ 0x1409C2114 (RtlpOpenThreadToken.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ZwSetInformationThread @ 0x1406A7550 (ZwSetInformationThread.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwOpenProcessTokenEx @ 0x1406A79B0 (ZwOpenProcessTokenEx.c)
+ *     ZwAdjustPrivilegesToken @ 0x1406A7BD0 (ZwAdjustPrivilegesToken.c)
+ *     RtlImpersonateSelfEx @ 0x1409A8554 (RtlImpersonateSelfEx.c)
+ *     RtlpOpenThreadToken @ 0x1409A8764 (RtlpOpenThreadToken.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall RtlAcquirePrivilege(unsigned int *a1, unsigned int a2, int a3, __int64 *a4)
+NTSTATUS __cdecl RtlAcquirePrivilege(PULONG Privilege, ULONG NumPriv, ULONG Flags, PVOID *ReturnedState)
 {
   __int64 v5; // rbp
   char v7; // si
@@ -24,19 +24,21 @@ __int64 __fastcall RtlAcquirePrivilege(unsigned int *a1, unsigned int a2, int a3
   int v11; // edi
   __int64 v12; // rdx
   __int64 v13; // r8
-  unsigned int v14; // eax
+  ULONG v14; // eax
   __int64 v15; // rcx
   void *v17; // rcx
-  __int64 v18; // rax
-  __int64 ThreadInformation[7]; // [rsp+30h] [rbp-38h] BYREF
+  struct _TOKEN_PRIVILEGES *PreviousState; // rax
+  _QWORD ThreadInformation[7]; // [rsp+30h] [rbp-38h] BYREF
+  ULONG BufferLength; // [rsp+80h] [rbp+18h] BYREF
 
-  v5 = a2;
-  if ( (a3 & 0xFFFFFFFC) != 0 )
-    return 3221225485LL;
-  v7 = a3 | 1;
-  if ( (a3 & 2) == 0 )
-    v7 = a3;
-  Pool2 = ExAllocatePool2(0x41uLL);
+  BufferLength = 0;
+  v5 = NumPriv;
+  if ( (Flags & 0xFFFFFFFC) != 0 )
+    return -1073741811;
+  v7 = Flags | 1;
+  if ( (Flags & 2) == 0 )
+    v7 = Flags;
+  Pool2 = ExAllocatePool2(0x41uLL, 12 * (NumPriv - 1 + 90LL), 0x62507452u);
   v9 = Pool2;
   if ( Pool2 )
   {
@@ -76,7 +78,7 @@ LABEL_9:
           }
           else
           {
-            v11 = RtlImpersonateSelfEx(3LL, 40LL, v9);
+            v11 = RtlImpersonateSelfEx(SecurityDelegation, 0x28u, (PHANDLE)v9);
             if ( v11 >= 0 )
             {
               *(_DWORD *)(v9 + 32) |= 1u;
@@ -102,10 +104,10 @@ LABEL_13:
           v13 = v5;
           do
           {
-            v14 = *a1;
+            v14 = *Privilege;
             v12 += 12LL;
             v15 = *(_QWORD *)(v9 + 24);
-            ++a1;
+            ++Privilege;
             ThreadInformation[0] = v14;
             *(_QWORD *)(v12 + v15 - 8) = v14;
             *(_DWORD *)(v12 + *(_QWORD *)(v9 + 24)) = 2;
@@ -113,16 +115,29 @@ LABEL_13:
           }
           while ( v13 );
         }
-        v11 = ZwAdjustPrivilegesToken(*(_QWORD *)v9, 0LL);
+        BufferLength = 1024;
+        v11 = ZwAdjustPrivilegesToken(
+                *(HANDLE *)v9,
+                0,
+                *(PTOKEN_PRIVILEGES *)(v9 + 24),
+                0x400u,
+                *(PTOKEN_PRIVILEGES *)(v9 + 16),
+                &BufferLength);
         if ( v11 == -1073741789 )
         {
           while ( 1 )
           {
-            v18 = ExAllocatePool2(0x41uLL);
-            *(_QWORD *)(v9 + 16) = v18;
-            if ( !v18 )
+            PreviousState = (struct _TOKEN_PRIVILEGES *)ExAllocatePool2(0x41uLL, BufferLength, 0x62507452u);
+            *(_QWORD *)(v9 + 16) = PreviousState;
+            if ( !PreviousState )
               break;
-            v11 = ZwAdjustPrivilegesToken(*(_QWORD *)v9, 0LL);
+            v11 = ZwAdjustPrivilegesToken(
+                    *(HANDLE *)v9,
+                    0,
+                    *(PTOKEN_PRIVILEGES *)(v9 + 24),
+                    BufferLength,
+                    PreviousState,
+                    &BufferLength);
             if ( v11 != -1073741789 )
               goto LABEL_17;
             ExFreePoolWithTag(*(PVOID *)(v9 + 16), 0);
@@ -141,8 +156,8 @@ LABEL_17:
           else if ( v11 >= 0 )
           {
 LABEL_19:
-            *a4 = v9;
-            return 0LL;
+            *ReturnedState = (PVOID)v9;
+            return 0;
           }
         }
         v17 = *(void **)(v9 + 16);
@@ -154,7 +169,7 @@ LABEL_19:
     }
 LABEL_29:
     ExFreePoolWithTag((PVOID)v9, 0);
-    return (unsigned int)v11;
+    return v11;
   }
-  return 3221225495LL;
+  return -1073741801;
 }

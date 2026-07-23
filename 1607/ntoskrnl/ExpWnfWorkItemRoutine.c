@@ -1,9 +1,9 @@
 /*
- * XREFs of ExpWnfWorkItemRoutine @ 0x1404D5FB8
+ * XREFs of ExpWnfWorkItemRoutine @ 0x1404B95BC
  * Callers:
  *     <none>
  * Callees:
- *     ExpWnfDispatchKernelSubscription @ 0x1404D5FFC (ExpWnfDispatchKernelSubscription.c)
+ *     ExpWnfDispatchKernelSubscription @ 0x1404B9600 (ExpWnfDispatchKernelSubscription.c)
  */
 
 void ExpWnfWorkItemRoutine()

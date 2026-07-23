@@ -1,11 +1,11 @@
 /*
- * XREFs of ExpSetCrossVmEvent @ 0x140B6101C
+ * XREFs of ExpSetCrossVmEvent @ 0x140B640BC
  * Callers:
- *     NtSetEventEx @ 0x140A52C20 (NtSetEventEx.c)
+ *     NtSetEventEx @ 0x140A5BF10 (NtSetEventEx.c)
  * Callees:
- *     ExReleaseExtensionTable @ 0x14048FC18 (ExReleaseExtensionTable.c)
- *     ExGetExtensionTable @ 0x14049B7B0 (ExGetExtensionTable.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     ExReleaseExtensionTable @ 0x1404896C4 (ExReleaseExtensionTable.c)
+ *     ExGetExtensionTable @ 0x140495300 (ExGetExtensionTable.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall ExpSetCrossVmEvent(__int64 a1, __int64 a2)

@@ -1,24 +1,24 @@
 /*
- * XREFs of MiProbeLeafPteAccess @ 0x140283F40
+ * XREFs of MiProbeLeafPteAccess @ 0x1402394D0
  * Callers:
- *     MiProbeAndLockPacket @ 0x140282730 (MiProbeAndLockPacket.c)
- *     MmStoreProbeAndLockPages @ 0x140284E70 (MmStoreProbeAndLockPages.c)
- *     MmProbeAndLockSelectedPages @ 0x140286070 (MmProbeAndLockSelectedPages.c)
+ *     MiProbeAndLockPacket @ 0x140237CC0 (MiProbeAndLockPacket.c)
+ *     MmStoreProbeAndLockPages @ 0x1402E9990 (MmStoreProbeAndLockPages.c)
+ *     MmProbeAndLockSelectedPages @ 0x140390AC0 (MmProbeAndLockSelectedPages.c)
  * Callees:
- *     MmAccessFault @ 0x140216750 (MmAccessFault.c)
- *     MiLegitimatePageForDriversToMap @ 0x1402855E0 (MiLegitimatePageForDriversToMap.c)
- *     MiLockProbePacketWorkingSet @ 0x1402C3B90 (MiLockProbePacketWorkingSet.c)
- *     MiIsDriverPage @ 0x1402C80A4 (MiIsDriverPage.c)
- *     MiUnlockProbePacketWorkingSet @ 0x1402E1C10 (MiUnlockProbePacketWorkingSet.c)
- *     MiCopyOnWrite @ 0x1402E47DC (MiCopyOnWrite.c)
- *     MiCanPageMove @ 0x1402F7730 (MiCanPageMove.c)
- *     MiClearPfnImageVerified @ 0x14036C0C0 (MiClearPfnImageVerified.c)
- *     MiOkToSetPteDirtyForNotValidFault @ 0x140396740 (MiOkToSetPteDirtyForNotValidFault.c)
- *     MiLocateCloneAddress @ 0x1403E3608 (MiLocateCloneAddress.c)
- *     MiProcessCommitIntact @ 0x140402340 (MiProcessCommitIntact.c)
- *     MiCopyOnWriteCheckConditions @ 0x140406AD8 (MiCopyOnWriteCheckConditions.c)
- *     MiSplitReducedCommitClonePage @ 0x1404F9378 (MiSplitReducedCommitClonePage.c)
- *     MiSplitDriverPage @ 0x1407E8058 (MiSplitDriverPage.c)
+ *     MiLockProbePacketWorkingSet @ 0x14020AFF0 (MiLockProbePacketWorkingSet.c)
+ *     MiUnlockProbePacketWorkingSet @ 0x14020BCC0 (MiUnlockProbePacketWorkingSet.c)
+ *     MmAccessFault @ 0x140243610 (MmAccessFault.c)
+ *     MiIsDriverPage @ 0x1402BA964 (MiIsDriverPage.c)
+ *     MiClearPfnImageVerified @ 0x1402EAB40 (MiClearPfnImageVerified.c)
+ *     MiCanPageMove @ 0x14033FB90 (MiCanPageMove.c)
+ *     MiCopyOnWrite @ 0x140346A74 (MiCopyOnWrite.c)
+ *     MiCopyOnWriteCheckConditions @ 0x1403C927C (MiCopyOnWriteCheckConditions.c)
+ *     MiLocateCloneAddress @ 0x1403C9CE8 (MiLocateCloneAddress.c)
+ *     MiProcessCommitIntact @ 0x1403FC8C0 (MiProcessCommitIntact.c)
+ *     MiLegitimatePageForDriversToMap @ 0x14041DB10 (MiLegitimatePageForDriversToMap.c)
+ *     MiOkToSetPteDirtyForNotValidFault @ 0x140422570 (MiOkToSetPteDirtyForNotValidFault.c)
+ *     MiSplitReducedCommitClonePage @ 0x1404F6C58 (MiSplitReducedCommitClonePage.c)
+ *     MiSplitDriverPage @ 0x1407E8628 (MiSplitDriverPage.c)
  */
 
 __int64 __fastcall MiProbeLeafPteAccess(__int64 a1, _DWORD *a2)
@@ -67,20 +67,20 @@ __int64 __fastcall MiProbeLeafPteAccess(__int64 a1, _DWORD *a2)
   *a2 = 0;
   if ( (v3 & 4) == 0 && v4 == 1 )
   {
-    ++dword_140E30110;
+    ++dword_140E30250;
     return 3221225477LL;
   }
   v9 = ((unsigned __int64)v3 >> 12) & 0xFFFFFFFFFFLL;
-  if ( v9 <= qword_140E2DBE0 && (v10 = 48 * v9, (*(_QWORD *)(48 * v9 - 0x21FFFFFFFFD8LL) & 0x40000000000000LL) != 0) )
+  if ( v9 <= qword_140E2DD20 && (v10 = 48 * v9, (*(_QWORD *)(48 * v9 - 0x21FFFFFFFFD8LL) & 0x40000000000000LL) != 0) )
   {
-    v20 = (_QWORD *)qword_140E374B8;
+    v20 = (_QWORD *)qword_140E375F8;
     v11 = v10 - 0x220000000000LL;
-    if ( qword_140E374B8 )
+    if ( qword_140E375F8 )
     {
       if ( ((*(_QWORD *)(v11 + 40) >> 60) & 7) == 1 )
       {
         v10 /= 0x30uLL;
-        if ( qword_140E374B8 )
+        if ( qword_140E375F8 )
         {
           do
           {
@@ -93,7 +93,7 @@ __int64 __fastcall MiProbeLeafPteAccess(__int64 a1, _DWORD *a2)
             {
               if ( v10 - v19 < v20[4] )
               {
-                ++dword_140E3013C;
+                ++dword_140E3027C;
                 return 3221225477LL;
               }
               v20 = (_QWORD *)v20[1];
@@ -105,7 +105,7 @@ __int64 __fastcall MiProbeLeafPteAccess(__int64 a1, _DWORD *a2)
     }
     if ( (int)MiLegitimatePageForDriversToMap(v11, v10) < 0 )
     {
-      ++dword_140E30138;
+      ++dword_140E30278;
       return 3221225477LL;
     }
     v6 = v35;
@@ -118,7 +118,7 @@ __int64 __fastcall MiProbeLeafPteAccess(__int64 a1, _DWORD *a2)
   if ( v5 < 0xFFFF800000000000uLL )
     v13 = 0;
   else
-    v13 = byte_140E389A8[((v5 >> 39) & 0x1FF) - 256];
+    v13 = byte_140E38AE8[((v5 >> 39) & 0x1FF) - 256];
   if ( v4 == 6 && v13 == 11 )
     v12 = 1;
   v14 = 0x8000000000000000uLL;
@@ -165,11 +165,11 @@ LABEL_10:
     if ( (v3 & 0x42) == 0 && v4 == 1 && !(unsigned int)MiOkToSetPteDirtyForNotValidFault(v3, v5, v6, 0x10000000000LL) )
     {
       MiUnlockProbePacketWorkingSet(a1);
-      v21 = MmAccessFault(2uLL, v5, 0, 0LL);
+      v21 = MmAccessFault(2uLL, v5);
       MiLockProbePacketWorkingSet(a1);
       if ( v21 < 0 )
       {
-        ++dword_140E30108;
+        ++dword_140E30248;
         return (unsigned int)v21;
       }
       goto LABEL_56;
@@ -186,8 +186,8 @@ LABEL_10:
       v26 = *(_QWORD *)(v11 + 16);
       if ( (v26 & 0x400) == 0 )
         goto LABEL_109;
-      if ( qword_140E2DB80 && (v26 & 0x10) == 0 )
-        v26 &= ~qword_140E2DB80;
+      if ( qword_140E2DCC0 && (v26 & 0x10) == 0 )
+        v26 &= ~qword_140E2DCC0;
       if ( (*(_DWORD *)(*(_QWORD *)(v26 >> 16) + 56LL) & 0x20) != 0 )
       {
 LABEL_109:
@@ -199,7 +199,7 @@ LABEL_109:
           MiLockProbePacketWorkingSet(a1);
           if ( v33 >= 0 )
             goto LABEL_56;
-          ++dword_140E30134;
+          ++dword_140E30274;
           return (unsigned int)v33;
         }
         v16 = 0x10000000000LL;
@@ -233,7 +233,7 @@ LABEL_13:
   {
     if ( (*(_DWORD *)(a1 + 72) & 0x10) != 0 )
     {
-      CloneAddress = MiLocateCloneAddress(v22, *(_QWORD *)(v11 + 8) | 0x8000000000000000uLL, 0x8000000000000000uLL);
+      CloneAddress = MiLocateCloneAddress(v22, *(_QWORD *)(v11 + 8) | 0x8000000000000000uLL);
       if ( CloneAddress )
       {
         if ( *(_QWORD *)(*(_QWORD *)(v28 + 1040) + 1064LL) > *(_QWORD *)(CloneAddress + 96) )
@@ -266,7 +266,7 @@ LABEL_46:
     {
       if ( (*(_DWORD *)(a1 + 72) & 0x10) != 0 )
       {
-        v30 = MiLocateCloneAddress(v24, v23 | *(_QWORD *)(v11 + 8), v23);
+        v30 = MiLocateCloneAddress(v24, v23 | *(_QWORD *)(v11 + 8));
         if ( v30 )
         {
           if ( *(_QWORD *)(*(_QWORD *)(v31 + 1040) + 1064LL) > *(_QWORD *)(v30 + 96) )
@@ -275,7 +275,7 @@ LABEL_81:
             result = MiSplitReducedCommitClonePage(a1);
             if ( (int)result < 0 )
             {
-              ++dword_140E30130;
+              ++dword_140E30270;
               return result;
             }
 LABEL_56:
@@ -312,6 +312,6 @@ LABEL_55:
     MiLockProbePacketWorkingSet(a1);
     goto LABEL_56;
   }
-  ++dword_140E30134;
+  ++dword_140E30274;
   return 3221225495LL;
 }

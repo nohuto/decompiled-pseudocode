@@ -1,11 +1,11 @@
 /*
- * XREFs of MiFlushKernelCfgBitmap @ 0x1402C33E0
+ * XREFs of MiFlushKernelCfgBitmap @ 0x1402C35D0
  * Callers:
- *     MiMarkKernelImageCfgBits @ 0x14070F394 (MiMarkKernelImageCfgBits.c)
+ *     MiMarkKernelImageCfgBits @ 0x140710634 (MiMarkKernelImageCfgBits.c)
  * Callees:
- *     MiFlushTbList @ 0x1400740C0 (MiFlushTbList.c)
- *     MiInsertTbFlushEntry @ 0x1400B3AF0 (MiInsertTbFlushEntry.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
+ *     MiFlushTbList @ 0x1400740B0 (MiFlushTbList.c)
+ *     MiInsertTbFlushEntry @ 0x1400B3A30 (MiInsertTbFlushEntry.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
  */
 
 void __fastcall MiFlushKernelCfgBitmap(__int64 a1, unsigned int a2)
@@ -24,12 +24,12 @@ void __fastcall MiFlushKernelCfgBitmap(__int64 a1, unsigned int a2)
   v7 = 0;
   v9 = 0LL;
   v10 = 0LL;
-  v2 = qword_140438E20 + ((2 * ((unsigned __int64)(a1 + 0x800000000000LL) >> 4)) >> 3);
+  v2 = qword_140439EE0 + ((2 * ((unsigned __int64)(a1 + 0x800000000000LL) >> 4)) >> 3);
   v8 = 20LL;
   MiInsertTbFlushEntry(
     (__int64)&v6,
     v2 & 0xFFFFFFFFFFFFF000uLL,
-    ((v2 & 0xFFF) + ((2 * (((unsigned __int64)a2 + 0x7FFFFFFFFFFFLL + a1) >> 4)) >> 3) - v2 + qword_140438E20 + 4096) >> 12,
+    ((v2 & 0xFFF) + ((2 * (((unsigned __int64)a2 + 0x7FFFFFFFFFFFLL + a1) >> 4)) >> 3) - v2 + qword_140439EE0 + 4096) >> 12,
     0);
   MiFlushTbList(&v6, v3, v4, v5);
 }

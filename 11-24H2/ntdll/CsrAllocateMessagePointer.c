@@ -1,8 +1,8 @@
 /*
- * XREFs of CsrAllocateMessagePointer @ 0x1800A6FA0
+ * XREFs of CsrAllocateMessagePointer @ 0x180024390
  * Callers:
- *     CsrCaptureMessageBuffer @ 0x1800A5ED0 (CsrCaptureMessageBuffer.c)
- *     CsrpClientConnectToServer @ 0x1800A6990 (CsrpClientConnectToServer.c)
+ *     CsrCaptureMessageBuffer @ 0x180023800 (CsrCaptureMessageBuffer.c)
+ *     CsrpClientConnectToServer @ 0x180023D80 (CsrpClientConnectToServer.c)
  * Callees:
  *     <none>
  */

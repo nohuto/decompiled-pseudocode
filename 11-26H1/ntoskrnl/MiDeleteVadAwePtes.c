@@ -1,14 +1,14 @@
 /*
- * XREFs of MiDeleteVadAwePtes @ 0x140477BFC
+ * XREFs of MiDeleteVadAwePtes @ 0x14047137C
  * Callers:
- *     MiDeleteVa @ 0x140322AC0 (MiDeleteVa.c)
- *     MiDeleteLargeUserPde @ 0x140477A60 (MiDeleteLargeUserPde.c)
+ *     MiDeleteVa @ 0x140324AF0 (MiDeleteVa.c)
+ *     MiDeleteLargeUserPde @ 0x1404711E0 (MiDeleteLargeUserPde.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiReadPteShadow @ 0x140314FF0 (MiReadPteShadow.c)
- *     MiLockHugePfnAtDpc @ 0x140358C94 (MiLockHugePfnAtDpc.c)
- *     MiGetAweViewPageSize @ 0x140477EDC (MiGetAweViewPageSize.c)
- *     MiWriteAwePtes @ 0x140477F10 (MiWriteAwePtes.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiReadPteShadow @ 0x140317020 (MiReadPteShadow.c)
+ *     MiLockHugePfnAtDpc @ 0x14035AA34 (MiLockHugePfnAtDpc.c)
+ *     MiGetAweViewPageSize @ 0x14047165C (MiGetAweViewPageSize.c)
+ *     MiWriteAwePtes @ 0x140471690 (MiWriteAwePtes.c)
  */
 
 __int64 __fastcall MiDeleteVadAwePtes(__int64 a1, unsigned __int64 a2, int a3)
@@ -65,8 +65,8 @@ __int64 __fastcall MiDeleteVadAwePtes(__int64 a1, unsigned __int64 a2, int a3)
   else if ( (PteShadow & 0x800) == 0 && (PteShadow & 0x3E0) == 0x300 )
   {
     v12 = PteShadow;
-    if ( qword_140E2D740 && (PteShadow & 0x10) == 0 )
-      v12 = qword_140E2D748 & PteShadow;
+    if ( qword_140E2D8C0 && (PteShadow & 0x10) == 0 )
+      v12 = qword_140E2D8C8 & PteShadow;
     v13 = v12 >> 31;
     do
     {
@@ -122,16 +122,16 @@ __int64 __fastcall MiDeleteVadAwePtes(__int64 a1, unsigned __int64 a2, int a3)
       MiLockHugePfnAtDpc(v27);
       v23 = *v21 & 0xFFFFFF800001FFFFuLL;
       if ( v22 )
-        v23 = ((v22 - *(_QWORD *)((char *)&stru_140E2EB88.116 + 4)) >> 3 << 17) ^ (*v21 ^ ((v22
-                                                                                          - *(_QWORD *)((char *)&stru_140E2EB88.116 + 4)) >> 3 << 17)) & 0xFFFFFF800001FFFFuLL;
+        v23 = ((v22 - *(_QWORD *)((char *)&stru_140E2ED08.116 + 4)) >> 3 << 17) ^ (*v21 ^ ((v22
+                                                                                          - *(_QWORD *)((char *)&stru_140E2ED08.116 + 4)) >> 3 << 17)) & 0xFFFFFF800001FFFFuLL;
       else
         *(_QWORD *)(v3 + 104) = v21;
       *v21 = v23;
       _InterlockedAnd(
-        (volatile signed __int32 *)(*(_QWORD *)&stru_140E2EB88.SystemCallNumber
+        (volatile signed __int32 *)(*(_QWORD *)&stru_140E2ED08.SystemCallNumber
                                   + 4
-                                  * (((((__int64)v21 - *(_QWORD *)((char *)&stru_140E2EB88.116 + 4)) >> 3) & 0x3FFFFFuLL) >> 5)),
-        ~(1 << (((__int64)v21 - *(_QWORD *)((char *)&stru_140E2EB88.116 + 4)) >> 3)));
+                                  * (((((__int64)v21 - *(_QWORD *)((char *)&stru_140E2ED08.116 + 4)) >> 3) & 0x3FFFFFuLL) >> 5)),
+        ~(1 << (((__int64)v21 - *(_QWORD *)((char *)&stru_140E2ED08.116 + 4)) >> 3)));
     }
     else
     {

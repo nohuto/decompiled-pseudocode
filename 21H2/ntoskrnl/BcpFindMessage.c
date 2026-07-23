@@ -1,31 +1,31 @@
 /*
- * XREFs of BcpFindMessage @ 0x140A96E2C
+ * XREFs of BcpFindMessage @ 0x140A97E2C
  * Callers:
- *     BcpGetProgressMessages @ 0x1403BCA3C (BcpGetProgressMessages.c)
- *     BgpBcInitializeCriticalMode @ 0x140A96A10 (BgpBcInitializeCriticalMode.c)
+ *     BcpGetProgressMessages @ 0x1403BCBAC (BcpGetProgressMessages.c)
+ *     BgpBcInitializeCriticalMode @ 0x140A97A10 (BgpBcInitializeCriticalMode.c)
  * Callees:
- *     ResFwFindMessage @ 0x1409F47C0 (ResFwFindMessage.c)
+ *     ResFwFindMessage @ 0x1409F57C0 (ResFwFindMessage.c)
  */
 
-unsigned __int16 *__fastcall BcpFindMessage(unsigned int a1)
+const wchar_t *__fastcall BcpFindMessage(ULONG a1)
 {
-  unsigned __int16 *result; // rax
+  const wchar_t *result; // rax
   unsigned int v3; // r8d
   __int64 v4; // rcx
   __int64 v5; // rcx
-  unsigned __int16 v6; // dx
+  wchar_t v6; // dx
   unsigned __int64 v7; // rdx
-  unsigned int v8; // ebx
-  unsigned int v9; // ebx
-  unsigned int v10; // ebx
-  unsigned int v11; // ebx
-  unsigned int v12; // ebx
-  unsigned int v13; // ebx
-  unsigned int v14; // ebx
+  ULONG v8; // ebx
+  ULONG v9; // ebx
+  ULONG v10; // ebx
+  ULONG v11; // ebx
+  ULONG v12; // ebx
+  ULONG v13; // ebx
+  ULONG v14; // ebx
 
   if ( a1 != 1090551832 || (result = Dst) == 0LL )
   {
-    result = ResFwFindMessage(a1);
+    result = (const wchar_t *)ResFwFindMessage(a1);
     if ( !result )
     {
       if ( a1 > 0x41008018 )

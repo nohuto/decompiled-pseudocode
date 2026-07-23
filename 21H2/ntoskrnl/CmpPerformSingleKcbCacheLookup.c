@@ -1,25 +1,25 @@
 /*
- * XREFs of CmpPerformSingleKcbCacheLookup @ 0x1406F2EB0
+ * XREFs of CmpPerformSingleKcbCacheLookup @ 0x14070A290
  * Callers:
- *     CmpPerformCompleteKcbCacheLookup @ 0x1406FC410 (CmpPerformCompleteKcbCacheLookup.c)
+ *     CmpPerformCompleteKcbCacheLookup @ 0x1407137F0 (CmpPerformCompleteKcbCacheLookup.c)
  * Callees:
- *     NLS_UPCASE @ 0x140206AF0 (NLS_UPCASE.c)
- *     ExpReleaseFastMutexContended @ 0x1402F171C (ExpReleaseFastMutexContended.c)
- *     ExpAcquireFastMutexContended @ 0x1402F2BC0 (ExpAcquireFastMutexContended.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     KeAbPreAcquire @ 0x14034A230 (KeAbPreAcquire.c)
- *     ExAcquirePushLockSharedEx @ 0x14034AB50 (ExAcquirePushLockSharedEx.c)
- *     ExReleasePushLockEx @ 0x14034AE90 (ExReleasePushLockEx.c)
+ *     NLS_UPCASE @ 0x1402AB420 (NLS_UPCASE.c)
+ *     ExpReleaseFastMutexContended @ 0x1402FC46C (ExpReleaseFastMutexContended.c)
+ *     ExpAcquireFastMutexContended @ 0x1402FD910 (ExpAcquireFastMutexContended.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     KeAbPreAcquire @ 0x140354F80 (KeAbPreAcquire.c)
+ *     ExAcquirePushLockSharedEx @ 0x1403558A0 (ExAcquirePushLockSharedEx.c)
+ *     ExReleasePushLockEx @ 0x140355BE0 (ExReleasePushLockEx.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     CmpCompareUnicodeString @ 0x140672920 (CmpCompareUnicodeString.c)
- *     CmpFreeKeyControlBlock @ 0x140719B20 (CmpFreeKeyControlBlock.c)
- *     CmpDeleteHive @ 0x14071C6F4 (CmpDeleteHive.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     CmpDeleteHive @ 0x1405E0094 (CmpDeleteHive.c)
+ *     CmpFreeKeyControlBlock @ 0x1405E0C60 (CmpFreeKeyControlBlock.c)
+ *     CmpCompareUnicodeString @ 0x140667B50 (CmpCompareUnicodeString.c)
  */
 
 _WORD *__fastcall CmpPerformSingleKcbCacheLookup(
         volatile signed __int64 *BugCheckParameter2,
-        ULONG_PTR a2,
+        _QWORD *P,
         unsigned int a3,
         unsigned int a4,
         __int64 a5,
@@ -57,7 +57,7 @@ _WORD *__fastcall CmpPerformSingleKcbCacheLookup(
   signed __int64 v36; // rtt
   unsigned int v37; // r9d
   ULONG_PTR v38; // rcx
-  __int64 v39; // rdi
+  PRTL_BALANCED_NODE v39; // rdi
   unsigned __int8 CurrentIrql; // si
   char v41; // al
   __int64 v42; // rcx
@@ -105,38 +105,38 @@ LABEL_4:
       v16 = *(_DWORD *)(a5 + 4LL * v8);
     v14 = v16 + 37 * v14;
     v57 = v14 ^ (v14 >> 9);
-    v17 = *(_QWORD *)(a2 + 1640);
+    v17 = P[205];
     v56 = 101027 * v57;
     v18 = v56 ^ (v56 >> 9);
-    ExAcquirePushLockSharedEx(v17 + 24LL * (v18 & (unsigned int)(*(_DWORD *)(a2 + 1648) - 1)), 0LL);
-    _m_prefetchw((const void *)(a2 + 4272));
-    v19 = *(_DWORD *)(a2 + 4272);
+    ExAcquirePushLockSharedEx(v17 + 24LL * (v18 & (unsigned int)(*((_DWORD *)P + 412) - 1)), 0LL);
+    _m_prefetchw(P + 534);
+    v19 = *((_DWORD *)P + 1068);
     if ( !v19 )
 LABEL_90:
-      KeBugCheckEx(0x51u, 0x17uLL, a2, 9uLL, v14);
+      KeBugCheckEx(0x51u, 0x17uLL, (ULONG_PTR)P, 9uLL, v14);
     while ( 1 )
     {
       v20 = v19;
-      v19 = _InterlockedCompareExchange((volatile signed __int32 *)(a2 + 4272), v19 + 1, v19);
+      v19 = _InterlockedCompareExchange((volatile signed __int32 *)P + 1068, v19 + 1, v19);
       if ( v20 == v19 )
         break;
       if ( !v19 )
         goto LABEL_90;
     }
-    v21 = *(_QWORD *)(a2 + 1640);
-    v22 = v18 & (unsigned int)(*(_DWORD *)(a2 + 1648) - 1);
+    v21 = P[205];
+    v22 = v18 & (unsigned int)(*((_DWORD *)P + 412) - 1);
     v58 = 0LL;
     v23 = *(_QWORD *)(v21 + 24 * v22 + 16);
     if ( !v23 )
     {
 LABEL_13:
-      v24 = *(_QWORD *)(a2 + 1640)
+      v24 = P[205]
           + 24
-          * ((unsigned int)(*(_DWORD *)(a2 + 1648) - 1) & ((unsigned int)(101027 * v57) ^ ((unsigned __int64)(unsigned int)(101027 * v57) >> 9)));
+          * ((unsigned int)(*((_DWORD *)P + 412) - 1) & ((unsigned int)(101027 * v57) ^ ((unsigned __int64)(unsigned int)(101027 * v57) >> 9)));
       *(_QWORD *)(v24 + 8) = 0LL;
       ExReleasePushLockEx(v24, 0LL);
-      if ( _InterlockedExchangeAdd((volatile signed __int32 *)(a2 + 4272), 0xFFFFFFFF) == 1 )
-        CmpDeleteHive((PVOID)a2);
+      if ( _InterlockedExchangeAdd((volatile signed __int32 *)P + 1068, 0xFFFFFFFF) == 1 )
+        CmpDeleteHive(P);
       v10 = (ULONG_PTR)v59;
       goto LABEL_16;
     }
@@ -215,7 +215,7 @@ LABEL_43:
                 if ( !_interlockedbittestandreset((volatile signed __int32 *)&CmpDelayedCloseTableLock, 0) )
                   ExpAcquireFastMutexContended((ULONG_PTR)&CmpDelayedCloseTableLock, v39);
                 if ( v39 )
-                  *(_BYTE *)(v39 + 26) |= 1u;
+                  BYTE2(v39[1].Left) |= 1u;
                 *(&CmpDelayedCloseTableLock + 1) = (ULONG_PTR)KeGetCurrentThread();
                 *((_DWORD *)&CmpDelayedCloseTableLock + 12) = CurrentIrql;
                 v41 = *(_BYTE *)(v26 + 64);
@@ -284,12 +284,11 @@ LABEL_34:
               }
               else
               {
-                v38 = *(_QWORD *)(a2 + 1640)
-                    + 24 * ((unsigned int)(*(_DWORD *)(a2 + 1648) - 1) & (v56 ^ ((unsigned __int64)v56 >> 9)));
+                v38 = P[205] + 24 * ((unsigned int)(*((_DWORD *)P + 412) - 1) & (v56 ^ ((unsigned __int64)v56 >> 9)));
                 *(_QWORD *)(v38 + 8) = 0LL;
                 ExReleasePushLockEx(v38, 0LL);
-                if ( _InterlockedExchangeAdd((volatile signed __int32 *)(a2 + 4272), 0xFFFFFFFF) == 1 )
-                  CmpDeleteHive((PVOID)a2);
+                if ( _InterlockedExchangeAdd((volatile signed __int32 *)P + 1068, 0xFFFFFFFF) == 1 )
+                  CmpDeleteHive(P);
                 v37 = a4;
               }
               if ( _InterlockedExchangeAdd64(v59, 0xFFFFFFFFFFFFFFFFuLL) == 1 )

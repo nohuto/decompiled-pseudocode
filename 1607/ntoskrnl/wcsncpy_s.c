@@ -1,14 +1,14 @@
 /*
- * XREFs of wcsncpy_s @ 0x140153224
+ * XREFs of wcsncpy_s @ 0x1401537E4
  * Callers:
- *     _wsplitpath_s @ 0x140152734 (_wsplitpath_s.c)
- *     LocalGetAclForString @ 0x1404D6D44 (LocalGetAclForString.c)
- *     ExpFindArcName @ 0x1406B0860 (ExpFindArcName.c)
- *     ExpParseSignatureName @ 0x1406B139C (ExpParseSignatureName.c)
- *     LocalGetStringForControl @ 0x1406CB6F8 (LocalGetStringForControl.c)
- *     GetOperatorIndexByName @ 0x1406CD520 (GetOperatorIndexByName.c)
+ *     _wsplitpath_s @ 0x140152CF4 (_wsplitpath_s.c)
+ *     LocalGetAclForString @ 0x1404BA348 (LocalGetAclForString.c)
+ *     ExpFindArcName @ 0x1406B0998 (ExpFindArcName.c)
+ *     ExpParseSignatureName @ 0x1406B14D4 (ExpParseSignatureName.c)
+ *     LocalGetStringForControl @ 0x1406CB830 (LocalGetStringForControl.c)
+ *     GetOperatorIndexByName @ 0x1406CD658 (GetOperatorIndexByName.c)
  * Callees:
- *     xHalFreeMessageTarget @ 0x140130D64 (xHalFreeMessageTarget.c)
+ *     xHalFreeMessageTarget @ 0x1401312D4 (xHalFreeMessageTarget.c)
  */
 
 errno_t __cdecl wcsncpy_s(wchar_t *Dst, rsize_t SizeInWords, const wchar_t *Src, rsize_t MaxCount)

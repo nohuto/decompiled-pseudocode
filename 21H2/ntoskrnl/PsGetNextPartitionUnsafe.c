@@ -1,15 +1,15 @@
 /*
- * XREFs of PsGetNextPartitionUnsafe @ 0x1402F8D08
+ * XREFs of PsGetNextPartitionUnsafe @ 0x140303A58
  * Callers:
- *     PsGetNextPartition @ 0x1402ABF88 (PsGetNextPartition.c)
- *     CcForEachPartition @ 0x1402F8C10 (CcForEachPartition.c)
- *     CcUnmapInactiveViews @ 0x1404EB3E0 (CcUnmapInactiveViews.c)
- *     ExSwapinWorkerThreads @ 0x140777354 (ExSwapinWorkerThreads.c)
+ *     PsGetNextPartition @ 0x140250E68 (PsGetNextPartition.c)
+ *     CcForEachPartition @ 0x140303960 (CcForEachPartition.c)
+ *     CcUnmapInactiveViews @ 0x1404EB620 (CcUnmapInactiveViews.c)
+ *     ExSwapinWorkerThreads @ 0x140777514 (ExSwapinWorkerThreads.c)
  * Callees:
- *     ExAcquireSpinLockShared @ 0x14021CD80 (ExAcquireSpinLockShared.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14031C800 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     ObReferenceObjectSafeWithTag @ 0x140348AA0 (ObReferenceObjectSafeWithTag.c)
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
+ *     ExAcquireSpinLockShared @ 0x1402C1680 (ExAcquireSpinLockShared.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x140327550 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ObReferenceObjectSafeWithTag @ 0x1403537F0 (ObReferenceObjectSafeWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 

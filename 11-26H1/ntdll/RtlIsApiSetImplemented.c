@@ -1,19 +1,19 @@
 /*
- * XREFs of RtlIsApiSetImplemented @ 0x180148410
+ * XREFs of RtlIsApiSetImplemented @ 0x1801482C0
  * Callers:
  *     <none>
  * Callees:
- *     ApiSetQuerySchemaInfo2 @ 0x180111FAC (ApiSetQuerySchemaInfo2.c)
+ *     ApiSetQuerySchemaInfo2 @ 0x180111A5C (ApiSetQuerySchemaInfo2.c)
  */
 
-__int64 __fastcall RtlIsApiSetImplemented(_DWORD *a1)
+NTSTATUS __cdecl RtlIsApiSetImplemented(PCSTR ApiSetName)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
   int v2; // [rsp+38h] [rbp+10h] BYREF
 
   v2 = 0;
-  result = ApiSetQuerySchemaInfo2((__int64)NtCurrentPeb()->ApiSetMap, a1, &v2);
-  if ( (int)result >= 0 )
+  result = ApiSetQuerySchemaInfo2((__int64)NtCurrentPeb()->ApiSetMap, ApiSetName, &v2);
+  if ( result >= 0 )
     return v2 != 0 ? 0xC0000225 : 0;
   return result;
 }

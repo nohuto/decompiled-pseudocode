@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwpSampledProfileRunDown @ 0x1409EFC14
+ * XREFs of EtwpSampledProfileRunDown @ 0x1409EFEA4
  * Callers:
- *     EtwpKernelTraceRundown @ 0x1408200C8 (EtwpKernelTraceRundown.c)
+ *     EtwpKernelTraceRundown @ 0x1408203C8 (EtwpKernelTraceRundown.c)
  * Callees:
- *     EtwpLogKernelEvent @ 0x140233CA0 (EtwpLogKernelEvent.c)
- *     KeWaitForSingleObject @ 0x140243CE0 (KeWaitForSingleObject.c)
- *     KeReleaseMutex @ 0x1402AFF70 (KeReleaseMutex.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     EtwpLogKernelEvent @ 0x140233D70 (EtwpLogKernelEvent.c)
+ *     KeWaitForSingleObject @ 0x140243DB0 (KeWaitForSingleObject.c)
+ *     KeReleaseMutex @ 0x1402B0200 (KeReleaseMutex.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 void __fastcall EtwpSampledProfileRunDown(__int64 a1, char a2, char a3)
@@ -48,7 +48,7 @@ void __fastcall EtwpSampledProfileRunDown(__int64 a1, char a2, char a3)
   {
     KeWaitForSingleObject(&EtwpGroupMaskMutex, Executive, 0, 0, 0LL);
     v7 = EtwpPmcProfile;
-    v6 = (unsigned __int16 *)qword_140C32218;
+    v6 = (unsigned __int16 *)qword_140C32468;
     if ( !EtwpPmcProfile )
     {
 LABEL_14:

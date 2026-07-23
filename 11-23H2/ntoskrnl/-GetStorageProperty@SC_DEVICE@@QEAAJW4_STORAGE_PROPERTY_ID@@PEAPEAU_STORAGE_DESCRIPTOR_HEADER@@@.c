@@ -1,12 +1,12 @@
 /*
- * XREFs of ?GetStorageProperty@SC_DEVICE@@QEAAJW4_STORAGE_PROPERTY_ID@@PEAPEAU_STORAGE_DESCRIPTOR_HEADER@@@Z @ 0x140676928
+ * XREFs of ?GetStorageProperty@SC_DEVICE@@QEAAJW4_STORAGE_PROPERTY_ID@@PEAPEAU_STORAGE_DESCRIPTOR_HEADER@@@Z @ 0x140676E78
  * Callers:
- *     ?UpdateStorageProperty@SC_DEVICE@@QEAAJW4_STORAGE_PROPERTY_ID@@@Z @ 0x140676C2C (-UpdateStorageProperty@SC_DEVICE@@QEAAJW4_STORAGE_PROPERTY_ID@@@Z.c)
+ *     ?UpdateStorageProperty@SC_DEVICE@@QEAAJW4_STORAGE_PROPERTY_ID@@@Z @ 0x14067717C (-UpdateStorageProperty@SC_DEVICE@@QEAAJW4_STORAGE_PROPERTY_ID@@@Z.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     ?Free@SC_ENV@@SAXPEAX@Z @ 0x1407DEA50 (-Free@SC_ENV@@SAXPEAX@Z.c)
- *     ?Allocate@SC_ENV@@SAPEAX_KKE@Z @ 0x140940300 (-Allocate@SC_ENV@@SAPEAX_KKE@Z.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     ?Free@SC_ENV@@SAXPEAX@Z @ 0x1407DED20 (-Free@SC_ENV@@SAXPEAX@Z.c)
+ *     ?Allocate@SC_ENV@@SAPEAX_KKE@Z @ 0x140940500 (-Allocate@SC_ENV@@SAPEAX_KKE@Z.c)
  */
 
 __int64 __fastcall SC_DEVICE::GetStorageProperty(
@@ -18,7 +18,7 @@ __int64 __fastcall SC_DEVICE::GetStorageProperty(
   unsigned int v6; // edx
   int v7; // edi
   unsigned __int8 v8; // r8
-  ULONG Size; // esi
+  DWORD Size; // esi
   struct _STORAGE_DESCRIPTOR_HEADER *v10; // rbx
   unsigned int v11; // edx
   unsigned __int8 v12; // r8
@@ -40,7 +40,7 @@ __int64 __fastcall SC_DEVICE::GetStorageProperty(
     {
       while ( 1 )
       {
-        v7 = (*(__int64 (__fastcall **)(SC_DEVICE *, __int64, _DWORD *, __int64, struct _STORAGE_DESCRIPTOR_HEADER *, ULONG))(*(_QWORD *)this + 16LL))(
+        v7 = (*(__int64 (__fastcall **)(SC_DEVICE *, __int64, _DWORD *, __int64, struct _STORAGE_DESCRIPTOR_HEADER *, DWORD))(*(_QWORD *)this + 16LL))(
                this,
                2954240LL,
                v15,

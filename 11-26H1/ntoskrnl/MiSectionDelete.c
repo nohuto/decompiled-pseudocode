@@ -1,14 +1,14 @@
 /*
- * XREFs of MiSectionDelete @ 0x140A96C50
+ * XREFs of MiSectionDelete @ 0x140A9ADD0
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObjectWithTag @ 0x140265890 (ObfDereferenceObjectWithTag.c)
- *     MiDereferenceControlAreaBySection @ 0x14036D708 (MiDereferenceControlAreaBySection.c)
- *     MiSectionControlArea @ 0x14038A9B0 (MiSectionControlArea.c)
- *     MiLogSectionObjectEvent @ 0x14077B084 (MiLogSectionObjectEvent.c)
- *     MiRemoveBasedSection @ 0x140864E24 (MiRemoveBasedSection.c)
- *     MiDereferencePerSessionProtos @ 0x140A96D34 (MiDereferencePerSessionProtos.c)
+ *     ObfDereferenceObjectWithTag @ 0x140264E00 (ObfDereferenceObjectWithTag.c)
+ *     MiDereferenceControlAreaBySection @ 0x14036F4A8 (MiDereferenceControlAreaBySection.c)
+ *     MiSectionControlArea @ 0x14038C760 (MiSectionControlArea.c)
+ *     MiLogSectionObjectEvent @ 0x14077DED8 (MiLogSectionObjectEvent.c)
+ *     MiRemoveBasedSection @ 0x14086B204 (MiRemoveBasedSection.c)
+ *     MiDereferencePerSessionProtos @ 0x140A9AEB4 (MiDereferencePerSessionProtos.c)
  */
 
 __int64 __fastcall MiSectionDelete(__int64 a1)

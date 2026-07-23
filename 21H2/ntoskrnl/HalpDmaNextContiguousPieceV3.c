@@ -1,9 +1,9 @@
 /*
- * XREFs of HalpDmaNextContiguousPieceV3 @ 0x1404B7DA0
+ * XREFs of HalpDmaNextContiguousPieceV3 @ 0x1404B7FE0
  * Callers:
- *     HalpDmaNextContiguousPiece @ 0x1404B8CB0 (HalpDmaNextContiguousPiece.c)
+ *     HalpDmaNextContiguousPiece @ 0x1404B8EF0 (HalpDmaNextContiguousPiece.c)
  * Callees:
- *     HalpDmaGetAdapterCacheAlignment @ 0x1404B8C50 (HalpDmaGetAdapterCacheAlignment.c)
+ *     HalpDmaGetAdapterCacheAlignment @ 0x1404B8E90 (HalpDmaGetAdapterCacheAlignment.c)
  */
 
 __int64 __fastcall HalpDmaNextContiguousPieceV3(

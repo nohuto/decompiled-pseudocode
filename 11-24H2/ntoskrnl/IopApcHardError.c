@@ -1,10 +1,10 @@
 /*
- * XREFs of IopApcHardError @ 0x140A4DFE0
+ * XREFs of IopApcHardError @ 0x140A44C60
  * Callers:
  *     <none>
  * Callees:
- *     IopRaiseHardError @ 0x140A4E020 (IopRaiseHardError.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     IopRaiseHardError @ 0x140A44CA0 (IopRaiseHardError.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 void __fastcall IopApcHardError(PIRP *P)

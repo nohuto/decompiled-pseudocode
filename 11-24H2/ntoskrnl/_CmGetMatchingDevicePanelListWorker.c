@@ -1,12 +1,12 @@
 /*
- * XREFs of _CmGetMatchingDevicePanelListWorker @ 0x14081D770
+ * XREFs of _CmGetMatchingDevicePanelListWorker @ 0x14081DEB0
  * Callers:
- *     _CmGetMatchingDevicePanelList @ 0x14081D610 (_CmGetMatchingDevicePanelList.c)
+ *     _CmGetMatchingDevicePanelList @ 0x14081DD50 (_CmGetMatchingDevicePanelList.c)
  * Callees:
- *     _PnpCtxGetCachedContextBaseKey @ 0x1408C7E7C (_PnpCtxGetCachedContextBaseKey.c)
- *     _PnpCtxRegEnumKeyWithCallback @ 0x140A89520 (_PnpCtxRegEnumKeyWithCallback.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     _PnpCtxGetCachedContextBaseKey @ 0x1408C58AC (_PnpCtxGetCachedContextBaseKey.c)
+ *     _PnpCtxRegEnumKeyWithCallback @ 0x140A85920 (_PnpCtxRegEnumKeyWithCallback.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall CmGetMatchingDevicePanelListWorker(
@@ -32,7 +32,7 @@ __int64 __fastcall CmGetMatchingDevicePanelListWorker(
   CachedContextBaseKey = PnpCtxGetCachedContextBaseKey(a1, 11LL, v17);
   if ( CachedContextBaseKey >= 0 )
   {
-    Pool2 = ExAllocatePool2(0x100uLL);
+    Pool2 = ExAllocatePool2(0x100uLL, 0xA0uLL, 0x52504E50u);
     v13 = (unsigned int *)Pool2;
     if ( Pool2 )
     {

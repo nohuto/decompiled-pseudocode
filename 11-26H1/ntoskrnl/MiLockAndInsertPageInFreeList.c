@@ -1,18 +1,18 @@
 /*
- * XREFs of MiLockAndInsertPageInFreeList @ 0x140293098
+ * XREFs of MiLockAndInsertPageInFreeList @ 0x1402925F8
  * Callers:
- *     MiMakePageAvoidRead @ 0x140282DC0 (MiMakePageAvoidRead.c)
- *     MiTradePage @ 0x140291970 (MiTradePage.c)
- *     MiHandleForkValidPteCopy @ 0x14030DAD8 (MiHandleForkValidPteCopy.c)
- *     MiComputeCacheAttributeSpeeds @ 0x1407102D0 (MiComputeCacheAttributeSpeeds.c)
- *     MiReturnCloneResources @ 0x1409620A4 (MiReturnCloneResources.c)
- *     MiFreeBootPageTable @ 0x140CF2B30 (MiFreeBootPageTable.c)
- *     MxFreeEmptyBootPageTable @ 0x140CF6AA4 (MxFreeEmptyBootPageTable.c)
+ *     MiMakePageAvoidRead @ 0x140282330 (MiMakePageAvoidRead.c)
+ *     MiTradePage @ 0x140290ED0 (MiTradePage.c)
+ *     MiHandleForkValidPteCopy @ 0x1402EFB58 (MiHandleForkValidPteCopy.c)
+ *     MiComputeCacheAttributeSpeeds @ 0x140714FCC (MiComputeCacheAttributeSpeeds.c)
+ *     MiReturnCloneResources @ 0x140A07D98 (MiReturnCloneResources.c)
+ *     MiFreeBootPageTable @ 0x140CF8EB0 (MiFreeBootPageTable.c)
+ *     MxFreeEmptyBootPageTable @ 0x140CFCE24 (MxFreeEmptyBootPageTable.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiInsertPageInFreeOrZeroedList @ 0x1402DCDD0 (MiInsertPageInFreeOrZeroedList.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x1402BEB90 (MiInsertPageInFreeOrZeroedList.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall MiLockAndInsertPageInFreeList(__int64 a1)

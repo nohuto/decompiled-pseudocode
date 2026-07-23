@@ -1,20 +1,20 @@
 /*
- * XREFs of RtlpHpFreeHeap @ 0x18002B020
+ * XREFs of RtlpHpFreeHeap @ 0x180057A20
  * Callers:
- *     RtlFreeHeap @ 0x1800269F0 (RtlFreeHeap.c)
+ *     RtlFreeHeap @ 0x1800533F0 (RtlFreeHeap.c)
  * Callees:
- *     RtlpLogHeapFailure @ 0x18002A380 (RtlpLogHeapFailure.c)
- *     RtlpHpFreeHeapSlow @ 0x18002B6C4 (RtlpHpFreeHeapSlow.c)
- *     RtlCSparseBitmapBitmaskRead @ 0x18002CA00 (RtlCSparseBitmapBitmaskRead.c)
- *     RtlpHpLfhThreadDataInitializeSet @ 0x18004EAC0 (RtlpHpLfhThreadDataInitializeSet.c)
- *     RtlpHpEnvCompactionSchedule @ 0x18004FAE0 (RtlpHpEnvCompactionSchedule.c)
- *     RtlpHpSegPageRangeShrink @ 0x1800544A0 (RtlpHpSegPageRangeShrink.c)
- *     RtlpHpLargeFree @ 0x1800938E4 (RtlpHpLargeFree.c)
- *     RtlpHpVsSlotFreeList @ 0x18011B418 (RtlpHpVsSlotFreeList.c)
- *     RtlpHpEnvAcquireGlobalLockSharedContended @ 0x18011CBF4 (RtlpHpEnvAcquireGlobalLockSharedContended.c)
- *     RtlpHpEnvCompactionIsScheduled @ 0x1801426C4 (RtlpHpEnvCompactionIsScheduled.c)
- *     RtlpInterlockedPushEntrySList @ 0x180165A40 (RtlpInterlockedPushEntrySList.c)
- *     RtlpInterlockedFlushSList @ 0x180165A80 (RtlpInterlockedFlushSList.c)
+ *     RtlpLogHeapFailure @ 0x180056D80 (RtlpLogHeapFailure.c)
+ *     RtlpHpFreeHeapSlow @ 0x1800580C4 (RtlpHpFreeHeapSlow.c)
+ *     RtlCSparseBitmapBitmaskRead @ 0x180059400 (RtlCSparseBitmapBitmaskRead.c)
+ *     RtlpHpLfhThreadDataInitializeSet @ 0x1800646A0 (RtlpHpLfhThreadDataInitializeSet.c)
+ *     RtlpHpEnvCompactionSchedule @ 0x1800656C0 (RtlpHpEnvCompactionSchedule.c)
+ *     RtlpHpSegPageRangeShrink @ 0x18006A080 (RtlpHpSegPageRangeShrink.c)
+ *     RtlpHpLargeFree @ 0x18009E878 (RtlpHpLargeFree.c)
+ *     RtlpHpVsSlotFreeList @ 0x180119648 (RtlpHpVsSlotFreeList.c)
+ *     RtlpHpEnvAcquireGlobalLockSharedContended @ 0x18011AE24 (RtlpHpEnvAcquireGlobalLockSharedContended.c)
+ *     RtlpHpEnvCompactionIsScheduled @ 0x180140874 (RtlpHpEnvCompactionIsScheduled.c)
+ *     RtlpInterlockedPushEntrySList @ 0x180163E00 (RtlpInterlockedPushEntrySList.c)
+ *     RtlpInterlockedFlushSList @ 0x180163E40 (RtlpInterlockedFlushSList.c)
  */
 
 __int64 __fastcall RtlpHpFreeHeap(__int64 a1, unsigned __int64 a2, __int64 a3, __int64 a4)
@@ -89,7 +89,7 @@ __int64 __fastcall RtlpHpFreeHeap(__int64 a1, unsigned __int64 a2, __int64 a3, _
   }
   else
   {
-    v9 = RtlCSparseBitmapBitmaskRead(&unk_1801CE930, 2 * ((a2 - qword_1801CE928) >> 20), a3, a4);
+    v9 = RtlCSparseBitmapBitmaskRead(&BaseAddress, 2 * ((a2 - qword_1801CD918) >> 20));
     if ( !v9 || (_DWORD)v9 == 3 )
     {
       v26 = RtlpHpLargeFree(a1, a2) != 0;
@@ -226,12 +226,12 @@ LABEL_56:
   }
   v16 = *(_QWORD *)(v8 + 24);
   v17 = (((unsigned int)a2
-        - (((unsigned int)qword_1801CDEC8 ^ *(_DWORD *)(v15 + 40) ^ (unsigned int)(v15 >> 12)) >> 16)
+        - (((unsigned int)qword_1801CCEC8 ^ *(_DWORD *)(v15 + 40) ^ (unsigned int)(v15 >> 12)) >> 16)
         - (unsigned int)v15)
        * (unsigned __int64)*(unsigned int *)(((unsigned __int64)*(unsigned __int16 *)(v15 + 44) << 6) + v16 + 72)) >> 32;
   if ( (_DWORD)a2
-     - (((unsigned int)qword_1801CDEC8 ^ *(_DWORD *)(v15 + 40) ^ (unsigned int)(v15 >> 12)) >> 16)
-     - (_DWORD)v15 != (_DWORD)v17 * (unsigned __int16)(qword_1801CDEC8 ^ *(_WORD *)(v15 + 40) ^ (v15 >> 12)) )
+     - (((unsigned int)qword_1801CCEC8 ^ *(_DWORD *)(v15 + 40) ^ (unsigned int)(v15 >> 12)) >> 16)
+     - (_DWORD)v15 != (_DWORD)v17 * (unsigned __int16)(qword_1801CCEC8 ^ *(_WORD *)(v15 + 40) ^ (v15 >> 12)) )
   {
 LABEL_28:
     v26 = 0;

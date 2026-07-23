@@ -3,9 +3,9 @@
  * Callers:
  *     <none>
  * Callees:
- *     IopFreeIrp @ 0x140055DE0 (IopFreeIrp.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     VfIoFreeIrp @ 0x14070BC68 (VfIoFreeIrp.c)
+ *     IopFreeIrp @ 0x140055960 (IopFreeIrp.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     VfIoFreeIrp @ 0x14070BC98 (VfIoFreeIrp.c)
  */
 
 void __fastcall IovFreeIrpPrivate(ULONG_PTR BugCheckParameter1)

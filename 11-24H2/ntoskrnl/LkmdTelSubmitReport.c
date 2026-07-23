@@ -1,10 +1,10 @@
 /*
- * XREFs of LkmdTelSubmitReport @ 0x14082F844
+ * XREFs of LkmdTelSubmitReport @ 0x14083003C
  * Callers:
- *     WheapReportLiveDump @ 0x1407C88F8 (WheapReportLiveDump.c)
+ *     WheapReportLiveDump @ 0x1407C8DE8 (WheapReportLiveDump.c)
  * Callees:
- *     DbgPrintEx @ 0x1402CB2F0 (DbgPrintEx.c)
- *     LkmdTelpWriteDumpFile @ 0x14082F93C (LkmdTelpWriteDumpFile.c)
+ *     DbgPrintEx @ 0x140275B40 (DbgPrintEx.c)
+ *     LkmdTelpWriteDumpFile @ 0x140830134 (LkmdTelpWriteDumpFile.c)
  */
 
 __int64 __fastcall LkmdTelSubmitReport(__int64 a1)

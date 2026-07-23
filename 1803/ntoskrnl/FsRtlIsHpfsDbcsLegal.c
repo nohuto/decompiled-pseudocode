@@ -22,9 +22,9 @@ BOOLEAN __stdcall FsRtlIsHpfsDbcsLegal(
   unsigned int v13; // r8d
   unsigned __int8 v14; // r9
   __int64 v15; // rcx
-  STRING RemainingName; // [rsp+20h] [rbp-38h] BYREF
+  _STRING RemainingName; // [rsp+20h] [rbp-38h] BYREF
   ANSI_STRING Path; // [rsp+30h] [rbp-28h] BYREF
-  STRING FirstName; // [rsp+40h] [rbp-18h] BYREF
+  _STRING FirstName; // [rsp+40h] [rbp-18h] BYREF
 
   Length = DbcsName->Length;
   if ( !DbcsName->Length )

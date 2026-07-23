@@ -1,10 +1,10 @@
 /*
- * XREFs of I_MinAsn1CalculateTimeOffset @ 0x1408A3E0C
+ * XREFs of I_MinAsn1CalculateTimeOffset @ 0x1408AA21C
  * Callers:
- *     MinAsn1DecodeGeneralizedTime @ 0x1408A42CC (MinAsn1DecodeGeneralizedTime.c)
- *     MinAsn1DecodeUtcTime @ 0x1408A4588 (MinAsn1DecodeUtcTime.c)
+ *     MinAsn1DecodeGeneralizedTime @ 0x1408AA6DC (MinAsn1DecodeGeneralizedTime.c)
+ *     MinAsn1DecodeUtcTime @ 0x1408AA998 (MinAsn1DecodeUtcTime.c)
  * Callees:
- *     I_MinAsn1ScanFrac @ 0x1408A41E0 (I_MinAsn1ScanFrac.c)
+ *     I_MinAsn1ScanFrac @ 0x1408AA5F0 (I_MinAsn1ScanFrac.c)
  */
 
 char __fastcall I_MinAsn1CalculateTimeOffset(char *a1, int a2, char a3, int *a4, _BYTE *a5)

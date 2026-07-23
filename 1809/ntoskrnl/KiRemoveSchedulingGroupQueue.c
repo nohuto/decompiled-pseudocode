@@ -1,38 +1,38 @@
 /*
- * XREFs of KiRemoveSchedulingGroupQueue @ 0x140116EE8
+ * XREFs of KiRemoveSchedulingGroupQueue @ 0x140116F58
  * Callers:
  *     KiSwapThread @ 0x140056210 (KiSwapThread.c)
- *     KiGroupSchedulingQuantumEnd @ 0x1400D0F44 (KiGroupSchedulingQuantumEnd.c)
- *     KiQueueReadyThread @ 0x1400D2370 (KiQueueReadyThread.c)
- *     KiComputeGroupSchedulingRank @ 0x1400D36A0 (KiComputeGroupSchedulingRank.c)
- *     KeSetSchedulingGroupRankBias @ 0x140116428 (KeSetSchedulingGroupRankBias.c)
- *     KiResetScb @ 0x140116934 (KiResetScb.c)
- *     KiRemoveThreadFromScbQueue @ 0x140116E38 (KiRemoveThreadFromScbQueue.c)
- *     KiResortScbQueue @ 0x1401171B0 (KiResortScbQueue.c)
+ *     KiGroupSchedulingQuantumEnd @ 0x1400D0FC4 (KiGroupSchedulingQuantumEnd.c)
+ *     KiQueueReadyThread @ 0x1400D23F0 (KiQueueReadyThread.c)
+ *     KiComputeGroupSchedulingRank @ 0x1400D3720 (KiComputeGroupSchedulingRank.c)
+ *     KeSetSchedulingGroupRankBias @ 0x140116498 (KeSetSchedulingGroupRankBias.c)
+ *     KiResetScb @ 0x1401169A4 (KiResetScb.c)
+ *     KiRemoveThreadFromScbQueue @ 0x140116EA8 (KiRemoveThreadFromScbQueue.c)
+ *     KiResortScbQueue @ 0x140117220 (KiResortScbQueue.c)
  * Callees:
- *     RtlRbRemoveNode @ 0x1400BDDF0 (RtlRbRemoveNode.c)
+ *     RtlRbRemoveNode @ 0x1400BDD30 (RtlRbRemoveNode.c)
  */
 
-char __fastcall KiRemoveSchedulingGroupQueue(__int64 a1, __int64 a2, char a3)
+char __fastcall KiRemoveSchedulingGroupQueue(_RTL_RB_TREE *a1, __int64 a2, char a3)
 {
-  __int64 v4; // rsi
+  _RTL_RB_TREE *v4; // rsi
   __int64 *v5; // rbx
   __int64 v6; // rax
-  __int64 v7; // rcx
+  _RTL_RB_TREE *v7; // rcx
   __int64 v8; // rax
 
-  v4 = a1 + 22896;
+  v4 = a1 + 1431;
   do
   {
     v5 = (__int64 *)(a2 + 408);
     v6 = *(_QWORD *)(a2 + 408);
-    v7 = v6 + 392;
+    v7 = (_RTL_RB_TREE *)(v6 + 392);
     if ( !v6 )
       v7 = v4;
     if ( a3 )
       *(_QWORD *)(a2 + 56) += MEMORY[0xFFFFF78000000008] - *(_QWORD *)(a2 + 64);
     *(_BYTE *)(a2 + 112) &= ~1u;
-    LOBYTE(v8) = RtlRbRemoveNode(v7, a2 + 88);
+    LOBYTE(v8) = RtlRbRemoveNode(v7, (PRTL_BALANCED_NODE)(a2 + 88));
     a2 = *v5;
     if ( !*v5 || (*(_BYTE *)(a2 + 112) & 1) == 0 )
       break;

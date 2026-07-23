@@ -1,22 +1,22 @@
 /*
- * XREFs of MiReapFileOnlyPfns @ 0x1406FABB0
+ * XREFs of MiReapFileOnlyPfns @ 0x1406FF880
  * Callers:
- *     MiFileOnlyReaperWorker @ 0x1406F9D60 (MiFileOnlyReaperWorker.c)
- *     MiAddPhysicalMemory @ 0x14086501C (MiAddPhysicalMemory.c)
+ *     MiFileOnlyReaperWorker @ 0x1406FEA30 (MiFileOnlyReaperWorker.c)
+ *     MiAddPhysicalMemory @ 0x14086B3FC (MiAddPhysicalMemory.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     KeSetActualBasePriorityThread @ 0x140239560 (KeSetActualBasePriorityThread.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     KeAbPostReleaseEx @ 0x140272670 (KeAbPostReleaseEx.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     MiRetryFileOnlyFailedReapPages @ 0x1402A5FD8 (MiRetryFileOnlyFailedReapPages.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiInsertPageChainHead @ 0x14033A060 (MiInsertPageChainHead.c)
- *     KeSignalGate @ 0x1403C2AD0 (KeSignalGate.c)
- *     ?KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z @ 0x140444460 (-KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z.c)
- *     MiGetFileOnlyPagesToReap @ 0x1406FA25C (MiGetFileOnlyPagesToReap.c)
- *     MiWaitForExtentDeletions @ 0x1406FAE6C (MiWaitForExtentDeletions.c)
- *     MiRemovePhysicalMemory @ 0x140866D5C (MiRemovePhysicalMemory.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     KeSetActualBasePriorityThread @ 0x14023AEC0 (KeSetActualBasePriorityThread.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     KeAbPostReleaseEx @ 0x140271BE0 (KeAbPostReleaseEx.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     MiRetryFileOnlyFailedReapPages @ 0x1402A53D0 (MiRetryFileOnlyFailedReapPages.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiInsertPageChainHead @ 0x14033C0E0 (MiInsertPageChainHead.c)
+ *     KeSignalGate @ 0x1403CC9D0 (KeSignalGate.c)
+ *     ?KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z @ 0x14043CF70 (-KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z.c)
+ *     MiGetFileOnlyPagesToReap @ 0x1406FEF2C (MiGetFileOnlyPagesToReap.c)
+ *     MiWaitForExtentDeletions @ 0x1406FFB3C (MiWaitForExtentDeletions.c)
+ *     MiRemovePhysicalMemory @ 0x14086D13C (MiRemovePhysicalMemory.c)
  */
 
 void __fastcall MiReapFileOnlyPfns(int a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
@@ -50,25 +50,25 @@ void __fastcall MiReapFileOnlyPfns(int a1, __int64 a2, __int64 a3, struct _KLOCK
   if ( !a1 )
   {
     MiRetryFileOnlyFailedReapPages(1);
-    v4 = ExAcquireSpinLockExclusive(&dword_140E399E0);
-    if ( BYTE1(stru_140E2D150.ThreadLock) )
+    v4 = ExAcquireSpinLockExclusive(&dword_140E39B60);
+    if ( BYTE1(stru_140E2D2D0.ThreadLock) )
     {
       LOBYTE(v5) = v4;
       MiWaitForExtentDeletions(v6, v5);
     }
     else if ( v4 == 17 )
     {
-      ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140E399E0);
+      ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140E39B60);
     }
     else
     {
-      ExReleaseSpinLockExclusive(&dword_140E399E0, v4);
+      ExReleaseSpinLockExclusive(&dword_140E39B60, v4);
     }
     return;
   }
   CurrentThread = KeGetCurrentThread();
   BasePriority = CurrentThread->BasePriority;
-  v9 = KeAbPreAcquire((__int64)&stru_140E2D150, 0LL, 0LL, a4);
+  v9 = KeAbPreAcquire((__int64)&stru_140E2D2D0, 0LL, 0LL, a4);
   v12 = v9;
   if ( v9 )
   {
@@ -94,23 +94,23 @@ void __fastcall MiReapFileOnlyPfns(int a1, __int64 a2, __int64 a3, struct _KLOCK
       v17 = v27;
       if ( (int)MiRemovePhysicalMemory(FileOnlyPagesToReap) < 0 )
       {
-        v18 = ExAcquireSpinLockExclusive(&dword_140E399E0);
+        v18 = ExAcquireSpinLockExclusive(&dword_140E39B60);
         v19 = (__int64 *)(48 * v14 - 0x220000000000LL);
         v20 = &v19[6 * v17 - 6];
         while ( v19 <= v20 )
         {
-          MiInsertPageChainHead((__int64 *)&xmmword_140E2D130, v19);
+          MiInsertPageChainHead((__int64 *)&xmmword_140E2D2B0, v19);
           v19 = (__int64 *)(v21 + 48);
         }
         if ( v18 == 17 )
           goto LABEL_21;
         v16 = v18;
 LABEL_23:
-        ExReleaseSpinLockExclusive(&dword_140E399E0, v16);
+        ExReleaseSpinLockExclusive(&dword_140E39B60, v16);
       }
     }
-    v15 = ExAcquireSpinLockExclusive(&dword_140E399E0);
-    if ( !qword_140E2D128 )
+    v15 = ExAcquireSpinLockExclusive(&dword_140E39B60);
+    if ( !qword_140E2D2A8 )
       break;
     if ( v15 != 17 )
     {
@@ -118,15 +118,15 @@ LABEL_23:
       goto LABEL_23;
     }
 LABEL_21:
-    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140E399E0);
+    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140E39B60);
   }
-  v22 = *(_QWORD **)&stru_140E2D150.Header.Lock;
-  *(_QWORD *)&stru_140E2D150.Header.Lock = 0LL;
-  BYTE1(stru_140E2D150.ThreadLock) = 0;
+  v22 = *(_QWORD **)&stru_140E2D2D0.Header.Lock;
+  *(_QWORD *)&stru_140E2D2D0.Header.Lock = 0LL;
+  BYTE1(stru_140E2D2D0.ThreadLock) = 0;
   if ( v15 == 17 )
-    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140E399E0);
+    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140E39B60);
   else
-    ExReleaseSpinLockExclusive(&dword_140E399E0, v15);
+    ExReleaseSpinLockExclusive(&dword_140E39B60, v15);
   if ( v22 )
   {
     do
@@ -139,5 +139,5 @@ LABEL_21:
   }
   KeSetActualBasePriorityThread((__int64)CurrentThread, BasePriority, v23);
   if ( v12 )
-    KeAbPostReleaseEx(&stru_140E2D150, v12, v25, v26);
+    KeAbPostReleaseEx(&stru_140E2D2D0, v12, v25, v26);
 }

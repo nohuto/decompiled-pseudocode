@@ -4,8 +4,8 @@
  *     MiParseImageLoadConfig @ 0x1406A828C (MiParseImageLoadConfig.c)
  * Callees:
  *     MiFreeImageCfgContext @ 0x14020EBD0 (MiFreeImageCfgContext.c)
- *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
- *     memmove @ 0x140435700 (memmove.c)
+ *     MiAllocatePool @ 0x1402DF430 (MiAllocatePool.c)
+ *     memmove @ 0x140435B00 (memmove.c)
  *     MiLogRelocationRva @ 0x1406ABDA0 (MiLogRelocationRva.c)
  */
 

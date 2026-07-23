@@ -1,10 +1,10 @@
 /*
- * XREFs of AlpcpPortQueryBasicInfo @ 0x140A6BE24
+ * XREFs of AlpcpPortQueryBasicInfo @ 0x140A7D454
  * Callers:
- *     NtAlpcQueryInformation @ 0x140A6BBE0 (NtAlpcQueryInformation.c)
+ *     NtAlpcQueryInformation @ 0x140A7D210 (NtAlpcQueryInformation.c)
  * Callees:
- *     RtlWriteULong64ToUser @ 0x14077F758 (RtlWriteULong64ToUser.c)
- *     RtlWriteULongToUser @ 0x14077F7A0 (RtlWriteULongToUser.c)
+ *     RtlWriteULong64ToUser @ 0x140782258 (RtlWriteULong64ToUser.c)
+ *     RtlWriteULongToUser @ 0x1407822A0 (RtlWriteULongToUser.c)
  */
 
 __int64 __fastcall AlpcpPortQueryBasicInfo(__int64 a1, __int64 a2, unsigned int a3, _DWORD *a4, char a5)

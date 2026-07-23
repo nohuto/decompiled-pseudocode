@@ -1,10 +1,10 @@
 /*
- * XREFs of AuthzBasepCompareSecurityAttributesInformation @ 0x14081071C
+ * XREFs of AuthzBasepCompareSecurityAttributesInformation @ 0x140810E5C
  * Callers:
- *     SepCompareClaimAttributes @ 0x140A23800 (SepCompareClaimAttributes.c)
+ *     SepCompareClaimAttributes @ 0x140A17C10 (SepCompareClaimAttributes.c)
  * Callees:
- *     AuthzBasepFindSecurityAttribute @ 0x140357E50 (AuthzBasepFindSecurityAttribute.c)
- *     AuthzBasepCompareSecurityAttribute @ 0x140A23AD4 (AuthzBasepCompareSecurityAttribute.c)
+ *     AuthzBasepFindSecurityAttribute @ 0x1403B8830 (AuthzBasepFindSecurityAttribute.c)
+ *     AuthzBasepCompareSecurityAttribute @ 0x140A17EE4 (AuthzBasepCompareSecurityAttribute.c)
  */
 
 char __fastcall AuthzBasepCompareSecurityAttributesInformation(__int64 a1, _DWORD *a2)
@@ -12,7 +12,7 @@ char __fastcall AuthzBasepCompareSecurityAttributesInformation(__int64 a1, _DWOR
   char v2; // bl
   __int64 *v4; // rsi
   const UNICODE_STRING *i; // rdi
-  const UNICODE_STRING *SecurityAttribute; // rax
+  __int64 *SecurityAttribute; // rax
 
   v2 = 0;
   if ( *(_DWORD *)a1 == *a2 )

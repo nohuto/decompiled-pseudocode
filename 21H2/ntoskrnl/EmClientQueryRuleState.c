@@ -1,24 +1,24 @@
 /*
- * XREFs of EmClientQueryRuleState @ 0x14098F620
+ * XREFs of EmClientQueryRuleState @ 0x1409910E0
  * Callers:
- *     HalpInterruptIsMsiSupported @ 0x1403C9BA8 (HalpInterruptIsMsiSupported.c)
- *     PopFilterCapabilities @ 0x14067B484 (PopFilterCapabilities.c)
- *     PoInitHiberServices @ 0x140790C78 (PoInitHiberServices.c)
- *     PopEnableHiberFile @ 0x1407910F0 (PopEnableHiberFile.c)
- *     PopDirectedDripsQueryEmPS4DisableSetting @ 0x1407CC0EC (PopDirectedDripsQueryEmPS4DisableSetting.c)
- *     PopDirectedDripsQueryEmSettings @ 0x1408E3760 (PopDirectedDripsQueryEmSettings.c)
- *     PoInitSystem @ 0x140A3F948 (PoInitSystem.c)
- *     KeInitializeClock @ 0x140A4B7CC (KeInitializeClock.c)
- *     PopHiberEvaluateSkippingMemoryMapValidation @ 0x140A73E44 (PopHiberEvaluateSkippingMemoryMapValidation.c)
+ *     HalpInterruptIsMsiSupported @ 0x1403C9D48 (HalpInterruptIsMsiSupported.c)
+ *     PopFilterCapabilities @ 0x14066EBC4 (PopFilterCapabilities.c)
+ *     PoInitHiberServices @ 0x140792228 (PoInitHiberServices.c)
+ *     PopEnableHiberFile @ 0x1407926A0 (PopEnableHiberFile.c)
+ *     PopDirectedDripsQueryEmPS4DisableSetting @ 0x1407CC25C (PopDirectedDripsQueryEmPS4DisableSetting.c)
+ *     PopDirectedDripsQueryEmSettings @ 0x1408E38C0 (PopDirectedDripsQueryEmSettings.c)
+ *     PoInitSystem @ 0x140A40948 (PoInitSystem.c)
+ *     KeInitializeClock @ 0x140A4C7CC (KeInitializeClock.c)
+ *     PopHiberEvaluateSkippingMemoryMapValidation @ 0x140A74E44 (PopHiberEvaluateSkippingMemoryMapValidation.c)
  * Callees:
- *     EmpSearchRuleDatabase @ 0x140281B64 (EmpSearchRuleDatabase.c)
- *     EmpSearchTargetRuleList @ 0x140281B9C (EmpSearchTargetRuleList.c)
- *     EmpUpdateRuleState @ 0x140281BC4 (EmpUpdateRuleState.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
- *     EmpReleasePagingReference @ 0x14098F708 (EmpReleasePagingReference.c)
- *     EmpAcquirePagingReference @ 0x14098F784 (EmpAcquirePagingReference.c)
+ *     EmpSearchRuleDatabase @ 0x14026FDA4 (EmpSearchRuleDatabase.c)
+ *     EmpSearchTargetRuleList @ 0x14026FDDC (EmpSearchTargetRuleList.c)
+ *     EmpUpdateRuleState @ 0x14026FE04 (EmpUpdateRuleState.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
+ *     EmpReleasePagingReference @ 0x1409911C8 (EmpReleasePagingReference.c)
+ *     EmpAcquirePagingReference @ 0x140991244 (EmpAcquirePagingReference.c)
  */
 
 __int64 __fastcall EmClientQueryRuleState(_QWORD *a1, _DWORD *a2)

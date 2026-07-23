@@ -1,17 +1,16 @@
 /*
- * XREFs of IommuInitializeLibrary @ 0x14059C564
+ * XREFs of IommuInitializeLibrary @ 0x14059ECE4
  * Callers:
- *     HalpIommuInitSystem @ 0x140BEB6E0 (HalpIommuInitSystem.c)
+ *     HalpIommuInitSystem @ 0x140BF16E0 (HalpIommuInitSystem.c)
  * Callees:
- *     IommupHvInitializeLibrary @ 0x140CB4B44 (IommupHvInitializeLibrary.c)
+ *     IommupHvInitializeLibrary @ 0x140CBAB84 (IommupHvInitializeLibrary.c)
  */
 
 __int64 IommuInitializeLibrary()
 {
-  *(_QWORD *)&IommuInterfaceStateChangeCallbackPushLock.SystemCallNumber = (char *)&IommuInterfaceStateChangeCallbackPushLock.116
-                                                                         + 4;
-  *($353D57E818BB6F967B4B818D974CF463 *)((char *)&IommuInterfaceStateChangeCallbackPushLock.116 + 4) = ($353D57E818BB6F967B4B818D974CF463)((char *)&IommuInterfaceStateChangeCallbackPushLock.116 + 4);
-  IommuInterfaceStateChangeCallbackPushLock.SchedulingGroup = 0LL;
+  *(_QWORD *)&IommuInterfaceStateChangeCallbackPushLock.WaitRegister.Flags = &IommuInterfaceStateChangeCallbackPushLock.SchedulingGroup;
+  IommuInterfaceStateChangeCallbackPushLock.SchedulingGroup = (_KSCHEDULING_GROUP *volatile)&IommuInterfaceStateChangeCallbackPushLock.SchedulingGroup;
+  IommuInterfaceStateChangeCallbackPushLock.StateSaveArea = 0LL;
   if ( HalpHvIommu )
     IommupHvInitializeLibrary();
   return 0LL;

@@ -9,21 +9,18 @@
  *     sub_18006337C @ 0x18006337C (sub_18006337C.c)
  */
 
-unsigned __int64 __fastcall sub_1800633D4(__int64 a1, char *a2, __int64 a3, __int64 a4)
+void __fastcall sub_1800633D4(__int64 a1, unsigned __int64 a2, char a3)
 {
-  volatile signed __int64 *v4; // rdi
-  int v7; // esi
-  unsigned __int64 result; // rax
-  unsigned __int64 v9; // rbx
+  _RTL_SRWLOCK *v3; // rdi
+  int v6; // esi
+  unsigned __int64 v7; // rbx
 
-  v4 = (volatile signed __int64 *)(a1 + 72);
-  v7 = a3 & 1;
+  v3 = (_RTL_SRWLOCK *)(a1 + 72);
+  v6 = a3 & 1;
   if ( (a3 & 1) == 0 )
-    RtlAcquireSRWLockShared(v4, a2, a3, a4);
-  result = sub_18006337C(a1, (unsigned __int64)a2);
-  v9 = result;
-  if ( !v7 )
-    result = RtlReleaseSRWLockShared(v4);
-  *(_QWORD *)(v9 + 32) |= 1uLL;
-  return result;
+    RtlAcquireSRWLockShared(v3);
+  v7 = sub_18006337C(a1, a2);
+  if ( !v6 )
+    RtlReleaseSRWLockShared(v3);
+  *(_QWORD *)(v7 + 32) |= 1uLL;
 }

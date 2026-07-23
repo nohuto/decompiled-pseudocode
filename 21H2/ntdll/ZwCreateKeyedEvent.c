@@ -1,16 +1,20 @@
 /*
- * XREFs of ZwCreateKeyedEvent @ 0x18009EC50
+ * XREFs of ZwCreateKeyedEvent @ 0x18009EC10
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 ZwCreateKeyedEvent()
+NTSTATUS __cdecl ZwCreateKeyedEvent(
+        PHANDLE KeyedEventHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        ULONG Flags)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 177LL;
+  result = 177;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

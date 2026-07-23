@@ -1,12 +1,12 @@
 /*
- * XREFs of AslPathToSystemPath @ 0x140A55328
+ * XREFs of AslPathToSystemPath @ 0x140A555D8
  * Callers:
- *     SdbpGetManifestedMergeStubAlloc @ 0x140A4EB08 (SdbpGetManifestedMergeStubAlloc.c)
+ *     SdbpGetManifestedMergeStubAlloc @ 0x140A4EDB8 (SdbpGetManifestedMergeStubAlloc.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  *     AslLogCallPrintf @ 0x1406956FC (AslLogCallPrintf.c)
- *     AslStringDuplicate @ 0x1406D49F8 (AslStringDuplicate.c)
- *     AslPathToSystemPathBuf @ 0x140A553E8 (AslPathToSystemPathBuf.c)
+ *     AslStringDuplicate @ 0x1406D4A28 (AslStringDuplicate.c)
+ *     AslPathToSystemPathBuf @ 0x140A55698 (AslPathToSystemPathBuf.c)
  */
 
 __int64 __fastcall AslPathToSystemPath(wchar_t **a1, const wchar_t *a2)

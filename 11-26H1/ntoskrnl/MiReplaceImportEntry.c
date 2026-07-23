@@ -1,25 +1,25 @@
 /*
- * XREFs of MiReplaceImportEntry @ 0x1406E6D18
+ * XREFs of MiReplaceImportEntry @ 0x1406EB9C8
  * Callers:
- *     MmReplaceImportEntry @ 0x1406E7088 (MmReplaceImportEntry.c)
- *     MiReplacePatchImportEntry @ 0x1406FCE30 (MiReplacePatchImportEntry.c)
- *     MiReplaceImportEntriesForVerifier @ 0x14086A738 (MiReplaceImportEntriesForVerifier.c)
+ *     MmReplaceImportEntry @ 0x1406EBD38 (MmReplaceImportEntry.c)
+ *     MiReplacePatchImportEntry @ 0x140701B00 (MiReplacePatchImportEntry.c)
+ *     MiReplaceImportEntriesForVerifier @ 0x140870B18 (MiReplaceImportEntriesForVerifier.c)
  * Callees:
- *     MI_IS_PHYSICAL_ADDRESS @ 0x14024C8D0 (MI_IS_PHYSICAL_ADDRESS.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     MiMapPageInHyperSpaceWorker @ 0x140287EE0 (MiMapPageInHyperSpaceWorker.c)
- *     MiLockPageTableInternal @ 0x1402B34E0 (MiLockPageTableInternal.c)
- *     MiUnlockPageTableInternal @ 0x1402D13E0 (MiUnlockPageTableInternal.c)
- *     MiReleasePageFileInfo @ 0x1402DAD50 (MiReleasePageFileInfo.c)
- *     MiUnlockWorkingSetShared @ 0x1402EB6C0 (MiUnlockWorkingSetShared.c)
- *     MiLockWorkingSetShared @ 0x1402EDD60 (MiLockWorkingSetShared.c)
- *     MiCaptureDirtyBitToPfn @ 0x14031AE30 (MiCaptureDirtyBitToPfn.c)
- *     MiCopyOnWrite @ 0x14036AD38 (MiCopyOnWrite.c)
- *     MiCopyOnWriteCheckConditions @ 0x1403A2E0C (MiCopyOnWriteCheckConditions.c)
- *     MiUnmapPageInHyperSpaceWorker @ 0x14040DF60 (MiUnmapPageInHyperSpaceWorker.c)
- *     RtlImageDirectoryEntryToData @ 0x14040E290 (RtlImageDirectoryEntryToData.c)
- *     MiGetAnyMultiplexedVm @ 0x140457870 (MiGetAnyMultiplexedVm.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x14024E230 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiMapPageInHyperSpaceWorker @ 0x140287440 (MiMapPageInHyperSpaceWorker.c)
+ *     MiUnlockPageTableInternal @ 0x1402B31A0 (MiUnlockPageTableInternal.c)
+ *     MiReleasePageFileInfo @ 0x1402BCB10 (MiReleasePageFileInfo.c)
+ *     MiUnlockWorkingSetShared @ 0x1402CD700 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x1402CFDE0 (MiLockWorkingSetShared.c)
+ *     MiLockPageTableInternal @ 0x1402FE1B0 (MiLockPageTableInternal.c)
+ *     MiCaptureDirtyBitToPfn @ 0x14031CE60 (MiCaptureDirtyBitToPfn.c)
+ *     MiCopyOnWrite @ 0x14036CAD8 (MiCopyOnWrite.c)
+ *     MiCopyOnWriteCheckConditions @ 0x1403A4B6C (MiCopyOnWriteCheckConditions.c)
+ *     MiUnmapPageInHyperSpaceWorker @ 0x14042AE90 (MiUnmapPageInHyperSpaceWorker.c)
+ *     RtlImageDirectoryEntryToData @ 0x14042B1C0 (RtlImageDirectoryEntryToData.c)
+ *     MiGetAnyMultiplexedVm @ 0x14044F0E0 (MiGetAnyMultiplexedVm.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
  */
 
 void __fastcall MiReplaceImportEntry(
@@ -27,7 +27,7 @@ void __fastcall MiReplaceImportEntry(
         ULONG_PTR BugCheckParameter3,
         ULONG_PTR BugCheckParameter4)
 {
-  unsigned __int64 v6; // rax
+  PVOID v6; // rax
   unsigned __int64 v7; // r14
   unsigned __int64 v8; // rbp
   char *AnyMultiplexedVm; // rdi
@@ -47,13 +47,13 @@ void __fastcall MiReplaceImportEntry(
   unsigned __int64 v23; // rax
   struct _KEVENT *v24; // rcx
   __int64 v25; // rdx
-  unsigned int v27; // [rsp+78h] [rbp+20h] BYREF
+  ULONG v27; // [rsp+78h] [rbp+20h] BYREF
 
   v27 = 0;
-  v6 = RtlImageDirectoryEntryToData(*(_QWORD *)(BugCheckParameter2 + 48), 1, 0xCu, &v27);
-  if ( !v6 || !v27 || BugCheckParameter3 < v6 || BugCheckParameter3 >= v6 + v27 )
+  v6 = RtlImageDirectoryEntryToData(*(PVOID *)(BugCheckParameter2 + 48), 1u, 0xCu, &v27);
+  if ( !v6 || !v27 || BugCheckParameter3 < (unsigned __int64)v6 || BugCheckParameter3 >= (unsigned __int64)v6 + v27 )
     KeBugCheckEx(0x1Au, 0x1014uLL, BugCheckParameter2, BugCheckParameter3, BugCheckParameter4);
-  _InterlockedIncrement64((volatile signed __int64 *)&stru_140E2D150.ThreadListEntry.Blink);
+  _InterlockedIncrement64((volatile signed __int64 *)&stru_140E2D2D0.ThreadListEntry.Blink);
   if ( (unsigned int)MI_IS_PHYSICAL_ADDRESS(BugCheckParameter3) )
   {
     *(_QWORD *)BugCheckParameter3 = BugCheckParameter4;
@@ -117,10 +117,10 @@ LABEL_12:
       while ( *(__int64 *)(v17 + 24) < 0 );
     }
     v23 = MiCaptureDirtyBitToPfn(v17);
-    v24 = *(struct _KEVENT **)(stru_140E2EB88.ThreadLock + 8 * ((*(_QWORD *)(v17 + 40) >> 43) & 0x3FFLL));
+    v24 = *(struct _KEVENT **)(stru_140E2ED08.ThreadLock + 8 * ((*(_QWORD *)(v17 + 40) >> 43) & 0x3FFLL));
     _InterlockedAnd64((volatile signed __int64 *)(v17 + 24), 0x7FFFFFFFFFFFFFFFuLL);
     if ( v23 )
-      MiReleasePageFileInfo(v24, v23, 1);
+      MiReleasePageFileInfo(v24, v23, 1LL);
   }
   MiUnlockPageTableInternal((__int64)AnyMultiplexedVm, v8);
   LOBYTE(v25) = v12;

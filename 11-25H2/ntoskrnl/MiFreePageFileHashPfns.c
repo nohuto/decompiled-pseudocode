@@ -13,12 +13,12 @@
  *     RtlpInterlockedFlushSList @ 0x1406A8640 (RtlpInterlockedFlushSList.c)
  */
 
-void __fastcall MiFreePageFileHashPfns(union _SLIST_HEADER *a1)
+void __fastcall MiFreePageFileHashPfns(_SLIST_HEADER *a1)
 {
   unsigned __int64 v1; // rbx
   __int64 v2; // rcx
   PSLIST_ENTRY v3; // rdi
-  struct _SLIST_ENTRY *Next; // r14
+  _SLIST_ENTRY *Next; // r14
   int v5; // ebp
   __int64 v6; // rdx
   unsigned __int8 CurrentIrql; // si

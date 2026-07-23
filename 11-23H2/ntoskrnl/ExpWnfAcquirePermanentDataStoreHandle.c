@@ -1,18 +1,18 @@
 /*
- * XREFs of ExpWnfAcquirePermanentDataStoreHandle @ 0x1407E2880
+ * XREFs of ExpWnfAcquirePermanentDataStoreHandle @ 0x1407E2B50
  * Callers:
- *     ExpWnfWriteStateData @ 0x140714010 (ExpWnfWriteStateData.c)
- *     ExpWnfPopulateStateData @ 0x14071483C (ExpWnfPopulateStateData.c)
- *     ExpWnfDeletePermanentStateData @ 0x140A072EC (ExpWnfDeletePermanentStateData.c)
+ *     ExpWnfWriteStateData @ 0x140714220 (ExpWnfWriteStateData.c)
+ *     ExpWnfPopulateStateData @ 0x140714A4C (ExpWnfPopulateStateData.c)
+ *     ExpWnfDeletePermanentStateData @ 0x140A0757C (ExpWnfDeletePermanentStateData.c)
  * Callees:
- *     KeAbPreAcquire @ 0x140230EE0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1402BD860 (ExfReleasePushLockShared.c)
- *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1402FCE10 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfAcquirePushLockSharedEx @ 0x1402FD040 (ExfAcquirePushLockSharedEx.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ExpWnfGetPermanentPerUserDataStoreHandle @ 0x1407E2958 (ExpWnfGetPermanentPerUserDataStoreHandle.c)
+ *     KeAbPreAcquire @ 0x140230FD0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140231350 (KeAbPostRelease.c)
+ *     ExfReleasePushLockShared @ 0x1402BDAF0 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x1402BDBF0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402FD0A0 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1402FD2D0 (ExfAcquirePushLockSharedEx.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ExpWnfGetPermanentPerUserDataStoreHandle @ 0x1407E2C28 (ExpWnfGetPermanentPerUserDataStoreHandle.c)
  */
 
 __int64 __fastcall ExpWnfAcquirePermanentDataStoreHandle(__int64 a1, _QWORD *a2)

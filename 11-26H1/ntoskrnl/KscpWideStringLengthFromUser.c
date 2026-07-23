@@ -1,7 +1,7 @@
 /*
- * XREFs of KscpWideStringLengthFromUser @ 0x140C5EE20
+ * XREFs of KscpWideStringLengthFromUser @ 0x140C64E20
  * Callers:
- *     KscpWideStringLengthFromUserSmap @ 0x140C5EE60 (KscpWideStringLengthFromUserSmap.c)
+ *     KscpWideStringLengthFromUserSmap @ 0x140C64E60 (KscpWideStringLengthFromUserSmap.c)
  * Callees:
  *     <none>
  */

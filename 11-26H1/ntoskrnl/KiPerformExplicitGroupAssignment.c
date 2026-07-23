@@ -1,10 +1,10 @@
 /*
- * XREFs of KiPerformExplicitGroupAssignment @ 0x140CCA788
+ * XREFs of KiPerformExplicitGroupAssignment @ 0x140CD0868
  * Callers:
- *     KiPerformGroupConfiguration @ 0x140CCA97C (KiPerformGroupConfiguration.c)
+ *     KiPerformGroupConfiguration @ 0x140CD0A5C (KiPerformGroupConfiguration.c)
  * Callees:
- *     KiQueryProximityNode @ 0x1405EFDA0 (KiQueryProximityNode.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     KiQueryProximityNode @ 0x1405F2710 (KiQueryProximityNode.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 char __fastcall KiPerformExplicitGroupAssignment(_DWORD *a1, int a2)

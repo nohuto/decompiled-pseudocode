@@ -13,11 +13,11 @@
  *     IoSetEnvironmentVariableEx @ 0x1408957BC (IoSetEnvironmentVariableEx.c)
  */
 
-__int64 __fastcall NtDeleteBootEntry(unsigned int a1)
+NTSTATUS __cdecl NtDeleteBootEntry(ULONG Id)
 {
   KPROCESSOR_MODE PreviousMode; // dl
   struct _KTHREAD *CurrentThread; // rax
-  unsigned int EnvironmentVariable; // edi
+  NTSTATUS EnvironmentVariable; // edi
   __int64 v6; // rdx
   __int64 v7; // r8
   __int64 v8; // r9
@@ -25,23 +25,23 @@ __int64 __fastcall NtDeleteBootEntry(unsigned int a1)
   size_t Dst[3]; // [rsp+38h] [rbp-30h] BYREF
 
   if ( dword_140C19730 != 2 )
-    return 3221225474LL;
-  if ( a1 > 0xFFFF )
-    return 3221225485LL;
+    return -1073741822;
+  if ( Id > 0xFFFF )
+    return -1073741811;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   if ( PreviousMode && !SeSinglePrivilegeCheck(SeSystemEnvironmentPrivilege, PreviousMode) )
-    return 3221225569LL;
+    return -1073741727;
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
   ExAcquireFastMutexUnsafe(&ExpEnvironmentLock);
-  swprintf_s((wchar_t *)Dst, 9uLL, L"Boot%04X", a1);
+  swprintf_s((wchar_t *)Dst, 9uLL, L"Boot%04X", Id);
   v9 = 0;
   EnvironmentVariable = IoGetEnvironmentVariableEx(Dst, (__int64)&EfiBootVariablesGuid, 0LL, &v9, 0LL);
   if ( EnvironmentVariable != -1073741568 )
     goto LABEL_11;
-  if ( ((2 * ((a1 | (2 * a1)) & 0xC4444444)) & a1) != 0 )
+  if ( ((2 * ((Id | (2 * Id)) & 0xC4444444)) & Id) != 0 )
   {
-    swprintf_s((wchar_t *)Dst, 9uLL, L"Boot%04x", a1);
+    swprintf_s((wchar_t *)Dst, 9uLL, L"Boot%04x", Id);
     v9 = 0;
     EnvironmentVariable = IoGetEnvironmentVariableEx(Dst, (__int64)&EfiBootVariablesGuid, 0LL, &v9, 0LL);
 LABEL_11:

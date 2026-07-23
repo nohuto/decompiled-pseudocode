@@ -1,14 +1,14 @@
 /*
- * XREFs of PopSleepstudySendSessionChangeWnf @ 0x140A79E90
+ * XREFs of PopSleepstudySendSessionChangeWnf @ 0x140A74190
  * Callers:
- *     PopSleepstudySendSessionChangeEvent @ 0x140A79CC8 (PopSleepstudySendSessionChangeEvent.c)
- *     PopSleepstudyInitialize @ 0x140C66E70 (PopSleepstudyInitialize.c)
+ *     PopSleepstudySendSessionChangeEvent @ 0x140A73FC8 (PopSleepstudySendSessionChangeEvent.c)
+ *     PopSleepstudyInitialize @ 0x140C68FEC (PopSleepstudyInitialize.c)
  * Callees:
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     ZwUpdateWnfStateData @ 0x1406AA030 (ZwUpdateWnfStateData.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     ZwUpdateWnfStateData @ 0x1406AAFD0 (ZwUpdateWnfStateData.c)
  */
 
-__int64 __fastcall PopSleepstudySendSessionChangeWnf(__int64 a1, int a2, int a3)
+NTSTATUS __fastcall PopSleepstudySendSessionChangeWnf(__int64 a1, int a2, int a3)
 {
   __int64 v4; // [rsp+40h] [rbp-28h] BYREF
   int v5; // [rsp+48h] [rbp-20h]
@@ -17,5 +17,5 @@ __int64 __fastcall PopSleepstudySendSessionChangeWnf(__int64 a1, int a2, int a3)
   v4 = a1;
   v5 = a2;
   v6 = a3;
-  return ZwUpdateWnfStateData((__int64)&WNF_PO_SLEEPSTUDY_SESSION_CHANGE, (__int64)&v4);
+  return ZwUpdateWnfStateData(&WNF_PO_SLEEPSTUDY_SESSION_CHANGE, &v4, 0x10u, 0LL, 0LL, 0, 0);
 }

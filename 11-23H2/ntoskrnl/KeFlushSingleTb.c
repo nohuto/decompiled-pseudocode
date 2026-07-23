@@ -1,46 +1,46 @@
 /*
- * XREFs of KeFlushSingleTb @ 0x1402EB0C4
+ * XREFs of KeFlushSingleTb @ 0x1402EB354
  * Callers:
  *     MiMapSinglePage @ 0x140217D58 (MiMapSinglePage.c)
  *     MiAbortCombineScan @ 0x14021AAAC (MiAbortCombineScan.c)
- *     MiGetPageChain @ 0x14026C700 (MiGetPageChain.c)
- *     MiValidateInPage @ 0x1402DC480 (MiValidateInPage.c)
- *     MiTradeActivePage @ 0x1402EAE24 (MiTradeActivePage.c)
- *     MiLockPagedAddress @ 0x1402ED4F0 (MiLockPagedAddress.c)
- *     MiUpdateImagePfnImportRelocations @ 0x140325150 (MiUpdateImagePfnImportRelocations.c)
- *     MiValidFault @ 0x1403334E0 (MiValidFault.c)
- *     MiFillPhysicalPages @ 0x140339290 (MiFillPhysicalPages.c)
- *     MiNoFaultFound @ 0x14033C430 (MiNoFaultFound.c)
- *     MiDbgReleaseAddress @ 0x14038C960 (MiDbgReleaseAddress.c)
- *     MiSwapStackPage @ 0x140399F3C (MiSwapStackPage.c)
- *     MiSwapStackPageNoDpc @ 0x14039A2CC (MiSwapStackPageNoDpc.c)
- *     MiStealPage @ 0x1403BC3DC (MiStealPage.c)
- *     MmStealTopLevelPage @ 0x1403D740C (MmStealTopLevelPage.c)
- *     MiPrepareToStealNonPagedPool @ 0x14061D934 (MiPrepareToStealNonPagedPool.c)
- *     MiReleaseFaultPte @ 0x140634000 (MiReleaseFaultPte.c)
- *     MiDbgCopyMemoryTarget @ 0x140643A30 (MiDbgCopyMemoryTarget.c)
- *     MiDbgTranslatePhysicalAddress @ 0x140643EF8 (MiDbgTranslatePhysicalAddress.c)
- *     MiDbgUnTranslatePhysicalAddress @ 0x140644260 (MiDbgUnTranslatePhysicalAddress.c)
- *     MiInitializeBootShadowStackPage @ 0x140644964 (MiInitializeBootShadowStackPage.c)
- *     MiLargePageFault @ 0x14064646C (MiLargePageFault.c)
- *     MiClearPageFileHash @ 0x140665B90 (MiClearPageFileHash.c)
- *     MiRelocateImagePfn @ 0x1407442C0 (MiRelocateImagePfn.c)
- *     MiMarkBootGuardPage @ 0x14081D648 (MiMarkBootGuardPage.c)
+ *     MiGetPageChain @ 0x14026C990 (MiGetPageChain.c)
+ *     MiValidateInPage @ 0x1402DC710 (MiValidateInPage.c)
+ *     MiTradeActivePage @ 0x1402EB0B4 (MiTradeActivePage.c)
+ *     MiLockPagedAddress @ 0x1402ED780 (MiLockPagedAddress.c)
+ *     MiUpdateImagePfnImportRelocations @ 0x1403253E0 (MiUpdateImagePfnImportRelocations.c)
+ *     MiValidFault @ 0x140333770 (MiValidFault.c)
+ *     MiFillPhysicalPages @ 0x140339520 (MiFillPhysicalPages.c)
+ *     MiNoFaultFound @ 0x14033C7D0 (MiNoFaultFound.c)
+ *     MiDbgReleaseAddress @ 0x14038CB40 (MiDbgReleaseAddress.c)
+ *     MiSwapStackPage @ 0x14039A11C (MiSwapStackPage.c)
+ *     MiSwapStackPageNoDpc @ 0x14039A4AC (MiSwapStackPageNoDpc.c)
+ *     MiStealPage @ 0x1403BC5BC (MiStealPage.c)
+ *     MmStealTopLevelPage @ 0x1403D75EC (MmStealTopLevelPage.c)
+ *     MiPrepareToStealNonPagedPool @ 0x14061DE84 (MiPrepareToStealNonPagedPool.c)
+ *     MiReleaseFaultPte @ 0x140634550 (MiReleaseFaultPte.c)
+ *     MiDbgCopyMemoryTarget @ 0x140643F80 (MiDbgCopyMemoryTarget.c)
+ *     MiDbgTranslatePhysicalAddress @ 0x140644448 (MiDbgTranslatePhysicalAddress.c)
+ *     MiDbgUnTranslatePhysicalAddress @ 0x1406447B0 (MiDbgUnTranslatePhysicalAddress.c)
+ *     MiInitializeBootShadowStackPage @ 0x140644EB4 (MiInitializeBootShadowStackPage.c)
+ *     MiLargePageFault @ 0x1406469BC (MiLargePageFault.c)
+ *     MiClearPageFileHash @ 0x1406660E0 (MiClearPageFileHash.c)
+ *     MiRelocateImagePfn @ 0x1407444B0 (MiRelocateImagePfn.c)
+ *     MiMarkBootGuardPage @ 0x14081D918 (MiMarkBootGuardPage.c)
  *     MxSwapPages @ 0x140B58AF8 (MxSwapPages.c)
  *     MxCopyPage @ 0x140B99540 (MxCopyPage.c)
  * Callees:
- *     KeFlushProcessWriteBuffers @ 0x1402C003C (KeFlushProcessWriteBuffers.c)
- *     KiIsSecureProcessFlush @ 0x1402EB260 (KiIsSecureProcessFlush.c)
- *     KiPreprocessFlushTb @ 0x1402EB29C (KiPreprocessFlushTb.c)
- *     KxFlushSingleTb @ 0x1402EB340 (KxFlushSingleTb.c)
- *     HvlFlushRangeListTb @ 0x1403CBDAC (HvlFlushRangeListTb.c)
- *     KiPrepareFlushParameters @ 0x1403CEA4C (KiPrepareFlushParameters.c)
- *     KiFlushAffinity @ 0x1403CED68 (KiFlushAffinity.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     KiSetUserTbFlushPending @ 0x140420160 (KiSetUserTbFlushPending.c)
- *     VmFlushTb @ 0x1404664EC (VmFlushTb.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     ExFlushTb @ 0x14060D018 (ExFlushTb.c)
+ *     KeFlushProcessWriteBuffers @ 0x1402C02CC (KeFlushProcessWriteBuffers.c)
+ *     KiIsSecureProcessFlush @ 0x1402EB4F0 (KiIsSecureProcessFlush.c)
+ *     KiPreprocessFlushTb @ 0x1402EB52C (KiPreprocessFlushTb.c)
+ *     KxFlushSingleTb @ 0x1402EB5D0 (KxFlushSingleTb.c)
+ *     HvlFlushRangeListTb @ 0x1403CBF8C (HvlFlushRangeListTb.c)
+ *     KiPrepareFlushParameters @ 0x1403CEC2C (KiPrepareFlushParameters.c)
+ *     KiFlushAffinity @ 0x1403CEF48 (KiFlushAffinity.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KiSetUserTbFlushPending @ 0x1404204F0 (KiSetUserTbFlushPending.c)
+ *     VmFlushTb @ 0x1404668EC (VmFlushTb.c)
+ *     ExFlushTb @ 0x14060D568 (ExFlushTb.c)
  */
 
 __int64 __fastcall KeFlushSingleTb(unsigned __int64 a1, unsigned int a2, unsigned int a3)
@@ -96,7 +96,9 @@ __int64 __fastcall KeFlushSingleTb(unsigned __int64 a1, unsigned int a2, unsigne
       }
     }
     __invlpg((void *)a1);
-    if ( KiIrqlFlags && (CurrentIrql = KeGetCurrentIrql(), (KiIrqlFlags & 1) != 0) && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags
+      && (CurrentIrql = KeGetCurrentIrql(), ((unsigned __int8)KiIrqlFlags & 1) != 0)
+      && CurrentIrql <= 0xFu )
     {
       v14 = v28;
       if ( v28 <= 0xFu && CurrentIrql >= 2u )
@@ -153,7 +155,7 @@ __int64 __fastcall KeFlushSingleTb(unsigned __int64 a1, unsigned int a2, unsigne
     v31 = v8;
     v21 = KeGetCurrentIrql();
     __writecr8(0xFuLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && v21 <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && v21 <= 0xFu )
     {
       v22 = KeGetCurrentPrcb()->SchedulerAssist;
       if ( v21 == 15 )
@@ -163,10 +165,10 @@ __int64 __fastcall KeFlushSingleTb(unsigned __int64 a1, unsigned int a2, unsigne
       v22[5] |= v23;
     }
     ExFlushTb(1LL, &v31, a2);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v24 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v24 <= 0xFu && v21 <= 0xFu && v24 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v24 <= 0xFu && v21 <= 0xFu && v24 >= 2u )
       {
         v25 = KeGetCurrentPrcb();
         v26 = v25->SchedulerAssist;

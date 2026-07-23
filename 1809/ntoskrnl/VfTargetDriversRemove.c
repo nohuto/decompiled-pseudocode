@@ -1,19 +1,19 @@
 /*
- * XREFs of VfTargetDriversRemove @ 0x14016C1E0
+ * XREFs of VfTargetDriversRemove @ 0x14016C2E0
  * Callers:
- *     VfDriverUnloadImage @ 0x1409213DC (VfDriverUnloadImage.c)
- *     VfSuspectDriversLoadCallback @ 0x1409377A4 (VfSuspectDriversLoadCallback.c)
+ *     VfDriverUnloadImage @ 0x1409223DC (VfDriverUnloadImage.c)
+ *     VfSuspectDriversLoadCallback @ 0x1409387A4 (VfSuspectDriversLoadCallback.c)
  * Callees:
- *     ExFreeToNPagedLookasideList @ 0x1400922D8 (ExFreeToNPagedLookasideList.c)
- *     VfAvlCleanupLockContext @ 0x1400F5688 (VfAvlCleanupLockContext.c)
- *     VfUtilFreePoolCheckIRQL @ 0x14016C310 (VfUtilFreePoolCheckIRQL.c)
- *     VfAvlDeleteTreeNode @ 0x14016C378 (VfAvlDeleteTreeNode.c)
- *     VfAvlLookupTreeNode @ 0x14016C430 (VfAvlLookupTreeNode.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     VfThunkRemoveTargetNotify @ 0x140921448 (VfThunkRemoveTargetNotify.c)
- *     ViTargetRemovingCheckContiguousMemory @ 0x1409350E8 (ViTargetRemovingCheckContiguousMemory.c)
- *     ViTargetRemovingCheckEtwWmi @ 0x140935164 (ViTargetRemovingCheckEtwWmi.c)
- *     VfPoolCheckForLeaks @ 0x140937F38 (VfPoolCheckForLeaks.c)
+ *     ExFreeToNPagedLookasideList @ 0x140092218 (ExFreeToNPagedLookasideList.c)
+ *     VfAvlCleanupLockContext @ 0x1400F5708 (VfAvlCleanupLockContext.c)
+ *     VfUtilFreePoolCheckIRQL @ 0x14016C410 (VfUtilFreePoolCheckIRQL.c)
+ *     VfAvlDeleteTreeNode @ 0x14016C478 (VfAvlDeleteTreeNode.c)
+ *     VfAvlLookupTreeNode @ 0x14016C530 (VfAvlLookupTreeNode.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     VfThunkRemoveTargetNotify @ 0x140922448 (VfThunkRemoveTargetNotify.c)
+ *     ViTargetRemovingCheckContiguousMemory @ 0x1409360E8 (ViTargetRemovingCheckContiguousMemory.c)
+ *     ViTargetRemovingCheckEtwWmi @ 0x140936164 (ViTargetRemovingCheckEtwWmi.c)
+ *     VfPoolCheckForLeaks @ 0x140938F38 (VfPoolCheckForLeaks.c)
  */
 
 void __fastcall VfTargetDriversRemove(__int64 a1)
@@ -59,7 +59,7 @@ void __fastcall VfTargetDriversRemove(__int64 a1)
       *(__m128i *)P = v7;
       v10[2] = v8;
       if ( _mm_srli_si128(v7, 8).m128i_u64[0] )
-        --dword_14040D708;
+        --dword_14040E788;
       v2 = (void *)VfAvlDeleteTreeNode(&ViTargetDriversAvl, v9, v1, 1LL);
     }
     VfAvlCleanupLockContext((__int64)v9);
@@ -68,7 +68,7 @@ void __fastcall VfTargetDriversRemove(__int64 a1)
       VfThunkRemoveTargetNotify(v10);
       if ( P[1] )
         ExFreePoolWithTag(P[1], 0x44566656u);
-      if ( dword_14040D700 == 1 )
+      if ( dword_14040E780 == 1 )
         ExFreeToNPagedLookasideList(&ViAvlNodeLookaside, v2);
       else
         VfUtilFreePoolCheckIRQL(v2);

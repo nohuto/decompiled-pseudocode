@@ -9,14 +9,13 @@
  *     _RtlpMuiRegGetString@16 @ 0x4B36B86B (_RtlpMuiRegGetString@16.c)
  */
 
-int __fastcall RtlpMuiRegGetInstalledLanguageInfoByIndex(int a1, __int16 a2, int *a3, _WORD *a4, int a5, _DWORD *a6)
+int __fastcall RtlpMuiRegGetInstalledLanguageInfoByIndex(int a1, __int16 a2, LCID *a3, _WORD *a4, int a5, _DWORD *a6)
 {
   int v6; // eax
   unsigned __int16 *v7; // edx
   int v9; // [esp+10h] [ebp-CCh]
-  int v10; // [esp+1Ch] [ebp-C0h] BYREF
-  char *v11; // [esp+20h] [ebp-BCh]
-  char v12; // [esp+24h] [ebp-B8h] BYREF
+  _UNICODE_STRING String; // [esp+1Ch] [ebp-C0h] BYREF
+  char v11; // [esp+24h] [ebp-B8h] BYREF
 
   if ( !a1 || !a3 || !a4 || !a5 || !a6 )
     return -1073741811;
@@ -31,10 +30,10 @@ int __fastcall RtlpMuiRegGetInstalledLanguageInfoByIndex(int a1, __int16 a2, int
   *a6 = *v7;
   if ( (__int16)v7[3] > 0 )
     return RtlpMuiRegGetString(a4, a5);
-  v10 = 11141120;
-  v11 = &v12;
-  if ( RtlLCIDToCultureName(*a3, (unsigned __int16 *)&v10) )
-    return RtlStringCchCopyW(a4, a5, (int)v11);
+  *(_DWORD *)&String.Length = 11141120;
+  String.Buffer = (wchar_t *)&v11;
+  if ( RtlLCIDToCultureName(*a3, &String) )
+    return RtlStringCchCopyW(a4, a5, (int)String.Buffer);
   else
     return -1073741275;
 }

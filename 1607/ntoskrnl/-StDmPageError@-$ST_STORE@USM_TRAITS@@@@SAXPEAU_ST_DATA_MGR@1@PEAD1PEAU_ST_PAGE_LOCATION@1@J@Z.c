@@ -1,12 +1,12 @@
 /*
- * XREFs of ?StDmPageError@?$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@PEAD1PEAU_ST_PAGE_LOCATION@1@J@Z @ 0x14021ED1C
+ * XREFs of ?StDmPageError@?$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@PEAD1PEAU_ST_PAGE_LOCATION@1@J@Z @ 0x14021EB48
  * Callers:
- *     ?StDmSinglePageCopy@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAXPEAD2PEAU_ST_PAGE_LOCATION@1@PEAU_STDM_READ_CONTEXT@1@@Z @ 0x14011CC0C (-StDmSinglePageCopy@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAXPEAD2PEAU_ST_PAGE_LOCATIO.c)
+ *     ?StDmSinglePageCopy@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAXPEAD2PEAU_ST_PAGE_LOCATION@1@PEAU_STDM_READ_CONTEXT@1@@Z @ 0x14011D17C (-StDmSinglePageCopy@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAXPEAD2PEAU_ST_PAGE_LOCATIO.c)
  * Callees:
- *     SmEtwEnabled @ 0x140002E00 (SmEtwEnabled.c)
- *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
- *     SmEtwLogStoreCorruption @ 0x1402204F0 (SmEtwLogStoreCorruption.c)
- *     SmPrepareForFatalPageError @ 0x140222168 (SmPrepareForFatalPageError.c)
+ *     SmEtwEnabled @ 0x140002F74 (SmEtwEnabled.c)
+ *     KeBugCheckEx @ 0x14015DA70 (KeBugCheckEx.c)
+ *     SmEtwLogStoreCorruption @ 0x14022031C (SmEtwLogStoreCorruption.c)
+ *     SmPrepareForFatalPageError @ 0x140221F94 (SmPrepareForFatalPageError.c)
  */
 
 void __fastcall ST_STORE<SM_TRAITS>::StDmPageError(__int64 a1, ULONG_PTR a2, void *a3, __int64 a4, signed int a5)

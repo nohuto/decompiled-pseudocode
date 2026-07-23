@@ -1,12 +1,12 @@
 /*
- * XREFs of MiInitializeTeb @ 0x1409C91EC
+ * XREFs of MiInitializeTeb @ 0x14099A1CC
  * Callers:
- *     MmCreateTeb @ 0x1409C8D18 (MmCreateTeb.c)
+ *     MmCreateTeb @ 0x140999CF8 (MmCreateTeb.c)
  * Callees:
- *     MiModeCopyExceptionFilterEx @ 0x1404E5578 (MiModeCopyExceptionFilterEx.c)
- *     RtlCopyToUser @ 0x14077F284 (RtlCopyToUser.c)
- *     RtlWriteULong64ToUser @ 0x14077F758 (RtlWriteULong64ToUser.c)
- *     RtlWriteULongToUser @ 0x14077F7A0 (RtlWriteULongToUser.c)
+ *     MiModeCopyExceptionFilterEx @ 0x1404DEB18 (MiModeCopyExceptionFilterEx.c)
+ *     RtlCopyToUser @ 0x140781D84 (RtlCopyToUser.c)
+ *     RtlWriteULong64ToUser @ 0x140782258 (RtlWriteULong64ToUser.c)
+ *     RtlWriteULongToUser @ 0x1407822A0 (RtlWriteULongToUser.c)
  */
 
 __int64 __fastcall MiInitializeTeb(_QWORD *a1, __int64 a2, int a3)

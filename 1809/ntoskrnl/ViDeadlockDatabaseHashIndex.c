@@ -1,8 +1,8 @@
 /*
- * XREFs of ViDeadlockDatabaseHashIndex @ 0x14093D124
+ * XREFs of ViDeadlockDatabaseHashIndex @ 0x14093E124
  * Callers:
- *     ViDeadlockRemoveMemoryRangeResources @ 0x14030B27C (ViDeadlockRemoveMemoryRangeResources.c)
- *     ViDeadlockRemoveMemoryRangeThreads @ 0x14030B3DC (ViDeadlockRemoveMemoryRangeThreads.c)
+ *     ViDeadlockRemoveMemoryRangeResources @ 0x14030B46C (ViDeadlockRemoveMemoryRangeResources.c)
+ *     ViDeadlockRemoveMemoryRangeThreads @ 0x14030B5CC (ViDeadlockRemoveMemoryRangeThreads.c)
  * Callees:
  *     <none>
  */

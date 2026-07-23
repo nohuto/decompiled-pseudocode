@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlCreateUserThread @ 0x140890440
+ * XREFs of RtlCreateUserThread @ 0x1408916A0
  * Callers:
  *     <none>
  * Callees:
- *     RtlpCreateUserThreadEx @ 0x14068CF14 (RtlpCreateUserThreadEx.c)
+ *     RtlpCreateUserThreadEx @ 0x14068E0D4 (RtlpCreateUserThreadEx.c)
  */
 
 NTSTATUS __stdcall RtlCreateUserThread(
@@ -18,18 +18,18 @@ NTSTATUS __stdcall RtlCreateUserThread(
         PVOID Reserved7,
         PVOID Reserved8)
 {
-  __int64 v11; // [rsp+30h] [rbp-38h]
+  int v11; // [rsp+30h] [rbp-38h]
 
   return RtlpCreateUserThreadEx(
-           (__int64)ThreadContext,
-           (__int64)OutThreadHandle,
+           ThreadContext,
+           OutThreadHandle,
            (_BYTE)Reserved1 == 1,
-           (__int64)Reserved2,
-           (__int64)Reserved3,
-           (__int64)Reserved4,
+           (unsigned int)Reserved2,
+           (SIZE_T)Reserved3,
+           (SIZE_T)Reserved4,
            v11,
-           (__int64)Reserved5,
-           (__int64)Reserved6,
+           (PUSER_THREAD_START_ROUTINE)Reserved5,
+           Reserved6,
            (HANDLE *)Reserved7,
            Reserved8);
 }

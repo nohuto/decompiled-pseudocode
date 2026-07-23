@@ -10,7 +10,7 @@
  *     _RtlpHpTagQueryHeapsRemote@12 @ 0x4B370210 (_RtlpHpTagQueryHeapsRemote@12.c)
  */
 
-int __fastcall RtlpHpTagQueryTags(int a1, unsigned int a2, _DWORD *a3)
+NTSTATUS __fastcall RtlpHpTagQueryTags(int a1, unsigned int a2, _DWORD *a3)
 {
   int v3; // edi
   int v4; // ecx

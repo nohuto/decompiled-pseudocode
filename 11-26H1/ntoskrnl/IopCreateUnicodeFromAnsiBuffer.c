@@ -1,14 +1,14 @@
 /*
- * XREFs of IopCreateUnicodeFromAnsiBuffer @ 0x1405CA598
+ * XREFs of IopCreateUnicodeFromAnsiBuffer @ 0x1405CCE68
  * Callers:
- *     IopCreateArcName @ 0x140B1C9D8 (IopCreateArcName.c)
- *     IopMarkBootPartition @ 0x140CBD890 (IopMarkBootPartition.c)
+ *     IopCreateArcName @ 0x140B1EBE8 (IopCreateArcName.c)
+ *     IopMarkBootPartition @ 0x140CC3960 (IopMarkBootPartition.c)
  * Callees:
- *     RtlInitAnsiString @ 0x14046C9A0 (RtlInitAnsiString.c)
- *     RtlAnsiStringToUnicodeString @ 0x14096BA30 (RtlAnsiStringToUnicodeString.c)
+ *     RtlInitAnsiString @ 0x140466120 (RtlInitAnsiString.c)
+ *     RtlAnsiStringToUnicodeString @ 0x14097C370 (RtlAnsiStringToUnicodeString.c)
  */
 
-NTSTATUS __fastcall IopCreateUnicodeFromAnsiBuffer(PUNICODE_STRING DestinationString, const char *a2)
+NTSTATUS __fastcall IopCreateUnicodeFromAnsiBuffer(PUNICODE_STRING DestinationString, const CHAR *a2)
 {
   STRING DestinationStringa; // [rsp+20h] [rbp-18h] BYREF
 

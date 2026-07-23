@@ -1,14 +1,14 @@
 /*
- * XREFs of IopGetBasicInformationFile @ 0x1407D326C
+ * XREFs of IopGetBasicInformationFile @ 0x1407D353C
  * Callers:
- *     IopOpenLinkOrRenameTarget @ 0x1407D2FE4 (IopOpenLinkOrRenameTarget.c)
+ *     IopOpenLinkOrRenameTarget @ 0x1407D32B4 (IopOpenLinkOrRenameTarget.c)
  * Callees:
  *     MmIsDriverVerifying @ 0x14020A570 (MmIsDriverVerifying.c)
- *     IoGetRelatedDeviceObject @ 0x14022F510 (IoGetRelatedDeviceObject.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     IopGetFileInformation @ 0x14075AE5C (IopGetFileInformation.c)
- *     VfFastIoCheckState @ 0x140ACB234 (VfFastIoCheckState.c)
- *     VfFastIoSnapState @ 0x140ACB30C (VfFastIoSnapState.c)
+ *     IoGetRelatedDeviceObject @ 0x14022F620 (IoGetRelatedDeviceObject.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     IopGetFileInformation @ 0x14075B04C (IopGetFileInformation.c)
+ *     VfFastIoCheckState @ 0x140ACB224 (VfFastIoCheckState.c)
+ *     VfFastIoSnapState @ 0x140ACB2FC (VfFastIoSnapState.c)
  */
 
 __int64 __fastcall IopGetBasicInformationFile(struct _FILE_OBJECT *Object, struct _IRP *a2)

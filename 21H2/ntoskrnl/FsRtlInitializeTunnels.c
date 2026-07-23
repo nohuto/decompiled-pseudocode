@@ -1,10 +1,10 @@
 /*
- * XREFs of FsRtlInitializeTunnels @ 0x140A6C04C
+ * XREFs of FsRtlInitializeTunnels @ 0x140A6D04C
  * Callers:
- *     FsRtlInitSystem @ 0x140A6B9E0 (FsRtlInitSystem.c)
+ *     FsRtlInitSystem @ 0x140A6C9E0 (FsRtlInitSystem.c)
  * Callees:
- *     ExInitializePagedLookasideList @ 0x1407113C0 (ExInitializePagedLookasideList.c)
- *     FsRtlGetTunnelParameterValue @ 0x1407C6944 (FsRtlGetTunnelParameterValue.c)
+ *     ExInitializePagedLookasideList @ 0x1406BFA10 (ExInitializePagedLookasideList.c)
+ *     FsRtlGetTunnelParameterValue @ 0x1407C6C64 (FsRtlGetTunnelParameterValue.c)
  */
 
 void FsRtlInitializeTunnels()

@@ -23,7 +23,7 @@
  *     ViFreeToContiguousMemory @ 0x1409CB630 (ViFreeToContiguousMemory.c)
  */
 
-__int64 __fastcall ViFreeMapRegisterFile(__int64 a1, struct _SLIST_ENTRY *a2)
+__int64 __fastcall ViFreeMapRegisterFile(__int64 a1, _SLIST_ENTRY *a2)
 {
   unsigned __int64 v4; // rdi
   __int64 v5; // rax
@@ -40,18 +40,15 @@ __int64 __fastcall ViFreeMapRegisterFile(__int64 a1, struct _SLIST_ENTRY *a2)
   unsigned int v16; // r9d
   ULONG_PTR v17; // r8
   __int64 v18; // rdx
-  struct _SLIST_ENTRY *v19; // rcx
+  _SLIST_ENTRY *v19; // rcx
 
   if ( !a2 || LODWORD(a2->Next) != -1393569779 )
     return 0LL;
   v4 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(a1 + 120));
   v5 = *((_QWORD *)&a2->Next + 1);
   Next = a2[1].Next;
-  if ( *(struct _SLIST_ENTRY **)(v5 + 8) != (struct _SLIST_ENTRY *)(&a2->Next + 1)
-    || Next->Next != (_SLIST_ENTRY *)(&a2->Next + 1) )
-  {
+  if ( *(_SLIST_ENTRY **)(v5 + 8) != (_SLIST_ENTRY *)(&a2->Next + 1) || Next->Next != (_SLIST_ENTRY *)(&a2->Next + 1) )
     __fastfail(3u);
-  }
   Next->Next = (_SLIST_ENTRY *)v5;
   *(_QWORD *)(v5 + 8) = Next;
   KxReleaseSpinLock((PKSPIN_LOCK)(a1 + 120));
@@ -104,7 +101,7 @@ __int64 __fastcall ViFreeMapRegisterFile(__int64 a1, struct _SLIST_ENTRY *a2)
     ++v13;
   }
   IoFreeMdl(*((PMDL *)&a2[3].Next + 1));
-  v19 = (struct _SLIST_ENTRY *)*((_QWORD *)&a2[4].Next + 1);
+  v19 = (_SLIST_ENTRY *)*((_QWORD *)&a2[4].Next + 1);
   if ( v19 )
     VfUtilFreePoolCheckIRQL(v19);
   memset(a2, 0, 0x78uLL);

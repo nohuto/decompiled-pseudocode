@@ -1,11 +1,11 @@
 /*
- * XREFs of MinAsn1ParseAndDecodeRDNComponent @ 0x140A7035C
+ * XREFs of MinAsn1ParseAndDecodeRDNComponent @ 0x140A7060C
  * Callers:
- *     I_MinCryptGetCommonName @ 0x140A6F80C (I_MinCryptGetCommonName.c)
+ *     I_MinCryptGetCommonName @ 0x140A6FABC (I_MinCryptGetCommonName.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     MinAsn1ExtractContent @ 0x140A716B8 (MinAsn1ExtractContent.c)
- *     MinAsn1ExtractValues @ 0x140A71804 (MinAsn1ExtractValues.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     MinAsn1ExtractContent @ 0x140A71968 (MinAsn1ExtractContent.c)
+ *     MinAsn1ExtractValues @ 0x140A71AB4 (MinAsn1ExtractValues.c)
  */
 
 char __fastcall MinAsn1ParseAndDecodeRDNComponent(unsigned int *a1, __int64 a2, _BYTE *a3, __int64 a4)
@@ -37,13 +37,13 @@ char __fastcall MinAsn1ParseAndDecodeRDNComponent(unsigned int *a1, __int64 a2, 
     if ( v13 )
     {
       v9 = v14;
-      while ( (int)MinAsn1ExtractValues(v9, v8, (unsigned int)&v15, (unsigned int)&qword_14000B2E0, 4, (__int64)v16) > 0 )
+      while ( (int)MinAsn1ExtractValues(v9, v8, (unsigned int)&v15, (unsigned int)&qword_14000B2C0, 4, (__int64)v16) > 0 )
       {
         if ( v18 == 3 )
         {
           v10 = *v19 - 1109;
           if ( *v19 == 1109 )
-            v10 = *((unsigned __int8 *)v19 + 2) - BYTE2(qword_140A77B28);
+            v10 = *((unsigned __int8 *)v19 + 2) - BYTE2(qword_140A77DD8);
           if ( !v10 )
           {
             v12 = v21;

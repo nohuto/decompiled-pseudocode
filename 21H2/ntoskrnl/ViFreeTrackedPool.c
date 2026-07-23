@@ -1,11 +1,11 @@
 /*
- * XREFs of ViFreeTrackedPool @ 0x1409D5288
+ * XREFs of ViFreeTrackedPool @ 0x1409D6288
  * Callers:
- *     VerifierFreeTrackedPool @ 0x1405A1CA0 (VerifierFreeTrackedPool.c)
+ *     VerifierFreeTrackedPool @ 0x1405A1ED0 (VerifierFreeTrackedPool.c)
  * Callees:
- *     MmIsAddressValidEx @ 0x14030C4F0 (MmIsAddressValidEx.c)
- *     RtlpInterlockedPushEntrySList @ 0x140407970 (RtlpInterlockedPushEntrySList.c)
- *     VerifierBugCheckIfAppropriate @ 0x1409D0D54 (VerifierBugCheckIfAppropriate.c)
+ *     MmIsAddressValidEx @ 0x140317240 (MmIsAddressValidEx.c)
+ *     RtlpInterlockedPushEntrySList @ 0x140407B50 (RtlpInterlockedPushEntrySList.c)
+ *     VerifierBugCheckIfAppropriate @ 0x1409D1D54 (VerifierBugCheckIfAppropriate.c)
  */
 
 volatile signed __int32 *__fastcall ViFreeTrackedPool(
@@ -18,7 +18,7 @@ volatile signed __int32 *__fastcall ViFreeTrackedPool(
   __int64 *v7; // rbx
   ULONG_PTR v8; // r14
   unsigned __int64 v9; // r15
-  union _SLIST_HEADER *v10; // rbp
+  _SLIST_HEADER *v10; // rbp
   unsigned int v11; // r13d
   unsigned __int64 v12; // rsi
   volatile signed __int64 *v13; // rax
@@ -42,7 +42,7 @@ volatile signed __int32 *__fastcall ViFreeTrackedPool(
   }
   v8 = *v7;
   v9 = *v7 & 0xFFFFFFFFFFFFF000uLL;
-  v10 = *(union _SLIST_HEADER **)(v9 + 8);
+  v10 = *(_SLIST_HEADER **)(v9 + 8);
   if ( (MmVerifierData & 0x800) != 0 )
   {
     if ( (v8 & 3) != 0 || !MmIsAddressValidEx(*v7) )
@@ -63,14 +63,14 @@ volatile signed __int32 *__fastcall ViFreeTrackedPool(
   v11 = a3 & 1;
   v12 = -(__int64)v6;
   _InterlockedExchangeAdd64((volatile signed __int64 *)&v10[7].Region + (v11 ^ 1LL), v12);
-  v13 = &qword_140C2A8B0;
+  v13 = &qword_140C2A8F0;
   _InterlockedDecrement((volatile signed __int32 *)&v10[6].HeaderX64 + (v11 ^ 1LL) + 2);
   if ( !v11 )
-    v13 = &qword_140C2A8B8;
+    v13 = &qword_140C2A8F8;
   _InterlockedExchangeAdd64(v13, v12);
-  result = &dword_140C2A8A0;
+  result = &dword_140C2A8E0;
   if ( !v11 )
-    result = &dword_140C2A8A4;
+    result = &dword_140C2A8E4;
   _InterlockedDecrement(result);
   return result;
 }

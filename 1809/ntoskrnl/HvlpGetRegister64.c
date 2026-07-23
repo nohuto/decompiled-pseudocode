@@ -1,15 +1,15 @@
 /*
- * XREFs of HvlpGetRegister64 @ 0x140278B08
+ * XREFs of HvlpGetRegister64 @ 0x140278CF8
  * Callers:
- *     HvlEnlightenProcessor @ 0x140178680 (HvlEnlightenProcessor.c)
- *     HvlLogGuestCrashInformation @ 0x140270F54 (HvlLogGuestCrashInformation.c)
- *     HvlGetReferenceTime @ 0x140274160 (HvlGetReferenceTime.c)
- *     HvlGetReferenceTimeUsingTscPage @ 0x1402741A0 (HvlGetReferenceTimeUsingTscPage.c)
- *     HvlpPhase0Enlightenments @ 0x140279108 (HvlpPhase0Enlightenments.c)
- *     HvlpTryToLockCpuManagementVersion @ 0x1402792B0 (HvlpTryToLockCpuManagementVersion.c)
- *     HvlDeleteProcessor @ 0x14081782C (HvlDeleteProcessor.c)
+ *     HvlEnlightenProcessor @ 0x140178780 (HvlEnlightenProcessor.c)
+ *     HvlLogGuestCrashInformation @ 0x140271144 (HvlLogGuestCrashInformation.c)
+ *     HvlGetReferenceTime @ 0x140274350 (HvlGetReferenceTime.c)
+ *     HvlGetReferenceTimeUsingTscPage @ 0x140274390 (HvlGetReferenceTimeUsingTscPage.c)
+ *     HvlpPhase0Enlightenments @ 0x1402792F8 (HvlpPhase0Enlightenments.c)
+ *     HvlpTryToLockCpuManagementVersion @ 0x1402794A0 (HvlpTryToLockCpuManagementVersion.c)
+ *     HvlDeleteProcessor @ 0x140818A2C (HvlDeleteProcessor.c)
  * Callees:
- *     RtlRaiseException @ 0x1402ED840 (RtlRaiseException.c)
+ *     RtlRaiseException @ 0x1402EDA30 (RtlRaiseException.c)
  */
 
 void __fastcall HvlpGetRegister64(int a1, _QWORD *a2)

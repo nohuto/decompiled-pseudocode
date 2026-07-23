@@ -1,9 +1,9 @@
 /*
- * XREFs of ExpAllocateOwnerEntryForLegacyShim2 @ 0x1404152AC
+ * XREFs of ExpAllocateOwnerEntryForLegacyShim2 @ 0x140415640
  * Callers:
- *     ExpFastResourceLegacyAcquireShared2 @ 0x140415548 (ExpFastResourceLegacyAcquireShared2.c)
- *     ExpFastResourceLegacyAcquireSharedStarveExclusive2 @ 0x1404155A8 (ExpFastResourceLegacyAcquireSharedStarveExclusive2.c)
- *     ExpFastResourceLegacyConvertExclusiveToShared2 @ 0x140415608 (ExpFastResourceLegacyConvertExclusiveToShared2.c)
+ *     ExpFastResourceLegacyAcquireShared2 @ 0x1404158DC (ExpFastResourceLegacyAcquireShared2.c)
+ *     ExpFastResourceLegacyAcquireSharedStarveExclusive2 @ 0x14041593C (ExpFastResourceLegacyAcquireSharedStarveExclusive2.c)
+ *     ExpFastResourceLegacyConvertExclusiveToShared2 @ 0x14041599C (ExpFastResourceLegacyConvertExclusiveToShared2.c)
  * Callees:
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

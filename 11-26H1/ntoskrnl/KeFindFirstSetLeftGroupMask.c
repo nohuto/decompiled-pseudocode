@@ -1,11 +1,11 @@
 /*
  * XREFs of KeFindFirstSetLeftGroupMask @ 0x140200760
  * Callers:
- *     EtwpExtractCompactedAffinity @ 0x1406C5550 (EtwpExtractCompactedAffinity.c)
+ *     EtwpExtractCompactedAffinity @ 0x1406C9190 (EtwpExtractCompactedAffinity.c)
  * Callees:
  *     RtlNumberOfSetBitsEx @ 0x140200820 (RtlNumberOfSetBitsEx.c)
  *     KeFindFirstSetRightGroupMask @ 0x140200980 (KeFindFirstSetRightGroupMask.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall KeFindFirstSetLeftGroupMask(__int128 *a1, __int64 a2, __int64 a3)

@@ -2,7 +2,7 @@
  * XREFs of RtlpHpLargeFree @ 0x140007D8C
  * Callers:
  *     RtlpHpFreeHeap @ 0x140007BC0 (RtlpHpFreeHeap.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
  * Callees:
  *     KiAbEntryRemoveFromTree @ 0x140004530 (KiAbEntryRemoveFromTree.c)
  *     KiCheckForKernelApcDelivery @ 0x140005A50 (KiCheckForKernelApcDelivery.c)
@@ -14,24 +14,24 @@
  *     KiAbThreadRemoveBoosts @ 0x14004EFD0 (KiAbThreadRemoveBoosts.c)
  *     MmGetSessionIdEx @ 0x14004F060 (MmGetSessionIdEx.c)
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     RtlRbRemoveNode @ 0x1400BDDF0 (RtlRbRemoveNode.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     RtlpLogHeapFailure @ 0x1402FB838 (RtlpLogHeapFailure.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC5A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     RtlRbRemoveNode @ 0x1400BDD30 (RtlRbRemoveNode.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     RtlpLogHeapFailure @ 0x1402FBA28 (RtlpLogHeapFailure.c)
  */
 
 unsigned __int64 __fastcall RtlpHpLargeFree(__int128 *a1, __int64 a2, unsigned int a3)
 {
   char v3; // di
   unsigned __int8 v5; // r14
-  __int64 Metadata; // rax
+  _RTL_BALANCED_NODE *Metadata; // rax
   __int64 v7; // rbx
   int v8; // edi
-  __int64 v9; // r12
+  _RTL_BALANCED_NODE *v9; // r12
   volatile signed __int64 *v10; // r15
-  unsigned __int64 v11; // rax
+  _RTL_BALANCED_NODE *v11; // rax
   char v12; // cl
   __int64 v13; // rax
   struct _KTHREAD *CurrentThread; // rdi
@@ -67,13 +67,13 @@ unsigned __int64 __fastcall RtlpHpLargeFree(__int128 *a1, __int64 a2, unsigned i
   v42 = a2;
   v3 = a3;
   v5 = RtlpHpLargeLockAcquire(a1, a3);
-  Metadata = RtlpHpLargeAllocGetMetadata(a1, v42);
+  Metadata = (_RTL_BALANCED_NODE *)RtlpHpLargeAllocGetMetadata(a1, v42);
   v7 = 0LL;
   v8 = v3 & 1;
   v9 = Metadata;
   if ( Metadata )
   {
-    RtlRbRemoveNode((char *)a1 + 72, Metadata);
+    RtlRbRemoveNode((PRTL_RB_TREE)((char *)a1 + 72), Metadata);
     if ( !v8 )
     {
       v10 = (volatile signed __int64 *)(a1 + 4);
@@ -124,7 +124,7 @@ unsigned __int64 __fastcall RtlpHpLargeFree(__int128 *a1, __int64 a2, unsigned i
               {
                 v23->CrossThreadReleasableAndBusyByte |= 2u;
                 if ( (__int64)v23->LockState.LockState < 0 )
-                  KiAbEntryRemoveFromTree((__int64)&CurrentThread->LockEntries[v22], SessionId);
+                  KiAbEntryRemoveFromTree(&CurrentThread->LockEntries[v22].TreeNode, SessionId);
                 v38[0] = 0;
                 v38[0] = v23->BoostBitmap.AllFields & 0x1FFFF;
                 v23->BoostBitmap.AllFields &= 0xFFFE0000;
@@ -155,13 +155,13 @@ LABEL_24:
         KiLeaveGuardedRegionUnsafe(KeGetCurrentThread());
       }
     }
-    v11 = *(_QWORD *)(v9 + 32);
+    v11 = v9[1].Children[1];
     v12 = (unsigned __int8)v11 >> 2;
     v40 = *a1;
-    v13 = (((v11 >> 12) + ((v11 >> 1) & 1)) << 12) - 1;
+    v13 = ((((unsigned __int64)v11 >> 12) + (((unsigned __int64)v11 >> 1) & 1)) << 12) - 1;
     v39 = (1LL << v12) - (((1LL << v12) - 1) & ((1LL << v12) + v13)) + v13;
     RtlpHpFreeVA(&v42, &v39, 0x8000LL, &v40);
-    _InterlockedExchangeAdd64((volatile signed __int64 *)a1 + 12, -(*(_QWORD *)(v9 + 32) >> 12));
+    _InterlockedExchangeAdd64((volatile signed __int64 *)a1 + 12, -((unsigned __int64)v9[1].Children[1] >> 12));
     _InterlockedExchangeAdd64((volatile signed __int64 *)a1 + 11, -(__int64)(v39 >> 12));
     v41 = *a1;
     RtlpHpMetadataFree(v9, &v41);
@@ -224,7 +224,7 @@ LABEL_40:
         }
         v34->CrossThreadReleasableAndBusyByte |= 2u;
         if ( (__int64)v34->LockState.LockState < 0 )
-          KiAbEntryRemoveFromTree((__int64)&v27->LockEntries[v33], v28);
+          KiAbEntryRemoveFromTree(&v27->LockEntries[v33].TreeNode, v28);
         v37 = 0;
         v37 = v34->BoostBitmap.AllFields & 0x1FFFF;
         v34->BoostBitmap.AllFields &= 0xFFFE0000;

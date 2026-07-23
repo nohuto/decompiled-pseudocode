@@ -1,12 +1,12 @@
 /*
- * XREFs of PnpRecordBlackbox @ 0x1409DE16C
+ * XREFs of PnpRecordBlackbox @ 0x140A1B298
  * Callers:
- *     PnpWatchdogFirstChanceCallback @ 0x1407A38C0 (PnpWatchdogFirstChanceCallback.c)
- *     PnpCancelWatchdog @ 0x1409DE054 (PnpCancelWatchdog.c)
+ *     PnpWatchdogFirstChanceCallback @ 0x1407A6400 (PnpWatchdogFirstChanceCallback.c)
+ *     PnpCancelWatchdog @ 0x140A1B180 (PnpCancelWatchdog.c)
  * Callees:
- *     PnpRecordBlackboxPnpEventWorkerInformation @ 0x1409DE344 (PnpRecordBlackboxPnpEventWorkerInformation.c)
- *     PnpRecordBlackboxDeviceCompletionQueueInformation @ 0x140AEFC6C (PnpRecordBlackboxDeviceCompletionQueueInformation.c)
- *     PnpRecordBlackboxDelayedRemoveWorkerInformation @ 0x140B561C0 (PnpRecordBlackboxDelayedRemoveWorkerInformation.c)
+ *     PnpRecordBlackboxPnpEventWorkerInformation @ 0x140A1B470 (PnpRecordBlackboxPnpEventWorkerInformation.c)
+ *     PnpRecordBlackboxDeviceCompletionQueueInformation @ 0x140AF2830 (PnpRecordBlackboxDeviceCompletionQueueInformation.c)
+ *     PnpRecordBlackboxDelayedRemoveWorkerInformation @ 0x140B58EC0 (PnpRecordBlackboxDelayedRemoveWorkerInformation.c)
  */
 
 __int64 __fastcall PnpRecordBlackbox(__int64 a1, int a2)

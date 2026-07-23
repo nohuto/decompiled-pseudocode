@@ -1,14 +1,14 @@
 /*
- * XREFs of KiUnparkCurrentProcessor @ 0x14042C4D0
+ * XREFs of KiUnparkCurrentProcessor @ 0x140420BA0
  * Callers:
- *     KeTransitionProcessorParkState @ 0x14042C1D0 (KeTransitionProcessorParkState.c)
+ *     KeTransitionProcessorParkState @ 0x1404208A0 (KeTransitionProcessorParkState.c)
  * Callees:
- *     KiSendHeteroRescheduleIntRequest @ 0x14021E410 (KiSendHeteroRescheduleIntRequest.c)
- *     KiAdjustReadyQueueScanOwnerOnParkingChange @ 0x14022AB98 (KiAdjustReadyQueueScanOwnerOnParkingChange.c)
- *     KiReleasePrcbLocksForIsolationUnit @ 0x140237A80 (KiReleasePrcbLocksForIsolationUnit.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KiUpdateThreadPriority @ 0x14037EAA0 (KiUpdateThreadPriority.c)
- *     EtwTraceParkTransition @ 0x1406C4C6C (EtwTraceParkTransition.c)
+ *     KiSendHeteroRescheduleIntRequest @ 0x14021FDA0 (KiSendHeteroRescheduleIntRequest.c)
+ *     KiAdjustReadyQueueScanOwnerOnParkingChange @ 0x14022C528 (KiAdjustReadyQueueScanOwnerOnParkingChange.c)
+ *     KiReleasePrcbLocksForIsolationUnit @ 0x1402393E0 (KiReleasePrcbLocksForIsolationUnit.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiUpdateThreadPriority @ 0x140380850 (KiUpdateThreadPriority.c)
+ *     EtwTraceParkTransition @ 0x1406C88AC (EtwTraceParkTransition.c)
  */
 
 char __fastcall KiUnparkCurrentProcessor(__int64 a1, __int64 a2, __int64 *a3, unsigned int a4, unsigned int a5)
@@ -48,7 +48,7 @@ char __fastcall KiUnparkCurrentProcessor(__int64 a1, __int64 a2, __int64 *a3, un
   result = KiReleasePrcbLocksForIsolationUnit(a3);
   if ( v15 && !KeHeteroSystemVirtual && KeHeteroSystem )
     result = KiSendHeteroRescheduleIntRequest((_QWORD *)a1);
-  if ( (WORD2(xmmword_140FBFC10) & 0x2000) != 0 )
+  if ( (WORD2(xmmword_140FC0C10) & 0x2000) != 0 )
     return EtwTraceParkTransition(a1, a5, a4);
   return result;
 }

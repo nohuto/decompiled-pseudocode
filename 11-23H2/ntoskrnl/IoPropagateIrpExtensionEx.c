@@ -1,11 +1,11 @@
 /*
- * XREFs of IoPropagateIrpExtensionEx @ 0x140290620
+ * XREFs of IoPropagateIrpExtensionEx @ 0x1402908B0
  * Callers:
- *     IoPropagateIrpExtension @ 0x140290600 (IoPropagateIrpExtension.c)
+ *     IoPropagateIrpExtension @ 0x140290890 (IoPropagateIrpExtension.c)
  * Callees:
- *     IopSetDiskIoAttributionExtension @ 0x140290350 (IopSetDiskIoAttributionExtension.c)
- *     IopAllocateIrpExtension @ 0x14029080C (IopAllocateIrpExtension.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     IopSetDiskIoAttributionExtension @ 0x1402905E0 (IopSetDiskIoAttributionExtension.c)
+ *     IopAllocateIrpExtension @ 0x140290A9C (IopAllocateIrpExtension.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall IoPropagateIrpExtensionEx(__int64 a1, __int64 a2, __int64 a3, char a4)

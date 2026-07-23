@@ -1,20 +1,20 @@
 /*
- * XREFs of PipApplyFunctionToServiceInstances @ 0x140722AC0
+ * XREFs of PipApplyFunctionToServiceInstances @ 0x140720650
  * Callers:
- *     IopInitializeBootDrivers @ 0x140C1E4C4 (IopInitializeBootDrivers.c)
- *     PipInitializeCoreDriversByGroup @ 0x140C6351C (PipInitializeCoreDriversByGroup.c)
+ *     IopInitializeBootDrivers @ 0x140C20504 (IopInitializeBootDrivers.c)
+ *     PipInitializeCoreDriversByGroup @ 0x140C65698 (PipInitializeCoreDriversByGroup.c)
  * Callees:
- *     ZwClose @ 0x1406A65F0 (ZwClose.c)
- *     ZwEnumerateValueKey @ 0x1406A6670 (ZwEnumerateValueKey.c)
- *     PnpUnicodeStringToWstrFree @ 0x1408B7510 (PnpUnicodeStringToWstrFree.c)
- *     _CmOpenDeviceRegKey @ 0x1408C6880 (_CmOpenDeviceRegKey.c)
- *     PipOpenServiceEnumKeys @ 0x1409CAB04 (PipOpenServiceEnumKeys.c)
- *     IopGetRegistryValue @ 0x1409CAD5C (IopGetRegistryValue.c)
- *     PnpUnicodeStringToWstr @ 0x1409D52F0 (PnpUnicodeStringToWstr.c)
- *     PnpRegSzToString @ 0x140A48EA0 (PnpRegSzToString.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
- *     PipAddDevicesToBootDriverWorker @ 0x140C2022C (PipAddDevicesToBootDriverWorker.c)
+ *     ZwClose @ 0x1406A7590 (ZwClose.c)
+ *     ZwEnumerateValueKey @ 0x1406A7610 (ZwEnumerateValueKey.c)
+ *     PnpUnicodeStringToWstrFree @ 0x1408B4E80 (PnpUnicodeStringToWstrFree.c)
+ *     _CmOpenDeviceRegKey @ 0x1408C42B0 (_CmOpenDeviceRegKey.c)
+ *     PipOpenServiceEnumKeys @ 0x1409B5D44 (PipOpenServiceEnumKeys.c)
+ *     IopGetRegistryValue @ 0x1409B5F9C (IopGetRegistryValue.c)
+ *     PnpUnicodeStringToWstr @ 0x1409C5120 (PnpUnicodeStringToWstr.c)
+ *     PnpRegSzToString @ 0x140A3FBB8 (PnpRegSzToString.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
+ *     PipAddDevicesToBootDriverWorker @ 0x140C2226C (PipAddDevicesToBootDriverWorker.c)
  */
 
 __int64 __fastcall PipApplyFunctionToServiceInstances(
@@ -62,7 +62,7 @@ __int64 __fastcall PipApplyFunctionToServiceInstances(
   ExFreePoolWithTag(0LL, 0);
   if ( !v8 )
     goto LABEL_22;
-  Pool2 = (_DWORD *)ExAllocatePool2(0x100uLL);
+  Pool2 = (_DWORD *)ExAllocatePool2(0x100uLL, 0x200uLL, 0x20207050u);
   if ( !Pool2 )
   {
     RegistryValue = -1073741670;

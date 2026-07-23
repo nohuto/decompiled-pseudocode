@@ -1,23 +1,23 @@
 /*
- * XREFs of TppSetTimer @ 0x180069440
+ * XREFs of TppSetTimer @ 0x180089890
  * Callers:
- *     TpSetWaitEx @ 0x18004F8E0 (TpSetWaitEx.c)
- *     TpSetTimerEx @ 0x180069020 (TpSetTimerEx.c)
- *     TppSetupNextWait @ 0x1800C9CF0 (TppSetupNextWait.c)
+ *     TpSetWaitEx @ 0x180039E60 (TpSetWaitEx.c)
+ *     TpSetTimerEx @ 0x180089470 (TpSetTimerEx.c)
+ *     TppSetupNextWait @ 0x1800C7470 (TppSetupNextWait.c)
  * Callees:
- *     RtlNtStatusToDosErrorNoTeb @ 0x180019AA0 (RtlNtStatusToDosErrorNoTeb.c)
- *     RtlAcquireSRWLockExclusive @ 0x18003F4D0 (RtlAcquireSRWLockExclusive.c)
- *     RtlReleaseSRWLockExclusive @ 0x18003FAA0 (RtlReleaseSRWLockExclusive.c)
- *     RtlSetLastWin32Error @ 0x180056610 (RtlSetLastWin32Error.c)
- *     TppUpdateSubQueueTimer @ 0x180068BA0 (TppUpdateSubQueueTimer.c)
- *     NtTraceEvent @ 0x18015FAF0 (NtTraceEvent.c)
- *     __security_check_cookie @ 0x180162C90 (__security_check_cookie.c)
+ *     RtlNtStatusToDosErrorNoTeb @ 0x180004B80 (RtlNtStatusToDosErrorNoTeb.c)
+ *     RtlAcquireSRWLockExclusive @ 0x180029A40 (RtlAcquireSRWLockExclusive.c)
+ *     RtlReleaseSRWLockExclusive @ 0x18002A010 (RtlReleaseSRWLockExclusive.c)
+ *     RtlSetLastWin32Error @ 0x180040B90 (RtlSetLastWin32Error.c)
+ *     TppUpdateSubQueueTimer @ 0x180088FF0 (TppUpdateSubQueueTimer.c)
+ *     NtTraceEvent @ 0x18015F9F0 (NtTraceEvent.c)
+ *     __security_check_cookie @ 0x180162B90 (__security_check_cookie.c)
  */
 
-struct _TEB *__fastcall TppSetTimer(__int64 a1, volatile signed __int64 *a2, __int64 *a3, int a4, unsigned int a5)
+void __fastcall TppSetTimer(__int64 a1, _RTL_SRWLOCK *a2, __int64 *a3, int a4, int a5)
 {
   __int64 v5; // rax
-  __int64 v7; // rdx
+  int v7; // edx
   __int64 *v9; // rbx
   __int64 v11; // rbp
   _BYTE *v12; // r12
@@ -43,17 +43,17 @@ struct _TEB *__fastcall TppSetTimer(__int64 a1, volatile signed __int64 *a2, __i
   __int64 v32; // rcx
   _QWORD *v33; // r8
   __int64 v34; // r9
-  unsigned int v36; // eax
-  char v37; // [rsp+20h] [rbp-A8h]
-  _DWORD v38[2]; // [rsp+30h] [rbp-98h] BYREF
-  __int64 v39; // [rsp+38h] [rbp-90h]
-  __int128 v40; // [rsp+40h] [rbp-88h]
-  __int64 v41; // [rsp+50h] [rbp-78h]
-  __int64 v42; // [rsp+58h] [rbp-70h]
-  __int64 v43; // [rsp+60h] [rbp-68h]
-  int v44; // [rsp+68h] [rbp-60h]
-  int v45; // [rsp+6Ch] [rbp-5Ch]
-  int v46; // [rsp+70h] [rbp-58h]
+  LONG v35; // eax
+  char v36; // [rsp+20h] [rbp-A8h]
+  _DWORD Fields[2]; // [rsp+30h] [rbp-98h] BYREF
+  __int64 v38; // [rsp+38h] [rbp-90h]
+  __int128 v39; // [rsp+40h] [rbp-88h]
+  __int64 v40; // [rsp+50h] [rbp-78h]
+  __int64 v41; // [rsp+58h] [rbp-70h]
+  __int64 v42; // [rsp+60h] [rbp-68h]
+  int v43; // [rsp+68h] [rbp-60h]
+  int v44; // [rsp+6Ch] [rbp-5Ch]
+  int v45; // [rsp+70h] [rbp-58h]
 
   v5 = *a3;
   v7 = a5;
@@ -64,26 +64,26 @@ struct _TEB *__fastcall TppSetTimer(__int64 a1, volatile signed __int64 *a2, __i
   {
     v12 = (_BYTE *)(a1 + 354);
     *(_BYTE *)(a1 + 354) |= 2u;
-    v11 = (__int64)(a2 + 1);
+    v11 = (__int64)&a2[1];
     v13 = *a3;
-    v37 = 1;
+    v36 = 1;
     *v9 = *a3;
     if ( !v13 )
     {
       v13 = 1LL;
-      v37 = 1;
+      v36 = 1;
       *v9 = 1LL;
     }
   }
   else
   {
-    v37 = 0;
-    v11 = (__int64)(a2 + 16);
+    v36 = 0;
+    v11 = (__int64)&a2[16];
     if ( a1 == -328 )
     {
-      v36 = RtlNtStatusToDosErrorNoTeb(0xC000000D);
-      RtlSetLastWin32Error(v36);
-      v37 = 0;
+      v35 = RtlNtStatusToDosErrorNoTeb(-1073741811);
+      RtlSetLastWin32Error(v35);
+      v36 = 0;
     }
     else
     {
@@ -94,7 +94,7 @@ struct _TEB *__fastcall TppSetTimer(__int64 a1, volatile signed __int64 *a2, __i
     if ( v13 < *v9 )
       v13 = 0x7FFFFFFFFFFFFFFFLL;
     *v9 = v13;
-    v7 = *(unsigned int *)(a1 + 344);
+    v7 = *(_DWORD *)(a1 + 344);
   }
   v14 = 2147353478LL;
   SharedData = NtCurrentPeb()->SharedData;
@@ -104,28 +104,28 @@ struct _TEB *__fastcall TppSetTimer(__int64 a1, volatile signed __int64 *a2, __i
   }
   else
   {
-    v7 = *(unsigned int *)(a1 + 344);
+    v7 = *(_DWORD *)(a1 + 344);
     v16 = 2147353478LL;
   }
   if ( *(_BYTE *)v16 )
   {
-    v38[1] = 472514560;
-    v38[0] = 0;
-    v39 = 0LL;
-    v44 = *(_DWORD *)(a1 + 348);
+    Fields[1] = 472514560;
+    Fields[0] = 0;
+    v38 = 0LL;
+    v43 = *(_DWORD *)(a1 + 348);
     v17 = ((unsigned __int8)*v12 >> 1) & 1;
-    v40 = 0LL;
-    v46 = v17;
-    v42 = v11;
-    v43 = a1;
-    v41 = v13;
-    v45 = v7;
+    v39 = 0LL;
+    v45 = v17;
+    v41 = v11;
+    v42 = a1;
+    v40 = v13;
+    v44 = v7;
     v18 = NtCurrentPeb()->SharedData;
     if ( v18 && *v18 )
       v14 = (__int64)NtCurrentPeb()->SharedData + 556;
-    NtTraceEvent(*(unsigned __int8 *)v14, 132098LL, 36LL, v38);
+    NtTraceEvent((HANDLE)*(unsigned __int8 *)v14, 0x20402u, 0x24u, Fields);
   }
-  RtlAcquireSRWLockExclusive(a2, v7);
+  RtlAcquireSRWLockExclusive(a2);
   v19 = *v9;
   v20 = (_QWORD *)(a1 + 288);
   v21 = *(unsigned int *)(a1 + 344);
@@ -201,6 +201,6 @@ LABEL_31:
 LABEL_32:
   *v12 |= 1u;
   *(_BYTE *)(a1 + 352) = 1;
-  TppUpdateSubQueueTimer(v11, v37);
-  return RtlReleaseSRWLockExclusive(a2);
+  TppUpdateSubQueueTimer(v11, v36);
+  RtlReleaseSRWLockExclusive(a2);
 }

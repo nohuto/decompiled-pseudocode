@@ -1,9 +1,9 @@
 /*
- * XREFs of KiIntSteerCalculateUniformDistribution @ 0x1404CABD8
+ * XREFs of KiIntSteerCalculateUniformDistribution @ 0x1404C4608
  * Callers:
- *     KiIntSteerCalculateDistribution @ 0x140254FB0 (KiIntSteerCalculateDistribution.c)
+ *     KiIntSteerCalculateDistribution @ 0x140256910 (KiIntSteerCalculateDistribution.c)
  * Callees:
- *     KiIntPartGetLowestClassProcessorInMask @ 0x140255408 (KiIntPartGetLowestClassProcessorInMask.c)
+ *     KiIntPartGetLowestClassProcessorInMask @ 0x140256D68 (KiIntPartGetLowestClassProcessorInMask.c)
  */
 
 unsigned __int64 __fastcall KiIntSteerCalculateUniformDistribution(_QWORD **a1, __int64 *a2)
@@ -43,8 +43,7 @@ unsigned __int64 __fastcall KiIntSteerCalculateUniformDistribution(_QWORD **a1, 
         else
           LowestClassProcessorInMask = -1;
       }
-      v10 = *(_DWORD *)(*(_QWORD *)&KiSupervisorXStateFeaturesLock.WaitBlockFill11[112]
-                      + 4LL * LowestClassProcessorInMask);
+      v10 = *((_DWORD *)&KiSupervisorXStateFeaturesLock.SchedulerApc.Thread->Header.Lock + LowestClassProcessorInMask);
       i &= ~(1LL << (v10 & 0x3F));
       *(_DWORD *)((char *)v3 - 22) = 0;
       *((_WORD *)v3 - 9) = 0;

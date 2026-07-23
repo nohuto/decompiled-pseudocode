@@ -36,7 +36,7 @@ unsigned __int64 __fastcall RtlpHpSegMgrVaCtxFree(__int64 a1, __int64 a2, _QWORD
   unsigned int SessionId; // r8d
   unsigned __int8 v21; // si
   unsigned int v22; // edx
-  unsigned __int64 v23; // rdi
+  __int64 v23; // rdi
   bool v24; // zf
   __int64 v25; // rcx
   __int64 v26; // rdx
@@ -139,7 +139,7 @@ unsigned __int64 __fastcall RtlpHpSegMgrVaCtxFree(__int64 a1, __int64 a2, _QWORD
       v24 = !_BitScanReverse((unsigned int *)&v25, v22);
       if ( v24 )
         goto LABEL_25;
-      v23 = (unsigned __int64)&CurrentThread->LockEntries[v25];
+      v23 = (__int64)&CurrentThread->LockEntries[v25];
       v22 &= ~(1 << v25);
       if ( (*(_BYTE *)(v23 + 26) & 1) != 0
         && (*(_DWORD *)(v23 + 32) & 1) == 0
@@ -160,12 +160,12 @@ LABEL_25:
     }
     *(_BYTE *)(v23 + 32) |= 2u;
     if ( *(__int64 *)(v23 + 32) < 0 )
-      KiAbEntryRemoveFromTree(v23);
+      KiAbEntryRemoveFromTree((PRTL_BALANCED_NODE)v23);
     v34 = *(_DWORD *)(v23 + 88) & 0x1FFFF;
     *(_DWORD *)(v23 + 88) &= 0xFFFE0000;
     *(_BYTE *)(v23 + 25) &= ~1u;
     *(_QWORD *)(v23 + 32) = 0LL;
-    v26 = (__int64)(v23 - (unsigned __int64)CurrentThread->LockEntries) / 96;
+    v26 = (signed __int64)(v23 - (unsigned __int64)CurrentThread->LockEntries) / 96;
     if ( v21 == 1 )
       CurrentThread->AbEntrySummary |= 1 << v26;
     else

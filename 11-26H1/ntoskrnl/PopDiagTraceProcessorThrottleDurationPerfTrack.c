@@ -1,12 +1,12 @@
 /*
- * XREFs of PopDiagTraceProcessorThrottleDurationPerfTrack @ 0x140609114
+ * XREFs of PopDiagTraceProcessorThrottleDurationPerfTrack @ 0x14060BCD4
  * Callers:
- *     PpmRegisterPerfCap @ 0x14044DCE0 (PpmRegisterPerfCap.c)
+ *     PpmRegisterPerfCap @ 0x140445E10 (PpmRegisterPerfCap.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     RtlStringCchPrintfExW @ 0x14044E030 (RtlStringCchPrintfExW.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     RtlStringCchPrintfExW @ 0x140446160 (RtlStringCchPrintfExW.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 char __fastcall PopDiagTraceProcessorThrottleDurationPerfTrack(int a1, ULONG a2)
@@ -28,11 +28,9 @@ char __fastcall PopDiagTraceProcessorThrottleDurationPerfTrack(int a1, ULONG a2)
   LOBYTE(v3) = aProcessor99999[20];
   pcchRemaining = 0LL;
   wcscpy(pszDest, L"Processor 9999999999");
-  if ( byte_140E67628 )
+  if ( PopDiagHandleRegistered )
   {
-    LOBYTE(v3) = EtwEventEnabled(
-                   *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-                   &POP_ETW_EVENT_THERMAL_DURATION_PERFTRACK);
+    LOBYTE(v3) = EtwEventEnabled(PopDiagHandle, &POP_ETW_EVENT_THERMAL_DURATION_PERFTRACK);
     if ( (_BYTE)v3 )
     {
       UserDataCount = a2;
@@ -48,7 +46,7 @@ char __fastcall PopDiagTraceProcessorThrottleDurationPerfTrack(int a1, ULONG a2)
         v10 = 2LL;
         v13 = 0;
         LOBYTE(v3) = EtwWriteEx(
-                       *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
+                       PopDiagHandle,
                        &POP_ETW_EVENT_THERMAL_DURATION_PERFTRACK,
                        0LL,
                        0,

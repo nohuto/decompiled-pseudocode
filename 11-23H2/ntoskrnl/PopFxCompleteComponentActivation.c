@@ -1,13 +1,13 @@
 /*
- * XREFs of PopFxCompleteComponentActivation @ 0x140312EFC
+ * XREFs of PopFxCompleteComponentActivation @ 0x14031318C
  * Callers:
- *     PopFxActivateComponentWorker @ 0x140312420 (PopFxActivateComponentWorker.c)
- *     PopFxProcessWork @ 0x140312634 (PopFxProcessWork.c)
- *     PopFxIdleWorkerTail @ 0x140312CB8 (PopFxIdleWorkerTail.c)
+ *     PopFxActivateComponentWorker @ 0x1403126B0 (PopFxActivateComponentWorker.c)
+ *     PopFxProcessWork @ 0x1403128C4 (PopFxProcessWork.c)
+ *     PopFxIdleWorkerTail @ 0x140312F48 (PopFxIdleWorkerTail.c)
  * Callees:
- *     KeSetEvent @ 0x14023C5E0 (KeSetEvent.c)
- *     PopFxIdleComponent @ 0x140312FC0 (PopFxIdleComponent.c)
- *     PopFxActivateComponentDependents @ 0x14031475C (PopFxActivateComponentDependents.c)
+ *     KeSetEvent @ 0x14023C6B0 (KeSetEvent.c)
+ *     PopFxIdleComponent @ 0x140313250 (PopFxIdleComponent.c)
+ *     PopFxActivateComponentDependents @ 0x1403149EC (PopFxActivateComponentDependents.c)
  */
 
 LONG __fastcall PopFxCompleteComponentActivation(ULONG_PTR BugCheckParameter2, __int64 a2, char a3)

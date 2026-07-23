@@ -1,15 +1,15 @@
 /*
- * XREFs of SymCryptRsakeyCreate @ 0x14055A0C8
+ * XREFs of SymCryptRsakeyCreate @ 0x14055C5E0
  * Callers:
- *     SymCryptRsakeyAllocate @ 0x140559884 (SymCryptRsakeyAllocate.c)
- *     HashpVerifyPkcs1Signature @ 0x1408ABEDC (HashpVerifyPkcs1Signature.c)
+ *     SymCryptRsakeyAllocate @ 0x14055BD14 (SymCryptRsakeyAllocate.c)
+ *     HashpVerifyPkcs1Signature @ 0x1408B2320 (HashpVerifyPkcs1Signature.c)
  * Callees:
- *     SymCryptWipe @ 0x140556458 (SymCryptWipe.c)
- *     SymCryptSizeofRsakeyFromParams @ 0x14055ABE4 (SymCryptSizeofRsakeyFromParams.c)
- *     SymCryptDigitsFromBits @ 0x14055C0D0 (SymCryptDigitsFromBits.c)
- *     SymCryptModulusCreate @ 0x14055C978 (SymCryptModulusCreate.c)
- *     SymCryptSizeofIntFromDigits @ 0x14055C9A8 (SymCryptSizeofIntFromDigits.c)
- *     SymCryptSizeofModulusFromDigits @ 0x14055C9D8 (SymCryptSizeofModulusFromDigits.c)
+ *     SymCryptWipe @ 0x1405588E8 (SymCryptWipe.c)
+ *     SymCryptSizeofRsakeyFromParams @ 0x14055D0F8 (SymCryptSizeofRsakeyFromParams.c)
+ *     SymCryptDigitsFromBits @ 0x14055E5B8 (SymCryptDigitsFromBits.c)
+ *     SymCryptModulusCreate @ 0x14055EE60 (SymCryptModulusCreate.c)
+ *     SymCryptSizeofIntFromDigits @ 0x14055EE90 (SymCryptSizeofIntFromDigits.c)
+ *     SymCryptSizeofModulusFromDigits @ 0x14055EEC0 (SymCryptSizeofModulusFromDigits.c)
  */
 
 __int64 __fastcall SymCryptRsakeyCreate(__int64 a1, unsigned __int64 a2, unsigned int *a3)

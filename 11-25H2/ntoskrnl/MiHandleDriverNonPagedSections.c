@@ -22,7 +22,7 @@ __int64 __fastcall MiHandleDriverNonPagedSections(__int64 a1, char a2)
   unsigned int v5; // esi
   ULONG v6; // ebp
   volatile signed __int64 *v7; // r15
-  RTL_BITMAP *ExtendedLoaderBitmap; // r14
+  _RTL_BITMAP *ExtendedLoaderBitmap; // r14
   __int64 v9; // r13
   ULONG SetBits; // eax
   ULONG v11; // ebx
@@ -81,7 +81,7 @@ LABEL_20:
   LODWORD(v25) = 1;
   v6 = 0;
   v7 = 0LL;
-  ExtendedLoaderBitmap = (RTL_BITMAP *)MiGetExtendedLoaderBitmap(a1);
+  ExtendedLoaderBitmap = (_RTL_BITMAP *)MiGetExtendedLoaderBitmap(a1);
   while ( 1 )
   {
     LODWORD(StartingRunIndex) = 0;

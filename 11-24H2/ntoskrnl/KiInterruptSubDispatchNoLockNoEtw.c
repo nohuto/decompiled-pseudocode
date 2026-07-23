@@ -1,11 +1,11 @@
 /*
- * XREFs of KiInterruptSubDispatchNoLockNoEtw @ 0x1406ACDF0
+ * XREFs of KiInterruptSubDispatchNoLockNoEtw @ 0x1406ADD90
  * Callers:
- *     KiInterruptDispatchNoLockNoEtw @ 0x1406AD610 (KiInterruptDispatchNoLockNoEtw.c)
+ *     KiInterruptDispatchNoLockNoEtw @ 0x1406AE5B0 (KiInterruptDispatchNoLockNoEtw.c)
  * Callees:
- *     KiCallInterruptServiceRoutine @ 0x14033B0A0 (KiCallInterruptServiceRoutine.c)
- *     KiStartInterruptCycleAccumulation @ 0x14034C150 (KiStartInterruptCycleAccumulation.c)
- *     KzSetIrqlUnsafe @ 0x1405B7800 (KzSetIrqlUnsafe.c)
+ *     KiCallInterruptServiceRoutine @ 0x14031A580 (KiCallInterruptServiceRoutine.c)
+ *     KiStartInterruptCycleAccumulation @ 0x14036A630 (KiStartInterruptCycleAccumulation.c)
+ *     KzSetIrqlUnsafe @ 0x1405B4DD0 (KzSetIrqlUnsafe.c)
  */
 
 char __fastcall KiInterruptSubDispatchNoLockNoEtw()
@@ -14,8 +14,7 @@ char __fastcall KiInterruptSubDispatchNoLockNoEtw()
   struct _KINTERRUPT *v1; // rsi
   unsigned __int64 SynchronizeIrql; // rcx
   unsigned __int8 CurrentIrql; // al
-  signed __int32 *v4; // r8
-  __int64 v5; // r9
+  __int64 v4; // r8
   char result; // al
 
   SynchronizeIrql = v1->SynchronizeIrql;
@@ -32,7 +31,7 @@ char __fastcall KiInterruptSubDispatchNoLockNoEtw()
   KiStartInterruptCycleAccumulation((__int64)KeGetCurrentPrcb(), 1);
   _enable();
   v1->TrapFrame = (_KTRAP_FRAME *)(v0 - 128);
-  result = KiCallInterruptServiceRoutine(v1, 0, v4, v5);
+  result = KiCallInterruptServiceRoutine(v1, 0, v4);
   _disable();
   return result;
 }

@@ -1,28 +1,28 @@
 /*
- * XREFs of MiZeroLargePageThread @ 0x1403B3D10
+ * XREFs of MiZeroLargePageThread @ 0x1403B3E80
  * Callers:
  *     <none>
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14021D060 (ExAcquireSpinLockExclusive.c)
- *     ExpAcquireSpinLockExclusive @ 0x14021D170 (ExpAcquireSpinLockExclusive.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14022EE10 (KeAcquireInStackQueuedSpinLock.c)
- *     KxWaitForLockOwnerShip @ 0x14022EEA0 (KxWaitForLockOwnerShip.c)
- *     MiZeroLargePages @ 0x140232520 (MiZeroLargePages.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140287110 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     KxWaitForLockChainValid @ 0x140287190 (KxWaitForLockChainValid.c)
- *     KeSignalGate @ 0x1402C2B70 (KeSignalGate.c)
- *     MiWakeZeroingThreads @ 0x1402FF3D0 (MiWakeZeroingThreads.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     KeWaitForSingleObject @ 0x140345770 (KeWaitForSingleObject.c)
- *     MiDecrementHugeContext @ 0x140397E18 (MiDecrementHugeContext.c)
- *     MiSignalZeroingPassComplete @ 0x1403B404C (MiSignalZeroingPassComplete.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402042B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KxWaitForLockChainValid @ 0x140204330 (KxWaitForLockChainValid.c)
+ *     KeSignalGate @ 0x140241090 (KeSignalGate.c)
+ *     ExAcquireSpinLockExclusive @ 0x1402C1960 (ExAcquireSpinLockExclusive.c)
+ *     ExpAcquireSpinLockExclusive @ 0x1402C1A70 (ExpAcquireSpinLockExclusive.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402D3660 (KeAcquireInStackQueuedSpinLock.c)
+ *     KxWaitForLockOwnerShip @ 0x1402D36F0 (KxWaitForLockOwnerShip.c)
+ *     MiZeroLargePages @ 0x1402D6D70 (MiZeroLargePages.c)
+ *     MiWakeZeroingThreads @ 0x14030A120 (MiWakeZeroingThreads.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140346AD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KeWaitForSingleObject @ 0x1403504C0 (KeWaitForSingleObject.c)
+ *     MiDecrementHugeContext @ 0x140397F68 (MiDecrementHugeContext.c)
+ *     MiSignalZeroingPassComplete @ 0x1403B41BC (MiSignalZeroingPassComplete.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     KiAcquireQueuedSpinLockInstrumented @ 0x1405163CC (KiAcquireQueuedSpinLockInstrumented.c)
- *     KiReleaseQueuedSpinLockInstrumented @ 0x14051648C (KiReleaseQueuedSpinLockInstrumented.c)
- *     MiDeleteZeroThreadContext @ 0x14054FC14 (MiDeleteZeroThreadContext.c)
- *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x1405B5BA8 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
- *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x1405B5D8C (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x14051660C (KiAcquireQueuedSpinLockInstrumented.c)
+ *     KiReleaseQueuedSpinLockInstrumented @ 0x1405166CC (KiReleaseQueuedSpinLockInstrumented.c)
+ *     MiDeleteZeroThreadContext @ 0x14054FE54 (MiDeleteZeroThreadContext.c)
+ *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x1405B5DD8 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x1405B5FBC (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall MiZeroLargePageThread(_QWORD *P)
@@ -51,29 +51,29 @@ __int64 __fastcall MiZeroLargePageThread(_QWORD *P)
   _QWORD *v23; // r13
   unsigned __int8 v24; // r15
   volatile signed __int32 *v25; // rcx
-  _DWORD *v26; // r9
-  void *v27; // r8
-  struct _KPRCB *v28; // rcx
-  _DWORD *v29; // rdx
-  __int64 v30; // r8
-  _DWORD *v31; // r9
+  void *v26; // r8
+  struct _KPRCB *v27; // rcx
+  _DWORD *v28; // rdx
+  __int64 v29; // r8
+  _DWORD *v30; // r9
   unsigned __int64 OldIrql; // rbx
   unsigned __int8 CurrentIrql; // al
   struct _KPRCB *CurrentPrcb; // r10
+  int v34; // eax
   int v35; // eax
   int v36; // eax
-  int v37; // eax
-  unsigned __int8 v38; // al
-  struct _KPRCB *v39; // r10
-  int v40; // eax
-  unsigned __int8 v41; // al
-  struct _KPRCB *v42; // r10
-  _DWORD *v43; // r9
-  int v44; // eax
-  KIRQL v45; // al
-  int v46; // eax
-  unsigned __int8 v47; // al
-  struct _KPRCB *v48; // r10
+  unsigned __int8 v37; // al
+  struct _KPRCB *v38; // r10
+  int v39; // eax
+  unsigned __int8 v40; // al
+  struct _KPRCB *v41; // r10
+  _DWORD *v42; // r9
+  int v43; // eax
+  KIRQL v44; // al
+  int v45; // eax
+  unsigned __int8 v46; // al
+  struct _KPRCB *v47; // r10
+  _DWORD *v48; // r9
   int v49; // eax
   _QWORD *v50; // rbx
   __int128 v52; // [rsp+30h] [rbp-38h] BYREF
@@ -109,9 +109,9 @@ __int64 __fastcall MiZeroLargePageThread(_QWORD *P)
       if ( v10 )
       {
         KeAcquireInStackQueuedSpinLock(
-          (PKSPIN_LOCK)(qword_140C50D90 + 4544LL * *(unsigned int *)(v10 + 184) + 4304),
+          (PKSPIN_LOCK)(qword_140C50DD0 + 4544LL * *(unsigned int *)(v10 + 184) + 4304),
           &LockHandle);
-        MiDecrementHugeContext((char *)v10, (__int64)P, v30, v31);
+        MiDecrementHugeContext((char *)v10, (__int64)P, v29, v30);
         KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
         OldIrql = LockHandle.OldIrql;
         if ( KiIrqlFlags )
@@ -123,9 +123,9 @@ __int64 __fastcall MiZeroLargePageThread(_QWORD *P)
             {
               CurrentPrcb = KeGetCurrentPrcb();
               SchedulerAssist = CurrentPrcb->SchedulerAssist;
-              v35 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
-              v15 = (v35 & SchedulerAssist[5]) == 0;
-              v8 = (unsigned int)v35 & SchedulerAssist[5];
+              v34 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
+              v15 = (v34 & SchedulerAssist[5]) == 0;
+              v8 = (unsigned int)v34 & SchedulerAssist[5];
               SchedulerAssist[5] = v8;
               if ( v15 )
                 KiRemoveSystemWorkPriorityKick(CurrentPrcb);
@@ -155,9 +155,9 @@ __int64 __fastcall MiZeroLargePageThread(_QWORD *P)
     {
       if ( v12->NestingLevel <= 1u )
       {
-        v36 = v13[6];
-        v13[6] = v36 + 1;
-        if ( v36 == -1 )
+        v35 = v13[6];
+        v13[6] = v35 + 1;
+        if ( v35 == -1 )
           KiRemoveSystemWorkPriorityKick(v12);
       }
     }
@@ -198,7 +198,7 @@ __int64 __fastcall MiZeroLargePageThread(_QWORD *P)
       goto LABEL_40;
     if ( (__int128 *)_InterlockedCompareExchange64(*((volatile signed __int64 **)&v52 + 1), 0LL, (signed __int64)&v52) != &v52 )
     {
-      v17 = KxWaitForLockChainValid((__int64 *)&v52, (__int64)v14, v8, (__int64)SchedulerAssist);
+      v17 = KxWaitForLockChainValid((__int64 *)&v52);
 LABEL_40:
       *(_QWORD *)&v52 = 0LL;
       _InterlockedXor64((volatile signed __int64 *)(v17 + 8), 1uLL);
@@ -210,9 +210,9 @@ LABEL_19:
     {
       if ( v18->NestingLevel <= 1u )
       {
-        v37 = v19[6] - 1;
-        v19[6] = v37;
-        if ( !v37 )
+        v36 = v19[6] - 1;
+        v19[6] = v36;
+        if ( !v36 )
           KiRemoveSystemWorkPriorityKick(v18);
       }
     }
@@ -221,17 +221,17 @@ LABEL_19:
     {
       if ( (KiIrqlFlags & 1) != 0 )
       {
-        v38 = KeGetCurrentIrql();
-        if ( v38 <= 0xFu && (unsigned __int8)v53 <= 0xFu && v38 >= 2u )
+        v37 = KeGetCurrentIrql();
+        if ( v37 <= 0xFu && (unsigned __int8)v53 <= 0xFu && v37 >= 2u )
         {
-          v39 = KeGetCurrentPrcb();
-          SchedulerAssist = v39->SchedulerAssist;
-          v40 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v53 + 1));
-          v15 = (v40 & SchedulerAssist[5]) == 0;
-          v8 = (unsigned int)v40 & SchedulerAssist[5];
+          v38 = KeGetCurrentPrcb();
+          SchedulerAssist = v38->SchedulerAssist;
+          v39 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v53 + 1));
+          v15 = (v39 & SchedulerAssist[5]) == 0;
+          v8 = (unsigned int)v39 & SchedulerAssist[5];
           SchedulerAssist[5] = v8;
           if ( v15 )
-            KiRemoveSystemWorkPriorityKick(v39);
+            KiRemoveSystemWorkPriorityKick(v38);
         }
       }
     }
@@ -258,12 +258,12 @@ LABEL_19:
       v15 = v22[1]-- == 1LL;
       if ( v15 )
       {
-        v27 = v22;
+        v26 = v22;
         v56 = v22;
       }
       else
       {
-        v27 = 0LL;
+        v26 = 0LL;
       }
       if ( (ULONG_PTR *)v21 != &MiSystemPartition )
       {
@@ -272,50 +272,50 @@ LABEL_19:
         {
           if ( (KiIrqlFlags & 1) != 0 )
           {
-            v41 = KeGetCurrentIrql();
-            if ( v41 <= 0xFu && v24 <= 0xFu && v41 >= 2u )
+            v40 = KeGetCurrentIrql();
+            if ( v40 <= 0xFu && v24 <= 0xFu && v40 >= 2u )
             {
-              v42 = KeGetCurrentPrcb();
-              v43 = v42->SchedulerAssist;
-              v44 = ~(unsigned __int16)(-1LL << (v24 + 1));
-              v15 = (v44 & v43[5]) == 0;
-              v43[5] &= v44;
+              v41 = KeGetCurrentPrcb();
+              v42 = v41->SchedulerAssist;
+              v43 = ~(unsigned __int16)(-1LL << (v24 + 1));
+              v15 = (v43 & v42[5]) == 0;
+              v42[5] &= v43;
               if ( v15 )
-                KiRemoveSystemWorkPriorityKick(v42);
+                KiRemoveSystemWorkPriorityKick(v41);
             }
           }
         }
         __writecr8(v24);
-        v45 = ExAcquireSpinLockExclusive(&dword_140C50E48);
-        v27 = v56;
-        v24 = v45;
+        v44 = ExAcquireSpinLockExclusive(&dword_140C50E88);
+        v26 = v56;
+        v24 = v44;
       }
-      if ( !--qword_140C50DA8 )
+      if ( !--qword_140C50DE8 )
       {
-        v23 = (_QWORD *)qword_140C50DD8;
-        qword_140C50DD8 = 0LL;
+        v23 = (_QWORD *)qword_140C50E18;
+        qword_140C50E18 = 0LL;
       }
       if ( (BYTE6(PerfGlobalGroupMask) & 1) != 0 )
       {
-        ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(&dword_140C50E48, retaddr);
-        v27 = v56;
+        ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(&dword_140C50E88, retaddr);
+        v26 = v56;
       }
       else
       {
-        dword_140C50E48 = 0;
+        dword_140C50E88 = 0;
       }
-      v28 = KeGetCurrentPrcb();
-      v29 = v28->SchedulerAssist;
-      if ( v29 )
+      v27 = KeGetCurrentPrcb();
+      v28 = v27->SchedulerAssist;
+      if ( v28 )
       {
-        if ( v28->NestingLevel <= 1u )
+        if ( v27->NestingLevel <= 1u )
         {
-          v46 = v29[6] - 1;
-          v29[6] = v46;
-          if ( !v46 )
+          v45 = v28[6] - 1;
+          v28[6] = v45;
+          if ( !v45 )
           {
-            KiRemoveSystemWorkPriorityKick(v28);
-            v27 = v56;
+            KiRemoveSystemWorkPriorityKick(v27);
+            v26 = v56;
           }
         }
       }
@@ -323,17 +323,17 @@ LABEL_19:
       {
         if ( (KiIrqlFlags & 1) != 0 )
         {
-          v47 = KeGetCurrentIrql();
-          if ( v47 <= 0xFu && v24 <= 0xFu && v47 >= 2u )
+          v46 = KeGetCurrentIrql();
+          if ( v46 <= 0xFu && v24 <= 0xFu && v46 >= 2u )
           {
-            v48 = KeGetCurrentPrcb();
-            v26 = v48->SchedulerAssist;
+            v47 = KeGetCurrentPrcb();
+            v48 = v47->SchedulerAssist;
             v49 = ~(unsigned __int16)(-1LL << (v24 + 1));
-            v15 = (v49 & v26[5]) == 0;
-            v26[5] &= v49;
+            v15 = (v49 & v48[5]) == 0;
+            v48[5] &= v49;
             if ( v15 )
-              KiRemoveSystemWorkPriorityKick(v48);
-            v27 = v56;
+              KiRemoveSystemWorkPriorityKick(v47);
+            v26 = v56;
           }
         }
       }
@@ -343,14 +343,14 @@ LABEL_19:
         do
         {
           v50 = (_QWORD *)*v23;
-          KeSignalGate((__int64)(v23 + 1), 1LL, (__int64)v27, v26);
+          KeSignalGate((__int64)(v23 + 1), 1);
           v23 = v50;
         }
         while ( v50 );
-        v27 = v56;
+        v26 = v56;
       }
-      if ( v27 )
-        ExFreePoolWithTag(v27, 0);
+      if ( v26 )
+        ExFreePoolWithTag(v26, 0);
       v7 = v58;
       v1 = v57;
     }

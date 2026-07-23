@@ -1,9 +1,9 @@
 /*
- * XREFs of PopReadErrataForIncorrectLidNotification @ 0x140C32F70
+ * XREFs of PopReadErrataForIncorrectLidNotification @ 0x140C350B0
  * Callers:
- *     PoInitSystem @ 0x140C61990 (PoInitSystem.c)
+ *     PoInitSystem @ 0x140C63AE4 (PoInitSystem.c)
  * Callees:
- *     EmClientQueryRuleState @ 0x140B682E0 (EmClientQueryRuleState.c)
+ *     EmClientQueryRuleState @ 0x140B6A420 (EmClientQueryRuleState.c)
  */
 
 __int64 PopReadErrataForIncorrectLidNotification()

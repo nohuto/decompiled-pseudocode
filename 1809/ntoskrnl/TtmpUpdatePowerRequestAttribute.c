@@ -1,13 +1,13 @@
 /*
- * XREFs of TtmpUpdatePowerRequestAttribute @ 0x14088159C
+ * XREFs of TtmpUpdatePowerRequestAttribute @ 0x1408827FC
  * Callers:
- *     TtmNotifySessionPowerRequestPresent @ 0x14087FF60 (TtmNotifySessionPowerRequestPresent.c)
+ *     TtmNotifySessionPowerRequestPresent @ 0x1408811C0 (TtmNotifySessionPowerRequestPresent.c)
  * Callees:
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
  *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
- *     TtmpAcquireSessionById @ 0x140761674 (TtmpAcquireSessionById.c)
- *     TtmiLogError @ 0x1407616DC (TtmiLogError.c)
- *     TtmpFindPowerRequestEntryById @ 0x14088097C (TtmpFindPowerRequestEntryById.c)
+ *     TtmpAcquireSessionById @ 0x140762864 (TtmpAcquireSessionById.c)
+ *     TtmiLogError @ 0x1407628CC (TtmiLogError.c)
+ *     TtmpFindPowerRequestEntryById @ 0x140881BDC (TtmpFindPowerRequestEntryById.c)
  */
 
 char __fastcall TtmpUpdatePowerRequestAttribute(int a1, int a2, int a3, __int64 a4, __int64 a5, int a6)

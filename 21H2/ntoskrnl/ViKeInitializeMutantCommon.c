@@ -1,11 +1,11 @@
 /*
- * XREFs of ViKeInitializeMutantCommon @ 0x1409DBFF0
+ * XREFs of ViKeInitializeMutantCommon @ 0x1409DCFF0
  * Callers:
- *     VerifierKeInitializeMutant @ 0x1409DABD0 (VerifierKeInitializeMutant.c)
- *     VerifierKeInitializeMutantNoReboot @ 0x1409DAC30 (VerifierKeInitializeMutantNoReboot.c)
+ *     VerifierKeInitializeMutant @ 0x1409DBBD0 (VerifierKeInitializeMutant.c)
+ *     VerifierKeInitializeMutantNoReboot @ 0x1409DBC30 (VerifierKeInitializeMutantNoReboot.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     VfUtilSynchronizationObjectSanityChecks @ 0x1409C6B0C (VfUtilSynchronizationObjectSanityChecks.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     VfUtilSynchronizationObjectSanityChecks @ 0x1409C7B0C (VfUtilSynchronizationObjectSanityChecks.c)
  */
 
 __int64 __fastcall ViKeInitializeMutantCommon(void *a1, char a2)

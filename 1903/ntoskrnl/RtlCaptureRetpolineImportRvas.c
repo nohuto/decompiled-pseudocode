@@ -16,6 +16,7 @@ __int64 __fastcall RtlCaptureRetpolineImportRvas(
         _DWORD *a5,
         unsigned int *a6)
 {
+  __int64 v7; // rbp
   NTSTATUS v9; // eax
   __int64 *v10; // rsi
   unsigned int v11; // ebx
@@ -27,15 +28,20 @@ __int64 __fastcall RtlCaptureRetpolineImportRvas(
   int v18; // r15d
   unsigned int v20; // [rsp+30h] [rbp-38h] BYREF
   __int64 *v21; // [rsp+38h] [rbp-30h] BYREF
+  __int64 v22; // [rsp+78h] [rbp+10h]
 
-  v9 = RtlpImageDirectoryEntryToDataEx(a1, 1, 0xCu, (int)&v20, &v21);
+  v22 = a2;
+  v7 = a3;
+  LOWORD(a3) = 12;
+  LOBYTE(a2) = 1;
+  v9 = RtlpImageDirectoryEntryToDataEx(a1, a2, a3, (__int64)&v20, &v21);
   v10 = v21;
   v11 = 0;
   if ( v9 < 0 )
     v10 = 0LL;
   if ( v10 )
   {
-    if ( (unsigned __int64)v10 + v20 > a1 + a3 )
+    if ( (unsigned __int64)v10 + v20 > a1 + v7 )
     {
       return (unsigned int)-1073741701;
     }
@@ -57,8 +63,8 @@ __int64 __fastcall RtlCaptureRetpolineImportRvas(
           v17 = *v10;
           if ( *v10 )
           {
-            v18 = v17 - a2;
-            if ( (unsigned __int64)(v17 - a2 + 0x80000000LL) <= 0xFFFFFFFF && (!a4 || a4()) )
+            v18 = v17 - v22;
+            if ( (unsigned __int64)(v17 - v22 + 0x80000000LL) <= 0xFFFFFFFF && (!a4 || a4()) )
               *a5 = v18;
           }
           ++v10;

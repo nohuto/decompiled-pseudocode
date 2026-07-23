@@ -1,23 +1,23 @@
 /*
- * XREFs of IvtAttachDeviceDomainInternal @ 0x1405A5968
+ * XREFs of IvtAttachDeviceDomainInternal @ 0x1405A8178
  * Callers:
- *     IvtAttachDeviceDomain @ 0x1405A5950 (IvtAttachDeviceDomain.c)
- *     IvtDetachDeviceDomain @ 0x1405A5FE0 (IvtDetachDeviceDomain.c)
+ *     IvtAttachDeviceDomain @ 0x1405A8160 (IvtAttachDeviceDomain.c)
+ *     IvtDetachDeviceDomain @ 0x1405A87F0 (IvtDetachDeviceDomain.c)
  * Callees:
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x1402B4630 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402B9F90 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     HalpReleaseHighLevelLock @ 0x1402C4DEC (HalpReleaseHighLevelLock.c)
- *     HalpAcquireHighLevelLock @ 0x140426EEC (HalpAcquireHighLevelLock.c)
- *     IvtFlushTbInternal @ 0x14042706C (IvtFlushTbInternal.c)
- *     IvtAllocateTranslationStructures @ 0x140509968 (IvtAllocateTranslationStructures.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     IvtUpdateTranslationStructures @ 0x140528FA8 (IvtUpdateTranslationStructures.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     IvtBuildDefaultDomain @ 0x1405A5C80 (IvtBuildDefaultDomain.c)
- *     IvtFreeScalableModePasidTables @ 0x1405A65F4 (IvtFreeScalableModePasidTables.c)
- *     IvtGetDomainId @ 0x1405A6750 (IvtGetDomainId.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x1402FF300 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140304C50 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     HalpReleaseHighLevelLock @ 0x14030FAAC (HalpReleaseHighLevelLock.c)
+ *     HalpAcquireHighLevelLock @ 0x140433FFC (HalpAcquireHighLevelLock.c)
+ *     IvtFlushTbInternal @ 0x14043417C (IvtFlushTbInternal.c)
+ *     IvtAllocateTranslationStructures @ 0x140503418 (IvtAllocateTranslationStructures.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     IvtUpdateTranslationStructures @ 0x14052B598 (IvtUpdateTranslationStructures.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     IvtBuildDefaultDomain @ 0x1405A8490 (IvtBuildDefaultDomain.c)
+ *     IvtFreeScalableModePasidTables @ 0x1405A8E04 (IvtFreeScalableModePasidTables.c)
+ *     IvtGetDomainId @ 0x1405A8F60 (IvtGetDomainId.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall IvtAttachDeviceDomainInternal(__int64 a1, __int64 a2, _BYTE *a3)

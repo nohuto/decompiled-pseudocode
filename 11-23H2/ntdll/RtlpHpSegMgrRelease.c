@@ -7,20 +7,20 @@
  *     RtlpHpSegMgrCommit @ 0x180047080 (RtlpHpSegMgrCommit.c)
  *     RtlpHpFreeVA @ 0x180047764 (RtlpHpFreeVA.c)
  *     RtlpHpQueryVA @ 0x18006462C (RtlpHpQueryVA.c)
- *     RtlpHpSegMgrVaCtxFree @ 0x180123B58 (RtlpHpSegMgrVaCtxFree.c)
+ *     RtlpHpSegMgrVaCtxFree @ 0x180123B28 (RtlpHpSegMgrVaCtxFree.c)
  */
 
-char __fastcall RtlpHpSegMgrRelease(__int64 a1, unsigned __int64 a2, int a3)
+char __fastcall RtlpHpSegMgrRelease(__int64 a1, __int64 a2, int a3)
 {
-  __int64 v4; // rbx
-  unsigned __int64 v5; // rcx
-  unsigned __int64 v6; // rax
+  signed __int64 v4; // rbx
+  ULONG_PTR v5; // rcx
+  ULONG_PTR v6; // rax
   _WORD *v7; // rbx
   unsigned int v8; // esi
   unsigned __int64 v9; // r14
   __int128 v11; // [rsp+40h] [rbp-10h] BYREF
   unsigned __int64 v12; // [rsp+80h] [rbp+30h] BYREF
-  unsigned __int64 v13; // [rsp+88h] [rbp+38h] BYREF
+  ULONG_PTR v13; // [rsp+88h] [rbp+38h] BYREF
   _WORD *v14; // [rsp+98h] [rbp+48h] BYREF
 
   v12 = a2;
@@ -34,7 +34,7 @@ LABEL_2:
     if ( v4 )
     {
       v11 = *(_OWORD *)(a1 + 40);
-      LOBYTE(v6) = RtlpHpFreeVA(&v12, &v13, 0x8000, &v11);
+      LOBYTE(v6) = RtlpHpFreeVA((PVOID *)&v12, &v13, 0x8000, &v11);
     }
     return v6;
   }

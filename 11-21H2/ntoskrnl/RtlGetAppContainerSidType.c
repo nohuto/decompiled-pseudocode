@@ -1,41 +1,41 @@
 /*
  * XREFs of RtlGetAppContainerSidType @ 0x140696D90
  * Callers:
- *     SepValidateReferencedCachedHandles @ 0x140696944 (SepValidateReferencedCachedHandles.c)
- *     NtCreateLowBoxToken @ 0x14078DDF0 (NtCreateLowBoxToken.c)
+ *     sub_140696944 @ 0x140696944 (sub_140696944.c)
+ *     sub_14078DDF0 @ 0x14078DDF0 (sub_14078DDF0.c)
  *     RtlGetAppContainerParent @ 0x1409B8FF0 (RtlGetAppContainerParent.c)
- *     RtlIsParentOfChildAppContainer @ 0x1409B9218 (RtlIsParentOfChildAppContainer.c)
- *     RtlpGetTokenNamedObjectPath @ 0x1409B9B50 (RtlpGetTokenNamedObjectPath.c)
+ *     sub_1409B9218 @ 0x1409B9218 (sub_1409B9218.c)
+ *     sub_1409B9B50 @ 0x1409B9B50 (sub_1409B9B50.c)
  * Callees:
  *     RtlSubAuthorityCountSid @ 0x1402EF420 (RtlSubAuthorityCountSid.c)
  *     RtlCompareMemory @ 0x14042A1E0 (RtlCompareMemory.c)
  */
 
-__int64 __fastcall RtlGetAppContainerSidType(char *Sid, _DWORD *a2)
+NTSTATUS __cdecl RtlGetAppContainerSidType(PSID AppContainerSid, PAPPCONTAINER_SID_TYPE AppContainerSidType)
 {
   UCHAR v4; // cl
 
-  if ( (unsigned __int8)Sid[1] >= 2u
-    && *Sid == 1
-    && RtlCompareMemory(Sid + 2, &RtlpAppPackageAuthority, 6uLL) == 6
-    && *((_DWORD *)Sid + 2) == 2 )
+  if ( *((_BYTE *)AppContainerSid + 1) >= 2u
+    && *(_BYTE *)AppContainerSid == 1
+    && RtlCompareMemory((char *)AppContainerSid + 2, &Source2, 6uLL) == 6
+    && *((_DWORD *)AppContainerSid + 2) == 2 )
   {
-    v4 = *RtlSubAuthorityCountSid(Sid);
+    v4 = *RtlSubAuthorityCountSid(AppContainerSid);
     if ( v4 == 8 )
     {
-      *a2 = 2;
-      return 0LL;
+      *AppContainerSidType = ParentAppContainerSidType;
+      return 0;
     }
     if ( v4 == 12 )
     {
-      *a2 = 1;
-      return 0LL;
+      *AppContainerSidType = ChildAppContainerSidType;
+      return 0;
     }
-    *a2 = 3;
+    *AppContainerSidType = InvalidAppContainerSidType;
   }
   else
   {
-    *a2 = 0;
+    *AppContainerSidType = NotAppContainerSidType;
   }
-  return 3221266944LL;
+  return -1073700352;
 }

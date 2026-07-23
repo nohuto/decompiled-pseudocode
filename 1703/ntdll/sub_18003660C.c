@@ -17,7 +17,7 @@
  *     sub_180095EB0 @ 0x180095EB0 (sub_180095EB0.c)
  */
 
-_DWORD *__fastcall sub_18003660C(unsigned __int64 a1, __int64 a2, char a3, char a4)
+_DWORD *__fastcall sub_18003660C(PVOID BaseOfImage, __int64 a2, char a3, char a4)
 {
   int v4; // esi
   _DWORD *result; // rax
@@ -25,14 +25,14 @@ _DWORD *__fastcall sub_18003660C(unsigned __int64 a1, __int64 a2, char a3, char 
   _DWORD *v9; // rbx
   _DWORD *v10; // [rsp+50h] [rbp-58h] BYREF
   int v11; // [rsp+58h] [rbp-50h] BYREF
-  unsigned int *v12; // [rsp+60h] [rbp-48h] BYREF
+  ULONG *v12; // [rsp+60h] [rbp-48h] BYREF
   _QWORD v13[3]; // [rsp+68h] [rbp-40h] BYREF
 
   v4 = -1;
   v10 = 0LL;
   if ( a4 )
   {
-    result = sub_18002FF94(a1, 0, 0LL, 8);
+    result = sub_18002FF94((unsigned __int64)BaseOfImage, 0, 0LL, 8);
     v10 = result;
     if ( result == (_DWORD *)-1LL )
       return 0LL;
@@ -42,10 +42,10 @@ _DWORD *__fastcall sub_18003660C(unsigned __int64 a1, __int64 a2, char a3, char 
   v13[1] = 1LL;
   v13[2] = 0LL;
   v13[0] = L"MUI";
-  v8 = sub_180035838(a1, (__int64)v13, 3u, 0x30u, (__int64 *)&v12);
+  v8 = sub_180035838(BaseOfImage, (__int64)v13, 3u, 0x30u, (__int64)&v12);
   if ( v8 < 0 )
     goto LABEL_14;
-  v8 = sub_18002FC7C(a1, v12, (unsigned __int64 *)&v10, &v11);
+  v8 = sub_18002FC7C(BaseOfImage, v12, &v10, &v11);
   if ( v8 < 0 )
     goto LABEL_14;
   v9 = v10;
@@ -59,7 +59,7 @@ LABEL_14:
   {
     if ( v9 )
       v4 = (int)v9;
-    sub_18005CB40(a1, 0, 0, v4, -1, 0, 2, v8, 0LL);
+    sub_18005CB40((_DWORD)BaseOfImage, 0, 0, v4, -1, 0, 2, v8, 0LL);
   }
   return v9;
 }

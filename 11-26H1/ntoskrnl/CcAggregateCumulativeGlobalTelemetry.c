@@ -1,16 +1,15 @@
 /*
- * XREFs of CcAggregateCumulativeGlobalTelemetry @ 0x140B3E600
+ * XREFs of CcAggregateCumulativeGlobalTelemetry @ 0x140B404D0
  * Callers:
- *     CcPostVolumeTelemetry @ 0x14049BF90 (CcPostVolumeTelemetry.c)
+ *     CcPostVolumeTelemetry @ 0x140495AE0 (CcPostVolumeTelemetry.c)
  * Callees:
  *     <none>
  */
 
-struct _LIST_ENTRY *CcAggregateCumulativeGlobalTelemetry()
+__int64 CcAggregateCumulativeGlobalTelemetry()
 {
-  struct _LIST_ENTRY *result; // rax
+  __int64 result; // rax
 
-  *(_QWORD *)&EmpParseLock.WaitBlockFill11[112] += EmpParseLock.Timer.TimerListEntry.Blink;
   EmpParseLock.WaitBlock[2].Thread = (struct _KTHREAD *)((char *)EmpParseLock.WaitBlock[2].Thread
                                                        + (unsigned __int64)EmpParseLock.Timer.Dpc);
   EmpParseLock.WaitBlock[2].Object = (char *)EmpParseLock.WaitBlock[2].Object + *(_QWORD *)&EmpParseLock.Timer.Processor;
@@ -35,7 +34,8 @@ struct _LIST_ENTRY *CcAggregateCumulativeGlobalTelemetry()
                                      + (unsigned __int64)EmpParseLock.WaitBlock[1].SparePtr);
   EmpParseLock.UserAffinity = (_KAFFINITY_EX *)((char *)EmpParseLock.UserAffinity
                                               + (unsigned __int64)EmpParseLock.WaitBlock[2].WaitListEntry.Flink);
-  result = EmpParseLock.WaitBlock[2].WaitListEntry.Blink;
   *(_QWORD *)&EmpParseLock.UserAffinityPrimaryGroup += EmpParseLock.WaitBlock[2].WaitListEntry.Blink;
+  result = *(_QWORD *)&EmpParseLock.WaitBlockFill11[112];
+  EmpParseLock.AffinityVersion += *(_QWORD *)&EmpParseLock.WaitBlockFill11[112];
   return result;
 }

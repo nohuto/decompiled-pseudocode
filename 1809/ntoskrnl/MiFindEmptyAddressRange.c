@@ -1,12 +1,12 @@
 /*
- * XREFs of MiFindEmptyAddressRange @ 0x1405F2500
+ * XREFs of MiFindEmptyAddressRange @ 0x1405F3500
  * Callers:
- *     MiSelectUserAddress @ 0x1405F2360 (MiSelectUserAddress.c)
+ *     MiSelectUserAddress @ 0x1405F3360 (MiSelectUserAddress.c)
  * Callees:
- *     RtlFindClearBits @ 0x140077ED0 (RtlFindClearBits.c)
- *     MiExpandVadBitMap @ 0x140679CCC (MiExpandVadBitMap.c)
- *     MiFindEmptyAddressRangeInTree @ 0x14069B37C (MiFindEmptyAddressRangeInTree.c)
- *     MiFindClearVadBitsAligned @ 0x1406A45DC (MiFindClearVadBitsAligned.c)
+ *     RtlFindClearBits @ 0x140077EC0 (RtlFindClearBits.c)
+ *     MiExpandVadBitMap @ 0x14067AE8C (MiExpandVadBitMap.c)
+ *     MiFindEmptyAddressRangeInTree @ 0x14069C53C (MiFindEmptyAddressRangeInTree.c)
+ *     MiFindClearVadBitsAligned @ 0x1406A587C (MiFindClearVadBitsAligned.c)
  */
 
 __int64 __fastcall MiFindEmptyAddressRange(
@@ -107,7 +107,7 @@ __int64 __fastcall MiFindEmptyAddressRange(
         Buffer_low = BitMapHeader[1].SizeOfBitMap;
         if ( (_DWORD)v22 != 1 && (unsigned int)v22 >= *(&BitMapHeader[1].SizeOfBitMap + 1) )
           Buffer_low = LODWORD(BitMapHeader[1].Buffer);
-        v24 = LODWORD(BitMapHeader->Buffer) - qword_14043A528;
+        v24 = LODWORD(BitMapHeader->Buffer) - qword_14043B5E8;
         if ( v15 == 1 )
         {
           v28 = Buffer_low + 8 * v24;
@@ -125,7 +125,7 @@ __int64 __fastcall MiFindEmptyAddressRange(
         {
           if ( v15 != 1 || (v29 = ClearBits + 8 * v24, v29 >= v39) && v29 < v38 )
           {
-            *a8 = (ClearBits + 8 * ((__int64)BitMapHeader->Buffer - qword_14043A528)) << 16;
+            *a8 = (ClearBits + 8 * ((__int64)BitMapHeader->Buffer - qword_14043B5E8)) << 16;
             return 0LL;
           }
         }

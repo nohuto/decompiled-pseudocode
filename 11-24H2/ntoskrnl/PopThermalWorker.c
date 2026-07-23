@@ -1,29 +1,29 @@
 /*
- * XREFs of PopThermalWorker @ 0x140A40A30
+ * XREFs of PopThermalWorker @ 0x140A36310
  * Callers:
  *     <none>
  * Callees:
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     IoReuseIrp @ 0x14031A320 (IoReuseIrp.c)
- *     IofCallDriver @ 0x140374160 (IofCallDriver.c)
- *     PopReleaseRwLock @ 0x1403B5EC8 (PopReleaseRwLock.c)
- *     KeSetTimer2 @ 0x1403C20A0 (KeSetTimer2.c)
- *     PopAcquireRwLockExclusive @ 0x1404283D4 (PopAcquireRwLockExclusive.c)
- *     PopCheckAndHandleThermalConditions @ 0x14049EC88 (PopCheckAndHandleThermalConditions.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
- *     PopInternalAddToDumpFile @ 0x1405CCEA0 (PopInternalAddToDumpFile.c)
- *     PopFireThermalWmiEvent @ 0x1405D3BE4 (PopFireThermalWmiEvent.c)
- *     PopDiagTraceThermalZoneEnumeration @ 0x1405D5850 (PopDiagTraceThermalZoneEnumeration.c)
- *     PopDiagTraceThermalZoneThrottleDurationPerfTrack @ 0x1405D5BF0 (PopDiagTraceThermalZoneThrottleDurationPerfTrack.c)
- *     PopDiagTraceThermalZoneThrottlePerfTrack @ 0x1405D5D24 (PopDiagTraceThermalZoneThrottlePerfTrack.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     PopDiagTracePassiveCooling @ 0x1407569DC (PopDiagTracePassiveCooling.c)
- *     PopCheckThermalPolicy @ 0x140A40EF8 (PopCheckThermalPolicy.c)
- *     PopDiagTraceThermalCoolingMode @ 0x140A4119C (PopDiagTraceThermalCoolingMode.c)
- *     PopPrepareIoctl @ 0x140A5D1E8 (PopPrepareIoctl.c)
- *     PopThermalUpdatePassiveTimeTracking @ 0x140A8FAF8 (PopThermalUpdatePassiveTimeTracking.c)
- *     PopThermalUpdateActiveTimeTracking @ 0x140AA26A4 (PopThermalUpdateActiveTimeTracking.c)
- *     PopDiagTraceActiveCooling @ 0x140ABDA58 (PopDiagTraceActiveCooling.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     IofCallDriver @ 0x14025CA20 (IofCallDriver.c)
+ *     PopReleaseRwLock @ 0x1402AE8FC (PopReleaseRwLock.c)
+ *     IoReuseIrp @ 0x1402C2EB0 (IoReuseIrp.c)
+ *     KeSetTimer2 @ 0x1403B0C60 (KeSetTimer2.c)
+ *     PopAcquireRwLockExclusive @ 0x14041C564 (PopAcquireRwLockExclusive.c)
+ *     PopCheckAndHandleThermalConditions @ 0x140499AC0 (PopCheckAndHandleThermalConditions.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
+ *     PopInternalAddToDumpFile @ 0x1405CA610 (PopInternalAddToDumpFile.c)
+ *     PopFireThermalWmiEvent @ 0x1405D1358 (PopFireThermalWmiEvent.c)
+ *     PopDiagTraceThermalZoneEnumeration @ 0x1405D2E64 (PopDiagTraceThermalZoneEnumeration.c)
+ *     PopDiagTraceThermalZoneThrottleDurationPerfTrack @ 0x1405D3204 (PopDiagTraceThermalZoneThrottleDurationPerfTrack.c)
+ *     PopDiagTraceThermalZoneThrottlePerfTrack @ 0x1405D3338 (PopDiagTraceThermalZoneThrottlePerfTrack.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     PopDiagTracePassiveCooling @ 0x140754E5C (PopDiagTracePassiveCooling.c)
+ *     PopCheckThermalPolicy @ 0x140A367D8 (PopCheckThermalPolicy.c)
+ *     PopDiagTraceThermalCoolingMode @ 0x140A36A7C (PopDiagTraceThermalCoolingMode.c)
+ *     PopPrepareIoctl @ 0x140A54F18 (PopPrepareIoctl.c)
+ *     PopThermalUpdatePassiveTimeTracking @ 0x140A8C138 (PopThermalUpdatePassiveTimeTracking.c)
+ *     PopThermalUpdateActiveTimeTracking @ 0x140A9DA34 (PopThermalUpdateActiveTimeTracking.c)
+ *     PopDiagTraceActiveCooling @ 0x140AB8AC8 (PopDiagTraceActiveCooling.c)
  */
 
 __int64 __fastcall PopThermalWorker(__int64 a1)
@@ -373,7 +373,7 @@ LABEL_61:
     }
   }
   if ( v12 )
-    KeSetTimer2(a1 + 296, v3 - v12, 0LL, (__int64)v14);
+    KeSetTimer2(a1 + 296, (LARGE_INTEGER)(v3 - v12), 0LL, (__int64)v14);
 LABEL_21:
   v15 = *(IRP **)(a1 + 56);
   IoReuseIrp(v15, -1073741637);

@@ -1,12 +1,12 @@
 /*
- * XREFs of MiLogNotifyPageHeat @ 0x140653F2C
+ * XREFs of MiLogNotifyPageHeat @ 0x14065447C
  * Callers:
- *     MiNotifyPageHeat @ 0x1406545FC (MiNotifyPageHeat.c)
+ *     MiNotifyPageHeat @ 0x140654B4C (MiNotifyPageHeat.c)
  * Callees:
  *     _tlgKeywordOn @ 0x140212E64 (_tlgKeywordOn.c)
- *     _tlgWriteEx_EtwWriteEx @ 0x140367F70 (_tlgWriteEx_EtwWriteEx.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x140368110 (_tlgWriteEx_EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 char MiLogNotifyPageHeat()
@@ -106,7 +106,7 @@ char MiLogNotifyPageHeat()
   }
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(0xFuLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 15 )
@@ -120,7 +120,7 @@ char MiLogNotifyPageHeat()
     if ( **(_DWORD **)&qword_140C698E8 <= 5u || !tlgKeywordOn(*(__int64 *)&qword_140C698E8, 64LL) )
       goto LABEL_23;
     v20 = *v2;
-    v16 = (unsigned __int8 *)&byte_1400395E7;
+    v16 = (unsigned __int8 *)&byte_1400396CF;
     v34 = *(_DWORD *)(v18 + 4);
     v45 = &v34;
     v47 = &v39;
@@ -149,7 +149,7 @@ char MiLogNotifyPageHeat()
     if ( **(_DWORD **)&qword_140C698E8 <= 5u || !tlgKeywordOn(*(__int64 *)&qword_140C698E8, 64LL) )
       goto LABEL_23;
     v15 = *v2;
-    v16 = (unsigned __int8 *)&unk_140039560;
+    v16 = (unsigned __int8 *)&unk_140039648;
     v31 = *(_DWORD *)(v12 + 4);
     v41[4] = (__int64)&v31;
     v41[6] = (__int64)&v37;
@@ -175,10 +175,10 @@ char MiLogNotifyPageHeat()
   }
   tlgWriteEx_EtwWriteEx(v13, v16, v11, 1u, v27, v28, 9u, v17);
 LABEL_23:
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v21 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v21 <= 0xFu && CurrentIrql <= 0xFu && v21 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v21 <= 0xFu && CurrentIrql <= 0xFu && v21 >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v23 = CurrentPrcb->SchedulerAssist;

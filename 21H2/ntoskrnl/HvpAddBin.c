@@ -1,32 +1,32 @@
 /*
- * XREFs of HvpAddBin @ 0x140722A58
+ * XREFs of HvpAddBin @ 0x1406FAA84
  * Callers:
- *     HvpDoAllocateCell @ 0x140708E68 (HvpDoAllocateCell.c)
+ *     HvpDoAllocateCell @ 0x140720248 (HvpDoAllocateCell.c)
  * Callees:
- *     RtlNumberOfSetBits @ 0x140253830 (RtlNumberOfSetBits.c)
- *     HvpGrowDirtyVectors @ 0x140363AEC (HvpGrowDirtyVectors.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     memset @ 0x140414200 (memset.c)
- *     HvpMarkDirty @ 0x140708560 (HvpMarkDirty.c)
- *     HvpGetCellMap @ 0x140708730 (HvpGetCellMap.c)
- *     CmpReleaseGlobalQuota @ 0x140709E4C (CmpReleaseGlobalQuota.c)
- *     HvpSetRangeProtection @ 0x140709E78 (HvpSetRangeProtection.c)
- *     CmpClaimGlobalQuota @ 0x140720E44 (CmpClaimGlobalQuota.c)
- *     HvpPointMapEntriesToBuffer @ 0x14072305C (HvpPointMapEntriesToBuffer.c)
- *     HvpAdjustHiveFreeDisplay @ 0x14072311C (HvpAdjustHiveFreeDisplay.c)
- *     HvpExpandMap @ 0x140723290 (HvpExpandMap.c)
- *     CmpCanGrowHive @ 0x1407233F4 (CmpCanGrowHive.c)
- *     HvpViewMapCOWAndUnsealRange @ 0x140723D80 (HvpViewMapCOWAndUnsealRange.c)
- *     CmpUpdateSystemHiveHysteresis @ 0x140724930 (CmpUpdateSystemHiveHysteresis.c)
- *     HvpProtectBin @ 0x140724980 (HvpProtectBin.c)
- *     HvpAllocateBin @ 0x1407249BC (HvpAllocateBin.c)
- *     CmpDoFileSetSizeEx @ 0x140724A00 (CmpDoFileSetSizeEx.c)
- *     HvpViewMapPromoteRangeToMapping @ 0x140724B50 (HvpViewMapPromoteRangeToMapping.c)
- *     HvpViewMapExtendStorage @ 0x140724E8C (HvpViewMapExtendStorage.c)
- *     HvpFreeBin @ 0x140725BD0 (HvpFreeBin.c)
- *     HvpViewMapShrinkStorage @ 0x140873628 (HvpViewMapShrinkStorage.c)
- *     HvpShrinkMap @ 0x140880B60 (HvpShrinkMap.c)
+ *     RtlNumberOfSetBits @ 0x140274DA0 (RtlNumberOfSetBits.c)
+ *     HvpGrowDirtyVectors @ 0x1402F8E1C (HvpGrowDirtyVectors.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     memset @ 0x140414300 (memset.c)
+ *     HvpFreeBin @ 0x140621684 (HvpFreeBin.c)
+ *     CmpClaimGlobalQuota @ 0x1406F82B4 (CmpClaimGlobalQuota.c)
+ *     HvpPointMapEntriesToBuffer @ 0x1406FB088 (HvpPointMapEntriesToBuffer.c)
+ *     HvpAdjustHiveFreeDisplay @ 0x1406FB148 (HvpAdjustHiveFreeDisplay.c)
+ *     HvpExpandMap @ 0x1406FB2BC (HvpExpandMap.c)
+ *     CmpCanGrowHive @ 0x1406FB420 (CmpCanGrowHive.c)
+ *     HvpViewMapCOWAndUnsealRange @ 0x1406FBDAC (HvpViewMapCOWAndUnsealRange.c)
+ *     CmpUpdateSystemHiveHysteresis @ 0x1406FC92C (CmpUpdateSystemHiveHysteresis.c)
+ *     HvpProtectBin @ 0x1406FC97C (HvpProtectBin.c)
+ *     HvpAllocateBin @ 0x1406FC9B8 (HvpAllocateBin.c)
+ *     CmpDoFileSetSizeEx @ 0x1406FC9FC (CmpDoFileSetSizeEx.c)
+ *     HvpViewMapPromoteRangeToMapping @ 0x1406FCB88 (HvpViewMapPromoteRangeToMapping.c)
+ *     HvpViewMapExtendStorage @ 0x1406FCEC4 (HvpViewMapExtendStorage.c)
+ *     HvpMarkDirty @ 0x14071F940 (HvpMarkDirty.c)
+ *     HvpGetCellMap @ 0x14071FB10 (HvpGetCellMap.c)
+ *     CmpReleaseGlobalQuota @ 0x14072122C (CmpReleaseGlobalQuota.c)
+ *     HvpSetRangeProtection @ 0x140721258 (HvpSetRangeProtection.c)
+ *     HvpViewMapShrinkStorage @ 0x140873788 (HvpViewMapShrinkStorage.c)
+ *     HvpShrinkMap @ 0x140880CC0 (HvpShrinkMap.c)
  */
 
 __int64 __fastcall HvpAddBin(ULONG_PTR BugCheckParameter2, unsigned int a2, int a3)
@@ -130,13 +130,13 @@ LABEL_7:
     *v29 = v28;
     v28[1] = (__int64)v29;
     v30 = (_DWORD)v3 << 31;
-    if ( HvpMarkDirty(BugCheckParameter2, v30 + *((_DWORD *)i + 5), *((_DWORD *)i + 4), 0) )
+    if ( (unsigned __int8)HvpMarkDirty(BugCheckParameter2) )
     {
       v31 = 0LL;
       v4 = v30 + *((_DWORD *)i + 5);
       for ( j = v4; (unsigned int)v31 < v7; *v35 = v36 )
       {
-        CellMap = HvpGetCellMap(BugCheckParameter2, (int)v31 + v4);
+        CellMap = HvpGetCellMap(BugCheckParameter2, (unsigned int)(v31 + v4));
         v35 = (_QWORD *)CellMap;
         if ( !CellMap )
           KeBugCheckEx(0x51u, 1uLL, BugCheckParameter2, v34, 0x267uLL);
@@ -202,11 +202,11 @@ LABEL_77:
     if ( v58 )
       HvpViewMapShrinkStorage(BugCheckParameter2 + 216, v11);
     if ( v52 && !v59 )
-      HvpFreeBin(BugCheckParameter2, v12 - v11, v52);
+      HvpFreeBin(BugCheckParameter2, v12 - v11, (__int64)v52);
     if ( v54 )
       (*(void (__fastcall **)(__int64, __int64))(BugCheckParameter2 + 32))(v54, 24LL);
     if ( v53 && !v59 )
-      HvpFreeBin(BugCheckParameter2, v13 - v12, v53);
+      HvpFreeBin(BugCheckParameter2, v13 - v12, (__int64)v53);
     if ( !HIDWORD(Size) )
       return j;
     CmpReleaseGlobalQuota(HIDWORD(Size));
@@ -362,10 +362,10 @@ LABEL_36:
   if ( !(_DWORD)v3 )
   {
     if ( (*(_DWORD *)(BugCheckParameter2 + 160) & 1) != 0
-      || (v58 = v59, HvpMarkDirty(BugCheckParameter2, v11, v13 - v11, 0)) )
+      || (v58 = v59, (unsigned __int8)HvpMarkDirty(BugCheckParameter2)) )
     {
       CmpUpdateSystemHiveHysteresis(BugCheckParameter2, v13, v11);
-      HvpSetRangeProtection(BugCheckParameter2, v11, v13 - v11, 4u);
+      HvpSetRangeProtection(BugCheckParameter2, v11);
       return v12;
     }
     goto LABEL_76;

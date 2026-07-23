@@ -1,56 +1,56 @@
 /*
- * XREFs of LdrpLogDllState @ 0x180070D00
+ * XREFs of LdrpLogDllState @ 0x18008D5E0
  * Callers:
- *     LdrpLoadDependentModuleInternal @ 0x18000D2E0 (LdrpLoadDependentModuleInternal.c)
- *     LdrpSnapModule @ 0x180056F30 (LdrpSnapModule.c)
- *     LdrpPreprocessDllName @ 0x18005A570 (LdrpPreprocessDllName.c)
- *     _LdrpInitialize @ 0x180066904 (_LdrpInitialize.c)
- *     LdrpInitializeProcess @ 0x180066D74 (LdrpInitializeProcess.c)
- *     LdrpInitializeNode @ 0x18006FB00 (LdrpInitializeNode.c)
- *     LdrpSendPostSnapNotifications @ 0x1800707A0 (LdrpSendPostSnapNotifications.c)
- *     LdrpSnapKernelBaseExtensions @ 0x180070920 (LdrpSnapKernelBaseExtensions.c)
- *     LdrpMapDllNtFileName @ 0x180071640 (LdrpMapDllNtFileName.c)
- *     LdrpMapDllWithSectionHandle @ 0x180072B70 (LdrpMapDllWithSectionHandle.c)
- *     LdrpProcessMappedModule @ 0x180073700 (LdrpProcessMappedModule.c)
- *     LdrpCorProcessImports @ 0x1800746A0 (LdrpCorProcessImports.c)
- *     LdrpLoadKnownDll @ 0x180074A60 (LdrpLoadKnownDll.c)
- *     ApiSetQueryApiSetPresence @ 0x1800EF740 (ApiSetQueryApiSetPresence.c)
- *     LdrpInitializeNtdllDataTableEntry @ 0x1800F4990 (LdrpInitializeNtdllDataTableEntry.c)
- *     AvrfMiniLoadDll @ 0x180108F94 (AvrfMiniLoadDll.c)
+ *     LdrpLoadDependentModuleInternal @ 0x180039CE0 (LdrpLoadDependentModuleInternal.c)
+ *     LdrpSnapModule @ 0x18006CB10 (LdrpSnapModule.c)
+ *     LdrpPreprocessDllName @ 0x180070150 (LdrpPreprocessDllName.c)
+ *     LdrpInitializeNode @ 0x18008C3E0 (LdrpInitializeNode.c)
+ *     LdrpSendPostSnapNotifications @ 0x18008D080 (LdrpSendPostSnapNotifications.c)
+ *     LdrpSnapKernelBaseExtensions @ 0x18008D200 (LdrpSnapKernelBaseExtensions.c)
+ *     LdrpMapDllNtFileName @ 0x18008DF20 (LdrpMapDllNtFileName.c)
+ *     LdrpMapDllWithSectionHandle @ 0x18008F450 (LdrpMapDllWithSectionHandle.c)
+ *     LdrpProcessMappedModule @ 0x18008FFE0 (LdrpProcessMappedModule.c)
+ *     LdrpCorProcessImports @ 0x180090F80 (LdrpCorProcessImports.c)
+ *     LdrpLoadKnownDll @ 0x180091340 (LdrpLoadKnownDll.c)
+ *     _LdrpInitialize @ 0x1800AEAE4 (_LdrpInitialize.c)
+ *     LdrpInitializeProcess @ 0x1800AEF54 (LdrpInitializeProcess.c)
+ *     ApiSetQueryApiSetPresence @ 0x1800EA6D0 (ApiSetQueryApiSetPresence.c)
+ *     LdrpInitializeNtdllDataTableEntry @ 0x1800EF5B0 (LdrpInitializeNtdllDataTableEntry.c)
+ *     AvrfMiniLoadDll @ 0x180103EC4 (AvrfMiniLoadDll.c)
  * Callees:
- *     RtlGetCurrentServiceSessionId @ 0x180055A20 (RtlGetCurrentServiceSessionId.c)
- *     LdrpLogEtwEvent @ 0x18009B2F0 (LdrpLogEtwEvent.c)
+ *     LdrpLogEtwEvent @ 0x180030140 (LdrpLogEtwEvent.c)
+ *     RtlGetCurrentServiceSessionId @ 0x18006B600 (RtlGetCurrentServiceSessionId.c)
  */
 
-__int64 __fastcall LdrpLogDllState(int a1, __int64 a2, unsigned __int16 a3)
+int __fastcall LdrpLogDllState(__int64 a1, unsigned __int16 *a2, __int16 a3)
 {
   _DWORD *SharedData; // r9
-  __int64 result; // rax
+  __int64 v7; // rax
   __int64 v8; // rcx
 
   SharedData = NtCurrentPeb()->SharedData;
   if ( SharedData && *SharedData )
-    result = (__int64)NtCurrentPeb()->SharedData + 554;
+    v7 = (__int64)NtCurrentPeb()->SharedData + 554;
   else
-    result = 2147353476LL;
-  if ( *(_BYTE *)result )
+    v7 = 2147353476LL;
+  if ( *(_BYTE *)v7 )
   {
-    result = (__int64)NtCurrentPeb();
-    if ( (*(_BYTE *)(result + 888) & 4) != 0 )
+    v7 = (__int64)NtCurrentPeb();
+    if ( (*(_BYTE *)(v7 + 888) & 4) != 0 )
     {
-      result = (__int64)RtlGetCurrentServiceSessionId();
-      if ( (_DWORD)result )
+      LODWORD(v7) = RtlGetCurrentServiceSessionId();
+      if ( (_DWORD)v7 )
       {
-        result = (__int64)NtCurrentPeb();
-        v8 = *(_QWORD *)(result + 144) + 555LL;
+        v7 = (__int64)NtCurrentPeb();
+        v8 = *(_QWORD *)(v7 + 144) + 555LL;
       }
       else
       {
         v8 = 2147353477LL;
       }
       if ( (*(_BYTE *)v8 & 0x20) != 0 )
-        return LdrpLogEtwEvent(a3, a1, 0, 0, a2, 0LL);
+        LODWORD(v7) = LdrpLogEtwEvent(a3, a1, 0, 0, a2, 0LL);
     }
   }
-  return result;
+  return v7;
 }

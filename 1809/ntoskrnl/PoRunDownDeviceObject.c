@@ -1,17 +1,17 @@
 /*
- * XREFs of PoRunDownDeviceObject @ 0x1400DAB80
+ * XREFs of PoRunDownDeviceObject @ 0x1400DAC00
  * Callers:
- *     IoDeleteDevice @ 0x1400DAAE0 (IoDeleteDevice.c)
+ *     IoDeleteDevice @ 0x1400DAB60 (IoDeleteDevice.c)
  * Callees:
  *     KeReleaseGuardedMutex @ 0x140014E30 (KeReleaseGuardedMutex.c)
  *     ExAcquireFastMutex @ 0x14004E530 (ExAcquireFastMutex.c)
- *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14008CF40 (KeAcquireSpinLockRaiseToDpc.c)
- *     MiLockPagableImageSection @ 0x14009ABB0 (MiLockPagableImageSection.c)
- *     PoRegisterDeviceForIdleDetection @ 0x1400DAC70 (PoRegisterDeviceForIdleDetection.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     MmLockPagableSectionByHandle @ 0x14061F240 (MmLockPagableSectionByHandle.c)
+ *     KxReleaseSpinLock @ 0x1400630D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14008CE80 (KeAcquireSpinLockRaiseToDpc.c)
+ *     MiLockPagableImageSection @ 0x14009AAF0 (MiLockPagableImageSection.c)
+ *     PoRegisterDeviceForIdleDetection @ 0x1400DACF0 (PoRegisterDeviceForIdleDetection.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     MmLockPagableSectionByHandle @ 0x140620240 (MmLockPagableSectionByHandle.c)
  */
 
 void __fastcall PoRunDownDeviceObject(struct _DEVICE_OBJECT *a1)

@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlStringCchPrintfA @ 0x140374A2C
+ * XREFs of RtlStringCchPrintfA @ 0x140374BCC
  * Callers:
- *     IopCopyBootLogRegistryToFile @ 0x1408655B8 (IopCopyBootLogRegistryToFile.c)
- *     IopCreateArcName @ 0x14086F828 (IopCreateArcName.c)
+ *     IopCopyBootLogRegistryToFile @ 0x1408657F8 (IopCopyBootLogRegistryToFile.c)
+ *     IopCreateArcName @ 0x14086FA68 (IopCreateArcName.c)
  *     IopCreateArcNamesCd @ 0x140B39BCC (IopCreateArcNamesCd.c)
  *     IopMarkBootPartition @ 0x140B39DF0 (IopMarkBootPartition.c)
  *     IopCreateArcNames @ 0x140B3A004 (IopCreateArcNames.c)
@@ -10,7 +10,7 @@
  *     IopApplySystemPartitionProt @ 0x140B93EE0 (IopApplySystemPartitionProt.c)
  *     PipCriticalDeviceWaitCallback @ 0x140B94140 (PipCriticalDeviceWaitCallback.c)
  * Callees:
- *     _vsnprintf @ 0x1403D8AD0 (_vsnprintf.c)
+ *     _vsnprintf @ 0x1403D8CB0 (_vsnprintf.c)
  */
 
 NTSTATUS RtlStringCchPrintfA(NTSTRSAFE_PSTR pszDest, size_t cchDest, NTSTRSAFE_PCSTR pszFormat, ...)

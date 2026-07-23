@@ -1,17 +1,17 @@
 /*
- * XREFs of MiCreateSlabIdentity @ 0x14070607C
+ * XREFs of MiCreateSlabIdentity @ 0x14070AD4C
  * Callers:
- *     MmCreateProcessAddressSpace @ 0x140ABD3B0 (MmCreateProcessAddressSpace.c)
+ *     MmCreateProcessAddressSpace @ 0x140ABF9A0 (MmCreateProcessAddressSpace.c)
  * Callees:
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     KiCheckForKernelApcDelivery @ 0x14027DB80 (KiCheckForKernelApcDelivery.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
- *     RtlFindClearBitsAndSet @ 0x1403586A0 (RtlFindClearBitsAndSet.c)
- *     ?KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z @ 0x140444460 (-KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z.c)
- *     MiDeletePendingSlabIdentities @ 0x1404A0CF8 (MiDeletePendingSlabIdentities.c)
- *     MiInitializeSlabIdentities @ 0x1407075EC (MiInitializeSlabIdentities.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x14027D0F0 (KiCheckForKernelApcDelivery.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027D420 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
+ *     RtlFindClearBitsAndSet @ 0x14035A440 (RtlFindClearBitsAndSet.c)
+ *     ?KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z @ 0x14043CF70 (-KiAbpSetEntryValue@AutoBoost@@YAXPECEEK@Z.c)
+ *     MiDeletePendingSlabIdentities @ 0x14049A848 (MiDeletePendingSlabIdentities.c)
+ *     MiInitializeSlabIdentities @ 0x14070C2BC (MiInitializeSlabIdentities.c)
  */
 
 __int64 __fastcall MiCreateSlabIdentity(__int64 a1, _BYTE *a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
@@ -72,7 +72,7 @@ LABEL_13:
     ExfTryToWakePushLock((volatile signed __int64 *)v5);
   KeAbPostRelease((unsigned __int64)v5);
   v17 = CurrentThread->SpecialApcDisable++ == -1;
-  if ( v17 && ($7A85BAF4F1FA08634C1C4A3E45B775B3 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+  if ( v17 && ($241382875694CED3D471BC5892DE3337 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
     KiCheckForKernelApcDelivery(v16, v15);
   return (unsigned int)v13;
 }

@@ -25,7 +25,7 @@ __int64 __fastcall HvCheckHive(__int64 a1, __int64 a2, __int64 a3, __int64 a4, _
   __int64 v15; // rcx
   __int64 v16; // r8
   __int64 v17; // r9
-  struct _RTL_BITMAP *BitMapHeader; // r10
+  _RTL_BITMAP *BitMapHeader; // r10
   _DWORD *v19; // rbp
   __int64 v20; // rcx
   int v21; // eax

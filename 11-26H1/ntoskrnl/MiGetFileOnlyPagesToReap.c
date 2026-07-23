@@ -1,15 +1,15 @@
 /*
- * XREFs of MiGetFileOnlyPagesToReap @ 0x1406FA25C
+ * XREFs of MiGetFileOnlyPagesToReap @ 0x1406FEF2C
  * Callers:
- *     MiReapFileOnlyPfns @ 0x1406FABB0 (MiReapFileOnlyPfns.c)
+ *     MiReapFileOnlyPfns @ 0x1406FF880 (MiReapFileOnlyPfns.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiUnlinkPageChainHead @ 0x140365EF0 (MiUnlinkPageChainHead.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiUnlinkPageChainHead @ 0x140367C90 (MiUnlinkPageChainHead.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 __int64 __fastcall MiGetFileOnlyPagesToReap(_QWORD *a1)
@@ -29,10 +29,10 @@ __int64 __fastcall MiGetFileOnlyPagesToReap(_QWORD *a1)
   *a1 = 0LL;
   v2 = 0LL;
   v3 = 0LL;
-  ExAcquireSpinLockExclusive(&dword_140E399E0);
+  ExAcquireSpinLockExclusive(&dword_140E39B60);
   do
   {
-    v5 = MiUnlinkPageChainHead((__int64)&qword_140E2D118);
+    v5 = MiUnlinkPageChainHead((__int64)&qword_140E2D298);
     if ( !v5 )
       break;
     v4 = v5;
@@ -40,14 +40,14 @@ __int64 __fastcall MiGetFileOnlyPagesToReap(_QWORD *a1)
       v4 = v3;
     ++v2;
     v3 = v4;
-    if ( (__int64 *)qword_140E2D118 != v5 - 6 )
+    if ( (__int64 *)qword_140E2D298 != v5 - 6 )
       break;
   }
-  while ( (((unsigned __int8)HIBYTE(*(_DWORD *)(qword_140E2D118 + 32)) ^ (unsigned __int8)HIBYTE(*((_DWORD *)v4 + 8))) & 1) == 0 );
+  while ( (((unsigned __int8)HIBYTE(*(_DWORD *)(qword_140E2D298 + 32)) ^ (unsigned __int8)HIBYTE(*((_DWORD *)v4 + 8))) & 1) == 0 );
   if ( v6 == 17 )
-    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140E399E0);
+    ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140E39B60);
   else
-    ExReleaseSpinLockExclusive(&dword_140E399E0, v6);
+    ExReleaseSpinLockExclusive(&dword_140E39B60, v6);
   if ( !v2 )
     return -1LL;
   v8 = &v3[-6 * v2];

@@ -1,12 +1,12 @@
 /*
- * XREFs of ApiSetpLoadSchemaImage @ 0x1406BC008
+ * XREFs of ApiSetpLoadSchemaImage @ 0x1406BC140
  * Callers:
- *     ApiSetLoadSchemaEx @ 0x1406BBEC8 (ApiSetLoadSchemaEx.c)
+ *     ApiSetLoadSchemaEx @ 0x1406BC000 (ApiSetLoadSchemaEx.c)
  * Callees:
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     ZwMapViewOfSection @ 0x14015A180 (ZwMapViewOfSection.c)
- *     ZwOpenFile @ 0x14015A2E0 (ZwOpenFile.c)
- *     ZwCreateSection @ 0x14015A5C0 (ZwCreateSection.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     ZwMapViewOfSection @ 0x14015A6F0 (ZwMapViewOfSection.c)
+ *     ZwOpenFile @ 0x14015A850 (ZwOpenFile.c)
+ *     ZwCreateSection @ 0x14015AB30 (ZwCreateSection.c)
  */
 
 __int64 __fastcall ApiSetpLoadSchemaImage(__int64 a1, UNICODE_STRING *a2, PVOID *a3, ULONG_PTR *a4)

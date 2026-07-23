@@ -1,15 +1,15 @@
 /*
- * XREFs of DifZwCancelIoFileWrapper @ 0x1405EDAE0
+ * XREFs of DifZwCancelIoFileWrapper @ 0x1405EE050
  * Callers:
  *     <none>
  * Callees:
- *     ZwCancelIoFile @ 0x14041B900 (ZwCancelIoFile.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     DifGetAPIThunkContextById @ 0x1404664BE (DifGetAPIThunkContextById.c)
- *     DifGetReturnAddressForWrappers @ 0x1405F88C4 (DifGetReturnAddressForWrappers.c)
+ *     ZwCancelIoFile @ 0x14041BC90 (ZwCancelIoFile.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x1404668BE (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F8E34 (DifGetReturnAddressForWrappers.c)
  */
 
-__int64 __fastcall DifZwCancelIoFileWrapper(__int64 a1, __int64 a2)
+NTSTATUS __fastcall DifZwCancelIoFileWrapper(HANDLE FileHandle, PIO_STATUS_BLOCK IoStatusBlock)
 {
   __int64 *APIThunkContextById; // rax
   __int64 v5; // rdx
@@ -20,7 +20,7 @@ __int64 __fastcall DifZwCancelIoFileWrapper(__int64 a1, __int64 a2)
   int v10; // eax
   __int64 ReturnAddressForWrappers; // rax
   __int64 *i; // rbx
-  __int64 result; // rax
+  NTSTATUS result; // eax
   _QWORD **v14; // rdi
   _QWORD *v15; // rbx
   __int128 v16; // [rsp+20h] [rbp-20h] BYREF
@@ -58,15 +58,15 @@ LABEL_8:
   }
   *(_QWORD *)&v16 = 0LL;
 LABEL_10:
-  *(_QWORD *)&v17 = a1;
-  *((_QWORD *)&v16 + 1) = a2;
+  *(_QWORD *)&v17 = FileHandle;
+  *((_QWORD *)&v16 + 1) = IoStatusBlock;
   for ( i = (__int64 *)v9[4]; i != v9 + 4; i = (__int64 *)*i )
   {
     if ( i != (__int64 *)16 )
       ((void (__fastcall *)(__int128 *))*(i - 1))(&v16);
   }
 LABEL_17:
-  result = ZwCancelIoFile(a1, a2);
+  result = ZwCancelIoFile(FileHandle, IoStatusBlock);
   DWORD2(v17) = result;
   if ( v9 )
   {

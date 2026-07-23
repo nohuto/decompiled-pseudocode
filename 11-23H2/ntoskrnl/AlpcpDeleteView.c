@@ -1,14 +1,14 @@
 /*
- * XREFs of AlpcpDeleteView @ 0x14071C0E8
+ * XREFs of AlpcpDeleteView @ 0x14071C2E8
  * Callers:
- *     AlpcpCaptureViewAttributeInternal @ 0x14071A6FC (AlpcpCaptureViewAttributeInternal.c)
- *     AlpcpExposeViewAttributeInSenderContext @ 0x14071A858 (AlpcpExposeViewAttributeInSenderContext.c)
- *     NtAlpcCreateSectionView @ 0x1407B9AD0 (NtAlpcCreateSectionView.c)
- *     NtAlpcDeleteSectionView @ 0x1407CB030 (NtAlpcDeleteSectionView.c)
- *     AlpcpReleaseViewAttribute @ 0x1407DBAF8 (AlpcpReleaseViewAttribute.c)
+ *     AlpcpCaptureViewAttributeInternal @ 0x14071A8FC (AlpcpCaptureViewAttributeInternal.c)
+ *     AlpcpExposeViewAttributeInSenderContext @ 0x14071AA58 (AlpcpExposeViewAttributeInSenderContext.c)
+ *     NtAlpcCreateSectionView @ 0x1407B9DB0 (NtAlpcCreateSectionView.c)
+ *     NtAlpcDeleteSectionView @ 0x1407CB300 (NtAlpcDeleteSectionView.c)
+ *     AlpcpReleaseViewAttribute @ 0x1407DBDC8 (AlpcpReleaseViewAttribute.c)
  * Callees:
- *     AlpcpDeleteBlob @ 0x14071C11C (AlpcpDeleteBlob.c)
- *     AlpcpDereferenceBlobEx @ 0x14071E93C (AlpcpDereferenceBlobEx.c)
+ *     AlpcpDeleteBlob @ 0x14071C31C (AlpcpDeleteBlob.c)
+ *     AlpcpDereferenceBlobEx @ 0x14071EB3C (AlpcpDereferenceBlobEx.c)
  */
 
 char __fastcall AlpcpDeleteView(ULONG_PTR BugCheckParameter2)

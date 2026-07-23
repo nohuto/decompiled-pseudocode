@@ -1,14 +1,14 @@
 /*
- * XREFs of KeVerifyGroupAffinity @ 0x140321374
+ * XREFs of KeVerifyGroupAffinity @ 0x140321604
  * Callers:
- *     KeSetUserGroupAffinityThread @ 0x1403AADAC (KeSetUserGroupAffinityThread.c)
- *     sub_1403E5840 @ 0x1403E5840 (sub_1403E5840.c)
- *     NtSetInformationThread @ 0x1407335B0 (NtSetInformationThread.c)
- *     PspBuildCreateProcessContext @ 0x140771168 (PspBuildCreateProcessContext.c)
- *     NtSetInformationProcess @ 0x140774540 (NtSetInformationProcess.c)
- *     IopConnectInterrupt @ 0x14078E760 (IopConnectInterrupt.c)
- *     IopConnectInterruptFullySpecified @ 0x14085B100 (IopConnectInterruptFullySpecified.c)
- *     ExpProfileCreate @ 0x140A03C78 (ExpProfileCreate.c)
+ *     KeSetUserGroupAffinityThread @ 0x1403AAF8C (KeSetUserGroupAffinityThread.c)
+ *     sub_1403E5A20 @ 0x1403E5A20 (sub_1403E5A20.c)
+ *     NtSetInformationThread @ 0x1407337A0 (NtSetInformationThread.c)
+ *     PspBuildCreateProcessContext @ 0x140771358 (PspBuildCreateProcessContext.c)
+ *     NtSetInformationProcess @ 0x140774730 (NtSetInformationProcess.c)
+ *     IopConnectInterrupt @ 0x14078E950 (IopConnectInterrupt.c)
+ *     IopConnectInterruptFullySpecified @ 0x14085B340 (IopConnectInterruptFullySpecified.c)
+ *     ExpProfileCreate @ 0x140A03F08 (ExpProfileCreate.c)
  * Callees:
  *     <none>
  */

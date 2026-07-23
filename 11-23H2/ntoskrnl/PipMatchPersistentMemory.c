@@ -1,12 +1,12 @@
 /*
- * XREFs of PipMatchPersistentMemory @ 0x140953A08
+ * XREFs of PipMatchPersistentMemory @ 0x140953C08
  * Callers:
- *     PipEnumeratePersistedMemoryCallback @ 0x14055FA10 (PipEnumeratePersistedMemoryCallback.c)
- *     PipGetPersistentMemory @ 0x140953368 (PipGetPersistentMemory.c)
+ *     PipEnumeratePersistedMemoryCallback @ 0x1405600D0 (PipEnumeratePersistedMemoryCallback.c)
+ *     PipGetPersistentMemory @ 0x140953568 (PipGetPersistentMemory.c)
  * Callees:
- *     RtlCompareMemory @ 0x140429820 (RtlCompareMemory.c)
- *     PipGetDeviceObjectLocation @ 0x140952F54 (PipGetDeviceObjectLocation.c)
- *     PnpCompareMultiSz @ 0x14096C5C0 (PnpCompareMultiSz.c)
+ *     RtlCompareMemory @ 0x140429BB0 (RtlCompareMemory.c)
+ *     PipGetDeviceObjectLocation @ 0x140953154 (PipGetDeviceObjectLocation.c)
+ *     PnpCompareMultiSz @ 0x14096C7C0 (PnpCompareMultiSz.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

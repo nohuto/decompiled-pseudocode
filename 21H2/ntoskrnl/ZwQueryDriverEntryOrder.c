@@ -1,14 +1,14 @@
 /*
- * XREFs of ZwQueryDriverEntryOrder @ 0x1403FCC40
+ * XREFs of ZwQueryDriverEntryOrder @ 0x1403FCE20
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwQueryDriverEntryOrder(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwQueryDriverEntryOrder(PULONG Ids, PULONG Count)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(Ids);
 }

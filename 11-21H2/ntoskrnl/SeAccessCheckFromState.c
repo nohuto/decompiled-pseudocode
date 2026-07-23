@@ -1,11 +1,11 @@
 /*
  * XREFs of SeAccessCheckFromState @ 0x1402E12F0
  * Callers:
- *     CmpCheckAdminAccess @ 0x1406B6880 (CmpCheckAdminAccess.c)
- *     EtwpAccessCheckFromState @ 0x140797ACC (EtwpAccessCheckFromState.c)
+ *     sub_1406B6880 @ 0x1406B6880 (sub_1406B6880.c)
+ *     sub_140797ACC @ 0x140797ACC (sub_140797ACC.c)
  * Callees:
  *     SeAccessCheckFromStateEx @ 0x1402E13F0 (SeAccessCheckFromStateEx.c)
- *     SepTokenFromAccessInformation @ 0x1402E1484 (SepTokenFromAccessInformation.c)
+ *     sub_1402E1484 @ 0x1402E1484 (sub_1402E1484.c)
  *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
  *     memset @ 0x140435E00 (memset.c)
  */
@@ -28,11 +28,11 @@ BOOLEAN __stdcall SeAccessCheckFromState(
 
   memset(v18, 0, 0x498uLL);
   memset(v17, 0, 0x498uLL);
-  SepTokenFromAccessInformation(PrimaryTokenInformation, v18);
+  sub_1402E1484(PrimaryTokenInformation, v18);
   v14 = 0LL;
   if ( ClientTokenInformation )
   {
-    SepTokenFromAccessInformation(ClientTokenInformation, v17);
+    sub_1402E1484(ClientTokenInformation, v17);
     v14 = v17;
   }
   return SeAccessCheckFromStateEx(

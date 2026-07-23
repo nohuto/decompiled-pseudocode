@@ -6,11 +6,14 @@
  *     <none>
  */
 
-__int64 ZwMapUserPhysicalPagesScatter()
+NTSTATUS __cdecl ZwMapUserPhysicalPagesScatter(
+        PVOID *VirtualAddresses,
+        ULONG_PTR NumberOfPages,
+        PULONG_PTR UserPfnArray)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 3LL;
+  result = 3;
   __asm { syscall; Low latency system call }
   return result;
 }

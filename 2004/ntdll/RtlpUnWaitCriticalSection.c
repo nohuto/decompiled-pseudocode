@@ -8,10 +8,10 @@
  *     RtlRaiseStatus @ 0x180102310 (RtlRaiseStatus.c)
  */
 
-signed __int64 __fastcall RtlpUnWaitCriticalSection(__int64 a1)
+int __fastcall RtlpUnWaitCriticalSection(__int64 a1)
 {
   HANDLE DeferredCriticalSectionEvent; // rax
-  signed __int64 result; // rax
+  int result; // eax
   signed __int32 v4[10]; // [rsp+0h] [rbp-28h] BYREF
 
   DeferredCriticalSectionEvent = *(HANDLE *)(a1 + 24);
@@ -24,9 +24,9 @@ signed __int64 __fastcall RtlpUnWaitCriticalSection(__int64 a1)
   }
   else
   {
-    result = ZwSetEvent();
-    if ( (int)result < 0 )
-      RtlRaiseStatus((unsigned int)result);
+    result = ZwSetEvent(DeferredCriticalSectionEvent, 0LL);
+    if ( result < 0 )
+      RtlRaiseStatus(result);
   }
   return result;
 }

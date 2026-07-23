@@ -1,7 +1,7 @@
 /*
- * XREFs of HalpMceInitializeRecovery @ 0x14058E4E8
+ * XREFs of HalpMceInitializeRecovery @ 0x140590C68
  * Callers:
- *     HalpInitializeMce @ 0x140BE9EA4 (HalpInitializeMce.c)
+ *     HalpInitializeMce @ 0x140BEFEA4 (HalpInitializeMce.c)
  * Callees:
  *     <none>
  */

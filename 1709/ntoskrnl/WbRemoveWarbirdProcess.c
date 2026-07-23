@@ -19,12 +19,12 @@
 __int64 __fastcall WbRemoveWarbirdProcess(__int64 a1)
 {
   struct _KTHREAD *CurrentThread; // rax
-  unsigned __int64 v3; // rdi
+  PRTL_BALANCED_NODE v3; // rdi
   int WarbirdProcess; // edi
   struct _KTHREAD *v6; // rax
-  unsigned __int64 v7; // rax
+  PRTL_BALANCED_NODE v7; // rax
   signed __int8 v8; // cf
-  unsigned __int64 v9; // rdi
+  PRTL_BALANCED_NODE v9; // rdi
   char v10; // bl
   __int64 v11; // [rsp+68h] [rbp+10h] BYREF
 
@@ -33,9 +33,9 @@ __int64 __fastcall WbRemoveWarbirdProcess(__int64 a1)
   --CurrentThread->SpecialApcDisable;
   v3 = KeAbPreAcquire((ULONG_PTR)&qword_14038CC78, 0LL, 0);
   if ( _InterlockedCompareExchange64((volatile signed __int64 *)&qword_14038CC78, 17LL, 0LL) )
-    ExfAcquirePushLockSharedEx((signed __int64 *)&qword_14038CC78, v3, (unsigned __int64)&qword_14038CC78);
+    ExfAcquirePushLockSharedEx((signed __int64 *)&qword_14038CC78, (__int64)v3, (ULONG_PTR)&qword_14038CC78);
   if ( v3 )
-    *(_BYTE *)(v3 + 26) |= 1u;
+    BYTE2(v3[1].Left) |= 1u;
   WarbirdProcess = WbFindWarbirdProcess(a1, 0LL);
   if ( _InterlockedCompareExchange64((volatile signed __int64 *)&qword_14038CC78, 0LL, 17LL) != 17 )
     ExfReleasePushLockShared((signed __int64 *)&qword_14038CC78);
@@ -49,9 +49,9 @@ __int64 __fastcall WbRemoveWarbirdProcess(__int64 a1)
     v8 = _interlockedbittestandset64((volatile signed __int32 *)&qword_14038CC78, 0LL);
     v9 = v7;
     if ( v8 )
-      ExfAcquirePushLockExclusiveEx(&qword_14038CC78, v7, (__int16 *)&qword_14038CC78);
+      ExfAcquirePushLockExclusiveEx(&qword_14038CC78, (__int64)v7, (__int16 *)&qword_14038CC78);
     if ( v9 )
-      *(_BYTE *)(v9 + 26) |= 1u;
+      BYTE2(v9[1].Left) |= 1u;
     WarbirdProcess = sub_140583CB0((unsigned int)&qword_14038CC50, a1, 8, -1, (__int64)&v11);
     v10 = _InterlockedExchangeAdd64((volatile signed __int64 *)&qword_14038CC78, 0xFFFFFFFFFFFFFFFFuLL);
     if ( (v10 & 2) != 0 && (v10 & 4) == 0 )

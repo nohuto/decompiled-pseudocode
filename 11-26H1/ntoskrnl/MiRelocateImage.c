@@ -1,19 +1,19 @@
 /*
- * XREFs of MiRelocateImage @ 0x1409CA7A4
+ * XREFs of MiRelocateImage @ 0x14099B784
  * Callers:
- *     MiReleaseImageSection @ 0x140A579A4 (MiReleaseImageSection.c)
- *     MiGetSystemAddressForImage @ 0x140AC6DF4 (MiGetSystemAddressForImage.c)
+ *     MiReleaseImageSection @ 0x140A64F24 (MiReleaseImageSection.c)
+ *     MiGetSystemAddressForImage @ 0x140AC89E4 (MiGetSystemAddressForImage.c)
  * Callees:
- *     MiCreateFileOnlyImageFixupExtents @ 0x140507310 (MiCreateFileOnlyImageFixupExtents.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     MiUpdateImageSystemWideBitmaps @ 0x1409CA3E4 (MiUpdateImageSystemWideBitmaps.c)
- *     MiRelocateCleanup @ 0x1409CAA04 (MiRelocateCleanup.c)
- *     MiRelocateImagePrepare @ 0x1409CAA88 (MiRelocateImagePrepare.c)
- *     MiSelectImageBase @ 0x1409CACA8 (MiSelectImageBase.c)
- *     RtlInitializeSystemOverrideDelta @ 0x1409CB1F4 (RtlInitializeSystemOverrideDelta.c)
- *     MiRelocateValidateFixups @ 0x1409CB26C (MiRelocateValidateFixups.c)
- *     MiRelocateFinish @ 0x1409CB614 (MiRelocateFinish.c)
- *     MiRelocateMapImage @ 0x1409CBD3C (MiRelocateMapImage.c)
+ *     MiCreateFileOnlyImageFixupExtents @ 0x140500CE0 (MiCreateFileOnlyImageFixupExtents.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     MiUpdateImageSystemWideBitmaps @ 0x14099B3C4 (MiUpdateImageSystemWideBitmaps.c)
+ *     MiRelocateCleanup @ 0x14099B9E4 (MiRelocateCleanup.c)
+ *     MiRelocateImagePrepare @ 0x14099BA68 (MiRelocateImagePrepare.c)
+ *     MiSelectImageBase @ 0x14099BC88 (MiSelectImageBase.c)
+ *     RtlInitializeSystemOverrideDelta @ 0x14099C1D4 (RtlInitializeSystemOverrideDelta.c)
+ *     MiRelocateValidateFixups @ 0x14099C24C (MiRelocateValidateFixups.c)
+ *     MiRelocateFinish @ 0x14099C5F4 (MiRelocateFinish.c)
+ *     MiRelocateMapImage @ 0x14099CD1C (MiRelocateMapImage.c)
  */
 
 __int64 __fastcall MiRelocateImage(_QWORD *a1, __int64 a2, int a3, int a4, __int64 a5, char a6)

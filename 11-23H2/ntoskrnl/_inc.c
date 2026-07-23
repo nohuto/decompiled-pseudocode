@@ -1,10 +1,10 @@
 /*
- * XREFs of _inc @ 0x1403E19A4
+ * XREFs of _inc @ 0x1403E1B84
  * Callers:
- *     ReadString @ 0x1403E1684 (ReadString.c)
- *     _input_s @ 0x1403E19D4 (_input_s.c)
+ *     ReadString @ 0x1403E1864 (ReadString.c)
+ *     _input_s @ 0x1403E1BB4 (_input_s.c)
  * Callees:
- *     _filbuf_s @ 0x1403E319C (_filbuf_s.c)
+ *     _filbuf_s @ 0x1403E337C (_filbuf_s.c)
  */
 
 __int64 __fastcall inc(FILE *a1)

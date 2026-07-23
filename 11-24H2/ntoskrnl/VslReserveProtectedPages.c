@@ -1,13 +1,13 @@
 /*
- * XREFs of VslReserveProtectedPages @ 0x140A7872C
+ * XREFs of VslReserveProtectedPages @ 0x140A72A2C
  * Callers:
- *     KeReservePrivilegedPages @ 0x1404B4380 (KeReservePrivilegedPages.c)
- *     MiFreeKernelPadSections @ 0x140C5AC08 (MiFreeKernelPadSections.c)
- *     MiInitializeLoadedModuleList @ 0x140C5B318 (MiInitializeLoadedModuleList.c)
+ *     KeReservePrivilegedPages @ 0x1404AEBCC (KeReservePrivilegedPages.c)
+ *     MiFreeKernelPadSections @ 0x140C5CD98 (MiFreeKernelPadSections.c)
+ *     MiInitializeLoadedModuleList @ 0x140C5D4A8 (MiInitializeLoadedModuleList.c)
  * Callees:
- *     VslpEnterIumSecureMode @ 0x140265D90 (VslpEnterIumSecureMode.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     VslpEnterIumSecureMode @ 0x1403AADB0 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall VslReserveProtectedPages(__int64 a1, __int64 a2, unsigned int a3, unsigned int a4)
@@ -27,5 +27,5 @@ __int64 __fastcall VslReserveProtectedPages(__int64 a1, __int64 a2, unsigned int
   v11 = a2;
   v12 = v5;
   v13 = v6;
-  return VslpEnterIumSecureMode(2u, 211LL, 0, (__int64)v9);
+  return VslpEnterIumSecureMode(2u, 0xD3u, 0, (__int64)v9);
 }

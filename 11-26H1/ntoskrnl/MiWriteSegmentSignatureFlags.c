@@ -1,9 +1,9 @@
 /*
- * XREFs of MiWriteSegmentSignatureFlags @ 0x1404D49C4
+ * XREFs of MiWriteSegmentSignatureFlags @ 0x1404CE234
  * Callers:
- *     MiValidateSectionCreate @ 0x1409CB8F4 (MiValidateSectionCreate.c)
+ *     MiValidateSectionCreate @ 0x14099C8D4 (MiValidateSectionCreate.c)
  * Callees:
- *     SeCompareSigningLevels @ 0x140A88910 (SeCompareSigningLevels.c)
+ *     SeCompareSigningLevels @ 0x140A8FB90 (SeCompareSigningLevels.c)
  */
 
 char __fastcall MiWriteSegmentSignatureFlags(__int64 a1, __int64 a2)

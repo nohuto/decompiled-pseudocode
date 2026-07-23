@@ -1,8 +1,8 @@
 /*
- * XREFs of RtlpHpLfhSubsegmentDecommitPages @ 0x1402FD6FC
+ * XREFs of RtlpHpLfhSubsegmentDecommitPages @ 0x1402FD8EC
  * Callers:
- *     RtlpHpLfhSubsegmentFreeBlock @ 0x1400BEE30 (RtlpHpLfhSubsegmentFreeBlock.c)
- *     RtlpHpLfhOwnerCompact @ 0x1401B65F0 (RtlpHpLfhOwnerCompact.c)
+ *     RtlpHpLfhSubsegmentFreeBlock @ 0x1400BED70 (RtlpHpLfhSubsegmentFreeBlock.c)
+ *     RtlpHpLfhOwnerCompact @ 0x1401B6758 (RtlpHpLfhOwnerCompact.c)
  * Callees:
  *     KiAbEntryRemoveFromTree @ 0x140004530 (KiAbEntryRemoveFromTree.c)
  *     KiCheckForKernelApcDelivery @ 0x140005A50 (KiCheckForKernelApcDelivery.c)
@@ -12,17 +12,17 @@
  *     MmGetSessionIdEx @ 0x14004F060 (MmGetSessionIdEx.c)
  *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14009D110 (ExReleaseSpinLockSharedFromDpcLevel.c)
- *     RtlpHpAcquireLockExclusive @ 0x1400BC4A0 (RtlpHpAcquireLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC660 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     RtlpHpLfhSubsegmentFindEmptyUnits @ 0x14010E8D0 (RtlpHpLfhSubsegmentFindEmptyUnits.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
- *     RtlpHpLfhSubsegmentDecBlockCounts @ 0x1402FD630 (RtlpHpLfhSubsegmentDecBlockCounts.c)
- *     RtlpHpScheduleCompaction @ 0x14031EEB4 (RtlpHpScheduleCompaction.c)
+ *     ExfReleasePushLockShared @ 0x1400913F0 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14009D050 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     RtlpHpAcquireLockExclusive @ 0x1400BC3E0 (RtlpHpAcquireLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1400BC5A0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     RtlpHpLfhSubsegmentFindEmptyUnits @ 0x14010E950 (RtlpHpLfhSubsegmentFindEmptyUnits.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
+ *     RtlpHpLfhSubsegmentDecBlockCounts @ 0x1402FD820 (RtlpHpLfhSubsegmentDecBlockCounts.c)
+ *     RtlpHpScheduleCompaction @ 0x14031F0A4 (RtlpHpScheduleCompaction.c)
  */
 
 unsigned __int64 __fastcall RtlpHpLfhSubsegmentDecommitPages(__int64 a1, __int64 a2, int a3, unsigned int a4, char a5)
@@ -199,7 +199,7 @@ LABEL_43:
       }
       v28->CrossThreadReleasableAndBusyByte |= 2u;
       if ( (__int64)v28->LockState.LockState < 0 )
-        KiAbEntryRemoveFromTree((__int64)&CurrentThread->LockEntries[v27], v22);
+        KiAbEntryRemoveFromTree(&CurrentThread->LockEntries[v27].TreeNode, v22);
       v35 = 0;
       v35 = v28->BoostBitmap.AllFields & 0x1FFFF;
       v28->BoostBitmap.AllFields &= 0xFFFE0000;

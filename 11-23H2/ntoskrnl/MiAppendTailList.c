@@ -1,9 +1,9 @@
 /*
- * XREFs of MiAppendTailList @ 0x14066767C
+ * XREFs of MiAppendTailList @ 0x140667BCC
  * Callers:
  *     MiPruneProcessLargePageCaches @ 0x14021E690 (MiPruneProcessLargePageCaches.c)
- *     MiAllocateLargeProcessPagesFromCache @ 0x14066713C (MiAllocateLargeProcessPagesFromCache.c)
- *     MiFreeLargeProcessPagesToCache @ 0x140668644 (MiFreeLargeProcessPagesToCache.c)
+ *     MiAllocateLargeProcessPagesFromCache @ 0x14066768C (MiAllocateLargeProcessPagesFromCache.c)
+ *     MiFreeLargeProcessPagesToCache @ 0x140668B94 (MiFreeLargeProcessPagesToCache.c)
  * Callees:
  *     <none>
  */

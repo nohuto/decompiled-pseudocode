@@ -1,11 +1,11 @@
 /*
- * XREFs of PopCadTriggerDriverLoad @ 0x1408F57F8
+ * XREFs of PopCadTriggerDriverLoad @ 0x1408F5958
  * Callers:
- *     PopBatteryAdd @ 0x1408ECDF0 (PopBatteryAdd.c)
- *     PopCadHpmiPnpNotification @ 0x1408F5790 (PopCadHpmiPnpNotification.c)
+ *     PopBatteryAdd @ 0x1408ECF50 (PopBatteryAdd.c)
+ *     PopCadHpmiPnpNotification @ 0x1408F58F0 (PopCadHpmiPnpNotification.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14027C520 (RtlInitUnicodeString.c)
- *     ZwLoadDriver @ 0x1403FC460 (ZwLoadDriver.c)
+ *     RtlInitUnicodeString @ 0x14026A4C0 (RtlInitUnicodeString.c)
+ *     ZwLoadDriver @ 0x1403FC640 (ZwLoadDriver.c)
  */
 
 NTSTATUS __fastcall PopCadTriggerDriverLoad(unsigned int a1)

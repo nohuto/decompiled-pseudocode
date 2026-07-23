@@ -1,5 +1,5 @@
 /*
- * XREFs of HalpApicDeinitializeLocalUnit @ 0x1404DCD90
+ * XREFs of HalpApicDeinitializeLocalUnit @ 0x1404DCFD0
  * Callers:
  *     <none>
  * Callees:

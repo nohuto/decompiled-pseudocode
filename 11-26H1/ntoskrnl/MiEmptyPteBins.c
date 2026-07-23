@@ -1,55 +1,53 @@
 /*
- * XREFs of MiEmptyPteBins @ 0x14035F190
+ * XREFs of MiEmptyPteBins @ 0x140360F30
  * Callers:
- *     MiInsertCachedPte @ 0x1402821D0 (MiInsertCachedPte.c)
- *     MiMakeSystemPtesAppear @ 0x1402A5C9C (MiMakeSystemPtesAppear.c)
- *     MiAdjustPteBins @ 0x1402A5DF8 (MiAdjustPteBins.c)
- *     MiReservePtes @ 0x14035DE50 (MiReservePtes.c)
- *     MiCheckProcessorPteCache @ 0x14035EA80 (MiCheckProcessorPteCache.c)
+ *     MiInsertCachedPte @ 0x140281740 (MiInsertCachedPte.c)
+ *     MiMakeSystemPtesAppear @ 0x1402A5094 (MiMakeSystemPtesAppear.c)
+ *     MiAdjustPteBins @ 0x1402A51F0 (MiAdjustPteBins.c)
+ *     MiReservePtes @ 0x14035FBF0 (MiReservePtes.c)
+ *     MiCheckProcessorPteCache @ 0x140360820 (MiCheckProcessorPteCache.c)
  * Callees:
- *     MiReleasePteMappings @ 0x1402A3B00 (MiReleasePteMappings.c)
- *     KeLeaveCriticalRegionThread @ 0x1402B8A60 (KeLeaveCriticalRegionThread.c)
+ *     MiReleasePteMappings @ 0x1402A3050 (MiReleasePteMappings.c)
+ *     KeLeaveCriticalRegionThread @ 0x140303720 (KeLeaveCriticalRegionThread.c)
  */
 
 unsigned __int64 __fastcall MiEmptyPteBins(__int64 a1, unsigned __int64 a2, unsigned int a3)
 {
-  volatile signed __int64 *v3; // rdx
-  unsigned __int64 v4; // r13
-  char v5; // al
-  __int64 v6; // r10
-  __int16 v7; // r9
+  unsigned __int64 v3; // r13
+  char v4; // al
+  __int64 v5; // r10
+  __int16 v6; // r9
   __int64 CurrentIrql; // r11
   struct _KTHREAD *CurrentThread; // r15
-  int v10; // ebp
-  __int64 v11; // r8
-  int v12; // r12d
-  int v13; // r15d
-  unsigned int v14; // ebx
-  unsigned int v15; // edi
-  __int64 v16; // r14
+  int v9; // ebp
+  int v10; // r12d
+  int v11; // r15d
+  unsigned int v12; // ebx
+  unsigned int v13; // edi
+  __int64 v14; // r14
   unsigned int i; // esi
-  signed __int64 v18; // rax
-  unsigned int v20; // r9d
-  unsigned int v21; // ecx
-  BOOL v22; // r8d
-  __int64 v23; // rax
-  signed __int32 v24[8]; // [rsp+0h] [rbp-88h] BYREF
-  struct _KTHREAD *v25; // [rsp+20h] [rbp-68h]
-  signed __int64 v26; // [rsp+28h] [rbp-60h] BYREF
-  __int64 v27; // [rsp+30h] [rbp-58h]
-  char v30; // [rsp+A0h] [rbp+18h]
-  __int16 v31; // [rsp+A8h] [rbp+20h]
+  volatile signed __int64 *v16; // rdx
+  signed __int64 v17; // rax
+  unsigned int v19; // r9d
+  unsigned int v20; // ecx
+  BOOL v21; // r8d
+  __int64 v22; // rax
+  signed __int32 v23[8]; // [rsp+0h] [rbp-88h] BYREF
+  struct _KTHREAD *v24; // [rsp+20h] [rbp-68h]
+  signed __int64 v25; // [rsp+28h] [rbp-60h] BYREF
+  __int64 v26; // [rsp+30h] [rbp-58h]
+  char v29; // [rsp+A0h] [rbp+18h]
+  __int16 v30; // [rsp+A8h] [rbp+20h]
 
-  v30 = a3;
+  v29 = a3;
   v3 = 0LL;
-  v4 = 0LL;
-  v5 = a3;
-  v6 = a1;
-  _InterlockedOr(v24, 0);
-  v7 = KiTbFlushTimeStamp;
-  v31 = KiTbFlushTimeStamp;
+  v4 = a3;
+  v5 = a1;
+  _InterlockedOr(v23, 0);
+  v6 = KiTbFlushTimeStamp;
+  v30 = KiTbFlushTimeStamp;
   CurrentIrql = KeGetCurrentIrql();
-  v27 = CurrentIrql;
+  v26 = CurrentIrql;
   if ( (_BYTE)CurrentIrql )
   {
     CurrentThread = 0LL;
@@ -59,94 +57,90 @@ unsigned __int64 __fastcall MiEmptyPteBins(__int64 a1, unsigned __int64 a2, unsi
     CurrentThread = KeGetCurrentThread();
     --CurrentThread->KernelApcDisable;
   }
-  v25 = CurrentThread;
-  v10 = (a3 >> 2) & 1;
-  v11 = (__int64)&unk_140E34A40;
-  v12 = 1;
-  if ( (_KWAIT_BLOCK **)a1 == &stru_140E36558.WaitBlockList || (_UNKNOWN *)a1 == &unk_140E34A40 )
+  v24 = CurrentThread;
+  v9 = (a3 >> 2) & 1;
+  v10 = 1;
+  if ( (_KWAIT_BLOCK **)a1 == &stru_140E366D8.WaitBlockList || (_UNKNOWN *)a1 == &unk_140E34BC0 )
   {
-    v12 = 3;
+    v10 = 3;
   }
   else
   {
-    v5 = v30;
+    v4 = a3;
     if ( (*(_DWORD *)(a1 + 40) & 1) != 0 )
-      v12 = 2;
+      v10 = 2;
   }
-  if ( v10 < (unsigned int)v12 )
+  if ( v9 < (unsigned int)v10 )
   {
-    v13 = v5 & 2;
+    v11 = v4 & 2;
     do
     {
-      if ( v13 )
+      if ( v11 )
       {
-        v14 = KeGetCurrentPrcb()->SchedulerSubNode->Affinity.Reserved[0];
-        v15 = v14 + 1;
+        v12 = KeGetCurrentPrcb()->SchedulerSubNode->Affinity.Reserved[0];
+        v13 = v12 + 1;
       }
       else
       {
-        v15 = (unsigned __int16)KeNumberNodes;
-        v14 = 0;
+        v13 = (unsigned __int16)KeNumberNodes;
+        v12 = 0;
       }
-      v16 = *(_QWORD *)(v6 + 80) + 72 * (v14 + (__int64)(v10 * (unsigned __int16)KeNumberNodes));
-      while ( v14 < v15 )
+      v14 = *(_QWORD *)(v5 + 80) + 72 * (v12 + (__int64)(v9 * (unsigned __int16)KeNumberNodes));
+      while ( v12 < v13 )
       {
         for ( i = 0; i < 8; ++i )
         {
-          v3 = (volatile signed __int64 *)(v16 + 8LL * i);
-          v18 = *v3;
-          v26 = v18;
-          if ( (_WORD)v18 )
+          v16 = (volatile signed __int64 *)(v14 + 8LL * i);
+          v17 = *v16;
+          v25 = v17;
+          if ( (_WORD)v17 )
           {
-            v11 = (unsigned __int16)v18;
-            v20 = (unsigned __int16)(v7 - v18);
-            if ( v20 > 2 || (v18 & 1) == 0 && v20 >= 2 || (v30 & 1) != 0 )
+            v19 = (unsigned __int16)(v6 - v17);
+            if ( v19 > 2 || (v17 & 1) == 0 && v19 >= 2 || (v29 & 1) != 0 )
             {
               if ( (_BYTE)CurrentIrql == 2
-                && ((_KWAIT_BLOCK **)v6 == &stru_140E36558.WaitBlockList && v10
-                 || (_UNKNOWN *)v6 == &unk_140E34A40 && v10) )
+                && ((_KWAIT_BLOCK **)v5 == &stru_140E366D8.WaitBlockList && v9 || (_UNKNOWN *)v5 == &unk_140E34BC0 && v9) )
               {
                 goto LABEL_16;
               }
-              if ( v18 == _InterlockedCompareExchange64(v3, 0LL, v18) )
+              if ( v17 == _InterlockedCompareExchange64(v16, 0LL, v17) )
               {
-                _InterlockedOr(v24, 0);
-                v21 = (unsigned __int16)(KiTbFlushTimeStamp - v18);
-                if ( v21 > 2 )
+                _InterlockedOr(v23, 0);
+                v20 = (unsigned __int16)(KiTbFlushTimeStamp - v17);
+                if ( v20 > 2 )
                 {
-                  v22 = 0;
+                  v21 = 0;
                 }
-                else if ( (v18 & 1) != 0 || (v22 = 0, v21 < 2) )
+                else if ( (v17 & 1) != 0 || (v21 = 0, v20 < 2) )
                 {
-                  v22 = 1;
+                  v21 = 1;
                 }
-                v23 = MiReleasePteMappings(v6, (unsigned __int64 *)&v26, v22, v10);
-                _InterlockedAdd64((volatile signed __int64 *)(v16 + 64), -v23);
-                v6 = a1;
-                v4 += v23;
-                LOBYTE(CurrentIrql) = v27;
+                v22 = MiReleasePteMappings(v5, (unsigned __int64 *)&v25, v21, v9);
+                _InterlockedAdd64((volatile signed __int64 *)(v14 + 64), -v22);
+                v5 = a1;
+                v3 += v22;
+                LOBYTE(CurrentIrql) = v26;
               }
               else
               {
                 --i;
               }
-              if ( v4 && !a2 || v4 >= a2 )
+              if ( v3 && !a2 || v3 >= a2 )
                 goto LABEL_16;
             }
-            v7 = v31;
+            v6 = v30;
           }
         }
-        v16 += 72LL;
-        ++v14;
-        v3 = 0LL;
+        v14 += 72LL;
+        ++v12;
       }
-      ++v10;
+      ++v9;
     }
-    while ( v10 < v12 );
+    while ( v9 < v10 );
 LABEL_16:
-    CurrentThread = v25;
+    CurrentThread = v24;
   }
   if ( CurrentThread )
-    KeLeaveCriticalRegionThread((__int64)CurrentThread, (__int64)v3, v11);
-  return v4;
+    KeLeaveCriticalRegionThread((__int64)CurrentThread);
+  return v3;
 }

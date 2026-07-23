@@ -1,19 +1,19 @@
 /*
- * XREFs of EtwTraceRaw @ 0x1405A6548
+ * XREFs of EtwTraceRaw @ 0x1405A6778
  * Callers:
- *     NtTraceEvent @ 0x14025CC60 (NtTraceEvent.c)
+ *     NtTraceEvent @ 0x14027E790 (NtTraceEvent.c)
  * Callees:
- *     EtwpOpenLogger @ 0x14025DB98 (EtwpOpenLogger.c)
- *     EtwpReleaseTraceBuffer @ 0x14025DC40 (EtwpReleaseTraceBuffer.c)
- *     EtwpReserveTraceBuffer @ 0x1403506F0 (EtwpReserveTraceBuffer.c)
- *     PsGetCurrentServerSiloGlobals @ 0x140362150 (PsGetCurrentServerSiloGlobals.c)
- *     EtwpGetReserveTraceBufferStatus @ 0x14036CDBC (EtwpGetReserveTraceBufferStatus.c)
- *     EtwpCloseLogger @ 0x140379F38 (EtwpCloseLogger.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     EtwpSendTraceEvent @ 0x1405AAB68 (EtwpSendTraceEvent.c)
- *     EtwpInvokeEventCallback @ 0x1405AB678 (EtwpInvokeEventCallback.c)
- *     EtwpCheckLoggerControlAccess @ 0x140642DDC (EtwpCheckLoggerControlAccess.c)
- *     ExRaiseDatatypeMisalignment @ 0x14077BDF0 (ExRaiseDatatypeMisalignment.c)
+ *     EtwpOpenLogger @ 0x14027F6C8 (EtwpOpenLogger.c)
+ *     EtwpReleaseTraceBuffer @ 0x14027F770 (EtwpReleaseTraceBuffer.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x1402F6FB0 (PsGetCurrentServerSiloGlobals.c)
+ *     EtwpReserveTraceBuffer @ 0x14035B440 (EtwpReserveTraceBuffer.c)
+ *     EtwpGetReserveTraceBufferStatus @ 0x14036CF6C (EtwpGetReserveTraceBufferStatus.c)
+ *     EtwpCloseLogger @ 0x140379A88 (EtwpCloseLogger.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     EtwpSendTraceEvent @ 0x1405AAD98 (EtwpSendTraceEvent.c)
+ *     EtwpInvokeEventCallback @ 0x1405AB8A8 (EtwpInvokeEventCallback.c)
+ *     EtwpCheckLoggerControlAccess @ 0x140637BEC (EtwpCheckLoggerControlAccess.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14077BFB0 (ExRaiseDatatypeMisalignment.c)
  */
 
 __int64 __fastcall EtwTraceRaw(__int64 a1, void *a2, unsigned int a3, char a4)
@@ -27,7 +27,7 @@ __int64 __fastcall EtwTraceRaw(__int64 a1, void *a2, unsigned int a3, char a4)
   void *v11; // rax
   __int64 v12; // r8
   __int64 v13; // r9
-  signed __int64 v15[2]; // [rsp+40h] [rbp-58h] BYREF
+  LARGE_INTEGER v15[2]; // [rsp+40h] [rbp-58h] BYREF
   __int128 v16; // [rsp+50h] [rbp-48h] BYREF
   __int64 v17; // [rsp+60h] [rbp-38h]
   char v18; // [rsp+A0h] [rbp+8h] BYREF
@@ -41,7 +41,7 @@ __int64 __fastcall EtwTraceRaw(__int64 a1, void *a2, unsigned int a3, char a4)
   v17 = 0LL;
   v18 = 0;
   ReserveTraceBufferStatus = 0;
-  v15[0] = 0LL;
+  v15[0].QuadPart = 0LL;
   v7 = (unsigned __int16)a1;
   if ( a4 )
     v8 = *((_QWORD *)PsGetCurrentServerSiloGlobals(a1, (__int64)a2) + 108);
@@ -51,7 +51,7 @@ __int64 __fastcall EtwTraceRaw(__int64 a1, void *a2, unsigned int a3, char a4)
   {
     v9 = EtwpOpenLogger(v7, v8, a4, &v18);
     v10 = v9;
-    v15[1] = v9;
+    v15[1].QuadPart = v9;
     if ( v9 )
     {
       if ( (*(_DWORD *)(v9 + 12) & 0x80u) != 0 )

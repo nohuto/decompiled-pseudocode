@@ -61,7 +61,7 @@ char __fastcall RtlpIsNameInExpressionPrivate(unsigned __int16 *a1, unsigned __i
   unsigned int v55; // [rsp+2Ch] [rbp-ACh]
   unsigned int v56; // [rsp+30h] [rbp-A8h]
   char *v57; // [rsp+38h] [rbp-A0h]
-  _QWORD v59[2]; // [rsp+48h] [rbp-90h] BYREF
+  _UNICODE_STRING Expression; // [rsp+48h] [rbp-90h] BYREF
   unsigned __int16 *v60; // [rsp+58h] [rbp-80h]
   _WORD v61[16]; // [rsp+60h] [rbp-78h] BYREF
   char v62; // [rsp+80h] [rbp-58h] BYREF
@@ -89,12 +89,12 @@ char __fastcall RtlpIsNameInExpressionPrivate(unsigned __int16 *a1, unsigned __i
   if ( *v13 == 42 )
   {
     v32 = v13 + 1;
-    v59[0] = *(_QWORD *)a1;
-    v33 = LOWORD(v59[0]) - 2;
-    v59[1] = v13 + 1;
-    WORD1(v59[0]) -= 2;
-    LOWORD(v59[0]) -= 2;
-    if ( RtlDoesNameContainWildCards((unsigned __int16 *)v59) )
+    *(_QWORD *)&Expression.Length = *(_QWORD *)a1;
+    v33 = Expression.Length - 2;
+    Expression.Buffer = v13 + 1;
+    Expression.MaximumLength -= 2;
+    Expression.Length -= 2;
+    if ( RtlDoesNameContainWildCards(&Expression) )
     {
       v8 = a1;
       Heap = 0LL;
@@ -180,9 +180,9 @@ LABEL_53:
             if ( v20 >= 0xE && !Heap )
             {
               v43 = *v8 >> 1;
-              Heap = (char *)RtlAllocateHeap((char *)NtCurrentPeb()->ProcessHeap, 0, 8LL * (unsigned int)(v43 + 1));
+              Heap = (char *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 0, 8LL * (unsigned int)(v43 + 1));
               if ( !Heap )
-                RtlRaiseStatus(3221225495LL);
+                RtlRaiseStatus(-1073741801);
               v47 = v57;
               v8 = a1;
               v48 = &Heap[2 * (2 * v43 + 2)];
@@ -291,7 +291,7 @@ LABEL_26:
     if ( !v20 )
     {
       if ( Heap )
-        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, Heap);
+        RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Heap);
       return 0;
     }
     v30 = v14;
@@ -305,6 +305,6 @@ LABEL_26:
 LABEL_47:
   v41 = *(_WORD *)&v14[2 * v40];
   if ( Heap )
-    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL, Heap);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, Heap);
   return v41 == v18;
 }

@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlReportCriticalFailure @ 0x18010D62C
+ * XREFs of RtlReportCriticalFailure @ 0x18010D5FC
  * Callers:
  *     RtlRunOnceExecuteOnce @ 0x1800328D0 (RtlRunOnceExecuteOnce.c)
  *     RtlpHeapGenerateRandomValue32 @ 0x180041C90 (RtlpHeapGenerateRandomValue32.c)
  *     RtlRestoreThreadPreferredUILanguages @ 0x18008A970 (RtlRestoreThreadPreferredUILanguages.c)
- *     RtlpReportHeapFailure @ 0x180119558 (RtlpReportHeapFailure.c)
+ *     RtlpReportHeapFailure @ 0x180119528 (RtlpReportHeapFailure.c)
  * Callees:
  *     DbgPrintEx @ 0x1800538D0 (DbgPrintEx.c)
  *     __security_check_cookie @ 0x18008EF90 (__security_check_cookie.c)
- *     RtlIsAnyDebuggerPresent @ 0x18010D5B0 (RtlIsAnyDebuggerPresent.c)
- *     RtlReportFatalFailure @ 0x18010D6F0 (RtlReportFatalFailure.c)
+ *     RtlIsAnyDebuggerPresent @ 0x18010D580 (RtlIsAnyDebuggerPresent.c)
+ *     RtlReportFatalFailure @ 0x18010D6C0 (RtlReportFatalFailure.c)
  */
 
 __int64 __fastcall RtlReportCriticalFailure(int a1, __int64 a2, int a3)
@@ -23,7 +23,7 @@ __int64 __fastcall RtlReportCriticalFailure(int a1, __int64 a2, int a3)
 
   if ( RtlIsAnyDebuggerPresent() )
   {
-    DbgPrintEx(101, 0, "Critical error detected %lx\n", v6);
+    DbgPrintEx(0x65u, 0, "Critical error detected %lx\n", v6);
     if ( a3 )
       __debugbreak();
   }

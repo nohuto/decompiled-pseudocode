@@ -1,7 +1,7 @@
 /*
  * XREFs of IoSetShareAccess @ 0x14074B8F0
  * Callers:
- *     DifIoSetShareAccessWrapper @ 0x140611170 (DifIoSetShareAccessWrapper.c)
+ *     sub_140611170 @ 0x140611170 (sub_140611170.c)
  * Callees:
  *     IoSetLinkShareAccess @ 0x14074BFF0 (IoSetLinkShareAccess.c)
  */

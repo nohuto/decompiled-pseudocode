@@ -1,25 +1,25 @@
 /*
- * XREFs of NtAlpcCancelMessage @ 0x1404ECBDC
+ * XREFs of NtAlpcCancelMessage @ 0x1404CED48
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140069D00 (KeLeaveCriticalRegion.c)
- *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
- *     AlpcpCancelMessage @ 0x140408B94 (AlpcpCancelMessage.c)
- *     AlpcpUnlockMessage @ 0x1404091E8 (AlpcpUnlockMessage.c)
- *     ObReferenceObjectByHandle @ 0x140450D40 (ObReferenceObjectByHandle.c)
- *     AlpcpLookupMessage @ 0x14050E300 (AlpcpLookupMessage.c)
- *     ExRaiseDatatypeMisalignment @ 0x1406B6058 (ExRaiseDatatypeMisalignment.c)
+ *     KeLeaveCriticalRegion @ 0x140069880 (KeLeaveCriticalRegion.c)
+ *     ObfDereferenceObject @ 0x14006A780 (ObfDereferenceObject.c)
+ *     AlpcpCancelMessage @ 0x140407A54 (AlpcpCancelMessage.c)
+ *     AlpcpUnlockMessage @ 0x1404080A8 (AlpcpUnlockMessage.c)
+ *     ObReferenceObjectByHandle @ 0x14044FC10 (ObReferenceObjectByHandle.c)
+ *     AlpcpLookupMessage @ 0x1404F1290 (AlpcpLookupMessage.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1406B6190 (ExRaiseDatatypeMisalignment.c)
  */
 
-__int64 __fastcall NtAlpcCancelMessage(HANDLE Handle, int a2, __int64 a3)
+NTSTATUS __cdecl NtAlpcCancelMessage(HANDLE PortHandle, ULONG Flags, PALPC_CONTEXT_ATTR MessageContext)
 {
   struct _KTHREAD *CurrentThread; // rax
   KPROCESSOR_MODE PreviousMode; // r9
-  unsigned int v6; // edi
-  unsigned int v7; // r15d
-  __int64 v8; // rsi
-  int v9; // ebx
+  ULONG MessageContext_high; // edi
+  ULONG Sequence; // r15d
+  PVOID PortContext_high; // rsi
+  NTSTATUS v9; // ebx
   __int64 v10; // rdx
   _DWORD *v11; // rdi
   bool v13; // zf
@@ -28,7 +28,7 @@ __int64 __fastcall NtAlpcCancelMessage(HANDLE Handle, int a2, __int64 a3)
 
   CurrentThread = KeGetCurrentThread();
   --CurrentThread->KernelApcDisable;
-  if ( (a2 & 0xFFFFFFF0) != 0 )
+  if ( (Flags & 0xFFFFFFF0) != 0 )
   {
     v9 = -1073741811;
   }
@@ -37,41 +37,44 @@ __int64 __fastcall NtAlpcCancelMessage(HANDLE Handle, int a2, __int64 a3)
     PreviousMode = KeGetCurrentThread()->PreviousMode;
     if ( PreviousMode )
     {
-      if ( (a2 & 4) != 0 )
+      if ( (Flags & 4) != 0 )
       {
-        if ( (a3 & 3) != 0 )
+        if ( ((unsigned __int8)MessageContext & 3) != 0 )
           ExRaiseDatatypeMisalignment();
-        v6 = *(_DWORD *)(a3 + 12);
-        v7 = *(_DWORD *)(a3 + 16);
-        v8 = *(unsigned int *)(a3 + 4);
+        MessageContext_high = HIDWORD(MessageContext->MessageContext);
+        Sequence = MessageContext->Sequence;
+        PortContext_high = (PVOID)HIDWORD(MessageContext->PortContext);
       }
       else
       {
-        if ( (a3 & 3) != 0 )
+        if ( ((unsigned __int8)MessageContext & 3) != 0 )
           ExRaiseDatatypeMisalignment();
-        v6 = *(_DWORD *)(a3 + 20);
-        v7 = *(_DWORD *)(a3 + 24);
-        v8 = *(_QWORD *)(a3 + 8);
+        MessageContext_high = MessageContext->MessageId;
+        Sequence = MessageContext->CallbackId;
+        PortContext_high = MessageContext->MessageContext;
       }
     }
     else
     {
-      v6 = *(_DWORD *)(a3 + 20);
-      v7 = *(_DWORD *)(a3 + 24);
-      v8 = *(_QWORD *)(a3 + 8);
+      MessageContext_high = MessageContext->MessageId;
+      Sequence = MessageContext->CallbackId;
+      PortContext_high = MessageContext->MessageContext;
     }
-    if ( v6 )
+    if ( MessageContext_high )
     {
-      v9 = ObReferenceObjectByHandle(Handle, 1u, AlpcPortObjectType, PreviousMode, &Object, 0LL);
+      v9 = ObReferenceObjectByHandle(PortHandle, 1u, AlpcPortObjectType, PreviousMode, &Object, 0LL);
       if ( v9 >= 0 )
       {
-        v10 = v6;
+        v10 = MessageContext_high;
         v11 = Object;
-        v9 = AlpcpLookupMessage(Object, v10, v7, &v15);
+        v9 = AlpcpLookupMessage(Object, v10, Sequence, &v15);
         if ( v9 >= 0 )
         {
-          if ( (a2 & 8) == 0
-            || ((v11[104] & 6) != 4 ? (v13 = v8 == *(_QWORD *)(v15 + 112)) : (v13 = v8 == *(_QWORD *)(v15 + 104)), v13) )
+          if ( (Flags & 8) == 0
+            || ((v11[104] & 6) != 4
+              ? (v13 = PortContext_high == *(PVOID *)(v15 + 112))
+              : (v13 = PortContext_high == *(PVOID *)(v15 + 104)),
+                v13) )
           {
             if ( (*(_DWORD *)(v15 + 40) & 0x80u) != 0 )
             {
@@ -80,7 +83,7 @@ __int64 __fastcall NtAlpcCancelMessage(HANDLE Handle, int a2, __int64 a3)
             }
             else
             {
-              v9 = AlpcpCancelMessage((__int64)v11, v15, a2);
+              v9 = AlpcpCancelMessage((__int64)v11, v15, Flags);
             }
           }
           else
@@ -98,5 +101,5 @@ __int64 __fastcall NtAlpcCancelMessage(HANDLE Handle, int a2, __int64 a3)
     }
   }
   KeLeaveCriticalRegion();
-  return (unsigned int)v9;
+  return v9;
 }

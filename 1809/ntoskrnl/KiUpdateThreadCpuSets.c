@@ -1,13 +1,13 @@
 /*
- * XREFs of KiUpdateThreadCpuSets @ 0x14018CAD4
+ * XREFs of KiUpdateThreadCpuSets @ 0x14018CC14
  * Callers:
- *     KiUpdateThreadCpuSetAffinitiesFromDpcLevel @ 0x14018CA34 (KiUpdateThreadCpuSetAffinitiesFromDpcLevel.c)
- *     KeSetSelectedCpuSetsThread @ 0x140296A80 (KeSetSelectedCpuSetsThread.c)
+ *     KiUpdateThreadCpuSetAffinitiesFromDpcLevel @ 0x14018CB74 (KiUpdateThreadCpuSetAffinitiesFromDpcLevel.c)
+ *     KeSetSelectedCpuSetsThread @ 0x140296C70 (KeSetSelectedCpuSetsThread.c)
  * Callees:
- *     KiComputeThreadAffinity @ 0x14008A430 (KiComputeThreadAffinity.c)
- *     KiAcquireThreadStateLock @ 0x1400CFA50 (KiAcquireThreadStateLock.c)
- *     KiReleaseThreadStateLock @ 0x1400D8064 (KiReleaseThreadStateLock.c)
- *     KiRescheduleThreadAfterAffinityChange @ 0x1401156A8 (KiRescheduleThreadAfterAffinityChange.c)
+ *     KiComputeThreadAffinity @ 0x14008A420 (KiComputeThreadAffinity.c)
+ *     KiAcquireThreadStateLock @ 0x1400CFAD0 (KiAcquireThreadStateLock.c)
+ *     KiReleaseThreadStateLock @ 0x1400D80E4 (KiReleaseThreadStateLock.c)
+ *     KiRescheduleThreadAfterAffinityChange @ 0x140115718 (KiRescheduleThreadAfterAffinityChange.c)
  */
 
 __int64 __fastcall KiUpdateThreadCpuSets(__int64 a1, __int64 a2)

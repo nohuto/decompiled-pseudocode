@@ -11,15 +11,15 @@
  *     memmove @ 0x140166980 (memmove.c)
  */
 
-unsigned __int64 __fastcall RtlCopyBitMap(unsigned int *a1, __int64 a2, unsigned int a3)
+void __cdecl RtlCopyBitMap(PRTL_BITMAP Source, PRTL_BITMAP Destination, ULONG TargetBit)
 {
-  unsigned __int64 v4; // rcx
-  unsigned __int64 result; // rax
+  unsigned __int64 SizeOfBitMap; // rcx
+  unsigned int v5; // eax
   char v6; // r10
   unsigned __int64 v8; // rbx
-  __int64 v9; // rcx
-  int *v10; // r11
-  int *v11; // r9
+  unsigned int *Buffer; // rcx
+  unsigned int *v10; // r11
+  unsigned int *v11; // r9
   unsigned __int64 v12; // rbp
   unsigned __int64 v13; // rdi
   unsigned __int64 v14; // rbx
@@ -30,24 +30,23 @@ unsigned __int64 __fastcall RtlCopyBitMap(unsigned int *a1, __int64 a2, unsigned
   unsigned int v19; // edx
   char v20; // di
 
-  v4 = *a1;
-  result = *(_DWORD *)a2 - a3;
-  v6 = a3;
-  v8 = (unsigned int)result;
-  if ( (unsigned int)v4 <= (unsigned int)result )
-    v8 = v4;
+  SizeOfBitMap = Source->SizeOfBitMap;
+  v5 = Destination->SizeOfBitMap - TargetBit;
+  v6 = TargetBit;
+  v8 = v5;
+  if ( (unsigned int)SizeOfBitMap <= v5 )
+    v8 = SizeOfBitMap;
   if ( v8 )
   {
-    v9 = *(_QWORD *)(a2 + 8);
-    v10 = (int *)*((_QWORD *)a1 + 1);
-    result = (unsigned __int64)a3 >> 5;
-    v11 = (int *)(v9 + 4 * result);
-    if ( v10 > v11 || (result = (unsigned __int64)&v10[(v8 - 1) >> 5], (unsigned __int64)v11 > result) )
+    Buffer = Destination->Buffer;
+    v10 = Source->Buffer;
+    v11 = &Buffer[(unsigned __int64)TargetBit >> 5];
+    if ( v10 > v11 || v11 > &v10[(v8 - 1) >> 5] )
     {
-      v12 = (unsigned __int64)a3 >> 3;
-      if ( (a3 & 7) != 0 )
+      v12 = (unsigned __int64)TargetBit >> 3;
+      if ( (TargetBit & 7) != 0 )
       {
-        v17 = a3 & 0x1F;
+        v17 = TargetBit & 0x1F;
         if ( v8 >= 0x20 )
         {
           v18 = v8 >> 5;
@@ -56,9 +55,8 @@ unsigned __int64 __fastcall RtlCopyBitMap(unsigned int *a1, __int64 a2, unsigned
           {
             *v11 = ((((1 << (32 - v17)) - 1) & *v10) << v17) | ((1 << v17) - 1) & *v11;
             ++v11;
-            v19 = (*v10++ & (unsigned int)~((1 << (32 - v17)) - 1)) >> (32 - v17);
-            result = v19 | ~((1 << v17) - 1) & *v11;
-            *v11 = result;
+            v19 = (*v10++ & ~((1 << (32 - v17)) - 1)) >> (32 - v17);
+            *v11 = v19 | ~((1 << v17) - 1) & *v11;
             --v18;
           }
           while ( v18 );
@@ -69,13 +67,11 @@ unsigned __int64 __fastcall RtlCopyBitMap(unsigned int *a1, __int64 a2, unsigned
           if ( v8 > 32 - v17 )
           {
             *v11 = ((*v10 & ((1 << v20) - 1)) << v17) | *v11 & ((1 << v17) - 1);
-            result = ((*v10 & (unsigned int)(((1 << (v8 + v17 - 32)) - 1) << v20)) >> v20) | v11[1] & ~((1 << (v8 + v17 - 32)) - 1);
-            v11[1] = result;
+            v11[1] = ((*v10 & (((1 << (v8 + v17 - 32)) - 1) << v20)) >> v20) | v11[1] & ~((1 << (v8 + v17 - 32)) - 1);
           }
           else
           {
-            result = ((*v10 & ((1 << v8) - 1)) << v17) | *v11 & (unsigned int)~(((1 << v8) - 1) << v17);
-            *v11 = result;
+            *v11 = ((*v10 & ((1 << v8) - 1)) << v17) | *v11 & ~(((1 << v8) - 1) << v17);
           }
         }
       }
@@ -85,20 +81,18 @@ unsigned __int64 __fastcall RtlCopyBitMap(unsigned int *a1, __int64 a2, unsigned
         v14 = v8 & 7;
         v15 = v13 >> 3;
         if ( v15 )
-          result = (unsigned __int64)memmove((void *)(v12 + v9), *((const void **)a1 + 1), v15);
+          memmove((char *)Buffer + v12, Source->Buffer, v15);
         if ( v14 )
         {
-          v16 = (_BYTE *)(*(_QWORD *)(a2 + 8) + v15 + v12);
+          v16 = (char *)Destination->Buffer + v15 + v12;
           *v16 &= ~((1 << v14) - 1);
-          result = *((_QWORD *)a1 + 1);
-          *v16 |= (unsigned __int8)((1 << v14) - 1) & *(_BYTE *)(v15 + result);
+          *v16 |= (unsigned __int8)((1 << v14) - 1) & *((_BYTE *)Source->Buffer + v15);
         }
       }
     }
     else
     {
-      return RtlpCopyBitMapTailToHead(a1, a2, a3, (unsigned int)v8);
+      RtlpCopyBitMapTailToHead(Source, Destination, TargetBit, (unsigned int)v8);
     }
   }
-  return result;
 }

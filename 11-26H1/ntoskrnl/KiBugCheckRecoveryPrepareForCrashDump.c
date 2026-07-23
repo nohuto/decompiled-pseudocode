@@ -1,15 +1,15 @@
 /*
- * XREFs of KiBugCheckRecoveryPrepareForCrashDump @ 0x1405F9E44
+ * XREFs of KiBugCheckRecoveryPrepareForCrashDump @ 0x1405FC864
  * Callers:
- *     KiDeferredBugcheckRecoveryWorker @ 0x1405F9FE0 (KiDeferredBugcheckRecoveryWorker.c)
+ *     KiDeferredBugcheckRecoveryWorker @ 0x1405FCA00 (KiDeferredBugcheckRecoveryWorker.c)
  * Callees:
- *     KeDisableInterrupts @ 0x1402BA170 (KeDisableInterrupts.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
- *     HvlPrepareForRootCrashdump @ 0x1405BDB54 (HvlPrepareForRootCrashdump.c)
- *     IoRevertFromDemotedDumpType @ 0x1405C7508 (IoRevertFromDemotedDumpType.c)
- *     KiBugCheckRecoveryFreezeOtherProcessors @ 0x1405F9B28 (KiBugCheckRecoveryFreezeOtherProcessors.c)
- *     KiSaveBugcheckRecoveryProgress @ 0x1405FA540 (KiSaveBugcheckRecoveryProgress.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     KeDisableInterrupts @ 0x140304E30 (KeDisableInterrupts.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     HvlPrepareForRootCrashdump @ 0x1405C03C4 (HvlPrepareForRootCrashdump.c)
+ *     IoRevertFromDemotedDumpType @ 0x1405C9DD8 (IoRevertFromDemotedDumpType.c)
+ *     KiBugCheckRecoveryFreezeOtherProcessors @ 0x1405FC548 (KiBugCheckRecoveryFreezeOtherProcessors.c)
+ *     KiSaveBugcheckRecoveryProgress @ 0x1405FCF60 (KiSaveBugcheckRecoveryProgress.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 char __fastcall KiBugCheckRecoveryPrepareForCrashDump(unsigned __int8 *a1, bool *a2)
@@ -18,12 +18,12 @@ char __fastcall KiBugCheckRecoveryPrepareForCrashDump(unsigned __int8 *a1, bool 
   int v5; // edx
   unsigned __int8 CurrentIrql; // bl
 
-  v4 = KsepShimDbLock.WaitBlockFill7[136] & 0xF;
-  if ( (KsepShimDbLock.WaitBlockFill7[136] & 0xF) == 0 || v4 >= 3 )
+  v4 = KsepShimDbLock.SchedulerApcFill5[76] & 0xF;
+  if ( (KsepShimDbLock.SchedulerApcFill5[76] & 0xF) == 0 || v4 >= 3 )
     return 0;
   if ( v4 == 2 )
   {
-    if ( !KsepShimDbLock.WaitBlock[2].Object )
+    if ( !*(_QWORD *)&KsepShimDbLock.SuspendEvent.Header.Lock )
       IoRevertFromDemotedDumpType();
     HvlEnlightenments &= 0x2000u;
     KiSaveBugcheckRecoveryProgress(96LL);
@@ -40,7 +40,7 @@ char __fastcall KiBugCheckRecoveryPrepareForCrashDump(unsigned __int8 *a1, bool 
   }
   *a1 = CurrentIrql;
   KiBugCheckRecoveryFreezeOtherProcessors(0);
-  if ( (KsepShimDbLock.WaitBlockFill7[136] & 0xF) == 2 )
+  if ( (KsepShimDbLock.SchedulerApcFill5[76] & 0xF) == 2 )
     HvlPrepareForRootCrashdump(0);
   return 1;
 }

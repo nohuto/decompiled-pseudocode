@@ -1,14 +1,14 @@
 /*
- * XREFs of PiDevCfgConfigureDeviceKeyCallback @ 0x140B3E4A0
+ * XREFs of PiDevCfgConfigureDeviceKeyCallback @ 0x140A496A0
  * Callers:
  *     <none>
  * Callees:
- *     _wcsicmp @ 0x140536570 (_wcsicmp.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     PiDevCfgCopyDeviceProperties @ 0x140779A34 (PiDevCfgCopyDeviceProperties.c)
- *     PiDevCfgCopyDeviceKeys @ 0x14098C464 (PiDevCfgCopyDeviceKeys.c)
- *     IopOpenRegistryKeyEx @ 0x140AA8B70 (IopOpenRegistryKeyEx.c)
- *     IopCreateRegistryKeyEx @ 0x140AF90BC (IopCreateRegistryKeyEx.c)
+ *     _wcsicmp @ 0x1405389F0 (_wcsicmp.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     PiDevCfgCopyDeviceProperties @ 0x14077C964 (PiDevCfgCopyDeviceProperties.c)
+ *     IopOpenRegistryKeyEx @ 0x1409DC0A0 (IopOpenRegistryKeyEx.c)
+ *     PiDevCfgCopyDeviceKeys @ 0x140A47944 (PiDevCfgCopyDeviceKeys.c)
+ *     IopCreateRegistryKeyEx @ 0x140AFB79C (IopCreateRegistryKeyEx.c)
  */
 
 __int64 __fastcall PiDevCfgConfigureDeviceKeyCallback(
@@ -65,7 +65,7 @@ LABEL_14:
   }
   if ( v14 >= 0 )
   {
-    v16 = IopCreateRegistryKeyEx(&v22, a6, &v21, 0x2001Fu, 0, 0LL);
+    v16 = IopCreateRegistryKeyEx(&v22, a6, &v21, 131103LL, 0, 0LL);
     v7 = v22;
     v15 = v16;
     if ( v16 >= 0 )

@@ -1,9 +1,9 @@
 /*
- * XREFs of VerifierIoConnectInterrupt @ 0x1409C94C0
+ * XREFs of VerifierIoConnectInterrupt @ 0x1409CA4C0
  * Callers:
  *     <none>
  * Callees:
- *     VfCtxHookAndConnectInterrupt @ 0x1409E3FAC (VfCtxHookAndConnectInterrupt.c)
+ *     VfCtxHookAndConnectInterrupt @ 0x1409E4FAC (VfCtxHookAndConnectInterrupt.c)
  */
 
 __int64 __fastcall VerifierIoConnectInterrupt(

@@ -1,11 +1,11 @@
 /*
- * XREFs of MmImageSectionPagable @ 0x140AC9A1C
+ * XREFs of MmImageSectionPagable @ 0x140ACBB2C
  * Callers:
- *     MmResetDriverPaging @ 0x140AC9400 (MmResetDriverPaging.c)
- *     MiSnapDriverRange @ 0x140AC95AC (MiSnapDriverRange.c)
- *     sub_140C8113C @ 0x140C8113C (sub_140C8113C.c)
- *     sub_140C82940 @ 0x140C82940 (sub_140C82940.c)
- *     MiLockPagableSections @ 0x140D00C50 (MiLockPagableSections.c)
+ *     MmResetDriverPaging @ 0x140ACB510 (MmResetDriverPaging.c)
+ *     MiSnapDriverRange @ 0x140ACB6BC (MiSnapDriverRange.c)
+ *     sub_140C8713C @ 0x140C8713C (sub_140C8713C.c)
+ *     sub_140C88940 @ 0x140C88940 (sub_140C88940.c)
+ *     MiLockPagableSections @ 0x140D06FF0 (MiLockPagableSections.c)
  * Callees:
  *     <none>
  */
@@ -36,7 +36,7 @@ __int64 __fastcall MmImageSectionPagable(__int64 a1)
     }
     else if ( v3 == 67 && *(_BYTE *)(a1 + 5) == 77 && *(_BYTE *)(a1 + 6) == 82 && *(_BYTE *)(a1 + 7) == 67 )
     {
-      return LODWORD(WheapPfaLock.StackBase) == 0;
+      return LODWORD(WheapPfaLock.ThreadLock) == 0;
     }
   }
   return v1;

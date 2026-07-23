@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpRehashKcbSubtree @ 0x140A17638
+ * XREFs of CmpRehashKcbSubtree @ 0x140A178E8
  * Callers:
- *     CmpSearchAndRehashWorker @ 0x140A17710 (CmpSearchAndRehashWorker.c)
+ *     CmpSearchAndRehashWorker @ 0x140A179C0 (CmpSearchAndRehashWorker.c)
  * Callees:
- *     CmpRemoveKeyHash @ 0x14076ACB0 (CmpRemoveKeyHash.c)
- *     CmpInsertKeyHash @ 0x140A17480 (CmpInsertKeyHash.c)
+ *     CmpRemoveKeyHash @ 0x14076AEA0 (CmpRemoveKeyHash.c)
+ *     CmpInsertKeyHash @ 0x140A17730 (CmpInsertKeyHash.c)
  */
 
 char __fastcall CmpRehashKcbSubtree(__int64 a1, __int64 a2)

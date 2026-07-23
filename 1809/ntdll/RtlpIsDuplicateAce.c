@@ -3,8 +3,8 @@
  * Callers:
  *     RtlpGenerateInheritedAce @ 0x1800444A0 (RtlpGenerateInheritedAce.c)
  * Callees:
- *     RtlpCompareKnownObjectAces @ 0x18008AC58 (RtlpCompareKnownObjectAces.c)
- *     memcmp @ 0x180093CB0 (memcmp.c)
+ *     RtlpCompareKnownObjectAces @ 0x18008AC68 (RtlpCompareKnownObjectAces.c)
+ *     memcmp @ 0x180093CC0 (memcmp.c)
  */
 
 char __fastcall RtlpIsDuplicateAce(__int64 a1, char *a2)

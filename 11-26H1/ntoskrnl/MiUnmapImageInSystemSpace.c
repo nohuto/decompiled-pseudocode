@@ -1,9 +1,9 @@
 /*
- * XREFs of MiUnmapImageInSystemSpace @ 0x140B1B8C8
+ * XREFs of MiUnmapImageInSystemSpace @ 0x140B1DACC
  * Callers:
- *     MiSetPagesModified @ 0x14045BE6C (MiSetPagesModified.c)
+ *     MiSetPagesModified @ 0x140455A14 (MiSetPagesModified.c)
  * Callees:
- *     MiRemoveFromSystemSpace @ 0x14048FFF8 (MiRemoveFromSystemSpace.c)
+ *     MiRemoveFromSystemSpace @ 0x140489AA8 (MiRemoveFromSystemSpace.c)
  */
 
 void __fastcall MiUnmapImageInSystemSpace(ULONG_PTR *a1)

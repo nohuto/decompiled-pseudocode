@@ -13,17 +13,17 @@
  */
 
 __int64 __fastcall DifZwAlpcConnectPortWrapper(
-        __int64 a1,
-        __int64 a2,
-        __int64 a3,
-        __int64 a4,
-        int a5,
-        __int64 a6,
-        __int64 a7,
-        __int64 a8,
-        __int64 a9,
-        __int64 a10,
-        __int64 a11)
+        HANDLE *a1,
+        UNICODE_STRING *a2,
+        OBJECT_ATTRIBUTES *a3,
+        _ALPC_PORT_ATTRIBUTES *a4,
+        ULONG Flags,
+        PSID RequiredServerSid,
+        _PORT_MESSAGE *ConnectionMessage,
+        ULONG_PTR *BufferLength,
+        _ALPC_MESSAGE_ATTRIBUTES *OutMessageAttributes,
+        _ALPC_MESSAGE_ATTRIBUTES *InMessageAttributes,
+        LARGE_INTEGER *Timeout)
 {
   __int64 *APIThunkContextById; // rax
   __int64 *v15; // rsi
@@ -35,11 +35,11 @@ __int64 __fastcall DifZwAlpcConnectPortWrapper(
   _QWORD **v21; // rsi
   _QWORD *j; // rbx
   _QWORD v24[7]; // [rsp+68h] [rbp-69h] BYREF
-  int v25; // [rsp+A0h] [rbp-31h]
-  __int64 v26; // [rsp+A8h] [rbp-29h]
-  __int64 v27; // [rsp+B0h] [rbp-21h]
-  __int64 v28; // [rsp+B8h] [rbp-19h]
-  __int64 v29; // [rsp+C0h] [rbp-11h]
+  ULONG v25; // [rsp+A0h] [rbp-31h]
+  _ALPC_PORT_ATTRIBUTES *v26; // [rsp+A8h] [rbp-29h]
+  OBJECT_ATTRIBUTES *v27; // [rsp+B0h] [rbp-21h]
+  UNICODE_STRING *v28; // [rsp+B8h] [rbp-19h]
+  HANDLE *v29; // [rsp+C0h] [rbp-11h]
   unsigned int v30; // [rsp+C8h] [rbp-9h]
   void *retaddr; // [rsp+100h] [rbp+2Fh]
 
@@ -63,13 +63,13 @@ __int64 __fastcall DifZwAlpcConnectPortWrapper(
 LABEL_7:
   v18 = 0;
   v29 = a1;
-  v25 = a5;
-  v24[6] = a6;
-  v24[5] = a7;
-  v24[4] = a8;
-  v24[3] = a9;
-  v24[2] = a10;
-  v24[1] = a11;
+  v25 = Flags;
+  v24[6] = RequiredServerSid;
+  v24[5] = ConnectionMessage;
+  v24[4] = BufferLength;
+  v24[3] = OutMessageAttributes;
+  v24[2] = InMessageAttributes;
+  v24[1] = Timeout;
   v28 = a2;
   v27 = a3;
   v26 = a4;
@@ -85,7 +85,18 @@ LABEL_7:
       ExReleaseRundownProtection_0(&DifRebootlessRundown);
   }
 LABEL_17:
-  v30 = ZwAlpcConnectPort(a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11);
+  v30 = ZwAlpcConnectPort(
+          a1,
+          a2,
+          a3,
+          a4,
+          Flags,
+          RequiredServerSid,
+          ConnectionMessage,
+          BufferLength,
+          OutMessageAttributes,
+          InMessageAttributes,
+          Timeout);
   if ( v15 )
   {
     if ( (v20 = 0, !VfDifRunningWithoutReboot) && (VfOptionFlags & 0x800) == 0

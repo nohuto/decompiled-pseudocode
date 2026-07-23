@@ -1,19 +1,19 @@
 /*
- * XREFs of KiScanSharedReadyThreads @ 0x1403BF4BC
+ * XREFs of KiScanSharedReadyThreads @ 0x1403C93BC
  * Callers:
- *     KiQuantumEnd @ 0x140331070 (KiQuantumEnd.c)
- *     KiNormalPriorityReadyScan @ 0x1403BF1A4 (KiNormalPriorityReadyScan.c)
+ *     KiQuantumEnd @ 0x1403330A0 (KiQuantumEnd.c)
+ *     KiNormalPriorityReadyScan @ 0x1403C90A4 (KiNormalPriorityReadyScan.c)
  * Callees:
- *     KiDeferredReadyThread @ 0x14022F370 (KiDeferredReadyThread.c)
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     KxWaitForLockOwnerShip @ 0x1402B29C0 (KxWaitForLockOwnerShip.c)
- *     KeWakeAddressAll @ 0x1402BA1F0 (KeWakeAddressAll.c)
- *     KxWaitForLockChainValid @ 0x1402BA360 (KxWaitForLockChainValid.c)
- *     KiInsertDeferredReadyList @ 0x1402BCC40 (KiInsertDeferredReadyList.c)
- *     KiRemoveThreadFromSharedReadyQueue @ 0x140336150 (KiRemoveThreadFromSharedReadyQueue.c)
- *     KiSetPriorityBoost @ 0x1403BFA08 (KiSetPriorityBoost.c)
- *     KiReadGuestSchedulerAssistPriority @ 0x1403C0494 (KiReadGuestSchedulerAssistPriority.c)
- *     EtwTraceAntiStarvationBoost @ 0x14052F264 (EtwTraceAntiStarvationBoost.c)
+ *     KiDeferredReadyThread @ 0x140230D00 (KiDeferredReadyThread.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     KxWaitForLockOwnerShip @ 0x1402FD690 (KxWaitForLockOwnerShip.c)
+ *     KeWakeAddressAll @ 0x140304EB0 (KeWakeAddressAll.c)
+ *     KxWaitForLockChainValid @ 0x140305020 (KxWaitForLockChainValid.c)
+ *     KiInsertDeferredReadyList @ 0x140307900 (KiInsertDeferredReadyList.c)
+ *     KiRemoveThreadFromSharedReadyQueue @ 0x140338180 (KiRemoveThreadFromSharedReadyQueue.c)
+ *     KiSetPriorityBoost @ 0x1403C9908 (KiSetPriorityBoost.c)
+ *     KiReadGuestSchedulerAssistPriority @ 0x1403CA394 (KiReadGuestSchedulerAssistPriority.c)
+ *     EtwTraceAntiStarvationBoost @ 0x140531784 (EtwTraceAntiStarvationBoost.c)
  */
 
 char __fastcall KiScanSharedReadyThreads(struct _KPRCB *a1, __int64 a2, char a3)

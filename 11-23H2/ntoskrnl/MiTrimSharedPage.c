@@ -1,19 +1,19 @@
 /*
- * XREFs of MiTrimSharedPage @ 0x1403A63BC
+ * XREFs of MiTrimSharedPage @ 0x1403A659C
  * Callers:
- *     MiWalkEntireImage @ 0x1402DAFE0 (MiWalkEntireImage.c)
- *     MiTradePage @ 0x1403BA960 (MiTradePage.c)
- *     MiMarkFileOnlyPfnBad @ 0x14063E040 (MiMarkFileOnlyPfnBad.c)
+ *     MiWalkEntireImage @ 0x1402DB270 (MiWalkEntireImage.c)
+ *     MiTradePage @ 0x1403BAB40 (MiTradePage.c)
+ *     MiMarkFileOnlyPfnBad @ 0x14063E590 (MiMarkFileOnlyPfnBad.c)
  * Callees:
- *     MiReleaseControlAreaWaiters @ 0x1402E3F2C (MiReleaseControlAreaWaiters.c)
- *     MiLockPageInline @ 0x1402EF680 (MiLockPageInline.c)
- *     MiTrimSection @ 0x1402EF974 (MiTrimSection.c)
- *     MiDecrementModifiedWriteCount @ 0x1402F4824 (MiDecrementModifiedWriteCount.c)
- *     MiPreventControlAreaDeletion @ 0x1403A65A8 (MiPreventControlAreaDeletion.c)
- *     MiDecrementSubsection @ 0x1403A668C (MiDecrementSubsection.c)
- *     MiClusterVadFull @ 0x14046FA20 (MiClusterVadFull.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     MiReferencePfBackedSection @ 0x140669AF0 (MiReferencePfBackedSection.c)
+ *     MiReleaseControlAreaWaiters @ 0x1402E41BC (MiReleaseControlAreaWaiters.c)
+ *     MiLockPageInline @ 0x1402EF910 (MiLockPageInline.c)
+ *     MiTrimSection @ 0x1402EFC04 (MiTrimSection.c)
+ *     MiDecrementModifiedWriteCount @ 0x1402F4AB4 (MiDecrementModifiedWriteCount.c)
+ *     MiPreventControlAreaDeletion @ 0x1403A6788 (MiPreventControlAreaDeletion.c)
+ *     MiDecrementSubsection @ 0x1403A686C (MiDecrementSubsection.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     MiClusterVadFull @ 0x14046FE20 (MiClusterVadFull.c)
+ *     MiReferencePfBackedSection @ 0x14066A040 (MiReferencePfBackedSection.c)
  */
 
 __int64 __fastcall MiTrimSharedPage(__int64 a1, unsigned __int8 a2, unsigned int a3)
@@ -81,10 +81,13 @@ __int64 __fastcall MiTrimSharedPage(__int64 a1, unsigned __int8 a2, unsigned int
   if ( (*(_DWORD *)(a1 + 16) & 0x400LL) == 0 )
   {
     _InterlockedAnd64((volatile signed __int64 *)(a1 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v4 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v4 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -126,10 +129,10 @@ __int64 __fastcall MiTrimSharedPage(__int64 a1, unsigned __int8 a2, unsigned int
     v15 &= ~qword_140C65B40;
   v16 = v15 >> 16;
   _InterlockedAnd64((volatile signed __int64 *)(a1 + 24), 0x7FFFFFFFFFFFFFFFuLL);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v21 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v21 <= 0xFu && (unsigned __int8)v4 <= 0xFu && v21 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v21 <= 0xFu && (unsigned __int8)v4 <= 0xFu && v21 >= 2u )
     {
       v22 = KeGetCurrentPrcb();
       v23 = v22->SchedulerAssist;

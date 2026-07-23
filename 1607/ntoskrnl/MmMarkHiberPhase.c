@@ -3,10 +3,10 @@
  * Callers:
  *     PopMarkComponentsBootPhase @ 0x1403CAFB4 (PopMarkComponentsBootPhase.c)
  * Callees:
- *     PsGetCurrentProcess @ 0x140014680 (PsGetCurrentProcess.c)
- *     MiEnumerateLeafPtes @ 0x1400B9C10 (MiEnumerateLeafPtes.c)
- *     PoSetHiberRange @ 0x140112E60 (PoSetHiberRange.c)
- *     memset @ 0x1401715C0 (memset.c)
+ *     PsGetCurrentProcess @ 0x140014200 (PsGetCurrentProcess.c)
+ *     MiEnumerateLeafPtes @ 0x1400B7AA0 (MiEnumerateLeafPtes.c)
+ *     PoSetHiberRange @ 0x1401133D0 (PoSetHiberRange.c)
+ *     memset @ 0x140171AC0 (memset.c)
  *     MiEnumerateKernelLeafPtes @ 0x1403C9674 (MiEnumerateKernelLeafPtes.c)
  *     MiGatherHiberRange @ 0x1403C97D4 (MiGatherHiberRange.c)
  *     MiMarkKernelPageTablePages @ 0x1403CA8B8 (MiMarkKernelPageTablePages.c)
@@ -40,7 +40,7 @@ unsigned __int64 MmMarkHiberPhase()
     (__int64 (__fastcall *)(__int64, unsigned __int64, unsigned __int64))MiMarkNonPagedHiberPhasePages,
     0LL,
     2);
-  PoSetHiberRange(0LL, 0x14000u, qword_1403276E8, 1uLL, 0x61676D4Du);
+  PoSetHiberRange(0LL, 0x14000u, qword_140327728, 1uLL, 0x61676D4Du);
   CurrentProcess = PsGetCurrentProcess();
   PoSetHiberRange(0LL, 0x10000u, CurrentProcess, 0x7D0uLL, 0x62706D4Du);
   v2 = *(void **)&PsGetCurrentProcess()[2].Affinity.Count;
@@ -65,7 +65,7 @@ unsigned __int64 MmMarkHiberPhase()
     --v4;
   }
   while ( v4 );
-  v6 = &qword_1403275D0;
+  v6 = &qword_140327610;
   do
   {
     v7 = (_QWORD *)*v6;

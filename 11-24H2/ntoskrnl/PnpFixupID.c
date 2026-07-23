@@ -1,10 +1,10 @@
 /*
- * XREFs of PnpFixupID @ 0x140A342FC
+ * XREFs of PnpFixupID @ 0x140A2830C
  * Callers:
- *     PnpQueryDeviceID @ 0x140A33FB0 (PnpQueryDeviceID.c)
- *     PnpQueryID @ 0x140A34100 (PnpQueryID.c)
+ *     PnpQueryDeviceID @ 0x140A27FC0 (PnpQueryDeviceID.c)
+ *     PnpQueryID @ 0x140A28110 (PnpQueryID.c)
  * Callees:
- *     PnpLogEvent @ 0x140723460 (PnpLogEvent.c)
+ *     PnpLogEvent @ 0x140720FF0 (PnpLogEvent.c)
  */
 
 __int64 __fastcall PnpFixupID(int *a1, unsigned int a2, int a3, unsigned int a4, const void **a5)

@@ -1,18 +1,18 @@
 /*
- * XREFs of ExAcquireFastResourceExclusive @ 0x1403DD040
+ * XREFs of ExAcquireFastResourceExclusive @ 0x1403BCD30
  * Callers:
- *     DifExAcquireFastResourceExclusiveWrapper @ 0x14061B750 (DifExAcquireFastResourceExclusiveWrapper.c)
- *     ExTryToAcquireResourceExclusiveLite @ 0x140656E80 (ExTryToAcquireResourceExclusiveLite.c)
+ *     DifExAcquireFastResourceExclusiveWrapper @ 0x140619D10 (DifExAcquireFastResourceExclusiveWrapper.c)
+ *     ExTryToAcquireResourceExclusiveLite @ 0x140655580 (ExTryToAcquireResourceExclusiveLite.c)
  * Callees:
- *     KxAcquireSpinLock @ 0x140254AE0 (KxAcquireSpinLock.c)
- *     KeAbPostReleaseEx @ 0x14025CCE0 (KeAbPostReleaseEx.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14025E408 (KiRemoveSystemWorkPriorityKick.c)
- *     KxReleaseSpinLock @ 0x140279CC0 (KxReleaseSpinLock.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
- *     ObfReferenceObjectWithTag @ 0x1403403E0 (ObfReferenceObjectWithTag.c)
- *     ExpAcquireFastResourceExclusiveSlow @ 0x1403DD330 (ExpAcquireFastResourceExclusiveSlow.c)
- *     KeAbMarkCrossThreadReleasable @ 0x1403DD90C (KeAbMarkCrossThreadReleasable.c)
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     KxReleaseSpinLock @ 0x14022F250 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x1402850F0 (KxAcquireSpinLock.c)
+ *     KeAbPostReleaseEx @ 0x14028D2F0 (KeAbPostReleaseEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14028EA18 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     ObfReferenceObjectWithTag @ 0x14031F8C0 (ObfReferenceObjectWithTag.c)
+ *     ExpAcquireFastResourceExclusiveSlow @ 0x1403BD020 (ExpAcquireFastResourceExclusiveSlow.c)
+ *     KeAbMarkCrossThreadReleasable @ 0x1403BD5FC (KeAbMarkCrossThreadReleasable.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 char __fastcall ExAcquireFastResourceExclusive(ULONG_PTR BugCheckParameter2, __int64 a2, char a3)

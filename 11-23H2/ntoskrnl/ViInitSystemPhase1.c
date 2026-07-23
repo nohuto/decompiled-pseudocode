@@ -3,11 +3,11 @@
  * Callers:
  *     VerifierInitSystem @ 0x140B53244 (VerifierInitSystem.c)
  * Callees:
- *     VfIsRuleClassEnabled @ 0x140ABD450 (VfIsRuleClassEnabled.c)
- *     VfPendingInitPhase1 @ 0x140AD1890 (VfPendingInitPhase1.c)
- *     VfFaultsInitPhase1 @ 0x140AD5ED0 (VfFaultsInitPhase1.c)
- *     VfPoolInitPhase1 @ 0x140ADA148 (VfPoolInitPhase1.c)
- *     VfSettingsMiscellaneousChecksInitPhase1 @ 0x140ADAEB8 (VfSettingsMiscellaneousChecksInitPhase1.c)
+ *     VfIsRuleClassEnabled @ 0x140ABD440 (VfIsRuleClassEnabled.c)
+ *     VfPendingInitPhase1 @ 0x140AD1880 (VfPendingInitPhase1.c)
+ *     VfFaultsInitPhase1 @ 0x140AD5EC0 (VfFaultsInitPhase1.c)
+ *     VfPoolInitPhase1 @ 0x140ADA138 (VfPoolInitPhase1.c)
+ *     VfSettingsMiscellaneousChecksInitPhase1 @ 0x140ADAEA8 (VfSettingsMiscellaneousChecksInitPhase1.c)
  */
 
 char ViInitSystemPhase1()

@@ -1,17 +1,17 @@
 /*
  * XREFs of CmSetCallbackObjectContext @ 0x140692F40
  * Callers:
- *     VrpHandleIoctlInitializeJobForVreg @ 0x140690378 (VrpHandleIoctlInitializeJobForVreg.c)
- *     VrpPreLoadKey @ 0x14069061C (VrpPreLoadKey.c)
- *     VrpPostOpenOrCreate @ 0x1407806B0 (VrpPostOpenOrCreate.c)
+ *     sub_140690378 @ 0x140690378 (sub_140690378.c)
+ *     sub_14069061C @ 0x14069061C (sub_14069061C.c)
+ *     sub_1407806B0 @ 0x1407806B0 (sub_1407806B0.c)
  * Callees:
- *     CmCleanupThreadInfo @ 0x14022EA30 (CmCleanupThreadInfo.c)
- *     CmpInitializeThreadInfo @ 0x140347770 (CmpInitializeThreadInfo.c)
- *     CmpUnlockContextList @ 0x1406930B0 (CmpUnlockContextList.c)
- *     CmpUnlockCallbackList @ 0x1406930D4 (CmpUnlockCallbackList.c)
- *     CmpLockContextListExclusive @ 0x1406930F8 (CmpLockContextListExclusive.c)
- *     CmpLockContextListShared @ 0x140693128 (CmpLockContextListShared.c)
- *     CmpLockCallbackListShared @ 0x140693158 (CmpLockCallbackListShared.c)
+ *     sub_14022EA30 @ 0x14022EA30 (sub_14022EA30.c)
+ *     sub_140347770 @ 0x140347770 (sub_140347770.c)
+ *     sub_1406930B0 @ 0x1406930B0 (sub_1406930B0.c)
+ *     sub_1406930D4 @ 0x1406930D4 (sub_1406930D4.c)
+ *     sub_1406930F8 @ 0x1406930F8 (sub_1406930F8.c)
+ *     sub_140693128 @ 0x140693128 (sub_140693128.c)
+ *     sub_140693158 @ 0x140693158 (sub_140693158.c)
  *     ExAllocatePoolWithTag @ 0x140A6E910 (ExAllocatePoolWithTag.c)
  */
 
@@ -37,13 +37,13 @@ NTSTATUS __stdcall CmSetCallbackObjectContext(PVOID Object, PLARGE_INTEGER Cooki
   v5 = 0;
   *(_OWORD *)v24 = 0LL;
   v6 = 0;
-  CmpInitializeThreadInfo((__int64)v24);
+  sub_140347770((__int64)v24);
   if ( Object && *(_DWORD *)Object == 1803104306 )
   {
     if ( v10 )
       *v10 = 0LL;
-    CmpLockCallbackListShared();
-    CmpLockContextListShared();
+    sub_140693158();
+    sub_140693128();
     v11 = (char *)Object + 72;
     while ( 1 )
     {
@@ -53,13 +53,13 @@ NTSTATUS __stdcall CmSetCallbackObjectContext(PVOID Object, PLARGE_INTEGER Cooki
 LABEL_7:
       if ( v6 )
       {
-        v13 = (__int64 *)CallbackListHead;
-        if ( (__int64 *)CallbackListHead == &CallbackListHead )
+        v13 = (__int64 *)qword_140C497F0;
+        if ( (__int64 *)qword_140C497F0 == &qword_140C497F0 )
           goto LABEL_28;
         while ( Cookie->QuadPart != v13[3] )
         {
           v13 = (__int64 *)*v13;
-          if ( v13 == &CallbackListHead )
+          if ( v13 == &qword_140C497F0 )
             goto LABEL_28;
         }
         if ( !v13 )
@@ -103,9 +103,9 @@ LABEL_28:
         }
         goto LABEL_18;
       }
-      CmpUnlockContextList();
+      sub_1406930B0();
       v6 = 1;
-      CmpLockContextListExclusive();
+      sub_1406930F8();
     }
     QuadPart = Cookie->QuadPart;
     while ( v12[4] != QuadPart )
@@ -122,14 +122,14 @@ LABEL_28:
     if ( OldContext )
       *OldContext = v23;
 LABEL_18:
-    CmpUnlockContextList();
-    CmpUnlockCallbackList();
-    CmCleanupThreadInfo(v24);
+    sub_1406930B0();
+    sub_1406930D4();
+    sub_14022EA30(v24);
     return v5;
   }
   else
   {
-    CmCleanupThreadInfo(v24);
+    sub_14022EA30(v24);
     return -1073741585;
   }
 }

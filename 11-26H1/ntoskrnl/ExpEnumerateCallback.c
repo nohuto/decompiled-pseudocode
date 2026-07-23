@@ -1,11 +1,11 @@
 /*
- * XREFs of ExpEnumerateCallback @ 0x1404CC2D0
+ * XREFs of ExpEnumerateCallback @ 0x1404C5D00
  * Callers:
  *     <none>
  * Callees:
- *     KeReleaseSpinLock @ 0x1402BE860 (KeReleaseSpinLock.c)
- *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x14032F300 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeSetEvent @ 0x1402C0780 (KeSetEvent.c)
+ *     KeReleaseSpinLock @ 0x140309520 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140331330 (KeAcquireSpinLockRaiseToDpc.c)
  */
 
 __int64 __fastcall ExpEnumerateCallback(__int64 a1, __int64 ***a2)
@@ -46,7 +46,7 @@ __int64 __fastcall ExpEnumerateCallback(__int64 a1, __int64 ***a2)
     v13 = *((_BYTE *)v6 + 44) == 0;
     *((_DWORD *)v6 + 10) = v12;
     if ( !v13 && !v12 )
-      KeSetEvent(&word_140EFEF60, 0, 0);
+      KeSetEvent(&word_140EFF2A0, 0, 0);
   }
   KeReleaseSpinLock(v2, v10);
   return v8;

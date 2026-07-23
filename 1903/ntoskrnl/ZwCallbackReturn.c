@@ -6,10 +6,9 @@
  *     <none>
  */
 
-// local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall ZwCallbackReturn(PVOID Result, ULONG ResultLength, NTSTATUS Status)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(Result, *(_QWORD *)&ResultLength, *(_QWORD *)&Status);
+  return KiServiceInternal(Result);
 }

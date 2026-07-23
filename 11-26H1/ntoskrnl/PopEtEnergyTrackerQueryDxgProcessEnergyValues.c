@@ -1,15 +1,15 @@
 /*
- * XREFs of PopEtEnergyTrackerQueryDxgProcessEnergyValues @ 0x140B6D478
+ * XREFs of PopEtEnergyTrackerQueryDxgProcessEnergyValues @ 0x140B70848
  * Callers:
- *     PopEtProcessEnumSnapshotCallback @ 0x1407DC800 (PopEtProcessEnumSnapshotCallback.c)
+ *     PopEtProcessEnumSnapshotCallback @ 0x1407E0A20 (PopEtProcessEnumSnapshotCallback.c)
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ObOpenObjectByPointer @ 0x14092AFF0 (ObOpenObjectByPointer.c)
- *     PsAcquireProcessExitSynchronization @ 0x140971910 (PsAcquireProcessExitSynchronization.c)
- *     ObCloseHandle @ 0x140A00740 (ObCloseHandle.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ObOpenObjectByPointer @ 0x140906B20 (ObOpenObjectByPointer.c)
+ *     ObCloseHandle @ 0x14091D2C0 (ObCloseHandle.c)
+ *     PsAcquireProcessExitSynchronization @ 0x1409D39E0 (PsAcquireProcessExitSynchronization.c)
  */
 
 char __fastcall PopEtEnergyTrackerQueryDxgProcessEnergyValues(__int64 a1, __int64 a2, _QWORD *a3)

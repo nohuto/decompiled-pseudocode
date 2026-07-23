@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpTraceHiveFlushWrotePrimaryFile @ 0x140AAB810
+ * XREFs of CmpTraceHiveFlushWrotePrimaryFile @ 0x140AA8DBC
  * Callers:
- *     HvWriteHivePrimaryFile @ 0x140AAAADC (HvWriteHivePrimaryFile.c)
+ *     HvWriteHivePrimaryFile @ 0x140AA80BC (HvWriteHivePrimaryFile.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 BOOLEAN __fastcall CmpTraceHiveFlushWrotePrimaryFile(int a1, int a2)

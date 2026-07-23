@@ -1,17 +1,17 @@
 /*
- * XREFs of AlpcpCaptureMessageDataSafe @ 0x1409C09E8
+ * XREFs of AlpcpCaptureMessageDataSafe @ 0x1409919C8
  * Callers:
- *     AlpcpDispatchReplyToWaitingThread @ 0x1409BEFC0 (AlpcpDispatchReplyToWaitingThread.c)
- *     AlpcpCompleteDispatchMessage @ 0x1409BF938 (AlpcpCompleteDispatchMessage.c)
+ *     AlpcpDispatchReplyToWaitingThread @ 0x14098FFA0 (AlpcpDispatchReplyToWaitingThread.c)
+ *     AlpcpCompleteDispatchMessage @ 0x140990918 (AlpcpCompleteDispatchMessage.c)
  * Callees:
- *     RtlCopyFromUser @ 0x140533E38 (RtlCopyFromUser.c)
- *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     AlpcpReleasePagedPoolQuota @ 0x1408E8010 (AlpcpReleasePagedPoolQuota.c)
- *     AlpcpChargePagedPoolQuota @ 0x1409BC9CC (AlpcpChargePagedPoolQuota.c)
- *     AlpcpAvailableBufferSize @ 0x140A4A020 (AlpcpAvailableBufferSize.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     RtlCopyFromUser @ 0x1405362B8 (RtlCopyFromUser.c)
+ *     RtlCopyVolatileMemory @ 0x140737C50 (RtlCopyVolatileMemory.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     AlpcpReleasePagedPoolQuota @ 0x1408EE5D0 (AlpcpReleasePagedPoolQuota.c)
+ *     AlpcpChargePagedPoolQuota @ 0x14098D9AC (AlpcpChargePagedPoolQuota.c)
+ *     AlpcpAvailableBufferSize @ 0x140A53310 (AlpcpAvailableBufferSize.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall AlpcpCaptureMessageDataSafe(__int64 a1)

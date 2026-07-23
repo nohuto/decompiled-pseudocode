@@ -29,7 +29,7 @@ bool __fastcall RtlpEtcIsValidFeatureId(unsigned int a1, int a2)
          L"\\Registry\\Machine\\SYSTEM\\CurrentControlSet\\Control\\FeatureManagement\\EnterpriseTempControls",
          v6) >= 0
     && RtlStringCchPrintfW(v8, 0x20uLL, L"%lu", a1) >= 0
-    && (int)RtlpEtcGetDwordFromRegistry((__int64)pszDest, (__int64)v8, (__int64)v7) >= 0 )
+    && RtlpEtcGetDwordFromRegistry(pszDest, v8, v7) >= 0 )
   {
     return v7[0] != 0;
   }

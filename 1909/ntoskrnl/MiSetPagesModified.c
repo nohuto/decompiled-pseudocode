@@ -62,7 +62,7 @@ __int64 __fastcall MiSetPagesModified(__int64 *a1, int a2)
   struct _KTHREAD *v27; // rbx
   ULONG_PTR SessionId; // r9
   unsigned __int8 v29; // r12
-  __int64 v30; // rdi
+  _KLOCK_ENTRY *v30; // rdi
   unsigned int v31; // r8d
   __int64 v32; // rcx
   _KLOCK_ENTRY *v33; // rdx
@@ -224,21 +224,21 @@ __int64 __fastcall MiSetPagesModified(__int64 *a1, int a2)
           v33->AcquiredByte &= ~1u;
           if ( v33->LockState.0 )
           {
-            v30 = (__int64)&v27->LockEntries[v32];
+            v30 = &v27->LockEntries[v32];
             break;
           }
         }
       }
       if ( v30 )
       {
-        *(_BYTE *)(v30 + 32) |= 2u;
-        if ( *(__int64 *)(v30 + 32) < 0 )
-          KiAbEntryRemoveFromTree(v30);
-        v39 = *(_DWORD *)(v30 + 88) & 0x1FFFF;
-        *(_DWORD *)(v30 + 88) &= 0xFFFE0000;
-        *(_BYTE *)(v30 + 25) &= ~1u;
-        *(_QWORD *)(v30 + 32) = 0LL;
-        v36 = (v30 - (__int64)v27 - 800) / 96;
+        v30->CrossThreadReleasableAndBusyByte |= 2u;
+        if ( (__int64)v30->LockState.LockState < 0 )
+          KiAbEntryRemoveFromTree(&v30->TreeNode);
+        v39 = v30->BoostBitmap.AllFields & 0x1FFFF;
+        v30->BoostBitmap.AllFields &= 0xFFFE0000;
+        v30->ThreadLocalFlags &= ~1u;
+        v30->LockState.0 = 0LL;
+        v36 = ((char *)v30 - (char *)v27 - 800) / 96;
         if ( v29 == 1 )
           v27->AbEntrySummary |= 1 << v36;
         else

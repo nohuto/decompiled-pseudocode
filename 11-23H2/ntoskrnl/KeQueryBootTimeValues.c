@@ -1,13 +1,13 @@
 /*
- * XREFs of KeQueryBootTimeValues @ 0x140350FEC
+ * XREFs of KeQueryBootTimeValues @ 0x14035118C
  * Callers:
- *     PipUpdateDeviceProducts @ 0x140374E40 (PipUpdateDeviceProducts.c)
- *     ExpQuerySystemInformation @ 0x140726850 (ExpQuerySystemInformation.c)
+ *     PipUpdateDeviceProducts @ 0x140374FE0 (PipUpdateDeviceProducts.c)
+ *     ExpQuerySystemInformation @ 0x140726A50 (ExpQuerySystemInformation.c)
  *     PipHardwareConfigInit @ 0x140B6C43C (PipHardwareConfigInit.c)
  *     EtwpInitializeBootTimeStamps @ 0x140B742E4 (EtwpInitializeBootTimeStamps.c)
  *     EtwpFixBootSystemTime @ 0x140B974E0 (EtwpFixBootSystemTime.c)
  * Callees:
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 __int64 __fastcall KeQueryBootTimeValues(_QWORD *a1, LARGE_INTEGER *a2, _QWORD *a3)
@@ -24,7 +24,7 @@ __int64 __fastcall KeQueryBootTimeValues(_QWORD *a1, LARGE_INTEGER *a2, _QWORD *
 
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     LODWORD(v6) = 4;
@@ -35,10 +35,10 @@ __int64 __fastcall KeQueryBootTimeValues(_QWORD *a1, LARGE_INTEGER *a2, _QWORD *
   *a1 = MEMORY[0xFFFFF78000000014];
   *a2 = KeBootTime;
   *a3 = KeBootTimeBias;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v7 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v7 <= 0xFu && CurrentIrql <= 0xFu && v7 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v7 <= 0xFu && CurrentIrql <= 0xFu && v7 >= 2u )
     {
       CurrentPrcb = KeGetCurrentPrcb();
       v9 = CurrentPrcb->SchedulerAssist;

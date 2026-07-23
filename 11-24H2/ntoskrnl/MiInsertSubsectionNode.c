@@ -1,12 +1,12 @@
 /*
- * XREFs of MiInsertSubsectionNode @ 0x140261544
+ * XREFs of MiInsertSubsectionNode @ 0x140291B54
  * Callers:
- *     MiAppendSubsectionChain @ 0x140474DD4 (MiAppendSubsectionChain.c)
- *     MiCreateDataFileMap @ 0x140943D3C (MiCreateDataFileMap.c)
+ *     MiAppendSubsectionChain @ 0x140470BE4 (MiAppendSubsectionChain.c)
+ *     MiCreateDataFileMap @ 0x14098A990 (MiCreateDataFileMap.c)
  * Callees:
- *     RtlAvlInsertNodeEx @ 0x14025FDD0 (RtlAvlInsertNodeEx.c)
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
+ *     RtlAvlInsertNodeEx @ 0x1402903E0 (RtlAvlInsertNodeEx.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
  */
 
 char __fastcall MiInsertSubsectionNode(__int64 a1, unsigned __int64 a2, int a3)

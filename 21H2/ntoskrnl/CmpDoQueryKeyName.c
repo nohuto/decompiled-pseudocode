@@ -1,25 +1,25 @@
 /*
- * XREFs of CmpDoQueryKeyName @ 0x14027EBD0
+ * XREFs of CmpDoQueryKeyName @ 0x14026CB70
  * Callers:
- *     CmpQueryKeyName @ 0x140667590 (CmpQueryKeyName.c)
+ *     CmpQueryKeyName @ 0x14065C3B0 (CmpQueryKeyName.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     ExIsResourceAcquiredSharedLite @ 0x14034FE80 (ExIsResourceAcquiredSharedLite.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     CmpConstructName @ 0x1405F2FBC (CmpConstructName.c)
- *     CmpPerformKeyBodyDeletionCheck @ 0x1405F4700 (CmpPerformKeyBodyDeletionCheck.c)
- *     CmpDetachFromRegistryProcess @ 0x1405F613C (CmpDetachFromRegistryProcess.c)
- *     CmpAttachToRegistryProcess @ 0x1405F6390 (CmpAttachToRegistryProcess.c)
- *     RtlFreeAnsiString @ 0x140602CB0 (RtlFreeAnsiString.c)
- *     CmPostCallbackNotification @ 0x1406677D0 (CmPostCallbackNotification.c)
- *     CmpCallCallBacks @ 0x140667A2C (CmpCallCallBacks.c)
- *     CmpLockKcbShared @ 0x1406F2B10 (CmpLockKcbShared.c)
- *     CmpUnlockKcb @ 0x1406F2B40 (CmpUnlockKcb.c)
- *     CmpUnlockRegistry @ 0x1406F5ED0 (CmpUnlockRegistry.c)
- *     CmpLockRegistry @ 0x1406F5F10 (CmpLockRegistry.c)
- *     CmVirtualKCBToRealPath @ 0x14086FAD8 (CmVirtualKCBToRealPath.c)
- *     ExFreePoolWithTag @ 0x1409B4010 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExIsResourceAcquiredSharedLite @ 0x14035ABD0 (ExIsResourceAcquiredSharedLite.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     RtlFreeAnsiString @ 0x14063DA40 (RtlFreeAnsiString.c)
+ *     CmPostCallbackNotification @ 0x14065C5F0 (CmPostCallbackNotification.c)
+ *     CmpCallCallBacks @ 0x14065C84C (CmpCallCallBacks.c)
+ *     CmpConstructName @ 0x1406E271C (CmpConstructName.c)
+ *     CmpPerformKeyBodyDeletionCheck @ 0x1406E3E60 (CmpPerformKeyBodyDeletionCheck.c)
+ *     CmpDetachFromRegistryProcess @ 0x1406E589C (CmpDetachFromRegistryProcess.c)
+ *     CmpAttachToRegistryProcess @ 0x1406E5AF0 (CmpAttachToRegistryProcess.c)
+ *     CmpLockKcbShared @ 0x140709EF0 (CmpLockKcbShared.c)
+ *     CmpUnlockKcb @ 0x140709F20 (CmpUnlockKcb.c)
+ *     CmpUnlockRegistry @ 0x14070D2B0 (CmpUnlockRegistry.c)
+ *     CmpLockRegistry @ 0x14070D2F0 (CmpLockRegistry.c)
+ *     CmVirtualKCBToRealPath @ 0x14086FC38 (CmVirtualKCBToRealPath.c)
+ *     ExFreePoolWithTag @ 0x1409B5010 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall CmpDoQueryKeyName(__int64 a1, __int64 a2, __int64 a3, unsigned int a4, _DWORD *a5)
@@ -167,7 +167,7 @@ LABEL_19:
   }
   if ( v22 )
     CmPostCallbackNotification(48, v7, v15, (unsigned int)&v29, (__int64)v25);
-  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+  KeLeaveCriticalRegionThread(KeGetCurrentThread());
   if ( UnicodeString.Buffer )
   {
     RtlFreeAnsiString(&UnicodeString);

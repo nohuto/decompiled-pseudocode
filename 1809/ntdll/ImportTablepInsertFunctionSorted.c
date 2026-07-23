@@ -5,7 +5,7 @@
  *     ??$InsertModuleFunctions@U_IMAGE_THUNK_DATA64@@_K$0?IAAAAAAAAAAAAAAA@@@YAJPEAU_IMPORTTABLEP_IMPORTTABLEP_SORTED_LIST_ENTRY@@PEAXPEAU_IMAGE_NT_HEADERS64@@PEFAU_IMAGE_IMPORT_DESCRIPTOR@@@Z @ 0x1800E17CC (--$InsertModuleFunctions@U_IMAGE_THUNK_DATA64@@_K$0-IAAAAAAAAAAAAAAA@@@YAJPEAU_IMPORTTABLEP_IMPO.c)
  *     RtlComputeImportTableHash @ 0x1800E1A00 (RtlComputeImportTableHash.c)
  * Callees:
- *     _stricmp @ 0x180091260 (_stricmp.c)
+ *     _stricmp @ 0x180091270 (_stricmp.c)
  */
 
 int __fastcall ImportTablepInsertFunctionSorted(__int64 a1, __int64 ***a2)

@@ -1,23 +1,23 @@
 /*
- * XREFs of SepFilterCheck @ 0x14034ECD0
+ * XREFs of SepFilterCheck @ 0x140359A20
  * Callers:
- *     SeAccessCheckByTypeWithAdminlessChecks @ 0x14027CAB0 (SeAccessCheckByTypeWithAdminlessChecks.c)
- *     SeAccessCheckWithHintWithAdminlessChecks @ 0x14034DCE0 (SeAccessCheckWithHintWithAdminlessChecks.c)
- *     SepCommonAccessCheckExWithAdminlessChecks @ 0x140373074 (SepCommonAccessCheckExWithAdminlessChecks.c)
- *     SepAccessCheckAndAuditAlarmWithAdminlessChecks @ 0x1406261B0 (SepAccessCheckAndAuditAlarmWithAdminlessChecks.c)
- *     SeShouldCheckForAccessRightsFromParent @ 0x14065C780 (SeShouldCheckForAccessRightsFromParent.c)
- *     SeAdjustAccessStateForAccessConstraints @ 0x14065EFE0 (SeAdjustAccessStateForAccessConstraints.c)
- *     SepAdjustAccessStateForConstraints @ 0x14076EFC0 (SepAdjustAccessStateForConstraints.c)
+ *     SeAccessCheckByTypeWithAdminlessChecks @ 0x14026AA50 (SeAccessCheckByTypeWithAdminlessChecks.c)
+ *     SeAccessCheckWithHintWithAdminlessChecks @ 0x140358A30 (SeAccessCheckWithHintWithAdminlessChecks.c)
+ *     SepCommonAccessCheckExWithAdminlessChecks @ 0x140372BC4 (SepCommonAccessCheckExWithAdminlessChecks.c)
+ *     SeShouldCheckForAccessRightsFromParent @ 0x1406515A0 (SeShouldCheckForAccessRightsFromParent.c)
+ *     SeAdjustAccessStateForAccessConstraints @ 0x140653E00 (SeAdjustAccessStateForAccessConstraints.c)
+ *     SepAccessCheckAndAuditAlarmWithAdminlessChecks @ 0x1406922C0 (SepAccessCheckAndAuditAlarmWithAdminlessChecks.c)
+ *     SepAdjustAccessStateForConstraints @ 0x14076F180 (SepAdjustAccessStateForConstraints.c)
  * Callees:
- *     AuthzBasepEvaluateAceCondition @ 0x14024DC80 (AuthzBasepEvaluateAceCondition.c)
- *     SepFreeResourceInfo @ 0x14027E088 (SepFreeResourceInfo.c)
- *     AuthzBasepInitializeResourceClaimsFromSacl @ 0x1402B2C28 (AuthzBasepInitializeResourceClaimsFromSacl.c)
- *     KeLeaveCriticalRegion @ 0x14034B3B0 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x14034B3F0 (ExReleaseResourceLite.c)
- *     ExAcquireResourceSharedLite @ 0x14034BF60 (ExAcquireResourceSharedLite.c)
+ *     AuthzBasepInitializeResourceClaimsFromSacl @ 0x140230DD8 (AuthzBasepInitializeResourceClaimsFromSacl.c)
+ *     SepFreeResourceInfo @ 0x14026C028 (SepFreeResourceInfo.c)
+ *     AuthzBasepEvaluateAceCondition @ 0x1402F24D0 (AuthzBasepEvaluateAceCondition.c)
+ *     KeLeaveCriticalRegion @ 0x140356100 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x140356140 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x140356CB0 (ExAcquireResourceSharedLite.c)
  */
 
-__int64 __fastcall SepFilterCheck(__int64 a1, __int64 *a2, __int64 a3, char a4, int *a5)
+__int64 __fastcall SepFilterCheck(__int64 a1, PVOID *a2, __int64 a3, char a4, int *a5)
 {
   int *v5; // r13
   __int64 v6; // r11
@@ -28,7 +28,7 @@ __int64 __fastcall SepFilterCheck(__int64 a1, __int64 *a2, __int64 a3, char a4, 
   int v11; // ebp
   __int16 v12; // ax
   __int64 v13; // r14
-  __int64 *p_P; // rsi
+  PVOID *p_P; // rsi
   __int64 v15; // rbx
   unsigned int v16; // ecx
   __int64 v18; // rax
@@ -90,7 +90,7 @@ __int64 __fastcall SepFilterCheck(__int64 a1, __int64 *a2, __int64 a3, char a4, 
     v13 = 0LL;
   }
   LOBYTE(v40) = 0;
-  p_P = (__int64 *)&P;
+  p_P = &P;
   if ( a2 )
     p_P = a2;
   while ( 1 )
@@ -160,7 +160,19 @@ LABEL_11:
     }
     v27 = *(unsigned __int16 *)(v15 + 2) - v20;
     a5 = (int *)(v19 + v15 + 8);
-    v11 = AuthzBasepEvaluateAceCondition(v9, *(_QWORD *)(v9 + 776), *p_P, v6, v26, v25, v24, a5, v27 - 8, 1u, 0, &v39);
+    v11 = AuthzBasepEvaluateAceCondition(
+            v9,
+            *(_QWORD *)(v9 + 776),
+            (__int64)*p_P,
+            v6,
+            v26,
+            v25,
+            v24,
+            a5,
+            v27 - 8,
+            1u,
+            0,
+            &v39);
     if ( v11 < 0 )
       goto LABEL_13;
     if ( v39 != 1 )
@@ -193,7 +205,7 @@ LABEL_11:
       v11 = AuthzBasepEvaluateAceCondition(
               v41,
               *(_QWORD *)(v41 + 776),
-              *p_P,
+              (__int64)*p_P,
               v33,
               v32,
               v31,

@@ -1,13 +1,13 @@
 /*
- * XREFs of VrpUnlockDiffHiveTable @ 0x14092ACAC
+ * XREFs of VrpUnlockDiffHiveTable @ 0x14092CDEC
  * Callers:
- *     VrpFindOrCreateDiffHiveEntryForMountPoint @ 0x14092A8CC (VrpFindOrCreateDiffHiveEntryForMountPoint.c)
- *     VrpDereferenceDiffHiveEntry @ 0x14092AA88 (VrpDereferenceDiffHiveEntry.c)
- *     VrpFindDiffHiveEntryForMountPoint @ 0x14092AC5C (VrpFindDiffHiveEntryForMountPoint.c)
+ *     VrpFindOrCreateDiffHiveEntryForMountPoint @ 0x14092CA0C (VrpFindOrCreateDiffHiveEntryForMountPoint.c)
+ *     VrpDereferenceDiffHiveEntry @ 0x14092CBC8 (VrpDereferenceDiffHiveEntry.c)
+ *     VrpFindDiffHiveEntryForMountPoint @ 0x14092CD9C (VrpFindDiffHiveEntryForMountPoint.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExfReleasePushLock @ 0x14025E260 (ExfReleasePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExfReleasePushLock @ 0x14028E870 (ExfReleasePushLock.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
  */
 
 void VrpUnlockDiffHiveTable()

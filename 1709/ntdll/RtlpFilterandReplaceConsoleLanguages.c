@@ -23,38 +23,44 @@ __int64 __fastcall RtlpFilterandReplaceConsoleLanguages(
   unsigned int v10; // edi
   wchar_t *Buffer; // rbx
   int appended; // eax
-  __int64 v13; // rdi
-  unsigned int i; // r15d
+  _QWORD *v13; // rdi
+  unsigned int v14; // r15d
   bool v16; // [rsp+30h] [rbp-D0h] BYREF
   __int16 v17[2]; // [rsp+34h] [rbp-CCh] BYREF
-  UNICODE_STRING v18; // [rsp+38h] [rbp-C8h] BYREF
-  __int64 v19; // [rsp+48h] [rbp-B8h] BYREF
-  UNICODE_STRING v20; // [rsp+50h] [rbp-B0h] BYREF
+  _UNICODE_STRING v18; // [rsp+38h] [rbp-C8h] BYREF
+  PVOID BaseAddress; // [rsp+48h] [rbp-B8h] BYREF
+  _UNICODE_STRING v20; // [rsp+50h] [rbp-B0h] BYREF
   _BYTE v21[176]; // [rsp+60h] [rbp-A0h] BYREF
 
-  v19 = 0LL;
+  BaseAddress = 0LL;
   memset(v21, 0, 0xAAuLL);
   v16 = 0;
   *(_QWORD *)&v18.Length = 0LL;
   v18.Buffer = 0LL;
   if ( !a1 || !a2 || !a5 || !*a5 )
     return 3221225485LL;
-  NameFromLangListNode = LdrpCreateLangFallbackList(&v19, a2, 25LL);
+  NameFromLangListNode = LdrpCreateLangFallbackList(&BaseAddress, a2, 25LL);
   if ( NameFromLangListNode >= 0 )
   {
     v10 = 0;
     if ( !*(_WORD *)(a1 + 4) )
     {
 LABEL_13:
-      v13 = v19;
-      for ( i = 0; i < *(unsigned __int16 *)(v13 + 4); ++i )
+      v13 = BaseAddress;
+      v14 = 0;
+      if ( *((_WORD *)BaseAddress + 2) )
       {
-        *(_DWORD *)&v18.Length = 11141120;
-        v18.Buffer = (wchar_t *)v21;
-        NameFromLangListNode = GetNameFromLangListNode(a2, (_WORD *)(*(_QWORD *)(v13 + 24) + 6LL * i), &v18);
-        if ( NameFromLangListNode < 0 )
-          break;
-        NameFromLangListNode = LdrpLangFallbackListAppendNode(a5, a2, 0, v17, v18.Buffer);
+        do
+        {
+          *(_DWORD *)&v18.Length = 11141120;
+          v18.Buffer = (wchar_t *)v21;
+          NameFromLangListNode = GetNameFromLangListNode(a2, (_WORD *)(v13[3] + 6LL * v14), &v18);
+          if ( NameFromLangListNode < 0 )
+            break;
+          NameFromLangListNode = LdrpLangFallbackListAppendNode(a5, a2, 0, v17, v18.Buffer);
+          ++v14;
+        }
+        while ( v14 < *((unsigned __int16 *)v13 + 2) );
       }
       goto LABEL_14;
     }
@@ -68,7 +74,7 @@ LABEL_13:
       Buffer = v18.Buffer;
       v20.Buffer = 0LL;
       if ( (int)RtlpConsoleFallbackNameFromLocaleName(v18.Buffer, a3, &v16, &v20, a2, a4) >= 0 && v16 )
-        appended = LdrpLangFallbackListAppendNode(&v19, a2, 0, v17, v20.Buffer);
+        appended = LdrpLangFallbackListAppendNode((__int64 *)&BaseAddress, a2, 0, v17, v20.Buffer);
       else
         appended = LdrpLangFallbackListAppendNode(a5, a2, 0, v17, Buffer);
       NameFromLangListNode = appended;
@@ -78,7 +84,7 @@ LABEL_13:
         goto LABEL_13;
     }
   }
-  v13 = v19;
+  v13 = BaseAddress;
 LABEL_14:
   if ( v13 )
     RtlpMuiRegFreeLanguageList(v13);

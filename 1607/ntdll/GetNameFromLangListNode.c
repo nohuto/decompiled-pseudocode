@@ -1,17 +1,17 @@
 /*
- * XREFs of GetNameFromLangListNode @ 0x180043374
+ * XREFs of GetNameFromLangListNode @ 0x180043364
  * Callers:
- *     RtlpMUIRegPatchLicenseInfortmation @ 0x1800114D8 (RtlpMUIRegPatchLicenseInfortmation.c)
- *     RtlpFilterandReplaceConsoleLanguages @ 0x180013698 (RtlpFilterandReplaceConsoleLanguages.c)
- *     RtlpAddNeutralsToMergedList @ 0x18003F364 (RtlpAddNeutralsToMergedList.c)
- *     RtlGetNeutralFallback @ 0x18003F59C (RtlGetNeutralFallback.c)
- *     LdrpMergeLangFallbackLists @ 0x180041058 (LdrpMergeLangFallbackLists.c)
+ *     RtlpMUIRegPatchLicenseInfortmation @ 0x1800114C8 (RtlpMUIRegPatchLicenseInfortmation.c)
+ *     RtlpFilterandReplaceConsoleLanguages @ 0x180013688 (RtlpFilterandReplaceConsoleLanguages.c)
+ *     RtlpAddNeutralsToMergedList @ 0x18003F354 (RtlpAddNeutralsToMergedList.c)
+ *     RtlGetNeutralFallback @ 0x18003F58C (RtlGetNeutralFallback.c)
+ *     LdrpMergeLangFallbackLists @ 0x180041048 (LdrpMergeLangFallbackLists.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x180044150 (RtlInitUnicodeString.c)
- *     RtlLCIDToCultureName @ 0x1800448B0 (RtlLCIDToCultureName.c)
+ *     RtlInitUnicodeString @ 0x180044140 (RtlInitUnicodeString.c)
+ *     RtlLCIDToCultureName @ 0x1800448A0 (RtlLCIDToCultureName.c)
  */
 
-__int64 __fastcall GetNameFromLangListNode(__int64 a1, _WORD *a2, UNICODE_STRING *a3)
+__int64 __fastcall GetNameFromLangListNode(__int64 a1, _WORD *a2, _UNICODE_STRING *a3)
 {
   unsigned int v3; // ebx
   __int64 v6; // rdx
@@ -26,7 +26,7 @@ __int64 __fastcall GetNameFromLangListNode(__int64 a1, _WORD *a2, UNICODE_STRING
     switch ( *a2 )
     {
       case 1:
-        if ( !(unsigned __int8)RtlLCIDToCultureName((unsigned int)(__int16)a2[2], a3) )
+        if ( !RtlLCIDToCultureName((__int16)a2[2], a3) )
           return (unsigned int)-1073741595;
         return v3;
       case 2:
@@ -41,7 +41,7 @@ LABEL_8:
           RtlInitUnicodeString(a3, (PCWSTR)(*(_QWORD *)(v9 + 24) + 2LL * *(__int16 *)(*(_QWORD *)(v9 + 16) + 2 * v10)));
           return v3;
         }
-        if ( v8 && (unsigned __int8)RtlLCIDToCultureName(v8, a3) )
+        if ( v8 && RtlLCIDToCultureName(v8, a3) )
           return v3;
         break;
       case 3:

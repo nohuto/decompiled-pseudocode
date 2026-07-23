@@ -9,20 +9,20 @@
  *     KiAbOwnerComputeCpuPriorityKey @ 0x140243DFC (KiAbOwnerComputeCpuPriorityKey.c)
  */
 
-char __fastcall KiAbEntryUpdateOwnerTreePosition(unsigned __int64 a1, __int64 a2, __int64 a3, __int64 a4)
+BOOLEAN __fastcall KiAbEntryUpdateOwnerTreePosition(PRTL_BALANCED_NODE Node, __int64 a2, __int64 a3, __int64 a4)
 {
-  char result; // al
+  BOOLEAN result; // al
   __int64 v7; // rbx
-  bool v8; // cl
-  unsigned __int64 v9; // rdx
-  unsigned __int64 v10; // rax
+  BOOLEAN v8; // cl
+  __int64 v9; // rdx
+  __int64 v10; // rax
 
-  result = KiAbOwnerComputeCpuPriorityKey(a1, a2, a3, a4);
-  if ( *(_BYTE *)(a1 + 48) != result )
+  result = KiAbOwnerComputeCpuPriorityKey(Node, a2, a3, a4);
+  if ( LOBYTE(Node[2].Children[0]) != result )
   {
     v7 = a2 + 48;
-    *(_BYTE *)(a1 + 48) = result;
-    RtlRbRemoveNode((unsigned __int64 *)v7, a1);
+    LOBYTE(Node[2].Children[0]) = result;
+    RtlRbRemoveNode((PRTL_RB_TREE)v7, Node);
     v8 = 0;
     v9 = *(_QWORD *)v7;
     if ( (*(_BYTE *)(v7 + 8) & 1) != 0 )
@@ -36,17 +36,17 @@ char __fastcall KiAbEntryUpdateOwnerTreePosition(unsigned __int64 a1, __int64 a2
     {
       while ( 1 )
       {
-        if ( *(_BYTE *)(v9 + 48) > *(_BYTE *)(a1 + 48) )
+        if ( *(_BYTE *)(v9 + 48) > SLOBYTE(Node[2].Children[0]) )
         {
           v10 = *(_QWORD *)v9;
           if ( (*(_BYTE *)(v7 + 8) & 1) != 0 )
           {
             if ( !v10 )
-              return RtlRbInsertNodeEx((unsigned __int64 *)v7, v9, v8, a1);
+              return RtlRbInsertNodeEx((PRTL_RB_TREE)v7, (PRTL_BALANCED_NODE)v9, v8, Node);
             v10 ^= v9;
           }
           if ( !v10 )
-            return RtlRbInsertNodeEx((unsigned __int64 *)v7, v9, v8, a1);
+            return RtlRbInsertNodeEx((PRTL_RB_TREE)v7, (PRTL_BALANCED_NODE)v9, v8, Node);
         }
         else
         {
@@ -61,13 +61,13 @@ char __fastcall KiAbEntryUpdateOwnerTreePosition(unsigned __int64 a1, __int64 a2
           {
 LABEL_9:
             v8 = 1;
-            return RtlRbInsertNodeEx((unsigned __int64 *)v7, v9, v8, a1);
+            return RtlRbInsertNodeEx((PRTL_RB_TREE)v7, (PRTL_BALANCED_NODE)v9, v8, Node);
           }
         }
         v9 = v10;
       }
     }
-    return RtlRbInsertNodeEx((unsigned __int64 *)v7, v9, v8, a1);
+    return RtlRbInsertNodeEx((PRTL_RB_TREE)v7, (PRTL_BALANCED_NODE)v9, v8, Node);
   }
   return result;
 }

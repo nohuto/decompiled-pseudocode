@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlCopySidAndAttributesArray @ 0x14062CDA0
+ * XREFs of RtlCopySidAndAttributesArray @ 0x14062DDC0
  * Callers:
  *     SepCreateTokenEx @ 0x14001366C (SepCreateTokenEx.c)
- *     SepCopyTokenAccessInformation @ 0x1405BF0C8 (SepCopyTokenAccessInformation.c)
- *     NtQueryInformationToken @ 0x14062A760 (NtQueryInformationToken.c)
- *     SeQueryInformationToken @ 0x14063C350 (SeQueryInformationToken.c)
- *     SepFilterToken @ 0x140657CCC (SepFilterToken.c)
- *     CmpBuildAdminInformation @ 0x1407F22F0 (CmpBuildAdminInformation.c)
+ *     SepCopyTokenAccessInformation @ 0x1405C00C8 (SepCopyTokenAccessInformation.c)
+ *     NtQueryInformationToken @ 0x14062B780 (NtQueryInformationToken.c)
+ *     SeQueryInformationToken @ 0x14063D370 (SeQueryInformationToken.c)
+ *     SepFilterToken @ 0x140658E8C (SepFilterToken.c)
+ *     CmpBuildAdminInformation @ 0x1407F34F0 (CmpBuildAdminInformation.c)
  * Callees:
- *     memmove @ 0x1401D1540 (memmove.c)
+ *     memmove @ 0x1401D1640 (memmove.c)
  */
 
 NTSTATUS __stdcall RtlCopySidAndAttributesArray(

@@ -10,38 +10,37 @@
  *     NtReadFile @ 0x180093960 (NtReadFile.c)
  */
 
-__int64 __fastcall ResReadFile(HANDLE Handle, __int64 a2, __int64 a3, _DWORD *a4)
+__int64 __fastcall ResReadFile(HANDLE Handle, PVOID Buffer, ULONG Length, _DWORD *a4)
 {
-  NTSTATUS File; // ecx
-  ULONG v8; // eax
-  NTSTATUS v9; // [rsp+50h] [rbp-18h]
-  int v10; // [rsp+58h] [rbp-10h]
+  int Status; // ecx
+  LONG v8; // eax
+  _IO_STATUS_BLOCK IoStatusBlock; // [rsp+50h] [rbp-18h] BYREF
 
   if ( a4 )
     *a4 = 0;
-  File = NtReadFile();
-  if ( File == 259 )
+  Status = NtReadFile(Handle, 0LL, 0LL, 0LL, &IoStatusBlock, Buffer, Length, 0LL, 0LL);
+  if ( Status == 259 )
   {
-    File = NtWaitForSingleObject(Handle, 0, 0LL);
-    if ( File < 0 )
+    Status = NtWaitForSingleObject(Handle, 0, 0LL);
+    if ( Status < 0 )
       goto LABEL_10;
-    File = v9;
+    Status = IoStatusBlock.Status;
   }
-  if ( File >= 0 )
+  if ( Status >= 0 )
   {
     if ( a4 )
-      *a4 = v10;
+      *a4 = IoStatusBlock.Information;
     return 1LL;
   }
 LABEL_10:
-  if ( File == -1073741807 )
+  if ( Status == -1073741807 )
   {
     *a4 = 0;
     return 1LL;
   }
-  if ( (File & 0xC0000000) == 0x80000000 )
-    *a4 = v10;
-  v8 = RtlNtStatusToDosError(File);
+  if ( (Status & 0xC0000000) == 0x80000000 )
+    *a4 = IoStatusBlock.Information;
+  v8 = RtlNtStatusToDosError(Status);
   RtlSetLastWin32Error(v8);
   return 0LL;
 }

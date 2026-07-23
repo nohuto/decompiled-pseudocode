@@ -1,15 +1,15 @@
 /*
- * XREFs of RtlpHpFreeVA @ 0x140420FB8
+ * XREFs of RtlpHpFreeVA @ 0x14045928C
  * Callers:
- *     RtlpHpSegMgrReserve @ 0x1402C11C4 (RtlpHpSegMgrReserve.c)
- *     RtlpHpLargeAlloc @ 0x140420250 (RtlpHpLargeAlloc.c)
- *     RtlpHpHeapAllocate @ 0x140604AC8 (RtlpHpHeapAllocate.c)
- *     RtlpHpHeapDestroy @ 0x1406050DC (RtlpHpHeapDestroy.c)
- *     RtlpHpLargeAllocationDestroy @ 0x140607214 (RtlpHpLargeAllocationDestroy.c)
+ *     RtlpHpSegMgrReserve @ 0x14035D608 (RtlpHpSegMgrReserve.c)
+ *     RtlpHpLargeAlloc @ 0x1404585E4 (RtlpHpLargeAlloc.c)
+ *     RtlpHpHeapAllocate @ 0x140602108 (RtlpHpHeapAllocate.c)
+ *     RtlpHpHeapDestroy @ 0x14060271C (RtlpHpHeapDestroy.c)
+ *     RtlpHpLargeAllocationDestroy @ 0x140604814 (RtlpHpLargeAllocationDestroy.c)
  * Callees:
- *     RtlpHpEnvFreeVA @ 0x14024421C (RtlpHpEnvFreeVA.c)
- *     RtlpHpVaMgrCtxFree @ 0x140421038 (RtlpHpVaMgrCtxFree.c)
- *     RtlpHpVaMgrCtxDecommit @ 0x140605AF0 (RtlpHpVaMgrCtxDecommit.c)
+ *     RtlpHpEnvFreeVA @ 0x14020C9AC (RtlpHpEnvFreeVA.c)
+ *     RtlpHpVaMgrCtxFree @ 0x14045930C (RtlpHpVaMgrCtxFree.c)
+ *     RtlpHpVaMgrCtxDecommit @ 0x140603130 (RtlpHpVaMgrCtxDecommit.c)
  */
 
 __int64 __fastcall RtlpHpFreeVA(ULONG_PTR *a1, ULONG_PTR *a2, int a3, _OWORD *a4)
@@ -24,13 +24,13 @@ __int64 __fastcall RtlpHpFreeVA(ULONG_PTR *a1, ULONG_PTR *a2, int a3, _OWORD *a4
     *a1 = v5;
     *a2 = v6;
     if ( v6 )
-      RtlpHpVaMgrCtxFree(&unk_140E68358, a1, a2);
+      RtlpHpVaMgrCtxFree(&unk_140E68558, a1, a2);
   }
   else
   {
     if ( (unsigned __int8)(BYTE1(*a4) - 2) > 2u )
       return RtlpHpEnvFreeVA(a1, a2, a3);
-    RtlpHpVaMgrCtxDecommit(&unk_140E68358, *a1, *a2);
+    RtlpHpVaMgrCtxDecommit(&unk_140E68558, *a1, *a2);
   }
   return 0LL;
 }

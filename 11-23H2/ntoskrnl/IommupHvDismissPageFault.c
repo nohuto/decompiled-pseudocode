@@ -1,11 +1,11 @@
 /*
- * XREFs of IommupHvDismissPageFault @ 0x1405249D8
+ * XREFs of IommupHvDismissPageFault @ 0x140524F28
  * Callers:
- *     IommuProcessPageRequestQueue @ 0x140523100 (IommuProcessPageRequestQueue.c)
+ *     IommuProcessPageRequestQueue @ 0x140523650 (IommuProcessPageRequestQueue.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall IommupHvDismissPageFault(int a1, __int64 a2, __int16 a3, int a4, __int64 a5, __int64 a6)

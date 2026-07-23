@@ -1,39 +1,41 @@
 /*
- * XREFs of PiCMCaptureDeviceListInputData @ 0x140A1A15C
+ * XREFs of PiCMCaptureDeviceListInputData @ 0x140A16020
  * Callers:
- *     PiCMGetDeviceIdList @ 0x140A19E98 (PiCMGetDeviceIdList.c)
+ *     PiCMGetDeviceIdList @ 0x140A15D5C (PiCMGetDeviceIdList.c)
  * Callees:
- *     PiControlFreeUserModeCallersBuffer @ 0x140441F70 (PiControlFreeUserModeCallersBuffer.c)
- *     ExRaiseDatatypeMisalignment @ 0x14089B1F0 (ExRaiseDatatypeMisalignment.c)
- *     PiControlMakeUserModeCallersCopy @ 0x1408D0150 (PiControlMakeUserModeCallersCopy.c)
+ *     PiControlFreeUserModeCallersBuffer @ 0x140438B40 (PiControlFreeUserModeCallersBuffer.c)
+ *     Feature_KernelPnP_DeviceListFilterUpdates__private_IsEnabledDeviceUsageNoInline @ 0x1405A5D80 (Feature_KernelPnP_DeviceListFilterUpdates__private_IsEnabledDeviceUsageNoInline.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408A3890 (ExRaiseDatatypeMisalignment.c)
+ *     PiControlMakeUserModeCallersCopy @ 0x1408CDB40 (PiControlMakeUserModeCallersCopy.c)
  */
 
 __int64 __fastcall PiCMCaptureDeviceListInputData(_DWORD *a1, unsigned int a2, int a3, __int64 a4)
 {
-  int v5; // r12d
-  char PreviousMode; // r13
   int UserModeCallersCopy; // ebx
+  unsigned __int64 v7; // r8
   unsigned __int64 v8; // r8
   _QWORD *v9; // r15
-  void *v10; // rdx
-  _DWORD *v11; // r14
-  unsigned int v12; // r8d
-  unsigned __int64 v14; // r8
+  void *v10; // r13
+  unsigned int v11; // ecx
+  _DWORD *v12; // r12
+  unsigned int v13; // r8d
+  int v15; // [rsp+38h] [rbp-40h]
+  char PreviousMode; // [rsp+80h] [rbp+8h]
 
-  v5 = 0;
+  v15 = 0;
   PreviousMode = KeGetCurrentThread()->PreviousMode;
   UserModeCallersCopy = 0;
   if ( !a1 || !a2 )
   {
     UserModeCallersCopy = -1073741811;
-    goto LABEL_19;
+    goto LABEL_41;
   }
   if ( a3 )
   {
     if ( ((unsigned __int8)a1 & 3) != 0 )
       ExRaiseDatatypeMisalignment();
-    v14 = (unsigned __int64)a1 + a2;
-    if ( v14 > 0x7FFFFFFF0000LL || v14 < (unsigned __int64)a1 )
+    v7 = (unsigned __int64)a1 + a2;
+    if ( v7 > 0x7FFFFFFF0000LL || v7 < (unsigned __int64)a1 )
       UserModeCallersCopy = 0;
     if ( a2 >= 0x14 && *a1 == 20 )
     {
@@ -55,16 +57,16 @@ __int64 __fastcall PiCMCaptureDeviceListInputData(_DWORD *a1, unsigned int a2, i
     v8 = (unsigned __int64)a1 + a2;
     if ( v8 > 0x7FFFFFFF0000LL || v8 < (unsigned __int64)a1 )
       UserModeCallersCopy = 0;
-    if ( a2 < 0x18 )
-    {
-      UserModeCallersCopy = -1073741811;
-    }
-    else
+    if ( a2 >= 0x18 )
     {
       *(_OWORD *)a4 = *(_OWORD *)a1;
       *(_QWORD *)(a4 + 16) = *((_QWORD *)a1 + 2);
       if ( *(_DWORD *)a4 != 24 )
         UserModeCallersCopy = -1073741811;
+    }
+    else
+    {
+      UserModeCallersCopy = -1073741811;
     }
   }
   if ( UserModeCallersCopy >= 0 )
@@ -72,46 +74,75 @@ __int64 __fastcall PiCMCaptureDeviceListInputData(_DWORD *a1, unsigned int a2, i
     v9 = (_QWORD *)(a4 + 8);
     v10 = *(void **)(a4 + 8);
     *(_QWORD *)(a4 + 8) = 0LL;
-    if ( v10 )
+    if ( (unsigned int)Feature_KernelPnP_DeviceListFilterUpdates__private_IsEnabledDeviceUsageNoInline() )
     {
-      v11 = (_DWORD *)(a4 + 16);
-      v12 = *(_DWORD *)(a4 + 16);
-      if ( v12 >= 2 )
+      v11 = *(_DWORD *)(a4 + 16);
+      if ( v10 )
       {
-        UserModeCallersCopy = PiControlMakeUserModeCallersCopy((void **)(a4 + 8), v10, v12, 2LL, PreviousMode, 1);
-        if ( UserModeCallersCopy < 0 )
+        if ( v11 - 2 <= 0x1FE )
         {
-          *v9 = 0LL;
-          *v11 = 0;
+          UserModeCallersCopy = PiControlMakeUserModeCallersCopy((void **)(a4 + 8), v10, v11, 2LL, PreviousMode, 1);
+          if ( UserModeCallersCopy < 0 )
+          {
+            *v9 = 0LL;
+            *(_DWORD *)(a4 + 16) = 0;
+          }
+          else
+          {
+            v15 = 1;
+            *(_WORD *)(*v9 + 2 * ((unsigned __int64)*(unsigned int *)(a4 + 16) >> 1) - 2) = 0;
+          }
+          goto LABEL_41;
         }
-        else
-        {
-          v5 = 1;
-          *(_WORD *)(*v9 + 2 * ((unsigned __int64)(unsigned int)*v11 >> 1) - 2) = 0;
-        }
-LABEL_19:
-        if ( UserModeCallersCopy >= 0 )
-          return (unsigned int)UserModeCallersCopy;
-        goto LABEL_36;
+      }
+      else if ( !v11 )
+      {
+        goto LABEL_41;
       }
     }
     else
     {
-      v11 = (_DWORD *)(a4 + 16);
-    }
-    if ( v10 )
-    {
-      if ( *v11 >= 2u )
-        goto LABEL_19;
-    }
-    else if ( !*v11 )
-    {
-      goto LABEL_19;
+      if ( v10 )
+      {
+        v12 = (_DWORD *)(a4 + 16);
+        v13 = *(_DWORD *)(a4 + 16);
+        if ( v13 >= 2 )
+        {
+          UserModeCallersCopy = PiControlMakeUserModeCallersCopy((void **)(a4 + 8), v10, v13, 2LL, PreviousMode, 1);
+          if ( UserModeCallersCopy < 0 )
+          {
+            *v9 = 0LL;
+            *v12 = 0;
+          }
+          else
+          {
+            v15 = 1;
+            *(_WORD *)(*v9 + 2 * ((unsigned __int64)(unsigned int)*v12 >> 1) - 2) = 0;
+          }
+LABEL_41:
+          if ( UserModeCallersCopy >= 0 )
+            return (unsigned int)UserModeCallersCopy;
+          goto LABEL_42;
+        }
+      }
+      else
+      {
+        v12 = (_DWORD *)(a4 + 16);
+      }
+      if ( v10 )
+      {
+        if ( *v12 >= 2u )
+          goto LABEL_41;
+      }
+      else if ( !*v12 )
+      {
+        goto LABEL_41;
+      }
     }
     UserModeCallersCopy = -1073741811;
   }
-LABEL_36:
-  if ( v5 )
+LABEL_42:
+  if ( v15 )
     PiControlFreeUserModeCallersBuffer(PreviousMode, *(void **)(a4 + 8));
   *(_OWORD *)a4 = 0LL;
   *(_QWORD *)(a4 + 16) = 0LL;

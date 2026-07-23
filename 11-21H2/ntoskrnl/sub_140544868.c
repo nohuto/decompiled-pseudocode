@@ -1,0 +1,46 @@
+/*
+ * XREFs of sub_140544868 @ 0x140544868
+ * Callers:
+ *     sub_140544A9C @ 0x140544A9C (sub_140544A9C.c)
+ *     sub_140544EF0 @ 0x140544EF0 (sub_140544EF0.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall sub_140544868(__int64 a1, __int64 a2, unsigned int a3, unsigned int a4)
+{
+  unsigned int v4; // eax
+  unsigned int v5; // eax
+  unsigned int v6; // eax
+  unsigned int v7; // eax
+  unsigned int v8; // eax
+
+  v4 = *(_DWORD *)(a2 + 40LL * a3 + 16);
+  if ( v4 < *(_DWORD *)(a2 + 40LL * a4 + 16) )
+    return 0xFFFFFFFFLL;
+  if ( v4 > *(_DWORD *)(a2 + 40LL * a4 + 16) )
+    return 1LL;
+  v5 = *(_DWORD *)(a2 + 40LL * a3 + 20);
+  if ( v5 < *(_DWORD *)(a2 + 40LL * a4 + 20) )
+    return 0xFFFFFFFFLL;
+  if ( v5 > *(_DWORD *)(a2 + 40LL * a4 + 20) )
+    return 1LL;
+  v6 = *(_DWORD *)(a2 + 40LL * a3 + 24);
+  if ( v6 > *(_DWORD *)(a2 + 40LL * a4 + 24) )
+    return 0xFFFFFFFFLL;
+  if ( v6 < *(_DWORD *)(a2 + 40LL * a4 + 24) )
+    return 1LL;
+  v7 = *(_DWORD *)(a2 + 40LL * a3 + 28);
+  if ( v7 > *(_DWORD *)(a2 + 40LL * a4 + 28) )
+    return 0xFFFFFFFFLL;
+  if ( v7 < *(_DWORD *)(a2 + 40LL * a4 + 28) )
+    return 1LL;
+  v8 = *(_DWORD *)(a2 + 40LL * a3 + 32);
+  if ( v8 > *(_DWORD *)(a2 + 40LL * a4 + 32) )
+    return 0xFFFFFFFFLL;
+  if ( v8 < *(_DWORD *)(a2 + 40LL * a4 + 32) )
+    return 1LL;
+  if ( a3 >= a4 )
+    return a3 > a4;
+  return 0xFFFFFFFFLL;
+}

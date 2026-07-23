@@ -40,7 +40,7 @@ char __fastcall RtlpValidateHeapSegment(
   unsigned __int16 v21; // cx
   char v22; // al
   bool v23; // zf
-  unsigned __int64 v24; // rbp
+  SIZE_T v24; // rbp
   __int64 *v25; // r14
   _QWORD *v26; // r15
   __int64 v27; // rbp
@@ -62,7 +62,7 @@ char __fastcall RtlpValidateHeapSegment(
   unsigned __int64 k; // rax
   __int64 v44; // rax
   int v45; // r8d
-  __int64 v46; // r14
+  SIZE_T v46; // r14
   __int64 v47; // rax
   __int64 v48; // rax
   unsigned __int64 v49; // rcx
@@ -291,7 +291,7 @@ LABEL_39:
           v9 = a4;
           goto LABEL_41;
         }
-        v46 = RtlCompareMemoryUlong((_DWORD *)(i + 32), v24, -17891602);
+        v46 = RtlCompareMemoryUlong((PVOID)(i + 32), v24, 0xFEEEFEEE);
         if ( v46 != v24 )
         {
           if ( NtCurrentPeb()->Ldr )

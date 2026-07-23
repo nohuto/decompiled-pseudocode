@@ -1,17 +1,17 @@
 /*
- * XREFs of RtlGetVersion @ 0x1406B4730
+ * XREFs of RtlGetVersion @ 0x1406B59D0
  * Callers:
- *     RtlVerifyVersionInfo @ 0x140174660 (RtlVerifyVersionInfo.c)
- *     SymCryptInitEnvWindowsKernelmodeWin8_1nLater @ 0x1401AF208 (SymCryptInitEnvWindowsKernelmodeWin8_1nLater.c)
- *     SdbpMatchOsVersion @ 0x14072312C (SdbpMatchOsVersion.c)
- *     _SysCtxOpenMachine @ 0x14073BA68 (_SysCtxOpenMachine.c)
- *     Win7RtlGetVersion @ 0x140849640 (Win7RtlGetVersion.c)
- *     Win81RtlGetVersion @ 0x140849720 (Win81RtlGetVersion.c)
- *     Win8RtlGetVersion @ 0x140849800 (Win8RtlGetVersion.c)
- *     EtwpTraceSystemInitialization @ 0x1409D1A58 (EtwpTraceSystemInitialization.c)
+ *     RtlVerifyVersionInfo @ 0x140174760 (RtlVerifyVersionInfo.c)
+ *     SymCryptInitEnvWindowsKernelmodeWin8_1nLater @ 0x1401AF348 (SymCryptInitEnvWindowsKernelmodeWin8_1nLater.c)
+ *     SdbpMatchOsVersion @ 0x1407243CC (SdbpMatchOsVersion.c)
+ *     _SysCtxOpenMachine @ 0x14073CC58 (_SysCtxOpenMachine.c)
+ *     Win7RtlGetVersion @ 0x14084A8A0 (Win7RtlGetVersion.c)
+ *     Win81RtlGetVersion @ 0x14084A980 (Win81RtlGetVersion.c)
+ *     Win8RtlGetVersion @ 0x14084AA60 (Win8RtlGetVersion.c)
+ *     EtwpTraceSystemInitialization @ 0x1409D2A58 (EtwpTraceSystemInitialization.c)
  * Callees:
- *     RtlGetNtProductType @ 0x14012AC40 (RtlGetNtProductType.c)
- *     RtlGetSuiteMask @ 0x1406B47F0 (RtlGetSuiteMask.c)
+ *     RtlGetNtProductType @ 0x14012AD10 (RtlGetNtProductType.c)
+ *     RtlGetSuiteMask @ 0x1406B5A90 (RtlGetSuiteMask.c)
  */
 
 NTSTATUS __stdcall RtlGetVersion(PRTL_OSVERSIONINFOW lpVersionInformation)
@@ -20,7 +20,7 @@ NTSTATUS __stdcall RtlGetVersion(PRTL_OSVERSIONINFOW lpVersionInformation)
   __int16 v3; // ax
   bool v4; // zf
   __int16 SuiteMask; // ax
-  enum _NT_PRODUCT_TYPE ProductType; // [rsp+30h] [rbp+8h] BYREF
+  _NT_PRODUCT_TYPE ProductType; // [rsp+30h] [rbp+8h] BYREF
 
   v1 = lpVersionInformation->dwOSVersionInfoSize - 284;
   *(_QWORD *)&lpVersionInformation->dwMajorVersion = 10LL;

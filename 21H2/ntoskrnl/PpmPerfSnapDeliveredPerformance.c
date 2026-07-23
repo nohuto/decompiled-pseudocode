@@ -1,17 +1,17 @@
 /*
- * XREFs of PpmPerfSnapDeliveredPerformance @ 0x140220810
+ * XREFs of PpmPerfSnapDeliveredPerformance @ 0x1402C5110
  * Callers:
- *     PpmPerfAction @ 0x140220770 (PpmPerfAction.c)
- *     PpmCheckSnapAllDeliveredPerformance @ 0x140220BD0 (PpmCheckSnapAllDeliveredPerformance.c)
+ *     PpmPerfAction @ 0x1402C5070 (PpmPerfAction.c)
+ *     PpmCheckSnapAllDeliveredPerformance @ 0x1402C54D0 (PpmCheckSnapAllDeliveredPerformance.c)
  * Callees:
- *     EtwpLevelKeywordEnabled @ 0x140220B80 (EtwpLevelKeywordEnabled.c)
- *     PpmSnapPerformanceAccumulation @ 0x140221190 (PpmSnapPerformanceAccumulation.c)
- *     EtwWriteEx @ 0x14025DD10 (EtwWriteEx.c)
- *     PpmConvertTime @ 0x14027C22C (PpmConvertTime.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     PopDiagTraceIllegalProcessorThrottle @ 0x140572BD4 (PopDiagTraceIllegalProcessorThrottle.c)
- *     PpmHvSnapPerformanceAccumulation @ 0x14057C4E0 (PpmHvSnapPerformanceAccumulation.c)
+ *     PpmConvertTime @ 0x14026A1CC (PpmConvertTime.c)
+ *     EtwWriteEx @ 0x14027F840 (EtwWriteEx.c)
+ *     EtwpLevelKeywordEnabled @ 0x1402C5480 (EtwpLevelKeywordEnabled.c)
+ *     PpmSnapPerformanceAccumulation @ 0x1402C5A90 (PpmSnapPerformanceAccumulation.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     PopDiagTraceIllegalProcessorThrottle @ 0x140572E14 (PopDiagTraceIllegalProcessorThrottle.c)
+ *     PpmHvSnapPerformanceAccumulation @ 0x14057C720 (PpmHvSnapPerformanceAccumulation.c)
  */
 
 char __fastcall PpmPerfSnapDeliveredPerformance(__int64 a1, char a2, __int64 a3)
@@ -32,7 +32,7 @@ char __fastcall PpmPerfSnapDeliveredPerformance(__int64 a1, char a2, __int64 a3)
   const EVENT_DESCRIPTOR *v19; // rdi
   __int64 v20; // r8
   __int64 v21; // r9
-  __int64 v22; // r10
+  ULONGLONG v22; // r10
   unsigned __int8 v23; // r11
   __int64 v24; // rcx
   int *v25; // rax
@@ -42,11 +42,11 @@ char __fastcall PpmPerfSnapDeliveredPerformance(__int64 a1, char a2, __int64 a3)
   int v29; // [rsp+60h] [rbp-41h] BYREF
   int v30; // [rsp+68h] [rbp-39h] BYREF
   unsigned __int64 v31; // [rsp+70h] [rbp-31h]
-  __int64 v32; // [rsp+78h] [rbp-29h] BYREF
+  ULONGLONG v32; // [rsp+78h] [rbp-29h] BYREF
   struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+88h] [rbp-19h] BYREF
   int *v34; // [rsp+98h] [rbp-9h]
   __int64 v35; // [rsp+A0h] [rbp-1h]
-  __int64 *v36; // [rsp+A8h] [rbp+7h]
+  ULONGLONG *v36; // [rsp+A8h] [rbp+7h]
   __int64 v37; // [rsp+B0h] [rbp+Fh]
   int *v38; // [rsp+B8h] [rbp+17h]
   __int64 v39; // [rsp+C0h] [rbp+1Fh]
@@ -171,7 +171,7 @@ LABEL_5:
                || *(_BYTE *)(v21 + 101)
                && (unsigned __int8)EtwpLevelKeywordEnabled(*(_QWORD *)(v21 + 40) + 96LL, v23, v20)) )
             {
-              v32 = PpmConvertTime(v22, PopQpcFrequency, 1000000LL);
+              v32 = PpmConvertTime(v22, PopQpcFrequency, 0xF4240uLL);
               v34 = &v28;
               v36 = &v32;
               v25 = &v29;

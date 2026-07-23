@@ -6,11 +6,15 @@
  *     <none>
  */
 
-__int64 NtQueryOpenSubKeysEx()
+NTSTATUS __cdecl NtQueryOpenSubKeysEx(
+        POBJECT_ATTRIBUTES TargetKey,
+        ULONG BufferLength,
+        PVOID Buffer,
+        PULONG RequiredSize)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 318LL;
+  result = 318;
   __asm { syscall; Low latency system call }
   return result;
 }

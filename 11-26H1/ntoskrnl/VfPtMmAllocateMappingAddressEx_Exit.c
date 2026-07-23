@@ -1,10 +1,10 @@
 /*
- * XREFs of VfPtMmAllocateMappingAddressEx_Exit @ 0x140C29FE0
+ * XREFs of VfPtMmAllocateMappingAddressEx_Exit @ 0x140C2FFF0
  * Callers:
  *     <none>
  * Callees:
- *     VfEnabledOnKernel @ 0x14047EA30 (VfEnabledOnKernel.c)
- *     VfPtMiscPoolNotification @ 0x14050C738 (VfPtMiscPoolNotification.c)
+ *     VfEnabledOnKernel @ 0x1404783A0 (VfEnabledOnKernel.c)
+ *     VfPtMiscPoolNotification @ 0x1405061A8 (VfPtMiscPoolNotification.c)
  */
 
 char __fastcall VfPtMmAllocateMappingAddressEx_Exit(__int64 a1)

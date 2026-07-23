@@ -1,12 +1,12 @@
 /*
- * XREFs of ViFilterDispatchGeneric @ 0x140B9CFE0
+ * XREFs of ViFilterDispatchGeneric @ 0x140B9EFE0
  * Callers:
  *     <none>
  * Callees:
- *     IofCallDriver @ 0x140374160 (IofCallDriver.c)
- *     IofCompleteRequest @ 0x1403DBAD0 (IofCompleteRequest.c)
- *     IoAcquireRemoveLockEx @ 0x140429580 (IoAcquireRemoveLockEx.c)
- *     ViFilterYieldInitialization @ 0x140614D70 (ViFilterYieldInitialization.c)
+ *     IofCallDriver @ 0x14025CA20 (IofCallDriver.c)
+ *     IofCompleteRequest @ 0x1403CCDA0 (IofCompleteRequest.c)
+ *     IoAcquireRemoveLockEx @ 0x14041D6D0 (IoAcquireRemoveLockEx.c)
+ *     ViFilterYieldInitialization @ 0x140613330 (ViFilterYieldInitialization.c)
  */
 
 NTSTATUS __fastcall ViFilterDispatchGeneric(__int64 a1, IRP *a2)
@@ -20,7 +20,7 @@ NTSTATUS __fastcall ViFilterDispatchGeneric(__int64 a1, IRP *a2)
 
   v9 = *(_QWORD *)(a1 + 64);
   ViFilterYieldInitialization(v9);
-  v4 = IoAcquireRemoveLockEx((PIO_REMOVE_LOCK)(v9 + 32), v3, &byte_140BAB250, 1u, 0x20u);
+  v4 = IoAcquireRemoveLockEx((PIO_REMOVE_LOCK)(v9 + 32), v3, &byte_140BAD250, 1u, 0x20u);
   v5 = v4;
   if ( v4 >= 0 )
   {

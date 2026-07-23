@@ -1,10 +1,10 @@
 /*
- * XREFs of ArbOverrideConflict @ 0x140936240
+ * XREFs of ArbOverrideConflict @ 0x140936440
  * Callers:
  *     <none>
  * Callees:
- *     RtlGetFirstRange @ 0x140829830 (RtlGetFirstRange.c)
- *     RtlGetNextRange @ 0x140829B90 (RtlGetNextRange.c)
+ *     RtlGetFirstRange @ 0x140829B30 (RtlGetFirstRange.c)
+ *     RtlGetNextRange @ 0x140829E90 (RtlGetNextRange.c)
  */
 
 char __fastcall ArbOverrideConflict(__int64 a1, __int64 a2)

@@ -1,10 +1,10 @@
 /*
- * XREFs of PopPepComponentGetWork @ 0x140313D9C
+ * XREFs of PopPepComponentGetWork @ 0x14031402C
  * Callers:
- *     PopPepProcessEvent @ 0x140313900 (PopPepProcessEvent.c)
+ *     PopPepProcessEvent @ 0x140313B90 (PopPepProcessEvent.c)
  * Callees:
- *     PopPepStartActivity @ 0x14031383C (PopPepStartActivity.c)
- *     PopPepGetReadyActivityType @ 0x1403148F0 (PopPepGetReadyActivityType.c)
+ *     PopPepStartActivity @ 0x140313ACC (PopPepStartActivity.c)
+ *     PopPepGetReadyActivityType @ 0x140314B80 (PopPepGetReadyActivityType.c)
  */
 
 char __fastcall PopPepComponentGetWork(__int64 a1, __int64 a2, __int64 a3)

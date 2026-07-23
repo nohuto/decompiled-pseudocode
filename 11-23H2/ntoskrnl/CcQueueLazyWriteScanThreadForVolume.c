@@ -1,20 +1,20 @@
 /*
- * XREFs of CcQueueLazyWriteScanThreadForVolume @ 0x1403C0470
+ * XREFs of CcQueueLazyWriteScanThreadForVolume @ 0x1403C0650
  * Callers:
  *     <none>
  * Callees:
- *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
- *     CcPostWorkQueue @ 0x14029AFB4 (CcPostWorkQueue.c)
- *     CcAllocateWorkQueueEntry @ 0x14029B670 (CcAllocateWorkQueueEntry.c)
- *     KeWaitForMultipleObjects @ 0x1403111A0 (KeWaitForMultipleObjects.c)
- *     CcSetLazyWriteScanQueuedInternal @ 0x14035B930 (CcSetLazyWriteScanQueuedInternal.c)
- *     CcIsLazyWriteScanQueuedInternal @ 0x14035CF70 (CcIsLazyWriteScanQueuedInternal.c)
- *     CcNotifyExternalCachesInternal @ 0x1403D31F8 (CcNotifyExternalCachesInternal.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     CcPostWorkQueueSpecial @ 0x140536CB4 (CcPostWorkQueueSpecial.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseQueuedSpinLock @ 0x1402605F0 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402610F0 (KeAcquireInStackQueuedSpinLock.c)
+ *     CcPostWorkQueue @ 0x14029B244 (CcPostWorkQueue.c)
+ *     CcAllocateWorkQueueEntry @ 0x14029B900 (CcAllocateWorkQueueEntry.c)
+ *     KeWaitForMultipleObjects @ 0x140311430 (KeWaitForMultipleObjects.c)
+ *     CcSetLazyWriteScanQueuedInternal @ 0x14035BAD0 (CcSetLazyWriteScanQueuedInternal.c)
+ *     CcIsLazyWriteScanQueuedInternal @ 0x14035D110 (CcIsLazyWriteScanQueuedInternal.c)
+ *     CcNotifyExternalCachesInternal @ 0x1403D33D8 (CcNotifyExternalCachesInternal.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     CcPostWorkQueueSpecial @ 0x140537204 (CcPostWorkQueueSpecial.c)
  */
 
 void __fastcall CcQueueLazyWriteScanThreadForVolume(_QWORD *StartContext)
@@ -93,10 +93,13 @@ LABEL_6:
 LABEL_30:
       KxReleaseQueuedSpinLock((volatile signed __int64 **)&WaitBlockArray_8);
       OldIrql = WaitBlockArray_8.OldIrql;
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         CurrentIrql = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && WaitBlockArray_8.OldIrql <= 0xFu && CurrentIrql >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+          && CurrentIrql <= 0xFu
+          && WaitBlockArray_8.OldIrql <= 0xFu
+          && CurrentIrql >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           SchedulerAssist = CurrentPrcb->SchedulerAssist;
@@ -114,10 +117,10 @@ LABEL_30:
       CcSetLazyWriteScanQueuedInternal(v9, v4, 1);
       KxReleaseQueuedSpinLock((volatile signed __int64 **)&WaitBlockArray_8);
       v10 = WaitBlockArray_8.OldIrql;
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v24 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v24 <= 0xFu && WaitBlockArray_8.OldIrql <= 0xFu && v24 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v24 <= 0xFu && WaitBlockArray_8.OldIrql <= 0xFu && v24 >= 2u )
         {
           v25 = KeGetCurrentPrcb();
           v26 = v25->SchedulerAssist;

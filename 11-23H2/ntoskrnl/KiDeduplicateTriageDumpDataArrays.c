@@ -1,11 +1,11 @@
 /*
- * XREFs of KiDeduplicateTriageDumpDataArrays @ 0x140569F38
+ * XREFs of KiDeduplicateTriageDumpDataArrays @ 0x14056A5F8
  * Callers:
- *     KiGlobalDeduplicateTriageDumpData @ 0x14056A644 (KiGlobalDeduplicateTriageDumpData.c)
+ *     KiGlobalDeduplicateTriageDumpData @ 0x14056AD04 (KiGlobalDeduplicateTriageDumpData.c)
  * Callees:
- *     DbgPrintEx @ 0x14032A740 (DbgPrintEx.c)
- *     RtlULongSub @ 0x140368FD8 (RtlULongSub.c)
- *     KiCheckRangeOverlap @ 0x140569B94 (KiCheckRangeOverlap.c)
+ *     DbgPrintEx @ 0x14032A9D0 (DbgPrintEx.c)
+ *     RtlULongSub @ 0x140369178 (RtlULongSub.c)
+ *     KiCheckRangeOverlap @ 0x14056A254 (KiCheckRangeOverlap.c)
  */
 
 void __fastcall KiDeduplicateTriageDumpDataArrays(_DWORD *a1, __int64 a2)

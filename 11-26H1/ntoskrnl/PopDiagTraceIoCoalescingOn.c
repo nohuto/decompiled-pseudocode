@@ -1,12 +1,12 @@
 /*
- * XREFs of PopDiagTraceIoCoalescingOn @ 0x140B2D18C
+ * XREFs of PopDiagTraceIoCoalescingOn @ 0x140B2F20C
  * Callers:
- *     PopCoalescingSetActiveState @ 0x1404C32B4 (PopCoalescingSetActiveState.c)
+ *     PopCoalescingSetActiveState @ 0x1404BCB04 (PopCoalescingSetActiveState.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
- *     PopPrintEx @ 0x1404C33A8 (PopPrintEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x140212FD0 (EtwWrite.c)
+ *     PopPrintEx @ 0x1404BCBF8 (PopPrintEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 char __fastcall PopDiagTraceIoCoalescingOn(__int64 a1, __int64 a2, __int64 a3, int a4)
@@ -31,9 +31,9 @@ char __fastcall PopDiagTraceIoCoalescingOn(__int64 a1, __int64 a2, __int64 a3, i
   result = PopPrintEx(
              3,
              (int)"PopCoalescing: ON notification sent (spindown timeout:%u, timer interval: %u, flush delay interval:%u, Enforced:%u)\n");
-  if ( byte_140E67628 )
+  if ( PopDiagHandleRegistered )
   {
-    result = EtwEventEnabled(*(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16], &POP_ETW_IO_COALESCING_ON);
+    result = EtwEventEnabled(PopDiagHandle, &POP_ETW_IO_COALESCING_ON);
     if ( result )
     {
       UserData.Ptr = (ULONGLONG)&v5;
@@ -44,12 +44,7 @@ char __fastcall PopDiagTraceIoCoalescingOn(__int64 a1, __int64 a2, __int64 a3, i
       v11 = 4LL;
       v13 = 4LL;
       v15 = 4LL;
-      return EtwWrite(
-               *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
-               &POP_ETW_IO_COALESCING_ON,
-               0LL,
-               4u,
-               &UserData);
+      return EtwWrite(PopDiagHandle, &POP_ETW_IO_COALESCING_ON, 0LL, 4u, &UserData);
     }
   }
   return result;

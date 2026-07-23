@@ -1,7 +1,7 @@
 /*
  * XREFs of Feature_Servicing_HibernateRelaxVBSPolicy__private_IsEnabledNoReporting @ 0x1403F831C
  * Callers:
- *     PopBuildMemoryImageHeader @ 0x140996724 (PopBuildMemoryImageHeader.c)
+ *     PopBuildMemoryImageHeader @ 0x140997724 (PopBuildMemoryImageHeader.c)
  * Callees:
  *     Feature_Servicing_HibernateRelaxVBSPolicy__private_IsEnabledFallback @ 0x1403F8300 (Feature_Servicing_HibernateRelaxVBSPolicy__private_IsEnabledFallback.c)
  */

@@ -1,12 +1,12 @@
 /*
- * XREFs of MmBuildLargePages @ 0x1408D76D4
+ * XREFs of MmBuildLargePages @ 0x1408D7834
  * Callers:
- *     VmpAccessFaultBatchResolve @ 0x14092F2C8 (VmpAccessFaultBatchResolve.c)
+ *     VmpAccessFaultBatchResolve @ 0x14092F428 (VmpAccessFaultBatchResolve.c)
  * Callees:
- *     PsDereferencePartition @ 0x1402ABFDC (PsDereferencePartition.c)
- *     MiGetLargestPageIndex @ 0x1402C9DE0 (MiGetLargestPageIndex.c)
- *     MiPartitionObjectToPartition @ 0x1402E5F80 (MiPartitionObjectToPartition.c)
- *     MiRebuildLargePage @ 0x1405526D8 (MiRebuildLargePage.c)
+ *     MiGetLargestPageIndex @ 0x1402486D0 (MiGetLargestPageIndex.c)
+ *     PsDereferencePartition @ 0x140274588 (PsDereferencePartition.c)
+ *     MiPartitionObjectToPartition @ 0x1402972D0 (MiPartitionObjectToPartition.c)
+ *     MiRebuildLargePage @ 0x140552918 (MiRebuildLargePage.c)
  */
 
 unsigned __int64 __fastcall MmBuildLargePages(__int64 a1, unsigned int a2)

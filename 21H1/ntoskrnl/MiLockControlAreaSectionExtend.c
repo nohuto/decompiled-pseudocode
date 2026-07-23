@@ -54,7 +54,7 @@ __int64 __fastcall MiLockControlAreaSectionExtend(ULONG_PTR BugCheckParameter2, 
       while ( v8 );
       if ( v8 )
       {
-        v12 = KeAbPreAcquire(BugCheckParameter2, 0LL, 0LL);
+        v12 = KeAbPreAcquire(BugCheckParameter2, 0LL, 0);
         v6 = v12;
         if ( v12 )
           KeAbPreWait(v12);
@@ -91,11 +91,11 @@ __int64 __fastcall MiLockControlAreaSectionExtend(ULONG_PTR BugCheckParameter2, 
     KeWaitForGate(a2 + 16, 18LL);
     if ( v6 )
     {
-      KeAbPreAcquire(BugCheckParameter2, v6, 0LL);
+      KeAbPreAcquire(BugCheckParameter2, v6, 0);
       KeAbPostReleaseEx(BugCheckParameter2);
     }
   }
-  v10 = KeAbPreAcquire(BugCheckParameter2, 0LL, 0LL);
+  v10 = KeAbPreAcquire(BugCheckParameter2, 0LL, 0);
   if ( v10 )
     *(_BYTE *)(v10 + 26) |= 1u;
   ExReleaseSpinLockExclusiveFromDpcLevel(v5);

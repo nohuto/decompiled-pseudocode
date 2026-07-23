@@ -1,13 +1,13 @@
 /*
- * XREFs of ExpParseFastCacheHelper @ 0x1406AF5FC
+ * XREFs of ExpParseFastCacheHelper @ 0x1406AF734
  * Callers:
- *     sub_1406AE414 @ 0x1406AE414 (sub_1406AE414.c)
+ *     sub_1406AE54C @ 0x1406AE54C (sub_1406AE54C.c)
  *     sub_1407D22C0 @ 0x1407D22C0 (sub_1407D22C0.c)
  * Callees:
- *     qsort @ 0x14014DF60 (qsort.c)
+ *     qsort @ 0x14014E520 (qsort.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
- *     ExpParseFastCache @ 0x1406AF56C (ExpParseFastCache.c)
+ *     ExpParseFastCache @ 0x1406AF6A4 (ExpParseFastCache.c)
  */
 
 __int64 __fastcall ExpParseFastCacheHelper(__int64 a1, _DWORD *a2, _QWORD *a3)

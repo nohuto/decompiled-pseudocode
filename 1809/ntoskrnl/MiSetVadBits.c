@@ -1,9 +1,9 @@
 /*
- * XREFs of MiSetVadBits @ 0x140858B14
+ * XREFs of MiSetVadBits @ 0x140859D74
  * Callers:
- *     MiUpdateVadBits @ 0x140679E10 (MiUpdateVadBits.c)
+ *     MiUpdateVadBits @ 0x14067AFD0 (MiUpdateVadBits.c)
  * Callees:
- *     RtlSetBits @ 0x140076D80 (RtlSetBits.c)
+ *     RtlSetBits @ 0x140076D70 (RtlSetBits.c)
  */
 
 void __fastcall MiSetVadBits(__int64 a1)
@@ -23,14 +23,14 @@ void __fastcall MiSetVadBits(__int64 a1)
   v3 = *(_QWORD *)&KeGetCurrentThread()->ApcState.Process[1].IdealGlobalNode + 48LL;
   for ( i = 0; i < 3; ++i )
   {
-    v5 = 8 * (*(_DWORD *)(v3 + 8) - qword_14043A528);
+    v5 = 8 * (*(_DWORD *)(v3 + 8) - qword_14043B5E8);
     if ( v2 >= v5 )
     {
       v6 = v5 + *(_DWORD *)v3;
       if ( v1 < v6 )
       {
         v7 = v6 - 1;
-        v8 = 8 * (*(_DWORD *)(v3 + 8) - qword_14043A528);
+        v8 = 8 * (*(_DWORD *)(v3 + 8) - qword_14043B5E8);
         if ( v1 >= v5 )
           v8 = v1;
         v9 = v1 < v5;

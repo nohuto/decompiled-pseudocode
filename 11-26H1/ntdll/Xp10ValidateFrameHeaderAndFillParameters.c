@@ -1,7 +1,7 @@
 /*
- * XREFs of Xp10ValidateFrameHeaderAndFillParameters @ 0x18012080C
+ * XREFs of Xp10ValidateFrameHeaderAndFillParameters @ 0x1801205BC
  * Callers:
- *     RtlDecompressBuffer2Xp10 @ 0x1800F9768 (RtlDecompressBuffer2Xp10.c)
+ *     RtlDecompressBuffer2Xp10 @ 0x1800F8ED8 (RtlDecompressBuffer2Xp10.c)
  * Callees:
  *     <none>
  */

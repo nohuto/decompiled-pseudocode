@@ -11,17 +11,17 @@ __int64 __fastcall sub_180070F60(int a1, _OWORD *a2, _QWORD *a3)
 {
   unsigned int v3; // r9d
   char *v6; // rbx
-  char *pShimData; // rdx
+  _DWORD *pShimData; // rdx
   __int128 v8; // xmm0
   __int128 v10; // xmm0
 
   v3 = 0;
   v6 = 0LL;
-  pShimData = (char *)NtCurrentPeb()->pShimData;
+  pShimData = NtCurrentPeb()->pShimData;
   if ( pShimData )
   {
-    v6 = pShimData + 1496;
-    if ( pShimData == (char *)-1496LL || !*((_DWORD *)pShimData + 386) )
+    v6 = (char *)(pShimData + 374);
+    if ( pShimData == (_DWORD *)-1496LL || !pShimData[386] )
       v6 = 0LL;
   }
   if ( a2 && a3 && v6 )
@@ -35,11 +35,11 @@ __int64 __fastcall sub_180070F60(int a1, _OWORD *a2, _QWORD *a3)
     }
     if ( a1 == 1 )
     {
-      RtlAcquireSRWLockShared(&qword_18015D3C0, pShimData, (__int64)a3, 0LL);
+      RtlAcquireSRWLockShared(&stru_18015D3C0);
       v8 = *((_OWORD *)v6 + 4);
       *a3 = *(_QWORD *)v6;
       *a2 = v8;
-      RtlReleaseSRWLockShared(&qword_18015D3C0);
+      RtlReleaseSRWLockShared(&stru_18015D3C0);
       return 1;
     }
   }

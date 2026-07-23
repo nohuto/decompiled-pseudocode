@@ -1,14 +1,14 @@
 /*
- * XREFs of WheaHwErrorReportSubmitDeviceDriver @ 0x1405BBF80
+ * XREFs of WheaHwErrorReportSubmitDeviceDriver @ 0x1405BC1B0
  * Callers:
- *     WheaReportFatalHwErrorDeviceDriverEx @ 0x1405BC090 (WheaReportFatalHwErrorDeviceDriverEx.c)
- *     WheaReportHwErrorDeviceDriverEx @ 0x1405BC1B0 (WheaReportHwErrorDeviceDriverEx.c)
+ *     WheaReportFatalHwErrorDeviceDriverEx @ 0x1405BC2C0 (WheaReportFatalHwErrorDeviceDriverEx.c)
+ *     WheaReportHwErrorDeviceDriverEx @ 0x1405BC3E0 (WheaReportHwErrorDeviceDriverEx.c)
  * Callees:
- *     memmove @ 0x140413F40 (memmove.c)
- *     WheaReportHwError @ 0x1405BB130 (WheaReportHwError.c)
- *     WheapGetErrorSource @ 0x1405BBACC (WheapGetErrorSource.c)
- *     WheapErrorHandleIsValid @ 0x1405BC350 (WheapErrorHandleIsValid.c)
- *     WheapFreeDriverPacketBuffer @ 0x1405BC36C (WheapFreeDriverPacketBuffer.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     WheaReportHwError @ 0x1405BB360 (WheaReportHwError.c)
+ *     WheapGetErrorSource @ 0x1405BBCFC (WheapGetErrorSource.c)
+ *     WheapErrorHandleIsValid @ 0x1405BC580 (WheapErrorHandleIsValid.c)
+ *     WheapFreeDriverPacketBuffer @ 0x1405BC59C (WheapFreeDriverPacketBuffer.c)
  */
 
 __int64 __fastcall WheaHwErrorReportSubmitDeviceDriver(ULONG_PTR BugCheckParameter2)

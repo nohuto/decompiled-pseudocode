@@ -1,13 +1,13 @@
 /*
- * XREFs of AuthzBasepAllocateSecurityAttributesList @ 0x14036AF8C
+ * XREFs of AuthzBasepAllocateSecurityAttributesList @ 0x14036B12C
  * Callers:
- *     SepInternalQuerySecurityAttributesTokenEx @ 0x14022C928 (SepInternalQuerySecurityAttributesTokenEx.c)
- *     SepVerifyDesktopAppxPackageName @ 0x1405B8144 (SepVerifyDesktopAppxPackageName.c)
- *     SepCreateClaimAttributes @ 0x1407CF434 (SepCreateClaimAttributes.c)
- *     AuthzBasepInitializeSystemSecurityAttributes @ 0x140841E14 (AuthzBasepInitializeSystemSecurityAttributes.c)
- *     SepDuplicateClaimAttributes @ 0x1409D1444 (SepDuplicateClaimAttributes.c)
+ *     SepInternalQuerySecurityAttributesTokenEx @ 0x14022CA38 (SepInternalQuerySecurityAttributesTokenEx.c)
+ *     SepVerifyDesktopAppxPackageName @ 0x1405B86B4 (SepVerifyDesktopAppxPackageName.c)
+ *     SepCreateClaimAttributes @ 0x1407CF704 (SepCreateClaimAttributes.c)
+ *     AuthzBasepInitializeSystemSecurityAttributes @ 0x140842114 (AuthzBasepInitializeSystemSecurityAttributes.c)
+ *     SepDuplicateClaimAttributes @ 0x1409D1644 (SepDuplicateClaimAttributes.c)
  * Callees:
- *     AuthzBasepMemAlloc @ 0x14022588C (AuthzBasepMemAlloc.c)
+ *     AuthzBasepMemAlloc @ 0x14022599C (AuthzBasepMemAlloc.c)
  */
 
 _QWORD *__fastcall AuthzBasepAllocateSecurityAttributesList(__int64 a1, __int64 a2)

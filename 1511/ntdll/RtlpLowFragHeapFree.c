@@ -17,7 +17,7 @@
  *     RtlpLogHeapFreeEvent @ 0x1800F18BC (RtlpLogHeapFreeEvent.c)
  */
 
-__int64 __fastcall RtlpLowFragHeapFree(int a1, unsigned __int64 a2, int a3)
+__int64 __fastcall RtlpLowFragHeapFree(int a1, unsigned __int64 a2, ULONG a3)
 {
   unsigned int v4; // edx
   _QWORD **v5; // rdi
@@ -48,7 +48,7 @@ __int64 __fastcall RtlpLowFragHeapFree(int a1, unsigned __int64 a2, int a3)
   __int64 v30; // rsi
   unsigned __int16 ReservedBlockSize; // ax
   _DWORD *v32; // rcx
-  unsigned int HeapProtection; // eax
+  ULONG HeapProtection; // eax
   int v34; // edx
   signed __int64 v35; // rax
   int v36; // ecx
@@ -58,11 +58,11 @@ __int64 __fastcall RtlpLowFragHeapFree(int a1, unsigned __int64 a2, int a3)
   volatile signed __int32 *v40; // rdx
   __int64 v41; // rcx
   signed __int64 v42; // [rsp+70h] [rbp+8h]
-  unsigned __int64 v43; // [rsp+78h] [rbp+10h] BYREF
-  int v44; // [rsp+80h] [rbp+18h] BYREF
-  unsigned __int64 v45; // [rsp+88h] [rbp+20h] BYREF
+  ULONG_PTR RegionSize; // [rsp+78h] [rbp+10h] BYREF
+  ULONG OldProtect; // [rsp+80h] [rbp+18h] BYREF
+  PVOID BaseAddress; // [rsp+88h] [rbp+20h] BYREF
 
-  v44 = a3;
+  OldProtect = a3;
   v4 = a1 ^ RtlpLFHKey ^ *(_DWORD *)(a2 + 8) ^ (a2 >> 4);
   if ( (_WORD)v4 )
     return RtlpLogHeapFailure(3, a1, a2, 0, 0LL, 0LL);
@@ -222,12 +222,12 @@ LABEL_36:
   v30 = *(_QWORD *)(*(_QWORD *)v22 + 24LL);
   if ( (*((_BYTE *)v5 + 38) & 3) != 0 )
   {
-    v45 = ((unsigned __int64)v5[1] + 4151) & 0xFFFFFFFFFFFFF000uLL;
+    BaseAddress = (PVOID)(((unsigned __int64)v5[1] + 4151) & 0xFFFFFFFFFFFFF000uLL);
     ReservedBlockSize = RtlpGetReservedBlockSize(v5, v21, v18, v20);
     v32 = *(_DWORD **)(v30 + 24);
-    v43 = 16 * ReservedBlockSize * (unsigned __int64)*((unsigned __int16 *)v5 + 20);
+    RegionSize = 16 * ReservedBlockSize * (unsigned __int64)*((unsigned __int16 *)v5 + 20);
     HeapProtection = RtlpGetHeapProtection(v32, 1);
-    ZwProtectVirtualMemory(-1LL, &v45, &v43, HeapProtection, &v44);
+    ZwProtectVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, &RegionSize, HeapProtection, &OldProtect);
   }
   *((_DWORD *)v5[1] + 5) = 0;
   RtlpFreeUserBlock(v30, v5[1], v18, v20);

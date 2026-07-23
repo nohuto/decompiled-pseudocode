@@ -18,51 +18,48 @@
  *     _guard_xfg_dispatch_icall_nop @ 0x1800AAAD0 (_guard_xfg_dispatch_icall_nop.c)
  */
 
-__int64 __fastcall TpSetTimerEx(__int64 a1, __int64 a2, int a3, int a4)
+NTSTATUS __cdecl TpSetTimerEx(PTP_TIMER Timer, PLARGE_INTEGER DueTime, ULONG Period, ULONG WindowLength)
 {
-  unsigned __int64 v8; // rdx
-  unsigned __int64 v9; // r8
-  unsigned __int64 v10; // r9
-  __int64 v11; // r15
-  bool v12; // di
-  __int64 v13; // r8
-  unsigned int v14; // ebp
+  __int64 v8; // r15
+  bool v9; // di
+  __int64 v10; // r8
+  NTSTATUS v11; // ebp
 
-  if ( (unsigned int)TppTimerpValidateTimer((_PEB_LDR_DATA *)a1, 0LL, a2 != 0) )
+  if ( (unsigned int)TppTimerpValidateTimer((_PEB_LDR_DATA *)Timer, 0LL, DueTime != 0LL) )
   {
-    v11 = *(_QWORD *)(a1 + 144);
-    v12 = a2 != 0;
-    RtlAcquireSRWLockExclusive(a1 + 240, v8, v9, v10);
-    LOBYTE(v13) = a2 != 0;
-    v14 = (unsigned __int8)TppCancelTimer(a1, v11 + 112, v13);
-    if ( a2 && *(_BYTE *)(a1 + 355) )
+    v8 = *((_QWORD *)Timer + 18);
+    v9 = DueTime != 0LL;
+    RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)Timer + 30);
+    LOBYTE(v10) = DueTime != 0LL;
+    v11 = (unsigned __int8)TppCancelTimer(Timer, v8 + 112, v10);
+    if ( DueTime && *((_BYTE *)Timer + 355) )
     {
-      RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a1 + 240));
-      v12 = 0;
+      RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)Timer + 30);
+      v9 = 0;
     }
-    if ( (_BYTE)v14 )
+    if ( (_BYTE)v11 )
     {
-      if ( !v12 )
+      if ( !v9 )
       {
-        if ( _InterlockedExchangeAdd((volatile signed __int32 *)a1, 0xFFFFFFFF) == 1 )
-          (**(void (__fastcall ***)(__int64))(a1 + 8))(a1);
-        return v14;
+        if ( _InterlockedExchangeAdd((volatile signed __int32 *)Timer, 0xFFFFFFFF) == 1 )
+          (**((void (__fastcall ***)(PTP_TIMER))Timer + 1))(Timer);
+        return v11;
       }
     }
     else
     {
-      if ( !v12 )
-        return v14;
-      if ( (unsigned int)TpIsTimerSet(a1) )
+      if ( !v9 )
+        return v11;
+      if ( TpIsTimerSet(Timer) )
       {
 LABEL_11:
-        RtlReleaseSRWLockExclusive((volatile signed __int64 *)(a1 + 240));
-        return v14;
+        RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)Timer + 30);
+        return v11;
       }
-      _InterlockedIncrement((volatile signed __int32 *)a1);
+      _InterlockedIncrement((volatile signed __int32 *)Timer);
     }
-    TppSetTimer(a1, v11 + 112, a2, a3, a4);
+    TppSetTimer(Timer, v8 + 112, DueTime, Period, WindowLength);
     goto LABEL_11;
   }
-  return 0LL;
+  return 0;
 }

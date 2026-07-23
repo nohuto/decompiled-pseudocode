@@ -1,14 +1,14 @@
 /*
- * XREFs of RtlInitializeSListHead @ 0x180075D90
+ * XREFs of RtlInitializeSListHead @ 0x180096990
  * Callers:
- *     RtlpSubSegmentDebugInitialize @ 0x1800753AC (RtlpSubSegmentDebugInitialize.c)
- *     RtlStdInitializeStackDatabase @ 0x180075850 (RtlStdInitializeStackDatabase.c)
- *     RtlpHpVsSlotCreate @ 0x180075AE0 (RtlpHpVsSlotCreate.c)
- *     RtlCreateMemoryBlockLookaside @ 0x180075B80 (RtlCreateMemoryBlockLookaside.c)
- *     RtlResetMemoryBlockLookaside @ 0x1801404A0 (RtlResetMemoryBlockLookaside.c)
- *     RtlAllocateMemoryBlockLookaside @ 0x18016E010 (RtlAllocateMemoryBlockLookaside.c)
+ *     RtlpSubSegmentDebugInitialize @ 0x180095F9C (RtlpSubSegmentDebugInitialize.c)
+ *     RtlStdInitializeStackDatabase @ 0x180096440 (RtlStdInitializeStackDatabase.c)
+ *     RtlpHpVsSlotCreate @ 0x1800966D0 (RtlpHpVsSlotCreate.c)
+ *     RtlCreateMemoryBlockLookaside @ 0x180096780 (RtlCreateMemoryBlockLookaside.c)
+ *     RtlResetMemoryBlockLookaside @ 0x1801403A0 (RtlResetMemoryBlockLookaside.c)
+ *     RtlAllocateMemoryBlockLookaside @ 0x18016D010 (RtlAllocateMemoryBlockLookaside.c)
  * Callees:
- *     RtlRaiseStatus @ 0x18004A7C0 (RtlRaiseStatus.c)
+ *     RtlRaiseStatus @ 0x180034D40 (RtlRaiseStatus.c)
  */
 
 void __stdcall RtlInitializeSListHead(PSLIST_HEADER ListHead)

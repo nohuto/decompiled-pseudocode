@@ -1,10 +1,10 @@
 /*
- * XREFs of HvpGenerateLogEntryHeader @ 0x1404B2F8C
+ * XREFs of HvpGenerateLogEntryHeader @ 0x1404AC60C
  * Callers:
- *     HvpGenerateLogEntry @ 0x1408B6E18 (HvpGenerateLogEntry.c)
+ *     HvpGenerateLogEntry @ 0x1408BD3E8 (HvpGenerateLogEntry.c)
  * Callees:
- *     memmove @ 0x14073D480 (memmove.c)
- *     HvpHeaderCheckSum @ 0x140C58720 (HvpHeaderCheckSum.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     HvpHeaderCheckSum @ 0x140C5E720 (HvpHeaderCheckSum.c)
  */
 
 void *__fastcall HvpGenerateLogEntryHeader(

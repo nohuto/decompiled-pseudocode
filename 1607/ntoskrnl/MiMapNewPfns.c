@@ -1,10 +1,10 @@
 /*
- * XREFs of MiMapNewPfns @ 0x140658128
+ * XREFs of MiMapNewPfns @ 0x14065820C
  * Callers:
- *     MiAddPhysicalMemory @ 0x1406575DC (MiAddPhysicalMemory.c)
+ *     MiAddPhysicalMemory @ 0x1406576C0 (MiAddPhysicalMemory.c)
  * Callees:
- *     MiGetPteAddress @ 0x14002BA64 (MiGetPteAddress.c)
- *     MiMakeZeroedPageTables @ 0x1401022B4 (MiMakeZeroedPageTables.c)
+ *     MiGetPteAddress @ 0x14002B5E4 (MiGetPteAddress.c)
+ *     MiMakeZeroedPageTables @ 0x140100034 (MiMakeZeroedPageTables.c)
  */
 
 char __fastcall MiMapNewPfns(unsigned __int64 a1, __int64 a2, __int16 a3, int a4)

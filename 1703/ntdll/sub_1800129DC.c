@@ -12,41 +12,39 @@
  *     sub_1800DF3A8 @ 0x1800DF3A8 (sub_1800DF3A8.c)
  */
 
-__int64 __fastcall sub_1800129DC(__int64 a1)
+void __fastcall sub_1800129DC(char *BaseAddress)
 {
-  __int64 v2; // rdx
-  __int64 v3; // rcx
-  __int64 v4; // r8
-  __int64 v5; // r9
-  __int64 v7; // rcx
-  __int64 v8; // rcx
-  _QWORD *v9; // rdx
+  __int64 v2; // rcx
+  char **v3; // rcx
+  PVOID *v4; // rdx
+  void *v5; // r8
 
-  RtlAcquireSRWLockExclusive(qword_18015C008 + 8);
-  RtlAcquireSRWLockExclusive(a1 + 56);
-  if ( _InterlockedExchangeAdd((volatile signed __int32 *)(a1 + 108), 0xFFFFFFFF) == 1 )
+  RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(qword_18015C008 + 8));
+  RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)BaseAddress + 7);
+  if ( _InterlockedExchangeAdd((volatile signed __int32 *)BaseAddress + 27, 0xFFFFFFFF) == 1 )
   {
-    if ( (unsigned int)RtlGetCurrentServiceSessionId(v3, v2, v4, v5) )
-      v7 = (__int64)NtCurrentPeb()->HotpatchInformation + 564;
+    if ( RtlGetCurrentServiceSessionId() )
+      v2 = (__int64)&NtCurrentPeb()->SharedData->UserModeGlobalLogger[7];
     else
-      v7 = 2147353486LL;
-    if ( *(_BYTE *)v7 )
-      sub_1800DF3A8(*(_QWORD *)(a1 + 16), a1);
-    ZwUnsubscribeWnfStateChange(a1 + 16);
-    v8 = *(_QWORD *)(a1 + 32);
-    v9 = *(_QWORD **)(a1 + 40);
-    if ( *(_QWORD *)(v8 + 8) != a1 + 32 || *v9 != a1 + 32 )
+      v2 = 2147353486LL;
+    if ( *(_BYTE *)v2 )
+      sub_1800DF3A8(*((_QWORD *)BaseAddress + 2), BaseAddress);
+    ZwUnsubscribeWnfStateChange((PCWNF_STATE_NAME)BaseAddress + 2);
+    v3 = (char **)*((_QWORD *)BaseAddress + 4);
+    v4 = (PVOID *)*((_QWORD *)BaseAddress + 5);
+    if ( v3[1] != BaseAddress + 32 || *v4 != BaseAddress + 32 )
       __fastfail(3u);
-    *v9 = v8;
-    *(_QWORD *)(v8 + 8) = v9;
-    RtlReleaseSRWLockExclusive(a1 + 56);
-    if ( *(_QWORD *)(a1 + 120) )
-      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL);
-    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0LL);
+    *v4 = v3;
+    v3[1] = (char *)v4;
+    RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)BaseAddress + 7);
+    v5 = (void *)*((_QWORD *)BaseAddress + 15);
+    if ( v5 )
+      RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, v5);
+    RtlFreeHeap(NtCurrentPeb()->ProcessHeap, 0, BaseAddress);
   }
   else
   {
-    RtlReleaseSRWLockExclusive(a1 + 56);
+    RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)BaseAddress + 7);
   }
-  return RtlReleaseSRWLockExclusive(qword_18015C008 + 8);
+  RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(qword_18015C008 + 8));
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of KeSuspendClockTimer @ 0x140113424
+ * XREFs of KeSuspendClockTimer @ 0x140113994
  * Callers:
  *     PopHandleNextState @ 0x1403CC8F0 (PopHandleNextState.c)
  * Callees:
- *     xHalFreeMessageTarget @ 0x140130D64 (xHalFreeMessageTarget.c)
+ *     xHalFreeMessageTarget @ 0x1401312D4 (xHalFreeMessageTarget.c)
  */
 
 __int64 KeSuspendClockTimer()
@@ -21,7 +21,7 @@ __int64 KeSuspendClockTimer()
     CurrentPrcb->PendingTickFlags &= ~1u;
   }
   if ( CurrentPrcb->Number == v2 )
-    ++dword_14030DD88;
+    ++dword_14030DDC8;
   if ( CurrentPrcb->ClockOwner )
     CurrentPrcb->ClockOwner = 0;
   return result;

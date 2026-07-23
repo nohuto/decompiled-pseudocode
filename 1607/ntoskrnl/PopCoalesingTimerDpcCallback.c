@@ -1,9 +1,9 @@
 /*
- * XREFs of PopCoalesingTimerDpcCallback @ 0x140205648
+ * XREFs of PopCoalesingTimerDpcCallback @ 0x140205474
  * Callers:
  *     <none>
  * Callees:
- *     PopGetPolicyWorker @ 0x140008B0C (PopGetPolicyWorker.c)
+ *     PopGetPolicyWorker @ 0x140008680 (PopGetPolicyWorker.c)
  */
 
 void PopCoalesingTimerDpcCallback()

@@ -1,22 +1,22 @@
 /*
- * XREFs of FsRtlpOplockTryPrepForAckTimeout @ 0x14070C450
+ * XREFs of FsRtlpOplockTryPrepForAckTimeout @ 0x140709FE4
  * Callers:
- *     FsRtlpRequestExclusiveOplock @ 0x1404E4608 (FsRtlpRequestExclusiveOplock.c)
- *     FsRtlpRequestShareableOplock @ 0x1404E4EB0 (FsRtlpRequestShareableOplock.c)
+ *     FsRtlpRequestExclusiveOplock @ 0x1404DAE94 (FsRtlpRequestExclusiveOplock.c)
+ *     FsRtlpRequestShareableOplock @ 0x1404DB6D0 (FsRtlpRequestShareableOplock.c)
  * Callees:
- *     ExAllocateFromNPagedLookasideList @ 0x140248B90 (ExAllocateFromNPagedLookasideList.c)
- *     IoIsFileOriginRemote @ 0x1402CE220 (IoIsFileOriginRemote.c)
- *     PsReferenceSiloContext @ 0x14033FA90 (PsReferenceSiloContext.c)
- *     ExGetPreviousMode @ 0x140445830 (ExGetPreviousMode.c)
- *     KeInitializeTimerEx @ 0x14044DAF0 (KeInitializeTimerEx.c)
- *     KeInitializeDpc @ 0x140455470 (KeInitializeDpc.c)
- *     FsRtlpOplockIsSubjectToTimeout @ 0x140581758 (FsRtlpOplockIsSubjectToTimeout.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
- *     FsRtlpOplockGetThreadIntegrityLevel @ 0x14070BA40 (FsRtlpOplockGetThreadIntegrityLevel.c)
- *     SeReleaseSubjectContext @ 0x14084D7E0 (SeReleaseSubjectContext.c)
- *     SeCaptureSubjectContext @ 0x14084D8F0 (SeCaptureSubjectContext.c)
- *     SePrivilegeCheck @ 0x1409B0320 (SePrivilegeCheck.c)
+ *     ExAllocateFromNPagedLookasideList @ 0x1402E2DD0 (ExAllocateFromNPagedLookasideList.c)
+ *     PsReferenceSiloContext @ 0x14031EF70 (PsReferenceSiloContext.c)
+ *     IoIsFileOriginRemote @ 0x14040C220 (IoIsFileOriginRemote.c)
+ *     ExGetPreviousMode @ 0x14043D9E0 (ExGetPreviousMode.c)
+ *     KeInitializeTimerEx @ 0x1404449F0 (KeInitializeTimerEx.c)
+ *     KeInitializeDpc @ 0x14044A220 (KeInitializeDpc.c)
+ *     FsRtlpOplockIsSubjectToTimeout @ 0x14057EADC (FsRtlpOplockIsSubjectToTimeout.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
+ *     FsRtlpOplockGetThreadIntegrityLevel @ 0x1407095D4 (FsRtlpOplockGetThreadIntegrityLevel.c)
+ *     SeReleaseSubjectContext @ 0x140849AA0 (SeReleaseSubjectContext.c)
+ *     SeCaptureSubjectContext @ 0x140849BB0 (SeCaptureSubjectContext.c)
+ *     SePrivilegeCheck @ 0x14099A020 (SePrivilegeCheck.c)
  */
 
 void __fastcall FsRtlpOplockTryPrepForAckTimeout(

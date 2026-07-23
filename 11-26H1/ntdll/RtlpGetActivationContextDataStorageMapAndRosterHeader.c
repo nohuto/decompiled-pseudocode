@@ -1,17 +1,17 @@
 /*
- * XREFs of RtlpGetActivationContextDataStorageMapAndRosterHeader @ 0x1800A23B0
+ * XREFs of RtlpGetActivationContextDataStorageMapAndRosterHeader @ 0x1800A14E0
  * Callers:
- *     RtlGetAssemblyStorageRoot @ 0x1800A21EC (RtlGetAssemblyStorageRoot.c)
+ *     RtlGetAssemblyStorageRoot @ 0x1800A131C (RtlGetAssemblyStorageRoot.c)
  * Callees:
- *     RtlpAllocateAtom @ 0x180037BF0 (RtlpAllocateAtom.c)
- *     RtlpSysVolFree @ 0x180038000 (RtlpSysVolFree.c)
- *     RtlFreeHeap_0 @ 0x18003FD10 (RtlFreeHeap_0.c)
- *     DbgPrintEx @ 0x1800413D0 (DbgPrintEx.c)
- *     RtlAllocateHeap_0 @ 0x1800439E0 (RtlAllocateHeap_0.c)
- *     RtlpInitializeAssemblyStorageMap @ 0x1800A2738 (RtlpInitializeAssemblyStorageMap.c)
- *     RtlpUninitializeAssemblyStorageMap @ 0x1800A2828 (RtlpUninitializeAssemblyStorageMap.c)
- *     __security_check_cookie @ 0x180162C90 (__security_check_cookie.c)
- *     memmove @ 0x180164700 (memmove.c)
+ *     RtlpAllocateAtom @ 0x1800018C0 (RtlpAllocateAtom.c)
+ *     RtlpSysVolFree @ 0x180001CD0 (RtlpSysVolFree.c)
+ *     RtlFreeHeap_0 @ 0x18002A280 (RtlFreeHeap_0.c)
+ *     DbgPrintEx @ 0x18002B940 (DbgPrintEx.c)
+ *     RtlAllocateHeap_0 @ 0x18002DF50 (RtlAllocateHeap_0.c)
+ *     RtlpInitializeAssemblyStorageMap @ 0x1800A1868 (RtlpInitializeAssemblyStorageMap.c)
+ *     RtlpUninitializeAssemblyStorageMap @ 0x1800A1958 (RtlpUninitializeAssemblyStorageMap.c)
+ *     __security_check_cookie @ 0x180162B90 (__security_check_cookie.c)
+ *     memmove @ 0x180164600 (memmove.c)
  */
 
 __int64 __fastcall RtlpGetActivationContextDataStorageMapAndRosterHeader(
@@ -36,20 +36,21 @@ __int64 __fastcall RtlpGetActivationContextDataStorageMapAndRosterHeader(
   int v19; // esi
   size_t v20; // r13
   __int64 v21; // rax
-  __int64 Heap_0; // rax
-  signed __int64 v23; // r13
-  _WORD *Atom; // [rsp+40h] [rbp-278h]
-  _WORD v25[264]; // [rsp+60h] [rbp-258h] BYREF
+  __int64 v22; // rax
+  char *Heap_0; // rax
+  void *v24; // r13
+  _WORD *BaseAddress; // [rsp+40h] [rbp-278h]
+  _WORD v26[264]; // [rsp+60h] [rbp-258h] BYREF
 
-  Atom = v25;
-  v25[0] = 0;
+  BaseAddress = v26;
+  v26[0] = 0;
   v7 = 0LL;
   v8 = 0LL;
   v9 = 0LL;
-  if ( (_UNKNOWN *)a3 == &unk_180171088 )
+  if ( (_UNKNOWN *)a3 == &unk_180170388 )
   {
     DbgPrintEx(
-      51,
+      0x33u,
       0,
       "SXS: %s() passed the empty activation context\n",
       "RtlpGetActivationContextDataStorageMapAndRosterHeader");
@@ -64,7 +65,7 @@ __int64 __fastcall RtlpGetActivationContextDataStorageMapAndRosterHeader(
   if ( (a1 & 0xFFFFFFFC) != 0 || !a2 || !a4 || !a5 )
   {
     DbgPrintEx(
-      51,
+      0x33u,
       0,
       "SXS: %s() bad parameters:\n"
       "SXS:    Flags                : 0x%lx\n"
@@ -119,16 +120,16 @@ LABEL_32:
         v14 = v12 + 14LL;
         if ( v14 <= 0x208 )
         {
-          v15 = v25;
-          Atom = v25;
+          v15 = v26;
+          BaseAddress = v26;
         }
         else
         {
           if ( v14 > 0xFFFE )
             return 3221225734LL;
-          Atom = (_WORD *)RtlpAllocateAtom((unsigned __int16)(v12 + 14));
-          v15 = Atom;
-          if ( !Atom )
+          BaseAddress = RtlpAllocateAtom((unsigned __int16)(v12 + 14));
+          v15 = BaseAddress;
+          if ( !BaseAddress )
             return 3221225495LL;
         }
         memmove(v15, (const void *)_mm_srli_si128(v11, 8).m128i_i64[0], v13);
@@ -152,27 +153,28 @@ LABEL_25:
     v19 = 0;
     goto LABEL_28;
   }
-  if ( *(_DWORD *)(v7 + 8) > 0x1FFFFFFDu )
+  v22 = *(unsigned int *)(v7 + 8);
+  if ( (unsigned int)v22 > 0x1FFFFFFD )
   {
     v19 = -1073741675;
   }
   else
   {
-    Heap_0 = RtlAllocateHeap_0();
-    v23 = Heap_0;
+    Heap_0 = (char *)RtlAllocateHeap_0(NtCurrentPeb()->ProcessHeap, 0, 8 * v22 + 16);
+    v24 = Heap_0;
     if ( Heap_0 )
     {
       v19 = RtlpInitializeAssemblyStorageMap(Heap_0, *(unsigned int *)(v7 + 8), Heap_0 + 16);
       if ( v19 >= 0 )
       {
-        if ( _InterlockedCompareExchange64(v9, v23, 0LL) )
+        if ( _InterlockedCompareExchange64(v9, (signed __int64)v24, 0LL) )
         {
-          RtlpUninitializeAssemblyStorageMap(v23);
-          RtlFreeHeap_0();
+          RtlpUninitializeAssemblyStorageMap(v24);
+          RtlFreeHeap_0(NtCurrentPeb()->ProcessHeap, 0, v24);
         }
         goto LABEL_41;
       }
-      RtlFreeHeap_0();
+      RtlFreeHeap_0(NtCurrentPeb()->ProcessHeap, 0, v24);
     }
     else
     {
@@ -180,10 +182,10 @@ LABEL_25:
     }
   }
 LABEL_28:
-  if ( Atom )
+  if ( BaseAddress )
   {
-    if ( Atom != v25 )
-      RtlpSysVolFree((__int64)Atom);
+    if ( BaseAddress != v26 )
+      RtlpSysVolFree(BaseAddress);
   }
   return (unsigned int)v19;
 }

@@ -7,15 +7,26 @@
  *     ZwClose @ 0x18009C8C0 (ZwClose.c)
  */
 
-__int64 __fastcall DbgUiIssueRemoteBreakin(__int64 a1)
+NTSTATUS __cdecl DbgUiIssueRemoteBreakin(HANDLE Process)
 {
   int v1; // ebx
-  __int64 v3; // [rsp+30h] [rbp-48h]
+  int v3; // [rsp+30h] [rbp-48h]
   __int128 v4; // [rsp+60h] [rbp-18h] BYREF
-  __int64 v5; // [rsp+88h] [rbp+10h] BYREF
+  HANDLE Handle; // [rsp+88h] [rbp+10h] BYREF
 
-  v1 = sub_180005760(a1, 0LL, 2, 0, 0LL, 0x4000LL, v3, (__int64)DbgUiRemoteBreakin, 0LL, &v5, &v4);
+  v1 = sub_180005760(
+         Process,
+         0LL,
+         2,
+         0,
+         0LL,
+         0x4000uLL,
+         v3,
+         (PUSER_THREAD_START_ROUTINE)DbgUiRemoteBreakin,
+         0LL,
+         &Handle,
+         &v4);
   if ( v1 >= 0 )
-    ZwClose();
-  return (unsigned int)v1;
+    ZwClose(Handle);
+  return v1;
 }

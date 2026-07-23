@@ -1,9 +1,9 @@
 /*
- * XREFs of VfMiscKeInitializeEvent_Entry @ 0x140C480A0
+ * XREFs of VfMiscKeInitializeEvent_Entry @ 0x140C4E0B0
  * Callers:
  *     <none>
  * Callees:
- *     ViMiscValidateSynchronizationObject @ 0x140C20518 (ViMiscValidateSynchronizationObject.c)
+ *     ViMiscValidateSynchronizationObject @ 0x140C26524 (ViMiscValidateSynchronizationObject.c)
  */
 
 BOOLEAN __fastcall VfMiscKeInitializeEvent_Entry(__int64 a1)

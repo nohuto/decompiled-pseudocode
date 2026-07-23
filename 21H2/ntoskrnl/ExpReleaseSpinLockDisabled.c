@@ -1,12 +1,12 @@
 /*
- * XREFs of ExpReleaseSpinLockDisabled @ 0x1402A03F4
+ * XREFs of ExpReleaseSpinLockDisabled @ 0x14021D974
  * Callers:
- *     ExInterlockedInsertHeadList @ 0x1402A0300 (ExInterlockedInsertHeadList.c)
- *     ExInterlockedInsertTailList @ 0x1402A0380 (ExInterlockedInsertTailList.c)
- *     ExInterlockedAddUlong @ 0x140379B40 (ExInterlockedAddUlong.c)
- *     ExInterlockedAddLargeInteger @ 0x1405B6E60 (ExInterlockedAddLargeInteger.c)
- *     ExInterlockedPopEntryList @ 0x1405B6EC0 (ExInterlockedPopEntryList.c)
- *     ExInterlockedPushEntryList @ 0x1405B6F10 (ExInterlockedPushEntryList.c)
+ *     ExInterlockedInsertHeadList @ 0x14021D880 (ExInterlockedInsertHeadList.c)
+ *     ExInterlockedInsertTailList @ 0x14021D900 (ExInterlockedInsertTailList.c)
+ *     ExInterlockedAddUlong @ 0x140379690 (ExInterlockedAddUlong.c)
+ *     ExInterlockedAddLargeInteger @ 0x1405B7090 (ExInterlockedAddLargeInteger.c)
+ *     ExInterlockedPopEntryList @ 0x1405B70F0 (ExInterlockedPopEntryList.c)
+ *     ExInterlockedPushEntryList @ 0x1405B7140 (ExInterlockedPushEntryList.c)
  * Callees:
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */

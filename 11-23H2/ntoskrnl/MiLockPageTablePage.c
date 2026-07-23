@@ -1,15 +1,15 @@
 /*
- * XREFs of MiLockPageTablePage @ 0x140237B00
+ * XREFs of MiLockPageTablePage @ 0x140237BD0
  * Callers:
- *     MiProbeLockFrame @ 0x140236500 (MiProbeLockFrame.c)
- *     NtLockVirtualMemory @ 0x1402A3120 (NtLockVirtualMemory.c)
- *     MiLockPageTableRange @ 0x14064D054 (MiLockPageTableRange.c)
- *     MiBuildForkPte @ 0x140662200 (MiBuildForkPte.c)
+ *     MiProbeLockFrame @ 0x1402365D0 (MiProbeLockFrame.c)
+ *     NtLockVirtualMemory @ 0x1402A33B0 (NtLockVirtualMemory.c)
+ *     MiLockPageTableRange @ 0x14064D5A4 (MiLockPageTableRange.c)
+ *     MiBuildForkPte @ 0x140662750 (MiBuildForkPte.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     MiReleasePageFileInfo @ 0x1402952DC (MiReleasePageFileInfo.c)
- *     MiChargePartitionResidentAvailable @ 0x1402E6278 (MiChargePartitionResidentAvailable.c)
- *     MiCapturePageFileInfoInline @ 0x140348CB4 (MiCapturePageFileInfoInline.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     MiReleasePageFileInfo @ 0x14029556C (MiReleasePageFileInfo.c)
+ *     MiChargePartitionResidentAvailable @ 0x1402E6508 (MiChargePartitionResidentAvailable.c)
+ *     MiCapturePageFileInfoInline @ 0x140348F44 (MiCapturePageFileInfoInline.c)
  */
 
 __int64 __fastcall MiLockPageTablePage(__int64 a1, int a2)

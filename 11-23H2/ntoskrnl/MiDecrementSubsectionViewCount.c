@@ -1,24 +1,24 @@
 /*
- * XREFs of MiDecrementSubsectionViewCount @ 0x14029FAD0
+ * XREFs of MiDecrementSubsectionViewCount @ 0x14029FD60
  * Callers:
  *     MiDeleteSubsectionPages @ 0x140218EF0 (MiDeleteSubsectionPages.c)
  *     MiDeleteControlArea @ 0x1402199D0 (MiDeleteControlArea.c)
  *     MiCreatePrototypePtes @ 0x14021BA80 (MiCreatePrototypePtes.c)
- *     MiFlushSectionInternal @ 0x140275750 (MiFlushSectionInternal.c)
- *     MiAppendSubsectionChain @ 0x1402932D8 (MiAppendSubsectionChain.c)
- *     MiRemoveViewsFromSection @ 0x14029F8E8 (MiRemoveViewsFromSection.c)
- *     MiDecrementSubsections @ 0x14029FA30 (MiDecrementSubsections.c)
- *     MmPurgeSection @ 0x1402DC8D0 (MmPurgeSection.c)
- *     MiDeleteCachedSubsection @ 0x140623B48 (MiDeleteCachedSubsection.c)
- *     MiReturnCrossPartitionControlAreaCharges @ 0x140625CFC (MiReturnCrossPartitionControlAreaCharges.c)
- *     MiUpControlAreaRefs @ 0x140625EFC (MiUpControlAreaRefs.c)
- *     MiExtendSection @ 0x1407067D4 (MiExtendSection.c)
+ *     MiFlushSectionInternal @ 0x1402759E0 (MiFlushSectionInternal.c)
+ *     MiAppendSubsectionChain @ 0x140293568 (MiAppendSubsectionChain.c)
+ *     MiRemoveViewsFromSection @ 0x14029FB78 (MiRemoveViewsFromSection.c)
+ *     MiDecrementSubsections @ 0x14029FCC0 (MiDecrementSubsections.c)
+ *     MmPurgeSection @ 0x1402DCB60 (MmPurgeSection.c)
+ *     MiDeleteCachedSubsection @ 0x140624098 (MiDeleteCachedSubsection.c)
+ *     MiReturnCrossPartitionControlAreaCharges @ 0x14062624C (MiReturnCrossPartitionControlAreaCharges.c)
+ *     MiUpControlAreaRefs @ 0x14062644C (MiUpControlAreaRefs.c)
+ *     MiExtendSection @ 0x1407069E4 (MiExtendSection.c)
  * Callees:
  *     MiControlAreaExemptFromCrossPartitionCharges @ 0x140214D6C (MiControlAreaExemptFromCrossPartitionCharges.c)
- *     MiGetSubsectionHoldingCrossPartitionReferences @ 0x1402ED410 (MiGetSubsectionHoldingCrossPartitionReferences.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
- *     MiComputeCrossPartitionSectionCharges @ 0x14066B0C8 (MiComputeCrossPartitionSectionCharges.c)
- *     MiUpdateSubsectionCrossPartitionRefs @ 0x14066B494 (MiUpdateSubsectionCrossPartitionRefs.c)
+ *     MiGetSubsectionHoldingCrossPartitionReferences @ 0x1402ED6A0 (MiGetSubsectionHoldingCrossPartitionReferences.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
+ *     MiComputeCrossPartitionSectionCharges @ 0x14066B618 (MiComputeCrossPartitionSectionCharges.c)
+ *     MiUpdateSubsectionCrossPartitionRefs @ 0x14066B9E4 (MiUpdateSubsectionCrossPartitionRefs.c)
  */
 
 __int64 __fastcall MiDecrementSubsectionViewCount(__int64 *BugCheckParameter2, char a2)

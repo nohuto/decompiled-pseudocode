@@ -1,11 +1,11 @@
 /*
- * XREFs of ViPtCaptureStackTraceCallout @ 0x140BA7380
+ * XREFs of ViPtCaptureStackTraceCallout @ 0x140BA9380
  * Callers:
- *     ViPtCaptureStackTrace @ 0x140BA7324 (ViPtCaptureStackTrace.c)
+ *     ViPtCaptureStackTrace @ 0x140BA9324 (ViPtCaptureStackTrace.c)
  * Callees:
- *     RtlCaptureStackBackTrace @ 0x14027C690 (RtlCaptureStackBackTrace.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     RtlCaptureStackBackTrace @ 0x140231C20 (RtlCaptureStackBackTrace.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 void __fastcall ViPtCaptureStackTraceCallout(_DWORD *Parameter)

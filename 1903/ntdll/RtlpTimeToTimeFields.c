@@ -9,10 +9,10 @@
 
 __int16 __fastcall RtlpTimeToTimeFields(__int64 *a1, _OWORD *a2, __int64 *a3)
 {
-  __int64 v5; // r10
+  PLEAP_SECOND_DATA LeapSecondData; // r10
   unsigned int v6; // r11d
   int v7; // ecx
-  DWORD v8; // r9d
+  ULONG v8; // r9d
   __int64 v9; // rdx
   __int64 v10; // r8
   unsigned int v11; // ebx
@@ -36,13 +36,13 @@ __int16 __fastcall RtlpTimeToTimeFields(__int64 *a1, _OWORD *a2, __int64 *a3)
   signed __int32 v29[8]; // [rsp+0h] [rbp-38h] BYREF
   __int128 v30; // [rsp+20h] [rbp-18h]
 
-  v5 = *(_QWORD *)&NtCurrentPeb()[2].NumberOfProcessors;
-  if ( !v5 || !*(_BYTE *)v5 )
+  LeapSecondData = NtCurrentPeb()->LeapSecondData;
+  if ( !LeapSecondData || !*(_BYTE *)LeapSecondData )
     return sub_1800E42B8();
-  v6 = *(_DWORD *)(v5 + 4);
+  v6 = *((_DWORD *)LeapSecondData + 1);
   _InterlockedOr(v29, 0);
   v7 = 0;
-  v8 = NtCurrentPeb()[2].CriticalSectionTimeout.LowPart & 1;
+  v8 = NtCurrentPeb()->LeapSecondFlags & 1;
   if ( a3 )
     v9 = *a3;
   else
@@ -51,7 +51,7 @@ __int16 __fastcall RtlpTimeToTimeFields(__int64 *a1, _OWORD *a2, __int64 *a3)
   v11 = 0;
   if ( v6 )
   {
-    v26 = (__int64 *)(v5 + 8);
+    v26 = (__int64 *)((char *)LeapSecondData + 8);
     do
     {
       v27 = *v26;

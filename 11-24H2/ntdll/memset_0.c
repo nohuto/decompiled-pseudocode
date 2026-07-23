@@ -1,7 +1,7 @@
 /*
- * XREFs of memset_0 @ 0x180167800
+ * XREFs of memset_0 @ 0x180165BC0
  * Callers:
- *     memset$thunk$772440563353939046 @ 0x180172030 (memset$thunk$772440563353939046.c)
+ *     memset$thunk$772440563353939046 @ 0x180171030 (memset$thunk$772440563353939046.c)
  * Callees:
  *     <none>
  */

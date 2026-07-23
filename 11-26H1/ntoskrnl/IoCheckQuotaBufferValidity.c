@@ -1,10 +1,10 @@
 /*
- * XREFs of IoCheckQuotaBufferValidity @ 0x140795FE0
+ * XREFs of IoCheckQuotaBufferValidity @ 0x140798B10
  * Callers:
- *     IopSetEaOrQuotaInformationFile @ 0x140795248 (IopSetEaOrQuotaInformationFile.c)
+ *     IopSetEaOrQuotaInformationFile @ 0x140797D78 (IopSetEaOrQuotaInformationFile.c)
  * Callees:
- *     RtlLengthSid @ 0x1404872D0 (RtlLengthSid.c)
- *     RtlValidSid @ 0x140924370 (RtlValidSid.c)
+ *     RtlLengthSid @ 0x140480CA0 (RtlLengthSid.c)
+ *     RtlValidSid @ 0x1408FFE80 (RtlValidSid.c)
  */
 
 NTSTATUS __stdcall IoCheckQuotaBufferValidity(

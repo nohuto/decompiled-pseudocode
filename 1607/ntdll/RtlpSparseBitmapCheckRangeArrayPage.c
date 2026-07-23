@@ -1,16 +1,16 @@
 /*
- * XREFs of RtlpSparseBitmapCheckRangeArrayPage @ 0x18004FE58
+ * XREFs of RtlpSparseBitmapCheckRangeArrayPage @ 0x18004FE48
  * Callers:
- *     RtlpSparseBitmapCtxPrepareRanges @ 0x18004FA10 (RtlpSparseBitmapCtxPrepareRanges.c)
- *     RtlpSparseBitmapCtxUpdateBitRanges @ 0x18004FAC4 (RtlpSparseBitmapCtxUpdateBitRanges.c)
- *     RtlSparseBitmapCtxCheckBitsInternal @ 0x18004FCB4 (RtlSparseBitmapCtxCheckBitsInternal.c)
- *     RtlSparseBitmapCtxAllocateRange @ 0x180050F80 (RtlSparseBitmapCtxAllocateRange.c)
- *     RtlSparseBitmapCtxCleanup @ 0x180100440 (RtlSparseBitmapCtxCleanup.c)
- *     RtlSparseBitmapCtxCountBitsSet @ 0x1801004E0 (RtlSparseBitmapCtxCountBitsSet.c)
- *     RtlSparseBitmapCtxMetadataForBit @ 0x180100680 (RtlSparseBitmapCtxMetadataForBit.c)
- *     RtlSparseBitmapCtxOrBitmap @ 0x180100760 (RtlSparseBitmapCtxOrBitmap.c)
- *     RtlSparseBitmapEnumerateBitmap @ 0x180100A90 (RtlSparseBitmapEnumerateBitmap.c)
- *     RtlpSparseBitmapCtxFindRunsInternal @ 0x18010123C (RtlpSparseBitmapCtxFindRunsInternal.c)
+ *     RtlpSparseBitmapCtxPrepareRanges @ 0x18004FA00 (RtlpSparseBitmapCtxPrepareRanges.c)
+ *     RtlpSparseBitmapCtxUpdateBitRanges @ 0x18004FAB4 (RtlpSparseBitmapCtxUpdateBitRanges.c)
+ *     RtlSparseBitmapCtxCheckBitsInternal @ 0x18004FCA4 (RtlSparseBitmapCtxCheckBitsInternal.c)
+ *     RtlSparseBitmapCtxAllocateRange @ 0x180050F70 (RtlSparseBitmapCtxAllocateRange.c)
+ *     RtlSparseBitmapCtxCleanup @ 0x180100380 (RtlSparseBitmapCtxCleanup.c)
+ *     RtlSparseBitmapCtxCountBitsSet @ 0x180100420 (RtlSparseBitmapCtxCountBitsSet.c)
+ *     RtlSparseBitmapCtxMetadataForBit @ 0x1801005C0 (RtlSparseBitmapCtxMetadataForBit.c)
+ *     RtlSparseBitmapCtxOrBitmap @ 0x1801006A0 (RtlSparseBitmapCtxOrBitmap.c)
+ *     RtlSparseBitmapEnumerateBitmap @ 0x1801009D0 (RtlSparseBitmapEnumerateBitmap.c)
+ *     RtlpSparseBitmapCtxFindRunsInternal @ 0x18010117C (RtlpSparseBitmapCtxFindRunsInternal.c)
  * Callees:
  *     <none>
  */

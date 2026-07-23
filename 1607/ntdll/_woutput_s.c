@@ -3,36 +3,36 @@
  * Callers:
  *     _swoutput_s @ 0x1800A4098 (_swoutput_s.c)
  * Callees:
- *     _invalid_parameter @ 0x180096B68 (_invalid_parameter.c)
- *     __security_check_cookie @ 0x180096C40 (__security_check_cookie.c)
+ *     _invalid_parameter @ 0x180096B58 (_invalid_parameter.c)
+ *     __security_check_cookie @ 0x180096C30 (__security_check_cookie.c)
  *     _safecrt_mbtowc @ 0x1800A30E8 (_safecrt_mbtowc.c)
  *     write_char_2 @ 0x1800A4A90 (write_char_2.c)
  *     write_multi_char_2 @ 0x1800A4AF0 (write_multi_char_2.c)
  *     write_string_2 @ 0x1800A4B40 (write_string_2.c)
  */
 
-__int64 __fastcall woutput_s(__int64 a1, char *a2, int *a3)
+__int64 __fastcall woutput_s(__int64 a1, WCHAR *a2, int *a3)
 {
   int v4; // edx
   int v5; // edi
   int v6; // esi
   int v7; // r10d
   int v8; // r15d
-  unsigned __int16 v10; // r9
+  WCHAR v10; // r9
   __int64 v11; // r12
   int v12; // r11d
-  char *v13; // rbx
+  WCHAR *v13; // rbx
   __int64 v14; // rax
   int v15; // r9d
   __int64 v16; // r8
   unsigned __int16 *v17; // rcx
   int v18; // ecx
-  char *v19; // rax
+  WCHAR *v19; // rax
   _BYTE *v20; // rax
-  __int16 v21; // ax
+  WCHAR v21; // ax
   int v22; // eax
   int v23; // eax
-  char *i; // r12
+  _WORD *i; // r12
   int *v25; // r8
   char *v26; // rbx
   int v27; // ecx
@@ -44,7 +44,7 @@ __int64 __fastcall woutput_s(__int64 a1, char *a2, int *a3)
   unsigned int v33; // eax
   unsigned int v34; // r15d
   __int64 v35; // rsi
-  unsigned __int8 *v36; // r14
+  UCHAR *v36; // r14
   int v37; // esi
   int v38; // eax
   __int64 v39; // r11
@@ -57,14 +57,14 @@ __int64 __fastcall woutput_s(__int64 a1, char *a2, int *a3)
   int *v46; // [rsp+40h] [rbp-C0h]
   int v47; // [rsp+48h] [rbp-B8h]
   int v48; // [rsp+4Ch] [rbp-B4h]
-  unsigned __int8 v49[4]; // [rsp+50h] [rbp-B0h] BYREF
-  unsigned __int16 v50; // [rsp+54h] [rbp-ACh] BYREF
+  UCHAR v49[4]; // [rsp+50h] [rbp-B0h] BYREF
+  WCHAR v50; // [rsp+54h] [rbp-ACh] BYREF
   _WORD v51[4]; // [rsp+58h] [rbp-A8h] BYREF
   __int64 v52; // [rsp+60h] [rbp-A0h]
   int v53; // [rsp+68h] [rbp-98h]
   int v54; // [rsp+6Ch] [rbp-94h]
-  char *v55; // [rsp+70h] [rbp-90h]
-  _WORD v56[64]; // [rsp+80h] [rbp-80h] BYREF
+  WCHAR *v55; // [rsp+70h] [rbp-90h]
+  WCHAR v56[64]; // [rsp+80h] [rbp-80h] BYREF
   __int64 v57; // [rsp+100h] [rbp+0h] BYREF
   char v58; // [rsp+27Fh] [rbp+17Fh] BYREF
 
@@ -86,7 +86,7 @@ __int64 __fastcall woutput_s(__int64 a1, char *a2, int *a3)
     invalid_parameter();
     return 0xFFFFFFFFLL;
   }
-  v10 = *(_WORD *)a2;
+  v10 = *a2;
   LODWORD(v11) = 0;
   v45 = 0;
   v12 = 0;
@@ -95,8 +95,7 @@ __int64 __fastcall woutput_s(__int64 a1, char *a2, int *a3)
   v13 = v55;
   do
   {
-    a2 += 2;
-    v55 = a2;
+    v55 = ++a2;
     if ( v45 < 0 )
       break;
     if ( (unsigned __int16)(v10 - 32) <= 0x58u )
@@ -194,9 +193,9 @@ __int64 __fastcall woutput_s(__int64 a1, char *a2, int *a3)
               v5 |= 0x20u;
               break;
             case 'l':
-              if ( *(_WORD *)a2 == 108 )
+              if ( *a2 == 108 )
               {
-                a2 += 2;
+                ++a2;
                 v5 |= 0x1000u;
               }
               else
@@ -210,17 +209,17 @@ __int64 __fastcall woutput_s(__int64 a1, char *a2, int *a3)
           }
           break;
         }
-        v40 = *(unsigned __int16 *)a2;
+        v40 = *a2;
         v5 |= 0x8000u;
         if ( *(_DWORD *)a2 == 3407926 )
         {
-          a2 += 4;
+          a2 += 2;
           v5 |= 0x8000u;
           break;
         }
-        if ( (_WORD)v40 == 51 && *((_WORD *)a2 + 1) == 50 )
+        if ( (_WORD)v40 == 51 && a2[1] == 50 )
         {
-          a2 += 4;
+          a2 += 2;
           v5 &= ~0x8000u;
           break;
         }
@@ -330,12 +329,12 @@ LABEL_28:
             v8 = v44;
             LODWORD(v11) = (unsigned int)&v57 + 383 - (_DWORD)v26;
             v43 = v7;
-            v13 = v26 + 1;
-            if ( (v5 & 0x200) != 0 && (!(_DWORD)v11 || *v13 != 48) )
+            v13 = (WCHAR *)(v26 + 1);
+            if ( (v5 & 0x200) != 0 && (!(_DWORD)v11 || *(_BYTE *)v13 != 48) )
             {
-              --v13;
+              v13 = (WCHAR *)((char *)v13 - 1);
               LODWORD(v11) = v11 + 1;
-              *v13 = 48;
+              *(_BYTE *)v13 = 48;
             }
             goto LABEL_104;
           }
@@ -358,7 +357,7 @@ LABEL_28:
               {
                 v17 = *(unsigned __int16 **)a3;
                 v46 = a3 + 2;
-                if ( v17 && (v13 = (char *)*((_QWORD *)v17 + 1)) != 0LL )
+                if ( v17 && (v13 = (WCHAR *)*((_QWORD *)v17 + 1)) != 0LL )
                 {
                   if ( v17[1] < *v17 )
                     goto LABEL_177;
@@ -377,7 +376,7 @@ LABEL_28:
                 }
                 else
                 {
-                  v13 = "(null)";
+                  v13 = (WCHAR *)"(null)";
                   LODWORD(v11) = 6;
                 }
                 goto LABEL_104;
@@ -436,7 +435,7 @@ LABEL_113:
                 }
                 else
                 {
-                  v36 = (unsigned __int8 *)v13;
+                  v36 = (UCHAR *)v13;
                   v37 = v11;
                   while ( 1 )
                   {
@@ -492,7 +491,7 @@ LABEL_53:
               {
                 v56[0] = v21;
               }
-              v13 = (char *)v56;
+              v13 = v56;
               LODWORD(v11) = 1;
               goto LABEL_104;
             }
@@ -515,11 +514,11 @@ LABEL_74:
         v18 = v7;
         if ( v7 == -1 )
           v18 = 0x7FFFFFFF;
-        v19 = *(char **)a3;
+        v19 = *(WCHAR **)a3;
         v46 = a3 + 2;
         if ( (v5 & 0x20) != 0 )
         {
-          v13 = "(null)";
+          v13 = (WCHAR *)"(null)";
           LODWORD(v11) = 0;
           if ( v19 )
             v13 = v19;
@@ -539,22 +538,22 @@ LABEL_74:
         else
         {
           v47 = 1;
-          v13 = (char *)L"(null)";
+          v13 = L"(null)";
           if ( v19 )
             v13 = v19;
-          for ( i = v13; v18; i += 2 )
+          for ( i = v13; v18; ++i )
           {
             --v18;
-            if ( !*(_WORD *)i )
+            if ( !*i )
               break;
           }
-          v11 = (i - v13) >> 1;
+          v11 = i - v13;
         }
         goto LABEL_104;
     }
-    v10 = *(_WORD *)a2;
+    v10 = *a2;
   }
-  while ( *(_WORD *)a2 );
+  while ( *a2 );
   if ( v12 && v12 != 7 )
   {
 LABEL_177:

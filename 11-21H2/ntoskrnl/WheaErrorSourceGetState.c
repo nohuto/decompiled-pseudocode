@@ -3,19 +3,18 @@
  * Callers:
  *     <none>
  * Callees:
- *     WheapGetErrorSource @ 0x140643F2C (WheapGetErrorSource.c)
+ *     sub_140643F2C @ 0x140643F2C (sub_140643F2C.c)
  */
 
 __int64 __fastcall WheaErrorSourceGetState(unsigned int a1)
 {
-  __int64 ErrorSource; // rax
+  __int64 v1; // rax
   __int64 result; // rax
 
-  ErrorSource = WheapGetErrorSource(&WheapErrorSourceTable, a1);
-  if ( ((ErrorSource + 96) & ((unsigned __int128)-(__int128)(unsigned __int64)ErrorSource >> 64)) == 0 )
+  v1 = sub_140643F2C(&unk_140CE1A98, a1);
+  if ( ((v1 + 96) & ((unsigned __int128)-(__int128)(unsigned __int64)v1 >> 64)) == 0 )
     return 3LL;
-  result = *(unsigned int *)(((ErrorSource + 96) & ((unsigned __int128)-(__int128)(unsigned __int64)ErrorSource >> 64))
-                           + 0xC);
+  result = *(unsigned int *)(((v1 + 96) & ((unsigned __int128)-(__int128)(unsigned __int64)v1 >> 64)) + 0xC);
   if ( (_DWORD)result == 4 )
     return 3LL;
   return result;

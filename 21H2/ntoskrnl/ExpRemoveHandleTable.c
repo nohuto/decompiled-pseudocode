@@ -1,15 +1,15 @@
 /*
- * XREFs of ExpRemoveHandleTable @ 0x140604524
+ * XREFs of ExpRemoveHandleTable @ 0x1406F3C54
  * Callers:
- *     ObKillProcess @ 0x1406034EC (ObKillProcess.c)
- *     ObInitProcess @ 0x140607644 (ObInitProcess.c)
- *     RtlDestroyAtomTable @ 0x1406A1340 (RtlDestroyAtomTable.c)
- *     AlpcpAllocateMessageFromExtendedTables @ 0x1408C2DD0 (AlpcpAllocateMessageFromExtendedTables.c)
+ *     RtlDestroyAtomTable @ 0x140600AD0 (RtlDestroyAtomTable.c)
+ *     ObInitProcess @ 0x1406970D4 (ObInitProcess.c)
+ *     ObKillProcess @ 0x1406F2C20 (ObKillProcess.c)
+ *     AlpcpAllocateMessageFromExtendedTables @ 0x1408C2F30 (AlpcpAllocateMessageFromExtendedTables.c)
  * Callees:
- *     KeLeaveCriticalRegionThread @ 0x140206FC0 (KeLeaveCriticalRegionThread.c)
- *     ExfTryToWakePushLock @ 0x1402F1570 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x140348C80 (KeAbPostRelease.c)
- *     ExAcquirePushLockExclusiveEx @ 0x14034A990 (ExAcquirePushLockExclusiveEx.c)
+ *     KeLeaveCriticalRegionThread @ 0x1402AB8C0 (KeLeaveCriticalRegionThread.c)
+ *     ExfTryToWakePushLock @ 0x1402FC2C0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1403539D0 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1403556E0 (ExAcquirePushLockExclusiveEx.c)
  */
 
 _QWORD *__fastcall ExpRemoveHandleTable(__int64 a1)
@@ -18,6 +18,9 @@ _QWORD *__fastcall ExpRemoveHandleTable(__int64 a1)
   _QWORD *v3; // rdi
   __int64 v4; // rdx
   _QWORD *v5; // rax
+  __int64 v6; // rdx
+  __int64 v7; // r8
+  __int64 v8; // r9
   _QWORD *result; // rax
 
   CurrentThread = KeGetCurrentThread();
@@ -32,7 +35,7 @@ _QWORD *__fastcall ExpRemoveHandleTable(__int64 a1)
   if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&HandleTableListLock, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
     ExfTryToWakePushLock(&HandleTableListLock);
   KeAbPostRelease((ULONG_PTR)&HandleTableListLock);
-  result = KeLeaveCriticalRegionThread((__int64)CurrentThread);
+  result = KeLeaveCriticalRegionThread((__int64)CurrentThread, v6, v7, v8);
   v3[1] = v3;
   *v3 = v3;
   return result;

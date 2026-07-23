@@ -30,8 +30,8 @@ __int64 *__fastcall ExAllocateCacheAwarePushLock(char a1)
   __int64 Pool3; // rax
   unsigned int v15; // [rsp+30h] [rbp-58h]
   __int128 v16; // [rsp+38h] [rbp-50h] BYREF
-  struct _GROUP_AFFINITY Affinity; // [rsp+48h] [rbp-40h] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+58h] [rbp-30h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+48h] [rbp-40h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+58h] [rbp-30h] BYREF
 
   v1 = 0;
   Affinity = 0LL;

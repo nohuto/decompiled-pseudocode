@@ -1,21 +1,21 @@
 /*
- * XREFs of KseAddHardwareId @ 0x1406FEFC8
+ * XREFs of KseAddHardwareId @ 0x140700268
  * Callers:
- *     PiProcessNewDeviceNode @ 0x1406E3F14 (PiProcessNewDeviceNode.c)
+ *     PiProcessNewDeviceNode @ 0x1406E51B4 (PiProcessNewDeviceNode.c)
  * Callees:
  *     ExAcquirePushLockExclusiveEx @ 0x14004EC70 (ExAcquirePushLockExclusiveEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
- *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x1400B79B0 (KiLeaveCriticalRegionUnsafe.c)
- *     RtlInitUnicodeString @ 0x1400B9A90 (RtlInitUnicodeString.c)
- *     KsepPoolFreePaged @ 0x1400F4CB4 (KsepPoolFreePaged.c)
- *     KsepPoolAllocatePaged @ 0x1400F4CDC (KsepPoolAllocatePaged.c)
- *     KsepDebugPrint @ 0x14029FC44 (KsepDebugPrint.c)
- *     KsepLogError @ 0x14029FEE4 (KsepLogError.c)
- *     KsepStringFree @ 0x14067E14C (KsepStringFree.c)
- *     KsepCacheLookup @ 0x14070CADC (KsepCacheLookup.c)
- *     KsepStringDuplicate @ 0x14070CD98 (KsepStringDuplicate.c)
- *     KsepCacheInsert @ 0x14070CF8C (KsepCacheInsert.c)
+ *     ExfTryToWakePushLock @ 0x140091500 (ExfTryToWakePushLock.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x1400B78F0 (KiLeaveCriticalRegionUnsafe.c)
+ *     RtlInitUnicodeString @ 0x1400B99D0 (RtlInitUnicodeString.c)
+ *     KsepPoolFreePaged @ 0x1400F4D34 (KsepPoolFreePaged.c)
+ *     KsepPoolAllocatePaged @ 0x1400F4D5C (KsepPoolAllocatePaged.c)
+ *     KsepDebugPrint @ 0x14029FE34 (KsepDebugPrint.c)
+ *     KsepLogError @ 0x1402A00D4 (KsepLogError.c)
+ *     KsepStringFree @ 0x14067F30C (KsepStringFree.c)
+ *     KsepCacheLookup @ 0x14070DD7C (KsepCacheLookup.c)
+ *     KsepStringDuplicate @ 0x14070E038 (KsepStringDuplicate.c)
+ *     KsepCacheInsert @ 0x14070E22C (KsepCacheInsert.c)
  */
 
 __int64 __fastcall KseAddHardwareId(PCWSTR SourceString)
@@ -30,8 +30,8 @@ __int64 __fastcall KseAddHardwareId(PCWSTR SourceString)
   _BYTE v10[40]; // [rsp+20h] [rbp-48h] BYREF
   UNICODE_STRING v11; // [rsp+48h] [rbp-20h] BYREF
 
-  v2 = (volatile signed __int64 *)qword_14043C900;
-  if ( dword_14043C8B4 != 2 )
+  v2 = (volatile signed __int64 *)qword_14043D9C0;
+  if ( dword_14043D974 != 2 )
   {
     v9 = ((unsigned __int8)_InterlockedExchangeAdd(&KsepHistoryErrorsIndex, 1u) + 1) & 0x3F;
     KsepHistoryErrors[2 * v9 + 1] = -1073741823;

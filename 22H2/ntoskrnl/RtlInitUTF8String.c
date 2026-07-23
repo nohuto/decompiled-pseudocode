@@ -6,7 +6,7 @@
  *     RtlInitAnsiString @ 0x14024FB10 (RtlInitAnsiString.c)
  */
 
-void __fastcall RtlInitUTF8String(STRING *a1, const char *a2)
+void __cdecl RtlInitUTF8String(PUTF8_STRING DestinationString, PCSZ SourceString)
 {
-  RtlInitAnsiString(a1, a2);
+  RtlInitAnsiString(DestinationString, SourceString);
 }

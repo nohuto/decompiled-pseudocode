@@ -1,13 +1,13 @@
 /*
- * XREFs of RtlpWriteExtendedContext @ 0x1407A0C94
+ * XREFs of RtlpWriteExtendedContext @ 0x1407A0E84
  * Callers:
- *     PspGetContextThreadInternal @ 0x1407707D4 (PspGetContextThreadInternal.c)
- *     PspWow64GetContextThread @ 0x1407A018C (PspWow64GetContextThread.c)
+ *     PspGetContextThreadInternal @ 0x1407709C4 (PspGetContextThreadInternal.c)
+ *     PspWow64GetContextThread @ 0x1407A037C (PspWow64GetContextThread.c)
  * Callees:
- *     RtlpCopyExtendedContext @ 0x14030D4A0 (RtlpCopyExtendedContext.c)
- *     RtlpValidateContextFlags @ 0x14030DA40 (RtlpValidateContextFlags.c)
- *     RtlpGetLegacyContextLength @ 0x14030DAD0 (RtlpGetLegacyContextLength.c)
- *     ProbeForWrite @ 0x140729380 (ProbeForWrite.c)
+ *     RtlpCopyExtendedContext @ 0x14030D730 (RtlpCopyExtendedContext.c)
+ *     RtlpValidateContextFlags @ 0x14030DCD0 (RtlpValidateContextFlags.c)
+ *     RtlpGetLegacyContextLength @ 0x14030DD60 (RtlpGetLegacyContextLength.c)
+ *     ProbeForWrite @ 0x140729580 (ProbeForWrite.c)
  */
 
 __int64 __fastcall RtlpWriteExtendedContext(__int64 a1, __int64 a2, __int64 a3, unsigned int a4, __int64 a5)

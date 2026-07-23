@@ -18,26 +18,26 @@
  *     RtlQueryElevationFlags @ 0x1406D4CC0 (RtlQueryElevationFlags.c)
  */
 
-__int64 __fastcall SeTokenCanImpersonate(__int64 Token, __int64 a2, int a3, _BYTE *a4)
+NTSTATUS __fastcall SeTokenCanImpersonate(__int64 Token, __int64 a2, int a3, _BYTE *a4)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
   void *v7; // rbx
   void *v8; // rdi
   _BYTE *v9; // r11
-  int IsElevated; // ebx
+  NTSTATUS IsElevated; // ebx
   void *v11; // rbp
   void *v12; // r14
   int v13; // eax
-  char v14; // [rsp+70h] [rbp+8h] BYREF
-  bool v15; // [rsp+78h] [rbp+10h] BYREF
+  BOOLEAN DominatesTrust; // [rsp+70h] [rbp+8h] BYREF
+  BOOLEAN Dominates; // [rsp+78h] [rbp+10h] BYREF
   char v16; // [rsp+80h] [rbp+18h] BYREF
-  int v17; // [rsp+88h] [rbp+20h] BYREF
+  _RTL_ELEVATION_FLAGS Flags; // [rsp+88h] [rbp+20h] BYREF
 
-  result = 0LL;
-  v15 = 0;
-  v14 = 0;
+  result = 0;
+  Dominates = 0;
+  DominatesTrust = 0;
   v16 = 0;
-  v17 = 0;
+  Flags.Flags = 0;
   *a4 = 0;
   if ( a3 >= 2 )
   {
@@ -46,30 +46,30 @@ __int64 __fastcall SeTokenCanImpersonate(__int64 Token, __int64 a2, int a3, _BYT
       if ( (*(_DWORD *)(Token + 200) & 0x4000) != 0 )
       {
         if ( (*(_DWORD *)(a2 + 200) & 0x4000) == 0 )
-          return 3221225569LL;
+          return -1073741727;
         v7 = *(void **)(a2 + 784);
         v8 = *(void **)(Token + 784);
-        if ( !RtlEqualSid(v8, v7) && !(unsigned __int8)RtlIsParentOfChildAppContainer(v8, v7) )
-          return 3221225569LL;
+        if ( !RtlEqualSid(v8, v7) && !RtlIsParentOfChildAppContainer(v8, v7) )
+          return -1073741727;
       }
-      return 0LL;
+      return 0;
     }
-    result = RtlSidDominatesForTrust(*(_QWORD *)(Token + 1104), *(_QWORD *)(a2 + 1104), &v14);
-    if ( (int)result < 0 )
+    result = RtlSidDominatesForTrust(*(PSID *)(Token + 1104), *(PSID *)(a2 + 1104), &DominatesTrust);
+    if ( result < 0 )
       return result;
-    if ( !v14 )
+    if ( !DominatesTrust )
       *v9 = 1;
     if ( (*(_DWORD *)(Token + 64) & *(_DWORD *)(Token + 72) & 0x20000000) != 0 )
-      return 0LL;
+      return 0;
     SepAcquireOrderedReadLocks(Token, a2);
     SepCopyTokenIntegrity(Token);
     SepCopyTokenIntegrity(a2);
-    IsElevated = RtlSidDominates(0LL, 0LL, &v15);
+    IsElevated = RtlSidDominates(0LL, 0LL, &Dominates);
     if ( IsElevated < 0 )
       goto LABEL_42;
-    if ( !v15 )
+    if ( !Dominates )
       goto LABEL_41;
-    if ( SepIsImpersonationAllowedDueToCapability(Token, a2)
+    if ( SepIsImpersonationAllowedDueToCapability((char *)Token, a2)
       || *(_DWORD *)(Token + 24) == *(_DWORD *)(a2 + 224) && *(_DWORD *)(Token + 28) == *(_DWORD *)(a2 + 228) )
     {
       IsElevated = 0;
@@ -82,14 +82,14 @@ LABEL_41:
         IsElevated = -1073741727;
         goto LABEL_42;
       }
-      if ( (int)RtlQueryElevationFlags(&v17) < 0 || (v17 & 1) == 0 )
+      if ( RtlQueryElevationFlags(&Flags) < 0 || (Flags.Flags & 1) == 0 )
       {
 LABEL_31:
         IsElevated = 0;
         if ( (*(_DWORD *)(Token + 200) & 0x4000) == 0
           || (*(_DWORD *)(a2 + 200) & 0x4000) != 0
           && ((v11 = *(void **)(a2 + 784), v12 = *(void **)(Token + 784), RtlEqualSid(v12, v11))
-           || (unsigned __int8)RtlIsParentOfChildAppContainer(v12, v11)) )
+           || RtlIsParentOfChildAppContainer(v12, v11)) )
         {
           if ( !SeTokenIsRestricted((PACCESS_TOKEN)Token)
             || SeTokenIsRestricted((PACCESS_TOKEN)a2)
@@ -125,7 +125,7 @@ LABEL_28:
     }
 LABEL_42:
     SepReleaseOrderedReadLocks(Token, a2);
-    return (unsigned int)IsElevated;
+    return IsElevated;
   }
   return result;
 }

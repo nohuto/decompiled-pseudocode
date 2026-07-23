@@ -1,19 +1,19 @@
 /*
- * XREFs of HvlpAffinityToHvProcessorSet @ 0x1403E77FC
+ * XREFs of HvlpAffinityToHvProcessorSet @ 0x1402F46DC
  * Callers:
- *     HvlpRequestProxyInterruptDoorbellGhcbEx @ 0x1403E5F68 (HvlpRequestProxyInterruptDoorbellGhcbEx.c)
- *     HvlpSlowSendSyntheticClusterIpiEx @ 0x1403E6070 (HvlpSlowSendSyntheticClusterIpiEx.c)
- *     HvlpSlowFlushAddressSpaceTbEx @ 0x1403E65B8 (HvlpSlowFlushAddressSpaceTbEx.c)
- *     HvlpFastSendSyntheticClusterIpiEx @ 0x1403E6974 (HvlpFastSendSyntheticClusterIpiEx.c)
- *     HvlpFastFlushAddressSpaceTbEx @ 0x1403E6A1C (HvlpFastFlushAddressSpaceTbEx.c)
- *     HvlParkedVirtualProcessors @ 0x1403E7228 (HvlParkedVirtualProcessors.c)
- *     HvlRetargetDeviceInterrupt @ 0x1403E7320 (HvlRetargetDeviceInterrupt.c)
- *     HvlpFastFlushListTbEx @ 0x1403E7688 (HvlpFastFlushListTbEx.c)
- *     HvlpSlowFlushListTbEx @ 0x1403E7DF8 (HvlpSlowFlushListTbEx.c)
- *     HvlWakeVirtualProcessors @ 0x1403ECBF0 (HvlWakeVirtualProcessors.c)
- *     HvlMapDeviceInterrupt @ 0x1405BD680 (HvlMapDeviceInterrupt.c)
+ *     HvlpRequestProxyInterruptDoorbellGhcbEx @ 0x1402F2E4C (HvlpRequestProxyInterruptDoorbellGhcbEx.c)
+ *     HvlpSlowSendSyntheticClusterIpiEx @ 0x1402F2F54 (HvlpSlowSendSyntheticClusterIpiEx.c)
+ *     HvlpSlowFlushAddressSpaceTbEx @ 0x1402F3498 (HvlpSlowFlushAddressSpaceTbEx.c)
+ *     HvlpFastSendSyntheticClusterIpiEx @ 0x1402F3854 (HvlpFastSendSyntheticClusterIpiEx.c)
+ *     HvlpFastFlushAddressSpaceTbEx @ 0x1402F38FC (HvlpFastFlushAddressSpaceTbEx.c)
+ *     HvlParkedVirtualProcessors @ 0x1402F4108 (HvlParkedVirtualProcessors.c)
+ *     HvlRetargetDeviceInterrupt @ 0x1402F4200 (HvlRetargetDeviceInterrupt.c)
+ *     HvlpFastFlushListTbEx @ 0x1402F4568 (HvlpFastFlushListTbEx.c)
+ *     HvlpSlowFlushListTbEx @ 0x1402F4CD8 (HvlpSlowFlushListTbEx.c)
+ *     HvlWakeVirtualProcessors @ 0x1402F9C30 (HvlWakeVirtualProcessors.c)
+ *     HvlMapDeviceInterrupt @ 0x1405BFEF0 (HvlMapDeviceInterrupt.c)
  * Callees:
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall HvlpAffinityToHvProcessorSet(__int64 a1, _QWORD *a2, unsigned int a3)
@@ -70,8 +70,7 @@ LABEL_13:
     }
     _BitScanForward64(&v10, v7);
     v7 &= ~(1LL << v10);
-    v11 = *((unsigned int *)&KiSupervisorXStateFeaturesLock.WaitBlock[2].Thread->Header.Lock
-          + 64 * v9
+    v11 = *((unsigned int *)&KiSupervisorXStateFeaturesLock.SchedulerApc.ApcListEntry.Flink[16 * v9].Flink
           + (unsigned __int8)v10);
     v12 = (unsigned __int8)HvlpVirtualProcessorMapping[2 * v11];
     v13 = HvlpVirtualProcessorMapping[2 * v11 + 1];

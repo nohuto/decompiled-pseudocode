@@ -1,19 +1,19 @@
 /*
- * XREFs of PspEnforceLimits @ 0x1405FD570
+ * XREFs of PspEnforceLimits @ 0x1405FE570
  * Callers:
- *     PspJobTimeLimitsWork @ 0x140600A90 (PspJobTimeLimitsWork.c)
+ *     PspJobTimeLimitsWork @ 0x140601A90 (PspJobTimeLimitsWork.c)
  * Callees:
  *     KiCheckForKernelApcDelivery @ 0x140005A50 (KiCheckForKernelApcDelivery.c)
  *     ExAcquirePushLockSharedEx @ 0x14004EE20 (ExAcquirePushLockSharedEx.c)
  *     KeAbPostRelease @ 0x140051240 (KeAbPostRelease.c)
  *     ObReferenceObjectSafeWithTag @ 0x1400514C0 (ObReferenceObjectSafeWithTag.c)
  *     ObfDereferenceObjectWithTag @ 0x140051510 (ObfDereferenceObjectWithTag.c)
- *     ExfReleasePushLockShared @ 0x1400914B0 (ExfReleasePushLockShared.c)
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     ZwUpdateWnfStateData @ 0x1401BBA70 (ZwUpdateWnfStateData.c)
- *     memset @ 0x1401D1880 (memset.c)
- *     PspEnumJobsAndProcessesInJobHierarchy @ 0x1405FD9F4 (PspEnumJobsAndProcessesInJobHierarchy.c)
- *     PspGetNextJob @ 0x1406009A0 (PspGetNextJob.c)
+ *     ExfReleasePushLockShared @ 0x1400913F0 (ExfReleasePushLockShared.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     ZwUpdateWnfStateData @ 0x1401BBBD0 (ZwUpdateWnfStateData.c)
+ *     memset @ 0x1401D1980 (memset.c)
+ *     PspEnumJobsAndProcessesInJobHierarchy @ 0x1405FE9F4 (PspEnumJobsAndProcessesInJobHierarchy.c)
+ *     PspGetNextJob @ 0x1406019A0 (PspGetNextJob.c)
  */
 
 LONG_PTR __fastcall PspEnforceLimits(char a1)
@@ -24,14 +24,14 @@ LONG_PTR __fastcall PspEnforceLimits(char a1)
   __int64 *v5; // rsi
   __int64 *v6; // r14
   __int64 v7; // rcx
-  _DWORD v9[4]; // [rsp+40h] [rbp-88h] BYREF
+  _DWORD Buffer[4]; // [rsp+40h] [rbp-88h] BYREF
   __int64 v10[8]; // [rsp+50h] [rbp-78h] BYREF
 
   _InterlockedIncrement(&PspEnforcementSequenceNumber);
   if ( !a1 && PspNoWakeChargeReferencedProcess )
   {
-    v9[0] = 0;
-    ZwUpdateWnfStateData((__int64)&WNF_PS_WAKE_CHARGE_RESOURCE_POLICY, (__int64)v9, 4LL);
+    Buffer[0] = 0;
+    ZwUpdateWnfStateData(&WNF_PS_WAKE_CHARGE_RESOURCE_POLICY, Buffer, 4u, 0LL, 0LL, 0, 0);
     ObfDereferenceObjectWithTag(PspNoWakeChargeReferencedProcess, 0x624A7350u);
     PspNoWakeChargeReferencedProcess = 0LL;
   }

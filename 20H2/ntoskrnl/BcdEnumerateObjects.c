@@ -16,26 +16,31 @@
  *     ExFreePoolWithTag @ 0x1409B70B0 (ExFreePoolWithTag.c)
  */
 
-int __fastcall BcdEnumerateObjects(__int64 a1, _DWORD *a2, GUID *a3, unsigned int *a4, unsigned int *a5)
+NTSTATUS __cdecl BcdEnumerateObjects(
+        HANDLE BcdStoreHandle,
+        PBCD_OBJECT_DESCRIPTION BcdEnumDescriptor,
+        PVOID Buffer,
+        PULONG BufferSize,
+        PULONG ObjectCount)
 {
-  unsigned int *v5; // r12
-  GUID *v6; // rsi
+  PULONG v5; // r12
+  char *v6; // rsi
   char v8; // r15
-  int result; // eax
+  NTSTATUS result; // eax
   PCWSTR *v10; // rdi
   int v11; // eax
   void *v12; // r14
-  int v13; // ebx
+  NTSTATUS v13; // ebx
   int v14; // eax
-  unsigned int v15; // r15d
+  ULONG v15; // r15d
   __int64 v16; // r13
   const WCHAR **v17; // rsi
   int ObjectDescription; // ebx
   unsigned __int64 v19; // rax
-  _QWORD *v20; // r13
+  char *v20; // r13
   unsigned __int64 v21; // rcx
-  unsigned int v22; // esi
-  unsigned int v23; // r14d
+  ULONG v22; // esi
+  ULONG v23; // r14d
   ULONG i; // r12d
   int v25; // ebx
   __int64 v26; // rax
@@ -49,16 +54,16 @@ int __fastcall BcdEnumerateObjects(__int64 a1, _DWORD *a2, GUID *a3, unsigned in
   UNICODE_STRING DestinationString; // [rsp+50h] [rbp-10h] BYREF
   GUID *Guid; // [rsp+B0h] [rbp+50h]
 
-  Guid = a3;
+  Guid = (GUID *)Buffer;
   v31 = 0LL;
-  v5 = a4;
+  v5 = BufferSize;
   v29 = 0LL;
-  v6 = a3;
+  v6 = (char *)Buffer;
   v28 = 0;
   DestinationString = 0LL;
-  if ( !a3 && *a4 || !a5 || !*a2 )
+  if ( !Buffer && *BufferSize || !ObjectCount || !BcdEnumDescriptor->Version )
     return -1073741811;
-  IsOfflineHandle = BiIsOfflineHandle(a1);
+  IsOfflineHandle = BiIsOfflineHandle((char)BcdStoreHandle);
   v8 = IsOfflineHandle;
   result = BiAcquireBcdSyncMutant(IsOfflineHandle);
   if ( result >= 0 )
@@ -66,7 +71,7 @@ int __fastcall BcdEnumerateObjects(__int64 a1, _DWORD *a2, GUID *a3, unsigned in
     v32 = 0LL;
     v30 = 0LL;
     v10 = 0LL;
-    v11 = BiOpenKey(a1, L"Objects", 0x20019u, &v32);
+    v11 = BiOpenKey((__int64)BcdStoreHandle, L"Objects", 0x20019u, &v32);
     v12 = v32;
     v13 = v11;
     if ( v11 >= 0 )
@@ -89,7 +94,7 @@ int __fastcall BcdEnumerateObjects(__int64 a1, _DWORD *a2, GUID *a3, unsigned in
               BiCloseKey(v29);
               if ( ObjectDescription >= 0 )
               {
-                if ( (unsigned __int8)BiIsEnumerateMatch((unsigned int)a2[1], HIDWORD(v31)) )
+                if ( (unsigned __int8)BiIsEnumerateMatch(BcdEnumDescriptor->Type, HIDWORD(v31)) )
                   ++v15;
               }
             }
@@ -97,12 +102,12 @@ int __fastcall BcdEnumerateObjects(__int64 a1, _DWORD *a2, GUID *a3, unsigned in
             --v16;
           }
           while ( v16 );
-          v5 = a4;
-          v6 = Guid;
+          v5 = BufferSize;
+          v6 = (char *)Guid;
         }
         v19 = 24LL * v15;
         if ( v19 > 0xFFFFFFFF
-          || (v20 = (_QWORD *)((char *)&v6->Data1 + (unsigned int)v19), v21 = 8LL * v15, v21 > 0xFFFFFFFF)
+          || (v20 = &v6[(unsigned int)v19], v21 = 8LL * v15, v21 > 0xFFFFFFFF)
           || (v22 = v21 + v19, LODWORD(v30) = v21 + v19, (int)v21 + (int)v19 < (unsigned int)v19) )
         {
           v13 = -1073741675;
@@ -123,14 +128,15 @@ int __fastcall BcdEnumerateObjects(__int64 a1, _DWORD *a2, GUID *a3, unsigned in
                 BiCloseKey(v29);
                 if ( v25 >= 0 )
                 {
-                  if ( (unsigned __int8)BiIsEnumerateMatch((unsigned int)a2[1], HIDWORD(v31)) )
+                  if ( (unsigned __int8)BiIsEnumerateMatch(BcdEnumDescriptor->Type, HIDWORD(v31)) )
                   {
                     RtlInitUnicodeString(&DestinationString, v10[i]);
                     if ( RtlGUIDFromString(&DestinationString, Guid) >= 0 )
                     {
                       v26 = v31;
                       *(_QWORD *)&Guid[1].Data1 = v20;
-                      *v20++ = v26;
+                      *(_QWORD *)v20 = v26;
+                      v20 += 8;
                       ++v23;
                       Guid = (GUID *)((char *)Guid + 24);
                     }
@@ -139,18 +145,18 @@ int __fastcall BcdEnumerateObjects(__int64 a1, _DWORD *a2, GUID *a3, unsigned in
               }
             }
             v22 = (unsigned int)v30;
-            v5 = a4;
+            v5 = BufferSize;
           }
           v13 = 0;
           *v5 = v22;
-          *a5 = v23;
+          *ObjectCount = v23;
           v12 = v32;
         }
         else
         {
           v13 = -1073741789;
           *v5 = v22;
-          *a5 = v15;
+          *ObjectCount = v15;
         }
         v8 = IsOfflineHandle;
       }

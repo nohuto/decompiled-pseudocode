@@ -1,17 +1,17 @@
 /*
- * XREFs of MiInitializeNewUltraHugeContext @ 0x1403F98CC
+ * XREFs of MiInitializeNewUltraHugeContext @ 0x1403EF7D8
  * Callers:
- *     MiGetBackgroundHugePageToZero @ 0x140209AF0 (MiGetBackgroundHugePageToZero.c)
+ *     MiGetBackgroundHugePageToZero @ 0x1403310D0 (MiGetBackgroundHugePageToZero.c)
  * Callees:
- *     MiDeleteUltraThreadContext @ 0x14020C870 (MiDeleteUltraThreadContext.c)
- *     MiGetUltraMapping @ 0x14020CE50 (MiGetUltraMapping.c)
- *     MiStopPageAccessor @ 0x14026ADB0 (MiStopPageAccessor.c)
- *     MiInitializePageColorBase @ 0x1402EF8B0 (MiInitializePageColorBase.c)
- *     MiCreateUltraThreadContext @ 0x1402F3EF0 (MiCreateUltraThreadContext.c)
- *     MiSafeLockPageAtDpc @ 0x1403072A0 (MiSafeLockPageAtDpc.c)
- *     MiWriteLargePte @ 0x1403090A0 (MiWriteLargePte.c)
- *     MiMakeProtectionPfnCompatible @ 0x140313770 (MiMakeProtectionPfnCompatible.c)
- *     MiLockHugePfnInternal @ 0x1403F9BD8 (MiLockHugePfnInternal.c)
+ *     MiStopPageAccessor @ 0x140220340 (MiStopPageAccessor.c)
+ *     MiSafeLockPageAtDpc @ 0x140311180 (MiSafeLockPageAtDpc.c)
+ *     MiWriteLargePte @ 0x140312F80 (MiWriteLargePte.c)
+ *     MiDeleteUltraThreadContext @ 0x140335BD0 (MiDeleteUltraThreadContext.c)
+ *     MiGetUltraMapping @ 0x1403361B0 (MiGetUltraMapping.c)
+ *     MiCreateUltraThreadContext @ 0x14033BC80 (MiCreateUltraThreadContext.c)
+ *     MiInitializePageColorBase @ 0x140342940 (MiInitializePageColorBase.c)
+ *     MiLockHugePfnInternal @ 0x1403EFAE4 (MiLockHugePfnInternal.c)
+ *     MiMakeProtectionPfnCompatible @ 0x1403F26B0 (MiMakeProtectionPfnCompatible.c)
  */
 
 __int64 __fastcall MiInitializeNewUltraHugeContext(__int64 a1, __int64 a2)
@@ -24,27 +24,28 @@ __int64 __fastcall MiInitializeNewUltraHugeContext(__int64 a1, __int64 a2)
   __int64 v9; // rdx
   __int64 v10; // r8
   __int64 v11; // r9
+  __int64 v12; // r9
   __int64 result; // rax
   __int64 UltraMapping; // rax
-  __int64 v14; // rdx
-  __int64 *v15; // r9
-  unsigned __int64 v16; // r10
-  __int64 v17; // r8
-  __int64 **v18; // rax
+  __int64 v15; // rdx
+  __int64 *v16; // r9
+  unsigned __int64 v17; // r10
+  __int64 v18; // r8
+  __int64 **v19; // rax
   int ProtectionPfnCompatible; // eax
-  unsigned __int64 v20; // rax
-  __int64 v21; // rcx
-  _OWORD v22[3]; // [rsp+20h] [rbp-38h] BYREF
+  unsigned __int64 v21; // rax
+  __int64 v22; // rcx
+  _OWORD v23[3]; // [rsp+20h] [rbp-38h] BYREF
   int UltraThreadContext; // [rsp+60h] [rbp+8h]
 
   v2 = *(_QWORD *)(a2 + 424);
-  v22[0] = 0LL;
+  v23[0] = 0LL;
   if ( *(_BYTE *)(a2 + 324) )
   {
     v5 = v2 & 0x3FFFFF;
     v6 = 0LL;
     v7 = 1;
-    v8 = (__int64 *)(qword_140E2FFC0 + 8 * v5);
+    v8 = (__int64 *)(qword_140E30100 + 8 * v5);
     v2 = v5 << 18;
   }
   else
@@ -58,8 +59,8 @@ __int64 __fastcall MiInitializeNewUltraHugeContext(__int64 a1, __int64 a2)
   ++*(_DWORD *)(a2 + 572);
   *(_QWORD *)(a1 + 584) = a2;
   **(_BYTE **)(a2 + 352) |= 1u;
-  MiInitializePageColorBase(0LL, 3, *(_DWORD *)(a2 + 568) + 1, (__int64)v22);
-  UltraThreadContext = MiCreateUltraThreadContext(a2 + 432, (__int64)v22, 1, 0xCu);
+  MiInitializePageColorBase(0LL, 3, *(_DWORD *)(a2 + 568) + 1, (__int64)v23);
+  UltraThreadContext = MiCreateUltraThreadContext(a2 + 432, (__int64)v23, 1, 0xCu);
   if ( v7 )
   {
     MiLockHugePfnInternal(v8, v9, v10, v11);
@@ -73,8 +74,8 @@ __int64 __fastcall MiInitializeNewUltraHugeContext(__int64 a1, __int64 a2)
     if ( v7 )
     {
       _InterlockedAnd(
-        (volatile signed __int32 *)(qword_140E2FFC8 + 4 * (((((__int64)v8 - qword_140E2FFC0) >> 3) & 0x3FFFFFuLL) >> 5)),
-        ~(1 << ((((__int64)v8 - qword_140E2FFC0) >> 3) & 0x1F)));
+        (volatile signed __int32 *)(qword_140E30108 + 4 * (((((__int64)v8 - qword_140E30100) >> 3) & 0x3FFFFFuLL) >> 5)),
+        ~(1 << ((((__int64)v8 - qword_140E30100) >> 3) & 0x1F)));
     }
     else if ( v6 )
     {
@@ -87,34 +88,34 @@ __int64 __fastcall MiInitializeNewUltraHugeContext(__int64 a1, __int64 a2)
   else if ( UltraThreadContext )
   {
     UltraMapping = MiGetUltraMapping(a2 + 432, 0LL, 0x40000LL, 5);
-    v14 = *(_QWORD *)(a1 + 336);
-    v15 = (__int64 *)(a2 + 328);
-    v16 = UltraMapping;
-    v17 = *(_QWORD *)(v14 + 176) + 32LL;
-    v18 = *(__int64 ***)(*(_QWORD *)(v14 + 176) + 40LL);
-    if ( *v18 != (__int64 *)v17 )
+    v15 = *(_QWORD *)(a1 + 336);
+    v16 = (__int64 *)(a2 + 328);
+    v17 = UltraMapping;
+    v18 = *(_QWORD *)(v15 + 176) + 32LL;
+    v19 = *(__int64 ***)(*(_QWORD *)(v15 + 176) + 40LL);
+    if ( *v19 != (__int64 *)v18 )
       __fastfail(3u);
-    *v15 = v17;
-    *(_QWORD *)(a2 + 336) = v18;
-    *v18 = v15;
-    *(_QWORD *)(v17 + 8) = v15;
-    *(_QWORD *)(a2 + 560) = v16;
-    *(_QWORD *)(a2 + 296) = v16;
+    *v16 = v18;
+    *(_QWORD *)(a2 + 336) = v19;
+    *v19 = v16;
+    *(_QWORD *)(v18 + 8) = v16;
+    *(_QWORD *)(a2 + 560) = v17;
+    *(_QWORD *)(a2 + 296) = v17;
     if ( v6 )
-      ProtectionPfnCompatible = MiMakeProtectionPfnCompatible(4, v6);
+      ProtectionPfnCompatible = MiMakeProtectionPfnCompatible(4LL, v6);
     else
       ProtectionPfnCompatible = 4;
-    v20 = MiWriteLargePte(v16, v2, 0, ProtectionPfnCompatible | 0xA4000000);
-    v21 = *(_QWORD *)(a2 + 296) + 0x3FFFFFFFLL;
+    v21 = MiWriteLargePte(v17, v2, 0, ProtectionPfnCompatible | 0xA4000000);
+    v22 = *(_QWORD *)(a2 + 296) + 0x3FFFFFFFLL;
     *(_DWORD *)(a2 + 320) = 0;
-    *(_QWORD *)(a2 + 304) = v21;
-    *(_QWORD *)(a2 + 288) = v20;
+    *(_QWORD *)(a2 + 304) = v22;
+    *(_QWORD *)(a2 + 288) = v21;
     if ( v6 )
       _InterlockedAnd64((volatile signed __int64 *)(v6 + 24), 0x7FFFFFFFFFFFFFFFuLL);
     else
       _InterlockedAnd(
-        (volatile signed __int32 *)(qword_140E2FFC8 + 4 * (((((__int64)v8 - qword_140E2FFC0) >> 3) & 0x3FFFFFuLL) >> 5)),
-        ~(1 << ((((__int64)v8 - qword_140E2FFC0) >> 3) & 0x1F)));
+        (volatile signed __int32 *)(qword_140E30108 + 4 * (((((__int64)v8 - qword_140E30100) >> 3) & 0x3FFFFFuLL) >> 5)),
+        ~(1 << ((((__int64)v8 - qword_140E30100) >> 3) & 0x1F)));
     *(_DWORD *)(a1 + 320) = 0;
     result = 0LL;
     *(_WORD *)(a1 + 576) = 0;
@@ -123,15 +124,15 @@ __int64 __fastcall MiInitializeNewUltraHugeContext(__int64 a1, __int64 a2)
   {
     if ( v6 )
     {
-      MiStopPageAccessor((__int64 *)v6, 0LL, 0LL);
+      MiStopPageAccessor((__int64 *)v6, 0LL, 0LL, v12);
       _InterlockedAnd64((volatile signed __int64 *)(v6 + 24), 0x7FFFFFFFFFFFFFFFuLL);
     }
     else
     {
-      MiStopPageAccessor(v8, 0LL, 0LL);
+      MiStopPageAccessor(v8, 0LL, 0LL, v12);
       _InterlockedAnd(
-        (volatile signed __int32 *)(qword_140E2FFC8 + 4 * (((((__int64)v8 - qword_140E2FFC0) >> 3) & 0x3FFFFFuLL) >> 5)),
-        ~(1 << ((((__int64)v8 - qword_140E2FFC0) >> 3) & 0x1F)));
+        (volatile signed __int32 *)(qword_140E30108 + 4 * (((((__int64)v8 - qword_140E30100) >> 3) & 0x3FFFFFuLL) >> 5)),
+        ~(1 << ((((__int64)v8 - qword_140E30100) >> 3) & 0x1F)));
     }
     MiDeleteUltraThreadContext(a2 + 432);
     return 2LL;

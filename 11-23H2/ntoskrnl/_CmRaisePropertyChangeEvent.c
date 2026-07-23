@@ -1,13 +1,13 @@
 /*
- * XREFs of _CmRaisePropertyChangeEvent @ 0x14086CBA4
+ * XREFs of _CmRaisePropertyChangeEvent @ 0x14086CDE4
  * Callers:
- *     _PnpRaiseNtPlugPlayDevicePropertyChangeEvent @ 0x140797210 (_PnpRaiseNtPlugPlayDevicePropertyChangeEvent.c)
- *     _CmSetDeviceRegPropWorker @ 0x14086C9A0 (_CmSetDeviceRegPropWorker.c)
- *     _CmSetInstallerClassRegPropWorker @ 0x140A63390 (_CmSetInstallerClassRegPropWorker.c)
+ *     _PnpRaiseNtPlugPlayDevicePropertyChangeEvent @ 0x140797400 (_PnpRaiseNtPlugPlayDevicePropertyChangeEvent.c)
+ *     _CmSetDeviceRegPropWorker @ 0x14086CBE0 (_CmSetDeviceRegPropWorker.c)
+ *     _CmSetInstallerClassRegPropWorker @ 0x140A63640 (_CmSetInstallerClassRegPropWorker.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
- *     _CmMapCmObjectTypeToPnpObjectType @ 0x140789314 (_CmMapCmObjectTypeToPnpObjectType.c)
- *     _PnpObjectRaisePropertyChangeEvent @ 0x1407972F4 (_PnpObjectRaisePropertyChangeEvent.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
+ *     _CmMapCmObjectTypeToPnpObjectType @ 0x140789504 (_CmMapCmObjectTypeToPnpObjectType.c)
+ *     _PnpObjectRaisePropertyChangeEvent @ 0x1407974E4 (_PnpObjectRaisePropertyChangeEvent.c)
  */
 
 __int64 (__fastcall *__fastcall CmRaisePropertyChangeEvent(

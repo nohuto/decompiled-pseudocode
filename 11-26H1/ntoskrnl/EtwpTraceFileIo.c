@@ -1,12 +1,12 @@
 /*
- * XREFs of EtwpTraceFileIo @ 0x140212800
+ * XREFs of EtwpTraceFileIo @ 0x1402128E0
  * Callers:
  *     <none>
  * Callees:
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     PsIsServerSilo @ 0x140216838 (PsIsServerSilo.c)
- *     PsGetServerSiloGlobals @ 0x140216B70 (PsGetServerSiloGlobals.c)
- *     EtwpLogKernelEvent @ 0x14032CDC0 (EtwpLogKernelEvent.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     PsIsServerSilo @ 0x140216B68 (PsIsServerSilo.c)
+ *     PsGetServerSiloGlobals @ 0x140216EA0 (PsGetServerSiloGlobals.c)
+ *     EtwpLogKernelEvent @ 0x14032EDF0 (EtwpLogKernelEvent.c)
  */
 
 __int64 __fastcall EtwpTraceFileIo(
@@ -32,10 +32,10 @@ __int64 __fastcall EtwpTraceFileIo(
   __int64 v20; // rcx
   ULONG v21; // r9d
   __int64 *v22; // r10
-  __int64 v23; // rcx
+  struct _LIST_ENTRY *Flink; // rcx
   __int64 v24; // r8
   unsigned __int8 v25; // al
-  __int64 v26; // rcx
+  struct _LIST_ENTRY *Blink; // rcx
   __int64 v27; // r8
   unsigned __int8 v28; // al
 
@@ -151,19 +151,29 @@ __int64 __fastcall EtwpTraceFileIo(
 LABEL_23:
     v21 = 1;
 LABEL_24:
-    if ( EtwpFileProvRegHandle )
+    if ( stru_140F03830.SavedApcState.ApcListHead[0].Flink )
     {
-      if ( (v23 = *(_QWORD *)(EtwpFileProvRegHandle + 32), v24 = v22[1], *(_DWORD *)(v23 + 96))
-        && ((v25 = *(_BYTE *)(v23 + 100), *((_BYTE *)v22 + 4) <= v25) || !v25)
-        && ((*(_DWORD *)(v23 + 104) & 0x40) != 0 && !v24
-         || (v24 & *(_QWORD *)(v23 + 112)) != 0 && (v24 & *(_QWORD *)(v23 + 120)) == *(_QWORD *)(v23 + 120))
-        || *(_WORD *)(EtwpFileProvRegHandle + 102)
-        && (v26 = *(_QWORD *)(EtwpFileProvRegHandle + 40), v27 = v22[1], *(_DWORD *)(v26 + 96))
-        && ((v28 = *(_BYTE *)(v26 + 100), *((_BYTE *)v22 + 4) <= v28) || !v28)
-        && ((*(_DWORD *)(v26 + 104) & 0x40) != 0 && !v27
-         || (v27 & *(_QWORD *)(v26 + 112)) != 0 && (v27 & *(_QWORD *)(v26 + 120)) == *(_QWORD *)(v26 + 120)) )
+      if ( (Flink = stru_140F03830.SavedApcState.ApcListHead[0].Flink[2].Flink, v24 = v22[1], LODWORD(Flink[6].Flink))
+        && ((v25 = BYTE4(Flink[6].Flink), *((_BYTE *)v22 + 4) <= v25) || !v25)
+        && (((__int64)Flink[6].Blink & 0x40) != 0 && !v24
+         || (v24 & (__int64)Flink[7].Flink) != 0
+         && (struct _LIST_ENTRY *)(v24 & (__int64)Flink[7].Blink) == Flink[7].Blink)
+        || HIWORD(stru_140F03830.SavedApcState.ApcListHead[0].Flink[6].Flink)
+        && (Blink = stru_140F03830.SavedApcState.ApcListHead[0].Flink[2].Blink, v27 = v22[1], LODWORD(Blink[6].Flink))
+        && ((v28 = BYTE4(Blink[6].Flink), *((_BYTE *)v22 + 4) <= v28) || !v28)
+        && (((__int64)Blink[6].Blink & 0x40) != 0 && !v27
+         || (v27 & (__int64)Blink[7].Flink) != 0
+         && (struct _LIST_ENTRY *)(v27 & (__int64)Blink[7].Blink) == Blink[7].Blink) )
       {
-        EtwWriteEx(EtwpFileProvRegHandle, (PCEVENT_DESCRIPTOR)v22, 0LL, v21, ActivityId, 0LL, a3, a2);
+        EtwWriteEx(
+          (REGHANDLE)stru_140F03830.SavedApcState.ApcListHead[0].Flink,
+          (PCEVENT_DESCRIPTOR)v22,
+          0LL,
+          v21,
+          ActivityId,
+          0LL,
+          a3,
+          a2);
       }
     }
   }

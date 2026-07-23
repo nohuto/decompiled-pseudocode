@@ -1,15 +1,15 @@
 /*
- * XREFs of ObpRegisterPrivateNamespace @ 0x140477AC8
+ * XREFs of ObpRegisterPrivateNamespace @ 0x140476998
  * Callers:
- *     NtCreatePrivateNamespace @ 0x1404776D4 (NtCreatePrivateNamespace.c)
+ *     NtCreatePrivateNamespace @ 0x1404765A4 (NtCreatePrivateNamespace.c)
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     PsGetCurrentServerSiloGlobals @ 0x14008C610 (PsGetCurrentServerSiloGlobals.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfReleasePushLock @ 0x1400C8620 (ExfReleasePushLock.c)
- *     ObpLookupNamespaceEntry @ 0x1404786FC (ObpLookupNamespaceEntry.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x14008BD70 (PsGetCurrentServerSiloGlobals.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfReleasePushLock @ 0x1400C64C0 (ExfReleasePushLock.c)
+ *     ObpLookupNamespaceEntry @ 0x1404775CC (ObpLookupNamespaceEntry.c)
  */
 
 __int64 __fastcall ObpRegisterPrivateNamespace(__int64 a1)

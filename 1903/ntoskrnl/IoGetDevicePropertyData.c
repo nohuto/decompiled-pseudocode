@@ -94,13 +94,5 @@ NTSTATUS __stdcall IoGetDevicePropertyData(
 LABEL_16:
     KeBugCheckEx(0xCAu, 2uLL, (ULONG_PTR)Pdo, 0LL, 0LL);
   }
-  return PnpGetDevicePropertyData(
-           (int)Pdo,
-           (int)PropertyKey,
-           Lcid,
-           Flags,
-           Size,
-           Data,
-           (__int64)RequiredSize,
-           (__int64)Type);
+  return PnpGetDevicePropertyData(Pdo, PropertyKey, Lcid, Flags, Size, Data, RequiredSize, Type);
 }

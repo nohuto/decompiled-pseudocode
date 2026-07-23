@@ -1,15 +1,15 @@
 /*
- * XREFs of HalpRegisterDmaController @ 0x1405531F8
+ * XREFs of HalpRegisterDmaController @ 0x140550B38
  * Callers:
- *     HalpExtRegisterResourceDescriptor @ 0x14054CF10 (HalpExtRegisterResourceDescriptor.c)
+ *     HalpExtRegisterResourceDescriptor @ 0x14054A7D0 (HalpExtRegisterResourceDescriptor.c)
  * Callees:
- *     RtlCopyUnicodeString @ 0x1403FFE80 (RtlCopyUnicodeString.c)
- *     RtlInitUnicodeString @ 0x1404241A0 (RtlInitUnicodeString.c)
- *     HalpMmAllocateMemoryInternal @ 0x140542CD0 (HalpMmAllocateMemoryInternal.c)
- *     HalpExtBuildResourceIdString @ 0x14054CD64 (HalpExtBuildResourceIdString.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     RtlCopyUnicodeString @ 0x1403FA370 (RtlCopyUnicodeString.c)
+ *     RtlInitUnicodeString @ 0x140418050 (RtlInitUnicodeString.c)
+ *     HalpMmAllocateMemoryInternal @ 0x140540620 (HalpMmAllocateMemoryInternal.c)
+ *     HalpExtBuildResourceIdString @ 0x14054A624 (HalpExtBuildResourceIdString.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     memset_0 @ 0x1406C0F40 (memset_0.c)
  */
 
 __int64 __fastcall HalpRegisterDmaController(__int64 a1, UNICODE_STRING *a2)
@@ -89,13 +89,13 @@ __int64 __fastcall HalpRegisterDmaController(__int64 a1, UNICODE_STRING *a2)
   *(_QWORD *)(v6 + 136) = *(_QWORD *)(*(_QWORD *)(a1 + 72) + 56LL);
   *(_QWORD *)(v6 + 144) = *(_QWORD *)(*(_QWORD *)(a1 + 72) + 64LL);
   *(_QWORD *)(v6 + 152) = *(_QWORD *)(*(_QWORD *)(a1 + 72) + 72LL);
-  v12 = (__int64 *)qword_140FC0908;
-  if ( *(__int64 **)qword_140FC0908 != &HalpDmaControllers )
+  v12 = (__int64 *)qword_140FC0B68;
+  if ( *(__int64 **)qword_140FC0B68 != &HalpDmaControllers )
     __fastfail(3u);
-  *(_QWORD *)(v6 + 8) = qword_140FC0908;
+  *(_QWORD *)(v6 + 8) = qword_140FC0B68;
   *(_QWORD *)v6 = &HalpDmaControllers;
   *v12 = v6;
   result = 0LL;
-  qword_140FC0908 = v6;
+  qword_140FC0B68 = v6;
   return result;
 }

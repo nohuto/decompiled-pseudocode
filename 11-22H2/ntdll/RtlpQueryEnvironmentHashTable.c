@@ -9,8 +9,8 @@
 
 __int64 __fastcall RtlpQueryEnvironmentHashTable(
         __int64 a1,
-        unsigned __int64 a2,
-        unsigned __int64 a3,
+        const WCHAR *a2,
+        SIZE_T a3,
         _WORD *a4,
         unsigned __int64 a5,
         unsigned __int64 *a6)

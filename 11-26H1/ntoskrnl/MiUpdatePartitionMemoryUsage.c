@@ -1,19 +1,19 @@
 /*
- * XREFs of MiUpdatePartitionMemoryUsage @ 0x1402A6CA0
+ * XREFs of MiUpdatePartitionMemoryUsage @ 0x1402A60BC
  * Callers:
- *     MiSignalPartitionTrimThreads @ 0x1402A7450 (MiSignalPartitionTrimThreads.c)
- *     MiPartitionTrimmedEnough @ 0x1404C212C (MiPartitionTrimmedEnough.c)
+ *     MiSignalPartitionTrimThreads @ 0x1402A6860 (MiSignalPartitionTrimThreads.c)
+ *     MiPartitionTrimmedEnough @ 0x1404BB97C (MiPartitionTrimmedEnough.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiGetAvailablePagesForTrimPass @ 0x1403B9C08 (MiGetAvailablePagesForTrimPass.c)
- *     MiUpdateAgeDistribution @ 0x1404860CC (MiUpdateAgeDistribution.c)
- *     MiComputeAgingPercent @ 0x1404B0638 (MiComputeAgingPercent.c)
- *     MiUpdateTrimPrediction @ 0x1404B366C (MiUpdateTrimPrediction.c)
- *     MiUpdatePartitionAgeTrimConfiguration @ 0x1404D3164 (MiUpdatePartitionAgeTrimConfiguration.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiGetAvailablePagesForTrimPass @ 0x1403C3B08 (MiGetAvailablePagesForTrimPass.c)
+ *     MiUpdateAgeDistribution @ 0x14047FA3C (MiUpdateAgeDistribution.c)
+ *     MiComputeAgingPercent @ 0x1404A9CC8 (MiComputeAgingPercent.c)
+ *     MiUpdatePartitionAgeTrimConfiguration @ 0x1404CC9D4 (MiUpdatePartitionAgeTrimConfiguration.c)
+ *     MiUpdateTrimPrediction @ 0x14052046C (MiUpdateTrimPrediction.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall MiUpdatePartitionMemoryUsage(__int64 a1)

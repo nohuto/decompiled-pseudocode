@@ -1,41 +1,41 @@
 /*
- * XREFs of MiRewritePteWithLockBit @ 0x14029F518
+ * XREFs of MiRewritePteWithLockBit @ 0x14029EA68
  * Callers:
- *     MiClearMappingAndDereferenceIoSpace @ 0x140282A34 (MiClearMappingAndDereferenceIoSpace.c)
- *     MiGetUltraMapping @ 0x1402881D0 (MiGetUltraMapping.c)
- *     MiDeleteUltraMapHierarchy @ 0x14029F45C (MiDeleteUltraMapHierarchy.c)
- *     MiTradePageWritePte @ 0x14029F8EC (MiTradePageWritePte.c)
- *     MiZeroPageWorkMapping @ 0x14029FD70 (MiZeroPageWorkMapping.c)
- *     MiZeroWithUltraSpace @ 0x1402A0EE0 (MiZeroWithUltraSpace.c)
- *     MiWriteLargePte @ 0x1402A10E0 (MiWriteLargePte.c)
- *     MiRevertValidPte @ 0x140304974 (MiRevertValidPte.c)
- *     MiDeleteSystemPageTable @ 0x140309A60 (MiDeleteSystemPageTable.c)
- *     MiMakeVaRangeNoAccess @ 0x140310CE0 (MiMakeVaRangeNoAccess.c)
- *     MiMakePteClean @ 0x14031A2A0 (MiMakePteClean.c)
- *     MiDecommitLargePte @ 0x14033EDBC (MiDecommitLargePte.c)
- *     MiDecommitLargePoolVa @ 0x1403C3720 (MiDecommitLargePoolVa.c)
- *     MiDeleteLargeUserPde @ 0x140477A60 (MiDeleteLargeUserPde.c)
- *     MiDereferenceHugeContext @ 0x1404F6860 (MiDereferenceHugeContext.c)
- *     MiMapMdlWithLargePages @ 0x140502900 (MiMapMdlWithLargePages.c)
- *     MiUnmapMdlCommon @ 0x14051D098 (MiUnmapMdlCommon.c)
- *     MiWriteAweClusterPte @ 0x14052DDF8 (MiWriteAweClusterPte.c)
- *     MiPromoteVirtualizationFault @ 0x1406FF80C (MiPromoteVirtualizationFault.c)
- *     MiProtectAweValidPte @ 0x140702298 (MiProtectAweValidPte.c)
- *     MiScrubLargeMappedPage @ 0x14070C03C (MiScrubLargeMappedPage.c)
- *     MiProtectLargeKernelHalRange @ 0x1408644C0 (MiProtectLargeKernelHalRange.c)
+ *     MiClearMappingAndDereferenceIoSpace @ 0x140281FA4 (MiClearMappingAndDereferenceIoSpace.c)
+ *     MiGetUltraMapping @ 0x140287730 (MiGetUltraMapping.c)
+ *     MiDeleteUltraMapHierarchy @ 0x14029E9AC (MiDeleteUltraMapHierarchy.c)
+ *     MiTradePageWritePte @ 0x14029EE3C (MiTradePageWritePte.c)
+ *     MiZeroPageWorkMapping @ 0x14029F2C0 (MiZeroPageWorkMapping.c)
+ *     MiZeroWithUltraSpace @ 0x1402A0430 (MiZeroWithUltraSpace.c)
+ *     MiWriteLargePte @ 0x1402A0630 (MiWriteLargePte.c)
+ *     MiRevertValidPte @ 0x1402E69F4 (MiRevertValidPte.c)
+ *     MiDeleteSystemPageTable @ 0x1402EBAE0 (MiDeleteSystemPageTable.c)
+ *     MiMakeVaRangeNoAccess @ 0x140312D14 (MiMakeVaRangeNoAccess.c)
+ *     MiMakePteClean @ 0x14031C2D0 (MiMakePteClean.c)
+ *     MiDecommitLargePte @ 0x140340E3C (MiDecommitLargePte.c)
+ *     MiDecommitLargePoolVa @ 0x1403CD620 (MiDecommitLargePoolVa.c)
+ *     MiDeleteLargeUserPde @ 0x1404711E0 (MiDeleteLargeUserPde.c)
+ *     MiDereferenceHugeContext @ 0x1404EFE70 (MiDereferenceHugeContext.c)
+ *     MiMapMdlWithLargePages @ 0x1404FC1D0 (MiMapMdlWithLargePages.c)
+ *     MiUnmapMdlCommon @ 0x14051F5C4 (MiUnmapMdlCommon.c)
+ *     MiWriteAweClusterPte @ 0x140530318 (MiWriteAweClusterPte.c)
+ *     MiPromoteVirtualizationFault @ 0x1407044DC (MiPromoteVirtualizationFault.c)
+ *     MiProtectAweValidPte @ 0x140706F68 (MiProtectAweValidPte.c)
+ *     MiScrubLargeMappedPage @ 0x140710CEC (MiScrubLargeMappedPage.c)
+ *     MiProtectLargeKernelHalRange @ 0x14086A8A0 (MiProtectLargeKernelHalRange.c)
  * Callees:
- *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14021AAD4 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
- *     MiLockNestedPageTable @ 0x14029EBE0 (MiLockNestedPageTable.c)
- *     MiWriteValidPteNewPage @ 0x14029FC70 (MiWriteValidPteNewPage.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402DED10 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiWriteValidPteNewProtection @ 0x140300450 (MiWriteValidPteNewProtection.c)
- *     MiPteHasShadow @ 0x1403011E0 (MiPteHasShadow.c)
- *     MiReadPteShadow @ 0x140314FF0 (MiReadPteShadow.c)
- *     MiWritePteShadow @ 0x14031C28C (MiWritePteShadow.c)
- *     MiUnlockNestedPageTableWritePte @ 0x140325648 (MiUnlockNestedPageTableWritePte.c)
- *     MiLockPte @ 0x140325920 (MiLockPte.c)
- *     MiSanitizeShadowPxe @ 0x140342108 (MiSanitizeShadowPxe.c)
- *     MiReplicatePteChange @ 0x140528570 (MiReplicatePteChange.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14021C464 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     MiLockNestedPageTable @ 0x14029E130 (MiLockNestedPageTable.c)
+ *     MiWriteValidPteNewPage @ 0x14029F1C0 (MiWriteValidPteNewPage.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402C0B20 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiWriteValidPteNewProtection @ 0x1402E24D0 (MiWriteValidPteNewProtection.c)
+ *     MiPteHasShadow @ 0x1402E3260 (MiPteHasShadow.c)
+ *     MiReadPteShadow @ 0x140317020 (MiReadPteShadow.c)
+ *     MiWritePteShadow @ 0x14031E2BC (MiWritePteShadow.c)
+ *     MiUnlockNestedPageTableWritePte @ 0x140327678 (MiUnlockNestedPageTableWritePte.c)
+ *     MiLockPte @ 0x140327950 (MiLockPte.c)
+ *     MiSanitizeShadowPxe @ 0x140344188 (MiSanitizeShadowPxe.c)
+ *     MiReplicatePteChange @ 0x14052ABE0 (MiReplicatePteChange.c)
  */
 
 __int64 __fastcall MiRewritePteWithLockBit(signed __int64 a1, int a2, unsigned __int64 a3, __int64 a4)
@@ -65,7 +65,7 @@ __int64 __fastcall MiRewritePteWithLockBit(signed __int64 a1, int a2, unsigned _
     if ( v8 && (*(_DWORD *)(a1 + 184) & 0xF) != 0 )
     {
       v7 = 1;
-      ExAcquireSpinLockExclusiveAtDpcLevel(&dword_140E36080);
+      ExAcquireSpinLockExclusiveAtDpcLevel(&dword_140E36200);
     }
     result = *(_QWORD *)a3;
     v15 = 0xFFFFF6FB7DBED7F8uLL;
@@ -107,7 +107,7 @@ __int64 __fastcall MiRewritePteWithLockBit(signed __int64 a1, int a2, unsigned _
     if ( v8 )
     {
       v7 = 1;
-      ExAcquireSpinLockExclusiveAtDpcLevel(&dword_140E36080);
+      ExAcquireSpinLockExclusiveAtDpcLevel(&dword_140E36200);
     }
     MiLockPte(a3, 0LL);
     if ( (MiFlags & 0x8000000) != 0 )
@@ -140,13 +140,13 @@ __int64 __fastcall MiRewritePteWithLockBit(signed __int64 a1, int a2, unsigned _
   {
     result = MiReplicatePteChange(a3, 1LL);
     if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0
-      || (result = LODWORD(stru_140F11D08.WaitStatus), LODWORD(stru_140F11D08.WaitStatus)) )
+      || (result = (unsigned int)PopHibernateInProgress, PopHibernateInProgress) )
     {
-      dword_140E36080 = 0;
+      dword_140E36200 = 0;
     }
     else
     {
-      return ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(&dword_140E36080, retaddr);
+      return ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(&dword_140E36200, retaddr);
     }
   }
   return result;

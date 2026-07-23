@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpLightWeightDuplicateParentLists @ 0x14087F2DC
+ * XREFs of CmpLightWeightDuplicateParentLists @ 0x14087F43C
  * Callers:
- *     CmpLightWeightCreateModificationData @ 0x14087F20C (CmpLightWeightCreateModificationData.c)
+ *     CmpLightWeightCreateModificationData @ 0x14087F36C (CmpLightWeightCreateModificationData.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     CmpDuplicateIndex @ 0x14087A3B0 (CmpDuplicateIndex.c)
- *     CmpMarkEntireIndexDirty @ 0x14087AE88 (CmpMarkEntireIndexDirty.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     CmpDuplicateIndex @ 0x14087A510 (CmpDuplicateIndex.c)
+ *     CmpMarkEntireIndexDirty @ 0x14087AFE8 (CmpMarkEntireIndexDirty.c)
  */
 
 __int64 __fastcall CmpLightWeightDuplicateParentLists(ULONG_PTR BugCheckParameter2, __int64 a2, __int64 a3)

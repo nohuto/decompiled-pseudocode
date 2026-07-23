@@ -1,10 +1,10 @@
 /*
- * XREFs of HalpFindSecondaryIcEntryFromObjectAndRange @ 0x1404D0D2C
+ * XREFs of HalpFindSecondaryIcEntryFromObjectAndRange @ 0x1404D0F6C
  * Callers:
- *     HalpUnregisterSecondaryIcInterface @ 0x1404D1510 (HalpUnregisterSecondaryIcInterface.c)
+ *     HalpUnregisterSecondaryIcInterface @ 0x1404D1750 (HalpUnregisterSecondaryIcInterface.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140229C70 (KxReleaseSpinLock.c)
- *     HalpAcquireHighLevelLock @ 0x140378F20 (HalpAcquireHighLevelLock.c)
+ *     KxReleaseSpinLock @ 0x140212140 (KxReleaseSpinLock.c)
+ *     HalpAcquireHighLevelLock @ 0x140378A70 (HalpAcquireHighLevelLock.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
  */
 

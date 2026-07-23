@@ -1,10 +1,10 @@
 /*
- * XREFs of MiShouldTrimUnusedSegments @ 0x140474D78
+ * XREFs of MiShouldTrimUnusedSegments @ 0x14046E4F8
  * Callers:
- *     MiCommitPoolMemory @ 0x140364AE0 (MiCommitPoolMemory.c)
- *     MiCheckControlArea @ 0x14036DCC0 (MiCheckControlArea.c)
- *     MiFreeExcessSegments @ 0x140474D10 (MiFreeExcessSegments.c)
- *     MiComputeUnusedSegmentReduction @ 0x1404C475C (MiComputeUnusedSegmentReduction.c)
+ *     MiCommitPoolMemory @ 0x140366880 (MiCommitPoolMemory.c)
+ *     MiCheckControlArea @ 0x14036FA60 (MiCheckControlArea.c)
+ *     MiFreeExcessSegments @ 0x14046E490 (MiFreeExcessSegments.c)
+ *     MiComputeUnusedSegmentReduction @ 0x1404BE03C (MiComputeUnusedSegmentReduction.c)
  * Callees:
  *     <none>
  */
@@ -21,7 +21,7 @@ __int64 __fastcall MiShouldTrimUnusedSegments(ULONG *a1)
   }
   else
   {
-    Flink = stru_140E2C7D0.Header.WaitListHead.Flink;
+    Flink = stru_140E2C950.Header.WaitListHead.Flink;
     a1 = &MiSystemPartition;
   }
   if ( !Flink )

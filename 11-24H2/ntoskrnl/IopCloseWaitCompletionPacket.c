@@ -1,52 +1,54 @@
 /*
- * XREFs of IopCloseWaitCompletionPacket @ 0x1404E5B40
+ * XREFs of IopCloseWaitCompletionPacket @ 0x14041B150
  * Callers:
  *     <none>
  * Callees:
- *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeReleaseInStackQueuedSpinLock @ 0x140275CD0 (KeReleaseInStackQueuedSpinLock.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x1402D8540 (KeAcquireInStackQueuedSpinLock.c)
- *     ObfDereferenceObjectWithTag @ 0x1403254A0 (ObfDereferenceObjectWithTag.c)
- *     ObfReferenceObjectWithTag @ 0x1403403E0 (ObfReferenceObjectWithTag.c)
- *     IopCancelWaitCompletionPacket @ 0x1404285C4 (IopCancelWaitCompletionPacket.c)
- *     Feature_1806129466__private_IsEnabledDeviceUsageNoInline @ 0x1405970A0 (Feature_1806129466__private_IsEnabledDeviceUsageNoInline.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x14022B260 (KeReleaseInStackQueuedSpinLock.c)
+ *     KxReleaseSpinLock @ 0x14022F250 (KxReleaseSpinLock.c)
+ *     KeReleaseSpinLock @ 0x14027E340 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ObfDereferenceObjectWithTag @ 0x1402CE030 (ObfDereferenceObjectWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x14031F8C0 (ObfReferenceObjectWithTag.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1403597C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     IopCancelWaitCompletionPacket @ 0x14041B244 (IopCancelWaitCompletionPacket.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
  */
 
 void __fastcall IopCloseWaitCompletionPacket(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
-  KSPIN_LOCK *v4; // rsi
-  KIRQL v6; // bp
-  __int64 v7; // rdx
-  __int64 v8; // rcx
-  __int64 v9; // r8
-  KSPIN_LOCK *v10; // rbx
-  KIRQL v11; // bp
-  __int64 v12; // rdx
-  __int64 v13; // rcx
-  __int64 v14; // r8
+  volatile signed __int64 *v4; // rsi
+  KIRQL v6; // al
+  KSPIN_LOCK *v7; // rbx
+  unsigned __int64 v8; // rbp
+  __int64 v9; // rdx
+  KIRQL v10; // bp
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
 
   if ( a4 == 1 )
   {
-    v4 = (KSPIN_LOCK *)(a2 + 96);
+    v4 = (volatile signed __int64 *)(a2 + 96);
     memset(&LockHandle, 0, sizeof(LockHandle));
     v6 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(a2 + 96));
-    if ( (unsigned int)Feature_1806129466__private_IsEnabledDeviceUsageNoInline(v8, v7, v9) )
-      *(_BYTE *)(a2 + 105) = 1;
-    v10 = *(KSPIN_LOCK **)(a2 + 88);
-    if ( v10 )
-      ObfReferenceObjectWithTag(*(PVOID *)(a2 + 88), 0x746C6644u);
-    KeReleaseSpinLock(v4, v6);
-    if ( v10 )
+    v7 = *(KSPIN_LOCK **)(a2 + 88);
+    v8 = v6;
+    *(_BYTE *)(a2 + 105) = 1;
+    if ( v7 )
+      ObfReferenceObjectWithTag(v7, 0x746C6644u);
+    KxReleaseSpinLock(v4);
+    if ( KiIrqlFlags )
     {
-      KeAcquireInStackQueuedSpinLock(v10 + 8, &LockHandle);
-      v11 = KeAcquireSpinLockRaiseToDpc(v4);
-      Feature_1806129466__private_IsEnabledDeviceUsageNoInline(v13, v12, v14);
-      if ( !*(_BYTE *)(a2 + 104) || !IopCancelWaitCompletionPacket((struct _KWAIT_BLOCK *)a2, 1, v11) )
-        KeReleaseSpinLock(v4, v11);
+      LOBYTE(v9) = v8;
+      KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), v9);
+    }
+    __writecr8(v8);
+    if ( v7 )
+    {
+      KeAcquireInStackQueuedSpinLock(v7 + 8, &LockHandle);
+      v10 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)v4);
+      if ( !*(_BYTE *)(a2 + 104) || !(unsigned __int8)IopCancelWaitCompletionPacket((struct _KWAIT_BLOCK *)a2) )
+        KeReleaseSpinLock((PKSPIN_LOCK)v4, v10);
       KeReleaseInStackQueuedSpinLock(&LockHandle);
-      ObfDereferenceObjectWithTag(v10, 0x746C6644u);
+      ObfDereferenceObjectWithTag(v7, 0x746C6644u);
     }
   }
 }

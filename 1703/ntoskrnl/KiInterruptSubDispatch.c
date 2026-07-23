@@ -63,7 +63,7 @@ unsigned __int8 __fastcall KiInterruptSubDispatch()
   v12 = (WORD2(PerfGlobalGroupMask) & 0x4000) == 0;
   *(_BYTE *)(v0 + 243) = (WORD2(PerfGlobalGroupMask) & 0x4000) != 0;
   if ( !v12 )
-    EtwGetKernelTraceTimestamp(v15, (char *)0x20004000);
+    EtwGetKernelTraceTimestamp(v15, 0x20004000u);
   result = KiCallInterruptServiceRoutine(v1, 1);
   if ( *(_BYTE *)(v0 + 243) )
   {

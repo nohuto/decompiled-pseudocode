@@ -1,11 +1,11 @@
 /*
- * XREFs of MiCachedPageFinish @ 0x1402A0710
+ * XREFs of MiCachedPageFinish @ 0x14029FC60
  * Callers:
  *     <none>
  * Callees:
- *     MiUnlockAllBatchPages @ 0x140299000 (MiUnlockAllBatchPages.c)
- *     MiUserPdeOrAbove @ 0x1402A1440 (MiUserPdeOrAbove.c)
- *     MiDiscardTransitionPfnEx @ 0x140369FE0 (MiDiscardTransitionPfnEx.c)
+ *     MiUnlockAllBatchPages @ 0x140298560 (MiUnlockAllBatchPages.c)
+ *     MiUserPdeOrAbove @ 0x1402A0990 (MiUserPdeOrAbove.c)
+ *     MiDiscardTransitionPfnEx @ 0x14036BD80 (MiDiscardTransitionPfnEx.c)
  */
 
 __int64 __fastcall MiCachedPageFinish(__int64 a1, _QWORD *a2, __int64 a3)
@@ -55,11 +55,11 @@ __int64 __fastcall MiCachedPageFinish(__int64 a1, _QWORD *a2, __int64 a3)
       v9 = v8 - 0x220000000000LL;
       v10 = *(_QWORD *)(v8 - 0x220000000000LL + 8) | 0x8000000000000000uLL;
       v11 = *(_QWORD *)(v8 - 0x220000000000LL + 16);
-      if ( qword_140E2D740 && (v11 & 0x10) == 0 )
-        v11 &= qword_140E2D748;
+      if ( qword_140E2D8C0 && (v11 & 0x10) == 0 )
+        v11 &= qword_140E2D8C8;
       v12 = (v11 >> 12) & 0x3FFFFFFFFFFLL;
       if ( v12 )
-        v13 = qword_140E37B90 - 8 + 8 * v12;
+        v13 = qword_140E37D10 - 8 + 8 * v12;
       else
         v13 = 0LL;
       v14 = a2[2];
@@ -132,7 +132,7 @@ LABEL_13:
         }
         v7 = v35;
         v4 = v34;
-        *v21 = v26 & 0xFAFFFFFFFFFFFEFFuLL ^ (BYTE4(stru_140E2D930.Header.WaitListHead.Blink) << 8) & 0x100 | 0xA00000000000000LL;
+        *v21 = v26 & 0xFAFFFFFFFFFFFEFFuLL ^ (BYTE4(stru_140E2DAB0.Header.WaitListHead.Blink) << 8) & 0x100 | 0xA00000000000000LL;
         v3 = v33;
         *(_QWORD *)(v9 + 24) = *(_QWORD *)(v9 + 24) & 0xC000000000000000uLL | 1;
       }

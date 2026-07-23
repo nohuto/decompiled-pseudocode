@@ -1,29 +1,29 @@
 /*
- * XREFs of AdtpIsSDValidSelfRelative @ 0x14067116C
+ * XREFs of AdtpIsSDValidSelfRelative @ 0x1406716BC
  * Callers:
- *     AdtpBuildAccessReasonAuditString @ 0x14066FD60 (AdtpBuildAccessReasonAuditString.c)
+ *     AdtpBuildAccessReasonAuditString @ 0x1406702B0 (AdtpBuildAccessReasonAuditString.c)
  * Callees:
  *     RtlGetControlSecurityDescriptor @ 0x14069E2C0 (RtlGetControlSecurityDescriptor.c)
- *     RtlValidSecurityDescriptor @ 0x1407B4D10 (RtlValidSecurityDescriptor.c)
+ *     RtlValidSecurityDescriptor @ 0x1407B4FF0 (RtlValidSecurityDescriptor.c)
  */
 
-__int64 __fastcall AdtpIsSDValidSelfRelative(void *a1, bool *a2)
+__int64 __fastcall AdtpIsSDValidSelfRelative(PSECURITY_DESCRIPTOR SecurityDescriptor, bool *a2)
 {
-  int ControlSecurityDescriptor; // ebx
-  __int16 v6; // [rsp+40h] [rbp+8h] BYREF
-  char v7; // [rsp+50h] [rbp+18h] BYREF
+  NTSTATUS ControlSecurityDescriptor; // ebx
+  WORD Control; // [rsp+40h] [rbp+8h] BYREF
+  ULONG Revision; // [rsp+50h] [rbp+18h] BYREF
 
   ControlSecurityDescriptor = 0;
-  if ( !a1 )
+  if ( !SecurityDescriptor )
     return 3221225485LL;
-  if ( !RtlValidSecurityDescriptor(a1) )
+  if ( !RtlValidSecurityDescriptor(SecurityDescriptor) )
     return 3221225593LL;
   if ( a2 )
   {
-    v6 = 0;
-    ControlSecurityDescriptor = RtlGetControlSecurityDescriptor(a1, &v6, &v7);
+    Control = 0;
+    ControlSecurityDescriptor = RtlGetControlSecurityDescriptor(SecurityDescriptor, &Control, &Revision);
     if ( ControlSecurityDescriptor >= 0 )
-      *a2 = v6 < 0;
+      *a2 = (Control & 0x8000u) != 0;
   }
   return (unsigned int)ControlSecurityDescriptor;
 }

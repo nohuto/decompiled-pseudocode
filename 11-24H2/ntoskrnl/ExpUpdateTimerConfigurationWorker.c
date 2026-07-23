@@ -1,41 +1,41 @@
 /*
- * XREFs of ExpUpdateTimerConfigurationWorker @ 0x14029FDD0
+ * XREFs of ExpUpdateTimerConfigurationWorker @ 0x140317740
  * Callers:
- *     KeGenericProcessorCallback @ 0x1403390A4 (KeGenericProcessorCallback.c)
+ *     KeGenericProcessorCallback @ 0x140318580 (KeGenericProcessorCallback.c)
  * Callees:
- *     KiReleaseSpinLockInstrumented @ 0x14024E080 (KiReleaseSpinLockInstrumented.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
- *     KiSendClockInterruptToTargetProcessor @ 0x1402A0034 (KiSendClockInterruptToTargetProcessor.c)
- *     KeSetTimeAdjustment @ 0x1402A0168 (KeSetTimeAdjustment.c)
- *     KiSetNextClockTickDueTime @ 0x1402A01F0 (KiSetNextClockTickDueTime.c)
- *     KiSetClockTimerKTimerDeadlines @ 0x1402A04E0 (KiSetClockTimerKTimerDeadlines.c)
- *     KiSetClockIntervalToMinimumRequested @ 0x1402A0A58 (KiSetClockIntervalToMinimumRequested.c)
- *     PoTraceSystemTimerResolutionKernel @ 0x1402A18F4 (PoTraceSystemTimerResolutionKernel.c)
- *     RtlRbInsertNodeEx @ 0x1402BDA80 (RtlRbInsertNodeEx.c)
- *     RtlRbRemoveNode @ 0x1402BE130 (RtlRbRemoveNode.c)
- *     RtlGetInterruptTimePrecise @ 0x14033CC90 (RtlGetInterruptTimePrecise.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiReleaseSpinLockInstrumented @ 0x14027E690 (KiReleaseSpinLockInstrumented.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140285130 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiSendClockInterruptToTargetProcessor @ 0x1403179A4 (KiSendClockInterruptToTargetProcessor.c)
+ *     KeSetTimeAdjustment @ 0x140317AD8 (KeSetTimeAdjustment.c)
+ *     KiSetNextClockTickDueTime @ 0x140317B60 (KiSetNextClockTickDueTime.c)
+ *     KiSetClockTimerKTimerDeadlines @ 0x140317E50 (KiSetClockTimerKTimerDeadlines.c)
+ *     KiSetClockIntervalToMinimumRequested @ 0x1403183C8 (KiSetClockIntervalToMinimumRequested.c)
+ *     RtlGetInterruptTimePrecise @ 0x14031C170 (RtlGetInterruptTimePrecise.c)
+ *     RtlRbInsertNodeEx @ 0x1403651C0 (RtlRbInsertNodeEx.c)
+ *     RtlRbRemoveNode @ 0x140365870 (RtlRbRemoveNode.c)
+ *     PoTraceSystemTimerResolutionKernel @ 0x140410FE0 (PoTraceSystemTimerResolutionKernel.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 char __fastcall ExpUpdateTimerConfigurationWorker(__int64 a1, __int64 a2)
 {
   __int64 v3; // rdx
   unsigned __int64 v4; // rbp
-  __int64 v5; // r8
   __int64 CurrentIrql; // rcx
-  unsigned int v7; // esi
-  unsigned __int64 v8; // rdx
+  unsigned int v6; // esi
+  unsigned __int64 Root; // rdx
+  BOOLEAN v8; // r8
   unsigned __int64 v9; // rax
-  __int64 InterruptTimePrecise; // rdi
+  LARGE_INTEGER InterruptTimePrecise; // rdi
   __int64 v11; // rdx
-  int ClockTickDueTime; // eax
+  int v12; // eax
   __int64 v13; // r8
   int v14; // edi
   _QWORD *v15; // rcx
   _BYTE *v16; // rax
   __int64 retaddr; // [rsp+38h] [rbp+0h]
-  char v19; // [rsp+48h] [rbp+10h] BYREF
+  LARGE_INTEGER PerformanceCounter; // [rsp+48h] [rbp+10h] BYREF
 
   v4 = KeAcquireSpinLockRaiseToDpc(&ExpKernelResolutionLock);
   CurrentIrql = KeGetCurrentIrql();
@@ -48,79 +48,84 @@ char __fastcall ExpUpdateTimerConfigurationWorker(__int64 a1, __int64 a2)
   *(_DWORD *)(a2 + 24) = 0;
   if ( *(_QWORD *)a2 )
   {
-    v7 = ExpLastRequestedTime;
-    if ( byte_140EFE8F8 )
+    v6 = ExpLastRequestedTime;
+    if ( byte_140EFED78 )
       RtlRbRemoveNode(&KiClockIntervalRequests, &ExpClockIntervalRequest);
-    dword_140EFE8FC = v7;
-    if ( (qword_140E66758 & 1) != 0 )
+    dword_140EFED7C = v6;
+    if ( (*(_BYTE *)&KiClockIntervalRequests.0 & 1) != 0 )
     {
-      if ( KiClockIntervalRequests )
-        v8 = KiClockIntervalRequests ^ (unsigned __int64)&KiClockIntervalRequests;
+      if ( KiClockIntervalRequests.Root )
+        Root = (unsigned __int64)KiClockIntervalRequests.Root ^ (unsigned __int64)&KiClockIntervalRequests;
       else
-        v8 = 0LL;
+        Root = 0LL;
     }
     else
     {
-      v8 = KiClockIntervalRequests;
+      Root = (unsigned __int64)KiClockIntervalRequests.Root;
     }
-    LOBYTE(v5) = 0;
-    if ( v8 )
+    v8 = 0;
+    if ( Root )
     {
       while ( 1 )
       {
-        if ( v7 >= *(_DWORD *)(v8 + 28) )
+        if ( v6 >= *(_DWORD *)(Root + 28) )
         {
-          v9 = *(_QWORD *)(v8 + 8);
-          if ( (qword_140E66758 & 1) != 0 )
+          v9 = *(_QWORD *)(Root + 8);
+          if ( (*(_BYTE *)&KiClockIntervalRequests.0 & 1) != 0 )
           {
             if ( !v9 )
               goto LABEL_17;
-            v9 ^= v8;
+            v9 ^= Root;
           }
           if ( !v9 )
           {
 LABEL_17:
-            LOBYTE(v5) = 1;
+            v8 = 1;
             break;
           }
         }
         else
         {
-          v9 = *(_QWORD *)v8;
-          if ( (qword_140E66758 & 1) != 0 )
+          v9 = *(_QWORD *)Root;
+          if ( (*(_BYTE *)&KiClockIntervalRequests.0 & 1) != 0 )
           {
             if ( !v9 )
               break;
-            v9 ^= v8;
+            v9 ^= Root;
           }
           if ( !v9 )
             break;
         }
-        v8 = v9;
+        Root = v9;
       }
     }
-    RtlRbInsertNodeEx(&KiClockIntervalRequests, v8, v5, &ExpClockIntervalRequest);
-    byte_140EFE8F8 = 1;
-    KePseudoHrTimeIncrement = v7;
+    RtlRbInsertNodeEx(&KiClockIntervalRequests, (PRTL_BALANCED_NODE)Root, v8, &ExpClockIntervalRequest);
+    byte_140EFED78 = 1;
+    KePseudoHrTimeIncrement = v6;
     if ( KiClockTimerPerCpuTickScheduling )
     {
       if ( KiClockTimerReducePreciseTimeQueries )
-        InterruptTimePrecise = RtlGetInterruptTimePrecise(&v19);
+        InterruptTimePrecise = RtlGetInterruptTimePrecise(&PerformanceCounter);
       else
-        InterruptTimePrecise = 0LL;
-      KiSetClockTimerKTimerDeadlines(KeGetCurrentPrcb(), InterruptTimePrecise, 0LL);
+        InterruptTimePrecise.QuadPart = 0LL;
+      ((void (__fastcall *)(_QWORD, _QWORD, _QWORD))KiSetClockTimerKTimerDeadlines)(
+        KeGetCurrentPrcb(),
+        (LARGE_INTEGER)InterruptTimePrecise.QuadPart,
+        0LL);
       LOBYTE(v11) = 1;
-      ClockTickDueTime = KiSetNextClockTickDueTime(InterruptTimePrecise, v11);
+      v12 = ((__int64 (__fastcall *)(_QWORD, _QWORD))KiSetNextClockTickDueTime)(
+              (LARGE_INTEGER)InterruptTimePrecise.QuadPart,
+              v11);
     }
     else
     {
-      ClockTickDueTime = KiSetClockIntervalToMinimumRequested();
+      v12 = KiSetClockIntervalToMinimumRequested();
     }
-    v14 = ClockTickDueTime;
-    if ( dword_140EFE900 )
+    v14 = v12;
+    if ( dword_140EFED80 )
     {
       LOBYTE(v13) = 1;
-      PoTraceSystemTimerResolutionKernel(v7, (unsigned int)dword_140EFE900, v13);
+      PoTraceSystemTimerResolutionKernel(v6, (unsigned int)dword_140EFED80, v13);
     }
     KiSendClockInterruptToTargetProcessor((unsigned int)KiClockTimerOwner);
     **(_DWORD **)a2 = v14;

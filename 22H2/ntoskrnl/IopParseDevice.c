@@ -123,12 +123,12 @@ __int64 __fastcall IopParseDevice(
   struct _DMA_ADAPTER *v29; // rbx
   ACCESS_MASK *p_RemainingDesiredAccess; // rsi
   ACCESS_MASK RemainingDesiredAccess; // r15d
-  __int64 v32; // rdx
+  char v32; // dl
   __int64 v33; // rcx
   int v34; // r10d
   char v35; // r9
   char v36; // r14
-  int ActiveConsoleId; // ebx
+  ULONG ActiveConsoleId; // ebx
   __int64 v38; // rdx
   __int64 v39; // rcx
   __int64 v40; // rax
@@ -403,8 +403,8 @@ LABEL_10:
     SeSetAccessStateGenericMapping(v12, (PGENERIC_MAPPING)((char *)IoFileObjectType + 76));
     RemainingDesiredAccess = v12->RemainingDesiredAccess;
     IopCheckBackupRestorePrivilege(v12);
-    v32 = *(unsigned __int8 *)(v14 + 136);
-    if ( (_BYTE)v32 && !SourceString->Length || (v12->Flags & 0x100) != 0 )
+    v32 = *(_BYTE *)(v14 + 136);
+    if ( v32 && !SourceString->Length || (v12->Flags & 0x100) != 0 )
       RemainingDesiredAccess |= v12->PreviouslyGrantedAccess;
     v33 = *(_QWORD *)(v14 + 40);
     LOBYTE(v34) = v161;
@@ -416,7 +416,7 @@ LABEL_10:
       v161 = v34;
     }
     v35 = v186;
-    if ( (v186 || (*(_DWORD *)(v14 + 84) & 1) != 0) && (!v33 || (_BYTE)v34) && !(_BYTE)v32 )
+    if ( (v186 || (*(_DWORD *)(v14 + 84) & 1) != 0) && (!v33 || (_BYTE)v34) && !v32 )
     {
       v36 = v11 & 0xDF;
       if ( SourceString->Length )
@@ -482,7 +482,7 @@ LABEL_10:
         v42 = 0;
         if ( (*(_DWORD *)(v17 + 52) & 0x40001) != 0 && (RemainingDesiredAccess & 0xFFEDFF7F) != 0 )
         {
-          ActiveConsoleId = RtlGetActiveConsoleId(v33, v32);
+          ActiveConsoleId = RtlGetActiveConsoleId();
           if ( ActiveConsoleId != (unsigned int)PsGetCurrentProcessSessionId() )
           {
             v40 = PsGetCurrentServerSilo(v39, v38);

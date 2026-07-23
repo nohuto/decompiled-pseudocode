@@ -11,8 +11,8 @@ void KeLeaveGuardedRegion(void)
   struct _KTHREAD *CurrentThread; // rax
 
   CurrentThread = KeGetCurrentThread();
-  if ( CurrentThread->SpecialApcDisable++ == -1
-    && ($CEA84C04E3712D858E5667A507841A2A *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+  if ( (*((_WORD *)CurrentThread + 243))++ == 0xFFFF
+    && *((struct _KTHREAD **)CurrentThread + 19) != (struct _KTHREAD *)((char *)CurrentThread + 152) )
   {
     KiCheckForKernelApcDelivery();
   }

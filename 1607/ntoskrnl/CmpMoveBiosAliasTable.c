@@ -1,19 +1,19 @@
 /*
- * XREFs of CmpMoveBiosAliasTable @ 0x140607BC4
+ * XREFs of CmpMoveBiosAliasTable @ 0x140607C78
  * Callers:
- *     CmSetAcpiHwProfile @ 0x14055B9E8 (CmSetAcpiHwProfile.c)
+ *     CmSetAcpiHwProfile @ 0x14055BF28 (CmSetAcpiHwProfile.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     swprintf_s @ 0x140151960 (swprintf_s.c)
- *     ZwClose @ 0x140159E60 (ZwClose.c)
- *     ZwOpenKey @ 0x140159EC0 (ZwOpenKey.c)
- *     ZwQueryKey @ 0x140159F40 (ZwQueryKey.c)
- *     ZwQueryValueKey @ 0x140159F60 (ZwQueryValueKey.c)
- *     ZwEnumerateKey @ 0x14015A2C0 (ZwEnumerateKey.c)
- *     ZwSetValueKey @ 0x14015A880 (ZwSetValueKey.c)
- *     ZwDeleteKey @ 0x14015B580 (ZwDeleteKey.c)
- *     CmDeleteKeyRecursive @ 0x140606DF0 (CmDeleteKeyRecursive.c)
+ *     RtlInitUnicodeString @ 0x14002D7E0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     swprintf_s @ 0x140151F20 (swprintf_s.c)
+ *     ZwClose @ 0x14015A3D0 (ZwClose.c)
+ *     ZwOpenKey @ 0x14015A430 (ZwOpenKey.c)
+ *     ZwQueryKey @ 0x14015A4B0 (ZwQueryKey.c)
+ *     ZwQueryValueKey @ 0x14015A4D0 (ZwQueryValueKey.c)
+ *     ZwEnumerateKey @ 0x14015A830 (ZwEnumerateKey.c)
+ *     ZwSetValueKey @ 0x14015ADF0 (ZwSetValueKey.c)
+ *     ZwDeleteKey @ 0x14015BAF0 (ZwDeleteKey.c)
+ *     CmDeleteKeyRecursive @ 0x140606EA4 (CmDeleteKeyRecursive.c)
  */
 
 __int64 __fastcall CmpMoveBiosAliasTable(

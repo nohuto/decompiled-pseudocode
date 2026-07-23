@@ -1,18 +1,18 @@
 /*
- * XREFs of RtlCheckBootStatusIntegrity @ 0x140782BE4
+ * XREFs of RtlCheckBootStatusIntegrity @ 0x140782B14
  * Callers:
- *     PopBootStatCheckIntegrity @ 0x140AB5DF8 (PopBootStatCheckIntegrity.c)
+ *     PopBootStatCheckIntegrity @ 0x140AB00C0 (PopBootStatCheckIntegrity.c)
  * Callees:
- *     ZwReadFile @ 0x1406A64D0 (ZwReadFile.c)
- *     RtlBootStatusItemInfo @ 0x140A6804C (RtlBootStatusItemInfo.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ZwReadFile @ 0x1406A7470 (ZwReadFile.c)
+ *     RtlBootStatusItemInfo @ 0x140A6154C (RtlBootStatusItemInfo.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
-__int64 __fastcall RtlCheckBootStatusIntegrity(HANDLE FileHandle, bool *a2)
+NTSTATUS __cdecl RtlCheckBootStatusIntegrity(HANDLE FileHandle, PBOOLEAN Verified)
 {
   char v4; // r14
-  NTSTATUS v5; // ebx
+  int v5; // ebx
   void *Pool2; // rsi
   __int64 v7; // rcx
   _BYTE *v8; // rax
@@ -36,11 +36,11 @@ __int64 __fastcall RtlCheckBootStatusIntegrity(HANDLE FileHandle, bool *a2)
     {
       if ( Buffer < v14 + v10 || Buffer > 0x800 )
       {
-        *a2 = 0;
+        *Verified = 0;
       }
       else
       {
-        Pool2 = (void *)ExAllocatePool2(0x100uLL);
+        Pool2 = (void *)ExAllocatePool2(0x100uLL, Buffer, 0x66647362u);
         if ( Pool2 )
         {
           v5 = ZwReadFile(FileHandle, 0LL, 0LL, 0LL, &IoStatusBlock, Pool2, Buffer, &ByteOffset, 0LL);
@@ -59,21 +59,21 @@ __int64 __fastcall RtlCheckBootStatusIntegrity(HANDLE FileHandle, bool *a2)
                 }
                 while ( v7 );
               }
-              *a2 = v4 == 0;
+              *Verified = v4 == 0;
             }
             else
             {
-              *a2 = 0;
+              *Verified = 0;
             }
           }
           ExFreePoolWithTag(Pool2, 0);
         }
         else
         {
-          return (unsigned int)-1073741801;
+          return -1073741801;
         }
       }
     }
   }
-  return (unsigned int)v5;
+  return v5;
 }

@@ -1,9 +1,9 @@
 /*
- * XREFs of TtmiUpdateActiveTerminalCount @ 0x1408FF490
+ * XREFs of TtmiUpdateActiveTerminalCount @ 0x1408FF5F0
  * Callers:
- *     TtmiCreateTerminal @ 0x1408FD52C (TtmiCreateTerminal.c)
- *     TtmiSessionTerminalListWorker @ 0x1408FD930 (TtmiSessionTerminalListWorker.c)
- *     TtmInitCurrentSession @ 0x1408FE65C (TtmInitCurrentSession.c)
+ *     TtmiCreateTerminal @ 0x1408FD68C (TtmiCreateTerminal.c)
+ *     TtmiSessionTerminalListWorker @ 0x1408FDA90 (TtmiSessionTerminalListWorker.c)
+ *     TtmInitCurrentSession @ 0x1408FE7BC (TtmInitCurrentSession.c)
  * Callees:
  *     <none>
  */

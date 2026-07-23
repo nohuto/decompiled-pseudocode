@@ -1,20 +1,28 @@
 /*
- * XREFs of ZwAlpcSendWaitReceivePort @ 0x180162E40
+ * XREFs of ZwAlpcSendWaitReceivePort @ 0x180161200
  * Callers:
- *     SendMessageToWERService @ 0x1800015D0 (SendMessageToWERService.c)
- *     TppWorkerThread @ 0x1800238D0 (TppWorkerThread.c)
- *     TppCallbackSendAndDestroyAlpcMessage @ 0x18006A498 (TppCallbackSendAndDestroyAlpcMessage.c)
- *     CsrClientCallServer @ 0x1800A6DD0 (CsrClientCallServer.c)
- *     RtlSendMsgToSm @ 0x18010FE10 (RtlSendMsgToSm.c)
+ *     CsrClientCallServer @ 0x1800241C0 (CsrClientCallServer.c)
+ *     TppWorkerThread @ 0x1800502D0 (TppWorkerThread.c)
+ *     TppCallbackSendAndDestroyAlpcMessage @ 0x180086B88 (TppCallbackSendAndDestroyAlpcMessage.c)
+ *     SendMessageToWERService @ 0x1800ADEC8 (SendMessageToWERService.c)
+ *     RtlSendMsgToSm @ 0x18010ADF0 (RtlSendMsgToSm.c)
  * Callees:
  *     <none>
  */
 
-__int64 ZwAlpcSendWaitReceivePort()
+NTSTATUS __cdecl ZwAlpcSendWaitReceivePort(
+        HANDLE PortHandle,
+        ULONG Flags,
+        PPORT_MESSAGE SendMessageA,
+        PALPC_MESSAGE_ATTRIBUTES SendMessageAttributes,
+        PPORT_MESSAGE ReceiveMessage,
+        PSIZE_T BufferLength,
+        PALPC_MESSAGE_ATTRIBUTES ReceiveMessageAttributes,
+        PLARGE_INTEGER Timeout)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 142LL;
+  result = 142;
   if ( (MEMORY[0x7FFE0308] & 1) != 0 )
     __asm { int     2Eh; DOS 2+ internal - EXECUTE COMMAND }
   else

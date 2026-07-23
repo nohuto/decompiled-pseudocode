@@ -1,10 +1,10 @@
 /*
- * XREFs of KiCreateKernelShadowStack @ 0x140974360
+ * XREFs of KiCreateKernelShadowStack @ 0x140974560
  * Callers:
- *     KiAllocateProcessorStacks @ 0x140376FC0 (KiAllocateProcessorStacks.c)
+ *     KiAllocateProcessorStacks @ 0x140377160 (KiAllocateProcessorStacks.c)
  *     KeInitThread @ 0x140A875D0 (KeInitThread.c)
  * Callees:
- *     MmCreateKernelShadowStack @ 0x14064512C (MmCreateKernelShadowStack.c)
+ *     MmCreateKernelShadowStack @ 0x14064567C (MmCreateKernelShadowStack.c)
  */
 
 __int64 __fastcall KiCreateKernelShadowStack(

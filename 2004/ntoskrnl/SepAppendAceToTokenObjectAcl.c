@@ -26,11 +26,11 @@
  *     ExAllocatePoolWithTag @ 0x1409B1160 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall SepAppendAceToTokenObjectAcl(__int64 a1, int a2, _WORD *a3)
+__int64 __fastcall SepAppendAceToTokenObjectAcl(__int64 a1, ULONG a2, _WORD *a3)
 {
   __int64 result; // rax
   PVOID v6; // rsi
-  NTSTATUS Acl; // ebp
+  NTSTATUS InformationAcl; // ebp
   __int16 v8; // ax
   __int64 v9; // rax
   ACL *v10; // rdi
@@ -42,27 +42,26 @@ __int64 __fastcall SepAppendAceToTokenObjectAcl(__int64 a1, int a2, _WORD *a3)
   ULONG v16; // ebx
   __int64 v17; // r9
   _BYTE v18[4]; // [rsp+30h] [rbp-98h] BYREF
-  ULONG AclRevision; // [rsp+34h] [rbp-94h] BYREF
-  int v20; // [rsp+38h] [rbp-90h]
+  ULONG AclRevision[3]; // [rsp+34h] [rbp-94h] BYREF
   PVOID P; // [rsp+40h] [rbp-88h] BYREF
   PVOID Ace; // [rsp+48h] [rbp-80h] BYREF
   _OWORD SecurityDescriptor[2]; // [rsp+50h] [rbp-78h] BYREF
-  __int64 v24; // [rsp+70h] [rbp-58h]
-  __int64 v25; // [rsp+78h] [rbp-50h] BYREF
-  int v26; // [rsp+80h] [rbp-48h]
+  __int64 v23; // [rsp+70h] [rbp-58h]
+  __int64 AclInformation; // [rsp+78h] [rbp-50h] BYREF
+  int v25; // [rsp+80h] [rbp-48h]
 
-  v20 = a2;
-  v25 = 0LL;
-  v26 = 0;
+  AclRevision[1] = a2;
+  AclInformation = 0LL;
+  v25 = 0;
   P = 0LL;
   v18[0] = 0;
   Ace = 0LL;
-  AclRevision = 0;
-  v24 = 0LL;
+  AclRevision[0] = 0;
+  v23 = 0LL;
   memset(SecurityDescriptor, 0, sizeof(SecurityDescriptor));
   result = ObpGetObjectSecurity(a1, &P, v18, 0LL);
   v6 = P;
-  Acl = result;
+  InformationAcl = result;
   if ( (int)result >= 0 )
   {
     if ( !P )
@@ -84,36 +83,36 @@ LABEL_7:
         {
           if ( !RtlFindAceBySid((__int64)v10, a3, 0LL) )
           {
-            Acl = RtlQueryInformationAcl(v10, &v25, 12LL, 2LL);
-            if ( Acl >= 0 )
+            InformationAcl = RtlQueryInformationAcl(v10, &AclInformation, 0xCu, AclSizeInformation);
+            if ( InformationAcl >= 0 )
             {
-              Acl = RtlQueryInformationAcl(v10, &AclRevision, 4LL, 1LL);
-              if ( Acl >= 0 )
+              InformationAcl = RtlQueryInformationAcl(v10, AclRevision, 4u, AclRevisionInformation);
+              if ( InformationAcl >= 0 )
               {
                 v11 = RtlLengthSid(a3);
-                v12 = HIDWORD(v25);
-                v13 = (v11 + HIDWORD(v25) + 11) & 0xFFFFFFFC;
+                v12 = HIDWORD(AclInformation);
+                v13 = (v11 + HIDWORD(AclInformation) + 11) & 0xFFFFFFFC;
                 PoolWithTag = (ACL *)ExAllocatePoolWithTag(PagedPool, v13, 0x63416553u);
                 v15 = PoolWithTag;
                 if ( PoolWithTag )
                 {
-                  v16 = AclRevision;
-                  Acl = RtlCreateAcl(PoolWithTag, v13, AclRevision);
-                  if ( Acl >= 0 )
+                  v16 = AclRevision[0];
+                  InformationAcl = RtlCreateAcl(PoolWithTag, v13, AclRevision[0]);
+                  if ( InformationAcl >= 0 )
                   {
-                    Acl = RtlGetAce(v10, 0, &Ace);
-                    if ( Acl >= 0 )
+                    InformationAcl = RtlGetAce(v10, 0, &Ace);
+                    if ( InformationAcl >= 0 )
                     {
-                      Acl = RtlAddAce(v15, v16, 0, Ace, v12 - 8);
-                      if ( Acl >= 0 )
+                      InformationAcl = RtlAddAce(v15, v16, 0, Ace, v12 - 8);
+                      if ( InformationAcl >= 0 )
                       {
-                        Acl = RtlpAddKnownAce((int)v15, v16, 0, v20, a3, 0);
-                        if ( Acl >= 0 )
+                        InformationAcl = RtlpAddKnownAce(v15, a3, 0);
+                        if ( InformationAcl >= 0 )
                         {
                           LOBYTE(SecurityDescriptor[0]) = 1;
-                          Acl = RtlSetDaclSecurityDescriptor(SecurityDescriptor, 1u, v15, 0);
-                          if ( Acl >= 0 )
-                            Acl = ObSetSecurityObjectByPointer(a1, 4LL, SecurityDescriptor, v17);
+                          InformationAcl = RtlSetDaclSecurityDescriptor(SecurityDescriptor, 1u, v15, 0);
+                          if ( InformationAcl >= 0 )
+                            InformationAcl = ObSetSecurityObjectByPointer(a1, 4LL, SecurityDescriptor, v17);
                         }
                       }
                     }
@@ -122,7 +121,7 @@ LABEL_7:
                 }
                 else
                 {
-                  Acl = -1073741670;
+                  InformationAcl = -1073741670;
                 }
               }
             }
@@ -138,5 +137,5 @@ LABEL_7:
     else
       ObDereferenceSecurityDescriptor(v6, 1LL);
   }
-  return (unsigned int)Acl;
+  return (unsigned int)InformationAcl;
 }

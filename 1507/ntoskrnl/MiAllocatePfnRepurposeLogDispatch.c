@@ -17,12 +17,12 @@
 void MiAllocatePfnRepurposeLogDispatch()
 {
   _SLIST_ENTRY *v0; // rbp
-  struct _SLIST_ENTRY *PoolWithTag; // rax
-  struct _SLIST_ENTRY *v2; // rdi
+  _SLIST_ENTRY *PoolWithTag; // rax
+  _SLIST_ENTRY *v2; // rdi
   PSLIST_ENTRY v3; // rbx
   int v4; // esi
   __int64 Next; // rax
-  struct _SLIST_ENTRY *v6; // rax
+  _SLIST_ENTRY *v6; // rax
   __int64 v7; // rax
   unsigned __int64 v8; // rtt
   unsigned int Alignment_low; // edi
@@ -31,12 +31,12 @@ void MiAllocatePfnRepurposeLogDispatch()
   void *retaddr; // [rsp+58h] [rbp+0h]
 
   v0 = (_SLIST_ENTRY *)MEMORY[0xFFFFF78000000320];
-  PoolWithTag = (struct _SLIST_ENTRY *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x1000uLL, 0x70526D4Du);
+  PoolWithTag = (_SLIST_ENTRY *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x1000uLL, 0x70526D4Du);
   v2 = PoolWithTag;
   if ( PoolWithTag )
   {
     *((_DWORD *)&PoolWithTag->Next + 2) = 2;
-    PoolWithTag[2].Next = (struct _SLIST_ENTRY *)((char *)PoolWithTag + 72);
+    PoolWithTag[2].Next = (_SLIST_ENTRY *)((char *)PoolWithTag + 72);
     *((_QWORD *)&PoolWithTag[2].Next + 1) = (char *)PoolWithTag + 4088;
     PoolWithTag[1].Next = v0;
     PoolWithTag->Next = 0LL;
@@ -89,7 +89,7 @@ LABEL_9:
   if ( v3 )
   {
     v6 = v3[2].Next;
-    if ( v6 == (struct _SLIST_ENTRY *)(&v3[4].Next + 1) )
+    if ( v6 == (_SLIST_ENTRY *)(&v3[4].Next + 1) )
       goto LABEL_30;
     if ( ((unsigned __int16)v6 & 0xFFF) != 0 )
     {

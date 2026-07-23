@@ -1,23 +1,23 @@
 /*
- * XREFs of MiCoalescePlaceholderAllocations @ 0x1408DC33C
+ * XREFs of MiCoalescePlaceholderAllocations @ 0x1408DA56C
  * Callers:
- *     MmFreeVirtualMemory @ 0x1408DB8A0 (MmFreeVirtualMemory.c)
+ *     MmFreeVirtualMemory @ 0x1408D9AD0 (MmFreeVirtualMemory.c)
  * Callees:
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     MiRemoveVad @ 0x1402601E8 (MiRemoveVad.c)
- *     MiGetNextVad @ 0x1402614BC (MiGetNextVad.c)
- *     MiLockVad @ 0x1402629EC (MiLockVad.c)
- *     MiReferenceVad @ 0x140262A70 (MiReferenceVad.c)
- *     MiUnlockVad @ 0x140264968 (MiUnlockVad.c)
- *     MiDecrementVadsBeingDeleted @ 0x140274480 (MiDecrementVadsBeingDeleted.c)
- *     MiSetVadDeleted @ 0x1402B94A0 (MiSetVadDeleted.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     MiLocateAddress @ 0x1402FC070 (MiLocateAddress.c)
- *     UNLOCK_ADDRESS_SPACE_UNORDERED @ 0x140405E18 (UNLOCK_ADDRESS_SPACE_UNORDERED.c)
- *     MiCheckSecuredVad @ 0x1408DD998 (MiCheckSecuredVad.c)
- *     MiDeleteVad @ 0x1408E5390 (MiDeleteVad.c)
- *     MiUnlockVadRange @ 0x1408E8A30 (MiUnlockVadRange.c)
- *     MiLockVadRange @ 0x1408E8B10 (MiLockVadRange.c)
+ *     MiDecrementVadsBeingDeleted @ 0x140229A10 (MiDecrementVadsBeingDeleted.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     MiRemoveVad @ 0x1402907F8 (MiRemoveVad.c)
+ *     MiGetNextVad @ 0x140291ACC (MiGetNextVad.c)
+ *     MiLockVad @ 0x1402926F0 (MiLockVad.c)
+ *     MiReferenceVad @ 0x140292770 (MiReferenceVad.c)
+ *     MiLocateAddress @ 0x140344F70 (MiLocateAddress.c)
+ *     MiSetVadDeleted @ 0x140360BE0 (MiSetVadDeleted.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     UNLOCK_ADDRESS_SPACE_UNORDERED @ 0x1403C8374 (UNLOCK_ADDRESS_SPACE_UNORDERED.c)
+ *     MiUnlockVad @ 0x1403C870C (MiUnlockVad.c)
+ *     MiDeleteVad @ 0x140895840 (MiDeleteVad.c)
+ *     MiUnlockVadRange @ 0x1408D9210 (MiUnlockVadRange.c)
+ *     MiLockVadRange @ 0x1408D92F0 (MiLockVadRange.c)
+ *     MiCheckSecuredVad @ 0x1408DBE18 (MiCheckSecuredVad.c)
  */
 
 __int64 __fastcall MiCoalescePlaceholderAllocations(__int64 a1, unsigned __int64 a2, unsigned __int64 a3, char a4)
@@ -34,7 +34,7 @@ __int64 __fastcall MiCoalescePlaceholderAllocations(__int64 a1, unsigned __int64
   unsigned __int64 v16; // rax
   __int64 v17; // rcx
   int v18; // ebx
-  void *v19; // rbx
+  unsigned __int8 *v19; // rbx
   _QWORD *v21; // rbx
   _QWORD *v22; // r14
   unsigned __int64 v23; // rbp
@@ -42,7 +42,7 @@ __int64 __fastcall MiCoalescePlaceholderAllocations(__int64 a1, unsigned __int64
   struct _KTHREAD *CurrentThread; // [rsp+80h] [rbp+18h]
 
   CurrentThread = KeGetCurrentThread();
-  v7 = MiLockVadRange(a1, a2, a3 & 0xFFFFFFFFFFFFF000uLL, 1LL);
+  v7 = MiLockVadRange(a1, a2, a3 & 0xFFFFFFFFFFFFF000uLL, 1);
   if ( v7 < 2 )
     goto LABEL_12;
   Address = MiLocateAddress(a2);
@@ -109,10 +109,10 @@ __int64 __fastcall MiCoalescePlaceholderAllocations(__int64 a1, unsigned __int64
     MiUnlockVad((__int64)CurrentThread, v9);
     while ( v13 )
     {
-      v19 = v13;
+      v19 = (unsigned __int8 *)v13;
       v13 = (_QWORD *)*v13;
       MiLockVad((__int64)CurrentThread, (__int64)v19);
-      MiDeleteVad(v19);
+      MiDeleteVad(v19, 0LL);
     }
     MiDecrementVadsBeingDeleted(v24 + 768);
     return 0;
@@ -122,7 +122,7 @@ __int64 __fastcall MiCoalescePlaceholderAllocations(__int64 a1, unsigned __int64
 LABEL_12:
     v18 = -1073741800;
 LABEL_13:
-    MiUnlockVadRange(a1, a2, v7, 1LL);
+    MiUnlockVadRange(a1, a2, v7, 1);
   }
   return (unsigned int)v18;
 }

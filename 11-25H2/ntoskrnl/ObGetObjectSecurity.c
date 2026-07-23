@@ -20,7 +20,7 @@ NTSTATUS __stdcall ObGetObjectSecurity(
 {
   ULONG_PTR v6; // rsi
   void *Pool2; // rax
-  __int64 (__fastcall *v9)(__int64, int, ULONG *, UNICODE_STRING *, PULONG, int, int, __int64, char); // rax
+  __int64 (__fastcall *v9)(__int64, int, DWORD *, UNICODE_STRING *, PULONG, int, int, __int64, char); // rax
   UNICODE_STRING *v10; // r9
   NTSTATUS SetSecurityObject; // eax
   NTSTATUS v12; // r15d
@@ -30,10 +30,10 @@ NTSTATUS __stdcall ObGetObjectSecurity(
   int v16; // [rsp+30h] [rbp-58h]
   __int64 v17; // [rsp+38h] [rbp-50h]
   ULONG Length; // [rsp+90h] [rbp+8h] BYREF
-  ULONG v19; // [rsp+A8h] [rbp+20h] BYREF
+  DWORD v19; // [rsp+A8h] [rbp+20h] BYREF
 
   v6 = ObTypeIndexTable[(unsigned __int8)ObHeaderCookie ^ (unsigned __int8)*((char *)Object - 24) ^ (unsigned __int64)(unsigned __int8)((unsigned __int16)((_WORD)Object - 48) >> 8)];
-  if ( *(__int64 (__fastcall **)(__int64, int, ULONG *, unsigned __int64, ULONG *, __int64 *, int, __int64))(v6 + 152) == SeDefaultObjectMethod )
+  if ( *(__int64 (__fastcall **)(__int64, int, DWORD *, unsigned __int64, ULONG *, __int64 *, int, __int64))(v6 + 152) == SeDefaultObjectMethod )
   {
     *SecurityDescriptor = (PSECURITY_DESCRIPTOR)ObpReferenceSecurityDescriptor((char *)Object - 48);
     *MemoryAllocated = 0;
@@ -48,7 +48,7 @@ NTSTATUS __stdcall ObGetObjectSecurity(
   if ( !Pool2 )
     return -1073741670;
   *MemoryAllocated = 1;
-  v9 = *(__int64 (__fastcall **)(__int64, int, ULONG *, UNICODE_STRING *, PULONG, int, int, __int64, char))(v6 + 152);
+  v9 = *(__int64 (__fastcall **)(__int64, int, DWORD *, UNICODE_STRING *, PULONG, int, int, __int64, char))(v6 + 152);
   v10 = (UNICODE_STRING *)*SecurityDescriptor;
   v17 = v6 + 76;
   v16 = *(_DWORD *)(v6 + 100);

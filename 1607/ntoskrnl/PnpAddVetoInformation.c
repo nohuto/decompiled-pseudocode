@@ -1,9 +1,9 @@
 /*
- * XREFs of PnpAddVetoInformation @ 0x140642760
+ * XREFs of PnpAddVetoInformation @ 0x140642844
  * Callers:
- *     PnpCollectOpenHandlesCallBack @ 0x14064294C (PnpCollectOpenHandlesCallBack.c)
+ *     PnpCollectOpenHandlesCallBack @ 0x140642A30 (PnpCollectOpenHandlesCallBack.c)
  * Callees:
- *     ObfReferenceObject @ 0x14006A060 (ObfReferenceObject.c)
+ *     ObfReferenceObject @ 0x140069BE0 (ObfReferenceObject.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
  *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
  */

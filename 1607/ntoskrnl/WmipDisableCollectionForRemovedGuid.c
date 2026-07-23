@@ -1,18 +1,18 @@
 /*
- * XREFs of WmipDisableCollectionForRemovedGuid @ 0x140532344
+ * XREFs of WmipDisableCollectionForRemovedGuid @ 0x140532884
  * Callers:
- *     WmipGenerateRegistrationNotification @ 0x140537750 (WmipGenerateRegistrationNotification.c)
- *     WmipUpdateDataSource @ 0x14069F36C (WmipUpdateDataSource.c)
+ *     WmipGenerateRegistrationNotification @ 0x140537C90 (WmipGenerateRegistrationNotification.c)
+ *     WmipUpdateDataSource @ 0x14069F4A4 (WmipUpdateDataSource.c)
  * Callees:
- *     KeReleaseMutex @ 0x140055FE0 (KeReleaseMutex.c)
- *     KeWaitForSingleObject @ 0x14005C880 (KeWaitForSingleObject.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     WmipFindGEByGuid @ 0x1404746D0 (WmipFindGEByGuid.c)
- *     WmipUnreferenceEntry @ 0x140505084 (WmipUnreferenceEntry.c)
- *     WmipSendWmiIrp @ 0x1405496D8 (WmipSendWmiIrp.c)
- *     WmipDoDisableRequest @ 0x1405497BC (WmipDoDisableRequest.c)
- *     WmipReleaseCollectionEnabled @ 0x14054CF24 (WmipReleaseCollectionEnabled.c)
+ *     KeReleaseMutex @ 0x140055B60 (KeReleaseMutex.c)
+ *     KeWaitForSingleObject @ 0x14005C400 (KeWaitForSingleObject.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     WmipFindGEByGuid @ 0x1404735A0 (WmipFindGEByGuid.c)
+ *     WmipUnreferenceEntry @ 0x1404E8014 (WmipUnreferenceEntry.c)
+ *     WmipSendWmiIrp @ 0x140549C18 (WmipSendWmiIrp.c)
+ *     WmipDoDisableRequest @ 0x140549CFC (WmipDoDisableRequest.c)
+ *     WmipReleaseCollectionEnabled @ 0x14054D464 (WmipReleaseCollectionEnabled.c)
  */
 
 int __fastcall WmipDisableCollectionForRemovedGuid(_QWORD *a1, __int64 a2)

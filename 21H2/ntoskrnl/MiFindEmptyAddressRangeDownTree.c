@@ -1,11 +1,11 @@
 /*
- * XREFs of MiFindEmptyAddressRangeDownTree @ 0x14068B3A8
+ * XREFs of MiFindEmptyAddressRangeDownTree @ 0x1405EB218
  * Callers:
- *     MiFindEmptyAddressRangeDown @ 0x14068B294 (MiFindEmptyAddressRangeDown.c)
- *     MiFinishCreateSection @ 0x140705C20 (MiFinishCreateSection.c)
+ *     MiFindEmptyAddressRangeDown @ 0x1405EB104 (MiFindEmptyAddressRangeDown.c)
+ *     MiFinishCreateSection @ 0x14071D000 (MiFinishCreateSection.c)
  * Callees:
- *     MiHonorRangeStraddleRequirement @ 0x1402AC618 (MiHonorRangeStraddleRequirement.c)
- *     memset @ 0x140414200 (memset.c)
+ *     MiHonorRangeStraddleRequirement @ 0x14022A21C (MiHonorRangeStraddleRequirement.c)
+ *     memset @ 0x140414300 (memset.c)
  */
 
 __int64 __fastcall MiFindEmptyAddressRangeDownTree(

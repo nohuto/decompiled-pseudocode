@@ -1,18 +1,19 @@
 /*
- * XREFs of RtlpHpLfhSubsegmentIncBlockCounts @ 0x1402B8E70
+ * XREFs of RtlpHpLfhSubsegmentIncBlockCounts @ 0x1403605B0
  * Callers:
- *     RtlpHpLfhSubsegmentCommitBlock @ 0x1402B9010 (RtlpHpLfhSubsegmentCommitBlock.c)
+ *     RtlpHpLfhSubsegmentAllocateBlockShared @ 0x14035FCA0 (RtlpHpLfhSubsegmentAllocateBlockShared.c)
+ *     RtlpHpLfhSubsegmentCommitBlock @ 0x140360750 (RtlpHpLfhSubsegmentCommitBlock.c)
  * Callees:
- *     RtlpHpAcquireLockExclusive @ 0x14020D790 (RtlpHpAcquireLockExclusive.c)
- *     RtlpHpLfhContextUpdateFreeCommitCount @ 0x1402B93D8 (RtlpHpLfhContextUpdateFreeCommitCount.c)
- *     RtlpHpReleaseLockExclusive @ 0x1402B9650 (RtlpHpReleaseLockExclusive.c)
+ *     RtlpHpAcquireLockExclusive @ 0x140336AF0 (RtlpHpAcquireLockExclusive.c)
+ *     RtlpHpLfhContextUpdateFreeCommitCount @ 0x140360B18 (RtlpHpLfhContextUpdateFreeCommitCount.c)
+ *     RtlpHpReleaseLockExclusive @ 0x140360D90 (RtlpHpReleaseLockExclusive.c)
  */
 
 __int64 __fastcall RtlpHpLfhSubsegmentIncBlockCounts(
         __int64 a1,
         __int64 a2,
         unsigned int a3,
-        int a4,
+        __int64 a4,
         _DWORD *a5,
         int a6,
         char *a7)
@@ -43,7 +44,7 @@ __int64 __fastcall RtlpHpLfhSubsegmentIncBlockCounts(
   v16 = -1;
   LODWORD(v22) = 0;
   v17 = 0;
-  v21 = &v15[((a3 + a4 - 1) >> 12 >> v12) - (unsigned int)v13 + 1];
+  v21 = &v15[((a3 + (_DWORD)a4 - 1) >> 12 >> v12) - (unsigned int)v13 + 1];
   if ( v15 >= v21 )
     goto LABEL_11;
   do
@@ -61,7 +62,7 @@ __int64 __fastcall RtlpHpLfhSubsegmentIncBlockCounts(
       if ( v7 )
         break;
       v7 = 1;
-      v11 = RtlpHpAcquireLockExclusive((int *)(a2 + 56), *(unsigned __int8 *)(a1 + 65), v13);
+      v11 = RtlpHpAcquireLockExclusive((int *)(a2 + 56), *(unsigned __int8 *)(a1 + 65));
     }
     if ( v18 )
     {
@@ -81,7 +82,7 @@ LABEL_7:
   }
   while ( v15 < v21 );
   if ( v17 )
-    RtlpHpLfhContextUpdateFreeCommitCount(a1, a2, (v17 << 12 << *(_BYTE *)(a2 + 38)) / 4096);
+    RtlpHpLfhContextUpdateFreeCommitCount(a1, a2, (v17 << 12 << *(_BYTE *)(a2 + 38)) / 4096, a4);
   if ( v16 == -1 )
   {
 LABEL_11:

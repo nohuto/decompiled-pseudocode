@@ -1,19 +1,19 @@
 /*
- * XREFs of ?KiAbForceProcessLockEntry@LegacyAutoBoost@@YAXPEAU_KLOCK_ENTRY@@@Z @ 0x1405FD774
+ * XREFs of ?KiAbForceProcessLockEntry@LegacyAutoBoost@@YAXPEAU_KLOCK_ENTRY@@@Z @ 0x1406001C4
  * Callers:
- *     ?KiAbMarkCrossThreadReleasable@LegacyAutoBoost@@YAXPEAX0@Z @ 0x140529BBC (-KiAbMarkCrossThreadReleasable@LegacyAutoBoost@@YAXPEAX0@Z.c)
+ *     ?KiAbMarkCrossThreadReleasable@LegacyAutoBoost@@YAXPEAX0@Z @ 0x14052C0D8 (-KiAbMarkCrossThreadReleasable@LegacyAutoBoost@@YAXPEAX0@Z.c)
  * Callees:
- *     ?KiAbEntryGetCpuPriorityKey@LegacyAutoBoost@@YACPEAU_KLOCK_ENTRY@@@Z @ 0x14026E8F8 (-KiAbEntryGetCpuPriorityKey@LegacyAutoBoost@@YACPEAU_KLOCK_ENTRY@@@Z.c)
- *     ?KiAbTryIncrementIoWaiterCounts@LegacyAutoBoost@@YAKPEAU_KLOCK_ENTRY@@0@Z @ 0x14026F458 (-KiAbTryIncrementIoWaiterCounts@LegacyAutoBoost@@YAKPEAU_KLOCK_ENTRY@@0@Z.c)
- *     ?KiAbCpuBoostOwners@LegacyAutoBoost@@YAXPEAU_KLOCK_ENTRY@@CPEAU_SINGLE_LIST_ENTRY@@11@Z @ 0x14026F540 (-KiAbCpuBoostOwners@LegacyAutoBoost@@YAXPEAU_KLOCK_ENTRY@@CPEAU_SINGLE_LIST_ENTRY@@11@Z.c)
- *     ?KiAbIoBoostOwners@LegacyAutoBoost@@YAXPEAU_KLOCK_ENTRY@@KPEAU_SINGLE_LIST_ENTRY@@11@Z @ 0x14026F648 (-KiAbIoBoostOwners@LegacyAutoBoost@@YAXPEAU_KLOCK_ENTRY@@KPEAU_SINGLE_LIST_ENTRY@@11@Z.c)
- *     ?KiAbOwnerComputeCpuPriorityKey@LegacyAutoBoost@@YACPEAU_KLOCK_ENTRY@@@Z @ 0x14026F754 (-KiAbOwnerComputeCpuPriorityKey@LegacyAutoBoost@@YACPEAU_KLOCK_ENTRY@@@Z.c)
- *     ?KiAbEntryUpdateWaiterTreePosition@LegacyAutoBoost@@YAXPEAU_KLOCK_ENTRY@@0@Z @ 0x1402702CC (-KiAbEntryUpdateWaiterTreePosition@LegacyAutoBoost@@YAXPEAU_KLOCK_ENTRY@@0@Z.c)
- *     ?KiAbEntryGetLockedHeadEntry@LegacyAutoBoost@@YAPEAU_KLOCK_ENTRY@@PEAU2@KPEAU_KLOCK_QUEUE_HANDLE@@@Z @ 0x140299AB0 (-KiAbEntryGetLockedHeadEntry@LegacyAutoBoost@@YAPEAU_KLOCK_ENTRY@@PEAU2@KPEAU_KLOCK_QUEUE_HANDLE.c)
- *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402B9F90 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
- *     KiProcessDeferredReadyList @ 0x14037C920 (KiProcessDeferredReadyList.c)
- *     EtwTraceAutoBoostProcessLockEntry @ 0x1404B141C (EtwTraceAutoBoostProcessLockEntry.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     ?KiAbEntryGetCpuPriorityKey@LegacyAutoBoost@@YACPEAU_KLOCK_ENTRY@@@Z @ 0x14026DE68 (-KiAbEntryGetCpuPriorityKey@LegacyAutoBoost@@YACPEAU_KLOCK_ENTRY@@@Z.c)
+ *     ?KiAbTryIncrementIoWaiterCounts@LegacyAutoBoost@@YAKPEAU_KLOCK_ENTRY@@0@Z @ 0x14026E9C8 (-KiAbTryIncrementIoWaiterCounts@LegacyAutoBoost@@YAKPEAU_KLOCK_ENTRY@@0@Z.c)
+ *     ?KiAbCpuBoostOwners@LegacyAutoBoost@@YAXPEAU_KLOCK_ENTRY@@CPEAU_SINGLE_LIST_ENTRY@@11@Z @ 0x14026EAB0 (-KiAbCpuBoostOwners@LegacyAutoBoost@@YAXPEAU_KLOCK_ENTRY@@CPEAU_SINGLE_LIST_ENTRY@@11@Z.c)
+ *     ?KiAbIoBoostOwners@LegacyAutoBoost@@YAXPEAU_KLOCK_ENTRY@@KPEAU_SINGLE_LIST_ENTRY@@11@Z @ 0x14026EBB8 (-KiAbIoBoostOwners@LegacyAutoBoost@@YAXPEAU_KLOCK_ENTRY@@KPEAU_SINGLE_LIST_ENTRY@@11@Z.c)
+ *     ?KiAbOwnerComputeCpuPriorityKey@LegacyAutoBoost@@YACPEAU_KLOCK_ENTRY@@@Z @ 0x14026ECC4 (-KiAbOwnerComputeCpuPriorityKey@LegacyAutoBoost@@YACPEAU_KLOCK_ENTRY@@@Z.c)
+ *     ?KiAbEntryUpdateWaiterTreePosition@LegacyAutoBoost@@YAXPEAU_KLOCK_ENTRY@@0@Z @ 0x14026F83C (-KiAbEntryUpdateWaiterTreePosition@LegacyAutoBoost@@YAXPEAU_KLOCK_ENTRY@@0@Z.c)
+ *     ?KiAbEntryGetLockedHeadEntry@LegacyAutoBoost@@YAPEAU_KLOCK_ENTRY@@PEAU2@KPEAU_KLOCK_QUEUE_HANDLE@@@Z @ 0x140299010 (-KiAbEntryGetLockedHeadEntry@LegacyAutoBoost@@YAPEAU_KLOCK_ENTRY@@PEAU2@KPEAU_KLOCK_QUEUE_HANDLE.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x140304C50 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KiProcessDeferredReadyList @ 0x14037E6D0 (KiProcessDeferredReadyList.c)
+ *     EtwTraceAutoBoostProcessLockEntry @ 0x1404AAAAC (EtwTraceAutoBoostProcessLockEntry.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x140523094 (KiRaiseIrqlProcessIrqlFlags.c)
  */
 
 void __fastcall LegacyAutoBoost::KiAbForceProcessLockEntry(
@@ -56,7 +56,7 @@ void __fastcall LegacyAutoBoost::KiAbForceProcessLockEntry(
   v8 = *(_QWORD *)&v6.0 & 0x7FFFFFFFFFFFFFFCLL;
   if ( v8 && (this->StaticByte & 0x80u) == 0 )
     v8 |= 0x8000000000000000uLL;
-  LockedHeadEntry = LegacyAutoBoost::KiAbEntryGetLockedHeadEntry((LegacyAutoBoost *)this, 1LL, (__int64)&LockHandle, a4);
+  LockedHeadEntry = LegacyAutoBoost::KiAbEntryGetLockedHeadEntry((LegacyAutoBoost *)this, 1LL, &LockHandle, a4);
   v13 = 320;
   if ( LockedHeadEntry )
   {
@@ -117,7 +117,7 @@ LABEL_24:
     goto LABEL_24;
   }
 LABEL_26:
-  if ( (WORD2(xmmword_140FBFC10) & 0x1000) != 0 )
+  if ( (WORD2(xmmword_140FC0C10) & 0x1000) != 0 )
     EtwTraceAutoBoostProcessLockEntry(this[-(this->StaticByte & 0x3F) - 1].EntryLock, v8, v13);
   LOBYTE(v11) = CurrentIrql;
   KiProcessDeferredReadyList(CurrentPrcb, &v23, (__int64)v11, v12);

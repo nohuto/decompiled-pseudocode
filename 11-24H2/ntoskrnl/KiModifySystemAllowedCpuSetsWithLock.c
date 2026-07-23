@@ -1,23 +1,23 @@
 /*
- * XREFs of KiModifySystemAllowedCpuSetsWithLock @ 0x1403C82C8
+ * XREFs of KiModifySystemAllowedCpuSetsWithLock @ 0x14048B680
  * Callers:
- *     KeModifySystemAllowedCpuSets @ 0x1403C6548 (KeModifySystemAllowedCpuSets.c)
- *     KeCpuPartitionMoveCpus @ 0x1405BF6B0 (KeCpuPartitionMoveCpus.c)
+ *     KeModifySystemAllowedCpuSets @ 0x14048B4B0 (KeModifySystemAllowedCpuSets.c)
+ *     KeCpuPartitionMoveCpus @ 0x1405BCCE0 (KeCpuPartitionMoveCpus.c)
  * Callees:
- *     KxAcquireSpinLock @ 0x140254AE0 (KxAcquireSpinLock.c)
- *     KeIsSubsetAffinityEx @ 0x1403B34F0 (KeIsSubsetAffinityEx.c)
- *     KiValidateCpuSetMasks @ 0x1403C8288 (KiValidateCpuSetMasks.c)
- *     KeCpuSetReportParkedProcessors @ 0x1403C8A00 (KeCpuSetReportParkedProcessors.c)
+ *     KxAcquireSpinLock @ 0x1402850F0 (KxAcquireSpinLock.c)
+ *     KeIsSubsetAffinityEx @ 0x1403A1D00 (KeIsSubsetAffinityEx.c)
+ *     KeCpuSetReportParkedProcessors @ 0x1403A35A0 (KeCpuSetReportParkedProcessors.c)
+ *     KiValidateCpuSetMasks @ 0x14048B8AC (KiValidateCpuSetMasks.c)
  */
 
 __int64 __fastcall KiModifySystemAllowedCpuSetsWithLock(
         unsigned int a1,
-        __int64 a2,
+        char *a2,
         unsigned __int16 *a3,
         int a4,
         int a5)
 {
-  __int64 v5; // r14
+  char *v5; // r14
   __int64 v6; // rbp
   __int64 v9; // rbx
   __int64 result; // rax
@@ -38,7 +38,7 @@ __int64 __fastcall KiModifySystemAllowedCpuSetsWithLock(
   v5 = a2;
   v6 = a4;
   v9 = 0LL;
-  result = KiValidateCpuSetMasks(a2, a1);
+  result = KiValidateCpuSetMasks(a2);
   if ( (int)result < 0 )
     return result;
   if ( a3 && !(unsigned int)KeIsSubsetAffinityEx(a3, &KeActiveProcessors.Count) )
@@ -62,12 +62,12 @@ LABEL_25:
     goto LABEL_25;
   v15 = 0;
   v16 = 0LL;
-  v17 = (char *)&KeActiveProcessors.8 - v5;
+  v17 = (char *)((char *)&KeActiveProcessors.8 - v5);
   v23 = &KiSystemAllowedCpuSets[v6];
-  v18 = (char *)&KiReservedCpuSets - v5;
+  v18 = (char *)(&KiReservedCpuSets - (_UNKNOWN *)v5);
   do
   {
-    v19 = *(_QWORD *)&v17[v5];
+    v19 = *(_QWORD *)&v5[(_QWORD)v17];
     if ( a3 )
     {
       if ( (unsigned __int16)v15 >= *a3 )
@@ -83,7 +83,7 @@ LABEL_25:
     {
       v20 = 0LL;
       if ( !(_DWORD)v6 )
-        v20 = *(_QWORD *)&v17[v5];
+        v20 = *(_QWORD *)&v5[(_QWORD)v17];
     }
     if ( a5 )
     {
@@ -100,7 +100,7 @@ LABEL_25:
     {
       v9 = v20;
     }
-    v21 = ~*(_QWORD *)&v18[v5] & v9;
+    v21 = ~*(_QWORD *)&v18[(_QWORD)v5] & v9;
     if ( (unsigned __int16)v15 >= **(_WORD **)KiSystemCpuPartition )
       v22 = 0LL;
     else
@@ -111,7 +111,7 @@ LABEL_25:
       v12 = 1;
     v23 += 2;
     ++v15;
-    v5 += 8LL;
+    v5 += 8;
     v16 += 2LL;
   }
   while ( v15 < 0x20 );

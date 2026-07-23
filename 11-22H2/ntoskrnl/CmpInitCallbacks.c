@@ -7,9 +7,9 @@
  *     RtlRaiseStatus @ 0x1403215D0 (RtlRaiseStatus.c)
  */
 
-union _SLIST_HEADER *CmpInitCallbacks()
+_SLIST_HEADER *CmpInitCallbacks()
 {
-  union _SLIST_HEADER *result; // rax
+  _SLIST_HEADER *result; // rax
 
   CmpCallBackCount = 0;
   CmpCallbackListLock = 0LL;

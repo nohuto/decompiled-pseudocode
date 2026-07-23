@@ -17,17 +17,15 @@
  *     NtTerminateThread @ 0x1800A4AD0 (NtTerminateThread.c)
  */
 
-void __fastcall __noreturn RtlExitUserThread(unsigned int a1)
+void __cdecl __noreturn RtlExitUserThread(NTSTATUS ExitStatus)
 {
-  int v2; // [rsp+48h] [rbp+10h] BYREF
+  int ThreadInformation; // [rsp+48h] [rbp+10h] BYREF
 
-  v2 = 0;
-  if ( (int)ZwQueryInformationThread(-2LL, 12LL, &v2, 4LL, 0LL) < 0 || !v2 )
+  ThreadInformation = 0;
+  if ( ZwQueryInformationThread((HANDLE)0xFFFFFFFFFFFFFFFELL, ThreadAmILastThread, &ThreadInformation, 4u, 0LL) >= 0 )
   {
-    LdrShutdownThread();
-    TpCheckTerminateWorker(0LL);
-    NtTerminateThread(0LL, a1);
+    if ( ThreadInformation )
+      RtlExitUserProcess(ExitStatus);
   }
-  RtlExitUserProcess(a1);
-  JUMPOUT(0x1800048F5LL);
+  LdrShutdownThread();
 }

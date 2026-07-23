@@ -1,12 +1,12 @@
 /*
- * XREFs of MiMakeIoRangePermanent @ 0x1406F4764
+ * XREFs of MiMakeIoRangePermanent @ 0x1406F93D0
  * Callers:
- *     MiMakeIoRangePermanentDpc @ 0x1406F4A20 (MiMakeIoRangePermanentDpc.c)
+ *     MiMakeIoRangePermanentDpc @ 0x1406F9690 (MiMakeIoRangePermanentDpc.c)
  * Callees:
- *     MiFlushEntireTbDueToAttributeChange @ 0x14024FD8C (MiFlushEntireTbDueToAttributeChange.c)
- *     RtlAvlInsertNodeEx @ 0x14030CA60 (RtlAvlInsertNodeEx.c)
- *     MiLockIoPfnTree @ 0x1406F4668 (MiLockIoPfnTree.c)
- *     MiUnlockIoPfnTree @ 0x1406F4E8C (MiUnlockIoPfnTree.c)
+ *     MiFlushEntireTbDueToAttributeChange @ 0x1402516EC (MiFlushEntireTbDueToAttributeChange.c)
+ *     RtlAvlInsertNodeEx @ 0x1402EEAE0 (RtlAvlInsertNodeEx.c)
+ *     MiLockIoPfnTree @ 0x1406F92D4 (MiLockIoPfnTree.c)
+ *     MiUnlockIoPfnTree @ 0x1406F9AFC (MiUnlockIoPfnTree.c)
  */
 
 __int64 __fastcall MiMakeIoRangePermanent(__int64 a1)
@@ -43,9 +43,9 @@ __int64 __fastcall MiMakeIoRangePermanent(__int64 a1)
   v3 = 0;
   v4 = *(_QWORD *)(a1 + 24);
   MiLockIoPfnTree(6);
-  v6 = (_QWORD *)*((_QWORD *)&xmmword_140E35EC0 + 1);
+  v6 = (_QWORD *)*((_QWORD *)&xmmword_140E36040 + 1);
   v7 = 0LL;
-  if ( !*((_QWORD *)&xmmword_140E35EC0 + 1) )
+  if ( !*((_QWORD *)&xmmword_140E36040 + 1) )
     goto LABEL_8;
   v8 = *(_QWORD *)(a1 + 32);
   while ( 1 )
@@ -67,12 +67,12 @@ LABEL_7:
   {
     LOBYTE(v8) = 17;
     MiUnlockIoPfnTree(v8, 6LL, v5, 0LL);
-    _InterlockedIncrement(&dword_140E35F10);
+    _InterlockedIncrement(&dword_140E36090);
     return 3221225496LL;
   }
 LABEL_8:
-  v10 = (_QWORD *)qword_140E35E80;
-  if ( !qword_140E35E80 )
+  v10 = (_QWORD *)qword_140E36000;
+  if ( !qword_140E36000 )
     goto LABEL_43;
   v11 = 0LL;
   while ( 2 )
@@ -115,16 +115,16 @@ LABEL_13:
       while ( v15 < v16 )
       {
         v19 = 2
-            * (((unsigned int)v4 & ((unsigned int)(1LL << ((unsigned __int8)dword_140E2D6F8 - 12)) - 1))
+            * (((unsigned int)v4 & ((unsigned int)(1LL << ((unsigned __int8)dword_140E2D878 - 12)) - 1))
              - *((_DWORD *)v11 + 6));
         v20 = (*((_DWORD *)v11 + (v19 >> 5) + 11) >> (2
-                                                    * ((v4 & ((1LL << ((unsigned __int8)dword_140E2D6F8 - 12)) - 1))
+                                                    * ((v4 & ((1LL << ((unsigned __int8)dword_140E2D878 - 12)) - 1))
                                                      - *((_BYTE *)v11 + 24)))) & 3;
         if ( v20 != (_DWORD)v5 )
         {
           if ( *v18 )
           {
-            ++dword_140E35F00;
+            ++dword_140E36080;
             goto LABEL_57;
           }
           if ( v20 != 3 && !v3 )
@@ -133,9 +133,9 @@ LABEL_13:
             v7 = 0LL;
             v3 = 1;
           }
-          v21 = (2 * ((v4 & ((1LL << ((unsigned __int8)dword_140E2D6F8 - 12)) - 1)) - *((_BYTE *)v11 + 24))) & 0x1F;
+          v21 = (2 * ((v4 & ((1LL << ((unsigned __int8)dword_140E2D878 - 12)) - 1)) - *((_BYTE *)v11 + 24))) & 0x1F;
           v22 = (unsigned __int64)(2
-                                 * (((unsigned int)v4 & ((unsigned int)(1LL << ((unsigned __int8)dword_140E2D6F8 - 12))
+                                 * (((unsigned int)v4 & ((unsigned int)(1LL << ((unsigned __int8)dword_140E2D878 - 12))
                                                        - 1))
                                   - *((_DWORD *)v11 + 6))) >> 5;
           *((_DWORD *)v11 + v22 + 11) = (v28 << v21) | *((_DWORD *)v11 + v22 + 11) & ~(3 << v21);
@@ -171,12 +171,12 @@ LABEL_13:
     while ( v11 );
   }
 LABEL_43:
-  v26 = (_QWORD *)xmmword_140E35EC0;
+  v26 = (_QWORD *)xmmword_140E36040;
   LOBYTE(v5) = 0;
-  if ( !(_QWORD)xmmword_140E35EC0 )
+  if ( !(_QWORD)xmmword_140E36040 )
   {
 LABEL_49:
-    RtlAvlInsertNodeEx((unsigned __int64 *)&xmmword_140E35EC0, (unsigned __int64)v26, v5, (_QWORD *)a1);
+    RtlAvlInsertNodeEx((unsigned __int64 *)&xmmword_140E36040, (unsigned __int64)v26, v5, (_QWORD *)a1);
     goto LABEL_50;
   }
   v19 = *(_QWORD *)(a1 + 32);
@@ -203,13 +203,13 @@ LABEL_55:
     }
     goto LABEL_55;
   }
-  ++dword_140E35F04;
+  ++dword_140E36084;
 LABEL_57:
   v2 = -1073741800;
 LABEL_50:
   LOBYTE(v19) = 17;
   MiUnlockIoPfnTree(v19, 6LL, v5, v7);
   if ( v2 < 0 )
-    _InterlockedIncrement(&dword_140E35F10);
+    _InterlockedIncrement(&dword_140E36090);
   return (unsigned int)v2;
 }

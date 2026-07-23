@@ -1,11 +1,11 @@
 /*
- * XREFs of KiConfigureSchedulingInformation @ 0x140BF3AF0
+ * XREFs of KiConfigureSchedulingInformation @ 0x140BF9AF0
  * Callers:
- *     KiInitializeDynamicProcessorDpc @ 0x140BF5030 (KiInitializeDynamicProcessorDpc.c)
- *     KiConfigureAllSchedulingInformation @ 0x140CC99F0 (KiConfigureAllSchedulingInformation.c)
+ *     KiInitializeDynamicProcessorDpc @ 0x140BFB030 (KiInitializeDynamicProcessorDpc.c)
+ *     KiConfigureAllSchedulingInformation @ 0x140CCFA80 (KiConfigureAllSchedulingInformation.c)
  * Callees:
- *     KiConfigureCpuSetSchedulingInformation @ 0x1403EDC14 (KiConfigureCpuSetSchedulingInformation.c)
- *     KiQuerySubNodeActiveAffinity @ 0x140467FD0 (KiQuerySubNodeActiveAffinity.c)
+ *     KiConfigureCpuSetSchedulingInformation @ 0x140452744 (KiConfigureCpuSetSchedulingInformation.c)
+ *     KiQuerySubNodeActiveAffinity @ 0x140461720 (KiQuerySubNodeActiveAffinity.c)
  */
 
 __int64 __fastcall KiConfigureSchedulingInformation(__int64 a1)

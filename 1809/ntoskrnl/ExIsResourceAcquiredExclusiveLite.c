@@ -1,11 +1,11 @@
 /*
- * XREFs of ExIsResourceAcquiredExclusiveLite @ 0x140107CC0
+ * XREFs of ExIsResourceAcquiredExclusiveLite @ 0x140107D40
  * Callers:
- *     HvpTruncateBins @ 0x1405A818C (HvpTruncateBins.c)
- *     CmpCleanUpKcbValueCache @ 0x1405D432C (CmpCleanUpKcbValueCache.c)
+ *     HvpTruncateBins @ 0x1405A918C (HvpTruncateBins.c)
+ *     CmpCleanUpKcbValueCache @ 0x1405D532C (CmpCleanUpKcbValueCache.c)
  * Callees:
- *     ExIsFastResourceHeldExclusive @ 0x1401648D0 (ExIsFastResourceHeldExclusive.c)
- *     KeBugCheckEx @ 0x1401BBBC0 (KeBugCheckEx.c)
+ *     ExIsFastResourceHeldExclusive @ 0x1401649D0 (ExIsFastResourceHeldExclusive.c)
+ *     KeBugCheckEx @ 0x1401BBD20 (KeBugCheckEx.c)
  */
 
 BOOLEAN __stdcall ExIsResourceAcquiredExclusiveLite(PERESOURCE Resource)

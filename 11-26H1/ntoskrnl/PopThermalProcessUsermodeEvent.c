@@ -1,16 +1,16 @@
 /*
- * XREFs of PopThermalProcessUsermodeEvent @ 0x140B44A20
+ * XREFs of PopThermalProcessUsermodeEvent @ 0x140B46A5C
  * Callers:
- *     NtPowerInformation @ 0x1409DE3E0 (NtPowerInformation.c)
+ *     NtPowerInformation @ 0x140A1B510 (NtPowerInformation.c)
  * Callees:
- *     PopReleaseRwLock @ 0x14043630C (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x140436378 (PopAcquireRwLockExclusive.c)
- *     PopThermalWriteShutdownToRegistry @ 0x140500640 (PopThermalWriteShutdownToRegistry.c)
- *     PopThermalEventTransitionDisableDeepSleep @ 0x140512170 (PopThermalEventTransitionDisableDeepSleep.c)
- *     PopDiagTraceUsermodeTripPointExceeded @ 0x140B44B40 (PopDiagTraceUsermodeTripPointExceeded.c)
- *     PopDiagTraceTripPointExceeded @ 0x140B44BB8 (PopDiagTraceTripPointExceeded.c)
- *     PopSqmThermalUsermodeEvent @ 0x140B44C98 (PopSqmThermalUsermodeEvent.c)
- *     PopDiagTraceUsermodeThermalEvent @ 0x140B44D90 (PopDiagTraceUsermodeThermalEvent.c)
+ *     PopReleaseRwLock @ 0x14021B1A8 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x140425310 (PopAcquireRwLockExclusive.c)
+ *     PopThermalWriteShutdownToRegistry @ 0x1404F9E30 (PopThermalWriteShutdownToRegistry.c)
+ *     PopThermalEventTransitionDisableDeepSleep @ 0x14050BBE0 (PopThermalEventTransitionDisableDeepSleep.c)
+ *     PopDiagTraceUsermodeTripPointExceeded @ 0x140B46B7C (PopDiagTraceUsermodeTripPointExceeded.c)
+ *     PopDiagTraceTripPointExceeded @ 0x140B46BF4 (PopDiagTraceTripPointExceeded.c)
+ *     PopSqmThermalUsermodeEvent @ 0x140B46CD4 (PopSqmThermalUsermodeEvent.c)
+ *     PopDiagTraceUsermodeThermalEvent @ 0x140B46DCC (PopDiagTraceUsermodeThermalEvent.c)
  */
 
 __int64 __fastcall PopThermalProcessUsermodeEvent(__int64 a1)
@@ -34,9 +34,9 @@ __int64 __fastcall PopThermalProcessUsermodeEvent(__int64 a1)
     {
       PopDiagTraceUsermodeTripPointExceeded(*(unsigned __int16 *)(a1 + 12), a1 + 14, *(unsigned int *)(a1 + 8), 0LL);
       PopSqmThermalUsermodeEvent(*(unsigned __int16 *)(a1 + 12), a1 + 14, *(_DWORD *)(a1 + 8), *(_DWORD *)(a1 + 4), 0);
-      PopAcquireRwLockExclusive(&stru_140F0F620.Spare35[1], v5, v6, v7);
-      BYTE2(stru_140F0F620.SystemAffinityTokenListHead.Next) = 1;
-      PopReleaseRwLock((struct _KTHREAD *)&stru_140F0F620.Spare35[1]);
+      PopAcquireRwLockExclusive((unsigned __int64 *)&PopThermalStateTransitionContext, v5, v6, v7);
+      byte_140F0FCF2 = 1;
+      PopReleaseRwLock((struct _KTHREAD *)&PopThermalStateTransitionContext);
     }
   }
   else

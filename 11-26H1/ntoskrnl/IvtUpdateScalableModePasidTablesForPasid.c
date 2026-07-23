@@ -1,14 +1,14 @@
 /*
- * XREFs of IvtUpdateScalableModePasidTablesForPasid @ 0x140522078
+ * XREFs of IvtUpdateScalableModePasidTablesForPasid @ 0x1405246E4
  * Callers:
- *     IvtUpdateScalableModeTranslationStructures @ 0x1405001A0 (IvtUpdateScalableModeTranslationStructures.c)
- *     IvtSetupScalableModeDefaultPasidTables @ 0x140BF08FC (IvtSetupScalableModeDefaultPasidTables.c)
+ *     IvtUpdateScalableModeTranslationStructures @ 0x1404F9990 (IvtUpdateScalableModeTranslationStructures.c)
+ *     IvtSetupScalableModeDefaultPasidTables @ 0x140BF68FC (IvtSetupScalableModeDefaultPasidTables.c)
  * Callees:
- *     MmGetPhysicalAddress @ 0x14024D8F0 (MmGetPhysicalAddress.c)
- *     IvtBuildScalableModePasidTableS2Entry @ 0x140511A30 (IvtBuildScalableModePasidTableS2Entry.c)
- *     IvtBuildScalableModePasidTableS1Entry @ 0x14052215C (IvtBuildScalableModePasidTableS1Entry.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     MmGetPhysicalAddress @ 0x14024F250 (MmGetPhysicalAddress.c)
+ *     IvtBuildScalableModePasidTableS2Entry @ 0x14050B4A0 (IvtBuildScalableModePasidTableS2Entry.c)
+ *     IvtBuildScalableModePasidTableS1Entry @ 0x1405247C8 (IvtBuildScalableModePasidTableS1Entry.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 unsigned __int64 __fastcall IvtUpdateScalableModePasidTablesForPasid(

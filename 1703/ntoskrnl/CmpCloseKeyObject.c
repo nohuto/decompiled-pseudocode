@@ -40,7 +40,7 @@ __int64 (__fastcall *__fastcall CmpCloseKeyObject(
   result = (__int64 (__fastcall *)(__int64, LARGE_INTEGER *, _QWORD, _QWORD, __int64, _QWORD))CmpTraceRoutine;
   if ( CmpTraceRoutine )
   {
-    EtwGetKernelTraceTimestamp(v14, (char *)0x20000);
+    EtwGetKernelTraceTimestamp(v14, 0x20000u);
     result = (__int64 (__fastcall *)(__int64, LARGE_INTEGER *, _QWORD, _QWORD, __int64, _QWORD))CmpTraceRoutine;
     if ( CmpTraceRoutine )
     {

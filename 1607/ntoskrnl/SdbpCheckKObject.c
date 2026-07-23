@@ -1,18 +1,18 @@
 /*
- * XREFs of SdbpCheckKObject @ 0x140572FBC
+ * XREFs of SdbpCheckKObject @ 0x1405734FC
  * Callers:
- *     SdbGetDatabaseMatchEx @ 0x140484B38 (SdbGetDatabaseMatchEx.c)
+ *     SdbGetDatabaseMatchEx @ 0x140513EC0 (SdbGetDatabaseMatchEx.c)
  * Callees:
- *     memset @ 0x1401715C0 (memset.c)
- *     SdbpReleaseSearchDBContext @ 0x1404852B4 (SdbpReleaseSearchDBContext.c)
- *     AslFileMappingDelete @ 0x140485350 (AslFileMappingDelete.c)
- *     SdbpCreateSearchDBContext @ 0x1404853AC (SdbpCreateSearchDBContext.c)
- *     AslFileMappingCreate @ 0x14049D54C (AslFileMappingCreate.c)
- *     SdbpMatchCpu @ 0x1405730E8 (SdbpMatchCpu.c)
- *     SdbpMatchBios @ 0x140573138 (SdbpMatchBios.c)
- *     SdbpMatchOem @ 0x140573188 (SdbpMatchOem.c)
- *     SdbpMatchAcpi @ 0x1405731D8 (SdbpMatchAcpi.c)
- *     SdbpCheckForMatch @ 0x140573228 (SdbpCheckForMatch.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     SdbpReleaseSearchDBContext @ 0x14051463C (SdbpReleaseSearchDBContext.c)
+ *     AslFileMappingDelete @ 0x1405146D8 (AslFileMappingDelete.c)
+ *     SdbpCreateSearchDBContext @ 0x140514734 (SdbpCreateSearchDBContext.c)
+ *     AslFileMappingCreate @ 0x1405153C4 (AslFileMappingCreate.c)
+ *     SdbpMatchCpu @ 0x140573628 (SdbpMatchCpu.c)
+ *     SdbpMatchBios @ 0x140573678 (SdbpMatchBios.c)
+ *     SdbpMatchOem @ 0x1405736C8 (SdbpMatchOem.c)
+ *     SdbpMatchAcpi @ 0x140573718 (SdbpMatchAcpi.c)
+ *     SdbpCheckForMatch @ 0x140573768 (SdbpCheckForMatch.c)
  */
 
 __int64 __fastcall SdbpCheckKObject(

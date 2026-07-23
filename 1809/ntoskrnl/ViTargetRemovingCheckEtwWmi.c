@@ -1,10 +1,10 @@
 /*
- * XREFs of ViTargetRemovingCheckEtwWmi @ 0x140935164
+ * XREFs of ViTargetRemovingCheckEtwWmi @ 0x140936164
  * Callers:
- *     VfTargetDriversRemove @ 0x14016C1E0 (VfTargetDriversRemove.c)
+ *     VfTargetDriversRemove @ 0x14016C2E0 (VfTargetDriversRemove.c)
  * Callees:
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     VerifierBugCheckIfAppropriate @ 0x14092FD84 (VerifierBugCheckIfAppropriate.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     VerifierBugCheckIfAppropriate @ 0x140930D84 (VerifierBugCheckIfAppropriate.c)
  */
 
 void __fastcall ViTargetRemovingCheckEtwWmi(__int64 a1, ULONG_PTR a2)

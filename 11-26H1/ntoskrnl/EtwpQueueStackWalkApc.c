@@ -1,9 +1,9 @@
 /*
- * XREFs of EtwpQueueStackWalkApc @ 0x14020A930
+ * XREFs of EtwpQueueStackWalkApc @ 0x14020AA10
  * Callers:
- *     EtwpEventWriteFull @ 0x14021336C (EtwpEventWriteFull.c)
+ *     EtwpEventWriteFull @ 0x14021344C (EtwpEventWriteFull.c)
  * Callees:
- *     EtwpQueueApc @ 0x14020AA10 (EtwpQueueApc.c)
+ *     EtwpQueueApc @ 0x14020AAF0 (EtwpQueueApc.c)
  */
 
 char __fastcall EtwpQueueStackWalkApc(__int64 a1, unsigned __int8 a2, __int64 a3, unsigned __int8 a4, unsigned int *a5)

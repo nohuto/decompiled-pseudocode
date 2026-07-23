@@ -1,13 +1,13 @@
 /*
- * XREFs of MmGetPageFileForCrashDump @ 0x1407EFAE0
+ * XREFs of MmGetPageFileForCrashDump @ 0x1407F00B0
  * Callers:
- *     IoConfigureCrashDump @ 0x140590DB4 (IoConfigureCrashDump.c)
+ *     IoConfigureCrashDump @ 0x14058DDD4 (IoConfigureCrashDump.c)
  * Callees:
- *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
- *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
- *     KiCheckForKernelApcDelivery @ 0x1402BB4D0 (KiCheckForKernelApcDelivery.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
- *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
+ *     ExfTryToWakePushLock @ 0x14028FFB0 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14031F1E0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14031F730 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x1403627A0 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x140362C10 (KiCheckForKernelApcDelivery.c)
  */
 
 __int64 __fastcall MmGetPageFileForCrashDump(_OWORD *a1)
@@ -15,30 +15,29 @@ __int64 __fastcall MmGetPageFileForCrashDump(_OWORD *a1)
   struct _KTHREAD *CurrentThread; // rbx
   __int64 v3; // rsi
   unsigned __int64 v4; // r14
-  _QWORD *v5; // rax
+  char *v5; // rax
   signed __int8 v6; // cf
-  _QWORD *v7; // rdi
+  char *v7; // rdi
   char *v8; // r8
   __int64 v9; // r9
   __int64 v10; // rdx
-  __int64 v11; // rdx
-  $81B80DCEA5A02D890AB7B2872B48AC01 *v13; // rcx
+  bool v11; // zf
 
   *a1 = 0LL;
   CurrentThread = KeGetCurrentThread();
   v3 = 0LL;
   v4 = 0LL;
   --CurrentThread->SpecialApcDisable;
-  v5 = KeAbPreAcquire((__int64)qword_140E39040, 0LL);
-  v6 = _interlockedbittestandset64((volatile signed __int32 *)qword_140E39040, 0LL);
+  v5 = (char *)KeAbPreAcquire((__int64)qword_140E39180, 0LL);
+  v6 = _interlockedbittestandset64((volatile signed __int32 *)qword_140E39180, 0LL);
   v7 = v5;
   if ( v6 )
-    ExfAcquirePushLockExclusiveEx(qword_140E39040, (__int64)v5, (__int64)qword_140E39040);
+    ExfAcquirePushLockExclusiveEx(qword_140E39180, v5, (__int64)qword_140E39180);
   if ( v7 )
-    *((_BYTE *)v7 + 10) = 1;
+    v7[10] = 1;
   if ( Count )
   {
-    v8 = (char *)&unk_140E3D460;
+    v8 = (char *)&unk_140E3D5A0;
     v9 = Count;
     do
     {
@@ -55,14 +54,11 @@ __int64 __fastcall MmGetPageFileForCrashDump(_OWORD *a1)
     }
     while ( v9 );
   }
-  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)qword_140E39040, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
-    ExfTryToWakePushLock((volatile signed __int64 *)qword_140E39040);
-  KeAbPostRelease((ULONG_PTR)qword_140E39040);
-  if ( CurrentThread->SpecialApcDisable++ == -1 )
-  {
-    v13 = &CurrentThread->152;
-    if ( ($81B80DCEA5A02D890AB7B2872B48AC01 *)v13->ApcState.ApcListHead[0].Flink != v13 )
-      KiCheckForKernelApcDelivery((__int64)v13, v11);
-  }
+  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)qword_140E39180, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    ExfTryToWakePushLock((volatile signed __int64 *)qword_140E39180);
+  KeAbPostRelease((ULONG_PTR)qword_140E39180);
+  v11 = CurrentThread->SpecialApcDisable++ == -1;
+  if ( v11 && ($727077A9B6E167EAE1398C74674DC5A5 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+    KiCheckForKernelApcDelivery();
   return v3;
 }

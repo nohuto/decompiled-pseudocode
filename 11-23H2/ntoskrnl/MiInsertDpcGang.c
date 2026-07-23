@@ -1,7 +1,7 @@
 /*
- * XREFs of MiInsertDpcGang @ 0x14038B7B0
+ * XREFs of MiInsertDpcGang @ 0x14038B990
  * Callers:
- *     MiAllocateFastLargePagesForMdl @ 0x14038B504 (MiAllocateFastLargePagesForMdl.c)
+ *     MiAllocateFastLargePagesForMdl @ 0x14038B6E4 (MiAllocateFastLargePagesForMdl.c)
  * Callees:
  *     <none>
  */

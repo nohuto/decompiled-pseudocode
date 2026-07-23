@@ -9,10 +9,10 @@
  *     _RtlpLogHeapSubSegmentAllocCached@16 @ 0x4B36F34D (_RtlpLogHeapSubSegmentAllocCached@16.c)
  */
 
-int __fastcall RtlpAllocateUserBlock(int a1, unsigned __int8 a2, int a3, char a4)
+_BYTE *__fastcall RtlpAllocateUserBlock(int a1, unsigned __int8 a2, int a3, char a4)
 {
   int v4; // edi
-  int UserBlockFromHeap; // esi
+  _BYTE *UserBlockFromHeap; // esi
   unsigned int v6; // eax
   unsigned int v7; // ebx
   _DWORD *SharedData; // eax
@@ -27,22 +27,22 @@ int __fastcall RtlpAllocateUserBlock(int a1, unsigned __int8 a2, int a3, char a4
   v15 = a1 + 32 * a2;
   v4 = v15 - 168;
   ++*(_WORD *)(v15 - 168 + 20);
-  RtlAcquireSRWLockExclusive(&RtlpSlistLockedAltLocks[((unsigned int)(v15 - 168) >> 2) & 0x1F]);
-  UserBlockFromHeap = *(_DWORD *)(v15 - 168);
+  RtlAcquireSRWLockExclusive(&RtlpSlistLockedAltLocks + (((unsigned int)(v15 - 168) >> 2) & 0x1F));
+  UserBlockFromHeap = *(_BYTE **)(v15 - 168);
   if ( UserBlockFromHeap )
   {
     *(_DWORD *)v4 = *(_DWORD *)UserBlockFromHeap;
     --*(_WORD *)(v4 + 4);
   }
-  RtlReleaseSRWLockExclusive(&RtlpSlistLockedAltLocks[((unsigned int)(v15 - 168) >> 2) & 0x1F]);
+  RtlReleaseSRWLockExclusive(&RtlpSlistLockedAltLocks + (((unsigned int)(v15 - 168) >> 2) & 0x1F));
   if ( UserBlockFromHeap )
   {
     ++*(_WORD *)(v4 + 24);
 LABEL_5:
-    v6 = 1 << *(_BYTE *)(UserBlockFromHeap + 8);
+    v6 = 1 << UserBlockFromHeap[8];
     if ( v6 > 0x78000 )
       v6 = 491520;
-    v7 = v6 + *(unsigned __int16 *)(UserBlockFromHeap + 10);
+    v7 = v6 + *((unsigned __int16 *)UserBlockFromHeap + 5);
     SharedData = NtCurrentPeb()->SharedData;
     if ( SharedData && *SharedData )
       v9 = (int)NtCurrentPeb()->SharedData + 550;
@@ -56,18 +56,18 @@ LABEL_5:
   if ( a2 > 7u )
   {
     v16 = v15 - 200;
-    RtlAcquireSRWLockExclusive(&RtlpSlistLockedAltLocks[(v16 >> 2) & 0x1F]);
-    UserBlockFromHeap = *(_DWORD *)v16;
+    RtlAcquireSRWLockExclusive(&RtlpSlistLockedAltLocks + ((v16 >> 2) & 0x1F));
+    UserBlockFromHeap = *(_BYTE **)v16;
     if ( *(_DWORD *)v16 )
     {
       *(_DWORD *)v16 = *(_DWORD *)UserBlockFromHeap;
       --*(_WORD *)(v16 + 4);
     }
-    RtlReleaseSRWLockExclusive(&RtlpSlistLockedAltLocks[(v16 >> 2) & 0x1F]);
+    RtlReleaseSRWLockExclusive(&RtlpSlistLockedAltLocks + ((v16 >> 2) & 0x1F));
     if ( UserBlockFromHeap )
       goto LABEL_5;
   }
-  UserBlockFromHeap = RtlpAllocateUserBlockFromHeap(*(_DWORD *)(a1 + 12), a2, a3, a4);
+  UserBlockFromHeap = RtlpAllocateUserBlockFromHeap(*(PRTL_CRITICAL_SECTION **)(a1 + 12), a2, a3, a4);
   if ( UserBlockFromHeap )
     _InterlockedIncrement((volatile signed __int32 *)(a1 + 32 * (a2 - 5)));
 LABEL_11:

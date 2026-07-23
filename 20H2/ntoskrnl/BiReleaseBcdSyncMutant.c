@@ -19,11 +19,11 @@
  *     ZwReleaseMutant @ 0x1403F8570 (ZwReleaseMutant.c)
  */
 
-__int64 __fastcall BiReleaseBcdSyncMutant(char a1)
+NTSTATUS __fastcall BiReleaseBcdSyncMutant(char a1)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
   if ( !a1 && BcdMutantHandle != (HANDLE)-1LL )
-    return ZwReleaseMutant((__int64)BcdMutantHandle, 0LL);
+    return ZwReleaseMutant(BcdMutantHandle, 0LL);
   return result;
 }

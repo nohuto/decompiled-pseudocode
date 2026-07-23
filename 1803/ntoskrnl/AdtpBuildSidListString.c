@@ -19,8 +19,8 @@ __int64 __fastcall AdtpBuildSidListString(unsigned int *a1, __int64 a2, __int64 
   char v10; // r12
   unsigned int v11; // r13d
   unsigned int v12; // esi
-  unsigned __int8 **v13; // rcx
-  unsigned __int8 *v14; // rcx
+  void **v13; // rcx
+  void *v14; // rcx
   unsigned int v15; // edx
   unsigned int v16; // ecx
   __int64 v17; // rax
@@ -28,11 +28,11 @@ __int64 __fastcall AdtpBuildSidListString(unsigned int *a1, __int64 a2, __int64 
   unsigned int v19; // r13d
   __int64 v20; // rsi
   PSID *v21; // rsi
-  unsigned int v23; // [rsp+20h] [rbp-E0h] BYREF
+  ULONG StringLength; // [rsp+20h] [rbp-E0h] BYREF
   unsigned int v24; // [rsp+24h] [rbp-DCh]
   UNICODE_STRING Destination; // [rsp+28h] [rbp-D8h] BYREF
   UNICODE_STRING UnicodeString; // [rsp+38h] [rbp-C8h] BYREF
-  unsigned __int8 **v27; // [rsp+48h] [rbp-B8h]
+  void **v27; // [rsp+48h] [rbp-B8h]
   char *v28; // [rsp+50h] [rbp-B0h]
   char v29; // [rsp+60h] [rbp-A0h] BYREF
 
@@ -45,16 +45,16 @@ __int64 __fastcall AdtpBuildSidListString(unsigned int *a1, __int64 a2, __int64 
   if ( a1 && (v11 = *a1) != 0 )
   {
     v12 = 1;
-    v13 = (unsigned __int8 **)(*((_QWORD *)a1 + 1) + 8LL);
+    v13 = (void **)(*((_QWORD *)a1 + 1) + 8LL);
     v24 = 0;
     v27 = v13;
     while ( 1 )
     {
       v14 = *v13;
-      v23 = 0;
-      RtlLengthSidAsUnicodeString(v14, &v23);
+      StringLength = 0;
+      RtlLengthSidAsUnicodeString(v14, &StringLength);
       v15 = v12;
-      v16 = v12 + (v23 >> 1) + 7;
+      v16 = v12 + (StringLength >> 1) + 7;
       v12 = -1;
       if ( v16 >= v15 )
         v12 = v16;

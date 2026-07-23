@@ -1,9 +1,9 @@
 /*
- * XREFs of KdTrap @ 0x14030DF3C
+ * XREFs of KdTrap @ 0x14030E1CC
  * Callers:
- *     KiDispatchException @ 0x14030CCA0 (KiDispatchException.c)
+ *     KiDispatchException @ 0x14030CF30 (KiDispatchException.c)
  * Callees:
- *     KdpStub @ 0x1403D074C (KdpStub.c)
+ *     KdpStub @ 0x1403D092C (KdpStub.c)
  *     KdpTrap @ 0x140AB037C (KdpTrap.c)
  */
 

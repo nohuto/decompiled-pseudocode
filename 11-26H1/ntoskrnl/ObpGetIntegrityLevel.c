@@ -1,11 +1,11 @@
 /*
- * XREFs of ObpGetIntegrityLevel @ 0x140AB5B6C
+ * XREFs of ObpGetIntegrityLevel @ 0x140AB6F0C
  * Callers:
- *     ObCreateSymbolicLink @ 0x140AB5768 (ObCreateSymbolicLink.c)
+ *     ObCreateSymbolicLink @ 0x140AB6B08 (ObCreateSymbolicLink.c)
  * Callees:
- *     SeReleaseSubjectContext @ 0x1408CB2E0 (SeReleaseSubjectContext.c)
- *     SeQueryInformationToken @ 0x1408F4300 (SeQueryInformationToken.c)
- *     SeCaptureSubjectContext @ 0x140933620 (SeCaptureSubjectContext.c)
+ *     SeReleaseSubjectContext @ 0x1408D1890 (SeReleaseSubjectContext.c)
+ *     SeQueryInformationToken @ 0x1408FA8C0 (SeQueryInformationToken.c)
+ *     SeCaptureSubjectContext @ 0x14090F1D0 (SeCaptureSubjectContext.c)
  */
 
 __int64 __fastcall ObpGetIntegrityLevel(PSECURITY_SUBJECT_CONTEXT SubjectContext, char a2, PVOID *a3)

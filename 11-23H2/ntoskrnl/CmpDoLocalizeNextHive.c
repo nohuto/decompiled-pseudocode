@@ -1,11 +1,11 @@
 /*
- * XREFs of CmpDoLocalizeNextHive @ 0x140751360
+ * XREFs of CmpDoLocalizeNextHive @ 0x140751550
  * Callers:
  *     <none>
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x14028B390 (ExReleaseRundownProtection_0.c)
- *     HvHiveConvertLockedPagesToCowByPolicy @ 0x140751234 (HvHiveConvertLockedPagesToCowByPolicy.c)
- *     CmpGetNextActiveHive @ 0x140752060 (CmpGetNextActiveHive.c)
+ *     ExReleaseRundownProtection_0 @ 0x14028B620 (ExReleaseRundownProtection_0.c)
+ *     HvHiveConvertLockedPagesToCowByPolicy @ 0x140751424 (HvHiveConvertLockedPagesToCowByPolicy.c)
+ *     CmpGetNextActiveHive @ 0x140752250 (CmpGetNextActiveHive.c)
  *     CmpAcquireShutdownRundown @ 0x140AF5380 (CmpAcquireShutdownRundown.c)
  *     CmpReleaseShutdownRundown @ 0x140AF5470 (CmpReleaseShutdownRundown.c)
  *     CmpLockRegistry @ 0x140AF54A0 (CmpLockRegistry.c)

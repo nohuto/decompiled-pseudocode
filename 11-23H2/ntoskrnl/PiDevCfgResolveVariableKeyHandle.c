@@ -1,24 +1,24 @@
 /*
- * XREFs of PiDevCfgResolveVariableKeyHandle @ 0x140961AEC
+ * XREFs of PiDevCfgResolveVariableKeyHandle @ 0x140961CEC
  * Callers:
- *     PiDevCfgResolveVariableKeyCopy @ 0x140961A10 (PiDevCfgResolveVariableKeyCopy.c)
- *     PiDevCfgResolveVariableKeyValue @ 0x140962280 (PiDevCfgResolveVariableKeyValue.c)
+ *     PiDevCfgResolveVariableKeyCopy @ 0x140961C10 (PiDevCfgResolveVariableKeyCopy.c)
+ *     PiDevCfgResolveVariableKeyValue @ 0x140962480 (PiDevCfgResolveVariableKeyValue.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     PnpValidateRegistryString @ 0x1403CE234 (PnpValidateRegistryString.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     _wcsicmp @ 0x1403D9A50 (_wcsicmp.c)
- *     wcschr @ 0x1403DB910 (wcschr.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ZwOpenKey @ 0x14041AFA0 (ZwOpenKey.c)
- *     memmove @ 0x140435700 (memmove.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     PnpValidateRegistryString @ 0x1403CE414 (PnpValidateRegistryString.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     _wcsicmp @ 0x1403D9C30 (_wcsicmp.c)
+ *     wcschr @ 0x1403DBAF0 (wcschr.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ZwOpenKey @ 0x14041B330 (ZwOpenKey.c)
+ *     memmove @ 0x140435B00 (memmove.c)
  *     IopGetRegistryValue @ 0x14068CE78 (IopGetRegistryValue.c)
- *     _CmGetDeviceRegProp @ 0x1406CD45C (_CmGetDeviceRegProp.c)
- *     _CmOpenDeviceRegKey @ 0x1406CE0C4 (_CmOpenDeviceRegKey.c)
- *     RtlFreeUnicodeString @ 0x14076F3D0 (RtlFreeUnicodeString.c)
- *     PnpRegSzToString @ 0x1407C21BC (PnpRegSzToString.c)
- *     _PnpCtxOpenContextBaseKey @ 0x14087D320 (_PnpCtxOpenContextBaseKey.c)
- *     PiDevCfgResolveVariable @ 0x14087EC00 (PiDevCfgResolveVariable.c)
+ *     _CmGetDeviceRegProp @ 0x1406CD48C (_CmGetDeviceRegProp.c)
+ *     _CmOpenDeviceRegKey @ 0x1406CE0F4 (_CmOpenDeviceRegKey.c)
+ *     RtlFreeUnicodeString @ 0x14076F5C0 (RtlFreeUnicodeString.c)
+ *     PnpRegSzToString @ 0x1407C248C (PnpRegSzToString.c)
+ *     _PnpCtxOpenContextBaseKey @ 0x14087D560 (_PnpCtxOpenContextBaseKey.c)
+ *     PiDevCfgResolveVariable @ 0x14087EE40 (PiDevCfgResolveVariable.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */
@@ -119,7 +119,7 @@ LABEL_3:
       DeviceRegProp = -1073741823;
       goto LABEL_102;
     }
-    v10 = (const wchar_t **)&off_140A7A3B0;
+    v10 = (const wchar_t **)&off_140A7A660;
     v11 = (const wchar_t *)((char *)v8 + v8[2]);
     while ( wcsicmp(*v10, v11) )
     {
@@ -128,7 +128,7 @@ LABEL_3:
       if ( v3 >= 7 )
         goto LABEL_7;
     }
-    v14 = &(&off_140A7A3B0)[4 * v3];
+    v14 = &(&off_140A7A660)[4 * v3];
     if ( v14 )
     {
       v15 = *((unsigned int *)v14 + 4);

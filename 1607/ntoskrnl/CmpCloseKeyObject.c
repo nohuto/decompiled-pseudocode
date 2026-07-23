@@ -1,21 +1,21 @@
 /*
- * XREFs of CmpCloseKeyObject @ 0x14049A770
+ * XREFs of CmpCloseKeyObject @ 0x1403E3690
  * Callers:
  *     <none>
  * Callees:
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     EtwGetKernelTraceTimestamp @ 0x140059D50 (EtwGetKernelTraceTimestamp.c)
- *     ExAcquireFastMutexUnsafe @ 0x1400F05A0 (ExAcquireFastMutexUnsafe.c)
- *     ExReleaseFastMutexUnsafe @ 0x1400F0700 (ExReleaseFastMutexUnsafe.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     CmpUnlockRegistry @ 0x14040476C (CmpUnlockRegistry.c)
- *     CmpLockRegistry @ 0x1404047A0 (CmpLockRegistry.c)
- *     CmpLockKcbShared @ 0x140435440 (CmpLockKcbShared.c)
- *     CmpUnlockKcb @ 0x140438610 (CmpUnlockKcb.c)
- *     CmpIsKeyDeletedForKeyBody @ 0x140439400 (CmpIsKeyDeletedForKeyBody.c)
- *     CmpSignalDeferredPosts @ 0x14049A8F0 (CmpSignalDeferredPosts.c)
- *     CmpPostNotify @ 0x14049A9D4 (CmpPostNotify.c)
- *     CmpDelayedDerefKeys @ 0x140514B2C (CmpDelayedDerefKeys.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     EtwGetKernelTraceTimestamp @ 0x1400598D0 (EtwGetKernelTraceTimestamp.c)
+ *     ExAcquireFastMutexUnsafe @ 0x1400EE420 (ExAcquireFastMutexUnsafe.c)
+ *     ExReleaseFastMutexUnsafe @ 0x1400EE580 (ExReleaseFastMutexUnsafe.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     CmpSignalDeferredPosts @ 0x1403E3810 (CmpSignalDeferredPosts.c)
+ *     CmpPostNotify @ 0x1403E38F4 (CmpPostNotify.c)
+ *     CmpUnlockRegistry @ 0x14040362C (CmpUnlockRegistry.c)
+ *     CmpLockRegistry @ 0x140403660 (CmpLockRegistry.c)
+ *     CmpLockKcbShared @ 0x140434310 (CmpLockKcbShared.c)
+ *     CmpUnlockKcb @ 0x1404374E0 (CmpUnlockKcb.c)
+ *     CmpIsKeyDeletedForKeyBody @ 0x1404382D0 (CmpIsKeyDeletedForKeyBody.c)
+ *     CmpDelayedDerefKeys @ 0x1404F7F1C (CmpDelayedDerefKeys.c)
  */
 
 __int64 (__fastcall *__fastcall CmpCloseKeyObject(
@@ -64,9 +64,9 @@ __int64 (__fastcall *__fastcall CmpCloseKeyObject(
     --CurrentThread->KernelApcDisable;
     CmpLockRegistry();
     CmpLockKcbShared(*(_QWORD *)(a2 + 8));
-    if ( CmpIsKeyDeletedForKeyBody(a2, 0LL) )
+    if ( (unsigned __int8)CmpIsKeyDeletedForKeyBody(a2, 0LL) )
     {
-      CmpUnlockKcb(*(char **)(a2 + 8));
+      CmpUnlockKcb(*(PVOID *)(a2 + 8));
       CmpUnlockRegistry();
     }
     else
@@ -76,7 +76,7 @@ __int64 (__fastcall *__fastcall CmpCloseKeyObject(
       if ( v11 && *(_QWORD *)(v11 + 16) != v11 + 16 )
         CmpPostNotify(v11, v9, v10, 267, 0, (__int64)v15, (__int64)v16);
       ExReleaseFastMutexUnsafe(*(PFAST_MUTEX *)(*(_QWORD *)(*(_QWORD *)(a2 + 8) + 24LL) + 2832LL));
-      CmpUnlockKcb(*(char **)(a2 + 8));
+      CmpUnlockKcb(*(PVOID *)(a2 + 8));
       CmpUnlockRegistry();
       CmpDelayedDerefKeys(v15);
       CmpSignalDeferredPosts(v16);

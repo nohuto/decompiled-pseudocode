@@ -1,12 +1,12 @@
 /*
- * XREFs of PfLockSharedTryAcquire @ 0x1400E20B8
+ * XREFs of PfLockSharedTryAcquire @ 0x1400E2138
  * Callers:
- *     PfCheckDeprioritizeFile @ 0x140666250 (PfCheckDeprioritizeFile.c)
+ *     PfCheckDeprioritizeFile @ 0x140667410 (PfCheckDeprioritizeFile.c)
  * Callees:
  *     KeAbPostReleaseEx @ 0x1400043BC (KeAbPostReleaseEx.c)
  *     KeAbPreAcquire @ 0x14004E270 (KeAbPreAcquire.c)
  *     KeLeaveCriticalRegion @ 0x14004F410 (KeLeaveCriticalRegion.c)
- *     ExfTryAcquirePushLockShared @ 0x140103C50 (ExfTryAcquirePushLockShared.c)
+ *     ExfTryAcquirePushLockShared @ 0x140103CD0 (ExfTryAcquirePushLockShared.c)
  */
 
 __int64 __fastcall PfLockSharedTryAcquire(volatile signed __int64 *BugCheckParameter2)

@@ -1,9 +1,9 @@
 /*
- * XREFs of PiDcFreeGenericTableEntry @ 0x1407A7AC0
+ * XREFs of PiDcFreeGenericTableEntry @ 0x1407AA670
  * Callers:
  *     <none>
  * Callees:
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall PiDcFreeGenericTableEntry(__int64 a1, void *a2)

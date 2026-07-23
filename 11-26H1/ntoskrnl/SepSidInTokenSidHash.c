@@ -1,15 +1,18 @@
 /*
- * XREFs of SepSidInTokenSidHash @ 0x1403C06B0
+ * XREFs of SepSidInTokenSidHash @ 0x1403CA5B0
  * Callers:
- *     SepMaximumAccessCheck @ 0x1402B1890 (SepMaximumAccessCheck.c)
- *     AuthzBasepDeviceMemberOf @ 0x140517BEC (AuthzBasepDeviceMemberOf.c)
- *     NtCreateLowBoxToken @ 0x1408140F0 (NtCreateLowBoxToken.c)
- *     SeQueryInformationToken @ 0x1408F4300 (SeQueryInformationToken.c)
- *     ObpCreateHandle @ 0x14092CA60 (ObpCreateHandle.c)
- *     SepIsImpersonationAllowedDueToCapability @ 0x140A91D08 (SepIsImpersonationAllowedDueToCapability.c)
- *     NtQueryInformationToken @ 0x140B79CE0 (NtQueryInformationToken.c)
+ *     AuthzBasepDeviceMemberOf @ 0x14051165C (AuthzBasepDeviceMemberOf.c)
+ *     SepMaximumAccessCheck @ 0x14051A140 (SepMaximumAccessCheck.c)
+ *     SepNormalAccessCheck @ 0x14051BF40 (SepNormalAccessCheck.c)
+ *     SepNormalAccessCheckEx @ 0x14051D0B0 (SepNormalAccessCheckEx.c)
+ *     SepCreateAppContainerToken @ 0x14063EAD8 (SepCreateAppContainerToken.c)
+ *     NtCreateLowBoxToken @ 0x140819F50 (NtCreateLowBoxToken.c)
+ *     SeQueryInformationToken @ 0x1408FA8C0 (SeQueryInformationToken.c)
+ *     ObpCreateHandle @ 0x140908590 (ObpCreateHandle.c)
+ *     SepIsImpersonationAllowedDueToCapability @ 0x140A96858 (SepIsImpersonationAllowedDueToCapability.c)
+ *     NtQueryInformationToken @ 0x140B81F50 (NtQueryInformationToken.c)
  * Callees:
- *     memcmp @ 0x14073D750 (memcmp.c)
+ *     memcmp @ 0x140742350 (memcmp.c)
  */
 
 bool __fastcall SepSidInTokenSidHash(__int64 a1, unsigned __int8 *a2, unsigned __int8 *a3, char a4, char a5, char a6)
@@ -34,20 +37,17 @@ bool __fastcall SepSidInTokenSidHash(__int64 a1, unsigned __int8 *a2, unsigned _
 
   v6 = a3;
   if ( a2
-    && *(_WORD *)RtlpBootStatHandleLock.WaitBlock[2].SparePtr == *(_WORD *)a3
+    && *(_WORD *)RtlpBootStatHandleLock.RelativeTimerBias == *(_WORD *)a3
     && !memcmp(
-          RtlpBootStatHandleLock.WaitBlock[2].SparePtr,
+          (const void *)RtlpBootStatHandleLock.RelativeTimerBias,
           a3,
-          4LL * HIBYTE(*(_WORD *)RtlpBootStatHandleLock.WaitBlock[2].SparePtr) + 8) )
+          4LL * HIBYTE(*(_WORD *)RtlpBootStatHandleLock.RelativeTimerBias) + 8) )
   {
     v6 = a2;
   }
   if ( a6
-    && RtlpBootStatHandleLock.WaitBlock[3].WaitListEntry.Flink->Flink == (struct _LIST_ENTRY *)*(_WORD *)v6
-    && !memcmp(
-          RtlpBootStatHandleLock.WaitBlock[3].WaitListEntry.Flink,
-          v6,
-          4 * ((unsigned __int64)RtlpBootStatHandleLock.WaitBlock[3].WaitListEntry.Flink->Flink >> 8) + 8) )
+    && *(_WORD *)RtlpBootStatHandleLock.Teb == *(_WORD *)v6
+    && !memcmp(RtlpBootStatHandleLock.Teb, v6, 4LL * HIBYTE(*(_WORD *)RtlpBootStatHandleLock.Teb) + 8) )
   {
     return 1;
   }

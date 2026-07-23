@@ -1,11 +1,11 @@
 /*
- * XREFs of HsaProcessDeviceExceptions @ 0x1405AA2F8
+ * XREFs of HsaProcessDeviceExceptions @ 0x1405ACB08
  * Callers:
- *     HsaInitializeIommu @ 0x140BF0BE0 (HsaInitializeIommu.c)
+ *     HsaInitializeIommu @ 0x140BF6BE0 (HsaInitializeIommu.c)
  * Callees:
- *     HalpHsapInitializeReservedDomain @ 0x1405A7F98 (HalpHsapInitializeReservedDomain.c)
- *     HsaUpdateDeviceTableEntry @ 0x1405AAA50 (HsaUpdateDeviceTableEntry.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     HalpHsapInitializeReservedDomain @ 0x1405AA7A8 (HalpHsapInitializeReservedDomain.c)
+ *     HsaUpdateDeviceTableEntry @ 0x1405AD260 (HsaUpdateDeviceTableEntry.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
  */
 
 __int64 __fastcall HsaProcessDeviceExceptions(__int64 a1)

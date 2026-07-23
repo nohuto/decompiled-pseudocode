@@ -20,20 +20,20 @@
  *     ObReferenceObjectByHandle @ 0x1404B10F0 (ObReferenceObjectByHandle.c)
  */
 
-NTSTATUS __fastcall NtAssociateWaitCompletionPacket(
-        void *a1,
-        void *a2,
-        void *a3,
-        __int64 a4,
-        __int64 a5,
-        int a6,
-        __int64 a7,
-        char *a8)
+NTSTATUS __cdecl NtAssociateWaitCompletionPacket(
+        HANDLE WaitCompletionPacketHandle,
+        HANDLE IoCompletionHandle,
+        HANDLE TargetObjectHandle,
+        PVOID KeyContext,
+        PVOID ApcContext,
+        NTSTATUS IoStatus,
+        ULONG_PTR IoStatusInformation,
+        PBOOLEAN AlreadySignaled)
 {
   KPROCESSOR_MODE PreviousMode; // r15
   NTSTATUS result; // eax
-  NTSTATUS v13; // ebx
-  NTSTATUS v14; // r14d
+  int v13; // ebx
+  int v14; // r14d
   PVOID v15; // rdi
   __int64 WaitObject; // rbx
   volatile signed __int32 *v17; // rdi
@@ -43,7 +43,7 @@ NTSTATUS __fastcall NtAssociateWaitCompletionPacket(
   unsigned __int8 v21; // r13
   _QWORD *v22; // rdx
   _QWORD *v23; // rax
-  char v24; // bl
+  BOOLEAN v24; // bl
   __int64 v25; // r9
   unsigned __int64 v26; // r10
   _KTHREAD *CurrentThread; // r9
@@ -68,16 +68,22 @@ NTSTATUS __fastcall NtAssociateWaitCompletionPacket(
   void *retaddr; // [rsp+88h] [rbp+0h]
 
   PreviousMode = KeGetCurrentThread()->PreviousMode;
-  result = ObReferenceObjectByHandle(a1, 1u, IopWaitCompletionPacketObjectType, PreviousMode, &Object, 0LL);
+  result = ObReferenceObjectByHandle(
+             WaitCompletionPacketHandle,
+             1u,
+             IopWaitCompletionPacketObjectType,
+             PreviousMode,
+             &Object,
+             0LL);
   if ( result >= 0 )
   {
-    v13 = ObReferenceObjectByHandle(a2, 2u, IoCompletionObjectType, PreviousMode, &v40, 0LL);
+    v13 = ObReferenceObjectByHandle(IoCompletionHandle, 2u, IoCompletionObjectType, PreviousMode, &v40, 0LL);
     if ( v13 < 0 )
     {
       ObfDereferenceObjectWithTag(Object, 0x746C6644u);
       return v13;
     }
-    v14 = ObReferenceObjectByHandle(a3, 0x100000u, 0LL, PreviousMode, &v42, 0LL);
+    v14 = ObReferenceObjectByHandle(TargetObjectHandle, 0x100000u, 0LL, PreviousMode, &v42, 0LL);
     v41[1] = v14;
     if ( v14 < 0 )
     {
@@ -105,10 +111,10 @@ NTSTATUS __fastcall NtAssociateWaitCompletionPacket(
         {
           *((_BYTE *)Object + 104) = 1;
           v19 = Object;
-          *((_QWORD *)Object + 6) = a4;
-          v19[7] = a5;
-          *((_DWORD *)v19 + 18) = a6;
-          v19[8] = a7;
+          *((_QWORD *)Object + 6) = KeyContext;
+          v19[7] = ApcContext;
+          *((_DWORD *)v19 + 18) = IoStatus;
+          v19[8] = IoStatusInformation;
           v19[10] = v42;
           v20 = v40;
           v19[11] = v40;
@@ -193,16 +199,16 @@ NTSTATUS __fastcall NtAssociateWaitCompletionPacket(
           else
             _InterlockedAnd64((volatile signed __int64 *)v17, 0LL);
           __writecr8(CurrentIrql);
-          if ( a8 )
+          if ( AlreadySignaled )
           {
             if ( PreviousMode )
             {
-              v34 = (__int64)a8;
-              if ( (unsigned __int64)a8 >= 0x7FFFFFFF0000LL )
+              v34 = (__int64)AlreadySignaled;
+              if ( (unsigned __int64)AlreadySignaled >= 0x7FFFFFFF0000LL )
                 v34 = 0x7FFFFFFF0000LL;
               *(_BYTE *)v34 = *(_BYTE *)v34;
             }
-            *a8 = v24;
+            *AlreadySignaled = v24;
           }
           return v14;
         }

@@ -1,15 +1,15 @@
 /*
- * XREFs of MiDecreaseUsedPtesInPfn @ 0x14039EEFC
+ * XREFs of MiDecreaseUsedPtesInPfn @ 0x14021D39C
  * Callers:
- *     MiDeleteNonPagedPoolTail @ 0x140235020 (MiDeleteNonPagedPoolTail.c)
- *     MmUnmapViewInSystemCache @ 0x1402F1760 (MmUnmapViewInSystemCache.c)
- *     MmFreeIndependentPages @ 0x14039EC60 (MmFreeIndependentPages.c)
- *     MiLockAndDecrementShareCount @ 0x14039EFA4 (MiLockAndDecrementShareCount.c)
- *     MiClearDriverTablePtes @ 0x1404F2870 (MiClearDriverTablePtes.c)
- *     MiClearStaleSecurePageMapping @ 0x140C50F58 (MiClearStaleSecurePageMapping.c)
- *     MiFreeEmptyBootPageTable @ 0x140C515F0 (MiFreeEmptyBootPageTable.c)
+ *     MiDeleteNonPagedPoolTail @ 0x14020EFE0 (MiDeleteNonPagedPoolTail.c)
+ *     MmFreeIndependentPages @ 0x14021D100 (MmFreeIndependentPages.c)
+ *     MiLockAndDecrementShareCount @ 0x14021D444 (MiLockAndDecrementShareCount.c)
+ *     MmUnmapViewInSystemCache @ 0x1402572A0 (MmUnmapViewInSystemCache.c)
+ *     MiClearDriverTablePtes @ 0x1404F0310 (MiClearDriverTablePtes.c)
+ *     MiClearStaleSecurePageMapping @ 0x140C530E8 (MiClearStaleSecurePageMapping.c)
+ *     MiFreeEmptyBootPageTable @ 0x140C53780 (MiFreeEmptyBootPageTable.c)
  * Callees:
- *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ *     KeBugCheckEx @ 0x1404F9250 (KeBugCheckEx.c)
  */
 
 __int64 __fastcall MiDecreaseUsedPtesInPfn(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter4)

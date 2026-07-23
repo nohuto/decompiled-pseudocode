@@ -1,12 +1,12 @@
 /*
- * XREFs of HvlpLogMicrocodeUpdateStatus @ 0x1408177A4
+ * XREFs of HvlpLogMicrocodeUpdateStatus @ 0x1408189A4
  * Callers:
- *     HvlPhase2Initialize @ 0x140193304 (HvlPhase2Initialize.c)
- *     HvlpDynamicUpdateMicrocode @ 0x140817AF0 (HvlpDynamicUpdateMicrocode.c)
+ *     HvlPhase2Initialize @ 0x140193444 (HvlPhase2Initialize.c)
+ *     HvlpDynamicUpdateMicrocode @ 0x140818CF0 (HvlpDynamicUpdateMicrocode.c)
  * Callees:
- *     __security_check_cookie @ 0x140194010 (__security_check_cookie.c)
- *     CmLogMcUpdateStatus @ 0x14026C5A8 (CmLogMcUpdateStatus.c)
- *     HvlpGetLogicalProcessorProperty @ 0x140271E78 (HvlpGetLogicalProcessorProperty.c)
+ *     __security_check_cookie @ 0x140194150 (__security_check_cookie.c)
+ *     CmLogMcUpdateStatus @ 0x14026C798 (CmLogMcUpdateStatus.c)
+ *     HvlpGetLogicalProcessorProperty @ 0x140272068 (HvlpGetLogicalProcessorProperty.c)
  */
 
 void HvlpLogMicrocodeUpdateStatus()
@@ -18,7 +18,7 @@ void HvlpLogMicrocodeUpdateStatus()
   v0 = 0;
   if ( (_DWORD)HvlpLogicalProcessorCount )
   {
-    v1 = &dword_140548744;
+    v1 = &dword_140549744;
     do
     {
       HvlpGetLogicalProcessorProperty(*v1, 5, v2);

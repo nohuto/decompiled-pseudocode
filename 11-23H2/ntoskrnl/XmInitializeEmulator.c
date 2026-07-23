@@ -1,10 +1,10 @@
 /*
- * XREFs of XmInitializeEmulator @ 0x14039F408
+ * XREFs of XmInitializeEmulator @ 0x14039F5E8
  * Callers:
- *     x86BiosInitializeBiosEx @ 0x14039F344 (x86BiosInitializeBiosEx.c)
+ *     x86BiosInitializeBiosEx @ 0x14039F524 (x86BiosInitializeBiosEx.c)
  * Callees:
- *     x86BiosTranslateAddress @ 0x1403BEFC0 (x86BiosTranslateAddress.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     x86BiosTranslateAddress @ 0x1403BF1A0 (x86BiosTranslateAddress.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 __int64 XmInitializeEmulator()

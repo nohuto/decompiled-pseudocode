@@ -1,11 +1,11 @@
 /*
- * XREFs of PpmEventBiosCapChange @ 0x14044E340
+ * XREFs of PpmEventBiosCapChange @ 0x140446470
  * Callers:
- *     PpmRegisterPerfCap @ 0x14044DCE0 (PpmRegisterPerfCap.c)
+ *     PpmRegisterPerfCap @ 0x140445E10 (PpmRegisterPerfCap.c)
  * Callees:
- *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwEventEnabled @ 0x140212E70 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 char __fastcall PpmEventBiosCapChange(__int64 a1, int a2)
@@ -39,20 +39,12 @@ char __fastcall PpmEventBiosCapChange(__int64 a1, int a2)
   UserData.Ptr = (ULONGLONG)&v6;
   if ( PpmEtwRegistered )
   {
-    LOBYTE(v4) = EtwEventEnabled((REGHANDLE)PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink, v3);
+    LOBYTE(v4) = EtwEventEnabled(PpmEtwHandle, v3);
     if ( (_BYTE)v4 )
     {
       v8 = &v10;
       v9 = 4LL;
-      LOBYTE(v4) = EtwWriteEx(
-                     (REGHANDLE)PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink,
-                     v3,
-                     0LL,
-                     0,
-                     0LL,
-                     0LL,
-                     2u,
-                     &UserData);
+      LOBYTE(v4) = EtwWriteEx(PpmEtwHandle, v3, 0LL, 0, 0LL, 0LL, 2u, &UserData);
     }
   }
   return (char)v4;

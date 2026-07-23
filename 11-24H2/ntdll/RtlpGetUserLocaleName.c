@@ -1,36 +1,36 @@
 /*
- * XREFs of RtlpGetUserLocaleName @ 0x1800D2DDC
+ * XREFs of RtlpGetUserLocaleName @ 0x180099D30
  * Callers:
- *     RtlLCIDToCultureName @ 0x1800360C0 (RtlLCIDToCultureName.c)
- *     RtlpMatchUserLanguage @ 0x1800D10DC (RtlpMatchUserLanguage.c)
- *     RtlLcidToLocaleName @ 0x1800D26D0 (RtlLcidToLocaleName.c)
+ *     RtlLCIDToCultureName @ 0x180016340 (RtlLCIDToCultureName.c)
+ *     RtlLcidToLocaleName @ 0x180099060 (RtlLcidToLocaleName.c)
+ *     RtlpMatchUserLanguage @ 0x18009A410 (RtlpMatchUserLanguage.c)
  * Callees:
- *     RtlpGetLocaleDataKey @ 0x1800D313C (RtlpGetLocaleDataKey.c)
- *     RtlInitUnicodeString @ 0x1800DA0A0 (RtlInitUnicodeString.c)
- *     NtQueryValueKey @ 0x180161F70 (NtQueryValueKey.c)
- *     __security_check_cookie @ 0x1801659C0 (__security_check_cookie.c)
- *     memmove @ 0x180167400 (memmove.c)
+ *     RtlpGetLocaleDataKey @ 0x18009A4D4 (RtlpGetLocaleDataKey.c)
+ *     RtlInitUnicodeString @ 0x1800C7EE0 (RtlInitUnicodeString.c)
+ *     NtQueryValueKey @ 0x180160330 (NtQueryValueKey.c)
+ *     __security_check_cookie @ 0x180163D80 (__security_check_cookie.c)
+ *     memmove @ 0x1801657C0 (memmove.c)
  */
 
 __int64 __fastcall RtlpGetUserLocaleName(PUNICODE_STRING DestinationString)
 {
   unsigned __int64 v1; // rbp
-  __int64 LocaleDataKey; // rax
+  void *LocaleDataKey; // rax
   __int64 v4; // rdx
-  _DWORD v6[8]; // [rsp+50h] [rbp+0h] BYREF
+  ULONG v6[8]; // [rsp+50h] [rbp+0h] BYREF
 
   v1 = (unsigned __int64)v6 & 0xFFFFFFFFFFFFFFE0uLL;
   *(_DWORD *)((unsigned __int64)v6 & 0xFFFFFFFFFFFFFFE0uLL) = 0;
-  LocaleDataKey = RtlpGetLocaleDataKey();
+  LocaleDataKey = (void *)RtlpGetLocaleDataKey();
   if ( !LocaleDataKey )
     return 3221225473LL;
-  if ( (int)NtQueryValueKey(
-              LocaleDataKey,
-              &`RtlpGetUserLocaleName'::`2'::KeyValueName,
-              2LL,
-              v1 + 32,
-              186,
-              (unsigned __int64)v6 & 0xFFFFFFFFFFFFFFE0uLL) < 0 )
+  if ( NtQueryValueKey(
+         LocaleDataKey,
+         (PUNICODE_STRING)&`RtlpGetUserLocaleName'::`2'::KeyValueName,
+         KeyValuePartialInformation,
+         (PVOID)(v1 + 32),
+         0xBAu,
+         (PULONG)((unsigned __int64)v6 & 0xFFFFFFFFFFFFFFE0uLL)) < 0 )
     return 3221225473LL;
   if ( *(_DWORD *)(((unsigned __int64)v6 & 0xFFFFFFFFFFFFFFE0uLL) + 0x24) != 1 )
     return 3221225473LL;

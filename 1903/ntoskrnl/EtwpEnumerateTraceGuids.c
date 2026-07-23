@@ -15,7 +15,7 @@ __int64 __fastcall EtwpEnumerateTraceGuids(__int64 a1, __int64 a2, _DWORD *a3)
   signed __int64 *NextGuidEntry; // rax
   __int64 v10; // rcx
   __int64 v11; // rdi
-  _UNKNOWN **v12; // rdx
+  GUID **v12; // rdx
   __int64 v13; // r9
   __int64 v14; // r8
   int v16; // eax
@@ -55,7 +55,7 @@ __int64 __fastcall EtwpEnumerateTraceGuids(__int64 a1, __int64 a2, _DWORD *a3)
     {
       if ( ++v4 <= v7 )
       {
-        *(_OWORD *)(v11 - 28) = *(_OWORD *)*v12;
+        *(GUID *)(v11 - 28) = **v12;
         *(_DWORD *)(v11 - 8) = *(unsigned __int8 *)(v10 + 2 * v14);
         v16 = *(unsigned __int8 *)(v10 + 2 * v14 + 1);
         *(_DWORD *)(v11 - 4) = 0;

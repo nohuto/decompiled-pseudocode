@@ -1,22 +1,22 @@
 /*
- * XREFs of CmFreezeRegistry @ 0x1407D841C
+ * XREFs of CmFreezeRegistry @ 0x1407D896C
  * Callers:
- *     NtFreezeRegistry @ 0x1407CFBF0 (NtFreezeRegistry.c)
+ *     NtFreezeRegistry @ 0x1407D00E0 (NtFreezeRegistry.c)
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x140245670 (ExReleaseRundownProtection_0.c)
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     KiSetTimerEx @ 0x1403347A0 (KiSetTimerEx.c)
- *     CmpDisableLazyFlush @ 0x1404FAA00 (CmpDisableLazyFlush.c)
- *     CmThawRegistry @ 0x1407D85E0 (CmThawRegistry.c)
- *     CmpLockRegistryExclusive @ 0x14087DD80 (CmpLockRegistryExclusive.c)
- *     HvLockHiveWriter @ 0x140882A38 (HvLockHiveWriter.c)
- *     HvUnlockHiveWriter @ 0x140882E28 (HvUnlockHiveWriter.c)
- *     CmpGetNextActiveHive @ 0x14090B0EC (CmpGetNextActiveHive.c)
- *     HvMarkBaseBlockDirty @ 0x140931488 (HvMarkBaseBlockDirty.c)
- *     CmpFlushHive @ 0x14097D2B4 (CmpFlushHive.c)
- *     CmpAcquireShutdownRundown @ 0x140BB9400 (CmpAcquireShutdownRundown.c)
- *     CmpReleaseShutdownRundown @ 0x140BB9880 (CmpReleaseShutdownRundown.c)
- *     CmpUnlockRegistry @ 0x140BB9F50 (CmpUnlockRegistry.c)
+ *     ExReleaseRundownProtection_0 @ 0x14020DE50 (ExReleaseRundownProtection_0.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     KiSetTimerEx @ 0x140316810 (KiSetTimerEx.c)
+ *     CmpDisableLazyFlush @ 0x1404F82E0 (CmpDisableLazyFlush.c)
+ *     CmThawRegistry @ 0x1407D8B30 (CmThawRegistry.c)
+ *     CmpLockRegistryExclusive @ 0x140881C30 (CmpLockRegistryExclusive.c)
+ *     HvLockHiveWriter @ 0x1408868E8 (HvLockHiveWriter.c)
+ *     HvUnlockHiveWriter @ 0x140886CD8 (HvUnlockHiveWriter.c)
+ *     CmpGetNextActiveHive @ 0x1408E280C (CmpGetNextActiveHive.c)
+ *     HvMarkBaseBlockDirty @ 0x1409335C8 (HvMarkBaseBlockDirty.c)
+ *     CmpFlushHive @ 0x140965AC4 (CmpFlushHive.c)
+ *     CmpAcquireShutdownRundown @ 0x140BBB400 (CmpAcquireShutdownRundown.c)
+ *     CmpReleaseShutdownRundown @ 0x140BBB880 (CmpReleaseShutdownRundown.c)
+ *     CmpUnlockRegistry @ 0x140BBBF50 (CmpUnlockRegistry.c)
  */
 
 __int64 __fastcall CmFreezeRegistry(__int64 a1, __int64 a2, __int64 a3, __int64 a4)

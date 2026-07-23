@@ -1,12 +1,12 @@
 /*
- * XREFs of MiUnlockZeroedPage @ 0x14051F2F0
+ * XREFs of MiUnlockZeroedPage @ 0x140521994
  * Callers:
- *     MiBackgroundZeroPage @ 0x14045D3B4 (MiBackgroundZeroPage.c)
+ *     MiBackgroundZeroPage @ 0x140456DB4 (MiBackgroundZeroPage.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiDereferenceHugeContext @ 0x1404F6860 (MiDereferenceHugeContext.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1402480D0 (KiLowerIrqlProcessIrqlFlags.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiDereferenceHugeContext @ 0x1404EFE70 (MiDereferenceHugeContext.c)
  */
 
 void __fastcall MiUnlockZeroedPage(unsigned __int8 *a1, unsigned __int64 *a2)
@@ -29,7 +29,7 @@ void __fastcall MiUnlockZeroedPage(unsigned __int8 *a1, unsigned __int64 *a2)
   if ( v4 && *(_BYTE *)(v4 + 68) )
   {
     v7 = 0;
-    v8 = *(_QWORD *)((char *)&stru_140E2EB88.116 + 4) + 8 * ((v6 >> 12) & 0x3FFFFF);
+    v8 = *(_QWORD *)((char *)&stru_140E2ED08.116 + 4) + 8 * ((v6 >> 12) & 0x3FFFFF);
   }
   else
   {
@@ -48,9 +48,9 @@ void __fastcall MiUnlockZeroedPage(unsigned __int8 *a1, unsigned __int64 *a2)
   if ( !v7 )
   {
     _InterlockedAnd(
-      (volatile signed __int32 *)(*(_QWORD *)&stru_140E2EB88.SystemCallNumber
-                                + 4 * ((((v8 - *(_QWORD *)((char *)&stru_140E2EB88.116 + 4)) >> 3) & 0x3FFFFFuLL) >> 5)),
-      ~(1 << ((v8 - *(_QWORD *)((char *)&stru_140E2EB88.116 + 4)) >> 3)));
+      (volatile signed __int32 *)(*(_QWORD *)&stru_140E2ED08.SystemCallNumber
+                                + 4 * ((((v8 - *(_QWORD *)((char *)&stru_140E2ED08.116 + 4)) >> 3) & 0x3FFFFFuLL) >> 5)),
+      ~(1 << ((v8 - *(_QWORD *)((char *)&stru_140E2ED08.116 + 4)) >> 3)));
     if ( !v4 )
       return;
     goto LABEL_16;

@@ -3,11 +3,11 @@
  * Callers:
  *     <none>
  * Callees:
- *     IopInitActivityIdIrp @ 0x1401C4FA8 (IopInitActivityIdIrp.c)
- *     XdvIoAllocateIrp @ 0x140223410 (XdvIoAllocateIrp.c)
- *     IovpLogStackTrace @ 0x140701694 (IovpLogStackTrace.c)
- *     VfIoAllocateIrp2 @ 0x14070BBEC (VfIoAllocateIrp2.c)
- *     ViIrpAllocateLockedPacket @ 0x14070C11C (ViIrpAllocateLockedPacket.c)
+ *     IopInitActivityIdIrp @ 0x1401C4E8C (IopInitActivityIdIrp.c)
+ *     XdvIoAllocateIrp @ 0x14022323C (XdvIoAllocateIrp.c)
+ *     IovpLogStackTrace @ 0x1407016C4 (IovpLogStackTrace.c)
+ *     VfIoAllocateIrp2 @ 0x14070BC1C (VfIoAllocateIrp2.c)
+ *     ViIrpAllocateLockedPacket @ 0x14070C14C (ViIrpAllocateLockedPacket.c)
  *     VfIrpDatabaseEntryReleaseLock @ 0x140716B8C (VfIrpDatabaseEntryReleaseLock.c)
  */
 

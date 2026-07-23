@@ -1,31 +1,31 @@
 /*
- * XREFs of NtLoadKeyEx @ 0x14092C6E0
+ * XREFs of NtLoadKeyEx @ 0x14092E820
  * Callers:
- *     NtLoadKey @ 0x14092AFA0 (NtLoadKey.c)
+ *     NtLoadKey @ 0x14092D0E0 (NtLoadKey.c)
  * Callees:
- *     CmLoadDifferencingKey @ 0x14092C750 (CmLoadDifferencingKey.c)
+ *     CmLoadDifferencingKey @ 0x14092E890 (CmLoadDifferencingKey.c)
  */
 
-__int64 __fastcall NtLoadKeyEx(
-        int a1,
-        int a2,
-        int a3,
-        __int64 a4,
-        __int64 a5,
+NTSTATUS __cdecl NtLoadKeyEx(
+        POBJECT_ATTRIBUTES TargetKey,
+        POBJECT_ATTRIBUTES SourceFile,
+        ULONG Flags,
+        HANDLE TrustClassKey,
+        HANDLE Event,
         ACCESS_MASK DesiredAccess,
-        __int64 a7,
-        __int64 a8)
+        PHANDLE RootHandle,
+        PVOID Reserved)
 {
   return CmLoadDifferencingKey(
-           a1,
-           a2,
-           a3,
+           (int)TargetKey,
+           (int)SourceFile,
+           Flags,
            0,
-           a4,
-           a5,
+           (__int64)TrustClassKey,
+           (__int64)Event,
            DesiredAccess,
-           a7,
-           a8,
+           (__int64)RootHandle,
+           (int)Reserved,
            0LL,
            0,
            0LL,

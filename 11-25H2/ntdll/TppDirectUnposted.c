@@ -8,15 +8,14 @@
  *     TppFreeDirectParams @ 0x18003BEA0 (TppFreeDirectParams.c)
  */
 
-__int64 __fastcall TppDirectUnposted(__int64 a1)
+void __fastcall TppDirectUnposted(__int64 a1)
 {
-  volatile signed __int32 *v1; // rsi
+  _RTL_SRWLOCK *v1; // rsi
   _QWORD **v2; // rdi
   _QWORD *v3; // rbx
   _QWORD *v4; // rax
-  __int64 result; // rax
 
-  v1 = (volatile signed __int32 *)(a1 + 32);
+  v1 = (_RTL_SRWLOCK *)(a1 + 32);
   v2 = (_QWORD **)(a1 + 40);
   while ( 1 )
   {
@@ -33,10 +32,9 @@ __int64 __fastcall TppDirectUnposted(__int64 a1)
       *v2 = v4;
       v4[1] = v2;
     }
-    result = RtlReleaseSRWLockExclusive((volatile signed __int64 *)v1);
+    RtlReleaseSRWLockExclusive(v1);
     if ( !v3 )
       break;
     TppFreeDirectParams((__int64)(v3 - 4));
   }
-  return result;
 }

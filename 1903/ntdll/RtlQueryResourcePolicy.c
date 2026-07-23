@@ -18,12 +18,12 @@ __int64 __fastcall RtlQueryResourcePolicy(int a1, int a2, int *a3, __int64 a4)
 {
   int v8; // ebx
   int v9; // ebx
-  __int64 NtSystemRoot; // rax
-  const wchar_t *v11; // rax
+  PWSTR NtSystemRoot; // rax
+  PWSTR v11; // rax
 
   if ( !a3 || a2 )
     return 3221225485LL;
-  RtlRunOnceExecuteOnce(&unk_180166490, sub_18007C370, 0LL, 0LL);
+  RtlRunOnceExecuteOnce(&RunOnce, InitFn, 0LL, 0LL);
   if ( !a1 )
   {
     if ( a4 == 4 )
@@ -54,6 +54,6 @@ __int64 __fastcall RtlQueryResourcePolicy(int a1, int a2, int *a3, __int64 a4)
   if ( (RtlGetSuiteMask() & 0x10000) != 0 )
     v11 = L"C:\\data\\programs\\windowsapps";
   else
-    v11 = (const wchar_t *)RtlGetNtSystemRoot();
+    v11 = RtlGetNtSystemRoot();
   return sub_180114328(v11, a3);
 }

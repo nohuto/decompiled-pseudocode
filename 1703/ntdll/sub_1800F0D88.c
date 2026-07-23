@@ -10,16 +10,16 @@
  *     sub_180103988 @ 0x180103988 (sub_180103988.c)
  */
 
-__int64 __fastcall sub_1800F0D88(int a1, unsigned int a2)
+NTSTATUS __fastcall sub_1800F0D88(int a1, unsigned int a2)
 {
   struct _PEB *v2; // r14
   __int64 v4; // rsi
   __int64 v5; // rbp
   __int64 v6; // rbx
   __int64 v7; // rdx
-  volatile signed __int64 *v8; // rcx
+  _RTL_SRWLOCK *v8; // rcx
   __int64 v9; // rdx
-  __int64 v10; // rax
+  __int64 Ptr; // rax
 
   v2 = NtCurrentPeb();
   if ( a2 )
@@ -43,20 +43,20 @@ __int64 __fastcall sub_1800F0D88(int a1, unsigned int a2)
             v7 = 1LL;
           }
           sub_180103988(v6 + 288, v7);
-          RtlReleaseSRWLockExclusive((volatile signed __int64 *)(v6 + 144));
+          RtlReleaseSRWLockExclusive((PRTL_SRWLOCK)(v6 + 144));
           sub_1800706A4(v6, a1);
         }
       }
       else if ( (*(_BYTE *)(v6 + 112) & 1) == 0 )
       {
         if ( *(_BYTE *)(v6 + 386) == 2 )
-          v8 = *(volatile signed __int64 **)(v6 + 376);
+          v8 = *(_RTL_SRWLOCK **)(v6 + 376);
         else
           v8 = 0LL;
         if ( v8 )
         {
           if ( a1 )
-            *v8 = 1LL;
+            v8->Ptr = (PVOID)1;
           RtlReleaseSRWLockExclusive(v8);
         }
         if ( a1 )
@@ -68,7 +68,7 @@ __int64 __fastcall sub_1800F0D88(int a1, unsigned int a2)
           *(_DWORD *)(v9 + 12) = 1;
           *(_QWORD *)(v9 + 24) = 0LL;
         }
-        RtlLeaveCriticalSection(*(_QWORD *)(v6 + 352));
+        RtlLeaveCriticalSection(*(PRTL_CRITICAL_SECTION *)(v6 + 352));
       }
       ++v4;
       --v5;
@@ -77,16 +77,16 @@ __int64 __fastcall sub_1800F0D88(int a1, unsigned int a2)
   }
   if ( a1 )
   {
-    qword_180159A90 = (__int64)NtCurrentTeb()->ClientId.UniqueThread;
-    dword_180159A88 = -2;
-    dword_180159A8C = 1;
-    qword_180159A98 = 0LL;
+    stru_180159A80.OwningThread = NtCurrentTeb()->ClientId.UniqueThread;
+    stru_180159A80.LockCount = -2;
+    stru_180159A80.RecursionCount = 1;
+    stru_180159A80.LockSemaphore = 0LL;
   }
-  v10 = qword_180159600;
+  Ptr = (__int64)stru_180159600.Ptr;
   if ( (_BYTE)a1 )
-    v10 = 1LL;
-  qword_180159600 = v10;
+    Ptr = 1LL;
+  stru_180159600.Ptr = (PVOID)Ptr;
   if ( (dword_180159648 & 4) == 0 )
-    RtlReleaseSRWLockExclusive(&qword_180159600);
-  return RtlLeaveCriticalSection((__int64)&unk_180159A80);
+    RtlReleaseSRWLockExclusive(&stru_180159600);
+  return RtlLeaveCriticalSection(&stru_180159A80);
 }

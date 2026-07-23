@@ -1,10 +1,10 @@
 /*
- * XREFs of IommuGetConfiguration @ 0x140CB4AA0
+ * XREFs of IommuGetConfiguration @ 0x140CBAAE0
  * Callers:
  *     <none>
  * Callees:
- *     IommuGetLeastMaximumSupportedAsidValue @ 0x14059C464 (IommuGetLeastMaximumSupportedAsidValue.c)
- *     IommupGetSystemContext @ 0x14059CF00 (IommupGetSystemContext.c)
+ *     IommuGetLeastMaximumSupportedAsidValue @ 0x14059EBE4 (IommuGetLeastMaximumSupportedAsidValue.c)
+ *     IommupGetSystemContext @ 0x14059F680 (IommupGetSystemContext.c)
  */
 
 __int64 __fastcall IommuGetConfiguration(__int64 a1, _DWORD *a2, __int64 a3, __int64 *a4)

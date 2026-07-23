@@ -1,5 +1,5 @@
 /*
- * XREFs of NtdllCtfHookProcWorker @ 0x18009D630
+ * XREFs of NtdllCtfHookProcWorker @ 0x18009D5F0
  * Callers:
  *     <none>
  * Callees:

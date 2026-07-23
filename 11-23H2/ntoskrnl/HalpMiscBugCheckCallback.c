@@ -1,5 +1,5 @@
 /*
- * XREFs of HalpMiscBugCheckCallback @ 0x140371F80
+ * XREFs of HalpMiscBugCheckCallback @ 0x140372120
  * Callers:
  *     <none>
  * Callees:

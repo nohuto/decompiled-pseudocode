@@ -1,14 +1,14 @@
 /*
- * XREFs of PopWriteHeaderPages @ 0x140BFC8B8
+ * XREFs of PopWriteHeaderPages @ 0x140C028B8
  * Callers:
- *     PopSaveHiberContext @ 0x140BFBD50 (PopSaveHiberContext.c)
+ *     PopSaveHiberContext @ 0x140C01D50 (PopSaveHiberContext.c)
  * Callees:
- *     DbgPrint @ 0x140396F60 (DbgPrint.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     tcpxsum @ 0x140730930 (tcpxsum.c)
- *     memmove @ 0x14073D480 (memmove.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     PopWriteHiberPages @ 0x140BFCC1C (PopWriteHiberPages.c)
+ *     DbgPrint @ 0x140398CE0 (DbgPrint.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     tcpxsum @ 0x140735500 (tcpxsum.c)
+ *     memmove @ 0x140742080 (memmove.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     PopWriteHiberPages @ 0x140C02C1C (PopWriteHiberPages.c)
  */
 
 __int64 __fastcall PopWriteHeaderPages(__int64 a1, _DWORD *a2)
@@ -33,7 +33,7 @@ __int64 __fastcall PopWriteHeaderPages(__int64 a1, _DWORD *a2)
   v2 = (_DWORD *)(a1 + 200);
   v3 = (unsigned int *)(a1 + 168);
   v4 = *(void **)(a1 + 160);
-  a2[281] ^= ((unsigned __int8)a2[281] ^ (unsigned __int8)(16 * BYTE1(stru_140F11D08.Header.WaitListHead.Blink))) & 0x10;
+  a2[281] ^= ((unsigned __int8)a2[281] ^ (unsigned __int8)(16 * PopHiberResumeXhciHandoffSkip)) & 0x10;
   if ( *(_QWORD *)(a1 + 272) )
   {
     v7 = (unsigned __int64)*v3 << 12;
@@ -51,7 +51,7 @@ __int64 __fastcall PopWriteHeaderPages(__int64 a1, _DWORD *a2)
     if ( v11 != v10 )
     {
       DbgPrint("Checksum for resume context page changed from %lx to %lx\n", v11, v10);
-      KeBugCheckEx(0xA0u, 3uLL, (unsigned int)a2[279], v12, 0x2244uLL);
+      KeBugCheckEx(0xA0u, 3uLL, (unsigned int)a2[279], v12, 0x225EuLL);
     }
   }
   v13 = (unsigned __int64)*v3 << 12;
@@ -66,7 +66,7 @@ __int64 __fastcall PopWriteHeaderPages(__int64 a1, _DWORD *a2)
   if ( v15 != v14 )
   {
     DbgPrint("Checksum for context page changed from %lx to %lx\n", v15, v14);
-    KeBugCheckEx(0xA0u, 3uLL, (unsigned int)a2[20], v16, 0x225AuLL);
+    KeBugCheckEx(0xA0u, 3uLL, (unsigned int)a2[20], v16, 0x2274uLL);
   }
   v17 = tcpxsum(0, (const char *)v4, 0x1000u);
   v18 = a2[20];
@@ -74,7 +74,7 @@ __int64 __fastcall PopWriteHeaderPages(__int64 a1, _DWORD *a2)
   if ( v18 != v17 )
   {
     DbgPrint("Checksum for partial context page %lx doesn't match full %lx\n", v18, v17);
-    KeBugCheckEx(0xA0u, 4uLL, (unsigned int)a2[20], v19, 0x2261uLL);
+    KeBugCheckEx(0xA0u, 4uLL, (unsigned int)a2[20], v19, 0x227BuLL);
   }
   return 0LL;
 }

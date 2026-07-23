@@ -1,8 +1,8 @@
 /*
  * XREFs of PopSetBootPhaseRange @ 0x1403CB780
  * Callers:
- *     PoSetHiberRange @ 0x140112E60 (PoSetHiberRange.c)
- *     PopSetRange @ 0x140113088 (PopSetRange.c)
+ *     PoSetHiberRange @ 0x1401133D0 (PoSetHiberRange.c)
+ *     PopSetRange @ 0x1401135F8 (PopSetRange.c)
  * Callees:
  *     <none>
  */

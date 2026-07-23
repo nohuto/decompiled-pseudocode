@@ -25,5 +25,5 @@ __int64 __fastcall WmiGetClock(int a1)
         return __rdtsc();
     }
   }
-  return RtlGetSystemTimePrecise();
+  return RtlGetSystemTimePrecise().QuadPart;
 }

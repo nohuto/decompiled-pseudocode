@@ -1,12 +1,12 @@
 /*
- * XREFs of KiMarkBugCheckRegions @ 0x1401A0130
+ * XREFs of KiMarkBugCheckRegions @ 0x1401A0270
  * Callers:
- *     KeBugCheck2 @ 0x140291190 (KeBugCheck2.c)
+ *     KeBugCheck2 @ 0x140291380 (KeBugCheck2.c)
  * Callees:
- *     MmQueryApiSetSchema @ 0x14013907C (MmQueryApiSetSchema.c)
- *     IoAddTriageDumpDataBlock @ 0x140191CEC (IoAddTriageDumpDataBlock.c)
- *     sub_1401AEE34 @ 0x1401AEE34 (sub_1401AEE34.c)
- *     MmIsAddressValid @ 0x1402AB9B0 (MmIsAddressValid.c)
+ *     MmQueryApiSetSchema @ 0x14013917C (MmQueryApiSetSchema.c)
+ *     IoAddTriageDumpDataBlock @ 0x140191E2C (IoAddTriageDumpDataBlock.c)
+ *     sub_1401AEF74 @ 0x1401AEF74 (sub_1401AEF74.c)
+ *     MmIsAddressValid @ 0x1402ABBA0 (MmIsAddressValid.c)
  */
 
 __int64 __fastcall KiMarkBugCheckRegions(__int64 a1, __int64 a2, unsigned __int64 a3, __int64 a4)
@@ -46,14 +46,14 @@ __int64 __fastcall KiMarkBugCheckRegions(__int64 a1, __int64 a2, unsigned __int6
   v7 = 4;
   if ( KdpBreakpointChangeCount )
     IoAddTriageDumpDataBlock((int)&KdpBreakpointChangeCount, 4);
-  if ( qword_140405660 )
+  if ( qword_140406660 )
   {
-    KiMismatchSummary = qword_140405660;
+    KiMismatchSummary = qword_140406660;
     IoAddTriageDumpDataBlock((int)&KiMismatchSummary, 8);
   }
-  if ( (_DWORD)a4 == 257 && dword_140405658 )
+  if ( (_DWORD)a4 == 257 && dword_140406658 )
   {
-    v8 = qword_140405648;
+    v8 = qword_140406648;
     v9 = 0;
     do
     {
@@ -99,12 +99,12 @@ __int64 __fastcall KiMarkBugCheckRegions(__int64 a1, __int64 a2, unsigned __int6
       }
       v9 += 4096;
     }
-    while ( v9 < dword_140405658 );
-    dword_140405658 = 4096;
+    while ( v9 < dword_140406658 );
+    dword_140406658 = 4096;
   }
-  v16 = &qword_140405648;
+  v16 = &qword_140406648;
   v17 = 2LL;
-  v18 = &dword_140405658;
+  v18 = &dword_140406658;
   do
   {
     if ( *v18 )
@@ -207,7 +207,7 @@ LABEL_45:
     if ( MmIsAddressValid(VirtualAddress) && a3 == *(_QWORD *)VirtualAddress )
       IoAddTriageDumpDataBlock((int)VirtualAddress, 8);
   }
-  result = sub_1401AEE34(a1, a2, a3, a4);
+  result = sub_1401AEF74(a1, a2, a3, a4);
   if ( Src )
     return IoAddTriageDumpDataBlock((int)Src, 2672);
   return result;

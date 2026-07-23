@@ -1,31 +1,31 @@
 /*
- * XREFs of MiExpandNonPagedPool @ 0x140101824
+ * XREFs of MiExpandNonPagedPool @ 0x1400FF5A4
  * Callers:
- *     MiFindNonPagedPoolVa @ 0x140017DC0 (MiFindNonPagedPoolVa.c)
- *     MiFindContiguousMemoryInPool @ 0x14009B2EC (MiFindContiguousMemoryInPool.c)
+ *     MiFindNonPagedPoolVa @ 0x140017940 (MiFindNonPagedPoolVa.c)
+ *     MiFindContiguousMemoryInPool @ 0x14009AAEC (MiFindContiguousMemoryInPool.c)
  *     MiInitializeNonPagedPool @ 0x1407A47DC (MiInitializeNonPagedPool.c)
  * Callees:
- *     KeReleaseInStackQueuedSpinLock @ 0x140012750 (KeReleaseInStackQueuedSpinLock.c)
- *     RtlClearBitsEx @ 0x140013C68 (RtlClearBitsEx.c)
- *     KeAcquireInStackQueuedSpinLock @ 0x14001BD40 (KeAcquireInStackQueuedSpinLock.c)
- *     MiUpdateLargePageBitMap @ 0x140022BE0 (MiUpdateLargePageBitMap.c)
- *     MiMakeValidKernelPte @ 0x140034D10 (MiMakeValidKernelPte.c)
- *     MiGetLargePageChain @ 0x14008A454 (MiGetLargePageChain.c)
- *     MiInitializeLargeNonPagedPoolLeafFrames @ 0x1400957C0 (MiInitializeLargeNonPagedPoolLeafFrames.c)
- *     MiReturnNonPagedPoolCharges @ 0x140098570 (MiReturnNonPagedPoolCharges.c)
- *     MiObtainDynamicVa @ 0x1400A3088 (MiObtainDynamicVa.c)
- *     MiFreeExcessSegments @ 0x1400A3910 (MiFreeExcessSegments.c)
- *     MiReturnSystemVa @ 0x1400C08D0 (MiReturnSystemVa.c)
- *     MiSplitBitmapPages @ 0x140101E54 (MiSplitBitmapPages.c)
- *     MiObtainNonPagedPoolCharges @ 0x140102084 (MiObtainNonPagedPoolCharges.c)
- *     MiMakeZeroedPageTables @ 0x1401022B4 (MiMakeZeroedPageTables.c)
- *     MiIncreaseNonPagedPoolUsage @ 0x1401035FC (MiIncreaseNonPagedPoolUsage.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     MiLogPerfMemoryRangeEvent @ 0x1401E35E0 (MiLogPerfMemoryRangeEvent.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiFreeLargePageChain @ 0x1401FB72C (MiFreeLargePageChain.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x1400122D0 (KeReleaseInStackQueuedSpinLock.c)
+ *     RtlClearBitsEx @ 0x1400137E8 (RtlClearBitsEx.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14001B8C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     MiUpdateLargePageBitMap @ 0x140022760 (MiUpdateLargePageBitMap.c)
+ *     MiMakeValidKernelPte @ 0x140034890 (MiMakeValidKernelPte.c)
+ *     MiGetLargePageChain @ 0x140089B54 (MiGetLargePageChain.c)
+ *     MiInitializeLargeNonPagedPoolLeafFrames @ 0x140094FC0 (MiInitializeLargeNonPagedPoolLeafFrames.c)
+ *     MiReturnNonPagedPoolCharges @ 0x140097D70 (MiReturnNonPagedPoolCharges.c)
+ *     MiObtainDynamicVa @ 0x1400A19B0 (MiObtainDynamicVa.c)
+ *     MiFreeExcessSegments @ 0x1400A2238 (MiFreeExcessSegments.c)
+ *     MiReturnSystemVa @ 0x1400BE760 (MiReturnSystemVa.c)
+ *     MiSplitBitmapPages @ 0x1400FFBD4 (MiSplitBitmapPages.c)
+ *     MiObtainNonPagedPoolCharges @ 0x1400FFE04 (MiObtainNonPagedPoolCharges.c)
+ *     MiMakeZeroedPageTables @ 0x140100034 (MiMakeZeroedPageTables.c)
+ *     MiIncreaseNonPagedPoolUsage @ 0x14010137C (MiIncreaseNonPagedPoolUsage.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     MiLogPerfMemoryRangeEvent @ 0x1401E340C (MiLogPerfMemoryRangeEvent.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
+ *     MiFreeLargePageChain @ 0x1401FB558 (MiFreeLargePageChain.c)
  */
 
 __int64 __fastcall MiExpandNonPagedPool(
@@ -38,7 +38,7 @@ __int64 __fastcall MiExpandNonPagedPool(
 {
   unsigned __int64 v6; // r12
   __int64 v9; // r8
-  union _SLIST_HEADER *v10; // rbx
+  _SLIST_HEADER *v10; // rbx
   int v11; // r9d
   unsigned __int64 v12; // r8
   unsigned __int64 v13; // r8
@@ -73,7 +73,7 @@ __int64 __fastcall MiExpandNonPagedPool(
   int v43; // [rsp+44h] [rbp-75h]
   __int64 v45; // [rsp+50h] [rbp-69h]
   __int64 v46; // [rsp+50h] [rbp-69h]
-  union _SLIST_HEADER *v47; // [rsp+60h] [rbp-59h]
+  _SLIST_HEADER *v47; // [rsp+60h] [rbp-59h]
   unsigned __int64 v49; // [rsp+70h] [rbp-49h]
   unsigned __int64 v50; // [rsp+78h] [rbp-41h]
   __int64 v51; // [rsp+80h] [rbp-39h]
@@ -87,30 +87,30 @@ __int64 __fastcall MiExpandNonPagedPool(
   v54 = 0LL;
   v9 = 26LL * a3;
   *a6 = 3;
-  v10 = &qword_1403269B0[v9];
+  v10 = &qword_1403269F0[v9];
   v11 = 0;
   v43 = a3;
   v45 = v9 * 16;
-  v47 = &qword_1403269B0[v9];
+  v47 = &qword_1403269F0[v9];
   v39 = 1;
   if ( (a1 & 0x200) != 0 )
   {
-    v12 = *(_QWORD *)(2184LL * a3 + qword_140323570 + 2056) >> 9;
-    if ( qword_140324DD0 >= 0x100000 )
+    v12 = *(_QWORD *)(2184LL * a3 + qword_1403235B0 + 2056) >> 9;
+    if ( qword_140324E10 >= 0x100000 )
     {
-      if ( qword_140324DD0 < 0x400000 )
+      if ( qword_140324E10 < 0x400000 )
         v12 = ((v12 * (unsigned __int128)0x47AE147AE147AE15uLL) >> 64)
             + ((unsigned __int64)(v12 - ((v12 * (unsigned __int128)0x47AE147AE147AE15uLL) >> 64)) >> 1);
       v13 = v12 >> 4;
     }
     else
     {
-      v13 = *(_QWORD *)(2184LL * a3 + qword_140323570 + 2056) >> 14;
+      v13 = *(_QWORD *)(2184LL * a3 + qword_1403235B0 + 2056) >> 14;
     }
-    if ( qword_140324DD0 > 0x20000 )
+    if ( qword_140324E10 > 0x20000 )
     {
       v14 = -1LL;
-      if ( qword_140324DD0 < 0x80000 )
+      if ( qword_140324E10 < 0x80000 )
         v14 = 2LL;
     }
     else
@@ -151,7 +151,7 @@ __int64 __fastcall MiExpandNonPagedPool(
   if ( a5 == 1 )
     return -1LL;
 LABEL_25:
-  v19 = MiObtainDynamicVa((__int64 *)((char *)&qword_1403269B0[11].Region + v45), v17, 5, 0);
+  v19 = MiObtainDynamicVa((__int64 *)((char *)&qword_1403269F0[11].Region + v45), v17, 5, 0);
   v49 = v19;
   v20 = v19;
   if ( !v19 )

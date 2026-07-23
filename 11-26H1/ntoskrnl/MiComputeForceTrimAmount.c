@@ -1,7 +1,7 @@
 /*
- * XREFs of MiComputeForceTrimAmount @ 0x1403B9C44
+ * XREFs of MiComputeForceTrimAmount @ 0x1403C3B44
  * Callers:
- *     MiForcedTrim @ 0x1403B9340 (MiForcedTrim.c)
+ *     MiForcedTrim @ 0x1403C3240 (MiForcedTrim.c)
  * Callees:
  *     <none>
  */
@@ -16,7 +16,7 @@ unsigned __int64 __fastcall MiComputeForceTrimAmount(__int64 a1, unsigned __int6
   unsigned __int64 v9; // rcx
   unsigned __int64 v10; // rdx
 
-  v4 = *(_QWORD **)(stru_140E2EB88.ThreadLock + 8LL * *(unsigned __int16 *)(a1 + 174));
+  v4 = *(_QWORD **)(stru_140E2ED08.ThreadLock + 8LL * *(unsigned __int16 *)(a1 + 174));
   v5 = v4[2300];
   if ( (*(_DWORD *)(a1 + 184) & 0xF) != 0 )
   {

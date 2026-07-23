@@ -10,7 +10,7 @@
  *     EtwpReferenceStackLookasideList @ 0x14074FEB0 (EtwpReferenceStackLookasideList.c)
  */
 
-__int64 __fastcall EtwpUpdateStackTracing(struct _RTL_BITMAP *a1, __int64 a2, unsigned int a3)
+__int64 __fastcall EtwpUpdateStackTracing(_RTL_BITMAP *a1, __int64 a2, unsigned int a3)
 {
   unsigned int v6; // edi
   unsigned int *PoolWithTag; // rax

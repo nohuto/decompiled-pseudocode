@@ -6,7 +6,7 @@
  *     <none>
  */
 
-bool RtlIsThreadWithinLoaderCallout()
+BOOLEAN RtlIsThreadWithinLoaderCallout(void)
 {
   return NtCurrentTeb() == (struct _TEB *)LdrpTopLevelDllBeingLoadedTeb;
 }

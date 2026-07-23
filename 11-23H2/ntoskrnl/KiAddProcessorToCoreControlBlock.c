@@ -1,10 +1,10 @@
 /*
- * XREFs of KiAddProcessorToCoreControlBlock @ 0x140381534
+ * XREFs of KiAddProcessorToCoreControlBlock @ 0x1403816D4
  * Callers:
  *     KiInitializeTopologyStructures @ 0x140A8D0F8 (KiInitializeTopologyStructures.c)
  * Callees:
- *     qsort @ 0x1403DA430 (qsort.c)
- *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
+ *     qsort @ 0x1403DA610 (qsort.c)
+ *     KeBugCheckEx @ 0x14041EDE0 (KeBugCheckEx.c)
  */
 
 void __fastcall KiAddProcessorToCoreControlBlock(unsigned __int8 *a1, ULONG_PTR a2)

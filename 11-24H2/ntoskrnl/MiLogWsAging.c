@@ -1,11 +1,11 @@
 /*
- * XREFs of MiLogWsAging @ 0x14023537C
+ * XREFs of MiLogWsAging @ 0x14020F50C
  * Callers:
- *     MiAgeWorkingSet @ 0x140235110 (MiAgeWorkingSet.c)
+ *     MiAgeWorkingSet @ 0x14020F2A0 (MiAgeWorkingSet.c)
  * Callees:
- *     _tlgCreate1Sz_char @ 0x1404397B4 (_tlgCreate1Sz_char.c)
- *     _tlgWriteEx_EtwWriteEx @ 0x1404A083C (_tlgWriteEx_EtwWriteEx.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     _tlgCreate1Sz_char @ 0x14042C374 (_tlgCreate1Sz_char.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x14049AEBC (_tlgWriteEx_EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 void __fastcall MiLogWsAging(__int64 a1, __int64 a2, int a3)
@@ -60,16 +60,16 @@ void __fastcall MiLogWsAging(__int64 a1, __int64 a2, int a3)
   int *v51; // [rsp+180h] [rbp+80h]
   __int64 v52; // [rsp+188h] [rbp+88h]
 
-  if ( *(_QWORD *)&qword_140E37518 )
+  if ( *(_QWORD *)&qword_140E37658 )
   {
     v4 = *(_QWORD *)(a1 + 144);
     v5 = *(_QWORD *)(a1 + 152);
     v6 = (*(_DWORD *)(a1 + 184) & 0xF) != 0 ? 0LL : a1 - 200;
-    if ( **(_DWORD **)&qword_140E37518 > 5u )
+    if ( **(_DWORD **)&qword_140E37658 > 5u )
     {
-      if ( (*(_BYTE *)(*(_QWORD *)&qword_140E37518 + 16LL) & 1) == 0
+      if ( (*(_BYTE *)(*(_QWORD *)&qword_140E37658 + 16LL) & 1) == 0
         || (v7 = 1,
-            (*(_QWORD *)(*(_QWORD *)&qword_140E37518 + 24LL) & 1LL) != *(_QWORD *)(*(_QWORD *)&qword_140E37518 + 24LL)) )
+            (*(_QWORD *)(*(_QWORD *)&qword_140E37658 + 24LL) & 1LL) != *(_QWORD *)(*(_QWORD *)&qword_140E37658 + 24LL)) )
       {
         v7 = 0;
       }
@@ -115,7 +115,7 @@ void __fastcall MiLogWsAging(__int64 a1, __int64 a2, int a3)
         v48 = 4LL;
         v50 = 64LL;
         v52 = 4LL;
-        tlgWriteEx_EtwWriteEx(v12, (int)&word_14005694A, v12, 1, v13, v14, 0x10u, (__int64)v27);
+        tlgWriteEx_EtwWriteEx(v12, (int)&byte_14005704B, v12, 1, v13, v14, 0x10u, (__int64)v27);
       }
     }
   }

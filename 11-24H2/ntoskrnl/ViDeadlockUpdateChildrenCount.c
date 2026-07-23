@@ -1,9 +1,9 @@
 /*
- * XREFs of ViDeadlockUpdateChildrenCount @ 0x140B9A2A4
+ * XREFs of ViDeadlockUpdateChildrenCount @ 0x140B9C2A4
  * Callers:
- *     ViDeadlockMergeNodes @ 0x140B99944 (ViDeadlockMergeNodes.c)
- *     ViDeadlockRemoveNode @ 0x140B99CC8 (ViDeadlockRemoveNode.c)
- *     VfDeadlockAcquireResource @ 0x140BA83C4 (VfDeadlockAcquireResource.c)
+ *     ViDeadlockMergeNodes @ 0x140B9B944 (ViDeadlockMergeNodes.c)
+ *     ViDeadlockRemoveNode @ 0x140B9BCC8 (ViDeadlockRemoveNode.c)
+ *     VfDeadlockAcquireResource @ 0x140BAA3C4 (VfDeadlockAcquireResource.c)
  * Callees:
  *     <none>
  */

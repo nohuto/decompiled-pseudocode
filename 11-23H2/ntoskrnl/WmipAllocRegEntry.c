@@ -1,17 +1,17 @@
 /*
- * XREFs of WmipAllocRegEntry @ 0x1403C2684
+ * XREFs of WmipAllocRegEntry @ 0x1403C2864
  * Callers:
- *     WmipRegisterDevice @ 0x14086BF88 (WmipRegisterDevice.c)
+ *     WmipRegisterDevice @ 0x14086C1C8 (WmipRegisterDevice.c)
  *     WmipInitializeDataStructs @ 0x140B38FE4 (WmipInitializeDataStructs.c)
  * Callees:
- *     KeWaitForSingleObject @ 0x140243CE0 (KeWaitForSingleObject.c)
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
- *     KeReleaseMutex @ 0x1402AFF70 (KeReleaseMutex.c)
- *     ExAllocateFromNPagedLookasideList @ 0x1402B6B30 (ExAllocateFromNPagedLookasideList.c)
- *     memset @ 0x140435A00 (memset.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     WmipAllocProviderId @ 0x1407E8C14 (WmipAllocProviderId.c)
+ *     KeWaitForSingleObject @ 0x140243DB0 (KeWaitForSingleObject.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250F40 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeReleaseMutex @ 0x1402B0200 (KeReleaseMutex.c)
+ *     ExAllocateFromNPagedLookasideList @ 0x1402B6DC0 (ExAllocateFromNPagedLookasideList.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     WmipAllocProviderId @ 0x1407E8EE4 (WmipAllocProviderId.c)
  */
 
 _QWORD *__fastcall WmipAllocRegEntry(__int64 a1, int a2)
@@ -47,10 +47,13 @@ _QWORD *__fastcall WmipAllocRegEntry(__int64 a1, int a2)
     *v8 = v5;
     off_140C042E0 = (_UNKNOWN **)v5;
     KxReleaseSpinLock((volatile signed __int64 *)&WmipRegistrationSpinLock);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v7 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v7 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;

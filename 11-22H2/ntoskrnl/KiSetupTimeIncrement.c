@@ -67,8 +67,8 @@ __int64 __fastcall KiSetupTimeIncrement(unsigned __int64 a1, unsigned int a2)
   *(_BYTE *)(v11 + 872) = MEMORY[0xFFFFF78000000369];
   *(LARGE_INTEGER *)(v11 + 840) = v9;
   *(LARGE_INTEGER *)(v11 + 848) = v9;
-  result = 0x989680u / KeMaximumIncrement;
-  KiBalanceSetManagerPeriod = 0x989680u / KeMaximumIncrement;
-  KiBalanceSetManagerCount = 0x989680u / KeMaximumIncrement;
+  result = 0x989680 / KeMaximumIncrement;
+  KiBalanceSetManagerPeriod = 0x989680 / KeMaximumIncrement;
+  KiBalanceSetManagerCount = 0x989680 / KeMaximumIncrement;
   return result;
 }

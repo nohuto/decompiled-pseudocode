@@ -16,11 +16,11 @@ __int64 __fastcall ApiSetpResolveHost(
         unsigned __int16 *a2,
         __int64 a3,
         char a4,
-        __int64 a5,
+        ULONGLONG a5,
         char *a6,
         __int64 a7)
 {
-  __int64 v7; // r15
+  ULONGLONG v7; // r15
   unsigned __int16 v9; // ax
   unsigned __int16 *v10; // rsi
   char v12; // di
@@ -45,7 +45,7 @@ __int64 __fastcall ApiSetpResolveHost(
   unsigned __int16 v31; // cx
   __int64 v32; // r10
   char v33; // cl
-  __int64 v34; // rcx
+  RTL_FEATURE_ID v34; // ecx
   __int64 v35; // rcx
   unsigned __int16 v36; // ax
   int v37; // r10d
@@ -60,18 +60,17 @@ __int64 __fastcall ApiSetpResolveHost(
   unsigned int v46; // eax
   __int64 v47; // rdx
   __int64 v48; // r8
-  __int64 v50; // [rsp+38h] [rbp-49h] BYREF
+  ULONGLONG ChangeStamp; // [rsp+38h] [rbp-49h] BYREF
   __int128 v51; // [rsp+40h] [rbp-41h] BYREF
   __int128 v52; // [rsp+50h] [rbp-31h]
   char *v53; // [rsp+60h] [rbp-21h]
-  __int64 v54; // [rsp+68h] [rbp-19h] BYREF
-  int v55; // [rsp+70h] [rbp-11h]
+  _RTL_FEATURE_CONFIGURATION FeatureConfiguration; // [rsp+68h] [rbp-19h] BYREF
 
   v7 = a5;
   v9 = a3;
   v10 = a2;
   v53 = a6;
-  v50 = a5;
+  ChangeStamp = a5;
   v12 = 0;
   LOBYTE(a3) = a4;
   *(_OWORD *)a7 = 0LL;
@@ -177,16 +176,16 @@ LABEL_65:
     {
       if ( (*(_BYTE *)(v29 + 6) & 4) != 0 )
       {
-        v34 = *(unsigned int *)(v29 + 8);
-        if ( (_DWORD)v34 )
+        v34 = *(_DWORD *)(v29 + 8);
+        if ( v34 )
         {
-          v50 = 0LL;
-          v54 = 0LL;
-          v55 = 0;
-          if ( (unsigned int)RtlQueryFeatureConfiguration(v34, 0, &v50, (__int64)&v54)
-            || !v50
-            || (_DWORD)v54 != *(_DWORD *)(v29 + 8)
-            || (BYTE4(v54) & 0x30) != 0x20 )
+          ChangeStamp = 0LL;
+          *(_QWORD *)&FeatureConfiguration.FeatureId = 0LL;
+          FeatureConfiguration.VariantPayload = 0;
+          if ( RtlQueryFeatureConfiguration(v34, RtlFeatureConfigurationBoot, &ChangeStamp, &FeatureConfiguration)
+            || !ChangeStamp
+            || FeatureConfiguration.FeatureId != *(_DWORD *)(v29 + 8)
+            || (FeatureConfiguration.Flags & 0x30) != 0x20 )
           {
             v12 = 0;
             goto LABEL_66;
@@ -252,7 +251,7 @@ LABEL_65:
   v21 = *(unsigned int *)(a1 + 44)
       + *(unsigned __int16 *)(v16 + 4) * (unsigned __int64)*(unsigned __int8 *)(a1 + 52)
       - v14;
-  v7 = v50;
+  v7 = ChangeStamp;
   v22 = a1 + v21;
   v23 = *(_WORD *)(v22 + 8);
   v24 = *(_BYTE *)(v22 + 10);

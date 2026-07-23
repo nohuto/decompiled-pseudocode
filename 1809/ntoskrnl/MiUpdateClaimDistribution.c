@@ -1,8 +1,8 @@
 /*
- * XREFs of MiUpdateClaimDistribution @ 0x1401145A0
+ * XREFs of MiUpdateClaimDistribution @ 0x140114610
  * Callers:
- *     MiComputeAgeDistribution @ 0x140114438 (MiComputeAgeDistribution.c)
- *     MiOrderTrimList @ 0x1402B3350 (MiOrderTrimList.c)
+ *     MiComputeAgeDistribution @ 0x1401144A8 (MiComputeAgeDistribution.c)
+ *     MiOrderTrimList @ 0x1402B3540 (MiOrderTrimList.c)
  * Callees:
  *     <none>
  */

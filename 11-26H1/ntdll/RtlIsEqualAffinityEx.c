@@ -1,5 +1,5 @@
 /*
- * XREFs of RtlIsEqualAffinityEx @ 0x18013F960
+ * XREFs of RtlIsEqualAffinityEx @ 0x18013F860
  * Callers:
  *     <none>
  * Callees:

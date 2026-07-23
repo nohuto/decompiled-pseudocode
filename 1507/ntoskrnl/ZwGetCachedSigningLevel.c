@@ -6,9 +6,15 @@
  *     <none>
  */
 
-__int64 __fastcall ZwGetCachedSigningLevel(__int64 a1, __int64 a2, __int64 a3)
+NTSTATUS __cdecl ZwGetCachedSigningLevel(
+        HANDLE File,
+        PULONG Flags,
+        PSE_SIGNING_LEVEL SigningLevel,
+        PUCHAR Thumbprint,
+        PULONG ThumbprintSize,
+        PULONG ThumbprintAlgorithm)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2, a3);
+  return KiServiceInternal(File);
 }

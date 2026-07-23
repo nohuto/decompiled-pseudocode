@@ -1,15 +1,15 @@
 /*
- * XREFs of IoSetDeviceInterfaceState @ 0x140793660
+ * XREFs of IoSetDeviceInterfaceState @ 0x140793850
  * Callers:
- *     DifIoSetDeviceInterfaceStateWrapper @ 0x1405E1240 (DifIoSetDeviceInterfaceStateWrapper.c)
- *     PiSwDeviceInterfacesUpdateState @ 0x14081A110 (PiSwDeviceInterfacesUpdateState.c)
- *     PiSwDeviceInterfaceSetState @ 0x14081B544 (PiSwDeviceInterfaceSetState.c)
- *     PnpDisableDeviceInterfaces @ 0x140882C90 (PnpDisableDeviceInterfaces.c)
+ *     DifIoSetDeviceInterfaceStateWrapper @ 0x1405E17B0 (DifIoSetDeviceInterfaceStateWrapper.c)
+ *     PiSwDeviceInterfacesUpdateState @ 0x14081A3E0 (PiSwDeviceInterfacesUpdateState.c)
+ *     PiSwDeviceInterfaceSetState @ 0x14081B814 (PiSwDeviceInterfaceSetState.c)
+ *     PnpDisableDeviceInterfaces @ 0x140882ED0 (PnpDisableDeviceInterfaces.c)
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
- *     ExAcquireResourceExclusiveLite @ 0x1402390E0 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x14023D410 (ExReleaseResourceLite.c)
- *     IopProcessSetInterfaceState @ 0x1407936D4 (IopProcessSetInterfaceState.c)
+ *     KeLeaveCriticalRegion @ 0x140231550 (KeLeaveCriticalRegion.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1402391B0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14023D4E0 (ExReleaseResourceLite.c)
+ *     IopProcessSetInterfaceState @ 0x1407938C4 (IopProcessSetInterfaceState.c)
  */
 
 NTSTATUS __stdcall IoSetDeviceInterfaceState(PUNICODE_STRING SymbolicLinkName, BOOLEAN Enable)

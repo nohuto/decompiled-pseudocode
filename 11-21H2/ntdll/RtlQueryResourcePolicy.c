@@ -18,16 +18,12 @@ __int64 __fastcall RtlQueryResourcePolicy(int a1, int a2, int *a3, __int64 a4)
 {
   int v8; // ebx
   int v9; // ebx
-  __int64 NtSystemRoot; // rax
-  const wchar_t *v11; // rax
+  PWSTR NtSystemRoot; // rax
+  PWSTR v11; // rax
 
   if ( !a3 || a2 )
     return 3221225485LL;
-  RtlRunOnceExecuteOnce(
-    &RtlpTestHookInit,
-    (unsigned int (__fastcall *)(volatile signed __int64 *, __int64, __int64 *))RtlpTestHookInitialize,
-    0LL,
-    0LL);
+  RtlRunOnceExecuteOnce(&RtlpTestHookInit, RtlpTestHookInitialize, 0LL, 0LL);
   if ( !a1 )
   {
     if ( a4 == 4 )
@@ -58,6 +54,6 @@ __int64 __fastcall RtlQueryResourcePolicy(int a1, int a2, int *a3, __int64 a4)
   if ( (RtlGetSuiteMask() & 0x10000) != 0 )
     v11 = L"C:\\data\\programs\\windowsapps";
   else
-    v11 = (const wchar_t *)RtlGetNtSystemRoot();
+    v11 = RtlGetNtSystemRoot();
   return RtlpQueryDiskSpacePolicy(v11, a3);
 }

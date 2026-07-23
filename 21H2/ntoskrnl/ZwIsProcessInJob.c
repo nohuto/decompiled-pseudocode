@@ -1,14 +1,14 @@
 /*
- * XREFs of ZwIsProcessInJob @ 0x1403FAD80
+ * XREFs of ZwIsProcessInJob @ 0x1403FAF60
  * Callers:
  *     <none>
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall ZwIsProcessInJob(__int64 a1, __int64 a2)
+NTSTATUS __cdecl ZwIsProcessInJob(HANDLE ProcessHandle, HANDLE JobHandle)
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(a1, a2);
+  return KiServiceInternal(ProcessHandle);
 }

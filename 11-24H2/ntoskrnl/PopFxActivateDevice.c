@@ -1,24 +1,24 @@
 /*
- * XREFs of PopFxActivateDevice @ 0x140496080
+ * XREFs of PopFxActivateDevice @ 0x140490A10
  * Callers:
- *     PopFxActivateDevicesForSx @ 0x140495F64 (PopFxActivateDevicesForSx.c)
- *     PoFxActivateDeviceForSystemTransition @ 0x140496048 (PoFxActivateDeviceForSystemTransition.c)
- *     PoFxActivateDevice @ 0x140496064 (PoFxActivateDevice.c)
- *     PopFxClearDeviceConstraints @ 0x1404A6344 (PopFxClearDeviceConstraints.c)
- *     PoFxStartDevicePowerManagement @ 0x1404AB730 (PoFxStartDevicePowerManagement.c)
- *     PoFxAddDeviceRelation @ 0x1405D0050 (PoFxAddDeviceRelation.c)
- *     PoFxRemoveDeviceRelation @ 0x1405D06F0 (PoFxRemoveDeviceRelation.c)
- *     PopPepPlatformStateRegistered @ 0x1405DBD18 (PopPepPlatformStateRegistered.c)
- *     PopPlActivateDeviceIterator @ 0x1405DC850 (PopPlActivateDeviceIterator.c)
+ *     PopFxActivateDevicesForSx @ 0x1404908F4 (PopFxActivateDevicesForSx.c)
+ *     PoFxActivateDeviceForSystemTransition @ 0x1404909D8 (PoFxActivateDeviceForSystemTransition.c)
+ *     PoFxActivateDevice @ 0x1404909F4 (PoFxActivateDevice.c)
+ *     PoFxStartDevicePowerManagement @ 0x1404A5D50 (PoFxStartDevicePowerManagement.c)
+ *     PopFxClearDeviceConstraints @ 0x1404CDF98 (PopFxClearDeviceConstraints.c)
+ *     PoFxAddDeviceRelation @ 0x1405CD770 (PoFxAddDeviceRelation.c)
+ *     PoFxRemoveDeviceRelation @ 0x1405CDE10 (PoFxRemoveDeviceRelation.c)
+ *     PopPepPlatformStateRegistered @ 0x1405D8BE8 (PopPepPlatformStateRegistered.c)
+ *     PopPlActivateDeviceIterator @ 0x1405D9720 (PopPlActivateDeviceIterator.c)
  * Callees:
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     PopFxReferenceDevice @ 0x14029F788 (PopFxReferenceDevice.c)
- *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
- *     PopFxDereferenceDevice @ 0x140376880 (PopFxDereferenceDevice.c)
- *     PopFxBugCheck @ 0x140377108 (PopFxBugCheck.c)
- *     ExReleaseSpinLockExclusive @ 0x140379ED0 (ExReleaseSpinLockExclusive.c)
- *     PoFxActivateComponent @ 0x1403B6160 (PoFxActivateComponent.c)
- *     Feature_Sx_PEP_Notification_Synchronization__private_IsEnabledNoReportingNoInline @ 0x1405CD8C8 (Feature_Sx_PEP_Notification_Synchronization__private_IsEnabledNoReportingNoInline.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     PoFxActivateComponent @ 0x1402AE460 (PoFxActivateComponent.c)
+ *     ExReleaseSpinLockExclusive @ 0x1402E6E40 (ExReleaseSpinLockExclusive.c)
+ *     KeWaitForSingleObject @ 0x14031DE40 (KeWaitForSingleObject.c)
+ *     PopFxDereferenceDevice @ 0x1403A7F58 (PopFxDereferenceDevice.c)
+ *     PopFxBugCheck @ 0x1403A9948 (PopFxBugCheck.c)
+ *     PopFxReferenceDevice @ 0x1403AA248 (PopFxReferenceDevice.c)
+ *     Feature_Sx_PEP_Notification_Synchronization__private_IsEnabledNoReportingNoInline @ 0x1405CB038 (Feature_Sx_PEP_Notification_Synchronization__private_IsEnabledNoReportingNoInline.c)
  */
 
 void __fastcall PopFxActivateDevice(__int64 a1, char a2, char a3)

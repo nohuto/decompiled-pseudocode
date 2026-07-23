@@ -1,13 +1,13 @@
 /*
- * XREFs of MiUpdateHugePageCounts @ 0x140622D48
+ * XREFs of MiUpdateHugePageCounts @ 0x140623298
  * Callers:
- *     MiAddPartitionHugeRange @ 0x14061F204 (MiAddPartitionHugeRange.c)
- *     MiHotRemoveHugeRange @ 0x1406200D4 (MiHotRemoveHugeRange.c)
- *     MiInsertHugeRangeInList @ 0x140620FCC (MiInsertHugeRangeInList.c)
- *     MiMoveBadHugeRangeCrossPartition @ 0x1406220B8 (MiMoveBadHugeRangeCrossPartition.c)
- *     MiSetHugeRangePartitionId @ 0x140622808 (MiSetHugeRangePartitionId.c)
+ *     MiAddPartitionHugeRange @ 0x14061F754 (MiAddPartitionHugeRange.c)
+ *     MiHotRemoveHugeRange @ 0x140620624 (MiHotRemoveHugeRange.c)
+ *     MiInsertHugeRangeInList @ 0x14062151C (MiInsertHugeRangeInList.c)
+ *     MiMoveBadHugeRangeCrossPartition @ 0x140622608 (MiMoveBadHugeRangeCrossPartition.c)
+ *     MiSetHugeRangePartitionId @ 0x140622D58 (MiSetHugeRangePartitionId.c)
  * Callees:
- *     MiSearchNumaNodeTable @ 0x14026EAD0 (MiSearchNumaNodeTable.c)
+ *     MiSearchNumaNodeTable @ 0x14026ED60 (MiSearchNumaNodeTable.c)
  */
 
 unsigned __int64 __fastcall MiUpdateHugePageCounts(__int64 a1, int a2, unsigned __int64 a3, int a4)

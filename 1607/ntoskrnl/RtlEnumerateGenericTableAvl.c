@@ -1,7 +1,7 @@
 /*
- * XREFs of RtlEnumerateGenericTableAvl @ 0x1400C4680
+ * XREFs of RtlEnumerateGenericTableAvl @ 0x1400C2520
  * Callers:
- *     PiDmObjectManagerPopulate @ 0x1405640A8 (PiDmObjectManagerPopulate.c)
+ *     PiDmObjectManagerPopulate @ 0x1405645E8 (PiDmObjectManagerPopulate.c)
  *     VfAvlEnumerateNodes @ 0x1407168E0 (VfAvlEnumerateNodes.c)
  * Callees:
  *     <none>

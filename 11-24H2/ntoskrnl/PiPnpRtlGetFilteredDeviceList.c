@@ -1,15 +1,15 @@
 /*
- * XREFs of PiPnpRtlGetFilteredDeviceList @ 0x1409D4550
+ * XREFs of PiPnpRtlGetFilteredDeviceList @ 0x1409C4380
  * Callers:
- *     PiPnpRtlCmActionCallback @ 0x1408C7450 (PiPnpRtlCmActionCallback.c)
+ *     PiPnpRtlCmActionCallback @ 0x1408C4E80 (PiPnpRtlCmActionCallback.c)
  * Callees:
- *     StringExHandleOtherFlagsW @ 0x14041DE80 (StringExHandleOtherFlagsW.c)
- *     RtlInitUnicodeStringEx @ 0x14045AA10 (RtlInitUnicodeStringEx.c)
- *     wcschr @ 0x1404FFD90 (wcschr.c)
- *     PiDmGetObjectConstraintList @ 0x1409D4AD0 (PiDmGetObjectConstraintList.c)
- *     PiDmGetObjectList @ 0x1409D4E60 (PiDmGetObjectList.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     StringExHandleOtherFlagsW @ 0x140412250 (StringExHandleOtherFlagsW.c)
+ *     RtlInitUnicodeStringEx @ 0x14044FE60 (RtlInitUnicodeStringEx.c)
+ *     wcschr @ 0x1404FD650 (wcschr.c)
+ *     PiDmGetObjectConstraintList @ 0x1409C4900 (PiDmGetObjectConstraintList.c)
+ *     PiDmGetObjectList @ 0x1409C4C90 (PiDmGetObjectList.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PiPnpRtlGetFilteredDeviceList(__int64 a1)
@@ -97,7 +97,7 @@ __int64 __fastcall PiPnpRtlGetFilteredDeviceList(__int64 a1)
         break;
       v14 = v16 + 1;
     }
-    Pool2 = ExAllocatePool2(0x100uLL);
+    Pool2 = ExAllocatePool2(0x100uLL, 0x190uLL, 0x47706E50u);
     v18 = (WCHAR *)Pool2;
     if ( !Pool2 )
       return (unsigned int)-1073741670;

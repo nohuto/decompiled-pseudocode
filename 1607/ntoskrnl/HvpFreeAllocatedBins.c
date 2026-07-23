@@ -1,12 +1,12 @@
 /*
- * XREFs of HvpFreeAllocatedBins @ 0x140603A64
+ * XREFs of HvpFreeAllocatedBins @ 0x140603B18
  * Callers:
- *     HvLoadHive @ 0x14047ECF8 (HvLoadHive.c)
+ *     HvLoadHive @ 0x14047DA4C (HvLoadHive.c)
  * Callees:
- *     HvpMapEntryIsNewAlloc @ 0x14000B330 (HvpMapEntryIsNewAlloc.c)
- *     HvpMapEntryGetFreeBin @ 0x1400F0100 (HvpMapEntryGetFreeBin.c)
- *     HvpMapEntryIsBinPresent @ 0x1400F011C (HvpMapEntryIsBinPresent.c)
- *     HvpFreeBin @ 0x14051450C (HvpFreeBin.c)
+ *     HvpMapEntryIsNewAlloc @ 0x14000AEB0 (HvpMapEntryIsNewAlloc.c)
+ *     HvpMapEntryGetFreeBin @ 0x1400EDF80 (HvpMapEntryGetFreeBin.c)
+ *     HvpMapEntryIsBinPresent @ 0x1400EDF9C (HvpMapEntryIsBinPresent.c)
+ *     HvpFreeBin @ 0x1404F78FC (HvpFreeBin.c)
  */
 
 __int64 __fastcall HvpFreeAllocatedBins(__int64 a1)

@@ -1,10 +1,10 @@
 /*
- * XREFs of CmpSwapValueInList @ 0x1402BD8B4
+ * XREFs of CmpSwapValueInList @ 0x140213E04
  * Callers:
- *     CmSetValueKey @ 0x1406646C0 (CmSetValueKey.c)
- *     CmpLightWeightPrepareSetValueKeyUoW @ 0x1406A4248 (CmpLightWeightPrepareSetValueKeyUoW.c)
+ *     CmpLightWeightPrepareSetValueKeyUoW @ 0x1405E1D18 (CmpLightWeightPrepareSetValueKeyUoW.c)
+ *     CmSetValueKey @ 0x1406594E0 (CmSetValueKey.c)
  * Callees:
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall CmpSwapValueInList(__int64 a1, int a2, unsigned int a3, __int64 a4)

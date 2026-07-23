@@ -1,7 +1,7 @@
 /*
- * XREFs of IpmiHwpParseSpmiTable @ 0x140677924
+ * XREFs of IpmiHwpParseSpmiTable @ 0x140677E74
  * Callers:
- *     IpmiHwpReadSpmiConfiguration @ 0x1406779DC (IpmiHwpReadSpmiConfiguration.c)
+ *     IpmiHwpReadSpmiConfiguration @ 0x140677F2C (IpmiHwpReadSpmiConfiguration.c)
  * Callees:
  *     <none>
  */
@@ -15,14 +15,14 @@ __int64 __fastcall IpmiHwpParseSpmiTable(__int64 a1, __int64 a2)
   if ( *(_WORD *)(a2 + 38) == 256 || *(_WORD *)(a2 + 38) != 336 && *(_WORD *)(a2 + 38) != 512 )
     return 3221225659LL;
   WheaIpmiContext = 0LL;
-  xmmword_140C2CC30 = 0LL;
+  xmmword_140C2CBF0 = 0LL;
   LOWORD(WheaIpmiContext) = *(_WORD *)(a2 + 38) >> 4;
   DWORD1(WheaIpmiContext) = *(unsigned __int8 *)(a2 + 36);
-  BYTE8(xmmword_140C2CC30) = *(_BYTE *)(a2 + 48);
+  BYTE8(xmmword_140C2CBF0) = *(_BYTE *)(a2 + 48);
   v3 = *(_QWORD *)(a2 + 52);
-  if ( BYTE8(xmmword_140C2CC30) == 4 )
+  if ( BYTE8(xmmword_140C2CBF0) == 4 )
     v3 = *(_QWORD *)(a2 + 52) & 0xFELL;
-  *(_QWORD *)&xmmword_140C2CC30 = v3;
+  *(_QWORD *)&xmmword_140C2CBF0 = v3;
   v4 = 0;
   if ( *(_BYTE *)(a2 + 51) )
   {
@@ -44,6 +44,6 @@ __int64 __fastcall IpmiHwpParseSpmiTable(__int64 a1, __int64 a2)
   }
   BYTE8(WheaIpmiContext) = v4;
   result = 0LL;
-  BYTE9(xmmword_140C2CC30) = 32;
+  BYTE9(xmmword_140C2CBF0) = 32;
   return result;
 }

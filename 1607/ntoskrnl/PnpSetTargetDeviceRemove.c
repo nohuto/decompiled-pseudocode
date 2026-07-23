@@ -1,16 +1,16 @@
 /*
- * XREFs of PnpSetTargetDeviceRemove @ 0x1404C3F44
+ * XREFs of PnpSetTargetDeviceRemove @ 0x140484C7C
  * Callers:
- *     PnpRequestDeviceRemoval @ 0x1404C3E90 (PnpRequestDeviceRemoval.c)
- *     PiDevCfgProcessDeviceCallback @ 0x1405711DC (PiDevCfgProcessDeviceCallback.c)
- *     IoRequestDeviceRemovalForReset @ 0x14062C4DC (IoRequestDeviceRemovalForReset.c)
- *     IopRetryDeviceRemovalForReset @ 0x14062C83C (IopRetryDeviceRemovalForReset.c)
- *     PnpQueueQueryAndRemoveEvent @ 0x14064B3CC (PnpQueueQueryAndRemoveEvent.c)
+ *     PnpRequestDeviceRemoval @ 0x140484BC8 (PnpRequestDeviceRemoval.c)
+ *     PiDevCfgProcessDeviceCallback @ 0x14057171C (PiDevCfgProcessDeviceCallback.c)
+ *     IoRequestDeviceRemovalForReset @ 0x14062C590 (IoRequestDeviceRemovalForReset.c)
+ *     IopRetryDeviceRemovalForReset @ 0x14062C8F0 (IopRetryDeviceRemovalForReset.c)
+ *     PnpQueueQueryAndRemoveEvent @ 0x14064B4B0 (PnpQueueQueryAndRemoveEvent.c)
  * Callees:
- *     memset @ 0x1401715C0 (memset.c)
- *     PnpInsertEventInQueue @ 0x1403F0BD4 (PnpInsertEventInQueue.c)
- *     PnpInitializeTargetDeviceRemoveEvent @ 0x1404C4098 (PnpInitializeTargetDeviceRemoveEvent.c)
- *     PnpAllocateCriticalMemory @ 0x1404C5AB8 (PnpAllocateCriticalMemory.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     PnpAllocateCriticalMemory @ 0x140485EEC (PnpAllocateCriticalMemory.c)
+ *     PnpInitializeTargetDeviceRemoveEvent @ 0x1404866BC (PnpInitializeTargetDeviceRemoveEvent.c)
+ *     PnpInsertEventInQueue @ 0x14048AC64 (PnpInsertEventInQueue.c)
  */
 
 __int64 __fastcall PnpSetTargetDeviceRemove(
@@ -27,12 +27,12 @@ __int64 __fastcall PnpSetTargetDeviceRemove(
         _DWORD *a11,
         __int64 a12,
         __int64 a13,
-        __int64 *a14)
+        _QWORD *a14)
 {
   __int64 v15; // rcx
   unsigned int v18; // ebp
   void *CriticalMemory; // rax
-  __int64 v20; // rbx
+  void *v20; // rbx
 
   v15 = 0LL;
   if ( a11 )
@@ -46,17 +46,17 @@ __int64 __fastcall PnpSetTargetDeviceRemove(
     v15 = *(_QWORD *)(Object[39] + 40LL);
   v18 = *(unsigned __int16 *)(v15 + 40) + 186;
   CriticalMemory = (void *)PnpAllocateCriticalMemory(a2 != 0 ? 3 : 0, 1LL, v18, 1265659472LL);
-  v20 = (__int64)CriticalMemory;
+  v20 = CriticalMemory;
   if ( !CriticalMemory )
     return 3221225626LL;
   memset(CriticalMemory, 0, v18);
-  PnpInitializeTargetDeviceRemoveEvent((void *)v20, v18, Object, a3, a4, a5, a6, a7, a8, (__int64)a11, a12, a13);
-  *(_QWORD *)(v20 + 32) = a9;
-  *(_QWORD *)(v20 + 40) = a10;
+  PnpInitializeTargetDeviceRemoveEvent(v20, v18, Object, a3, a4, a5, a6, a7, a8, (__int64)a11, a12, a13);
+  *((_QWORD *)v20 + 4) = a9;
+  *((_QWORD *)v20 + 5) = a10;
   if ( a14 )
   {
     *a14 = v20;
-    ++*(_DWORD *)(v20 + 64);
+    ++*((_DWORD *)v20 + 16);
   }
   return PnpInsertEventInQueue(v20);
 }

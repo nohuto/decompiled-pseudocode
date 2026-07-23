@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwpDelayCreate @ 0x1407F6A54
+ * XREFs of EtwpDelayCreate @ 0x1407F6D24
  * Callers:
- *     EtwpRealtimeCreateLogfile @ 0x140772D48 (EtwpRealtimeCreateLogfile.c)
- *     EtwpCreateLogFile @ 0x1407F66D0 (EtwpCreateLogFile.c)
- *     EtwpSavePersistedLogger @ 0x1409EDA44 (EtwpSavePersistedLogger.c)
+ *     EtwpRealtimeCreateLogfile @ 0x140772F38 (EtwpRealtimeCreateLogfile.c)
+ *     EtwpCreateLogFile @ 0x1407F69A0 (EtwpCreateLogFile.c)
+ *     EtwpSavePersistedLogger @ 0x1409EDCD4 (EtwpSavePersistedLogger.c)
  * Callees:
- *     PsImpersonateClient @ 0x140734A30 (PsImpersonateClient.c)
- *     SeImpersonateClientEx @ 0x1407F5DF0 (SeImpersonateClientEx.c)
- *     EtwpCreateNtFileName @ 0x1407F6B7C (EtwpCreateNtFileName.c)
- *     EtwpCreateDirectoryFile @ 0x1407F6C44 (EtwpCreateDirectoryFile.c)
+ *     PsImpersonateClient @ 0x140734C20 (PsImpersonateClient.c)
+ *     SeImpersonateClientEx @ 0x1407F60C0 (SeImpersonateClientEx.c)
+ *     EtwpCreateNtFileName @ 0x1407F6E4C (EtwpCreateNtFileName.c)
+ *     EtwpCreateDirectoryFile @ 0x1407F6F14 (EtwpCreateDirectoryFile.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  */
 

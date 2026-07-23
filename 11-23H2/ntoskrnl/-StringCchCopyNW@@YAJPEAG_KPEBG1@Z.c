@@ -1,8 +1,8 @@
 /*
- * XREFs of ?StringCchCopyNW@@YAJPEAG_KPEBG1@Z @ 0x140371B2C
+ * XREFs of ?StringCchCopyNW@@YAJPEAG_KPEBG1@Z @ 0x140371CCC
  * Callers:
- *     DownLevelLangIDToLanguageName @ 0x140371A5C (DownLevelLangIDToLanguageName.c)
- *     DownLevelGetParentLanguageName @ 0x1406145F0 (DownLevelGetParentLanguageName.c)
+ *     DownLevelLangIDToLanguageName @ 0x140371BFC (DownLevelLangIDToLanguageName.c)
+ *     DownLevelGetParentLanguageName @ 0x140614B40 (DownLevelGetParentLanguageName.c)
  * Callees:
  *     <none>
  */

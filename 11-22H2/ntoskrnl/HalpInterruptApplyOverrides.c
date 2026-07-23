@@ -57,10 +57,10 @@ __int64 __fastcall HalpInterruptApplyOverrides(_DWORD *a1, _DWORD *a2, _DWORD *a
   }
 LABEL_4:
   result = KxReleaseSpinLock((volatile signed __int64 *)&HalpInterruptOverridesLock);
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     result = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
       && (unsigned __int8)result <= 0xFu
       && (unsigned __int8)v9 <= 0xFu
       && (unsigned __int8)result >= 2u )

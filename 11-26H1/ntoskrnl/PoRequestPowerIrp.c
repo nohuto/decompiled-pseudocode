@@ -1,9 +1,9 @@
 /*
- * XREFs of PoRequestPowerIrp @ 0x1404CD690
+ * XREFs of PoRequestPowerIrp @ 0x1404C70C0
  * Callers:
  *     <none>
  * Callees:
- *     PopRequestPowerIrp @ 0x14026FDC4 (PopRequestPowerIrp.c)
+ *     PopRequestPowerIrp @ 0x14026F334 (PopRequestPowerIrp.c)
  */
 
 // local variable allocation has failed, the output may be wrong!
@@ -16,11 +16,11 @@ NTSTATUS __stdcall PoRequestPowerIrp(
         PIRP *Irp)
 {
   return PopRequestPowerIrp(
-           DeviceObject,
+           (struct _LIST_ENTRY *)DeviceObject,
            MinorFunction,
            PowerState.SystemState,
            (__int64)CompletionFunction,
-           (__int64)Context,
+           (struct _LIST_ENTRY *)Context,
            0,
            (PIRP)Irp);
 }

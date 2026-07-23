@@ -4,10 +4,10 @@
  *     MiGetClosestNodeWithProcessors @ 0x140200B4C (MiGetClosestNodeWithProcessors.c)
  *     KeQueryNodeActiveAffinity @ 0x140201320 (KeQueryNodeActiveAffinity.c)
  *     ?KiSelectIdealProcessorSetForGroup@@YAXPEAU_GROUP_AFFINITY@@GK_KPEA_KPEAU_KI_IDEAL_PROCESSOR_SET_BREAKPOINTS@@@Z @ 0x140201520 (-KiSelectIdealProcessorSetForGroup@@YAXPEAU_GROUP_AFFINITY@@GK_KPEA_KPEAU_KI_IDEAL_PROCESSOR_SET.c)
- *     KeSelectNodeForAffinity @ 0x1404B4978 (KeSelectNodeForAffinity.c)
- *     KeQueryLogicalProcessorRelationship @ 0x1404DA4D0 (KeQueryLogicalProcessorRelationship.c)
- *     KeSetAffinityProcess @ 0x14050BCE4 (KeSetAffinityProcess.c)
- *     KeBuildLogicalProcessorSystemInformation @ 0x140AB5EB0 (KeBuildLogicalProcessorSystemInformation.c)
+ *     KeSelectNodeForAffinity @ 0x1404ADF48 (KeSelectNodeForAffinity.c)
+ *     KeQueryLogicalProcessorRelationship @ 0x1404D3BB0 (KeQueryLogicalProcessorRelationship.c)
+ *     KeSetAffinityProcess @ 0x140505754 (KeSetAffinityProcess.c)
+ *     KeBuildLogicalProcessorSystemInformation @ 0x140AB7250 (KeBuildLogicalProcessorSystemInformation.c)
  * Callees:
  *     <none>
  */

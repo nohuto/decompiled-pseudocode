@@ -1,13 +1,13 @@
 /*
- * XREFs of EtwpCovSampSampleBufferReserve @ 0x140317568
+ * XREFs of EtwpCovSampSampleBufferReserve @ 0x140317758
  * Callers:
- *     EtwpCovSampCaptureBufferQueue @ 0x140316460 (EtwpCovSampCaptureBufferQueue.c)
+ *     EtwpCovSampCaptureBufferQueue @ 0x140316650 (EtwpCovSampCaptureBufferQueue.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x1400630E0 (KxReleaseSpinLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x1401B4AF8 (KiRemoveSystemWorkPriorityKick.c)
- *     EtwpCovSampLookasidePop @ 0x1403171D4 (EtwpCovSampLookasidePop.c)
- *     EtwpCovSampSampleBufferDecRef @ 0x14031752C (EtwpCovSampSampleBufferDecRef.c)
- *     EtwpCovSampTryAcquireBufferLock @ 0x140317828 (EtwpCovSampTryAcquireBufferLock.c)
+ *     KxReleaseSpinLock @ 0x1400630D0 (KxReleaseSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401B4C38 (KiRemoveSystemWorkPriorityKick.c)
+ *     EtwpCovSampLookasidePop @ 0x1403173C4 (EtwpCovSampLookasidePop.c)
+ *     EtwpCovSampSampleBufferDecRef @ 0x14031771C (EtwpCovSampSampleBufferDecRef.c)
+ *     EtwpCovSampTryAcquireBufferLock @ 0x140317A18 (EtwpCovSampTryAcquireBufferLock.c)
  */
 
 __int64 __fastcall EtwpCovSampSampleBufferReserve(__int64 a1, __int16 a2, __int64 *a3)
@@ -24,7 +24,7 @@ __int64 __fastcall EtwpCovSampSampleBufferReserve(__int64 a1, __int16 a2, __int6
   int v14; // eax
   struct _KPRCB *v15; // rcx
   struct _KPRCB *v16; // rcx
-  struct _SLIST_ENTRY *v17; // rax
+  _SLIST_ENTRY *v17; // rax
   struct _KPRCB *CurrentPrcb; // rcx
   struct _KPRCB *v19; // rcx
   unsigned __int8 v21; // [rsp+68h] [rbp+10h]

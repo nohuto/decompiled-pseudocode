@@ -11,7 +11,7 @@
  *     sub_18010BFDC @ 0x18010BFDC (sub_18010BFDC.c)
  */
 
-__int64 __fastcall sub_18009BF80(__int64 a1, __int64 a2, __int64 a3, __int64 a4, char a5)
+__int64 __fastcall sub_18009BF80(PRTL_SRWLOCK SRWLock, __int64 a2, __int64 a3, __int64 a4, char a5)
 {
   unsigned __int64 v5; // rsi
   __int64 v7; // rdi
@@ -31,23 +31,23 @@ __int64 __fastcall sub_18009BF80(__int64 a1, __int64 a2, __int64 a3, __int64 a4,
   unsigned int v23; // edx
   unsigned int *v24; // r8
   __int64 v26; // [rsp+30h] [rbp-48h] BYREF
-  volatile signed __int64 *v27; // [rsp+38h] [rbp-40h]
+  PRTL_SRWLOCK SRWLocka; // [rsp+38h] [rbp-40h]
   __int64 v28; // [rsp+40h] [rbp-38h]
   int v29; // [rsp+80h] [rbp+8h] BYREF
   unsigned int v30; // [rsp+84h] [rbp+Ch]
 
   v5 = a3 - 16;
   v7 = a3;
-  if ( (*(_BYTE *)(a1 + 176) & 1) != 0 )
+  if ( ((__int64)SRWLock[22].Ptr & 1) != 0 )
     return 0LL;
   if ( (((unsigned __int16)(*(_WORD *)(a2 + 32) ^ *(_WORD *)(a2 + 34)) ^ 0x2BED) & 0x7FFF) != 0 )
   {
-    sub_18010A694(18, a1 ^ *(_DWORD *)(a1 + 128), a2, 0, 0LL, 0LL);
+    sub_18010A694(18, (unsigned int)SRWLock ^ LODWORD(SRWLock[16].Ptr), a2, 0, 0LL, 0LL);
     return 0LL;
   }
   if ( ((HIDWORD(qword_180163540) ^ HIDWORD(*(_QWORD *)v5) ^ HIDWORD(v5)) & 0xFF0000) == 0 )
   {
-    sub_18010A694(8, a1 ^ *(_DWORD *)(a1 + 128), a3, a3 - 16, 0LL, 0LL);
+    sub_18010A694(8, (unsigned int)SRWLock ^ LODWORD(SRWLock[16].Ptr), a3, a3 - 16, 0LL, 0LL);
     return 0LL;
   }
   v10 = *(_DWORD *)(a4 + 24);
@@ -63,8 +63,8 @@ __int64 __fastcall sub_18009BF80(__int64 a1, __int64 a2, __int64 a3, __int64 a4,
     {
       v26 = 0LL;
       v28 = 0LL;
-      v27 = (volatile signed __int64 *)a1;
-      RtlAcquireSRWLockExclusive((volatile signed __int64 *)a1);
+      SRWLocka = SRWLock;
+      RtlAcquireSRWLockExclusive(SRWLock);
       v13 = *(_WORD *)(a2 + 32);
       v12 = qword_180163540;
       v18 = a5;
@@ -73,7 +73,7 @@ __int64 __fastcall sub_18009BF80(__int64 a1, __int64 a2, __int64 a3, __int64 a4,
     if ( v20 >= a2 + 16 * ((unsigned __int64)v13 + 3)
       || (v21 = v20 ^ v12 ^ *(_QWORD *)v20, (v21 & 0xFF000000000000LL) != 0)
       || WORD1(v21) < v17
-      || (v22 = sub_180039740(a1, a2, v20, v17, v18, (__int64)&v26)) == 0 )
+      || (v22 = sub_180039740((__int64)SRWLock, a2, v20, v17, v18, (__int64)&v26)) == 0 )
     {
       v7 = 0LL;
     }
@@ -100,7 +100,7 @@ __int64 __fastcall sub_18009BF80(__int64 a1, __int64 a2, __int64 a3, __int64 a4,
       }
     }
     if ( !v19 )
-      RtlReleaseSRWLockExclusive(v27);
+      RtlReleaseSRWLockExclusive(SRWLocka);
   }
   else if ( 16 * (WORD1(qword_180163540) ^ WORD1(v5) ^ *(unsigned __int16 *)(v5 + 2)) - 16 == v11 )
   {

@@ -1,59 +1,59 @@
 /*
- * XREFs of RtlDeleteNoSplay @ 0x1800BFB40
+ * XREFs of RtlDeleteNoSplay @ 0x1800B7900
  * Callers:
  *     <none>
  * Callees:
- *     RtlSubtreePredecessor @ 0x1800BFD90 (RtlSubtreePredecessor.c)
- *     SwapSplayLinks @ 0x1800BFDC0 (SwapSplayLinks.c)
+ *     RtlSubtreePredecessor @ 0x1800B7B50 (RtlSubtreePredecessor.c)
+ *     SwapSplayLinks @ 0x1800B7B80 (SwapSplayLinks.c)
  */
 
-_QWORD *__fastcall RtlDeleteNoSplay(_QWORD *a1, __int64 *a2)
+void __cdecl RtlDeleteNoSplay(PRTL_SPLAY_LINKS Links, PRTL_SPLAY_LINKS *Root)
 {
-  _QWORD *result; // rax
-  _QWORD *v5; // rcx
-  __int64 v6; // rax
+  _RTL_SPLAY_LINKS *LeftChild; // rax
+  _RTL_SPLAY_LINKS *Parent; // rcx
+  _RTL_SPLAY_LINKS *v6; // rax
   __int64 v7; // rdx
-  __int64 v8; // rdx
+  _RTL_SPLAY_LINKS *v8; // rax
+  __int64 v9; // rdx
 
-  if ( a1[1] && a1[2] )
+  if ( Links->LeftChild && Links->RightChild )
   {
-    v6 = RtlSubtreePredecessor();
-    if ( (_QWORD *)*a1 == a1 )
-      *a2 = v6;
-    SwapSplayLinks(v6, a1);
+    v6 = RtlSubtreePredecessor(Links);
+    if ( Links->Parent == Links )
+      *Root = v6;
+    SwapSplayLinks(v6, Links);
   }
-  result = (_QWORD *)a1[1];
-  if ( result || (result = (_QWORD *)a1[2]) != 0LL )
+  LeftChild = Links->LeftChild;
+  if ( LeftChild || (LeftChild = Links->RightChild) != 0LL )
   {
-    v5 = (_QWORD *)*a1;
-    if ( (_QWORD *)*a1 == a1 )
+    Parent = Links->Parent;
+    if ( Links->Parent == Links )
     {
-      *result = result;
-      *a2 = (__int64)result;
+      LeftChild->Parent = LeftChild;
+      *Root = LeftChild;
     }
     else
     {
-      v7 = 1LL;
-      if ( (_QWORD *)v5[1] != a1 )
-        v7 = 2LL;
-      v5[v7] = result;
-      *result = *a1;
+      v7 = 8LL;
+      if ( Parent->LeftChild != Links )
+        v7 = 16LL;
+      *(_RTL_SPLAY_LINKS **)((char *)&Parent->Parent + v7) = LeftChild;
+      LeftChild->Parent = Links->Parent;
     }
   }
   else
   {
-    result = (_QWORD *)*a1;
-    if ( (_QWORD *)*a1 == a1 )
+    v8 = Links->Parent;
+    if ( Links->Parent == Links )
     {
-      *a2 = 0LL;
+      *Root = 0LL;
     }
     else
     {
-      v8 = 1LL;
-      if ( (_QWORD *)result[1] != a1 )
-        v8 = 2LL;
-      result[v8] = 0LL;
+      v9 = 8LL;
+      if ( v8->LeftChild != Links )
+        v9 = 16LL;
+      *(_RTL_SPLAY_LINKS **)((char *)&v8->Parent + v9) = 0LL;
     }
   }
-  return result;
 }

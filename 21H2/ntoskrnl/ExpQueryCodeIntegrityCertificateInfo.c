@@ -1,17 +1,17 @@
 /*
- * XREFs of ExpQueryCodeIntegrityCertificateInfo @ 0x14094A69C
+ * XREFs of ExpQueryCodeIntegrityCertificateInfo @ 0x14094A86C
  * Callers:
- *     ExpQuerySystemInformation @ 0x140651070 (ExpQuerySystemInformation.c)
+ *     ExpQuerySystemInformation @ 0x140645E90 (ExpQuerySystemInformation.c)
  * Callees:
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     ZwClose @ 0x1403FA580 (ZwClose.c)
- *     ZwMapViewOfSection @ 0x1403FA8A0 (ZwMapViewOfSection.c)
- *     ZwUnmapViewOfSection @ 0x1403FA8E0 (ZwUnmapViewOfSection.c)
- *     ZwCreateSection @ 0x1403FACE0 (ZwCreateSection.c)
- *     _guard_dispatch_icall @ 0x1404085B0 (_guard_dispatch_icall.c)
- *     FsRtlGetFileSize @ 0x1406D4860 (FsRtlGetFileSize.c)
- *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
- *     IoConvertFileHandleToKernelHandle @ 0x14072A4C0 (IoConvertFileHandleToKernelHandle.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     ZwClose @ 0x1403FA760 (ZwClose.c)
+ *     ZwMapViewOfSection @ 0x1403FAA80 (ZwMapViewOfSection.c)
+ *     ZwUnmapViewOfSection @ 0x1403FAAC0 (ZwUnmapViewOfSection.c)
+ *     ZwCreateSection @ 0x1403FAEC0 (ZwCreateSection.c)
+ *     _guard_dispatch_icall @ 0x140408790 (_guard_dispatch_icall.c)
+ *     FsRtlGetFileSize @ 0x1406ABB40 (FsRtlGetFileSize.c)
+ *     ObReferenceObjectByHandle @ 0x140707FA0 (ObReferenceObjectByHandle.c)
+ *     IoConvertFileHandleToKernelHandle @ 0x14072A970 (IoConvertFileHandleToKernelHandle.c)
  */
 
 __int64 __fastcall ExpQueryCodeIntegrityCertificateInfo(void *a1, int a2)
@@ -108,8 +108,8 @@ __int64 __fastcall ExpQueryCodeIntegrityCertificateInfo(void *a1, int a2)
               BaseAddress = 0LL;
               goto LABEL_24;
             }
-            if ( qword_140C1DB08 )
-              v5 = ((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD))qword_140C1DB08)(
+            if ( qword_140C1DB28 )
+              v5 = ((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD))qword_140C1DB28)(
                      v4,
                      BaseAddress,
                      (LARGE_INTEGER)v7.QuadPart);

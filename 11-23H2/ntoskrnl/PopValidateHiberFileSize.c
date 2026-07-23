@@ -1,15 +1,15 @@
 /*
- * XREFs of PopValidateHiberFileSize @ 0x140989270
+ * XREFs of PopValidateHiberFileSize @ 0x140989470
  * Callers:
- *     PopResizeHiberFile @ 0x140988EE0 (PopResizeHiberFile.c)
- *     PopSetHiberFileSize @ 0x140989084 (PopSetHiberFileSize.c)
- *     PopSetHiberFileType @ 0x140989128 (PopSetHiberFileType.c)
+ *     PopResizeHiberFile @ 0x1409890E0 (PopResizeHiberFile.c)
+ *     PopSetHiberFileSize @ 0x140989284 (PopSetHiberFileSize.c)
+ *     PopSetHiberFileType @ 0x140989328 (PopSetHiberFileType.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     ZwClose @ 0x14041AF40 (ZwClose.c)
- *     ZwQueryInformationFile @ 0x14041AF80 (ZwQueryInformationFile.c)
- *     ZwOpenFile @ 0x14041B3C0 (ZwOpenFile.c)
- *     ZwQueryVolumeInformationFile @ 0x14041B680 (ZwQueryVolumeInformationFile.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     ZwClose @ 0x14041B2D0 (ZwClose.c)
+ *     ZwQueryInformationFile @ 0x14041B310 (ZwQueryInformationFile.c)
+ *     ZwOpenFile @ 0x14041B750 (ZwOpenFile.c)
+ *     ZwQueryVolumeInformationFile @ 0x14041BA10 (ZwQueryVolumeInformationFile.c)
  */
 
 __int64 __fastcall PopValidateHiberFileSize(__int64 a1, _QWORD *a2, _QWORD *a3)

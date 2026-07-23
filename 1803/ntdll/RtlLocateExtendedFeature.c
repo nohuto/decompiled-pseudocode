@@ -6,7 +6,7 @@
  *     <none>
  */
 
-__int64 __fastcall RtlLocateExtendedFeature(__int64 a1, __int64 a2, __int64 a3)
+PVOID __cdecl RtlLocateExtendedFeature(PCONTEXT_EX ContextEx, ULONG FeatureId, PULONG Length)
 {
-  return RtlLocateExtendedFeature2(a1, a2, 2147353560LL, a3);
+  return (PVOID)RtlLocateExtendedFeature2(ContextEx, FeatureId, 2147353560LL, Length);
 }

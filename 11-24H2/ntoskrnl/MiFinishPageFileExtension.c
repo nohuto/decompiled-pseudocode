@@ -1,15 +1,15 @@
 /*
- * XREFs of MiFinishPageFileExtension @ 0x1404CB678
+ * XREFs of MiFinishPageFileExtension @ 0x1404C4B98
  * Callers:
- *     MiStoreExtendVirtualPagefile @ 0x1404F6510 (MiStoreExtendVirtualPagefile.c)
- *     MiAttemptPageFileExtension @ 0x1407EDD9C (MiAttemptPageFileExtension.c)
+ *     MiStoreExtendVirtualPagefile @ 0x1404F3E10 (MiStoreExtendVirtualPagefile.c)
+ *     MiAttemptPageFileExtension @ 0x1407EE36C (MiAttemptPageFileExtension.c)
  * Callees:
- *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     MiCoalescePageFileBitmapsCache @ 0x140366840 (MiCoalescePageFileBitmapsCache.c)
- *     RtlClearBits @ 0x14037CD40 (RtlClearBits.c)
- *     MiUpdateReserveClusterInfo @ 0x14045C0E4 (MiUpdateReserveClusterInfo.c)
+ *     KeSetEvent @ 0x140227B30 (KeSetEvent.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     RtlClearBits @ 0x1402EA360 (RtlClearBits.c)
+ *     MiCoalescePageFileBitmapsCache @ 0x1403C4F10 (MiCoalescePageFileBitmapsCache.c)
+ *     MiUpdateReserveClusterInfo @ 0x14045147C (MiUpdateReserveClusterInfo.c)
  */
 
 LONG __fastcall MiFinishPageFileExtension(__int64 a1, __int64 a2, ULONG a3)

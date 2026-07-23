@@ -1,12 +1,12 @@
 /*
- * XREFs of KiInitializeNormalPriorityAntiStarvationPolicies @ 0x1405EB4A0
+ * XREFs of KiInitializeNormalPriorityAntiStarvationPolicies @ 0x1405EDE10
  * Callers:
- *     KeInitSystem @ 0x140CC82B8 (KeInitSystem.c)
+ *     KeInitSystem @ 0x140CCE3A8 (KeInitSystem.c)
  * Callees:
- *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ZwOpenKey @ 0x140723630 (ZwOpenKey.c)
- *     RtlQueryImageFileKeyOption @ 0x1409665B0 (RtlQueryImageFileKeyOption.c)
+ *     RtlInitUnicodeString @ 0x14041DA70 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140728200 (ZwOpenKey.c)
+ *     RtlQueryImageFileKeyOption @ 0x140A786C0 (RtlQueryImageFileKeyOption.c)
  */
 
 int KiInitializeNormalPriorityAntiStarvationPolicies()

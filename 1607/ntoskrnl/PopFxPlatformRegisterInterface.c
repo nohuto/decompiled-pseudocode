@@ -1,9 +1,9 @@
 /*
- * XREFs of PopFxPlatformRegisterInterface @ 0x140580BD8
+ * XREFs of PopFxPlatformRegisterInterface @ 0x140581084
  * Callers:
- *     PopPowerInformationInternal @ 0x14051D314 (PopPowerInformationInternal.c)
+ *     PopPowerInformationInternal @ 0x140500704 (PopPowerInformationInternal.c)
  * Callees:
- *     ObfReferenceObjectWithTag @ 0x1400EE4F0 (ObfReferenceObjectWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x1400EC370 (ObfReferenceObjectWithTag.c)
  */
 
 __int64 __fastcall PopFxPlatformRegisterInterface(__int64 a1, __int64 (__fastcall **a2)(unsigned int *a1))

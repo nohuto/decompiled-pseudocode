@@ -20,7 +20,7 @@
 __int64 __fastcall ExpWnfLookupNameInstance(__int64 a1, __int64 a2, __int64 *a3)
 {
   unsigned __int64 *v3; // rdi
-  __int64 v7; // rsi
+  PRTL_BALANCED_NODE v7; // rsi
   __int64 StateName; // rax
   __int64 v9; // rbx
 
@@ -29,7 +29,7 @@ __int64 __fastcall ExpWnfLookupNameInstance(__int64 a1, __int64 a2, __int64 *a3)
   if ( _InterlockedCompareExchange64((volatile signed __int64 *)v3, 17LL, 0LL) )
     ExfAcquirePushLockSharedEx(v3, v7, (ULONG_PTR)v3);
   if ( v7 )
-    *(_BYTE *)(v7 + 26) |= 1u;
+    BYTE2(v7[1].Left) |= 1u;
   StateName = ExpWnfFindStateName(a1, a2);
   v9 = StateName;
   if ( StateName )

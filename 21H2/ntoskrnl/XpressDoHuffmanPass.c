@@ -1,8 +1,8 @@
 /*
- * XREFs of XpressDoHuffmanPass @ 0x1403669D0
+ * XREFs of XpressDoHuffmanPass @ 0x140366B80
  * Callers:
- *     RtlCompressBufferXpressHuffStandard @ 0x140365E00 (RtlCompressBufferXpressHuffStandard.c)
- *     RtlCompressBufferXpressHuffMax @ 0x140591144 (RtlCompressBufferXpressHuffMax.c)
+ *     RtlCompressBufferXpressHuffStandard @ 0x140365FB0 (RtlCompressBufferXpressHuffStandard.c)
+ *     RtlCompressBufferXpressHuffMax @ 0x140591374 (RtlCompressBufferXpressHuffMax.c)
  * Callees:
  *     <none>
  */

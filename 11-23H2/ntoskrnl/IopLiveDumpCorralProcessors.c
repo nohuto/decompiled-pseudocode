@@ -1,18 +1,18 @@
 /*
- * XREFs of IopLiveDumpCorralProcessors @ 0x140A9AEB0
+ * XREFs of IopLiveDumpCorralProcessors @ 0x140A9AD20
  * Callers:
- *     IopLiveDumpEnterCorralledState @ 0x140A9B15C (IopLiveDumpEnterCorralledState.c)
+ *     IopLiveDumpEnterCorralledState @ 0x140A9AFCC (IopLiveDumpEnterCorralledState.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     KeInsertQueueDpc @ 0x140254770 (KeInsertQueueDpc.c)
- *     KeEnumerateNextProcessor @ 0x1402572B0 (KeEnumerateNextProcessor.c)
- *     KeInitializeDpc @ 0x1402BF9A0 (KeInitializeDpc.c)
- *     KeSetSystemGroupAffinityThread @ 0x140306C50 (KeSetSystemGroupAffinityThread.c)
- *     IopLiveDumpGetMillisecondCounter @ 0x140559D3C (IopLiveDumpGetMillisecondCounter.c)
- *     IopLiveDumpTraceCorralProcessorsDuration @ 0x14055A7B8 (IopLiveDumpTraceCorralProcessorsDuration.c)
- *     IopLiveDumpTraceSystemQuiesceStart @ 0x14055B704 (IopLiveDumpTraceSystemQuiesceStart.c)
- *     IopLiveDumpLockPages @ 0x14094EA50 (IopLiveDumpLockPages.c)
- *     IopLiveDumpInitiateCorralStateChange @ 0x140A9B824 (IopLiveDumpInitiateCorralStateChange.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     KeInsertQueueDpc @ 0x140254830 (KeInsertQueueDpc.c)
+ *     KeEnumerateNextProcessor @ 0x140257370 (KeEnumerateNextProcessor.c)
+ *     KeInitializeDpc @ 0x1402BFC30 (KeInitializeDpc.c)
+ *     KeSetSystemGroupAffinityThread @ 0x140306EE0 (KeSetSystemGroupAffinityThread.c)
+ *     IopLiveDumpGetMillisecondCounter @ 0x14055A3FC (IopLiveDumpGetMillisecondCounter.c)
+ *     IopLiveDumpTraceCorralProcessorsDuration @ 0x14055AE78 (IopLiveDumpTraceCorralProcessorsDuration.c)
+ *     IopLiveDumpTraceSystemQuiesceStart @ 0x14055BDC4 (IopLiveDumpTraceSystemQuiesceStart.c)
+ *     IopLiveDumpLockPages @ 0x14094EC50 (IopLiveDumpLockPages.c)
+ *     IopLiveDumpInitiateCorralStateChange @ 0x140A9B694 (IopLiveDumpInitiateCorralStateChange.c)
  */
 
 char __fastcall IopLiveDumpCorralProcessors(char *DeferredContext)
@@ -26,7 +26,7 @@ char __fastcall IopLiveDumpCorralProcessors(char *DeferredContext)
   int v8; // r15d
   int v9; // eax
   __int64 v11; // [rsp+30h] [rbp-30h] BYREF
-  struct _GROUP_AFFINITY Affinity; // [rsp+38h] [rbp-28h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+38h] [rbp-28h] BYREF
   unsigned __int16 *v13[2]; // [rsp+48h] [rbp-18h] BYREF
   __int16 v14; // [rsp+58h] [rbp-8h]
   int v15; // [rsp+5Ah] [rbp-6h]
@@ -65,7 +65,7 @@ char __fastcall IopLiveDumpCorralProcessors(char *DeferredContext)
     MillisecondCounter = IopLiveDumpGetMillisecondCounter(0);
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     v7 = 4;

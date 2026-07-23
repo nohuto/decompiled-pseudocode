@@ -1,27 +1,27 @@
 /*
- * XREFs of NtAlpcDeleteSecurityContext @ 0x1409C0F50
+ * XREFs of NtAlpcDeleteSecurityContext @ 0x140991F30
  * Callers:
  *     <none>
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     ExfAcquirePushLockSharedEx @ 0x140277CC0 (ExfAcquirePushLockSharedEx.c)
- *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
- *     ExfReleasePushLockShared @ 0x140278BD0 (ExfReleasePushLockShared.c)
- *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
- *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
- *     KeLeaveCriticalRegionThread @ 0x1402B8A60 (KeLeaveCriticalRegionThread.c)
- *     ExfAcquireReleasePushLockExclusive @ 0x140449B6C (ExfAcquireReleasePushLockExclusive.c)
- *     ObReferenceObjectByHandle @ 0x1408F9550 (ObReferenceObjectByHandle.c)
- *     AlpcpReferenceBlob @ 0x1409BEEB8 (AlpcpReferenceBlob.c)
- *     AlpcpDereferenceBlobEx @ 0x1409C0380 (AlpcpDereferenceBlobEx.c)
- *     AlpcpDeleteBlob @ 0x1409C1AB4 (AlpcpDeleteBlob.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     ExfAcquirePushLockSharedEx @ 0x140277230 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x140277710 (KeAbPreAcquire.c)
+ *     ExfReleasePushLockShared @ 0x140278140 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140278FE0 (KeAbPostRelease.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027EC60 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeLeaveCriticalRegionThread @ 0x140303720 (KeLeaveCriticalRegionThread.c)
+ *     ExfAcquireReleasePushLockExclusive @ 0x140441C9C (ExfAcquireReleasePushLockExclusive.c)
+ *     ObReferenceObjectByHandle @ 0x1409294E0 (ObReferenceObjectByHandle.c)
+ *     AlpcpReferenceBlob @ 0x14098FE98 (AlpcpReferenceBlob.c)
+ *     AlpcpDereferenceBlobEx @ 0x140991360 (AlpcpDereferenceBlobEx.c)
+ *     AlpcpDeleteBlob @ 0x140992A94 (AlpcpDeleteBlob.c)
  */
 
-__int64 __fastcall NtAlpcDeleteSecurityContext(void *a1, __int64 a2, __int64 a3)
+NTSTATUS __cdecl NtAlpcDeleteSecurityContext(HANDLE PortHandle, ULONG Flags, ALPC_HANDLE ContextHandle)
 {
   struct _KTHREAD *CurrentThread; // rax
   int v4; // r15d
-  NTSTATUS v5; // esi
+  int v5; // esi
   struct _KLOCK_ENTRIES *v6; // r9
   PVOID v7; // rbp
   _QWORD *v8; // r14
@@ -37,15 +37,15 @@ __int64 __fastcall NtAlpcDeleteSecurityContext(void *a1, __int64 a2, __int64 a3)
   PVOID Object; // [rsp+78h] [rbp+20h] BYREF
 
   CurrentThread = KeGetCurrentThread();
-  v4 = a3;
+  v4 = (int)ContextHandle;
   --CurrentThread->KernelApcDisable;
-  if ( (_DWORD)a2 )
+  if ( Flags )
   {
     v5 = -1073741811;
     goto LABEL_23;
   }
   Object = 0LL;
-  v5 = ObReferenceObjectByHandle(a1, 1u, AlpcPortObjectType, KeGetCurrentThread()->PreviousMode, &Object, 0LL);
+  v5 = ObReferenceObjectByHandle(PortHandle, 1u, AlpcPortObjectType, KeGetCurrentThread()->PreviousMode, &Object, 0LL);
   if ( v5 >= 0 )
   {
     v7 = Object;
@@ -106,6 +106,6 @@ LABEL_22:
     ObfDereferenceObject(v7);
   }
 LABEL_23:
-  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), a2, a3);
-  return (unsigned int)v5;
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+  return v5;
 }

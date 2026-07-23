@@ -1,16 +1,16 @@
 /*
- * XREFs of MiCanFileBeTruncatedInternal @ 0x140314C44
+ * XREFs of MiCanFileBeTruncatedInternal @ 0x1403F2224
  * Callers:
- *     MmCanFileBeTruncated @ 0x140314BE0 (MmCanFileBeTruncated.c)
- *     MmPurgeSection @ 0x1403704CC (MmPurgeSection.c)
+ *     MmPurgeSection @ 0x1403F06F0 (MmPurgeSection.c)
+ *     MmCanFileBeTruncated @ 0x1403F21C0 (MmCanFileBeTruncated.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14020FA40 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x14022E850 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
- *     MiEndingOffset @ 0x140314E58 (MiEndingOffset.c)
- *     MiFindLastSubsection @ 0x140314EB0 (MiFindLastSubsection.c)
- *     MiAttemptSectionDelete @ 0x140314F64 (MiAttemptSectionDelete.c)
+ *     MiReleaseSpinLockExclusive @ 0x14029EA30 (MiReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14029EF70 (ExAcquireSpinLockExclusive.c)
+ *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x140302160 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140338DA0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiEndingOffset @ 0x1403F2438 (MiEndingOffset.c)
+ *     MiFindLastSubsection @ 0x1403F2490 (MiFindLastSubsection.c)
+ *     MiAttemptSectionDelete @ 0x1403F25B4 (MiAttemptSectionDelete.c)
  */
 
 __int64 __fastcall MiCanFileBeTruncatedInternal(__int64 *a1, unsigned __int64 *a2, int a3, int a4, KIRQL *a5)
@@ -37,29 +37,29 @@ __int64 __fastcall MiCanFileBeTruncatedInternal(__int64 *a1, unsigned __int64 *a
     {
       while ( 1 )
       {
-        v19 = ExAcquireSpinLockExclusive(&dword_140E2CC00);
+        v19 = ExAcquireSpinLockExclusive(&dword_140E2CD40);
         v20 = a1[2];
         v21 = v19;
         if ( !v20 )
         {
-          MiReleaseSpinLockExclusive(&dword_140E2CC00, v19);
+          MiReleaseSpinLockExclusive(&dword_140E2CD40, v19);
 LABEL_25:
-          v11 = ExAcquireSpinLockExclusive(&dword_140E2CC00);
+          v11 = ExAcquireSpinLockExclusive(&dword_140E2CD40);
           goto LABEL_3;
         }
-        if ( (unsigned int)ExTryAcquireSpinLockExclusiveAtDpcLevel() )
+        if ( (unsigned int)ExTryAcquireSpinLockExclusiveAtDpcLevel((volatile signed __int32 *)(v20 + 72)) )
           break;
         v18 = v21;
 LABEL_22:
-        MiReleaseSpinLockExclusive(&dword_140E2CC00, v18);
+        MiReleaseSpinLockExclusive(&dword_140E2CD40, v18);
       }
-      ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140E2CC00);
+      ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140E2CD40);
       LOBYTE(v22) = v21;
       if ( (unsigned __int8)MiAttemptSectionDelete(v20, v22, 0LL) )
         goto LABEL_25;
       return 0LL;
     }
-    v10 = ExAcquireSpinLockExclusive(&dword_140E2CC00);
+    v10 = ExAcquireSpinLockExclusive(&dword_140E2CD40);
     v11 = v10;
     if ( a1[2] )
     {
@@ -70,15 +70,15 @@ LABEL_3:
     v12 = *a1;
     if ( !*a1 )
     {
-      MiReleaseSpinLockExclusive(&dword_140E2CC00, v11);
+      MiReleaseSpinLockExclusive(&dword_140E2CD40, v11);
       *a5 = 0;
       return 0LL;
     }
-    if ( (unsigned int)ExTryAcquireSpinLockExclusiveAtDpcLevel() )
+    if ( (unsigned int)ExTryAcquireSpinLockExclusiveAtDpcLevel((volatile signed __int32 *)(v12 + 72)) )
       break;
-    MiReleaseSpinLockExclusive(&dword_140E2CC00, v11);
+    MiReleaseSpinLockExclusive(&dword_140E2CD40, v11);
   }
-  ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140E2CC00);
+  ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140E2CD40);
   if ( !(*(_DWORD *)(v12 + 56) & 1 | ((*(_DWORD *)(v12 + 56) & 2) != 0))
     && (*(_QWORD *)(v12 + 112) <= 1uLL || (*(_DWORD *)(v12 + 56) & 8) != 0 || a4) )
   {

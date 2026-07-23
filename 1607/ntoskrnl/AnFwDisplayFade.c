@@ -3,17 +3,17 @@
  * Callers:
  *     BgDisplayFade @ 0x140725814 (BgDisplayFade.c)
  * Callees:
- *     KeInitializeDpc @ 0x14000D6DC (KeInitializeDpc.c)
- *     KeResetEvent @ 0x14002E630 (KeResetEvent.c)
- *     KeSetCoalescableTimer @ 0x1400EFC00 (KeSetCoalescableTimer.c)
- *     KeInitializeTimerEx @ 0x1400F0C50 (KeInitializeTimerEx.c)
- *     BgpGetBitsPerPixel @ 0x140127790 (BgpGetBitsPerPixel.c)
- *     BgpFwFreeMemory @ 0x14012968C (BgpFwFreeMemory.c)
- *     BgpGxRectangleSize @ 0x1401297C4 (BgpGxRectangleSize.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
- *     memset @ 0x1401715C0 (memset.c)
- *     BgpClearScreen @ 0x1402393E0 (BgpClearScreen.c)
- *     BgpGxConvertRectangleEx @ 0x1402395E0 (BgpGxConvertRectangleEx.c)
+ *     KeInitializeDpc @ 0x14000D25C (KeInitializeDpc.c)
+ *     KeResetEvent @ 0x14002E1B0 (KeResetEvent.c)
+ *     KeSetCoalescableTimer @ 0x1400EDA80 (KeSetCoalescableTimer.c)
+ *     KeInitializeTimerEx @ 0x1400EEAA0 (KeInitializeTimerEx.c)
+ *     BgpGetBitsPerPixel @ 0x140127D00 (BgpGetBitsPerPixel.c)
+ *     BgpFwFreeMemory @ 0x140129BFC (BgpFwFreeMemory.c)
+ *     BgpGxRectangleSize @ 0x140129D34 (BgpGxRectangleSize.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
+ *     memset @ 0x140171AC0 (memset.c)
+ *     BgpClearScreen @ 0x1402392C4 (BgpClearScreen.c)
+ *     BgpGxConvertRectangleEx @ 0x1402394C4 (BgpGxConvertRectangleEx.c)
  *     AnFwDisableBackgroundUpdateTimer @ 0x140725854 (AnFwDisableBackgroundUpdateTimer.c)
  *     AnFwpDisableProgressTimer @ 0x14072586C (AnFwpDisableProgressTimer.c)
  *     BgpGxParseBitmap @ 0x140725B84 (BgpGxParseBitmap.c)
@@ -328,12 +328,12 @@ LABEL_36:
     qword_1402F4EB8 = (__int64)v2;
     qword_1402F4EE8 = (__int64)v3;
     qword_1402F4EF0 = v31;
-    KeResetEvent(&stru_1403404A0);
-    KeInitializeTimerEx(&stru_140340460, NotificationTimer);
-    KeInitializeDpc(&stru_1403403E0, AnFwpFadeAnimationTimer, 0LL);
-    byte_140328C11 = 1;
+    KeResetEvent(&stru_1403404E0);
+    KeInitializeTimerEx(&stru_1403404A0, NotificationTimer);
+    KeInitializeDpc(&stru_140340420, AnFwpFadeAnimationTimer, 0LL);
+    byte_140328C51 = 1;
     LogFwStat(1LL, 7LL, 0LL);
-    KeSetCoalescableTimer(&stru_140340460, 0LL, 0x1Eu, 0, &stru_1403403E0);
+    KeSetCoalescableTimer(&stru_1403404A0, 0LL, 0x1Eu, 0, &stru_140340420);
     dword_1402F9F90 |= 0x2000u;
     dword_1402F9FAC = v42;
     goto LABEL_37;

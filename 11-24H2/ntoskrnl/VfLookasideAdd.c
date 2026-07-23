@@ -1,22 +1,22 @@
 /*
- * XREFs of VfLookasideAdd @ 0x140B9FE44
+ * XREFs of VfLookasideAdd @ 0x140BA1E44
  * Callers:
- *     VfMiscExInitializePagedLookasideList_Exit @ 0x140B9D920 (VfMiscExInitializePagedLookasideList_Exit.c)
+ *     VfMiscExInitializePagedLookasideList_Exit @ 0x140B9F920 (VfMiscExInitializePagedLookasideList_Exit.c)
  * Callees:
- *     VfAvlDeleteTreeNode @ 0x1403F0144 (VfAvlDeleteTreeNode.c)
- *     VfAvlInsertReservedTreeNode @ 0x1403F0328 (VfAvlInsertReservedTreeNode.c)
- *     VfAvlLookupTreeNode @ 0x1403F1074 (VfAvlLookupTreeNode.c)
- *     VfAvlCleanupLockContext @ 0x1403F142C (VfAvlCleanupLockContext.c)
- *     VfAvlReserveNode @ 0x1403F1620 (VfAvlReserveNode.c)
- *     VfAvlInitializeLockContext @ 0x14049C0D8 (VfAvlInitializeLockContext.c)
- *     VfAvlFreeNodeNoLock @ 0x1406106C8 (VfAvlFreeNodeNoLock.c)
- *     CarReportRuleViolationFromNt @ 0x140B8D914 (CarReportRuleViolationFromNt.c)
+ *     VfAvlDeleteTreeNode @ 0x1403E3E20 (VfAvlDeleteTreeNode.c)
+ *     VfAvlInsertReservedTreeNode @ 0x1403E4050 (VfAvlInsertReservedTreeNode.c)
+ *     VfAvlLookupTreeNode @ 0x1403E4D94 (VfAvlLookupTreeNode.c)
+ *     VfAvlCleanupLockContext @ 0x1403E514C (VfAvlCleanupLockContext.c)
+ *     VfAvlReserveNode @ 0x1403E5340 (VfAvlReserveNode.c)
+ *     VfAvlInitializeLockContext @ 0x140496D08 (VfAvlInitializeLockContext.c)
+ *     VfAvlFreeNodeNoLock @ 0x14060EC88 (VfAvlFreeNodeNoLock.c)
+ *     CarReportRuleViolationFromNt @ 0x140B8F914 (CarReportRuleViolationFromNt.c)
  */
 
 void __fastcall VfLookasideAdd(ULONG_PTR BugCheckParameter2, __int64 a2)
 {
   _QWORD *v4; // rsi
-  struct _SLIST_ENTRY *v5; // rdi
+  _SLIST_ENTRY *v5; // rdi
   __int64 v6; // rdx
   __int128 v7; // [rsp+40h] [rbp-28h] BYREF
   __int64 v8; // [rsp+50h] [rbp-18h]
@@ -34,11 +34,7 @@ void __fastcall VfLookasideAdd(ULONG_PTR BugCheckParameter2, __int64 a2)
       {
         if ( !ViLookasideAllocationFailures && !ViLookasideAlreadyLoadedDrivers )
           CarReportRuleViolationFromNt(196, 202LL, BugCheckParameter2, 0LL, 0LL, 0xBu, a2);
-        v5 = (struct _SLIST_ENTRY *)VfAvlDeleteTreeNode(
-                                      (__int64 *)&ViLookasideAvl,
-                                      (__int64)&v7,
-                                      BugCheckParameter2,
-                                      0LL);
+        v5 = (_SLIST_ENTRY *)VfAvlDeleteTreeNode((__int64 *)&ViLookasideAvl, (__int64)&v7, BugCheckParameter2, 0LL);
       }
       VfAvlInsertReservedTreeNode((__int64)&ViLookasideAvl, (__int64)&v7, v4);
       VfAvlCleanupLockContext((__int64)&v7, v6);

@@ -1,43 +1,48 @@
 /*
- * XREFs of NtCreateEvent @ 0x140703CD0
+ * XREFs of NtCreateEvent @ 0x14071B0B0
  * Callers:
- *     PfSnOpenVolumesForPrefetch @ 0x1406C7A68 (PfSnOpenVolumesForPrefetch.c)
- *     PfSnPrefetchMetadata @ 0x1406C8184 (PfSnPrefetchMetadata.c)
- *     PfSnPopulateReadList @ 0x1406C8970 (PfSnPopulateReadList.c)
- *     SepAdtOpenEtwReadyEvent @ 0x14079E3F4 (SepAdtOpenEtwReadyEvent.c)
- *     IoInitSystemPreDrivers @ 0x140A3EB60 (IoInitSystemPreDrivers.c)
- *     FsRtlInitializeSmssEvent @ 0x140A6BB14 (FsRtlInitializeSmssEvent.c)
+ *     PfSnOpenVolumesForPrefetch @ 0x140676358 (PfSnOpenVolumesForPrefetch.c)
+ *     PfSnPrefetchMetadata @ 0x140676A74 (PfSnPrefetchMetadata.c)
+ *     PfSnPopulateReadList @ 0x140677260 (PfSnPopulateReadList.c)
+ *     SepAdtOpenEtwReadyEvent @ 0x14079E5F4 (SepAdtOpenEtwReadyEvent.c)
+ *     IoInitSystemPreDrivers @ 0x140A3FB60 (IoInitSystemPreDrivers.c)
+ *     FsRtlInitializeSmssEvent @ 0x140A6CB14 (FsRtlInitializeSmssEvent.c)
  * Callees:
- *     KeInitializeEvent @ 0x1403538F0 (KeInitializeEvent.c)
- *     ObCreateObjectEx @ 0x140704810 (ObCreateObjectEx.c)
- *     ObInsertObjectEx @ 0x140704A20 (ObInsertObjectEx.c)
+ *     KeInitializeEvent @ 0x14035E640 (KeInitializeEvent.c)
+ *     ObCreateObjectEx @ 0x14071BBF0 (ObCreateObjectEx.c)
+ *     ObInsertObjectEx @ 0x14071BE00 (ObInsertObjectEx.c)
  */
 
-__int64 __fastcall NtCreateEvent(unsigned __int64 a1, __int64 a2, int a3, EVENT_TYPE a4, BOOLEAN a5)
+NTSTATUS __cdecl NtCreateEvent(
+        PHANDLE EventHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        EVENT_TYPE EventType,
+        BOOLEAN InitialState)
 {
-  _QWORD *v6; // rdi
+  PHANDLE v6; // rdi
   unsigned __int8 v7; // si
-  __int64 result; // rax
+  NTSTATUS result; // eax
   __int64 v9; // [rsp+58h] [rbp-10h] BYREF
 
-  v6 = (_QWORD *)a1;
+  v6 = EventHandle;
   v9 = 0LL;
   v7 = KeGetCurrentThread()->$6BEBF485330D18E60173AA6D991B35AC::gap0[10];
   if ( v7 )
   {
-    if ( a1 >= 0x7FFFFFFF0000LL )
-      a1 = 0x7FFFFFFF0000LL;
-    *(_QWORD *)a1 = *(_QWORD *)a1;
+    if ( (unsigned __int64)EventHandle >= 0x7FFFFFFF0000LL )
+      EventHandle = (PHANDLE)0x7FFFFFFF0000LL;
+    *EventHandle = *EventHandle;
   }
-  if ( (unsigned int)a4 > SynchronizationEvent )
-    return 3221225485LL;
-  result = ObCreateObjectEx(v7, (_DWORD)ExEventObjectType, a3, v7);
-  if ( (int)result >= 0 )
+  if ( (unsigned int)EventType > SynchronizationEvent )
+    return -1073741811;
+  result = ObCreateObjectEx(v7, (_DWORD)ExEventObjectType, (_DWORD)ObjectAttributes, v7);
+  if ( result >= 0 )
   {
-    KeInitializeEvent(0LL, a4, a5);
+    KeInitializeEvent(0LL, EventType, InitialState);
     result = ObInsertObjectEx(0LL, 0LL, 0, 0LL, (__int64)&v9);
-    if ( (int)result >= 0 )
-      *v6 = v9;
+    if ( result >= 0 )
+      *v6 = (HANDLE)v9;
   }
   return result;
 }

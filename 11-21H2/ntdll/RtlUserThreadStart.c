@@ -11,14 +11,18 @@
  *     RtlUnhandledExceptionFilter2 @ 0x18010D530 (RtlUnhandledExceptionFilter2.c)
  */
 
-__int64 __fastcall RtlUserThreadStart(__int64 (__fastcall *a1)(__int64), __int64 a2)
+void __cdecl RtlUserThreadStart(PTHREAD_START_ROUTINE Function, PVOID Parameter)
 {
-  unsigned int v3; // eax
+  NTSTATUS v2; // eax
 
   if ( !Kernel32ThreadInitThunkFunction )
   {
-    v3 = a1(a2);
-    RtlExitUserThread(v3);
+    v2 = ((__int64 (__fastcall *)(PVOID))Function)(Parameter);
+    RtlExitUserThread(v2);
   }
-  return Kernel32ThreadInitThunkFunction(0LL, a1, a2, a1);
+  ((void (__fastcall *)(_QWORD, PTHREAD_START_ROUTINE, PVOID, PTHREAD_START_ROUTINE))Kernel32ThreadInitThunkFunction)(
+    0LL,
+    Function,
+    Parameter,
+    Function);
 }

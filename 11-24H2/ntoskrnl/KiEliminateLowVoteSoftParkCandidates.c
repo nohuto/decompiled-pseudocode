@@ -1,7 +1,7 @@
 /*
- * XREFs of KiEliminateLowVoteSoftParkCandidates @ 0x140201FDC
+ * XREFs of KiEliminateLowVoteSoftParkCandidates @ 0x14032A6CC
  * Callers:
- *     KiPerformHeteroSoftParkElection @ 0x1402017A8 (KiPerformHeteroSoftParkElection.c)
+ *     KiPerformHeteroSoftParkElection @ 0x140329E98 (KiPerformHeteroSoftParkElection.c)
  * Callees:
  *     <none>
  */

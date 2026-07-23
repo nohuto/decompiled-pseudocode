@@ -1,12 +1,12 @@
 /*
- * XREFs of SymCryptFdefModAddGeneric @ 0x140535950
+ * XREFs of SymCryptFdefModAddGeneric @ 0x14052FDF0
  * Callers:
  *     <none>
  * Callees:
- *     xHalTimerWatchdogStop @ 0x140493990 (xHalTimerWatchdogStop.c)
- *     SymCryptFdefRawAdd @ 0x14052F32C (SymCryptFdefRawAdd.c)
- *     SymCryptFdefRawSub @ 0x14052F804 (SymCryptFdefRawSub.c)
- *     SymCryptFdefMaskedCopy @ 0x140537504 (SymCryptFdefMaskedCopy.c)
+ *     xHalTimerWatchdogStop @ 0x14048E2E0 (xHalTimerWatchdogStop.c)
+ *     SymCryptFdefRawAdd @ 0x1405297D4 (SymCryptFdefRawAdd.c)
+ *     SymCryptFdefRawSub @ 0x140529CAC (SymCryptFdefRawSub.c)
+ *     SymCryptFdefMaskedCopy @ 0x1405319A4 (SymCryptFdefMaskedCopy.c)
  */
 
 __int64 __fastcall SymCryptFdefModAddGeneric(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5)

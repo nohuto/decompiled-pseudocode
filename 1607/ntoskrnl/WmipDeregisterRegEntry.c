@@ -1,17 +1,17 @@
 /*
- * XREFs of WmipDeregisterRegEntry @ 0x140125060
+ * XREFs of WmipDeregisterRegEntry @ 0x1401255D0
  * Callers:
- *     WmipDeregisterDevice @ 0x140532D54 (WmipDeregisterDevice.c)
- *     WmipRegisterDevice @ 0x14053A528 (WmipRegisterDevice.c)
+ *     WmipDeregisterDevice @ 0x140533294 (WmipDeregisterDevice.c)
+ *     WmipRegisterDevice @ 0x14053AA68 (WmipRegisterDevice.c)
  * Callees:
- *     ExFreeToNPagedLookasideList @ 0x14000F4A4 (ExFreeToNPagedLookasideList.c)
- *     KeReleaseMutex @ 0x140055FE0 (KeReleaseMutex.c)
- *     KeWaitForSingleObject @ 0x14005C880 (KeWaitForSingleObject.c)
- *     ObfDereferenceObjectWithTag @ 0x14006ACD0 (ObfDereferenceObjectWithTag.c)
- *     WmipUnreferenceRegEntry @ 0x1400C48D0 (WmipUnreferenceRegEntry.c)
- *     KeReleaseSpinLock @ 0x1400E9A70 (KeReleaseSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x1400EFE30 (KeAcquireSpinLockRaiseToDpc.c)
- *     WmipRemoveDS @ 0x140532DF8 (WmipRemoveDS.c)
+ *     ExFreeToNPagedLookasideList @ 0x14000F024 (ExFreeToNPagedLookasideList.c)
+ *     KeReleaseMutex @ 0x140055B60 (KeReleaseMutex.c)
+ *     KeWaitForSingleObject @ 0x14005C400 (KeWaitForSingleObject.c)
+ *     ObfDereferenceObjectWithTag @ 0x14006A850 (ObfDereferenceObjectWithTag.c)
+ *     WmipUnreferenceRegEntry @ 0x1400C2770 (WmipUnreferenceRegEntry.c)
+ *     KeReleaseSpinLock @ 0x1400EB600 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1400EDCB0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     WmipRemoveDS @ 0x140533338 (WmipRemoveDS.c)
  */
 
 void __fastcall WmipDeregisterRegEntry(char *Entry)

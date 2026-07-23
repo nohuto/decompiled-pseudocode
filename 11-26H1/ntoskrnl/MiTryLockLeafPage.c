@@ -1,14 +1,14 @@
 /*
- * XREFs of MiTryLockLeafPage @ 0x14047F28C
+ * XREFs of MiTryLockLeafPage @ 0x140478BFC
  * Callers:
- *     MiCombineWithStandbyExisting @ 0x140307CC4 (MiCombineWithStandbyExisting.c)
- *     MiCopyDataPageToImagePage @ 0x14036C478 (MiCopyDataPageToImagePage.c)
- *     MiTryLockProtoPoolPageAtDpc @ 0x14047F0C4 (MiTryLockProtoPoolPageAtDpc.c)
- *     MiCopyFileOnlyPage @ 0x1404B5FDC (MiCopyFileOnlyPage.c)
- *     MiMakeTransitionHeatBatch @ 0x14050A470 (MiMakeTransitionHeatBatch.c)
+ *     MiCombineWithStandbyExisting @ 0x1402E9D44 (MiCombineWithStandbyExisting.c)
+ *     MiCopyDataPageToImagePage @ 0x14036E218 (MiCopyDataPageToImagePage.c)
+ *     MiTryLockProtoPoolPageAtDpc @ 0x140478A34 (MiTryLockProtoPoolPageAtDpc.c)
+ *     MiCopyFileOnlyPage @ 0x1404AF42C (MiCopyFileOnlyPage.c)
+ *     MiMakeTransitionHeatBatch @ 0x140503EE0 (MiMakeTransitionHeatBatch.c)
  * Callees:
- *     MiLockSpecialPurposeMemoryCachedPage @ 0x1402AA2EC (MiLockSpecialPurposeMemoryCachedPage.c)
- *     MiInvalidPteConforms @ 0x1402F4430 (MiInvalidPteConforms.c)
+ *     MiLockSpecialPurposeMemoryCachedPage @ 0x1402A96FC (MiLockSpecialPurposeMemoryCachedPage.c)
+ *     MiInvalidPteConforms @ 0x1402D64B0 (MiInvalidPteConforms.c)
  */
 
 __int64 __fastcall MiTryLockLeafPage(__int64 *a1, char a2, __int64 *a3)
@@ -38,16 +38,16 @@ __int64 __fastcall MiTryLockLeafPage(__int64 *a1, char a2, __int64 *a3)
       if ( MiInvalidPteConforms(v7) )
       {
         v8 = v7;
-        if ( qword_140E2D740 )
+        if ( qword_140E2D8C0 )
         {
           if ( (v7 & 0x10) != 0 )
             v8 = v7 & 0xFFFFFFFFFFFFFFEFuLL;
           else
-            v8 = v7 & qword_140E2D748;
+            v8 = v7 & qword_140E2D8C8;
         }
 LABEL_8:
         v9 = (v8 >> 12) & 0xFFFFFFFFFFLL;
-        if ( v9 <= qword_140E2D7A0 && ((*(_QWORD *)(48 * v9 - 0x21FFFFFFFFD8LL) >> 54) & 1) != 0 )
+        if ( v9 <= qword_140E2D920 && ((*(_QWORD *)(48 * v9 - 0x21FFFFFFFFD8LL) >> 54) & 1) != 0 )
           break;
       }
     }
@@ -58,7 +58,7 @@ LABEL_8:
       break;
     _InterlockedAnd64((volatile signed __int64 *)(v10 + 24), v6);
   }
-  if ( (*(_DWORD *)(*(_QWORD *)(stru_140E2EB88.ThreadLock + 8 * ((*(_QWORD *)(v10 + 40) >> 43) & 0x3FFLL)) + 4LL) & 0x20) == 0 )
+  if ( (*(_DWORD *)(*(_QWORD *)(stru_140E2ED08.ThreadLock + 8 * ((*(_QWORD *)(v10 + 40) >> 43) & 0x3FFLL)) + 4LL) & 0x20) == 0 )
   {
 LABEL_13:
     *a3 = v10;

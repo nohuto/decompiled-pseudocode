@@ -1,16 +1,16 @@
 /*
  * XREFs of KeQueryNodeActiveAffinity @ 0x140201320
  * Callers:
- *     ExpSaPageGroupDescriptorAllocate @ 0x1404997AC (ExpSaPageGroupDescriptorAllocate.c)
- *     PnpSetDeviceAffinityThread @ 0x1404A17D4 (PnpSetDeviceAffinityThread.c)
- *     ExAllocateCacheAwarePushLock @ 0x1404E7750 (ExAllocateCacheAwarePushLock.c)
- *     EtwpProcessorRundown @ 0x14082FBE8 (EtwpProcessorRundown.c)
- *     ExpPartitionStart @ 0x14083FE48 (ExpPartitionStart.c)
- *     ExpWorkQueueManagerInitialize @ 0x1408402B8 (ExpWorkQueueManagerInitialize.c)
- *     ExpNodeCreateSystemThread @ 0x140A03568 (ExpNodeCreateSystemThread.c)
- *     ExpQueryNumaProcessorMap @ 0x140AF62B8 (ExpQueryNumaProcessorMap.c)
- *     KiComputeNumaCosts @ 0x140CC93EC (KiComputeNumaCosts.c)
- *     MiComputeMemoryNodeProcessorAssignments @ 0x140CFD468 (MiComputeMemoryNodeProcessorAssignments.c)
+ *     ExpSaPageGroupDescriptorAllocate @ 0x1404932FC (ExpSaPageGroupDescriptorAllocate.c)
+ *     PnpSetDeviceAffinityThread @ 0x14049B304 (PnpSetDeviceAffinityThread.c)
+ *     ExAllocateCacheAwarePushLock @ 0x1404E0B10 (ExAllocateCacheAwarePushLock.c)
+ *     EtwpProcessorRundown @ 0x140835E28 (EtwpProcessorRundown.c)
+ *     ExpPartitionStart @ 0x140846088 (ExpPartitionStart.c)
+ *     ExpWorkQueueManagerInitialize @ 0x1408464F8 (ExpWorkQueueManagerInitialize.c)
+ *     ExpNodeCreateSystemThread @ 0x140A78BB8 (ExpNodeCreateSystemThread.c)
+ *     ExpQueryNumaProcessorMap @ 0x140AF8958 (ExpQueryNumaProcessorMap.c)
+ *     KiComputeNumaCosts @ 0x140CCF47C (KiComputeNumaCosts.c)
+ *     MiComputeMemoryNodeProcessorAssignments @ 0x140D037E8 (MiComputeMemoryNodeProcessorAssignments.c)
  * Callees:
  *     KeQueryNodeGroupAffinity @ 0x14020183C (KeQueryNodeGroupAffinity.c)
  */
@@ -19,7 +19,7 @@ void __stdcall KeQueryNodeActiveAffinity(USHORT NodeNumber, PGROUP_AFFINITY Affi
 {
   __int64 v5; // rcx
   unsigned __int64 NodeGroupAffinity; // rax
-  struct _GROUP_AFFINITY v7; // [rsp+20h] [rbp-18h]
+  _GROUP_AFFINITY v7; // [rsp+20h] [rbp-18h]
 
   if ( Affinity )
     *Affinity = 0LL;

@@ -1,7 +1,7 @@
 /*
- * XREFs of IvtBuildContextEntry @ 0x1404DF820
+ * XREFs of IvtBuildContextEntry @ 0x1404DFA60
  * Callers:
- *     IvtInitializeIommu @ 0x1409A9950 (IvtInitializeIommu.c)
+ *     IvtInitializeIommu @ 0x1409AA880 (IvtInitializeIommu.c)
  * Callees:
  *     <none>
  */

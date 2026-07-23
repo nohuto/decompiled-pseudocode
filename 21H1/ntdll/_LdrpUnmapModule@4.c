@@ -9,19 +9,19 @@
  *     _NtUnmapViewOfSection@8 @ 0x4B2F2C20 (_NtUnmapViewOfSection@8.c)
  */
 
-int __thiscall LdrpUnmapModule(_DWORD *this)
+void *__thiscall LdrpUnmapModule(_DWORD *this)
 {
-  int result; // eax
+  void *result; // eax
 
-  result = this[6];
+  result = (void *)this[6];
   if ( result )
   {
     if ( (this[13] & 0x200) != 0 )
     {
       RtlRemoveInvertedFunctionTable(this[6]);
-      result = this[6];
+      result = (void *)this[6];
     }
-    result = NtUnmapViewOfSection(-1, result);
+    result = (void *)NtUnmapViewOfSection((HANDLE)0xFFFFFFFF, result);
     this[6] = 0;
   }
   return result;

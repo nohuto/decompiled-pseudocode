@@ -1,10 +1,10 @@
 /*
- * XREFs of ViFreeMapRegistersToFile @ 0x1407095A8
+ * XREFs of ViFreeMapRegistersToFile @ 0x1407095D8
  * Callers:
- *     ViFlushDoubleBuffer @ 0x1407092A8 (ViFlushDoubleBuffer.c)
+ *     ViFlushDoubleBuffer @ 0x1407092D8 (ViFlushDoubleBuffer.c)
  * Callees:
- *     ViCheckTag @ 0x140708EC0 (ViCheckTag.c)
- *     ViFindMappedRegisterInFile @ 0x140709278 (ViFindMappedRegisterInFile.c)
+ *     ViCheckTag @ 0x140708EF0 (ViCheckTag.c)
+ *     ViFindMappedRegisterInFile @ 0x1407092A8 (ViFindMappedRegisterInFile.c)
  */
 
 __int64 __fastcall ViFreeMapRegistersToFile(__int64 a1, __int64 a2, unsigned int a3)

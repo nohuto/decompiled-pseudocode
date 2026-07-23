@@ -1,9 +1,9 @@
 /*
- * XREFs of KiEntropyDpcRoutine @ 0x14035C200
+ * XREFs of KiEntropyDpcRoutine @ 0x14035C3A0
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x140429FB0 (_guard_dispatch_icall.c)
  */
 
 void __fastcall KiEntropyDpcRoutine(

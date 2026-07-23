@@ -1,17 +1,17 @@
 /*
- * XREFs of KeAbCrossThreadDelete @ 0x140579570
+ * XREFs of KeAbCrossThreadDelete @ 0x140579A60
  * Callers:
- *     KeDeleteMutant @ 0x14028CBA8 (KeDeleteMutant.c)
+ *     KeDeleteMutant @ 0x14028CE38 (KeDeleteMutant.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
- *     KeWaitForSingleObject @ 0x140243CE0 (KeWaitForSingleObject.c)
- *     KiAcquirePrcbLocksForIsolationUnit @ 0x140246770 (KiAcquirePrcbLocksForIsolationUnit.c)
- *     KiInsertQueueDpc @ 0x140254790 (KiInsertQueueDpc.c)
- *     MmGetSessionIdEx @ 0x1402A1720 (MmGetSessionIdEx.c)
- *     KiReleasePrcbLocksForIsolationUnit @ 0x1403078C0 (KiReleasePrcbLocksForIsolationUnit.c)
- *     KeGenericCallDpcEx @ 0x1403C66F0 (KeGenericCallDpcEx.c)
- *     KiAbCrossThreadRelease @ 0x1403CAD3C (KiAbCrossThreadRelease.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeYieldProcessorEx @ 0x140242F10 (KeYieldProcessorEx.c)
+ *     KeWaitForSingleObject @ 0x140243DB0 (KeWaitForSingleObject.c)
+ *     KiAcquirePrcbLocksForIsolationUnit @ 0x140246840 (KiAcquirePrcbLocksForIsolationUnit.c)
+ *     KiInsertQueueDpc @ 0x140254850 (KiInsertQueueDpc.c)
+ *     MmGetSessionIdEx @ 0x1402A19B0 (MmGetSessionIdEx.c)
+ *     KiReleasePrcbLocksForIsolationUnit @ 0x140307B50 (KiReleasePrcbLocksForIsolationUnit.c)
+ *     KeGenericCallDpcEx @ 0x1403C68D0 (KeGenericCallDpcEx.c)
+ *     KiAbCrossThreadRelease @ 0x1403CAF1C (KiAbCrossThreadRelease.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 char __fastcall KeAbCrossThreadDelete(__int64 a1, ULONG_PTR a2)
@@ -141,7 +141,7 @@ LABEL_98:
   CurrentIrql = KeGetCurrentIrql();
   v51 = CurrentIrql;
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && (unsigned __int8)CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && (unsigned __int8)CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     v21 = 4;
@@ -255,10 +255,10 @@ LABEL_57:
       if ( v26 )
         _InterlockedAnd64((volatile signed __int64 *)v26, v23);
       *(_QWORD *)(a2 + 64) = v23;
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v42 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v42 <= 0xFu && v22 <= 0xFu && v42 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v42 <= 0xFu && v22 <= 0xFu && v42 >= 2u )
         {
           CurrentPrcb = KeGetCurrentPrcb();
           v44 = CurrentPrcb->SchedulerAssist;
@@ -279,10 +279,10 @@ LABEL_57:
       if ( v26 )
         _InterlockedAnd64((volatile signed __int64 *)v26, v23);
       *(_QWORD *)(a2 + 64) = v23;
-      if ( KiIrqlFlags )
+      if ( (_DWORD)KiIrqlFlags )
       {
         v38 = KeGetCurrentIrql();
-        if ( (KiIrqlFlags & 1) != 0 && v38 <= 0xFu && v22 <= 0xFu && v38 >= 2u )
+        if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v38 <= 0xFu && v22 <= 0xFu && v38 >= 2u )
         {
           v39 = KeGetCurrentPrcb();
           v40 = v39->SchedulerAssist;
@@ -304,10 +304,10 @@ LABEL_57:
   if ( v26 )
     _InterlockedAnd64((volatile signed __int64 *)v26, v23);
   *(_QWORD *)(a2 + 64) = v23;
-  if ( KiIrqlFlags )
+  if ( (_DWORD)KiIrqlFlags )
   {
     v33 = KeGetCurrentIrql();
-    if ( (KiIrqlFlags & 1) != 0 && v33 <= 0xFu && v22 <= 0xFu && v33 >= 2u )
+    if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v33 <= 0xFu && v22 <= 0xFu && v33 >= 2u )
     {
       v34 = KeGetCurrentPrcb();
       v35 = v34->SchedulerAssist;

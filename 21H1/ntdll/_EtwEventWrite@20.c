@@ -20,102 +20,103 @@
  *     _EtwpWriteToPrivateBuffers@40 @ 0x4B381B7E (_EtwpWriteToPrivateBuffers@40.c)
  */
 
-NTSTATUS __stdcall EtwEventWrite(int a1, __int16 a2, int *a3, int a4, int a5)
+ULONG __cdecl EtwEventWrite(
+        REGHANDLE RegHandle,
+        PCEVENT_DESCRIPTOR EventDescriptor,
+        ULONG UserDataCount,
+        PEVENT_DATA_DESCRIPTOR UserData)
 {
-  NTSTATUS result; // eax
-  int v6; // edx
-  __int64 v7; // rdi
-  unsigned __int8 v8; // cl
+  ULONG result; // eax
+  int v5; // edx
+  unsigned __int64 Keyword; // rdi
+  unsigned __int8 v7; // cl
   _GUID *p_ActivityId; // esi
-  int v10; // [esp-10h] [ebp-F8h]
-  char v12; // [esp+Fh] [ebp-D9h]
-  NTSTATUS v13; // [esp+10h] [ebp-D8h]
-  _BYTE v14[4]; // [esp+20h] [ebp-C8h] BYREF
-  int v15; // [esp+24h] [ebp-C4h]
-  int v16; // [esp+48h] [ebp-A0h]
-  int v17; // [esp+4Ch] [ebp-9Ch]
-  __int64 v18; // [esp+50h] [ebp-98h]
+  void *v9; // [esp-10h] [ebp-F8h]
+  char v11; // [esp+Fh] [ebp-D9h]
+  ULONG v12; // [esp+10h] [ebp-D8h]
+  _BYTE Fields[4]; // [esp+20h] [ebp-C8h] BYREF
+  int v14; // [esp+24h] [ebp-C4h]
+  EVENT_DESCRIPTOR v15; // [esp+48h] [ebp-A0h]
   unsigned int Data1; // [esp+60h] [ebp-88h]
-  unsigned int v20; // [esp+64h] [ebp-84h]
-  __int64 v21; // [esp+68h] [ebp-80h]
-  char v22; // [esp+70h] [ebp-78h]
-  __int16 v23; // [esp+72h] [ebp-76h]
-  int v24; // [esp+74h] [ebp-74h]
-  int v25; // [esp+78h] [ebp-70h]
-  int v26; // [esp+7Ch] [ebp-6Ch]
-  int v27; // [esp+90h] [ebp-58h]
-  _BYTE v28[76]; // [esp+98h] [ebp-50h] BYREF
+  unsigned int v17; // [esp+64h] [ebp-84h]
+  __int64 v18; // [esp+68h] [ebp-80h]
+  char v19; // [esp+70h] [ebp-78h]
+  __int16 v20; // [esp+72h] [ebp-76h]
+  ULONG v21; // [esp+74h] [ebp-74h]
+  PEVENT_DATA_DESCRIPTOR v22; // [esp+78h] [ebp-70h]
+  int v23; // [esp+7Ch] [ebp-6Ch]
+  int v24; // [esp+90h] [ebp-58h]
+  _BYTE v25[76]; // [esp+98h] [ebp-50h] BYREF
 
   result = 0;
-  v13 = 0;
-  if ( !a3 )
+  v12 = 0;
+  if ( !EventDescriptor )
     return 87;
-  v16 = *a3;
-  v17 = a3[1];
-  v18 = *((_QWORD *)a3 + 1);
-  if ( !a2 )
+  v15 = *EventDescriptor;
+  if ( !WORD2(RegHandle) )
     return 6;
-  v6 = a1;
-  if ( (a1 & 1) != 0 || a2 != *(_WORD *)(a1 + 52) )
+  v5 = RegHandle;
+  if ( (RegHandle & 1) != 0 || WORD2(RegHandle) != *(_WORD *)(RegHandle + 52) )
     return 6;
-  v7 = v18;
-  if ( !*(_BYTE *)(a1 + 196) )
+  Keyword = v15.Keyword;
+  if ( !*(_BYTE *)(RegHandle + 196) )
   {
-    v12 = 0;
+    v11 = 0;
     goto LABEL_7;
   }
   result = 0;
-  if ( (unsigned __int8)v17 > *(_BYTE *)(a1 + 197) && *(_BYTE *)(a1 + 197) )
+  if ( v15.Level > *(_BYTE *)(RegHandle + 197) && *(_BYTE *)(RegHandle + 197) )
   {
 LABEL_29:
-    v12 = 0;
+    v11 = 0;
     goto LABEL_7;
   }
-  if ( (*(_BYTE *)(a1 + 192) & 0x40) == 0 || v18 )
+  if ( (*(_BYTE *)(RegHandle + 192) & 0x40) == 0 || v15.Keyword )
   {
-    if ( (v18 & *(_QWORD *)(a1 + 184)) == 0 || (v6 = a1, (v18 & *(_QWORD *)(a1 + 176)) != *(_QWORD *)(a1 + 176)) )
+    if ( (v15.Keyword & *(_QWORD *)(RegHandle + 184)) == 0
+      || (v5 = RegHandle, (v15.Keyword & *(_QWORD *)(RegHandle + 176)) != *(_QWORD *)(RegHandle + 176)) )
     {
       result = 0;
       goto LABEL_29;
     }
   }
-  v12 = 1;
-  result = EtwpWriteToPrivateBuffers(0, 0, 0, 0, 0, a4, a5, v28);
-  v13 = result;
+  v11 = 1;
+  result = EtwpWriteToPrivateBuffers(0, 0, 0, 0, 0, UserDataCount, UserData, v25);
+  v12 = result;
   if ( result )
   {
 LABEL_32:
-    EtwpReleasePrivateBuffers(result, v28);
-    return v13;
+    EtwpReleasePrivateBuffers(result, v25);
+    return v12;
   }
-  v7 = v18;
-  v6 = a1;
+  Keyword = v15.Keyword;
+  v5 = RegHandle;
 LABEL_7:
-  if ( *(_BYTE *)(v6 + 76) )
+  if ( *(_BYTE *)(v5 + 76) )
   {
-    v8 = *(_BYTE *)(v6 + 77);
-    if ( (unsigned __int8)v17 <= v8 || !v8 )
+    v7 = *(_BYTE *)(v5 + 77);
+    if ( v15.Level <= v7 || !v7 )
     {
-      if ( (*(_BYTE *)(v6 + 72) & 0x40) != 0 && !v7
-        || (v7 & *(_QWORD *)(v6 + 64)) != 0 && (v7 & *(_QWORD *)(v6 + 56)) == *(_QWORD *)(v6 + 56) )
+      if ( (*(_BYTE *)(v5 + 72) & 0x40) != 0 && !Keyword
+        || (Keyword & *(_QWORD *)(v5 + 64)) != 0 && (Keyword & *(_QWORD *)(v5 + 56)) == *(_QWORD *)(v5 + 56) )
       {
         p_ActivityId = &NtCurrentTeb()->ActivityId;
-        v15 = 0;
-        v24 = a4;
-        v25 = a5;
-        v26 = 0;
+        v14 = 0;
+        v21 = UserDataCount;
+        v22 = UserData;
+        v23 = 0;
         Data1 = p_ActivityId->Data1;
         p_ActivityId = (_GUID *)((char *)p_ActivityId + 4);
-        v20 = p_ActivityId->Data1;
-        v21 = *(_QWORD *)&p_ActivityId->Data2;
-        v23 = 0;
-        v10 = *(_DWORD *)(v6 + 48);
-        v22 = 0;
-        v27 = 0;
-        result = NtTraceEvent(v10, 768, 120, v14);
+        v17 = p_ActivityId->Data1;
+        v18 = *(_QWORD *)&p_ActivityId->Data2;
+        v20 = 0;
+        v9 = *(void **)(v5 + 48);
+        v19 = 0;
+        v24 = 0;
+        result = NtTraceEvent(v9, 0x300u, 0x78u, Fields);
         if ( result )
           result = RtlNtStatusToDosError(result);
-        v13 = result;
+        v12 = result;
       }
       else
       {
@@ -123,7 +124,7 @@ LABEL_7:
       }
     }
   }
-  if ( v12 )
+  if ( v11 )
     goto LABEL_32;
   return result;
 }

@@ -1,8 +1,8 @@
 /*
- * XREFs of _CmDevicePropertyWrite @ 0x1404C6094
+ * XREFs of _CmDevicePropertyWrite @ 0x1404BFA44
  * Callers:
- *     _CmSetDeviceRegPropWorker @ 0x14090A2C0 (_CmSetDeviceRegPropWorker.c)
- *     _CmIsDeviceRegPropWritable @ 0x140AECD34 (_CmIsDeviceRegPropWritable.c)
+ *     _CmSetDeviceRegPropWorker @ 0x1409AC878 (_CmSetDeviceRegPropWorker.c)
+ *     _CmIsDeviceRegPropWritable @ 0x140AEFD44 (_CmIsDeviceRegPropWritable.c)
  * Callees:
  *     <none>
  */

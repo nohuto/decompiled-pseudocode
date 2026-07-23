@@ -1,8 +1,8 @@
 /*
  * XREFs of WerLiveKernelOpenDumpFile_0 @ 0x140001328
  * Callers:
- *     DbgkpWerCaptureLiveFullDump @ 0x14061BD38 (DbgkpWerCaptureLiveFullDump.c)
- *     DbgkpWerWriteTriageDump @ 0x14061C6FC (DbgkpWerWriteTriageDump.c)
+ *     DbgkpWerCaptureLiveFullDump @ 0x14061BDEC (DbgkpWerCaptureLiveFullDump.c)
+ *     DbgkpWerWriteTriageDump @ 0x14061C7B0 (DbgkpWerWriteTriageDump.c)
  * Callees:
  *     <none>
  */

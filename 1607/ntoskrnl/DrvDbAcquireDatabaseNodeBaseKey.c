@@ -1,17 +1,17 @@
 /*
- * XREFs of DrvDbAcquireDatabaseNodeBaseKey @ 0x1404FBDA0
+ * XREFs of DrvDbAcquireDatabaseNodeBaseKey @ 0x1404DED30
  * Callers:
- *     DrvDbOpenObjectRegKey @ 0x1404FBF14 (DrvDbOpenObjectRegKey.c)
- *     DrvDbDeleteObjectRegKey @ 0x1406E0AEC (DrvDbDeleteObjectRegKey.c)
- *     DrvDbGetObjectList @ 0x1406E18F0 (DrvDbGetObjectList.c)
+ *     DrvDbOpenObjectRegKey @ 0x1404DEEA4 (DrvDbOpenObjectRegKey.c)
+ *     DrvDbDeleteObjectRegKey @ 0x1406E0C24 (DrvDbDeleteObjectRegKey.c)
+ *     DrvDbGetObjectList @ 0x1406E1A28 (DrvDbGetObjectList.c)
  * Callees:
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     ExAcquireResourceExclusiveLite @ 0x140068160 (ExAcquireResourceExclusiveLite.c)
- *     ExReleaseResourceLite @ 0x140068940 (ExReleaseResourceLite.c)
- *     _PnpCtxRegCreateKey @ 0x14048706C (_PnpCtxRegCreateKey.c)
- *     DrvDbLoadDatabaseNode @ 0x1404FA464 (DrvDbLoadDatabaseNode.c)
- *     _PnpCtxRegCreateTree @ 0x1404FA7B8 (_PnpCtxRegCreateTree.c)
- *     _SysCtxRegOpenKey @ 0x1404FDB8C (_SysCtxRegOpenKey.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140067CE0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x1400684C0 (ExReleaseResourceLite.c)
+ *     DrvDbLoadDatabaseNode @ 0x1404DD3F0 (DrvDbLoadDatabaseNode.c)
+ *     _PnpCtxRegCreateTree @ 0x1404DD744 (_PnpCtxRegCreateTree.c)
+ *     _SysCtxRegOpenKey @ 0x1404E0B1C (_SysCtxRegOpenKey.c)
+ *     _PnpCtxRegCreateKey @ 0x140512D88 (_PnpCtxRegCreateKey.c)
  */
 
 __int64 __fastcall DrvDbAcquireDatabaseNodeBaseKey(__int64 **a1, __int64 a2, int a3, _QWORD *a4)
@@ -26,7 +26,7 @@ __int64 __fastcall DrvDbAcquireDatabaseNodeBaseKey(__int64 **a1, __int64 a2, int
   __int64 v14; // r8
   __int64 v15; // r9
   int Tree; // eax
-  __int64 v18; // r9
+  int v18; // r9d
   __int64 v19; // rdx
   int Key; // eax
   __int64 v21; // rcx
@@ -54,7 +54,15 @@ __int64 __fastcall DrvDbAcquireDatabaseNodeBaseKey(__int64 **a1, __int64 a2, int
       v19 = *(_QWORD *)(a2 + 80);
       if ( (_DWORD)v5 )
       {
-        Key = PnpCtxRegCreateKey((__int64)*a1, v19, qword_14025B430[v5], v18, 0x2000000u, 0LL, a2 + 88 + 8 * v5, 0LL);
+        Key = PnpCtxRegCreateKey(
+                (unsigned int)*a1,
+                v19,
+                qword_14025B430[v5],
+                v18,
+                0x2000000,
+                0LL,
+                a2 + 88 + 8 * v5,
+                0LL);
       }
       else
       {

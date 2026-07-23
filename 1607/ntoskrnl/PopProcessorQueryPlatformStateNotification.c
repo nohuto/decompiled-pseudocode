@@ -1,9 +1,9 @@
 /*
- * XREFs of PopProcessorQueryPlatformStateNotification @ 0x140204D1C
+ * XREFs of PopProcessorQueryPlatformStateNotification @ 0x140204B48
  * Callers:
  *     <none>
  * Callees:
- *     PopTranslateDependencyArray @ 0x140204DD0 (PopTranslateDependencyArray.c)
+ *     PopTranslateDependencyArray @ 0x140204BFC (PopTranslateDependencyArray.c)
  */
 
 __int64 __fastcall PopProcessorQueryPlatformStateNotification(__int64 a1, ULONG_PTR a2, char a3)

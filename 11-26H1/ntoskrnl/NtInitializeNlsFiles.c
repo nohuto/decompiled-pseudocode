@@ -1,65 +1,69 @@
 /*
- * XREFs of NtInitializeNlsFiles @ 0x140AD4080
+ * XREFs of NtInitializeNlsFiles @ 0x140AD14E0
  * Callers:
- *     DifNtInitializeNlsFilesWrapper @ 0x140679FF0 (DifNtInitializeNlsFilesWrapper.c)
+ *     DifNtInitializeNlsFilesWrapper @ 0x14067DBD0 (DifNtInitializeNlsFilesWrapper.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     ZwQueryDefaultLocale @ 0x140723690 (ZwQueryDefaultLocale.c)
- *     RtlReadULong64FromUser @ 0x14077F554 (RtlReadULong64FromUser.c)
- *     RtlReadULongFromUser @ 0x14077F590 (RtlReadULongFromUser.c)
- *     RtlWriteULong64ToUser @ 0x14077F758 (RtlWriteULong64ToUser.c)
- *     RtlWriteULongToUser @ 0x14077F7A0 (RtlWriteULongToUser.c)
- *     MmMapViewOfSection @ 0x1409C1F50 (MmMapViewOfSection.c)
- *     ExpGetGlobalLocaleSection @ 0x140AD41DC (ExpGetGlobalLocaleSection.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     ZwQueryDefaultLocale @ 0x140728260 (ZwQueryDefaultLocale.c)
+ *     RtlReadULong64FromUser @ 0x140782054 (RtlReadULong64FromUser.c)
+ *     RtlReadULongFromUser @ 0x140782090 (RtlReadULongFromUser.c)
+ *     RtlWriteULong64ToUser @ 0x140782258 (RtlWriteULong64ToUser.c)
+ *     RtlWriteULongToUser @ 0x1407822A0 (RtlWriteULongToUser.c)
+ *     MmMapViewOfSection @ 0x140992F30 (MmMapViewOfSection.c)
+ *     ExpGetGlobalLocaleSection @ 0x140AD163C (ExpGetGlobalLocaleSection.c)
  */
 
-__int64 __fastcall NtInitializeNlsFiles(_QWORD *a1, unsigned int *a2)
+NTSTATUS __cdecl NtInitializeNlsFiles(
+        PVOID *BaseAddress,
+        PLCID DefaultLocaleId,
+        PLARGE_INTEGER DefaultCasingTableSize,
+        PULONG CurrentNLSVersion)
 {
   __int64 ULong64FromUser; // rax
   int ULongFromUser; // eax
-  __int64 result; // rax
-  int v7; // ebx
+  NTSTATUS result; // eax
+  NTSTATUS v9; // ebx
   PVOID Object; // [rsp+58h] [rbp-30h] BYREF
-  __int64 v9; // [rsp+60h] [rbp-28h] BYREF
-  __int64 v10; // [rsp+68h] [rbp-20h] BYREF
-  __int64 v11; // [rsp+70h] [rbp-18h] BYREF
-  int v12; // [rsp+A8h] [rbp+20h] BYREF
+  __int64 v11; // [rsp+60h] [rbp-28h] BYREF
+  __int64 v12; // [rsp+68h] [rbp-20h] BYREF
+  __int64 v13; // [rsp+70h] [rbp-18h] BYREF
+  DWORD DefaultLocaleIda; // [rsp+A8h] [rbp+20h] BYREF
 
-  v12 = 0;
+  DefaultLocaleIda = 0;
   Object = 0LL;
   if ( !KeGetCurrentThread()->PreviousMode )
-    return 3221225659LL;
-  ULong64FromUser = RtlReadULong64FromUser(a1);
-  RtlWriteULong64ToUser(a1, ULong64FromUser);
-  ULongFromUser = RtlReadULongFromUser(a2);
-  RtlWriteULongToUser(a2, ULongFromUser);
-  result = ZwQueryDefaultLocale(0LL, (__int64)&v12);
-  if ( (int)result >= 0 )
+    return -1073741637;
+  ULong64FromUser = RtlReadULong64FromUser(BaseAddress);
+  RtlWriteULong64ToUser(BaseAddress, ULong64FromUser);
+  ULongFromUser = RtlReadULongFromUser(DefaultLocaleId);
+  RtlWriteULongToUser(DefaultLocaleId, ULongFromUser);
+  result = ZwQueryDefaultLocale(0, &DefaultLocaleIda);
+  if ( result >= 0 )
   {
     result = ExpGetGlobalLocaleSection(&Object);
-    if ( (int)result >= 0 )
+    if ( result >= 0 )
     {
-      v10 = 0LL;
-      v9 = 0LL;
+      v12 = 0LL;
       v11 = 0LL;
-      v7 = MmMapViewOfSection(
+      v13 = 0LL;
+      v9 = MmMapViewOfSection(
              (__int64)Object,
              (__int64)KeGetCurrentThread()->ApcState.Process,
-             &v10,
+             &v12,
              0LL,
              0LL,
-             (__int64)&v9,
-             &v11,
+             (__int64)&v11,
+             &v13,
              1,
              0x400000,
              2);
       ObfDereferenceObject(Object);
-      if ( v7 >= 0 )
+      if ( v9 >= 0 )
       {
-        RtlWriteULong64ToUser(a1, v10);
-        RtlWriteULongToUser(a2, v12);
+        RtlWriteULong64ToUser(BaseAddress, v12);
+        RtlWriteULongToUser(DefaultLocaleId, DefaultLocaleIda);
       }
-      return (unsigned int)v7;
+      return v9;
     }
   }
   return result;

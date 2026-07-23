@@ -1,16 +1,16 @@
 /*
- * XREFs of MiInvalidateCollidedIos @ 0x1403300F0
+ * XREFs of MiInvalidateCollidedIos @ 0x140330380
  * Callers:
- *     MiFinishHardFault @ 0x1402D9300 (MiFinishHardFault.c)
- *     MiDeleteTransitionPte @ 0x1402DCE80 (MiDeleteTransitionPte.c)
- *     MiPurgeImageSection @ 0x14036A438 (MiPurgeImageSection.c)
+ *     MiFinishHardFault @ 0x1402D9590 (MiFinishHardFault.c)
+ *     MiDeleteTransitionPte @ 0x1402DD110 (MiDeleteTransitionPte.c)
+ *     MiPurgeImageSection @ 0x14036A5D8 (MiPurgeImageSection.c)
  * Callees:
- *     MI_READ_PTE_LOCK_FREE @ 0x1402712F0 (MI_READ_PTE_LOCK_FREE.c)
- *     MiPteInShadowRange @ 0x140271360 (MiPteInShadowRange.c)
- *     MiReleaseInPageRefs @ 0x14033034C (MiReleaseInPageRefs.c)
- *     MiUpdateTransitionPteFrame @ 0x140330BBC (MiUpdateTransitionPteFrame.c)
- *     MiWritePteShadow @ 0x14035734C (MiWritePteShadow.c)
- *     MiPteHasShadow @ 0x1403573AC (MiPteHasShadow.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140271580 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x1402715F0 (MiPteInShadowRange.c)
+ *     MiReleaseInPageRefs @ 0x1403305DC (MiReleaseInPageRefs.c)
+ *     MiUpdateTransitionPteFrame @ 0x140330E4C (MiUpdateTransitionPteFrame.c)
+ *     MiWritePteShadow @ 0x1403574EC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x14035754C (MiPteHasShadow.c)
  */
 
 __int64 __fastcall MiInvalidateCollidedIos(__int64 a1)

@@ -27,7 +27,7 @@ __int64 __fastcall RtlpFcReferenceFeatureConfigurationBuffers(__int64 a1, char a
     goto LABEL_2;
   RtlpFcBufferManagerDereferenceBuffers(qword_180178B68, v11);
   v11 = 0LL;
-  result = RtlpFcUpdateLocalConfiguration((unsigned __int64)&RtlpFcProcessManager, v7, a2);
+  result = RtlpFcUpdateLocalConfiguration(&RtlpFcProcessManager, v7, a2);
   if ( (int)result >= 0 )
   {
     RtlpFcBufferManagerReferenceBuffers(qword_180178B68, v10, &v11);

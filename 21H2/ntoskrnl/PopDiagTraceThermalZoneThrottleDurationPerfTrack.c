@@ -1,13 +1,13 @@
 /*
- * XREFs of PopDiagTraceThermalZoneThrottleDurationPerfTrack @ 0x140573234
+ * XREFs of PopDiagTraceThermalZoneThrottleDurationPerfTrack @ 0x140573474
  * Callers:
- *     PopThermalWorker @ 0x1407C0270 (PopThermalWorker.c)
+ *     PopThermalWorker @ 0x1407C0790 (PopThermalWorker.c)
  * Callees:
- *     EtwEventEnabled @ 0x14021BF30 (EtwEventEnabled.c)
- *     EtwWrite @ 0x14025DC90 (EtwWrite.c)
- *     IoGetDeviceAttachmentBaseRefWithTag @ 0x14028350C (IoGetDeviceAttachmentBaseRefWithTag.c)
- *     ObfDereferenceObjectWithTag @ 0x14034B140 (ObfDereferenceObjectWithTag.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
+ *     IoGetDeviceAttachmentBaseRefWithTag @ 0x14027171C (IoGetDeviceAttachmentBaseRefWithTag.c)
+ *     EtwWrite @ 0x14027F7C0 (EtwWrite.c)
+ *     EtwEventEnabled @ 0x1402C0830 (EtwEventEnabled.c)
+ *     ObfDereferenceObjectWithTag @ 0x140355E90 (ObfDereferenceObjectWithTag.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
  */
 
 void __fastcall PopDiagTraceThermalZoneThrottleDurationPerfTrack(int a1, __int64 a2)

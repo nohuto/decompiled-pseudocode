@@ -4,11 +4,11 @@
  *     KiCompleteKernelInit @ 0x140A8CAE0 (KiCompleteKernelInit.c)
  *     KiAllocateCpuSetData @ 0x140B45C40 (KiAllocateCpuSetData.c)
  * Callees:
- *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
- *     KxAcquireSpinLock @ 0x1402515B0 (KxAcquireSpinLock.c)
- *     RtlWriteReleaseTickLock @ 0x140381520 (RtlWriteReleaseTickLock.c)
- *     RtlWriteAcquireTickLock @ 0x1403C16E0 (RtlWriteAcquireTickLock.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     KxReleaseSpinLock @ 0x1402505D0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x140251670 (KxAcquireSpinLock.c)
+ *     RtlWriteReleaseTickLock @ 0x1403816C0 (RtlWriteReleaseTickLock.c)
+ *     RtlWriteAcquireTickLock @ 0x1403C18C0 (RtlWriteAcquireTickLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 _UNKNOWN **__fastcall KiCreateCpuSetForProcessor(__int64 a1)
@@ -35,7 +35,7 @@ _UNKNOWN **__fastcall KiCreateCpuSetForProcessor(__int64 a1)
   {
     CurrentIrql = KeGetCurrentIrql();
     __writecr8(2uLL);
-    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+    if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
     {
       SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
       LODWORD(v11) = 4;
@@ -62,10 +62,10 @@ _UNKNOWN **__fastcall KiCreateCpuSetForProcessor(__int64 a1)
     v9[v6] |= 1LL << v5;
     RtlWriteReleaseTickLock(&KiCpuSetSequence);
     KxReleaseSpinLock((volatile signed __int64 *)&KiCpuSetLock);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v12 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && v12 <= 0xFu && CurrentIrql <= 0xFu && v12 >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && v12 <= 0xFu && CurrentIrql <= 0xFu && v12 >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         v14 = CurrentPrcb->SchedulerAssist;

@@ -1,9 +1,9 @@
 /*
- * XREFs of HvMarkHiveWithNoSectionExtend @ 0x1406FC1D0
+ * XREFs of HvMarkHiveWithNoSectionExtend @ 0x1406F9E10
  * Callers:
- *     CmpRecheckHiveVolumePolicy @ 0x1404648A0 (CmpRecheckHiveVolumePolicy.c)
+ *     CmpRecheckHiveVolumePolicy @ 0x14045AFD0 (CmpRecheckHiveVolumePolicy.c)
  * Callees:
- *     HvpViewMapAdjustFlag @ 0x140984734 (HvpViewMapAdjustFlag.c)
+ *     HvpViewMapAdjustFlag @ 0x14096CF44 (HvpViewMapAdjustFlag.c)
  */
 
 __int64 __fastcall HvMarkHiveWithNoSectionExtend(__int64 a1, __int64 a2, __int64 a3)

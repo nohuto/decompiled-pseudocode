@@ -1,15 +1,15 @@
 /*
- * XREFs of IoStartPacket @ 0x140393700
+ * XREFs of IoStartPacket @ 0x14038D030
  * Callers:
  *     <none>
  * Callees:
- *     KeAcquireQueuedSpinLock @ 0x1402D6AF0 (KeAcquireQueuedSpinLock.c)
- *     KeReleaseQueuedSpinLock @ 0x140322C90 (KeReleaseQueuedSpinLock.c)
- *     KeInsertDeviceQueue @ 0x14038E850 (KeInsertDeviceQueue.c)
- *     KeInsertByKeyDeviceQueue @ 0x140393850 (KeInsertByKeyDeviceQueue.c)
- *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
- *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     KeReleaseQueuedSpinLock @ 0x1402CB820 (KeReleaseQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x140357D70 (KeAcquireQueuedSpinLock.c)
+ *     KeInsertDeviceQueue @ 0x140388190 (KeInsertDeviceQueue.c)
+ *     KeInsertByKeyDeviceQueue @ 0x14038D180 (KeInsertByKeyDeviceQueue.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F2848 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F28AC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
 void __stdcall IoStartPacket(PDEVICE_OBJECT DeviceObject, PIRP Irp, PULONG Key, PDRIVER_CANCEL CancelFunction)
@@ -21,8 +21,6 @@ void __stdcall IoStartPacket(PDEVICE_OBJECT DeviceObject, PIRP Irp, PULONG Key, 
   struct _KDEVICE_QUEUE *p_DeviceQueue; // rcx
   BOOLEAN inserted; // al
   __int64 v13; // rdx
-  __int64 v14; // r8
-  __int64 v15; // r9
 
   v7 = DeviceObject;
   v8 = 0;
@@ -62,7 +60,7 @@ void __stdcall IoStartPacket(PDEVICE_OBJECT DeviceObject, PIRP Irp, PULONG Key, 
       Irp->CancelRoutine = 0LL;
       Irp->CancelIrql = v8;
 LABEL_12:
-      guard_dispatch_icall_no_overrides(v7, Irp, v14, v15);
+      guard_dispatch_icall_no_overrides(v7, Irp);
       goto LABEL_13;
     }
     KeReleaseQueuedSpinLock(7uLL, v8);

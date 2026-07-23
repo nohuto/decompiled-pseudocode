@@ -1,17 +1,17 @@
 /*
- * XREFs of DifZwSubmitIoRingWrapper @ 0x1406BD1A0
+ * XREFs of DifZwSubmitIoRingWrapper @ 0x1406C0D80
  * Callers:
  *     <none>
  * Callees:
- *     DifGetReturnAddressForWrappers @ 0x140260EA4 (DifGetReturnAddressForWrappers.c)
- *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
- *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
- *     DifGetAPIThunkContextById @ 0x1404C17A4 (DifGetAPIThunkContextById.c)
- *     ZwSubmitIoRing @ 0x140726D90 (ZwSubmitIoRing.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     DifGetReturnAddressForWrappers @ 0x14026040C (DifGetReturnAddressForWrappers.c)
+ *     ExReleaseRundownProtection_0 @ 0x1402657B0 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402D2610 (ExAcquireRundownProtection_0.c)
+ *     DifGetAPIThunkContextById @ 0x1404BAFF4 (DifGetAPIThunkContextById.c)
+ *     ZwSubmitIoRing @ 0x14072B960 (ZwSubmitIoRing.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
-__int64 __fastcall DifZwSubmitIoRingWrapper(__int64 a1, unsigned int a2, unsigned int a3, __int64 a4)
+__int64 __fastcall DifZwSubmitIoRingWrapper(void *a1, ULONG a2, ULONG a3, LARGE_INTEGER *a4)
 {
   __int128 *APIThunkContextById; // rax
   __int64 v8; // rdx
@@ -59,7 +59,7 @@ __int64 __fastcall DifZwSubmitIoRingWrapper(__int64 a1, unsigned int a2, unsigne
         ExReleaseRundownProtection_0(&DifRebootlessRundown);
     }
   }
-  LODWORD(v19) = ZwSubmitIoRing(a1, a2, a3, a4, v17, *((_QWORD *)&v17 + 1), v18, *((_QWORD *)&v18 + 1), v19);
+  LODWORD(v19) = ZwSubmitIoRing(a1, a2, a3, a4);
   if ( v9 )
   {
     if ( (v14 = 0, !VfDifRunningWithoutReboot) && (VfOptionFlags & 0x800) == 0

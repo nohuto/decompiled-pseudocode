@@ -1,16 +1,16 @@
 /*
- * XREFs of DrvDbSetDeviceIdDriverInfMatches @ 0x140A6C9F8
+ * XREFs of DrvDbSetDeviceIdDriverInfMatches @ 0x140A6CCA8
  * Callers:
- *     DrvDbSetDeviceIdMappedProperty @ 0x140A6CD8C (DrvDbSetDeviceIdMappedProperty.c)
+ *     DrvDbSetDeviceIdMappedProperty @ 0x140A6D03C (DrvDbSetDeviceIdMappedProperty.c)
  * Callees:
- *     RtlInitUnicodeStringEx @ 0x14022B6C0 (RtlInitUnicodeStringEx.c)
- *     wcschr @ 0x1403DB910 (wcschr.c)
- *     wcsncmp @ 0x1403DBA50 (wcsncmp.c)
- *     ZwDeleteValueKey @ 0x14041C900 (ZwDeleteValueKey.c)
- *     _RegRtlSetValue @ 0x1407D49D4 (_RegRtlSetValue.c)
- *     _PnpCtxRegEnumValue @ 0x1408779A4 (_PnpCtxRegEnumValue.c)
- *     _PnpCtxRegQueryInfoKey @ 0x140877B0C (_PnpCtxRegQueryInfoKey.c)
- *     DrvDbSplitDeviceIdDriverInfMatch @ 0x14087D7E4 (DrvDbSplitDeviceIdDriverInfMatch.c)
+ *     RtlInitUnicodeStringEx @ 0x14022B7D0 (RtlInitUnicodeStringEx.c)
+ *     wcschr @ 0x1403DBAF0 (wcschr.c)
+ *     wcsncmp @ 0x1403DBC30 (wcsncmp.c)
+ *     ZwDeleteValueKey @ 0x14041CC90 (ZwDeleteValueKey.c)
+ *     _RegRtlSetValue @ 0x1407D4CA4 (_RegRtlSetValue.c)
+ *     _PnpCtxRegEnumValue @ 0x140877BE4 (_PnpCtxRegEnumValue.c)
+ *     _PnpCtxRegQueryInfoKey @ 0x140877D4C (_PnpCtxRegQueryInfoKey.c)
+ *     DrvDbSplitDeviceIdDriverInfMatch @ 0x14087DA24 (DrvDbSplitDeviceIdDriverInfMatch.c)
  *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
  *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
  */

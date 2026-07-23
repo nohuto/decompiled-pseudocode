@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwTraceIoTimerEvent @ 0x1405FCE90
+ * XREFs of EtwTraceIoTimerEvent @ 0x1405FD400
  * Callers:
- *     IopDisableTimer @ 0x140555034 (IopDisableTimer.c)
- *     IopEnableTimer @ 0x1405553D8 (IopEnableTimer.c)
+ *     IopDisableTimer @ 0x1405556F4 (IopDisableTimer.c)
+ *     IopEnableTimer @ 0x140555A98 (IopEnableTimer.c)
  * Callees:
  *     EtwTraceKernelEvent @ 0x140211EDC (EtwTraceKernelEvent.c)
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
  */
 
 __int64 __fastcall EtwTraceIoTimerEvent(__int16 a1, __int64 a2, __int64 a3)

@@ -11,85 +11,101 @@
  *     NtCreateSection @ 0x1800A0A00 (NtCreateSection.c)
  */
 
-HANDLE *__fastcall RtlCreateQueryDebugBuffer(unsigned int a1)
+PRTL_DEBUG_INFORMATION __cdecl RtlCreateQueryDebugBuffer(ULONG MaximumCommit, BOOLEAN UseEventPair)
 {
-  __int64 v1; // rbx
-  unsigned __int64 v2; // rbx
-  __int64 v3; // r8
-  HANDLE *v4; // rax
+  __int64 v2; // rbx
+  unsigned __int64 v3; // rbx
+  _OWORD *v4; // rax
   _OWORD *v5; // rcx
   __int128 v6; // xmm0
-  __int64 v8; // [rsp+30h] [rbp-50h]
-  HANDLE Handle; // [rsp+50h] [rbp-30h] BYREF
-  __int64 v10; // [rsp+58h] [rbp-28h] BYREF
-  __int64 v11; // [rsp+60h] [rbp-20h] BYREF
-  HANDLE *v12; // [rsp+68h] [rbp-18h] BYREF
-  __int64 v13; // [rsp+70h] [rbp-10h] BYREF
-  __int64 v14; // [rsp+78h] [rbp-8h] BYREF
-  HANDLE *v15; // [rsp+B0h] [rbp+30h] BYREF
-  char *v16; // [rsp+B8h] [rbp+38h] BYREF
+  PSIZE_T ViewSize; // [rsp+30h] [rbp-50h]
+  HANDLE SectionHandle; // [rsp+50h] [rbp-30h] BYREF
+  ULONG_PTR RegionSize; // [rsp+58h] [rbp-28h] BYREF
+  ULONG_PTR v11; // [rsp+60h] [rbp-20h] BYREF
+  PVOID BaseAddress; // [rsp+68h] [rbp-18h] BYREF
+  LARGE_INTEGER MaximumSize; // [rsp+70h] [rbp-10h] BYREF
+  ULONG_PTR v14; // [rsp+78h] [rbp-8h] BYREF
+  PVOID v15; // [rsp+B0h] [rbp+30h] BYREF
+  PVOID v16; // [rsp+B8h] [rbp+38h] BYREF
 
-  Handle = 0LL;
-  v1 = 0x400000LL;
+  SectionHandle = 0LL;
+  v2 = 0x400000LL;
   v16 = 0LL;
   v15 = 0LL;
-  v12 = 0LL;
-  if ( a1 )
-    v1 = a1;
-  v2 = (v1 + 4095) & 0xFFFFFFFFFFFFF000uLL;
-  if ( v2 <= 0xFFFFFFFF && is_mul_ok(v2, 2uLL) )
+  BaseAddress = 0LL;
+  if ( MaximumCommit )
+    v2 = MaximumCommit;
+  v3 = (v2 + 4095) & 0xFFFFFFFFFFFFF000uLL;
+  if ( v3 <= 0xFFFFFFFF && is_mul_ok(v3, 2uLL) )
   {
-    v14 = 2 * v2;
-    v13 = 2 * v2;
-    if ( (int)NtCreateSection(&Handle, 983071LL, 0LL, &v13, 4, 0x4000000, ((v2 * (unsigned __int128)2uLL) >> 64) & v8) >= 0
-      && (int)ZwMapViewOfSection(Handle, -1LL, &v12, 0LL, 0LL, 0LL, &v14, 2, 0, 4) >= 0 )
+    v14 = 2 * v3;
+    MaximumSize.QuadPart = 2 * v3;
+    if ( NtCreateSection(
+           &SectionHandle,
+           0xF001Fu,
+           0LL,
+           &MaximumSize,
+           4u,
+           0x4000000u,
+           (HANDLE)(((v3 * (unsigned __int128)2uLL) >> 64) & (unsigned __int64)ViewSize)) >= 0
+      && ZwMapViewOfSection(
+           SectionHandle,
+           (HANDLE)0xFFFFFFFFFFFFFFFFLL,
+           &BaseAddress,
+           0LL,
+           0LL,
+           0LL,
+           &v14,
+           ViewUnmap,
+           0,
+           4u) >= 0 )
     {
-      v15 = v12;
-      v10 = 208LL;
-      if ( (int)ZwAllocateVirtualMemory(-1LL, &v15, 0LL, &v10, 4096, 4) >= 0 )
+      v15 = BaseAddress;
+      RegionSize = 208LL;
+      if ( ZwAllocateVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &v15, 0LL, &RegionSize, 0x1000u, 4u) >= 0 )
       {
-        v16 = (char *)v15 + v2;
+        v16 = (char *)v15 + v3;
         v11 = 208LL;
-        if ( (int)ZwAllocateVirtualMemory(-1LL, &v16, 0LL, &v11, 4096, 4) >= 0 )
+        if ( ZwAllocateVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &v16, 0LL, &v11, 0x1000u, 4u) >= 0 )
         {
-          *v15 = Handle;
-          v15[1] = v15;
-          v15[9] = (HANDLE)208;
-          v15[10] = (HANDLE)v10;
-          v15[11] = (HANDLE)v2;
+          *(_QWORD *)v15 = SectionHandle;
+          *((_QWORD *)v15 + 1) = v15;
+          *((_QWORD *)v15 + 9) = 208LL;
+          *((_QWORD *)v15 + 10) = RegionSize;
+          *((_QWORD *)v15 + 11) = v3;
           v4 = v15;
           v5 = v16;
           *(_OWORD *)v16 = *(_OWORD *)v15;
-          v5[1] = *((_OWORD *)v4 + 1);
-          v5[2] = *((_OWORD *)v4 + 2);
-          v5[3] = *((_OWORD *)v4 + 3);
-          v5[4] = *((_OWORD *)v4 + 4);
-          v5[5] = *((_OWORD *)v4 + 5);
-          v5[6] = *((_OWORD *)v4 + 6);
+          v5[1] = v4[1];
+          v5[2] = v4[2];
+          v5[3] = v4[3];
+          v5[4] = v4[4];
+          v5[5] = v4[5];
+          v5[6] = v4[6];
           v5 += 8;
-          v6 = *((_OWORD *)v4 + 7);
-          v4 += 16;
+          v6 = v4[7];
+          v4 += 8;
           *(v5 - 1) = v6;
-          *v5 = *(_OWORD *)v4;
-          v5[1] = *((_OWORD *)v4 + 1);
-          v5[2] = *((_OWORD *)v4 + 2);
-          v5[3] = *((_OWORD *)v4 + 3);
-          v5[4] = *((_OWORD *)v4 + 4);
+          *v5 = *v4;
+          v5[1] = v4[1];
+          v5[2] = v4[2];
+          v5[3] = v4[3];
+          v5[4] = v4[4];
           *((_QWORD *)v16 + 1) = v16;
           *((_QWORD *)v16 + 10) = v11;
           *(_QWORD *)v16 = 0LL;
-          return v15;
+          return (PRTL_DEBUG_INFORMATION)v15;
         }
       }
     }
     if ( v15 )
-      ZwFreeVirtualMemory(-1LL, &v15, &v10, 0x8000LL);
+      ZwFreeVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &v15, &RegionSize, 0x8000u);
     if ( v16 )
-      ZwFreeVirtualMemory(-1LL, &v16, &v11, 0x8000LL);
-    if ( v12 )
-      NtUnmapViewOfSection(-1LL, v12, v3);
-    if ( Handle )
-      NtClose(Handle);
+      ZwFreeVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &v16, &v11, 0x8000u);
+    if ( BaseAddress )
+      NtUnmapViewOfSection((HANDLE)0xFFFFFFFFFFFFFFFFLL, BaseAddress);
+    if ( SectionHandle )
+      NtClose(SectionHandle);
   }
   return 0LL;
 }

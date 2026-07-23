@@ -4,8 +4,8 @@
  *     RtlpCreateHeapEncoding @ 0x180009FC4 (RtlpCreateHeapEncoding.c)
  *     RtlpInitializeLfhRandomDataArray @ 0x18000A020 (RtlpInitializeLfhRandomDataArray.c)
  *     RtlCreateHeap @ 0x18000A8B0 (RtlCreateHeap.c)
- *     RtlInitializeHeapManager @ 0x1800F2694 (RtlInitializeHeapManager.c)
- *     RtlpInitializeLowFragHeapManager @ 0x18010BA14 (RtlpInitializeLowFragHeapManager.c)
+ *     RtlInitializeHeapManager @ 0x1800F2654 (RtlInitializeHeapManager.c)
+ *     RtlpInitializeLowFragHeapManager @ 0x18010B9D4 (RtlpInitializeLowFragHeapManager.c)
  * Callees:
  *     RtlpHeapGenerateRandomValue32 @ 0x18000A448 (RtlpHeapGenerateRandomValue32.c)
  */

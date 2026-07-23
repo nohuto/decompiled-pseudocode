@@ -1,11 +1,11 @@
 /*
- * XREFs of wcstombs @ 0x1405386B0
+ * XREFs of wcstombs @ 0x14053AB30
  * Callers:
- *     WheaRegChangeNotifyCallback @ 0x140849930 (WheaRegChangeNotifyCallback.c)
+ *     WheaRegChangeNotifyCallback @ 0x14084FC40 (WheaRegChangeNotifyCallback.c)
  * Callees:
- *     wcslen @ 0x1405380A0 (wcslen.c)
- *     RtlUnicodeToMultiByteSize @ 0x14096C100 (RtlUnicodeToMultiByteSize.c)
- *     RtlUnicodeToMultiByteN @ 0x14096C900 (RtlUnicodeToMultiByteN.c)
+ *     wcslen @ 0x14053A520 (wcslen.c)
+ *     RtlUnicodeToMultiByteSize @ 0x14097CA40 (RtlUnicodeToMultiByteSize.c)
+ *     RtlUnicodeToMultiByteN @ 0x14097D240 (RtlUnicodeToMultiByteN.c)
  */
 
 size_t __cdecl wcstombs(char *Dest, const wchar_t *Source, size_t MaxCount)

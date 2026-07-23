@@ -1,26 +1,26 @@
 /*
- * XREFs of MiWsleFree @ 0x140319990
+ * XREFs of MiWsleFree @ 0x14031B9C0
  * Callers:
- *     MiFreeWsleList @ 0x140328E50 (MiFreeWsleList.c)
+ *     MiFreeWsleList @ 0x14032AE80 (MiFreeWsleList.c)
  * Callees:
- *     KeYieldProcessorEx @ 0x140278CA0 (KeYieldProcessorEx.c)
- *     HvlNotifyLongSpinWait @ 0x1402BBF00 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402BC760 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     MiGetContainingPageTable @ 0x1402D9BF0 (MiGetContainingPageTable.c)
- *     MiReleasePageFileInfo @ 0x1402DAD50 (MiReleasePageFileInfo.c)
- *     MiBadShareCount @ 0x1402DC710 (MiBadShareCount.c)
- *     MiPfnShareCountIsZero @ 0x1402DC770 (MiPfnShareCountIsZero.c)
- *     MiInsertPageInFreeOrZeroedList @ 0x1402DCDD0 (MiInsertPageInFreeOrZeroedList.c)
- *     MiIsDecayPfn @ 0x1402F9850 (MiIsDecayPfn.c)
- *     MiGetPagePrivilege @ 0x1402F9878 (MiGetPagePrivilege.c)
- *     MiGetPfnSlabType @ 0x1402FDC40 (MiGetPfnSlabType.c)
- *     MiReadPteShadow @ 0x140314FF0 (MiReadPteShadow.c)
- *     MiConfirmPageIsZero @ 0x14031A160 (MiConfirmPageIsZero.c)
- *     MiClearPfnReuseFields @ 0x14031A250 (MiClearPfnReuseFields.c)
- *     MiCaptureDirtyBitToPfn @ 0x14031AE30 (MiCaptureDirtyBitToPfn.c)
- *     MiRewriteTrimPteAsDemandZero @ 0x14031B000 (MiRewriteTrimPteAsDemandZero.c)
- *     MiDiscardPtePrototype @ 0x1405248A4 (MiDiscardPtePrototype.c)
- *     MiDiscardPteTransitionPage @ 0x1405287F0 (MiDiscardPteTransitionPage.c)
+ *     KeYieldProcessorEx @ 0x140278210 (KeYieldProcessorEx.c)
+ *     MiGetContainingPageTable @ 0x1402BB9B0 (MiGetContainingPageTable.c)
+ *     MiReleasePageFileInfo @ 0x1402BCB10 (MiReleasePageFileInfo.c)
+ *     MiBadShareCount @ 0x1402BE4D0 (MiBadShareCount.c)
+ *     MiPfnShareCountIsZero @ 0x1402BE530 (MiPfnShareCountIsZero.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x1402BEB90 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiIsDecayPfn @ 0x1402DB8D0 (MiIsDecayPfn.c)
+ *     MiGetPagePrivilege @ 0x1402DB8F8 (MiGetPagePrivilege.c)
+ *     MiGetPfnSlabType @ 0x1402DFCC0 (MiGetPfnSlabType.c)
+ *     HvlNotifyLongSpinWait @ 0x140306BC0 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140307420 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     MiReadPteShadow @ 0x140317020 (MiReadPteShadow.c)
+ *     MiConfirmPageIsZero @ 0x14031C190 (MiConfirmPageIsZero.c)
+ *     MiClearPfnReuseFields @ 0x14031C280 (MiClearPfnReuseFields.c)
+ *     MiCaptureDirtyBitToPfn @ 0x14031CE60 (MiCaptureDirtyBitToPfn.c)
+ *     MiRewriteTrimPteAsDemandZero @ 0x14031D030 (MiRewriteTrimPteAsDemandZero.c)
+ *     MiDiscardPtePrototype @ 0x140526F14 (MiDiscardPtePrototype.c)
+ *     MiDiscardPteTransitionPage @ 0x14052AE60 (MiDiscardPteTransitionPage.c)
  */
 
 ULONG_PTR __fastcall MiWsleFree(__int64 a1, unsigned __int64 a2, int a3, unsigned __int64 a4)
@@ -140,7 +140,7 @@ LABEL_34:
       v15 = *(_QWORD *)&CLFS_LSN_NULL_EXT;
     }
     if ( v15 )
-      v33 = *(struct _KEVENT **)(stru_140E2EB88.ThreadLock + 8 * ((*(_QWORD *)(v8 + 40) >> 43) & 0x3FFLL));
+      v33 = *(struct _KEVENT **)(stru_140E2ED08.ThreadLock + 8 * ((*(_QWORD *)(v8 + 40) >> 43) & 0x3FFLL));
     MiInsertPageInFreeOrZeroedList(v35 / 48);
     _InterlockedAnd64((volatile signed __int64 *)(v8 + 24), 0x7FFFFFFFFFFFFFFFuLL);
     v21 = 48 * ContainingPageTable - 0x220000000000LL;
@@ -164,7 +164,7 @@ LABEL_34:
   {
     v15 = MiCaptureDirtyBitToPfn(v8);
     if ( v15 )
-      v33 = *(struct _KEVENT **)(stru_140E2EB88.ThreadLock + 8 * ((*(_QWORD *)(v8 + 40) >> 43) & 0x3FFLL));
+      v33 = *(struct _KEVENT **)(stru_140E2ED08.ThreadLock + 8 * ((*(_QWORD *)(v8 + 40) >> 43) & 0x3FFLL));
   }
   if ( v11 )
     v16 = -1LL;
@@ -179,7 +179,7 @@ LABEL_34:
     if ( (v23 = *(_DWORD *)(v8 + 32), (*(_QWORD *)(v8 + 40) & 0x20000000000000LL) != 0)
       || (*(_DWORD *)(v8 + 32) & 0x8000000) != 0
       && (v8 < 0xFFFFDE0000000000uLL
-       || v8 >= 48 * qword_140E2D7A0 - 0x21FFFFFFFFD0LL
+       || v8 >= 48 * qword_140E2D920 - 0x21FFFFFFFFD0LL
        || MiIsDecayPfn(v35 / 48)
        || (v23 & 0x70000) != 0x60000 && (unsigned int)MiGetPfnSlabType(v8) == 9)
       || (v23 & 0x7000000) == 0x5000000 )
@@ -249,6 +249,6 @@ LABEL_85:
   _InterlockedAnd64((volatile signed __int64 *)(v21 + 24), 0x7FFFFFFFFFFFFFFFuLL);
 LABEL_86:
   if ( v15 )
-    MiReleasePageFileInfo(v33, v15, 1);
+    MiReleasePageFileInfo(v33, v15, 1LL);
   return (unsigned int)v9 | ((v11 | (16 * (v6 & 0xFF8))) << 9) | 0x100;
 }

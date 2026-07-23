@@ -3,7 +3,7 @@
  * Callers:
  *     RtlInitUTF8StringEx @ 0x1405E4040 (RtlInitUTF8StringEx.c)
  *     RtlCreateUnicodeStringFromAsciiz @ 0x140837640 (RtlCreateUnicodeStringFromAsciiz.c)
- *     ExpCovReadFriendlyName @ 0x140A03B84 (ExpCovReadFriendlyName.c)
+ *     sub_140A03B84 @ 0x140A03B84 (sub_140A03B84.c)
  * Callees:
  *     <none>
  */

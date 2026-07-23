@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpHpVaMgrRangeCreate @ 0x18008B22C
+ * XREFs of RtlpHpVaMgrRangeCreate @ 0x18006E664
  * Callers:
- *     RtlpHpVaMgrRegionAllocate @ 0x18008A9A4 (RtlpHpVaMgrRegionAllocate.c)
- *     RtlpHpVaMgrAlloc @ 0x18008C3AC (RtlpHpVaMgrAlloc.c)
+ *     RtlpHpVaMgrRegionAllocate @ 0x18006DDDC (RtlpHpVaMgrRegionAllocate.c)
+ *     RtlpHpVaMgrAlloc @ 0x18006F7E8 (RtlpHpVaMgrAlloc.c)
  * Callees:
- *     RtlCSparseBitmapBitsClear @ 0x18008AD64 (RtlCSparseBitmapBitsClear.c)
- *     RtlSparseArrayElementAllocate @ 0x18008B350 (RtlSparseArrayElementAllocate.c)
+ *     RtlCSparseBitmapBitsClear @ 0x18006E19C (RtlCSparseBitmapBitsClear.c)
+ *     RtlSparseArrayElementAllocate @ 0x18006E788 (RtlSparseArrayElementAllocate.c)
  */
 
 _BYTE *__fastcall RtlpHpVaMgrRangeCreate(__int64 a1, __int64 a2, __int64 a3)

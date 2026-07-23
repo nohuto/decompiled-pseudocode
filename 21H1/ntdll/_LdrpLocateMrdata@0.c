@@ -10,20 +10,22 @@
 
 unsigned int __stdcall LdrpLocateMrdata()
 {
-  char *v0; // eax
+  PIMAGE_SECTION_HEADER v0; // eax
   int v1; // edi
-  unsigned int v2; // esi
+  unsigned int PhysicalAddress; // esi
   unsigned int result; // eax
-  unsigned __int16 *v4; // [esp+8h] [ebp-4h] BYREF
+  void *v4; // [esp+0h] [ebp-Ch]
+  ULONG v5; // [esp+4h] [ebp-8h]
+  PIMAGE_NT_HEADERS OutHeaders; // [esp+8h] [ebp-4h] BYREF
 
-  RtlImageNtHeaderEx(3, 0x4B280000u, 0, 0, &v4);
-  v0 = RtlSectionTableFromVirtualAddress(v4, (unsigned int)(&LdrSystemDllInitBlock - 315228160));
+  RtlImageNtHeaderEx(3u, (PVOID)0x4B280000, 0LL, &OutHeaders);
+  v0 = RtlSectionTableFromVirtualAddress((PIMAGE_NT_HEADERS)(&LdrSystemDllInitBlock - 315228160), v4, v5);
   if ( !v0 )
     __fastfail(5u);
-  v1 = *((_DWORD *)v0 + 3) + 1260912640;
-  v2 = *((_DWORD *)v0 + 2);
-  result = LdrpMakePermanentImageCommit(v1, v2);
-  LdrpMrdataSize = v2;
+  v1 = v0->VirtualAddress + 1260912640;
+  PhysicalAddress = v0->Misc.PhysicalAddress;
+  result = LdrpMakePermanentImageCommit(v1, PhysicalAddress);
+  LdrpMrdataSize = PhysicalAddress;
   LdrpMrdataBase = v1;
   return result;
 }

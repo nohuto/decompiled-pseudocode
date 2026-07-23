@@ -8,22 +8,24 @@
  *     _RtlAllocateHeap@12 @ 0x4B2C5D40 (_RtlAllocateHeap@12.c)
  */
 
-int __fastcall RtlpFcAllocateChangeRegistration(int a1, int a2)
+PTP_WORK *__fastcall RtlpFcAllocateChangeRegistration(_TP_WORK *a1, _TP_WORK *a2)
 {
-  int v3; // edi
-  int Heap; // eax
-  int v5; // esi
+  PTP_WORK *v3; // edi
+  PTP_WORK *Heap; // eax
+  PTP_WORK *v5; // esi
+  SIZE_T v7; // [esp-4h] [ebp-14h]
 
+  LODWORD(v7) = 24;
   v3 = 0;
-  Heap = RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8, 24);
+  Heap = (PTP_WORK *)RtlAllocateHeap(NtCurrentPeb()->ProcessHeap, 8u, v7);
   v5 = Heap;
   if ( Heap )
   {
-    if ( (int)TpAllocWork(Heap + 20, RtlpFcChangeRegistrationCallback, Heap, 0) >= 0 )
+    if ( TpAllocWork(Heap + 5, RtlpFcChangeRegistrationCallback, Heap, 0) >= 0 )
     {
       v3 = v5;
-      *(_DWORD *)(v5 + 8) = a1;
-      *(_DWORD *)(v5 + 12) = a2;
+      v5[2] = a1;
+      v5[3] = a2;
       v5 = 0;
     }
     if ( v5 )

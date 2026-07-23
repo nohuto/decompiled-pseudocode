@@ -12,17 +12,17 @@ signed __int64 __fastcall sub_180088C98(signed __int64 a1, volatile signed __int
 {
   bool v3; // zf
   signed __int64 v4; // rax
-  unsigned __int64 v6; // [rsp+30h] [rbp+8h] BYREF
+  unsigned __int64 KeyValue; // [rsp+30h] [rbp+8h] BYREF
 
   do
   {
-    v6 = a1 & 0xFFFFFFFFFFFFFFFCuLL;
-    v4 = _InterlockedCompareExchange64(a2, (signed __int64)&v6 + 1, a1);
+    KeyValue = a1 & 0xFFFFFFFFFFFFFFFCuLL;
+    v4 = _InterlockedCompareExchange64(a2, (signed __int64)&KeyValue + 1, a1);
     v3 = a1 == v4;
     a1 = v4;
     if ( v3 )
     {
-      ZwWaitForKeyedEvent(0LL, &v6, 0LL, 0LL);
+      ZwWaitForKeyedEvent(0LL, &KeyValue, 0, 0LL);
       a1 = *a2;
     }
   }

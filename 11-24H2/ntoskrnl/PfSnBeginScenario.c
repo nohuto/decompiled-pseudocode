@@ -1,20 +1,20 @@
 /*
- * XREFs of PfSnBeginScenario @ 0x140960CB0
+ * XREFs of PfSnBeginScenario @ 0x140948770
  * Callers:
- *     PfSnBeginAppLaunch @ 0x140960934 (PfSnBeginAppLaunch.c)
- *     PfSnOperationProcess @ 0x140963294 (PfSnOperationProcess.c)
+ *     PfSnBeginAppLaunch @ 0x1409483F4 (PfSnBeginAppLaunch.c)
+ *     PfSnOperationProcess @ 0x14094AD54 (PfSnOperationProcess.c)
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x140245670 (ExReleaseRundownProtection_0.c)
- *     PsGetIoPriorityThread @ 0x140276920 (PsGetIoPriorityThread.c)
- *     PfSnStartTraceTimer @ 0x14048E84C (PfSnStartTraceTimer.c)
- *     PfSnLogScenarioMeasures @ 0x14049E454 (PfSnLogScenarioMeasures.c)
- *     PfSnLogScenarioDecision @ 0x140960FAC (PfSnLogScenarioDecision.c)
- *     PfSnCheckActionsNeeded @ 0x140961228 (PfSnCheckActionsNeeded.c)
- *     PfSnBeginTrace @ 0x140962AD8 (PfSnBeginTrace.c)
- *     PfSnPrefetchScenario @ 0x140962D70 (PfSnPrefetchScenario.c)
- *     PfSnGetPrefetchInstructions @ 0x140970C24 (PfSnGetPrefetchInstructions.c)
- *     PfSnLogIdentifier @ 0x140A630D0 (PfSnLogIdentifier.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     ExReleaseRundownProtection_0 @ 0x14020DE50 (ExReleaseRundownProtection_0.c)
+ *     PsGetIoPriorityThread @ 0x14022BEB0 (PsGetIoPriorityThread.c)
+ *     PfSnStartTraceTimer @ 0x140488C7C (PfSnStartTraceTimer.c)
+ *     PfSnLogScenarioMeasures @ 0x140499254 (PfSnLogScenarioMeasures.c)
+ *     PfSnLogScenarioDecision @ 0x140948A6C (PfSnLogScenarioDecision.c)
+ *     PfSnCheckActionsNeeded @ 0x140948CE8 (PfSnCheckActionsNeeded.c)
+ *     PfSnBeginTrace @ 0x14094A598 (PfSnBeginTrace.c)
+ *     PfSnPrefetchScenario @ 0x14094A830 (PfSnPrefetchScenario.c)
+ *     PfSnGetPrefetchInstructions @ 0x140959434 (PfSnGetPrefetchInstructions.c)
+ *     PfSnLogIdentifier @ 0x140A5B9D0 (PfSnLogIdentifier.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall PfSnBeginScenario(
@@ -58,7 +58,7 @@ __int64 __fastcall PfSnBeginScenario(
     goto LABEL_19;
   }
   v12 = 1;
-  if ( _InterlockedIncrement(&dword_140E67070) < (unsigned int)dword_140E66CE8 )
+  if ( _InterlockedIncrement(&dword_140E671C0) < (unsigned int)dword_140E66E38 )
   {
     v13 = PfSnCheckActionsNeeded(a2, a3, CurrentThread, (unsigned int)&v21, (__int64)&v22);
     if ( (a4 & 2) != 0 )
@@ -143,7 +143,7 @@ LABEL_7:
   started = -1073741631;
   v22 = 1;
 LABEL_14:
-  _InterlockedDecrement(&dword_140E67070);
+  _InterlockedDecrement(&dword_140E671C0);
   v14 = P;
   v15 = v25;
 LABEL_15:

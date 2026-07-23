@@ -11,11 +11,11 @@
  *     <none>
  */
 
-__int64 NtIsUILanguageComitted()
+NTSTATUS NtIsUILanguageComitted(void)
 {
-  __int64 result; // rax
+  NTSTATUS result; // eax
 
-  result = 243LL;
+  result = 243;
   __asm { syscall; Low latency system call }
   return result;
 }

@@ -2,13 +2,13 @@
  * XREFs of RtlpHpSegFree @ 0x180014AE0
  * Callers:
  *     RtlpHpSegReAlloc @ 0x180014CBC (RtlpHpSegReAlloc.c)
- *     RtlpHpSegLfhVsFree @ 0x180079560 (RtlpHpSegLfhVsFree.c)
+ *     RtlpHpSegLfhVsFree @ 0x180079570 (RtlpHpSegLfhVsFree.c)
  * Callees:
  *     RtlpHpLfhSubsegmentFreeBlock @ 0x180019B90 (RtlpHpLfhSubsegmentFreeBlock.c)
  *     RtlpHpSegPageRangeShrink @ 0x18001D914 (RtlpHpSegPageRangeShrink.c)
  *     RtlpHpVsContextFree @ 0x18001E0C0 (RtlpHpVsContextFree.c)
  *     RtlpHpLfhBucketUpdateStats @ 0x1800647F4 (RtlpHpLfhBucketUpdateStats.c)
- *     RtlpLogHeapFailure @ 0x18009F7AC (RtlpLogHeapFailure.c)
+ *     RtlpLogHeapFailure @ 0x18009F7CC (RtlpLogHeapFailure.c)
  *     RtlpLogHeapFreeEvent @ 0x180105E78 (RtlpLogHeapFreeEvent.c)
  *     RtlpHpSegGetDescriptorValidateSafe @ 0x18010D74C (RtlpHpSegGetDescriptorValidateSafe.c)
  */
@@ -27,7 +27,7 @@ __int64 __fastcall RtlpHpSegFree(__int64 a1, unsigned __int64 a2, unsigned int a
   __int64 v16; // rcx
   __int64 v17; // rcx
   __int64 v18; // r8
-  unsigned int v19; // [rsp+68h] [rbp+20h] BYREF
+  __int64 v19; // [rsp+68h] [rbp+20h] BYREF
 
   v3 = 0;
   if ( (RtlpHpAppCompatFlags & 1) != 0 )
@@ -91,12 +91,12 @@ LABEL_31:
     }
     else
     {
-      v11 = RtlpHpVsContextFree(*(_QWORD *)(a1 + 32), v10, a2, a3, (__int64)&v19);
+      v11 = RtlpHpVsContextFree(*(PRTL_SRWLOCK *)(a1 + 32), (__int64)&v19);
       if ( v11 )
       {
         v17 = *(_QWORD *)(a1 + 24);
-        if ( v19 <= (unsigned int)*(unsigned __int16 *)(v17 + 60) - 16 )
-          RtlpHpLfhBucketUpdateStats(v17, v19, 0LL);
+        if ( (unsigned int)v19 <= (unsigned int)*(unsigned __int16 *)(v17 + 60) - 16 )
+          RtlpHpLfhBucketUpdateStats(v17, (unsigned int)v19, 0LL);
       }
     }
     v12 = NtCurrentPeb()->SharedData;

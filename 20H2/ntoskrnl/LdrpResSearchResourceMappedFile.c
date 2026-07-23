@@ -20,8 +20,8 @@
  */
 
 __int64 __fastcall LdrpResSearchResourceMappedFile(
-        ULONGLONG a1,
-        __int64 a2,
+        void *a1,
+        ULONG64 a2,
         int a3,
         __int64 a4,
         int a5,
@@ -41,13 +41,13 @@ __int64 __fastcall LdrpResSearchResourceMappedFile(
   int v19; // ecx
   unsigned int i; // r14d
   char v21; // di
-  unsigned __int16 *v22; // r11
+  LANGID *v22; // r11
   int v23; // r10d
   __int64 *v24; // rax
   __int64 v25; // rdx
   __int64 v26; // r9
-  __int64 v27; // r8
-  ULONGLONG v28; // rcx
+  ULONG64 v27; // r8
+  PVOID v28; // rcx
   int v29; // eax
   _DWORD *v30; // r14
   __int64 result; // rax
@@ -55,46 +55,47 @@ __int64 __fastcall LdrpResSearchResourceMappedFile(
   int v33; // eax
   __int16 v34; // cx
   int RCConfig; // eax
-  int v36; // eax
-  unsigned __int64 v37; // r8
-  __int64 v38; // rsi
-  _WORD *v39; // r15
-  char v40; // [rsp+70h] [rbp-388h]
-  unsigned __int16 v41; // [rsp+74h] [rbp-384h] BYREF
-  int v42; // [rsp+78h] [rbp-380h]
-  bool v43; // [rsp+7Ch] [rbp-37Ch]
-  __int64 v44; // [rsp+80h] [rbp-378h] BYREF
-  ULONGLONG v45; // [rsp+88h] [rbp-370h] BYREF
-  ULONGLONG ullAugend; // [rsp+90h] [rbp-368h]
-  int v47; // [rsp+98h] [rbp-360h]
-  int v48; // [rsp+9Ch] [rbp-35Ch]
-  __int64 v49; // [rsp+A0h] [rbp-358h]
-  __int64 v50; // [rsp+A8h] [rbp-350h] BYREF
-  unsigned int **v51; // [rsp+B0h] [rbp-348h]
-  __int64 v52; // [rsp+B8h] [rbp-340h] BYREF
-  __int64 v53; // [rsp+C0h] [rbp-338h] BYREF
-  __int64 v54; // [rsp+C8h] [rbp-330h]
-  __int64 v55; // [rsp+D0h] [rbp-328h]
-  __int64 *v56; // [rsp+D8h] [rbp-320h]
-  __int64 v57; // [rsp+E0h] [rbp-318h]
-  void *v58; // [rsp+E8h] [rbp-310h]
-  _DWORD v59[132]; // [rsp+F0h] [rbp-308h] BYREF
+  NTSTATUS v36; // eax
+  ULONG64 v37; // rdx
+  unsigned __int64 v38; // r8
+  __int64 v39; // rsi
+  _WORD *v40; // r15
+  char v41; // [rsp+70h] [rbp-388h]
+  LANGID v42; // [rsp+74h] [rbp-384h] BYREF
+  int v43; // [rsp+78h] [rbp-380h]
+  bool v44; // [rsp+7Ch] [rbp-37Ch]
+  ULONG_PTR ResourceOffset; // [rsp+80h] [rbp-378h] BYREF
+  PVOID ResourceDllBase; // [rsp+88h] [rbp-370h] BYREF
+  PVOID DllHandle; // [rsp+90h] [rbp-368h]
+  int v48; // [rsp+98h] [rbp-360h]
+  int v49; // [rsp+9Ch] [rbp-35Ch]
+  ULONG64 Size; // [rsp+A0h] [rbp-358h]
+  __int64 v51; // [rsp+A8h] [rbp-350h] BYREF
+  unsigned int **v52; // [rsp+B0h] [rbp-348h]
+  __int64 v53; // [rsp+B8h] [rbp-340h] BYREF
+  __int64 v54; // [rsp+C0h] [rbp-338h] BYREF
+  __int64 v55; // [rsp+C8h] [rbp-330h]
+  __int64 v56; // [rsp+D0h] [rbp-328h]
+  __int64 *v57; // [rsp+D8h] [rbp-320h]
+  __int64 v58; // [rsp+E0h] [rbp-318h]
+  void *v59; // [rsp+E8h] [rbp-310h]
+  _DWORD v60[132]; // [rsp+F0h] [rbp-308h] BYREF
   _WORD Src[88]; // [rsp+300h] [rbp-F8h] BYREF
 
-  v49 = a2;
-  ullAugend = a1;
-  v51 = a6;
-  v56 = a7;
-  v58 = a8;
-  v57 = a9;
-  v54 = 0LL;
+  Size = a2;
+  DllHandle = a1;
+  v52 = a6;
+  v57 = a7;
+  v59 = a8;
+  v58 = a9;
   v55 = 0LL;
-  v52 = 0LL;
+  v56 = 0LL;
   v53 = 0LL;
-  memset(v59, 0, 0x208uLL);
+  v54 = 0LL;
+  memset(v60, 0, 0x208uLL);
   v11 = 0;
-  v47 = a3 & 0x40;
-  v50 = 0LL;
+  v48 = a3 & 0x40;
+  v51 = 0LL;
   v12 = 0;
   v13 = a3 & 0x80;
   v14 = a5;
@@ -102,7 +103,7 @@ __int64 __fastcall LdrpResSearchResourceMappedFile(
   {
     v12 = *(_WORD *)(a4 + 16);
     v11 = (*(_QWORD *)a4 & 0xFFFFFFFFFFFF0000uLL) != 0 && !wcsicmp(*(const wchar_t **)a4, L"MUI");
-    v43 = v11;
+    v44 = v11;
   }
   v15 = a3 & 0x80;
   if ( (a3 & 0x10) == 0 )
@@ -120,7 +121,7 @@ __int64 __fastcall LdrpResSearchResourceMappedFile(
          || (v34 & 0xF3FF) != 0
          || v34 == 3072) )
       {
-        RCConfig = LdrResGetRCConfig(ullAugend, v49, 0, a3, 1);
+        RCConfig = LdrResGetRCConfig((_DWORD)DllHandle, Size, 0, a3, 1);
         MappingSize = RCConfig;
         if ( RCConfig < 0 )
         {
@@ -131,7 +132,7 @@ __int64 __fastcall LdrpResSearchResourceMappedFile(
         }
         else
         {
-          v15 = v13 | LdrIsResItemExist(ullAugend, (_QWORD *)a4, 0LL);
+          v15 = v13 | LdrIsResItemExist(DllHandle, (_QWORD *)a4);
           v14 = a5;
         }
       }
@@ -145,8 +146,8 @@ __int64 __fastcall LdrpResSearchResourceMappedFile(
   if ( (v15 & 0x60000) == 0x60000 )
     return (unsigned int)-1073741686;
   v16 = ~v15;
-  LOWORD(v59[0]) = 1;
-  LOWORD(v59[1]) = 0;
+  LOWORD(v60[0]) = 1;
+  LOWORD(v60[1]) = 0;
   if ( ((~v15 & 0x80000) != 0 && (~(_BYTE)a3 & 0x10) != 0 && (~v15 & 0x20000) != 0 || v14 == 3)
     && ((a3 & 0x10) == 0 || (a3 & 0x20) == 0) )
   {
@@ -156,26 +157,26 @@ __int64 __fastcall LdrpResSearchResourceMappedFile(
       v33 = v15;
     v15 = v33;
     LOBYTE(v32) = a3 & 4;
-    result = LdrResFallbackLangList(v32, v16, v12, v33, (__int64)v59);
+    result = LdrResFallbackLangList(v32, v16, v12, v33, (__int64)v60);
     if ( (int)result < 0 && (a3 & 0x1000) != 0 )
       return result;
   }
   if ( (a3 & 0x10) != 0 || (~v15 & 0x40000) != 0 || (v15 & 0x80000) != 0 )
   {
-    result = LdrpResGetResourceDirectory(ullAugend, (__int64)&v52);
+    result = LdrpResGetResourceDirectory((ULONGLONG)DllHandle, Size, (__int64)&v53);
     if ( (int)result < 0 )
       return result;
   }
   MappingSize = 0;
   v18 = 0;
 LABEL_15:
-  if ( v18 >= LOWORD(v59[0]) )
+  if ( v18 >= LOWORD(v60[0]) )
     return (unsigned int)MappingSize;
-  v45 = 0LL;
-  v44 = 0LL;
-  v41 = v59[2 * v18 + 1];
-  v19 = v59[2 * v18 + 2];
-  v42 = v19;
+  ResourceDllBase = 0LL;
+  ResourceOffset = 0LL;
+  v42 = v60[2 * v18 + 1];
+  v19 = v60[2 * v18 + 2];
+  v43 = v19;
   for ( i = 0; ; ++i )
   {
     if ( i >= 2 )
@@ -188,10 +189,10 @@ LABEL_48:
       break;
     if ( v19 != 9 )
     {
-      if ( (v15 & 0xA0000) == 0 && (a3 & 0x10) == 0 && v41 && PnPBootDriversInitialized )
+      if ( (v15 & 0xA0000) == 0 && (a3 & 0x10) == 0 && v42 && PnPBootDriversInitialized )
       {
-        v40 = 1;
-        v36 = LdrLoadAlternateResourceModuleEx(ullAugend, v41, &v45, &v44, v15 | 0x1000u);
+        v41 = 1;
+        v36 = LdrLoadAlternateResourceModuleEx(DllHandle, v42, &ResourceDllBase, &ResourceOffset, v15 | 0x1000);
         MappingSize = v36;
         if ( v36 < 0 )
         {
@@ -200,11 +201,15 @@ LABEL_48:
         }
         else
         {
-          if ( !v44 )
-            MappingSize = LdrpResGetMappingSize(v45, &v44, 512LL);
+          v37 = ResourceOffset;
+          if ( !ResourceOffset )
+          {
+            MappingSize = LdrpResGetMappingSize(ResourceDllBase, &ResourceOffset, 512LL);
+            v37 = ResourceOffset;
+          }
           if ( (a3 & 0x1000) != 0 && MappingSize < 0 )
             goto LABEL_48;
-          MappingSize = LdrpResGetResourceDirectory(v45, (__int64)&v53);
+          MappingSize = LdrpResGetResourceDirectory((ULONGLONG)ResourceDllBase, v37, (__int64)&v54);
           if ( MappingSize >= 0 )
           {
             v21 = 1;
@@ -213,18 +218,18 @@ LABEL_48:
         }
       }
 LABEL_46:
-      v19 = v42;
+      v19 = v43;
       continue;
     }
     a3 |= 0x20u;
   }
   v21 = 0;
-  v40 = 0;
+  v41 = 0;
 LABEL_20:
   if ( (~(_BYTE)a3 & 2) != 0 && a5 > 2 )
-    *(_QWORD *)(a4 + 16) = v41;
-  v50 = 0LL;
-  v22 = &v41;
+    *(_QWORD *)(a4 + 16) = v42;
+  v51 = 0LL;
+  v22 = &v42;
   if ( v21 )
     v22 = 0LL;
   v23 = a3;
@@ -236,47 +241,47 @@ LABEL_20:
   {
     v23 = a3 | 4;
   }
-  v24 = &v50;
-  if ( v56 )
-    v24 = v56;
-  v25 = v52;
+  v24 = &v51;
+  if ( v57 )
+    v24 = v57;
+  v25 = v53;
   if ( v21 )
-    v25 = v53;
-  v26 = v54;
+    v25 = v54;
+  v26 = v55;
   if ( v21 )
-    v26 = v55;
-  v27 = v49;
+    v26 = v56;
+  v27 = Size;
   if ( v21 )
-    v27 = v44;
-  v28 = ullAugend;
+    v27 = ResourceOffset;
+  v28 = DllHandle;
   if ( v21 )
-    v28 = v45;
-  v29 = LdrpResSearchResourceInsideDirectory(v28, 0LL, v27, v26, v25, 0LL, a4, a5, v59, v51, v24, v23, v22);
+    v28 = ResourceDllBase;
+  v29 = LdrpResSearchResourceInsideDirectory(v28, 0LL, v27, v26, v25, 0LL, a4, a5, v60, v52, v24, v23, v22);
   MappingSize = v29;
-  if ( v47 && v29 >= 0 && v51 && v40 )
+  if ( v48 && v29 >= 0 && v52 && v41 )
   {
-    v37 = v56 ? *v56 : v50;
-    MappingSize = LdrpFindMessageInAlternateModule(v45, *v51, v37, *(_DWORD *)(a4 + 24), 1);
+    v38 = v57 ? *v57 : v51;
+    MappingSize = LdrpFindMessageInAlternateModule(ResourceDllBase, *v52, v38, *(_DWORD *)(a4 + 24), 1);
     if ( MappingSize < 0 )
     {
-      *v51 = 0LL;
+      *v52 = 0LL;
       if ( MappingSize == -1073741701 )
         return (unsigned int)MappingSize;
     }
   }
   if ( MappingSize < 0 )
     goto LABEL_46;
-  v30 = (_DWORD *)v57;
-  if ( !v57 )
+  v30 = (_DWORD *)v58;
+  if ( !v58 )
     return (unsigned int)MappingSize;
-  if ( v41 )
+  if ( v42 )
   {
-    if ( (unsigned int)DownLevelLangIDToLanguageName(v41, Src, 86LL, 2LL) )
+    if ( (unsigned int)DownLevelLangIDToLanguageName(v42, Src, 86LL, 2LL) )
     {
-      v38 = -1LL;
+      v39 = -1LL;
       do
-        ++v38;
-      while ( Src[v38] );
+        ++v39;
+      while ( Src[v39] );
       goto LABEL_103;
     }
     return (unsigned int)-1073741823;
@@ -284,19 +289,19 @@ LABEL_20:
   else
   {
     Src[0] = 0;
-    LODWORD(v38) = 0;
+    LODWORD(v39) = 0;
 LABEL_103:
-    if ( (unsigned int)v38 < *v30 && (v39 = v58) != 0LL )
+    if ( (unsigned int)v39 < *v30 && (v40 = v59) != 0LL )
     {
-      memmove(v58, Src, 2LL * (unsigned int)v38);
-      *v30 = v38 + 1;
-      v39[(unsigned int)v38] = 0;
+      memmove(v59, Src, 2LL * (unsigned int)v39);
+      *v30 = v39 + 1;
+      v40[(unsigned int)v39] = 0;
     }
     else
     {
-      *v30 = v38 + 1;
+      *v30 = v39 + 1;
       MappingSize = -1073741789;
-      v48 = -1073741789;
+      v49 = -1073741789;
     }
   }
   return (unsigned int)MappingSize;

@@ -1,14 +1,14 @@
 /*
- * XREFs of MiFillGapPtes @ 0x140141A14
+ * XREFs of MiFillGapPtes @ 0x140141F84
  * Callers:
- *     MiFillGapAddresses @ 0x1400B53E0 (MiFillGapAddresses.c)
- *     MiFillGapPtes @ 0x140141A14 (MiFillGapPtes.c)
+ *     MiFillGapAddresses @ 0x1400B3218 (MiFillGapAddresses.c)
+ *     MiFillGapPtes @ 0x140141F84 (MiFillGapPtes.c)
  * Callees:
- *     MiMakeValidKernelPte @ 0x140034D10 (MiMakeValidKernelPte.c)
- *     MiFillGapPtes @ 0x140141A14 (MiFillGapPtes.c)
- *     MiPteInShadowRange @ 0x1401EF3B8 (MiPteInShadowRange.c)
- *     MiWritePteShadow @ 0x1401EF658 (MiWritePteShadow.c)
- *     MI_READ_PTE_LOCK_FREE @ 0x1401F25D0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiMakeValidKernelPte @ 0x140034890 (MiMakeValidKernelPte.c)
+ *     MiFillGapPtes @ 0x140141F84 (MiFillGapPtes.c)
+ *     MiPteInShadowRange @ 0x1401EF1E4 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x1401EF484 (MiWritePteShadow.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1401F23FC (MI_READ_PTE_LOCK_FREE.c)
  */
 
 __int64 __fastcall MiFillGapPtes(unsigned __int64 a1, unsigned __int64 a2, __int64 a3, __int64 *a4, unsigned int a5)

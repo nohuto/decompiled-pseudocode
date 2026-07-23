@@ -1,17 +1,17 @@
 /*
- * XREFs of CcAllocateWorkQueueEntry @ 0x140387B50
+ * XREFs of CcAllocateWorkQueueEntry @ 0x140389900
  * Callers:
- *     CcScheduleReadAheadNuma @ 0x14021D0F8 (CcScheduleReadAheadNuma.c)
- *     CcQueueLazyWriteScanThreadForVolume @ 0x140387470 (CcQueueLazyWriteScanThreadForVolume.c)
- *     CcAsyncCopyRead @ 0x1403877D0 (CcAsyncCopyRead.c)
- *     CcLazyWriteScanVolume @ 0x140388CAC (CcLazyWriteScanVolume.c)
- *     CcNotifyOfMappedWrite @ 0x14038984C (CcNotifyOfMappedWrite.c)
- *     CcLazyWriteScan @ 0x1404FB788 (CcLazyWriteScan.c)
- *     CcQueueLazyWriteScanThread @ 0x1405B0D70 (CcQueueLazyWriteScanThread.c)
- *     CcWaitForCurrentLazyWriterActivityOnNode @ 0x1405B1608 (CcWaitForCurrentLazyWriterActivityOnNode.c)
+ *     CcScheduleReadAheadNuma @ 0x14021EA88 (CcScheduleReadAheadNuma.c)
+ *     CcQueueLazyWriteScanThreadForVolume @ 0x140389220 (CcQueueLazyWriteScanThreadForVolume.c)
+ *     CcAsyncCopyRead @ 0x140389580 (CcAsyncCopyRead.c)
+ *     CcLazyWriteScanVolume @ 0x14038AA5C (CcLazyWriteScanVolume.c)
+ *     CcNotifyOfMappedWrite @ 0x14038B5FC (CcNotifyOfMappedWrite.c)
+ *     CcLazyWriteScan @ 0x1404F4BD4 (CcLazyWriteScan.c)
+ *     CcQueueLazyWriteScanThread @ 0x1405B3580 (CcQueueLazyWriteScanThread.c)
+ *     CcWaitForCurrentLazyWriterActivityOnNode @ 0x1405B3E18 (CcWaitForCurrentLazyWriterActivityOnNode.c)
  * Callees:
- *     RtlpInterlockedPopEntrySList @ 0x140730C90 (RtlpInterlockedPopEntrySList.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140735860 (RtlpInterlockedPopEntrySList.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x140735DB0 (_guard_dispatch_icall_no_overrides.c)
  */
 
 __int64 __fastcall CcAllocateWorkQueueEntry(__int64 a1, __int64 a2, __int64 a3, PSLIST_ENTRY *a4)

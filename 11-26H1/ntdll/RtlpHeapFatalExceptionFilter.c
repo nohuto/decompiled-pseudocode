@@ -1,9 +1,9 @@
 /*
- * XREFs of RtlpHeapFatalExceptionFilter @ 0x180140418
+ * XREFs of RtlpHeapFatalExceptionFilter @ 0x180140318
  * Callers:
- *     RtlReAllocateHeapFull @ 0x180140350 (RtlReAllocateHeapFull.c)
+ *     RtlReAllocateHeapFull @ 0x180140250 (RtlReAllocateHeapFull.c)
  * Callees:
- *     RtlpHeapExceptionFilter @ 0x180100D78 (RtlpHeapExceptionFilter.c)
+ *     RtlpHeapExceptionFilter @ 0x1801004C8 (RtlpHeapExceptionFilter.c)
  */
 
 __int64 __fastcall RtlpHeapFatalExceptionFilter(int a1, __int64 a2)

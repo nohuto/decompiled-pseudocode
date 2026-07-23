@@ -1,11 +1,11 @@
 /*
- * XREFs of PiPnpRtlObjectEventDispatch @ 0x140501F50
+ * XREFs of PiPnpRtlObjectEventDispatch @ 0x1404E4EE0
  * Callers:
- *     PiPnpRtlEndOperation @ 0x14050147C (PiPnpRtlEndOperation.c)
- *     PiPnpRtlObjectEventWorker @ 0x14050470C (PiPnpRtlObjectEventWorker.c)
+ *     PiPnpRtlEndOperation @ 0x1404E440C (PiPnpRtlEndOperation.c)
+ *     PiPnpRtlObjectEventWorker @ 0x1404E769C (PiPnpRtlObjectEventWorker.c)
  * Callees:
- *     PiDqGetObjectManagerForPnpObjectType @ 0x1404DE384 (PiDqGetObjectManagerForPnpObjectType.c)
- *     PiDcHandleObjectEvent @ 0x1404DF8B0 (PiDcHandleObjectEvent.c)
+ *     PiDqGetObjectManagerForPnpObjectType @ 0x1404C1988 (PiDqGetObjectManagerForPnpObjectType.c)
+ *     PiDcHandleObjectEvent @ 0x1404C2EB4 (PiDcHandleObjectEvent.c)
  */
 
 void __fastcall PiPnpRtlObjectEventDispatch(__int64 a1)

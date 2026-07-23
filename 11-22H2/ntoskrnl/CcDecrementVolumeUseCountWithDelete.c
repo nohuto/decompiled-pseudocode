@@ -65,10 +65,10 @@ int __fastcall CcDecrementVolumeUseCountWithDelete(_DWORD *P, char a2, _BYTE *a3
   {
     LODWORD(v7) = KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
     OldIrql = LockHandle.OldIrql;
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       LODWORD(v7) = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
         && (unsigned __int8)v7 <= 0xFu
         && LockHandle.OldIrql <= 0xFu
         && (unsigned __int8)v7 >= 2u )

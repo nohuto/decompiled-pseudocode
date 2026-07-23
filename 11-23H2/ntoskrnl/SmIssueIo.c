@@ -1,12 +1,12 @@
 /*
- * XREFs of SmIssueIo @ 0x1405CD4E8
+ * XREFs of SmIssueIo @ 0x1405CDA58
  * Callers:
- *     ?StDeviceIoIssue@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_PF_QUEUE@@@Z @ 0x1405C4224 (-StDeviceIoIssue@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_PF_QUEUE@@@Z.c)
+ *     ?StDeviceIoIssue@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_PF_QUEUE@@@Z @ 0x1405C4794 (-StDeviceIoIssue@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_PF_QUEUE@@@Z.c)
  * Callees:
- *     ExReleaseRundownProtection_0 @ 0x14028B390 (ExReleaseRundownProtection_0.c)
- *     SmKmStoreReference @ 0x140345010 (SmKmStoreReference.c)
- *     SmKmStoreRefFromStoreIndex @ 0x140345194 (SmKmStoreRefFromStoreIndex.c)
- *     SmKmIssueIo @ 0x1405CB564 (SmKmIssueIo.c)
+ *     ExReleaseRundownProtection_0 @ 0x14028B620 (ExReleaseRundownProtection_0.c)
+ *     SmKmStoreReference @ 0x1403452A0 (SmKmStoreReference.c)
+ *     SmKmStoreRefFromStoreIndex @ 0x140345424 (SmKmStoreRefFromStoreIndex.c)
+ *     SmKmIssueIo @ 0x1405CBAD4 (SmKmIssueIo.c)
  */
 
 __int64 __fastcall SmIssueIo(unsigned __int64 a1, int a2, __int64 a3, __int64 a4, __int64 a5, unsigned __int64 a6)

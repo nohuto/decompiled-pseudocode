@@ -1,10 +1,10 @@
 /*
- * XREFs of EtwTraceCumulativeDpcSoftTimeout @ 0x1406C4854
+ * XREFs of EtwTraceCumulativeDpcSoftTimeout @ 0x1406C8494
  * Callers:
- *     KiDpcWatchdogCounterReset @ 0x14047A150 (KiDpcWatchdogCounterReset.c)
+ *     KiDpcWatchdogCounterReset @ 0x140473AC0 (KiDpcWatchdogCounterReset.c)
  * Callees:
- *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     EtwWriteEx @ 0x140213050 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
  */
 
 NTSTATUS __fastcall EtwTraceCumulativeDpcSoftTimeout(__int64 a1, __int64 a2, int a3, int a4)
@@ -24,7 +24,7 @@ NTSTATUS __fastcall EtwTraceCumulativeDpcSoftTimeout(__int64 a1, __int64 a2, int
 
   v15 = a4;
   v14 = a3;
-  if ( qword_140F03598 )
+  if ( *(_QWORD *)&stru_140F03830.SchedulerApc.Type )
   {
     v6 = *(_DWORD *)(a2 + 36);
     v5 = *(_DWORD *)(a1 + 1296);
@@ -36,7 +36,15 @@ NTSTATUS __fastcall EtwTraceCumulativeDpcSoftTimeout(__int64 a1, __int64 a2, int
     v9 = 4LL;
     v11 = 4LL;
     v13 = 4LL;
-    return EtwWriteEx(qword_140F03598, &CPU_STARVATION_EVENT_CUMULATIVE_DPC_SOFT_TIMEOUT, 0LL, 0, 0LL, 0LL, 4u, &v7);
+    return EtwWriteEx(
+             *(REGHANDLE *)&stru_140F03830.SchedulerApc.Type,
+             &CPU_STARVATION_EVENT_CUMULATIVE_DPC_SOFT_TIMEOUT,
+             0LL,
+             0,
+             0LL,
+             0LL,
+             4u,
+             &v7);
   }
   return result;
 }

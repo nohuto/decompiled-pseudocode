@@ -1,69 +1,69 @@
 /*
- * XREFs of RtlLengthSecurityDescriptor @ 0x1800DA510
+ * XREFs of RtlLengthSecurityDescriptor @ 0x1800D74D0
  * Callers:
- *     RtlNormalizeSecurityDescriptor @ 0x18013D120 (RtlNormalizeSecurityDescriptor.c)
+ *     RtlNormalizeSecurityDescriptor @ 0x18013CFD0 (RtlNormalizeSecurityDescriptor.c)
  * Callees:
  *     <none>
  */
 
-__int64 __fastcall RtlLengthSecurityDescriptor(__int64 a1)
+ULONG __cdecl RtlLengthSecurityDescriptor(PSECURITY_DESCRIPTOR SecurityDescriptor)
 {
   __int16 v1; // r10
   __int16 v3; // r9
-  __int64 result; // rax
+  ULONG result; // eax
   __int16 v5; // bx
   unsigned int *v6; // rcx
   __int64 v7; // r8
-  __int64 v8; // r8
+  char *v8; // r8
   __int64 v9; // r8
-  __int64 v10; // rcx
+  char *v10; // rcx
   unsigned int *v11; // r8
   __int64 v12; // rcx
-  __int64 v13; // rcx
+  char *v13; // rcx
   __int64 v14; // rcx
-  __int64 v15; // rcx
+  char *v15; // rcx
 
-  v1 = *(_WORD *)(a1 + 2);
+  v1 = *((_WORD *)SecurityDescriptor + 1);
   v3 = v1 & 0x8000;
-  result = 20LL;
+  result = 20;
   v5 = v1 & 0x8000;
   if ( v1 >= 0 )
-    result = 40LL;
-  v6 = (unsigned int *)(a1 + 8);
+    result = 40;
+  v6 = (unsigned int *)((char *)SecurityDescriptor + 8);
   if ( v3 )
   {
-    v7 = *(unsigned int *)(a1 + 4);
+    v7 = *((unsigned int *)SecurityDescriptor + 1);
     if ( !(_DWORD)v7 )
       goto LABEL_9;
-    v8 = a1 + v7;
+    v8 = (char *)SecurityDescriptor + v7;
   }
   else
   {
-    v8 = *(_QWORD *)v6;
+    v8 = *(char **)v6;
   }
   if ( v8 )
   {
-    result = ((4 * *(unsigned __int8 *)(v8 + 1) + 11) & 0xFFFFFFFC) + (unsigned int)result;
-    v6 = (unsigned int *)(a1 + 8);
+    result += (4 * (unsigned __int8)v8[1] + 11) & 0xFFFFFFFC;
+    v6 = (unsigned int *)((char *)SecurityDescriptor + 8);
   }
   if ( !v3 )
   {
-    v10 = *(_QWORD *)(a1 + 16);
-    v11 = (unsigned int *)(a1 + 16);
+    v10 = (char *)*((_QWORD *)SecurityDescriptor + 2);
+    v11 = (unsigned int *)((char *)SecurityDescriptor + 16);
     goto LABEL_11;
   }
 LABEL_9:
   v9 = *v6;
   if ( !(_DWORD)v9 )
   {
-    v11 = (unsigned int *)(a1 + 16);
+    v11 = (unsigned int *)((char *)SecurityDescriptor + 16);
     goto LABEL_13;
   }
-  v10 = a1 + v9;
-  v11 = (unsigned int *)(a1 + 16);
+  v10 = (char *)SecurityDescriptor + v9;
+  v11 = (unsigned int *)((char *)SecurityDescriptor + 16);
 LABEL_11:
   if ( v10 )
-    result = ((4 * *(unsigned __int8 *)(v10 + 1) + 11) & 0xFFFFFFFC) + (unsigned int)result;
+    result += (4 * (unsigned __int8)v10[1] + 11) & 0xFFFFFFFC;
 LABEL_13:
   if ( (v1 & 4) == 0 )
     goto LABEL_19;
@@ -72,29 +72,29 @@ LABEL_13:
     v12 = *v11;
     if ( !(_DWORD)v12 )
       goto LABEL_19;
-    v13 = a1 + v12;
+    v13 = (char *)SecurityDescriptor + v12;
   }
   else
   {
-    v13 = *(_QWORD *)(a1 + 32);
+    v13 = (char *)*((_QWORD *)SecurityDescriptor + 4);
   }
   if ( v13 )
-    result = ((*(unsigned __int16 *)(v13 + 2) + 3) & 0xFFFFFFFC) + (unsigned int)result;
+    result += (*((unsigned __int16 *)v13 + 1) + 3) & 0xFFFFFFFC;
 LABEL_19:
   if ( (v1 & 0x10) == 0 )
     return result;
   if ( v5 )
   {
-    v14 = *(unsigned int *)(a1 + 12);
+    v14 = *((unsigned int *)SecurityDescriptor + 3);
     if ( !(_DWORD)v14 )
       return result;
-    v15 = a1 + v14;
+    v15 = (char *)SecurityDescriptor + v14;
   }
   else
   {
-    v15 = *(_QWORD *)(a1 + 24);
+    v15 = (char *)*((_QWORD *)SecurityDescriptor + 3);
   }
   if ( v15 )
-    return ((*(unsigned __int16 *)(v15 + 2) + 3) & 0xFFFFFFFC) + (unsigned int)result;
+    result += (*((unsigned __int16 *)v15 + 1) + 3) & 0xFFFFFFFC;
   return result;
 }

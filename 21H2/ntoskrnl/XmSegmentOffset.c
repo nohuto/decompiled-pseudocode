@@ -1,13 +1,13 @@
 /*
- * XREFs of XmSegmentOffset @ 0x1403C91A0
+ * XREFs of XmSegmentOffset @ 0x1403C9340
  * Callers:
- *     XmEmulateStream @ 0x140397208 (XmEmulateStream.c)
+ *     XmEmulateStream @ 0x140397358 (XmEmulateStream.c)
  * Callees:
- *     XmSetSourceValue @ 0x140396F08 (XmSetSourceValue.c)
- *     XmSetDataType @ 0x1403973C8 (XmSetDataType.c)
- *     XmGetWordImmediate @ 0x140397440 (XmGetWordImmediate.c)
- *     XmGetLongImmediate @ 0x1403C4ED4 (XmGetLongImmediate.c)
- *     XmGetOffsetAddress @ 0x1403C920C (XmGetOffsetAddress.c)
+ *     XmSetSourceValue @ 0x140397058 (XmSetSourceValue.c)
+ *     XmSetDataType @ 0x140397518 (XmSetDataType.c)
+ *     XmGetWordImmediate @ 0x140397590 (XmGetWordImmediate.c)
+ *     XmGetLongImmediate @ 0x1403C5304 (XmGetLongImmediate.c)
+ *     XmGetOffsetAddress @ 0x1403C93AC (XmGetOffsetAddress.c)
  */
 
 __int64 __fastcall XmSegmentOffset(__int64 a1)

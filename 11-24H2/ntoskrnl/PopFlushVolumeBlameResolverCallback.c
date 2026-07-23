@@ -1,10 +1,10 @@
 /*
- * XREFs of PopFlushVolumeBlameResolverCallback @ 0x140B5F330
+ * XREFs of PopFlushVolumeBlameResolverCallback @ 0x140B613B0
  * Callers:
  *     <none>
  * Callees:
- *     IoThreadToProcess @ 0x140441CC0 (IoThreadToProcess.c)
- *     ExTryToAcquireFastMutex @ 0x140445730 (ExTryToAcquireFastMutex.c)
+ *     IoThreadToProcess @ 0x140438740 (IoThreadToProcess.c)
+ *     ExTryToAcquireFastMutex @ 0x14043D8E0 (ExTryToAcquireFastMutex.c)
  */
 
 char __fastcall PopFlushVolumeBlameResolverCallback(__int64 a1, PEPROCESS *a2, _QWORD *a3, __int64 a4)

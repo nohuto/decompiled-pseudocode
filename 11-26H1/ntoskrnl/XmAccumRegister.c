@@ -1,10 +1,10 @@
 /*
- * XREFs of XmAccumRegister @ 0x1405ABEE0
+ * XREFs of XmAccumRegister @ 0x1405AE6F0
  * Callers:
  *     <none>
  * Callees:
- *     XmSetDestinationValue @ 0x1404A8950 (XmSetDestinationValue.c)
- *     XmSetSourceValue @ 0x1404A8BDC (XmSetSourceValue.c)
+ *     XmSetDestinationValue @ 0x1404A1FE0 (XmSetDestinationValue.c)
+ *     XmSetSourceValue @ 0x1404A226C (XmSetSourceValue.c)
  */
 
 __int64 __fastcall XmAccumRegister(__int64 a1)

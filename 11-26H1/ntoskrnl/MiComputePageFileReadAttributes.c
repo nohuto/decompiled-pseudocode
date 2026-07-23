@@ -1,12 +1,12 @@
 /*
- * XREFs of MiComputePageFileReadAttributes @ 0x1403707CC
+ * XREFs of MiComputePageFileReadAttributes @ 0x14037257C
  * Callers:
- *     MiResolvePageFileFault @ 0x1403701DC (MiResolvePageFileFault.c)
+ *     MiResolvePageFileFault @ 0x140371F8C (MiResolvePageFileFault.c)
  * Callees:
- *     MiReadPteShadow @ 0x140314FF0 (MiReadPteShadow.c)
- *     MiIsPrototypePteVadLookup @ 0x14031C350 (MiIsPrototypePteVadLookup.c)
- *     MiComputeFaultNode @ 0x140370A58 (MiComputeFaultNode.c)
- *     MiComputeHardFaultCluster @ 0x140458290 (MiComputeHardFaultCluster.c)
+ *     MiReadPteShadow @ 0x140317020 (MiReadPteShadow.c)
+ *     MiIsPrototypePteVadLookup @ 0x14031E380 (MiIsPrototypePteVadLookup.c)
+ *     MiComputeFaultNode @ 0x140372808 (MiComputeFaultNode.c)
+ *     MiComputeHardFaultCluster @ 0x14044FB00 (MiComputeHardFaultCluster.c)
  */
 
 __int64 __fastcall MiComputePageFileReadAttributes(__int64 a1, unsigned __int64 *a2)
@@ -70,10 +70,10 @@ __int64 __fastcall MiComputePageFileReadAttributes(__int64 a1, unsigned __int64 
   v11 = *(_DWORD *)(a1 + 76);
   if ( v11 != 1 )
   {
-    if ( dword_140E35F58 )
+    if ( dword_140E360D8 )
     {
       v11 = 1;
-      --dword_140E35F58;
+      --dword_140E360D8;
       *(_DWORD *)(a1 + 76) = 1;
     }
     else

@@ -1,11 +1,11 @@
 /*
- * XREFs of IoSetDevicePropertyData @ 0x1409DB790
+ * XREFs of IoSetDevicePropertyData @ 0x140A189E0
  * Callers:
- *     HalpInterruptConnect @ 0x14057B950 (HalpInterruptConnect.c)
+ *     HalpInterruptConnect @ 0x14057DE80 (HalpInterruptConnect.c)
  * Callees:
- *     IoAddTriageDumpDataBlock @ 0x14044AB54 (IoAddTriageDumpDataBlock.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     PnpSetDevicePropertyData @ 0x1409DB894 (PnpSetDevicePropertyData.c)
+ *     IoAddTriageDumpDataBlock @ 0x140442C84 (IoAddTriageDumpDataBlock.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     PnpSetDevicePropertyData @ 0x140A18AE4 (PnpSetDevicePropertyData.c)
  */
 
 NTSTATUS __stdcall IoSetDevicePropertyData(
@@ -74,12 +74,5 @@ NTSTATUS __stdcall IoSetDevicePropertyData(
 LABEL_5:
     KeBugCheckEx(0xCAu, 2uLL, (ULONG_PTR)Pdo, 0LL, 0LL);
   }
-  return PnpSetDevicePropertyData(
-           (_DWORD)Pdo,
-           (_DWORD)PropertyKey,
-           Lcid,
-           Lcid,
-           Data != 0LL ? Type : 0,
-           Data != 0LL ? Size : 0,
-           (__int64)Data);
+  return PnpSetDevicePropertyData(Pdo, PropertyKey, Lcid);
 }

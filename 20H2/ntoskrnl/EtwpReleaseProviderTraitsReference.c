@@ -13,12 +13,12 @@
 
 __int64 __fastcall EtwpReleaseProviderTraitsReference(__int64 a1)
 {
-  _DWORD *v1; // rbx
+  __int64 v1; // rbx
   char v3; // si
   struct _FAST_MUTEX *v4; // rdi
-  __int64 *v6; // rcx
+  _RTL_RB_TREE *v6; // rcx
 
-  v1 = (_DWORD *)_InterlockedExchange64((volatile __int64 *)(a1 + 104), 0LL);
+  v1 = _InterlockedExchange64((volatile __int64 *)(a1 + 104), 0LL);
   if ( v1 )
   {
     v3 = *(_BYTE *)(a1 + 98) & 1;
@@ -26,12 +26,12 @@ __int64 __fastcall EtwpReleaseProviderTraitsReference(__int64 a1)
     if ( !v3 )
       v4 = &EtwpProviderTraitsUmMutex;
     ExAcquireFastMutex(v4);
-    if ( v1[6]-- == 1 )
+    if ( (*(_DWORD *)(v1 + 24))-- == 1 )
     {
       v6 = &EtwpProviderTraitsKmTree;
       if ( !v3 )
         v6 = &EtwpProviderTraitsUmTree;
-      RtlRbRemoveNode((unsigned __int64 *)v6, (unsigned __int64)v1);
+      RtlRbRemoveNode(v6, (PRTL_BALANCED_NODE)v1);
     }
     else
     {
@@ -39,7 +39,7 @@ __int64 __fastcall EtwpReleaseProviderTraitsReference(__int64 a1)
     }
     KeReleaseGuardedMutex(v4);
     if ( v1 )
-      ExFreePoolWithTag(v1, 0);
+      ExFreePoolWithTag((PVOID)v1, 0);
   }
   return 0LL;
 }

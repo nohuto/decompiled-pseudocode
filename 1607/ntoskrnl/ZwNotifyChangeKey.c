@@ -1,10 +1,10 @@
 /*
- * XREFs of ZwNotifyChangeKey @ 0x14015BDC0
+ * XREFs of ZwNotifyChangeKey @ 0x14015C330
  * Callers:
- *     PspReadDfssConfigurationValues @ 0x14020EBD0 (PspReadDfssConfigurationValues.c)
- *     IopRegistryInitializeCallbacks @ 0x1405664C8 (IopRegistryInitializeCallbacks.c)
- *     IopRegistryCallback @ 0x1405665CC (IopRegistryCallback.c)
- *     PfpParametersWatcher @ 0x140669ED4 (PfpParametersWatcher.c)
+ *     PspReadDfssConfigurationValues @ 0x14020E9FC (PspReadDfssConfigurationValues.c)
+ *     IopRegistryInitializeCallbacks @ 0x140566A08 (IopRegistryInitializeCallbacks.c)
+ *     IopRegistryCallback @ 0x140566B0C (IopRegistryCallback.c)
+ *     PfpParametersWatcher @ 0x140669FB8 (PfpParametersWatcher.c)
  *     PfInitializeSuperfetch @ 0x1407B3B44 (PfInitializeSuperfetch.c)
  * Callees:
  *     <none>
@@ -24,5 +24,5 @@ NTSTATUS __stdcall ZwNotifyChangeKey(
 {
   _disable();
   __readeflags();
-  return KiServiceInternal(KeyHandle, Event, ApcRoutine);
+  return KiServiceInternal(KeyHandle);
 }

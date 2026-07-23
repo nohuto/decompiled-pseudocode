@@ -6,7 +6,7 @@
  *     <none>
  */
 
-__int64 __fastcall RtlSetDynamicTimeZoneInformation(__int64 a1)
+__int64 __fastcall RtlSetDynamicTimeZoneInformation(void *a1)
 {
-  return sub_1800EB568(a1, 432LL);
+  return sub_1800EB568(a1);
 }

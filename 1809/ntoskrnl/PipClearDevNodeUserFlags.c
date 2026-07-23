@@ -1,16 +1,16 @@
 /*
- * XREFs of PipClearDevNodeUserFlags @ 0x1406E9D9C
+ * XREFs of PipClearDevNodeUserFlags @ 0x1406EB03C
  * Callers:
- *     PiProcessNewDeviceNode @ 0x1406E3F14 (PiProcessNewDeviceNode.c)
- *     PnpProcessAssignResources @ 0x1406E834C (PnpProcessAssignResources.c)
- *     PiProcessQueryDeviceState @ 0x1406E9C44 (PiProcessQueryDeviceState.c)
- *     IopRemoveDevice @ 0x1406ECE04 (IopRemoveDevice.c)
- *     PiDevCfgProcessDevice @ 0x1406F4424 (PiDevCfgProcessDevice.c)
- *     PnpRestartDeviceNode @ 0x14075FE6C (PnpRestartDeviceNode.c)
- *     PnpQueryRemoveLockedDeviceNode @ 0x1408283DC (PnpQueryRemoveLockedDeviceNode.c)
- *     PnpTrackQueryRemoveDevices @ 0x1408336F8 (PnpTrackQueryRemoveDevices.c)
+ *     PiProcessNewDeviceNode @ 0x1406E51B4 (PiProcessNewDeviceNode.c)
+ *     PnpProcessAssignResources @ 0x1406E95EC (PnpProcessAssignResources.c)
+ *     PiProcessQueryDeviceState @ 0x1406EAEE4 (PiProcessQueryDeviceState.c)
+ *     IopRemoveDevice @ 0x1406EE0A4 (IopRemoveDevice.c)
+ *     PiDevCfgProcessDevice @ 0x1406F56C4 (PiDevCfgProcessDevice.c)
+ *     PnpRestartDeviceNode @ 0x14076105C (PnpRestartDeviceNode.c)
+ *     PnpQueryRemoveLockedDeviceNode @ 0x1408295DC (PnpQueryRemoveLockedDeviceNode.c)
+ *     PnpTrackQueryRemoveDevices @ 0x140834958 (PnpTrackQueryRemoveDevices.c)
  * Callees:
- *     _PnpRaiseNtPlugPlayDevicePropertyChangeEvent @ 0x1406E5A70 (_PnpRaiseNtPlugPlayDevicePropertyChangeEvent.c)
+ *     _PnpRaiseNtPlugPlayDevicePropertyChangeEvent @ 0x1406E6D10 (_PnpRaiseNtPlugPlayDevicePropertyChangeEvent.c)
  */
 
 __int64 __fastcall PipClearDevNodeUserFlags(__int64 a1, int a2)

@@ -1,10 +1,10 @@
 /*
- * XREFs of DbgkpInitializePhase1SiloState @ 0x140822120
+ * XREFs of DbgkpInitializePhase1SiloState @ 0x140822420
  * Callers:
- *     DbgkInitializeServerSilo @ 0x140936C80 (DbgkInitializeServerSilo.c)
+ *     DbgkInitializeServerSilo @ 0x140936E80 (DbgkInitializeServerSilo.c)
  *     DbgkpInitializePhase1 @ 0x140B4FEDC (DbgkpInitializePhase1.c)
  * Callees:
- *     DbgkpCreateNotificationEvent @ 0x14085B3BC (DbgkpCreateNotificationEvent.c)
+ *     DbgkpCreateNotificationEvent @ 0x14085B5FC (DbgkpCreateNotificationEvent.c)
  */
 
 __int64 __fastcall DbgkpInitializePhase1SiloState(__int64 a1)

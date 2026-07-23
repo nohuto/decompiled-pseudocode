@@ -1,8 +1,8 @@
 /*
- * XREFs of PiDmObjectManagerAcquireSharedLock @ 0x14050157C
+ * XREFs of PiDmObjectManagerAcquireSharedLock @ 0x1404E450C
  * Callers:
- *     PiDmEnumObjectsWithCallback @ 0x1405012F0 (PiDmEnumObjectsWithCallback.c)
- *     PiDmGetObjectCount @ 0x14062F8D8 (PiDmGetObjectCount.c)
+ *     PiDmEnumObjectsWithCallback @ 0x1404E4280 (PiDmEnumObjectsWithCallback.c)
+ *     PiDmGetObjectCount @ 0x14062F98C (PiDmGetObjectCount.c)
  * Callees:
  *     <none>
  */

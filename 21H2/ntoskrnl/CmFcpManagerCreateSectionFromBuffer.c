@@ -1,13 +1,13 @@
 /*
- * XREFs of CmFcpManagerCreateSectionFromBuffer @ 0x14087E664
+ * XREFs of CmFcpManagerCreateSectionFromBuffer @ 0x14087E7C4
  * Callers:
- *     CmFcManagerStartRuntimePhase @ 0x140A38784 (CmFcManagerStartRuntimePhase.c)
+ *     CmFcManagerStartRuntimePhase @ 0x140A39784 (CmFcManagerStartRuntimePhase.c)
  * Callees:
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     memmove @ 0x140413F40 (memmove.c)
- *     MmUnmapViewInSystemSpace @ 0x1406AC5B0 (MmUnmapViewInSystemSpace.c)
- *     CmFcpMapSection @ 0x1407D24AC (CmFcpMapSection.c)
- *     CmFcpManagerCreateSection @ 0x14087E570 (CmFcpManagerCreateSection.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     memmove @ 0x140414040 (memmove.c)
+ *     MmUnmapViewInSystemSpace @ 0x14060ACA0 (MmUnmapViewInSystemSpace.c)
+ *     CmFcpMapSection @ 0x1407D261C (CmFcpMapSection.c)
+ *     CmFcpManagerCreateSection @ 0x14087E6D0 (CmFcpManagerCreateSection.c)
  */
 
 __int64 __fastcall CmFcpManagerCreateSectionFromBuffer(void *Src, LARGE_INTEGER Size, __int64 a3, void *a4, __int64 a5)

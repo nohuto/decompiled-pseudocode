@@ -1,10 +1,10 @@
 /*
- * XREFs of NtOpenKeyedEvent @ 0x1408DA730
+ * XREFs of NtOpenKeyedEvent @ 0x1408DB9F0
  * Callers:
  *     <none>
  * Callees:
- *     ObOpenObjectByName @ 0x1405B9290 (ObOpenObjectByName.c)
- *     ExRaiseDatatypeMisalignment @ 0x1408D65C0 (ExRaiseDatatypeMisalignment.c)
+ *     ObOpenObjectByName @ 0x1405BA290 (ObOpenObjectByName.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1408D7880 (ExRaiseDatatypeMisalignment.c)
  */
 
 NTSTATUS __stdcall NtOpenKeyedEvent(PHANDLE OutHandle, ACCESS_MASK AccessMask, POBJECT_ATTRIBUTES ObjectAttributes)

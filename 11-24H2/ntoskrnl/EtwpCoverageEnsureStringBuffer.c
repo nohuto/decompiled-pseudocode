@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpCoverageEnsureStringBuffer @ 0x1407AABAC
+ * XREFs of EtwpCoverageEnsureStringBuffer @ 0x1407AB074
  * Callers:
- *     EtwpCoverageEnsureContext @ 0x140903F90 (EtwpCoverageEnsureContext.c)
- *     EtwpCoverageRecord @ 0x140904574 (EtwpCoverageRecord.c)
+ *     EtwpCoverageRecord @ 0x1408DC9D4 (EtwpCoverageRecord.c)
+ *     EtwpCoverageEnsureContext @ 0x140ADAD8C (EtwpCoverageEnsureContext.c)
  * Callees:
- *     EtwpCoverageInitializeStringBuffer @ 0x14064F760 (EtwpCoverageInitializeStringBuffer.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     EtwpCoverageInitializeStringBuffer @ 0x14064DE60 (EtwpCoverageInitializeStringBuffer.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
  */
 
 __int64 __fastcall EtwpCoverageEnsureStringBuffer(__int64 a1)
@@ -26,7 +26,7 @@ __int64 __fastcall EtwpCoverageEnsureStringBuffer(__int64 a1)
       return 0;
     }
   }
-  Pool2 = (_QWORD *)ExAllocatePool2(0x100uLL);
+  Pool2 = (_QWORD *)ExAllocatePool2(0x100uLL, 0x2000uLL, 0x56777445u);
   v4 = 0;
   v6 = Pool2;
   if ( Pool2 )

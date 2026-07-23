@@ -1,12 +1,12 @@
 /*
- * XREFs of PopPowerAggregatorScreenOffActiveToActiveStateHandler @ 0x1408EE7A0
+ * XREFs of PopPowerAggregatorScreenOffActiveToActiveStateHandler @ 0x1408EE900
  * Callers:
- *     PopPowerAggregatorInvokeStateMachine @ 0x1407761A8 (PopPowerAggregatorInvokeStateMachine.c)
+ *     PopPowerAggregatorInvokeStateMachine @ 0x140776368 (PopPowerAggregatorInvokeStateMachine.c)
  * Callees:
- *     PopReleaseRwLock @ 0x14027C284 (PopReleaseRwLock.c)
- *     PopAcquireRwLockExclusive @ 0x140281AD4 (PopAcquireRwLockExclusive.c)
- *     PopPowerAggregatorSetCurrentState @ 0x140776048 (PopPowerAggregatorSetCurrentState.c)
- *     PopPowerAggregatorNotifyCsStateExited @ 0x1408EE5F0 (PopPowerAggregatorNotifyCsStateExited.c)
+ *     PopReleaseRwLock @ 0x14026A224 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14026FD14 (PopAcquireRwLockExclusive.c)
+ *     PopPowerAggregatorSetCurrentState @ 0x140776208 (PopPowerAggregatorSetCurrentState.c)
+ *     PopPowerAggregatorNotifyCsStateExited @ 0x1408EE750 (PopPowerAggregatorNotifyCsStateExited.c)
  */
 
 __int64 __fastcall PopPowerAggregatorScreenOffActiveToActiveStateHandler(__int64 a1)

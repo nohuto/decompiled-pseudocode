@@ -1,11 +1,11 @@
 /*
- * XREFs of IoRetrievePriorityInfo @ 0x1403328B0
+ * XREFs of IoRetrievePriorityInfo @ 0x140332B40
  * Callers:
  *     <none>
  * Callees:
- *     IoGetIoPriorityHint @ 0x1402A7A60 (IoGetIoPriorityHint.c)
- *     PsGetIoPriorityThread @ 0x1402A8BB0 (PsGetIoPriorityThread.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ *     IoGetIoPriorityHint @ 0x1402A7CF0 (IoGetIoPriorityHint.c)
+ *     PsGetIoPriorityThread @ 0x1402A8E40 (PsGetIoPriorityThread.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
  */
 
 NTSTATUS __stdcall IoRetrievePriorityInfo(
@@ -100,7 +100,7 @@ LABEL_8:
   v16 = 0;
   CurrentIrql = KeGetCurrentIrql();
   __writecr8(2uLL);
-  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  if ( (_DWORD)KiIrqlFlags && ((unsigned __int8)KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
   {
     SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
     if ( CurrentIrql == 2 )
@@ -122,10 +122,10 @@ LABEL_8:
   }
   if ( CurrentIrql < 2u )
   {
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       v23 = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && (unsigned __int8)(v23 - 2) <= 0xDu )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0 && (unsigned __int8)(v23 - 2) <= 0xDu )
       {
         v24 = KeGetCurrentPrcb();
         v25 = v24->SchedulerAssist;

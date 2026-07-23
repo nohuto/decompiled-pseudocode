@@ -1,10 +1,10 @@
 /*
- * XREFs of ExpTryAcquireFannedOutPushLockExclusive @ 0x1404D7C04
+ * XREFs of ExpTryAcquireFannedOutPushLockExclusive @ 0x1404D13D4
  * Callers:
- *     ExTryAcquireAutoExpandPushLockExclusive @ 0x1404DE910 (ExTryAcquireAutoExpandPushLockExclusive.c)
+ *     ExTryAcquireAutoExpandPushLockExclusive @ 0x1404D7FF0 (ExTryAcquireAutoExpandPushLockExclusive.c)
  * Callees:
- *     KeQueryMaximumProcessorCountEx @ 0x1402767B0 (KeQueryMaximumProcessorCountEx.c)
- *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
+ *     KeQueryMaximumProcessorCountEx @ 0x140275D20 (KeQueryMaximumProcessorCountEx.c)
+ *     ExfTryToWakePushLock @ 0x1403190D0 (ExfTryToWakePushLock.c)
  */
 
 char __fastcall ExpTryAcquireFannedOutPushLockExclusive(unsigned int a1)
@@ -28,7 +28,9 @@ char __fastcall ExpTryAcquireFannedOutPushLockExclusive(unsigned int a1)
     _BitScanReverse(&v6, v5);
     v7 = (a1 >> 4) & 0x1FF;
     if ( _interlockedbittestandset64(
-           (volatile signed __int32 *)(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)(ExSaPageArrays + 8LL * i) + 8LL * (v6 - 2))
+           (volatile signed __int32 *)(*(_QWORD *)(*(_QWORD *)(*((_QWORD *)ExSaPageGroupDescriptorArrayLock.SListFaultAddress
+                                                               + i)
+                                                             + 8LL * (v6 - 2))
                                                  + 8 * (v5 ^ (unsigned int)(1 << v6))
                                                  + 8)
                                      + 8 * v7),
@@ -40,7 +42,9 @@ char __fastcall ExpTryAcquireFannedOutPushLockExclusive(unsigned int a1)
   while ( i )
   {
     _BitScanReverse(&v8, v5);
-    v9 = (volatile signed __int64 *)(*(_QWORD *)(*(_QWORD *)(*(_QWORD *)(ExSaPageArrays + 8LL * --i) + 8LL * (v8 - 2))
+    v9 = (volatile signed __int64 *)(*(_QWORD *)(*(_QWORD *)(*((_QWORD *)ExSaPageGroupDescriptorArrayLock.SListFaultAddress
+                                                             + --i)
+                                                           + 8LL * (v8 - 2))
                                                + 8 * (v5 ^ (unsigned int)(1 << v8))
                                                + 8)
                                    + 8 * v7);

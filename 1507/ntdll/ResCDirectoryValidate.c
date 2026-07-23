@@ -25,7 +25,7 @@ __int64 __fastcall ResCDirectoryValidate(__int64 a1, __int64 a2, __int64 a3)
   v4 = 3;
   if ( !a1 )
   {
-    RtlSetLastWin32Error(0x57u);
+    RtlSetLastWin32Error(87);
     return 0LL;
   }
   v6 = *(_DWORD **)(a1 + 24);

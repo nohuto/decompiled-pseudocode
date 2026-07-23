@@ -1,18 +1,18 @@
 /*
- * XREFs of MiDestroySection @ 0x14037F32C
+ * XREFs of MiDestroySection @ 0x14037EE7C
  * Callers:
- *     MiCleanSection @ 0x14037F28C (MiCleanSection.c)
- *     MiDeleteCachedSegment @ 0x140528BB8 (MiDeleteCachedSegment.c)
- *     MiDeleteCachedSubsection @ 0x140528DAC (MiDeleteCachedSubsection.c)
- *     MiProcessDeleteOnClose @ 0x140529F98 (MiProcessDeleteOnClose.c)
+ *     MiCleanSection @ 0x14037EDDC (MiCleanSection.c)
+ *     MiDeleteCachedSegment @ 0x140528DF8 (MiDeleteCachedSegment.c)
+ *     MiDeleteCachedSubsection @ 0x140528FEC (MiDeleteCachedSubsection.c)
+ *     MiProcessDeleteOnClose @ 0x14052A1D8 (MiProcessDeleteOnClose.c)
  * Callees:
- *     MiClearFilePointer @ 0x140263CF8 (MiClearFilePointer.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     MiDrainControlAreaWrites @ 0x1402F7DAC (MiDrainControlAreaWrites.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x14033BD80 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     MiClearFilePointer @ 0x1402851C8 (MiClearFilePointer.c)
+ *     MiDrainControlAreaWrites @ 0x140302AFC (MiDrainControlAreaWrites.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140346AD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     FsRtlReleaseFileForCcFlush @ 0x140647024 (FsRtlReleaseFileForCcFlush.c)
- *     MiSegmentDelete @ 0x1406E8110 (MiSegmentDelete.c)
+ *     FsRtlReleaseFileForCcFlush @ 0x14063BE14 (FsRtlReleaseFileForCcFlush.c)
+ *     MiSegmentDelete @ 0x1406FF4F0 (MiSegmentDelete.c)
  */
 
 __int64 __fastcall MiDestroySection(__int64 a1, KIRQL a2, struct _FILE_OBJECT *a3)

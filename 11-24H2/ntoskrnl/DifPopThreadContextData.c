@@ -1,10 +1,10 @@
 /*
- * XREFs of DifPopThreadContextData @ 0x140617660
+ * XREFs of DifPopThreadContextData @ 0x140615C20
  * Callers:
  *     <none>
  * Callees:
- *     memmove @ 0x1406BFC40 (memmove.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 char __fastcall DifPopThreadContextData(int a1, void *a2, unsigned int a3)

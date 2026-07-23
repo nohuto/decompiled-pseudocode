@@ -1,12 +1,12 @@
 /*
- * XREFs of KsepDeletePatchSdb @ 0x1409774F4
+ * XREFs of KsepDeletePatchSdb @ 0x1409776F4
  * Callers:
  *     KseShimDatabaseOpen @ 0x140694C20 (KseShimDatabaseOpen.c)
  * Callees:
  *     KsepLogError @ 0x14020A5AC (KsepLogError.c)
- *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
- *     ZwDeleteFile @ 0x14041C880 (ZwDeleteFile.c)
- *     KsepDebugPrint @ 0x140580CD4 (KsepDebugPrint.c)
+ *     RtlInitUnicodeString @ 0x14022E2C0 (RtlInitUnicodeString.c)
+ *     ZwDeleteFile @ 0x14041CC10 (ZwDeleteFile.c)
+ *     KsepDebugPrint @ 0x1405811C4 (KsepDebugPrint.c)
  */
 
 NTSTATUS KsepDeletePatchSdb()

@@ -1,9 +1,9 @@
 /*
- * XREFs of KiInitializeVelocity @ 0x1409C4FA8
+ * XREFs of KiInitializeVelocity @ 0x1409C5FA8
  * Callers:
- *     KeInitSystem @ 0x1409C4988 (KeInitSystem.c)
+ *     KeInitSystem @ 0x1409C5988 (KeInitSystem.c)
  * Callees:
- *     wil_details_FeaturePropertyCache_ReportUsageToService @ 0x1400F2A04 (wil_details_FeaturePropertyCache_ReportUsageToService.c)
+ *     wil_details_FeaturePropertyCache_ReportUsageToService @ 0x1400F2A84 (wil_details_FeaturePropertyCache_ReportUsageToService.c)
  */
 
 _UNKNOWN **KiInitializeVelocity()

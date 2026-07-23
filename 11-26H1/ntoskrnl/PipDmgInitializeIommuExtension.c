@@ -1,14 +1,14 @@
 /*
- * XREFs of PipDmgInitializeIommuExtension @ 0x140AA4E2C
+ * XREFs of PipDmgInitializeIommuExtension @ 0x140B21C1C
  * Callers:
- *     PiProcessNewDeviceNode @ 0x140AA5E3C (PiProcessNewDeviceNode.c)
+ *     PiProcessNewDeviceNode @ 0x1409D9370 (PiProcessNewDeviceNode.c)
  * Callees:
- *     IoAddTriageDumpDataBlock @ 0x14044AB54 (IoAddTriageDumpDataBlock.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     PiIommuAllocateExtension @ 0x140AA4BCC (PiIommuAllocateExtension.c)
+ *     IoAddTriageDumpDataBlock @ 0x140442C84 (IoAddTriageDumpDataBlock.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     PiIommuAllocateExtension @ 0x140B21D08 (PiIommuAllocateExtension.c)
  */
 
-__int64 __fastcall PipDmgInitializeIommuExtension(ULONG_PTR BugCheckParameter2, ULONG_PTR a2)
+__int64 __fastcall PipDmgInitializeIommuExtension(ULONG_PTR BugCheckParameter2, __int64 a2)
 {
   ULONG_PTR *v2; // rsi
   unsigned __int16 *v4; // rdi
@@ -47,5 +47,5 @@ __int64 __fastcall PipDmgInitializeIommuExtension(ULONG_PTR BugCheckParameter2, 
     }
     KeBugCheckEx(0xCAu, 0x11uLL, BugCheckParameter2, *v2, *(unsigned int *)(BugCheckParameter2 + 704));
   }
-  return PiIommuAllocateExtension(BugCheckParameter2, a2, (__int64 *)(BugCheckParameter2 + 720));
+  return PiIommuAllocateExtension(BugCheckParameter2, a2, BugCheckParameter2 + 720);
 }

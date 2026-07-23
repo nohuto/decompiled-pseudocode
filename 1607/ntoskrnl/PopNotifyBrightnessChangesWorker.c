@@ -1,13 +1,13 @@
 /*
- * XREFs of PopNotifyBrightnessChangesWorker @ 0x14014A420
+ * XREFs of PopNotifyBrightnessChangesWorker @ 0x14014A990
  * Callers:
  *     <none>
  * Callees:
- *     KeReleaseGuardedMutex @ 0x14000CA40 (KeReleaseGuardedMutex.c)
- *     ExAcquireFastMutex @ 0x14002D0A0 (ExAcquireFastMutex.c)
- *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     KeReleaseGuardedMutex @ 0x14000C5C0 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x14002CC20 (ExAcquireFastMutex.c)
+ *     __security_check_cookie @ 0x14014CFC0 (__security_check_cookie.c)
  *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
- *     PopBroadcastSessionInfo @ 0x14057BCC8 (PopBroadcastSessionInfo.c)
+ *     PopBroadcastSessionInfo @ 0x14057C174 (PopBroadcastSessionInfo.c)
  */
 
 void PopNotifyBrightnessChangesWorker()
@@ -69,31 +69,31 @@ void PopNotifyBrightnessChangesWorker()
               if ( *(_QWORD *)&GUID_ENERGY_SAVER_BRIGHTNESS.Data1 == v2 )
                 v8 = *(_QWORD *)GUID_ENERGY_SAVER_BRIGHTNESS.Data4 - v0[3];
               if ( !v8 )
-                dword_140303E40 = *((_DWORD *)v0 + 8);
+                dword_140303D80 = *((_DWORD *)v0 + 8);
             }
             else
             {
-              HIDWORD(qword_140303E38) = *((_DWORD *)v0 + 8);
+              HIDWORD(qword_140303D78) = *((_DWORD *)v0 + 8);
             }
           }
           else
           {
-            LODWORD(qword_140303E38) = *((_DWORD *)v0 + 8);
+            LODWORD(qword_140303D78) = *((_DWORD *)v0 + 8);
           }
         }
         else
         {
-          dword_140303E2C = *((_DWORD *)v0 + 8);
+          dword_140303D6C = *((_DWORD *)v0 + 8);
         }
       }
       else
       {
-        HIDWORD(qword_140303E30) = *((_DWORD *)v0 + 8);
+        HIDWORD(qword_140303D70) = *((_DWORD *)v0 + 8);
       }
     }
     else
     {
-      LODWORD(qword_140303E30) = *((_DWORD *)v0 + 8);
+      LODWORD(qword_140303D70) = *((_DWORD *)v0 + 8);
     }
     v9 = *((_OWORD *)v0 + 1);
     v10 = *((_DWORD *)v0 + 8);

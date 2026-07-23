@@ -7,7 +7,7 @@
  *     _LdrpLogNewDllLoadInternal@20 @ 0x4B3309EF (_LdrpLogNewDllLoadInternal@20.c)
  */
 
-struct _PEB *__fastcall LdrLogNewDataDllLoad(char a1, unsigned __int16 *a2)
+struct _PEB *__fastcall LdrLogNewDataDllLoad(char a1, const unsigned __int16 *a2)
 {
   int v3; // edi
   int v4; // eax
@@ -59,11 +59,11 @@ LABEL_18:
         else
         {
           if ( (a1 & 1) == 0 )
-            return (struct _PEB *)LdrpLogNewDllLoadInternal(v9, 2 * v8, a2);
+            return (struct _PEB *)LdrpLogNewDllLoadInternal(v9, __PAIR64__((unsigned int)a2, 2 * v8));
           v10 = 6;
         }
         v9 = v10;
-        return (struct _PEB *)LdrpLogNewDllLoadInternal(v9, 2 * v8, a2);
+        return (struct _PEB *)LdrpLogNewDllLoadInternal(v9, __PAIR64__((unsigned int)a2, 2 * v8));
       }
     }
   }

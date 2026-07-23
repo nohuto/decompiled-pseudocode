@@ -33,7 +33,7 @@ _BOOL8 __fastcall PspGetSetContextInternal(__int64 a1, __int64 a2, _QWORD *a3)
   bool v7; // r13
   PEPROCESS v8; // rax
   __int64 v9; // r14
-  unsigned int v10; // r12d
+  ULONG v10; // r12d
   _KTRAP_FRAME *TrapFrame; // r14
   _QWORD *j; // rcx
   char Reserved1; // cl
@@ -57,43 +57,44 @@ _BOOL8 __fastcall PspGetSetContextInternal(__int64 a1, __int64 a2, _QWORD *a3)
   unsigned int *v31; // rax
   int v32; // r12d
   char v34[4]; // [rsp+60h] [rbp-A0h] BYREF
-  _DWORD v35[3]; // [rsp+64h] [rbp-9Ch] BYREF
-  __int64 v36; // [rsp+70h] [rbp-90h] BYREF
-  _QWORD *v37; // [rsp+78h] [rbp-88h]
-  unsigned __int64 v38; // [rsp+80h] [rbp-80h] BYREF
-  __int64 v39; // [rsp+88h] [rbp-78h]
-  unsigned __int64 v40; // [rsp+90h] [rbp-70h] BYREF
-  __int128 v41; // [rsp+98h] [rbp-68h] BYREF
-  __int64 v42; // [rsp+A8h] [rbp-58h]
-  unsigned __int64 v43[4]; // [rsp+B0h] [rbp-50h] BYREF
-  __int64 v44; // [rsp+D0h] [rbp-30h] BYREF
-  char v45[144]; // [rsp+E0h] [rbp-20h] BYREF
-  char v46; // [rsp+170h] [rbp+70h] BYREF
-  ULONG_PTR *v47; // [rsp+178h] [rbp+78h] BYREF
-  char v48; // [rsp+180h] [rbp+80h] BYREF
-  char v49; // [rsp+188h] [rbp+88h] BYREF
-  char v50; // [rsp+190h] [rbp+90h] BYREF
-  char v51; // [rsp+1B8h] [rbp+B8h] BYREF
-  char v52; // [rsp+1C0h] [rbp+C0h] BYREF
-  char v53; // [rsp+1C8h] [rbp+C8h] BYREF
-  char v54; // [rsp+1D0h] [rbp+D0h] BYREF
-  ULONG_PTR v55; // [rsp+1D8h] [rbp+D8h]
-  char v56; // [rsp+2E0h] [rbp+1E0h] BYREF
-  char v57; // [rsp+2F0h] [rbp+1F0h] BYREF
-  char v58; // [rsp+300h] [rbp+200h] BYREF
-  char v59; // [rsp+310h] [rbp+210h] BYREF
-  char v60; // [rsp+320h] [rbp+220h] BYREF
-  char v61; // [rsp+330h] [rbp+230h] BYREF
-  char v62; // [rsp+340h] [rbp+240h] BYREF
-  char v63; // [rsp+350h] [rbp+250h] BYREF
-  char v64; // [rsp+360h] [rbp+260h] BYREF
-  char v65; // [rsp+370h] [rbp+270h] BYREF
+  int v35; // [rsp+64h] [rbp-9Ch] BYREF
+  ULONG ContextLength; // [rsp+68h] [rbp-98h] BYREF
+  __int64 v37; // [rsp+70h] [rbp-90h] BYREF
+  _QWORD *v38; // [rsp+78h] [rbp-88h]
+  unsigned __int64 v39; // [rsp+80h] [rbp-80h] BYREF
+  __int64 v40; // [rsp+88h] [rbp-78h]
+  unsigned __int64 v41; // [rsp+90h] [rbp-70h] BYREF
+  __int128 v42; // [rsp+98h] [rbp-68h] BYREF
+  __int64 v43; // [rsp+A8h] [rbp-58h]
+  unsigned __int64 v44[4]; // [rsp+B0h] [rbp-50h] BYREF
+  __int64 v45; // [rsp+D0h] [rbp-30h] BYREF
+  char v46[144]; // [rsp+E0h] [rbp-20h] BYREF
+  char v47; // [rsp+170h] [rbp+70h] BYREF
+  ULONG_PTR *v48; // [rsp+178h] [rbp+78h] BYREF
+  char v49; // [rsp+180h] [rbp+80h] BYREF
+  char v50; // [rsp+188h] [rbp+88h] BYREF
+  char v51; // [rsp+190h] [rbp+90h] BYREF
+  char v52; // [rsp+1B8h] [rbp+B8h] BYREF
+  char v53; // [rsp+1C0h] [rbp+C0h] BYREF
+  char v54; // [rsp+1C8h] [rbp+C8h] BYREF
+  char v55; // [rsp+1D0h] [rbp+D0h] BYREF
+  ULONG_PTR v56; // [rsp+1D8h] [rbp+D8h]
+  char v57; // [rsp+2E0h] [rbp+1E0h] BYREF
+  char v58; // [rsp+2F0h] [rbp+1F0h] BYREF
+  char v59; // [rsp+300h] [rbp+200h] BYREF
+  char v60; // [rsp+310h] [rbp+210h] BYREF
+  char v61; // [rsp+320h] [rbp+220h] BYREF
+  char v62; // [rsp+330h] [rbp+230h] BYREF
+  char v63; // [rsp+340h] [rbp+240h] BYREF
+  char v64; // [rsp+350h] [rbp+250h] BYREF
+  char v65; // [rsp+360h] [rbp+260h] BYREF
+  char v66; // [rsp+370h] [rbp+270h] BYREF
 
-  v35[0] = 0;
+  v35 = 0;
   v3 = (_QWORD *)(a1 + 128);
   CurrentThread = KeGetCurrentThread();
-  v37 = a3;
-  v39 = a2;
+  v38 = a3;
+  v40 = a2;
   v7 = 0;
   v8 = IoThreadToProcess(CurrentThread);
   v9 = *(_QWORD *)(a1 + 120);
@@ -106,65 +107,65 @@ _BOOL8 __fastcall PspGetSetContextInternal(__int64 a1, __int64 a2, _QWORD *a3)
 LABEL_32:
     if ( (*(_BYTE *)(a1 + 89) & 2) != 0 )
     {
-      if ( (unsigned __int8)RtlpGetStackLimits((__int64)&v38, (__int64)&v40) )
+      if ( (unsigned __int8)RtlpGetStackLimits((__int64)&v39, (__int64)&v41) )
       {
         v28 = 0LL;
-        memset(v43, 0, sizeof(v43));
-        v36 = 0LL;
-        v41 = *(_OWORD *)&xmmword_14031EF70;
-        v42 = qword_14031EF80;
+        memset(v44, 0, sizeof(v44));
+        v37 = 0LL;
+        v42 = *(_OWORD *)&xmmword_14031EF70;
+        v43 = qword_14031EF80;
         RtlpCaptureContext();
-        v29 = v55;
-        v3[19] = &v46;
-        v3[21] = &v48;
-        v3[22] = &v49;
-        v3[23] = &v50;
-        v3[28] = &v51;
-        v3[29] = &v52;
-        v3[30] = &v53;
-        v3[31] = &v54;
-        v3[6] = &v56;
-        v3[7] = &v57;
-        v3[8] = &v58;
-        v3[9] = &v59;
-        v3[10] = &v60;
-        v3[11] = &v61;
-        v3[12] = &v62;
-        v3[13] = &v63;
-        v3[14] = &v64;
-        v3[15] = &v65;
-        v3[20] = &v47;
-        v30 = (unsigned __int64)v47;
+        v29 = v56;
+        v3[19] = &v47;
+        v3[21] = &v49;
+        v3[22] = &v50;
+        v3[23] = &v51;
+        v3[28] = &v52;
+        v3[29] = &v53;
+        v3[30] = &v54;
+        v3[31] = &v55;
+        v3[6] = &v57;
+        v3[7] = &v58;
+        v3[8] = &v59;
+        v3[9] = &v60;
+        v3[10] = &v61;
+        v3[11] = &v62;
+        v3[12] = &v63;
+        v3[13] = &v64;
+        v3[14] = &v65;
+        v3[15] = &v66;
+        v3[20] = &v48;
+        v30 = (unsigned __int64)v48;
         v34[0] = 0;
-        while ( v29 > (unsigned __int64)MmSystemRangeStart && RtlpIsFrameInBoundsEx(&v38, v30, &v40, v43) )
+        while ( v29 > (unsigned __int64)MmSystemRangeStart && RtlpIsFrameInBoundsEx(&v39, v30, &v41, v44) )
         {
-          v31 = RtlpLookupFunctionEntryForStackWalks(v29, (__int64)&v41);
+          v31 = RtlpLookupFunctionEntryForStackWalks(v29, (__int64)&v42);
           if ( v31 )
           {
             if ( (int)RtlpVirtualUnwind(
                         0,
-                        *((__int64 *)&v41 + 1),
+                        *((__int64 *)&v42 + 1),
                         v29,
                         v31,
-                        (__int64)v45,
+                        (__int64)v46,
                         v34,
-                        &v44,
-                        &v36,
+                        &v45,
+                        &v37,
                         (__int64)v3,
-                        &v38,
-                        &v40) < 0 )
+                        &v39,
+                        &v41) < 0 )
               goto LABEL_4;
-            v28 = v36;
-            v29 = v55;
-            v30 = (unsigned __int64)v47;
+            v28 = v37;
+            v29 = v56;
+            v30 = (unsigned __int64)v48;
           }
           else
           {
-            if ( !*((_QWORD *)&v41 + 1) )
+            if ( !*((_QWORD *)&v42 + 1) )
               goto LABEL_4;
-            v29 = *v47;
-            v30 = (unsigned __int64)++v47;
-            v55 = v29;
+            v29 = *v48;
+            v30 = (unsigned __int64)++v48;
+            v56 = v29;
           }
           if ( (_KTRAP_FRAME *)v28 == TrapFrame )
             goto LABEL_46;
@@ -194,7 +195,7 @@ LABEL_32:
     v3[21] = &TrapFrame->Rbp;
 LABEL_46:
     v32 = v10 & 0x100008;
-    if ( v39 )
+    if ( v40 )
     {
       if ( v32 == 1048584 )
         v7 = *(_BYTE *)(a1 + 88) == 1;
@@ -222,19 +223,19 @@ LABEL_46:
       if ( (Object[10] & 4) != 0 )
       {
         v15 = *Object;
-        v16 = PspRundownUmsThreadForApcDelivery(CurrentThread, v35, *Object, 0LL);
+        v16 = PspRundownUmsThreadForApcDelivery(CurrentThread, &v35, *Object, 0LL);
         *(_DWORD *)(a1 + 92) = v16;
         if ( v16 >= 0 )
         {
           if ( a2 )
           {
-            *(_DWORD *)(a1 + 92) = PspSetUmsThreadContext(CurrentThread, *(_QWORD *)(a1 + 120), v35);
+            *(_DWORD *)(a1 + 92) = PspSetUmsThreadContext(CurrentThread, *(_QWORD *)(a1 + 120), &v35);
           }
           else
           {
             v17 = *(_QWORD *)(a1 + 120);
             v18 = 0;
-            if ( (v35[0] & 2) != 0 )
+            if ( (v35 & 2) != 0 )
               v18 = KeCopyContextFromUmsContext(v17, *(_QWORD *)CurrentThread->WaitBlock[3].Object);
             else
               KeCopyContextFromUch(v17, CurrentThread->WaitBlock[3].SparePtr);
@@ -243,7 +244,7 @@ LABEL_46:
           v19 = KeClearUmsThreadKernelLock(v15);
           if ( v19 < 0 )
             *(_DWORD *)(a1 + 92) = v19;
-          if ( (v35[0] & 8) != 0 )
+          if ( (v35 & 8) != 0 )
           {
             LOBYTE(v20) = 1;
             updated = KeUpdateUmsThreadState(v15, 0LL, v20);
@@ -259,7 +260,7 @@ LABEL_46:
       CurrentUmsTeb = KeGetCurrentUmsTeb(CurrentThread);
       DoesTebMatchThread = KeDoesTebMatchThread((__int64)CurrentThread, CurrentUmsTeb);
       v25 = !DoesTebMatchThread;
-      if ( v39 )
+      if ( v40 )
       {
         v26 = KeUpdatePrimaryThreadContext(v24, *(_QWORD *)(a1 + 120));
         *(_DWORD *)(a1 + 92) = v26;
@@ -274,17 +275,17 @@ LABEL_46:
     }
     goto LABEL_32;
   }
-  if ( (int)RtlGetExtendedContextLength(v10) < 0 )
+  if ( RtlGetExtendedContextLength(v10, &ContextLength) < 0 )
   {
 LABEL_4:
     *(_DWORD *)(a1 + 92) = -1073741823;
     goto LABEL_5;
   }
-  *(_DWORD *)(a1 + 92) = HvlGetSetSecureContext(a2, v9, v35[1]);
+  *(_DWORD *)(a1 + 92) = HvlGetSetSecureContext(a2, v9, ContextLength);
 LABEL_5:
   if ( (*(_BYTE *)(a1 + 89) & 1) != 0 )
-    *v37 = a1 + 96;
+    *v38 = a1 + 96;
   else
-    *v37 = 0LL;
+    *v38 = 0LL;
   return v7;
 }

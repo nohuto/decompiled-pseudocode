@@ -1,13 +1,13 @@
 /*
- * XREFs of PopPluginQueryComponentPerfStates @ 0x1405D24A0
+ * XREFs of PopPluginQueryComponentPerfStates @ 0x1405CFBC0
  * Callers:
- *     PopFxPepPerfInfoQuery @ 0x14074E334 (PopFxPepPerfInfoQuery.c)
+ *     PopFxPepPerfInfoQuery @ 0x14074C664 (PopFxPepPerfInfoQuery.c)
  * Callees:
- *     PopFxBugCheck @ 0x140377108 (PopFxBugCheck.c)
- *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     PopFxBugCheck @ 0x1403A9948 (PopFxBugCheck.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B4D90 (_guard_dispatch_icall_no_overrides.c)
  */
 
-__int64 __fastcall PopPluginQueryComponentPerfStates(__int64 a1, int a2, __int64 a3, __int64 a4)
+__int64 __fastcall PopPluginQueryComponentPerfStates(__int64 a1, int a2, int a3, __int64 a4)
 {
   ULONG_PTR v4; // rbx
   __int64 result; // rax
@@ -21,7 +21,7 @@ __int64 __fastcall PopPluginQueryComponentPerfStates(__int64 a1, int a2, __int64
   v7 = a2;
   v8 = a3;
   v9 = a4;
-  result = guard_dispatch_icall_no_overrides(31LL, &v6, a3, a4);
+  result = guard_dispatch_icall_no_overrides(31LL, &v6);
   if ( !(_BYTE)result )
     PopFxBugCheck(0x605uLL, 0x1FuLL, v4, 0LL);
   return result;

@@ -1,23 +1,23 @@
 /*
- * XREFs of IopCopyCompleteReadIrp @ 0x1403F16B0
+ * XREFs of IopCopyCompleteReadIrp @ 0x1403F1580
  * Callers:
  *     <none>
  * Callees:
- *     KeReleaseSpinLock @ 0x140229C10 (KeReleaseSpinLock.c)
- *     ExQueueWorkItem @ 0x14023E750 (ExQueueWorkItem.c)
- *     KeAreAllApcsDisabled @ 0x14025AC80 (KeAreAllApcsDisabled.c)
- *     KeInsertQueueApc @ 0x14025F8C0 (KeInsertQueueApc.c)
- *     KeInitializeApc @ 0x140278E60 (KeInitializeApc.c)
- *     HalPutDmaAdapter @ 0x1402C1740 (HalPutDmaAdapter.c)
- *     IopDropIrp @ 0x1402E9444 (IopDropIrp.c)
- *     IopFreeIrpExtension @ 0x1402ED7A0 (IopFreeIrpExtension.c)
- *     KeReleaseQueuedSpinLock @ 0x140310BD0 (KeReleaseQueuedSpinLock.c)
- *     KeAcquireQueuedSpinLock @ 0x140310C70 (KeAcquireQueuedSpinLock.c)
- *     KeAcquireSpinLockRaiseToDpc @ 0x140358230 (KeAcquireSpinLockRaiseToDpc.c)
- *     IopUnlockAndFreeMdl @ 0x1403F11E0 (IopUnlockAndFreeMdl.c)
- *     IopCopyCompleteReadRequest @ 0x1403F1A30 (IopCopyCompleteReadRequest.c)
+ *     IopFreeIrpExtension @ 0x14020D178 (IopFreeIrpExtension.c)
+ *     HalPutDmaAdapter @ 0x14023FBE0 (HalPutDmaAdapter.c)
+ *     KeInitializeApc @ 0x140266E00 (KeInitializeApc.c)
+ *     KeAreAllApcsDisabled @ 0x14027C1F0 (KeAreAllApcsDisabled.c)
+ *     KeInsertQueueApc @ 0x14027E260 (KeInsertQueueApc.c)
+ *     IopDropIrp @ 0x14029A794 (IopDropIrp.c)
+ *     KeReleaseSpinLock @ 0x1402CE500 (KeReleaseSpinLock.c)
+ *     ExQueueWorkItem @ 0x1402E2FA0 (ExQueueWorkItem.c)
+ *     KeReleaseQueuedSpinLock @ 0x14031B920 (KeReleaseQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x14031B9C0 (KeAcquireQueuedSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140362F80 (KeAcquireSpinLockRaiseToDpc.c)
+ *     IopUnlockAndFreeMdl @ 0x1403F1110 (IopUnlockAndFreeMdl.c)
+ *     IopCopyCompleteReadRequest @ 0x1403F1900 (IopCopyCompleteReadRequest.c)
  *     KiRemoveSystemWorkPriorityKick @ 0x1403F3684 (KiRemoveSystemWorkPriorityKick.c)
- *     memset @ 0x140414200 (memset.c)
+ *     memset @ 0x140414300 (memset.c)
  */
 
 char __fastcall IopCopyCompleteReadIrp(__int64 *a1, ULONG_PTR a2, int a3)

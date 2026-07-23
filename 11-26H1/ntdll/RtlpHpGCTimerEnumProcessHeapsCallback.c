@@ -1,11 +1,11 @@
 /*
- * XREFs of RtlpHpGCTimerEnumProcessHeapsCallback @ 0x1800148D0
+ * XREFs of RtlpHpGCTimerEnumProcessHeapsCallback @ 0x180060000
  * Callers:
  *     <none>
  * Callees:
- *     RtlpAcquireDescriptorPseudoGlobalLockEx @ 0x180014484 (RtlpAcquireDescriptorPseudoGlobalLockEx.c)
- *     RtlpReleaseDescriptorPseudoGlobalLock @ 0x180015F38 (RtlpReleaseDescriptorPseudoGlobalLock.c)
- *     RtlpHpHeapCompact @ 0x180016180 (RtlpHpHeapCompact.c)
+ *     RtlpAcquireDescriptorPseudoGlobalLockEx @ 0x18005FBB4 (RtlpAcquireDescriptorPseudoGlobalLockEx.c)
+ *     RtlpReleaseDescriptorPseudoGlobalLock @ 0x180061668 (RtlpReleaseDescriptorPseudoGlobalLock.c)
+ *     RtlpHpHeapCompact @ 0x1800618B0 (RtlpHpHeapCompact.c)
  */
 
 __int64 __fastcall RtlpHpGCTimerEnumProcessHeapsCallback(__int64 a1)

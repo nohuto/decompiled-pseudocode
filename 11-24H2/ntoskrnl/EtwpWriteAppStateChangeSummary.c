@@ -1,14 +1,14 @@
 /*
- * XREFs of EtwpWriteAppStateChangeSummary @ 0x14094C470
+ * XREFs of EtwpWriteAppStateChangeSummary @ 0x1408F09E0
  * Callers:
- *     EtwTraceAppStateChange @ 0x14094C00C (EtwTraceAppStateChange.c)
- *     EtwTraceProcess @ 0x14094CC44 (EtwTraceProcess.c)
+ *     EtwTraceAppStateChange @ 0x1408F057C (EtwTraceAppStateChange.c)
+ *     EtwTraceProcess @ 0x1408F11B4 (EtwTraceProcess.c)
  * Callees:
- *     _tlgCreate1Sz_wchar_t @ 0x140330A30 (_tlgCreate1Sz_wchar_t.c)
- *     _tlgWriteAgg @ 0x1403D06F8 (_tlgWriteAgg.c)
- *     PsIsHostSilo @ 0x14043E2E0 (PsIsHostSilo.c)
- *     PsGetProcessServerSilo @ 0x140445660 (PsGetProcessServerSilo.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     _tlgWriteAgg @ 0x140273698 (_tlgWriteAgg.c)
+ *     _tlgCreate1Sz_wchar_t @ 0x1402B92A8 (_tlgCreate1Sz_wchar_t.c)
+ *     PsIsHostSilo @ 0x1404329D0 (PsIsHostSilo.c)
+ *     PsGetProcessServerSilo @ 0x14043D810 (PsGetProcessServerSilo.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
  */
 
 char __fastcall EtwpWriteAppStateChangeSummary(
@@ -144,9 +144,9 @@ char __fastcall EtwpWriteAppStateChangeSummary(
   v35 = a4;
   v36 = a2;
   memset(v62, 0, 29);
-  if ( dword_140E090F0
-    && (qword_140E09100 & 0x200000000000LL) != 0
-    && (qword_140E09108 & 0x200000000000LL) == qword_140E09108 )
+  if ( dword_140E09160
+    && (qword_140E09170 & 0x200000000000LL) != 0
+    && (qword_140E09178 & 0x200000000000LL) == qword_140E09178 )
   {
     v8 = *(_QWORD *)&v62[0] | 1LL;
     *(_QWORD *)&v62[0] |= 1uLL;
@@ -175,10 +175,10 @@ LABEL_9:
   v13 = &EmptyUnicodeString;
   if ( v12 )
     v13 = *(__int64 **)(a1 + 848);
-  if ( (unsigned int)dword_140E090F0 > 5 )
+  if ( (unsigned int)dword_140E09160 > 5 )
   {
-    if ( (qword_140E09100 & 0x400000000000LL) == 0
-      || (LOBYTE(v12) = 1, (qword_140E09108 & 0x400000000000LL) != qword_140E09108) )
+    if ( (qword_140E09170 & 0x400000000000LL) == 0
+      || (LOBYTE(v12) = 1, (qword_140E09178 & 0x400000000000LL) != qword_140E09178) )
     {
       LOBYTE(v12) = 0;
     }
@@ -329,7 +329,12 @@ LABEL_9:
       v127 = 29LL;
       v61 = 50331648LL;
       v129 = 8LL;
-      LOBYTE(v12) = tlgWriteAgg((__int64)&dword_140E090F0, (unsigned __int8 *)&byte_140052927, v33, 0x24u, (__int64)v63);
+      LOBYTE(v12) = tlgWriteAgg(
+                      (__int64)&dword_140E09160,
+                      (unsigned __int8 *)&dword_140053194,
+                      v33,
+                      0x24u,
+                      (__int64)v63);
     }
   }
   return v12;

@@ -26,18 +26,14 @@
  *     RtlRaiseStatus @ 0x1800FBD30 (RtlRaiseStatus.c)
  */
 
-__int64 __fastcall sub_18001E620(
-        unsigned __int64 UniqueThread,
-        signed __int64 a2,
-        unsigned __int64 a3,
-        unsigned __int64 a4)
+__int64 __fastcall sub_18001E620(unsigned __int64 BaseAddress, signed __int64 a2, char *a3, char *a4)
 {
   signed __int64 v4; // r14
   bool v5; // zf
-  unsigned __int64 v6; // rsi
+  PVOID v6; // rsi
   __int64 v7; // rbp
   __int64 v8; // r13
-  unsigned __int64 v9; // rdi
+  unsigned __int64 Ptr; // rdi
   int v10; // r9d
   int v11; // r8d
   int v12; // eax
@@ -69,7 +65,7 @@ __int64 __fastcall sub_18001E620(
 
   v4 = a2;
   v5 = dword_1801664E0 == 3;
-  v6 = UniqueThread;
+  v6 = (PVOID)BaseAddress;
   v7 = 0LL;
   *(_QWORD *)(a2 + 8) = 0LL;
   *(_DWORD *)(a2 + 16) = 0;
@@ -77,8 +73,8 @@ __int64 __fastcall sub_18001E620(
   {
     v8 = -1LL;
     v38 = 0;
-    v9 = _InterlockedCompareExchange64(&qword_180166338, 17LL, 0LL);
-    if ( !v9 )
+    Ptr = _InterlockedCompareExchange64((volatile signed __int64 *)&Address, 17LL, 0LL);
+    if ( !Ptr )
     {
 LABEL_3:
       if ( KiUserInvertedFunctionTable != 1 )
@@ -90,7 +86,7 @@ LABEL_3:
           v12 = (v11 + v10) >> 1;
           v13 = *((_QWORD *)&xmmword_18017A4E0 + 3 * v12 + 1);
           v14 = (char *)&xmmword_18017A4E0 + 24 * v12;
-          if ( v6 < v13 )
+          if ( (unsigned __int64)v6 < v13 )
           {
             if ( !v12 )
               break;
@@ -98,7 +94,7 @@ LABEL_3:
           }
           else
           {
-            if ( v6 < v13 + *((unsigned int *)v14 + 4) )
+            if ( (unsigned __int64)v6 < v13 + *((unsigned int *)v14 + 4) )
             {
               *(_OWORD *)v4 = *(_OWORD *)v14;
               *(_QWORD *)(v4 + 16) = *((_QWORD *)v14 + 2);
@@ -109,11 +105,11 @@ LABEL_3:
           }
         }
       }
-      v15 = _InterlockedCompareExchange64(&qword_180166338, 0LL, 17LL);
+      v15 = _InterlockedCompareExchange64((volatile signed __int64 *)&Address, 0LL, 17LL);
       if ( v15 != 17 )
       {
         if ( (v15 & 1) == 0 )
-          RtlRaiseStatus(3221226084LL);
+          RtlRaiseStatus(-1073741212);
         if ( (v15 & 2) != 0 )
         {
 LABEL_25:
@@ -134,11 +130,11 @@ LABEL_25:
               v20 = v8;
             v22 = v15 + v20;
             v23 = v15;
-            v15 = _InterlockedCompareExchange64(&qword_180166338, v22, v15);
+            v15 = _InterlockedCompareExchange64((volatile signed __int64 *)&Address, v22, v15);
           }
           while ( v23 != v15 );
           if ( v21 == 2 )
-            sub_180035E30(&qword_180166338, v22, 0LL);
+            sub_180035E30(&Address, v22, 0LL);
           goto LABEL_14;
         }
         while ( 1 )
@@ -147,7 +143,7 @@ LABEL_25:
           if ( (v15 & 0xFFFFFFFFFFFFFFF0uLL) != 0x10 )
             v18 = v15 - 16;
           v19 = v15;
-          v15 = _InterlockedCompareExchange64(&qword_180166338, v18, v15);
+          v15 = _InterlockedCompareExchange64((volatile signed __int64 *)&Address, v18, v15);
           if ( v19 == v15 )
             break;
           if ( (v15 & 2) != 0 )
@@ -161,24 +157,24 @@ LABEL_14:
     }
     while ( 1 )
     {
-      v24 = (v9 >> 1) & 1;
-      if ( (v9 & 1) != 0 && (v24 || (v9 & 0xFFFFFFFFFFFFFFF0uLL) == 0) )
+      v24 = (Ptr >> 1) & 1;
+      if ( (Ptr & 1) != 0 && (v24 || (Ptr & 0xFFFFFFFFFFFFFFF0uLL) == 0) )
       {
-        if ( (unsigned __int8)sub_180036790(UniqueThread, a2, a3, a4, v31) )
-          ZwTerminateProcess(-1LL, 3221225547LL);
-        UniqueThread = (unsigned __int64)NtCurrentTeb()->ClientId.UniqueThread;
-        v35 = UniqueThread;
-        LOBYTE(UniqueThread) = 0;
+        if ( (unsigned __int8)sub_180036790(BaseAddress, a2, a3, a4, v31) )
+          ZwTerminateProcess((HANDLE)0xFFFFFFFFFFFFFFFFLL, -1073741749);
+        BaseAddress = (unsigned __int64)NtCurrentTeb()->ClientId.UniqueThread;
+        v35 = BaseAddress;
+        LOBYTE(BaseAddress) = 0;
         v37[0] = 2;
         v34 = 0LL;
         if ( v24 )
         {
           v33 = 0LL;
           v36 = -1;
-          UniqueThread = (unsigned __int8)v9;
-          v32 = v9 & 0xFFFFFFFFFFFFFFF0uLL;
-          a2 = (unsigned __int64)&v32 | v9 & 8 | 7;
-          LOBYTE(UniqueThread) = (v9 & 4) == 0;
+          BaseAddress = (unsigned __int8)Ptr;
+          v32 = Ptr & 0xFFFFFFFFFFFFFFF0uLL;
+          a2 = (unsigned __int64)&v32 | Ptr & 8 | 7;
+          LOBYTE(BaseAddress) = (Ptr & 4) == 0;
         }
         else
         {
@@ -186,73 +182,73 @@ LABEL_14:
           v33 = &v32;
           a2 = (signed __int64)&v32 + 3;
         }
-        v26 = _InterlockedCompareExchange64(&qword_180166338, a2, v9);
-        v5 = v9 == v26;
-        v9 = v26;
+        v26 = _InterlockedCompareExchange64((volatile signed __int64 *)&Address, a2, Ptr);
+        v5 = Ptr == v26;
+        Ptr = v26;
         if ( !v5 )
           goto LABEL_46;
-        if ( (_BYTE)UniqueThread )
-          sub_180077EA8(&qword_180166338);
+        if ( (_BYTE)BaseAddress )
+          sub_180077EA8(&Address);
         if ( MEMORY[0x7FFE036A] > 1u )
         {
           if ( MEMORY[0x7FFE0297] )
           {
-            a3 = __rdtsc();
-            a4 = a3 + (unsigned int)dword_180163EC4;
+            a3 = (char *)__rdtsc();
+            a4 = &a3[dword_180163EC4];
             while ( 1 )
             {
-              UniqueThread = 0LL;
+              BaseAddress = 0LL;
               a2 = 0LL;
               __asm { monitorx rax, rcx, rdx }
               if ( (v37[0] & 2) == 0 )
                 break;
-              UniqueThread = a3;
+              BaseAddress = (unsigned __int64)a3;
               v28 = __rdtsc();
               a2 = (unsigned __int64)HIDWORD(v28) << 32;
-              a3 = v28;
-              if ( v28 <= UniqueThread || v28 >= a4 )
+              a3 = (char *)v28;
+              if ( v28 <= BaseAddress || v28 >= (unsigned __int64)a4 )
                 break;
               __asm { mwaitx  rax, rcx, rbx }
             }
           }
           else
           {
-            UniqueThread = 0LL;
+            BaseAddress = 0LL;
             a2 = dword_180163EC4 / (unsigned int)MEMORY[0x7FFE02D6];
-            while ( (v37[0] & 2) != 0 && (_DWORD)UniqueThread != (_DWORD)a2 )
+            while ( (v37[0] & 2) != 0 && (_DWORD)BaseAddress != (_DWORD)a2 )
             {
               _mm_pause();
-              UniqueThread = (unsigned int)(UniqueThread + 1);
+              BaseAddress = (unsigned int)(BaseAddress + 1);
             }
           }
         }
         if ( _interlockedbittestandreset(v37, 1u) )
         {
           do
-            ZwWaitForAlertByThreadId(&qword_180166338, 0LL);
+            ZwWaitForAlertByThreadId(&Address, 0LL);
           while ( (v37[0] & 4) == 0 );
         }
       }
       else
       {
-        v25 = (v9 | 1) + 16;
+        v25 = (Ptr | 1) + 16;
         if ( v24 )
-          v25 = v9 | 1;
-        if ( v9 == _InterlockedCompareExchange64(&qword_180166338, v25, v9) )
+          v25 = Ptr | 1;
+        if ( Ptr == _InterlockedCompareExchange64((volatile signed __int64 *)&Address, v25, Ptr) )
           goto LABEL_3;
 LABEL_46:
         sub_1800365A0(&v38);
-        _m_prefetchw(&qword_180166338);
-        v9 = qword_180166338;
+        _m_prefetchw(&Address);
+        Ptr = (unsigned __int64)Address.Ptr;
       }
     }
   }
 LABEL_16:
-  v17 = sub_18001E9BC(v6, v4 + 16);
+  v17 = sub_18001E9BC(v6);
   *(_QWORD *)(v4 + 8) = v17;
   if ( v17 )
   {
-    if ( (int)sub_18001C4DC(v17, 1, 3u, (_DWORD *)(v4 + 20), &v39) < 0 )
+    if ( sub_18001C4DC(v17, 1, 3u, (DWORD *)(v4 + 20), &v39) < 0 )
     {
       v7 = 0LL;
       *(_QWORD *)v4 = 0LL;

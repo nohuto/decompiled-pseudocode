@@ -1,8 +1,8 @@
 /*
- * XREFs of MiClusterVadFull @ 0x1402C6128
+ * XREFs of MiClusterVadFull @ 0x1402C6318
  * Callers:
- *     MiPfnsWorthTrying @ 0x14009A7B0 (MiPfnsWorthTrying.c)
- *     MiTrimSharedPage @ 0x1400E9770 (MiTrimSharedPage.c)
+ *     MiPfnsWorthTrying @ 0x14009A6F0 (MiPfnsWorthTrying.c)
+ *     MiTrimSharedPage @ 0x1400E97F0 (MiTrimSharedPage.c)
  * Callees:
  *     <none>
  */

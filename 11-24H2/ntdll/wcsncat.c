@@ -1,11 +1,11 @@
 /*
- * XREFs of wcsncat @ 0x1801278F0
+ * XREFs of wcsncat @ 0x180125B20
  * Callers:
  *     <none>
  * Callees:
- *     wcslen @ 0x1801277D0 (wcslen.c)
- *     wcsnlen @ 0x180127A20 (wcsnlen.c)
- *     memmove @ 0x180167400 (memmove.c)
+ *     wcslen @ 0x180125A00 (wcslen.c)
+ *     wcsnlen @ 0x180125C50 (wcsnlen.c)
+ *     memmove @ 0x1801657C0 (memmove.c)
  */
 
 wchar_t *__cdecl wcsncat(wchar_t *Destination, const wchar_t *Source, size_t Count)

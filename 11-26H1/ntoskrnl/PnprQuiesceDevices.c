@@ -1,16 +1,16 @@
 /*
- * XREFs of PnprQuiesceDevices @ 0x140BF20F0
+ * XREFs of PnprQuiesceDevices @ 0x140BF80F0
  * Callers:
- *     PnpReplacePartitionUnit @ 0x1407ADDC0 (PnpReplacePartitionUnit.c)
- *     PnprQuiesceWorker @ 0x140BF2BF0 (PnprQuiesceWorker.c)
+ *     PnpReplacePartitionUnit @ 0x1407B0E20 (PnpReplacePartitionUnit.c)
+ *     PnprQuiesceWorker @ 0x140BF8BF0 (PnprQuiesceWorker.c)
  * Callees:
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     PoStartPartitionReplace @ 0x1407D10AC (PoStartPartitionReplace.c)
- *     PoStartPowerStateTasks @ 0x140A39A0C (PoStartPowerStateTasks.c)
- *     PoInitializeBroadcast @ 0x140AC58BC (PoInitializeBroadcast.c)
- *     PoBlockConsoleSwitch @ 0x140B54220 (PoBlockConsoleSwitch.c)
- *     PnprGetMillisecondCounter @ 0x140BF16E4 (PnprGetMillisecondCounter.c)
- *     PoBroadcastSystemState @ 0x140C05D10 (PoBroadcastSystemState.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     PoStartPartitionReplace @ 0x1407D414C (PoStartPartitionReplace.c)
+ *     PoStartPowerStateTasks @ 0x1409F5614 (PoStartPowerStateTasks.c)
+ *     PoInitializeBroadcast @ 0x140AC752C (PoInitializeBroadcast.c)
+ *     PoBlockConsoleSwitch @ 0x140B56AC0 (PoBlockConsoleSwitch.c)
+ *     PnprGetMillisecondCounter @ 0x140BF76E4 (PnprGetMillisecondCounter.c)
+ *     PoBroadcastSystemState @ 0x140C0BF20 (PoBroadcastSystemState.c)
  */
 
 __int64 __fastcall PnprQuiesceDevices(int *a1)
@@ -53,11 +53,11 @@ __int64 __fastcall PnprQuiesceDevices(int *a1)
       started = PoBroadcastSystemState(a1 + 1);
       if ( started >= 0 )
         goto LABEL_16;
-      v7 = 2005;
+      v7 = 1839;
     }
     else
     {
-      v7 = 1987;
+      v7 = 1821;
     }
     v8 = PnprContext;
     v9 = *(_DWORD *)(PnprContext + 33288);
@@ -74,7 +74,7 @@ __int64 __fastcall PnprQuiesceDevices(int *a1)
     v4 = PnprContext;
     v5 = *(_DWORD *)(PnprContext + 33288);
     if ( !v5 )
-      v5 = 1964;
+      v5 = 1798;
     v6 = *(_DWORD *)(PnprContext + 33292);
     *(_DWORD *)(PnprContext + 33288) = v5;
     if ( !v6 )

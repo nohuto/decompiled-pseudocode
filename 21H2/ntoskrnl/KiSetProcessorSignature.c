@@ -1,14 +1,14 @@
 /*
- * XREFs of KiSetProcessorSignature @ 0x14099EA34
+ * XREFs of KiSetProcessorSignature @ 0x14099F964
  * Callers:
- *     KiInitializeBootStructures @ 0x14099C160 (KiInitializeBootStructures.c)
- *     KiSetFeatureBits @ 0x14099CB6C (KiSetFeatureBits.c)
+ *     KiInitializeBootStructures @ 0x14099D160 (KiInitializeBootStructures.c)
+ *     KiSetFeatureBits @ 0x14099DB6C (KiSetFeatureBits.c)
  * Callees:
- *     KeGetPrcb @ 0x140228E30 (KeGetPrcb.c)
- *     __security_check_cookie @ 0x1403D0460 (__security_check_cookie.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     KdInitSystem @ 0x1409B5160 (KdInitSystem.c)
- *     KiPublishProcessorFeatures @ 0x140A40A08 (KiPublishProcessorFeatures.c)
+ *     KeGetPrcb @ 0x1402CD730 (KeGetPrcb.c)
+ *     __security_check_cookie @ 0x1403D05D0 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     KdInitSystem @ 0x1409B6160 (KdInitSystem.c)
+ *     KiPublishProcessorFeatures @ 0x140A41A08 (KiPublishProcessorFeatures.c)
  */
 
 __int64 __fastcall KiSetProcessorSignature(__int64 a1, int a2)
@@ -179,8 +179,8 @@ LABEL_40:
   while ( v56 < 0x2F );
   for ( i = 0LL; (unsigned int)i < 2; i = (unsigned int)(i + 1) )
   {
-    v34 = (unsigned int *)(0x140000000LL + 24 * i + 24896);
-    v35 = *(_DWORD *)(0x140000004LL + 24 * i + 24896);
+    v34 = (unsigned int *)(0x140000000LL + 24 * i + 24912);
+    v35 = *(_DWORD *)(0x140000004LL + 24 * i + 24912);
     if ( (v35 & 2) == 0 )
     {
       if ( !HIBYTE(v35) || (v36 = HIBYTE(v35), _bittest((const int *)&v36, *(unsigned __int8 *)(a1 + 141))) )
@@ -195,10 +195,10 @@ LABEL_40:
             continue;
           v37 = v16;
         }
-        if ( (v37 & *(_QWORD *)(0x140000010LL + 24 * i + 24896)) == *(_QWORD *)(0x140000010LL + 24 * i + 24896) )
+        if ( (v37 & *(_QWORD *)(0x140000010LL + 24 * i + 24912)) == *(_QWORD *)(0x140000010LL + 24 * i + 24912) )
         {
           v38 = __readmsr(*v34);
-          for ( j = *(_QWORD *)(0x140000008LL + 24 * i + 24896); ; j += 24LL )
+          for ( j = *(_QWORD *)(0x140000008LL + 24 * i + 24912); ; j += 24LL )
           {
             v14 = *(_QWORD *)j;
             if ( !*(_QWORD *)j )
@@ -279,7 +279,7 @@ LABEL_103:
     if ( *((_DWORD *)&KiCpuTable[1] + 5 * v44) == 19 )
       goto LABEL_86;
   }
-  *(_DWORD *)(a1 + 1740) = dword_140021BB0[5 * v45];
+  *(_DWORD *)(a1 + 1740) = dword_140021C70[5 * v45];
 LABEL_86:
   v47 = *(_DWORD *)(a1 + 36);
   if ( v47 )

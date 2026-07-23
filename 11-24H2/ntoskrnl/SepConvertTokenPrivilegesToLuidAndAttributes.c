@@ -1,9 +1,9 @@
 /*
- * XREFs of SepConvertTokenPrivilegesToLuidAndAttributes @ 0x140424630
+ * XREFs of SepConvertTokenPrivilegesToLuidAndAttributes @ 0x1404184E0
  * Callers:
- *     SeQueryInformationToken @ 0x14090D870 (SeQueryInformationToken.c)
- *     SepCopyTokenAccessInformation @ 0x1409E2D6C (SepCopyTokenAccessInformation.c)
- *     NtQueryInformationToken @ 0x140AD3370 (NtQueryInformationToken.c)
+ *     SeQueryInformationToken @ 0x1408E4F90 (SeQueryInformationToken.c)
+ *     SepCopyTokenAccessInformation @ 0x1409DD7CC (SepCopyTokenAccessInformation.c)
+ *     NtQueryInformationToken @ 0x140AD09E0 (NtQueryInformationToken.c)
  * Callees:
  *     <none>
  */

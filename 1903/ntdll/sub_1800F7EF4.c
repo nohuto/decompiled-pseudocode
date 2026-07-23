@@ -31,6 +31,6 @@ __int64 __fastcall sub_1800F7EF4(__int64 a1)
   v6 = i[4];
   i[3] = 0LL;
 LABEL_8:
-  RtlReleaseSRWLockExclusive(*(volatile signed __int64 **)(qword_1801669E8 + 8 * v3));
+  RtlReleaseSRWLockExclusive(*(PRTL_SRWLOCK *)(qword_1801669E8 + 8 * v3));
   return v6;
 }

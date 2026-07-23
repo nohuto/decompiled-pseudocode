@@ -61,8 +61,8 @@ void __fastcall HalpTimerStallExecutionProcessor(__int64 a1, __int64 a2, char a3
   __int128 v43; // [rsp+40h] [rbp-88h] BYREF
   int v44; // [rsp+50h] [rbp-78h]
   __int64 v45; // [rsp+58h] [rbp-70h]
-  struct _GROUP_AFFINITY v46; // [rsp+60h] [rbp-68h] BYREF
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+70h] [rbp-58h] BYREF
+  _GROUP_AFFINITY v46; // [rsp+60h] [rbp-68h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+70h] [rbp-58h] BYREF
   int v48; // [rsp+C0h] [rbp-8h]
 
   v3 = *(_DWORD *)(a1 + 224);

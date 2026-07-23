@@ -2,14 +2,14 @@
  * XREFs of MmAllocatePartitionNodePagesForMdlEx @ 0x140010F40
  * Callers:
  *     MmAllocatePagesForMdlEx @ 0x140010EE0 (MmAllocatePagesForMdlEx.c)
- *     MmAllocateNodePagesForMdlEx @ 0x140192CF0 (MmAllocateNodePagesForMdlEx.c)
- *     HvlpDepositPages @ 0x140271BA0 (HvlpDepositPages.c)
- *     MmAllocateSecureKernelPages @ 0x1402C2E4C (MmAllocateSecureKernelPages.c)
- *     KiComputeNumaCosts @ 0x1409C5C3C (KiComputeNumaCosts.c)
+ *     MmAllocateNodePagesForMdlEx @ 0x140192E30 (MmAllocateNodePagesForMdlEx.c)
+ *     HvlpDepositPages @ 0x140271D90 (HvlpDepositPages.c)
+ *     MmAllocateSecureKernelPages @ 0x1402C303C (MmAllocateSecureKernelPages.c)
+ *     KiComputeNumaCosts @ 0x1409C6C3C (KiComputeNumaCosts.c)
  * Callees:
  *     MiAllocatePagesForMdl @ 0x140011048 (MiAllocatePagesForMdl.c)
  *     MiPartitionObjectToPartition @ 0x140011CE4 (MiPartitionObjectToPartition.c)
- *     PsDereferencePartition @ 0x140090CC0 (PsDereferencePartition.c)
+ *     PsDereferencePartition @ 0x140090C00 (PsDereferencePartition.c)
  */
 
 __int64 __fastcall MmAllocatePartitionNodePagesForMdlEx(

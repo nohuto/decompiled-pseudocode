@@ -3,8 +3,8 @@
  * Callers:
  *     LdrpInitializeProcess @ 0x1800D3FB4 (LdrpInitializeProcess.c)
  * Callees:
- *     __security_check_cookie @ 0x18008FEC0 (__security_check_cookie.c)
- *     NtQuerySystemInformation @ 0x1800A09A0 (NtQuerySystemInformation.c)
+ *     __security_check_cookie @ 0x18008FED0 (__security_check_cookie.c)
+ *     NtQuerySystemInformation @ 0x1800A09C0 (NtQuerySystemInformation.c)
  */
 
 NTSTATUS RtlpInitializeNonVolatileFlush()
@@ -12,10 +12,10 @@ NTSTATUS RtlpInitializeNonVolatileFlush()
   NTSTATUS result; // eax
   char v1; // al
   _BYTE SystemInformation[4]; // [rsp+20h] [rbp-38h] BYREF
-  unsigned int v3; // [rsp+24h] [rbp-34h]
+  unsigned __int32 v3; // [rsp+24h] [rbp-34h]
   char v4; // [rsp+28h] [rbp-30h]
 
-  result = NtQuerySystemInformation((SYSTEM_INFORMATION_CLASS)192, SystemInformation, 0x20u, 0LL);
+  result = NtQuerySystemInformation(SystemFlushInformation, SystemInformation, 0x20u, 0LL);
   if ( result >= 0 )
   {
     v1 = RtlpIsFlushRequired;

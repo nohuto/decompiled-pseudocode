@@ -1,10 +1,10 @@
 /*
- * XREFs of IvtUpdateExtendedDestination @ 0x1404E0FBC
+ * XREFs of IvtUpdateExtendedDestination @ 0x1404E11FC
  * Callers:
- *     IvtUpdateRemappingDestination @ 0x1404E11A0 (IvtUpdateRemappingDestination.c)
- *     HsaUpdateRemappingDestination @ 0x1404E4710 (HsaUpdateRemappingDestination.c)
+ *     IvtUpdateRemappingDestination @ 0x1404E13E0 (IvtUpdateRemappingDestination.c)
+ *     HsaUpdateRemappingDestination @ 0x1404E4950 (HsaUpdateRemappingDestination.c)
  * Callees:
- *     IvtUpdateSingleTargetExtendedDestination @ 0x1404E1440 (IvtUpdateSingleTargetExtendedDestination.c)
+ *     IvtUpdateSingleTargetExtendedDestination @ 0x1404E1680 (IvtUpdateSingleTargetExtendedDestination.c)
  */
 
 __int64 __fastcall IvtUpdateExtendedDestination(int a1, char a2, int a3, int a4, int a5)

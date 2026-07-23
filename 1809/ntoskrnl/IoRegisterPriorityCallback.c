@@ -1,12 +1,12 @@
 /*
- * XREFs of IoRegisterPriorityCallback @ 0x1401865D0
+ * XREFs of IoRegisterPriorityCallback @ 0x140186710
  * Callers:
  *     <none>
  * Callees:
- *     ExInitializePushLock @ 0x14008A400 (ExInitializePushLock.c)
- *     ExCompareExchangeCallBack @ 0x14018667C (ExCompareExchangeCallBack.c)
- *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
- *     ?Free@SC_ENV@@SAXPEAX@Z @ 0x1406C2880 (-Free@SC_ENV@@SAXPEAX@Z.c)
+ *     ExInitializePushLock @ 0x14008A3F0 (ExInitializePushLock.c)
+ *     ExCompareExchangeCallBack @ 0x1401867BC (ExCompareExchangeCallBack.c)
+ *     ExAllocatePoolWithTag @ 0x14034C010 (ExAllocatePoolWithTag.c)
+ *     ?Free@SC_ENV@@SAXPEAX@Z @ 0x1406C3B20 (-Free@SC_ENV@@SAXPEAX@Z.c)
  */
 
 __int64 __fastcall IoRegisterPriorityCallback(KSPIN_LOCK a1, KSPIN_LOCK a2)

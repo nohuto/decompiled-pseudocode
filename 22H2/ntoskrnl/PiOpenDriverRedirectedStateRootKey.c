@@ -12,7 +12,7 @@
 
 __int64 __fastcall PiOpenDriverRedirectedStateRootKey(__int64 a1, _QWORD *a2)
 {
-  int StateRootPath; // ebx
+  NTSTATUS StateRootPath; // ebx
   HANDLE v4; // rax
   UNICODE_STRING DestinationString; // [rsp+20h] [rbp-40h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+30h] [rbp-30h] BYREF
@@ -24,7 +24,7 @@ __int64 __fastcall PiOpenDriverRedirectedStateRootKey(__int64 a1, _QWORD *a2)
   RtlInitUnicodeString(&DestinationString, 0LL);
   if ( a2 )
   {
-    StateRootPath = PiGetStateRootPath(L"DriverStatePath", 0LL, 0, &DestinationString);
+    StateRootPath = PiGetStateRootPath(L"DriverStatePath", 0LL, LocationTypeRegistry, &DestinationString);
     if ( StateRootPath >= 0 )
     {
       ObjectAttributes.RootDirectory = 0LL;

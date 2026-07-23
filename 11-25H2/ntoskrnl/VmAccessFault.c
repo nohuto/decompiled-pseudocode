@@ -86,7 +86,7 @@ __int64 __fastcall VmAccessFault(
     v15 = &v40;
     if ( v10 > 0x10 || *(_QWORD *)(a1 + 8) > 0x10uLL )
     {
-      v27 = (char *)ExAllocateFromLookasideListEx(&VmpLargeFaultBatchLookasideList);
+      v27 = (char *)ExAllocateFromLookasideListEx((PLOOKASIDE_LIST_EX)&VmpLargeFaultBatchLookasideList);
       v7 = v27;
       if ( v27 )
       {
@@ -154,7 +154,7 @@ __int64 __fastcall VmAccessFault(
     }
 LABEL_24:
     if ( v7 )
-      ExFreeToLookasideListEx(&VmpLargeFaultBatchLookasideList, v7);
+      ExFreeToLookasideListEx((PLOOKASIDE_LIST_EX)&VmpLargeFaultBatchLookasideList, v7);
     v12 = v33;
     v13 = a5;
     v10 = v37;

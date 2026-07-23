@@ -47,7 +47,7 @@ BOOLEAN __fastcall ExpWorkerThread(ULONG_PTR BugCheckParameter2)
   signed __int32 v25[8]; // [rsp+0h] [rbp-98h] BYREF
   __int64 v26; // [rsp+30h] [rbp-68h]
   __int64 v27; // [rsp+38h] [rbp-60h]
-  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+40h] [rbp-58h] BYREF
+  _GROUP_AFFINITY PreviousAffinity; // [rsp+40h] [rbp-58h] BYREF
   unsigned int v29; // [rsp+90h] [rbp-8h]
 
   CurrentThread = KeGetCurrentThread();

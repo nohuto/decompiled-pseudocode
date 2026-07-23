@@ -51,11 +51,11 @@ __int64 __fastcall MiSessionCreateInternal(ULONG_PTR *a1)
   __int64 v17; // rax
   void *CurrentServerSilo; // rax
   unsigned int v20; // edi
-  struct _RTL_BITMAP *PoolWithTag; // rax
+  _RTL_BITMAP *PoolWithTag; // rax
   __int64 v22; // rdx
   __int64 v23; // r8
   __int64 v24; // r9
-  struct _RTL_BITMAP *v25; // r14
+  _RTL_BITMAP *v25; // r14
   __int64 v26; // [rsp+30h] [rbp-68h] BYREF
   __int64 v27; // [rsp+38h] [rbp-60h]
   LARGE_INTEGER v28; // [rsp+40h] [rbp-58h] BYREF
@@ -75,10 +75,10 @@ __int64 __fastcall MiSessionCreateInternal(ULONG_PTR *a1)
     v20 = qword_1403CC590->SizeOfBitMap + 128;
     if ( v20 > 0x7FFFF )
       v20 = 0x7FFFF;
-    PoolWithTag = (struct _RTL_BITMAP *)ExAllocatePoolWithTag(
-                                          PagedPool,
-                                          8 * ((v20 >> 6) + ((v20 & 0x3F) != 0) + 2),
-                                          0x20206D4Du);
+    PoolWithTag = (_RTL_BITMAP *)ExAllocatePoolWithTag(
+                                   PagedPool,
+                                   8 * ((v20 >> 6) + ((v20 & 0x3F) != 0) + 2),
+                                   0x20206D4Du);
     v25 = PoolWithTag;
     if ( !PoolWithTag )
       goto LABEL_22;
@@ -111,7 +111,7 @@ __int64 __fastcall MiSessionCreateInternal(ULONG_PTR *a1)
         *(_DWORD *)(v13 + 112) = PsDefaultSystemLocaleId;
         *(_QWORD *)v13 = 1LL;
         *(_DWORD *)(v13 + 8) = ClearBitsAndSet;
-        *(_QWORD *)(v13 + 8312) = KeQueryInterruptTimePrecise(&v28);
+        *(LARGE_INTEGER *)(v13 + 8312) = KeQueryInterruptTimePrecise(&v28);
         PdeAddress = MiGetPdeAddress(v2);
         v26 = MI_READ_PTE_LOCK_FREE(PdeAddress);
         *(_QWORD *)(v13 + 32) = ((unsigned __int64)MI_READ_PTE_LOCK_FREE((unsigned __int64)&v26) >> 12) & 0xFFFFFFFFFLL;

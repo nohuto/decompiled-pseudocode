@@ -1,9 +1,9 @@
 /*
- * XREFs of RaspClearCache @ 0x140C54E48
+ * XREFs of RaspClearCache @ 0x140C5AE48
  * Callers:
- *     BgpTxtCacheDestroy @ 0x140C52AAC (BgpTxtCacheDestroy.c)
+ *     BgpTxtCacheDestroy @ 0x140C58AAC (BgpTxtCacheDestroy.c)
  * Callees:
- *     RaspDestroyCachedBitmap @ 0x140C54EA4 (RaspDestroyCachedBitmap.c)
+ *     RaspDestroyCachedBitmap @ 0x140C5AEA4 (RaspDestroyCachedBitmap.c)
  */
 
 _XSAVE_FORMAT *RaspClearCache()

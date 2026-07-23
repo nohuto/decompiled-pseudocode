@@ -1,13 +1,13 @@
 /*
- * XREFs of MiInitializePteInfo @ 0x140A4E918
+ * XREFs of MiInitializePteInfo @ 0x140A4F918
  * Callers:
- *     MiInitializeSystemSpaceMap @ 0x140786750 (MiInitializeSystemSpaceMap.c)
- *     MiInitializeKernelStacks @ 0x140A4D410 (MiInitializeKernelStacks.c)
- *     MiInitializeSystemPtes @ 0x140A4E1C4 (MiInitializeSystemPtes.c)
+ *     MiInitializeSystemSpaceMap @ 0x140786910 (MiInitializeSystemSpaceMap.c)
+ *     MiInitializeKernelStacks @ 0x140A4E410 (MiInitializeKernelStacks.c)
+ *     MiInitializeSystemPtes @ 0x140A4F1C4 (MiInitializeSystemPtes.c)
  * Callees:
- *     MiReservePtes @ 0x1402265B0 (MiReservePtes.c)
- *     MiReleasePtes @ 0x140245800 (MiReleasePtes.c)
- *     MiInitializeDynamicBitmap @ 0x1407868DC (MiInitializeDynamicBitmap.c)
+ *     MiReservePtes @ 0x1402CAEB0 (MiReservePtes.c)
+ *     MiReleasePtes @ 0x1402EA050 (MiReleasePtes.c)
+ *     MiInitializeDynamicBitmap @ 0x140786A9C (MiInitializeDynamicBitmap.c)
  */
 
 __int64 __fastcall MiInitializePteInfo(
@@ -36,7 +36,7 @@ __int64 __fastcall MiInitializePteInfo(
   if ( !a3 )
   {
     v7 = ((((v9 + a7 - 1LL) / a7 + 7) >> 3) + 4095) >> 12;
-    v14 = MiReservePtes((__int64)&qword_140C4EF40, v7, 0LL, a4);
+    v14 = MiReservePtes((__int64)&qword_140C4EF80, v7, 0LL, a4);
     v8 = (_QWORD *)v14;
     if ( !v14 )
       return 0LL;
@@ -45,7 +45,7 @@ __int64 __fastcall MiInitializePteInfo(
   if ( !(unsigned int)MiInitializeDynamicBitmap((_QWORD *)a1, v11, v9 / a7, v10) )
   {
     if ( v8 )
-      MiReleasePtes((__int64)&qword_140C4EF40, v8, v7);
+      MiReleasePtes((__int64)&qword_140C4EF80, v8, v7);
     return 0LL;
   }
   *(_DWORD *)(a1 + 24) = 2;

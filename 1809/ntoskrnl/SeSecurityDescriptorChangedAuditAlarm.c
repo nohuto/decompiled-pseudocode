@@ -1,21 +1,21 @@
 /*
- * XREFs of SeSecurityDescriptorChangedAuditAlarm @ 0x1405BA094
+ * XREFs of SeSecurityDescriptorChangedAuditAlarm @ 0x1405BB094
  * Callers:
- *     NtSetSecurityObject @ 0x1405B9CF0 (NtSetSecurityObject.c)
+ *     NtSetSecurityObject @ 0x1405BACF0 (NtSetSecurityObject.c)
  * Callees:
- *     RtlCompareMemory @ 0x1401C5BD0 (RtlCompareMemory.c)
- *     SeMaximumAuditMask @ 0x1402FE870 (SeMaximumAuditMask.c)
- *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
- *     SepAdtAuditThisEventWithContext @ 0x1405BBA50 (SepAdtAuditThisEventWithContext.c)
- *     SeReleaseSubjectContext @ 0x1405E1240 (SeReleaseSubjectContext.c)
- *     SeCaptureSubjectContext @ 0x140631A80 (SeCaptureSubjectContext.c)
- *     SepQueryNameString @ 0x14065DB94 (SepQueryNameString.c)
- *     SepAdtSecurityDescriptorChangedAuditAlarm @ 0x14089F1D0 (SepAdtSecurityDescriptorChangedAuditAlarm.c)
- *     SepQueryTypeString @ 0x14089F978 (SepQueryTypeString.c)
- *     SeMaximumAuditMaskFromGlobalSacl @ 0x1408A3A00 (SeMaximumAuditMaskFromGlobalSacl.c)
- *     SepIsAclEqual @ 0x1408A3B9C (SepIsAclEqual.c)
- *     SepIsSidEqual @ 0x1408A3C1C (SepIsSidEqual.c)
- *     SepAuditFailed @ 0x1408A4780 (SepAuditFailed.c)
+ *     RtlCompareMemory @ 0x1401C5D30 (RtlCompareMemory.c)
+ *     SeMaximumAuditMask @ 0x1402FEA60 (SeMaximumAuditMask.c)
+ *     ExFreePoolWithTag @ 0x14034CC60 (ExFreePoolWithTag.c)
+ *     SepAdtAuditThisEventWithContext @ 0x1405BCA50 (SepAdtAuditThisEventWithContext.c)
+ *     SeReleaseSubjectContext @ 0x1405E2240 (SeReleaseSubjectContext.c)
+ *     SeCaptureSubjectContext @ 0x140632AA0 (SeCaptureSubjectContext.c)
+ *     SepQueryNameString @ 0x14065ED54 (SepQueryNameString.c)
+ *     SepAdtSecurityDescriptorChangedAuditAlarm @ 0x1408A0430 (SepAdtSecurityDescriptorChangedAuditAlarm.c)
+ *     SepQueryTypeString @ 0x1408A0BD8 (SepQueryTypeString.c)
+ *     SeMaximumAuditMaskFromGlobalSacl @ 0x1408A4C60 (SeMaximumAuditMaskFromGlobalSacl.c)
+ *     SepIsAclEqual @ 0x1408A4DFC (SepIsAclEqual.c)
+ *     SepIsSidEqual @ 0x1408A4E7C (SepIsSidEqual.c)
+ *     SepAuditFailed @ 0x1408A59E0 (SepAuditFailed.c)
  */
 
 void __fastcall SeSecurityDescriptorChangedAuditAlarm(

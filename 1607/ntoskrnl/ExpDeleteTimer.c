@@ -1,15 +1,15 @@
 /*
- * XREFs of ExpDeleteTimer @ 0x1400C3408
+ * XREFs of ExpDeleteTimer @ 0x1400C1298
  * Callers:
  *     <none>
  * Callees:
- *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
- *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
- *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
- *     PsRemoveVirtualizedTimer @ 0x1400AC704 (PsRemoveVirtualizedTimer.c)
- *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
- *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
- *     PoDestroyReasonContext @ 0x1400FB8C8 (PoDestroyReasonContext.c)
+ *     KeAbPreAcquire @ 0x14002BD30 (KeAbPreAcquire.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055B20 (KiLeaveCriticalRegionUnsafe.c)
+ *     KeAbPostRelease @ 0x14006AA40 (KeAbPostRelease.c)
+ *     PsRemoveVirtualizedTimer @ 0x1400AAC6C (PsRemoveVirtualizedTimer.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C5F10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x1400C65D8 (ExfTryToWakePushLock.c)
+ *     PoDestroyReasonContext @ 0x1400F9654 (PoDestroyReasonContext.c)
  */
 
 BOOLEAN __fastcall ExpDeleteTimer(__int64 a1)

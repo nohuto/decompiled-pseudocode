@@ -1,12 +1,12 @@
 /*
- * XREFs of CompareNamesCaseSensitive @ 0x14077F38C
+ * XREFs of CompareNamesCaseSensitive @ 0x14077F2BC
  * Callers:
- *     PfxFindPrefix @ 0x14077F610 (PfxFindPrefix.c)
- *     PfxInsertPrefix @ 0x14077F710 (PfxInsertPrefix.c)
+ *     PfxFindPrefix @ 0x14077F540 (PfxFindPrefix.c)
+ *     PfxInsertPrefix @ 0x14077F640 (PfxInsertPrefix.c)
  * Callees:
- *     PsGetCurrentServerSiloGlobals @ 0x140347D10 (PsGetCurrentServerSiloGlobals.c)
- *     RtlCompareMemory @ 0x1406B3990 (RtlCompareMemory.c)
- *     RtlpIsUtf8Process @ 0x1408AF8F0 (RtlpIsUtf8Process.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140326710 (PsGetCurrentServerSiloGlobals.c)
+ *     RtlCompareMemory @ 0x1406B4930 (RtlCompareMemory.c)
+ *     RtlpIsUtf8Process @ 0x140905B50 (RtlpIsUtf8Process.c)
  */
 
 __int64 __fastcall CompareNamesCaseSensitive(unsigned __int16 *a1, unsigned __int16 *a2)

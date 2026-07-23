@@ -1,22 +1,21 @@
 /*
- * XREFs of FsRtlInitSystem @ 0x140C18D7C
+ * XREFs of FsRtlInitSystem @ 0x140C1AD7C
  * Callers:
- *     Phase1InitializationDiscard @ 0x140C0C048 (Phase1InitializationDiscard.c)
+ *     Phase1InitializationDiscard @ 0x140C0E048 (Phase1InitializationDiscard.c)
  * Callees:
- *     ExInitializeResourceLite2 @ 0x140365350 (ExInitializeResourceLite2.c)
- *     Feature_5466_1379__private_IsEnabledDeviceUsageNoInline @ 0x14057F78C (Feature_5466_1379__private_IsEnabledDeviceUsageNoInline.c)
- *     FsFilterInit @ 0x14058180C (FsFilterInit.c)
- *     FsRtlInitializeDedupChange @ 0x14070CB70 (FsRtlInitializeDedupChange.c)
- *     FsRtlInitializeTieringHeat @ 0x14070D6A8 (FsRtlInitializeTieringHeat.c)
- *     ExInitializePagedLookasideList @ 0x140A94D10 (ExInitializePagedLookasideList.c)
- *     ExAllocatePoolWithTag @ 0x140B72010 (ExAllocatePoolWithTag.c)
- *     FsRtlGetCompatibilityModeValue @ 0x140C18C14 (FsRtlGetCompatibilityModeValue.c)
- *     FsRtlInitializeSmssEvent @ 0x140C18ECC (FsRtlInitializeSmssEvent.c)
- *     FsRtlInitializeLargeMcbs @ 0x140C18FC4 (FsRtlInitializeLargeMcbs.c)
- *     FsRtlInitializeTunnels @ 0x140C1906C (FsRtlInitializeTunnels.c)
- *     FsRtlInitializeFileLocks @ 0x140C1915C (FsRtlInitializeFileLocks.c)
- *     FsRtlInitializeOplockPerf @ 0x140C192F4 (FsRtlInitializeOplockPerf.c)
- *     FsRtlInitializeWorkerThread @ 0x140C194A8 (FsRtlInitializeWorkerThread.c)
+ *     ExInitializeResourceLite2 @ 0x1403EAA00 (ExInitializeResourceLite2.c)
+ *     FsFilterInit @ 0x14057EB8C (FsFilterInit.c)
+ *     FsRtlInitializeDedupChange @ 0x14070A710 (FsRtlInitializeDedupChange.c)
+ *     FsRtlInitializeTieringHeat @ 0x14070B248 (FsRtlInitializeTieringHeat.c)
+ *     ExInitializePagedLookasideList @ 0x140A914C0 (ExInitializePagedLookasideList.c)
+ *     ExAllocatePoolWithTag @ 0x140B74010 (ExAllocatePoolWithTag.c)
+ *     FsRtlGetCompatibilityModeValue @ 0x140C1AC14 (FsRtlGetCompatibilityModeValue.c)
+ *     FsRtlInitializeSmssEvent @ 0x140C1AEC0 (FsRtlInitializeSmssEvent.c)
+ *     FsRtlInitializeLargeMcbs @ 0x140C1AFB8 (FsRtlInitializeLargeMcbs.c)
+ *     FsRtlInitializeTunnels @ 0x140C1B060 (FsRtlInitializeTunnels.c)
+ *     FsRtlInitializeFileLocks @ 0x140C1B150 (FsRtlInitializeFileLocks.c)
+ *     FsRtlInitializeOplockPerf @ 0x140C1B2E8 (FsRtlInitializeOplockPerf.c)
+ *     FsRtlInitializeWorkerThread @ 0x140C1B49C (FsRtlInitializeWorkerThread.c)
  */
 
 bool FsRtlInitSystem()
@@ -51,11 +50,10 @@ bool FsRtlInitSystem()
   FsRtlpUncSemaphore.Limit = 0x7FFFFFFF;
   *(_DWORD *)&ValueName.Length = 3276848;
   if ( FsRtlGetCompatibilityModeValue(&ValueName, &v4) >= 0 && v4 )
-    BYTE2(NlsMbCodePageTag) = 0;
+    FsRtlSafeExtensions = 0;
   if ( (int)FsRtlInitializeWorkerThread() < 0 || (int)FsFilterInit() < 0 || (int)FsRtlInitializeSmssEvent() < 0 )
     return 0;
   FsRtlInitializeTieringHeat();
   FsRtlInitializeDedupChange();
-  return !(unsigned int)Feature_5466_1379__private_IsEnabledDeviceUsageNoInline()
-      || (int)FsRtlInitializeOplockPerf() >= 0;
+  return (int)FsRtlInitializeOplockPerf() >= 0;
 }

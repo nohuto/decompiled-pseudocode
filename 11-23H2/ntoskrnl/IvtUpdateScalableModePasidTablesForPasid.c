@@ -1,15 +1,15 @@
 /*
- * XREFs of IvtUpdateScalableModePasidTablesForPasid @ 0x14052DE30
+ * XREFs of IvtUpdateScalableModePasidTablesForPasid @ 0x14052E380
  * Callers:
- *     IvtUpdateScalableModeTranslationStructures @ 0x14052DF0C (IvtUpdateScalableModeTranslationStructures.c)
- *     IvtSetupScalableModeDefaultPasidTables @ 0x140A98FB0 (IvtSetupScalableModeDefaultPasidTables.c)
+ *     IvtUpdateScalableModeTranslationStructures @ 0x14052E45C (IvtUpdateScalableModeTranslationStructures.c)
+ *     IvtSetupScalableModeDefaultPasidTables @ 0x140A98E20 (IvtSetupScalableModeDefaultPasidTables.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     memset @ 0x140435A00 (memset.c)
- *     IvtBuildScalableModePasidDirectoryEntry @ 0x14052BD54 (IvtBuildScalableModePasidDirectoryEntry.c)
- *     IvtBuildScalableModePasidTableS1Entry @ 0x14052BD9C (IvtBuildScalableModePasidTableS1Entry.c)
- *     IvtBuildScalableModePasidTableS2Entry @ 0x14052BEA0 (IvtBuildScalableModePasidTableS2Entry.c)
- *     IvtSetScalableModePasidTableEntry @ 0x14052D8D0 (IvtSetScalableModePasidTableEntry.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     memset @ 0x140435E00 (memset.c)
+ *     IvtBuildScalableModePasidDirectoryEntry @ 0x14052C2A4 (IvtBuildScalableModePasidDirectoryEntry.c)
+ *     IvtBuildScalableModePasidTableS1Entry @ 0x14052C2EC (IvtBuildScalableModePasidTableS1Entry.c)
+ *     IvtBuildScalableModePasidTableS2Entry @ 0x14052C3F0 (IvtBuildScalableModePasidTableS2Entry.c)
+ *     IvtSetScalableModePasidTableEntry @ 0x14052DE20 (IvtSetScalableModePasidTableEntry.c)
  */
 
 LONGLONG __fastcall IvtUpdateScalableModePasidTablesForPasid(

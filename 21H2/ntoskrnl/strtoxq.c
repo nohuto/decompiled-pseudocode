@@ -1,11 +1,11 @@
 /*
- * XREFs of strtoxq @ 0x1403D15FC
+ * XREFs of strtoxq @ 0x1403D176C
  * Callers:
- *     _strtoi64 @ 0x1403D1820 (_strtoi64.c)
- *     _strtoui64 @ 0x1403D1850 (_strtoui64.c)
+ *     _strtoi64 @ 0x1403D1990 (_strtoi64.c)
+ *     _strtoui64 @ 0x1403D19C0 (_strtoui64.c)
  * Callees:
- *     xHalTimerWatchdogStop @ 0x14039A9F0 (xHalTimerWatchdogStop.c)
- *     __pctype_func @ 0x1403D5D38 (__pctype_func.c)
+ *     xHalTimerWatchdogStop @ 0x14039AB40 (xHalTimerWatchdogStop.c)
+ *     __pctype_func @ 0x1403D5EA8 (__pctype_func.c)
  */
 
 unsigned __int64 __fastcall strtoxq(__int64 a1, unsigned __int8 *a2, unsigned __int8 **a3, int a4, int a5)
@@ -34,7 +34,7 @@ unsigned __int64 __fastcall strtoxq(__int64 a1, unsigned __int8 *a2, unsigned __
   v7 = *a2;
   v8 = a2 + 1;
   v9 = 0LL;
-  if ( (*(_BYTE *)(_pctype_func() + 2 * v7) & 8) != 0 )
+  if ( (_pctype_func()[v7] & 8) != 0 )
   {
     do
     {
@@ -43,7 +43,7 @@ unsigned __int64 __fastcall strtoxq(__int64 a1, unsigned __int8 *a2, unsigned __
       while ( (_BYTE)v10 == (_BYTE)v7 );
       LOBYTE(v7) = v10;
     }
-    while ( (*(_BYTE *)(_pctype_func() + 2 * v10) & 8) != 0 );
+    while ( (_pctype_func()[v10] & 8) != 0 );
   }
   v11 = a5;
   if ( (_BYTE)v7 == 45 )
@@ -79,13 +79,13 @@ LABEL_23:
   v12 = 0xFFFFFFFFFFFFFFFFuLL / v5;
   while ( 1 )
   {
-    if ( (*(_BYTE *)(_pctype_func() + 2LL * (unsigned __int8)v7) & 4) != 0 )
+    if ( (_pctype_func()[(unsigned __int8)v7] & 4) != 0 )
     {
       v13 = (char)v7 - 48;
     }
     else
     {
-      if ( (*(_WORD *)(_pctype_func() + 2LL * (unsigned __int8)v7) & 0x103) == 0 )
+      if ( (_pctype_func()[(unsigned __int8)v7] & 0x103) == 0 )
         break;
       v14 = (char)v7 - 32;
       if ( (unsigned __int8)(v7 - 97) > 0x19u )

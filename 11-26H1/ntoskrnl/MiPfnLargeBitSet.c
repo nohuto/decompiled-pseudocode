@@ -1,8 +1,8 @@
 /*
- * XREFs of MiPfnLargeBitSet @ 0x140430D40
+ * XREFs of MiPfnLargeBitSet @ 0x14041DD70
  * Callers:
- *     MiTradePage @ 0x140291970 (MiTradePage.c)
- *     MiExpandWrongPartitionSkipRange @ 0x140526CB4 (MiExpandWrongPartitionSkipRange.c)
+ *     MiTradePage @ 0x140290ED0 (MiTradePage.c)
+ *     MiExpandWrongPartitionSkipRange @ 0x140529324 (MiExpandWrongPartitionSkipRange.c)
  * Callees:
  *     <none>
  */

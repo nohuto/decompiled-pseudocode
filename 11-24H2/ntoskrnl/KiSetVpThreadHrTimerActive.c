@@ -1,8 +1,8 @@
 /*
- * XREFs of KiSetVpThreadHrTimerActive @ 0x14045A0C4
+ * XREFs of KiSetVpThreadHrTimerActive @ 0x14044F514
  * Callers:
- *     KePrepareClockTimerForPlatformIdle @ 0x1405B94A0 (KePrepareClockTimerForPlatformIdle.c)
- *     KeResumeClockTimerFromIdle @ 0x1405B9944 (KeResumeClockTimerFromIdle.c)
+ *     KePrepareClockTimerForPlatformIdle @ 0x1405B6AE0 (KePrepareClockTimerForPlatformIdle.c)
+ *     KeResumeClockTimerFromIdle @ 0x1405B6F84 (KeResumeClockTimerFromIdle.c)
  * Callees:
  *     <none>
  */

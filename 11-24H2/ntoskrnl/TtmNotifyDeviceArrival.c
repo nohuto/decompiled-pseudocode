@@ -1,19 +1,19 @@
 /*
- * XREFs of TtmNotifyDeviceArrival @ 0x140768290
+ * XREFs of TtmNotifyDeviceArrival @ 0x1407684B0
  * Callers:
  *     <none>
  * Callees:
- *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
- *     ExReleaseResourceLite @ 0x14025A450 (ExReleaseResourceLite.c)
- *     RtlStringCchLengthW @ 0x14042EE70 (RtlStringCchLengthW.c)
- *     RtlStringCchCopyW @ 0x14043FE9C (RtlStringCchCopyW.c)
- *     TtmpFindDeviceByToken @ 0x140769308 (TtmpFindDeviceByToken.c)
- *     TtmiAcquireCurrentSession @ 0x140769DB0 (TtmiAcquireCurrentSession.c)
- *     TtmiScheduleSessionWorker @ 0x140769F24 (TtmiScheduleSessionWorker.c)
- *     TtmiLogDeviceArrivalNotified @ 0x14076C15C (TtmiLogDeviceArrivalNotified.c)
- *     TtmiLogError @ 0x140903A9C (TtmiLogError.c)
- *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ *     KeLeaveCriticalRegion @ 0x140288450 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x14028AA60 (ExReleaseResourceLite.c)
+ *     RtlStringCchLengthW @ 0x140420BA0 (RtlStringCchLengthW.c)
+ *     RtlStringCchCopyW @ 0x14043615C (RtlStringCchCopyW.c)
+ *     TtmpFindDeviceByToken @ 0x140769528 (TtmpFindDeviceByToken.c)
+ *     TtmiAcquireCurrentSession @ 0x140769FD0 (TtmiAcquireCurrentSession.c)
+ *     TtmiScheduleSessionWorker @ 0x14076A144 (TtmiScheduleSessionWorker.c)
+ *     TtmiLogDeviceArrivalNotified @ 0x14076C37C (TtmiLogDeviceArrivalNotified.c)
+ *     TtmiLogError @ 0x14099E04C (TtmiLogError.c)
+ *     ExAllocatePool2 @ 0x140B740F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B74870 (ExFreePoolWithTag.c)
  */
 
 __int64 __fastcall TtmNotifyDeviceArrival(unsigned int a1, __int64 a2, _QWORD *a3, int a4, __int64 a5)
@@ -104,7 +104,7 @@ LABEL_30:
     goto LABEL_31;
   }
   v6 = _InterlockedIncrement((volatile signed __int32 *)(v10 + 112));
-  Pool2 = ExAllocatePool2(0x100uLL);
+  Pool2 = ExAllocatePool2(0x100uLL, 0x268uLL, 0x446D7454u);
   v11 = Pool2;
   if ( Pool2 )
   {

@@ -1,10 +1,10 @@
 /*
- * XREFs of KeFindFirstSetLeftAffinityEx @ 0x1403382C0
+ * XREFs of KeFindFirstSetLeftAffinityEx @ 0x140338550
  * Callers:
- *     KiDeferredReadySingleThread @ 0x14023A2D0 (KiDeferredReadySingleThread.c)
- *     KiSetSystemAffinityThread @ 0x14030715C (KiSetSystemAffinityThread.c)
- *     PpmUpdatePlatformIdleVeto @ 0x140586670 (PpmUpdatePlatformIdleVeto.c)
- *     PnpReplacePartitionUnit @ 0x140964AF0 (PnpReplacePartitionUnit.c)
+ *     KiDeferredReadySingleThread @ 0x14023A3A0 (KiDeferredReadySingleThread.c)
+ *     KiSetSystemAffinityThread @ 0x1403073EC (KiSetSystemAffinityThread.c)
+ *     PpmUpdatePlatformIdleVeto @ 0x140586B60 (PpmUpdatePlatformIdleVeto.c)
+ *     PnpReplacePartitionUnit @ 0x140964CF0 (PnpReplacePartitionUnit.c)
  * Callees:
  *     <none>
  */

@@ -25,7 +25,7 @@ void __fastcall PopDirectedDripsStartDisengageTimer(int a1)
   v2 = KeAcquireSpinLockRaiseToDpc(v1 + 1);
   if ( !KeCancelTimer2((__int64)(v1 + 3), 0LL, v3, v4) && ++*((_DWORD *)v1 + 5) == 1 )
     PopDirectedDripsSetDisengageReason(*(_DWORD *)v1);
-  KeSetTimer2((__int64)(v1 + 3), -10000000LL * *((unsigned int *)v1 + 1), 0LL, (__int64)v5);
+  KeSetTimer2((__int64)(v1 + 3), (LARGE_INTEGER)(-10000000LL * *((unsigned int *)v1 + 1)), 0LL, (__int64)v5);
   ++*((_DWORD *)v1 + 4);
   KeReleaseSpinLock(v1 + 1, v2);
 }

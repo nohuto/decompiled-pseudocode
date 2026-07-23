@@ -1,39 +1,40 @@
 /*
- * XREFs of PnpSurpriseRemoveLockedDeviceNode @ 0x140A8A8E0
+ * XREFs of PnpSurpriseRemoveLockedDeviceNode @ 0x1409B7700
  * Callers:
- *     PnpDeleteLockedDeviceNode @ 0x140A8A1F0 (PnpDeleteLockedDeviceNode.c)
+ *     PnpDeleteLockedDeviceNode @ 0x1409B7010 (PnpDeleteLockedDeviceNode.c)
  * Callees:
- *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
- *     IoAddTriageDumpDataBlock @ 0x14044AB54 (IoAddTriageDumpDataBlock.c)
- *     PipSetDevNodeState @ 0x1404D2858 (PipSetDevNodeState.c)
- *     PipRestoreDevNodeState @ 0x1404D29C4 (PipRestoreDevNodeState.c)
- *     PnpMarkDeviceForRemove @ 0x1404FEBC8 (PnpMarkDeviceForRemove.c)
- *     PnpUnlockMountableDevice @ 0x1404FEFC4 (PnpUnlockMountableDevice.c)
- *     PiIommuUninitializeDeviceAts @ 0x1404FF4C0 (PiIommuUninitializeDeviceAts.c)
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     IopDecrementDeviceObjectHandleCount @ 0x1405CA6E4 (IopDecrementDeviceObjectHandleCount.c)
- *     PiIommuBlockDevice @ 0x1407B4984 (PiIommuBlockDevice.c)
- *     PipClearDevNodeFlags @ 0x14090E080 (PipClearDevNodeFlags.c)
- *     IopRemoveDevice @ 0x14090FCA8 (IopRemoveDevice.c)
- *     PipSetDevNodeProblem @ 0x140916A54 (PipSetDevNodeProblem.c)
- *     PnpSurpriseRemovedDeviceNodeDependencyCheck @ 0x140A8AB88 (PnpSurpriseRemovedDeviceNodeDependencyCheck.c)
- *     PnpDisableDeviceInterfaces @ 0x140A8ABF0 (PnpDisableDeviceInterfaces.c)
- *     IopReleaseDeviceResources @ 0x140A8AE94 (IopReleaseDeviceResources.c)
- *     PipDmgDestroyIommuExtension @ 0x140AA7CBC (PipDmgDestroyIommuExtension.c)
+ *     ObfDereferenceObject @ 0x1402646B0 (ObfDereferenceObject.c)
+ *     IoAddTriageDumpDataBlock @ 0x140442C84 (IoAddTriageDumpDataBlock.c)
+ *     PipSetDevNodeState @ 0x1404CC0D0 (PipSetDevNodeState.c)
+ *     PipRestoreDevNodeState @ 0x1404CC23C (PipRestoreDevNodeState.c)
+ *     PnpMarkDeviceForRemove @ 0x1404F83B0 (PnpMarkDeviceForRemove.c)
+ *     PnpUnlockMountableDevice @ 0x1404F87B4 (PnpUnlockMountableDevice.c)
+ *     PiIommuUninitializeDeviceAts @ 0x1404F8CB0 (PiIommuUninitializeDeviceAts.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     IopDecrementDeviceObjectHandleCount @ 0x1405CCFB4 (IopDecrementDeviceObjectHandleCount.c)
+ *     PiIommuBlockDevice @ 0x1407B79E4 (PiIommuBlockDevice.c)
+ *     PipSetDevNodeProblem @ 0x1409714C0 (PipSetDevNodeProblem.c)
+ *     PipClearDevNodeFlags @ 0x1409B01B0 (PipClearDevNodeFlags.c)
+ *     IopRemoveDevice @ 0x1409B1DD8 (IopRemoveDevice.c)
+ *     PnpSurpriseRemovedDeviceNodeDependencyCheck @ 0x1409B79A8 (PnpSurpriseRemovedDeviceNodeDependencyCheck.c)
+ *     PnpDisableDeviceInterfaces @ 0x1409B7A10 (PnpDisableDeviceInterfaces.c)
+ *     IopReleaseDeviceResources @ 0x1409B7CB4 (IopReleaseDeviceResources.c)
+ *     PipDmgDestroyIommuExtension @ 0x1409DB1F0 (PipDmgDestroyIommuExtension.c)
  */
 
-void __fastcall PnpSurpriseRemoveLockedDeviceNode(ULONG_PTR MaxDataSize, unsigned int a2, int a3)
+void __fastcall PnpSurpriseRemoveLockedDeviceNode(ULONG_PTR MaxDataSize, __int64 a2, __int64 a3, __int64 a4)
 {
-  struct _DEVICE_OBJECT *v3; // r12
-  int v4; // eax
-  int v8; // ebp
-  int v9; // esi
-  __int64 v10; // r14
-  __int64 v11; // rbx
-  int v12; // eax
-  int v13; // ebx
-  __int64 v14; // rcx
-  int v15; // edx
+  struct _DEVICE_OBJECT *v4; // r12
+  int v5; // eax
+  int v6; // r13d
+  int v7; // r15d
+  int v9; // ebp
+  int v10; // esi
+  __int64 v11; // r14
+  __int64 v12; // rbx
+  int v13; // eax
+  int v14; // ebx
+  __int64 v15; // rcx
   void *v16; // rbx
   __int64 v17; // rdx
   int v18; // eax
@@ -41,47 +42,49 @@ void __fastcall PnpSurpriseRemoveLockedDeviceNode(ULONG_PTR MaxDataSize, unsigne
   __int64 v20; // rax
   __int128 v21; // [rsp+30h] [rbp-38h] BYREF
 
-  v3 = *(struct _DEVICE_OBJECT **)(MaxDataSize + 32);
+  v4 = *(struct _DEVICE_OBJECT **)(MaxDataSize + 32);
   v21 = 0LL;
-  v4 = *(_DWORD *)(MaxDataSize + 300);
-  v8 = 768;
-  if ( v4 == 784 || v4 == 785 )
+  v5 = *(_DWORD *)(MaxDataSize + 300);
+  v6 = a3;
+  v7 = a2;
+  v9 = 768;
+  if ( v5 == 784 || v5 == 785 )
   {
-    v8 = *(_DWORD *)(MaxDataSize + 300);
+    v9 = *(_DWORD *)(MaxDataSize + 300);
     PipRestoreDevNodeState(MaxDataSize);
   }
-  v9 = *(_DWORD *)(MaxDataSize + 300);
-  v10 = 0LL;
+  v10 = *(_DWORD *)(MaxDataSize + 300);
+  v11 = 0LL;
   *(_WORD *)(MaxDataSize + 466) = 0;
-  if ( v9 == 787 && v8 == 784 )
+  if ( v10 == 787 && v9 == 784 )
   {
     PipClearDevNodeFlags(MaxDataSize, 16);
     PipSetDevNodeState(MaxDataSize, 789);
     return;
   }
-  v11 = *(_QWORD *)(MaxDataSize + 8);
-  if ( v11 )
+  v12 = *(_QWORD *)(MaxDataSize + 8);
+  if ( v12 )
   {
     do
     {
-      v12 = *(_DWORD *)(v11 + 396);
-      v10 = *(_QWORD *)v11;
-      if ( (v12 & 0x10) != 0 )
+      v13 = *(_DWORD *)(v12 + 396);
+      v11 = *(_QWORD *)v12;
+      if ( (v13 & 0x10) != 0 )
       {
-        v12 &= ~0x10u;
-        *(_DWORD *)(v11 + 396) = v12;
+        v13 &= ~0x10u;
+        *(_DWORD *)(v12 + 396) = v13;
       }
-      if ( *(_QWORD *)(v11 + 416) || *(_QWORD *)(v11 + 544) || (v12 & 0x40) != 0 )
-        IopReleaseDeviceResources(v11, 0LL);
-      PipSetDevNodeState(v11, 789);
-      v11 = v10;
+      if ( *(_QWORD *)(v12 + 416) || *(_QWORD *)(v12 + 544) || (v13 & 0x40) != 0 )
+        IopReleaseDeviceResources(v12, 0LL);
+      PipSetDevNodeState(v12, 789);
+      v12 = v11;
     }
-    while ( v10 );
+    while ( v11 );
   }
-  if ( v9 == 780 && (*(_DWORD *)(MaxDataSize + 396) & 0x1000000) != 0 )
+  if ( v10 == 780 && (*(_DWORD *)(MaxDataSize + 396) & 0x1000000) != 0 )
   {
-    PnpMarkDeviceForRemove((ULONG_PTR)v3, 1, (ULONG_PTR *)&v21);
-    PnpUnlockMountableDevice((__int64)v3);
+    PnpMarkDeviceForRemove((ULONG_PTR)v4, 1, (ULONG_PTR *)&v21);
+    PnpUnlockMountableDevice((__int64)v4);
     PipClearDevNodeFlags(MaxDataSize, 0x1000000);
   }
   switch ( *(_DWORD *)(MaxDataSize + 300) )
@@ -96,39 +99,39 @@ void __fastcall PnpSurpriseRemoveLockedDeviceNode(ULONG_PTR MaxDataSize, unsigne
     case 0x316:
       break;
     default:
-      v13 = IopRemoveDevice(v3, 23LL);
+      v14 = IopRemoveDevice(v4, 23);
       PnpDisableDeviceInterfaces(MaxDataSize + 40);
-      if ( v13 >= 0 )
+      if ( v14 >= 0 )
         IopReleaseDeviceResources(MaxDataSize, 0LL);
-      v14 = MaxDataSize;
+      v15 = MaxDataSize;
       if ( (*(_DWORD *)(MaxDataSize + 396) & 0x10) != 0 )
       {
         PipSetDevNodeState(MaxDataSize, 787);
-        v15 = 784;
-        if ( v8 != 784 )
+        a2 = 784LL;
+        if ( v9 != 784 )
           break;
-        v14 = MaxDataSize;
+        v15 = MaxDataSize;
       }
       else
       {
-        v15 = 789;
+        LODWORD(a2) = 789;
       }
-      PipSetDevNodeState(v14, v15);
+      PipSetDevNodeState(v15, a2);
       break;
   }
-  if ( v9 == 780 )
+  if ( v10 == 780 )
   {
     v16 = (void *)*((_QWORD *)&v21 + 1);
     if ( *((_QWORD *)&v21 + 1) )
     {
-      IopDecrementDeviceObjectHandleCount(*((ULONG_PTR *)&v21 + 1));
+      IopDecrementDeviceObjectHandleCount(*((ULONG_PTR *)&v21 + 1), a2, a3, a4);
       ObfDereferenceObject(v16);
     }
   }
-  if ( a2 && (*(_DWORD *)(MaxDataSize + 396) & 0x6000) == 0 )
-    PipSetDevNodeProblem(MaxDataSize, a2, a3);
+  if ( v7 && (*(_DWORD *)(MaxDataSize + 396) & 0x6000) == 0 )
+    PipSetDevNodeProblem(MaxDataSize, v7, v6);
   PnpSurpriseRemovedDeviceNodeDependencyCheck(MaxDataSize);
-  if ( *(_QWORD *)(MaxDataSize + 720) != v10 )
+  if ( *(_QWORD *)(MaxDataSize + 720) != v11 )
   {
     PiIommuUninitializeDeviceAts(MaxDataSize);
     v18 = PiIommuBlockDevice(*(_QWORD *)(MaxDataSize + 720), v17);
@@ -136,12 +139,12 @@ void __fastcall PnpSurpriseRemoveLockedDeviceNode(ULONG_PTR MaxDataSize, unsigne
     if ( v18 < 0 )
     {
       IoAddTriageDumpDataBlock(MaxDataSize, (PVOID)0x388);
-      if ( *(_WORD *)(MaxDataSize + 40) != (_WORD)v10 )
+      if ( *(_WORD *)(MaxDataSize + 40) != (_WORD)v11 )
       {
         IoAddTriageDumpDataBlock(MaxDataSize + 40, (PVOID)2);
         IoAddTriageDumpDataBlock(*(_QWORD *)(MaxDataSize + 48), (PVOID)*(unsigned __int16 *)(MaxDataSize + 40));
       }
-      if ( *(_WORD *)(MaxDataSize + 56) != (_WORD)v10 )
+      if ( *(_WORD *)(MaxDataSize + 56) != (_WORD)v11 )
       {
         IoAddTriageDumpDataBlock(MaxDataSize + 56, (PVOID)2);
         IoAddTriageDumpDataBlock(*(_QWORD *)(MaxDataSize + 64), (PVOID)*(unsigned __int16 *)(MaxDataSize + 56));
@@ -149,7 +152,7 @@ void __fastcall PnpSurpriseRemoveLockedDeviceNode(ULONG_PTR MaxDataSize, unsigne
       v20 = *(_QWORD *)(MaxDataSize + 16);
       if ( v20 )
       {
-        if ( *(_WORD *)(v20 + 56) != (_WORD)v10 )
+        if ( *(_WORD *)(v20 + 56) != (_WORD)v11 )
         {
           IoAddTriageDumpDataBlock(v20 + 56, (PVOID)2);
           IoAddTriageDumpDataBlock(

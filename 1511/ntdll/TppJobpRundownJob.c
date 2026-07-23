@@ -13,46 +13,47 @@
  *     TppRaiseHandleStatus @ 0x1800F55A8 (TppRaiseHandleStatus.c)
  */
 
-void __fastcall TppJobpRundownJob(__int64 a1, char *a2, __int64 a3, __int64 a4)
+void __fastcall TppJobpRundownJob(__int64 a1)
 {
-  volatile signed __int64 *v5; // rsi
-  __int64 v6; // rcx
-  int v7; // eax
-  unsigned __int64 v8; // rax
-  signed __int64 v9; // rbx
-  unsigned __int64 v10; // rbx
-  _QWORD v11[3]; // [rsp+30h] [rbp-18h] BYREF
-  unsigned __int64 v12; // [rsp+50h] [rbp+8h] BYREF
+  _RTL_SRWLOCK *v2; // rsi
+  void *v3; // rcx
+  NTSTATUS v4; // eax
+  unsigned __int64 v5; // rax
+  signed __int64 v6; // rbx
+  unsigned __int64 v7; // rbx
+  _QWORD JobObjectInformation[3]; // [rsp+30h] [rbp-18h] BYREF
+  unsigned __int64 v9; // [rsp+50h] [rbp+8h] BYREF
 
   if ( *(_QWORD *)(a1 + 264) )
   {
-    v5 = (volatile signed __int64 *)(a1 + 280);
-    RtlAcquireSRWLockExclusive(a1 + 280, a2, a3, a4);
-    v6 = *(_QWORD *)(a1 + 264);
-    if ( v6 )
+    v2 = (_RTL_SRWLOCK *)(a1 + 280);
+    RtlAcquireSRWLockExclusive((PRTL_SRWLOCK)(a1 + 280));
+    v3 = *(void **)(a1 + 264);
+    if ( v3 )
     {
-      v11[0] = 0LL;
-      v11[1] = 0LL;
-      v7 = ZwSetInformationJobObject(v6, 7LL, v11, 16LL);
-      if ( v7 < 0 || (v7 = NtQueryInformationJobObject(*(_QWORD *)(a1 + 264), 17LL, &v12, 8LL, 0LL), v7 < 0) )
+      JobObjectInformation[0] = 0LL;
+      JobObjectInformation[1] = 0LL;
+      v4 = ZwSetInformationJobObject(v3, JobObjectAssociateCompletionPortInformation, JobObjectInformation, 0x10u);
+      if ( v4 < 0
+        || (v4 = NtQueryInformationJobObject(*(HANDLE *)(a1 + 264), JobObjectCompletionCounter, &v9, 8u, 0LL), v4 < 0) )
       {
-        TppRaiseHandleStatus((unsigned int)v7, *(_QWORD *)(a1 + 264), 0LL);
+        TppRaiseHandleStatus((unsigned int)v4, *(_QWORD *)(a1 + 264), 0LL);
       }
       else
       {
-        v8 = (-2LL * v12) | 1;
-        v12 = v8;
-        v9 = _InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 272), v8);
+        v5 = (-2LL * v9) | 1;
+        v9 = v5;
+        v6 = _InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 272), v5);
         *(_QWORD *)(a1 + 264) = 0LL;
-        v10 = v8 + v9;
-        RtlReleaseSRWLockExclusive(v5);
-        if ( v10 == 1 && _InterlockedExchangeAdd((volatile signed __int32 *)(a1 + 72), 0xFFFFFFFF) == 1 )
+        v7 = v5 + v6;
+        RtlReleaseSRWLockExclusive(v2);
+        if ( v7 == 1 && _InterlockedExchangeAdd((volatile signed __int32 *)(a1 + 72), 0xFFFFFFFF) == 1 )
           (**(void (__fastcall ***)(__int64))(a1 + 80))(a1 + 72);
       }
     }
     else
     {
-      RtlReleaseSRWLockExclusive(v5);
+      RtlReleaseSRWLockExclusive(v2);
     }
   }
 }

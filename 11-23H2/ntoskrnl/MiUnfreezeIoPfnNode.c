@@ -1,10 +1,10 @@
 /*
- * XREFs of MiUnfreezeIoPfnNode @ 0x14062EA68
+ * XREFs of MiUnfreezeIoPfnNode @ 0x14062EFB8
  * Callers:
- *     MiDbgUnTranslatePhysicalAddress @ 0x140644260 (MiDbgUnTranslatePhysicalAddress.c)
+ *     MiDbgUnTranslatePhysicalAddress @ 0x1406447B0 (MiDbgUnTranslatePhysicalAddress.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7C00 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402A7E90 (ExReleaseSpinLockSharedFromDpcLevel.c)
  */
 
 void __fastcall MiUnfreezeIoPfnNode(__int64 *a1)

@@ -1,32 +1,32 @@
 /*
- * XREFs of ExCreateCallback @ 0x140AFB990
+ * XREFs of ExCreateCallback @ 0x140AFD610
  * Callers:
- *     HvlPhase2Initialize @ 0x1405B8B08 (HvlPhase2Initialize.c)
- *     DifExCreateCallbackWrapper @ 0x1406505C0 (DifExCreateCallbackWrapper.c)
- *     HaliInitPowerManagement @ 0x140785870 (HaliInitPowerManagement.c)
- *     HalpMiscInitializeKsr @ 0x1407860B8 (HalpMiscInitializeKsr.c)
- *     IoRegisterBootDriverCallback @ 0x1407A1BB0 (IoRegisterBootDriverCallback.c)
- *     KeRegisterProcessorChangeCallback @ 0x1407BA2D0 (KeRegisterProcessorChangeCallback.c)
- *     ExInitLicenseCallback @ 0x140837E48 (ExInitLicenseCallback.c)
- *     KiFilterFiberContext @ 0x140C80D10 (KiFilterFiberContext.c)
- *     IopInitializeSessionNotifications @ 0x140CBEDFC (IopInitializeSessionNotifications.c)
- *     PiCslInitialize @ 0x140CC75C0 (PiCslInitialize.c)
- *     PiKsrNotifyInitialize @ 0x140CC7840 (PiKsrNotifyInitialize.c)
- *     PopSetupKsrCallbacks @ 0x140CD18A4 (PopSetupKsrCallbacks.c)
- *     PopUmpoInitializeChannel @ 0x140CD5374 (PopUmpoInitializeChannel.c)
- *     PopUmpoInitializeMonitorChannel @ 0x140CD55F0 (PopUmpoInitializeMonitorChannel.c)
- *     SshpAlpcInitialize @ 0x140CD768C (SshpAlpcInitialize.c)
- *     EtwpInitializeKsrSupport @ 0x140CE216C (EtwpInitializeKsrSupport.c)
- *     ExpInitializeCallbacks @ 0x140CE6064 (ExpInitializeCallbacks.c)
+ *     HvlPhase2Initialize @ 0x1405BB378 (HvlPhase2Initialize.c)
+ *     DifExCreateCallbackWrapper @ 0x1406541A0 (DifExCreateCallbackWrapper.c)
+ *     HaliInitPowerManagement @ 0x1407883A0 (HaliInitPowerManagement.c)
+ *     HalpMiscInitializeKsr @ 0x140788BE8 (HalpMiscInitializeKsr.c)
+ *     IoRegisterBootDriverCallback @ 0x1407A46F0 (IoRegisterBootDriverCallback.c)
+ *     KeRegisterProcessorChangeCallback @ 0x1407BD330 (KeRegisterProcessorChangeCallback.c)
+ *     ExInitLicenseCallback @ 0x14083E088 (ExInitLicenseCallback.c)
+ *     KiFilterFiberContext @ 0x140C86D10 (KiFilterFiberContext.c)
+ *     IopInitializeSessionNotifications @ 0x140CC4ECC (IopInitializeSessionNotifications.c)
+ *     PiCslInitialize @ 0x140CCD6B0 (PiCslInitialize.c)
+ *     PiKsrNotifyInitialize @ 0x140CCD930 (PiKsrNotifyInitialize.c)
+ *     PopSetupKsrCallbacks @ 0x140CD7A4C (PopSetupKsrCallbacks.c)
+ *     PopUmpoInitializeChannel @ 0x140CDB714 (PopUmpoInitializeChannel.c)
+ *     PopUmpoInitializeMonitorChannel @ 0x140CDB990 (PopUmpoInitializeMonitorChannel.c)
+ *     SshpAlpcInitialize @ 0x140CDDA0C (SshpAlpcInitialize.c)
+ *     EtwpInitializeKsrSupport @ 0x140CE850C (EtwpInitializeKsrSupport.c)
+ *     ExpInitializeCallbacks @ 0x140CEC404 (ExpInitializeCallbacks.c)
  * Callees:
- *     PsGetCurrentSilo @ 0x14041BBC0 (PsGetCurrentSilo.c)
- *     ExpUnlockCallbackListExclusive @ 0x1404DC800 (ExpUnlockCallbackListExclusive.c)
- *     ExpLockCallbackListExclusive @ 0x14050528C (ExpLockCallbackListExclusive.c)
- *     ZwClose @ 0x1407235D0 (ZwClose.c)
- *     ObReferenceObjectByHandle @ 0x1408F9550 (ObReferenceObjectByHandle.c)
- *     ObOpenObjectByNameEx @ 0x1408FCDF0 (ObOpenObjectByNameEx.c)
- *     ObCreateObjectEx @ 0x1408FD7D0 (ObCreateObjectEx.c)
- *     ObInsertObjectEx @ 0x14092B470 (ObInsertObjectEx.c)
+ *     PsGetCurrentSilo @ 0x140413410 (PsGetCurrentSilo.c)
+ *     ExpUnlockCallbackListExclusive @ 0x1404D5EE0 (ExpUnlockCallbackListExclusive.c)
+ *     ExpLockCallbackListExclusive @ 0x1404FEBCC (ExpLockCallbackListExclusive.c)
+ *     ZwClose @ 0x1407281A0 (ZwClose.c)
+ *     ObInsertObjectEx @ 0x140906FA0 (ObInsertObjectEx.c)
+ *     ObReferenceObjectByHandle @ 0x1409294E0 (ObReferenceObjectByHandle.c)
+ *     ObOpenObjectByNameEx @ 0x14092CD80 (ObOpenObjectByNameEx.c)
+ *     ObCreateObjectEx @ 0x14092D760 (ObCreateObjectEx.c)
  */
 
 NTSTATUS __stdcall ExCreateCallback(
@@ -47,8 +47,8 @@ NTSTATUS __stdcall ExCreateCallback(
   __int64 v17; // r8
   struct _KLOCK_ENTRIES *v18; // r9
   char *v19; // rbx
-  _QWORD *v20; // rax
-  _QWORD *v21; // rcx
+  _QWORD *SListFaultAddress; // rax
+  struct _LIST_ENTRY ***v21; // rcx
   PVOID *Object; // [rsp+20h] [rbp-39h]
   PVOID v23; // [rsp+50h] [rbp-9h] BYREF
   __int128 v24; // [rsp+58h] [rbp-1h] BYREF
@@ -103,16 +103,16 @@ LABEL_3:
       *((_QWORD *)v19 + 2) = v19 + 16;
       *((_QWORD *)v19 + 1) = 0LL;
       ExpLockCallbackListExclusive((__int64)CurrentThread, v16, v17, v18);
-      v20 = (_QWORD *)qword_140EFEF88;
-      v21 = v19 + 40;
-      if ( *(__int64 **)qword_140EFEF88 != &qword_140EFEF80 )
+      SListFaultAddress = stru_140EFF2C0.SListFaultAddress;
+      v21 = (struct _LIST_ENTRY ***)(v19 + 40);
+      if ( *(struct _KTHREAD **)stru_140EFF2C0.SListFaultAddress != (struct _KTHREAD *)&stru_140EFF2C0.Header.WaitListHead.Blink )
         __fastfail(3u);
-      *v21 = &qword_140EFEF80;
-      *((_QWORD *)v19 + 6) = v20;
-      *v20 = v21;
-      qword_140EFEF88 = (__int64)(v19 + 40);
+      *v21 = &stru_140EFF2C0.Header.WaitListHead.Blink;
+      *((_QWORD *)v19 + 6) = SListFaultAddress;
+      *SListFaultAddress = v21;
+      stru_140EFF2C0.SListFaultAddress = v19 + 40;
       ExpUnlockCallbackListExclusive((__int64)CurrentThread);
-      inserted = ObInsertObjectEx(v19, 0LL, 1u, 0, 0, 0LL, &Handle);
+      inserted = ObInsertObjectEx(v19, 0LL, 1, 0, 0, 0LL, &Handle);
       if ( inserted >= 0 )
         goto LABEL_3;
     }

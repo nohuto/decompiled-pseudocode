@@ -1,11 +1,11 @@
 /*
- * XREFs of EtwpCCSwapTrace @ 0x14038A680
+ * XREFs of EtwpCCSwapTrace @ 0x14038A860
  * Callers:
- *     EtwpLogContextSwapEvent @ 0x14038A430 (EtwpLogContextSwapEvent.c)
+ *     EtwpLogContextSwapEvent @ 0x14038A610 (EtwpLogContextSwapEvent.c)
  * Callees:
- *     EtwpCCSwapFlush @ 0x14038AA04 (EtwpCCSwapFlush.c)
- *     memmove @ 0x140435700 (memmove.c)
- *     memset @ 0x140435A00 (memset.c)
+ *     EtwpCCSwapFlush @ 0x14038ABE4 (EtwpCCSwapFlush.c)
+ *     memmove @ 0x140435B00 (memmove.c)
+ *     memset @ 0x140435E00 (memset.c)
  */
 
 struct _KPRCB *__fastcall EtwpCCSwapTrace(__int64 a1, __int64 a2, unsigned int a3, struct _KPRCB **a4)

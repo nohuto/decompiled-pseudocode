@@ -1,10 +1,10 @@
 /*
- * XREFs of FsRtlAcquireFileExclusive @ 0x140707A40
+ * XREFs of FsRtlAcquireFileExclusive @ 0x14071EE20
  * Callers:
- *     CcWriteBehindInternal @ 0x14022DA70 (CcWriteBehindInternal.c)
- *     CcZeroEndOfLastPage @ 0x1403570FC (CcZeroEndOfLastPage.c)
+ *     CcWriteBehindInternal @ 0x1402D22C0 (CcWriteBehindInternal.c)
+ *     CcZeroEndOfLastPage @ 0x140361E4C (CcZeroEndOfLastPage.c)
  * Callees:
- *     FsRtlAcquireFileExclusiveCommon @ 0x140707C40 (FsRtlAcquireFileExclusiveCommon.c)
+ *     FsRtlAcquireFileExclusiveCommon @ 0x14071F020 (FsRtlAcquireFileExclusiveCommon.c)
  */
 
 void __stdcall FsRtlAcquireFileExclusive(PFILE_OBJECT FileObject)

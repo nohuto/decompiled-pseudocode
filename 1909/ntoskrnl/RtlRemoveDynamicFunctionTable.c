@@ -30,13 +30,13 @@ __int64 __fastcall RtlRemoveDynamicFunctionTable(__int64 a1)
   unsigned int v10; // esi
   char v11; // al
   struct _KTHREAD *v12; // rbx
-  __int64 v13; // rsi
+  _KLOCK_ENTRY *v13; // rsi
   unsigned int v14; // r8d
   bool v15; // zf
   __int64 v16; // rcx
   __int64 v17; // rcx
   _KLOCK_ENTRY *v18; // rdx
-  int v19; // ecx
+  _KLOCK_ENTRY_BOOST_BITMAP v19; // ecx
   __int64 v20; // rdx
   __int64 v21; // rcx
   $C6908ADE9723D0A04AF8EE82D8D15C40 *v22; // rdx
@@ -113,22 +113,22 @@ LABEL_15:
       v18->AcquiredByte &= ~1u;
       if ( v18->LockState.0 )
       {
-        v13 = (__int64)&v12->LockEntries[v17];
+        v13 = &v12->LockEntries[v17];
         break;
       }
     }
   }
   if ( v13 )
   {
-    *(_BYTE *)(v13 + 32) |= 2u;
-    if ( *(__int64 *)(v13 + 32) < 0 )
-      KiAbEntryRemoveFromTree(v13);
-    v19 = *(_DWORD *)(v13 + 88);
-    v27 = v19 & 0x1FFFF;
-    *(_DWORD *)(v13 + 88) = v19 & 0xFFFE0000;
-    *(_BYTE *)(v13 + 25) &= ~1u;
-    *(_QWORD *)(v13 + 32) = 0LL;
-    v20 = (v13 - (__int64)v12 - 800) / 96;
+    v13->CrossThreadReleasableAndBusyByte |= 2u;
+    if ( (__int64)v13->LockState.LockState < 0 )
+      KiAbEntryRemoveFromTree(&v13->TreeNode);
+    v19.AllFields = (unsigned int)v13->BoostBitmap;
+    v27 = v19.AllFields & 0x1FFFF;
+    v13->BoostBitmap.AllFields = v19.AllFields & 0xFFFE0000;
+    v13->ThreadLocalFlags &= ~1u;
+    v13->LockState.0 = 0LL;
+    v20 = ((char *)v13 - (char *)v12 - 800) / 96;
     if ( v26 == 1 )
       v12->AbEntrySummary |= 1 << v20;
     else

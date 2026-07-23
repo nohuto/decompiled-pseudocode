@@ -1,14 +1,14 @@
 /*
- * XREFs of KiHeteroScanQueueForPreemptionSwapTarget @ 0x140200CC0
+ * XREFs of KiHeteroScanQueueForPreemptionSwapTarget @ 0x1403293B4
  * Callers:
- *     KiCheckPreferredHeteroProcessor @ 0x14029D8F0 (KiCheckPreferredHeteroProcessor.c)
- *     KiHeteroAttemptPreemptionSwapOnSubNode @ 0x14041FF3C (KiHeteroAttemptPreemptionSwapOnSubNode.c)
+ *     KiCheckPreferredHeteroProcessor @ 0x1402AC3E0 (KiCheckPreferredHeteroProcessor.c)
+ *     KiHeteroAttemptPreemptionSwapOnSubNode @ 0x14041592C (KiHeteroAttemptPreemptionSwapOnSubNode.c)
  * Callees:
- *     KiHeteroComputeThreadImportance @ 0x140201130 (KiHeteroComputeThreadImportance.c)
- *     KiHeteroIsSwapBeneficialForPerformance @ 0x14020119C (KiHeteroIsSwapBeneficialForPerformance.c)
- *     KiFindBiasedProcessorIndex @ 0x1402026A4 (KiFindBiasedProcessorIndex.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     memmove @ 0x1406BFC40 (memmove.c)
+ *     KiHeteroComputeThreadImportance @ 0x140329820 (KiHeteroComputeThreadImportance.c)
+ *     KiHeteroIsSwapBeneficialForPerformance @ 0x14032988C (KiHeteroIsSwapBeneficialForPerformance.c)
+ *     KiFindBiasedProcessorIndex @ 0x14032AD94 (KiFindBiasedProcessorIndex.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     memmove @ 0x1406C0B40 (memmove.c)
  */
 
 __int64 __fastcall KiHeteroScanQueueForPreemptionSwapTarget(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5)
@@ -100,7 +100,7 @@ __int64 __fastcall KiHeteroScanQueueForPreemptionSwapTarget(__int64 a1, __int64 
             if ( (_BYTE)v10 != *(_BYTE *)(a5 + 16) )
             {
               if ( (unsigned int)KiHeteroIsSwapBeneficialForPerformance(
-                                   KiProcessorBlock[*((unsigned int *)qword_140F21E78
+                                   KiProcessorBlock[*((unsigned int *)qword_140F22998
                                                     + 64 * *(unsigned __int16 *)(a1 + 710)
                                                     + v18)],
                                    v10,

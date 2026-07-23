@@ -24,22 +24,22 @@ __int64 __fastcall PfSnGetPrefetchInstructions(__int64 a1, int a2, _QWORD *a3)
 {
   __int64 v3; // rbx
   struct _KTHREAD *CurrentThread; // rax
-  void *v8; // rsi
+  char *v8; // rsi
   unsigned int v9; // ebx
   wchar_t *Pool2; // r14
   int v11; // ebx
   ULONG Length; // edi
-  void *v13; // rax
+  char *v13; // rax
   _DWORD *v14; // rdi
   _DWORD *v16; // [rsp+50h] [rbp-89h] BYREF
   unsigned int v17; // [rsp+58h] [rbp-81h] BYREF
   HANDLE FileHandle; // [rsp+60h] [rbp-79h] BYREF
-  int v19; // [rsp+68h] [rbp-71h] BYREF
+  __int64 v19; // [rsp+68h] [rbp-71h] BYREF
   int v20; // [rsp+70h] [rbp-69h] BYREF
   struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+78h] [rbp-61h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+88h] [rbp-51h] BYREF
   UNICODE_STRING DestinationString; // [rsp+B8h] [rbp-21h] BYREF
-  _QWORD v24[2]; // [rsp+C8h] [rbp-11h] BYREF
+  __int64 v24[2]; // [rsp+C8h] [rbp-11h] BYREF
   __int128 FileInformation; // [rsp+D8h] [rbp-1h] BYREF
   __int64 v26; // [rsp+E8h] [rbp+Fh]
 
@@ -92,13 +92,13 @@ LABEL_25:
     goto LABEL_16;
   }
   Length = DWORD2(FileInformation);
-  v19 = 0x10000000;
+  LODWORD(v19) = 0x10000000;
   if ( (unsigned int)(DWORD2(FileInformation) - 1) > 0xFFFFFFF || HIDWORD(FileInformation) )
   {
     v11 = -1073741823;
     goto LABEL_25;
   }
-  v13 = (void *)ExAllocatePool2(256LL, DWORD2(FileInformation), 1884316483LL);
+  v13 = (char *)ExAllocatePool2(256LL, DWORD2(FileInformation), 1884316483LL);
   v8 = v13;
   if ( !v13 )
   {
@@ -108,9 +108,9 @@ LABEL_25:
   v11 = NtReadFile(FileHandle, 0LL, 0LL, 0LL, &IoStatusBlock, v13, Length, 0LL, 0LL);
   if ( v11 < 0 )
     goto LABEL_25;
-  v24[0] = PfSnScenarioAlloc;
-  v24[1] = SC_ENV::Free;
-  v11 = SmDecompressBuffer((__int64)v8, Length, &v16, &v17, &v19, (__int64)v24);
+  v24[0] = (__int64)PfSnScenarioAlloc;
+  v24[1] = (__int64)SC_ENV::Free;
+  v11 = SmDecompressBuffer(v8, Length, &v16, &v17, &v19, (__int64)v24);
   if ( v11 < 0 )
     goto LABEL_25;
   v14 = v16;

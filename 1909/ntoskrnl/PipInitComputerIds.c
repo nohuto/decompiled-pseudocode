@@ -153,7 +153,7 @@ __int64 __fastcall PipInitComputerIds(__int64 a1)
   UNICODE_STRING *v122; // [rsp+F0h] [rbp-18h]
   _QWORD v123[4]; // [rsp+F8h] [rbp-10h] BYREF
   UNICODE_STRING UnicodeString[10]; // [rsp+118h] [rbp+10h] BYREF
-  unsigned int v125[60]; // [rsp+1B8h] [rbp+B0h] BYREF
+  _OWORD v125[15]; // [rsp+1B8h] [rbp+B0h] BYREF
   wchar_t SourceString; // [rsp+2A8h] [rbp+1A0h] BYREF
   wchar_t pszDest[8]; // [rsp+2B0h] [rbp+1A8h] BYREF
 
@@ -512,7 +512,7 @@ LABEL_126:
                     }
                     if ( v7 < 0 )
                       goto LABEL_149;
-                    v7 = RtlStringFromGUIDEx(&v125[4 * v40], (__int64)&ValueName, 0);
+                    v7 = RtlStringFromGUIDEx((PGUID)&v125[v40], &ValueName, 0);
                     if ( v7 < 0 )
                       goto LABEL_149;
                     v7 = RtlUpcaseUnicodeString(&ValueName, &ValueName, 0);
@@ -584,7 +584,7 @@ LABEL_149:
               v122 = &UnicodeString[4];
               v123[0] = &UnicodeString[5];
               v123[1] = &DestinationString;
-              v56 = PipCreateComputerId(v50, v52, &v119, 6LL, &v125[4 * v51]);
+              v56 = PipCreateComputerId(v50, v52, &v119, 6LL, &v125[v51]);
               v57 = v51 + 1;
               v7 = v56;
               if ( v56 < 0 )
@@ -594,7 +594,7 @@ LABEL_149:
               v121 = &UnicodeString[4];
               v122 = &UnicodeString[5];
               v123[0] = &DestinationString;
-              v58 = PipCreateComputerId(v50, v52, &v119, 5LL, &v125[4 * v57]);
+              v58 = PipCreateComputerId(v50, v52, &v119, 5LL, &v125[v57]);
               v51 = v57 + 1;
               v7 = v58;
               if ( v58 < 0 )
@@ -631,7 +631,7 @@ LABEL_149:
                       --v63;
                     }
                     while ( v63 );
-                    v65 = PipCreateComputerId(v50, v52, &v119, 6LL, &v125[4 * v51++]);
+                    v65 = PipCreateComputerId(v50, v52, &v119, 6LL, &v125[v51++]);
                     v7 = v65;
                     if ( v65 < 0 )
                       goto LABEL_150;
@@ -648,7 +648,7 @@ LABEL_149:
                   --v66;
                 }
                 while ( v66 );
-                v69 = PipCreateComputerId(v50, v52, &v119, 4LL, &v125[4 * v51++]);
+                v69 = PipCreateComputerId(v50, v52, &v119, 4LL, &v125[v51++]);
                 v7 = v69;
                 if ( v69 < 0 )
                   goto LABEL_150;
@@ -656,7 +656,7 @@ LABEL_149:
               v119 = UnicodeString;
               v120 = &UnicodeString[1];
               v121 = &UnicodeString[2];
-              v70 = PipCreateComputerId(v50, v52, &v119, 3LL, &v125[4 * v51++]);
+              v70 = PipCreateComputerId(v50, v52, &v119, 3LL, &v125[v51++]);
               v7 = v70;
               if ( v70 < 0 )
                 goto LABEL_150;
@@ -681,7 +681,7 @@ LABEL_149:
                     --v71;
                   }
                   while ( v71 );
-                  v74 = PipCreateComputerId(v50, v52, &v119, 4LL, &v125[4 * v51++]);
+                  v74 = PipCreateComputerId(v50, v52, &v119, 4LL, &v125[v51++]);
                   v7 = v74;
                   if ( v74 < 0 )
                     goto LABEL_150;
@@ -689,7 +689,7 @@ LABEL_149:
               }
               v119 = UnicodeString;
               v120 = &UnicodeString[3];
-              v75 = PipCreateComputerId(v50, v52, &v119, 2LL, &v125[4 * v51++]);
+              v75 = PipCreateComputerId(v50, v52, &v119, 2LL, &v125[v51++]);
               v7 = v75;
               if ( v75 < 0 )
                 goto LABEL_150;
@@ -707,7 +707,7 @@ LABEL_149:
                   v120 = &UnicodeString[2];
                   v121 = &UnicodeString[6];
                   v122 = &UnicodeString[7];
-                  v76 = PipCreateComputerId(v50, v52, &v119, 4LL, &v125[4 * v51++]);
+                  v76 = PipCreateComputerId(v50, v52, &v119, 4LL, &v125[v51++]);
                   v7 = v76;
                   if ( v76 < 0 )
                     goto LABEL_150;
@@ -715,7 +715,7 @@ LABEL_149:
               }
               v119 = UnicodeString;
               v120 = &UnicodeString[2];
-              v77 = PipCreateComputerId(v50, v52, &v119, 2LL, &v125[4 * v51++]);
+              v77 = PipCreateComputerId(v50, v52, &v119, 2LL, &v125[v51++]);
               v7 = v77;
               if ( v77 < 0 )
                 goto LABEL_150;
@@ -740,7 +740,7 @@ LABEL_149:
                     --v78;
                   }
                   while ( v78 );
-                  v81 = PipCreateComputerId(v50, v52, &v119, 4LL, &v125[4 * v51++]);
+                  v81 = PipCreateComputerId(v50, v52, &v119, 4LL, &v125[v51++]);
                   v7 = v81;
                   if ( v81 < 0 )
                     goto LABEL_150;
@@ -748,7 +748,7 @@ LABEL_149:
               }
               v119 = UnicodeString;
               v120 = &UnicodeString[1];
-              v82 = PipCreateComputerId(v50, v52, &v119, 2LL, &v125[4 * v51++]);
+              v82 = PipCreateComputerId(v50, v52, &v119, 2LL, &v125[v51++]);
               v7 = v82;
               if ( v82 < 0 )
                 goto LABEL_150;
@@ -764,7 +764,7 @@ LABEL_149:
               RtlInitUnicodeString(&v118, &SourceString);
               v119 = UnicodeString;
               v120 = &v118;
-              v83 = PipCreateComputerId(v50, 0LL, &v119, 2LL, &v125[4 * v51++]);
+              v83 = PipCreateComputerId(v50, 0LL, &v119, 2LL, &v125[v51++]);
               v7 = v83;
               if ( v83 < 0 )
                 goto LABEL_150;
@@ -786,13 +786,13 @@ LABEL_149:
               --v84;
             }
             while ( v84 );
-            v87 = PipCreateComputerId(v50, 0LL, &v119, 3LL, &v125[4 * v51++]);
+            v87 = PipCreateComputerId(v50, 0LL, &v119, 3LL, &v125[v51++]);
             v7 = v87;
             if ( v87 >= 0 )
             {
 LABEL_191:
               v119 = UnicodeString;
-              v88 = PipCreateComputerId(v50, 0LL, &v119, 1LL, &v125[4 * v51++]);
+              v88 = PipCreateComputerId(v50, 0LL, &v119, 1LL, &v125[v51++]);
               v7 = v88;
               if ( v88 >= 0 )
                 goto LABEL_126;

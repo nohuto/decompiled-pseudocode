@@ -1,13 +1,13 @@
 /*
- * XREFs of ExpNodeCreateSystemThread @ 0x140A2236C
+ * XREFs of ExpNodeCreateSystemThread @ 0x1408F8B1C
  * Callers:
- *     ExpPartitionCreateSystemThread @ 0x140A21CE4 (ExpPartitionCreateSystemThread.c)
- *     ExpCreateWorkerThread @ 0x140A22278 (ExpCreateWorkerThread.c)
+ *     ExpPartitionCreateSystemThread @ 0x1408F8494 (ExpPartitionCreateSystemThread.c)
+ *     ExpCreateWorkerThread @ 0x1408F8A28 (ExpCreateWorkerThread.c)
  * Callees:
- *     KeQueryNodeActiveAffinity @ 0x1403A8640 (KeQueryNodeActiveAffinity.c)
- *     KeSelectIdealProcessor @ 0x1403B289C (KeSelectIdealProcessor.c)
- *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
- *     PsCreateSystemThreadEx @ 0x140A224A0 (PsCreateSystemThreadEx.c)
+ *     KeQueryNodeActiveAffinity @ 0x14026FD20 (KeQueryNodeActiveAffinity.c)
+ *     KeSelectIdealProcessor @ 0x1403A10AC (KeSelectIdealProcessor.c)
+ *     __security_check_cookie @ 0x1406A6920 (__security_check_cookie.c)
+ *     PsCreateSystemThreadEx @ 0x1408F8C50 (PsCreateSystemThreadEx.c)
  */
 
 __int64 __fastcall ExpNodeCreateSystemThread(
@@ -23,7 +23,7 @@ __int64 __fastcall ExpNodeCreateSystemThread(
 {
   USHORT v9; // cx
   int v12; // [rsp+50h] [rbp-38h] BYREF
-  struct _GROUP_AFFINITY Affinity; // [rsp+58h] [rbp-30h] BYREF
+  _GROUP_AFFINITY Affinity; // [rsp+58h] [rbp-30h] BYREF
 
   v9 = *a1;
   Affinity = 0LL;

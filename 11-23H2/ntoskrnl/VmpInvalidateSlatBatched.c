@@ -1,14 +1,14 @@
 /*
- * XREFs of VmpInvalidateSlatBatched @ 0x1405F9818
+ * XREFs of VmpInvalidateSlatBatched @ 0x1405F9D88
  * Callers:
- *     VmpRemoveMemoryRange @ 0x1405FACF4 (VmpRemoveMemoryRange.c)
- *     VmpUnpinMemoryRange @ 0x1405FB554 (VmpUnpinMemoryRange.c)
+ *     VmpRemoveMemoryRange @ 0x1405FB264 (VmpRemoveMemoryRange.c)
+ *     VmpUnpinMemoryRange @ 0x1405FBAC4 (VmpUnpinMemoryRange.c)
  * Callees:
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402894C0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     VmpProcessContextLockExclusive @ 0x140466D1E (VmpProcessContextLockExclusive.c)
- *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
- *     VmpInvalidateOutstandingFaults @ 0x1405F96A8 (VmpInvalidateOutstandingFaults.c)
- *     VmpProcessInvalidateSlat @ 0x1405FAA64 (VmpProcessInvalidateSlat.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140289750 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14041057C (KiRemoveSystemWorkPriorityKick.c)
+ *     VmpProcessContextLockExclusive @ 0x14046711E (VmpProcessContextLockExclusive.c)
+ *     VmpInvalidateOutstandingFaults @ 0x1405F9C18 (VmpInvalidateOutstandingFaults.c)
+ *     VmpProcessInvalidateSlat @ 0x1405FAFD4 (VmpProcessInvalidateSlat.c)
  */
 
 __int64 __fastcall VmpInvalidateSlatBatched(
@@ -41,10 +41,13 @@ __int64 __fastcall VmpInvalidateSlatBatched(
       break;
     v12 = *a5;
     ExReleaseSpinLockExclusiveFromDpcLevel(SpinLock);
-    if ( KiIrqlFlags )
+    if ( (_DWORD)KiIrqlFlags )
     {
       CurrentIrql = KeGetCurrentIrql();
-      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && (unsigned __int8)v12 <= 0xFu && CurrentIrql >= 2u )
+      if ( ((unsigned __int8)KiIrqlFlags & 1) != 0
+        && CurrentIrql <= 0xFu
+        && (unsigned __int8)v12 <= 0xFu
+        && CurrentIrql >= 2u )
       {
         CurrentPrcb = KeGetCurrentPrcb();
         SchedulerAssist = CurrentPrcb->SchedulerAssist;

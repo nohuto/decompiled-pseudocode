@@ -3,9 +3,9 @@
  * Callers:
  *     CmGetSystemDriverList @ 0x1407AF6CC (CmGetSystemDriverList.c)
  * Callees:
- *     CmpFindValueByName @ 0x140402A28 (CmpFindValueByName.c)
- *     CmpFindSubKeyByName @ 0x14055FE64 (CmpFindSubKeyByName.c)
- *     CmpValueToData @ 0x1405601A0 (CmpValueToData.c)
+ *     CmpFindValueByName @ 0x1404018E8 (CmpFindValueByName.c)
+ *     CmpFindSubKeyByName @ 0x1405603A4 (CmpFindSubKeyByName.c)
+ *     CmpValueToData @ 0x1405606E0 (CmpValueToData.c)
  *     CmpDoSort @ 0x1407AFB38 (CmpDoSort.c)
  */
 

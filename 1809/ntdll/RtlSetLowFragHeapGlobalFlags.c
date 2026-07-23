@@ -9,41 +9,34 @@
 
 char __fastcall RtlSetLowFragHeapGlobalFlags(unsigned int a1, int a2)
 {
-  unsigned __int64 v4; // rdx
-  __int64 v5; // rcx
-  __int64 v6; // r9
-  unsigned __int64 v7; // r8
+  int v4; // r8d
   char result; // al
 
   RtlpHpApplySegmentHeapConfigurations();
-  v7 = (unsigned int)RtlpLowFragHeapGlobalFlags;
+  v4 = RtlpLowFragHeapGlobalFlags;
   if ( (a1 & 8) != 0 )
   {
-    v7 = RtlpLowFragHeapGlobalFlags | 0x10u;
+    v4 = RtlpLowFragHeapGlobalFlags | 0x10;
     RtlpLowFragHeapGlobalFlags |= 0x10u;
   }
   if ( (a1 & 4) != 0 )
   {
-    v7 = (unsigned int)v7 | 8;
-    RtlpLowFragHeapGlobalFlags = v7;
+    v4 |= 8u;
+    RtlpLowFragHeapGlobalFlags = v4;
   }
   if ( (a2 & 0x100000) != 0 || (a1 & 2) != 0 )
   {
-    v7 = (unsigned int)v7 | 2;
-    RtlpLowFragHeapGlobalFlags = v7;
+    v4 |= 2u;
+    RtlpLowFragHeapGlobalFlags = v4;
   }
-  LOBYTE(v5) = (v7 & 2) == 0;
-  if ( ((unsigned __int8)v5 & ((a1 & 1) == 0)) == 0 )
-  {
-    v7 = (unsigned int)v7 | 4;
-    RtlpLowFragHeapGlobalFlags = v7;
-  }
+  if ( (v4 & 2) != 0 || (a1 & 1) != 0 )
+    RtlpLowFragHeapGlobalFlags = v4 | 4;
   if ( (a1 & 0xFF00) != 0 )
     RtlpHpLfhContentionLimit = BYTE1(a1);
   if ( (a1 & 0xFFF0000) != 0 )
     RtlpHpLfhPerfFlags = HIWORD(a1) & 0xFFF;
   if ( (a1 & 0x10) != 0 )
-    RtlpHpStackTraceEnable(v5, v4, (unsigned __int64 *)v7, v6);
+    RtlpHpStackTraceEnable();
   result = RtlpHpHeapFeatures;
   if ( (a1 & 0x20) != 0 )
   {

@@ -1,8 +1,8 @@
 /*
- * XREFs of SymCryptMlDsaVectorInfinityNorm @ 0x1405744CC
+ * XREFs of SymCryptMlDsaVectorInfinityNorm @ 0x140573730
  * Callers:
- *     SymCryptMlDsaSignEx @ 0x14055D89C (SymCryptMlDsaSignEx.c)
- *     SymCryptMlDsaVerifyEx @ 0x14055DDF0 (SymCryptMlDsaVerifyEx.c)
+ *     SymCryptMlDsaSignEx @ 0x14055FD94 (SymCryptMlDsaSignEx.c)
+ *     SymCryptMlDsaVerifyEx @ 0x140560308 (SymCryptMlDsaVerifyEx.c)
  * Callees:
  *     <none>
  */

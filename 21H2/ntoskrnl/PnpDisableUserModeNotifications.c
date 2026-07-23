@@ -1,10 +1,10 @@
 /*
- * XREFs of PnpDisableUserModeNotifications @ 0x14050DB5C
+ * XREFs of PnpDisableUserModeNotifications @ 0x14050DD9C
  * Callers:
- *     IoRevokeHandlesForProcess @ 0x1405071D0 (IoRevokeHandlesForProcess.c)
+ *     IoRevokeHandlesForProcess @ 0x140507150 (IoRevokeHandlesForProcess.c)
  * Callees:
- *     KeReleaseGuardedMutex @ 0x140265CD0 (KeReleaseGuardedMutex.c)
- *     ExAcquireFastMutex @ 0x14034A080 (ExAcquireFastMutex.c)
+ *     KeReleaseGuardedMutex @ 0x140253C70 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x140354DD0 (ExAcquireFastMutex.c)
  */
 
 void __fastcall PnpDisableUserModeNotifications(struct _LIST_ENTRY *a1, __int64 a2)

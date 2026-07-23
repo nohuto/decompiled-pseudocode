@@ -1,15 +1,15 @@
 /*
- * XREFs of VmpAccessFaultBatchResolve @ 0x14081C788
+ * XREFs of VmpAccessFaultBatchResolve @ 0x140822998
  * Callers:
- *     VmpAccessFaultBatch @ 0x1406C09D0 (VmpAccessFaultBatch.c)
+ *     VmpAccessFaultBatch @ 0x1406C45B0 (VmpAccessFaultBatch.c)
  * Callees:
- *     _tlgKeywordOn @ 0x14044F850 (_tlgKeywordOn.c)
- *     MmGetNodeFastLargePageCounts @ 0x1404FCD14 (MmGetNodeFastLargePageCounts.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     VmpFillValidFaultInfo @ 0x140AADE8C (VmpFillValidFaultInfo.c)
- *     MmVirtualAccessFault @ 0x140AD6824 (MmVirtualAccessFault.c)
- *     MmBuildLargePages @ 0x140B20AD8 (MmBuildLargePages.c)
- *     VmpLogFaultResolveFailure @ 0x140B5A1B0 (VmpLogFaultResolveFailure.c)
+ *     _tlgKeywordOn @ 0x140447980 (_tlgKeywordOn.c)
+ *     MmGetNodeFastLargePageCounts @ 0x1404F6254 (MmGetNodeFastLargePageCounts.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     VmpFillValidFaultInfo @ 0x140AABF4C (VmpFillValidFaultInfo.c)
+ *     MmVirtualAccessFault @ 0x140AD3530 (MmVirtualAccessFault.c)
+ *     MmBuildLargePages @ 0x140B22ED8 (MmBuildLargePages.c)
+ *     VmpLogFaultResolveFailure @ 0x140B5D4CC (VmpLogFaultResolveFailure.c)
  */
 
 __int64 __fastcall VmpAccessFaultBatchResolve(
@@ -160,9 +160,9 @@ LABEL_29:
       }
       else
       {
-        if ( stru_140F066E8.QuantumTarget
-          && *(_DWORD *)stru_140F066E8.QuantumTarget
-          && tlgKeywordOn(stru_140F066E8.QuantumTarget, 64LL) )
+        if ( stru_140F06A28.InitialStack
+          && *(_DWORD *)stru_140F06A28.InitialStack
+          && tlgKeywordOn((__int64)stru_140F06A28.InitialStack, 64LL) )
         {
           VmpLogFaultResolveFailure(v25, (unsigned int)&v35, a5, v12, *(_QWORD *)(v37 + 120), v23);
         }

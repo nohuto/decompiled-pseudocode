@@ -39,7 +39,7 @@ __int64 *__fastcall MiGetPerfectColorHeadHugeRange(__int64 a1, __int64 a2)
     v3 = (*(_QWORD *)v7 >> 15) ^ ((*(_QWORD *)v7 >> 15) ^ v3) & 0xFFFFFFFFFFC00000uLL;
     if ( !v8 )
       break;
-    if ( _bittest64((const signed __int64 *)qword_140E2FD78, v8) )
+    if ( _bittest64((const signed __int64 *)stru_140E2FD70.Buffer, v8) )
     {
       v9 = (__int64 *)(qword_140E2FD80 + 8 * v8);
       if ( (v5 & 1) != 0 )

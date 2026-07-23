@@ -8,7 +8,11 @@
  *     ExAllocatePoolWithTag @ 0x140288E60 (ExAllocatePoolWithTag.c)
  */
 
-__int64 __fastcall VfAvlInitializeTree(_QWORD *TableContext, __int64 a2, int a3, RTL_AVL_FREE_ROUTINE *a4)
+__int64 __fastcall VfAvlInitializeTree(
+        _QWORD *TableContext,
+        __int64 a2,
+        int a3,
+        void (__cdecl *a4)(_RTL_AVL_TABLE *, PVOID))
 {
   int v6; // eax
   PVOID PoolWithTag; // rax

@@ -1,31 +1,31 @@
 /*
- * XREFs of MiWsleFlush @ 0x14032A510
+ * XREFs of MiWsleFlush @ 0x14032C540
  * Callers:
- *     MiFreeWsleList @ 0x140328E50 (MiFreeWsleList.c)
+ *     MiFreeWsleList @ 0x14032AE80 (MiFreeWsleList.c)
  * Callees:
- *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14021AAD4 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
- *     MiFlushSingleTbEntry @ 0x140285050 (MiFlushSingleTbEntry.c)
- *     MiMapPageInHyperSpaceWorker @ 0x140287EE0 (MiMapPageInHyperSpaceWorker.c)
- *     ExpWaitForSpinLockSharedAndAcquire @ 0x14029BC90 (ExpWaitForSpinLockSharedAndAcquire.c)
- *     MiLockNestedPageTable @ 0x14029EBE0 (MiLockNestedPageTable.c)
- *     HvlNotifyLongSpinWait @ 0x1402BBF00 (HvlNotifyLongSpinWait.c)
- *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402BC760 (KiCheckVpBackingLongSpinWaitHypercall.c)
- *     MiUnlockPageTableInternal @ 0x1402D13E0 (MiUnlockPageTableInternal.c)
- *     MiPteForTrimmedProto @ 0x1402D15D4 (MiPteForTrimmedProto.c)
- *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402DED10 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
- *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x1402EE000 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
- *     MiPteHasShadow @ 0x1403011E0 (MiPteHasShadow.c)
- *     MiMakeTransitionPte @ 0x14030DC00 (MiMakeTransitionPte.c)
- *     MiReadPteShadow @ 0x140314FF0 (MiReadPteShadow.c)
- *     MiWritePteShadow @ 0x14031C28C (MiWritePteShadow.c)
- *     MiUnlockNestedPageTableWritePte @ 0x140325648 (MiUnlockNestedPageTableWritePte.c)
- *     MiLockVadTree @ 0x1403265D0 (MiLockVadTree.c)
- *     MiLocateAddress @ 0x140326730 (MiLocateAddress.c)
- *     MiSanitizeShadowPxe @ 0x140342108 (MiSanitizeShadowPxe.c)
- *     MiReservePageFileSpace @ 0x1403670E8 (MiReservePageFileSpace.c)
- *     MI_IS_RESET_PTE @ 0x140367DF0 (MI_IS_RESET_PTE.c)
- *     MiGetWorkingSetSwapSupport @ 0x1403683CC (MiGetWorkingSetSwapSupport.c)
- *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14036A848 (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14021C464 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     MiFlushSingleTbEntry @ 0x1402845B0 (MiFlushSingleTbEntry.c)
+ *     MiMapPageInHyperSpaceWorker @ 0x140287440 (MiMapPageInHyperSpaceWorker.c)
+ *     ExpWaitForSpinLockSharedAndAcquire @ 0x14029B1F0 (ExpWaitForSpinLockSharedAndAcquire.c)
+ *     MiLockNestedPageTable @ 0x14029E130 (MiLockNestedPageTable.c)
+ *     MiUnlockPageTableInternal @ 0x1402B31A0 (MiUnlockPageTableInternal.c)
+ *     MiPteForTrimmedProto @ 0x1402B3394 (MiPteForTrimmedProto.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402C0B20 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x1402D0080 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
+ *     MiPteHasShadow @ 0x1402E3260 (MiPteHasShadow.c)
+ *     MiMakeTransitionPte @ 0x1402EFC80 (MiMakeTransitionPte.c)
+ *     HvlNotifyLongSpinWait @ 0x140306BC0 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x140307420 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     MiReadPteShadow @ 0x140317020 (MiReadPteShadow.c)
+ *     MiWritePteShadow @ 0x14031E2BC (MiWritePteShadow.c)
+ *     MiUnlockNestedPageTableWritePte @ 0x140327678 (MiUnlockNestedPageTableWritePte.c)
+ *     MiLockVadTree @ 0x140328600 (MiLockVadTree.c)
+ *     MiLocateAddress @ 0x140328760 (MiLocateAddress.c)
+ *     MiSanitizeShadowPxe @ 0x140344188 (MiSanitizeShadowPxe.c)
+ *     MiReservePageFileSpace @ 0x140368E88 (MiReservePageFileSpace.c)
+ *     MI_IS_RESET_PTE @ 0x140369B90 (MI_IS_RESET_PTE.c)
+ *     MiGetWorkingSetSwapSupport @ 0x14036A16C (MiGetWorkingSetSwapSupport.c)
+ *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14036C5E8 (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
  */
 
 __int64 __fastcall MiWsleFlush(__int64 a1, unsigned __int64 a2, __int64 a3, __int64 a4)
@@ -185,7 +185,7 @@ __int64 __fastcall MiWsleFlush(__int64 a1, unsigned __int64 a2, __int64 a3, __in
     Process = (__int64)KeGetCurrentThread()->ApcState.Process;
     v22 = (volatile signed __int32 *)(*(_QWORD *)(Process + 1040) + 1132LL);
     if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0
-      || (Process = LODWORD(stru_140F11D08.WaitStatus), LODWORD(stru_140F11D08.WaitStatus)) )
+      || (Process = (unsigned int)PopHibernateInProgress, PopHibernateInProgress) )
     {
       _InterlockedAnd(v22, 0xBFFFFFFF);
       _InterlockedDecrement(v22);
@@ -196,7 +196,7 @@ __int64 __fastcall MiWsleFlush(__int64 a1, unsigned __int64 a2, __int64 a3, __in
     }
     if ( Address && ((__int64)Address[3].Flink & 0x180000) == 0x180000 )
     {
-      if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+      if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
       {
         _m_prefetchw(&Address[4]);
         v24 = (__int64)Address[4].Flink & 0x7FFFFFFF;
@@ -224,7 +224,7 @@ LABEL_50:
         if ( (*(_BYTE *)(i + 8) & 4) != 0 )
           break;
       }
-      if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+      if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
       {
         _InterlockedAnd((volatile signed __int32 *)&Address[4], 0xBFFFFFFF);
         _InterlockedDecrement((volatile signed __int32 *)&Address[4]);
@@ -245,7 +245,7 @@ LABEL_50:
       v29 = ((v70 >> 12) - (LODWORD(Address[1].Blink) | ((unsigned __int64)LOBYTE(Address[2].Flink) << 32))) / v27;
       ExAcquireSpinLockExclusiveAtDpcLevel((PEX_SPIN_LOCK)(i + 40));
       *(_BYTE *)((v29 >> 3) + *(_QWORD *)(i + 32)) |= 1 << (v29 & 7);
-      if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+      if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
         *(_DWORD *)(i + 40) = 0;
       else
         ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented((_DWORD *)(i + 40), retaddr);
@@ -289,8 +289,8 @@ LABEL_148:
         {
           v59 = *(_QWORD *)(v13 + 16);
           if ( (v59 & 1) == 0
-            && (!v59 || !qword_140E2D740 || (v59 & qword_140E2D740) != 0)
-            && *(_DWORD *)(*(_QWORD *)(stru_140E2EB88.ThreadLock + 8 * ((*(_QWORD *)(v13 + 40) >> 43) & 0x3FFLL))
+            && (!v59 || !qword_140E2D8C0 || (v59 & qword_140E2D8C0) != 0)
+            && *(_DWORD *)(*(_QWORD *)(stru_140E2ED08.ThreadLock + 8 * ((*(_QWORD *)(v13 + 40) >> 43) & 0x3FFLL))
                          + 1180LL)
             && (v59 & 4) == 0
             && !MiGetWorkingSetSwapSupport(v5, v59) )
@@ -329,7 +329,7 @@ LABEL_166:
       _InterlockedAnd64((volatile signed __int64 *)(v16 + 24), 0x7FFFFFFFFFFFFFFFuLL);
     return 0LL;
   }
-  if ( ((*(_QWORD *)(v13 + 40) >> 60) & 7) != 4 || (_UNKNOWN *)v5 != &unk_140E37080 )
+  if ( ((*(_QWORD *)(v13 + 40) >> 60) & 7) != 4 || (_UNKNOWN *)v5 != &unk_140E37200 )
   {
     v31 = MiMakeTransitionPte(v12, (*(_DWORD *)(v13 + 16) >> 5) & 0x1F);
 LABEL_115:

@@ -1,9 +1,9 @@
 /*
- * XREFs of ViCtxEqualExtendedState @ 0x1409E4440
+ * XREFs of ViCtxEqualExtendedState @ 0x1409E5440
  * Callers:
- *     ViCtxCheckAndReleaseIsrState @ 0x1409E4344 (ViCtxCheckAndReleaseIsrState.c)
+ *     ViCtxCheckAndReleaseIsrState @ 0x1409E5344 (ViCtxCheckAndReleaseIsrState.c)
  * Callees:
- *     memcmp @ 0x1403D29E0 (memcmp.c)
+ *     memcmp @ 0x1403D2B50 (memcmp.c)
  */
 
 char __fastcall ViCtxEqualExtendedState(__int64 a1, __int64 a2, char a3)

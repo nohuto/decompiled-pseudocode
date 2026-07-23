@@ -1,8 +1,8 @@
 /*
- * XREFs of MiZeroThreadContending @ 0x14047160C
+ * XREFs of MiZeroThreadContending @ 0x14046C1DC
  * Callers:
- *     MiFindReductionContendingThread @ 0x140471410 (MiFindReductionContendingThread.c)
- *     MiMoveZeroThreadsToOtherCores @ 0x140471550 (MiMoveZeroThreadsToOtherCores.c)
+ *     MiFindReductionContendingThread @ 0x14046BFE0 (MiFindReductionContendingThread.c)
+ *     MiMoveZeroThreadsToOtherCores @ 0x14046C120 (MiMoveZeroThreadsToOtherCores.c)
  * Callees:
  *     <none>
  */
@@ -28,7 +28,7 @@ __int64 __fastcall MiZeroThreadContending(__int64 a1)
       v3 = *(_DWORD **)(a1 + 336);
       v4 = 0;
       _BitScanForward64(&v5, v11);
-      v6 = *((unsigned int *)qword_140F21E78 + 64 * WORD4(v11) + (int)v5);
+      v6 = *((unsigned int *)qword_140F22998 + 64 * WORD4(v11) + (int)v5);
       v7 = *(_QWORD *)(KiProcessorBlock[v6] + 200) | v11 & *(_QWORD *)(KiProcessorBlock[v6] + 36448);
       while ( v7 )
       {

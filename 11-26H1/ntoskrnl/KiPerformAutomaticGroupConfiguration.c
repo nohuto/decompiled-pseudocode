@@ -1,16 +1,16 @@
 /*
- * XREFs of KiPerformAutomaticGroupConfiguration @ 0x140CCA5A8
+ * XREFs of KiPerformAutomaticGroupConfiguration @ 0x140CD0688
  * Callers:
- *     KiPerformGroupConfiguration @ 0x140CCA97C (KiPerformGroupConfiguration.c)
+ *     KiPerformGroupConfiguration @ 0x140CD0A5C (KiPerformGroupConfiguration.c)
  * Callees:
- *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
- *     qsort @ 0x140536F00 (qsort.c)
- *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
- *     KiAssignAdjustableSubNodes @ 0x140CCC784 (KiAssignAdjustableSubNodes.c)
- *     KiAssignFixedSubNodes @ 0x140CCC81C (KiAssignFixedSubNodes.c)
- *     KiShuffleAssignedSubNodes @ 0x140CCC9FC (KiShuffleAssignedSubNodes.c)
+ *     KeBugCheckEx @ 0x140535E30 (KeBugCheckEx.c)
+ *     qsort @ 0x140539380 (qsort.c)
+ *     __security_check_cookie @ 0x1407274E0 (__security_check_cookie.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
+ *     KiAssignAdjustableSubNodes @ 0x140CD28E4 (KiAssignAdjustableSubNodes.c)
+ *     KiAssignFixedSubNodes @ 0x140CD297C (KiAssignFixedSubNodes.c)
+ *     KiShuffleAssignedSubNodes @ 0x140CD2B5C (KiShuffleAssignedSubNodes.c)
  */
 
 void KiPerformAutomaticGroupConfiguration()

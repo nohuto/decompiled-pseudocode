@@ -1,17 +1,17 @@
 /*
- * XREFs of PspLocateSystemDll @ 0x140798B78
+ * XREFs of PspLocateSystemDll @ 0x140798D78
  * Callers:
- *     PsLocateSystemDlls @ 0x140798AF0 (PsLocateSystemDlls.c)
+ *     PsLocateSystemDlls @ 0x140798CF0 (PsLocateSystemDlls.c)
  * Callees:
- *     ZwOpenFile @ 0x1403FAA00 (ZwOpenFile.c)
- *     ZwSystemDebugControl @ 0x1403FDB80 (ZwSystemDebugControl.c)
- *     KeBugCheckEx @ 0x1403FDEF0 (KeBugCheckEx.c)
- *     MmCreateSpecialImageSection @ 0x140608784 (MmCreateSpecialImageSection.c)
- *     ObCloseHandle @ 0x14061AB80 (ObCloseHandle.c)
- *     MmGetSectionInformation @ 0x140620F30 (MmGetSectionInformation.c)
- *     ObInitializeFastReference @ 0x1406D65FC (ObInitializeFastReference.c)
- *     ObReferenceObjectByHandle @ 0x1406F0BC0 (ObReferenceObjectByHandle.c)
- *     PspMapSystemDll @ 0x140712408 (PspMapSystemDll.c)
+ *     ZwOpenFile @ 0x1403FABE0 (ZwOpenFile.c)
+ *     ZwSystemDebugControl @ 0x1403FDD60 (ZwSystemDebugControl.c)
+ *     KeBugCheckEx @ 0x1403FE0D0 (KeBugCheckEx.c)
+ *     ObCloseHandle @ 0x1406847E0 (ObCloseHandle.c)
+ *     MmGetSectionInformation @ 0x14068ABA0 (MmGetSectionInformation.c)
+ *     MmCreateSpecialImageSection @ 0x140698234 (MmCreateSpecialImageSection.c)
+ *     ObInitializeFastReference @ 0x1406AD8DC (ObInitializeFastReference.c)
+ *     PspMapSystemDll @ 0x1406C0A58 (PspMapSystemDll.c)
+ *     ObReferenceObjectByHandle @ 0x140707FA0 (ObReferenceObjectByHandle.c)
  */
 
 NTSTATUS __fastcall PspLocateSystemDll(ULONG_PTR *a1, char a2)
@@ -24,7 +24,7 @@ NTSTATUS __fastcall PspLocateSystemDll(ULONG_PTR *a1, char a2)
   PVOID v9; // rdx
   int v10; // eax
   ULONG_PTR v11; // [rsp+30h] [rbp-29h] BYREF
-  UNICODE_STRING v12; // [rsp+38h] [rbp-21h] BYREF
+  UNICODE_STRING InputBuffer; // [rsp+38h] [rbp-21h] BYREF
   struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+48h] [rbp-11h] BYREF
   OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+58h] [rbp-1h] BYREF
   HANDLE FileHandle; // [rsp+C0h] [rbp+67h] BYREF
@@ -37,12 +37,12 @@ NTSTATUS __fastcall PspLocateSystemDll(ULONG_PTR *a1, char a2)
   IoStatusBlock = 0LL;
   *(&ObjectAttributes.Length + 1) = 0;
   *(&ObjectAttributes.Attributes + 1) = 0;
-  v12 = 0LL;
+  InputBuffer = 0LL;
   Handle = 0LL;
   if ( (NtGlobalFlag & 0x40000) != 0 )
   {
-    v12 = *v2;
-    ZwSystemDebugControl(38LL, (__int64)&v12);
+    InputBuffer = *v2;
+    ZwSystemDebugControl(SysDbgKdPullRemoteFile, &InputBuffer, 0x10u, 0LL, 0, 0LL);
   }
   ObjectAttributes.ObjectName = v2;
   ObjectAttributes.Length = 48;

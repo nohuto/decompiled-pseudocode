@@ -1,12 +1,12 @@
 /*
- * XREFs of DbgkpLkmdSnapThreadInContext @ 0x14093B16C
+ * XREFs of DbgkpLkmdSnapThreadInContext @ 0x14093B36C
  * Callers:
- *     DbgkpLkmdSnapThreadApc @ 0x14093B0F0 (DbgkpLkmdSnapThreadApc.c)
+ *     DbgkpLkmdSnapThreadApc @ 0x14093B2F0 (DbgkpLkmdSnapThreadApc.c)
  * Callees:
- *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
- *     RtlCaptureContext @ 0x140428FD0 (RtlCaptureContext.c)
- *     DbgkpLkmdSnapDataEx @ 0x14053BC24 (DbgkpLkmdSnapDataEx.c)
- *     DbgkpLkmdSnapKernelStack @ 0x14053BD3C (DbgkpLkmdSnapKernelStack.c)
+ *     __security_check_cookie @ 0x1403D7EC0 (__security_check_cookie.c)
+ *     RtlCaptureContext @ 0x140429360 (RtlCaptureContext.c)
+ *     DbgkpLkmdSnapDataEx @ 0x14053C174 (DbgkpLkmdSnapDataEx.c)
+ *     DbgkpLkmdSnapKernelStack @ 0x14053C28C (DbgkpLkmdSnapKernelStack.c)
  */
 
 __int64 __fastcall DbgkpLkmdSnapThreadInContext(__int64 *a1, __int64 a2, _DWORD *a3)
@@ -14,7 +14,7 @@ __int64 __fastcall DbgkpLkmdSnapThreadInContext(__int64 *a1, __int64 a2, _DWORD 
   __int64 result; // rax
   char v7; // di
   __int64 v8; // rcx
-  struct _CONTEXT ContextRecord; // [rsp+40h] [rbp-4F8h] BYREF
+  _CONTEXT ContextRecord; // [rsp+40h] [rbp-4F8h] BYREF
 
   result = DbgkpLkmdSnapDataEx((__int64)a1);
   if ( (int)result >= 0 )

@@ -181,7 +181,7 @@ LABEL_31:
   {
     v16 = v10 & 0x1F;
     LOBYTE(v17) = 1;
-    a3 = qword_140388B70 + 4 * (v10 >> 5);
+    a3 = (signed __int64)stru_140388B68.Buffer + 4 * (v10 >> 5);
     if ( v16 + 1 <= 0x20 )
     {
       v18 = 1 << v16;

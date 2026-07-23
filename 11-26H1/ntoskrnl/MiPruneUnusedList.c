@@ -1,24 +1,24 @@
 /*
- * XREFs of MiPruneUnusedList @ 0x14048F610
+ * XREFs of MiPruneUnusedList @ 0x140488FD0
  * Callers:
- *     MiPruneUnusedList @ 0x14048F610 (MiPruneUnusedList.c)
- *     MiDeleteCachedEntries @ 0x1404A3510 (MiDeleteCachedEntries.c)
+ *     MiPruneUnusedList @ 0x140488FD0 (MiPruneUnusedList.c)
+ *     MiDeleteCachedEntries @ 0x14049D020 (MiDeleteCachedEntries.c)
  * Callees:
- *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
- *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
- *     KeShouldYieldProcessor @ 0x1402D49D0 (KeShouldYieldProcessor.c)
- *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
- *     MiUnlinkUnusedControlArea @ 0x14030BD54 (MiUnlinkUnusedControlArea.c)
- *     MiUnlinkUnusedSubsection @ 0x14030C21C (MiUnlinkUnusedSubsection.c)
- *     MiRemoveEntryNotifySentinel @ 0x14030C28C (MiRemoveEntryNotifySentinel.c)
- *     MiRemoveListSentinel @ 0x14030C498 (MiRemoveListSentinel.c)
- *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x140416FD0 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
- *     MiInsertListSentinel @ 0x14044D320 (MiInsertListSentinel.c)
- *     MiUpdateSystemProtoPtesTree @ 0x140458D20 (MiUpdateSystemProtoPtesTree.c)
- *     MiMarkControlAreaDeleted @ 0x14048CEE8 (MiMarkControlAreaDeleted.c)
- *     MiPruneUnusedList @ 0x14048F610 (MiPruneUnusedList.c)
- *     MiDeleteCachedSubsections @ 0x1404A6F5C (MiDeleteCachedSubsections.c)
- *     MiDeleteMoreUnusedSegments @ 0x1404C9B00 (MiDeleteMoreUnusedSegments.c)
+ *     ExReleaseSpinLockExclusive @ 0x14021C410 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024B630 (ExAcquireSpinLockExclusive.c)
+ *     KeShouldYieldProcessor @ 0x1402B6790 (KeShouldYieldProcessor.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402C0AE0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiUnlinkUnusedControlArea @ 0x1402EDDD4 (MiUnlinkUnusedControlArea.c)
+ *     MiUnlinkUnusedSubsection @ 0x1402EE29C (MiUnlinkUnusedSubsection.c)
+ *     MiRemoveEntryNotifySentinel @ 0x1402EE30C (MiRemoveEntryNotifySentinel.c)
+ *     MiRemoveListSentinel @ 0x1402EE518 (MiRemoveListSentinel.c)
+ *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x14040B5E0 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiInsertListSentinel @ 0x140445440 (MiInsertListSentinel.c)
+ *     MiUpdateSystemProtoPtesTree @ 0x140450590 (MiUpdateSystemProtoPtesTree.c)
+ *     MiMarkControlAreaDeleted @ 0x140486A28 (MiMarkControlAreaDeleted.c)
+ *     MiPruneUnusedList @ 0x140488FD0 (MiPruneUnusedList.c)
+ *     MiDeleteCachedSubsections @ 0x1404A05EC (MiDeleteCachedSubsections.c)
+ *     MiDeleteMoreUnusedSegments @ 0x1404C3538 (MiDeleteMoreUnusedSegments.c)
  */
 
 __int64 __fastcall MiPruneUnusedList(__int64 a1, __int64 a2, KIRQL a3)

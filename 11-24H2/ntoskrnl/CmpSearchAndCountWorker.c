@@ -1,9 +1,9 @@
 /*
- * XREFs of CmpSearchAndCountWorker @ 0x1407DB2A0
+ * XREFs of CmpSearchAndCountWorker @ 0x1407DB7F0
  * Callers:
  *     <none>
  * Callees:
- *     CmpDumpKeyBodyList @ 0x1407DAC40 (CmpDumpKeyBodyList.c)
+ *     CmpDumpKeyBodyList @ 0x1407DB190 (CmpDumpKeyBodyList.c)
  */
 
 __int64 __fastcall CmpSearchAndCountWorker(_QWORD *a1, __int64 a2)

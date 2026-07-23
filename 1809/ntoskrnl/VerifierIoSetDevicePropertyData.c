@@ -1,9 +1,9 @@
 /*
- * XREFs of VerifierIoSetDevicePropertyData @ 0x140932090
+ * XREFs of VerifierIoSetDevicePropertyData @ 0x140933090
  * Callers:
  *     <none>
  * Callees:
- *     _guard_dispatch_icall @ 0x1401C5ED0 (_guard_dispatch_icall.c)
+ *     _guard_dispatch_icall @ 0x1401C6030 (_guard_dispatch_icall.c)
  */
 
 __int64 __fastcall VerifierIoSetDevicePropertyData(__int64 a1, __int64 a2, __int64 a3)

@@ -1,14 +1,14 @@
 /*
- * XREFs of ExpNodeHotAddProcessor @ 0x1406D0BA0
+ * XREFs of ExpNodeHotAddProcessor @ 0x1406D4BD0
  * Callers:
- *     ExInitializeProcessor @ 0x1406CB480 (ExInitializeProcessor.c)
+ *     ExInitializeProcessor @ 0x1406CF4B0 (ExInitializeProcessor.c)
  * Callees:
- *     ExQueueWorkItem @ 0x140381C70 (ExQueueWorkItem.c)
- *     KeQueryNodeActiveAffinityEx @ 0x140476C00 (KeQueryNodeActiveAffinityEx.c)
- *     ExpNodeUpdateProcessorSubQueueIndex @ 0x1406D0C64 (ExpNodeUpdateProcessorSubQueueIndex.c)
- *     memset_0 @ 0x14073D880 (memset_0.c)
- *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
- *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ *     ExQueueWorkItem @ 0x140383A20 (ExQueueWorkItem.c)
+ *     KeQueryNodeActiveAffinityEx @ 0x140470380 (KeQueryNodeActiveAffinityEx.c)
+ *     ExpNodeUpdateProcessorSubQueueIndex @ 0x1406D4C94 (ExpNodeUpdateProcessorSubQueueIndex.c)
+ *     memset_0 @ 0x140742480 (memset_0.c)
+ *     ExAllocatePool2 @ 0x140C16430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C16E50 (ExFreePoolWithTag.c)
  */
 
 void __fastcall ExpNodeHotAddProcessor(signed __int64 a1)

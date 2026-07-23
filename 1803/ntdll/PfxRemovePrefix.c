@@ -6,52 +6,50 @@
  *     RtlDelete @ 0x180066C00 (RtlDelete.c)
  */
 
-__int64 __fastcall PfxRemovePrefix(__int64 a1, __int16 *a2)
+void __cdecl PfxRemovePrefix(PPREFIX_TABLE PrefixTable, PPREFIX_TABLE_ENTRY PrefixTableEntry)
 {
-  __int64 result; // rax
-  _QWORD *v3; // rcx
-  _QWORD *v4; // rdx
-  _QWORD *i; // rbx
-  _WORD *v6; // rdi
-  __int64 v7; // rdx
-  __int64 k; // rcx
-  __int64 v9; // rdx
-  __int64 v10; // rax
-  __int64 j; // rcx
+  RTL_SPLAY_LINKS *p_Links; // rcx
+  _RTL_SPLAY_LINKS *Parent; // rdx
+  RTL_SPLAY_LINKS *i; // rbx
+  _RTL_SPLAY_LINKS *v5; // rdi
+  PRTL_SPLAY_LINKS v6; // rax
+  _RTL_SPLAY_LINKS *v7; // rdx
+  _RTL_SPLAY_LINKS *v8; // rax
+  _RTL_SPLAY_LINKS *k; // rcx
+  _RTL_SPLAY_LINKS **p_LeftChild; // rdx
+  _RTL_SPLAY_LINKS *RightChild; // rax
+  _RTL_SPLAY_LINKS *j; // rcx
 
-  result = (unsigned int)(*a2 - 513);
-  if ( (unsigned int)result <= 1 )
+  if ( (unsigned int)(PrefixTableEntry->NodeTypeCode - 513) <= 1 )
   {
-    v3 = a2 + 8;
-    v4 = (_QWORD *)*((_QWORD *)a2 + 2);
-    for ( i = v3; v4 != i; v4 = (_QWORD *)*v4 )
-      i = v4;
-    v6 = i - 2;
-    result = (__int64)RtlDelete(v3);
-    if ( result )
+    p_Links = &PrefixTableEntry->Links;
+    Parent = PrefixTableEntry->Links.Parent;
+    for ( i = p_Links; Parent != i; Parent = Parent->Parent )
+      i = Parent;
+    v5 = (RTL_SPLAY_LINKS *)((char *)i - 16);
+    v6 = RtlDelete(p_Links);
+    if ( v6 )
     {
-      if ( i != (_QWORD *)result )
+      if ( i != v6 )
       {
-        v9 = result - 16;
-        v10 = *(i - 1);
-        for ( j = *(_QWORD *)(v10 + 8); (_WORD *)j != v6; j = *(_QWORD *)(j + 8) )
-          v10 = j;
-        *(_WORD *)v9 = 513;
-        *(_QWORD *)(v10 + 8) = v9;
-        *(_QWORD *)(v9 + 8) = *(i - 1);
-        result = 514LL;
-        *(i - 1) = 0LL;
-        *v6 = 514;
+        p_LeftChild = &v6[-1].LeftChild;
+        RightChild = i[-1].RightChild;
+        for ( j = RightChild->LeftChild; j != v5; j = j->LeftChild )
+          RightChild = j;
+        *(_WORD *)p_LeftChild = 513;
+        RightChild->LeftChild = (_RTL_SPLAY_LINKS *)p_LeftChild;
+        p_LeftChild[1] = i[-1].RightChild;
+        i[-1].RightChild = 0LL;
+        LOWORD(v5->Parent) = 514;
       }
     }
     else
     {
-      v7 = *(i - 1);
-      result = v7;
-      for ( k = *(_QWORD *)(v7 + 8); (_WORD *)k != v6; k = *(_QWORD *)(k + 8) )
-        result = k;
-      *(_QWORD *)(result + 8) = v7;
+      v7 = i[-1].RightChild;
+      v8 = v7;
+      for ( k = v7->LeftChild; k != v5; k = k->LeftChild )
+        v8 = k;
+      v8->LeftChild = v7;
     }
   }
-  return result;
 }
